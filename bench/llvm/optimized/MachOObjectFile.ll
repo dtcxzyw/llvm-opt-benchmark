@@ -34726,7 +34726,6 @@ _ZN4llvm5ErrorD2Ev.exit1222:                      ; preds = %957, %951
   %975 = load i64, ptr %196, align 8, !tbaa !5266
   %976 = add i64 %975, %949
   %977 = call noundef ptr @_ZNK4llvm6object15MachOObjectFile27BindEntryCheckSegAndOffsetsEimhmm(ptr noundef nonnull align 8 dereferenceable(360) %973, i32 noundef %974, i64 noundef %976, i8 noundef zeroext %947, i64 noundef 1, i64 noundef 0)
-  store ptr %977, ptr %58, align 8, !tbaa !189
   %.not91 = icmp eq ptr %977, null
   br i1 %.not91, label %999, label %978
 

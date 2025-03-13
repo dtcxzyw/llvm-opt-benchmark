@@ -1885,7 +1885,6 @@ define dso_local void @ndisc_send_redirect(ptr noundef %0, ptr noundef %1) local
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5) #14
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(88) %5, i8 0, i64 88, i1 false), !annotation !14
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #14
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %6, i8 0, i64 32, i1 false), !annotation !14
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7) #14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #14
   store ptr null, ptr %8, align 8
@@ -1942,6 +1941,7 @@ define dso_local void @ndisc_send_redirect(ptr noundef %0, ptr noundef %1) local
 50:                                               ; preds = %._crit_edge, %29
   %.pre-phi = phi i64 [ %.pre8, %._crit_edge ], [ %34, %29 ]
   %51 = phi ptr [ %.pre, %._crit_edge ], [ %31, %29 ]
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %6, i8 0, i64 32, i1 false), !annotation !14
   %52 = getelementptr i8, ptr %51, i64 %.pre-phi
   %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %54 = getelementptr inbounds nuw i8, ptr %26, i64 216

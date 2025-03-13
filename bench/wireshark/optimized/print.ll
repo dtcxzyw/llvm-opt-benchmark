@@ -5492,23 +5492,23 @@ declare ptr @g_hash_table_new_full(ptr noundef, ptr noundef, ptr noundef, ptr no
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @ek_fill_attr(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
-  %.02632 = load ptr, ptr %0, align 8
-  %.not33 = icmp eq ptr %.02632, null
-  br i1 %.not33, label %._crit_edge, label %.lr.ph
+  %.02633 = load ptr, ptr %0, align 8
+  %.not34 = icmp eq ptr %.02633, null
+  br i1 %.not34, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 8
   br label %6
 
-6:                                                ; preds = %.lr.ph, %41
-  %.02634 = phi ptr [ %.02632, %.lr.ph ], [ %.026, %41 ]
-  %7 = getelementptr inbounds nuw i8, ptr %.02634, i64 40
+6:                                                ; preds = %.lr.ph, %37
+  %.02635 = phi ptr [ %.02633, %.lr.ph ], [ %.026, %37 ]
+  %7 = getelementptr inbounds nuw i8, ptr %.02635, i64 40
   %8 = load ptr, ptr %7, align 8
   %9 = load ptr, ptr %8, align 8
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %11 = load ptr, ptr %10, align 8
   %12 = call ptr @g_hash_table_lookup(ptr noundef %1, ptr noundef %11)
-  %13 = call ptr @g_slist_append(ptr noundef %12, ptr noundef nonnull %.02634)
+  %13 = call ptr @g_slist_append(ptr noundef %12, ptr noundef nonnull %.02635)
   %14 = load ptr, ptr %8, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %16 = load ptr, ptr %15, align 8
@@ -5518,17 +5518,17 @@ define internal fastcc void @ek_fill_attr(ptr noundef readonly captures(none) %0
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %21 = load i32, ptr %20, align 8
   %.not27 = icmp eq i32 %21, 1
-  br i1 %.not27, label %41, label %22
+  br i1 %.not27, label %37, label %22
 
 22:                                               ; preds = %6
-  %23 = load ptr, ptr %.02634, align 8
+  %23 = load ptr, ptr %.02635, align 8
   %.not28 = icmp eq ptr %23, null
-  br i1 %.not28, label %41, label %24
+  br i1 %.not28, label %37, label %24
 
 24:                                               ; preds = %22
   %25 = load ptr, ptr %5, align 8
   %.not29 = icmp eq ptr %25, null
-  br i1 %.not29, label %40, label %26
+  br i1 %.not29, label %36, label %26
 
 26:                                               ; preds = %24
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #21
@@ -5536,46 +5536,40 @@ define internal fastcc void @ek_fill_attr(ptr noundef readonly captures(none) %0
   %27 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %28 = load ptr, ptr %27, align 8
   %29 = call fastcc zeroext i1 @ek_check_protocolfilter(ptr noundef nonnull %25, ptr noundef %28, ptr noundef nonnull %4)
-  br i1 %29, label %30, label %39
+  br i1 %29, label %30, label %35
 
 30:                                               ; preds = %26
   %31 = load i32, ptr %4, align 4
   %32 = and i32 %31, 1
   %.not30 = icmp eq i32 %32, 0
-  br i1 %.not30, label %35, label %33
+  br i1 %.not30, label %.thread, label %33
+
+.thread:                                          ; preds = %30
+  call fastcc void @ek_fill_attr(ptr noundef nonnull %.02635, ptr noundef %1, ptr noundef %2)
+  br label %35
 
 33:                                               ; preds = %30
   %34 = load ptr, ptr %5, align 8
   store ptr null, ptr %5, align 8
+  call fastcc void @ek_fill_attr(ptr noundef nonnull %.02635, ptr noundef %1, ptr noundef %2)
+  store ptr %34, ptr %5, align 8
   br label %35
 
-35:                                               ; preds = %33, %30
-  %.0 = phi ptr [ %34, %33 ], [ null, %30 ]
-  call fastcc void @ek_fill_attr(ptr noundef nonnull %.02634, ptr noundef %1, ptr noundef %2)
-  %36 = load i32, ptr %4, align 4
-  %37 = and i32 %36, 1
-  %.not31 = icmp eq i32 %37, 0
-  br i1 %.not31, label %39, label %38
-
-38:                                               ; preds = %35
-  store ptr %.0, ptr %5, align 8
-  br label %39
-
-39:                                               ; preds = %35, %38, %26
+35:                                               ; preds = %.thread, %33, %26
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #21
-  br label %41
+  br label %37
 
-40:                                               ; preds = %24
-  call fastcc void @ek_fill_attr(ptr noundef nonnull %.02634, ptr noundef %1, ptr noundef %2)
-  br label %41
+36:                                               ; preds = %24
+  call fastcc void @ek_fill_attr(ptr noundef nonnull %.02635, ptr noundef %1, ptr noundef %2)
+  br label %37
 
-41:                                               ; preds = %6, %22, %39, %40
-  %42 = getelementptr inbounds nuw i8, ptr %.02634, i64 16
-  %.026 = load ptr, ptr %42, align 8
+37:                                               ; preds = %6, %22, %35, %36
+  %38 = getelementptr inbounds nuw i8, ptr %.02635, i64 16
+  %.026 = load ptr, ptr %38, align 8
   %.not = icmp eq ptr %.026, null
   br i1 %.not, label %._crit_edge, label %6, !llvm.loop !49
 
-._crit_edge:                                      ; preds = %41, %3
+._crit_edge:                                      ; preds = %37, %3
   ret void
 }
 

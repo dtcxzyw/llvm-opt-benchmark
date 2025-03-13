@@ -660,7 +660,7 @@ define ptr @EVP_Q_mac(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr nounde
 
 17:                                               ; preds = %16, %12
   %18 = icmp eq ptr %15, null
-  br i1 %18, label %75, label %19
+  br i1 %18, label %74, label %19
 
 19:                                               ; preds = %17
   %.not = icmp eq ptr %3, null
@@ -765,7 +765,7 @@ EVP_MAC_init.exit:                                ; preds = %EVP_MAC_CTX_set_par
 
 57:                                               ; preds = %55
   %58 = icmp eq ptr %9, null
-  br i1 %58, label %59, label %66
+  br i1 %58, label %59, label %65
 
 59:                                               ; preds = %57
   %60 = load i64, ptr %14, align 8, !tbaa !22
@@ -774,44 +774,43 @@ EVP_MAC_init.exit:                                ; preds = %EVP_MAC_CTX_set_par
   br i1 %.not67, label %.thread82, label %62
 
 62:                                               ; preds = %59
-  %63 = load i64, ptr %14, align 8, !tbaa !22
-  %64 = call fastcc i32 @evp_mac_final(ptr noundef nonnull %31, i32 noundef 0, ptr noundef nonnull %61, ptr noundef null, i64 noundef %63)
-  %.not68 = icmp eq i32 %64, 0
-  br i1 %.not68, label %65, label %66
+  %63 = call fastcc i32 @evp_mac_final(ptr noundef nonnull %31, i32 noundef 0, ptr noundef nonnull %61, ptr noundef null, i64 noundef %60)
+  %.not68 = icmp eq i32 %63, 0
+  br i1 %.not68, label %64, label %65
 
-65:                                               ; preds = %62
+64:                                               ; preds = %62
   call void @CRYPTO_free(ptr noundef nonnull %61, ptr noundef nonnull @.str, i32 noundef 302) #6
   br label %.thread82
 
-66:                                               ; preds = %62, %57
+65:                                               ; preds = %62, %57
   %.052 = phi ptr [ %61, %62 ], [ %9, %57 ]
-  br i1 %.not92, label %.thread82, label %67
+  br i1 %.not92, label %.thread82, label %66
 
-67:                                               ; preds = %66
-  %68 = load i64, ptr %14, align 8, !tbaa !22
-  store i64 %68, ptr %11, align 8, !tbaa !22
+66:                                               ; preds = %65
+  %67 = load i64, ptr %14, align 8, !tbaa !22
+  store i64 %67, ptr %11, align 8, !tbaa !22
   br label %.thread82
 
-.thread82:                                        ; preds = %59, %65, %67, %66, %55, %49, %EVP_MAC_init.exit, %EVP_MAC_CTX_set_params.exit72, %EVP_MAC_CTX_set_params.exit, %EVP_MAC_init.exit.thread
-  %.049.ph = phi ptr [ null, %EVP_MAC_init.exit.thread ], [ null, %EVP_MAC_CTX_set_params.exit ], [ null, %EVP_MAC_CTX_set_params.exit72 ], [ null, %EVP_MAC_init.exit ], [ null, %49 ], [ null, %55 ], [ %.052, %66 ], [ %.052, %67 ], [ null, %65 ], [ null, %59 ]
-  %69 = load ptr, ptr %31, align 8, !tbaa !3
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 56
-  %71 = load ptr, ptr %70, align 8, !tbaa !17
-  %72 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  %73 = load ptr, ptr %72, align 8, !tbaa !16
-  call void %71(ptr noundef %73) #6
-  store ptr null, ptr %72, align 8, !tbaa !16
-  %74 = load ptr, ptr %31, align 8, !tbaa !3
-  call void @EVP_MAC_free(ptr noundef %74) #6
+.thread82:                                        ; preds = %59, %64, %66, %65, %55, %49, %EVP_MAC_init.exit, %EVP_MAC_CTX_set_params.exit72, %EVP_MAC_CTX_set_params.exit, %EVP_MAC_init.exit.thread
+  %.049.ph = phi ptr [ null, %EVP_MAC_init.exit.thread ], [ null, %EVP_MAC_CTX_set_params.exit ], [ null, %EVP_MAC_CTX_set_params.exit72 ], [ null, %EVP_MAC_init.exit ], [ null, %49 ], [ null, %55 ], [ %.052, %65 ], [ %.052, %66 ], [ null, %64 ], [ null, %59 ]
+  %68 = load ptr, ptr %31, align 8, !tbaa !3
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 56
+  %70 = load ptr, ptr %69, align 8, !tbaa !17
+  %71 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %72 = load ptr, ptr %71, align 8, !tbaa !16
+  call void %70(ptr noundef %72) #6
+  store ptr null, ptr %71, align 8, !tbaa !16
+  %73 = load ptr, ptr %31, align 8, !tbaa !3
+  call void @EVP_MAC_free(ptr noundef %73) #6
   call void @CRYPTO_free(ptr noundef nonnull %31, ptr noundef nonnull @.str, i32 noundef 47) #6
   br label %EVP_MAC_CTX_free.exit
 
 EVP_MAC_CTX_free.exit:                            ; preds = %28, %27, %.thread82
   %.04991 = phi ptr [ %.049.ph, %.thread82 ], [ null, %27 ], [ null, %28 ]
   call void @EVP_MAC_free(ptr noundef nonnull %15) #6
-  br label %75
+  br label %74
 
-75:                                               ; preds = %17, %EVP_MAC_CTX_free.exit
+74:                                               ; preds = %17, %EVP_MAC_CTX_free.exit
   %.047 = phi ptr [ %.04991, %EVP_MAC_CTX_free.exit ], [ null, %17 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #6
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %13) #6

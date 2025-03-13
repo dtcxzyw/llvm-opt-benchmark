@@ -37816,7 +37816,7 @@ define hidden void @"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$
   br i1 %.not3.i.i, label %16, label %18
 
 16:                                               ; preds = %18, %9
-  %17 = add i64 %7, %13
+  %17 = add i64 %13, %7
   store i64 %17, ptr %12, align 8
   br label %"_ZN4core3ptr185drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$gimli..write..unit..DebugInfoReference$C$alloc..alloc..Global$GT$$GT$17ha990f2ab189f0acfE.exit"
 
@@ -37843,7 +37843,7 @@ define hidden void @"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$
   br i1 %.not3.i.i10, label %32, label %34
 
 32:                                               ; preds = %34, %25
-  %33 = add i64 %7, %29
+  %33 = add i64 %29, %7
   store i64 %33, ptr %28, align 8
   br label %"_ZN4core3ptr185drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$gimli..write..unit..DebugInfoReference$C$alloc..alloc..Global$GT$$GT$17ha990f2ab189f0acfE.exit"
 

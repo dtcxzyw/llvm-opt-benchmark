@@ -55,26 +55,25 @@ define i32 @BIO_vprintf(ptr noundef %0, ptr noundef readonly captures(none) %1, 
 
 12:                                               ; preds = %3
   call void @CRYPTO_free(ptr noundef %11, ptr noundef nonnull @.str, i32 noundef 906) #7
-  br label %21
+  br label %20
 
 13:                                               ; preds = %3
   %.not7 = icmp eq ptr %11, null
   %14 = load i64, ptr %4, align 8, !tbaa !8
   %15 = trunc i64 %14 to i32
-  br i1 %.not7, label %19, label %16
+  br i1 %.not7, label %18, label %16
 
 16:                                               ; preds = %13
   %17 = call i32 @BIO_write(ptr noundef %0, ptr noundef nonnull %11, i32 noundef %15) #7
-  %18 = load ptr, ptr %8, align 8, !tbaa !3
-  call void @CRYPTO_free(ptr noundef %18, ptr noundef nonnull @.str, i32 noundef 911) #7
-  br label %21
+  call void @CRYPTO_free(ptr noundef nonnull %11, ptr noundef nonnull @.str, i32 noundef 911) #7
+  br label %20
 
-19:                                               ; preds = %13
-  %20 = call i32 @BIO_write(ptr noundef %0, ptr noundef nonnull %5, i32 noundef %15) #7
-  br label %21
+18:                                               ; preds = %13
+  %19 = call i32 @BIO_write(ptr noundef %0, ptr noundef nonnull %5, i32 noundef %15) #7
+  br label %20
 
-21:                                               ; preds = %16, %19, %12
-  %.05 = phi i32 [ -1, %12 ], [ %17, %16 ], [ %20, %19 ]
+20:                                               ; preds = %16, %18, %12
+  %.05 = phi i32 [ -1, %12 ], [ %17, %16 ], [ %19, %18 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #7

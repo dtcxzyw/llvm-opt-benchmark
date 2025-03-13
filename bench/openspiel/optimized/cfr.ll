@@ -4389,37 +4389,37 @@ _ZN10open_spiel10algorithmsL23CounterFactualReachProbERKSt6vectorIdSaIdEEi.exit:
   br i1 %.not149, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN10open_spiel10algorithmsL23CounterFactualReachProbERKSt6vectorIdSaIdEEi.exit
-  %235 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  %236 = getelementptr inbounds nuw i8, ptr %1, i64 122
-  %237 = load ptr, ptr %12, align 8
-  %238 = getelementptr inbounds nuw i8, ptr %15, i64 48
-  %239 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %235 = load ptr, ptr %14, align 8
+  %236 = getelementptr inbounds nuw i8, ptr %15, i64 24
+  %237 = getelementptr inbounds nuw i8, ptr %1, i64 122
+  %238 = load ptr, ptr %12, align 8
+  %239 = getelementptr inbounds nuw i8, ptr %15, i64 48
+  %240 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.pre = load ptr, ptr %0, align 8
-  %240 = getelementptr inbounds double, ptr %.pre, i64 %218
-  br label %241
+  %241 = getelementptr inbounds double, ptr %.pre, i64 %218
+  br label %242
 
-241:                                              ; preds = %.lr.ph, %241
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %241 ]
-  %242 = load ptr, ptr %14, align 8
-  %243 = getelementptr inbounds nuw double, ptr %242, i64 %indvars.iv
+242:                                              ; preds = %.lr.ph, %242
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %242 ]
+  %243 = getelementptr inbounds nuw double, ptr %235, i64 %indvars.iv
   %244 = load double, ptr %243, align 8
-  %245 = load double, ptr %240, align 8
+  %245 = load double, ptr %241, align 8
   %246 = fsub double %244, %245
   %247 = fmul double %.08.lcssa.i, %246
-  %248 = load ptr, ptr %235, align 8
+  %248 = load ptr, ptr %236, align 8
   %249 = getelementptr inbounds nuw double, ptr %248, i64 %indvars.iv
   %250 = load double, ptr %249, align 8
   %251 = fadd double %250, %247
   store double %251, ptr %249, align 8
-  %252 = load i8, ptr %236, align 2
+  %252 = load i8, ptr %237, align 2
   %253 = trunc i8 %252 to i1
-  %254 = load i32, ptr %239, align 8
+  %254 = load i32, ptr %240, align 8
   %255 = sitofp i32 %254 to double
   %256 = fmul double %221, %255
   %.sink160 = select i1 %253, double %256, double %221
-  %257 = getelementptr inbounds nuw double, ptr %237, i64 %indvars.iv
+  %257 = getelementptr inbounds nuw double, ptr %238, i64 %indvars.iv
   %258 = load double, ptr %257, align 8
-  %259 = load ptr, ptr %238, align 8
+  %259 = load ptr, ptr %239, align 8
   %260 = getelementptr inbounds nuw double, ptr %259, i64 %indvars.iv
   %261 = load double, ptr %260, align 8
   %262 = call double @llvm.fmuladd.f64(double %.sink160, double %258, double %261)
@@ -4432,9 +4432,9 @@ _ZN10open_spiel10algorithmsL23CounterFactualReachProbERKSt6vectorIdSaIdEEi.exit:
   %267 = sub i64 %265, %266
   %268 = ashr exact i64 %267, 3
   %269 = icmp ugt i64 %268, %indvars.iv.next
-  br i1 %269, label %241, label %._crit_edge, !llvm.loop !55
+  br i1 %269, label %242, label %._crit_edge, !llvm.loop !55
 
-._crit_edge:                                      ; preds = %241, %_ZN10open_spiel10algorithmsL23CounterFactualReachProbERKSt6vectorIdSaIdEEi.exit
+._crit_edge:                                      ; preds = %242, %_ZN10open_spiel10algorithmsL23CounterFactualReachProbERKSt6vectorIdSaIdEEi.exit
   %270 = invoke noundef nonnull align 8 dereferenceable(96) ptr @_ZNSt8__detail9_Map_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS6_N10open_spiel10algorithms18CFRInfoStateValuesEESaISC_ENS_10_Select1stESt8equal_toIS6_ESt4hashIS6_ENS_18_Mod_range_hashingENS_20_Default_ranged_hashENS_20_Prime_rehash_policyENS_17_Hashtable_traitsILb1ELb0ELb1EEELb1EEixERS8_(ptr noundef nonnull align 8 dereferenceable(56) %199, ptr noundef nonnull align 8 dereferenceable(32) %10)
           to label %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN10open_spiel10algorithms18CFRInfoStateValuesESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S8_EEEixERSE_.exit115 unwind label %213
 

@@ -911,97 +911,97 @@ define dso_local range(i32 -1, 1) i32 @common_cgroup_delete(ptr noundef readonly
   br label %.loopexit
 
 12:                                               ; preds = %.lr.ph, %62
-  %.042 = phi i32 [ 0, %.lr.ph ], [ %64, %62 ]
-  %13 = load i32, ptr %9, align 4
-  switch i32 %13, label %76 [
+  %13 = phi i32 [ -1, %.lr.ph ], [ %61, %62 ]
+  %.043 = phi i32 [ 0, %.lr.ph ], [ %64, %62 ]
+  %14 = load i32, ptr %9, align 4
+  switch i32 %14, label %76 [
     i32 2, label %.critedge
-    i32 16, label %14
+    i32 16, label %15
   ]
 
-14:                                               ; preds = %12
-  %15 = load ptr, ptr %5, align 8
-  %16 = call ptr @opendir(ptr noundef %15)
-  %.not.i = icmp eq ptr %16, null
+15:                                               ; preds = %12
+  %16 = load ptr, ptr %5, align 8
+  %17 = call ptr @opendir(ptr noundef %16)
+  %.not.i = icmp eq ptr %17, null
   br i1 %.not.i, label %_is_empty_dir.exit.thread, label %.preheader.i
 
-.preheader.i:                                     ; preds = %14
-  %17 = call ptr @readdir(ptr noundef nonnull %16) #8
-  %.not1222.i = icmp eq ptr %17, null
+.preheader.i:                                     ; preds = %15
+  %18 = call ptr @readdir(ptr noundef nonnull %17) #8
+  %.not1222.i = icmp eq ptr %18, null
   br i1 %.not1222.i, label %_is_empty_dir.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.preheader.i, %36
-  %18 = phi ptr [ %37, %36 ], [ %17, %.preheader.i ]
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 18
-  %20 = load i8, ptr %19, align 2
-  %21 = icmp eq i8 %20, 4
-  br i1 %21, label %sub_0.i, label %36
+.lr.ph.i:                                         ; preds = %.preheader.i, %37
+  %19 = phi ptr [ %38, %37 ], [ %18, %.preheader.i ]
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 18
+  %21 = load i8, ptr %20, align 2
+  %22 = icmp eq i8 %21, 4
+  br i1 %22, label %sub_0.i, label %37
 
 sub_0.i:                                          ; preds = %.lr.ph.i
-  %22 = getelementptr inbounds nuw i8, ptr %18, i64 19
-  %23 = load i8, ptr %22, align 1
-  %.not24.i = icmp eq i8 %23, 46
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 19
+  %24 = load i8, ptr %23, align 1
+  %.not24.i = icmp eq i8 %24, 46
   br i1 %.not24.i, label %.tail.i, label %.tail16.thread.i
 
 .tail.i:                                          ; preds = %sub_0.i
-  %24 = getelementptr inbounds nuw i8, ptr %18, i64 20
-  %25 = load i8, ptr %24, align 1
-  switch i8 %25, label %.tail16.thread.i [
-    i8 0, label %36
+  %25 = getelementptr inbounds nuw i8, ptr %19, i64 20
+  %26 = load i8, ptr %25, align 1
+  switch i8 %26, label %.tail16.thread.i [
+    i8 0, label %37
     i8 46, label %.tail16.i
   ]
 
 .tail16.i:                                        ; preds = %.tail.i
-  %26 = getelementptr inbounds nuw i8, ptr %18, i64 21
-  %27 = load i8, ptr %26, align 1
-  %28 = icmp eq i8 %27, 0
-  br i1 %28, label %36, label %.tail16.thread.i
+  %27 = getelementptr inbounds nuw i8, ptr %19, i64 21
+  %28 = load i8, ptr %27, align 1
+  %29 = icmp eq i8 %28, 0
+  br i1 %29, label %37, label %.tail16.thread.i
 
 .tail16.thread.i:                                 ; preds = %.tail.i, %.tail16.i, %sub_0.i
-  %29 = getelementptr inbounds nuw i8, ptr %18, i64 19
-  %30 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
-  %31 = and i64 %30, 36028797018963968
-  %.not15.i = icmp eq i64 %31, 0
-  br i1 %.not15.i, label %39, label %32
+  %30 = getelementptr inbounds nuw i8, ptr %19, i64 19
+  %31 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
+  %32 = and i64 %31, 36028797018963968
+  %.not15.i = icmp eq i64 %32, 0
+  br i1 %.not15.i, label %40, label %33
 
-32:                                               ; preds = %.tail16.thread.i
-  %33 = call i32 @get_log_level() #8
-  %34 = icmp sgt i32 %33, 3
-  br i1 %34, label %35, label %39
+33:                                               ; preds = %.tail16.thread.i
+  %34 = call i32 @get_log_level() #8
+  %35 = icmp sgt i32 %34, 3
+  br i1 %35, label %36, label %40
 
-35:                                               ; preds = %32
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.47, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._is_empty_dir, ptr noundef %15, ptr noundef nonnull %29) #8
-  br label %39
+36:                                               ; preds = %33
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.47, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__._is_empty_dir, ptr noundef %16, ptr noundef nonnull %30) #8
+  br label %40
 
-36:                                               ; preds = %.tail.i, %.tail16.i, %.lr.ph.i
-  %37 = call ptr @readdir(ptr noundef nonnull %16) #8
-  %.not12.i = icmp eq ptr %37, null
+37:                                               ; preds = %.tail.i, %.tail16.i, %.lr.ph.i
+  %38 = call ptr @readdir(ptr noundef nonnull %17) #8
+  %.not12.i = icmp eq ptr %38, null
   br i1 %.not12.i, label %_is_empty_dir.exit, label %.lr.ph.i, !llvm.loop !17
 
-_is_empty_dir.exit:                               ; preds = %36, %.preheader.i
-  %38 = call i32 @closedir(ptr noundef nonnull %16)
+_is_empty_dir.exit:                               ; preds = %37, %.preheader.i
+  %39 = call i32 @closedir(ptr noundef nonnull %17)
   br label %_is_empty_dir.exit.thread
 
-39:                                               ; preds = %.tail16.thread.i, %35, %32
-  %40 = call i32 @closedir(ptr noundef nonnull %16)
-  %41 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
-  %42 = and i64 %41, 36028797018963968
-  %.not22 = icmp eq i64 %42, 0
-  br i1 %.not22, label %.loopexit, label %43
+40:                                               ; preds = %.tail16.thread.i, %36, %33
+  %41 = call i32 @closedir(ptr noundef nonnull %17)
+  %42 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
+  %43 = and i64 %42, 36028797018963968
+  %.not22 = icmp eq i64 %43, 0
+  br i1 %.not22, label %.loopexit, label %44
 
-43:                                               ; preds = %39
-  %44 = call i32 @get_log_level() #8
-  %45 = icmp sgt i32 %44, 3
-  br i1 %45, label %46, label %.loopexit
+44:                                               ; preds = %40
+  %45 = call i32 @get_log_level() #8
+  %46 = icmp sgt i32 %45, 3
+  br i1 %46, label %47, label %.loopexit
 
-46:                                               ; preds = %43
-  %47 = load ptr, ptr %5, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.23, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.common_cgroup_delete, ptr noundef %47) #8
+47:                                               ; preds = %44
+  %48 = load ptr, ptr %5, align 8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.23, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.common_cgroup_delete, ptr noundef %48) #8
   br label %.loopexit
 
-_is_empty_dir.exit.thread:                        ; preds = %14, %_is_empty_dir.exit
-  %48 = load i32, ptr %2, align 4
-  %49 = icmp eq i32 %48, -1
-  br i1 %49, label %50, label %61
+_is_empty_dir.exit.thread:                        ; preds = %15, %_is_empty_dir.exit
+  %49 = icmp eq i32 %13, -1
+  br i1 %49, label %50, label %60
 
 50:                                               ; preds = %_is_empty_dir.exit.thread
   %51 = call i32 @common_cgroup_get_pids(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull %2)
@@ -1011,7 +1011,7 @@ _is_empty_dir.exit.thread:                        ; preds = %14, %_is_empty_dir.
 52:                                               ; preds = %50
   %53 = load i32, ptr %2, align 4
   %54 = icmp sgt i32 %53, 0
-  br i1 %54, label %55, label %61
+  br i1 %54, label %55, label %60
 
 55:                                               ; preds = %52
   call void @slurm_xfree(ptr noundef nonnull %3) #8
@@ -1021,23 +1021,23 @@ _is_empty_dir.exit.thread:                        ; preds = %14, %_is_empty_dir.
 
 58:                                               ; preds = %55
   %59 = load ptr, ptr %5, align 8
-  %60 = load i32, ptr %2, align 4
-  call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.24, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.common_cgroup_delete, ptr noundef %59, i32 noundef %60) #8
+  call void (i32, ptr, ...) @log_var(i32 noundef 7, ptr noundef nonnull @.str.24, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.common_cgroup_delete, ptr noundef %59, i32 noundef %53) #8
   br label %.loopexit
 
-61:                                               ; preds = %52, %_is_empty_dir.exit.thread
-  %exitcond.not = icmp eq i32 %.042, 5
+60:                                               ; preds = %52, %_is_empty_dir.exit.thread
+  %61 = phi i32 [ %53, %52 ], [ %13, %_is_empty_dir.exit.thread ]
+  %exitcond.not = icmp eq i32 %.043, 5
   br i1 %exitcond.not, label %68, label %62
 
-62:                                               ; preds = %61
+62:                                               ; preds = %60
   %63 = call i32 @poll(ptr noundef null, i64 noundef 0, i32 noundef 1000) #8
-  %64 = add nuw nsw i32 %.042, 1
+  %64 = add nuw nsw i32 %.043, 1
   %65 = load ptr, ptr %5, align 8
   %66 = call i32 @rmdir(ptr noundef %65) #8
   %67 = icmp slt i32 %66, 0
-  br i1 %67, label %12, label %.critedge.thread61, !llvm.loop !18
+  br i1 %67, label %12, label %.critedge.thread63, !llvm.loop !18
 
-68:                                               ; preds = %61
+68:                                               ; preds = %60
   %69 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %70 = and i64 %69, 36028797018963968
   %.not24 = icmp eq i64 %70, 0
@@ -1059,28 +1059,28 @@ _is_empty_dir.exit.thread:                        ; preds = %14, %_is_empty_dir.
   br label %.loopexit
 
 .critedge:                                        ; preds = %12
-  %.not20 = icmp eq i32 %.042, 0
-  br i1 %.not20, label %.loopexit, label %.critedge.thread61
+  %.not20 = icmp eq i32 %.043, 0
+  br i1 %.not20, label %.loopexit, label %.critedge.thread63
 
-.critedge.thread61:                               ; preds = %62, %.critedge
-  %.0.lcssa64 = phi i32 [ %.042, %.critedge ], [ %64, %62 ]
+.critedge.thread63:                               ; preds = %62, %.critedge
+  %.0.lcssa66 = phi i32 [ %.043, %.critedge ], [ %64, %62 ]
   %79 = load i64, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 320), align 8
   %80 = and i64 %79, 36028797018963968
   %.not21 = icmp eq i64 %80, 0
   br i1 %.not21, label %.loopexit, label %81
 
-81:                                               ; preds = %.critedge.thread61
+81:                                               ; preds = %.critedge.thread63
   %82 = call i32 @get_log_level() #8
   %83 = icmp sgt i32 %82, 3
   br i1 %83, label %84, label %.loopexit
 
 84:                                               ; preds = %81
   %85 = load ptr, ptr %5, align 8
-  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.27, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.common_cgroup_delete, ptr noundef %85, i32 noundef %.0.lcssa64) #8
+  call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull @.str.27, ptr noundef nonnull @plugin_type, ptr noundef nonnull @__func__.common_cgroup_delete, ptr noundef %85, i32 noundef %.0.lcssa66) #8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %50, %.preheader, %.critedge, %81, %84, %.critedge.thread61, %76, %71, %74, %68, %55, %58, %39, %46, %43, %10
-  %.015 = phi i32 [ 0, %10 ], [ -1, %43 ], [ -1, %46 ], [ -1, %39 ], [ -1, %58 ], [ -1, %55 ], [ -1, %68 ], [ -1, %74 ], [ -1, %71 ], [ -1, %76 ], [ 0, %.critedge.thread61 ], [ 0, %84 ], [ 0, %81 ], [ 0, %.critedge ], [ 0, %.preheader ], [ -1, %50 ]
+.loopexit:                                        ; preds = %50, %.preheader, %.critedge, %81, %84, %.critedge.thread63, %76, %71, %74, %68, %55, %58, %40, %47, %44, %10
+  %.015 = phi i32 [ 0, %10 ], [ -1, %44 ], [ -1, %47 ], [ -1, %40 ], [ -1, %58 ], [ -1, %55 ], [ -1, %68 ], [ -1, %74 ], [ -1, %71 ], [ -1, %76 ], [ 0, %.critedge.thread63 ], [ 0, %84 ], [ 0, %81 ], [ 0, %.critedge ], [ 0, %.preheader ], [ -1, %50 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #8
   ret i32 %.015

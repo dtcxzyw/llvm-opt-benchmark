@@ -515,7 +515,6 @@ define internal fastcc range(i64 -22, 1) i64 @__se_sys_setitimer(i64 noundef %0,
   %9 = inttoptr i64 %2 to ptr
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7) #8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false), !annotation !6
   %10 = icmp eq i64 %1, 0
   br i1 %10, label %36, label %11
 
@@ -576,6 +575,7 @@ define internal fastcc range(i64 -22, 1) i64 @__se_sys_setitimer(i64 noundef %0,
   br label %43
 
 43:                                               ; preds = %30, %38, %36
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %7, i8 0, i64 32, i1 false), !annotation !6
   %44 = icmp ne i64 %2, 0
   %45 = select i1 %44, ptr %7, ptr null
   %46 = call fastcc i32 @do_setitimer(i32 noundef %8, ptr noundef nonnull %6, ptr noundef %45), !range !7
@@ -651,7 +651,6 @@ define dso_local range(i64 -22, 1) i64 @__ia32_compat_sys_setitimer(ptr noundef 
   %15 = inttoptr i64 %13 to ptr
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #8
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false), !annotation !6
   %16 = icmp eq i64 %10, 0
   br i1 %16, label %46, label %17
 
@@ -716,6 +715,7 @@ define dso_local range(i64 -22, 1) i64 @__ia32_compat_sys_setitimer(ptr noundef 
   br label %53
 
 53:                                               ; preds = %36, %48, %46
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %5, i8 0, i64 32, i1 false), !annotation !6
   %54 = icmp ne i64 %13, 0
   %55 = select i1 %54, ptr %5, ptr null
   %56 = call fastcc i32 @do_setitimer(i32 noundef %14, ptr noundef nonnull %4, ptr noundef %55), !range !7

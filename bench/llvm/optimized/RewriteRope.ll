@@ -637,7 +637,6 @@ define dso_local void @_ZN4llvm14RopePieceBTree5eraseEjj(ptr noundef nonnull ali
 6:                                                ; preds = %3
   %7 = tail call noalias noundef nonnull dereferenceable(136) ptr @_Znwm(i64 noundef 136) #8
   %8 = load ptr, ptr %0, align 8, !tbaa !28
-  store i32 0, ptr %7, align 4, !tbaa !27
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i8 0, ptr %9, align 4, !tbaa !3
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 5

@@ -175,53 +175,49 @@ define hidden void @_ZN13StubGenerator24generate_arraycopy_stubsEv(ptr noundef n
   %43 = load ptr, ptr %7, align 8
   %44 = call noundef ptr @_ZN13StubGenerator20generate_unsafe_copyEPKcPhS2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull @.str.17, ptr noundef %40, ptr noundef %41, ptr noundef %42, ptr noundef %43)
   store ptr %44, ptr @_ZN12StubRoutines17_unsafe_arraycopyE, align 8
-  %45 = load ptr, ptr %3, align 8
-  %46 = load ptr, ptr %4, align 8
-  %47 = load ptr, ptr %5, align 8
-  %48 = load ptr, ptr %6, align 8
-  %49 = load ptr, ptr %7, align 8
-  %50 = load ptr, ptr %8, align 8
-  %51 = call noundef ptr @_ZN13StubGenerator21generate_generic_copyEPKcPhS2_S2_S2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull @.str.18, ptr noundef %45, ptr noundef %46, ptr noundef %47, ptr noundef %48, ptr noundef %49, ptr noundef %50)
-  store ptr %51, ptr @_ZN12StubRoutines18_generic_arraycopyE, align 8
-  %52 = call noundef ptr @_ZN13StubGenerator13generate_fillE9BasicTypebPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 noundef zeroext 8, i1 noundef zeroext false, ptr noundef nonnull @.str.19)
-  store ptr %52, ptr @_ZN12StubRoutines11_jbyte_fillE, align 8
-  %53 = call noundef ptr @_ZN13StubGenerator13generate_fillE9BasicTypebPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 noundef zeroext 9, i1 noundef zeroext false, ptr noundef nonnull @.str.20)
-  store ptr %53, ptr @_ZN12StubRoutines12_jshort_fillE, align 8
-  %54 = call noundef ptr @_ZN13StubGenerator13generate_fillE9BasicTypebPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 noundef zeroext 10, i1 noundef zeroext false, ptr noundef nonnull @.str.21)
-  store ptr %54, ptr @_ZN12StubRoutines10_jint_fillE, align 8
-  %55 = call noundef ptr @_ZN13StubGenerator13generate_fillE9BasicTypebPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 noundef zeroext 8, i1 noundef zeroext true, ptr noundef nonnull @.str.22)
-  store ptr %55, ptr @_ZN12StubRoutines19_arrayof_jbyte_fillE, align 8
-  %56 = call noundef ptr @_ZN13StubGenerator13generate_fillE9BasicTypebPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 noundef zeroext 9, i1 noundef zeroext true, ptr noundef nonnull @.str.23)
-  store ptr %56, ptr @_ZN12StubRoutines20_arrayof_jshort_fillE, align 8
-  %57 = call noundef ptr @_ZN13StubGenerator13generate_fillE9BasicTypebPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 noundef zeroext 10, i1 noundef zeroext true, ptr noundef nonnull @.str.24)
-  store ptr %57, ptr @_ZN12StubRoutines18_arrayof_jint_fillE, align 8
-  %58 = load ptr, ptr @_ZN12StubRoutines11_jbyte_fillE, align 8
-  %59 = call noundef ptr @_ZN13StubGenerator25generate_unsafe_setmemoryEPKcPh(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull @.str.25, ptr noundef %58)
-  store ptr %59, ptr @_ZN12StubRoutines17_unsafe_setmemoryE, align 8
-  %60 = load ptr, ptr @_ZN12StubRoutines25_jbyte_disjoint_arraycopyE, align 8
-  store ptr %60, ptr @_ZN12StubRoutines33_arrayof_jbyte_disjoint_arraycopyE, align 8
-  %61 = load ptr, ptr @_ZN12StubRoutines16_jbyte_arraycopyE, align 8
-  store ptr %61, ptr @_ZN12StubRoutines24_arrayof_jbyte_arraycopyE, align 8
-  %62 = load ptr, ptr @_ZN12StubRoutines26_jshort_disjoint_arraycopyE, align 8
-  store ptr %62, ptr @_ZN12StubRoutines34_arrayof_jshort_disjoint_arraycopyE, align 8
-  %63 = load ptr, ptr @_ZN12StubRoutines17_jshort_arraycopyE, align 8
-  store ptr %63, ptr @_ZN12StubRoutines25_arrayof_jshort_arraycopyE, align 8
-  %64 = load ptr, ptr @_ZN12StubRoutines24_jint_disjoint_arraycopyE, align 8
-  store ptr %64, ptr @_ZN12StubRoutines32_arrayof_jint_disjoint_arraycopyE, align 8
-  %65 = load ptr, ptr @_ZN12StubRoutines15_jint_arraycopyE, align 8
-  store ptr %65, ptr @_ZN12StubRoutines23_arrayof_jint_arraycopyE, align 8
-  %66 = load ptr, ptr @_ZN12StubRoutines25_jlong_disjoint_arraycopyE, align 8
-  store ptr %66, ptr @_ZN12StubRoutines33_arrayof_jlong_disjoint_arraycopyE, align 8
-  %67 = load ptr, ptr @_ZN12StubRoutines16_jlong_arraycopyE, align 8
-  store ptr %67, ptr @_ZN12StubRoutines24_arrayof_jlong_arraycopyE, align 8
-  %68 = load ptr, ptr @_ZN12StubRoutines23_oop_disjoint_arraycopyE, align 8
-  store ptr %68, ptr @_ZN12StubRoutines31_arrayof_oop_disjoint_arraycopyE, align 8
-  %69 = load ptr, ptr @_ZN12StubRoutines14_oop_arraycopyE, align 8
-  store ptr %69, ptr @_ZN12StubRoutines22_arrayof_oop_arraycopyE, align 8
-  %70 = load ptr, ptr @_ZN12StubRoutines30_oop_disjoint_arraycopy_uninitE, align 8
-  store ptr %70, ptr @_ZN12StubRoutines38_arrayof_oop_disjoint_arraycopy_uninitE, align 8
-  %71 = load ptr, ptr @_ZN12StubRoutines21_oop_arraycopy_uninitE, align 8
-  store ptr %71, ptr @_ZN12StubRoutines29_arrayof_oop_arraycopy_uninitE, align 8
+  %45 = load ptr, ptr %6, align 8
+  %46 = load ptr, ptr %8, align 8
+  %47 = call noundef ptr @_ZN13StubGenerator21generate_generic_copyEPKcPhS2_S2_S2_S2_S2_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull @.str.18, ptr noundef %40, ptr noundef %41, ptr noundef %42, ptr noundef %45, ptr noundef %43, ptr noundef %46)
+  store ptr %47, ptr @_ZN12StubRoutines18_generic_arraycopyE, align 8
+  %48 = call noundef ptr @_ZN13StubGenerator13generate_fillE9BasicTypebPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 noundef zeroext 8, i1 noundef zeroext false, ptr noundef nonnull @.str.19)
+  store ptr %48, ptr @_ZN12StubRoutines11_jbyte_fillE, align 8
+  %49 = call noundef ptr @_ZN13StubGenerator13generate_fillE9BasicTypebPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 noundef zeroext 9, i1 noundef zeroext false, ptr noundef nonnull @.str.20)
+  store ptr %49, ptr @_ZN12StubRoutines12_jshort_fillE, align 8
+  %50 = call noundef ptr @_ZN13StubGenerator13generate_fillE9BasicTypebPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 noundef zeroext 10, i1 noundef zeroext false, ptr noundef nonnull @.str.21)
+  store ptr %50, ptr @_ZN12StubRoutines10_jint_fillE, align 8
+  %51 = call noundef ptr @_ZN13StubGenerator13generate_fillE9BasicTypebPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 noundef zeroext 8, i1 noundef zeroext true, ptr noundef nonnull @.str.22)
+  store ptr %51, ptr @_ZN12StubRoutines19_arrayof_jbyte_fillE, align 8
+  %52 = call noundef ptr @_ZN13StubGenerator13generate_fillE9BasicTypebPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 noundef zeroext 9, i1 noundef zeroext true, ptr noundef nonnull @.str.23)
+  store ptr %52, ptr @_ZN12StubRoutines20_arrayof_jshort_fillE, align 8
+  %53 = call noundef ptr @_ZN13StubGenerator13generate_fillE9BasicTypebPKc(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 noundef zeroext 10, i1 noundef zeroext true, ptr noundef nonnull @.str.24)
+  store ptr %53, ptr @_ZN12StubRoutines18_arrayof_jint_fillE, align 8
+  %54 = load ptr, ptr @_ZN12StubRoutines11_jbyte_fillE, align 8
+  %55 = call noundef ptr @_ZN13StubGenerator25generate_unsafe_setmemoryEPKcPh(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull @.str.25, ptr noundef %54)
+  store ptr %55, ptr @_ZN12StubRoutines17_unsafe_setmemoryE, align 8
+  %56 = load ptr, ptr @_ZN12StubRoutines25_jbyte_disjoint_arraycopyE, align 8
+  store ptr %56, ptr @_ZN12StubRoutines33_arrayof_jbyte_disjoint_arraycopyE, align 8
+  %57 = load ptr, ptr @_ZN12StubRoutines16_jbyte_arraycopyE, align 8
+  store ptr %57, ptr @_ZN12StubRoutines24_arrayof_jbyte_arraycopyE, align 8
+  %58 = load ptr, ptr @_ZN12StubRoutines26_jshort_disjoint_arraycopyE, align 8
+  store ptr %58, ptr @_ZN12StubRoutines34_arrayof_jshort_disjoint_arraycopyE, align 8
+  %59 = load ptr, ptr @_ZN12StubRoutines17_jshort_arraycopyE, align 8
+  store ptr %59, ptr @_ZN12StubRoutines25_arrayof_jshort_arraycopyE, align 8
+  %60 = load ptr, ptr @_ZN12StubRoutines24_jint_disjoint_arraycopyE, align 8
+  store ptr %60, ptr @_ZN12StubRoutines32_arrayof_jint_disjoint_arraycopyE, align 8
+  %61 = load ptr, ptr @_ZN12StubRoutines15_jint_arraycopyE, align 8
+  store ptr %61, ptr @_ZN12StubRoutines23_arrayof_jint_arraycopyE, align 8
+  %62 = load ptr, ptr @_ZN12StubRoutines25_jlong_disjoint_arraycopyE, align 8
+  store ptr %62, ptr @_ZN12StubRoutines33_arrayof_jlong_disjoint_arraycopyE, align 8
+  %63 = load ptr, ptr @_ZN12StubRoutines16_jlong_arraycopyE, align 8
+  store ptr %63, ptr @_ZN12StubRoutines24_arrayof_jlong_arraycopyE, align 8
+  %64 = load ptr, ptr @_ZN12StubRoutines23_oop_disjoint_arraycopyE, align 8
+  store ptr %64, ptr @_ZN12StubRoutines31_arrayof_oop_disjoint_arraycopyE, align 8
+  %65 = load ptr, ptr @_ZN12StubRoutines14_oop_arraycopyE, align 8
+  store ptr %65, ptr @_ZN12StubRoutines22_arrayof_oop_arraycopyE, align 8
+  %66 = load ptr, ptr @_ZN12StubRoutines30_oop_disjoint_arraycopy_uninitE, align 8
+  store ptr %66, ptr @_ZN12StubRoutines38_arrayof_oop_disjoint_arraycopy_uninitE, align 8
+  %67 = load ptr, ptr @_ZN12StubRoutines21_oop_arraycopy_uninitE, align 8
+  store ptr %67, ptr @_ZN12StubRoutines29_arrayof_oop_arraycopy_uninitE, align 8
   ret void
 }
 

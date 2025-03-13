@@ -993,7 +993,7 @@ JNU_ClassString.exit:                             ; preds = %18
 JNU_ClassString.exit.thread56:                    ; preds = %9, %JNU_ClassString.exit
   %.0.i58 = phi ptr [ %.pre.i, %JNU_ClassString.exit ], [ %10, %9 ]
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %94, label %32
+  br i1 %.not, label %92, label %32
 
 32:                                               ; preds = %JNU_ClassString.exit.thread56
   %33 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(7) @.str.15) #11
@@ -1057,13 +1057,13 @@ JNU_ClassString.exit.thread56:                    ; preds = %9, %JNU_ClassString
   %63 = icmp eq ptr %62, null
   br i1 %63, label %.split.us, label %.lr.ph67
 
-.split.us:                                        ; preds = %88, %.lr.ph.split
+.split.us:                                        ; preds = %86, %.lr.ph.split
   store i32 0, ptr @fastEncoding, align 4
   br label %JNU_ThrowInternalError.exit
 
-.lr.ph67:                                         ; preds = %.lr.ph.split, %88
-  %64 = phi ptr [ %92, %88 ], [ %62, %.lr.ph.split ]
-  %.16166 = phi ptr [ @.str.19, %88 ], [ %1, %.lr.ph.split ]
+.lr.ph67:                                         ; preds = %.lr.ph.split, %86
+  %64 = phi ptr [ %90, %86 ], [ %62, %.lr.ph.split ]
+  %.16166 = phi ptr [ @.str.19, %86 ], [ %1, %.lr.ph.split ]
   %65 = call i64 (ptr, ptr, ptr, ptr, ptr, ...) @JNU_CallStaticMethodByName(ptr noundef nonnull %0, ptr noundef nonnull %3, ptr noundef nonnull @.str.23, ptr noundef nonnull @.str.24, ptr noundef nonnull @.str.25, ptr noundef nonnull %64)
   %66 = load i8, ptr %3, align 1
   %.not53 = icmp eq i8 %66, 0
@@ -1081,94 +1081,92 @@ JNU_ClassString.exit.thread56:                    ; preds = %9, %JNU_ClassString
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 184
   %74 = load ptr, ptr %73, align 8
   call void %74(ptr noundef nonnull %0, ptr noundef nonnull %64) #10
-  %75 = load i8, ptr %3, align 1
-  %76 = icmp eq i8 %75, 0
-  %77 = icmp ne i64 %65, 0
-  %or.cond = select i1 %76, i1 %77, i1 false
-  br i1 %or.cond, label %.split63.us, label %86
+  %75 = icmp ne i64 %65, 0
+  %or.cond = select i1 %.not53, i1 %75, i1 false
+  br i1 %or.cond, label %.split63.us, label %84
 
 .split63.us:                                      ; preds = %71
-  %78 = inttoptr i64 %65 to ptr
-  %79 = load ptr, ptr %0, align 8
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 168
-  %81 = load ptr, ptr %80, align 8
-  %82 = call ptr %81(ptr noundef nonnull %0, ptr noundef nonnull %78) #10
-  store ptr %82, ptr @jnuCharset, align 8
-  %83 = load ptr, ptr %0, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 184
-  %85 = load ptr, ptr %84, align 8
-  call void %85(ptr noundef nonnull %0, ptr noundef nonnull %78) #10
+  %76 = inttoptr i64 %65 to ptr
+  %77 = load ptr, ptr %0, align 8
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 168
+  %79 = load ptr, ptr %78, align 8
+  %80 = call ptr %79(ptr noundef nonnull %0, ptr noundef nonnull %76) #10
+  store ptr %80, ptr @jnuCharset, align 8
+  %81 = load ptr, ptr %0, align 8
+  %82 = getelementptr inbounds nuw i8, ptr %81, i64 184
+  %83 = load ptr, ptr %82, align 8
+  call void %83(ptr noundef nonnull %0, ptr noundef nonnull %76) #10
   br label %.loopexit
 
-86:                                               ; preds = %71
-  %87 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.16166, ptr noundef nonnull dereferenceable(6) @.str.19) #11
-  %.not54 = icmp eq i32 %87, 0
-  br i1 %.not54, label %.split65.us, label %88
+84:                                               ; preds = %71
+  %85 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.16166, ptr noundef nonnull dereferenceable(6) @.str.19) #11
+  %.not54 = icmp eq i32 %85, 0
+  br i1 %.not54, label %.split65.us, label %86
 
-88:                                               ; preds = %86
+86:                                               ; preds = %84
   store i32 5, ptr @fastEncoding, align 4
-  %89 = load ptr, ptr %0, align 8
-  %90 = getelementptr inbounds nuw i8, ptr %89, i64 1336
-  %91 = load ptr, ptr %90, align 8
-  %92 = call ptr %91(ptr noundef nonnull %0, ptr noundef nonnull @.str.19) #10
-  %93 = icmp eq ptr %92, null
-  br i1 %93, label %.split.us, label %.lr.ph67
+  %87 = load ptr, ptr %0, align 8
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 1336
+  %89 = load ptr, ptr %88, align 8
+  %90 = call ptr %89(ptr noundef nonnull %0, ptr noundef nonnull @.str.19) #10
+  %91 = icmp eq ptr %90, null
+  br i1 %91, label %.split.us, label %.lr.ph67
 
-.split65.us:                                      ; preds = %86
+.split65.us:                                      ; preds = %84
   store i32 0, ptr @fastEncoding, align 4
   br label %JNU_ThrowInternalError.exit
 
-94:                                               ; preds = %JNU_ClassString.exit.thread56
-  %95 = load ptr, ptr %0, align 8
-  %96 = getelementptr inbounds nuw i8, ptr %95, i64 48
-  %97 = load ptr, ptr %96, align 8
-  %98 = tail call ptr %97(ptr noundef nonnull %0, ptr noundef nonnull @.str.4) #10
-  %.not.i.i = icmp eq ptr %98, null
-  br i1 %.not.i.i, label %JNU_ThrowInternalError.exit, label %99
+92:                                               ; preds = %JNU_ClassString.exit.thread56
+  %93 = load ptr, ptr %0, align 8
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 48
+  %95 = load ptr, ptr %94, align 8
+  %96 = tail call ptr %95(ptr noundef nonnull %0, ptr noundef nonnull @.str.4) #10
+  %.not.i.i = icmp eq ptr %96, null
+  br i1 %.not.i.i, label %JNU_ThrowInternalError.exit, label %97
 
-99:                                               ; preds = %94
-  %100 = load ptr, ptr %0, align 8
-  %101 = getelementptr inbounds nuw i8, ptr %100, i64 112
-  %102 = load ptr, ptr %101, align 8
-  %103 = tail call i32 %102(ptr noundef nonnull %0, ptr noundef nonnull %98, ptr noundef nonnull @.str.26) #10
+97:                                               ; preds = %92
+  %98 = load ptr, ptr %0, align 8
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 112
+  %100 = load ptr, ptr %99, align 8
+  %101 = tail call i32 %100(ptr noundef nonnull %0, ptr noundef nonnull %96, ptr noundef nonnull @.str.26) #10
   br label %JNU_ThrowInternalError.exit
 
 .loopexit:                                        ; preds = %58, %51, %44, %.split63.us
-  %104 = load ptr, ptr %0, align 8
-  %105 = getelementptr inbounds nuw i8, ptr %104, i64 264
-  %106 = load ptr, ptr %105, align 8
-  %107 = call ptr %106(ptr noundef nonnull %0, ptr noundef nonnull %.0.i58, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28) #10
-  store ptr %107, ptr @String_getBytes_ID, align 8
-  %108 = icmp eq ptr %107, null
-  br i1 %108, label %JNU_ThrowInternalError.exit, label %109
+  %102 = load ptr, ptr %0, align 8
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 264
+  %104 = load ptr, ptr %103, align 8
+  %105 = call ptr %104(ptr noundef nonnull %0, ptr noundef nonnull %.0.i58, ptr noundef nonnull @.str.27, ptr noundef nonnull @.str.28) #10
+  store ptr %105, ptr @String_getBytes_ID, align 8
+  %106 = icmp eq ptr %105, null
+  br i1 %106, label %JNU_ThrowInternalError.exit, label %107
 
-109:                                              ; preds = %.loopexit
-  %110 = load ptr, ptr %0, align 8
-  %111 = getelementptr inbounds nuw i8, ptr %110, i64 264
-  %112 = load ptr, ptr %111, align 8
-  %113 = call ptr %112(ptr noundef nonnull %0, ptr noundef nonnull %.0.i58, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.29) #10
-  store ptr %113, ptr @String_init_ID, align 8
-  %114 = icmp eq ptr %113, null
-  br i1 %114, label %JNU_ThrowInternalError.exit, label %115
+107:                                              ; preds = %.loopexit
+  %108 = load ptr, ptr %0, align 8
+  %109 = getelementptr inbounds nuw i8, ptr %108, i64 264
+  %110 = load ptr, ptr %109, align 8
+  %111 = call ptr %110(ptr noundef nonnull %0, ptr noundef nonnull %.0.i58, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.29) #10
+  store ptr %111, ptr @String_init_ID, align 8
+  %112 = icmp eq ptr %111, null
+  br i1 %112, label %JNU_ThrowInternalError.exit, label %113
 
-115:                                              ; preds = %109
-  %116 = load ptr, ptr %0, align 8
-  %117 = getelementptr inbounds nuw i8, ptr %116, i64 752
-  %118 = load ptr, ptr %117, align 8
-  %119 = call ptr %118(ptr noundef nonnull %0, ptr noundef nonnull %.0.i58, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31) #10
-  store ptr %119, ptr @String_coder_ID, align 8
-  %120 = icmp eq ptr %119, null
-  br i1 %120, label %JNU_ThrowInternalError.exit, label %121
+113:                                              ; preds = %107
+  %114 = load ptr, ptr %0, align 8
+  %115 = getelementptr inbounds nuw i8, ptr %114, i64 752
+  %116 = load ptr, ptr %115, align 8
+  %117 = call ptr %116(ptr noundef nonnull %0, ptr noundef nonnull %.0.i58, ptr noundef nonnull @.str.30, ptr noundef nonnull @.str.31) #10
+  store ptr %117, ptr @String_coder_ID, align 8
+  %118 = icmp eq ptr %117, null
+  br i1 %118, label %JNU_ThrowInternalError.exit, label %119
 
-121:                                              ; preds = %115
-  %122 = load ptr, ptr %0, align 8
-  %123 = getelementptr inbounds nuw i8, ptr %122, i64 752
-  %124 = load ptr, ptr %123, align 8
-  %125 = call ptr %124(ptr noundef nonnull %0, ptr noundef nonnull %.0.i58, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33) #10
-  store ptr %125, ptr @String_value_ID, align 8
+119:                                              ; preds = %113
+  %120 = load ptr, ptr %0, align 8
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 752
+  %122 = load ptr, ptr %121, align 8
+  %123 = call ptr %122(ptr noundef nonnull %0, ptr noundef nonnull %.0.i58, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.33) #10
+  store ptr %123, ptr @String_value_ID, align 8
   br label %JNU_ThrowInternalError.exit
 
-JNU_ThrowInternalError.exit:                      ; preds = %18, %12, %99, %94, %121, %115, %109, %.loopexit, %JNU_ClassString.exit, %2, %.split65.us, %.split.us
+JNU_ThrowInternalError.exit:                      ; preds = %18, %12, %97, %92, %119, %113, %107, %.loopexit, %JNU_ClassString.exit, %2, %.split65.us, %.split.us
   ret void
 }
 

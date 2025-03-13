@@ -72640,15 +72640,15 @@ lor.rhs.i61:                                      ; preds = %_ZN5eastl6rbtreeI10
 
 invoke.cont14.thread:                             ; preds = %lor.rhs.i61
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp4.i44)
-  %inc.i70435 = add nsw i64 %7, 2
-  store i64 %inc.i70435, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8
-  %second.i65436 = getelementptr inbounds nuw i8, ptr %pRangeEnd.1.i.i56, i64 56
-  store i32 3, ptr %second.i65436, align 4
-  %mMagicValue.i73437 = getelementptr inbounds nuw i8, ptr %pRangeEnd.1.i.i56, i64 72
-  %17 = load i32, ptr %mMagicValue.i73437, align 4
-  store i32 32623592, ptr %mMagicValue.i73437, align 4
-  %mbThrowOnCopy.i75438 = getelementptr inbounds nuw i8, ptr %pRangeEnd.1.i.i56, i64 60
-  store i8 0, ptr %mbThrowOnCopy.i75438, align 1
+  %inc.i70429 = add nsw i64 %7, 2
+  store i64 %inc.i70429, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8
+  %second.i65430 = getelementptr inbounds nuw i8, ptr %pRangeEnd.1.i.i56, i64 56
+  store i32 3, ptr %second.i65430, align 4
+  %mMagicValue.i73431 = getelementptr inbounds nuw i8, ptr %pRangeEnd.1.i.i56, i64 72
+  %17 = load i32, ptr %mMagicValue.i73431, align 4
+  store i32 32623592, ptr %mMagicValue.i73431, align 4
+  %mbThrowOnCopy.i75432 = getelementptr inbounds nuw i8, ptr %pRangeEnd.1.i.i56, i64 60
+  store i8 0, ptr %mbThrowOnCopy.i75432, align 1
   br label %_ZN10TestObjectD2Ev.exit86
 
 if.then.i66:                                      ; preds = %lor.rhs.i61, %_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_9allocatorENS_9use_firstIS4_EELb1ELb1EE11lower_boundERS3_.exit.i59, %_ZN10TestObjectD2Ev.exit31
@@ -72658,11 +72658,11 @@ if.then.i66:                                      ; preds = %lor.rhs.i61, %_ZN5e
 
 invoke.cont14:                                    ; preds = %if.then.i66
   %18 = load ptr, ptr %ref.tmp4.i44, align 8
-  %.pre429 = load i64, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8
-  %.pre430 = load i32, ptr %mMagicValue.i39, align 8
-  %19 = icmp eq i32 %.pre430, 32623592
+  %.pre423 = load i64, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8
+  %.pre424 = load i32, ptr %mMagicValue.i39, align 8
+  %19 = icmp eq i32 %.pre424, 32623592
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp4.i44)
-  %inc.i70 = add nsw i64 %.pre429, 1
+  %inc.i70 = add nsw i64 %.pre423, 1
   store i64 %inc.i70, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8
   %second.i65 = getelementptr inbounds nuw i8, ptr %18, i64 56
   store i32 3, ptr %second.i65, align 4
@@ -72681,7 +72681,7 @@ if.then.i82:                                      ; preds = %invoke.cont14
 
 _ZN10TestObjectD2Ev.exit86:                       ; preds = %invoke.cont14.thread, %invoke.cont14, %if.then.i82
   %22 = phi i32 [ %17, %invoke.cont14.thread ], [ %20, %invoke.cont14 ], [ %20, %if.then.i82 ]
-  %inc.i70439 = phi i64 [ %inc.i70435, %invoke.cont14.thread ], [ %inc.i70, %invoke.cont14 ], [ %inc.i70, %if.then.i82 ]
+  %inc.i70433 = phi i64 [ %inc.i70429, %invoke.cont14.thread ], [ %inc.i70, %invoke.cont14 ], [ %inc.i70, %if.then.i82 ]
   store i32 0, ptr %mMagicValue.i39, align 8
   %23 = load i64, ptr @_ZN10TestObject8sTOCountE, align 8
   %dec.i84 = add nsw i64 %23, -1
@@ -72746,15 +72746,15 @@ lor.rhs.i123:                                     ; preds = %_ZN5eastl6rbtreeI10
 
 invoke.cont25.thread:                             ; preds = %lor.rhs.i123
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp4.i106)
-  %inc.i132442 = add nsw i64 %inc.i70439, 1
-  store i64 %inc.i132442, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8
-  %second.i127443 = getelementptr inbounds nuw i8, ptr %pRangeEnd.1.i.i118, i64 56
-  store i32 1, ptr %second.i127443, align 4
-  %mMagicValue.i135444 = getelementptr inbounds nuw i8, ptr %pRangeEnd.1.i.i118, i64 72
-  %30 = load i32, ptr %mMagicValue.i135444, align 4
-  store i32 32623592, ptr %mMagicValue.i135444, align 4
-  %mbThrowOnCopy.i137445 = getelementptr inbounds nuw i8, ptr %pRangeEnd.1.i.i118, i64 60
-  store i8 0, ptr %mbThrowOnCopy.i137445, align 1
+  %inc.i132436 = add nsw i64 %inc.i70433, 1
+  store i64 %inc.i132436, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8
+  %second.i127437 = getelementptr inbounds nuw i8, ptr %pRangeEnd.1.i.i118, i64 56
+  store i32 1, ptr %second.i127437, align 4
+  %mMagicValue.i135438 = getelementptr inbounds nuw i8, ptr %pRangeEnd.1.i.i118, i64 72
+  %30 = load i32, ptr %mMagicValue.i135438, align 4
+  store i32 32623592, ptr %mMagicValue.i135438, align 4
+  %mbThrowOnCopy.i137439 = getelementptr inbounds nuw i8, ptr %pRangeEnd.1.i.i118, i64 60
+  store i8 0, ptr %mbThrowOnCopy.i137439, align 1
   br label %_ZN10TestObjectD2Ev.exit148
 
 if.then.i128:                                     ; preds = %lor.rhs.i123, %_ZN5eastl6rbtreeI10TestObjectNS_4pairIKS1_S1_EENS_4lessIS1_EENS_9allocatorENS_9use_firstIS4_EELb1ELb1EE11lower_boundERS3_.exit.i121, %_ZN10TestObjectD2Ev.exit93
@@ -72764,11 +72764,11 @@ if.then.i128:                                     ; preds = %lor.rhs.i123, %_ZN5
 
 invoke.cont25:                                    ; preds = %if.then.i128
   %31 = load ptr, ptr %ref.tmp4.i106, align 8
-  %.pre431 = load i64, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8
-  %.pre432 = load i32, ptr %mMagicValue.i101, align 8
-  %32 = icmp eq i32 %.pre432, 32623592
+  %.pre425 = load i64, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8
+  %.pre426 = load i32, ptr %mMagicValue.i101, align 8
+  %32 = icmp eq i32 %.pre426, 32623592
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %ref.tmp4.i106)
-  %inc.i132 = add nsw i64 %.pre431, 1
+  %inc.i132 = add nsw i64 %.pre425, 1
   store i64 %inc.i132, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8
   %second.i127 = getelementptr inbounds nuw i8, ptr %31, i64 56
   store i32 1, ptr %second.i127, align 4

@@ -9154,24 +9154,19 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i3.
 _ZSt8_DestroyIN12_GLOBAL__N_110SemaRecordEEvPT_.exit.i.i.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i3.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i4.i.i.i.i.i.i.i
   %395 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 280
   %.not.i.i.i.i28.i = icmp eq ptr %395, %362
-  br i1 %.not.i.i.i.i28.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_110SemaRecordES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i, label %.lr.ph.i.i.i.i27.i, !llvm.loop !174
+  br i1 %.not.i.i.i.i28.i, label %_ZSt8_DestroyIPN12_GLOBAL__N_110SemaRecordES1_EvT_S3_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i27.i, !llvm.loop !174
 
-_ZSt8_DestroyIPN12_GLOBAL__N_110SemaRecordES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i: ; preds = %_ZSt8_DestroyIN12_GLOBAL__N_110SemaRecordEEvPT_.exit.i.i.i.i.i
-  %.val.pr.i.i = load ptr, ptr %6, align 8, !tbaa !135
-  br label %_ZSt8_DestroyIPN12_GLOBAL__N_110SemaRecordES1_EvT_S3_RSaIT0_E.exit.i.i
-
-_ZSt8_DestroyIPN12_GLOBAL__N_110SemaRecordES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_110SemaRecordES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i, %_ZN4llvm11raw_ostreamlsEPKc.exit26.i
-  %.val.i.i = phi ptr [ %.val.pr.i.i, %_ZSt8_DestroyIPN12_GLOBAL__N_110SemaRecordES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i ], [ %361, %_ZN4llvm11raw_ostreamlsEPKc.exit26.i ]
-  %.not.i.i.i29.i = icmp eq ptr %.val.i.i, null
+_ZSt8_DestroyIPN12_GLOBAL__N_110SemaRecordES1_EvT_S3_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIN12_GLOBAL__N_110SemaRecordEEvPT_.exit.i.i.i.i.i, %_ZN4llvm11raw_ostreamlsEPKc.exit26.i
+  %.not.i.i.i29.i = icmp eq ptr %361, null
   br i1 %.not.i.i.i29.i, label %_ZNSt6vectorIN12_GLOBAL__N_110SemaRecordESaIS1_EED2Ev.exit.i, label %396
 
 396:                                              ; preds = %_ZSt8_DestroyIPN12_GLOBAL__N_110SemaRecordES1_EvT_S3_RSaIT0_E.exit.i.i
   %397 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.val1.i.i = load ptr, ptr %397, align 8, !tbaa !175
   %398 = ptrtoint ptr %.val1.i.i to i64
-  %399 = ptrtoint ptr %.val.i.i to i64
+  %399 = ptrtoint ptr %361 to i64
   %400 = sub i64 %398, %399
-  call void @_ZdlPvm(ptr noundef nonnull %.val.i.i, i64 noundef %400) #22
+  call void @_ZdlPvm(ptr noundef nonnull %361, i64 noundef %400) #22
   br label %_ZNSt6vectorIN12_GLOBAL__N_110SemaRecordESaIS1_EED2Ev.exit.i
 
 _ZNSt6vectorIN12_GLOBAL__N_110SemaRecordESaIS1_EED2Ev.exit.i: ; preds = %396, %_ZSt8_DestroyIPN12_GLOBAL__N_110SemaRecordES1_EvT_S3_RSaIT0_E.exit.i.i

@@ -1676,7 +1676,7 @@ define hidden i32 @phar_open_or_create_filename(ptr noundef %0, i64 noundef %1, 
   br i1 %21, label %22, label %30
 
 22:                                               ; preds = %19
-  br i1 %.not, label %92, label %23
+  br i1 %.not, label %90, label %23
 
 23:                                               ; preds = %22
   %24 = load i64, ptr %11, align 8, !tbaa !72
@@ -1685,16 +1685,16 @@ define hidden i32 @phar_open_or_create_filename(ptr noundef %0, i64 noundef %1, 
 
 26:                                               ; preds = %23
   %27 = tail call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %7, i64 noundef 0, ptr noundef nonnull @.str, ptr noundef %0) #24
-  br label %92
+  br label %90
 
 28:                                               ; preds = %23
   %29 = tail call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %7, i64 noundef 0, ptr noundef nonnull @.str.1, ptr noundef %0) #24
-  br label %92
+  br label %90
 
 30:                                               ; preds = %19, %14
   %31 = call fastcc i32 @phar_open_parsed_phar(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4, i32 noundef %5, ptr noundef nonnull %12, ptr noundef nonnull %10)
   %32 = icmp eq i32 %31, 0
-  br i1 %32, label %33, label %59
+  br i1 %32, label %33, label %57
 
 33:                                               ; preds = %30
   %.not82 = icmp eq ptr %6, null
@@ -1713,11 +1713,11 @@ define hidden i32 @phar_open_or_create_filename(ptr noundef %0, i64 noundef %1, 
   br i1 %or.cond91, label %39, label %42
 
 39:                                               ; preds = %35
-  br i1 %.not, label %92, label %40
+  br i1 %.not, label %90, label %40
 
 40:                                               ; preds = %39
   %41 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %7, i64 noundef 0, ptr noundef nonnull @.str.2, ptr noundef %0) #24
-  br label %92
+  br label %90
 
 42:                                               ; preds = %35
   %43 = and i16 %37, 128
@@ -1738,100 +1738,97 @@ define hidden i32 @phar_open_or_create_filename(ptr noundef %0, i64 noundef %1, 
 
 ..critedge_crit_edge:                             ; preds = %47
   %.pre107 = load i8, ptr getelementptr inbounds nuw (i8, ptr @phar_globals, i64 192), align 8, !tbaa !26, !range !16
-  %.pre108.pre = load ptr, ptr %12, align 8, !tbaa !64
+  %.pre108.pre = load i16, ptr %36, align 4
   br label %.critedge
 
 50:                                               ; preds = %47
   %51 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef %7, i64 noundef 0, ptr noundef nonnull @.str.4, ptr noundef %0) #24
-  br label %92
+  br label %90
 
 .critedge:                                        ; preds = %..critedge_crit_edge, %42
-  %.pre108 = phi ptr [ %.pre108.pre, %..critedge_crit_edge ], [ %.pre, %42 ]
+  %.pre108 = phi i16 [ %.pre108.pre, %..critedge_crit_edge ], [ %37, %42 ]
   %52 = phi i8 [ %.pre107, %..critedge_crit_edge ], [ %44, %42 ]
   %53 = trunc nuw i8 %52 to i1
-  %54 = getelementptr inbounds nuw i8, ptr %.pre108, i64 316
-  %55 = load i16, ptr %54, align 4
-  %56 = and i16 %55, 128
-  %.not90 = icmp eq i16 %56, 0
+  %54 = and i16 %.pre108, 128
+  %.not90 = icmp eq i16 %54, 0
   %or.cond = select i1 %53, i1 %.not90, i1 false
-  br i1 %or.cond, label %92, label %.critedge._crit_edge
+  br i1 %or.cond, label %90, label %55
 
-.critedge._crit_edge:                             ; preds = %.critedge
-  %57 = getelementptr inbounds nuw i8, ptr %.pre108, i64 316
-  %58 = or i16 %55, 4
-  store i16 %58, ptr %57, align 4
-  br label %92
+55:                                               ; preds = %.critedge
+  %56 = or i16 %.pre108, 4
+  store i16 %56, ptr %36, align 4
+  br label %90
 
-59:                                               ; preds = %30
-  %60 = load ptr, ptr %10, align 8, !tbaa !107
-  %.not76 = icmp eq ptr %60, null
-  br i1 %.not76, label %64, label %61
+57:                                               ; preds = %30
+  %58 = load ptr, ptr %10, align 8, !tbaa !107
+  %.not76 = icmp eq ptr %58, null
+  br i1 %.not76, label %62, label %59
+
+59:                                               ; preds = %57
+  br i1 %.not, label %61, label %60
+
+60:                                               ; preds = %59
+  store ptr %58, ptr %7, align 8, !tbaa !107
+  br label %90
 
 61:                                               ; preds = %59
-  br i1 %.not, label %63, label %62
+  call void @_efree(ptr noundef nonnull %58) #24
+  br label %90
 
-62:                                               ; preds = %61
-  store ptr %60, ptr %7, align 8, !tbaa !107
-  br label %92
+62:                                               ; preds = %57
+  %63 = load i64, ptr %11, align 8, !tbaa !72
+  %64 = icmp ugt i64 %63, 3
+  br i1 %64, label %65, label %88
 
-63:                                               ; preds = %61
-  call void @_efree(ptr noundef nonnull %60) #24
-  br label %92
+65:                                               ; preds = %62
+  %66 = load ptr, ptr %9, align 8, !tbaa !107
+  %67 = call ptr @memchr(ptr noundef %66, i32 noundef 122, i64 noundef %63) #25
+  %.not77 = icmp ne ptr %67, null
+  %68 = getelementptr inbounds nuw i8, ptr %66, i64 %63
+  %69 = ptrtoint ptr %68 to i64
+  %70 = ptrtoint ptr %67 to i64
+  %71 = sub i64 %69, %70
+  %72 = icmp sgt i64 %71, 1
+  %or.cond97 = select i1 %.not77, i1 %72, i1 false
+  br i1 %or.cond97, label %73, label %78
 
-64:                                               ; preds = %59
-  %65 = load i64, ptr %11, align 8, !tbaa !72
-  %66 = icmp ugt i64 %65, 3
-  br i1 %66, label %67, label %90
-
-67:                                               ; preds = %64
-  %68 = load ptr, ptr %9, align 8, !tbaa !107
-  %69 = call ptr @memchr(ptr noundef %68, i32 noundef 122, i64 noundef %65) #25
-  %.not77 = icmp ne ptr %69, null
-  %70 = getelementptr inbounds nuw i8, ptr %68, i64 %65
-  %71 = ptrtoint ptr %70 to i64
-  %72 = ptrtoint ptr %69 to i64
-  %73 = sub i64 %71, %72
-  %74 = icmp sgt i64 %73, 1
-  %or.cond97 = select i1 %.not77, i1 %74, i1 false
-  br i1 %or.cond97, label %75, label %80
-
-75:                                               ; preds = %67
-  %76 = getelementptr inbounds nuw i8, ptr %69, i64 1
-  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %76, ptr noundef nonnull dereferenceable(2) @.str.5, i64 2)
+73:                                               ; preds = %65
+  %74 = getelementptr inbounds nuw i8, ptr %67, i64 1
+  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %74, ptr noundef nonnull dereferenceable(2) @.str.5, i64 2)
   %.not78 = icmp eq i32 %bcmp, 0
-  br i1 %.not78, label %77, label %80
+  br i1 %.not78, label %75, label %78
 
-77:                                               ; preds = %75
-  %78 = zext i1 %4 to i32
-  %79 = call i32 @phar_open_or_create_zip(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %78, i32 noundef %5, ptr noundef %6, ptr noundef %7) #24
-  br label %92
+75:                                               ; preds = %73
+  %76 = zext i1 %4 to i32
+  %77 = call i32 @phar_open_or_create_zip(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %76, i32 noundef %5, ptr noundef %6, ptr noundef %7) #24
+  br label %90
 
-80:                                               ; preds = %75, %67
-  %81 = call ptr @memchr(ptr noundef %68, i32 noundef 116, i64 noundef %65) #25
-  %.not79 = icmp ne ptr %81, null
-  %82 = ptrtoint ptr %81 to i64
-  %83 = sub i64 %71, %82
-  %84 = icmp sgt i64 %83, 1
-  %or.cond102 = select i1 %.not79, i1 %84, i1 false
-  br i1 %or.cond102, label %85, label %90
+78:                                               ; preds = %73, %65
+  %79 = call ptr @memchr(ptr noundef %66, i32 noundef 116, i64 noundef %63) #25
+  %.not79 = icmp ne ptr %79, null
+  %80 = ptrtoint ptr %79 to i64
+  %81 = sub i64 %69, %80
+  %82 = icmp sgt i64 %81, 1
+  %or.cond102 = select i1 %.not79, i1 %82, i1 false
+  br i1 %or.cond102, label %83, label %88
 
-85:                                               ; preds = %80
-  %86 = getelementptr inbounds nuw i8, ptr %81, i64 1
-  %bcmp80 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %86, ptr noundef nonnull dereferenceable(2) @.str.6, i64 2)
+83:                                               ; preds = %78
+  %84 = getelementptr inbounds nuw i8, ptr %79, i64 1
+  %bcmp80 = call i32 @bcmp(ptr noundef nonnull dereferenceable(2) %84, ptr noundef nonnull dereferenceable(2) @.str.6, i64 2)
   %.not81 = icmp eq i32 %bcmp80, 0
-  br i1 %.not81, label %87, label %90
+  br i1 %.not81, label %85, label %88
 
-87:                                               ; preds = %85
-  %88 = zext i1 %4 to i32
-  %89 = call i32 @phar_open_or_create_tar(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %88, i32 noundef %5, ptr noundef %6, ptr noundef %7) #24
-  br label %92
+85:                                               ; preds = %83
+  %86 = zext i1 %4 to i32
+  %87 = call i32 @phar_open_or_create_tar(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %86, i32 noundef %5, ptr noundef %6, ptr noundef %7) #24
+  br label %90
 
-90:                                               ; preds = %64, %85, %80
-  %91 = call i32 @phar_create_or_parse_filename(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4, i32 noundef %5, ptr noundef %6, ptr noundef %7)
-  br label %92
+88:                                               ; preds = %62, %83, %78
+  %89 = call i32 @phar_create_or_parse_filename(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3, i1 noundef zeroext %4, i32 noundef %5, ptr noundef %6, ptr noundef %7)
+  br label %90
 
-92:                                               ; preds = %.critedge, %50, %62, %63, %.critedge._crit_edge, %39, %40, %22, %28, %26, %90, %87, %77
-  %.0 = phi i32 [ -1, %50 ], [ %91, %90 ], [ %89, %87 ], [ %79, %77 ], [ -1, %26 ], [ -1, %28 ], [ -1, %22 ], [ -1, %40 ], [ -1, %39 ], [ 0, %.critedge._crit_edge ], [ -1, %63 ], [ -1, %62 ], [ 0, %.critedge ]
+90:                                               ; preds = %.critedge, %50, %60, %61, %55, %39, %40, %22, %28, %26, %88, %85, %75
+  %.0 = phi i32 [ -1, %50 ], [ %89, %88 ], [ %87, %85 ], [ %77, %75 ], [ -1, %26 ], [ -1, %28 ], [ -1, %22 ], [ -1, %40 ], [ -1, %39 ], [ 0, %55 ], [ -1, %61 ], [ -1, %60 ], [ 0, %.critedge ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #24
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #24

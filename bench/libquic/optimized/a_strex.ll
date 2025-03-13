@@ -596,20 +596,18 @@ do_dump.exit:                                     ; preds = %do_hex_dump.exit35.
   br i1 %110, label %.thread, label %111
 
 111:                                              ; preds = %106
-  %112 = load i8, ptr %9, align 1, !tbaa !18
-  %.not77 = icmp eq i8 %112, 0
-  br i1 %.not77, label %115, label %113
+  br i1 %.not73, label %114, label %112
 
-113:                                              ; preds = %111
-  %114 = call i32 %0(ptr noundef nonnull %1, ptr noundef nonnull @.str.11, i32 noundef 1) #10, !callees !8
-  %.not78 = icmp eq i32 %114, 0
-  br i1 %.not78, label %.thread, label %115
+112:                                              ; preds = %111
+  %113 = call i32 %0(ptr noundef nonnull %1, ptr noundef nonnull @.str.11, i32 noundef 1) #10, !callees !8
+  %.not78 = icmp eq i32 %113, 0
+  br i1 %.not78, label %.thread, label %114
 
-115:                                              ; preds = %113, %111
+114:                                              ; preds = %112, %111
   br label %.thread
 
-.thread:                                          ; preds = %do_dump.exit, %15, %do_dump.exit.thread, %do_dump.exit.thread96, %113, %106, %104, %99, %.thread100, %20, %115
-  %.1 = phi i32 [ %spec.select79, %115 ], [ -1, %20 ], [ -1, %.thread100 ], [ %spec.select79, %99 ], [ -1, %104 ], [ -1, %106 ], [ -1, %113 ], [ -1, %do_dump.exit.thread ], [ %87, %do_dump.exit ], [ %44, %do_dump.exit.thread96 ], [ -1, %15 ]
+.thread:                                          ; preds = %do_dump.exit, %15, %do_dump.exit.thread, %do_dump.exit.thread96, %112, %106, %104, %99, %.thread100, %20, %114
+  %.1 = phi i32 [ %spec.select79, %114 ], [ -1, %20 ], [ -1, %.thread100 ], [ %spec.select79, %99 ], [ -1, %104 ], [ -1, %106 ], [ -1, %112 ], [ -1, %do_dump.exit.thread ], [ %87, %do_dump.exit ], [ %44, %do_dump.exit.thread96 ], [ -1, %15 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #10
   ret i32 %.1
 }

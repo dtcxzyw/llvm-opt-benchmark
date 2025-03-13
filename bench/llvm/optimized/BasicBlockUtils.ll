@@ -7267,7 +7267,7 @@ _ZNK4llvm11Instruction7isEHPadEv.exit.thread:     ; preds = %16, %16, %16, %16, 
   %43 = lshr i32 %41, 9
   %44 = xor i32 %42, %43
   %45 = add i32 %37, -1
-  %.01826.i.i.i.i = and i32 %44, %45
+  %.01826.i.i.i.i = and i32 %45, %44
   %46 = zext nneg i32 %.01826.i.i.i.i to i64
   %47 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.457", ptr %35, i64 %46
   %48 = load ptr, ptr %47, align 8, !tbaa !56
@@ -7911,7 +7911,7 @@ _ZN4llvm11SmallVectorINS_3cfg6UpdateIPNS_10BasicBlockEEELj3EED2Ev.exit: ; preds 
   %366 = lshr i32 %364, 9
   %367 = xor i32 %365, %366
   %368 = add i32 %360, -1
-  %.01826.i.i.i.i173 = and i32 %367, %368
+  %.01826.i.i.i.i173 = and i32 %368, %367
   %369 = zext nneg i32 %.01826.i.i.i.i173 to i64
   %370 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.457", ptr %358, i64 %369
   %371 = load ptr, ptr %370, align 8, !tbaa !56

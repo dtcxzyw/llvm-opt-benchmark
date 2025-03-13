@@ -548,49 +548,51 @@ _ZNSt10unique_ptrIN12_GLOBAL__N_123DepCollectorPPCallbacksESt14default_deleteIS1
   %24 = load i32, ptr %23, align 4, !tbaa !283
   %.not.i.i.not.i.i = icmp ult i32 %20, %24
   %.pre3.i.i = load ptr, ptr %18, align 8, !tbaa !284
-  br i1 %.not.i.i.not.i.i, label %_ZN5clang9ModuleMap21addModuleMapCallbacksESt10unique_ptrINS_18ModuleMapCallbacksESt14default_deleteIS2_EE.exit, label %25, !prof !285
+  %25 = ptrtoint ptr %16 to i64
+  br i1 %.not.i.i.not.i.i, label %_ZN5clang9ModuleMap21addModuleMapCallbacksESt10unique_ptrINS_18ModuleMapCallbacksESt14default_deleteIS2_EE.exit, label %26, !prof !285
 
-25:                                               ; preds = %_ZNSt10unique_ptrIN12_GLOBAL__N_123DepCollectorPPCallbacksESt14default_deleteIS1_EED2Ev.exit
-  %26 = getelementptr inbounds nuw %"class.std::unique_ptr.275", ptr %.pre3.i.i, i64 %21
-  %27 = icmp uge ptr %3, %.pre3.i.i
-  %28 = icmp ult ptr %3, %26
-  %spec.select.i.i.i.i.i.i = and i1 %27, %28
-  br i1 %spec.select.i.i.i.i.i.i, label %30, label %29, !prof !286
+26:                                               ; preds = %_ZNSt10unique_ptrIN12_GLOBAL__N_123DepCollectorPPCallbacksESt14default_deleteIS1_EED2Ev.exit
+  %27 = getelementptr inbounds nuw %"class.std::unique_ptr.275", ptr %.pre3.i.i, i64 %21
+  %28 = icmp uge ptr %3, %.pre3.i.i
+  %29 = icmp ult ptr %3, %27
+  %spec.select.i.i.i.i.i.i = and i1 %28, %29
+  br i1 %spec.select.i.i.i.i.i.i, label %31, label %30, !prof !286
 
-29:                                               ; preds = %25
+30:                                               ; preds = %26
   call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN5clang18ModuleMapCallbacksESt14default_deleteIS3_EELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %18, i64 noundef %22)
   %.pre.i.i = load ptr, ptr %18, align 8, !tbaa !284
   br label %_ZN5clang9ModuleMap21addModuleMapCallbacksESt10unique_ptrINS_18ModuleMapCallbacksESt14default_deleteIS2_EE.exit
 
-30:                                               ; preds = %25
-  %31 = ptrtoint ptr %3 to i64
-  %32 = ptrtoint ptr %.pre3.i.i to i64
-  %33 = sub i64 %31, %32
+31:                                               ; preds = %26
+  %32 = ptrtoint ptr %3 to i64
+  %33 = ptrtoint ptr %.pre3.i.i to i64
+  %34 = sub i64 %32, %33
   call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN5clang18ModuleMapCallbacksESt14default_deleteIS3_EELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %18, i64 noundef %22)
-  %34 = load ptr, ptr %18, align 8, !tbaa !284
-  %35 = getelementptr inbounds i8, ptr %34, i64 %33
+  %35 = load ptr, ptr %18, align 8, !tbaa !284
+  %36 = getelementptr inbounds i8, ptr %35, i64 %34
+  %.pre = load i64, ptr %36, align 8, !tbaa !287
   br label %_ZN5clang9ModuleMap21addModuleMapCallbacksESt10unique_ptrINS_18ModuleMapCallbacksESt14default_deleteIS2_EE.exit
 
-_ZN5clang9ModuleMap21addModuleMapCallbacksESt10unique_ptrINS_18ModuleMapCallbacksESt14default_deleteIS2_EE.exit: ; preds = %_ZNSt10unique_ptrIN12_GLOBAL__N_123DepCollectorPPCallbacksESt14default_deleteIS1_EED2Ev.exit, %29, %30
-  %36 = phi ptr [ %.pre3.i.i, %_ZNSt10unique_ptrIN12_GLOBAL__N_123DepCollectorPPCallbacksESt14default_deleteIS1_EED2Ev.exit ], [ %34, %30 ], [ %.pre.i.i, %29 ]
-  %.016.i.i.i.i = phi ptr [ %3, %_ZNSt10unique_ptrIN12_GLOBAL__N_123DepCollectorPPCallbacksESt14default_deleteIS1_EED2Ev.exit ], [ %35, %30 ], [ %3, %29 ]
-  %37 = load i32, ptr %19, align 8, !tbaa !282
-  %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw %"class.std::unique_ptr.275", ptr %36, i64 %38
-  %40 = load i64, ptr %.016.i.i.i.i, align 8, !tbaa !287
-  store i64 %40, ptr %39, align 8, !tbaa !287
+_ZN5clang9ModuleMap21addModuleMapCallbacksESt10unique_ptrINS_18ModuleMapCallbacksESt14default_deleteIS2_EE.exit: ; preds = %_ZNSt10unique_ptrIN12_GLOBAL__N_123DepCollectorPPCallbacksESt14default_deleteIS1_EED2Ev.exit, %30, %31
+  %37 = phi i64 [ %25, %_ZNSt10unique_ptrIN12_GLOBAL__N_123DepCollectorPPCallbacksESt14default_deleteIS1_EED2Ev.exit ], [ %.pre, %31 ], [ %25, %30 ]
+  %38 = phi ptr [ %.pre3.i.i, %_ZNSt10unique_ptrIN12_GLOBAL__N_123DepCollectorPPCallbacksESt14default_deleteIS1_EED2Ev.exit ], [ %35, %31 ], [ %.pre.i.i, %30 ]
+  %.016.i.i.i.i = phi ptr [ %3, %_ZNSt10unique_ptrIN12_GLOBAL__N_123DepCollectorPPCallbacksESt14default_deleteIS1_EED2Ev.exit ], [ %36, %31 ], [ %3, %30 ]
+  %39 = load i32, ptr %19, align 8, !tbaa !282
+  %40 = zext i32 %39 to i64
+  %41 = getelementptr inbounds nuw %"class.std::unique_ptr.275", ptr %38, i64 %40
+  store i64 %37, ptr %41, align 8, !tbaa !287
   store ptr null, ptr %.016.i.i.i.i, align 8, !tbaa !287
-  %41 = add i32 %37, 1
-  store i32 %41, ptr %19, align 8, !tbaa !282
-  %42 = load ptr, ptr %3, align 8, !tbaa !287
-  %.not.i6 = icmp eq ptr %42, null
+  %42 = add i32 %39, 1
+  store i32 %42, ptr %19, align 8, !tbaa !282
+  %43 = load ptr, ptr %3, align 8, !tbaa !287
+  %.not.i6 = icmp eq ptr %43, null
   br i1 %.not.i6, label %_ZNSt10unique_ptrIN12_GLOBAL__N_123DepCollectorMMCallbacksESt14default_deleteIS1_EED2Ev.exit, label %_ZNKSt14default_deleteIN5clang18ModuleMapCallbacksEEclEPS1_.exit.i
 
 _ZNKSt14default_deleteIN5clang18ModuleMapCallbacksEEclEPS1_.exit.i: ; preds = %_ZN5clang9ModuleMap21addModuleMapCallbacksESt10unique_ptrINS_18ModuleMapCallbacksESt14default_deleteIS2_EE.exit
-  %43 = load ptr, ptr %42, align 8, !tbaa !3
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
-  %45 = load ptr, ptr %44, align 8
-  call void %45(ptr noundef nonnull align 8 dereferenceable(8) %42) #18
+  %44 = load ptr, ptr %43, align 8, !tbaa !3
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
+  %46 = load ptr, ptr %45, align 8
+  call void %46(ptr noundef nonnull align 8 dereferenceable(8) %43) #18
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_123DepCollectorMMCallbacksESt14default_deleteIS1_EED2Ev.exit
 
 _ZNSt10unique_ptrIN12_GLOBAL__N_123DepCollectorMMCallbacksESt14default_deleteIS1_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN5clang18ModuleMapCallbacksEEclEPS1_.exit.i, %_ZN5clang9ModuleMap21addModuleMapCallbacksESt10unique_ptrINS_18ModuleMapCallbacksESt14default_deleteIS2_EE.exit

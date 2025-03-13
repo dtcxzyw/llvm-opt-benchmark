@@ -34957,7 +34957,7 @@ define dso_local noundef ptr @_ZN5clang7CodeGen15CGOpenMPRuntime35getNumThreadsE
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #29
   store ptr null, ptr %17, align 8, !tbaa !709
   %. = select i1 %4, ptr null, ptr %17
-  switch i32 %28, label %769 [
+  switch i32 %28, label %768 [
     i32 69, label %29
     i32 79, label %246
     i32 80, label %400
@@ -34968,8 +34968,8 @@ define dso_local noundef ptr @_ZN5clang7CodeGen15CGOpenMPRuntime35getNumThreadsE
     i32 77, label %510
     i32 83, label %510
     i32 84, label %510
-    i32 85, label %768
-    i32 78, label %768
+    i32 85, label %767
+    i32 78, label %767
   ]
 
 29:                                               ; preds = %7
@@ -35227,19 +35227,19 @@ _ZN5clang7CodeGen15CodeGenFunction12LexicalScopeC2ERS1_NS_11SourceRangeE.exit: ;
 _ZNK5clang8DeclStmt5declsEv.exit:                 ; preds = %150, %154
   %.0.i.i.i = phi ptr [ %151, %150 ], [ %157, %154 ]
   %.0.i.i1.i = phi ptr [ %153, %150 ], [ %160, %154 ]
-  %.not155470 = icmp eq ptr %.0.i.i.i, %.0.i.i1.i
-  br i1 %.not155470, label %.loopexit, label %.lr.ph472
+  %.not155469 = icmp eq ptr %.0.i.i.i, %.0.i.i1.i
+  br i1 %.not155469, label %.loopexit, label %.lr.ph471
 
-.lr.ph472:                                        ; preds = %_ZNK5clang8DeclStmt5declsEv.exit, %179
-  %.0134471 = phi ptr [ %180, %179 ], [ %.0.i.i.i, %_ZNK5clang8DeclStmt5declsEv.exit ]
-  %161 = load ptr, ptr %.0134471, align 8, !tbaa !772
+.lr.ph471:                                        ; preds = %_ZNK5clang8DeclStmt5declsEv.exit, %179
+  %.0134470 = phi ptr [ %180, %179 ], [ %.0.i.i.i, %_ZNK5clang8DeclStmt5declsEv.exit ]
+  %161 = load ptr, ptr %.0134470, align 8, !tbaa !772
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 28
   %163 = load i32, ptr %162, align 4
   %164 = and i32 %163, 256
   %.not.i190 = icmp eq i32 %164, 0
   br i1 %.not.i190, label %_ZNK5clang4Decl7hasAttrINS_20OMPCaptureNoInitAttrEEEbv.exit.thread, label %165
 
-165:                                              ; preds = %.lr.ph472
+165:                                              ; preds = %.lr.ph471
   %166 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZNK5clang4Decl8getAttrsEv(ptr noundef nonnull align 8 dereferenceable(33) %161) #29
   %167 = load ptr, ptr %166, align 8, !tbaa !309
   %168 = getelementptr inbounds nuw i8, ptr %166, i64 8
@@ -35263,10 +35263,10 @@ _ZNK5clang8DeclStmt5declsEv.exit:                 ; preds = %150, %154
   br i1 %.not.i.i.i.i.i193, label %_ZNK5clang4Decl7hasAttrINS_20OMPCaptureNoInitAttrEEEbv.exit.thread, label %.lr.ph.i.i.i.i.i192, !llvm.loop !2626
 
 _ZNK5clang4Decl7hasAttrINS_20OMPCaptureNoInitAttrEEEbv.exit: ; preds = %.lr.ph.i.i.i.i.i192
-  %.not446 = icmp eq ptr %.sroa.07.1.i.i.i.i, %171
-  br i1 %.not446, label %_ZNK5clang4Decl7hasAttrINS_20OMPCaptureNoInitAttrEEEbv.exit.thread, label %178
+  %.not445 = icmp eq ptr %.sroa.07.1.i.i.i.i, %171
+  br i1 %.not445, label %_ZNK5clang4Decl7hasAttrINS_20OMPCaptureNoInitAttrEEEbv.exit.thread, label %178
 
-_ZNK5clang4Decl7hasAttrINS_20OMPCaptureNoInitAttrEEEbv.exit.thread: ; preds = %176, %165, %.lr.ph472, %_ZNK5clang4Decl7hasAttrINS_20OMPCaptureNoInitAttrEEEbv.exit
+_ZNK5clang4Decl7hasAttrINS_20OMPCaptureNoInitAttrEEEbv.exit.thread: ; preds = %176, %165, %.lr.ph471, %_ZNK5clang4Decl7hasAttrINS_20OMPCaptureNoInitAttrEEEbv.exit
   call void @_ZN5clang7CodeGen15CodeGenFunction11EmitVarDeclERKNS_7VarDeclE(ptr noundef nonnull align 8 dereferenceable(6496) %1, ptr noundef nonnull align 8 dereferenceable(100) %161) #29
   br label %179
 
@@ -35278,9 +35278,9 @@ _ZNK5clang4Decl7hasAttrINS_20OMPCaptureNoInitAttrEEEbv.exit.thread: ; preds = %1
   br label %179
 
 179:                                              ; preds = %178, %_ZNK5clang4Decl7hasAttrINS_20OMPCaptureNoInitAttrEEEbv.exit.thread
-  %180 = getelementptr inbounds nuw i8, ptr %.0134471, i64 8
+  %180 = getelementptr inbounds nuw i8, ptr %.0134470, i64 8
   %.not155 = icmp eq ptr %180, %.0.i.i1.i
-  br i1 %.not155, label %.loopexit, label %.lr.ph472
+  br i1 %.not155, label %.loopexit, label %.lr.ph471
 
 .loopexit:                                        ; preds = %179, %_ZNK5clang8DeclStmt5declsEv.exit, %_ZN5clang7CodeGen15CodeGenFunction12LexicalScopeC2ERS1_NS_11SourceRangeE.exit
   call void @_ZN5clang7CodeGen15CodeGenFunction12LexicalScopeD2Ev(ptr noundef nonnull align 8 dereferenceable(128) %19) #29
@@ -35424,11 +35424,11 @@ select.unfold406:                                 ; preds = %233, %218, %_ZN4llv
 .critedge:                                        ; preds = %242
   %.val172.val = load ptr, ptr %17, align 8, !tbaa !709
   store i32 1, ptr %3, align 4, !tbaa !784
-  br label %770
+  br label %_ZNK5clang22OMPExecutableDirective16hasClausesOfKindINS_19OMPNumThreadsClauseEEEbv.exit.thread
 
 _ZN4llvm16dyn_cast_or_nullIN5clang22OMPExecutableDirectiveEKNS1_4StmtEEEDaPT0_.exit201.thread: ; preds = %"_ZZN5clang7CodeGen15CGOpenMPRuntime35getNumThreadsExprForTargetDirectiveERNS0_15CodeGenFunctionERKNS_22OMPExecutableDirectiveERibPPN4llvm5ValueEPPKNS_4ExprEENK3$_0clESE_SF_.exit", %211, %240, %242, %233, %221
   %245 = load ptr, ptr %17, align 8
-  br label %770
+  br label %_ZNK5clang22OMPExecutableDirective16hasClausesOfKindINS_19OMPNumThreadsClauseEEEbv.exit.thread
 
 246:                                              ; preds = %7
   %247 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -35459,8 +35459,8 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i: ; preds = %246
 
 _ZNK5clang22OMPExecutableDirective16hasClausesOfKindINS_20OMPThreadLimitClauseEEEbv.exit: ; preds = %.lr.ph.i.i.i.i.i209, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i
   %.sroa.06.1.i.i.i212 = phi ptr [ %249, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i ], [ %.sroa.06.0.i.i.i210, %.lr.ph.i.i.i.i.i209 ]
-  %.not445 = icmp eq ptr %.sroa.06.1.i.i.i212, %252
-  br i1 %.not445, label %_ZNK5clang22OMPExecutableDirective16hasClausesOfKindINS_20OMPThreadLimitClauseEEEbv.exit.thread, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i214
+  %.not444 = icmp eq ptr %.sroa.06.1.i.i.i212, %252
+  br i1 %.not444, label %_ZNK5clang22OMPExecutableDirective16hasClausesOfKindINS_20OMPThreadLimitClauseEEEbv.exit.thread, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i214
 
 _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i214: ; preds = %_ZNK5clang22OMPExecutableDirective16hasClausesOfKindINS_20OMPThreadLimitClauseEEEbv.exit
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %21) #29
@@ -35499,18 +35499,18 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i214: ; preds = %_ZNK5clang22O
   %282 = load i64, ptr %281, align 8, !tbaa !28
   store i64 %282, ptr %259, align 8, !tbaa !28
   store i64 %274, ptr %281, align 8, !tbaa !28
-  %.pre494 = load ptr, ptr %249, align 8, !tbaa !1824
+  %.pre493 = load ptr, ptr %249, align 8, !tbaa !1824
   br i1 %.not1.i.i.i.i.i208, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_20OMPThreadLimitClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i220, label %.lr.ph.i.i.i.i.i216.preheader
 
 .lr.ph.i.i.i.i.i216.preheader:                    ; preds = %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i214
-  %283 = getelementptr inbounds nuw i8, ptr %.pre494, i64 8
+  %283 = getelementptr inbounds nuw i8, ptr %.pre493, i64 8
   %284 = load i32, ptr %283, align 4, !tbaa !1829, !noalias !2633
   %285 = icmp eq i32 %284, 96
   br i1 %285, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_20OMPThreadLimitClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i220, label %.lr.ph.i.i.i.i.i216
 
 .lr.ph.i.i.i.i.i216:                              ; preds = %.lr.ph.i.i.i.i.i216.preheader, %.lr.ph.i.i.i.i.i216
-  %.sroa.06.0.i.i.i217467 = phi ptr [ %286, %.lr.ph.i.i.i.i.i216 ], [ %249, %.lr.ph.i.i.i.i.i216.preheader ]
-  %286 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i217467, i64 8
+  %.sroa.06.0.i.i.i217466 = phi ptr [ %286, %.lr.ph.i.i.i.i.i216 ], [ %249, %.lr.ph.i.i.i.i.i216.preheader ]
+  %286 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i217466, i64 8
   %.not.i.i.i.i.i218 = icmp ne ptr %286, %252
   tail call void @llvm.assume(i1 %.not.i.i.i.i.i218)
   %287 = load ptr, ptr %286, align 8, !tbaa !1824, !noalias !2633
@@ -35520,7 +35520,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i214: ; preds = %_ZNK5clang22O
   br i1 %290, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_20OMPThreadLimitClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i220, label %.lr.ph.i.i.i.i.i216
 
 _ZN5clang22OMPExecutableDirective16getClausesOfKindINS_20OMPThreadLimitClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i220: ; preds = %.lr.ph.i.i.i.i.i216, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i214, %.lr.ph.i.i.i.i.i216.preheader
-  %291 = phi ptr [ %.pre494, %.lr.ph.i.i.i.i.i216.preheader ], [ %.pre494, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i214 ], [ %287, %.lr.ph.i.i.i.i.i216 ]
+  %291 = phi ptr [ %.pre493, %.lr.ph.i.i.i.i.i216.preheader ], [ %.pre493, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i214 ], [ %287, %.lr.ph.i.i.i.i.i216 ]
   %.sroa.06.1.i.i.i221 = phi ptr [ %249, %.lr.ph.i.i.i.i.i216.preheader ], [ %249, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i214 ], [ %286, %.lr.ph.i.i.i.i.i216 ]
   %.not.i1.i222 = icmp ne ptr %.sroa.06.1.i.i.i221, %252
   tail call void @llvm.assume(i1 %.not.i1.i222)
@@ -35599,8 +35599,8 @@ _ZNSt14_Optional_baseIN4llvm6APSIntELb0ELb0EED2Ev.exit.i227: ; preds = %315, %30
   %326 = getelementptr inbounds nuw i8, ptr %325, i64 3184
   %327 = load i64, ptr %259, align 8, !tbaa !28
   store i64 %327, ptr %326, align 8, !tbaa !28
-  %.pre495 = load i8, ptr %265, align 8, !tbaa !15, !range !292
-  %328 = trunc nuw i8 %.pre495 to i1
+  %.pre494 = load i8, ptr %265, align 8, !tbaa !15, !range !292
+  %328 = trunc nuw i8 %.pre494 to i1
   br i1 %328, label %_ZN5clang7CodeGen15CodeGenFunction16RunCleanupsScopeD2Ev.exit, label %329
 
 329:                                              ; preds = %322
@@ -35609,11 +35609,11 @@ _ZNSt14_Optional_baseIN4llvm6APSIntELb0ELb0EED2Ev.exit.i227: ; preds = %315, %30
 
 _ZN5clang7CodeGen15CodeGenFunction16RunCleanupsScopeD2Ev.exit: ; preds = %322, %329
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %21) #29
-  %.pre496 = load i32, ptr %27, align 8, !tbaa !1150
+  %.pre495 = load i32, ptr %27, align 8, !tbaa !1150
   br label %_ZNK5clang22OMPExecutableDirective16hasClausesOfKindINS_20OMPThreadLimitClauseEEEbv.exit.thread
 
 _ZNK5clang22OMPExecutableDirective16hasClausesOfKindINS_20OMPThreadLimitClauseEEEbv.exit.thread: ; preds = %257, %246, %_ZN5clang7CodeGen15CodeGenFunction16RunCleanupsScopeD2Ev.exit, %_ZNK5clang22OMPExecutableDirective16hasClausesOfKindINS_20OMPThreadLimitClauseEEEbv.exit
-  %330 = phi i32 [ 79, %246 ], [ %.pre496, %_ZN5clang7CodeGen15CodeGenFunction16RunCleanupsScopeD2Ev.exit ], [ 79, %_ZNK5clang22OMPExecutableDirective16hasClausesOfKindINS_20OMPThreadLimitClauseEEEbv.exit ], [ 79, %257 ]
+  %330 = phi i32 [ 79, %246 ], [ %.pre495, %_ZN5clang7CodeGen15CodeGenFunction16RunCleanupsScopeD2Ev.exit ], [ 79, %_ZNK5clang22OMPExecutableDirective16hasClausesOfKindINS_20OMPThreadLimitClauseEEEbv.exit ], [ 79, %257 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #29
   %331 = getelementptr inbounds nuw i8, ptr %13, i64 16
   store ptr %331, ptr %13, align 8, !tbaa !309
@@ -35743,7 +35743,7 @@ _ZNK5clang22OMPExecutableDirective24getInnermostCapturedStmtEv.exit254: ; preds 
 
 _ZN4llvm16dyn_cast_or_nullIN5clang22OMPExecutableDirectiveEKNS1_4StmtEEEDaPT0_.exit246.thread: ; preds = %_ZNK5clang22OMPExecutableDirective24getInnermostCapturedStmtEv.exit241, %366, %_ZN4llvm16dyn_cast_or_nullIN5clang22OMPExecutableDirectiveEKNS1_4StmtEEEDaPT0_.exit246, %_ZNK5clang22OMPExecutableDirective24getInnermostCapturedStmtEv.exit254
   %399 = load ptr, ptr %17, align 8, !tbaa !709
-  br label %770
+  br label %_ZNK5clang22OMPExecutableDirective16hasClausesOfKindINS_19OMPNumThreadsClauseEEEbv.exit.thread
 
 400:                                              ; preds = %7
   %401 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -35774,8 +35774,8 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i256: ; preds = %400
 
 _ZNK5clang22OMPExecutableDirective16hasClausesOfKindINS_20OMPThreadLimitClauseEEEbv.exit262: ; preds = %.lr.ph.i.i.i.i.i258, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i256
   %.sroa.06.1.i.i.i261 = phi ptr [ %403, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i256 ], [ %.sroa.06.0.i.i.i259, %.lr.ph.i.i.i.i.i258 ]
-  %.not444 = icmp eq ptr %.sroa.06.1.i.i.i261, %406
-  br i1 %.not444, label %_ZNK5clang22OMPExecutableDirective16hasClausesOfKindINS_20OMPThreadLimitClauseEEEbv.exit262.thread, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i264
+  %.not443 = icmp eq ptr %.sroa.06.1.i.i.i261, %406
+  br i1 %.not443, label %_ZNK5clang22OMPExecutableDirective16hasClausesOfKindINS_20OMPThreadLimitClauseEEEbv.exit262.thread, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i264
 
 _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i264: ; preds = %_ZNK5clang22OMPExecutableDirective16hasClausesOfKindINS_20OMPThreadLimitClauseEEEbv.exit262
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %22) #29
@@ -35814,18 +35814,18 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i264: ; preds = %_ZNK5clang22O
   %436 = load i64, ptr %435, align 8, !tbaa !28
   store i64 %436, ptr %413, align 8, !tbaa !28
   store i64 %428, ptr %435, align 8, !tbaa !28
-  %.pre491 = load ptr, ptr %403, align 8, !tbaa !1824
+  %.pre490 = load ptr, ptr %403, align 8, !tbaa !1824
   br i1 %.not1.i.i.i.i.i257, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_20OMPThreadLimitClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i270, label %.lr.ph.i.i.i.i.i266.preheader
 
 .lr.ph.i.i.i.i.i266.preheader:                    ; preds = %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i264
-  %437 = getelementptr inbounds nuw i8, ptr %.pre491, i64 8
+  %437 = getelementptr inbounds nuw i8, ptr %.pre490, i64 8
   %438 = load i32, ptr %437, align 4, !tbaa !1829, !noalias !2642
   %439 = icmp eq i32 %438, 96
   br i1 %439, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_20OMPThreadLimitClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i270, label %.lr.ph.i.i.i.i.i266
 
 .lr.ph.i.i.i.i.i266:                              ; preds = %.lr.ph.i.i.i.i.i266.preheader, %.lr.ph.i.i.i.i.i266
-  %.sroa.06.0.i.i.i267464 = phi ptr [ %440, %.lr.ph.i.i.i.i.i266 ], [ %403, %.lr.ph.i.i.i.i.i266.preheader ]
-  %440 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i267464, i64 8
+  %.sroa.06.0.i.i.i267463 = phi ptr [ %440, %.lr.ph.i.i.i.i.i266 ], [ %403, %.lr.ph.i.i.i.i.i266.preheader ]
+  %440 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i267463, i64 8
   %.not.i.i.i.i.i268 = icmp ne ptr %440, %406
   tail call void @llvm.assume(i1 %.not.i.i.i.i.i268)
   %441 = load ptr, ptr %440, align 8, !tbaa !1824, !noalias !2642
@@ -35835,7 +35835,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i264: ; preds = %_ZNK5clang22O
   br i1 %444, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_20OMPThreadLimitClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i270, label %.lr.ph.i.i.i.i.i266
 
 _ZN5clang22OMPExecutableDirective16getClausesOfKindINS_20OMPThreadLimitClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i270: ; preds = %.lr.ph.i.i.i.i.i266, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i264, %.lr.ph.i.i.i.i.i266.preheader
-  %445 = phi ptr [ %.pre491, %.lr.ph.i.i.i.i.i266.preheader ], [ %.pre491, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i264 ], [ %441, %.lr.ph.i.i.i.i.i266 ]
+  %445 = phi ptr [ %.pre490, %.lr.ph.i.i.i.i.i266.preheader ], [ %.pre490, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i264 ], [ %441, %.lr.ph.i.i.i.i.i266 ]
   %.sroa.06.1.i.i.i271 = phi ptr [ %403, %.lr.ph.i.i.i.i.i266.preheader ], [ %403, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i264 ], [ %440, %.lr.ph.i.i.i.i.i266 ]
   %.not.i1.i272 = icmp ne ptr %.sroa.06.1.i.i.i271, %406
   tail call void @llvm.assume(i1 %.not.i1.i272)
@@ -35914,8 +35914,8 @@ _ZNSt14_Optional_baseIN4llvm6APSIntELb0ELb0EED2Ev.exit.i277: ; preds = %469, %46
   %480 = getelementptr inbounds nuw i8, ptr %479, i64 3184
   %481 = load i64, ptr %413, align 8, !tbaa !28
   store i64 %481, ptr %480, align 8, !tbaa !28
-  %.pre492 = load i8, ptr %419, align 8, !tbaa !15, !range !292
-  %482 = trunc nuw i8 %.pre492 to i1
+  %.pre491 = load i8, ptr %419, align 8, !tbaa !15, !range !292
+  %482 = trunc nuw i8 %.pre491 to i1
   br i1 %482, label %_ZN5clang7CodeGen15CodeGenFunction16RunCleanupsScopeD2Ev.exit285, label %483
 
 483:                                              ; preds = %476
@@ -35924,11 +35924,11 @@ _ZNSt14_Optional_baseIN4llvm6APSIntELb0ELb0EED2Ev.exit.i277: ; preds = %469, %46
 
 _ZN5clang7CodeGen15CodeGenFunction16RunCleanupsScopeD2Ev.exit285: ; preds = %476, %483
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %22) #29
-  %.pre493 = load i32, ptr %27, align 8, !tbaa !1150
+  %.pre492 = load i32, ptr %27, align 8, !tbaa !1150
   br label %_ZNK5clang22OMPExecutableDirective16hasClausesOfKindINS_20OMPThreadLimitClauseEEEbv.exit262.thread
 
 _ZNK5clang22OMPExecutableDirective16hasClausesOfKindINS_20OMPThreadLimitClauseEEEbv.exit262.thread: ; preds = %411, %400, %_ZN5clang7CodeGen15CodeGenFunction16RunCleanupsScopeD2Ev.exit285, %_ZNK5clang22OMPExecutableDirective16hasClausesOfKindINS_20OMPThreadLimitClauseEEEbv.exit262
-  %484 = phi i32 [ 80, %400 ], [ %.pre493, %_ZN5clang7CodeGen15CodeGenFunction16RunCleanupsScopeD2Ev.exit285 ], [ 80, %_ZNK5clang22OMPExecutableDirective16hasClausesOfKindINS_20OMPThreadLimitClauseEEEbv.exit262 ], [ 80, %411 ]
+  %484 = phi i32 [ 80, %400 ], [ %.pre492, %_ZN5clang7CodeGen15CodeGenFunction16RunCleanupsScopeD2Ev.exit285 ], [ 80, %_ZNK5clang22OMPExecutableDirective16hasClausesOfKindINS_20OMPThreadLimitClauseEEEbv.exit262 ], [ 80, %411 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10) #29
   %485 = getelementptr inbounds nuw i8, ptr %10, i64 16
   store ptr %485, ptr %10, align 8, !tbaa !309
@@ -35978,7 +35978,7 @@ _ZNK5clang22OMPExecutableDirective24getInnermostCapturedStmtEv.exit293: ; preds 
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10) #29
   call fastcc void @_ZL13getNumThreadsRN5clang7CodeGen15CodeGenFunctionEPKNS_12CapturedStmtEPPKNS_4ExprERibPPN4llvm5ValueE(ptr noundef nonnull align 8 dereferenceable(6496) %1, ptr noundef %.04.lcssa.i.i.i288, ptr noundef %., ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef %5)
   %509 = load ptr, ptr %17, align 8, !tbaa !709
-  br label %770
+  br label %_ZNK5clang22OMPExecutableDirective16hasClausesOfKindINS_19OMPNumThreadsClauseEEEbv.exit.thread
 
 510:                                              ; preds = %7, %7, %7, %7, %7, %7, %7
   %.not = icmp eq ptr %5, null
@@ -35996,7 +35996,7 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i295: ; preds = %511
   %515 = zext i32 %514 to i64
   %.idx = shl nuw nsw i64 %515, 3
   %516 = getelementptr inbounds nuw i8, ptr %513, i64 %.idx
-  %.ptr439 = getelementptr inbounds nuw i8, ptr %516, i64 16
+  %.ptr438 = getelementptr inbounds nuw i8, ptr %516, i64 16
   %.not1.i.i.i.i.i296 = icmp eq i32 %514, 0
   br i1 %.not1.i.i.i.i.i296, label %_ZNK5clang22OMPExecutableDirective16hasClausesOfKindINS_11OMPIfClauseEEEbv.exit.thread, label %.lr.ph.i.i.i.i.i297
 
@@ -36010,12 +36010,12 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i295: ; preds = %511
 
 521:                                              ; preds = %.lr.ph.i.i.i.i.i297
   %522 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i298, i64 8
-  %.not.i.i.i.i.i299 = icmp eq ptr %522, %.ptr439
+  %.not.i.i.i.i.i299 = icmp eq ptr %522, %.ptr438
   br i1 %.not.i.i.i.i.i299, label %_ZNK5clang22OMPExecutableDirective16hasClausesOfKindINS_11OMPIfClauseEEEbv.exit.thread, label %.lr.ph.i.i.i.i.i297, !llvm.loop !2651
 
 _ZNK5clang22OMPExecutableDirective16hasClausesOfKindINS_11OMPIfClauseEEEbv.exit: ; preds = %.lr.ph.i.i.i.i.i297
-  %.not437 = icmp eq ptr %.sroa.06.0.i.i.i298, %.ptr439
-  br i1 %.not437, label %_ZNK5clang22OMPExecutableDirective16hasClausesOfKindINS_11OMPIfClauseEEEbv.exit.thread, label %.lr.ph.i.i.i.i.preheader
+  %.not436 = icmp eq ptr %.sroa.06.0.i.i.i298, %.ptr438
+  br i1 %.not436, label %_ZNK5clang22OMPExecutableDirective16hasClausesOfKindINS_11OMPIfClauseEEEbv.exit.thread, label %.lr.ph.i.i.i.i.preheader
 
 .lr.ph.i.i.i.i.preheader:                         ; preds = %_ZNK5clang22OMPExecutableDirective16hasClausesOfKindINS_11OMPIfClauseEEEbv.exit
   %523 = getelementptr inbounds nuw ptr, ptr %.ptr, i64 %515
@@ -36035,25 +36035,25 @@ _ZNK5clang22OMPExecutableDirective16hasClausesOfKindINS_11OMPIfClauseEEEbv.exit:
   br i1 %.not.i.i.i.i, label %_ZNK5clang22OMPExecutableDirective16hasClausesOfKindINS_11OMPIfClauseEEEbv.exit.thread, label %.lr.ph.i.i.i.i, !llvm.loop !2651
 
 _ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_11OMPIfClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit: ; preds = %.lr.ph.i.i.i.i
-  %.not440456 = icmp eq ptr %.sroa.06.0.i.i, %523
-  br i1 %.not440456, label %_ZNK5clang22OMPExecutableDirective16hasClausesOfKindINS_11OMPIfClauseEEEbv.exit.thread, label %.lr.ph
+  %.not439455 = icmp eq ptr %.sroa.06.0.i.i, %523
+  br i1 %.not439455, label %_ZNK5clang22OMPExecutableDirective16hasClausesOfKindINS_11OMPIfClauseEEEbv.exit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_11OMPIfClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit, %_ZN5clang22OMPExecutableDirective24specific_clause_iteratorINS_11OMPIfClauseEEppEv.exit
-  %.0136458 = phi ptr [ %spec.select160, %_ZN5clang22OMPExecutableDirective24specific_clause_iteratorINS_11OMPIfClauseEEppEv.exit ], [ null, %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_11OMPIfClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit ]
-  %.sroa.0371.0457 = phi ptr [ %.sroa.0371.2, %_ZN5clang22OMPExecutableDirective24specific_clause_iteratorINS_11OMPIfClauseEEppEv.exit ], [ %.sroa.06.0.i.i, %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_11OMPIfClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit ]
-  %530 = load ptr, ptr %.sroa.0371.0457, align 8, !tbaa !1824
+  %.0136457 = phi ptr [ %spec.select160, %_ZN5clang22OMPExecutableDirective24specific_clause_iteratorINS_11OMPIfClauseEEppEv.exit ], [ null, %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_11OMPIfClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit ]
+  %.sroa.0371.0456 = phi ptr [ %.sroa.0371.2, %_ZN5clang22OMPExecutableDirective24specific_clause_iteratorINS_11OMPIfClauseEEppEv.exit ], [ %.sroa.06.0.i.i, %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_11OMPIfClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit ]
+  %530 = load ptr, ptr %.sroa.0371.0456, align 8, !tbaa !1824
   %531 = getelementptr inbounds nuw i8, ptr %530, i64 44
   %532 = load i32, ptr %531, align 4, !tbaa !2657
   %533 = icmp eq i32 %532, 102
   br i1 %533, label %.thread424, label %534
 
 534:                                              ; preds = %.lr.ph
-  %.not441 = icmp eq i32 %532, 48
-  %spec.select160 = select i1 %.not441, ptr %530, ptr %.0136458
-  br i1 %.not441, label %._crit_edge, label %535
+  %.not440 = icmp eq i32 %532, 48
+  %spec.select160 = select i1 %.not440, ptr %530, ptr %.0136457
+  br i1 %.not440, label %._crit_edge, label %535
 
 535:                                              ; preds = %534
-  %536 = getelementptr inbounds nuw i8, ptr %.sroa.0371.0457, i64 8
+  %536 = getelementptr inbounds nuw i8, ptr %.sroa.0371.0456, i64 8
   %.not1.i.i = icmp eq ptr %536, %523
   br i1 %.not1.i.i, label %_ZN5clang22OMPExecutableDirective24specific_clause_iteratorINS_11OMPIfClauseEEppEv.exit, label %.lr.ph.i.i
 
@@ -36072,8 +36072,8 @@ _ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_11OMPIfClauseEEEN4llvm14
 
 _ZN5clang22OMPExecutableDirective24specific_clause_iteratorINS_11OMPIfClauseEEppEv.exit: ; preds = %.lr.ph.i.i, %541, %535
   %.sroa.0371.2 = phi ptr [ %536, %535 ], [ %542, %541 ], [ %.sroa.0371.1, %.lr.ph.i.i ]
-  %.not440 = icmp eq ptr %.sroa.0371.2, %523
-  br i1 %.not440, label %._crit_edge, label %.lr.ph
+  %.not439 = icmp eq ptr %.sroa.0371.2, %523
+  br i1 %.not439, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %534, %_ZN5clang22OMPExecutableDirective24specific_clause_iteratorINS_11OMPIfClauseEEppEv.exit
   %.1137 = phi ptr [ %spec.select160, %_ZN5clang22OMPExecutableDirective24specific_clause_iteratorINS_11OMPIfClauseEEppEv.exit ], [ %530, %534 ]
@@ -36175,10 +36175,9 @@ _ZN5clang7CodeGen15CodeGenFunction16RunCleanupsScopeD2Ev.exit312: ; preds = %590
   br label %_ZNK5clang22OMPExecutableDirective16hasClausesOfKindINS_11OMPIfClauseEEEbv.exit.thread
 
 594:                                              ; preds = %550
-  %.val174.val = load ptr, ptr %17, align 8, !tbaa !709
   store i32 1, ptr %3, align 4, !tbaa !784
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %23) #29
-  br label %770
+  br label %_ZNK5clang22OMPExecutableDirective16hasClausesOfKindINS_19OMPNumThreadsClauseEEEbv.exit.thread
 
 _ZNK5clang22OMPExecutableDirective16hasClausesOfKindINS_11OMPIfClauseEEEbv.exit.thread: ; preds = %521, %528, %_ZNK5clang22OMPExecutableDirective16getClausesOfKindINS_11OMPIfClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEEv.exit, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i295, %._crit_edge, %511, %.thread431, %_ZNK5clang22OMPExecutableDirective16hasClausesOfKindINS_11OMPIfClauseEEEbv.exit, %510
   %595 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -36209,8 +36208,8 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i314: ; preds = %_ZNK5clang2
 
 _ZNK5clang22OMPExecutableDirective16hasClausesOfKindINS_20OMPThreadLimitClauseEEEbv.exit320: ; preds = %.lr.ph.i.i.i.i.i316, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i314
   %.sroa.06.1.i.i.i319 = phi ptr [ %597, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i314 ], [ %.sroa.06.0.i.i.i317, %.lr.ph.i.i.i.i.i316 ]
-  %.not442 = icmp eq ptr %.sroa.06.1.i.i.i319, %600
-  br i1 %.not442, label %_ZNK5clang22OMPExecutableDirective16hasClausesOfKindINS_20OMPThreadLimitClauseEEEbv.exit320.thread, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i322
+  %.not441 = icmp eq ptr %.sroa.06.1.i.i.i319, %600
+  br i1 %.not441, label %_ZNK5clang22OMPExecutableDirective16hasClausesOfKindINS_20OMPThreadLimitClauseEEEbv.exit320.thread, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i322
 
 _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i322: ; preds = %_ZNK5clang22OMPExecutableDirective16hasClausesOfKindINS_20OMPThreadLimitClauseEEEbv.exit320
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %25) #29
@@ -36263,8 +36262,8 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i322: ; preds = %_ZNK5clang22O
   br i1 %636, label %_ZN5clang22OMPExecutableDirective16getClausesOfKindINS_20OMPThreadLimitClauseEEEN4llvm14iterator_rangeINS0_24specific_clause_iteratorIT_EEEENS3_8ArrayRefIPNS_9OMPClauseEEE.exit.i.i328, label %.lr.ph.i.i.i.i.i324
 
 .lr.ph.i.i.i.i.i324:                              ; preds = %.lr.ph.i.i.i.i.i324.preheader, %.lr.ph.i.i.i.i.i324
-  %.sroa.06.0.i.i.i325461 = phi ptr [ %637, %.lr.ph.i.i.i.i.i324 ], [ %597, %.lr.ph.i.i.i.i.i324.preheader ]
-  %637 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i325461, i64 8
+  %.sroa.06.0.i.i.i325460 = phi ptr [ %637, %.lr.ph.i.i.i.i.i324 ], [ %597, %.lr.ph.i.i.i.i.i324.preheader ]
+  %637 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i.i.i325460, i64 8
   %.not.i.i.i.i.i326 = icmp ne ptr %637, %633
   call void @llvm.assume(i1 %.not.i.i.i.i.i326)
   %638 = load ptr, ptr %637, align 8, !tbaa !1824, !noalias !2666
@@ -36405,8 +36404,8 @@ _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i345: ; preds = %_ZNK5clang2
 
 _ZNK5clang22OMPExecutableDirective16hasClausesOfKindINS_19OMPNumThreadsClauseEEEbv.exit: ; preds = %.lr.ph.i.i.i.i.i347, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i345
   %.sroa.06.1.i.i.i350 = phi ptr [ %688, %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i.i345 ], [ %.sroa.06.0.i.i.i348, %.lr.ph.i.i.i.i.i347 ]
-  %.not443 = icmp eq ptr %.sroa.06.1.i.i.i350, %691
-  br i1 %.not443, label %_ZNK5clang22OMPExecutableDirective16hasClausesOfKindINS_19OMPNumThreadsClauseEEEbv.exit.thread, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i352
+  %.not442 = icmp eq ptr %.sroa.06.1.i.i.i350, %691
+  br i1 %.not442, label %_ZNK5clang22OMPExecutableDirective16hasClausesOfKindINS_19OMPNumThreadsClauseEEEbv.exit.thread, label %_ZNK5clang22OMPExecutableDirective7clausesEv.exit.i352
 
 _ZNK5clang22OMPExecutableDirective7clausesEv.exit.i352: ; preds = %_ZNK5clang22OMPExecutableDirective16hasClausesOfKindINS_19OMPNumThreadsClauseEEEbv.exit
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %26) #29
@@ -36539,8 +36538,8 @@ _ZNSt14_Optional_baseIN4llvm6APSIntELb0ELb0EED2Ev.exit.i360: ; preds = %753, %74
   %763 = getelementptr inbounds nuw i8, ptr %762, i64 3184
   %764 = load i64, ptr %698, align 8, !tbaa !28
   store i64 %764, ptr %763, align 8, !tbaa !28
-  %.pre490 = load i8, ptr %704, align 8, !tbaa !15, !range !292
-  %765 = trunc nuw i8 %.pre490 to i1
+  %.pre489 = load i8, ptr %704, align 8, !tbaa !15, !range !292
+  %765 = trunc nuw i8 %.pre489 to i1
   br i1 %765, label %_ZN5clang7CodeGen15CodeGenFunction16RunCleanupsScopeD2Ev.exit368, label %766
 
 766:                                              ; preds = %758
@@ -36549,21 +36548,17 @@ _ZNSt14_Optional_baseIN4llvm6APSIntELb0ELb0EED2Ev.exit.i360: ; preds = %753, %74
 
 _ZN5clang7CodeGen15CodeGenFunction16RunCleanupsScopeD2Ev.exit368: ; preds = %758, %766
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %26) #29
-  br label %770
+  br label %_ZNK5clang22OMPExecutableDirective16hasClausesOfKindINS_19OMPNumThreadsClauseEEEbv.exit.thread
 
-_ZNK5clang22OMPExecutableDirective16hasClausesOfKindINS_19OMPNumThreadsClauseEEEbv.exit.thread: ; preds = %696, %_ZNK5clang22OMPExecutableDirective16hasClausesOfKindINS_11OMPIfClauseEEEbv.exit.thread, %_ZNK5clang22OMPExecutableDirective16hasClausesOfKindINS_20OMPThreadLimitClauseEEEbv.exit320.thread, %_ZNK5clang22OMPExecutableDirective16hasClausesOfKindINS_19OMPNumThreadsClauseEEEbv.exit
-  %767 = load ptr, ptr %17, align 8, !tbaa !709
-  br label %770
-
-768:                                              ; preds = %7, %7
+767:                                              ; preds = %7, %7
   store i32 1, ptr %3, align 4, !tbaa !784
-  br label %770
+  br label %_ZNK5clang22OMPExecutableDirective16hasClausesOfKindINS_19OMPNumThreadsClauseEEEbv.exit.thread
 
-769:                                              ; preds = %7
+768:                                              ; preds = %7
   unreachable
 
-770:                                              ; preds = %594, %_ZN4llvm16dyn_cast_or_nullIN5clang22OMPExecutableDirectiveEKNS1_4StmtEEEDaPT0_.exit201.thread, %.critedge, %768, %_ZNK5clang22OMPExecutableDirective16hasClausesOfKindINS_19OMPNumThreadsClauseEEEbv.exit.thread, %_ZN5clang7CodeGen15CodeGenFunction16RunCleanupsScopeD2Ev.exit368, %_ZNK5clang22OMPExecutableDirective24getInnermostCapturedStmtEv.exit293, %_ZN4llvm16dyn_cast_or_nullIN5clang22OMPExecutableDirectiveEKNS1_4StmtEEEDaPT0_.exit246.thread
-  %.2 = phi ptr [ null, %768 ], [ %759, %_ZN5clang7CodeGen15CodeGenFunction16RunCleanupsScopeD2Ev.exit368 ], [ %767, %_ZNK5clang22OMPExecutableDirective16hasClausesOfKindINS_19OMPNumThreadsClauseEEEbv.exit.thread ], [ %.val174.val, %594 ], [ %509, %_ZNK5clang22OMPExecutableDirective24getInnermostCapturedStmtEv.exit293 ], [ %399, %_ZN4llvm16dyn_cast_or_nullIN5clang22OMPExecutableDirectiveEKNS1_4StmtEEEDaPT0_.exit246.thread ], [ %245, %_ZN4llvm16dyn_cast_or_nullIN5clang22OMPExecutableDirectiveEKNS1_4StmtEEEDaPT0_.exit201.thread ], [ %.val172.val, %.critedge ]
+_ZNK5clang22OMPExecutableDirective16hasClausesOfKindINS_19OMPNumThreadsClauseEEEbv.exit.thread: ; preds = %696, %_ZNK5clang22OMPExecutableDirective16hasClausesOfKindINS_19OMPNumThreadsClauseEEEbv.exit, %_ZNK5clang22OMPExecutableDirective16hasClausesOfKindINS_20OMPThreadLimitClauseEEEbv.exit320.thread, %_ZNK5clang22OMPExecutableDirective16hasClausesOfKindINS_11OMPIfClauseEEEbv.exit.thread, %594, %_ZN4llvm16dyn_cast_or_nullIN5clang22OMPExecutableDirectiveEKNS1_4StmtEEEDaPT0_.exit201.thread, %.critedge, %767, %_ZN5clang7CodeGen15CodeGenFunction16RunCleanupsScopeD2Ev.exit368, %_ZNK5clang22OMPExecutableDirective24getInnermostCapturedStmtEv.exit293, %_ZN4llvm16dyn_cast_or_nullIN5clang22OMPExecutableDirectiveEKNS1_4StmtEEEDaPT0_.exit246.thread
+  %.2 = phi ptr [ null, %767 ], [ %759, %_ZN5clang7CodeGen15CodeGenFunction16RunCleanupsScopeD2Ev.exit368 ], [ null, %594 ], [ %509, %_ZNK5clang22OMPExecutableDirective24getInnermostCapturedStmtEv.exit293 ], [ %399, %_ZN4llvm16dyn_cast_or_nullIN5clang22OMPExecutableDirectiveEKNS1_4StmtEEEDaPT0_.exit246.thread ], [ %245, %_ZN4llvm16dyn_cast_or_nullIN5clang22OMPExecutableDirectiveEKNS1_4StmtEEEDaPT0_.exit201.thread ], [ %.val172.val, %.critedge ], [ null, %_ZNK5clang22OMPExecutableDirective16hasClausesOfKindINS_11OMPIfClauseEEEbv.exit.thread ], [ null, %_ZNK5clang22OMPExecutableDirective16hasClausesOfKindINS_20OMPThreadLimitClauseEEEbv.exit320.thread ], [ null, %_ZNK5clang22OMPExecutableDirective16hasClausesOfKindINS_19OMPNumThreadsClauseEEEbv.exit ], [ null, %696 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #29
   ret ptr %.2
 }

@@ -41088,94 +41088,88 @@ RHASH_EMPTY_P.exit96:                             ; preds = %138, %141
 
 149:                                              ; preds = %RHASH_EMPTY_P.exit96
   %150 = tail call i64 @rb_hash_dup(i64 noundef %128) #21
-  %151 = load ptr, ptr %16, align 8, !tbaa !93
-  %152 = getelementptr i8, ptr %151, i64 -8
-  store i64 %150, ptr %152, align 8, !tbaa !7
-  %153 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  store i8 1, ptr %153, align 4, !tbaa !214
+  store i64 %150, ptr %127, align 8, !tbaa !7
+  %151 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  store i8 1, ptr %151, align 4, !tbaa !214
   br label %rbimpl_RB_TYPE_P_fastpath.exit79.thread
 
 vm_ci_flag.exit99:                                ; preds = %vm_ci_flag.exit
-  %154 = and i64 %8, 64
-  %.not67 = icmp eq i64 %154, 0
-  br i1 %.not67, label %188, label %156, !prof !69
+  %152 = and i64 %8, 64
+  %.not67 = icmp eq i64 %152, 0
+  br i1 %.not67, label %182, label %154, !prof !69
 
 vm_ci_flag.exit99.thread:                         ; preds = %vm_ci_flag.exit.thread
-  %155 = and i64 %5, 4194304
-  %.not67112 = icmp eq i64 %155, 0
-  br i1 %.not67112, label %.thread113, label %156, !prof !69
+  %153 = and i64 %5, 4194304
+  %.not67112 = icmp eq i64 %153, 0
+  br i1 %.not67112, label %.thread113, label %154, !prof !69
 
-156:                                              ; preds = %vm_ci_flag.exit99.thread, %vm_ci_flag.exit99
-  %157 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %158 = load ptr, ptr %157, align 8, !tbaa !93
-  %159 = getelementptr i8, ptr %158, i64 -8
-  %160 = load i64, ptr %159, align 8, !tbaa !7
-  %161 = tail call fastcc i64 @vm_caller_setup_keyword_hash(ptr noundef %2, i64 noundef %160)
-  %162 = icmp eq i64 %161, 4
-  br i1 %162, label %176, label %163
+154:                                              ; preds = %vm_ci_flag.exit99.thread, %vm_ci_flag.exit99
+  %155 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %156 = load ptr, ptr %155, align 8, !tbaa !93
+  %157 = getelementptr i8, ptr %156, i64 -8
+  %158 = load i64, ptr %157, align 8, !tbaa !7
+  %159 = tail call fastcc i64 @vm_caller_setup_keyword_hash(ptr noundef %2, i64 noundef %158)
+  %160 = icmp eq i64 %159, 4
+  br i1 %160, label %174, label %161
 
-163:                                              ; preds = %156
-  %164 = inttoptr i64 %161 to ptr
-  %165 = load i64, ptr %164, align 8, !tbaa !97
-  %166 = and i64 %165, 32768
-  %.not.i.i.i100 = icmp eq i64 %166, 0
-  br i1 %.not.i.i.i100, label %167, label %170
+161:                                              ; preds = %154
+  %162 = inttoptr i64 %159 to ptr
+  %163 = load i64, ptr %162, align 8, !tbaa !97
+  %164 = and i64 %163, 32768
+  %.not.i.i.i100 = icmp eq i64 %164, 0
+  br i1 %.not.i.i.i100, label %165, label %168
 
-167:                                              ; preds = %163
-  %168 = lshr i64 %165, 16
-  %169 = and i64 %168, 15
+165:                                              ; preds = %161
+  %166 = lshr i64 %163, 16
+  %167 = and i64 %166, 15
   br label %RHASH_EMPTY_P.exit102
 
-170:                                              ; preds = %163
-  %171 = add i64 %161, 24
-  %172 = inttoptr i64 %171 to ptr
-  %173 = getelementptr inbounds nuw i8, ptr %172, i64 16
-  %174 = load i64, ptr %173, align 8, !tbaa !291
+168:                                              ; preds = %161
+  %169 = add i64 %159, 24
+  %170 = inttoptr i64 %169 to ptr
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 16
+  %172 = load i64, ptr %171, align 8, !tbaa !291
   br label %RHASH_EMPTY_P.exit102
 
-RHASH_EMPTY_P.exit102:                            ; preds = %167, %170
-  %.0.i.i101 = phi i64 [ %169, %167 ], [ %174, %170 ]
-  %175 = icmp eq i64 %.0.i.i101, 0
-  br i1 %175, label %176, label %183
+RHASH_EMPTY_P.exit102:                            ; preds = %165, %168
+  %.0.i.i101 = phi i64 [ %167, %165 ], [ %172, %168 ]
+  %173 = icmp eq i64 %.0.i.i101, 0
+  br i1 %173, label %174, label %179
 
-176:                                              ; preds = %RHASH_EMPTY_P.exit102, %156
-  %177 = load ptr, ptr %157, align 8, !tbaa !93
-  %178 = getelementptr i8, ptr %177, i64 -8
-  store ptr %178, ptr %157, align 8, !tbaa !93
-  %179 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %180 = load i32, ptr %179, align 8, !tbaa !213
-  %181 = add i32 %180, -1
-  store i32 %181, ptr %179, align 8, !tbaa !213
-  %182 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  store i8 0, ptr %182, align 4, !tbaa !214
+174:                                              ; preds = %RHASH_EMPTY_P.exit102, %154
+  store ptr %157, ptr %155, align 8, !tbaa !93
+  %175 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %176 = load i32, ptr %175, align 8, !tbaa !213
+  %177 = add i32 %176, -1
+  store i32 %177, ptr %175, align 8, !tbaa !213
+  %178 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  store i8 0, ptr %178, align 4, !tbaa !214
   br label %rbimpl_RB_TYPE_P_fastpath.exit79.thread
 
-183:                                              ; preds = %RHASH_EMPTY_P.exit102
-  %184 = load ptr, ptr %157, align 8, !tbaa !93
-  %185 = getelementptr i8, ptr %184, i64 -8
-  store i64 %161, ptr %185, align 8, !tbaa !7
+179:                                              ; preds = %RHASH_EMPTY_P.exit102
+  store i64 %159, ptr %157, align 8, !tbaa !7
   br label %rbimpl_RB_TYPE_P_fastpath.exit79.thread
 
 .thread113:                                       ; preds = %vm_ci_flag.exit99.thread
-  %186 = trunc i64 %5 to i32
-  %187 = lshr i32 %186, 16
+  %180 = trunc i64 %5 to i32
+  %181 = lshr i32 %180, 16
   br label %vm_ci_flag.exit105
 
-188:                                              ; preds = %vm_ci_flag.exit99
-  %189 = trunc i64 %8 to i32
+182:                                              ; preds = %vm_ci_flag.exit99
+  %183 = trunc i64 %8 to i32
   br label %vm_ci_flag.exit105
 
-vm_ci_flag.exit105:                               ; preds = %.thread113, %188
-  %.0.i104 = phi i32 [ %187, %.thread113 ], [ %189, %188 ]
-  %190 = and i32 %.0.i104, 32
-  %.not68 = icmp eq i32 %190, 0
-  br i1 %.not68, label %rbimpl_RB_TYPE_P_fastpath.exit79.thread, label %191, !prof !69
+vm_ci_flag.exit105:                               ; preds = %.thread113, %182
+  %.0.i104 = phi i32 [ %181, %.thread113 ], [ %183, %182 ]
+  %184 = and i32 %.0.i104, 32
+  %.not68 = icmp eq i32 %184, 0
+  br i1 %.not68, label %rbimpl_RB_TYPE_P_fastpath.exit79.thread, label %185, !prof !69
 
-191:                                              ; preds = %vm_ci_flag.exit105
+185:                                              ; preds = %vm_ci_flag.exit105
   tail call fastcc void @vm_caller_setup_arg_kw(ptr noundef %0, ptr noundef %1, ptr noundef %2)
   br label %rbimpl_RB_TYPE_P_fastpath.exit79.thread
 
-rbimpl_RB_TYPE_P_fastpath.exit79.thread:          ; preds = %125, %87, %176, %183, %RHASH_EMPTY_P.exit90, %109, %rbimpl_RB_TYPE_P_fastpath.exit79, %rb_array_len.exit, %vm_ci_flag.exit86, %147, %149, %rbimpl_RB_TYPE_P_fastpath.exit, %122, %vm_ci_flag.exit93, %19, %51, %49, %45, %56, %191, %vm_ci_flag.exit105
+rbimpl_RB_TYPE_P_fastpath.exit79.thread:          ; preds = %125, %87, %174, %179, %RHASH_EMPTY_P.exit90, %109, %rbimpl_RB_TYPE_P_fastpath.exit79, %rb_array_len.exit, %vm_ci_flag.exit86, %147, %149, %rbimpl_RB_TYPE_P_fastpath.exit, %122, %vm_ci_flag.exit93, %19, %51, %49, %45, %56, %185, %vm_ci_flag.exit105
   ret void
 }
 

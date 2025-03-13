@@ -77366,7 +77366,7 @@ _ZN5clang11DeclContext22specific_decl_iteratorINS_18CXXConstructorDeclEEppEv.exi
 
 178:                                              ; preds = %176
   %179 = inttoptr i64 %177 to ptr
-  %spec.select313 = select i1 %7, ptr %179, ptr null
+  %spec.select310 = select i1 %7, ptr %179, ptr null
   %180 = icmp eq i32 %6, 1
   %181 = add nsw i32 %4, -1
   %or.cond.i = icmp samesign ult i32 %181, 2
@@ -77389,7 +77389,7 @@ _ZN5clang11DeclContext22specific_decl_iteratorINS_18CXXConstructorDeclEEppEv.exi
   unreachable
 
 _ZL24findTrivialSpecialMemberRN5clang4SemaEPNS_13CXXRecordDeclENS_20CXXSpecialMemberKindEjbNS0_18TrivialABIHandlingEPPNS_13CXXMethodDeclE.exit: ; preds = %70, %75, %_ZNK5clang12FunctionDecl14isUserProvidedEv.exit.i, %_ZN5clang11DeclContext22specific_decl_iteratorINS_18CXXConstructorDeclEEppEv.exit.i, %63, %_ZNK5clang13CXXRecordDecl28hasTrivialDefaultConstructorEv.exit.i, %114, %133, %176, %184, %187
-  %.2 = phi ptr [ null, %176 ], [ %spec.select313, %184 ], [ %spec.select313, %187 ], [ null, %114 ], [ %134, %133 ], [ null, %_ZNK5clang13CXXRecordDecl28hasTrivialDefaultConstructorEv.exit.i ], [ null, %63 ], [ %.2.i, %_ZN5clang11DeclContext22specific_decl_iteratorINS_18CXXConstructorDeclEEppEv.exit.i ], [ %.sroa.069.084.i, %_ZNK5clang12FunctionDecl14isUserProvidedEv.exit.i ], [ %.sroa.069.084.i, %75 ], [ null, %70 ]
+  %.2 = phi ptr [ null, %176 ], [ %spec.select310, %184 ], [ %spec.select310, %187 ], [ null, %114 ], [ %134, %133 ], [ null, %_ZNK5clang13CXXRecordDecl28hasTrivialDefaultConstructorEv.exit.i ], [ null, %63 ], [ %.2.i, %_ZN5clang11DeclContext22specific_decl_iteratorINS_18CXXConstructorDeclEEppEv.exit.i ], [ %.sroa.069.084.i, %_ZNK5clang12FunctionDecl14isUserProvidedEv.exit.i ], [ %.sroa.069.084.i, %75 ], [ null, %70 ]
   %.0.i = phi i1 [ false, %176 ], [ %186, %184 ], [ %189, %187 ], [ %121, %114 ], [ false, %133 ], [ %58, %_ZNK5clang13CXXRecordDecl28hasTrivialDefaultConstructorEv.exit.i ], [ false, %63 ], [ false, %_ZN5clang11DeclContext22specific_decl_iteratorINS_18CXXConstructorDeclEEppEv.exit.i ], [ false, %_ZNK5clang12FunctionDecl14isUserProvidedEv.exit.i ], [ false, %75 ], [ false, %70 ]
   %brmerge = or i1 %.0.i, %not.
   br i1 %brmerge, label %_ZL24findTrivialSpecialMemberRN5clang4SemaEPNS_13CXXRecordDeclENS_20CXXSpecialMemberKindEjbNS0_18TrivialABIHandlingEPPNS_13CXXMethodDeclE.exit.thread, label %191

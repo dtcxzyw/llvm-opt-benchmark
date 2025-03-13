@@ -8003,7 +8003,6 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__16UsdGeomXforma
   %4 = alloca %class.anon.142, align 1
   %5 = alloca i8, align 1
   %6 = alloca %"class.std::vector.98", align 8
-  store i8 0, ptr %5, align 1
   call void @_ZNK32pxrInternal_v0_24__pxrReserved__16UsdGeomXformable19_GetOrderedXformOpsEPbb(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.98") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %5, i1 noundef zeroext false)
   %7 = invoke noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__16UsdGeomXformable24GetTimeSamplesInIntervalERKSt6vectorINS_14UsdGeomXformOpESaIS2_EERKNS_10GfIntervalEPS1_IdSaIdEE(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %2)
           to label %8 unwind label %26
@@ -8420,7 +8419,6 @@ define noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__16UsdGeomXforma
   %4 = alloca %"class.pxrInternal_v0_24__pxrReserved__::GfInterval", align 8
   %5 = alloca i8, align 1
   %6 = alloca %"class.std::vector.98", align 8
-  store i8 0, ptr %5, align 1
   call void @_ZNK32pxrInternal_v0_24__pxrReserved__16UsdGeomXformable19_GetOrderedXformOpsEPbb(ptr dead_on_unwind nonnull writable sret(%"class.std::vector.98") align 8 %6, ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull %5, i1 noundef zeroext false)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4)
   store double 0xFFF0000000000000, ptr %4, align 8, !alias.scope !65

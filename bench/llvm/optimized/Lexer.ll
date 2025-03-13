@@ -3268,7 +3268,7 @@ define dso_local i32 @_ZN5clang5Lexer19getLocForEndOfTokenENS_14SourceLocationEj
   %6 = alloca %"class.clang::SourceLocation", align 4
   store i32 %0, ptr %6, align 4
   %7 = icmp eq i32 %0, 0
-  br i1 %7, label %24, label %8
+  br i1 %7, label %21, label %8
 
 8:                                                ; preds = %4
   %9 = icmp slt i32 %0, 0
@@ -3276,11 +3276,11 @@ define dso_local i32 @_ZN5clang5Lexer19getLocForEndOfTokenENS_14SourceLocationEj
 
 10:                                               ; preds = %8
   %.not = icmp eq i32 %1, 0
-  br i1 %.not, label %11, label %24
+  br i1 %.not, label %11, label %21
 
 11:                                               ; preds = %10
   %12 = call noundef zeroext i1 @_ZN5clang5Lexer23isAtEndOfMacroExpansionENS_14SourceLocationERKNS_13SourceManagerERKNS_11LangOptionsEPS1_(i32 %0, ptr noundef nonnull align 8 dereferenceable(696) %2, ptr noundef nonnull align 8 dereferenceable(849) %3, ptr noundef nonnull %6)
-  br i1 %12, label %._crit_edge, label %24
+  br i1 %12, label %._crit_edge, label %21
 
 ._crit_edge:                                      ; preds = %11
   %.sroa.0.0.copyload.pre = load i32, ptr %6, align 4, !tbaa !286
@@ -3295,20 +3295,15 @@ define dso_local i32 @_ZN5clang5Lexer19getLocForEndOfTokenENS_14SourceLocationEj
   %.0.i = select i1 %14, i32 0, i32 %16
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #28
   %17 = icmp ugt i32 %.0.i, %1
-  br i1 %17, label %18, label %22
+  br i1 %17, label %18, label %21
 
 18:                                               ; preds = %13
-  %19 = sub nuw i32 %.0.i, %1
-  %20 = load i32, ptr %6, align 4, !tbaa !416
-  %21 = add i32 %19, %20
-  br label %24
+  %19 = sub i32 %.sroa.0.0.copyload, %1
+  %20 = add i32 %19, %.0.i
+  br label %21
 
-22:                                               ; preds = %13
-  %23 = load i32, ptr %6, align 4, !tbaa !286
-  br label %24
-
-24:                                               ; preds = %22, %18, %10, %11, %4
-  %.sroa.0.0 = phi i32 [ 0, %4 ], [ 0, %11 ], [ 0, %10 ], [ %23, %22 ], [ %21, %18 ]
+21:                                               ; preds = %18, %13, %10, %11, %4
+  %.sroa.0.0 = phi i32 [ 0, %4 ], [ 0, %11 ], [ 0, %10 ], [ %20, %18 ], [ %.sroa.0.0.copyload, %13 ]
   ret i32 %.sroa.0.0
 }
 
@@ -3803,7 +3798,7 @@ define internal fastcc { i64, i8 } @_ZL21makeRangeFromFileLocsN5clang15CharSourc
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
   %.sroa.2.0.extract.trunc = trunc nuw i64 %.sroa.2.0.extract.shift to i32
   %8 = trunc nuw i8 %1 to i1
-  br i1 %8, label %9, label %21
+  br i1 %8, label %9, label %20
 
 9:                                                ; preds = %4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
@@ -3831,41 +3826,40 @@ _ZN5clang5Lexer19getLocForEndOfTokenENS_14SourceLocationEjRKNS_13SourceManagerER
   %17 = load i32, ptr %16, align 4
   %.0.i.i = select i1 %15, i32 0, i32 %17
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #28
-  %18 = load i32, ptr %6, align 4
-  %19 = add i32 %18, %.0.i.i
+  %18 = add i32 %.0.i.i, %.sroa.0.0.copyload.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  %20 = icmp eq i32 %19, 0
-  br i1 %20, label %28, label %21
+  %19 = icmp eq i32 %18, 0
+  br i1 %19, label %27, label %20
 
 _ZN5clang5Lexer19getLocForEndOfTokenENS_14SourceLocationEjRKNS_13SourceManagerERKNS_11LangOptionsE.exit.thread: ; preds = %9, %13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  br label %28
+  br label %27
 
-21:                                               ; preds = %_ZN5clang5Lexer19getLocForEndOfTokenENS_14SourceLocationEjRKNS_13SourceManagerERKNS_11LangOptionsE.exit, %4
-  %.sroa.021.0 = phi i32 [ %19, %_ZN5clang5Lexer19getLocForEndOfTokenENS_14SourceLocationEjRKNS_13SourceManagerERKNS_11LangOptionsE.exit ], [ %.sroa.2.0.extract.trunc, %4 ]
-  %22 = call i64 @_ZNK5clang13SourceManager16getDecomposedLocENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %2, i32 %.sroa.025.0.extract.trunc)
-  %.sroa.019.0.extract.trunc = trunc i64 %22 to i32
-  %23 = icmp eq i32 %.sroa.019.0.extract.trunc, 0
-  br i1 %23, label %28, label %24
+20:                                               ; preds = %_ZN5clang5Lexer19getLocForEndOfTokenENS_14SourceLocationEjRKNS_13SourceManagerERKNS_11LangOptionsE.exit, %4
+  %.sroa.021.0 = phi i32 [ %18, %_ZN5clang5Lexer19getLocForEndOfTokenENS_14SourceLocationEjRKNS_13SourceManagerERKNS_11LangOptionsE.exit ], [ %.sroa.2.0.extract.trunc, %4 ]
+  %21 = call i64 @_ZNK5clang13SourceManager16getDecomposedLocENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %2, i32 %.sroa.025.0.extract.trunc)
+  %.sroa.019.0.extract.trunc = trunc i64 %21 to i32
+  %22 = icmp eq i32 %.sroa.019.0.extract.trunc, 0
+  br i1 %22, label %27, label %23
 
-24:                                               ; preds = %21
-  %.sroa.420.0.extract.shift = lshr i64 %22, 32
+23:                                               ; preds = %20
+  %.sroa.420.0.extract.shift = lshr i64 %21, 32
   %.sroa.420.0.extract.trunc = trunc nuw i64 %.sroa.420.0.extract.shift to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #28
-  %25 = call noundef zeroext i1 @_ZNK5clang13SourceManager10isInFileIDENS_14SourceLocationENS_6FileIDEPj(ptr noundef nonnull align 8 dereferenceable(696) %2, i32 %.sroa.021.0, i32 %.sroa.019.0.extract.trunc, ptr noundef nonnull %7)
-  %26 = load i32, ptr %7, align 4
-  %27 = icmp uge i32 %26, %.sroa.420.0.extract.trunc
-  %or.cond.not = select i1 %25, i1 %27, i1 false
+  %24 = call noundef zeroext i1 @_ZNK5clang13SourceManager10isInFileIDENS_14SourceLocationENS_6FileIDEPj(ptr noundef nonnull align 8 dereferenceable(696) %2, i32 %.sroa.021.0, i32 %.sroa.019.0.extract.trunc, ptr noundef nonnull %7)
+  %25 = load i32, ptr %7, align 4
+  %26 = icmp uge i32 %25, %.sroa.420.0.extract.trunc
+  %or.cond.not = select i1 %24, i1 %26, i1 false
   %.sroa.2.0.insert.ext.i = zext i32 %.sroa.021.0 to i64
   %.sroa.2.0.insert.shift.i = shl nuw i64 %.sroa.2.0.insert.ext.i, 32
   %.sroa.0.0.insert.ext.i = and i64 %0, 4294967295
   %.sroa.0.0.insert.insert.i = or disjoint i64 %.sroa.2.0.insert.shift.i, %.sroa.0.0.insert.ext.i
   %.sroa.026.2 = select i1 %or.cond.not, i64 %.sroa.0.0.insert.insert.i, i64 0
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #28
-  br label %28
+  br label %27
 
-28:                                               ; preds = %21, %_ZN5clang5Lexer19getLocForEndOfTokenENS_14SourceLocationEjRKNS_13SourceManagerERKNS_11LangOptionsE.exit, %_ZN5clang5Lexer19getLocForEndOfTokenENS_14SourceLocationEjRKNS_13SourceManagerERKNS_11LangOptionsE.exit.thread, %24
-  %.sroa.026.0 = phi i64 [ %.sroa.026.2, %24 ], [ 0, %_ZN5clang5Lexer19getLocForEndOfTokenENS_14SourceLocationEjRKNS_13SourceManagerERKNS_11LangOptionsE.exit.thread ], [ 0, %_ZN5clang5Lexer19getLocForEndOfTokenENS_14SourceLocationEjRKNS_13SourceManagerERKNS_11LangOptionsE.exit ], [ 0, %21 ]
+27:                                               ; preds = %20, %_ZN5clang5Lexer19getLocForEndOfTokenENS_14SourceLocationEjRKNS_13SourceManagerERKNS_11LangOptionsE.exit, %_ZN5clang5Lexer19getLocForEndOfTokenENS_14SourceLocationEjRKNS_13SourceManagerERKNS_11LangOptionsE.exit.thread, %23
+  %.sroa.026.0 = phi i64 [ %.sroa.026.2, %23 ], [ 0, %_ZN5clang5Lexer19getLocForEndOfTokenENS_14SourceLocationEjRKNS_13SourceManagerERKNS_11LangOptionsE.exit.thread ], [ 0, %_ZN5clang5Lexer19getLocForEndOfTokenENS_14SourceLocationEjRKNS_13SourceManagerERKNS_11LangOptionsE.exit ], [ 0, %20 ]
   %.fca.0.insert = insertvalue { i64, i8 } poison, i64 %.sroa.026.0, 0
   %.fca.1.insert = insertvalue { i64, i8 } %.fca.0.insert, i8 0, 1
   ret { i64, i8 } %.fca.1.insert
@@ -4821,7 +4815,7 @@ define dso_local void @_ZN5clang5Lexer13findNextTokenENS_14SourceLocationERKNS_1
 15:                                               ; preds = %13
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i8 0, ptr %16, align 8, !tbaa !426
-  br label %78
+  br label %77
 
 thread-pre-split:                                 ; preds = %13
   %.sroa.05.0.copyload.pr = load i32, ptr %8, align 4, !tbaa !286
@@ -4852,123 +4846,121 @@ thread-pre-split:                                 ; preds = %13
   %24 = call noundef zeroext i1 @_ZN5clang5Lexer11getRawTokenENS_14SourceLocationERNS_5TokenERKNS_13SourceManagerERKNS_11LangOptionsEb(i32 %.sroa.0.0.copyload.i, ptr noundef nonnull align 8 dereferenceable(20) %6, ptr noundef nonnull align 8 dereferenceable(696) %2, ptr noundef nonnull align 8 dereferenceable(849) %3, i1 noundef zeroext false)
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %26 = load i32, ptr %25, align 4
+  %.0.i.i = select i1 %24, i32 0, i32 %26
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #28
-  %27 = load i32, ptr %7, align 4, !tbaa !286
-  %28 = select i1 %24, i32 0, i32 %26
-  %spec.select = add i32 %27, %28
+  %27 = add i32 %.0.i.i, %.sroa.0.0.copyload.i
   br label %_ZN5clang5Lexer19getLocForEndOfTokenENS_14SourceLocationEjRKNS_13SourceManagerERKNS_11LangOptionsE.exit
 
 _ZN5clang5Lexer19getLocForEndOfTokenENS_14SourceLocationEjRKNS_13SourceManagerERKNS_11LangOptionsE.exit: ; preds = %23, %17, %21
-  %.sroa.0.0.i = phi i32 [ 0, %17 ], [ 0, %21 ], [ %spec.select, %23 ]
+  %.sroa.0.0.i = phi i32 [ 0, %17 ], [ 0, %21 ], [ %27, %23 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7)
-  store i32 %.sroa.0.0.i, ptr %8, align 4, !tbaa !286
-  %29 = call i64 @_ZNK5clang13SourceManager16getDecomposedLocENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %2, i32 %.sroa.0.0.i)
-  %.sroa.04.0.extract.trunc = trunc i64 %29 to i32
+  %28 = call i64 @_ZNK5clang13SourceManager16getDecomposedLocENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %2, i32 %.sroa.0.0.i)
+  %.sroa.04.0.extract.trunc = trunc i64 %28 to i32
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #28
   store i8 0, ptr %9, align 1, !tbaa !392
-  %30 = call { ptr, i64 } @_ZNK5clang13SourceManager13getBufferDataENS_6FileIDEPb(ptr noundef nonnull align 8 dereferenceable(696) %2, i32 %.sroa.04.0.extract.trunc, ptr noundef nonnull %9) #28
-  %31 = extractvalue { ptr, i64 } %30, 0
-  %32 = extractvalue { ptr, i64 } %30, 1
-  %33 = load i8, ptr %9, align 1, !tbaa !392, !range !375, !noundef !393
-  %34 = trunc nuw i8 %33 to i1
-  br i1 %34, label %35, label %37
+  %29 = call { ptr, i64 } @_ZNK5clang13SourceManager13getBufferDataENS_6FileIDEPb(ptr noundef nonnull align 8 dereferenceable(696) %2, i32 %.sroa.04.0.extract.trunc, ptr noundef nonnull %9) #28
+  %30 = extractvalue { ptr, i64 } %29, 0
+  %31 = extractvalue { ptr, i64 } %29, 1
+  %32 = load i8, ptr %9, align 1, !tbaa !392, !range !375, !noundef !393
+  %33 = trunc nuw i8 %32 to i1
+  br i1 %33, label %34, label %36
 
-35:                                               ; preds = %_ZN5clang5Lexer19getLocForEndOfTokenENS_14SourceLocationEjRKNS_13SourceManagerERKNS_11LangOptionsE.exit
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i8 0, ptr %36, align 8, !tbaa !426
-  br label %77
+34:                                               ; preds = %_ZN5clang5Lexer19getLocForEndOfTokenENS_14SourceLocationEjRKNS_13SourceManagerERKNS_11LangOptionsE.exit
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i8 0, ptr %35, align 8, !tbaa !426
+  br label %76
 
-37:                                               ; preds = %_ZN5clang5Lexer19getLocForEndOfTokenENS_14SourceLocationEjRKNS_13SourceManagerERKNS_11LangOptionsE.exit
-  %.sroa.5.0.extract.shift = lshr i64 %29, 32
-  %38 = getelementptr inbounds nuw i8, ptr %31, i64 %.sroa.5.0.extract.shift
+36:                                               ; preds = %_ZN5clang5Lexer19getLocForEndOfTokenENS_14SourceLocationEjRKNS_13SourceManagerERKNS_11LangOptionsE.exit
+  %.sroa.5.0.extract.shift = lshr i64 %28, 32
+  %37 = getelementptr inbounds nuw i8, ptr %30, i64 %.sroa.5.0.extract.shift
   call void @llvm.lifetime.start.p0(i64 208, ptr nonnull %10) #28
-  %39 = call noundef ptr @_ZN5clang13SourceManager19getSLocEntryForFileENS_6FileIDE(ptr noundef nonnull align 8 dereferenceable(696) %2, i32 %.sroa.04.0.extract.trunc)
-  %.not.not.i = icmp eq ptr %39, null
-  br i1 %.not.not.i, label %_ZNK5clang13SourceManager20getLocForStartOfFileENS_6FileIDE.exit, label %40
+  %38 = call noundef ptr @_ZN5clang13SourceManager19getSLocEntryForFileENS_6FileIDE(ptr noundef nonnull align 8 dereferenceable(696) %2, i32 %.sroa.04.0.extract.trunc)
+  %.not.not.i = icmp eq ptr %38, null
+  br i1 %.not.not.i, label %_ZNK5clang13SourceManager20getLocForStartOfFileENS_6FileIDE.exit, label %39
 
-40:                                               ; preds = %37
-  %41 = load i32, ptr %39, align 8
-  %42 = and i32 %41, 2147483647
+39:                                               ; preds = %36
+  %40 = load i32, ptr %38, align 8
+  %41 = and i32 %40, 2147483647
   br label %_ZNK5clang13SourceManager20getLocForStartOfFileENS_6FileIDE.exit
 
-_ZNK5clang13SourceManager20getLocForStartOfFileENS_6FileIDE.exit: ; preds = %37, %40
-  %.sroa.0.1.i = phi i32 [ %42, %40 ], [ 0, %37 ]
-  %43 = getelementptr inbounds nuw i8, ptr %31, i64 %32
-  call void @_ZN5clang5LexerC1ENS_14SourceLocationERKNS_11LangOptionsEPKcS6_S6_b(ptr noundef nonnull align 8 dereferenceable(204) %10, i32 %.sroa.0.1.i, ptr noundef nonnull align 8 dereferenceable(849) %3, ptr noundef %31, ptr noundef %38, ptr noundef %43, i1 noundef zeroext true) #28
-  %44 = zext i1 %4 to i8
-  %45 = getelementptr inbounds nuw i8, ptr %10, i64 146
-  store i8 %44, ptr %45, align 2, !tbaa !44
+_ZNK5clang13SourceManager20getLocForStartOfFileENS_6FileIDE.exit: ; preds = %36, %39
+  %.sroa.0.1.i = phi i32 [ %41, %39 ], [ 0, %36 ]
+  %42 = getelementptr inbounds nuw i8, ptr %30, i64 %31
+  call void @_ZN5clang5LexerC1ENS_14SourceLocationERKNS_11LangOptionsEPKcS6_S6_b(ptr noundef nonnull align 8 dereferenceable(204) %10, i32 %.sroa.0.1.i, ptr noundef nonnull align 8 dereferenceable(849) %3, ptr noundef %30, ptr noundef %37, ptr noundef %42, i1 noundef zeroext true) #28
+  %43 = zext i1 %4 to i8
+  %44 = getelementptr inbounds nuw i8, ptr %10, i64 146
+  store i8 %43, ptr %44, align 2, !tbaa !44
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %11) #28
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %11, i8 0, i64 20, i1 false)
-  %46 = getelementptr inbounds nuw i8, ptr %10, i64 160
-  %47 = load i8, ptr %46, align 8, !tbaa !37, !range !375, !noundef !393
-  %48 = trunc nuw i8 %47 to i1
-  br i1 %48, label %49, label %51
+  %45 = getelementptr inbounds nuw i8, ptr %10, i64 160
+  %46 = load i8, ptr %45, align 8, !tbaa !37, !range !375, !noundef !393
+  %47 = trunc nuw i8 %46 to i1
+  br i1 %47, label %48, label %50
 
-49:                                               ; preds = %_ZNK5clang13SourceManager20getLocForStartOfFileENS_6FileIDE.exit
-  %50 = getelementptr inbounds nuw i8, ptr %11, i64 18
-  store i16 1, ptr %50, align 2, !tbaa !394
-  store i8 0, ptr %46, align 8, !tbaa !37
-  br label %51
+48:                                               ; preds = %_ZNK5clang13SourceManager20getLocForStartOfFileENS_6FileIDE.exit
+  %49 = getelementptr inbounds nuw i8, ptr %11, i64 18
+  store i16 1, ptr %49, align 2, !tbaa !394
+  store i8 0, ptr %45, align 8, !tbaa !37
+  br label %50
 
-51:                                               ; preds = %49, %_ZNK5clang13SourceManager20getLocForStartOfFileENS_6FileIDE.exit
-  %52 = phi i16 [ 1, %49 ], [ 0, %_ZNK5clang13SourceManager20getLocForStartOfFileENS_6FileIDE.exit ]
-  %53 = getelementptr inbounds nuw i8, ptr %10, i64 162
-  %54 = load i8, ptr %53, align 2, !tbaa !39, !range !375, !noundef !393
-  %55 = trunc nuw i8 %54 to i1
-  br i1 %55, label %56, label %59
+50:                                               ; preds = %48, %_ZNK5clang13SourceManager20getLocForStartOfFileENS_6FileIDE.exit
+  %51 = phi i16 [ 1, %48 ], [ 0, %_ZNK5clang13SourceManager20getLocForStartOfFileENS_6FileIDE.exit ]
+  %52 = getelementptr inbounds nuw i8, ptr %10, i64 162
+  %53 = load i8, ptr %52, align 2, !tbaa !39, !range !375, !noundef !393
+  %54 = trunc nuw i8 %53 to i1
+  br i1 %54, label %55, label %58
 
-56:                                               ; preds = %51
-  %57 = getelementptr inbounds nuw i8, ptr %11, i64 18
-  %58 = or disjoint i16 %52, 2
-  store i16 %58, ptr %57, align 2, !tbaa !394
-  store i8 0, ptr %53, align 2, !tbaa !39
-  br label %59
+55:                                               ; preds = %50
+  %56 = getelementptr inbounds nuw i8, ptr %11, i64 18
+  %57 = or disjoint i16 %51, 2
+  store i16 %57, ptr %56, align 2, !tbaa !394
+  store i8 0, ptr %52, align 2, !tbaa !39
+  br label %58
 
-59:                                               ; preds = %56, %51
-  %60 = phi i16 [ %58, %56 ], [ %52, %51 ]
-  %61 = getelementptr inbounds nuw i8, ptr %10, i64 163
-  %62 = load i8, ptr %61, align 1, !tbaa !40, !range !375, !noundef !393
-  %63 = trunc nuw i8 %62 to i1
-  br i1 %63, label %64, label %_ZN5clang5Lexer15LexFromRawLexerERNS_5TokenE.exit
+58:                                               ; preds = %55, %50
+  %59 = phi i16 [ %57, %55 ], [ %51, %50 ]
+  %60 = getelementptr inbounds nuw i8, ptr %10, i64 163
+  %61 = load i8, ptr %60, align 1, !tbaa !40, !range !375, !noundef !393
+  %62 = trunc nuw i8 %61 to i1
+  br i1 %62, label %63, label %_ZN5clang5Lexer15LexFromRawLexerERNS_5TokenE.exit
 
-64:                                               ; preds = %59
-  %65 = getelementptr inbounds nuw i8, ptr %11, i64 18
-  %66 = or i16 %60, 16
-  store i16 %66, ptr %65, align 2, !tbaa !394
-  store i8 0, ptr %61, align 1, !tbaa !40
+63:                                               ; preds = %58
+  %64 = getelementptr inbounds nuw i8, ptr %11, i64 18
+  %65 = or i16 %59, 16
+  store i16 %65, ptr %64, align 2, !tbaa !394
+  store i8 0, ptr %60, align 1, !tbaa !40
   br label %_ZN5clang5Lexer15LexFromRawLexerERNS_5TokenE.exit
 
-_ZN5clang5Lexer15LexFromRawLexerERNS_5TokenE.exit: ; preds = %59, %64
-  %67 = getelementptr inbounds nuw i8, ptr %10, i64 161
-  %68 = load i8, ptr %67, align 1, !tbaa !38, !range !375, !noundef !393
-  %69 = trunc nuw i8 %68 to i1
-  store i8 0, ptr %67, align 1, !tbaa !38
-  %70 = call noundef zeroext i1 @_ZN5clang5Lexer16LexTokenInternalERNS_5TokenEb(ptr noundef nonnull align 8 dereferenceable(204) %10, ptr noundef nonnull align 8 dereferenceable(20) %11, i1 noundef zeroext %69)
+_ZN5clang5Lexer15LexFromRawLexerERNS_5TokenE.exit: ; preds = %58, %63
+  %66 = getelementptr inbounds nuw i8, ptr %10, i64 161
+  %67 = load i8, ptr %66, align 1, !tbaa !38, !range !375, !noundef !393
+  %68 = trunc nuw i8 %67 to i1
+  store i8 0, ptr %66, align 1, !tbaa !38
+  %69 = call noundef zeroext i1 @_ZN5clang5Lexer16LexTokenInternalERNS_5TokenEb(ptr noundef nonnull align 8 dereferenceable(204) %10, ptr noundef nonnull align 8 dereferenceable(20) %11, i1 noundef zeroext %68)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false), !tbaa.struct !411
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i8 1, ptr %71, align 8, !tbaa !426
+  %70 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i8 1, ptr %70, align 8, !tbaa !426
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #28
   store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVN5clang17PreprocessorLexerE, i64 16), ptr %10, align 8, !tbaa !46
-  %72 = getelementptr inbounds nuw i8, ptr %10, i64 64
-  %73 = load ptr, ptr %72, align 8, !tbaa !283
-  %74 = getelementptr inbounds nuw i8, ptr %10, i64 80
-  %75 = icmp eq ptr %73, %74
-  br i1 %75, label %_ZN5clang17PreprocessorLexerD2Ev.exit, label %76
+  %71 = getelementptr inbounds nuw i8, ptr %10, i64 64
+  %72 = load ptr, ptr %71, align 8, !tbaa !283
+  %73 = getelementptr inbounds nuw i8, ptr %10, i64 80
+  %74 = icmp eq ptr %72, %73
+  br i1 %74, label %_ZN5clang17PreprocessorLexerD2Ev.exit, label %75
 
-76:                                               ; preds = %_ZN5clang5Lexer15LexFromRawLexerERNS_5TokenE.exit
-  call void @free(ptr noundef %73) #28
+75:                                               ; preds = %_ZN5clang5Lexer15LexFromRawLexerERNS_5TokenE.exit
+  call void @free(ptr noundef %72) #28
   br label %_ZN5clang17PreprocessorLexerD2Ev.exit
 
-_ZN5clang17PreprocessorLexerD2Ev.exit:            ; preds = %_ZN5clang5Lexer15LexFromRawLexerERNS_5TokenE.exit, %76
+_ZN5clang17PreprocessorLexerD2Ev.exit:            ; preds = %_ZN5clang5Lexer15LexFromRawLexerERNS_5TokenE.exit, %75
   call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %10) #28
+  br label %76
+
+76:                                               ; preds = %_ZN5clang17PreprocessorLexerD2Ev.exit, %34
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #28
   br label %77
 
-77:                                               ; preds = %_ZN5clang17PreprocessorLexerD2Ev.exit, %35
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #28
-  br label %78
-
-78:                                               ; preds = %77, %15
+77:                                               ; preds = %76, %15
   ret void
 }
 

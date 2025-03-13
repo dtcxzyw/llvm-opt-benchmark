@@ -18025,25 +18025,25 @@ _ZNK8ImVectorI16stbtt_packedcharE14_grow_capacityEi.exit.i: ; preds = %_ZNK8ImVe
   br label %1428
 
 1428:                                             ; preds = %.lr.ph677, %1428
+  %1429 = phi i32 [ %1380, %.lr.ph677 ], [ %1449, %1428 ]
+  %1430 = phi i32 [ %1376, %.lr.ph677 ], [ %1441, %1428 ]
   %indvars.iv797 = phi i64 [ 0, %.lr.ph677 ], [ %indvars.iv.next798, %1428 ]
   %.2305675 = phi i32 [ %.0303682, %.lr.ph677 ], [ %1455, %1428 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %23) #42
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24) #42
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %25) #42
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %26) #42
-  %1429 = load ptr, ptr %1369, align 8, !tbaa !363
-  %1430 = getelementptr inbounds nuw i32, ptr %1429, i64 %indvars.iv797
-  %1431 = load i32, ptr %1430, align 4, !tbaa !19
+  %1431 = load ptr, ptr %1369, align 8, !tbaa !363
+  %1432 = getelementptr inbounds nuw i32, ptr %1431, i64 %indvars.iv797
+  %1433 = load i32, ptr %1432, align 4, !tbaa !19
   %.val353 = load ptr, ptr %1425, align 8, !tbaa !327
   %.val354 = load i32, ptr %1426, align 8, !tbaa !343
-  %1432 = call fastcc noundef i32 @_ZL20stbtt_FindGlyphIndexPK14stbtt_fontinfoi(ptr %.val353, i32 %.val354, i32 noundef %1431)
-  %1433 = load i32, ptr %1375, align 8, !tbaa !226
-  %1434 = sitofp i32 %1433 to float
-  %1435 = fmul float %1422, %1434
-  %1436 = load i32, ptr %1379, align 4, !tbaa !227
-  %1437 = sitofp i32 %1436 to float
+  %1434 = call fastcc noundef i32 @_ZL20stbtt_FindGlyphIndexPK14stbtt_fontinfoi(ptr %.val353, i32 %.val354, i32 noundef %1433)
+  %1435 = sitofp i32 %1430 to float
+  %1436 = fmul float %1422, %1435
+  %1437 = sitofp i32 %1429 to float
   %1438 = fmul float %1422, %1437
-  call fastcc void @_ZL31stbtt_GetGlyphBitmapBoxSubpixelPK14stbtt_fontinfoiffffPiS2_S2_S2_(ptr noundef %1346, i32 noundef %1432, float noundef %1435, float noundef %1438, ptr noundef %23, ptr noundef %24, ptr noundef nonnull %25, ptr noundef nonnull %26)
+  call fastcc void @_ZL31stbtt_GetGlyphBitmapBoxSubpixelPK14stbtt_fontinfoiffffPiS2_S2_S2_(ptr noundef %1346, i32 noundef %1434, float noundef %1436, float noundef %1438, ptr noundef %23, ptr noundef %24, ptr noundef nonnull %25, ptr noundef nonnull %26)
   %1439 = load i32, ptr %25, align 4, !tbaa !19
   %1440 = load i32, ptr %23, align 4, !tbaa !19
   %1441 = load i32, ptr %1375, align 8, !tbaa !226

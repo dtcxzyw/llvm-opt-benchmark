@@ -54494,7 +54494,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__12Ts_EvalCacheINS_7TfTokenELb0EEC2EPKNS_12T
   %18 = atomicrmw add ptr %17, i32 2 monotonic, align 4
   %19 = and i32 %18, 1
   %.not1.i.i.i = icmp eq i32 %19, 0
-  br i1 %.not1.i.i.i, label %20, label %_ZN32pxrInternal_v0_24__pxrReserved__12Ts_EvalCacheINS_7TfTokenELb0EEC2EPKNS_12Ts_TypedDataIS1_EES6_.exit
+  br i1 %.not1.i.i.i, label %20, label %._ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i.i_crit_edge
+
+._ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i.i_crit_edge: ; preds = %15
+  %.pre = load i64, ptr %11, align 8
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__12Ts_EvalCacheINS_7TfTokenELb0EEC2EPKNS_12Ts_TypedDataIS1_EES6_.exit
 
 20:                                               ; preds = %15
   %21 = load ptr, ptr %11, align 8
@@ -54504,21 +54508,21 @@ _ZN32pxrInternal_v0_24__pxrReserved__12Ts_EvalCacheINS_7TfTokenELb0EEC2EPKNS_12T
   store ptr %24, ptr %11, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12Ts_EvalCacheINS_7TfTokenELb0EEC2EPKNS_12Ts_TypedDataIS1_EES6_.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__12Ts_EvalCacheINS_7TfTokenELb0EEC2EPKNS_12Ts_TypedDataIS1_EES6_.exit: ; preds = %10, %15, %20
-  %.pre = load i64, ptr %11, align 8
+_ZN32pxrInternal_v0_24__pxrReserved__12Ts_EvalCacheINS_7TfTokenELb0EEC2EPKNS_12Ts_TypedDataIS1_EES6_.exit: ; preds = %20, %10, %._ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i.i_crit_edge
+  %.sroa.1.0 = phi i64 [ %.pre, %._ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i.i_crit_edge ], [ %13, %10 ], [ %23, %20 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1143)
-  %25 = and i64 %.pre, 7
+  %25 = and i64 %.sroa.1.0, 7
   %.not.i.i.i.i = icmp eq i64 %25, 0
   br i1 %.not.i.i.i.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_EvalCacheINS_7TfTokenELb0EE4EvalEd.exit, label %_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_EvalCacheINS_7TfTokenELb0EE9TypedEvalEd.exit.i
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Ts_EvalCacheINS_7TfTokenELb0EE9TypedEvalEd.exit.i: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12Ts_EvalCacheINS_7TfTokenELb0EEC2EPKNS_12Ts_TypedDataIS1_EES6_.exit
-  %26 = and i64 %.pre, -8
+  %26 = and i64 %.sroa.1.0, -8
   %27 = inttoptr i64 %26 to ptr
   %28 = atomicrmw add ptr %27, i32 2 monotonic, align 4, !noalias !1146
   %29 = and i32 %28, 1
   %.not1.i.i.i.i = icmp eq i32 %29, 0
-  %30 = select i1 %.not1.i.i.i.i, i64 %26, i64 %.pre
+  %30 = select i1 %.not1.i.i.i.i, i64 %26, i64 %.sroa.1.0
   %.pre.i = and i64 %30, 7
   %31 = icmp eq i64 %.pre.i, 0
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -54543,16 +54547,16 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12Ts_EvalCacheINS_7TfTokenELb0EE9TypedEval
   br label %44
 
 _ZNK32pxrInternal_v0_24__pxrReserved__12Ts_EvalCacheINS_7TfTokenELb0EE4EvalEd.exit: ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__12Ts_EvalCacheINS_7TfTokenELb0EEC2EPKNS_12Ts_TypedDataIS1_EES6_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__12Ts_EvalCacheINS_7TfTokenELb0EEC2EPKNS_12Ts_TypedDataIS1_EES6_.exit.thread
-  %.sroa.1.016 = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__12Ts_EvalCacheINS_7TfTokenELb0EEC2EPKNS_12Ts_TypedDataIS1_EES6_.exit.thread ], [ %.pre, %_ZN32pxrInternal_v0_24__pxrReserved__12Ts_EvalCacheINS_7TfTokenELb0EEC2EPKNS_12Ts_TypedDataIS1_EES6_.exit ]
+  %.sroa.1.014 = phi i64 [ 0, %_ZN32pxrInternal_v0_24__pxrReserved__12Ts_EvalCacheINS_7TfTokenELb0EEC2EPKNS_12Ts_TypedDataIS1_EES6_.exit.thread ], [ %.sroa.1.0, %_ZN32pxrInternal_v0_24__pxrReserved__12Ts_EvalCacheINS_7TfTokenELb0EEC2EPKNS_12Ts_TypedDataIS1_EES6_.exit ]
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %42 = or disjoint i64 1, ptrtoint (ptr @_ZZN32pxrInternal_v0_24__pxrReserved__7VtValue11GetTypeInfoINS_7TfTokenEEENS_16TfPointerAndBitsIKNS0_9_TypeInfoEEEvE2ti to i64)
   %43 = inttoptr i64 %42 to ptr
   store ptr %43, ptr %41, align 8, !alias.scope !1143
-  store i64 %.sroa.1.016, ptr %0, align 8, !alias.scope !1143
+  store i64 %.sroa.1.014, ptr %0, align 8, !alias.scope !1143
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12Ts_EvalCacheINS_7TfTokenELb0EED2Ev.exit
 
 44:                                               ; preds = %39, %_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_EvalCacheINS_7TfTokenELb0EE9TypedEvalEd.exit.i
-  %45 = and i64 %.pre, -8
+  %45 = and i64 %.sroa.1.0, -8
   %46 = inttoptr i64 %45 to ptr
   %47 = atomicrmw sub ptr %46, i32 2 release, align 4
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12Ts_EvalCacheINS_7TfTokenELb0EED2Ev.exit
@@ -54587,7 +54591,7 @@ define linkonce_odr void @_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_TypedDataIN
   %14 = ptrtoint ptr %13 to i64
   %15 = and i64 %14, 7
   %.not.i.i6.i = icmp eq i64 %15, 0
-  br i1 %.not.i.i6.i, label %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i.i, label %16
+  br i1 %.not.i.i6.i, label %_ZN32pxrInternal_v0_24__pxrReserved__12Ts_EvalCacheINS_7TfTokenELb0EEC2EPKNS_12Ts_TypedDataIS1_EES6_.exit, label %16
 
 16:                                               ; preds = %11
   %17 = and i64 %14, -8
@@ -54595,7 +54599,11 @@ define linkonce_odr void @_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_TypedDataIN
   %19 = atomicrmw add ptr %18, i32 2 monotonic, align 4
   %20 = and i32 %19, 1
   %.not1.i.i.i = icmp eq i32 %20, 0
-  br i1 %.not1.i.i.i, label %21, label %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i.i
+  br i1 %.not1.i.i.i, label %21, label %._ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i.i_crit_edge
+
+._ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i.i_crit_edge: ; preds = %16
+  %.pre = load i64, ptr %12, align 8
+  br label %_ZN32pxrInternal_v0_24__pxrReserved__12Ts_EvalCacheINS_7TfTokenELb0EEC2EPKNS_12Ts_TypedDataIS1_EES6_.exit
 
 21:                                               ; preds = %16
   %22 = load ptr, ptr %12, align 8
@@ -54603,14 +54611,10 @@ define linkonce_odr void @_ZNK32pxrInternal_v0_24__pxrReserved__12Ts_TypedDataIN
   %24 = and i64 %23, -8
   %25 = inttoptr i64 %24 to ptr
   store ptr %25, ptr %12, align 8
-  br label %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i.i
-
-_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i.i: ; preds = %21, %16, %11
-  %.pre = load i64, ptr %12, align 8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__12Ts_EvalCacheINS_7TfTokenELb0EEC2EPKNS_12Ts_TypedDataIS1_EES6_.exit
 
-_ZN32pxrInternal_v0_24__pxrReserved__12Ts_EvalCacheINS_7TfTokenELb0EEC2EPKNS_12Ts_TypedDataIS1_EES6_.exit: ; preds = %6, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i.i
-  %.sroa.1.0 = phi i64 [ 0, %6 ], [ %.pre, %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i.i ]
+_ZN32pxrInternal_v0_24__pxrReserved__12Ts_EvalCacheINS_7TfTokenELb0EEC2EPKNS_12Ts_TypedDataIS1_EES6_.exit: ; preds = %21, %11, %._ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i.i_crit_edge, %6
+  %.sroa.1.0 = phi i64 [ 0, %6 ], [ %.pre, %._ZNK32pxrInternal_v0_24__pxrReserved__7TfToken10_RemoveRefEv.exit.i.i_crit_edge ], [ %14, %11 ], [ %24, %21 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %5)
   call void @llvm.experimental.noalias.scope.decl(metadata !1149)
   %26 = load i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8TsTraitsINS_7TfTokenEE4zeroE, align 8, !noalias !1152

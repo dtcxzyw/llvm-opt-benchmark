@@ -26137,7 +26137,7 @@ define linkonce_odr dso_local void @_ZNK4pbrt15BVHLightSampler6SampleERKNS_18Lig
   store float %61, ptr %51, align 4, !tbaa !127
   %62 = fcmp une float %60, 0.000000e+00
   %63 = fcmp une float %61, 0.000000e+00
-  %or.cond.not = or i1 %63, %62
+  %or.cond.not = or i1 %62, %63
   br i1 %or.cond.not, label %.lr.ph.i, label %.thread87
 
 .thread87:                                        ; preds = %52

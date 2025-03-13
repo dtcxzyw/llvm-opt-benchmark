@@ -808,7 +808,6 @@ tree_add_auth_node.exit40.thread.i:               ; preds = %tree_add_auth_node.
 tree_calculate_authority_set.exit.thread74:       ; preds = %tree_add_auth_node.exit40.thread.i
   %359 = load ptr, ptr %6, align 8, !tbaa !33
   call void @OPENSSL_sk_free(ptr noundef %359) #3
-  store ptr null, ptr %6, align 8, !tbaa !33
   br label %tree_evaluate.exit.thread
 
 tree_add_auth_node.exit40.thread48.i:             ; preds = %tree_add_auth_node.exit40.i, %352, %.lr.ph.i31
@@ -840,202 +839,201 @@ tree_calculate_authority_set.exit:                ; preds = %._crit_edge57.i
 tree_calculate_authority_set.exit.thread71:       ; preds = %._crit_edge57.i.tree_calculate_authority_set.exit.thread71_crit_edge, %tree_calculate_authority_set.exit
   %369 = phi ptr [ %.pre111, %._crit_edge57.i.tree_calculate_authority_set.exit.thread71_crit_edge ], [ %368, %tree_calculate_authority_set.exit ]
   call void @OPENSSL_sk_sort(ptr noundef %369) #3
-  %370 = load ptr, ptr %6, align 8, !tbaa !33
-  %371 = call i32 @OPENSSL_sk_num(ptr noundef %3) #3
-  %372 = icmp slt i32 %371, 1
-  br i1 %372, label %tree_calculate_user_set.exit, label %373
+  %370 = call i32 @OPENSSL_sk_num(ptr noundef %3) #3
+  %371 = icmp slt i32 %370, 1
+  br i1 %371, label %tree_calculate_user_set.exit, label %372
 
-373:                                              ; preds = %tree_calculate_authority_set.exit.thread71
-  %374 = load ptr, ptr %131, align 8, !tbaa !15
-  %375 = load i32, ptr %132, align 8, !tbaa !14
-  %376 = sext i32 %375 to i64
-  %377 = getelementptr %struct.X509_POLICY_LEVEL_st, ptr %374, i64 %376
-  %378 = getelementptr i8, ptr %377, i64 -16
-  %379 = load ptr, ptr %378, align 8, !tbaa !21
-  %.fr.i = freeze ptr %379
-  %380 = call i32 @OPENSSL_sk_num(ptr noundef %3) #3
-  %381 = icmp sgt i32 %380, 0
-  br i1 %381, label %.lr.ph.i35, label %.preheader.i
+372:                                              ; preds = %tree_calculate_authority_set.exit.thread71
+  %373 = load ptr, ptr %131, align 8, !tbaa !15
+  %374 = load i32, ptr %132, align 8, !tbaa !14
+  %375 = sext i32 %374 to i64
+  %376 = getelementptr %struct.X509_POLICY_LEVEL_st, ptr %373, i64 %375
+  %377 = getelementptr i8, ptr %376, i64 -16
+  %378 = load ptr, ptr %377, align 8, !tbaa !21
+  %.fr.i = freeze ptr %378
+  %379 = call i32 @OPENSSL_sk_num(ptr noundef %3) #3
+  %380 = icmp sgt i32 %379, 0
+  br i1 %380, label %.lr.ph.i35, label %.preheader.i
 
-382:                                              ; preds = %.lr.ph.i35
-  %383 = add nuw nsw i32 %.03751.i, 1
-  %384 = call i32 @OPENSSL_sk_num(ptr noundef %3) #3
-  %385 = icmp slt i32 %383, %384
-  br i1 %385, label %.lr.ph.i35, label %.preheader.i, !llvm.loop !62
+381:                                              ; preds = %.lr.ph.i35
+  %382 = add nuw nsw i32 %.03751.i, 1
+  %383 = call i32 @OPENSSL_sk_num(ptr noundef %3) #3
+  %384 = icmp slt i32 %382, %383
+  br i1 %384, label %.lr.ph.i35, label %.preheader.i, !llvm.loop !62
 
-.preheader.i:                                     ; preds = %382, %373
-  %386 = call i32 @OPENSSL_sk_num(ptr noundef %3) #3
-  %387 = icmp sgt i32 %386, 0
-  br i1 %387, label %.lr.ph53.i, label %tree_calculate_user_set.exit
+.preheader.i:                                     ; preds = %381, %372
+  %385 = call i32 @OPENSSL_sk_num(ptr noundef %3) #3
+  %386 = icmp sgt i32 %385, 0
+  br i1 %386, label %.lr.ph53.i, label %tree_calculate_user_set.exit
 
 .lr.ph53.i:                                       ; preds = %.preheader.i
   %.not43.i = icmp eq ptr %.fr.i, null
-  %388 = getelementptr inbounds nuw i8, ptr %.fr.i, i64 8
-  %389 = getelementptr inbounds nuw i8, ptr %.043, i64 48
+  %387 = getelementptr inbounds nuw i8, ptr %.fr.i, i64 8
+  %388 = getelementptr inbounds nuw i8, ptr %.043, i64 48
   br i1 %.not43.i, label %.lr.ph53.split.us.i, label %.lr.ph53.split.i
 
-.lr.ph53.split.us.i:                              ; preds = %.lr.ph53.i, %399
-  %.152.us.i = phi i32 [ %400, %399 ], [ 0, %.lr.ph53.i ]
-  %390 = call ptr @OPENSSL_sk_value(ptr noundef %3, i32 noundef %.152.us.i) #3
-  %391 = call ptr @ossl_policy_tree_find_sk(ptr noundef %370, ptr noundef %390) #3
-  %.not.us.i = icmp eq ptr %391, null
-  br i1 %.not.us.i, label %399, label %392
+.lr.ph53.split.us.i:                              ; preds = %.lr.ph53.i, %398
+  %.152.us.i = phi i32 [ %399, %398 ], [ 0, %.lr.ph53.i ]
+  %389 = call ptr @OPENSSL_sk_value(ptr noundef %3, i32 noundef %.152.us.i) #3
+  %390 = call ptr @ossl_policy_tree_find_sk(ptr noundef %369, ptr noundef %389) #3
+  %.not.us.i = icmp eq ptr %390, null
+  br i1 %.not.us.i, label %398, label %391
 
-392:                                              ; preds = %.lr.ph53.split.us.i
-  %393 = load ptr, ptr %389, align 8, !tbaa !13
-  %.not44.us.i = icmp eq ptr %393, null
-  br i1 %.not44.us.i, label %394, label %396
+391:                                              ; preds = %.lr.ph53.split.us.i
+  %392 = load ptr, ptr %388, align 8, !tbaa !13
+  %.not44.us.i = icmp eq ptr %392, null
+  br i1 %.not44.us.i, label %393, label %395
 
-394:                                              ; preds = %392
-  %395 = call ptr @OPENSSL_sk_new_null() #3
-  store ptr %395, ptr %389, align 8, !tbaa !13
-  %.not45.us.i = icmp eq ptr %395, null
-  br i1 %.not45.us.i, label %.split.us.i, label %396
+393:                                              ; preds = %391
+  %394 = call ptr @OPENSSL_sk_new_null() #3
+  store ptr %394, ptr %388, align 8, !tbaa !13
+  %.not45.us.i = icmp eq ptr %394, null
+  br i1 %.not45.us.i, label %.split.us.i, label %395
 
-396:                                              ; preds = %394, %392
-  %397 = phi ptr [ %395, %394 ], [ %393, %392 ]
-  %398 = call i32 @OPENSSL_sk_push(ptr noundef nonnull %397, ptr noundef nonnull %391) #3
-  %.not46.us.i = icmp eq i32 %398, 0
-  br i1 %.not46.us.i, label %.split57.us.i, label %399
+395:                                              ; preds = %393, %391
+  %396 = phi ptr [ %394, %393 ], [ %392, %391 ]
+  %397 = call i32 @OPENSSL_sk_push(ptr noundef nonnull %396, ptr noundef nonnull %390) #3
+  %.not46.us.i = icmp eq i32 %397, 0
+  br i1 %.not46.us.i, label %.split57.us.i, label %398
 
-399:                                              ; preds = %396, %.lr.ph53.split.us.i
-  %400 = add nuw nsw i32 %.152.us.i, 1
-  %401 = call i32 @OPENSSL_sk_num(ptr noundef %3) #3
-  %402 = icmp slt i32 %400, %401
-  br i1 %402, label %.lr.ph53.split.us.i, label %tree_calculate_user_set.exit, !llvm.loop !63
+398:                                              ; preds = %395, %.lr.ph53.split.us.i
+  %399 = add nuw nsw i32 %.152.us.i, 1
+  %400 = call i32 @OPENSSL_sk_num(ptr noundef %3) #3
+  %401 = icmp slt i32 %399, %400
+  br i1 %401, label %.lr.ph53.split.us.i, label %tree_calculate_user_set.exit, !llvm.loop !63
 
-.lr.ph.i35:                                       ; preds = %373, %382
-  %.03751.i = phi i32 [ %383, %382 ], [ 0, %373 ]
-  %403 = call ptr @OPENSSL_sk_value(ptr noundef %3, i32 noundef %.03751.i) #3
-  %404 = call i32 @OBJ_obj2nid(ptr noundef %403) #3
-  %405 = icmp eq i32 %404, 746
-  br i1 %405, label %406, label %382
+.lr.ph.i35:                                       ; preds = %372, %381
+  %.03751.i = phi i32 [ %382, %381 ], [ 0, %372 ]
+  %402 = call ptr @OPENSSL_sk_value(ptr noundef %3, i32 noundef %.03751.i) #3
+  %403 = call i32 @OBJ_obj2nid(ptr noundef %402) #3
+  %404 = icmp eq i32 %403, 746
+  br i1 %404, label %405, label %381
 
-406:                                              ; preds = %.lr.ph.i35
-  %407 = getelementptr inbounds nuw i8, ptr %.043, i64 56
-  %408 = load i32, ptr %407, align 8, !tbaa !64
-  %409 = or i32 %408, 2
-  store i32 %409, ptr %407, align 8, !tbaa !64
+405:                                              ; preds = %.lr.ph.i35
+  %406 = getelementptr inbounds nuw i8, ptr %.043, i64 56
+  %407 = load i32, ptr %406, align 8, !tbaa !64
+  %408 = or i32 %407, 2
+  store i32 %408, ptr %406, align 8, !tbaa !64
   br label %tree_calculate_user_set.exit
 
-.lr.ph53.split.i:                                 ; preds = %.lr.ph53.i, %444
-  %.152.i = phi i32 [ %445, %444 ], [ 0, %.lr.ph53.i ]
-  %410 = call ptr @OPENSSL_sk_value(ptr noundef %3, i32 noundef %.152.i) #3
-  %411 = call ptr @ossl_policy_tree_find_sk(ptr noundef %370, ptr noundef %410) #3
-  %.not.i33 = icmp eq ptr %411, null
-  br i1 %.not.i33, label %412, label %427
+.lr.ph53.split.i:                                 ; preds = %.lr.ph53.i, %443
+  %.152.i = phi i32 [ %444, %443 ], [ 0, %.lr.ph53.i ]
+  %409 = call ptr @OPENSSL_sk_value(ptr noundef %3, i32 noundef %.152.i) #3
+  %410 = call ptr @ossl_policy_tree_find_sk(ptr noundef %369, ptr noundef %409) #3
+  %.not.i33 = icmp eq ptr %410, null
+  br i1 %.not.i33, label %411, label %426
 
-412:                                              ; preds = %.lr.ph53.split.i
-  %413 = load ptr, ptr %.fr.i, align 8, !tbaa !25
-  %414 = load i32, ptr %413, align 8, !tbaa !28
-  %415 = and i32 %414, 16
-  %416 = call ptr @ossl_policy_data_new(ptr noundef null, ptr noundef %410, i32 noundef %415) #3
-  %417 = icmp eq ptr %416, null
-  br i1 %417, label %tree_calculate_user_set.exit, label %418
+411:                                              ; preds = %.lr.ph53.split.i
+  %412 = load ptr, ptr %.fr.i, align 8, !tbaa !25
+  %413 = load i32, ptr %412, align 8, !tbaa !28
+  %414 = and i32 %413, 16
+  %415 = call ptr @ossl_policy_data_new(ptr noundef null, ptr noundef %409, i32 noundef %414) #3
+  %416 = icmp eq ptr %415, null
+  br i1 %416, label %tree_calculate_user_set.exit, label %417
 
-418:                                              ; preds = %412
-  %419 = load ptr, ptr %.fr.i, align 8, !tbaa !25
-  %420 = getelementptr inbounds nuw i8, ptr %419, i64 16
-  %421 = load ptr, ptr %420, align 8, !tbaa !52
-  %422 = getelementptr inbounds nuw i8, ptr %416, i64 16
-  store ptr %421, ptr %422, align 8, !tbaa !52
-  store i32 12, ptr %416, align 8, !tbaa !28
-  %423 = load ptr, ptr %388, align 8, !tbaa !56
-  %424 = call ptr @ossl_policy_level_add_node(ptr noundef null, ptr noundef nonnull %416, ptr noundef %423, ptr noundef %.043, i32 noundef 1) #3
-  %425 = icmp eq ptr %424, null
-  br i1 %425, label %426, label %427
+417:                                              ; preds = %411
+  %418 = load ptr, ptr %.fr.i, align 8, !tbaa !25
+  %419 = getelementptr inbounds nuw i8, ptr %418, i64 16
+  %420 = load ptr, ptr %419, align 8, !tbaa !52
+  %421 = getelementptr inbounds nuw i8, ptr %415, i64 16
+  store ptr %420, ptr %421, align 8, !tbaa !52
+  store i32 12, ptr %415, align 8, !tbaa !28
+  %422 = load ptr, ptr %387, align 8, !tbaa !56
+  %423 = call ptr @ossl_policy_level_add_node(ptr noundef null, ptr noundef nonnull %415, ptr noundef %422, ptr noundef %.043, i32 noundef 1) #3
+  %424 = icmp eq ptr %423, null
+  br i1 %424, label %425, label %426
 
-426:                                              ; preds = %418
-  call void @ossl_policy_data_free(ptr noundef nonnull %416) #3
+425:                                              ; preds = %417
+  call void @ossl_policy_data_free(ptr noundef nonnull %415) #3
   br label %tree_calculate_user_set.exit
 
-427:                                              ; preds = %418, %.lr.ph53.split.i
-  %.038.i = phi ptr [ %411, %.lr.ph53.split.i ], [ %424, %418 ]
-  %428 = load ptr, ptr %389, align 8, !tbaa !13
-  %.not44.i = icmp eq ptr %428, null
-  br i1 %.not44.i, label %429, label %436
+426:                                              ; preds = %417, %.lr.ph53.split.i
+  %.038.i = phi ptr [ %410, %.lr.ph53.split.i ], [ %423, %417 ]
+  %427 = load ptr, ptr %388, align 8, !tbaa !13
+  %.not44.i = icmp eq ptr %427, null
+  br i1 %.not44.i, label %428, label %435
 
-429:                                              ; preds = %427
-  %430 = call ptr @OPENSSL_sk_new_null() #3
-  store ptr %430, ptr %389, align 8, !tbaa !13
-  %.not45.i = icmp eq ptr %430, null
-  br i1 %.not45.i, label %.split.us.i, label %436
+428:                                              ; preds = %426
+  %429 = call ptr @OPENSSL_sk_new_null() #3
+  store ptr %429, ptr %388, align 8, !tbaa !13
+  %.not45.i = icmp eq ptr %429, null
+  br i1 %.not45.i, label %.split.us.i, label %435
 
-.split.us.i:                                      ; preds = %429, %394
-  %.us-phi.i = phi ptr [ %391, %394 ], [ %.038.i, %429 ]
-  %431 = load ptr, ptr %.us-phi.i, align 8, !tbaa !25
-  %.not.i.i34 = icmp eq ptr %431, null
-  br i1 %.not.i.i34, label %tree_calculate_user_set.exit, label %432
+.split.us.i:                                      ; preds = %428, %393
+  %.us-phi.i = phi ptr [ %390, %393 ], [ %.038.i, %428 ]
+  %430 = load ptr, ptr %.us-phi.i, align 8, !tbaa !25
+  %.not.i.i34 = icmp eq ptr %430, null
+  br i1 %.not.i.i34, label %tree_calculate_user_set.exit, label %431
 
-432:                                              ; preds = %.split.us.i
-  %433 = load i32, ptr %431, align 8, !tbaa !28
-  %434 = and i32 %433, 8
-  %.not3.i.i = icmp eq i32 %434, 0
-  br i1 %.not3.i.i, label %tree_calculate_user_set.exit, label %435
+431:                                              ; preds = %.split.us.i
+  %432 = load i32, ptr %430, align 8, !tbaa !28
+  %433 = and i32 %432, 8
+  %.not3.i.i = icmp eq i32 %433, 0
+  br i1 %.not3.i.i, label %tree_calculate_user_set.exit, label %434
 
-435:                                              ; preds = %432
+434:                                              ; preds = %431
   call void @CRYPTO_free(ptr noundef nonnull %.us-phi.i, ptr noundef nonnull @.str, i32 noundef 625) #3
   br label %tree_calculate_user_set.exit
 
-436:                                              ; preds = %429, %427
-  %437 = phi ptr [ %430, %429 ], [ %428, %427 ]
-  %438 = call i32 @OPENSSL_sk_push(ptr noundef nonnull %437, ptr noundef nonnull %.038.i) #3
-  %.not46.i = icmp eq i32 %438, 0
-  br i1 %.not46.i, label %.split57.us.i, label %444
+435:                                              ; preds = %428, %426
+  %436 = phi ptr [ %429, %428 ], [ %427, %426 ]
+  %437 = call i32 @OPENSSL_sk_push(ptr noundef nonnull %436, ptr noundef nonnull %.038.i) #3
+  %.not46.i = icmp eq i32 %437, 0
+  br i1 %.not46.i, label %.split57.us.i, label %443
 
-.split57.us.i:                                    ; preds = %436, %396
-  %.us-phi58.i = phi ptr [ %391, %396 ], [ %.038.i, %436 ]
-  %439 = load ptr, ptr %.us-phi58.i, align 8, !tbaa !25
-  %.not.i47.i = icmp eq ptr %439, null
-  br i1 %.not.i47.i, label %tree_calculate_user_set.exit, label %440
+.split57.us.i:                                    ; preds = %435, %395
+  %.us-phi58.i = phi ptr [ %390, %395 ], [ %.038.i, %435 ]
+  %438 = load ptr, ptr %.us-phi58.i, align 8, !tbaa !25
+  %.not.i47.i = icmp eq ptr %438, null
+  br i1 %.not.i47.i, label %tree_calculate_user_set.exit, label %439
 
-440:                                              ; preds = %.split57.us.i
-  %441 = load i32, ptr %439, align 8, !tbaa !28
-  %442 = and i32 %441, 8
-  %.not3.i48.i = icmp eq i32 %442, 0
-  br i1 %.not3.i48.i, label %tree_calculate_user_set.exit, label %443
+439:                                              ; preds = %.split57.us.i
+  %440 = load i32, ptr %438, align 8, !tbaa !28
+  %441 = and i32 %440, 8
+  %.not3.i48.i = icmp eq i32 %441, 0
+  br i1 %.not3.i48.i, label %tree_calculate_user_set.exit, label %442
 
-443:                                              ; preds = %440
+442:                                              ; preds = %439
   call void @CRYPTO_free(ptr noundef nonnull %.us-phi58.i, ptr noundef nonnull @.str, i32 noundef 625) #3
   br label %tree_calculate_user_set.exit
 
-444:                                              ; preds = %436
-  %445 = add nuw nsw i32 %.152.i, 1
-  %446 = call i32 @OPENSSL_sk_num(ptr noundef %3) #3
-  %447 = icmp slt i32 %445, %446
-  br i1 %447, label %.lr.ph53.split.i, label %tree_calculate_user_set.exit, !llvm.loop !63
+443:                                              ; preds = %435
+  %444 = add nuw nsw i32 %.152.i, 1
+  %445 = call i32 @OPENSSL_sk_num(ptr noundef %3) #3
+  %446 = icmp slt i32 %444, %445
+  br i1 %446, label %.lr.ph53.split.i, label %tree_calculate_user_set.exit, !llvm.loop !63
 
-tree_calculate_user_set.exit:                     ; preds = %412, %444, %399, %tree_calculate_authority_set.exit.thread71, %.preheader.i, %406, %426, %.split.us.i, %432, %435, %.split57.us.i, %440, %443
-  %.not23 = phi i1 [ false, %406 ], [ true, %426 ], [ false, %tree_calculate_authority_set.exit.thread71 ], [ true, %.split.us.i ], [ true, %432 ], [ true, %435 ], [ true, %.split57.us.i ], [ true, %440 ], [ true, %443 ], [ false, %.preheader.i ], [ false, %399 ], [ false, %444 ], [ true, %412 ]
-  br i1 %367, label %448, label %450
+tree_calculate_user_set.exit:                     ; preds = %411, %443, %398, %tree_calculate_authority_set.exit.thread71, %.preheader.i, %405, %425, %.split.us.i, %431, %434, %.split57.us.i, %439, %442
+  %.not23 = phi i1 [ false, %405 ], [ true, %425 ], [ false, %tree_calculate_authority_set.exit.thread71 ], [ true, %.split.us.i ], [ true, %431 ], [ true, %434 ], [ true, %.split57.us.i ], [ true, %439 ], [ true, %442 ], [ false, %.preheader.i ], [ false, %398 ], [ false, %443 ], [ true, %411 ]
+  br i1 %367, label %447, label %449
 
-448:                                              ; preds = %tree_calculate_user_set.exit
-  %449 = load ptr, ptr %6, align 8, !tbaa !33
-  call void @OPENSSL_sk_free(ptr noundef %449) #3
-  br label %450
+447:                                              ; preds = %tree_calculate_user_set.exit
+  %448 = load ptr, ptr %6, align 8, !tbaa !33
+  call void @OPENSSL_sk_free(ptr noundef %448) #3
+  br label %449
 
-450:                                              ; preds = %448, %tree_calculate_user_set.exit
-  br i1 %.not23, label %tree_evaluate.exit.thread, label %451
+449:                                              ; preds = %447, %tree_calculate_user_set.exit
+  br i1 %.not23, label %tree_evaluate.exit.thread, label %450
+
+450:                                              ; preds = %449
+  store ptr %.043, ptr %0, align 8, !tbaa !34
+  br i1 %125, label %455, label %451
 
 451:                                              ; preds = %450
-  store ptr %.043, ptr %0, align 8, !tbaa !34
-  br i1 %125, label %456, label %452
+  %452 = call ptr @X509_policy_tree_get0_user_policies(ptr noundef %.043) #3
+  %453 = call i32 @OPENSSL_sk_num(ptr noundef %452) #3
+  %454 = icmp slt i32 %453, 1
+  br i1 %454, label %tree_init.exit.thread, label %455
 
-452:                                              ; preds = %451
-  %453 = call ptr @X509_policy_tree_get0_user_policies(ptr noundef %.043) #3
-  %454 = call i32 @OPENSSL_sk_num(ptr noundef %453) #3
-  %455 = icmp slt i32 %454, 1
-  br i1 %455, label %tree_init.exit.thread, label %456
-
-456:                                              ; preds = %452, %451
+455:                                              ; preds = %451, %450
   br label %tree_init.exit.thread
 
-tree_evaluate.exit.thread:                        ; preds = %246, %163, %191, %155, %223, %320, %tree_add_auth_node.exit40.thread.i, %tree_add_auth_node.exit.i, %tree_add_unmatched.exit.sink.split.i.i.i, %tree_calculate_authority_set.exit.thread74, %450
+tree_evaluate.exit.thread:                        ; preds = %246, %163, %191, %155, %223, %320, %tree_add_auth_node.exit40.thread.i, %tree_add_auth_node.exit.i, %tree_add_unmatched.exit.sink.split.i.i.i, %tree_calculate_authority_set.exit.thread74, %449
   call void @X509_policy_tree_free(ptr noundef %.043)
   br label %tree_init.exit.thread
 
-tree_init.exit.thread:                            ; preds = %.lr.ph.i, %28, %56, %5, %123, %66, %452, %tree_evaluate.exit, %128, %tree_evaluate.exit.thread, %456, %.thread57
-  %.0 = phi i32 [ 1, %.thread57 ], [ 0, %tree_evaluate.exit.thread ], [ 1, %456 ], [ -2, %128 ], [ %., %tree_evaluate.exit ], [ -2, %452 ], [ 0, %56 ], [ 0, %5 ], [ 0, %123 ], [ 0, %66 ], [ -1, %28 ], [ 0, %.lr.ph.i ]
+tree_init.exit.thread:                            ; preds = %.lr.ph.i, %28, %56, %5, %123, %66, %451, %tree_evaluate.exit, %128, %tree_evaluate.exit.thread, %455, %.thread57
+  %.0 = phi i32 [ 1, %.thread57 ], [ 0, %tree_evaluate.exit.thread ], [ 1, %455 ], [ -2, %128 ], [ %., %tree_evaluate.exit ], [ -2, %451 ], [ 0, %56 ], [ 0, %5 ], [ 0, %123 ], [ 0, %66 ], [ -1, %28 ], [ 0, %.lr.ph.i ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #3
   ret i32 %.0
 }

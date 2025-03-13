@@ -180,25 +180,23 @@ BN_copy.exit:                                     ; preds = %8
 28:                                               ; preds = %BN_copy.exit
   %29 = load ptr, ptr %calloc.i, align 8, !tbaa !13
   tail call void @free(ptr noundef %29) #14
-  %.pre.i = load i32, ptr %6, align 4, !tbaa !6
   br label %30
 
 30:                                               ; preds = %28, %BN_copy.exit
-  %31 = phi i32 [ %.pre.i, %28 ], [ %25, %BN_copy.exit ]
-  %32 = and i32 %31, 1
-  %.not.i = icmp eq i32 %32, 0
-  br i1 %.not.i, label %34, label %33
+  %31 = and i32 %25, 1
+  %.not.i = icmp eq i32 %31, 0
+  br i1 %.not.i, label %33, label %32
 
-33:                                               ; preds = %30
+32:                                               ; preds = %30
   tail call void @free(ptr noundef nonnull %calloc.i) #14
   br label %BN_free.exit
 
-34:                                               ; preds = %30
+33:                                               ; preds = %30
   store ptr null, ptr %calloc.i, align 8, !tbaa !13
   br label %BN_free.exit
 
-BN_free.exit:                                     ; preds = %5, %14, %34, %33, %BN_new.exit.thread, %1
-  %.0 = phi ptr [ null, %1 ], [ null, %BN_new.exit.thread ], [ null, %33 ], [ null, %34 ], [ %calloc.i, %14 ], [ %calloc.i, %5 ]
+BN_free.exit:                                     ; preds = %5, %14, %33, %32, %BN_new.exit.thread, %1
+  %.0 = phi ptr [ null, %1 ], [ null, %BN_new.exit.thread ], [ null, %32 ], [ null, %33 ], [ %calloc.i, %14 ], [ %calloc.i, %5 ]
   ret ptr %.0
 }
 

@@ -153,32 +153,31 @@ select.unfold:                                    ; preds = %11, %8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 1204
   %25 = load i32, ptr %24, align 4, !tbaa !47
   %26 = call i32 @wc_PRF_TLS(ptr noundef %1, i32 noundef 12, ptr noundef nonnull %16, i32 noundef 48, ptr noundef nonnull %.0.ph, i32 noundef 15, ptr noundef nonnull %5, i32 noundef %17, i32 noundef %18, i32 noundef %21, ptr noundef %23, i32 noundef %25) #17
-  %27 = load i32, ptr %4, align 4, !tbaa !3
-  %28 = icmp ugt i32 %27, 7
-  br i1 %28, label %.lr.ph29.i, label %.preheader.i
+  %27 = icmp ugt i32 %17, 7
+  br i1 %27, label %.lr.ph29.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.lr.ph29.i, %select.unfold
-  %.018.lcssa.i = phi i32 [ %27, %select.unfold ], [ %30, %.lr.ph29.i ]
-  %.015.lcssa.i = phi ptr [ %5, %select.unfold ], [ %29, %.lr.ph29.i ]
+  %.018.lcssa.i = phi i32 [ %17, %select.unfold ], [ %29, %.lr.ph29.i ]
+  %.015.lcssa.i = phi ptr [ %5, %select.unfold ], [ %28, %.lr.ph29.i ]
   %.not2232.i = icmp eq i32 %.018.lcssa.i, 0
   br i1 %.not2232.i, label %ForceZero.exit, label %.lr.ph35.i
 
 .lr.ph29.i:                                       ; preds = %select.unfold, %.lr.ph29.i
-  %.01528.i = phi ptr [ %29, %.lr.ph29.i ], [ %5, %select.unfold ]
-  %.01827.i = phi i32 [ %30, %.lr.ph29.i ], [ %27, %select.unfold ]
-  %29 = getelementptr inbounds nuw i8, ptr %.01528.i, i64 8
+  %.01528.i = phi ptr [ %28, %.lr.ph29.i ], [ %5, %select.unfold ]
+  %.01827.i = phi i32 [ %29, %.lr.ph29.i ], [ %17, %select.unfold ]
+  %28 = getelementptr inbounds nuw i8, ptr %.01528.i, i64 8
   store volatile i64 0, ptr %.01528.i, align 8, !tbaa !48
-  %30 = add i32 %.01827.i, -8
-  %31 = icmp ugt i32 %30, 7
-  br i1 %31, label %.lr.ph29.i, label %.preheader.i, !llvm.loop !49
+  %29 = add i32 %.01827.i, -8
+  %30 = icmp ugt i32 %29, 7
+  br i1 %30, label %.lr.ph29.i, label %.preheader.i, !llvm.loop !49
 
 .lr.ph35.i:                                       ; preds = %.preheader.i, %.lr.ph35.i
-  %.11734.i = phi ptr [ %33, %.lr.ph35.i ], [ %.015.lcssa.i, %.preheader.i ]
-  %.11933.i = phi i32 [ %32, %.lr.ph35.i ], [ %.018.lcssa.i, %.preheader.i ]
-  %32 = add i32 %.11933.i, -1
-  %33 = getelementptr inbounds nuw i8, ptr %.11734.i, i64 1
+  %.11734.i = phi ptr [ %32, %.lr.ph35.i ], [ %.015.lcssa.i, %.preheader.i ]
+  %.11933.i = phi i32 [ %31, %.lr.ph35.i ], [ %.018.lcssa.i, %.preheader.i ]
+  %31 = add i32 %.11933.i, -1
+  %32 = getelementptr inbounds nuw i8, ptr %.11734.i, i64 1
   store volatile i8 0, ptr %.11734.i, align 1, !tbaa !51
-  %.not22.i = icmp eq i32 %32, 0
+  %.not22.i = icmp eq i32 %31, 0
   br i1 %.not22.i, label %ForceZero.exit, label %.lr.ph35.i, !llvm.loop !52
 
 ForceZero.exit:                                   ; preds = %.lr.ph35.i, %.preheader.i, %3, %11
@@ -610,7 +609,7 @@ define i32 @MakeTlsMasterSecret(ptr noundef %0) local_unnamed_addr #0 {
   %8 = load i64, ptr %7, align 8
   %9 = and i64 %8, 2199023255552
   %.not = icmp eq i64 %9, 0
-  br i1 %.not, label %37, label %10
+  br i1 %.not, label %36, label %10
 
 10:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #17
@@ -639,118 +638,117 @@ define i32 @MakeTlsMasterSecret(ptr noundef %0) local_unnamed_addr #0 {
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 1204
   %28 = load i32, ptr %27, align 4, !tbaa !47
   %29 = call i32 @wc_PRF_TLS(ptr noundef nonnull %15, i32 noundef 48, ptr noundef %17, i32 noundef %19, ptr noundef nonnull @ext_master_label, i32 noundef 22, ptr noundef nonnull %6, i32 noundef %20, i32 noundef %21, i32 noundef %24, ptr noundef %26, i32 noundef %28) #17
-  %30 = load i32, ptr %5, align 4, !tbaa !3
-  %31 = icmp ugt i32 %30, 7
-  br i1 %31, label %.lr.ph29.i, label %.preheader.i
+  %30 = icmp ugt i32 %20, 7
+  br i1 %30, label %.lr.ph29.i, label %.preheader.i
 
 .preheader.i:                                     ; preds = %.lr.ph29.i, %.preheader23.i
-  %.018.lcssa.i = phi i32 [ %30, %.preheader23.i ], [ %33, %.lr.ph29.i ]
-  %.015.lcssa.i = phi ptr [ %6, %.preheader23.i ], [ %32, %.lr.ph29.i ]
+  %.018.lcssa.i = phi i32 [ %20, %.preheader23.i ], [ %32, %.lr.ph29.i ]
+  %.015.lcssa.i = phi ptr [ %6, %.preheader23.i ], [ %31, %.lr.ph29.i ]
   %.not2232.i = icmp eq i32 %.018.lcssa.i, 0
   br i1 %.not2232.i, label %ForceZero.exit, label %.lr.ph35.i
 
 .lr.ph29.i:                                       ; preds = %.preheader23.i, %.lr.ph29.i
-  %.01528.i = phi ptr [ %32, %.lr.ph29.i ], [ %6, %.preheader23.i ]
-  %.01827.i = phi i32 [ %33, %.lr.ph29.i ], [ %30, %.preheader23.i ]
-  %32 = getelementptr inbounds nuw i8, ptr %.01528.i, i64 8
+  %.01528.i = phi ptr [ %31, %.lr.ph29.i ], [ %6, %.preheader23.i ]
+  %.01827.i = phi i32 [ %32, %.lr.ph29.i ], [ %20, %.preheader23.i ]
+  %31 = getelementptr inbounds nuw i8, ptr %.01528.i, i64 8
   store volatile i64 0, ptr %.01528.i, align 8, !tbaa !48
-  %33 = add i32 %.01827.i, -8
-  %34 = icmp ugt i32 %33, 7
-  br i1 %34, label %.lr.ph29.i, label %.preheader.i, !llvm.loop !49
+  %32 = add i32 %.01827.i, -8
+  %33 = icmp ugt i32 %32, 7
+  br i1 %33, label %.lr.ph29.i, label %.preheader.i, !llvm.loop !49
 
 .lr.ph35.i:                                       ; preds = %.preheader.i, %.lr.ph35.i
-  %.11734.i = phi ptr [ %36, %.lr.ph35.i ], [ %.015.lcssa.i, %.preheader.i ]
-  %.11933.i = phi i32 [ %35, %.lr.ph35.i ], [ %.018.lcssa.i, %.preheader.i ]
-  %35 = add i32 %.11933.i, -1
-  %36 = getelementptr inbounds nuw i8, ptr %.11734.i, i64 1
+  %.11734.i = phi ptr [ %35, %.lr.ph35.i ], [ %.015.lcssa.i, %.preheader.i ]
+  %.11933.i = phi i32 [ %34, %.lr.ph35.i ], [ %.018.lcssa.i, %.preheader.i ]
+  %34 = add i32 %.11933.i, -1
+  %35 = getelementptr inbounds nuw i8, ptr %.11734.i, i64 1
   store volatile i8 0, ptr %.11734.i, align 1, !tbaa !51
-  %.not22.i = icmp eq i32 %35, 0
+  %.not22.i = icmp eq i32 %34, 0
   br i1 %.not22.i, label %ForceZero.exit, label %.lr.ph35.i, !llvm.loop !52
 
 ForceZero.exit:                                   ; preds = %.lr.ph35.i, %.preheader.i, %10
   %.0 = phi i32 [ %11, %10 ], [ %29, %.preheader.i ], [ %29, %.lr.ph35.i ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #17
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #17
-  br label %57
+  br label %56
 
-37:                                               ; preds = %1
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %39 = load ptr, ptr %38, align 8, !tbaa !45
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 173
-  %41 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %42 = load ptr, ptr %41, align 8, !tbaa !71
-  %43 = getelementptr inbounds nuw i8, ptr %39, i64 16
-  %44 = load i32, ptr %43, align 8, !tbaa !73
-  %45 = getelementptr inbounds nuw i8, ptr %39, i64 28
-  %46 = getelementptr inbounds nuw i8, ptr %39, i64 60
-  %47 = tail call i32 @IsAtLeastTLSv1_2(ptr noundef nonnull %0) #17
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 724
-  %49 = load i8, ptr %48, align 2, !tbaa !44
-  %50 = zext i8 %49 to i32
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %52 = load ptr, ptr %51, align 16, !tbaa !46
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 1204
-  %54 = load i32, ptr %53, align 4, !tbaa !47
+36:                                               ; preds = %1
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %38 = load ptr, ptr %37, align 8, !tbaa !45
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 173
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %41 = load ptr, ptr %40, align 8, !tbaa !71
+  %42 = getelementptr inbounds nuw i8, ptr %38, i64 16
+  %43 = load i32, ptr %42, align 8, !tbaa !73
+  %44 = getelementptr inbounds nuw i8, ptr %38, i64 28
+  %45 = getelementptr inbounds nuw i8, ptr %38, i64 60
+  %46 = tail call i32 @IsAtLeastTLSv1_2(ptr noundef nonnull %0) #17
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 724
+  %48 = load i8, ptr %47, align 2, !tbaa !44
+  %49 = zext i8 %48 to i32
+  %50 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %51 = load ptr, ptr %50, align 16, !tbaa !46
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 1204
+  %53 = load i32, ptr %52, align 4, !tbaa !47
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, ptr noundef nonnull readonly align 1 dereferenceable(32) %45, i64 32, i1 false)
-  %55 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %55, ptr noundef nonnull readonly align 1 dereferenceable(32) %46, i64 32, i1 false)
-  %56 = call i32 @wc_PRF_TLS(ptr noundef nonnull %40, i32 noundef 48, ptr noundef %42, i32 noundef %44, ptr noundef nonnull @master_label, i32 noundef 13, ptr noundef nonnull %4, i32 noundef 64, i32 noundef %47, i32 noundef %50, ptr noundef %52, i32 noundef %54) #17
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, ptr noundef nonnull readonly align 1 dereferenceable(32) %44, i64 32, i1 false)
+  %54 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %54, ptr noundef nonnull readonly align 1 dereferenceable(32) %45, i64 32, i1 false)
+  %55 = call i32 @wc_PRF_TLS(ptr noundef nonnull %39, i32 noundef 48, ptr noundef %41, i32 noundef %43, ptr noundef nonnull @master_label, i32 noundef 13, ptr noundef nonnull %4, i32 noundef 64, i32 noundef %46, i32 noundef %49, ptr noundef %51, i32 noundef %53) #17
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #17
-  br label %57
+  br label %56
 
-57:                                               ; preds = %37, %ForceZero.exit
-  %.1 = phi i32 [ %.0, %ForceZero.exit ], [ %56, %37 ]
-  %58 = icmp eq i32 %.1, 0
-  br i1 %58, label %59, label %90
+56:                                               ; preds = %36, %ForceZero.exit
+  %.1 = phi i32 [ %.0, %ForceZero.exit ], [ %55, %36 ]
+  %57 = icmp eq i32 %.1, 0
+  br i1 %57, label %58, label %89
 
-59:                                               ; preds = %57
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 714
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 727
-  %62 = load i8, ptr %61, align 1, !tbaa !68
-  %63 = zext i8 %62 to i32
-  %64 = load i16, ptr %60, align 2, !tbaa !69
-  %65 = zext i16 %64 to i32
-  %66 = add nuw nsw i32 %65, %63
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 716
-  %68 = load i16, ptr %67, align 2, !tbaa !70
-  %69 = zext i16 %68 to i32
-  %70 = add nuw nsw i32 %66, %69
-  %71 = shl nuw nsw i32 %70, 1
+58:                                               ; preds = %56
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 714
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 727
+  %61 = load i8, ptr %60, align 1, !tbaa !68
+  %62 = zext i8 %61 to i32
+  %63 = load i16, ptr %59, align 2, !tbaa !69
+  %64 = zext i16 %63 to i32
+  %65 = add nuw nsw i32 %64, %62
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 716
+  %67 = load i16, ptr %66, align 2, !tbaa !70
+  %68 = zext i16 %67 to i32
+  %69 = add nuw nsw i32 %65, %68
+  %70 = shl nuw nsw i32 %69, 1
   call void @llvm.lifetime.start.p0(i64 224, ptr nonnull %3) #17
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %73 = load ptr, ptr %72, align 8, !tbaa !45
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 173
-  %75 = getelementptr inbounds nuw i8, ptr %73, i64 60
-  %76 = getelementptr inbounds nuw i8, ptr %73, i64 28
-  %77 = call i32 @IsAtLeastTLSv1_2(ptr noundef nonnull %0) #17
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 724
-  %79 = load i8, ptr %78, align 2, !tbaa !44
-  %80 = zext i8 %79 to i32
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %82 = load ptr, ptr %81, align 16, !tbaa !46
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 1204
-  %84 = load i32, ptr %83, align 4, !tbaa !47
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %72 = load ptr, ptr %71, align 8, !tbaa !45
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 173
+  %74 = getelementptr inbounds nuw i8, ptr %72, i64 60
+  %75 = getelementptr inbounds nuw i8, ptr %72, i64 28
+  %76 = call i32 @IsAtLeastTLSv1_2(ptr noundef nonnull %0) #17
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 724
+  %78 = load i8, ptr %77, align 2, !tbaa !44
+  %79 = zext i8 %78 to i32
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %81 = load ptr, ptr %80, align 16, !tbaa !46
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 1204
+  %83 = load i32, ptr %82, align 4, !tbaa !47
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %2) #17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %2, ptr noundef nonnull readonly align 1 dereferenceable(32) %75, i64 32, i1 false)
-  %85 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %85, ptr noundef nonnull readonly align 1 dereferenceable(32) %76, i64 32, i1 false)
-  %86 = call i32 @wc_PRF_TLS(ptr noundef nonnull %3, i32 noundef %71, ptr noundef nonnull %74, i32 noundef 48, ptr noundef nonnull @key_label, i32 noundef 13, ptr noundef nonnull %2, i32 noundef 64, i32 noundef %77, i32 noundef %80, ptr noundef %82, i32 noundef %84) #17
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %2, ptr noundef nonnull readonly align 1 dereferenceable(32) %74, i64 32, i1 false)
+  %84 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %84, ptr noundef nonnull readonly align 1 dereferenceable(32) %75, i64 32, i1 false)
+  %85 = call i32 @wc_PRF_TLS(ptr noundef nonnull %3, i32 noundef %70, ptr noundef nonnull %73, i32 noundef 48, ptr noundef nonnull @key_label, i32 noundef 13, ptr noundef nonnull %2, i32 noundef 64, i32 noundef %76, i32 noundef %79, ptr noundef %81, i32 noundef %83) #17
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #17
-  %87 = icmp eq i32 %86, 0
-  br i1 %87, label %88, label %DeriveTlsKeys.exit
+  %86 = icmp eq i32 %85, 0
+  br i1 %86, label %87, label %DeriveTlsKeys.exit
 
-88:                                               ; preds = %59
-  %89 = call i32 @StoreKeys(ptr noundef nonnull %0, ptr noundef nonnull %3, i32 noundef 3) #17
+87:                                               ; preds = %58
+  %88 = call i32 @StoreKeys(ptr noundef nonnull %0, ptr noundef nonnull %3, i32 noundef 3) #17
   br label %DeriveTlsKeys.exit
 
-DeriveTlsKeys.exit:                               ; preds = %59, %88
-  %.0.i = phi i32 [ %89, %88 ], [ %86, %59 ]
+DeriveTlsKeys.exit:                               ; preds = %58, %87
+  %.0.i = phi i32 [ %88, %87 ], [ %85, %58 ]
   call void @llvm.lifetime.end.p0(i64 224, ptr nonnull %3) #17
-  br label %90
+  br label %89
 
-90:                                               ; preds = %DeriveTlsKeys.exit, %57
-  %.2 = phi i32 [ %.0.i, %DeriveTlsKeys.exit ], [ %.1, %57 ]
+89:                                               ; preds = %DeriveTlsKeys.exit, %56
+  %.2 = phi i32 [ %.0.i, %DeriveTlsKeys.exit ], [ %.1, %56 ]
   ret i32 %.2
 }
 

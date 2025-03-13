@@ -1420,7 +1420,7 @@ overwrite_anim_property.exit157:                  ; preds = %341, %321, %311, %3
 388:                                              ; preds = %376
   %389 = sub nsw i32 %382, %386
   %390 = call i32 @lv_font_get_line_height(ptr noundef %17) #7
-  %391 = add nsw i32 %389, %390
+  %391 = add nsw i32 %390, %389
   br label %395
 
 392:                                              ; preds = %376

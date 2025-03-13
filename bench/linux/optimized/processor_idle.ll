@@ -188,7 +188,6 @@ define internal fastcc noundef i32 @acpi_processor_get_power_info(ptr noundef %0
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #17
   store ptr null, ptr %2, align 8, !annotation !6
   call void @llvm.lifetime.start.p0(i64 160, ptr nonnull %3) #17
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(160) %3, i8 0, i64 160, i1 false), !annotation !6
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i32, ptr %5, align 8
   %7 = tail call i32 @acpi_processor_ffh_lpi_probe(i32 noundef %6)
@@ -203,6 +202,7 @@ define internal fastcc noundef i32 @acpi_processor_get_power_info(ptr noundef %0
   br i1 %13, label %14, label %218
 
 14:                                               ; preds = %12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(160) %3, i8 0, i64 160, i1 false), !annotation !6
   store i32 0, ptr @flat_state_cnt, align 4
   %15 = load ptr, ptr %0, align 8
   %16 = call fastcc i32 @acpi_processor_evaluate_lpi(ptr noundef %15, ptr noundef nonnull %3)

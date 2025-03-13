@@ -56716,8 +56716,6 @@ _ZN7testing7MatcherIRKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcE
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %58 = load i64, ptr %9, align 8, !tbaa !32
   store i64 %58, ptr %57, align 8, !tbaa !32
-  store ptr null, ptr %8, align 8, !tbaa !1129
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EEE, i64 16), ptr %3, align 8, !tbaa !89
   br label %_ZN7testing8internal11MatcherBaseIRKSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_EED2Ev.exit
 
 59:                                               ; preds = %37

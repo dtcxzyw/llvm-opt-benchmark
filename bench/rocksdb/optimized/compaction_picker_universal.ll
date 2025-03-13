@@ -6950,21 +6950,21 @@ _ZNSt12_Vector_baseIPN7rocksdb12FileMetaDataESaIS2_EE13_M_deallocateEPS2_m.exit.
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKPN7rocksdb12FileMetaDataESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit.i: ; preds = %386, %_ZNSt12_Vector_baseIPN7rocksdb12FileMetaDataESaIS2_EE13_M_deallocateEPS2_m.exit.i
   %.sroa.0.3 = phi ptr [ %401, %_ZNSt12_Vector_baseIPN7rocksdb12FileMetaDataESaIS2_EE13_M_deallocateEPS2_m.exit.i ], [ null, %386 ]
-  %.sroa.15.3 = phi ptr [ %402, %_ZNSt12_Vector_baseIPN7rocksdb12FileMetaDataESaIS2_EE13_M_deallocateEPS2_m.exit.i ], [ null, %386 ]
+  %.sroa.13.3 = phi ptr [ %402, %_ZNSt12_Vector_baseIPN7rocksdb12FileMetaDataESaIS2_EE13_M_deallocateEPS2_m.exit.i ], [ null, %386 ]
   %403 = getelementptr inbounds nuw i8, ptr %.sroa.0.3, i64 %397
   br label %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EEaSERKS4_.exit
 
 404:                                              ; preds = %_ZNSt12_Vector_baseIPN7rocksdb12FileMetaDataESaIS2_EE11_M_allocateEm.exit.i.i, %400, %412, %406
   %.sroa.0.1 = phi ptr [ null, %400 ], [ %.sroa.0.0, %412 ], [ %.sroa.0.0, %406 ], [ null, %_ZNSt12_Vector_baseIPN7rocksdb12FileMetaDataESaIS2_EE11_M_allocateEm.exit.i.i ]
-  %.sroa.15.1 = phi ptr [ null, %400 ], [ %.sroa.15.0, %412 ], [ %.sroa.15.0, %406 ], [ null, %_ZNSt12_Vector_baseIPN7rocksdb12FileMetaDataESaIS2_EE11_M_allocateEm.exit.i.i ]
+  %.sroa.13.1 = phi ptr [ null, %400 ], [ %.sroa.13.0, %412 ], [ %.sroa.13.0, %406 ], [ null, %_ZNSt12_Vector_baseIPN7rocksdb12FileMetaDataESaIS2_EE11_M_allocateEm.exit.i.i ]
   %405 = landingpad { ptr, i32 }
           cleanup
   br label %554
 
 _ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EEaSERKS4_.exit: ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKPN7rocksdb12FileMetaDataESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit.i, %382, %376, %._crit_edge382
   %.sroa.0.0 = phi ptr [ %.sroa.0.3, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKPN7rocksdb12FileMetaDataESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit.i ], [ null, %382 ], [ null, %376 ], [ null, %._crit_edge382 ]
-  %.sroa.11.0 = phi ptr [ %403, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKPN7rocksdb12FileMetaDataESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit.i ], [ null, %382 ], [ null, %376 ], [ null, %._crit_edge382 ]
-  %.sroa.15.0 = phi ptr [ %.sroa.15.3, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKPN7rocksdb12FileMetaDataESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit.i ], [ null, %382 ], [ null, %376 ], [ null, %._crit_edge382 ]
+  %.sroa.10.0 = phi ptr [ %403, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKPN7rocksdb12FileMetaDataESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit.i ], [ null, %382 ], [ null, %376 ], [ null, %._crit_edge382 ]
+  %.sroa.13.0 = phi ptr [ %.sroa.13.3, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKPN7rocksdb12FileMetaDataESt6vectorIS4_SaIS4_EEEENS1_IPS4_S9_EEET0_T_SE_SD_.exit.i ], [ null, %382 ], [ null, %376 ], [ null, %._crit_edge382 ]
   %.not177 = icmp eq i32 %.0142, 0
   br i1 %.not177, label %415, label %406
 
@@ -7037,11 +7037,11 @@ _ZNK7rocksdb12_GLOBAL__N_126UniversalCompactionBuilder22GetMaxOverlappingBytesEv
   %445 = load ptr, ptr %14, align 8, !tbaa !279
   %446 = getelementptr inbounds nuw i8, ptr %445, i64 521
   %447 = load i8, ptr %446, align 1, !tbaa !397
-  %448 = ptrtoint ptr %.sroa.11.0 to i64
+  %448 = ptrtoint ptr %.sroa.10.0 to i64
   %449 = ptrtoint ptr %.sroa.0.0 to i64
   %450 = sub i64 %448, %449
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %11, i8 0, i64 24, i1 false)
-  %.not.i.i.i.i242 = icmp eq ptr %.sroa.11.0, %.sroa.0.0
+  %.not.i.i.i.i242 = icmp eq ptr %.sroa.10.0, %.sroa.0.0
   br i1 %.not.i.i.i.i242, label %.noexc245.thread, label %454
 
 .noexc245.thread:                                 ; preds = %444
@@ -7240,7 +7240,7 @@ _ZNSt6vectorIN7rocksdb20CompactionInputFilesESaIS1_EED2Ev.exit: ; preds = %502, 
   br i1 %.not.i.i.i256, label %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EED2Ev.exit257, label %525
 
 525:                                              ; preds = %_ZNSt6vectorIN7rocksdb20CompactionInputFilesESaIS1_EED2Ev.exit
-  %526 = ptrtoint ptr %.sroa.15.0 to i64
+  %526 = ptrtoint ptr %.sroa.13.0 to i64
   %527 = ptrtoint ptr %.sroa.0.0 to i64
   %528 = sub i64 %526, %527
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.0, i64 noundef %528) #26
@@ -7311,13 +7311,13 @@ _ZNSt6vectorIN7rocksdb20CompactionInputFilesESaIS1_EED2Ev.exit270: ; preds = %_Z
 
 554:                                              ; preds = %507, %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EED2Ev.exit255, %404
   %.sroa.0.2 = phi ptr [ %.sroa.0.1, %404 ], [ %.sroa.0.0, %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EED2Ev.exit255 ], [ %.sroa.0.0, %507 ]
-  %.sroa.15.2 = phi ptr [ %.sroa.15.1, %404 ], [ %.sroa.15.0, %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EED2Ev.exit255 ], [ %.sroa.15.0, %507 ]
+  %.sroa.13.2 = phi ptr [ %.sroa.13.1, %404 ], [ %.sroa.13.0, %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EED2Ev.exit255 ], [ %.sroa.13.0, %507 ]
   %.pn.pn.pn.pn = phi { ptr, i32 } [ %405, %404 ], [ %.pn.pn, %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EED2Ev.exit255 ], [ %508, %507 ]
   %.not.i.i.i271 = icmp eq ptr %.sroa.0.2, null
   br i1 %.not.i.i.i271, label %_ZNSt6vectorIPN7rocksdb12FileMetaDataESaIS2_EED2Ev.exit272, label %555
 
 555:                                              ; preds = %554
-  %556 = ptrtoint ptr %.sroa.15.2 to i64
+  %556 = ptrtoint ptr %.sroa.13.2 to i64
   %557 = ptrtoint ptr %.sroa.0.2 to i64
   %558 = sub i64 %556, %557
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.2, i64 noundef %558) #26

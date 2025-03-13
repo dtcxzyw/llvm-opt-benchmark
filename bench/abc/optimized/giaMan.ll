@@ -7462,7 +7462,7 @@ Abc_Base10Log.exit212:                            ; preds = %.lr.ph.i207, %Abc_B
 
 25:                                               ; preds = %Abc_Base10Log.exit212
   %26 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.111, ptr noundef %1)
-  br label %295
+  br label %293
 
 27:                                               ; preds = %Abc_Base10Log.exit212
   %28 = tail call ptr @Gia_ManGenUsed(ptr noundef nonnull %0, i32 noundef 0)
@@ -7780,14 +7780,13 @@ Gia_ManWriteNames.exit262:                        ; preds = %137, %Abc_Base10Log
   %165 = sext i32 %164 to i64
   %166 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val171, i64 %165
   %167 = ptrtoint ptr %166 to i64
-  %.val194 = load ptr, ptr %143, align 8, !tbaa !47
   %168 = ashr i32 %164, 5
   %169 = sext i32 %168 to i64
-  %170 = getelementptr inbounds i32, ptr %.val194, i64 %169
+  %170 = getelementptr inbounds i32, ptr %.val196, i64 %169
   %171 = load i32, ptr %170, align 4, !tbaa !98
   %172 = and i32 %164, 31
   %173 = shl nuw i32 1, %172
-  %174 = and i32 %171, %173
+  %174 = and i32 %173, %171
   %.not158 = icmp eq i32 %174, 0
   br i1 %.not158, label %182, label %175
 
@@ -7807,10 +7806,9 @@ Gia_ManWriteNames.exit262:                        ; preds = %137, %Abc_Base10Log
   %184 = sub i64 %167, %183
   %185 = sdiv exact i64 %184, 12
   %186 = trunc i64 %185 to i32
-  %.val193 = load ptr, ptr %150, align 8, !tbaa !47
   %187 = ashr i32 %186, 5
   %188 = sext i32 %187 to i64
-  %189 = getelementptr inbounds i32, ptr %.val193, i64 %188
+  %189 = getelementptr inbounds i32, ptr %.val198, i64 %188
   %190 = load i32, ptr %189, align 4, !tbaa !98
   %191 = and i32 %186, 31
   %192 = shl nuw i32 1, %191
@@ -7881,10 +7879,9 @@ Gia_ManWriteNames.exit262:                        ; preds = %137, %Abc_Base10Log
   %229 = select i1 %.not156, i32 110, i32 105
   %230 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @Gia_ObjGetDumpName.pBuffer, ptr noundef nonnull dereferenceable(1) @.str.110, i32 noundef %229, i32 noundef %.09.i, i32 noundef %228, i32 noundef %229) #30
   %231 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.129, ptr noundef nonnull @Gia_ObjGetDumpName.pBuffer) #30
-  %.val192 = load ptr, ptr %150, align 8, !tbaa !47
   %232 = lshr i64 %indvars.iv292, 5
   %233 = and i64 %232, 134217727
-  %234 = getelementptr inbounds nuw i32, ptr %.val192, i64 %233
+  %234 = getelementptr inbounds nuw i32, ptr %.val198, i64 %233
   %235 = load i32, ptr %234, align 4, !tbaa !98
   %236 = and i32 %214, 31
   %237 = shl nuw i32 1, %236
@@ -7976,29 +7973,27 @@ Gia_ManWriteNames.exit262:                        ; preds = %137, %Abc_Base10Log
 .critedge4:                                       ; preds = %.lr.ph283, %284, %.critedge2
   %289 = tail call i64 @fwrite(ptr nonnull @.str.127, i64 12, i64 1, ptr %23)
   %290 = tail call i32 @fclose(ptr noundef %23)
-  %291 = load ptr, ptr %150, align 8, !tbaa !47
-  %.not.i265 = icmp eq ptr %291, null
-  br i1 %.not.i265, label %Vec_BitFree.exit, label %292
+  %.not.i265 = icmp eq ptr %.val198, null
+  br i1 %.not.i265, label %Vec_BitFree.exit, label %291
 
-292:                                              ; preds = %.critedge4
-  tail call void @free(ptr noundef nonnull %291) #30
+291:                                              ; preds = %.critedge4
+  tail call void @free(ptr noundef nonnull %.val198) #30
   br label %Vec_BitFree.exit
 
-Vec_BitFree.exit:                                 ; preds = %.critedge4, %292
+Vec_BitFree.exit:                                 ; preds = %.critedge4, %291
   tail call void @free(ptr noundef nonnull %28) #30
-  %293 = load ptr, ptr %143, align 8, !tbaa !47
-  %.not.i266 = icmp eq ptr %293, null
-  br i1 %.not.i266, label %Vec_BitFree.exit267, label %294
+  %.not.i266 = icmp eq ptr %.val196, null
+  br i1 %.not.i266, label %Vec_BitFree.exit267, label %292
 
-294:                                              ; preds = %Vec_BitFree.exit
-  tail call void @free(ptr noundef nonnull %293) #30
+292:                                              ; preds = %Vec_BitFree.exit
+  tail call void @free(ptr noundef nonnull %.val196) #30
   br label %Vec_BitFree.exit267
 
-Vec_BitFree.exit267:                              ; preds = %Vec_BitFree.exit, %294
+Vec_BitFree.exit267:                              ; preds = %Vec_BitFree.exit, %292
   tail call void @free(ptr noundef nonnull %29) #30
-  br label %295
+  br label %293
 
-295:                                              ; preds = %Vec_BitFree.exit267, %25
+293:                                              ; preds = %Vec_BitFree.exit267, %25
   ret void
 }
 
@@ -8075,7 +8070,7 @@ Abc_Base10Log.exit212:                            ; preds = %.lr.ph.i207, %Abc_B
 
 25:                                               ; preds = %Abc_Base10Log.exit212
   %26 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.111, ptr noundef %1)
-  br label %295
+  br label %293
 
 27:                                               ; preds = %Abc_Base10Log.exit212
   %28 = tail call ptr @Gia_ManGenUsed(ptr noundef nonnull %0, i32 noundef 0)
@@ -8393,14 +8388,13 @@ Gia_ManWriteNames.exit262:                        ; preds = %137, %Abc_Base10Log
   %165 = sext i32 %164 to i64
   %166 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val171, i64 %165
   %167 = ptrtoint ptr %166 to i64
-  %.val194 = load ptr, ptr %143, align 8, !tbaa !47
   %168 = ashr i32 %164, 5
   %169 = sext i32 %168 to i64
-  %170 = getelementptr inbounds i32, ptr %.val194, i64 %169
+  %170 = getelementptr inbounds i32, ptr %.val196, i64 %169
   %171 = load i32, ptr %170, align 4, !tbaa !98
   %172 = and i32 %164, 31
   %173 = shl nuw i32 1, %172
-  %174 = and i32 %171, %173
+  %174 = and i32 %173, %171
   %.not158 = icmp eq i32 %174, 0
   br i1 %.not158, label %182, label %175
 
@@ -8420,10 +8414,9 @@ Gia_ManWriteNames.exit262:                        ; preds = %137, %Abc_Base10Log
   %184 = sub i64 %167, %183
   %185 = sdiv exact i64 %184, 12
   %186 = trunc i64 %185 to i32
-  %.val193 = load ptr, ptr %150, align 8, !tbaa !47
   %187 = ashr i32 %186, 5
   %188 = sext i32 %187 to i64
-  %189 = getelementptr inbounds i32, ptr %.val193, i64 %188
+  %189 = getelementptr inbounds i32, ptr %.val198, i64 %188
   %190 = load i32, ptr %189, align 4, !tbaa !98
   %191 = and i32 %186, 31
   %192 = shl nuw i32 1, %191
@@ -8494,10 +8487,9 @@ Gia_ManWriteNames.exit262:                        ; preds = %137, %Abc_Base10Log
   %229 = select i1 %.not156, i32 110, i32 105
   %230 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) @Gia_ObjGetDumpName.pBuffer, ptr noundef nonnull dereferenceable(1) @.str.110, i32 noundef %229, i32 noundef %.09.i, i32 noundef %228, i32 noundef %229) #30
   %231 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.117, ptr noundef nonnull @Gia_ObjGetDumpName.pBuffer) #30
-  %.val192 = load ptr, ptr %150, align 8, !tbaa !47
   %232 = lshr i64 %indvars.iv292, 5
   %233 = and i64 %232, 134217727
-  %234 = getelementptr inbounds nuw i32, ptr %.val192, i64 %233
+  %234 = getelementptr inbounds nuw i32, ptr %.val198, i64 %233
   %235 = load i32, ptr %234, align 4, !tbaa !98
   %236 = and i32 %214, 31
   %237 = shl nuw i32 1, %236
@@ -8589,29 +8581,27 @@ Gia_ManWriteNames.exit262:                        ; preds = %137, %Abc_Base10Log
 .critedge4:                                       ; preds = %.lr.ph283, %284, %.critedge2
   %289 = tail call i64 @fwrite(ptr nonnull @.str.127, i64 12, i64 1, ptr %23)
   %290 = tail call i32 @fclose(ptr noundef %23)
-  %291 = load ptr, ptr %150, align 8, !tbaa !47
-  %.not.i265 = icmp eq ptr %291, null
-  br i1 %.not.i265, label %Vec_BitFree.exit, label %292
+  %.not.i265 = icmp eq ptr %.val198, null
+  br i1 %.not.i265, label %Vec_BitFree.exit, label %291
 
-292:                                              ; preds = %.critedge4
-  tail call void @free(ptr noundef nonnull %291) #30
+291:                                              ; preds = %.critedge4
+  tail call void @free(ptr noundef nonnull %.val198) #30
   br label %Vec_BitFree.exit
 
-Vec_BitFree.exit:                                 ; preds = %.critedge4, %292
+Vec_BitFree.exit:                                 ; preds = %.critedge4, %291
   tail call void @free(ptr noundef nonnull %28) #30
-  %293 = load ptr, ptr %143, align 8, !tbaa !47
-  %.not.i266 = icmp eq ptr %293, null
-  br i1 %.not.i266, label %Vec_BitFree.exit267, label %294
+  %.not.i266 = icmp eq ptr %.val196, null
+  br i1 %.not.i266, label %Vec_BitFree.exit267, label %292
 
-294:                                              ; preds = %Vec_BitFree.exit
-  tail call void @free(ptr noundef nonnull %293) #30
+292:                                              ; preds = %Vec_BitFree.exit
+  tail call void @free(ptr noundef nonnull %.val196) #30
   br label %Vec_BitFree.exit267
 
-Vec_BitFree.exit267:                              ; preds = %Vec_BitFree.exit, %294
+Vec_BitFree.exit267:                              ; preds = %Vec_BitFree.exit, %292
   tail call void @free(ptr noundef nonnull %29) #30
-  br label %295
+  br label %293
 
-295:                                              ; preds = %Vec_BitFree.exit267, %25
+293:                                              ; preds = %Vec_BitFree.exit267, %25
   ret void
 }
 
@@ -8688,7 +8678,7 @@ Abc_Base10Log.exit343:                            ; preds = %.lr.ph.i338, %Abc_B
 
 28:                                               ; preds = %Abc_Base10Log.exit343
   %29 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.111, ptr noundef %1)
-  br label %473
+  br label %471
 
 30:                                               ; preds = %Abc_Base10Log.exit343
   %31 = or i32 %.val280, %4
@@ -9439,14 +9429,13 @@ Gia_ManWriteNames.exit489:                        ; preds = %281, %Abc_Base10Log
   %333 = sext i32 %332 to i64
   %334 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val286, i64 %333
   %335 = ptrtoint ptr %334 to i64
-  %.val325 = load ptr, ptr %288, align 8, !tbaa !47
   %336 = ashr i32 %332, 5
   %337 = sext i32 %336 to i64
-  %338 = getelementptr inbounds i32, ptr %.val325, i64 %337
+  %338 = getelementptr inbounds i32, ptr %.val327, i64 %337
   %339 = load i32, ptr %338, align 4, !tbaa !98
   %340 = and i32 %332, 31
   %341 = shl nuw i32 1, %340
-  %342 = and i32 %339, %341
+  %342 = and i32 %341, %339
   %.not254 = icmp eq i32 %342, 0
   br i1 %.not254, label %350, label %343
 
@@ -9466,10 +9455,9 @@ Gia_ManWriteNames.exit489:                        ; preds = %281, %Abc_Base10Log
   %352 = sub i64 %335, %351
   %353 = sdiv exact i64 %352, 12
   %354 = trunc i64 %353 to i32
-  %.val324 = load ptr, ptr %295, align 8, !tbaa !47
   %355 = ashr i32 %354, 5
   %356 = sext i32 %355 to i64
-  %357 = getelementptr inbounds i32, ptr %.val324, i64 %356
+  %357 = getelementptr inbounds i32, ptr %.val329, i64 %356
   %358 = load i32, ptr %357, align 4, !tbaa !98
   %359 = and i32 %354, 31
   %360 = shl nuw i32 1, %359
@@ -9581,10 +9569,9 @@ Gia_ManWriteNames.exit489:                        ; preds = %281, %Abc_Base10Log
 
 .critedge13:                                      ; preds = %.critedge13.loopexit, %.critedge257
   %.pre-phi = phi i32 [ %.pre, %.critedge13.loopexit ], [ %392, %.critedge257 ]
-  %.val323 = load ptr, ptr %295, align 8, !tbaa !47
   %410 = lshr i32 %.pre-phi, 5
   %411 = zext nneg i32 %410 to i64
-  %412 = getelementptr inbounds nuw i32, ptr %.val323, i64 %411
+  %412 = getelementptr inbounds nuw i32, ptr %.val329, i64 %411
   %413 = load i32, ptr %412, align 4, !tbaa !98
   %414 = and i32 %.pre-phi, 31
   %415 = shl nuw i32 1, %414
@@ -9683,30 +9670,28 @@ Gia_ManWriteNames.exit489:                        ; preds = %281, %Abc_Base10Log
 .critedge15:                                      ; preds = %429, %462, %.critedge11
   %467 = tail call i64 @fwrite(ptr nonnull @.str.127, i64 12, i64 1, ptr %26)
   %468 = tail call i32 @fclose(ptr noundef %26)
-  %469 = load ptr, ptr %295, align 8, !tbaa !47
-  %.not.i492 = icmp eq ptr %469, null
-  br i1 %.not.i492, label %Vec_BitFree.exit, label %470
+  %.not.i492 = icmp eq ptr %.val329, null
+  br i1 %.not.i492, label %Vec_BitFree.exit, label %469
 
-470:                                              ; preds = %.critedge15
-  tail call void @free(ptr noundef nonnull %469) #30
+469:                                              ; preds = %.critedge15
+  tail call void @free(ptr noundef nonnull %.val329) #30
   br label %Vec_BitFree.exit
 
-Vec_BitFree.exit:                                 ; preds = %.critedge15, %470
+Vec_BitFree.exit:                                 ; preds = %.critedge15, %469
   tail call void @free(ptr noundef nonnull %34) #30
-  %471 = load ptr, ptr %288, align 8, !tbaa !47
-  %.not.i493 = icmp eq ptr %471, null
-  br i1 %.not.i493, label %Vec_BitFree.exit494, label %472
+  %.not.i493 = icmp eq ptr %.val327, null
+  br i1 %.not.i493, label %Vec_BitFree.exit494, label %470
 
-472:                                              ; preds = %Vec_BitFree.exit
-  tail call void @free(ptr noundef nonnull %471) #30
+470:                                              ; preds = %Vec_BitFree.exit
+  tail call void @free(ptr noundef nonnull %.val327) #30
   br label %Vec_BitFree.exit494
 
-Vec_BitFree.exit494:                              ; preds = %Vec_BitFree.exit, %472
+Vec_BitFree.exit494:                              ; preds = %Vec_BitFree.exit, %470
   tail call void @free(ptr noundef nonnull %35) #30
   store i32 %.val280, ptr %11, align 8, !tbaa !97
-  br label %473
+  br label %471
 
-473:                                              ; preds = %Vec_BitFree.exit494, %28
+471:                                              ; preds = %Vec_BitFree.exit494, %28
   ret void
 }
 
@@ -9783,7 +9768,7 @@ Abc_Base10Log.exit343:                            ; preds = %.lr.ph.i338, %Abc_B
 
 28:                                               ; preds = %Abc_Base10Log.exit343
   %29 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.111, ptr noundef %1)
-  br label %473
+  br label %471
 
 30:                                               ; preds = %Abc_Base10Log.exit343
   %31 = or i32 %.val280, %4
@@ -10534,14 +10519,13 @@ Gia_ManWriteNames.exit489:                        ; preds = %281, %Abc_Base10Log
   %333 = sext i32 %332 to i64
   %334 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val286, i64 %333
   %335 = ptrtoint ptr %334 to i64
-  %.val325 = load ptr, ptr %288, align 8, !tbaa !47
   %336 = ashr i32 %332, 5
   %337 = sext i32 %336 to i64
-  %338 = getelementptr inbounds i32, ptr %.val325, i64 %337
+  %338 = getelementptr inbounds i32, ptr %.val327, i64 %337
   %339 = load i32, ptr %338, align 4, !tbaa !98
   %340 = and i32 %332, 31
   %341 = shl nuw i32 1, %340
-  %342 = and i32 %339, %341
+  %342 = and i32 %341, %339
   %.not254 = icmp eq i32 %342, 0
   br i1 %.not254, label %350, label %343
 
@@ -10561,10 +10545,9 @@ Gia_ManWriteNames.exit489:                        ; preds = %281, %Abc_Base10Log
   %352 = sub i64 %335, %351
   %353 = sdiv exact i64 %352, 12
   %354 = trunc i64 %353 to i32
-  %.val324 = load ptr, ptr %295, align 8, !tbaa !47
   %355 = ashr i32 %354, 5
   %356 = sext i32 %355 to i64
-  %357 = getelementptr inbounds i32, ptr %.val324, i64 %356
+  %357 = getelementptr inbounds i32, ptr %.val329, i64 %356
   %358 = load i32, ptr %357, align 4, !tbaa !98
   %359 = and i32 %354, 31
   %360 = shl nuw i32 1, %359
@@ -10676,10 +10659,9 @@ Gia_ManWriteNames.exit489:                        ; preds = %281, %Abc_Base10Log
 
 .critedge13:                                      ; preds = %.critedge13.loopexit, %.critedge257
   %.pre-phi = phi i32 [ %.pre, %.critedge13.loopexit ], [ %392, %.critedge257 ]
-  %.val323 = load ptr, ptr %295, align 8, !tbaa !47
   %410 = lshr i32 %.pre-phi, 5
   %411 = zext nneg i32 %410 to i64
-  %412 = getelementptr inbounds nuw i32, ptr %.val323, i64 %411
+  %412 = getelementptr inbounds nuw i32, ptr %.val329, i64 %411
   %413 = load i32, ptr %412, align 4, !tbaa !98
   %414 = and i32 %.pre-phi, 31
   %415 = shl nuw i32 1, %414
@@ -10778,30 +10760,28 @@ Gia_ManWriteNames.exit489:                        ; preds = %281, %Abc_Base10Log
 .critedge15:                                      ; preds = %429, %462, %.critedge11
   %467 = tail call i64 @fwrite(ptr nonnull @.str.127, i64 12, i64 1, ptr %26)
   %468 = tail call i32 @fclose(ptr noundef %26)
-  %469 = load ptr, ptr %295, align 8, !tbaa !47
-  %.not.i492 = icmp eq ptr %469, null
-  br i1 %.not.i492, label %Vec_BitFree.exit, label %470
+  %.not.i492 = icmp eq ptr %.val329, null
+  br i1 %.not.i492, label %Vec_BitFree.exit, label %469
 
-470:                                              ; preds = %.critedge15
-  tail call void @free(ptr noundef nonnull %469) #30
+469:                                              ; preds = %.critedge15
+  tail call void @free(ptr noundef nonnull %.val329) #30
   br label %Vec_BitFree.exit
 
-Vec_BitFree.exit:                                 ; preds = %.critedge15, %470
+Vec_BitFree.exit:                                 ; preds = %.critedge15, %469
   tail call void @free(ptr noundef nonnull %34) #30
-  %471 = load ptr, ptr %288, align 8, !tbaa !47
-  %.not.i493 = icmp eq ptr %471, null
-  br i1 %.not.i493, label %Vec_BitFree.exit494, label %472
+  %.not.i493 = icmp eq ptr %.val327, null
+  br i1 %.not.i493, label %Vec_BitFree.exit494, label %470
 
-472:                                              ; preds = %Vec_BitFree.exit
-  tail call void @free(ptr noundef nonnull %471) #30
+470:                                              ; preds = %Vec_BitFree.exit
+  tail call void @free(ptr noundef nonnull %.val327) #30
   br label %Vec_BitFree.exit494
 
-Vec_BitFree.exit494:                              ; preds = %Vec_BitFree.exit, %472
+Vec_BitFree.exit494:                              ; preds = %Vec_BitFree.exit, %470
   tail call void @free(ptr noundef nonnull %35) #30
   store i32 %.val280, ptr %11, align 8, !tbaa !97
-  br label %473
+  br label %471
 
-473:                                              ; preds = %Vec_BitFree.exit494, %28
+471:                                              ; preds = %Vec_BitFree.exit494, %28
   ret void
 }
 

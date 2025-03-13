@@ -1121,44 +1121,45 @@ define void @Abc_NodeMffcConeSuppPrint(ptr noundef %0) local_unnamed_addr #0 {
   %.val = load i32, ptr %7, align 4, !tbaa !42
   %.val15 = load i32, ptr %3, align 4, !tbaa !42
   %13 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str, ptr noundef %12, i32 noundef %.val, i32 noundef %.val15)
-  %.val1620 = load i32, ptr %3, align 4, !tbaa !42
-  %14 = icmp sgt i32 %.val1620, 0
+  %14 = icmp sgt i32 %.val15, 0
   br i1 %14, label %.lr.ph, label %.critedge
 
-.lr.ph:                                           ; preds = %1, %.lr.ph
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %1 ]
+.lr.ph:                                           ; preds = %1
   %.val17 = load ptr, ptr %5, align 8, !tbaa !30
-  %15 = getelementptr inbounds nuw ptr, ptr %.val17, i64 %indvars.iv
-  %16 = load ptr, ptr %15, align 8, !tbaa !32
-  %17 = tail call ptr @Abc_ObjName(ptr noundef %16) #12
-  %18 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef %17)
+  %wide.trip.count = zext nneg i32 %.val15 to i64
+  br label %15
+
+15:                                               ; preds = %.lr.ph, %15
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %15 ]
+  %16 = getelementptr inbounds nuw ptr, ptr %.val17, i64 %indvars.iv
+  %17 = load ptr, ptr %16, align 8, !tbaa !32
+  %18 = tail call ptr @Abc_ObjName(ptr noundef %17) #12
+  %19 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.1, ptr noundef %18)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.val16 = load i32, ptr %3, align 4, !tbaa !42
-  %19 = sext i32 %.val16 to i64
-  %20 = icmp slt i64 %indvars.iv.next, %19
-  br i1 %20, label %.lr.ph, label %.critedge, !llvm.loop !46
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %.critedge, label %15, !llvm.loop !46
 
-.critedge:                                        ; preds = %.lr.ph, %1
+.critedge:                                        ; preds = %15, %1
   %puts = tail call i32 @puts(ptr nonnull dereferenceable(1) @str)
-  %21 = load ptr, ptr %5, align 8, !tbaa !30
-  %.not.i = icmp eq ptr %21, null
-  br i1 %.not.i, label %Vec_PtrFree.exit, label %22
+  %20 = load ptr, ptr %5, align 8, !tbaa !30
+  %.not.i = icmp eq ptr %20, null
+  br i1 %.not.i, label %Vec_PtrFree.exit, label %21
 
-22:                                               ; preds = %.critedge
-  tail call void @free(ptr noundef nonnull %21) #12
+21:                                               ; preds = %.critedge
+  tail call void @free(ptr noundef nonnull %20) #12
   br label %Vec_PtrFree.exit
 
-Vec_PtrFree.exit:                                 ; preds = %.critedge, %22
+Vec_PtrFree.exit:                                 ; preds = %.critedge, %21
   tail call void @free(ptr noundef nonnull %2) #12
-  %23 = load ptr, ptr %9, align 8, !tbaa !30
-  %.not.i18 = icmp eq ptr %23, null
-  br i1 %.not.i18, label %Vec_PtrFree.exit19, label %24
+  %22 = load ptr, ptr %9, align 8, !tbaa !30
+  %.not.i18 = icmp eq ptr %22, null
+  br i1 %.not.i18, label %Vec_PtrFree.exit19, label %23
 
-24:                                               ; preds = %Vec_PtrFree.exit
-  tail call void @free(ptr noundef nonnull %23) #12
+23:                                               ; preds = %Vec_PtrFree.exit
+  tail call void @free(ptr noundef nonnull %22) #12
   br label %Vec_PtrFree.exit19
 
-Vec_PtrFree.exit19:                               ; preds = %Vec_PtrFree.exit, %24
+Vec_PtrFree.exit19:                               ; preds = %Vec_PtrFree.exit, %23
   tail call void @free(ptr noundef nonnull %6) #12
   ret void
 }

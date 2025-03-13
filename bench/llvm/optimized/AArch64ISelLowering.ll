@@ -2645,16 +2645,16 @@ _ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit: ; preds = %99, %_ZNK4ll
   tail call void @_ZN4llvm21AArch64TargetLowering14addTypeForNEONENS_3MVTE(ptr noundef nonnull align 8 dereferenceable(412536) %0, i16 109)
   %.pre = load ptr, ptr %61, align 8, !tbaa !71
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre, i64 403
-  %.pre3301 = load i8, ptr %.phi.trans.insert, align 1, !tbaa !231, !range !54
+  %.pre3302 = load i8, ptr %.phi.trans.insert, align 1, !tbaa !231, !range !54
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 408
   store ptr @_ZN4llvm7AArch6413FPR64RegClassE, ptr %114, align 8, !tbaa !111
-  %115 = trunc nuw i8 %.pre3301 to i1
-  br i1 %115, label %117, label %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit781.thread3364
+  %115 = trunc nuw i8 %.pre3302 to i1
+  br i1 %115, label %117, label %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit781.thread3371
 
-_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit781.thread3364: ; preds = %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit
+_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit781.thread3371: ; preds = %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 496
   store ptr @_ZN4llvm7AArch6413FPR64RegClassE, ptr %116, align 8, !tbaa !111
-  br label %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit784.thread3367
+  br label %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit784.thread3374
 
 117:                                              ; preds = %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit.thread, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit
   %118 = phi ptr [ %2, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit.thread ], [ %.pre, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit ]
@@ -2682,16 +2682,16 @@ _ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit781.thread: ; preds = %12
 
 _ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit781: ; preds = %117, %_ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit.i779
   tail call void @_ZN4llvm21AArch64TargetLowering14addTypeForNEONENS_3MVTE(ptr noundef nonnull align 8 dereferenceable(412536) %0, i16 38)
-  %.pre3302 = load ptr, ptr %61, align 8, !tbaa !71
-  %.phi.trans.insert3303 = getelementptr inbounds nuw i8, ptr %.pre3302, i64 403
-  %.pre3304 = load i8, ptr %.phi.trans.insert3303, align 1, !tbaa !231, !range !54
+  %.pre3303 = load ptr, ptr %61, align 8, !tbaa !71
+  %.phi.trans.insert3304 = getelementptr inbounds nuw i8, ptr %.pre3303, i64 403
+  %.pre3305 = load i8, ptr %.phi.trans.insert3304, align 1, !tbaa !231, !range !54
   %130 = getelementptr inbounds nuw i8, ptr %0, i64 496
   store ptr @_ZN4llvm7AArch6413FPR64RegClassE, ptr %130, align 8, !tbaa !111
-  %131 = trunc nuw i8 %.pre3304 to i1
-  br i1 %131, label %132, label %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit784.thread3367
+  %131 = trunc nuw i8 %.pre3305 to i1
+  br i1 %131, label %132, label %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit784.thread3374
 
 132:                                              ; preds = %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit781.thread, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit781
-  %133 = phi ptr [ %118, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit781.thread ], [ %.pre3302, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit781 ]
+  %133 = phi ptr [ %118, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit781.thread ], [ %.pre3303, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit781 ]
   %134 = getelementptr inbounds nuw i8, ptr %133, i64 439
   %135 = load i8, ptr %134, align 1, !tbaa !232, !range !54, !noundef !55
   %136 = trunc nuw i8 %135 to i1
@@ -2714,24 +2714,24 @@ _ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit784.thread: ; preds = %13
   store ptr @_ZN4llvm7AArch6413FPR64RegClassE, ptr %144, align 8, !tbaa !111
   br label %148
 
-_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit784.thread3367: ; preds = %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit781, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit781.thread3364
-  %.ph3366 = phi ptr [ %.pre, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit781.thread3364 ], [ %.pre3302, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit781 ]
+_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit784.thread3374: ; preds = %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit781, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit781.thread3371
+  %.ph3373 = phi ptr [ %.pre, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit781.thread3371 ], [ %.pre3303, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit781 ]
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 568
   store ptr @_ZN4llvm7AArch6413FPR64RegClassE, ptr %145, align 8, !tbaa !111
-  br label %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit787.thread3371
+  br label %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit787.thread3378
 
 _ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit784: ; preds = %132, %_ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit.i782
   tail call void @_ZN4llvm21AArch64TargetLowering14addTypeForNEONENS_3MVTE(ptr noundef nonnull align 8 dereferenceable(412536) %0, i16 49)
-  %.pre3305 = load ptr, ptr %61, align 8, !tbaa !71
-  %.phi.trans.insert3306 = getelementptr inbounds nuw i8, ptr %.pre3305, i64 403
-  %.pre3307 = load i8, ptr %.phi.trans.insert3306, align 1, !tbaa !231, !range !54
+  %.pre3306 = load ptr, ptr %61, align 8, !tbaa !71
+  %.phi.trans.insert3307 = getelementptr inbounds nuw i8, ptr %.pre3306, i64 403
+  %.pre3308 = load i8, ptr %.phi.trans.insert3307, align 1, !tbaa !231, !range !54
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 568
   store ptr @_ZN4llvm7AArch6413FPR64RegClassE, ptr %146, align 8, !tbaa !111
-  %147 = trunc nuw i8 %.pre3307 to i1
-  br i1 %147, label %148, label %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit787.thread3371
+  %147 = trunc nuw i8 %.pre3308 to i1
+  br i1 %147, label %148, label %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit787.thread3378
 
 148:                                              ; preds = %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit784.thread, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit784
-  %149 = phi ptr [ %133, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit784.thread ], [ %.pre3305, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit784 ]
+  %149 = phi ptr [ %133, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit784.thread ], [ %.pre3306, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit784 ]
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 439
   %151 = load i8, ptr %150, align 1, !tbaa !232, !range !54, !noundef !55
   %152 = trunc nuw i8 %151 to i1
@@ -2754,24 +2754,24 @@ _ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit787.thread: ; preds = %15
   store ptr @_ZN4llvm7AArch6413FPR64RegClassE, ptr %160, align 8, !tbaa !111
   br label %164
 
-_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit787.thread3371: ; preds = %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit784, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit784.thread3367
-  %.ph3370 = phi ptr [ %.ph3366, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit784.thread3367 ], [ %.pre3305, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit784 ]
+_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit787.thread3378: ; preds = %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit784, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit784.thread3374
+  %.ph3377 = phi ptr [ %.ph3373, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit784.thread3374 ], [ %.pre3306, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit784 ]
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 720
   store ptr @_ZN4llvm7AArch6413FPR64RegClassE, ptr %161, align 8, !tbaa !111
-  br label %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit790.thread3375
+  br label %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit790.thread3382
 
 _ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit787: ; preds = %148, %_ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit.i785
   tail call void @_ZN4llvm21AArch64TargetLowering14addTypeForNEONENS_3MVTE(ptr noundef nonnull align 8 dereferenceable(412536) %0, i16 58)
-  %.pre3308 = load ptr, ptr %61, align 8, !tbaa !71
-  %.phi.trans.insert3309 = getelementptr inbounds nuw i8, ptr %.pre3308, i64 403
-  %.pre3310 = load i8, ptr %.phi.trans.insert3309, align 1, !tbaa !231, !range !54
+  %.pre3309 = load ptr, ptr %61, align 8, !tbaa !71
+  %.phi.trans.insert3310 = getelementptr inbounds nuw i8, ptr %.pre3309, i64 403
+  %.pre3311 = load i8, ptr %.phi.trans.insert3310, align 1, !tbaa !231, !range !54
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 720
   store ptr @_ZN4llvm7AArch6413FPR64RegClassE, ptr %162, align 8, !tbaa !111
-  %163 = trunc nuw i8 %.pre3310 to i1
-  br i1 %163, label %164, label %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit790.thread3375
+  %163 = trunc nuw i8 %.pre3311 to i1
+  br i1 %163, label %164, label %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit790.thread3382
 
 164:                                              ; preds = %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit787.thread, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit787
-  %165 = phi ptr [ %149, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit787.thread ], [ %.pre3308, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit787 ]
+  %165 = phi ptr [ %149, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit787.thread ], [ %.pre3309, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit787 ]
   %166 = getelementptr inbounds nuw i8, ptr %165, i64 439
   %167 = load i8, ptr %166, align 1, !tbaa !232, !range !54, !noundef !55
   %168 = trunc nuw i8 %167 to i1
@@ -2794,24 +2794,24 @@ _ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit790.thread: ; preds = %16
   store ptr @_ZN4llvm7AArch6413FPR64RegClassE, ptr %176, align 8, !tbaa !111
   br label %180
 
-_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit790.thread3375: ; preds = %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit787, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit787.thread3371
-  %.ph3374 = phi ptr [ %.ph3370, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit787.thread3371 ], [ %.pre3308, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit787 ]
+_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit790.thread3382: ; preds = %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit787, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit787.thread3378
+  %.ph3381 = phi ptr [ %.ph3377, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit787.thread3378 ], [ %.pre3309, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit787 ]
   %177 = getelementptr inbounds nuw i8, ptr %0, i64 1128
   store ptr @_ZN4llvm7AArch6413FPR64RegClassE, ptr %177, align 8, !tbaa !111
-  br label %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit793.thread3379
+  br label %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit793.thread3386
 
 _ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit790: ; preds = %164, %_ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit.i788
   tail call void @_ZN4llvm21AArch64TargetLowering14addTypeForNEONENS_3MVTE(ptr noundef nonnull align 8 dereferenceable(412536) %0, i16 77)
-  %.pre3311 = load ptr, ptr %61, align 8, !tbaa !71
-  %.phi.trans.insert3312 = getelementptr inbounds nuw i8, ptr %.pre3311, i64 403
-  %.pre3313 = load i8, ptr %.phi.trans.insert3312, align 1, !tbaa !231, !range !54
+  %.pre3312 = load ptr, ptr %61, align 8, !tbaa !71
+  %.phi.trans.insert3313 = getelementptr inbounds nuw i8, ptr %.pre3312, i64 403
+  %.pre3314 = load i8, ptr %.phi.trans.insert3313, align 1, !tbaa !231, !range !54
   %178 = getelementptr inbounds nuw i8, ptr %0, i64 1128
   store ptr @_ZN4llvm7AArch6413FPR64RegClassE, ptr %178, align 8, !tbaa !111
-  %179 = trunc nuw i8 %.pre3313 to i1
-  br i1 %179, label %180, label %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit793.thread3379
+  %179 = trunc nuw i8 %.pre3314 to i1
+  br i1 %179, label %180, label %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit793.thread3386
 
 180:                                              ; preds = %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit790.thread, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit790
-  %181 = phi ptr [ %165, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit790.thread ], [ %.pre3311, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit790 ]
+  %181 = phi ptr [ %165, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit790.thread ], [ %.pre3312, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit790 ]
   %182 = getelementptr inbounds nuw i8, ptr %181, i64 439
   %183 = load i8, ptr %182, align 1, !tbaa !232, !range !54, !noundef !55
   %184 = trunc nuw i8 %183 to i1
@@ -2834,24 +2834,24 @@ _ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit793.thread: ; preds = %18
   store ptr @_ZN4llvm7AArch6413FPR64RegClassE, ptr %192, align 8, !tbaa !111
   br label %196
 
-_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit793.thread3379: ; preds = %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit790, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit790.thread3375
-  %.ph3378 = phi ptr [ %.ph3374, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit790.thread3375 ], [ %.pre3311, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit790 ]
+_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit793.thread3386: ; preds = %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit790, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit790.thread3382
+  %.ph3385 = phi ptr [ %.ph3381, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit790.thread3382 ], [ %.pre3312, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit790 ]
   %193 = getelementptr inbounds nuw i8, ptr %0, i64 832
   store ptr @_ZN4llvm7AArch6413FPR64RegClassE, ptr %193, align 8, !tbaa !111
-  br label %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit796.thread3383
+  br label %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit796.thread3390
 
 _ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit793: ; preds = %180, %_ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit.i791
   tail call void @_ZN4llvm21AArch64TargetLowering14addTypeForNEONENS_3MVTE(ptr noundef nonnull align 8 dereferenceable(412536) %0, i16 128)
-  %.pre3314 = load ptr, ptr %61, align 8, !tbaa !71
-  %.phi.trans.insert3315 = getelementptr inbounds nuw i8, ptr %.pre3314, i64 403
-  %.pre3316 = load i8, ptr %.phi.trans.insert3315, align 1, !tbaa !231, !range !54
+  %.pre3315 = load ptr, ptr %61, align 8, !tbaa !71
+  %.phi.trans.insert3316 = getelementptr inbounds nuw i8, ptr %.pre3315, i64 403
+  %.pre3317 = load i8, ptr %.phi.trans.insert3316, align 1, !tbaa !231, !range !54
   %194 = getelementptr inbounds nuw i8, ptr %0, i64 832
   store ptr @_ZN4llvm7AArch6413FPR64RegClassE, ptr %194, align 8, !tbaa !111
-  %195 = trunc nuw i8 %.pre3316 to i1
-  br i1 %195, label %196, label %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit796.thread3383
+  %195 = trunc nuw i8 %.pre3317 to i1
+  br i1 %195, label %196, label %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit796.thread3390
 
 196:                                              ; preds = %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit793.thread, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit793
-  %197 = phi ptr [ %181, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit793.thread ], [ %.pre3314, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit793 ]
+  %197 = phi ptr [ %181, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit793.thread ], [ %.pre3315, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit793 ]
   %198 = getelementptr inbounds nuw i8, ptr %197, i64 439
   %199 = load i8, ptr %198, align 1, !tbaa !232, !range !54, !noundef !55
   %200 = trunc nuw i8 %199 to i1
@@ -2874,24 +2874,24 @@ _ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit796.thread: ; preds = %20
   store ptr @_ZN4llvm7AArch6413FPR64RegClassE, ptr %208, align 8, !tbaa !111
   br label %212
 
-_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit796.thread3383: ; preds = %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit793, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit793.thread3379
-  %.ph3382 = phi ptr [ %.ph3378, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit793.thread3379 ], [ %.pre3314, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit793 ]
+_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit796.thread3390: ; preds = %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit793, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit793.thread3386
+  %.ph3389 = phi ptr [ %.ph3385, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit793.thread3386 ], [ %.pre3315, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit793 ]
   %209 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr @_ZN4llvm7AArch6413FPR64RegClassE, ptr %209, align 8, !tbaa !111
-  br label %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit799.thread3387
+  br label %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit799.thread3394
 
 _ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit796: ; preds = %196, %_ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit.i794
   tail call void @_ZN4llvm21AArch64TargetLowering14addTypeForNEONENS_3MVTE(ptr noundef nonnull align 8 dereferenceable(412536) %0, i16 91)
-  %.pre3317 = load ptr, ptr %61, align 8, !tbaa !71
-  %.phi.trans.insert3318 = getelementptr inbounds nuw i8, ptr %.pre3317, i64 403
-  %.pre3319 = load i8, ptr %.phi.trans.insert3318, align 1, !tbaa !231, !range !54
+  %.pre3318 = load ptr, ptr %61, align 8, !tbaa !71
+  %.phi.trans.insert3319 = getelementptr inbounds nuw i8, ptr %.pre3318, i64 403
+  %.pre3320 = load i8, ptr %.phi.trans.insert3319, align 1, !tbaa !231, !range !54
   %210 = getelementptr inbounds nuw i8, ptr %0, i64 920
   store ptr @_ZN4llvm7AArch6413FPR64RegClassE, ptr %210, align 8, !tbaa !111
-  %211 = trunc nuw i8 %.pre3319 to i1
-  br i1 %211, label %212, label %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit799.thread3387
+  %211 = trunc nuw i8 %.pre3320 to i1
+  br i1 %211, label %212, label %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit799.thread3394
 
 212:                                              ; preds = %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit796.thread, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit796
-  %213 = phi ptr [ %197, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit796.thread ], [ %.pre3317, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit796 ]
+  %213 = phi ptr [ %197, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit796.thread ], [ %.pre3318, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit796 ]
   %214 = getelementptr inbounds nuw i8, ptr %213, i64 439
   %215 = load i8, ptr %214, align 1, !tbaa !232, !range !54, !noundef !55
   %216 = trunc nuw i8 %215 to i1
@@ -2914,24 +2914,24 @@ _ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit799.thread: ; preds = %21
   store ptr @_ZN4llvm7AArch6414FPR128RegClassE, ptr %224, align 8, !tbaa !111
   br label %228
 
-_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit799.thread3387: ; preds = %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit796, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit796.thread3383
-  %.ph3386 = phi ptr [ %.ph3382, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit796.thread3383 ], [ %.pre3317, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit796 ]
+_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit799.thread3394: ; preds = %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit796, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit796.thread3390
+  %.ph3393 = phi ptr [ %.ph3389, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit796.thread3390 ], [ %.pre3318, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit796 ]
   %225 = getelementptr inbounds nuw i8, ptr %0, i64 992
   store ptr @_ZN4llvm7AArch6414FPR128RegClassE, ptr %225, align 8, !tbaa !111
-  br label %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit.thread3391
+  br label %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit.thread3398
 
 _ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit799: ; preds = %212, %_ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit.i797
   tail call void @_ZN4llvm21AArch64TargetLowering14addTypeForNEONENS_3MVTE(ptr noundef nonnull align 8 dereferenceable(412536) %0, i16 102)
-  %.pre3320 = load ptr, ptr %61, align 8, !tbaa !71
-  %.phi.trans.insert3321 = getelementptr inbounds nuw i8, ptr %.pre3320, i64 403
-  %.pre3322 = load i8, ptr %.phi.trans.insert3321, align 1, !tbaa !231, !range !54
+  %.pre3321 = load ptr, ptr %61, align 8, !tbaa !71
+  %.phi.trans.insert3322 = getelementptr inbounds nuw i8, ptr %.pre3321, i64 403
+  %.pre3323 = load i8, ptr %.phi.trans.insert3322, align 1, !tbaa !231, !range !54
   %226 = getelementptr inbounds nuw i8, ptr %0, i64 992
   store ptr @_ZN4llvm7AArch6414FPR128RegClassE, ptr %226, align 8, !tbaa !111
-  %227 = trunc nuw i8 %.pre3322 to i1
-  br i1 %227, label %228, label %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit.thread3391
+  %227 = trunc nuw i8 %.pre3323 to i1
+  br i1 %227, label %228, label %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit.thread3398
 
 228:                                              ; preds = %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit799.thread, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit799
-  %229 = phi ptr [ %213, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit799.thread ], [ %.pre3320, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit799 ]
+  %229 = phi ptr [ %213, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit799.thread ], [ %.pre3321, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit799 ]
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 439
   %231 = load i8, ptr %230, align 1, !tbaa !232, !range !54, !noundef !55
   %232 = trunc nuw i8 %231 to i1
@@ -2954,24 +2954,24 @@ _ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit.thread: ; preds = %233, 
   store ptr @_ZN4llvm7AArch6414FPR128RegClassE, ptr %240, align 8, !tbaa !111
   br label %244
 
-_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit.thread3391: ; preds = %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit799, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit799.thread3387
-  %.ph3390 = phi ptr [ %.ph3386, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit799.thread3387 ], [ %.pre3320, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit799 ]
+_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit.thread3398: ; preds = %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit799, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit799.thread3394
+  %.ph3397 = phi ptr [ %.ph3393, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit799.thread3394 ], [ %.pre3321, %_ZN4llvm21AArch64TargetLowering9addDRTypeENS_3MVTE.exit799 ]
   %241 = getelementptr inbounds nuw i8, ptr %0, i64 1136
   store ptr @_ZN4llvm7AArch6414FPR128RegClassE, ptr %241, align 8, !tbaa !111
-  br label %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit804.thread3395
+  br label %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit804.thread3402
 
 _ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit: ; preds = %228, %_ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit.i800
   tail call void @_ZN4llvm21AArch64TargetLowering14addTypeForNEONENS_3MVTE(ptr noundef nonnull align 8 dereferenceable(412536) %0, i16 111)
-  %.pre3323 = load ptr, ptr %61, align 8, !tbaa !71
-  %.phi.trans.insert3324 = getelementptr inbounds nuw i8, ptr %.pre3323, i64 403
-  %.pre3325 = load i8, ptr %.phi.trans.insert3324, align 1, !tbaa !231, !range !54
+  %.pre3324 = load ptr, ptr %61, align 8, !tbaa !71
+  %.phi.trans.insert3325 = getelementptr inbounds nuw i8, ptr %.pre3324, i64 403
+  %.pre3326 = load i8, ptr %.phi.trans.insert3325, align 1, !tbaa !231, !range !54
   %242 = getelementptr inbounds nuw i8, ptr %0, i64 1136
   store ptr @_ZN4llvm7AArch6414FPR128RegClassE, ptr %242, align 8, !tbaa !111
-  %243 = trunc nuw i8 %.pre3325 to i1
-  br i1 %243, label %244, label %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit804.thread3395
+  %243 = trunc nuw i8 %.pre3326 to i1
+  br i1 %243, label %244, label %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit804.thread3402
 
 244:                                              ; preds = %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit.thread, %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit
-  %245 = phi ptr [ %229, %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit.thread ], [ %.pre3323, %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit ]
+  %245 = phi ptr [ %229, %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit.thread ], [ %.pre3324, %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit ]
   %246 = getelementptr inbounds nuw i8, ptr %245, i64 439
   %247 = load i8, ptr %246, align 1, !tbaa !232, !range !54, !noundef !55
   %248 = trunc nuw i8 %247 to i1
@@ -2993,22 +2993,22 @@ _ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit804.thread: ; preds = %24
   store ptr @_ZN4llvm7AArch6414FPR128RegClassE, ptr %100, align 8, !tbaa !111
   br label %257
 
-_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit804.thread3395: ; preds = %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit, %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit.thread3391
-  %.ph3394 = phi ptr [ %.ph3390, %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit.thread3391 ], [ %.pre3323, %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit ]
+_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit804.thread3402: ; preds = %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit, %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit.thread3398
+  %.ph3401 = phi ptr [ %.ph3397, %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit.thread3398 ], [ %.pre3324, %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit ]
   store ptr @_ZN4llvm7AArch6414FPR128RegClassE, ptr %100, align 8, !tbaa !111
-  br label %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit807.thread3399
+  br label %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit807.thread3406
 
 _ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit804: ; preds = %244, %_ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit.i802
   tail call void @_ZN4llvm21AArch64TargetLowering14addTypeForNEONENS_3MVTE(ptr noundef nonnull align 8 dereferenceable(412536) %0, i16 129)
-  %.pre3326 = load ptr, ptr %61, align 8, !tbaa !71
-  %.phi.trans.insert3327 = getelementptr inbounds nuw i8, ptr %.pre3326, i64 403
-  %.pre3328 = load i8, ptr %.phi.trans.insert3327, align 1, !tbaa !231, !range !54
+  %.pre3327 = load ptr, ptr %61, align 8, !tbaa !71
+  %.phi.trans.insert3328 = getelementptr inbounds nuw i8, ptr %.pre3327, i64 403
+  %.pre3329 = load i8, ptr %.phi.trans.insert3328, align 1, !tbaa !231, !range !54
   store ptr @_ZN4llvm7AArch6414FPR128RegClassE, ptr %100, align 8, !tbaa !111
-  %256 = trunc nuw i8 %.pre3328 to i1
-  br i1 %256, label %257, label %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit807.thread3399
+  %256 = trunc nuw i8 %.pre3329 to i1
+  br i1 %256, label %257, label %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit807.thread3406
 
 257:                                              ; preds = %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit804.thread, %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit804
-  %258 = phi ptr [ %245, %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit804.thread ], [ %.pre3326, %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit804 ]
+  %258 = phi ptr [ %245, %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit804.thread ], [ %.pre3327, %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit804 ]
   %259 = getelementptr inbounds nuw i8, ptr %258, i64 439
   %260 = load i8, ptr %259, align 1, !tbaa !232, !range !54, !noundef !55
   %261 = trunc nuw i8 %260 to i1
@@ -3030,22 +3030,22 @@ _ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit807.thread: ; preds = %26
   store ptr @_ZN4llvm7AArch6414FPR128RegClassE, ptr %101, align 8, !tbaa !111
   br label %270
 
-_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit807.thread3399: ; preds = %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit804, %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit804.thread3395
-  %.ph3398 = phi ptr [ %.ph3394, %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit804.thread3395 ], [ %.pre3326, %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit804 ]
+_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit807.thread3406: ; preds = %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit804, %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit804.thread3402
+  %.ph3405 = phi ptr [ %.ph3401, %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit804.thread3402 ], [ %.pre3327, %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit804 ]
   store ptr @_ZN4llvm7AArch6414FPR128RegClassE, ptr %101, align 8, !tbaa !111
-  br label %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit810.thread3403
+  br label %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit810.thread3410
 
 _ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit807: ; preds = %257, %_ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit.i805
   tail call void @_ZN4llvm21AArch64TargetLowering14addTypeForNEONENS_3MVTE(ptr noundef nonnull align 8 dereferenceable(412536) %0, i16 39)
-  %.pre3329 = load ptr, ptr %61, align 8, !tbaa !71
-  %.phi.trans.insert3330 = getelementptr inbounds nuw i8, ptr %.pre3329, i64 403
-  %.pre3331 = load i8, ptr %.phi.trans.insert3330, align 1, !tbaa !231, !range !54
+  %.pre3330 = load ptr, ptr %61, align 8, !tbaa !71
+  %.phi.trans.insert3331 = getelementptr inbounds nuw i8, ptr %.pre3330, i64 403
+  %.pre3332 = load i8, ptr %.phi.trans.insert3331, align 1, !tbaa !231, !range !54
   store ptr @_ZN4llvm7AArch6414FPR128RegClassE, ptr %101, align 8, !tbaa !111
-  %269 = trunc nuw i8 %.pre3331 to i1
-  br i1 %269, label %270, label %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit810.thread3403
+  %269 = trunc nuw i8 %.pre3332 to i1
+  br i1 %269, label %270, label %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit810.thread3410
 
 270:                                              ; preds = %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit807.thread, %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit807
-  %271 = phi ptr [ %258, %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit807.thread ], [ %.pre3329, %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit807 ]
+  %271 = phi ptr [ %258, %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit807.thread ], [ %.pre3330, %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit807 ]
   %272 = getelementptr inbounds nuw i8, ptr %271, i64 439
   %273 = load i8, ptr %272, align 1, !tbaa !232, !range !54, !noundef !55
   %274 = trunc nuw i8 %273 to i1
@@ -3068,24 +3068,24 @@ _ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit810.thread: ; preds = %27
   store ptr @_ZN4llvm7AArch6414FPR128RegClassE, ptr %282, align 8, !tbaa !111
   br label %286
 
-_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit810.thread3403: ; preds = %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit807, %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit807.thread3399
-  %.ph3402 = phi ptr [ %.ph3398, %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit807.thread3399 ], [ %.pre3329, %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit807 ]
+_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit810.thread3410: ; preds = %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit807, %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit807.thread3406
+  %.ph3409 = phi ptr [ %.ph3405, %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit807.thread3406 ], [ %.pre3330, %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit807 ]
   %283 = getelementptr inbounds nuw i8, ptr %0, i64 584
   store ptr @_ZN4llvm7AArch6414FPR128RegClassE, ptr %283, align 8, !tbaa !111
-  br label %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit813.thread3407
+  br label %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit813.thread3414
 
 _ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit810: ; preds = %270, %_ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit.i808
   tail call void @_ZN4llvm21AArch64TargetLowering14addTypeForNEONENS_3MVTE(ptr noundef nonnull align 8 dereferenceable(412536) %0, i16 50)
-  %.pre3332 = load ptr, ptr %61, align 8, !tbaa !71
-  %.phi.trans.insert3333 = getelementptr inbounds nuw i8, ptr %.pre3332, i64 403
-  %.pre3334 = load i8, ptr %.phi.trans.insert3333, align 1, !tbaa !231, !range !54
+  %.pre3333 = load ptr, ptr %61, align 8, !tbaa !71
+  %.phi.trans.insert3334 = getelementptr inbounds nuw i8, ptr %.pre3333, i64 403
+  %.pre3335 = load i8, ptr %.phi.trans.insert3334, align 1, !tbaa !231, !range !54
   %284 = getelementptr inbounds nuw i8, ptr %0, i64 584
   store ptr @_ZN4llvm7AArch6414FPR128RegClassE, ptr %284, align 8, !tbaa !111
-  %285 = trunc nuw i8 %.pre3334 to i1
-  br i1 %285, label %286, label %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit813.thread3407
+  %285 = trunc nuw i8 %.pre3335 to i1
+  br i1 %285, label %286, label %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit813.thread3414
 
 286:                                              ; preds = %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit810.thread, %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit810
-  %287 = phi ptr [ %271, %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit810.thread ], [ %.pre3332, %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit810 ]
+  %287 = phi ptr [ %271, %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit810.thread ], [ %.pre3333, %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit810 ]
   %288 = getelementptr inbounds nuw i8, ptr %287, i64 439
   %289 = load i8, ptr %288, align 1, !tbaa !232, !range !54, !noundef !55
   %290 = trunc nuw i8 %289 to i1
@@ -3108,24 +3108,24 @@ _ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit813.thread: ; preds = %29
   store ptr @_ZN4llvm7AArch6414FPR128RegClassE, ptr %298, align 8, !tbaa !111
   br label %302
 
-_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit813.thread3407: ; preds = %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit810, %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit810.thread3403
-  %.ph3406 = phi ptr [ %.ph3402, %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit810.thread3403 ], [ %.pre3332, %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit810 ]
+_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit813.thread3414: ; preds = %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit810, %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit810.thread3410
+  %.ph3413 = phi ptr [ %.ph3409, %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit810.thread3410 ], [ %.pre3333, %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit810 ]
   %299 = getelementptr inbounds nuw i8, ptr %0, i64 728
   store ptr @_ZN4llvm7AArch6414FPR128RegClassE, ptr %299, align 8, !tbaa !111
-  br label %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit816.thread3411
+  br label %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit816.thread3418
 
 _ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit813: ; preds = %286, %_ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit.i811
   tail call void @_ZN4llvm21AArch64TargetLowering14addTypeForNEONENS_3MVTE(ptr noundef nonnull align 8 dereferenceable(412536) %0, i16 60)
-  %.pre3335 = load ptr, ptr %61, align 8, !tbaa !71
-  %.phi.trans.insert3336 = getelementptr inbounds nuw i8, ptr %.pre3335, i64 403
-  %.pre3337 = load i8, ptr %.phi.trans.insert3336, align 1, !tbaa !231, !range !54
+  %.pre3336 = load ptr, ptr %61, align 8, !tbaa !71
+  %.phi.trans.insert3337 = getelementptr inbounds nuw i8, ptr %.pre3336, i64 403
+  %.pre3338 = load i8, ptr %.phi.trans.insert3337, align 1, !tbaa !231, !range !54
   %300 = getelementptr inbounds nuw i8, ptr %0, i64 728
   store ptr @_ZN4llvm7AArch6414FPR128RegClassE, ptr %300, align 8, !tbaa !111
-  %301 = trunc nuw i8 %.pre3337 to i1
-  br i1 %301, label %302, label %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit816.thread3411
+  %301 = trunc nuw i8 %.pre3338 to i1
+  br i1 %301, label %302, label %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit816.thread3418
 
 302:                                              ; preds = %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit813.thread, %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit813
-  %303 = phi ptr [ %287, %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit813.thread ], [ %.pre3335, %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit813 ]
+  %303 = phi ptr [ %287, %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit813.thread ], [ %.pre3336, %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit813 ]
   %304 = getelementptr inbounds nuw i8, ptr %303, i64 439
   %305 = load i8, ptr %304, align 1, !tbaa !232, !range !54, !noundef !55
   %306 = trunc nuw i8 %305 to i1
@@ -3148,24 +3148,24 @@ _ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit816.thread: ; preds = %30
   store ptr @_ZN4llvm7AArch6414FPR128RegClassE, ptr %314, align 8, !tbaa !111
   br label %318
 
-_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit816.thread3411: ; preds = %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit813, %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit813.thread3407
-  %.ph3410 = phi ptr [ %.ph3406, %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit813.thread3407 ], [ %.pre3335, %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit813 ]
+_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit816.thread3418: ; preds = %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit813, %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit813.thread3414
+  %.ph3417 = phi ptr [ %.ph3413, %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit813.thread3414 ], [ %.pre3336, %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit813 ]
   %315 = getelementptr inbounds nuw i8, ptr %0, i64 840
   store ptr @_ZN4llvm7AArch6414FPR128RegClassE, ptr %315, align 8, !tbaa !111
-  br label %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit819.thread3415
+  br label %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit819.thread3422
 
 _ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit816: ; preds = %302, %_ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit.i814
   tail call void @_ZN4llvm21AArch64TargetLowering14addTypeForNEONENS_3MVTE(ptr noundef nonnull align 8 dereferenceable(412536) %0, i16 78)
-  %.pre3338 = load ptr, ptr %61, align 8, !tbaa !71
-  %.phi.trans.insert3339 = getelementptr inbounds nuw i8, ptr %.pre3338, i64 403
-  %.pre3340 = load i8, ptr %.phi.trans.insert3339, align 1, !tbaa !231, !range !54
+  %.pre3339 = load ptr, ptr %61, align 8, !tbaa !71
+  %.phi.trans.insert3340 = getelementptr inbounds nuw i8, ptr %.pre3339, i64 403
+  %.pre3341 = load i8, ptr %.phi.trans.insert3340, align 1, !tbaa !231, !range !54
   %316 = getelementptr inbounds nuw i8, ptr %0, i64 840
   store ptr @_ZN4llvm7AArch6414FPR128RegClassE, ptr %316, align 8, !tbaa !111
-  %317 = trunc nuw i8 %.pre3340 to i1
-  br i1 %317, label %318, label %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit819.thread3415
+  %317 = trunc nuw i8 %.pre3341 to i1
+  br i1 %317, label %318, label %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit819.thread3422
 
 318:                                              ; preds = %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit816.thread, %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit816
-  %319 = phi ptr [ %303, %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit816.thread ], [ %.pre3338, %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit816 ]
+  %319 = phi ptr [ %303, %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit816.thread ], [ %.pre3339, %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit816 ]
   %320 = getelementptr inbounds nuw i8, ptr %319, i64 439
   %321 = load i8, ptr %320, align 1, !tbaa !232, !range !54, !noundef !55
   %322 = trunc nuw i8 %321 to i1
@@ -3188,24 +3188,24 @@ _ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit819.thread: ; preds = %32
   store ptr @_ZN4llvm7AArch6414FPR128RegClassE, ptr %330, align 8, !tbaa !111
   br label %334
 
-_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit819.thread3415: ; preds = %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit816, %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit816.thread3411
-  %.ph3414 = phi ptr [ %.ph3410, %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit816.thread3411 ], [ %.pre3338, %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit816 ]
+_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit819.thread3422: ; preds = %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit816, %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit816.thread3418
+  %.ph3421 = phi ptr [ %.ph3417, %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit816.thread3418 ], [ %.pre3339, %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit816 ]
   %331 = getelementptr inbounds nuw i8, ptr %0, i64 928
   store ptr @_ZN4llvm7AArch6414FPR128RegClassE, ptr %331, align 8, !tbaa !111
   br label %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit822
 
 _ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit819: ; preds = %318, %_ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit.i817
   tail call void @_ZN4llvm21AArch64TargetLowering14addTypeForNEONENS_3MVTE(ptr noundef nonnull align 8 dereferenceable(412536) %0, i16 92)
-  %.pre3341 = load ptr, ptr %61, align 8, !tbaa !71
-  %.phi.trans.insert3342 = getelementptr inbounds nuw i8, ptr %.pre3341, i64 403
-  %.pre3343 = load i8, ptr %.phi.trans.insert3342, align 1, !tbaa !231, !range !54
+  %.pre3342 = load ptr, ptr %61, align 8, !tbaa !71
+  %.phi.trans.insert3343 = getelementptr inbounds nuw i8, ptr %.pre3342, i64 403
+  %.pre3344 = load i8, ptr %.phi.trans.insert3343, align 1, !tbaa !231, !range !54
   %332 = getelementptr inbounds nuw i8, ptr %0, i64 928
   store ptr @_ZN4llvm7AArch6414FPR128RegClassE, ptr %332, align 8, !tbaa !111
-  %333 = trunc nuw i8 %.pre3343 to i1
+  %333 = trunc nuw i8 %.pre3344 to i1
   br i1 %333, label %334, label %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit822
 
 334:                                              ; preds = %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit819.thread, %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit819
-  %335 = phi ptr [ %319, %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit819.thread ], [ %.pre3341, %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit819 ]
+  %335 = phi ptr [ %319, %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit819.thread ], [ %.pre3342, %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit819 ]
   %336 = getelementptr inbounds nuw i8, ptr %335, i64 439
   %337 = load i8, ptr %336, align 1, !tbaa !232, !range !54, !noundef !55
   %338 = trunc nuw i8 %337 to i1
@@ -3225,11 +3225,11 @@ _ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit.i820: ; preds = %339
 
 _ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit.thread4.i821: ; preds = %_ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit.i820, %334
   tail call void @_ZN4llvm21AArch64TargetLowering14addTypeForNEONENS_3MVTE(ptr noundef nonnull align 8 dereferenceable(412536) %0, i16 103)
-  %.pre3344 = load ptr, ptr %61, align 8, !tbaa !71
+  %.pre3345 = load ptr, ptr %61, align 8, !tbaa !71
   br label %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit822
 
-_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit822: ; preds = %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit819.thread3415, %_ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit.thread4.i821, %_ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit.i820, %339, %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit819, %95
-  %346 = phi ptr [ %.pre3344, %_ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit.thread4.i821 ], [ %335, %_ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit.i820 ], [ %335, %339 ], [ %.pre3341, %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit819 ], [ %2, %95 ], [ %.ph3414, %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit819.thread3415 ]
+_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit822: ; preds = %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit819.thread3422, %_ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit.thread4.i821, %_ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit.i820, %339, %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit819, %95
+  %346 = phi ptr [ %.pre3345, %_ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit.thread4.i821 ], [ %335, %_ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit.i820 ], [ %335, %339 ], [ %.pre3342, %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit819 ], [ %2, %95 ], [ %.ph3421, %_ZN4llvm21AArch64TargetLowering9addQRTypeENS_3MVTE.exit819.thread3422 ]
   %347 = getelementptr inbounds nuw i8, ptr %346, i64 453
   %348 = load i8, ptr %347, align 1, !tbaa !235, !range !54, !noundef !55
   %349 = trunc nuw i8 %348 to i1
@@ -3331,14 +3331,14 @@ _ZNK4llvm16AArch64Subtarget27useSVEForFixedLengthVectorsEv.exit.thread: ; preds 
   br label %405
 
 405:                                              ; preds = %_ZNK4llvm16AArch64Subtarget27useSVEForFixedLengthVectorsEv.exit.thread, %_ZNK4llvm21AArch64TargetLowering28useSVEForFixedLengthVectorVTENS_3EVTEb.exit.thread
-  %.sroa.02301.02654 = phi i64 [ 17, %_ZNK4llvm16AArch64Subtarget27useSVEForFixedLengthVectorsEv.exit.thread ], [ %439, %_ZNK4llvm21AArch64TargetLowering28useSVEForFixedLengthVectorVTENS_3EVTEb.exit.thread ]
-  %406 = trunc i64 %.sroa.02301.02654 to i16
+  %.sroa.02301.02655 = phi i64 [ 17, %_ZNK4llvm16AArch64Subtarget27useSVEForFixedLengthVectorsEv.exit.thread ], [ %439, %_ZNK4llvm21AArch64TargetLowering28useSVEForFixedLengthVectorVTENS_3EVTEb.exit.thread ]
+  %406 = trunc i64 %.sroa.02301.02655 to i16
   %407 = add i16 %406, -17
   %spec.select.i.i.i = icmp ult i16 %407, 121
   br i1 %spec.select.i.i.i, label %_ZNK4llvm3EVT20getVectorElementTypeEv.exit.i, label %_ZNK4llvm21AArch64TargetLowering28useSVEForFixedLengthVectorVTENS_3EVTEb.exit.thread
 
 _ZNK4llvm3EVT20getVectorElementTypeEv.exit.i:     ; preds = %405
-  %408 = add nsw i64 %.sroa.02301.02654, -1
+  %408 = add nsw i64 %.sroa.02301.02655, -1
   %409 = getelementptr inbounds [241 x i16], ptr @_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable, i64 0, i64 %408
   %410 = load i16, ptr %409, align 2, !tbaa !238
   switch i16 %410, label %_ZNK4llvm21AArch64TargetLowering28useSVEForFixedLengthVectorVTENS_3EVTEb.exit.thread [
@@ -3403,24 +3403,24 @@ _ZNK4llvm21AArch64TargetLowering28useSVEForFixedLengthVectorVTENS_3EVTEb.exit: ;
   br i1 %.not.i1163, label %437, label %_ZNK4llvm21AArch64TargetLowering28useSVEForFixedLengthVectorVTENS_3EVTEb.exit.thread
 
 437:                                              ; preds = %_ZNK4llvm21AArch64TargetLowering28useSVEForFixedLengthVectorVTENS_3EVTEb.exit
-  %438 = getelementptr inbounds nuw [234 x ptr], ptr %75, i64 0, i64 %.sroa.02301.02654
+  %438 = getelementptr inbounds nuw [234 x ptr], ptr %75, i64 0, i64 %.sroa.02301.02655
   store ptr @_ZN4llvm7AArch6411ZPRRegClassE, ptr %438, align 8, !tbaa !111
   br label %_ZNK4llvm21AArch64TargetLowering28useSVEForFixedLengthVectorVTENS_3EVTEb.exit.thread
 
 _ZNK4llvm21AArch64TargetLowering28useSVEForFixedLengthVectorVTENS_3EVTEb.exit.thread: ; preds = %405, %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit.i.i, %_ZNK4llvm3EVT18getFixedSizeInBitsEv.exit10.i, %_ZNK4llvm16AArch64Subtarget27useSVEForFixedLengthVectorsEv.exit.i, %411, %_ZNK4llvm3EVT20getVectorElementTypeEv.exit.i, %437, %_ZNK4llvm21AArch64TargetLowering28useSVEForFixedLengthVectorVTENS_3EVTEb.exit
-  %439 = add nuw nsw i64 %.sroa.02301.02654, 1
-  %.not2375 = icmp eq i64 %439, 88
-  br i1 %.not2375, label %.preheader2653, label %405
+  %439 = add nuw nsw i64 %.sroa.02301.02655, 1
+  %.not2376 = icmp eq i64 %439, 88
+  br i1 %.not2376, label %.preheader2654, label %405
 
-.preheader2653:                                   ; preds = %_ZNK4llvm21AArch64TargetLowering28useSVEForFixedLengthVectorVTENS_3EVTEb.exit.thread, %_ZNK4llvm21AArch64TargetLowering28useSVEForFixedLengthVectorVTENS_3EVTEb.exit838.thread
-  %.sroa.02291.02655 = phi i64 [ %473, %_ZNK4llvm21AArch64TargetLowering28useSVEForFixedLengthVectorVTENS_3EVTEb.exit838.thread ], [ 88, %_ZNK4llvm21AArch64TargetLowering28useSVEForFixedLengthVectorVTENS_3EVTEb.exit.thread ]
-  %440 = trunc i64 %.sroa.02291.02655 to i16
+.preheader2654:                                   ; preds = %_ZNK4llvm21AArch64TargetLowering28useSVEForFixedLengthVectorVTENS_3EVTEb.exit.thread, %_ZNK4llvm21AArch64TargetLowering28useSVEForFixedLengthVectorVTENS_3EVTEb.exit838.thread
+  %.sroa.02291.02656 = phi i64 [ %473, %_ZNK4llvm21AArch64TargetLowering28useSVEForFixedLengthVectorVTENS_3EVTEb.exit838.thread ], [ 88, %_ZNK4llvm21AArch64TargetLowering28useSVEForFixedLengthVectorVTENS_3EVTEb.exit.thread ]
+  %440 = trunc i64 %.sroa.02291.02656 to i16
   %441 = add i16 %440, -17
   %spec.select.i.i.i828 = icmp ult i16 %441, 121
   br i1 %spec.select.i.i.i828, label %_ZNK4llvm3EVT20getVectorElementTypeEv.exit.i831, label %_ZNK4llvm21AArch64TargetLowering28useSVEForFixedLengthVectorVTENS_3EVTEb.exit838.thread
 
-_ZNK4llvm3EVT20getVectorElementTypeEv.exit.i831:  ; preds = %.preheader2653
-  %442 = add nsw i64 %.sroa.02291.02655, -1
+_ZNK4llvm3EVT20getVectorElementTypeEv.exit.i831:  ; preds = %.preheader2654
+  %442 = add nsw i64 %.sroa.02291.02656, -1
   %443 = getelementptr inbounds [241 x i16], ptr @_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable, i64 0, i64 %442
   %444 = load i16, ptr %443, align 2, !tbaa !238
   switch i16 %444, label %_ZNK4llvm21AArch64TargetLowering28useSVEForFixedLengthVectorVTENS_3EVTEb.exit838.thread [
@@ -3485,14 +3485,14 @@ _ZNK4llvm21AArch64TargetLowering28useSVEForFixedLengthVectorVTENS_3EVTEb.exit838
   br i1 %.not.i1171, label %471, label %_ZNK4llvm21AArch64TargetLowering28useSVEForFixedLengthVectorVTENS_3EVTEb.exit838.thread
 
 471:                                              ; preds = %_ZNK4llvm21AArch64TargetLowering28useSVEForFixedLengthVectorVTENS_3EVTEb.exit838
-  %472 = getelementptr inbounds nuw [234 x ptr], ptr %75, i64 0, i64 %.sroa.02291.02655
+  %472 = getelementptr inbounds nuw [234 x ptr], ptr %75, i64 0, i64 %.sroa.02291.02656
   store ptr @_ZN4llvm7AArch6411ZPRRegClassE, ptr %472, align 8, !tbaa !111
   br label %_ZNK4llvm21AArch64TargetLowering28useSVEForFixedLengthVectorVTENS_3EVTEb.exit838.thread
 
-_ZNK4llvm21AArch64TargetLowering28useSVEForFixedLengthVectorVTENS_3EVTEb.exit838.thread: ; preds = %.preheader2653, %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit.i.i833, %_ZNK4llvm3EVT18getFixedSizeInBitsEv.exit10.i835, %_ZNK4llvm16AArch64Subtarget27useSVEForFixedLengthVectorsEv.exit.i837, %445, %_ZNK4llvm3EVT20getVectorElementTypeEv.exit.i831, %471, %_ZNK4llvm21AArch64TargetLowering28useSVEForFixedLengthVectorVTENS_3EVTEb.exit838
-  %473 = add nuw nsw i64 %.sroa.02291.02655, 1
-  %.not2376 = icmp eq i64 %473, 138
-  br i1 %.not2376, label %_ZNK4llvm16AArch64Subtarget27useSVEForFixedLengthVectorsEv.exit.thread2353, label %.preheader2653
+_ZNK4llvm21AArch64TargetLowering28useSVEForFixedLengthVectorVTENS_3EVTEb.exit838.thread: ; preds = %.preheader2654, %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit.i.i833, %_ZNK4llvm3EVT18getFixedSizeInBitsEv.exit10.i835, %_ZNK4llvm16AArch64Subtarget27useSVEForFixedLengthVectorsEv.exit.i837, %445, %_ZNK4llvm3EVT20getVectorElementTypeEv.exit.i831, %471, %_ZNK4llvm21AArch64TargetLowering28useSVEForFixedLengthVectorVTENS_3EVTEb.exit838
+  %473 = add nuw nsw i64 %.sroa.02291.02656, 1
+  %.not2377 = icmp eq i64 %473, 138
+  br i1 %.not2377, label %_ZNK4llvm16AArch64Subtarget27useSVEForFixedLengthVectorsEv.exit.thread2353, label %.preheader2654
 
 _ZNK4llvm16AArch64Subtarget27useSVEForFixedLengthVectorsEv.exit.thread2353: ; preds = %_ZNK4llvm21AArch64TargetLowering28useSVEForFixedLengthVectorVTENS_3EVTEb.exit838.thread, %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit.i, %_ZNK4llvm16AArch64Subtarget27useSVEForFixedLengthVectorsEv.exit, %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit
   %474 = getelementptr inbounds nuw i8, ptr %346, i64 459
@@ -3528,11 +3528,11 @@ _ZNK4llvm16AArch64Subtarget27useSVEForFixedLengthVectorsEv.exit.thread2353: ; pr
   store i8 4, ptr %488, align 1, !tbaa !228
   %489 = getelementptr inbounds nuw i8, ptr %0, i64 120765
   store i8 2, ptr %489, align 1, !tbaa !228
-  %.pre3345 = load ptr, ptr %61, align 8, !tbaa !71
+  %.pre3346 = load ptr, ptr %61, align 8, !tbaa !71
   br label %490
 
 490:                                              ; preds = %481, %477
-  %491 = phi ptr [ %.pre3345, %481 ], [ %346, %477 ]
+  %491 = phi ptr [ %.pre3346, %481 ], [ %346, %477 ]
   %492 = getelementptr inbounds nuw i8, ptr %491, i64 976
   call void @_ZN4llvm18TargetLoweringBase25computeRegisterPropertiesEPKNS_18TargetRegisterInfoE(ptr noundef nonnull align 8 dereferenceable(412423) %0, ptr noundef nonnull %492) #35
   %493 = getelementptr inbounds nuw i8, ptr %0, i64 5486
@@ -3775,7 +3775,7 @@ _ZNK4llvm16AArch64Subtarget27useSVEForFixedLengthVectorsEv.exit.thread2353: ; pr
   %613 = getelementptr inbounds nuw i8, ptr %0, i64 9647
   store i8 2, ptr %613, align 1, !tbaa !228
   %invariant.gep = getelementptr inbounds nuw i8, ptr %0, i64 5679
-  %invariant.gep2656 = getelementptr inbounds nuw i8, ptr %0, i64 5680
+  %invariant.gep2657 = getelementptr inbounds nuw i8, ptr %0, i64 5680
   br label %627
 
 614:                                              ; preds = %627
@@ -3800,15 +3800,15 @@ _ZNK4llvm16AArch64Subtarget27useSVEForFixedLengthVectorsEv.exit.thread2353: ; pr
   br i1 %623, label %629, label %637
 
 627:                                              ; preds = %590, %627
-  %.sroa.02148.02658 = phi i64 [ 17, %590 ], [ %628, %627 ]
-  %.idx2637 = mul nuw nsw i64 %.sroa.02148.02658, 496
-  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx2637
+  %.sroa.02148.02659 = phi i64 [ 17, %590 ], [ %628, %627 ]
+  %.idx2638 = mul nuw nsw i64 %.sroa.02148.02659, 496
+  %gep = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx2638
   store i8 2, ptr %gep, align 1, !tbaa !228
-  %gep2657 = getelementptr inbounds nuw i8, ptr %invariant.gep2656, i64 %.idx2637
-  store i8 2, ptr %gep2657, align 8, !tbaa !228
-  %628 = add nuw nsw i64 %.sroa.02148.02658, 1
-  %.not2377 = icmp eq i64 %628, 138
-  br i1 %.not2377, label %614, label %627
+  %gep2658 = getelementptr inbounds nuw i8, ptr %invariant.gep2657, i64 %.idx2638
+  store i8 2, ptr %gep2658, align 8, !tbaa !228
+  %628 = add nuw nsw i64 %.sroa.02148.02659, 1
+  %.not2378 = icmp eq i64 %628, 138
+  br i1 %.not2378, label %614, label %627
 
 629:                                              ; preds = %614
   store i8 0, ptr %624, align 2, !tbaa !228
@@ -3850,8 +3850,8 @@ _ZNK4llvm16AArch64Subtarget27useSVEForFixedLengthVectorsEv.exit.thread2353: ; pr
   store i8 2, ptr %643, align 1, !tbaa !228
   %644 = getelementptr inbounds nuw i8, ptr %0, i64 9519
   store i8 2, ptr %644, align 1, !tbaa !228
-  %invariant.gep2659 = getelementptr inbounds nuw i8, ptr %0, i64 5551
-  %invariant.gep2661 = getelementptr inbounds nuw i8, ptr %0, i64 5552
+  %invariant.gep2660 = getelementptr inbounds nuw i8, ptr %0, i64 5551
+  %invariant.gep2662 = getelementptr inbounds nuw i8, ptr %0, i64 5552
   br label %667
 
 645:                                              ; preds = %667
@@ -3890,29 +3890,29 @@ _ZNK4llvm16AArch64Subtarget27useSVEForFixedLengthVectorsEv.exit.thread2353: ; pr
   %662 = getelementptr inbounds nuw i8, ptr %581, i64 373
   %663 = load i8, ptr %662, align 1, !tbaa !244, !range !54, !noundef !55
   %664 = trunc nuw i8 %663 to i1
-  %spec.select3447 = select i1 %664, i8 4, i8 1
+  %spec.select3455 = select i1 %664, i8 4, i8 1
   %665 = getelementptr inbounds nuw i8, ptr %0, i64 11094
-  store i8 %spec.select3447, ptr %665, align 2, !tbaa !228
+  store i8 %spec.select3455, ptr %665, align 2, !tbaa !228
   %666 = getelementptr inbounds nuw i8, ptr %0, i64 10598
-  store i8 %spec.select3447, ptr %666, align 2, !tbaa !228
-  %invariant.gep2664 = getelementptr inbounds nuw i8, ptr %0, i64 10942
-  %invariant.gep2666 = getelementptr inbounds nuw i8, ptr %0, i64 50622
-  %invariant.gep2668 = getelementptr inbounds nuw i8, ptr %0, i64 51118
-  %invariant.gep2670 = getelementptr inbounds nuw i8, ptr %0, i64 10446
-  %invariant.gep2672 = getelementptr inbounds nuw i8, ptr %0, i64 56078
-  %invariant.gep2674 = getelementptr inbounds nuw i8, ptr %0, i64 56574
+  store i8 %spec.select3455, ptr %666, align 2, !tbaa !228
+  %invariant.gep2665 = getelementptr inbounds nuw i8, ptr %0, i64 10942
+  %invariant.gep2667 = getelementptr inbounds nuw i8, ptr %0, i64 50622
+  %invariant.gep2669 = getelementptr inbounds nuw i8, ptr %0, i64 51118
+  %invariant.gep2671 = getelementptr inbounds nuw i8, ptr %0, i64 10446
+  %invariant.gep2673 = getelementptr inbounds nuw i8, ptr %0, i64 56078
+  %invariant.gep2675 = getelementptr inbounds nuw i8, ptr %0, i64 56574
   br label %676
 
 667:                                              ; preds = %641, %667
-  %.sroa.02108.02663 = phi i64 [ 17, %641 ], [ %668, %667 ]
-  %.idx2635 = mul nuw nsw i64 %.sroa.02108.02663, 496
-  %gep2660 = getelementptr inbounds nuw i8, ptr %invariant.gep2659, i64 %.idx2635
-  store i8 2, ptr %gep2660, align 1, !tbaa !228
-  %gep2662 = getelementptr inbounds nuw i8, ptr %invariant.gep2661, i64 %.idx2635
-  store i8 2, ptr %gep2662, align 8, !tbaa !228
-  %668 = add nuw nsw i64 %.sroa.02108.02663, 1
-  %.not2378 = icmp eq i64 %668, 138
-  br i1 %.not2378, label %645, label %667
+  %.sroa.02108.02664 = phi i64 [ 17, %641 ], [ %668, %667 ]
+  %.idx2636 = mul nuw nsw i64 %.sroa.02108.02664, 496
+  %gep2661 = getelementptr inbounds nuw i8, ptr %invariant.gep2660, i64 %.idx2636
+  store i8 2, ptr %gep2661, align 1, !tbaa !228
+  %gep2663 = getelementptr inbounds nuw i8, ptr %invariant.gep2662, i64 %.idx2636
+  store i8 2, ptr %gep2663, align 8, !tbaa !228
+  %668 = add nuw nsw i64 %.sroa.02108.02664, 1
+  %.not2379 = icmp eq i64 %668, 138
+  br i1 %.not2379, label %645, label %667
 
 669:                                              ; preds = %676
   %670 = getelementptr inbounds nuw i8, ptr %0, i64 11671
@@ -3930,23 +3930,23 @@ _ZNK4llvm16AArch64Subtarget27useSVEForFixedLengthVectorsEv.exit.thread2353: ; pr
   br i1 %664, label %680, label %679
 
 676:                                              ; preds = %645, %676
-  %.0.idx2676 = phi i64 [ 0, %645 ], [ %.0.add, %676 ]
-  %.0.ptr = getelementptr inbounds nuw i8, ptr @constinit, i64 %.0.idx2676
+  %.0.idx2677 = phi i64 [ 0, %645 ], [ %.0.add, %676 ]
+  %.0.ptr = getelementptr inbounds nuw i8, ptr @constinit, i64 %.0.idx2677
   %677 = load i32, ptr %.0.ptr, align 4, !tbaa !245
   %678 = zext i32 %677 to i64
-  %gep2665 = getelementptr inbounds nuw i8, ptr %invariant.gep2664, i64 %678
-  store i8 1, ptr %gep2665, align 1, !tbaa !228
-  %gep2667 = getelementptr inbounds nuw i8, ptr %invariant.gep2666, i64 %678
-  store i8 2, ptr %gep2667, align 1, !tbaa !228
-  %gep2669 = getelementptr inbounds nuw i8, ptr %invariant.gep2668, i64 %678
-  store i8 2, ptr %gep2669, align 1, !tbaa !228
-  %gep2671 = getelementptr inbounds nuw i8, ptr %invariant.gep2670, i64 %678
-  store i8 1, ptr %gep2671, align 1, !tbaa !228
-  %gep2673 = getelementptr inbounds nuw i8, ptr %invariant.gep2672, i64 %678
-  store i8 2, ptr %gep2673, align 1, !tbaa !228
-  %gep2675 = getelementptr inbounds nuw i8, ptr %invariant.gep2674, i64 %678
-  store i8 2, ptr %gep2675, align 1, !tbaa !228
-  %.0.add = add nuw nsw i64 %.0.idx2676, 4
+  %gep2666 = getelementptr inbounds nuw i8, ptr %invariant.gep2665, i64 %678
+  store i8 1, ptr %gep2666, align 1, !tbaa !228
+  %gep2668 = getelementptr inbounds nuw i8, ptr %invariant.gep2667, i64 %678
+  store i8 2, ptr %gep2668, align 1, !tbaa !228
+  %gep2670 = getelementptr inbounds nuw i8, ptr %invariant.gep2669, i64 %678
+  store i8 2, ptr %gep2670, align 1, !tbaa !228
+  %gep2672 = getelementptr inbounds nuw i8, ptr %invariant.gep2671, i64 %678
+  store i8 1, ptr %gep2672, align 1, !tbaa !228
+  %gep2674 = getelementptr inbounds nuw i8, ptr %invariant.gep2673, i64 %678
+  store i8 2, ptr %gep2674, align 1, !tbaa !228
+  %gep2676 = getelementptr inbounds nuw i8, ptr %invariant.gep2675, i64 %678
+  store i8 2, ptr %gep2676, align 1, !tbaa !228
+  %.0.add = add nuw nsw i64 %.0.idx2677, 4
   %.not = icmp eq i64 %.0.add, 152
   br i1 %.not, label %669, label %676
 
@@ -3967,13 +3967,13 @@ _ZNK4llvm16AArch64Subtarget27useSVEForFixedLengthVectorsEv.exit.thread2353: ; pr
   %687 = trunc nuw i8 %686 to i1
   br label %689
 
-.preheader2652:                                   ; preds = %698
+.preheader2653:                                   ; preds = %698
   %688 = getelementptr inbounds nuw i8, ptr %25, i64 2
   br label %711
 
 689:                                              ; preds = %680, %698
-  %.0673.idx2680 = phi i64 [ 0, %680 ], [ %.0673.add, %698 ]
-  %.0673.ptr = getelementptr inbounds nuw i8, ptr @constinit.27, i64 %.0673.idx2680
+  %.0673.idx2681 = phi i64 [ 0, %680 ], [ %.0673.add, %698 ]
+  %.0673.ptr = getelementptr inbounds nuw i8, ptr @constinit.27, i64 %.0673.idx2681
   %690 = load i32, ptr %.0673.ptr, align 4, !tbaa !245
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %24) #35
   store i16 12, ptr %24, align 2, !tbaa !238
@@ -3986,25 +3986,25 @@ _ZNK4llvm16AArch64Subtarget27useSVEForFixedLengthVectorsEv.exit.thread2353: ; pr
   br i1 %687, label %697, label %698
 
 693:                                              ; preds = %689, %693
-  %.0675.idx2677 = phi i64 [ 0, %689 ], [ %.0675.add, %693 ]
-  %.0675.ptr = getelementptr inbounds nuw i8, ptr %24, i64 %.0675.idx2677
+  %.0675.idx2678 = phi i64 [ 0, %689 ], [ %.0675.add, %693 ]
+  %.0675.ptr = getelementptr inbounds nuw i8, ptr %24, i64 %.0675.idx2678
   %694 = load i16, ptr %.0675.ptr, align 2, !tbaa !238
   %695 = zext i16 %694 to i64
   %696 = getelementptr inbounds nuw [234 x [496 x i8]], ptr %493, i64 0, i64 %695, i64 %691
   store i8 0, ptr %696, align 1, !tbaa !228
-  %.0675.add = add nuw nsw i64 %.0675.idx2677, 2
+  %.0675.add = add nuw nsw i64 %.0675.idx2678, 2
   %.not777 = icmp eq i64 %.0675.add, 4
   br i1 %.not777, label %692, label %693
 
 697:                                              ; preds = %692
-  %gep2679 = getelementptr inbounds nuw i8, ptr %invariant.gep2664, i64 %691
-  store i8 0, ptr %gep2679, align 1, !tbaa !228
+  %gep2680 = getelementptr inbounds nuw i8, ptr %invariant.gep2665, i64 %691
+  store i8 0, ptr %gep2680, align 1, !tbaa !228
   br label %698
 
 698:                                              ; preds = %697, %692
-  %.0673.add = add nuw nsw i64 %.0673.idx2680, 4
+  %.0673.add = add nuw nsw i64 %.0673.idx2681, 4
   %.not724 = icmp eq i64 %.0673.add, 128
-  br i1 %.not724, label %.preheader2652, label %689
+  br i1 %.not724, label %.preheader2653, label %689
 
 699:                                              ; preds = %720
   %700 = getelementptr inbounds nuw i8, ptr %0, i64 6314
@@ -4027,9 +4027,9 @@ _ZNK4llvm16AArch64Subtarget27useSVEForFixedLengthVectorsEv.exit.thread2353: ; pr
   %710 = getelementptr inbounds nuw i8, ptr %0, i64 9797
   br i1 %709, label %728, label %721
 
-711:                                              ; preds = %.preheader2652, %720
-  %.0677.idx2684 = phi i64 [ 0, %.preheader2652 ], [ %.0677.add, %720 ]
-  %.0677.ptr = getelementptr inbounds nuw i8, ptr @constinit.28, i64 %.0677.idx2684
+711:                                              ; preds = %.preheader2653, %720
+  %.0677.idx2685 = phi i64 [ 0, %.preheader2653 ], [ %.0677.add, %720 ]
+  %.0677.ptr = getelementptr inbounds nuw i8, ptr @constinit.28, i64 %.0677.idx2685
   %712 = load i32, ptr %.0677.ptr, align 4, !tbaa !245
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %25) #35
   store i16 12, ptr %25, align 2, !tbaa !238
@@ -4042,23 +4042,23 @@ _ZNK4llvm16AArch64Subtarget27useSVEForFixedLengthVectorsEv.exit.thread2353: ; pr
   br i1 %687, label %719, label %720
 
 715:                                              ; preds = %711, %715
-  %.0678.idx2681 = phi i64 [ 0, %711 ], [ %.0678.add, %715 ]
-  %.0678.ptr = getelementptr inbounds nuw i8, ptr %25, i64 %.0678.idx2681
+  %.0678.idx2682 = phi i64 [ 0, %711 ], [ %.0678.add, %715 ]
+  %.0678.ptr = getelementptr inbounds nuw i8, ptr %25, i64 %.0678.idx2682
   %716 = load i16, ptr %.0678.ptr, align 2, !tbaa !238
   %717 = zext i16 %716 to i64
   %718 = getelementptr inbounds nuw [234 x [496 x i8]], ptr %493, i64 0, i64 %717, i64 %713
   store i8 0, ptr %718, align 1, !tbaa !228
-  %.0678.add = add nuw nsw i64 %.0678.idx2681, 2
+  %.0678.add = add nuw nsw i64 %.0678.idx2682, 2
   %.not776 = icmp eq i64 %.0678.add, 4
   br i1 %.not776, label %714, label %715
 
 719:                                              ; preds = %714
-  %gep2683 = getelementptr inbounds nuw i8, ptr %invariant.gep2664, i64 %713
-  store i8 0, ptr %gep2683, align 1, !tbaa !228
+  %gep2684 = getelementptr inbounds nuw i8, ptr %invariant.gep2665, i64 %713
+  store i8 0, ptr %gep2684, align 1, !tbaa !228
   br label %720
 
 720:                                              ; preds = %719, %714
-  %.0677.add = add nuw nsw i64 %.0677.idx2684, 4
+  %.0677.add = add nuw nsw i64 %.0677.idx2685, 4
   %.not725 = icmp eq i64 %.0677.add, 24
   br i1 %.not725, label %699, label %711
 
@@ -4342,11 +4342,11 @@ _ZNK4llvm16AArch64Subtarget27useSVEForFixedLengthVectorsEv.exit.thread2353: ; pr
   store ptr @.str.127, ptr %854, align 8, !tbaa !48
   %855 = getelementptr inbounds nuw i8, ptr %0, i64 406552
   store ptr @.str.128, ptr %855, align 8, !tbaa !48
-  %.pre3346 = load ptr, ptr %61, align 8, !tbaa !71
+  %.pre3347 = load ptr, ptr %61, align 8, !tbaa !71
   br label %856
 
 856:                                              ; preds = %.thread2357, %728, %.thread2358
-  %857 = phi ptr [ %684, %728 ], [ %684, %.thread2357 ], [ %.pre3346, %.thread2358 ]
+  %857 = phi ptr [ %684, %728 ], [ %684, %.thread2357 ], [ %.pre3347, %.thread2358 ]
   %858 = getelementptr inbounds nuw i8, ptr %857, i64 390
   %859 = load i8, ptr %858, align 2, !tbaa !249, !range !54, !noundef !55
   %860 = trunc nuw i8 %859 to i1
@@ -4421,19 +4421,19 @@ _ZNK4llvm16AArch64Subtarget27useSVEForFixedLengthVectorsEv.exit.thread2353: ; pr
   %896 = load ptr, ptr %895, align 8
   %.not727 = icmp eq ptr %896, null
   %or.cond = select i1 %.not726, i1 true, i1 %.not727
-  %spec.select3448 = select i1 %or.cond, i8 2, i8 4
+  %spec.select3456 = select i1 %or.cond, i8 2, i8 4
   %897 = getelementptr inbounds nuw i8, ptr %0, i64 12221
-  store i8 %spec.select3448, ptr %897, align 1, !tbaa !228
+  store i8 %spec.select3456, ptr %897, align 1, !tbaa !228
   %898 = getelementptr inbounds nuw i8, ptr %0, i64 11725
-  store i8 %spec.select3448, ptr %898, align 1, !tbaa !228
+  store i8 %spec.select3456, ptr %898, align 1, !tbaa !228
   %899 = getelementptr inbounds nuw i8, ptr %857, i64 868
   %900 = load i32, ptr %899, align 4, !tbaa !251
   %901 = icmp eq i32 %900, 5
   %902 = getelementptr inbounds nuw i8, ptr %1, i64 636
   %903 = load i32, ptr %902, align 4
   %904 = icmp eq i32 %903, 4
-  %or.cond2374 = select i1 %901, i1 %904, i1 false
-  br i1 %or.cond2374, label %905, label %908
+  %or.cond2375 = select i1 %901, i1 %904, i1 false
+  br i1 %or.cond2375, label %905, label %908
 
 905:                                              ; preds = %874
   %906 = getelementptr inbounds nuw i8, ptr %0, i64 11450
@@ -4443,77 +4443,77 @@ _ZNK4llvm16AArch64Subtarget27useSVEForFixedLengthVectorsEv.exit.thread2353: ; pr
   br label %908
 
 908:                                              ; preds = %905, %874
-  %invariant.gep2685 = getelementptr inbounds nuw i8, ptr %0, i64 121570
-  %invariant.gep2687 = getelementptr inbounds nuw i8, ptr %0, i64 121572
-  %invariant.gep2689 = getelementptr inbounds nuw i8, ptr %0, i64 121574
-  %invariant.gep2691 = getelementptr inbounds nuw i8, ptr %0, i64 121576
-  %invariant.gep2693 = getelementptr inbounds nuw i8, ptr %0, i64 121578
+  %invariant.gep2686 = getelementptr inbounds nuw i8, ptr %0, i64 121570
+  %invariant.gep2688 = getelementptr inbounds nuw i8, ptr %0, i64 121572
+  %invariant.gep2690 = getelementptr inbounds nuw i8, ptr %0, i64 121574
+  %invariant.gep2692 = getelementptr inbounds nuw i8, ptr %0, i64 121576
+  %invariant.gep2694 = getelementptr inbounds nuw i8, ptr %0, i64 121578
   br label %910
 
-.preheader2651:                                   ; preds = %910
+.preheader2652:                                   ; preds = %910
   %909 = getelementptr inbounds nuw i8, ptr %0, i64 121554
   br label %928
 
 910:                                              ; preds = %908, %910
-  %.sroa.01958.02695 = phi i64 [ 10, %908 ], [ %926, %910 ]
-  %.idx2630 = mul nuw nsw i64 %.sroa.01958.02695, 468
-  %gep2686 = getelementptr inbounds nuw i8, ptr %invariant.gep2685, i64 %.idx2630
-  %911 = load i16, ptr %gep2686, align 2, !tbaa !240
+  %.sroa.01958.02696 = phi i64 [ 10, %908 ], [ %926, %910 ]
+  %.idx2631 = mul nuw nsw i64 %.sroa.01958.02696, 468
+  %gep2687 = getelementptr inbounds nuw i8, ptr %invariant.gep2686, i64 %.idx2631
+  %911 = load i16, ptr %gep2687, align 2, !tbaa !240
   %912 = and i16 %911, -241
   %913 = or disjoint i16 %912, 32
-  store i16 %913, ptr %gep2686, align 2, !tbaa !240
-  %gep2688 = getelementptr inbounds nuw i8, ptr %invariant.gep2687, i64 %.idx2630
-  %914 = load i16, ptr %gep2688, align 4, !tbaa !240
+  store i16 %913, ptr %gep2687, align 2, !tbaa !240
+  %gep2689 = getelementptr inbounds nuw i8, ptr %invariant.gep2688, i64 %.idx2631
+  %914 = load i16, ptr %gep2689, align 4, !tbaa !240
   %915 = and i16 %914, -241
   %916 = or disjoint i16 %915, 32
-  store i16 %916, ptr %gep2688, align 4, !tbaa !240
-  %gep2690 = getelementptr inbounds nuw i8, ptr %invariant.gep2689, i64 %.idx2630
-  %917 = load i16, ptr %gep2690, align 2, !tbaa !240
+  store i16 %916, ptr %gep2689, align 4, !tbaa !240
+  %gep2691 = getelementptr inbounds nuw i8, ptr %invariant.gep2690, i64 %.idx2631
+  %917 = load i16, ptr %gep2691, align 2, !tbaa !240
   %918 = and i16 %917, -241
   %919 = or disjoint i16 %918, 32
-  store i16 %919, ptr %gep2690, align 2, !tbaa !240
-  %gep2692 = getelementptr inbounds nuw i8, ptr %invariant.gep2691, i64 %.idx2630
-  %920 = load i16, ptr %gep2692, align 4, !tbaa !240
+  store i16 %919, ptr %gep2691, align 2, !tbaa !240
+  %gep2693 = getelementptr inbounds nuw i8, ptr %invariant.gep2692, i64 %.idx2631
+  %920 = load i16, ptr %gep2693, align 4, !tbaa !240
   %921 = and i16 %920, -241
   %922 = or disjoint i16 %921, 32
-  store i16 %922, ptr %gep2692, align 4, !tbaa !240
-  %gep2694 = getelementptr inbounds nuw i8, ptr %invariant.gep2693, i64 %.idx2630
-  %923 = load i16, ptr %gep2694, align 2, !tbaa !240
+  store i16 %922, ptr %gep2693, align 4, !tbaa !240
+  %gep2695 = getelementptr inbounds nuw i8, ptr %invariant.gep2694, i64 %.idx2631
+  %923 = load i16, ptr %gep2695, align 2, !tbaa !240
   %924 = and i16 %923, -241
   %925 = or disjoint i16 %924, 32
-  store i16 %925, ptr %gep2694, align 2, !tbaa !240
-  %926 = add nuw nsw i64 %.sroa.01958.02695, 1
-  %.not2379 = icmp eq i64 %926, 17
-  br i1 %.not2379, label %.preheader2651, label %910
+  store i16 %925, ptr %gep2695, align 2, !tbaa !240
+  %926 = add nuw nsw i64 %.sroa.01958.02696, 1
+  %.not2380 = icmp eq i64 %926, 17
+  br i1 %.not2380, label %.preheader2652, label %910
 
-.preheader2650:                                   ; preds = %928
+.preheader2651:                                   ; preds = %928
   %927 = getelementptr inbounds nuw i8, ptr %0, i64 340574
   br label %938
 
-928:                                              ; preds = %.preheader2651, %928
-  %.sroa.01942.02696 = phi i64 [ 2, %.preheader2651 ], [ %933, %928 ]
-  %.idx2629 = mul nuw nsw i64 %.sroa.01942.02696, 468
-  %929 = getelementptr i8, ptr %909, i64 %.idx2629
+928:                                              ; preds = %.preheader2652, %928
+  %.sroa.01942.02697 = phi i64 [ 2, %.preheader2652 ], [ %933, %928 ]
+  %.idx2630 = mul nuw nsw i64 %.sroa.01942.02697, 468
+  %929 = getelementptr i8, ptr %909, i64 %.idx2630
   %930 = load i16, ptr %929, align 2, !tbaa !240
   %931 = and i16 %930, -3841
   %932 = or disjoint i16 %931, 512
   store i16 %932, ptr %929, align 2, !tbaa !240
-  %933 = add nuw nsw i64 %.sroa.01942.02696, 1
-  %.not2380 = icmp eq i64 %933, 10
-  br i1 %.not2380, label %.preheader2650, label %928
+  %933 = add nuw nsw i64 %.sroa.01942.02697, 1
+  %.not2381 = icmp eq i64 %933, 10
+  br i1 %.not2381, label %.preheader2651, label %928
 
-934:                                              ; preds = %.split2699.us
+934:                                              ; preds = %.split2700.us
   %935 = getelementptr inbounds nuw i8, ptr %857, i64 368
   %936 = load i8, ptr %935, align 8, !tbaa !230, !range !54, !noundef !55
   %937 = trunc nuw i8 %936 to i1
   br i1 %937, label %977, label %981
 
-938:                                              ; preds = %.preheader2650, %.split2699.us
-  %.sroa.01934.02700 = phi i64 [ 10, %.preheader2650 ], [ %962, %.split2699.us ]
-  %939 = trunc i64 %.sroa.01934.02700 to i16
+938:                                              ; preds = %.preheader2651, %.split2700.us
+  %.sroa.01934.02701 = phi i64 [ 10, %.preheader2651 ], [ %962, %.split2700.us ]
+  %939 = trunc i64 %.sroa.01934.02701 to i16
   %940 = add i16 %939, -17
   %spec.select.i.i.i853 = icmp ult i16 %940, 174
-  %941 = add nsw i64 %.sroa.01934.02700, -1
+  %941 = add nsw i64 %.sroa.01934.02701, -1
   br i1 %spec.select.i.i.i853, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %938
@@ -4526,14 +4526,14 @@ _ZNK4llvm16AArch64Subtarget27useSVEForFixedLengthVectorsEv.exit.thread2353: ; pr
   br label %_ZNK4llvm3MVT19getScalarSizeInBitsEv.exit.us
 
 _ZNK4llvm3MVT19getScalarSizeInBitsEv.exit.us:     ; preds = %959, %.split.us
-  %.sroa.01926.02697.us = phi i64 [ 10, %.split.us ], [ %960, %959 ]
-  %947 = trunc i64 %.sroa.01926.02697.us to i16
+  %.sroa.01926.02698.us = phi i64 [ 10, %.split.us ], [ %960, %959 ]
+  %947 = trunc i64 %.sroa.01926.02698.us to i16
   %948 = add i16 %947, -17
   %spec.select.i.i.i854.us = icmp ult i16 %948, 174
   br i1 %spec.select.i.i.i854.us, label %949, label %_ZNK4llvm3MVT19getScalarSizeInBitsEv.exit857.us
 
 949:                                              ; preds = %_ZNK4llvm3MVT19getScalarSizeInBitsEv.exit.us
-  %950 = add nsw i64 %.sroa.01926.02697.us, -1
+  %950 = add nsw i64 %.sroa.01926.02698.us, -1
   %951 = getelementptr inbounds [241 x i16], ptr @_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable, i64 0, i64 %950
   %952 = load i16, ptr %951, align 2, !tbaa !238
   br label %_ZNK4llvm3MVT19getScalarSizeInBitsEv.exit857.us
@@ -4548,34 +4548,34 @@ _ZNK4llvm3MVT19getScalarSizeInBitsEv.exit857.us:  ; preds = %949, %_ZNK4llvm3MVT
   br i1 %956, label %957, label %959
 
 957:                                              ; preds = %_ZNK4llvm3MVT19getScalarSizeInBitsEv.exit857.us
-  %958 = getelementptr inbounds nuw [234 x [234 x i8]], ptr %927, i64 0, i64 %.sroa.01934.02700, i64 %.sroa.01926.02697.us
+  %958 = getelementptr inbounds nuw [234 x [234 x i8]], ptr %927, i64 0, i64 %.sroa.01934.02701, i64 %.sroa.01926.02698.us
   store i8 2, ptr %958, align 1, !tbaa !228
   br label %959
 
 959:                                              ; preds = %957, %_ZNK4llvm3MVT19getScalarSizeInBitsEv.exit857.us
-  %960 = add nuw nsw i64 %.sroa.01926.02697.us, 1
-  %.not2628.us = icmp eq i64 %960, 17
-  br i1 %.not2628.us, label %.split2699.us, label %_ZNK4llvm3MVT19getScalarSizeInBitsEv.exit.us
+  %960 = add nuw nsw i64 %.sroa.01926.02698.us, 1
+  %.not2629.us = icmp eq i64 %960, 17
+  br i1 %.not2629.us, label %.split2700.us, label %_ZNK4llvm3MVT19getScalarSizeInBitsEv.exit.us
 
 .split:                                           ; preds = %938
   %961 = getelementptr inbounds [241 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %941
   %.sroa.0.0.copyload.i.i = load i64, ptr %961, align 16
   br label %_ZNK4llvm3MVT19getScalarSizeInBitsEv.exit
 
-.split2699.us:                                    ; preds = %975, %959
-  %962 = add nuw nsw i64 %.sroa.01934.02700, 1
-  %.not2381 = icmp eq i64 %962, 17
-  br i1 %.not2381, label %934, label %938
+.split2700.us:                                    ; preds = %975, %959
+  %962 = add nuw nsw i64 %.sroa.01934.02701, 1
+  %.not2382 = icmp eq i64 %962, 17
+  br i1 %.not2382, label %934, label %938
 
 _ZNK4llvm3MVT19getScalarSizeInBitsEv.exit:        ; preds = %.split, %975
-  %.sroa.01926.02697 = phi i64 [ 10, %.split ], [ %976, %975 ]
-  %963 = trunc i64 %.sroa.01926.02697 to i16
+  %.sroa.01926.02698 = phi i64 [ 10, %.split ], [ %976, %975 ]
+  %963 = trunc i64 %.sroa.01926.02698 to i16
   %964 = add i16 %963, -17
   %spec.select.i.i.i854 = icmp ult i16 %964, 174
   br i1 %spec.select.i.i.i854, label %965, label %_ZNK4llvm3MVT19getScalarSizeInBitsEv.exit857
 
 965:                                              ; preds = %_ZNK4llvm3MVT19getScalarSizeInBitsEv.exit
-  %966 = add nsw i64 %.sroa.01926.02697, -1
+  %966 = add nsw i64 %.sroa.01926.02698, -1
   %967 = getelementptr inbounds [241 x i16], ptr @_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable, i64 0, i64 %966
   %968 = load i16, ptr %967, align 2, !tbaa !238
   br label %_ZNK4llvm3MVT19getScalarSizeInBitsEv.exit857
@@ -4590,14 +4590,14 @@ _ZNK4llvm3MVT19getScalarSizeInBitsEv.exit857:     ; preds = %_ZNK4llvm3MVT19getS
   br i1 %972, label %973, label %975
 
 973:                                              ; preds = %_ZNK4llvm3MVT19getScalarSizeInBitsEv.exit857
-  %974 = getelementptr inbounds nuw [234 x [234 x i8]], ptr %927, i64 0, i64 %.sroa.01934.02700, i64 %.sroa.01926.02697
+  %974 = getelementptr inbounds nuw [234 x [234 x i8]], ptr %927, i64 0, i64 %.sroa.01934.02701, i64 %.sroa.01926.02698
   store i8 2, ptr %974, align 1, !tbaa !228
   br label %975
 
 975:                                              ; preds = %973, %_ZNK4llvm3MVT19getScalarSizeInBitsEv.exit857
-  %976 = add nuw nsw i64 %.sroa.01926.02697, 1
-  %.not2628 = icmp eq i64 %976, 17
-  br i1 %.not2628, label %.split2699.us, label %_ZNK4llvm3MVT19getScalarSizeInBitsEv.exit
+  %976 = add nuw nsw i64 %.sroa.01926.02698, 1
+  %.not2629 = icmp eq i64 %976, 17
+  br i1 %.not2629, label %.split2700.us, label %_ZNK4llvm3MVT19getScalarSizeInBitsEv.exit
 
 977:                                              ; preds = %934
   %978 = getelementptr inbounds nuw i8, ptr %0, i64 8696
@@ -4966,23 +4966,23 @@ _ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit: ; preds = %1180
   br i1 %1186, label %_ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit.thread, label %_ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit.thread2359
 
 _ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit.thread2359: ; preds = %1176, %_ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit
-  %invariant.gep2711 = getelementptr inbounds nuw i8, ptr %0, i64 68974
+  %invariant.gep2712 = getelementptr inbounds nuw i8, ptr %0, i64 68974
   br label %1187
 
-.preheader2648:                                   ; preds = %1187
-  %invariant.gep2714 = getelementptr inbounds nuw i8, ptr %0, i64 43678
+.preheader2649:                                   ; preds = %1187
+  %invariant.gep2715 = getelementptr inbounds nuw i8, ptr %0, i64 43678
   br label %1201
 
 1187:                                             ; preds = %_ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit.thread2359, %1187
-  %.0679.idx2713 = phi i64 [ 0, %_ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit.thread2359 ], [ %.0679.add, %1187 ]
-  %.0679.ptr = getelementptr inbounds nuw i8, ptr @constinit.133, i64 %.0679.idx2713
+  %.0679.idx2714 = phi i64 [ 0, %_ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit.thread2359 ], [ %.0679.add, %1187 ]
+  %.0679.ptr = getelementptr inbounds nuw i8, ptr @constinit.133, i64 %.0679.idx2714
   %1188 = load i32, ptr %.0679.ptr, align 4, !tbaa !245
   %1189 = zext i32 %1188 to i64
-  %gep2712 = getelementptr inbounds nuw i8, ptr %invariant.gep2711, i64 %1189
-  store i8 2, ptr %gep2712, align 1, !tbaa !228
-  %.0679.add = add nuw nsw i64 %.0679.idx2713, 4
+  %gep2713 = getelementptr inbounds nuw i8, ptr %invariant.gep2712, i64 %1189
+  store i8 2, ptr %gep2713, align 1, !tbaa !228
+  %.0679.add = add nuw nsw i64 %.0679.idx2714, 4
   %.not730 = icmp eq i64 %.0679.add, 232
-  br i1 %.not730, label %.preheader2648, label %1187
+  br i1 %.not730, label %.preheader2649, label %1187
 
 1190:                                             ; preds = %1201
   %1191 = getelementptr inbounds nuw i8, ptr %0, i64 24059
@@ -5012,14 +5012,14 @@ _ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit.thread2359: ; preds = %1176,
   %1200 = getelementptr inbounds nuw i8, ptr %29, i64 4
   br label %1209
 
-1201:                                             ; preds = %.preheader2648, %1201
-  %.0681.idx2716 = phi i64 [ 0, %.preheader2648 ], [ %.0681.add, %1201 ]
-  %.0681.ptr = getelementptr inbounds nuw i8, ptr @constinit.134, i64 %.0681.idx2716
+1201:                                             ; preds = %.preheader2649, %1201
+  %.0681.idx2717 = phi i64 [ 0, %.preheader2649 ], [ %.0681.add, %1201 ]
+  %.0681.ptr = getelementptr inbounds nuw i8, ptr @constinit.134, i64 %.0681.idx2717
   %1202 = load i32, ptr %.0681.ptr, align 4, !tbaa !245
   %1203 = zext i32 %1202 to i64
-  %gep2715 = getelementptr inbounds nuw i8, ptr %invariant.gep2714, i64 %1203
-  store i8 2, ptr %gep2715, align 1, !tbaa !228
-  %.0681.add = add nuw nsw i64 %.0681.idx2716, 4
+  %gep2716 = getelementptr inbounds nuw i8, ptr %invariant.gep2715, i64 %1203
+  store i8 2, ptr %gep2716, align 1, !tbaa !228
+  %.0681.add = add nuw nsw i64 %.0681.idx2717, 4
   %.not731 = icmp eq i64 %.0681.add, 52
   br i1 %.not731, label %1190, label %1201
 
@@ -5032,8 +5032,8 @@ _ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit.thread2359: ; preds = %1176,
   br i1 %1208, label %1217, label %1228
 
 1209:                                             ; preds = %1190, %1212
-  %.0682.idx2718 = phi i64 [ 0, %1190 ], [ %.0682.add, %1212 ]
-  %.0682.ptr = getelementptr inbounds nuw i8, ptr %28, i64 %.0682.idx2718
+  %.0682.idx2719 = phi i64 [ 0, %1190 ], [ %.0682.add, %1212 ]
+  %.0682.ptr = getelementptr inbounds nuw i8, ptr %28, i64 %.0682.idx2719
   %1210 = load i32, ptr %.0682.ptr, align 4, !tbaa !245
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %29) #35
   store i16 58, ptr %29, align 2, !tbaa !238
@@ -5044,18 +5044,18 @@ _ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit.thread2359: ; preds = %1176,
 
 1212:                                             ; preds = %1213
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %29) #35
-  %.0682.add = add nuw nsw i64 %.0682.idx2718, 4
+  %.0682.add = add nuw nsw i64 %.0682.idx2719, 4
   %.not732 = icmp eq i64 %.0682.add, 16
   br i1 %.not732, label %1204, label %1209
 
 1213:                                             ; preds = %1209, %1213
-  %.0683.idx2717 = phi i64 [ 0, %1209 ], [ %.0683.add, %1213 ]
-  %.0683.ptr = getelementptr inbounds nuw i8, ptr %29, i64 %.0683.idx2717
+  %.0683.idx2718 = phi i64 [ 0, %1209 ], [ %.0683.add, %1213 ]
+  %.0683.ptr = getelementptr inbounds nuw i8, ptr %29, i64 %.0683.idx2718
   %1214 = load i16, ptr %.0683.ptr, align 2, !tbaa !238
   %1215 = zext i16 %1214 to i64
   %1216 = getelementptr inbounds nuw [234 x [496 x i8]], ptr %493, i64 0, i64 %1215, i64 %1211
   store i8 4, ptr %1216, align 1, !tbaa !228
-  %.0683.add = add nuw nsw i64 %.0683.idx2717, 2
+  %.0683.add = add nuw nsw i64 %.0683.idx2718, 2
   %.not775 = icmp eq i64 %.0683.add, 6
   br i1 %.not775, label %1212, label %1213
 
@@ -5162,10 +5162,10 @@ _ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit.thread2359: ; preds = %1176,
   store i16 77, ptr %30, align 2, !tbaa !238
   %1254 = getelementptr inbounds nuw i8, ptr %30, i64 2
   store i16 78, ptr %1254, align 2, !tbaa !238
-  %invariant.gep2719 = getelementptr inbounds nuw i8, ptr %0, i64 5669
-  %invariant.gep2721 = getelementptr inbounds nuw i8, ptr %0, i64 5667
-  %invariant.gep2723 = getelementptr inbounds nuw i8, ptr %0, i64 5668
-  %invariant.gep2725 = getelementptr inbounds nuw i8, ptr %0, i64 5666
+  %invariant.gep2720 = getelementptr inbounds nuw i8, ptr %0, i64 5669
+  %invariant.gep2722 = getelementptr inbounds nuw i8, ptr %0, i64 5667
+  %invariant.gep2724 = getelementptr inbounds nuw i8, ptr %0, i64 5668
+  %invariant.gep2726 = getelementptr inbounds nuw i8, ptr %0, i64 5666
   br label %1268
 
 1255:                                             ; preds = %1268
@@ -5196,27 +5196,27 @@ _ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit.thread2359: ; preds = %1176,
   store i16 60, ptr %1266, align 2, !tbaa !238
   %1267 = getelementptr inbounds nuw i8, ptr %31, i64 12
   store i16 78, ptr %1267, align 2, !tbaa !238
-  %invariant.gep2728 = getelementptr inbounds nuw i8, ptr %0, i64 5568
-  %invariant.gep2730 = getelementptr inbounds nuw i8, ptr %0, i64 5569
-  %invariant.gep2732 = getelementptr inbounds nuw i8, ptr %0, i64 5570
-  %invariant.gep2734 = getelementptr inbounds nuw i8, ptr %0, i64 5571
+  %invariant.gep2729 = getelementptr inbounds nuw i8, ptr %0, i64 5568
+  %invariant.gep2731 = getelementptr inbounds nuw i8, ptr %0, i64 5569
+  %invariant.gep2733 = getelementptr inbounds nuw i8, ptr %0, i64 5570
+  %invariant.gep2735 = getelementptr inbounds nuw i8, ptr %0, i64 5571
   br label %1277
 
 1268:                                             ; preds = %1245, %1268
-  %.0685.idx2727 = phi i64 [ 0, %1245 ], [ %.0685.add, %1268 ]
-  %.0685.ptr = getelementptr inbounds nuw i8, ptr %30, i64 %.0685.idx2727
+  %.0685.idx2728 = phi i64 [ 0, %1245 ], [ %.0685.add, %1268 ]
+  %.0685.ptr = getelementptr inbounds nuw i8, ptr %30, i64 %.0685.idx2728
   %1269 = load i16, ptr %.0685.ptr, align 2, !tbaa !238
   %1270 = zext i16 %1269 to i64
-  %.idx2402 = mul nuw nsw i64 %1270, 496
-  %gep2720 = getelementptr inbounds nuw i8, ptr %invariant.gep2719, i64 %.idx2402
-  store i8 4, ptr %gep2720, align 1, !tbaa !228
-  %gep2722 = getelementptr inbounds nuw i8, ptr %invariant.gep2721, i64 %.idx2402
-  store i8 4, ptr %gep2722, align 1, !tbaa !228
-  %gep2724 = getelementptr inbounds nuw i8, ptr %invariant.gep2723, i64 %.idx2402
-  store i8 4, ptr %gep2724, align 4, !tbaa !228
-  %gep2726 = getelementptr inbounds nuw i8, ptr %invariant.gep2725, i64 %.idx2402
-  store i8 4, ptr %gep2726, align 2, !tbaa !228
-  %.0685.add = add nuw nsw i64 %.0685.idx2727, 2
+  %.idx2403 = mul nuw nsw i64 %1270, 496
+  %gep2721 = getelementptr inbounds nuw i8, ptr %invariant.gep2720, i64 %.idx2403
+  store i8 4, ptr %gep2721, align 1, !tbaa !228
+  %gep2723 = getelementptr inbounds nuw i8, ptr %invariant.gep2722, i64 %.idx2403
+  store i8 4, ptr %gep2723, align 1, !tbaa !228
+  %gep2725 = getelementptr inbounds nuw i8, ptr %invariant.gep2724, i64 %.idx2403
+  store i8 4, ptr %gep2725, align 4, !tbaa !228
+  %gep2727 = getelementptr inbounds nuw i8, ptr %invariant.gep2726, i64 %.idx2403
+  store i8 4, ptr %gep2727, align 2, !tbaa !228
+  %.0685.add = add nuw nsw i64 %.0685.idx2728, 2
   %.not733 = icmp eq i64 %.0685.add, 4
   br i1 %.not733, label %1255, label %1268
 
@@ -5234,29 +5234,29 @@ _ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit.thread2359: ; preds = %1176,
   store i16 50, ptr %1275, align 2, !tbaa !238
   %1276 = getelementptr inbounds nuw i8, ptr %32, i64 10
   store i16 60, ptr %1276, align 2, !tbaa !238
-  %invariant.gep2737 = getelementptr inbounds nuw i8, ptr %0, i64 5660
-  %invariant.gep2739 = getelementptr inbounds nuw i8, ptr %0, i64 5661
-  %invariant.gep2741 = getelementptr inbounds nuw i8, ptr %0, i64 5662
-  %invariant.gep2743 = getelementptr inbounds nuw i8, ptr %0, i64 5663
-  %invariant.gep2745 = getelementptr inbounds nuw i8, ptr %0, i64 5664
-  %invariant.gep2747 = getelementptr inbounds nuw i8, ptr %0, i64 5665
+  %invariant.gep2738 = getelementptr inbounds nuw i8, ptr %0, i64 5660
+  %invariant.gep2740 = getelementptr inbounds nuw i8, ptr %0, i64 5661
+  %invariant.gep2742 = getelementptr inbounds nuw i8, ptr %0, i64 5662
+  %invariant.gep2744 = getelementptr inbounds nuw i8, ptr %0, i64 5663
+  %invariant.gep2746 = getelementptr inbounds nuw i8, ptr %0, i64 5664
+  %invariant.gep2748 = getelementptr inbounds nuw i8, ptr %0, i64 5665
   br label %1287
 
 1277:                                             ; preds = %1255, %1277
-  %.0686.idx2736 = phi i64 [ 0, %1255 ], [ %.0686.add, %1277 ]
-  %.0686.ptr = getelementptr inbounds nuw i8, ptr %31, i64 %.0686.idx2736
+  %.0686.idx2737 = phi i64 [ 0, %1255 ], [ %.0686.add, %1277 ]
+  %.0686.ptr = getelementptr inbounds nuw i8, ptr %31, i64 %.0686.idx2737
   %1278 = load i16, ptr %.0686.ptr, align 2, !tbaa !238
   %1279 = zext i16 %1278 to i64
-  %.idx2406 = mul nuw nsw i64 %1279, 496
-  %gep2729 = getelementptr inbounds nuw i8, ptr %invariant.gep2728, i64 %.idx2406
-  store i8 0, ptr %gep2729, align 8, !tbaa !228
-  %gep2731 = getelementptr inbounds nuw i8, ptr %invariant.gep2730, i64 %.idx2406
-  store i8 0, ptr %gep2731, align 1, !tbaa !228
-  %gep2733 = getelementptr inbounds nuw i8, ptr %invariant.gep2732, i64 %.idx2406
-  store i8 0, ptr %gep2733, align 2, !tbaa !228
-  %gep2735 = getelementptr inbounds nuw i8, ptr %invariant.gep2734, i64 %.idx2406
-  store i8 0, ptr %gep2735, align 1, !tbaa !228
-  %.0686.add = add nuw nsw i64 %.0686.idx2736, 2
+  %.idx2407 = mul nuw nsw i64 %1279, 496
+  %gep2730 = getelementptr inbounds nuw i8, ptr %invariant.gep2729, i64 %.idx2407
+  store i8 0, ptr %gep2730, align 8, !tbaa !228
+  %gep2732 = getelementptr inbounds nuw i8, ptr %invariant.gep2731, i64 %.idx2407
+  store i8 0, ptr %gep2732, align 1, !tbaa !228
+  %gep2734 = getelementptr inbounds nuw i8, ptr %invariant.gep2733, i64 %.idx2407
+  store i8 0, ptr %gep2734, align 2, !tbaa !228
+  %gep2736 = getelementptr inbounds nuw i8, ptr %invariant.gep2735, i64 %.idx2407
+  store i8 0, ptr %gep2736, align 1, !tbaa !228
+  %.0686.add = add nuw nsw i64 %.0686.idx2737, 2
   %.not734 = icmp eq i64 %.0686.add, 14
   br i1 %.not734, label %1271, label %1277
 
@@ -5272,34 +5272,34 @@ _ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit.thread2359: ; preds = %1176,
   store i16 111, ptr %1283, align 2, !tbaa !238
   %1284 = getelementptr inbounds nuw i8, ptr %33, i64 8
   store i16 129, ptr %1284, align 2, !tbaa !238
-  %invariant.gep2750 = getelementptr inbounds nuw i8, ptr %0, i64 5862
-  %invariant.gep2752 = getelementptr inbounds nuw i8, ptr %0, i64 5863
-  %invariant.gep2754 = getelementptr inbounds nuw i8, ptr %0, i64 5864
-  %invariant.gep2756 = getelementptr inbounds nuw i8, ptr %0, i64 5865
-  %invariant.gep2758 = getelementptr inbounds nuw i8, ptr %0, i64 5860
+  %invariant.gep2751 = getelementptr inbounds nuw i8, ptr %0, i64 5862
+  %invariant.gep2753 = getelementptr inbounds nuw i8, ptr %0, i64 5863
+  %invariant.gep2755 = getelementptr inbounds nuw i8, ptr %0, i64 5864
+  %invariant.gep2757 = getelementptr inbounds nuw i8, ptr %0, i64 5865
+  %invariant.gep2759 = getelementptr inbounds nuw i8, ptr %0, i64 5860
   %1285 = load ptr, ptr %61, align 8
   %1286 = getelementptr inbounds nuw i8, ptr %1285, i64 373
   br label %1296
 
 1287:                                             ; preds = %1271, %1287
-  %.0687.idx2749 = phi i64 [ 0, %1271 ], [ %.0687.add, %1287 ]
-  %.0687.ptr = getelementptr inbounds nuw i8, ptr %32, i64 %.0687.idx2749
+  %.0687.idx2750 = phi i64 [ 0, %1271 ], [ %.0687.add, %1287 ]
+  %.0687.ptr = getelementptr inbounds nuw i8, ptr %32, i64 %.0687.idx2750
   %1288 = load i16, ptr %.0687.ptr, align 2, !tbaa !238
   %1289 = zext i16 %1288 to i64
-  %.idx2410 = mul nuw nsw i64 %1289, 496
-  %gep2738 = getelementptr inbounds nuw i8, ptr %invariant.gep2737, i64 %.idx2410
-  store i8 0, ptr %gep2738, align 4, !tbaa !228
-  %gep2740 = getelementptr inbounds nuw i8, ptr %invariant.gep2739, i64 %.idx2410
-  store i8 0, ptr %gep2740, align 1, !tbaa !228
-  %gep2742 = getelementptr inbounds nuw i8, ptr %invariant.gep2741, i64 %.idx2410
-  store i8 0, ptr %gep2742, align 2, !tbaa !228
-  %gep2744 = getelementptr inbounds nuw i8, ptr %invariant.gep2743, i64 %.idx2410
-  store i8 0, ptr %gep2744, align 1, !tbaa !228
-  %gep2746 = getelementptr inbounds nuw i8, ptr %invariant.gep2745, i64 %.idx2410
-  store i8 0, ptr %gep2746, align 8, !tbaa !228
-  %gep2748 = getelementptr inbounds nuw i8, ptr %invariant.gep2747, i64 %.idx2410
-  store i8 0, ptr %gep2748, align 1, !tbaa !228
-  %.0687.add = add nuw nsw i64 %.0687.idx2749, 2
+  %.idx2411 = mul nuw nsw i64 %1289, 496
+  %gep2739 = getelementptr inbounds nuw i8, ptr %invariant.gep2738, i64 %.idx2411
+  store i8 0, ptr %gep2739, align 4, !tbaa !228
+  %gep2741 = getelementptr inbounds nuw i8, ptr %invariant.gep2740, i64 %.idx2411
+  store i8 0, ptr %gep2741, align 1, !tbaa !228
+  %gep2743 = getelementptr inbounds nuw i8, ptr %invariant.gep2742, i64 %.idx2411
+  store i8 0, ptr %gep2743, align 2, !tbaa !228
+  %gep2745 = getelementptr inbounds nuw i8, ptr %invariant.gep2744, i64 %.idx2411
+  store i8 0, ptr %gep2745, align 1, !tbaa !228
+  %gep2747 = getelementptr inbounds nuw i8, ptr %invariant.gep2746, i64 %.idx2411
+  store i8 0, ptr %gep2747, align 8, !tbaa !228
+  %gep2749 = getelementptr inbounds nuw i8, ptr %invariant.gep2748, i64 %.idx2411
+  store i8 0, ptr %gep2749, align 1, !tbaa !228
+  %.0687.add = add nuw nsw i64 %.0687.idx2750, 2
   %.not735 = icmp eq i64 %.0687.add, 12
   br i1 %.not735, label %1280, label %1287
 
@@ -5317,26 +5317,26 @@ _ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit.thread2359: ; preds = %1176,
   store i16 50, ptr %1294, align 2, !tbaa !238
   %1295 = getelementptr inbounds nuw i8, ptr %34, i64 10
   store i16 60, ptr %1295, align 2, !tbaa !238
-  %invariant.gep2761 = getelementptr inbounds nuw i8, ptr %0, i64 5866
-  %invariant.gep2763 = getelementptr inbounds nuw i8, ptr %0, i64 5871
-  %invariant.gep2765 = getelementptr inbounds nuw i8, ptr %0, i64 5872
-  %invariant.gep2767 = getelementptr inbounds nuw i8, ptr %0, i64 5873
-  %invariant.gep2769 = getelementptr inbounds nuw i8, ptr %0, i64 5874
-  %invariant.gep2771 = getelementptr inbounds nuw i8, ptr %0, i64 5868
-  %invariant.gep2773 = getelementptr inbounds nuw i8, ptr %0, i64 5869
-  %invariant.gep2775 = getelementptr inbounds nuw i8, ptr %0, i64 5870
+  %invariant.gep2762 = getelementptr inbounds nuw i8, ptr %0, i64 5866
+  %invariant.gep2764 = getelementptr inbounds nuw i8, ptr %0, i64 5871
+  %invariant.gep2766 = getelementptr inbounds nuw i8, ptr %0, i64 5872
+  %invariant.gep2768 = getelementptr inbounds nuw i8, ptr %0, i64 5873
+  %invariant.gep2770 = getelementptr inbounds nuw i8, ptr %0, i64 5874
+  %invariant.gep2772 = getelementptr inbounds nuw i8, ptr %0, i64 5868
+  %invariant.gep2774 = getelementptr inbounds nuw i8, ptr %0, i64 5869
+  %invariant.gep2776 = getelementptr inbounds nuw i8, ptr %0, i64 5870
   br label %1314
 
 1296:                                             ; preds = %1280, %1305
-  %.0689.idx2760 = phi i64 [ 0, %1280 ], [ %.0689.add, %1305 ]
-  %.0689.ptr = getelementptr inbounds nuw i8, ptr %33, i64 %.0689.idx2760
+  %.0689.idx2761 = phi i64 [ 0, %1280 ], [ %.0689.add, %1305 ]
+  %.0689.ptr = getelementptr inbounds nuw i8, ptr %33, i64 %.0689.idx2761
   %1297 = load i16, ptr %.0689.ptr, align 2, !tbaa !238
   %1298 = zext i16 %1297 to i64
   %1299 = add nsw i64 %1298, -1
   %1300 = getelementptr inbounds [241 x i16], ptr @_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable, i64 0, i64 %1299
   %1301 = load i16, ptr %1300, align 2, !tbaa !238
-  %.not2416 = icmp eq i16 %1301, 11
-  br i1 %.not2416, label %1302, label %.critedge
+  %.not2417 = icmp eq i16 %1301, 11
+  br i1 %.not2417, label %1302, label %.critedge
 
 1302:                                             ; preds = %1296
   %1303 = load i8, ptr %1286, align 1, !tbaa !244, !range !54, !noundef !55
@@ -5344,21 +5344,21 @@ _ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit.thread2359: ; preds = %1176,
   br i1 %1304, label %.critedge, label %1305
 
 .critedge:                                        ; preds = %1296, %1302
-  %.idx2417 = mul nuw nsw i64 %1298, 496
-  %gep2751 = getelementptr inbounds nuw i8, ptr %invariant.gep2750, i64 %.idx2417
-  store i8 0, ptr %gep2751, align 2, !tbaa !228
-  %gep2753 = getelementptr inbounds nuw i8, ptr %invariant.gep2752, i64 %.idx2417
-  store i8 0, ptr %gep2753, align 1, !tbaa !228
-  %gep2755 = getelementptr inbounds nuw i8, ptr %invariant.gep2754, i64 %.idx2417
-  store i8 0, ptr %gep2755, align 8, !tbaa !228
-  %gep2757 = getelementptr inbounds nuw i8, ptr %invariant.gep2756, i64 %.idx2417
-  store i8 0, ptr %gep2757, align 1, !tbaa !228
-  %gep2759 = getelementptr inbounds nuw i8, ptr %invariant.gep2758, i64 %.idx2417
-  store i8 0, ptr %gep2759, align 4, !tbaa !228
+  %.idx2418 = mul nuw nsw i64 %1298, 496
+  %gep2752 = getelementptr inbounds nuw i8, ptr %invariant.gep2751, i64 %.idx2418
+  store i8 0, ptr %gep2752, align 2, !tbaa !228
+  %gep2754 = getelementptr inbounds nuw i8, ptr %invariant.gep2753, i64 %.idx2418
+  store i8 0, ptr %gep2754, align 1, !tbaa !228
+  %gep2756 = getelementptr inbounds nuw i8, ptr %invariant.gep2755, i64 %.idx2418
+  store i8 0, ptr %gep2756, align 8, !tbaa !228
+  %gep2758 = getelementptr inbounds nuw i8, ptr %invariant.gep2757, i64 %.idx2418
+  store i8 0, ptr %gep2758, align 1, !tbaa !228
+  %gep2760 = getelementptr inbounds nuw i8, ptr %invariant.gep2759, i64 %.idx2418
+  store i8 0, ptr %gep2760, align 4, !tbaa !228
   br label %1305
 
 1305:                                             ; preds = %.critedge, %1302
-  %.0689.add = add nuw nsw i64 %.0689.idx2760, 2
+  %.0689.add = add nuw nsw i64 %.0689.idx2761, 2
   %.not736 = icmp eq i64 %.0689.add, 10
   br i1 %.not736, label %1290, label %1296
 
@@ -5376,43 +5376,43 @@ _ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit.thread2359: ; preds = %1176,
   store i8 0, ptr %1311, align 1, !tbaa !228
   %1312 = getelementptr inbounds nuw i8, ptr %0, i64 354193
   store i8 2, ptr %1312, align 1, !tbaa !228
-  %invariant.gep2779 = getelementptr inbounds nuw i8, ptr %0, i64 5708
-  %invariant.gep2781 = getelementptr inbounds nuw i8, ptr %0, i64 5659
-  %invariant.gep2783 = getelementptr inbounds nuw i8, ptr %0, i64 5658
-  %invariant.gep2789 = getelementptr inbounds nuw i8, ptr %0, i64 5549
-  %invariant.gep2791 = getelementptr inbounds nuw i8, ptr %0, i64 5550
-  %invariant.gep2793 = getelementptr inbounds nuw i8, ptr %0, i64 5683
-  %invariant.gep2795 = getelementptr inbounds nuw i8, ptr %0, i64 5684
+  %invariant.gep2780 = getelementptr inbounds nuw i8, ptr %0, i64 5708
+  %invariant.gep2782 = getelementptr inbounds nuw i8, ptr %0, i64 5659
+  %invariant.gep2784 = getelementptr inbounds nuw i8, ptr %0, i64 5658
+  %invariant.gep2790 = getelementptr inbounds nuw i8, ptr %0, i64 5549
+  %invariant.gep2792 = getelementptr inbounds nuw i8, ptr %0, i64 5550
+  %invariant.gep2794 = getelementptr inbounds nuw i8, ptr %0, i64 5683
+  %invariant.gep2796 = getelementptr inbounds nuw i8, ptr %0, i64 5684
   %1313 = getelementptr inbounds nuw i8, ptr %0, i64 121550
   br label %1324
 
 1314:                                             ; preds = %1290, %1314
-  %.0690.idx2777 = phi i64 [ 0, %1290 ], [ %.0690.add, %1314 ]
-  %.0690.ptr = getelementptr inbounds nuw i8, ptr %34, i64 %.0690.idx2777
+  %.0690.idx2778 = phi i64 [ 0, %1290 ], [ %.0690.add, %1314 ]
+  %.0690.ptr = getelementptr inbounds nuw i8, ptr %34, i64 %.0690.idx2778
   %1315 = load i16, ptr %.0690.ptr, align 2, !tbaa !238
   %1316 = zext i16 %1315 to i64
-  %.idx2422 = mul nuw nsw i64 %1316, 496
-  %gep2762 = getelementptr inbounds nuw i8, ptr %invariant.gep2761, i64 %.idx2422
-  store i8 4, ptr %gep2762, align 2, !tbaa !228
-  %gep2764 = getelementptr inbounds nuw i8, ptr %invariant.gep2763, i64 %.idx2422
-  store i8 4, ptr %gep2764, align 1, !tbaa !228
-  %gep2766 = getelementptr inbounds nuw i8, ptr %invariant.gep2765, i64 %.idx2422
-  store i8 4, ptr %gep2766, align 8, !tbaa !228
-  %gep2768 = getelementptr inbounds nuw i8, ptr %invariant.gep2767, i64 %.idx2422
-  store i8 4, ptr %gep2768, align 1, !tbaa !228
-  %gep2770 = getelementptr inbounds nuw i8, ptr %invariant.gep2769, i64 %.idx2422
-  store i8 4, ptr %gep2770, align 2, !tbaa !228
-  %gep2772 = getelementptr inbounds nuw i8, ptr %invariant.gep2771, i64 %.idx2422
-  store i8 4, ptr %gep2772, align 4, !tbaa !228
-  %gep2774 = getelementptr inbounds nuw i8, ptr %invariant.gep2773, i64 %.idx2422
-  store i8 4, ptr %gep2774, align 1, !tbaa !228
-  %gep2776 = getelementptr inbounds nuw i8, ptr %invariant.gep2775, i64 %.idx2422
-  store i8 4, ptr %gep2776, align 2, !tbaa !228
-  %.0690.add = add nuw nsw i64 %.0690.idx2777, 2
+  %.idx2423 = mul nuw nsw i64 %1316, 496
+  %gep2763 = getelementptr inbounds nuw i8, ptr %invariant.gep2762, i64 %.idx2423
+  store i8 4, ptr %gep2763, align 2, !tbaa !228
+  %gep2765 = getelementptr inbounds nuw i8, ptr %invariant.gep2764, i64 %.idx2423
+  store i8 4, ptr %gep2765, align 1, !tbaa !228
+  %gep2767 = getelementptr inbounds nuw i8, ptr %invariant.gep2766, i64 %.idx2423
+  store i8 4, ptr %gep2767, align 8, !tbaa !228
+  %gep2769 = getelementptr inbounds nuw i8, ptr %invariant.gep2768, i64 %.idx2423
+  store i8 4, ptr %gep2769, align 1, !tbaa !228
+  %gep2771 = getelementptr inbounds nuw i8, ptr %invariant.gep2770, i64 %.idx2423
+  store i8 4, ptr %gep2771, align 2, !tbaa !228
+  %gep2773 = getelementptr inbounds nuw i8, ptr %invariant.gep2772, i64 %.idx2423
+  store i8 4, ptr %gep2773, align 4, !tbaa !228
+  %gep2775 = getelementptr inbounds nuw i8, ptr %invariant.gep2774, i64 %.idx2423
+  store i8 4, ptr %gep2775, align 1, !tbaa !228
+  %gep2777 = getelementptr inbounds nuw i8, ptr %invariant.gep2776, i64 %.idx2423
+  store i8 4, ptr %gep2777, align 2, !tbaa !228
+  %.0690.add = add nuw nsw i64 %.0690.idx2778, 2
   %.not737 = icmp eq i64 %.0690.add, 12
   br i1 %.not737, label %1306, label %1314
 
-.preheader2647:                                   ; preds = %1327
+.preheader2648:                                   ; preds = %1327
   %1317 = getelementptr inbounds nuw i8, ptr %35, i64 2
   %1318 = getelementptr inbounds nuw i8, ptr %35, i64 4
   %1319 = load ptr, ptr %61, align 8, !tbaa !71
@@ -5423,11 +5423,11 @@ _ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit.thread2359: ; preds = %1176,
   br label %1345
 
 1324:                                             ; preds = %1306, %1327
-  %.sroa.01703.02797 = phi i64 [ 17, %1306 ], [ %1328, %1327 ]
-  %1325 = trunc i64 %.sroa.01703.02797 to i16
-  %.idx2618 = mul nuw nsw i64 %.sroa.01703.02797, 496
-  %gep2780 = getelementptr inbounds nuw i8, ptr %invariant.gep2779, i64 %.idx2618
-  store i8 2, ptr %gep2780, align 4, !tbaa !228
+  %.sroa.01703.02798 = phi i64 [ 17, %1306 ], [ %1328, %1327 ]
+  %1325 = trunc i64 %.sroa.01703.02798 to i16
+  %.idx2619 = mul nuw nsw i64 %.sroa.01703.02798, 496
+  %gep2781 = getelementptr inbounds nuw i8, ptr %invariant.gep2780, i64 %.idx2619
+  store i8 2, ptr %gep2781, align 4, !tbaa !228
   switch i16 %1325, label %1326 [
     i16 39, label %.critedge2
     i16 50, label %.critedge2
@@ -5438,38 +5438,38 @@ _ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit.thread2359: ; preds = %1176,
   br label %.critedge2
 
 .critedge2:                                       ; preds = %1324, %1324, %1324, %1326
-  %.sink3450 = phi i8 [ 2, %1326 ], [ 0, %1324 ], [ 0, %1324 ], [ 0, %1324 ]
-  %gep2786 = getelementptr inbounds nuw i8, ptr %invariant.gep2781, i64 %.idx2618
-  store i8 %.sink3450, ptr %gep2786, align 1, !tbaa !228
-  %gep2788 = getelementptr inbounds nuw i8, ptr %invariant.gep2783, i64 %.idx2618
-  store i8 %.sink3450, ptr %gep2788, align 2, !tbaa !228
-  %gep2790 = getelementptr inbounds nuw i8, ptr %invariant.gep2789, i64 %.idx2618
-  store i8 2, ptr %gep2790, align 1, !tbaa !228
-  %gep2792 = getelementptr inbounds nuw i8, ptr %invariant.gep2791, i64 %.idx2618
-  store i8 2, ptr %gep2792, align 2, !tbaa !228
-  %gep2794 = getelementptr inbounds nuw i8, ptr %invariant.gep2793, i64 %.idx2618
-  store i8 2, ptr %gep2794, align 1, !tbaa !228
-  %gep2796 = getelementptr inbounds nuw i8, ptr %invariant.gep2795, i64 %.idx2618
-  store i8 2, ptr %gep2796, align 4, !tbaa !228
+  %.sink3458 = phi i8 [ 2, %1326 ], [ 0, %1324 ], [ 0, %1324 ], [ 0, %1324 ]
+  %gep2787 = getelementptr inbounds nuw i8, ptr %invariant.gep2782, i64 %.idx2619
+  store i8 %.sink3458, ptr %gep2787, align 1, !tbaa !228
+  %gep2789 = getelementptr inbounds nuw i8, ptr %invariant.gep2784, i64 %.idx2619
+  store i8 %.sink3458, ptr %gep2789, align 2, !tbaa !228
+  %gep2791 = getelementptr inbounds nuw i8, ptr %invariant.gep2790, i64 %.idx2619
+  store i8 2, ptr %gep2791, align 1, !tbaa !228
+  %gep2793 = getelementptr inbounds nuw i8, ptr %invariant.gep2792, i64 %.idx2619
+  store i8 2, ptr %gep2793, align 2, !tbaa !228
+  %gep2795 = getelementptr inbounds nuw i8, ptr %invariant.gep2794, i64 %.idx2619
+  store i8 2, ptr %gep2795, align 1, !tbaa !228
+  %gep2797 = getelementptr inbounds nuw i8, ptr %invariant.gep2796, i64 %.idx2619
+  store i8 2, ptr %gep2797, align 4, !tbaa !228
   br label %1329
 
 1327:                                             ; preds = %1329
-  %1328 = add nuw nsw i64 %.sroa.01703.02797, 1
-  %.not2430 = icmp eq i64 %1328, 138
-  br i1 %.not2430, label %.preheader2647, label %1324
+  %1328 = add nuw nsw i64 %.sroa.01703.02798, 1
+  %.not2431 = icmp eq i64 %1328, 138
+  br i1 %.not2431, label %.preheader2648, label %1324
 
 1329:                                             ; preds = %.critedge2, %1329
-  %.sroa.01678.02778 = phi i64 [ 17, %.critedge2 ], [ %1335, %1329 ]
-  %1330 = getelementptr inbounds nuw [234 x [234 x i8]], ptr %927, i64 0, i64 %.sroa.01703.02797, i64 %.sroa.01678.02778
+  %.sroa.01678.02779 = phi i64 [ 17, %.critedge2 ], [ %1335, %1329 ]
+  %1330 = getelementptr inbounds nuw [234 x [234 x i8]], ptr %927, i64 0, i64 %.sroa.01703.02798, i64 %.sroa.01678.02779
   store i8 2, ptr %1330, align 1, !tbaa !228
-  %1331 = getelementptr inbounds nuw [234 x [234 x i16]], ptr %1313, i64 0, i64 %.sroa.01703.02797, i64 %.sroa.01678.02778
+  %1331 = getelementptr inbounds nuw [234 x [234 x i16]], ptr %1313, i64 0, i64 %.sroa.01703.02798, i64 %.sroa.01678.02779
   %1332 = load i16, ptr %1331, align 2, !tbaa !240
   %1333 = and i16 %1332, 15
   %1334 = or disjoint i16 %1333, 8736
   store i16 %1334, ptr %1331, align 2, !tbaa !240
-  %1335 = add nuw nsw i64 %.sroa.01678.02778, 1
-  %.not2627 = icmp eq i64 %1335, 138
-  br i1 %.not2627, label %1327, label %1329
+  %1335 = add nuw nsw i64 %.sroa.01678.02779, 1
+  %.not2628 = icmp eq i64 %1335, 138
+  br i1 %.not2628, label %1327, label %1329
 
 1336:                                             ; preds = %1359
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %37) #35
@@ -5485,9 +5485,9 @@ _ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit.thread2359: ; preds = %1176,
   %1344 = getelementptr inbounds nuw i8, ptr %39, i64 2
   br label %1380
 
-1345:                                             ; preds = %.preheader2647, %1359
-  %.0691.idx2800 = phi i64 [ 0, %.preheader2647 ], [ %.0691.add, %1359 ]
-  %.0691.ptr = getelementptr inbounds nuw i8, ptr @constinit.135, i64 %.0691.idx2800
+1345:                                             ; preds = %.preheader2648, %1359
+  %.0691.idx2801 = phi i64 [ 0, %.preheader2648 ], [ %.0691.add, %1359 ]
+  %.0691.ptr = getelementptr inbounds nuw i8, ptr @constinit.135, i64 %.0691.idx2801
   %1346 = load i32, ptr %.0691.ptr, align 4, !tbaa !245
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %35) #35
   store i16 109, ptr %35, align 2, !tbaa !238
@@ -5501,13 +5501,13 @@ _ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit.thread2359: ; preds = %1176,
   br i1 %1322, label %1353, label %1359
 
 1349:                                             ; preds = %1345, %1349
-  %.0693.idx2798 = phi i64 [ 0, %1345 ], [ %.0693.add, %1349 ]
-  %.0693.ptr = getelementptr inbounds nuw i8, ptr %35, i64 %.0693.idx2798
+  %.0693.idx2799 = phi i64 [ 0, %1345 ], [ %.0693.add, %1349 ]
+  %.0693.ptr = getelementptr inbounds nuw i8, ptr %35, i64 %.0693.idx2799
   %1350 = load i16, ptr %.0693.ptr, align 2, !tbaa !238
   %1351 = zext i16 %1350 to i64
   %1352 = getelementptr inbounds nuw [234 x [496 x i8]], ptr %493, i64 0, i64 %1351, i64 %1347
   store i8 0, ptr %1352, align 1, !tbaa !228
-  %.0693.add = add nuw nsw i64 %.0693.idx2798, 2
+  %.0693.add = add nuw nsw i64 %.0693.idx2799, 2
   %.not773 = icmp eq i64 %.0693.add, 6
   br i1 %.not773, label %1348, label %1349
 
@@ -5522,18 +5522,18 @@ _ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit.thread2359: ; preds = %1176,
   br label %1359
 
 1355:                                             ; preds = %1353, %1355
-  %.0694.idx2799 = phi i64 [ 0, %1353 ], [ %.0694.add, %1355 ]
-  %.0694.ptr = getelementptr inbounds nuw i8, ptr %36, i64 %.0694.idx2799
+  %.0694.idx2800 = phi i64 [ 0, %1353 ], [ %.0694.add, %1355 ]
+  %.0694.ptr = getelementptr inbounds nuw i8, ptr %36, i64 %.0694.idx2800
   %1356 = load i16, ptr %.0694.ptr, align 2, !tbaa !238
   %1357 = zext i16 %1356 to i64
   %1358 = getelementptr inbounds nuw [234 x [496 x i8]], ptr %493, i64 0, i64 %1357, i64 %1347
   store i8 0, ptr %1358, align 1, !tbaa !228
-  %.0694.add = add nuw nsw i64 %.0694.idx2799, 2
+  %.0694.add = add nuw nsw i64 %.0694.idx2800, 2
   %.not774 = icmp eq i64 %.0694.add, 4
   br i1 %.not774, label %1354, label %1355
 
 1359:                                             ; preds = %1354, %1348
-  %.0691.add = add nuw nsw i64 %.0691.idx2800, 4
+  %.0691.add = add nuw nsw i64 %.0691.idx2801, 4
   %.not738 = icmp eq i64 %.0691.add, 64
   br i1 %.not738, label %1336, label %1345
 
@@ -5573,12 +5573,12 @@ _ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit.thread2359: ; preds = %1176,
   store i16 64, ptr %1378, align 2, !tbaa !238
   %1379 = getelementptr inbounds nuw i8, ptr %40, i64 6
   store i16 80, ptr %1379, align 2, !tbaa !238
-  %invariant.gep2804 = getelementptr inbounds nuw i8, ptr %0, i64 5542
+  %invariant.gep2805 = getelementptr inbounds nuw i8, ptr %0, i64 5542
   br label %1398
 
 1380:                                             ; preds = %1336, %1394
-  %.0695.idx2803 = phi i64 [ 0, %1336 ], [ %.0695.add, %1394 ]
-  %.0695.ptr = getelementptr inbounds nuw i8, ptr %37, i64 %.0695.idx2803
+  %.0695.idx2804 = phi i64 [ 0, %1336 ], [ %.0695.add, %1394 ]
+  %.0695.ptr = getelementptr inbounds nuw i8, ptr %37, i64 %.0695.idx2804
   %1381 = load i32, ptr %.0695.ptr, align 4, !tbaa !245
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %38) #35
   store i16 109, ptr %38, align 2, !tbaa !238
@@ -5592,13 +5592,13 @@ _ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit.thread2359: ; preds = %1176,
   br i1 %1343, label %1388, label %1394
 
 1384:                                             ; preds = %1380, %1384
-  %.0697.idx2801 = phi i64 [ 0, %1380 ], [ %.0697.add, %1384 ]
-  %.0697.ptr = getelementptr inbounds nuw i8, ptr %38, i64 %.0697.idx2801
+  %.0697.idx2802 = phi i64 [ 0, %1380 ], [ %.0697.add, %1384 ]
+  %.0697.ptr = getelementptr inbounds nuw i8, ptr %38, i64 %.0697.idx2802
   %1385 = load i16, ptr %.0697.ptr, align 2, !tbaa !238
   %1386 = zext i16 %1385 to i64
   %1387 = getelementptr inbounds nuw [234 x [496 x i8]], ptr %493, i64 0, i64 %1386, i64 %1382
   store i8 4, ptr %1387, align 1, !tbaa !228
-  %.0697.add = add nuw nsw i64 %.0697.idx2801, 2
+  %.0697.add = add nuw nsw i64 %.0697.idx2802, 2
   %.not771 = icmp eq i64 %.0697.add, 6
   br i1 %.not771, label %1383, label %1384
 
@@ -5613,18 +5613,18 @@ _ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit.thread2359: ; preds = %1176,
   br label %1394
 
 1390:                                             ; preds = %1388, %1390
-  %.0698.idx2802 = phi i64 [ 0, %1388 ], [ %.0698.add, %1390 ]
-  %.0698.ptr = getelementptr inbounds nuw i8, ptr %39, i64 %.0698.idx2802
+  %.0698.idx2803 = phi i64 [ 0, %1388 ], [ %.0698.add, %1390 ]
+  %.0698.ptr = getelementptr inbounds nuw i8, ptr %39, i64 %.0698.idx2803
   %1391 = load i16, ptr %.0698.ptr, align 2, !tbaa !238
   %1392 = zext i16 %1391 to i64
   %1393 = getelementptr inbounds nuw [234 x [496 x i8]], ptr %493, i64 0, i64 %1392, i64 %1382
   store i8 4, ptr %1393, align 1, !tbaa !228
-  %.0698.add = add nuw nsw i64 %.0698.idx2802, 2
+  %.0698.add = add nuw nsw i64 %.0698.idx2803, 2
   %.not772 = icmp eq i64 %.0698.add, 4
   br i1 %.not772, label %1389, label %1390
 
 1394:                                             ; preds = %1389, %1383
-  %.0695.add = add nuw nsw i64 %.0695.idx2803, 4
+  %.0695.add = add nuw nsw i64 %.0695.idx2804, 4
   %.not739 = icmp eq i64 %.0695.add, 8
   br i1 %.not739, label %1360, label %1380
 
@@ -5636,59 +5636,59 @@ _ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit.thread2359: ; preds = %1176,
   store i16 115, ptr %1396, align 2, !tbaa !238
   %1397 = getelementptr inbounds nuw i8, ptr %41, i64 4
   store i16 131, ptr %1397, align 2, !tbaa !238
-  %invariant.gep2807 = getelementptr inbounds nuw i8, ptr %0, i64 5582
+  %invariant.gep2808 = getelementptr inbounds nuw i8, ptr %0, i64 5582
   br label %1402
 
 1398:                                             ; preds = %1360, %1398
-  %.0699.idx2806 = phi i64 [ 0, %1360 ], [ %.0699.add, %1398 ]
-  %.0699.ptr = getelementptr inbounds nuw i8, ptr %40, i64 %.0699.idx2806
+  %.0699.idx2807 = phi i64 [ 0, %1360 ], [ %.0699.add, %1398 ]
+  %.0699.ptr = getelementptr inbounds nuw i8, ptr %40, i64 %.0699.idx2807
   %1399 = load i16, ptr %.0699.ptr, align 2, !tbaa !238
   %1400 = zext i16 %1399 to i64
-  %.idx2431 = mul nuw nsw i64 %1400, 496
-  %gep2805 = getelementptr inbounds nuw i8, ptr %invariant.gep2804, i64 %.idx2431
-  store i8 4, ptr %gep2805, align 2, !tbaa !228
-  %.0699.add = add nuw nsw i64 %.0699.idx2806, 2
+  %.idx2432 = mul nuw nsw i64 %1400, 496
+  %gep2806 = getelementptr inbounds nuw i8, ptr %invariant.gep2805, i64 %.idx2432
+  store i8 4, ptr %gep2806, align 2, !tbaa !228
+  %.0699.add = add nuw nsw i64 %.0699.idx2807, 2
   %.not740 = icmp eq i64 %.0699.add, 8
   br i1 %.not740, label %1395, label %1398
 
 1401:                                             ; preds = %1402
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %41) #35
-  br label %.loopexit2649
+  br label %.loopexit2650
 
 1402:                                             ; preds = %1395, %1402
-  %.0701.idx2809 = phi i64 [ 0, %1395 ], [ %.0701.add, %1402 ]
-  %.0701.ptr = getelementptr inbounds nuw i8, ptr %41, i64 %.0701.idx2809
+  %.0701.idx2810 = phi i64 [ 0, %1395 ], [ %.0701.add, %1402 ]
+  %.0701.ptr = getelementptr inbounds nuw i8, ptr %41, i64 %.0701.idx2810
   %1403 = load i16, ptr %.0701.ptr, align 2, !tbaa !238
   %1404 = zext i16 %1403 to i64
-  %.idx2432 = mul nuw nsw i64 %1404, 496
-  %gep2808 = getelementptr inbounds nuw i8, ptr %invariant.gep2807, i64 %.idx2432
-  store i8 4, ptr %gep2808, align 2, !tbaa !228
-  %.0701.add = add nuw nsw i64 %.0701.idx2809, 2
+  %.idx2433 = mul nuw nsw i64 %1404, 496
+  %gep2809 = getelementptr inbounds nuw i8, ptr %invariant.gep2808, i64 %.idx2433
+  store i8 4, ptr %gep2809, align 2, !tbaa !228
+  %.0701.add = add nuw nsw i64 %.0701.idx2810, 2
   %.not741 = icmp eq i64 %.0701.add, 6
   br i1 %.not741, label %1401, label %1402
 
 _ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit.thread: ; preds = %1180, %1172, %_ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit
-  %invariant.gep2704 = getelementptr inbounds nuw i8, ptr %0, i64 5782
-  %invariant.gep2706 = getelementptr inbounds nuw i8, ptr %0, i64 5783
-  %invariant.gep2708 = getelementptr inbounds nuw i8, ptr %0, i64 5720
+  %invariant.gep2705 = getelementptr inbounds nuw i8, ptr %0, i64 5782
+  %invariant.gep2707 = getelementptr inbounds nuw i8, ptr %0, i64 5783
+  %invariant.gep2709 = getelementptr inbounds nuw i8, ptr %0, i64 5720
   %1405 = getelementptr inbounds nuw i8, ptr %0, i64 121550
   %1406 = getelementptr inbounds nuw i8, ptr %1166, i64 784
-  %invariant.gep3423 = getelementptr inbounds nuw i8, ptr %0, i64 13918
+  %invariant.gep3431 = getelementptr inbounds nuw i8, ptr %0, i64 13918
   br label %1407
 
 1407:                                             ; preds = %_ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit.thread, %1417
   %indvar = phi i64 [ 0, %_ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit.thread ], [ %indvar.next, %1417 ]
-  %.sroa.01617.02710 = phi i64 [ 17, %_ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit.thread ], [ %1418, %1417 ]
+  %.sroa.01617.02711 = phi i64 [ 17, %_ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit.thread ], [ %1418, %1417 ]
   %1408 = mul nuw nsw i64 %indvar, 496
-  %gep3424 = getelementptr i8, ptr %invariant.gep3423, i64 %1408
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(496) %gep3424, i8 2, i64 496, i1 false), !tbaa !228
-  %1409 = trunc i64 %.sroa.01617.02710 to i16
+  %gep3432 = getelementptr i8, ptr %invariant.gep3431, i64 %1408
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(496) %gep3432, i8 2, i64 496, i1 false), !tbaa !228
+  %1409 = trunc i64 %.sroa.01617.02711 to i16
   %1410 = add i16 %1409, -17
   %spec.select.i.i = icmp ult i16 %1410, 121
   br i1 %spec.select.i.i, label %_ZNK4llvm3MVT14is128BitVectorEv.exit, label %_ZNK4llvm3MVT13is64BitVectorEv.exit.thread.preheader
 
 _ZNK4llvm3MVT14is128BitVectorEv.exit:             ; preds = %1407
-  %1411 = add nsw i64 %.sroa.01617.02710, -1
+  %1411 = add nsw i64 %.sroa.01617.02711, -1
   %1412 = getelementptr inbounds [241 x %"class.llvm::TypeSize"], ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 0, i64 %1411
   %.sroa.0.0.copyload.i.i.i = load i64, ptr %1412, align 16
   switch i64 %.sroa.0.0.copyload.i.i.i, label %_ZNK4llvm3MVT13is64BitVectorEv.exit.thread.preheader [
@@ -5697,50 +5697,50 @@ _ZNK4llvm3MVT14is128BitVectorEv.exit:             ; preds = %1407
   ]
 
 1413:                                             ; preds = %_ZNK4llvm3MVT14is128BitVectorEv.exit, %_ZNK4llvm3MVT14is128BitVectorEv.exit
-  %.idx2398 = mul nuw nsw i64 %.sroa.01617.02710, 496
-  %gep2705 = getelementptr inbounds nuw i8, ptr %invariant.gep2704, i64 %.idx2398
-  store i8 0, ptr %gep2705, align 2, !tbaa !228
-  %gep2707 = getelementptr inbounds nuw i8, ptr %invariant.gep2706, i64 %.idx2398
-  store i8 0, ptr %gep2707, align 1, !tbaa !228
+  %.idx2399 = mul nuw nsw i64 %.sroa.01617.02711, 496
+  %gep2706 = getelementptr inbounds nuw i8, ptr %invariant.gep2705, i64 %.idx2399
+  store i8 0, ptr %gep2706, align 2, !tbaa !228
+  %gep2708 = getelementptr inbounds nuw i8, ptr %invariant.gep2707, i64 %.idx2399
+  store i8 0, ptr %gep2708, align 1, !tbaa !228
   %1414 = load i8, ptr %1406, align 8, !tbaa !273, !range !54, !noundef !55
   %1415 = trunc nuw i8 %1414 to i1
   %1416 = select i1 %1415, i8 0, i8 2
-  %gep2709 = getelementptr inbounds nuw i8, ptr %invariant.gep2708, i64 %.idx2398
-  store i8 %1416, ptr %gep2709, align 8, !tbaa !228
+  %gep2710 = getelementptr inbounds nuw i8, ptr %invariant.gep2709, i64 %.idx2399
+  store i8 %1416, ptr %gep2710, align 8, !tbaa !228
   br label %_ZNK4llvm3MVT13is64BitVectorEv.exit.thread.preheader
 
 _ZNK4llvm3MVT13is64BitVectorEv.exit.thread.preheader: ; preds = %_ZNK4llvm3MVT14is128BitVectorEv.exit, %1407, %1413
   br label %_ZNK4llvm3MVT13is64BitVectorEv.exit.thread
 
 1417:                                             ; preds = %_ZNK4llvm3MVT13is64BitVectorEv.exit.thread
-  %1418 = add nuw nsw i64 %.sroa.01617.02710, 1
-  %.not2397 = icmp eq i64 %1418, 138
+  %1418 = add nuw nsw i64 %.sroa.01617.02711, 1
+  %.not2398 = icmp eq i64 %1418, 138
   %indvar.next = add nuw nsw i64 %indvar, 1
-  br i1 %.not2397, label %.loopexit2649, label %1407
+  br i1 %.not2398, label %.loopexit2650, label %1407
 
 _ZNK4llvm3MVT13is64BitVectorEv.exit.thread:       ; preds = %_ZNK4llvm3MVT13is64BitVectorEv.exit.thread.preheader, %_ZNK4llvm3MVT13is64BitVectorEv.exit.thread
-  %.sroa.01601.02703 = phi i64 [ %1424, %_ZNK4llvm3MVT13is64BitVectorEv.exit.thread ], [ 17, %_ZNK4llvm3MVT13is64BitVectorEv.exit.thread.preheader ]
-  %1419 = getelementptr inbounds nuw [234 x [234 x i8]], ptr %927, i64 0, i64 %.sroa.01617.02710, i64 %.sroa.01601.02703
+  %.sroa.01601.02704 = phi i64 [ %1424, %_ZNK4llvm3MVT13is64BitVectorEv.exit.thread ], [ 17, %_ZNK4llvm3MVT13is64BitVectorEv.exit.thread.preheader ]
+  %1419 = getelementptr inbounds nuw [234 x [234 x i8]], ptr %927, i64 0, i64 %.sroa.01617.02711, i64 %.sroa.01601.02704
   store i8 2, ptr %1419, align 1, !tbaa !228
-  %1420 = getelementptr inbounds nuw [234 x [234 x i16]], ptr %1405, i64 0, i64 %.sroa.01617.02710, i64 %.sroa.01601.02703
+  %1420 = getelementptr inbounds nuw [234 x [234 x i16]], ptr %1405, i64 0, i64 %.sroa.01617.02711, i64 %.sroa.01601.02704
   %1421 = load i16, ptr %1420, align 2, !tbaa !240
   %1422 = and i16 %1421, 15
   %1423 = or disjoint i16 %1422, 8736
   store i16 %1423, ptr %1420, align 2, !tbaa !240
-  %1424 = add nuw nsw i64 %.sroa.01601.02703, 1
-  %.not2401 = icmp eq i64 %1424, 138
-  br i1 %.not2401, label %1417, label %_ZNK4llvm3MVT13is64BitVectorEv.exit.thread
+  %1424 = add nuw nsw i64 %.sroa.01601.02704, 1
+  %.not2402 = icmp eq i64 %1424, 138
+  br i1 %.not2402, label %1417, label %_ZNK4llvm3MVT13is64BitVectorEv.exit.thread
 
-.loopexit2649:                                    ; preds = %1417, %1401
+.loopexit2650:                                    ; preds = %1417, %1401
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %42) #35
   store i16 50, ptr %42, align 2, !tbaa !238
   %1425 = getelementptr inbounds nuw i8, ptr %42, i64 2
   store i16 60, ptr %1425, align 2, !tbaa !238
   %1426 = getelementptr inbounds nuw i8, ptr %42, i64 4
   store i16 78, ptr %1426, align 2, !tbaa !238
-  %invariant.gep2810 = getelementptr inbounds nuw i8, ptr %0, i64 5703
-  %invariant.gep2812 = getelementptr inbounds nuw i8, ptr %0, i64 5704
-  %invariant.gep2814 = getelementptr inbounds nuw i8, ptr %0, i64 5705
+  %invariant.gep2811 = getelementptr inbounds nuw i8, ptr %0, i64 5703
+  %invariant.gep2813 = getelementptr inbounds nuw i8, ptr %0, i64 5704
+  %invariant.gep2815 = getelementptr inbounds nuw i8, ptr %0, i64 5705
   br label %1432
 
 1427:                                             ; preds = %1432
@@ -5751,19 +5751,19 @@ _ZNK4llvm3MVT13is64BitVectorEv.exit.thread:       ; preds = %_ZNK4llvm3MVT13is64
   %1431 = trunc nuw i8 %1430 to i1
   br i1 %1431, label %1435, label %1437
 
-1432:                                             ; preds = %.loopexit2649, %1432
-  %.0703.idx2816 = phi i64 [ 0, %.loopexit2649 ], [ %.0703.add, %1432 ]
-  %.0703.ptr = getelementptr inbounds nuw i8, ptr %42, i64 %.0703.idx2816
+1432:                                             ; preds = %.loopexit2650, %1432
+  %.0703.idx2817 = phi i64 [ 0, %.loopexit2650 ], [ %.0703.add, %1432 ]
+  %.0703.ptr = getelementptr inbounds nuw i8, ptr %42, i64 %.0703.idx2817
   %1433 = load i16, ptr %.0703.ptr, align 2, !tbaa !238
   %1434 = zext i16 %1433 to i64
-  %.idx2433 = mul nuw nsw i64 %1434, 496
-  %gep2811 = getelementptr inbounds nuw i8, ptr %invariant.gep2810, i64 %.idx2433
-  store i8 0, ptr %gep2811, align 1, !tbaa !228
-  %gep2813 = getelementptr inbounds nuw i8, ptr %invariant.gep2812, i64 %.idx2433
-  store i8 0, ptr %gep2813, align 8, !tbaa !228
-  %gep2815 = getelementptr inbounds nuw i8, ptr %invariant.gep2814, i64 %.idx2433
-  store i8 0, ptr %gep2815, align 1, !tbaa !228
-  %.0703.add = add nuw nsw i64 %.0703.idx2816, 2
+  %.idx2434 = mul nuw nsw i64 %1434, 496
+  %gep2812 = getelementptr inbounds nuw i8, ptr %invariant.gep2811, i64 %.idx2434
+  store i8 0, ptr %gep2812, align 1, !tbaa !228
+  %gep2814 = getelementptr inbounds nuw i8, ptr %invariant.gep2813, i64 %.idx2434
+  store i8 0, ptr %gep2814, align 8, !tbaa !228
+  %gep2816 = getelementptr inbounds nuw i8, ptr %invariant.gep2815, i64 %.idx2434
+  store i8 0, ptr %gep2816, align 1, !tbaa !228
+  %.0703.add = add nuw nsw i64 %.0703.idx2817, 2
   %.not742 = icmp eq i64 %.0703.add, 6
   br i1 %.not742, label %1427, label %1432
 
@@ -5783,7 +5783,7 @@ _ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit1071: ; preds = 
   %1442 = load i8, ptr %1441, align 1, !range !54
   %1443 = trunc nuw i8 %1442 to i1
   %1444 = select i1 %1431, i1 %1443, i1 false
-  br i1 %1444, label %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit1071.thread, label %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit1072
+  br i1 %1444, label %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit1071.thread, label %_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit.thread
 
 _ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit1071.thread: ; preds = %1437, %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit1071
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %43) #35
@@ -5796,27 +5796,27 @@ _ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit1071.thread: ; p
   store i16 139, ptr %1447, align 2, !tbaa !238
   %1448 = getelementptr inbounds nuw i8, ptr %43, i64 8
   store i16 138, ptr %1448, align 2, !tbaa !238
-  %invariant.gep2817 = getelementptr inbounds nuw i8, ptr %0, i64 5654
-  %invariant.gep2819 = getelementptr inbounds nuw i8, ptr %0, i64 5644
-  %invariant.gep2821 = getelementptr inbounds nuw i8, ptr %0, i64 5648
-  %invariant.gep2823 = getelementptr inbounds nuw i8, ptr %0, i64 5649
+  %invariant.gep2818 = getelementptr inbounds nuw i8, ptr %0, i64 5654
+  %invariant.gep2820 = getelementptr inbounds nuw i8, ptr %0, i64 5644
+  %invariant.gep2822 = getelementptr inbounds nuw i8, ptr %0, i64 5648
+  %invariant.gep2824 = getelementptr inbounds nuw i8, ptr %0, i64 5649
   br label %1449
 
 1449:                                             ; preds = %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit1071.thread, %1449
-  %.0705.idx2825 = phi i64 [ 0, %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit1071.thread ], [ %.0705.add, %1449 ]
-  %.0705.ptr = getelementptr inbounds nuw i8, ptr %43, i64 %.0705.idx2825
+  %.0705.idx2826 = phi i64 [ 0, %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit1071.thread ], [ %.0705.add, %1449 ]
+  %.0705.ptr = getelementptr inbounds nuw i8, ptr %43, i64 %.0705.idx2826
   %1450 = load i16, ptr %.0705.ptr, align 2, !tbaa !238
   %1451 = zext i16 %1450 to i64
-  %.idx2436 = mul nuw nsw i64 %1451, 496
-  %gep2818 = getelementptr inbounds nuw i8, ptr %invariant.gep2817, i64 %.idx2436
-  store i8 4, ptr %gep2818, align 2, !tbaa !228
-  %gep2820 = getelementptr inbounds nuw i8, ptr %invariant.gep2819, i64 %.idx2436
-  store i8 4, ptr %gep2820, align 4, !tbaa !228
-  %gep2822 = getelementptr inbounds nuw i8, ptr %invariant.gep2821, i64 %.idx2436
-  store i8 4, ptr %gep2822, align 8, !tbaa !228
-  %gep2824 = getelementptr inbounds nuw i8, ptr %invariant.gep2823, i64 %.idx2436
-  store i8 4, ptr %gep2824, align 1, !tbaa !228
-  %.0705.add = add nuw nsw i64 %.0705.idx2825, 2
+  %.idx2437 = mul nuw nsw i64 %1451, 496
+  %gep2819 = getelementptr inbounds nuw i8, ptr %invariant.gep2818, i64 %.idx2437
+  store i8 4, ptr %gep2819, align 2, !tbaa !228
+  %gep2821 = getelementptr inbounds nuw i8, ptr %invariant.gep2820, i64 %.idx2437
+  store i8 4, ptr %gep2821, align 4, !tbaa !228
+  %gep2823 = getelementptr inbounds nuw i8, ptr %invariant.gep2822, i64 %.idx2437
+  store i8 4, ptr %gep2823, align 8, !tbaa !228
+  %gep2825 = getelementptr inbounds nuw i8, ptr %invariant.gep2824, i64 %.idx2437
+  store i8 4, ptr %gep2825, align 1, !tbaa !228
+  %.0705.add = add nuw nsw i64 %.0705.idx2826, 2
   %.not743 = icmp eq i64 %.0705.add, 10
   br i1 %.not743, label %1452, label %1449
 
@@ -5824,1574 +5824,1574 @@ _ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit1071.thread: ; p
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %43) #35
   br i1 %1440, label %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit1072.thread, label %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit1072
 
-_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit1072: ; preds = %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit1071, %1452
-  %1453 = getelementptr inbounds nuw i8, ptr %1428, i64 785
-  %1454 = load i8, ptr %1453, align 1, !range !54
-  %1455 = trunc nuw i8 %1454 to i1
-  %1456 = select i1 %1431, i1 %1455, i1 false
-  br i1 %1456, label %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit1072.thread, label %_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit.thread
+_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit1072: ; preds = %1452
+  %.phi.trans.insert3348 = getelementptr inbounds nuw i8, ptr %1428, i64 785
+  %.pre3349 = load i8, ptr %.phi.trans.insert3348, align 1, !range !54
+  %.pre3353 = trunc nuw i8 %.pre3349 to i1
+  %.pre3354 = select i1 %1431, i1 %.pre3353, i1 false
+  br i1 %.pre3354, label %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit1072.thread, label %_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit.thread
 
 _ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit1072.thread: ; preds = %1452, %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit1072
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %44) #35
   store i16 149, ptr %44, align 2, !tbaa !238
-  %1457 = getelementptr inbounds nuw i8, ptr %44, i64 2
-  store i16 155, ptr %1457, align 2, !tbaa !238
-  %1458 = getelementptr inbounds nuw i8, ptr %44, i64 4
-  store i16 160, ptr %1458, align 2, !tbaa !238
-  %1459 = getelementptr inbounds nuw i8, ptr %44, i64 6
-  store i16 165, ptr %1459, align 2, !tbaa !238
-  %invariant.gep2826 = getelementptr inbounds nuw i8, ptr %0, i64 5687
-  %invariant.gep2828 = getelementptr inbounds nuw i8, ptr %0, i64 5683
-  %invariant.gep2830 = getelementptr inbounds nuw i8, ptr %0, i64 5685
-  %invariant.gep2832 = getelementptr inbounds nuw i8, ptr %0, i64 5686
-  %invariant.gep2834 = getelementptr inbounds nuw i8, ptr %0, i64 5684
-  %invariant.gep2836 = getelementptr inbounds nuw i8, ptr %0, i64 5646
-  %invariant.gep2838 = getelementptr inbounds nuw i8, ptr %0, i64 5707
-  %invariant.gep2840 = getelementptr inbounds nuw i8, ptr %0, i64 5706
-  %invariant.gep2842 = getelementptr inbounds nuw i8, ptr %0, i64 5713
-  %invariant.gep2844 = getelementptr inbounds nuw i8, ptr %0, i64 5712
-  %invariant.gep2846 = getelementptr inbounds nuw i8, ptr %0, i64 5846
-  %invariant.gep2848 = getelementptr inbounds nuw i8, ptr %0, i64 5544
-  %invariant.gep2850 = getelementptr inbounds nuw i8, ptr %0, i64 5659
-  %invariant.gep2852 = getelementptr inbounds nuw i8, ptr %0, i64 5658
-  %invariant.gep2854 = getelementptr inbounds nuw i8, ptr %0, i64 5654
-  %invariant.gep2856 = getelementptr inbounds nuw i8, ptr %0, i64 5652
-  %invariant.gep2858 = getelementptr inbounds nuw i8, ptr %0, i64 5691
-  %invariant.gep2860 = getelementptr inbounds nuw i8, ptr %0, i64 5694
-  %invariant.gep2862 = getelementptr inbounds nuw i8, ptr %0, i64 5545
-  %invariant.gep2864 = getelementptr inbounds nuw i8, ptr %0, i64 5546
-  %invariant.gep2866 = getelementptr inbounds nuw i8, ptr %0, i64 5666
-  %invariant.gep2868 = getelementptr inbounds nuw i8, ptr %0, i64 5668
-  %invariant.gep2870 = getelementptr inbounds nuw i8, ptr %0, i64 5667
-  %invariant.gep2872 = getelementptr inbounds nuw i8, ptr %0, i64 5669
-  %invariant.gep2874 = getelementptr inbounds nuw i8, ptr %0, i64 5676
-  %invariant.gep2876 = getelementptr inbounds nuw i8, ptr %0, i64 5678
-  %invariant.gep2878 = getelementptr inbounds nuw i8, ptr %0, i64 5677
-  %invariant.gep2880 = getelementptr inbounds nuw i8, ptr %0, i64 5675
-  %invariant.gep2882 = getelementptr inbounds nuw i8, ptr %0, i64 5664
-  %invariant.gep2884 = getelementptr inbounds nuw i8, ptr %0, i64 5665
-  %invariant.gep2886 = getelementptr inbounds nuw i8, ptr %0, i64 5866
-  %invariant.gep2888 = getelementptr inbounds nuw i8, ptr %0, i64 5868
-  %invariant.gep2890 = getelementptr inbounds nuw i8, ptr %0, i64 5869
-  %invariant.gep2892 = getelementptr inbounds nuw i8, ptr %0, i64 5870
-  %invariant.gep2894 = getelementptr inbounds nuw i8, ptr %0, i64 5874
-  %invariant.gep2896 = getelementptr inbounds nuw i8, ptr %0, i64 5873
-  %invariant.gep2898 = getelementptr inbounds nuw i8, ptr %0, i64 5872
-  %invariant.gep2900 = getelementptr inbounds nuw i8, ptr %0, i64 5871
-  %invariant.gep2902 = getelementptr inbounds nuw i8, ptr %0, i64 5648
-  %invariant.gep2904 = getelementptr inbounds nuw i8, ptr %0, i64 5649
-  %invariant.gep2906 = getelementptr inbounds nuw i8, ptr %0, i64 5550
-  %invariant.gep2908 = getelementptr inbounds nuw i8, ptr %0, i64 5549
-  %invariant.gep2910 = getelementptr inbounds nuw i8, ptr %0, i64 5693
-  %invariant.gep2916 = getelementptr inbounds nuw i8, ptr %0, i64 5568
-  %invariant.gep2918 = getelementptr inbounds nuw i8, ptr %0, i64 5569
-  %invariant.gep2920 = getelementptr inbounds nuw i8, ptr %0, i64 5570
-  %invariant.gep2922 = getelementptr inbounds nuw i8, ptr %0, i64 5571
-  %invariant.gep2924 = getelementptr inbounds nuw i8, ptr %0, i64 5548
-  %invariant.gep2926 = getelementptr inbounds nuw i8, ptr %0, i64 5547
-  %invariant.gep2932 = getelementptr inbounds nuw i8, ptr %0, i64 5660
-  %invariant.gep2934 = getelementptr inbounds nuw i8, ptr %0, i64 5661
-  %invariant.gep2936 = getelementptr inbounds nuw i8, ptr %0, i64 5662
-  %invariant.gep2938 = getelementptr inbounds nuw i8, ptr %0, i64 5663
-  %invariant.gep2940 = getelementptr inbounds nuw i8, ptr %0, i64 5720
-  %invariant.gep2942 = getelementptr inbounds nuw i8, ptr %0, i64 5673
-  br label %1463
+  %1453 = getelementptr inbounds nuw i8, ptr %44, i64 2
+  store i16 155, ptr %1453, align 2, !tbaa !238
+  %1454 = getelementptr inbounds nuw i8, ptr %44, i64 4
+  store i16 160, ptr %1454, align 2, !tbaa !238
+  %1455 = getelementptr inbounds nuw i8, ptr %44, i64 6
+  store i16 165, ptr %1455, align 2, !tbaa !238
+  %invariant.gep2827 = getelementptr inbounds nuw i8, ptr %0, i64 5687
+  %invariant.gep2829 = getelementptr inbounds nuw i8, ptr %0, i64 5683
+  %invariant.gep2831 = getelementptr inbounds nuw i8, ptr %0, i64 5685
+  %invariant.gep2833 = getelementptr inbounds nuw i8, ptr %0, i64 5686
+  %invariant.gep2835 = getelementptr inbounds nuw i8, ptr %0, i64 5684
+  %invariant.gep2837 = getelementptr inbounds nuw i8, ptr %0, i64 5646
+  %invariant.gep2839 = getelementptr inbounds nuw i8, ptr %0, i64 5707
+  %invariant.gep2841 = getelementptr inbounds nuw i8, ptr %0, i64 5706
+  %invariant.gep2843 = getelementptr inbounds nuw i8, ptr %0, i64 5713
+  %invariant.gep2845 = getelementptr inbounds nuw i8, ptr %0, i64 5712
+  %invariant.gep2847 = getelementptr inbounds nuw i8, ptr %0, i64 5846
+  %invariant.gep2849 = getelementptr inbounds nuw i8, ptr %0, i64 5544
+  %invariant.gep2851 = getelementptr inbounds nuw i8, ptr %0, i64 5659
+  %invariant.gep2853 = getelementptr inbounds nuw i8, ptr %0, i64 5658
+  %invariant.gep2855 = getelementptr inbounds nuw i8, ptr %0, i64 5654
+  %invariant.gep2857 = getelementptr inbounds nuw i8, ptr %0, i64 5652
+  %invariant.gep2859 = getelementptr inbounds nuw i8, ptr %0, i64 5691
+  %invariant.gep2861 = getelementptr inbounds nuw i8, ptr %0, i64 5694
+  %invariant.gep2863 = getelementptr inbounds nuw i8, ptr %0, i64 5545
+  %invariant.gep2865 = getelementptr inbounds nuw i8, ptr %0, i64 5546
+  %invariant.gep2867 = getelementptr inbounds nuw i8, ptr %0, i64 5666
+  %invariant.gep2869 = getelementptr inbounds nuw i8, ptr %0, i64 5668
+  %invariant.gep2871 = getelementptr inbounds nuw i8, ptr %0, i64 5667
+  %invariant.gep2873 = getelementptr inbounds nuw i8, ptr %0, i64 5669
+  %invariant.gep2875 = getelementptr inbounds nuw i8, ptr %0, i64 5676
+  %invariant.gep2877 = getelementptr inbounds nuw i8, ptr %0, i64 5678
+  %invariant.gep2879 = getelementptr inbounds nuw i8, ptr %0, i64 5677
+  %invariant.gep2881 = getelementptr inbounds nuw i8, ptr %0, i64 5675
+  %invariant.gep2883 = getelementptr inbounds nuw i8, ptr %0, i64 5664
+  %invariant.gep2885 = getelementptr inbounds nuw i8, ptr %0, i64 5665
+  %invariant.gep2887 = getelementptr inbounds nuw i8, ptr %0, i64 5866
+  %invariant.gep2889 = getelementptr inbounds nuw i8, ptr %0, i64 5868
+  %invariant.gep2891 = getelementptr inbounds nuw i8, ptr %0, i64 5869
+  %invariant.gep2893 = getelementptr inbounds nuw i8, ptr %0, i64 5870
+  %invariant.gep2895 = getelementptr inbounds nuw i8, ptr %0, i64 5874
+  %invariant.gep2897 = getelementptr inbounds nuw i8, ptr %0, i64 5873
+  %invariant.gep2899 = getelementptr inbounds nuw i8, ptr %0, i64 5872
+  %invariant.gep2901 = getelementptr inbounds nuw i8, ptr %0, i64 5871
+  %invariant.gep2903 = getelementptr inbounds nuw i8, ptr %0, i64 5648
+  %invariant.gep2905 = getelementptr inbounds nuw i8, ptr %0, i64 5649
+  %invariant.gep2907 = getelementptr inbounds nuw i8, ptr %0, i64 5550
+  %invariant.gep2909 = getelementptr inbounds nuw i8, ptr %0, i64 5549
+  %invariant.gep2911 = getelementptr inbounds nuw i8, ptr %0, i64 5693
+  %invariant.gep2917 = getelementptr inbounds nuw i8, ptr %0, i64 5568
+  %invariant.gep2919 = getelementptr inbounds nuw i8, ptr %0, i64 5569
+  %invariant.gep2921 = getelementptr inbounds nuw i8, ptr %0, i64 5570
+  %invariant.gep2923 = getelementptr inbounds nuw i8, ptr %0, i64 5571
+  %invariant.gep2925 = getelementptr inbounds nuw i8, ptr %0, i64 5548
+  %invariant.gep2927 = getelementptr inbounds nuw i8, ptr %0, i64 5547
+  %invariant.gep2933 = getelementptr inbounds nuw i8, ptr %0, i64 5660
+  %invariant.gep2935 = getelementptr inbounds nuw i8, ptr %0, i64 5661
+  %invariant.gep2937 = getelementptr inbounds nuw i8, ptr %0, i64 5662
+  %invariant.gep2939 = getelementptr inbounds nuw i8, ptr %0, i64 5663
+  %invariant.gep2941 = getelementptr inbounds nuw i8, ptr %0, i64 5720
+  %invariant.gep2943 = getelementptr inbounds nuw i8, ptr %0, i64 5673
+  br label %1459
 
-1460:                                             ; preds = %1484
+1456:                                             ; preds = %1480
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %44) #35
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %45) #35
   store i16 148, ptr %45, align 2, !tbaa !238
-  %1461 = getelementptr inbounds nuw i8, ptr %45, i64 2
-  store i16 154, ptr %1461, align 2, !tbaa !238
-  %1462 = getelementptr inbounds nuw i8, ptr %45, i64 4
-  store i16 159, ptr %1462, align 2, !tbaa !238
-  %invariant.gep2945 = getelementptr inbounds nuw i8, ptr %0, i64 5647
-  br label %1488
-
-1463:                                             ; preds = %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit1072.thread, %1484
-  %.0706.idx2944 = phi i64 [ 0, %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit1072.thread ], [ %.0706.add, %1484 ]
-  %.0706.ptr = getelementptr inbounds nuw i8, ptr %44, i64 %.0706.idx2944
-  %1464 = load i16, ptr %.0706.ptr, align 2, !tbaa !238
-  %1465 = zext i16 %1464 to i64
-  %.idx2440 = mul nuw nsw i64 %1465, 496
-  %gep2827 = getelementptr inbounds nuw i8, ptr %invariant.gep2826, i64 %.idx2440
-  store i8 4, ptr %gep2827, align 1, !tbaa !228
-  %gep2829 = getelementptr inbounds nuw i8, ptr %invariant.gep2828, i64 %.idx2440
-  store i8 4, ptr %gep2829, align 1, !tbaa !228
-  %gep2831 = getelementptr inbounds nuw i8, ptr %invariant.gep2830, i64 %.idx2440
-  store i8 4, ptr %gep2831, align 1, !tbaa !228
-  %gep2833 = getelementptr inbounds nuw i8, ptr %invariant.gep2832, i64 %.idx2440
-  store i8 4, ptr %gep2833, align 2, !tbaa !228
-  %gep2835 = getelementptr inbounds nuw i8, ptr %invariant.gep2834, i64 %.idx2440
-  store i8 4, ptr %gep2835, align 4, !tbaa !228
-  %gep2837 = getelementptr inbounds nuw i8, ptr %invariant.gep2836, i64 %.idx2440
-  store i8 4, ptr %gep2837, align 2, !tbaa !228
-  %gep2839 = getelementptr inbounds nuw i8, ptr %invariant.gep2838, i64 %.idx2440
-  store i8 4, ptr %gep2839, align 1, !tbaa !228
-  %gep2841 = getelementptr inbounds nuw i8, ptr %invariant.gep2840, i64 %.idx2440
-  store i8 4, ptr %gep2841, align 2, !tbaa !228
-  %gep2843 = getelementptr inbounds nuw i8, ptr %invariant.gep2842, i64 %.idx2440
-  store i8 4, ptr %gep2843, align 1, !tbaa !228
-  %gep2845 = getelementptr inbounds nuw i8, ptr %invariant.gep2844, i64 %.idx2440
-  store i8 4, ptr %gep2845, align 8, !tbaa !228
-  %gep2847 = getelementptr inbounds nuw i8, ptr %invariant.gep2846, i64 %.idx2440
-  store i8 4, ptr %gep2847, align 2, !tbaa !228
-  %gep2849 = getelementptr inbounds nuw i8, ptr %invariant.gep2848, i64 %.idx2440
-  store i8 4, ptr %gep2849, align 8, !tbaa !228
-  %gep2851 = getelementptr inbounds nuw i8, ptr %invariant.gep2850, i64 %.idx2440
-  store i8 4, ptr %gep2851, align 1, !tbaa !228
-  %gep2853 = getelementptr inbounds nuw i8, ptr %invariant.gep2852, i64 %.idx2440
-  store i8 4, ptr %gep2853, align 2, !tbaa !228
-  %gep2855 = getelementptr inbounds nuw i8, ptr %invariant.gep2854, i64 %.idx2440
-  store i8 0, ptr %gep2855, align 2, !tbaa !228
-  %gep2857 = getelementptr inbounds nuw i8, ptr %invariant.gep2856, i64 %.idx2440
-  store i8 4, ptr %gep2857, align 4, !tbaa !228
-  %gep2859 = getelementptr inbounds nuw i8, ptr %invariant.gep2858, i64 %.idx2440
-  store i8 4, ptr %gep2859, align 1, !tbaa !228
-  %gep2861 = getelementptr inbounds nuw i8, ptr %invariant.gep2860, i64 %.idx2440
-  store i8 4, ptr %gep2861, align 2, !tbaa !228
-  %gep2863 = getelementptr inbounds nuw i8, ptr %invariant.gep2862, i64 %.idx2440
-  store i8 4, ptr %gep2863, align 1, !tbaa !228
-  %gep2865 = getelementptr inbounds nuw i8, ptr %invariant.gep2864, i64 %.idx2440
-  store i8 4, ptr %gep2865, align 2, !tbaa !228
-  %gep2867 = getelementptr inbounds nuw i8, ptr %invariant.gep2866, i64 %.idx2440
-  store i8 4, ptr %gep2867, align 2, !tbaa !228
-  %gep2869 = getelementptr inbounds nuw i8, ptr %invariant.gep2868, i64 %.idx2440
-  store i8 4, ptr %gep2869, align 4, !tbaa !228
-  %gep2871 = getelementptr inbounds nuw i8, ptr %invariant.gep2870, i64 %.idx2440
-  store i8 4, ptr %gep2871, align 1, !tbaa !228
-  %gep2873 = getelementptr inbounds nuw i8, ptr %invariant.gep2872, i64 %.idx2440
-  store i8 4, ptr %gep2873, align 1, !tbaa !228
-  %gep2875 = getelementptr inbounds nuw i8, ptr %invariant.gep2874, i64 %.idx2440
-  store i8 4, ptr %gep2875, align 4, !tbaa !228
-  %gep2877 = getelementptr inbounds nuw i8, ptr %invariant.gep2876, i64 %.idx2440
-  store i8 4, ptr %gep2877, align 2, !tbaa !228
-  %gep2879 = getelementptr inbounds nuw i8, ptr %invariant.gep2878, i64 %.idx2440
-  store i8 4, ptr %gep2879, align 1, !tbaa !228
-  %gep2881 = getelementptr inbounds nuw i8, ptr %invariant.gep2880, i64 %.idx2440
-  store i8 4, ptr %gep2881, align 1, !tbaa !228
-  %gep2883 = getelementptr inbounds nuw i8, ptr %invariant.gep2882, i64 %.idx2440
-  store i8 4, ptr %gep2883, align 8, !tbaa !228
-  %gep2885 = getelementptr inbounds nuw i8, ptr %invariant.gep2884, i64 %.idx2440
-  store i8 4, ptr %gep2885, align 1, !tbaa !228
-  %gep2887 = getelementptr inbounds nuw i8, ptr %invariant.gep2886, i64 %.idx2440
-  store i8 4, ptr %gep2887, align 2, !tbaa !228
-  %gep2889 = getelementptr inbounds nuw i8, ptr %invariant.gep2888, i64 %.idx2440
-  store i8 4, ptr %gep2889, align 4, !tbaa !228
-  %gep2891 = getelementptr inbounds nuw i8, ptr %invariant.gep2890, i64 %.idx2440
-  store i8 4, ptr %gep2891, align 1, !tbaa !228
-  %gep2893 = getelementptr inbounds nuw i8, ptr %invariant.gep2892, i64 %.idx2440
-  store i8 4, ptr %gep2893, align 2, !tbaa !228
-  %gep2895 = getelementptr inbounds nuw i8, ptr %invariant.gep2894, i64 %.idx2440
-  store i8 4, ptr %gep2895, align 2, !tbaa !228
-  %gep2897 = getelementptr inbounds nuw i8, ptr %invariant.gep2896, i64 %.idx2440
-  store i8 4, ptr %gep2897, align 1, !tbaa !228
-  %gep2899 = getelementptr inbounds nuw i8, ptr %invariant.gep2898, i64 %.idx2440
-  store i8 4, ptr %gep2899, align 8, !tbaa !228
-  %gep2901 = getelementptr inbounds nuw i8, ptr %invariant.gep2900, i64 %.idx2440
-  store i8 4, ptr %gep2901, align 1, !tbaa !228
-  %gep2903 = getelementptr inbounds nuw i8, ptr %invariant.gep2902, i64 %.idx2440
-  store i8 4, ptr %gep2903, align 8, !tbaa !228
-  %gep2905 = getelementptr inbounds nuw i8, ptr %invariant.gep2904, i64 %.idx2440
-  store i8 4, ptr %gep2905, align 1, !tbaa !228
-  %gep2907 = getelementptr inbounds nuw i8, ptr %invariant.gep2906, i64 %.idx2440
-  store i8 2, ptr %gep2907, align 2, !tbaa !228
-  %gep2909 = getelementptr inbounds nuw i8, ptr %invariant.gep2908, i64 %.idx2440
-  store i8 2, ptr %gep2909, align 1, !tbaa !228
-  %gep2911 = getelementptr inbounds nuw i8, ptr %invariant.gep2910, i64 %.idx2440
-  store i8 2, ptr %gep2911, align 1, !tbaa !228
-  %gep2913 = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx2440
-  store i8 2, ptr %gep2913, align 1, !tbaa !228
-  %gep2915 = getelementptr inbounds nuw i8, ptr %invariant.gep2656, i64 %.idx2440
-  store i8 2, ptr %gep2915, align 8, !tbaa !228
-  %gep2917 = getelementptr inbounds nuw i8, ptr %invariant.gep2916, i64 %.idx2440
-  store i8 0, ptr %gep2917, align 8, !tbaa !228
-  %gep2919 = getelementptr inbounds nuw i8, ptr %invariant.gep2918, i64 %.idx2440
-  store i8 0, ptr %gep2919, align 1, !tbaa !228
-  %gep2921 = getelementptr inbounds nuw i8, ptr %invariant.gep2920, i64 %.idx2440
-  store i8 0, ptr %gep2921, align 2, !tbaa !228
-  %gep2923 = getelementptr inbounds nuw i8, ptr %invariant.gep2922, i64 %.idx2440
-  store i8 0, ptr %gep2923, align 1, !tbaa !228
-  %gep2925 = getelementptr inbounds nuw i8, ptr %invariant.gep2924, i64 %.idx2440
-  store i8 2, ptr %gep2925, align 4, !tbaa !228
-  %gep2927 = getelementptr inbounds nuw i8, ptr %invariant.gep2926, i64 %.idx2440
-  store i8 2, ptr %gep2927, align 1, !tbaa !228
-  %gep2929 = getelementptr inbounds nuw i8, ptr %invariant.gep2659, i64 %.idx2440
-  store i8 2, ptr %gep2929, align 1, !tbaa !228
-  %gep2931 = getelementptr inbounds nuw i8, ptr %invariant.gep2661, i64 %.idx2440
-  store i8 2, ptr %gep2931, align 8, !tbaa !228
-  %gep2933 = getelementptr inbounds nuw i8, ptr %invariant.gep2932, i64 %.idx2440
-  store i8 4, ptr %gep2933, align 4, !tbaa !228
-  %gep2935 = getelementptr inbounds nuw i8, ptr %invariant.gep2934, i64 %.idx2440
-  store i8 4, ptr %gep2935, align 1, !tbaa !228
-  %gep2937 = getelementptr inbounds nuw i8, ptr %invariant.gep2936, i64 %.idx2440
-  store i8 4, ptr %gep2937, align 2, !tbaa !228
-  %gep2939 = getelementptr inbounds nuw i8, ptr %invariant.gep2938, i64 %.idx2440
-  store i8 4, ptr %gep2939, align 1, !tbaa !228
-  %1466 = load ptr, ptr %61, align 8, !tbaa !71
-  %1467 = getelementptr inbounds nuw i8, ptr %1466, i64 784
-  %1468 = load i8, ptr %1467, align 8, !tbaa !273, !range !54, !noundef !55
-  %1469 = trunc nuw i8 %1468 to i1
-  br i1 %1469, label %1471, label %1470
-
-1470:                                             ; preds = %1463
-  %gep2941 = getelementptr inbounds nuw i8, ptr %invariant.gep2940, i64 %.idx2440
-  store i8 4, ptr %gep2941, align 8, !tbaa !228
-  br label %1471
-
-1471:                                             ; preds = %1470, %1463
-  %1472 = getelementptr inbounds nuw i8, ptr %1466, i64 454
-  %1473 = load i8, ptr %1472, align 2, !tbaa !274, !range !54, !noundef !55
-  %1474 = trunc nuw i8 %1473 to i1
-  br i1 %1474, label %1483, label %1475
-
-1475:                                             ; preds = %1471
-  %1476 = getelementptr inbounds nuw i8, ptr %1466, i64 430
-  %1477 = load i8, ptr %1476, align 2, !tbaa !236, !range !54, !noundef !55
-  %1478 = trunc nuw i8 %1477 to i1
-  br i1 %1478, label %1479, label %1484
-
-1479:                                             ; preds = %1475
-  %1480 = getelementptr inbounds nuw i8, ptr %1466, i64 785
-  %1481 = load i8, ptr %1480, align 1, !tbaa !233, !range !54, !noundef !55
-  %1482 = trunc nuw i8 %1481 to i1
-  br i1 %1482, label %1483, label %1484
-
-1483:                                             ; preds = %1479, %1471
-  %gep2943 = getelementptr inbounds nuw i8, ptr %invariant.gep2942, i64 %.idx2440
-  store i8 4, ptr %gep2943, align 1, !tbaa !228
+  %1457 = getelementptr inbounds nuw i8, ptr %45, i64 2
+  store i16 154, ptr %1457, align 2, !tbaa !238
+  %1458 = getelementptr inbounds nuw i8, ptr %45, i64 4
+  store i16 159, ptr %1458, align 2, !tbaa !238
+  %invariant.gep2946 = getelementptr inbounds nuw i8, ptr %0, i64 5647
   br label %1484
 
-1484:                                             ; preds = %1483, %1479, %1475
-  %.0706.add = add nuw nsw i64 %.0706.idx2944, 2
-  %.not744 = icmp eq i64 %.0706.add, 8
-  br i1 %.not744, label %1460, label %1463
+1459:                                             ; preds = %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit1072.thread, %1480
+  %.0706.idx2945 = phi i64 [ 0, %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit1072.thread ], [ %.0706.add, %1480 ]
+  %.0706.ptr = getelementptr inbounds nuw i8, ptr %44, i64 %.0706.idx2945
+  %1460 = load i16, ptr %.0706.ptr, align 2, !tbaa !238
+  %1461 = zext i16 %1460 to i64
+  %.idx2441 = mul nuw nsw i64 %1461, 496
+  %gep2828 = getelementptr inbounds nuw i8, ptr %invariant.gep2827, i64 %.idx2441
+  store i8 4, ptr %gep2828, align 1, !tbaa !228
+  %gep2830 = getelementptr inbounds nuw i8, ptr %invariant.gep2829, i64 %.idx2441
+  store i8 4, ptr %gep2830, align 1, !tbaa !228
+  %gep2832 = getelementptr inbounds nuw i8, ptr %invariant.gep2831, i64 %.idx2441
+  store i8 4, ptr %gep2832, align 1, !tbaa !228
+  %gep2834 = getelementptr inbounds nuw i8, ptr %invariant.gep2833, i64 %.idx2441
+  store i8 4, ptr %gep2834, align 2, !tbaa !228
+  %gep2836 = getelementptr inbounds nuw i8, ptr %invariant.gep2835, i64 %.idx2441
+  store i8 4, ptr %gep2836, align 4, !tbaa !228
+  %gep2838 = getelementptr inbounds nuw i8, ptr %invariant.gep2837, i64 %.idx2441
+  store i8 4, ptr %gep2838, align 2, !tbaa !228
+  %gep2840 = getelementptr inbounds nuw i8, ptr %invariant.gep2839, i64 %.idx2441
+  store i8 4, ptr %gep2840, align 1, !tbaa !228
+  %gep2842 = getelementptr inbounds nuw i8, ptr %invariant.gep2841, i64 %.idx2441
+  store i8 4, ptr %gep2842, align 2, !tbaa !228
+  %gep2844 = getelementptr inbounds nuw i8, ptr %invariant.gep2843, i64 %.idx2441
+  store i8 4, ptr %gep2844, align 1, !tbaa !228
+  %gep2846 = getelementptr inbounds nuw i8, ptr %invariant.gep2845, i64 %.idx2441
+  store i8 4, ptr %gep2846, align 8, !tbaa !228
+  %gep2848 = getelementptr inbounds nuw i8, ptr %invariant.gep2847, i64 %.idx2441
+  store i8 4, ptr %gep2848, align 2, !tbaa !228
+  %gep2850 = getelementptr inbounds nuw i8, ptr %invariant.gep2849, i64 %.idx2441
+  store i8 4, ptr %gep2850, align 8, !tbaa !228
+  %gep2852 = getelementptr inbounds nuw i8, ptr %invariant.gep2851, i64 %.idx2441
+  store i8 4, ptr %gep2852, align 1, !tbaa !228
+  %gep2854 = getelementptr inbounds nuw i8, ptr %invariant.gep2853, i64 %.idx2441
+  store i8 4, ptr %gep2854, align 2, !tbaa !228
+  %gep2856 = getelementptr inbounds nuw i8, ptr %invariant.gep2855, i64 %.idx2441
+  store i8 0, ptr %gep2856, align 2, !tbaa !228
+  %gep2858 = getelementptr inbounds nuw i8, ptr %invariant.gep2857, i64 %.idx2441
+  store i8 4, ptr %gep2858, align 4, !tbaa !228
+  %gep2860 = getelementptr inbounds nuw i8, ptr %invariant.gep2859, i64 %.idx2441
+  store i8 4, ptr %gep2860, align 1, !tbaa !228
+  %gep2862 = getelementptr inbounds nuw i8, ptr %invariant.gep2861, i64 %.idx2441
+  store i8 4, ptr %gep2862, align 2, !tbaa !228
+  %gep2864 = getelementptr inbounds nuw i8, ptr %invariant.gep2863, i64 %.idx2441
+  store i8 4, ptr %gep2864, align 1, !tbaa !228
+  %gep2866 = getelementptr inbounds nuw i8, ptr %invariant.gep2865, i64 %.idx2441
+  store i8 4, ptr %gep2866, align 2, !tbaa !228
+  %gep2868 = getelementptr inbounds nuw i8, ptr %invariant.gep2867, i64 %.idx2441
+  store i8 4, ptr %gep2868, align 2, !tbaa !228
+  %gep2870 = getelementptr inbounds nuw i8, ptr %invariant.gep2869, i64 %.idx2441
+  store i8 4, ptr %gep2870, align 4, !tbaa !228
+  %gep2872 = getelementptr inbounds nuw i8, ptr %invariant.gep2871, i64 %.idx2441
+  store i8 4, ptr %gep2872, align 1, !tbaa !228
+  %gep2874 = getelementptr inbounds nuw i8, ptr %invariant.gep2873, i64 %.idx2441
+  store i8 4, ptr %gep2874, align 1, !tbaa !228
+  %gep2876 = getelementptr inbounds nuw i8, ptr %invariant.gep2875, i64 %.idx2441
+  store i8 4, ptr %gep2876, align 4, !tbaa !228
+  %gep2878 = getelementptr inbounds nuw i8, ptr %invariant.gep2877, i64 %.idx2441
+  store i8 4, ptr %gep2878, align 2, !tbaa !228
+  %gep2880 = getelementptr inbounds nuw i8, ptr %invariant.gep2879, i64 %.idx2441
+  store i8 4, ptr %gep2880, align 1, !tbaa !228
+  %gep2882 = getelementptr inbounds nuw i8, ptr %invariant.gep2881, i64 %.idx2441
+  store i8 4, ptr %gep2882, align 1, !tbaa !228
+  %gep2884 = getelementptr inbounds nuw i8, ptr %invariant.gep2883, i64 %.idx2441
+  store i8 4, ptr %gep2884, align 8, !tbaa !228
+  %gep2886 = getelementptr inbounds nuw i8, ptr %invariant.gep2885, i64 %.idx2441
+  store i8 4, ptr %gep2886, align 1, !tbaa !228
+  %gep2888 = getelementptr inbounds nuw i8, ptr %invariant.gep2887, i64 %.idx2441
+  store i8 4, ptr %gep2888, align 2, !tbaa !228
+  %gep2890 = getelementptr inbounds nuw i8, ptr %invariant.gep2889, i64 %.idx2441
+  store i8 4, ptr %gep2890, align 4, !tbaa !228
+  %gep2892 = getelementptr inbounds nuw i8, ptr %invariant.gep2891, i64 %.idx2441
+  store i8 4, ptr %gep2892, align 1, !tbaa !228
+  %gep2894 = getelementptr inbounds nuw i8, ptr %invariant.gep2893, i64 %.idx2441
+  store i8 4, ptr %gep2894, align 2, !tbaa !228
+  %gep2896 = getelementptr inbounds nuw i8, ptr %invariant.gep2895, i64 %.idx2441
+  store i8 4, ptr %gep2896, align 2, !tbaa !228
+  %gep2898 = getelementptr inbounds nuw i8, ptr %invariant.gep2897, i64 %.idx2441
+  store i8 4, ptr %gep2898, align 1, !tbaa !228
+  %gep2900 = getelementptr inbounds nuw i8, ptr %invariant.gep2899, i64 %.idx2441
+  store i8 4, ptr %gep2900, align 8, !tbaa !228
+  %gep2902 = getelementptr inbounds nuw i8, ptr %invariant.gep2901, i64 %.idx2441
+  store i8 4, ptr %gep2902, align 1, !tbaa !228
+  %gep2904 = getelementptr inbounds nuw i8, ptr %invariant.gep2903, i64 %.idx2441
+  store i8 4, ptr %gep2904, align 8, !tbaa !228
+  %gep2906 = getelementptr inbounds nuw i8, ptr %invariant.gep2905, i64 %.idx2441
+  store i8 4, ptr %gep2906, align 1, !tbaa !228
+  %gep2908 = getelementptr inbounds nuw i8, ptr %invariant.gep2907, i64 %.idx2441
+  store i8 2, ptr %gep2908, align 2, !tbaa !228
+  %gep2910 = getelementptr inbounds nuw i8, ptr %invariant.gep2909, i64 %.idx2441
+  store i8 2, ptr %gep2910, align 1, !tbaa !228
+  %gep2912 = getelementptr inbounds nuw i8, ptr %invariant.gep2911, i64 %.idx2441
+  store i8 2, ptr %gep2912, align 1, !tbaa !228
+  %gep2914 = getelementptr inbounds nuw i8, ptr %invariant.gep, i64 %.idx2441
+  store i8 2, ptr %gep2914, align 1, !tbaa !228
+  %gep2916 = getelementptr inbounds nuw i8, ptr %invariant.gep2657, i64 %.idx2441
+  store i8 2, ptr %gep2916, align 8, !tbaa !228
+  %gep2918 = getelementptr inbounds nuw i8, ptr %invariant.gep2917, i64 %.idx2441
+  store i8 0, ptr %gep2918, align 8, !tbaa !228
+  %gep2920 = getelementptr inbounds nuw i8, ptr %invariant.gep2919, i64 %.idx2441
+  store i8 0, ptr %gep2920, align 1, !tbaa !228
+  %gep2922 = getelementptr inbounds nuw i8, ptr %invariant.gep2921, i64 %.idx2441
+  store i8 0, ptr %gep2922, align 2, !tbaa !228
+  %gep2924 = getelementptr inbounds nuw i8, ptr %invariant.gep2923, i64 %.idx2441
+  store i8 0, ptr %gep2924, align 1, !tbaa !228
+  %gep2926 = getelementptr inbounds nuw i8, ptr %invariant.gep2925, i64 %.idx2441
+  store i8 2, ptr %gep2926, align 4, !tbaa !228
+  %gep2928 = getelementptr inbounds nuw i8, ptr %invariant.gep2927, i64 %.idx2441
+  store i8 2, ptr %gep2928, align 1, !tbaa !228
+  %gep2930 = getelementptr inbounds nuw i8, ptr %invariant.gep2660, i64 %.idx2441
+  store i8 2, ptr %gep2930, align 1, !tbaa !228
+  %gep2932 = getelementptr inbounds nuw i8, ptr %invariant.gep2662, i64 %.idx2441
+  store i8 2, ptr %gep2932, align 8, !tbaa !228
+  %gep2934 = getelementptr inbounds nuw i8, ptr %invariant.gep2933, i64 %.idx2441
+  store i8 4, ptr %gep2934, align 4, !tbaa !228
+  %gep2936 = getelementptr inbounds nuw i8, ptr %invariant.gep2935, i64 %.idx2441
+  store i8 4, ptr %gep2936, align 1, !tbaa !228
+  %gep2938 = getelementptr inbounds nuw i8, ptr %invariant.gep2937, i64 %.idx2441
+  store i8 4, ptr %gep2938, align 2, !tbaa !228
+  %gep2940 = getelementptr inbounds nuw i8, ptr %invariant.gep2939, i64 %.idx2441
+  store i8 4, ptr %gep2940, align 1, !tbaa !228
+  %1462 = load ptr, ptr %61, align 8, !tbaa !71
+  %1463 = getelementptr inbounds nuw i8, ptr %1462, i64 784
+  %1464 = load i8, ptr %1463, align 8, !tbaa !273, !range !54, !noundef !55
+  %1465 = trunc nuw i8 %1464 to i1
+  br i1 %1465, label %1467, label %1466
 
-1485:                                             ; preds = %1488
+1466:                                             ; preds = %1459
+  %gep2942 = getelementptr inbounds nuw i8, ptr %invariant.gep2941, i64 %.idx2441
+  store i8 4, ptr %gep2942, align 8, !tbaa !228
+  br label %1467
+
+1467:                                             ; preds = %1466, %1459
+  %1468 = getelementptr inbounds nuw i8, ptr %1462, i64 454
+  %1469 = load i8, ptr %1468, align 2, !tbaa !274, !range !54, !noundef !55
+  %1470 = trunc nuw i8 %1469 to i1
+  br i1 %1470, label %1479, label %1471
+
+1471:                                             ; preds = %1467
+  %1472 = getelementptr inbounds nuw i8, ptr %1462, i64 430
+  %1473 = load i8, ptr %1472, align 2, !tbaa !236, !range !54, !noundef !55
+  %1474 = trunc nuw i8 %1473 to i1
+  br i1 %1474, label %1475, label %1480
+
+1475:                                             ; preds = %1471
+  %1476 = getelementptr inbounds nuw i8, ptr %1462, i64 785
+  %1477 = load i8, ptr %1476, align 1, !tbaa !233, !range !54, !noundef !55
+  %1478 = trunc nuw i8 %1477 to i1
+  br i1 %1478, label %1479, label %1480
+
+1479:                                             ; preds = %1475, %1467
+  %gep2944 = getelementptr inbounds nuw i8, ptr %invariant.gep2943, i64 %.idx2441
+  store i8 4, ptr %gep2944, align 1, !tbaa !228
+  br label %1480
+
+1480:                                             ; preds = %1479, %1475, %1471
+  %.0706.add = add nuw nsw i64 %.0706.idx2945, 2
+  %.not744 = icmp eq i64 %.0706.add, 8
+  br i1 %.not744, label %1456, label %1459
+
+1481:                                             ; preds = %1484
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %45) #35
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %46) #35
   store i16 153, ptr %46, align 2, !tbaa !238
-  %1486 = getelementptr inbounds nuw i8, ptr %46, i64 2
-  store i16 154, ptr %1486, align 2, !tbaa !238
-  %1487 = getelementptr inbounds nuw i8, ptr %46, i64 4
-  store i16 159, ptr %1487, align 2, !tbaa !238
-  br label %1492
+  %1482 = getelementptr inbounds nuw i8, ptr %46, i64 2
+  store i16 154, ptr %1482, align 2, !tbaa !238
+  %1483 = getelementptr inbounds nuw i8, ptr %46, i64 4
+  store i16 159, ptr %1483, align 2, !tbaa !238
+  br label %1488
 
-1488:                                             ; preds = %1460, %1488
-  %.0707.idx2949 = phi i64 [ 0, %1460 ], [ %.0707.add, %1488 ]
-  %.0707.ptr = getelementptr inbounds nuw i8, ptr %45, i64 %.0707.idx2949
-  %1489 = load i16, ptr %.0707.ptr, align 2, !tbaa !238
-  %1490 = zext i16 %1489 to i64
-  %.idx2499 = mul nuw nsw i64 %1490, 496
-  %gep2946 = getelementptr inbounds nuw i8, ptr %invariant.gep2945, i64 %.idx2499
-  store i8 4, ptr %gep2946, align 1, !tbaa !228
-  %gep2948 = getelementptr inbounds nuw i8, ptr %invariant.gep2836, i64 %.idx2499
-  store i8 4, ptr %gep2948, align 2, !tbaa !228
-  %.0707.add = add nuw nsw i64 %.0707.idx2949, 2
+1484:                                             ; preds = %1456, %1484
+  %.0707.idx2950 = phi i64 [ 0, %1456 ], [ %.0707.add, %1484 ]
+  %.0707.ptr = getelementptr inbounds nuw i8, ptr %45, i64 %.0707.idx2950
+  %1485 = load i16, ptr %.0707.ptr, align 2, !tbaa !238
+  %1486 = zext i16 %1485 to i64
+  %.idx2500 = mul nuw nsw i64 %1486, 496
+  %gep2947 = getelementptr inbounds nuw i8, ptr %invariant.gep2946, i64 %.idx2500
+  store i8 4, ptr %gep2947, align 1, !tbaa !228
+  %gep2949 = getelementptr inbounds nuw i8, ptr %invariant.gep2837, i64 %.idx2500
+  store i8 4, ptr %gep2949, align 2, !tbaa !228
+  %.0707.add = add nuw nsw i64 %.0707.idx2950, 2
   %.not745 = icmp eq i64 %.0707.add, 6
-  br i1 %.not745, label %1485, label %1488
+  br i1 %.not745, label %1481, label %1484
 
-1491:                                             ; preds = %1492
+1487:                                             ; preds = %1488
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %46) #35
-  %invariant.gep2953 = getelementptr inbounds nuw i8, ptr %0, i64 5708
-  br label %1500
+  %invariant.gep2954 = getelementptr inbounds nuw i8, ptr %0, i64 5708
+  br label %1496
 
-1492:                                             ; preds = %1485, %1492
-  %.0709.idx2952 = phi i64 [ 0, %1485 ], [ %.0709.add, %1492 ]
-  %.0709.ptr = getelementptr inbounds nuw i8, ptr %46, i64 %.0709.idx2952
-  %1493 = load i16, ptr %.0709.ptr, align 2, !tbaa !238
-  %1494 = zext i16 %1493 to i64
-  %.idx2501 = mul nuw nsw i64 %1494, 496
-  %gep2951 = getelementptr inbounds nuw i8, ptr %invariant.gep2940, i64 %.idx2501
-  store i8 4, ptr %gep2951, align 8, !tbaa !228
-  %.0709.add = add nuw nsw i64 %.0709.idx2952, 2
+1488:                                             ; preds = %1481, %1488
+  %.0709.idx2953 = phi i64 [ 0, %1481 ], [ %.0709.add, %1488 ]
+  %.0709.ptr = getelementptr inbounds nuw i8, ptr %46, i64 %.0709.idx2953
+  %1489 = load i16, ptr %.0709.ptr, align 2, !tbaa !238
+  %1490 = zext i16 %1489 to i64
+  %.idx2502 = mul nuw nsw i64 %1490, 496
+  %gep2952 = getelementptr inbounds nuw i8, ptr %invariant.gep2941, i64 %.idx2502
+  store i8 4, ptr %gep2952, align 8, !tbaa !228
+  %.0709.add = add nuw nsw i64 %.0709.idx2953, 2
   %.not746 = icmp eq i64 %.0709.add, 6
-  br i1 %.not746, label %1491, label %1492
+  br i1 %.not746, label %1487, label %1488
 
-1495:                                             ; preds = %1500
+1491:                                             ; preds = %1496
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %47) #35
   store i16 142, ptr %47, align 2, !tbaa !238
-  %1496 = getelementptr inbounds nuw i8, ptr %47, i64 2
-  store i16 141, ptr %1496, align 2, !tbaa !238
-  %1497 = getelementptr inbounds nuw i8, ptr %47, i64 4
-  store i16 140, ptr %1497, align 2, !tbaa !238
-  %1498 = getelementptr inbounds nuw i8, ptr %47, i64 6
-  store i16 139, ptr %1498, align 2, !tbaa !238
-  %1499 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  store i16 138, ptr %1499, align 2, !tbaa !238
-  %invariant.gep2956 = getelementptr inbounds nuw i8, ptr %0, i64 5645
-  %invariant.gep2962 = getelementptr inbounds nuw i8, ptr %0, i64 5702
-  %invariant.gep2972 = getelementptr inbounds nuw i8, ptr %0, i64 5643
+  %1492 = getelementptr inbounds nuw i8, ptr %47, i64 2
+  store i16 141, ptr %1492, align 2, !tbaa !238
+  %1493 = getelementptr inbounds nuw i8, ptr %47, i64 4
+  store i16 140, ptr %1493, align 2, !tbaa !238
+  %1494 = getelementptr inbounds nuw i8, ptr %47, i64 6
+  store i16 139, ptr %1494, align 2, !tbaa !238
+  %1495 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  store i16 138, ptr %1495, align 2, !tbaa !238
+  %invariant.gep2957 = getelementptr inbounds nuw i8, ptr %0, i64 5645
+  %invariant.gep2963 = getelementptr inbounds nuw i8, ptr %0, i64 5702
+  %invariant.gep2973 = getelementptr inbounds nuw i8, ptr %0, i64 5643
+  br label %1500
+
+1496:                                             ; preds = %1487, %1496
+  %.0710.idx2956 = phi i64 [ 0, %1487 ], [ %.0710.add, %1496 ]
+  %.0710.ptr = getelementptr inbounds nuw i8, ptr @constinit.136, i64 %.0710.idx2956
+  %1497 = load i16, ptr %.0710.ptr, align 2, !tbaa !238
+  %1498 = zext i16 %1497 to i64
+  %.idx2503 = mul nuw nsw i64 %1498, 496
+  %gep2955 = getelementptr inbounds nuw i8, ptr %invariant.gep2954, i64 %.idx2503
+  store i8 0, ptr %gep2955, align 4, !tbaa !228
+  %.0710.add = add nuw nsw i64 %.0710.idx2956, 2
+  %.not747 = icmp eq i64 %.0710.add, 18
+  br i1 %.not747, label %1491, label %1496
+
+1499:                                             ; preds = %1504
+  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %47) #35
+  %invariant.gep2984 = getelementptr inbounds nuw i8, ptr %0, i64 5847
+  br label %1506
+
+1500:                                             ; preds = %1491, %1504
+  %.0711.idx2981 = phi i64 [ 0, %1491 ], [ %.0711.add, %1504 ]
+  %.0711.ptr = getelementptr inbounds nuw i8, ptr %47, i64 %.0711.idx2981
+  %1501 = load i16, ptr %.0711.ptr, align 2, !tbaa !238
+  %1502 = zext i16 %1501 to i64
+  %.idx2504 = mul nuw nsw i64 %1502, 496
+  %gep2958 = getelementptr inbounds nuw i8, ptr %invariant.gep2957, i64 %.idx2504
+  store i8 4, ptr %gep2958, align 1, !tbaa !228
+  %gep2960 = getelementptr inbounds nuw i8, ptr %invariant.gep2859, i64 %.idx2504
+  store i8 4, ptr %gep2960, align 1, !tbaa !228
+  %gep2962 = getelementptr inbounds nuw i8, ptr %invariant.gep2861, i64 %.idx2504
+  store i8 4, ptr %gep2962, align 2, !tbaa !228
+  %gep2964 = getelementptr inbounds nuw i8, ptr %invariant.gep2963, i64 %.idx2504
+  store i8 4, ptr %gep2964, align 2, !tbaa !228
+  %gep2966 = getelementptr inbounds nuw i8, ptr %invariant.gep2889, i64 %.idx2504
+  store i8 4, ptr %gep2966, align 4, !tbaa !228
+  %gep2968 = getelementptr inbounds nuw i8, ptr %invariant.gep2891, i64 %.idx2504
+  store i8 4, ptr %gep2968, align 1, !tbaa !228
+  %gep2970 = getelementptr inbounds nuw i8, ptr %invariant.gep2893, i64 %.idx2504
+  store i8 4, ptr %gep2970, align 2, !tbaa !228
+  %gep2972 = getelementptr inbounds nuw i8, ptr %invariant.gep2911, i64 %.idx2504
+  store i8 2, ptr %gep2972, align 1, !tbaa !228
+  %gep2974 = getelementptr inbounds nuw i8, ptr %invariant.gep2973, i64 %.idx2504
+  store i8 4, ptr %gep2974, align 1, !tbaa !228
+  %gep2976 = getelementptr inbounds nuw i8, ptr %invariant.gep2837, i64 %.idx2504
+  store i8 4, ptr %gep2976, align 2, !tbaa !228
+  %.not770 = icmp eq i16 %1501, 142
+  br i1 %.not770, label %1504, label %1503
+
+1503:                                             ; preds = %1500
+  %gep2978 = getelementptr inbounds nuw i8, ptr %invariant.gep2841, i64 %.idx2504
+  store i8 4, ptr %gep2978, align 2, !tbaa !228
+  %gep2980 = getelementptr inbounds nuw i8, ptr %invariant.gep2839, i64 %.idx2504
+  store i8 4, ptr %gep2980, align 1, !tbaa !228
   br label %1504
 
-1500:                                             ; preds = %1491, %1500
-  %.0710.idx2955 = phi i64 [ 0, %1491 ], [ %.0710.add, %1500 ]
-  %.0710.ptr = getelementptr inbounds nuw i8, ptr @constinit.136, i64 %.0710.idx2955
-  %1501 = load i16, ptr %.0710.ptr, align 2, !tbaa !238
-  %1502 = zext i16 %1501 to i64
-  %.idx2502 = mul nuw nsw i64 %1502, 496
-  %gep2954 = getelementptr inbounds nuw i8, ptr %invariant.gep2953, i64 %.idx2502
-  store i8 0, ptr %gep2954, align 4, !tbaa !228
-  %.0710.add = add nuw nsw i64 %.0710.idx2955, 2
-  %.not747 = icmp eq i64 %.0710.add, 18
-  br i1 %.not747, label %1495, label %1500
-
-1503:                                             ; preds = %1508
-  call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %47) #35
-  %invariant.gep2983 = getelementptr inbounds nuw i8, ptr %0, i64 5847
-  br label %1510
-
-1504:                                             ; preds = %1495, %1508
-  %.0711.idx2980 = phi i64 [ 0, %1495 ], [ %.0711.add, %1508 ]
-  %.0711.ptr = getelementptr inbounds nuw i8, ptr %47, i64 %.0711.idx2980
-  %1505 = load i16, ptr %.0711.ptr, align 2, !tbaa !238
-  %1506 = zext i16 %1505 to i64
-  %.idx2503 = mul nuw nsw i64 %1506, 496
-  %gep2957 = getelementptr inbounds nuw i8, ptr %invariant.gep2956, i64 %.idx2503
-  store i8 4, ptr %gep2957, align 1, !tbaa !228
-  %gep2959 = getelementptr inbounds nuw i8, ptr %invariant.gep2858, i64 %.idx2503
-  store i8 4, ptr %gep2959, align 1, !tbaa !228
-  %gep2961 = getelementptr inbounds nuw i8, ptr %invariant.gep2860, i64 %.idx2503
-  store i8 4, ptr %gep2961, align 2, !tbaa !228
-  %gep2963 = getelementptr inbounds nuw i8, ptr %invariant.gep2962, i64 %.idx2503
-  store i8 4, ptr %gep2963, align 2, !tbaa !228
-  %gep2965 = getelementptr inbounds nuw i8, ptr %invariant.gep2888, i64 %.idx2503
-  store i8 4, ptr %gep2965, align 4, !tbaa !228
-  %gep2967 = getelementptr inbounds nuw i8, ptr %invariant.gep2890, i64 %.idx2503
-  store i8 4, ptr %gep2967, align 1, !tbaa !228
-  %gep2969 = getelementptr inbounds nuw i8, ptr %invariant.gep2892, i64 %.idx2503
-  store i8 4, ptr %gep2969, align 2, !tbaa !228
-  %gep2971 = getelementptr inbounds nuw i8, ptr %invariant.gep2910, i64 %.idx2503
-  store i8 2, ptr %gep2971, align 1, !tbaa !228
-  %gep2973 = getelementptr inbounds nuw i8, ptr %invariant.gep2972, i64 %.idx2503
-  store i8 4, ptr %gep2973, align 1, !tbaa !228
-  %gep2975 = getelementptr inbounds nuw i8, ptr %invariant.gep2836, i64 %.idx2503
-  store i8 4, ptr %gep2975, align 2, !tbaa !228
-  %.not770 = icmp eq i16 %1505, 142
-  br i1 %.not770, label %1508, label %1507
-
-1507:                                             ; preds = %1504
-  %gep2977 = getelementptr inbounds nuw i8, ptr %invariant.gep2840, i64 %.idx2503
-  store i8 4, ptr %gep2977, align 2, !tbaa !228
-  %gep2979 = getelementptr inbounds nuw i8, ptr %invariant.gep2838, i64 %.idx2503
-  store i8 4, ptr %gep2979, align 1, !tbaa !228
-  br label %1508
-
-1508:                                             ; preds = %1507, %1504
-  %.0711.add = add nuw nsw i64 %.0711.idx2980, 2
+1504:                                             ; preds = %1503, %1500
+  %.0711.add = add nuw nsw i64 %.0711.idx2981, 2
   %.not748 = icmp eq i64 %.0711.add, 10
-  br i1 %.not748, label %1503, label %1504
+  br i1 %.not748, label %1499, label %1500
 
-.preheader2646:                                   ; preds = %1510
-  %1509 = getelementptr inbounds nuw i8, ptr %0, i64 121550
-  br label %.preheader2645
+.preheader2647:                                   ; preds = %1506
+  %1505 = getelementptr inbounds nuw i8, ptr %0, i64 121550
+  br label %.preheader2646
 
-1510:                                             ; preds = %1503, %1510
-  %.0713.idx2985 = phi i64 [ 0, %1503 ], [ %.0713.add, %1510 ]
-  %.0713.ptr = getelementptr inbounds nuw i8, ptr @constinit.137, i64 %.0713.idx2985
-  %1511 = load i16, ptr %.0713.ptr, align 2, !tbaa !238
-  %1512 = zext i16 %1511 to i64
-  %.idx2515 = mul nuw nsw i64 %1512, 496
-  %gep2982 = getelementptr inbounds nuw i8, ptr %invariant.gep2846, i64 %.idx2515
-  store i8 4, ptr %gep2982, align 2, !tbaa !228
-  %gep2984 = getelementptr inbounds nuw i8, ptr %invariant.gep2983, i64 %.idx2515
-  store i8 4, ptr %gep2984, align 1, !tbaa !228
-  %.0713.add = add nuw nsw i64 %.0713.idx2985, 2
+1506:                                             ; preds = %1499, %1506
+  %.0713.idx2986 = phi i64 [ 0, %1499 ], [ %.0713.add, %1506 ]
+  %.0713.ptr = getelementptr inbounds nuw i8, ptr @constinit.137, i64 %.0713.idx2986
+  %1507 = load i16, ptr %.0713.ptr, align 2, !tbaa !238
+  %1508 = zext i16 %1507 to i64
+  %.idx2516 = mul nuw nsw i64 %1508, 496
+  %gep2983 = getelementptr inbounds nuw i8, ptr %invariant.gep2847, i64 %.idx2516
+  store i8 4, ptr %gep2983, align 2, !tbaa !228
+  %gep2985 = getelementptr inbounds nuw i8, ptr %invariant.gep2984, i64 %.idx2516
+  store i8 4, ptr %gep2985, align 1, !tbaa !228
+  %.0713.add = add nuw nsw i64 %.0713.idx2986, 2
   %.not749 = icmp eq i64 %.0713.add, 28
-  br i1 %.not749, label %.preheader2646, label %1510
+  br i1 %.not749, label %.preheader2647, label %1506
 
-.preheader2645:                                   ; preds = %.preheader2646, %1528
-  %.sroa.01482.02987 = phi i64 [ 138, %.preheader2646 ], [ %1529, %1528 ]
-  br label %1530
+.preheader2646:                                   ; preds = %.preheader2647, %1524
+  %.sroa.01482.02988 = phi i64 [ 138, %.preheader2647 ], [ %1525, %1524 ]
+  br label %1526
 
-1513:                                             ; preds = %1528
-  %1514 = getelementptr inbounds nuw i8, ptr %0, i64 379330
-  store i8 0, ptr %1514, align 2, !tbaa !228
-  %1515 = getelementptr inbounds nuw i8, ptr %0, i64 379337
-  store i8 0, ptr %1515, align 1, !tbaa !228
-  %1516 = getelementptr inbounds nuw i8, ptr %0, i64 379343
-  store i8 0, ptr %1516, align 1, !tbaa !228
-  %1517 = getelementptr inbounds nuw i8, ptr %0, i64 378161
-  store i8 0, ptr %1517, align 1, !tbaa !228
-  %1518 = getelementptr inbounds nuw i8, ptr %0, i64 378168
-  store i8 0, ptr %1518, align 8, !tbaa !228
-  %1519 = getelementptr inbounds nuw i8, ptr %0, i64 376992
-  store i8 0, ptr %1519, align 8, !tbaa !228
+1509:                                             ; preds = %1524
+  %1510 = getelementptr inbounds nuw i8, ptr %0, i64 379330
+  store i8 0, ptr %1510, align 2, !tbaa !228
+  %1511 = getelementptr inbounds nuw i8, ptr %0, i64 379337
+  store i8 0, ptr %1511, align 1, !tbaa !228
+  %1512 = getelementptr inbounds nuw i8, ptr %0, i64 379343
+  store i8 0, ptr %1512, align 1, !tbaa !228
+  %1513 = getelementptr inbounds nuw i8, ptr %0, i64 378161
+  store i8 0, ptr %1513, align 1, !tbaa !228
+  %1514 = getelementptr inbounds nuw i8, ptr %0, i64 378168
+  store i8 0, ptr %1514, align 8, !tbaa !228
+  %1515 = getelementptr inbounds nuw i8, ptr %0, i64 376992
+  store i8 0, ptr %1515, align 8, !tbaa !228
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %48) #35
   store i32 3, ptr %48, align 4, !tbaa !275
-  %1520 = getelementptr inbounds nuw i8, ptr %48, i64 4
-  store i32 2, ptr %1520, align 4, !tbaa !275
-  %1521 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  store i32 1, ptr %1521, align 4, !tbaa !275
-  %1522 = getelementptr inbounds nuw i8, ptr %0, i64 199062
-  %1523 = getelementptr inbounds nuw i8, ptr %0, i64 199076
-  %1524 = getelementptr inbounds nuw i8, ptr %0, i64 199088
-  %1525 = getelementptr inbounds nuw i8, ptr %0, i64 196724
-  %1526 = getelementptr inbounds nuw i8, ptr %0, i64 196738
-  %1527 = getelementptr inbounds nuw i8, ptr %0, i64 194386
-  %.promoted = load i16, ptr %1522, align 2, !tbaa !240
-  %.promoted2988 = load i16, ptr %1523, align 4, !tbaa !240
-  %.promoted2990 = load i16, ptr %1524, align 8, !tbaa !240
-  %.promoted2992 = load i16, ptr %1525, align 4, !tbaa !240
-  %.promoted2994 = load i16, ptr %1526, align 2, !tbaa !240
-  %.promoted2996 = load i16, ptr %1527, align 2, !tbaa !240
-  br label %1548
+  %1516 = getelementptr inbounds nuw i8, ptr %48, i64 4
+  store i32 2, ptr %1516, align 4, !tbaa !275
+  %1517 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  store i32 1, ptr %1517, align 4, !tbaa !275
+  %1518 = getelementptr inbounds nuw i8, ptr %0, i64 199062
+  %1519 = getelementptr inbounds nuw i8, ptr %0, i64 199076
+  %1520 = getelementptr inbounds nuw i8, ptr %0, i64 199088
+  %1521 = getelementptr inbounds nuw i8, ptr %0, i64 196724
+  %1522 = getelementptr inbounds nuw i8, ptr %0, i64 196738
+  %1523 = getelementptr inbounds nuw i8, ptr %0, i64 194386
+  %.promoted = load i16, ptr %1518, align 2, !tbaa !240
+  %.promoted2989 = load i16, ptr %1519, align 4, !tbaa !240
+  %.promoted2991 = load i16, ptr %1520, align 8, !tbaa !240
+  %.promoted2993 = load i16, ptr %1521, align 4, !tbaa !240
+  %.promoted2995 = load i16, ptr %1522, align 2, !tbaa !240
+  %.promoted2997 = load i16, ptr %1523, align 2, !tbaa !240
+  br label %1544
 
-1528:                                             ; preds = %1530
-  %1529 = add nuw nsw i64 %.sroa.01482.02987, 1
-  %.not2517 = icmp eq i64 %1529, 191
-  br i1 %.not2517, label %1513, label %.preheader2645
+1524:                                             ; preds = %1526
+  %1525 = add nuw nsw i64 %.sroa.01482.02988, 1
+  %.not2518 = icmp eq i64 %1525, 191
+  br i1 %.not2518, label %1509, label %.preheader2646
 
-1530:                                             ; preds = %.preheader2645, %1530
-  %.sroa.01472.02986 = phi i64 [ 138, %.preheader2645 ], [ %1536, %1530 ]
-  %1531 = getelementptr inbounds nuw [234 x [234 x i8]], ptr %927, i64 0, i64 %.sroa.01482.02987, i64 %.sroa.01472.02986
-  store i8 2, ptr %1531, align 1, !tbaa !228
-  %1532 = getelementptr inbounds nuw [234 x [234 x i16]], ptr %1509, i64 0, i64 %.sroa.01482.02987, i64 %.sroa.01472.02986
-  %1533 = load i16, ptr %1532, align 2, !tbaa !240
-  %1534 = and i16 %1533, 15
-  %1535 = or disjoint i16 %1534, 8736
-  store i16 %1535, ptr %1532, align 2, !tbaa !240
-  %1536 = add nuw nsw i64 %.sroa.01472.02986, 1
-  %.not2617 = icmp eq i64 %1536, 191
-  br i1 %.not2617, label %1528, label %1530
+1526:                                             ; preds = %.preheader2646, %1526
+  %.sroa.01472.02987 = phi i64 [ 138, %.preheader2646 ], [ %1532, %1526 ]
+  %1527 = getelementptr inbounds nuw [234 x [234 x i8]], ptr %927, i64 0, i64 %.sroa.01482.02988, i64 %.sroa.01472.02987
+  store i8 2, ptr %1527, align 1, !tbaa !228
+  %1528 = getelementptr inbounds nuw [234 x [234 x i16]], ptr %1505, i64 0, i64 %.sroa.01482.02988, i64 %.sroa.01472.02987
+  %1529 = load i16, ptr %1528, align 2, !tbaa !240
+  %1530 = and i16 %1529, 15
+  %1531 = or disjoint i16 %1530, 8736
+  store i16 %1531, ptr %1528, align 2, !tbaa !240
+  %1532 = add nuw nsw i64 %.sroa.01472.02987, 1
+  %.not2618 = icmp eq i64 %1532, 191
+  br i1 %.not2618, label %1524, label %1526
 
-1537:                                             ; preds = %1548
+1533:                                             ; preds = %1544
+  store i16 %1556, ptr %1518, align 2, !tbaa !240
+  store i16 %1557, ptr %1519, align 4, !tbaa !240
+  store i16 %1558, ptr %1520, align 8, !tbaa !240
+  store i16 %1559, ptr %1521, align 4, !tbaa !240
   store i16 %1560, ptr %1522, align 2, !tbaa !240
-  store i16 %1561, ptr %1523, align 4, !tbaa !240
-  store i16 %1562, ptr %1524, align 8, !tbaa !240
-  store i16 %1563, ptr %1525, align 4, !tbaa !240
-  store i16 %1564, ptr %1526, align 2, !tbaa !240
-  store i16 %1565, ptr %1527, align 2, !tbaa !240
+  store i16 %1561, ptr %1523, align 2, !tbaa !240
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %48) #35
-  %1538 = getelementptr inbounds nuw i8, ptr %0, i64 358861
+  %1534 = getelementptr inbounds nuw i8, ptr %0, i64 358861
+  store i8 4, ptr %1534, align 1, !tbaa !228
+  %1535 = getelementptr inbounds nuw i8, ptr %0, i64 358873
+  store i8 4, ptr %1535, align 1, !tbaa !228
+  %1536 = getelementptr inbounds nuw i8, ptr %0, i64 358884
+  store i8 4, ptr %1536, align 4, !tbaa !228
+  %1537 = getelementptr inbounds nuw i8, ptr %0, i64 354181
+  store i8 4, ptr %1537, align 1, !tbaa !228
+  %1538 = getelementptr inbounds nuw i8, ptr %0, i64 354193
   store i8 4, ptr %1538, align 1, !tbaa !228
-  %1539 = getelementptr inbounds nuw i8, ptr %0, i64 358873
-  store i8 4, ptr %1539, align 1, !tbaa !228
-  %1540 = getelementptr inbounds nuw i8, ptr %0, i64 358884
-  store i8 4, ptr %1540, align 4, !tbaa !228
-  %1541 = getelementptr inbounds nuw i8, ptr %0, i64 354181
-  store i8 4, ptr %1541, align 1, !tbaa !228
-  %1542 = getelementptr inbounds nuw i8, ptr %0, i64 354193
-  store i8 4, ptr %1542, align 1, !tbaa !228
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %49) #35
   store i16 171, ptr %49, align 2, !tbaa !238
-  %1543 = getelementptr inbounds nuw i8, ptr %49, i64 2
-  store i16 172, ptr %1543, align 2, !tbaa !238
-  %1544 = getelementptr inbounds nuw i8, ptr %49, i64 4
-  store i16 173, ptr %1544, align 2, !tbaa !238
-  %1545 = getelementptr inbounds nuw i8, ptr %49, i64 6
-  store i16 183, ptr %1545, align 2, !tbaa !238
-  %1546 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  store i16 184, ptr %1546, align 2, !tbaa !238
-  %1547 = getelementptr inbounds nuw i8, ptr %49, i64 10
-  store i16 188, ptr %1547, align 2, !tbaa !238
-  %invariant.gep3013 = getelementptr inbounds nuw i8, ptr %0, i64 5582
-  %invariant.gep3015 = getelementptr inbounds nuw i8, ptr %0, i64 5638
-  %invariant.gep3017 = getelementptr inbounds nuw i8, ptr %0, i64 5585
-  %invariant.gep3019 = getelementptr inbounds nuw i8, ptr %0, i64 5636
-  %invariant.gep3021 = getelementptr inbounds nuw i8, ptr %0, i64 5770
-  %invariant.gep3023 = getelementptr inbounds nuw i8, ptr %0, i64 5766
-  %invariant.gep3025 = getelementptr inbounds nuw i8, ptr %0, i64 5769
-  %invariant.gep3027 = getelementptr inbounds nuw i8, ptr %0, i64 5765
-  %invariant.gep3029 = getelementptr inbounds nuw i8, ptr %0, i64 5584
-  %invariant.gep3031 = getelementptr inbounds nuw i8, ptr %0, i64 5730
-  %invariant.gep3033 = getelementptr inbounds nuw i8, ptr %0, i64 5583
-  %invariant.gep3035 = getelementptr inbounds nuw i8, ptr %0, i64 5754
-  %invariant.gep3037 = getelementptr inbounds nuw i8, ptr %0, i64 5760
-  %invariant.gep3039 = getelementptr inbounds nuw i8, ptr %0, i64 5757
-  %invariant.gep3041 = getelementptr inbounds nuw i8, ptr %0, i64 5756
-  %invariant.gep3043 = getelementptr inbounds nuw i8, ptr %0, i64 5763
-  %invariant.gep3045 = getelementptr inbounds nuw i8, ptr %0, i64 5764
-  %invariant.gep3047 = getelementptr inbounds nuw i8, ptr %0, i64 5758
-  %invariant.gep3049 = getelementptr inbounds nuw i8, ptr %0, i64 5759
-  %invariant.gep3051 = getelementptr inbounds nuw i8, ptr %0, i64 5755
-  %invariant.gep3053 = getelementptr inbounds nuw i8, ptr %0, i64 5732
-  %invariant.gep3055 = getelementptr inbounds nuw i8, ptr %0, i64 5731
-  %invariant.gep3057 = getelementptr inbounds nuw i8, ptr %0, i64 5719
-  %invariant.gep3059 = getelementptr inbounds nuw i8, ptr %0, i64 5716
-  %invariant.gep3061 = getelementptr inbounds nuw i8, ptr %0, i64 5860
-  %invariant.gep3063 = getelementptr inbounds nuw i8, ptr %0, i64 5862
-  %invariant.gep3065 = getelementptr inbounds nuw i8, ptr %0, i64 5863
-  %invariant.gep3067 = getelementptr inbounds nuw i8, ptr %0, i64 5864
-  %invariant.gep3069 = getelementptr inbounds nuw i8, ptr %0, i64 5865
-  %invariant.gep3079 = getelementptr inbounds nuw i8, ptr %0, i64 5586
-  %invariant.gep3081 = getelementptr inbounds nuw i8, ptr %0, i64 5743
-  %invariant.gep3083 = getelementptr inbounds nuw i8, ptr %0, i64 5744
-  %invariant.gep3085 = getelementptr inbounds nuw i8, ptr %0, i64 5735
-  %invariant.gep3087 = getelementptr inbounds nuw i8, ptr %0, i64 5734
-  %invariant.gep3089 = getelementptr inbounds nuw i8, ptr %0, i64 5773
-  %invariant.gep3091 = getelementptr inbounds nuw i8, ptr %0, i64 5736
-  %invariant.gep3093 = getelementptr inbounds nuw i8, ptr %0, i64 5738
-  %invariant.gep3095 = getelementptr inbounds nuw i8, ptr %0, i64 5737
-  %invariant.gep3097 = getelementptr inbounds nuw i8, ptr %0, i64 5739
-  %invariant.gep3099 = getelementptr inbounds nuw i8, ptr %0, i64 5746
-  %invariant.gep3101 = getelementptr inbounds nuw i8, ptr %0, i64 5741
-  %invariant.gep3103 = getelementptr inbounds nuw i8, ptr %0, i64 5740
-  %invariant.gep3105 = getelementptr inbounds nuw i8, ptr %0, i64 5742
-  %invariant.gep3107 = getelementptr inbounds nuw i8, ptr %0, i64 5751
-  %invariant.gep3109 = getelementptr inbounds nuw i8, ptr %0, i64 5752
-  %invariant.gep3111 = getelementptr inbounds nuw i8, ptr %0, i64 5753
-  %invariant.gep3113 = getelementptr inbounds nuw i8, ptr %0, i64 5748
-  %invariant.gep3115 = getelementptr inbounds nuw i8, ptr %0, i64 5749
-  %invariant.gep3117 = getelementptr inbounds nuw i8, ptr %0, i64 5750
-  %invariant.gep3425 = getelementptr inbounds nuw i8, ptr %0, i64 398512
-  %invariant.gep3427 = getelementptr inbounds nuw i8, ptr %0, i64 398152
-  %invariant.gep3429 = getelementptr inbounds nuw i8, ptr %0, i64 400072
-  %invariant.gep3431 = getelementptr inbounds nuw i8, ptr %0, i64 398272
-  %invariant.gep3433 = getelementptr inbounds nuw i8, ptr %0, i64 400192
-  %invariant.gep3435 = getelementptr inbounds nuw i8, ptr %0, i64 399112
-  %invariant.gep3437 = getelementptr inbounds nuw i8, ptr %0, i64 399232
-  %invariant.gep3439 = getelementptr inbounds nuw i8, ptr %0, i64 398992
-  %invariant.gep3441 = getelementptr inbounds nuw i8, ptr %0, i64 398872
-  %invariant.gep3443 = getelementptr inbounds nuw i8, ptr %0, i64 398752
-  %invariant.gep3445 = getelementptr inbounds nuw i8, ptr %0, i64 398392
+  %1539 = getelementptr inbounds nuw i8, ptr %49, i64 2
+  store i16 172, ptr %1539, align 2, !tbaa !238
+  %1540 = getelementptr inbounds nuw i8, ptr %49, i64 4
+  store i16 173, ptr %1540, align 2, !tbaa !238
+  %1541 = getelementptr inbounds nuw i8, ptr %49, i64 6
+  store i16 183, ptr %1541, align 2, !tbaa !238
+  %1542 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  store i16 184, ptr %1542, align 2, !tbaa !238
+  %1543 = getelementptr inbounds nuw i8, ptr %49, i64 10
+  store i16 188, ptr %1543, align 2, !tbaa !238
+  %invariant.gep3014 = getelementptr inbounds nuw i8, ptr %0, i64 5582
+  %invariant.gep3016 = getelementptr inbounds nuw i8, ptr %0, i64 5638
+  %invariant.gep3018 = getelementptr inbounds nuw i8, ptr %0, i64 5585
+  %invariant.gep3020 = getelementptr inbounds nuw i8, ptr %0, i64 5636
+  %invariant.gep3022 = getelementptr inbounds nuw i8, ptr %0, i64 5770
+  %invariant.gep3024 = getelementptr inbounds nuw i8, ptr %0, i64 5766
+  %invariant.gep3026 = getelementptr inbounds nuw i8, ptr %0, i64 5769
+  %invariant.gep3028 = getelementptr inbounds nuw i8, ptr %0, i64 5765
+  %invariant.gep3030 = getelementptr inbounds nuw i8, ptr %0, i64 5584
+  %invariant.gep3032 = getelementptr inbounds nuw i8, ptr %0, i64 5730
+  %invariant.gep3034 = getelementptr inbounds nuw i8, ptr %0, i64 5583
+  %invariant.gep3036 = getelementptr inbounds nuw i8, ptr %0, i64 5754
+  %invariant.gep3038 = getelementptr inbounds nuw i8, ptr %0, i64 5760
+  %invariant.gep3040 = getelementptr inbounds nuw i8, ptr %0, i64 5757
+  %invariant.gep3042 = getelementptr inbounds nuw i8, ptr %0, i64 5756
+  %invariant.gep3044 = getelementptr inbounds nuw i8, ptr %0, i64 5763
+  %invariant.gep3046 = getelementptr inbounds nuw i8, ptr %0, i64 5764
+  %invariant.gep3048 = getelementptr inbounds nuw i8, ptr %0, i64 5758
+  %invariant.gep3050 = getelementptr inbounds nuw i8, ptr %0, i64 5759
+  %invariant.gep3052 = getelementptr inbounds nuw i8, ptr %0, i64 5755
+  %invariant.gep3054 = getelementptr inbounds nuw i8, ptr %0, i64 5732
+  %invariant.gep3056 = getelementptr inbounds nuw i8, ptr %0, i64 5731
+  %invariant.gep3058 = getelementptr inbounds nuw i8, ptr %0, i64 5719
+  %invariant.gep3060 = getelementptr inbounds nuw i8, ptr %0, i64 5716
+  %invariant.gep3062 = getelementptr inbounds nuw i8, ptr %0, i64 5860
+  %invariant.gep3064 = getelementptr inbounds nuw i8, ptr %0, i64 5862
+  %invariant.gep3066 = getelementptr inbounds nuw i8, ptr %0, i64 5863
+  %invariant.gep3068 = getelementptr inbounds nuw i8, ptr %0, i64 5864
+  %invariant.gep3070 = getelementptr inbounds nuw i8, ptr %0, i64 5865
+  %invariant.gep3080 = getelementptr inbounds nuw i8, ptr %0, i64 5586
+  %invariant.gep3082 = getelementptr inbounds nuw i8, ptr %0, i64 5743
+  %invariant.gep3084 = getelementptr inbounds nuw i8, ptr %0, i64 5744
+  %invariant.gep3086 = getelementptr inbounds nuw i8, ptr %0, i64 5735
+  %invariant.gep3088 = getelementptr inbounds nuw i8, ptr %0, i64 5734
+  %invariant.gep3090 = getelementptr inbounds nuw i8, ptr %0, i64 5773
+  %invariant.gep3092 = getelementptr inbounds nuw i8, ptr %0, i64 5736
+  %invariant.gep3094 = getelementptr inbounds nuw i8, ptr %0, i64 5738
+  %invariant.gep3096 = getelementptr inbounds nuw i8, ptr %0, i64 5737
+  %invariant.gep3098 = getelementptr inbounds nuw i8, ptr %0, i64 5739
+  %invariant.gep3100 = getelementptr inbounds nuw i8, ptr %0, i64 5746
+  %invariant.gep3102 = getelementptr inbounds nuw i8, ptr %0, i64 5741
+  %invariant.gep3104 = getelementptr inbounds nuw i8, ptr %0, i64 5740
+  %invariant.gep3106 = getelementptr inbounds nuw i8, ptr %0, i64 5742
+  %invariant.gep3108 = getelementptr inbounds nuw i8, ptr %0, i64 5751
+  %invariant.gep3110 = getelementptr inbounds nuw i8, ptr %0, i64 5752
+  %invariant.gep3112 = getelementptr inbounds nuw i8, ptr %0, i64 5753
+  %invariant.gep3114 = getelementptr inbounds nuw i8, ptr %0, i64 5748
+  %invariant.gep3116 = getelementptr inbounds nuw i8, ptr %0, i64 5749
+  %invariant.gep3118 = getelementptr inbounds nuw i8, ptr %0, i64 5750
+  %invariant.gep3433 = getelementptr inbounds nuw i8, ptr %0, i64 398512
+  %invariant.gep3435 = getelementptr inbounds nuw i8, ptr %0, i64 398152
+  %invariant.gep3437 = getelementptr inbounds nuw i8, ptr %0, i64 400072
+  %invariant.gep3439 = getelementptr inbounds nuw i8, ptr %0, i64 398272
+  %invariant.gep3441 = getelementptr inbounds nuw i8, ptr %0, i64 400192
+  %invariant.gep3443 = getelementptr inbounds nuw i8, ptr %0, i64 399112
+  %invariant.gep3445 = getelementptr inbounds nuw i8, ptr %0, i64 399232
+  %invariant.gep3447 = getelementptr inbounds nuw i8, ptr %0, i64 398992
+  %invariant.gep3449 = getelementptr inbounds nuw i8, ptr %0, i64 398872
+  %invariant.gep3451 = getelementptr inbounds nuw i8, ptr %0, i64 398752
+  %invariant.gep3453 = getelementptr inbounds nuw i8, ptr %0, i64 398392
   br label %.lr.ph.i1077
 
-1548:                                             ; preds = %1513, %1548
-  %.0714.idx2998 = phi i64 [ 0, %1513 ], [ %.0714.add, %1548 ]
-  %1549 = phi i16 [ %.promoted, %1513 ], [ %1560, %1548 ]
-  %1550 = phi i16 [ %.promoted2988, %1513 ], [ %1561, %1548 ]
-  %1551 = phi i16 [ %.promoted2990, %1513 ], [ %1562, %1548 ]
-  %1552 = phi i16 [ %.promoted2992, %1513 ], [ %1563, %1548 ]
-  %1553 = phi i16 [ %.promoted2994, %1513 ], [ %1564, %1548 ]
-  %1554 = phi i16 [ %.promoted2996, %1513 ], [ %1565, %1548 ]
-  %.0714.ptr = getelementptr inbounds nuw i8, ptr %48, i64 %.0714.idx2998
-  %1555 = load i32, ptr %.0714.ptr, align 4, !tbaa !275
-  %1556 = shl i32 %1555, 2
-  %1557 = shl i32 15, %1556
-  %1558 = trunc i32 %1557 to i16
-  %1559 = xor i16 %1558, -1
-  %1560 = and i16 %1549, %1559
-  %1561 = and i16 %1550, %1559
-  %1562 = and i16 %1551, %1559
-  %1563 = and i16 %1552, %1559
-  %1564 = and i16 %1553, %1559
-  %1565 = and i16 %1554, %1559
-  %.0714.add = add nuw nsw i64 %.0714.idx2998, 4
+1544:                                             ; preds = %1509, %1544
+  %.0714.idx2999 = phi i64 [ 0, %1509 ], [ %.0714.add, %1544 ]
+  %1545 = phi i16 [ %.promoted, %1509 ], [ %1556, %1544 ]
+  %1546 = phi i16 [ %.promoted2989, %1509 ], [ %1557, %1544 ]
+  %1547 = phi i16 [ %.promoted2991, %1509 ], [ %1558, %1544 ]
+  %1548 = phi i16 [ %.promoted2993, %1509 ], [ %1559, %1544 ]
+  %1549 = phi i16 [ %.promoted2995, %1509 ], [ %1560, %1544 ]
+  %1550 = phi i16 [ %.promoted2997, %1509 ], [ %1561, %1544 ]
+  %.0714.ptr = getelementptr inbounds nuw i8, ptr %48, i64 %.0714.idx2999
+  %1551 = load i32, ptr %.0714.ptr, align 4, !tbaa !275
+  %1552 = shl i32 %1551, 2
+  %1553 = shl i32 15, %1552
+  %1554 = trunc i32 %1553 to i16
+  %1555 = xor i16 %1554, -1
+  %1556 = and i16 %1545, %1555
+  %1557 = and i16 %1546, %1555
+  %1558 = and i16 %1547, %1555
+  %1559 = and i16 %1548, %1555
+  %1560 = and i16 %1549, %1555
+  %1561 = and i16 %1550, %1555
+  %.0714.add = add nuw nsw i64 %.0714.idx2999, 4
   %.not750 = icmp eq i64 %.0714.add, 12
-  br i1 %.not750, label %1537, label %1548
+  br i1 %.not750, label %1533, label %1544
 
-1566:                                             ; preds = %.lr.ph.i1077
+1562:                                             ; preds = %.lr.ph.i1077
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %49) #35
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %50) #35
   store i16 177, ptr %50, align 2, !tbaa !238
-  %1567 = getelementptr inbounds nuw i8, ptr %50, i64 2
-  store i16 178, ptr %1567, align 2, !tbaa !238
-  %1568 = getelementptr inbounds nuw i8, ptr %50, i64 4
-  store i16 179, ptr %1568, align 2, !tbaa !238
-  %1569 = load ptr, ptr %61, align 8, !tbaa !71
-  %1570 = getelementptr inbounds nuw i8, ptr %1569, i64 462
-  %1571 = load i8, ptr %1570, align 2, !tbaa !277, !range !54, !noundef !55
-  %1572 = trunc nuw i8 %1571 to i1
+  %1563 = getelementptr inbounds nuw i8, ptr %50, i64 2
+  store i16 178, ptr %1563, align 2, !tbaa !238
+  %1564 = getelementptr inbounds nuw i8, ptr %50, i64 4
+  store i16 179, ptr %1564, align 2, !tbaa !238
+  %1565 = load ptr, ptr %61, align 8, !tbaa !71
+  %1566 = getelementptr inbounds nuw i8, ptr %1565, i64 462
+  %1567 = load i8, ptr %1566, align 2, !tbaa !277, !range !54, !noundef !55
+  %1568 = trunc nuw i8 %1567 to i1
+  br label %1614
+
+.lr.ph.i1077:                                     ; preds = %1533, %.lr.ph.i1077
+  %.0715.idx3120 = phi i64 [ 0, %1533 ], [ %.0715.add, %.lr.ph.i1077 ]
+  %.0715.ptr = getelementptr inbounds nuw i8, ptr %49, i64 %.0715.idx3120
+  %1569 = load i16, ptr %.0715.ptr, align 2, !tbaa !238
+  %1570 = zext i16 %1569 to i64
+  %.idx2519 = mul nuw nsw i64 %1570, 496
+  %gep3001 = getelementptr inbounds nuw i8, ptr %invariant.gep2941, i64 %.idx2519
+  store i8 4, ptr %gep3001, align 8, !tbaa !228
+  %gep3003 = getelementptr inbounds nuw i8, ptr %invariant.gep2957, i64 %.idx2519
+  store i8 4, ptr %gep3003, align 1, !tbaa !228
+  %gep3005 = getelementptr inbounds nuw i8, ptr %invariant.gep2837, i64 %.idx2519
+  store i8 4, ptr %gep3005, align 2, !tbaa !228
+  %gep3007 = getelementptr inbounds nuw i8, ptr %invariant.gep2847, i64 %.idx2519
+  store i8 4, ptr %gep3007, align 2, !tbaa !228
+  %gep3009 = getelementptr inbounds nuw i8, ptr %invariant.gep2855, i64 %.idx2519
+  store i8 0, ptr %gep3009, align 2, !tbaa !228
+  %gep3011 = getelementptr inbounds nuw i8, ptr %invariant.gep2859, i64 %.idx2519
+  store i8 4, ptr %gep3011, align 1, !tbaa !228
+  %gep3013 = getelementptr inbounds nuw i8, ptr %invariant.gep2861, i64 %.idx2519
+  store i8 4, ptr %gep3013, align 2, !tbaa !228
+  %gep3015 = getelementptr inbounds nuw i8, ptr %invariant.gep3014, i64 %.idx2519
+  store i8 4, ptr %gep3015, align 2, !tbaa !228
+  %gep3017 = getelementptr inbounds nuw i8, ptr %invariant.gep3016, i64 %.idx2519
+  store i8 4, ptr %gep3017, align 2, !tbaa !228
+  %gep3019 = getelementptr inbounds nuw i8, ptr %invariant.gep3018, i64 %.idx2519
+  store i8 4, ptr %gep3019, align 1, !tbaa !228
+  %gep3021 = getelementptr inbounds nuw i8, ptr %invariant.gep3020, i64 %.idx2519
+  store i8 4, ptr %gep3021, align 4, !tbaa !228
+  %gep3023 = getelementptr inbounds nuw i8, ptr %invariant.gep3022, i64 %.idx2519
+  store i8 4, ptr %gep3023, align 2, !tbaa !228
+  %gep3025 = getelementptr inbounds nuw i8, ptr %invariant.gep3024, i64 %.idx2519
+  store i8 4, ptr %gep3025, align 2, !tbaa !228
+  %gep3027 = getelementptr inbounds nuw i8, ptr %invariant.gep3026, i64 %.idx2519
+  store i8 4, ptr %gep3027, align 1, !tbaa !228
+  %gep3029 = getelementptr inbounds nuw i8, ptr %invariant.gep3028, i64 %.idx2519
+  store i8 4, ptr %gep3029, align 1, !tbaa !228
+  %gep3031 = getelementptr inbounds nuw i8, ptr %invariant.gep3030, i64 %.idx2519
+  store i8 4, ptr %gep3031, align 8, !tbaa !228
+  %gep3033 = getelementptr inbounds nuw i8, ptr %invariant.gep3032, i64 %.idx2519
+  store i8 4, ptr %gep3033, align 2, !tbaa !228
+  %gep3035 = getelementptr inbounds nuw i8, ptr %invariant.gep3034, i64 %.idx2519
+  store i8 4, ptr %gep3035, align 1, !tbaa !228
+  %gep3037 = getelementptr inbounds nuw i8, ptr %invariant.gep3036, i64 %.idx2519
+  store i8 4, ptr %gep3037, align 2, !tbaa !228
+  %gep3039 = getelementptr inbounds nuw i8, ptr %invariant.gep3038, i64 %.idx2519
+  store i8 4, ptr %gep3039, align 8, !tbaa !228
+  %gep3041 = getelementptr inbounds nuw i8, ptr %invariant.gep3040, i64 %.idx2519
+  store i8 4, ptr %gep3041, align 1, !tbaa !228
+  %gep3043 = getelementptr inbounds nuw i8, ptr %invariant.gep3042, i64 %.idx2519
+  store i8 4, ptr %gep3043, align 4, !tbaa !228
+  %gep3045 = getelementptr inbounds nuw i8, ptr %invariant.gep3044, i64 %.idx2519
+  store i8 4, ptr %gep3045, align 1, !tbaa !228
+  %gep3047 = getelementptr inbounds nuw i8, ptr %invariant.gep3046, i64 %.idx2519
+  store i8 4, ptr %gep3047, align 4, !tbaa !228
+  %gep3049 = getelementptr inbounds nuw i8, ptr %invariant.gep3048, i64 %.idx2519
+  store i8 4, ptr %gep3049, align 2, !tbaa !228
+  %gep3051 = getelementptr inbounds nuw i8, ptr %invariant.gep3050, i64 %.idx2519
+  store i8 4, ptr %gep3051, align 1, !tbaa !228
+  %gep3053 = getelementptr inbounds nuw i8, ptr %invariant.gep3052, i64 %.idx2519
+  store i8 4, ptr %gep3053, align 1, !tbaa !228
+  %gep3055 = getelementptr inbounds nuw i8, ptr %invariant.gep3054, i64 %.idx2519
+  store i8 4, ptr %gep3055, align 4, !tbaa !228
+  %gep3057 = getelementptr inbounds nuw i8, ptr %invariant.gep3056, i64 %.idx2519
+  store i8 4, ptr %gep3057, align 1, !tbaa !228
+  %gep3059 = getelementptr inbounds nuw i8, ptr %invariant.gep3058, i64 %.idx2519
+  store i8 4, ptr %gep3059, align 1, !tbaa !228
+  %gep3061 = getelementptr inbounds nuw i8, ptr %invariant.gep3060, i64 %.idx2519
+  store i8 4, ptr %gep3061, align 4, !tbaa !228
+  %gep3063 = getelementptr inbounds nuw i8, ptr %invariant.gep3062, i64 %.idx2519
+  store i8 4, ptr %gep3063, align 4, !tbaa !228
+  %gep3065 = getelementptr inbounds nuw i8, ptr %invariant.gep3064, i64 %.idx2519
+  store i8 4, ptr %gep3065, align 2, !tbaa !228
+  %gep3067 = getelementptr inbounds nuw i8, ptr %invariant.gep3066, i64 %.idx2519
+  store i8 4, ptr %gep3067, align 1, !tbaa !228
+  %gep3069 = getelementptr inbounds nuw i8, ptr %invariant.gep3068, i64 %.idx2519
+  store i8 4, ptr %gep3069, align 8, !tbaa !228
+  %gep3071 = getelementptr inbounds nuw i8, ptr %invariant.gep3070, i64 %.idx2519
+  store i8 4, ptr %gep3071, align 1, !tbaa !228
+  %gep3073 = getelementptr inbounds nuw i8, ptr %invariant.gep2857, i64 %.idx2519
+  store i8 4, ptr %gep3073, align 4, !tbaa !228
+  %gep3075 = getelementptr inbounds nuw i8, ptr %invariant.gep2903, i64 %.idx2519
+  store i8 4, ptr %gep3075, align 8, !tbaa !228
+  %gep3077 = getelementptr inbounds nuw i8, ptr %invariant.gep2905, i64 %.idx2519
+  store i8 4, ptr %gep3077, align 1, !tbaa !228
+  %gep3079 = getelementptr inbounds nuw i8, ptr %invariant.gep2911, i64 %.idx2519
+  store i8 2, ptr %gep3079, align 1, !tbaa !228
+  %gep3081 = getelementptr inbounds nuw i8, ptr %invariant.gep3080, i64 %.idx2519
+  store i8 2, ptr %gep3081, align 2, !tbaa !228
+  %gep3083 = getelementptr inbounds nuw i8, ptr %invariant.gep3082, i64 %.idx2519
+  store i8 2, ptr %gep3083, align 1, !tbaa !228
+  %gep3085 = getelementptr inbounds nuw i8, ptr %invariant.gep3084, i64 %.idx2519
+  store i8 2, ptr %gep3085, align 8, !tbaa !228
+  %gep3087 = getelementptr inbounds nuw i8, ptr %invariant.gep3086, i64 %.idx2519
+  store i8 2, ptr %gep3087, align 1, !tbaa !228
+  %gep3089 = getelementptr inbounds nuw i8, ptr %invariant.gep3088, i64 %.idx2519
+  store i8 2, ptr %gep3089, align 2, !tbaa !228
+  %gep3091 = getelementptr inbounds nuw i8, ptr %invariant.gep3090, i64 %.idx2519
+  store i8 2, ptr %gep3091, align 1, !tbaa !228
+  %gep3093 = getelementptr inbounds nuw i8, ptr %invariant.gep3092, i64 %.idx2519
+  store i8 2, ptr %gep3093, align 8, !tbaa !228
+  %gep3095 = getelementptr inbounds nuw i8, ptr %invariant.gep3094, i64 %.idx2519
+  store i8 2, ptr %gep3095, align 2, !tbaa !228
+  %gep3097 = getelementptr inbounds nuw i8, ptr %invariant.gep3096, i64 %.idx2519
+  store i8 2, ptr %gep3097, align 1, !tbaa !228
+  %gep3099 = getelementptr inbounds nuw i8, ptr %invariant.gep3098, i64 %.idx2519
+  store i8 2, ptr %gep3099, align 1, !tbaa !228
+  %gep3101 = getelementptr inbounds nuw i8, ptr %invariant.gep3100, i64 %.idx2519
+  store i8 2, ptr %gep3101, align 2, !tbaa !228
+  %gep3103 = getelementptr inbounds nuw i8, ptr %invariant.gep3102, i64 %.idx2519
+  store i8 2, ptr %gep3103, align 1, !tbaa !228
+  %gep3105 = getelementptr inbounds nuw i8, ptr %invariant.gep3104, i64 %.idx2519
+  store i8 2, ptr %gep3105, align 4, !tbaa !228
+  %gep3107 = getelementptr inbounds nuw i8, ptr %invariant.gep3106, i64 %.idx2519
+  store i8 2, ptr %gep3107, align 2, !tbaa !228
+  %gep3109 = getelementptr inbounds nuw i8, ptr %invariant.gep3108, i64 %.idx2519
+  store i8 2, ptr %gep3109, align 1, !tbaa !228
+  %gep3111 = getelementptr inbounds nuw i8, ptr %invariant.gep3110, i64 %.idx2519
+  store i8 2, ptr %gep3111, align 8, !tbaa !228
+  %gep3113 = getelementptr inbounds nuw i8, ptr %invariant.gep3112, i64 %.idx2519
+  store i8 2, ptr %gep3113, align 1, !tbaa !228
+  %gep3115 = getelementptr inbounds nuw i8, ptr %invariant.gep3114, i64 %.idx2519
+  store i8 2, ptr %gep3115, align 4, !tbaa !228
+  %gep3117 = getelementptr inbounds nuw i8, ptr %invariant.gep3116, i64 %.idx2519
+  store i8 2, ptr %gep3117, align 1, !tbaa !228
+  %gep3119 = getelementptr inbounds nuw i8, ptr %invariant.gep3118, i64 %.idx2519
+  store i8 2, ptr %gep3119, align 2, !tbaa !228
+  %1571 = zext i16 %1569 to i32
+  %1572 = shl nuw nsw i32 %1571, 2
+  %1573 = and i32 %1572, 28
+  %1574 = shl nuw i32 15, %1573
+  %1575 = xor i32 %1574, -1
+  %1576 = lshr i32 %1571, 3
+  %1577 = zext nneg i32 %1576 to i64
+  %1578 = shl nuw nsw i32 2, %1573
+  %.idx3360 = shl nuw nsw i64 %1577, 2
+  %gep3434 = getelementptr inbounds nuw i8, ptr %invariant.gep3433, i64 %.idx3360
+  %1579 = load i32, ptr %gep3434, align 4, !tbaa !68
+  %1580 = and i32 %1579, %1575
+  %1581 = or i32 %1580, %1578
+  store i32 %1581, ptr %gep3434, align 4, !tbaa !68
+  %.idx3361 = shl nuw nsw i64 %1577, 2
+  %gep3436 = getelementptr inbounds nuw i8, ptr %invariant.gep3435, i64 %.idx3361
+  %1582 = load i32, ptr %gep3436, align 4, !tbaa !68
+  %1583 = and i32 %1582, %1575
+  %1584 = or i32 %1583, %1578
+  store i32 %1584, ptr %gep3436, align 4, !tbaa !68
+  %.idx3362 = shl nuw nsw i64 %1577, 2
+  %gep3438 = getelementptr inbounds nuw i8, ptr %invariant.gep3437, i64 %.idx3362
+  %1585 = load i32, ptr %gep3438, align 4, !tbaa !68
+  %1586 = and i32 %1585, %1575
+  %1587 = or i32 %1586, %1578
+  store i32 %1587, ptr %gep3438, align 4, !tbaa !68
+  %.idx3363 = shl nuw nsw i64 %1577, 2
+  %gep3440 = getelementptr inbounds nuw i8, ptr %invariant.gep3439, i64 %.idx3363
+  %1588 = load i32, ptr %gep3440, align 4, !tbaa !68
+  %1589 = and i32 %1588, %1575
+  %1590 = or i32 %1589, %1578
+  store i32 %1590, ptr %gep3440, align 4, !tbaa !68
+  %.idx3364 = shl nuw nsw i64 %1577, 2
+  %gep3442 = getelementptr inbounds nuw i8, ptr %invariant.gep3441, i64 %.idx3364
+  %1591 = load i32, ptr %gep3442, align 4, !tbaa !68
+  %1592 = and i32 %1591, %1575
+  %1593 = or i32 %1592, %1578
+  store i32 %1593, ptr %gep3442, align 4, !tbaa !68
+  %.idx3365 = shl nuw nsw i64 %1577, 2
+  %gep3444 = getelementptr inbounds nuw i8, ptr %invariant.gep3443, i64 %.idx3365
+  %1594 = load i32, ptr %gep3444, align 4, !tbaa !68
+  %1595 = and i32 %1594, %1575
+  %1596 = or i32 %1595, %1578
+  store i32 %1596, ptr %gep3444, align 4, !tbaa !68
+  %.idx3366 = shl nuw nsw i64 %1577, 2
+  %gep3446 = getelementptr inbounds nuw i8, ptr %invariant.gep3445, i64 %.idx3366
+  %1597 = load i32, ptr %gep3446, align 4, !tbaa !68
+  %1598 = and i32 %1597, %1575
+  %1599 = or i32 %1598, %1578
+  store i32 %1599, ptr %gep3446, align 4, !tbaa !68
+  %.idx3367 = shl nuw nsw i64 %1577, 2
+  %gep3448 = getelementptr inbounds nuw i8, ptr %invariant.gep3447, i64 %.idx3367
+  %1600 = load i32, ptr %gep3448, align 4, !tbaa !68
+  %1601 = and i32 %1600, %1575
+  %1602 = or i32 %1601, %1578
+  store i32 %1602, ptr %gep3448, align 4, !tbaa !68
+  %.idx3368 = shl nuw nsw i64 %1577, 2
+  %gep3450 = getelementptr inbounds nuw i8, ptr %invariant.gep3449, i64 %.idx3368
+  %1603 = load i32, ptr %gep3450, align 4, !tbaa !68
+  %1604 = and i32 %1603, %1575
+  %1605 = or i32 %1604, %1578
+  store i32 %1605, ptr %gep3450, align 4, !tbaa !68
+  %.idx3369 = shl nuw nsw i64 %1577, 2
+  %gep3452 = getelementptr inbounds nuw i8, ptr %invariant.gep3451, i64 %.idx3369
+  %1606 = load i32, ptr %gep3452, align 4, !tbaa !68
+  %1607 = and i32 %1606, %1575
+  %1608 = or i32 %1607, %1578
+  store i32 %1608, ptr %gep3452, align 4, !tbaa !68
+  %.idx3370 = shl nuw nsw i64 %1577, 2
+  %gep3454 = getelementptr inbounds nuw i8, ptr %invariant.gep3453, i64 %.idx3370
+  %1609 = load i32, ptr %gep3454, align 4, !tbaa !68
+  %1610 = and i32 %1609, %1575
+  %1611 = or i32 %1610, %1578
+  store i32 %1611, ptr %gep3454, align 4, !tbaa !68
+  %.0715.add = add nuw nsw i64 %.0715.idx3120, 2
+  %.not751 = icmp eq i64 %.0715.add, 12
+  br i1 %.not751, label %1562, label %.lr.ph.i1077
+
+1612:                                             ; preds = %1618
+  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %50) #35
+  %invariant.gep3158 = getelementptr inbounds nuw i8, ptr %0, i64 93278
+  %1613 = getelementptr inbounds nuw i8, ptr %0, i64 400848
+  %invariant.gep3160 = getelementptr inbounds nuw i8, ptr %0, i64 93774
+  %invariant.gep3162 = getelementptr inbounds nuw i8, ptr %0, i64 94270
+  br label %1624
+
+1614:                                             ; preds = %1562, %1618
+  %.0717.idx3157 = phi i64 [ 0, %1562 ], [ %.0717.add, %1618 ]
+  %.0717.ptr = getelementptr inbounds nuw i8, ptr %50, i64 %.0717.idx3157
+  %1615 = load i16, ptr %.0717.ptr, align 2, !tbaa !238
+  %1616 = zext i16 %1615 to i64
+  %.idx2579 = mul nuw nsw i64 %1616, 496
+  %gep3122 = getelementptr inbounds nuw i8, ptr %invariant.gep2941, i64 %.idx2579
+  store i8 4, ptr %gep3122, align 8, !tbaa !228
+  %gep3124 = getelementptr inbounds nuw i8, ptr %invariant.gep2957, i64 %.idx2579
+  store i8 4, ptr %gep3124, align 1, !tbaa !228
+  %gep3126 = getelementptr inbounds nuw i8, ptr %invariant.gep3056, i64 %.idx2579
+  store i8 0, ptr %gep3126, align 1, !tbaa !228
+  %gep3128 = getelementptr inbounds nuw i8, ptr %invariant.gep3032, i64 %.idx2579
+  store i8 0, ptr %gep3128, align 2, !tbaa !228
+  %gep3130 = getelementptr inbounds nuw i8, ptr %invariant.gep3058, i64 %.idx2579
+  store i8 4, ptr %gep3130, align 1, !tbaa !228
+  %gep3132 = getelementptr inbounds nuw i8, ptr %invariant.gep3060, i64 %.idx2579
+  store i8 4, ptr %gep3132, align 4, !tbaa !228
+  %gep3134 = getelementptr inbounds nuw i8, ptr %invariant.gep2847, i64 %.idx2579
+  store i8 4, ptr %gep3134, align 2, !tbaa !228
+  %gep3136 = getelementptr inbounds nuw i8, ptr %invariant.gep2837, i64 %.idx2579
+  store i8 4, ptr %gep3136, align 2, !tbaa !228
+  %gep3138 = getelementptr inbounds nuw i8, ptr %invariant.gep2855, i64 %.idx2579
+  store i8 0, ptr %gep3138, align 2, !tbaa !228
+  %gep3140 = getelementptr inbounds nuw i8, ptr %invariant.gep2857, i64 %.idx2579
+  store i8 4, ptr %gep3140, align 4, !tbaa !228
+  br i1 %1568, label %1617, label %1618
+
+1617:                                             ; preds = %1614
+  %gep3142 = getelementptr inbounds nuw i8, ptr %invariant.gep3014, i64 %.idx2579
+  store i8 0, ptr %gep3142, align 2, !tbaa !228
+  %gep3144 = getelementptr inbounds nuw i8, ptr %invariant.gep3020, i64 %.idx2579
+  store i8 4, ptr %gep3144, align 4, !tbaa !228
+  %gep3146 = getelementptr inbounds nuw i8, ptr %invariant.gep3022, i64 %.idx2579
+  store i8 4, ptr %gep3146, align 2, !tbaa !228
+  %gep3148 = getelementptr inbounds nuw i8, ptr %invariant.gep3024, i64 %.idx2579
+  store i8 4, ptr %gep3148, align 2, !tbaa !228
+  %gep3150 = getelementptr inbounds nuw i8, ptr %invariant.gep3026, i64 %.idx2579
+  store i8 4, ptr %gep3150, align 1, !tbaa !228
+  %gep3152 = getelementptr inbounds nuw i8, ptr %invariant.gep3028, i64 %.idx2579
+  store i8 4, ptr %gep3152, align 1, !tbaa !228
+  %gep3154 = getelementptr inbounds nuw i8, ptr %invariant.gep3030, i64 %.idx2579
+  store i8 0, ptr %gep3154, align 8, !tbaa !228
+  %gep3156 = getelementptr inbounds nuw i8, ptr %invariant.gep3034, i64 %.idx2579
+  store i8 0, ptr %gep3156, align 1, !tbaa !228
   br label %1618
 
-.lr.ph.i1077:                                     ; preds = %1537, %.lr.ph.i1077
-  %.0715.idx3119 = phi i64 [ 0, %1537 ], [ %.0715.add, %.lr.ph.i1077 ]
-  %.0715.ptr = getelementptr inbounds nuw i8, ptr %49, i64 %.0715.idx3119
-  %1573 = load i16, ptr %.0715.ptr, align 2, !tbaa !238
-  %1574 = zext i16 %1573 to i64
-  %.idx2518 = mul nuw nsw i64 %1574, 496
-  %gep3000 = getelementptr inbounds nuw i8, ptr %invariant.gep2940, i64 %.idx2518
-  store i8 4, ptr %gep3000, align 8, !tbaa !228
-  %gep3002 = getelementptr inbounds nuw i8, ptr %invariant.gep2956, i64 %.idx2518
-  store i8 4, ptr %gep3002, align 1, !tbaa !228
-  %gep3004 = getelementptr inbounds nuw i8, ptr %invariant.gep2836, i64 %.idx2518
-  store i8 4, ptr %gep3004, align 2, !tbaa !228
-  %gep3006 = getelementptr inbounds nuw i8, ptr %invariant.gep2846, i64 %.idx2518
-  store i8 4, ptr %gep3006, align 2, !tbaa !228
-  %gep3008 = getelementptr inbounds nuw i8, ptr %invariant.gep2854, i64 %.idx2518
-  store i8 0, ptr %gep3008, align 2, !tbaa !228
-  %gep3010 = getelementptr inbounds nuw i8, ptr %invariant.gep2858, i64 %.idx2518
-  store i8 4, ptr %gep3010, align 1, !tbaa !228
-  %gep3012 = getelementptr inbounds nuw i8, ptr %invariant.gep2860, i64 %.idx2518
-  store i8 4, ptr %gep3012, align 2, !tbaa !228
-  %gep3014 = getelementptr inbounds nuw i8, ptr %invariant.gep3013, i64 %.idx2518
-  store i8 4, ptr %gep3014, align 2, !tbaa !228
-  %gep3016 = getelementptr inbounds nuw i8, ptr %invariant.gep3015, i64 %.idx2518
-  store i8 4, ptr %gep3016, align 2, !tbaa !228
-  %gep3018 = getelementptr inbounds nuw i8, ptr %invariant.gep3017, i64 %.idx2518
-  store i8 4, ptr %gep3018, align 1, !tbaa !228
-  %gep3020 = getelementptr inbounds nuw i8, ptr %invariant.gep3019, i64 %.idx2518
-  store i8 4, ptr %gep3020, align 4, !tbaa !228
-  %gep3022 = getelementptr inbounds nuw i8, ptr %invariant.gep3021, i64 %.idx2518
-  store i8 4, ptr %gep3022, align 2, !tbaa !228
-  %gep3024 = getelementptr inbounds nuw i8, ptr %invariant.gep3023, i64 %.idx2518
-  store i8 4, ptr %gep3024, align 2, !tbaa !228
-  %gep3026 = getelementptr inbounds nuw i8, ptr %invariant.gep3025, i64 %.idx2518
-  store i8 4, ptr %gep3026, align 1, !tbaa !228
-  %gep3028 = getelementptr inbounds nuw i8, ptr %invariant.gep3027, i64 %.idx2518
-  store i8 4, ptr %gep3028, align 1, !tbaa !228
-  %gep3030 = getelementptr inbounds nuw i8, ptr %invariant.gep3029, i64 %.idx2518
-  store i8 4, ptr %gep3030, align 8, !tbaa !228
-  %gep3032 = getelementptr inbounds nuw i8, ptr %invariant.gep3031, i64 %.idx2518
-  store i8 4, ptr %gep3032, align 2, !tbaa !228
-  %gep3034 = getelementptr inbounds nuw i8, ptr %invariant.gep3033, i64 %.idx2518
-  store i8 4, ptr %gep3034, align 1, !tbaa !228
-  %gep3036 = getelementptr inbounds nuw i8, ptr %invariant.gep3035, i64 %.idx2518
-  store i8 4, ptr %gep3036, align 2, !tbaa !228
-  %gep3038 = getelementptr inbounds nuw i8, ptr %invariant.gep3037, i64 %.idx2518
-  store i8 4, ptr %gep3038, align 8, !tbaa !228
-  %gep3040 = getelementptr inbounds nuw i8, ptr %invariant.gep3039, i64 %.idx2518
-  store i8 4, ptr %gep3040, align 1, !tbaa !228
-  %gep3042 = getelementptr inbounds nuw i8, ptr %invariant.gep3041, i64 %.idx2518
-  store i8 4, ptr %gep3042, align 4, !tbaa !228
-  %gep3044 = getelementptr inbounds nuw i8, ptr %invariant.gep3043, i64 %.idx2518
-  store i8 4, ptr %gep3044, align 1, !tbaa !228
-  %gep3046 = getelementptr inbounds nuw i8, ptr %invariant.gep3045, i64 %.idx2518
-  store i8 4, ptr %gep3046, align 4, !tbaa !228
-  %gep3048 = getelementptr inbounds nuw i8, ptr %invariant.gep3047, i64 %.idx2518
-  store i8 4, ptr %gep3048, align 2, !tbaa !228
-  %gep3050 = getelementptr inbounds nuw i8, ptr %invariant.gep3049, i64 %.idx2518
-  store i8 4, ptr %gep3050, align 1, !tbaa !228
-  %gep3052 = getelementptr inbounds nuw i8, ptr %invariant.gep3051, i64 %.idx2518
-  store i8 4, ptr %gep3052, align 1, !tbaa !228
-  %gep3054 = getelementptr inbounds nuw i8, ptr %invariant.gep3053, i64 %.idx2518
-  store i8 4, ptr %gep3054, align 4, !tbaa !228
-  %gep3056 = getelementptr inbounds nuw i8, ptr %invariant.gep3055, i64 %.idx2518
-  store i8 4, ptr %gep3056, align 1, !tbaa !228
-  %gep3058 = getelementptr inbounds nuw i8, ptr %invariant.gep3057, i64 %.idx2518
-  store i8 4, ptr %gep3058, align 1, !tbaa !228
-  %gep3060 = getelementptr inbounds nuw i8, ptr %invariant.gep3059, i64 %.idx2518
-  store i8 4, ptr %gep3060, align 4, !tbaa !228
-  %gep3062 = getelementptr inbounds nuw i8, ptr %invariant.gep3061, i64 %.idx2518
-  store i8 4, ptr %gep3062, align 4, !tbaa !228
-  %gep3064 = getelementptr inbounds nuw i8, ptr %invariant.gep3063, i64 %.idx2518
-  store i8 4, ptr %gep3064, align 2, !tbaa !228
-  %gep3066 = getelementptr inbounds nuw i8, ptr %invariant.gep3065, i64 %.idx2518
-  store i8 4, ptr %gep3066, align 1, !tbaa !228
-  %gep3068 = getelementptr inbounds nuw i8, ptr %invariant.gep3067, i64 %.idx2518
-  store i8 4, ptr %gep3068, align 8, !tbaa !228
-  %gep3070 = getelementptr inbounds nuw i8, ptr %invariant.gep3069, i64 %.idx2518
-  store i8 4, ptr %gep3070, align 1, !tbaa !228
-  %gep3072 = getelementptr inbounds nuw i8, ptr %invariant.gep2856, i64 %.idx2518
-  store i8 4, ptr %gep3072, align 4, !tbaa !228
-  %gep3074 = getelementptr inbounds nuw i8, ptr %invariant.gep2902, i64 %.idx2518
-  store i8 4, ptr %gep3074, align 8, !tbaa !228
-  %gep3076 = getelementptr inbounds nuw i8, ptr %invariant.gep2904, i64 %.idx2518
-  store i8 4, ptr %gep3076, align 1, !tbaa !228
-  %gep3078 = getelementptr inbounds nuw i8, ptr %invariant.gep2910, i64 %.idx2518
-  store i8 2, ptr %gep3078, align 1, !tbaa !228
-  %gep3080 = getelementptr inbounds nuw i8, ptr %invariant.gep3079, i64 %.idx2518
-  store i8 2, ptr %gep3080, align 2, !tbaa !228
-  %gep3082 = getelementptr inbounds nuw i8, ptr %invariant.gep3081, i64 %.idx2518
-  store i8 2, ptr %gep3082, align 1, !tbaa !228
-  %gep3084 = getelementptr inbounds nuw i8, ptr %invariant.gep3083, i64 %.idx2518
-  store i8 2, ptr %gep3084, align 8, !tbaa !228
-  %gep3086 = getelementptr inbounds nuw i8, ptr %invariant.gep3085, i64 %.idx2518
-  store i8 2, ptr %gep3086, align 1, !tbaa !228
-  %gep3088 = getelementptr inbounds nuw i8, ptr %invariant.gep3087, i64 %.idx2518
-  store i8 2, ptr %gep3088, align 2, !tbaa !228
-  %gep3090 = getelementptr inbounds nuw i8, ptr %invariant.gep3089, i64 %.idx2518
-  store i8 2, ptr %gep3090, align 1, !tbaa !228
-  %gep3092 = getelementptr inbounds nuw i8, ptr %invariant.gep3091, i64 %.idx2518
-  store i8 2, ptr %gep3092, align 8, !tbaa !228
-  %gep3094 = getelementptr inbounds nuw i8, ptr %invariant.gep3093, i64 %.idx2518
-  store i8 2, ptr %gep3094, align 2, !tbaa !228
-  %gep3096 = getelementptr inbounds nuw i8, ptr %invariant.gep3095, i64 %.idx2518
-  store i8 2, ptr %gep3096, align 1, !tbaa !228
-  %gep3098 = getelementptr inbounds nuw i8, ptr %invariant.gep3097, i64 %.idx2518
-  store i8 2, ptr %gep3098, align 1, !tbaa !228
-  %gep3100 = getelementptr inbounds nuw i8, ptr %invariant.gep3099, i64 %.idx2518
-  store i8 2, ptr %gep3100, align 2, !tbaa !228
-  %gep3102 = getelementptr inbounds nuw i8, ptr %invariant.gep3101, i64 %.idx2518
-  store i8 2, ptr %gep3102, align 1, !tbaa !228
-  %gep3104 = getelementptr inbounds nuw i8, ptr %invariant.gep3103, i64 %.idx2518
-  store i8 2, ptr %gep3104, align 4, !tbaa !228
-  %gep3106 = getelementptr inbounds nuw i8, ptr %invariant.gep3105, i64 %.idx2518
-  store i8 2, ptr %gep3106, align 2, !tbaa !228
-  %gep3108 = getelementptr inbounds nuw i8, ptr %invariant.gep3107, i64 %.idx2518
-  store i8 2, ptr %gep3108, align 1, !tbaa !228
-  %gep3110 = getelementptr inbounds nuw i8, ptr %invariant.gep3109, i64 %.idx2518
-  store i8 2, ptr %gep3110, align 8, !tbaa !228
-  %gep3112 = getelementptr inbounds nuw i8, ptr %invariant.gep3111, i64 %.idx2518
-  store i8 2, ptr %gep3112, align 1, !tbaa !228
-  %gep3114 = getelementptr inbounds nuw i8, ptr %invariant.gep3113, i64 %.idx2518
-  store i8 2, ptr %gep3114, align 4, !tbaa !228
-  %gep3116 = getelementptr inbounds nuw i8, ptr %invariant.gep3115, i64 %.idx2518
-  store i8 2, ptr %gep3116, align 1, !tbaa !228
-  %gep3118 = getelementptr inbounds nuw i8, ptr %invariant.gep3117, i64 %.idx2518
-  store i8 2, ptr %gep3118, align 2, !tbaa !228
-  %1575 = zext i16 %1573 to i32
-  %1576 = shl nuw nsw i32 %1575, 2
-  %1577 = and i32 %1576, 28
-  %1578 = shl nuw i32 15, %1577
-  %1579 = xor i32 %1578, -1
-  %1580 = lshr i32 %1575, 3
-  %1581 = zext nneg i32 %1580 to i64
-  %1582 = shl nuw nsw i32 2, %1577
-  %.idx3353 = shl nuw nsw i64 %1581, 2
-  %gep3426 = getelementptr inbounds nuw i8, ptr %invariant.gep3425, i64 %.idx3353
-  %1583 = load i32, ptr %gep3426, align 4, !tbaa !68
-  %1584 = and i32 %1583, %1579
-  %1585 = or i32 %1584, %1582
-  store i32 %1585, ptr %gep3426, align 4, !tbaa !68
-  %.idx3354 = shl nuw nsw i64 %1581, 2
-  %gep3428 = getelementptr inbounds nuw i8, ptr %invariant.gep3427, i64 %.idx3354
-  %1586 = load i32, ptr %gep3428, align 4, !tbaa !68
-  %1587 = and i32 %1586, %1579
-  %1588 = or i32 %1587, %1582
-  store i32 %1588, ptr %gep3428, align 4, !tbaa !68
-  %.idx3355 = shl nuw nsw i64 %1581, 2
-  %gep3430 = getelementptr inbounds nuw i8, ptr %invariant.gep3429, i64 %.idx3355
-  %1589 = load i32, ptr %gep3430, align 4, !tbaa !68
-  %1590 = and i32 %1589, %1579
-  %1591 = or i32 %1590, %1582
-  store i32 %1591, ptr %gep3430, align 4, !tbaa !68
-  %.idx3356 = shl nuw nsw i64 %1581, 2
-  %gep3432 = getelementptr inbounds nuw i8, ptr %invariant.gep3431, i64 %.idx3356
-  %1592 = load i32, ptr %gep3432, align 4, !tbaa !68
-  %1593 = and i32 %1592, %1579
-  %1594 = or i32 %1593, %1582
-  store i32 %1594, ptr %gep3432, align 4, !tbaa !68
-  %.idx3357 = shl nuw nsw i64 %1581, 2
-  %gep3434 = getelementptr inbounds nuw i8, ptr %invariant.gep3433, i64 %.idx3357
-  %1595 = load i32, ptr %gep3434, align 4, !tbaa !68
-  %1596 = and i32 %1595, %1579
-  %1597 = or i32 %1596, %1582
-  store i32 %1597, ptr %gep3434, align 4, !tbaa !68
-  %.idx3358 = shl nuw nsw i64 %1581, 2
-  %gep3436 = getelementptr inbounds nuw i8, ptr %invariant.gep3435, i64 %.idx3358
-  %1598 = load i32, ptr %gep3436, align 4, !tbaa !68
-  %1599 = and i32 %1598, %1579
-  %1600 = or i32 %1599, %1582
-  store i32 %1600, ptr %gep3436, align 4, !tbaa !68
-  %.idx3359 = shl nuw nsw i64 %1581, 2
-  %gep3438 = getelementptr inbounds nuw i8, ptr %invariant.gep3437, i64 %.idx3359
-  %1601 = load i32, ptr %gep3438, align 4, !tbaa !68
-  %1602 = and i32 %1601, %1579
-  %1603 = or i32 %1602, %1582
-  store i32 %1603, ptr %gep3438, align 4, !tbaa !68
-  %.idx3360 = shl nuw nsw i64 %1581, 2
-  %gep3440 = getelementptr inbounds nuw i8, ptr %invariant.gep3439, i64 %.idx3360
-  %1604 = load i32, ptr %gep3440, align 4, !tbaa !68
-  %1605 = and i32 %1604, %1579
-  %1606 = or i32 %1605, %1582
-  store i32 %1606, ptr %gep3440, align 4, !tbaa !68
-  %.idx3361 = shl nuw nsw i64 %1581, 2
-  %gep3442 = getelementptr inbounds nuw i8, ptr %invariant.gep3441, i64 %.idx3361
-  %1607 = load i32, ptr %gep3442, align 4, !tbaa !68
-  %1608 = and i32 %1607, %1579
-  %1609 = or i32 %1608, %1582
-  store i32 %1609, ptr %gep3442, align 4, !tbaa !68
-  %.idx3362 = shl nuw nsw i64 %1581, 2
-  %gep3444 = getelementptr inbounds nuw i8, ptr %invariant.gep3443, i64 %.idx3362
-  %1610 = load i32, ptr %gep3444, align 4, !tbaa !68
-  %1611 = and i32 %1610, %1579
-  %1612 = or i32 %1611, %1582
-  store i32 %1612, ptr %gep3444, align 4, !tbaa !68
-  %.idx3363 = shl nuw nsw i64 %1581, 2
-  %gep3446 = getelementptr inbounds nuw i8, ptr %invariant.gep3445, i64 %.idx3363
-  %1613 = load i32, ptr %gep3446, align 4, !tbaa !68
-  %1614 = and i32 %1613, %1579
-  %1615 = or i32 %1614, %1582
-  store i32 %1615, ptr %gep3446, align 4, !tbaa !68
-  %.0715.add = add nuw nsw i64 %.0715.idx3119, 2
-  %.not751 = icmp eq i64 %.0715.add, 12
-  br i1 %.not751, label %1566, label %.lr.ph.i1077
-
-1616:                                             ; preds = %1622
-  call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %50) #35
-  %invariant.gep3157 = getelementptr inbounds nuw i8, ptr %0, i64 93278
-  %1617 = getelementptr inbounds nuw i8, ptr %0, i64 400848
-  %invariant.gep3159 = getelementptr inbounds nuw i8, ptr %0, i64 93774
-  %invariant.gep3161 = getelementptr inbounds nuw i8, ptr %0, i64 94270
-  br label %1628
-
-1618:                                             ; preds = %1566, %1622
-  %.0717.idx3156 = phi i64 [ 0, %1566 ], [ %.0717.add, %1622 ]
-  %.0717.ptr = getelementptr inbounds nuw i8, ptr %50, i64 %.0717.idx3156
-  %1619 = load i16, ptr %.0717.ptr, align 2, !tbaa !238
-  %1620 = zext i16 %1619 to i64
-  %.idx2578 = mul nuw nsw i64 %1620, 496
-  %gep3121 = getelementptr inbounds nuw i8, ptr %invariant.gep2940, i64 %.idx2578
-  store i8 4, ptr %gep3121, align 8, !tbaa !228
-  %gep3123 = getelementptr inbounds nuw i8, ptr %invariant.gep2956, i64 %.idx2578
-  store i8 4, ptr %gep3123, align 1, !tbaa !228
-  %gep3125 = getelementptr inbounds nuw i8, ptr %invariant.gep3055, i64 %.idx2578
-  store i8 0, ptr %gep3125, align 1, !tbaa !228
-  %gep3127 = getelementptr inbounds nuw i8, ptr %invariant.gep3031, i64 %.idx2578
-  store i8 0, ptr %gep3127, align 2, !tbaa !228
-  %gep3129 = getelementptr inbounds nuw i8, ptr %invariant.gep3057, i64 %.idx2578
-  store i8 4, ptr %gep3129, align 1, !tbaa !228
-  %gep3131 = getelementptr inbounds nuw i8, ptr %invariant.gep3059, i64 %.idx2578
-  store i8 4, ptr %gep3131, align 4, !tbaa !228
-  %gep3133 = getelementptr inbounds nuw i8, ptr %invariant.gep2846, i64 %.idx2578
-  store i8 4, ptr %gep3133, align 2, !tbaa !228
-  %gep3135 = getelementptr inbounds nuw i8, ptr %invariant.gep2836, i64 %.idx2578
-  store i8 4, ptr %gep3135, align 2, !tbaa !228
-  %gep3137 = getelementptr inbounds nuw i8, ptr %invariant.gep2854, i64 %.idx2578
-  store i8 0, ptr %gep3137, align 2, !tbaa !228
-  %gep3139 = getelementptr inbounds nuw i8, ptr %invariant.gep2856, i64 %.idx2578
-  store i8 4, ptr %gep3139, align 4, !tbaa !228
-  br i1 %1572, label %1621, label %1622
-
-1621:                                             ; preds = %1618
-  %gep3141 = getelementptr inbounds nuw i8, ptr %invariant.gep3013, i64 %.idx2578
-  store i8 0, ptr %gep3141, align 2, !tbaa !228
-  %gep3143 = getelementptr inbounds nuw i8, ptr %invariant.gep3019, i64 %.idx2578
-  store i8 4, ptr %gep3143, align 4, !tbaa !228
-  %gep3145 = getelementptr inbounds nuw i8, ptr %invariant.gep3021, i64 %.idx2578
-  store i8 4, ptr %gep3145, align 2, !tbaa !228
-  %gep3147 = getelementptr inbounds nuw i8, ptr %invariant.gep3023, i64 %.idx2578
-  store i8 4, ptr %gep3147, align 2, !tbaa !228
-  %gep3149 = getelementptr inbounds nuw i8, ptr %invariant.gep3025, i64 %.idx2578
-  store i8 4, ptr %gep3149, align 1, !tbaa !228
-  %gep3151 = getelementptr inbounds nuw i8, ptr %invariant.gep3027, i64 %.idx2578
-  store i8 4, ptr %gep3151, align 1, !tbaa !228
-  %gep3153 = getelementptr inbounds nuw i8, ptr %invariant.gep3029, i64 %.idx2578
-  store i8 0, ptr %gep3153, align 8, !tbaa !228
-  %gep3155 = getelementptr inbounds nuw i8, ptr %invariant.gep3033, i64 %.idx2578
-  store i8 0, ptr %gep3155, align 1, !tbaa !228
-  br label %1622
-
-1622:                                             ; preds = %1621, %1618
-  %.0717.add = add nuw nsw i64 %.0717.idx3156, 2
+1618:                                             ; preds = %1617, %1614
+  %.0717.add = add nuw nsw i64 %.0717.idx3157, 2
   %.not752 = icmp eq i64 %.0717.add, 6
-  br i1 %.not752, label %1616, label %1618
+  br i1 %.not752, label %1612, label %1614
 
-1623:                                             ; preds = %1628
-  %1624 = load ptr, ptr %61, align 8, !tbaa !71
-  %1625 = getelementptr inbounds nuw i8, ptr %1624, i64 462
-  %1626 = load i8, ptr %1625, align 2, !tbaa !277, !range !54, !noundef !55
-  %1627 = trunc nuw i8 %1626 to i1
-  br i1 %1627, label %.loopexit2644, label %.preheader2643
+1619:                                             ; preds = %1624
+  %1620 = load ptr, ptr %61, align 8, !tbaa !71
+  %1621 = getelementptr inbounds nuw i8, ptr %1620, i64 462
+  %1622 = load i8, ptr %1621, align 2, !tbaa !277, !range !54, !noundef !55
+  %1623 = trunc nuw i8 %1622 to i1
+  br i1 %1623, label %.loopexit2645, label %.preheader2644
 
-1628:                                             ; preds = %1616, %1628
-  %.0718.idx3163 = phi i64 [ 0, %1616 ], [ %.0718.add, %1628 ]
-  %.0718.ptr = getelementptr inbounds nuw i8, ptr @constinit.138, i64 %.0718.idx3163
-  %1629 = load i32, ptr %.0718.ptr, align 4, !tbaa !245
-  %1630 = zext i32 %1629 to i64
-  %gep3158 = getelementptr inbounds nuw i8, ptr %invariant.gep3157, i64 %1630
-  store i8 1, ptr %gep3158, align 1, !tbaa !228
+1624:                                             ; preds = %1612, %1624
+  %.0718.idx3164 = phi i64 [ 0, %1612 ], [ %.0718.add, %1624 ]
+  %.0718.ptr = getelementptr inbounds nuw i8, ptr @constinit.138, i64 %.0718.idx3164
+  %1625 = load i32, ptr %.0718.ptr, align 4, !tbaa !245
+  %1626 = zext i32 %1625 to i64
+  %gep3159 = getelementptr inbounds nuw i8, ptr %invariant.gep3158, i64 %1626
+  store i8 1, ptr %gep3159, align 1, !tbaa !228
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #35
-  %.sroa.0.0.insert.insert.i.i.i1130 = or disjoint i64 %1630, 760209211392
-  %1631 = trunc nuw nsw i64 %.sroa.0.0.insert.insert.i.i.i1130 to i48
-  store i48 %1631, ptr %11, align 8
-  %1632 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZNSt3mapISt4pairIjN4llvm3MVT15SimpleValueTypeEES3_St4lessIS4_ESaIS0_IKS4_S3_EEEixEOS4_(ptr noundef nonnull align 8 dereferenceable(48) %1617, ptr noundef nonnull align 4 dereferenceable(6) %11)
-  store i16 183, ptr %1632, align 2, !tbaa !238
+  %.sroa.0.0.insert.insert.i.i.i1130 = or disjoint i64 %1626, 760209211392
+  %1627 = trunc nuw nsw i64 %.sroa.0.0.insert.insert.i.i.i1130 to i48
+  store i48 %1627, ptr %11, align 8
+  %1628 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZNSt3mapISt4pairIjN4llvm3MVT15SimpleValueTypeEES3_St4lessIS4_ESaIS0_IKS4_S3_EEEixEOS4_(ptr noundef nonnull align 8 dereferenceable(48) %1613, ptr noundef nonnull align 4 dereferenceable(6) %11)
+  store i16 183, ptr %1628, align 2, !tbaa !238
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #35
-  %gep3160 = getelementptr inbounds nuw i8, ptr %invariant.gep3159, i64 %1630
-  store i8 1, ptr %gep3160, align 1, !tbaa !228
+  %gep3161 = getelementptr inbounds nuw i8, ptr %invariant.gep3160, i64 %1626
+  store i8 1, ptr %gep3161, align 1, !tbaa !228
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #35
-  %.sroa.0.0.insert.insert.i.i.i1132 = or disjoint i64 %1630, 764504178688
-  %1633 = trunc nuw nsw i64 %.sroa.0.0.insert.insert.i.i.i1132 to i48
-  store i48 %1633, ptr %10, align 8
-  %1634 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZNSt3mapISt4pairIjN4llvm3MVT15SimpleValueTypeEES3_St4lessIS4_ESaIS0_IKS4_S3_EEEixEOS4_(ptr noundef nonnull align 8 dereferenceable(48) %1617, ptr noundef nonnull align 4 dereferenceable(6) %10)
-  store i16 184, ptr %1634, align 2, !tbaa !238
+  %.sroa.0.0.insert.insert.i.i.i1132 = or disjoint i64 %1626, 764504178688
+  %1629 = trunc nuw nsw i64 %.sroa.0.0.insert.insert.i.i.i1132 to i48
+  store i48 %1629, ptr %10, align 8
+  %1630 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZNSt3mapISt4pairIjN4llvm3MVT15SimpleValueTypeEES3_St4lessIS4_ESaIS0_IKS4_S3_EEEixEOS4_(ptr noundef nonnull align 8 dereferenceable(48) %1613, ptr noundef nonnull align 4 dereferenceable(6) %10)
+  store i16 184, ptr %1630, align 2, !tbaa !238
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #35
-  %gep3162 = getelementptr inbounds nuw i8, ptr %invariant.gep3161, i64 %1630
-  store i8 2, ptr %gep3162, align 1, !tbaa !228
-  %.0718.add = add nuw nsw i64 %.0718.idx3163, 4
+  %gep3163 = getelementptr inbounds nuw i8, ptr %invariant.gep3162, i64 %1626
+  store i8 2, ptr %gep3163, align 1, !tbaa !228
+  %.0718.add = add nuw nsw i64 %.0718.idx3164, 4
   %.not753 = icmp eq i64 %.0718.add, 36
-  br i1 %.not753, label %1623, label %1628
+  br i1 %.not753, label %1619, label %1624
 
-.preheader2643:                                   ; preds = %1623, %.preheader2643
-  %.0719.idx3170 = phi i64 [ %.0719.add, %.preheader2643 ], [ 0, %1623 ]
-  %.0719.ptr = getelementptr inbounds nuw i8, ptr @constinit.139, i64 %.0719.idx3170
-  %1635 = load i32, ptr %.0719.ptr, align 4, !tbaa !245
-  %1636 = zext i32 %1635 to i64
-  %gep3165 = getelementptr inbounds nuw i8, ptr %invariant.gep3157, i64 %1636
-  store i8 1, ptr %gep3165, align 1, !tbaa !228
+.preheader2644:                                   ; preds = %1619, %.preheader2644
+  %.0719.idx3171 = phi i64 [ %.0719.add, %.preheader2644 ], [ 0, %1619 ]
+  %.0719.ptr = getelementptr inbounds nuw i8, ptr @constinit.139, i64 %.0719.idx3171
+  %1631 = load i32, ptr %.0719.ptr, align 4, !tbaa !245
+  %1632 = zext i32 %1631 to i64
+  %gep3166 = getelementptr inbounds nuw i8, ptr %invariant.gep3158, i64 %1632
+  store i8 1, ptr %gep3166, align 1, !tbaa !228
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #35
-  %.sroa.0.0.insert.insert.i.i.i1134 = or disjoint i64 %1636, 760209211392
-  %1637 = trunc nuw nsw i64 %.sroa.0.0.insert.insert.i.i.i1134 to i48
-  store i48 %1637, ptr %9, align 8
-  %1638 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZNSt3mapISt4pairIjN4llvm3MVT15SimpleValueTypeEES3_St4lessIS4_ESaIS0_IKS4_S3_EEEixEOS4_(ptr noundef nonnull align 8 dereferenceable(48) %1617, ptr noundef nonnull align 4 dereferenceable(6) %9)
-  store i16 183, ptr %1638, align 2, !tbaa !238
+  %.sroa.0.0.insert.insert.i.i.i1134 = or disjoint i64 %1632, 760209211392
+  %1633 = trunc nuw nsw i64 %.sroa.0.0.insert.insert.i.i.i1134 to i48
+  store i48 %1633, ptr %9, align 8
+  %1634 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZNSt3mapISt4pairIjN4llvm3MVT15SimpleValueTypeEES3_St4lessIS4_ESaIS0_IKS4_S3_EEEixEOS4_(ptr noundef nonnull align 8 dereferenceable(48) %1613, ptr noundef nonnull align 4 dereferenceable(6) %9)
+  store i16 183, ptr %1634, align 2, !tbaa !238
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #35
-  %gep3167 = getelementptr inbounds nuw i8, ptr %invariant.gep3159, i64 %1636
-  store i8 1, ptr %gep3167, align 1, !tbaa !228
+  %gep3168 = getelementptr inbounds nuw i8, ptr %invariant.gep3160, i64 %1632
+  store i8 1, ptr %gep3168, align 1, !tbaa !228
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #35
-  %.sroa.0.0.insert.insert.i.i.i1136 = or disjoint i64 %1636, 764504178688
-  %1639 = trunc nuw nsw i64 %.sroa.0.0.insert.insert.i.i.i1136 to i48
-  store i48 %1639, ptr %8, align 8
-  %1640 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZNSt3mapISt4pairIjN4llvm3MVT15SimpleValueTypeEES3_St4lessIS4_ESaIS0_IKS4_S3_EEEixEOS4_(ptr noundef nonnull align 8 dereferenceable(48) %1617, ptr noundef nonnull align 4 dereferenceable(6) %8)
-  store i16 184, ptr %1640, align 2, !tbaa !238
+  %.sroa.0.0.insert.insert.i.i.i1136 = or disjoint i64 %1632, 764504178688
+  %1635 = trunc nuw nsw i64 %.sroa.0.0.insert.insert.i.i.i1136 to i48
+  store i48 %1635, ptr %8, align 8
+  %1636 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZNSt3mapISt4pairIjN4llvm3MVT15SimpleValueTypeEES3_St4lessIS4_ESaIS0_IKS4_S3_EEEixEOS4_(ptr noundef nonnull align 8 dereferenceable(48) %1613, ptr noundef nonnull align 4 dereferenceable(6) %8)
+  store i16 184, ptr %1636, align 2, !tbaa !238
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #35
-  %gep3169 = getelementptr inbounds nuw i8, ptr %invariant.gep3161, i64 %1636
-  store i8 2, ptr %gep3169, align 1, !tbaa !228
-  %.0719.add = add nuw nsw i64 %.0719.idx3170, 4
+  %gep3170 = getelementptr inbounds nuw i8, ptr %invariant.gep3162, i64 %1632
+  store i8 2, ptr %gep3170, align 1, !tbaa !228
+  %.0719.add = add nuw nsw i64 %.0719.idx3171, 4
   %.not754 = icmp eq i64 %.0719.add, 32
-  br i1 %.not754, label %.loopexit2644, label %.preheader2643
+  br i1 %.not754, label %.loopexit2645, label %.preheader2644
 
-.loopexit2644:                                    ; preds = %.preheader2643, %1623
-  %1641 = getelementptr inbounds nuw i8, ptr %0, i64 8012
-  store i8 4, ptr %1641, align 4, !tbaa !228
-  %1642 = getelementptr inbounds nuw i8, ptr %0, i64 8508
-  store i8 4, ptr %1642, align 4, !tbaa !228
+.loopexit2645:                                    ; preds = %.preheader2644, %1619
+  %1637 = getelementptr inbounds nuw i8, ptr %0, i64 8012
+  store i8 4, ptr %1637, align 4, !tbaa !228
+  %1638 = getelementptr inbounds nuw i8, ptr %0, i64 8508
+  store i8 4, ptr %1638, align 4, !tbaa !228
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %51) #35
   store i16 38, ptr %51, align 2, !tbaa !238
-  %1643 = getelementptr inbounds nuw i8, ptr %51, i64 2
-  store i16 39, ptr %1643, align 2, !tbaa !238
-  %1644 = getelementptr inbounds nuw i8, ptr %51, i64 4
-  store i16 49, ptr %1644, align 2, !tbaa !238
-  %1645 = getelementptr inbounds nuw i8, ptr %51, i64 6
-  store i16 50, ptr %1645, align 2, !tbaa !238
-  %1646 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  store i16 58, ptr %1646, align 2, !tbaa !238
-  %1647 = getelementptr inbounds nuw i8, ptr %51, i64 10
-  store i16 60, ptr %1647, align 2, !tbaa !238
-  %1648 = getelementptr inbounds nuw i8, ptr %51, i64 12
-  store i16 77, ptr %1648, align 2, !tbaa !238
-  %1649 = getelementptr inbounds nuw i8, ptr %51, i64 14
-  store i16 78, ptr %1649, align 2, !tbaa !238
-  br label %1682
+  %1639 = getelementptr inbounds nuw i8, ptr %51, i64 2
+  store i16 39, ptr %1639, align 2, !tbaa !238
+  %1640 = getelementptr inbounds nuw i8, ptr %51, i64 4
+  store i16 49, ptr %1640, align 2, !tbaa !238
+  %1641 = getelementptr inbounds nuw i8, ptr %51, i64 6
+  store i16 50, ptr %1641, align 2, !tbaa !238
+  %1642 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  store i16 58, ptr %1642, align 2, !tbaa !238
+  %1643 = getelementptr inbounds nuw i8, ptr %51, i64 10
+  store i16 60, ptr %1643, align 2, !tbaa !238
+  %1644 = getelementptr inbounds nuw i8, ptr %51, i64 12
+  store i16 77, ptr %1644, align 2, !tbaa !238
+  %1645 = getelementptr inbounds nuw i8, ptr %51, i64 14
+  store i16 78, ptr %1645, align 2, !tbaa !238
+  br label %1678
 
-1650:                                             ; preds = %1682
+1646:                                             ; preds = %1678
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %51) #35
-  %1651 = getelementptr inbounds nuw i8, ptr %0, i64 43736
-  store i8 4, ptr %1651, align 8, !tbaa !228
-  %1652 = getelementptr inbounds nuw i8, ptr %0, i64 44232
-  store i8 4, ptr %1652, align 8, !tbaa !228
-  %1653 = load ptr, ptr %61, align 8, !tbaa !71
-  %1654 = getelementptr inbounds nuw i8, ptr %1653, i64 453
-  %1655 = load i8, ptr %1654, align 1, !tbaa !235, !range !54, !noundef !55
-  %1656 = trunc nuw i8 %1655 to i1
-  br i1 %1656, label %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit.thread.i1139, label %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit.i1137
+  %1647 = getelementptr inbounds nuw i8, ptr %0, i64 43736
+  store i8 4, ptr %1647, align 8, !tbaa !228
+  %1648 = getelementptr inbounds nuw i8, ptr %0, i64 44232
+  store i8 4, ptr %1648, align 8, !tbaa !228
+  %1649 = load ptr, ptr %61, align 8, !tbaa !71
+  %1650 = getelementptr inbounds nuw i8, ptr %1649, i64 453
+  %1651 = load i8, ptr %1650, align 1, !tbaa !235, !range !54, !noundef !55
+  %1652 = trunc nuw i8 %1651 to i1
+  br i1 %1652, label %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit.thread.i1139, label %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit.i1137
 
-_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit.i1137: ; preds = %1650
-  %1657 = getelementptr inbounds nuw i8, ptr %1653, i64 430
-  %1658 = load i8, ptr %1657, align 2, !tbaa !236, !range !54, !noundef !55
-  %1659 = trunc nuw i8 %1658 to i1
-  %1660 = getelementptr inbounds nuw i8, ptr %1653, i64 785
-  %1661 = load i8, ptr %1660, align 1, !range !54
+_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit.i1137: ; preds = %1646
+  %1653 = getelementptr inbounds nuw i8, ptr %1649, i64 430
+  %1654 = load i8, ptr %1653, align 2, !tbaa !236, !range !54, !noundef !55
+  %1655 = trunc nuw i8 %1654 to i1
+  %1656 = getelementptr inbounds nuw i8, ptr %1649, i64 785
+  %1657 = load i8, ptr %1656, align 1, !range !54
+  %1658 = trunc nuw i8 %1657 to i1
+  %1659 = select i1 %1655, i1 %1658, i1 false
+  br i1 %1659, label %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit.thread.i1139, label %_ZNK4llvm16AArch64Subtarget27useSVEForFixedLengthVectorsEv.exit1141.thread2363
+
+_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit.thread.i1139: ; preds = %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit.i1137, %1646
+  %1660 = getelementptr inbounds nuw i8, ptr %1649, i64 403
+  %1661 = load i8, ptr %1660, align 1, !tbaa !231, !range !54, !noundef !55
   %1662 = trunc nuw i8 %1661 to i1
-  %1663 = select i1 %1659, i1 %1662, i1 false
-  br i1 %1663, label %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit.thread.i1139, label %_ZNK4llvm16AArch64Subtarget27useSVEForFixedLengthVectorsEv.exit1141.thread2362
+  br i1 %1662, label %1663, label %_ZNK4llvm16AArch64Subtarget27useSVEForFixedLengthVectorsEv.exit1141.thread.preheader
 
-_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit.thread.i1139: ; preds = %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit.i1137, %1650
-  %1664 = getelementptr inbounds nuw i8, ptr %1653, i64 403
-  %1665 = load i8, ptr %1664, align 1, !tbaa !231, !range !54, !noundef !55
+1663:                                             ; preds = %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit.thread.i1139
+  %1664 = getelementptr inbounds nuw i8, ptr %1649, i64 439
+  %1665 = load i8, ptr %1664, align 1, !tbaa !232, !range !54, !noundef !55
   %1666 = trunc nuw i8 %1665 to i1
-  br i1 %1666, label %1667, label %_ZNK4llvm16AArch64Subtarget27useSVEForFixedLengthVectorsEv.exit1141.thread.preheader
+  br i1 %1666, label %_ZNK4llvm16AArch64Subtarget27useSVEForFixedLengthVectorsEv.exit1141, label %1667
 
-1667:                                             ; preds = %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit.thread.i1139
-  %1668 = getelementptr inbounds nuw i8, ptr %1653, i64 439
-  %1669 = load i8, ptr %1668, align 1, !tbaa !232, !range !54, !noundef !55
+1667:                                             ; preds = %1663
+  %1668 = getelementptr inbounds nuw i8, ptr %1649, i64 785
+  %1669 = load i8, ptr %1668, align 1, !tbaa !233, !range !54, !noundef !55
   %1670 = trunc nuw i8 %1669 to i1
-  br i1 %1670, label %_ZNK4llvm16AArch64Subtarget27useSVEForFixedLengthVectorsEv.exit1141, label %1671
+  %1671 = getelementptr inbounds nuw i8, ptr %1649, i64 786
+  %1672 = load i8, ptr %1671, align 2, !range !54
+  %1673 = trunc nuw i8 %1672 to i1
+  %1674 = select i1 %1670, i1 true, i1 %1673
+  br i1 %1674, label %_ZNK4llvm16AArch64Subtarget27useSVEForFixedLengthVectorsEv.exit1141.thread.preheader, label %_ZNK4llvm16AArch64Subtarget27useSVEForFixedLengthVectorsEv.exit1141
 
-1671:                                             ; preds = %1667
-  %1672 = getelementptr inbounds nuw i8, ptr %1653, i64 785
-  %1673 = load i8, ptr %1672, align 1, !tbaa !233, !range !54, !noundef !55
-  %1674 = trunc nuw i8 %1673 to i1
-  %1675 = getelementptr inbounds nuw i8, ptr %1653, i64 786
-  %1676 = load i8, ptr %1675, align 2, !range !54
-  %1677 = trunc nuw i8 %1676 to i1
-  %1678 = select i1 %1674, i1 true, i1 %1677
-  br i1 %1678, label %_ZNK4llvm16AArch64Subtarget27useSVEForFixedLengthVectorsEv.exit1141.thread.preheader, label %_ZNK4llvm16AArch64Subtarget27useSVEForFixedLengthVectorsEv.exit1141
+_ZNK4llvm16AArch64Subtarget27useSVEForFixedLengthVectorsEv.exit1141: ; preds = %1663, %1667
+  %1675 = getelementptr inbounds nuw i8, ptr %1649, i64 796
+  %1676 = load i32, ptr %1675, align 4, !tbaa !237
+  %1677 = icmp ugt i32 %1676, 255
+  br i1 %1677, label %_ZNK4llvm16AArch64Subtarget27useSVEForFixedLengthVectorsEv.exit1141.thread.preheader, label %_ZNK4llvm16AArch64Subtarget27useSVEForFixedLengthVectorsEv.exit1141.thread2363
 
-_ZNK4llvm16AArch64Subtarget27useSVEForFixedLengthVectorsEv.exit1141: ; preds = %1667, %1671
-  %1679 = getelementptr inbounds nuw i8, ptr %1653, i64 796
-  %1680 = load i32, ptr %1679, align 4, !tbaa !237
-  %1681 = icmp ugt i32 %1680, 255
-  br i1 %1681, label %_ZNK4llvm16AArch64Subtarget27useSVEForFixedLengthVectorsEv.exit1141.thread.preheader, label %_ZNK4llvm16AArch64Subtarget27useSVEForFixedLengthVectorsEv.exit1141.thread2362
-
-_ZNK4llvm16AArch64Subtarget27useSVEForFixedLengthVectorsEv.exit1141.thread.preheader: ; preds = %1671, %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit.thread.i1139, %_ZNK4llvm16AArch64Subtarget27useSVEForFixedLengthVectorsEv.exit1141
+_ZNK4llvm16AArch64Subtarget27useSVEForFixedLengthVectorsEv.exit1141.thread.preheader: ; preds = %1667, %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit.thread.i1139, %_ZNK4llvm16AArch64Subtarget27useSVEForFixedLengthVectorsEv.exit1141
   br label %_ZNK4llvm16AArch64Subtarget27useSVEForFixedLengthVectorsEv.exit1141.thread
 
-1682:                                             ; preds = %.loopexit2644, %1682
-  %.0721.idx3175 = phi i64 [ 0, %.loopexit2644 ], [ %.0721.add, %1682 ]
-  %.0721.ptr = getelementptr inbounds nuw i8, ptr %51, i64 %.0721.idx3175
-  %1683 = load i16, ptr %.0721.ptr, align 2, !tbaa !238
-  %1684 = zext i16 %1683 to i64
-  %.idx2596 = mul nuw nsw i64 %1684, 496
-  %gep3172 = getelementptr inbounds nuw i8, ptr %invariant.gep2862, i64 %.idx2596
-  store i8 4, ptr %gep3172, align 1, !tbaa !228
-  %gep3174 = getelementptr inbounds nuw i8, ptr %invariant.gep2864, i64 %.idx2596
-  store i8 4, ptr %gep3174, align 2, !tbaa !228
-  %.0721.add = add nuw nsw i64 %.0721.idx3175, 2
+1678:                                             ; preds = %.loopexit2645, %1678
+  %.0721.idx3176 = phi i64 [ 0, %.loopexit2645 ], [ %.0721.add, %1678 ]
+  %.0721.ptr = getelementptr inbounds nuw i8, ptr %51, i64 %.0721.idx3176
+  %1679 = load i16, ptr %.0721.ptr, align 2, !tbaa !238
+  %1680 = zext i16 %1679 to i64
+  %.idx2597 = mul nuw nsw i64 %1680, 496
+  %gep3173 = getelementptr inbounds nuw i8, ptr %invariant.gep2863, i64 %.idx2597
+  store i8 4, ptr %gep3173, align 1, !tbaa !228
+  %gep3175 = getelementptr inbounds nuw i8, ptr %invariant.gep2865, i64 %.idx2597
+  store i8 4, ptr %gep3175, align 2, !tbaa !228
+  %.0721.add = add nuw nsw i64 %.0721.idx3176, 2
   %.not755 = icmp eq i64 %.0721.add, 16
-  br i1 %.not755, label %1650, label %1682
+  br i1 %.not755, label %1646, label %1678
 
-_ZNK4llvm16AArch64Subtarget27useSVEForFixedLengthVectorsEv.exit1141.thread: ; preds = %_ZNK4llvm16AArch64Subtarget27useSVEForFixedLengthVectorsEv.exit1141.thread.preheader, %1705
-  %.sroa.01283.03176 = phi i64 [ %1706, %1705 ], [ 17, %_ZNK4llvm16AArch64Subtarget27useSVEForFixedLengthVectorsEv.exit1141.thread.preheader ]
-  %1685 = trunc i64 %.sroa.01283.03176 to i16
-  %1686 = load ptr, ptr %61, align 8, !tbaa !71
-  %1687 = getelementptr inbounds nuw i8, ptr %1686, i64 403
-  %1688 = load i8, ptr %1687, align 1, !tbaa !231, !range !54, !noundef !55
+_ZNK4llvm16AArch64Subtarget27useSVEForFixedLengthVectorsEv.exit1141.thread: ; preds = %_ZNK4llvm16AArch64Subtarget27useSVEForFixedLengthVectorsEv.exit1141.thread.preheader, %1701
+  %.sroa.01283.03177 = phi i64 [ %1702, %1701 ], [ 17, %_ZNK4llvm16AArch64Subtarget27useSVEForFixedLengthVectorsEv.exit1141.thread.preheader ]
+  %1681 = trunc i64 %.sroa.01283.03177 to i16
+  %1682 = load ptr, ptr %61, align 8, !tbaa !71
+  %1683 = getelementptr inbounds nuw i8, ptr %1682, i64 403
+  %1684 = load i8, ptr %1683, align 1, !tbaa !231, !range !54, !noundef !55
+  %1685 = trunc nuw i8 %1684 to i1
+  br i1 %1685, label %1686, label %_ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit1146
+
+1686:                                             ; preds = %_ZNK4llvm16AArch64Subtarget27useSVEForFixedLengthVectorsEv.exit1141.thread
+  %1687 = getelementptr inbounds nuw i8, ptr %1682, i64 439
+  %1688 = load i8, ptr %1687, align 1, !tbaa !232, !range !54, !noundef !55
   %1689 = trunc nuw i8 %1688 to i1
-  br i1 %1689, label %1690, label %_ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit1146
+  br i1 %1689, label %_ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit1146, label %1690
 
-1690:                                             ; preds = %_ZNK4llvm16AArch64Subtarget27useSVEForFixedLengthVectorsEv.exit1141.thread
-  %1691 = getelementptr inbounds nuw i8, ptr %1686, i64 439
-  %1692 = load i8, ptr %1691, align 1, !tbaa !232, !range !54, !noundef !55
+1690:                                             ; preds = %1686
+  %1691 = getelementptr inbounds nuw i8, ptr %1682, i64 785
+  %1692 = load i8, ptr %1691, align 1, !tbaa !233, !range !54, !noundef !55
   %1693 = trunc nuw i8 %1692 to i1
   br i1 %1693, label %_ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit1146, label %1694
 
 1694:                                             ; preds = %1690
-  %1695 = getelementptr inbounds nuw i8, ptr %1686, i64 785
-  %1696 = load i8, ptr %1695, align 1, !tbaa !233, !range !54, !noundef !55
+  %1695 = getelementptr inbounds nuw i8, ptr %1682, i64 786
+  %1696 = load i8, ptr %1695, align 2, !tbaa !234, !range !54, !noundef !55
   %1697 = trunc nuw i8 %1696 to i1
-  br i1 %1697, label %_ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit1146, label %1698
-
-1698:                                             ; preds = %1694
-  %1699 = getelementptr inbounds nuw i8, ptr %1686, i64 786
-  %1700 = load i8, ptr %1699, align 2, !tbaa !234, !range !54, !noundef !55
-  %1701 = trunc nuw i8 %1700 to i1
   br label %_ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit1146
 
-_ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit1146: ; preds = %_ZNK4llvm16AArch64Subtarget27useSVEForFixedLengthVectorsEv.exit1141.thread, %1690, %1694, %1698
-  %1702 = phi i1 [ true, %_ZNK4llvm16AArch64Subtarget27useSVEForFixedLengthVectorsEv.exit1141.thread ], [ false, %1690 ], [ true, %1694 ], [ %1701, %1698 ]
-  %1703 = call noundef zeroext i1 @_ZNK4llvm21AArch64TargetLowering28useSVEForFixedLengthVectorVTENS_3EVTEb(ptr noundef nonnull align 8 dereferenceable(412536) %0, i16 %1685, ptr null, i1 noundef zeroext %1702)
-  br i1 %1703, label %1704, label %1705
+_ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit1146: ; preds = %_ZNK4llvm16AArch64Subtarget27useSVEForFixedLengthVectorsEv.exit1141.thread, %1686, %1690, %1694
+  %1698 = phi i1 [ true, %_ZNK4llvm16AArch64Subtarget27useSVEForFixedLengthVectorsEv.exit1141.thread ], [ false, %1686 ], [ true, %1690 ], [ %1697, %1694 ]
+  %1699 = call noundef zeroext i1 @_ZNK4llvm21AArch64TargetLowering28useSVEForFixedLengthVectorVTENS_3EVTEb(ptr noundef nonnull align 8 dereferenceable(412536) %0, i16 %1681, ptr null, i1 noundef zeroext %1698)
+  br i1 %1699, label %1700, label %1701
 
-1704:                                             ; preds = %_ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit1146
-  call void @_ZN4llvm21AArch64TargetLowering24addTypeForFixedLengthSVEENS_3MVTE(ptr noundef nonnull align 8 dereferenceable(412536) %0, i16 %1685)
-  br label %1705
+1700:                                             ; preds = %_ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit1146
+  call void @_ZN4llvm21AArch64TargetLowering24addTypeForFixedLengthSVEENS_3MVTE(ptr noundef nonnull align 8 dereferenceable(412536) %0, i16 %1681)
+  br label %1701
 
-1705:                                             ; preds = %1704, %_ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit1146
-  %1706 = add nuw nsw i64 %.sroa.01283.03176, 1
-  %.not2598 = icmp eq i64 %1706, 88
-  br i1 %.not2598, label %.preheader2642, label %_ZNK4llvm16AArch64Subtarget27useSVEForFixedLengthVectorsEv.exit1141.thread
+1701:                                             ; preds = %1700, %_ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit1146
+  %1702 = add nuw nsw i64 %.sroa.01283.03177, 1
+  %.not2599 = icmp eq i64 %1702, 88
+  br i1 %.not2599, label %.preheader2643, label %_ZNK4llvm16AArch64Subtarget27useSVEForFixedLengthVectorsEv.exit1141.thread
 
-1707:                                             ; preds = %1729
+1703:                                             ; preds = %1725
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %52) #35
   store i16 38, ptr %52, align 2, !tbaa !238
-  %1708 = getelementptr inbounds nuw i8, ptr %52, i64 2
-  store i16 49, ptr %1708, align 2, !tbaa !238
-  br label %1735
+  %1704 = getelementptr inbounds nuw i8, ptr %52, i64 2
+  store i16 49, ptr %1704, align 2, !tbaa !238
+  br label %1731
 
-.preheader2642:                                   ; preds = %1705, %1729
-  %.sroa.01273.03177 = phi i64 [ %1730, %1729 ], [ 88, %1705 ]
-  %1709 = trunc i64 %.sroa.01273.03177 to i16
-  %1710 = load ptr, ptr %61, align 8, !tbaa !71
-  %1711 = getelementptr inbounds nuw i8, ptr %1710, i64 403
-  %1712 = load i8, ptr %1711, align 1, !tbaa !231, !range !54, !noundef !55
+.preheader2643:                                   ; preds = %1701, %1725
+  %.sroa.01273.03178 = phi i64 [ %1726, %1725 ], [ 88, %1701 ]
+  %1705 = trunc i64 %.sroa.01273.03178 to i16
+  %1706 = load ptr, ptr %61, align 8, !tbaa !71
+  %1707 = getelementptr inbounds nuw i8, ptr %1706, i64 403
+  %1708 = load i8, ptr %1707, align 1, !tbaa !231, !range !54, !noundef !55
+  %1709 = trunc nuw i8 %1708 to i1
+  br i1 %1709, label %1710, label %_ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit1147
+
+1710:                                             ; preds = %.preheader2643
+  %1711 = getelementptr inbounds nuw i8, ptr %1706, i64 439
+  %1712 = load i8, ptr %1711, align 1, !tbaa !232, !range !54, !noundef !55
   %1713 = trunc nuw i8 %1712 to i1
-  br i1 %1713, label %1714, label %_ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit1147
+  br i1 %1713, label %_ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit1147, label %1714
 
-1714:                                             ; preds = %.preheader2642
-  %1715 = getelementptr inbounds nuw i8, ptr %1710, i64 439
-  %1716 = load i8, ptr %1715, align 1, !tbaa !232, !range !54, !noundef !55
+1714:                                             ; preds = %1710
+  %1715 = getelementptr inbounds nuw i8, ptr %1706, i64 785
+  %1716 = load i8, ptr %1715, align 1, !tbaa !233, !range !54, !noundef !55
   %1717 = trunc nuw i8 %1716 to i1
   br i1 %1717, label %_ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit1147, label %1718
 
 1718:                                             ; preds = %1714
-  %1719 = getelementptr inbounds nuw i8, ptr %1710, i64 785
-  %1720 = load i8, ptr %1719, align 1, !tbaa !233, !range !54, !noundef !55
+  %1719 = getelementptr inbounds nuw i8, ptr %1706, i64 786
+  %1720 = load i8, ptr %1719, align 2, !tbaa !234, !range !54, !noundef !55
   %1721 = trunc nuw i8 %1720 to i1
-  br i1 %1721, label %_ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit1147, label %1722
-
-1722:                                             ; preds = %1718
-  %1723 = getelementptr inbounds nuw i8, ptr %1710, i64 786
-  %1724 = load i8, ptr %1723, align 2, !tbaa !234, !range !54, !noundef !55
-  %1725 = trunc nuw i8 %1724 to i1
   br label %_ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit1147
 
-_ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit1147: ; preds = %.preheader2642, %1714, %1718, %1722
-  %1726 = phi i1 [ true, %.preheader2642 ], [ false, %1714 ], [ true, %1718 ], [ %1725, %1722 ]
-  %1727 = call noundef zeroext i1 @_ZNK4llvm21AArch64TargetLowering28useSVEForFixedLengthVectorVTENS_3EVTEb(ptr noundef nonnull align 8 dereferenceable(412536) %0, i16 %1709, ptr null, i1 noundef zeroext %1726)
-  br i1 %1727, label %1728, label %1729
+_ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit1147: ; preds = %.preheader2643, %1710, %1714, %1718
+  %1722 = phi i1 [ true, %.preheader2643 ], [ false, %1710 ], [ true, %1714 ], [ %1721, %1718 ]
+  %1723 = call noundef zeroext i1 @_ZNK4llvm21AArch64TargetLowering28useSVEForFixedLengthVectorVTENS_3EVTEb(ptr noundef nonnull align 8 dereferenceable(412536) %0, i16 %1705, ptr null, i1 noundef zeroext %1722)
+  br i1 %1723, label %1724, label %1725
 
-1728:                                             ; preds = %_ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit1147
-  call void @_ZN4llvm21AArch64TargetLowering24addTypeForFixedLengthSVEENS_3MVTE(ptr noundef nonnull align 8 dereferenceable(412536) %0, i16 %1709)
-  br label %1729
+1724:                                             ; preds = %_ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit1147
+  call void @_ZN4llvm21AArch64TargetLowering24addTypeForFixedLengthSVEENS_3MVTE(ptr noundef nonnull align 8 dereferenceable(412536) %0, i16 %1705)
+  br label %1725
 
-1729:                                             ; preds = %1728, %_ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit1147
-  %1730 = add nuw nsw i64 %.sroa.01273.03177, 1
-  %.not2599 = icmp eq i64 %1730, 138
-  br i1 %.not2599, label %1707, label %.preheader2642
+1725:                                             ; preds = %1724, %_ZNK4llvm16AArch64Subtarget15isNeonAvailableEv.exit1147
+  %1726 = add nuw nsw i64 %.sroa.01273.03178, 1
+  %.not2600 = icmp eq i64 %1726, 138
+  br i1 %.not2600, label %1703, label %.preheader2643
 
-1731:                                             ; preds = %1735
+1727:                                             ; preds = %1731
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %52) #35
-  %1732 = getelementptr inbounds nuw i8, ptr %0, i64 50852
-  store i8 4, ptr %1732, align 4, !tbaa !228
+  %1728 = getelementptr inbounds nuw i8, ptr %0, i64 50852
+  store i8 4, ptr %1728, align 4, !tbaa !228
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %53) #35
   store i16 39, ptr %53, align 2, !tbaa !238
-  %1733 = getelementptr inbounds nuw i8, ptr %53, i64 2
-  store i16 50, ptr %1733, align 2, !tbaa !238
-  %1734 = getelementptr inbounds nuw i8, ptr %53, i64 4
-  store i16 60, ptr %1734, align 2, !tbaa !238
-  br label %1740
+  %1729 = getelementptr inbounds nuw i8, ptr %53, i64 2
+  store i16 50, ptr %1729, align 2, !tbaa !238
+  %1730 = getelementptr inbounds nuw i8, ptr %53, i64 4
+  store i16 60, ptr %1730, align 2, !tbaa !238
+  br label %1736
 
-1735:                                             ; preds = %1707, %1735
-  %.0720.idx3180 = phi i64 [ 0, %1707 ], [ %.0720.add, %1735 ]
-  %.0720.ptr = getelementptr inbounds nuw i8, ptr %52, i64 %.0720.idx3180
-  %1736 = load i16, ptr %.0720.ptr, align 2, !tbaa !238
-  %1737 = zext i16 %1736 to i64
-  %.idx2600 = mul nuw nsw i64 %1737, 496
-  %gep3179 = getelementptr inbounds nuw i8, ptr %invariant.gep2962, i64 %.idx2600
-  store i8 4, ptr %gep3179, align 2, !tbaa !228
-  %.0720.add = add nuw nsw i64 %.0720.idx3180, 2
+1731:                                             ; preds = %1703, %1731
+  %.0720.idx3181 = phi i64 [ 0, %1703 ], [ %.0720.add, %1731 ]
+  %.0720.ptr = getelementptr inbounds nuw i8, ptr %52, i64 %.0720.idx3181
+  %1732 = load i16, ptr %.0720.ptr, align 2, !tbaa !238
+  %1733 = zext i16 %1732 to i64
+  %.idx2601 = mul nuw nsw i64 %1733, 496
+  %gep3180 = getelementptr inbounds nuw i8, ptr %invariant.gep2963, i64 %.idx2601
+  store i8 4, ptr %gep3180, align 2, !tbaa !228
+  %.0720.add = add nuw nsw i64 %.0720.idx3181, 2
   %.not756 = icmp eq i64 %.0720.add, 4
-  br i1 %.not756, label %1731, label %1735
+  br i1 %.not756, label %1727, label %1731
 
-1738:                                             ; preds = %1740
+1734:                                             ; preds = %1736
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %53) #35
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %54) #35
   store i16 92, ptr %54, align 2, !tbaa !238
-  %1739 = getelementptr inbounds nuw i8, ptr %54, i64 2
-  store i16 111, ptr %1739, align 2, !tbaa !238
-  br label %1761
+  %1735 = getelementptr inbounds nuw i8, ptr %54, i64 2
+  store i16 111, ptr %1735, align 2, !tbaa !238
+  br label %1757
 
-1740:                                             ; preds = %1731, %1740
-  %.0716.idx3183 = phi i64 [ 0, %1731 ], [ %.0716.add, %1740 ]
-  %.0716.ptr = getelementptr inbounds nuw i8, ptr %53, i64 %.0716.idx3183
-  %1741 = load i16, ptr %.0716.ptr, align 2, !tbaa !238
-  %1742 = zext i16 %1741 to i64
-  %.idx2601 = mul nuw nsw i64 %1742, 496
-  %gep3182 = getelementptr inbounds nuw i8, ptr %invariant.gep2962, i64 %.idx2601
-  store i8 4, ptr %gep3182, align 2, !tbaa !228
-  %.0716.add = add nuw nsw i64 %.0716.idx3183, 2
+1736:                                             ; preds = %1727, %1736
+  %.0716.idx3184 = phi i64 [ 0, %1727 ], [ %.0716.add, %1736 ]
+  %.0716.ptr = getelementptr inbounds nuw i8, ptr %53, i64 %.0716.idx3184
+  %1737 = load i16, ptr %.0716.ptr, align 2, !tbaa !238
+  %1738 = zext i16 %1737 to i64
+  %.idx2602 = mul nuw nsw i64 %1738, 496
+  %gep3183 = getelementptr inbounds nuw i8, ptr %invariant.gep2963, i64 %.idx2602
+  store i8 4, ptr %gep3183, align 2, !tbaa !228
+  %.0716.add = add nuw nsw i64 %.0716.idx3184, 2
   %.not757 = icmp eq i64 %.0716.add, 6
-  br i1 %.not757, label %1738, label %1740
+  br i1 %.not757, label %1734, label %1736
 
-1743:                                             ; preds = %1761
+1739:                                             ; preds = %1757
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %54) #35
-  %1744 = getelementptr inbounds nuw i8, ptr %0, i64 43879
+  %1740 = getelementptr inbounds nuw i8, ptr %0, i64 43879
+  store i8 4, ptr %1740, align 1, !tbaa !228
+  %1741 = getelementptr inbounds nuw i8, ptr %0, i64 43877
+  store i8 4, ptr %1741, align 1, !tbaa !228
+  %1742 = getelementptr inbounds nuw i8, ptr %0, i64 44373
+  store i8 4, ptr %1742, align 1, !tbaa !228
+  %1743 = getelementptr inbounds nuw i8, ptr %0, i64 43876
+  store i8 4, ptr %1743, align 4, !tbaa !228
+  %1744 = getelementptr inbounds nuw i8, ptr %0, i64 43851
   store i8 4, ptr %1744, align 1, !tbaa !228
-  %1745 = getelementptr inbounds nuw i8, ptr %0, i64 43877
+  %1745 = getelementptr inbounds nuw i8, ptr %0, i64 44347
   store i8 4, ptr %1745, align 1, !tbaa !228
-  %1746 = getelementptr inbounds nuw i8, ptr %0, i64 44373
-  store i8 4, ptr %1746, align 1, !tbaa !228
-  %1747 = getelementptr inbounds nuw i8, ptr %0, i64 43876
-  store i8 4, ptr %1747, align 4, !tbaa !228
-  %1748 = getelementptr inbounds nuw i8, ptr %0, i64 43851
-  store i8 4, ptr %1748, align 1, !tbaa !228
-  %1749 = getelementptr inbounds nuw i8, ptr %0, i64 44347
-  store i8 4, ptr %1749, align 1, !tbaa !228
-  %1750 = getelementptr inbounds nuw i8, ptr %0, i64 43850
-  store i8 4, ptr %1750, align 2, !tbaa !228
-  %1751 = getelementptr inbounds nuw i8, ptr %0, i64 44346
-  store i8 4, ptr %1751, align 2, !tbaa !228
-  %1752 = getelementptr inbounds nuw i8, ptr %0, i64 43858
-  %1753 = getelementptr inbounds nuw i8, ptr %0, i64 44354
-  %1754 = getelementptr inbounds nuw i8, ptr %0, i64 44559
-  store i32 67372036, ptr %1752, align 2
-  store i32 67372036, ptr %1753, align 2
-  store i32 67372036, ptr %1754, align 1
+  %1746 = getelementptr inbounds nuw i8, ptr %0, i64 43850
+  store i8 4, ptr %1746, align 2, !tbaa !228
+  %1747 = getelementptr inbounds nuw i8, ptr %0, i64 44346
+  store i8 4, ptr %1747, align 2, !tbaa !228
+  %1748 = getelementptr inbounds nuw i8, ptr %0, i64 43858
+  %1749 = getelementptr inbounds nuw i8, ptr %0, i64 44354
+  %1750 = getelementptr inbounds nuw i8, ptr %0, i64 44559
+  store i32 67372036, ptr %1748, align 2
+  store i32 67372036, ptr %1749, align 2
+  store i32 67372036, ptr %1750, align 1
   call void @llvm.lifetime.start.p0(i64 14, ptr nonnull %55) #35
   store i16 38, ptr %55, align 2, !tbaa !238
-  %1755 = getelementptr inbounds nuw i8, ptr %55, i64 2
-  store i16 39, ptr %1755, align 2, !tbaa !238
-  %1756 = getelementptr inbounds nuw i8, ptr %55, i64 4
-  store i16 49, ptr %1756, align 2, !tbaa !238
-  %1757 = getelementptr inbounds nuw i8, ptr %55, i64 6
-  store i16 50, ptr %1757, align 2, !tbaa !238
-  %1758 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  store i16 58, ptr %1758, align 2, !tbaa !238
-  %1759 = getelementptr inbounds nuw i8, ptr %55, i64 10
-  store i16 60, ptr %1759, align 2, !tbaa !238
-  %1760 = getelementptr inbounds nuw i8, ptr %55, i64 12
-  store i16 78, ptr %1760, align 2, !tbaa !238
-  br label %1767
+  %1751 = getelementptr inbounds nuw i8, ptr %55, i64 2
+  store i16 39, ptr %1751, align 2, !tbaa !238
+  %1752 = getelementptr inbounds nuw i8, ptr %55, i64 4
+  store i16 49, ptr %1752, align 2, !tbaa !238
+  %1753 = getelementptr inbounds nuw i8, ptr %55, i64 6
+  store i16 50, ptr %1753, align 2, !tbaa !238
+  %1754 = getelementptr inbounds nuw i8, ptr %55, i64 8
+  store i16 58, ptr %1754, align 2, !tbaa !238
+  %1755 = getelementptr inbounds nuw i8, ptr %55, i64 10
+  store i16 60, ptr %1755, align 2, !tbaa !238
+  %1756 = getelementptr inbounds nuw i8, ptr %55, i64 12
+  store i16 78, ptr %1756, align 2, !tbaa !238
+  br label %1763
 
-1761:                                             ; preds = %1738, %1761
-  %.0712.idx3186 = phi i64 [ 0, %1738 ], [ %.0712.add, %1761 ]
-  %.0712.ptr = getelementptr inbounds nuw i8, ptr %54, i64 %.0712.idx3186
-  %1762 = load i16, ptr %.0712.ptr, align 2, !tbaa !238
-  %1763 = zext i16 %1762 to i64
-  %.idx2602 = mul nuw nsw i64 %1763, 496
-  %gep3185 = getelementptr inbounds nuw i8, ptr %invariant.gep3059, i64 %.idx2602
-  store i8 4, ptr %gep3185, align 4, !tbaa !228
-  %.0712.add = add nuw nsw i64 %.0712.idx3186, 2
+1757:                                             ; preds = %1734, %1757
+  %.0712.idx3187 = phi i64 [ 0, %1734 ], [ %.0712.add, %1757 ]
+  %.0712.ptr = getelementptr inbounds nuw i8, ptr %54, i64 %.0712.idx3187
+  %1758 = load i16, ptr %.0712.ptr, align 2, !tbaa !238
+  %1759 = zext i16 %1758 to i64
+  %.idx2603 = mul nuw nsw i64 %1759, 496
+  %gep3186 = getelementptr inbounds nuw i8, ptr %invariant.gep3060, i64 %.idx2603
+  store i8 4, ptr %gep3186, align 4, !tbaa !228
+  %.0712.add = add nuw nsw i64 %.0712.idx3187, 2
   %.not758 = icmp eq i64 %.0712.add, 4
-  br i1 %.not758, label %1743, label %1761
+  br i1 %.not758, label %1739, label %1757
 
-1764:                                             ; preds = %1767
+1760:                                             ; preds = %1763
   call void @llvm.lifetime.end.p0(i64 14, ptr nonnull %55) #35
   call void @llvm.lifetime.start.p0(i64 6, ptr nonnull %56) #35
   store i16 91, ptr %56, align 2, !tbaa !238
-  %1765 = getelementptr inbounds nuw i8, ptr %56, i64 2
-  store i16 92, ptr %1765, align 2, !tbaa !238
-  %1766 = getelementptr inbounds nuw i8, ptr %56, i64 4
-  store i16 111, ptr %1766, align 2, !tbaa !238
-  br label %1771
+  %1761 = getelementptr inbounds nuw i8, ptr %56, i64 2
+  store i16 92, ptr %1761, align 2, !tbaa !238
+  %1762 = getelementptr inbounds nuw i8, ptr %56, i64 4
+  store i16 111, ptr %1762, align 2, !tbaa !238
+  br label %1767
 
-1767:                                             ; preds = %1743, %1767
-  %.0708.idx3201 = phi i64 [ 0, %1743 ], [ %.0708.add, %1767 ]
-  %.0708.ptr = getelementptr inbounds nuw i8, ptr %55, i64 %.0708.idx3201
-  %1768 = load i16, ptr %.0708.ptr, align 2, !tbaa !238
-  %1769 = zext i16 %1768 to i64
-  %.idx2603 = mul nuw nsw i64 %1769, 496
-  %gep3188 = getelementptr inbounds nuw i8, ptr %invariant.gep2826, i64 %.idx2603
-  store i8 4, ptr %gep3188, align 1, !tbaa !228
-  %gep3190 = getelementptr inbounds nuw i8, ptr %invariant.gep2834, i64 %.idx2603
-  store i8 4, ptr %gep3190, align 4, !tbaa !228
-  %gep3192 = getelementptr inbounds nuw i8, ptr %invariant.gep2888, i64 %.idx2603
-  store i8 4, ptr %gep3192, align 4, !tbaa !228
-  %gep3194 = getelementptr inbounds nuw i8, ptr %invariant.gep2890, i64 %.idx2603
-  store i8 4, ptr %gep3194, align 1, !tbaa !228
-  %gep3196 = getelementptr inbounds nuw i8, ptr %invariant.gep2892, i64 %.idx2603
-  store i8 4, ptr %gep3196, align 2, !tbaa !228
-  %gep3198 = getelementptr inbounds nuw i8, ptr %invariant.gep2850, i64 %.idx2603
-  store i8 4, ptr %gep3198, align 1, !tbaa !228
-  %gep3200 = getelementptr inbounds nuw i8, ptr %invariant.gep2852, i64 %.idx2603
-  store i8 4, ptr %gep3200, align 2, !tbaa !228
-  %.0708.add = add nuw nsw i64 %.0708.idx3201, 2
+1763:                                             ; preds = %1739, %1763
+  %.0708.idx3202 = phi i64 [ 0, %1739 ], [ %.0708.add, %1763 ]
+  %.0708.ptr = getelementptr inbounds nuw i8, ptr %55, i64 %.0708.idx3202
+  %1764 = load i16, ptr %.0708.ptr, align 2, !tbaa !238
+  %1765 = zext i16 %1764 to i64
+  %.idx2604 = mul nuw nsw i64 %1765, 496
+  %gep3189 = getelementptr inbounds nuw i8, ptr %invariant.gep2827, i64 %.idx2604
+  store i8 4, ptr %gep3189, align 1, !tbaa !228
+  %gep3191 = getelementptr inbounds nuw i8, ptr %invariant.gep2835, i64 %.idx2604
+  store i8 4, ptr %gep3191, align 4, !tbaa !228
+  %gep3193 = getelementptr inbounds nuw i8, ptr %invariant.gep2889, i64 %.idx2604
+  store i8 4, ptr %gep3193, align 4, !tbaa !228
+  %gep3195 = getelementptr inbounds nuw i8, ptr %invariant.gep2891, i64 %.idx2604
+  store i8 4, ptr %gep3195, align 1, !tbaa !228
+  %gep3197 = getelementptr inbounds nuw i8, ptr %invariant.gep2893, i64 %.idx2604
+  store i8 4, ptr %gep3197, align 2, !tbaa !228
+  %gep3199 = getelementptr inbounds nuw i8, ptr %invariant.gep2851, i64 %.idx2604
+  store i8 4, ptr %gep3199, align 1, !tbaa !228
+  %gep3201 = getelementptr inbounds nuw i8, ptr %invariant.gep2853, i64 %.idx2604
+  store i8 4, ptr %gep3201, align 2, !tbaa !228
+  %.0708.add = add nuw nsw i64 %.0708.idx3202, 2
   %.not759 = icmp eq i64 %.0708.add, 14
-  br i1 %.not759, label %1764, label %1767
+  br i1 %.not759, label %1760, label %1763
 
-1770:                                             ; preds = %1771
+1766:                                             ; preds = %1767
   call void @llvm.lifetime.end.p0(i64 6, ptr nonnull %56) #35
-  br label %_ZNK4llvm16AArch64Subtarget27useSVEForFixedLengthVectorsEv.exit1141.thread2362
+  br label %_ZNK4llvm16AArch64Subtarget27useSVEForFixedLengthVectorsEv.exit1141.thread2363
 
-1771:                                             ; preds = %1764, %1771
-  %.0704.idx3204 = phi i64 [ 0, %1764 ], [ %.0704.add, %1771 ]
-  %.0704.ptr = getelementptr inbounds nuw i8, ptr %56, i64 %.0704.idx3204
-  %1772 = load i16, ptr %.0704.ptr, align 2, !tbaa !238
-  %1773 = zext i16 %1772 to i64
-  %.idx2610 = mul nuw nsw i64 %1773, 496
-  %gep3203 = getelementptr inbounds nuw i8, ptr %invariant.gep3061, i64 %.idx2610
-  store i8 4, ptr %gep3203, align 4, !tbaa !228
-  %.0704.add = add nuw nsw i64 %.0704.idx3204, 2
+1767:                                             ; preds = %1760, %1767
+  %.0704.idx3205 = phi i64 [ 0, %1760 ], [ %.0704.add, %1767 ]
+  %.0704.ptr = getelementptr inbounds nuw i8, ptr %56, i64 %.0704.idx3205
+  %1768 = load i16, ptr %.0704.ptr, align 2, !tbaa !238
+  %1769 = zext i16 %1768 to i64
+  %.idx2611 = mul nuw nsw i64 %1769, 496
+  %gep3204 = getelementptr inbounds nuw i8, ptr %invariant.gep3062, i64 %.idx2611
+  store i8 4, ptr %gep3204, align 4, !tbaa !228
+  %.0704.add = add nuw nsw i64 %.0704.idx3205, 2
   %.not760 = icmp eq i64 %.0704.add, 6
-  br i1 %.not760, label %1770, label %1771
+  br i1 %.not760, label %1766, label %1767
 
-_ZNK4llvm16AArch64Subtarget27useSVEForFixedLengthVectorsEv.exit1141.thread2362: ; preds = %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit.i1137, %1770, %_ZNK4llvm16AArch64Subtarget27useSVEForFixedLengthVectorsEv.exit1141
-  %1774 = getelementptr inbounds nuw i8, ptr %0, i64 74596
-  store i8 1, ptr %1774, align 4, !tbaa !228
+_ZNK4llvm16AArch64Subtarget27useSVEForFixedLengthVectorsEv.exit1141.thread2363: ; preds = %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit.i1137, %1766, %_ZNK4llvm16AArch64Subtarget27useSVEForFixedLengthVectorsEv.exit1141
+  %1770 = getelementptr inbounds nuw i8, ptr %0, i64 74596
+  store i8 1, ptr %1770, align 4, !tbaa !228
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #35
   store i48 597000454310, ptr %7, align 8
-  %1775 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZNSt3mapISt4pairIjN4llvm3MVT15SimpleValueTypeEES3_St4lessIS4_ESaIS0_IKS4_S3_EEEixEOS4_(ptr noundef nonnull align 8 dereferenceable(48) %1617, ptr noundef nonnull align 4 dereferenceable(6) %7)
-  store i16 165, ptr %1775, align 2, !tbaa !238
+  %1771 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZNSt3mapISt4pairIjN4llvm3MVT15SimpleValueTypeEES3_St4lessIS4_ESaIS0_IKS4_S3_EEEixEOS4_(ptr noundef nonnull align 8 dereferenceable(48) %1613, ptr noundef nonnull align 4 dereferenceable(6) %7)
+  store i16 165, ptr %1771, align 2, !tbaa !238
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #35
-  %1776 = getelementptr inbounds nuw i8, ptr %0, i64 75092
-  store i8 1, ptr %1776, align 4, !tbaa !228
+  %1772 = getelementptr inbounds nuw i8, ptr %0, i64 75092
+  store i8 1, ptr %1772, align 4, !tbaa !228
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #35
   store i48 601295421606, ptr %6, align 8
-  %1777 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZNSt3mapISt4pairIjN4llvm3MVT15SimpleValueTypeEES3_St4lessIS4_ESaIS0_IKS4_S3_EEEixEOS4_(ptr noundef nonnull align 8 dereferenceable(48) %1617, ptr noundef nonnull align 4 dereferenceable(6) %6)
-  store i16 160, ptr %1777, align 2, !tbaa !238
+  %1773 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZNSt3mapISt4pairIjN4llvm3MVT15SimpleValueTypeEES3_St4lessIS4_ESaIS0_IKS4_S3_EEEixEOS4_(ptr noundef nonnull align 8 dereferenceable(48) %1613, ptr noundef nonnull align 4 dereferenceable(6) %6)
+  store i16 160, ptr %1773, align 2, !tbaa !238
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #35
-  %1778 = getelementptr inbounds nuw i8, ptr %0, i64 75588
-  store i8 1, ptr %1778, align 4, !tbaa !228
+  %1774 = getelementptr inbounds nuw i8, ptr %0, i64 75588
+  store i8 1, ptr %1774, align 4, !tbaa !228
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #35
   store i48 605590388902, ptr %5, align 8
-  %1779 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZNSt3mapISt4pairIjN4llvm3MVT15SimpleValueTypeEES3_St4lessIS4_ESaIS0_IKS4_S3_EEEixEOS4_(ptr noundef nonnull align 8 dereferenceable(48) %1617, ptr noundef nonnull align 4 dereferenceable(6) %5)
-  store i16 155, ptr %1779, align 2, !tbaa !238
+  %1775 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZNSt3mapISt4pairIjN4llvm3MVT15SimpleValueTypeEES3_St4lessIS4_ESaIS0_IKS4_S3_EEEixEOS4_(ptr noundef nonnull align 8 dereferenceable(48) %1613, ptr noundef nonnull align 4 dereferenceable(6) %5)
+  store i16 155, ptr %1775, align 2, !tbaa !238
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #35
-  %1780 = getelementptr inbounds nuw i8, ptr %0, i64 76084
-  store i8 1, ptr %1780, align 4, !tbaa !228
+  %1776 = getelementptr inbounds nuw i8, ptr %0, i64 76084
+  store i8 1, ptr %1776, align 4, !tbaa !228
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #35
   store i48 609885356198, ptr %4, align 8
-  %1781 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZNSt3mapISt4pairIjN4llvm3MVT15SimpleValueTypeEES3_St4lessIS4_ESaIS0_IKS4_S3_EEEixEOS4_(ptr noundef nonnull align 8 dereferenceable(48) %1617, ptr noundef nonnull align 4 dereferenceable(6) %4)
-  store i16 149, ptr %1781, align 2, !tbaa !238
+  %1777 = call noundef nonnull align 2 dereferenceable(2) ptr @_ZNSt3mapISt4pairIjN4llvm3MVT15SimpleValueTypeEES3_St4lessIS4_ESaIS0_IKS4_S3_EEEixEOS4_(ptr noundef nonnull align 8 dereferenceable(48) %1613, ptr noundef nonnull align 4 dereferenceable(6) %4)
+  store i16 149, ptr %1777, align 2, !tbaa !238
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #35
-  %1782 = getelementptr inbounds nuw i8, ptr %0, i64 9329
-  store i8 4, ptr %1782, align 1, !tbaa !228
+  %1778 = getelementptr inbounds nuw i8, ptr %0, i64 9329
+  store i8 4, ptr %1778, align 1, !tbaa !228
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %57) #35
   store i16 22, ptr %57, align 2, !tbaa !238
-  %1783 = getelementptr inbounds nuw i8, ptr %57, i64 2
-  store i16 21, ptr %1783, align 2, !tbaa !238
-  %1784 = getelementptr inbounds nuw i8, ptr %57, i64 4
-  store i16 20, ptr %1784, align 2, !tbaa !238
-  %1785 = getelementptr inbounds nuw i8, ptr %57, i64 6
-  store i16 18, ptr %1785, align 2, !tbaa !238
-  %invariant.gep3205 = getelementptr inbounds nuw i8, ptr %0, i64 5532
-  br label %1786
+  %1779 = getelementptr inbounds nuw i8, ptr %57, i64 2
+  store i16 21, ptr %1779, align 2, !tbaa !238
+  %1780 = getelementptr inbounds nuw i8, ptr %57, i64 4
+  store i16 20, ptr %1780, align 2, !tbaa !238
+  %1781 = getelementptr inbounds nuw i8, ptr %57, i64 6
+  store i16 18, ptr %1781, align 2, !tbaa !238
+  %invariant.gep3206 = getelementptr inbounds nuw i8, ptr %0, i64 5532
+  br label %1782
 
-1786:                                             ; preds = %_ZNK4llvm16AArch64Subtarget27useSVEForFixedLengthVectorsEv.exit1141.thread2362, %1786
-  %.0700.idx3207 = phi i64 [ 0, %_ZNK4llvm16AArch64Subtarget27useSVEForFixedLengthVectorsEv.exit1141.thread2362 ], [ %.0700.add, %1786 ]
-  %.0700.ptr = getelementptr inbounds nuw i8, ptr %57, i64 %.0700.idx3207
-  %1787 = load i16, ptr %.0700.ptr, align 2, !tbaa !238
-  %1788 = zext i16 %1787 to i64
-  %.idx2611 = mul nuw nsw i64 %1788, 496
-  %gep3206 = getelementptr inbounds nuw i8, ptr %invariant.gep3205, i64 %.idx2611
-  store i8 4, ptr %gep3206, align 4, !tbaa !228
-  %.0700.add = add nuw nsw i64 %.0700.idx3207, 2
+1782:                                             ; preds = %_ZNK4llvm16AArch64Subtarget27useSVEForFixedLengthVectorsEv.exit1141.thread2363, %1782
+  %.0700.idx3208 = phi i64 [ 0, %_ZNK4llvm16AArch64Subtarget27useSVEForFixedLengthVectorsEv.exit1141.thread2363 ], [ %.0700.add, %1782 ]
+  %.0700.ptr = getelementptr inbounds nuw i8, ptr %57, i64 %.0700.idx3208
+  %1783 = load i16, ptr %.0700.ptr, align 2, !tbaa !238
+  %1784 = zext i16 %1783 to i64
+  %.idx2612 = mul nuw nsw i64 %1784, 496
+  %gep3207 = getelementptr inbounds nuw i8, ptr %invariant.gep3206, i64 %.idx2612
+  store i8 4, ptr %gep3207, align 4, !tbaa !228
+  %.0700.add = add nuw nsw i64 %.0700.idx3208, 2
   %.not761 = icmp eq i64 %.0700.add, 8
-  br i1 %.not761, label %1789, label %1786
+  br i1 %.not761, label %1785, label %1782
 
-1789:                                             ; preds = %1786
+1785:                                             ; preds = %1782
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %57) #35
-  %.pre3347 = load ptr, ptr %61, align 8, !tbaa !71
-  %.phi.trans.insert3348 = getelementptr inbounds nuw i8, ptr %.pre3347, i64 453
-  %.pre3349 = load i8, ptr %.phi.trans.insert3348, align 1, !tbaa !235, !range !54
-  %1790 = trunc nuw i8 %.pre3349 to i1
-  br i1 %1790, label %1791, label %_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit.thread
+  %.pre3350 = load ptr, ptr %61, align 8, !tbaa !71
+  %.phi.trans.insert3351 = getelementptr inbounds nuw i8, ptr %.pre3350, i64 453
+  %.pre3352 = load i8, ptr %.phi.trans.insert3351, align 1, !tbaa !235, !range !54
+  %1786 = trunc nuw i8 %.pre3352 to i1
+  br i1 %1786, label %1787, label %_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit.thread
 
-1791:                                             ; preds = %1789
-  %1792 = getelementptr inbounds nuw i8, ptr %.pre3347, i64 439
-  %1793 = load i8, ptr %1792, align 1, !tbaa !232, !range !54, !noundef !55
+1787:                                             ; preds = %1785
+  %1788 = getelementptr inbounds nuw i8, ptr %.pre3350, i64 439
+  %1789 = load i8, ptr %1788, align 1, !tbaa !232, !range !54, !noundef !55
+  %1790 = trunc nuw i8 %1789 to i1
+  br i1 %1790, label %_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit.thread2365, label %1791
+
+1791:                                             ; preds = %1787
+  %1792 = getelementptr inbounds nuw i8, ptr %.pre3350, i64 785
+  %1793 = load i8, ptr %1792, align 1, !tbaa !233, !range !54, !noundef !55
   %1794 = trunc nuw i8 %1793 to i1
-  br i1 %1794, label %_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit.thread2364, label %1795
+  br i1 %1794, label %_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit.thread, label %_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit
 
-1795:                                             ; preds = %1791
-  %1796 = getelementptr inbounds nuw i8, ptr %.pre3347, i64 785
-  %1797 = load i8, ptr %1796, align 1, !tbaa !233, !range !54, !noundef !55
-  %1798 = trunc nuw i8 %1797 to i1
-  br i1 %1798, label %_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit.thread, label %_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit
+_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit: ; preds = %1791
+  %1795 = getelementptr inbounds nuw i8, ptr %.pre3350, i64 786
+  %1796 = load i8, ptr %1795, align 2, !tbaa !234, !range !54, !noundef !55
+  %1797 = trunc nuw i8 %1796 to i1
+  br i1 %1797, label %_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit.thread, label %_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit.thread2365
 
-_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit: ; preds = %1795
-  %1799 = getelementptr inbounds nuw i8, ptr %.pre3347, i64 786
-  %1800 = load i8, ptr %1799, align 2, !tbaa !234, !range !54, !noundef !55
-  %1801 = trunc nuw i8 %1800 to i1
-  br i1 %1801, label %_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit.thread, label %_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit.thread2364
+_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit.thread2365: ; preds = %1787, %_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit
+  %invariant.gep3209 = getelementptr inbounds nuw i8, ptr %0, i64 5848
+  %invariant.gep3211 = getelementptr inbounds nuw i8, ptr %0, i64 5849
+  br label %1798
 
-_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit.thread2364: ; preds = %1791, %_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit
-  %invariant.gep3208 = getelementptr inbounds nuw i8, ptr %0, i64 5848
-  %invariant.gep3210 = getelementptr inbounds nuw i8, ptr %0, i64 5849
-  br label %1802
+.preheader2642:                                   ; preds = %1798
+  %invariant.gep3214 = getelementptr inbounds nuw i8, ptr %0, i64 5858
+  br label %1801
 
-.preheader2641:                                   ; preds = %1802
-  %invariant.gep3213 = getelementptr inbounds nuw i8, ptr %0, i64 5858
-  br label %1805
-
-1802:                                             ; preds = %_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit.thread2364, %1802
-  %.0696.idx3212 = phi i64 [ 0, %_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit.thread2364 ], [ %.0696.add, %1802 ]
-  %.0696.ptr = getelementptr inbounds nuw i8, ptr @constinit.140, i64 %.0696.idx3212
-  %1803 = load i16, ptr %.0696.ptr, align 2, !tbaa !238
-  %1804 = zext i16 %1803 to i64
-  %.idx2612 = mul nuw nsw i64 %1804, 496
-  %gep3209 = getelementptr inbounds nuw i8, ptr %invariant.gep3208, i64 %.idx2612
-  store i8 4, ptr %gep3209, align 8, !tbaa !228
-  %gep3211 = getelementptr inbounds nuw i8, ptr %invariant.gep3210, i64 %.idx2612
-  store i8 4, ptr %gep3211, align 1, !tbaa !228
-  %.0696.add = add nuw nsw i64 %.0696.idx3212, 2
+1798:                                             ; preds = %_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit.thread2365, %1798
+  %.0696.idx3213 = phi i64 [ 0, %_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit.thread2365 ], [ %.0696.add, %1798 ]
+  %.0696.ptr = getelementptr inbounds nuw i8, ptr @constinit.140, i64 %.0696.idx3213
+  %1799 = load i16, ptr %.0696.ptr, align 2, !tbaa !238
+  %1800 = zext i16 %1799 to i64
+  %.idx2613 = mul nuw nsw i64 %1800, 496
+  %gep3210 = getelementptr inbounds nuw i8, ptr %invariant.gep3209, i64 %.idx2613
+  store i8 4, ptr %gep3210, align 8, !tbaa !228
+  %gep3212 = getelementptr inbounds nuw i8, ptr %invariant.gep3211, i64 %.idx2613
+  store i8 4, ptr %gep3212, align 1, !tbaa !228
+  %.0696.add = add nuw nsw i64 %.0696.idx3213, 2
   %.not762 = icmp eq i64 %.0696.add, 54
-  br i1 %.not762, label %.preheader2641, label %1802
+  br i1 %.not762, label %.preheader2642, label %1798
 
-.preheader2640:                                   ; preds = %1805
-  %invariant.gep3216 = getelementptr inbounds nuw i8, ptr %0, i64 5657
-  br label %1808
+.preheader2641:                                   ; preds = %1801
+  %invariant.gep3217 = getelementptr inbounds nuw i8, ptr %0, i64 5657
+  br label %1804
 
-1805:                                             ; preds = %.preheader2641, %1805
-  %.0692.idx3215 = phi i64 [ 0, %.preheader2641 ], [ %.0692.add, %1805 ]
-  %.0692.ptr = getelementptr inbounds nuw i8, ptr @constinit.141, i64 %.0692.idx3215
-  %1806 = load i16, ptr %.0692.ptr, align 2, !tbaa !238
-  %1807 = zext i16 %1806 to i64
-  %.idx2614 = mul nuw nsw i64 %1807, 496
-  %gep3214 = getelementptr inbounds nuw i8, ptr %invariant.gep3213, i64 %.idx2614
-  store i8 4, ptr %gep3214, align 2, !tbaa !228
-  %.0692.add = add nuw nsw i64 %.0692.idx3215, 2
+1801:                                             ; preds = %.preheader2642, %1801
+  %.0692.idx3216 = phi i64 [ 0, %.preheader2642 ], [ %.0692.add, %1801 ]
+  %.0692.ptr = getelementptr inbounds nuw i8, ptr @constinit.141, i64 %.0692.idx3216
+  %1802 = load i16, ptr %.0692.ptr, align 2, !tbaa !238
+  %1803 = zext i16 %1802 to i64
+  %.idx2615 = mul nuw nsw i64 %1803, 496
+  %gep3215 = getelementptr inbounds nuw i8, ptr %invariant.gep3214, i64 %.idx2615
+  store i8 4, ptr %gep3215, align 2, !tbaa !228
+  %.0692.add = add nuw nsw i64 %.0692.idx3216, 2
   %.not763 = icmp eq i64 %.0692.add, 22
-  br i1 %.not763, label %.preheader2640, label %1805
+  br i1 %.not763, label %.preheader2641, label %1801
 
-1808:                                             ; preds = %.preheader2640, %1808
-  %.0688.idx3218 = phi i64 [ 0, %.preheader2640 ], [ %.0688.add, %1808 ]
-  %.0688.ptr = getelementptr inbounds nuw i8, ptr @constinit.142, i64 %.0688.idx3218
-  %1809 = load i16, ptr %.0688.ptr, align 2, !tbaa !238
-  %1810 = zext i16 %1809 to i64
-  %.idx2615 = mul nuw nsw i64 %1810, 496
-  %gep3217 = getelementptr inbounds nuw i8, ptr %invariant.gep3216, i64 %.idx2615
-  store i8 4, ptr %gep3217, align 1, !tbaa !228
-  %.0688.add = add nuw nsw i64 %.0688.idx3218, 2
+1804:                                             ; preds = %.preheader2641, %1804
+  %.0688.idx3219 = phi i64 [ 0, %.preheader2641 ], [ %.0688.add, %1804 ]
+  %.0688.ptr = getelementptr inbounds nuw i8, ptr @constinit.142, i64 %.0688.idx3219
+  %1805 = load i16, ptr %.0688.ptr, align 2, !tbaa !238
+  %1806 = zext i16 %1805 to i64
+  %.idx2616 = mul nuw nsw i64 %1806, 496
+  %gep3218 = getelementptr inbounds nuw i8, ptr %invariant.gep3217, i64 %.idx2616
+  store i8 4, ptr %gep3218, align 1, !tbaa !228
+  %.0688.add = add nuw nsw i64 %.0688.idx3219, 2
   %.not764 = icmp eq i64 %.0688.add, 20
-  br i1 %.not764, label %.preheader2639, label %1808
+  br i1 %.not764, label %.preheader2640, label %1804
 
-1811:                                             ; preds = %.preheader2639
-  %1812 = getelementptr inbounds nuw i8, ptr %.pre3347, i64 454
-  %1813 = load i8, ptr %1812, align 2, !tbaa !274, !range !54, !noundef !55
-  %1814 = trunc nuw i8 %1813 to i1
-  br i1 %1814, label %1817, label %_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit.thread
+1807:                                             ; preds = %.preheader2640
+  %1808 = getelementptr inbounds nuw i8, ptr %.pre3350, i64 454
+  %1809 = load i8, ptr %1808, align 2, !tbaa !274, !range !54, !noundef !55
+  %1810 = trunc nuw i8 %1809 to i1
+  br i1 %1810, label %1813, label %_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit.thread
 
-.preheader2639:                                   ; preds = %1808, %.preheader2639
-  %.0684.idx3221 = phi i64 [ %.0684.add, %.preheader2639 ], [ 0, %1808 ]
-  %.0684.ptr = getelementptr inbounds nuw i8, ptr @constinit.143, i64 %.0684.idx3221
-  %1815 = load i16, ptr %.0684.ptr, align 2, !tbaa !238
-  %1816 = zext i16 %1815 to i64
-  %.idx2616 = mul nuw nsw i64 %1816, 496
-  %gep3220 = getelementptr inbounds nuw i8, ptr %invariant.gep3216, i64 %.idx2616
-  store i8 4, ptr %gep3220, align 1, !tbaa !228
-  %.0684.add = add nuw nsw i64 %.0684.idx3221, 2
+.preheader2640:                                   ; preds = %1804, %.preheader2640
+  %.0684.idx3222 = phi i64 [ %.0684.add, %.preheader2640 ], [ 0, %1804 ]
+  %.0684.ptr = getelementptr inbounds nuw i8, ptr @constinit.143, i64 %.0684.idx3222
+  %1811 = load i16, ptr %.0684.ptr, align 2, !tbaa !238
+  %1812 = zext i16 %1811 to i64
+  %.idx2617 = mul nuw nsw i64 %1812, 496
+  %gep3221 = getelementptr inbounds nuw i8, ptr %invariant.gep3217, i64 %.idx2617
+  store i8 4, ptr %gep3221, align 1, !tbaa !228
+  %.0684.add = add nuw nsw i64 %.0684.idx3222, 2
   %.not765 = icmp eq i64 %.0684.add, 20
-  br i1 %.not765, label %1811, label %.preheader2639
+  br i1 %.not765, label %1807, label %.preheader2640
 
-1817:                                             ; preds = %1811
-  %1818 = getelementptr inbounds nuw i8, ptr %0, i64 85339
-  store i8 4, ptr %1818, align 1, !tbaa !228
-  %1819 = getelementptr inbounds nuw i8, ptr %0, i64 87819
-  store i8 4, ptr %1819, align 1, !tbaa !228
+1813:                                             ; preds = %1807
+  %1814 = getelementptr inbounds nuw i8, ptr %0, i64 85339
+  store i8 4, ptr %1814, align 1, !tbaa !228
+  %1815 = getelementptr inbounds nuw i8, ptr %0, i64 87819
+  store i8 4, ptr %1815, align 1, !tbaa !228
   br label %_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit.thread
 
-_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit.thread: ; preds = %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit1072, %1795, %1789, %1811, %1817, %_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit
-  %1820 = phi i1 [ true, %1795 ], [ false, %1789 ], [ true, %1811 ], [ true, %1817 ], [ true, %_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit ], [ false, %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit1072 ]
-  %1821 = phi ptr [ %.pre3347, %1795 ], [ %.pre3347, %1789 ], [ %.pre3347, %1811 ], [ %.pre3347, %1817 ], [ %.pre3347, %_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit ], [ %1428, %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit1072 ]
-  %1822 = getelementptr inbounds nuw i8, ptr %1821, i64 397
-  %1823 = load i8, ptr %1822, align 1, !tbaa !278, !range !54, !noundef !55
+_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit.thread: ; preds = %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit1071, %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit1072, %1791, %1785, %1807, %1813, %_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit
+  %1816 = phi i1 [ true, %1791 ], [ false, %1785 ], [ true, %1807 ], [ true, %1813 ], [ true, %_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit ], [ false, %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit1072 ], [ false, %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit1071 ]
+  %1817 = phi ptr [ %.pre3350, %1791 ], [ %.pre3350, %1785 ], [ %.pre3350, %1807 ], [ %.pre3350, %1813 ], [ %.pre3350, %_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit ], [ %1428, %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit1072 ], [ %1428, %_ZNK4llvm16AArch64Subtarget28isSVEorStreamingSVEAvailableEv.exit1071 ]
+  %1818 = getelementptr inbounds nuw i8, ptr %1817, i64 397
+  %1819 = load i8, ptr %1818, align 1, !tbaa !278, !range !54, !noundef !55
+  %1820 = trunc nuw i8 %1819 to i1
+  br i1 %1820, label %1821, label %1827
+
+1821:                                             ; preds = %_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit.thread
+  %1822 = getelementptr inbounds nuw i8, ptr %1817, i64 399
+  %1823 = load i8, ptr %1822, align 1, !tbaa !279, !range !54, !noundef !55
   %1824 = trunc nuw i8 %1823 to i1
-  br i1 %1824, label %1825, label %1831
+  br i1 %1824, label %1825, label %1827
 
-1825:                                             ; preds = %_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit.thread
-  %1826 = getelementptr inbounds nuw i8, ptr %1821, i64 399
-  %1827 = load i8, ptr %1826, align 1, !tbaa !279, !range !54, !noundef !55
-  %1828 = trunc nuw i8 %1827 to i1
-  br i1 %1828, label %1829, label %1831
+1825:                                             ; preds = %1821
+  %1826 = getelementptr inbounds nuw i8, ptr %0, i64 8013
+  store i8 4, ptr %1826, align 1, !tbaa !228
+  br label %1827
 
-1829:                                             ; preds = %1825
-  %1830 = getelementptr inbounds nuw i8, ptr %0, i64 8013
+1827:                                             ; preds = %1825, %1821, %_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit.thread
+  %1828 = getelementptr inbounds nuw i8, ptr %0, i64 6030
+  store i8 4, ptr %1828, align 2, !tbaa !228
+  br i1 %1816, label %1829, label %1834
+
+1829:                                             ; preds = %1827
+  %1830 = getelementptr inbounds nuw i8, ptr %0, i64 12193
   store i8 4, ptr %1830, align 1, !tbaa !228
-  br label %1831
+  %1831 = getelementptr inbounds nuw i8, ptr %0, i64 11697
+  store i8 4, ptr %1831, align 1, !tbaa !228
+  %1832 = getelementptr inbounds nuw i8, ptr %0, i64 11201
+  store i8 4, ptr %1832, align 1, !tbaa !228
+  %1833 = getelementptr inbounds nuw i8, ptr %0, i64 10705
+  store i8 4, ptr %1833, align 1, !tbaa !228
+  br label %1834
 
-1831:                                             ; preds = %1829, %1825, %_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit.thread
-  %1832 = getelementptr inbounds nuw i8, ptr %0, i64 6030
-  store i8 4, ptr %1832, align 2, !tbaa !228
-  br i1 %1820, label %1833, label %1838
+1834:                                             ; preds = %1829, %1827
+  %1835 = getelementptr inbounds nuw i8, ptr %1817, i64 510
+  %1836 = load i8, ptr %1835, align 2, !tbaa !280, !range !54, !noundef !55
+  %1837 = getelementptr inbounds nuw i8, ptr %0, i64 412420
+  store i8 %1836, ptr %1837, align 4, !tbaa !281
+  %1838 = getelementptr inbounds nuw i8, ptr %0, i64 412422
+  store i8 1, ptr %1838, align 2, !tbaa !282
+  %1839 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  store i32 128, ptr %1839, align 4, !tbaa !283
+  %1840 = getelementptr inbounds nuw i8, ptr %1817, i64 860
+  %1841 = load i32, ptr %1840, align 4, !tbaa !267
+  %1842 = icmp eq i32 %1841, 14
+  br i1 %1842, label %1843, label %1854
 
-1833:                                             ; preds = %1831
-  %1834 = getelementptr inbounds nuw i8, ptr %0, i64 12193
-  store i8 4, ptr %1834, align 1, !tbaa !228
-  %1835 = getelementptr inbounds nuw i8, ptr %0, i64 11697
-  store i8 4, ptr %1835, align 1, !tbaa !228
-  %1836 = getelementptr inbounds nuw i8, ptr %0, i64 11201
-  store i8 4, ptr %1836, align 1, !tbaa !228
-  %1837 = getelementptr inbounds nuw i8, ptr %0, i64 10705
-  store i8 4, ptr %1837, align 1, !tbaa !228
-  br label %1838
-
-1838:                                             ; preds = %1833, %1831
-  %1839 = getelementptr inbounds nuw i8, ptr %1821, i64 510
-  %1840 = load i8, ptr %1839, align 2, !tbaa !280, !range !54, !noundef !55
-  %1841 = getelementptr inbounds nuw i8, ptr %0, i64 412420
-  store i8 %1840, ptr %1841, align 4, !tbaa !281
-  %1842 = getelementptr inbounds nuw i8, ptr %0, i64 412422
-  store i8 1, ptr %1842, align 2, !tbaa !282
-  %1843 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  store i32 128, ptr %1843, align 4, !tbaa !283
-  %1844 = getelementptr inbounds nuw i8, ptr %1821, i64 860
-  %1845 = load i32, ptr %1844, align 4, !tbaa !267
-  %1846 = icmp eq i32 %1845, 14
-  br i1 %1846, label %1847, label %1858
-
-1847:                                             ; preds = %1838
+1843:                                             ; preds = %1834
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %58) #35
   store i32 259, ptr %58, align 4, !tbaa !245
-  %1848 = getelementptr inbounds nuw i8, ptr %58, i64 4
-  store i32 110, ptr %1848, align 4, !tbaa !245
-  %1849 = getelementptr inbounds nuw i8, ptr %58, i64 8
-  store i32 261, ptr %1849, align 4, !tbaa !245
-  %1850 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %1851 = load ptr, ptr %1850, align 8, !tbaa !111
-  %.not.i1156 = icmp eq ptr %1851, null
-  %invariant.gep3222 = getelementptr inbounds nuw i8, ptr %0, i64 11438
+  %1844 = getelementptr inbounds nuw i8, ptr %58, i64 4
+  store i32 110, ptr %1844, align 4, !tbaa !245
+  %1845 = getelementptr inbounds nuw i8, ptr %58, i64 8
+  store i32 261, ptr %1845, align 4, !tbaa !245
+  %1846 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %1847 = load ptr, ptr %1846, align 8, !tbaa !111
+  %.not.i1156 = icmp eq ptr %1847, null
+  %invariant.gep3223 = getelementptr inbounds nuw i8, ptr %0, i64 11438
   br label %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i
 
-1852:                                             ; preds = %_ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit.thread2365
+1848:                                             ; preds = %_ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit.thread2366
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %58) #35
-  br label %1858
+  br label %1854
 
-_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i: ; preds = %1847, %_ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit.thread2365
-  %.0680.idx3226 = phi i64 [ 0, %1847 ], [ %.0680.add, %_ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit.thread2365 ]
-  %.0680.ptr = getelementptr inbounds nuw i8, ptr %58, i64 %.0680.idx3226
-  %1853 = load i32, ptr %.0680.ptr, align 4, !tbaa !245
-  br i1 %.not.i1156, label %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i._ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit.thread_crit_edge, label %1854
+_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i: ; preds = %1843, %_ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit.thread2366
+  %.0680.idx3227 = phi i64 [ 0, %1843 ], [ %.0680.add, %_ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit.thread2366 ]
+  %.0680.ptr = getelementptr inbounds nuw i8, ptr %58, i64 %.0680.idx3227
+  %1849 = load i32, ptr %.0680.ptr, align 4, !tbaa !245
+  br i1 %.not.i1156, label %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i._ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit.thread_crit_edge, label %1850
 
 _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i._ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit.thread_crit_edge: ; preds = %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i
-  %.pre3350 = zext i32 %1853 to i64
+  %.pre3356 = zext i32 %1849 to i64
   br label %_ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit.thread
 
-1854:                                             ; preds = %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i
-  %.not.i7.i = icmp ult i32 %1853, 496
-  br i1 %.not.i7.i, label %_ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit, label %_ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit.thread2365
+1850:                                             ; preds = %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i
+  %.not.i7.i = icmp ult i32 %1849, 496
+  br i1 %.not.i7.i, label %_ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit, label %_ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit.thread2366
 
-_ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit: ; preds = %1854
-  %1855 = zext nneg i32 %1853 to i64
-  %gep3223 = getelementptr inbounds nuw i8, ptr %invariant.gep3222, i64 %1855
-  %1856 = load i8, ptr %gep3223, align 1, !tbaa !228
-  %1857 = icmp eq i8 %1856, 2
-  br i1 %1857, label %_ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit.thread, label %_ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit.thread2365
+_ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit: ; preds = %1850
+  %1851 = zext nneg i32 %1849 to i64
+  %gep3224 = getelementptr inbounds nuw i8, ptr %invariant.gep3223, i64 %1851
+  %1852 = load i8, ptr %gep3224, align 1, !tbaa !228
+  %1853 = icmp eq i8 %1852, 2
+  br i1 %1853, label %_ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit.thread, label %_ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit.thread2366
 
 _ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit.thread: ; preds = %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i._ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit.thread_crit_edge, %_ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit
-  %.pre-phi = phi i64 [ %.pre3350, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i._ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit.thread_crit_edge ], [ %1855, %_ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit ]
-  %gep3225 = getelementptr inbounds nuw i8, ptr %invariant.gep3222, i64 %.pre-phi
-  store i8 1, ptr %gep3225, align 1, !tbaa !228
-  br label %_ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit.thread2365
+  %.pre-phi3357 = phi i64 [ %.pre3356, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i._ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit.thread_crit_edge ], [ %1851, %_ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit ]
+  %gep3226 = getelementptr inbounds nuw i8, ptr %invariant.gep3223, i64 %.pre-phi3357
+  store i8 1, ptr %gep3226, align 1, !tbaa !228
+  br label %_ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit.thread2366
 
-_ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit.thread2365: ; preds = %1854, %_ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit.thread, %_ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit
-  %.0680.add = add nuw nsw i64 %.0680.idx3226, 4
+_ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit.thread2366: ; preds = %1850, %_ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit.thread, %_ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit
+  %.0680.add = add nuw nsw i64 %.0680.idx3227, 4
   %.not766 = icmp eq i64 %.0680.add, 12
-  br i1 %.not766, label %1852, label %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i
+  br i1 %.not766, label %1848, label %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i
 
-1858:                                             ; preds = %1852, %1838
+1854:                                             ; preds = %1848, %1834
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %59) #35
   store i32 259, ptr %59, align 4, !tbaa !245
-  %1859 = getelementptr inbounds nuw i8, ptr %59, i64 4
-  store i32 110, ptr %1859, align 4, !tbaa !245
-  %1860 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  store i32 261, ptr %1860, align 4, !tbaa !245
-  %1861 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %1862 = load ptr, ptr %1861, align 8, !tbaa !111
-  %.not.i1159 = icmp eq ptr %1862, null
+  %1855 = getelementptr inbounds nuw i8, ptr %59, i64 4
+  store i32 110, ptr %1855, align 4, !tbaa !245
+  %1856 = getelementptr inbounds nuw i8, ptr %59, i64 8
+  store i32 261, ptr %1856, align 4, !tbaa !245
+  %1857 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %1858 = load ptr, ptr %1857, align 8, !tbaa !111
+  %.not.i1159 = icmp eq ptr %1858, null
   br label %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i1158
 
-1863:                                             ; preds = %_ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit1161.thread2366
+1859:                                             ; preds = %_ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit1161.thread2367
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %59) #35
-  %1864 = getelementptr inbounds nuw i8, ptr %1821, i64 848
-  %1865 = load i32, ptr %1864, align 8, !tbaa !284
-  %1866 = icmp eq i32 %1865, 3
-  %1867 = getelementptr inbounds nuw i8, ptr %1821, i64 852
-  %1868 = load i32, ptr %1867, align 4
-  %1869 = icmp eq i32 %1868, 36
-  %1870 = select i1 %1866, i1 %1869, i1 false
-  br i1 %1870, label %.preheader, label %.loopexit
+  %1860 = getelementptr inbounds nuw i8, ptr %1817, i64 848
+  %1861 = load i32, ptr %1860, align 8, !tbaa !284
+  %1862 = icmp eq i32 %1861, 3
+  %1863 = getelementptr inbounds nuw i8, ptr %1817, i64 852
+  %1864 = load i32, ptr %1863, align 4
+  %1865 = icmp eq i32 %1864, 36
+  %1866 = select i1 %1862, i1 %1865, i1 false
+  br i1 %1866, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %1863
-  %1871 = getelementptr inbounds nuw i8, ptr %60, i64 16
-  %1872 = getelementptr inbounds nuw i8, ptr %60, i64 32
-  %1873 = getelementptr inbounds nuw i8, ptr %60, i64 33
-  br label %1879
+.preheader:                                       ; preds = %1859
+  %1867 = getelementptr inbounds nuw i8, ptr %60, i64 16
+  %1868 = getelementptr inbounds nuw i8, ptr %60, i64 32
+  %1869 = getelementptr inbounds nuw i8, ptr %60, i64 33
+  br label %1875
 
-_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i1158: ; preds = %1858, %_ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit1161.thread2366
-  %.0676.idx3231 = phi i64 [ 0, %1858 ], [ %.0676.add, %_ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit1161.thread2366 ]
-  %.0676.ptr = getelementptr inbounds nuw i8, ptr %59, i64 %.0676.idx3231
-  %1874 = load i32, ptr %.0676.ptr, align 4, !tbaa !245
-  br i1 %.not.i1159, label %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i1158._ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit1161.thread_crit_edge, label %1875
+_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i1158: ; preds = %1854, %_ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit1161.thread2367
+  %.0676.idx3232 = phi i64 [ 0, %1854 ], [ %.0676.add, %_ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit1161.thread2367 ]
+  %.0676.ptr = getelementptr inbounds nuw i8, ptr %59, i64 %.0676.idx3232
+  %1870 = load i32, ptr %.0676.ptr, align 4, !tbaa !245
+  br i1 %.not.i1159, label %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i1158._ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit1161.thread_crit_edge, label %1871
 
 _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i1158._ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit1161.thread_crit_edge: ; preds = %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i1158
-  %.pre3351 = zext i32 %1874 to i64
+  %.pre3358 = zext i32 %1870 to i64
   br label %_ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit1161.thread
 
-1875:                                             ; preds = %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i1158
-  %.not.i7.i1160 = icmp ult i32 %1874, 496
-  br i1 %.not.i7.i1160, label %_ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit1161, label %_ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit1161.thread2366
+1871:                                             ; preds = %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i1158
+  %.not.i7.i1160 = icmp ult i32 %1870, 496
+  br i1 %.not.i7.i1160, label %_ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit1161, label %_ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit1161.thread2367
 
-_ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit1161: ; preds = %1875
-  %1876 = zext nneg i32 %1874 to i64
-  %gep3228 = getelementptr inbounds nuw i8, ptr %invariant.gep2664, i64 %1876
-  %1877 = load i8, ptr %gep3228, align 1, !tbaa !228
-  %1878 = icmp eq i8 %1877, 2
-  br i1 %1878, label %_ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit1161.thread, label %_ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit1161.thread2366
+_ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit1161: ; preds = %1871
+  %1872 = zext nneg i32 %1870 to i64
+  %gep3229 = getelementptr inbounds nuw i8, ptr %invariant.gep2665, i64 %1872
+  %1873 = load i8, ptr %gep3229, align 1, !tbaa !228
+  %1874 = icmp eq i8 %1873, 2
+  br i1 %1874, label %_ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit1161.thread, label %_ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit1161.thread2367
 
 _ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit1161.thread: ; preds = %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i1158._ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit1161.thread_crit_edge, %_ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit1161
-  %.pre-phi3352 = phi i64 [ %.pre3351, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i1158._ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit1161.thread_crit_edge ], [ %1876, %_ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit1161 ]
-  %gep3230 = getelementptr inbounds nuw i8, ptr %invariant.gep2664, i64 %.pre-phi3352
-  store i8 1, ptr %gep3230, align 1, !tbaa !228
-  br label %_ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit1161.thread2366
+  %.pre-phi3359 = phi i64 [ %.pre3358, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i1158._ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit1161.thread_crit_edge ], [ %1872, %_ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit1161 ]
+  %gep3231 = getelementptr inbounds nuw i8, ptr %invariant.gep2665, i64 %.pre-phi3359
+  store i8 1, ptr %gep3231, align 1, !tbaa !228
+  br label %_ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit1161.thread2367
 
-_ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit1161.thread2366: ; preds = %1875, %_ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit1161.thread, %_ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit1161
-  %.0676.add = add nuw nsw i64 %.0676.idx3231, 4
+_ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit1161.thread2367: ; preds = %1871, %_ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit1161.thread, %_ZNK4llvm18TargetLoweringBase17isOperationExpandEjNS_3EVTE.exit1161
+  %.0676.add = add nuw nsw i64 %.0676.idx3232, 4
   %.not767 = icmp eq i64 %.0676.add, 12
-  br i1 %.not767, label %1863, label %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i1158
+  br i1 %.not767, label %1859, label %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.i1158
 
-1879:                                             ; preds = %.preheader, %1888
-  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %1888 ]
-  %1880 = getelementptr inbounds nuw [718 x ptr], ptr %892, i64 0, i64 %indvars.iv
-  %1881 = load ptr, ptr %1880, align 8, !tbaa !48
-  %.not768 = icmp eq ptr %1881, null
-  br i1 %.not768, label %1888, label %1882
+1875:                                             ; preds = %.preheader, %1884
+  %indvars.iv = phi i64 [ 0, %.preheader ], [ %indvars.iv.next, %1884 ]
+  %1876 = getelementptr inbounds nuw [718 x ptr], ptr %892, i64 0, i64 %indvars.iv
+  %1877 = load ptr, ptr %1876, align 8, !tbaa !48
+  %.not768 = icmp eq ptr %1877, null
+  br i1 %.not768, label %1884, label %1878
 
-1882:                                             ; preds = %1879
-  %1883 = load i8, ptr %1881, align 1, !tbaa !254
-  %.not769 = icmp eq i8 %1883, 35
-  br i1 %.not769, label %1888, label %1884
+1878:                                             ; preds = %1875
+  %1879 = load i8, ptr %1877, align 1, !tbaa !254
+  %.not769 = icmp eq i8 %1879, 35
+  br i1 %.not769, label %1884, label %1880
 
-1884:                                             ; preds = %1882
+1880:                                             ; preds = %1878
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %60) #35
-  %.not.i1162 = icmp eq i8 %1883, 0
+  %.not.i1162 = icmp eq i8 %1879, 0
   store ptr @.str.144, ptr %60, align 8
-  br i1 %.not.i1162, label %_ZN4llvmplERKNS_5TwineES2_.exit, label %1885
+  br i1 %.not.i1162, label %_ZN4llvmplERKNS_5TwineES2_.exit, label %1881
 
-1885:                                             ; preds = %1884
-  store ptr %1881, ptr %1871, align 8, !alias.scope !285
+1881:                                             ; preds = %1880
+  store ptr %1877, ptr %1867, align 8, !alias.scope !285
   br label %_ZN4llvmplERKNS_5TwineES2_.exit
 
-_ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %1884, %1885
-  %.sink3451 = phi i8 [ 3, %1885 ], [ 1, %1884 ]
-  store i8 3, ptr %1872, align 8, !tbaa !290
-  store i8 %.sink3451, ptr %1873, align 1, !tbaa !290
-  %1886 = call { ptr, i64 } @_ZN4llvm11StringSaver4saveERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(8) %71, ptr noundef nonnull align 8 dereferenceable(34) %60) #35
-  %1887 = extractvalue { ptr, i64 } %1886, 0
-  store ptr %1887, ptr %1880, align 8, !tbaa !48
+_ZN4llvmplERKNS_5TwineES2_.exit:                  ; preds = %1880, %1881
+  %.sink3459 = phi i8 [ 3, %1881 ], [ 1, %1880 ]
+  store i8 3, ptr %1868, align 8, !tbaa !290
+  store i8 %.sink3459, ptr %1869, align 1, !tbaa !290
+  %1882 = call { ptr, i64 } @_ZN4llvm11StringSaver4saveERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(8) %71, ptr noundef nonnull align 8 dereferenceable(34) %60) #35
+  %1883 = extractvalue { ptr, i64 } %1882, 0
+  store ptr %1883, ptr %1876, align 8, !tbaa !48
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %60) #35
-  br label %1888
+  br label %1884
 
-1888:                                             ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit, %1882, %1879
+1884:                                             ; preds = %_ZN4llvmplERKNS_5TwineES2_.exit, %1878, %1875
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 717
-  br i1 %exitcond.not, label %.loopexit, label %1879, !llvm.loop !292
+  br i1 %exitcond.not, label %.loopexit, label %1875, !llvm.loop !292
 
-.loopexit:                                        ; preds = %1888, %1863
+.loopexit:                                        ; preds = %1884, %1859
   ret void
 }
 

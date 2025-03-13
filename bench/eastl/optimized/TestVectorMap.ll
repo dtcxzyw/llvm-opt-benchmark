@@ -149229,6 +149229,7 @@ if.end55:                                         ; preds = %_ZN5eastl13DequeIte
 
 _ZN10TestObjectaSEOS_.exit.thread.i:              ; preds = %if.end55
   %inc.i212.i = add nsw i64 %77, 2
+  %.pre145 = load i32, ptr %mMagicValue.i5.i, align 8
   br label %invoke.cont58
 
 if.then.i4.i:                                     ; preds = %if.end55
@@ -149252,7 +149253,6 @@ if.then.i4.i:                                     ; preds = %if.end55
   %84 = load i32, ptr %mMagicValue.i5.i135, align 4
   %85 = load i32, ptr %mMagicValue.i5.i, align 8
   store i32 %85, ptr %mMagicValue.i5.i135, align 4
-  store i32 %84, ptr %mMagicValue.i5.i, align 8
   %mbThrowOnCopy.i7.i = getelementptr inbounds nuw i8, ptr %78, i64 28
   %86 = load i8, ptr %mbThrowOnCopy.i2.i, align 4
   %frombool3.i.i10.i = and i8 %86, 1
@@ -149260,9 +149260,9 @@ if.then.i4.i:                                     ; preds = %if.end55
   br label %invoke.cont58
 
 invoke.cont58:                                    ; preds = %if.then.i4.i, %_ZN10TestObjectaSEOS_.exit.thread.i
+  %87 = phi i32 [ %.pre145, %_ZN10TestObjectaSEOS_.exit.thread.i ], [ %84, %if.then.i4.i ]
   %inc.i2.i.sink = phi i64 [ %inc.i212.i, %_ZN10TestObjectaSEOS_.exit.thread.i ], [ %inc.i2.i, %if.then.i4.i ]
   store i64 %inc.i2.i.sink, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8
-  %87 = load i32, ptr %mMagicValue.i5.i, align 8
   %cmp.not.i.i137 = icmp eq i32 %87, 32623592
   br i1 %cmp.not.i.i137, label %_ZN10TestObjectD2Ev.exit.i, label %if.then.i.i138
 
@@ -158984,6 +158984,7 @@ if.end55:                                         ; preds = %_ZN5eastl13DequeIte
 
 _ZN10TestObjectaSEOS_.exit.thread.i:              ; preds = %if.end55
   %inc.i212.i = add nsw i64 %72, 2
+  %.pre144 = load i32, ptr %mMagicValue.i5.i, align 8
   br label %invoke.cont58
 
 if.then.i4.i:                                     ; preds = %if.end55
@@ -159007,7 +159008,6 @@ if.then.i4.i:                                     ; preds = %if.end55
   %79 = load i32, ptr %mMagicValue.i5.i134, align 4
   %80 = load i32, ptr %mMagicValue.i5.i, align 8
   store i32 %80, ptr %mMagicValue.i5.i134, align 4
-  store i32 %79, ptr %mMagicValue.i5.i, align 8
   %mbThrowOnCopy.i7.i = getelementptr inbounds nuw i8, ptr %73, i64 28
   %81 = load i8, ptr %mbThrowOnCopy.i2.i, align 4
   %frombool3.i.i10.i = and i8 %81, 1
@@ -159015,9 +159015,9 @@ if.then.i4.i:                                     ; preds = %if.end55
   br label %invoke.cont58
 
 invoke.cont58:                                    ; preds = %if.then.i4.i, %_ZN10TestObjectaSEOS_.exit.thread.i
+  %82 = phi i32 [ %.pre144, %_ZN10TestObjectaSEOS_.exit.thread.i ], [ %79, %if.then.i4.i ]
   %inc.i2.i.sink = phi i64 [ %inc.i212.i, %_ZN10TestObjectaSEOS_.exit.thread.i ], [ %inc.i2.i, %if.then.i4.i ]
   store i64 %inc.i2.i.sink, ptr @_ZN10TestObject18sTOMoveAssignCountE, align 8
-  %82 = load i32, ptr %mMagicValue.i5.i, align 8
   %cmp.not.i.i136 = icmp eq i32 %82, 32623592
   br i1 %cmp.not.i.i136, label %_ZN10TestObjectD2Ev.exit.i, label %if.then.i.i137
 

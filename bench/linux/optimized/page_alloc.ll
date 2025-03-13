@@ -10664,7 +10664,6 @@ define internal fastcc void @steal_suitable_fallback(ptr noundef nonnull %0, ptr
   %8 = load i64, ptr %7, align 8
   %9 = trunc i64 %8 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #22
-  store i32 0, ptr %6, align 4, !annotation !91
   %10 = load i64, ptr @vmemmap_base, align 8
   %11 = ptrtoint ptr %1 to i64
   %12 = sub i64 %11, %10
@@ -10857,6 +10856,7 @@ define internal fastcc void @steal_suitable_fallback(ptr noundef nonnull %0, ptr
   br i1 %4, label %140, label %.loopexit17
 
 140:                                              ; preds = %.thread
+  store i32 0, ptr %6, align 4, !annotation !91
   %141 = call i32 @move_freepages_block(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %3, ptr noundef nonnull %6)
   %142 = icmp eq i32 %141, 0
   br i1 %142, label %.loopexit17, label %143

@@ -145,7 +145,7 @@ define ptr @X509_PUBKEY_dup(ptr noundef readonly captures(none) %0) local_unname
   %3 = tail call noalias ptr @CRYPTO_zalloc(i64 noundef 48, ptr noundef nonnull @.str, i32 noundef 285) #9
   store ptr %3, ptr %2, align 8, !tbaa !3
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %x509_pubkey_ex_free.exit, label %5
+  br i1 %4, label %61, label %5
 
 5:                                                ; preds = %1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -165,101 +165,101 @@ define ptr @X509_PUBKEY_dup(ptr noundef readonly captures(none) %0) local_unname
   %14 = tail call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %9, ptr noundef nonnull @.str, i32 noundef 55) #9
   store ptr %14, ptr %11, align 8, !tbaa !16
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %16, label %x509_pubkey_set0_libctx.exit
+  br i1 %15, label %x509_pubkey_ex_free.exit, label %x509_pubkey_set0_libctx.exit
 
-16:                                               ; preds = %13
+x509_pubkey_ex_free.exit:                         ; preds = %13
   tail call void @ERR_new() #9
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 290, ptr noundef nonnull @__func__.X509_PUBKEY_dup) #9
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 11, i32 noundef 524299, ptr noundef null) #9
-  %17 = load ptr, ptr %3, align 8, !tbaa !17
-  tail call void @X509_ALGOR_free(ptr noundef %17) #9
-  %18 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %19 = load ptr, ptr %18, align 8, !tbaa !18
-  tail call void @ASN1_BIT_STRING_free(ptr noundef %19) #9
-  %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %21 = load ptr, ptr %20, align 8, !tbaa !19
-  tail call void @EVP_PKEY_free(ptr noundef %21) #9
-  %22 = load ptr, ptr %11, align 8, !tbaa !16
-  tail call void @CRYPTO_free(ptr noundef %22, ptr noundef nonnull @.str, i32 noundef 94) #9
+  %16 = load ptr, ptr %3, align 8, !tbaa !17
+  tail call void @X509_ALGOR_free(ptr noundef %16) #9
+  %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %18 = load ptr, ptr %17, align 8, !tbaa !18
+  tail call void @ASN1_BIT_STRING_free(ptr noundef %18) #9
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %20 = load ptr, ptr %19, align 8, !tbaa !19
+  tail call void @EVP_PKEY_free(ptr noundef %20) #9
+  %21 = load ptr, ptr %11, align 8, !tbaa !16
+  tail call void @CRYPTO_free(ptr noundef %21, ptr noundef nonnull @.str, i32 noundef 94) #9
   tail call void @CRYPTO_free(ptr noundef nonnull %3, ptr noundef nonnull @.str, i32 noundef 95) #9
-  br label %x509_pubkey_ex_free.exit
+  br label %61
 
 x509_pubkey_set0_libctx.exit:                     ; preds = %13, %5
-  %23 = load ptr, ptr %0, align 8, !tbaa !17
-  %24 = tail call ptr @X509_ALGOR_dup(ptr noundef %23) #9
-  store ptr %24, ptr %3, align 8, !tbaa !17
-  %25 = icmp eq ptr %24, null
-  br i1 %25, label %x509_pubkey_ex_free.exit14, label %26
+  %22 = load ptr, ptr %0, align 8, !tbaa !17
+  %23 = tail call ptr @X509_ALGOR_dup(ptr noundef %22) #9
+  store ptr %23, ptr %3, align 8, !tbaa !17
+  %24 = icmp eq ptr %23, null
+  br i1 %24, label %x509_pubkey_ex_free.exit14, label %25
 
-26:                                               ; preds = %x509_pubkey_set0_libctx.exit
-  %27 = tail call ptr @ASN1_BIT_STRING_new() #9
-  %28 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %27, ptr %28, align 8, !tbaa !18
-  %29 = icmp eq ptr %27, null
-  br i1 %29, label %x509_pubkey_ex_free.exit14, label %30
+25:                                               ; preds = %x509_pubkey_set0_libctx.exit
+  %26 = tail call ptr @ASN1_BIT_STRING_new() #9
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %26, ptr %27, align 8, !tbaa !18
+  %28 = icmp eq ptr %26, null
+  br i1 %28, label %x509_pubkey_ex_free.exit14, label %29
 
-30:                                               ; preds = %26
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %32 = load ptr, ptr %31, align 8, !tbaa !18
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %34 = load ptr, ptr %33, align 8, !tbaa !20
-  %35 = load i32, ptr %32, align 8, !tbaa !23
-  %36 = tail call i32 @ASN1_BIT_STRING_set(ptr noundef nonnull %27, ptr noundef %34, i32 noundef %35) #9
-  %.not9 = icmp eq i32 %36, 0
-  br i1 %.not9, label %x509_pubkey_ex_free.exit14, label %43
+29:                                               ; preds = %25
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %31 = load ptr, ptr %30, align 8, !tbaa !18
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  %33 = load ptr, ptr %32, align 8, !tbaa !20
+  %34 = load i32, ptr %31, align 8, !tbaa !23
+  %35 = tail call i32 @ASN1_BIT_STRING_set(ptr noundef nonnull %26, ptr noundef %33, i32 noundef %34) #9
+  %.not9 = icmp eq i32 %35, 0
+  br i1 %.not9, label %x509_pubkey_ex_free.exit14, label %42
 
-x509_pubkey_ex_free.exit14:                       ; preds = %30, %26, %x509_pubkey_set0_libctx.exit
-  %37 = load ptr, ptr %3, align 8, !tbaa !17
-  tail call void @X509_ALGOR_free(ptr noundef %37) #9
-  %38 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %39 = load ptr, ptr %38, align 8, !tbaa !18
-  tail call void @ASN1_BIT_STRING_free(ptr noundef %39) #9
-  %40 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %41 = load ptr, ptr %40, align 8, !tbaa !19
-  tail call void @EVP_PKEY_free(ptr noundef %41) #9
-  %42 = load ptr, ptr %11, align 8, !tbaa !16
-  tail call void @CRYPTO_free(ptr noundef %42, ptr noundef nonnull @.str, i32 noundef 94) #9
+x509_pubkey_ex_free.exit14:                       ; preds = %29, %25, %x509_pubkey_set0_libctx.exit
+  %36 = load ptr, ptr %3, align 8, !tbaa !17
+  tail call void @X509_ALGOR_free(ptr noundef %36) #9
+  %37 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %38 = load ptr, ptr %37, align 8, !tbaa !18
+  tail call void @ASN1_BIT_STRING_free(ptr noundef %38) #9
+  %39 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %40 = load ptr, ptr %39, align 8, !tbaa !19
+  tail call void @EVP_PKEY_free(ptr noundef %40) #9
+  %41 = load ptr, ptr %11, align 8, !tbaa !16
+  tail call void @CRYPTO_free(ptr noundef %41, ptr noundef nonnull @.str, i32 noundef 94) #9
   tail call void @CRYPTO_free(ptr noundef nonnull %3, ptr noundef nonnull @.str, i32 noundef 95) #9
   tail call void @ERR_new() #9
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 302, ptr noundef nonnull @__func__.X509_PUBKEY_dup) #9
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 11, i32 noundef 524301, ptr noundef null) #9
-  br label %x509_pubkey_ex_free.exit
+  br label %61
 
-43:                                               ; preds = %30
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %45 = load ptr, ptr %44, align 8, !tbaa !19
-  %.not10 = icmp eq ptr %45, null
-  br i1 %.not10, label %x509_pubkey_ex_free.exit, label %46
+42:                                               ; preds = %29
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %44 = load ptr, ptr %43, align 8, !tbaa !19
+  %.not10 = icmp eq ptr %44, null
+  br i1 %.not10, label %61, label %45
 
-46:                                               ; preds = %43
-  %47 = tail call i32 @ERR_set_mark() #9
-  %48 = load ptr, ptr %44, align 8, !tbaa !19
-  %49 = tail call ptr @EVP_PKEY_dup(ptr noundef %48) #9
-  %50 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %49, ptr %50, align 8, !tbaa !19
-  %51 = icmp eq ptr %49, null
-  br i1 %51, label %52, label %60
+45:                                               ; preds = %42
+  %46 = tail call i32 @ERR_set_mark() #9
+  %47 = load ptr, ptr %43, align 8, !tbaa !19
+  %48 = tail call ptr @EVP_PKEY_dup(ptr noundef %47) #9
+  %49 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr %48, ptr %49, align 8, !tbaa !19
+  %50 = icmp eq ptr %48, null
+  br i1 %50, label %51, label %59
 
-52:                                               ; preds = %46
-  %53 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %54 = load i8, ptr %53, align 8
-  %55 = or i8 %54, 1
-  store i8 %55, ptr %53, align 8
-  %56 = tail call fastcc i32 @x509_pubkey_decode(ptr noundef nonnull %50, ptr noundef nonnull %3)
-  %57 = icmp slt i32 %56, 1
-  br i1 %57, label %58, label %60
+51:                                               ; preds = %45
+  %52 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %53 = load i8, ptr %52, align 8
+  %54 = or i8 %53, 1
+  store i8 %54, ptr %52, align 8
+  %55 = tail call fastcc i32 @x509_pubkey_decode(ptr noundef nonnull %49, ptr noundef nonnull %3)
+  %56 = icmp slt i32 %55, 1
+  br i1 %56, label %57, label %59
 
-58:                                               ; preds = %52
+57:                                               ; preds = %51
   call void @x509_pubkey_ex_free(ptr noundef nonnull %2, ptr nonnull poison)
-  %59 = call i32 @ERR_clear_last_mark() #9
-  br label %x509_pubkey_ex_free.exit
+  %58 = call i32 @ERR_clear_last_mark() #9
+  br label %61
 
-60:                                               ; preds = %52, %46
-  %61 = tail call i32 @ERR_pop_to_mark() #9
-  br label %x509_pubkey_ex_free.exit
+59:                                               ; preds = %51, %45
+  %60 = tail call i32 @ERR_pop_to_mark() #9
+  br label %61
 
-x509_pubkey_ex_free.exit:                         ; preds = %43, %60, %16, %1, %58, %x509_pubkey_ex_free.exit14
-  %.0 = phi ptr [ null, %x509_pubkey_ex_free.exit14 ], [ null, %58 ], [ null, %1 ], [ null, %16 ], [ %3, %60 ], [ %3, %43 ]
+61:                                               ; preds = %42, %59, %1, %57, %x509_pubkey_ex_free.exit14, %x509_pubkey_ex_free.exit
+  %.0 = phi ptr [ null, %x509_pubkey_ex_free.exit14 ], [ null, %57 ], [ null, %x509_pubkey_ex_free.exit ], [ null, %1 ], [ %3, %59 ], [ %3, %42 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
   ret ptr %.0
 }

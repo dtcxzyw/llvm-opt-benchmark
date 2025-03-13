@@ -1064,7 +1064,7 @@ define range(i32 0, 2) i32 @opt_cipher(ptr noundef %0, ptr noundef writeonly cap
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #20
   store ptr null, ptr %3, align 8, !tbaa !25
   %4 = icmp eq ptr %0, null
-  br i1 %4, label %23, label %5
+  br i1 %4, label %21, label %5
 
 5:                                                ; preds = %2
   %6 = call i32 @opt_cipher_silent(ptr noundef nonnull %0, ptr noundef nonnull %3)
@@ -1073,40 +1073,38 @@ define range(i32 0, 2) i32 @opt_cipher(ptr noundef %0, ptr noundef writeonly cap
 
 opt_cipher_any.exit.thread:                       ; preds = %5
   %8 = call i32 (ptr, ...) @opt_printf_stderr(ptr noundef nonnull @.str.20, ptr noundef nonnull @prog, ptr noundef nonnull %0) #20
-  br label %23
+  br label %21
 
 opt_cipher_any.exit:                              ; preds = %5
   %9 = load ptr, ptr %3, align 8, !tbaa !25
   %10 = call i32 @EVP_CIPHER_get_mode(ptr noundef %9) #20
-  %11 = load ptr, ptr %3, align 8, !tbaa !25
-  %12 = call i64 @EVP_CIPHER_get_flags(ptr noundef %11) #20
-  %13 = icmp eq i32 %10, 65537
-  br i1 %13, label %14, label %16
+  %11 = call i64 @EVP_CIPHER_get_flags(ptr noundef %9) #20
+  %12 = icmp eq i32 %10, 65537
+  br i1 %12, label %13, label %15
 
-14:                                               ; preds = %opt_cipher_any.exit
-  %15 = call i32 (ptr, ...) @opt_printf_stderr(ptr noundef nonnull @.str.21, ptr noundef nonnull @prog) #20
-  br label %23
+13:                                               ; preds = %opt_cipher_any.exit
+  %14 = call i32 (ptr, ...) @opt_printf_stderr(ptr noundef nonnull @.str.21, ptr noundef nonnull @prog) #20
+  br label %21
 
-16:                                               ; preds = %opt_cipher_any.exit
-  %17 = and i64 %12, 2097152
-  %.not10 = icmp eq i64 %17, 0
-  br i1 %.not10, label %20, label %18
+15:                                               ; preds = %opt_cipher_any.exit
+  %16 = and i64 %11, 2097152
+  %.not10 = icmp eq i64 %16, 0
+  br i1 %.not10, label %19, label %17
 
-18:                                               ; preds = %16
-  %19 = call i32 (ptr, ...) @opt_printf_stderr(ptr noundef nonnull @.str.22, ptr noundef nonnull @prog) #20
-  br label %23
+17:                                               ; preds = %15
+  %18 = call i32 (ptr, ...) @opt_printf_stderr(ptr noundef nonnull @.str.22, ptr noundef nonnull @prog) #20
+  br label %21
 
-20:                                               ; preds = %16
+19:                                               ; preds = %15
   %.not11 = icmp eq ptr %1, null
-  br i1 %.not11, label %23, label %21
+  br i1 %.not11, label %21, label %20
 
-21:                                               ; preds = %20
-  %22 = load ptr, ptr %3, align 8, !tbaa !25
-  store ptr %22, ptr %1, align 8, !tbaa !25
-  br label %23
+20:                                               ; preds = %19
+  store ptr %9, ptr %1, align 8, !tbaa !25
+  br label %21
 
-23:                                               ; preds = %opt_cipher_any.exit.thread, %18, %21, %20, %14, %2
-  %.0 = phi i32 [ 1, %2 ], [ 0, %14 ], [ 0, %18 ], [ 1, %21 ], [ 1, %20 ], [ 0, %opt_cipher_any.exit.thread ]
+21:                                               ; preds = %opt_cipher_any.exit.thread, %17, %20, %19, %13, %2
+  %.0 = phi i32 [ 1, %2 ], [ 0, %13 ], [ 0, %17 ], [ 1, %20 ], [ 1, %19 ], [ 0, %opt_cipher_any.exit.thread ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #20
   ret i32 %.0
 }

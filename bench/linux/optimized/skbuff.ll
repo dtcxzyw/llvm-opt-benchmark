@@ -1123,7 +1123,6 @@ define dso_local ptr @__alloc_skb(i32 noundef %0, i32 noundef %1, i32 noundef %2
   %6 = alloca i8, align 1
   store i32 %0, ptr %5, align 4
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #23
-  store i8 0, ptr %6, align 1, !annotation !22
   %7 = and i32 %2, 1
   %8 = icmp eq i32 %7, 0
   %9 = load ptr, ptr @skbuff_fclone_cache, align 8
@@ -1194,6 +1193,7 @@ define dso_local ptr @__alloc_skb(i32 noundef %0, i32 noundef %1, i32 noundef %2
   br i1 %52, label %.thread, label %53, !prof !42
 
 53:                                               ; preds = %50
+  store i8 0, ptr %6, align 1, !annotation !22
   tail call void asm sideeffect "# ALT: oldnstr\0A661:\0A\09prefetcht0 ${1:P}\0A662:\0A# ALT: padding\0A.skip -(((6651f-6641f)-(662b-661b)) > 0) * ((6651f-6641f)-(662b-661b)),0x90\0A663:\0A.pushsection .altinstructions,\22a\22\0A .long 661b - .\0A .long 6641f - .\0A .4byte ( 6*32+ 8)\0A .byte 663b-661b\0A .byte 6651f-6641f\0A.popsection\0A.pushsection .altinstr_replacement, \22ax\22\0A# ALT: replacement 1\0A6641:\0A\09prefetchw ${1:P}\0A6651:\0A.popsection\0A", "i,*m,~{dirflag},~{fpsr},~{flags}"(i32 0, ptr nonnull elementtype(i8) %51) #23, !srcloc !43
   %54 = call fastcc ptr @kmalloc_reserve(ptr noundef nonnull %5, i32 noundef %19, i32 noundef %3, ptr noundef nonnull %6)
   %55 = icmp eq ptr %54, null

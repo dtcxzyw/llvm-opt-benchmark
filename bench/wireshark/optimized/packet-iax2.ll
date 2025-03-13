@@ -3448,7 +3448,7 @@ define internal fastcc ptr @iax2_get_packet_data_for_minipacket(ptr noundef %0, 
   %6 = load i32, ptr @proto_iax2, align 4
   %7 = tail call ptr @p_get_proto_data(ptr noundef %5, ptr noundef %0, i32 noundef %6, i32 noundef 0)
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %8, label %25
+  br i1 %.not, label %8, label %24
 
 8:                                                ; preds = %3
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #15
@@ -3472,45 +3472,44 @@ define internal fastcc ptr @iax2_get_packet_data_for_minipacket(ptr noundef %0, 
   %20 = load i32, ptr @proto_iax2, align 4
   call void @p_add_proto_data(ptr noundef %19, ptr noundef %0, i32 noundef %20, i32 noundef 0, ptr noundef %13)
   %.not19 = icmp eq ptr %10, null
-  br i1 %.not19, label %24, label %.sink.split
+  br i1 %.not19, label %23, label %.sink.split
 
 .sink.split:                                      ; preds = %8
-  %21 = load i8, ptr %4, align 1, !range !6, !noundef !7
-  %22 = trunc nuw i8 %21 to i1
-  %.in20.v = select i1 %22, i64 16, i64 12
-  %.in.v = select i1 %22, i64 8, i64 4
+  %21 = trunc nuw i8 %11 to i1
+  %.in20.v = select i1 %21, i64 16, i64 12
+  %.in.v = select i1 %21, i64 8, i64 4
   %.in20.v.sink = select i1 %2, i64 %.in20.v, i64 %.in.v
   %.in20 = getelementptr inbounds nuw i8, ptr %10, i64 %.in20.v.sink
-  %23 = load i32, ptr %.in20, align 4
-  store i32 %23, ptr %15, align 8
+  %22 = load i32, ptr %.in20, align 4
+  store i32 %22, ptr %15, align 8
+  br label %23
+
+23:                                               ; preds = %.sink.split, %8
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #15
   br label %24
 
-24:                                               ; preds = %.sink.split, %8
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %4) #15
-  br label %25
+24:                                               ; preds = %23, %3
+  %.0 = phi ptr [ %7, %3 ], [ %13, %23 ]
+  %25 = getelementptr inbounds nuw i8, ptr %.0, i64 8
+  %26 = load ptr, ptr %25, align 8
+  %.not.i = icmp eq ptr %26, null
+  br i1 %.not.i, label %iax2_populate_pinfo_from_packet_data.exit, label %27
 
-25:                                               ; preds = %24, %3
-  %.0 = phi ptr [ %7, %3 ], [ %13, %24 ]
-  %26 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  %27 = load ptr, ptr %26, align 8
-  %.not.i = icmp eq ptr %27, null
-  br i1 %.not.i, label %iax2_populate_pinfo_from_packet_data.exit, label %28
-
-28:                                               ; preds = %25
-  %29 = getelementptr inbounds nuw i8, ptr %.0, i64 20
-  %30 = load i8, ptr %29, align 4, !range !6, !noundef !7
-  %31 = zext nneg i8 %30 to i32
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 348
-  store i32 %31, ptr %32, align 4
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %34 = load ptr, ptr %33, align 8
-  %35 = load i8, ptr %29, align 4, !range !6, !noundef !7
-  %36 = trunc nuw i8 %35 to i1
-  %37 = select i1 %36, ptr @.str.506, ptr @.str.507
-  call void @col_set_str(ptr noundef %34, i32 noundef 14, ptr noundef nonnull %37)
+27:                                               ; preds = %24
+  %28 = getelementptr inbounds nuw i8, ptr %.0, i64 20
+  %29 = load i8, ptr %28, align 4, !range !6, !noundef !7
+  %30 = zext nneg i8 %29 to i32
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 348
+  store i32 %30, ptr %31, align 4
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %33 = load ptr, ptr %32, align 8
+  %34 = load i8, ptr %28, align 4, !range !6, !noundef !7
+  %35 = trunc nuw i8 %34 to i1
+  %36 = select i1 %35, ptr @.str.506, ptr @.str.507
+  call void @col_set_str(ptr noundef %33, i32 noundef 14, ptr noundef nonnull %36)
   br label %iax2_populate_pinfo_from_packet_data.exit
 
-iax2_populate_pinfo_from_packet_data.exit:        ; preds = %25, %28
+iax2_populate_pinfo_from_packet_data.exit:        ; preds = %24, %27
   ret ptr %.0
 }
 

@@ -1043,7 +1043,6 @@ generate_setop_grouplist.exit122:                 ; preds = %.lr.ph8.i115, %list
   %413 = load ptr, ptr %12, align 8
   store ptr %343, ptr %12, align 8
   store double %410, ptr %16, align 8
-  store double %409, ptr %17, align 8
   br label %414
 
 414:                                              ; preds = %412, %408, %406

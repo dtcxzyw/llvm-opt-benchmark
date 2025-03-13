@@ -3001,60 +3001,60 @@ freeClusterData.exit.i:                           ; preds = %376, %._crit_edge15
   br label %384
 
 384:                                              ; preds = %378, %freeClusterData.exit.i, %164
+  %385 = phi ptr [ %379, %378 ], [ %165, %164 ], [ %370, %freeClusterData.exit.i ]
   %.1.i = phi i32 [ %383, %378 ], [ %169, %164 ], [ %374, %freeClusterData.exit.i ]
-  %385 = icmp slt i32 %.1.i, 0
-  br i1 %385, label %386, label %388
+  %386 = icmp slt i32 %.1.i, 0
+  br i1 %386, label %387, label %389
 
-386:                                              ; preds = %384
-  %387 = call i32 (i32, ptr, ...) @agerr(i32 noundef 3, ptr noundef nonnull @.str.72) #22
+387:                                              ; preds = %384
+  %388 = call i32 (i32, ptr, ...) @agerr(i32 noundef 3, ptr noundef nonnull @.str.72) #22
   br label %majorization.exit
 
-388:                                              ; preds = %384
-  %389 = call ptr @agfstnode(ptr noundef %1) #22
-  %.not101155.i = icmp eq ptr %389, null
+389:                                              ; preds = %384
+  %390 = call ptr @agfstnode(ptr noundef %1) #22
+  %.not101155.i = icmp eq ptr %390, null
   br i1 %.not101155.i, label %majorization.exit, label %.lr.ph158.i
 
-.lr.ph158.i:                                      ; preds = %388, %._crit_edge154.i
-  %.186156.i = phi ptr [ %398, %._crit_edge154.i ], [ %389, %388 ]
-  %390 = load i16, ptr @Ndim, align 2, !tbaa !43
-  %.not159.i = icmp eq i16 %390, 0
+.lr.ph158.i:                                      ; preds = %389, %._crit_edge154.i
+  %.186156.i = phi ptr [ %399, %._crit_edge154.i ], [ %390, %389 ]
+  %391 = load i16, ptr @Ndim, align 2, !tbaa !43
+  %.not159.i = icmp eq i16 %391, 0
   br i1 %.not159.i, label %._crit_edge154.i, label %.lr.ph153.i
 
 .lr.ph153.i:                                      ; preds = %.lr.ph158.i
-  %391 = getelementptr inbounds nuw i8, ptr %.186156.i, i64 16
-  %392 = load ptr, ptr %391, align 8, !tbaa !3
-  %393 = getelementptr inbounds nuw i8, ptr %392, i64 164
-  %394 = load i32, ptr %393, align 4, !tbaa !169
-  %395 = sext i32 %394 to i64
-  %396 = getelementptr inbounds nuw i8, ptr %392, i64 176
-  %397 = load ptr, ptr %396, align 8, !tbaa !34
-  %wide.trip.count166.i = zext i16 %390 to i64
-  br label %399
+  %392 = getelementptr inbounds nuw i8, ptr %.186156.i, i64 16
+  %393 = load ptr, ptr %392, align 8, !tbaa !3
+  %394 = getelementptr inbounds nuw i8, ptr %393, i64 164
+  %395 = load i32, ptr %394, align 4, !tbaa !169
+  %396 = sext i32 %395 to i64
+  %397 = getelementptr inbounds nuw i8, ptr %393, i64 176
+  %398 = load ptr, ptr %397, align 8, !tbaa !34
+  %wide.trip.count166.i = zext i16 %391 to i64
+  br label %400
 
-._crit_edge154.i:                                 ; preds = %399, %.lr.ph158.i
-  %398 = call ptr @agnxtnode(ptr noundef %1, ptr noundef nonnull %.186156.i) #22
-  %.not101.i = icmp eq ptr %398, null
+._crit_edge154.i:                                 ; preds = %400, %.lr.ph158.i
+  %399 = call ptr @agnxtnode(ptr noundef %1, ptr noundef nonnull %.186156.i) #22
+  %.not101.i = icmp eq ptr %399, null
   br i1 %.not101.i, label %majorization.exit, label %.lr.ph158.i, !llvm.loop !170
 
-399:                                              ; preds = %399, %.lr.ph153.i
-  %indvars.iv163.i = phi i64 [ 0, %.lr.ph153.i ], [ %indvars.iv.next164.i, %399 ]
-  %400 = getelementptr inbounds nuw ptr, ptr %133, i64 %indvars.iv163.i
-  %401 = load ptr, ptr %400, align 8, !tbaa !135
-  %402 = getelementptr inbounds double, ptr %401, i64 %395
-  %403 = load double, ptr %402, align 8, !tbaa !45
-  %404 = getelementptr inbounds nuw double, ptr %397, i64 %indvars.iv163.i
-  store double %403, ptr %404, align 8, !tbaa !45
+400:                                              ; preds = %400, %.lr.ph153.i
+  %indvars.iv163.i = phi i64 [ 0, %.lr.ph153.i ], [ %indvars.iv.next164.i, %400 ]
+  %401 = getelementptr inbounds nuw ptr, ptr %133, i64 %indvars.iv163.i
+  %402 = load ptr, ptr %401, align 8, !tbaa !135
+  %403 = getelementptr inbounds double, ptr %402, i64 %396
+  %404 = load double, ptr %403, align 8, !tbaa !45
+  %405 = getelementptr inbounds nuw double, ptr %398, i64 %indvars.iv163.i
+  store double %404, ptr %405, align 8, !tbaa !45
   %indvars.iv.next164.i = add nuw nsw i64 %indvars.iv163.i, 1
   %exitcond167.not.i = icmp eq i64 %indvars.iv.next164.i, %wide.trip.count166.i
-  br i1 %exitcond167.not.i, label %._crit_edge154.i, label %399, !llvm.loop !171
+  br i1 %exitcond167.not.i, label %._crit_edge154.i, label %400, !llvm.loop !171
 
-majorization.exit:                                ; preds = %._crit_edge154.i, %386, %388
+majorization.exit:                                ; preds = %._crit_edge154.i, %387, %389
   call void @freeGraphData(ptr noundef %154) #22
-  %405 = load ptr, ptr %133, align 8, !tbaa !135
-  call void @free(ptr noundef %405) #22
-  call void @free(ptr noundef %133) #22
-  %406 = load ptr, ptr %9, align 8, !tbaa !142
+  %406 = load ptr, ptr %133, align 8, !tbaa !135
   call void @free(ptr noundef %406) #22
+  call void @free(ptr noundef %133) #22
+  call void @free(ptr noundef %385) #22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #22
   br label %407

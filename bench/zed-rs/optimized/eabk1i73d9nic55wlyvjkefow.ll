@@ -13947,6 +13947,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15clone_from_impl17
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %6, ptr nonnull align 1 %5, i64 %9, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load i64, ptr %10, align 8, !noundef !4
+  %invariant.gep = getelementptr i8, ptr %6, i64 -48
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %._crit_edge, label %.lr.ph
 
@@ -13962,7 +13963,6 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15clone_from_impl17
   %.sroa.6.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 16
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %21 = ptrtoint ptr %5 to i64
-  %invariant.gep = getelementptr i8, ptr %6, i64 -48
   br label %22
 
 .loopexit:                                        ; preds = %37

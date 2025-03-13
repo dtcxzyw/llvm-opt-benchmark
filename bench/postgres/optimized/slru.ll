@@ -1637,21 +1637,23 @@ define dso_local void @SimpleLruWriteAll(ptr noundef %0, i1 noundef zeroext %1) 
   br label %20
 
 ._crit_edge.loopexit:                             ; preds = %37
+  %.pre = load i32, ptr %3, align 8
   %13 = sext i32 %.134 to i64
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %2
+  %14 = phi i32 [ 0, %2 ], [ %.pre, %._crit_edge.loopexit ]
   %.033.lcssa = phi i64 [ 0, %2 ], [ %13, %._crit_edge.loopexit ]
-  %14 = load ptr, ptr %7, align 8
-  %15 = getelementptr inbounds %union.LWLockPadded, ptr %14, i64 %.033.lcssa
-  call void @LWLockRelease(ptr noundef %15) #15
-  %16 = load i32, ptr %3, align 8
-  %17 = icmp sgt i32 %16, 0
+  %15 = load ptr, ptr %7, align 8
+  %16 = getelementptr inbounds %union.LWLockPadded, ptr %15, i64 %.033.lcssa
+  call void @LWLockRelease(ptr noundef %16) #15
+  %17 = icmp sgt i32 %14, 0
   br i1 %17, label %.lr.ph44, label %._crit_edge45.thread
 
 .lr.ph44:                                         ; preds = %._crit_edge
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  %wide.trip.count = zext nneg i32 %14 to i64
   br label %41
 
 20:                                               ; preds = %.lr.ph, %37
@@ -1693,7 +1695,7 @@ define dso_local void @SimpleLruWriteAll(ptr noundef %0, i1 noundef zeroext %1) 
   br i1 %40, label %20, label %._crit_edge.loopexit, !llvm.loop !16
 
 ._crit_edge45:                                    ; preds = %51
-  br i1 %.132, label %._crit_edge45.thread, label %55
+  br i1 %.132, label %._crit_edge45.thread, label %52
 
 41:                                               ; preds = %.lr.ph44, %51
   %indvars.iv49 = phi i64 [ 0, %.lr.ph44 ], [ %indvars.iv.next50, %51 ]
@@ -1719,27 +1721,25 @@ define dso_local void @SimpleLruWriteAll(ptr noundef %0, i1 noundef zeroext %1) 
   %.132 = phi i1 [ false, %45 ], [ %.03140, %41 ]
   %.1 = phi i64 [ %50, %45 ], [ %.02941, %41 ]
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
-  %52 = load i32, ptr %3, align 8
-  %53 = sext i32 %52 to i64
-  %54 = icmp slt i64 %indvars.iv.next50, %53
-  br i1 %54, label %41, label %._crit_edge45, !llvm.loop !17
+  %exitcond.not = icmp eq i64 %indvars.iv.next50, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge45, label %41, !llvm.loop !17
 
-55:                                               ; preds = %._crit_edge45
+52:                                               ; preds = %._crit_edge45
   call fastcc void @SlruReportIOError(ptr noundef nonnull %0, i64 noundef %.1, i32 noundef 0)
   br label %._crit_edge45.thread
 
-._crit_edge45.thread:                             ; preds = %._crit_edge, %55, %._crit_edge45
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %57 = load i32, ptr %56, align 4
-  %.not = icmp eq i32 %57, 5
-  br i1 %.not, label %60, label %58
+._crit_edge45.thread:                             ; preds = %._crit_edge, %52, %._crit_edge45
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %54 = load i32, ptr %53, align 4
+  %.not = icmp eq i32 %54, 5
+  br i1 %.not, label %57, label %55
 
-58:                                               ; preds = %._crit_edge45.thread
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @fsync_fname(ptr noundef nonnull %59, i1 noundef zeroext true) #15
-  br label %60
+55:                                               ; preds = %._crit_edge45.thread
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void @fsync_fname(ptr noundef nonnull %56, i1 noundef zeroext true) #15
+  br label %57
 
-60:                                               ; preds = %58, %._crit_edge45.thread
+57:                                               ; preds = %55, %._crit_edge45.thread
   call void @llvm.lifetime.end.p0(i64 200, ptr nonnull %3) #15
   ret void
 }

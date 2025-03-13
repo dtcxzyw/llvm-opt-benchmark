@@ -30330,6 +30330,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15clone_from_impl17
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %5, ptr nonnull align 1 %4, i64 %8, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i64, ptr %9, align 8, !noundef !4
+  %invariant.gep = getelementptr i8, ptr %5, i64 -24
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbed93407bba1fd3eE.exit.thread", label %.lr.ph
 
@@ -30340,7 +30341,6 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15clone_from_impl17
   %15 = bitcast <16 x i1> %14 to i16
   %16 = xor i16 %15, -1
   %17 = ptrtoint ptr %4 to i64
-  %invariant.gep = getelementptr i8, ptr %5, i64 -24
   br label %20
 
 18:                                               ; preds = %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hbed93407bba1fd3eE.exit"
@@ -30428,6 +30428,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15clone_from_impl17
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %5, ptr nonnull align 1 %4, i64 %8, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i64, ptr %9, align 8, !noundef !4
+  %invariant.gep = getelementptr i8, ptr %5, i64 -48
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h21db162b6b74d33fE.exit.thread", label %.lr.ph
 
@@ -30439,7 +30440,6 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15clone_from_impl17
   %16 = xor i16 %15, -1
   %17 = ptrtoint ptr %4 to i64
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %invariant.gep = getelementptr i8, ptr %5, i64 -48
   br label %21
 
 19:                                               ; preds = %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h21db162b6b74d33fE.exit"

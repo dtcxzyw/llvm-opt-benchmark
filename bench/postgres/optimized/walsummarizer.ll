@@ -211,9 +211,9 @@ define dso_local void @WalSummarizerMain(ptr noundef readnone captures(none) %0,
   call void @proc_exit(i32 noundef 0) #13
   unreachable
 
-.preheader:                                       ; preds = %33, %226
-  %.021 = phi i64 [ %.2, %226 ], [ 0, %33 ]
-  %.0 = phi i64 [ %.1, %226 ], [ %35, %33 ]
+.preheader:                                       ; preds = %33, %221
+  %.021 = phi i64 [ %.2, %221 ], [ 0, %33 ]
+  %.0 = phi i64 [ %.1, %221 ], [ %35, %33 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #11
   call void @MemoryContextReset(ptr noundef %23) #11
   %38 = load volatile i32, ptr @ProcSignalBarrierPending, align 4
@@ -579,87 +579,82 @@ GetLatestLSN.exit:                                ; preds = %162, %176
   %179 = icmp ne i32 %177, %178
   %180 = icmp eq i64 %.021, 0
   %or.cond = and i1 %180, %179
-  br i1 %or.cond, label %181, label %193
+  br i1 %or.cond, label %181, label %191
 
 181:                                              ; preds = %GetLatestLSN.exit
   %182 = call ptr @readTimeLineHistory(i32 noundef %178) #11
-  %183 = load i32, ptr %6, align 4
-  %184 = call i64 @tliSwitchPoint(i32 noundef %183, ptr noundef %182, ptr noundef nonnull %8) #11
-  %185 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #11
-  br i1 %185, label %186, label %193
+  %183 = call i64 @tliSwitchPoint(i32 noundef %177, ptr noundef %182, ptr noundef nonnull %8) #11
+  %184 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #11
+  br i1 %184, label %185, label %191
 
-186:                                              ; preds = %181
-  %187 = load i32, ptr %6, align 4
-  %188 = load i32, ptr %8, align 4
-  %189 = lshr i64 %184, 32
-  %190 = trunc nuw i64 %189 to i32
-  %191 = trunc i64 %184 to i32
-  %192 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %187, i32 noundef %188, i32 noundef %190, i32 noundef %191) #11
+185:                                              ; preds = %181
+  %186 = load i32, ptr %8, align 4
+  %187 = lshr i64 %183, 32
+  %188 = trunc nuw i64 %187 to i32
+  %189 = trunc i64 %183 to i32
+  %190 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %177, i32 noundef %186, i32 noundef %188, i32 noundef %189) #11
   call void @errfinish(ptr noundef nonnull @.str.2, i32 noundef 386, ptr noundef nonnull @__func__.WalSummarizerMain) #11
-  br label %193
+  br label %191
 
-193:                                              ; preds = %181, %186, %GetLatestLSN.exit
-  %.122 = phi i64 [ %.021, %GetLatestLSN.exit ], [ %184, %186 ], [ %184, %181 ]
-  %194 = icmp eq i64 %.122, 0
-  br i1 %194, label %.split, label %195
+191:                                              ; preds = %181, %185, %GetLatestLSN.exit
+  %.122 = phi i64 [ %.021, %GetLatestLSN.exit ], [ %183, %185 ], [ %183, %181 ]
+  %192 = icmp eq i64 %.122, 0
+  br i1 %192, label %.split, label %193
 
-195:                                              ; preds = %193
+193:                                              ; preds = %191
   %.not26 = icmp ult i64 %.0, %.122
-  br i1 %.not26, label %.split, label %196
+  br i1 %.not26, label %.split, label %194
 
-196:                                              ; preds = %195
-  %197 = load i32, ptr %8, align 4
-  store i32 %197, ptr %6, align 4
+194:                                              ; preds = %193
+  %195 = load i32, ptr %8, align 4
+  store i32 %195, ptr %6, align 4
   store i32 0, ptr %8, align 4
-  %198 = load ptr, ptr @MainLWLockArray, align 8
-  %199 = getelementptr inbounds nuw i8, ptr %198, i64 6272
-  %200 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %199, i32 noundef 0) #11
-  %201 = load ptr, ptr @WalSummarizerCtl, align 8
-  %202 = getelementptr inbounds nuw i8, ptr %201, i64 8
-  store i64 %.122, ptr %202, align 8
-  %203 = load i32, ptr %6, align 4
-  %204 = getelementptr inbounds nuw i8, ptr %201, i64 4
-  store i32 %203, ptr %204, align 4
-  %205 = getelementptr inbounds nuw i8, ptr %201, i64 16
-  store i8 1, ptr %205, align 8
-  %206 = getelementptr inbounds nuw i8, ptr %201, i64 24
-  store i64 %.122, ptr %206, align 8
-  %207 = load ptr, ptr @MainLWLockArray, align 8
-  %208 = getelementptr inbounds nuw i8, ptr %207, i64 6272
-  call void @LWLockRelease(ptr noundef nonnull %208) #11
-  br label %226
+  %196 = load ptr, ptr @MainLWLockArray, align 8
+  %197 = getelementptr inbounds nuw i8, ptr %196, i64 6272
+  %198 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %197, i32 noundef 0) #11
+  %199 = load ptr, ptr @WalSummarizerCtl, align 8
+  %200 = getelementptr inbounds nuw i8, ptr %199, i64 8
+  store i64 %.122, ptr %200, align 8
+  %201 = getelementptr inbounds nuw i8, ptr %199, i64 4
+  store i32 %195, ptr %201, align 4
+  %202 = getelementptr inbounds nuw i8, ptr %199, i64 16
+  store i8 1, ptr %202, align 8
+  %203 = getelementptr inbounds nuw i8, ptr %199, i64 24
+  store i64 %.122, ptr %203, align 8
+  %204 = load ptr, ptr @MainLWLockArray, align 8
+  %205 = getelementptr inbounds nuw i8, ptr %204, i64 6272
+  call void @LWLockRelease(ptr noundef nonnull %205) #11
+  br label %221
 
-.split:                                           ; preds = %195, %193
-  %.122.sink = phi i64 [ 0, %193 ], [ %.122, %195 ]
-  %209 = load i32, ptr %6, align 4
-  %210 = load i8, ptr %7, align 1, !range !4, !noundef !5
-  %211 = trunc nuw i8 %210 to i1
-  %212 = call fastcc i64 @SummarizeWAL(i32 noundef %209, i64 noundef %.0, i1 noundef zeroext %211, i64 noundef %.122.sink, i64 noundef %.0.i)
+.split:                                           ; preds = %193, %191
+  %.122.sink = phi i64 [ 0, %191 ], [ %.122, %193 ]
+  %206 = load i8, ptr %7, align 1, !range !4, !noundef !5
+  %207 = trunc nuw i8 %206 to i1
+  %208 = call fastcc i64 @SummarizeWAL(i32 noundef %177, i64 noundef %.0, i1 noundef zeroext %207, i64 noundef %.122.sink, i64 noundef %.0.i)
   store i8 1, ptr %7, align 1
-  %213 = load ptr, ptr @MainLWLockArray, align 8
-  %214 = getelementptr inbounds nuw i8, ptr %213, i64 6272
-  %215 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %214, i32 noundef 0) #11
-  %216 = load ptr, ptr @WalSummarizerCtl, align 8
-  %217 = getelementptr inbounds nuw i8, ptr %216, i64 8
-  store i64 %212, ptr %217, align 8
-  %218 = load i32, ptr %6, align 4
-  %219 = getelementptr inbounds nuw i8, ptr %216, i64 4
-  store i32 %218, ptr %219, align 4
-  %220 = getelementptr inbounds nuw i8, ptr %216, i64 16
-  store i8 1, ptr %220, align 8
-  %221 = getelementptr inbounds nuw i8, ptr %216, i64 24
-  store i64 %212, ptr %221, align 8
-  %222 = load ptr, ptr @MainLWLockArray, align 8
-  %223 = getelementptr inbounds nuw i8, ptr %222, i64 6272
-  call void @LWLockRelease(ptr noundef nonnull %223) #11
-  %224 = load ptr, ptr @WalSummarizerCtl, align 8
-  %225 = getelementptr inbounds nuw i8, ptr %224, i64 32
-  call void @ConditionVariableBroadcast(ptr noundef nonnull %225) #11
-  br label %226
+  %209 = load ptr, ptr @MainLWLockArray, align 8
+  %210 = getelementptr inbounds nuw i8, ptr %209, i64 6272
+  %211 = call zeroext i1 @LWLockAcquire(ptr noundef nonnull %210, i32 noundef 0) #11
+  %212 = load ptr, ptr @WalSummarizerCtl, align 8
+  %213 = getelementptr inbounds nuw i8, ptr %212, i64 8
+  store i64 %208, ptr %213, align 8
+  %214 = getelementptr inbounds nuw i8, ptr %212, i64 4
+  store i32 %177, ptr %214, align 4
+  %215 = getelementptr inbounds nuw i8, ptr %212, i64 16
+  store i8 1, ptr %215, align 8
+  %216 = getelementptr inbounds nuw i8, ptr %212, i64 24
+  store i64 %208, ptr %216, align 8
+  %217 = load ptr, ptr @MainLWLockArray, align 8
+  %218 = getelementptr inbounds nuw i8, ptr %217, i64 6272
+  call void @LWLockRelease(ptr noundef nonnull %218) #11
+  %219 = load ptr, ptr @WalSummarizerCtl, align 8
+  %220 = getelementptr inbounds nuw i8, ptr %219, i64 32
+  call void @ConditionVariableBroadcast(ptr noundef nonnull %220) #11
+  br label %221
 
-226:                                              ; preds = %.split, %196
-  %.2 = phi i64 [ %.122, %.split ], [ 0, %196 ]
-  %.1 = phi i64 [ %212, %.split ], [ %.122, %196 ]
+221:                                              ; preds = %.split, %194
+  %.2 = phi i64 [ %.122, %.split ], [ 0, %194 ]
+  %.1 = phi i64 [ %208, %.split ], [ %.122, %194 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #11
   br label %.preheader
 }

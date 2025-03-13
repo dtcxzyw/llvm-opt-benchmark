@@ -116,7 +116,6 @@ define dso_local void @InitMaterializedSRF(ptr noundef readonly captures(none) %
   %33 = load ptr, ptr @CurrentMemoryContext, align 8
   store ptr %32, ptr @CurrentMemoryContext, align 8
   %34 = tail call ptr @CreateTupleDescCopy(ptr noundef nonnull %22) #8
-  store ptr %34, ptr %3, align 8
   br label %50
 
 35:                                               ; preds = %18
@@ -133,7 +132,11 @@ define dso_local void @InitMaterializedSRF(ptr noundef readonly captures(none) %
   %45 = load ptr, ptr %44, align 8
   %46 = call fastcc range(i32 0, 5) i32 @internal_get_result_type(i32 noundef %43, ptr noundef %45, ptr noundef nonnull %5, ptr noundef null, ptr noundef nonnull %3)
   %.not19 = icmp eq i32 %46, 1
-  br i1 %.not19, label %50, label %47
+  br i1 %.not19, label %._crit_edge, label %47
+
+._crit_edge:                                      ; preds = %35
+  %.pre.pre = load ptr, ptr %3, align 8
+  br label %50
 
 47:                                               ; preds = %35
   %48 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #9
@@ -142,30 +145,29 @@ define dso_local void @InitMaterializedSRF(ptr noundef readonly captures(none) %
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 109, ptr noundef nonnull @__func__.InitMaterializedSRF) #8
   unreachable
 
-50:                                               ; preds = %35, %28
-  %51 = phi ptr [ %40, %35 ], [ %33, %28 ]
+50:                                               ; preds = %._crit_edge, %28
+  %.pre = phi ptr [ %.pre.pre, %._crit_edge ], [ %34, %28 ]
+  %51 = phi ptr [ %40, %._crit_edge ], [ %33, %28 ]
   %52 = and i32 %1, 2
   %.not20 = icmp eq i32 %52, 0
-  br i1 %.not20, label %56, label %53
+  br i1 %.not20, label %55, label %53
 
 53:                                               ; preds = %50
-  %54 = load ptr, ptr %3, align 8
-  %55 = call ptr @BlessTupleDesc(ptr noundef %54) #8
-  br label %56
+  %54 = call ptr @BlessTupleDesc(ptr noundef %.pre) #8
+  br label %55
 
-56:                                               ; preds = %53, %50
-  %57 = load i32, ptr %15, align 8
-  %58 = and i32 %57, 4
-  %59 = icmp ne i32 %58, 0
-  %60 = load i32, ptr @work_mem, align 4
-  %61 = call ptr @tuplestore_begin_heap(i1 noundef zeroext %59, i1 noundef zeroext false, i32 noundef %60) #8
-  %62 = getelementptr inbounds nuw i8, ptr %5, i64 28
-  store i32 2, ptr %62, align 4
-  %63 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  store ptr %61, ptr %63, align 8
-  %64 = load ptr, ptr %3, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store ptr %64, ptr %65, align 8
+55:                                               ; preds = %53, %50
+  %56 = load i32, ptr %15, align 8
+  %57 = and i32 %56, 4
+  %58 = icmp ne i32 %57, 0
+  %59 = load i32, ptr @work_mem, align 4
+  %60 = call ptr @tuplestore_begin_heap(i1 noundef zeroext %58, i1 noundef zeroext false, i32 noundef %59) #8
+  %61 = getelementptr inbounds nuw i8, ptr %5, i64 28
+  store i32 2, ptr %61, align 4
+  %62 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  store ptr %60, ptr %62, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  store ptr %.pre, ptr %63, align 8
   store ptr %51, ptr @CurrentMemoryContext, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #8
   ret void

@@ -2434,38 +2434,38 @@ define ptr @OSSL_HTTP_get(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr no
   tail call void @ERR_new() #9
   tail call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 1271, ptr noundef nonnull @__func__.OSSL_HTTP_get) #9
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 61, i32 noundef 786690, ptr noundef null) #9
-  br label %123
+  br label %122
 
 28:                                               ; preds = %24
   %29 = tail call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %0, ptr noundef nonnull @.str, i32 noundef 1274) #9
   %30 = icmp eq ptr %29, null
-  br i1 %30, label %123, label %.preheader
+  br i1 %30, label %122, label %.preheader
 
 .preheader:                                       ; preds = %28
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #9
   %31 = call i32 @OSSL_HTTP_parse_url(ptr noundef nonnull %29, ptr noundef nonnull %17, ptr noundef null, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef null, ptr noundef nonnull %16, ptr noundef null, ptr noundef null) #9
-  %.not122 = icmp eq i32 %31, 0
-  br i1 %.not122, label %.loopexit93, label %.lr.ph
+  %.not127 = icmp eq i32 %31, 0
+  br i1 %.not127, label %.loopexit93, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
   %.not.i = icmp eq i64 %25, 0
   br label %32
 
-32:                                               ; preds = %.lr.ph, %121
-  %.041125 = phi i32 [ 0, %.lr.ph ], [ %50, %121 ]
-  %.045124 = phi ptr [ %29, %.lr.ph ], [ %70, %121 ]
-  %.069123 = phi i32 [ %12, %.lr.ph ], [ %.5.ph, %121 ]
+32:                                               ; preds = %.lr.ph, %120
+  %.041130 = phi i32 [ 0, %.lr.ph ], [ %50, %120 ]
+  %.045129 = phi ptr [ %29, %.lr.ph ], [ %70, %120 ]
+  %.069128 = phi i32 [ %12, %.lr.ph ], [ %.5.ph, %120 ]
   %33 = load ptr, ptr %14, align 8, !tbaa !35
   %34 = load ptr, ptr %15, align 8, !tbaa !35
   %35 = load i32, ptr %17, align 4, !tbaa !60
-  %36 = call ptr @OSSL_HTTP_open(ptr noundef %33, ptr noundef %34, ptr noundef %1, ptr noundef %2, i32 noundef %35, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7, i32 noundef %.069123)
-  %smax = call i32 @llvm.smax.i32(i32 %.041125, i32 49)
+  %36 = call ptr @OSSL_HTTP_open(ptr noundef %33, ptr noundef %34, ptr noundef %1, ptr noundef %2, i32 noundef %35, ptr noundef %3, ptr noundef %4, ptr noundef %5, ptr noundef %6, i32 noundef %7, i32 noundef %.069128)
+  %smax = call i32 @llvm.smax.i32(i32 %.041130, i32 49)
   br label %37
 
 37:                                               ; preds = %73, %32
-  %.2 = phi i32 [ %.069123, %32 ], [ %.5.ph, %73 ]
-  %.247 = phi ptr [ %.045124, %32 ], [ %70, %73 ]
-  %.243 = phi i32 [ %.041125, %32 ], [ %50, %73 ]
+  %.2 = phi i32 [ %.069128, %32 ], [ %.5.ph, %73 ]
+  %.247 = phi ptr [ %.045129, %32 ], [ %70, %73 ]
+  %.243 = phi i32 [ %.041130, %32 ], [ %50, %73 ]
   %.0 = phi ptr [ %36, %32 ], [ %.1, %73 ]
   store ptr null, ptr %18, align 8, !tbaa !35
   %.not51 = icmp eq ptr %.0, null
@@ -2589,7 +2589,7 @@ may_still_retry.exit:                             ; preds = %62
   %89 = call i32 @BIO_free(ptr noundef null) #9
   call void @CRYPTO_free(ptr noundef nonnull %70, ptr noundef nonnull @.str, i32 noundef 1317) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #9
-  br label %123
+  br label %122
 
 90:                                               ; preds = %68
   %91 = load ptr, ptr %14, align 8, !tbaa !35
@@ -2597,13 +2597,13 @@ may_still_retry.exit:                             ; preds = %62
   %92 = load ptr, ptr %15, align 8, !tbaa !35
   call void @CRYPTO_free(ptr noundef %92, ptr noundef nonnull @.str, i32 noundef 1323) #9
   %.not.i58 = icmp eq ptr %.1, null
-  br i1 %.not.i58, label %121, label %93
+  br i1 %.not.i58, label %120, label %93
 
 93:                                               ; preds = %90
   %94 = getelementptr inbounds nuw i8, ptr %.1, i64 40
   %95 = load ptr, ptr %94, align 8, !tbaa !53
   %.not14.i59 = icmp eq ptr %95, null
-  br i1 %.not14.i59, label %121, label %96
+  br i1 %.not14.i59, label %120, label %96
 
 96:                                               ; preds = %93
   %97 = getelementptr inbounds nuw i8, ptr %.1, i64 24
@@ -2612,74 +2612,73 @@ may_still_retry.exit:                             ; preds = %62
   %100 = load ptr, ptr %99, align 8, !tbaa !54
   %101 = call ptr %95(ptr noundef %98, ptr noundef %100, i32 noundef 0, i32 noundef 1) #9
   %.not15.i60 = icmp eq ptr %101, null
-  br i1 %.not15.i60, label %121, label %102
+  br i1 %.not15.i60, label %120, label %102
 
 102:                                              ; preds = %96
   store ptr %101, ptr %97, align 8, !tbaa !14
-  br label %121
+  br label %120
 
 103:                                              ; preds = %may_still_retry.exit, %redirection_ok.exit
   %.sink = phi i32 [ 129, %may_still_retry.exit ], [ %.sink.i, %redirection_ok.exit ]
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 61, i32 noundef %.sink, ptr noundef null) #9
-  %104 = load ptr, ptr %18, align 8, !tbaa !35
-  call void @CRYPTO_free(ptr noundef %104, ptr noundef nonnull @.str, i32 noundef 1328) #9
+  call void @CRYPTO_free(ptr noundef nonnull %47, ptr noundef nonnull @.str, i32 noundef 1328) #9
   br label %.loopexit
 
 .loopexit:                                        ; preds = %44, %103
-  %.3142 = phi ptr [ null, %103 ], [ %.3, %44 ]
-  %105 = load ptr, ptr %14, align 8, !tbaa !35
-  call void @CRYPTO_free(ptr noundef %105, ptr noundef nonnull @.str, i32 noundef 1330) #9
-  %106 = load ptr, ptr %15, align 8, !tbaa !35
-  call void @CRYPTO_free(ptr noundef %106, ptr noundef nonnull @.str, i32 noundef 1331) #9
-  %107 = icmp ne ptr %.3142, null
-  %108 = zext i1 %107 to i32
+  %.3151 = phi ptr [ null, %103 ], [ %.3, %44 ]
+  %104 = load ptr, ptr %14, align 8, !tbaa !35
+  call void @CRYPTO_free(ptr noundef %104, ptr noundef nonnull @.str, i32 noundef 1330) #9
+  %105 = load ptr, ptr %15, align 8, !tbaa !35
+  call void @CRYPTO_free(ptr noundef %105, ptr noundef nonnull @.str, i32 noundef 1331) #9
+  %106 = icmp ne ptr %.3151, null
+  %107 = zext i1 %106 to i32
   %.not.i63 = icmp eq ptr %.1, null
-  br i1 %.not.i63, label %OSSL_HTTP_close.exit67.thread, label %109
+  br i1 %.not.i63, label %OSSL_HTTP_close.exit67.thread, label %108
 
-109:                                              ; preds = %.loopexit
-  %110 = getelementptr inbounds nuw i8, ptr %.1, i64 40
-  %111 = load ptr, ptr %110, align 8, !tbaa !53
-  %.not14.i64 = icmp eq ptr %111, null
-  br i1 %.not14.i64, label %OSSL_HTTP_close.exit67.thread, label %112
+108:                                              ; preds = %.loopexit
+  %109 = getelementptr inbounds nuw i8, ptr %.1, i64 40
+  %110 = load ptr, ptr %109, align 8, !tbaa !53
+  %.not14.i64 = icmp eq ptr %110, null
+  br i1 %.not14.i64, label %OSSL_HTTP_close.exit67.thread, label %111
 
-112:                                              ; preds = %109
-  %113 = getelementptr inbounds nuw i8, ptr %.1, i64 24
-  %114 = load ptr, ptr %113, align 8, !tbaa !14
-  %115 = getelementptr inbounds nuw i8, ptr %.1, i64 48
-  %116 = load ptr, ptr %115, align 8, !tbaa !54
-  %117 = call ptr %111(ptr noundef %114, ptr noundef %116, i32 noundef 0, i32 noundef %108) #9
-  %.not15.i65 = icmp eq ptr %117, null
-  br i1 %.not15.i65, label %119, label %118
+111:                                              ; preds = %108
+  %112 = getelementptr inbounds nuw i8, ptr %.1, i64 24
+  %113 = load ptr, ptr %112, align 8, !tbaa !14
+  %114 = getelementptr inbounds nuw i8, ptr %.1, i64 48
+  %115 = load ptr, ptr %114, align 8, !tbaa !54
+  %116 = call ptr %110(ptr noundef %113, ptr noundef %115, i32 noundef 0, i32 noundef %107) #9
+  %.not15.i65 = icmp eq ptr %116, null
+  br i1 %.not15.i65, label %118, label %117
 
-118:                                              ; preds = %112
-  store ptr %117, ptr %113, align 8, !tbaa !14
+117:                                              ; preds = %111
+  store ptr %116, ptr %112, align 8, !tbaa !14
   br label %OSSL_HTTP_close.exit67.thread
 
-OSSL_HTTP_close.exit67.thread:                    ; preds = %118, %109, %.loopexit
+OSSL_HTTP_close.exit67.thread:                    ; preds = %117, %108, %.loopexit
   call void @OSSL_HTTP_REQ_CTX_free(ptr noundef %.1)
   br label %.loopexit93
 
-119:                                              ; preds = %112
+118:                                              ; preds = %111
   call void @OSSL_HTTP_REQ_CTX_free(ptr noundef nonnull %.1)
-  %120 = call i32 @BIO_free(ptr noundef %.3142) #9
+  %119 = call i32 @BIO_free(ptr noundef %.3151) #9
   br label %.loopexit93
 
-121:                                              ; preds = %102, %96, %93, %90
+120:                                              ; preds = %102, %96, %93, %90
   call void @OSSL_HTTP_REQ_CTX_free(ptr noundef %.1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #9
-  %122 = call i32 @OSSL_HTTP_parse_url(ptr noundef nonnull %70, ptr noundef nonnull %17, ptr noundef null, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef null, ptr noundef nonnull %16, ptr noundef null, ptr noundef null) #9
-  %.not = icmp eq i32 %122, 0
+  %121 = call i32 @OSSL_HTTP_parse_url(ptr noundef nonnull %70, ptr noundef nonnull %17, ptr noundef null, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef null, ptr noundef nonnull %16, ptr noundef null, ptr noundef null) #9
+  %.not = icmp eq i32 %121, 0
   br i1 %.not, label %.loopexit93, label %32
 
-.loopexit93:                                      ; preds = %121, %.preheader, %119, %OSSL_HTTP_close.exit67.thread
-  %.146.ph = phi ptr [ %.247, %OSSL_HTTP_close.exit67.thread ], [ %.247, %119 ], [ %29, %.preheader ], [ %70, %121 ]
-  %.139.ph = phi ptr [ %.3142, %OSSL_HTTP_close.exit67.thread ], [ null, %119 ], [ null, %.preheader ], [ null, %121 ]
+.loopexit93:                                      ; preds = %120, %.preheader, %118, %OSSL_HTTP_close.exit67.thread
+  %.146.ph = phi ptr [ %.247, %OSSL_HTTP_close.exit67.thread ], [ %.247, %118 ], [ %29, %.preheader ], [ %70, %120 ]
+  %.139.ph = phi ptr [ %.3151, %OSSL_HTTP_close.exit67.thread ], [ null, %118 ], [ null, %.preheader ], [ null, %120 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #9
   call void @CRYPTO_free(ptr noundef nonnull %.146.ph, ptr noundef nonnull @.str, i32 noundef 1338) #9
-  br label %123
+  br label %122
 
-123:                                              ; preds = %.thread87, %28, %.loopexit93, %27
+122:                                              ; preds = %.thread87, %28, %.loopexit93, %27
   %.036 = phi ptr [ null, %27 ], [ %.139.ph, %.loopexit93 ], [ null, %28 ], [ null, %.thread87 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #9

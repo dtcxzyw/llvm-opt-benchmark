@@ -6064,18 +6064,19 @@ define internal noundef zeroext i1 @"_ZN4llvm12function_refIFbSt10unique_ptrINS_
   call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_2gi7PatternESt14default_deleteIS3_EELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %6, i64 noundef %10)
   %22 = load ptr, ptr %6, align 8, !tbaa !147
   %23 = getelementptr inbounds i8, ptr %22, i64 %21
+  %.pre = load i64, ptr %23, align 8, !tbaa !102
   br label %"_ZZN4llvm2gi13PatternParser16parsePatFragImplEPKNS_6RecordEENK3$_2clESt10unique_ptrINS0_7PatternESt14default_deleteIS7_EE.exit"
 
 "_ZZN4llvm2gi13PatternParser16parsePatFragImplEPKNS_6RecordEENK3$_2clESt10unique_ptrINS0_7PatternESt14default_deleteIS7_EE.exit": ; preds = %2, %17, %18
-  %24 = phi ptr [ %.pre3.i.i, %2 ], [ %22, %18 ], [ %.pre.i.i, %17 ]
+  %24 = phi i64 [ %5, %2 ], [ %.pre, %18 ], [ %5, %17 ]
+  %25 = phi ptr [ %.pre3.i.i, %2 ], [ %22, %18 ], [ %.pre.i.i, %17 ]
   %.016.i.i.i.i = phi ptr [ %3, %2 ], [ %23, %18 ], [ %3, %17 ]
-  %25 = load i32, ptr %7, align 8, !tbaa !148
-  %26 = zext i32 %25 to i64
-  %27 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %24, i64 %26
-  %28 = load i64, ptr %.016.i.i.i.i, align 8, !tbaa !102
-  store i64 %28, ptr %27, align 8, !tbaa !102
+  %26 = load i32, ptr %7, align 8, !tbaa !148
+  %27 = zext i32 %26 to i64
+  %28 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %25, i64 %27
+  store i64 %24, ptr %28, align 8, !tbaa !102
   store ptr null, ptr %.016.i.i.i.i, align 8, !tbaa !102
-  %29 = add i32 %25, 1
+  %29 = add i32 %26, 1
   store i32 %29, ptr %7, align 8, !tbaa !148
   %30 = load ptr, ptr %3, align 8, !tbaa !102
   %.not.i = icmp eq ptr %30, null

@@ -460,47 +460,44 @@ define i32 @DSA_verify(i32 noundef %0, ptr noundef %1, i32 noundef %2, ptr nound
   %13 = sext i32 %4 to i64
   %14 = call ptr @d2i_DSA_SIG(ptr noundef nonnull %7, ptr noundef nonnull %8, i64 noundef %13)
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %23, label %16
+  %.pr.pre = load ptr, ptr %7, align 8, !tbaa !26
+  br i1 %15, label %thread-pre-split, label %16
 
 16:                                               ; preds = %12
-  %17 = load ptr, ptr %7, align 8, !tbaa !26
-  %18 = call i32 @i2d_DSA_SIG(ptr noundef %17, ptr noundef nonnull %9)
-  %.not = icmp eq i32 %18, %4
-  %.pre16 = load ptr, ptr %9, align 8, !tbaa !28
-  br i1 %.not, label %19, label %23
-
-19:                                               ; preds = %16
-  %bcmp = call i32 @bcmp(ptr %3, ptr %.pre16, i64 %13)
-  %.not15 = icmp eq i32 %bcmp, 0
-  br i1 %.not15, label %20, label %23
-
-20:                                               ; preds = %19
-  %21 = load ptr, ptr %7, align 8, !tbaa !26
-  %22 = call i32 @DSA_do_verify(ptr noundef %1, i32 noundef %2, ptr noundef %21, ptr noundef %5) #6
+  %17 = call i32 @i2d_DSA_SIG(ptr noundef %.pr.pre, ptr noundef nonnull %9)
+  %.not = icmp eq i32 %17, %4
   %.pre = load ptr, ptr %9, align 8, !tbaa !28
-  br label %23
+  br i1 %.not, label %18, label %thread-pre-split
 
-23:                                               ; preds = %16, %19, %12, %20
-  %24 = phi ptr [ null, %12 ], [ %.pre16, %16 ], [ %.pre16, %19 ], [ %.pre, %20 ]
-  %.012 = phi i32 [ -1, %12 ], [ %18, %16 ], [ %4, %19 ], [ %4, %20 ]
-  %.0 = phi i32 [ -1, %12 ], [ -1, %16 ], [ -1, %19 ], [ %22, %20 ]
-  %25 = sext i32 %.012 to i64
-  call void @CRYPTO_clear_free(ptr noundef %24, i64 noundef %25, ptr noundef nonnull @.str, i32 noundef 214) #6
-  %26 = load ptr, ptr %7, align 8, !tbaa !26
-  %27 = icmp eq ptr %26, null
-  br i1 %27, label %DSA_SIG_free.exit, label %28
+18:                                               ; preds = %16
+  %bcmp = call i32 @bcmp(ptr %3, ptr %.pre, i64 %13)
+  %.not15 = icmp eq i32 %bcmp, 0
+  br i1 %.not15, label %19, label %thread-pre-split
 
-28:                                               ; preds = %23
-  %29 = load ptr, ptr %26, align 8, !tbaa !23
-  call void @BN_clear_free(ptr noundef %29) #6
-  %30 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %31 = load ptr, ptr %30, align 8, !tbaa !25
-  call void @BN_clear_free(ptr noundef %31) #6
-  call void @CRYPTO_free(ptr noundef nonnull %26, ptr noundef nonnull @.str, i32 noundef 47) #6
+19:                                               ; preds = %18
+  %20 = call i32 @DSA_do_verify(ptr noundef %1, i32 noundef %2, ptr noundef %.pr.pre, ptr noundef %5) #6
+  br label %thread-pre-split
+
+thread-pre-split:                                 ; preds = %18, %12, %19, %16
+  %21 = phi ptr [ %.pre, %16 ], [ %.pre, %19 ], [ %.pre, %18 ], [ null, %12 ]
+  %.012 = phi i32 [ %17, %16 ], [ %4, %19 ], [ %4, %18 ], [ -1, %12 ]
+  %.0 = phi i32 [ -1, %16 ], [ %20, %19 ], [ -1, %18 ], [ -1, %12 ]
+  %22 = sext i32 %.012 to i64
+  call void @CRYPTO_clear_free(ptr noundef %21, i64 noundef %22, ptr noundef nonnull @.str, i32 noundef 214) #6
+  %23 = icmp eq ptr %.pr.pre, null
+  br i1 %23, label %DSA_SIG_free.exit, label %24
+
+24:                                               ; preds = %thread-pre-split
+  %25 = load ptr, ptr %.pr.pre, align 8, !tbaa !23
+  call void @BN_clear_free(ptr noundef %25) #6
+  %26 = getelementptr inbounds nuw i8, ptr %.pr.pre, i64 8
+  %27 = load ptr, ptr %26, align 8, !tbaa !25
+  call void @BN_clear_free(ptr noundef %27) #6
+  call void @CRYPTO_free(ptr noundef nonnull %.pr.pre, ptr noundef nonnull @.str, i32 noundef 47) #6
   br label %DSA_SIG_free.exit
 
-DSA_SIG_free.exit:                                ; preds = %28, %23, %6
-  %.013 = phi i32 [ -1, %6 ], [ %.0, %23 ], [ %.0, %28 ]
+DSA_SIG_free.exit:                                ; preds = %24, %thread-pre-split, %6
+  %.013 = phi i32 [ -1, %6 ], [ %.0, %thread-pre-split ], [ %.0, %24 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #6

@@ -3622,8 +3622,8 @@ define void @_ZN7rocksdb16PointLockManager13AcquireLockedEPNS_7LockMapEPNS_13Loc
           to label %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7rocksdb8LockInfoESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S7_EEE4findERSD_.exit unwind label %147
 
 _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7rocksdb8LockInfoESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S7_EEE4findERSD_.exit: ; preds = %9
-  %.not72 = icmp eq ptr %12, null
-  br i1 %.not72, label %129, label %13
+  %.not70 = icmp eq ptr %12, null
+  br i1 %.not70, label %129, label %13
 
 13:                                               ; preds = %_ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7rocksdb8LockInfoESt4hashIS5_ESt8equal_toIS5_ESaISt4pairIKS5_S7_EEE4findERSD_.exit
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 40
@@ -3654,7 +3654,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7rocks
 ._crit_edge:                                      ; preds = %20
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %6, i64 80
   %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  %.pre84 = load i64, ptr %.pre, align 8, !tbaa !183
+  %.pre81 = load i64, ptr %.pre, align 8, !tbaa !183
   br label %46
 
 33:                                               ; preds = %20
@@ -3681,13 +3681,13 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7rocks
           cleanup
   br label %_ZN7rocksdb6StatusD2Ev.exit65
 
-.loopexit.split-lp:                               ; preds = %119, %54, %.loopexit75, %_ZN7rocksdb6StatusD2Ev.exit
+.loopexit.split-lp:                               ; preds = %119, %54, %.loopexit72, %_ZN7rocksdb6StatusD2Ev.exit
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %_ZN7rocksdb6StatusD2Ev.exit65
 
 46:                                               ; preds = %._crit_edge, %33
-  %47 = phi i64 [ %.pre84, %._crit_edge ], [ %39, %33 ]
+  %47 = phi i64 [ %.pre81, %._crit_edge ], [ %39, %33 ]
   %48 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 80
   %50 = getelementptr inbounds nuw i8, ptr %6, i64 88
@@ -3718,7 +3718,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7rocks
   %67 = ashr exact i64 %66, 3
   %68 = add i64 %67, %61
   %.not4244.i = icmp eq i64 %68, 0
-  br i1 %.not4244.i, label %.loopexit75, label %.lr.ph.i
+  br i1 %.not4244.i, label %.loopexit72, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %60
   %69 = getelementptr inbounds nuw i8, ptr %12, i64 120
@@ -3749,9 +3749,9 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7rocks
 83:                                               ; preds = %.noexc42, %71
   %84 = add nuw i64 %.sroa.5.045.i, 1
   %.not42.i = icmp eq i64 %84, %68
-  br i1 %.not42.i, label %.loopexit75, label %71
+  br i1 %.not42.i, label %.loopexit72, label %71
 
-.loopexit75:                                      ; preds = %83, %60
+.loopexit72:                                      ; preds = %83, %60
   %85 = getelementptr inbounds nuw i8, ptr %12, i64 56
   %86 = getelementptr inbounds nuw i8, ptr %12, i64 120
   store ptr %85, ptr %86, align 8, !tbaa !255
@@ -3761,7 +3761,7 @@ _ZNSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7rocks
   invoke void @_ZNSt6vectorImSaImEE13_M_assign_auxIN9__gnu_cxx17__normal_iteratorIPKmS1_EEEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(24) %23, ptr %87, ptr %89)
           to label %.noexc43 unwind label %.loopexit.split-lp
 
-.noexc43:                                         ; preds = %.loopexit75
+.noexc43:                                         ; preds = %.loopexit72
   %90 = load i64, ptr %48, align 8, !tbaa !177
   store i64 %90, ptr %21, align 8, !tbaa !177
   %.not.i.i = icmp eq i64 %90, 0
@@ -3798,7 +3798,7 @@ _ZN7rocksdb10autovectorImLm8EEaSERKS1_.exit:      ; preds = %92, %._crit_edge.i.
   store i64 %101, ptr %51, align 8, !tbaa !169
   br label %_ZN7rocksdb10autovectorImLm8EEaSERKS1_.exit53
 
-_ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %.noexc42, %.noexc, %46
+_ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %.noexc42, %46, %.noexc
   %.sink.i = phi i64 [ 0, %46 ], [ %59, %.noexc ], [ 0, %.noexc42 ]
   store i64 %.sink.i, ptr %7, align 8, !tbaa !183
   store i8 9, ptr %0, align 8, !tbaa !265
@@ -3910,18 +3910,18 @@ _ZN7rocksdb10autovectorImLm8EEaSERKS1_.exit53:    ; preds = %137, %_ZN7rocksdb6S
 147:                                              ; preds = %9, %141
   %148 = landingpad { ptr, i32 }
           cleanup
-  %.pre85 = load ptr, ptr %10, align 8, !tbaa !284
-  %.not.i.i63 = icmp eq ptr %.pre85, null
+  %.pre82 = load ptr, ptr %10, align 8, !tbaa !284
+  %.not.i.i63 = icmp eq ptr %.pre82, null
   br i1 %.not.i.i63, label %_ZN7rocksdb6StatusD2Ev.exit65, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i64
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i64: ; preds = %147
-  tail call void @_ZdaPv(ptr noundef nonnull %.pre85) #28
+  tail call void @_ZdaPv(ptr noundef nonnull %.pre82) #28
   br label %_ZN7rocksdb6StatusD2Ev.exit65
 
 _ZN7rocksdb6StatusD2Ev.exit65:                    ; preds = %.loopexit.split-lp, %.loopexit, %147, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i64
-  %.pn.pn88 = phi { ptr, i32 } [ %148, %147 ], [ %148, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i64 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ]
+  %.pn.pn85 = phi { ptr, i32 } [ %148, %147 ], [ %148, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i64 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ]
   store ptr null, ptr %10, align 8, !tbaa !284
-  resume { ptr, i32 } %.pn.pn88
+  resume { ptr, i32 } %.pn.pn85
 }
 
 ; Function Attrs: mustprogress uwtable

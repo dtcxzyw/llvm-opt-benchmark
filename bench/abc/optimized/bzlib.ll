@@ -4619,7 +4619,6 @@ BZ2_bzCompressEnd.exit.i:                         ; preds = %50, %23, %19
   br label %BZ2_bzWriteClose64.exit
 
 56:                                               ; preds = %4
-  store i32 0, ptr %2, align 4, !tbaa !50
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 5096
   store i32 0, ptr %57, align 8, !tbaa !80
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 5100

@@ -884,7 +884,7 @@ define dso_local i32 @relation_is_updatable(i32 noundef %0, ptr noundef %1, i1 n
   tail call void @check_stack_depth() #10
   %6 = tail call ptr @try_relation_open(i32 noundef %0, i32 noundef 1) #10
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %122, label %8
+  br i1 %7, label %121, label %8
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 72
@@ -894,7 +894,7 @@ define dso_local i32 @relation_is_updatable(i32 noundef %0, ptr noundef %1, i1 n
 
 12:                                               ; preds = %8
   tail call void @relation_close(ptr noundef nonnull %6, i32 noundef 1) #10
-  br label %122
+  br label %121
 
 13:                                               ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 56
@@ -908,7 +908,7 @@ define dso_local i32 @relation_is_updatable(i32 noundef %0, ptr noundef %1, i1 n
 
 18:                                               ; preds = %13, %13
   tail call void @relation_close(ptr noundef nonnull %6, i32 noundef 1) #10
-  br label %122
+  br label %121
 
 19:                                               ; preds = %13
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 88
@@ -963,7 +963,7 @@ define dso_local i32 @relation_is_updatable(i32 noundef %0, ptr noundef %1, i1 n
 
 43:                                               ; preds = %._crit_edge
   tail call void @relation_close(ptr noundef nonnull %6, i32 noundef 1) #10
-  br label %122
+  br label %121
 
 .critedge:                                        ; preds = %.preheader, %._crit_edge, %19
   %.079 = phi i32 [ 0, %19 ], [ %.281, %._crit_edge ], [ 0, %.preheader ]
@@ -994,11 +994,11 @@ define dso_local i32 @relation_is_updatable(i32 noundef %0, ptr noundef %1, i1 n
 
 61:                                               ; preds = %47
   tail call void @relation_close(ptr noundef nonnull %6, i32 noundef 1) #10
-  br label %122
+  br label %121
 
 .thread:                                          ; preds = %44, %47, %.critedge
   %.382 = phi i32 [ %.079, %.critedge ], [ %.079, %44 ], [ %.7, %47 ]
-  switch i8 %17, label %121 [
+  switch i8 %17, label %120 [
     i8 102, label %62
     i8 118, label %80
   ]
@@ -1036,13 +1036,13 @@ define dso_local i32 @relation_is_updatable(i32 noundef %0, ptr noundef %1, i1 n
 79:                                               ; preds = %69, %66
   %.9 = phi i32 [ %68, %66 ], [ %spec.select104, %69 ]
   tail call void @relation_close(ptr noundef nonnull %6, i32 noundef 1) #10
-  br label %122
+  br label %121
 
 80:                                               ; preds = %.thread
   %81 = tail call ptr @get_view_query(ptr noundef nonnull %6)
   %82 = tail call ptr @view_query_is_auto_updatable(ptr noundef %81, i1 noundef zeroext false)
   %83 = icmp eq ptr %82, null
-  br i1 %83, label %84, label %121
+  br i1 %83, label %84, label %120
 
 84:                                               ; preds = %80
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #10
@@ -1053,7 +1053,6 @@ define dso_local i32 @relation_is_updatable(i32 noundef %0, ptr noundef %1, i1 n
 
 85:                                               ; preds = %84
   %86 = call ptr @bms_int_members(ptr noundef %.pre, ptr noundef nonnull %3) #10
-  store ptr %86, ptr %5, align 8
   br label %87
 
 87:                                               ; preds = %85, %84
@@ -1080,8 +1079,8 @@ define dso_local i32 @relation_is_updatable(i32 noundef %0, ptr noundef %1, i1 n
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 33
   %106 = load i8, ptr %105, align 1
   switch i8 %106, label %107 [
-    i8 114, label %119
-    i8 112, label %119
+    i8 114, label %118
+    i8 112, label %118
   ]
 
 107:                                              ; preds = %87
@@ -1089,28 +1088,27 @@ define dso_local i32 @relation_is_updatable(i32 noundef %0, ptr noundef %1, i1 n
   %109 = load i32, ptr %108, align 4
   %110 = load i32, ptr %9, align 8
   %111 = call ptr @lappend_oid(ptr noundef %1, i32 noundef %110) #10
-  %112 = load ptr, ptr %5, align 8
-  %113 = getelementptr inbounds nuw i8, ptr %81, i64 112
-  %114 = load ptr, ptr %113, align 8
-  %115 = call fastcc ptr @adjust_view_column_set(ptr noundef %112, ptr noundef %114)
-  %116 = call i32 @relation_is_updatable(i32 noundef %109, ptr noundef %111, i1 noundef zeroext %2, ptr noundef %115)
-  %117 = and i32 %116, %.
-  %118 = call ptr @list_delete_last(ptr noundef %111) #10
-  br label %119
+  %112 = getelementptr inbounds nuw i8, ptr %81, i64 112
+  %113 = load ptr, ptr %112, align 8
+  %114 = call fastcc ptr @adjust_view_column_set(ptr noundef %88, ptr noundef %113)
+  %115 = call i32 @relation_is_updatable(i32 noundef %109, ptr noundef %111, i1 noundef zeroext %2, ptr noundef %114)
+  %116 = and i32 %115, %.
+  %117 = call ptr @list_delete_last(ptr noundef %111) #10
+  br label %118
 
-119:                                              ; preds = %87, %87, %107
-  %.178 = phi i32 [ %117, %107 ], [ %., %87 ], [ %., %87 ]
-  %120 = or i32 %.178, %.382
+118:                                              ; preds = %87, %87, %107
+  %.178 = phi i32 [ %116, %107 ], [ %., %87 ], [ %., %87 ]
+  %119 = or i32 %.178, %.382
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #10
+  br label %120
+
+120:                                              ; preds = %80, %118, %.thread
+  %.12 = phi i32 [ %.382, %.thread ], [ %119, %118 ], [ %.382, %80 ]
+  call void @relation_close(ptr noundef nonnull %6, i32 noundef 1) #10
   br label %121
 
-121:                                              ; preds = %80, %119, %.thread
-  %.12 = phi i32 [ %.382, %.thread ], [ %120, %119 ], [ %.382, %80 ]
-  call void @relation_close(ptr noundef nonnull %6, i32 noundef 1) #10
-  br label %122
-
-122:                                              ; preds = %61, %43, %4, %121, %79, %18, %12
-  %.0 = phi i32 [ 0, %12 ], [ 28, %18 ], [ %.9, %79 ], [ %.12, %121 ], [ 28, %61 ], [ 28, %43 ], [ 0, %4 ]
+121:                                              ; preds = %61, %43, %4, %120, %79, %18, %12
+  %.0 = phi i32 [ 0, %12 ], [ 28, %18 ], [ %.9, %79 ], [ %.12, %120 ], [ 28, %61 ], [ 28, %43 ], [ 0, %4 ]
   ret i32 %.0
 }
 

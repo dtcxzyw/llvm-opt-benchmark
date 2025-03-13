@@ -6825,7 +6825,6 @@ rbimpl_RB_TYPE_P_fastpath.exit.thread.i594:       ; preds = %rbimpl_RB_TYPE_P_fa
 
 path2class.exit595:                               ; preds = %rbimpl_RB_TYPE_P_fastpath.exit.i593
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29) #22
-  store i64 0, ptr %29, align 8, !tbaa !7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30) #22
   %1032 = call fastcc i64 @obj_alloc_by_klass(i64 noundef %1022, ptr noundef %0, ptr noundef nonnull %29)
   %1033 = icmp eq i64 %1032, 0

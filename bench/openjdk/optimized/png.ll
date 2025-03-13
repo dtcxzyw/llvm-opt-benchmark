@@ -2744,7 +2744,7 @@ define hidden range(i32 0, 2) i32 @png_colorspace_set_sRGB(ptr noalias noundef %
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 74
   %5 = load i16, ptr %4, align 2
   %.not = icmp sgt i16 %5, -1
-  br i1 %.not, label %6, label %51
+  br i1 %.not, label %6, label %49
 
 6:                                                ; preds = %3
   %or.cond = icmp ugt i32 %2, 3
@@ -2753,7 +2753,7 @@ define hidden range(i32 0, 2) i32 @png_colorspace_set_sRGB(ptr noalias noundef %
 7:                                                ; preds = %6
   %8 = sext i32 %2 to i64
   tail call fastcc void @png_icc_profile_error(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.25, i64 noundef %8, ptr noundef nonnull @.str.26)
-  br label %51
+  br label %49
 
 9:                                                ; preds = %6
   %10 = and i16 %5, 4
@@ -2770,7 +2770,7 @@ define hidden range(i32 0, 2) i32 @png_colorspace_set_sRGB(ptr noalias noundef %
 15:                                               ; preds = %11
   %16 = zext nneg i32 %2 to i64
   tail call fastcc void @png_icc_profile_error(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull @.str.25, i64 noundef %16, ptr noundef nonnull @.str.27)
-  br label %51
+  br label %49
 
 17:                                               ; preds = %11, %9
   %18 = zext nneg i16 %5 to i32
@@ -2780,7 +2780,7 @@ define hidden range(i32 0, 2) i32 @png_colorspace_set_sRGB(ptr noalias noundef %
 
 20:                                               ; preds = %17
   tail call void @png_benign_error(ptr noundef %0, ptr noundef nonnull @.str.28) #29
-  br label %51
+  br label %49
 
 21:                                               ; preds = %17
   %22 = and i32 %18, 2
@@ -2795,58 +2795,54 @@ define hidden range(i32 0, 2) i32 @png_colorspace_set_sRGB(ptr noalias noundef %
 
 26:                                               ; preds = %23
   tail call void @png_chunk_report(ptr noundef %0, ptr noundef nonnull @.str.29, i32 noundef 2) #29
-  %.pre = load i16, ptr %4, align 2, !alias.scope !51, !noalias !54
   br label %27
 
 27:                                               ; preds = %26, %23, %21
-  %28 = phi i16 [ %.pre, %26 ], [ %5, %23 ], [ %5, %21 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !51)
-  %29 = and i16 %28, 1
-  %.not.i = icmp eq i16 %29, 0
-  br i1 %.not.i, label %png_colorspace_check_gamma.exit, label %30
+  %28 = and i16 %5, 1
+  %.not.i = icmp eq i16 %28, 0
+  br i1 %.not.i, label %png_colorspace_check_gamma.exit, label %29
 
-30:                                               ; preds = %27
-  %31 = load i32, ptr %1, align 4, !alias.scope !51, !noalias !54
-  %32 = icmp eq i32 %31, 0
-  br i1 %32, label %png_muldiv.exit.i, label %33
+29:                                               ; preds = %27
+  %30 = load i32, ptr %1, align 4, !alias.scope !51, !noalias !54
+  %31 = icmp eq i32 %30, 0
+  br i1 %31, label %png_muldiv.exit.i, label %32
 
-33:                                               ; preds = %30
-  %34 = sitofp i32 %31 to double
-  %35 = fmul double %34, 1.000000e+05
-  %36 = fdiv double %35, 4.545500e+04
-  %37 = fadd double %36, 5.000000e-01
-  %38 = tail call double @llvm.floor.f64(double %37)
-  %39 = fcmp ole double %38, 0x41DFFFFFFFC00000
-  %40 = fcmp oge double %38, 0xC1E0000000000000
-  %or.cond3.i.i = and i1 %39, %40
-  br i1 %or.cond3.i.i, label %41, label %png_muldiv.exit.i
+32:                                               ; preds = %29
+  %33 = sitofp i32 %30 to double
+  %34 = fmul double %33, 1.000000e+05
+  %35 = fdiv double %34, 4.545500e+04
+  %36 = fadd double %35, 5.000000e-01
+  %37 = tail call double @llvm.floor.f64(double %36)
+  %38 = fcmp ole double %37, 0x41DFFFFFFFC00000
+  %39 = fcmp oge double %37, 0xC1E0000000000000
+  %or.cond3.i.i = and i1 %38, %39
+  br i1 %or.cond3.i.i, label %40, label %png_muldiv.exit.i
 
-41:                                               ; preds = %33
-  %42 = fptosi double %38 to i32
-  %43 = add i32 %42, -95000
-  %44 = icmp ult i32 %43, 10001
-  br i1 %44, label %png_colorspace_check_gamma.exit, label %png_muldiv.exit.i
+40:                                               ; preds = %32
+  %41 = fptosi double %37 to i32
+  %42 = add i32 %41, -95000
+  %43 = icmp ult i32 %42, 10001
+  br i1 %43, label %png_colorspace_check_gamma.exit, label %png_muldiv.exit.i
 
-png_muldiv.exit.i:                                ; preds = %41, %33, %30
+png_muldiv.exit.i:                                ; preds = %40, %32, %29
   tail call void @png_chunk_report(ptr noundef %0, ptr noundef nonnull @.str.68, i32 noundef 2) #29, !noalias !51
-  %.pre35 = load i16, ptr %4, align 2
   br label %png_colorspace_check_gamma.exit
 
-png_colorspace_check_gamma.exit:                  ; preds = %27, %41, %png_muldiv.exit.i
-  %45 = phi i16 [ %28, %27 ], [ %28, %41 ], [ %.pre35, %png_muldiv.exit.i ]
-  %46 = trunc nuw nsw i32 %2 to i16
-  %47 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  store i16 %46, ptr %47, align 4
-  %48 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %48, ptr noundef nonnull align 4 dereferenceable(32) @sRGB_xy, i64 32, i1 false)
-  %49 = getelementptr inbounds nuw i8, ptr %1, i64 36
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %49, ptr noundef nonnull align 4 dereferenceable(36) @png_colorspace_set_sRGB.sRGB_XYZ, i64 36, i1 false)
+png_colorspace_check_gamma.exit:                  ; preds = %27, %40, %png_muldiv.exit.i
+  %44 = trunc nuw nsw i32 %2 to i16
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  store i16 %44, ptr %45, align 4
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(32) %46, ptr noundef nonnull align 4 dereferenceable(32) @sRGB_xy, i64 32, i1 false)
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 36
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %47, ptr noundef nonnull align 4 dereferenceable(36) @png_colorspace_set_sRGB.sRGB_XYZ, i64 36, i1 false)
   store i32 45455, ptr %1, align 4
-  %50 = or i16 %45, 231
-  store i16 %50, ptr %4, align 2
-  br label %51
+  %48 = or i16 %5, 231
+  store i16 %48, ptr %4, align 2
+  br label %49
 
-51:                                               ; preds = %3, %png_colorspace_check_gamma.exit, %20, %15, %7
+49:                                               ; preds = %3, %png_colorspace_check_gamma.exit, %20, %15, %7
   %.0 = phi i32 [ 0, %7 ], [ 0, %15 ], [ 0, %20 ], [ 1, %png_colorspace_check_gamma.exit ], [ 0, %3 ]
   ret i32 %.0
 }

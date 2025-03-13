@@ -243,12 +243,12 @@ define hidden noundef ptr @time_shift_all(ptr noundef captures(address_is_null) 
   %8 = icmp ne ptr %0, null
   %9 = icmp ne ptr %1, null
   %or.cond = and i1 %8, %9
-  br i1 %or.cond, label %10, label %48
+  br i1 %or.cond, label %10, label %54
 
 10:                                               ; preds = %2
   %11 = call ptr @time_string_parse(ptr noundef nonnull %1, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %.not = icmp eq ptr %11, null
-  br i1 %.not, label %12, label %48
+  br i1 %.not, label %12, label %54
 
 12:                                               ; preds = %10
   %13 = load i32, ptr %5, align 4
@@ -260,7 +260,7 @@ define hidden noundef ptr @time_shift_all(ptr noundef captures(address_is_null) 
   %19 = load x86_fp80, ptr %7, align 16
   %20 = fadd x86_fp80 %19, %18
   %21 = fcmp oeq x86_fp80 %20, 0xK00000000000000000000
-  br i1 %21, label %48, label %22
+  br i1 %21, label %54, label %22
 
 22:                                               ; preds = %12
   call void @nstime_set_zero(ptr noundef nonnull %3)
@@ -277,7 +277,7 @@ define hidden noundef ptr @time_shift_all(ptr noundef captures(address_is_null) 
   %31 = load ptr, ptr %30, align 8
   %32 = call ptr @frame_data_sequence_find(ptr noundef %31, i32 noundef 1)
   %.not23 = icmp eq ptr %32, null
-  br i1 %.not23, label %48, label %.preheader
+  br i1 %.not23, label %54, label %.preheader
 
 .preheader:                                       ; preds = %22
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -285,43 +285,59 @@ define hidden noundef ptr @time_shift_all(ptr noundef captures(address_is_null) 
   %.not2425 = icmp eq i32 %34, 0
   br i1 %.not2425, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader, %modify_time_perform.exit
-  %.01726 = phi i32 [ %45, %modify_time_perform.exit ], [ 1, %.preheader ]
-  %35 = load ptr, ptr %30, align 8
-  %36 = call ptr @frame_data_sequence_find(ptr noundef %35, i32 noundef %.01726)
-  %37 = icmp eq ptr %36, null
-  br i1 %37, label %modify_time_perform.exit, label %38
+.lr.ph:                                           ; preds = %.preheader
+  %35 = load i8, ptr %4, align 1, !range !8
+  %.fr27 = freeze i8 %35
+  %36 = icmp eq i8 %.fr27, 0
+  br i1 %36, label %.lr.ph.split.us, label %.lr.ph.split
 
-38:                                               ; preds = %.lr.ph
-  %39 = load i8, ptr %4, align 1, !range !8, !noundef !9
-  %40 = icmp eq i8 %39, 0
-  %41 = getelementptr inbounds nuw i8, ptr %36, i64 64
-  %42 = getelementptr inbounds nuw i8, ptr %36, i64 80
-  br i1 %40, label %43, label %44
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %modify_time_perform.exit.us
+  %.01726.us = phi i32 [ %43, %modify_time_perform.exit.us ], [ 1, %.lr.ph ]
+  %37 = load ptr, ptr %30, align 8
+  %38 = call ptr @frame_data_sequence_find(ptr noundef %37, i32 noundef %.01726.us)
+  %39 = icmp eq ptr %38, null
+  br i1 %39, label %modify_time_perform.exit.us, label %40
 
-43:                                               ; preds = %38
+40:                                               ; preds = %.lr.ph.split.us
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 64
+  %42 = getelementptr inbounds nuw i8, ptr %38, i64 80
   call void @nstime_sum(ptr noundef nonnull %41, ptr noundef nonnull %41, ptr noundef nonnull %3)
   call void @nstime_sum(ptr noundef nonnull %42, ptr noundef nonnull %42, ptr noundef nonnull %3)
+  br label %modify_time_perform.exit.us
+
+modify_time_perform.exit.us:                      ; preds = %40, %.lr.ph.split.us
+  %43 = add i32 %.01726.us, 1
+  %44 = load i32, ptr %33, align 8
+  %.not24.us = icmp ugt i32 %43, %44
+  br i1 %.not24.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !9
+
+.lr.ph.split:                                     ; preds = %.lr.ph, %modify_time_perform.exit
+  %.01726 = phi i32 [ %51, %modify_time_perform.exit ], [ 1, %.lr.ph ]
+  %45 = load ptr, ptr %30, align 8
+  %46 = call ptr @frame_data_sequence_find(ptr noundef %45, i32 noundef %.01726)
+  %47 = icmp eq ptr %46, null
+  br i1 %47, label %modify_time_perform.exit, label %48
+
+48:                                               ; preds = %.lr.ph.split
+  %49 = getelementptr inbounds nuw i8, ptr %46, i64 64
+  %50 = getelementptr inbounds nuw i8, ptr %46, i64 80
+  call void @nstime_delta(ptr noundef nonnull %49, ptr noundef nonnull %49, ptr noundef nonnull %3)
+  call void @nstime_delta(ptr noundef nonnull %50, ptr noundef nonnull %50, ptr noundef nonnull %3)
   br label %modify_time_perform.exit
 
-44:                                               ; preds = %38
-  call void @nstime_delta(ptr noundef nonnull %41, ptr noundef nonnull %41, ptr noundef nonnull %3)
-  call void @nstime_delta(ptr noundef nonnull %42, ptr noundef nonnull %42, ptr noundef nonnull %3)
-  br label %modify_time_perform.exit
+modify_time_perform.exit:                         ; preds = %48, %.lr.ph.split
+  %51 = add i32 %.01726, 1
+  %52 = load i32, ptr %33, align 8
+  %.not24 = icmp ugt i32 %51, %52
+  br i1 %.not24, label %._crit_edge, label %.lr.ph.split, !llvm.loop !9
 
-modify_time_perform.exit:                         ; preds = %44, %43, %.lr.ph
-  %45 = add i32 %.01726, 1
-  %46 = load i32, ptr %33, align 8
-  %.not24 = icmp ugt i32 %45, %46
-  br i1 %.not24, label %._crit_edge, label %.lr.ph, !llvm.loop !10
-
-._crit_edge:                                      ; preds = %modify_time_perform.exit, %.preheader
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 33
-  store i8 1, ptr %47, align 1
+._crit_edge:                                      ; preds = %modify_time_perform.exit, %modify_time_perform.exit.us, %.preheader
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 33
+  store i8 1, ptr %53, align 1
   call void @packet_list_queue_draw()
-  br label %48
+  br label %54
 
-48:                                               ; preds = %22, %12, %10, %2, %._crit_edge
+54:                                               ; preds = %22, %12, %10, %2, %._crit_edge
   %.0 = phi ptr [ null, %._crit_edge ], [ @.str.15, %2 ], [ %11, %10 ], [ @.str.16, %12 ], [ @.str.17, %22 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #11
@@ -413,7 +429,7 @@ define hidden noundef ptr @time_shift_settime(ptr noundef captures(address_is_nu
   %35 = add i32 %.02030, 1
   %36 = load i32, ptr %12, align 8
   %.not28 = icmp ugt i32 %35, %36
-  br i1 %.not28, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not28, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %34, %.preheader
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 33
@@ -666,7 +682,7 @@ define hidden noundef ptr @time_shift_adjtime(ptr noundef captures(address_is_nu
   %76 = fadd x86_fp80 %.0325.i, 0xK3FFF8000000000000000
   %77 = fadd x86_fp80 %.06.i, 0xKC01CEE6B280000000000
   %78 = fcmp ogt x86_fp80 %77, 0xK401CEE6B280000000000
-  br i1 %78, label %.lr.ph.i, label %.preheader.i, !llvm.loop !12
+  br i1 %78, label %.lr.ph.i, label %.preheader.i, !llvm.loop !11
 
 .lr.ph10.i:                                       ; preds = %.preheader.i, %.lr.ph10.i
   %.19.i = phi x86_fp80 [ %80, %.lr.ph10.i ], [ %.0.lcssa.i, %.preheader.i ]
@@ -674,7 +690,7 @@ define hidden noundef ptr @time_shift_adjtime(ptr noundef captures(address_is_nu
   %79 = fadd x86_fp80 %.1338.i, 0xKBFFF8000000000000000
   %80 = fadd x86_fp80 %.19.i, 0xK401CEE6B280000000000
   %81 = fcmp olt x86_fp80 %80, 0xK00000000000000000000
-  br i1 %81, label %.lr.ph10.i, label %calcNT3.exit, !llvm.loop !13
+  br i1 %81, label %.lr.ph10.i, label %calcNT3.exit, !llvm.loop !12
 
 calcNT3.exit:                                     ; preds = %.lr.ph10.i, %.preheader.i
   %.133.lcssa.i = phi x86_fp80 [ %.032.lcssa.i, %.preheader.i ], [ %79, %.lr.ph10.i ]
@@ -696,7 +712,7 @@ calcNT3.exit:                                     ; preds = %.lr.ph10.i, %.prehe
   %85 = add i32 %.063, 1
   %86 = load i32, ptr %20, align 8
   %.not54 = icmp ugt i32 %85, %86
-  br i1 %.not54, label %._crit_edge, label %49, !llvm.loop !14
+  br i1 %.not54, label %._crit_edge, label %49, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %84, %.preheader
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 33
@@ -763,7 +779,7 @@ define hidden noundef ptr @time_shift_undo(ptr noundef readonly captures(address
   %17 = add i32 %.0814, 1
   %18 = load i32, ptr %8, align 8
   %.not12 = icmp ugt i32 %17, %18
-  br i1 %.not12, label %._crit_edge, label %.lr.ph, !llvm.loop !15
+  br i1 %.not12, label %._crit_edge, label %.lr.ph, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %16, %.preheader
   call void @packet_list_queue_draw()
@@ -817,10 +833,9 @@ attributes #11 = { nounwind }
 !6 = distinct !{!6, !7}
 !7 = !{!"llvm.loop.mustprogress"}
 !8 = !{i8 0, i8 2}
-!9 = !{}
+!9 = distinct !{!9, !7}
 !10 = distinct !{!10, !7}
 !11 = distinct !{!11, !7}
 !12 = distinct !{!12, !7}
 !13 = distinct !{!13, !7}
 !14 = distinct !{!14, !7}
-!15 = distinct !{!15, !7}

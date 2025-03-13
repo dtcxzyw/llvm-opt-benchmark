@@ -1345,27 +1345,26 @@ declare i32 @X509_CRL_up_ref(ptr noundef) local_unnamed_addr #1
 declare void @X509_CRL_free(ptr noundef) #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @CMS_get1_certs(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
+define noundef ptr @CMS_get1_certs(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
   store ptr null, ptr %2, align 8, !tbaa !69
   %3 = call i32 @ossl_cms_get1_certs_ex(ptr noundef %0, ptr noundef nonnull %2)
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %10, label %4
+  br i1 %.not, label %9, label %4
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr %2, align 8, !tbaa !69
   %6 = call i32 @OPENSSL_sk_num(ptr noundef %5) #5
   %7 = icmp eq i32 %6, 0
-  %8 = load ptr, ptr %2, align 8, !tbaa !69
-  br i1 %7, label %9, label %10
+  br i1 %7, label %8, label %9
 
-9:                                                ; preds = %4
-  call void @OPENSSL_sk_free(ptr noundef %8) #5
-  br label %10
+8:                                                ; preds = %4
+  call void @OPENSSL_sk_free(ptr noundef %5) #5
+  br label %9
 
-10:                                               ; preds = %4, %1, %9
-  %.0 = phi ptr [ null, %9 ], [ null, %1 ], [ %8, %4 ]
+9:                                                ; preds = %4, %1, %8
+  %.0 = phi ptr [ null, %8 ], [ null, %1 ], [ %5, %4 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
   ret ptr %.0
 }
@@ -1461,27 +1460,26 @@ declare i32 @X509_add_cert(ptr noundef, ptr noundef, i32 noundef) local_unnamed_
 declare void @OSSL_STACK_OF_X509_free(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
-define ptr @CMS_get1_crls(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
+define noundef ptr @CMS_get1_crls(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #5
   store ptr null, ptr %2, align 8, !tbaa !72
   %3 = call i32 @ossl_cms_get1_crls_ex(ptr noundef %0, ptr noundef nonnull %2)
   %.not = icmp eq i32 %3, 0
-  br i1 %.not, label %10, label %4
+  br i1 %.not, label %9, label %4
 
 4:                                                ; preds = %1
   %5 = load ptr, ptr %2, align 8, !tbaa !72
   %6 = call i32 @OPENSSL_sk_num(ptr noundef %5) #5
   %7 = icmp eq i32 %6, 0
-  %8 = load ptr, ptr %2, align 8, !tbaa !72
-  br i1 %7, label %9, label %10
+  br i1 %7, label %8, label %9
 
-9:                                                ; preds = %4
-  call void @OPENSSL_sk_free(ptr noundef %8) #5
-  br label %10
+8:                                                ; preds = %4
+  call void @OPENSSL_sk_free(ptr noundef %5) #5
+  br label %9
 
-10:                                               ; preds = %4, %1, %9
-  %.0 = phi ptr [ null, %9 ], [ null, %1 ], [ %8, %4 ]
+9:                                                ; preds = %4, %1, %8
+  %.0 = phi ptr [ null, %8 ], [ null, %1 ], [ %5, %4 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #5
   ret ptr %.0
 }

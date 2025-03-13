@@ -8806,11 +8806,11 @@ If_CluMoveGroupToMsb.exit:                        ; preds = %57, %._crit_edge153
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #22
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %22) #22
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %21) #22
-  br label %162
+  br label %161
 
 95:                                               ; preds = %38, %33
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %0, ptr noundef nonnull align 1 dereferenceable(18) %17, i64 18, i1 false), !tbaa.struct !183
-  br label %162
+  br label %161
 
 96:                                               ; preds = %12
   %97 = load i8, ptr %20, align 1, !tbaa !110
@@ -8862,7 +8862,7 @@ If_CluMoveGroupToMsb.exit:                        ; preds = %57, %._crit_edge153
 
 111:                                              ; preds = %109, %110
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %0, ptr noundef nonnull align 1 dereferenceable(18) %17, i64 18, i1 false), !tbaa.struct !183
-  br label %162
+  br label %161
 
 112:                                              ; preds = %96
   %113 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -8900,13 +8900,13 @@ If_CluMoveGroupToMsb.exit:                        ; preds = %57, %._crit_edge153
   %wide.trip.count = zext nneg i8 %121 to i64
   %124 = getelementptr inbounds nuw i8, ptr %20, i64 2
   %125 = getelementptr inbounds nuw i8, ptr %18, i64 2
-  br label %134
+  br label %133
 
 126:                                              ; preds = %120
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %0, ptr noundef nonnull align 1 dereferenceable(18) %18, i64 18, i1 false), !tbaa.struct !183
-  br label %162
+  br label %161
 
-.preheader:                                       ; preds = %134, %.preheader147
+.preheader:                                       ; preds = %133, %.preheader147
   %127 = load i8, ptr %19, align 1, !tbaa !110
   %128 = icmp sgt i8 %127, 0
   br i1 %128, label %.lr.ph150, label %._crit_edge
@@ -8914,92 +8914,91 @@ If_CluMoveGroupToMsb.exit:                        ; preds = %57, %._crit_edge153
 .lr.ph150:                                        ; preds = %.preheader
   %wide.trip.count165 = zext nneg i8 %127 to i64
   %129 = getelementptr inbounds nuw i8, ptr %19, i64 2
-  %130 = load i8, ptr %20, align 1, !tbaa !110
-  %131 = getelementptr inbounds nuw i8, ptr %20, i64 2
-  %132 = trunc i32 %3 to i8
-  %133 = add i8 %132, 1
-  br label %140
+  %130 = getelementptr inbounds nuw i8, ptr %20, i64 2
+  %131 = trunc i32 %3 to i8
+  %132 = add i8 %131, 1
+  br label %139
 
-134:                                              ; preds = %.lr.ph, %134
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %134 ]
-  %135 = getelementptr inbounds nuw [16 x i8], ptr %125, i64 0, i64 %indvars.iv
-  %136 = load i8, ptr %135, align 1, !tbaa !59
-  %137 = sext i8 %136 to i64
-  %138 = getelementptr inbounds [16 x i8], ptr %124, i64 0, i64 %137
-  %139 = load i8, ptr %138, align 1, !tbaa !59
-  store i8 %139, ptr %135, align 1, !tbaa !59
+133:                                              ; preds = %.lr.ph, %133
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %133 ]
+  %134 = getelementptr inbounds nuw [16 x i8], ptr %125, i64 0, i64 %indvars.iv
+  %135 = load i8, ptr %134, align 1, !tbaa !59
+  %136 = sext i8 %135 to i64
+  %137 = getelementptr inbounds [16 x i8], ptr %124, i64 0, i64 %136
+  %138 = load i8, ptr %137, align 1, !tbaa !59
+  store i8 %138, ptr %134, align 1, !tbaa !59
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %134, !llvm.loop !196
+  br i1 %exitcond.not, label %.preheader, label %133, !llvm.loop !196
 
-140:                                              ; preds = %.lr.ph150, %148
-  %indvars.iv162 = phi i64 [ 0, %.lr.ph150 ], [ %indvars.iv.next163, %148 ]
-  %141 = getelementptr inbounds nuw [16 x i8], ptr %129, i64 0, i64 %indvars.iv162
-  %142 = load i8, ptr %141, align 1, !tbaa !59
-  %143 = icmp eq i8 %142, %130
-  br i1 %143, label %148, label %144
+139:                                              ; preds = %.lr.ph150, %147
+  %indvars.iv162 = phi i64 [ 0, %.lr.ph150 ], [ %indvars.iv.next163, %147 ]
+  %140 = getelementptr inbounds nuw [16 x i8], ptr %129, i64 0, i64 %indvars.iv162
+  %141 = load i8, ptr %140, align 1, !tbaa !59
+  %142 = icmp eq i8 %141, %97
+  br i1 %142, label %147, label %143
 
-144:                                              ; preds = %140
-  %145 = sext i8 %142 to i64
-  %146 = getelementptr inbounds [16 x i8], ptr %131, i64 0, i64 %145
-  %147 = load i8, ptr %146, align 1, !tbaa !59
-  br label %148
+143:                                              ; preds = %139
+  %144 = sext i8 %141 to i64
+  %145 = getelementptr inbounds [16 x i8], ptr %130, i64 0, i64 %144
+  %146 = load i8, ptr %145, align 1, !tbaa !59
+  br label %147
 
-148:                                              ; preds = %140, %144
-  %storemerge = phi i8 [ %147, %144 ], [ %133, %140 ]
-  store i8 %storemerge, ptr %141, align 1, !tbaa !59
+147:                                              ; preds = %139, %143
+  %storemerge = phi i8 [ %146, %143 ], [ %132, %139 ]
+  store i8 %storemerge, ptr %140, align 1, !tbaa !59
   %indvars.iv.next163 = add nuw nsw i64 %indvars.iv162, 1
   %exitcond166.not = icmp eq i64 %indvars.iv.next163, %wide.trip.count165
-  br i1 %exitcond166.not, label %._crit_edge, label %140, !llvm.loop !197
+  br i1 %exitcond166.not, label %._crit_edge, label %139, !llvm.loop !197
 
-._crit_edge:                                      ; preds = %148, %.preheader
+._crit_edge:                                      ; preds = %147, %.preheader
   %.not135 = icmp eq ptr %8, null
-  br i1 %.not135, label %150, label %149
+  br i1 %.not135, label %149, label %148
 
-149:                                              ; preds = %._crit_edge
+148:                                              ; preds = %._crit_edge
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %8, ptr noundef nonnull align 1 dereferenceable(18) %18, i64 18, i1 false), !tbaa.struct !183
-  br label %150
+  br label %149
 
-150:                                              ; preds = %149, %._crit_edge
+149:                                              ; preds = %148, %._crit_edge
   %.not136 = icmp eq ptr %7, null
-  br i1 %.not136, label %152, label %151
+  br i1 %.not136, label %151, label %150
 
-151:                                              ; preds = %150
+150:                                              ; preds = %149
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %7, ptr noundef nonnull align 1 dereferenceable(18) %19, i64 18, i1 false), !tbaa.struct !183
-  br label %152
+  br label %151
 
-152:                                              ; preds = %151, %150
+151:                                              ; preds = %150, %149
   %.not137 = icmp eq ptr %9, null
-  br i1 %.not137, label %155, label %153
+  br i1 %.not137, label %154, label %152
 
-153:                                              ; preds = %152
-  %154 = load i64, ptr %14, align 8, !tbaa !16
-  store i64 %154, ptr %9, align 8, !tbaa !16
-  br label %155
+152:                                              ; preds = %151
+  %153 = load i64, ptr %14, align 8, !tbaa !16
+  store i64 %153, ptr %9, align 8, !tbaa !16
+  br label %154
 
-155:                                              ; preds = %153, %152
+154:                                              ; preds = %152, %151
   %.not138 = icmp eq ptr %10, null
-  br i1 %.not138, label %158, label %156
+  br i1 %.not138, label %157, label %155
 
-156:                                              ; preds = %155
-  %157 = load i64, ptr %15, align 8, !tbaa !16
-  store i64 %157, ptr %10, align 8, !tbaa !16
-  br label %158
+155:                                              ; preds = %154
+  %156 = load i64, ptr %15, align 8, !tbaa !16
+  store i64 %156, ptr %10, align 8, !tbaa !16
+  br label %157
 
-158:                                              ; preds = %156, %155
+157:                                              ; preds = %155, %154
   %.not139 = icmp eq ptr %11, null
-  br i1 %.not139, label %161, label %159
+  br i1 %.not139, label %160, label %158
 
-159:                                              ; preds = %158
-  %160 = load i64, ptr %16, align 8, !tbaa !16
-  store i64 %160, ptr %11, align 8, !tbaa !16
+158:                                              ; preds = %157
+  %159 = load i64, ptr %16, align 8, !tbaa !16
+  store i64 %159, ptr %11, align 8, !tbaa !16
+  br label %160
+
+160:                                              ; preds = %157, %158
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %0, ptr noundef nonnull align 1 dereferenceable(18) %17, i64 18, i1 false), !tbaa.struct !183
   br label %161
 
-161:                                              ; preds = %158, %159
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(18) %0, ptr noundef nonnull align 1 dereferenceable(18) %17, i64 18, i1 false), !tbaa.struct !183
-  br label %162
-
-162:                                              ; preds = %161, %126, %111, %95, %94
+161:                                              ; preds = %160, %126, %111, %95, %94
   call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %20) #22
   call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %19) #22
   call void @llvm.lifetime.end.p0(i64 18, ptr nonnull %18) #22

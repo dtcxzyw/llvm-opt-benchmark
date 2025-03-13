@@ -424,22 +424,31 @@ select.unfold.preheader.i72:                      ; preds = %80
 
 .lr.ph:                                           ; preds = %.preheader85
   %.not63 = icmp eq ptr %.0, null
-  %85 = getelementptr i8, ptr %.0, i64 8
-  %86 = zext nneg i32 %2 to i64
   %wide.trip.count99 = zext nneg i32 %2 to i64
-  br i1 %.not63, label %.lr.ph.split.us, label %.lr.ph.split
+  br i1 %.not63, label %.lr.ph.split.us.preheader, label %.lr.ph.split.preheader
 
-.lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.split.us
-  %indvars.iv96 = phi i64 [ %indvars.iv.next97, %.lr.ph.split.us ], [ 0, %.lr.ph ]
+.lr.ph.split.preheader:                           ; preds = %.lr.ph
+  %85 = getelementptr i8, ptr %.0, i64 8
+  %wide.trip.count = zext nneg i32 %2 to i64
+  %.0.val.pre = load ptr, ptr %85, align 8, !tbaa !29
+  %86 = getelementptr ptr, ptr %.0.val.pre, i64 %wide.trip.count99
+  br label %.lr.ph.split
+
+.lr.ph.split.us.preheader:                        ; preds = %.lr.ph
+  %87 = zext nneg i32 %2 to i64
+  br label %.lr.ph.split.us
+
+.lr.ph.split.us:                                  ; preds = %.lr.ph.split.us.preheader, %.lr.ph.split.us
+  %indvars.iv96 = phi i64 [ 0, %.lr.ph.split.us.preheader ], [ %indvars.iv.next97, %.lr.ph.split.us ]
   %.val67.us = load ptr, ptr %0, align 8, !tbaa !33
-  %87 = getelementptr i8, ptr %.val67.us, i64 8
-  %.val67.val.us = load ptr, ptr %87, align 8, !tbaa !29
-  %88 = getelementptr inbounds nuw ptr, ptr %.val67.val.us, i64 %indvars.iv96
-  %89 = load ptr, ptr %88, align 8, !tbaa !24
-  %90 = xor i64 %indvars.iv96, -1
-  %91 = add nsw i64 %86, %90
-  %92 = getelementptr inbounds [8 x [8 x i32]], ptr @Hop_ManConvertAigToTruth.uTruths, i64 0, i64 %91
-  store ptr %92, ptr %89, align 8, !tbaa !11
+  %88 = getelementptr i8, ptr %.val67.us, i64 8
+  %.val67.val.us = load ptr, ptr %88, align 8, !tbaa !29
+  %89 = getelementptr inbounds nuw ptr, ptr %.val67.val.us, i64 %indvars.iv96
+  %90 = load ptr, ptr %89, align 8, !tbaa !24
+  %91 = xor i64 %indvars.iv96, -1
+  %92 = add nsw i64 %87, %91
+  %93 = getelementptr inbounds [8 x [8 x i32]], ptr @Hop_ManConvertAigToTruth.uTruths, i64 0, i64 %92
+  store ptr %93, ptr %90, align 8, !tbaa !11
   %indvars.iv.next97 = add nuw nsw i64 %indvars.iv96, 1
   %exitcond100.not = icmp eq i64 %indvars.iv.next97, %wide.trip.count99
   br i1 %exitcond100.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !38
@@ -449,53 +458,58 @@ select.unfold.preheader.i72:                      ; preds = %80
 
 .lr.ph90:                                         ; preds = %.preheader
   %.not60 = icmp eq ptr %.0, null
-  %93 = getelementptr i8, ptr %.0, i64 8
-  %wide.trip.count109 = zext nneg i32 %2 to i64
-  br i1 %.not60, label %.lr.ph90.split.us, label %.lr.ph90.split
+  br i1 %.not60, label %.lr.ph90.split.us.preheader, label %.lr.ph90.split.preheader
 
-.lr.ph90.split.us:                                ; preds = %.lr.ph90, %.lr.ph90.split.us
-  %indvars.iv106 = phi i64 [ %indvars.iv.next107, %.lr.ph90.split.us ], [ 0, %.lr.ph90 ]
+.lr.ph90.split.preheader:                         ; preds = %.lr.ph90
+  %94 = getelementptr i8, ptr %.0, i64 8
+  %wide.trip.count104 = zext nneg i32 %2 to i64
+  %.0.val66.pre = load ptr, ptr %94, align 8, !tbaa !29
+  br label %.lr.ph90.split
+
+.lr.ph90.split.us.preheader:                      ; preds = %.lr.ph90
+  %wide.trip.count109 = zext nneg i32 %2 to i64
+  br label %.lr.ph90.split.us
+
+.lr.ph90.split.us:                                ; preds = %.lr.ph90.split.us.preheader, %.lr.ph90.split.us
+  %indvars.iv106 = phi i64 [ 0, %.lr.ph90.split.us.preheader ], [ %indvars.iv.next107, %.lr.ph90.split.us ]
   %.val68.us = load ptr, ptr %0, align 8, !tbaa !33
-  %94 = getelementptr i8, ptr %.val68.us, i64 8
-  %.val68.val.us = load ptr, ptr %94, align 8, !tbaa !29
-  %95 = getelementptr inbounds nuw ptr, ptr %.val68.val.us, i64 %indvars.iv106
-  %96 = load ptr, ptr %95, align 8, !tbaa !24
-  %97 = getelementptr inbounds nuw [8 x [8 x i32]], ptr @Hop_ManConvertAigToTruth.uTruths, i64 0, i64 %indvars.iv106
-  store ptr %97, ptr %96, align 8, !tbaa !11
+  %95 = getelementptr i8, ptr %.val68.us, i64 8
+  %.val68.val.us = load ptr, ptr %95, align 8, !tbaa !29
+  %96 = getelementptr inbounds nuw ptr, ptr %.val68.val.us, i64 %indvars.iv106
+  %97 = load ptr, ptr %96, align 8, !tbaa !24
+  %98 = getelementptr inbounds nuw [8 x [8 x i32]], ptr @Hop_ManConvertAigToTruth.uTruths, i64 0, i64 %indvars.iv106
+  store ptr %98, ptr %97, align 8, !tbaa !11
   %indvars.iv.next107 = add nuw nsw i64 %indvars.iv106, 1
   %exitcond110.not = icmp eq i64 %indvars.iv.next107, %wide.trip.count109
   br i1 %exitcond110.not, label %.loopexit, label %.lr.ph90.split.us, !llvm.loop !39
 
-.lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
+.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %.lr.ph.split
+  %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %.lr.ph.split ]
   %.val67 = load ptr, ptr %0, align 8, !tbaa !33
-  %98 = getelementptr i8, ptr %.val67, i64 8
-  %.val67.val = load ptr, ptr %98, align 8, !tbaa !29
-  %99 = getelementptr inbounds nuw ptr, ptr %.val67.val, i64 %indvars.iv
-  %100 = load ptr, ptr %99, align 8, !tbaa !24
-  %101 = xor i64 %indvars.iv, -1
-  %.0.val = load ptr, ptr %85, align 8, !tbaa !29
-  %102 = getelementptr ptr, ptr %.0.val, i64 %86
-  %103 = getelementptr ptr, ptr %102, i64 %101
+  %99 = getelementptr i8, ptr %.val67, i64 8
+  %.val67.val = load ptr, ptr %99, align 8, !tbaa !29
+  %100 = getelementptr inbounds nuw ptr, ptr %.val67.val, i64 %indvars.iv
+  %101 = load ptr, ptr %100, align 8, !tbaa !24
+  %102 = xor i64 %indvars.iv, -1
+  %103 = getelementptr ptr, ptr %86, i64 %102
   %104 = load ptr, ptr %103, align 8, !tbaa !24
-  store ptr %104, ptr %100, align 8, !tbaa !11
+  store ptr %104, ptr %101, align 8, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count99
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph.split, !llvm.loop !38
 
-.lr.ph90.split:                                   ; preds = %.lr.ph90, %.lr.ph90.split
-  %indvars.iv101 = phi i64 [ %indvars.iv.next102, %.lr.ph90.split ], [ 0, %.lr.ph90 ]
+.lr.ph90.split:                                   ; preds = %.lr.ph90.split.preheader, %.lr.ph90.split
+  %indvars.iv101 = phi i64 [ 0, %.lr.ph90.split.preheader ], [ %indvars.iv.next102, %.lr.ph90.split ]
   %.val68 = load ptr, ptr %0, align 8, !tbaa !33
   %105 = getelementptr i8, ptr %.val68, i64 8
   %.val68.val = load ptr, ptr %105, align 8, !tbaa !29
   %106 = getelementptr inbounds nuw ptr, ptr %.val68.val, i64 %indvars.iv101
   %107 = load ptr, ptr %106, align 8, !tbaa !24
-  %.0.val66 = load ptr, ptr %93, align 8, !tbaa !29
-  %108 = getelementptr inbounds nuw ptr, ptr %.0.val66, i64 %indvars.iv101
+  %108 = getelementptr inbounds nuw ptr, ptr %.0.val66.pre, i64 %indvars.iv101
   %109 = load ptr, ptr %108, align 8, !tbaa !24
   store ptr %109, ptr %107, align 8, !tbaa !11
   %indvars.iv.next102 = add nuw nsw i64 %indvars.iv101, 1
-  %exitcond105.not = icmp eq i64 %indvars.iv.next102, %wide.trip.count109
+  %exitcond105.not = icmp eq i64 %indvars.iv.next102, %wide.trip.count104
   br i1 %exitcond105.not, label %.loopexit, label %.lr.ph90.split, !llvm.loop !39
 
 .loopexit:                                        ; preds = %.lr.ph.split, %.lr.ph.split.us, %.lr.ph90.split, %.lr.ph90.split.us, %.preheader85, %.preheader

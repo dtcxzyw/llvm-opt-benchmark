@@ -63,15 +63,14 @@ if.then:                                          ; preds = %_ZN2EA6EAMain11Comm
 
 invoke.cont1:                                     ; preds = %if.then
   %cmp3.not = icmp eq i64 %call2, 0
-  %3 = load ptr, ptr %printServerAddress, align 8
-  %spec.select = select i1 %cmp3.not, ptr null, ptr %3
+  %spec.select = select i1 %cmp3.not, ptr null, ptr %2
   br label %_ZN2EA6EAMain11CommandLineD2Ev.exit
 
 lpad:                                             ; preds = %if.then
-  %4 = landingpad { ptr, i32 }
+  %3 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN2EA6EAMain11CommandLineD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %commandLine) #20
-  resume { ptr, i32 } %4
+  resume { ptr, i32 } %3
 
 _ZN2EA6EAMain11CommandLineD2Ev.exit:              ; preds = %_ZN2EA6EAMain11CommandLineC2EiPPc.exit, %invoke.cont1
   %retval.0 = phi ptr [ null, %_ZN2EA6EAMain11CommandLineC2EiPPc.exit ], [ %spec.select, %invoke.cont1 ]

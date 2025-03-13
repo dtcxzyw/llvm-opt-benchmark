@@ -5758,6 +5758,7 @@ _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h0d07a08bae59a84eE.exit.thr
   call void @llvm.experimental.noalias.scope.decl(metadata !1566)
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %35 = load i64, ptr %34, align 8, !alias.scope !1569, !noalias !1570, !noundef !4
+  %invariant.gep.i.i = getelementptr i8, ptr %.sroa.03.0, i64 -64
   %36 = icmp eq i64 %35, 0
   br i1 %36, label %.loopexit, label %.lr.ph.i.i
 
@@ -5771,7 +5772,6 @@ _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h0d07a08bae59a84eE.exit.thr
   %43 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %44 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  %invariant.gep.i.i = getelementptr i8, ptr %.sroa.03.0, i64 -64
   br label %48
 
 46:                                               ; preds = %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h1b96dc3483ea1bd2E.llvm.171605402441639591.exit.i.i"
@@ -17127,6 +17127,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15clone_from_impl17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3940)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i64, ptr %9, align 8, !alias.scope !3940, !noalias !3943, !noundef !4
+  %invariant.gep = getelementptr i8, ptr %5, i64 -32
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h75557b34dd939e61E.llvm.171605402441639591.exit.thread", label %.lr.ph
 
@@ -17138,7 +17139,6 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15clone_from_impl17
   %16 = xor i16 %15, -1
   %17 = ptrtoint ptr %4 to i64
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %invariant.gep = getelementptr i8, ptr %5, i64 -32
   br label %21
 
 19:                                               ; preds = %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h75557b34dd939e61E.llvm.171605402441639591.exit"

@@ -441,7 +441,6 @@ define ptr @ossl_hexstr2buf_sep(ptr noundef readonly captures(none) %0, ptr noun
   br i1 %.not, label %13, label %.thread
 
 13:                                               ; preds = %12
-  store i64 0, ptr %4, align 8, !tbaa !15
   %14 = call fastcc i32 @hexstr2buf_sep(ptr noundef nonnull %10, i64 noundef %9, ptr noundef nonnull %4, ptr noundef nonnull %0, i8 noundef signext %2)
   %.not17 = icmp eq i32 %14, 0
   br i1 %.not17, label %18, label %19

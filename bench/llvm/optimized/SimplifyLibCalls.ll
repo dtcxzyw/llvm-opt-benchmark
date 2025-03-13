@@ -938,75 +938,71 @@ define internal fastcc void @_ZL35annotateNonNullNoUndefBasedOnAccessPN4llvm8Cal
   br label %10
 
 10:                                               ; preds = %.lr.ph, %.critedge
-  %.01622 = phi ptr [ %1, %.lr.ph ], [ %50, %.critedge ]
+  %.01622 = phi ptr [ %1, %.lr.ph ], [ %46, %.critedge ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #26
   %11 = load i32, ptr %.01622, align 4, !tbaa !62
   store i32 %11, ptr %4, align 4, !tbaa !62
   %12 = call noundef zeroext i1 @_ZNK4llvm8CallBase12paramHasAttrEjNS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef %11, i32 noundef 40) #26
-  br i1 %12, label %18, label %13
+  br i1 %12, label %17, label %13
 
 13:                                               ; preds = %10
-  %14 = load i32, ptr %4, align 4, !tbaa !62
-  %15 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm5Value10getContextEv(ptr noundef nonnull align 8 dereferenceable(88) %0) #26
-  %16 = add i32 %14, 1
-  %17 = call ptr @_ZNK4llvm13AttributeList19addAttributeAtIndexERNS_11LLVMContextEjNS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %15, i32 noundef %16, i32 noundef 40) #26
-  store ptr %17, ptr %8, align 8, !tbaa !67
-  br label %18
+  %14 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm5Value10getContextEv(ptr noundef nonnull align 8 dereferenceable(88) %0) #26
+  %15 = add i32 %11, 1
+  %16 = call ptr @_ZNK4llvm13AttributeList19addAttributeAtIndexERNS_11LLVMContextEjNS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %14, i32 noundef %15, i32 noundef 40) #26
+  store ptr %16, ptr %8, align 8, !tbaa !67
+  br label %17
 
-18:                                               ; preds = %13, %10
-  %19 = load i32, ptr %4, align 4, !tbaa !62
-  %20 = call noundef zeroext i1 @_ZNK4llvm8CallBase12paramHasAttrEjNS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef %19, i32 noundef 43) #26
-  br i1 %20, label %49, label %21
+17:                                               ; preds = %13, %10
+  %18 = call noundef zeroext i1 @_ZNK4llvm8CallBase12paramHasAttrEjNS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(88) %0, i32 noundef %11, i32 noundef 43) #26
+  br i1 %18, label %45, label %19
 
-21:                                               ; preds = %18
-  %22 = load i32, ptr %4, align 4, !tbaa !62
-  %23 = load i32, ptr %9, align 4
-  %24 = and i32 %23, 134217727
-  %25 = zext nneg i32 %24 to i64
-  %26 = sub nsw i64 0, %25
-  %27 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %26
-  %28 = zext i32 %22 to i64
-  %29 = getelementptr inbounds nuw %"class.llvm::Use", ptr %27, i64 %28
-  %30 = load ptr, ptr %29, align 8, !tbaa !56
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %32 = load ptr, ptr %31, align 8, !tbaa !69
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %34 = load i32, ptr %33, align 8
-  %35 = and i32 %34, 255
-  %36 = add nsw i32 %35, -17
-  %spec.select.i.i.i = icmp ult i32 %36, 2
-  br i1 %spec.select.i.i.i, label %37, label %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit
+19:                                               ; preds = %17
+  %20 = load i32, ptr %9, align 4
+  %21 = and i32 %20, 134217727
+  %22 = zext nneg i32 %21 to i64
+  %23 = sub nsw i64 0, %22
+  %24 = getelementptr inbounds %"class.llvm::Use", ptr %0, i64 %23
+  %25 = zext i32 %11 to i64
+  %26 = getelementptr inbounds nuw %"class.llvm::Use", ptr %24, i64 %25
+  %27 = load ptr, ptr %26, align 8, !tbaa !56
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %29 = load ptr, ptr %28, align 8, !tbaa !69
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %31 = load i32, ptr %30, align 8
+  %32 = and i32 %31, 255
+  %33 = add nsw i32 %32, -17
+  %spec.select.i.i.i = icmp ult i32 %33, 2
+  br i1 %spec.select.i.i.i, label %34, label %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit
 
-37:                                               ; preds = %21
-  %38 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  %39 = load ptr, ptr %38, align 8, !tbaa !70
-  %40 = load ptr, ptr %39, align 8, !tbaa !75
-  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %40, i64 8
+34:                                               ; preds = %19
+  %35 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  %36 = load ptr, ptr %35, align 8, !tbaa !70
+  %37 = load ptr, ptr %36, align 8, !tbaa !75
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %37, i64 8
   %.pre.i = load i32, ptr %.phi.trans.insert.i, align 8
   br label %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit
 
-_ZNK4llvm4Type22getPointerAddressSpaceEv.exit:    ; preds = %21, %37
-  %41 = phi i32 [ %.pre.i, %37 ], [ %34, %21 ]
-  %42 = lshr i32 %41, 8
-  %43 = call noundef zeroext i1 @_ZN4llvm20NullPointerIsDefinedEPKNS_8FunctionEj(ptr noundef nonnull %5, i32 noundef %42) #26
-  br i1 %43, label %.critedge, label %44
+_ZNK4llvm4Type22getPointerAddressSpaceEv.exit:    ; preds = %19, %34
+  %38 = phi i32 [ %.pre.i, %34 ], [ %31, %19 ]
+  %39 = lshr i32 %38, 8
+  %40 = call noundef zeroext i1 @_ZN4llvm20NullPointerIsDefinedEPKNS_8FunctionEj(ptr noundef nonnull %5, i32 noundef %39) #26
+  br i1 %40, label %.critedge, label %41
 
-44:                                               ; preds = %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit
-  %45 = load i32, ptr %4, align 4, !tbaa !62
-  %46 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm5Value10getContextEv(ptr noundef nonnull align 8 dereferenceable(88) %0) #26
-  %47 = add i32 %45, 1
-  %48 = call ptr @_ZNK4llvm13AttributeList19addAttributeAtIndexERNS_11LLVMContextEjNS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %46, i32 noundef %47, i32 noundef 43) #26
-  store ptr %48, ptr %8, align 8, !tbaa !67
-  br label %49
+41:                                               ; preds = %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit
+  %42 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNK4llvm5Value10getContextEv(ptr noundef nonnull align 8 dereferenceable(88) %0) #26
+  %43 = add i32 %11, 1
+  %44 = call ptr @_ZNK4llvm13AttributeList19addAttributeAtIndexERNS_11LLVMContextEjNS_9Attribute8AttrKindE(ptr noundef nonnull align 8 dereferenceable(8) %8, ptr noundef nonnull align 8 dereferenceable(8) %42, i32 noundef %43, i32 noundef 43) #26
+  store ptr %44, ptr %8, align 8, !tbaa !67
+  br label %45
 
-49:                                               ; preds = %44, %18
+45:                                               ; preds = %41, %17
   call fastcc void @_ZL28annotateDereferenceableBytesPN4llvm8CallInstENS_8ArrayRefIjEEm(ptr noundef nonnull %0, ptr nonnull %4, i64 1, i64 noundef 1)
   br label %.critedge
 
-.critedge:                                        ; preds = %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit, %49
+.critedge:                                        ; preds = %_ZNK4llvm4Type22getPointerAddressSpaceEv.exit, %45
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #26
-  %50 = getelementptr inbounds nuw i8, ptr %.01622, i64 4
-  %.not18 = icmp eq ptr %50, %7
+  %46 = getelementptr inbounds nuw i8, ptr %.01622, i64 4
+  %.not18 = icmp eq ptr %46, %7
   br i1 %.not18, label %.loopexit, label %10
 
 .loopexit:                                        ; preds = %.critedge, %6, %3

@@ -2832,7 +2832,7 @@ _ZN9grpc_core14promise_detail18OncePromiseFactoryIvNS0_6TrySeqINS_11CallFilters1
   %63 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %64 = load i8, ptr %63, align 8, !tbaa !191, !range !113, !noalias !181, !noundef !114
   %65 = trunc nuw i8 %64 to i1
-  br i1 %65, label %66, label %_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_11CallFilters16MetadataExecutorISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEES9_XadL_ZNS3_29push_client_initial_metadata_EEEXadL_ZNS_14filters_detail9StackData23client_initial_metadataEEEXadL_ZNS_9CallState31FinishPullClientInitialMetadataEvEEPKNS3_10AddedStackEEEJZNS_12_GLOBAL__N_121InprocClientTransport9StartCallENS_11CallHandlerEEUlS9_E_EE8PollOnceEv.exit.thread133
+  br i1 %65, label %66, label %_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_11CallFilters16MetadataExecutorISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEES9_XadL_ZNS3_29push_client_initial_metadata_EEEXadL_ZNS_14filters_detail9StackData23client_initial_metadataEEEXadL_ZNS_9CallState31FinishPullClientInitialMetadataEvEEPKNS3_10AddedStackEEEJZNS_12_GLOBAL__N_121InprocClientTransport9StartCallENS_11CallHandlerEEUlS9_E_EE8PollOnceEv.exit.thread131
 
 66:                                               ; preds = %62
   %67 = getelementptr inbounds nuw i8, ptr %19, i64 8
@@ -2867,7 +2867,7 @@ _ZN9grpc_core14promise_detail18OncePromiseFactoryIvNS0_6TrySeqINS_11CallFilters1
   call void @__clang_call_terminate(ptr %82) #40, !noalias !181
   unreachable
 
-_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_11CallFilters16MetadataExecutorISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEES9_XadL_ZNS3_29push_client_initial_metadata_EEEXadL_ZNS_14filters_detail9StackData23client_initial_metadataEEEXadL_ZNS_9CallState31FinishPullClientInitialMetadataEvEEPKNS3_10AddedStackEEEJZNS_12_GLOBAL__N_121InprocClientTransport9StartCallENS_11CallHandlerEEUlS9_E_EE8PollOnceEv.exit.thread133: ; preds = %62
+_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_11CallFilters16MetadataExecutorISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEES9_XadL_ZNS3_29push_client_initial_metadata_EEEXadL_ZNS_14filters_detail9StackData23client_initial_metadataEEEXadL_ZNS_9CallState31FinishPullClientInitialMetadataEvEEPKNS3_10AddedStackEEEJZNS_12_GLOBAL__N_121InprocClientTransport9StartCallENS_11CallHandlerEEUlS9_E_EE8PollOnceEv.exit.thread131: ; preds = %62
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19) #35, !noalias !186
   br label %310
 
@@ -3475,21 +3475,21 @@ _ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_11CallFilters16Meta
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18)
   br label %310
 
-310:                                              ; preds = %_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_11CallFilters16MetadataExecutorISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEES9_XadL_ZNS3_29push_client_initial_metadata_EEEXadL_ZNS_14filters_detail9StackData23client_initial_metadataEEEXadL_ZNS_9CallState31FinishPullClientInitialMetadataEvEEPKNS3_10AddedStackEEEJZNS_12_GLOBAL__N_121InprocClientTransport9StartCallENS_11CallHandlerEEUlS9_E_EE8PollOnceEv.exit.thread, %_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_11CallFilters16MetadataExecutorISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEES9_XadL_ZNS3_29push_client_initial_metadata_EEEXadL_ZNS_14filters_detail9StackData23client_initial_metadataEEEXadL_ZNS_9CallState31FinishPullClientInitialMetadataEvEEPKNS3_10AddedStackEEEJZNS_12_GLOBAL__N_121InprocClientTransport9StartCallENS_11CallHandlerEEUlS9_E_EE8PollOnceEv.exit.thread133
-  %.sroa.690.1132 = phi i64 [ %238, %_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_11CallFilters16MetadataExecutorISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEES9_XadL_ZNS3_29push_client_initial_metadata_EEEXadL_ZNS_14filters_detail9StackData23client_initial_metadataEEEXadL_ZNS_9CallState31FinishPullClientInitialMetadataEvEEPKNS3_10AddedStackEEEJZNS_12_GLOBAL__N_121InprocClientTransport9StartCallENS_11CallHandlerEEUlS9_E_EE8PollOnceEv.exit.thread ], [ 5, %_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_11CallFilters16MetadataExecutorISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEES9_XadL_ZNS3_29push_client_initial_metadata_EEEXadL_ZNS_14filters_detail9StackData23client_initial_metadataEEEXadL_ZNS_9CallState31FinishPullClientInitialMetadataEvEEPKNS3_10AddedStackEEEJZNS_12_GLOBAL__N_121InprocClientTransport9StartCallENS_11CallHandlerEEUlS9_E_EE8PollOnceEv.exit.thread133 ]
+310:                                              ; preds = %_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_11CallFilters16MetadataExecutorISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEES9_XadL_ZNS3_29push_client_initial_metadata_EEEXadL_ZNS_14filters_detail9StackData23client_initial_metadataEEEXadL_ZNS_9CallState31FinishPullClientInitialMetadataEvEEPKNS3_10AddedStackEEEJZNS_12_GLOBAL__N_121InprocClientTransport9StartCallENS_11CallHandlerEEUlS9_E_EE8PollOnceEv.exit.thread, %_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_11CallFilters16MetadataExecutorISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEES9_XadL_ZNS3_29push_client_initial_metadata_EEEXadL_ZNS_14filters_detail9StackData23client_initial_metadataEEEXadL_ZNS_9CallState31FinishPullClientInitialMetadataEvEEPKNS3_10AddedStackEEEJZNS_12_GLOBAL__N_121InprocClientTransport9StartCallENS_11CallHandlerEEUlS9_E_EE8PollOnceEv.exit.thread131
+  %.sroa.690.1130 = phi i64 [ %238, %_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_11CallFilters16MetadataExecutorISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEES9_XadL_ZNS3_29push_client_initial_metadata_EEEXadL_ZNS_14filters_detail9StackData23client_initial_metadataEEEXadL_ZNS_9CallState31FinishPullClientInitialMetadataEvEEPKNS3_10AddedStackEEEJZNS_12_GLOBAL__N_121InprocClientTransport9StartCallENS_11CallHandlerEEUlS9_E_EE8PollOnceEv.exit.thread ], [ 5, %_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_11CallFilters16MetadataExecutorISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEES9_XadL_ZNS3_29push_client_initial_metadata_EEEXadL_ZNS_14filters_detail9StackData23client_initial_metadataEEEXadL_ZNS_9CallState31FinishPullClientInitialMetadataEvEEPKNS3_10AddedStackEEEJZNS_12_GLOBAL__N_121InprocClientTransport9StartCallENS_11CallHandlerEEUlS9_E_EE8PollOnceEv.exit.thread131 ]
   store i8 1, ptr %22, align 8, !tbaa !229
   %311 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  store i64 %.sroa.690.1132, ptr %311, align 8, !tbaa !19
+  store i64 %.sroa.690.1130, ptr %311, align 8, !tbaa !19
   %312 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %313 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i64 %.sroa.690.1132, ptr %23, align 8, !tbaa !19
+  store i64 %.sroa.690.1130, ptr %23, align 8, !tbaa !19
   store i64 55, ptr %312, align 8, !tbaa !19
   %.val = load ptr, ptr %313, align 8, !tbaa !231
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  %314 = icmp eq i64 %.sroa.690.1132, 1
-  br i1 %314, label %.thread136, label %315
+  %314 = icmp eq i64 %.sroa.690.1130, 1
+  br i1 %314, label %.thread134, label %315
 
-.thread136:                                       ; preds = %310
+.thread134:                                       ; preds = %310
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %347
 
@@ -3597,7 +3597,7 @@ _ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit12: ; preds = %.body.i5
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %19) #35, !noalias !186
   br label %_ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit13
 
-347:                                              ; preds = %340, %338, %.thread136
+347:                                              ; preds = %340, %338, %.thread134
   call fastcc void @_ZN9grpc_core14promise_detail6TrySeqINS_11CallFilters16MetadataExecutorISt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEES8_XadL_ZNS2_29push_client_initial_metadata_EEEXadL_ZNS_14filters_detail9StackData23client_initial_metadataEEEXadL_ZNS_9CallState31FinishPullClientInitialMetadataEvEEPKNS2_10AddedStackEEEJZNS_12_GLOBAL__N_121InprocClientTransport9StartCallENS_11CallHandlerEEUlS8_E_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %56) #35
   call void @_ZN9grpc_core5Party11ParticipantD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %0) #35
   call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 112) #37

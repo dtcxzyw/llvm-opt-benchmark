@@ -11072,7 +11072,6 @@ define internal i32 @selinux_socket_sock_rcv_skb(ptr noundef readonly captures(n
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, i8 0, i64 56, i1 false), !annotation !5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #24
-  store ptr null, ptr %7, align 8, !annotation !5
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 144
   %33 = load i32, ptr %32, align 8
   store i8 2, ptr %5, align 8
@@ -15573,7 +15572,6 @@ define internal range(i32 0, 7274497) i32 @selinux_ip_postroute(ptr readnone cap
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %9) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %9, i8 0, i64 56, i1 false), !annotation !5
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #24
-  store i8 0, ptr %10, align 1
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %22 = load ptr, ptr %21, align 8
   %23 = icmp eq ptr %22, null
@@ -15985,7 +15983,6 @@ define internal noundef range(i32 0, 2) i32 @selinux_ip_forward(ptr readnone cap
 
 .thread:                                          ; preds = %20, %24
   %28 = phi i1 [ %26, %24 ], [ true, %20 ]
-  store ptr null, ptr %8, align 8, !annotation !5
   store i32 0, ptr %9, align 4, !annotation !5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false), !annotation !5
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %11, i8 0, i64 56, i1 false), !annotation !5
@@ -16012,6 +16009,7 @@ define internal noundef range(i32 0, 2) i32 @selinux_ip_forward(ptr readnone cap
   br label %87
 
 41:                                               ; preds = %34
+  store ptr null, ptr %8, align 8, !annotation !5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #24
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #24
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 8

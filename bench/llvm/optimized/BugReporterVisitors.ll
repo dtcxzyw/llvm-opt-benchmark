@@ -10846,7 +10846,7 @@ define dso_local void @_ZN5clang4ento10TagVisitor9VisitNodeEPKNS0_12ExplodedNode
 
 18:                                               ; preds = %14, %5
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  br label %77
+  br label %72
 
 _ZN4llvm16dyn_cast_or_nullIN5clang4ento7NoteTagEKNS1_15ProgramPointTagEEEDaPT0_.exit: ; preds = %14
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %8) #25
@@ -10868,127 +10868,114 @@ _ZNKSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN5clang4en
   call void %24(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %6, ptr noundef nonnull align 8 dereferenceable(32) %22, ptr noundef nonnull align 8 dereferenceable(16) %3, ptr noundef nonnull align 8 dereferenceable(1000) %4) #25, !noalias !1215
   %25 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %26 = load i64, ptr %25, align 8, !tbaa !115, !noalias !1215
-  %27 = icmp eq i64 %26, 0
-  %28 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  br i1 %27, label %40, label %29
+  %.not = icmp eq i64 %26, 0
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  br i1 %.not, label %36, label %28
 
-29:                                               ; preds = %_ZNKSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN5clang4ento18BugReporterContextERNS7_22PathSensitiveBugReportEEEclES9_SB_.exit.i
-  %30 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %30, ptr %8, align 8, !tbaa !659, !alias.scope !1215
-  %31 = load ptr, ptr %6, align 8, !tbaa !111, !noalias !1215
-  %32 = icmp eq ptr %31, %28
-  br i1 %32, label %33, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i
+28:                                               ; preds = %_ZNKSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN5clang4ento18BugReporterContextERNS7_22PathSensitiveBugReportEEEclES9_SB_.exit.i
+  %29 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store ptr %29, ptr %8, align 8, !tbaa !659, !alias.scope !1215
+  %30 = load ptr, ptr %6, align 8, !tbaa !111, !noalias !1215
+  %31 = icmp eq ptr %30, %27
+  br i1 %31, label %32, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i
 
-33:                                               ; preds = %29
-  %34 = icmp ult i64 %26, 16
-  call void @llvm.assume(i1 %34)
-  %35 = add nuw nsw i64 %26, 1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %30, ptr noundef nonnull align 8 dereferenceable(1) %28, i64 %35, i1 false)
-  br label %_ZNK5clang4ento7NoteTag15generateMessageB5cxx11ERNS0_18BugReporterContextERNS0_22PathSensitiveBugReportE.exit.thread
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i: ; preds = %29
-  store ptr %31, ptr %8, align 8, !tbaa !111, !alias.scope !1215
-  %36 = load i64, ptr %28, align 8, !tbaa !60, !noalias !1215
-  store i64 %36, ptr %30, align 8, !tbaa !60, !alias.scope !1215
-  br label %_ZNK5clang4ento7NoteTag15generateMessageB5cxx11ERNS0_18BugReporterContextERNS0_22PathSensitiveBugReportE.exit.thread
-
-_ZNK5clang4ento7NoteTag15generateMessageB5cxx11ERNS0_18BugReporterContextERNS0_22PathSensitiveBugReportE.exit.thread: ; preds = %33, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i
-  %37 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 %26, ptr %37, align 8, !tbaa !115, !alias.scope !1215
-  %38 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store i8 1, ptr %38, align 8, !tbaa !1225, !alias.scope !1215
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #25, !noalias !1215
-  %39 = getelementptr inbounds nuw i8, ptr %8, i64 32
+32:                                               ; preds = %28
+  %33 = icmp ult i64 %26, 16
+  call void @llvm.assume(i1 %33)
+  %34 = add nuw nsw i64 %26, 1
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(1) %29, ptr noundef nonnull align 8 dereferenceable(1) %27, i64 %34, i1 false)
   br label %_ZNSt12__shared_ptrIN5clang4ento24PathDiagnosticEventPieceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
-40:                                               ; preds = %_ZNKSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN5clang4ento18BugReporterContextERNS7_22PathSensitiveBugReportEEEclES9_SB_.exit.i
-  %41 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store i8 0, ptr %41, align 8, !tbaa !1225, !alias.scope !1215
-  %.pre.i = load ptr, ptr %6, align 8, !tbaa !111, !noalias !1215
-  %42 = icmp eq ptr %.pre.i, %28
-  br i1 %42, label %_ZNK5clang4ento7NoteTag15generateMessageB5cxx11ERNS0_18BugReporterContextERNS0_22PathSensitiveBugReportE.exit.thread17, label %_ZNK5clang4ento7NoteTag15generateMessageB5cxx11ERNS0_18BugReporterContextERNS0_22PathSensitiveBugReportE.exit
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i: ; preds = %28
+  store ptr %30, ptr %8, align 8, !tbaa !111, !alias.scope !1215
+  %35 = load i64, ptr %27, align 8, !tbaa !60, !noalias !1215
+  store i64 %35, ptr %29, align 8, !tbaa !60, !alias.scope !1215
+  br label %_ZNSt12__shared_ptrIN5clang4ento24PathDiagnosticEventPieceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
-_ZNK5clang4ento7NoteTag15generateMessageB5cxx11ERNS0_18BugReporterContextERNS0_22PathSensitiveBugReportE.exit.thread17: ; preds = %40
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #25, !noalias !1215
+36:                                               ; preds = %_ZNKSt8functionIFNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERN5clang4ento18BugReporterContextERNS7_22PathSensitiveBugReportEEEclES9_SB_.exit.i
+  %.pre.i = load ptr, ptr %6, align 8, !tbaa !111, !noalias !1215
+  %37 = icmp eq ptr %.pre.i, %27
+  br i1 %37, label %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit12, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
+
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %36
+  %38 = load i64, ptr %27, align 8, !tbaa !60, !noalias !1215
+  %39 = add i64 %38, 1
+  call void @_ZdlPvm(ptr noundef %.pre.i, i64 noundef %39) #28, !noalias !1215
   br label %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit12
 
-_ZNK5clang4ento7NoteTag15generateMessageB5cxx11ERNS0_18BugReporterContextERNS0_22PathSensitiveBugReportE.exit: ; preds = %40
-  %43 = load i64, ptr %28, align 8, !tbaa !60, !noalias !1215
-  %44 = add i64 %43, 1
-  call void @_ZdlPvm(ptr noundef %.pre.i, i64 noundef %44) #28, !noalias !1215
-  %.pre = load i8, ptr %41, align 8, !tbaa !1225, !range !149
-  %45 = trunc nuw i8 %.pre to i1
+_ZNSt12__shared_ptrIN5clang4ento24PathDiagnosticEventPieceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i, %32
+  %40 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i64 %26, ptr %40, align 8, !tbaa !115, !alias.scope !1215
+  %41 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  store i8 1, ptr %41, align 8, !tbaa !1225, !alias.scope !1215
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #25, !noalias !1215
-  %46 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  br i1 %45, label %_ZNSt12__shared_ptrIN5clang4ento24PathDiagnosticEventPieceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit12
-
-_ZNSt12__shared_ptrIN5clang4ento24PathDiagnosticEventPieceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZNK5clang4ento7NoteTag15generateMessageB5cxx11ERNS0_18BugReporterContextERNS0_22PathSensitiveBugReportE.exit.thread, %_ZNK5clang4ento7NoteTag15generateMessageB5cxx11ERNS0_18BugReporterContextERNS0_22PathSensitiveBugReportE.exit
-  %47 = phi ptr [ %39, %_ZNK5clang4ento7NoteTag15generateMessageB5cxx11ERNS0_18BugReporterContextERNS0_22PathSensitiveBugReportE.exit.thread ], [ %46, %_ZNK5clang4ento7NoteTag15generateMessageB5cxx11ERNS0_18BugReporterContextERNS0_22PathSensitiveBugReportE.exit ]
+  %42 = getelementptr inbounds nuw i8, ptr %8, i64 32
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %9) #25
-  %48 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %49 = load ptr, ptr %48, align 8, !tbaa !201
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  %51 = load ptr, ptr %50, align 8, !tbaa !830
-  %52 = load ptr, ptr %51, align 8, !tbaa !109
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 32
-  %54 = load ptr, ptr %53, align 8
-  %55 = call noundef nonnull align 8 dereferenceable(696) ptr %54(ptr noundef nonnull align 8 dereferenceable(8) %51) #25
-  call void @_ZN5clang4ento22PathDiagnosticLocation6createERKNS_12ProgramPointERKNS_13SourceManagerE(ptr dead_on_unwind nonnull writable sret(%"class.clang::ento::PathDiagnosticLocation") align 8 %9, ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(696) %55) #25
-  %56 = call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #26, !noalias !1227
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  store i32 1, ptr %57, align 8, !tbaa !121, !noalias !1232
-  %58 = getelementptr inbounds nuw i8, ptr %56, i64 12
-  store i32 1, ptr %58, align 4, !tbaa !124, !noalias !1232
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5clang4ento24PathDiagnosticEventPieceESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %56, align 8, !tbaa !109, !noalias !1232
-  %59 = getelementptr inbounds nuw i8, ptr %56, i64 16
-  %60 = load ptr, ptr %8, align 8, !tbaa !111, !noalias !1232
-  %61 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %62 = load i64, ptr %61, align 8, !tbaa !115, !noalias !1232
-  call void @_ZN5clang4ento23PathDiagnosticSpotPieceC2ERKNS0_22PathDiagnosticLocationEN4llvm9StringRefENS0_19PathDiagnosticPiece4KindEb(ptr noundef nonnull align 8 dereferenceable(194) %59, ptr noundef nonnull align 8 dereferenceable(60) %9, ptr %60, i64 %62, i32 noundef 1, i1 noundef zeroext true), !noalias !1232
-  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5clang4ento24PathDiagnosticEventPieceE, i64 16), ptr %59, align 8, !tbaa !109, !noalias !1232
-  %63 = getelementptr inbounds nuw i8, ptr %13, i64 48
-  %64 = load i8, ptr %63, align 8, !tbaa !1233, !range !149, !noundef !150
-  %.sroa.0.0.insert.ext.i = zext nneg i8 %64 to i16
-  %65 = getelementptr inbounds nuw i8, ptr %56, i64 208
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %44 = load ptr, ptr %43, align 8, !tbaa !201
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %46 = load ptr, ptr %45, align 8, !tbaa !830
+  %47 = load ptr, ptr %46, align 8, !tbaa !109
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 32
+  %49 = load ptr, ptr %48, align 8
+  %50 = call noundef nonnull align 8 dereferenceable(696) ptr %49(ptr noundef nonnull align 8 dereferenceable(8) %46) #25
+  call void @_ZN5clang4ento22PathDiagnosticLocation6createERKNS_12ProgramPointERKNS_13SourceManagerE(ptr dead_on_unwind nonnull writable sret(%"class.clang::ento::PathDiagnosticLocation") align 8 %9, ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(696) %50) #25
+  %51 = call noalias noundef nonnull dereferenceable(216) ptr @_Znwm(i64 noundef 216) #26, !noalias !1227
+  %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
+  store i32 1, ptr %52, align 8, !tbaa !121, !noalias !1232
+  %53 = getelementptr inbounds nuw i8, ptr %51, i64 12
+  store i32 1, ptr %53, align 4, !tbaa !124, !noalias !1232
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt23_Sp_counted_ptr_inplaceIN5clang4ento24PathDiagnosticEventPieceESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %51, align 8, !tbaa !109, !noalias !1232
+  %54 = getelementptr inbounds nuw i8, ptr %51, i64 16
+  %55 = load ptr, ptr %8, align 8, !tbaa !111, !noalias !1232
+  %56 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %57 = load i64, ptr %56, align 8, !tbaa !115, !noalias !1232
+  call void @_ZN5clang4ento23PathDiagnosticSpotPieceC2ERKNS0_22PathDiagnosticLocationEN4llvm9StringRefENS0_19PathDiagnosticPiece4KindEb(ptr noundef nonnull align 8 dereferenceable(194) %54, ptr noundef nonnull align 8 dereferenceable(60) %9, ptr %55, i64 %57, i32 noundef 1, i1 noundef zeroext true), !noalias !1232
+  store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN5clang4ento24PathDiagnosticEventPieceE, i64 16), ptr %54, align 8, !tbaa !109, !noalias !1232
+  %58 = getelementptr inbounds nuw i8, ptr %13, i64 48
+  %59 = load i8, ptr %58, align 8, !tbaa !1233, !range !149, !noundef !150
+  %.sroa.0.0.insert.ext.i = zext nneg i8 %59 to i16
+  %60 = getelementptr inbounds nuw i8, ptr %51, i64 208
   %.sroa.0.0.insert.insert.i = or disjoint i16 %.sroa.0.0.insert.ext.i, 256
-  store i16 %.sroa.0.0.insert.insert.i, ptr %65, align 8
-  store ptr %59, ptr %0, align 8, !tbaa !127
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %56, ptr %66, align 8, !tbaa !132
+  store i16 %.sroa.0.0.insert.insert.i, ptr %60, align 8
+  store ptr %54, ptr %0, align 8, !tbaa !127
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %51, ptr %61, align 8, !tbaa !132
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #25
-  %67 = load i8, ptr %47, align 8, !tbaa !1225, !range !149, !noundef !150
-  %68 = trunc nuw i8 %67 to i1
-  br i1 %68, label %69, label %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit
+  %62 = load i8, ptr %42, align 8, !tbaa !1225, !range !149, !noundef !150
+  %63 = trunc nuw i8 %62 to i1
+  br i1 %63, label %64, label %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit
 
-69:                                               ; preds = %_ZNSt12__shared_ptrIN5clang4ento24PathDiagnosticEventPieceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  store i8 0, ptr %47, align 8, !tbaa !1225
-  %70 = load ptr, ptr %8, align 8, !tbaa !111
-  %71 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %72 = icmp eq ptr %70, %71
-  br i1 %72, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i
+64:                                               ; preds = %_ZNSt12__shared_ptrIN5clang4ento24PathDiagnosticEventPieceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
+  store i8 0, ptr %42, align 8, !tbaa !1225
+  %65 = load ptr, ptr %8, align 8, !tbaa !111
+  %66 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %67 = icmp eq ptr %65, %66
+  br i1 %67, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i: ; preds = %69
-  %73 = load i64, ptr %61, align 8, !tbaa !115
-  %74 = icmp ult i64 %73, 16
-  call void @llvm.assume(i1 %74)
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i: ; preds = %64
+  %68 = load i64, ptr %56, align 8, !tbaa !115
+  %69 = icmp ult i64 %68, 16
+  call void @llvm.assume(i1 %69)
   br label %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i: ; preds = %69
-  %75 = load i64, ptr %71, align 8, !tbaa !60
-  %76 = add i64 %75, 1
-  call void @_ZdlPvm(ptr noundef %70, i64 noundef %76) #28
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i: ; preds = %64
+  %70 = load i64, ptr %66, align 8, !tbaa !60
+  %71 = add i64 %70, 1
+  call void @_ZdlPvm(ptr noundef %65, i64 noundef %71) #28
   br label %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit
 
 _ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit: ; preds = %_ZNSt12__shared_ptrIN5clang4ento24PathDiagnosticEventPieceELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #25
-  br label %77
+  br label %72
 
-_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit12: ; preds = %_ZNK5clang4ento7NoteTag15generateMessageB5cxx11ERNS0_18BugReporterContextERNS0_22PathSensitiveBugReportE.exit.thread17, %_ZNK5clang4ento7NoteTag15generateMessageB5cxx11ERNS0_18BugReporterContextERNS0_22PathSensitiveBugReportE.exit
+_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit12: ; preds = %36, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #25, !noalias !1215
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #25
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false)
-  br label %77
+  br label %72
 
-77:                                               ; preds = %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit, %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit12, %18
+72:                                               ; preds = %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit, %_ZNSt14_Optional_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0ELb0EED2Ev.exit12, %18
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #25
   ret void
 }

@@ -8384,7 +8384,7 @@ define dso_local void @_ZN4llvm28setProfileInfoAfterUnrollingEPNS_4LoopES1_S1_m(
   store i32 0, ptr %5, align 4, !tbaa !368
   %6 = call i64 @_ZN4llvm25getLoopEstimatedTripCountEPNS_4LoopEPj(ptr noundef %0, ptr noundef nonnull %5)
   %.not = icmp samesign ult i64 %6, 4294967296
-  br i1 %.not, label %17, label %7
+  br i1 %.not, label %16, label %7
 
 7:                                                ; preds = %4
   %8 = and i64 %6, 4294967295
@@ -8394,11 +8394,10 @@ define dso_local void @_ZN4llvm28setProfileInfoAfterUnrollingEPNS_4LoopES1_S1_m(
   %12 = trunc nuw i64 %11 to i32
   %13 = load i32, ptr %5, align 4, !tbaa !368
   %14 = call noundef zeroext i1 @_ZN4llvm25setLoopEstimatedTripCountEPNS_4LoopEjj(ptr noundef %1, i32 noundef %10, i32 noundef %13)
-  %15 = load i32, ptr %5, align 4, !tbaa !368
-  %16 = call noundef zeroext i1 @_ZN4llvm25setLoopEstimatedTripCountEPNS_4LoopEjj(ptr noundef %2, i32 noundef %12, i32 noundef %15)
-  br label %17
+  %15 = call noundef zeroext i1 @_ZN4llvm25setLoopEstimatedTripCountEPNS_4LoopEjj(ptr noundef %2, i32 noundef %12, i32 noundef %13)
+  br label %16
 
-17:                                               ; preds = %4, %7
+16:                                               ; preds = %4, %7
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #21
   ret void
 }

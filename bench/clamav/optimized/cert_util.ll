@@ -966,7 +966,7 @@ define void @cert_fill_X509_store(ptr noundef %0, ptr noundef readonly captures(
   br label %27
 
 27:                                               ; preds = %23, %20
-  %28 = load ptr, ptr %4, align 8, !tbaa !20
+  %28 = phi ptr [ %25, %23 ], [ %21, %20 ]
   %.not27 = icmp eq ptr %28, null
   br i1 %.not27, label %30, label %29
 
@@ -997,7 +997,7 @@ declare ptr @ERR_error_string(i64 noundef, ptr noundef) local_unnamed_addr #3
 define void @cert_store_export_certs(ptr noundef %0, ptr noundef %1) local_unnamed_addr #1 {
   %3 = alloca ptr, align 8
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %31, label %4
+  br i1 %.not, label %30, label %4
 
 4:                                                ; preds = %2
   %5 = tail call i32 @pthread_mutex_lock(ptr noundef nonnull @_cert_store) #15
@@ -1017,19 +1017,19 @@ define void @cert_store_export_certs(ptr noundef %0, ptr noundef %1) local_unnam
 
 11:                                               ; preds = %8
   tail call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.15) #15
-  br label %32
+  br label %31
 
 12:                                               ; preds = %8
   %13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 64), align 8, !tbaa !32
   %14 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_cert_store, i64 72), align 8, !tbaa !31
   tail call void @cert_fill_X509_store(ptr noundef nonnull %0, ptr noundef %13, i64 noundef %14)
   %.not25 = icmp eq ptr %1, null
-  br i1 %.not25, label %32, label %15
+  br i1 %.not25, label %31, label %15
 
 15:                                               ; preds = %12
   %16 = tail call i32 @X509_STORE_add_cert(ptr noundef nonnull %0, ptr noundef nonnull %1) #15
   %.not26 = icmp eq i32 %16, 1
-  br i1 %.not26, label %32, label %17
+  br i1 %.not26, label %31, label %17
 
 17:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15
@@ -1056,34 +1056,33 @@ define void @cert_store_export_certs(ptr noundef %0, ptr noundef %1) local_unnam
   br label %27
 
 27:                                               ; preds = %26, %25
-  %28 = load ptr, ptr %3, align 8, !tbaa !20
-  %.not29 = icmp eq ptr %28, null
-  br i1 %.not29, label %30, label %29
+  %.not29 = icmp eq ptr %23, null
+  br i1 %.not29, label %29, label %28
 
-29:                                               ; preds = %27
-  call void @free(ptr noundef nonnull %28) #15
-  br label %30
+28:                                               ; preds = %27
+  call void @free(ptr noundef nonnull %23) #15
+  br label %29
 
-30:                                               ; preds = %29, %27
+29:                                               ; preds = %28, %27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
-  br label %32
+  br label %31
 
-31:                                               ; preds = %2
+30:                                               ; preds = %2
   tail call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.13) #15
-  br label %36
+  br label %35
 
-32:                                               ; preds = %30, %15, %12, %11
-  %33 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @_cert_store) #15
-  %.not31 = icmp eq i32 %33, 0
-  br i1 %.not31, label %36, label %34
+31:                                               ; preds = %29, %15, %12, %11
+  %32 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @_cert_store) #15
+  %.not31 = icmp eq i32 %32, 0
+  br i1 %.not31, label %35, label %33
 
-34:                                               ; preds = %32
-  %35 = tail call ptr @__errno_location() #16
-  store i32 %33, ptr %35, align 4, !tbaa !18
+33:                                               ; preds = %31
+  %34 = tail call ptr @__errno_location() #16
+  store i32 %32, ptr %34, align 4, !tbaa !18
   call void (i32, ptr, ...) @mprintf(i32 noundef 5, ptr noundef nonnull @.str.1) #15
-  br label %36
+  br label %35
 
-36:                                               ; preds = %31, %32, %34
+35:                                               ; preds = %30, %31, %33
   ret void
 }
 

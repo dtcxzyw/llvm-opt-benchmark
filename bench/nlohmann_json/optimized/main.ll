@@ -9902,8 +9902,6 @@ _ZN7doctest6StringaSERKS0_.exit.thread:           ; preds = %98
   %108 = trunc nuw nsw i32 %103 to i8
   %109 = sub nuw nsw i8 23, %108
   store i8 %109, ptr %91, align 1, !tbaa !38
-  %.pre = load i32, ptr %102, align 8, !tbaa !38
-  %.pre416 = zext i32 %.pre to i64
   br label %_ZN7doctest6String8allocateEj.exit.i.i
 
 110:                                              ; preds = %101
@@ -9925,10 +9923,10 @@ _ZN7doctest6StringaSERKS0_.exit.thread:           ; preds = %98
   br label %_ZN7doctest6String8allocateEj.exit.i.i
 
 _ZN7doctest6String8allocateEj.exit.i.i:           ; preds = %.noexc340, %105
-  %.pre-phi417 = phi i64 [ %116, %.noexc340 ], [ %.pre416, %105 ]
+  %.pre-phi414 = phi i64 [ %116, %.noexc340 ], [ %106, %105 ]
   %.0.i.i.i339 = phi ptr [ %115, %.noexc340 ], [ %89, %105 ]
   %118 = load ptr, ptr %5, align 8, !tbaa !38
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.0.i.i.i339, ptr align 1 %118, i64 %.pre-phi417, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.0.i.i.i339, ptr align 1 %118, i64 %.pre-phi414, i1 false)
   br label %_ZN7doctest6StringaSERKS0_.exit
 
 119:                                              ; preds = %_ZN7doctest12_GLOBAL__N_115parseOptionImplEiPKPKcS2_PNS_6StringE.exit.thread.i, %_ZN7doctest12_GLOBAL__N_115parseOptionImplEiPKPKcS2_PNS_6StringE.exit.i
@@ -9970,14 +9968,14 @@ _ZN7doctest12_GLOBAL__N_115parseOptionImplEiPKPKcS2_PNS_6StringE.exit.i350: ; pr
           to label %.noexc354 unwind label %173
 
 .noexc354:                                        ; preds = %_ZN7doctest12_GLOBAL__N_115parseOptionImplEiPKPKcS2_PNS_6StringE.exit.i350
-  br i1 %129, label %.sink.split425, label %_ZN7doctest12_GLOBAL__N_115parseOptionImplEiPKPKcS2_PNS_6StringE.exit.thread.i351
+  br i1 %129, label %.sink.split422, label %_ZN7doctest12_GLOBAL__N_115parseOptionImplEiPKPKcS2_PNS_6StringE.exit.thread.i351
 
 _ZN7doctest12_GLOBAL__N_115parseOptionImplEiPKPKcS2_PNS_6StringE.exit.thread.i351: ; preds = %.noexc354
   %130 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_115parseOptionImplEiPKPKcS2_PNS_6StringE(i32 noundef %1, ptr noundef readonly %2, ptr noundef nonnull @.str.92, ptr noundef nonnull %5)
           to label %_ZN7doctest12_GLOBAL__N_111parseOptionEiPKPKcS2_PNS_6StringERKS5_.exit356 unwind label %173
 
 _ZN7doctest12_GLOBAL__N_111parseOptionEiPKPKcS2_PNS_6StringERKS5_.exit356: ; preds = %_ZN7doctest12_GLOBAL__N_115parseOptionImplEiPKPKcS2_PNS_6StringE.exit.thread.i351
-  br i1 %130, label %.sink.split425, label %131
+  br i1 %130, label %.sink.split422, label %131
 
 131:                                              ; preds = %_ZN7doctest12_GLOBAL__N_111parseOptionEiPKPKcS2_PNS_6StringERKS5_.exit356
   %132 = load i8, ptr %76, align 1, !tbaa !38
@@ -10000,7 +9998,7 @@ _ZN7doctest12_GLOBAL__N_115parseOptionImplEiPKPKcS2_PNS_6StringE.exit.i364: ; pr
           to label %.noexc368 unwind label %_ZN7doctest6StringD2Ev.exit378
 
 .noexc368:                                        ; preds = %_ZN7doctest12_GLOBAL__N_115parseOptionImplEiPKPKcS2_PNS_6StringE.exit.i364
-  br i1 %138, label %.sink.split425, label %_ZN7doctest12_GLOBAL__N_115parseOptionImplEiPKPKcS2_PNS_6StringE.exit.thread.i365
+  br i1 %138, label %.sink.split422, label %_ZN7doctest12_GLOBAL__N_115parseOptionImplEiPKPKcS2_PNS_6StringE.exit.thread.i365
 
 _ZN7doctest12_GLOBAL__N_115parseOptionImplEiPKPKcS2_PNS_6StringE.exit.thread.i365: ; preds = %.noexc368
   %139 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_115parseOptionImplEiPKPKcS2_PNS_6StringE(i32 noundef %1, ptr noundef readonly %2, ptr noundef nonnull @.str.94, ptr noundef nonnull %5)
@@ -10011,11 +10009,11 @@ _ZN7doctest6StringD2Ev.exit372:                   ; preds = %_ZN7doctest12_GLOBA
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %.sroa.10401)
   br i1 %spec.select317, label %140, label %_ZN7doctest6StringaSERKS0_.exit377
 
-.sink.split425:                                   ; preds = %.noexc368, %.noexc354, %_ZN7doctest12_GLOBAL__N_111parseOptionEiPKPKcS2_PNS_6StringERKS5_.exit356
+.sink.split422:                                   ; preds = %.noexc368, %.noexc354, %_ZN7doctest12_GLOBAL__N_111parseOptionEiPKPKcS2_PNS_6StringERKS5_.exit356
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %.sroa.10401)
   br label %140
 
-140:                                              ; preds = %.sink.split425, %_ZN7doctest6StringD2Ev.exit372
+140:                                              ; preds = %.sink.split422, %_ZN7doctest6StringD2Ev.exit372
   %141 = load ptr, ptr %0, align 8, !tbaa !323
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 64
   %.not.i373 = icmp eq ptr %142, %5
@@ -10058,8 +10056,6 @@ _ZN7doctest6StringD2Ev.exit372:                   ; preds = %_ZN7doctest12_GLOBA
   %162 = trunc nuw nsw i32 %157 to i8
   %163 = sub nuw nsw i8 23, %162
   store i8 %163, ptr %144, align 1, !tbaa !38
-  %.pre412 = load i32, ptr %156, align 8, !tbaa !38
-  %.pre413 = zext i32 %.pre412 to i64
   br label %_ZN7doctest6String8allocateEj.exit.i.i374
 
 164:                                              ; preds = %155
@@ -10081,7 +10077,7 @@ _ZN7doctest6StringD2Ev.exit372:                   ; preds = %_ZN7doctest12_GLOBA
   br label %_ZN7doctest6String8allocateEj.exit.i.i374
 
 _ZN7doctest6String8allocateEj.exit.i.i374:        ; preds = %.noexc376, %159
-  %.pre-phi = phi i64 [ %170, %.noexc376 ], [ %.pre413, %159 ]
+  %.pre-phi = phi i64 [ %170, %.noexc376 ], [ %160, %159 ]
   %.0.i.i.i375 = phi ptr [ %169, %.noexc376 ], [ %142, %159 ]
   %172 = load ptr, ptr %5, align 8, !tbaa !38
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.0.i.i.i375, ptr align 1 %172, i64 %.pre-phi, i1 false)
@@ -10118,19 +10114,19 @@ _ZN7doctest6StringaSERKS0_.exit377:               ; preds = %_ZN7doctest6String8
 
 181:                                              ; preds = %180, %177
   %182 = load i32, ptr %4, align 4, !tbaa !12
-  br label %.sink.split426
+  br label %.sink.split423
 
 183:                                              ; preds = %180
-  br i1 %3, label %.sink.split426, label %186
+  br i1 %3, label %.sink.split423, label %186
 
-.sink.split426:                                   ; preds = %183, %181
+.sink.split423:                                   ; preds = %183, %181
   %.sink = phi i32 [ %182, %181 ], [ 0, %183 ]
   %184 = load ptr, ptr %0, align 8, !tbaa !323
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 88
   store i32 %.sink, ptr %185, align 8, !tbaa !325
   br label %186
 
-186:                                              ; preds = %.sink.split426, %183
+186:                                              ; preds = %.sink.split423, %183
   %187 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.97, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %188 unwind label %122
 
@@ -10146,19 +10142,19 @@ _ZN7doctest6StringaSERKS0_.exit377:               ; preds = %_ZN7doctest6String8
 
 192:                                              ; preds = %191, %188
   %193 = load i32, ptr %4, align 4, !tbaa !12
-  br label %.sink.split429
+  br label %.sink.split426
 
 194:                                              ; preds = %191
-  br i1 %3, label %.sink.split429, label %197
+  br i1 %3, label %.sink.split426, label %197
 
-.sink.split429:                                   ; preds = %194, %192
-  %.sink430 = phi i32 [ %193, %192 ], [ 0, %194 ]
+.sink.split426:                                   ; preds = %194, %192
+  %.sink427 = phi i32 [ %193, %192 ], [ 0, %194 ]
   %195 = load ptr, ptr %0, align 8, !tbaa !323
   %196 = getelementptr inbounds nuw i8, ptr %195, i64 92
-  store i32 %.sink430, ptr %196, align 4, !tbaa !326
+  store i32 %.sink427, ptr %196, align 4, !tbaa !326
   br label %197
 
-197:                                              ; preds = %.sink.split429, %194
+197:                                              ; preds = %.sink.split426, %194
   %198 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.99, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %199 unwind label %122
 
@@ -10174,19 +10170,19 @@ _ZN7doctest6StringaSERKS0_.exit377:               ; preds = %_ZN7doctest6String8
 
 203:                                              ; preds = %202, %199
   %204 = load i32, ptr %4, align 4, !tbaa !12
-  br label %.sink.split433
+  br label %.sink.split430
 
 205:                                              ; preds = %202
-  br i1 %3, label %.sink.split433, label %208
+  br i1 %3, label %.sink.split430, label %208
 
-.sink.split433:                                   ; preds = %205, %203
-  %.sink434 = phi i32 [ %204, %203 ], [ -1, %205 ]
+.sink.split430:                                   ; preds = %205, %203
+  %.sink431 = phi i32 [ %204, %203 ], [ -1, %205 ]
   %206 = load ptr, ptr %0, align 8, !tbaa !323
   %207 = getelementptr inbounds nuw i8, ptr %206, i64 96
-  store i32 %.sink434, ptr %207, align 8, !tbaa !327
+  store i32 %.sink431, ptr %207, align 8, !tbaa !327
   br label %208
 
-208:                                              ; preds = %.sink.split433, %205
+208:                                              ; preds = %.sink.split430, %205
   %209 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.101, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %210 unwind label %122
 
@@ -10202,19 +10198,19 @@ _ZN7doctest6StringaSERKS0_.exit377:               ; preds = %_ZN7doctest6String8
 
 214:                                              ; preds = %213, %210
   %215 = load i32, ptr %4, align 4, !tbaa !12
-  br label %.sink.split437
+  br label %.sink.split434
 
 216:                                              ; preds = %213
-  br i1 %3, label %.sink.split437, label %219
+  br i1 %3, label %.sink.split434, label %219
 
-.sink.split437:                                   ; preds = %216, %214
-  %.sink438 = phi i32 [ %215, %214 ], [ 0, %216 ]
+.sink.split434:                                   ; preds = %216, %214
+  %.sink435 = phi i32 [ %215, %214 ], [ 0, %216 ]
   %217 = load ptr, ptr %0, align 8, !tbaa !323
   %218 = getelementptr inbounds nuw i8, ptr %217, i64 100
-  store i32 %.sink438, ptr %218, align 4, !tbaa !130
+  store i32 %.sink435, ptr %218, align 4, !tbaa !130
   br label %219
 
-219:                                              ; preds = %.sink.split437, %216
+219:                                              ; preds = %.sink.split434, %216
   %220 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.103, i32 noundef 1, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %221 unwind label %122
 
@@ -10230,19 +10226,19 @@ _ZN7doctest6StringaSERKS0_.exit377:               ; preds = %_ZN7doctest6String8
 
 225:                                              ; preds = %224, %221
   %226 = load i32, ptr %4, align 4, !tbaa !12
-  br label %.sink.split441
+  br label %.sink.split438
 
 227:                                              ; preds = %224
-  br i1 %3, label %.sink.split441, label %230
+  br i1 %3, label %.sink.split438, label %230
 
-.sink.split441:                                   ; preds = %227, %225
-  %.sink442 = phi i32 [ %226, %225 ], [ 2147483647, %227 ]
+.sink.split438:                                   ; preds = %227, %225
+  %.sink439 = phi i32 [ %226, %225 ], [ 2147483647, %227 ]
   %228 = load ptr, ptr %0, align 8, !tbaa !323
   %229 = getelementptr inbounds nuw i8, ptr %228, i64 104
-  store i32 %.sink442, ptr %229, align 8, !tbaa !137
+  store i32 %.sink439, ptr %229, align 8, !tbaa !137
   br label %230
 
-230:                                              ; preds = %.sink.split441, %227
+230:                                              ; preds = %.sink.split438, %227
   %231 = invoke fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi(i32 noundef %1, ptr noundef %2, ptr noundef nonnull @.str.105, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(4) %4)
           to label %232 unwind label %122
 
@@ -11794,7 +11790,11 @@ _ZN7doctest12_GLOBAL__N_115parseOptionImplEiPKPKcS2_PNS_6StringE.exit.thread.i: 
           to label %_ZN7doctest6StringD2Ev.exit unwind label %_ZN7doctest6StringD2Ev.exit39
 
 _ZN7doctest6StringD2Ev.exit:                      ; preds = %_ZN7doctest12_GLOBAL__N_115parseOptionImplEiPKPKcS2_PNS_6StringE.exit.thread.i
-  br i1 %9, label %_ZN7doctest6StringD2Ev.exit.thread, label %56
+  br i1 %9, label %_ZN7doctest6StringD2Ev.exit.thread, label %_ZN7doctest6StringD2Ev.exit._crit_edge
+
+_ZN7doctest6StringD2Ev.exit._crit_edge:           ; preds = %_ZN7doctest6StringD2Ev.exit
+  %.pre = load i8, ptr %6, align 1, !tbaa !38
+  br label %56
 
 _ZN7doctest6StringD2Ev.exit.thread:               ; preds = %.noexc36, %_ZN7doctest6StringD2Ev.exit
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %5) #49
@@ -11928,8 +11928,8 @@ _ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit: ; preds =
   call void @llvm.lifetime.end.p0(i64 376, ptr nonnull %5) #49
   br label %63
 
-56:                                               ; preds = %_ZN7doctest6StringD2Ev.exit, %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
-  %57 = load i8, ptr %6, align 1, !tbaa !38
+56:                                               ; preds = %_ZN7doctest6StringD2Ev.exit._crit_edge, %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit
+  %57 = phi i8 [ %.pre, %_ZN7doctest6StringD2Ev.exit._crit_edge ], [ %11, %_ZNSt7__cxx1119basic_ostringstreamIcSt11char_traitsIcESaIcEED1Ev.exit ]
   %58 = icmp sgt i8 %57, -1
   br i1 %58, label %_ZN7doctest6StringD2Ev.exit40, label %59
 
@@ -11986,14 +11986,18 @@ _ZN7doctest12_GLOBAL__N_115parseOptionImplEiPKPKcS2_PNS_6StringE.exit.thread.i: 
           to label %_ZN7doctest6StringD2Ev.exit unwind label %_ZN7doctest6StringD2Ev.exit32
 
 _ZN7doctest6StringD2Ev.exit:                      ; preds = %_ZN7doctest12_GLOBAL__N_115parseOptionImplEiPKPKcS2_PNS_6StringE.exit.thread.i
-  br i1 %9, label %_ZN7doctest6StringD2Ev.exit.thread, label %.critedge
+  br i1 %9, label %_ZN7doctest6StringD2Ev.exit.thread, label %_ZN7doctest6StringD2Ev.exit..critedge_crit_edge
+
+_ZN7doctest6StringD2Ev.exit..critedge_crit_edge:  ; preds = %_ZN7doctest6StringD2Ev.exit
+  %.pre = load i8, ptr %6, align 1, !tbaa !38
+  br label %.critedge
 
 _ZN7doctest6StringD2Ev.exit32:                    ; preds = %_ZN7doctest12_GLOBAL__N_115parseOptionImplEiPKPKcS2_PNS_6StringE.exit.i, %_ZN7doctest12_GLOBAL__N_115parseOptionImplEiPKPKcS2_PNS_6StringE.exit.thread.i
   %10 = landingpad { ptr, i32 }
           cleanup
   %11 = load i8, ptr %6, align 1, !tbaa !38
   %12 = icmp sgt i8 %11, -1
-  br i1 %12, label %_ZN7doctest6StringD2Ev.exit50, label %68
+  br i1 %12, label %_ZN7doctest6StringD2Ev.exit50, label %69
 
 _ZN7doctest6StringD2Ev.exit.thread:               ; preds = %.noexc30, %_ZN7doctest6StringD2Ev.exit
   %.not = icmp eq i32 %3, 0
@@ -12018,7 +12022,7 @@ _ZN7doctest6StringD2Ev.exit.thread:               ; preds = %.noexc30, %_ZN7doct
   %21 = sext i8 %20 to i32
   %22 = call i32 @tolower(i32 noundef %21) #52
   %23 = icmp eq i32 %18, %22
-  br i1 %23, label %.critedge.sink.split, label %25
+  br i1 %23, label %.split.us, label %25
 
 24:                                               ; preds = %25
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
@@ -12031,114 +12035,118 @@ _ZN7doctest6StringD2Ev.exit.thread:               ; preds = %.noexc30, %_ZN7doct
   %28 = sext i8 %27 to i32
   %29 = call i32 @tolower(i32 noundef %28) #52
   %30 = icmp eq i32 %18, %29
-  br i1 %30, label %.critedge.sink.split, label %24
+  br i1 %30, label %.split.us, label %24
 
 31:                                               ; preds = %_ZN7doctest6StringD2Ev.exit.thread
   %32 = call i64 @strtol(ptr noundef nonnull captures(none) %.0.i.i.i, ptr noundef null, i32 noundef 10) #49
   %33 = trunc i64 %32 to i32
   %.not27 = icmp eq i32 %33, 0
-  br i1 %.not27, label %.critedge, label %.critedge.sink.split
+  br i1 %.not27, label %.critedge, label %34
 
-34:                                               ; preds = %.loopexit
+34:                                               ; preds = %31
+  store i32 %33, ptr %4, align 4, !tbaa !12
+  br label %.critedge
+
+35:                                               ; preds = %.loopexit
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond = icmp eq i64 %indvars.iv.next, 4
   br i1 %exitcond, label %.critedge, label %.preheader.split, !llvm.loop !356
 
-.preheader.split:                                 ; preds = %.preheader, %34
-  %indvars.iv = phi i64 [ %indvars.iv.next, %34 ], [ 0, %.preheader ]
-  %35 = getelementptr inbounds nuw [4 x [5 x i8]], ptr @__const._ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi.positive, i64 0, i64 %indvars.iv
-  %36 = load i8, ptr %35, align 1, !tbaa !38
-  %37 = sext i8 %36 to i32
-  %38 = call i32 @tolower(i32 noundef %37) #52
-  %.not13.i.i.not = icmp eq i32 %18, %38
+.preheader.split:                                 ; preds = %.preheader, %35
+  %indvars.iv = phi i64 [ %indvars.iv.next, %35 ], [ 0, %.preheader ]
+  %36 = getelementptr inbounds nuw [4 x [5 x i8]], ptr @__const._ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi.positive, i64 0, i64 %indvars.iv
+  %37 = load i8, ptr %36, align 1, !tbaa !38
+  %38 = sext i8 %37 to i32
+  %39 = call i32 @tolower(i32 noundef %38) #52
+  %.not13.i.i.not = icmp eq i32 %18, %39
   br i1 %.not13.i.i.not, label %.lr.ph.i.i, label %.loopexit58
 
 .lr.ph.i.i:                                       ; preds = %.preheader.split, %.lr.ph.i.i
-  %.0917.i.i = phi ptr [ %40, %.lr.ph.i.i ], [ %35, %.preheader.split ]
-  %.01016.i.i = phi ptr [ %39, %.lr.ph.i.i ], [ %.0.i.i.i, %.preheader.split ]
-  %39 = getelementptr inbounds nuw i8, ptr %.01016.i.i, i64 1
-  %40 = getelementptr inbounds nuw i8, ptr %.0917.i.i, i64 1
-  %41 = load i8, ptr %39, align 1, !tbaa !38
-  %42 = sext i8 %41 to i32
-  %43 = call i32 @tolower(i32 noundef %42) #52
-  %44 = load i8, ptr %40, align 1, !tbaa !38
-  %45 = sext i8 %44 to i32
-  %46 = call i32 @tolower(i32 noundef %45) #52
-  %.not.i.i = icmp ne i32 %43, %46
-  %.not11.i.i = icmp eq i8 %41, 0
+  %.0917.i.i = phi ptr [ %41, %.lr.ph.i.i ], [ %36, %.preheader.split ]
+  %.01016.i.i = phi ptr [ %40, %.lr.ph.i.i ], [ %.0.i.i.i, %.preheader.split ]
+  %40 = getelementptr inbounds nuw i8, ptr %.01016.i.i, i64 1
+  %41 = getelementptr inbounds nuw i8, ptr %.0917.i.i, i64 1
+  %42 = load i8, ptr %40, align 1, !tbaa !38
+  %43 = sext i8 %42 to i32
+  %44 = call i32 @tolower(i32 noundef %43) #52
+  %45 = load i8, ptr %41, align 1, !tbaa !38
+  %46 = sext i8 %45 to i32
+  %47 = call i32 @tolower(i32 noundef %46) #52
+  %.not.i.i = icmp ne i32 %44, %47
+  %.not11.i.i = icmp eq i8 %42, 0
   %or.cond.i.i = or i1 %.not11.i.i, %.not.i.i
   br i1 %or.cond.i.i, label %.loopexit58, label %.lr.ph.i.i, !llvm.loop !63
 
 .loopexit58:                                      ; preds = %.lr.ph.i.i, %.preheader.split
-  %.lcssa12.i.i = phi i32 [ %18, %.preheader.split ], [ %43, %.lr.ph.i.i ]
-  %.lcssa.i.i = phi i32 [ %38, %.preheader.split ], [ %46, %.lr.ph.i.i ]
-  %47 = icmp eq i32 %.lcssa12.i.i, %.lcssa.i.i
-  br i1 %47, label %.critedge.sink.split, label %48
+  %.lcssa12.i.i = phi i32 [ %18, %.preheader.split ], [ %44, %.lr.ph.i.i ]
+  %.lcssa.i.i = phi i32 [ %39, %.preheader.split ], [ %47, %.lr.ph.i.i ]
+  %48 = icmp eq i32 %.lcssa12.i.i, %.lcssa.i.i
+  br i1 %48, label %.split.us, label %49
 
-48:                                               ; preds = %.loopexit58
-  %49 = getelementptr inbounds nuw [4 x [6 x i8]], ptr @__const._ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi.negative, i64 0, i64 %indvars.iv
-  %50 = load i8, ptr %49, align 2, !tbaa !38
-  %51 = sext i8 %50 to i32
-  %52 = call i32 @tolower(i32 noundef %51) #52
-  %.not13.i.i36.not = icmp eq i32 %18, %52
+49:                                               ; preds = %.loopexit58
+  %50 = getelementptr inbounds nuw [4 x [6 x i8]], ptr @__const._ZN7doctest12_GLOBAL__N_114parseIntOptionEiPKPKcS2_NS0_10optionTypeERi.negative, i64 0, i64 %indvars.iv
+  %51 = load i8, ptr %50, align 2, !tbaa !38
+  %52 = sext i8 %51 to i32
+  %53 = call i32 @tolower(i32 noundef %52) #52
+  %.not13.i.i36.not = icmp eq i32 %18, %53
   br i1 %.not13.i.i36.not, label %.lr.ph.i.i39, label %.loopexit
 
-.lr.ph.i.i39:                                     ; preds = %48, %.lr.ph.i.i39
-  %.0917.i.i40 = phi ptr [ %54, %.lr.ph.i.i39 ], [ %49, %48 ]
-  %.01016.i.i41 = phi ptr [ %53, %.lr.ph.i.i39 ], [ %.0.i.i.i, %48 ]
-  %53 = getelementptr inbounds nuw i8, ptr %.01016.i.i41, i64 1
-  %54 = getelementptr inbounds nuw i8, ptr %.0917.i.i40, i64 1
-  %55 = load i8, ptr %53, align 1, !tbaa !38
-  %56 = sext i8 %55 to i32
-  %57 = call i32 @tolower(i32 noundef %56) #52
-  %58 = load i8, ptr %54, align 1, !tbaa !38
-  %59 = sext i8 %58 to i32
-  %60 = call i32 @tolower(i32 noundef %59) #52
-  %.not.i.i42 = icmp ne i32 %57, %60
-  %.not11.i.i43 = icmp eq i8 %55, 0
+.lr.ph.i.i39:                                     ; preds = %49, %.lr.ph.i.i39
+  %.0917.i.i40 = phi ptr [ %55, %.lr.ph.i.i39 ], [ %50, %49 ]
+  %.01016.i.i41 = phi ptr [ %54, %.lr.ph.i.i39 ], [ %.0.i.i.i, %49 ]
+  %54 = getelementptr inbounds nuw i8, ptr %.01016.i.i41, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %.0917.i.i40, i64 1
+  %56 = load i8, ptr %54, align 1, !tbaa !38
+  %57 = sext i8 %56 to i32
+  %58 = call i32 @tolower(i32 noundef %57) #52
+  %59 = load i8, ptr %55, align 1, !tbaa !38
+  %60 = sext i8 %59 to i32
+  %61 = call i32 @tolower(i32 noundef %60) #52
+  %.not.i.i42 = icmp ne i32 %58, %61
+  %.not11.i.i43 = icmp eq i8 %56, 0
   %or.cond.i.i44 = or i1 %.not11.i.i43, %.not.i.i42
   br i1 %or.cond.i.i44, label %.loopexit, label %.lr.ph.i.i39, !llvm.loop !63
 
-.loopexit:                                        ; preds = %.lr.ph.i.i39, %48
-  %.lcssa12.i.i45 = phi i32 [ %18, %48 ], [ %57, %.lr.ph.i.i39 ]
-  %.lcssa.i.i46 = phi i32 [ %52, %48 ], [ %60, %.lr.ph.i.i39 ]
-  %61 = icmp eq i32 %.lcssa12.i.i45, %.lcssa.i.i46
-  br i1 %61, label %.critedge.sink.split, label %34
+.loopexit:                                        ; preds = %.lr.ph.i.i39, %49
+  %.lcssa12.i.i45 = phi i32 [ %18, %49 ], [ %58, %.lr.ph.i.i39 ]
+  %.lcssa.i.i46 = phi i32 [ %53, %49 ], [ %61, %.lr.ph.i.i39 ]
+  %62 = icmp eq i32 %.lcssa12.i.i45, %.lcssa.i.i46
+  br i1 %62, label %.split.us, label %35
 
-.critedge.sink.split:                             ; preds = %.loopexit, %.loopexit58, %25, %.preheader.split.us, %31
-  %.us-phi.sink = phi i32 [ %33, %31 ], [ 1, %.preheader.split.us ], [ 0, %25 ], [ 1, %.loopexit58 ], [ 0, %.loopexit ]
-  store i32 %.us-phi.sink, ptr %4, align 4, !tbaa !12
+.split.us:                                        ; preds = %.loopexit58, %.loopexit, %.preheader.split.us, %25
+  %.us-phi = phi i32 [ 1, %.preheader.split.us ], [ 0, %25 ], [ 1, %.loopexit58 ], [ 0, %.loopexit ]
+  store i32 %.us-phi, ptr %4, align 4, !tbaa !12
   br label %.critedge
 
-.critedge:                                        ; preds = %34, %24, %.critedge.sink.split, %31, %_ZN7doctest6StringD2Ev.exit
-  %.020 = phi i1 [ false, %_ZN7doctest6StringD2Ev.exit ], [ false, %31 ], [ true, %.critedge.sink.split ], [ false, %24 ], [ false, %34 ]
-  %62 = load i8, ptr %6, align 1, !tbaa !38
-  %63 = icmp sgt i8 %62, -1
-  br i1 %63, label %_ZN7doctest6StringD2Ev.exit49, label %64
+.critedge:                                        ; preds = %35, %24, %_ZN7doctest6StringD2Ev.exit..critedge_crit_edge, %31, %.split.us, %34
+  %63 = phi i8 [ %13, %34 ], [ %13, %.split.us ], [ %.pre, %_ZN7doctest6StringD2Ev.exit..critedge_crit_edge ], [ %13, %31 ], [ %13, %24 ], [ %13, %35 ]
+  %.020 = phi i1 [ true, %34 ], [ true, %.split.us ], [ false, %_ZN7doctest6StringD2Ev.exit..critedge_crit_edge ], [ false, %31 ], [ false, %24 ], [ false, %35 ]
+  %64 = icmp sgt i8 %63, -1
+  br i1 %64, label %_ZN7doctest6StringD2Ev.exit49, label %65
 
-64:                                               ; preds = %.critedge
-  %65 = load ptr, ptr %5, align 8, !tbaa !38
-  %66 = icmp eq ptr %65, null
-  br i1 %66, label %_ZN7doctest6StringD2Ev.exit49, label %67
+65:                                               ; preds = %.critedge
+  %66 = load ptr, ptr %5, align 8, !tbaa !38
+  %67 = icmp eq ptr %66, null
+  br i1 %67, label %_ZN7doctest6StringD2Ev.exit49, label %68
 
-67:                                               ; preds = %64
-  call void @_ZdaPv(ptr noundef nonnull %65) #48
+68:                                               ; preds = %65
+  call void @_ZdaPv(ptr noundef nonnull %66) #48
   br label %_ZN7doctest6StringD2Ev.exit49
 
-_ZN7doctest6StringD2Ev.exit49:                    ; preds = %.critedge, %64, %67
+_ZN7doctest6StringD2Ev.exit49:                    ; preds = %.critedge, %65, %68
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #49
   ret i1 %.020
 
-68:                                               ; preds = %_ZN7doctest6StringD2Ev.exit32
-  %69 = load ptr, ptr %5, align 8, !tbaa !38
-  %70 = icmp eq ptr %69, null
-  br i1 %70, label %_ZN7doctest6StringD2Ev.exit50, label %71
+69:                                               ; preds = %_ZN7doctest6StringD2Ev.exit32
+  %70 = load ptr, ptr %5, align 8, !tbaa !38
+  %71 = icmp eq ptr %70, null
+  br i1 %71, label %_ZN7doctest6StringD2Ev.exit50, label %72
 
-71:                                               ; preds = %68
-  call void @_ZdaPv(ptr noundef nonnull %69) #48
+72:                                               ; preds = %69
+  call void @_ZdaPv(ptr noundef nonnull %70) #48
   br label %_ZN7doctest6StringD2Ev.exit50
 
-_ZN7doctest6StringD2Ev.exit50:                    ; preds = %_ZN7doctest6StringD2Ev.exit32, %68, %71
+_ZN7doctest6StringD2Ev.exit50:                    ; preds = %_ZN7doctest6StringD2Ev.exit32, %69, %72
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #49
   resume { ptr, i32 } %10
 }
@@ -12155,8 +12163,8 @@ define internal fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEi
   br label %.lr.ph.split.us.i.i
 
 .lr.ph.split.us.i.i:                              ; preds = %.critedge46.us.i.i, %.lr.ph.i.i
-  %indvars.iv62.i.i = phi i64 [ %indvars.iv.next63.i.i, %.critedge46.us.i.i ], [ %6, %.lr.ph.i.i ]
-  %gep.us.i.i = getelementptr ptr, ptr %invariant.gep.i.i, i64 %indvars.iv62.i.i
+  %indvars.iv66.i.i = phi i64 [ %indvars.iv.next67.i.i, %.critedge46.us.i.i ], [ %6, %.lr.ph.i.i ]
+  %gep.us.i.i = getelementptr ptr, ptr %invariant.gep.i.i, i64 %indvars.iv66.i.i
   %7 = load ptr, ptr %gep.us.i.i, align 8, !tbaa !5
   %8 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %7, ptr noundef nonnull readonly dereferenceable(1) %4) #52
   %.not.us.i.i = icmp eq ptr %8, null
@@ -12185,13 +12193,13 @@ define internal fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEi
   br i1 %17, label %_ZN7doctest6StringD2Ev.exit, label %.critedge46.us.i.i
 
 .critedge46.us.i.i:                               ; preds = %13, %.critedge.us.i.i, %9, %.lr.ph.split.us.i.i
-  %indvars.iv.next63.i.i = add nsw i64 %indvars.iv62.i.i, -1
-  %18 = icmp sgt i64 %indvars.iv62.i.i, 1
+  %indvars.iv.next67.i.i = add nsw i64 %indvars.iv66.i.i, -1
+  %18 = icmp sgt i64 %indvars.iv66.i.i, 1
   br i1 %18, label %.lr.ph.split.us.i.i, label %.lr.ph.split.us.i, !llvm.loop !358
 
 .lr.ph.split.us.i:                                ; preds = %.critedge46.us.i.i, %.critedge46.us.i
-  %indvars.iv62.i = phi i64 [ %indvars.iv.next63.i, %.critedge46.us.i ], [ %6, %.critedge46.us.i.i ]
-  %gep.us.i = getelementptr ptr, ptr %invariant.gep.i.i, i64 %indvars.iv62.i
+  %indvars.iv66.i = phi i64 [ %indvars.iv.next67.i, %.critedge46.us.i ], [ %6, %.critedge46.us.i.i ]
+  %gep.us.i = getelementptr ptr, ptr %invariant.gep.i.i, i64 %indvars.iv66.i
   %19 = load ptr, ptr %gep.us.i, align 8, !tbaa !5
   %20 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %19, ptr noundef nonnull readonly dereferenceable(1) %2) #52
   %.not.us.i = icmp eq ptr %20, null
@@ -12220,8 +12228,8 @@ define internal fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_19parseFlagEi
   br i1 %29, label %_ZN7doctest6StringD2Ev.exit, label %.critedge46.us.i
 
 .critedge46.us.i:                                 ; preds = %25, %.critedge.us.i, %21, %.lr.ph.split.us.i
-  %indvars.iv.next63.i = add nsw i64 %indvars.iv62.i, -1
-  %30 = icmp sgt i64 %indvars.iv62.i, 1
+  %indvars.iv.next67.i = add nsw i64 %indvars.iv66.i, -1
+  %30 = icmp sgt i64 %indvars.iv66.i, 1
   br i1 %30, label %.lr.ph.split.us.i, label %_ZN7doctest6StringD2Ev.exit, !llvm.loop !358
 
 _ZN7doctest6StringD2Ev.exit:                      ; preds = %.critedge.us.i.i, %.critedge.us.i, %.critedge46.us.i, %3
@@ -16232,8 +16240,8 @@ define internal fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_115parseOptio
   br i1 %.not41, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.critedge46.us
-  %indvars.iv62 = phi i64 [ %indvars.iv.next63, %.critedge46.us ], [ %7, %.lr.ph ]
-  %gep.us = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv62
+  %indvars.iv66 = phi i64 [ %indvars.iv.next67, %.critedge46.us ], [ %7, %.lr.ph ]
+  %gep.us = getelementptr ptr, ptr %invariant.gep, i64 %indvars.iv66
   %8 = load ptr, ptr %gep.us, align 8, !tbaa !5
   %9 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %8, ptr noundef nonnull dereferenceable(1) %2) #52
   %.not.us = icmp eq ptr %9, null
@@ -16262,8 +16270,8 @@ define internal fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_115parseOptio
   br i1 %18, label %.critedge50, label %.critedge46.us
 
 .critedge46.us:                                   ; preds = %14, %.critedge.us, %10, %.lr.ph.split.us
-  %indvars.iv.next63 = add nsw i64 %indvars.iv62, -1
-  %19 = icmp sgt i64 %indvars.iv62, 1
+  %indvars.iv.next67 = add nsw i64 %indvars.iv66, -1
+  %19 = icmp sgt i64 %indvars.iv66, 1
   br i1 %19, label %.lr.ph.split.us, label %.critedge50, !llvm.loop !358
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.critedge46
@@ -16272,20 +16280,20 @@ define internal fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_115parseOptio
   %20 = load ptr, ptr %gep, align 8, !tbaa !5
   %21 = tail call noundef ptr @strstr(ptr noundef nonnull dereferenceable(1) %20, ptr noundef nonnull dereferenceable(1) %2) #52
   %.not = icmp eq ptr %21, null
-  br i1 %.not, label %.critedge46, label %.preheader59
+  br i1 %.not, label %.critedge46, label %.preheader61
 
-.preheader59:                                     ; preds = %.lr.ph.split, %22
+.preheader61:                                     ; preds = %.lr.ph.split, %22
   %.032 = phi ptr [ %23, %22 ], [ %20, %.lr.ph.split ]
   %.not42 = icmp eq ptr %.032, %21
   br i1 %.not42, label %.critedge, label %22
 
-22:                                               ; preds = %.preheader59
+22:                                               ; preds = %.preheader61
   %23 = getelementptr inbounds nuw i8, ptr %.032, i64 1
   %24 = load i8, ptr %.032, align 1, !tbaa !38
   %.not43 = icmp eq i8 %24, 45
-  br i1 %.not43, label %.preheader59, label %.critedge46, !llvm.loop !357
+  br i1 %.not43, label %.preheader61, label %.critedge46, !llvm.loop !357
 
-.critedge:                                        ; preds = %.preheader59
+.critedge:                                        ; preds = %.preheader61
   %25 = load i8, ptr %20, align 1, !tbaa !38
   %26 = icmp eq i8 %25, 45
   br i1 %26, label %27, label %.critedge46
@@ -16300,68 +16308,66 @@ define internal fastcc noundef zeroext i1 @_ZN7doctest12_GLOBAL__N_115parseOptio
 
 32:                                               ; preds = %27
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #49
-  %33 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %29) #52
-  %34 = trunc i64 %33 to i32
-  %35 = icmp ult i32 %34, 24
-  br i1 %35, label %36, label %42
+  %33 = trunc i64 %30 to i32
+  %34 = icmp ult i32 %33, 24
+  br i1 %34, label %35, label %41
 
-36:                                               ; preds = %32
-  %37 = and i64 %33, 31
-  %38 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 0, i64 %37
-  store i8 0, ptr %38, align 1, !tbaa !38
-  %39 = trunc i64 %33 to i8
-  %40 = sub nuw nsw i8 23, %39
-  %41 = getelementptr inbounds nuw i8, ptr %5, i64 23
-  store i8 %40, ptr %41, align 1, !tbaa !38
+35:                                               ; preds = %32
+  %36 = and i64 %30, 31
+  %37 = getelementptr inbounds nuw [24 x i8], ptr %5, i64 0, i64 %36
+  store i8 0, ptr %37, align 1, !tbaa !38
+  %38 = trunc i64 %30 to i8
+  %39 = sub nuw nsw i8 23, %38
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 23
+  store i8 %39, ptr %40, align 1, !tbaa !38
   br label %_ZN7doctest6StringC2EPKc.exit
 
-42:                                               ; preds = %32
-  %43 = getelementptr inbounds nuw i8, ptr %5, i64 23
-  store i8 -128, ptr %43, align 1, !tbaa !38
-  %44 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 %34, ptr %44, align 8, !tbaa !38
-  %45 = add i32 %34, 1
-  %46 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  store i32 %45, ptr %46, align 4, !tbaa !38
-  %47 = zext i32 %45 to i64
-  %48 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %47) #51
-  store ptr %48, ptr %5, align 8, !tbaa !38
-  %49 = and i64 %33, 4294967295
-  %50 = getelementptr inbounds nuw i8, ptr %48, i64 %49
-  store i8 0, ptr %50, align 1, !tbaa !38
+41:                                               ; preds = %32
+  %42 = getelementptr inbounds nuw i8, ptr %5, i64 23
+  store i8 -128, ptr %42, align 1, !tbaa !38
+  %43 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i32 %33, ptr %43, align 8, !tbaa !38
+  %44 = add i32 %33, 1
+  %45 = getelementptr inbounds nuw i8, ptr %5, i64 12
+  store i32 %44, ptr %45, align 4, !tbaa !38
+  %46 = zext i32 %44 to i64
+  %47 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %46) #51
+  store ptr %47, ptr %5, align 8, !tbaa !38
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 %31
+  store i8 0, ptr %48, align 1, !tbaa !38
   br label %_ZN7doctest6StringC2EPKc.exit
 
-_ZN7doctest6StringC2EPKc.exit:                    ; preds = %36, %42
-  %.pre-phi.i.i = phi i64 [ %37, %36 ], [ %49, %42 ]
-  %.0.i.i.i = phi ptr [ %5, %36 ], [ %48, %42 ]
+_ZN7doctest6StringC2EPKc.exit:                    ; preds = %35, %41
+  %.pre-phi.i.i = phi i64 [ %36, %35 ], [ %31, %41 ]
+  %.0.i.i.i = phi ptr [ %5, %35 ], [ %47, %41 ]
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.0.i.i.i, ptr nonnull readonly align 1 %29, i64 %.pre-phi.i.i, i1 false)
-  %51 = getelementptr inbounds nuw i8, ptr %3, i64 23
-  %52 = load i8, ptr %51, align 1, !tbaa !38
-  %53 = icmp sgt i8 %52, -1
-  br i1 %53, label %_ZN7doctest6StringD2Ev.exit, label %54
+  %49 = getelementptr inbounds nuw i8, ptr %3, i64 23
+  %50 = load i8, ptr %49, align 1, !tbaa !38
+  %51 = icmp sgt i8 %50, -1
+  br i1 %51, label %_ZN7doctest6StringD2Ev.exit, label %52
 
-54:                                               ; preds = %_ZN7doctest6StringC2EPKc.exit
-  %55 = load ptr, ptr %3, align 8, !tbaa !38
-  %56 = icmp eq ptr %55, null
-  br i1 %56, label %_ZN7doctest6StringD2Ev.exit, label %57
+52:                                               ; preds = %_ZN7doctest6StringC2EPKc.exit
+  %53 = load ptr, ptr %3, align 8, !tbaa !38
+  %54 = icmp eq ptr %53, null
+  br i1 %54, label %_ZN7doctest6StringD2Ev.exit, label %55
 
-57:                                               ; preds = %54
-  tail call void @_ZdaPv(ptr noundef nonnull %55) #48
+55:                                               ; preds = %52
+  tail call void @_ZdaPv(ptr noundef nonnull %53) #48
   br label %_ZN7doctest6StringD2Ev.exit
 
-_ZN7doctest6StringD2Ev.exit:                      ; preds = %_ZN7doctest6StringC2EPKc.exit, %54, %57
+_ZN7doctest6StringD2Ev.exit:                      ; preds = %_ZN7doctest6StringC2EPKc.exit, %52, %55
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #49
   br label %.critedge50
 
 .critedge46:                                      ; preds = %22, %.critedge, %27, %.lr.ph.split
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %58 = icmp sgt i64 %indvars.iv, 1
-  br i1 %58, label %.lr.ph.split, label %.critedge50, !llvm.loop !358
+  %56 = icmp sgt i64 %indvars.iv, 1
+  br i1 %56, label %.lr.ph.split, label %.critedge50, !llvm.loop !358
 
 .critedge50:                                      ; preds = %.critedge46, %.critedge46.us, %.critedge.us, %4, %_ZN7doctest6StringD2Ev.exit
-  %59 = phi i1 [ true, %_ZN7doctest6StringD2Ev.exit ], [ false, %4 ], [ false, %.critedge46.us ], [ true, %.critedge.us ], [ false, %.critedge46 ]
-  ret i1 %59
+  %57 = phi i1 [ true, %_ZN7doctest6StringD2Ev.exit ], [ false, %4 ], [ false, %.critedge46.us ], [ true, %.critedge.us ], [ false, %.critedge46 ]
+  ret i1 %57
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn

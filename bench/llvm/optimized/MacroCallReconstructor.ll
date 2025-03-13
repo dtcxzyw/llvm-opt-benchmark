@@ -1101,7 +1101,7 @@ _ZN5clang6format22MacroCallReconstructor17getParentInResultEPNS0_11FormatTokenE.
   %121 = getelementptr inbounds nuw i8, ptr %120, i64 16
   %122 = load i32, ptr %121, align 8, !tbaa !17
   %.not.i37 = icmp eq i32 %122, 0
-  br i1 %.not.i37, label %225, label %123
+  br i1 %.not.i37, label %226, label %123
 
 123:                                              ; preds = %116
   %124 = getelementptr inbounds nuw i8, ptr %120, i64 8
@@ -1112,7 +1112,7 @@ _ZN5clang6format22MacroCallReconstructor17getParentInResultEPNS0_11FormatTokenE.
   %129 = load ptr, ptr %128, align 8, !tbaa !23
   %130 = load ptr, ptr %129, align 8, !tbaa !69
   %131 = icmp eq ptr %.011.i45, %130
-  br i1 %131, label %_ZN5clang6format22MacroCallReconstructor17getParentInResultEPNS0_11FormatTokenE.exit36._crit_edge, label %225
+  br i1 %131, label %_ZN5clang6format22MacroCallReconstructor17getParentInResultEPNS0_11FormatTokenE.exit36._crit_edge, label %226
 
 _ZN5clang6format22MacroCallReconstructor17getParentInResultEPNS0_11FormatTokenE.exit36._crit_edge: ; preds = %_ZN5clang6format22MacroCallReconstructor17getParentInResultEPNS0_11FormatTokenE.exit36, %123
   %132 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -1170,188 +1170,190 @@ _ZN5clang6format22MacroCallReconstructor17getParentInResultEPNS0_11FormatTokenE.
   %160 = load i32, ptr %159, align 4, !tbaa !16
   %.not.i.i.not.i = icmp ult i32 %156, %160
   %.pre3.i = load ptr, ptr %149, align 8, !tbaa !15
-  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN5clang6format22MacroCallReconstructor17ReconstructedLineESt14default_deleteIS5_EELb0EE9push_backEOS8_.exit, label %161, !prof !67
+  %161 = ptrtoint ptr %150 to i64
+  br i1 %.not.i.i.not.i, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN5clang6format22MacroCallReconstructor17ReconstructedLineESt14default_deleteIS5_EELb0EE9push_backEOS8_.exit, label %162, !prof !67
 
-161:                                              ; preds = %.critedge2
-  %162 = getelementptr inbounds nuw %"class.std::unique_ptr.25", ptr %.pre3.i, i64 %157
-  %163 = icmp uge ptr %5, %.pre3.i
-  %164 = icmp ult ptr %5, %162
-  %spec.select.i.i.i.i.i = and i1 %163, %164
-  br i1 %spec.select.i.i.i.i.i, label %166, label %165, !prof !68
+162:                                              ; preds = %.critedge2
+  %163 = getelementptr inbounds nuw %"class.std::unique_ptr.25", ptr %.pre3.i, i64 %157
+  %164 = icmp uge ptr %5, %.pre3.i
+  %165 = icmp ult ptr %5, %163
+  %spec.select.i.i.i.i.i = and i1 %164, %165
+  br i1 %spec.select.i.i.i.i.i, label %167, label %166, !prof !68
 
-165:                                              ; preds = %161
+166:                                              ; preds = %162
   call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN5clang6format22MacroCallReconstructor17ReconstructedLineESt14default_deleteIS5_EELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %149, i64 noundef %158)
   %.pre.i = load ptr, ptr %149, align 8, !tbaa !15
   br label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN5clang6format22MacroCallReconstructor17ReconstructedLineESt14default_deleteIS5_EELb0EE9push_backEOS8_.exit
 
-166:                                              ; preds = %161
-  %167 = ptrtoint ptr %5 to i64
-  %168 = ptrtoint ptr %.pre3.i to i64
-  %169 = sub i64 %167, %168
+167:                                              ; preds = %162
+  %168 = ptrtoint ptr %5 to i64
+  %169 = ptrtoint ptr %.pre3.i to i64
+  %170 = sub i64 %168, %169
   call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN5clang6format22MacroCallReconstructor17ReconstructedLineESt14default_deleteIS5_EELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %149, i64 noundef %158)
-  %170 = load ptr, ptr %149, align 8, !tbaa !15
-  %171 = getelementptr inbounds i8, ptr %170, i64 %169
+  %171 = load ptr, ptr %149, align 8, !tbaa !15
+  %172 = getelementptr inbounds i8, ptr %171, i64 %170
+  %.pre83 = load i64, ptr %172, align 8, !tbaa !46
   br label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN5clang6format22MacroCallReconstructor17ReconstructedLineESt14default_deleteIS5_EELb0EE9push_backEOS8_.exit
 
-_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN5clang6format22MacroCallReconstructor17ReconstructedLineESt14default_deleteIS5_EELb0EE9push_backEOS8_.exit: ; preds = %.critedge2, %165, %166
-  %172 = phi ptr [ %.pre3.i, %.critedge2 ], [ %170, %166 ], [ %.pre.i, %165 ]
-  %.016.i.i.i = phi ptr [ %5, %.critedge2 ], [ %171, %166 ], [ %5, %165 ]
-  %173 = load i32, ptr %155, align 8, !tbaa !17
-  %174 = zext i32 %173 to i64
-  %175 = getelementptr inbounds nuw %"class.std::unique_ptr.25", ptr %172, i64 %174
-  %176 = load i64, ptr %.016.i.i.i, align 8, !tbaa !46
-  store i64 %176, ptr %175, align 8, !tbaa !46
+_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN5clang6format22MacroCallReconstructor17ReconstructedLineESt14default_deleteIS5_EELb0EE9push_backEOS8_.exit: ; preds = %.critedge2, %166, %167
+  %173 = phi i64 [ %161, %.critedge2 ], [ %.pre83, %167 ], [ %161, %166 ]
+  %174 = phi ptr [ %.pre3.i, %.critedge2 ], [ %171, %167 ], [ %.pre.i, %166 ]
+  %.016.i.i.i = phi ptr [ %5, %.critedge2 ], [ %172, %167 ], [ %5, %166 ]
+  %175 = load i32, ptr %155, align 8, !tbaa !17
+  %176 = zext i32 %175 to i64
+  %177 = getelementptr inbounds nuw %"class.std::unique_ptr.25", ptr %174, i64 %176
+  store i64 %173, ptr %177, align 8, !tbaa !46
   store ptr null, ptr %.016.i.i.i, align 8, !tbaa !46
-  %177 = add i32 %173, 1
-  store i32 %177, ptr %155, align 8, !tbaa !17
-  %178 = load ptr, ptr %5, align 8, !tbaa !46
-  %.not.i39 = icmp eq ptr %178, null
-  br i1 %.not.i39, label %_ZNSt10unique_ptrIN5clang6format22MacroCallReconstructor17ReconstructedLineESt14default_deleteIS3_EED2Ev.exit, label %179
+  %178 = add i32 %175, 1
+  store i32 %178, ptr %155, align 8, !tbaa !17
+  %179 = load ptr, ptr %5, align 8, !tbaa !46
+  %.not.i39 = icmp eq ptr %179, null
+  br i1 %.not.i39, label %_ZNSt10unique_ptrIN5clang6format22MacroCallReconstructor17ReconstructedLineESt14default_deleteIS3_EED2Ev.exit, label %180
 
-179:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN5clang6format22MacroCallReconstructor17ReconstructedLineESt14default_deleteIS5_EELb0EE9push_backEOS8_.exit
-  %180 = getelementptr inbounds nuw i8, ptr %178, i64 8
-  %181 = load ptr, ptr %180, align 8, !tbaa !15
-  %182 = getelementptr inbounds nuw i8, ptr %178, i64 16
-  %183 = load i32, ptr %182, align 8, !tbaa !17
-  %.not.i1.i.i = icmp eq i32 %183, 0
+180:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN5clang6format22MacroCallReconstructor17ReconstructedLineESt14default_deleteIS5_EELb0EE9push_backEOS8_.exit
+  %181 = getelementptr inbounds nuw i8, ptr %179, i64 8
+  %182 = load ptr, ptr %181, align 8, !tbaa !15
+  %183 = getelementptr inbounds nuw i8, ptr %179, i64 16
+  %184 = load i32, ptr %183, align 8, !tbaa !17
+  %.not.i1.i.i = icmp eq i32 %184, 0
   br i1 %.not.i1.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN5clang6format22MacroCallReconstructor8LineNodeESt14default_deleteIS5_EELb0EE13destroy_rangeEPS8_SA_.exit.i.i, label %.lr.ph.preheader.i.i
 
-.lr.ph.preheader.i.i:                             ; preds = %179
-  %184 = zext i32 %183 to i64
-  %185 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %181, i64 %184
+.lr.ph.preheader.i.i:                             ; preds = %180
+  %185 = zext i32 %184 to i64
+  %186 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %182, i64 %185
   br label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %_ZNSt10unique_ptrIN5clang6format22MacroCallReconstructor8LineNodeESt14default_deleteIS3_EED2Ev.exit.i.i.i, %.lr.ph.preheader.i.i
-  %.0.i2.i.i = phi ptr [ %186, %_ZNSt10unique_ptrIN5clang6format22MacroCallReconstructor8LineNodeESt14default_deleteIS3_EED2Ev.exit.i.i.i ], [ %185, %.lr.ph.preheader.i.i ]
-  %186 = getelementptr inbounds i8, ptr %.0.i2.i.i, i64 -8
-  %187 = load ptr, ptr %186, align 8, !tbaa !23
-  %.not.i.i.i.i = icmp eq ptr %187, null
+  %.0.i2.i.i = phi ptr [ %187, %_ZNSt10unique_ptrIN5clang6format22MacroCallReconstructor8LineNodeESt14default_deleteIS3_EED2Ev.exit.i.i.i ], [ %186, %.lr.ph.preheader.i.i ]
+  %187 = getelementptr inbounds i8, ptr %.0.i2.i.i, i64 -8
+  %188 = load ptr, ptr %187, align 8, !tbaa !23
+  %.not.i.i.i.i = icmp eq ptr %188, null
   br i1 %.not.i.i.i.i, label %_ZNSt10unique_ptrIN5clang6format22MacroCallReconstructor8LineNodeESt14default_deleteIS3_EED2Ev.exit.i.i.i, label %_ZNKSt14default_deleteIN5clang6format22MacroCallReconstructor8LineNodeEEclEPS3_.exit.i.i.i
 
 _ZNKSt14default_deleteIN5clang6format22MacroCallReconstructor8LineNodeEEclEPS3_.exit.i.i.i: ; preds = %.lr.ph.i.i
-  %188 = getelementptr inbounds nuw i8, ptr %187, i64 8
-  call void @_ZN4llvm11SmallVectorISt10unique_ptrIN5clang6format22MacroCallReconstructor17ReconstructedLineESt14default_deleteIS5_EELj6EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %188) #16
-  call void @_ZdlPvm(ptr noundef nonnull %187, i64 noundef 72) #17
+  %189 = getelementptr inbounds nuw i8, ptr %188, i64 8
+  call void @_ZN4llvm11SmallVectorISt10unique_ptrIN5clang6format22MacroCallReconstructor17ReconstructedLineESt14default_deleteIS5_EELj6EED2Ev(ptr noundef nonnull align 8 dereferenceable(64) %189) #16
+  call void @_ZdlPvm(ptr noundef nonnull %188, i64 noundef 72) #17
   br label %_ZNSt10unique_ptrIN5clang6format22MacroCallReconstructor8LineNodeESt14default_deleteIS3_EED2Ev.exit.i.i.i
 
 _ZNSt10unique_ptrIN5clang6format22MacroCallReconstructor8LineNodeESt14default_deleteIS3_EED2Ev.exit.i.i.i: ; preds = %_ZNKSt14default_deleteIN5clang6format22MacroCallReconstructor8LineNodeEEclEPS3_.exit.i.i.i, %.lr.ph.i.i
-  store ptr null, ptr %186, align 8, !tbaa !23
-  %.not.i.i.i = icmp eq ptr %181, %186
+  store ptr null, ptr %187, align 8, !tbaa !23
+  %.not.i.i.i = icmp eq ptr %182, %187
   br i1 %.not.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN5clang6format22MacroCallReconstructor8LineNodeESt14default_deleteIS5_EELb0EE13destroy_rangeEPS8_SA_.exit.loopexit.i.i, label %.lr.ph.i.i, !llvm.loop !145
 
 _ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN5clang6format22MacroCallReconstructor8LineNodeESt14default_deleteIS5_EELb0EE13destroy_rangeEPS8_SA_.exit.loopexit.i.i: ; preds = %_ZNSt10unique_ptrIN5clang6format22MacroCallReconstructor8LineNodeESt14default_deleteIS3_EED2Ev.exit.i.i.i
-  %.pre.i.i = load ptr, ptr %180, align 8, !tbaa !15
+  %.pre.i.i = load ptr, ptr %181, align 8, !tbaa !15
   br label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN5clang6format22MacroCallReconstructor8LineNodeESt14default_deleteIS5_EELb0EE13destroy_rangeEPS8_SA_.exit.i.i
 
-_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN5clang6format22MacroCallReconstructor8LineNodeESt14default_deleteIS5_EELb0EE13destroy_rangeEPS8_SA_.exit.i.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN5clang6format22MacroCallReconstructor8LineNodeESt14default_deleteIS5_EELb0EE13destroy_rangeEPS8_SA_.exit.loopexit.i.i, %179
-  %189 = phi ptr [ %.pre.i.i, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN5clang6format22MacroCallReconstructor8LineNodeESt14default_deleteIS5_EELb0EE13destroy_rangeEPS8_SA_.exit.loopexit.i.i ], [ %181, %179 ]
-  %190 = getelementptr inbounds nuw i8, ptr %178, i64 24
-  %191 = icmp eq ptr %189, %190
-  br i1 %191, label %_ZNKSt14default_deleteIN5clang6format22MacroCallReconstructor17ReconstructedLineEEclEPS3_.exit.i, label %192
+_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN5clang6format22MacroCallReconstructor8LineNodeESt14default_deleteIS5_EELb0EE13destroy_rangeEPS8_SA_.exit.i.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN5clang6format22MacroCallReconstructor8LineNodeESt14default_deleteIS5_EELb0EE13destroy_rangeEPS8_SA_.exit.loopexit.i.i, %180
+  %190 = phi ptr [ %.pre.i.i, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN5clang6format22MacroCallReconstructor8LineNodeESt14default_deleteIS5_EELb0EE13destroy_rangeEPS8_SA_.exit.loopexit.i.i ], [ %182, %180 ]
+  %191 = getelementptr inbounds nuw i8, ptr %179, i64 24
+  %192 = icmp eq ptr %190, %191
+  br i1 %192, label %_ZNKSt14default_deleteIN5clang6format22MacroCallReconstructor17ReconstructedLineEEclEPS3_.exit.i, label %193
 
-192:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN5clang6format22MacroCallReconstructor8LineNodeESt14default_deleteIS5_EELb0EE13destroy_rangeEPS8_SA_.exit.i.i
-  call void @free(ptr noundef %189) #16
+193:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN5clang6format22MacroCallReconstructor8LineNodeESt14default_deleteIS5_EELb0EE13destroy_rangeEPS8_SA_.exit.i.i
+  call void @free(ptr noundef %190) #16
   br label %_ZNKSt14default_deleteIN5clang6format22MacroCallReconstructor17ReconstructedLineEEclEPS3_.exit.i
 
-_ZNKSt14default_deleteIN5clang6format22MacroCallReconstructor17ReconstructedLineEEclEPS3_.exit.i: ; preds = %192, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN5clang6format22MacroCallReconstructor8LineNodeESt14default_deleteIS5_EELb0EE13destroy_rangeEPS8_SA_.exit.i.i
-  call void @_ZdlPvm(ptr noundef nonnull %178, i64 noundef 72) #17
+_ZNKSt14default_deleteIN5clang6format22MacroCallReconstructor17ReconstructedLineEEclEPS3_.exit.i: ; preds = %193, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN5clang6format22MacroCallReconstructor8LineNodeESt14default_deleteIS5_EELb0EE13destroy_rangeEPS8_SA_.exit.i.i
+  call void @_ZdlPvm(ptr noundef nonnull %179, i64 noundef 72) #17
   br label %_ZNSt10unique_ptrIN5clang6format22MacroCallReconstructor17ReconstructedLineESt14default_deleteIS3_EED2Ev.exit
 
 _ZNSt10unique_ptrIN5clang6format22MacroCallReconstructor17ReconstructedLineESt14default_deleteIS3_EED2Ev.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN5clang6format22MacroCallReconstructor17ReconstructedLineESt14default_deleteIS5_EELb0EE9push_backEOS8_.exit, %_ZNKSt14default_deleteIN5clang6format22MacroCallReconstructor17ReconstructedLineEEclEPS3_.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #16
-  %193 = load ptr, ptr %132, align 8, !tbaa !15
-  %194 = load i32, ptr %133, align 8, !tbaa !17
-  %195 = zext i32 %194 to i64
-  %196 = getelementptr inbounds nuw ptr, ptr %193, i64 %195
-  %197 = getelementptr inbounds i8, ptr %196, i64 -8
-  %198 = load ptr, ptr %197, align 8, !tbaa !46
-  %199 = getelementptr inbounds nuw i8, ptr %198, i64 8
-  %200 = load ptr, ptr %199, align 8, !tbaa !15
-  %201 = getelementptr inbounds nuw i8, ptr %198, i64 16
-  %202 = load i32, ptr %201, align 8, !tbaa !17
-  %203 = zext i32 %202 to i64
-  %204 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %200, i64 %203
-  %205 = getelementptr inbounds i8, ptr %204, i64 -8
-  %206 = load ptr, ptr %205, align 8, !tbaa !23
-  %207 = getelementptr inbounds nuw i8, ptr %206, i64 8
-  %208 = load ptr, ptr %207, align 8, !tbaa !15
-  %209 = getelementptr inbounds nuw i8, ptr %206, i64 16
-  %210 = load i32, ptr %209, align 8, !tbaa !17
-  %211 = zext i32 %210 to i64
-  %212 = getelementptr inbounds nuw %"class.std::unique_ptr.25", ptr %208, i64 %211
-  %213 = getelementptr inbounds i8, ptr %212, i64 -8
-  %214 = load ptr, ptr %213, align 8, !tbaa !46
-  %215 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  %216 = load i32, ptr %215, align 4, !tbaa !16
-  %.not.i.i.not.i40 = icmp ult i32 %194, %216
-  br i1 %.not.i.i.not.i40, label %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6format22MacroCallReconstructor17ReconstructedLineELb1EE9push_backES5_.exit, label %217, !prof !67
+  %194 = load ptr, ptr %132, align 8, !tbaa !15
+  %195 = load i32, ptr %133, align 8, !tbaa !17
+  %196 = zext i32 %195 to i64
+  %197 = getelementptr inbounds nuw ptr, ptr %194, i64 %196
+  %198 = getelementptr inbounds i8, ptr %197, i64 -8
+  %199 = load ptr, ptr %198, align 8, !tbaa !46
+  %200 = getelementptr inbounds nuw i8, ptr %199, i64 8
+  %201 = load ptr, ptr %200, align 8, !tbaa !15
+  %202 = getelementptr inbounds nuw i8, ptr %199, i64 16
+  %203 = load i32, ptr %202, align 8, !tbaa !17
+  %204 = zext i32 %203 to i64
+  %205 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %201, i64 %204
+  %206 = getelementptr inbounds i8, ptr %205, i64 -8
+  %207 = load ptr, ptr %206, align 8, !tbaa !23
+  %208 = getelementptr inbounds nuw i8, ptr %207, i64 8
+  %209 = load ptr, ptr %208, align 8, !tbaa !15
+  %210 = getelementptr inbounds nuw i8, ptr %207, i64 16
+  %211 = load i32, ptr %210, align 8, !tbaa !17
+  %212 = zext i32 %211 to i64
+  %213 = getelementptr inbounds nuw %"class.std::unique_ptr.25", ptr %209, i64 %212
+  %214 = getelementptr inbounds i8, ptr %213, i64 -8
+  %215 = load ptr, ptr %214, align 8, !tbaa !46
+  %216 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  %217 = load i32, ptr %216, align 4, !tbaa !16
+  %.not.i.i.not.i40 = icmp ult i32 %195, %217
+  br i1 %.not.i.i.not.i40, label %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6format22MacroCallReconstructor17ReconstructedLineELb1EE9push_backES5_.exit, label %218, !prof !67
 
-217:                                              ; preds = %_ZNSt10unique_ptrIN5clang6format22MacroCallReconstructor17ReconstructedLineESt14default_deleteIS3_EED2Ev.exit
-  %218 = add nuw nsw i64 %195, 1
-  %219 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %132, ptr noundef nonnull %219, i64 noundef %218, i64 noundef 8) #16
+218:                                              ; preds = %_ZNSt10unique_ptrIN5clang6format22MacroCallReconstructor17ReconstructedLineESt14default_deleteIS3_EED2Ev.exit
+  %219 = add nuw nsw i64 %196, 1
+  %220 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %132, ptr noundef nonnull %220, i64 noundef %219, i64 noundef 8) #16
   %.pre.i41 = load i32, ptr %133, align 8, !tbaa !17
-  %.pre83 = load ptr, ptr %132, align 8, !tbaa !15
-  %.pre84 = zext i32 %.pre.i41 to i64
+  %.pre84 = load ptr, ptr %132, align 8, !tbaa !15
+  %.pre85 = zext i32 %.pre.i41 to i64
   br label %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6format22MacroCallReconstructor17ReconstructedLineELb1EE9push_backES5_.exit
 
-_ZN4llvm23SmallVectorTemplateBaseIPN5clang6format22MacroCallReconstructor17ReconstructedLineELb1EE9push_backES5_.exit: ; preds = %_ZNSt10unique_ptrIN5clang6format22MacroCallReconstructor17ReconstructedLineESt14default_deleteIS3_EED2Ev.exit, %217
-  %.pre-phi = phi i64 [ %195, %_ZNSt10unique_ptrIN5clang6format22MacroCallReconstructor17ReconstructedLineESt14default_deleteIS3_EED2Ev.exit ], [ %.pre84, %217 ]
-  %220 = phi ptr [ %193, %_ZNSt10unique_ptrIN5clang6format22MacroCallReconstructor17ReconstructedLineESt14default_deleteIS3_EED2Ev.exit ], [ %.pre83, %217 ]
-  %221 = getelementptr inbounds nuw ptr, ptr %220, i64 %.pre-phi
-  %222 = ptrtoint ptr %214 to i64
-  store i64 %222, ptr %221, align 1
-  %223 = load i32, ptr %133, align 8, !tbaa !17
-  %224 = add i32 %223, 1
-  store i32 %224, ptr %133, align 8, !tbaa !17
+_ZN4llvm23SmallVectorTemplateBaseIPN5clang6format22MacroCallReconstructor17ReconstructedLineELb1EE9push_backES5_.exit: ; preds = %_ZNSt10unique_ptrIN5clang6format22MacroCallReconstructor17ReconstructedLineESt14default_deleteIS3_EED2Ev.exit, %218
+  %.pre-phi = phi i64 [ %196, %_ZNSt10unique_ptrIN5clang6format22MacroCallReconstructor17ReconstructedLineESt14default_deleteIS3_EED2Ev.exit ], [ %.pre85, %218 ]
+  %221 = phi ptr [ %194, %_ZNSt10unique_ptrIN5clang6format22MacroCallReconstructor17ReconstructedLineESt14default_deleteIS3_EED2Ev.exit ], [ %.pre84, %218 ]
+  %222 = getelementptr inbounds nuw ptr, ptr %221, i64 %.pre-phi
+  %223 = ptrtoint ptr %215 to i64
+  store i64 %223, ptr %222, align 1
+  %224 = load i32, ptr %133, align 8, !tbaa !17
+  %225 = add i32 %224, 1
+  store i32 %225, ptr %133, align 8, !tbaa !17
   br label %.critedge4
 
-225:                                              ; preds = %123, %116
-  %226 = getelementptr inbounds i8, ptr %118, i64 -16
-  %227 = load ptr, ptr %226, align 8, !tbaa !46
-  %228 = getelementptr inbounds nuw i8, ptr %227, i64 8
-  %229 = load ptr, ptr %228, align 8, !tbaa !15
-  %230 = getelementptr inbounds nuw i8, ptr %227, i64 16
-  %231 = load i32, ptr %230, align 8, !tbaa !17
-  %232 = zext i32 %231 to i64
-  %233 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %229, i64 %232
-  %234 = getelementptr inbounds i8, ptr %233, i64 -8
-  %235 = load ptr, ptr %234, align 8, !tbaa !23
-  %236 = load ptr, ptr %235, align 8, !tbaa !69
-  %.not = icmp eq ptr %236, %.011.i45
+226:                                              ; preds = %123, %116
+  %227 = getelementptr inbounds i8, ptr %118, i64 -16
+  %228 = load ptr, ptr %227, align 8, !tbaa !46
+  %229 = getelementptr inbounds nuw i8, ptr %228, i64 8
+  %230 = load ptr, ptr %229, align 8, !tbaa !15
+  %231 = getelementptr inbounds nuw i8, ptr %228, i64 16
+  %232 = load i32, ptr %231, align 8, !tbaa !17
+  %233 = zext i32 %232 to i64
+  %234 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %230, i64 %233
+  %235 = getelementptr inbounds i8, ptr %234, i64 -8
+  %236 = load ptr, ptr %235, align 8, !tbaa !23
+  %237 = load ptr, ptr %236, align 8, !tbaa !69
+  %.not = icmp eq ptr %237, %.011.i45
   br i1 %.not, label %.critedge4, label %.preheader
 
-.preheader:                                       ; preds = %225
+.preheader:                                       ; preds = %226
   %invariant.gep = getelementptr i8, ptr %.pre, i64 -16
-  %.not1364 = icmp eq ptr %236, null
-  %.not1466 = icmp eq ptr %236, %.0
+  %.not1364 = icmp eq ptr %237, null
+  %.not1466 = icmp eq ptr %237, %.0
   %or.cond4967 = select i1 %.not1364, i1 true, i1 %.not1466
   br i1 %or.cond4967, label %.critedge4, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %237 = phi i32 [ %238, %.lr.ph ], [ %.promoted70.pre, %.preheader ]
-  %238 = add i32 %237, -1
-  store i32 %238, ptr %.phi.trans.insert81, align 8, !tbaa !17
-  %239 = zext i32 %238 to i64
-  %gep = getelementptr ptr, ptr %invariant.gep, i64 %239
-  %240 = load ptr, ptr %gep, align 8, !tbaa !46
-  %241 = getelementptr inbounds nuw i8, ptr %240, i64 8
-  %242 = load ptr, ptr %241, align 8, !tbaa !15
-  %243 = getelementptr inbounds nuw i8, ptr %240, i64 16
-  %244 = load i32, ptr %243, align 8, !tbaa !17
-  %245 = zext i32 %244 to i64
-  %246 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %242, i64 %245
-  %247 = getelementptr inbounds i8, ptr %246, i64 -8
-  %248 = load ptr, ptr %247, align 8, !tbaa !23
-  %249 = load ptr, ptr %248, align 8, !tbaa !69
-  %.not12 = icmp eq ptr %.011.i45, %249
-  %.not13 = icmp eq ptr %249, null
+  %238 = phi i32 [ %239, %.lr.ph ], [ %.promoted70.pre, %.preheader ]
+  %239 = add i32 %238, -1
+  store i32 %239, ptr %.phi.trans.insert81, align 8, !tbaa !17
+  %240 = zext i32 %239 to i64
+  %gep = getelementptr ptr, ptr %invariant.gep, i64 %240
+  %241 = load ptr, ptr %gep, align 8, !tbaa !46
+  %242 = getelementptr inbounds nuw i8, ptr %241, i64 8
+  %243 = load ptr, ptr %242, align 8, !tbaa !15
+  %244 = getelementptr inbounds nuw i8, ptr %241, i64 16
+  %245 = load i32, ptr %244, align 8, !tbaa !17
+  %246 = zext i32 %245 to i64
+  %247 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %243, i64 %246
+  %248 = getelementptr inbounds i8, ptr %247, i64 -8
+  %249 = load ptr, ptr %248, align 8, !tbaa !23
+  %250 = load ptr, ptr %249, align 8, !tbaa !69
+  %.not12 = icmp eq ptr %.011.i45, %250
+  %.not13 = icmp eq ptr %250, null
   %or.cond48 = or i1 %.not12, %.not13
-  %.not14 = icmp eq ptr %249, %.0
+  %.not14 = icmp eq ptr %250, %.0
   %or.cond49 = select i1 %or.cond48, i1 true, i1 %.not14
   br i1 %or.cond49, label %.critedge4, label %.lr.ph, !llvm.loop !146
 
-.critedge4:                                       ; preds = %.lr.ph, %.preheader, %225, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6format22MacroCallReconstructor17ReconstructedLineELb1EE9push_backES5_.exit
+.critedge4:                                       ; preds = %.lr.ph, %.preheader, %226, %_ZN4llvm23SmallVectorTemplateBaseIPN5clang6format22MacroCallReconstructor17ReconstructedLineELb1EE9push_backES5_.exit
   ret void
 }
 

@@ -671,7 +671,6 @@ define hidden void @setup_sdp_transport(ptr noundef %0, ptr noundef %1, i32 noun
 .outer._crit_edge:                                ; preds = %.outer, %54, %47, %40
   %81 = load ptr, ptr %42, align 8
   call void @rtp_dyn_payload_free(ptr noundef %81)
-  store ptr null, ptr %42, align 8
   call fastcc void @complete_descriptions(ptr noundef %.157, i32 noundef %45)
   br i1 %4, label %82, label %86
 

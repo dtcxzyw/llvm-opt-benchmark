@@ -389,7 +389,7 @@ _ZN3gmxL26getSupportedOutputAdaptersEi.exit.thread: ; preds = %_ZN3gmxL11getFile
 
 69:                                               ; preds = %67
   invoke void @__cxa_throw(ptr %65, ptr nonnull @_ZTIN3gmx22InconsistentInputErrorE, ptr nonnull @_ZN3gmx16GromacsExceptionD2Ev) #21
-          to label %404 unwind label %72
+          to label %403 unwind label %72
 
 .thread:                                          ; preds = %64
   %70 = landingpad { ptr, i32 }
@@ -1120,7 +1120,7 @@ _ZNSt10unique_ptrIN3gmx14IOutputAdapterESt14default_deleteIS1_EED2Ev.exit.i.i.i:
 
 _ZNSt10unique_ptrI7t_atomsN3gmx15functor_wrapperIS0_XadL_Z21done_and_delete_atomsPS0_EEEEED2Ev.exit: ; preds = %323, %325
   %329 = invoke noalias noundef nonnull dereferenceable(4272) ptr @_Znwm(i64 noundef 4272) #22
-          to label %.preheader unwind label %383
+          to label %.preheader unwind label %382
 
 .preheader:                                       ; preds = %_ZNSt10unique_ptrI7t_atomsN3gmx15functor_wrapperIS0_XadL_Z21done_and_delete_atomsPS0_EEEEED2Ev.exit, %.preheader
   %330 = phi i64 [ %334, %.preheader ], [ 0, %_ZNSt10unique_ptrI7t_atomsN3gmx15functor_wrapperIS0_XadL_Z21done_and_delete_atomsPS0_EEEEED2Ev.exit ]
@@ -1136,7 +1136,6 @@ _ZNSt10unique_ptrI7t_atomsN3gmx15functor_wrapperIS0_XadL_Z21done_and_delete_atom
 _ZN3gmx22OutputAdapterContainerC2EOS0_.exit:      ; preds = %.preheader
   %336 = getelementptr inbounds nuw i8, ptr %29, i64 4104
   %337 = load i64, ptr %78, align 8, !tbaa !32
-  store i64 %337, ptr %336, align 8, !tbaa !32
   %338 = getelementptr inbounds nuw i8, ptr %329, i64 16
   store ptr %338, ptr %329, align 8, !tbaa !112
   %339 = load ptr, ptr %3, align 8, !tbaa !113
@@ -1148,7 +1147,7 @@ _ZN3gmx22OutputAdapterContainerC2EOS0_.exit:      ; preds = %.preheader
 
 .noexc.i.i.i:                                     ; preds = %_ZN3gmx22OutputAdapterContainerC2EOS0_.exit
   %342 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(4272) %329, ptr noundef nonnull align 8 dereferenceable(8) %7, i64 noundef 0)
-          to label %.noexc unwind label %385
+          to label %.noexc unwind label %384
 
 .noexc:                                           ; preds = %.noexc.i.i.i
   store ptr %342, ptr %329, align 8, !tbaa !113
@@ -1204,50 +1203,49 @@ _ZN3gmx20TrajectoryFileOpenerC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
 
 364:                                              ; preds = %357
   %365 = getelementptr inbounds nuw i8, ptr %329, i64 4168
-  %366 = load i64, ptr %336, align 8, !tbaa !32
-  store i64 %366, ptr %365, align 8, !tbaa !32
-  %367 = getelementptr inbounds nuw i8, ptr %329, i64 4176
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %367, i8 0, i64 96, i1 false)
+  store i64 %337, ptr %365, align 8, !tbaa !32
+  %366 = getelementptr inbounds nuw i8, ptr %329, i64 4176
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %366, i8 0, i64 96, i1 false)
   store ptr %329, ptr %0, align 8, !tbaa !124
-  br label %368
+  br label %367
 
-368:                                              ; preds = %_ZNSt10unique_ptrIN3gmx14IOutputAdapterESt14default_deleteIS1_EED2Ev.exit.i.i, %364
-  %369 = phi ptr [ %336, %364 ], [ %370, %_ZNSt10unique_ptrIN3gmx14IOutputAdapterESt14default_deleteIS1_EED2Ev.exit.i.i ]
-  %370 = getelementptr inbounds i8, ptr %369, i64 -8
-  %371 = load ptr, ptr %370, align 8, !tbaa !44
-  %.not.i.i.i38 = icmp eq ptr %371, null
+367:                                              ; preds = %_ZNSt10unique_ptrIN3gmx14IOutputAdapterESt14default_deleteIS1_EED2Ev.exit.i.i, %364
+  %368 = phi ptr [ %336, %364 ], [ %369, %_ZNSt10unique_ptrIN3gmx14IOutputAdapterESt14default_deleteIS1_EED2Ev.exit.i.i ]
+  %369 = getelementptr inbounds i8, ptr %368, i64 -8
+  %370 = load ptr, ptr %369, align 8, !tbaa !44
+  %.not.i.i.i38 = icmp eq ptr %370, null
   br i1 %.not.i.i.i38, label %_ZNSt10unique_ptrIN3gmx14IOutputAdapterESt14default_deleteIS1_EED2Ev.exit.i.i, label %_ZNKSt14default_deleteIN3gmx14IOutputAdapterEEclEPS1_.exit.i.i.i
 
-_ZNKSt14default_deleteIN3gmx14IOutputAdapterEEclEPS1_.exit.i.i.i: ; preds = %368
-  %372 = load ptr, ptr %371, align 8, !tbaa !12
-  %373 = getelementptr inbounds nuw i8, ptr %372, i64 8
-  %374 = load ptr, ptr %373, align 8
-  call void %374(ptr noundef nonnull align 8 dereferenceable(8) %371) #20
+_ZNKSt14default_deleteIN3gmx14IOutputAdapterEEclEPS1_.exit.i.i.i: ; preds = %367
+  %371 = load ptr, ptr %370, align 8, !tbaa !12
+  %372 = getelementptr inbounds nuw i8, ptr %371, i64 8
+  %373 = load ptr, ptr %372, align 8
+  call void %373(ptr noundef nonnull align 8 dereferenceable(8) %370) #20
   br label %_ZNSt10unique_ptrIN3gmx14IOutputAdapterESt14default_deleteIS1_EED2Ev.exit.i.i
 
-_ZNSt10unique_ptrIN3gmx14IOutputAdapterESt14default_deleteIS1_EED2Ev.exit.i.i: ; preds = %_ZNKSt14default_deleteIN3gmx14IOutputAdapterEEclEPS1_.exit.i.i.i, %368
-  store ptr null, ptr %370, align 8, !tbaa !44
-  %375 = icmp eq ptr %370, %29
-  br i1 %375, label %_ZN3gmx22OutputAdapterContainerD2Ev.exit, label %368
+_ZNSt10unique_ptrIN3gmx14IOutputAdapterESt14default_deleteIS1_EED2Ev.exit.i.i: ; preds = %_ZNKSt14default_deleteIN3gmx14IOutputAdapterEEclEPS1_.exit.i.i.i, %367
+  store ptr null, ptr %369, align 8, !tbaa !44
+  %374 = icmp eq ptr %369, %29
+  br i1 %374, label %_ZN3gmx22OutputAdapterContainerD2Ev.exit, label %367
 
 _ZN3gmx22OutputAdapterContainerD2Ev.exit:         ; preds = %_ZNSt10unique_ptrIN3gmx14IOutputAdapterESt14default_deleteIS1_EED2Ev.exit.i.i, %_ZNSt10unique_ptrIN3gmx14IOutputAdapterESt14default_deleteIS1_EED2Ev.exit.i.i41
-  %376 = phi ptr [ %377, %_ZNSt10unique_ptrIN3gmx14IOutputAdapterESt14default_deleteIS1_EED2Ev.exit.i.i41 ], [ %78, %_ZNSt10unique_ptrIN3gmx14IOutputAdapterESt14default_deleteIS1_EED2Ev.exit.i.i ]
-  %377 = getelementptr inbounds i8, ptr %376, i64 -8
-  %378 = load ptr, ptr %377, align 8, !tbaa !44
-  %.not.i.i.i39 = icmp eq ptr %378, null
+  %375 = phi ptr [ %376, %_ZNSt10unique_ptrIN3gmx14IOutputAdapterESt14default_deleteIS1_EED2Ev.exit.i.i41 ], [ %78, %_ZNSt10unique_ptrIN3gmx14IOutputAdapterESt14default_deleteIS1_EED2Ev.exit.i.i ]
+  %376 = getelementptr inbounds i8, ptr %375, i64 -8
+  %377 = load ptr, ptr %376, align 8, !tbaa !44
+  %.not.i.i.i39 = icmp eq ptr %377, null
   br i1 %.not.i.i.i39, label %_ZNSt10unique_ptrIN3gmx14IOutputAdapterESt14default_deleteIS1_EED2Ev.exit.i.i41, label %_ZNKSt14default_deleteIN3gmx14IOutputAdapterEEclEPS1_.exit.i.i.i40
 
 _ZNKSt14default_deleteIN3gmx14IOutputAdapterEEclEPS1_.exit.i.i.i40: ; preds = %_ZN3gmx22OutputAdapterContainerD2Ev.exit
-  %379 = load ptr, ptr %378, align 8, !tbaa !12
-  %380 = getelementptr inbounds nuw i8, ptr %379, i64 8
-  %381 = load ptr, ptr %380, align 8
-  call void %381(ptr noundef nonnull align 8 dereferenceable(8) %378) #20
+  %378 = load ptr, ptr %377, align 8, !tbaa !12
+  %379 = getelementptr inbounds nuw i8, ptr %378, i64 8
+  %380 = load ptr, ptr %379, align 8
+  call void %380(ptr noundef nonnull align 8 dereferenceable(8) %377) #20
   br label %_ZNSt10unique_ptrIN3gmx14IOutputAdapterESt14default_deleteIS1_EED2Ev.exit.i.i41
 
 _ZNSt10unique_ptrIN3gmx14IOutputAdapterESt14default_deleteIS1_EED2Ev.exit.i.i41: ; preds = %_ZNKSt14default_deleteIN3gmx14IOutputAdapterEEclEPS1_.exit.i.i.i40, %_ZN3gmx22OutputAdapterContainerD2Ev.exit
-  store ptr null, ptr %377, align 8, !tbaa !44
-  %382 = icmp eq ptr %377, %27
-  br i1 %382, label %_ZN3gmx22OutputAdapterContainerD2Ev.exit42, label %_ZN3gmx22OutputAdapterContainerD2Ev.exit
+  store ptr null, ptr %376, align 8, !tbaa !44
+  %381 = icmp eq ptr %376, %27
+  br i1 %381, label %_ZN3gmx22OutputAdapterContainerD2Ev.exit42, label %_ZN3gmx22OutputAdapterContainerD2Ev.exit
 
 _ZN3gmx22OutputAdapterContainerD2Ev.exit42:       ; preds = %_ZNSt10unique_ptrIN3gmx14IOutputAdapterESt14default_deleteIS1_EED2Ev.exit.i.i41
   call void @llvm.lifetime.end.p0(i64 4112, ptr nonnull %27) #20
@@ -1257,68 +1255,68 @@ _ZN3gmx22OutputAdapterContainerD2Ev.exit42:       ; preds = %_ZNSt10unique_ptrIN
   call void @_ZNSt10unique_ptrI7t_atomsN3gmx15functor_wrapperIS0_XadL_Z21done_and_delete_atomsPS0_EEEEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %28) #20
   br label %_ZN3gmx22OutputAdapterContainerD2Ev.exit50
 
-383:                                              ; preds = %_ZNSt10unique_ptrI7t_atomsN3gmx15functor_wrapperIS0_XadL_Z21done_and_delete_atomsPS0_EEEEED2Ev.exit
-  %384 = landingpad { ptr, i32 }
+382:                                              ; preds = %_ZNSt10unique_ptrI7t_atomsN3gmx15functor_wrapperIS0_XadL_Z21done_and_delete_atomsPS0_EEEEED2Ev.exit
+  %383 = landingpad { ptr, i32 }
           cleanup
-  br label %395
+  br label %394
 
-385:                                              ; preds = %.noexc.i.i.i
-  %386 = landingpad { ptr, i32 }
+384:                                              ; preds = %.noexc.i.i.i
+  %385 = landingpad { ptr, i32 }
           cleanup
-  br label %387
+  br label %386
 
-387:                                              ; preds = %_ZNSt10unique_ptrIN3gmx14IOutputAdapterESt14default_deleteIS1_EED2Ev.exit.i.i45, %385
-  %388 = phi ptr [ %336, %385 ], [ %389, %_ZNSt10unique_ptrIN3gmx14IOutputAdapterESt14default_deleteIS1_EED2Ev.exit.i.i45 ]
-  %389 = getelementptr inbounds i8, ptr %388, i64 -8
-  %390 = load ptr, ptr %389, align 8, !tbaa !44
-  %.not.i.i.i43 = icmp eq ptr %390, null
+386:                                              ; preds = %_ZNSt10unique_ptrIN3gmx14IOutputAdapterESt14default_deleteIS1_EED2Ev.exit.i.i45, %384
+  %387 = phi ptr [ %336, %384 ], [ %388, %_ZNSt10unique_ptrIN3gmx14IOutputAdapterESt14default_deleteIS1_EED2Ev.exit.i.i45 ]
+  %388 = getelementptr inbounds i8, ptr %387, i64 -8
+  %389 = load ptr, ptr %388, align 8, !tbaa !44
+  %.not.i.i.i43 = icmp eq ptr %389, null
   br i1 %.not.i.i.i43, label %_ZNSt10unique_ptrIN3gmx14IOutputAdapterESt14default_deleteIS1_EED2Ev.exit.i.i45, label %_ZNKSt14default_deleteIN3gmx14IOutputAdapterEEclEPS1_.exit.i.i.i44
 
-_ZNKSt14default_deleteIN3gmx14IOutputAdapterEEclEPS1_.exit.i.i.i44: ; preds = %387
-  %391 = load ptr, ptr %390, align 8, !tbaa !12
-  %392 = getelementptr inbounds nuw i8, ptr %391, i64 8
-  %393 = load ptr, ptr %392, align 8
-  call void %393(ptr noundef nonnull align 8 dereferenceable(8) %390) #20
+_ZNKSt14default_deleteIN3gmx14IOutputAdapterEEclEPS1_.exit.i.i.i44: ; preds = %386
+  %390 = load ptr, ptr %389, align 8, !tbaa !12
+  %391 = getelementptr inbounds nuw i8, ptr %390, i64 8
+  %392 = load ptr, ptr %391, align 8
+  call void %392(ptr noundef nonnull align 8 dereferenceable(8) %389) #20
   br label %_ZNSt10unique_ptrIN3gmx14IOutputAdapterESt14default_deleteIS1_EED2Ev.exit.i.i45
 
-_ZNSt10unique_ptrIN3gmx14IOutputAdapterESt14default_deleteIS1_EED2Ev.exit.i.i45: ; preds = %_ZNKSt14default_deleteIN3gmx14IOutputAdapterEEclEPS1_.exit.i.i.i44, %387
-  store ptr null, ptr %389, align 8, !tbaa !44
-  %394 = icmp eq ptr %389, %29
-  br i1 %394, label %_ZN3gmx22OutputAdapterContainerD2Ev.exit46, label %387
+_ZNSt10unique_ptrIN3gmx14IOutputAdapterESt14default_deleteIS1_EED2Ev.exit.i.i45: ; preds = %_ZNKSt14default_deleteIN3gmx14IOutputAdapterEEclEPS1_.exit.i.i.i44, %386
+  store ptr null, ptr %388, align 8, !tbaa !44
+  %393 = icmp eq ptr %388, %29
+  br i1 %393, label %_ZN3gmx22OutputAdapterContainerD2Ev.exit46, label %386
 
 _ZN3gmx22OutputAdapterContainerD2Ev.exit46:       ; preds = %_ZNSt10unique_ptrIN3gmx14IOutputAdapterESt14default_deleteIS1_EED2Ev.exit.i.i45
   call void @_ZdlPvm(ptr noundef nonnull %329, i64 noundef 4272) #23
+  br label %394
+
+394:                                              ; preds = %_ZN3gmx22OutputAdapterContainerD2Ev.exit46, %382
+  %.pn = phi { ptr, i32 } [ %385, %_ZN3gmx22OutputAdapterContainerD2Ev.exit46 ], [ %383, %382 ]
   br label %395
 
-395:                                              ; preds = %_ZN3gmx22OutputAdapterContainerD2Ev.exit46, %383
-  %.pn = phi { ptr, i32 } [ %386, %_ZN3gmx22OutputAdapterContainerD2Ev.exit46 ], [ %384, %383 ]
-  br label %396
-
-396:                                              ; preds = %_ZNSt10unique_ptrIN3gmx14IOutputAdapterESt14default_deleteIS1_EED2Ev.exit.i.i49, %395
-  %397 = phi ptr [ %78, %395 ], [ %398, %_ZNSt10unique_ptrIN3gmx14IOutputAdapterESt14default_deleteIS1_EED2Ev.exit.i.i49 ]
-  %398 = getelementptr inbounds i8, ptr %397, i64 -8
-  %399 = load ptr, ptr %398, align 8, !tbaa !44
-  %.not.i.i.i47 = icmp eq ptr %399, null
+395:                                              ; preds = %_ZNSt10unique_ptrIN3gmx14IOutputAdapterESt14default_deleteIS1_EED2Ev.exit.i.i49, %394
+  %396 = phi ptr [ %78, %394 ], [ %397, %_ZNSt10unique_ptrIN3gmx14IOutputAdapterESt14default_deleteIS1_EED2Ev.exit.i.i49 ]
+  %397 = getelementptr inbounds i8, ptr %396, i64 -8
+  %398 = load ptr, ptr %397, align 8, !tbaa !44
+  %.not.i.i.i47 = icmp eq ptr %398, null
   br i1 %.not.i.i.i47, label %_ZNSt10unique_ptrIN3gmx14IOutputAdapterESt14default_deleteIS1_EED2Ev.exit.i.i49, label %_ZNKSt14default_deleteIN3gmx14IOutputAdapterEEclEPS1_.exit.i.i.i48
 
-_ZNKSt14default_deleteIN3gmx14IOutputAdapterEEclEPS1_.exit.i.i.i48: ; preds = %396
-  %400 = load ptr, ptr %399, align 8, !tbaa !12
-  %401 = getelementptr inbounds nuw i8, ptr %400, i64 8
-  %402 = load ptr, ptr %401, align 8
-  call void %402(ptr noundef nonnull align 8 dereferenceable(8) %399) #20
+_ZNKSt14default_deleteIN3gmx14IOutputAdapterEEclEPS1_.exit.i.i.i48: ; preds = %395
+  %399 = load ptr, ptr %398, align 8, !tbaa !12
+  %400 = getelementptr inbounds nuw i8, ptr %399, i64 8
+  %401 = load ptr, ptr %400, align 8
+  call void %401(ptr noundef nonnull align 8 dereferenceable(8) %398) #20
   br label %_ZNSt10unique_ptrIN3gmx14IOutputAdapterESt14default_deleteIS1_EED2Ev.exit.i.i49
 
-_ZNSt10unique_ptrIN3gmx14IOutputAdapterESt14default_deleteIS1_EED2Ev.exit.i.i49: ; preds = %_ZNKSt14default_deleteIN3gmx14IOutputAdapterEEclEPS1_.exit.i.i.i48, %396
-  store ptr null, ptr %398, align 8, !tbaa !44
-  %403 = icmp eq ptr %398, %27
-  br i1 %403, label %_ZN3gmx22OutputAdapterContainerD2Ev.exit50, label %396
+_ZNSt10unique_ptrIN3gmx14IOutputAdapterESt14default_deleteIS1_EED2Ev.exit.i.i49: ; preds = %_ZNKSt14default_deleteIN3gmx14IOutputAdapterEEclEPS1_.exit.i.i.i48, %395
+  store ptr null, ptr %397, align 8, !tbaa !44
+  %402 = icmp eq ptr %397, %27
+  br i1 %402, label %_ZN3gmx22OutputAdapterContainerD2Ev.exit50, label %395
 
 _ZN3gmx22OutputAdapterContainerD2Ev.exit50:       ; preds = %_ZNSt10unique_ptrIN3gmx14IOutputAdapterESt14default_deleteIS1_EED2Ev.exit.i.i49, %.body
   %.pn.pn = phi { ptr, i32 } [ %.pn55.pn.i, %.body ], [ %.pn, %_ZNSt10unique_ptrIN3gmx14IOutputAdapterESt14default_deleteIS1_EED2Ev.exit.i.i49 ]
   call void @llvm.lifetime.end.p0(i64 4112, ptr nonnull %27) #20
   br label %common.resume
 
-404:                                              ; preds = %69
+403:                                              ; preds = %69
   unreachable
 }
 

@@ -1792,7 +1792,6 @@ Vec_IntDup.exit71:                                ; preds = %Vec_IntFree.exit68,
 88:                                               ; preds = %.thread.i, %83
   %89 = phi ptr [ %86, %.thread.i ], [ %81, %83 ]
   call void @free(ptr noundef nonnull %89) #14
-  store ptr null, ptr %73, align 8, !tbaa !54
   br label %Vec_IntFreeP.exit
 
 Vec_IntFreeP.exit:                                ; preds = %80, %88

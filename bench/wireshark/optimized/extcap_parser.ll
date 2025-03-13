@@ -1400,7 +1400,7 @@ define hidden ptr @extcap_parse_interfaces(ptr noundef %0, ptr noundef captures(
 
 5:                                                ; preds = %.lr.ph, %extcap_parse_interface_sentence.exit.thread
   %.043 = phi ptr [ null, %.lr.ph ], [ %.1, %extcap_parse_interface_sentence.exit.thread ]
-  %.02242 = phi ptr [ %4, %.lr.ph ], [ %233, %extcap_parse_interface_sentence.exit.thread ]
+  %.02242 = phi ptr [ %4, %.lr.ph ], [ %232, %extcap_parse_interface_sentence.exit.thread ]
   %6 = load ptr, ptr %.02242, align 8
   %.not27 = icmp eq ptr %6, null
   br i1 %.not27, label %extcap_parse_interface_sentence.exit.thread, label %7
@@ -1525,7 +1525,7 @@ extcap_parse_interface_sentence.exit:             ; preds = %46, %49
   %69 = load ptr, ptr %6, align 8
   %70 = call i32 @g_ascii_strcasecmp(ptr noundef %69, ptr noundef nonnull @.str.5)
   %.not150.i = icmp eq i32 %70, 0
-  br i1 %.not150.i, label %172, label %extcap_parse_control_sentence.exit.thread
+  br i1 %.not150.i, label %171, label %extcap_parse_control_sentence.exit.thread
 
 71:                                               ; preds = %63
   %72 = call noalias dereferenceable_or_null(72) ptr @g_malloc0(i64 noundef 72) #8
@@ -1696,7 +1696,7 @@ matches_regex.exit.i:                             ; preds = %101, %99
   store ptr %158, ptr %159, align 8
   store i32 %.0125.i, ptr %157, align 8
   %.not145.i = icmp eq ptr %157, null
-  br i1 %.not145.i, label %170, label %160
+  br i1 %.not145.i, label %169, label %160
 
 160:                                              ; preds = %156
   br i1 %121, label %161, label %165
@@ -1718,139 +1718,138 @@ matches_regex.exit.i:                             ; preds = %101, %99
   br label %extcap_free_complex.exit.i
 
 extcap_free_complex.exit.i:                       ; preds = %166, %165, %161
-  %169 = load ptr, ptr %159, align 8
-  call void @g_free(ptr noundef %169)
+  call void @g_free(ptr noundef %158)
   call void @g_free(ptr noundef nonnull %157)
   br label %extcap_parse_control_sentence.exit
 
-170:                                              ; preds = %156
-  %171 = call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.49, ptr noundef nonnull %154)
+169:                                              ; preds = %156
+  %170 = call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.49, ptr noundef nonnull %154)
   br label %extcap_parse_control_sentence.exit
 
-172:                                              ; preds = %68
-  %173 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %174 = load ptr, ptr %173, align 8
-  %175 = call ptr @g_hash_table_lookup(ptr noundef %174, ptr noundef nonnull inttoptr (i64 23 to ptr))
-  %176 = icmp eq ptr %175, null
-  br i1 %176, label %177, label %179
+171:                                              ; preds = %68
+  %172 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %173 = load ptr, ptr %172, align 8
+  %174 = call ptr @g_hash_table_lookup(ptr noundef %173, ptr noundef nonnull inttoptr (i64 23 to ptr))
+  %175 = icmp eq ptr %174, null
+  br i1 %175, label %176, label %178
 
-177:                                              ; preds = %172
-  %178 = call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.60)
+176:                                              ; preds = %171
+  %177 = call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.60)
   br label %extcap_parse_control_sentence.exit.thread
 
-179:                                              ; preds = %172
-  %180 = call zeroext i1 @ws_strtou32(ptr noundef nonnull %175, ptr noundef null, ptr noundef nonnull %3)
-  br i1 %180, label %181, label %extcap_parse_control_sentence.exit.thread
+178:                                              ; preds = %171
+  %179 = call zeroext i1 @ws_strtou32(ptr noundef nonnull %174, ptr noundef null, ptr noundef nonnull %3)
+  br i1 %179, label %180, label %extcap_parse_control_sentence.exit.thread
 
-181:                                              ; preds = %179
-  %182 = call ptr @g_list_find_custom(ptr noundef %64, ptr noundef nonnull %3, ptr noundef nonnull @glist_find_numbered_control)
-  %183 = icmp eq ptr %182, null
-  br i1 %183, label %184, label %187
+180:                                              ; preds = %178
+  %181 = call ptr @g_list_find_custom(ptr noundef %64, ptr noundef nonnull %3, ptr noundef nonnull @glist_find_numbered_control)
+  %182 = icmp eq ptr %181, null
+  br i1 %182, label %183, label %186
 
-184:                                              ; preds = %181
-  %185 = load i32, ptr %3, align 4
-  %186 = call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.61, i32 noundef %185)
+183:                                              ; preds = %180
+  %184 = load i32, ptr %3, align 4
+  %185 = call i32 (i32, ptr, ...) @__printf_chk(i32 noundef 2, ptr noundef nonnull @.str.61, i32 noundef %184)
   br label %extcap_parse_control_sentence.exit.thread
 
-187:                                              ; preds = %181
-  %188 = call noalias dereferenceable_or_null(32) ptr @g_malloc0(i64 noundef 32) #8
-  %189 = load i32, ptr %3, align 4
-  store i32 %189, ptr %188, align 8
-  %190 = load ptr, ptr %173, align 8
-  %191 = call ptr @g_hash_table_lookup(ptr noundef %190, ptr noundef nonnull inttoptr (i64 7 to ptr))
-  %192 = icmp eq ptr %191, null
-  br i1 %192, label %193, label %200
+186:                                              ; preds = %180
+  %187 = call noalias dereferenceable_or_null(32) ptr @g_malloc0(i64 noundef 32) #8
+  %188 = load i32, ptr %3, align 4
+  store i32 %188, ptr %187, align 8
+  %189 = load ptr, ptr %172, align 8
+  %190 = call ptr @g_hash_table_lookup(ptr noundef %189, ptr noundef nonnull inttoptr (i64 7 to ptr))
+  %191 = icmp eq ptr %190, null
+  br i1 %191, label %192, label %199
 
-193:                                              ; preds = %187
-  %194 = icmp eq ptr %188, null
-  br i1 %194, label %extcap_parse_control_sentence.exit.thread, label %195
+192:                                              ; preds = %186
+  %193 = icmp eq ptr %187, null
+  br i1 %193, label %extcap_parse_control_sentence.exit.thread, label %194
 
-195:                                              ; preds = %193
-  %196 = getelementptr inbounds nuw i8, ptr %188, i64 8
-  %197 = load ptr, ptr %196, align 8
-  call void @g_free(ptr noundef %197)
-  %198 = getelementptr inbounds nuw i8, ptr %188, i64 16
-  %199 = load ptr, ptr %198, align 8
-  call void @g_free(ptr noundef %199)
-  call void @g_free(ptr noundef nonnull %188)
+194:                                              ; preds = %192
+  %195 = getelementptr inbounds nuw i8, ptr %187, i64 8
+  %196 = load ptr, ptr %195, align 8
+  call void @g_free(ptr noundef %196)
+  %197 = getelementptr inbounds nuw i8, ptr %187, i64 16
+  %198 = load ptr, ptr %197, align 8
+  call void @g_free(ptr noundef %198)
+  call void @g_free(ptr noundef nonnull %187)
   br label %extcap_parse_control_sentence.exit.thread
 
-200:                                              ; preds = %187
-  %201 = call noalias ptr @g_strdup(ptr noundef nonnull %191)
-  %202 = getelementptr inbounds nuw i8, ptr %188, i64 8
-  store ptr %201, ptr %202, align 8
-  %203 = load ptr, ptr %173, align 8
-  %204 = call ptr @g_hash_table_lookup(ptr noundef %203, ptr noundef nonnull inttoptr (i64 3 to ptr))
-  %205 = icmp eq ptr %204, null
-  br i1 %205, label %206, label %212
+199:                                              ; preds = %186
+  %200 = call noalias ptr @g_strdup(ptr noundef nonnull %190)
+  %201 = getelementptr inbounds nuw i8, ptr %187, i64 8
+  store ptr %200, ptr %201, align 8
+  %202 = load ptr, ptr %172, align 8
+  %203 = call ptr @g_hash_table_lookup(ptr noundef %202, ptr noundef nonnull inttoptr (i64 3 to ptr))
+  %204 = icmp eq ptr %203, null
+  br i1 %204, label %205, label %211
 
-206:                                              ; preds = %200
-  %207 = icmp eq ptr %188, null
-  br i1 %207, label %extcap_parse_control_sentence.exit.thread, label %208
+205:                                              ; preds = %199
+  %206 = icmp eq ptr %187, null
+  br i1 %206, label %extcap_parse_control_sentence.exit.thread, label %207
 
-208:                                              ; preds = %206
-  %209 = load ptr, ptr %202, align 8
-  call void @g_free(ptr noundef %209)
-  %210 = getelementptr inbounds nuw i8, ptr %188, i64 16
-  %211 = load ptr, ptr %210, align 8
-  call void @g_free(ptr noundef %211)
-  call void @g_free(ptr noundef nonnull %188)
+207:                                              ; preds = %205
+  %208 = load ptr, ptr %201, align 8
+  call void @g_free(ptr noundef %208)
+  %209 = getelementptr inbounds nuw i8, ptr %187, i64 16
+  %210 = load ptr, ptr %209, align 8
+  call void @g_free(ptr noundef %210)
+  call void @g_free(ptr noundef nonnull %187)
   br label %extcap_parse_control_sentence.exit.thread
 
-212:                                              ; preds = %200
-  %213 = call noalias ptr @g_strdup(ptr noundef nonnull %204)
-  %214 = getelementptr inbounds nuw i8, ptr %188, i64 16
-  store ptr %213, ptr %214, align 8
-  %215 = load ptr, ptr %173, align 8
-  %216 = call ptr @g_hash_table_lookup(ptr noundef %215, ptr noundef nonnull inttoptr (i64 6 to ptr))
-  %.not.i32 = icmp eq ptr %216, null
-  br i1 %.not.i32, label %224, label %217
+211:                                              ; preds = %199
+  %212 = call noalias ptr @g_strdup(ptr noundef nonnull %203)
+  %213 = getelementptr inbounds nuw i8, ptr %187, i64 16
+  store ptr %212, ptr %213, align 8
+  %214 = load ptr, ptr %172, align 8
+  %215 = call ptr @g_hash_table_lookup(ptr noundef %214, ptr noundef nonnull inttoptr (i64 6 to ptr))
+  %.not.i32 = icmp eq ptr %215, null
+  br i1 %.not.i32, label %223, label %216
 
-217:                                              ; preds = %212
-  %218 = call i32 @g_utf8_validate(ptr noundef nonnull %216, i64 noundef -1, ptr noundef null)
-  %.not.i34 = icmp eq i32 %218, 0
-  br i1 %.not.i34, label %matches_regex.exit, label %219
+216:                                              ; preds = %211
+  %217 = call i32 @g_utf8_validate(ptr noundef nonnull %215, i64 noundef -1, ptr noundef null)
+  %.not.i34 = icmp eq i32 %217, 0
+  br i1 %.not.i34, label %matches_regex.exit, label %218
 
-219:                                              ; preds = %217
-  %220 = call i32 @g_regex_match_simple(ptr noundef nonnull @.str.1, ptr noundef nonnull %216, i32 noundef 1, i32 noundef 0)
-  %221 = icmp ne i32 %220, 0
-  %222 = zext i1 %221 to i8
+218:                                              ; preds = %216
+  %219 = call i32 @g_regex_match_simple(ptr noundef nonnull @.str.1, ptr noundef nonnull %215, i32 noundef 1, i32 noundef 0)
+  %220 = icmp ne i32 %219, 0
+  %221 = zext i1 %220 to i8
   br label %matches_regex.exit
 
-matches_regex.exit:                               ; preds = %217, %219
-  %.0.i35 = phi i8 [ %222, %219 ], [ 0, %217 ]
-  %223 = getelementptr inbounds nuw i8, ptr %188, i64 24
-  store i8 %.0.i35, ptr %223, align 8
-  br label %224
+matches_regex.exit:                               ; preds = %216, %218
+  %.0.i35 = phi i8 [ %221, %218 ], [ 0, %216 ]
+  %222 = getelementptr inbounds nuw i8, ptr %187, i64 24
+  store i8 %.0.i35, ptr %222, align 8
+  br label %223
 
-224:                                              ; preds = %matches_regex.exit, %212
-  %225 = load ptr, ptr %182, align 8
-  %226 = getelementptr inbounds nuw i8, ptr %225, i64 64
-  %227 = load ptr, ptr %226, align 8
-  %228 = call ptr @g_list_append(ptr noundef %227, ptr noundef %188)
-  store ptr %228, ptr %226, align 8
+223:                                              ; preds = %matches_regex.exit, %211
+  %224 = load ptr, ptr %181, align 8
+  %225 = getelementptr inbounds nuw i8, ptr %224, i64 64
+  %226 = load ptr, ptr %225, align 8
+  %227 = call ptr @g_list_append(ptr noundef %226, ptr noundef %187)
+  store ptr %227, ptr %225, align 8
   br label %extcap_parse_control_sentence.exit.thread
 
-extcap_parse_control_sentence.exit.thread:        ; preds = %78, %87, %118, %81, %177, %184, %224, %68, %.critedge.i, %179, %193, %195, %206, %208
+extcap_parse_control_sentence.exit.thread:        ; preds = %78, %87, %118, %81, %176, %183, %223, %68, %.critedge.i, %178, %192, %194, %205, %207
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
   br label %extcap_parse_interface_sentence.exit.thread
 
-extcap_parse_control_sentence.exit:               ; preds = %151, %extcap_free_complex.exit.i, %170
+extcap_parse_control_sentence.exit:               ; preds = %151, %extcap_free_complex.exit.i, %169
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #9
   %.not29 = icmp eq ptr %72, null
-  br i1 %.not29, label %extcap_parse_interface_sentence.exit.thread, label %229
+  br i1 %.not29, label %extcap_parse_interface_sentence.exit.thread, label %228
 
-229:                                              ; preds = %extcap_parse_control_sentence.exit
-  %230 = load ptr, ptr %1, align 8
-  %231 = call ptr @g_list_append(ptr noundef %230, ptr noundef nonnull %72)
-  store ptr %231, ptr %1, align 8
+228:                                              ; preds = %extcap_parse_control_sentence.exit
+  %229 = load ptr, ptr %1, align 8
+  %230 = call ptr @g_list_append(ptr noundef %229, ptr noundef nonnull %72)
+  store ptr %230, ptr %1, align 8
   br label %extcap_parse_interface_sentence.exit.thread
 
-extcap_parse_interface_sentence.exit.thread:      ; preds = %19, %35, %28, %extcap_parse_control_sentence.exit.thread, %52, %extcap_parse_interface_sentence.exit, %extcap_parse_control_sentence.exit, %229, %59, %54, %5
-  %.1 = phi ptr [ %53, %52 ], [ %.043, %extcap_parse_interface_sentence.exit ], [ %.043, %229 ], [ %.043, %extcap_parse_control_sentence.exit ], [ %.043, %59 ], [ %.043, %54 ], [ %.043, %5 ], [ %.043, %extcap_parse_control_sentence.exit.thread ], [ %.043, %28 ], [ %.043, %35 ], [ %.043, %19 ]
-  %232 = getelementptr inbounds nuw i8, ptr %.02242, i64 8
-  %233 = load ptr, ptr %232, align 8
-  %.not = icmp eq ptr %233, null
+extcap_parse_interface_sentence.exit.thread:      ; preds = %19, %35, %28, %extcap_parse_control_sentence.exit.thread, %52, %extcap_parse_interface_sentence.exit, %extcap_parse_control_sentence.exit, %228, %59, %54, %5
+  %.1 = phi ptr [ %53, %52 ], [ %.043, %extcap_parse_interface_sentence.exit ], [ %.043, %228 ], [ %.043, %extcap_parse_control_sentence.exit ], [ %.043, %59 ], [ %.043, %54 ], [ %.043, %5 ], [ %.043, %extcap_parse_control_sentence.exit.thread ], [ %.043, %28 ], [ %.043, %35 ], [ %.043, %19 ]
+  %231 = getelementptr inbounds nuw i8, ptr %.02242, i64 8
+  %232 = load ptr, ptr %231, align 8
+  %.not = icmp eq ptr %232, null
   br i1 %.not, label %._crit_edge, label %5, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %extcap_parse_interface_sentence.exit.thread

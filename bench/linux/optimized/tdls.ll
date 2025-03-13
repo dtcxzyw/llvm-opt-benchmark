@@ -1357,7 +1357,7 @@ define dso_local void @ieee80211_process_tdls_channel_switch(ptr noundef %0, ptr
   %15 = load i32, ptr %14, align 4
   %16 = and i32 %15, 268435456
   %17 = icmp eq i32 %16, 0
-  br i1 %17, label %230, label %18
+  br i1 %17, label %229, label %18
 
 18:                                               ; preds = %2
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 116
@@ -1368,12 +1368,12 @@ define dso_local void @ieee80211_process_tdls_channel_switch(ptr noundef %0, ptr
 22:                                               ; preds = %18
   %23 = tail call ptr @__pskb_pull_tail(ptr noundef %1, i32 noundef %20) #12
   %.not = icmp eq ptr %23, null
-  br i1 %.not, label %230, label %.critedge
+  br i1 %.not, label %229, label %.critedge
 
 .critedge:                                        ; preds = %18, %22
   %24 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %25 = load i8, ptr %24, align 1
-  switch i8 %25, label %229 [
+  switch i8 %25, label %228 [
     i8 5, label %26
     i8 6, label %153
   ]
@@ -1556,11 +1556,11 @@ define dso_local void @ieee80211_process_tdls_channel_switch(ptr noundef %0, ptr
 147:                                              ; preds = %135
   %148 = load ptr, ptr %10, align 8
   call fastcc void @drv_tdls_recv_channel_switch(ptr noundef %148, ptr noundef %0, ptr noundef nonnull %7)
-  %.pre = load ptr, ptr %145, align 8
+  %.pre12 = load ptr, ptr %145, align 8
   br label %149
 
 149:                                              ; preds = %147, %135, %132, %114, %109, %105
-  %150 = phi ptr [ %.pre, %147 ], [ null, %135 ], [ null, %132 ], [ null, %114 ], [ null, %109 ], [ null, %105 ]
+  %150 = phi ptr [ %.pre12, %147 ], [ null, %135 ], [ null, %132 ], [ null, %114 ], [ null, %109 ], [ null, %105 ]
   call void @dev_kfree_skb_any_reason(ptr noundef %150, i32 noundef 2) #12
   br label %151
 
@@ -1571,7 +1571,7 @@ define dso_local void @ieee80211_process_tdls_channel_switch(ptr noundef %0, ptr
 152:                                              ; preds = %151, %63, %55, %35, %26
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #12
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #12
-  br label %230
+  br label %229
 
 153:                                              ; preds = %.critedge
   %154 = load ptr, ptr %8, align 8
@@ -1586,7 +1586,7 @@ define dso_local void @ieee80211_process_tdls_channel_switch(ptr noundef %0, ptr
   %159 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %160 = load i32, ptr %159, align 8
   %161 = icmp ult i32 %160, 19
-  br i1 %161, label %228, label %162
+  br i1 %161, label %227, label %162
 
 162:                                              ; preds = %153
   %163 = getelementptr inbounds nuw i8, ptr %154, i64 6
@@ -1682,27 +1682,28 @@ define dso_local void @ieee80211_process_tdls_channel_switch(ptr noundef %0, ptr
   %222 = phi ptr [ null, %171 ], [ %188, %211 ]
   %223 = load ptr, ptr %10, align 8
   call fastcc void @drv_tdls_recv_channel_switch(ptr noundef %223, ptr noundef %0, ptr noundef nonnull %4)
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8
   br label %224
 
 224:                                              ; preds = %221, %211, %202, %198, %194, %190, %178, %166, %162
-  %225 = phi ptr [ %222, %221 ], [ null, %162 ], [ null, %166 ], [ null, %178 ], [ %188, %190 ], [ %188, %194 ], [ %188, %198 ], [ %188, %202 ], [ %188, %211 ]
-  %226 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %227 = load ptr, ptr %226, align 8
-  call void @dev_kfree_skb_any_reason(ptr noundef %227, i32 noundef 2) #12
-  call void @kfree(ptr noundef %225) #12
-  br label %228
+  %225 = phi ptr [ %.pre, %221 ], [ null, %162 ], [ null, %166 ], [ null, %178 ], [ null, %190 ], [ null, %194 ], [ null, %198 ], [ null, %202 ], [ null, %211 ]
+  %226 = phi ptr [ %222, %221 ], [ null, %162 ], [ null, %166 ], [ null, %178 ], [ %188, %190 ], [ %188, %194 ], [ %188, %198 ], [ %188, %202 ], [ %188, %211 ]
+  call void @dev_kfree_skb_any_reason(ptr noundef %225, i32 noundef 2) #12
+  call void @kfree(ptr noundef %226) #12
+  br label %227
 
-228:                                              ; preds = %224, %153
+227:                                              ; preds = %224, %153
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #12
-  br label %230
+  br label %229
 
-229:                                              ; preds = %.critedge
+228:                                              ; preds = %.critedge
   tail call void asm sideeffect "2986: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 2986b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2986) #12, !srcloc !65
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 2053, i32 2307, i64 12) #12, !srcloc !66
   tail call void asm sideeffect "2987: nop\0A\09.pushsection .discard.instr_end\0A\09.long 2987b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 2987) #12, !srcloc !67
-  br label %230
+  br label %229
 
-230:                                              ; preds = %229, %228, %152, %22, %2
+229:                                              ; preds = %228, %227, %152, %22, %2
   ret void
 }
 

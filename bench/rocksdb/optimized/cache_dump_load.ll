@@ -2440,8 +2440,8 @@ define linkonce_odr void @_ZN7rocksdb23FromFileCacheDumpReader4ReadEmPNSt7__cxx1
   %5 = alloca %"class.rocksdb::IOStatus", align 8
   %6 = alloca %"struct.rocksdb::IOOptions", align 8
   %7 = trunc i64 %2 to i32
-  %.not80 = icmp eq i32 %7, 0
-  br i1 %.not80, label %103, label %.lr.ph
+  %.not92 = icmp eq i32 %7, 0
+  br i1 %.not92, label %103, label %.lr.ph
 
 .lr.ph:                                           ; preds = %4
   %8 = tail call i32 @llvm.umin.i32(i32 %7, i32 1024)
@@ -2471,8 +2471,8 @@ define linkonce_odr void @_ZN7rocksdb23FromFileCacheDumpReader4ReadEmPNSt7__cxx1
 
 30:                                               ; preds = %.lr.ph, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit
   %31 = phi i64 [ %.pre, %.lr.ph ], [ %100, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit ]
-  %.01682 = phi i32 [ %8, %.lr.ph ], [ %102, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit ]
-  %.01781 = phi i32 [ %7, %.lr.ph ], [ %101, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit ]
+  %.01694 = phi i32 [ %8, %.lr.ph ], [ %102, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit ]
+  %.01793 = phi i32 [ %7, %.lr.ph ], [ %101, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit ]
   %32 = phi ptr [ null, %.lr.ph ], [ %42, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #20
   %33 = load ptr, ptr %9, align 8, !tbaa !42
@@ -2487,7 +2487,7 @@ define linkonce_odr void @_ZN7rocksdb23FromFileCacheDumpReader4ReadEmPNSt7__cxx1
   store float 1.000000e+00, ptr %17, align 8, !tbaa !128
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(19) %18, i8 0, i64 19, i1 false)
   store i8 11, ptr %19, align 1, !tbaa !129
-  %34 = zext nneg i32 %.01682 to i64
+  %34 = zext nneg i32 %.01694 to i64
   %35 = load ptr, ptr %22, align 8, !tbaa !45
   invoke void @_ZNK7rocksdb22RandomAccessFileReader4ReadERKNS_9IOOptionsEmmPNS_5SliceEPcPSt10unique_ptrIvSt8functionIFvPvEEE(ptr dead_on_unwind nonnull writable sret(%"class.rocksdb::IOStatus") align 8 %5, ptr noundef nonnull align 8 dereferenceable(202) %33, ptr noundef nonnull align 8 dereferenceable(84) %6, i64 noundef %31, i64 noundef %34, ptr noundef nonnull %21, ptr noundef %35, ptr noundef null)
           to label %36 unwind label %80
@@ -2677,43 +2677,43 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit: ; preds 
   %99 = load i64, ptr %20, align 8, !tbaa !167
   %100 = add i64 %99, %34
   store i64 %100, ptr %20, align 8, !tbaa !167
-  %101 = sub i32 %.01781, %.01682
+  %101 = sub i32 %.01793, %.01694
   %102 = call i32 @llvm.umin.i32(i32 %101, i32 1024)
   %.not = icmp eq i32 %101, 0
   br i1 %.not, label %._crit_edge, label %30, !llvm.loop !171
 
 ._crit_edge:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm.exit
-  %.sroa.26.3.insert.ext195 = zext nneg i8 %39 to i32
-  %.sroa.26.3.insert.shift196 = shl nuw nsw i32 %.sroa.26.3.insert.ext195, 8
-  %.sroa.26.4.insert.ext226 = zext nneg i8 %40 to i32
-  %.sroa.26.4.insert.shift227 = shl nuw nsw i32 %.sroa.26.4.insert.ext226, 16
-  %.sroa.26.4.insert.insert229 = or disjoint i32 %.sroa.26.3.insert.shift196, %.sroa.26.4.insert.shift227
-  %.sroa.26.5.insert.ext257 = zext i8 %41 to i32
-  %.sroa.26.5.insert.shift258 = shl nuw i32 %.sroa.26.5.insert.ext257, 24
-  %.sroa.26.5.insert.insert260 = or disjoint i32 %.sroa.26.4.insert.insert229, %.sroa.26.5.insert.shift258
+  %.sroa.25.3.insert.ext206 = zext nneg i8 %39 to i32
+  %.sroa.25.3.insert.shift207 = shl nuw nsw i32 %.sroa.25.3.insert.ext206, 8
+  %.sroa.25.4.insert.ext234 = zext nneg i8 %40 to i32
+  %.sroa.25.4.insert.shift235 = shl nuw nsw i32 %.sroa.25.4.insert.ext234, 16
+  %.sroa.25.4.insert.insert237 = or disjoint i32 %.sroa.25.3.insert.shift207, %.sroa.25.4.insert.shift235
+  %.sroa.25.5.insert.ext262 = zext i8 %41 to i32
+  %.sroa.25.5.insert.shift263 = shl nuw i32 %.sroa.25.5.insert.ext262, 24
+  %.sroa.25.5.insert.insert265 = or disjoint i32 %.sroa.25.4.insert.insert237, %.sroa.25.5.insert.shift263
   br label %103
 
 103:                                              ; preds = %._crit_edge, %4
-  %.sroa.26.0 = phi i32 [ 0, %4 ], [ %.sroa.26.5.insert.insert260, %._crit_edge ]
-  %.lcssa74 = phi ptr [ null, %4 ], [ %42, %._crit_edge ]
-  %.lcssa67 = phi i8 [ 0, %4 ], [ %38, %._crit_edge ]
+  %.sroa.25.0 = phi i32 [ 0, %4 ], [ %.sroa.25.5.insert.insert265, %._crit_edge ]
+  %.lcssa86 = phi ptr [ null, %4 ], [ %42, %._crit_edge ]
+  %.lcssa79 = phi i8 [ 0, %4 ], [ %38, %._crit_edge ]
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %105 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %0, i8 0, i64 6, i1 false)
-  store i8 %.lcssa67, ptr %104, align 1, !tbaa !132
-  %.sroa.26.3.extract.shift200 = lshr i32 %.sroa.26.0, 8
-  %.sroa.26.3.extract.trunc201 = trunc i32 %.sroa.26.3.extract.shift200 to i8
+  store i8 %.lcssa79, ptr %104, align 1, !tbaa !132
+  %.sroa.25.3.extract.shift211 = lshr i32 %.sroa.25.0, 8
+  %.sroa.25.3.extract.trunc212 = trunc i32 %.sroa.25.3.extract.shift211 to i8
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  store i8 %.sroa.26.3.extract.trunc201, ptr %106, align 1, !tbaa !133
-  %.sroa.26.4.extract.shift231 = lshr i32 %.sroa.26.0, 16
-  %.sroa.26.4.extract.trunc232 = trunc i32 %.sroa.26.4.extract.shift231 to i8
+  store i8 %.sroa.25.3.extract.trunc212, ptr %106, align 1, !tbaa !133
+  %.sroa.25.4.extract.shift239 = lshr i32 %.sroa.25.0, 16
+  %.sroa.25.4.extract.trunc240 = trunc i32 %.sroa.25.4.extract.shift239 to i8
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i8 %.sroa.26.4.extract.trunc232, ptr %107, align 4, !tbaa !136
-  %.sroa.26.5.extract.shift262 = lshr i32 %.sroa.26.0, 24
-  %.sroa.26.5.extract.trunc263 = trunc nuw i32 %.sroa.26.5.extract.shift262 to i8
+  store i8 %.sroa.25.4.extract.trunc240, ptr %107, align 4, !tbaa !136
+  %.sroa.25.5.extract.shift267 = lshr i32 %.sroa.25.0, 24
+  %.sroa.25.5.extract.trunc268 = trunc nuw i32 %.sroa.25.5.extract.shift267 to i8
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  store i8 %.sroa.26.5.extract.trunc263, ptr %108, align 1, !tbaa !137
-  store ptr %.lcssa74, ptr %105, align 8, !tbaa !33
+  store i8 %.sroa.25.5.extract.trunc268, ptr %108, align 1, !tbaa !137
+  store ptr %.lcssa86, ptr %105, align 8, !tbaa !33
   br label %_ZN7rocksdb6StatusD2Ev.exit30
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i29: ; preds = %_ZN7rocksdb8IOStatusC2EOS0_.exit
@@ -2724,13 +2724,13 @@ _ZN7rocksdb6StatusD2Ev.exit30:                    ; preds = %73, %103, %_ZN7rock
   ret void
 
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %_ZN7rocksdb6StatusD2Ev.exit.i.i.i, %80
-  %.sroa.56273.0 = phi ptr [ %42, %_ZN7rocksdb6StatusD2Ev.exit.i.i.i ], [ %42, %.loopexit.split-lp ], [ %42, %.loopexit ], [ %32, %80 ]
+  %.sroa.52275.0 = phi ptr [ %42, %_ZN7rocksdb6StatusD2Ev.exit.i.i.i ], [ %42, %.loopexit.split-lp ], [ %42, %.loopexit ], [ %32, %80 ]
   %.pn20 = phi { ptr, i32 } [ %90, %_ZN7rocksdb6StatusD2Ev.exit.i.i.i ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %lpad.loopexit, %.loopexit ], [ %81, %80 ]
-  %.not.i.i31 = icmp eq ptr %.sroa.56273.0, null
+  %.not.i.i31 = icmp eq ptr %.sroa.52275.0, null
   br i1 %.not.i.i31, label %_ZN7rocksdb6StatusD2Ev.exit33, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i32
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i32: ; preds = %.body
-  call void @_ZdaPv(ptr noundef nonnull %.sroa.56273.0) #19
+  call void @_ZdaPv(ptr noundef nonnull %.sroa.52275.0) #19
   br label %_ZN7rocksdb6StatusD2Ev.exit33
 
 _ZN7rocksdb6StatusD2Ev.exit33:                    ; preds = %.body, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i32

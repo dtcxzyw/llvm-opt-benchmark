@@ -1046,66 +1046,64 @@ define ptr @SRP_create_verifier_ex(ptr noundef %0, ptr noundef %1, ptr noundef c
   br i1 %55, label %.thread93, label %56
 
 56:                                               ; preds = %52
-  %57 = load ptr, ptr %10, align 8, !tbaa !44
-  %58 = call i32 @BN_num_bits(ptr noundef %57) #7
-  %59 = add nsw i32 %58, 7
-  %60 = sdiv i32 %59, 8
-  %61 = shl nsw i32 %60, 1
-  %62 = sext i32 %61 to i64
-  %63 = call noalias ptr @CRYPTO_malloc(i64 noundef %62, ptr noundef nonnull @.str, i32 noundef 676) #7
-  %64 = icmp eq ptr %63, null
-  br i1 %64, label %.thread93, label %65
+  %57 = call i32 @BN_num_bits(ptr noundef %53) #7
+  %58 = add nsw i32 %57, 7
+  %59 = sdiv i32 %58, 8
+  %60 = shl nsw i32 %59, 1
+  %61 = sext i32 %60 to i64
+  %62 = call noalias ptr @CRYPTO_malloc(i64 noundef %61, ptr noundef nonnull @.str, i32 noundef 676) #7
+  %63 = icmp eq ptr %62, null
+  br i1 %63, label %.thread93, label %64
 
-65:                                               ; preds = %56
-  %66 = load ptr, ptr %10, align 8, !tbaa !44
-  %67 = call i32 @BN_num_bits(ptr noundef %66) #7
-  %68 = add nsw i32 %67, 7
-  %69 = sdiv i32 %68, 8
-  %70 = call fastcc i32 @t_tob64(ptr noundef %63, ptr noundef %11, i32 noundef %69)
-  %.not82 = icmp eq i32 %70, 0
-  br i1 %.not82, label %.thread93, label %71
+64:                                               ; preds = %56
+  %65 = call i32 @BN_num_bits(ptr noundef %53) #7
+  %66 = add nsw i32 %65, 7
+  %67 = sdiv i32 %66, 8
+  %68 = call fastcc i32 @t_tob64(ptr noundef %62, ptr noundef %11, i32 noundef %67)
+  %.not82 = icmp eq i32 %68, 0
+  br i1 %.not82, label %.thread93, label %69
 
-71:                                               ; preds = %65
-  %72 = load ptr, ptr %2, align 8, !tbaa !30
-  %73 = icmp eq ptr %72, null
-  br i1 %73, label %74, label %81
+69:                                               ; preds = %64
+  %70 = load ptr, ptr %2, align 8, !tbaa !30
+  %71 = icmp eq ptr %70, null
+  br i1 %71, label %72, label %79
 
-74:                                               ; preds = %71
-  %75 = call noalias ptr @CRYPTO_malloc(i64 noundef 40, ptr noundef nonnull @.str, i32 noundef 684) #7
-  %76 = icmp eq ptr %75, null
-  br i1 %76, label %.thread93, label %77
+72:                                               ; preds = %69
+  %73 = call noalias ptr @CRYPTO_malloc(i64 noundef 40, ptr noundef nonnull @.str, i32 noundef 684) #7
+  %74 = icmp eq ptr %73, null
+  br i1 %74, label %.thread93, label %75
 
-77:                                               ; preds = %74
-  %78 = call fastcc i32 @t_tob64(ptr noundef %75, ptr noundef %12, i32 noundef 20)
-  %.not83 = icmp eq i32 %78, 0
-  br i1 %.not83, label %79, label %80
+75:                                               ; preds = %72
+  %76 = call fastcc i32 @t_tob64(ptr noundef %73, ptr noundef %12, i32 noundef 20)
+  %.not83 = icmp eq i32 %76, 0
+  br i1 %.not83, label %77, label %78
 
-79:                                               ; preds = %77
-  call void @CRYPTO_free(ptr noundef nonnull %75, ptr noundef nonnull @.str, i32 noundef 688) #7
+77:                                               ; preds = %75
+  call void @CRYPTO_free(ptr noundef nonnull %73, ptr noundef nonnull @.str, i32 noundef 688) #7
   br label %.thread93
 
-80:                                               ; preds = %77
-  store ptr %75, ptr %2, align 8, !tbaa !30
-  br label %81
+78:                                               ; preds = %75
+  store ptr %73, ptr %2, align 8, !tbaa !30
+  br label %79
 
-81:                                               ; preds = %80, %71
-  store ptr %63, ptr %3, align 8, !tbaa !30
+79:                                               ; preds = %78, %69
+  store ptr %62, ptr %3, align 8, !tbaa !30
   br label %.thread93
 
-.thread93:                                        ; preds = %74, %79, %30, %65, %56, %52, %50, %47, %44, %41, %27, %24, %21, %18, %8, %81
-  %.063 = phi ptr [ null, %8 ], [ null, %18 ], [ null, %21 ], [ null, %24 ], [ null, %27 ], [ null, %41 ], [ null, %47 ], [ null, %52 ], [ null, %56 ], [ %.052, %81 ], [ null, %65 ], [ null, %50 ], [ null, %44 ], [ null, %30 ], [ null, %79 ], [ null, %74 ]
-  %.062 = phi ptr [ null, %8 ], [ null, %18 ], [ null, %21 ], [ null, %24 ], [ null, %27 ], [ null, %41 ], [ null, %47 ], [ null, %52 ], [ null, %56 ], [ null, %81 ], [ %63, %65 ], [ null, %50 ], [ null, %44 ], [ null, %30 ], [ %63, %79 ], [ %63, %74 ]
-  %.056 = phi ptr [ null, %8 ], [ null, %18 ], [ null, %21 ], [ %22, %24 ], [ %22, %27 ], [ %.157, %41 ], [ %.157, %47 ], [ %.157, %52 ], [ %.157, %56 ], [ %.157, %81 ], [ %.157, %65 ], [ %.157, %50 ], [ %.157, %44 ], [ null, %30 ], [ %.157, %79 ], [ %.157, %74 ]
-  %.054 = phi ptr [ null, %8 ], [ null, %18 ], [ null, %21 ], [ null, %24 ], [ null, %27 ], [ %.155, %41 ], [ %.155, %47 ], [ %.155, %52 ], [ %.155, %56 ], [ %.155, %81 ], [ %.155, %65 ], [ %.155, %50 ], [ %.155, %44 ], [ null, %30 ], [ %.155, %79 ], [ %.155, %74 ]
-  %.051 = phi i32 [ 0, %8 ], [ 0, %18 ], [ 0, %21 ], [ 0, %24 ], [ 0, %27 ], [ 0, %41 ], [ 0, %47 ], [ 0, %52 ], [ %61, %56 ], [ %61, %81 ], [ %61, %65 ], [ 0, %50 ], [ 0, %44 ], [ 0, %30 ], [ %61, %79 ], [ %61, %74 ]
+.thread93:                                        ; preds = %72, %77, %30, %64, %56, %52, %50, %47, %44, %41, %27, %24, %21, %18, %8, %79
+  %.063 = phi ptr [ null, %8 ], [ null, %18 ], [ null, %21 ], [ null, %24 ], [ null, %27 ], [ null, %41 ], [ null, %47 ], [ null, %52 ], [ null, %56 ], [ %.052, %79 ], [ null, %64 ], [ null, %50 ], [ null, %44 ], [ null, %30 ], [ null, %77 ], [ null, %72 ]
+  %.062 = phi ptr [ null, %8 ], [ null, %18 ], [ null, %21 ], [ null, %24 ], [ null, %27 ], [ null, %41 ], [ null, %47 ], [ null, %52 ], [ null, %56 ], [ null, %79 ], [ %62, %64 ], [ null, %50 ], [ null, %44 ], [ null, %30 ], [ %62, %77 ], [ %62, %72 ]
+  %.056 = phi ptr [ null, %8 ], [ null, %18 ], [ null, %21 ], [ %22, %24 ], [ %22, %27 ], [ %.157, %41 ], [ %.157, %47 ], [ %.157, %52 ], [ %.157, %56 ], [ %.157, %79 ], [ %.157, %64 ], [ %.157, %50 ], [ %.157, %44 ], [ null, %30 ], [ %.157, %77 ], [ %.157, %72 ]
+  %.054 = phi ptr [ null, %8 ], [ null, %18 ], [ null, %21 ], [ null, %24 ], [ null, %27 ], [ %.155, %41 ], [ %.155, %47 ], [ %.155, %52 ], [ %.155, %56 ], [ %.155, %79 ], [ %.155, %64 ], [ %.155, %50 ], [ %.155, %44 ], [ null, %30 ], [ %.155, %77 ], [ %.155, %72 ]
+  %.051 = phi i32 [ 0, %8 ], [ 0, %18 ], [ 0, %21 ], [ 0, %24 ], [ 0, %27 ], [ 0, %41 ], [ 0, %47 ], [ 0, %52 ], [ %60, %56 ], [ %60, %79 ], [ %60, %64 ], [ 0, %50 ], [ 0, %44 ], [ 0, %30 ], [ %60, %77 ], [ %60, %72 ]
   call void @BN_free(ptr noundef %.056) #7
   call void @BN_free(ptr noundef %.054) #7
-  %82 = sext i32 %.051 to i64
-  call void @CRYPTO_clear_free(ptr noundef %.062, i64 noundef %82, ptr noundef nonnull @.str, i32 noundef 701) #7
-  %83 = load ptr, ptr %9, align 8, !tbaa !44
-  call void @BN_clear_free(ptr noundef %83) #7
-  %84 = load ptr, ptr %10, align 8, !tbaa !44
-  call void @BN_clear_free(ptr noundef %84) #7
+  %80 = sext i32 %.051 to i64
+  call void @CRYPTO_clear_free(ptr noundef %.062, i64 noundef %80, ptr noundef nonnull @.str, i32 noundef 701) #7
+  %81 = load ptr, ptr %9, align 8, !tbaa !44
+  call void @BN_clear_free(ptr noundef %81) #7
+  %82 = load ptr, ptr %10, align 8, !tbaa !44
+  call void @BN_clear_free(ptr noundef %82) #7
   call void @llvm.lifetime.end.p0(i64 2500, ptr nonnull %12) #7
   call void @llvm.lifetime.end.p0(i64 2500, ptr nonnull %11) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #7

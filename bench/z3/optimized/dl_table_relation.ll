@@ -1537,7 +1537,7 @@ define hidden noundef ptr @_ZN7datalog21table_relation_plugin12mk_rename_fnERKNS
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 32
   %9 = load i32, ptr %8, align 8, !tbaa !55
   %10 = icmp eq i32 %9, 1
-  br i1 %10, label %11, label %91
+  br i1 %10, label %11, label %85
 
 11:                                               ; preds = %4
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1565,7 +1565,7 @@ _ZNK6vectorIP4sortLb0EjE8capacityEv.exit.i.i.i.i.i.i: ; preds = %_ZN6vectorIP4so
   %25 = shl nuw nsw i64 %24, 3
   %26 = add nuw nsw i64 %25, 8
   %27 = invoke noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %26)
-          to label %.noexc12 unwind label %89
+          to label %.noexc12 unwind label %83
 
 .noexc12:                                         ; preds = %_ZNK6vectorIP4sortLb0EjE8capacityEv.exit.i.i.i.i.i.i
   store i32 %23, ptr %27, align 4, !tbaa !40
@@ -1590,130 +1590,122 @@ _ZNK6vectorIP4sortLb0EjE3endEv.exit.i.i.i.i.i.i:  ; preds = %.noexc12
   br label %_ZN7datalog18relation_signatureaSERKS0_.exit.i
 
 _ZN7datalog18relation_signatureaSERKS0_.exit.i:   ; preds = %_ZN6vectorIP4sortLb0EjE7destroyEv.exit.i.i.i.i.i, %34, %_ZNK6vectorIP4sortLb0EjE3endEv.exit.i.i.i.i.i.i, %.noexc12, %11
-  %37 = phi ptr [ %29, %34 ], [ %29, %_ZNK6vectorIP4sortLb0EjE3endEv.exit.i.i.i.i.i.i ], [ %29, %.noexc12 ], [ null, %11 ], [ null, %_ZN6vectorIP4sortLb0EjE7destroyEv.exit.i.i.i.i.i ]
-  %38 = icmp ult i32 %2, 2
-  br i1 %38, label %_ZN7datalog17tr_infrastructureINS_15relation_traitsEE14signature_base11from_renameERKNS_18relation_signatureEjPKjRS4_.exit, label %39
+  %.pr = phi ptr [ %29, %34 ], [ %29, %_ZNK6vectorIP4sortLb0EjE3endEv.exit.i.i.i.i.i.i ], [ %29, %.noexc12 ], [ null, %11 ], [ null, %_ZN6vectorIP4sortLb0EjE7destroyEv.exit.i.i.i.i.i ]
+  %37 = icmp ult i32 %2, 2
+  br i1 %37, label %_ZN7datalog17tr_infrastructureINS_15relation_traitsEE14signature_base11from_renameERKNS_18relation_signatureEjPKjRS4_.exit, label %38
 
-39:                                               ; preds = %_ZN7datalog18relation_signatureaSERKS0_.exit.i
-  %40 = load i32, ptr %3, align 4, !tbaa !40
-  %41 = zext i32 %40 to i64
-  %42 = getelementptr inbounds nuw ptr, ptr %37, i64 %41
-  %43 = load ptr, ptr %42, align 8, !tbaa !64
+38:                                               ; preds = %_ZN7datalog18relation_signatureaSERKS0_.exit.i
+  %39 = load i32, ptr %3, align 4, !tbaa !40
+  %40 = zext i32 %39 to i64
+  %41 = getelementptr inbounds nuw ptr, ptr %.pr, i64 %40
+  %42 = load ptr, ptr %41, align 8, !tbaa !64
   %wide.trip.count.i.i = zext i32 %2 to i64
-  br label %51
+  br label %50
 
-44:                                               ; preds = %51
-  %45 = add i32 %2, -1
-  %46 = zext i32 %45 to i64
-  %47 = getelementptr inbounds nuw i32, ptr %3, i64 %46
-  %48 = load i32, ptr %47, align 4, !tbaa !40
-  %49 = zext i32 %48 to i64
-  %50 = getelementptr inbounds nuw ptr, ptr %37, i64 %49
-  store ptr %43, ptr %50, align 8, !tbaa !64
+43:                                               ; preds = %50
+  %44 = add i32 %2, -1
+  %45 = zext i32 %44 to i64
+  %46 = getelementptr inbounds nuw i32, ptr %3, i64 %45
+  %47 = load i32, ptr %46, align 4, !tbaa !40
+  %48 = zext i32 %47 to i64
+  %49 = getelementptr inbounds nuw ptr, ptr %.pr, i64 %48
+  store ptr %42, ptr %49, align 8, !tbaa !64
   br label %_ZN7datalog17tr_infrastructureINS_15relation_traitsEE14signature_base11from_renameERKNS_18relation_signatureEjPKjRS4_.exit
 
-51:                                               ; preds = %51, %39
-  %52 = phi i32 [ %40, %39 ], [ %54, %51 ]
-  %indvars.iv.i.i = phi i64 [ 1, %39 ], [ %indvars.iv.next.i.i, %51 ]
-  %53 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i.i
-  %54 = load i32, ptr %53, align 4, !tbaa !40
-  %55 = zext i32 %54 to i64
-  %56 = getelementptr inbounds nuw ptr, ptr %37, i64 %55
-  %57 = load ptr, ptr %56, align 8, !tbaa !64
-  %58 = zext i32 %52 to i64
-  %59 = getelementptr inbounds nuw ptr, ptr %37, i64 %58
-  store ptr %57, ptr %59, align 8, !tbaa !64
+50:                                               ; preds = %50, %38
+  %51 = phi i32 [ %39, %38 ], [ %53, %50 ]
+  %indvars.iv.i.i = phi i64 [ 1, %38 ], [ %indvars.iv.next.i.i, %50 ]
+  %52 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv.i.i
+  %53 = load i32, ptr %52, align 4, !tbaa !40
+  %54 = zext i32 %53 to i64
+  %55 = getelementptr inbounds nuw ptr, ptr %.pr, i64 %54
+  %56 = load ptr, ptr %55, align 8, !tbaa !64
+  %57 = zext i32 %51 to i64
+  %58 = getelementptr inbounds nuw ptr, ptr %.pr, i64 %57
+  store ptr %56, ptr %58, align 8, !tbaa !64
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %wide.trip.count.i.i
-  br i1 %exitcond.not.i.i, label %44, label %51, !llvm.loop !67
+  br i1 %exitcond.not.i.i, label %43, label %50, !llvm.loop !67
 
-_ZN7datalog17tr_infrastructureINS_15relation_traitsEE14signature_base11from_renameERKNS_18relation_signatureEjPKjRS4_.exit: ; preds = %44, %_ZN7datalog18relation_signatureaSERKS0_.exit.i
-  %60 = invoke noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
-          to label %61 unwind label %89
+_ZN7datalog17tr_infrastructureINS_15relation_traitsEE14signature_base11from_renameERKNS_18relation_signatureEjPKjRS4_.exit: ; preds = %43, %_ZN7datalog18relation_signatureaSERKS0_.exit.i
+  %59 = invoke noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 24)
+          to label %60 unwind label %83
 
-61:                                               ; preds = %_ZN7datalog17tr_infrastructureINS_15relation_traitsEE14signature_base11from_renameERKNS_18relation_signatureEjPKjRS4_.exit
-  %62 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  store ptr null, ptr %62, align 8, !tbaa !36
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7datalog21table_relation_plugin17tr_transformer_fnE, i64 16), ptr %60, align 8, !tbaa !32
-  %63 = getelementptr inbounds nuw i8, ptr %60, i64 16
-  store ptr %16, ptr %63, align 8, !tbaa !59
-  %64 = load ptr, ptr %5, align 8, !tbaa !36
-  %.not.i.i.i.i.i14 = icmp eq ptr %64, null
-  br i1 %.not.i.i.i.i.i14, label %82, label %_ZNK6vectorIP4sortLb0EjE8capacityEv.exit.i.i.i.i.i.i15
+60:                                               ; preds = %_ZN7datalog17tr_infrastructureINS_15relation_traitsEE14signature_base11from_renameERKNS_18relation_signatureEjPKjRS4_.exit
+  %61 = getelementptr inbounds nuw i8, ptr %59, i64 8
+  store ptr null, ptr %61, align 8, !tbaa !36
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN7datalog21table_relation_plugin17tr_transformer_fnE, i64 16), ptr %59, align 8, !tbaa !32
+  %62 = getelementptr inbounds nuw i8, ptr %59, i64 16
+  store ptr %16, ptr %62, align 8, !tbaa !59
+  %.not.i.i.i.i.i14 = icmp eq ptr %.pr, null
+  br i1 %.not.i.i.i.i.i14, label %77, label %_ZNK6vectorIP4sortLb0EjE8capacityEv.exit.i.i.i.i.i.i15
 
-_ZNK6vectorIP4sortLb0EjE8capacityEv.exit.i.i.i.i.i.i15: ; preds = %61
-  %65 = getelementptr inbounds i8, ptr %64, i64 -4
+_ZNK6vectorIP4sortLb0EjE8capacityEv.exit.i.i.i.i.i.i15: ; preds = %60
+  %63 = getelementptr inbounds i8, ptr %.pr, i64 -4
+  %64 = load i32, ptr %63, align 4, !tbaa !40
+  %65 = getelementptr inbounds i8, ptr %.pr, i64 -8
   %66 = load i32, ptr %65, align 4, !tbaa !40
-  %67 = getelementptr inbounds i8, ptr %64, i64 -8
-  %68 = load i32, ptr %67, align 4, !tbaa !40
-  %69 = zext i32 %68 to i64
-  %70 = shl nuw nsw i64 %69, 3
-  %71 = add nuw nsw i64 %70, 8
-  %72 = invoke noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %71)
-          to label %.noexc4.i unwind label %83
+  %67 = zext i32 %66 to i64
+  %68 = shl nuw nsw i64 %67, 3
+  %69 = add nuw nsw i64 %68, 8
+  %70 = invoke noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef %69)
+          to label %_ZNK6vectorIP4sortLb0EjE3endEv.exit.i.i.i.i.i.i16 unwind label %78
 
-.noexc4.i:                                        ; preds = %_ZNK6vectorIP4sortLb0EjE8capacityEv.exit.i.i.i.i.i.i15
-  store i32 %68, ptr %72, align 4, !tbaa !40
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 4
-  store i32 %66, ptr %73, align 4, !tbaa !40
-  %74 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  store ptr %74, ptr %62, align 8, !tbaa !36
-  %75 = load ptr, ptr %5, align 8, !tbaa !36
-  %76 = icmp eq ptr %75, null
-  br i1 %76, label %_ZN6vectorIP4sortLb0EjED2Ev.exit, label %_ZNK6vectorIP4sortLb0EjE3endEv.exit.i.i.i.i.i.i16
+_ZNK6vectorIP4sortLb0EjE3endEv.exit.i.i.i.i.i.i16: ; preds = %_ZNK6vectorIP4sortLb0EjE8capacityEv.exit.i.i.i.i.i.i15
+  store i32 %66, ptr %70, align 4, !tbaa !40
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 4
+  store i32 %64, ptr %71, align 4, !tbaa !40
+  %72 = getelementptr inbounds nuw i8, ptr %70, i64 8
+  store ptr %72, ptr %61, align 8, !tbaa !36
+  %73 = load i32, ptr %63, align 4, !tbaa !40
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i17 = icmp eq i32 %73, 0
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i17, label %_ZN7datalog21table_relation_plugin17tr_transformer_fnC2ERKNS_18relation_signatureEPNS_17tr_infrastructureINS_12table_traitsEE14transformer_fnE.exit, label %74
 
-_ZNK6vectorIP4sortLb0EjE3endEv.exit.i.i.i.i.i.i16: ; preds = %.noexc4.i
-  %77 = getelementptr inbounds i8, ptr %75, i64 -4
-  %78 = load i32, ptr %77, align 4, !tbaa !40
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i17 = icmp eq i32 %78, 0
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i17, label %_ZN7datalog21table_relation_plugin17tr_transformer_fnC2ERKNS_18relation_signatureEPNS_17tr_infrastructureINS_12table_traitsEE14transformer_fnE.exit, label %79
-
-79:                                               ; preds = %_ZNK6vectorIP4sortLb0EjE3endEv.exit.i.i.i.i.i.i16
-  %80 = zext i32 %78 to i64
-  %81 = shl nuw nsw i64 %80, 3
-  call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %74, ptr nonnull align 8 %75, i64 %81, i1 false)
+74:                                               ; preds = %_ZNK6vectorIP4sortLb0EjE3endEv.exit.i.i.i.i.i.i16
+  %75 = zext i32 %73 to i64
+  %76 = shl nuw nsw i64 %75, 3
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %72, ptr nonnull align 8 %.pr, i64 %76, i1 false)
   br label %_ZN7datalog21table_relation_plugin17tr_transformer_fnC2ERKNS_18relation_signatureEPNS_17tr_infrastructureINS_12table_traitsEE14transformer_fnE.exit
 
-82:                                               ; preds = %61
-  store ptr null, ptr %62, align 8, !tbaa !36
+77:                                               ; preds = %60
+  store ptr null, ptr %61, align 8, !tbaa !36
   br label %_ZN6vectorIP4sortLb0EjED2Ev.exit
 
-83:                                               ; preds = %_ZNK6vectorIP4sortLb0EjE8capacityEv.exit.i.i.i.i.i.i15
-  %84 = landingpad { ptr, i32 }
+78:                                               ; preds = %_ZNK6vectorIP4sortLb0EjE8capacityEv.exit.i.i.i.i.i.i15
+  %79 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE14transformer_fnEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %63) #21
-  call void @_ZN7datalog17tr_infrastructureINS_15relation_traitsEE25convenient_transformer_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %60) #21
+  call void @_ZN10scoped_ptrIN7datalog17tr_infrastructureINS0_12table_traitsEE14transformer_fnEED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %62) #21
+  call void @_ZN7datalog17tr_infrastructureINS_15relation_traitsEE25convenient_transformer_fnD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %59) #21
   br label %.body
 
-_ZN7datalog21table_relation_plugin17tr_transformer_fnC2ERKNS_18relation_signatureEPNS_17tr_infrastructureINS_12table_traitsEE14transformer_fnE.exit: ; preds = %_ZNK6vectorIP4sortLb0EjE3endEv.exit.i.i.i.i.i.i16, %79
-  %85 = getelementptr inbounds i8, ptr %75, i64 -8
-  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %85)
-          to label %_ZN6vectorIP4sortLb0EjED2Ev.exit unwind label %86
+_ZN7datalog21table_relation_plugin17tr_transformer_fnC2ERKNS_18relation_signatureEPNS_17tr_infrastructureINS_12table_traitsEE14transformer_fnE.exit: ; preds = %_ZNK6vectorIP4sortLb0EjE3endEv.exit.i.i.i.i.i.i16, %74
+  invoke void @_ZN6memory10deallocateEPv(ptr noundef nonnull %65)
+          to label %_ZN6vectorIP4sortLb0EjED2Ev.exit unwind label %80
 
-86:                                               ; preds = %_ZN7datalog21table_relation_plugin17tr_transformer_fnC2ERKNS_18relation_signatureEPNS_17tr_infrastructureINS_12table_traitsEE14transformer_fnE.exit
-  %87 = landingpad { ptr, i32 }
+80:                                               ; preds = %_ZN7datalog21table_relation_plugin17tr_transformer_fnC2ERKNS_18relation_signatureEPNS_17tr_infrastructureINS_12table_traitsEE14transformer_fnE.exit
+  %81 = landingpad { ptr, i32 }
           catch ptr null
-  %88 = extractvalue { ptr, i32 } %87, 0
-  call void @__clang_call_terminate(ptr %88) #25
+  %82 = extractvalue { ptr, i32 } %81, 0
+  call void @__clang_call_terminate(ptr %82) #25
   unreachable
 
-_ZN6vectorIP4sortLb0EjED2Ev.exit:                 ; preds = %.noexc4.i, %82, %_ZN7datalog21table_relation_plugin17tr_transformer_fnC2ERKNS_18relation_signatureEPNS_17tr_infrastructureINS_12table_traitsEE14transformer_fnE.exit
+_ZN6vectorIP4sortLb0EjED2Ev.exit:                 ; preds = %77, %_ZN7datalog21table_relation_plugin17tr_transformer_fnC2ERKNS_18relation_signatureEPNS_17tr_infrastructureINS_12table_traitsEE14transformer_fnE.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #21
-  br label %91
+  br label %85
 
-89:                                               ; preds = %_ZNK6vectorIP4sortLb0EjE8capacityEv.exit.i.i.i.i.i.i, %_ZN7datalog17tr_infrastructureINS_15relation_traitsEE14signature_base11from_renameERKNS_18relation_signatureEjPKjRS4_.exit
-  %90 = landingpad { ptr, i32 }
+83:                                               ; preds = %_ZNK6vectorIP4sortLb0EjE8capacityEv.exit.i.i.i.i.i.i, %_ZN7datalog17tr_infrastructureINS_15relation_traitsEE14signature_base11from_renameERKNS_18relation_signatureEjPKjRS4_.exit
+  %84 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %83, %89
-  %eh.lpad-body = phi { ptr, i32 } [ %90, %89 ], [ %84, %83 ]
+.body:                                            ; preds = %78, %83
+  %eh.lpad-body = phi { ptr, i32 } [ %84, %83 ], [ %79, %78 ]
   call void @_ZN6vectorIP4sortLb0EjED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %5) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #21
   resume { ptr, i32 } %eh.lpad-body
 
-91:                                               ; preds = %4, %_ZN6vectorIP4sortLb0EjED2Ev.exit
-  %.0 = phi ptr [ %60, %_ZN6vectorIP4sortLb0EjED2Ev.exit ], [ null, %4 ]
+85:                                               ; preds = %4, %_ZN6vectorIP4sortLb0EjED2Ev.exit
+  %.0 = phi ptr [ %59, %_ZN6vectorIP4sortLb0EjED2Ev.exit ], [ null, %4 ]
   ret ptr %.0
 }
 

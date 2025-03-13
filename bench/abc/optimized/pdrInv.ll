@@ -894,25 +894,25 @@ Vec_IntStart.exit.i:                              ; preds = %24, %32, %Vec_IntAl
 
 .lr.ph.i:                                         ; preds = %.preheader.i
   %49 = getelementptr inbounds nuw i8, ptr %42, i64 20
-  br label %50
+  %50 = load i32, ptr %46, align 8, !tbaa !69
+  %51 = sext i32 %50 to i64
+  br label %52
 
-50:                                               ; preds = %50, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %50 ]
-  %51 = getelementptr inbounds nuw [0 x i32], ptr %49, i64 0, i64 %indvars.iv.i
-  %52 = load i32, ptr %51, align 4, !tbaa !40
-  %53 = ashr i32 %52, 1
-  %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds i32, ptr %35, i64 %54
-  %56 = load i32, ptr %55, align 4, !tbaa !40
-  %57 = add nsw i32 %56, 1
-  store i32 %57, ptr %55, align 4, !tbaa !40
+52:                                               ; preds = %52, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %52 ]
+  %53 = getelementptr inbounds nuw [0 x i32], ptr %49, i64 0, i64 %indvars.iv.i
+  %54 = load i32, ptr %53, align 4, !tbaa !40
+  %55 = ashr i32 %54, 1
+  %56 = sext i32 %55 to i64
+  %57 = getelementptr inbounds i32, ptr %35, i64 %56
+  %58 = load i32, ptr %57, align 4, !tbaa !40
+  %59 = add nsw i32 %58, 1
+  store i32 %59, ptr %57, align 4, !tbaa !40
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %58 = load i32, ptr %46, align 8, !tbaa !69
-  %59 = sext i32 %58 to i64
-  %60 = icmp slt i64 %indvars.iv.next.i, %59
-  br i1 %60, label %50, label %.loopexit.i, !llvm.loop !70
+  %60 = icmp slt i64 %indvars.iv.next.i, %51
+  br i1 %60, label %52, label %.loopexit.i, !llvm.loop !70
 
-.loopexit.i:                                      ; preds = %50, %.preheader.i, %40
+.loopexit.i:                                      ; preds = %52, %.preheader.i, %40
   %indvars.iv.next23.i = add nuw nsw i64 %indvars.iv22.i, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next23.i, %39
   br i1 %exitcond.not, label %Pdr_ManCountFlops.exit, label %40, !llvm.loop !71

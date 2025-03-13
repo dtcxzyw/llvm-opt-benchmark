@@ -1422,7 +1422,6 @@ declare ptr @wmem_packet_scope() local_unnamed_addr #1
 define internal fastcc void @dissect_u3v_read_mem_cmd(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 0, 65536) %3, ptr noundef captures(address_is_null) %4, ptr noundef writeonly captures(none) initializes((32, 44)) %5) unnamed_addr #0 {
   %7 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #7
-  store i8 0, ptr %7, align 1
   %8 = tail call i64 @tvb_get_letoh64(ptr noundef %1, i32 noundef 12)
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 32
   store i64 %8, ptr %9, align 8
@@ -1529,7 +1528,6 @@ is_known_bootstrap_register.exit:                 ; preds = %44, %48
 define internal fastcc void @dissect_u3v_write_mem_cmd(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 0, 65536) %3, ptr noundef captures(address_is_null) %4, ptr noundef writeonly captures(none) initializes((32, 44)) %5) unnamed_addr #0 {
   %7 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %7) #7
-  store i8 0, ptr %7, align 1
   %8 = tail call i64 @tvb_get_letoh64(ptr noundef %1, i32 noundef 12)
   %9 = add nsw i32 %3, -8
   %10 = call fastcc ptr @get_register_name_from_address(i64 noundef %8, ptr noundef nonnull %7, ptr noundef %4)
@@ -1656,7 +1654,6 @@ define internal fastcc void @dissect_u3v_event_cmd(ptr noundef %0, ptr noundef %
 define internal fastcc void @dissect_u3v_read_mem_ack(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 0, 65536) %3, ptr noundef captures(address_is_null) %4, i32 %.0.val, i64 %.32.val) unnamed_addr #0 {
   %6 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #7
-  store i8 0, ptr %6, align 1
   %.not = icmp eq i32 %.0.val, 0
   %7 = icmp ult i64 %.32.val, 65536
   br i1 %7, label %8, label %12
@@ -1814,7 +1811,6 @@ is_known_bootstrap_register.exit:                 ; preds = %59, %63
 define internal fastcc void @dissect_u3v_write_mem_ack(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 0, 65536) %3, ptr noundef captures(address_is_null) %4, i32 %.0.val, i64 %.32.val) unnamed_addr #0 {
   %6 = alloca i8, align 1
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #7
-  store i8 0, ptr %6, align 1
   %.not = icmp eq i32 %.0.val, 0
   br i1 %.not, label %11, label %7
 

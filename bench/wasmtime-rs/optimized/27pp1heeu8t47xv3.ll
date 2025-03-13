@@ -129,7 +129,6 @@ define void @"_ZN4witx3abi18Generator$LT$B$GT$14call_interface17hd5ad17f056fbacf
   %10 = alloca { i64, [8 x i64] }, align 8
   %11 = alloca { ptr, ptr, {} }, align 8
   %12 = alloca i64, align 8
-  store i64 0, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %14 = load ptr, ptr %13, align 8, !nonnull !3, !noundef !3
   %15 = getelementptr inbounds nuw i8, ptr %2, i64 40
@@ -148,6 +147,8 @@ define void @"_ZN4witx3abi18Generator$LT$B$GT$14call_interface17hd5ad17f056fbacf
   br label %32
 
 ._crit_edge:                                      ; preds = %60, %3
+  %.lcssa = phi i64 [ 0, %3 ], [ %61, %60 ]
+  store i64 %.lcssa, ptr %12, align 8
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %24 = load ptr, ptr %23, align 8, !nonnull !3, !noundef !3
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -166,14 +167,13 @@ define void @"_ZN4witx3abi18Generator$LT$B$GT$14call_interface17hd5ad17f056fbacf
   br i1 %.not, label %.thread, label %41
 
 32:                                               ; preds = %.lr.ph, %60
-  %33 = phi i64 [ 0, %.lr.ph ], [ %61, %60 ]
-  %34 = phi ptr [ %19, %.lr.ph ], [ %62, %60 ]
-  store i64 %33, ptr %21, align 8
+  %33 = phi ptr [ %19, %.lr.ph ], [ %62, %60 ]
+  %34 = phi i64 [ 0, %.lr.ph ], [ %61, %60 ]
+  store i64 %34, ptr %21, align 8
   store i64 0, ptr %10, align 8
   call void @"_ZN4witx3abi18Generator$LT$B$GT$4emit17hca77241bd605da2aE"(ptr align 8 %0, ptr nonnull align 8 %10)
-  %35 = add i64 %33, 1
-  store i64 %35, ptr %12, align 8
-  %36 = call align 8 ptr @_ZN4witx3ast7TypeRef5type_17ha6e3e5e2225256ffE(ptr nonnull align 8 %34)
+  %35 = add i64 %34, 1
+  %36 = call align 8 ptr @_ZN4witx3ast7TypeRef5type_17ha6e3e5e2225256ffE(ptr nonnull align 8 %33)
   %37 = load ptr, ptr %36, align 8, !nonnull !3, !noundef !3
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 16
   %39 = load i8, ptr %38, align 8, !range !6, !noundef !3
@@ -236,13 +236,12 @@ define void @"_ZN4witx3abi18Generator$LT$B$GT$14call_interface17hd5ad17f056fbacf
   store i64 %35, ptr %22, align 8
   store i64 0, ptr %9, align 8
   call void @"_ZN4witx3abi18Generator$LT$B$GT$4emit17hca77241bd605da2aE"(ptr align 8 %0, ptr nonnull align 8 %9)
-  %59 = add i64 %33, 2
-  store i64 %59, ptr %12, align 8
+  %59 = add i64 %34, 2
   br label %60
 
 60:                                               ; preds = %58, %32
   %61 = phi i64 [ %59, %58 ], [ %35, %32 ]
-  call void @"_ZN4witx3abi18Generator$LT$B$GT$4lift17h13acabfb82f65fe3E"(ptr align 8 %0, ptr nonnull align 8 %34, i1 zeroext false)
+  call void @"_ZN4witx3abi18Generator$LT$B$GT$4lift17h13acabfb82f65fe3E"(ptr align 8 %0, ptr nonnull align 8 %33, i1 zeroext false)
   %62 = call align 8 ptr @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h52ac58b9549c31a1E"(ptr nonnull align 8 %11)
   %63 = icmp eq ptr %62, null
   br i1 %63, label %._crit_edge, label %32

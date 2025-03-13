@@ -432,10 +432,10 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtNtB4_5array4iter8IntoIterjKj2_
   resume { ptr, i32 } %.pn
 
 .lr.ph:                                           ; preds = %25, %_RINvNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6shared9smallsort11insert_tailNtNtCs68wO5nsWeTG_5alloc6string6StringNvYB18_NtNtBa_3cmp10PartialOrd2ltECsff1zCjKRl2o_13turborepo_env.exit
-  %.sroa.014.030 = phi i64 [ %37, %_RINvNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6shared9smallsort11insert_tailNtNtCs68wO5nsWeTG_5alloc6string6StringNvYB18_NtNtBa_3cmp10PartialOrd2ltECsff1zCjKRl2o_13turborepo_env.exit ], [ %.sroa.0.0, %25 ]
-  %37 = add i64 %.sroa.014.030, 1
-  %38 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %27, i64 %.sroa.014.030
-  %39 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %28, i64 %.sroa.014.030
+  %.sroa.014.032 = phi i64 [ %37, %_RINvNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6shared9smallsort11insert_tailNtNtCs68wO5nsWeTG_5alloc6string6StringNvYB18_NtNtBa_3cmp10PartialOrd2ltECsff1zCjKRl2o_13turborepo_env.exit ], [ %.sroa.0.0, %25 ]
+  %37 = add i64 %.sroa.014.032, 1
+  %38 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %27, i64 %.sroa.014.032
+  %39 = getelementptr inbounds { { { i64, ptr, {} }, i64 } }, ptr %28, i64 %.sroa.014.032
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %39, ptr noundef nonnull align 8 dereferenceable(24) %38, i64 24, i1 false)
   %40 = getelementptr i8, ptr %39, i64 8
   %.val.i = load ptr, ptr %40, align 8, !nonnull !4, !noundef !4
@@ -454,8 +454,6 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtNtB4_5array4iter8IntoIterjKj2_
 
 46:                                               ; preds = %.noexc
   %.sroa.031.0.copyload.i = load i64, ptr %39, align 8
-  %.sroa.4.0.copyload.i = load ptr, ptr %40, align 8
-  %.sroa.532.0.copyload.i = load i64, ptr %41, align 8
   br label %47
 
 47:                                               ; preds = %53, %46
@@ -470,7 +468,7 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtNtB4_5array4iter8IntoIterjKj2_
   %.val17.i = load ptr, ptr %50, align 8, !nonnull !4, !noundef !4
   %51 = getelementptr i8, ptr %.sroa.5.0.i, i64 -32
   %.val18.i = load i64, ptr %51, align 8, !noundef !4
-  %52 = invoke noundef range(i8 -1, 3) i8 @_RNvXs5_NtNtCs1LoaDTb72WA_4core5slice3cmphNtB5_15SlicePartialOrd15partial_compareCsgrIngBG6lgl_14regex_automata(ptr noalias noundef nonnull readonly align 1 %.sroa.4.0.copyload.i, i64 noundef %.sroa.532.0.copyload.i, ptr noalias noundef nonnull readonly align 1 %.val17.i, i64 noundef %.val18.i)
+  %52 = invoke noundef range(i8 -1, 3) i8 @_RNvXs5_NtNtCs1LoaDTb72WA_4core5slice3cmphNtB5_15SlicePartialOrd15partial_compareCsgrIngBG6lgl_14regex_automata(ptr noalias noundef nonnull readonly align 1 %.val.i, i64 noundef %.val12.i, ptr noalias noundef nonnull readonly align 1 %.val17.i, i64 noundef %.val18.i)
           to label %53 unwind label %56
 
 53:                                               ; preds = %49
@@ -481,9 +479,9 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtNtB4_5array4iter8IntoIterjKj2_
   %.sroa.0.0.i.lcssa = phi ptr [ %.sroa.0.0.i, %53 ], [ %28, %47 ]
   store i64 %.sroa.031.0.copyload.i, ptr %.sroa.0.0.i.lcssa, align 8, !noalias !39
   %.sroa.5.0..sroa.0.0.lcssa.sroa_idx.i = getelementptr inbounds i8, ptr %.sroa.5.0.i, i64 -16
-  store ptr %.sroa.4.0.copyload.i, ptr %.sroa.5.0..sroa.0.0.lcssa.sroa_idx.i, align 8, !noalias !39
+  store ptr %.val.i, ptr %.sroa.5.0..sroa.0.0.lcssa.sroa_idx.i, align 8, !noalias !39
   %.sroa.6.0..sroa.0.0.lcssa.sroa_idx.i = getelementptr inbounds i8, ptr %.sroa.5.0.i, i64 -8
-  store i64 %.sroa.532.0.copyload.i, ptr %.sroa.6.0..sroa.0.0.lcssa.sroa_idx.i, align 8, !noalias !39
+  store i64 %.val12.i, ptr %.sroa.6.0..sroa.0.0.lcssa.sroa_idx.i, align 8, !noalias !39
   br label %_RINvNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6shared9smallsort11insert_tailNtNtCs68wO5nsWeTG_5alloc6string6StringNvYB18_NtNtBa_3cmp10PartialOrd2ltECsff1zCjKRl2o_13turborepo_env.exit
 
 56:                                               ; preds = %49
@@ -491,9 +489,9 @@ _RINvNtCs1LoaDTb72WA_4core3ptr13drop_in_placeINtNtNtB4_5array4iter8IntoIterjKj2_
           cleanup
   store i64 %.sroa.031.0.copyload.i, ptr %.sroa.0.0.i, align 8, !noalias !44
   %.sroa.5.0..sroa.0.0.lcssa24.sroa_idx.i = getelementptr inbounds i8, ptr %.sroa.5.0.i, i64 -16
-  store ptr %.sroa.4.0.copyload.i, ptr %.sroa.5.0..sroa.0.0.lcssa24.sroa_idx.i, align 8, !noalias !44
+  store ptr %.val.i, ptr %.sroa.5.0..sroa.0.0.lcssa24.sroa_idx.i, align 8, !noalias !44
   %.sroa.6.0..sroa.0.0.lcssa24.sroa_idx.i = getelementptr inbounds i8, ptr %.sroa.5.0.i, i64 -8
-  store i64 %.sroa.532.0.copyload.i, ptr %.sroa.6.0..sroa.0.0.lcssa24.sroa_idx.i, align 8, !noalias !44
+  store i64 %.val12.i, ptr %.sroa.6.0..sroa.0.0.lcssa24.sroa_idx.i, align 8, !noalias !44
   br label %.body
 
 _RINvNtNtNtNtCs1LoaDTb72WA_4core5slice4sort6shared9smallsort11insert_tailNtNtCs68wO5nsWeTG_5alloc6string6StringNvYB18_NtNtBa_3cmp10PartialOrd2ltECsff1zCjKRl2o_13turborepo_env.exit: ; preds = %.noexc, %55

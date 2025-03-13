@@ -795,7 +795,6 @@ define dso_local range(i64 -22, 1) i64 @__ia32_compat_sys_mq_getsetattr(ptr noun
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #15
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %4, i8 0, i64 64, i1 false), !annotation !6
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #15
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false), !annotation !6
   %16 = icmp eq i64 %10, 0
   br i1 %16, label %37, label %17
 
@@ -833,6 +832,7 @@ define dso_local range(i64 -22, 1) i64 @__ia32_compat_sys_mq_getsetattr(ptr noun
 
 37:                                               ; preds = %21, %1
   %38 = phi ptr [ %4, %21 ], [ null, %1 ]
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %5, i8 0, i64 64, i1 false), !annotation !6
   %39 = icmp ne i64 %13, 0
   %40 = select i1 %39, ptr %5, ptr null
   %41 = call fastcc i32 @do_mq_getsetattr(i32 noundef %14, ptr noundef %38, ptr noundef %40), !range !9

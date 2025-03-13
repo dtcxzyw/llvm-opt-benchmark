@@ -3966,7 +3966,6 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_prlimit6
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false), !annotation !25
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #13
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false), !annotation !25
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false), !annotation !25
   %12 = icmp ne i64 %3, 0
@@ -4082,6 +4081,7 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @__se_sys_prlimit6
   br label %114
 
 .thread:                                          ; preds = %37, %77
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %7, i8 0, i64 16, i1 false), !annotation !25
   %82 = getelementptr inbounds nuw i8, ptr %34, i64 40
   %83 = call i32 asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; xaddl $0, $1\0A", "=r,=*m,0,*m,~{memory},~{cc},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %82, i32 1, ptr nonnull elementtype(i32) %82) #13, !srcloc !33
   %84 = icmp eq i32 %83, 0

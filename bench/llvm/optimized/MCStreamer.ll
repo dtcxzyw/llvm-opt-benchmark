@@ -9055,8 +9055,8 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN4
   br i1 %12, label %13, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %2
-  %.pre14 = load i32, ptr %9, align 4, !tbaa !284
-  br label %62
+  %.pre20 = load i32, ptr %9, align 4, !tbaa !284
+  br label %60
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -9098,64 +9098,69 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(40) ptr @_ZN4
   call void @_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_8MCSymbolENS_5WinEH9FrameInfo6EpilogEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %14, i64 noundef %22)
   %34 = load ptr, ptr %14, align 8, !tbaa !243
   %35 = getelementptr inbounds i8, ptr %34, i64 %33
+  %.pre = load ptr, ptr %35, align 8, !tbaa !598
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %35, i64 8
+  %.pre14 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !551
+  %.phi.trans.insert15 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  %.pre16 = load ptr, ptr %.phi.trans.insert15, align 8, !tbaa !549
+  %.phi.trans.insert17 = getelementptr inbounds nuw i8, ptr %35, i64 24
+  %.pre18 = load ptr, ptr %.phi.trans.insert17, align 8, !tbaa !550
   br label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_8MCSymbolENS_5WinEH9FrameInfo6EpilogEELb0EE9push_backEOS7_.exit
 
 _ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_8MCSymbolENS_5WinEH9FrameInfo6EpilogEELb0EE9push_backEOS7_.exit: ; preds = %13, %29, %30
-  %36 = phi ptr [ %.pre3.i, %13 ], [ %34, %30 ], [ %.pre.i, %29 ]
+  %36 = phi ptr [ null, %13 ], [ %.pre18, %30 ], [ null, %29 ]
+  %37 = phi ptr [ null, %13 ], [ %.pre16, %30 ], [ null, %29 ]
+  %38 = phi ptr [ null, %13 ], [ %.pre14, %30 ], [ null, %29 ]
+  %39 = phi ptr [ %16, %13 ], [ %.pre, %30 ], [ %16, %29 ]
+  %40 = phi ptr [ %.pre3.i, %13 ], [ %34, %30 ], [ %.pre.i, %29 ]
   %.016.i.i.i = phi ptr [ %5, %13 ], [ %35, %30 ], [ %5, %29 ]
-  %37 = load i32, ptr %19, align 8, !tbaa !244
-  %38 = zext i32 %37 to i64
-  %39 = getelementptr inbounds nuw %"struct.std::pair.414", ptr %36, i64 %38
-  %40 = load ptr, ptr %.016.i.i.i, align 8, !tbaa !598
-  store ptr %40, ptr %39, align 8, !tbaa !598
-  %41 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  %42 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 8
-  %43 = load ptr, ptr %42, align 8, !tbaa !551
-  store ptr %43, ptr %41, align 8, !tbaa !551
-  %44 = getelementptr inbounds nuw i8, ptr %39, i64 16
-  %45 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 16
-  %46 = load ptr, ptr %45, align 8, !tbaa !549
-  store ptr %46, ptr %44, align 8, !tbaa !549
-  %47 = getelementptr inbounds nuw i8, ptr %39, i64 24
-  %48 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 24
-  %49 = load ptr, ptr %48, align 8, !tbaa !550
-  store ptr %49, ptr %47, align 8, !tbaa !550
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %42, i8 0, i64 24, i1 false)
-  %50 = getelementptr inbounds nuw i8, ptr %39, i64 32
-  %51 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %50, ptr noundef nonnull align 8 dereferenceable(16) %51, i64 16, i1 false)
-  %52 = load i32, ptr %19, align 8, !tbaa !244
-  %53 = add i32 %52, 1
-  store i32 %53, ptr %19, align 8, !tbaa !244
-  %54 = load ptr, ptr %17, align 8, !tbaa !551
-  %.not.i.i.i.i.i = icmp eq ptr %54, null
-  br i1 %.not.i.i.i.i.i, label %_ZN4llvm5WinEH9FrameInfo6EpilogD2Ev.exit, label %55
+  %41 = load i32, ptr %19, align 8, !tbaa !244
+  %42 = zext i32 %41 to i64
+  %43 = getelementptr inbounds nuw %"struct.std::pair.414", ptr %40, i64 %42
+  store ptr %39, ptr %43, align 8, !tbaa !598
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 8
+  %45 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 8
+  store ptr %38, ptr %44, align 8, !tbaa !551
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 16
+  store ptr %37, ptr %46, align 8, !tbaa !549
+  %47 = getelementptr inbounds nuw i8, ptr %43, i64 24
+  store ptr %36, ptr %47, align 8, !tbaa !550
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %45, i8 0, i64 24, i1 false)
+  %48 = getelementptr inbounds nuw i8, ptr %43, i64 32
+  %49 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %48, ptr noundef nonnull align 8 dereferenceable(16) %49, i64 16, i1 false)
+  %50 = load i32, ptr %19, align 8, !tbaa !244
+  %51 = add i32 %50, 1
+  store i32 %51, ptr %19, align 8, !tbaa !244
+  %52 = load ptr, ptr %17, align 8, !tbaa !551
+  %.not.i.i.i.i.i = icmp eq ptr %52, null
+  br i1 %.not.i.i.i.i.i, label %_ZN4llvm5WinEH9FrameInfo6EpilogD2Ev.exit, label %53
 
-55:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_8MCSymbolENS_5WinEH9FrameInfo6EpilogEELb0EE9push_backEOS7_.exit
-  %56 = load ptr, ptr %18, align 8, !tbaa !550
-  %57 = ptrtoint ptr %56 to i64
-  %58 = ptrtoint ptr %54 to i64
-  %59 = sub i64 %57, %58
-  call void @_ZdlPvm(ptr noundef nonnull %54, i64 noundef %59) #26
-  %.pre = load i32, ptr %19, align 8, !tbaa !244
-  %60 = add i32 %.pre, -1
+53:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_8MCSymbolENS_5WinEH9FrameInfo6EpilogEELb0EE9push_backEOS7_.exit
+  %54 = load ptr, ptr %18, align 8, !tbaa !550
+  %55 = ptrtoint ptr %54 to i64
+  %56 = ptrtoint ptr %52 to i64
+  %57 = sub i64 %55, %56
+  call void @_ZdlPvm(ptr noundef nonnull %52, i64 noundef %57) #26
+  %.pre19 = load i32, ptr %19, align 8, !tbaa !244
+  %58 = add i32 %.pre19, -1
   br label %_ZN4llvm5WinEH9FrameInfo6EpilogD2Ev.exit
 
-_ZN4llvm5WinEH9FrameInfo6EpilogD2Ev.exit:         ; preds = %55, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_8MCSymbolENS_5WinEH9FrameInfo6EpilogEELb0EE9push_backEOS7_.exit
-  %61 = phi i32 [ %60, %55 ], [ %52, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_8MCSymbolENS_5WinEH9FrameInfo6EpilogEELb0EE9push_backEOS7_.exit ]
+_ZN4llvm5WinEH9FrameInfo6EpilogD2Ev.exit:         ; preds = %53, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_8MCSymbolENS_5WinEH9FrameInfo6EpilogEELb0EE9push_backEOS7_.exit
+  %59 = phi i32 [ %58, %53 ], [ %50, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_8MCSymbolENS_5WinEH9FrameInfo6EpilogEELb0EE9push_backEOS7_.exit ]
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5) #25
-  store i32 %61, ptr %9, align 4, !tbaa !284
-  br label %62
+  store i32 %59, ptr %9, align 4, !tbaa !284
+  br label %60
 
-62:                                               ; preds = %._crit_edge, %_ZN4llvm5WinEH9FrameInfo6EpilogD2Ev.exit
-  %63 = phi i32 [ %.pre14, %._crit_edge ], [ %61, %_ZN4llvm5WinEH9FrameInfo6EpilogD2Ev.exit ]
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %65 = zext i32 %63 to i64
-  %66 = load ptr, ptr %64, align 8, !tbaa !243
-  %67 = getelementptr inbounds nuw %"struct.std::pair.414", ptr %66, i64 %65, i32 1
+60:                                               ; preds = %._crit_edge, %_ZN4llvm5WinEH9FrameInfo6EpilogD2Ev.exit
+  %61 = phi i32 [ %.pre20, %._crit_edge ], [ %59, %_ZN4llvm5WinEH9FrameInfo6EpilogD2Ev.exit ]
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %63 = zext i32 %61 to i64
+  %64 = load ptr, ptr %62, align 8, !tbaa !243
+  %65 = getelementptr inbounds nuw %"struct.std::pair.414", ptr %64, i64 %63, i32 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #25
-  ret ptr %67
+  ret ptr %65
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -11898,8 +11903,8 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4
   br i1 %12, label %13, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %2
-  %.pre14 = load i32, ptr %9, align 4, !tbaa !284
-  br label %59
+  %.pre20 = load i32, ptr %9, align 4, !tbaa !284
+  br label %57
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -11939,61 +11944,66 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(24) ptr @_ZN4
   call void @_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_9MCSectionESt6vectorINS_16MCDwarfLineEntryESaIS5_EEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %14, i64 noundef %21)
   %33 = load ptr, ptr %14, align 8, !tbaa !243
   %34 = getelementptr inbounds i8, ptr %33, i64 %32
+  %.pre = load ptr, ptr %34, align 8, !tbaa !695
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %34, i64 8
+  %.pre14 = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !394
+  %.phi.trans.insert15 = getelementptr inbounds nuw i8, ptr %34, i64 16
+  %.pre16 = load ptr, ptr %.phi.trans.insert15, align 8, !tbaa !390
+  %.phi.trans.insert17 = getelementptr inbounds nuw i8, ptr %34, i64 24
+  %.pre18 = load ptr, ptr %.phi.trans.insert17, align 8, !tbaa !393
   br label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_9MCSectionESt6vectorINS_16MCDwarfLineEntryESaIS5_EEELb0EE9push_backEOS8_.exit
 
 _ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_9MCSectionESt6vectorINS_16MCDwarfLineEntryESaIS5_EEELb0EE9push_backEOS8_.exit: ; preds = %13, %28, %29
-  %35 = phi ptr [ %.pre3.i, %13 ], [ %33, %29 ], [ %.pre.i, %28 ]
+  %35 = phi ptr [ null, %13 ], [ %.pre18, %29 ], [ null, %28 ]
+  %36 = phi ptr [ null, %13 ], [ %.pre16, %29 ], [ null, %28 ]
+  %37 = phi ptr [ null, %13 ], [ %.pre14, %29 ], [ null, %28 ]
+  %38 = phi ptr [ %15, %13 ], [ %.pre, %29 ], [ %15, %28 ]
+  %39 = phi ptr [ %.pre3.i, %13 ], [ %33, %29 ], [ %.pre.i, %28 ]
   %.016.i.i.i = phi ptr [ %5, %13 ], [ %34, %29 ], [ %5, %28 ]
-  %36 = load i32, ptr %18, align 8, !tbaa !244
-  %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw %"struct.std::pair.302", ptr %35, i64 %37
-  %39 = load ptr, ptr %.016.i.i.i, align 8, !tbaa !695
-  store ptr %39, ptr %38, align 8, !tbaa !695
-  %40 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %41 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 8
-  %42 = load ptr, ptr %41, align 8, !tbaa !394
-  store ptr %42, ptr %40, align 8, !tbaa !394
-  %43 = getelementptr inbounds nuw i8, ptr %38, i64 16
-  %44 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 16
-  %45 = load ptr, ptr %44, align 8, !tbaa !390
-  store ptr %45, ptr %43, align 8, !tbaa !390
-  %46 = getelementptr inbounds nuw i8, ptr %38, i64 24
-  %47 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 24
-  %48 = load ptr, ptr %47, align 8, !tbaa !393
-  store ptr %48, ptr %46, align 8, !tbaa !393
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %41, i8 0, i64 24, i1 false)
-  %49 = load i32, ptr %18, align 8, !tbaa !244
-  %50 = add i32 %49, 1
-  store i32 %50, ptr %18, align 8, !tbaa !244
-  %51 = load ptr, ptr %16, align 8, !tbaa !394
-  %.not.i.i.i.i = icmp eq ptr %51, null
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN4llvm16MCDwarfLineEntryESaIS1_EED2Ev.exit, label %52
+  %40 = load i32, ptr %18, align 8, !tbaa !244
+  %41 = zext i32 %40 to i64
+  %42 = getelementptr inbounds nuw %"struct.std::pair.302", ptr %39, i64 %41
+  store ptr %38, ptr %42, align 8, !tbaa !695
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %44 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 8
+  store ptr %37, ptr %43, align 8, !tbaa !394
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 16
+  store ptr %36, ptr %45, align 8, !tbaa !390
+  %46 = getelementptr inbounds nuw i8, ptr %42, i64 24
+  store ptr %35, ptr %46, align 8, !tbaa !393
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %44, i8 0, i64 24, i1 false)
+  %47 = load i32, ptr %18, align 8, !tbaa !244
+  %48 = add i32 %47, 1
+  store i32 %48, ptr %18, align 8, !tbaa !244
+  %49 = load ptr, ptr %16, align 8, !tbaa !394
+  %.not.i.i.i.i = icmp eq ptr %49, null
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN4llvm16MCDwarfLineEntryESaIS1_EED2Ev.exit, label %50
 
-52:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_9MCSectionESt6vectorINS_16MCDwarfLineEntryESaIS5_EEELb0EE9push_backEOS8_.exit
-  %53 = load ptr, ptr %17, align 8, !tbaa !393
-  %54 = ptrtoint ptr %53 to i64
-  %55 = ptrtoint ptr %51 to i64
-  %56 = sub i64 %54, %55
-  call void @_ZdlPvm(ptr noundef nonnull %51, i64 noundef %56) #26
-  %.pre = load i32, ptr %18, align 8, !tbaa !244
-  %57 = add i32 %.pre, -1
+50:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_9MCSectionESt6vectorINS_16MCDwarfLineEntryESaIS5_EEELb0EE9push_backEOS8_.exit
+  %51 = load ptr, ptr %17, align 8, !tbaa !393
+  %52 = ptrtoint ptr %51 to i64
+  %53 = ptrtoint ptr %49 to i64
+  %54 = sub i64 %52, %53
+  call void @_ZdlPvm(ptr noundef nonnull %49, i64 noundef %54) #26
+  %.pre19 = load i32, ptr %18, align 8, !tbaa !244
+  %55 = add i32 %.pre19, -1
   br label %_ZNSt6vectorIN4llvm16MCDwarfLineEntryESaIS1_EED2Ev.exit
 
-_ZNSt6vectorIN4llvm16MCDwarfLineEntryESaIS1_EED2Ev.exit: ; preds = %52, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_9MCSectionESt6vectorINS_16MCDwarfLineEntryESaIS5_EEELb0EE9push_backEOS8_.exit
-  %58 = phi i32 [ %57, %52 ], [ %49, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_9MCSectionESt6vectorINS_16MCDwarfLineEntryESaIS5_EEELb0EE9push_backEOS8_.exit ]
+_ZNSt6vectorIN4llvm16MCDwarfLineEntryESaIS1_EED2Ev.exit: ; preds = %50, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_9MCSectionESt6vectorINS_16MCDwarfLineEntryESaIS5_EEELb0EE9push_backEOS8_.exit
+  %56 = phi i32 [ %55, %50 ], [ %47, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_9MCSectionESt6vectorINS_16MCDwarfLineEntryESaIS5_EEELb0EE9push_backEOS8_.exit ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #25
-  store i32 %58, ptr %9, align 4, !tbaa !284
-  br label %59
+  store i32 %56, ptr %9, align 4, !tbaa !284
+  br label %57
 
-59:                                               ; preds = %._crit_edge, %_ZNSt6vectorIN4llvm16MCDwarfLineEntryESaIS1_EED2Ev.exit
-  %60 = phi i32 [ %.pre14, %._crit_edge ], [ %58, %_ZNSt6vectorIN4llvm16MCDwarfLineEntryESaIS1_EED2Ev.exit ]
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %62 = zext i32 %60 to i64
-  %63 = load ptr, ptr %61, align 8, !tbaa !243
-  %64 = getelementptr inbounds nuw %"struct.std::pair.302", ptr %63, i64 %62, i32 1
+57:                                               ; preds = %._crit_edge, %_ZNSt6vectorIN4llvm16MCDwarfLineEntryESaIS1_EED2Ev.exit
+  %58 = phi i32 [ %.pre20, %._crit_edge ], [ %56, %_ZNSt6vectorIN4llvm16MCDwarfLineEntryESaIS1_EED2Ev.exit ]
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %60 = zext i32 %58 to i64
+  %61 = load ptr, ptr %59, align 8, !tbaa !243
+  %62 = getelementptr inbounds nuw %"struct.std::pair.302", ptr %61, i64 %60, i32 1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #25
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #25
-  ret ptr %64
+  ret ptr %62
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

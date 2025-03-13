@@ -3242,8 +3242,8 @@ _ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendL
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %61, ptr nonnull readonly align 1 %87, i64 %90, i1 false)
   %91 = getelementptr inbounds nuw i8, ptr %61, i64 %90
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %3) #26
-  %.not4677 = icmp eq i64 %.039, 0
-  br i1 %.not4677, label %._crit_edge, label %.lr.ph
+  %.not4678 = icmp eq i64 %.039, 0
+  br i1 %.not4678, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit
   %92 = getelementptr inbounds nuw i8, ptr %2, i64 11
@@ -3251,10 +3251,10 @@ _ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendL
   br label %94
 
 94:                                               ; preds = %.lr.ph, %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE0_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit
-  %.079 = phi ptr [ %53, %.lr.ph ], [ %95, %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE0_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit ]
-  %.06878 = phi ptr [ %91, %.lr.ph ], [ %96, %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE0_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit ]
-  %95 = getelementptr inbounds i8, ptr %.079, i64 -4
-  %96 = getelementptr inbounds nuw i8, ptr %.06878, i64 9
+  %.080 = phi ptr [ %53, %.lr.ph ], [ %95, %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE0_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit ]
+  %.06879 = phi ptr [ %91, %.lr.ph ], [ %96, %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm2EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE0_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit ]
+  %95 = getelementptr inbounds i8, ptr %.080, i64 -4
+  %96 = getelementptr inbounds nuw i8, ptr %.06879, i64 9
   %97 = load i32, ptr %95, align 4, !tbaa !63
   call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %2) #26
   %98 = icmp ugt i32 %97, 99
@@ -6641,8 +6641,8 @@ _ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendL
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %64, ptr nonnull readonly align 1 %90, i64 %93, i1 false)
   %94 = getelementptr inbounds nuw i8, ptr %64, i64 %93
   call void @llvm.lifetime.end.p0(i64 11, ptr nonnull %3) #26
-  %.not4685 = icmp eq i64 %.039, 0
-  br i1 %.not4685, label %._crit_edge, label %.lr.ph
+  %.not4686 = icmp eq i64 %.039, 0
+  br i1 %.not4686, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm4EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit
   %95 = getelementptr inbounds nuw i8, ptr %2, i64 11
@@ -6650,10 +6650,10 @@ _ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendL
   br label %97
 
 97:                                               ; preds = %.lr.ph, %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm4EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE0_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit
-  %.087 = phi ptr [ %56, %.lr.ph ], [ %98, %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm4EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE0_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit ]
-  %.06886 = phi ptr [ %94, %.lr.ph ], [ %99, %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm4EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE0_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit ]
-  %98 = getelementptr inbounds i8, ptr %.087, i64 -4
-  %99 = getelementptr inbounds nuw i8, ptr %.06886, i64 9
+  %.088 = phi ptr [ %56, %.lr.ph ], [ %98, %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm4EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE0_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit ]
+  %.06887 = phi ptr [ %94, %.lr.ph ], [ %99, %_ZN5arrow8internal25IntToStringFormatterMixinINS_10UInt32TypeEEclIZNS_L31AppendLittleEndianArrayToStringILm4EEEvRKSt5arrayImXT_EEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEUlSt17basic_string_viewIcSD_EE0_EEDTclclsr3stdE7declvalIT_EEtlSI_EEEjOSK_.exit ]
+  %98 = getelementptr inbounds i8, ptr %.088, i64 -4
+  %99 = getelementptr inbounds nuw i8, ptr %.06887, i64 9
   %100 = load i32, ptr %98, align 4, !tbaa !63
   call void @llvm.lifetime.start.p0(i64 11, ptr nonnull %2) #26
   %101 = icmp ugt i32 %100, 99

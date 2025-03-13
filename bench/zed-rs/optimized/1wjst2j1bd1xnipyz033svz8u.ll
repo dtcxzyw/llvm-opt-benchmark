@@ -86126,7 +86126,7 @@ define hidden void @"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$
   br i1 %.not3.i.i, label %20, label %22
 
 20:                                               ; preds = %22, %15
-  %21 = add i64 %14, %17
+  %21 = add i64 %17, %14
   store i64 %21, ptr %16, align 8
   br label %"_ZN4core3ptr217drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$slab..Entry$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$$C$alloc..alloc..Global$GT$$GT$17h72b2ecf026cbb239E.exit"
 
@@ -86239,7 +86239,7 @@ define hidden void @"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$
   br i1 %.not3.i.i7, label %74, label %76
 
 74:                                               ; preds = %76, %69
-  %75 = add i64 %68, %71
+  %75 = add i64 %71, %68
   store i64 %75, ptr %70, align 8
   br label %"_ZN4core3ptr217drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$slab..Entry$LT$core..option..Option$LT$core..task..wake..Waker$GT$$GT$$C$alloc..alloc..Global$GT$$GT$17h72b2ecf026cbb239E.exit"
 

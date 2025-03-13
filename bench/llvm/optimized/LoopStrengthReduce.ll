@@ -2296,6 +2296,8 @@ _ZN4llvm17DbgVariableRecord20location_op_iteratordeEv.exit.i.i.i: ; preds = %133
   br label %298
 
 ._crit_edge.i.i:                                  ; preds = %_ZN4llvm15ValueHandleBaseD2Ev.exit.i.i, %.loopexit.i.i
+  %.val.i.i.i.i32.in.i.i = phi ptr [ %152, %.loopexit.i.i ], [ %.val8.i.i, %_ZN4llvm15ValueHandleBaseD2Ev.exit.i.i ]
+  %.val.i.i.i.i32.i.i = ptrtoint ptr %.val.i.i.i.i32.in.i.i to i64
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %47) #24
   %176 = load i32, ptr %62, align 8, !tbaa !26
   %177 = zext i32 %176 to i64
@@ -2315,169 +2317,169 @@ _ZN4llvm17DbgVariableRecord20location_op_iteratordeEv.exit.i.i.i: ; preds = %133
 184:                                              ; preds = %180
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %40) #24
   %185 = call noundef ptr @_ZN4llvm15SmallVectorBaseIjE13mallocForGrowEPvmmRm(ptr noundef nonnull align 8 dereferenceable(32) %51, ptr noundef nonnull %61, i64 noundef %178, i64 noundef 8, ptr noundef nonnull align 8 dereferenceable(8) %40) #24
-  %.val.i84.i = load ptr, ptr %51, align 8, !tbaa !25
+  %.val.i85.i = load ptr, ptr %51, align 8, !tbaa !25
   %.val3.i.i = load i32, ptr %62, align 8, !tbaa !26
   %186 = zext i32 %.val3.i.i to i64
-  %187 = getelementptr inbounds nuw %"class.std::unique_ptr.364", ptr %.val.i84.i, i64 %186
+  %187 = getelementptr inbounds nuw %"class.std::unique_ptr.364", ptr %.val.i85.i, i64 %186
   %.not7.i.i.i.i.i.i.i.i = icmp eq i32 %.val3.i.i, 0
   br i1 %.not7.i.i.i.i.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_114DVIRecoveryRecESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit.i.i, label %.lr.ph.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i:                           ; preds = %184, %.lr.ph.i.i.i.i.i.i.i.i
   %.09.i.i.i.i.i.i.i.i = phi ptr [ %189, %.lr.ph.i.i.i.i.i.i.i.i ], [ %185, %184 ]
-  %.sroa.06.08.i.i.i.i.i.i.i.i = phi ptr [ %188, %.lr.ph.i.i.i.i.i.i.i.i ], [ %.val.i84.i, %184 ]
+  %.sroa.06.08.i.i.i.i.i.i.i.i = phi ptr [ %188, %.lr.ph.i.i.i.i.i.i.i.i ], [ %.val.i85.i, %184 ]
   %.val.i.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.06.08.i.i.i.i.i.i.i.i, align 8, !tbaa !238
   store i64 %.val.i.i.i.i.i.i.i.i.i.i.i.i, ptr %.09.i.i.i.i.i.i.i.i, align 8, !tbaa !238
   store ptr null, ptr %.sroa.06.08.i.i.i.i.i.i.i.i, align 8, !tbaa !238
   %188 = getelementptr inbounds nuw i8, ptr %.sroa.06.08.i.i.i.i.i.i.i.i, i64 8
   %189 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i.i, i64 8
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %188, %187
-  br i1 %.not.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i85.i, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !247
+  br i1 %.not.i.i.i.i.i.i.i.i, label %.lr.ph.i.i.i86.i, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !247
 
-.lr.ph.i.i.i85.i:                                 ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %_ZNSt10unique_ptrIN12_GLOBAL__N_114DVIRecoveryRecESt14default_deleteIS1_EED2Ev.exit169.i
-  %.05.i.i.i.i = phi ptr [ %190, %_ZNSt10unique_ptrIN12_GLOBAL__N_114DVIRecoveryRecESt14default_deleteIS1_EED2Ev.exit169.i ], [ %187, %.lr.ph.i.i.i.i.i.i.i.i ]
+.lr.ph.i.i.i86.i:                                 ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %_ZNSt10unique_ptrIN12_GLOBAL__N_114DVIRecoveryRecESt14default_deleteIS1_EED2Ev.exit170.i
+  %.05.i.i.i.i = phi ptr [ %190, %_ZNSt10unique_ptrIN12_GLOBAL__N_114DVIRecoveryRecESt14default_deleteIS1_EED2Ev.exit170.i ], [ %187, %.lr.ph.i.i.i.i.i.i.i.i ]
   %190 = getelementptr inbounds i8, ptr %.05.i.i.i.i, i64 -8
   %191 = load ptr, ptr %190, align 8, !tbaa !238
-  %.not.i141.i = icmp eq ptr %191, null
-  br i1 %.not.i141.i, label %_ZNSt10unique_ptrIN12_GLOBAL__N_114DVIRecoveryRecESt14default_deleteIS1_EED2Ev.exit169.i, label %192
+  %.not.i142.i = icmp eq ptr %191, null
+  br i1 %.not.i142.i, label %_ZNSt10unique_ptrIN12_GLOBAL__N_114DVIRecoveryRecESt14default_deleteIS1_EED2Ev.exit170.i, label %192
 
-192:                                              ; preds = %.lr.ph.i.i.i85.i
+192:                                              ; preds = %.lr.ph.i.i.i86.i
   call fastcc void @_ZN12_GLOBAL__N_114DVIRecoveryRec5clearEv(ptr noundef nonnull align 8 dereferenceable(152) %191)
   %193 = getelementptr inbounds nuw i8, ptr %191, i64 120
-  %.val.i.i.i.i142.i = load ptr, ptr %193, align 8, !tbaa !25
+  %.val.i.i.i.i143.i = load ptr, ptr %193, align 8, !tbaa !25
   %194 = getelementptr inbounds nuw i8, ptr %191, i64 128
-  %.val2.i.i.i.i143.i = load i32, ptr %194, align 8, !tbaa !26
-  %.not4.i.i.i.i.i144.i = icmp eq i32 %.val2.i.i.i.i143.i, 0
-  br i1 %.not4.i.i.i.i.i144.i, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.i.i.i.i155.i, label %.lr.ph.i.preheader.i.i.i.i145.i
+  %.val2.i.i.i.i144.i = load i32, ptr %194, align 8, !tbaa !26
+  %.not4.i.i.i.i.i145.i = icmp eq i32 %.val2.i.i.i.i144.i, 0
+  br i1 %.not4.i.i.i.i.i145.i, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.i.i.i.i156.i, label %.lr.ph.i.preheader.i.i.i.i146.i
 
-.lr.ph.i.preheader.i.i.i.i145.i:                  ; preds = %192
-  %195 = zext i32 %.val2.i.i.i.i143.i to i64
-  %196 = getelementptr inbounds nuw %"class.std::unique_ptr.426", ptr %.val.i.i.i.i142.i, i64 %195
-  br label %.lr.ph.i.i.i.i.i146.i
+.lr.ph.i.preheader.i.i.i.i146.i:                  ; preds = %192
+  %195 = zext i32 %.val2.i.i.i.i144.i to i64
+  %196 = getelementptr inbounds nuw %"class.std::unique_ptr.426", ptr %.val.i.i.i.i143.i, i64 %195
+  br label %.lr.ph.i.i.i.i.i147.i
 
-.lr.ph.i.i.i.i.i146.i:                            ; preds = %_ZNSt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS1_EED2Ev.exit.i.i.i.i.i151.i, %.lr.ph.i.preheader.i.i.i.i145.i
-  %.05.i.i.i.i.i147.i = phi ptr [ %197, %_ZNSt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS1_EED2Ev.exit.i.i.i.i.i151.i ], [ %196, %.lr.ph.i.preheader.i.i.i.i145.i ]
-  %197 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i147.i, i64 -8
+.lr.ph.i.i.i.i.i147.i:                            ; preds = %_ZNSt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS1_EED2Ev.exit.i.i.i.i.i152.i, %.lr.ph.i.preheader.i.i.i.i146.i
+  %.05.i.i.i.i.i148.i = phi ptr [ %197, %_ZNSt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS1_EED2Ev.exit.i.i.i.i.i152.i ], [ %196, %.lr.ph.i.preheader.i.i.i.i146.i ]
+  %197 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i148.i, i64 -8
   %198 = load ptr, ptr %197, align 8, !tbaa !248
-  %.not.i.i.i.i.i.i148.i = icmp eq ptr %198, null
-  br i1 %.not.i.i.i.i.i.i148.i, label %_ZNSt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS1_EED2Ev.exit.i.i.i.i.i151.i, label %199
+  %.not.i.i.i.i.i.i149.i = icmp eq ptr %198, null
+  br i1 %.not.i.i.i.i.i.i149.i, label %_ZNSt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS1_EED2Ev.exit.i.i.i.i.i152.i, label %199
 
-199:                                              ; preds = %.lr.ph.i.i.i.i.i146.i
+199:                                              ; preds = %.lr.ph.i.i.i.i.i147.i
   %200 = getelementptr inbounds nuw i8, ptr %198, i64 64
   %201 = load ptr, ptr %200, align 8, !tbaa !25
   %202 = getelementptr inbounds nuw i8, ptr %198, i64 80
   %203 = icmp eq ptr %201, %202
-  br i1 %203, label %_ZN4llvm11SmallVectorIPNS_5ValueELj2EED2Ev.exit.i.i.i.i.i.i.i.i149.i, label %204
+  br i1 %203, label %_ZN4llvm11SmallVectorIPNS_5ValueELj2EED2Ev.exit.i.i.i.i.i.i.i.i150.i, label %204
 
 204:                                              ; preds = %199
   call void @free(ptr noundef %201) #24
-  br label %_ZN4llvm11SmallVectorIPNS_5ValueELj2EED2Ev.exit.i.i.i.i.i.i.i.i149.i
+  br label %_ZN4llvm11SmallVectorIPNS_5ValueELj2EED2Ev.exit.i.i.i.i.i.i.i.i150.i
 
-_ZN4llvm11SmallVectorIPNS_5ValueELj2EED2Ev.exit.i.i.i.i.i.i.i.i149.i: ; preds = %204, %199
+_ZN4llvm11SmallVectorIPNS_5ValueELj2EED2Ev.exit.i.i.i.i.i.i.i.i150.i: ; preds = %204, %199
   %205 = load ptr, ptr %198, align 8, !tbaa !25
   %206 = getelementptr inbounds nuw i8, ptr %198, i64 16
   %207 = icmp eq ptr %205, %206
-  br i1 %207, label %_ZNKSt14default_deleteIN12_GLOBAL__N_119SCEVDbgValueBuilderEEclEPS1_.exit.i.i.i.i.i.i150.i, label %208
+  br i1 %207, label %_ZNKSt14default_deleteIN12_GLOBAL__N_119SCEVDbgValueBuilderEEclEPS1_.exit.i.i.i.i.i.i151.i, label %208
 
-208:                                              ; preds = %_ZN4llvm11SmallVectorIPNS_5ValueELj2EED2Ev.exit.i.i.i.i.i.i.i.i149.i
+208:                                              ; preds = %_ZN4llvm11SmallVectorIPNS_5ValueELj2EED2Ev.exit.i.i.i.i.i.i.i.i150.i
   call void @free(ptr noundef %205) #24
-  br label %_ZNKSt14default_deleteIN12_GLOBAL__N_119SCEVDbgValueBuilderEEclEPS1_.exit.i.i.i.i.i.i150.i
+  br label %_ZNKSt14default_deleteIN12_GLOBAL__N_119SCEVDbgValueBuilderEEclEPS1_.exit.i.i.i.i.i.i151.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_119SCEVDbgValueBuilderEEclEPS1_.exit.i.i.i.i.i.i150.i: ; preds = %208, %_ZN4llvm11SmallVectorIPNS_5ValueELj2EED2Ev.exit.i.i.i.i.i.i.i.i149.i
+_ZNKSt14default_deleteIN12_GLOBAL__N_119SCEVDbgValueBuilderEEclEPS1_.exit.i.i.i.i.i.i151.i: ; preds = %208, %_ZN4llvm11SmallVectorIPNS_5ValueELj2EED2Ev.exit.i.i.i.i.i.i.i.i150.i
   call void @_ZdlPvm(ptr noundef nonnull %198, i64 noundef 96) #26
-  br label %_ZNSt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS1_EED2Ev.exit.i.i.i.i.i151.i
+  br label %_ZNSt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS1_EED2Ev.exit.i.i.i.i.i152.i
 
-_ZNSt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS1_EED2Ev.exit.i.i.i.i.i151.i: ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_119SCEVDbgValueBuilderEEclEPS1_.exit.i.i.i.i.i.i150.i, %.lr.ph.i.i.i.i.i146.i
+_ZNSt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS1_EED2Ev.exit.i.i.i.i.i152.i: ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_119SCEVDbgValueBuilderEEclEPS1_.exit.i.i.i.i.i.i151.i, %.lr.ph.i.i.i.i.i147.i
   store ptr null, ptr %197, align 8, !tbaa !248
-  %.not.i.i.i.i.i152.i = icmp eq ptr %.val.i.i.i.i142.i, %197
-  br i1 %.not.i.i.i.i.i152.i, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.loopexit.i.i.i.i153.i, label %.lr.ph.i.i.i.i.i146.i, !llvm.loop !250
+  %.not.i.i.i.i.i153.i = icmp eq ptr %.val.i.i.i.i143.i, %197
+  br i1 %.not.i.i.i.i.i153.i, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.loopexit.i.i.i.i154.i, label %.lr.ph.i.i.i.i.i147.i, !llvm.loop !250
 
-_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.loopexit.i.i.i.i153.i: ; preds = %_ZNSt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS1_EED2Ev.exit.i.i.i.i.i151.i
-  %.pre.i.i.i.i154.i = load ptr, ptr %193, align 8, !tbaa !25
-  br label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.i.i.i.i155.i
+_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.loopexit.i.i.i.i154.i: ; preds = %_ZNSt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS1_EED2Ev.exit.i.i.i.i.i152.i
+  %.pre.i.i.i.i155.i = load ptr, ptr %193, align 8, !tbaa !25
+  br label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.i.i.i.i156.i
 
-_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.i.i.i.i155.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.loopexit.i.i.i.i153.i, %192
-  %209 = phi ptr [ %.pre.i.i.i.i154.i, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.loopexit.i.i.i.i153.i ], [ %.val.i.i.i.i142.i, %192 ]
+_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.i.i.i.i156.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.loopexit.i.i.i.i154.i, %192
+  %209 = phi ptr [ %.pre.i.i.i.i155.i, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.loopexit.i.i.i.i154.i ], [ %.val.i.i.i.i143.i, %192 ]
   %210 = getelementptr inbounds nuw i8, ptr %191, i64 136
   %211 = icmp eq ptr %209, %210
-  br i1 %211, label %_ZN4llvm11SmallVectorISt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS3_EELj2EED2Ev.exit.i.i.i156.i, label %212
+  br i1 %211, label %_ZN4llvm11SmallVectorISt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS3_EELj2EED2Ev.exit.i.i.i157.i, label %212
 
-212:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.i.i.i.i155.i
+212:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.i.i.i.i156.i
   call void @free(ptr noundef %209) #24
-  br label %_ZN4llvm11SmallVectorISt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS3_EELj2EED2Ev.exit.i.i.i156.i
+  br label %_ZN4llvm11SmallVectorISt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS3_EELj2EED2Ev.exit.i.i.i157.i
 
-_ZN4llvm11SmallVectorISt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS3_EELj2EED2Ev.exit.i.i.i156.i: ; preds = %212, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.i.i.i.i155.i
+_ZN4llvm11SmallVectorISt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS3_EELj2EED2Ev.exit.i.i.i157.i: ; preds = %212, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.i.i.i.i156.i
   %213 = getelementptr inbounds nuw i8, ptr %191, i64 88
   %214 = load ptr, ptr %213, align 8, !tbaa !25
   %215 = getelementptr inbounds nuw i8, ptr %191, i64 104
   %216 = icmp eq ptr %214, %215
-  br i1 %216, label %_ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit.i.i.i157.i, label %217
+  br i1 %216, label %_ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit.i.i.i158.i, label %217
 
-217:                                              ; preds = %_ZN4llvm11SmallVectorISt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS3_EELj2EED2Ev.exit.i.i.i156.i
+217:                                              ; preds = %_ZN4llvm11SmallVectorISt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS3_EELj2EED2Ev.exit.i.i.i157.i
   call void @free(ptr noundef %214) #24
-  br label %_ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit.i.i.i157.i
+  br label %_ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit.i.i.i158.i
 
-_ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit.i.i.i157.i: ; preds = %217, %_ZN4llvm11SmallVectorISt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS3_EELj2EED2Ev.exit.i.i.i156.i
+_ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit.i.i.i158.i: ; preds = %217, %_ZN4llvm11SmallVectorISt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS3_EELj2EED2Ev.exit.i.i.i157.i
   %218 = getelementptr inbounds nuw i8, ptr %191, i64 24
   %219 = load ptr, ptr %218, align 8, !tbaa !25
   %220 = getelementptr inbounds nuw i8, ptr %191, i64 32
   %221 = load i32, ptr %220, align 8, !tbaa !26
-  %.not4.i.i1.i.i.i158.i = icmp eq i32 %221, 0
-  br i1 %.not4.i.i1.i.i.i158.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_6WeakVHELb0EE13destroy_rangeEPS1_S3_.exit.i.i.i.i167.i, label %.lr.ph.i.preheader.i2.i.i.i159.i
+  %.not4.i.i1.i.i.i159.i = icmp eq i32 %221, 0
+  br i1 %.not4.i.i1.i.i.i159.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_6WeakVHELb0EE13destroy_rangeEPS1_S3_.exit.i.i.i.i168.i, label %.lr.ph.i.preheader.i2.i.i.i160.i
 
-.lr.ph.i.preheader.i2.i.i.i159.i:                 ; preds = %_ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit.i.i.i157.i
+.lr.ph.i.preheader.i2.i.i.i160.i:                 ; preds = %_ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit.i.i.i158.i
   %222 = zext i32 %221 to i64
   %223 = getelementptr inbounds nuw %"class.llvm::WeakVH", ptr %219, i64 %222
-  br label %.lr.ph.i.i3.i.i.i160.i
+  br label %.lr.ph.i.i3.i.i.i161.i
 
-.lr.ph.i.i3.i.i.i160.i:                           ; preds = %_ZN4llvm15ValueHandleBaseD2Ev.exit.i.i.i.i.i163.i, %.lr.ph.i.preheader.i2.i.i.i159.i
-  %.05.i.i4.i.i.i161.i = phi ptr [ %224, %_ZN4llvm15ValueHandleBaseD2Ev.exit.i.i.i.i.i163.i ], [ %223, %.lr.ph.i.preheader.i2.i.i.i159.i ]
-  %224 = getelementptr inbounds i8, ptr %.05.i.i4.i.i.i161.i, i64 -24
-  %225 = getelementptr inbounds i8, ptr %.05.i.i4.i.i.i161.i, i64 -8
+.lr.ph.i.i3.i.i.i161.i:                           ; preds = %_ZN4llvm15ValueHandleBaseD2Ev.exit.i.i.i.i.i164.i, %.lr.ph.i.preheader.i2.i.i.i160.i
+  %.05.i.i4.i.i.i162.i = phi ptr [ %224, %_ZN4llvm15ValueHandleBaseD2Ev.exit.i.i.i.i.i164.i ], [ %223, %.lr.ph.i.preheader.i2.i.i.i160.i ]
+  %224 = getelementptr inbounds i8, ptr %.05.i.i4.i.i.i162.i, i64 -24
+  %225 = getelementptr inbounds i8, ptr %.05.i.i4.i.i.i162.i, i64 -8
   %226 = load ptr, ptr %225, align 8, !tbaa !251
-  %magicptr.i.i.i.i.i.i162.i = ptrtoint ptr %226 to i64
-  switch i64 %magicptr.i.i.i.i.i.i162.i, label %227 [
-    i64 0, label %_ZN4llvm15ValueHandleBaseD2Ev.exit.i.i.i.i.i163.i
-    i64 -4096, label %_ZN4llvm15ValueHandleBaseD2Ev.exit.i.i.i.i.i163.i
-    i64 -8192, label %_ZN4llvm15ValueHandleBaseD2Ev.exit.i.i.i.i.i163.i
+  %magicptr.i.i.i.i.i.i163.i = ptrtoint ptr %226 to i64
+  switch i64 %magicptr.i.i.i.i.i.i163.i, label %227 [
+    i64 0, label %_ZN4llvm15ValueHandleBaseD2Ev.exit.i.i.i.i.i164.i
+    i64 -4096, label %_ZN4llvm15ValueHandleBaseD2Ev.exit.i.i.i.i.i164.i
+    i64 -8192, label %_ZN4llvm15ValueHandleBaseD2Ev.exit.i.i.i.i.i164.i
   ]
 
-227:                                              ; preds = %.lr.ph.i.i3.i.i.i160.i
+227:                                              ; preds = %.lr.ph.i.i3.i.i.i161.i
   call void @_ZN4llvm15ValueHandleBase17RemoveFromUseListEv(ptr noundef nonnull align 8 dereferenceable(24) %224) #24
-  br label %_ZN4llvm15ValueHandleBaseD2Ev.exit.i.i.i.i.i163.i
+  br label %_ZN4llvm15ValueHandleBaseD2Ev.exit.i.i.i.i.i164.i
 
-_ZN4llvm15ValueHandleBaseD2Ev.exit.i.i.i.i.i163.i: ; preds = %227, %.lr.ph.i.i3.i.i.i160.i, %.lr.ph.i.i3.i.i.i160.i, %.lr.ph.i.i3.i.i.i160.i
-  %.not.i.i5.i.i.i164.i = icmp eq ptr %219, %224
-  br i1 %.not.i.i5.i.i.i164.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_6WeakVHELb0EE13destroy_rangeEPS1_S3_.exit.loopexit.i.i.i.i165.i, label %.lr.ph.i.i3.i.i.i160.i, !llvm.loop !256
+_ZN4llvm15ValueHandleBaseD2Ev.exit.i.i.i.i.i164.i: ; preds = %227, %.lr.ph.i.i3.i.i.i161.i, %.lr.ph.i.i3.i.i.i161.i, %.lr.ph.i.i3.i.i.i161.i
+  %.not.i.i5.i.i.i165.i = icmp eq ptr %219, %224
+  br i1 %.not.i.i5.i.i.i165.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_6WeakVHELb0EE13destroy_rangeEPS1_S3_.exit.loopexit.i.i.i.i166.i, label %.lr.ph.i.i3.i.i.i161.i, !llvm.loop !256
 
-_ZN4llvm23SmallVectorTemplateBaseINS_6WeakVHELb0EE13destroy_rangeEPS1_S3_.exit.loopexit.i.i.i.i165.i: ; preds = %_ZN4llvm15ValueHandleBaseD2Ev.exit.i.i.i.i.i163.i
-  %.pre.i6.i.i.i166.i = load ptr, ptr %218, align 8, !tbaa !25
-  br label %_ZN4llvm23SmallVectorTemplateBaseINS_6WeakVHELb0EE13destroy_rangeEPS1_S3_.exit.i.i.i.i167.i
+_ZN4llvm23SmallVectorTemplateBaseINS_6WeakVHELb0EE13destroy_rangeEPS1_S3_.exit.loopexit.i.i.i.i166.i: ; preds = %_ZN4llvm15ValueHandleBaseD2Ev.exit.i.i.i.i.i164.i
+  %.pre.i6.i.i.i167.i = load ptr, ptr %218, align 8, !tbaa !25
+  br label %_ZN4llvm23SmallVectorTemplateBaseINS_6WeakVHELb0EE13destroy_rangeEPS1_S3_.exit.i.i.i.i168.i
 
-_ZN4llvm23SmallVectorTemplateBaseINS_6WeakVHELb0EE13destroy_rangeEPS1_S3_.exit.i.i.i.i167.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_6WeakVHELb0EE13destroy_rangeEPS1_S3_.exit.loopexit.i.i.i.i165.i, %_ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit.i.i.i157.i
-  %228 = phi ptr [ %.pre.i6.i.i.i166.i, %_ZN4llvm23SmallVectorTemplateBaseINS_6WeakVHELb0EE13destroy_rangeEPS1_S3_.exit.loopexit.i.i.i.i165.i ], [ %219, %_ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit.i.i.i157.i ]
+_ZN4llvm23SmallVectorTemplateBaseINS_6WeakVHELb0EE13destroy_rangeEPS1_S3_.exit.i.i.i.i168.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_6WeakVHELb0EE13destroy_rangeEPS1_S3_.exit.loopexit.i.i.i.i166.i, %_ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit.i.i.i158.i
+  %228 = phi ptr [ %.pre.i6.i.i.i167.i, %_ZN4llvm23SmallVectorTemplateBaseINS_6WeakVHELb0EE13destroy_rangeEPS1_S3_.exit.loopexit.i.i.i.i166.i ], [ %219, %_ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit.i.i.i158.i ]
   %229 = getelementptr inbounds nuw i8, ptr %191, i64 40
   %230 = icmp eq ptr %228, %229
-  br i1 %230, label %_ZNKSt14default_deleteIN12_GLOBAL__N_114DVIRecoveryRecEEclEPS1_.exit.i168.i, label %231
+  br i1 %230, label %_ZNKSt14default_deleteIN12_GLOBAL__N_114DVIRecoveryRecEEclEPS1_.exit.i169.i, label %231
 
-231:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_6WeakVHELb0EE13destroy_rangeEPS1_S3_.exit.i.i.i.i167.i
+231:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_6WeakVHELb0EE13destroy_rangeEPS1_S3_.exit.i.i.i.i168.i
   call void @free(ptr noundef %228) #24
-  br label %_ZNKSt14default_deleteIN12_GLOBAL__N_114DVIRecoveryRecEEclEPS1_.exit.i168.i
+  br label %_ZNKSt14default_deleteIN12_GLOBAL__N_114DVIRecoveryRecEEclEPS1_.exit.i169.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_114DVIRecoveryRecEEclEPS1_.exit.i168.i: ; preds = %231, %_ZN4llvm23SmallVectorTemplateBaseINS_6WeakVHELb0EE13destroy_rangeEPS1_S3_.exit.i.i.i.i167.i
+_ZNKSt14default_deleteIN12_GLOBAL__N_114DVIRecoveryRecEEclEPS1_.exit.i169.i: ; preds = %231, %_ZN4llvm23SmallVectorTemplateBaseINS_6WeakVHELb0EE13destroy_rangeEPS1_S3_.exit.i.i.i.i168.i
   call void @_ZdlPvm(ptr noundef nonnull %191, i64 noundef 152) #26
-  br label %_ZNSt10unique_ptrIN12_GLOBAL__N_114DVIRecoveryRecESt14default_deleteIS1_EED2Ev.exit169.i
+  br label %_ZNSt10unique_ptrIN12_GLOBAL__N_114DVIRecoveryRecESt14default_deleteIS1_EED2Ev.exit170.i
 
-_ZNSt10unique_ptrIN12_GLOBAL__N_114DVIRecoveryRecESt14default_deleteIS1_EED2Ev.exit169.i: ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_114DVIRecoveryRecEEclEPS1_.exit.i168.i, %.lr.ph.i.i.i85.i
+_ZNSt10unique_ptrIN12_GLOBAL__N_114DVIRecoveryRecESt14default_deleteIS1_EED2Ev.exit170.i: ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_114DVIRecoveryRecEEclEPS1_.exit.i169.i, %.lr.ph.i.i.i86.i
   store ptr null, ptr %190, align 8, !tbaa !238
-  %.not.i.i.i86.i = icmp eq ptr %.val.i84.i, %190
-  br i1 %.not.i.i.i86.i, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_114DVIRecoveryRecESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit.loopexit.i.i, label %.lr.ph.i.i.i85.i, !llvm.loop !257
+  %.not.i.i.i87.i = icmp eq ptr %.val.i85.i, %190
+  br i1 %.not.i.i.i87.i, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_114DVIRecoveryRecESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit.loopexit.i.i, label %.lr.ph.i.i.i86.i, !llvm.loop !257
 
-_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_114DVIRecoveryRecESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit.loopexit.i.i: ; preds = %_ZNSt10unique_ptrIN12_GLOBAL__N_114DVIRecoveryRecESt14default_deleteIS1_EED2Ev.exit169.i
+_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_114DVIRecoveryRecESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit.loopexit.i.i: ; preds = %_ZNSt10unique_ptrIN12_GLOBAL__N_114DVIRecoveryRecESt14default_deleteIS1_EED2Ev.exit170.i
   %.pre.i.i = load ptr, ptr %51, align 8, !tbaa !25
   br label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_114DVIRecoveryRecESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit.i.i
 
 _ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_114DVIRecoveryRecESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit.i.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_114DVIRecoveryRecESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit.loopexit.i.i, %184
-  %232 = phi ptr [ %.pre.i.i, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_114DVIRecoveryRecESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit.loopexit.i.i ], [ %.val.i84.i, %184 ]
+  %232 = phi ptr [ %.pre.i.i, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_114DVIRecoveryRecESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit.loopexit.i.i ], [ %.val.i85.i, %184 ]
   %233 = load i64, ptr %40, align 8, !tbaa !55
   %234 = icmp eq ptr %232, %61
   br i1 %234, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_114DVIRecoveryRecESt14default_deleteIS3_EELb0EE4growEm.exit.i, label %235
@@ -2499,52 +2501,53 @@ _ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_114DVIRecoveryRec
   call fastcc void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_114DVIRecoveryRecESt14default_deleteIS3_EELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(32) %51, i64 noundef %178)
   %.val19.i.i.i.i.i = load ptr, ptr %51, align 8, !tbaa !25
   %240 = getelementptr inbounds i8, ptr %.val19.i.i.i.i.i, i64 %239
+  %.val.i.i.i.i.pre.i.i = load i64, ptr %240, align 8, !tbaa !238
   br label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_114DVIRecoveryRecESt14default_deleteIS3_EELb0EE9push_backEOS6_.exit.i.i
 
 _ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_114DVIRecoveryRecESt14default_deleteIS3_EELb0EE9push_backEOS6_.exit.i.i: ; preds = %237, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_114DVIRecoveryRecESt14default_deleteIS3_EELb0EE4growEm.exit.i, %._crit_edge.i.i
+  %.val.i.i.i.i.i40.i = phi i64 [ %.val.i.i.i.i32.i.i, %._crit_edge.i.i ], [ %.val.i.i.i.i.pre.i.i, %237 ], [ %.val.i.i.i.i32.i.i, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_114DVIRecoveryRecESt14default_deleteIS3_EELb0EE4growEm.exit.i ]
   %.val.i.i.i = phi ptr [ %.val.pre4.i.i.i, %._crit_edge.i.i ], [ %.val19.i.i.i.i.i, %237 ], [ %185, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_114DVIRecoveryRecESt14default_deleteIS3_EELb0EE4growEm.exit.i ]
   %.016.i.i.i.i.i = phi ptr [ %46, %._crit_edge.i.i ], [ %240, %237 ], [ %46, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_114DVIRecoveryRecESt14default_deleteIS3_EELb0EE4growEm.exit.i ]
   %.val3.i.i.i = load i32, ptr %62, align 8, !tbaa !26
   %241 = zext i32 %.val3.i.i.i to i64
   %242 = getelementptr inbounds nuw %"class.std::unique_ptr.364", ptr %.val.i.i.i, i64 %241
-  %.val.i.i.i.i.i40.i = load i64, ptr %.016.i.i.i.i.i, align 8, !tbaa !238
   store i64 %.val.i.i.i.i.i40.i, ptr %242, align 8, !tbaa !238
   store ptr null, ptr %.016.i.i.i.i.i, align 8, !tbaa !238
   %243 = add i32 %.val3.i.i.i, 1
   store i32 %243, ptr %62, align 8, !tbaa !26
   %244 = load ptr, ptr %46, align 8, !tbaa !238
-  %.not.i81.i = icmp eq ptr %244, null
-  br i1 %.not.i81.i, label %_ZNSt10unique_ptrIN12_GLOBAL__N_114DVIRecoveryRecESt14default_deleteIS1_EED2Ev.exit.i, label %245
+  %.not.i82.i = icmp eq ptr %244, null
+  br i1 %.not.i82.i, label %_ZNSt10unique_ptrIN12_GLOBAL__N_114DVIRecoveryRecESt14default_deleteIS1_EED2Ev.exit.i, label %245
 
 245:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_114DVIRecoveryRecESt14default_deleteIS3_EELb0EE9push_backEOS6_.exit.i.i
   %246 = getelementptr inbounds nuw i8, ptr %244, i64 120
-  %.val.i133.i = load ptr, ptr %246, align 8, !tbaa !25
+  %.val.i134.i = load ptr, ptr %246, align 8, !tbaa !25
   %247 = getelementptr inbounds nuw i8, ptr %244, i64 128
-  %.val9.i134.i = load i32, ptr %247, align 8, !tbaa !26
-  %248 = zext i32 %.val9.i134.i to i64
-  %249 = getelementptr inbounds nuw %"class.std::unique_ptr.426", ptr %.val.i133.i, i64 %248
-  %.not11.i.i = icmp eq i32 %.val9.i134.i, 0
-  br i1 %.not11.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.i.i.i.i.i, label %.lr.ph.i135.i
+  %.val9.i135.i = load i32, ptr %247, align 8, !tbaa !26
+  %248 = zext i32 %.val9.i135.i to i64
+  %249 = getelementptr inbounds nuw %"class.std::unique_ptr.426", ptr %.val.i134.i, i64 %248
+  %.not11.i.i = icmp eq i32 %.val9.i135.i, 0
+  br i1 %.not11.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.i.i.i.i.i, label %.lr.ph.i136.i
 
-._crit_edge.i137.i:                               ; preds = %_ZNSt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS1_EE5resetEPS1_.exit.i.i
+._crit_edge.i138.i:                               ; preds = %_ZNSt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS1_EE5resetEPS1_.exit.i.i
   %.val.i.pre.i.i = load ptr, ptr %246, align 8, !tbaa !25
   %.val2.i.pre.i.i = load i32, ptr %247, align 8, !tbaa !26
   %.not4.i.i.i.i = icmp eq i32 %.val2.i.pre.i.i, 0
   br i1 %.not4.i.i.i.i, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.i.i.i.i.i, label %.lr.ph.i.preheader.i.i.i
 
-.lr.ph.i.preheader.i.i.i:                         ; preds = %._crit_edge.i137.i
+.lr.ph.i.preheader.i.i.i:                         ; preds = %._crit_edge.i138.i
   %250 = zext i32 %.val2.i.pre.i.i to i64
   %251 = getelementptr inbounds nuw %"class.std::unique_ptr.426", ptr %.val.i.pre.i.i, i64 %250
-  br label %.lr.ph.i.i.i138.i
+  br label %.lr.ph.i.i.i139.i
 
-.lr.ph.i.i.i138.i:                                ; preds = %_ZNSt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS1_EED2Ev.exit.i.i.i.i, %.lr.ph.i.preheader.i.i.i
-  %.05.i.i.i139.i = phi ptr [ %252, %_ZNSt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS1_EED2Ev.exit.i.i.i.i ], [ %251, %.lr.ph.i.preheader.i.i.i ]
-  %252 = getelementptr inbounds i8, ptr %.05.i.i.i139.i, i64 -8
+.lr.ph.i.i.i139.i:                                ; preds = %_ZNSt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS1_EED2Ev.exit.i.i.i.i, %.lr.ph.i.preheader.i.i.i
+  %.05.i.i.i140.i = phi ptr [ %252, %_ZNSt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS1_EED2Ev.exit.i.i.i.i ], [ %251, %.lr.ph.i.preheader.i.i.i ]
+  %252 = getelementptr inbounds i8, ptr %.05.i.i.i140.i, i64 -8
   %253 = load ptr, ptr %252, align 8, !tbaa !248
   %.not.i.i.i.i.i = icmp eq ptr %253, null
   br i1 %.not.i.i.i.i.i, label %_ZNSt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS1_EED2Ev.exit.i.i.i.i, label %254
 
-254:                                              ; preds = %.lr.ph.i.i.i138.i
+254:                                              ; preds = %.lr.ph.i.i.i139.i
   %255 = getelementptr inbounds nuw i8, ptr %253, i64 64
   %256 = load ptr, ptr %255, align 8, !tbaa !25
   %257 = getelementptr inbounds nuw i8, ptr %253, i64 80
@@ -2569,19 +2572,19 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_119SCEVDbgValueBuilderEEclEPS1_.exit.i.i.i.
   call void @_ZdlPvm(ptr noundef nonnull %253, i64 noundef 96) #26
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS1_EED2Ev.exit.i.i.i.i
 
-_ZNSt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS1_EED2Ev.exit.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_119SCEVDbgValueBuilderEEclEPS1_.exit.i.i.i.i.i, %.lr.ph.i.i.i138.i
+_ZNSt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS1_EED2Ev.exit.i.i.i.i: ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_119SCEVDbgValueBuilderEEclEPS1_.exit.i.i.i.i.i, %.lr.ph.i.i.i139.i
   store ptr null, ptr %252, align 8, !tbaa !248
-  %.not.i.i.i140.i = icmp eq ptr %.val.i.pre.i.i, %252
-  br i1 %.not.i.i.i140.i, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.i.i.i.i.loopexit.i, label %.lr.ph.i.i.i138.i, !llvm.loop !250
+  %.not.i.i.i141.i = icmp eq ptr %.val.i.pre.i.i, %252
+  br i1 %.not.i.i.i141.i, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.i.i.i.i.loopexit.i, label %.lr.ph.i.i.i139.i, !llvm.loop !250
 
-.lr.ph.i135.i:                                    ; preds = %245, %_ZNSt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS1_EE5resetEPS1_.exit.i.i
-  %.012.i.i = phi ptr [ %275, %_ZNSt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS1_EE5resetEPS1_.exit.i.i ], [ %.val.i133.i, %245 ]
+.lr.ph.i136.i:                                    ; preds = %245, %_ZNSt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS1_EE5resetEPS1_.exit.i.i
+  %.012.i.i = phi ptr [ %275, %_ZNSt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS1_EE5resetEPS1_.exit.i.i ], [ %.val.i134.i, %245 ]
   %264 = load ptr, ptr %.012.i.i, align 8, !tbaa !248
   store ptr null, ptr %.012.i.i, align 8, !tbaa !248
   %.not.i.i10.i.i = icmp eq ptr %264, null
   br i1 %.not.i.i10.i.i, label %_ZNSt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS1_EE5resetEPS1_.exit.i.i, label %265
 
-265:                                              ; preds = %.lr.ph.i135.i
+265:                                              ; preds = %.lr.ph.i136.i
   %266 = getelementptr inbounds nuw i8, ptr %264, i64 64
   %267 = load ptr, ptr %266, align 8, !tbaa !25
   %268 = getelementptr inbounds nuw i8, ptr %264, i64 80
@@ -2606,17 +2609,17 @@ _ZNKSt14default_deleteIN12_GLOBAL__N_119SCEVDbgValueBuilderEEclEPS1_.exit.i.i.i.
   call void @_ZdlPvm(ptr noundef nonnull %264, i64 noundef 96) #26
   br label %_ZNSt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS1_EE5resetEPS1_.exit.i.i
 
-_ZNSt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS1_EE5resetEPS1_.exit.i.i: ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_119SCEVDbgValueBuilderEEclEPS1_.exit.i.i.i.i, %.lr.ph.i135.i
+_ZNSt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS1_EE5resetEPS1_.exit.i.i: ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_119SCEVDbgValueBuilderEEclEPS1_.exit.i.i.i.i, %.lr.ph.i136.i
   %275 = getelementptr inbounds nuw i8, ptr %.012.i.i, i64 8
-  %.not.i136.i = icmp eq ptr %275, %249
-  br i1 %.not.i136.i, label %._crit_edge.i137.i, label %.lr.ph.i135.i
+  %.not.i137.i = icmp eq ptr %275, %249
+  br i1 %.not.i137.i, label %._crit_edge.i138.i, label %.lr.ph.i136.i
 
 _ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.i.i.i.i.loopexit.i: ; preds = %_ZNSt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS1_EED2Ev.exit.i.i.i.i
   %.val.i.i.i.i.pre.i = load ptr, ptr %246, align 8, !tbaa !25
   br label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.i.i.i.i.i
 
-_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.i.i.i.i.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.i.i.i.i.loopexit.i, %._crit_edge.i137.i, %245
-  %.val.i.i.i.i.i = phi ptr [ %.val.i.i.i.i.pre.i, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.i.i.i.i.loopexit.i ], [ %.val.i.pre.i.i, %._crit_edge.i137.i ], [ %.val.i133.i, %245 ]
+_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.i.i.i.i.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.i.i.i.i.loopexit.i, %._crit_edge.i138.i, %245
+  %.val.i.i.i.i.i = phi ptr [ %.val.i.i.i.i.pre.i, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.i.i.i.i.loopexit.i ], [ %.val.i.pre.i.i, %._crit_edge.i138.i ], [ %.val.i134.i, %245 ]
   store i32 0, ptr %247, align 8, !tbaa !26
   %276 = getelementptr inbounds nuw i8, ptr %244, i64 136
   %277 = icmp eq ptr %.val.i.i.i.i.i, %276
@@ -2833,7 +2836,7 @@ _ZN4llvm15ValueHandleBaseD2Ev.exit.i.i:           ; preds = %357, %_ZN4llvm23Sma
   %358 = load ptr, ptr %175, align 8, !tbaa !259
   %359 = load i8, ptr %358, align 4, !tbaa !260
   %360 = icmp eq i8 %359, 4
-  %.val8.i.i = load ptr, ptr %46, align 8, !tbaa !238
+  %.val8.i.i = load ptr, ptr %46, align 8
   %361 = getelementptr inbounds nuw i8, ptr %.val8.i.i, i64 16
   %362 = zext i1 %360 to i8
   store i8 %362, ptr %361, align 8, !tbaa !237
@@ -2942,8 +2945,8 @@ _ZN9__gnu_cxx5__ops10_Iter_predIZNK4llvm18RawLocationWrapper14isKillLocationEPKN
   %413 = add nuw i64 %412, 8
   %414 = add nuw i64 %402, 136
   %storemerge.i.i.i.i.i.i.i.i.i.i = select i1 %401, i64 %414, i64 %413
-  %.not.i.i.i.i.i.i.i.i131.i = icmp eq i64 %storemerge.i.i.i.i.i.i.i.i.i.i, %399
-  br i1 %.not.i.i.i.i.i.i.i.i131.i, label %_ZNK4llvm20DbgVariableIntrinsic14isKillLocationEv.exit.thread24.i, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !288
+  %.not.i.i.i.i.i.i.i.i132.i = icmp eq i64 %storemerge.i.i.i.i.i.i.i.i.i.i, %399
+  br i1 %.not.i.i.i.i.i.i.i.i132.i, label %_ZNK4llvm20DbgVariableIntrinsic14isKillLocationEv.exit.thread24.i, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !288
 
 _ZNK4llvm20DbgVariableIntrinsic14isKillLocationEv.exit.thread24.i: ; preds = %411
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %37) #24
@@ -3078,6 +3081,8 @@ _ZNK4llvm20DbgVariableIntrinsic25getNumVariableLocationOpsEv.exit.i.i: ; preds =
   br i1 %.not10.i.i, label %._crit_edge.i69.i, label %.lr.ph.i50.i
 
 ._crit_edge.i69.i:                                ; preds = %_ZN4llvm15ValueHandleBaseD2Ev.exit.i66.i, %_ZNK4llvm20DbgVariableIntrinsic25getNumVariableLocationOpsEv.exit.i.i
+  %.val.i.i.i.i15.in.i.i = phi ptr [ %438, %_ZNK4llvm20DbgVariableIntrinsic25getNumVariableLocationOpsEv.exit.i.i ], [ %.val.i.i, %_ZN4llvm15ValueHandleBaseD2Ev.exit.i66.i ]
+  %.val.i.i.i.i15.i.i = ptrtoint ptr %.val.i.i.i.i15.in.i.i to i64
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %43) #24
   %475 = load i32, ptr %62, align 8, !tbaa !26
   %476 = zext i32 %475 to i64
@@ -3097,46 +3102,46 @@ _ZNK4llvm20DbgVariableIntrinsic25getNumVariableLocationOpsEv.exit.i.i: ; preds =
 483:                                              ; preds = %479
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %39) #24
   %484 = call noundef ptr @_ZN4llvm15SmallVectorBaseIjE13mallocForGrowEPvmmRm(ptr noundef nonnull align 8 dereferenceable(32) %51, ptr noundef nonnull %61, i64 noundef %477, i64 noundef 8, ptr noundef nonnull align 8 dereferenceable(8) %39) #24
-  %.val.i116.i = load ptr, ptr %51, align 8, !tbaa !25
-  %.val3.i117.i = load i32, ptr %62, align 8, !tbaa !26
-  %485 = zext i32 %.val3.i117.i to i64
-  %486 = getelementptr inbounds nuw %"class.std::unique_ptr.364", ptr %.val.i116.i, i64 %485
-  %.not7.i.i.i.i.i.i.i118.i = icmp eq i32 %.val3.i117.i, 0
-  br i1 %.not7.i.i.i.i.i.i.i118.i, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_114DVIRecoveryRecESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit.i129.i, label %.lr.ph.i.i.i.i.i.i.i119.i
+  %.val.i117.i = load ptr, ptr %51, align 8, !tbaa !25
+  %.val3.i118.i = load i32, ptr %62, align 8, !tbaa !26
+  %485 = zext i32 %.val3.i118.i to i64
+  %486 = getelementptr inbounds nuw %"class.std::unique_ptr.364", ptr %.val.i117.i, i64 %485
+  %.not7.i.i.i.i.i.i.i119.i = icmp eq i32 %.val3.i118.i, 0
+  br i1 %.not7.i.i.i.i.i.i.i119.i, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_114DVIRecoveryRecESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit.i130.i, label %.lr.ph.i.i.i.i.i.i.i120.i
 
-.lr.ph.i.i.i.i.i.i.i119.i:                        ; preds = %483, %.lr.ph.i.i.i.i.i.i.i119.i
-  %.09.i.i.i.i.i.i.i120.i = phi ptr [ %488, %.lr.ph.i.i.i.i.i.i.i119.i ], [ %484, %483 ]
-  %.sroa.06.08.i.i.i.i.i.i.i121.i = phi ptr [ %487, %.lr.ph.i.i.i.i.i.i.i119.i ], [ %.val.i116.i, %483 ]
-  %.val.i.i.i.i.i.i.i.i.i.i.i122.i = load i64, ptr %.sroa.06.08.i.i.i.i.i.i.i121.i, align 8, !tbaa !238
-  store i64 %.val.i.i.i.i.i.i.i.i.i.i.i122.i, ptr %.09.i.i.i.i.i.i.i120.i, align 8, !tbaa !238
-  store ptr null, ptr %.sroa.06.08.i.i.i.i.i.i.i121.i, align 8, !tbaa !238
-  %487 = getelementptr inbounds nuw i8, ptr %.sroa.06.08.i.i.i.i.i.i.i121.i, i64 8
-  %488 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i120.i, i64 8
-  %.not.i.i.i.i.i.i.i123.i = icmp eq ptr %487, %486
-  br i1 %.not.i.i.i.i.i.i.i123.i, label %.lr.ph.i.i.i124.i, label %.lr.ph.i.i.i.i.i.i.i119.i, !llvm.loop !247
+.lr.ph.i.i.i.i.i.i.i120.i:                        ; preds = %483, %.lr.ph.i.i.i.i.i.i.i120.i
+  %.09.i.i.i.i.i.i.i121.i = phi ptr [ %488, %.lr.ph.i.i.i.i.i.i.i120.i ], [ %484, %483 ]
+  %.sroa.06.08.i.i.i.i.i.i.i122.i = phi ptr [ %487, %.lr.ph.i.i.i.i.i.i.i120.i ], [ %.val.i117.i, %483 ]
+  %.val.i.i.i.i.i.i.i.i.i.i.i123.i = load i64, ptr %.sroa.06.08.i.i.i.i.i.i.i122.i, align 8, !tbaa !238
+  store i64 %.val.i.i.i.i.i.i.i.i.i.i.i123.i, ptr %.09.i.i.i.i.i.i.i121.i, align 8, !tbaa !238
+  store ptr null, ptr %.sroa.06.08.i.i.i.i.i.i.i122.i, align 8, !tbaa !238
+  %487 = getelementptr inbounds nuw i8, ptr %.sroa.06.08.i.i.i.i.i.i.i122.i, i64 8
+  %488 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i.i.i121.i, i64 8
+  %.not.i.i.i.i.i.i.i124.i = icmp eq ptr %487, %486
+  br i1 %.not.i.i.i.i.i.i.i124.i, label %.lr.ph.i.i.i125.i, label %.lr.ph.i.i.i.i.i.i.i120.i, !llvm.loop !247
 
-.lr.ph.i.i.i124.i:                                ; preds = %.lr.ph.i.i.i.i.i.i.i119.i, %.lr.ph.i.i.i124.i
-  %.05.i.i.i125.i = phi ptr [ %489, %.lr.ph.i.i.i124.i ], [ %486, %.lr.ph.i.i.i.i.i.i.i119.i ]
-  %489 = getelementptr inbounds i8, ptr %.05.i.i.i125.i, i64 -8
+.lr.ph.i.i.i125.i:                                ; preds = %.lr.ph.i.i.i.i.i.i.i120.i, %.lr.ph.i.i.i125.i
+  %.05.i.i.i126.i = phi ptr [ %489, %.lr.ph.i.i.i125.i ], [ %486, %.lr.ph.i.i.i.i.i.i.i120.i ]
+  %489 = getelementptr inbounds i8, ptr %.05.i.i.i126.i, i64 -8
   call fastcc void @_ZNSt10unique_ptrIN12_GLOBAL__N_114DVIRecoveryRecESt14default_deleteIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %489) #24
-  %.not.i.i.i126.i = icmp eq ptr %.val.i116.i, %489
-  br i1 %.not.i.i.i126.i, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_114DVIRecoveryRecESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit.loopexit.i127.i, label %.lr.ph.i.i.i124.i, !llvm.loop !257
+  %.not.i.i.i127.i = icmp eq ptr %.val.i117.i, %489
+  br i1 %.not.i.i.i127.i, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_114DVIRecoveryRecESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit.loopexit.i128.i, label %.lr.ph.i.i.i125.i, !llvm.loop !257
 
-_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_114DVIRecoveryRecESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit.loopexit.i127.i: ; preds = %.lr.ph.i.i.i124.i
-  %.pre.i128.i = load ptr, ptr %51, align 8, !tbaa !25
-  br label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_114DVIRecoveryRecESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit.i129.i
+_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_114DVIRecoveryRecESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit.loopexit.i128.i: ; preds = %.lr.ph.i.i.i125.i
+  %.pre.i129.i = load ptr, ptr %51, align 8, !tbaa !25
+  br label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_114DVIRecoveryRecESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit.i130.i
 
-_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_114DVIRecoveryRecESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit.i129.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_114DVIRecoveryRecESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit.loopexit.i127.i, %483
-  %490 = phi ptr [ %.pre.i128.i, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_114DVIRecoveryRecESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit.loopexit.i127.i ], [ %.val.i116.i, %483 ]
+_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_114DVIRecoveryRecESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit.i130.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_114DVIRecoveryRecESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit.loopexit.i128.i, %483
+  %490 = phi ptr [ %.pre.i129.i, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_114DVIRecoveryRecESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit.loopexit.i128.i ], [ %.val.i117.i, %483 ]
   %491 = load i64, ptr %39, align 8, !tbaa !55
   %492 = icmp eq ptr %490, %61
-  br i1 %492, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_114DVIRecoveryRecESt14default_deleteIS3_EELb0EE4growEm.exit130.i, label %493
+  br i1 %492, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_114DVIRecoveryRecESt14default_deleteIS3_EELb0EE4growEm.exit131.i, label %493
 
-493:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_114DVIRecoveryRecESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit.i129.i
+493:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_114DVIRecoveryRecESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit.i130.i
   call void @free(ptr noundef %490) #24
-  br label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_114DVIRecoveryRecESt14default_deleteIS3_EELb0EE4growEm.exit130.i
+  br label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_114DVIRecoveryRecESt14default_deleteIS3_EELb0EE4growEm.exit131.i
 
-_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_114DVIRecoveryRecESt14default_deleteIS3_EELb0EE4growEm.exit130.i: ; preds = %493, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_114DVIRecoveryRecESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit.i129.i
+_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_114DVIRecoveryRecESt14default_deleteIS3_EELb0EE4growEm.exit131.i: ; preds = %493, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_114DVIRecoveryRecESt14default_deleteIS3_EELb0EE19moveElementsForGrowEPS6_.exit.i130.i
   store ptr %484, ptr %51, align 8, !tbaa !25
   %494 = trunc i64 %491 to i32
   store i32 %494, ptr %63, align 4, !tbaa !27
@@ -3149,192 +3154,193 @@ _ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_114DVIRecoveryRec
   call fastcc void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_114DVIRecoveryRecESt14default_deleteIS3_EELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(32) %51, i64 noundef %477)
   %.val19.i.i.i.i79.i = load ptr, ptr %51, align 8, !tbaa !25
   %498 = getelementptr inbounds i8, ptr %.val19.i.i.i.i79.i, i64 %497
+  %.val.i.i.i.i.pre.i80.i = load i64, ptr %498, align 8, !tbaa !238
   br label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_114DVIRecoveryRecESt14default_deleteIS3_EELb0EE9push_backEOS6_.exit.i74.i
 
-_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_114DVIRecoveryRecESt14default_deleteIS3_EELb0EE9push_backEOS6_.exit.i74.i: ; preds = %495, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_114DVIRecoveryRecESt14default_deleteIS3_EELb0EE4growEm.exit130.i, %._crit_edge.i69.i
-  %.val.i.i75.i = phi ptr [ %.val.pre4.i.i71.i, %._crit_edge.i69.i ], [ %.val19.i.i.i.i79.i, %495 ], [ %484, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_114DVIRecoveryRecESt14default_deleteIS3_EELb0EE4growEm.exit130.i ]
-  %.016.i.i.i.i76.i = phi ptr [ %42, %._crit_edge.i69.i ], [ %498, %495 ], [ %42, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_114DVIRecoveryRecESt14default_deleteIS3_EELb0EE4growEm.exit130.i ]
-  %.val3.i.i77.i = load i32, ptr %62, align 8, !tbaa !26
-  %499 = zext i32 %.val3.i.i77.i to i64
-  %500 = getelementptr inbounds nuw %"class.std::unique_ptr.364", ptr %.val.i.i75.i, i64 %499
-  %.val.i.i.i.i.i78.i = load i64, ptr %.016.i.i.i.i76.i, align 8, !tbaa !238
-  store i64 %.val.i.i.i.i.i78.i, ptr %500, align 8, !tbaa !238
-  store ptr null, ptr %.016.i.i.i.i76.i, align 8, !tbaa !238
-  %501 = add i32 %.val3.i.i77.i, 1
+_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_114DVIRecoveryRecESt14default_deleteIS3_EELb0EE9push_backEOS6_.exit.i74.i: ; preds = %495, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_114DVIRecoveryRecESt14default_deleteIS3_EELb0EE4growEm.exit131.i, %._crit_edge.i69.i
+  %.val.i.i.i.i.i75.i = phi i64 [ %.val.i.i.i.i15.i.i, %._crit_edge.i69.i ], [ %.val.i.i.i.i.pre.i80.i, %495 ], [ %.val.i.i.i.i15.i.i, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_114DVIRecoveryRecESt14default_deleteIS3_EELb0EE4growEm.exit131.i ]
+  %.val.i.i76.i = phi ptr [ %.val.pre4.i.i71.i, %._crit_edge.i69.i ], [ %.val19.i.i.i.i79.i, %495 ], [ %484, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_114DVIRecoveryRecESt14default_deleteIS3_EELb0EE4growEm.exit131.i ]
+  %.016.i.i.i.i77.i = phi ptr [ %42, %._crit_edge.i69.i ], [ %498, %495 ], [ %42, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_114DVIRecoveryRecESt14default_deleteIS3_EELb0EE4growEm.exit131.i ]
+  %.val3.i.i78.i = load i32, ptr %62, align 8, !tbaa !26
+  %499 = zext i32 %.val3.i.i78.i to i64
+  %500 = getelementptr inbounds nuw %"class.std::unique_ptr.364", ptr %.val.i.i76.i, i64 %499
+  store i64 %.val.i.i.i.i.i75.i, ptr %500, align 8, !tbaa !238
+  store ptr null, ptr %.016.i.i.i.i77.i, align 8, !tbaa !238
+  %501 = add i32 %.val3.i.i78.i, 1
   store i32 %501, ptr %62, align 8, !tbaa !26
   %502 = load ptr, ptr %42, align 8, !tbaa !238
-  %.not.i87.i = icmp eq ptr %502, null
-  br i1 %.not.i87.i, label %630, label %503
+  %.not.i88.i = icmp eq ptr %502, null
+  br i1 %.not.i88.i, label %630, label %503
 
 503:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_114DVIRecoveryRecESt14default_deleteIS3_EELb0EE9push_backEOS6_.exit.i74.i
   %504 = getelementptr inbounds nuw i8, ptr %502, i64 120
-  %.val.i170.i = load ptr, ptr %504, align 8, !tbaa !25
+  %.val.i171.i = load ptr, ptr %504, align 8, !tbaa !25
   %505 = getelementptr inbounds nuw i8, ptr %502, i64 128
-  %.val9.i171.i = load i32, ptr %505, align 8, !tbaa !26
-  %506 = zext i32 %.val9.i171.i to i64
-  %507 = getelementptr inbounds nuw %"class.std::unique_ptr.426", ptr %.val.i170.i, i64 %506
-  %.not11.i172.i = icmp eq i32 %.val9.i171.i, 0
-  br i1 %.not11.i172.i, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.i.i.i.i101.i, label %.lr.ph.i173.i
+  %.val9.i172.i = load i32, ptr %505, align 8, !tbaa !26
+  %506 = zext i32 %.val9.i172.i to i64
+  %507 = getelementptr inbounds nuw %"class.std::unique_ptr.426", ptr %.val.i171.i, i64 %506
+  %.not11.i173.i = icmp eq i32 %.val9.i172.i, 0
+  br i1 %.not11.i173.i, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.i.i.i.i102.i, label %.lr.ph.i174.i
 
-._crit_edge.i180.i:                               ; preds = %_ZNSt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS1_EE5resetEPS1_.exit.i178.i
-  %.val.i.pre.i181.i = load ptr, ptr %504, align 8, !tbaa !25
-  %.val2.i.pre.i182.i = load i32, ptr %505, align 8, !tbaa !26
-  %.not4.i.i.i183.i = icmp eq i32 %.val2.i.pre.i182.i, 0
-  br i1 %.not4.i.i.i183.i, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.i.i.i.i101.i, label %.lr.ph.i.preheader.i.i184.i
+._crit_edge.i181.i:                               ; preds = %_ZNSt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS1_EE5resetEPS1_.exit.i179.i
+  %.val.i.pre.i182.i = load ptr, ptr %504, align 8, !tbaa !25
+  %.val2.i.pre.i183.i = load i32, ptr %505, align 8, !tbaa !26
+  %.not4.i.i.i184.i = icmp eq i32 %.val2.i.pre.i183.i, 0
+  br i1 %.not4.i.i.i184.i, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.i.i.i.i102.i, label %.lr.ph.i.preheader.i.i185.i
 
-.lr.ph.i.preheader.i.i184.i:                      ; preds = %._crit_edge.i180.i
-  %508 = zext i32 %.val2.i.pre.i182.i to i64
-  %509 = getelementptr inbounds nuw %"class.std::unique_ptr.426", ptr %.val.i.pre.i181.i, i64 %508
-  br label %.lr.ph.i.i.i185.i
+.lr.ph.i.preheader.i.i185.i:                      ; preds = %._crit_edge.i181.i
+  %508 = zext i32 %.val2.i.pre.i183.i to i64
+  %509 = getelementptr inbounds nuw %"class.std::unique_ptr.426", ptr %.val.i.pre.i182.i, i64 %508
+  br label %.lr.ph.i.i.i186.i
 
-.lr.ph.i.i.i185.i:                                ; preds = %_ZNSt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS1_EED2Ev.exit.i.i.i190.i, %.lr.ph.i.preheader.i.i184.i
-  %.05.i.i.i186.i = phi ptr [ %510, %_ZNSt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS1_EED2Ev.exit.i.i.i190.i ], [ %509, %.lr.ph.i.preheader.i.i184.i ]
-  %510 = getelementptr inbounds i8, ptr %.05.i.i.i186.i, i64 -8
+.lr.ph.i.i.i186.i:                                ; preds = %_ZNSt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS1_EED2Ev.exit.i.i.i191.i, %.lr.ph.i.preheader.i.i185.i
+  %.05.i.i.i187.i = phi ptr [ %510, %_ZNSt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS1_EED2Ev.exit.i.i.i191.i ], [ %509, %.lr.ph.i.preheader.i.i185.i ]
+  %510 = getelementptr inbounds i8, ptr %.05.i.i.i187.i, i64 -8
   %511 = load ptr, ptr %510, align 8, !tbaa !248
-  %.not.i.i.i.i187.i = icmp eq ptr %511, null
-  br i1 %.not.i.i.i.i187.i, label %_ZNSt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS1_EED2Ev.exit.i.i.i190.i, label %512
+  %.not.i.i.i.i188.i = icmp eq ptr %511, null
+  br i1 %.not.i.i.i.i188.i, label %_ZNSt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS1_EED2Ev.exit.i.i.i191.i, label %512
 
-512:                                              ; preds = %.lr.ph.i.i.i185.i
+512:                                              ; preds = %.lr.ph.i.i.i186.i
   %513 = getelementptr inbounds nuw i8, ptr %511, i64 64
   %514 = load ptr, ptr %513, align 8, !tbaa !25
   %515 = getelementptr inbounds nuw i8, ptr %511, i64 80
   %516 = icmp eq ptr %514, %515
-  br i1 %516, label %_ZN4llvm11SmallVectorIPNS_5ValueELj2EED2Ev.exit.i.i.i.i.i.i188.i, label %517
+  br i1 %516, label %_ZN4llvm11SmallVectorIPNS_5ValueELj2EED2Ev.exit.i.i.i.i.i.i189.i, label %517
 
 517:                                              ; preds = %512
   call void @free(ptr noundef %514) #24
-  br label %_ZN4llvm11SmallVectorIPNS_5ValueELj2EED2Ev.exit.i.i.i.i.i.i188.i
+  br label %_ZN4llvm11SmallVectorIPNS_5ValueELj2EED2Ev.exit.i.i.i.i.i.i189.i
 
-_ZN4llvm11SmallVectorIPNS_5ValueELj2EED2Ev.exit.i.i.i.i.i.i188.i: ; preds = %517, %512
+_ZN4llvm11SmallVectorIPNS_5ValueELj2EED2Ev.exit.i.i.i.i.i.i189.i: ; preds = %517, %512
   %518 = load ptr, ptr %511, align 8, !tbaa !25
   %519 = getelementptr inbounds nuw i8, ptr %511, i64 16
   %520 = icmp eq ptr %518, %519
-  br i1 %520, label %_ZNKSt14default_deleteIN12_GLOBAL__N_119SCEVDbgValueBuilderEEclEPS1_.exit.i.i.i.i189.i, label %521
+  br i1 %520, label %_ZNKSt14default_deleteIN12_GLOBAL__N_119SCEVDbgValueBuilderEEclEPS1_.exit.i.i.i.i190.i, label %521
 
-521:                                              ; preds = %_ZN4llvm11SmallVectorIPNS_5ValueELj2EED2Ev.exit.i.i.i.i.i.i188.i
+521:                                              ; preds = %_ZN4llvm11SmallVectorIPNS_5ValueELj2EED2Ev.exit.i.i.i.i.i.i189.i
   call void @free(ptr noundef %518) #24
-  br label %_ZNKSt14default_deleteIN12_GLOBAL__N_119SCEVDbgValueBuilderEEclEPS1_.exit.i.i.i.i189.i
+  br label %_ZNKSt14default_deleteIN12_GLOBAL__N_119SCEVDbgValueBuilderEEclEPS1_.exit.i.i.i.i190.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_119SCEVDbgValueBuilderEEclEPS1_.exit.i.i.i.i189.i: ; preds = %521, %_ZN4llvm11SmallVectorIPNS_5ValueELj2EED2Ev.exit.i.i.i.i.i.i188.i
+_ZNKSt14default_deleteIN12_GLOBAL__N_119SCEVDbgValueBuilderEEclEPS1_.exit.i.i.i.i190.i: ; preds = %521, %_ZN4llvm11SmallVectorIPNS_5ValueELj2EED2Ev.exit.i.i.i.i.i.i189.i
   call void @_ZdlPvm(ptr noundef nonnull %511, i64 noundef 96) #26
-  br label %_ZNSt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS1_EED2Ev.exit.i.i.i190.i
+  br label %_ZNSt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS1_EED2Ev.exit.i.i.i191.i
 
-_ZNSt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS1_EED2Ev.exit.i.i.i190.i: ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_119SCEVDbgValueBuilderEEclEPS1_.exit.i.i.i.i189.i, %.lr.ph.i.i.i185.i
+_ZNSt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS1_EED2Ev.exit.i.i.i191.i: ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_119SCEVDbgValueBuilderEEclEPS1_.exit.i.i.i.i190.i, %.lr.ph.i.i.i186.i
   store ptr null, ptr %510, align 8, !tbaa !248
-  %.not.i.i.i191.i = icmp eq ptr %.val.i.pre.i181.i, %510
-  br i1 %.not.i.i.i191.i, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.i.i.i.i101.loopexit.i, label %.lr.ph.i.i.i185.i, !llvm.loop !250
+  %.not.i.i.i192.i = icmp eq ptr %.val.i.pre.i182.i, %510
+  br i1 %.not.i.i.i192.i, label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.i.i.i.i102.loopexit.i, label %.lr.ph.i.i.i186.i, !llvm.loop !250
 
-.lr.ph.i173.i:                                    ; preds = %503, %_ZNSt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS1_EE5resetEPS1_.exit.i178.i
-  %.012.i174.i = phi ptr [ %533, %_ZNSt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS1_EE5resetEPS1_.exit.i178.i ], [ %.val.i170.i, %503 ]
-  %522 = load ptr, ptr %.012.i174.i, align 8, !tbaa !248
-  store ptr null, ptr %.012.i174.i, align 8, !tbaa !248
-  %.not.i.i10.i175.i = icmp eq ptr %522, null
-  br i1 %.not.i.i10.i175.i, label %_ZNSt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS1_EE5resetEPS1_.exit.i178.i, label %523
+.lr.ph.i174.i:                                    ; preds = %503, %_ZNSt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS1_EE5resetEPS1_.exit.i179.i
+  %.012.i175.i = phi ptr [ %533, %_ZNSt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS1_EE5resetEPS1_.exit.i179.i ], [ %.val.i171.i, %503 ]
+  %522 = load ptr, ptr %.012.i175.i, align 8, !tbaa !248
+  store ptr null, ptr %.012.i175.i, align 8, !tbaa !248
+  %.not.i.i10.i176.i = icmp eq ptr %522, null
+  br i1 %.not.i.i10.i176.i, label %_ZNSt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS1_EE5resetEPS1_.exit.i179.i, label %523
 
-523:                                              ; preds = %.lr.ph.i173.i
+523:                                              ; preds = %.lr.ph.i174.i
   %524 = getelementptr inbounds nuw i8, ptr %522, i64 64
   %525 = load ptr, ptr %524, align 8, !tbaa !25
   %526 = getelementptr inbounds nuw i8, ptr %522, i64 80
   %527 = icmp eq ptr %525, %526
-  br i1 %527, label %_ZN4llvm11SmallVectorIPNS_5ValueELj2EED2Ev.exit.i.i.i.i.i176.i, label %528
+  br i1 %527, label %_ZN4llvm11SmallVectorIPNS_5ValueELj2EED2Ev.exit.i.i.i.i.i177.i, label %528
 
 528:                                              ; preds = %523
   call void @free(ptr noundef %525) #24
-  br label %_ZN4llvm11SmallVectorIPNS_5ValueELj2EED2Ev.exit.i.i.i.i.i176.i
+  br label %_ZN4llvm11SmallVectorIPNS_5ValueELj2EED2Ev.exit.i.i.i.i.i177.i
 
-_ZN4llvm11SmallVectorIPNS_5ValueELj2EED2Ev.exit.i.i.i.i.i176.i: ; preds = %528, %523
+_ZN4llvm11SmallVectorIPNS_5ValueELj2EED2Ev.exit.i.i.i.i.i177.i: ; preds = %528, %523
   %529 = load ptr, ptr %522, align 8, !tbaa !25
   %530 = getelementptr inbounds nuw i8, ptr %522, i64 16
   %531 = icmp eq ptr %529, %530
-  br i1 %531, label %_ZNKSt14default_deleteIN12_GLOBAL__N_119SCEVDbgValueBuilderEEclEPS1_.exit.i.i.i177.i, label %532
+  br i1 %531, label %_ZNKSt14default_deleteIN12_GLOBAL__N_119SCEVDbgValueBuilderEEclEPS1_.exit.i.i.i178.i, label %532
 
-532:                                              ; preds = %_ZN4llvm11SmallVectorIPNS_5ValueELj2EED2Ev.exit.i.i.i.i.i176.i
+532:                                              ; preds = %_ZN4llvm11SmallVectorIPNS_5ValueELj2EED2Ev.exit.i.i.i.i.i177.i
   call void @free(ptr noundef %529) #24
-  br label %_ZNKSt14default_deleteIN12_GLOBAL__N_119SCEVDbgValueBuilderEEclEPS1_.exit.i.i.i177.i
+  br label %_ZNKSt14default_deleteIN12_GLOBAL__N_119SCEVDbgValueBuilderEEclEPS1_.exit.i.i.i178.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_119SCEVDbgValueBuilderEEclEPS1_.exit.i.i.i177.i: ; preds = %532, %_ZN4llvm11SmallVectorIPNS_5ValueELj2EED2Ev.exit.i.i.i.i.i176.i
+_ZNKSt14default_deleteIN12_GLOBAL__N_119SCEVDbgValueBuilderEEclEPS1_.exit.i.i.i178.i: ; preds = %532, %_ZN4llvm11SmallVectorIPNS_5ValueELj2EED2Ev.exit.i.i.i.i.i177.i
   call void @_ZdlPvm(ptr noundef nonnull %522, i64 noundef 96) #26
-  br label %_ZNSt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS1_EE5resetEPS1_.exit.i178.i
+  br label %_ZNSt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS1_EE5resetEPS1_.exit.i179.i
 
-_ZNSt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS1_EE5resetEPS1_.exit.i178.i: ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_119SCEVDbgValueBuilderEEclEPS1_.exit.i.i.i177.i, %.lr.ph.i173.i
-  %533 = getelementptr inbounds nuw i8, ptr %.012.i174.i, i64 8
-  %.not.i179.i = icmp eq ptr %533, %507
-  br i1 %.not.i179.i, label %._crit_edge.i180.i, label %.lr.ph.i173.i
+_ZNSt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS1_EE5resetEPS1_.exit.i179.i: ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_119SCEVDbgValueBuilderEEclEPS1_.exit.i.i.i178.i, %.lr.ph.i174.i
+  %533 = getelementptr inbounds nuw i8, ptr %.012.i175.i, i64 8
+  %.not.i180.i = icmp eq ptr %533, %507
+  br i1 %.not.i180.i, label %._crit_edge.i181.i, label %.lr.ph.i174.i
 
-_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.i.i.i.i101.loopexit.i: ; preds = %_ZNSt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS1_EED2Ev.exit.i.i.i190.i
-  %.val.i.i.i.i88.pre.i = load ptr, ptr %504, align 8, !tbaa !25
-  br label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.i.i.i.i101.i
+_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.i.i.i.i102.loopexit.i: ; preds = %_ZNSt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS1_EED2Ev.exit.i.i.i191.i
+  %.val.i.i.i.i89.pre.i = load ptr, ptr %504, align 8, !tbaa !25
+  br label %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.i.i.i.i102.i
 
-_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.i.i.i.i101.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.i.i.i.i101.loopexit.i, %._crit_edge.i180.i, %503
-  %.val.i.i.i.i88.i = phi ptr [ %.val.i.i.i.i88.pre.i, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.i.i.i.i101.loopexit.i ], [ %.val.i.pre.i181.i, %._crit_edge.i180.i ], [ %.val.i170.i, %503 ]
+_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.i.i.i.i102.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.i.i.i.i102.loopexit.i, %._crit_edge.i181.i, %503
+  %.val.i.i.i.i89.i = phi ptr [ %.val.i.i.i.i89.pre.i, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.i.i.i.i102.loopexit.i ], [ %.val.i.pre.i182.i, %._crit_edge.i181.i ], [ %.val.i171.i, %503 ]
   store i32 0, ptr %505, align 8, !tbaa !26
   %534 = getelementptr inbounds nuw i8, ptr %502, i64 136
-  %535 = icmp eq ptr %.val.i.i.i.i88.i, %534
-  br i1 %535, label %_ZN4llvm11SmallVectorISt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS3_EELj2EED2Ev.exit.i.i.i102.i, label %536
+  %535 = icmp eq ptr %.val.i.i.i.i89.i, %534
+  br i1 %535, label %_ZN4llvm11SmallVectorISt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS3_EELj2EED2Ev.exit.i.i.i103.i, label %536
 
-536:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.i.i.i.i101.i
-  call void @free(ptr noundef %.val.i.i.i.i88.i) #24
-  br label %_ZN4llvm11SmallVectorISt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS3_EELj2EED2Ev.exit.i.i.i102.i
+536:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.i.i.i.i102.i
+  call void @free(ptr noundef %.val.i.i.i.i89.i) #24
+  br label %_ZN4llvm11SmallVectorISt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS3_EELj2EED2Ev.exit.i.i.i103.i
 
-_ZN4llvm11SmallVectorISt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS3_EELj2EED2Ev.exit.i.i.i102.i: ; preds = %536, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.i.i.i.i101.i
+_ZN4llvm11SmallVectorISt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS3_EELj2EED2Ev.exit.i.i.i103.i: ; preds = %536, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS3_EELb0EE13destroy_rangeEPS6_S8_.exit.i.i.i.i102.i
   %537 = getelementptr inbounds nuw i8, ptr %502, i64 88
   %538 = load ptr, ptr %537, align 8, !tbaa !25
   %539 = getelementptr inbounds nuw i8, ptr %502, i64 104
   %540 = icmp eq ptr %538, %539
-  br i1 %540, label %_ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit.i.i.i103.i, label %541
+  br i1 %540, label %_ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit.i.i.i104.i, label %541
 
-541:                                              ; preds = %_ZN4llvm11SmallVectorISt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS3_EELj2EED2Ev.exit.i.i.i102.i
+541:                                              ; preds = %_ZN4llvm11SmallVectorISt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS3_EELj2EED2Ev.exit.i.i.i103.i
   call void @free(ptr noundef %538) #24
-  br label %_ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit.i.i.i103.i
+  br label %_ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit.i.i.i104.i
 
-_ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit.i.i.i103.i: ; preds = %541, %_ZN4llvm11SmallVectorISt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS3_EELj2EED2Ev.exit.i.i.i102.i
+_ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit.i.i.i104.i: ; preds = %541, %_ZN4llvm11SmallVectorISt10unique_ptrIN12_GLOBAL__N_119SCEVDbgValueBuilderESt14default_deleteIS3_EELj2EED2Ev.exit.i.i.i103.i
   %542 = getelementptr inbounds nuw i8, ptr %502, i64 24
   %543 = load ptr, ptr %542, align 8, !tbaa !25
   %544 = getelementptr inbounds nuw i8, ptr %502, i64 32
   %545 = load i32, ptr %544, align 8, !tbaa !26
-  %.not4.i.i1.i.i.i104.i = icmp eq i32 %545, 0
-  br i1 %.not4.i.i1.i.i.i104.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_6WeakVHELb0EE13destroy_rangeEPS1_S3_.exit.i.i.i.i113.i, label %.lr.ph.i.preheader.i2.i.i.i105.i
+  %.not4.i.i1.i.i.i105.i = icmp eq i32 %545, 0
+  br i1 %.not4.i.i1.i.i.i105.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_6WeakVHELb0EE13destroy_rangeEPS1_S3_.exit.i.i.i.i114.i, label %.lr.ph.i.preheader.i2.i.i.i106.i
 
-.lr.ph.i.preheader.i2.i.i.i105.i:                 ; preds = %_ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit.i.i.i103.i
+.lr.ph.i.preheader.i2.i.i.i106.i:                 ; preds = %_ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit.i.i.i104.i
   %546 = zext i32 %545 to i64
   %547 = getelementptr inbounds nuw %"class.llvm::WeakVH", ptr %543, i64 %546
-  br label %.lr.ph.i.i3.i.i.i106.i
+  br label %.lr.ph.i.i3.i.i.i107.i
 
-.lr.ph.i.i3.i.i.i106.i:                           ; preds = %_ZN4llvm15ValueHandleBaseD2Ev.exit.i.i.i.i.i109.i, %.lr.ph.i.preheader.i2.i.i.i105.i
-  %.05.i.i4.i.i.i107.i = phi ptr [ %548, %_ZN4llvm15ValueHandleBaseD2Ev.exit.i.i.i.i.i109.i ], [ %547, %.lr.ph.i.preheader.i2.i.i.i105.i ]
-  %548 = getelementptr inbounds i8, ptr %.05.i.i4.i.i.i107.i, i64 -24
-  %549 = getelementptr inbounds i8, ptr %.05.i.i4.i.i.i107.i, i64 -8
+.lr.ph.i.i3.i.i.i107.i:                           ; preds = %_ZN4llvm15ValueHandleBaseD2Ev.exit.i.i.i.i.i110.i, %.lr.ph.i.preheader.i2.i.i.i106.i
+  %.05.i.i4.i.i.i108.i = phi ptr [ %548, %_ZN4llvm15ValueHandleBaseD2Ev.exit.i.i.i.i.i110.i ], [ %547, %.lr.ph.i.preheader.i2.i.i.i106.i ]
+  %548 = getelementptr inbounds i8, ptr %.05.i.i4.i.i.i108.i, i64 -24
+  %549 = getelementptr inbounds i8, ptr %.05.i.i4.i.i.i108.i, i64 -8
   %550 = load ptr, ptr %549, align 8, !tbaa !251
-  %magicptr.i.i.i.i.i.i108.i = ptrtoint ptr %550 to i64
-  switch i64 %magicptr.i.i.i.i.i.i108.i, label %551 [
-    i64 0, label %_ZN4llvm15ValueHandleBaseD2Ev.exit.i.i.i.i.i109.i
-    i64 -4096, label %_ZN4llvm15ValueHandleBaseD2Ev.exit.i.i.i.i.i109.i
-    i64 -8192, label %_ZN4llvm15ValueHandleBaseD2Ev.exit.i.i.i.i.i109.i
+  %magicptr.i.i.i.i.i.i109.i = ptrtoint ptr %550 to i64
+  switch i64 %magicptr.i.i.i.i.i.i109.i, label %551 [
+    i64 0, label %_ZN4llvm15ValueHandleBaseD2Ev.exit.i.i.i.i.i110.i
+    i64 -4096, label %_ZN4llvm15ValueHandleBaseD2Ev.exit.i.i.i.i.i110.i
+    i64 -8192, label %_ZN4llvm15ValueHandleBaseD2Ev.exit.i.i.i.i.i110.i
   ]
 
-551:                                              ; preds = %.lr.ph.i.i3.i.i.i106.i
+551:                                              ; preds = %.lr.ph.i.i3.i.i.i107.i
   call void @_ZN4llvm15ValueHandleBase17RemoveFromUseListEv(ptr noundef nonnull align 8 dereferenceable(24) %548) #24
-  br label %_ZN4llvm15ValueHandleBaseD2Ev.exit.i.i.i.i.i109.i
+  br label %_ZN4llvm15ValueHandleBaseD2Ev.exit.i.i.i.i.i110.i
 
-_ZN4llvm15ValueHandleBaseD2Ev.exit.i.i.i.i.i109.i: ; preds = %551, %.lr.ph.i.i3.i.i.i106.i, %.lr.ph.i.i3.i.i.i106.i, %.lr.ph.i.i3.i.i.i106.i
-  %.not.i.i5.i.i.i110.i = icmp eq ptr %543, %548
-  br i1 %.not.i.i5.i.i.i110.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_6WeakVHELb0EE13destroy_rangeEPS1_S3_.exit.loopexit.i.i.i.i111.i, label %.lr.ph.i.i3.i.i.i106.i, !llvm.loop !256
+_ZN4llvm15ValueHandleBaseD2Ev.exit.i.i.i.i.i110.i: ; preds = %551, %.lr.ph.i.i3.i.i.i107.i, %.lr.ph.i.i3.i.i.i107.i, %.lr.ph.i.i3.i.i.i107.i
+  %.not.i.i5.i.i.i111.i = icmp eq ptr %543, %548
+  br i1 %.not.i.i5.i.i.i111.i, label %_ZN4llvm23SmallVectorTemplateBaseINS_6WeakVHELb0EE13destroy_rangeEPS1_S3_.exit.loopexit.i.i.i.i112.i, label %.lr.ph.i.i3.i.i.i107.i, !llvm.loop !256
 
-_ZN4llvm23SmallVectorTemplateBaseINS_6WeakVHELb0EE13destroy_rangeEPS1_S3_.exit.loopexit.i.i.i.i111.i: ; preds = %_ZN4llvm15ValueHandleBaseD2Ev.exit.i.i.i.i.i109.i
-  %.pre.i6.i.i.i112.i = load ptr, ptr %542, align 8, !tbaa !25
-  br label %_ZN4llvm23SmallVectorTemplateBaseINS_6WeakVHELb0EE13destroy_rangeEPS1_S3_.exit.i.i.i.i113.i
+_ZN4llvm23SmallVectorTemplateBaseINS_6WeakVHELb0EE13destroy_rangeEPS1_S3_.exit.loopexit.i.i.i.i112.i: ; preds = %_ZN4llvm15ValueHandleBaseD2Ev.exit.i.i.i.i.i110.i
+  %.pre.i6.i.i.i113.i = load ptr, ptr %542, align 8, !tbaa !25
+  br label %_ZN4llvm23SmallVectorTemplateBaseINS_6WeakVHELb0EE13destroy_rangeEPS1_S3_.exit.i.i.i.i114.i
 
-_ZN4llvm23SmallVectorTemplateBaseINS_6WeakVHELb0EE13destroy_rangeEPS1_S3_.exit.i.i.i.i113.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_6WeakVHELb0EE13destroy_rangeEPS1_S3_.exit.loopexit.i.i.i.i111.i, %_ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit.i.i.i103.i
-  %552 = phi ptr [ %.pre.i6.i.i.i112.i, %_ZN4llvm23SmallVectorTemplateBaseINS_6WeakVHELb0EE13destroy_rangeEPS1_S3_.exit.loopexit.i.i.i.i111.i ], [ %543, %_ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit.i.i.i103.i ]
+_ZN4llvm23SmallVectorTemplateBaseINS_6WeakVHELb0EE13destroy_rangeEPS1_S3_.exit.i.i.i.i114.i: ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_6WeakVHELb0EE13destroy_rangeEPS1_S3_.exit.loopexit.i.i.i.i112.i, %_ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit.i.i.i104.i
+  %552 = phi ptr [ %.pre.i6.i.i.i113.i, %_ZN4llvm23SmallVectorTemplateBaseINS_6WeakVHELb0EE13destroy_rangeEPS1_S3_.exit.loopexit.i.i.i.i112.i ], [ %543, %_ZN4llvm11SmallVectorIPKNS_4SCEVELj2EED2Ev.exit.i.i.i104.i ]
   %553 = getelementptr inbounds nuw i8, ptr %502, i64 40
   %554 = icmp eq ptr %552, %553
-  br i1 %554, label %_ZNKSt14default_deleteIN12_GLOBAL__N_114DVIRecoveryRecEEclEPS1_.exit.i114.i, label %555
+  br i1 %554, label %_ZNKSt14default_deleteIN12_GLOBAL__N_114DVIRecoveryRecEEclEPS1_.exit.i115.i, label %555
 
-555:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_6WeakVHELb0EE13destroy_rangeEPS1_S3_.exit.i.i.i.i113.i
+555:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_6WeakVHELb0EE13destroy_rangeEPS1_S3_.exit.i.i.i.i114.i
   call void @free(ptr noundef %552) #24
-  br label %_ZNKSt14default_deleteIN12_GLOBAL__N_114DVIRecoveryRecEEclEPS1_.exit.i114.i
+  br label %_ZNKSt14default_deleteIN12_GLOBAL__N_114DVIRecoveryRecEEclEPS1_.exit.i115.i
 
-_ZNKSt14default_deleteIN12_GLOBAL__N_114DVIRecoveryRecEEclEPS1_.exit.i114.i: ; preds = %555, %_ZN4llvm23SmallVectorTemplateBaseINS_6WeakVHELb0EE13destroy_rangeEPS1_S3_.exit.i.i.i.i113.i
+_ZNKSt14default_deleteIN12_GLOBAL__N_114DVIRecoveryRecEEclEPS1_.exit.i115.i: ; preds = %555, %_ZN4llvm23SmallVectorTemplateBaseINS_6WeakVHELb0EE13destroy_rangeEPS1_S3_.exit.i.i.i.i114.i
   call void @_ZdlPvm(ptr noundef nonnull %502, i64 noundef 152) #26
   br label %630
 
@@ -3452,8 +3458,8 @@ _ZN4llvm23SmallVectorTemplateBaseINS_6WeakVHELb0EE28reserveForParamAndGetAddress
   ]
 
 608:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseINS_6WeakVHELb0EE28reserveForParamAndGetAddressERS1_m.exit.i.i61.i
-  %.0.copyload.i.i.i.i.i.i.i.i80.i = load i64, ptr %.016.i.i.i15.i62.i, align 8
-  %609 = and i64 %.0.copyload.i.i.i.i.i.i.i.i80.i, -8
+  %.0.copyload.i.i.i.i.i.i.i.i81.i = load i64, ptr %.016.i.i.i15.i62.i, align 8
+  %609 = and i64 %.0.copyload.i.i.i.i.i.i.i.i81.i, -8
   %610 = inttoptr i64 %609 to ptr
   call void @_ZN4llvm15ValueHandleBase20AddToExistingUseListEPPS0_(ptr noundef nonnull align 8 dereferenceable(24) %603, ptr noundef %610) #24
   br label %_ZN4llvm23SmallVectorTemplateBaseINS_6WeakVHELb0EE9push_backEOS1_.exit.i64.i
@@ -3486,7 +3492,7 @@ _ZN4llvm15ValueHandleBaseD2Ev.exit.i66.i:         ; preds = %614, %_ZN4llvm23Sma
   %622 = load ptr, ptr %621, align 8, !tbaa !261
   %623 = load i8, ptr %622, align 4, !tbaa !260
   %624 = icmp eq i8 %623, 4
-  %.val.i.i = load ptr, ptr %42, align 8, !tbaa !238
+  %.val.i.i = load ptr, ptr %42, align 8
   %625 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 16
   %626 = zext i1 %624 to i8
   store i8 %626, ptr %625, align 8, !tbaa !237
@@ -3497,7 +3503,7 @@ _ZN4llvm15ValueHandleBaseD2Ev.exit.i66.i:         ; preds = %614, %_ZN4llvm23Sma
   %.not.i68.i = icmp eq i64 %storemerge.i.i67.i, %474
   br i1 %.not.i68.i, label %._crit_edge.i69.i, label %.lr.ph.i50.i
 
-630:                                              ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_114DVIRecoveryRecEEclEPS1_.exit.i114.i, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_114DVIRecoveryRecESt14default_deleteIS3_EELb0EE9push_backEOS6_.exit.i74.i
+630:                                              ; preds = %_ZNKSt14default_deleteIN12_GLOBAL__N_114DVIRecoveryRecEEclEPS1_.exit.i115.i, %_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN12_GLOBAL__N_114DVIRecoveryRecESt14default_deleteIS3_EELb0EE9push_backEOS6_.exit.i74.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42) #24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %50) #24
   store ptr %92, ptr %50, align 8, !tbaa !304

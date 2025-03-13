@@ -9422,9 +9422,9 @@ sub_1425:                                         ; preds = %sub_0424
     i32 131072, label %691
     i32 32768, label %697
     i32 16, label %703
-    i32 8192, label %707
-    i32 256, label %804
-    i32 512, label %849
+    i32 8192, label %706
+    i32 256, label %803
+    i32 512, label %848
   ]
 
 645:                                              ; preds = %644
@@ -9518,263 +9518,261 @@ prefs_get_effect_flags.exit400:                   ; preds = %675
   br label %deprecated_heur_dissector_pref.exit.thread
 
 703:                                              ; preds = %644
-  %704 = load ptr, ptr %7, align 8
-  %705 = getelementptr inbounds nuw i8, ptr %704, i64 68
-  %706 = call zeroext i1 @prefs_set_range_value_work(ptr noundef nonnull %.0349410, ptr noundef %.0336412, i1 noundef zeroext %3, ptr noundef nonnull %705)
-  br i1 %706, label %deprecated_heur_dissector_pref.exit.thread, label %.loopexit431
+  %704 = getelementptr inbounds nuw i8, ptr %629, i64 68
+  %705 = call zeroext i1 @prefs_set_range_value_work(ptr noundef nonnull %.0349410, ptr noundef %.0336412, i1 noundef zeroext %3, ptr noundef nonnull %704)
+  br i1 %705, label %deprecated_heur_dissector_pref.exit.thread, label %.loopexit431
 
-707:                                              ; preds = %644
+706:                                              ; preds = %644
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #25
-  %708 = call ptr @wmem_epan_scope()
-  %709 = getelementptr inbounds nuw i8, ptr %.0349410, i64 64
-  %710 = load i32, ptr %709, align 8
-  %711 = call i32 @range_convert_str_work(ptr noundef %708, ptr noundef nonnull %8, ptr noundef %.0336412, i32 noundef %710, i1 noundef zeroext %3)
-  %.not382 = icmp eq i32 %711, 0
-  br i1 %.not382, label %712, label %.critedge
+  %707 = call ptr @wmem_epan_scope()
+  %708 = getelementptr inbounds nuw i8, ptr %.0349410, i64 64
+  %709 = load i32, ptr %708, align 8
+  %710 = call i32 @range_convert_str_work(ptr noundef %707, ptr noundef nonnull %8, ptr noundef %.0336412, i32 noundef %709, i1 noundef zeroext %3)
+  %.not382 = icmp eq i32 %710, 0
+  br i1 %.not382, label %711, label %.critedge
 
-712:                                              ; preds = %707
-  %713 = getelementptr inbounds nuw i8, ptr %.0349410, i64 40
+711:                                              ; preds = %706
+  %712 = getelementptr inbounds nuw i8, ptr %.0349410, i64 40
+  %713 = load ptr, ptr %712, align 8
   %714 = load ptr, ptr %713, align 8
-  %715 = load ptr, ptr %714, align 8
-  %716 = load ptr, ptr %8, align 8
-  %717 = call zeroext i1 @ranges_are_equal(ptr noundef %715, ptr noundef %716)
-  %718 = call ptr @wmem_epan_scope()
-  br i1 %717, label %802, label %prefs_get_effect_flags.exit402
+  %715 = load ptr, ptr %8, align 8
+  %716 = call zeroext i1 @ranges_are_equal(ptr noundef %714, ptr noundef %715)
+  %717 = call ptr @wmem_epan_scope()
+  br i1 %716, label %801, label %prefs_get_effect_flags.exit402
 
-prefs_get_effect_flags.exit402:                   ; preds = %712
-  %719 = load ptr, ptr %713, align 8
-  %720 = load ptr, ptr %719, align 8
-  call void @wmem_free(ptr noundef %718, ptr noundef %720)
-  %721 = load ptr, ptr %8, align 8
-  %722 = load ptr, ptr %713, align 8
-  store ptr %721, ptr %722, align 8
-  %723 = getelementptr inbounds nuw i8, ptr %.0349410, i64 32
-  %724 = load i32, ptr %723, align 8
-  %725 = load ptr, ptr %7, align 8
-  %726 = getelementptr inbounds nuw i8, ptr %725, i64 68
-  %727 = load i32, ptr %726, align 4
-  %728 = or i32 %727, %724
-  store i32 %728, ptr %726, align 4
-  %729 = getelementptr inbounds nuw i8, ptr %.0349410, i64 136
-  %730 = load ptr, ptr %729, align 8
-  %731 = call ptr @find_dissector_table(ptr noundef %730)
-  %.not383 = icmp eq ptr %731, null
-  br i1 %.not383, label %.loopexit, label %732
+prefs_get_effect_flags.exit402:                   ; preds = %711
+  %718 = load ptr, ptr %712, align 8
+  %719 = load ptr, ptr %718, align 8
+  call void @wmem_free(ptr noundef %717, ptr noundef %719)
+  %720 = load ptr, ptr %8, align 8
+  %721 = load ptr, ptr %712, align 8
+  store ptr %720, ptr %721, align 8
+  %722 = getelementptr inbounds nuw i8, ptr %.0349410, i64 32
+  %723 = load i32, ptr %722, align 8
+  %724 = load ptr, ptr %7, align 8
+  %725 = getelementptr inbounds nuw i8, ptr %724, i64 68
+  %726 = load i32, ptr %725, align 4
+  %727 = or i32 %726, %723
+  store i32 %727, ptr %725, align 4
+  %728 = getelementptr inbounds nuw i8, ptr %.0349410, i64 136
+  %729 = load ptr, ptr %728, align 8
+  %730 = call ptr @find_dissector_table(ptr noundef %729)
+  %.not383 = icmp eq ptr %730, null
+  br i1 %.not383, label %.loopexit, label %731
 
-732:                                              ; preds = %prefs_get_effect_flags.exit402
-  %733 = getelementptr inbounds nuw i8, ptr %.0342, i64 8
-  %734 = load ptr, ptr %733, align 8
-  %735 = call ptr @dissector_table_get_dissector_handle(ptr noundef nonnull %731, ptr noundef %734)
-  %.not384 = icmp eq ptr %735, null
+731:                                              ; preds = %prefs_get_effect_flags.exit402
+  %732 = getelementptr inbounds nuw i8, ptr %.0342, i64 8
+  %733 = load ptr, ptr %732, align 8
+  %734 = call ptr @dissector_table_get_dissector_handle(ptr noundef nonnull %730, ptr noundef %733)
+  %.not384 = icmp eq ptr %734, null
   br i1 %.not384, label %.loopexit, label %.preheader428
 
-.preheader428:                                    ; preds = %732
-  %736 = load ptr, ptr %713, align 8
-  %737 = load ptr, ptr %736, align 8
-  %738 = load i32, ptr %737, align 4
-  %.not458 = icmp eq i32 %738, 0
+.preheader428:                                    ; preds = %731
+  %735 = load ptr, ptr %712, align 8
+  %736 = load ptr, ptr %735, align 8
+  %737 = load i32, ptr %736, align 4
+  %.not458 = icmp eq i32 %737, 0
   br i1 %.not458, label %.preheader, label %.lr.ph444
 
 .preheader:                                       ; preds = %._crit_edge, %.preheader428
-  %739 = load ptr, ptr %8, align 8
-  %740 = load i32, ptr %739, align 4
-  %.not459 = icmp eq i32 %740, 0
+  %738 = load ptr, ptr %8, align 8
+  %739 = load i32, ptr %738, align 4
+  %.not459 = icmp eq i32 %739, 0
   br i1 %.not459, label %.loopexit, label %.lr.ph451
 
 .lr.ph444:                                        ; preds = %.preheader428, %._crit_edge
   %indvars.iv466 = phi i64 [ %indvars.iv.next467, %._crit_edge ], [ 0, %.preheader428 ]
-  %741 = phi ptr [ %769, %._crit_edge ], [ %737, %.preheader428 ]
-  %742 = getelementptr inbounds nuw i8, ptr %741, i64 4
-  %743 = getelementptr [0 x %struct.range_admin_tag], ptr %742, i64 0, i64 %indvars.iv466
-  %744 = load i32, ptr %743, align 4
+  %740 = phi ptr [ %768, %._crit_edge ], [ %736, %.preheader428 ]
+  %741 = getelementptr inbounds nuw i8, ptr %740, i64 4
+  %742 = getelementptr [0 x %struct.range_admin_tag], ptr %741, i64 0, i64 %indvars.iv466
+  %743 = load i32, ptr %742, align 4
   %.idx386 = shl nuw nsw i64 %indvars.iv466, 3
-  %745 = getelementptr i8, ptr %741, i64 8
-  %746 = getelementptr i8, ptr %745, i64 %.idx386
-  %747 = load i32, ptr %746, align 4
-  %748 = icmp ult i32 %744, %747
-  br i1 %748, label %.lr.ph.preheader, label %._crit_edge
+  %744 = getelementptr i8, ptr %740, i64 8
+  %745 = getelementptr i8, ptr %744, i64 %.idx386
+  %746 = load i32, ptr %745, align 4
+  %747 = icmp ult i32 %743, %746
+  br i1 %747, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %.lr.ph444
-  %749 = zext i32 %744 to i64
+  %748 = zext i32 %743 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv = phi i64 [ %749, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %750 = trunc nuw i64 %indvars.iv to i32
-  call void @dissector_delete_uint(ptr noundef %730, i32 noundef %750, ptr noundef nonnull %735)
-  %751 = call i32 @dissector_table_get_type(ptr noundef nonnull %731)
-  %752 = inttoptr i64 %indvars.iv to ptr
-  call void @decode_build_reset_list(ptr noundef %730, i32 noundef %751, ptr noundef %752, ptr noundef null, ptr noundef null)
+  %indvars.iv = phi i64 [ %748, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+  %749 = trunc nuw i64 %indvars.iv to i32
+  call void @dissector_delete_uint(ptr noundef %729, i32 noundef %749, ptr noundef nonnull %734)
+  %750 = call i32 @dissector_table_get_type(ptr noundef nonnull %730)
+  %751 = inttoptr i64 %indvars.iv to ptr
+  call void @decode_build_reset_list(ptr noundef %729, i32 noundef %750, ptr noundef %751, ptr noundef null, ptr noundef null)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %753 = load ptr, ptr %713, align 8
-  %754 = load ptr, ptr %753, align 8
-  %755 = getelementptr i8, ptr %754, i64 8
-  %756 = getelementptr i8, ptr %755, i64 %.idx386
-  %757 = load i32, ptr %756, align 4
-  %758 = zext i32 %757 to i64
-  %759 = icmp samesign ult i64 %indvars.iv.next, %758
-  br i1 %759, label %.lr.ph, label %._crit_edge, !llvm.loop !34
+  %752 = load ptr, ptr %712, align 8
+  %753 = load ptr, ptr %752, align 8
+  %754 = getelementptr i8, ptr %753, i64 8
+  %755 = getelementptr i8, ptr %754, i64 %.idx386
+  %756 = load i32, ptr %755, align 4
+  %757 = zext i32 %756 to i64
+  %758 = icmp samesign ult i64 %indvars.iv.next, %757
+  br i1 %758, label %.lr.ph, label %._crit_edge, !llvm.loop !34
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.lr.ph444
-  %.lcssa433 = phi i32 [ %747, %.lr.ph444 ], [ %757, %.lr.ph ]
-  call void @dissector_delete_uint(ptr noundef %730, i32 noundef %.lcssa433, ptr noundef nonnull %735)
-  %760 = call i32 @dissector_table_get_type(ptr noundef nonnull %731)
-  %761 = load ptr, ptr %713, align 8
-  %762 = load ptr, ptr %761, align 8
-  %763 = getelementptr i8, ptr %762, i64 8
-  %764 = getelementptr i8, ptr %763, i64 %.idx386
-  %765 = load i32, ptr %764, align 4
-  %766 = zext i32 %765 to i64
-  %767 = inttoptr i64 %766 to ptr
-  call void @decode_build_reset_list(ptr noundef %730, i32 noundef %760, ptr noundef %767, ptr noundef null, ptr noundef null)
+  %.lcssa433 = phi i32 [ %746, %.lr.ph444 ], [ %756, %.lr.ph ]
+  call void @dissector_delete_uint(ptr noundef %729, i32 noundef %.lcssa433, ptr noundef nonnull %734)
+  %759 = call i32 @dissector_table_get_type(ptr noundef nonnull %730)
+  %760 = load ptr, ptr %712, align 8
+  %761 = load ptr, ptr %760, align 8
+  %762 = getelementptr i8, ptr %761, i64 8
+  %763 = getelementptr i8, ptr %762, i64 %.idx386
+  %764 = load i32, ptr %763, align 4
+  %765 = zext i32 %764 to i64
+  %766 = inttoptr i64 %765 to ptr
+  call void @decode_build_reset_list(ptr noundef %729, i32 noundef %759, ptr noundef %766, ptr noundef null, ptr noundef null)
   %indvars.iv.next467 = add nuw nsw i64 %indvars.iv466, 1
-  %768 = load ptr, ptr %713, align 8
-  %769 = load ptr, ptr %768, align 8
-  %770 = load i32, ptr %769, align 4
-  %771 = zext i32 %770 to i64
-  %772 = icmp samesign ult i64 %indvars.iv.next467, %771
-  br i1 %772, label %.lr.ph444, label %.preheader, !llvm.loop !35
+  %767 = load ptr, ptr %712, align 8
+  %768 = load ptr, ptr %767, align 8
+  %769 = load i32, ptr %768, align 4
+  %770 = zext i32 %769 to i64
+  %771 = icmp samesign ult i64 %indvars.iv.next467, %770
+  br i1 %771, label %.lr.ph444, label %.preheader, !llvm.loop !35
 
 .lr.ph451:                                        ; preds = %.preheader, %._crit_edge448
   %indvars.iv472 = phi i64 [ %indvars.iv.next473, %._crit_edge448 ], [ 0, %.preheader ]
-  %773 = phi ptr [ %798, %._crit_edge448 ], [ %739, %.preheader ]
-  %774 = getelementptr inbounds nuw i8, ptr %773, i64 4
-  %775 = getelementptr [0 x %struct.range_admin_tag], ptr %774, i64 0, i64 %indvars.iv472
-  %776 = load i32, ptr %775, align 4
+  %772 = phi ptr [ %797, %._crit_edge448 ], [ %738, %.preheader ]
+  %773 = getelementptr inbounds nuw i8, ptr %772, i64 4
+  %774 = getelementptr [0 x %struct.range_admin_tag], ptr %773, i64 0, i64 %indvars.iv472
+  %775 = load i32, ptr %774, align 4
   %.idx = shl nuw nsw i64 %indvars.iv472, 3
-  %777 = getelementptr i8, ptr %773, i64 8
-  %778 = getelementptr i8, ptr %777, i64 %.idx
-  %779 = load i32, ptr %778, align 4
-  %780 = icmp ult i32 %776, %779
-  br i1 %780, label %.lr.ph447.preheader, label %._crit_edge448
+  %776 = getelementptr i8, ptr %772, i64 8
+  %777 = getelementptr i8, ptr %776, i64 %.idx
+  %778 = load i32, ptr %777, align 4
+  %779 = icmp ult i32 %775, %778
+  br i1 %779, label %.lr.ph447.preheader, label %._crit_edge448
 
 .lr.ph447.preheader:                              ; preds = %.lr.ph451
-  %781 = zext i32 %776 to i64
+  %780 = zext i32 %775 to i64
   br label %.lr.ph447
 
 .lr.ph447:                                        ; preds = %.lr.ph447.preheader, %.lr.ph447
-  %indvars.iv469 = phi i64 [ %781, %.lr.ph447.preheader ], [ %indvars.iv.next470, %.lr.ph447 ]
-  %782 = trunc nuw i64 %indvars.iv469 to i32
-  call void @dissector_change_uint(ptr noundef %730, i32 noundef %782, ptr noundef nonnull %735)
-  %783 = call i32 @dissector_table_get_type(ptr noundef nonnull %731)
-  %784 = inttoptr i64 %indvars.iv469 to ptr
-  call void @decode_build_reset_list(ptr noundef %730, i32 noundef %783, ptr noundef %784, ptr noundef null, ptr noundef null)
+  %indvars.iv469 = phi i64 [ %780, %.lr.ph447.preheader ], [ %indvars.iv.next470, %.lr.ph447 ]
+  %781 = trunc nuw i64 %indvars.iv469 to i32
+  call void @dissector_change_uint(ptr noundef %729, i32 noundef %781, ptr noundef nonnull %734)
+  %782 = call i32 @dissector_table_get_type(ptr noundef nonnull %730)
+  %783 = inttoptr i64 %indvars.iv469 to ptr
+  call void @decode_build_reset_list(ptr noundef %729, i32 noundef %782, ptr noundef %783, ptr noundef null, ptr noundef null)
   %indvars.iv.next470 = add nuw nsw i64 %indvars.iv469, 1
-  %785 = load ptr, ptr %8, align 8
-  %786 = getelementptr i8, ptr %785, i64 8
-  %787 = getelementptr i8, ptr %786, i64 %.idx
-  %788 = load i32, ptr %787, align 4
-  %789 = zext i32 %788 to i64
-  %790 = icmp samesign ult i64 %indvars.iv.next470, %789
-  br i1 %790, label %.lr.ph447, label %._crit_edge448, !llvm.loop !36
+  %784 = load ptr, ptr %8, align 8
+  %785 = getelementptr i8, ptr %784, i64 8
+  %786 = getelementptr i8, ptr %785, i64 %.idx
+  %787 = load i32, ptr %786, align 4
+  %788 = zext i32 %787 to i64
+  %789 = icmp samesign ult i64 %indvars.iv.next470, %788
+  br i1 %789, label %.lr.ph447, label %._crit_edge448, !llvm.loop !36
 
 ._crit_edge448:                                   ; preds = %.lr.ph447, %.lr.ph451
-  %.lcssa = phi i32 [ %779, %.lr.ph451 ], [ %788, %.lr.ph447 ]
-  call void @dissector_change_uint(ptr noundef %730, i32 noundef %.lcssa, ptr noundef nonnull %735)
-  %791 = call i32 @dissector_table_get_type(ptr noundef nonnull %731)
-  %792 = load ptr, ptr %8, align 8
-  %793 = getelementptr i8, ptr %792, i64 8
-  %794 = getelementptr i8, ptr %793, i64 %.idx
-  %795 = load i32, ptr %794, align 4
-  %796 = zext i32 %795 to i64
-  %797 = inttoptr i64 %796 to ptr
-  call void @decode_build_reset_list(ptr noundef %730, i32 noundef %791, ptr noundef %797, ptr noundef null, ptr noundef null)
+  %.lcssa = phi i32 [ %778, %.lr.ph451 ], [ %787, %.lr.ph447 ]
+  call void @dissector_change_uint(ptr noundef %729, i32 noundef %.lcssa, ptr noundef nonnull %734)
+  %790 = call i32 @dissector_table_get_type(ptr noundef nonnull %730)
+  %791 = load ptr, ptr %8, align 8
+  %792 = getelementptr i8, ptr %791, i64 8
+  %793 = getelementptr i8, ptr %792, i64 %.idx
+  %794 = load i32, ptr %793, align 4
+  %795 = zext i32 %794 to i64
+  %796 = inttoptr i64 %795 to ptr
+  call void @decode_build_reset_list(ptr noundef %729, i32 noundef %790, ptr noundef %796, ptr noundef null, ptr noundef null)
   %indvars.iv.next473 = add nuw nsw i64 %indvars.iv472, 1
-  %798 = load ptr, ptr %8, align 8
-  %799 = load i32, ptr %798, align 4
-  %800 = zext i32 %799 to i64
-  %801 = icmp samesign ult i64 %indvars.iv.next473, %800
-  br i1 %801, label %.lr.ph451, label %.loopexit, !llvm.loop !37
+  %797 = load ptr, ptr %8, align 8
+  %798 = load i32, ptr %797, align 4
+  %799 = zext i32 %798 to i64
+  %800 = icmp samesign ult i64 %indvars.iv.next473, %799
+  br i1 %800, label %.lr.ph451, label %.loopexit, !llvm.loop !37
 
-802:                                              ; preds = %712
-  %803 = load ptr, ptr %8, align 8
-  call void @wmem_free(ptr noundef %718, ptr noundef %803)
+801:                                              ; preds = %711
+  %802 = load ptr, ptr %8, align 8
+  call void @wmem_free(ptr noundef %717, ptr noundef %802)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %._crit_edge448, %.preheader, %802, %732, %prefs_get_effect_flags.exit402
+.loopexit:                                        ; preds = %._crit_edge448, %.preheader, %801, %731, %prefs_get_effect_flags.exit402
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #25
   br label %deprecated_heur_dissector_pref.exit.thread
 
-804:                                              ; preds = %644
-  %805 = call zeroext i1 @ws_hexstrtou32(ptr noundef %.0336412, ptr noundef null, ptr noundef nonnull %5)
-  br i1 %805, label %806, label %.loopexit431
+803:                                              ; preds = %644
+  %804 = call zeroext i1 @ws_hexstrtou32(ptr noundef %.0336412, ptr noundef null, ptr noundef nonnull %5)
+  br i1 %804, label %805, label %.loopexit431
 
-806:                                              ; preds = %804
-  %807 = getelementptr inbounds nuw i8, ptr %.0349410, i64 40
-  %808 = load ptr, ptr %807, align 8
-  %809 = load i16, ptr %808, align 2
-  %810 = zext i16 %809 to i32
-  %811 = load i32, ptr %5, align 4
-  %812 = lshr i32 %811, 16
-  %813 = and i32 %812, 255
-  %814 = mul nuw nsw i32 %813, 257
-  %.not379 = icmp eq i32 %814, %810
-  br i1 %.not379, label %815, label %prefs_get_effect_flags.exit404
+805:                                              ; preds = %803
+  %806 = getelementptr inbounds nuw i8, ptr %.0349410, i64 40
+  %807 = load ptr, ptr %806, align 8
+  %808 = load i16, ptr %807, align 2
+  %809 = zext i16 %808 to i32
+  %810 = load i32, ptr %5, align 4
+  %811 = lshr i32 %810, 16
+  %812 = and i32 %811, 255
+  %813 = mul nuw nsw i32 %812, 257
+  %.not379 = icmp eq i32 %813, %809
+  br i1 %.not379, label %814, label %prefs_get_effect_flags.exit404
 
-815:                                              ; preds = %806
-  %816 = getelementptr inbounds nuw i8, ptr %808, i64 2
-  %817 = load i16, ptr %816, align 2
-  %818 = trunc i32 %811 to i16
-  %819 = lshr i16 %818, 8
-  %820 = mul nuw i16 %819, 257
-  %.not380 = icmp eq i16 %817, %820
-  br i1 %.not380, label %821, label %prefs_get_effect_flags.exit404
+814:                                              ; preds = %805
+  %815 = getelementptr inbounds nuw i8, ptr %807, i64 2
+  %816 = load i16, ptr %815, align 2
+  %817 = trunc i32 %810 to i16
+  %818 = lshr i16 %817, 8
+  %819 = mul nuw i16 %818, 257
+  %.not380 = icmp eq i16 %816, %819
+  br i1 %.not380, label %820, label %prefs_get_effect_flags.exit404
 
-821:                                              ; preds = %815
-  %822 = getelementptr inbounds nuw i8, ptr %808, i64 4
-  %823 = load i16, ptr %822, align 2
-  %824 = zext i16 %823 to i32
-  %825 = and i32 %811, 255
-  %826 = mul nuw nsw i32 %825, 257
-  %.not381 = icmp eq i32 %826, %824
+820:                                              ; preds = %814
+  %821 = getelementptr inbounds nuw i8, ptr %807, i64 4
+  %822 = load i16, ptr %821, align 2
+  %823 = zext i16 %822 to i32
+  %824 = and i32 %810, 255
+  %825 = mul nuw nsw i32 %824, 257
+  %.not381 = icmp eq i32 %825, %823
   br i1 %.not381, label %deprecated_heur_dissector_pref.exit.thread, label %prefs_get_effect_flags.exit404
 
-prefs_get_effect_flags.exit404:                   ; preds = %821, %815, %806
-  %827 = getelementptr inbounds nuw i8, ptr %.0349410, i64 32
-  %828 = load i32, ptr %827, align 8
-  %829 = load ptr, ptr %7, align 8
-  %830 = getelementptr inbounds nuw i8, ptr %829, i64 68
-  %831 = load i32, ptr %830, align 4
-  %832 = or i32 %831, %828
-  store i32 %832, ptr %830, align 4
-  %833 = trunc nuw i32 %812 to i16
-  %834 = and i16 %833, 255
-  %835 = mul nuw i16 %834, 257
-  %836 = load ptr, ptr %807, align 8
-  store i16 %835, ptr %836, align 2
-  %837 = load i32, ptr %5, align 4
-  %838 = trunc i32 %837 to i16
-  %839 = lshr i16 %838, 8
-  %840 = mul nuw i16 %839, 257
-  %841 = load ptr, ptr %807, align 8
-  %842 = getelementptr inbounds nuw i8, ptr %841, i64 2
-  store i16 %840, ptr %842, align 2
-  %843 = load i32, ptr %5, align 4
-  %844 = trunc i32 %843 to i16
-  %845 = and i16 %844, 255
-  %846 = mul nuw i16 %845, 257
-  %847 = load ptr, ptr %807, align 8
-  %848 = getelementptr inbounds nuw i8, ptr %847, i64 4
-  store i16 %846, ptr %848, align 2
+prefs_get_effect_flags.exit404:                   ; preds = %820, %814, %805
+  %826 = getelementptr inbounds nuw i8, ptr %.0349410, i64 32
+  %827 = load i32, ptr %826, align 8
+  %828 = load ptr, ptr %7, align 8
+  %829 = getelementptr inbounds nuw i8, ptr %828, i64 68
+  %830 = load i32, ptr %829, align 4
+  %831 = or i32 %830, %827
+  store i32 %831, ptr %829, align 4
+  %832 = trunc nuw i32 %811 to i16
+  %833 = and i16 %832, 255
+  %834 = mul nuw i16 %833, 257
+  %835 = load ptr, ptr %806, align 8
+  store i16 %834, ptr %835, align 2
+  %836 = load i32, ptr %5, align 4
+  %837 = trunc i32 %836 to i16
+  %838 = lshr i16 %837, 8
+  %839 = mul nuw i16 %838, 257
+  %840 = load ptr, ptr %806, align 8
+  %841 = getelementptr inbounds nuw i8, ptr %840, i64 2
+  store i16 %839, ptr %841, align 2
+  %842 = load i32, ptr %5, align 4
+  %843 = trunc i32 %842 to i16
+  %844 = and i16 %843, 255
+  %845 = mul nuw i16 %844, 257
+  %846 = load ptr, ptr %806, align 8
+  %847 = getelementptr inbounds nuw i8, ptr %846, i64 4
+  store i16 %845, ptr %847, align 2
   br label %deprecated_heur_dissector_pref.exit.thread
 
-849:                                              ; preds = %644
-  %850 = getelementptr inbounds nuw i8, ptr %.0349410, i64 96
-  %851 = load ptr, ptr %850, align 8
-  %852 = load ptr, ptr %7, align 8
-  %853 = getelementptr inbounds nuw i8, ptr %852, i64 68
-  %854 = call i32 %851(ptr noundef nonnull %.0349410, ptr noundef %.0336412, ptr noundef nonnull %853)
+848:                                              ; preds = %644
+  %849 = getelementptr inbounds nuw i8, ptr %.0349410, i64 96
+  %850 = load ptr, ptr %849, align 8
+  %851 = getelementptr inbounds nuw i8, ptr %629, i64 68
+  %852 = call i32 %850(ptr noundef nonnull %.0349410, ptr noundef %.0336412, ptr noundef nonnull %851)
   br label %.loopexit431
 
-deprecated_heur_dissector_pref.exit.thread:       ; preds = %66, %48, %81, %76, %.loopexit, %17, %37, %36, %deprecated_enable_dissector_pref.exit, %644, %691, %697, %prefs_get_effect_flags.exit, %649, %prefs_get_effect_flags.exit398, %661, %prefs_get_effect_flags.exit400, %675, %703, %prefs_get_effect_flags.exit404, %821, %47, %51, %24, %11
+deprecated_heur_dissector_pref.exit.thread:       ; preds = %66, %48, %81, %76, %.loopexit, %17, %37, %36, %deprecated_enable_dissector_pref.exit, %644, %691, %697, %prefs_get_effect_flags.exit, %649, %prefs_get_effect_flags.exit398, %661, %prefs_get_effect_flags.exit400, %675, %703, %prefs_get_effect_flags.exit404, %820, %47, %51, %24, %11
   br label %.loopexit431
 
-.critedge:                                        ; preds = %707
+.critedge:                                        ; preds = %706
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #25
   br label %.loopexit431
 
-.loopexit431:                                     ; preds = %.preheader429, %120, %.thread475, %.preheader429.preheader, %804, %.critedge, %703, %645, %630, %.thread, %623, %85, %51, %deprecated_heur_dissector_pref.exit.thread, %849, %628
-  %.0 = phi i32 [ 0, %deprecated_heur_dissector_pref.exit.thread ], [ 2, %628 ], [ %854, %849 ], [ 1, %51 ], [ 0, %85 ], [ 0, %623 ], [ 0, %.thread ], [ 3, %630 ], [ 1, %645 ], [ 1, %703 ], [ 1, %.critedge ], [ 1, %804 ], [ 2, %.preheader429.preheader ], [ 3, %.thread475 ], [ 3, %120 ], [ 2, %.preheader429 ]
+.loopexit431:                                     ; preds = %.preheader429, %120, %.thread475, %.preheader429.preheader, %803, %.critedge, %703, %645, %630, %.thread, %623, %85, %51, %deprecated_heur_dissector_pref.exit.thread, %848, %628
+  %.0 = phi i32 [ 0, %deprecated_heur_dissector_pref.exit.thread ], [ 2, %628 ], [ %852, %848 ], [ 1, %51 ], [ 0, %85 ], [ 0, %623 ], [ 0, %.thread ], [ 3, %630 ], [ 1, %645 ], [ 1, %703 ], [ 1, %.critedge ], [ 1, %803 ], [ 2, %.preheader429.preheader ], [ 3, %.thread475 ], [ 3, %120 ], [ 2, %.preheader429 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #25
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #25
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #25

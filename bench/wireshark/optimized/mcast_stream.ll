@@ -167,6 +167,7 @@ define hidden range(i32 0, 2) i32 @mcaststream_packet(ptr noundef captures(none)
   %34 = load i32, ptr %33, align 8
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 164
   %36 = load i32, ptr %35, align 4
+  %.fr178 = freeze i32 %36
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 168
   %38 = load ptr, ptr %37, align 8
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 284
@@ -184,7 +185,6 @@ define hidden range(i32 0, 2) i32 @mcaststream_packet(ptr noundef captures(none)
   br i1 %.not152168, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %28
-  %.fr178 = freeze i32 %36
   %50 = icmp eq i32 %.fr178, 0
   %51 = sext i32 %.fr178 to i64
   %.fr = freeze i32 %30

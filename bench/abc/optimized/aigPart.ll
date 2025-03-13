@@ -6114,15 +6114,15 @@ Vec_PtrFree.exit:                                 ; preds = %.critedge10, %71
 
 .lr.ph231:                                        ; preds = %.critedge8
   %78 = getelementptr i8, ptr %55, i64 8
+  %.val203 = load ptr, ptr %78, align 8, !tbaa !37
   %wide.trip.count267 = zext nneg i32 %.val177 to i64
-  %.val203.pre = load ptr, ptr %78, align 8, !tbaa !37
   br label %79
 
 79:                                               ; preds = %.lr.ph231, %79
   %indvars.iv264 = phi i64 [ 0, %.lr.ph231 ], [ %indvars.iv.next265, %79 ]
   %80 = getelementptr inbounds nuw ptr, ptr %.val191, i64 %indvars.iv264
   %81 = load ptr, ptr %80, align 8, !tbaa !18
-  %82 = getelementptr inbounds nuw i32, ptr %.val203.pre, i64 %indvars.iv264
+  %82 = getelementptr inbounds nuw i32, ptr %.val203, i64 %indvars.iv264
   %83 = load i32, ptr %82, align 4, !tbaa !29
   %84 = sext i32 %83 to i64
   %85 = getelementptr inbounds ptr, ptr %25, i64 %84

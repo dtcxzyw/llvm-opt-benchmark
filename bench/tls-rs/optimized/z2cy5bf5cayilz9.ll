@@ -2741,13 +2741,7 @@ define hidden void @_ZN6rustls4msgs8deframer15MessageDeframer9append_hs17h92bc83
   %30 = add i64 %29, %5
   store i64 %30, ptr %24, align 8
   %.not = icmp eq i64 %11, 0
-  br i1 %.not, label %49, label %"_ZN147_$LT$rustls..msgs..deframer..DeframerVecBuffer$u20$as$u20$rustls..msgs..deframer..DeframerBuffer$LT$rustls..msgs..deframer..ExternalPayload$GT$$GT$4copy17h7334019f4f78ca44E.exit..thread121_crit_edge"
-
-"_ZN147_$LT$rustls..msgs..deframer..DeframerVecBuffer$u20$as$u20$rustls..msgs..deframer..DeframerBuffer$LT$rustls..msgs..deframer..ExternalPayload$GT$$GT$4copy17h7334019f4f78ca44E.exit..thread121_crit_edge": ; preds = %"_ZN147_$LT$rustls..msgs..deframer..DeframerVecBuffer$u20$as$u20$rustls..msgs..deframer..DeframerBuffer$LT$rustls..msgs..deframer..ExternalPayload$GT$$GT$4copy17h7334019f4f78ca44E.exit"
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.pre = load i64, ptr %.phi.trans.insert, align 8
-  %.val106.pre = load i64, ptr %17, align 8, !alias.scope !520, !noalias !523
-  br label %.thread121
+  br i1 %.not, label %47, label %thread-pre-split.thread
 
 31:                                               ; preds = %13
   %32 = getelementptr inbounds nuw i8, ptr %9, i64 8
@@ -2756,22 +2750,22 @@ define hidden void @_ZN6rustls4msgs8deframer15MessageDeframer9append_hs17h92bc83
   %35 = load i64, ptr %34, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
   %36 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %37 = load i64, ptr %36, align 8, !alias.scope !525, !noalias !530, !noundef !4
-  %38 = tail call { ptr, i64 } @"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h47e99849bb159fafE.llvm.403688954652204928"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7, i64 noundef %37, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c43cdfa0e8c33ad4539906867d1667f9.60.llvm.403688954652204928), !noalias !530
+  %37 = load i64, ptr %36, align 8, !alias.scope !520, !noalias !525, !noundef !4
+  %38 = tail call { ptr, i64 } @"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17h47e99849bb159fafE.llvm.403688954652204928"(ptr noalias noundef nonnull align 8 dereferenceable(32) %7, i64 noundef %37, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c43cdfa0e8c33ad4539906867d1667f9.60.llvm.403688954652204928), !noalias !525
   %39 = extractvalue { ptr, i64 } %38, 1
   %40 = icmp ugt i64 %5, %39
   br i1 %40, label %41, label %"_ZN147_$LT$rustls..msgs..deframer..DeframerVecBuffer$u20$as$u20$rustls..msgs..deframer..DeframerBuffer$LT$rustls..msgs..deframer..ExternalPayload$GT$$GT$4copy17h7334019f4f78ca44E.exit108"
 
 41:                                               ; preds = %31
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %5, i64 noundef %39, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c43cdfa0e8c33ad4539906867d1667f9.63.llvm.403688954652204928) #25, !noalias !532
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %5, i64 noundef %39, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c43cdfa0e8c33ad4539906867d1667f9.63.llvm.403688954652204928) #25, !noalias !527
   unreachable
 
 "_ZN147_$LT$rustls..msgs..deframer..DeframerVecBuffer$u20$as$u20$rustls..msgs..deframer..DeframerBuffer$LT$rustls..msgs..deframer..ExternalPayload$GT$$GT$4copy17h7334019f4f78ca44E.exit108": ; preds = %31
   %42 = extractvalue { ptr, i64 } %38, 0
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %42, ptr nonnull readonly align 1 %4, i64 %5, i1 false), !alias.scope !535, !noalias !539
-  %43 = load i64, ptr %36, align 8, !alias.scope !541, !noalias !530, !noundef !4
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %42, ptr nonnull readonly align 1 %4, i64 %5, i1 false), !alias.scope !530, !noalias !534
+  %43 = load i64, ptr %36, align 8, !alias.scope !536, !noalias !525, !noundef !4
   %44 = add i64 %43, %5
-  store i64 %44, ptr %36, align 8, !alias.scope !541, !noalias !530
+  store i64 %44, ptr %36, align 8, !alias.scope !536, !noalias !525
   store i64 %33, ptr %1, align 8
   %.sroa.486.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i64 %35, ptr %.sroa.486.0..sroa_idx, align 8
@@ -2789,7 +2783,7 @@ define hidden void @_ZN6rustls4msgs8deframer15MessageDeframer9append_hs17h92bc83
   store i16 %3, ptr %.sroa.1092.0..sroa_idx, align 2
   %.sroa.1193.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 52
   store i8 1, ptr %.sroa.1193.0..sroa_idx, align 4
-  br label %46
+  br label %thread-pre-split
 
 45:                                               ; preds = %13
   %.sroa.476.0..sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 1
@@ -2812,61 +2806,59 @@ define hidden void @_ZN6rustls4msgs8deframer15MessageDeframer9append_hs17h92bc83
   store i64 %.sroa.779.0.copyload, ptr %.sroa.584.0..sroa_idx, align 8
   br label %83
 
-46:                                               ; preds = %64, %"_ZN147_$LT$rustls..msgs..deframer..DeframerVecBuffer$u20$as$u20$rustls..msgs..deframer..DeframerBuffer$LT$rustls..msgs..deframer..ExternalPayload$GT$$GT$4copy17h7334019f4f78ca44E.exit108"
-  %.val107137 = phi i64 [ %30, %64 ], [ %5, %"_ZN147_$LT$rustls..msgs..deframer..DeframerVecBuffer$u20$as$u20$rustls..msgs..deframer..DeframerBuffer$LT$rustls..msgs..deframer..ExternalPayload$GT$$GT$4copy17h7334019f4f78ca44E.exit108" ]
-  %.val106135 = phi i64 [ %50, %64 ], [ 0, %"_ZN147_$LT$rustls..msgs..deframer..DeframerVecBuffer$u20$as$u20$rustls..msgs..deframer..DeframerBuffer$LT$rustls..msgs..deframer..ExternalPayload$GT$$GT$4copy17h7334019f4f78ca44E.exit108" ]
-  %47 = phi i64 [ %68, %64 ], [ %35, %"_ZN147_$LT$rustls..msgs..deframer..DeframerVecBuffer$u20$as$u20$rustls..msgs..deframer..DeframerBuffer$LT$rustls..msgs..deframer..ExternalPayload$GT$$GT$4copy17h7334019f4f78ca44E.exit108" ]
-  %48 = phi i64 [ %66, %64 ], [ %33, %"_ZN147_$LT$rustls..msgs..deframer..DeframerVecBuffer$u20$as$u20$rustls..msgs..deframer..DeframerBuffer$LT$rustls..msgs..deframer..ExternalPayload$GT$$GT$4copy17h7334019f4f78ca44E.exit108" ]
-  %.not103 = icmp eq i64 %48, 0
-  br i1 %.not103, label %72, label %.thread121
+thread-pre-split:                                 ; preds = %"_ZN147_$LT$rustls..msgs..deframer..DeframerVecBuffer$u20$as$u20$rustls..msgs..deframer..DeframerBuffer$LT$rustls..msgs..deframer..ExternalPayload$GT$$GT$4copy17h7334019f4f78ca44E.exit108", %62
+  %.val107 = phi i64 [ %30, %62 ], [ %5, %"_ZN147_$LT$rustls..msgs..deframer..DeframerVecBuffer$u20$as$u20$rustls..msgs..deframer..DeframerBuffer$LT$rustls..msgs..deframer..ExternalPayload$GT$$GT$4copy17h7334019f4f78ca44E.exit108" ]
+  %46 = phi i64 [ %64, %62 ], [ %33, %"_ZN147_$LT$rustls..msgs..deframer..DeframerVecBuffer$u20$as$u20$rustls..msgs..deframer..DeframerBuffer$LT$rustls..msgs..deframer..ExternalPayload$GT$$GT$4copy17h7334019f4f78ca44E.exit108" ]
+  %.not103 = icmp eq i64 %46, 0
+  br i1 %.not103, label %72, label %thread-pre-split.thread
 
-49:                                               ; preds = %"_ZN147_$LT$rustls..msgs..deframer..DeframerVecBuffer$u20$as$u20$rustls..msgs..deframer..DeframerBuffer$LT$rustls..msgs..deframer..ExternalPayload$GT$$GT$4copy17h7334019f4f78ca44E.exit"
+47:                                               ; preds = %"_ZN147_$LT$rustls..msgs..deframer..DeframerVecBuffer$u20$as$u20$rustls..msgs..deframer..DeframerBuffer$LT$rustls..msgs..deframer..ExternalPayload$GT$$GT$4copy17h7334019f4f78ca44E.exit"
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %10)
-  %50 = load i64, ptr %17, align 8, !noundef !4
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !544)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !547)
-  tail call void @llvm.experimental.noalias.scope.decl(metadata !550)
-  %51 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %52 = load i64, ptr %51, align 8, !alias.scope !553, !noalias !554, !noundef !4
-  %53 = icmp ugt i64 %27, %52
-  br i1 %53, label %54, label %"_ZN106_$LT$rustls..msgs..deframer..DeframerVecBuffer$u20$as$u20$rustls..msgs..deframer..FilledDeframerBuffer$GT$6filled17hc5476e99e0ebcad7E.exit.i"
+  %48 = load i64, ptr %17, align 8, !noundef !4
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !539)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !542)
+  tail call void @llvm.experimental.noalias.scope.decl(metadata !545)
+  %49 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %50 = load i64, ptr %49, align 8, !alias.scope !548, !noalias !549, !noundef !4
+  %51 = icmp ugt i64 %27, %50
+  br i1 %51, label %52, label %"_ZN106_$LT$rustls..msgs..deframer..DeframerVecBuffer$u20$as$u20$rustls..msgs..deframer..FilledDeframerBuffer$GT$6filled17hc5476e99e0ebcad7E.exit.i"
 
-54:                                               ; preds = %49
-  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %27, i64 noundef %52, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c43cdfa0e8c33ad4539906867d1667f9.62.llvm.403688954652204928) #25, !noalias !556
+52:                                               ; preds = %47
+  tail call void @_ZN4core5slice5index24slice_end_index_len_fail17h9163fa4abd3ca1acE(i64 noundef %27, i64 noundef %50, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) @anon.c43cdfa0e8c33ad4539906867d1667f9.62.llvm.403688954652204928) #25, !noalias !551
   unreachable
 
-"_ZN106_$LT$rustls..msgs..deframer..DeframerVecBuffer$u20$as$u20$rustls..msgs..deframer..FilledDeframerBuffer$GT$6filled17hc5476e99e0ebcad7E.exit.i": ; preds = %49
-  %55 = icmp ugt i64 %50, %30
-  %56 = icmp ugt i64 %30, %27
-  %or.cond.i.i = or i1 %56, %55
-  br i1 %or.cond.i.i, label %57, label %_ZN6rustls4msgs8deframer20FilledDeframerBuffer10filled_get17h47758503050b25a1E.exit
+"_ZN106_$LT$rustls..msgs..deframer..DeframerVecBuffer$u20$as$u20$rustls..msgs..deframer..FilledDeframerBuffer$GT$6filled17hc5476e99e0ebcad7E.exit.i": ; preds = %47
+  %53 = icmp ugt i64 %48, %30
+  %54 = icmp ugt i64 %30, %27
+  %or.cond.i.i = or i1 %54, %53
+  br i1 %or.cond.i.i, label %55, label %_ZN6rustls4msgs8deframer20FilledDeframerBuffer10filled_get17h47758503050b25a1E.exit
 
-57:                                               ; preds = %"_ZN106_$LT$rustls..msgs..deframer..DeframerVecBuffer$u20$as$u20$rustls..msgs..deframer..FilledDeframerBuffer$GT$6filled17hc5476e99e0ebcad7E.exit.i"
-  tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.916360c5c3539c9dc3d13699584f1a67.19.llvm.13848472603100435571, i64 noundef 43, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.916360c5c3539c9dc3d13699584f1a67.22.llvm.13848472603100435571) #25, !noalias !544
+55:                                               ; preds = %"_ZN106_$LT$rustls..msgs..deframer..DeframerVecBuffer$u20$as$u20$rustls..msgs..deframer..FilledDeframerBuffer$GT$6filled17hc5476e99e0ebcad7E.exit.i"
+  tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.916360c5c3539c9dc3d13699584f1a67.19.llvm.13848472603100435571, i64 noundef 43, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.916360c5c3539c9dc3d13699584f1a67.22.llvm.13848472603100435571) #25, !noalias !539
   unreachable
 
 _ZN6rustls4msgs8deframer20FilledDeframerBuffer10filled_get17h47758503050b25a1E.exit: ; preds = %"_ZN106_$LT$rustls..msgs..deframer..DeframerVecBuffer$u20$as$u20$rustls..msgs..deframer..FilledDeframerBuffer$GT$6filled17hc5476e99e0ebcad7E.exit.i"
-  %58 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %59 = load ptr, ptr %58, align 8, !alias.scope !553, !noalias !554, !nonnull !4, !noundef !4
-  %60 = getelementptr inbounds i8, ptr %59, i64 %50
-  %61 = sub nuw i64 %30, %50
-  call void @_ZN6rustls4msgs8deframer12payload_size17h70f2d6c0453971cbE(ptr noalias noundef nonnull sret({ i8, [31 x i8] }) align 8 captures(none) dereferenceable(32) %10, ptr noalias noundef nonnull readonly align 1 %60, i64 noundef %61)
-  %62 = load i8, ptr %10, align 8, !range !45, !noundef !4
-  %63 = icmp eq i8 %62, 20
-  br i1 %63, label %64, label %70
+  %56 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %57 = load ptr, ptr %56, align 8, !alias.scope !548, !noalias !549, !nonnull !4, !noundef !4
+  %58 = getelementptr inbounds i8, ptr %57, i64 %48
+  %59 = sub nuw i64 %30, %48
+  call void @_ZN6rustls4msgs8deframer12payload_size17h70f2d6c0453971cbE(ptr noalias noundef nonnull sret({ i8, [31 x i8] }) align 8 captures(none) dereferenceable(32) %10, ptr noalias noundef nonnull readonly align 1 %58, i64 noundef %59)
+  %60 = load i8, ptr %10, align 8, !range !45, !noundef !4
+  %61 = icmp eq i8 %60, 20
+  br i1 %61, label %62, label %68
 
-64:                                               ; preds = %_ZN6rustls4msgs8deframer20FilledDeframerBuffer10filled_get17h47758503050b25a1E.exit
-  %65 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %66 = load i64, ptr %65, align 8, !range !298, !noundef !4
-  %67 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %68 = load i64, ptr %67, align 8
+62:                                               ; preds = %_ZN6rustls4msgs8deframer20FilledDeframerBuffer10filled_get17h47758503050b25a1E.exit
+  %63 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %64 = load i64, ptr %63, align 8, !range !298, !noundef !4
+  %65 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %66 = load i64, ptr %65, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
-  store i64 %66, ptr %1, align 8
-  %69 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %68, ptr %69, align 8
-  br label %46
+  store i64 %64, ptr %1, align 8
+  %67 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i64 %66, ptr %67, align 8
+  br label %thread-pre-split
 
-70:                                               ; preds = %_ZN6rustls4msgs8deframer20FilledDeframerBuffer10filled_get17h47758503050b25a1E.exit
+68:                                               ; preds = %_ZN6rustls4msgs8deframer20FilledDeframerBuffer10filled_get17h47758503050b25a1E.exit
   %.sroa.461.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.266, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.461.0..sroa_idx, i64 7, i1 false)
   %.sroa.562.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -2876,7 +2868,7 @@ _ZN6rustls4msgs8deframer20FilledDeframerBuffer10filled_get17h47758503050b25a1E.e
   %.sroa.764.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 24
   %.sroa.764.0.copyload = load i64, ptr %.sroa.764.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %10)
-  store i8 %62, ptr %0, align 8
+  store i8 %60, ptr %0, align 8
   %.sroa.266.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.266.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.266, i64 7, i1 false)
   %.sroa.367.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2887,15 +2879,17 @@ _ZN6rustls4msgs8deframer20FilledDeframerBuffer10filled_get17h47758503050b25a1E.e
   store i64 %.sroa.764.0.copyload, ptr %.sroa.569.0..sroa_idx, align 8
   br label %83
 
-.thread121:                                       ; preds = %"_ZN147_$LT$rustls..msgs..deframer..DeframerVecBuffer$u20$as$u20$rustls..msgs..deframer..DeframerBuffer$LT$rustls..msgs..deframer..ExternalPayload$GT$$GT$4copy17h7334019f4f78ca44E.exit..thread121_crit_edge", %46
-  %.val107 = phi i64 [ %30, %"_ZN147_$LT$rustls..msgs..deframer..DeframerVecBuffer$u20$as$u20$rustls..msgs..deframer..DeframerBuffer$LT$rustls..msgs..deframer..ExternalPayload$GT$$GT$4copy17h7334019f4f78ca44E.exit..thread121_crit_edge" ], [ %.val107137, %46 ]
-  %.val106 = phi i64 [ %.val106.pre, %"_ZN147_$LT$rustls..msgs..deframer..DeframerVecBuffer$u20$as$u20$rustls..msgs..deframer..DeframerBuffer$LT$rustls..msgs..deframer..ExternalPayload$GT$$GT$4copy17h7334019f4f78ca44E.exit..thread121_crit_edge" ], [ %.val106135, %46 ]
-  %71 = phi i64 [ %.pre, %"_ZN147_$LT$rustls..msgs..deframer..DeframerVecBuffer$u20$as$u20$rustls..msgs..deframer..DeframerBuffer$LT$rustls..msgs..deframer..ExternalPayload$GT$$GT$4copy17h7334019f4f78ca44E.exit..thread121_crit_edge" ], [ %47, %46 ]
-  %spec.select.i.i = tail call noundef i64 @llvm.usub.sat.i64(i64 %.val107, i64 %.val106)
-  %.not104 = icmp ugt i64 %71, %spec.select.i.i
+thread-pre-split.thread:                          ; preds = %"_ZN147_$LT$rustls..msgs..deframer..DeframerVecBuffer$u20$as$u20$rustls..msgs..deframer..DeframerBuffer$LT$rustls..msgs..deframer..ExternalPayload$GT$$GT$4copy17h7334019f4f78ca44E.exit", %thread-pre-split
+  %.val107133 = phi i64 [ %.val107, %thread-pre-split ], [ %30, %"_ZN147_$LT$rustls..msgs..deframer..DeframerVecBuffer$u20$as$u20$rustls..msgs..deframer..DeframerBuffer$LT$rustls..msgs..deframer..ExternalPayload$GT$$GT$4copy17h7334019f4f78ca44E.exit" ]
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %70 = load i64, ptr %69, align 8, !noundef !4
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %.val106 = load i64, ptr %71, align 8, !alias.scope !556, !noalias !559, !noundef !4
+  %spec.select.i.i = tail call noundef i64 @llvm.usub.sat.i64(i64 %.val107133, i64 %.val106)
+  %.not104 = icmp ugt i64 %70, %spec.select.i.i
   br i1 %.not104, label %72, label %80
 
-72:                                               ; preds = %.thread121, %46
+72:                                               ; preds = %thread-pre-split.thread, %thread-pre-split
   tail call void @llvm.experimental.noalias.scope.decl(metadata !561)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !564)
   %73 = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -2915,9 +2909,9 @@ _ZN6rustls4msgs8deframer20FilledDeframerBuffer3len17hcda47bada241ddbeE.exit: ; p
   %spec.select = select i1 %79, i64 2, i64 0
   br label %80
 
-80:                                               ; preds = %.thread121, %_ZN6rustls4msgs8deframer20FilledDeframerBuffer3len17hcda47bada241ddbeE.exit
-  %.sroa.053.0 = phi i64 [ %spec.select, %_ZN6rustls4msgs8deframer20FilledDeframerBuffer3len17hcda47bada241ddbeE.exit ], [ 1, %.thread121 ]
-  %.sroa.654.0 = phi i64 [ undef, %_ZN6rustls4msgs8deframer20FilledDeframerBuffer3len17hcda47bada241ddbeE.exit ], [ %71, %.thread121 ]
+80:                                               ; preds = %thread-pre-split.thread, %_ZN6rustls4msgs8deframer20FilledDeframerBuffer3len17hcda47bada241ddbeE.exit
+  %.sroa.053.0 = phi i64 [ %spec.select, %_ZN6rustls4msgs8deframer20FilledDeframerBuffer3len17hcda47bada241ddbeE.exit ], [ 1, %thread-pre-split.thread ]
+  %.sroa.654.0 = phi i64 [ undef, %_ZN6rustls4msgs8deframer20FilledDeframerBuffer3len17hcda47bada241ddbeE.exit ], [ %70, %thread-pre-split.thread ]
   %81 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.053.0, ptr %81, align 8
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -2925,7 +2919,7 @@ _ZN6rustls4msgs8deframer20FilledDeframerBuffer3len17hcda47bada241ddbeE.exit: ; p
   store i8 20, ptr %0, align 8
   br label %83
 
-83:                                               ; preds = %45, %70, %80
+83:                                               ; preds = %45, %68, %80
   ret void
 }
 
@@ -3034,13 +3028,7 @@ define hidden void @_ZN6rustls4msgs8deframer15MessageDeframer9append_hs17hb1c271
   %61 = add i64 %37, %60
   store i64 %61, ptr %36, align 8
   %.not = icmp eq i64 %12, 0
-  br i1 %.not, label %"_ZN108_$LT$rustls..msgs..deframer..DeframerSliceBuffer$u20$as$u20$rustls..msgs..deframer..FilledDeframerBuffer$GT$6filled17h0d41c1807873496aE.exit.i", label %"_ZN149_$LT$rustls..msgs..deframer..DeframerSliceBuffer$u20$as$u20$rustls..msgs..deframer..DeframerBuffer$LT$rustls..msgs..deframer..InternalPayload$GT$$GT$4copy17h79d14d9b0eaf8fffE.exit..thread126_crit_edge"
-
-"_ZN149_$LT$rustls..msgs..deframer..DeframerSliceBuffer$u20$as$u20$rustls..msgs..deframer..DeframerBuffer$LT$rustls..msgs..deframer..InternalPayload$GT$$GT$4copy17h79d14d9b0eaf8fffE.exit..thread126_crit_edge": ; preds = %"_ZN149_$LT$rustls..msgs..deframer..DeframerSliceBuffer$u20$as$u20$rustls..msgs..deframer..DeframerBuffer$LT$rustls..msgs..deframer..InternalPayload$GT$$GT$4copy17h79d14d9b0eaf8fffE.exit"
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.pre = load i64, ptr %.phi.trans.insert, align 8
-  %.val.pre = load i64, ptr %35, align 8, !alias.scope !520, !noalias !523
-  br label %.thread126
+  br i1 %.not, label %"_ZN108_$LT$rustls..msgs..deframer..DeframerSliceBuffer$u20$as$u20$rustls..msgs..deframer..FilledDeframerBuffer$GT$6filled17h0d41c1807873496aE.exit.i", label %thread-pre-split.thread
 
 "_ZN149_$LT$rustls..msgs..deframer..DeframerSliceBuffer$u20$as$u20$rustls..msgs..deframer..DeframerBuffer$LT$rustls..msgs..deframer..InternalPayload$GT$$GT$4copy17h79d14d9b0eaf8fffE.exit110": ; preds = %"_ZN97_$LT$rustls..msgs..deframer..InternalPayload$u20$as$u20$rustls..msgs..deframer..AppendPayload$GT$4size17h86a8300f81e138ccE.exit"
   %62 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -3072,7 +3060,7 @@ define hidden void @_ZN6rustls4msgs8deframer15MessageDeframer9append_hs17hb1c271
   store i16 %3, ptr %.sroa.1092.0..sroa_idx, align 2
   %.sroa.1193.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 52
   store i8 0, ptr %.sroa.1193.0..sroa_idx, align 4
-  br label %72
+  br label %thread-pre-split
 
 71:                                               ; preds = %"_ZN97_$LT$rustls..msgs..deframer..InternalPayload$u20$as$u20$rustls..msgs..deframer..AppendPayload$GT$4size17h86a8300f81e138ccE.exit"
   %.sroa.476.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 1
@@ -3095,49 +3083,47 @@ define hidden void @_ZN6rustls4msgs8deframer15MessageDeframer9append_hs17hb1c271
   store i64 %.sroa.779.0.copyload, ptr %.sroa.584.0..sroa_idx, align 8
   br label %109
 
-72:                                               ; preds = %86, %"_ZN149_$LT$rustls..msgs..deframer..DeframerSliceBuffer$u20$as$u20$rustls..msgs..deframer..DeframerBuffer$LT$rustls..msgs..deframer..InternalPayload$GT$$GT$4copy17h79d14d9b0eaf8fffE.exit110"
-  %73 = phi i64 [ %40, %86 ], [ %20, %"_ZN149_$LT$rustls..msgs..deframer..DeframerSliceBuffer$u20$as$u20$rustls..msgs..deframer..DeframerBuffer$LT$rustls..msgs..deframer..InternalPayload$GT$$GT$4copy17h79d14d9b0eaf8fffE.exit110" ]
-  %74 = phi i64 [ %39, %86 ], [ %19, %"_ZN149_$LT$rustls..msgs..deframer..DeframerSliceBuffer$u20$as$u20$rustls..msgs..deframer..DeframerBuffer$LT$rustls..msgs..deframer..InternalPayload$GT$$GT$4copy17h79d14d9b0eaf8fffE.exit110" ]
-  %75 = phi i64 [ %38, %86 ], [ %18, %"_ZN149_$LT$rustls..msgs..deframer..DeframerSliceBuffer$u20$as$u20$rustls..msgs..deframer..DeframerBuffer$LT$rustls..msgs..deframer..InternalPayload$GT$$GT$4copy17h79d14d9b0eaf8fffE.exit110" ]
-  %.val105142 = phi i64 [ %61, %86 ], [ %31, %"_ZN149_$LT$rustls..msgs..deframer..DeframerSliceBuffer$u20$as$u20$rustls..msgs..deframer..DeframerBuffer$LT$rustls..msgs..deframer..InternalPayload$GT$$GT$4copy17h79d14d9b0eaf8fffE.exit110" ]
-  %.val140 = phi i64 [ %78, %86 ], [ 0, %"_ZN149_$LT$rustls..msgs..deframer..DeframerSliceBuffer$u20$as$u20$rustls..msgs..deframer..DeframerBuffer$LT$rustls..msgs..deframer..InternalPayload$GT$$GT$4copy17h79d14d9b0eaf8fffE.exit110" ]
-  %76 = phi i64 [ %90, %86 ], [ %65, %"_ZN149_$LT$rustls..msgs..deframer..DeframerSliceBuffer$u20$as$u20$rustls..msgs..deframer..DeframerBuffer$LT$rustls..msgs..deframer..InternalPayload$GT$$GT$4copy17h79d14d9b0eaf8fffE.exit110" ]
-  %77 = phi i64 [ %88, %86 ], [ %63, %"_ZN149_$LT$rustls..msgs..deframer..DeframerSliceBuffer$u20$as$u20$rustls..msgs..deframer..DeframerBuffer$LT$rustls..msgs..deframer..InternalPayload$GT$$GT$4copy17h79d14d9b0eaf8fffE.exit110" ]
-  %.not103 = icmp eq i64 %77, 0
-  br i1 %.not103, label %97, label %.thread126
+thread-pre-split:                                 ; preds = %"_ZN149_$LT$rustls..msgs..deframer..DeframerSliceBuffer$u20$as$u20$rustls..msgs..deframer..DeframerBuffer$LT$rustls..msgs..deframer..InternalPayload$GT$$GT$4copy17h79d14d9b0eaf8fffE.exit110", %84
+  %72 = phi i64 [ %40, %84 ], [ %20, %"_ZN149_$LT$rustls..msgs..deframer..DeframerSliceBuffer$u20$as$u20$rustls..msgs..deframer..DeframerBuffer$LT$rustls..msgs..deframer..InternalPayload$GT$$GT$4copy17h79d14d9b0eaf8fffE.exit110" ]
+  %73 = phi i64 [ %39, %84 ], [ %19, %"_ZN149_$LT$rustls..msgs..deframer..DeframerSliceBuffer$u20$as$u20$rustls..msgs..deframer..DeframerBuffer$LT$rustls..msgs..deframer..InternalPayload$GT$$GT$4copy17h79d14d9b0eaf8fffE.exit110" ]
+  %74 = phi i64 [ %38, %84 ], [ %18, %"_ZN149_$LT$rustls..msgs..deframer..DeframerSliceBuffer$u20$as$u20$rustls..msgs..deframer..DeframerBuffer$LT$rustls..msgs..deframer..InternalPayload$GT$$GT$4copy17h79d14d9b0eaf8fffE.exit110" ]
+  %.val105 = phi i64 [ %61, %84 ], [ %31, %"_ZN149_$LT$rustls..msgs..deframer..DeframerSliceBuffer$u20$as$u20$rustls..msgs..deframer..DeframerBuffer$LT$rustls..msgs..deframer..InternalPayload$GT$$GT$4copy17h79d14d9b0eaf8fffE.exit110" ]
+  %75 = phi i64 [ %86, %84 ], [ %63, %"_ZN149_$LT$rustls..msgs..deframer..DeframerSliceBuffer$u20$as$u20$rustls..msgs..deframer..DeframerBuffer$LT$rustls..msgs..deframer..InternalPayload$GT$$GT$4copy17h79d14d9b0eaf8fffE.exit110" ]
+  %.not103 = icmp eq i64 %75, 0
+  br i1 %.not103, label %97, label %thread-pre-split.thread
 
 "_ZN108_$LT$rustls..msgs..deframer..DeframerSliceBuffer$u20$as$u20$rustls..msgs..deframer..FilledDeframerBuffer$GT$6filled17h0d41c1807873496aE.exit.i": ; preds = %"_ZN149_$LT$rustls..msgs..deframer..DeframerSliceBuffer$u20$as$u20$rustls..msgs..deframer..DeframerBuffer$LT$rustls..msgs..deframer..InternalPayload$GT$$GT$4copy17h79d14d9b0eaf8fffE.exit"
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %11)
-  %78 = load i64, ptr %35, align 8, !noundef !4
-  %79 = icmp ugt i64 %78, %61
-  %80 = icmp ugt i64 %61, %45
-  %or.cond.i.i = or i1 %80, %79
-  br i1 %or.cond.i.i, label %81, label %_ZN6rustls4msgs8deframer20FilledDeframerBuffer10filled_get17h9a15883934ffc369E.exit
+  %76 = load i64, ptr %35, align 8, !noundef !4
+  %77 = icmp ugt i64 %76, %61
+  %78 = icmp ugt i64 %61, %45
+  %or.cond.i.i = or i1 %78, %77
+  br i1 %or.cond.i.i, label %79, label %_ZN6rustls4msgs8deframer20FilledDeframerBuffer10filled_get17h9a15883934ffc369E.exit
 
-81:                                               ; preds = %"_ZN108_$LT$rustls..msgs..deframer..DeframerSliceBuffer$u20$as$u20$rustls..msgs..deframer..FilledDeframerBuffer$GT$6filled17h0d41c1807873496aE.exit.i"
+79:                                               ; preds = %"_ZN108_$LT$rustls..msgs..deframer..DeframerSliceBuffer$u20$as$u20$rustls..msgs..deframer..FilledDeframerBuffer$GT$6filled17h0d41c1807873496aE.exit.i"
   tail call void @_ZN4core9panicking5panic17hb837a5ebbbe5b188E(ptr noalias noundef nonnull readonly align 1 @anon.916360c5c3539c9dc3d13699584f1a67.19.llvm.13848472603100435571, i64 noundef 43, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.916360c5c3539c9dc3d13699584f1a67.22.llvm.13848472603100435571) #25, !noalias !621
   unreachable
 
 _ZN6rustls4msgs8deframer20FilledDeframerBuffer10filled_get17h9a15883934ffc369E.exit: ; preds = %"_ZN108_$LT$rustls..msgs..deframer..DeframerSliceBuffer$u20$as$u20$rustls..msgs..deframer..FilledDeframerBuffer$GT$6filled17h0d41c1807873496aE.exit.i"
-  %82 = getelementptr inbounds i8, ptr %56, i64 %78
-  %83 = sub nuw i64 %61, %78
-  call void @_ZN6rustls4msgs8deframer12payload_size17h70f2d6c0453971cbE(ptr noalias noundef nonnull sret({ i8, [31 x i8] }) align 8 captures(none) dereferenceable(32) %11, ptr noalias noundef nonnull readonly align 1 %82, i64 noundef %83)
-  %84 = load i8, ptr %11, align 8, !range !45, !noundef !4
-  %85 = icmp eq i8 %84, 20
-  br i1 %85, label %86, label %92
+  %80 = getelementptr inbounds i8, ptr %56, i64 %76
+  %81 = sub nuw i64 %61, %76
+  call void @_ZN6rustls4msgs8deframer12payload_size17h70f2d6c0453971cbE(ptr noalias noundef nonnull sret({ i8, [31 x i8] }) align 8 captures(none) dereferenceable(32) %11, ptr noalias noundef nonnull readonly align 1 %80, i64 noundef %81)
+  %82 = load i8, ptr %11, align 8, !range !45, !noundef !4
+  %83 = icmp eq i8 %82, 20
+  br i1 %83, label %84, label %90
 
-86:                                               ; preds = %_ZN6rustls4msgs8deframer20FilledDeframerBuffer10filled_get17h9a15883934ffc369E.exit
-  %87 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %88 = load i64, ptr %87, align 8, !range !298, !noundef !4
-  %89 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %90 = load i64, ptr %89, align 8
+84:                                               ; preds = %_ZN6rustls4msgs8deframer20FilledDeframerBuffer10filled_get17h9a15883934ffc369E.exit
+  %85 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %86 = load i64, ptr %85, align 8, !range !298, !noundef !4
+  %87 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %88 = load i64, ptr %87, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
-  store i64 %88, ptr %1, align 8
-  %91 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i64 %90, ptr %91, align 8
-  br label %72
+  store i64 %86, ptr %1, align 8
+  %89 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i64 %88, ptr %89, align 8
+  br label %thread-pre-split
 
-92:                                               ; preds = %_ZN6rustls4msgs8deframer20FilledDeframerBuffer10filled_get17h9a15883934ffc369E.exit
+90:                                               ; preds = %_ZN6rustls4msgs8deframer20FilledDeframerBuffer10filled_get17h9a15883934ffc369E.exit
   %.sroa.461.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.266, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.461.0..sroa_idx, i64 7, i1 false)
   %.sroa.562.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 8
@@ -3147,7 +3133,7 @@ _ZN6rustls4msgs8deframer20FilledDeframerBuffer10filled_get17h9a15883934ffc369E.e
   %.sroa.764.0..sroa_idx = getelementptr inbounds nuw i8, ptr %11, i64 24
   %.sroa.764.0.copyload = load i64, ptr %.sroa.764.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %11)
-  store i8 %84, ptr %0, align 8
+  store i8 %82, ptr %0, align 8
   %.sroa.266.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %.sroa.266.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(7) %.sroa.266, i64 7, i1 false)
   %.sroa.367.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3158,38 +3144,40 @@ _ZN6rustls4msgs8deframer20FilledDeframerBuffer10filled_get17h9a15883934ffc369E.e
   store i64 %.sroa.764.0.copyload, ptr %.sroa.569.0..sroa_idx, align 8
   br label %109
 
-.thread126:                                       ; preds = %"_ZN149_$LT$rustls..msgs..deframer..DeframerSliceBuffer$u20$as$u20$rustls..msgs..deframer..DeframerBuffer$LT$rustls..msgs..deframer..InternalPayload$GT$$GT$4copy17h79d14d9b0eaf8fffE.exit..thread126_crit_edge", %72
-  %93 = phi i64 [ %40, %"_ZN149_$LT$rustls..msgs..deframer..DeframerSliceBuffer$u20$as$u20$rustls..msgs..deframer..DeframerBuffer$LT$rustls..msgs..deframer..InternalPayload$GT$$GT$4copy17h79d14d9b0eaf8fffE.exit..thread126_crit_edge" ], [ %73, %72 ]
-  %94 = phi i64 [ %39, %"_ZN149_$LT$rustls..msgs..deframer..DeframerSliceBuffer$u20$as$u20$rustls..msgs..deframer..DeframerBuffer$LT$rustls..msgs..deframer..InternalPayload$GT$$GT$4copy17h79d14d9b0eaf8fffE.exit..thread126_crit_edge" ], [ %74, %72 ]
-  %95 = phi i64 [ %38, %"_ZN149_$LT$rustls..msgs..deframer..DeframerSliceBuffer$u20$as$u20$rustls..msgs..deframer..DeframerBuffer$LT$rustls..msgs..deframer..InternalPayload$GT$$GT$4copy17h79d14d9b0eaf8fffE.exit..thread126_crit_edge" ], [ %75, %72 ]
-  %.val105 = phi i64 [ %61, %"_ZN149_$LT$rustls..msgs..deframer..DeframerSliceBuffer$u20$as$u20$rustls..msgs..deframer..DeframerBuffer$LT$rustls..msgs..deframer..InternalPayload$GT$$GT$4copy17h79d14d9b0eaf8fffE.exit..thread126_crit_edge" ], [ %.val105142, %72 ]
-  %.val = phi i64 [ %.val.pre, %"_ZN149_$LT$rustls..msgs..deframer..DeframerSliceBuffer$u20$as$u20$rustls..msgs..deframer..DeframerBuffer$LT$rustls..msgs..deframer..InternalPayload$GT$$GT$4copy17h79d14d9b0eaf8fffE.exit..thread126_crit_edge" ], [ %.val140, %72 ]
-  %96 = phi i64 [ %.pre, %"_ZN149_$LT$rustls..msgs..deframer..DeframerSliceBuffer$u20$as$u20$rustls..msgs..deframer..DeframerBuffer$LT$rustls..msgs..deframer..InternalPayload$GT$$GT$4copy17h79d14d9b0eaf8fffE.exit..thread126_crit_edge" ], [ %76, %72 ]
-  %spec.select.i.i = tail call noundef i64 @llvm.usub.sat.i64(i64 %.val105, i64 %.val)
-  %.not104 = icmp ugt i64 %96, %spec.select.i.i
+thread-pre-split.thread:                          ; preds = %"_ZN149_$LT$rustls..msgs..deframer..DeframerSliceBuffer$u20$as$u20$rustls..msgs..deframer..DeframerBuffer$LT$rustls..msgs..deframer..InternalPayload$GT$$GT$4copy17h79d14d9b0eaf8fffE.exit", %thread-pre-split
+  %.val105138 = phi i64 [ %.val105, %thread-pre-split ], [ %61, %"_ZN149_$LT$rustls..msgs..deframer..DeframerSliceBuffer$u20$as$u20$rustls..msgs..deframer..DeframerBuffer$LT$rustls..msgs..deframer..InternalPayload$GT$$GT$4copy17h79d14d9b0eaf8fffE.exit" ]
+  %91 = phi i64 [ %74, %thread-pre-split ], [ %38, %"_ZN149_$LT$rustls..msgs..deframer..DeframerSliceBuffer$u20$as$u20$rustls..msgs..deframer..DeframerBuffer$LT$rustls..msgs..deframer..InternalPayload$GT$$GT$4copy17h79d14d9b0eaf8fffE.exit" ]
+  %92 = phi i64 [ %73, %thread-pre-split ], [ %39, %"_ZN149_$LT$rustls..msgs..deframer..DeframerSliceBuffer$u20$as$u20$rustls..msgs..deframer..DeframerBuffer$LT$rustls..msgs..deframer..InternalPayload$GT$$GT$4copy17h79d14d9b0eaf8fffE.exit" ]
+  %93 = phi i64 [ %72, %thread-pre-split ], [ %40, %"_ZN149_$LT$rustls..msgs..deframer..DeframerSliceBuffer$u20$as$u20$rustls..msgs..deframer..DeframerBuffer$LT$rustls..msgs..deframer..InternalPayload$GT$$GT$4copy17h79d14d9b0eaf8fffE.exit" ]
+  %94 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %95 = load i64, ptr %94, align 8, !noundef !4
+  %96 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %.val = load i64, ptr %96, align 8, !alias.scope !556, !noalias !559, !noundef !4
+  %spec.select.i.i = tail call noundef i64 @llvm.usub.sat.i64(i64 %.val105138, i64 %.val)
+  %.not104 = icmp ugt i64 %95, %spec.select.i.i
   br i1 %.not104, label %97, label %106
 
-97:                                               ; preds = %.thread126, %72
-  %98 = phi i64 [ %93, %.thread126 ], [ %73, %72 ]
-  %99 = phi i64 [ %94, %.thread126 ], [ %74, %72 ]
-  %100 = phi i64 [ %95, %.thread126 ], [ %75, %72 ]
-  %101 = sub i64 %99, %98
-  %102 = icmp ugt i64 %101, %100
+97:                                               ; preds = %thread-pre-split.thread, %thread-pre-split
+  %98 = phi i64 [ %91, %thread-pre-split.thread ], [ %74, %thread-pre-split ]
+  %99 = phi i64 [ %92, %thread-pre-split.thread ], [ %73, %thread-pre-split ]
+  %100 = phi i64 [ %93, %thread-pre-split.thread ], [ %72, %thread-pre-split ]
+  %101 = sub i64 %99, %100
+  %102 = icmp ugt i64 %101, %98
   br i1 %102, label %103, label %_ZN6rustls4msgs8deframer20FilledDeframerBuffer3len17he11cd76353501232E.exit
 
 103:                                              ; preds = %97
-  tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h0187bf4d120fc375E(i64 noundef %101, i64 noundef %100, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c43cdfa0e8c33ad4539906867d1667f9.70.llvm.403688954652204928) #25, !noalias !624
+  tail call void @_ZN4core5slice5index26slice_start_index_len_fail17h0187bf4d120fc375E(i64 noundef %101, i64 noundef %98, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.c43cdfa0e8c33ad4539906867d1667f9.70.llvm.403688954652204928) #25, !noalias !624
   unreachable
 
 _ZN6rustls4msgs8deframer20FilledDeframerBuffer3len17he11cd76353501232E.exit: ; preds = %97
-  %104 = sub nuw i64 %100, %101
+  %104 = sub nuw i64 %98, %101
   %105 = icmp ugt i64 %104, %6
   %spec.select = select i1 %105, i64 2, i64 0
   br label %106
 
-106:                                              ; preds = %.thread126, %_ZN6rustls4msgs8deframer20FilledDeframerBuffer3len17he11cd76353501232E.exit
-  %.sroa.053.0 = phi i64 [ %spec.select, %_ZN6rustls4msgs8deframer20FilledDeframerBuffer3len17he11cd76353501232E.exit ], [ 1, %.thread126 ]
-  %.sroa.654.0 = phi i64 [ undef, %_ZN6rustls4msgs8deframer20FilledDeframerBuffer3len17he11cd76353501232E.exit ], [ %96, %.thread126 ]
+106:                                              ; preds = %thread-pre-split.thread, %_ZN6rustls4msgs8deframer20FilledDeframerBuffer3len17he11cd76353501232E.exit
+  %.sroa.053.0 = phi i64 [ %spec.select, %_ZN6rustls4msgs8deframer20FilledDeframerBuffer3len17he11cd76353501232E.exit ], [ 1, %thread-pre-split.thread ]
+  %.sroa.654.0 = phi i64 [ undef, %_ZN6rustls4msgs8deframer20FilledDeframerBuffer3len17he11cd76353501232E.exit ], [ %95, %thread-pre-split.thread ]
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.053.0, ptr %107, align 8
   %108 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -3197,7 +3185,7 @@ _ZN6rustls4msgs8deframer20FilledDeframerBuffer3len17he11cd76353501232E.exit: ; p
   store i8 20, ptr %0, align 8
   br label %109
 
-109:                                              ; preds = %71, %92, %106
+109:                                              ; preds = %71, %90, %106
   ret void
 }
 
@@ -23492,47 +23480,47 @@ attributes #28 = { cold noreturn nounwind }
 !517 = !{!518, !504}
 !518 = distinct !{!518, !519, !"_ZN6rustls4msgs8deframer17DeframerVecBuffer7advance17h61483fa7782f5378E.llvm.403688954652204928: argument 0"}
 !519 = distinct !{!519, !"_ZN6rustls4msgs8deframer17DeframerVecBuffer7advance17h61483fa7782f5378E.llvm.403688954652204928"}
-!520 = !{!521}
-!521 = distinct !{!521, !522, !"_ZN4core3cmp5impls57_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$usize$GT$2lt17h062bf2cc8d73acb2E: argument 0"}
-!522 = distinct !{!522, !"_ZN4core3cmp5impls57_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$usize$GT$2lt17h062bf2cc8d73acb2E"}
-!523 = !{!524}
-!524 = distinct !{!524, !522, !"_ZN4core3cmp5impls57_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$usize$GT$2lt17h062bf2cc8d73acb2E: argument 1"}
-!525 = !{!526, !528}
-!526 = distinct !{!526, !527, !"_ZN6rustls4msgs8deframer17DeframerVecBuffer8unfilled17h980dd9bcb26cf452E.llvm.403688954652204928: argument 0"}
-!527 = distinct !{!527, !"_ZN6rustls4msgs8deframer17DeframerVecBuffer8unfilled17h980dd9bcb26cf452E.llvm.403688954652204928"}
-!528 = distinct !{!528, !529, !"_ZN147_$LT$rustls..msgs..deframer..DeframerVecBuffer$u20$as$u20$rustls..msgs..deframer..DeframerBuffer$LT$rustls..msgs..deframer..ExternalPayload$GT$$GT$4copy17h7334019f4f78ca44E: argument 0"}
-!529 = distinct !{!529, !"_ZN147_$LT$rustls..msgs..deframer..DeframerVecBuffer$u20$as$u20$rustls..msgs..deframer..DeframerBuffer$LT$rustls..msgs..deframer..ExternalPayload$GT$$GT$4copy17h7334019f4f78ca44E"}
-!530 = !{!531}
-!531 = distinct !{!531, !529, !"_ZN147_$LT$rustls..msgs..deframer..DeframerVecBuffer$u20$as$u20$rustls..msgs..deframer..DeframerBuffer$LT$rustls..msgs..deframer..ExternalPayload$GT$$GT$4copy17h7334019f4f78ca44E: argument 1"}
-!532 = !{!533, !531}
-!533 = distinct !{!533, !534, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17he196bf46852923c1E.llvm.403688954652204928: argument 0"}
-!534 = distinct !{!534, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17he196bf46852923c1E.llvm.403688954652204928"}
-!535 = !{!536, !538}
-!536 = distinct !{!536, !537, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2edd3c200d728c6aE: argument 0"}
-!537 = distinct !{!537, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2edd3c200d728c6aE"}
-!538 = distinct !{!538, !537, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2edd3c200d728c6aE: argument 1"}
-!539 = !{!540, !531}
-!540 = distinct !{!540, !537, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2edd3c200d728c6aE: argument 2"}
-!541 = !{!542, !528}
-!542 = distinct !{!542, !543, !"_ZN6rustls4msgs8deframer17DeframerVecBuffer7advance17h61483fa7782f5378E.llvm.403688954652204928: argument 0"}
-!543 = distinct !{!543, !"_ZN6rustls4msgs8deframer17DeframerVecBuffer7advance17h61483fa7782f5378E.llvm.403688954652204928"}
-!544 = !{!545}
-!545 = distinct !{!545, !546, !"_ZN6rustls4msgs8deframer20FilledDeframerBuffer10filled_get17h47758503050b25a1E: argument 0"}
-!546 = distinct !{!546, !"_ZN6rustls4msgs8deframer20FilledDeframerBuffer10filled_get17h47758503050b25a1E"}
-!547 = !{!548}
-!548 = distinct !{!548, !549, !"_ZN106_$LT$rustls..msgs..deframer..DeframerVecBuffer$u20$as$u20$rustls..msgs..deframer..FilledDeframerBuffer$GT$6filled17hc5476e99e0ebcad7E: argument 0"}
-!549 = distinct !{!549, !"_ZN106_$LT$rustls..msgs..deframer..DeframerVecBuffer$u20$as$u20$rustls..msgs..deframer..FilledDeframerBuffer$GT$6filled17hc5476e99e0ebcad7E"}
-!550 = !{!551}
-!551 = distinct !{!551, !552, !"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hf6dba344f954e651E.llvm.403688954652204928: argument 0"}
-!552 = distinct !{!552, !"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hf6dba344f954e651E.llvm.403688954652204928"}
-!553 = !{!551, !548, !545}
-!554 = !{!555}
-!555 = distinct !{!555, !552, !"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hf6dba344f954e651E.llvm.403688954652204928: argument 1"}
-!556 = !{!557, !559, !551, !548, !545}
-!557 = distinct !{!557, !558, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb98968f395a4042cE.llvm.403688954652204928: argument 0"}
-!558 = distinct !{!558, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb98968f395a4042cE.llvm.403688954652204928"}
-!559 = distinct !{!559, !560, !"_ZN108_$LT$core..ops..range..RangeTo$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0f811d11ffcf228eE.llvm.403688954652204928: argument 0"}
-!560 = distinct !{!560, !"_ZN108_$LT$core..ops..range..RangeTo$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0f811d11ffcf228eE.llvm.403688954652204928"}
+!520 = !{!521, !523}
+!521 = distinct !{!521, !522, !"_ZN6rustls4msgs8deframer17DeframerVecBuffer8unfilled17h980dd9bcb26cf452E.llvm.403688954652204928: argument 0"}
+!522 = distinct !{!522, !"_ZN6rustls4msgs8deframer17DeframerVecBuffer8unfilled17h980dd9bcb26cf452E.llvm.403688954652204928"}
+!523 = distinct !{!523, !524, !"_ZN147_$LT$rustls..msgs..deframer..DeframerVecBuffer$u20$as$u20$rustls..msgs..deframer..DeframerBuffer$LT$rustls..msgs..deframer..ExternalPayload$GT$$GT$4copy17h7334019f4f78ca44E: argument 0"}
+!524 = distinct !{!524, !"_ZN147_$LT$rustls..msgs..deframer..DeframerVecBuffer$u20$as$u20$rustls..msgs..deframer..DeframerBuffer$LT$rustls..msgs..deframer..ExternalPayload$GT$$GT$4copy17h7334019f4f78ca44E"}
+!525 = !{!526}
+!526 = distinct !{!526, !524, !"_ZN147_$LT$rustls..msgs..deframer..DeframerVecBuffer$u20$as$u20$rustls..msgs..deframer..DeframerBuffer$LT$rustls..msgs..deframer..ExternalPayload$GT$$GT$4copy17h7334019f4f78ca44E: argument 1"}
+!527 = !{!528, !526}
+!528 = distinct !{!528, !529, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17he196bf46852923c1E.llvm.403688954652204928: argument 0"}
+!529 = distinct !{!529, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$9index_mut17he196bf46852923c1E.llvm.403688954652204928"}
+!530 = !{!531, !533}
+!531 = distinct !{!531, !532, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2edd3c200d728c6aE: argument 0"}
+!532 = distinct !{!532, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2edd3c200d728c6aE"}
+!533 = distinct !{!533, !532, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2edd3c200d728c6aE: argument 1"}
+!534 = !{!535, !526}
+!535 = distinct !{!535, !532, !"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2edd3c200d728c6aE: argument 2"}
+!536 = !{!537, !523}
+!537 = distinct !{!537, !538, !"_ZN6rustls4msgs8deframer17DeframerVecBuffer7advance17h61483fa7782f5378E.llvm.403688954652204928: argument 0"}
+!538 = distinct !{!538, !"_ZN6rustls4msgs8deframer17DeframerVecBuffer7advance17h61483fa7782f5378E.llvm.403688954652204928"}
+!539 = !{!540}
+!540 = distinct !{!540, !541, !"_ZN6rustls4msgs8deframer20FilledDeframerBuffer10filled_get17h47758503050b25a1E: argument 0"}
+!541 = distinct !{!541, !"_ZN6rustls4msgs8deframer20FilledDeframerBuffer10filled_get17h47758503050b25a1E"}
+!542 = !{!543}
+!543 = distinct !{!543, !544, !"_ZN106_$LT$rustls..msgs..deframer..DeframerVecBuffer$u20$as$u20$rustls..msgs..deframer..FilledDeframerBuffer$GT$6filled17hc5476e99e0ebcad7E: argument 0"}
+!544 = distinct !{!544, !"_ZN106_$LT$rustls..msgs..deframer..DeframerVecBuffer$u20$as$u20$rustls..msgs..deframer..FilledDeframerBuffer$GT$6filled17hc5476e99e0ebcad7E"}
+!545 = !{!546}
+!546 = distinct !{!546, !547, !"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hf6dba344f954e651E.llvm.403688954652204928: argument 0"}
+!547 = distinct !{!547, !"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hf6dba344f954e651E.llvm.403688954652204928"}
+!548 = !{!546, !543, !540}
+!549 = !{!550}
+!550 = distinct !{!550, !547, !"_ZN81_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hf6dba344f954e651E.llvm.403688954652204928: argument 1"}
+!551 = !{!552, !554, !546, !543, !540}
+!552 = distinct !{!552, !553, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb98968f395a4042cE.llvm.403688954652204928: argument 0"}
+!553 = distinct !{!553, !"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17hb98968f395a4042cE.llvm.403688954652204928"}
+!554 = distinct !{!554, !555, !"_ZN108_$LT$core..ops..range..RangeTo$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0f811d11ffcf228eE.llvm.403688954652204928: argument 0"}
+!555 = distinct !{!555, !"_ZN108_$LT$core..ops..range..RangeTo$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h0f811d11ffcf228eE.llvm.403688954652204928"}
+!556 = !{!557}
+!557 = distinct !{!557, !558, !"_ZN4core3cmp5impls57_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$usize$GT$2lt17h062bf2cc8d73acb2E: argument 0"}
+!558 = distinct !{!558, !"_ZN4core3cmp5impls57_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$usize$GT$2lt17h062bf2cc8d73acb2E"}
+!559 = !{!560}
+!560 = distinct !{!560, !558, !"_ZN4core3cmp5impls57_$LT$impl$u20$core..cmp..PartialOrd$u20$for$u20$usize$GT$2lt17h062bf2cc8d73acb2E: argument 1"}
 !561 = !{!562}
 !562 = distinct !{!562, !563, !"_ZN6rustls4msgs8deframer20FilledDeframerBuffer3len17hcda47bada241ddbeE: argument 0"}
 !563 = distinct !{!563, !"_ZN6rustls4msgs8deframer20FilledDeframerBuffer3len17hcda47bada241ddbeE"}

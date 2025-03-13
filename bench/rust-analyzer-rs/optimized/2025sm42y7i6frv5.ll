@@ -73734,6 +73734,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15clone_from_impl17
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %5, ptr nonnull align 1 %4, i64 %8, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i64, ptr %9, align 8, !noundef !5
+  %invariant.gep = getelementptr i8, ptr %5, i64 -48
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9c0165867c026e66E.exit.thread", label %.lr.ph
 
@@ -73745,7 +73746,6 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15clone_from_impl17
   %16 = xor i16 %15, -1
   %17 = ptrtoint ptr %4 to i64
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %invariant.gep = getelementptr i8, ptr %5, i64 -48
   br label %21
 
 19:                                               ; preds = %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h9c0165867c026e66E.exit"
@@ -73965,6 +73965,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15clone_from_impl17
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %5, ptr nonnull align 1 %4, i64 %8, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i64, ptr %9, align 8, !noundef !5
+  %invariant.gep = getelementptr i8, ptr %5, i64 -64
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha31819b86661f4a1E.exit.thread", label %.lr.ph
 
@@ -73984,7 +73985,6 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15clone_from_impl17
   %19 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %.sroa.4.0..sroa_idx.i1.i = getelementptr inbounds nuw i8, ptr %3, i64 40
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %invariant.gep = getelementptr i8, ptr %5, i64 -64
   br label %22
 
 20:                                               ; preds = %57, %48
@@ -74154,6 +74154,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15clone_from_impl17
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %5, ptr nonnull align 1 %4, i64 %8, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i64, ptr %9, align 8, !noundef !5
+  %invariant.gep = getelementptr i8, ptr %5, i64 -32
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2114ba71087ac0a8E.llvm.9266542439947230232.exit.thread", label %.lr.ph
 
@@ -74165,7 +74166,6 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15clone_from_impl17
   %16 = xor i16 %15, -1
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %18 = ptrtoint ptr %4 to i64
-  %invariant.gep = getelementptr i8, ptr %5, i64 -32
   br label %21
 
 19:                                               ; preds = %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h2114ba71087ac0a8E.llvm.9266542439947230232.exit"
@@ -74262,6 +74262,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15clone_from_impl17
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %6, ptr nonnull align 1 %5, i64 %9, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load i64, ptr %10, align 8, !noundef !5
+  %invariant.gep = getelementptr i8, ptr %6, i64 -48
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcec2c33a75aa3fdcE.exit.thread", label %.lr.ph
 
@@ -74273,7 +74274,6 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15clone_from_impl17
   %17 = xor i16 %16, -1
   %18 = ptrtoint ptr %5 to i64
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %invariant.gep = getelementptr i8, ptr %6, i64 -48
   br label %22
 
 20:                                               ; preds = %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hcec2c33a75aa3fdcE.exit"
@@ -74523,6 +74523,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15clone_from_impl17
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %7, ptr nonnull align 1 %6, i64 %10, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = load i64, ptr %11, align 8, !noundef !5
+  %invariant.gep = getelementptr i8, ptr %7, i64 -72
   %13 = icmp eq i64 %12, 0
   br i1 %13, label %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heb1d5c2f731c110bE.llvm.9266542439947230232.exit.thread", label %.lr.ph
 
@@ -74535,7 +74536,6 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15clone_from_impl17
   %19 = ptrtoint ptr %6 to i64
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %invariant.gep = getelementptr i8, ptr %7, i64 -72
   br label %24
 
 22:                                               ; preds = %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17heb1d5c2f731c110bE.llvm.9266542439947230232.exit"
@@ -74927,6 +74927,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15clone_from_impl17
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %5, ptr nonnull align 1 %4, i64 %8, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i64, ptr %9, align 8, !noundef !5
+  %invariant.gep = getelementptr i8, ptr %5, i64 -24
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haf4af5488a42b4e8E.exit.thread", label %.lr.ph
 
@@ -74937,7 +74938,6 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15clone_from_impl17
   %15 = bitcast <16 x i1> %14 to i16
   %16 = xor i16 %15, -1
   %17 = ptrtoint ptr %4 to i64
-  %invariant.gep = getelementptr i8, ptr %5, i64 -24
   br label %20
 
 18:                                               ; preds = %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17haf4af5488a42b4e8E.exit"
@@ -75025,6 +75025,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15clone_from_impl17
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %5, ptr nonnull align 1 %4, i64 %8, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i64, ptr %9, align 8, !noundef !5
+  %invariant.gep = getelementptr i8, ptr %5, i64 -48
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h820d86e1de51a67bE.llvm.9266542439947230232.exit.thread", label %.lr.ph
 
@@ -75036,7 +75037,6 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15clone_from_impl17
   %16 = xor i16 %15, -1
   %17 = ptrtoint ptr %4 to i64
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %invariant.gep = getelementptr i8, ptr %5, i64 -48
   br label %21
 
 19:                                               ; preds = %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h820d86e1de51a67bE.llvm.9266542439947230232.exit"
@@ -75149,6 +75149,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15clone_from_impl17
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %6, ptr nonnull align 1 %5, i64 %9, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load i64, ptr %10, align 8, !noundef !5
+  %invariant.gep = getelementptr i8, ptr %6, i64 -112
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h879b600babd0e1d2E.exit.thread", label %.lr.ph
 
@@ -75172,7 +75173,6 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15clone_from_impl17
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %30 = getelementptr inbounds nuw i8, ptr %4, i64 36
   %31 = getelementptr inbounds nuw i8, ptr %4, i64 88
-  %invariant.gep = getelementptr i8, ptr %6, i64 -112
   br label %34
 
 32:                                               ; preds = %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h879b600babd0e1d2E.exit"
@@ -75333,6 +75333,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15clone_from_impl17
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %6, ptr nonnull align 1 %5, i64 %9, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load i64, ptr %10, align 8, !noundef !5
+  %invariant.gep = getelementptr i8, ptr %6, i64 -56
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h830db63cb971223cE.exit.thread", label %.lr.ph
 
@@ -75347,7 +75348,6 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15clone_from_impl17
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 40
   %.sroa.5.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 48
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %invariant.gep = getelementptr i8, ptr %6, i64 -56
   br label %23
 
 21:                                               ; preds = %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h830db63cb971223cE.exit"
@@ -77837,6 +77837,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15clone_from_impl17
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %7, ptr nonnull align 1 %6, i64 %10, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %12 = load i64, ptr %11, align 8, !noundef !5
+  %invariant.gep = getelementptr i8, ptr %7, i64 -80
   %13 = icmp eq i64 %12, 0
   br i1 %13, label %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha9ba5beed2cf5ddbE.exit.thread", label %.lr.ph
 
@@ -77852,7 +77853,6 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15clone_from_impl17
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %5, i64 56
-  %invariant.gep = getelementptr i8, ptr %7, i64 -80
   br label %25
 
 23:                                               ; preds = %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17ha9ba5beed2cf5ddbE.exit"

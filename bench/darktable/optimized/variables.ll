@@ -1459,7 +1459,7 @@ _has_prefix.exit653:                              ; preds = %27
   %33 = load ptr, ptr %32, align 8, !tbaa !129
   %34 = tail call noalias ptr @g_date_time_format(ptr noundef %33, ptr noundef nonnull @.str.12) #16
   store ptr %34, ptr %3, align 8, !tbaa !6
-  br label %1076
+  br label %1072
 
 35:                                               ; preds = %27
   %36 = tail call i32 @g_str_has_prefix(ptr noundef %29, ptr noundef nonnull @.str.13) #16
@@ -1482,7 +1482,7 @@ _has_prefix.exit655:                              ; preds = %35
   %43 = load ptr, ptr %42, align 8, !tbaa !129
   %44 = tail call noalias ptr @g_date_time_format(ptr noundef %43, ptr noundef nonnull @.str.15) #16
   store ptr %44, ptr %3, align 8, !tbaa !6
-  br label %1076
+  br label %1072
 
 45:                                               ; preds = %39
   %46 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.16)
@@ -1499,7 +1499,7 @@ _has_prefix.exit655:                              ; preds = %35
   %51 = load ptr, ptr %50, align 8, !tbaa !129
   %52 = tail call noalias ptr @g_date_time_format(ptr noundef %51, ptr noundef nonnull @.str.18) #16
   store ptr %52, ptr %3, align 8, !tbaa !6
-  br label %1076
+  br label %1072
 
 53:                                               ; preds = %47
   %54 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.19)
@@ -1516,7 +1516,7 @@ _has_prefix.exit655:                              ; preds = %35
   %59 = load ptr, ptr %58, align 8, !tbaa !129
   %60 = tail call noalias ptr @g_date_time_format(ptr noundef %59, ptr noundef nonnull @.str.21) #16
   store ptr %60, ptr %3, align 8, !tbaa !6
-  br label %1076
+  br label %1072
 
 61:                                               ; preds = %55
   %62 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.22)
@@ -1533,7 +1533,7 @@ _has_prefix.exit655:                              ; preds = %35
   %67 = load ptr, ptr %66, align 8, !tbaa !129
   %68 = tail call noalias ptr @g_date_time_format(ptr noundef %67, ptr noundef nonnull @.str.24) #16
   store ptr %68, ptr %3, align 8, !tbaa !6
-  br label %1076
+  br label %1072
 
 69:                                               ; preds = %63
   %70 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.25)
@@ -1550,7 +1550,7 @@ _has_prefix.exit655:                              ; preds = %35
   %75 = load ptr, ptr %74, align 8, !tbaa !129
   %76 = tail call noalias ptr @g_date_time_format(ptr noundef %75, ptr noundef nonnull @.str.27) #16
   store ptr %76, ptr %3, align 8, !tbaa !6
-  br label %1076
+  br label %1072
 
 77:                                               ; preds = %71
   %78 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.28)
@@ -1567,7 +1567,7 @@ _has_prefix.exit655:                              ; preds = %35
   %83 = load ptr, ptr %82, align 8, !tbaa !129
   %84 = tail call noalias ptr @g_date_time_format(ptr noundef %83, ptr noundef nonnull @.str.30) #16
   store ptr %84, ptr %3, align 8, !tbaa !6
-  br label %1076
+  br label %1072
 
 85:                                               ; preds = %79
   %86 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.31)
@@ -1584,7 +1584,7 @@ _has_prefix.exit655:                              ; preds = %35
   %91 = load ptr, ptr %90, align 8, !tbaa !129
   %92 = tail call noalias ptr @g_date_time_format(ptr noundef %91, ptr noundef nonnull @.str.33) #16
   store ptr %92, ptr %3, align 8, !tbaa !6
-  br label %1076
+  br label %1072
 
 93:                                               ; preds = %87
   %94 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.34)
@@ -1601,7 +1601,7 @@ _has_prefix.exit655:                              ; preds = %35
   %99 = load ptr, ptr %98, align 8, !tbaa !129
   %100 = tail call noalias ptr @g_date_time_format(ptr noundef %99, ptr noundef nonnull @.str.36) #16
   store ptr %100, ptr %3, align 8, !tbaa !6
-  br label %1076
+  br label %1072
 
 101:                                              ; preds = %95
   %102 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.37)
@@ -1618,7 +1618,7 @@ _has_prefix.exit655:                              ; preds = %35
   %107 = load ptr, ptr %106, align 8, !tbaa !129
   %108 = tail call noalias ptr @g_date_time_format(ptr noundef %107, ptr noundef nonnull @.str.39) #16
   store ptr %108, ptr %3, align 8, !tbaa !6
-  br label %1076
+  br label %1072
 
 109:                                              ; preds = %103
   %110 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.40)
@@ -1649,7 +1649,7 @@ _has_prefix.exit655:                              ; preds = %35
   %124 = call i32 @dt_datetime_gdatetime_to_exif(ptr noundef nonnull %4, i64 noundef %122, ptr noundef %123) #16
   %125 = call noalias ptr @g_strdup(ptr noundef nonnull %4) #16
   store ptr %125, ptr %3, align 8, !tbaa !6
-  br label %1076
+  br label %1072
 
 126:                                              ; preds = %116
   %127 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.43)
@@ -1659,7 +1659,7 @@ _has_prefix.exit655:                              ; preds = %35
 128:                                              ; preds = %126
   %129 = tail call noalias ptr @g_date_time_format(ptr noundef %18, ptr noundef nonnull @.str.44) #16
   store ptr %129, ptr %3, align 8, !tbaa !6
-  br label %1076
+  br label %1072
 
 130:                                              ; preds = %126
   %131 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.45)
@@ -1669,7 +1669,7 @@ _has_prefix.exit655:                              ; preds = %35
 132:                                              ; preds = %130
   %133 = tail call noalias ptr @g_date_time_format(ptr noundef %18, ptr noundef nonnull @.str.46) #16
   store ptr %133, ptr %3, align 8, !tbaa !6
-  br label %1076
+  br label %1072
 
 134:                                              ; preds = %130
   %135 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.47)
@@ -1684,7 +1684,7 @@ _has_prefix.exit655:                              ; preds = %35
 138:                                              ; preds = %136, %134
   %139 = tail call noalias ptr @g_date_time_format(ptr noundef %18, ptr noundef nonnull @.str.12) #16
   store ptr %139, ptr %3, align 8, !tbaa !6
-  br label %1076
+  br label %1072
 
 140:                                              ; preds = %136
   %141 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.49)
@@ -1704,7 +1704,7 @@ _has_prefix.exit655:                              ; preds = %35
 146:                                              ; preds = %144, %142, %140
   %147 = tail call noalias ptr @g_date_time_format(ptr noundef %18, ptr noundef nonnull @.str.15) #16
   store ptr %147, ptr %3, align 8, !tbaa !6
-  br label %1076
+  br label %1072
 
 148:                                              ; preds = %144
   %149 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.52)
@@ -1719,7 +1719,7 @@ _has_prefix.exit655:                              ; preds = %35
 152:                                              ; preds = %150, %148
   %153 = tail call noalias ptr @g_date_time_format(ptr noundef %18, ptr noundef nonnull @.str.18) #16
   store ptr %153, ptr %3, align 8, !tbaa !6
-  br label %1076
+  br label %1072
 
 154:                                              ; preds = %150
   %155 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.54)
@@ -1734,7 +1734,7 @@ _has_prefix.exit655:                              ; preds = %35
 158:                                              ; preds = %156, %154
   %159 = tail call noalias ptr @g_date_time_format(ptr noundef %18, ptr noundef nonnull @.str.21) #16
   store ptr %159, ptr %3, align 8, !tbaa !6
-  br label %1076
+  br label %1072
 
 160:                                              ; preds = %156
   %161 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.56)
@@ -1754,7 +1754,7 @@ _has_prefix.exit655:                              ; preds = %35
 166:                                              ; preds = %164, %162, %160
   %167 = tail call noalias ptr @g_date_time_format(ptr noundef %18, ptr noundef nonnull @.str.24) #16
   store ptr %167, ptr %3, align 8, !tbaa !6
-  br label %1076
+  br label %1072
 
 168:                                              ; preds = %164
   %169 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.59)
@@ -1774,7 +1774,7 @@ _has_prefix.exit655:                              ; preds = %35
 174:                                              ; preds = %172, %170, %168
   %175 = tail call noalias ptr @g_date_time_format(ptr noundef %18, ptr noundef nonnull @.str.27) #16
   store ptr %175, ptr %3, align 8, !tbaa !6
-  br label %1076
+  br label %1072
 
 176:                                              ; preds = %172
   %177 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.62)
@@ -1789,7 +1789,7 @@ _has_prefix.exit655:                              ; preds = %35
 180:                                              ; preds = %178, %176
   %181 = tail call noalias ptr @g_date_time_format(ptr noundef %18, ptr noundef nonnull @.str.30) #16
   store ptr %181, ptr %3, align 8, !tbaa !6
-  br label %1076
+  br label %1072
 
 182:                                              ; preds = %178
   %183 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.64)
@@ -1809,7 +1809,7 @@ _has_prefix.exit655:                              ; preds = %35
 188:                                              ; preds = %186, %184, %182
   %189 = tail call noalias ptr @g_date_time_format(ptr noundef %18, ptr noundef nonnull @.str.33) #16
   store ptr %189, ptr %3, align 8, !tbaa !6
-  br label %1076
+  br label %1072
 
 190:                                              ; preds = %186
   %191 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.67)
@@ -1829,7 +1829,7 @@ _has_prefix.exit655:                              ; preds = %35
 196:                                              ; preds = %194, %192, %190
   %197 = tail call noalias ptr @g_date_time_format(ptr noundef %18, ptr noundef nonnull @.str.36) #16
   store ptr %197, ptr %3, align 8, !tbaa !6
-  br label %1076
+  br label %1072
 
 198:                                              ; preds = %194
   %199 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.70)
@@ -1849,7 +1849,7 @@ _has_prefix.exit655:                              ; preds = %35
 204:                                              ; preds = %202, %200, %198
   %205 = tail call noalias ptr @g_date_time_format(ptr noundef %18, ptr noundef nonnull @.str.39) #16
   store ptr %205, ptr %3, align 8, !tbaa !6
-  br label %1076
+  br label %1072
 
 206:                                              ; preds = %202
   %207 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.73)
@@ -1882,7 +1882,7 @@ _has_prefix.exit655:                              ; preds = %35
   %220 = call i32 @dt_datetime_gdatetime_to_exif(ptr noundef nonnull %4, i64 noundef %219, ptr noundef %18) #16
   %221 = call noalias ptr @g_strdup(ptr noundef nonnull %4) #16
   store ptr %221, ptr %3, align 8, !tbaa !6
-  br label %1076
+  br label %1072
 
 222:                                              ; preds = %213
   %223 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.76)
@@ -1900,7 +1900,7 @@ _has_prefix.exit655:                              ; preds = %35
   %229 = load i32, ptr %228, align 8, !tbaa !25
   %230 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.27, i32 noundef %229) #16
   store ptr %230, ptr %3, align 8, !tbaa !6
-  br label %1076
+  br label %1072
 
 231:                                              ; preds = %224
   %232 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.78)
@@ -1923,12 +1923,12 @@ _has_prefix.exit655:                              ; preds = %35
 241:                                              ; preds = %238
   %242 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.80) #16
   store ptr %242, ptr %3, align 8, !tbaa !6
-  br label %1076
+  br label %1072
 
 243:                                              ; preds = %238
   %244 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.81) #16
   store ptr %244, ptr %3, align 8, !tbaa !6
-  br label %1076
+  br label %1072
 
 245:                                              ; preds = %233, %231
   %246 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.82)
@@ -1951,7 +1951,7 @@ _has_prefix.exit655:                              ; preds = %35
   %255 = fpext reassoc nsz arcp contract afn float %252 to double
   %256 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.84, double noundef %255) #16
   store ptr %256, ptr %3, align 8, !tbaa !6
-  br label %1076
+  br label %1072
 
 257:                                              ; preds = %247
   %258 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.85)
@@ -1964,7 +1964,7 @@ _has_prefix.exit655:                              ; preds = %35
   %262 = load ptr, ptr %261, align 8, !tbaa !30
   %263 = tail call noalias ptr @g_strdup(ptr noundef %262) #16
   store ptr %263, ptr %3, align 8, !tbaa !6
-  br label %1076
+  br label %1072
 
 264:                                              ; preds = %257
   %265 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.86)
@@ -1992,7 +1992,7 @@ _has_prefix.exit655:                              ; preds = %35
   %277 = tail call ptr @dt_util_str_replace(ptr noundef %272, ptr noundef nonnull @.str, ptr noundef nonnull @.str.88) #16
   tail call void @g_free(ptr noundef %272) #16
   store ptr %277, ptr %3, align 8, !tbaa !6
-  br label %1076
+  br label %1072
 
 278:                                              ; preds = %266
   %279 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.89)
@@ -2011,7 +2011,7 @@ _has_prefix.exit655:                              ; preds = %35
   %286 = fpext reassoc nsz arcp contract afn float %285 to double
   %287 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.91, double noundef %286) #16
   store ptr %287, ptr %3, align 8, !tbaa !6
-  br label %1076
+  br label %1072
 
 288:                                              ; preds = %280
   %289 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.92)
@@ -2025,7 +2025,7 @@ _has_prefix.exit655:                              ; preds = %35
   %294 = fpext reassoc nsz arcp contract afn float %293 to double
   %295 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.91, double noundef %294) #16
   store ptr %295, ptr %3, align 8, !tbaa !6
-  br label %1076
+  br label %1072
 
 296:                                              ; preds = %288
   %297 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.93)
@@ -2042,7 +2042,7 @@ _has_prefix.exit655:                              ; preds = %35
   %305 = fpext reassoc nsz arcp contract afn float %304 to double
   %306 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.91, double noundef %305) #16
   store ptr %306, ptr %3, align 8, !tbaa !6
-  br label %1076
+  br label %1072
 
 307:                                              ; preds = %296
   %308 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.94)
@@ -2061,7 +2061,7 @@ _has_prefix.exit655:                              ; preds = %35
   %315 = fpext reassoc nsz arcp contract afn float %314 to double
   %316 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.91, double noundef %315) #16
   store ptr %316, ptr %3, align 8, !tbaa !6
-  br label %1076
+  br label %1072
 
 317:                                              ; preds = %309
   %318 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.96)
@@ -2080,7 +2080,7 @@ _has_prefix.exit655:                              ; preds = %35
   %325 = fpext reassoc nsz arcp contract afn float %324 to double
   %326 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.98, double noundef %325) #16
   store ptr %326, ptr %3, align 8, !tbaa !6
-  br label %1076
+  br label %1072
 
 327:                                              ; preds = %319
   %328 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.99)
@@ -2093,7 +2093,7 @@ _has_prefix.exit655:                              ; preds = %35
   %332 = load ptr, ptr %331, align 8, !tbaa !29
   %333 = tail call noalias ptr @g_strdup(ptr noundef %332) #16
   store ptr %333, ptr %3, align 8, !tbaa !6
-  br label %1076
+  br label %1072
 
 334:                                              ; preds = %327
   %335 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.100)
@@ -2106,7 +2106,7 @@ _has_prefix.exit655:                              ; preds = %35
   %339 = load ptr, ptr %338, align 8, !tbaa !28
   %340 = tail call noalias ptr @g_strdup(ptr noundef %339) #16
   store ptr %340, ptr %3, align 8, !tbaa !6
-  br label %1076
+  br label %1072
 
 341:                                              ; preds = %334
   %342 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.101)
@@ -2119,7 +2119,7 @@ _has_prefix.exit655:                              ; preds = %35
   %346 = load ptr, ptr %345, align 8, !tbaa !31
   %347 = tail call noalias ptr @g_strdup(ptr noundef %346) #16
   store ptr %347, ptr %3, align 8, !tbaa !6
-  br label %1076
+  br label %1072
 
 348:                                              ; preds = %341
   %349 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.102)
@@ -2132,7 +2132,7 @@ _has_prefix.exit655:                              ; preds = %35
   %353 = load ptr, ptr %352, align 8, !tbaa !32
   %354 = tail call noalias ptr @g_strdup(ptr noundef %353) #16
   store ptr %354, ptr %3, align 8, !tbaa !6
-  br label %1076
+  br label %1072
 
 355:                                              ; preds = %348
   %356 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.103)
@@ -2147,7 +2147,7 @@ _has_prefix.exit655:                              ; preds = %35
 359:                                              ; preds = %357, %355
   %360 = tail call fastcc ptr @_variables_get_longitude(ptr noundef nonnull %0)
   store ptr %360, ptr %3, align 8, !tbaa !6
-  br label %1076
+  br label %1072
 
 361:                                              ; preds = %357
   %362 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.105)
@@ -2162,7 +2162,7 @@ _has_prefix.exit655:                              ; preds = %35
 365:                                              ; preds = %363, %361
   %366 = tail call fastcc ptr @_variables_get_latitude(ptr noundef nonnull %0)
   store ptr %366, ptr %3, align 8, !tbaa !6
-  br label %1076
+  br label %1072
 
 367:                                              ; preds = %363
   %368 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.107)
@@ -2180,7 +2180,7 @@ _has_prefix.exit655:                              ; preds = %35
   %374 = load double, ptr %373, align 8, !tbaa !35
   %375 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.98, double noundef %374) #16
   store ptr %375, ptr %3, align 8, !tbaa !6
-  br label %1076
+  br label %1072
 
 376:                                              ; preds = %369
   %377 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.109)
@@ -2205,7 +2205,7 @@ _has_prefix.exit655:                              ; preds = %35
   %389 = phi ptr [ @.str.3, %378 ], [ %387, %383 ]
   %390 = tail call noalias ptr @g_strdup(ptr noundef nonnull %389) #16
   store ptr %390, ptr %3, align 8, !tbaa !6
-  br label %1076
+  br label %1072
 
 391:                                              ; preds = %376
   %392 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.111)
@@ -2302,7 +2302,7 @@ _has_prefix.exit655:                              ; preds = %35
   %431 = load ptr, ptr %430, align 8, !tbaa !86
   %432 = tail call noalias ptr @g_strdup(ptr noundef %431) #16
   store ptr %432, ptr %3, align 8, !tbaa !6
-  br label %1076
+  br label %1072
 
 433:                                              ; preds = %426
   %434 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.115)
@@ -2320,7 +2320,7 @@ _has_prefix.exit655:                              ; preds = %35
   %440 = load ptr, ptr %439, align 8, !tbaa !87
   %441 = tail call noalias ptr @g_strdup(ptr noundef %440) #16
   store ptr %441, ptr %3, align 8, !tbaa !6
-  br label %1076
+  br label %1072
 
 442:                                              ; preds = %435
   %443 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.117)
@@ -2338,7 +2338,7 @@ _has_prefix.exit655:                              ; preds = %35
   %449 = load ptr, ptr %448, align 8, !tbaa !88
   %450 = tail call noalias ptr @g_strdup(ptr noundef %449) #16
   store ptr %450, ptr %3, align 8, !tbaa !6
-  br label %1076
+  br label %1072
 
 451:                                              ; preds = %444
   %452 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.119)
@@ -2392,7 +2392,7 @@ _has_prefix.exit655:                              ; preds = %35
   %480 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.124, i32 noundef %479, i32 noundef %.0404) #16
   store ptr %480, ptr %3, align 8, !tbaa !6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #16
-  br label %1076
+  br label %1072
 
 481:                                              ; preds = %451
   %482 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.125)
@@ -2411,7 +2411,7 @@ _has_prefix.exit655:                              ; preds = %35
   %489 = load i32, ptr %488, align 8, !tbaa !37
   %490 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.124, i32 noundef %487, i32 noundef %489) #16
   store ptr %490, ptr %3, align 8, !tbaa !6
-  br label %1076
+  br label %1072
 
 491:                                              ; preds = %483
   %492 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.127)
@@ -2448,7 +2448,7 @@ _has_prefix.exit655:                              ; preds = %35
   %508 = call noalias ptr @g_strdup(ptr noundef nonnull %7) #16
   store ptr %508, ptr %3, align 8, !tbaa !6
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %7) #16
-  br label %1076
+  br label %1072
 
 509:                                              ; preds = %491
   %510 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.128)
@@ -2566,7 +2566,7 @@ _has_prefix.exit655:                              ; preds = %35
   %571 = load i32, ptr %570, align 8, !tbaa !90
   %572 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.27, i32 noundef %571) #16
   store ptr %572, ptr %3, align 8, !tbaa !6
-  br label %1076
+  br label %1072
 
 573:                                              ; preds = %566
   %574 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.136)
@@ -2578,7 +2578,7 @@ _has_prefix.exit655:                              ; preds = %35
   %577 = load ptr, ptr %576, align 8, !tbaa !133
   %578 = tail call noalias ptr @g_strdup(ptr noundef %577) #16
   store ptr %578, ptr %3, align 8, !tbaa !6
-  br label %1076
+  br label %1072
 
 579:                                              ; preds = %573
   %580 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.137)
@@ -2620,7 +2620,7 @@ _has_prefix.exit655:                              ; preds = %35
 594:                                              ; preds = %592
   %595 = tail call noalias ptr @g_path_get_dirname(ptr noundef nonnull %593) #16
   store ptr %595, ptr %3, align 8, !tbaa !6
-  br label %1076
+  br label %1072
 
 596:                                              ; preds = %590
   %597 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.141)
@@ -2640,7 +2640,7 @@ _has_prefix.exit655:                              ; preds = %35
 602:                                              ; preds = %600
   %603 = tail call noalias ptr @g_path_get_dirname(ptr noundef nonnull %601) #16
   store ptr %603, ptr %3, align 8, !tbaa !6
-  br label %1076
+  br label %1072
 
 604:                                              ; preds = %598
   %605 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.143)
@@ -2655,7 +2655,7 @@ _has_prefix.exit655:                              ; preds = %35
 608:                                              ; preds = %606
   %609 = tail call noalias ptr @g_strdup(ptr noundef nonnull %607) #16
   store ptr %609, ptr %3, align 8, !tbaa !6
-  br label %1076
+  br label %1072
 
 610:                                              ; preds = %604
   %611 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.144)
@@ -2704,12 +2704,12 @@ _has_prefix.exit655:                              ; preds = %35
   %629 = load ptr, ptr %628, align 8, !tbaa !23
   %630 = tail call noalias ptr @g_strdup(ptr noundef %629) #16
   store ptr %630, ptr %3, align 8, !tbaa !6
-  br label %1076
+  br label %1072
 
 631:                                              ; preds = %624
   %632 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.149)
   %.not550 = icmp eq i32 %632, 0
-  br i1 %.not550, label %674, label %633
+  br i1 %.not550, label %672, label %633
 
 633:                                              ; preds = %631
   %634 = load ptr, ptr @g_ascii_table, align 8, !tbaa !143
@@ -2726,11 +2726,11 @@ _has_prefix.exit655:                              ; preds = %35
   %642 = and i8 %636, 15
   %643 = getelementptr inbounds nuw i8, ptr %635, i64 1
   store ptr %643, ptr %1, align 8, !tbaa !6
-  br label %662
+  br label %660
 
 644:                                              ; preds = %633
   %645 = icmp eq i8 %636, 91
-  br i1 %645, label %646, label %662
+  br i1 %645, label %646, label %660
 
 646:                                              ; preds = %644
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #16
@@ -2763,904 +2763,900 @@ _has_prefix.exit655:                              ; preds = %35
 
 659:                                              ; preds = %655, %653
   %.1409 = phi i32 [ %658, %655 ], [ 0, %653 ]
-  %660 = load ptr, ptr %9, align 8, !tbaa !6
-  call void @g_free(ptr noundef %660) #16
-  %661 = load ptr, ptr %10, align 8, !tbaa !6
-  call void @g_free(ptr noundef %661) #16
+  call void @g_free(ptr noundef %647) #16
+  call void @g_free(ptr noundef %654) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #16
-  br label %662
+  br label %660
 
-662:                                              ; preds = %644, %659, %641
+660:                                              ; preds = %644, %659, %641
   %.0408 = phi i32 [ 0, %641 ], [ %.1409, %659 ], [ 0, %644 ]
   %.0405 = phi i8 [ %642, %641 ], [ %.1406, %659 ], [ 4, %644 ]
-  %663 = zext i8 %.0405 to i32
-  %664 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  %665 = load i32, ptr %664, align 4, !tbaa !130
-  %666 = icmp sgt i32 %665, -1
-  br i1 %666, label %671, label %667
+  %661 = zext i8 %.0405 to i32
+  %662 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  %663 = load i32, ptr %662, align 4, !tbaa !130
+  %664 = icmp sgt i32 %663, -1
+  br i1 %664, label %669, label %665
 
-667:                                              ; preds = %662
-  %668 = load ptr, ptr %14, align 8, !tbaa !11
-  %669 = getelementptr inbounds nuw i8, ptr %668, i64 32
-  %670 = load i32, ptr %669, align 8, !tbaa !15
-  br label %671
+665:                                              ; preds = %660
+  %666 = load ptr, ptr %14, align 8, !tbaa !11
+  %667 = getelementptr inbounds nuw i8, ptr %666, i64 32
+  %668 = load i32, ptr %667, align 8, !tbaa !15
+  br label %669
 
-671:                                              ; preds = %662, %667
-  %.pn = phi i32 [ %670, %667 ], [ %665, %662 ]
-  %672 = add i32 %.0408, %.pn
-  %673 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.150, i32 noundef %663, i32 noundef %672) #16
-  store ptr %673, ptr %3, align 8, !tbaa !6
-  br label %1076
+669:                                              ; preds = %660, %665
+  %.pn = phi i32 [ %668, %665 ], [ %663, %660 ]
+  %670 = add i32 %.0408, %.pn
+  %671 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.150, i32 noundef %661, i32 noundef %670) #16
+  store ptr %671, ptr %3, align 8, !tbaa !6
+  br label %1072
 
-674:                                              ; preds = %631
-  %675 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.151)
-  %.not551 = icmp eq i32 %675, 0
-  br i1 %.not551, label %679, label %676
+672:                                              ; preds = %631
+  %673 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.151)
+  %.not551 = icmp eq i32 %673, 0
+  br i1 %.not551, label %677, label %674
 
-676:                                              ; preds = %674
-  %677 = tail call ptr @g_get_user_name() #16
-  %678 = tail call noalias ptr @g_strdup(ptr noundef %677) #16
-  store ptr %678, ptr %3, align 8, !tbaa !6
-  br label %1076
+674:                                              ; preds = %672
+  %675 = tail call ptr @g_get_user_name() #16
+  %676 = tail call noalias ptr @g_strdup(ptr noundef %675) #16
+  store ptr %676, ptr %3, align 8, !tbaa !6
+  br label %1072
 
-679:                                              ; preds = %674
-  %680 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.152)
-  %.not552 = icmp eq i32 %680, 0
-  br i1 %.not552, label %681, label %685
+677:                                              ; preds = %672
+  %678 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.152)
+  %.not552 = icmp eq i32 %678, 0
+  br i1 %.not552, label %679, label %683
+
+679:                                              ; preds = %677
+  %680 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.153)
+  %.not553 = icmp eq i32 %680, 0
+  br i1 %.not553, label %681, label %683
 
 681:                                              ; preds = %679
-  %682 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.153)
-  %.not553 = icmp eq i32 %682, 0
-  br i1 %.not553, label %683, label %685
+  %682 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.154)
+  %.not554 = icmp eq i32 %682, 0
+  br i1 %.not554, label %688, label %683
 
-683:                                              ; preds = %681
-  %684 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.154)
-  %.not554 = icmp eq i32 %684, 0
-  br i1 %.not554, label %690, label %685
+683:                                              ; preds = %681, %679, %677
+  %684 = load ptr, ptr %14, align 8, !tbaa !11
+  %685 = getelementptr inbounds nuw i8, ptr %684, i64 80
+  %686 = load ptr, ptr %685, align 8, !tbaa !20
+  %687 = tail call noalias ptr @g_strdup(ptr noundef %686) #16
+  store ptr %687, ptr %3, align 8, !tbaa !6
+  br label %1072
 
-685:                                              ; preds = %683, %681, %679
-  %686 = load ptr, ptr %14, align 8, !tbaa !11
-  %687 = getelementptr inbounds nuw i8, ptr %686, i64 80
-  %688 = load ptr, ptr %687, align 8, !tbaa !20
-  %689 = tail call noalias ptr @g_strdup(ptr noundef %688) #16
-  store ptr %689, ptr %3, align 8, !tbaa !6
-  br label %1076
+688:                                              ; preds = %681
+  %689 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.155)
+  %.not555 = icmp eq i32 %689, 0
+  br i1 %.not555, label %690, label %692
 
-690:                                              ; preds = %683
-  %691 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.155)
-  %.not555 = icmp eq i32 %691, 0
-  br i1 %.not555, label %692, label %694
+690:                                              ; preds = %688
+  %691 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.156)
+  %.not556 = icmp eq i32 %691, 0
+  br i1 %.not556, label %697, label %692
 
-692:                                              ; preds = %690
-  %693 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.156)
-  %.not556 = icmp eq i32 %693, 0
-  br i1 %.not556, label %699, label %694
+692:                                              ; preds = %690, %688
+  %693 = load ptr, ptr %14, align 8, !tbaa !11
+  %694 = getelementptr inbounds nuw i8, ptr %693, i64 88
+  %695 = load ptr, ptr %694, align 8, !tbaa !21
+  %696 = tail call noalias ptr @g_strdup(ptr noundef %695) #16
+  store ptr %696, ptr %3, align 8, !tbaa !6
+  br label %1072
 
-694:                                              ; preds = %692, %690
-  %695 = load ptr, ptr %14, align 8, !tbaa !11
-  %696 = getelementptr inbounds nuw i8, ptr %695, i64 88
-  %697 = load ptr, ptr %696, align 8, !tbaa !21
-  %698 = tail call noalias ptr @g_strdup(ptr noundef %697) #16
-  store ptr %698, ptr %3, align 8, !tbaa !6
-  br label %1076
+697:                                              ; preds = %690
+  %698 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.157)
+  %.not557 = icmp eq i32 %698, 0
+  br i1 %.not557, label %699, label %701
 
-699:                                              ; preds = %692
-  %700 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.157)
-  %.not557 = icmp eq i32 %700, 0
-  br i1 %.not557, label %701, label %703
+699:                                              ; preds = %697
+  %700 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.158)
+  %.not558 = icmp eq i32 %700, 0
+  br i1 %.not558, label %704, label %701
 
-701:                                              ; preds = %699
-  %702 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.158)
-  %.not558 = icmp eq i32 %702, 0
-  br i1 %.not558, label %706, label %703
+701:                                              ; preds = %699, %697
+  %702 = tail call ptr @g_get_user_special_dir(i32 noundef 0) #16
+  %703 = tail call noalias ptr @g_strdup(ptr noundef %702) #16
+  store ptr %703, ptr %3, align 8, !tbaa !6
+  br label %1072
 
-703:                                              ; preds = %701, %699
-  %704 = tail call ptr @g_get_user_special_dir(i32 noundef 0) #16
-  %705 = tail call noalias ptr @g_strdup(ptr noundef %704) #16
-  store ptr %705, ptr %3, align 8, !tbaa !6
-  br label %1076
+704:                                              ; preds = %699
+  %705 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.159)
+  %.not559 = icmp eq i32 %705, 0
+  br i1 %.not559, label %709, label %706
 
-706:                                              ; preds = %701
-  %707 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.159)
-  %.not559 = icmp eq i32 %707, 0
-  br i1 %.not559, label %711, label %708
+706:                                              ; preds = %704
+  %707 = tail call ptr @g_get_user_special_dir(i32 noundef 0) #16
+  %708 = tail call noalias ptr @g_strdup(ptr noundef %707) #16
+  store ptr %708, ptr %3, align 8, !tbaa !6
+  br label %1072
 
-708:                                              ; preds = %706
-  %709 = tail call ptr @g_get_user_special_dir(i32 noundef 0) #16
-  %710 = tail call noalias ptr @g_strdup(ptr noundef %709) #16
-  store ptr %710, ptr %3, align 8, !tbaa !6
-  br label %1076
+709:                                              ; preds = %704
+  %710 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.160)
+  %.not560 = icmp eq i32 %710, 0
+  br i1 %.not560, label %716, label %711
 
-711:                                              ; preds = %706
-  %712 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.160)
-  %.not560 = icmp eq i32 %712, 0
-  br i1 %.not560, label %718, label %713
+711:                                              ; preds = %709
+  %712 = load ptr, ptr %14, align 8, !tbaa !11
+  %713 = getelementptr inbounds nuw i8, ptr %712, i64 148
+  %714 = load i32, ptr %713, align 4, !tbaa !146
+  %715 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.27, i32 noundef %714) #16
+  store ptr %715, ptr %3, align 8, !tbaa !6
+  br label %1072
 
-713:                                              ; preds = %711
-  %714 = load ptr, ptr %14, align 8, !tbaa !11
-  %715 = getelementptr inbounds nuw i8, ptr %714, i64 148
-  %716 = load i32, ptr %715, align 4, !tbaa !146
-  %717 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.27, i32 noundef %716) #16
-  store ptr %717, ptr %3, align 8, !tbaa !6
-  br label %1076
+716:                                              ; preds = %709
+  %717 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.161)
+  %.not561 = icmp eq i32 %717, 0
+  br i1 %.not561, label %718, label %722
 
-718:                                              ; preds = %711
-  %719 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.161)
-  %.not561 = icmp eq i32 %719, 0
-  br i1 %.not561, label %720, label %724
+718:                                              ; preds = %716
+  %719 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.162)
+  %.not562 = icmp eq i32 %719, 0
+  br i1 %.not562, label %720, label %722
 
 720:                                              ; preds = %718
-  %721 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.162)
-  %.not562 = icmp eq i32 %721, 0
-  br i1 %.not562, label %722, label %724
+  %721 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.163)
+  %.not563 = icmp eq i32 %721, 0
+  br i1 %.not563, label %740, label %722
 
-722:                                              ; preds = %720
-  %723 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.163)
-  %.not563 = icmp eq i32 %723, 0
-  br i1 %.not563, label %742, label %724
-
-724:                                              ; preds = %722, %720, %718
-  %725 = load ptr, ptr %14, align 8, !tbaa !11
-  %726 = getelementptr inbounds nuw i8, ptr %725, i64 148
-  %727 = load i32, ptr %726, align 4, !tbaa !146
-  switch i32 %727, label %740 [
-    i32 -1, label %728
-    i32 1, label %730
-    i32 2, label %732
-    i32 3, label %734
-    i32 4, label %736
-    i32 5, label %738
+722:                                              ; preds = %720, %718, %716
+  %723 = load ptr, ptr %14, align 8, !tbaa !11
+  %724 = getelementptr inbounds nuw i8, ptr %723, i64 148
+  %725 = load i32, ptr %724, align 4, !tbaa !146
+  switch i32 %725, label %738 [
+    i32 -1, label %726
+    i32 1, label %728
+    i32 2, label %730
+    i32 3, label %732
+    i32 4, label %734
+    i32 5, label %736
   ]
 
-728:                                              ; preds = %724
-  %729 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.164) #16
+726:                                              ; preds = %722
+  %727 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.164) #16
+  store ptr %727, ptr %3, align 8, !tbaa !6
+  br label %1072
+
+728:                                              ; preds = %722
+  %729 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.165) #16
   store ptr %729, ptr %3, align 8, !tbaa !6
-  br label %1076
+  br label %1072
 
-730:                                              ; preds = %724
-  %731 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.165) #16
+730:                                              ; preds = %722
+  %731 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.166) #16
   store ptr %731, ptr %3, align 8, !tbaa !6
-  br label %1076
+  br label %1072
 
-732:                                              ; preds = %724
-  %733 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.166) #16
+732:                                              ; preds = %722
+  %733 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.167) #16
   store ptr %733, ptr %3, align 8, !tbaa !6
-  br label %1076
+  br label %1072
 
-734:                                              ; preds = %724
-  %735 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.167) #16
+734:                                              ; preds = %722
+  %735 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.168) #16
   store ptr %735, ptr %3, align 8, !tbaa !6
-  br label %1076
+  br label %1072
 
-736:                                              ; preds = %724
-  %737 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.168) #16
+736:                                              ; preds = %722
+  %737 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.169) #16
   store ptr %737, ptr %3, align 8, !tbaa !6
-  br label %1076
+  br label %1072
 
-738:                                              ; preds = %724
-  %739 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.169) #16
+738:                                              ; preds = %722
+  %739 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.3) #16
   store ptr %739, ptr %3, align 8, !tbaa !6
-  br label %1076
+  br label %1072
 
-740:                                              ; preds = %724
-  %741 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.3) #16
-  store ptr %741, ptr %3, align 8, !tbaa !6
-  br label %1076
+740:                                              ; preds = %720
+  %741 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.170)
+  %.not564 = icmp eq i32 %741, 0
+  br i1 %.not564, label %742, label %748
 
-742:                                              ; preds = %722
-  %743 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.170)
-  %.not564 = icmp eq i32 %743, 0
-  br i1 %.not564, label %744, label %750
+742:                                              ; preds = %740
+  %743 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.171)
+  %.not565 = icmp eq i32 %743, 0
+  br i1 %.not565, label %744, label %748
 
 744:                                              ; preds = %742
-  %745 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.171)
-  %.not565 = icmp eq i32 %745, 0
-  br i1 %.not565, label %746, label %750
+  %745 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.172)
+  %.not566 = icmp eq i32 %745, 0
+  br i1 %.not566, label %746, label %748
 
 746:                                              ; preds = %744
-  %747 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.172)
-  %.not566 = icmp eq i32 %747, 0
-  br i1 %.not566, label %748, label %750
+  %747 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.173)
+  %.not567 = icmp eq i32 %747, 0
+  br i1 %.not567, label %771, label %748
 
-748:                                              ; preds = %746
-  %749 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.173)
-  %.not567 = icmp eq i32 %749, 0
-  br i1 %.not567, label %773, label %750
+748:                                              ; preds = %746, %744, %742, %740
+  %749 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %750 = load ptr, ptr %749, align 8, !tbaa !133
+  %751 = tail call i32 @g_strcmp0(ptr noundef %750, ptr noundef nonnull @.str.79) #16
+  %752 = icmp eq i32 %751, 0
+  br i1 %752, label %753, label %771
 
-750:                                              ; preds = %748, %746, %744, %742
-  %751 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %752 = load ptr, ptr %751, align 8, !tbaa !133
-  %753 = tail call i32 @g_strcmp0(ptr noundef %752, ptr noundef nonnull @.str.79) #16
-  %754 = icmp eq i32 %753, 0
-  br i1 %754, label %755, label %773
-
-755:                                              ; preds = %750
-  %756 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %757 = load i32, ptr %756, align 8, !tbaa !37
-  %758 = tail call ptr @dt_metadata_get(i32 noundef %757, ptr noundef nonnull @.str.174, ptr noundef null) #16
-  %.not626660 = icmp eq ptr %758, null
+753:                                              ; preds = %748
+  %754 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %755 = load i32, ptr %754, align 8, !tbaa !37
+  %756 = tail call ptr @dt_metadata_get(i32 noundef %755, ptr noundef nonnull @.str.174, ptr noundef null) #16
+  %.not626660 = icmp eq ptr %756, null
   br i1 %.not626660, label %._crit_edge664, label %.lr.ph663
 
-._crit_edge664:                                   ; preds = %.lr.ph663, %755
-  call void @g_list_free(ptr noundef %758) #16
+._crit_edge664:                                   ; preds = %.lr.ph663, %753
+  call void @g_list_free(ptr noundef %756) #16
   br label %thread-pre-split
 
-.lr.ph663:                                        ; preds = %755, %.lr.ph663
-  %.0411661 = phi ptr [ %772, %.lr.ph663 ], [ %758, %755 ]
-  %759 = load ptr, ptr %.0411661, align 8, !tbaa !141
-  %760 = ptrtoint ptr %759 to i64
-  %761 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !147
-  %762 = getelementptr inbounds nuw i8, ptr %761, i64 944
-  %sext = shl i64 %760, 32
-  %763 = ashr exact i64 %sext, 32
-  %764 = getelementptr inbounds [5 x %struct._GdkRGBA], ptr %762, i64 0, i64 %763
-  %.sroa.0.0.copyload = load double, ptr %764, align 8, !tbaa !148
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %764, i64 8
+.lr.ph663:                                        ; preds = %753, %.lr.ph663
+  %.0411661 = phi ptr [ %770, %.lr.ph663 ], [ %756, %753 ]
+  %757 = load ptr, ptr %.0411661, align 8, !tbaa !141
+  %758 = ptrtoint ptr %757 to i64
+  %759 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 128), align 8, !tbaa !147
+  %760 = getelementptr inbounds nuw i8, ptr %759, i64 944
+  %sext = shl i64 %758, 32
+  %761 = ashr exact i64 %sext, 32
+  %762 = getelementptr inbounds [5 x %struct._GdkRGBA], ptr %760, i64 0, i64 %761
+  %.sroa.0.0.copyload = load double, ptr %762, align 8, !tbaa !148
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %762, i64 8
   %.sroa.4.0.copyload = load double, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !148
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %764, i64 16
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %762, i64 16
   %.sroa.5.0.copyload = load double, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !148
-  %765 = fmul reassoc nsz arcp contract afn double %.sroa.0.0.copyload, 2.550000e+02
+  %763 = fmul reassoc nsz arcp contract afn double %.sroa.0.0.copyload, 2.550000e+02
+  %764 = fptoui double %763 to i32
+  %765 = fmul reassoc nsz arcp contract afn double %.sroa.4.0.copyload, 2.550000e+02
   %766 = fptoui double %765 to i32
-  %767 = fmul reassoc nsz arcp contract afn double %.sroa.4.0.copyload, 2.550000e+02
+  %767 = fmul reassoc nsz arcp contract afn double %.sroa.5.0.copyload, 2.550000e+02
   %768 = fptoui double %767 to i32
-  %769 = fmul reassoc nsz arcp contract afn double %.sroa.5.0.copyload, 2.550000e+02
-  %770 = fptoui double %769 to i32
-  call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %3, ptr noundef nonnull @.str.175, i32 noundef %766, i32 noundef %768, i32 noundef %770) #16
-  %771 = getelementptr inbounds nuw i8, ptr %.0411661, i64 8
-  %772 = load ptr, ptr %771, align 8, !tbaa !149
-  %.not626 = icmp eq ptr %772, null
+  call void (ptr, ptr, ...) @dt_util_str_cat(ptr noundef nonnull %3, ptr noundef nonnull @.str.175, i32 noundef %764, i32 noundef %766, i32 noundef %768) #16
+  %769 = getelementptr inbounds nuw i8, ptr %.0411661, i64 8
+  %770 = load ptr, ptr %769, align 8, !tbaa !149
+  %.not626 = icmp eq ptr %770, null
   br i1 %.not626, label %._crit_edge664, label %.lr.ph663
 
-773:                                              ; preds = %750, %748
-  %774 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.176)
-  %.not568 = icmp eq i32 %774, 0
-  br i1 %.not568, label %791, label %775
+771:                                              ; preds = %748, %746
+  %772 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.176)
+  %.not568 = icmp eq i32 %772, 0
+  br i1 %.not568, label %789, label %773
 
-775:                                              ; preds = %773
-  %776 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %777 = load i32, ptr %776, align 8, !tbaa !37
-  %778 = tail call ptr @dt_metadata_get(i32 noundef %777, ptr noundef nonnull @.str.174, ptr noundef null) #16
-  %.not624 = icmp eq ptr %778, null
-  br i1 %.not624, label %790, label %.preheader658
+773:                                              ; preds = %771
+  %774 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %775 = load i32, ptr %774, align 8, !tbaa !37
+  %776 = tail call ptr @dt_metadata_get(i32 noundef %775, ptr noundef nonnull @.str.174, ptr noundef null) #16
+  %.not624 = icmp eq ptr %776, null
+  br i1 %.not624, label %788, label %.preheader658
 
-779:                                              ; preds = %.preheader658
-  %780 = tail call ptr @g_list_reverse(ptr noundef %787) #16
-  %781 = tail call ptr @dt_util_glist_to_str(ptr noundef nonnull @.str.177, ptr noundef %780) #16
-  store ptr %781, ptr %3, align 8, !tbaa !6
-  tail call void @g_list_free(ptr noundef %780) #16
-  br label %790
-
-.preheader658:                                    ; preds = %775, %.preheader658
-  %.0412666 = phi ptr [ %787, %.preheader658 ], [ null, %775 ]
-  %.0413665 = phi ptr [ %789, %.preheader658 ], [ %778, %775 ]
-  %782 = load ptr, ptr %.0413665, align 8, !tbaa !141
-  %783 = ptrtoint ptr %782 to i64
-  %784 = trunc i64 %783 to i32
-  %785 = tail call ptr @dt_colorlabels_to_string(i32 noundef %784) #16
-  %786 = tail call ptr @dcgettext(ptr noundef null, ptr noundef %785, i32 noundef 5) #16
-  %787 = tail call ptr @g_list_prepend(ptr noundef %.0412666, ptr noundef %786) #16
-  %788 = getelementptr inbounds nuw i8, ptr %.0413665, i64 8
-  %789 = load ptr, ptr %788, align 8, !tbaa !149
-  %.not625 = icmp eq ptr %789, null
-  br i1 %.not625, label %779, label %.preheader658
-
-790:                                              ; preds = %779, %775
+777:                                              ; preds = %.preheader658
+  %778 = tail call ptr @g_list_reverse(ptr noundef %785) #16
+  %779 = tail call ptr @dt_util_glist_to_str(ptr noundef nonnull @.str.177, ptr noundef %778) #16
+  store ptr %779, ptr %3, align 8, !tbaa !6
   tail call void @g_list_free(ptr noundef %778) #16
+  br label %788
+
+.preheader658:                                    ; preds = %773, %.preheader658
+  %.0412666 = phi ptr [ %785, %.preheader658 ], [ null, %773 ]
+  %.0413665 = phi ptr [ %787, %.preheader658 ], [ %776, %773 ]
+  %780 = load ptr, ptr %.0413665, align 8, !tbaa !141
+  %781 = ptrtoint ptr %780 to i64
+  %782 = trunc i64 %781 to i32
+  %783 = tail call ptr @dt_colorlabels_to_string(i32 noundef %782) #16
+  %784 = tail call ptr @dcgettext(ptr noundef null, ptr noundef %783, i32 noundef 5) #16
+  %785 = tail call ptr @g_list_prepend(ptr noundef %.0412666, ptr noundef %784) #16
+  %786 = getelementptr inbounds nuw i8, ptr %.0413665, i64 8
+  %787 = load ptr, ptr %786, align 8, !tbaa !149
+  %.not625 = icmp eq ptr %787, null
+  br i1 %.not625, label %777, label %.preheader658
+
+788:                                              ; preds = %777, %773
+  tail call void @g_list_free(ptr noundef %776) #16
   br label %thread-pre-split
 
-791:                                              ; preds = %773
-  %792 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.178)
-  %.not569 = icmp eq i32 %792, 0
-  br i1 %.not569, label %793, label %795
+789:                                              ; preds = %771
+  %790 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.178)
+  %.not569 = icmp eq i32 %790, 0
+  br i1 %.not569, label %791, label %793
 
-793:                                              ; preds = %791
-  %794 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.179)
-  %.not570 = icmp eq i32 %794, 0
-  br i1 %.not570, label %803, label %795
+791:                                              ; preds = %789
+  %792 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.179)
+  %.not570 = icmp eq i32 %792, 0
+  br i1 %.not570, label %801, label %793
 
-795:                                              ; preds = %793, %791
-  %796 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %797 = load i32, ptr %796, align 8, !tbaa !37
-  %798 = tail call ptr @dt_metadata_get(i32 noundef %797, ptr noundef nonnull @.str.179, ptr noundef null) #16
-  %.not623 = icmp eq ptr %798, null
-  br i1 %.not623, label %802, label %799
+793:                                              ; preds = %791, %789
+  %794 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %795 = load i32, ptr %794, align 8, !tbaa !37
+  %796 = tail call ptr @dt_metadata_get(i32 noundef %795, ptr noundef nonnull @.str.179, ptr noundef null) #16
+  %.not623 = icmp eq ptr %796, null
+  br i1 %.not623, label %800, label %797
 
-799:                                              ; preds = %795
-  %800 = load ptr, ptr %798, align 8, !tbaa !141
-  %801 = tail call noalias ptr @g_strdup(ptr noundef %800) #16
-  store ptr %801, ptr %3, align 8, !tbaa !6
-  br label %802
+797:                                              ; preds = %793
+  %798 = load ptr, ptr %796, align 8, !tbaa !141
+  %799 = tail call noalias ptr @g_strdup(ptr noundef %798) #16
+  store ptr %799, ptr %3, align 8, !tbaa !6
+  br label %800
 
-802:                                              ; preds = %799, %795
-  tail call void @g_list_free_full(ptr noundef %798, ptr noundef nonnull @g_free) #16
+800:                                              ; preds = %797, %793
+  tail call void @g_list_free_full(ptr noundef %796, ptr noundef nonnull @g_free) #16
   br label %thread-pre-split
 
-803:                                              ; preds = %793
-  %804 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.180)
-  %.not571 = icmp eq i32 %804, 0
-  br i1 %.not571, label %805, label %807
+801:                                              ; preds = %791
+  %802 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.180)
+  %.not571 = icmp eq i32 %802, 0
+  br i1 %.not571, label %803, label %805
 
-805:                                              ; preds = %803
-  %806 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.181)
-  %.not572 = icmp eq i32 %806, 0
-  br i1 %.not572, label %815, label %807
+803:                                              ; preds = %801
+  %804 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.181)
+  %.not572 = icmp eq i32 %804, 0
+  br i1 %.not572, label %813, label %805
 
-807:                                              ; preds = %805, %803
-  %808 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %809 = load i32, ptr %808, align 8, !tbaa !37
-  %810 = tail call ptr @dt_metadata_get(i32 noundef %809, ptr noundef nonnull @.str.181, ptr noundef null) #16
-  %.not622 = icmp eq ptr %810, null
-  br i1 %.not622, label %814, label %811
+805:                                              ; preds = %803, %801
+  %806 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %807 = load i32, ptr %806, align 8, !tbaa !37
+  %808 = tail call ptr @dt_metadata_get(i32 noundef %807, ptr noundef nonnull @.str.181, ptr noundef null) #16
+  %.not622 = icmp eq ptr %808, null
+  br i1 %.not622, label %812, label %809
 
-811:                                              ; preds = %807
-  %812 = load ptr, ptr %810, align 8, !tbaa !141
-  %813 = tail call noalias ptr @g_strdup(ptr noundef %812) #16
-  store ptr %813, ptr %3, align 8, !tbaa !6
-  br label %814
+809:                                              ; preds = %805
+  %810 = load ptr, ptr %808, align 8, !tbaa !141
+  %811 = tail call noalias ptr @g_strdup(ptr noundef %810) #16
+  store ptr %811, ptr %3, align 8, !tbaa !6
+  br label %812
 
-814:                                              ; preds = %811, %807
-  tail call void @g_list_free_full(ptr noundef %810, ptr noundef nonnull @g_free) #16
+812:                                              ; preds = %809, %805
+  tail call void @g_list_free_full(ptr noundef %808, ptr noundef nonnull @g_free) #16
   br label %thread-pre-split
 
-815:                                              ; preds = %805
-  %816 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.182)
-  %.not573 = icmp eq i32 %816, 0
-  br i1 %.not573, label %817, label %819
+813:                                              ; preds = %803
+  %814 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.182)
+  %.not573 = icmp eq i32 %814, 0
+  br i1 %.not573, label %815, label %817
 
-817:                                              ; preds = %815
-  %818 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.183)
-  %.not574 = icmp eq i32 %818, 0
-  br i1 %.not574, label %827, label %819
+815:                                              ; preds = %813
+  %816 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.183)
+  %.not574 = icmp eq i32 %816, 0
+  br i1 %.not574, label %825, label %817
 
-819:                                              ; preds = %817, %815
-  %820 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %821 = load i32, ptr %820, align 8, !tbaa !37
-  %822 = tail call ptr @dt_metadata_get(i32 noundef %821, ptr noundef nonnull @.str.183, ptr noundef null) #16
-  %.not621 = icmp eq ptr %822, null
-  br i1 %.not621, label %826, label %823
+817:                                              ; preds = %815, %813
+  %818 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %819 = load i32, ptr %818, align 8, !tbaa !37
+  %820 = tail call ptr @dt_metadata_get(i32 noundef %819, ptr noundef nonnull @.str.183, ptr noundef null) #16
+  %.not621 = icmp eq ptr %820, null
+  br i1 %.not621, label %824, label %821
 
-823:                                              ; preds = %819
-  %824 = load ptr, ptr %822, align 8, !tbaa !141
-  %825 = tail call noalias ptr @g_strdup(ptr noundef %824) #16
-  store ptr %825, ptr %3, align 8, !tbaa !6
-  br label %826
+821:                                              ; preds = %817
+  %822 = load ptr, ptr %820, align 8, !tbaa !141
+  %823 = tail call noalias ptr @g_strdup(ptr noundef %822) #16
+  store ptr %823, ptr %3, align 8, !tbaa !6
+  br label %824
 
-826:                                              ; preds = %823, %819
-  tail call void @g_list_free_full(ptr noundef %822, ptr noundef nonnull @g_free) #16
+824:                                              ; preds = %821, %817
+  tail call void @g_list_free_full(ptr noundef %820, ptr noundef nonnull @g_free) #16
   br label %thread-pre-split
 
-827:                                              ; preds = %817
-  %828 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.184)
-  %.not575 = icmp eq i32 %828, 0
-  br i1 %.not575, label %829, label %831
+825:                                              ; preds = %815
+  %826 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.184)
+  %.not575 = icmp eq i32 %826, 0
+  br i1 %.not575, label %827, label %829
 
-829:                                              ; preds = %827
-  %830 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.185)
-  %.not576 = icmp eq i32 %830, 0
-  br i1 %.not576, label %839, label %831
+827:                                              ; preds = %825
+  %828 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.185)
+  %.not576 = icmp eq i32 %828, 0
+  br i1 %.not576, label %837, label %829
 
-831:                                              ; preds = %829, %827
-  %832 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %833 = load i32, ptr %832, align 8, !tbaa !37
-  %834 = tail call ptr @dt_metadata_get(i32 noundef %833, ptr noundef nonnull @.str.185, ptr noundef null) #16
-  %.not620 = icmp eq ptr %834, null
-  br i1 %.not620, label %838, label %835
+829:                                              ; preds = %827, %825
+  %830 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %831 = load i32, ptr %830, align 8, !tbaa !37
+  %832 = tail call ptr @dt_metadata_get(i32 noundef %831, ptr noundef nonnull @.str.185, ptr noundef null) #16
+  %.not620 = icmp eq ptr %832, null
+  br i1 %.not620, label %836, label %833
 
-835:                                              ; preds = %831
-  %836 = load ptr, ptr %834, align 8, !tbaa !141
-  %837 = tail call noalias ptr @g_strdup(ptr noundef %836) #16
-  store ptr %837, ptr %3, align 8, !tbaa !6
-  br label %838
+833:                                              ; preds = %829
+  %834 = load ptr, ptr %832, align 8, !tbaa !141
+  %835 = tail call noalias ptr @g_strdup(ptr noundef %834) #16
+  store ptr %835, ptr %3, align 8, !tbaa !6
+  br label %836
 
-838:                                              ; preds = %835, %831
-  tail call void @g_list_free_full(ptr noundef %834, ptr noundef nonnull @g_free) #16
+836:                                              ; preds = %833, %829
+  tail call void @g_list_free_full(ptr noundef %832, ptr noundef nonnull @g_free) #16
   br label %thread-pre-split
 
-839:                                              ; preds = %829
-  %840 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.186)
-  %.not577 = icmp eq i32 %840, 0
-  br i1 %.not577, label %841, label %843
+837:                                              ; preds = %827
+  %838 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.186)
+  %.not577 = icmp eq i32 %838, 0
+  br i1 %.not577, label %839, label %841
 
-841:                                              ; preds = %839
-  %842 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.187)
-  %.not578 = icmp eq i32 %842, 0
-  br i1 %.not578, label %851, label %843
+839:                                              ; preds = %837
+  %840 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.187)
+  %.not578 = icmp eq i32 %840, 0
+  br i1 %.not578, label %849, label %841
 
-843:                                              ; preds = %841, %839
-  %844 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %845 = load i32, ptr %844, align 8, !tbaa !37
-  %846 = tail call ptr @dt_metadata_get(i32 noundef %845, ptr noundef nonnull @.str.187, ptr noundef null) #16
-  %.not619 = icmp eq ptr %846, null
-  br i1 %.not619, label %850, label %847
+841:                                              ; preds = %839, %837
+  %842 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %843 = load i32, ptr %842, align 8, !tbaa !37
+  %844 = tail call ptr @dt_metadata_get(i32 noundef %843, ptr noundef nonnull @.str.187, ptr noundef null) #16
+  %.not619 = icmp eq ptr %844, null
+  br i1 %.not619, label %848, label %845
 
-847:                                              ; preds = %843
-  %848 = load ptr, ptr %846, align 8, !tbaa !141
-  %849 = tail call noalias ptr @g_strdup(ptr noundef %848) #16
-  store ptr %849, ptr %3, align 8, !tbaa !6
-  br label %850
+845:                                              ; preds = %841
+  %846 = load ptr, ptr %844, align 8, !tbaa !141
+  %847 = tail call noalias ptr @g_strdup(ptr noundef %846) #16
+  store ptr %847, ptr %3, align 8, !tbaa !6
+  br label %848
 
-850:                                              ; preds = %847, %843
-  tail call void @g_list_free_full(ptr noundef %846, ptr noundef nonnull @g_free) #16
+848:                                              ; preds = %845, %841
+  tail call void @g_list_free_full(ptr noundef %844, ptr noundef nonnull @g_free) #16
   br label %thread-pre-split
 
-851:                                              ; preds = %841
-  %852 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.188)
-  %.not579 = icmp eq i32 %852, 0
-  br i1 %.not579, label %853, label %855
+849:                                              ; preds = %839
+  %850 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.188)
+  %.not579 = icmp eq i32 %850, 0
+  br i1 %.not579, label %851, label %853
 
-853:                                              ; preds = %851
-  %854 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.189)
-  %.not580 = icmp eq i32 %854, 0
-  br i1 %.not580, label %858, label %855
+851:                                              ; preds = %849
+  %852 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.189)
+  %.not580 = icmp eq i32 %852, 0
+  br i1 %.not580, label %856, label %853
 
-855:                                              ; preds = %853, %851
-  %856 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.7, i32 noundef 5) #16
-  %857 = tail call noalias ptr @g_strdup(ptr noundef %856) #16
-  store ptr %857, ptr %3, align 8, !tbaa !6
-  br label %1076
+853:                                              ; preds = %851, %849
+  %854 = tail call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.7, i32 noundef 5) #16
+  %855 = tail call noalias ptr @g_strdup(ptr noundef %854) #16
+  store ptr %855, ptr %3, align 8, !tbaa !6
+  br label %1072
 
-858:                                              ; preds = %853
-  %859 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.190)
-  %.not581 = icmp eq i32 %859, 0
-  br i1 %.not581, label %860, label %862
+856:                                              ; preds = %851
+  %857 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.190)
+  %.not581 = icmp eq i32 %857, 0
+  br i1 %.not581, label %858, label %860
 
-860:                                              ; preds = %858
-  %861 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.191)
-  %.not582 = icmp eq i32 %861, 0
-  br i1 %.not582, label %867, label %862
+858:                                              ; preds = %856
+  %859 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.191)
+  %.not582 = icmp eq i32 %859, 0
+  br i1 %.not582, label %865, label %860
 
-862:                                              ; preds = %860, %858
-  %863 = load ptr, ptr %14, align 8, !tbaa !11
-  %864 = getelementptr inbounds nuw i8, ptr %863, i64 36
-  %865 = load i32, ptr %864, align 4, !tbaa !122
-  %866 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.27, i32 noundef %865) #16
-  store ptr %866, ptr %3, align 8, !tbaa !6
-  br label %1076
+860:                                              ; preds = %858, %856
+  %861 = load ptr, ptr %14, align 8, !tbaa !11
+  %862 = getelementptr inbounds nuw i8, ptr %861, i64 36
+  %863 = load i32, ptr %862, align 4, !tbaa !122
+  %864 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.27, i32 noundef %863) #16
+  store ptr %864, ptr %3, align 8, !tbaa !6
+  br label %1072
 
-867:                                              ; preds = %860
-  %868 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.192)
-  %.not583 = icmp eq i32 %868, 0
-  br i1 %.not583, label %869, label %871
+865:                                              ; preds = %858
+  %866 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.192)
+  %.not583 = icmp eq i32 %866, 0
+  br i1 %.not583, label %867, label %869
 
-869:                                              ; preds = %867
-  %870 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.193)
-  %.not584 = icmp eq i32 %870, 0
-  br i1 %.not584, label %876, label %871
+867:                                              ; preds = %865
+  %868 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.193)
+  %.not584 = icmp eq i32 %868, 0
+  br i1 %.not584, label %874, label %869
 
-871:                                              ; preds = %869, %867
-  %872 = load ptr, ptr %14, align 8, !tbaa !11
-  %873 = getelementptr inbounds nuw i8, ptr %872, i64 44
-  %874 = load i32, ptr %873, align 4, !tbaa !114
-  %875 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.27, i32 noundef %874) #16
-  store ptr %875, ptr %3, align 8, !tbaa !6
-  br label %1076
+869:                                              ; preds = %867, %865
+  %870 = load ptr, ptr %14, align 8, !tbaa !11
+  %871 = getelementptr inbounds nuw i8, ptr %870, i64 44
+  %872 = load i32, ptr %871, align 4, !tbaa !114
+  %873 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.27, i32 noundef %872) #16
+  store ptr %873, ptr %3, align 8, !tbaa !6
+  br label %1072
 
-876:                                              ; preds = %869
-  %877 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.194)
-  %.not585 = icmp eq i32 %877, 0
-  br i1 %.not585, label %878, label %880
+874:                                              ; preds = %867
+  %875 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.194)
+  %.not585 = icmp eq i32 %875, 0
+  br i1 %.not585, label %876, label %878
 
-878:                                              ; preds = %876
-  %879 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.195)
-  %.not586 = icmp eq i32 %879, 0
-  br i1 %.not586, label %885, label %880
+876:                                              ; preds = %874
+  %877 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.195)
+  %.not586 = icmp eq i32 %877, 0
+  br i1 %.not586, label %883, label %878
 
-880:                                              ; preds = %878, %876
-  %881 = load ptr, ptr %14, align 8, !tbaa !11
-  %882 = getelementptr inbounds nuw i8, ptr %881, i64 52
-  %883 = load i32, ptr %882, align 4, !tbaa !110
-  %884 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.27, i32 noundef %883) #16
-  store ptr %884, ptr %3, align 8, !tbaa !6
-  br label %1076
+878:                                              ; preds = %876, %874
+  %879 = load ptr, ptr %14, align 8, !tbaa !11
+  %880 = getelementptr inbounds nuw i8, ptr %879, i64 52
+  %881 = load i32, ptr %880, align 4, !tbaa !110
+  %882 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.27, i32 noundef %881) #16
+  store ptr %882, ptr %3, align 8, !tbaa !6
+  br label %1072
 
-885:                                              ; preds = %878
-  %886 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.196)
-  %.not587 = icmp eq i32 %886, 0
-  br i1 %.not587, label %887, label %889
+883:                                              ; preds = %876
+  %884 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.196)
+  %.not587 = icmp eq i32 %884, 0
+  br i1 %.not587, label %885, label %887
 
-887:                                              ; preds = %885
-  %888 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.197)
-  %.not588 = icmp eq i32 %888, 0
-  br i1 %.not588, label %894, label %889
+885:                                              ; preds = %883
+  %886 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.197)
+  %.not588 = icmp eq i32 %886, 0
+  br i1 %.not588, label %892, label %887
 
-889:                                              ; preds = %887, %885
-  %890 = load ptr, ptr %14, align 8, !tbaa !11
-  %891 = getelementptr inbounds nuw i8, ptr %890, i64 60
-  %892 = load i32, ptr %891, align 4, !tbaa !118
-  %893 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.27, i32 noundef %892) #16
-  store ptr %893, ptr %3, align 8, !tbaa !6
-  br label %1076
+887:                                              ; preds = %885, %883
+  %888 = load ptr, ptr %14, align 8, !tbaa !11
+  %889 = getelementptr inbounds nuw i8, ptr %888, i64 60
+  %890 = load i32, ptr %889, align 4, !tbaa !118
+  %891 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.27, i32 noundef %890) #16
+  store ptr %891, ptr %3, align 8, !tbaa !6
+  br label %1072
 
-894:                                              ; preds = %887
-  %895 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.198)
-  %.not589 = icmp eq i32 %895, 0
-  br i1 %.not589, label %896, label %898
+892:                                              ; preds = %885
+  %893 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.198)
+  %.not589 = icmp eq i32 %893, 0
+  br i1 %.not589, label %894, label %896
 
-896:                                              ; preds = %894
-  %897 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.199)
-  %.not590 = icmp eq i32 %897, 0
-  br i1 %.not590, label %903, label %898
+894:                                              ; preds = %892
+  %895 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.199)
+  %.not590 = icmp eq i32 %895, 0
+  br i1 %.not590, label %901, label %896
 
-898:                                              ; preds = %896, %894
-  %899 = load ptr, ptr %14, align 8, !tbaa !11
-  %900 = getelementptr inbounds nuw i8, ptr %899, i64 68
-  %901 = load i32, ptr %900, align 4, !tbaa !120
-  %902 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.27, i32 noundef %901) #16
-  store ptr %902, ptr %3, align 8, !tbaa !6
-  br label %1076
+896:                                              ; preds = %894, %892
+  %897 = load ptr, ptr %14, align 8, !tbaa !11
+  %898 = getelementptr inbounds nuw i8, ptr %897, i64 68
+  %899 = load i32, ptr %898, align 4, !tbaa !120
+  %900 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.27, i32 noundef %899) #16
+  store ptr %900, ptr %3, align 8, !tbaa !6
+  br label %1072
 
-903:                                              ; preds = %896
-  %904 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.200)
-  %.not591 = icmp eq i32 %904, 0
-  br i1 %.not591, label %905, label %907
+901:                                              ; preds = %894
+  %902 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.200)
+  %.not591 = icmp eq i32 %902, 0
+  br i1 %.not591, label %903, label %905
 
-905:                                              ; preds = %903
-  %906 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.201)
-  %.not592 = icmp eq i32 %906, 0
-  br i1 %.not592, label %912, label %907
+903:                                              ; preds = %901
+  %904 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.201)
+  %.not592 = icmp eq i32 %904, 0
+  br i1 %.not592, label %910, label %905
 
-907:                                              ; preds = %905, %903
-  %908 = load ptr, ptr %14, align 8, !tbaa !11
-  %909 = getelementptr inbounds nuw i8, ptr %908, i64 40
-  %910 = load i32, ptr %909, align 8, !tbaa !121
-  %911 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.27, i32 noundef %910) #16
-  store ptr %911, ptr %3, align 8, !tbaa !6
-  br label %1076
+905:                                              ; preds = %903, %901
+  %906 = load ptr, ptr %14, align 8, !tbaa !11
+  %907 = getelementptr inbounds nuw i8, ptr %906, i64 40
+  %908 = load i32, ptr %907, align 8, !tbaa !121
+  %909 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.27, i32 noundef %908) #16
+  store ptr %909, ptr %3, align 8, !tbaa !6
+  br label %1072
 
-912:                                              ; preds = %905
-  %913 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.202)
-  %.not593 = icmp eq i32 %913, 0
-  br i1 %.not593, label %914, label %916
+910:                                              ; preds = %903
+  %911 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.202)
+  %.not593 = icmp eq i32 %911, 0
+  br i1 %.not593, label %912, label %914
 
-914:                                              ; preds = %912
-  %915 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.203)
-  %.not594 = icmp eq i32 %915, 0
-  br i1 %.not594, label %921, label %916
+912:                                              ; preds = %910
+  %913 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.203)
+  %.not594 = icmp eq i32 %913, 0
+  br i1 %.not594, label %919, label %914
 
-916:                                              ; preds = %914, %912
-  %917 = load ptr, ptr %14, align 8, !tbaa !11
-  %918 = getelementptr inbounds nuw i8, ptr %917, i64 48
-  %919 = load i32, ptr %918, align 8, !tbaa !112
-  %920 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.27, i32 noundef %919) #16
-  store ptr %920, ptr %3, align 8, !tbaa !6
-  br label %1076
+914:                                              ; preds = %912, %910
+  %915 = load ptr, ptr %14, align 8, !tbaa !11
+  %916 = getelementptr inbounds nuw i8, ptr %915, i64 48
+  %917 = load i32, ptr %916, align 8, !tbaa !112
+  %918 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.27, i32 noundef %917) #16
+  store ptr %918, ptr %3, align 8, !tbaa !6
+  br label %1072
 
-921:                                              ; preds = %914
-  %922 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.204)
-  %.not595 = icmp eq i32 %922, 0
-  br i1 %.not595, label %923, label %925
+919:                                              ; preds = %912
+  %920 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.204)
+  %.not595 = icmp eq i32 %920, 0
+  br i1 %.not595, label %921, label %923
 
-923:                                              ; preds = %921
-  %924 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.205)
-  %.not596 = icmp eq i32 %924, 0
-  br i1 %.not596, label %930, label %925
+921:                                              ; preds = %919
+  %922 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.205)
+  %.not596 = icmp eq i32 %922, 0
+  br i1 %.not596, label %928, label %923
 
-925:                                              ; preds = %923, %921
-  %926 = load ptr, ptr %14, align 8, !tbaa !11
-  %927 = getelementptr inbounds nuw i8, ptr %926, i64 56
-  %928 = load i32, ptr %927, align 8, !tbaa !108
-  %929 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.27, i32 noundef %928) #16
-  store ptr %929, ptr %3, align 8, !tbaa !6
-  br label %1076
+923:                                              ; preds = %921, %919
+  %924 = load ptr, ptr %14, align 8, !tbaa !11
+  %925 = getelementptr inbounds nuw i8, ptr %924, i64 56
+  %926 = load i32, ptr %925, align 8, !tbaa !108
+  %927 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.27, i32 noundef %926) #16
+  store ptr %927, ptr %3, align 8, !tbaa !6
+  br label %1072
 
-930:                                              ; preds = %923
-  %931 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.206)
-  %.not597 = icmp eq i32 %931, 0
-  br i1 %.not597, label %932, label %934
+928:                                              ; preds = %921
+  %929 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.206)
+  %.not597 = icmp eq i32 %929, 0
+  br i1 %.not597, label %930, label %932
 
-932:                                              ; preds = %930
-  %933 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.207)
-  %.not598 = icmp eq i32 %933, 0
-  br i1 %.not598, label %939, label %934
+930:                                              ; preds = %928
+  %931 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.207)
+  %.not598 = icmp eq i32 %931, 0
+  br i1 %.not598, label %937, label %932
 
-934:                                              ; preds = %932, %930
-  %935 = load ptr, ptr %14, align 8, !tbaa !11
-  %936 = getelementptr inbounds nuw i8, ptr %935, i64 64
-  %937 = load i32, ptr %936, align 8, !tbaa !116
-  %938 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.27, i32 noundef %937) #16
-  store ptr %938, ptr %3, align 8, !tbaa !6
-  br label %1076
+932:                                              ; preds = %930, %928
+  %933 = load ptr, ptr %14, align 8, !tbaa !11
+  %934 = getelementptr inbounds nuw i8, ptr %933, i64 64
+  %935 = load i32, ptr %934, align 8, !tbaa !116
+  %936 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.27, i32 noundef %935) #16
+  store ptr %936, ptr %3, align 8, !tbaa !6
+  br label %1072
 
-939:                                              ; preds = %932
-  %940 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.208)
-  %.not599 = icmp eq i32 %940, 0
-  br i1 %.not599, label %941, label %943
+937:                                              ; preds = %930
+  %938 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.208)
+  %.not599 = icmp eq i32 %938, 0
+  br i1 %.not599, label %939, label %941
 
-941:                                              ; preds = %939
-  %942 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.209)
-  %.not600 = icmp eq i32 %942, 0
-  br i1 %.not600, label %948, label %943
+939:                                              ; preds = %937
+  %940 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.209)
+  %.not600 = icmp eq i32 %940, 0
+  br i1 %.not600, label %946, label %941
 
-943:                                              ; preds = %941, %939
-  %944 = load ptr, ptr %14, align 8, !tbaa !11
-  %945 = getelementptr inbounds nuw i8, ptr %944, i64 72
-  %946 = load i32, ptr %945, align 8, !tbaa !119
-  %947 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.27, i32 noundef %946) #16
-  store ptr %947, ptr %3, align 8, !tbaa !6
-  br label %1076
+941:                                              ; preds = %939, %937
+  %942 = load ptr, ptr %14, align 8, !tbaa !11
+  %943 = getelementptr inbounds nuw i8, ptr %942, i64 72
+  %944 = load i32, ptr %943, align 8, !tbaa !119
+  %945 = tail call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.27, i32 noundef %944) #16
+  store ptr %945, ptr %3, align 8, !tbaa !6
+  br label %1072
 
-948:                                              ; preds = %941
-  %949 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.210)
-  %.not601 = icmp eq i32 %949, 0
-  br i1 %.not601, label %1005, label %950
+946:                                              ; preds = %939
+  %947 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.210)
+  %.not601 = icmp eq i32 %947, 0
+  br i1 %.not601, label %1001, label %948
 
-950:                                              ; preds = %948
-  %951 = load ptr, ptr @g_ascii_table, align 8, !tbaa !143
-  %952 = load ptr, ptr %1, align 8, !tbaa !6
-  %953 = load i8, ptr %952, align 1, !tbaa !105
-  %954 = zext i8 %953 to i64
-  %955 = getelementptr inbounds nuw i16, ptr %951, i64 %954
-  %956 = load i16, ptr %955, align 2, !tbaa !145
-  %957 = and i16 %956, 8
-  %.not614 = icmp eq i16 %957, 0
-  br i1 %.not614, label %980, label %958
+948:                                              ; preds = %946
+  %949 = load ptr, ptr @g_ascii_table, align 8, !tbaa !143
+  %950 = load ptr, ptr %1, align 8, !tbaa !6
+  %951 = load i8, ptr %950, align 1, !tbaa !105
+  %952 = zext i8 %951 to i64
+  %953 = getelementptr inbounds nuw i16, ptr %949, i64 %952
+  %954 = load i16, ptr %953, align 2, !tbaa !145
+  %955 = and i16 %954, 8
+  %.not614 = icmp eq i16 %955, 0
+  br i1 %.not614, label %978, label %956
 
-958:                                              ; preds = %950
-  %959 = and i8 %953, 15
-  %960 = getelementptr inbounds nuw i8, ptr %952, i64 1
-  store ptr %960, ptr %1, align 8, !tbaa !6
-  %961 = load i8, ptr %960, align 1, !tbaa !105
-  %962 = icmp eq i8 %961, 40
-  br i1 %962, label %963, label %thread-pre-split
+956:                                              ; preds = %948
+  %957 = and i8 %951, 15
+  %958 = getelementptr inbounds nuw i8, ptr %950, i64 1
+  store ptr %958, ptr %1, align 8, !tbaa !6
+  %959 = load i8, ptr %958, align 1, !tbaa !105
+  %960 = icmp eq i8 %959, 40
+  br i1 %960, label %961, label %thread-pre-split
 
-963:                                              ; preds = %958
-  %964 = getelementptr inbounds nuw i8, ptr %952, i64 2
-  %965 = tail call noalias ptr @g_strdup(ptr noundef nonnull %964) #16
-  %966 = tail call ptr @g_strstr_len(ptr noundef %965, i64 noundef -1, ptr noundef nonnull @.str.211) #16
-  %.not617 = icmp eq ptr %966, null
-  br i1 %.not617, label %979, label %967
+961:                                              ; preds = %956
+  %962 = getelementptr inbounds nuw i8, ptr %950, i64 2
+  %963 = tail call noalias ptr @g_strdup(ptr noundef nonnull %962) #16
+  %964 = tail call ptr @g_strstr_len(ptr noundef %963, i64 noundef -1, ptr noundef nonnull @.str.211) #16
+  %.not617 = icmp eq ptr %964, null
+  br i1 %.not617, label %977, label %965
 
-967:                                              ; preds = %963
-  store i8 124, ptr %966, align 1, !tbaa !105
-  %968 = getelementptr inbounds nuw i8, ptr %966, i64 1
-  store i8 0, ptr %968, align 1, !tbaa !105
-  %969 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %965) #17
-  %970 = load ptr, ptr %1, align 8, !tbaa !6
-  %971 = getelementptr i8, ptr %970, i64 %969
-  %972 = getelementptr i8, ptr %971, i64 1
-  store ptr %972, ptr %1, align 8, !tbaa !6
-  %973 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %974 = load i32, ptr %973, align 8, !tbaa !37
-  %975 = zext nneg i8 %959 to i32
-  %976 = tail call ptr @dt_tag_get_subtags(i32 noundef %974, ptr noundef nonnull %965, i32 noundef %975) #16
-  %.not618 = icmp eq ptr %976, null
-  br i1 %.not618, label %979, label %977
+965:                                              ; preds = %961
+  store i8 124, ptr %964, align 1, !tbaa !105
+  %966 = getelementptr inbounds nuw i8, ptr %964, i64 1
+  store i8 0, ptr %966, align 1, !tbaa !105
+  %967 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %963) #17
+  %968 = load ptr, ptr %1, align 8, !tbaa !6
+  %969 = getelementptr i8, ptr %968, i64 %967
+  %970 = getelementptr i8, ptr %969, i64 1
+  store ptr %970, ptr %1, align 8, !tbaa !6
+  %971 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %972 = load i32, ptr %971, align 8, !tbaa !37
+  %973 = zext nneg i8 %957 to i32
+  %974 = tail call ptr @dt_tag_get_subtags(i32 noundef %972, ptr noundef nonnull %963, i32 noundef %973) #16
+  %.not618 = icmp eq ptr %974, null
+  br i1 %.not618, label %977, label %975
 
-977:                                              ; preds = %967
-  %978 = tail call noalias ptr @g_strdup(ptr noundef nonnull %976) #16
-  store ptr %978, ptr %3, align 8, !tbaa !6
-  tail call void @g_free(ptr noundef nonnull %976) #16
-  br label %979
+975:                                              ; preds = %965
+  %976 = tail call noalias ptr @g_strdup(ptr noundef nonnull %974) #16
+  store ptr %976, ptr %3, align 8, !tbaa !6
+  tail call void @g_free(ptr noundef nonnull %974) #16
+  br label %977
 
-979:                                              ; preds = %967, %977, %963
-  tail call void @g_free(ptr noundef %965) #16
+977:                                              ; preds = %965, %975, %961
+  tail call void @g_free(ptr noundef %963) #16
   br label %thread-pre-split
 
-980:                                              ; preds = %950
-  %981 = icmp eq i8 %953, 91
-  br i1 %981, label %982, label %thread-pre-split
+978:                                              ; preds = %948
+  %979 = icmp eq i8 %951, 91
+  br i1 %979, label %980, label %thread-pre-split
 
-982:                                              ; preds = %980
+980:                                              ; preds = %978
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #16
   call fastcc void @_get_parameters_n_m(ptr noundef %1, ptr noundef %11, ptr noundef nonnull %12)
-  %983 = load ptr, ptr %11, align 8, !tbaa !6
+  %981 = load ptr, ptr %11, align 8, !tbaa !6
+  %982 = icmp ne ptr %981, null
+  %983 = load ptr, ptr %12, align 8
   %984 = icmp ne ptr %983, null
-  %985 = load ptr, ptr %12, align 8
-  %986 = icmp ne ptr %985, null
-  %or.cond = select i1 %984, i1 %986, i1 false
-  br i1 %or.cond, label %987, label %1002
+  %or.cond = select i1 %982, i1 %984, i1 false
+  br i1 %or.cond, label %985, label %1000
 
-987:                                              ; preds = %982
-  %988 = load i8, ptr %983, align 1, !tbaa !105
-  %989 = zext i8 %988 to i64
-  %990 = getelementptr inbounds nuw i16, ptr %951, i64 %989
-  %991 = load i16, ptr %990, align 2, !tbaa !145
-  %992 = and i16 %991, 8
-  %.not615 = icmp eq i16 %992, 0
-  br i1 %.not615, label %1002, label %993
+985:                                              ; preds = %980
+  %986 = load i8, ptr %981, align 1, !tbaa !105
+  %987 = zext i8 %986 to i64
+  %988 = getelementptr inbounds nuw i16, ptr %949, i64 %987
+  %989 = load i16, ptr %988, align 2, !tbaa !145
+  %990 = and i16 %989, 8
+  %.not615 = icmp eq i16 %990, 0
+  br i1 %.not615, label %1000, label %991
 
-993:                                              ; preds = %987
-  %994 = and i8 %988, 15
-  %995 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.212, ptr noundef nonnull %985) #16
-  %996 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %997 = load i32, ptr %996, align 8, !tbaa !37
-  %998 = zext nneg i8 %994 to i32
-  %999 = call ptr @dt_tag_get_subtags(i32 noundef %997, ptr noundef %995, i32 noundef %998) #16
-  call void @g_free(ptr noundef %995) #16
-  %.not616 = icmp eq ptr %999, null
-  br i1 %.not616, label %1002, label %1000
+991:                                              ; preds = %985
+  %992 = and i8 %986, 15
+  %993 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.212, ptr noundef nonnull %983) #16
+  %994 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %995 = load i32, ptr %994, align 8, !tbaa !37
+  %996 = zext nneg i8 %992 to i32
+  %997 = call ptr @dt_tag_get_subtags(i32 noundef %995, ptr noundef %993, i32 noundef %996) #16
+  call void @g_free(ptr noundef %993) #16
+  %.not616 = icmp eq ptr %997, null
+  br i1 %.not616, label %1000, label %998
 
-1000:                                             ; preds = %993
-  %1001 = call noalias ptr @g_strdup(ptr noundef nonnull %999) #16
-  store ptr %1001, ptr %3, align 8, !tbaa !6
-  call void @g_free(ptr noundef nonnull %999) #16
-  br label %1002
+998:                                              ; preds = %991
+  %999 = call noalias ptr @g_strdup(ptr noundef nonnull %997) #16
+  store ptr %999, ptr %3, align 8, !tbaa !6
+  call void @g_free(ptr noundef nonnull %997) #16
+  br label %1000
 
-1002:                                             ; preds = %993, %1000, %987, %982
-  %1003 = load ptr, ptr %11, align 8, !tbaa !6
-  call void @g_free(ptr noundef %1003) #16
-  %1004 = load ptr, ptr %12, align 8, !tbaa !6
-  call void @g_free(ptr noundef %1004) #16
+1000:                                             ; preds = %991, %998, %985, %980
+  call void @g_free(ptr noundef %981) #16
+  call void @g_free(ptr noundef %983) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #16
   br label %thread-pre-split
 
-1005:                                             ; preds = %948
-  %1006 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.213)
-  %.not602 = icmp eq i32 %1006, 0
-  br i1 %.not602, label %1015, label %1007
+1001:                                             ; preds = %946
+  %1002 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.213)
+  %.not602 = icmp eq i32 %1002, 0
+  br i1 %.not602, label %1011, label %1003
 
-1007:                                             ; preds = %1005
-  %1008 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %1009 = load i32, ptr %1008, align 8, !tbaa !37
-  %1010 = load ptr, ptr %14, align 8, !tbaa !11
-  %1011 = getelementptr inbounds nuw i8, ptr %1010, i64 248
-  %1012 = load i32, ptr %1011, align 8, !tbaa !131
-  %1013 = tail call ptr @dt_tag_get_hierarchical_export(i32 noundef %1009, i32 noundef %1012) #16
-  %1014 = tail call ptr @dt_util_glist_to_str(ptr noundef nonnull @.str.112, ptr noundef %1013) #16
-  store ptr %1014, ptr %3, align 8, !tbaa !6
-  tail call void @g_list_free_full(ptr noundef %1013, ptr noundef nonnull @g_free) #16
+1003:                                             ; preds = %1001
+  %1004 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %1005 = load i32, ptr %1004, align 8, !tbaa !37
+  %1006 = load ptr, ptr %14, align 8, !tbaa !11
+  %1007 = getelementptr inbounds nuw i8, ptr %1006, i64 248
+  %1008 = load i32, ptr %1007, align 8, !tbaa !131
+  %1009 = tail call ptr @dt_tag_get_hierarchical_export(i32 noundef %1005, i32 noundef %1008) #16
+  %1010 = tail call ptr @dt_util_glist_to_str(ptr noundef nonnull @.str.112, ptr noundef %1009) #16
+  store ptr %1010, ptr %3, align 8, !tbaa !6
+  tail call void @g_list_free_full(ptr noundef %1009, ptr noundef nonnull @g_free) #16
   br label %thread-pre-split
 
-1015:                                             ; preds = %1005
-  %1016 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.214)
-  %.not603 = icmp eq i32 %1016, 0
-  br i1 %.not603, label %1017, label %1019
+1011:                                             ; preds = %1001
+  %1012 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.214)
+  %.not603 = icmp eq i32 %1012, 0
+  br i1 %.not603, label %1013, label %1015
 
-1017:                                             ; preds = %1015
-  %1018 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.215)
-  %.not604 = icmp eq i32 %1018, 0
-  br i1 %.not604, label %1028, label %1019
+1013:                                             ; preds = %1011
+  %1014 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.215)
+  %.not604 = icmp eq i32 %1014, 0
+  br i1 %.not604, label %1024, label %1015
 
-1019:                                             ; preds = %1017, %1015
-  %1020 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %1021 = load i32, ptr %1020, align 8, !tbaa !37
-  %1022 = load ptr, ptr %14, align 8, !tbaa !11
-  %1023 = getelementptr inbounds nuw i8, ptr %1022, i64 248
-  %1024 = load i32, ptr %1023, align 8, !tbaa !131
-  %1025 = tail call ptr @dt_tag_get_list_export(i32 noundef %1021, i32 noundef %1024) #16
-  %1026 = tail call ptr @dt_util_glist_to_str(ptr noundef nonnull @.str.112, ptr noundef %1025) #16
-  tail call void @g_list_free_full(ptr noundef %1025, ptr noundef nonnull @g_free) #16
-  %1027 = tail call noalias ptr @g_strdup(ptr noundef %1026) #16
-  store ptr %1027, ptr %3, align 8, !tbaa !6
-  tail call void @g_free(ptr noundef %1026) #16
+1015:                                             ; preds = %1013, %1011
+  %1016 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %1017 = load i32, ptr %1016, align 8, !tbaa !37
+  %1018 = load ptr, ptr %14, align 8, !tbaa !11
+  %1019 = getelementptr inbounds nuw i8, ptr %1018, i64 248
+  %1020 = load i32, ptr %1019, align 8, !tbaa !131
+  %1021 = tail call ptr @dt_tag_get_list_export(i32 noundef %1017, i32 noundef %1020) #16
+  %1022 = tail call ptr @dt_util_glist_to_str(ptr noundef nonnull @.str.112, ptr noundef %1021) #16
+  tail call void @g_list_free_full(ptr noundef %1021, ptr noundef nonnull @g_free) #16
+  %1023 = tail call noalias ptr @g_strdup(ptr noundef %1022) #16
+  store ptr %1023, ptr %3, align 8, !tbaa !6
+  tail call void @g_free(ptr noundef %1022) #16
   br label %thread-pre-split
 
-1028:                                             ; preds = %1017
-  %1029 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.216)
-  %.not605 = icmp eq i32 %1029, 0
-  br i1 %.not605, label %1051, label %1030
+1024:                                             ; preds = %1013
+  %1025 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.216)
+  %.not605 = icmp eq i32 %1025, 0
+  br i1 %.not605, label %1047, label %1026
 
-1030:                                             ; preds = %1028
-  %1031 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %1032 = load ptr, ptr %1031, align 8, !tbaa !133
-  %1033 = tail call i32 @g_strcmp0(ptr noundef %1032, ptr noundef nonnull @.str.79) #16
-  %1034 = icmp eq i32 %1033, 0
-  br i1 %1034, label %1035, label %1051
+1026:                                             ; preds = %1024
+  %1027 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %1028 = load ptr, ptr %1027, align 8, !tbaa !133
+  %1029 = tail call i32 @g_strcmp0(ptr noundef %1028, ptr noundef nonnull @.str.79) #16
+  %1030 = icmp eq i32 %1029, 0
+  br i1 %1030, label %1031, label %1047
 
-1035:                                             ; preds = %1030
-  %1036 = load ptr, ptr %14, align 8, !tbaa !11
-  %1037 = getelementptr inbounds nuw i8, ptr %1036, i64 252
-  %1038 = load i32, ptr %1037, align 4, !tbaa !106
-  %1039 = and i32 %1038, 4096
-  %.not606 = icmp eq i32 %1039, 0
-  br i1 %.not606, label %1051, label %1040
+1031:                                             ; preds = %1026
+  %1032 = load ptr, ptr %14, align 8, !tbaa !11
+  %1033 = getelementptr inbounds nuw i8, ptr %1032, i64 252
+  %1034 = load i32, ptr %1033, align 4, !tbaa !106
+  %1035 = and i32 %1034, 4096
+  %.not606 = icmp eq i32 %1035, 0
+  br i1 %.not606, label %1047, label %1036
 
-1040:                                             ; preds = %1035
-  %1041 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %1042 = load i32, ptr %1041, align 8, !tbaa !37
-  %1043 = tail call ptr @dt_image_get_text_path(i32 noundef %1042) #16
-  %.not612 = icmp eq ptr %1043, null
-  br i1 %.not612, label %thread-pre-split, label %1044
+1036:                                             ; preds = %1031
+  %1037 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %1038 = load i32, ptr %1037, align 8, !tbaa !37
+  %1039 = tail call ptr @dt_image_get_text_path(i32 noundef %1038) #16
+  %.not612 = icmp eq ptr %1039, null
+  br i1 %.not612, label %thread-pre-split, label %1040
 
-1044:                                             ; preds = %1040
+1040:                                             ; preds = %1036
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #16
   store ptr null, ptr %13, align 8, !tbaa !6
-  %1045 = call i32 @g_file_get_contents(ptr noundef nonnull %1043, ptr noundef nonnull %13, ptr noundef null, ptr noundef null) #16
-  %.not613 = icmp eq i32 %1045, 0
-  br i1 %.not613, label %1049, label %1046
+  %1041 = call i32 @g_file_get_contents(ptr noundef nonnull %1039, ptr noundef nonnull %13, ptr noundef null, ptr noundef null) #16
+  %.not613 = icmp eq i32 %1041, 0
+  br i1 %.not613, label %1045, label %1042
 
-1046:                                             ; preds = %1044
-  %1047 = load ptr, ptr %13, align 8, !tbaa !6
-  %1048 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.217, ptr noundef %1047) #16
-  store ptr %1048, ptr %3, align 8, !tbaa !6
-  br label %1049
+1042:                                             ; preds = %1040
+  %1043 = load ptr, ptr %13, align 8, !tbaa !6
+  %1044 = call noalias ptr (ptr, ...) @g_strdup_printf(ptr noundef nonnull @.str.217, ptr noundef %1043) #16
+  store ptr %1044, ptr %3, align 8, !tbaa !6
+  br label %1045
 
-1049:                                             ; preds = %1046, %1044
-  %1050 = load ptr, ptr %13, align 8, !tbaa !6
-  call void @g_free(ptr noundef %1050) #16
-  call void @g_free(ptr noundef nonnull %1043) #16
+1045:                                             ; preds = %1042, %1040
+  %1046 = load ptr, ptr %13, align 8, !tbaa !6
+  call void @g_free(ptr noundef %1046) #16
+  call void @g_free(ptr noundef nonnull %1039) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #16
   br label %thread-pre-split
 
-1051:                                             ; preds = %1035, %1030, %1028
-  %1052 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.218)
-  %.not607 = icmp eq i32 %1052, 0
-  br i1 %.not607, label %1053, label %1055
+1047:                                             ; preds = %1031, %1026, %1024
+  %1048 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.218)
+  %.not607 = icmp eq i32 %1048, 0
+  br i1 %.not607, label %1049, label %1051
 
-1053:                                             ; preds = %1051
-  %1054 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.219)
-  %.not608 = icmp eq i32 %1054, 0
-  br i1 %.not608, label %1057, label %1055
+1049:                                             ; preds = %1047
+  %1050 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.219)
+  %.not608 = icmp eq i32 %1050, 0
+  br i1 %.not608, label %1053, label %1051
 
-1055:                                             ; preds = %1053, %1051
-  %1056 = tail call noalias ptr @g_strdup(ptr noundef nonnull @darktable_package_version) #16
-  store ptr %1056, ptr %3, align 8, !tbaa !6
-  br label %1076
+1051:                                             ; preds = %1049, %1047
+  %1052 = tail call noalias ptr @g_strdup(ptr noundef nonnull @darktable_package_version) #16
+  store ptr %1052, ptr %3, align 8, !tbaa !6
+  br label %1072
 
-1057:                                             ; preds = %1053
-  %1058 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.220)
-  %.not609 = icmp eq i32 %1058, 0
-  br i1 %.not609, label %1059, label %1067
+1053:                                             ; preds = %1049
+  %1054 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.220)
+  %.not609 = icmp eq i32 %1054, 0
+  br i1 %.not609, label %1055, label %1063
 
-1059:                                             ; preds = %1057
-  %1060 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.221)
-  %.not610 = icmp eq i32 %1060, 0
-  br i1 %.not610, label %.preheader, label %1067
+1055:                                             ; preds = %1053
+  %1056 = tail call fastcc i32 @_has_prefix(ptr noundef %1, ptr noundef nonnull @.str.221)
+  %.not610 = icmp eq i32 %1056, 0
+  br i1 %.not610, label %.preheader, label %1063
 
-.preheader:                                       ; preds = %1059
-  %1061 = load ptr, ptr @g_ascii_table, align 8, !tbaa !143
+.preheader:                                       ; preds = %1055
+  %1057 = load ptr, ptr @g_ascii_table, align 8, !tbaa !143
   %.promoted = load ptr, ptr %1, align 8, !tbaa !6
-  %1062 = load i8, ptr %.promoted, align 1, !tbaa !105
-  %1063 = zext i8 %1062 to i64
-  %1064 = getelementptr inbounds nuw i16, ptr %1061, i64 %1063
-  %1065 = load i16, ptr %1064, align 2, !tbaa !145
-  %1066 = and i16 %1065, 2
-  %.not611667 = icmp eq i16 %1066, 0
+  %1058 = load i8, ptr %.promoted, align 1, !tbaa !105
+  %1059 = zext i8 %1058 to i64
+  %1060 = getelementptr inbounds nuw i16, ptr %1057, i64 %1059
+  %1061 = load i16, ptr %1060, align 2, !tbaa !145
+  %1062 = and i16 %1061, 2
+  %.not611667 = icmp eq i16 %1062, 0
   br i1 %.not611667, label %thread-pre-split, label %.lr.ph668
 
-1067:                                             ; preds = %1059, %1057
-  %1068 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.222) #16
-  store ptr %1068, ptr %3, align 8, !tbaa !6
-  br label %1076
+1063:                                             ; preds = %1055, %1053
+  %1064 = tail call noalias ptr @g_strdup(ptr noundef nonnull @.str.222) #16
+  store ptr %1064, ptr %3, align 8, !tbaa !6
+  br label %1072
 
 .lr.ph668:                                        ; preds = %.preheader, %.lr.ph668
-  %1069 = phi ptr [ %1070, %.lr.ph668 ], [ %.promoted, %.preheader ]
-  %1070 = getelementptr inbounds nuw i8, ptr %1069, i64 1
-  store ptr %1070, ptr %1, align 8, !tbaa !6
-  %1071 = load i8, ptr %1070, align 1, !tbaa !105
-  %1072 = zext i8 %1071 to i64
-  %1073 = getelementptr inbounds nuw i16, ptr %1061, i64 %1072
-  %1074 = load i16, ptr %1073, align 2, !tbaa !145
-  %1075 = and i16 %1074, 2
-  %.not611 = icmp eq i16 %1075, 0
+  %1065 = phi ptr [ %1066, %.lr.ph668 ], [ %.promoted, %.preheader ]
+  %1066 = getelementptr inbounds nuw i8, ptr %1065, i64 1
+  store ptr %1066, ptr %1, align 8, !tbaa !6
+  %1067 = load i8, ptr %1066, align 1, !tbaa !105
+  %1068 = zext i8 %1067 to i64
+  %1069 = getelementptr inbounds nuw i16, ptr %1057, i64 %1068
+  %1070 = load i16, ptr %1069, align 2, !tbaa !145
+  %1071 = and i16 %1070, 2
+  %.not611 = icmp eq i16 %1071, 0
   br i1 %.not611, label %thread-pre-split, label %.lr.ph668
 
-thread-pre-split:                                 ; preds = %.lr.ph668, %.preheader, %249, %268, %._crit_edge, %563, %592, %606, %790, %814, %838, %1007, %1019, %1002, %980, %850, %826, %802, %._crit_edge664, %616, %600, %583, %585, %520, %621, %618, %979, %958, %1049, %1040
-  %.ph = phi i1 [ true, %1040 ], [ true, %1049 ], [ true, %958 ], [ true, %979 ], [ true, %618 ], [ true, %621 ], [ true, %1019 ], [ true, %1007 ], [ true, %980 ], [ true, %1002 ], [ true, %850 ], [ true, %838 ], [ true, %826 ], [ true, %814 ], [ true, %802 ], [ true, %790 ], [ false, %._crit_edge664 ], [ true, %616 ], [ true, %606 ], [ true, %600 ], [ true, %592 ], [ true, %583 ], [ true, %585 ], [ true, %563 ], [ true, %520 ], [ true, %._crit_edge ], [ true, %268 ], [ true, %249 ], [ true, %.preheader ], [ true, %.lr.ph668 ]
+thread-pre-split:                                 ; preds = %.lr.ph668, %.preheader, %249, %268, %._crit_edge, %563, %592, %606, %788, %812, %836, %1003, %1015, %1000, %978, %848, %824, %800, %._crit_edge664, %616, %600, %583, %585, %520, %621, %618, %977, %956, %1045, %1036
+  %.ph = phi i1 [ true, %1036 ], [ true, %1045 ], [ true, %956 ], [ true, %977 ], [ true, %618 ], [ true, %621 ], [ true, %1015 ], [ true, %1003 ], [ true, %978 ], [ true, %1000 ], [ true, %848 ], [ true, %836 ], [ true, %824 ], [ true, %812 ], [ true, %800 ], [ true, %788 ], [ false, %._crit_edge664 ], [ true, %616 ], [ true, %606 ], [ true, %600 ], [ true, %592 ], [ true, %583 ], [ true, %585 ], [ true, %563 ], [ true, %520 ], [ true, %._crit_edge ], [ true, %268 ], [ true, %249 ], [ true, %.preheader ], [ true, %.lr.ph668 ]
   %.pr = load ptr, ptr %3, align 8, !tbaa !6
-  br label %1076
+  br label %1072
 
-1076:                                             ; preds = %thread-pre-split, %41, %57, %73, %89, %105, %118, %132, %146, %158, %174, %188, %204, %215, %243, %241, %259, %282, %298, %321, %336, %350, %365, %388, %428, %446, %485, %568, %602, %671, %685, %703, %713, %862, %880, %898, %916, %934, %1055, %1067, %943, %925, %907, %889, %871, %855, %728, %730, %732, %734, %736, %738, %740, %708, %694, %676, %626, %608, %594, %575, %507, %475, %437, %371, %359, %343, %329, %311, %290, %276, %254, %226, %196, %180, %166, %152, %138, %128, %97, %81, %65, %49, %31
-  %1077 = phi ptr [ %.pr, %thread-pre-split ], [ %44, %41 ], [ %60, %57 ], [ %76, %73 ], [ %92, %89 ], [ %108, %105 ], [ %125, %118 ], [ %133, %132 ], [ %147, %146 ], [ %159, %158 ], [ %175, %174 ], [ %189, %188 ], [ %205, %204 ], [ %221, %215 ], [ %244, %243 ], [ %242, %241 ], [ %263, %259 ], [ %287, %282 ], [ %306, %298 ], [ %326, %321 ], [ %340, %336 ], [ %354, %350 ], [ %366, %365 ], [ %390, %388 ], [ %432, %428 ], [ %450, %446 ], [ %490, %485 ], [ %572, %568 ], [ %603, %602 ], [ %673, %671 ], [ %689, %685 ], [ %705, %703 ], [ %717, %713 ], [ %866, %862 ], [ %884, %880 ], [ %902, %898 ], [ %920, %916 ], [ %938, %934 ], [ %1056, %1055 ], [ %1068, %1067 ], [ %947, %943 ], [ %929, %925 ], [ %911, %907 ], [ %893, %889 ], [ %875, %871 ], [ %857, %855 ], [ %729, %728 ], [ %731, %730 ], [ %733, %732 ], [ %735, %734 ], [ %737, %736 ], [ %739, %738 ], [ %741, %740 ], [ %710, %708 ], [ %698, %694 ], [ %678, %676 ], [ %630, %626 ], [ %609, %608 ], [ %595, %594 ], [ %578, %575 ], [ %508, %507 ], [ %480, %475 ], [ %441, %437 ], [ %375, %371 ], [ %360, %359 ], [ %347, %343 ], [ %333, %329 ], [ %316, %311 ], [ %295, %290 ], [ %277, %276 ], [ %256, %254 ], [ %230, %226 ], [ %197, %196 ], [ %181, %180 ], [ %167, %166 ], [ %153, %152 ], [ %139, %138 ], [ %129, %128 ], [ %100, %97 ], [ %84, %81 ], [ %68, %65 ], [ %52, %49 ], [ %34, %31 ]
-  %1078 = phi i1 [ %.ph, %thread-pre-split ], [ true, %41 ], [ true, %57 ], [ true, %73 ], [ true, %89 ], [ true, %105 ], [ true, %118 ], [ true, %132 ], [ true, %146 ], [ true, %158 ], [ true, %174 ], [ true, %188 ], [ true, %204 ], [ true, %215 ], [ true, %243 ], [ true, %241 ], [ true, %259 ], [ true, %282 ], [ true, %298 ], [ true, %321 ], [ true, %336 ], [ true, %350 ], [ true, %365 ], [ true, %388 ], [ true, %428 ], [ true, %446 ], [ true, %485 ], [ true, %568 ], [ true, %602 ], [ true, %671 ], [ true, %685 ], [ true, %703 ], [ true, %713 ], [ true, %862 ], [ true, %880 ], [ true, %898 ], [ true, %916 ], [ true, %934 ], [ true, %1055 ], [ true, %1067 ], [ true, %943 ], [ true, %925 ], [ true, %907 ], [ true, %889 ], [ true, %871 ], [ true, %855 ], [ true, %728 ], [ true, %730 ], [ true, %732 ], [ true, %734 ], [ true, %736 ], [ true, %738 ], [ true, %740 ], [ true, %708 ], [ true, %694 ], [ true, %676 ], [ true, %626 ], [ true, %608 ], [ true, %594 ], [ true, %575 ], [ true, %507 ], [ true, %475 ], [ true, %437 ], [ true, %371 ], [ true, %359 ], [ true, %343 ], [ true, %329 ], [ true, %311 ], [ true, %290 ], [ true, %276 ], [ true, %254 ], [ true, %226 ], [ true, %196 ], [ true, %180 ], [ true, %166 ], [ true, %152 ], [ true, %138 ], [ true, %128 ], [ true, %97 ], [ true, %81 ], [ true, %65 ], [ true, %49 ], [ true, %31 ]
-  %.not648 = icmp eq ptr %1077, null
-  br i1 %.not648, label %1079, label %.thread
+1072:                                             ; preds = %thread-pre-split, %41, %57, %73, %89, %105, %118, %132, %146, %158, %174, %188, %204, %215, %243, %241, %259, %282, %298, %321, %336, %350, %365, %388, %428, %446, %485, %568, %602, %669, %683, %701, %711, %860, %878, %896, %914, %932, %1051, %1063, %941, %923, %905, %887, %869, %853, %726, %728, %730, %732, %734, %736, %738, %706, %692, %674, %626, %608, %594, %575, %507, %475, %437, %371, %359, %343, %329, %311, %290, %276, %254, %226, %196, %180, %166, %152, %138, %128, %97, %81, %65, %49, %31
+  %1073 = phi ptr [ %.pr, %thread-pre-split ], [ %44, %41 ], [ %60, %57 ], [ %76, %73 ], [ %92, %89 ], [ %108, %105 ], [ %125, %118 ], [ %133, %132 ], [ %147, %146 ], [ %159, %158 ], [ %175, %174 ], [ %189, %188 ], [ %205, %204 ], [ %221, %215 ], [ %244, %243 ], [ %242, %241 ], [ %263, %259 ], [ %287, %282 ], [ %306, %298 ], [ %326, %321 ], [ %340, %336 ], [ %354, %350 ], [ %366, %365 ], [ %390, %388 ], [ %432, %428 ], [ %450, %446 ], [ %490, %485 ], [ %572, %568 ], [ %603, %602 ], [ %671, %669 ], [ %687, %683 ], [ %703, %701 ], [ %715, %711 ], [ %864, %860 ], [ %882, %878 ], [ %900, %896 ], [ %918, %914 ], [ %936, %932 ], [ %1052, %1051 ], [ %1064, %1063 ], [ %945, %941 ], [ %927, %923 ], [ %909, %905 ], [ %891, %887 ], [ %873, %869 ], [ %855, %853 ], [ %727, %726 ], [ %729, %728 ], [ %731, %730 ], [ %733, %732 ], [ %735, %734 ], [ %737, %736 ], [ %739, %738 ], [ %708, %706 ], [ %696, %692 ], [ %676, %674 ], [ %630, %626 ], [ %609, %608 ], [ %595, %594 ], [ %578, %575 ], [ %508, %507 ], [ %480, %475 ], [ %441, %437 ], [ %375, %371 ], [ %360, %359 ], [ %347, %343 ], [ %333, %329 ], [ %316, %311 ], [ %295, %290 ], [ %277, %276 ], [ %256, %254 ], [ %230, %226 ], [ %197, %196 ], [ %181, %180 ], [ %167, %166 ], [ %153, %152 ], [ %139, %138 ], [ %129, %128 ], [ %100, %97 ], [ %84, %81 ], [ %68, %65 ], [ %52, %49 ], [ %34, %31 ]
+  %1074 = phi i1 [ %.ph, %thread-pre-split ], [ true, %41 ], [ true, %57 ], [ true, %73 ], [ true, %89 ], [ true, %105 ], [ true, %118 ], [ true, %132 ], [ true, %146 ], [ true, %158 ], [ true, %174 ], [ true, %188 ], [ true, %204 ], [ true, %215 ], [ true, %243 ], [ true, %241 ], [ true, %259 ], [ true, %282 ], [ true, %298 ], [ true, %321 ], [ true, %336 ], [ true, %350 ], [ true, %365 ], [ true, %388 ], [ true, %428 ], [ true, %446 ], [ true, %485 ], [ true, %568 ], [ true, %602 ], [ true, %669 ], [ true, %683 ], [ true, %701 ], [ true, %711 ], [ true, %860 ], [ true, %878 ], [ true, %896 ], [ true, %914 ], [ true, %932 ], [ true, %1051 ], [ true, %1063 ], [ true, %941 ], [ true, %923 ], [ true, %905 ], [ true, %887 ], [ true, %869 ], [ true, %853 ], [ true, %726 ], [ true, %728 ], [ true, %730 ], [ true, %732 ], [ true, %734 ], [ true, %736 ], [ true, %738 ], [ true, %706 ], [ true, %692 ], [ true, %674 ], [ true, %626 ], [ true, %608 ], [ true, %594 ], [ true, %575 ], [ true, %507 ], [ true, %475 ], [ true, %437 ], [ true, %371 ], [ true, %359 ], [ true, %343 ], [ true, %329 ], [ true, %311 ], [ true, %290 ], [ true, %276 ], [ true, %254 ], [ true, %226 ], [ true, %196 ], [ true, %180 ], [ true, %166 ], [ true, %152 ], [ true, %138 ], [ true, %128 ], [ true, %97 ], [ true, %81 ], [ true, %65 ], [ true, %49 ], [ true, %31 ]
+  %.not648 = icmp eq ptr %1073, null
+  br i1 %.not648, label %1075, label %.thread
 
-1079:                                             ; preds = %1076
-  %1080 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.3) #16
-  store ptr %1080, ptr %3, align 8, !tbaa !6
+1075:                                             ; preds = %1072
+  %1076 = call noalias ptr @g_strdup(ptr noundef nonnull @.str.3) #16
+  store ptr %1076, ptr %3, align 8, !tbaa !6
   br label %.thread
 
-.thread:                                          ; preds = %111, %210, %1079, %1076
-  %1081 = phi ptr [ %1080, %1079 ], [ %1077, %1076 ], [ %211, %210 ], [ %114, %111 ]
-  %1082 = phi i1 [ %1078, %1079 ], [ %1078, %1076 ], [ true, %210 ], [ true, %111 ]
-  %1083 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %1084 = load i32, ptr %1083, align 8, !tbaa !150
-  %1085 = icmp ne i32 %1084, 0
-  %or.cond3 = and i1 %1082, %1085
-  br i1 %or.cond3, label %1086, label %1089
+.thread:                                          ; preds = %111, %210, %1075, %1072
+  %1077 = phi ptr [ %1076, %1075 ], [ %1073, %1072 ], [ %211, %210 ], [ %114, %111 ]
+  %1078 = phi i1 [ %1074, %1075 ], [ %1074, %1072 ], [ true, %210 ], [ true, %111 ]
+  %1079 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %1080 = load i32, ptr %1079, align 8, !tbaa !150
+  %1081 = icmp ne i32 %1080, 0
+  %or.cond3 = and i1 %1078, %1081
+  br i1 %or.cond3, label %1082, label %1085
 
-1086:                                             ; preds = %.thread
-  %1087 = call ptr @g_markup_escape_text(ptr noundef %1081, i64 noundef -1) #16
-  %1088 = load ptr, ptr %3, align 8, !tbaa !6
-  call void @g_free(ptr noundef %1088) #16
-  br label %1089
+1082:                                             ; preds = %.thread
+  %1083 = call ptr @g_markup_escape_text(ptr noundef %1077, i64 noundef -1) #16
+  %1084 = load ptr, ptr %3, align 8, !tbaa !6
+  call void @g_free(ptr noundef %1084) #16
+  br label %1085
 
-1089:                                             ; preds = %.thread, %1086
-  %.0 = phi ptr [ %1087, %1086 ], [ %1081, %.thread ]
+1085:                                             ; preds = %.thread, %1082
+  %.0 = phi ptr [ %1083, %1082 ], [ %1077, %.thread ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
   ret ptr %.0
@@ -3856,7 +3852,7 @@ define internal fastcc zeroext i8 @_get_var_parameter(ptr noundef nonnull captur
   %3 = load ptr, ptr %0, align 8, !tbaa !6
   %4 = load i8, ptr %3, align 1, !tbaa !105
   %5 = icmp eq i8 %4, 91
-  br i1 %5, label %6, label %13
+  br i1 %5, label %6, label %12
 
 6:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #16
@@ -3867,12 +3863,11 @@ define internal fastcc zeroext i8 @_get_var_parameter(ptr noundef nonnull captur
   %10 = icmp sgt i32 %9, 0
   %11 = trunc i64 %8 to i8
   %spec.select = select i1 %10, i8 %11, i8 1
-  %12 = load ptr, ptr %2, align 8, !tbaa !6
-  call void @g_free(ptr noundef %12) #16
+  call void @g_free(ptr noundef %7) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #16
-  br label %13
+  br label %12
 
-13:                                               ; preds = %6, %1
+12:                                               ; preds = %6, %1
   %.0 = phi i8 [ %spec.select, %6 ], [ 1, %1 ]
   ret i8 %.0
 }

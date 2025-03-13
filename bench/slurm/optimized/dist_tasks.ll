@@ -151,7 +151,7 @@ define dso_local void @batch_bind(ptr noundef %0) local_unnamed_addr #0 {
   br label %41
 
 41:                                               ; preds = %37, %33, %28
-  %42 = load ptr, ptr %2, align 8
+  %42 = phi ptr [ %8, %37 ], [ %29, %33 ], [ %29, %28 ]
   %.not17 = icmp eq ptr %42, null
   br i1 %.not17, label %44, label %43
 
@@ -2245,7 +2245,7 @@ define internal fastcc ptr @_alloc_mask(ptr noundef readonly captures(none) %0, 
   %15 = call fastcc ptr @_get_avail_map(ptr noundef %14, ptr noundef %8, ptr noundef %9, ptr noundef %10)
   store ptr %15, ptr %11, align 8
   %.not = icmp eq ptr %15, null
-  br i1 %.not, label %102, label %16
+  br i1 %.not, label %101, label %16
 
 16:                                               ; preds = %7
   %17 = tail call i64 @slurm_bit_size(ptr noundef nonnull %15) #7
@@ -2499,16 +2499,15 @@ switch.early.test:                                ; preds = %59
 97:                                               ; preds = %96, %.loopexit88
   %98 = load ptr, ptr %12, align 8
   %99 = call ptr @slurm_bit_fmt_hexmask(ptr noundef %98) #7
-  %100 = load ptr, ptr %12, align 8
-  %.not79 = icmp eq ptr %100, null
-  br i1 %.not79, label %102, label %101
+  %.not79 = icmp eq ptr %98, null
+  br i1 %.not79, label %101, label %100
 
-101:                                              ; preds = %97
+100:                                              ; preds = %97
   call void @slurm_bit_free(ptr noundef nonnull %12) #7
-  br label %102
+  br label %101
 
-102:                                              ; preds = %97, %101, %7
-  %.050 = phi ptr [ null, %7 ], [ %99, %101 ], [ %99, %97 ]
+101:                                              ; preds = %97, %100, %7
+  %.050 = phi ptr [ null, %7 ], [ %99, %100 ], [ %99, %97 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #7
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %10) #7

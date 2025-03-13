@@ -500,115 +500,112 @@ init_pstring.exit:                                ; preds = %9, %13
   call void @ERR_new() #6
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 219, ptr noundef nonnull @__func__.OSSL_HTTP_parse_url) #6
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 61, i32 noundef 124, ptr noundef null) #6
-  %27 = load ptr, ptr %10, align 8, !tbaa !3
-  call void @CRYPTO_free(ptr noundef %27, ptr noundef nonnull @.str, i32 noundef 220) #6
-  %28 = load ptr, ptr %11, align 8, !tbaa !3
-  call void @CRYPTO_free(ptr noundef %28, ptr noundef nonnull @.str, i32 noundef 221) #6
-  br label %48
+  call void @CRYPTO_free(ptr noundef nonnull %18, ptr noundef nonnull @.str, i32 noundef 220) #6
+  %27 = load ptr, ptr %11, align 8, !tbaa !3
+  call void @CRYPTO_free(ptr noundef %27, ptr noundef nonnull @.str, i32 noundef 221) #6
+  br label %46
 
 sub_0:                                            ; preds = %22, %24, %20, %21
   call void @CRYPTO_free(ptr noundef nonnull %18, ptr noundef nonnull @.str, i32 noundef 224) #6
-  %29 = load ptr, ptr %11, align 8, !tbaa !3
-  %30 = load i8, ptr %29, align 1
-  %.not48 = icmp eq i8 %30, 48
+  %28 = load ptr, ptr %11, align 8, !tbaa !3
+  %29 = load i8, ptr %28, align 1
+  %.not48 = icmp eq i8 %29, 48
   br i1 %.not48, label %.tail, label %.tail.thread
 
 .tail:                                            ; preds = %sub_0
-  %31 = getelementptr inbounds nuw i8, ptr %29, i64 1
-  %32 = load i8, ptr %31, align 1
-  %33 = icmp eq i8 %32, 0
-  br i1 %33, label %34, label %.tail.thread
+  %30 = getelementptr inbounds nuw i8, ptr %28, i64 1
+  %31 = load i8, ptr %30, align 1
+  %32 = icmp eq i8 %31, 0
+  br i1 %32, label %33, label %.tail.thread
 
-34:                                               ; preds = %.tail
-  call void @CRYPTO_free(ptr noundef nonnull %29, ptr noundef nonnull @.str, i32 noundef 228) #6
-  %35 = select i1 %.not36, ptr @.str.8, ptr @.str.9
-  store ptr %35, ptr %11, align 8, !tbaa !3
-  %36 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %35, ptr noundef nonnull @.str.10, ptr noundef nonnull %12) #6
-  %37 = icmp eq i32 %36, 1
-  br i1 %37, label %38, label %48, !prof !13
+33:                                               ; preds = %.tail
+  call void @CRYPTO_free(ptr noundef nonnull %28, ptr noundef nonnull @.str, i32 noundef 228) #6
+  %34 = select i1 %.not36, ptr @.str.8, ptr @.str.9
+  %35 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %34, ptr noundef nonnull @.str.10, ptr noundef nonnull %12) #6
+  %36 = icmp eq i32 %35, 1
+  br i1 %36, label %37, label %46, !prof !13
 
-38:                                               ; preds = %34
+37:                                               ; preds = %33
   %.not37 = icmp eq ptr %5, null
-  br i1 %.not37, label %41, label %39
+  br i1 %.not37, label %40, label %38
 
-39:                                               ; preds = %38
-  %40 = load i32, ptr %12, align 4, !tbaa !8
-  store i32 %40, ptr %5, align 4, !tbaa !8
-  br label %41
+38:                                               ; preds = %37
+  %39 = load i32, ptr %12, align 4, !tbaa !8
+  store i32 %39, ptr %5, align 4, !tbaa !8
+  br label %40
 
-41:                                               ; preds = %39, %38
-  br i1 %.not.i, label %free_pstring.exit47, label %42
+40:                                               ; preds = %38, %37
+  br i1 %.not.i, label %free_pstring.exit47, label %41
 
-42:                                               ; preds = %41
-  %43 = load ptr, ptr %11, align 8, !tbaa !3
-  %44 = call noalias ptr @CRYPTO_strdup(ptr noundef %43, ptr noundef nonnull @.str, i32 noundef 235) #6
-  store ptr %44, ptr %4, align 8, !tbaa !3
-  %45 = icmp eq ptr %44, null
-  br i1 %45, label %48, label %free_pstring.exit47
+41:                                               ; preds = %40
+  %42 = call noalias ptr @CRYPTO_strdup(ptr noundef nonnull %34, ptr noundef nonnull @.str, i32 noundef 235) #6
+  store ptr %42, ptr %4, align 8, !tbaa !3
+  %43 = icmp eq ptr %42, null
+  br i1 %43, label %46, label %free_pstring.exit47
 
 .tail.thread:                                     ; preds = %sub_0, %.tail
-  br i1 %.not.i, label %47, label %46
+  br i1 %.not.i, label %45, label %44
 
-46:                                               ; preds = %.tail.thread
-  store ptr %29, ptr %4, align 8, !tbaa !3
+44:                                               ; preds = %.tail.thread
+  store ptr %28, ptr %4, align 8, !tbaa !3
   br label %free_pstring.exit47
 
-47:                                               ; preds = %.tail.thread
-  call void @CRYPTO_free(ptr noundef nonnull %29, ptr noundef nonnull @.str, i32 noundef 243) #6
+45:                                               ; preds = %.tail.thread
+  call void @CRYPTO_free(ptr noundef nonnull %28, ptr noundef nonnull @.str, i32 noundef 243) #6
   br label %free_pstring.exit47
 
-48:                                               ; preds = %42, %34, %26
+46:                                               ; preds = %41, %33, %26
   %.not.i39 = icmp eq ptr %2, null
-  br i1 %.not.i39, label %free_pstring.exit, label %49
+  br i1 %.not.i39, label %free_pstring.exit, label %47
 
-49:                                               ; preds = %48
-  %50 = load ptr, ptr %2, align 8, !tbaa !3
-  call void @CRYPTO_free(ptr noundef %50, ptr noundef nonnull @.str, i32 noundef 48) #6
+47:                                               ; preds = %46
+  %48 = load ptr, ptr %2, align 8, !tbaa !3
+  call void @CRYPTO_free(ptr noundef %48, ptr noundef nonnull @.str, i32 noundef 48) #6
   store ptr null, ptr %2, align 8, !tbaa !3
   br label %free_pstring.exit
 
-free_pstring.exit:                                ; preds = %48, %49
+free_pstring.exit:                                ; preds = %46, %47
   %.not.i40 = icmp eq ptr %3, null
-  br i1 %.not.i40, label %free_pstring.exit41, label %51
+  br i1 %.not.i40, label %free_pstring.exit41, label %49
 
-51:                                               ; preds = %free_pstring.exit
-  %52 = load ptr, ptr %3, align 8, !tbaa !3
-  call void @CRYPTO_free(ptr noundef %52, ptr noundef nonnull @.str, i32 noundef 48) #6
+49:                                               ; preds = %free_pstring.exit
+  %50 = load ptr, ptr %3, align 8, !tbaa !3
+  call void @CRYPTO_free(ptr noundef %50, ptr noundef nonnull @.str, i32 noundef 48) #6
   store ptr null, ptr %3, align 8, !tbaa !3
   br label %free_pstring.exit41
 
-free_pstring.exit41:                              ; preds = %free_pstring.exit, %51
+free_pstring.exit41:                              ; preds = %free_pstring.exit, %49
   %.not.i42 = icmp eq ptr %6, null
-  br i1 %.not.i42, label %free_pstring.exit43, label %53
+  br i1 %.not.i42, label %free_pstring.exit43, label %51
 
-53:                                               ; preds = %free_pstring.exit41
-  %54 = load ptr, ptr %6, align 8, !tbaa !3
-  call void @CRYPTO_free(ptr noundef %54, ptr noundef nonnull @.str, i32 noundef 48) #6
+51:                                               ; preds = %free_pstring.exit41
+  %52 = load ptr, ptr %6, align 8, !tbaa !3
+  call void @CRYPTO_free(ptr noundef %52, ptr noundef nonnull @.str, i32 noundef 48) #6
   store ptr null, ptr %6, align 8, !tbaa !3
   br label %free_pstring.exit43
 
-free_pstring.exit43:                              ; preds = %free_pstring.exit41, %53
+free_pstring.exit43:                              ; preds = %free_pstring.exit41, %51
   %.not.i44 = icmp eq ptr %7, null
-  br i1 %.not.i44, label %free_pstring.exit45, label %55
+  br i1 %.not.i44, label %free_pstring.exit45, label %53
 
-55:                                               ; preds = %free_pstring.exit43
-  %56 = load ptr, ptr %7, align 8, !tbaa !3
-  call void @CRYPTO_free(ptr noundef %56, ptr noundef nonnull @.str, i32 noundef 48) #6
+53:                                               ; preds = %free_pstring.exit43
+  %54 = load ptr, ptr %7, align 8, !tbaa !3
+  call void @CRYPTO_free(ptr noundef %54, ptr noundef nonnull @.str, i32 noundef 48) #6
   store ptr null, ptr %7, align 8, !tbaa !3
   br label %free_pstring.exit45
 
-free_pstring.exit45:                              ; preds = %free_pstring.exit43, %55
+free_pstring.exit45:                              ; preds = %free_pstring.exit43, %53
   %.not.i46 = icmp eq ptr %8, null
-  br i1 %.not.i46, label %free_pstring.exit47, label %57
+  br i1 %.not.i46, label %free_pstring.exit47, label %55
 
-57:                                               ; preds = %free_pstring.exit45
-  %58 = load ptr, ptr %8, align 8, !tbaa !3
-  call void @CRYPTO_free(ptr noundef %58, ptr noundef nonnull @.str, i32 noundef 48) #6
+55:                                               ; preds = %free_pstring.exit45
+  %56 = load ptr, ptr %8, align 8, !tbaa !3
+  call void @CRYPTO_free(ptr noundef %56, ptr noundef nonnull @.str, i32 noundef 48) #6
   store ptr null, ptr %8, align 8, !tbaa !3
   br label %free_pstring.exit47
 
-free_pstring.exit47:                              ; preds = %57, %free_pstring.exit45, %42, %41, %47, %46, %15
-  %.026 = phi i32 [ 0, %15 ], [ 1, %46 ], [ 1, %47 ], [ 1, %41 ], [ 1, %42 ], [ 0, %free_pstring.exit45 ], [ 0, %57 ]
+free_pstring.exit47:                              ; preds = %55, %free_pstring.exit45, %41, %40, %45, %44, %15
+  %.026 = phi i32 [ 0, %15 ], [ 1, %44 ], [ 1, %45 ], [ 1, %40 ], [ 1, %41 ], [ 0, %free_pstring.exit45 ], [ 0, %55 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #6
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #6

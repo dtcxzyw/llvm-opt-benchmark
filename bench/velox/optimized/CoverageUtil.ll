@@ -541,8 +541,8 @@ for.end.loopexit.i:                               ; preds = %for.body.i
 _ZN8facebook5velox9functions9maxLengthERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EE.exit: ; preds = %entry, %for.end.loopexit.i
   %6 = phi ptr [ %2, %entry ], [ %.pre203, %for.end.loopexit.i ]
   %7 = phi ptr [ %3, %entry ], [ %.pre, %for.end.loopexit.i ]
-  %.pre.i.i = phi i32 [ 0, %entry ], [ %spec.select.i, %for.end.loopexit.i ]
-  store i32 %.pre.i.i, ptr %ref.tmp, align 4
+  %maxLength.0.lcssa.i = phi i32 [ 0, %entry ], [ %spec.select.i, %for.end.loopexit.i ]
+  store i32 %maxLength.0.lcssa.i, ptr %ref.tmp, align 4
   %arrayinit.element.ptr = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 4
   %cmp.i.not7.i48 = icmp eq ptr %7, %6
   br i1 %cmp.i.not7.i48, label %_ZN8facebook5velox9functions9maxLengthERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EE.exit61, label %for.body.i49
@@ -592,7 +592,7 @@ _ZN8facebook5velox9functions9maxLengthERKSt6vectorINSt7__cxx1112basic_stringIcSt
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.body.i.i, %_ZN8facebook5velox9functions9maxLengthERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EE.exit76
-  %10 = phi i32 [ %12, %while.body.i.i ], [ %.pre.i.i, %_ZN8facebook5velox9functions9maxLengthERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EE.exit76 ]
+  %10 = phi i32 [ %12, %while.body.i.i ], [ %maxLength.0.lcssa.i, %_ZN8facebook5velox9functions9maxLengthERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EE.exit76 ]
   %incdec.ptr11.i.i.idx = phi i64 [ %incdec.ptr11.i.i.add, %while.body.i.i ], [ 4, %_ZN8facebook5velox9functions9maxLengthERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EE.exit76 ]
   %__result.010.i.i = phi ptr [ %spec.select.i.i, %while.body.i.i ], [ %ref.tmp, %_ZN8facebook5velox9functions9maxLengthERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EE.exit76 ]
   %incdec.ptr11.i.i.ptr = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 %incdec.ptr11.i.i.idx
@@ -3389,8 +3389,8 @@ for.end.loopexit.i:                               ; preds = %for.body.i
   br label %_ZN8facebook5velox9functions9maxLengthERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EE.exit
 
 _ZN8facebook5velox9functions9maxLengthERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EE.exit: ; preds = %invoke.cont2, %for.end.loopexit.i
-  %.pre.i.i = phi i32 [ 0, %invoke.cont2 ], [ %spec.select.i, %for.end.loopexit.i ]
-  store i32 %.pre.i.i, ptr %ref.tmp, align 4
+  %maxLength.0.lcssa.i = phi i32 [ 0, %invoke.cont2 ], [ %spec.select.i, %for.end.loopexit.i ]
+  store i32 %maxLength.0.lcssa.i, ptr %ref.tmp, align 4
   %arrayinit.element.ptr = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 4
   %2 = load ptr, ptr %aggNames, align 8
   %_M_finish.i.i27 = getelementptr inbounds nuw i8, ptr %aggNames, i64 8
@@ -3444,7 +3444,7 @@ _ZN8facebook5velox9functions9maxLengthERKSt6vectorINSt7__cxx1112basic_stringIcSt
   br label %while.body.i.i
 
 while.body.i.i:                                   ; preds = %while.body.i.i, %_ZN8facebook5velox9functions9maxLengthERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EE.exit56
-  %6 = phi i32 [ %8, %while.body.i.i ], [ %.pre.i.i, %_ZN8facebook5velox9functions9maxLengthERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EE.exit56 ]
+  %6 = phi i32 [ %8, %while.body.i.i ], [ %maxLength.0.lcssa.i, %_ZN8facebook5velox9functions9maxLengthERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EE.exit56 ]
   %incdec.ptr11.i.i.idx = phi i64 [ %incdec.ptr11.i.i.add, %while.body.i.i ], [ 4, %_ZN8facebook5velox9functions9maxLengthERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EE.exit56 ]
   %__result.010.i.i = phi ptr [ %spec.select.i.i, %while.body.i.i ], [ %ref.tmp, %_ZN8facebook5velox9functions9maxLengthERKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS8_EE.exit56 ]
   %incdec.ptr11.i.i.ptr = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 %incdec.ptr11.i.i.idx

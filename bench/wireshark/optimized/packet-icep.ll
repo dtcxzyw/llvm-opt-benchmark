@@ -807,8 +807,6 @@ dissect_ice_facet.exit:                           ; preds = %45
   %73 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %74 = load ptr, ptr %73, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %74, i32 noundef 25, ptr noundef nonnull @.str.145, ptr noundef nonnull %70, ptr noundef nonnull %68)
-  store ptr null, ptr %15, align 8
-  store ptr null, ptr %14, align 8
   br label %75
 
 75:                                               ; preds = %64, %72
@@ -893,10 +891,8 @@ dissect_ice_context.exit.thread74:                ; preds = %113
   %.05362.i = phi i32 [ %140, %139 ], [ 0, %113 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #3
-  store ptr null, ptr %8, align 8
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #3
-  store ptr null, ptr %10, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #3
   %119 = load i32, ptr @ett_icep_invocation_context, align 4
   %120 = call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %0, i32 noundef %.163.i, i32 noundef -1, i32 noundef %119, ptr noundef nonnull %11, ptr noundef nonnull @.str.43)

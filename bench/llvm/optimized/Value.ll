@@ -875,7 +875,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9sandboxir7Tracker17empla
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load i32, ptr %4, align 8, !tbaa !60
   %6 = icmp eq i32 %5, 1
-  br i1 %6, label %7, label %39
+  br i1 %6, label %7, label %40
 
 7:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
@@ -895,56 +895,58 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN4llvm9sandboxir7Tracker17empla
   %17 = load i32, ptr %16, align 4, !tbaa !86
   %.not.i.i.not.i.i = icmp ult i32 %13, %17
   %.pre3.i.i = load ptr, ptr %0, align 8, !tbaa !87
-  br i1 %.not.i.i.not.i.i, label %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit, label %18, !prof !88
+  %18 = ptrtoint ptr %8 to i64
+  br i1 %.not.i.i.not.i.i, label %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit, label %19, !prof !88
 
-18:                                               ; preds = %7
-  %19 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %.pre3.i.i, i64 %14
-  %20 = icmp uge ptr %3, %.pre3.i.i
-  %21 = icmp ult ptr %3, %19
-  %spec.select.i.i.i.i.i.i = and i1 %20, %21
-  br i1 %spec.select.i.i.i.i.i.i, label %23, label %22, !prof !89
+19:                                               ; preds = %7
+  %20 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %.pre3.i.i, i64 %14
+  %21 = icmp uge ptr %3, %.pre3.i.i
+  %22 = icmp ult ptr %3, %20
+  %spec.select.i.i.i.i.i.i = and i1 %21, %22
+  br i1 %spec.select.i.i.i.i.i.i, label %24, label %23, !prof !89
 
-22:                                               ; preds = %18
+23:                                               ; preds = %19
   call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir12IRChangeBaseESt14default_deleteIS3_EELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %15)
   %.pre.i.i = load ptr, ptr %0, align 8, !tbaa !87
   br label %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit
 
-23:                                               ; preds = %18
-  %24 = ptrtoint ptr %3 to i64
-  %25 = ptrtoint ptr %.pre3.i.i to i64
-  %26 = sub i64 %24, %25
+24:                                               ; preds = %19
+  %25 = ptrtoint ptr %3 to i64
+  %26 = ptrtoint ptr %.pre3.i.i to i64
+  %27 = sub i64 %25, %26
   call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir12IRChangeBaseESt14default_deleteIS3_EELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(80) %0, i64 noundef %15)
-  %27 = load ptr, ptr %0, align 8, !tbaa !87
-  %28 = getelementptr inbounds i8, ptr %27, i64 %26
+  %28 = load ptr, ptr %0, align 8, !tbaa !87
+  %29 = getelementptr inbounds i8, ptr %28, i64 %27
+  %.pre = load i64, ptr %29, align 8, !tbaa !90
   br label %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit
 
-_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit: ; preds = %7, %22, %23
-  %29 = phi ptr [ %.pre3.i.i, %7 ], [ %27, %23 ], [ %.pre.i.i, %22 ]
-  %.016.i.i.i.i = phi ptr [ %3, %7 ], [ %28, %23 ], [ %3, %22 ]
-  %30 = load i32, ptr %12, align 8, !tbaa !85
-  %31 = zext i32 %30 to i64
-  %32 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %29, i64 %31
-  %33 = load i64, ptr %.016.i.i.i.i, align 8, !tbaa !90
-  store i64 %33, ptr %32, align 8, !tbaa !90
+_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit: ; preds = %7, %23, %24
+  %30 = phi i64 [ %18, %7 ], [ %.pre, %24 ], [ %18, %23 ]
+  %31 = phi ptr [ %.pre3.i.i, %7 ], [ %28, %24 ], [ %.pre.i.i, %23 ]
+  %.016.i.i.i.i = phi ptr [ %3, %7 ], [ %29, %24 ], [ %3, %23 ]
+  %32 = load i32, ptr %12, align 8, !tbaa !85
+  %33 = zext i32 %32 to i64
+  %34 = getelementptr inbounds nuw %"class.std::unique_ptr", ptr %31, i64 %33
+  store i64 %30, ptr %34, align 8, !tbaa !90
   store ptr null, ptr %.016.i.i.i.i, align 8, !tbaa !90
-  %34 = add i32 %30, 1
-  store i32 %34, ptr %12, align 8, !tbaa !85
-  %35 = load ptr, ptr %3, align 8, !tbaa !90
-  %.not.i = icmp eq ptr %35, null
+  %35 = add i32 %32, 1
+  store i32 %35, ptr %12, align 8, !tbaa !85
+  %36 = load ptr, ptr %3, align 8, !tbaa !90
+  %.not.i = icmp eq ptr %36, null
   br i1 %.not.i, label %_ZNSt10unique_ptrIN4llvm9sandboxir6UseSetESt14default_deleteIS2_EED2Ev.exit, label %_ZNKSt14default_deleteIN4llvm9sandboxir12IRChangeBaseEEclEPS2_.exit.i
 
 _ZNKSt14default_deleteIN4llvm9sandboxir12IRChangeBaseEEclEPS2_.exit.i: ; preds = %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit
-  %36 = load ptr, ptr %35, align 8, !tbaa !3
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  %38 = load ptr, ptr %37, align 8
-  call void %38(ptr noundef nonnull align 8 dereferenceable(8) %35) #12
+  %37 = load ptr, ptr %36, align 8, !tbaa !3
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
+  %39 = load ptr, ptr %38, align 8
+  call void %39(ptr noundef nonnull align 8 dereferenceable(8) %36) #12
   br label %_ZNSt10unique_ptrIN4llvm9sandboxir6UseSetESt14default_deleteIS2_EED2Ev.exit
 
 _ZNSt10unique_ptrIN4llvm9sandboxir6UseSetESt14default_deleteIS2_EED2Ev.exit: ; preds = %_ZNKSt14default_deleteIN4llvm9sandboxir12IRChangeBaseEEclEPS2_.exit.i, %_ZN4llvm9sandboxir7Tracker5trackEOSt10unique_ptrINS0_12IRChangeBaseESt14default_deleteIS3_EE.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
-  br label %39
+  br label %40
 
-39:                                               ; preds = %2, %_ZNSt10unique_ptrIN4llvm9sandboxir6UseSetESt14default_deleteIS2_EED2Ev.exit
+40:                                               ; preds = %2, %_ZNSt10unique_ptrIN4llvm9sandboxir6UseSetESt14default_deleteIS2_EED2Ev.exit
   ret i1 %6
 }
 

@@ -4160,45 +4160,44 @@ Abc_Clock.exit:                                   ; preds = %3, %13
 22:                                               ; preds = %21, %Abc_Clock.exit
   %23 = call ptr @Bmc_CexEssentialBits(ptr noundef %0, ptr noundef %17, ptr noundef %19, i32 noundef %2)
   store ptr %23, ptr %9, align 8, !tbaa !88
-  %24 = load ptr, ptr %6, align 8, !tbaa !88
-  %25 = call ptr @Bmc_CexCareBits(ptr noundef %0, ptr noundef %17, ptr noundef %24, ptr noundef %23, i32 noundef 0, i32 noundef %2)
-  store ptr %25, ptr %10, align 8, !tbaa !88
-  %26 = call i32 @Bmc_CexVerify(ptr noundef %0, ptr noundef %1, ptr noundef %25)
-  %.not13 = icmp eq i32 %26, 0
-  br i1 %.not13, label %27, label %28
+  %24 = call ptr @Bmc_CexCareBits(ptr noundef %0, ptr noundef %17, ptr noundef %18, ptr noundef %23, i32 noundef 0, i32 noundef %2)
+  store ptr %24, ptr %10, align 8, !tbaa !88
+  %25 = call i32 @Bmc_CexVerify(ptr noundef %0, ptr noundef %1, ptr noundef %24)
+  %.not13 = icmp eq i32 %25, 0
+  br i1 %.not13, label %26, label %27
 
-27:                                               ; preds = %22
+26:                                               ; preds = %22
   %puts14 = call i32 @puts(ptr nonnull dereferenceable(1) @str.6)
-  br label %28
+  br label %27
 
-28:                                               ; preds = %27, %22
+27:                                               ; preds = %26, %22
   call void @Abc_CexFreeP(ptr noundef nonnull %7) #21
   call void @Abc_CexFreeP(ptr noundef nonnull %6) #21
   call void @Abc_CexFreeP(ptr noundef nonnull %8) #21
   call void @Abc_CexFreeP(ptr noundef nonnull %9) #21
   call void @Abc_CexFreeP(ptr noundef nonnull %10) #21
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #21
-  %29 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #21
-  %30 = icmp slt i32 %29, 0
-  br i1 %30, label %Abc_Clock.exit16, label %31
+  %28 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %4) #21
+  %29 = icmp slt i32 %28, 0
+  br i1 %29, label %Abc_Clock.exit16, label %30
 
-31:                                               ; preds = %28
-  %32 = load i64, ptr %4, align 8, !tbaa !55
-  %33 = mul nsw i64 %32, 1000000
-  %34 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %35 = load i64, ptr %34, align 8, !tbaa !57
-  %36 = sdiv i64 %35, 1000
-  %37 = add nsw i64 %36, %33
+30:                                               ; preds = %27
+  %31 = load i64, ptr %4, align 8, !tbaa !55
+  %32 = mul nsw i64 %31, 1000000
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %34 = load i64, ptr %33, align 8, !tbaa !57
+  %35 = sdiv i64 %34, 1000
+  %36 = add nsw i64 %35, %32
   br label %Abc_Clock.exit16
 
-Abc_Clock.exit16:                                 ; preds = %28, %31
-  %.0.i15 = phi i64 [ %37, %31 ], [ -1, %28 ]
+Abc_Clock.exit16:                                 ; preds = %27, %30
+  %.0.i15 = phi i64 [ %36, %30 ], [ -1, %27 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #21
-  %38 = add i64 %.0.i15, %.0.i.neg
+  %37 = add i64 %.0.i15, %.0.i.neg
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.32, ptr noundef nonnull @.str.10)
-  %39 = sitofp i64 %38 to double
-  %40 = fdiv double %39, 1.000000e+06
-  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.33, double noundef %40)
+  %38 = sitofp i64 %37 to double
+  %39 = fdiv double %38, 1.000000e+06
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.33, double noundef %39)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #21

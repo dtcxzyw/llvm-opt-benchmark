@@ -17878,8 +17878,6 @@ _ZN7testing7MatcherIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSEOS
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %72 = load i64, ptr %41, align 8, !tbaa !28
   store i64 %72, ptr %71, align 8, !tbaa !28
-  store ptr null, ptr %40, align 8, !tbaa !167
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %5, align 8, !tbaa !33
   br label %_ZN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
 
 73:                                               ; preds = %52
@@ -18192,8 +18190,6 @@ _ZN7testing7MatcherIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSEOS
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %73 = load i64, ptr %42, align 8, !tbaa !28
   store i64 %73, ptr %72, align 8, !tbaa !28
-  store ptr null, ptr %41, align 8, !tbaa !167
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %5, align 8, !tbaa !33
   br label %_ZN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
 
 74:                                               ; preds = %53
@@ -18497,8 +18493,6 @@ _ZN7testing7MatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSEOS7_
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %72 = load i64, ptr %41, align 8, !tbaa !28
   store i64 %72, ptr %71, align 8, !tbaa !28
-  store ptr null, ptr %40, align 8, !tbaa !407
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN7testing8internal11MatcherBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %5, align 8, !tbaa !33
   br label %_ZN7testing8internal11MatcherBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
 
 73:                                               ; preds = %52
@@ -18811,8 +18805,6 @@ _ZN7testing7MatcherINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSEOS7_
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %73 = load i64, ptr %42, align 8, !tbaa !28
   store i64 %73, ptr %72, align 8, !tbaa !28
-  store ptr null, ptr %41, align 8, !tbaa !407
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN7testing8internal11MatcherBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE, i64 16), ptr %5, align 8, !tbaa !33
   br label %_ZN7testing8internal11MatcherBaseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev.exit
 
 74:                                               ; preds = %53
@@ -19116,8 +19108,6 @@ _ZN7testing7MatcherIRKSt17basic_string_viewIcSt11char_traitsIcEEEaSEOS7_.exit.th
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %72 = load i64, ptr %41, align 8, !tbaa !28
   store i64 %72, ptr %71, align 8, !tbaa !28
-  store ptr null, ptr %40, align 8, !tbaa !418
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt17basic_string_viewIcSt11char_traitsIcEEEE, i64 16), ptr %5, align 8, !tbaa !33
   br label %_ZN7testing8internal11MatcherBaseIRKSt17basic_string_viewIcSt11char_traitsIcEEED2Ev.exit
 
 73:                                               ; preds = %52
@@ -19430,8 +19420,6 @@ _ZN7testing7MatcherIRKSt17basic_string_viewIcSt11char_traitsIcEEEaSEOS7_.exit.th
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %73 = load i64, ptr %42, align 8, !tbaa !28
   store i64 %73, ptr %72, align 8, !tbaa !28
-  store ptr null, ptr %41, align 8, !tbaa !418
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt17basic_string_viewIcSt11char_traitsIcEEEE, i64 16), ptr %5, align 8, !tbaa !33
   br label %_ZN7testing8internal11MatcherBaseIRKSt17basic_string_viewIcSt11char_traitsIcEEED2Ev.exit
 
 74:                                               ; preds = %53
@@ -19745,8 +19733,6 @@ _ZN7testing7MatcherIRKSt17basic_string_viewIcSt11char_traitsIcEEEaSEOS7_.exit.th
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %74 = load i64, ptr %43, align 8, !tbaa !28
   store i64 %74, ptr %73, align 8, !tbaa !28
-  store ptr null, ptr %42, align 8, !tbaa !418
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKSt17basic_string_viewIcSt11char_traitsIcEEEE, i64 16), ptr %6, align 8, !tbaa !33
   br label %_ZN7testing8internal11MatcherBaseIRKSt17basic_string_viewIcSt11char_traitsIcEEED2Ev.exit
 
 75:                                               ; preds = %54
@@ -20050,8 +20036,6 @@ _ZN7testing7MatcherISt17basic_string_viewIcSt11char_traitsIcEEEaSEOS5_.exit.thre
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %72 = load i64, ptr %41, align 8, !tbaa !28
   store i64 %72, ptr %71, align 8, !tbaa !28
-  store ptr null, ptr %40, align 8, !tbaa !432
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN7testing8internal11MatcherBaseISt17basic_string_viewIcSt11char_traitsIcEEEE, i64 16), ptr %5, align 8, !tbaa !33
   br label %_ZN7testing8internal11MatcherBaseISt17basic_string_viewIcSt11char_traitsIcEEED2Ev.exit
 
 73:                                               ; preds = %52
@@ -20364,8 +20348,6 @@ _ZN7testing7MatcherISt17basic_string_viewIcSt11char_traitsIcEEEaSEOS5_.exit.thre
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %73 = load i64, ptr %42, align 8, !tbaa !28
   store i64 %73, ptr %72, align 8, !tbaa !28
-  store ptr null, ptr %41, align 8, !tbaa !432
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN7testing8internal11MatcherBaseISt17basic_string_viewIcSt11char_traitsIcEEEE, i64 16), ptr %5, align 8, !tbaa !33
   br label %_ZN7testing8internal11MatcherBaseISt17basic_string_viewIcSt11char_traitsIcEEED2Ev.exit
 
 74:                                               ; preds = %53
@@ -20679,8 +20661,6 @@ _ZN7testing7MatcherISt17basic_string_viewIcSt11char_traitsIcEEEaSEOS5_.exit.thre
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %74 = load i64, ptr %43, align 8, !tbaa !28
   store i64 %74, ptr %73, align 8, !tbaa !28
-  store ptr null, ptr %42, align 8, !tbaa !432
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN7testing8internal11MatcherBaseISt17basic_string_viewIcSt11char_traitsIcEEEE, i64 16), ptr %6, align 8, !tbaa !33
   br label %_ZN7testing8internal11MatcherBaseISt17basic_string_viewIcSt11char_traitsIcEEED2Ev.exit
 
 75:                                               ; preds = %54

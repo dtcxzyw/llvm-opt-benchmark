@@ -1335,7 +1335,8 @@ ASN1_TIME_to_tm.exit:                             ; preds = %1
 .thread.i:                                        ; preds = %ASN1_TIME_to_tm.exit
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %6 = load i32, ptr %5, align 4, !tbaa !17
-  %7 = add i32 %6, -150
+  %.frozen = freeze i32 %6
+  %7 = add i32 %.frozen, -150
   %or.cond.i.i = icmp ult i32 %7, -100
   %8 = call i32 @ASN1_STRING_set(ptr noundef nonnull %0, ptr noundef null, i32 noundef 20) #8
   %.not43.i = icmp eq i32 %8, 0
@@ -1353,46 +1354,47 @@ ASN1_TIME_to_tm.exit:                             ; preds = %1
   br i1 %15, label %ossl_asn1_time_from_tm.exit, label %16
 
 16:                                               ; preds = %9
-  %17 = load i32, ptr %5, align 4, !tbaa !17
-  br i1 %or.cond.i.i, label %18, label %31
+  br i1 %or.cond.i.i, label %17, label %30
 
-18:                                               ; preds = %16
-  %19 = icmp sgt i32 %17, 2147481747
-  br i1 %19, label %ossl_asn1_time_from_tm.exit, label %20
+17:                                               ; preds = %16
+  %18 = icmp sgt i32 %.frozen, 2147481747
+  br i1 %18, label %ossl_asn1_time_from_tm.exit, label %19
 
-20:                                               ; preds = %18
-  %21 = add nsw i32 %17, 1900
-  %22 = add nsw i32 %14, 1
-  %23 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %24 = load i32, ptr %23, align 4, !tbaa !20
-  %25 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %26 = load i32, ptr %25, align 8, !tbaa !23
-  %27 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %28 = load i32, ptr %27, align 4, !tbaa !24
-  %29 = load i32, ptr %2, align 8, !tbaa !25
-  %30 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef %12, i64 noundef 20, ptr noundef nonnull @.str.1, i32 noundef %21, i32 noundef %22, i32 noundef %24, i32 noundef %26, i32 noundef %28, i32 noundef %29) #8
-  br label %42
+19:                                               ; preds = %17
+  %20 = add nsw i32 %.frozen, 1900
+  %21 = add nsw i32 %14, 1
+  %22 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %23 = load i32, ptr %22, align 4, !tbaa !20
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %25 = load i32, ptr %24, align 8, !tbaa !23
+  %26 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %27 = load i32, ptr %26, align 4, !tbaa !24
+  %28 = load i32, ptr %2, align 8, !tbaa !25
+  %29 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef %12, i64 noundef 20, ptr noundef nonnull @.str.1, i32 noundef %20, i32 noundef %21, i32 noundef %23, i32 noundef %25, i32 noundef %27, i32 noundef %28) #8
+  br label %41
 
-31:                                               ; preds = %16
-  %32 = srem i32 %17, 100
-  %33 = add nsw i32 %14, 1
-  %34 = getelementptr inbounds nuw i8, ptr %2, i64 12
-  %35 = load i32, ptr %34, align 4, !tbaa !20
-  %36 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %37 = load i32, ptr %36, align 8, !tbaa !23
-  %38 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  %39 = load i32, ptr %38, align 4, !tbaa !24
-  %40 = load i32, ptr %2, align 8, !tbaa !25
-  %41 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef %12, i64 noundef 20, ptr noundef nonnull @.str.2, i32 noundef %32, i32 noundef %33, i32 noundef %35, i32 noundef %37, i32 noundef %39, i32 noundef %40) #8
-  br label %42
+30:                                               ; preds = %16
+  %.urem = add nsw i32 %.frozen, -100
+  %.cmp = icmp ult i32 %.frozen, 100
+  %31 = select i1 %.cmp, i32 %.frozen, i32 %.urem
+  %32 = add nsw i32 %14, 1
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 12
+  %34 = load i32, ptr %33, align 4, !tbaa !20
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %36 = load i32, ptr %35, align 8, !tbaa !23
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 4
+  %38 = load i32, ptr %37, align 4, !tbaa !24
+  %39 = load i32, ptr %2, align 8, !tbaa !25
+  %40 = call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef %12, i64 noundef 20, ptr noundef nonnull @.str.2, i32 noundef %31, i32 noundef %32, i32 noundef %34, i32 noundef %36, i32 noundef %38, i32 noundef %39) #8
+  br label %41
 
-42:                                               ; preds = %31, %20
-  %storemerge.i = phi i32 [ %41, %31 ], [ %30, %20 ]
+41:                                               ; preds = %30, %19
+  %storemerge.i = phi i32 [ %40, %30 ], [ %29, %19 ]
   store i32 %storemerge.i, ptr %0, align 8, !tbaa !13
   br label %ossl_asn1_time_from_tm.exit
 
-ossl_asn1_time_from_tm.exit:                      ; preds = %42, %18, %9, %.thread.i, %1, %ASN1_TIME_to_tm.exit
-  %.0 = phi i32 [ 0, %ASN1_TIME_to_tm.exit ], [ 0, %1 ], [ 1, %42 ], [ 0, %18 ], [ 0, %9 ], [ 0, %.thread.i ]
+ossl_asn1_time_from_tm.exit:                      ; preds = %41, %17, %9, %.thread.i, %1, %ASN1_TIME_to_tm.exit
+  %.0 = phi i32 [ 0, %ASN1_TIME_to_tm.exit ], [ 0, %1 ], [ 1, %41 ], [ 0, %17 ], [ 0, %9 ], [ 0, %.thread.i ]
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %2) #8
   ret i32 %.0
 }

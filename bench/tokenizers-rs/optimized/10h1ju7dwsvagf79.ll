@@ -27522,6 +27522,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15clone_from_impl17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7637)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i64, ptr %9, align 8, !alias.scope !7637, !noalias !7640, !noundef !4
+  %invariant.gep = getelementptr i8, ptr %5, i64 -32
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hded99e24736f9bf4E.exit.thread", label %.lr.ph
 
@@ -27533,7 +27534,6 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15clone_from_impl17
   %16 = xor i16 %15, -1
   %17 = ptrtoint ptr %4 to i64
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %invariant.gep = getelementptr i8, ptr %5, i64 -32
   br label %21
 
 19:                                               ; preds = %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hded99e24736f9bf4E.exit"
@@ -27713,6 +27713,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15clone_from_impl17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7692)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i64, ptr %9, align 8, !alias.scope !7692, !noalias !7695, !noundef !4
+  %invariant.gep = getelementptr i8, ptr %5, i64 -32
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hde56a6b0597900c7E.exit.thread", label %.lr.ph
 
@@ -27724,7 +27725,6 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15clone_from_impl17
   %16 = xor i16 %15, -1
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %18 = ptrtoint ptr %4 to i64
-  %invariant.gep = getelementptr i8, ptr %5, i64 -32
   br label %21
 
 19:                                               ; preds = %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hde56a6b0597900c7E.exit"
@@ -27822,6 +27822,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15clone_from_impl17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7717)
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %14 = load i64, ptr %13, align 8, !alias.scope !7717, !noalias !7720, !noundef !4
+  %invariant.gep = getelementptr i8, ptr %9, i64 -96
   %15 = icmp eq i64 %14, 0
   br i1 %15, label %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0b65bf9b66148d0eE.llvm.11083375685992158394.exit.thread", label %.lr.ph
 
@@ -27837,7 +27838,6 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15clone_from_impl17
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %23 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %24 = getelementptr inbounds nuw i8, ptr %7, i64 72
-  %invariant.gep = getelementptr i8, ptr %9, i64 -96
   br label %27
 
 25:                                               ; preds = %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h0b65bf9b66148d0eE.llvm.11083375685992158394.exit"
@@ -28134,6 +28134,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15clone_from_impl17
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7808)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i64, ptr %9, align 8, !alias.scope !7808, !noalias !7811, !noundef !4
+  %invariant.gep = getelementptr i8, ptr %5, i64 -32
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h475aeab0a13fecb1E.exit.thread", label %.lr.ph
 
@@ -28145,7 +28146,6 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15clone_from_impl17
   %16 = xor i16 %15, -1
   %17 = ptrtoint ptr %4 to i64
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %invariant.gep = getelementptr i8, ptr %5, i64 -32
   br label %21
 
 19:                                               ; preds = %"_ZN91_$LT$hashbrown..raw..RawIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h475aeab0a13fecb1E.exit"

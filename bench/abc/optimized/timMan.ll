@@ -3078,13 +3078,13 @@ Vec_PtrStart.exit:                                ; preds = %Vec_IntAlloc.exit.i
 
 .lr.ph79:                                         ; preds = %Vec_PtrStart.exit
   %60 = getelementptr i8, ptr %34, i64 8
-  %.val52.pre = load ptr, ptr %60, align 8, !tbaa !33
+  %.val52 = load ptr, ptr %60, align 8, !tbaa !33
   %61 = zext nneg i32 %.val.i64 to i64
   br label %62
 
 62:                                               ; preds = %.lr.ph79, %62
   %indvars.iv83 = phi i64 [ 0, %.lr.ph79 ], [ %indvars.iv.next84, %62 ]
-  %63 = getelementptr inbounds nuw ptr, ptr %.val52.pre, i64 %indvars.iv83
+  %63 = getelementptr inbounds nuw ptr, ptr %.val52, i64 %indvars.iv83
   %64 = load ptr, ptr %63, align 8, !tbaa !34
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %66 = load i32, ptr %65, align 4, !tbaa !43

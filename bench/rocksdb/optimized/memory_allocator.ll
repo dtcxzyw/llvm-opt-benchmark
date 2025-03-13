@@ -933,7 +933,7 @@ _ZN7rocksdb13ConfigOptionsC2ERKS0_.exit:          ; preds = %_ZNSt7__cxx1112basi
           cleanup
   br label %_ZN7rocksdb6StatusD2Ev.exit.i
 
-95:                                               ; preds = %_ZN7rocksdb6StatusD2Ev.exit30.i.i, %.noexc.i.i.i.i
+95:                                               ; preds = %_ZN7rocksdb6StatusaSEOS0_.exit27.i.i, %.noexc.i.i.i.i
   %96 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
@@ -1017,7 +1017,7 @@ _ZNSt12__shared_ptrIN7rocksdb15MemoryAllocatorELN9__gnu_cxx12_Lock_policyE2EED2E
   call void @llvm.experimental.noalias.scope.decl(metadata !106)
   %129 = load i64, ptr %64, align 8, !tbaa !15, !noalias !109
   %130 = icmp eq i64 %129, 0
-  br i1 %130, label %_ZN7rocksdb6StatusD2Ev.exit30.i.i, label %131
+  br i1 %130, label %_ZN7rocksdb6StatusaSEOS0_.exit27.i.i, label %131
 
 131:                                              ; preds = %128
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #26, !noalias !109
@@ -1484,7 +1484,7 @@ _ZN7rocksdb6StatusD2Ev.exit37.i.i:                ; preds = %.body.i.i, %299
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #26, !noalias !109
   br label %.body.i
 
-_ZN7rocksdb6StatusD2Ev.exit30.i.i:                ; preds = %128
+_ZN7rocksdb6StatusaSEOS0_.exit27.i.i:             ; preds = %128
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12) #26, !noalias !109
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #26, !noalias !109
   store ptr @.str.11, ptr %13, align 8, !tbaa !125, !noalias !109
@@ -1497,7 +1497,7 @@ _ZN7rocksdb6StatusD2Ev.exit30.i.i:                ; preds = %128
   invoke void @_ZN7rocksdb6StatusC2ENS0_4CodeENS0_7SubCodeERKNS_5SliceES5_NS0_8SeverityE(ptr noundef nonnull align 8 dereferenceable(16) %12, i8 noundef zeroext 3, i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %13, ptr noundef nonnull align 8 dereferenceable(16) %14, i8 noundef zeroext 0)
           to label %.noexc16.i unwind label %95, !noalias !68
 
-.noexc16.i:                                       ; preds = %_ZN7rocksdb6StatusD2Ev.exit30.i.i
+.noexc16.i:                                       ; preds = %_ZN7rocksdb6StatusaSEOS0_.exit27.i.i
   %313 = load i8, ptr %12, align 8, !tbaa !118, !noalias !109
   %314 = getelementptr inbounds nuw i8, ptr %12, i64 1
   %315 = load i8, ptr %314, align 1, !tbaa !87, !noalias !109
@@ -1521,7 +1521,7 @@ _ZN7rocksdb6StatusC2EOS0_.exit.thread.i.i:        ; preds = %.noexc16.i, %_ZZN7r
   %.sroa.13.0.i.i = phi i8 [ %317, %.noexc16.i ], [ %224, %_ZZN7rocksdbL16NewManagedObjectINS_15MemoryAllocatorEEENS_6StatusERKNS_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt13unordered_mapISB_SB_St4hashISB_ESt8equal_toISB_ESaISt4pairISC_SB_EEEPSt10shared_ptrIT_EENUlPS1_E_D2Ev.exit.i.i ]
   %.sroa.17.0.i.i = phi i8 [ %319, %.noexc16.i ], [ %226, %_ZZN7rocksdbL16NewManagedObjectINS_15MemoryAllocatorEEENS_6StatusERKNS_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt13unordered_mapISB_SB_St4hashISB_ESt8equal_toISB_ESaISt4pairISC_SB_EEEPSt10shared_ptrIT_EENUlPS1_E_D2Ev.exit.i.i ]
   %.sroa.21.0.i.i = phi i8 [ %321, %.noexc16.i ], [ %228, %_ZZN7rocksdbL16NewManagedObjectINS_15MemoryAllocatorEEENS_6StatusERKNS_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt13unordered_mapISB_SB_St4hashISB_ESt8equal_toISB_ESaISt4pairISC_SB_EEEPSt10shared_ptrIT_EENUlPS1_E_D2Ev.exit.i.i ]
-  %.sroa.2945.0.i.i = phi ptr [ %325, %.noexc16.i ], [ %232, %_ZZN7rocksdbL16NewManagedObjectINS_15MemoryAllocatorEEENS_6StatusERKNS_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt13unordered_mapISB_SB_St4hashISB_ESt8equal_toISB_ESaISt4pairISC_SB_EEEPSt10shared_ptrIT_EENUlPS1_E_D2Ev.exit.i.i ]
+  %.sroa.2943.0.i.i = phi ptr [ %325, %.noexc16.i ], [ %232, %_ZZN7rocksdbL16NewManagedObjectINS_15MemoryAllocatorEEENS_6StatusERKNS_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt13unordered_mapISB_SB_St4hashISB_ESt8equal_toISB_ESaISt4pairISC_SB_EEEPSt10shared_ptrIT_EENUlPS1_E_D2Ev.exit.i.i ]
   %.sroa.0.0.i.i = phi i8 [ %313, %.noexc16.i ], [ %220, %_ZZN7rocksdbL16NewManagedObjectINS_15MemoryAllocatorEEENS_6StatusERKNS_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt13unordered_mapISB_SB_St4hashISB_ESt8equal_toISB_ESaISt4pairISC_SB_EEEPSt10shared_ptrIT_EENUlPS1_E_D2Ev.exit.i.i ]
   %.sroa.25.0.i.i = phi i8 [ %323, %.noexc16.i ], [ %230, %_ZZN7rocksdbL16NewManagedObjectINS_15MemoryAllocatorEEENS_6StatusERKNS_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt13unordered_mapISB_SB_St4hashISB_ESt8equal_toISB_ESaISt4pairISC_SB_EEEPSt10shared_ptrIT_EENUlPS1_E_D2Ev.exit.i.i ]
   %326 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1536,7 +1536,7 @@ _ZN7rocksdb6StatusC2EOS0_.exit.thread.i.i:        ; preds = %.noexc16.i, %_ZZN7r
   store i8 %.sroa.21.0.i.i, ptr %330, align 4, !tbaa !95, !alias.scope !109
   %331 = getelementptr inbounds nuw i8, ptr %0, i64 5
   store i8 %.sroa.25.0.i.i, ptr %331, align 1, !tbaa !96, !alias.scope !109
-  store ptr %.sroa.2945.0.i.i, ptr %326, align 8, !tbaa !97, !alias.scope !109
+  store ptr %.sroa.2943.0.i.i, ptr %326, align 8, !tbaa !97, !alias.scope !109
   br label %_ZN7rocksdb6StatusC2EOS0_.exit.i
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i33.i.i: ; preds = %_ZN7rocksdb6StatusC2EOS0_.exit.i.i

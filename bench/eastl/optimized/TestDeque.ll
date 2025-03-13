@@ -87884,11 +87884,11 @@ if.else.i.i25.i:                                  ; preds = %if.end78.i
   %add.ptr4.i.i26.i = getelementptr inbounds ptr, ptr %30, i64 %add.i.i23.i
   %32 = load ptr, ptr %add.ptr4.i.i26.i, align 8, !noalias !4264
   %add.ptr.i.i.i27.i = getelementptr inbounds nuw i8, ptr %32, i64 24
-  %.pre913 = load ptr, ptr %mpEnd.i35, align 8
+  %.pre912 = load ptr, ptr %mpEnd.i35, align 8
   br label %_ZN5eastl9DequeBaseI10TestObjectNS_9allocatorELj1EE17DoReallocSubarrayEmNS3_4SideE.exit43
 
 _ZN5eastl9DequeBaseI10TestObjectNS_9allocatorELj1EE17DoReallocSubarrayEmNS3_4SideE.exit43: ; preds = %if.then.i.i35.i, %if.else.i.i25.i
-  %33 = phi ptr [ %31, %if.then.i.i35.i ], [ %.pre913, %if.else.i.i25.i ]
+  %33 = phi ptr [ %31, %if.then.i.i35.i ], [ %.pre912, %if.else.i.i25.i ]
   %storemerge.i.i31.sink.i36 = phi ptr [ %add.ptr.i.i37.i, %if.then.i.i35.i ], [ %32, %if.else.i.i25.i ]
   %ref.tmp.sroa.4.0.i30.sink.i37 = phi ptr [ %29, %if.then.i.i35.i ], [ %32, %if.else.i.i25.i ]
   %ref.tmp.sroa.8.0.i29.sink.i38 = phi ptr [ %31, %if.then.i.i35.i ], [ %add.ptr.i.i.i27.i, %if.else.i.i25.i ]
@@ -88081,11 +88081,11 @@ if.else.i.i.i116:                                 ; preds = %if.end26.i109
   %add.ptr4.i.i.i118 = getelementptr inbounds ptr, ptr %60, i64 %add.i.i.i117
   %62 = load ptr, ptr %add.ptr4.i.i.i118, align 8, !noalias !4270
   %add.ptr.i.i.i.i119 = getelementptr inbounds nuw i8, ptr %62, i64 24
-  %.pre912 = load ptr, ptr %mpEnd.i97, align 8
+  %.pre911 = load ptr, ptr %mpEnd.i97, align 8
   br label %invoke.cont
 
 invoke.cont:                                      ; preds = %if.else.i.i.i116, %if.then.i.i.i127
-  %63 = phi ptr [ %61, %if.then.i.i.i127 ], [ %.pre912, %if.else.i.i.i116 ]
+  %63 = phi ptr [ %61, %if.then.i.i.i127 ], [ %.pre911, %if.else.i.i.i116 ]
   %storemerge.i.i31.sink.i120 = phi ptr [ %add.ptr.i.i.i130, %if.then.i.i.i127 ], [ %62, %if.else.i.i.i116 ]
   %ref.tmp.sroa.4.0.i30.sink.i121 = phi ptr [ %59, %if.then.i.i.i127 ], [ %62, %if.else.i.i.i116 ]
   %ref.tmp.sroa.8.0.i29.sink.i122 = phi ptr [ %61, %if.then.i.i.i127 ], [ %add.ptr.i.i.i.i119, %if.else.i.i.i116 ]

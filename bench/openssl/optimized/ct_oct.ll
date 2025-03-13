@@ -699,7 +699,6 @@ declare void @SCT_LIST_free(ptr noundef) local_unnamed_addr #2
 define range(i32 -1, 65536) i32 @i2o_SCT_LIST(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
   %3 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #4
-  store ptr null, ptr %3, align 8, !tbaa !11
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %.thread, label %4
 
@@ -882,40 +881,38 @@ i2o_SCT.exit.thread:                              ; preds = %.lr.ph63.split.us
   %.033748190 = phi i1 [ %.03374, %._crit_edge64.thread ], [ %6, %36 ]
   %.0.lcssa8289 = phi i64 [ %.0.lcssa, %._crit_edge64.thread ], [ 2, %36 ]
   %84 = load ptr, ptr %1, align 8, !tbaa !11
-  store ptr %84, ptr %3, align 8, !tbaa !11
   %85 = add nsw i64 %.0.lcssa8289, -2
   %86 = lshr i64 %85, 8
   %87 = trunc i64 %86 to i8
   store i8 %87, ptr %84, align 1, !tbaa !12
   %88 = trunc i64 %85 to i8
-  %89 = load ptr, ptr %3, align 8, !tbaa !11
-  %90 = getelementptr inbounds nuw i8, ptr %89, i64 1
-  store i8 %88, ptr %90, align 1, !tbaa !12
-  br i1 %.033748190, label %91, label %._crit_edge64.thread.thread
+  %89 = getelementptr inbounds nuw i8, ptr %84, i64 1
+  store i8 %88, ptr %89, align 1, !tbaa !12
+  br i1 %.033748190, label %90, label %._crit_edge64.thread.thread
 
-91:                                               ; preds = %._crit_edge64.thread.thread86
-  %92 = load ptr, ptr %1, align 8, !tbaa !11
-  %93 = getelementptr inbounds nuw i8, ptr %92, i64 %.0.lcssa8289
-  store ptr %93, ptr %1, align 8, !tbaa !11
+90:                                               ; preds = %._crit_edge64.thread.thread86
+  %91 = load ptr, ptr %1, align 8, !tbaa !11
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 %.0.lcssa8289
+  store ptr %92, ptr %1, align 8, !tbaa !11
   br label %._crit_edge64.thread.thread
 
-._crit_edge64.thread.thread:                      ; preds = %.thread, %._crit_edge64.thread.thread86, %91, %._crit_edge64.thread
-  %.0.lcssa8285 = phi i64 [ %.0.lcssa8289, %._crit_edge64.thread.thread86 ], [ %.0.lcssa8289, %91 ], [ %.0.lcssa, %._crit_edge64.thread ], [ 2, %.thread ]
-  %94 = trunc nuw nsw i64 %.0.lcssa8285 to i32
+._crit_edge64.thread.thread:                      ; preds = %.thread, %._crit_edge64.thread.thread86, %90, %._crit_edge64.thread
+  %.0.lcssa8285 = phi i64 [ %.0.lcssa8289, %._crit_edge64.thread.thread86 ], [ %.0.lcssa8289, %90 ], [ %.0.lcssa, %._crit_edge64.thread ], [ 2, %.thread ]
+  %93 = trunc nuw nsw i64 %.0.lcssa8285 to i32
   br label %.loopexit.thread
 
 .loopexit:                                        ; preds = %.lr.ph63.split, %._crit_edge64
   %.03376 = phi i1 [ %.03374, %._crit_edge64 ], [ %6, %.lr.ph63.split ]
-  br i1 %.03376, label %.loopexit.thread, label %95
+  br i1 %.03376, label %.loopexit.thread, label %94
 
-95:                                               ; preds = %.loopexit
-  %96 = load ptr, ptr %1, align 8, !tbaa !11
-  call void @CRYPTO_free(ptr noundef %96, ptr noundef nonnull @.str, i32 noundef 364) #4
+94:                                               ; preds = %.loopexit
+  %95 = load ptr, ptr %1, align 8, !tbaa !11
+  call void @CRYPTO_free(ptr noundef %95, ptr noundef nonnull @.str, i32 noundef 364) #4
   store ptr null, ptr %1, align 8, !tbaa !11
   br label %.loopexit.thread
 
-.loopexit.thread:                                 ; preds = %i2o_SCT.exit.us, %i2o_SCT.exit.thread, %.loopexit, %95, %i2o_SCT_LIST.exit, %._crit_edge64.thread.thread, %i2o_SCT_LIST.exit.thread
-  %.036 = phi i32 [ -1, %i2o_SCT_LIST.exit.thread ], [ %94, %._crit_edge64.thread.thread ], [ -1, %i2o_SCT_LIST.exit ], [ -1, %95 ], [ -1, %.loopexit ], [ -1, %i2o_SCT.exit.thread ], [ -1, %i2o_SCT.exit.us ]
+.loopexit.thread:                                 ; preds = %i2o_SCT.exit.us, %i2o_SCT.exit.thread, %.loopexit, %94, %i2o_SCT_LIST.exit, %._crit_edge64.thread.thread, %i2o_SCT_LIST.exit.thread
+  %.036 = phi i32 [ -1, %i2o_SCT_LIST.exit.thread ], [ %93, %._crit_edge64.thread.thread ], [ -1, %i2o_SCT_LIST.exit ], [ -1, %94 ], [ -1, %.loopexit ], [ -1, %i2o_SCT.exit.thread ], [ -1, %i2o_SCT.exit.us ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #4
   ret i32 %.036
 }

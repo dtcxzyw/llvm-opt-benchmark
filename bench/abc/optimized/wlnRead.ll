@@ -17795,7 +17795,7 @@ Rtl_LibFindModule.exit:                           ; preds = %16
 
 Rtl_LibFindModule.exit.thread:                    ; preds = %21, %10, %4
   %25 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.146, ptr noundef %1)
-  br label %106
+  br label %104
 
 26:                                               ; preds = %Rtl_LibFindModule.exit
   %27 = load i64, ptr %6, align 8, !tbaa !219
@@ -17932,7 +17932,7 @@ Abc_Clock.exit50:                                 ; preds = %69, %76
   %89 = getelementptr i8, ptr %88, i64 4
   %.val56.i = load i32, ptr %89, align 4, !tbaa !18
   %90 = icmp sgt i32 %.val56.i, 0
-  br i1 %90, label %.lr.ph.i51, label %Rtl_LibBlastClean.exit
+  br i1 %90, label %.lr.ph.i51, label %Vec_IntFree.exit56
 
 .lr.ph.i51:                                       ; preds = %Abc_Clock.exit50, %.lr.ph.i51
   %indvars.iv.i52 = phi i64 [ %indvars.iv.next.i54, %.lr.ph.i51 ], [ 0, %Abc_Clock.exit50 ]
@@ -17949,31 +17949,23 @@ Abc_Clock.exit50:                                 ; preds = %69, %76
   %.val5.i = load i32, ptr %97, align 4, !tbaa !18
   %98 = sext i32 %.val5.i to i64
   %99 = icmp slt i64 %indvars.iv.next.i54, %98
-  br i1 %99, label %.lr.ph.i51, label %Rtl_LibBlastClean.exit, !llvm.loop !213
+  br i1 %99, label %.lr.ph.i51, label %Vec_IntFree.exit56, !llvm.loop !213
 
-Rtl_LibBlastClean.exit:                           ; preds = %.lr.ph.i51, %Abc_Clock.exit50
-  %100 = load ptr, ptr %37, align 8, !tbaa !3
-  %.not.i55 = icmp eq ptr %100, null
-  br i1 %.not.i55, label %Vec_IntFree.exit56, label %101
-
-101:                                              ; preds = %Rtl_LibBlastClean.exit
-  call void @free(ptr noundef nonnull %100) #38
-  br label %Vec_IntFree.exit56
-
-Vec_IntFree.exit56:                               ; preds = %Rtl_LibBlastClean.exit, %101
+Vec_IntFree.exit56:                               ; preds = %.lr.ph.i51, %Abc_Clock.exit50
+  call void @free(ptr noundef nonnull %36) #38
   call void @free(ptr noundef nonnull %34) #38
-  %102 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %103 = load ptr, ptr %102, align 8, !tbaa !176
-  %.not44 = icmp eq ptr %103, null
-  br i1 %.not44, label %106, label %104
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %101 = load ptr, ptr %100, align 8, !tbaa !176
+  %.not44 = icmp eq ptr %101, null
+  br i1 %.not44, label %104, label %102
 
-104:                                              ; preds = %Vec_IntFree.exit56
-  %105 = call ptr @Rtl_ReduceInverse(ptr noundef nonnull %0, ptr noundef nonnull %.038)
+102:                                              ; preds = %Vec_IntFree.exit56
+  %103 = call ptr @Rtl_ReduceInverse(ptr noundef nonnull %0, ptr noundef nonnull %.038)
   call void @Gia_ManStop(ptr noundef nonnull %.038) #38
-  br label %106
+  br label %104
 
-106:                                              ; preds = %Vec_IntFree.exit56, %104, %Rtl_LibFindModule.exit.thread
-  %.0 = phi ptr [ null, %Rtl_LibFindModule.exit.thread ], [ %105, %104 ], [ %.038, %Vec_IntFree.exit56 ]
+104:                                              ; preds = %Vec_IntFree.exit56, %102, %Rtl_LibFindModule.exit.thread
+  %.0 = phi ptr [ null, %Rtl_LibFindModule.exit.thread ], [ %103, %102 ], [ %.038, %Vec_IntFree.exit56 ]
   ret ptr %.0
 }
 

@@ -201,25 +201,24 @@ define void @view_ctrl_pad_create(ptr noundef %0, ptr noundef captures(none) ini
   store ptr %76, ptr %77, align 8, !tbaa !37
   %78 = load ptr, ptr %3, align 8, !tbaa !34
   call void @lv_obj_set_flex_grow(ptr noundef %78, i8 noundef zeroext 0) #3
-  %79 = load ptr, ptr %3, align 8, !tbaa !34
-  call void @lv_obj_add_flag(ptr noundef %79, i32 noundef 2097152) #3
-  %80 = call ptr @lv_label_create(ptr noundef %44) #3
-  call void @lv_obj_set_style_pad_top(ptr noundef %80, i32 noundef 20, i32 noundef 0) #3
-  call void @lv_checkbox_set_text(ptr noundef %80, ptr noundef nonnull @.str.14) #3
-  %81 = call ptr @lv_obj_create(ptr noundef %44) #3
-  store ptr %81, ptr %61, align 8, !tbaa !30
-  call void @lv_obj_add_style(ptr noundef %81, ptr noundef nonnull @tab_layout_create.group_style, i32 noundef 0) #3
-  call void @lv_obj_set_flex_flow(ptr noundef %81, i32 noundef 1) #3
-  call void @lv_obj_set_flex_align(ptr noundef %81, i32 noundef 0, i32 noundef 2, i32 noundef 2) #3
-  %82 = call fastcc ptr @spinbox_ctrl_create(ptr noundef %81, i8 noundef zeroext 21, ptr noundef null)
-  %83 = getelementptr inbounds nuw i8, ptr %1, i64 232
-  store ptr %82, ptr %83, align 8, !tbaa !38
-  %84 = call fastcc ptr @spinbox_ctrl_create(ptr noundef %81, i8 noundef zeroext 20, ptr noundef null)
-  %85 = getelementptr inbounds nuw i8, ptr %1, i64 240
-  store ptr %84, ptr %85, align 8, !tbaa !39
-  %86 = call fastcc ptr @spinbox_ctrl_create(ptr noundef %81, i8 noundef zeroext -127, ptr noundef null)
-  %87 = getelementptr inbounds nuw i8, ptr %1, i64 248
-  store ptr %86, ptr %87, align 8, !tbaa !40
+  call void @lv_obj_add_flag(ptr noundef %78, i32 noundef 2097152) #3
+  %79 = call ptr @lv_label_create(ptr noundef %44) #3
+  call void @lv_obj_set_style_pad_top(ptr noundef %79, i32 noundef 20, i32 noundef 0) #3
+  call void @lv_checkbox_set_text(ptr noundef %79, ptr noundef nonnull @.str.14) #3
+  %80 = call ptr @lv_obj_create(ptr noundef %44) #3
+  store ptr %80, ptr %61, align 8, !tbaa !30
+  call void @lv_obj_add_style(ptr noundef %80, ptr noundef nonnull @tab_layout_create.group_style, i32 noundef 0) #3
+  call void @lv_obj_set_flex_flow(ptr noundef %80, i32 noundef 1) #3
+  call void @lv_obj_set_flex_align(ptr noundef %80, i32 noundef 0, i32 noundef 2, i32 noundef 2) #3
+  %81 = call fastcc ptr @spinbox_ctrl_create(ptr noundef %80, i8 noundef zeroext 21, ptr noundef null)
+  %82 = getelementptr inbounds nuw i8, ptr %1, i64 232
+  store ptr %81, ptr %82, align 8, !tbaa !38
+  %83 = call fastcc ptr @spinbox_ctrl_create(ptr noundef %80, i8 noundef zeroext 20, ptr noundef null)
+  %84 = getelementptr inbounds nuw i8, ptr %1, i64 240
+  store ptr %83, ptr %84, align 8, !tbaa !39
+  %85 = call fastcc ptr @spinbox_ctrl_create(ptr noundef %80, i8 noundef zeroext -127, ptr noundef null)
+  %86 = getelementptr inbounds nuw i8, ptr %1, i64 248
+  store ptr %85, ptr %86, align 8, !tbaa !40
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #3
   ret void
 }

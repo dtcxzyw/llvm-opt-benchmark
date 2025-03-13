@@ -1299,8 +1299,7 @@ dissect_collectd_encrypted.exit.thread:           ; preds = %525, %534, %547, %5
   %603 = add i32 %.0229440, 4
   %604 = add nsw i32 %146, -4
   %605 = call ptr @proto_tree_add_item(ptr noundef %597, i32 noundef %602, ptr noundef %0, i32 noundef %603, i32 noundef %604, i32 noundef 0)
-  %606 = load ptr, ptr %12, align 8
-  %607 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %606, ptr noundef nonnull @ei_collectd_type, ptr noundef nonnull @.str.88, i32 noundef %143)
+  %606 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %599, ptr noundef nonnull @ei_collectd_type, ptr noundef nonnull @.str.88, i32 noundef %143)
   br label %stats_account_string.exit334
 
 stats_account_string.exit334:                     ; preds = %collectd_proto_tree_add_assembled_notification.exit, %593, %169, %179, %475, %181, %185, %189, %193, %197, %415, %._crit_edge.i362, %512, %574
@@ -1313,14 +1312,14 @@ stats_account_string.exit334:                     ; preds = %collectd_proto_tree
   %.1231 = phi i32 [ 0, %593 ], [ 0, %475 ], [ 0, %collectd_proto_tree_add_assembled_notification.exit ], [ 0, %179 ], [ 0, %169 ], [ %spec.select304, %181 ], [ %spec.select306, %185 ], [ %spec.select308, %189 ], [ %spec.select310, %193 ], [ %spec.select312, %197 ], [ %.0.i336, %415 ], [ %.0.i336, %._crit_edge.i362 ], [ 0, %512 ], [ 0, %574 ]
   %.1 = add i32 %.0229440, %146
   %.1262 = sub nsw i32 %.0261433, %146
-  %608 = icmp sgt i32 %.1262, 0
-  %609 = icmp eq i32 %.1231, 0
-  %610 = and i1 %608, %609
-  br i1 %610, label %.lr.ph.split, label %.thread
+  %607 = icmp sgt i32 %.1262, 0
+  %608 = icmp eq i32 %.1231, 0
+  %609 = and i1 %607, %608
+  br i1 %609, label %.lr.ph.split, label %.thread
 
 .thread533:                                       ; preds = %stats_account_string.exit334.us
   %.not792 = icmp eq i32 %.2237.us, 0
-  br i1 %.not792, label %643, label %635
+  br i1 %.not792, label %642, label %634
 
 .thread:                                          ; preds = %stats_account_string.exit334, %51, %.lr.ph.split.us, %dissect_collectd_encrypted.exit.thread, %dissect_collectd_signature.exit.thread, %167, %177, %429, %473, %161, %137
   %.0255428 = phi ptr [ %.0255434, %161 ], [ %.0255434, %137 ], [ %.0255434, %473 ], [ %.0255434, %429 ], [ %.0255434, %177 ], [ %.0255434, %167 ], [ %.0255434, %dissect_collectd_signature.exit.thread ], [ %.0255434, %dissect_collectd_encrypted.exit.thread ], [ %.0255434.us, %.lr.ph.split.us ], [ %.0255434.us, %51 ], [ %.2257, %stats_account_string.exit334 ]
@@ -1329,94 +1328,94 @@ stats_account_string.exit334:                     ; preds = %collectd_proto_tree
   %.0240413 = phi i32 [ %.0240437, %161 ], [ %.0240437, %137 ], [ %.0240437, %473 ], [ %.0240437, %429 ], [ %.0240437, %177 ], [ %.0240437, %167 ], [ %.0240437, %dissect_collectd_signature.exit.thread ], [ %.0240437, %dissect_collectd_encrypted.exit.thread ], [ %.0240437.us, %.lr.ph.split.us ], [ %.0240437.us, %51 ], [ %.2242, %stats_account_string.exit334 ]
   %.0235408 = phi i32 [ %.0235438, %161 ], [ %.0235438, %137 ], [ %.0235438, %473 ], [ %.0235438, %429 ], [ %.0235438, %177 ], [ %.0235438, %167 ], [ %.0235438, %dissect_collectd_signature.exit.thread ], [ %.0235438, %dissect_collectd_encrypted.exit.thread ], [ %.0235438.us, %.lr.ph.split.us ], [ %.0235438.us, %51 ], [ %.2237, %stats_account_string.exit334 ]
   %.1233 = phi i32 [ %162, %161 ], [ %140, %137 ], [ %474, %473 ], [ %430, %429 ], [ %178, %177 ], [ %168, %167 ], [ %511, %dissect_collectd_signature.exit.thread ], [ %573, %dissect_collectd_encrypted.exit.thread ], [ 1, %.lr.ph.split.us ], [ 1, %51 ], [ %.2234, %stats_account_string.exit334 ]
-  %611 = icmp ne i32 %.1233, 0
-  %612 = icmp ne i32 %.0235408, 0
-  %or.cond = select i1 %611, i1 %612, i1 false
-  br i1 %or.cond, label %613, label %623
+  %610 = icmp ne i32 %.1233, 0
+  %611 = icmp ne i32 %.0235408, 0
+  %or.cond = select i1 %610, i1 %611, i1 false
+  br i1 %or.cond, label %612, label %622
 
-613:                                              ; preds = %.thread
-  %614 = load ptr, ptr %13, align 8
-  %615 = icmp eq i32 %.0245418, 1
-  %616 = select i1 %615, ptr @.str.90, ptr @.str.91
-  %617 = icmp eq i32 %.0250423, 1
-  %618 = select i1 %617, ptr @.str.92, ptr @.str.93
-  %619 = icmp eq i32 %.0240413, 1
-  %620 = select i1 %619, ptr @.str.92, ptr @.str.93
-  %621 = icmp eq i32 %.1233, 1
-  %622 = select i1 %621, ptr @.str.94, ptr @.str.91
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %614, i32 noundef 25, ptr noundef nonnull @.str.89, ptr noundef %.0255428, i32 noundef %.0245418, ptr noundef nonnull %616, i32 noundef %.0250423, ptr noundef nonnull %618, i32 noundef %.0240413, ptr noundef nonnull %620, i32 noundef %.0235408, i32 noundef %.1233, ptr noundef nonnull %622)
-  br label %652
+612:                                              ; preds = %.thread
+  %613 = load ptr, ptr %13, align 8
+  %614 = icmp eq i32 %.0245418, 1
+  %615 = select i1 %614, ptr @.str.90, ptr @.str.91
+  %616 = icmp eq i32 %.0250423, 1
+  %617 = select i1 %616, ptr @.str.92, ptr @.str.93
+  %618 = icmp eq i32 %.0240413, 1
+  %619 = select i1 %618, ptr @.str.92, ptr @.str.93
+  %620 = icmp eq i32 %.1233, 1
+  %621 = select i1 %620, ptr @.str.94, ptr @.str.91
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %613, i32 noundef 25, ptr noundef nonnull @.str.89, ptr noundef %.0255428, i32 noundef %.0245418, ptr noundef nonnull %615, i32 noundef %.0250423, ptr noundef nonnull %617, i32 noundef %.0240413, ptr noundef nonnull %619, i32 noundef %.0235408, i32 noundef %.1233, ptr noundef nonnull %621)
+  br label %651
 
-623:                                              ; preds = %.thread
-  br i1 %611, label %624, label %634
+622:                                              ; preds = %.thread
+  br i1 %610, label %623, label %633
 
-624:                                              ; preds = %623
-  %625 = load ptr, ptr %13, align 8
-  %626 = icmp eq i32 %.0245418, 1
-  %627 = select i1 %626, ptr @.str.90, ptr @.str.91
-  %628 = icmp eq i32 %.0250423, 1
-  %629 = select i1 %628, ptr @.str.92, ptr @.str.93
-  %630 = icmp eq i32 %.0240413, 1
-  %631 = select i1 %630, ptr @.str.92, ptr @.str.93
-  %632 = icmp eq i32 %.1233, 1
-  %633 = select i1 %632, ptr @.str.94, ptr @.str.91
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %625, i32 noundef 25, ptr noundef nonnull @.str.95, ptr noundef %.0255428, i32 noundef %.0245418, ptr noundef nonnull %627, i32 noundef %.0250423, ptr noundef nonnull %629, i32 noundef %.0240413, ptr noundef nonnull %631, i32 noundef %.1233, ptr noundef nonnull %633)
-  br label %652
+623:                                              ; preds = %622
+  %624 = load ptr, ptr %13, align 8
+  %625 = icmp eq i32 %.0245418, 1
+  %626 = select i1 %625, ptr @.str.90, ptr @.str.91
+  %627 = icmp eq i32 %.0250423, 1
+  %628 = select i1 %627, ptr @.str.92, ptr @.str.93
+  %629 = icmp eq i32 %.0240413, 1
+  %630 = select i1 %629, ptr @.str.92, ptr @.str.93
+  %631 = icmp eq i32 %.1233, 1
+  %632 = select i1 %631, ptr @.str.94, ptr @.str.91
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %624, i32 noundef 25, ptr noundef nonnull @.str.95, ptr noundef %.0255428, i32 noundef %.0245418, ptr noundef nonnull %626, i32 noundef %.0250423, ptr noundef nonnull %628, i32 noundef %.0240413, ptr noundef nonnull %630, i32 noundef %.1233, ptr noundef nonnull %632)
+  br label %651
 
-634:                                              ; preds = %623
-  br i1 %612, label %635, label %643
+633:                                              ; preds = %622
+  br i1 %611, label %634, label %642
 
-635:                                              ; preds = %.thread533, %634
-  %.0235408531540553 = phi i32 [ %.2237.us, %.thread533 ], [ %.0235408, %634 ]
-  %.0240413530541551 = phi i32 [ %.2242.us, %.thread533 ], [ %.0240413, %634 ]
-  %.0245418529542549 = phi i32 [ %.2247.us, %.thread533 ], [ %.0245418, %634 ]
-  %.0250423528543547 = phi i32 [ %.2252.us, %.thread533 ], [ %.0250423, %634 ]
-  %.0255428527544545 = phi ptr [ %.2257.us, %.thread533 ], [ %.0255428, %634 ]
-  %636 = load ptr, ptr %13, align 8
-  %637 = icmp eq i32 %.0245418529542549, 1
-  %638 = select i1 %637, ptr @.str.90, ptr @.str.91
-  %639 = icmp eq i32 %.0250423528543547, 1
-  %640 = select i1 %639, ptr @.str.92, ptr @.str.93
-  %641 = icmp eq i32 %.0240413530541551, 1
-  %642 = select i1 %641, ptr @.str.92, ptr @.str.93
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %636, i32 noundef 25, ptr noundef nonnull @.str.96, ptr noundef %.0255428527544545, i32 noundef %.0245418529542549, ptr noundef nonnull %638, i32 noundef %.0250423528543547, ptr noundef nonnull %640, i32 noundef %.0240413530541551, ptr noundef nonnull %642, i32 noundef %.0235408531540553)
-  br label %652
+634:                                              ; preds = %.thread533, %633
+  %.0235408531540553 = phi i32 [ %.2237.us, %.thread533 ], [ %.0235408, %633 ]
+  %.0240413530541551 = phi i32 [ %.2242.us, %.thread533 ], [ %.0240413, %633 ]
+  %.0245418529542549 = phi i32 [ %.2247.us, %.thread533 ], [ %.0245418, %633 ]
+  %.0250423528543547 = phi i32 [ %.2252.us, %.thread533 ], [ %.0250423, %633 ]
+  %.0255428527544545 = phi ptr [ %.2257.us, %.thread533 ], [ %.0255428, %633 ]
+  %635 = load ptr, ptr %13, align 8
+  %636 = icmp eq i32 %.0245418529542549, 1
+  %637 = select i1 %636, ptr @.str.90, ptr @.str.91
+  %638 = icmp eq i32 %.0250423528543547, 1
+  %639 = select i1 %638, ptr @.str.92, ptr @.str.93
+  %640 = icmp eq i32 %.0240413530541551, 1
+  %641 = select i1 %640, ptr @.str.92, ptr @.str.93
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %635, i32 noundef 25, ptr noundef nonnull @.str.96, ptr noundef %.0255428527544545, i32 noundef %.0245418529542549, ptr noundef nonnull %637, i32 noundef %.0250423528543547, ptr noundef nonnull %639, i32 noundef %.0240413530541551, ptr noundef nonnull %641, i32 noundef %.0235408531540553)
+  br label %651
 
-643:                                              ; preds = %.thread533, %634
-  %.0240413530541552 = phi i32 [ %.2242.us, %.thread533 ], [ %.0240413, %634 ]
-  %.0245418529542550 = phi i32 [ %.2247.us, %.thread533 ], [ %.0245418, %634 ]
-  %.0250423528543548 = phi i32 [ %.2252.us, %.thread533 ], [ %.0250423, %634 ]
-  %.0255428527544546 = phi ptr [ %.2257.us, %.thread533 ], [ %.0255428, %634 ]
+642:                                              ; preds = %.thread533, %633
+  %.0240413530541552 = phi i32 [ %.2242.us, %.thread533 ], [ %.0240413, %633 ]
+  %.0245418529542550 = phi i32 [ %.2247.us, %.thread533 ], [ %.0245418, %633 ]
+  %.0250423528543548 = phi i32 [ %.2252.us, %.thread533 ], [ %.0250423, %633 ]
+  %.0255428527544546 = phi ptr [ %.2257.us, %.thread533 ], [ %.0255428, %633 ]
   %.0250423528543548.fr = freeze i32 %.0250423528543548
   %.0245418529542550.fr = freeze i32 %.0245418529542550
-  %644 = icmp eq i32 %.0245418529542550.fr, 1
-  %spec.select = select i1 %644, ptr @.str.90, ptr @.str.91
-  %645 = icmp eq i32 %.0250423528543548.fr, 1
-  %646 = select i1 %645, ptr @.str.92, ptr @.str.93
-  %647 = icmp eq i32 %.0240413530541552, 1
-  %spec.select791 = select i1 %647, ptr @.str.94, ptr @.str.91
+  %643 = icmp eq i32 %.0245418529542550.fr, 1
+  %spec.select = select i1 %643, ptr @.str.90, ptr @.str.91
+  %644 = icmp eq i32 %.0250423528543548.fr, 1
+  %645 = select i1 %644, ptr @.str.92, ptr @.str.93
+  %646 = icmp eq i32 %.0240413530541552, 1
+  %spec.select791 = select i1 %646, ptr @.str.94, ptr @.str.91
   br label %.thread580
 
-.thread580:                                       ; preds = %4, %643
-  %648 = phi ptr [ %646, %643 ], [ @.str.93, %4 ]
-  %.0255428527544546568576588 = phi ptr [ %.0255428527544546, %643 ], [ null, %4 ]
-  %.0250423528543548567577587 = phi i32 [ %.0250423528543548.fr, %643 ], [ 0, %4 ]
-  %.0245418529542550566578586 = phi i32 [ %.0245418529542550.fr, %643 ], [ 0, %4 ]
-  %.0240413530541552565579585 = phi i32 [ %.0240413530541552, %643 ], [ 0, %4 ]
-  %649 = phi ptr [ %spec.select, %643 ], [ @.str.91, %4 ]
-  %650 = phi ptr [ %spec.select791, %643 ], [ @.str.91, %4 ]
-  %651 = load ptr, ptr %13, align 8
-  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %651, i32 noundef 25, ptr noundef nonnull @.str.97, ptr noundef %.0255428527544546568576588, i32 noundef %.0245418529542550566578586, ptr noundef nonnull %649, i32 noundef %.0250423528543548567577587, ptr noundef nonnull %648, i32 noundef %.0240413530541552565579585, ptr noundef nonnull %650)
-  br label %652
+.thread580:                                       ; preds = %4, %642
+  %647 = phi ptr [ %645, %642 ], [ @.str.93, %4 ]
+  %.0255428527544546568576588 = phi ptr [ %.0255428527544546, %642 ], [ null, %4 ]
+  %.0250423528543548567577587 = phi i32 [ %.0250423528543548.fr, %642 ], [ 0, %4 ]
+  %.0245418529542550566578586 = phi i32 [ %.0245418529542550.fr, %642 ], [ 0, %4 ]
+  %.0240413530541552565579585 = phi i32 [ %.0240413530541552, %642 ], [ 0, %4 ]
+  %648 = phi ptr [ %spec.select, %642 ], [ @.str.91, %4 ]
+  %649 = phi ptr [ %spec.select791, %642 ], [ @.str.91, %4 ]
+  %650 = load ptr, ptr %13, align 8
+  call void (ptr, i32, ptr, ...) @col_add_fstr(ptr noundef %650, i32 noundef 25, ptr noundef nonnull @.str.97, ptr noundef %.0255428527544546568576588, i32 noundef %.0245418529542550566578586, ptr noundef nonnull %648, i32 noundef %.0250423528543548567577587, ptr noundef nonnull %647, i32 noundef %.0240413530541552565579585, ptr noundef nonnull %649)
+  br label %651
 
-652:                                              ; preds = %624, %.thread580, %635, %613
-  %653 = load i32, ptr @tap_collectd, align 4
-  call void @tap_queue_packet(i32 noundef %653, ptr noundef %1, ptr noundef nonnull @dissect_collectd.tap_data)
-  %654 = call i32 @tvb_captured_length(ptr noundef %0)
+651:                                              ; preds = %623, %.thread580, %634, %612
+  %652 = load i32, ptr @tap_collectd, align 4
+  call void @tap_queue_packet(i32 noundef %652, ptr noundef %1, ptr noundef nonnull @dissect_collectd.tap_data)
+  %653 = call i32 @tvb_captured_length(ptr noundef %0)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #6
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %11) #6
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %10) #6
-  ret i32 %654
+  ret i32 %653
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)

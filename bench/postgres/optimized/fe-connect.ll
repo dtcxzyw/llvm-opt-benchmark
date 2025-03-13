@@ -867,7 +867,7 @@ conninfo_getval.exit.i:                           ; preds = %.lr.ph.i.i.i
   %153 = tail call noalias ptr @strdup(ptr noundef nonnull %149) #25
   store ptr %153, ptr %151, align 8
   %.not22.i = icmp eq ptr %153, null
-  br i1 %.not22.i, label %.preheader.i22, label %.critedge24.i
+  br i1 %.not22.i, label %.lr.ph.i.preheader, label %.critedge24.i
 
 .critedge24.i:                                    ; preds = %145, %150, %conninfo_getval.exit.i, %140, %conninfo_array_parse.exit
   %154 = getelementptr inbounds nuw i8, ptr %.01829.i, i64 64
@@ -875,107 +875,105 @@ conninfo_getval.exit.i:                           ; preds = %.lr.ph.i.i.i
   %.not.i20 = icmp eq ptr %155, null
   br i1 %.not.i20, label %.preheader.i24, label %conninfo_array_parse.exit, !llvm.loop !12
 
-.preheader.i22:                                   ; preds = %150
+.lr.ph.i.preheader:                               ; preds = %150
   tail call void (ptr, ptr, ...) @libpq_append_conn_error(ptr noundef nonnull %4, ptr noundef nonnull @.str) #25
-  %156 = load ptr, ptr %29, align 8
-  %.not7.i = icmp eq ptr %156, null
-  br i1 %.not7.i, label %PQconninfoFree.exit, label %.lr.ph.i
+  br label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.preheader.i22, %.lr.ph.i
-  %.08.i = phi ptr [ %159, %.lr.ph.i ], [ %29, %.preheader.i22 ]
-  %157 = getelementptr inbounds nuw i8, ptr %.08.i, i64 24
-  %158 = load ptr, ptr %157, align 8
-  tail call void @free(ptr noundef %158) #25
-  %159 = getelementptr inbounds nuw i8, ptr %.08.i, i64 56
-  %160 = load ptr, ptr %159, align 8
-  %.not.i23 = icmp eq ptr %160, null
+.lr.ph.i:                                         ; preds = %.lr.ph.i.preheader, %.lr.ph.i
+  %.08.i = phi ptr [ %158, %.lr.ph.i ], [ %29, %.lr.ph.i.preheader ]
+  %156 = getelementptr inbounds nuw i8, ptr %.08.i, i64 24
+  %157 = load ptr, ptr %156, align 8
+  tail call void @free(ptr noundef %157) #25
+  %158 = getelementptr inbounds nuw i8, ptr %.08.i, i64 56
+  %159 = load ptr, ptr %158, align 8
+  %.not.i23 = icmp eq ptr %159, null
   br i1 %.not.i23, label %PQconninfoFree.exit, label %.lr.ph.i, !llvm.loop !6
 
-PQconninfoFree.exit:                              ; preds = %.lr.ph.i, %.preheader.i22
+PQconninfoFree.exit:                              ; preds = %.lr.ph.i
   tail call void @free(ptr noundef nonnull %29) #25
   br label %pqConnectDBStart.exit
 
 .preheader.i24:                                   ; preds = %.critedge24.i
-  %161 = load ptr, ptr %29, align 8
-  %.not7.i25 = icmp eq ptr %161, null
+  %160 = load ptr, ptr %29, align 8
+  %.not7.i25 = icmp eq ptr %160, null
   br i1 %.not7.i25, label %PQconninfoFree.exit30, label %.lr.ph.i26
 
 .lr.ph.i26:                                       ; preds = %.preheader.i24, %.lr.ph.i26
-  %.08.i27 = phi ptr [ %164, %.lr.ph.i26 ], [ %29, %.preheader.i24 ]
-  %162 = getelementptr inbounds nuw i8, ptr %.08.i27, i64 24
-  %163 = load ptr, ptr %162, align 8
-  tail call void @free(ptr noundef %163) #25
-  %164 = getelementptr inbounds nuw i8, ptr %.08.i27, i64 56
-  %165 = load ptr, ptr %164, align 8
-  %.not.i28 = icmp eq ptr %165, null
+  %.08.i27 = phi ptr [ %163, %.lr.ph.i26 ], [ %29, %.preheader.i24 ]
+  %161 = getelementptr inbounds nuw i8, ptr %.08.i27, i64 24
+  %162 = load ptr, ptr %161, align 8
+  tail call void @free(ptr noundef %162) #25
+  %163 = getelementptr inbounds nuw i8, ptr %.08.i27, i64 56
+  %164 = load ptr, ptr %163, align 8
+  %.not.i28 = icmp eq ptr %164, null
   br i1 %.not.i28, label %PQconninfoFree.exit30, label %.lr.ph.i26, !llvm.loop !6
 
 PQconninfoFree.exit30:                            ; preds = %.lr.ph.i26, %.preheader.i24
   tail call void @free(ptr noundef nonnull %29) #25
-  %166 = tail call zeroext i1 @pqConnectOptions2(ptr noundef nonnull %4)
-  br i1 %166, label %167, label %pqConnectDBStart.exit
+  %165 = tail call zeroext i1 @pqConnectOptions2(ptr noundef nonnull %4)
+  br i1 %165, label %166, label %pqConnectDBStart.exit
 
-167:                                              ; preds = %PQconninfoFree.exit30
-  %168 = getelementptr inbounds nuw i8, ptr %4, i64 434
-  %169 = load i8, ptr %168, align 2, !range !13, !noundef !14
-  %170 = trunc nuw i8 %169 to i1
-  br i1 %170, label %171, label %195
+166:                                              ; preds = %PQconninfoFree.exit30
+  %167 = getelementptr inbounds nuw i8, ptr %4, i64 434
+  %168 = load i8, ptr %167, align 2, !range !13, !noundef !14
+  %169 = trunc nuw i8 %168 to i1
+  br i1 %169, label %170, label %194
 
-171:                                              ; preds = %167
-  %172 = tail call zeroext i1 @pg_link_canary_is_frontend() #25
-  br i1 %172, label %174, label %173
+170:                                              ; preds = %166
+  %171 = tail call zeroext i1 @pg_link_canary_is_frontend() #25
+  br i1 %171, label %173, label %172
 
-173:                                              ; preds = %171
+172:                                              ; preds = %170
   tail call void @appendPQExpBufferStr(ptr noundef nonnull %7, ptr noundef nonnull @.str.56) #25
-  br label %195
+  br label %194
 
-174:                                              ; preds = %171
-  %175 = getelementptr inbounds nuw i8, ptr %4, i64 1020
-  store i32 0, ptr %175, align 4
-  %176 = getelementptr inbounds nuw i8, ptr %4, i64 1016
-  store i32 0, ptr %176, align 8
-  %177 = getelementptr inbounds nuw i8, ptr %4, i64 1012
+173:                                              ; preds = %170
+  %174 = getelementptr inbounds nuw i8, ptr %4, i64 1020
+  store i32 0, ptr %174, align 4
+  %175 = getelementptr inbounds nuw i8, ptr %4, i64 1016
+  store i32 0, ptr %175, align 8
+  %176 = getelementptr inbounds nuw i8, ptr %4, i64 1012
+  store i32 0, ptr %176, align 4
+  %177 = getelementptr inbounds nuw i8, ptr %4, i64 1036
   store i32 0, ptr %177, align 4
-  %178 = getelementptr inbounds nuw i8, ptr %4, i64 1036
-  store i32 0, ptr %178, align 4
-  %179 = getelementptr inbounds nuw i8, ptr %4, i64 344
-  %180 = load i8, ptr %179, align 8, !range !13, !noundef !14
-  %181 = trunc nuw i8 %180 to i1
-  br i1 %181, label %186, label %182
+  %178 = getelementptr inbounds nuw i8, ptr %4, i64 344
+  %179 = load i8, ptr %178, align 8, !range !13, !noundef !14
+  %180 = trunc nuw i8 %179 to i1
+  br i1 %180, label %185, label %181
 
-182:                                              ; preds = %174
-  %183 = getelementptr inbounds nuw i8, ptr %4, i64 476
-  store i32 -1, ptr %183, align 4
-  %184 = getelementptr inbounds nuw i8, ptr %4, i64 877
-  store i8 1, ptr %184, align 1
-  %185 = getelementptr inbounds nuw i8, ptr %4, i64 876
-  store i8 0, ptr %185, align 4
-  br label %186
+181:                                              ; preds = %173
+  %182 = getelementptr inbounds nuw i8, ptr %4, i64 476
+  store i32 -1, ptr %182, align 4
+  %183 = getelementptr inbounds nuw i8, ptr %4, i64 877
+  store i8 1, ptr %183, align 1
+  %184 = getelementptr inbounds nuw i8, ptr %4, i64 876
+  store i8 0, ptr %184, align 4
+  br label %185
 
-186:                                              ; preds = %182, %174
-  %187 = getelementptr inbounds nuw i8, ptr %4, i64 416
-  store i32 8, ptr %187, align 8
-  %188 = getelementptr inbounds nuw i8, ptr %4, i64 868
-  %189 = load i32, ptr %188, align 4
-  %190 = icmp eq i32 %189, 6
-  br i1 %190, label %191, label %192
+185:                                              ; preds = %181, %173
+  %186 = getelementptr inbounds nuw i8, ptr %4, i64 416
+  store i32 8, ptr %186, align 8
+  %187 = getelementptr inbounds nuw i8, ptr %4, i64 868
+  %188 = load i32, ptr %187, align 4
+  %189 = icmp eq i32 %188, 6
+  br i1 %189, label %190, label %191
 
-191:                                              ; preds = %186
-  store i32 5, ptr %188, align 4
-  br label %192
+190:                                              ; preds = %185
+  store i32 5, ptr %187, align 4
+  br label %191
 
-192:                                              ; preds = %191, %186
-  %193 = tail call i32 @PQconnectPoll(ptr noundef nonnull %4)
-  %194 = icmp eq i32 %193, 2
-  br i1 %194, label %pqConnectDBStart.exit, label %195
+191:                                              ; preds = %190, %185
+  %192 = tail call i32 @PQconnectPoll(ptr noundef nonnull %4)
+  %193 = icmp eq i32 %192, 2
+  br i1 %193, label %pqConnectDBStart.exit, label %194
 
-195:                                              ; preds = %167, %173, %192
+194:                                              ; preds = %166, %172, %191
   tail call void @pqDropConnection(ptr noundef nonnull %4, i1 noundef zeroext true)
-  %196 = getelementptr inbounds nuw i8, ptr %4, i64 416
-  store i32 1, ptr %196, align 8
+  %195 = getelementptr inbounds nuw i8, ptr %4, i64 416
+  store i32 1, ptr %195, align 8
   br label %pqConnectDBStart.exit
 
-pqConnectDBStart.exit:                            ; preds = %192, %195, %PQconninfoFree.exit30, %3, %PQconninfoFree.exit, %134
+pqConnectDBStart.exit:                            ; preds = %191, %194, %PQconninfoFree.exit30, %3, %PQconninfoFree.exit, %134
   ret ptr %4
 }
 

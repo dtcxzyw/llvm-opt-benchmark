@@ -1245,8 +1245,8 @@ _ZL14__gthread_oncePiPFvvE.exit.i:                ; preds = %4
 19:                                               ; preds = %18
   unreachable
 
-common.resume:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17.i, %20
-  %common.resume.op = phi { ptr, i32 } [ %21, %20 ], [ %.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17.i ]
+common.resume:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit15.i, %20
+  %common.resume.op = phi { ptr, i32 } [ %21, %20 ], [ %.pn.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit15.i ]
   resume { ptr, i32 } %common.resume.op
 
 20:                                               ; preds = %18, %4
@@ -1378,7 +1378,7 @@ _ZNSt12__shared_ptrIN7rocksdb22FileChecksumGenFactoryELN9__gnu_cxx12_Lock_policy
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr null, ptr %73, align 8, !tbaa !31, !alias.scope !105
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !105
-  br label %248
+  br label %246
 
 74:                                               ; preds = %"_ZSt9call_onceIZN7rocksdb22FileChecksumGenFactory16CreateFromStringERKNS0_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10shared_ptrIS1_EE3$_0JEEvRSt9once_flagOT_DpOT0_.exit"
   call void @llvm.experimental.noalias.scope.decl(metadata !108)
@@ -1455,13 +1455,13 @@ _ZNSt12__shared_ptrIN7rocksdb22FileChecksumGenFactoryELN9__gnu_cxx12_Lock_policy
           cleanup
   br label %_ZN7rocksdb6StatusD2Ev.exit.i
 
-108:                                              ; preds = %203
+108:                                              ; preds = %201
   %109 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i
 
 .body.i:                                          ; preds = %_ZN7rocksdb6StatusD2Ev.exit30.i.i, %108
-  %eh.lpad-body.i = phi { ptr, i32 } [ %109, %108 ], [ %.pn.i25.i, %_ZN7rocksdb6StatusD2Ev.exit30.i.i ]
+  %eh.lpad-body.i = phi { ptr, i32 } [ %109, %108 ], [ %.pn38.i.i, %_ZN7rocksdb6StatusD2Ev.exit30.i.i ]
   %110 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %111 = load ptr, ptr %110, align 8, !tbaa !123, !noalias !108
   %.not.i.i8.i = icmp eq ptr %111, null
@@ -1475,7 +1475,7 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   call void @llvm.experimental.noalias.scope.decl(metadata !124)
   %113 = load i64, ptr %76, align 8, !tbaa !21, !noalias !127
   %114 = icmp eq i64 %113, 0
-  br i1 %114, label %174, label %115
+  br i1 %114, label %172, label %115
 
 115:                                              ; preds = %112
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -1485,13 +1485,27 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
   %117 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %118 = load ptr, ptr %117, align 8, !tbaa !128, !noalias !127
   invoke void @_ZN7rocksdb14ObjectRegistry15NewSharedObjectINS_22FileChecksumGenFactoryEEENS_6StatusERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10shared_ptrIT_E(ptr dead_on_unwind nonnull writable sret(%"class.rocksdb::Status") align 8 %5, ptr noundef nonnull align 8 dereferenceable(192) %118, ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull %3)
-          to label %119 unwind label %.thread.i, !noalias !124
+          to label %119 unwind label %.thread.i.i, !noalias !124
 
 119:                                              ; preds = %115
   %.not.i.i9.i = icmp eq ptr %0, %5
-  br i1 %.not.i.i9.i, label %_ZN7rocksdb6StatusaSEOS0_.exit.i.i, label %_ZN7rocksdb6StatusaSEOS0_.exit.i.thread.i
+  br i1 %.not.i.i9.i, label %_ZN7rocksdb6StatusaSEOS0_.exit.i.i, label %_ZN7rocksdb6StatusD2Ev.exit.i.i
 
-_ZN7rocksdb6StatusaSEOS0_.exit.i.thread.i:        ; preds = %119
+_ZN7rocksdb6StatusaSEOS0_.exit.i.i:               ; preds = %119
+  %.phi.trans.insert.i.i = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.pre.i.i = load ptr, ptr %.phi.trans.insert.i.i, align 8, !tbaa !123, !noalias !127
+  %.not.i.i.i.i7 = icmp eq ptr %.pre.i.i, null
+  br i1 %.not.i.i.i.i7, label %thread-pre-split.i.thread.i, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i
+
+_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i: ; preds = %_ZN7rocksdb6StatusaSEOS0_.exit.i.i
+  call void @_ZdaPv(ptr noundef nonnull %.pre.i.i) #24
+  br label %thread-pre-split.i.thread.i
+
+thread-pre-split.i.thread.i:                      ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i, %_ZN7rocksdb6StatusaSEOS0_.exit.i.i
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25, !noalias !127
+  br label %145
+
+_ZN7rocksdb6StatusD2Ev.exit.i.i:                  ; preds = %119
   %120 = load i8, ptr %5, align 8, !tbaa !131, !noalias !127
   store i8 %120, ptr %0, align 8, !tbaa !50, !alias.scope !127
   store i8 0, ptr %5, align 8, !tbaa !50, !noalias !127
@@ -1522,312 +1536,291 @@ _ZN7rocksdb6StatusaSEOS0_.exit.i.thread.i:        ; preds = %119
   %136 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %137 = load ptr, ptr %136, align 8, !tbaa !123, !noalias !127
   store ptr %137, ptr %116, align 8, !tbaa !123, !alias.scope !127
-  br label %_ZN7rocksdb6StatusD2Ev.exit.i.i
-
-_ZN7rocksdb6StatusaSEOS0_.exit.i.i:               ; preds = %119
-  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !123, !noalias !127
-  %.not.i.i.i.i7 = icmp eq ptr %.pre.i, null
-  br i1 %.not.i.i.i.i7, label %thread-pre-split.i.thread.i, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i
-
-thread-pre-split.i.thread.i:                      ; preds = %_ZN7rocksdb6StatusaSEOS0_.exit.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25, !noalias !127
-  br label %147
+  %138 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %139 = load i8, ptr %138, align 1, !tbaa !132, !range !118, !noalias !127, !noundef !119
+  %140 = trunc nuw i8 %139 to i1
+  %141 = icmp eq i8 %120, 3
+  %or.cond.i.i = select i1 %140, i1 %141, i1 false
+  br i1 %or.cond.i.i, label %142, label %thread-pre-split.i.i
 
-_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i: ; preds = %_ZN7rocksdb6StatusaSEOS0_.exit.i.i
-  call void @_ZdaPv(ptr noundef nonnull %.pre.i) #24
-  %.pre19.i = load i8, ptr %0, align 8, !tbaa !50, !alias.scope !127
-  br label %_ZN7rocksdb6StatusD2Ev.exit.i.i
-
-_ZN7rocksdb6StatusD2Ev.exit.i.i:                  ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i, %_ZN7rocksdb6StatusaSEOS0_.exit.i.thread.i
-  %138 = phi i8 [ %.pre19.i, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i ], [ %120, %_ZN7rocksdb6StatusaSEOS0_.exit.i.thread.i ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25, !noalias !127
-  %139 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %140 = load i8, ptr %139, align 1, !tbaa !132, !range !118, !noalias !127, !noundef !119
-  %141 = trunc nuw i8 %140 to i1
-  %142 = icmp eq i8 %138, 3
-  %or.cond.i.i = select i1 %141, i1 %142, i1 false
-  br i1 %or.cond.i.i, label %143, label %thread-pre-split.i.i
-
-143:                                              ; preds = %_ZN7rocksdb6StatusD2Ev.exit.i.i
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %0, i8 0, i64 6, i1 false), !alias.scope !127
-  %144 = load ptr, ptr %116, align 8, !tbaa !123, !alias.scope !127
+142:                                              ; preds = %_ZN7rocksdb6StatusD2Ev.exit.i.i
   store ptr null, ptr %116, align 8, !tbaa !123, !alias.scope !127
-  %.not.i.i.i.i.i15.i.i = icmp eq ptr %144, null
+  %.not.i.i.i.i.i15.i.i = icmp eq ptr %137, null
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %0, i8 0, i64 6, i1 false), !alias.scope !127
   br i1 %.not.i.i.i.i.i15.i.i, label %_ZN7rocksdb6StatusC2EOS0_.exit.i, label %_ZN7rocksdb6StatusaSEOS0_.exit17.i.i
 
-_ZN7rocksdb6StatusaSEOS0_.exit17.i.i:             ; preds = %143
-  call void @_ZdaPv(ptr noundef nonnull %144) #24
+_ZN7rocksdb6StatusaSEOS0_.exit17.i.i:             ; preds = %142
+  call void @_ZdaPv(ptr noundef nonnull %137) #24
   br label %_ZN7rocksdb6StatusC2EOS0_.exit.i
 
-.thread.i:                                        ; preds = %115
-  %145 = landingpad { ptr, i32 }
+.thread.i.i:                                      ; preds = %115
+  %143 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #25, !noalias !127
   br label %_ZN7rocksdb6StatusD2Ev.exit30.i.i
 
 thread-pre-split.i.i:                             ; preds = %_ZN7rocksdb6StatusD2Ev.exit.i.i
-  %146 = icmp eq i8 %138, 0
-  br i1 %146, label %147, label %_ZN7rocksdb6StatusC2EOS0_.exit.i
+  %144 = icmp eq i8 %120, 0
+  br i1 %144, label %145, label %_ZN7rocksdb6StatusC2EOS0_.exit.i
 
-147:                                              ; preds = %thread-pre-split.i.i, %thread-pre-split.i.thread.i
+145:                                              ; preds = %thread-pre-split.i.i, %thread-pre-split.i.thread.i
+  %146 = phi ptr [ null, %thread-pre-split.i.thread.i ], [ %137, %thread-pre-split.i.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #25, !noalias !127
-  %148 = load ptr, ptr %3, align 8, !tbaa !88, !noalias !127
-  invoke void @_ZN7rocksdb12Customizable18ConfigureNewObjectERKNS_13ConfigOptionsEPS0_RKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_St4hashISB_ESt8equal_toISB_ESaISt4pairIKSB_SB_EEE(ptr dead_on_unwind nonnull writable sret(%"class.rocksdb::Status") align 8 %6, ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef %148, ptr noundef nonnull align 8 dereferenceable(56) %10)
-          to label %149 unwind label %172
+  %147 = load ptr, ptr %3, align 8, !tbaa !88, !noalias !127
+  invoke void @_ZN7rocksdb12Customizable18ConfigureNewObjectERKNS_13ConfigOptionsEPS0_RKSt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESB_St4hashISB_ESt8equal_toISB_ESaISt4pairIKSB_SB_EEE(ptr dead_on_unwind nonnull writable sret(%"class.rocksdb::Status") align 8 %6, ptr noundef nonnull align 8 dereferenceable(80) %1, ptr noundef %147, ptr noundef nonnull align 8 dereferenceable(56) %10)
+          to label %148 unwind label %170
 
-149:                                              ; preds = %147
+148:                                              ; preds = %145
   %.not.i21.i.i = icmp eq ptr %0, %6
-  br i1 %.not.i21.i.i, label %_ZN7rocksdb6StatusaSEOS0_.exit24.i.i, label %150
+  br i1 %.not.i21.i.i, label %_ZN7rocksdb6StatusaSEOS0_.exit24.i.i, label %149
 
-150:                                              ; preds = %149
-  %151 = load i8, ptr %6, align 8, !tbaa !131, !noalias !127
-  store i8 %151, ptr %0, align 8, !tbaa !50, !alias.scope !127
+149:                                              ; preds = %148
+  %150 = load i8, ptr %6, align 8, !tbaa !131, !noalias !127
+  store i8 %150, ptr %0, align 8, !tbaa !50, !alias.scope !127
   store i8 0, ptr %6, align 8, !tbaa !50, !noalias !127
-  %152 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %153 = load i8, ptr %152, align 1, !tbaa !114, !noalias !127
-  %154 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  store i8 %153, ptr %154, align 1, !tbaa !64, !alias.scope !127
-  store i8 0, ptr %152, align 1, !tbaa !64, !noalias !127
-  %155 = getelementptr inbounds nuw i8, ptr %6, i64 2
-  %156 = load i8, ptr %155, align 2, !tbaa !115, !noalias !127
-  %157 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  store i8 %156, ptr %157, align 2, !tbaa !116, !alias.scope !127
-  store i8 0, ptr %155, align 2, !tbaa !116, !noalias !127
-  %158 = getelementptr inbounds nuw i8, ptr %6, i64 3
-  %159 = load i8, ptr %158, align 1, !tbaa !117, !range !118, !noalias !127, !noundef !119
-  %160 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  store i8 %159, ptr %160, align 1, !tbaa !120, !alias.scope !127
-  store i8 0, ptr %158, align 1, !tbaa !120, !noalias !127
-  %161 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %162 = load i8, ptr %161, align 4, !tbaa !117, !range !118, !noalias !127, !noundef !119
-  %163 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i8 %162, ptr %163, align 4, !tbaa !121, !alias.scope !127
-  store i8 0, ptr %161, align 4, !tbaa !121, !noalias !127
-  %164 = getelementptr inbounds nuw i8, ptr %6, i64 5
-  %165 = load i8, ptr %164, align 1, !tbaa !22, !noalias !127
-  %166 = getelementptr inbounds nuw i8, ptr %0, i64 5
-  store i8 %165, ptr %166, align 1, !tbaa !122, !alias.scope !127
-  store i8 0, ptr %164, align 1, !tbaa !122, !noalias !127
-  %167 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %168 = load ptr, ptr %167, align 8, !tbaa !123, !noalias !127
-  store ptr null, ptr %167, align 8, !tbaa !123, !noalias !127
-  %169 = load ptr, ptr %116, align 8, !tbaa !123, !alias.scope !127
-  store ptr %168, ptr %116, align 8, !tbaa !123, !alias.scope !127
-  %.not.i.i.i.i.i22.i.i = icmp eq ptr %169, null
+  %151 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %152 = load i8, ptr %151, align 1, !tbaa !114, !noalias !127
+  %153 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  store i8 %152, ptr %153, align 1, !tbaa !64, !alias.scope !127
+  store i8 0, ptr %151, align 1, !tbaa !64, !noalias !127
+  %154 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %155 = load i8, ptr %154, align 2, !tbaa !115, !noalias !127
+  %156 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  store i8 %155, ptr %156, align 2, !tbaa !116, !alias.scope !127
+  store i8 0, ptr %154, align 2, !tbaa !116, !noalias !127
+  %157 = getelementptr inbounds nuw i8, ptr %6, i64 3
+  %158 = load i8, ptr %157, align 1, !tbaa !117, !range !118, !noalias !127, !noundef !119
+  %159 = getelementptr inbounds nuw i8, ptr %0, i64 3
+  store i8 %158, ptr %159, align 1, !tbaa !120, !alias.scope !127
+  store i8 0, ptr %157, align 1, !tbaa !120, !noalias !127
+  %160 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %161 = load i8, ptr %160, align 4, !tbaa !117, !range !118, !noalias !127, !noundef !119
+  %162 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i8 %161, ptr %162, align 4, !tbaa !121, !alias.scope !127
+  store i8 0, ptr %160, align 4, !tbaa !121, !noalias !127
+  %163 = getelementptr inbounds nuw i8, ptr %6, i64 5
+  %164 = load i8, ptr %163, align 1, !tbaa !22, !noalias !127
+  %165 = getelementptr inbounds nuw i8, ptr %0, i64 5
+  store i8 %164, ptr %165, align 1, !tbaa !122, !alias.scope !127
+  store i8 0, ptr %163, align 1, !tbaa !122, !noalias !127
+  %166 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %167 = load ptr, ptr %166, align 8, !tbaa !123, !noalias !127
+  store ptr null, ptr %166, align 8, !tbaa !123, !noalias !127
+  store ptr %167, ptr %116, align 8, !tbaa !123, !alias.scope !127
+  %.not.i.i.i.i.i22.i.i = icmp eq ptr %146, null
   br i1 %.not.i.i.i.i.i22.i.i, label %_ZN7rocksdb6StatusaSEOS0_.exit24.i.i, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i.i23.i.i
 
-_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i.i23.i.i: ; preds = %150
-  call void @_ZdaPv(ptr noundef nonnull %169) #24
+_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i.i23.i.i: ; preds = %149
+  call void @_ZdaPv(ptr noundef nonnull %146) #24
   br label %_ZN7rocksdb6StatusaSEOS0_.exit24.i.i
 
-_ZN7rocksdb6StatusaSEOS0_.exit24.i.i:             ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i.i23.i.i, %150, %149
-  %170 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %171 = load ptr, ptr %170, align 8, !tbaa !123, !noalias !127
-  %.not.i.i25.i.i = icmp eq ptr %171, null
+_ZN7rocksdb6StatusaSEOS0_.exit24.i.i:             ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i.i23.i.i, %149, %148
+  %168 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %169 = load ptr, ptr %168, align 8, !tbaa !123, !noalias !127
+  %.not.i.i25.i.i = icmp eq ptr %169, null
   br i1 %.not.i.i25.i.i, label %_ZN7rocksdb6StatusD2Ev.exit27.i.i, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i26.i.i
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i26.i.i: ; preds = %_ZN7rocksdb6StatusaSEOS0_.exit24.i.i
-  call void @_ZdaPv(ptr noundef nonnull %171) #24
+  call void @_ZdaPv(ptr noundef nonnull %169) #24
   br label %_ZN7rocksdb6StatusD2Ev.exit27.i.i
 
 _ZN7rocksdb6StatusD2Ev.exit27.i.i:                ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i26.i.i, %_ZN7rocksdb6StatusaSEOS0_.exit24.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #25, !noalias !127
   br label %_ZN7rocksdb6StatusC2EOS0_.exit.i
 
-172:                                              ; preds = %147
-  %173 = landingpad { ptr, i32 }
+170:                                              ; preds = %145
+  %171 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #25, !noalias !127
-  %.pre20.i = load ptr, ptr %116, align 8, !tbaa !123, !alias.scope !127
-  %.not.i.i28.i.i = icmp eq ptr %.pre20.i, null
+  %.not.i.i28.i.i = icmp eq ptr %146, null
   br i1 %.not.i.i28.i.i, label %_ZN7rocksdb6StatusD2Ev.exit30.i.i, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i29.i.i
 
-_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i29.i.i: ; preds = %172
-  call void @_ZdaPv(ptr noundef nonnull %.pre20.i) #24
+_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i29.i.i: ; preds = %170
+  call void @_ZdaPv(ptr noundef nonnull %146) #24
   br label %_ZN7rocksdb6StatusD2Ev.exit30.i.i
 
-_ZN7rocksdb6StatusD2Ev.exit30.i.i:                ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i29.i.i, %172, %.thread.i
-  %.pn.i25.i = phi { ptr, i32 } [ %145, %.thread.i ], [ %173, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i29.i.i ], [ %173, %172 ]
+_ZN7rocksdb6StatusD2Ev.exit30.i.i:                ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i29.i.i, %170, %.thread.i.i
+  %.pn38.i.i = phi { ptr, i32 } [ %143, %.thread.i.i ], [ %171, %170 ], [ %171, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i29.i.i ]
   store ptr null, ptr %116, align 8, !tbaa !123, !alias.scope !127
   br label %.body.i
 
-174:                                              ; preds = %112
-  %175 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %176 = load i64, ptr %175, align 8, !tbaa !138, !noalias !127
-  %177 = icmp eq i64 %176, 0
-  br i1 %177, label %178, label %203
+172:                                              ; preds = %112
+  %173 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %174 = load i64, ptr %173, align 8, !tbaa !138, !noalias !127
+  %175 = icmp eq i64 %174, 0
+  br i1 %175, label %176, label %201
 
-178:                                              ; preds = %174
+176:                                              ; preds = %172
   store ptr null, ptr %3, align 8, !tbaa !103, !noalias !127
-  %179 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %180 = load ptr, ptr %179, align 8, !tbaa !93, !noalias !127
-  store ptr null, ptr %179, align 8, !tbaa !93, !noalias !127
-  %.not.i.i.i.i.i8 = icmp eq ptr %180, null
-  br i1 %.not.i.i.i.i.i8, label %_ZNSt12__shared_ptrIN7rocksdb22FileChecksumGenFactoryELN9__gnu_cxx12_Lock_policyE2EE5resetEv.exit.i.i, label %181
+  %177 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %178 = load ptr, ptr %177, align 8, !tbaa !93, !noalias !127
+  store ptr null, ptr %177, align 8, !tbaa !93, !noalias !127
+  %.not.i.i.i.i.i8 = icmp eq ptr %178, null
+  br i1 %.not.i.i.i.i.i8, label %_ZNSt12__shared_ptrIN7rocksdb22FileChecksumGenFactoryELN9__gnu_cxx12_Lock_policyE2EE5resetEv.exit.i.i, label %179
 
-181:                                              ; preds = %178
-  %182 = getelementptr inbounds nuw i8, ptr %180, i64 8
-  %183 = load atomic i64, ptr %182 acquire, align 8, !noalias !124
-  %184 = icmp eq i64 %183, 4294967297
-  %185 = trunc i64 %183 to i32
-  br i1 %184, label %186, label %194
+179:                                              ; preds = %176
+  %180 = getelementptr inbounds nuw i8, ptr %178, i64 8
+  %181 = load atomic i64, ptr %180 acquire, align 8, !noalias !124
+  %182 = icmp eq i64 %181, 4294967297
+  %183 = trunc i64 %181 to i32
+  br i1 %182, label %184, label %192
 
-186:                                              ; preds = %181
-  store i32 0, ptr %182, align 8, !tbaa !96, !noalias !124
-  %187 = getelementptr inbounds nuw i8, ptr %180, i64 12
-  store i32 0, ptr %187, align 4, !tbaa !98, !noalias !124
-  %188 = load ptr, ptr %180, align 8, !tbaa !84, !noalias !124
-  %189 = getelementptr inbounds nuw i8, ptr %188, i64 16
-  %190 = load ptr, ptr %189, align 8, !noalias !124
-  call void %190(ptr noundef nonnull align 8 dereferenceable(16) %180) #25, !noalias !124
-  %191 = load ptr, ptr %180, align 8, !tbaa !84, !noalias !124
-  %192 = getelementptr inbounds nuw i8, ptr %191, i64 24
-  %193 = load ptr, ptr %192, align 8, !noalias !124
-  call void %193(ptr noundef nonnull align 8 dereferenceable(16) %180) #25, !noalias !124
+184:                                              ; preds = %179
+  store i32 0, ptr %180, align 8, !tbaa !96, !noalias !124
+  %185 = getelementptr inbounds nuw i8, ptr %178, i64 12
+  store i32 0, ptr %185, align 4, !tbaa !98, !noalias !124
+  %186 = load ptr, ptr %178, align 8, !tbaa !84, !noalias !124
+  %187 = getelementptr inbounds nuw i8, ptr %186, i64 16
+  %188 = load ptr, ptr %187, align 8, !noalias !124
+  call void %188(ptr noundef nonnull align 8 dereferenceable(16) %178) #25, !noalias !124
+  %189 = load ptr, ptr %178, align 8, !tbaa !84, !noalias !124
+  %190 = getelementptr inbounds nuw i8, ptr %189, i64 24
+  %191 = load ptr, ptr %190, align 8, !noalias !124
+  call void %191(ptr noundef nonnull align 8 dereferenceable(16) %178) #25, !noalias !124
   br label %_ZNSt12__shared_ptrIN7rocksdb22FileChecksumGenFactoryELN9__gnu_cxx12_Lock_policyE2EE5resetEv.exit.i.i
 
-194:                                              ; preds = %181
-  %195 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !22, !noalias !127
-  %.not.i.i.i.i.i.i = icmp eq i8 %195, 0
-  br i1 %.not.i.i.i.i.i.i, label %198, label %196
+192:                                              ; preds = %179
+  %193 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !22, !noalias !127
+  %.not.i.i.i.i.i.i = icmp eq i8 %193, 0
+  br i1 %.not.i.i.i.i.i.i, label %196, label %194
 
-196:                                              ; preds = %194
-  %197 = add nsw i32 %185, -1
-  store i32 %197, ptr %182, align 4, !tbaa !94, !noalias !124
+194:                                              ; preds = %192
+  %195 = add nsw i32 %183, -1
+  store i32 %195, ptr %180, align 4, !tbaa !94, !noalias !124
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
 
-198:                                              ; preds = %194
-  %199 = atomicrmw volatile add ptr %182, i32 -1 acq_rel, align 4, !noalias !124
+196:                                              ; preds = %192
+  %197 = atomicrmw volatile add ptr %180, i32 -1 acq_rel, align 4, !noalias !124
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %198, %196
-  %.0.i.i.i.i.i.i.i = phi i32 [ %185, %196 ], [ %199, %198 ]
-  %200 = icmp eq i32 %.0.i.i.i.i.i.i.i, 1
-  br i1 %200, label %201, label %_ZNSt12__shared_ptrIN7rocksdb22FileChecksumGenFactoryELN9__gnu_cxx12_Lock_policyE2EE5resetEv.exit.i.i, !prof !104
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i: ; preds = %196, %194
+  %.0.i.i.i.i.i.i.i = phi i32 [ %183, %194 ], [ %197, %196 ]
+  %198 = icmp eq i32 %.0.i.i.i.i.i.i.i, 1
+  br i1 %198, label %199, label %_ZNSt12__shared_ptrIN7rocksdb22FileChecksumGenFactoryELN9__gnu_cxx12_Lock_policyE2EE5resetEv.exit.i.i, !prof !104
 
-201:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %180) #25, !noalias !124
+199:                                              ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %178) #25, !noalias !124
   br label %_ZNSt12__shared_ptrIN7rocksdb22FileChecksumGenFactoryELN9__gnu_cxx12_Lock_policyE2EE5resetEv.exit.i.i
 
-_ZNSt12__shared_ptrIN7rocksdb22FileChecksumGenFactoryELN9__gnu_cxx12_Lock_policyE2EE5resetEv.exit.i.i: ; preds = %201, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %186, %178
-  %202 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr null, ptr %202, align 8, !tbaa !31, !alias.scope !139
+_ZNSt12__shared_ptrIN7rocksdb22FileChecksumGenFactoryELN9__gnu_cxx12_Lock_policyE2EE5resetEv.exit.i.i: ; preds = %199, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i, %184, %176
+  %200 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr null, ptr %200, align 8, !tbaa !31, !alias.scope !139
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false), !alias.scope !139
   br label %_ZN7rocksdb6StatusC2EOS0_.exit.i
 
-203:                                              ; preds = %174
+201:                                              ; preds = %172
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #25, !noalias !127
   store ptr @.str.8, ptr %7, align 8, !tbaa !28, !noalias !127
-  %204 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store i64 20, ptr %204, align 8, !tbaa !30, !noalias !127
+  %202 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store i64 20, ptr %202, align 8, !tbaa !30, !noalias !127
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #25, !noalias !127
   store ptr @.str.1, ptr %8, align 8, !tbaa !28, !noalias !127
-  %205 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  store i64 0, ptr %205, align 8, !tbaa !30, !noalias !127
+  %203 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  store i64 0, ptr %203, align 8, !tbaa !30, !noalias !127
   invoke void @_ZN7rocksdb6StatusC2ENS0_4CodeENS0_7SubCodeERKNS_5SliceES5_NS0_8SeverityE(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 noundef zeroext 3, i8 noundef zeroext 0, ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8, i8 noundef zeroext 0)
           to label %.noexc.i unwind label %108
 
-.noexc.i:                                         ; preds = %203
+.noexc.i:                                         ; preds = %201
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #25, !noalias !127
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #25, !noalias !127
   br label %_ZN7rocksdb6StatusC2EOS0_.exit.i
 
-_ZN7rocksdb6StatusC2EOS0_.exit.i:                 ; preds = %.noexc.i, %_ZNSt12__shared_ptrIN7rocksdb22FileChecksumGenFactoryELN9__gnu_cxx12_Lock_policyE2EE5resetEv.exit.i.i, %_ZN7rocksdb6StatusD2Ev.exit27.i.i, %thread-pre-split.i.i, %_ZN7rocksdb6StatusaSEOS0_.exit17.i.i, %143, %88, %86
-  %206 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %207 = load ptr, ptr %206, align 8, !tbaa !123, !noalias !108
-  %.not.i.i12.i = icmp eq ptr %207, null
-  br i1 %.not.i.i12.i, label %_ZN7rocksdb6StatusD2Ev.exit14.i, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i13.i
+_ZN7rocksdb6StatusC2EOS0_.exit.i:                 ; preds = %.noexc.i, %_ZNSt12__shared_ptrIN7rocksdb22FileChecksumGenFactoryELN9__gnu_cxx12_Lock_policyE2EE5resetEv.exit.i.i, %_ZN7rocksdb6StatusD2Ev.exit27.i.i, %thread-pre-split.i.i, %_ZN7rocksdb6StatusaSEOS0_.exit17.i.i, %142, %88, %86
+  %204 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %205 = load ptr, ptr %204, align 8, !tbaa !123, !noalias !108
+  %.not.i.i10.i = icmp eq ptr %205, null
+  br i1 %.not.i.i10.i, label %_ZN7rocksdb6StatusD2Ev.exit12.i, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i11.i
 
-_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i13.i: ; preds = %_ZN7rocksdb6StatusC2EOS0_.exit.i
-  call void @_ZdaPv(ptr noundef nonnull %207) #24
-  br label %_ZN7rocksdb6StatusD2Ev.exit14.i
+_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i11.i: ; preds = %_ZN7rocksdb6StatusC2EOS0_.exit.i
+  call void @_ZdaPv(ptr noundef nonnull %205) #24
+  br label %_ZN7rocksdb6StatusD2Ev.exit12.i
 
-_ZN7rocksdb6StatusD2Ev.exit14.i:                  ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i13.i, %_ZN7rocksdb6StatusC2EOS0_.exit.i
+_ZN7rocksdb6StatusD2Ev.exit12.i:                  ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i11.i, %_ZN7rocksdb6StatusC2EOS0_.exit.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #25, !noalias !108
-  %208 = load ptr, ptr %79, align 8, !tbaa !142, !noalias !108
-  %.not5.i.i.i.i = icmp eq ptr %208, null
+  %206 = load ptr, ptr %79, align 8, !tbaa !142, !noalias !108
+  %.not5.i.i.i.i = icmp eq ptr %206, null
   br i1 %.not5.i.i.i.i, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %_ZN7rocksdb6StatusD2Ev.exit14.i, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ELb1EEEEE18_M_deallocate_nodeEPSB_.exit.i.i.i.i
-  %.06.i.i.i.i = phi ptr [ %209, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ELb1EEEEE18_M_deallocate_nodeEPSB_.exit.i.i.i.i ], [ %208, %_ZN7rocksdb6StatusD2Ev.exit14.i ]
-  %209 = load ptr, ptr %.06.i.i.i.i, align 8, !tbaa !16
-  %210 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 8
-  %211 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 40
-  %212 = load ptr, ptr %211, align 8, !tbaa !17
-  %213 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 56
-  %214 = icmp eq ptr %212, %213
-  br i1 %214, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i.i
+.lr.ph.i.i.i.i:                                   ; preds = %_ZN7rocksdb6StatusD2Ev.exit12.i, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ELb1EEEEE18_M_deallocate_nodeEPSB_.exit.i.i.i.i
+  %.06.i.i.i.i = phi ptr [ %207, %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ELb1EEEEE18_M_deallocate_nodeEPSB_.exit.i.i.i.i ], [ %206, %_ZN7rocksdb6StatusD2Ev.exit12.i ]
+  %207 = load ptr, ptr %.06.i.i.i.i, align 8, !tbaa !16
+  %208 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 8
+  %209 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 40
+  %210 = load ptr, ptr %209, align 8, !tbaa !17
+  %211 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 56
+  %212 = icmp eq ptr %210, %211
+  br i1 %212, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
-  %215 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 48
-  %216 = load i64, ptr %215, align 8, !tbaa !21
-  %217 = icmp ult i64 %216, 16
-  call void @llvm.assume(i1 %217)
+  %213 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 48
+  %214 = load i64, ptr %213, align 8, !tbaa !21
+  %215 = icmp ult i64 %214, 16
+  call void @llvm.assume(i1 %215)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i
-  %218 = load i64, ptr %213, align 8, !tbaa !22
-  %219 = add i64 %218, 1
-  call void @_ZdlPvm(ptr noundef %212, i64 noundef %219) #24
+  %216 = load i64, ptr %211, align 8, !tbaa !22
+  %217 = add i64 %216, 1
+  call void @_ZdlPvm(ptr noundef %210, i64 noundef %217) #24
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i.i.i.i.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i.i.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i.i
-  %220 = load ptr, ptr %210, align 8, !tbaa !17
-  %221 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 24
-  %222 = icmp eq ptr %220, %221
-  br i1 %222, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i2.i.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i.i.i.i.i.i.i.i
+  %218 = load ptr, ptr %208, align 8, !tbaa !17
+  %219 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 24
+  %220 = icmp eq ptr %218, %219
+  br i1 %220, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i2.i.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i.i.i.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i2.i.i.i.i.i.i.i.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i.i.i.i.i
-  %223 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 16
-  %224 = load i64, ptr %223, align 8, !tbaa !21
-  %225 = icmp ult i64 %224, 16
-  call void @llvm.assume(i1 %225)
+  %221 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 16
+  %222 = load i64, ptr %221, align 8, !tbaa !21
+  %223 = icmp ult i64 %222, 16
+  call void @llvm.assume(i1 %223)
   br label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ELb1EEEEE18_M_deallocate_nodeEPSB_.exit.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i.i.i.i.i.i.i.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i.i.i.i.i.i
-  %226 = load i64, ptr %221, align 8, !tbaa !22
-  %227 = add i64 %226, 1
-  call void @_ZdlPvm(ptr noundef %220, i64 noundef %227) #24
+  %224 = load i64, ptr %219, align 8, !tbaa !22
+  %225 = add i64 %224, 1
+  call void @_ZdlPvm(ptr noundef %218, i64 noundef %225) #24
   br label %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ELb1EEEEE18_M_deallocate_nodeEPSB_.exit.i.i.i.i
 
 _ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ELb1EEEEE18_M_deallocate_nodeEPSB_.exit.i.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i2.i.i.i.i.i.i.i.i
   call void @_ZdlPvm(ptr noundef nonnull %.06.i.i.i.i, i64 noundef 80) #24
-  %.not.i.i.i18.i = icmp eq ptr %209, null
-  br i1 %.not.i.i.i18.i, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !143
+  %.not.i.i.i16.i = icmp eq ptr %207, null
+  br i1 %.not.i.i.i16.i, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !143
 
-_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i: ; preds = %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ELb1EEEEE18_M_deallocate_nodeEPSB_.exit.i.i.i.i, %_ZN7rocksdb6StatusD2Ev.exit14.i
-  %228 = load ptr, ptr %10, align 8, !tbaa !111, !noalias !108
-  %229 = load i64, ptr %78, align 8, !tbaa !113, !noalias !108
-  %230 = shl i64 %229, 3
-  call void @llvm.memset.p0.i64(ptr align 8 %228, i8 0, i64 %230, i1 false)
+_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i: ; preds = %_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES8_ELb1EEEEE18_M_deallocate_nodeEPSB_.exit.i.i.i.i, %_ZN7rocksdb6StatusD2Ev.exit12.i
+  %226 = load ptr, ptr %10, align 8, !tbaa !111, !noalias !108
+  %227 = load i64, ptr %78, align 8, !tbaa !113, !noalias !108
+  %228 = shl i64 %227, 3
+  call void @llvm.memset.p0.i64(ptr align 8 %226, i8 0, i64 %228, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %79, i8 0, i64 16, i1 false), !noalias !108
-  %231 = load ptr, ptr %10, align 8, !tbaa !111, !noalias !108
-  %232 = icmp eq ptr %231, %77
-  br i1 %232, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEED2Ev.exit.i, label %233
+  %229 = load ptr, ptr %10, align 8, !tbaa !111, !noalias !108
+  %230 = icmp eq ptr %229, %77
+  br i1 %230, label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEED2Ev.exit.i, label %231
 
-233:                                              ; preds = %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i
-  %234 = load i64, ptr %78, align 8, !tbaa !113, !noalias !108
-  %235 = shl i64 %234, 3
-  call void @_ZdlPvm(ptr noundef %231, i64 noundef %235) #24
+231:                                              ; preds = %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i
+  %232 = load i64, ptr %78, align 8, !tbaa !113, !noalias !108
+  %233 = shl i64 %232, 3
+  call void @_ZdlPvm(ptr noundef %229, i64 noundef %233) #24
   br label %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEED2Ev.exit.i
 
-_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEED2Ev.exit.i: ; preds = %233, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i
+_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEED2Ev.exit.i: ; preds = %231, %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10) #25, !noalias !108
-  %236 = load ptr, ptr %9, align 8, !tbaa !17, !noalias !108
-  %237 = icmp eq ptr %236, %75
-  br i1 %237, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
+  %234 = load ptr, ptr %9, align 8, !tbaa !17, !noalias !108
+  %235 = icmp eq ptr %234, %75
+  br i1 %235, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i: ; preds = %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEED2Ev.exit.i
-  %238 = load i64, ptr %76, align 8, !tbaa !21, !noalias !108
-  %239 = icmp ult i64 %238, 16
-  call void @llvm.assume(i1 %239)
+  %236 = load i64, ptr %76, align 8, !tbaa !21, !noalias !108
+  %237 = icmp ult i64 %236, 16
+  call void @llvm.assume(i1 %237)
   br label %_ZN7rocksdbL16LoadSharedObjectINS_22FileChecksumGenFactoryEEENS_6StatusERKNS_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10shared_ptrIT_E.exit
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEED2Ev.exit.i
-  %240 = load i64, ptr %75, align 8, !tbaa !22, !noalias !108
-  %241 = add i64 %240, 1
-  call void @_ZdlPvm(ptr noundef %236, i64 noundef %241) #24
+  %238 = load i64, ptr %75, align 8, !tbaa !22, !noalias !108
+  %239 = add i64 %238, 1
+  call void @_ZdlPvm(ptr noundef %234, i64 noundef %239) #24
   br label %_ZN7rocksdbL16LoadSharedObjectINS_22FileChecksumGenFactoryEEENS_6StatusERKNS_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10shared_ptrIT_E.exit
 
 _ZN7rocksdb6StatusD2Ev.exit.i:                    ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i, %.body.i, %106
@@ -1835,31 +1828,31 @@ _ZN7rocksdb6StatusD2Ev.exit.i:                    ; preds = %_ZNKSt14default_del
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #25, !noalias !108
   call void @_ZNSt10_HashtableINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_S5_ESaIS8_ENSt8__detail10_Select1stESt8equal_toIS5_ESt4hashIS5_ENSA_18_Mod_range_hashingENSA_20_Default_ranged_hashENSA_20_Prime_rehash_policyENSA_17_Hashtable_traitsILb1ELb0ELb1EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(56) %10) #25
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %10) #25, !noalias !108
-  %242 = load ptr, ptr %9, align 8, !tbaa !17, !noalias !108
-  %243 = icmp eq ptr %242, %75
-  br i1 %243, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i16.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15.i
+  %240 = load ptr, ptr %9, align 8, !tbaa !17, !noalias !108
+  %241 = icmp eq ptr %240, %75
+  br i1 %241, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i14.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i13.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i16.i: ; preds = %_ZN7rocksdb6StatusD2Ev.exit.i
-  %244 = load i64, ptr %76, align 8, !tbaa !21, !noalias !108
-  %245 = icmp ult i64 %244, 16
-  call void @llvm.assume(i1 %245)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i14.i: ; preds = %_ZN7rocksdb6StatusD2Ev.exit.i
+  %242 = load i64, ptr %76, align 8, !tbaa !21, !noalias !108
+  %243 = icmp ult i64 %242, 16
+  call void @llvm.assume(i1 %243)
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit15.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15.i: ; preds = %_ZN7rocksdb6StatusD2Ev.exit.i
-  %246 = load i64, ptr %75, align 8, !tbaa !22, !noalias !108
-  %247 = add i64 %246, 1
-  call void @_ZdlPvm(ptr noundef %242, i64 noundef %247) #24
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i13.i: ; preds = %_ZN7rocksdb6StatusD2Ev.exit.i
+  %244 = load i64, ptr %75, align 8, !tbaa !22, !noalias !108
+  %245 = add i64 %244, 1
+  call void @_ZdlPvm(ptr noundef %240, i64 noundef %245) #24
+  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit15.i
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit17.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i15.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i16.i
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit15.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i13.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i14.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #25, !noalias !108
   br label %common.resume
 
 _ZN7rocksdbL16LoadSharedObjectINS_22FileChecksumGenFactoryEEENS_6StatusERKNS_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10shared_ptrIT_E.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #25, !noalias !108
-  br label %248
+  br label %246
 
-248:                                              ; preds = %_ZN7rocksdbL16LoadSharedObjectINS_22FileChecksumGenFactoryEEENS_6StatusERKNS_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10shared_ptrIT_E.exit, %_ZNSt12__shared_ptrIN7rocksdb22FileChecksumGenFactoryELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
+246:                                              ; preds = %_ZN7rocksdbL16LoadSharedObjectINS_22FileChecksumGenFactoryEEENS_6StatusERKNS_13ConfigOptionsERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPSt10shared_ptrIT_E.exit, %_ZNSt12__shared_ptrIN7rocksdb22FileChecksumGenFactoryELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
   ret void
 }
 

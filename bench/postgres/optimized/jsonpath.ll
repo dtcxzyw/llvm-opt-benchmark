@@ -1151,7 +1151,7 @@ alignStringInfoInt.exit:                          ; preds = %21, %62, %63
   call void @appendBinaryStringInfo(ptr noundef nonnull %0, ptr noundef nonnull %11, i32 noundef 4) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #13
   %73 = load i32, ptr %3, align 8
-  switch i32 %73, label %193 [
+  switch i32 %73, label %191 [
     i32 1, label %74
     i32 28, label %74
     i32 25, label %74
@@ -1184,27 +1184,27 @@ alignStringInfoInt.exit:                          ; preds = %21, %62, %63
     i32 51, label %127
     i32 52, label %127
     i32 53, label %127
-    i32 0, label %197
-    i32 27, label %197
-    i32 21, label %197
-    i32 22, label %197
+    i32 0, label %195
+    i32 27, label %195
+    i32 21, label %195
+    i32 22, label %195
     i32 26, label %140
     i32 40, label %147
     i32 23, label %153
-    i32 24, label %190
-    i32 31, label %197
-    i32 32, label %197
-    i32 33, label %197
-    i32 34, label %197
-    i32 35, label %197
-    i32 36, label %197
-    i32 38, label %197
-    i32 43, label %197
-    i32 44, label %197
-    i32 45, label %197
-    i32 47, label %197
-    i32 48, label %197
-    i32 49, label %197
+    i32 24, label %188
+    i32 31, label %195
+    i32 32, label %195
+    i32 33, label %195
+    i32 34, label %195
+    i32 35, label %195
+    i32 36, label %195
+    i32 38, label %195
+    i32 43, label %195
+    i32 44, label %195
+    i32 45, label %195
+    i32 47, label %195
+    i32 48, label %195
+    i32 49, label %195
   ]
 
 74:                                               ; preds = %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit
@@ -1215,7 +1215,7 @@ alignStringInfoInt.exit:                          ; preds = %21, %62, %63
   %78 = load i32, ptr %75, align 8
   call void @appendBinaryStringInfo(ptr noundef nonnull %0, ptr noundef %77, i32 noundef %78) #13
   call void @appendStringInfoChar(ptr noundef nonnull %0, i8 noundef signext 0) #13
-  br label %197
+  br label %195
 
 79:                                               ; preds = %alignStringInfoInt.exit
   %80 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1223,12 +1223,12 @@ alignStringInfoInt.exit:                          ; preds = %21, %62, %63
   %82 = load i32, ptr %81, align 4
   %83 = lshr i32 %82, 2
   call void @appendBinaryStringInfo(ptr noundef nonnull %0, ptr noundef nonnull %81, i32 noundef %83) #13
-  br label %197
+  br label %195
 
 84:                                               ; preds = %alignStringInfoInt.exit
   %85 = getelementptr inbounds nuw i8, ptr %3, i64 16
   call void @appendBinaryStringInfo(ptr noundef nonnull %0, ptr noundef nonnull %85, i32 noundef 1) #13
-  br label %197
+  br label %195
 
 86:                                               ; preds = %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit
   %87 = load i32, ptr %16, align 8
@@ -1255,11 +1255,11 @@ alignStringInfoInt.exit:                          ; preds = %21, %62, %63
   br i1 %93, label %._crit_edge, label %.critedge150
 
 ._crit_edge:                                      ; preds = %92
-  %.pre161 = load i32, ptr %12, align 4
+  %.pre160 = load i32, ptr %12, align 4
   br label %94
 
 94:                                               ; preds = %._crit_edge, %91
-  %95 = phi i32 [ %.pre161, %._crit_edge ], [ %18, %91 ]
+  %95 = phi i32 [ %.pre160, %._crit_edge ], [ %18, %91 ]
   %96 = sub i32 %95, %18
   %97 = load ptr, ptr %0, align 8
   %98 = sext i32 %87 to i64
@@ -1279,17 +1279,17 @@ alignStringInfoInt.exit:                          ; preds = %21, %62, %63
   br i1 %104, label %..critedge_crit_edge, label %.critedge150
 
 ..critedge_crit_edge:                             ; preds = %103
-  %.pre162 = load i32, ptr %12, align 4
+  %.pre161 = load i32, ptr %12, align 4
   br label %.critedge
 
 .critedge:                                        ; preds = %..critedge_crit_edge, %102
-  %105 = phi i32 [ %.pre162, %..critedge_crit_edge ], [ %18, %102 ]
+  %105 = phi i32 [ %.pre161, %..critedge_crit_edge ], [ %18, %102 ]
   %106 = sub i32 %105, %18
   %107 = load ptr, ptr %0, align 8
   %108 = sext i32 %88 to i64
   %109 = getelementptr inbounds i8, ptr %107, i64 %108
   store i32 %106, ptr %109, align 4
-  br label %197
+  br label %195
 
 110:                                              ; preds = %alignStringInfoInt.exit
   %111 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -1318,7 +1318,7 @@ alignStringInfoInt.exit:                          ; preds = %21, %62, %63
   %124 = sext i32 %113 to i64
   %125 = getelementptr inbounds i8, ptr %123, i64 %124
   store i32 %122, ptr %125, align 4
-  br label %197
+  br label %195
 
 126:                                              ; preds = %alignStringInfoInt.exit
   br label %127
@@ -1345,21 +1345,21 @@ alignStringInfoInt.exit:                          ; preds = %21, %62, %63
   br i1 %134, label %..critedge152_crit_edge, label %.critedge150
 
 ..critedge152_crit_edge:                          ; preds = %132
-  %.pre160 = load i32, ptr %12, align 4
+  %.pre = load i32, ptr %12, align 4
   br label %.critedge152
 
 .critedge152:                                     ; preds = %..critedge152_crit_edge, %131
-  %135 = phi i32 [ %.pre160, %..critedge152_crit_edge ], [ %18, %131 ]
+  %135 = phi i32 [ %.pre, %..critedge152_crit_edge ], [ %18, %131 ]
   %136 = sub i32 %135, %18
   %137 = load ptr, ptr %0, align 8
   %138 = sext i32 %128 to i64
   %139 = getelementptr inbounds i8, ptr %137, i64 %138
   store i32 %136, ptr %139, align 4
-  br label %197
+  br label %195
 
 140:                                              ; preds = %alignStringInfoInt.exit
   %141 = icmp slt i32 %4, 1
-  br i1 %141, label %142, label %197
+  br i1 %141, label %142, label %195
 
 142:                                              ; preds = %140
   %143 = call zeroext i1 @errsave_start(ptr noundef %2, ptr noundef null) #13
@@ -1372,7 +1372,7 @@ alignStringInfoInt.exit:                          ; preds = %21, %62, %63
   br label %.critedge150
 
 147:                                              ; preds = %alignStringInfoInt.exit
-  br i1 %5, label %197, label %148
+  br i1 %5, label %195, label %148
 
 148:                                              ; preds = %147
   %149 = call zeroext i1 @errsave_start(ptr noundef %2, ptr noundef null) #13
@@ -1411,12 +1411,11 @@ alignStringInfoInt.exit:                          ; preds = %21, %62, %63
   %164 = getelementptr inbounds nuw %struct.anon.13, ptr %163, i64 %indvars.iv
   %165 = load ptr, ptr %164, align 8
   %166 = call fastcc zeroext i1 @flattenJsonPathParseItem(ptr noundef %0, ptr noundef nonnull %15, ptr noundef %2, ptr noundef %165, i32 noundef %4, i1 noundef zeroext true)
-  br i1 %166, label %167, label %189
+  br i1 %166, label %167, label %187
 
 167:                                              ; preds = %162
   %168 = load i32, ptr %15, align 4
   %169 = sub i32 %168, %18
-  store i32 %169, ptr %15, align 4
   %170 = load ptr, ptr %160, align 8
   %171 = getelementptr inbounds nuw %struct.anon.13, ptr %170, i64 %indvars.iv, i32 1
   %172 = load ptr, ptr %171, align 8
@@ -1425,91 +1424,87 @@ alignStringInfoInt.exit:                          ; preds = %21, %62, %63
 
 173:                                              ; preds = %167
   %174 = call fastcc zeroext i1 @flattenJsonPathParseItem(ptr noundef %0, ptr noundef nonnull %14, ptr noundef %2, ptr noundef nonnull %172, i32 noundef %4, i1 noundef zeroext true)
-  br i1 %174, label %175, label %189
+  br i1 %174, label %175, label %187
 
 175:                                              ; preds = %173
   %176 = load i32, ptr %14, align 4
   %177 = sub i32 %176, %18
-  %.pre = load i32, ptr %15, align 4
   br label %.critedge154
 
 .critedge154:                                     ; preds = %167, %175
-  %178 = phi i32 [ %.pre, %175 ], [ %169, %167 ]
   %storemerge = phi i32 [ %177, %175 ], [ 0, %167 ]
-  store i32 %storemerge, ptr %14, align 4
-  %179 = load ptr, ptr %0, align 8
+  %178 = load ptr, ptr %0, align 8
   %indvars.iv.tr = trunc i64 %indvars.iv to i32
-  %180 = shl i32 %indvars.iv.tr, 1
-  %181 = sext i32 %180 to i64
-  %182 = shl nsw i64 %181, 2
-  %183 = getelementptr i8, ptr %179, i64 %182
-  %184 = getelementptr i8, ptr %183, i64 %161
-  store i32 %178, ptr %184, align 4
-  %185 = load i32, ptr %14, align 4
-  %186 = getelementptr inbounds nuw i8, ptr %184, i64 4
-  store i32 %185, ptr %186, align 4
+  %179 = shl i32 %indvars.iv.tr, 1
+  %180 = sext i32 %179 to i64
+  %181 = shl nsw i64 %180, 2
+  %182 = getelementptr i8, ptr %178, i64 %181
+  %183 = getelementptr i8, ptr %182, i64 %161
+  store i32 %169, ptr %183, align 4
+  %184 = getelementptr inbounds nuw i8, ptr %183, i64 4
+  store i32 %storemerge, ptr %184, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #13
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %187 = load i32, ptr %13, align 4
-  %188 = sext i32 %187 to i64
-  %.not143 = icmp slt i64 %indvars.iv.next, %188
+  %185 = load i32, ptr %13, align 4
+  %186 = sext i32 %185 to i64
+  %.not143 = icmp slt i64 %indvars.iv.next, %186
   br i1 %.not143, label %162, label %.critedge156, !llvm.loop !13
 
-189:                                              ; preds = %173, %162
+187:                                              ; preds = %173, %162
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #13
   br label %.critedge150
 
-190:                                              ; preds = %alignStringInfoInt.exit
-  %191 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  call void @appendBinaryStringInfo(ptr noundef nonnull %0, ptr noundef nonnull %191, i32 noundef 4) #13
-  %192 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  call void @appendBinaryStringInfo(ptr noundef nonnull %0, ptr noundef nonnull %192, i32 noundef 4) #13
-  br label %197
+188:                                              ; preds = %alignStringInfoInt.exit
+  %189 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  call void @appendBinaryStringInfo(ptr noundef nonnull %0, ptr noundef nonnull %189, i32 noundef 4) #13
+  %190 = getelementptr inbounds nuw i8, ptr %3, i64 20
+  call void @appendBinaryStringInfo(ptr noundef nonnull %0, ptr noundef nonnull %190, i32 noundef 4) #13
+  br label %195
 
-193:                                              ; preds = %alignStringInfoInt.exit
-  %194 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
-  call void @llvm.assume(i1 %194)
-  %195 = load i32, ptr %3, align 8
-  %196 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.36, i32 noundef %195) #13
+191:                                              ; preds = %alignStringInfoInt.exit
+  %192 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  call void @llvm.assume(i1 %192)
+  %193 = load i32, ptr %3, align 8
+  %194 = call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.36, i32 noundef %193) #13
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 462, ptr noundef nonnull @__func__.flattenJsonPathParseItem) #13
   unreachable
 
 .critedge156:                                     ; preds = %.critedge154, %153
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #13
-  br label %197
+  br label %195
 
-197:                                              ; preds = %120, %.critedge156, %.critedge152, %.critedge, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %147, %140, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %190, %84, %79, %74, %alignStringInfoInt.exit, %alignStringInfoInt.exit
-  %198 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %199 = load ptr, ptr %198, align 8
-  %.not147 = icmp eq ptr %199, null
-  br i1 %.not147, label %208, label %200
+195:                                              ; preds = %120, %.critedge156, %.critedge152, %.critedge, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %147, %140, %alignStringInfoInt.exit, %alignStringInfoInt.exit, %188, %84, %79, %74, %alignStringInfoInt.exit, %alignStringInfoInt.exit
+  %196 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %197 = load ptr, ptr %196, align 8
+  %.not147 = icmp eq ptr %197, null
+  br i1 %.not147, label %206, label %198
 
-200:                                              ; preds = %197
-  %201 = call fastcc zeroext i1 @flattenJsonPathParseItem(ptr noundef %0, ptr noundef nonnull %12, ptr noundef %2, ptr noundef nonnull %199, i32 noundef %4, i1 noundef zeroext %5)
-  br i1 %201, label %202, label %.critedge150
+198:                                              ; preds = %195
+  %199 = call fastcc zeroext i1 @flattenJsonPathParseItem(ptr noundef %0, ptr noundef nonnull %12, ptr noundef %2, ptr noundef nonnull %197, i32 noundef %4, i1 noundef zeroext %5)
+  br i1 %199, label %200, label %.critedge150
 
-202:                                              ; preds = %200
-  %203 = load i32, ptr %12, align 4
-  %204 = sub i32 %203, %18
-  %205 = load ptr, ptr %0, align 8
-  %206 = sext i32 %72 to i64
-  %207 = getelementptr inbounds i8, ptr %205, i64 %206
-  store i32 %204, ptr %207, align 4
-  br label %208
+200:                                              ; preds = %198
+  %201 = load i32, ptr %12, align 4
+  %202 = sub i32 %201, %18
+  %203 = load ptr, ptr %0, align 8
+  %204 = sext i32 %72 to i64
+  %205 = getelementptr inbounds i8, ptr %203, i64 %204
+  store i32 %202, ptr %205, align 4
+  br label %206
 
-208:                                              ; preds = %202, %197
+206:                                              ; preds = %200, %195
   %.not148 = icmp eq ptr %1, null
-  br i1 %.not148, label %.critedge150, label %209
+  br i1 %.not148, label %.critedge150, label %207
 
-209:                                              ; preds = %208
+207:                                              ; preds = %206
   store i32 %18, ptr %1, align 4
   br label %.critedge150
 
-.critedge150:                                     ; preds = %189, %110, %208, %209, %200, %148, %150, %142, %144, %132, %92, %103
-  %.1 = phi i1 [ false, %189 ], [ false, %103 ], [ false, %92 ], [ false, %132 ], [ false, %144 ], [ false, %142 ], [ false, %150 ], [ false, %148 ], [ false, %200 ], [ true, %209 ], [ true, %208 ], [ false, %110 ]
+.critedge150:                                     ; preds = %187, %110, %206, %207, %198, %148, %150, %142, %144, %132, %92, %103
+  %.1 = phi i1 [ false, %187 ], [ false, %103 ], [ false, %92 ], [ false, %132 ], [ false, %144 ], [ false, %142 ], [ false, %150 ], [ false, %148 ], [ false, %198 ], [ true, %207 ], [ true, %206 ], [ false, %110 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #13
   ret i1 %.1
 }

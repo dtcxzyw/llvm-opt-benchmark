@@ -459,7 +459,7 @@ define internal range(i32 0, 1625948161) i32 @nlm4svc_proc_share(ptr noundef %0)
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 36
   store i32 67108864, ptr %21, align 4
-  br label %35
+  br label %34
 
 22:                                               ; preds = %16, %1
   store ptr null, ptr %2, align 8, !annotation !7
@@ -473,7 +473,7 @@ define internal range(i32 0, 1625948161) i32 @nlm4svc_proc_share(ptr noundef %0)
 26:                                               ; preds = %22
   %27 = icmp eq i32 %23, 812974080
   %28 = select i1 %27, i32 1625948160, i32 0
-  br label %35
+  br label %34
 
 29:                                               ; preds = %22
   %30 = load ptr, ptr %2, align 8
@@ -483,15 +483,14 @@ define internal range(i32 0, 1625948161) i32 @nlm4svc_proc_share(ptr noundef %0)
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 40
   call void @nlmsvc_release_lockowner(ptr noundef nonnull %33) #7
   call void @nlmsvc_release_host(ptr noundef %30) #7
-  %34 = load ptr, ptr %3, align 8
-  call void @nlm_release_file(ptr noundef %34) #7
-  br label %35
+  call void @nlm_release_file(ptr noundef %31) #7
+  br label %34
 
-35:                                               ; preds = %29, %26, %20
-  %36 = phi i32 [ %28, %26 ], [ 0, %29 ], [ 0, %20 ]
+34:                                               ; preds = %29, %26, %20
+  %35 = phi i32 [ %28, %26 ], [ 0, %29 ], [ 0, %20 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #7
-  ret i32 %36
+  ret i32 %35
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -524,7 +523,7 @@ define internal range(i32 0, 1625948161) i32 @nlm4svc_proc_unshare(ptr noundef %
 16:                                               ; preds = %1
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 36
   store i32 67108864, ptr %17, align 4
-  br label %31
+  br label %30
 
 18:                                               ; preds = %1
   store ptr null, ptr %2, align 8, !annotation !7
@@ -538,7 +537,7 @@ define internal range(i32 0, 1625948161) i32 @nlm4svc_proc_unshare(ptr noundef %
 22:                                               ; preds = %18
   %23 = icmp eq i32 %19, 812974080
   %24 = select i1 %23, i32 1625948160, i32 0
-  br label %31
+  br label %30
 
 25:                                               ; preds = %18
   %26 = load ptr, ptr %2, align 8
@@ -548,15 +547,14 @@ define internal range(i32 0, 1625948161) i32 @nlm4svc_proc_unshare(ptr noundef %
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 40
   call void @nlmsvc_release_lockowner(ptr noundef nonnull %29) #7
   call void @nlmsvc_release_host(ptr noundef %26) #7
-  %30 = load ptr, ptr %3, align 8
-  call void @nlm_release_file(ptr noundef %30) #7
-  br label %31
+  call void @nlm_release_file(ptr noundef %27) #7
+  br label %30
 
-31:                                               ; preds = %25, %22, %16
-  %32 = phi i32 [ 0, %16 ], [ %24, %22 ], [ 0, %25 ]
+30:                                               ; preds = %25, %22, %16
+  %31 = phi i32 [ 0, %16 ], [ %24, %22 ], [ 0, %25 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #7
-  ret i32 %32
+  ret i32 %31
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -653,7 +651,7 @@ define internal fastcc range(i32 0, 1625948161) i32 @__nlm4svc_proc_test(ptr nou
 10:                                               ; preds = %2
   %11 = icmp eq i32 %7, 812974080
   %12 = select i1 %11, i32 1625948160, i32 0
-  br label %24
+  br label %23
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 40
@@ -668,15 +666,14 @@ define internal fastcc range(i32 0, 1625948161) i32 @__nlm4svc_proc_test(ptr nou
   %22 = select i1 %21, i32 1625948160, i32 0
   call void @nlmsvc_put_lockowner(ptr noundef %16) #7
   call void @nlmsvc_release_host(ptr noundef %18) #7
-  %23 = load ptr, ptr %4, align 8
-  call void @nlm_release_file(ptr noundef %23) #7
-  br label %24
+  call void @nlm_release_file(ptr noundef %17) #7
+  br label %23
 
-24:                                               ; preds = %13, %10
-  %25 = phi i32 [ %12, %10 ], [ %22, %13 ]
+23:                                               ; preds = %13, %10
+  %24 = phi i32 [ %12, %10 ], [ %22, %13 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
-  ret i32 %25
+  ret i32 %24
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -850,7 +847,7 @@ define internal fastcc range(i32 0, 1625948161) i32 @__nlm4svc_proc_lock(ptr nou
 10:                                               ; preds = %2
   %11 = icmp eq i32 %7, 812974080
   %12 = select i1 %11, i32 1625948160, i32 0
-  br label %25
+  br label %24
 
 13:                                               ; preds = %2
   %14 = load ptr, ptr %4, align 8
@@ -866,15 +863,14 @@ define internal fastcc range(i32 0, 1625948161) i32 @__nlm4svc_proc_lock(ptr nou
   %23 = select i1 %22, i32 1625948160, i32 0
   call void @nlmsvc_release_lockowner(ptr noundef nonnull %16) #7
   call void @nlmsvc_release_host(ptr noundef %15) #7
-  %24 = load ptr, ptr %4, align 8
-  call void @nlm_release_file(ptr noundef %24) #7
-  br label %25
+  call void @nlm_release_file(ptr noundef %14) #7
+  br label %24
 
-25:                                               ; preds = %13, %10
-  %26 = phi i32 [ %12, %10 ], [ %23, %13 ]
+24:                                               ; preds = %13, %10
+  %25 = phi i32 [ %12, %10 ], [ %23, %13 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
-  ret i32 %26
+  ret i32 %25
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -905,7 +901,7 @@ define internal fastcc range(i32 0, 1625948161) i32 @__nlm4svc_proc_cancel(ptr n
 15:                                               ; preds = %2
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 36
   store i32 67108864, ptr %16, align 4
-  br label %35
+  br label %34
 
 17:                                               ; preds = %2
   store ptr null, ptr %3, align 8, !annotation !7
@@ -919,7 +915,7 @@ define internal fastcc range(i32 0, 1625948161) i32 @__nlm4svc_proc_cancel(ptr n
 21:                                               ; preds = %17
   %22 = icmp eq i32 %18, 812974080
   %23 = select i1 %22, i32 1625948160, i32 0
-  br label %35
+  br label %34
 
 24:                                               ; preds = %17
   %25 = load ptr, ptr %7, align 8
@@ -934,15 +930,14 @@ define internal fastcc range(i32 0, 1625948161) i32 @__nlm4svc_proc_cancel(ptr n
   call void @nlmsvc_release_lockowner(ptr noundef nonnull %31) #7
   %33 = load ptr, ptr %3, align 8
   call void @nlmsvc_release_host(ptr noundef %33) #7
-  %34 = load ptr, ptr %4, align 8
-  call void @nlm_release_file(ptr noundef %34) #7
-  br label %35
+  call void @nlm_release_file(ptr noundef %30) #7
+  br label %34
 
-35:                                               ; preds = %24, %21, %15
-  %36 = phi i32 [ 0, %15 ], [ %23, %21 ], [ 0, %24 ]
+34:                                               ; preds = %24, %21, %15
+  %35 = phi i32 [ 0, %15 ], [ %23, %21 ], [ 0, %24 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
-  ret i32 %36
+  ret i32 %35
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -973,7 +968,7 @@ define internal fastcc range(i32 0, 1625948161) i32 @__nlm4svc_proc_unlock(ptr n
 15:                                               ; preds = %2
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 36
   store i32 67108864, ptr %16, align 4
-  br label %35
+  br label %34
 
 17:                                               ; preds = %2
   store ptr null, ptr %3, align 8, !annotation !7
@@ -987,7 +982,7 @@ define internal fastcc range(i32 0, 1625948161) i32 @__nlm4svc_proc_unlock(ptr n
 21:                                               ; preds = %17
   %22 = icmp eq i32 %18, 812974080
   %23 = select i1 %22, i32 1625948160, i32 0
-  br label %35
+  br label %34
 
 24:                                               ; preds = %17
   %25 = load ptr, ptr %7, align 8
@@ -1002,15 +997,14 @@ define internal fastcc range(i32 0, 1625948161) i32 @__nlm4svc_proc_unlock(ptr n
   call void @nlmsvc_release_lockowner(ptr noundef nonnull %31) #7
   %33 = load ptr, ptr %3, align 8
   call void @nlmsvc_release_host(ptr noundef %33) #7
-  %34 = load ptr, ptr %4, align 8
-  call void @nlm_release_file(ptr noundef %34) #7
-  br label %35
+  call void @nlm_release_file(ptr noundef %30) #7
+  br label %34
 
-35:                                               ; preds = %24, %21, %15
-  %36 = phi i32 [ 0, %15 ], [ %23, %21 ], [ 0, %24 ]
+34:                                               ; preds = %24, %21, %15
+  %35 = phi i32 [ 0, %15 ], [ %23, %21 ], [ 0, %24 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
-  ret i32 %36
+  ret i32 %35
 }
 
 ; Function Attrs: null_pointer_is_valid

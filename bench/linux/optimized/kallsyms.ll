@@ -889,16 +889,15 @@ define dso_local i32 @kallsyms_on_each_match_symbol(ptr noundef readonly capture
   %42 = call i32 @__SCT__cond_resched() #11
   %43 = add i32 %12, 1
   %44 = icmp eq i32 %41, 0
-  %45 = load i32, ptr %5, align 4
-  %46 = icmp ule i32 %43, %45
-  %47 = select i1 %44, i1 %46, i1 false
-  br i1 %47, label %.preheader, label %.loopexit, !llvm.loop !17
+  %45 = icmp ule i32 %43, %10
+  %46 = and i1 %45, %44
+  br i1 %46, label %.preheader, label %.loopexit, !llvm.loop !17
 
 .loopexit:                                        ; preds = %39, %8, %3
-  %48 = phi i32 [ 0, %3 ], [ 0, %8 ], [ %41, %39 ]
+  %47 = phi i32 [ 0, %3 ], [ 0, %8 ], [ %41, %39 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #11
-  ret i32 %48
+  ret i32 %47
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

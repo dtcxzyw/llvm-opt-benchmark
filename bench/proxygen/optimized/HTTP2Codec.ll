@@ -14479,10 +14479,6 @@ cleanup.done:                                     ; preds = %cond.true, %cond.en
 
 invoke.cont20:                                    ; preds = %cleanup.done
   store i32 0, ptr %size, align 4
-  %uncompressed = getelementptr inbounds nuw i8, ptr %size, i64 4
-  store i32 0, ptr %uncompressed, align 4
-  %compressedBlock = getelementptr inbounds nuw i8, ptr %size, i64 8
-  store i32 0, ptr %compressedBlock, align 4
   %3 = load i32, ptr @_ZN8proxygen5http216kFrameHeaderSizeE, align 4
   %ingressSettings_.i = getelementptr inbounds nuw i8, ptr %this, i64 776
   %4 = load i32, ptr @_ZN8proxygen5http225kMaxFramePayloadLengthMinE, align 4
@@ -14641,29 +14637,27 @@ lpad38.body:                                      ; preds = %lpad.i, %lpad38
   br label %ehcleanup
 
 if.end54:                                         ; preds = %if.then52, %invoke.cont49
-  %27 = load i32, ptr %size, align 4
-  %conv56 = zext i32 %27 to i64
   call void @_ZN5folly10IOBufQueueD1Ev(ptr noundef nonnull align 8 dereferenceable(72) %queue) #30
-  %28 = load ptr, ptr %allHeaders, align 8
-  %tobool.not.i.i.i = icmp eq ptr %28, null
+  %27 = load ptr, ptr %allHeaders, align 8
+  %tobool.not.i.i.i = icmp eq ptr %27, null
   br i1 %tobool.not.i.i.i, label %return, label %if.then.i.i.i
 
 if.then.i.i.i:                                    ; preds = %if.end54
-  call void @_ZdlPv(ptr noundef nonnull %28) #29
+  call void @_ZdlPv(ptr noundef nonnull %27) #29
   br label %return
 
 ehcleanup:                                        ; preds = %lpad38.body, %lpad19
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %lpad38.body ], [ %25, %lpad19 ]
-  %29 = load ptr, ptr %allHeaders, align 8
-  %tobool.not.i.i.i30 = icmp eq ptr %29, null
+  %28 = load ptr, ptr %allHeaders, align 8
+  %tobool.not.i.i.i30 = icmp eq ptr %28, null
   br i1 %tobool.not.i.i.i30, label %eh.resume, label %if.then.i.i.i31
 
 if.then.i.i.i31:                                  ; preds = %ehcleanup
-  call void @_ZdlPv(ptr noundef nonnull %29) #29
+  call void @_ZdlPv(ptr noundef nonnull %28) #29
   br label %eh.resume
 
 return:                                           ; preds = %if.then.i.i.i, %if.end54, %if.then
-  %retval.0 = phi i64 [ %call2, %if.then ], [ %conv56, %if.end54 ], [ %conv56, %if.then.i.i.i ]
+  %retval.0 = phi i64 [ %call2, %if.then ], [ %conv36, %if.end54 ], [ %conv36, %if.then.i.i.i ]
   ret i64 %retval.0
 
 eh.resume:                                        ; preds = %if.then.i.i.i31, %ehcleanup, %lpad

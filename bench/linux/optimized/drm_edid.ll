@@ -2437,12 +2437,12 @@ define dso_local noundef ptr @drm_edid_read_custom(ptr noundef %0, ptr noundef r
   store i64 0, ptr %4, align 8
   %5 = call fastcc ptr @_drm_do_get_edid(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4)
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %35, label %7
+  br i1 %6, label %33, label %7
 
 7:                                                ; preds = %3
   %8 = load i64, ptr %4, align 8
   %9 = icmp eq i64 %8, 0
-  br i1 %9, label %10, label %25, !prof !8
+  br i1 %9, label %10, label %24, !prof !8
 
 10:                                               ; preds = %7
   call void asm sideeffect "476: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 476b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 476) #21, !srcloc !25
@@ -2456,47 +2456,45 @@ define dso_local noundef ptr @drm_edid_read_custom(ptr noundef %0, ptr noundef r
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 80
   %19 = load ptr, ptr %18, align 8
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %21, label %23
+  br i1 %20, label %21, label %.thread
 
 21:                                               ; preds = %10
   %22 = load ptr, ptr %17, align 8
-  br label %23
+  br label %.thread
 
-23:                                               ; preds = %21, %10
-  %24 = phi ptr [ %22, %21 ], [ %19, %10 ]
-  call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.8, ptr noundef %14, ptr noundef %24, ptr noundef nonnull @.str.9) #21
+.thread:                                          ; preds = %10, %21
+  %23 = phi ptr [ %22, %21 ], [ %19, %10 ]
+  call void (ptr, ...) @__warn_printk(ptr noundef nonnull @.str.8, ptr noundef %14, ptr noundef %23, ptr noundef nonnull @.str.9) #21
   call void asm sideeffect "477: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 477b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 477) #21, !srcloc !26
   call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str, i32 2682, i32 2313, i64 12) #21, !srcloc !27
   call void asm sideeffect "478: nop\0A\09.pushsection .discard.instr_end\0A\09.long 478b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 478) #21, !srcloc !28
   call void asm sideeffect "479: nop\0A\09.pushsection .discard.instr_end\0A\09.long 479b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 479) #21, !srcloc !29
-  %.pr = load i64, ptr %4, align 8
-  br label %25
+  br label %32
 
-25:                                               ; preds = %23, %7
-  %26 = phi i64 [ %.pr, %23 ], [ %8, %7 ]
-  %27 = icmp ult i64 %26, 128
-  br i1 %27, label %34, label %28
+24:                                               ; preds = %7
+  %25 = icmp ult i64 %8, 128
+  br i1 %25, label %32, label %26
 
-28:                                               ; preds = %25
-  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 32), align 16
-  %30 = call noalias align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %29, i32 noundef 3520, i64 noundef 16) #24
-  %31 = icmp eq ptr %30, null
-  br i1 %31, label %34, label %32
+26:                                               ; preds = %24
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @kmalloc_caches, i64 32), align 16
+  %28 = call noalias align 8 dereferenceable_or_null(16) ptr @kmalloc_trace(ptr noundef %27, i32 noundef 3520, i64 noundef 16) #24
+  %29 = icmp eq ptr %28, null
+  br i1 %29, label %32, label %30
 
-32:                                               ; preds = %28
-  %33 = getelementptr inbounds nuw i8, ptr %30, i64 8
-  store ptr %5, ptr %33, align 8
-  store i64 %26, ptr %30, align 8
-  br label %35
+30:                                               ; preds = %26
+  %31 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  store ptr %5, ptr %31, align 8
+  store i64 %8, ptr %28, align 8
+  br label %33
 
-34:                                               ; preds = %25, %28
+32:                                               ; preds = %24, %26, %.thread
   call void @kfree(ptr noundef nonnull %5) #21
-  br label %35
+  br label %33
 
-35:                                               ; preds = %32, %34, %3
-  %36 = phi ptr [ null, %3 ], [ null, %34 ], [ %30, %32 ]
+33:                                               ; preds = %30, %32, %3
+  %34 = phi ptr [ null, %3 ], [ null, %32 ], [ %28, %30 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #21
-  ret ptr %36
+  ret ptr %34
 }
 
 ; Function Attrs: null_pointer_is_valid

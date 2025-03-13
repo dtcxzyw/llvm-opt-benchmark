@@ -18311,7 +18311,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(20) ptr @_ZN4
   br i1 %12, label %13, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %2
-  %.pre = load i32, ptr %9, align 4, !tbaa !72
+  %.pre9 = load i32, ptr %9, align 4, !tbaa !72
   br label %73
 
 13:                                               ; preds = %2
@@ -18352,34 +18352,35 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(20) ptr @_ZN4
   call void @_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_10BasicBlockENS_8DenseMapIPNS_11InstructionESt3mapIllSt4lessIlESaIS1_IKllEEENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_SD_EEEEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %14, i64 noundef %21)
   %33 = load ptr, ptr %14, align 8, !tbaa !32
   %34 = getelementptr inbounds i8, ptr %33, i64 %32
+  %.pre = load ptr, ptr %34, align 8, !tbaa !783
   br label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_10BasicBlockENS_8DenseMapIPNS_11InstructionESt3mapIllSt4lessIlESaIS1_IKllEEENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_SD_EEEEELb0EE9push_backEOSK_.exit
 
 _ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_10BasicBlockENS_8DenseMapIPNS_11InstructionESt3mapIllSt4lessIlESaIS1_IKllEEENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_SD_EEEEELb0EE9push_backEOSK_.exit: ; preds = %13, %28, %29
-  %35 = phi ptr [ %.pre3.i, %13 ], [ %33, %29 ], [ %.pre.i, %28 ]
+  %35 = phi ptr [ %15, %13 ], [ %.pre, %29 ], [ %15, %28 ]
+  %36 = phi ptr [ %.pre3.i, %13 ], [ %33, %29 ], [ %.pre.i, %28 ]
   %.016.i.i.i = phi ptr [ %5, %13 ], [ %34, %29 ], [ %5, %28 ]
-  %36 = load i32, ptr %18, align 8, !tbaa !33
-  %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw %"struct.std::pair.219", ptr %35, i64 %37
-  %39 = load ptr, ptr %.016.i.i.i, align 8, !tbaa !783
-  store ptr %39, ptr %38, align 8, !tbaa !783
-  %40 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %37 = load i32, ptr %18, align 8, !tbaa !33
+  %38 = zext i32 %37 to i64
+  %39 = getelementptr inbounds nuw %"struct.std::pair.219", ptr %36, i64 %38
+  store ptr %35, ptr %39, align 8, !tbaa !783
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %41 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %40, i8 0, i64 20, i1 false)
   %42 = load ptr, ptr %41, align 8, !tbaa !785
   store ptr %42, ptr %40, align 8, !tbaa !785
   store ptr null, ptr %41, align 8, !tbaa !785
-  %43 = getelementptr inbounds nuw i8, ptr %38, i64 16
+  %43 = getelementptr inbounds nuw i8, ptr %39, i64 16
   %44 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 16
   %45 = load i32, ptr %44, align 4, !tbaa !72
   store i32 %45, ptr %43, align 4, !tbaa !72
   store i32 0, ptr %44, align 4, !tbaa !72
-  %46 = getelementptr inbounds nuw i8, ptr %38, i64 20
+  %46 = getelementptr inbounds nuw i8, ptr %39, i64 20
   %47 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 20
   %48 = load i32, ptr %46, align 4, !tbaa !72
   %49 = load i32, ptr %47, align 4, !tbaa !72
   store i32 %49, ptr %46, align 4, !tbaa !72
   store i32 %48, ptr %47, align 4, !tbaa !72
-  %50 = getelementptr inbounds nuw i8, ptr %38, i64 24
+  %50 = getelementptr inbounds nuw i8, ptr %39, i64 24
   %51 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 24
   %52 = load i32, ptr %50, align 4, !tbaa !72
   %53 = load i32, ptr %51, align 4, !tbaa !72
@@ -18438,7 +18439,7 @@ _ZN4llvm8DenseMapIPNS_11InstructionESt3mapIllSt4lessIlESaISt4pairIKllEEENS_12Den
   br label %73
 
 73:                                               ; preds = %._crit_edge, %_ZN4llvm8DenseMapIPNS_11InstructionESt3mapIllSt4lessIlESaISt4pairIKllEEENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_SA_EEED2Ev.exit
-  %74 = phi i32 [ %.pre, %._crit_edge ], [ %72, %_ZN4llvm8DenseMapIPNS_11InstructionESt3mapIllSt4lessIlESaISt4pairIKllEEENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_SA_EEED2Ev.exit ]
+  %74 = phi i32 [ %.pre9, %._crit_edge ], [ %72, %_ZN4llvm8DenseMapIPNS_11InstructionESt3mapIllSt4lessIlESaISt4pairIKllEEENS_12DenseMapInfoIS2_vEENS_6detail12DenseMapPairIS2_SA_EEED2Ev.exit ]
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %76 = zext i32 %74 to i64
   %77 = load ptr, ptr %75, align 8, !tbaa !32

@@ -17167,9 +17167,9 @@ _ZSt4copyIPiS0_ET0_T_S2_S1_.exit.i:               ; preds = %160
 
 _ZSt4copyIPiS0_ET0_T_S2_S1_.exit.i.thread:        ; preds = %160, %_ZSt4copyIPiS0_ET0_T_S2_S1_.exit.i
   %161 = phi ptr [ %.pre26.i, %_ZSt4copyIPiS0_ET0_T_S2_S1_.exit.i ], [ %155, %160 ]
-  %.pre-phi33.i57 = phi i64 [ %.pre32.i, %_ZSt4copyIPiS0_ET0_T_S2_S1_.exit.i ], [ 0, %160 ]
-  %162 = getelementptr inbounds nuw i8, ptr %.sroa.0.3, i64 %.pre-phi33.i57
-  %gepdiff = sub nsw i64 %67, %.pre-phi33.i57
+  %.pre-phi33.i56 = phi i64 [ %.pre32.i, %_ZSt4copyIPiS0_ET0_T_S2_S1_.exit.i ], [ 0, %160 ]
+  %162 = getelementptr inbounds nuw i8, ptr %.sroa.0.3, i64 %.pre-phi33.i56
+  %gepdiff = sub nsw i64 %67, %.pre-phi33.i56
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %161, ptr align 4 %162, i64 %gepdiff, i1 false)
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEENS1_IPiS6_EEET0_T_SB_SA_.exit.i
 
@@ -18504,9 +18504,9 @@ _ZSt4copyIPiS0_ET0_T_S2_S1_.exit.i:               ; preds = %147
 
 _ZSt4copyIPiS0_ET0_T_S2_S1_.exit.i.thread:        ; preds = %147, %_ZSt4copyIPiS0_ET0_T_S2_S1_.exit.i
   %148 = phi ptr [ %.pre26.i, %_ZSt4copyIPiS0_ET0_T_S2_S1_.exit.i ], [ %142, %147 ]
-  %.pre-phi33.i61 = phi i64 [ %.pre32.i, %_ZSt4copyIPiS0_ET0_T_S2_S1_.exit.i ], [ 0, %147 ]
-  %149 = getelementptr inbounds nuw i8, ptr %.sroa.0.2, i64 %.pre-phi33.i61
-  %gepdiff = sub nsw i64 %54, %.pre-phi33.i61
+  %.pre-phi33.i60 = phi i64 [ %.pre32.i, %_ZSt4copyIPiS0_ET0_T_S2_S1_.exit.i ], [ 0, %147 ]
+  %149 = getelementptr inbounds nuw i8, ptr %.sroa.0.2, i64 %.pre-phi33.i60
+  %gepdiff = sub nsw i64 %54, %.pre-phi33.i60
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %148, ptr align 4 %149, i64 %gepdiff, i1 false)
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEENS1_IPiS6_EEET0_T_SB_SA_.exit.i
 

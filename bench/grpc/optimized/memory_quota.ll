@@ -8097,14 +8097,14 @@ _ZNK9grpc_core8Activity10is_currentEv.exit:       ; preds = %2, %22
   %89 = getelementptr inbounds nuw i8, ptr %87, i64 8
   %90 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !30, !noalias !351
   %.not.i.i.i.i.i = icmp eq i8 %90, 0
-  br i1 %.not.i.i.i.i.i, label %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit.i, label %.thread
+  br i1 %.not.i.i.i.i.i, label %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit.i, label %.thread529
 
-.thread:                                          ; preds = %88
+.thread529:                                       ; preds = %88
   %91 = load i32, ptr %89, align 4, !tbaa !31, !noalias !351
   %92 = add nsw i32 %91, 1
   store i32 %92, ptr %89, align 4, !tbaa !31, !noalias !351
   %93 = getelementptr inbounds nuw i8, ptr %87, i64 8
-  br label %.thread551
+  br label %.thread534
 
 _ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit.i: ; preds = %88
   %94 = atomicrmw volatile add ptr %89, i32 1 acq_rel, align 4, !noalias !351
@@ -8117,16 +8117,16 @@ _ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit.i: ; preds = %88
   %.pre = load i8, ptr @__libc_single_threaded, align 1, !tbaa !30, !noalias !351
   %96 = icmp eq i8 %.pre, 0
   %97 = getelementptr inbounds nuw i8, ptr %.pr.pre.i, i64 8
-  br i1 %96, label %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit11.i, label %.thread551
+  br i1 %96, label %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit11.i, label %.thread534
 
-.thread551:                                       ; preds = %95, %.thread
-  %98 = phi ptr [ %93, %.thread ], [ %97, %95 ]
-  %99 = phi ptr [ %86, %.thread ], [ %.pre.i, %95 ]
-  %.pr54.i549 = phi ptr [ %87, %.thread ], [ %.pr.pre.i, %95 ]
+.thread534:                                       ; preds = %95, %.thread529
+  %98 = phi ptr [ %93, %.thread529 ], [ %97, %95 ]
+  %99 = phi ptr [ %86, %.thread529 ], [ %.pre.i, %95 ]
+  %.pr54.i532 = phi ptr [ %87, %.thread529 ], [ %.pr.pre.i, %95 ]
   %100 = load i32, ptr %98, align 4, !tbaa !31, !noalias !351
   %101 = add nsw i32 %100, 1
   store i32 %101, ptr %98, align 4, !tbaa !31, !noalias !351
-  %102 = getelementptr inbounds nuw i8, ptr %.pr54.i549, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %.pr54.i532, i64 8
   br label %107
 
 _ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit11.i: ; preds = %95
@@ -8137,17 +8137,17 @@ _ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit11.i: ; preds = %9
   br i1 %.not.i.i.i12.i, label %"_ZZN9grpc_core16BasicMemoryQuota5StartEvENK3$_0clEv.exit", label %104
 
 104:                                              ; preds = %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit11.i
-  %.pre542 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !30, !noalias !351
-  %105 = icmp eq i8 %.pre542, 0
+  %.pre524 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !30, !noalias !351
+  %105 = icmp eq i8 %.pre524, 0
   %106 = getelementptr inbounds nuw i8, ptr %.pr44.pre.i, i64 8
   br i1 %105, label %113, label %107
 
-107:                                              ; preds = %.thread551, %104
-  %108 = phi ptr [ %102, %.thread551 ], [ %106, %104 ]
-  %109 = phi ptr [ %99, %.thread551 ], [ %.pre50.i, %104 ]
-  %.pr4458.i556 = phi ptr [ %.pr54.i549, %.thread551 ], [ %.pr44.pre.i, %104 ]
-  %.pr54.i550555 = phi ptr [ %.pr54.i549, %.thread551 ], [ %.pr.pre.i, %104 ]
-  %110 = phi ptr [ %99, %.thread551 ], [ %.pre.i, %104 ]
+107:                                              ; preds = %.thread534, %104
+  %108 = phi ptr [ %102, %.thread534 ], [ %106, %104 ]
+  %109 = phi ptr [ %99, %.thread534 ], [ %.pre50.i, %104 ]
+  %.pr4458.i539 = phi ptr [ %.pr54.i532, %.thread534 ], [ %.pr44.pre.i, %104 ]
+  %.pr54.i533538 = phi ptr [ %.pr54.i532, %.thread534 ], [ %.pr.pre.i, %104 ]
+  %110 = phi ptr [ %99, %.thread534 ], [ %.pre.i, %104 ]
   %111 = load i32, ptr %108, align 4, !tbaa !31, !noalias !351
   %112 = add nsw i32 %111, 1
   store i32 %112, ptr %108, align 4, !tbaa !31, !noalias !351
@@ -8159,9 +8159,9 @@ _ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit11.i: ; preds = %9
 
 "_ZZN9grpc_core16BasicMemoryQuota5StartEvENK3$_0clEv.exit": ; preds = %85, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit.i, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit11.i, %107, %113
   %115 = phi ptr [ %.pre50.i, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit11.i ], [ %109, %107 ], [ %.pre50.i, %113 ], [ %.pre.i, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit.i ], [ %86, %85 ]
-  %116 = phi ptr [ %.pr.pre.i, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit11.i ], [ %.pr54.i550555, %107 ], [ %.pr.pre.i, %113 ], [ null, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit.i ], [ null, %85 ]
+  %116 = phi ptr [ %.pr.pre.i, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit11.i ], [ %.pr54.i533538, %107 ], [ %.pr.pre.i, %113 ], [ null, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit.i ], [ null, %85 ]
   %117 = phi ptr [ %.pre.i, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit11.i ], [ %110, %107 ], [ %.pre.i, %113 ], [ %.pre.i, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit.i ], [ %86, %85 ]
-  %118 = phi ptr [ null, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit11.i ], [ %.pr4458.i556, %107 ], [ %.pr44.pre.i, %113 ], [ null, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit.i ], [ null, %85 ]
+  %118 = phi ptr [ null, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit11.i ], [ %.pr4458.i539, %107 ], [ %.pr44.pre.i, %113 ], [ null, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit.i ], [ null, %85 ]
   store i8 0, ptr %31, align 8, !tbaa !319, !alias.scope !348, !noalias !345
   store i8 0, ptr %37, align 8, !tbaa !319, !noalias !340
   store ptr null, ptr %32, align 8, !tbaa !25, !noalias !340
@@ -8354,9 +8354,9 @@ _ZN9grpc_core4PollIiED2Ev.exit34.thread:          ; preds = %172, %_ZN9__gnu_cxx
   call void @_ZN9grpc_core14ReclaimerQueue8PollNextEv(ptr dead_on_unwind nonnull writable sret(%"class.grpc_core::Poll") align 8 %11, ptr noundef nonnull align 8 dereferenceable(16) %182)
   %183 = load i8, ptr %11, align 8, !tbaa !67, !range !39, !noalias !395, !noundef !40
   %184 = trunc nuw i8 %183 to i1
-  br i1 %184, label %"_ZN9grpc_core4RaceIJNS_3MapINS_14ReclaimerQueue11NextPromiseEZZZZNS_16BasicMemoryQuota5StartEvENK3$_0clEvENKUlvE0_clEvENKUlPKcE_clES8_EUlNS_13RefCountedPtrINS2_6HandleEEEE_EESE_SE_EEclEv.exit.thread612", label %_ZN9grpc_core4PollISt5tupleIJPKcNS_13RefCountedPtrINS_14ReclaimerQueue6HandleEEEEEED2Ev.exit38
+  br i1 %184, label %"_ZN9grpc_core4RaceIJNS_3MapINS_14ReclaimerQueue11NextPromiseEZZZZNS_16BasicMemoryQuota5StartEvENK3$_0clEvENKUlvE0_clEvENKUlPKcE_clES8_EUlNS_13RefCountedPtrINS2_6HandleEEEE_EESE_SE_EEclEv.exit.thread595", label %_ZN9grpc_core4PollISt5tupleIJPKcNS_13RefCountedPtrINS_14ReclaimerQueue6HandleEEEEEED2Ev.exit38
 
-"_ZN9grpc_core4RaceIJNS_3MapINS_14ReclaimerQueue11NextPromiseEZZZZNS_16BasicMemoryQuota5StartEvENK3$_0clEvENKUlvE0_clEvENKUlPKcE_clES8_EUlNS_13RefCountedPtrINS2_6HandleEEEE_EESE_SE_EEclEv.exit.thread612": ; preds = %.noexc61
+"_ZN9grpc_core4RaceIJNS_3MapINS_14ReclaimerQueue11NextPromiseEZZZZNS_16BasicMemoryQuota5StartEvENK3$_0clEvENKUlvE0_clEvENKUlPKcE_clES8_EUlNS_13RefCountedPtrINS2_6HandleEEEE_EESE_SE_EEclEv.exit.thread595": ; preds = %.noexc61
   %185 = load ptr, ptr %51, align 8, !tbaa !44, !noalias !395
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #39, !noalias !385
   br label %186
@@ -8365,9 +8365,9 @@ common.resume:                                    ; preds = %328, %324, %.body13
   %common.resume.op = phi { ptr, i32 } [ %457, %_ZN9grpc_core4PollISt7variantIJNS_8ContinueEN4absl12lts_202407226StatusEEEED2Ev.exit29 ], [ %.pn10.pn.i, %.body135 ], [ %.pn10.pn.i, %324 ], [ %.pn10.pn.i, %328 ]
   resume { ptr, i32 } %common.resume.op
 
-186:                                              ; preds = %"_ZN9grpc_core4RaceIJNS_3MapINS_14ReclaimerQueue11NextPromiseEZZZZNS_16BasicMemoryQuota5StartEvENK3$_0clEvENKUlvE0_clEvENKUlPKcE_clES8_EUlNS_13RefCountedPtrINS2_6HandleEEEE_EESE_SE_EEclEv.exit.thread612", %"_ZN9grpc_core4RaceIJNS_3MapINS_14ReclaimerQueue11NextPromiseEZZZZNS_16BasicMemoryQuota5StartEvENK3$_0clEvENKUlvE0_clEvENKUlPKcE_clES8_EUlNS_13RefCountedPtrINS2_6HandleEEEE_EESE_SE_EEclEv.exit.thread366", %"_ZN9grpc_core4RaceIJNS_3MapINS_14ReclaimerQueue11NextPromiseEZZZZNS_16BasicMemoryQuota5StartEvENK3$_0clEvENKUlvE0_clEvENKUlPKcE_clES8_EUlNS_13RefCountedPtrINS2_6HandleEEEE_EESE_SE_EEclEv.exit.thread"
-  %.val69.sink.in = phi ptr [ %.sroa.0261.sroa.9.0..sroa_idx, %"_ZN9grpc_core4RaceIJNS_3MapINS_14ReclaimerQueue11NextPromiseEZZZZNS_16BasicMemoryQuota5StartEvENK3$_0clEvENKUlvE0_clEvENKUlPKcE_clES8_EUlNS_13RefCountedPtrINS2_6HandleEEEE_EESE_SE_EEclEv.exit.thread612" ], [ %46, %"_ZN9grpc_core4RaceIJNS_3MapINS_14ReclaimerQueue11NextPromiseEZZZZNS_16BasicMemoryQuota5StartEvENK3$_0clEvENKUlvE0_clEvENKUlPKcE_clES8_EUlNS_13RefCountedPtrINS2_6HandleEEEE_EESE_SE_EEclEv.exit.thread366" ], [ %44, %"_ZN9grpc_core4RaceIJNS_3MapINS_14ReclaimerQueue11NextPromiseEZZZZNS_16BasicMemoryQuota5StartEvENK3$_0clEvENKUlvE0_clEvENKUlPKcE_clES8_EUlNS_13RefCountedPtrINS2_6HandleEEEE_EESE_SE_EEclEv.exit.thread" ]
-  %.sroa.9523.3.ph = phi ptr [ %185, %"_ZN9grpc_core4RaceIJNS_3MapINS_14ReclaimerQueue11NextPromiseEZZZZNS_16BasicMemoryQuota5StartEvENK3$_0clEvENKUlvE0_clEvENKUlPKcE_clES8_EUlNS_13RefCountedPtrINS2_6HandleEEEE_EESE_SE_EEclEv.exit.thread612" ], [ %181, %"_ZN9grpc_core4RaceIJNS_3MapINS_14ReclaimerQueue11NextPromiseEZZZZNS_16BasicMemoryQuota5StartEvENK3$_0clEvENKUlvE0_clEvENKUlPKcE_clES8_EUlNS_13RefCountedPtrINS2_6HandleEEEE_EESE_SE_EEclEv.exit.thread366" ], [ %177, %"_ZN9grpc_core4RaceIJNS_3MapINS_14ReclaimerQueue11NextPromiseEZZZZNS_16BasicMemoryQuota5StartEvENK3$_0clEvENKUlvE0_clEvENKUlPKcE_clES8_EUlNS_13RefCountedPtrINS2_6HandleEEEE_EESE_SE_EEclEv.exit.thread" ]
+186:                                              ; preds = %"_ZN9grpc_core4RaceIJNS_3MapINS_14ReclaimerQueue11NextPromiseEZZZZNS_16BasicMemoryQuota5StartEvENK3$_0clEvENKUlvE0_clEvENKUlPKcE_clES8_EUlNS_13RefCountedPtrINS2_6HandleEEEE_EESE_SE_EEclEv.exit.thread595", %"_ZN9grpc_core4RaceIJNS_3MapINS_14ReclaimerQueue11NextPromiseEZZZZNS_16BasicMemoryQuota5StartEvENK3$_0clEvENKUlvE0_clEvENKUlPKcE_clES8_EUlNS_13RefCountedPtrINS2_6HandleEEEE_EESE_SE_EEclEv.exit.thread366", %"_ZN9grpc_core4RaceIJNS_3MapINS_14ReclaimerQueue11NextPromiseEZZZZNS_16BasicMemoryQuota5StartEvENK3$_0clEvENKUlvE0_clEvENKUlPKcE_clES8_EUlNS_13RefCountedPtrINS2_6HandleEEEE_EESE_SE_EEclEv.exit.thread"
+  %.val69.sink.in = phi ptr [ %.sroa.0261.sroa.9.0..sroa_idx, %"_ZN9grpc_core4RaceIJNS_3MapINS_14ReclaimerQueue11NextPromiseEZZZZNS_16BasicMemoryQuota5StartEvENK3$_0clEvENKUlvE0_clEvENKUlPKcE_clES8_EUlNS_13RefCountedPtrINS2_6HandleEEEE_EESE_SE_EEclEv.exit.thread595" ], [ %46, %"_ZN9grpc_core4RaceIJNS_3MapINS_14ReclaimerQueue11NextPromiseEZZZZNS_16BasicMemoryQuota5StartEvENK3$_0clEvENKUlvE0_clEvENKUlPKcE_clES8_EUlNS_13RefCountedPtrINS2_6HandleEEEE_EESE_SE_EEclEv.exit.thread366" ], [ %44, %"_ZN9grpc_core4RaceIJNS_3MapINS_14ReclaimerQueue11NextPromiseEZZZZNS_16BasicMemoryQuota5StartEvENK3$_0clEvENKUlvE0_clEvENKUlPKcE_clES8_EUlNS_13RefCountedPtrINS2_6HandleEEEE_EESE_SE_EEclEv.exit.thread" ]
+  %.sroa.9505.4.ph = phi ptr [ %185, %"_ZN9grpc_core4RaceIJNS_3MapINS_14ReclaimerQueue11NextPromiseEZZZZNS_16BasicMemoryQuota5StartEvENK3$_0clEvENKUlvE0_clEvENKUlPKcE_clES8_EUlNS_13RefCountedPtrINS2_6HandleEEEE_EESE_SE_EEclEv.exit.thread595" ], [ %181, %"_ZN9grpc_core4RaceIJNS_3MapINS_14ReclaimerQueue11NextPromiseEZZZZNS_16BasicMemoryQuota5StartEvENK3$_0clEvENKUlvE0_clEvENKUlPKcE_clES8_EUlNS_13RefCountedPtrINS2_6HandleEEEE_EESE_SE_EEclEv.exit.thread366" ], [ %177, %"_ZN9grpc_core4RaceIJNS_3MapINS_14ReclaimerQueue11NextPromiseEZZZZNS_16BasicMemoryQuota5StartEvENK3$_0clEvENKUlvE0_clEvENKUlPKcE_clES8_EUlNS_13RefCountedPtrINS2_6HandleEEEE_EESE_SE_EEclEv.exit.thread" ]
   %.val69.sink = load ptr, ptr %.val69.sink.in, align 8, !tbaa !273
   %187 = ptrtoint ptr %.val69.sink to i64
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
@@ -8512,7 +8512,7 @@ _ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit.i131: ; preds = %
   store ptr %.sroa.0.0.copyload.i.i.i.i.i.i, ptr %56, align 8, !noalias !399
   store i16 %.sroa.2.0.copyload.i.i.i.i.i.i, ptr %57, align 8, !noalias !399
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3), !noalias !399
-  %238 = getelementptr inbounds nuw i8, ptr %.sroa.9523.3.ph, i64 16
+  %238 = getelementptr inbounds nuw i8, ptr %.sroa.9505.4.ph, i64 16
   %239 = atomicrmw xchg ptr %238, i64 0 acq_rel, align 8, !noalias !399
   %.not.i.i133 = icmp eq i64 %239, 0
   br i1 %.not.i.i133, label %255, label %240
@@ -8651,20 +8651,20 @@ _ZNSt12__shared_ptrIN9grpc_core16BasicMemoryQuotaELN9__gnu_cxx12_Lock_policyE2EE
   br label %_ZNSt12__shared_ptrIN9grpc_core16BasicMemoryQuotaELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit22.i
 
 _ZNSt12__shared_ptrIN9grpc_core16BasicMemoryQuotaELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit22.i: ; preds = %294, %291, %_ZNSt12__shared_ptrIN9grpc_core16BasicMemoryQuotaELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit.i
-  %.not.i23.i = icmp eq ptr %.sroa.9523.3.ph, null
+  %.not.i23.i = icmp eq ptr %.sroa.9505.4.ph, null
   br i1 %.not.i23.i, label %_ZN9grpc_core16BasicMemoryQuota19WaitForSweepPromiseD2Ev.exit, label %296
 
 296:                                              ; preds = %_ZNSt12__shared_ptrIN9grpc_core16BasicMemoryQuotaELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit22.i
-  %297 = getelementptr inbounds nuw i8, ptr %.sroa.9523.3.ph, i64 8
+  %297 = getelementptr inbounds nuw i8, ptr %.sroa.9505.4.ph, i64 8
   %298 = atomicrmw sub ptr %297, i64 1 acq_rel, align 8, !noalias !399
   %299 = icmp eq i64 %298, 1
   br i1 %299, label %300, label %_ZN9grpc_core16BasicMemoryQuota19WaitForSweepPromiseD2Ev.exit, !prof !32
 
 300:                                              ; preds = %296
-  %301 = load ptr, ptr %.sroa.9523.3.ph, align 8, !tbaa !23, !noalias !399
+  %301 = load ptr, ptr %.sroa.9505.4.ph, align 8, !tbaa !23, !noalias !399
   %302 = getelementptr inbounds nuw i8, ptr %301, i64 16
   %303 = load ptr, ptr %302, align 8, !noalias !399
-  call void %303(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.9523.3.ph) #39, !noalias !399
+  call void %303(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.9505.4.ph) #39, !noalias !399
   br label %_ZN9grpc_core16BasicMemoryQuota19WaitForSweepPromiseD2Ev.exit
 
 304:                                              ; preds = %230, %229
@@ -8696,20 +8696,20 @@ _ZN9grpc_core5WakerD2Ev.exit24.i:                 ; preds = %.body.i, %304
 
 314:                                              ; preds = %_ZN9grpc_core5WakerD2Ev.exit24.i, %213
   %.pn10.pn.i = phi { ptr, i32 } [ %.pn10.i, %_ZN9grpc_core5WakerD2Ev.exit24.i ], [ %.pn.i134, %213 ]
-  %.not.i25.i = icmp eq ptr %.sroa.9523.3.ph, null
+  %.not.i25.i = icmp eq ptr %.sroa.9505.4.ph, null
   br i1 %.not.i25.i, label %.body135, label %315
 
 315:                                              ; preds = %314
-  %316 = getelementptr inbounds nuw i8, ptr %.sroa.9523.3.ph, i64 8
+  %316 = getelementptr inbounds nuw i8, ptr %.sroa.9505.4.ph, i64 8
   %317 = atomicrmw sub ptr %316, i64 1 acq_rel, align 8, !noalias !399
   %318 = icmp eq i64 %317, 1
   br i1 %318, label %319, label %.body135, !prof !32
 
 319:                                              ; preds = %315
-  %320 = load ptr, ptr %.sroa.9523.3.ph, align 8, !tbaa !23, !noalias !399
+  %320 = load ptr, ptr %.sroa.9505.4.ph, align 8, !tbaa !23, !noalias !399
   %321 = getelementptr inbounds nuw i8, ptr %320, i64 16
   %322 = load ptr, ptr %321, align 8, !noalias !399
-  call void %322(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.9523.3.ph) #39, !noalias !399
+  call void %322(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.9505.4.ph) #39, !noalias !399
   br label %.body135
 
 .body135:                                         ; preds = %314, %315, %319
@@ -8873,7 +8873,7 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i166: ; preds = %387
   store i8 3, ptr %43, align 8, !tbaa !319, !noalias !352
   br label %_ZNSt8__detail9__variant16_Variant_storageILb0EJN9grpc_core8ContinueEN4absl12lts_202407226StatusEEED2Ev.exit195
 
-_ZNSt8__detail9__variant16_Variant_storageILb0EJN9grpc_core8ContinueEN4absl12lts_202407226StatusEEED2Ev.exit195: ; preds = %119, %391
+_ZNSt8__detail9__variant16_Variant_storageILb0EJN9grpc_core8ContinueEN4absl12lts_202407226StatusEEED2Ev.exit195: ; preds = %391, %119
   store i8 1, ptr %17, align 8, !tbaa !405, !noalias !407
   store i8 0, ptr %63, align 8, !tbaa !408, !noalias !407
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %18) #39, !noalias !340
@@ -8915,14 +8915,14 @@ _ZSt17holds_alternativeIN9grpc_core8ContinueEJS1_N4absl12lts_202407226StatusEEEb
   %404 = getelementptr inbounds nuw i8, ptr %402, i64 8
   %405 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !30, !noalias !414
   %.not.i.i.i.i.i198 = icmp eq i8 %405, 0
-  br i1 %.not.i.i.i.i.i198, label %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit.i209, label %.thread763
+  br i1 %.not.i.i.i.i.i198, label %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit.i209, label %.thread746
 
-.thread763:                                       ; preds = %403
+.thread746:                                       ; preds = %403
   %406 = load i32, ptr %404, align 4, !tbaa !31, !noalias !414
   %407 = add nsw i32 %406, 1
   store i32 %407, ptr %404, align 4, !tbaa !31, !noalias !414
   %408 = getelementptr inbounds nuw i8, ptr %402, i64 8
-  br label %.thread768
+  br label %.thread751
 
 _ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit.i209: ; preds = %403
   %409 = atomicrmw volatile add ptr %404, i32 1 acq_rel, align 4, !noalias !414
@@ -8932,19 +8932,19 @@ _ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit.i209: ; preds = %
   br i1 %.not.i.i.i9.i212, label %432, label %410
 
 410:                                              ; preds = %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit.i209
-  %.pre543 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !30, !noalias !414
-  %411 = icmp eq i8 %.pre543, 0
+  %.pre525 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !30, !noalias !414
+  %411 = icmp eq i8 %.pre525, 0
   %412 = getelementptr inbounds nuw i8, ptr %.pr.pre.i210, i64 8
-  br i1 %411, label %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit11.i205, label %.thread768
+  br i1 %411, label %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit11.i205, label %.thread751
 
-.thread768:                                       ; preds = %410, %.thread763
-  %413 = phi ptr [ %408, %.thread763 ], [ %412, %410 ]
-  %414 = phi ptr [ %401, %.thread763 ], [ %.pre.i211, %410 ]
-  %.pr54.i200766 = phi ptr [ %402, %.thread763 ], [ %.pr.pre.i210, %410 ]
+.thread751:                                       ; preds = %410, %.thread746
+  %413 = phi ptr [ %408, %.thread746 ], [ %412, %410 ]
+  %414 = phi ptr [ %401, %.thread746 ], [ %.pre.i211, %410 ]
+  %.pr54.i200749 = phi ptr [ %402, %.thread746 ], [ %.pr.pre.i210, %410 ]
   %415 = load i32, ptr %413, align 4, !tbaa !31, !noalias !414
   %416 = add nsw i32 %415, 1
   store i32 %416, ptr %413, align 4, !tbaa !31, !noalias !414
-  %417 = getelementptr inbounds nuw i8, ptr %.pr54.i200766, i64 8
+  %417 = getelementptr inbounds nuw i8, ptr %.pr54.i200749, i64 8
   br label %422
 
 _ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit11.i205: ; preds = %410
@@ -8955,17 +8955,17 @@ _ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit11.i205: ; preds =
   br i1 %.not.i.i.i12.i208, label %432, label %419
 
 419:                                              ; preds = %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit11.i205
-  %.pre544 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !30, !noalias !414
-  %420 = icmp eq i8 %.pre544, 0
+  %.pre526 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !30, !noalias !414
+  %420 = icmp eq i8 %.pre526, 0
   %421 = getelementptr inbounds nuw i8, ptr %.pr44.pre.i206, i64 8
   br i1 %420, label %428, label %422
 
-422:                                              ; preds = %.thread768, %419
-  %423 = phi ptr [ %417, %.thread768 ], [ %421, %419 ]
-  %424 = phi ptr [ %414, %.thread768 ], [ %.pre50.i207, %419 ]
-  %.pr4458.i203773 = phi ptr [ %.pr54.i200766, %.thread768 ], [ %.pr44.pre.i206, %419 ]
-  %.pr54.i200767772 = phi ptr [ %.pr54.i200766, %.thread768 ], [ %.pr.pre.i210, %419 ]
-  %425 = phi ptr [ %414, %.thread768 ], [ %.pre.i211, %419 ]
+422:                                              ; preds = %.thread751, %419
+  %423 = phi ptr [ %417, %.thread751 ], [ %421, %419 ]
+  %424 = phi ptr [ %414, %.thread751 ], [ %.pre50.i207, %419 ]
+  %.pr4458.i203756 = phi ptr [ %.pr54.i200749, %.thread751 ], [ %.pr44.pre.i206, %419 ]
+  %.pr54.i200750755 = phi ptr [ %.pr54.i200749, %.thread751 ], [ %.pr.pre.i210, %419 ]
+  %425 = phi ptr [ %414, %.thread751 ], [ %.pre.i211, %419 ]
   %426 = load i32, ptr %423, align 4, !tbaa !31, !noalias !414
   %427 = add nsw i32 %426, 1
   store i32 %427, ptr %423, align 4, !tbaa !31, !noalias !414
@@ -8988,9 +8988,9 @@ _ZSt17holds_alternativeIN9grpc_core8ContinueEJS1_N4absl12lts_202407226StatusEEEb
 
 432:                                              ; preds = %400, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit.i209, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit11.i205, %422, %428
   %433 = phi ptr [ %.pre50.i207, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit11.i205 ], [ %424, %422 ], [ %.pre50.i207, %428 ], [ %.pre.i211, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit.i209 ], [ %401, %400 ]
-  %434 = phi ptr [ %.pr.pre.i210, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit11.i205 ], [ %.pr54.i200767772, %422 ], [ %.pr.pre.i210, %428 ], [ null, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit.i209 ], [ null, %400 ]
+  %434 = phi ptr [ %.pr.pre.i210, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit11.i205 ], [ %.pr54.i200750755, %422 ], [ %.pr.pre.i210, %428 ], [ null, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit.i209 ], [ null, %400 ]
   %435 = phi ptr [ %.pre.i211, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit11.i205 ], [ %425, %422 ], [ %.pre.i211, %428 ], [ %.pre.i211, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit.i209 ], [ %401, %400 ]
-  %436 = phi ptr [ null, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit11.i205 ], [ %.pr4458.i203773, %422 ], [ %.pr44.pre.i206, %428 ], [ null, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit.i209 ], [ null, %400 ]
+  %436 = phi ptr [ null, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit11.i205 ], [ %.pr4458.i203756, %422 ], [ %.pr44.pre.i206, %428 ], [ null, %_ZNSt10shared_ptrIN9grpc_core16BasicMemoryQuotaEEC2ERKS2_.exit.i209 ], [ null, %400 ]
   store i8 0, ptr %66, align 8, !tbaa !319, !alias.scope !414
   store i8 0, ptr %72, align 8, !tbaa !319
   store ptr null, ptr %67, align 8, !tbaa !25
@@ -9016,8 +9016,8 @@ _ZSt17holds_alternativeIN9grpc_core8ContinueEJS1_N4absl12lts_202407226StatusEEEb
   store ptr null, ptr %76, align 8, !tbaa !3, !noalias !407
   call fastcc void @"_ZN9grpc_core14promise_detail3SeqIZZNS_16BasicMemoryQuota5StartEvENK3$_0clEvEUlvE_JZZNS2_5StartEvENKS3_clEvEUlvE0_ZZNS2_5StartEvENKS3_clEvEUlSt5tupleIJPKcNS_13RefCountedPtrINS_14ReclaimerQueue6HandleEEEEEE_ZZNS2_5StartEvENKS3_clEvEUlvE1_EED2Ev"(ptr noundef nonnull readonly align 8 dereferenceable(72) %19) #39, !noalias !407
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %19) #39, !noalias !340
-  %.pre545 = load i8, ptr %65, align 8, !tbaa !408, !noalias !407
-  switch i8 %.pre545, label %437 [
+  %.pre527 = load i8, ptr %65, align 8, !tbaa !408, !noalias !407
+  switch i8 %.pre527, label %437 [
     i8 -1, label %445
     i8 0, label %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN9grpc_core8ContinueEN4absl12lts_202407226StatusEEE8_M_resetEvEUlOT_E_JRSt7variantIJS4_S7_EEEEDcOT0_DpOT1_.exit.i.i216
   ], !prof !420
@@ -9046,8 +9046,8 @@ _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN9grpc_core8Con
 
 445:                                              ; preds = %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJN9grpc_core8ContinueEN4absl12lts_202407226StatusEEE8_M_resetEvEUlOT_E_JRSt7variantIJS4_S7_EEEEDcOT0_DpOT1_.exit.i.i216, %432
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #39, !noalias !340
-  %.pre546 = load i8, ptr %17, align 8, !tbaa !405, !range !39, !noalias !407
-  %446 = trunc nuw i8 %.pre546 to i1
+  %.pre528 = load i8, ptr %17, align 8, !tbaa !405, !range !39, !noalias !407
+  %446 = trunc nuw i8 %.pre528 to i1
   br i1 %446, label %447, label %_ZN9grpc_core4PollISt7variantIJNS_8ContinueEN4absl12lts_202407226StatusEEEED2Ev.exit28
 
 447:                                              ; preds = %445

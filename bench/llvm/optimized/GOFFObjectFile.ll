@@ -3313,7 +3313,7 @@ define dso_local void @_ZNK4llvm6object14GOFFObjectFile15moveSectionNextERNS0_11
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZNK4llvm6object14GOFFObjectFile14getSectionNameENS0_11DataRefImplE(ptr dead_on_unwind noalias writable sret(%"class.llvm::Expected.15") align 8 %0, ptr noundef nonnull align 8 dereferenceable(4256) %1, i64 %2) unnamed_addr #0 align 2 {
-_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit:
+_ZN4llvm8ExpectedINS_9StringRefEED2Ev.exit.i.i:
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 2168
   %4 = and i64 %2, 4294967295
   %5 = load ptr, ptr %3, align 8, !tbaa !15

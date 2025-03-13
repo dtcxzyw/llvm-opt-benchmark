@@ -30109,9 +30109,8 @@ define hidden { i64, ptr } @"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u
   %25 = add i64 %.sroa.0.0.sroa.speculated.i.i6.i, %11
   store i64 %25, ptr %5, align 8, !alias.scope !6885, !noalias !6888
   %26 = add i64 %.sroa.0.0.sroa.speculated.i.i6.i, %.sroa.01.0
-  %27 = load i64, ptr %18, align 8, !noundef !16
-  %28 = icmp ugt i64 %27, %.sroa.0.0.sroa.speculated.i.i6.i
-  br i1 %28, label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h65a9871e0b29295dE.exit.thread", label %10
+  %27 = icmp ult i64 %20, %19
+  br i1 %27, label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h65a9871e0b29295dE.exit.thread", label %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn uwtable

@@ -34372,8 +34372,8 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEENS1_IPiS6_EEET0_T
 
 _ZNSt6vectorIiSaIiEEaSERKS1_.exit:                ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEENS1_IPiS6_EEET0_T_SB_SA_.exit.i, %_ZNSt6vectorIiSaIiEED2Ev.exit
   %.sroa.0.0 = phi ptr [ %.sroa.0.2, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEENS1_IPiS6_EEET0_T_SB_SA_.exit.i ], [ %.sroa.0814.0, %_ZNSt6vectorIiSaIiEED2Ev.exit ]
-  %.sroa.13.0 = phi ptr [ %153, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEENS1_IPiS6_EEET0_T_SB_SA_.exit.i ], [ %.sroa.10.0, %_ZNSt6vectorIiSaIiEED2Ev.exit ]
-  %154 = ptrtoint ptr %.sroa.13.0 to i64
+  %.sroa.12.0 = phi ptr [ %153, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEENS1_IPiS6_EEET0_T_SB_SA_.exit.i ], [ %.sroa.10.0, %_ZNSt6vectorIiSaIiEED2Ev.exit ]
+  %154 = ptrtoint ptr %.sroa.12.0 to i64
   %155 = ptrtoint ptr %.sroa.0.0 to i64
   %156 = sub i64 %154, %155
   %157 = lshr exact i64 %156, 2

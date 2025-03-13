@@ -1811,7 +1811,6 @@ define internal fastcc i32 @png_image_read_init(ptr noundef nonnull %0) unnamed_
   br i1 %.not.i.i, label %png_create_read_struct.exit.thread, label %9
 
 png_create_read_struct.exit.thread:               ; preds = %6
-  store ptr null, ptr %2, align 8
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %0, i8 0, i64 104, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 1, ptr %8, align 8

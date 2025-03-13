@@ -2445,7 +2445,8 @@ is_opclause.exit:                                 ; preds = %.lr.ph83, %is_opcla
 
 .lr.ph:                                           ; preds = %55
   %59 = sext i32 %57 to i64
-  br label %60
+  %60 = load i32, ptr %10, align 4
+  br label %61
 
 ._crit_edge:                                      ; preds = %116, %55
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #13
@@ -2455,75 +2456,74 @@ is_opclause.exit:                                 ; preds = %.lr.ph83, %is_opcla
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %6) #13
   br label %.loopexit
 
-60:                                               ; preds = %.lr.ph, %116
+61:                                               ; preds = %.lr.ph, %116
   %.023330 = phi i32 [ 0, %.lr.ph ], [ %117, %116 ]
-  %61 = sext i32 %.023330 to i64
-  %62 = getelementptr inbounds [0 x %struct.MCVItem], ptr %32, i64 0, i64 %61
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 16
-  %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds i8, ptr %64, i64 %59
-  %66 = load i8, ptr %65, align 1, !range !9, !noundef !10
-  %67 = trunc nuw i8 %66 to i1
-  br i1 %67, label %73, label %68
+  %62 = sext i32 %.023330 to i64
+  %63 = getelementptr inbounds [0 x %struct.MCVItem], ptr %32, i64 0, i64 %62
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 16
+  %65 = load ptr, ptr %64, align 8
+  %66 = getelementptr inbounds i8, ptr %65, i64 %59
+  %67 = load i8, ptr %66, align 1, !range !9, !noundef !10
+  %68 = trunc nuw i8 %67 to i1
+  br i1 %68, label %74, label %69
 
-68:                                               ; preds = %60
-  %69 = load ptr, ptr %8, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 32
-  %71 = load i8, ptr %70, align 8, !range !9, !noundef !10
-  %72 = trunc nuw i8 %71 to i1
-  br i1 %72, label %73, label %80
+69:                                               ; preds = %61
+  %70 = load ptr, ptr %8, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 32
+  %72 = load i8, ptr %71, align 8, !range !9, !noundef !10
+  %73 = trunc nuw i8 %72 to i1
+  br i1 %73, label %74, label %81
 
-73:                                               ; preds = %68, %60
-  br i1 %4, label %74, label %77
+74:                                               ; preds = %69, %61
+  br i1 %4, label %75, label %78
 
-74:                                               ; preds = %73
-  %75 = getelementptr inbounds i8, ptr %25, i64 %61
-  %76 = load i8, ptr %75, align 1, !range !9, !noundef !10
-  br label %77
+75:                                               ; preds = %74
+  %76 = getelementptr inbounds i8, ptr %25, i64 %62
+  %77 = load i8, ptr %76, align 1, !range !9, !noundef !10
+  br label %78
 
-77:                                               ; preds = %73, %74
-  %78 = phi i8 [ %76, %74 ], [ 0, %73 ]
-  %79 = getelementptr inbounds i8, ptr %25, i64 %61
-  store i8 %78, ptr %79, align 1
+78:                                               ; preds = %74, %75
+  %79 = phi i8 [ %77, %75 ], [ 0, %74 ]
+  %80 = getelementptr inbounds i8, ptr %25, i64 %62
+  store i8 %79, ptr %80, align 1
   br label %116
 
-80:                                               ; preds = %68
-  %81 = getelementptr inbounds i8, ptr %25, i64 %61
-  %82 = load i8, ptr %81, align 1, !range !9, !noundef !10
-  %83 = trunc nuw i8 %82 to i1
-  %84 = xor i1 %4, %83
-  br i1 %84, label %85, label %116
+81:                                               ; preds = %69
+  %82 = getelementptr inbounds i8, ptr %25, i64 %62
+  %83 = load i8, ptr %82, align 1, !range !9, !noundef !10
+  %84 = trunc nuw i8 %83 to i1
+  %85 = xor i1 %4, %84
+  br i1 %85, label %86, label %116
 
-85:                                               ; preds = %80
-  %86 = load i8, ptr %9, align 1, !range !9, !noundef !10
-  %87 = trunc nuw i8 %86 to i1
-  %88 = load i32, ptr %10, align 4
-  br i1 %87, label %89, label %97
+86:                                               ; preds = %81
+  %87 = load i8, ptr %9, align 1, !range !9, !noundef !10
+  %88 = trunc nuw i8 %87 to i1
+  br i1 %88, label %89, label %97
 
-89:                                               ; preds = %85
-  %90 = getelementptr inbounds nuw i8, ptr %62, i64 24
+89:                                               ; preds = %86
+  %90 = getelementptr inbounds nuw i8, ptr %63, i64 24
   %91 = load ptr, ptr %90, align 8
   %92 = getelementptr inbounds i64, ptr %91, i64 %59
   %93 = load i64, ptr %92, align 8
-  %94 = getelementptr inbounds nuw i8, ptr %69, i64 24
+  %94 = getelementptr inbounds nuw i8, ptr %70, i64 24
   %95 = load i64, ptr %94, align 8
-  %96 = call i64 @FunctionCall2Coll(ptr noundef nonnull %6, i32 noundef %88, i64 noundef %93, i64 noundef %95) #13
+  %96 = call i64 @FunctionCall2Coll(ptr noundef nonnull %6, i32 noundef %60, i64 noundef %93, i64 noundef %95) #13
   br label %105
 
-97:                                               ; preds = %85
-  %98 = getelementptr inbounds nuw i8, ptr %69, i64 24
+97:                                               ; preds = %86
+  %98 = getelementptr inbounds nuw i8, ptr %70, i64 24
   %99 = load i64, ptr %98, align 8
-  %100 = getelementptr inbounds nuw i8, ptr %62, i64 24
+  %100 = getelementptr inbounds nuw i8, ptr %63, i64 24
   %101 = load ptr, ptr %100, align 8
   %102 = getelementptr inbounds i64, ptr %101, i64 %59
   %103 = load i64, ptr %102, align 8
-  %104 = call i64 @FunctionCall2Coll(ptr noundef nonnull %6, i32 noundef %88, i64 noundef %99, i64 noundef %103) #13
+  %104 = call i64 @FunctionCall2Coll(ptr noundef nonnull %6, i32 noundef %60, i64 noundef %99, i64 noundef %103) #13
   br label %105
 
 105:                                              ; preds = %97, %89
   %.0234.in.in = phi i64 [ %96, %89 ], [ %104, %97 ]
   %.0234.in = icmp ne i64 %.0234.in.in, 0
-  %106 = getelementptr inbounds i8, ptr %25, i64 %61
+  %106 = getelementptr inbounds i8, ptr %25, i64 %62
   %107 = load i8, ptr %106, align 1, !range !9, !noundef !10
   %108 = trunc nuw i8 %107 to i1
   br i1 %4, label %109, label %111
@@ -2538,16 +2538,16 @@ is_opclause.exit:                                 ; preds = %.lr.ph83, %is_opcla
 
 113:                                              ; preds = %111, %109
   %.in247 = phi i1 [ %110, %109 ], [ %112, %111 ]
-  %114 = getelementptr inbounds i8, ptr %25, i64 %61
+  %114 = getelementptr inbounds i8, ptr %25, i64 %62
   %115 = zext i1 %.in247 to i8
   store i8 %115, ptr %114, align 1
   br label %116
 
-116:                                              ; preds = %80, %113, %77
+116:                                              ; preds = %81, %113, %78
   %117 = add nuw i32 %.023330, 1
   %118 = load i32, ptr %22, align 8
   %119 = icmp ult i32 %117, %118
-  br i1 %119, label %60, label %._crit_edge, !llvm.loop !39
+  br i1 %119, label %61, label %._crit_edge, !llvm.loop !39
 
 is_opclause.exit.thread:                          ; preds = %40, %is_opclause.exit
   %.0231713 = phi ptr [ %.02316, %is_opclause.exit ], [ null, %40 ]
@@ -2632,7 +2632,8 @@ is_opclause.exit.thread:                          ; preds = %40, %is_opclause.ex
 .lr.ph44:                                         ; preds = %155
   %159 = getelementptr inbounds nuw i8, ptr %.0231713, i64 20
   %160 = sext i32 %157 to i64
-  br label %161
+  %161 = load i32, ptr %15, align 4
+  br label %162
 
 ._crit_edge45:                                    ; preds = %241, %155
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #13
@@ -2648,103 +2649,102 @@ is_opclause.exit.thread:                          ; preds = %40, %is_opclause.ex
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11) #13
   br label %.loopexit
 
-161:                                              ; preds = %.lr.ph44, %241
+162:                                              ; preds = %.lr.ph44, %241
   %.023542 = phi i32 [ 0, %.lr.ph44 ], [ %242, %241 ]
-  %162 = load i8, ptr %159, align 4, !range !9, !noundef !10
-  %163 = xor i8 %162, 1
-  %164 = sext i32 %.023542 to i64
-  %165 = getelementptr inbounds [0 x %struct.MCVItem], ptr %32, i64 0, i64 %164
-  %166 = getelementptr inbounds nuw i8, ptr %165, i64 16
-  %167 = load ptr, ptr %166, align 8
-  %168 = getelementptr inbounds i8, ptr %167, i64 %160
-  %169 = load i8, ptr %168, align 1, !range !9, !noundef !10
-  %170 = trunc nuw i8 %169 to i1
-  br i1 %170, label %176, label %171
+  %163 = load i8, ptr %159, align 4, !range !9, !noundef !10
+  %164 = xor i8 %163, 1
+  %165 = sext i32 %.023542 to i64
+  %166 = getelementptr inbounds [0 x %struct.MCVItem], ptr %32, i64 0, i64 %165
+  %167 = getelementptr inbounds nuw i8, ptr %166, i64 16
+  %168 = load ptr, ptr %167, align 8
+  %169 = getelementptr inbounds i8, ptr %168, i64 %160
+  %170 = load i8, ptr %169, align 1, !range !9, !noundef !10
+  %171 = trunc nuw i8 %170 to i1
+  br i1 %171, label %177, label %172
 
-171:                                              ; preds = %161
-  %172 = load ptr, ptr %13, align 8
-  %173 = getelementptr inbounds nuw i8, ptr %172, i64 32
-  %174 = load i8, ptr %173, align 8, !range !9, !noundef !10
-  %175 = trunc nuw i8 %174 to i1
-  br i1 %175, label %176, label %183
+172:                                              ; preds = %162
+  %173 = load ptr, ptr %13, align 8
+  %174 = getelementptr inbounds nuw i8, ptr %173, i64 32
+  %175 = load i8, ptr %174, align 8, !range !9, !noundef !10
+  %176 = trunc nuw i8 %175 to i1
+  br i1 %176, label %177, label %184
 
-176:                                              ; preds = %171, %161
-  br i1 %4, label %177, label %180
+177:                                              ; preds = %172, %162
+  br i1 %4, label %178, label %181
 
-177:                                              ; preds = %176
-  %178 = getelementptr inbounds i8, ptr %25, i64 %164
-  %179 = load i8, ptr %178, align 1, !range !9, !noundef !10
-  br label %180
+178:                                              ; preds = %177
+  %179 = getelementptr inbounds i8, ptr %25, i64 %165
+  %180 = load i8, ptr %179, align 1, !range !9, !noundef !10
+  br label %181
 
-180:                                              ; preds = %176, %177
-  %181 = phi i8 [ %179, %177 ], [ 0, %176 ]
-  %182 = getelementptr inbounds i8, ptr %25, i64 %164
-  store i8 %181, ptr %182, align 1
+181:                                              ; preds = %177, %178
+  %182 = phi i8 [ %180, %178 ], [ 0, %177 ]
+  %183 = getelementptr inbounds i8, ptr %25, i64 %165
+  store i8 %182, ptr %183, align 1
   br label %241
 
-183:                                              ; preds = %171
-  %184 = getelementptr inbounds i8, ptr %25, i64 %164
-  %185 = load i8, ptr %184, align 1, !range !9, !noundef !10
-  %186 = trunc nuw i8 %185 to i1
-  %187 = xor i1 %4, %186
-  br i1 %187, label %188, label %241
+184:                                              ; preds = %172
+  %185 = getelementptr inbounds i8, ptr %25, i64 %165
+  %186 = load i8, ptr %185, align 1, !range !9, !noundef !10
+  %187 = trunc nuw i8 %186 to i1
+  %188 = xor i1 %4, %187
+  br i1 %188, label %189, label %241
 
-188:                                              ; preds = %183
-  %189 = load i32, ptr %19, align 4
-  %190 = icmp sgt i32 %189, 0
-  br i1 %190, label %.lr.ph37, label %.thread15
+189:                                              ; preds = %184
+  %190 = load i32, ptr %19, align 4
+  %191 = icmp sgt i32 %190, 0
+  br i1 %191, label %.lr.ph37, label %.thread15
 
-.lr.ph37:                                         ; preds = %188
-  %191 = getelementptr inbounds nuw i8, ptr %165, i64 24
-  br label %192
+.lr.ph37:                                         ; preds = %189
+  %192 = getelementptr inbounds nuw i8, ptr %166, i64 24
+  br label %193
 
-192:                                              ; preds = %.lr.ph37, %226
-  %193 = phi i32 [ %189, %.lr.ph37 ], [ %227, %226 ]
-  %194 = phi i8 [ %162, %.lr.ph37 ], [ %228, %226 ]
+193:                                              ; preds = %.lr.ph37, %226
+  %194 = phi i32 [ %190, %.lr.ph37 ], [ %227, %226 ]
+  %195 = phi i8 [ %163, %.lr.ph37 ], [ %228, %226 ]
   %indvars.iv = phi i64 [ 0, %.lr.ph37 ], [ %indvars.iv.next, %226 ]
-  %.023834 = phi i8 [ %163, %.lr.ph37 ], [ %.2, %226 ]
-  %195 = load ptr, ptr %20, align 8
-  %196 = getelementptr inbounds nuw i64, ptr %195, i64 %indvars.iv
-  %197 = load i64, ptr %196, align 8
-  %198 = load ptr, ptr %21, align 8
-  %199 = getelementptr inbounds nuw i8, ptr %198, i64 %indvars.iv
-  %200 = load i8, ptr %199, align 1, !range !9, !noundef !10
-  %201 = trunc nuw i8 %200 to i1
-  %202 = trunc nuw i8 %194 to i1
-  br i1 %201, label %203, label %206
+  %.023834 = phi i8 [ %164, %.lr.ph37 ], [ %.2, %226 ]
+  %196 = load ptr, ptr %20, align 8
+  %197 = getelementptr inbounds nuw i64, ptr %196, i64 %indvars.iv
+  %198 = load i64, ptr %197, align 8
+  %199 = load ptr, ptr %21, align 8
+  %200 = getelementptr inbounds nuw i8, ptr %199, i64 %indvars.iv
+  %201 = load i8, ptr %200, align 1, !range !9, !noundef !10
+  %202 = trunc nuw i8 %201 to i1
+  %203 = trunc nuw i8 %195 to i1
+  br i1 %202, label %204, label %207
 
-203:                                              ; preds = %192
-  %204 = and i8 %.023834, 1
-  %205 = select i1 %202, i8 %204, i8 0
+204:                                              ; preds = %193
+  %205 = and i8 %.023834, 1
+  %206 = select i1 %203, i8 %205, i8 0
   br label %226
 
-206:                                              ; preds = %192
-  %207 = trunc nuw i8 %.023834 to i1
-  br i1 %202, label %208, label %209
+207:                                              ; preds = %193
+  %208 = trunc nuw i8 %.023834 to i1
+  br i1 %203, label %209, label %210
 
-208:                                              ; preds = %206
-  br i1 %207, label %.thread15, label %210
+209:                                              ; preds = %207
+  br i1 %208, label %.thread15, label %211
 
-209:                                              ; preds = %206
-  br i1 %207, label %210, label %.thread15
+210:                                              ; preds = %207
+  br i1 %208, label %211, label %.thread15
 
-210:                                              ; preds = %209, %208
-  %211 = load i32, ptr %15, align 4
-  %212 = load ptr, ptr %191, align 8
+211:                                              ; preds = %210, %209
+  %212 = load ptr, ptr %192, align 8
   %213 = getelementptr inbounds i64, ptr %212, i64 %160
   %214 = load i64, ptr %213, align 8
-  %215 = call i64 @FunctionCall2Coll(ptr noundef nonnull %11, i32 noundef %211, i64 noundef %214, i64 noundef %197) #13
+  %215 = call i64 @FunctionCall2Coll(ptr noundef nonnull %11, i32 noundef %161, i64 noundef %214, i64 noundef %198) #13
   %216 = icmp ne i64 %215, 0
   %217 = load i8, ptr %159, align 4, !range !9, !noundef !10
   %218 = trunc nuw i8 %217 to i1
   %219 = trunc nuw i8 %.023834 to i1
   br i1 %218, label %220, label %222
 
-220:                                              ; preds = %210
+220:                                              ; preds = %211
   %221 = select i1 %219, i1 true, i1 %216
   br label %224
 
-222:                                              ; preds = %210
+222:                                              ; preds = %211
   %223 = select i1 %219, i1 %216, i1 false
   br label %224
 
@@ -2754,18 +2754,18 @@ is_opclause.exit.thread:                          ; preds = %40, %is_opclause.ex
   %.pre = load i32, ptr %19, align 4
   br label %226
 
-226:                                              ; preds = %203, %224
-  %227 = phi i32 [ %193, %203 ], [ %.pre, %224 ]
-  %228 = phi i8 [ %194, %203 ], [ %217, %224 ]
-  %.2 = phi i8 [ %205, %203 ], [ %225, %224 ]
+226:                                              ; preds = %204, %224
+  %227 = phi i32 [ %194, %204 ], [ %.pre, %224 ]
+  %228 = phi i8 [ %195, %204 ], [ %217, %224 ]
+  %.2 = phi i8 [ %206, %204 ], [ %225, %224 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %229 = sext i32 %227 to i64
   %230 = icmp slt i64 %indvars.iv.next, %229
-  br i1 %230, label %192, label %.thread15, !llvm.loop !40
+  br i1 %230, label %193, label %.thread15, !llvm.loop !40
 
-.thread15:                                        ; preds = %226, %209, %208, %188
-  %.1 = phi i8 [ %163, %188 ], [ 1, %208 ], [ 0, %209 ], [ %.2, %226 ]
-  %231 = getelementptr inbounds i8, ptr %25, i64 %164
+.thread15:                                        ; preds = %226, %210, %209, %189
+  %.1 = phi i8 [ %164, %189 ], [ 1, %209 ], [ 0, %210 ], [ %.2, %226 ]
+  %231 = getelementptr inbounds i8, ptr %25, i64 %165
   %232 = load i8, ptr %231, align 1, !range !9, !noundef !10
   %233 = trunc nuw i8 %232 to i1
   %234 = zext nneg i8 %.1 to i32
@@ -2773,16 +2773,16 @@ is_opclause.exit.thread:                          ; preds = %40, %is_opclause.ex
   %236 = select i1 %233, i32 %234, i32 0
   %237 = select i1 %4, i32 %235, i32 %236
   %238 = icmp ne i32 %237, 0
-  %239 = getelementptr inbounds i8, ptr %25, i64 %164
+  %239 = getelementptr inbounds i8, ptr %25, i64 %165
   %240 = zext i1 %238 to i8
   store i8 %240, ptr %239, align 1
   br label %241
 
-241:                                              ; preds = %183, %.thread15, %180
+241:                                              ; preds = %184, %.thread15, %181
   %242 = add nuw i32 %.023542, 1
   %243 = load i32, ptr %22, align 8
   %244 = icmp ult i32 %242, %243
-  br i1 %244, label %161, label %._crit_edge45, !llvm.loop !41
+  br i1 %244, label %162, label %._crit_edge45, !llvm.loop !41
 
 245:                                              ; preds = %is_opclause.exit.thread
   %246 = getelementptr inbounds nuw i8, ptr %.0231713, i64 8

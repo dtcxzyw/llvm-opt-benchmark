@@ -383,16 +383,15 @@ decode_varbyte.exit:                              ; preds = %40, %45, %52, %59, 
 declare ptr @repalloc(ptr noundef, i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i32 @ginPostingListDecodeAllSegmentsToTbm(ptr noundef captures(address) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local noundef i32 @ginPostingListDecodeAllSegmentsToTbm(ptr noundef captures(address) %0, i32 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #4
   %5 = call ptr @ginPostingListDecodeAllSegments(ptr noundef %0, i32 noundef %1, ptr noundef nonnull %4)
   %6 = load i32, ptr %4, align 4
   call void @tbm_add_tuples(ptr noundef %2, ptr noundef %5, i32 noundef %6, i1 noundef zeroext false) #4
   call void @pfree(ptr noundef %5) #4
-  %7 = load i32, ptr %4, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #4
-  ret i32 %7
+  ret i32 %6
 }
 
 declare void @tbm_add_tuples(ptr noundef, ptr noundef, i32 noundef, i1 noundef zeroext) local_unnamed_addr #2

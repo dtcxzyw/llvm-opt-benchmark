@@ -33748,7 +33748,7 @@ define hidden void @"_ZN4tiff7decoder16Decoder$LT$R$GT$3new17h04fa602a032d7ecfE"
   br label %148
 
 106:                                              ; preds = %107, %98
-  %.sroa.7.0 = phi i64 [ %.08.i175, %107 ], [ %103, %98 ]
+  %.sroa.5.0 = phi i64 [ %.08.i175, %107 ], [ %103, %98 ]
   %.0113214 = phi i8 [ 1, %107 ], [ 0, %98 ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9)
@@ -33776,7 +33776,7 @@ define hidden void @"_ZN4tiff7decoder16Decoder$LT$R$GT$3new17h04fa602a032d7ecfE"
 114:                                              ; preds = %106
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %16, ptr noundef nonnull align 8 dereferenceable(48) %9, i64 48, i1 false)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9)
-  %115 = invoke fastcc noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h6415f6c162338c8dE"(ptr noalias noundef align 8 dereferenceable(48) %16, i64 noundef %.sroa.7.0)
+  %115 = invoke fastcc noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h6415f6c162338c8dE"(ptr noalias noundef align 8 dereferenceable(48) %16, i64 noundef %.sroa.5.0)
           to label %116 unwind label %146
 
 116:                                              ; preds = %114
@@ -33790,7 +33790,7 @@ define hidden void @"_ZN4tiff7decoder16Decoder$LT$R$GT$3new17h04fa602a032d7ecfE"
   unreachable
 
 120:                                              ; preds = %116
-  store i64 %.sroa.7.0, ptr %117, align 8
+  store i64 %.sroa.5.0, ptr %117, align 8
   call void @llvm.lifetime.start.p0(i64 352, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %14)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, ptr noundef nonnull align 8 dereferenceable(32) %17, i64 32, i1 false)
@@ -33830,7 +33830,7 @@ define hidden void @"_ZN4tiff7decoder16Decoder$LT$R$GT$3new17h04fa602a032d7ecfE"
   store i64 134217728, ptr %.sroa.5.0..sroa_idx, align 8
   store i64 1, ptr %15, align 8
   %128 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store i64 %.sroa.7.0, ptr %128, align 8
+  store i64 %.sroa.5.0, ptr %128, align 8
   %129 = getelementptr inbounds nuw i8, ptr %15, i64 216
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %129, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false)
   %130 = getelementptr inbounds nuw i8, ptr %15, i64 272
@@ -34233,7 +34233,7 @@ define hidden void @"_ZN4tiff7decoder16Decoder$LT$R$GT$3new17hb31364680280a2aeE"
   br label %.critedge
 
 111:                                              ; preds = %112, %103
-  %.sroa.8.0 = phi i64 [ %.08.i187, %112 ], [ %108, %103 ]
+  %.sroa.6.0 = phi i64 [ %.08.i187, %112 ], [ %108, %103 ]
   %.0122233 = phi i8 [ 1, %112 ], [ 0, %103 ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9)
@@ -34260,7 +34260,7 @@ define hidden void @"_ZN4tiff7decoder16Decoder$LT$R$GT$3new17hb31364680280a2aeE"
 119:                                              ; preds = %111
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %16, ptr noundef nonnull align 8 dereferenceable(48) %9, i64 48, i1 false)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9)
-  %120 = invoke fastcc noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h6415f6c162338c8dE"(ptr noalias noundef align 8 dereferenceable(48) %16, i64 noundef %.sroa.8.0)
+  %120 = invoke fastcc noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h6415f6c162338c8dE"(ptr noalias noundef align 8 dereferenceable(48) %16, i64 noundef %.sroa.6.0)
           to label %121 unwind label %153
 
 121:                                              ; preds = %119
@@ -34274,7 +34274,7 @@ define hidden void @"_ZN4tiff7decoder16Decoder$LT$R$GT$3new17hb31364680280a2aeE"
   unreachable
 
 125:                                              ; preds = %121
-  store i64 %.sroa.8.0, ptr %122, align 8
+  store i64 %.sroa.6.0, ptr %122, align 8
   call void @llvm.lifetime.start.p0(i64 376, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %14)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %14, ptr noundef nonnull align 8 dereferenceable(56) %17, i64 56, i1 false)
@@ -34314,7 +34314,7 @@ define hidden void @"_ZN4tiff7decoder16Decoder$LT$R$GT$3new17hb31364680280a2aeE"
   store i64 134217728, ptr %.sroa.5.0..sroa_idx, align 8
   store i64 1, ptr %15, align 8
   %133 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  store i64 %.sroa.8.0, ptr %133, align 8
+  store i64 %.sroa.6.0, ptr %133, align 8
   %134 = getelementptr inbounds nuw i8, ptr %15, i64 216
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %134, ptr noundef nonnull align 8 dereferenceable(24) %13, i64 24, i1 false)
   %135 = getelementptr inbounds nuw i8, ptr %15, i64 296

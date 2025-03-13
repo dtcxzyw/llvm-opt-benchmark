@@ -4031,6 +4031,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15clone_from_impl17
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %5, ptr nonnull align 1 %4, i64 %8, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i64, ptr %9, align 8, !noundef !7
+  %invariant.gep = getelementptr i8, ptr %5, i64 -112
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %._crit_edge, label %.lr.ph
 
@@ -4054,7 +4055,6 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15clone_from_impl17
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %29 = getelementptr inbounds nuw i8, ptr %3, i64 60
   %30 = ptrtoint ptr %4 to i64
-  %invariant.gep = getelementptr i8, ptr %5, i64 -112
   br label %33
 
 31:                                               ; preds = %48
@@ -4190,6 +4190,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15clone_from_impl17
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %5, ptr nonnull align 1 %4, i64 %8, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %10 = load i64, ptr %9, align 8, !noundef !7
+  %invariant.gep = getelementptr i8, ptr %5, i64 -48
   %11 = icmp eq i64 %10, 0
   br i1 %11, label %._crit_edge, label %.lr.ph
 
@@ -4201,7 +4202,6 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15clone_from_impl17
   %16 = xor i16 %15, -1
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %18 = ptrtoint ptr %4 to i64
-  %invariant.gep = getelementptr i8, ptr %5, i64 -48
   br label %21
 
 19:                                               ; preds = %36

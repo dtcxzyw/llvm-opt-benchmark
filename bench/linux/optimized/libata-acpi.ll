@@ -1616,6 +1616,7 @@ define dso_local range(i32 -2147483648, 1) i32 @ata_acpi_on_devcfg(ptr noundef %
   %198 = load i8, ptr %80, align 1
   %199 = zext i8 %198 to i32
   %200 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.17, i32 noundef %184, i32 noundef %188, i32 noundef %189, i32 noundef %190, i32 noundef %191, i32 noundef %192, i32 noundef %193, i32 noundef %194, i32 noundef %195, ptr noundef %138, i32 noundef %197, i32 noundef %199) #10
+  %.pre56 = load ptr, ptr %3, align 8
   br label %242
 
 201:                                              ; preds = %174, %173, %173, %165, %159, %159, %150, %149, %137
@@ -1670,9 +1671,9 @@ define dso_local range(i32 -2147483648, 1) i32 @ata_acpi_on_devcfg(ptr noundef %
   br label %244
 
 242:                                              ; preds = %180, %201, %114
+  %243 = phi ptr [ %.pre56, %180 ], [ %89, %201 ], [ %89, %114 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %2) #8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %.sroa.15)
-  %243 = load ptr, ptr %3, align 8
   br label %244
 
 244:                                              ; preds = %239, %242

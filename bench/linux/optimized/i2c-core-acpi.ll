@@ -483,13 +483,13 @@ define internal noundef i32 @i2c_acpi_notify(ptr readnone captures(none) %0, i64
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #9
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %4, i8 0, i64 80, i1 false), !annotation !7
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #9
-  store ptr null, ptr %5, align 8, !annotation !7
   switch i64 %1, label %.thread [
     i64 0, label %6
     i64 1, label %30
   ]
 
 6:                                                ; preds = %3
+  store ptr null, ptr %5, align 8, !annotation !7
   %7 = call fastcc i32 @i2c_acpi_get_info(ptr noundef %2, ptr noundef nonnull %4, ptr noundef null, ptr noundef nonnull %5), !range !8
   %8 = icmp eq i32 %7, 0
   br i1 %8, label %9, label %.thread

@@ -133,8 +133,6 @@ target triple = "x86_64-pc-linux-gnu"
 @.str.38 = private unnamed_addr constant [77 x i8] c"BER Error: malformed UTCTime encoding, 4 digits must follow on '+' resp. '-'\00", align 1
 @.str.39 = private unnamed_addr constant [13 x i8] c" (UTC%c%.4s)\00", align 1
 @.str.40 = private unnamed_addr constant [99 x i8] c"BER Error: malformed UTCTime encoding, unexpected character in %dth octet, must be 'Z', '+' or '-'\00", align 1
-@.str.41 = private unnamed_addr constant [82 x i8] c"BER Error: malformed UTCTime encoding, %d unexpected character%s after %dth octet\00", align 1
-@.str.42 = private unnamed_addr constant [2 x i8] c"s\00", align 1
 @.str.43 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @ei_ber_invalid_format_utctime = internal global %struct.expert_field zeroinitializer, align 4
 @.str.44 = private unnamed_addr constant [3 x i8] c"%s\00", align 1
@@ -722,7 +720,7 @@ define i32 @dissect_ber_tagged_type(i1 noundef zeroext %0, ptr noundef %1, ptr n
 
 14:                                               ; preds = %10
   %15 = tail call i32 %9(i1 noundef zeroext %8, ptr noundef %3, i32 noundef %4, ptr noundef %1, ptr noundef %2, i32 noundef %5)
-  br label %46
+  br label %41
 
 16:                                               ; preds = %10
   %17 = call i32 @dissect_ber_identifier(ptr poison, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull %11, ptr noundef null, ptr noundef nonnull %12)
@@ -732,7 +730,7 @@ define i32 @dissect_ber_tagged_type(i1 noundef zeroext %0, ptr noundef %1, ptr n
   %20 = load i32, ptr %12, align 4
   %.not52 = icmp eq i32 %20, %7
   %or.cond = select i1 %.not, i1 %.not52, i1 false
-  br i1 %or.cond, label %35, label %21
+  br i1 %or.cond, label %31, label %21
 
 21:                                               ; preds = %16
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -741,34 +739,29 @@ define i32 @dissect_ber_tagged_type(i1 noundef zeroext %0, ptr noundef %1, ptr n
   %25 = load ptr, ptr %22, align 8
   %26 = call ptr @val_to_str_const(i32 noundef %23, ptr noundef nonnull @ber_class_codes, ptr noundef nonnull @.str.3)
   %27 = call ptr @val_to_str_ext_const(i32 noundef %7, ptr noundef nonnull @ber_uni_tag_codes_ext, ptr noundef nonnull @.str.3)
-  %28 = load i8, ptr %11, align 1
-  %29 = sext i8 %28 to i32
-  %30 = call ptr @val_to_str_const(i32 noundef %29, ptr noundef nonnull @ber_class_codes, ptr noundef nonnull @.str.3)
-  %31 = load i8, ptr %11, align 1
-  %32 = sext i8 %31 to i32
-  %33 = load i32, ptr %12, align 4
-  %34 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %25, ptr noundef nonnull @ei_ber_wrong_tag_in_tagged_type, ptr noundef %3, i32 noundef %4, i32 noundef %24, ptr noundef nonnull @.str.2, ptr noundef %26, i32 noundef %23, i32 noundef %7, ptr noundef %27, ptr noundef %30, i32 noundef %32, i32 noundef %33)
-  br label %35
+  %28 = sext i8 %19 to i32
+  %29 = call ptr @val_to_str_const(i32 noundef %28, ptr noundef nonnull @ber_class_codes, ptr noundef nonnull @.str.3)
+  %30 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %25, ptr noundef nonnull @ei_ber_wrong_tag_in_tagged_type, ptr noundef %3, i32 noundef %4, i32 noundef %24, ptr noundef nonnull @.str.2, ptr noundef %26, i32 noundef %23, i32 noundef %7, ptr noundef %27, ptr noundef %29, i32 noundef %28, i32 noundef %20)
+  br label %31
 
-35:                                               ; preds = %16, %21
-  br i1 %8, label %36, label %44
+31:                                               ; preds = %16, %21
+  br i1 %8, label %32, label %39
 
-36:                                               ; preds = %35
-  %37 = load i32, ptr %13, align 4
-  %38 = call i32 @tvb_reported_length_remaining(ptr noundef %3, i32 noundef %18)
-  %39 = call i32 @llvm.smin.i32(i32 %38, i32 %37)
-  %40 = call ptr @tvb_new_subset_length(ptr noundef %3, i32 noundef %18, i32 noundef %39)
-  %41 = call i32 %9(i1 noundef zeroext true, ptr noundef %40, i32 noundef 0, ptr noundef %1, ptr noundef %2, i32 noundef %5)
-  %42 = load i32, ptr %13, align 4
-  %43 = add i32 %42, %18
-  br label %46
+32:                                               ; preds = %31
+  %33 = load i32, ptr %13, align 4
+  %34 = call i32 @tvb_reported_length_remaining(ptr noundef %3, i32 noundef %18)
+  %35 = call i32 @llvm.smin.i32(i32 %34, i32 %33)
+  %36 = call ptr @tvb_new_subset_length(ptr noundef %3, i32 noundef %18, i32 noundef %35)
+  %37 = call i32 %9(i1 noundef zeroext true, ptr noundef %36, i32 noundef 0, ptr noundef %1, ptr noundef %2, i32 noundef %5)
+  %38 = add i32 %33, %18
+  br label %41
 
-44:                                               ; preds = %35
-  %45 = call i32 %9(i1 noundef zeroext false, ptr noundef %3, i32 noundef %18, ptr noundef %1, ptr noundef %2, i32 noundef %5)
-  br label %46
+39:                                               ; preds = %31
+  %40 = call i32 %9(i1 noundef zeroext false, ptr noundef %3, i32 noundef %18, ptr noundef %1, ptr noundef %2, i32 noundef %5)
+  br label %41
 
-46:                                               ; preds = %36, %44, %14
-  %.0 = phi i32 [ %15, %14 ], [ %43, %36 ], [ %45, %44 ]
+41:                                               ; preds = %32, %39, %14
+  %.0 = phi i32 [ %15, %14 ], [ %38, %32 ], [ %40, %39 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #14
@@ -1077,97 +1070,94 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %40, 
   %.0..0..0..0.143 = load volatile i32, ptr %8, align 4
   %57 = call i32 @dissect_ber_length(ptr poison, ptr noundef %3, ptr noundef %1, i32 noundef %.0..0..0..0.143, ptr noundef nonnull %13, ptr noundef null)
   store volatile i32 %57, ptr %8, align 4
+  %.pre277 = load i32, ptr %13, align 4
   br label %58
 
 58:                                               ; preds = %55, %52
+  %59 = phi i32 [ %.pre277, %55 ], [ %49, %52 ]
   %.0..0..0..0.144 = load volatile i32, ptr %8, align 4
-  %59 = load i32, ptr %13, align 4
   %60 = call i32 @tvb_reported_length_remaining(ptr noundef %1, i32 noundef %.0..0..0..0.144)
   %61 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %3, ptr noundef %0, ptr noundef nonnull @ei_ber_error_length, ptr noundef %1, i32 noundef %.0..0..0..0.139, i32 noundef %48, ptr noundef nonnull @.str.350, i32 noundef %59, i32 noundef %60)
   %62 = call i32 @tvb_reported_length(ptr noundef %1)
-  br label %328
+  br label %312
 
 63:                                               ; preds = %get_ber_identifier.exit
-  %64 = load i8, ptr %10, align 1, !range !8, !noundef !9
-  %.not248.not = icmp eq i8 %64, 0
-  br i1 %.not248.not, label %65, label %291
+  %.not248.not = icmp eq i8 %.lobit.i, 0
+  br i1 %.not248.not, label %64, label %279
 
-65:                                               ; preds = %63
-  %66 = load i8, ptr %9, align 1
-  %cond = icmp eq i8 %66, 0
-  br i1 %cond, label %67, label %200
+64:                                               ; preds = %63
+  %cond = icmp ult i8 %31, 64
+  br i1 %cond, label %65, label %195
 
-67:                                               ; preds = %65
-  %68 = load i32, ptr %12, align 4
-  switch i32 %68, label %192 [
+65:                                               ; preds = %64
+  switch i32 %.0.i, label %187 [
     i32 0, label %.loopexit
-    i32 2, label %69
-    i32 9, label %72
-    i32 3, label %75
-    i32 10, label %78
-    i32 25, label %81
-    i32 4, label %84
-    i32 6, label %146
-    i32 13, label %149
-    i32 18, label %152
-    i32 19, label %155
-    i32 20, label %158
-    i32 26, label %161
-    i32 27, label %164
-    i32 30, label %167
-    i32 28, label %170
-    i32 22, label %173
-    i32 23, label %176
-    i32 5, label %179
-    i32 12, label %183
-    i32 24, label %186
-    i32 1, label %189
+    i32 2, label %66
+    i32 9, label %69
+    i32 3, label %72
+    i32 10, label %75
+    i32 25, label %78
+    i32 4, label %81
+    i32 6, label %142
+    i32 13, label %145
+    i32 18, label %148
+    i32 19, label %151
+    i32 20, label %154
+    i32 26, label %157
+    i32 27, label %160
+    i32 30, label %163
+    i32 28, label %166
+    i32 22, label %169
+    i32 23, label %172
+    i32 5, label %175
+    i32 12, label %178
+    i32 24, label %181
+    i32 1, label %184
   ]
 
-69:                                               ; preds = %67
-  %70 = load i32, ptr @hf_ber_unknown_INTEGER, align 4
+66:                                               ; preds = %65
+  %67 = load i32, ptr @hf_ber_unknown_INTEGER, align 4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #14
-  %71 = call i32 @dissect_ber_integer64(i1 noundef zeroext false, ptr noundef nonnull %15, ptr noundef %3, ptr noundef %1, i32 noundef %.0..0..0..0.137, i32 noundef %70, ptr noundef nonnull %7)
+  %68 = call i32 @dissect_ber_integer64(i1 noundef zeroext false, ptr noundef nonnull %15, ptr noundef %3, ptr noundef %1, i32 noundef %.0..0..0..0.137, i32 noundef %67, ptr noundef nonnull %7)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
+  store volatile i32 %68, ptr %8, align 4
+  br label %.loopexit
+
+69:                                               ; preds = %65
+  %70 = load i32, ptr @hf_ber_unknown_REAL, align 4
+  %71 = call i32 @dissect_ber_real(i1 noundef zeroext false, ptr noundef nonnull %15, ptr noundef %3, ptr noundef %1, i32 noundef %.0..0..0..0.137, i32 noundef %70, ptr noundef null)
   store volatile i32 %71, ptr %8, align 4
   br label %.loopexit
 
-72:                                               ; preds = %67
-  %73 = load i32, ptr @hf_ber_unknown_REAL, align 4
-  %74 = call i32 @dissect_ber_real(i1 noundef zeroext false, ptr noundef nonnull %15, ptr noundef %3, ptr noundef %1, i32 noundef %.0..0..0..0.137, i32 noundef %73, ptr noundef null)
+72:                                               ; preds = %65
+  %73 = load i32, ptr @hf_ber_unknown_BITSTRING, align 4
+  %74 = call i32 @dissect_ber_constrained_bitstring(i1 noundef zeroext false, ptr noundef nonnull %15, ptr noundef %3, ptr noundef %1, i32 noundef %.0..0..0..0.137, i32 noundef -1, i32 noundef -1, ptr noundef null, i32 noundef 0, i32 noundef %73, i32 noundef -1, ptr noundef null)
   store volatile i32 %74, ptr %8, align 4
   br label %.loopexit
 
-75:                                               ; preds = %67
-  %76 = load i32, ptr @hf_ber_unknown_BITSTRING, align 4
-  %77 = call i32 @dissect_ber_constrained_bitstring(i1 noundef zeroext false, ptr noundef nonnull %15, ptr noundef %3, ptr noundef %1, i32 noundef %.0..0..0..0.137, i32 noundef -1, i32 noundef -1, ptr noundef null, i32 noundef 0, i32 noundef %76, i32 noundef -1, ptr noundef null)
+75:                                               ; preds = %65
+  %76 = load i32, ptr @hf_ber_unknown_ENUMERATED, align 4
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #14
+  %77 = call i32 @dissect_ber_integer64(i1 noundef zeroext false, ptr noundef nonnull %15, ptr noundef %3, ptr noundef %1, i32 noundef %.0..0..0..0.137, i32 noundef %76, ptr noundef nonnull %6)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #14
   store volatile i32 %77, ptr %8, align 4
   br label %.loopexit
 
-78:                                               ; preds = %67
-  %79 = load i32, ptr @hf_ber_unknown_ENUMERATED, align 4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #14
-  %80 = call i32 @dissect_ber_integer64(i1 noundef zeroext false, ptr noundef nonnull %15, ptr noundef %3, ptr noundef %1, i32 noundef %.0..0..0..0.137, i32 noundef %79, ptr noundef nonnull %6)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #14
+78:                                               ; preds = %65
+  %79 = load i32, ptr @hf_ber_unknown_GraphicString, align 4
+  %80 = call fastcc i32 @dissect_ber_constrained_octet_string_impl(i1 noundef zeroext false, ptr noundef nonnull %15, ptr noundef %3, ptr noundef %1, i32 noundef %.0..0..0..0.137, i32 noundef -1, i32 noundef -1, i32 noundef %79, ptr noundef null, i32 noundef 0, i32 noundef 0)
   store volatile i32 %80, ptr %8, align 4
   br label %.loopexit
 
-81:                                               ; preds = %67
-  %82 = load i32, ptr @hf_ber_unknown_GraphicString, align 4
-  %83 = call fastcc i32 @dissect_ber_constrained_octet_string_impl(i1 noundef zeroext false, ptr noundef nonnull %15, ptr noundef %3, ptr noundef %1, i32 noundef %.0..0..0..0.137, i32 noundef -1, i32 noundef -1, i32 noundef %82, ptr noundef null, i32 noundef 0, i32 noundef 0)
-  store volatile i32 %83, ptr %8, align 4
-  br label %.loopexit
-
-84:                                               ; preds = %67
+81:                                               ; preds = %65
   store volatile i8 0, ptr %14, align 1
-  %85 = load i8, ptr @decode_octetstring_as_ber, align 1, !range !8, !noundef !9
-  %86 = trunc nuw i8 %85 to i1
-  %87 = load i32, ptr %13, align 4
-  %88 = icmp ugt i32 %87, 1
-  %or.cond = select i1 %86, i1 %88, i1 false
-  br i1 %or.cond, label %89, label %141
+  %82 = load i8, ptr @decode_octetstring_as_ber, align 1, !range !8, !noundef !9
+  %83 = trunc nuw i8 %82 to i1
+  %84 = icmp ugt i32 %49, 1
+  %or.cond = select i1 %83, i1 %84, i1 false
+  br i1 %or.cond, label %85, label %137
 
-89:                                               ; preds = %84
+85:                                               ; preds = %81
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16)
   store volatile i32 0, ptr %16, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #14
@@ -1178,285 +1168,285 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %40, 
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %20) #14
   call void @llvm.lifetime.start.p0(i64 248, ptr nonnull %21) #14
   call void @except_setup_try(ptr noundef nonnull %20, ptr noundef nonnull %21, ptr noundef nonnull @try_dissect_unknown_ber.catch_spec, i64 noundef 1)
-  %90 = getelementptr inbounds nuw i8, ptr %21, i64 48
-  %91 = call i32 @_setjmp(ptr noundef nonnull %90) #16
-  %.not255 = icmp eq i32 %91, 0
-  %92 = getelementptr inbounds nuw i8, ptr %21, i64 16
-  %.sink = select i1 %.not255, ptr null, ptr %92
+  %86 = getelementptr inbounds nuw i8, ptr %21, i64 48
+  %87 = call i32 @_setjmp(ptr noundef nonnull %86) #16
+  %.not255 = icmp eq i32 %87, 0
+  %88 = getelementptr inbounds nuw i8, ptr %21, i64 16
+  %.sink = select i1 %.not255, ptr null, ptr %88
   store volatile ptr %.sink, ptr %18, align 8
   %.0..0..0..0.23 = load volatile i32, ptr %19, align 4
-  %93 = and i32 %.0..0..0..0.23, 1
-  %.not256 = icmp eq i32 %93, 0
-  br i1 %.not256, label %96, label %94
+  %89 = and i32 %.0..0..0..0.23, 1
+  %.not256 = icmp eq i32 %89, 0
+  br i1 %.not256, label %92, label %90
 
-94:                                               ; preds = %89
+90:                                               ; preds = %85
   %.0..0..0..0.24 = load volatile i32, ptr %19, align 4
-  %95 = or i32 %.0..0..0..0.24, 2
-  store volatile i32 %95, ptr %19, align 4
-  br label %96
+  %91 = or i32 %.0..0..0..0.24, 2
+  store volatile i32 %91, ptr %19, align 4
+  br label %92
 
-96:                                               ; preds = %94, %89
+92:                                               ; preds = %90, %85
   %.0..0..0..0.25 = load volatile i32, ptr %19, align 4
-  %97 = and i32 %.0..0..0..0.25, -2
-  store volatile i32 %97, ptr %19, align 4
+  %93 = and i32 %.0..0..0..0.25, -2
+  store volatile i32 %93, ptr %19, align 4
   %.0..0..0..0.26 = load volatile i32, ptr %19, align 4
-  %98 = icmp eq i32 %.0..0..0..0.26, 0
-  br i1 %98, label %99, label %104
+  %94 = icmp eq i32 %.0..0..0..0.26, 0
+  br i1 %94, label %95, label %100
 
-99:                                               ; preds = %96
+95:                                               ; preds = %92
   %.0..0..0..0.30 = load volatile ptr, ptr %18, align 8
-  %100 = icmp eq ptr %.0..0..0..0.30, null
-  br i1 %100, label %101, label %104
+  %96 = icmp eq ptr %.0..0..0..0.30, null
+  br i1 %96, label %97, label %100
 
-101:                                              ; preds = %99
+97:                                               ; preds = %95
   %.0..0..0..0.145 = load volatile i32, ptr %8, align 4
-  %102 = call i32 @get_ber_identifier(ptr noundef %1, i32 noundef %.0..0..0..0.145, ptr noundef null, ptr noundef nonnull %10, ptr noundef null)
-  store volatile i32 %102, ptr %16, align 4
+  %98 = call i32 @get_ber_identifier(ptr noundef %1, i32 noundef %.0..0..0..0.145, ptr noundef null, ptr noundef nonnull %10, ptr noundef null)
+  store volatile i32 %98, ptr %16, align 4
   %.0..0..0..0.34 = load volatile i32, ptr %16, align 4
-  %103 = call fastcc noundef i32 @try_get_ber_length(ptr noundef %1, i32 noundef %.0..0..0..0.34, ptr noundef nonnull %17, ptr noundef null, i32 noundef 1)
-  store volatile i32 %103, ptr %16, align 4
-  br label %104
+  %99 = call fastcc noundef i32 @try_get_ber_length(ptr noundef %1, i32 noundef %.0..0..0..0.34, ptr noundef nonnull %17, ptr noundef null, i32 noundef 1)
+  store volatile i32 %99, ptr %16, align 4
+  br label %100
 
-104:                                              ; preds = %101, %99, %96
+100:                                              ; preds = %97, %95, %92
   %.0..0..0..0.27 = load volatile i32, ptr %19, align 4
-  %105 = icmp eq i32 %.0..0..0..0.27, 0
-  br i1 %105, label %106, label %109
+  %101 = icmp eq i32 %.0..0..0..0.27, 0
+  br i1 %101, label %102, label %105
 
-106:                                              ; preds = %104
+102:                                              ; preds = %100
   %.0..0..0..0.31 = load volatile ptr, ptr %18, align 8
   %.not257 = icmp eq ptr %.0..0..0..0.31, null
-  br i1 %.not257, label %109, label %107
+  br i1 %.not257, label %105, label %103
 
-107:                                              ; preds = %106
+103:                                              ; preds = %102
   %.0..0..0..0.28 = load volatile i32, ptr %19, align 4
-  %108 = or i32 %.0..0..0..0.28, 1
-  store volatile i32 %108, ptr %19, align 4
-  br label %109
+  %104 = or i32 %.0..0..0..0.28, 1
+  store volatile i32 %104, ptr %19, align 4
+  br label %105
 
-109:                                              ; preds = %107, %106, %104
+105:                                              ; preds = %103, %102, %100
   %.0..0..0..0.29 = load volatile i32, ptr %19, align 4
-  %110 = and i32 %.0..0..0..0.29, 1
-  %.not258 = icmp eq i32 %110, 0
-  br i1 %.not258, label %111, label %113
+  %106 = and i32 %.0..0..0..0.29, 1
+  %.not258 = icmp eq i32 %106, 0
+  br i1 %.not258, label %107, label %109
 
-111:                                              ; preds = %109
+107:                                              ; preds = %105
   %.0..0..0..0.32 = load volatile ptr, ptr %18, align 8
   %.not259 = icmp eq ptr %.0..0..0..0.32, null
-  br i1 %.not259, label %113, label %112
+  br i1 %.not259, label %109, label %108
 
-112:                                              ; preds = %111
+108:                                              ; preds = %107
   %.0..0..0..0.33 = load volatile ptr, ptr %18, align 8
   call void @except_rethrow(ptr noundef %.0..0..0..0.33) #15
   unreachable
 
-113:                                              ; preds = %111, %109
-  %114 = getelementptr inbounds nuw i8, ptr %21, i64 40
-  %115 = load volatile ptr, ptr %114, align 8
-  call void @except_free(ptr noundef %115)
-  %116 = call ptr @except_pop()
+109:                                              ; preds = %107, %105
+  %110 = getelementptr inbounds nuw i8, ptr %21, i64 40
+  %111 = load volatile ptr, ptr %110, align 8
+  call void @except_free(ptr noundef %111)
+  %112 = call ptr @except_pop()
   call void @llvm.lifetime.end.p0(i64 248, ptr nonnull %21) #14
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
-  %117 = load i8, ptr %10, align 1, !range !8, !noundef !9
-  %118 = trunc nuw i8 %117 to i1
-  %119 = load i32, ptr %17, align 4
-  %120 = icmp ne i32 %119, 0
-  %or.cond3 = select i1 %118, i1 %120, i1 false
-  br i1 %or.cond3, label %121, label %140
+  %113 = load i8, ptr %10, align 1, !range !8, !noundef !9
+  %114 = trunc nuw i8 %113 to i1
+  %115 = load i32, ptr %17, align 4
+  %116 = icmp ne i32 %115, 0
+  %or.cond3 = select i1 %114, i1 %116, i1 false
+  br i1 %or.cond3, label %117, label %136
 
-121:                                              ; preds = %113
+117:                                              ; preds = %109
   %.0..0..0..0.35 = load volatile i32, ptr %16, align 4
   %.0..0..0..0.146 = load volatile i32, ptr %8, align 4
-  %122 = add i32 %.0..0..0..0.35, %119
-  %123 = sub i32 %122, %.0..0..0..0.146
-  %124 = load i32, ptr %13, align 4
-  %125 = icmp eq i32 %123, %124
-  br i1 %125, label %126, label %140
+  %118 = add i32 %.0..0..0..0.35, %115
+  %119 = sub i32 %118, %.0..0..0..0.146
+  %120 = load i32, ptr %13, align 4
+  %121 = icmp eq i32 %119, %120
+  br i1 %121, label %122, label %136
 
-126:                                              ; preds = %121
+122:                                              ; preds = %117
   store volatile i8 1, ptr %14, align 1
-  %127 = load i8, ptr @show_internal_ber_fields, align 1, !range !8, !noundef !9
-  %128 = trunc nuw i8 %127 to i1
-  br i1 %128, label %129, label %132
+  %123 = load i8, ptr @show_internal_ber_fields, align 1, !range !8, !noundef !9
+  %124 = trunc nuw i8 %123 to i1
+  br i1 %124, label %125, label %128
 
-129:                                              ; preds = %126
-  %130 = call i32 @dissect_ber_identifier(ptr poison, ptr noundef %3, ptr noundef %1, i32 noundef %.0..0..0..0.137, ptr noundef null, ptr noundef null, ptr noundef null)
-  store volatile i32 %130, ptr %8, align 4
+125:                                              ; preds = %122
+  %126 = call i32 @dissect_ber_identifier(ptr poison, ptr noundef %3, ptr noundef %1, i32 noundef %.0..0..0..0.137, ptr noundef null, ptr noundef null, ptr noundef null)
+  store volatile i32 %126, ptr %8, align 4
   %.0..0..0..0.147 = load volatile i32, ptr %8, align 4
-  %131 = call i32 @dissect_ber_length(ptr poison, ptr noundef %3, ptr noundef %1, i32 noundef %.0..0..0..0.147, ptr noundef null, ptr noundef null)
-  store volatile i32 %131, ptr %8, align 4
-  %.pre277 = load i32, ptr %13, align 4
-  br label %132
+  %127 = call i32 @dissect_ber_length(ptr poison, ptr noundef %3, ptr noundef %1, i32 noundef %.0..0..0..0.147, ptr noundef null, ptr noundef null)
+  store volatile i32 %127, ptr %8, align 4
+  %.pre276 = load i32, ptr %13, align 4
+  br label %128
 
-132:                                              ; preds = %129, %126
-  %133 = phi i32 [ %.pre277, %129 ], [ %123, %126 ]
-  %134 = load i32, ptr @hf_ber_unknown_BER_OCTETSTRING, align 4
+128:                                              ; preds = %125, %122
+  %129 = phi i32 [ %.pre276, %125 ], [ %119, %122 ]
+  %130 = load i32, ptr @hf_ber_unknown_BER_OCTETSTRING, align 4
   %.0..0..0..0.148 = load volatile i32, ptr %8, align 4
-  %135 = call fastcc ptr @ber_proto_tree_add_item(ptr noundef %0, ptr noundef %3, i32 noundef %134, ptr noundef %1, i32 noundef %.0..0..0..0.148, i32 noundef %133, i32 noundef 0)
-  %136 = load i32, ptr @ett_ber_octet_string, align 4
-  %137 = call ptr @proto_item_add_subtree(ptr noundef %135, i32 noundef %136)
+  %131 = call fastcc ptr @ber_proto_tree_add_item(ptr noundef %0, ptr noundef %3, i32 noundef %130, ptr noundef %1, i32 noundef %.0..0..0..0.148, i32 noundef %129, i32 noundef 0)
+  %132 = load i32, ptr @ett_ber_octet_string, align 4
+  %133 = call ptr @proto_item_add_subtree(ptr noundef %131, i32 noundef %132)
   %.0..0..0..0.149 = load volatile i32, ptr %8, align 4
-  %138 = add nsw i32 %4, 1
-  %139 = call fastcc i32 @try_dissect_unknown_ber(ptr noundef %0, ptr noundef %1, i32 noundef %.0..0..0..0.149, ptr noundef %137, i32 noundef %138)
-  store volatile i32 %139, ptr %8, align 4
-  br label %140
+  %134 = add nsw i32 %4, 1
+  %135 = call fastcc i32 @try_dissect_unknown_ber(ptr noundef %0, ptr noundef %1, i32 noundef %.0..0..0..0.149, ptr noundef %133, i32 noundef %134)
+  store volatile i32 %135, ptr %8, align 4
+  br label %136
 
-140:                                              ; preds = %132, %121, %113
+136:                                              ; preds = %128, %117, %109
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16)
-  br label %141
+  br label %137
 
-141:                                              ; preds = %140, %84
+137:                                              ; preds = %136, %81
   %.0..0..0..0.42 = load volatile i8, ptr %14, align 1, !range !8, !noundef !9
-  %142 = trunc nuw i8 %.0..0..0..0.42 to i1
-  br i1 %142, label %.loopexit, label %143
+  %138 = trunc nuw i8 %.0..0..0..0.42 to i1
+  br i1 %138, label %.loopexit, label %139
 
-143:                                              ; preds = %141
-  %144 = load i32, ptr @hf_ber_unknown_OCTETSTRING, align 4
-  %145 = call fastcc i32 @dissect_ber_constrained_octet_string_impl(i1 noundef zeroext false, ptr noundef nonnull %15, ptr noundef %3, ptr noundef %1, i32 noundef %.0..0..0..0.137, i32 noundef -1, i32 noundef -1, i32 noundef %144, ptr noundef null, i32 noundef 0, i32 noundef 0)
-  store volatile i32 %145, ptr %8, align 4
+139:                                              ; preds = %137
+  %140 = load i32, ptr @hf_ber_unknown_OCTETSTRING, align 4
+  %141 = call fastcc i32 @dissect_ber_constrained_octet_string_impl(i1 noundef zeroext false, ptr noundef nonnull %15, ptr noundef %3, ptr noundef %1, i32 noundef %.0..0..0..0.137, i32 noundef -1, i32 noundef -1, i32 noundef %140, ptr noundef null, i32 noundef 0, i32 noundef 0)
+  store volatile i32 %141, ptr %8, align 4
   br label %.loopexit
 
-146:                                              ; preds = %67
-  %147 = load i32, ptr @hf_ber_unknown_OID, align 4
-  %148 = call fastcc i32 @dissect_ber_any_oid(i1 noundef zeroext false, ptr noundef nonnull %15, ptr noundef %3, ptr noundef %1, i32 noundef %.0..0..0..0.137, i32 noundef %147, ptr noundef null, i1 noundef zeroext true)
-  store volatile i32 %148, ptr %8, align 4
+142:                                              ; preds = %65
+  %143 = load i32, ptr @hf_ber_unknown_OID, align 4
+  %144 = call fastcc i32 @dissect_ber_any_oid(i1 noundef zeroext false, ptr noundef nonnull %15, ptr noundef %3, ptr noundef %1, i32 noundef %.0..0..0..0.137, i32 noundef %143, ptr noundef null, i1 noundef zeroext true)
+  store volatile i32 %144, ptr %8, align 4
   br label %.loopexit
 
-149:                                              ; preds = %67
-  %150 = load i32, ptr @hf_ber_unknown_relative_OID, align 4
-  %151 = call fastcc i32 @dissect_ber_any_oid(i1 noundef zeroext false, ptr noundef nonnull %15, ptr noundef %3, ptr noundef %1, i32 noundef %.0..0..0..0.137, i32 noundef %150, ptr noundef null, i1 noundef zeroext false)
-  store volatile i32 %151, ptr %8, align 4
+145:                                              ; preds = %65
+  %146 = load i32, ptr @hf_ber_unknown_relative_OID, align 4
+  %147 = call fastcc i32 @dissect_ber_any_oid(i1 noundef zeroext false, ptr noundef nonnull %15, ptr noundef %3, ptr noundef %1, i32 noundef %.0..0..0..0.137, i32 noundef %146, ptr noundef null, i1 noundef zeroext false)
+  store volatile i32 %147, ptr %8, align 4
   br label %.loopexit
 
-152:                                              ; preds = %67
-  %153 = load i32, ptr @hf_ber_unknown_NumericString, align 4
-  %154 = call fastcc i32 @dissect_ber_constrained_octet_string_impl(i1 noundef zeroext false, ptr noundef nonnull %15, ptr noundef %3, ptr noundef %1, i32 noundef %.0..0..0..0.137, i32 noundef -1, i32 noundef -1, i32 noundef %153, ptr noundef null, i32 noundef 0, i32 noundef 0)
-  store volatile i32 %154, ptr %8, align 4
+148:                                              ; preds = %65
+  %149 = load i32, ptr @hf_ber_unknown_NumericString, align 4
+  %150 = call fastcc i32 @dissect_ber_constrained_octet_string_impl(i1 noundef zeroext false, ptr noundef nonnull %15, ptr noundef %3, ptr noundef %1, i32 noundef %.0..0..0..0.137, i32 noundef -1, i32 noundef -1, i32 noundef %149, ptr noundef null, i32 noundef 0, i32 noundef 0)
+  store volatile i32 %150, ptr %8, align 4
   br label %.loopexit
 
-155:                                              ; preds = %67
-  %156 = load i32, ptr @hf_ber_unknown_PrintableString, align 4
-  %157 = call fastcc i32 @dissect_ber_constrained_octet_string_impl(i1 noundef zeroext false, ptr noundef nonnull %15, ptr noundef %3, ptr noundef %1, i32 noundef %.0..0..0..0.137, i32 noundef -1, i32 noundef -1, i32 noundef %156, ptr noundef null, i32 noundef 0, i32 noundef 0)
-  store volatile i32 %157, ptr %8, align 4
+151:                                              ; preds = %65
+  %152 = load i32, ptr @hf_ber_unknown_PrintableString, align 4
+  %153 = call fastcc i32 @dissect_ber_constrained_octet_string_impl(i1 noundef zeroext false, ptr noundef nonnull %15, ptr noundef %3, ptr noundef %1, i32 noundef %.0..0..0..0.137, i32 noundef -1, i32 noundef -1, i32 noundef %152, ptr noundef null, i32 noundef 0, i32 noundef 0)
+  store volatile i32 %153, ptr %8, align 4
   br label %.loopexit
 
-158:                                              ; preds = %67
-  %159 = load i32, ptr @hf_ber_unknown_TeletexString, align 4
-  %160 = call fastcc i32 @dissect_ber_constrained_octet_string_impl(i1 noundef zeroext false, ptr noundef nonnull %15, ptr noundef %3, ptr noundef %1, i32 noundef %.0..0..0..0.137, i32 noundef -1, i32 noundef -1, i32 noundef %159, ptr noundef null, i32 noundef 0, i32 noundef 0)
-  store volatile i32 %160, ptr %8, align 4
+154:                                              ; preds = %65
+  %155 = load i32, ptr @hf_ber_unknown_TeletexString, align 4
+  %156 = call fastcc i32 @dissect_ber_constrained_octet_string_impl(i1 noundef zeroext false, ptr noundef nonnull %15, ptr noundef %3, ptr noundef %1, i32 noundef %.0..0..0..0.137, i32 noundef -1, i32 noundef -1, i32 noundef %155, ptr noundef null, i32 noundef 0, i32 noundef 0)
+  store volatile i32 %156, ptr %8, align 4
   br label %.loopexit
 
-161:                                              ; preds = %67
-  %162 = load i32, ptr @hf_ber_unknown_VisibleString, align 4
-  %163 = call fastcc i32 @dissect_ber_constrained_octet_string_impl(i1 noundef zeroext false, ptr noundef nonnull %15, ptr noundef %3, ptr noundef %1, i32 noundef %.0..0..0..0.137, i32 noundef -1, i32 noundef -1, i32 noundef %162, ptr noundef null, i32 noundef 0, i32 noundef 0)
-  store volatile i32 %163, ptr %8, align 4
+157:                                              ; preds = %65
+  %158 = load i32, ptr @hf_ber_unknown_VisibleString, align 4
+  %159 = call fastcc i32 @dissect_ber_constrained_octet_string_impl(i1 noundef zeroext false, ptr noundef nonnull %15, ptr noundef %3, ptr noundef %1, i32 noundef %.0..0..0..0.137, i32 noundef -1, i32 noundef -1, i32 noundef %158, ptr noundef null, i32 noundef 0, i32 noundef 0)
+  store volatile i32 %159, ptr %8, align 4
   br label %.loopexit
 
-164:                                              ; preds = %67
-  %165 = load i32, ptr @hf_ber_unknown_GeneralString, align 4
-  %166 = call i32 @dissect_ber_constrained_restricted_string(i1 noundef zeroext false, i32 noundef 27, ptr noundef nonnull %15, ptr noundef %3, ptr noundef %1, i32 noundef %.0..0..0..0.137, i32 noundef -1, i32 noundef -1, i32 noundef %165, ptr noundef null)
-  store volatile i32 %166, ptr %8, align 4
+160:                                              ; preds = %65
+  %161 = load i32, ptr @hf_ber_unknown_GeneralString, align 4
+  %162 = call i32 @dissect_ber_constrained_restricted_string(i1 noundef zeroext false, i32 noundef 27, ptr noundef nonnull %15, ptr noundef %3, ptr noundef %1, i32 noundef %.0..0..0..0.137, i32 noundef -1, i32 noundef -1, i32 noundef %161, ptr noundef null)
+  store volatile i32 %162, ptr %8, align 4
   br label %.loopexit
 
-167:                                              ; preds = %67
-  %168 = load i32, ptr @hf_ber_unknown_BMPString, align 4
-  %169 = call fastcc i32 @dissect_ber_constrained_octet_string_impl(i1 noundef zeroext false, ptr noundef nonnull %15, ptr noundef %3, ptr noundef %1, i32 noundef %.0..0..0..0.137, i32 noundef -1, i32 noundef -1, i32 noundef %168, ptr noundef null, i32 noundef 0, i32 noundef 0)
-  store volatile i32 %169, ptr %8, align 4
+163:                                              ; preds = %65
+  %164 = load i32, ptr @hf_ber_unknown_BMPString, align 4
+  %165 = call fastcc i32 @dissect_ber_constrained_octet_string_impl(i1 noundef zeroext false, ptr noundef nonnull %15, ptr noundef %3, ptr noundef %1, i32 noundef %.0..0..0..0.137, i32 noundef -1, i32 noundef -1, i32 noundef %164, ptr noundef null, i32 noundef 0, i32 noundef 0)
+  store volatile i32 %165, ptr %8, align 4
   br label %.loopexit
 
-170:                                              ; preds = %67
-  %171 = load i32, ptr @hf_ber_unknown_UniversalString, align 4
-  %172 = call fastcc i32 @dissect_ber_constrained_octet_string_impl(i1 noundef zeroext false, ptr noundef nonnull %15, ptr noundef %3, ptr noundef %1, i32 noundef %.0..0..0..0.137, i32 noundef -1, i32 noundef -1, i32 noundef %171, ptr noundef null, i32 noundef 0, i32 noundef 0)
-  store volatile i32 %172, ptr %8, align 4
+166:                                              ; preds = %65
+  %167 = load i32, ptr @hf_ber_unknown_UniversalString, align 4
+  %168 = call fastcc i32 @dissect_ber_constrained_octet_string_impl(i1 noundef zeroext false, ptr noundef nonnull %15, ptr noundef %3, ptr noundef %1, i32 noundef %.0..0..0..0.137, i32 noundef -1, i32 noundef -1, i32 noundef %167, ptr noundef null, i32 noundef 0, i32 noundef 0)
+  store volatile i32 %168, ptr %8, align 4
   br label %.loopexit
 
-173:                                              ; preds = %67
-  %174 = load i32, ptr @hf_ber_unknown_IA5String, align 4
-  %175 = call fastcc i32 @dissect_ber_constrained_octet_string_impl(i1 noundef zeroext false, ptr noundef nonnull %15, ptr noundef %3, ptr noundef %1, i32 noundef %.0..0..0..0.137, i32 noundef -1, i32 noundef -1, i32 noundef %174, ptr noundef null, i32 noundef 0, i32 noundef 0)
-  store volatile i32 %175, ptr %8, align 4
+169:                                              ; preds = %65
+  %170 = load i32, ptr @hf_ber_unknown_IA5String, align 4
+  %171 = call fastcc i32 @dissect_ber_constrained_octet_string_impl(i1 noundef zeroext false, ptr noundef nonnull %15, ptr noundef %3, ptr noundef %1, i32 noundef %.0..0..0..0.137, i32 noundef -1, i32 noundef -1, i32 noundef %170, ptr noundef null, i32 noundef 0, i32 noundef 0)
+  store volatile i32 %171, ptr %8, align 4
   br label %.loopexit
 
-176:                                              ; preds = %67
-  %177 = load i32, ptr @hf_ber_unknown_UTCTime, align 4
-  %178 = call fastcc i32 @dissect_ber_constrained_octet_string_impl(i1 noundef zeroext false, ptr noundef nonnull %15, ptr noundef %3, ptr noundef %1, i32 noundef %.0..0..0..0.137, i32 noundef -1, i32 noundef -1, i32 noundef %177, ptr noundef null, i32 noundef 0, i32 noundef 0)
-  store volatile i32 %178, ptr %8, align 4
+172:                                              ; preds = %65
+  %173 = load i32, ptr @hf_ber_unknown_UTCTime, align 4
+  %174 = call fastcc i32 @dissect_ber_constrained_octet_string_impl(i1 noundef zeroext false, ptr noundef nonnull %15, ptr noundef %3, ptr noundef %1, i32 noundef %.0..0..0..0.137, i32 noundef -1, i32 noundef -1, i32 noundef %173, ptr noundef null, i32 noundef 0, i32 noundef 0)
+  store volatile i32 %174, ptr %8, align 4
   br label %.loopexit
 
-179:                                              ; preds = %67
-  %180 = load i32, ptr @hf_ber_null_tag, align 4
+175:                                              ; preds = %65
+  %176 = load i32, ptr @hf_ber_null_tag, align 4
   %.0..0..0..0.150 = load volatile i32, ptr %8, align 4
-  %181 = load i32, ptr %13, align 4
-  %182 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %180, ptr noundef %1, i32 noundef %.0..0..0..0.150, i32 noundef %181, i32 noundef 0)
+  %177 = call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %176, ptr noundef %1, i32 noundef %.0..0..0..0.150, i32 noundef %49, i32 noundef 0)
   br label %.loopexit
 
-183:                                              ; preds = %67
-  %184 = load i32, ptr @hf_ber_unknown_UTF8String, align 4
-  %185 = call fastcc i32 @dissect_ber_constrained_octet_string_impl(i1 noundef zeroext false, ptr noundef nonnull %15, ptr noundef %3, ptr noundef %1, i32 noundef %.0..0..0..0.137, i32 noundef -1, i32 noundef -1, i32 noundef %184, ptr noundef null, i32 noundef 0, i32 noundef 0)
-  store volatile i32 %185, ptr %8, align 4
+178:                                              ; preds = %65
+  %179 = load i32, ptr @hf_ber_unknown_UTF8String, align 4
+  %180 = call fastcc i32 @dissect_ber_constrained_octet_string_impl(i1 noundef zeroext false, ptr noundef nonnull %15, ptr noundef %3, ptr noundef %1, i32 noundef %.0..0..0..0.137, i32 noundef -1, i32 noundef -1, i32 noundef %179, ptr noundef null, i32 noundef 0, i32 noundef 0)
+  store volatile i32 %180, ptr %8, align 4
   br label %.loopexit
 
-186:                                              ; preds = %67
-  %187 = load i32, ptr @hf_ber_unknown_GeneralizedTime, align 4
-  %188 = call fastcc i32 @dissect_ber_constrained_octet_string_impl(i1 noundef zeroext false, ptr noundef nonnull %15, ptr noundef %3, ptr noundef %1, i32 noundef %.0..0..0..0.137, i32 noundef -1, i32 noundef -1, i32 noundef %187, ptr noundef null, i32 noundef 0, i32 noundef 0)
+181:                                              ; preds = %65
+  %182 = load i32, ptr @hf_ber_unknown_GeneralizedTime, align 4
+  %183 = call fastcc i32 @dissect_ber_constrained_octet_string_impl(i1 noundef zeroext false, ptr noundef nonnull %15, ptr noundef %3, ptr noundef %1, i32 noundef %.0..0..0..0.137, i32 noundef -1, i32 noundef -1, i32 noundef %182, ptr noundef null, i32 noundef 0, i32 noundef 0)
+  store volatile i32 %183, ptr %8, align 4
+  br label %.loopexit
+
+184:                                              ; preds = %65
+  %185 = load i32, ptr @hf_ber_unknown_BOOLEAN, align 4
+  %186 = call i32 @dissect_ber_boolean(i1 noundef zeroext false, ptr noundef nonnull %15, ptr noundef %3, ptr noundef %1, i32 noundef %.0..0..0..0.137, i32 noundef %185, ptr noundef null)
+  store volatile i32 %186, ptr %8, align 4
+  br label %.loopexit
+
+187:                                              ; preds = %65
+  %188 = call i32 @dissect_ber_identifier(ptr poison, ptr noundef %3, ptr noundef %1, i32 noundef %.0..0..0..0.137, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %12)
   store volatile i32 %188, ptr %8, align 4
-  br label %.loopexit
-
-189:                                              ; preds = %67
-  %190 = load i32, ptr @hf_ber_unknown_BOOLEAN, align 4
-  %191 = call i32 @dissect_ber_boolean(i1 noundef zeroext false, ptr noundef nonnull %15, ptr noundef %3, ptr noundef %1, i32 noundef %.0..0..0..0.137, i32 noundef %190, ptr noundef null)
-  store volatile i32 %191, ptr %8, align 4
-  br label %.loopexit
-
-192:                                              ; preds = %67
-  %193 = call i32 @dissect_ber_identifier(ptr poison, ptr noundef %3, ptr noundef %1, i32 noundef %.0..0..0..0.137, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %12)
-  store volatile i32 %193, ptr %8, align 4
   %.0..0..0..0.151 = load volatile i32, ptr %8, align 4
-  %194 = sub i32 %.0..0..0..0.151, %.0..0..0..0.137
+  %189 = sub i32 %.0..0..0..0.151, %.0..0..0..0.137
   %.0..0..0..0.152 = load volatile i32, ptr %8, align 4
-  %195 = call i32 @dissect_ber_length(ptr poison, ptr noundef %3, ptr noundef %1, i32 noundef %.0..0..0..0.152, ptr noundef nonnull %13, ptr noundef null)
-  store volatile i32 %195, ptr %8, align 4
-  %196 = load i32, ptr %12, align 4
-  %197 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %3, ptr noundef %0, ptr noundef nonnull @ei_ber_universal_tag_unknown, ptr noundef %1, i32 noundef %.0..0..0..0.137, i32 noundef %194, ptr noundef nonnull @.str.333, i32 noundef %196)
-  %198 = load i32, ptr %13, align 4
+  %190 = call i32 @dissect_ber_length(ptr poison, ptr noundef %3, ptr noundef %1, i32 noundef %.0..0..0..0.152, ptr noundef nonnull %13, ptr noundef null)
+  store volatile i32 %190, ptr %8, align 4
+  %191 = load i32, ptr %12, align 4
+  %192 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %3, ptr noundef %0, ptr noundef nonnull @ei_ber_universal_tag_unknown, ptr noundef %1, i32 noundef %.0..0..0..0.137, i32 noundef %189, ptr noundef nonnull @.str.333, i32 noundef %191)
+  %193 = load i32, ptr %13, align 4
   %.0..0..0..0.153 = load volatile i32, ptr %8, align 4
-  %199 = add i32 %.0..0..0..0.153, %198
-  store volatile i32 %199, ptr %8, align 4
+  %194 = add i32 %.0..0..0..0.153, %193
+  store volatile i32 %194, ptr %8, align 4
   br label %.loopexit
 
-200:                                              ; preds = %65
-  %201 = load i8, ptr @show_internal_ber_fields, align 1, !range !8, !noundef !9
-  %202 = trunc nuw i8 %201 to i1
-  br i1 %202, label %203, label %206
+195:                                              ; preds = %64
+  %196 = load i8, ptr @show_internal_ber_fields, align 1, !range !8, !noundef !9
+  %197 = trunc nuw i8 %196 to i1
+  br i1 %197, label %198, label %201
 
-203:                                              ; preds = %200
-  %204 = call i32 @dissect_ber_identifier(ptr poison, ptr noundef %3, ptr noundef %1, i32 noundef %.0..0..0..0.137, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %12)
-  store volatile i32 %204, ptr %8, align 4
+198:                                              ; preds = %195
+  %199 = call i32 @dissect_ber_identifier(ptr poison, ptr noundef %3, ptr noundef %1, i32 noundef %.0..0..0..0.137, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %12)
+  store volatile i32 %199, ptr %8, align 4
   %.0..0..0..0.154 = load volatile i32, ptr %8, align 4
-  %205 = call i32 @dissect_ber_length(ptr poison, ptr noundef %3, ptr noundef %1, i32 noundef %.0..0..0..0.154, ptr noundef nonnull %13, ptr noundef null)
-  store volatile i32 %205, ptr %8, align 4
-  %.pre = load i8, ptr %9, align 1
-  br label %206
+  %200 = call i32 @dissect_ber_length(ptr poison, ptr noundef %3, ptr noundef %1, i32 noundef %.0..0..0..0.154, ptr noundef nonnull %13, ptr noundef null)
+  store volatile i32 %200, ptr %8, align 4
+  %.pre272 = load i32, ptr %13, align 4
+  %.pre273 = load i8, ptr %9, align 1
+  %.pre274 = load i32, ptr %12, align 4
+  br label %201
 
-206:                                              ; preds = %203, %200
-  %207 = phi i8 [ %.pre, %203 ], [ %66, %200 ]
-  %208 = load i32, ptr @hf_ber_unknown_BER_primitive, align 4
+201:                                              ; preds = %198, %195
+  %202 = phi i32 [ %.pre274, %198 ], [ %.0.i, %195 ]
+  %203 = phi i8 [ %.pre273, %198 ], [ %33, %195 ]
+  %204 = phi i32 [ %.pre272, %198 ], [ %49, %195 ]
+  %205 = load i32, ptr @hf_ber_unknown_BER_primitive, align 4
   %.0..0..0..0.155 = load volatile i32, ptr %8, align 4
-  %209 = load i32, ptr %13, align 4
-  %210 = sext i8 %207 to i32
-  %211 = call ptr @val_to_str_const(i32 noundef %210, ptr noundef nonnull @ber_class_codes, ptr noundef nonnull @.str.3)
-  %212 = load i32, ptr %12, align 4
-  %213 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %3, i32 noundef %208, ptr noundef %1, i32 noundef %.0..0..0..0.155, i32 noundef %209, ptr noundef nonnull @.str.334, ptr noundef %211, i32 noundef %212)
+  %206 = sext i8 %203 to i32
+  %207 = call ptr @val_to_str_const(i32 noundef %206, ptr noundef nonnull @ber_class_codes, ptr noundef nonnull @.str.3)
+  %208 = call ptr (ptr, i32, ptr, i32, i32, ptr, ...) @proto_tree_add_none_format(ptr noundef %3, i32 noundef %205, ptr noundef %1, i32 noundef %.0..0..0..0.155, i32 noundef %204, ptr noundef nonnull @.str.334, ptr noundef %207, i32 noundef %202)
   store volatile i8 0, ptr %14, align 1
-  %214 = load i8, ptr @decode_primitive_as_ber, align 1, !range !8, !noundef !9
-  %215 = trunc nuw i8 %214 to i1
-  %216 = load i32, ptr %13, align 4
-  %217 = icmp ugt i32 %216, 1
-  %or.cond5 = select i1 %215, i1 %217, i1 false
-  br i1 %or.cond5, label %218, label %260
+  %209 = load i8, ptr @decode_primitive_as_ber, align 1, !range !8, !noundef !9
+  %210 = trunc nuw i8 %209 to i1
+  %211 = icmp ugt i32 %204, 1
+  %or.cond5 = select i1 %210, i1 %211, i1 false
+  br i1 %or.cond5, label %212, label %254
 
-218:                                              ; preds = %206
+212:                                              ; preds = %201
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %22)
   store volatile i32 0, ptr %22, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %23) #14
@@ -1467,269 +1457,258 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %40, 
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %26) #14
   call void @llvm.lifetime.start.p0(i64 248, ptr nonnull %27) #14
   call void @except_setup_try(ptr noundef nonnull %26, ptr noundef nonnull %27, ptr noundef nonnull @try_dissect_unknown_ber.catch_spec.335, i64 noundef 1)
-  %219 = getelementptr inbounds nuw i8, ptr %27, i64 48
-  %220 = call i32 @_setjmp(ptr noundef nonnull %219) #16
-  %.not249 = icmp eq i32 %220, 0
-  %221 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  %.sink281 = select i1 %.not249, ptr null, ptr %221
-  store volatile ptr %.sink281, ptr %24, align 8
+  %213 = getelementptr inbounds nuw i8, ptr %27, i64 48
+  %214 = call i32 @_setjmp(ptr noundef nonnull %213) #16
+  %.not249 = icmp eq i32 %214, 0
+  %215 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %.sink279 = select i1 %.not249, ptr null, ptr %215
+  store volatile ptr %.sink279, ptr %24, align 8
   %.0..0..0..0. = load volatile i32, ptr %25, align 4
-  %222 = and i32 %.0..0..0..0., 1
-  %.not250 = icmp eq i32 %222, 0
-  br i1 %.not250, label %225, label %223
+  %216 = and i32 %.0..0..0..0., 1
+  %.not250 = icmp eq i32 %216, 0
+  br i1 %.not250, label %219, label %217
 
-223:                                              ; preds = %218
+217:                                              ; preds = %212
   %.0..0..0..0.11 = load volatile i32, ptr %25, align 4
-  %224 = or i32 %.0..0..0..0.11, 2
-  store volatile i32 %224, ptr %25, align 4
-  br label %225
+  %218 = or i32 %.0..0..0..0.11, 2
+  store volatile i32 %218, ptr %25, align 4
+  br label %219
 
-225:                                              ; preds = %223, %218
+219:                                              ; preds = %217, %212
   %.0..0..0..0.12 = load volatile i32, ptr %25, align 4
-  %226 = and i32 %.0..0..0..0.12, -2
-  store volatile i32 %226, ptr %25, align 4
+  %220 = and i32 %.0..0..0..0.12, -2
+  store volatile i32 %220, ptr %25, align 4
   %.0..0..0..0.13 = load volatile i32, ptr %25, align 4
-  %227 = icmp eq i32 %.0..0..0..0.13, 0
-  br i1 %227, label %228, label %233
+  %221 = icmp eq i32 %.0..0..0..0.13, 0
+  br i1 %221, label %222, label %227
 
-228:                                              ; preds = %225
+222:                                              ; preds = %219
   %.0..0..0..0.17 = load volatile ptr, ptr %24, align 8
-  %229 = icmp eq ptr %.0..0..0..0.17, null
-  br i1 %229, label %230, label %233
+  %223 = icmp eq ptr %.0..0..0..0.17, null
+  br i1 %223, label %224, label %227
 
-230:                                              ; preds = %228
+224:                                              ; preds = %222
   %.0..0..0..0.156 = load volatile i32, ptr %8, align 4
-  %231 = call i32 @get_ber_identifier(ptr noundef %1, i32 noundef %.0..0..0..0.156, ptr noundef null, ptr noundef nonnull %10, ptr noundef null)
-  store volatile i32 %231, ptr %22, align 4
+  %225 = call i32 @get_ber_identifier(ptr noundef %1, i32 noundef %.0..0..0..0.156, ptr noundef null, ptr noundef nonnull %10, ptr noundef null)
+  store volatile i32 %225, ptr %22, align 4
   %.0..0..0..0.21 = load volatile i32, ptr %22, align 4
-  %232 = call fastcc noundef i32 @try_get_ber_length(ptr noundef %1, i32 noundef %.0..0..0..0.21, ptr noundef nonnull %23, ptr noundef null, i32 noundef 1)
-  store volatile i32 %232, ptr %22, align 4
-  br label %233
+  %226 = call fastcc noundef i32 @try_get_ber_length(ptr noundef %1, i32 noundef %.0..0..0..0.21, ptr noundef nonnull %23, ptr noundef null, i32 noundef 1)
+  store volatile i32 %226, ptr %22, align 4
+  br label %227
 
-233:                                              ; preds = %230, %228, %225
+227:                                              ; preds = %224, %222, %219
   %.0..0..0..0.14 = load volatile i32, ptr %25, align 4
-  %234 = icmp eq i32 %.0..0..0..0.14, 0
-  br i1 %234, label %235, label %238
+  %228 = icmp eq i32 %.0..0..0..0.14, 0
+  br i1 %228, label %229, label %232
 
-235:                                              ; preds = %233
+229:                                              ; preds = %227
   %.0..0..0..0.18 = load volatile ptr, ptr %24, align 8
   %.not251 = icmp eq ptr %.0..0..0..0.18, null
-  br i1 %.not251, label %238, label %236
+  br i1 %.not251, label %232, label %230
 
-236:                                              ; preds = %235
+230:                                              ; preds = %229
   %.0..0..0..0.15 = load volatile i32, ptr %25, align 4
-  %237 = or i32 %.0..0..0..0.15, 1
-  store volatile i32 %237, ptr %25, align 4
-  br label %238
+  %231 = or i32 %.0..0..0..0.15, 1
+  store volatile i32 %231, ptr %25, align 4
+  br label %232
 
-238:                                              ; preds = %236, %235, %233
+232:                                              ; preds = %230, %229, %227
   %.0..0..0..0.16 = load volatile i32, ptr %25, align 4
-  %239 = and i32 %.0..0..0..0.16, 1
-  %.not252 = icmp eq i32 %239, 0
-  br i1 %.not252, label %240, label %242
+  %233 = and i32 %.0..0..0..0.16, 1
+  %.not252 = icmp eq i32 %233, 0
+  br i1 %.not252, label %234, label %236
 
-240:                                              ; preds = %238
+234:                                              ; preds = %232
   %.0..0..0..0.19 = load volatile ptr, ptr %24, align 8
   %.not253 = icmp eq ptr %.0..0..0..0.19, null
-  br i1 %.not253, label %242, label %241
+  br i1 %.not253, label %236, label %235
 
-241:                                              ; preds = %240
+235:                                              ; preds = %234
   %.0..0..0..0.20 = load volatile ptr, ptr %24, align 8
   call void @except_rethrow(ptr noundef %.0..0..0..0.20) #15
   unreachable
 
-242:                                              ; preds = %240, %238
-  %243 = getelementptr inbounds nuw i8, ptr %27, i64 40
-  %244 = load volatile ptr, ptr %243, align 8
-  call void @except_free(ptr noundef %244)
-  %245 = call ptr @except_pop()
+236:                                              ; preds = %234, %232
+  %237 = getelementptr inbounds nuw i8, ptr %27, i64 40
+  %238 = load volatile ptr, ptr %237, align 8
+  call void @except_free(ptr noundef %238)
+  %239 = call ptr @except_pop()
   call void @llvm.lifetime.end.p0(i64 248, ptr nonnull %27) #14
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %26) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24)
-  %246 = load i8, ptr %10, align 1, !range !8, !noundef !9
-  %247 = trunc nuw i8 %246 to i1
-  %248 = load i32, ptr %23, align 4
-  %249 = icmp ne i32 %248, 0
-  %or.cond7 = select i1 %247, i1 %249, i1 false
-  %.pre275.pre278 = load i32, ptr %13, align 4
-  br i1 %or.cond7, label %250, label %259
+  %240 = load i8, ptr %10, align 1, !range !8, !noundef !9
+  %241 = trunc nuw i8 %240 to i1
+  %242 = load i32, ptr %23, align 4
+  %243 = icmp ne i32 %242, 0
+  %or.cond7 = select i1 %241, i1 %243, i1 false
+  %.pre275.pre = load i32, ptr %13, align 4
+  br i1 %or.cond7, label %244, label %253
 
-250:                                              ; preds = %242
+244:                                              ; preds = %236
   %.0..0..0..0.22 = load volatile i32, ptr %22, align 4
   %.0..0..0..0.157 = load volatile i32, ptr %8, align 4
-  %251 = add i32 %.0..0..0..0.22, %248
-  %252 = sub i32 %251, %.0..0..0..0.157
-  %253 = icmp eq i32 %252, %.pre275.pre278
-  br i1 %253, label %254, label %259
+  %245 = add i32 %.0..0..0..0.22, %242
+  %246 = sub i32 %245, %.0..0..0..0.157
+  %247 = icmp eq i32 %246, %.pre275.pre
+  br i1 %247, label %248, label %253
 
-254:                                              ; preds = %250
+248:                                              ; preds = %244
   store volatile i8 1, ptr %14, align 1
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %213, ptr noundef nonnull @.str.336)
-  %255 = load i32, ptr @ett_ber_primitive, align 4
-  %256 = call ptr @proto_item_add_subtree(ptr noundef %213, i32 noundef %255)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %208, ptr noundef nonnull @.str.336)
+  %249 = load i32, ptr @ett_ber_primitive, align 4
+  %250 = call ptr @proto_item_add_subtree(ptr noundef %208, i32 noundef %249)
   %.0..0..0..0.158 = load volatile i32, ptr %8, align 4
-  %257 = add nsw i32 %4, 1
-  %258 = call fastcc i32 @try_dissect_unknown_ber(ptr noundef %0, ptr noundef %1, i32 noundef %.0..0..0..0.158, ptr noundef %256, i32 noundef %257)
-  store volatile i32 %258, ptr %8, align 4
-  %.pre275.pre = load i32, ptr %13, align 4
-  br label %259
+  %251 = add nsw i32 %4, 1
+  %252 = call fastcc i32 @try_dissect_unknown_ber(ptr noundef %0, ptr noundef %1, i32 noundef %.0..0..0..0.158, ptr noundef %250, i32 noundef %251)
+  store volatile i32 %252, ptr %8, align 4
+  br label %253
 
-259:                                              ; preds = %254, %250, %242
-  %.pre275 = phi i32 [ %.pre275.pre, %254 ], [ %.pre275.pre278, %250 ], [ %.pre275.pre278, %242 ]
+253:                                              ; preds = %248, %244, %236
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %23) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %22)
-  br label %260
+  br label %254
 
-260:                                              ; preds = %259, %206
-  %261 = phi i32 [ %.pre275, %259 ], [ %216, %206 ]
+254:                                              ; preds = %253, %201
+  %255 = phi i32 [ %.pre275.pre, %253 ], [ %204, %201 ]
   %.0..0..0..0.43 = load volatile i8, ptr %14, align 1, !range !8, !noundef !9
-  %262 = trunc nuw i8 %.0..0..0..0.43 to i1
-  %263 = icmp eq i32 %261, 0
-  %or.cond9.not = select i1 %262, i1 true, i1 %263
-  br i1 %or.cond9.not, label %.loopexit, label %.lr.ph267
+  %256 = trunc nuw i8 %.0..0..0..0.43 to i1
+  %257 = icmp eq i32 %255, 0
+  %or.cond9.not = select i1 %256, i1 true, i1 %257
+  br i1 %or.cond9.not, label %.loopexit, label %.preheader
 
-.lr.ph267:                                        ; preds = %260
-  %264 = load ptr, ptr @g_ascii_table, align 8
-  br label %265
+.preheader:                                       ; preds = %254
+  %258 = load ptr, ptr @g_ascii_table, align 8
+  br label %259
 
-265:                                              ; preds = %.lr.ph267, %274
-  %.0242266 = phi i8 [ 1, %.lr.ph267 ], [ %.1, %274 ]
-  %.0243265 = phi i32 [ 0, %.lr.ph267 ], [ %276, %274 ]
+259:                                              ; preds = %.preheader, %268
+  %.0242266 = phi i8 [ 1, %.preheader ], [ %.1, %268 ]
+  %.0243265 = phi i32 [ 0, %.preheader ], [ %270, %268 ]
   %.0..0..0..0.159 = load volatile i32, ptr %8, align 4
-  %266 = add i32 %.0..0..0..0.159, %.0243265
-  %267 = call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %266)
-  %268 = trunc nuw i8 %.0242266 to i1
-  br i1 %268, label %269, label %274
+  %260 = add i32 %.0..0..0..0.159, %.0243265
+  %261 = call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %260)
+  %262 = trunc nuw i8 %.0242266 to i1
+  br i1 %262, label %263, label %268
 
-269:                                              ; preds = %265
-  %270 = zext i8 %267 to i64
-  %271 = getelementptr i16, ptr %264, i64 %270
-  %272 = load i16, ptr %271, align 2
-  %273 = and i16 %272, 64
-  %.not = icmp eq i16 %273, 0
+263:                                              ; preds = %259
+  %264 = zext i8 %261 to i64
+  %265 = getelementptr i16, ptr %258, i64 %264
+  %266 = load i16, ptr %265, align 2
+  %267 = and i16 %266, 64
+  %.not = icmp eq i16 %267, 0
   %spec.select = select i1 %.not, i8 0, i8 %.0242266
-  br label %274
+  br label %268
 
-274:                                              ; preds = %269, %265
-  %.1 = phi i8 [ 0, %265 ], [ %spec.select, %269 ]
-  %275 = zext i8 %267 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %213, ptr noundef nonnull @.str.337, i32 noundef %275)
-  %276 = add nuw i32 %.0243265, 1
-  %277 = load i32, ptr %13, align 4
-  %278 = icmp ult i32 %276, %277
-  br i1 %278, label %265, label %._crit_edge, !llvm.loop !10
+268:                                              ; preds = %263, %259
+  %.1 = phi i8 [ 0, %259 ], [ %spec.select, %263 ]
+  %269 = zext i8 %261 to i32
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %208, ptr noundef nonnull @.str.337, i32 noundef %269)
+  %270 = add nuw i32 %.0243265, 1
+  %exitcond.not = icmp eq i32 %270, %255
+  br i1 %exitcond.not, label %271, label %259, !llvm.loop !10
 
-._crit_edge:                                      ; preds = %274
-  %279 = trunc nuw i8 %.1 to i1
-  br i1 %279, label %280, label %288
+271:                                              ; preds = %268
+  %272 = trunc nuw i8 %.1 to i1
+  br i1 %272, label %.lr.ph268.preheader, label %277
 
-280:                                              ; preds = %._crit_edge
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %213, ptr noundef nonnull @.str.338)
-  %281 = load i32, ptr %13, align 4
-  %.not273 = icmp eq i32 %281, 0
-  br i1 %.not273, label %._crit_edge271, label %.lr.ph270
+.lr.ph268.preheader:                              ; preds = %271
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %208, ptr noundef nonnull @.str.338)
+  br label %.lr.ph268
 
-.lr.ph270:                                        ; preds = %280, %.lr.ph270
-  %.1244268 = phi i32 [ %285, %.lr.ph270 ], [ 0, %280 ]
+.lr.ph268:                                        ; preds = %.lr.ph268.preheader, %.lr.ph268
+  %.1244267 = phi i32 [ %276, %.lr.ph268 ], [ 0, %.lr.ph268.preheader ]
   %.0..0..0..0.160 = load volatile i32, ptr %8, align 4
-  %282 = add i32 %.0..0..0..0.160, %.1244268
-  %283 = call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %282)
-  %284 = zext i8 %283 to i32
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %213, ptr noundef nonnull @.str.339, i32 noundef %284)
-  %285 = add nuw i32 %.1244268, 1
-  %286 = load i32, ptr %13, align 4
-  %287 = icmp ult i32 %285, %286
-  br i1 %287, label %.lr.ph270, label %._crit_edge271, !llvm.loop !11
+  %273 = add i32 %.0..0..0..0.160, %.1244267
+  %274 = call zeroext i8 @tvb_get_uint8(ptr noundef %1, i32 noundef %273)
+  %275 = zext i8 %274 to i32
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %208, ptr noundef nonnull @.str.339, i32 noundef %275)
+  %276 = add nuw i32 %.1244267, 1
+  %exitcond271.not = icmp eq i32 %276, %255
+  br i1 %exitcond271.not, label %._crit_edge, label %.lr.ph268, !llvm.loop !11
 
-._crit_edge271:                                   ; preds = %.lr.ph270, %280
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %213, ptr noundef nonnull @.str.340)
-  %.pre276 = load i32, ptr %13, align 4
-  br label %288
+._crit_edge:                                      ; preds = %.lr.ph268
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %208, ptr noundef nonnull @.str.340)
+  br label %277
 
-288:                                              ; preds = %._crit_edge271, %._crit_edge
-  %289 = phi i32 [ %.pre276, %._crit_edge271 ], [ %277, %._crit_edge ]
+277:                                              ; preds = %._crit_edge, %271
   %.0..0..0..0.161 = load volatile i32, ptr %8, align 4
-  %290 = add i32 %.0..0..0..0.161, %289
-  store volatile i32 %290, ptr %8, align 4
+  %278 = add i32 %.0..0..0..0.161, %255
+  store volatile i32 %278, ptr %8, align 4
   br label %.loopexit
 
-291:                                              ; preds = %63
-  %292 = load i8, ptr @show_internal_ber_fields, align 1, !range !8, !noundef !9
-  %293 = trunc nuw i8 %292 to i1
-  br i1 %293, label %294, label %297
+279:                                              ; preds = %63
+  %280 = load i8, ptr @show_internal_ber_fields, align 1, !range !8, !noundef !9
+  %281 = trunc nuw i8 %280 to i1
+  br i1 %281, label %282, label %285
 
-294:                                              ; preds = %291
-  %295 = call i32 @dissect_ber_identifier(ptr poison, ptr noundef %3, ptr noundef %1, i32 noundef %.0..0..0..0.137, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %12)
-  store volatile i32 %295, ptr %8, align 4
+282:                                              ; preds = %279
+  %283 = call i32 @dissect_ber_identifier(ptr poison, ptr noundef %3, ptr noundef %1, i32 noundef %.0..0..0..0.137, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %12)
+  store volatile i32 %283, ptr %8, align 4
   %.0..0..0..0.162 = load volatile i32, ptr %8, align 4
-  %296 = call i32 @dissect_ber_length(ptr poison, ptr noundef %3, ptr noundef %1, i32 noundef %.0..0..0..0.162, ptr noundef nonnull %13, ptr noundef null)
-  store volatile i32 %296, ptr %8, align 4
+  %284 = call i32 @dissect_ber_length(ptr poison, ptr noundef %3, ptr noundef %1, i32 noundef %.0..0..0..0.162, ptr noundef nonnull %13, ptr noundef null)
+  store volatile i32 %284, ptr %8, align 4
+  %.pre = load i8, ptr %9, align 1
+  br label %285
+
+285:                                              ; preds = %282, %279
+  %286 = phi i8 [ %.pre, %282 ], [ %33, %279 ]
+  %.0..0..0..0.163 = load volatile i32, ptr %8, align 4
+  %cond10 = icmp eq i8 %286, 0
+  %.0..0..0..0.164 = load volatile i32, ptr %8, align 4
+  %287 = load i32, ptr %13, align 4
+  %288 = load i32, ptr @ett_ber_SEQUENCE, align 4
+  br i1 %cond10, label %289, label %300
+
+289:                                              ; preds = %285
+  %290 = load i32, ptr %12, align 4
+  %291 = call ptr @val_to_str_ext_const(i32 noundef %290, ptr noundef nonnull @ber_uni_tag_codes_ext, ptr noundef nonnull @.str.3)
+  %292 = call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %1, i32 noundef %.0..0..0..0.164, i32 noundef %287, i32 noundef %288, ptr noundef null, ptr noundef %291)
+  %293 = load i32, ptr %13, align 4
+  %294 = add i32 %293, %.0..0..0..0.163
+  %.0..0..0..0.165263 = load volatile i32, ptr %8, align 4
+  %295 = icmp slt i32 %.0..0..0..0.165263, %294
+  br i1 %295, label %.lr.ph264, label %.loopexit
+
+.lr.ph264:                                        ; preds = %289
+  %296 = add nsw i32 %4, 1
   br label %297
 
-297:                                              ; preds = %294, %291
-  %.0..0..0..0.163 = load volatile i32, ptr %8, align 4
-  %298 = load i8, ptr %9, align 1
-  %cond10 = icmp eq i8 %298, 0
-  %.0..0..0..0.164 = load volatile i32, ptr %8, align 4
-  %299 = load i32, ptr %13, align 4
-  %300 = load i32, ptr @ett_ber_SEQUENCE, align 4
-  br i1 %cond10, label %301, label %314
+297:                                              ; preds = %.lr.ph264, %297
+  %.0..0..0..0.166 = load volatile i32, ptr %8, align 4
+  %298 = call fastcc i32 @try_dissect_unknown_ber(ptr noundef %0, ptr noundef %1, i32 noundef %.0..0..0..0.166, ptr noundef %292, i32 noundef %296)
+  store volatile i32 %298, ptr %8, align 4
+  %.0..0..0..0.165 = load volatile i32, ptr %8, align 4
+  %299 = icmp slt i32 %.0..0..0..0.165, %294
+  br i1 %299, label %297, label %.loopexit, !llvm.loop !12
 
-301:                                              ; preds = %297
-  %302 = load i32, ptr %12, align 4
-  %303 = call ptr @val_to_str_ext_const(i32 noundef %302, ptr noundef nonnull @ber_uni_tag_codes_ext, ptr noundef nonnull @.str.3)
-  %304 = call ptr @proto_tree_add_subtree(ptr noundef %3, ptr noundef %1, i32 noundef %.0..0..0..0.164, i32 noundef %299, i32 noundef %300, ptr noundef null, ptr noundef %303)
-  %.0..0..0..0.165263 = load volatile i32, ptr %8, align 4
+300:                                              ; preds = %285
+  %301 = sext i8 %286 to i32
+  %302 = call ptr @val_to_str_const(i32 noundef %301, ptr noundef nonnull @ber_class_codes, ptr noundef nonnull @.str.3)
+  %303 = load i32, ptr %12, align 4
+  %304 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %3, ptr noundef %1, i32 noundef %.0..0..0..0.164, i32 noundef %287, i32 noundef %288, ptr noundef null, ptr noundef nonnull @.str.341, ptr noundef %302, i32 noundef %303)
   %305 = load i32, ptr %13, align 4
   %306 = add i32 %305, %.0..0..0..0.163
-  %307 = icmp slt i32 %.0..0..0..0.165263, %306
-  br i1 %307, label %.lr.ph264, label %.loopexit
+  %.0..0..0..0.168262 = load volatile i32, ptr %8, align 4
+  %307 = icmp slt i32 %.0..0..0..0.168262, %306
+  br i1 %307, label %.lr.ph, label %.loopexit
 
-.lr.ph264:                                        ; preds = %301
+.lr.ph:                                           ; preds = %300
   %308 = add nsw i32 %4, 1
   br label %309
 
-309:                                              ; preds = %.lr.ph264, %309
-  %.0..0..0..0.166 = load volatile i32, ptr %8, align 4
-  %310 = call fastcc i32 @try_dissect_unknown_ber(ptr noundef %0, ptr noundef %1, i32 noundef %.0..0..0..0.166, ptr noundef %304, i32 noundef %308)
-  store volatile i32 %310, ptr %8, align 4
-  %.0..0..0..0.165 = load volatile i32, ptr %8, align 4
-  %311 = load i32, ptr %13, align 4
-  %312 = add i32 %311, %.0..0..0..0.163
-  %313 = icmp slt i32 %.0..0..0..0.165, %312
-  br i1 %313, label %309, label %.loopexit, !llvm.loop !12
-
-314:                                              ; preds = %297
-  %315 = sext i8 %298 to i32
-  %316 = call ptr @val_to_str_const(i32 noundef %315, ptr noundef nonnull @ber_class_codes, ptr noundef nonnull @.str.3)
-  %317 = load i32, ptr %12, align 4
-  %318 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %3, ptr noundef %1, i32 noundef %.0..0..0..0.164, i32 noundef %299, i32 noundef %300, ptr noundef null, ptr noundef nonnull @.str.341, ptr noundef %316, i32 noundef %317)
-  %.0..0..0..0.168262 = load volatile i32, ptr %8, align 4
-  %319 = load i32, ptr %13, align 4
-  %320 = add i32 %319, %.0..0..0..0.163
-  %321 = icmp slt i32 %.0..0..0..0.168262, %320
-  br i1 %321, label %.lr.ph, label %.loopexit
-
-.lr.ph:                                           ; preds = %314
-  %322 = add nsw i32 %4, 1
-  br label %323
-
-323:                                              ; preds = %.lr.ph, %323
+309:                                              ; preds = %.lr.ph, %309
   %.0..0..0..0.169 = load volatile i32, ptr %8, align 4
-  %324 = call fastcc i32 @try_dissect_unknown_ber(ptr noundef %0, ptr noundef %1, i32 noundef %.0..0..0..0.169, ptr noundef %318, i32 noundef %322)
-  store volatile i32 %324, ptr %8, align 4
+  %310 = call fastcc i32 @try_dissect_unknown_ber(ptr noundef %0, ptr noundef %1, i32 noundef %.0..0..0..0.169, ptr noundef %304, i32 noundef %308)
+  store volatile i32 %310, ptr %8, align 4
   %.0..0..0..0.168 = load volatile i32, ptr %8, align 4
-  %325 = load i32, ptr %13, align 4
-  %326 = add i32 %325, %.0..0..0..0.163
-  %327 = icmp slt i32 %.0..0..0..0.168, %326
-  br i1 %327, label %323, label %.loopexit, !llvm.loop !13
+  %311 = icmp slt i32 %.0..0..0..0.168, %306
+  br i1 %311, label %309, label %.loopexit, !llvm.loop !13
 
-.loopexit:                                        ; preds = %323, %309, %314, %301, %141, %143, %192, %189, %186, %183, %179, %176, %173, %170, %167, %164, %161, %158, %155, %152, %149, %146, %81, %78, %75, %72, %69, %67, %288, %260
+.loopexit:                                        ; preds = %309, %297, %300, %289, %137, %139, %187, %184, %181, %178, %175, %172, %169, %166, %163, %160, %157, %154, %151, %148, %145, %142, %78, %75, %72, %69, %66, %65, %277, %254
   %.0..0..0..0.170 = load volatile i32, ptr %8, align 4
-  br label %328
+  br label %312
 
-328:                                              ; preds = %.loopexit, %58
+312:                                              ; preds = %.loopexit, %58
   %.0 = phi i32 [ %62, %58 ], [ %.0..0..0..0.170, %.loopexit ]
   call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %15) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %14)
@@ -2139,7 +2118,7 @@ define internal fastcc i32 @dissect_ber_constrained_octet_string_impl(i1 noundef
   br label %20
 
 20:                                               ; preds = %19, %11
-  br i1 %0, label %55, label %21
+  br i1 %0, label %50, label %21
 
 21:                                               ; preds = %20
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -2151,357 +2130,346 @@ define internal fastcc i32 @dissect_ber_constrained_octet_string_impl(i1 noundef
   %28 = load i8, ptr %14, align 1
   %29 = and i8 %28, -3
   %or.cond.not = icmp eq i8 %29, 1
-  br i1 %or.cond.not, label %78, label %30
+  br i1 %or.cond.not, label %73, label %30
 
 30:                                               ; preds = %21
   %.not94 = icmp eq i8 %28, 0
-  br i1 %.not94, label %31, label %36
+  %.pre = load i32, ptr %17, align 4
+  br i1 %.not94, label %31, label %35
 
 31:                                               ; preds = %30
-  %32 = load i32, ptr %17, align 4
-  %33 = icmp slt i32 %32, 18
-  %34 = and i32 %32, -9
-  %35 = icmp ne i32 %34, 4
-  %or.cond6 = and i1 %33, %35
-  br i1 %or.cond6, label %36, label %78
+  %32 = icmp slt i32 %.pre, 18
+  %33 = and i32 %.pre, -9
+  %34 = icmp ne i32 %33, 4
+  %or.cond6 = and i1 %32, %34
+  br i1 %or.cond6, label %35, label %73
 
-36:                                               ; preds = %31, %30
+35:                                               ; preds = %31, %30
   call void @tvb_ensure_bytes_exist(ptr noundef %3, i32 noundef %4, i32 noundef 2)
-  %37 = load ptr, ptr %22, align 8
-  %38 = load i8, ptr %14, align 1
-  %39 = sext i8 %38 to i32
-  %40 = call ptr @val_to_str_const(i32 noundef %39, ptr noundef nonnull @ber_class_codes, ptr noundef nonnull @.str.3)
-  %41 = load i8, ptr %14, align 1
-  %42 = sext i8 %41 to i32
-  %43 = load i8, ptr %15, align 1, !range !8, !noundef !9
+  %36 = load ptr, ptr %22, align 8
+  %37 = sext i8 %28 to i32
+  %38 = call ptr @val_to_str_const(i32 noundef %37, ptr noundef nonnull @ber_class_codes, ptr noundef nonnull @.str.3)
+  %39 = load i8, ptr %15, align 1, !range !8, !noundef !9
+  %40 = trunc nuw i8 %39 to i1
+  %41 = call ptr @tfs_get_string(i1 noundef zeroext %40, ptr noundef nonnull @tfs_constructed_primitive)
+  %42 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %36, ptr noundef nonnull @ei_ber_expected_octet_string, ptr noundef %3, i32 noundef %4, i32 noundef %24, ptr noundef nonnull @.str.344, ptr noundef %38, i32 noundef %37, ptr noundef %41, i32 noundef %.pre)
+  %43 = load i8, ptr @decode_unexpected, align 1, !range !8, !noundef !9
   %44 = trunc nuw i8 %43 to i1
-  %45 = call ptr @tfs_get_string(i1 noundef zeroext %44, ptr noundef nonnull @tfs_constructed_primitive)
-  %46 = load i32, ptr %17, align 4
-  %47 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %37, ptr noundef nonnull @ei_ber_expected_octet_string, ptr noundef %3, i32 noundef %4, i32 noundef %24, ptr noundef nonnull @.str.344, ptr noundef %40, i32 noundef %42, ptr noundef %45, i32 noundef %46)
-  %48 = load i8, ptr @decode_unexpected, align 1, !range !8, !noundef !9
-  %49 = trunc nuw i8 %48 to i1
-  br i1 %49, label %50, label %196
+  br i1 %44, label %45, label %185
 
-50:                                               ; preds = %36
-  %51 = load i32, ptr @ett_ber_unknown, align 4
-  %52 = call ptr @proto_item_add_subtree(ptr noundef %47, i32 noundef %51)
-  %53 = load ptr, ptr %22, align 8
-  %54 = call fastcc i32 @try_dissect_unknown_ber(ptr noundef %53, ptr noundef %3, i32 noundef %4, ptr noundef %52, i32 noundef 1)
-  br label %196
+45:                                               ; preds = %35
+  %46 = load i32, ptr @ett_ber_unknown, align 4
+  %47 = call ptr @proto_item_add_subtree(ptr noundef %42, i32 noundef %46)
+  %48 = load ptr, ptr %22, align 8
+  %49 = call fastcc i32 @try_dissect_unknown_ber(ptr noundef %48, ptr noundef %3, i32 noundef %4, ptr noundef %47, i32 noundef 1)
+  br label %185
 
-55:                                               ; preds = %20
-  %56 = load i8, ptr @last_class, align 1
-  store i8 %56, ptr %14, align 1
-  %57 = load i8, ptr @last_pc, align 1, !range !8, !noundef !9
-  store i8 %57, ptr %15, align 1
-  %58 = load i32, ptr @last_tag, align 4
-  store i32 %58, ptr %17, align 4
-  %59 = load i32, ptr @last_length, align 4
-  store i32 %59, ptr %18, align 4
-  %60 = load i8, ptr @last_ind, align 1, !range !8, !noundef !9
-  store i8 %60, ptr %16, align 1
-  %61 = load ptr, ptr @last_length_tvb, align 8
-  %62 = load i32, ptr @last_length_offset, align 4
-  %63 = load i32, ptr @last_length_len, align 4
-  %64 = add i32 %59, %4
-  %65 = tail call i32 @tvb_reported_length_remaining(ptr noundef %3, i32 noundef %4)
-  %66 = trunc nuw i8 %60 to i1
-  %67 = add i32 %59, -2
-  %68 = icmp eq i32 %65, %67
-  %or.cond = select i1 %66, i1 %68, i1 false
-  br i1 %or.cond, label %69, label %71
+50:                                               ; preds = %20
+  %51 = load i8, ptr @last_class, align 1
+  store i8 %51, ptr %14, align 1
+  %52 = load i8, ptr @last_pc, align 1, !range !8, !noundef !9
+  store i8 %52, ptr %15, align 1
+  %53 = load i32, ptr @last_tag, align 4
+  store i32 %53, ptr %17, align 4
+  %54 = load i32, ptr @last_length, align 4
+  store i32 %54, ptr %18, align 4
+  %55 = load i8, ptr @last_ind, align 1, !range !8, !noundef !9
+  store i8 %55, ptr %16, align 1
+  %56 = load ptr, ptr @last_length_tvb, align 8
+  %57 = load i32, ptr @last_length_offset, align 4
+  %58 = load i32, ptr @last_length_len, align 4
+  %59 = add i32 %54, %4
+  %60 = tail call i32 @tvb_reported_length_remaining(ptr noundef %3, i32 noundef %4)
+  %61 = trunc nuw i8 %55 to i1
+  %62 = add i32 %54, -2
+  %63 = icmp eq i32 %60, %62
+  %or.cond = select i1 %61, i1 %63, i1 false
+  br i1 %or.cond, label %64, label %66
 
-69:                                               ; preds = %55
-  store i32 %65, ptr %18, align 4
-  %70 = add i32 %64, -2
+64:                                               ; preds = %50
+  store i32 %60, ptr %18, align 4
+  %65 = add i32 %59, -2
   store i8 0, ptr %16, align 1
-  br label %78
+  br label %73
 
-71:                                               ; preds = %55
-  %72 = icmp ult i32 %65, %59
-  br i1 %72, label %73, label %78
+66:                                               ; preds = %50
+  %67 = icmp ult i32 %60, %54
+  br i1 %67, label %68, label %73
 
-73:                                               ; preds = %71
-  %74 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %75 = load ptr, ptr %74, align 8
-  %76 = tail call i32 @tvb_reported_length_remaining(ptr noundef %3, i32 noundef %4)
-  %77 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %75, ptr noundef nonnull @ei_ber_error_length, ptr noundef %61, i32 noundef %62, i32 noundef %63, ptr noundef nonnull @.str.350, i32 noundef %59, i32 noundef %76)
-  br label %196
+68:                                               ; preds = %66
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %70 = load ptr, ptr %69, align 8
+  %71 = tail call i32 @tvb_reported_length_remaining(ptr noundef %3, i32 noundef %4)
+  %72 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %70, ptr noundef nonnull @ei_ber_error_length, ptr noundef %56, i32 noundef %57, i32 noundef %58, ptr noundef nonnull @.str.350, i32 noundef %54, i32 noundef %71)
+  br label %185
 
-78:                                               ; preds = %69, %71, %21, %31
-  %79 = phi i32 [ %65, %69 ], [ %59, %71 ], [ %26, %31 ], [ %26, %21 ]
-  %.084 = phi i32 [ %70, %69 ], [ %64, %71 ], [ %27, %31 ], [ %27, %21 ]
-  %.082 = phi i32 [ %4, %69 ], [ %4, %71 ], [ %25, %31 ], [ %25, %21 ]
-  %80 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store ptr null, ptr %80, align 8
-  %81 = load i8, ptr %15, align 1, !range !8, !noundef !9
-  %82 = trunc nuw i8 %81 to i1
-  br i1 %82, label %83, label %169
+73:                                               ; preds = %64, %66, %21, %31
+  %74 = phi i32 [ %60, %64 ], [ %54, %66 ], [ %26, %31 ], [ %26, %21 ]
+  %.084 = phi i32 [ %65, %64 ], [ %59, %66 ], [ %27, %31 ], [ %27, %21 ]
+  %.082 = phi i32 [ %4, %64 ], [ %4, %66 ], [ %25, %31 ], [ %25, %21 ]
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store ptr null, ptr %75, align 8
+  %76 = load i8, ptr %15, align 1, !range !8, !noundef !9
+  %77 = trunc nuw i8 %76 to i1
+  br i1 %77, label %78, label %160
 
-83:                                               ; preds = %78
-  %84 = load i8, ptr %16, align 1, !range !8, !noundef !9
-  %85 = trunc nuw i8 %84 to i1
+78:                                               ; preds = %73
+  %79 = load i8, ptr %16, align 1, !range !8, !noundef !9
+  %80 = trunc nuw i8 %79 to i1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #14
   store ptr null, ptr %12, align 8
-  %86 = icmp ugt i32 %9, 500
-  br i1 %86, label %87, label %88
+  %81 = icmp ugt i32 %9, 500
+  br i1 %81, label %82, label %83
 
-87:                                               ; preds = %83
+82:                                               ; preds = %78
   call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #15
   unreachable
 
-88:                                               ; preds = %83
-  br i1 %.not, label %90, label %89
+83:                                               ; preds = %78
+  br i1 %.not, label %85, label %84
 
-89:                                               ; preds = %88
+84:                                               ; preds = %83
   store ptr null, ptr %8, align 8
-  br label %90
+  br label %85
 
-90:                                               ; preds = %89, %88
-  %91 = icmp eq i32 %79, 0
-  br i1 %91, label %reassemble_octet_string.exit, label %92
+85:                                               ; preds = %84, %83
+  %86 = icmp eq i32 %74, 0
+  br i1 %86, label %reassemble_octet_string.exit, label %87
 
-92:                                               ; preds = %90
-  %93 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %94 = load ptr, ptr %93, align 8
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 272
-  store i8 1, ptr %95, align 8
-  %96 = add nuw nsw i32 %9, 1
-  %97 = shl nuw nsw i32 %9, 16
-  br i1 %85, label %.split.us, label %.split
+87:                                               ; preds = %85
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %89 = load ptr, ptr %88, align 8
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 272
+  store i8 1, ptr %90, align 8
+  %91 = add nuw nsw i32 %9, 1
+  %92 = shl nuw nsw i32 %9, 16
+  br i1 %80, label %.split.us, label %.split
 
-.split.us:                                        ; preds = %92, %114
-  %.056.not.i116.us = phi i1 [ true, %114 ], [ false, %92 ]
-  %.057.i115.us = phi i1 [ %.1.i.us, %114 ], [ true, %92 ]
-  %.058.i114.us = phi i32 [ %.2.i.us, %114 ], [ %.082, %92 ]
-  %98 = call fastcc i32 @dissect_ber_constrained_octet_string_impl(i1 noundef zeroext false, ptr noundef %1, ptr noundef null, ptr noundef %3, i32 noundef %.058.i114.us, i32 noundef -1, i32 noundef -1, i32 noundef %7, ptr noundef nonnull %12, i32 noundef %96, i32 noundef 0)
-  %99 = load ptr, ptr %12, align 8
-  %100 = icmp eq ptr %99, null
-  br i1 %100, label %.split118.us, label %101
+.split.us:                                        ; preds = %87, %108
+  %.056.not.i116.us = phi i1 [ true, %108 ], [ false, %87 ]
+  %.057.i115.us = phi i1 [ %.1.i.us, %108 ], [ true, %87 ]
+  %.058.i114.us = phi i32 [ %.2.i.us, %108 ], [ %.082, %87 ]
+  %93 = call fastcc i32 @dissect_ber_constrained_octet_string_impl(i1 noundef zeroext false, ptr noundef %1, ptr noundef null, ptr noundef %3, i32 noundef %.058.i114.us, i32 noundef -1, i32 noundef -1, i32 noundef %7, ptr noundef nonnull %12, i32 noundef %91, i32 noundef 0)
+  %94 = load ptr, ptr %12, align 8
+  %95 = icmp eq ptr %94, null
+  br i1 %95, label %.split118.us, label %96
 
-101:                                              ; preds = %.split.us
-  %102 = call zeroext i8 @tvb_get_uint8(ptr noundef %3, i32 noundef %98)
-  %103 = icmp eq i8 %102, 0
-  br i1 %103, label %104, label %109
+96:                                               ; preds = %.split.us
+  %97 = call zeroext i8 @tvb_get_uint8(ptr noundef %3, i32 noundef %93)
+  %98 = icmp eq i8 %97, 0
+  br i1 %98, label %99, label %104
 
-104:                                              ; preds = %101
-  %105 = add i32 %98, 1
-  %106 = call zeroext i8 @tvb_get_uint8(ptr noundef %3, i32 noundef %105)
-  %107 = icmp ne i8 %106, 0
-  %108 = add i32 %98, 2
-  %spec.select.i.us = select i1 %107, i32 %98, i32 %108
-  %spec.select72.i.us = and i1 %107, %.057.i115.us
-  br label %109
+99:                                               ; preds = %96
+  %100 = add i32 %93, 1
+  %101 = call zeroext i8 @tvb_get_uint8(ptr noundef %3, i32 noundef %100)
+  %102 = icmp ne i8 %101, 0
+  %103 = add i32 %93, 2
+  %spec.select.i.us = select i1 %102, i32 %93, i32 %103
+  %spec.select72.i.us = and i1 %102, %.057.i115.us
+  br label %104
 
-109:                                              ; preds = %104, %101
-  %.2.i.us = phi i32 [ %98, %101 ], [ %spec.select.i.us, %104 ]
-  %.1.i.us = phi i1 [ %.057.i115.us, %101 ], [ %spec.select72.i.us, %104 ]
+104:                                              ; preds = %99, %96
+  %.2.i.us = phi i32 [ %93, %96 ], [ %spec.select.i.us, %99 ]
+  %.1.i.us = phi i1 [ %.057.i115.us, %96 ], [ %spec.select72.i.us, %99 ]
   %brmerge.i.us = or i1 %.056.not.i116.us, %.1.i.us
-  br i1 %brmerge.i.us, label %110, label %.split120.us
+  br i1 %brmerge.i.us, label %105, label %.split120.us
 
-110:                                              ; preds = %109
-  %111 = load ptr, ptr %12, align 8
-  %112 = call i32 @tvb_reported_length(ptr noundef %111)
-  %113 = icmp eq i32 %112, 0
-  br i1 %113, label %.split122.us, label %114
+105:                                              ; preds = %104
+  %106 = call i32 @tvb_reported_length(ptr noundef nonnull %94)
+  %107 = icmp eq i32 %106, 0
+  br i1 %107, label %.split122.us, label %108
 
-114:                                              ; preds = %110
-  %115 = load ptr, ptr %12, align 8
-  %116 = load ptr, ptr %93, align 8
-  %117 = call i32 @tvb_reported_length(ptr noundef %115)
-  %118 = call ptr @fragment_add_seq_next(ptr noundef nonnull @octet_segment_reassembly_table, ptr noundef %115, i32 noundef 0, ptr noundef %116, i32 noundef %97, ptr noundef null, i32 noundef %117, i1 noundef zeroext %.1.i.us)
-  %.not69.i.us = icmp eq ptr %118, null
+108:                                              ; preds = %105
+  %109 = load ptr, ptr %88, align 8
+  %110 = call i32 @tvb_reported_length(ptr noundef nonnull %94)
+  %111 = call ptr @fragment_add_seq_next(ptr noundef nonnull @octet_segment_reassembly_table, ptr noundef nonnull %94, i32 noundef 0, ptr noundef %109, i32 noundef %92, ptr noundef null, i32 noundef %110, i1 noundef zeroext %.1.i.us)
+  %.not69.i.us = icmp eq ptr %111, null
   br i1 %.not69.i.us, label %.split.us, label %.thread, !llvm.loop !16
 
-.split:                                           ; preds = %92, %145
-  %.056.not.i116 = phi i1 [ true, %145 ], [ false, %92 ]
-  %.057.i115 = phi i1 [ %spec.select73.i, %145 ], [ true, %92 ]
-  %.058.i114 = phi i32 [ %119, %145 ], [ %.082, %92 ]
-  %119 = call fastcc i32 @dissect_ber_constrained_octet_string_impl(i1 noundef zeroext false, ptr noundef %1, ptr noundef null, ptr noundef %3, i32 noundef %.058.i114, i32 noundef -1, i32 noundef -1, i32 noundef %7, ptr noundef nonnull %12, i32 noundef %96, i32 noundef 0)
-  %120 = load ptr, ptr %12, align 8
-  %121 = icmp eq ptr %120, null
-  br i1 %121, label %.split118.us, label %122
+.split:                                           ; preds = %87, %139
+  %.056.not.i116 = phi i1 [ true, %139 ], [ false, %87 ]
+  %.057.i115 = phi i1 [ %spec.select73.i, %139 ], [ true, %87 ]
+  %.058.i114 = phi i32 [ %112, %139 ], [ %.082, %87 ]
+  %112 = call fastcc i32 @dissect_ber_constrained_octet_string_impl(i1 noundef zeroext false, ptr noundef %1, ptr noundef null, ptr noundef %3, i32 noundef %.058.i114, i32 noundef -1, i32 noundef -1, i32 noundef %7, ptr noundef nonnull %12, i32 noundef %91, i32 noundef 0)
+  %113 = load ptr, ptr %12, align 8
+  %114 = icmp eq ptr %113, null
+  br i1 %114, label %.split118.us, label %115
 
 .split118.us:                                     ; preds = %.split, %.split.us
   call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #15
   unreachable
 
-122:                                              ; preds = %.split
-  %123 = sub i32 %119, %.082
-  %.not70.i = icmp ult i32 %123, %79
+115:                                              ; preds = %.split
+  %116 = sub i32 %112, %.082
+  %.not70.i = icmp ult i32 %116, %74
   %spec.select73.i = and i1 %.not70.i, %.057.i115
   %brmerge.i = or i1 %.056.not.i116, %spec.select73.i
-  br i1 %brmerge.i, label %142, label %.split120.us
+  br i1 %brmerge.i, label %136, label %.split120.us
 
-.split120.us:                                     ; preds = %122, %109
-  %.us-phi = phi i32 [ %.2.i.us, %109 ], [ %119, %122 ]
-  %124 = call zeroext i8 @tvb_get_uint8(ptr noundef %3, i32 noundef %.082)
-  %125 = lshr i8 %124, 6
-  %126 = lshr i8 %124, 5
-  %.lobit.i = and i8 %126, 1
-  %127 = and i8 %124, 31
-  %128 = zext nneg i8 %127 to i32
-  %129 = icmp eq i8 %127, 31
-  br i1 %129, label %.preheader.i, label %get_ber_identifier.exit
+.split120.us:                                     ; preds = %115, %104
+  %117 = phi ptr [ %94, %104 ], [ %113, %115 ]
+  %.us-phi = phi i32 [ %.2.i.us, %104 ], [ %112, %115 ]
+  %118 = call zeroext i8 @tvb_get_uint8(ptr noundef %3, i32 noundef %.082)
+  %119 = lshr i8 %118, 6
+  %120 = lshr i8 %118, 5
+  %.lobit.i = and i8 %120, 1
+  %121 = and i8 %118, 31
+  %122 = zext nneg i8 %121 to i32
+  %123 = icmp eq i8 %121, 31
+  br i1 %123, label %.preheader.i, label %get_ber_identifier.exit
 
-.preheader.i:                                     ; preds = %.split120.us, %132
-  %.129.i.in = phi i32 [ %.129.i, %132 ], [ %.082, %.split120.us ]
-  %.1.i98 = phi i32 [ %137, %132 ], [ 0, %.split120.us ]
+.preheader.i:                                     ; preds = %.split120.us, %126
+  %.129.i.in = phi i32 [ %.129.i, %126 ], [ %.082, %.split120.us ]
+  %.1.i98 = phi i32 [ %131, %126 ], [ 0, %.split120.us ]
   %.129.i = add i32 %.129.i.in, 1
-  %130 = call i32 @tvb_reported_length_remaining(ptr noundef %3, i32 noundef %.129.i)
-  %131 = icmp sgt i32 %130, 0
-  br i1 %131, label %132, label %get_ber_identifier.exit
+  %124 = call i32 @tvb_reported_length_remaining(ptr noundef %3, i32 noundef %.129.i)
+  %125 = icmp sgt i32 %124, 0
+  br i1 %125, label %126, label %get_ber_identifier.exit
 
-132:                                              ; preds = %.preheader.i
-  %133 = call zeroext i8 @tvb_get_uint8(ptr noundef %3, i32 noundef %.129.i)
-  %134 = shl i32 %.1.i98, 7
-  %135 = and i8 %133, 127
-  %136 = zext nneg i8 %135 to i32
-  %137 = or disjoint i32 %134, %136
-  %.not.i99 = icmp sgt i8 %133, -1
+126:                                              ; preds = %.preheader.i
+  %127 = call zeroext i8 @tvb_get_uint8(ptr noundef %3, i32 noundef %.129.i)
+  %128 = shl i32 %.1.i98, 7
+  %129 = and i8 %127, 127
+  %130 = zext nneg i8 %129 to i32
+  %131 = or disjoint i32 %128, %130
+  %.not.i99 = icmp sgt i8 %127, -1
   br i1 %.not.i99, label %get_ber_identifier.exit, label %.preheader.i, !llvm.loop !6
 
-get_ber_identifier.exit:                          ; preds = %.preheader.i, %132, %.split120.us
-  %.0.i97 = phi i32 [ %128, %.split120.us ], [ %137, %132 ], [ %.1.i98, %.preheader.i ]
-  store i8 %125, ptr @last_class, align 1
+get_ber_identifier.exit:                          ; preds = %.preheader.i, %126, %.split120.us
+  %.0.i97 = phi i32 [ %122, %.split120.us ], [ %131, %126 ], [ %.1.i98, %.preheader.i ]
+  store i8 %119, ptr @last_class, align 1
   store i8 %.lobit.i, ptr @last_pc, align 1
   store i32 %.0.i97, ptr @last_tag, align 4
-  %138 = trunc i8 %126 to i1
-  %139 = icmp eq ptr %2, null
-  %or.cond.not.i = or i1 %139, %138
-  br i1 %or.cond.not.i, label %150, label %140
+  %132 = trunc i8 %120 to i1
+  %133 = icmp eq ptr %2, null
+  %or.cond.not.i = or i1 %133, %132
+  br i1 %or.cond.not.i, label %155, label %134
 
-140:                                              ; preds = %get_ber_identifier.exit
-  %141 = call fastcc i32 @dissect_ber_constrained_octet_string_impl(i1 noundef zeroext false, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %.082, i32 noundef -1, i32 noundef -1, i32 noundef %7, ptr noundef null, i32 noundef 0, i32 noundef 0)
-  br label %150
+134:                                              ; preds = %get_ber_identifier.exit
+  %135 = call fastcc i32 @dissect_ber_constrained_octet_string_impl(i1 noundef zeroext false, ptr noundef %1, ptr noundef nonnull %2, ptr noundef %3, i32 noundef %.082, i32 noundef -1, i32 noundef -1, i32 noundef %7, ptr noundef null, i32 noundef 0, i32 noundef 0)
+  %.pre136 = load ptr, ptr %12, align 8
+  br label %155
 
-142:                                              ; preds = %122
-  %143 = call i32 @tvb_reported_length(ptr noundef nonnull %120)
-  %144 = icmp eq i32 %143, 0
-  br i1 %144, label %.split122.us, label %145
+136:                                              ; preds = %115
+  %137 = call i32 @tvb_reported_length(ptr noundef nonnull %113)
+  %138 = icmp eq i32 %137, 0
+  br i1 %138, label %.split122.us, label %139
 
-.split122.us:                                     ; preds = %142, %110
+.split122.us:                                     ; preds = %136, %105
   call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #15
   unreachable
 
-145:                                              ; preds = %142
-  %146 = load ptr, ptr %12, align 8
-  %147 = load ptr, ptr %93, align 8
-  %148 = call i32 @tvb_reported_length(ptr noundef %146)
-  %149 = call ptr @fragment_add_seq_next(ptr noundef nonnull @octet_segment_reassembly_table, ptr noundef %146, i32 noundef 0, ptr noundef %147, i32 noundef %97, ptr noundef null, i32 noundef %148, i1 noundef zeroext %spec.select73.i)
-  %.not69.i = icmp eq ptr %149, null
+139:                                              ; preds = %136
+  %140 = load ptr, ptr %88, align 8
+  %141 = call i32 @tvb_reported_length(ptr noundef nonnull %113)
+  %142 = call ptr @fragment_add_seq_next(ptr noundef nonnull @octet_segment_reassembly_table, ptr noundef nonnull %113, i32 noundef 0, ptr noundef %140, i32 noundef %92, ptr noundef null, i32 noundef %141, i1 noundef zeroext %spec.select73.i)
+  %.not69.i = icmp eq ptr %142, null
   br i1 %.not69.i, label %.split, label %.thread, !llvm.loop !16
 
-150:                                              ; preds = %get_ber_identifier.exit, %140
-  %151 = load ptr, ptr %12, align 8
-  br label %164
+.thread:                                          ; preds = %139, %108
+  %.us-phi123 = phi ptr [ %111, %108 ], [ %142, %139 ]
+  %.us-phi124 = phi i32 [ %.2.i.us, %108 ], [ %112, %139 ]
+  %143 = load ptr, ptr %.us-phi123, align 8
+  %.not.i = icmp eq ptr %143, null
+  br i1 %.not.i, label %155, label %144
 
-.thread:                                          ; preds = %145, %114
-  %.us-phi123 = phi ptr [ %118, %114 ], [ %149, %145 ]
-  %.us-phi124 = phi i32 [ %.2.i.us, %114 ], [ %119, %145 ]
-  %152 = load ptr, ptr %.us-phi123, align 8
-  %.not.i = icmp eq ptr %152, null
-  br i1 %.not.i, label %164, label %153
-
-153:                                              ; preds = %.thread
+144:                                              ; preds = %.thread
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #14
-  %154 = load ptr, ptr %12, align 8
-  %155 = getelementptr inbounds nuw i8, ptr %.us-phi123, i64 56
-  %156 = load ptr, ptr %155, align 8
-  %157 = call ptr @tvb_new_chain(ptr noundef %154, ptr noundef %156)
-  %158 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %157, i32 noundef 0, i32 noundef -1, i32 noundef 0)
-  store ptr %158, ptr %80, align 8
-  %159 = load i32, ptr @ett_ber_reassembled_octet_string, align 4
-  %160 = call ptr @proto_item_add_subtree(ptr noundef %158, i32 noundef %159)
-  %161 = load ptr, ptr %93, align 8
-  call void @add_new_data_source(ptr noundef %161, ptr noundef %157, ptr noundef nonnull @.str.345)
-  %162 = load ptr, ptr %93, align 8
-  %163 = call zeroext i1 @show_fragment_seq_tree(ptr noundef nonnull %.us-phi123, ptr noundef nonnull @octet_string_frag_items, ptr noundef %160, ptr noundef %162, ptr noundef %157, ptr noundef nonnull %13)
+  %145 = load ptr, ptr %12, align 8
+  %146 = getelementptr inbounds nuw i8, ptr %.us-phi123, i64 56
+  %147 = load ptr, ptr %146, align 8
+  %148 = call ptr @tvb_new_chain(ptr noundef %145, ptr noundef %147)
+  %149 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %7, ptr noundef %148, i32 noundef 0, i32 noundef -1, i32 noundef 0)
+  store ptr %149, ptr %75, align 8
+  %150 = load i32, ptr @ett_ber_reassembled_octet_string, align 4
+  %151 = call ptr @proto_item_add_subtree(ptr noundef %149, i32 noundef %150)
+  %152 = load ptr, ptr %88, align 8
+  call void @add_new_data_source(ptr noundef %152, ptr noundef %148, ptr noundef nonnull @.str.345)
+  %153 = load ptr, ptr %88, align 8
+  %154 = call zeroext i1 @show_fragment_seq_tree(ptr noundef nonnull %.us-phi123, ptr noundef nonnull @octet_string_frag_items, ptr noundef %151, ptr noundef %153, ptr noundef %148, ptr noundef nonnull %13)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #14
-  br label %164
+  br label %155
 
-164:                                              ; preds = %150, %153, %.thread
-  %.159.i106 = phi i32 [ %.us-phi124, %153 ], [ %.us-phi124, %.thread ], [ %.us-phi, %150 ]
-  %.162.i = phi ptr [ %157, %153 ], [ null, %.thread ], [ %151, %150 ]
-  br i1 %.not, label %166, label %165
+155:                                              ; preds = %134, %get_ber_identifier.exit, %144, %.thread
+  %.159.i106 = phi i32 [ %.us-phi124, %144 ], [ %.us-phi124, %.thread ], [ %.us-phi, %get_ber_identifier.exit ], [ %.us-phi, %134 ]
+  %.162.i = phi ptr [ %148, %144 ], [ null, %.thread ], [ %117, %get_ber_identifier.exit ], [ %.pre136, %134 ]
+  br i1 %.not, label %157, label %156
 
-165:                                              ; preds = %164
+156:                                              ; preds = %155
   store ptr %.162.i, ptr %8, align 8
-  br label %166
+  br label %157
 
-166:                                              ; preds = %165, %164
-  %167 = load ptr, ptr %93, align 8
-  %168 = getelementptr inbounds nuw i8, ptr %167, i64 272
-  store i8 0, ptr %168, align 8
+157:                                              ; preds = %156, %155
+  %158 = load ptr, ptr %88, align 8
+  %159 = getelementptr inbounds nuw i8, ptr %158, i64 272
+  store i8 0, ptr %159, align 8
   br label %reassemble_octet_string.exit
 
-reassemble_octet_string.exit:                     ; preds = %90, %166
-  %.0.i = phi i32 [ %.159.i106, %166 ], [ %.082, %90 ]
+reassemble_octet_string.exit:                     ; preds = %85, %157
+  %.0.i = phi i32 [ %.159.i106, %157 ], [ %.082, %85 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #14
-  br label %196
+  br label %185
 
-169:                                              ; preds = %78
-  %170 = call i32 @tvb_reported_length_remaining(ptr noundef %3, i32 noundef %.082)
-  %171 = load i32, ptr %18, align 4
-  %spec.select = call i32 @llvm.umin.i32(i32 %171, i32 %170)
-  %172 = icmp sgt i32 %7, 0
-  br i1 %172, label %173, label %188
+160:                                              ; preds = %73
+  %161 = call i32 @tvb_reported_length_remaining(ptr noundef %3, i32 noundef %.082)
+  %spec.select = call i32 @llvm.umin.i32(i32 %74, i32 %161)
+  %162 = icmp sgt i32 %7, 0
+  br i1 %162, label %163, label %178
 
-173:                                              ; preds = %169
-  %174 = icmp eq i32 %10, 0
-  br i1 %174, label %175, label %179
+163:                                              ; preds = %160
+  %164 = icmp eq i32 %10, 0
+  br i1 %164, label %165, label %169
 
-175:                                              ; preds = %173
-  %176 = load i32, ptr %17, align 4
-  %switch.tableidx = add i32 %176, -12
-  %177 = icmp ult i32 %switch.tableidx, 19
-  br i1 %177, label %switch.lookup, label %179
+165:                                              ; preds = %163
+  %166 = load i32, ptr %17, align 4
+  %switch.tableidx = add i32 %166, -12
+  %167 = icmp ult i32 %switch.tableidx, 19
+  br i1 %167, label %switch.lookup, label %169
 
-switch.lookup:                                    ; preds = %175
-  %178 = zext nneg i32 %switch.tableidx to i64
-  %switch.gep = getelementptr inbounds nuw [19 x i32], ptr @switch.table.dissect_ber_constrained_octet_string_impl, i64 0, i64 %178
+switch.lookup:                                    ; preds = %165
+  %168 = zext nneg i32 %switch.tableidx to i64
+  %switch.gep = getelementptr inbounds nuw [19 x i32], ptr @switch.table.dissect_ber_constrained_octet_string_impl, i64 0, i64 %168
   %switch.load = load i32, ptr %switch.gep, align 4
-  br label %179
+  br label %169
 
-179:                                              ; preds = %175, %switch.lookup, %173
-  %.083 = phi i32 [ %10, %173 ], [ %switch.load, %switch.lookup ], [ 0, %175 ]
-  %180 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %181 = load ptr, ptr %180, align 8
-  %182 = call fastcc ptr @ber_proto_tree_add_item(ptr noundef %181, ptr noundef %2, i32 noundef %7, ptr noundef %3, i32 noundef %.082, i32 noundef %spec.select, i32 noundef %.083)
-  store ptr %182, ptr %80, align 8
+169:                                              ; preds = %165, %switch.lookup, %163
+  %.083 = phi i32 [ %10, %163 ], [ %switch.load, %switch.lookup ], [ 0, %165 ]
+  %170 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %171 = load ptr, ptr %170, align 8
+  %172 = call fastcc ptr @ber_proto_tree_add_item(ptr noundef %171, ptr noundef %2, i32 noundef %7, ptr noundef %3, i32 noundef %.082, i32 noundef %spec.select, i32 noundef %.083)
+  store ptr %172, ptr %75, align 8
   %.not.i96 = icmp ne i32 %5, -1
-  %183 = icmp ult i32 %spec.select, %5
-  %or.cond.i = and i1 %.not.i96, %183
-  br i1 %or.cond.i, label %.sink.split.i, label %184
+  %173 = icmp ult i32 %spec.select, %5
+  %or.cond.i = and i1 %.not.i96, %173
+  br i1 %or.cond.i, label %.sink.split.i, label %174
 
-184:                                              ; preds = %179
-  %185 = icmp ugt i32 %spec.select, %6
-  br i1 %185, label %.sink.split.i, label %ber_check_length.exit
+174:                                              ; preds = %169
+  %175 = icmp ugt i32 %spec.select, %6
+  br i1 %175, label %.sink.split.i, label %ber_check_length.exit
 
-.sink.split.i:                                    ; preds = %184, %179
-  %.str.365.sink.i = phi ptr [ @.str.363, %179 ], [ @.str.365, %184 ]
-  %186 = load ptr, ptr %180, align 8
-  %187 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %186, ptr noundef %182, ptr noundef nonnull @ei_ber_size_constraint_string, ptr noundef nonnull %.str.365.sink.i, ptr noundef nonnull @.str.43, i32 noundef %spec.select, i32 noundef %5, i32 noundef %6)
+.sink.split.i:                                    ; preds = %174, %169
+  %.str.365.sink.i = phi ptr [ @.str.363, %169 ], [ @.str.365, %174 ]
+  %176 = load ptr, ptr %170, align 8
+  %177 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %176, ptr noundef %172, ptr noundef nonnull @ei_ber_size_constraint_string, ptr noundef nonnull %.str.365.sink.i, ptr noundef nonnull @.str.43, i32 noundef %spec.select, i32 noundef %5, i32 noundef %6)
   br label %ber_check_length.exit
 
-188:                                              ; preds = %169
-  %189 = load i32, ptr @hf_ber_unknown_octetstring, align 4
-  %190 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %189, ptr noundef %3, i32 noundef %.082, i32 noundef %171, i32 noundef 0)
+178:                                              ; preds = %160
+  %179 = load i32, ptr @hf_ber_unknown_octetstring, align 4
+  %180 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %179, ptr noundef %3, i32 noundef %.082, i32 noundef %74, i32 noundef 0)
   br label %ber_check_length.exit
 
-ber_check_length.exit:                            ; preds = %.sink.split.i, %184, %188
-  br i1 %.not, label %196, label %191
+ber_check_length.exit:                            ; preds = %.sink.split.i, %174, %178
+  br i1 %.not, label %185, label %181
 
-191:                                              ; preds = %ber_check_length.exit
-  %192 = load i32, ptr %18, align 4
-  %193 = call i32 @tvb_reported_length_remaining(ptr noundef %3, i32 noundef %.082)
-  %194 = call i32 @llvm.smin.i32(i32 %193, i32 %192)
-  %195 = call ptr @tvb_new_subset_length(ptr noundef %3, i32 noundef %.082, i32 noundef %194)
-  store ptr %195, ptr %8, align 8
-  br label %196
+181:                                              ; preds = %ber_check_length.exit
+  %182 = call i32 @tvb_reported_length_remaining(ptr noundef %3, i32 noundef %.082)
+  %183 = call i32 @llvm.smin.i32(i32 %182, i32 %74)
+  %184 = call ptr @tvb_new_subset_length(ptr noundef %3, i32 noundef %.082, i32 noundef %183)
+  store ptr %184, ptr %8, align 8
+  br label %185
 
-196:                                              ; preds = %reassemble_octet_string.exit, %191, %ber_check_length.exit, %36, %50, %73
-  %.081 = phi i32 [ %64, %73 ], [ %27, %50 ], [ %27, %36 ], [ %.0.i, %reassemble_octet_string.exit ], [ %.084, %191 ], [ %.084, %ber_check_length.exit ]
+185:                                              ; preds = %reassemble_octet_string.exit, %181, %ber_check_length.exit, %35, %45, %68
+  %.081 = phi i32 [ %59, %68 ], [ %27, %45 ], [ %27, %35 ], [ %.0.i, %reassemble_octet_string.exit ], [ %.084, %181 ], [ %.084, %ber_check_length.exit ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16) #14
@@ -2533,12 +2501,12 @@ define hidden i32 @dissect_ber_octet_string_wcb(i1 noundef zeroext %0, ptr nound
   %11 = load ptr, ptr %8, align 8
   %12 = icmp ne ptr %11, null
   %or.cond = select i1 %9, i1 %12, i1 false
-  br i1 %or.cond, label %13, label %25
+  br i1 %or.cond, label %13, label %24
 
 13:                                               ; preds = %7
   %14 = call i32 @tvb_reported_length(ptr noundef nonnull %11)
   %.not = icmp eq i32 %14, 0
-  br i1 %.not, label %25, label %15
+  br i1 %.not, label %24, label %15
 
 15:                                               ; preds = %13
   %16 = icmp sgt i32 %5, 0
@@ -2553,11 +2521,10 @@ define hidden i32 @dissect_ber_octet_string_wcb(i1 noundef zeroext %0, ptr nound
 
 22:                                               ; preds = %17, %15
   %.0 = phi ptr [ %21, %17 ], [ %2, %15 ]
-  %23 = load ptr, ptr %8, align 8
-  %24 = call i32 %6(i1 noundef zeroext false, ptr noundef %23, i32 noundef 0, ptr noundef %1, ptr noundef %.0, i32 noundef -1)
-  br label %25
+  %23 = call i32 %6(i1 noundef zeroext false, ptr noundef nonnull %11, i32 noundef 0, ptr noundef %1, ptr noundef %.0, i32 noundef -1)
+  br label %24
 
-25:                                               ; preds = %22, %13, %7
+24:                                               ; preds = %22, %13, %7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #14
   ret i32 %10
 }
@@ -2575,7 +2542,7 @@ define i32 @dissect_ber_null(i1 noundef zeroext %0, ptr noundef readonly capture
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #14
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #14
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #14
-  br i1 %0, label %44, label %11
+  br i1 %0, label %37, label %11
 
 11:                                               ; preds = %6
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -2588,49 +2555,42 @@ define i32 @dissect_ber_null(i1 noundef zeroext %0, ptr noundef readonly capture
   %18 = load i32, ptr %9, align 4
   %19 = icmp ne i32 %18, 5
   %or.cond4 = select i1 %or.cond, i1 true, i1 %19
-  br i1 %or.cond4, label %20, label %32
+  br i1 %or.cond4, label %20, label %27
 
 20:                                               ; preds = %11
   %21 = sext i8 %16 to i32
   %22 = sub i32 %13, %4
   %23 = load ptr, ptr %12, align 8
   %24 = call ptr @val_to_str_const(i32 noundef %21, ptr noundef nonnull @ber_class_codes, ptr noundef nonnull @.str.3)
-  %25 = load i8, ptr %7, align 1
-  %26 = sext i8 %25 to i32
-  %27 = load i8, ptr %8, align 1, !range !8, !noundef !9
-  %28 = trunc nuw i8 %27 to i1
-  %29 = call ptr @tfs_get_string(i1 noundef zeroext %28, ptr noundef nonnull @tfs_constructed_primitive)
-  %30 = load i32, ptr %9, align 4
-  %31 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %23, ptr noundef nonnull @ei_ber_expected_null, ptr noundef %3, i32 noundef %4, i32 noundef %22, ptr noundef nonnull @.str.6, ptr noundef %24, i32 noundef %26, ptr noundef %29, i32 noundef %30)
-  br label %32
+  %25 = call ptr @tfs_get_string(i1 noundef zeroext %15, ptr noundef nonnull @tfs_constructed_primitive)
+  %26 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %23, ptr noundef nonnull @ei_ber_expected_null, ptr noundef %3, i32 noundef %4, i32 noundef %22, ptr noundef nonnull @.str.6, ptr noundef %24, i32 noundef %21, ptr noundef %25, i32 noundef %18)
+  br label %27
 
-32:                                               ; preds = %11, %20
-  %33 = call i32 @dissect_ber_length(ptr poison, ptr noundef %2, ptr noundef %3, i32 noundef %13, ptr noundef nonnull %10, ptr noundef null)
-  %34 = load i32, ptr %10, align 4
-  %.not = icmp eq i32 %34, 0
-  br i1 %.not, label %44, label %35
+27:                                               ; preds = %11, %20
+  %28 = call i32 @dissect_ber_length(ptr poison, ptr noundef %2, ptr noundef %3, i32 noundef %13, ptr noundef nonnull %10, ptr noundef null)
+  %29 = load i32, ptr %10, align 4
+  %.not = icmp eq i32 %29, 0
+  br i1 %.not, label %37, label %30
 
-35:                                               ; preds = %32
-  %36 = sub i32 %33, %13
-  %37 = load ptr, ptr %12, align 8
-  %38 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %37, ptr noundef nonnull @ei_ber_expected_null_zero_length, ptr noundef %3, i32 noundef %13, i32 noundef %36, ptr noundef nonnull @.str.7, i32 noundef %34)
-  %39 = load i32, ptr @hf_ber_extra_data, align 4
-  %40 = load i32, ptr %10, align 4
-  %41 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %39, ptr noundef %3, i32 noundef %33, i32 noundef %40, i32 noundef 0)
-  %42 = load i32, ptr %10, align 4
-  %43 = add i32 %42, %33
-  br label %44
+30:                                               ; preds = %27
+  %31 = sub i32 %28, %13
+  %32 = load ptr, ptr %12, align 8
+  %33 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %32, ptr noundef nonnull @ei_ber_expected_null_zero_length, ptr noundef %3, i32 noundef %13, i32 noundef %31, ptr noundef nonnull @.str.7, i32 noundef %29)
+  %34 = load i32, ptr @hf_ber_extra_data, align 4
+  %35 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %34, ptr noundef %3, i32 noundef %28, i32 noundef %29, i32 noundef 0)
+  %36 = add i32 %29, %28
+  br label %37
 
-44:                                               ; preds = %32, %35, %6
-  %.0 = phi i32 [ %4, %6 ], [ %43, %35 ], [ %33, %32 ]
-  %45 = icmp sgt i32 %5, 0
-  br i1 %45, label %46, label %48
+37:                                               ; preds = %27, %30, %6
+  %.0 = phi i32 [ %4, %6 ], [ %36, %30 ], [ %28, %27 ]
+  %38 = icmp sgt i32 %5, 0
+  br i1 %38, label %39, label %41
 
-46:                                               ; preds = %44
-  %47 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %3, i32 noundef %.0, i32 noundef 0, i32 noundef 0)
-  br label %48
+39:                                               ; preds = %37
+  %40 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %3, i32 noundef %.0, i32 noundef 0, i32 noundef 0)
+  br label %41
 
-48:                                               ; preds = %46, %44
+41:                                               ; preds = %39, %37
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #14
@@ -2681,209 +2641,195 @@ define i32 @dissect_ber_integer64(i1 noundef zeroext %0, ptr noundef captures(no
 
 22:                                               ; preds = %20
   %23 = call zeroext i8 @tvb_get_uint8(ptr noundef %3, i32 noundef %.0126)
-  %24 = load i32, ptr %11, align 4
-  %25 = icmp ugt i32 %24, 9
-  br i1 %25, label %29, label %26
+  %24 = icmp ugt i32 %21, 9
+  br i1 %24, label %28, label %25
 
-26:                                               ; preds = %22
-  %27 = icmp eq i32 %24, 9
-  %28 = icmp ne i8 %23, 0
-  %or.cond = select i1 %27, i1 %28, i1 false
-  br i1 %or.cond, label %29, label %47
+25:                                               ; preds = %22
+  %26 = icmp eq i32 %21, 9
+  %27 = icmp ne i8 %23, 0
+  %or.cond = select i1 %26, i1 %27, i1 false
+  br i1 %or.cond, label %28, label %45
 
-29:                                               ; preds = %26, %22
-  %30 = icmp sgt i32 %5, 0
-  br i1 %30, label %31, label %44
+28:                                               ; preds = %25, %22
+  %29 = icmp sgt i32 %5, 0
+  br i1 %29, label %30, label %42
 
-31:                                               ; preds = %29
-  %32 = call ptr @proto_registrar_get_nth(i32 noundef %5)
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 16
-  %34 = load i32, ptr %33, align 8
-  %.not147 = icmp eq i32 %34, 30
-  %35 = load i32, ptr @hf_ber_64bit_uint_as_bytes, align 4
-  %spec.select = select i1 %.not147, i32 %5, i32 %35
-  %36 = load i32, ptr %11, align 4
-  %37 = load ptr, ptr %32, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %1, i64 16
+30:                                               ; preds = %28
+  %31 = call ptr @proto_registrar_get_nth(i32 noundef %5)
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
+  %33 = load i32, ptr %32, align 8
+  %.not147 = icmp eq i32 %33, 30
+  %34 = load i32, ptr @hf_ber_64bit_uint_as_bytes, align 4
+  %spec.select = select i1 %.not147, i32 %5, i32 %34
+  %35 = load ptr, ptr %31, align 8
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %37 = load ptr, ptr %36, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 408
   %39 = load ptr, ptr %38, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 408
-  %41 = load ptr, ptr %40, align 8
-  %42 = call ptr @tvb_bytes_to_str(ptr noundef %41, ptr noundef %3, i32 noundef %.0126, i32 noundef %36)
-  %43 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %2, i32 noundef %spec.select, ptr noundef %3, i32 noundef %.0126, i32 noundef %36, ptr noundef null, ptr noundef nonnull @.str.8, ptr noundef %37, ptr noundef %42)
-  %.pre160 = load i32, ptr %11, align 4
-  br label %44
-
-44:                                               ; preds = %31, %29
-  %45 = phi i32 [ %.pre160, %31 ], [ %24, %29 ]
-  %46 = add i32 %45, %.0126
-  br label %125
-
-47:                                               ; preds = %26
-  %48 = icmp sgt i32 %5, 0
-  br i1 %48, label %49, label %54
-
-49:                                               ; preds = %47
-  %50 = call i32 @proto_registrar_get_ftype(i32 noundef %5)
-  %51 = add i32 %50, -12
-  %52 = icmp ult i32 %51, 8
-  %53 = sext i1 %52 to i64
+  %40 = call ptr @tvb_bytes_to_str(ptr noundef %39, ptr noundef %3, i32 noundef %.0126, i32 noundef %21)
+  %41 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %2, i32 noundef %spec.select, ptr noundef %3, i32 noundef %.0126, i32 noundef %21, ptr noundef null, ptr noundef nonnull @.str.8, ptr noundef %35, ptr noundef %40)
   %.pre = load i32, ptr %11, align 4
-  br label %54
+  br label %42
 
-54:                                               ; preds = %49, %47
-  %55 = phi i32 [ %.pre, %49 ], [ %24, %47 ]
-  %.0127 = phi i64 [ %53, %49 ], [ -1, %47 ]
+42:                                               ; preds = %30, %28
+  %43 = phi i32 [ %.pre, %30 ], [ %21, %28 ]
+  %44 = add i32 %43, %.0126
+  br label %117
+
+45:                                               ; preds = %25
+  %46 = icmp sgt i32 %5, 0
+  br i1 %46, label %47, label %52
+
+47:                                               ; preds = %45
+  %48 = call i32 @proto_registrar_get_ftype(i32 noundef %5)
+  %49 = add i32 %48, -12
+  %50 = icmp ult i32 %49, 8
+  %51 = sext i1 %50 to i64
+  br label %52
+
+52:                                               ; preds = %47, %45
+  %.0127 = phi i64 [ %51, %47 ], [ -1, %45 ]
   %.not145 = icmp sgt i8 %23, -1
   %.1130 = select i1 %.not145, i64 0, i64 %.0127
-  %56 = icmp ugt i32 %55, 1
-  br i1 %56, label %57, label %66
+  %.not153 = icmp eq i32 %21, 1
+  br i1 %.not153, label %62, label %53
 
-57:                                               ; preds = %54
-  %58 = load i8, ptr @decode_warning_leading_zero_bits, align 1, !range !8, !noundef !9
-  %59 = trunc nuw i8 %58 to i1
-  br i1 %59, label %60, label %.lr.ph.preheader
+53:                                               ; preds = %52
+  %54 = load i8, ptr @decode_warning_leading_zero_bits, align 1, !range !8, !noundef !9
+  %55 = trunc nuw i8 %54 to i1
+  br i1 %55, label %56, label %62
 
-60:                                               ; preds = %57
-  %61 = add i32 %.0126, 1
-  %62 = call zeroext i8 @tvb_get_uint8(ptr noundef %3, i32 noundef %61)
-  %63 = icmp eq i8 %23, 0
-  %64 = icmp sgt i8 %62, -1
-  %or.cond148 = select i1 %63, i1 %64, i1 false
-  %65 = icmp ne i8 %23, -1
-  %or.cond149 = select i1 %65, i1 true, i1 %64
+56:                                               ; preds = %53
+  %57 = add i32 %.0126, 1
+  %58 = call zeroext i8 @tvb_get_uint8(ptr noundef %3, i32 noundef %57)
+  %59 = icmp eq i8 %23, 0
+  %60 = icmp sgt i8 %58, -1
+  %or.cond148 = select i1 %59, i1 %60, i1 false
+  %61 = icmp ne i8 %23, -1
+  %or.cond149 = select i1 %61, i1 true, i1 %60
   %or.cond149.not = xor i1 %or.cond149, true
   %not.or.cond151 = select i1 %or.cond148, i1 true, i1 %or.cond149.not
-  %.pre159 = load i32, ptr %11, align 4
-  br label %66
+  br label %62
 
-66:                                               ; preds = %60, %54
-  %67 = phi i32 [ %55, %54 ], [ %.pre159, %60 ]
-  %.1134 = phi i1 [ false, %54 ], [ %not.or.cond151, %60 ]
-  %.not157 = icmp eq i32 %67, 0
-  br i1 %.not157, label %.loopexit, label %.lr.ph.preheader
+62:                                               ; preds = %56, %53, %52
+  %.1134 = phi i1 [ false, %53 ], [ false, %52 ], [ %not.or.cond151, %56 ]
+  br label %63
 
-.lr.ph.preheader:                                 ; preds = %57, %66
-  %.1134163 = phi i1 [ %.1134, %66 ], [ false, %57 ]
-  br label %.lr.ph
+63:                                               ; preds = %62, %63
+  %.2156 = phi i32 [ %.0126, %62 ], [ %68, %63 ]
+  %.2131155 = phi i64 [ %.1130, %62 ], [ %67, %63 ]
+  %.0136154 = phi i32 [ 0, %62 ], [ %69, %63 ]
+  %64 = shl i64 %.2131155, 8
+  %65 = call zeroext i8 @tvb_get_uint8(ptr noundef %3, i32 noundef %.2156)
+  %66 = zext i8 %65 to i64
+  %67 = or disjoint i64 %64, %66
+  %68 = add i32 %.2156, 1
+  %69 = add nuw i32 %.0136154, 1
+  %exitcond.not = icmp eq i32 %69, %21
+  br i1 %exitcond.not, label %.loopexit, label %63, !llvm.loop !17
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.2155 = phi i32 [ %72, %.lr.ph ], [ %.0126, %.lr.ph.preheader ]
-  %.2131154 = phi i64 [ %71, %.lr.ph ], [ %.1130, %.lr.ph.preheader ]
-  %.0136153 = phi i32 [ %73, %.lr.ph ], [ 0, %.lr.ph.preheader ]
-  %68 = shl i64 %.2131154, 8
-  %69 = call zeroext i8 @tvb_get_uint8(ptr noundef %3, i32 noundef %.2155)
-  %70 = zext i8 %69 to i64
-  %71 = or disjoint i64 %68, %70
-  %72 = add i32 %.2155, 1
-  %73 = add nuw i32 %.0136153, 1
-  %74 = load i32, ptr %11, align 4
-  %75 = icmp ult i32 %73, %74
-  br i1 %75, label %.lr.ph, label %.loopexit, !llvm.loop !17
+.loopexit:                                        ; preds = %63, %20
+  %.0133 = phi i1 [ false, %20 ], [ %.1134, %63 ]
+  %.0132 = phi i1 [ false, %20 ], [ %27, %63 ]
+  %.0129 = phi i64 [ 0, %20 ], [ %67, %63 ]
+  %.1 = phi i32 [ %.0126, %20 ], [ %68, %63 ]
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store ptr null, ptr %70, align 8
+  %71 = icmp sgt i32 %5, 0
+  br i1 %71, label %72, label %115
 
-.loopexit:                                        ; preds = %.lr.ph, %66, %20
-  %.0133 = phi i1 [ false, %20 ], [ %.1134, %66 ], [ %.1134163, %.lr.ph ]
-  %.0132 = phi i1 [ false, %20 ], [ %28, %66 ], [ %28, %.lr.ph ]
-  %.0129 = phi i64 [ 0, %20 ], [ %.1130, %66 ], [ %71, %.lr.ph ]
-  %.1 = phi i32 [ %.0126, %20 ], [ %.0126, %66 ], [ %72, %.lr.ph ]
-  %76 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store ptr null, ptr %76, align 8
-  %77 = icmp sgt i32 %5, 0
-  br i1 %77, label %78, label %123
-
-78:                                               ; preds = %.loopexit
-  %79 = call ptr @proto_registrar_get_nth(i32 noundef %5)
-  %80 = load i32, ptr %11, align 4
-  %81 = add i32 %80, -10
-  %or.cond18 = icmp ult i32 %81, -9
-  %82 = icmp eq i32 %80, 9
-  %or.cond21 = select i1 %82, i1 %.0132, i1 false
+72:                                               ; preds = %.loopexit
+  %73 = call ptr @proto_registrar_get_nth(i32 noundef %5)
+  %or.cond18 = icmp eq i32 %21, 0
+  %74 = icmp eq i32 %21, 9
+  %or.cond21 = select i1 %74, i1 %.0132, i1 false
   %or.cond150 = select i1 %or.cond18, i1 true, i1 %or.cond21
-  br i1 %or.cond150, label %83, label %89
+  br i1 %or.cond150, label %75, label %81
 
-83:                                               ; preds = %78
-  %84 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %85 = load ptr, ptr %84, align 8
-  %86 = sub i32 %.1, %80
-  %87 = load ptr, ptr %79, align 8
-  %88 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %85, ptr noundef nonnull @ei_ber_error_length, ptr noundef %3, i32 noundef %86, i32 noundef %80, ptr noundef nonnull @.str.9, ptr noundef %87, i32 noundef %80)
-  br label %123
+75:                                               ; preds = %72
+  %76 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %77 = load ptr, ptr %76, align 8
+  %78 = sub i32 %.1, %21
+  %79 = load ptr, ptr %73, align 8
+  %80 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %77, ptr noundef nonnull @ei_ber_error_length, ptr noundef %3, i32 noundef %78, i32 noundef %21, ptr noundef nonnull @.str.9, ptr noundef %79, i32 noundef %21)
+  br label %115
 
-89:                                               ; preds = %78
-  %90 = getelementptr inbounds nuw i8, ptr %79, i64 16
-  %91 = load i32, ptr %90, align 8
-  switch i32 %91, label %115 [
-    i32 4, label %92
-    i32 5, label %92
-    i32 6, label %92
-    i32 7, label %92
-    i32 12, label %96
-    i32 13, label %96
-    i32 14, label %96
-    i32 15, label %96
-    i32 19, label %100
-    i32 11, label %103
-    i32 30, label %106
+81:                                               ; preds = %72
+  %82 = getelementptr inbounds nuw i8, ptr %73, i64 16
+  %83 = load i32, ptr %82, align 8
+  switch i32 %83, label %107 [
+    i32 4, label %84
+    i32 5, label %84
+    i32 6, label %84
+    i32 7, label %84
+    i32 12, label %88
+    i32 13, label %88
+    i32 14, label %88
+    i32 15, label %88
+    i32 19, label %92
+    i32 11, label %95
+    i32 30, label %98
   ]
 
-92:                                               ; preds = %89, %89, %89, %89
-  %93 = sub i32 %.1, %80
-  %94 = trunc i64 %.0129 to i32
-  %95 = call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %5, ptr noundef %3, i32 noundef %93, i32 noundef %80, i32 noundef %94)
-  br label %116
+84:                                               ; preds = %81, %81, %81, %81
+  %85 = sub i32 %.1, %21
+  %86 = trunc i64 %.0129 to i32
+  %87 = call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %5, ptr noundef %3, i32 noundef %85, i32 noundef %21, i32 noundef %86)
+  br label %108
 
-96:                                               ; preds = %89, %89, %89, %89
-  %97 = sub i32 %.1, %80
-  %98 = trunc i64 %.0129 to i32
-  %99 = call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %5, ptr noundef %3, i32 noundef %97, i32 noundef %80, i32 noundef %98)
-  br label %116
+88:                                               ; preds = %81, %81, %81, %81
+  %89 = sub i32 %.1, %21
+  %90 = trunc i64 %.0129 to i32
+  %91 = call ptr @proto_tree_add_int(ptr noundef %2, i32 noundef %5, ptr noundef %3, i32 noundef %89, i32 noundef %21, i32 noundef %90)
+  br label %108
 
-100:                                              ; preds = %89
-  %101 = sub i32 %.1, %80
-  %102 = call ptr @proto_tree_add_int64(ptr noundef %2, i32 noundef %5, ptr noundef %3, i32 noundef %101, i32 noundef %80, i64 noundef %.0129)
-  br label %116
+92:                                               ; preds = %81
+  %93 = sub i32 %.1, %21
+  %94 = call ptr @proto_tree_add_int64(ptr noundef %2, i32 noundef %5, ptr noundef %3, i32 noundef %93, i32 noundef %21, i64 noundef %.0129)
+  br label %108
 
-103:                                              ; preds = %89
-  %104 = sub i32 %.1, %80
-  %105 = call ptr @proto_tree_add_uint64(ptr noundef %2, i32 noundef %5, ptr noundef %3, i32 noundef %104, i32 noundef %80, i64 noundef %.0129)
-  br label %116
+95:                                               ; preds = %81
+  %96 = sub i32 %.1, %21
+  %97 = call ptr @proto_tree_add_uint64(ptr noundef %2, i32 noundef %5, ptr noundef %3, i32 noundef %96, i32 noundef %21, i64 noundef %.0129)
+  br label %108
 
-106:                                              ; preds = %89
-  %107 = sub i32 %.1, %80
-  %108 = load ptr, ptr %79, align 8
-  %109 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %110 = load ptr, ptr %109, align 8
-  %111 = getelementptr inbounds nuw i8, ptr %110, i64 408
-  %112 = load ptr, ptr %111, align 8
-  %113 = call ptr @tvb_bytes_to_str(ptr noundef %112, ptr noundef %3, i32 noundef %107, i32 noundef %80)
-  %114 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %2, i32 noundef %5, ptr noundef %3, i32 noundef %107, i32 noundef %80, ptr noundef null, ptr noundef nonnull @.str.8, ptr noundef %108, ptr noundef %113)
-  br label %116
+98:                                               ; preds = %81
+  %99 = sub i32 %.1, %21
+  %100 = load ptr, ptr %73, align 8
+  %101 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %102 = load ptr, ptr %101, align 8
+  %103 = getelementptr inbounds nuw i8, ptr %102, i64 408
+  %104 = load ptr, ptr %103, align 8
+  %105 = call ptr @tvb_bytes_to_str(ptr noundef %104, ptr noundef %3, i32 noundef %99, i32 noundef %21)
+  %106 = call ptr (ptr, i32, ptr, i32, i32, ptr, ptr, ...) @proto_tree_add_bytes_format(ptr noundef %2, i32 noundef %5, ptr noundef %3, i32 noundef %99, i32 noundef %21, ptr noundef null, ptr noundef nonnull @.str.8, ptr noundef %100, ptr noundef %105)
+  br label %108
 
-115:                                              ; preds = %89
+107:                                              ; preds = %81
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 1983) #15
   unreachable
 
-116:                                              ; preds = %106, %103, %100, %96, %92
-  %.sink = phi ptr [ %114, %106 ], [ %105, %103 ], [ %102, %100 ], [ %99, %96 ], [ %95, %92 ]
-  store ptr %.sink, ptr %76, align 8
-  br i1 %.0133, label %117, label %123
+108:                                              ; preds = %98, %95, %92, %88, %84
+  %.sink = phi ptr [ %106, %98 ], [ %97, %95 ], [ %94, %92 ], [ %91, %88 ], [ %87, %84 ]
+  store ptr %.sink, ptr %70, align 8
+  br i1 %.0133, label %109, label %115
 
-117:                                              ; preds = %116
-  %118 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %119 = load ptr, ptr %118, align 8
-  %120 = getelementptr inbounds nuw i8, ptr %79, i64 8
-  %121 = load ptr, ptr %120, align 8
-  %122 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %119, ptr noundef %.sink, ptr noundef nonnull @ei_ber_value_too_many_bytes, ptr noundef nonnull @.str.12, ptr noundef %121)
-  br label %123
+109:                                              ; preds = %108
+  %110 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %111 = load ptr, ptr %110, align 8
+  %112 = getelementptr inbounds nuw i8, ptr %73, i64 8
+  %113 = load ptr, ptr %112, align 8
+  %114 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %111, ptr noundef %.sink, ptr noundef nonnull @ei_ber_value_too_many_bytes, ptr noundef nonnull @.str.12, ptr noundef %113)
+  br label %115
 
-123:                                              ; preds = %83, %117, %116, %.loopexit
-  br i1 %.not, label %125, label %124
+115:                                              ; preds = %75, %109, %108, %.loopexit
+  br i1 %.not, label %117, label %116
 
-124:                                              ; preds = %123
+116:                                              ; preds = %115
   store i64 %.0129, ptr %6, align 8
-  br label %125
+  br label %117
 
-125:                                              ; preds = %123, %124, %44
-  %.0 = phi i32 [ %46, %44 ], [ %.1, %124 ], [ %.1, %123 ]
+117:                                              ; preds = %115, %116, %42
+  %.0 = phi i32 [ %44, %42 ], [ %.1, %116 ], [ %.1, %115 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #14
@@ -3035,7 +2981,6 @@ define noundef i32 @dissect_ber_boolean(i1 noundef zeroext %0, ptr noundef captu
 15:                                               ; preds = %7
   %16 = tail call i32 @tvb_reported_length_remaining(ptr noundef %3, i32 noundef %4)
   %17 = tail call i32 @llvm.smax.i32(i32 %16, i32 0)
-  store i32 %17, ptr %11, align 4
   br label %18
 
 18:                                               ; preds = %15, %12
@@ -3050,7 +2995,7 @@ define noundef i32 @dissect_ber_boolean(i1 noundef zeroext %0, ptr noundef captu
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr null, ptr %24, align 8
   %25 = icmp sgt i32 %5, 0
-  br i1 %25, label %26, label %47
+  br i1 %25, label %26, label %46
 
 26:                                               ; preds = %21
   %27 = call ptr @proto_registrar_get_nth(i32 noundef %5)
@@ -3063,43 +3008,42 @@ define noundef i32 @dissect_ber_boolean(i1 noundef zeroext %0, ptr noundef captu
   %32 = zext i8 %22 to i64
   %33 = call ptr @proto_tree_add_boolean(ptr noundef %2, i32 noundef %5, ptr noundef %3, i32 noundef %.0, i32 noundef 1, i64 noundef %32)
   store ptr %33, ptr %24, align 8
-  br label %47
+  br label %46
 
 34:                                               ; preds = %26
   %.not = icmp ne i8 %22, 0
   %35 = zext i1 %.not to i32
   %36 = call ptr @proto_tree_add_uint(ptr noundef %2, i32 noundef %5, ptr noundef %3, i32 noundef %.0, i32 noundef 1, i32 noundef %35)
   store ptr %36, ptr %24, align 8
-  br label %47
+  br label %46
 
 37:                                               ; preds = %18
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr null, ptr %38, align 8
   %39 = icmp sgt i32 %5, 0
-  br i1 %39, label %40, label %47
+  br i1 %39, label %40, label %46
 
 40:                                               ; preds = %37
   %41 = call ptr @proto_registrar_get_nth(i32 noundef %5)
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %43 = load ptr, ptr %42, align 8
-  %44 = load i32, ptr %11, align 4
-  %45 = load ptr, ptr %41, align 8
-  %46 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %43, ptr noundef nonnull @ei_ber_error_length, ptr noundef %3, i32 noundef %.0, i32 noundef %44, ptr noundef nonnull @.str.9, ptr noundef %45, i32 noundef %44)
-  br label %47
+  %44 = load ptr, ptr %41, align 8
+  %45 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %43, ptr noundef nonnull @ei_ber_error_length, ptr noundef %3, i32 noundef %.0, i32 noundef %19, ptr noundef nonnull @.str.9, ptr noundef %44, i32 noundef %19)
+  br label %46
 
-47:                                               ; preds = %37, %40, %21, %34, %31
+46:                                               ; preds = %37, %40, %21, %34, %31
   %.043 = phi i8 [ %22, %31 ], [ %22, %34 ], [ %22, %21 ], [ 0, %40 ], [ 0, %37 ]
   %.1 = phi i32 [ %23, %31 ], [ %23, %34 ], [ %23, %21 ], [ %.0, %40 ], [ %.0, %37 ]
   %.not47 = icmp eq ptr %6, null
-  br i1 %.not47, label %51, label %48
+  br i1 %.not47, label %50, label %47
 
-48:                                               ; preds = %47
-  %49 = icmp ne i8 %.043, 0
-  %50 = zext i1 %49 to i8
-  store i8 %50, ptr %6, align 1
-  br label %51
+47:                                               ; preds = %46
+  %48 = icmp ne i8 %.043, 0
+  %49 = zext i1 %48 to i8
+  store i8 %49, ptr %6, align 1
+  br label %50
 
-51:                                               ; preds = %48, %47
+50:                                               ; preds = %47, %46
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #14
@@ -3126,67 +3070,57 @@ define i32 @dissect_ber_real(i1 noundef zeroext %0, ptr noundef captures(none) %
   %15 = load i32, ptr %11, align 4
   %16 = add i32 %15, %14
   %.pre = load i8, ptr %9, align 1, !range !8
-  br label %33
+  br label %31
 
 17:                                               ; preds = %7
-  %18 = load i8, ptr @last_class, align 1
-  store i8 %18, ptr %8, align 1
-  %19 = load i8, ptr @last_pc, align 1, !range !8, !noundef !9
-  store i8 %19, ptr %9, align 1
-  %20 = load i32, ptr @last_tag, align 4
-  store i32 %20, ptr %10, align 4
-  %21 = load i32, ptr @last_length, align 4
-  store i32 %21, ptr %11, align 4
-  %22 = load ptr, ptr @last_length_tvb, align 8
-  %23 = load i32, ptr @last_length_offset, align 4
-  %24 = load i32, ptr @last_length_len, align 4
-  %25 = add i32 %21, %4
-  %26 = tail call i32 @tvb_reported_length_remaining(ptr noundef %3, i32 noundef %4)
-  %27 = icmp ult i32 %26, %21
-  br i1 %27, label %28, label %33
+  %18 = load i8, ptr @last_pc, align 1, !range !8, !noundef !9
+  %19 = load i32, ptr @last_length, align 4
+  %20 = load ptr, ptr @last_length_tvb, align 8
+  %21 = load i32, ptr @last_length_offset, align 4
+  %22 = load i32, ptr @last_length_len, align 4
+  %23 = add i32 %19, %4
+  %24 = tail call i32 @tvb_reported_length_remaining(ptr noundef %3, i32 noundef %4)
+  %25 = icmp ult i32 %24, %19
+  br i1 %25, label %26, label %31
 
-28:                                               ; preds = %17
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %30 = load ptr, ptr %29, align 8
-  %31 = tail call i32 @tvb_reported_length_remaining(ptr noundef %3, i32 noundef %4)
-  %32 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %30, ptr noundef nonnull @ei_ber_error_length, ptr noundef %22, i32 noundef %23, i32 noundef %24, ptr noundef nonnull @.str.350, i32 noundef %21, i32 noundef %31)
-  br label %52
+26:                                               ; preds = %17
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %28 = load ptr, ptr %27, align 8
+  %29 = tail call i32 @tvb_reported_length_remaining(ptr noundef %3, i32 noundef %4)
+  %30 = tail call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %28, ptr noundef nonnull @ei_ber_error_length, ptr noundef %20, i32 noundef %21, i32 noundef %22, ptr noundef nonnull @.str.350, i32 noundef %19, i32 noundef %29)
+  br label %47
 
-33:                                               ; preds = %17, %12
-  %34 = phi i32 [ %21, %17 ], [ %15, %12 ]
-  %35 = phi i8 [ %19, %17 ], [ %.pre, %12 ]
+31:                                               ; preds = %17, %12
+  %32 = phi i32 [ %19, %17 ], [ %15, %12 ]
+  %33 = phi i8 [ %18, %17 ], [ %.pre, %12 ]
   %.036 = phi i32 [ %4, %17 ], [ %14, %12 ]
-  %.0 = phi i32 [ %25, %17 ], [ %16, %12 ]
-  %36 = trunc nuw i8 %35 to i1
-  br i1 %36, label %37, label %42
+  %.0 = phi i32 [ %23, %17 ], [ %16, %12 ]
+  %34 = trunc nuw i8 %33 to i1
+  br i1 %34, label %35, label %40
 
-37:                                               ; preds = %33
-  %38 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %39 = load ptr, ptr %38, align 8
-  %40 = add i32 %.036, -2
-  %41 = call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %39, ptr noundef nonnull @ei_ber_real_not_primitive, ptr noundef %3, i32 noundef %40, i32 noundef 1)
-  %.pre40 = load i32, ptr %11, align 4
-  br label %42
+35:                                               ; preds = %31
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %37 = load ptr, ptr %36, align 8
+  %38 = add i32 %.036, -2
+  %39 = call ptr @proto_tree_add_expert(ptr noundef %2, ptr noundef %37, ptr noundef nonnull @ei_ber_real_not_primitive, ptr noundef %3, i32 noundef %38, i32 noundef 1)
+  br label %40
 
-42:                                               ; preds = %37, %33
-  %43 = phi i32 [ %.pre40, %37 ], [ %34, %33 ]
-  %44 = call ptr @tvb_get_ptr(ptr noundef %3, i32 noundef %.036, i32 noundef %43)
-  %45 = load i32, ptr %11, align 4
-  %46 = call double @asn1_get_real(ptr noundef %44, i32 noundef %45)
-  %47 = load i32, ptr %11, align 4
-  %48 = sub i32 %.0, %47
-  %49 = call ptr @proto_tree_add_double(ptr noundef %2, i32 noundef %5, ptr noundef %3, i32 noundef %48, i32 noundef %47, double noundef %46)
-  %50 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store ptr %49, ptr %50, align 8
+40:                                               ; preds = %35, %31
+  %41 = call ptr @tvb_get_ptr(ptr noundef %3, i32 noundef %.036, i32 noundef %32)
+  %42 = call double @asn1_get_real(ptr noundef %41, i32 noundef %32)
+  %43 = sub i32 %.0, %32
+  %44 = call ptr @proto_tree_add_double(ptr noundef %2, i32 noundef %5, ptr noundef %3, i32 noundef %43, i32 noundef %32, double noundef %42)
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store ptr %44, ptr %45, align 8
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %52, label %51
+  br i1 %.not, label %47, label %46
 
-51:                                               ; preds = %42
-  store double %46, ptr %6, align 8
-  br label %52
+46:                                               ; preds = %40
+  store double %42, ptr %6, align 8
+  br label %47
 
-52:                                               ; preds = %42, %51, %28
-  %.035 = phi i32 [ %25, %28 ], [ %.0, %51 ], [ %.0, %42 ]
+47:                                               ; preds = %40, %46, %26
+  %.035 = phi i32 [ %23, %26 ], [ %.0, %46 ], [ %.0, %40 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #14
@@ -3286,7 +3220,7 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %29, 
 49:                                               ; preds = %43, %40
   %.0270 = phi ptr [ %48, %43 ], [ %2, %40 ]
   %.0269 = phi ptr [ %47, %43 ], [ null, %40 ]
-  br i1 %0, label %86, label %50
+  br i1 %0, label %80, label %50
 
 50:                                               ; preds = %49
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -3302,7 +3236,7 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %29, 
   %59 = load i8, ptr %9, align 1
   %60 = and i8 %59, -3
   %or.cond.not = icmp eq i8 %60, 1
-  br i1 %or.cond.not, label %86, label %61
+  br i1 %or.cond.not, label %80, label %61
 
 61:                                               ; preds = %50
   %62 = load i8, ptr %10, align 1, !range !8, !noundef !9
@@ -3313,472 +3247,466 @@ get_ber_identifier.exit:                          ; preds = %.preheader.i, %29, 
   %65 = load i32, ptr %13, align 4
   %66 = icmp ne i32 %65, 16
   %or.cond7 = select i1 %or.cond5, i1 true, i1 %66
-  br i1 %or.cond7, label %67, label %86
+  br i1 %or.cond7, label %67, label %80
 
 67:                                               ; preds = %61
   call void @tvb_ensure_bytes_exist(ptr noundef %3, i32 noundef %4, i32 noundef 2)
   %68 = load ptr, ptr %51, align 8
-  %69 = load i8, ptr %9, align 1
-  %70 = sext i8 %69 to i32
-  %71 = call ptr @val_to_str_const(i32 noundef %70, ptr noundef nonnull @ber_class_codes, ptr noundef nonnull @.str.3)
-  %72 = load i8, ptr %9, align 1
-  %73 = sext i8 %72 to i32
-  %74 = load i8, ptr %10, align 1, !range !8, !noundef !9
-  %75 = trunc nuw i8 %74 to i1
-  %76 = call ptr @tfs_get_string(i1 noundef zeroext %75, ptr noundef nonnull @tfs_constructed_primitive)
-  %77 = load i32, ptr %13, align 4
-  %78 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.0270, ptr noundef %68, ptr noundef nonnull @ei_ber_expected_sequence, ptr noundef %3, i32 noundef %4, i32 noundef %53, ptr noundef nonnull @.str.13, ptr noundef %71, i32 noundef %73, ptr noundef %76, i32 noundef %77)
-  %79 = load i8, ptr @decode_unexpected, align 1, !range !8, !noundef !9
-  %80 = trunc nuw i8 %79 to i1
-  br i1 %80, label %81, label %321
+  %69 = sext i8 %59 to i32
+  %70 = call ptr @val_to_str_const(i32 noundef %69, ptr noundef nonnull @ber_class_codes, ptr noundef nonnull @.str.3)
+  %71 = call ptr @tfs_get_string(i1 noundef zeroext %63, ptr noundef nonnull @tfs_constructed_primitive)
+  %72 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.0270, ptr noundef %68, ptr noundef nonnull @ei_ber_expected_sequence, ptr noundef %3, i32 noundef %4, i32 noundef %53, ptr noundef nonnull @.str.13, ptr noundef %70, i32 noundef %69, ptr noundef %71, i32 noundef %65)
+  %73 = load i8, ptr @decode_unexpected, align 1, !range !8, !noundef !9
+  %74 = trunc nuw i8 %73 to i1
+  br i1 %74, label %75, label %315
 
-81:                                               ; preds = %67
-  %82 = load i32, ptr @ett_ber_unknown, align 4
-  %83 = call ptr @proto_item_add_subtree(ptr noundef %78, i32 noundef %82)
-  %84 = load ptr, ptr %51, align 8
-  %85 = call fastcc i32 @try_dissect_unknown_ber(ptr noundef %84, ptr noundef %3, i32 noundef %4, ptr noundef %83, i32 noundef 1)
-  br label %321
+75:                                               ; preds = %67
+  %76 = load i32, ptr @ett_ber_unknown, align 4
+  %77 = call ptr @proto_item_add_subtree(ptr noundef %72, i32 noundef %76)
+  %78 = load ptr, ptr %51, align 8
+  %79 = call fastcc i32 @try_dissect_unknown_ber(ptr noundef %78, ptr noundef %3, i32 noundef %4, ptr noundef %77, i32 noundef 1)
+  br label %315
 
-86:                                               ; preds = %50, %61, %49
+80:                                               ; preds = %50, %61, %49
   %.1264 = phi i32 [ %.0263, %49 ], [ %.2265, %61 ], [ %.2265, %50 ]
   %.1254 = phi i32 [ %4, %49 ], [ %54, %61 ], [ %54, %50 ]
-  %87 = icmp eq i32 %.1254, %.1264
-  br i1 %87, label %88, label %89
+  %81 = icmp eq i32 %.1254, %.1264
+  br i1 %81, label %82, label %83
 
-88:                                               ; preds = %86
+82:                                               ; preds = %80
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.0269, ptr noundef nonnull @.str.14)
-  br label %89
+  br label %83
 
-89:                                               ; preds = %88, %86
-  %90 = icmp slt i32 %.1254, %.1264
-  br i1 %90, label %.lr.ph359, label %._crit_edge360
+83:                                               ; preds = %82, %80
+  %84 = icmp slt i32 %.1254, %.1264
+  br i1 %84, label %.lr.ph359, label %._crit_edge360
 
-.lr.ph359:                                        ; preds = %89
-  %91 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  br label %92
+.lr.ph359:                                        ; preds = %83
+  %85 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  br label %86
 
-92:                                               ; preds = %.lr.ph359, %303
-  %.2255357 = phi i32 [ %.1254, %.lr.ph359 ], [ %118, %303 ]
-  %.0256356 = phi ptr [ %5, %.lr.ph359 ], [ %.1257, %303 ]
+86:                                               ; preds = %.lr.ph359, %297
+  %.2255357 = phi i32 [ %.1254, %.lr.ph359 ], [ %112, %297 ]
+  %.0256356 = phi ptr [ %5, %.lr.ph359 ], [ %.1257, %297 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %15) #14
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %16) #14
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #14
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #14
-  %93 = call zeroext i8 @tvb_get_uint8(ptr noundef %3, i32 noundef %.2255357)
-  %94 = icmp eq i8 %93, 0
-  %95 = add nsw i32 %.2255357, 1
-  br i1 %94, label %96, label %._crit_edge386
+  %87 = call zeroext i8 @tvb_get_uint8(ptr noundef %3, i32 noundef %.2255357)
+  %88 = icmp eq i8 %87, 0
+  %89 = add nsw i32 %.2255357, 1
+  br i1 %88, label %90, label %._crit_edge386
 
-96:                                               ; preds = %92
-  %97 = call zeroext i8 @tvb_get_uint8(ptr noundef %3, i32 noundef %95)
-  %98 = icmp eq i8 %97, 0
-  br i1 %98, label %.thread, label %._crit_edge386
+90:                                               ; preds = %86
+  %91 = call zeroext i8 @tvb_get_uint8(ptr noundef %3, i32 noundef %89)
+  %92 = icmp eq i8 %91, 0
+  br i1 %92, label %.thread, label %._crit_edge386
 
-.thread:                                          ; preds = %96
-  %99 = call i32 @dissect_ber_identifier(ptr poison, ptr noundef %.0270, ptr noundef %3, i32 noundef %.2255357, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17)
-  %100 = call i32 @dissect_ber_length(ptr poison, ptr noundef %.0270, ptr noundef %3, i32 noundef %99, ptr noundef nonnull %18, ptr noundef nonnull %11)
+.thread:                                          ; preds = %90
+  %93 = call i32 @dissect_ber_identifier(ptr poison, ptr noundef %.0270, ptr noundef %3, i32 noundef %.2255357, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef nonnull %17)
+  %94 = call i32 @dissect_ber_length(ptr poison, ptr noundef %.0270, ptr noundef %3, i32 noundef %93, ptr noundef nonnull %18, ptr noundef nonnull %11)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.0269, ptr noundef nonnull @.str.15)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15) #14
-  br label %321
+  br label %315
 
-._crit_edge386:                                   ; preds = %92, %96
-  %101 = call zeroext i8 @tvb_get_uint8(ptr noundef %3, i32 noundef %.2255357)
-  %102 = lshr i8 %101, 6
-  %103 = lshr i8 %101, 5
-  %.lobit.i304 = and i8 %103, 1
-  %104 = and i8 %101, 31
-  %105 = zext nneg i8 %104 to i32
-  %106 = icmp eq i8 %104, 31
-  br i1 %106, label %.preheader.i307, label %get_ber_identifier.exit311
+._crit_edge386:                                   ; preds = %86, %90
+  %95 = call zeroext i8 @tvb_get_uint8(ptr noundef %3, i32 noundef %.2255357)
+  %96 = lshr i8 %95, 6
+  %97 = lshr i8 %95, 5
+  %.lobit.i304 = and i8 %97, 1
+  %98 = and i8 %95, 31
+  %99 = zext nneg i8 %98 to i32
+  %100 = icmp eq i8 %98, 31
+  br i1 %100, label %.preheader.i307, label %get_ber_identifier.exit311
 
-.preheader.i307:                                  ; preds = %._crit_edge386, %109
-  %.129.i308 = phi i32 [ %111, %109 ], [ %95, %._crit_edge386 ]
-  %.1.i309 = phi i32 [ %115, %109 ], [ 0, %._crit_edge386 ]
-  %107 = call i32 @tvb_reported_length_remaining(ptr noundef %3, i32 noundef %.129.i308)
-  %108 = icmp sgt i32 %107, 0
-  br i1 %108, label %109, label %get_ber_identifier.exit311
+.preheader.i307:                                  ; preds = %._crit_edge386, %103
+  %.129.i308 = phi i32 [ %105, %103 ], [ %89, %._crit_edge386 ]
+  %.1.i309 = phi i32 [ %109, %103 ], [ 0, %._crit_edge386 ]
+  %101 = call i32 @tvb_reported_length_remaining(ptr noundef %3, i32 noundef %.129.i308)
+  %102 = icmp sgt i32 %101, 0
+  br i1 %102, label %103, label %get_ber_identifier.exit311
 
-109:                                              ; preds = %.preheader.i307
-  %110 = call zeroext i8 @tvb_get_uint8(ptr noundef %3, i32 noundef %.129.i308)
-  %111 = add i32 %.129.i308, 1
-  %112 = shl i32 %.1.i309, 7
-  %113 = and i8 %110, 127
-  %114 = zext nneg i8 %113 to i32
-  %115 = or disjoint i32 %112, %114
-  %.not.i310 = icmp sgt i8 %110, -1
+103:                                              ; preds = %.preheader.i307
+  %104 = call zeroext i8 @tvb_get_uint8(ptr noundef %3, i32 noundef %.129.i308)
+  %105 = add i32 %.129.i308, 1
+  %106 = shl i32 %.1.i309, 7
+  %107 = and i8 %104, 127
+  %108 = zext nneg i8 %107 to i32
+  %109 = or disjoint i32 %106, %108
+  %.not.i310 = icmp sgt i8 %104, -1
   br i1 %.not.i310, label %get_ber_identifier.exit311, label %.preheader.i307, !llvm.loop !6
 
-get_ber_identifier.exit311:                       ; preds = %.preheader.i307, %109, %._crit_edge386
-  %.028.i305 = phi i32 [ %95, %._crit_edge386 ], [ %111, %109 ], [ %.129.i308, %.preheader.i307 ]
-  %.0.i306 = phi i32 [ %105, %._crit_edge386 ], [ %115, %109 ], [ %.1.i309, %.preheader.i307 ]
-  store i8 %102, ptr %15, align 1
+get_ber_identifier.exit311:                       ; preds = %.preheader.i307, %103, %._crit_edge386
+  %.028.i305 = phi i32 [ %89, %._crit_edge386 ], [ %105, %103 ], [ %.129.i308, %.preheader.i307 ]
+  %.0.i306 = phi i32 [ %99, %._crit_edge386 ], [ %109, %103 ], [ %.1.i309, %.preheader.i307 ]
+  store i8 %96, ptr %15, align 1
   store i8 %.lobit.i304, ptr %16, align 1
   store i32 %.0.i306, ptr %17, align 4
-  store i8 %102, ptr @last_class, align 1
+  store i8 %96, ptr @last_class, align 1
   store i8 %.lobit.i304, ptr @last_pc, align 1
   store i32 %.0.i306, ptr @last_tag, align 4
-  %116 = call fastcc noundef i32 @try_get_ber_length(ptr noundef %3, i32 noundef %.028.i305, ptr noundef nonnull %18, ptr noundef nonnull %12, i32 noundef 1)
-  %117 = load i32, ptr %18, align 4
-  %118 = add i32 %117, %116
-  %.not285 = icmp sgt i32 %118, %.2255357
-  br i1 %.not285, label %.preheader, label %121
+  %110 = call fastcc noundef i32 @try_get_ber_length(ptr noundef %3, i32 noundef %.028.i305, ptr noundef nonnull %18, ptr noundef nonnull %12, i32 noundef 1)
+  %111 = load i32, ptr %18, align 4
+  %112 = add i32 %111, %110
+  %.not285 = icmp sgt i32 %112, %.2255357
+  br i1 %.not285, label %.preheader, label %115
 
 .preheader:                                       ; preds = %get_ber_identifier.exit311
-  %119 = getelementptr inbounds nuw i8, ptr %.0256356, i64 24
-  %120 = load ptr, ptr %119, align 8
-  %.not286346351 = icmp eq ptr %120, null
+  %113 = getelementptr inbounds nuw i8, ptr %.0256356, i64 24
+  %114 = load ptr, ptr %113, align 8
+  %.not286346351 = icmp eq ptr %114, null
   br i1 %.not286346351, label %.outer._crit_edge, label %.lr.ph
 
-121:                                              ; preds = %get_ber_identifier.exit311
+115:                                              ; preds = %get_ber_identifier.exit311
   call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #15
   unreachable
 
 .outer._crit_edge:                                ; preds = %.outer, %.backedge, %.preheader
   %.0261.ph.lcssa337 = phi i32 [ %.2255357, %.preheader ], [ %.0261.ph352, %.backedge ], [ %.1262, %.outer ]
-  %.2258.lcssa = phi ptr [ %.0256356, %.preheader ], [ %.2258.be, %.backedge ], [ %282, %.outer ]
-  %122 = call i32 @dissect_ber_identifier(ptr poison, ptr noundef %.0270, ptr noundef %3, i32 noundef %.0261.ph.lcssa337, ptr noundef null, ptr noundef null, ptr noundef null)
-  %123 = call i32 @dissect_ber_length(ptr poison, ptr noundef %.0270, ptr noundef %3, i32 noundef %122, ptr noundef nonnull %18, ptr noundef null)
-  %124 = load ptr, ptr %91, align 8
-  %125 = sub i32 %123, %.0261.ph.lcssa337
-  %126 = load i32, ptr %18, align 4
-  %127 = add i32 %125, %126
-  %128 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.0270, ptr noundef %124, ptr noundef nonnull @ei_ber_unknown_field_sequence, ptr noundef %3, i32 noundef %.0261.ph.lcssa337, i32 noundef %127, ptr noundef nonnull @.str.16)
-  %129 = load i8, ptr @decode_unexpected, align 1, !range !8, !noundef !9
-  %130 = trunc nuw i8 %129 to i1
-  br i1 %130, label %131, label %303, !llvm.loop !18
+  %.2258.lcssa = phi ptr [ %.0256356, %.preheader ], [ %.2258.be, %.backedge ], [ %276, %.outer ]
+  %116 = call i32 @dissect_ber_identifier(ptr poison, ptr noundef %.0270, ptr noundef %3, i32 noundef %.0261.ph.lcssa337, ptr noundef null, ptr noundef null, ptr noundef null)
+  %117 = call i32 @dissect_ber_length(ptr poison, ptr noundef %.0270, ptr noundef %3, i32 noundef %116, ptr noundef nonnull %18, ptr noundef null)
+  %118 = load ptr, ptr %85, align 8
+  %119 = sub i32 %117, %.0261.ph.lcssa337
+  %120 = load i32, ptr %18, align 4
+  %121 = add i32 %119, %120
+  %122 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.0270, ptr noundef %118, ptr noundef nonnull @ei_ber_unknown_field_sequence, ptr noundef %3, i32 noundef %.0261.ph.lcssa337, i32 noundef %121, ptr noundef nonnull @.str.16)
+  %123 = load i8, ptr @decode_unexpected, align 1, !range !8, !noundef !9
+  %124 = trunc nuw i8 %123 to i1
+  br i1 %124, label %125, label %297, !llvm.loop !18
 
-131:                                              ; preds = %.outer._crit_edge
-  %132 = load i32, ptr @ett_ber_unknown, align 4
-  %133 = call ptr @proto_item_add_subtree(ptr noundef %128, i32 noundef %132)
-  %134 = load ptr, ptr %91, align 8
-  %135 = call fastcc i32 @try_dissect_unknown_ber(ptr noundef %134, ptr noundef %3, i32 noundef %.0261.ph.lcssa337, ptr noundef %133, i32 noundef 1)
-  br label %303, !llvm.loop !18
+125:                                              ; preds = %.outer._crit_edge
+  %126 = load i32, ptr @ett_ber_unknown, align 4
+  %127 = call ptr @proto_item_add_subtree(ptr noundef %122, i32 noundef %126)
+  %128 = load ptr, ptr %85, align 8
+  %129 = call fastcc i32 @try_dissect_unknown_ber(ptr noundef %128, ptr noundef %3, i32 noundef %.0261.ph.lcssa337, ptr noundef %127, i32 noundef 1)
+  br label %297, !llvm.loop !18
 
-136:                                              ; preds = %.lr.ph, %.backedge
+130:                                              ; preds = %.lr.ph, %.backedge
   %.2258347 = phi ptr [ %.2258.ph353, %.lr.ph ], [ %.2258.be, %.backedge ]
-  %137 = getelementptr inbounds nuw i8, ptr %.2258347, i64 8
-  %138 = load i8, ptr %137, align 8
-  %.off = add i8 %138, -1
+  %131 = getelementptr inbounds nuw i8, ptr %.2258347, i64 8
+  %132 = load i8, ptr %131, align 8
+  %.off = add i8 %132, -1
   %switch = icmp ult i8 %.off, 3
-  %139 = getelementptr inbounds nuw i8, ptr %.2258347, i64 16
-  %140 = load i32, ptr %139, align 8
-  %141 = and i32 %140, 4
-  %.not287 = icmp eq i32 %141, 0
+  %133 = getelementptr inbounds nuw i8, ptr %.2258347, i64 16
+  %134 = load i32, ptr %133, align 8
+  %135 = and i32 %134, 4
+  %.not287 = icmp eq i32 %135, 0
   %or.cond420 = select i1 %switch, i1 %.not287, i1 false
-  br i1 %or.cond420, label %142, label %._crit_edge
+  br i1 %or.cond420, label %136, label %._crit_edge
 
-142:                                              ; preds = %136
-  %143 = getelementptr inbounds nuw i8, ptr %.2258347, i64 12
-  %144 = load i32, ptr %143, align 4
-  %.not289 = icmp eq i32 %144, -1
-  br i1 %.not289, label %241, label %145
+136:                                              ; preds = %130
+  %137 = getelementptr inbounds nuw i8, ptr %.2258347, i64 12
+  %138 = load i32, ptr %137, align 4
+  %.not289 = icmp eq i32 %138, -1
+  br i1 %.not289, label %235, label %139
 
-145:                                              ; preds = %142
-  %.not290 = icmp eq i8 %138, %286
-  %.not291 = icmp eq i32 %144, %287
+139:                                              ; preds = %136
+  %.not290 = icmp eq i8 %132, %280
+  %.not291 = icmp eq i32 %138, %281
   %or.cond = select i1 %.not290, i1 %.not291, i1 false
-  br i1 %or.cond, label %241, label %146
+  br i1 %or.cond, label %235, label %140
 
-146:                                              ; preds = %145
-  %147 = and i32 %140, 1
-  %.not292 = icmp eq i32 %147, 0
-  br i1 %.not292, label %150, label %.backedge
+140:                                              ; preds = %139
+  %141 = and i32 %134, 1
+  %.not292 = icmp eq i32 %141, 0
+  br i1 %.not292, label %144, label %.backedge
 
-.backedge:                                        ; preds = %197, %146
+.backedge:                                        ; preds = %191, %140
   %.2258.be = getelementptr i8, ptr %.2258347, i64 32
-  %148 = getelementptr i8, ptr %.2258347, i64 56
-  %149 = load ptr, ptr %148, align 8
-  %.not286 = icmp eq ptr %149, null
-  br i1 %.not286, label %.outer._crit_edge, label %136
+  %142 = getelementptr i8, ptr %.2258347, i64 56
+  %143 = load ptr, ptr %142, align 8
+  %.not286 = icmp eq ptr %143, null
+  br i1 %.not286, label %.outer._crit_edge, label %130
 
-150:                                              ; preds = %146
-  %151 = getelementptr inbounds nuw i8, ptr %.2258347, i64 8
-  %152 = getelementptr inbounds nuw i8, ptr %.2258347, i64 12
-  %153 = call i32 @dissect_ber_identifier(ptr poison, ptr noundef %.0270, ptr noundef %3, i32 noundef %.0261.ph352, ptr noundef null, ptr noundef null, ptr noundef null)
-  %154 = sub i32 %153, %.0261.ph352
-  %155 = call i32 @dissect_ber_length(ptr poison, ptr noundef %.0270, ptr noundef %3, i32 noundef %153, ptr noundef null, ptr noundef null)
-  %156 = load i8, ptr %151, align 8
-  %157 = icmp eq i8 %156, 0
-  br i1 %157, label %158, label %170
+144:                                              ; preds = %140
+  %145 = getelementptr inbounds nuw i8, ptr %.2258347, i64 8
+  %146 = getelementptr inbounds nuw i8, ptr %.2258347, i64 12
+  %147 = call i32 @dissect_ber_identifier(ptr poison, ptr noundef %.0270, ptr noundef %3, i32 noundef %.0261.ph352, ptr noundef null, ptr noundef null, ptr noundef null)
+  %148 = sub i32 %147, %.0261.ph352
+  %149 = call i32 @dissect_ber_length(ptr poison, ptr noundef %.0270, ptr noundef %3, i32 noundef %147, ptr noundef null, ptr noundef null)
+  %150 = load i8, ptr %145, align 8
+  %151 = icmp eq i8 %150, 0
+  br i1 %151, label %152, label %164
 
-158:                                              ; preds = %150
-  %159 = load ptr, ptr %91, align 8
-  %160 = call ptr @val_to_str_const(i32 noundef 0, ptr noundef nonnull @ber_class_codes, ptr noundef nonnull @.str.3)
-  %161 = load i8, ptr %151, align 8
-  %162 = sext i8 %161 to i32
-  %163 = load i32, ptr %152, align 4
-  %164 = call ptr @val_to_str_ext_const(i32 noundef %163, ptr noundef nonnull @ber_uni_tag_codes_ext, ptr noundef nonnull @.str.3)
-  %165 = load i8, ptr %15, align 1
-  %166 = sext i8 %165 to i32
-  %167 = call ptr @val_to_str_const(i32 noundef %166, ptr noundef nonnull @ber_class_codes, ptr noundef nonnull @.str.3)
-  %168 = load i32, ptr %17, align 4
-  %169 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.0270, ptr noundef %159, ptr noundef nonnull @ei_ber_sequence_field_wrong, ptr noundef %3, i32 noundef %.0261.ph352, i32 noundef %154, ptr noundef nonnull @.str.17, ptr noundef %160, i32 noundef %162, i32 noundef %163, ptr noundef %164, ptr noundef %167, i32 noundef %166, i32 noundef %168)
-  br label %182
+152:                                              ; preds = %144
+  %153 = load ptr, ptr %85, align 8
+  %154 = call ptr @val_to_str_const(i32 noundef 0, ptr noundef nonnull @ber_class_codes, ptr noundef nonnull @.str.3)
+  %155 = load i8, ptr %145, align 8
+  %156 = sext i8 %155 to i32
+  %157 = load i32, ptr %146, align 4
+  %158 = call ptr @val_to_str_ext_const(i32 noundef %157, ptr noundef nonnull @ber_uni_tag_codes_ext, ptr noundef nonnull @.str.3)
+  %159 = load i8, ptr %15, align 1
+  %160 = sext i8 %159 to i32
+  %161 = call ptr @val_to_str_const(i32 noundef %160, ptr noundef nonnull @ber_class_codes, ptr noundef nonnull @.str.3)
+  %162 = load i32, ptr %17, align 4
+  %163 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.0270, ptr noundef %153, ptr noundef nonnull @ei_ber_sequence_field_wrong, ptr noundef %3, i32 noundef %.0261.ph352, i32 noundef %148, ptr noundef nonnull @.str.17, ptr noundef %154, i32 noundef %156, i32 noundef %157, ptr noundef %158, ptr noundef %161, i32 noundef %160, i32 noundef %162)
+  br label %176
 
-170:                                              ; preds = %150
-  %171 = sext i8 %156 to i32
-  %172 = load ptr, ptr %91, align 8
-  %173 = call ptr @val_to_str_const(i32 noundef %171, ptr noundef nonnull @ber_class_codes, ptr noundef nonnull @.str.3)
-  %174 = load i8, ptr %151, align 8
-  %175 = sext i8 %174 to i32
-  %176 = load i32, ptr %152, align 4
-  %177 = load i8, ptr %15, align 1
-  %178 = sext i8 %177 to i32
-  %179 = call ptr @val_to_str_const(i32 noundef %178, ptr noundef nonnull @ber_class_codes, ptr noundef nonnull @.str.3)
-  %180 = load i32, ptr %17, align 4
-  %181 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.0270, ptr noundef %172, ptr noundef nonnull @ei_ber_sequence_field_wrong, ptr noundef %3, i32 noundef %.0261.ph352, i32 noundef %154, ptr noundef nonnull @.str.18, ptr noundef %173, i32 noundef %175, i32 noundef %176, ptr noundef %179, i32 noundef %178, i32 noundef %180)
-  br label %182
+164:                                              ; preds = %144
+  %165 = sext i8 %150 to i32
+  %166 = load ptr, ptr %85, align 8
+  %167 = call ptr @val_to_str_const(i32 noundef %165, ptr noundef nonnull @ber_class_codes, ptr noundef nonnull @.str.3)
+  %168 = load i8, ptr %145, align 8
+  %169 = sext i8 %168 to i32
+  %170 = load i32, ptr %146, align 4
+  %171 = load i8, ptr %15, align 1
+  %172 = sext i8 %171 to i32
+  %173 = call ptr @val_to_str_const(i32 noundef %172, ptr noundef nonnull @ber_class_codes, ptr noundef nonnull @.str.3)
+  %174 = load i32, ptr %17, align 4
+  %175 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.0270, ptr noundef %166, ptr noundef nonnull @ei_ber_sequence_field_wrong, ptr noundef %3, i32 noundef %.0261.ph352, i32 noundef %148, ptr noundef nonnull @.str.18, ptr noundef %167, i32 noundef %169, i32 noundef %170, ptr noundef %173, i32 noundef %172, i32 noundef %174)
+  br label %176
 
-182:                                              ; preds = %170, %158
-  %.0267 = phi ptr [ %169, %158 ], [ %181, %170 ]
-  %183 = load i8, ptr @decode_unexpected, align 1, !range !8, !noundef !9
-  %184 = trunc nuw i8 %183 to i1
-  br i1 %184, label %185, label %190
+176:                                              ; preds = %164, %152
+  %.0267 = phi ptr [ %163, %152 ], [ %175, %164 ]
+  %177 = load i8, ptr @decode_unexpected, align 1, !range !8, !noundef !9
+  %178 = trunc nuw i8 %177 to i1
+  br i1 %178, label %179, label %184
 
-185:                                              ; preds = %182
-  %186 = load i32, ptr @ett_ber_unknown, align 4
-  %187 = call ptr @proto_item_add_subtree(ptr noundef %.0267, i32 noundef %186)
-  %188 = load ptr, ptr %91, align 8
-  %189 = call fastcc i32 @try_dissect_unknown_ber(ptr noundef %188, ptr noundef %3, i32 noundef %.0261.ph352, ptr noundef %187, i32 noundef 1)
-  br label %190
+179:                                              ; preds = %176
+  %180 = load i32, ptr @ett_ber_unknown, align 4
+  %181 = call ptr @proto_item_add_subtree(ptr noundef %.0267, i32 noundef %180)
+  %182 = load ptr, ptr %85, align 8
+  %183 = call fastcc i32 @try_dissect_unknown_ber(ptr noundef %182, ptr noundef %3, i32 noundef %.0261.ph352, ptr noundef %181, i32 noundef 1)
+  br label %184
 
-190:                                              ; preds = %185, %182
-  %191 = getelementptr i8, ptr %.2258347, i64 32
-  br label %303, !llvm.loop !18
+184:                                              ; preds = %179, %176
+  %185 = getelementptr i8, ptr %.2258347, i64 32
+  br label %297, !llvm.loop !18
 
-._crit_edge:                                      ; preds = %136
-  %192 = and i32 %140, 8
-  %.not293 = icmp ne i32 %192, 0
-  %.not294 = icmp eq i8 %138, 99
+._crit_edge:                                      ; preds = %130
+  %186 = and i32 %134, 8
+  %.not293 = icmp ne i32 %186, 0
+  %.not294 = icmp eq i8 %132, 99
   %or.cond316 = or i1 %.not294, %.not293
-  br i1 %or.cond316, label %241, label %193
+  br i1 %or.cond316, label %235, label %187
 
-193:                                              ; preds = %._crit_edge
-  %194 = getelementptr inbounds nuw i8, ptr %.2258347, i64 12
-  %195 = load i32, ptr %194, align 4
-  %.not295 = icmp eq i32 %195, -1
-  br i1 %.not295, label %241, label %196
+187:                                              ; preds = %._crit_edge
+  %188 = getelementptr inbounds nuw i8, ptr %.2258347, i64 12
+  %189 = load i32, ptr %188, align 4
+  %.not295 = icmp eq i32 %189, -1
+  br i1 %.not295, label %235, label %190
 
-196:                                              ; preds = %193
-  %.not296 = icmp eq i8 %138, %286
-  %.not297 = icmp eq i32 %195, %287
+190:                                              ; preds = %187
+  %.not296 = icmp eq i8 %132, %280
+  %.not297 = icmp eq i32 %189, %281
   %or.cond303 = select i1 %.not296, i1 %.not297, i1 false
-  br i1 %or.cond303, label %241, label %197
+  br i1 %or.cond303, label %235, label %191
 
-197:                                              ; preds = %196
-  %198 = and i32 %140, 1
-  %.not298 = icmp eq i32 %198, 0
-  br i1 %.not298, label %199, label %.backedge
+191:                                              ; preds = %190
+  %192 = and i32 %134, 1
+  %.not298 = icmp eq i32 %192, 0
+  br i1 %.not298, label %193, label %.backedge
 
-199:                                              ; preds = %197
-  %200 = getelementptr inbounds nuw i8, ptr %.2258347, i64 8
-  %201 = getelementptr inbounds nuw i8, ptr %.2258347, i64 12
-  %202 = call i32 @dissect_ber_identifier(ptr poison, ptr noundef %.0270, ptr noundef %3, i32 noundef %.0261.ph352, ptr noundef null, ptr noundef null, ptr noundef null)
-  %203 = sub i32 %202, %.0261.ph352
-  %204 = call i32 @dissect_ber_length(ptr poison, ptr noundef %.0270, ptr noundef %3, i32 noundef %202, ptr noundef null, ptr noundef null)
-  %205 = load i8, ptr %200, align 8
-  %206 = icmp eq i8 %205, 0
-  br i1 %206, label %207, label %219
+193:                                              ; preds = %191
+  %194 = getelementptr inbounds nuw i8, ptr %.2258347, i64 8
+  %195 = getelementptr inbounds nuw i8, ptr %.2258347, i64 12
+  %196 = call i32 @dissect_ber_identifier(ptr poison, ptr noundef %.0270, ptr noundef %3, i32 noundef %.0261.ph352, ptr noundef null, ptr noundef null, ptr noundef null)
+  %197 = sub i32 %196, %.0261.ph352
+  %198 = call i32 @dissect_ber_length(ptr poison, ptr noundef %.0270, ptr noundef %3, i32 noundef %196, ptr noundef null, ptr noundef null)
+  %199 = load i8, ptr %194, align 8
+  %200 = icmp eq i8 %199, 0
+  br i1 %200, label %201, label %213
 
-207:                                              ; preds = %199
-  %208 = load ptr, ptr %91, align 8
-  %209 = call ptr @val_to_str_const(i32 noundef 0, ptr noundef nonnull @ber_class_codes, ptr noundef nonnull @.str.3)
-  %210 = load i8, ptr %200, align 8
-  %211 = sext i8 %210 to i32
-  %212 = load i32, ptr %201, align 4
-  %213 = call ptr @val_to_str_ext_const(i32 noundef %212, ptr noundef nonnull @ber_uni_tag_codes_ext, ptr noundef nonnull @.str.3)
-  %214 = load i8, ptr %15, align 1
-  %215 = sext i8 %214 to i32
-  %216 = call ptr @val_to_str_const(i32 noundef %215, ptr noundef nonnull @ber_class_codes, ptr noundef nonnull @.str.3)
-  %217 = load i32, ptr %17, align 4
-  %218 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.0270, ptr noundef %208, ptr noundef nonnull @ei_ber_sequence_field_wrong, ptr noundef %3, i32 noundef %.0261.ph352, i32 noundef %203, ptr noundef nonnull @.str.19, ptr noundef %209, i32 noundef %211, i32 noundef %212, ptr noundef %213, ptr noundef %216, i32 noundef %215, i32 noundef %217)
-  br label %231
+201:                                              ; preds = %193
+  %202 = load ptr, ptr %85, align 8
+  %203 = call ptr @val_to_str_const(i32 noundef 0, ptr noundef nonnull @ber_class_codes, ptr noundef nonnull @.str.3)
+  %204 = load i8, ptr %194, align 8
+  %205 = sext i8 %204 to i32
+  %206 = load i32, ptr %195, align 4
+  %207 = call ptr @val_to_str_ext_const(i32 noundef %206, ptr noundef nonnull @ber_uni_tag_codes_ext, ptr noundef nonnull @.str.3)
+  %208 = load i8, ptr %15, align 1
+  %209 = sext i8 %208 to i32
+  %210 = call ptr @val_to_str_const(i32 noundef %209, ptr noundef nonnull @ber_class_codes, ptr noundef nonnull @.str.3)
+  %211 = load i32, ptr %17, align 4
+  %212 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.0270, ptr noundef %202, ptr noundef nonnull @ei_ber_sequence_field_wrong, ptr noundef %3, i32 noundef %.0261.ph352, i32 noundef %197, ptr noundef nonnull @.str.19, ptr noundef %203, i32 noundef %205, i32 noundef %206, ptr noundef %207, ptr noundef %210, i32 noundef %209, i32 noundef %211)
+  br label %225
 
-219:                                              ; preds = %199
-  %220 = sext i8 %205 to i32
-  %221 = load ptr, ptr %91, align 8
-  %222 = call ptr @val_to_str_const(i32 noundef %220, ptr noundef nonnull @ber_class_codes, ptr noundef nonnull @.str.3)
-  %223 = load i8, ptr %200, align 8
-  %224 = sext i8 %223 to i32
-  %225 = load i32, ptr %201, align 4
-  %226 = load i8, ptr %15, align 1
-  %227 = sext i8 %226 to i32
-  %228 = call ptr @val_to_str_const(i32 noundef %227, ptr noundef nonnull @ber_class_codes, ptr noundef nonnull @.str.3)
-  %229 = load i32, ptr %17, align 4
-  %230 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.0270, ptr noundef %221, ptr noundef nonnull @ei_ber_sequence_field_wrong, ptr noundef %3, i32 noundef %.0261.ph352, i32 noundef %203, ptr noundef nonnull @.str.18, ptr noundef %222, i32 noundef %224, i32 noundef %225, ptr noundef %228, i32 noundef %227, i32 noundef %229)
-  br label %231
+213:                                              ; preds = %193
+  %214 = sext i8 %199 to i32
+  %215 = load ptr, ptr %85, align 8
+  %216 = call ptr @val_to_str_const(i32 noundef %214, ptr noundef nonnull @ber_class_codes, ptr noundef nonnull @.str.3)
+  %217 = load i8, ptr %194, align 8
+  %218 = sext i8 %217 to i32
+  %219 = load i32, ptr %195, align 4
+  %220 = load i8, ptr %15, align 1
+  %221 = sext i8 %220 to i32
+  %222 = call ptr @val_to_str_const(i32 noundef %221, ptr noundef nonnull @ber_class_codes, ptr noundef nonnull @.str.3)
+  %223 = load i32, ptr %17, align 4
+  %224 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.0270, ptr noundef %215, ptr noundef nonnull @ei_ber_sequence_field_wrong, ptr noundef %3, i32 noundef %.0261.ph352, i32 noundef %197, ptr noundef nonnull @.str.18, ptr noundef %216, i32 noundef %218, i32 noundef %219, ptr noundef %222, i32 noundef %221, i32 noundef %223)
+  br label %225
 
-231:                                              ; preds = %219, %207
-  %.1268 = phi ptr [ %218, %207 ], [ %230, %219 ]
-  %232 = load i8, ptr @decode_unexpected, align 1, !range !8, !noundef !9
-  %233 = trunc nuw i8 %232 to i1
-  br i1 %233, label %234, label %239
+225:                                              ; preds = %213, %201
+  %.1268 = phi ptr [ %212, %201 ], [ %224, %213 ]
+  %226 = load i8, ptr @decode_unexpected, align 1, !range !8, !noundef !9
+  %227 = trunc nuw i8 %226 to i1
+  br i1 %227, label %228, label %233
 
-234:                                              ; preds = %231
-  %235 = load i32, ptr @ett_ber_unknown, align 4
-  %236 = call ptr @proto_item_add_subtree(ptr noundef %.1268, i32 noundef %235)
-  %237 = load ptr, ptr %91, align 8
-  %238 = call fastcc i32 @try_dissect_unknown_ber(ptr noundef %237, ptr noundef %3, i32 noundef %.0261.ph352, ptr noundef %236, i32 noundef 1)
-  br label %239
+228:                                              ; preds = %225
+  %229 = load i32, ptr @ett_ber_unknown, align 4
+  %230 = call ptr @proto_item_add_subtree(ptr noundef %.1268, i32 noundef %229)
+  %231 = load ptr, ptr %85, align 8
+  %232 = call fastcc i32 @try_dissect_unknown_ber(ptr noundef %231, ptr noundef %3, i32 noundef %.0261.ph352, ptr noundef %230, i32 noundef 1)
+  br label %233
 
-239:                                              ; preds = %234, %231
-  %240 = getelementptr i8, ptr %.2258347, i64 32
-  br label %303, !llvm.loop !18
+233:                                              ; preds = %228, %225
+  %234 = getelementptr i8, ptr %.2258347, i64 32
+  br label %297, !llvm.loop !18
 
-241:                                              ; preds = %196, %145, %._crit_edge, %193, %142
-  %242 = getelementptr inbounds nuw i8, ptr %.2258347, i64 24
-  %243 = getelementptr inbounds nuw i8, ptr %.2258347, i64 16
-  %244 = and i32 %140, 4
-  %.not299 = icmp eq i32 %244, 0
-  br i1 %.not299, label %245, label %263
+235:                                              ; preds = %190, %139, %._crit_edge, %187, %136
+  %236 = getelementptr inbounds nuw i8, ptr %.2258347, i64 24
+  %237 = getelementptr inbounds nuw i8, ptr %.2258347, i64 16
+  %238 = and i32 %134, 4
+  %.not299 = icmp eq i32 %238, 0
+  br i1 %.not299, label %239, label %257
 
-245:                                              ; preds = %241
-  %246 = load i8, ptr %12, align 1, !range !8, !noundef !9
-  %247 = trunc nuw i8 %246 to i1
-  %248 = icmp eq i32 %285, 2
-  %or.cond9 = and i1 %248, %247
-  br i1 %or.cond9, label %249, label %253
+239:                                              ; preds = %235
+  %240 = load i8, ptr %12, align 1, !range !8, !noundef !9
+  %241 = trunc nuw i8 %240 to i1
+  %242 = icmp eq i32 %279, 2
+  %or.cond9 = and i1 %242, %241
+  br i1 %or.cond9, label %243, label %247
 
-249:                                              ; preds = %245
-  %250 = call i32 @tvb_reported_length_remaining(ptr noundef %3, i32 noundef %116)
-  %251 = call i32 @llvm.smin.i32(i32 %250, i32 2)
-  %252 = call ptr @tvb_new_subset_length(ptr noundef %3, i32 noundef %116, i32 noundef %251)
-  br label %268
+243:                                              ; preds = %239
+  %244 = call i32 @tvb_reported_length_remaining(ptr noundef %3, i32 noundef %110)
+  %245 = call i32 @llvm.smin.i32(i32 %244, i32 2)
+  %246 = call ptr @tvb_new_subset_length(ptr noundef %3, i32 noundef %110, i32 noundef %245)
+  br label %262
 
-253:                                              ; preds = %245
-  %254 = call i32 @dissect_ber_identifier(ptr poison, ptr noundef %.0270, ptr noundef %3, i32 noundef %.0261.ph352, ptr noundef null, ptr noundef null, ptr noundef null)
-  %255 = call i32 @dissect_ber_length(ptr poison, ptr noundef %.0270, ptr noundef %3, i32 noundef %254, ptr noundef null, ptr noundef null)
-  %256 = sub i32 %118, %255
-  %257 = load i8, ptr %12, align 1, !range !8, !noundef !9
-  %258 = trunc nuw i8 %257 to i1
-  %.neg = select i1 %258, i32 -2, i32 0
-  %259 = add i32 %256, %.neg
-  %260 = call i32 @tvb_reported_length_remaining(ptr noundef %3, i32 noundef %255)
-  %261 = call i32 @llvm.smin.i32(i32 %260, i32 %259)
-  %262 = call ptr @tvb_new_subset_length(ptr noundef %3, i32 noundef %255, i32 noundef %261)
-  br label %268
+247:                                              ; preds = %239
+  %248 = call i32 @dissect_ber_identifier(ptr poison, ptr noundef %.0270, ptr noundef %3, i32 noundef %.0261.ph352, ptr noundef null, ptr noundef null, ptr noundef null)
+  %249 = call i32 @dissect_ber_length(ptr poison, ptr noundef %.0270, ptr noundef %3, i32 noundef %248, ptr noundef null, ptr noundef null)
+  %250 = sub i32 %112, %249
+  %251 = load i8, ptr %12, align 1, !range !8, !noundef !9
+  %252 = trunc nuw i8 %251 to i1
+  %.neg = select i1 %252, i32 -2, i32 0
+  %253 = add i32 %250, %.neg
+  %254 = call i32 @tvb_reported_length_remaining(ptr noundef %3, i32 noundef %249)
+  %255 = call i32 @llvm.smin.i32(i32 %254, i32 %253)
+  %256 = call ptr @tvb_new_subset_length(ptr noundef %3, i32 noundef %249, i32 noundef %255)
+  br label %262
 
-263:                                              ; preds = %241
-  %264 = sub i32 %118, %.0261.ph352
-  %265 = call i32 @tvb_reported_length_remaining(ptr noundef %3, i32 noundef %.0261.ph352)
-  %266 = call i32 @llvm.smin.i32(i32 %265, i32 %264)
-  %267 = call ptr @tvb_new_subset_length(ptr noundef %3, i32 noundef %.0261.ph352, i32 noundef %266)
-  br label %268
+257:                                              ; preds = %235
+  %258 = sub i32 %112, %.0261.ph352
+  %259 = call i32 @tvb_reported_length_remaining(ptr noundef %3, i32 noundef %.0261.ph352)
+  %260 = call i32 @llvm.smin.i32(i32 %259, i32 %258)
+  %261 = call ptr @tvb_new_subset_length(ptr noundef %3, i32 noundef %.0261.ph352, i32 noundef %260)
+  br label %262
 
-268:                                              ; preds = %249, %253, %263
-  %.1262 = phi i32 [ %.0261.ph352, %263 ], [ %118, %249 ], [ %255, %253 ]
-  %.0260 = phi ptr [ %267, %263 ], [ %252, %249 ], [ %262, %253 ]
-  %269 = icmp eq ptr %.0260, null
-  br i1 %269, label %270, label %271
+262:                                              ; preds = %243, %247, %257
+  %.1262 = phi i32 [ %.0261.ph352, %257 ], [ %112, %243 ], [ %249, %247 ]
+  %.0260 = phi ptr [ %261, %257 ], [ %246, %243 ], [ %256, %247 ]
+  %263 = icmp eq ptr %.0260, null
+  br i1 %263, label %264, label %265
 
-270:                                              ; preds = %268
+264:                                              ; preds = %262
   call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #15
   unreachable
 
-271:                                              ; preds = %268
-  %272 = load i32, ptr %243, align 8
-  %273 = and i32 %272, 2
-  %.not300 = icmp ne i32 %273, 0
-  %274 = load ptr, ptr %242, align 8
-  %275 = load ptr, ptr %.2258347, align 8
-  %276 = load i32, ptr %275, align 4
-  %277 = call i32 %274(i1 noundef zeroext %.not300, ptr noundef nonnull %.0260, i32 noundef 0, ptr noundef %1, ptr noundef %.0270, i32 noundef %276)
-  %278 = load i32, ptr %18, align 4
-  %279 = icmp eq i32 %278, 0
-  %280 = icmp ne i32 %277, 0
-  %or.cond11.not424 = select i1 %279, i1 true, i1 %280
-  %.pre385 = load i32, ptr %243, align 8
-  %281 = and i32 %.pre385, 1
-  %.not301 = icmp eq i32 %281, 0
+265:                                              ; preds = %262
+  %266 = load i32, ptr %237, align 8
+  %267 = and i32 %266, 2
+  %.not300 = icmp ne i32 %267, 0
+  %268 = load ptr, ptr %236, align 8
+  %269 = load ptr, ptr %.2258347, align 8
+  %270 = load i32, ptr %269, align 4
+  %271 = call i32 %268(i1 noundef zeroext %.not300, ptr noundef nonnull %.0260, i32 noundef 0, ptr noundef %1, ptr noundef %.0270, i32 noundef %270)
+  %272 = load i32, ptr %18, align 4
+  %273 = icmp eq i32 %272, 0
+  %274 = icmp ne i32 %271, 0
+  %or.cond11.not424 = select i1 %273, i1 true, i1 %274
+  %.pre385 = load i32, ptr %237, align 8
+  %275 = and i32 %.pre385, 1
+  %.not301 = icmp eq i32 %275, 0
   %or.cond421 = select i1 %or.cond11.not424, i1 true, i1 %.not301
-  br i1 %or.cond421, label %288, label %.outer
+  br i1 %or.cond421, label %282, label %.outer
 
-.outer:                                           ; preds = %271
-  %282 = getelementptr i8, ptr %.2258347, i64 32
-  %283 = getelementptr i8, ptr %.2258347, i64 56
-  %284 = load ptr, ptr %283, align 8
-  %.not286346 = icmp eq ptr %284, null
+.outer:                                           ; preds = %265
+  %276 = getelementptr i8, ptr %.2258347, i64 32
+  %277 = getelementptr i8, ptr %.2258347, i64 56
+  %278 = load ptr, ptr %277, align 8
+  %.not286346 = icmp eq ptr %278, null
   br i1 %.not286346, label %.outer._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader, %.outer
-  %285 = phi i32 [ %278, %.outer ], [ %117, %.preheader ]
-  %.2258.ph353 = phi ptr [ %282, %.outer ], [ %.0256356, %.preheader ]
+  %279 = phi i32 [ %272, %.outer ], [ %111, %.preheader ]
+  %.2258.ph353 = phi ptr [ %276, %.outer ], [ %.0256356, %.preheader ]
   %.0261.ph352 = phi i32 [ %.1262, %.outer ], [ %.2255357, %.preheader ]
-  %286 = load i8, ptr %15, align 1
-  %287 = load i32, ptr %17, align 4
-  br label %136
+  %280 = load i8, ptr %15, align 1
+  %281 = load i32, ptr %17, align 4
+  br label %130
 
-288:                                              ; preds = %271
-  %289 = and i32 %.pre385, 4
-  %.not302 = icmp eq i32 %289, 0
-  br i1 %.not302, label %290, label %301
+282:                                              ; preds = %265
+  %283 = and i32 %.pre385, 4
+  %.not302 = icmp eq i32 %283, 0
+  br i1 %.not302, label %284, label %295
 
-290:                                              ; preds = %288
-  %291 = load i8, ptr %12, align 1, !range !8, !noundef !9
-  %292 = trunc nuw i8 %291 to i1
-  %293 = icmp ugt i32 %278, 2
-  %or.cond13 = and i1 %293, %292
-  br i1 %or.cond13, label %294, label %301
+284:                                              ; preds = %282
+  %285 = load i8, ptr %12, align 1, !range !8, !noundef !9
+  %286 = trunc nuw i8 %285 to i1
+  %287 = icmp ugt i32 %272, 2
+  %or.cond13 = and i1 %287, %286
+  br i1 %or.cond13, label %288, label %295
 
-294:                                              ; preds = %290
-  %295 = load i8, ptr @show_internal_ber_fields, align 1, !range !8, !noundef !9
-  %296 = trunc nuw i8 %295 to i1
-  br i1 %296, label %297, label %301
+288:                                              ; preds = %284
+  %289 = load i8, ptr @show_internal_ber_fields, align 1, !range !8, !noundef !9
+  %290 = trunc nuw i8 %289 to i1
+  br i1 %290, label %291, label %295
 
-297:                                              ; preds = %294
-  %298 = load i32, ptr @hf_ber_seq_field_eoc, align 4
-  %299 = add i32 %118, -2
-  %300 = call ptr @proto_tree_add_item(ptr noundef %.0270, i32 noundef %298, ptr noundef %3, i32 noundef %299, i32 noundef 2, i32 noundef 0)
-  br label %301
+291:                                              ; preds = %288
+  %292 = load i32, ptr @hf_ber_seq_field_eoc, align 4
+  %293 = add i32 %112, -2
+  %294 = call ptr @proto_tree_add_item(ptr noundef %.0270, i32 noundef %292, ptr noundef %3, i32 noundef %293, i32 noundef 2, i32 noundef 0)
+  br label %295
 
-301:                                              ; preds = %290, %297, %294, %288
-  %302 = getelementptr i8, ptr %.2258347, i64 32
-  br label %303
+295:                                              ; preds = %284, %291, %288, %282
+  %296 = getelementptr i8, ptr %.2258347, i64 32
+  br label %297
 
-303:                                              ; preds = %.outer._crit_edge, %131, %301, %239, %190
-  %.1257 = phi ptr [ %302, %301 ], [ %240, %239 ], [ %191, %190 ], [ %.2258.lcssa, %131 ], [ %.2258.lcssa, %.outer._crit_edge ]
+297:                                              ; preds = %.outer._crit_edge, %125, %295, %233, %184
+  %.1257 = phi ptr [ %296, %295 ], [ %234, %233 ], [ %185, %184 ], [ %.2258.lcssa, %125 ], [ %.2258.lcssa, %.outer._crit_edge ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15) #14
-  %304 = icmp slt i32 %118, %.1264
-  br i1 %304, label %92, label %._crit_edge360
+  %298 = icmp slt i32 %112, %.1264
+  br i1 %298, label %86, label %._crit_edge360
 
-._crit_edge360:                                   ; preds = %303, %89
-  %.2255.lcssa = phi i32 [ %.1254, %89 ], [ %118, %303 ]
+._crit_edge360:                                   ; preds = %297, %83
+  %.2255.lcssa = phi i32 [ %.1254, %83 ], [ %112, %297 ]
   %.not284 = icmp eq i32 %.2255.lcssa, %.1264
-  br i1 %.not284, label %311, label %305
+  br i1 %.not284, label %305, label %299
 
-305:                                              ; preds = %._crit_edge360
-  %306 = add i32 %.2255.lcssa, -2
-  call void @tvb_ensure_bytes_exist(ptr noundef %3, i32 noundef %306, i32 noundef 2)
-  %307 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %308 = load ptr, ptr %307, align 8
-  %309 = sub i32 %.2255.lcssa, %.1264
-  %310 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.0270, ptr noundef %308, ptr noundef nonnull @ei_ber_error_length, ptr noundef %3, i32 noundef %306, i32 noundef 2, ptr noundef nonnull @.str.20, i32 noundef %309)
-  br label %311
+299:                                              ; preds = %._crit_edge360
+  %300 = add i32 %.2255.lcssa, -2
+  call void @tvb_ensure_bytes_exist(ptr noundef %3, i32 noundef %300, i32 noundef 2)
+  %301 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %302 = load ptr, ptr %301, align 8
+  %303 = sub i32 %.2255.lcssa, %.1264
+  %304 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.0270, ptr noundef %302, ptr noundef nonnull @ei_ber_error_length, ptr noundef %3, i32 noundef %300, i32 noundef 2, ptr noundef nonnull @.str.20, i32 noundef %303)
+  br label %305
 
-311:                                              ; preds = %305, %._crit_edge360
-  %312 = load i8, ptr %11, align 1, !range !8, !noundef !9
-  %313 = trunc nuw i8 %312 to i1
-  br i1 %313, label %314, label %321
+305:                                              ; preds = %299, %._crit_edge360
+  %306 = load i8, ptr %11, align 1, !range !8, !noundef !9
+  %307 = trunc nuw i8 %306 to i1
+  br i1 %307, label %308, label %315
 
-314:                                              ; preds = %311
-  %315 = add i32 %.1264, 2
-  %316 = load i8, ptr @show_internal_ber_fields, align 1, !range !8, !noundef !9
-  %317 = trunc nuw i8 %316 to i1
-  br i1 %317, label %318, label %321
+308:                                              ; preds = %305
+  %309 = add i32 %.1264, 2
+  %310 = load i8, ptr @show_internal_ber_fields, align 1, !range !8, !noundef !9
+  %311 = trunc nuw i8 %310 to i1
+  br i1 %311, label %312, label %315
 
-318:                                              ; preds = %314
-  %319 = load i32, ptr @hf_ber_seq_eoc, align 4
-  %320 = call ptr @proto_tree_add_item(ptr noundef %.0270, i32 noundef %319, ptr noundef %3, i32 noundef %.1264, i32 noundef 2, i32 noundef 0)
-  br label %321
+312:                                              ; preds = %308
+  %313 = load i32, ptr @hf_ber_seq_eoc, align 4
+  %314 = call ptr @proto_tree_add_item(ptr noundef %.0270, i32 noundef %313, ptr noundef %3, i32 noundef %.1264, i32 noundef 2, i32 noundef 0)
+  br label %315
 
-321:                                              ; preds = %.thread, %311, %318, %314, %67, %81
-  %.0 = phi i32 [ %.2265, %81 ], [ %.2265, %67 ], [ %315, %318 ], [ %315, %314 ], [ %.1264, %311 ], [ %.1264, %.thread ]
+315:                                              ; preds = %.thread, %305, %312, %308, %67, %75
+  %.0 = phi i32 [ %.2265, %75 ], [ %.2265, %67 ], [ %309, %312 ], [ %309, %308 ], [ %.1264, %305 ], [ %.1264, %.thread ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #14
@@ -3813,7 +3741,7 @@ define i32 @dissect_ber_set(i1 noundef zeroext %0, ptr noundef %1, ptr noundef %
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %12) #14
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #14
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #14
-  br i1 %0, label %52, label %16
+  br i1 %0, label %46, label %16
 
 16:                                               ; preds = %8
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -3829,7 +3757,7 @@ define i32 @dissect_ber_set(i1 noundef zeroext %0, ptr noundef %1, ptr noundef %
   %25 = load i8, ptr %9, align 1
   %26 = and i8 %25, -3
   %or.cond.not = icmp eq i8 %26, 1
-  br i1 %or.cond.not, label %55, label %27
+  br i1 %or.cond.not, label %49, label %27
 
 27:                                               ; preds = %16
   %28 = load i8, ptr %10, align 1, !range !8, !noundef !9
@@ -3840,441 +3768,430 @@ define i32 @dissect_ber_set(i1 noundef zeroext %0, ptr noundef %1, ptr noundef %
   %31 = load i32, ptr %13, align 4
   %32 = icmp ne i32 %31, 17
   %or.cond7 = select i1 %or.cond5, i1 true, i1 %32
-  br i1 %or.cond7, label %33, label %55
+  br i1 %or.cond7, label %33, label %49
 
 33:                                               ; preds = %27
   call void @tvb_ensure_bytes_exist(ptr noundef %3, i32 noundef %4, i32 noundef 2)
   %34 = load ptr, ptr %17, align 8
-  %35 = load i8, ptr %9, align 1
-  %36 = sext i8 %35 to i32
-  %37 = call ptr @val_to_str_const(i32 noundef %36, ptr noundef nonnull @ber_class_codes, ptr noundef nonnull @.str.3)
-  %38 = load i8, ptr %9, align 1
-  %39 = sext i8 %38 to i32
-  %40 = load i8, ptr %10, align 1, !range !8, !noundef !9
-  %41 = trunc nuw i8 %40 to i1
-  %42 = call ptr @tfs_get_string(i1 noundef zeroext %41, ptr noundef nonnull @tfs_constructed_primitive)
-  %43 = load i32, ptr %13, align 4
-  %44 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %34, ptr noundef nonnull @ei_ber_expected_set, ptr noundef %3, i32 noundef %4, i32 noundef %19, ptr noundef nonnull @.str.21, ptr noundef %37, i32 noundef %39, ptr noundef %42, i32 noundef %43)
-  %45 = load i8, ptr @decode_unexpected, align 1, !range !8, !noundef !9
-  %46 = trunc nuw i8 %45 to i1
-  br i1 %46, label %47, label %259
+  %35 = sext i8 %25 to i32
+  %36 = call ptr @val_to_str_const(i32 noundef %35, ptr noundef nonnull @ber_class_codes, ptr noundef nonnull @.str.3)
+  %37 = call ptr @tfs_get_string(i1 noundef zeroext %29, ptr noundef nonnull @tfs_constructed_primitive)
+  %38 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %34, ptr noundef nonnull @ei_ber_expected_set, ptr noundef %3, i32 noundef %4, i32 noundef %19, ptr noundef nonnull @.str.21, ptr noundef %36, i32 noundef %35, ptr noundef %37, i32 noundef %31)
+  %39 = load i8, ptr @decode_unexpected, align 1, !range !8, !noundef !9
+  %40 = trunc nuw i8 %39 to i1
+  br i1 %40, label %41, label %253
 
-47:                                               ; preds = %33
-  %48 = load i32, ptr @ett_ber_unknown, align 4
-  %49 = call ptr @proto_item_add_subtree(ptr noundef %44, i32 noundef %48)
-  %50 = load ptr, ptr %17, align 8
-  %51 = call fastcc i32 @try_dissect_unknown_ber(ptr noundef %50, ptr noundef %3, i32 noundef %4, ptr noundef %49, i32 noundef 1)
-  br label %259
+41:                                               ; preds = %33
+  %42 = load i32, ptr @ett_ber_unknown, align 4
+  %43 = call ptr @proto_item_add_subtree(ptr noundef %38, i32 noundef %42)
+  %44 = load ptr, ptr %17, align 8
+  %45 = call fastcc i32 @try_dissect_unknown_ber(ptr noundef %44, ptr noundef %3, i32 noundef %4, ptr noundef %43, i32 noundef 1)
+  br label %253
 
-52:                                               ; preds = %8
-  %53 = tail call i32 @tvb_reported_length_remaining(ptr noundef %3, i32 noundef %4)
-  store i32 %53, ptr %14, align 4
-  %54 = add i32 %53, %4
-  br label %55
+46:                                               ; preds = %8
+  %47 = tail call i32 @tvb_reported_length_remaining(ptr noundef %3, i32 noundef %4)
+  store i32 %47, ptr %14, align 4
+  %48 = add i32 %47, %4
+  br label %49
 
-55:                                               ; preds = %16, %27, %52
-  %56 = phi i32 [ %53, %52 ], [ %23, %27 ], [ %23, %16 ]
-  %.1220 = phi i32 [ %54, %52 ], [ %.0219, %27 ], [ %.0219, %16 ]
-  %.0196 = phi i32 [ 0, %52 ], [ %19, %27 ], [ %19, %16 ]
-  %.0192 = phi i32 [ 0, %52 ], [ %4, %27 ], [ %4, %16 ]
-  %.0189 = phi i32 [ %4, %52 ], [ %20, %27 ], [ %20, %16 ]
-  %57 = icmp sgt i32 %6, 0
-  %58 = icmp ne ptr %2, null
-  %or.cond13 = and i1 %58, %57
-  br i1 %or.cond13, label %59, label %62
+49:                                               ; preds = %16, %27, %46
+  %50 = phi i32 [ %47, %46 ], [ %23, %27 ], [ %23, %16 ]
+  %.1220 = phi i32 [ %48, %46 ], [ %.0219, %27 ], [ %.0219, %16 ]
+  %.0196 = phi i32 [ 0, %46 ], [ %19, %27 ], [ %19, %16 ]
+  %.0192 = phi i32 [ 0, %46 ], [ %4, %27 ], [ %4, %16 ]
+  %.0189 = phi i32 [ %4, %46 ], [ %20, %27 ], [ %20, %16 ]
+  %51 = icmp sgt i32 %6, 0
+  %52 = icmp ne ptr %2, null
+  %or.cond13 = and i1 %52, %51
+  br i1 %or.cond13, label %53, label %56
 
-59:                                               ; preds = %55
-  %60 = call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %6, ptr noundef %3, i32 noundef %.0189, i32 noundef %56, i32 noundef 0)
-  %61 = call ptr @proto_item_add_subtree(ptr noundef %60, i32 noundef %7)
-  br label %62
+53:                                               ; preds = %49
+  %54 = call ptr @proto_tree_add_item(ptr noundef nonnull %2, i32 noundef %6, ptr noundef %3, i32 noundef %.0189, i32 noundef %50, i32 noundef 0)
+  %55 = call ptr @proto_item_add_subtree(ptr noundef %54, i32 noundef %7)
+  br label %56
 
-62:                                               ; preds = %59, %55
-  %.0218 = phi ptr [ %61, %59 ], [ %2, %55 ]
-  br label %63
+56:                                               ; preds = %53, %49
+  %.0218 = phi ptr [ %55, %53 ], [ %2, %49 ]
+  br label %57
 
-63:                                               ; preds = %62, %68
-  %indvars.iv = phi i64 [ 0, %62 ], [ %indvars.iv.next, %68 ]
-  %64 = phi i32 [ 0, %62 ], [ %74, %68 ]
-  %.0208292 = phi i32 [ 0, %62 ], [ %.1209, %68 ]
-  %65 = getelementptr %struct._ber_sequence_t, ptr %5, i64 %indvars.iv
-  %66 = getelementptr inbounds nuw i8, ptr %65, i64 24
-  %67 = load ptr, ptr %66, align 8
-  %.not230 = icmp eq ptr %67, null
-  br i1 %.not230, label %.critedge, label %68
+57:                                               ; preds = %56, %62
+  %indvars.iv = phi i64 [ 0, %56 ], [ %indvars.iv.next, %62 ]
+  %58 = phi i32 [ 0, %56 ], [ %68, %62 ]
+  %.0208294 = phi i32 [ 0, %56 ], [ %.1209, %62 ]
+  %59 = getelementptr %struct._ber_sequence_t, ptr %5, i64 %indvars.iv
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 24
+  %61 = load ptr, ptr %60, align 8
+  %.not230 = icmp eq ptr %61, null
+  br i1 %.not230, label %.critedge, label %62
 
-68:                                               ; preds = %63
-  %69 = getelementptr inbounds nuw i8, ptr %65, i64 16
-  %70 = load i32, ptr %69, align 8
-  %71 = and i32 %70, 1
-  %.not241 = icmp eq i32 %71, 0
-  %72 = shl nuw i32 1, %64
-  %73 = select i1 %.not241, i32 %72, i32 0
-  %.1209 = or i32 %73, %.0208292
+62:                                               ; preds = %57
+  %63 = getelementptr inbounds nuw i8, ptr %59, i64 16
+  %64 = load i32, ptr %63, align 8
+  %65 = and i32 %64, 1
+  %.not241 = icmp eq i32 %65, 0
+  %66 = shl nuw i32 1, %58
+  %67 = select i1 %.not241, i32 %66, i32 0
+  %.1209 = or i32 %67, %.0208294
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %74 = trunc nuw nsw i64 %indvars.iv.next to i32
+  %68 = trunc nuw nsw i64 %indvars.iv.next to i32
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %.critedge, label %63, !llvm.loop !19
+  br i1 %exitcond.not, label %.critedge, label %57, !llvm.loop !19
 
-.critedge:                                        ; preds = %68, %63
-  %.0208.lcssa = phi i32 [ %.1209, %68 ], [ %.0208292, %63 ]
-  %75 = icmp slt i32 %.0189, %.1220
-  br i1 %75, label %.lr.ph, label %._crit_edge
+.critedge:                                        ; preds = %62, %57
+  %.0208.lcssa = phi i32 [ %.1209, %62 ], [ %.0208294, %57 ]
+  %69 = icmp slt i32 %.0189, %.1220
+  br i1 %69, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %.critedge
-  %76 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %77 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  br label %78
+  %70 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  br label %72
 
-78:                                               ; preds = %.lr.ph, %219
-  %.1190301 = phi i32 [ %.0189, %.lr.ph ], [ %.2191, %219 ]
-  %.2210300 = phi i32 [ %.0208.lcssa, %.lr.ph ], [ %.4212, %219 ]
+72:                                               ; preds = %.lr.ph, %213
+  %.1190303 = phi i32 [ %.0189, %.lr.ph ], [ %.2191, %213 ]
+  %.2210302 = phi i32 [ %.0208.lcssa, %.lr.ph ], [ %.4212, %213 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %15) #14
-  %79 = call zeroext i8 @tvb_get_uint8(ptr noundef %3, i32 noundef %.1190301)
-  %80 = icmp eq i8 %79, 0
-  %81 = add nsw i32 %.1190301, 1
-  br i1 %80, label %82, label %._crit_edge325
+  %73 = call zeroext i8 @tvb_get_uint8(ptr noundef %3, i32 noundef %.1190303)
+  %74 = icmp eq i8 %73, 0
+  %75 = add nsw i32 %.1190303, 1
+  br i1 %74, label %76, label %._crit_edge329
 
-82:                                               ; preds = %78
-  %83 = call zeroext i8 @tvb_get_uint8(ptr noundef %3, i32 noundef %81)
-  %84 = icmp eq i8 %83, 0
-  br i1 %84, label %85, label %._crit_edge325
+76:                                               ; preds = %72
+  %77 = call zeroext i8 @tvb_get_uint8(ptr noundef %3, i32 noundef %75)
+  %78 = icmp eq i8 %77, 0
+  br i1 %78, label %79, label %._crit_edge329
 
-85:                                               ; preds = %82
-  %86 = load i8, ptr @show_internal_ber_fields, align 1, !range !8, !noundef !9
-  %87 = trunc nuw i8 %86 to i1
-  br i1 %87, label %88, label %.thread260
+79:                                               ; preds = %76
+  %80 = load i8, ptr @show_internal_ber_fields, align 1, !range !8, !noundef !9
+  %81 = trunc nuw i8 %80 to i1
+  br i1 %81, label %82, label %.thread260
 
-88:                                               ; preds = %85
-  %89 = load i32, ptr @hf_ber_seq_eoc, align 4
-  %90 = add i32 %.1190301, 2
-  %91 = call ptr @proto_tree_add_item(ptr noundef %.0218, i32 noundef %89, ptr noundef %3, i32 noundef %4, i32 noundef %90, i32 noundef 0)
+82:                                               ; preds = %79
+  %83 = load i32, ptr @hf_ber_seq_eoc, align 4
+  %84 = add i32 %.1190303, 2
+  %85 = call ptr @proto_tree_add_item(ptr noundef %.0218, i32 noundef %83, ptr noundef %3, i32 noundef %4, i32 noundef %84, i32 noundef 0)
   br label %.thread260
 
-._crit_edge325:                                   ; preds = %78, %82
-  %92 = call zeroext i8 @tvb_get_uint8(ptr noundef %3, i32 noundef %.1190301)
-  %93 = lshr i8 %92, 6
-  %94 = lshr i8 %92, 5
-  %.lobit.i = and i8 %94, 1
-  %95 = and i8 %92, 31
-  %96 = zext nneg i8 %95 to i32
-  %97 = icmp eq i8 %95, 31
-  br i1 %97, label %.preheader.i, label %get_ber_identifier.exit
+._crit_edge329:                                   ; preds = %72, %76
+  %86 = call zeroext i8 @tvb_get_uint8(ptr noundef %3, i32 noundef %.1190303)
+  %87 = lshr i8 %86, 6
+  %88 = lshr i8 %86, 5
+  %.lobit.i = and i8 %88, 1
+  %89 = and i8 %86, 31
+  %90 = zext nneg i8 %89 to i32
+  %91 = icmp eq i8 %89, 31
+  br i1 %91, label %.preheader.i, label %get_ber_identifier.exit
 
-.preheader.i:                                     ; preds = %._crit_edge325, %100
-  %.129.i = phi i32 [ %102, %100 ], [ %81, %._crit_edge325 ]
-  %.1.i = phi i32 [ %106, %100 ], [ 0, %._crit_edge325 ]
-  %98 = call i32 @tvb_reported_length_remaining(ptr noundef %3, i32 noundef %.129.i)
-  %99 = icmp sgt i32 %98, 0
-  br i1 %99, label %100, label %get_ber_identifier.exit
+.preheader.i:                                     ; preds = %._crit_edge329, %94
+  %.129.i = phi i32 [ %96, %94 ], [ %75, %._crit_edge329 ]
+  %.1.i = phi i32 [ %100, %94 ], [ 0, %._crit_edge329 ]
+  %92 = call i32 @tvb_reported_length_remaining(ptr noundef %3, i32 noundef %.129.i)
+  %93 = icmp sgt i32 %92, 0
+  br i1 %93, label %94, label %get_ber_identifier.exit
 
-100:                                              ; preds = %.preheader.i
-  %101 = call zeroext i8 @tvb_get_uint8(ptr noundef %3, i32 noundef %.129.i)
-  %102 = add i32 %.129.i, 1
-  %103 = shl i32 %.1.i, 7
-  %104 = and i8 %101, 127
-  %105 = zext nneg i8 %104 to i32
-  %106 = or disjoint i32 %103, %105
-  %.not.i = icmp sgt i8 %101, -1
+94:                                               ; preds = %.preheader.i
+  %95 = call zeroext i8 @tvb_get_uint8(ptr noundef %3, i32 noundef %.129.i)
+  %96 = add i32 %.129.i, 1
+  %97 = shl i32 %.1.i, 7
+  %98 = and i8 %95, 127
+  %99 = zext nneg i8 %98 to i32
+  %100 = or disjoint i32 %97, %99
+  %.not.i = icmp sgt i8 %95, -1
   br i1 %.not.i, label %get_ber_identifier.exit, label %.preheader.i, !llvm.loop !6
 
-get_ber_identifier.exit:                          ; preds = %.preheader.i, %100, %._crit_edge325
-  %.028.i = phi i32 [ %81, %._crit_edge325 ], [ %102, %100 ], [ %.129.i, %.preheader.i ]
-  %.0.i = phi i32 [ %96, %._crit_edge325 ], [ %106, %100 ], [ %.1.i, %.preheader.i ]
-  store i8 %93, ptr @last_class, align 1
+get_ber_identifier.exit:                          ; preds = %.preheader.i, %94, %._crit_edge329
+  %.028.i = phi i32 [ %75, %._crit_edge329 ], [ %96, %94 ], [ %.129.i, %.preheader.i ]
+  %.0.i = phi i32 [ %90, %._crit_edge329 ], [ %100, %94 ], [ %.1.i, %.preheader.i ]
+  store i8 %87, ptr @last_class, align 1
   store i8 %.lobit.i, ptr @last_pc, align 1
   store i32 %.0.i, ptr @last_tag, align 4
-  %107 = sub i32 %.028.i, %.1190301
-  %108 = call fastcc noundef i32 @try_get_ber_length(ptr noundef %3, i32 noundef %.028.i, ptr noundef nonnull %15, ptr noundef nonnull %12, i32 noundef 1)
-  %109 = load i32, ptr %15, align 4
-  %110 = add i32 %109, %108
-  %111 = sub i32 %.1220, %108
-  %112 = icmp ugt i32 %109, %111
-  br i1 %112, label %split, label %113
+  %101 = sub i32 %.028.i, %.1190303
+  %102 = call fastcc noundef i32 @try_get_ber_length(ptr noundef %3, i32 noundef %.028.i, ptr noundef nonnull %15, ptr noundef nonnull %12, i32 noundef 1)
+  %103 = load i32, ptr %15, align 4
+  %104 = add i32 %103, %102
+  %105 = sub i32 %.1220, %102
+  %106 = icmp ugt i32 %103, %105
+  br i1 %106, label %112, label %107
 
-113:                                              ; preds = %get_ber_identifier.exit
-  %114 = call i32 @tvb_reported_length_remaining(ptr noundef %3, i32 noundef %108)
-  %115 = icmp ugt i32 %109, %114
-  br i1 %115, label %._crit_edge324, label %.preheader268
+107:                                              ; preds = %get_ber_identifier.exit
+  %108 = call i32 @tvb_reported_length_remaining(ptr noundef %3, i32 noundef %102)
+  %109 = icmp ugt i32 %103, %108
+  br i1 %109, label %112, label %.preheader268
 
-._crit_edge324:                                   ; preds = %113
-  %.pre = load i32, ptr %15, align 4
-  br label %split
+.preheader268:                                    ; preds = %107
+  %110 = load ptr, ptr %70, align 8
+  %111 = icmp ne ptr %110, null
+  br label %117
 
-.preheader268:                                    ; preds = %113
-  %116 = load ptr, ptr %76, align 8
-  %117 = icmp ne ptr %116, null
-  br label %123
-
-split:                                            ; preds = %get_ber_identifier.exit, %._crit_edge324
-  %118 = phi i32 [ %.pre, %._crit_edge324 ], [ %109, %get_ber_identifier.exit ]
-  %119 = sub i32 %108, %.028.i
-  %120 = load ptr, ptr %77, align 8
-  %121 = call i32 @tvb_reported_length_remaining(ptr noundef %3, i32 noundef %108)
-  %122 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.0218, ptr noundef %120, ptr noundef nonnull @ei_ber_error_length, ptr noundef %3, i32 noundef %.028.i, i32 noundef %119, ptr noundef nonnull @.str.350, i32 noundef %118, i32 noundef %121)
+112:                                              ; preds = %107, %get_ber_identifier.exit
+  %113 = sub i32 %102, %.028.i
+  %114 = load ptr, ptr %71, align 8
+  %115 = call i32 @tvb_reported_length_remaining(ptr noundef %3, i32 noundef %102)
+  %116 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.0218, ptr noundef %114, ptr noundef nonnull @ei_ber_error_length, ptr noundef %3, i32 noundef %.028.i, i32 noundef %113, ptr noundef nonnull @.str.350, i32 noundef %103, i32 noundef %115)
   br label %.thread260
 
-123:                                              ; preds = %.preheader268, %197
-  %124 = phi i1 [ %117, %.preheader268 ], [ %202, %197 ]
-  %.0199297 = phi ptr [ %5, %.preheader268 ], [ %198, %197 ]
-  %.0202296 = phi i8 [ 1, %.preheader268 ], [ %.1203254, %197 ]
-  %.1205295 = phi i8 [ 0, %.preheader268 ], [ %199, %197 ]
-  %.0214294 = phi i32 [ %.1190301, %.preheader268 ], [ %.3217, %197 ]
-  br i1 %124, label %127, label %125
+117:                                              ; preds = %.preheader268, %191
+  %118 = phi i1 [ %111, %.preheader268 ], [ %196, %191 ]
+  %.0199299 = phi ptr [ %5, %.preheader268 ], [ %192, %191 ]
+  %.0202298 = phi i8 [ 1, %.preheader268 ], [ %.1203254, %191 ]
+  %.1205297 = phi i8 [ 0, %.preheader268 ], [ %193, %191 ]
+  %.0214296 = phi i32 [ %.1190303, %.preheader268 ], [ %.3217, %191 ]
+  br i1 %118, label %121, label %119
 
-125:                                              ; preds = %123
-  %126 = load ptr, ptr %76, align 8
-  %.not235 = icmp eq ptr %126, null
+119:                                              ; preds = %117
+  %120 = load ptr, ptr %70, align 8
+  %.not235 = icmp eq ptr %120, null
   br i1 %.not235, label %.loopexit, label %.critedge243
 
+121:                                              ; preds = %117
+  %122 = trunc nuw i8 %.0202298 to i1
+  br i1 %122, label %123, label %.critedge243
+
+123:                                              ; preds = %121
+  %124 = getelementptr inbounds nuw i8, ptr %.0199299, i64 8
+  %125 = load i8, ptr %124, align 8
+  %126 = icmp eq i8 %125, %87
+  br i1 %126, label %127, label %191
+
 127:                                              ; preds = %123
-  %128 = trunc nuw i8 %.0202296 to i1
-  br i1 %128, label %129, label %.critedge243
+  %128 = getelementptr inbounds nuw i8, ptr %.0199299, i64 12
+  %129 = load i32, ptr %128, align 4
+  %130 = icmp eq i32 %129, %.0.i
+  br i1 %130, label %138, label %191
 
-129:                                              ; preds = %127
-  %130 = getelementptr inbounds nuw i8, ptr %.0199297, i64 8
-  %131 = load i8, ptr %130, align 8
-  %132 = icmp eq i8 %131, %93
-  br i1 %132, label %133, label %197
+.critedge243:                                     ; preds = %119, %121
+  %.2201258 = phi ptr [ %.0199299, %121 ], [ %5, %119 ]
+  %.2206252 = phi i8 [ %.1205297, %121 ], [ 0, %119 ]
+  %131 = getelementptr inbounds nuw i8, ptr %.2201258, i64 8
+  %132 = load i8, ptr %131, align 8
+  %133 = icmp eq i8 %132, 99
+  br i1 %133, label %134, label %191
 
-133:                                              ; preds = %129
-  %134 = getelementptr inbounds nuw i8, ptr %.0199297, i64 12
-  %135 = load i32, ptr %134, align 4
-  %136 = icmp eq i32 %135, %.0.i
-  br i1 %136, label %144, label %197
+134:                                              ; preds = %.critedge243
+  %135 = getelementptr inbounds nuw i8, ptr %.2201258, i64 12
+  %136 = load i32, ptr %135, align 4
+  %137 = icmp eq i32 %136, -1
+  br i1 %137, label %138, label %191
 
-.critedge243:                                     ; preds = %125, %127
-  %.2201258 = phi ptr [ %.0199297, %127 ], [ %5, %125 ]
-  %.2206252 = phi i8 [ %.1205295, %127 ], [ 0, %125 ]
-  %137 = getelementptr inbounds nuw i8, ptr %.2201258, i64 8
-  %138 = load i8, ptr %137, align 8
-  %139 = icmp eq i8 %138, 99
-  br i1 %139, label %140, label %197
+138:                                              ; preds = %134, %127
+  %139 = phi i1 [ false, %134 ], [ true, %127 ]
+  %.2201257 = phi ptr [ %.2201258, %134 ], [ %.0199299, %127 ]
+  %.1203255 = phi i8 [ 0, %134 ], [ 1, %127 ]
+  %.2206251 = phi i8 [ %.2206252, %134 ], [ %.1205297, %127 ]
+  %140 = getelementptr inbounds nuw i8, ptr %.2201257, i64 16
+  %141 = load i32, ptr %140, align 8
+  %142 = and i32 %141, 4
+  %.not236 = icmp eq i32 %142, 0
+  br i1 %.not236, label %143, label %150
 
-140:                                              ; preds = %.critedge243
-  %141 = getelementptr inbounds nuw i8, ptr %.2201258, i64 12
-  %142 = load i32, ptr %141, align 4
-  %143 = icmp eq i32 %142, -1
-  br i1 %143, label %144, label %197
+143:                                              ; preds = %138
+  %144 = call i32 @dissect_ber_identifier(ptr poison, ptr noundef %.0218, ptr noundef %3, i32 noundef %.0214296, ptr noundef null, ptr noundef null, ptr noundef null)
+  %145 = call i32 @dissect_ber_length(ptr poison, ptr noundef %.0218, ptr noundef %3, i32 noundef %144, ptr noundef null, ptr noundef null)
+  %146 = sub i32 %104, %145
+  %147 = load i8, ptr %12, align 1, !range !8, !noundef !9
+  %148 = trunc nuw i8 %147 to i1
+  %.neg = select i1 %148, i32 -2, i32 0
+  %149 = add i32 %146, %.neg
+  br label %152
 
-144:                                              ; preds = %140, %133
-  %145 = phi i1 [ false, %140 ], [ true, %133 ]
-  %.2201257 = phi ptr [ %.2201258, %140 ], [ %.0199297, %133 ]
-  %.1203255 = phi i8 [ 0, %140 ], [ 1, %133 ]
-  %.2206251 = phi i8 [ %.2206252, %140 ], [ %.1205295, %133 ]
-  %146 = getelementptr inbounds nuw i8, ptr %.2201257, i64 16
-  %147 = load i32, ptr %146, align 8
-  %148 = and i32 %147, 4
-  %.not236 = icmp eq i32 %148, 0
-  br i1 %.not236, label %149, label %156
+150:                                              ; preds = %138
+  %151 = sub i32 %104, %.0214296
+  br label %152
 
-149:                                              ; preds = %144
-  %150 = call i32 @dissect_ber_identifier(ptr poison, ptr noundef %.0218, ptr noundef %3, i32 noundef %.0214294, ptr noundef null, ptr noundef null, ptr noundef null)
-  %151 = call i32 @dissect_ber_length(ptr poison, ptr noundef %.0218, ptr noundef %3, i32 noundef %150, ptr noundef null, ptr noundef null)
-  %152 = sub i32 %110, %151
-  %153 = load i8, ptr %12, align 1, !range !8, !noundef !9
-  %154 = trunc nuw i8 %153 to i1
-  %.neg = select i1 %154, i32 -2, i32 0
-  %155 = add i32 %152, %.neg
-  br label %158
+152:                                              ; preds = %150, %143
+  %.0214296.sink350 = phi i32 [ %.0214296, %150 ], [ %145, %143 ]
+  %.sink349 = phi i32 [ %151, %150 ], [ %149, %143 ]
+  %153 = call i32 @tvb_reported_length_remaining(ptr noundef %3, i32 noundef %.0214296.sink350)
+  %154 = call i32 @llvm.smin.i32(i32 %153, i32 %.sink349)
+  %155 = call ptr @tvb_new_subset_length(ptr noundef %3, i32 noundef %.0214296.sink350, i32 noundef %154)
+  %156 = icmp eq ptr %155, null
+  br i1 %156, label %157, label %158
 
-156:                                              ; preds = %144
-  %157 = sub i32 %110, %.0214294
-  br label %158
-
-158:                                              ; preds = %156, %149
-  %.0214294.sink353 = phi i32 [ %.0214294, %156 ], [ %151, %149 ]
-  %.sink352 = phi i32 [ %157, %156 ], [ %155, %149 ]
-  %159 = call i32 @tvb_reported_length_remaining(ptr noundef %3, i32 noundef %.0214294.sink353)
-  %160 = call i32 @llvm.smin.i32(i32 %159, i32 %.sink352)
-  %161 = call ptr @tvb_new_subset_length(ptr noundef %3, i32 noundef %.0214294.sink353, i32 noundef %160)
-  %162 = icmp eq ptr %161, null
-  br i1 %162, label %163, label %164
-
-163:                                              ; preds = %158
+157:                                              ; preds = %152
   call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #15
   unreachable
 
-164:                                              ; preds = %158
-  %165 = load i32, ptr %146, align 8
-  %166 = and i32 %165, 2
-  %.not237 = icmp ne i32 %166, 0
-  %167 = getelementptr inbounds nuw i8, ptr %.2201257, i64 24
-  %168 = load ptr, ptr %167, align 8
-  %169 = load ptr, ptr %.2201257, align 8
-  %170 = load i32, ptr %169, align 4
-  %171 = call i32 %168(i1 noundef zeroext %.not237, ptr noundef nonnull %161, i32 noundef 0, ptr noundef %1, ptr noundef %.0218, i32 noundef %170)
-  %.not238 = icmp eq i32 %171, 0
-  br i1 %.not238, label %172, label %180
+158:                                              ; preds = %152
+  %159 = load i32, ptr %140, align 8
+  %160 = and i32 %159, 2
+  %.not237 = icmp ne i32 %160, 0
+  %161 = getelementptr inbounds nuw i8, ptr %.2201257, i64 24
+  %162 = load ptr, ptr %161, align 8
+  %163 = load ptr, ptr %.2201257, align 8
+  %164 = load i32, ptr %163, align 4
+  %165 = call i32 %162(i1 noundef zeroext %.not237, ptr noundef nonnull %155, i32 noundef 0, ptr noundef %1, ptr noundef %.0218, i32 noundef %164)
+  %.not238 = icmp eq i32 %165, 0
+  br i1 %.not238, label %166, label %174
 
-172:                                              ; preds = %164
-  br i1 %145, label %173, label %197
+166:                                              ; preds = %158
+  br i1 %139, label %167, label %191
 
-173:                                              ; preds = %172
-  %174 = load i32, ptr %15, align 4
-  %175 = icmp eq i32 %174, 0
-  br i1 %175, label %180, label %176
+167:                                              ; preds = %166
+  %168 = load i32, ptr %15, align 4
+  %169 = icmp eq i32 %168, 0
+  br i1 %169, label %174, label %170
 
-176:                                              ; preds = %173
-  %177 = load i8, ptr %12, align 1, !range !8, !noundef !9
-  %178 = trunc nuw i8 %177 to i1
-  %179 = icmp eq i32 %174, 2
-  %or.cond9 = and i1 %179, %178
-  br i1 %or.cond9, label %180, label %197
+170:                                              ; preds = %167
+  %171 = load i8, ptr %12, align 1, !range !8, !noundef !9
+  %172 = trunc nuw i8 %171 to i1
+  %173 = icmp eq i32 %168, 2
+  %or.cond9 = and i1 %173, %172
+  br i1 %or.cond9, label %174, label %191
 
-180:                                              ; preds = %176, %173, %164
-  %181 = icmp ult i8 %.2206251, 32
-  %182 = zext nneg i8 %.2206251 to i32
-  %183 = shl nuw i32 1, %182
-  %184 = xor i32 %183, -1
-  %185 = select i1 %181, i32 %184, i32 -1
-  %.5 = and i32 %185, %.2210300
-  %186 = load i32, ptr %146, align 8
-  %187 = and i32 %186, 4
-  %.not239 = icmp eq i32 %187, 0
-  br i1 %.not239, label %188, label %.loopexit
+174:                                              ; preds = %170, %167, %158
+  %175 = icmp ult i8 %.2206251, 32
+  %176 = zext nneg i8 %.2206251 to i32
+  %177 = shl nuw i32 1, %176
+  %178 = xor i32 %177, -1
+  %179 = select i1 %175, i32 %178, i32 -1
+  %.5 = and i32 %179, %.2210302
+  %180 = load i32, ptr %140, align 8
+  %181 = and i32 %180, 4
+  %.not239 = icmp eq i32 %181, 0
+  br i1 %.not239, label %182, label %.loopexit
 
-188:                                              ; preds = %180
-  %189 = load i8, ptr %12, align 1, !range !8, !noundef !9
-  %190 = trunc nuw i8 %189 to i1
-  br i1 %190, label %191, label %.loopexit
+182:                                              ; preds = %174
+  %183 = load i8, ptr %12, align 1, !range !8, !noundef !9
+  %184 = trunc nuw i8 %183 to i1
+  br i1 %184, label %185, label %.loopexit
 
-191:                                              ; preds = %188
-  %192 = load i8, ptr @show_internal_ber_fields, align 1, !range !8, !noundef !9
-  %193 = trunc nuw i8 %192 to i1
-  br i1 %193, label %194, label %.loopexit
+185:                                              ; preds = %182
+  %186 = load i8, ptr @show_internal_ber_fields, align 1, !range !8, !noundef !9
+  %187 = trunc nuw i8 %186 to i1
+  br i1 %187, label %188, label %.loopexit
 
-194:                                              ; preds = %191
-  %195 = load i32, ptr @hf_ber_set_field_eoc, align 4
-  %196 = call ptr @proto_tree_add_item(ptr noundef %.0218, i32 noundef %195, ptr noundef %3, i32 noundef %110, i32 noundef %171, i32 noundef 0)
+188:                                              ; preds = %185
+  %189 = load i32, ptr @hf_ber_set_field_eoc, align 4
+  %190 = call ptr @proto_tree_add_item(ptr noundef %.0218, i32 noundef %189, ptr noundef %3, i32 noundef %104, i32 noundef %165, i32 noundef 0)
   br label %.loopexit
 
-197:                                              ; preds = %129, %133, %.critedge243, %140, %176, %172
-  %.2201259 = phi ptr [ %.2201257, %176 ], [ %.2201257, %172 ], [ %.2201258, %140 ], [ %.2201258, %.critedge243 ], [ %.0199297, %133 ], [ %.0199297, %129 ]
-  %.1203254 = phi i8 [ %.1203255, %176 ], [ %.1203255, %172 ], [ 0, %140 ], [ 0, %.critedge243 ], [ 1, %133 ], [ 1, %129 ]
-  %.2206253 = phi i8 [ %.2206251, %176 ], [ %.2206251, %172 ], [ %.2206252, %140 ], [ %.2206252, %.critedge243 ], [ %.1205295, %133 ], [ %.1205295, %129 ]
-  %.3217 = phi i32 [ %.0214294.sink353, %176 ], [ %.0214294.sink353, %172 ], [ %.0214294, %140 ], [ %.0214294, %.critedge243 ], [ %.0214294, %133 ], [ %.0214294, %129 ]
-  %198 = getelementptr i8, ptr %.2201259, i64 32
-  %199 = add i8 %.2206253, 1
-  %200 = getelementptr i8, ptr %.2201259, i64 56
-  %201 = load ptr, ptr %200, align 8
-  %202 = icmp ne ptr %201, null
-  %203 = trunc nuw i8 %.1203254 to i1
-  %204 = select i1 %202, i1 true, i1 %203
-  br i1 %204, label %123, label %.loopexit, !llvm.loop !20
+191:                                              ; preds = %123, %127, %.critedge243, %134, %170, %166
+  %.2201259 = phi ptr [ %.2201257, %170 ], [ %.2201257, %166 ], [ %.2201258, %134 ], [ %.2201258, %.critedge243 ], [ %.0199299, %127 ], [ %.0199299, %123 ]
+  %.1203254 = phi i8 [ %.1203255, %170 ], [ %.1203255, %166 ], [ 0, %134 ], [ 0, %.critedge243 ], [ 1, %127 ], [ 1, %123 ]
+  %.2206253 = phi i8 [ %.2206251, %170 ], [ %.2206251, %166 ], [ %.2206252, %134 ], [ %.2206252, %.critedge243 ], [ %.1205297, %127 ], [ %.1205297, %123 ]
+  %.3217 = phi i32 [ %.0214296.sink350, %170 ], [ %.0214296.sink350, %166 ], [ %.0214296, %134 ], [ %.0214296, %.critedge243 ], [ %.0214296, %127 ], [ %.0214296, %123 ]
+  %192 = getelementptr i8, ptr %.2201259, i64 32
+  %193 = add i8 %.2206253, 1
+  %194 = getelementptr i8, ptr %.2201259, i64 56
+  %195 = load ptr, ptr %194, align 8
+  %196 = icmp ne ptr %195, null
+  %197 = trunc nuw i8 %.1203254 to i1
+  %198 = select i1 %196, i1 true, i1 %197
+  br i1 %198, label %117, label %.loopexit, !llvm.loop !20
 
-.loopexit:                                        ; preds = %125, %197, %180, %191, %194, %188
-  %.1215 = phi i32 [ %.0214294.sink353, %180 ], [ %.0214294.sink353, %194 ], [ %.0214294.sink353, %191 ], [ %.0214294.sink353, %188 ], [ %.3217, %197 ], [ %.0214294, %125 ]
-  %.4212 = phi i32 [ %.5, %180 ], [ %.5, %194 ], [ %.5, %191 ], [ %.5, %188 ], [ %.2210300, %197 ], [ %.2210300, %125 ]
-  %.1200 = phi ptr [ %.2201257, %180 ], [ %.2201257, %194 ], [ %.2201257, %191 ], [ %.2201257, %188 ], [ %198, %197 ], [ %5, %125 ]
-  %.3 = phi i32 [ %110, %180 ], [ %110, %194 ], [ %110, %191 ], [ %110, %188 ], [ %108, %197 ], [ %108, %125 ]
-  %205 = getelementptr inbounds nuw i8, ptr %.1200, i64 24
-  %206 = load ptr, ptr %205, align 8
-  %.not240 = icmp eq ptr %206, null
-  br i1 %.not240, label %207, label %219
+.loopexit:                                        ; preds = %119, %191, %174, %185, %188, %182
+  %.1215 = phi i32 [ %.0214296.sink350, %174 ], [ %.0214296.sink350, %188 ], [ %.0214296.sink350, %185 ], [ %.0214296.sink350, %182 ], [ %.3217, %191 ], [ %.0214296, %119 ]
+  %.4212 = phi i32 [ %.5, %174 ], [ %.5, %188 ], [ %.5, %185 ], [ %.5, %182 ], [ %.2210302, %191 ], [ %.2210302, %119 ]
+  %.1200 = phi ptr [ %.2201257, %174 ], [ %.2201257, %188 ], [ %.2201257, %185 ], [ %.2201257, %182 ], [ %192, %191 ], [ %5, %119 ]
+  %.3 = phi i32 [ %104, %174 ], [ %104, %188 ], [ %104, %185 ], [ %104, %182 ], [ %102, %191 ], [ %102, %119 ]
+  %199 = getelementptr inbounds nuw i8, ptr %.1200, i64 24
+  %200 = load ptr, ptr %199, align 8
+  %.not240 = icmp eq ptr %200, null
+  br i1 %.not240, label %201, label %213
 
-207:                                              ; preds = %.loopexit
-  %208 = load ptr, ptr %77, align 8
-  %209 = zext nneg i8 %93 to i32
-  %210 = call ptr @val_to_str_const(i32 noundef %209, ptr noundef nonnull @ber_class_codes, ptr noundef nonnull @.str.3)
-  %211 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.0218, ptr noundef %208, ptr noundef nonnull @ei_ber_unknown_field_set, ptr noundef %3, i32 noundef %.1190301, i32 noundef %107, ptr noundef nonnull @.str.22, ptr noundef %210, i32 noundef %209, i32 noundef %.0.i)
-  %212 = load i8, ptr @decode_unexpected, align 1, !range !8, !noundef !9
-  %213 = trunc nuw i8 %212 to i1
-  br i1 %213, label %214, label %219
+201:                                              ; preds = %.loopexit
+  %202 = load ptr, ptr %71, align 8
+  %203 = zext nneg i8 %87 to i32
+  %204 = call ptr @val_to_str_const(i32 noundef %203, ptr noundef nonnull @ber_class_codes, ptr noundef nonnull @.str.3)
+  %205 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.0218, ptr noundef %202, ptr noundef nonnull @ei_ber_unknown_field_set, ptr noundef %3, i32 noundef %.1190303, i32 noundef %101, ptr noundef nonnull @.str.22, ptr noundef %204, i32 noundef %203, i32 noundef %.0.i)
+  %206 = load i8, ptr @decode_unexpected, align 1, !range !8, !noundef !9
+  %207 = trunc nuw i8 %206 to i1
+  br i1 %207, label %208, label %213
 
-214:                                              ; preds = %207
-  %215 = load i32, ptr @ett_ber_unknown, align 4
-  %216 = call ptr @proto_item_add_subtree(ptr noundef %211, i32 noundef %215)
-  %217 = load ptr, ptr %77, align 8
-  %218 = call fastcc i32 @try_dissect_unknown_ber(ptr noundef %217, ptr noundef %3, i32 noundef %.1215, ptr noundef %216, i32 noundef 1)
-  br label %219
+208:                                              ; preds = %201
+  %209 = load i32, ptr @ett_ber_unknown, align 4
+  %210 = call ptr @proto_item_add_subtree(ptr noundef %205, i32 noundef %209)
+  %211 = load ptr, ptr %71, align 8
+  %212 = call fastcc i32 @try_dissect_unknown_ber(ptr noundef %211, ptr noundef %3, i32 noundef %.1215, ptr noundef %210, i32 noundef 1)
+  br label %213
 
-.thread260:                                       ; preds = %split, %88, %85
+.thread260:                                       ; preds = %112, %82, %79
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #14
-  br label %259
+  br label %253
 
-219:                                              ; preds = %.loopexit, %214, %207
-  %.2191 = phi i32 [ %.3, %.loopexit ], [ %110, %214 ], [ %110, %207 ]
+213:                                              ; preds = %.loopexit, %208, %201
+  %.2191 = phi i32 [ %.3, %.loopexit ], [ %104, %208 ], [ %104, %201 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %15) #14
-  %220 = icmp slt i32 %.2191, %.1220
-  br i1 %220, label %78, label %._crit_edge, !llvm.loop !21
+  %214 = icmp slt i32 %.2191, %.1220
+  br i1 %214, label %72, label %._crit_edge, !llvm.loop !21
 
-._crit_edge:                                      ; preds = %219, %.critedge
-  %.2210.lcssa = phi i32 [ %.0208.lcssa, %.critedge ], [ %.4212, %219 ]
-  %.1197.lcssa = phi i32 [ %.0196, %.critedge ], [ %107, %219 ]
-  %.1193.lcssa = phi i32 [ %.0192, %.critedge ], [ %.1190301, %219 ]
-  %.1190.lcssa = phi i32 [ %.0189, %.critedge ], [ %.2191, %219 ]
+._crit_edge:                                      ; preds = %213, %.critedge
+  %.2210.lcssa = phi i32 [ %.0208.lcssa, %.critedge ], [ %.4212, %213 ]
+  %.1197.lcssa = phi i32 [ %.0196, %.critedge ], [ %101, %213 ]
+  %.1193.lcssa = phi i32 [ %.0192, %.critedge ], [ %.1190303, %213 ]
+  %.1190.lcssa = phi i32 [ %.0189, %.critedge ], [ %.2191, %213 ]
   %.not231 = icmp eq i32 %.2210.lcssa, 0
   br i1 %.not231, label %.critedge11, label %.preheader
 
 .preheader:                                       ; preds = %._crit_edge
-  %221 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  br label %222
+  %215 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  br label %216
 
-222:                                              ; preds = %.preheader, %241
-  %indvars.iv321 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next322, %241 ]
-  %223 = phi i32 [ 0, %.preheader ], [ %242, %241 ]
-  %224 = getelementptr %struct._ber_sequence_t, ptr %5, i64 %indvars.iv321
-  %225 = getelementptr inbounds nuw i8, ptr %224, i64 24
-  %226 = load ptr, ptr %225, align 8
-  %.not232 = icmp eq ptr %226, null
-  br i1 %.not232, label %.critedge11, label %227
+216:                                              ; preds = %.preheader, %235
+  %indvars.iv326 = phi i64 [ 0, %.preheader ], [ %indvars.iv.next327, %235 ]
+  %217 = phi i32 [ 0, %.preheader ], [ %236, %235 ]
+  %218 = getelementptr %struct._ber_sequence_t, ptr %5, i64 %indvars.iv326
+  %219 = getelementptr inbounds nuw i8, ptr %218, i64 24
+  %220 = load ptr, ptr %219, align 8
+  %.not232 = icmp eq ptr %220, null
+  br i1 %.not232, label %.critedge11, label %221
 
-227:                                              ; preds = %222
-  %228 = shl nuw i32 1, %223
-  %229 = and i32 %228, %.2210.lcssa
-  %.not234 = icmp eq i32 %229, 0
-  br i1 %.not234, label %241, label %230
+221:                                              ; preds = %216
+  %222 = shl nuw i32 1, %217
+  %223 = and i32 %222, %.2210.lcssa
+  %.not234 = icmp eq i32 %223, 0
+  br i1 %.not234, label %235, label %224
 
-230:                                              ; preds = %227
-  %231 = load ptr, ptr %221, align 8
-  %232 = getelementptr inbounds nuw i8, ptr %224, i64 8
-  %233 = load i8, ptr %232, align 8
-  %234 = sext i8 %233 to i32
-  %235 = call ptr @val_to_str_const(i32 noundef %234, ptr noundef nonnull @ber_class_codes, ptr noundef nonnull @.str.3)
-  %236 = load i8, ptr %232, align 8
-  %237 = sext i8 %236 to i32
-  %238 = getelementptr inbounds nuw i8, ptr %224, i64 12
-  %239 = load i32, ptr %238, align 4
-  %240 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.0218, ptr noundef %231, ptr noundef nonnull @ei_ber_missing_field_set, ptr noundef %3, i32 noundef %.1193.lcssa, i32 noundef %.1197.lcssa, ptr noundef nonnull @.str.23, ptr noundef %235, i32 noundef %237, i32 noundef %239)
-  br label %241
+224:                                              ; preds = %221
+  %225 = load ptr, ptr %215, align 8
+  %226 = getelementptr inbounds nuw i8, ptr %218, i64 8
+  %227 = load i8, ptr %226, align 8
+  %228 = sext i8 %227 to i32
+  %229 = call ptr @val_to_str_const(i32 noundef %228, ptr noundef nonnull @ber_class_codes, ptr noundef nonnull @.str.3)
+  %230 = load i8, ptr %226, align 8
+  %231 = sext i8 %230 to i32
+  %232 = getelementptr inbounds nuw i8, ptr %218, i64 12
+  %233 = load i32, ptr %232, align 4
+  %234 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.0218, ptr noundef %225, ptr noundef nonnull @ei_ber_missing_field_set, ptr noundef %3, i32 noundef %.1193.lcssa, i32 noundef %.1197.lcssa, ptr noundef nonnull @.str.23, ptr noundef %229, i32 noundef %231, i32 noundef %233)
+  br label %235
 
-241:                                              ; preds = %227, %230
-  %indvars.iv.next322 = add nuw nsw i64 %indvars.iv321, 1
-  %242 = trunc nuw nsw i64 %indvars.iv.next322 to i32
-  %exitcond323.not = icmp eq i64 %indvars.iv.next322, 32
-  br i1 %exitcond323.not, label %.critedge11, label %222, !llvm.loop !22
+235:                                              ; preds = %221, %224
+  %indvars.iv.next327 = add nuw nsw i64 %indvars.iv326, 1
+  %236 = trunc nuw nsw i64 %indvars.iv.next327 to i32
+  %exitcond328.not = icmp eq i64 %indvars.iv.next327, 32
+  br i1 %exitcond328.not, label %.critedge11, label %216, !llvm.loop !22
 
-.critedge11:                                      ; preds = %222, %241, %._crit_edge
+.critedge11:                                      ; preds = %216, %235, %._crit_edge
   %.not233 = icmp eq i32 %.1190.lcssa, %.1220
-  br i1 %.not233, label %249, label %243
+  br i1 %.not233, label %243, label %237
 
-243:                                              ; preds = %.critedge11
-  %244 = add i32 %.1190.lcssa, -2
-  call void @tvb_ensure_bytes_exist(ptr noundef %3, i32 noundef %244, i32 noundef 2)
-  %245 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %246 = load ptr, ptr %245, align 8
-  %247 = sub i32 %.1190.lcssa, %.1220
-  %248 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.0218, ptr noundef %246, ptr noundef nonnull @ei_ber_error_length, ptr noundef %3, i32 noundef %244, i32 noundef 2, ptr noundef nonnull @.str.24, i32 noundef %247)
-  br label %249
+237:                                              ; preds = %.critedge11
+  %238 = add i32 %.1190.lcssa, -2
+  call void @tvb_ensure_bytes_exist(ptr noundef %3, i32 noundef %238, i32 noundef 2)
+  %239 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %240 = load ptr, ptr %239, align 8
+  %241 = sub i32 %.1190.lcssa, %.1220
+  %242 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.0218, ptr noundef %240, ptr noundef nonnull @ei_ber_error_length, ptr noundef %3, i32 noundef %238, i32 noundef 2, ptr noundef nonnull @.str.24, i32 noundef %241)
+  br label %243
 
-249:                                              ; preds = %243, %.critedge11
-  %250 = load i8, ptr %11, align 1, !range !8, !noundef !9
-  %251 = trunc nuw i8 %250 to i1
-  br i1 %251, label %252, label %259
+243:                                              ; preds = %237, %.critedge11
+  %244 = load i8, ptr %11, align 1, !range !8, !noundef !9
+  %245 = trunc nuw i8 %244 to i1
+  br i1 %245, label %246, label %253
 
-252:                                              ; preds = %249
-  %253 = add i32 %.1220, 2
-  %254 = load i8, ptr @show_internal_ber_fields, align 1, !range !8, !noundef !9
-  %255 = trunc nuw i8 %254 to i1
-  br i1 %255, label %256, label %259
+246:                                              ; preds = %243
+  %247 = add i32 %.1220, 2
+  %248 = load i8, ptr @show_internal_ber_fields, align 1, !range !8, !noundef !9
+  %249 = trunc nuw i8 %248 to i1
+  br i1 %249, label %250, label %253
 
-256:                                              ; preds = %252
-  %257 = load i32, ptr @hf_ber_set_eoc, align 4
-  %258 = call ptr @proto_tree_add_item(ptr noundef %.0218, i32 noundef %257, ptr noundef %3, i32 noundef %.1220, i32 noundef 2, i32 noundef 0)
-  br label %259
+250:                                              ; preds = %246
+  %251 = load i32, ptr @hf_ber_set_eoc, align 4
+  %252 = call ptr @proto_tree_add_item(ptr noundef %.0218, i32 noundef %251, ptr noundef %3, i32 noundef %.1220, i32 noundef 2, i32 noundef 0)
+  br label %253
 
-259:                                              ; preds = %.thread260, %249, %256, %252, %33, %47
-  %.0 = phi i32 [ %.0219, %47 ], [ %.0219, %33 ], [ %253, %256 ], [ %253, %252 ], [ %.1220, %249 ], [ %.1220, %.thread260 ]
+253:                                              ; preds = %.thread260, %243, %250, %246, %33, %41
+  %.0 = phi i32 [ %.0219, %41 ], [ %.0219, %33 ], [ %247, %250 ], [ %247, %246 ], [ %.1220, %243 ], [ %.1220, %.thread260 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %12) #14
@@ -4807,142 +4724,129 @@ define internal fastcc i32 @dissect_ber_any_oid(i1 noundef zeroext %0, ptr nound
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #14
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #14
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #14
-  br i1 %0, label %42, label %13
+  br i1 %0, label %36, label %13
 
 13:                                               ; preds = %8
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = call i32 @dissect_ber_identifier(ptr poison, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11)
-  %16 = sub i32 %15, %4
-  %17 = call i32 @dissect_ber_length(ptr poison, ptr noundef %2, ptr noundef %3, i32 noundef %15, ptr noundef nonnull %12, ptr noundef null)
-  %18 = load i32, ptr %12, align 4
-  %19 = add i32 %18, %17
-  %20 = load i8, ptr %9, align 1
-  %.not78 = icmp eq i8 %20, 0
-  br i1 %.not78, label %21, label %23
-
-21:                                               ; preds = %13
-  %22 = load i32, ptr %11, align 4
+  %16 = call i32 @dissect_ber_length(ptr poison, ptr noundef %2, ptr noundef %3, i32 noundef %15, ptr noundef nonnull %12, ptr noundef null)
+  %17 = load i32, ptr %12, align 4
+  %18 = add i32 %17, %16
+  %19 = load i8, ptr %9, align 1
+  %.not78 = icmp eq i8 %19, 0
+  %.pre = load i32, ptr %11, align 4
   %or.cond82.v = select i1 %7, i32 6, i32 13
-  %or.cond82 = icmp eq i32 %22, %or.cond82.v
-  br i1 %or.cond82, label %45, label %23
+  %or.cond82 = icmp eq i32 %.pre, %or.cond82.v
+  %or.cond = select i1 %.not78, i1 %or.cond82, i1 false
+  br i1 %or.cond, label %39, label %20
 
-23:                                               ; preds = %21, %13
+20:                                               ; preds = %13
+  %21 = sub i32 %15, %4
   call void @tvb_ensure_bytes_exist(ptr noundef %3, i32 noundef %4, i32 noundef 2)
-  %24 = load ptr, ptr %14, align 8
-  %25 = load i8, ptr %9, align 1
-  %26 = sext i8 %25 to i32
-  %27 = call ptr @val_to_str_const(i32 noundef %26, ptr noundef nonnull @ber_class_codes, ptr noundef nonnull @.str.3)
-  %28 = load i8, ptr %9, align 1
-  %29 = sext i8 %28 to i32
-  %30 = load i8, ptr %10, align 1, !range !8, !noundef !9
-  %31 = trunc nuw i8 %30 to i1
-  %32 = call ptr @tfs_get_string(i1 noundef zeroext %31, ptr noundef nonnull @tfs_constructed_primitive)
-  %33 = load i32, ptr %11, align 4
-  %34 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %24, ptr noundef nonnull @ei_ber_expected_object_identifier, ptr noundef %3, i32 noundef %4, i32 noundef %16, ptr noundef nonnull @.str.351, ptr noundef %27, i32 noundef %29, ptr noundef %32, i32 noundef %33)
-  %35 = load i8, ptr @decode_unexpected, align 1, !range !8, !noundef !9
-  %36 = trunc nuw i8 %35 to i1
-  br i1 %36, label %37, label %82
+  %22 = load ptr, ptr %14, align 8
+  %23 = sext i8 %19 to i32
+  %24 = call ptr @val_to_str_const(i32 noundef %23, ptr noundef nonnull @ber_class_codes, ptr noundef nonnull @.str.3)
+  %25 = load i8, ptr %10, align 1, !range !8, !noundef !9
+  %26 = trunc nuw i8 %25 to i1
+  %27 = call ptr @tfs_get_string(i1 noundef zeroext %26, ptr noundef nonnull @tfs_constructed_primitive)
+  %28 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %22, ptr noundef nonnull @ei_ber_expected_object_identifier, ptr noundef %3, i32 noundef %4, i32 noundef %21, ptr noundef nonnull @.str.351, ptr noundef %24, i32 noundef %23, ptr noundef %27, i32 noundef %.pre)
+  %29 = load i8, ptr @decode_unexpected, align 1, !range !8, !noundef !9
+  %30 = trunc nuw i8 %29 to i1
+  br i1 %30, label %31, label %70
 
-37:                                               ; preds = %23
-  %38 = load i32, ptr @ett_ber_unknown, align 4
-  %39 = call ptr @proto_item_add_subtree(ptr noundef %34, i32 noundef %38)
-  %40 = load ptr, ptr %14, align 8
-  %41 = call fastcc i32 @try_dissect_unknown_ber(ptr noundef %40, ptr noundef %3, i32 noundef %4, ptr noundef %39, i32 noundef 1)
-  br label %82
+31:                                               ; preds = %20
+  %32 = load i32, ptr @ett_ber_unknown, align 4
+  %33 = call ptr @proto_item_add_subtree(ptr noundef %28, i32 noundef %32)
+  %34 = load ptr, ptr %14, align 8
+  %35 = call fastcc i32 @try_dissect_unknown_ber(ptr noundef %34, ptr noundef %3, i32 noundef %4, ptr noundef %33, i32 noundef 1)
+  br label %70
 
-42:                                               ; preds = %8
-  %43 = tail call i32 @tvb_reported_length_remaining(ptr noundef %3, i32 noundef %4)
-  store i32 %43, ptr %12, align 4
-  %44 = add i32 %43, %4
-  br label %45
+36:                                               ; preds = %8
+  %37 = tail call i32 @tvb_reported_length_remaining(ptr noundef %3, i32 noundef %4)
+  %38 = add i32 %37, %4
+  br label %39
 
-45:                                               ; preds = %21, %42
-  %.074 = phi i32 [ %44, %42 ], [ %19, %21 ]
-  %.073 = phi i32 [ %4, %42 ], [ %17, %21 ]
-  %46 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store ptr null, ptr %46, align 8
-  %47 = call ptr @proto_registrar_get_nth(i32 noundef %5)
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  %49 = load i32, ptr %48, align 8
-  br i1 %7, label %50, label %.critedge
+39:                                               ; preds = %13, %36
+  %40 = phi i32 [ %37, %36 ], [ %17, %13 ]
+  %.074 = phi i32 [ %38, %36 ], [ %18, %13 ]
+  %.073 = phi i32 [ %4, %36 ], [ %16, %13 ]
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store ptr null, ptr %41, align 8
+  %42 = call ptr @proto_registrar_get_nth(i32 noundef %5)
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 16
+  %44 = load i32, ptr %43, align 8
+  br i1 %7, label %45, label %.critedge
 
-50:                                               ; preds = %45
-  switch i32 %49, label %75 [
-    i32 37, label %51
-    i32 26, label %54
-    i32 27, label %54
-    i32 43, label %54
-    i32 45, label %54
-    i32 28, label %54
-    i32 39, label %54
+45:                                               ; preds = %39
+  switch i32 %44, label %64 [
+    i32 37, label %46
+    i32 26, label %48
+    i32 27, label %48
+    i32 43, label %48
+    i32 45, label %48
+    i32 28, label %48
+    i32 39, label %48
   ]
 
-.critedge:                                        ; preds = %45
-  switch i32 %49, label %75 [
-    i32 41, label %51
-    i32 26, label %54
-    i32 27, label %54
-    i32 43, label %54
-    i32 45, label %54
-    i32 28, label %54
-    i32 39, label %54
+.critedge:                                        ; preds = %39
+  switch i32 %44, label %64 [
+    i32 41, label %46
+    i32 26, label %48
+    i32 27, label %48
+    i32 43, label %48
+    i32 45, label %48
+    i32 28, label %48
+    i32 39, label %48
   ]
 
-51:                                               ; preds = %50, %.critedge
-  %52 = load i32, ptr %12, align 4
-  %53 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %3, i32 noundef %.073, i32 noundef %52, i32 noundef 0)
-  store ptr %53, ptr %46, align 8
-  br label %76
+46:                                               ; preds = %45, %.critedge
+  %47 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %5, ptr noundef %3, i32 noundef %.073, i32 noundef %40, i32 noundef 0)
+  store ptr %47, ptr %41, align 8
+  br label %65
 
-54:                                               ; preds = %50, %50, %50, %50, %50, %50, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge
-  %55 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 408
-  %58 = load ptr, ptr %57, align 8
-  %59 = load i32, ptr %12, align 4
-  %60 = call ptr @tvb_get_ptr(ptr noundef %3, i32 noundef %.073, i32 noundef %59)
-  %61 = load i32, ptr %12, align 4
-  %62 = call ptr @oid_encoded2string(ptr noundef %58, ptr noundef %60, i32 noundef %61)
-  %63 = load i32, ptr %12, align 4
-  %64 = call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %5, ptr noundef %3, i32 noundef %.073, i32 noundef %63, ptr noundef %62)
-  store ptr %64, ptr %46, align 8
-  %.not = icmp eq ptr %64, null
-  br i1 %.not, label %76, label %65
+48:                                               ; preds = %45, %45, %45, %45, %45, %45, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge, %.critedge
+  %49 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %50 = load ptr, ptr %49, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 408
+  %52 = load ptr, ptr %51, align 8
+  %53 = call ptr @tvb_get_ptr(ptr noundef %3, i32 noundef %.073, i32 noundef %40)
+  %54 = call ptr @oid_encoded2string(ptr noundef %52, ptr noundef %53, i32 noundef %40)
+  %55 = call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %5, ptr noundef %3, i32 noundef %.073, i32 noundef %40, ptr noundef %54)
+  store ptr %55, ptr %41, align 8
+  %.not = icmp eq ptr %55, null
+  br i1 %.not, label %65, label %56
 
-65:                                               ; preds = %54
-  %66 = load ptr, ptr %55, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 408
-  %68 = load ptr, ptr %67, align 8
-  %69 = load i32, ptr %12, align 4
-  %70 = call ptr @tvb_get_ptr(ptr noundef %3, i32 noundef %.073, i32 noundef %69)
-  %71 = load i32, ptr %12, align 4
-  %72 = call ptr @oid_resolved_from_encoded(ptr noundef %68, ptr noundef %70, i32 noundef %71)
-  %.not80 = icmp eq ptr %72, null
-  br i1 %.not80, label %76, label %73
+56:                                               ; preds = %48
+  %57 = load ptr, ptr %49, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 408
+  %59 = load ptr, ptr %58, align 8
+  %60 = call ptr @tvb_get_ptr(ptr noundef %3, i32 noundef %.073, i32 noundef %40)
+  %61 = call ptr @oid_resolved_from_encoded(ptr noundef %59, ptr noundef %60, i32 noundef %40)
+  %.not80 = icmp eq ptr %61, null
+  br i1 %.not80, label %65, label %62
 
-73:                                               ; preds = %65
-  %74 = load ptr, ptr %46, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %74, ptr noundef nonnull @.str.352, ptr noundef nonnull %72)
-  br label %76
+62:                                               ; preds = %56
+  %63 = load ptr, ptr %41, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %63, ptr noundef nonnull @.str.352, ptr noundef nonnull %61)
+  br label %65
 
-75:                                               ; preds = %50, %.critedge
+64:                                               ; preds = %45, %.critedge
   call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.10, ptr noundef nonnull @.str.11, i32 noundef 3283) #15
   unreachable
 
-76:                                               ; preds = %65, %73, %54, %51
+65:                                               ; preds = %56, %62, %48, %46
   %.not81 = icmp eq ptr %6, null
-  br i1 %.not81, label %82, label %77
+  br i1 %.not81, label %70, label %66
 
-77:                                               ; preds = %76
-  %78 = load i32, ptr %12, align 4
-  %79 = call i32 @tvb_reported_length_remaining(ptr noundef %3, i32 noundef %.073)
-  %80 = call i32 @llvm.smin.i32(i32 %79, i32 %78)
-  %81 = call ptr @tvb_new_subset_length(ptr noundef %3, i32 noundef %.073, i32 noundef %80)
-  store ptr %81, ptr %6, align 8
-  br label %82
+66:                                               ; preds = %65
+  %67 = call i32 @tvb_reported_length_remaining(ptr noundef %3, i32 noundef %.073)
+  %68 = call i32 @llvm.smin.i32(i32 %67, i32 %40)
+  %69 = call ptr @tvb_new_subset_length(ptr noundef %3, i32 noundef %.073, i32 noundef %68)
+  store ptr %69, ptr %6, align 8
+  br label %70
 
-82:                                               ; preds = %76, %77, %23, %37
-  %.0 = phi i32 [ %19, %37 ], [ %19, %23 ], [ %.074, %77 ], [ %.074, %76 ]
+70:                                               ; preds = %65, %66, %20, %31
+  %.0 = phi i32 [ %18, %31 ], [ %18, %20 ], [ %.074, %66 ], [ %.074, %65 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #14
@@ -4975,13 +4879,12 @@ define i32 @dissect_ber_relative_oid_str(i1 noundef zeroext %0, ptr noundef capt
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 408
   %18 = load ptr, ptr %17, align 8
-  %19 = load ptr, ptr %8, align 8
-  %20 = call ptr @tvb_get_ptr(ptr noundef %19, i32 noundef 0, i32 noundef %13)
-  %21 = call ptr @oid_encoded2string(ptr noundef %18, ptr noundef %20, i32 noundef %13)
+  %19 = call ptr @tvb_get_ptr(ptr noundef nonnull %11, i32 noundef 0, i32 noundef %13)
+  %20 = call ptr @oid_encoded2string(ptr noundef %18, ptr noundef %19, i32 noundef %13)
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %14, %12, %10
-  %.sink.i = phi ptr [ %21, %14 ], [ @.str.43, %12 ], [ @.str.43, %10 ]
+  %.sink.i = phi ptr [ %20, %14 ], [ @.str.43, %12 ], [ @.str.43, %10 ]
   store ptr %.sink.i, ptr %6, align 8
   br label %dissect_ber_any_oid_str.exit
 
@@ -5021,13 +4924,12 @@ define i32 @dissect_ber_object_identifier_str(i1 noundef zeroext %0, ptr noundef
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 408
   %18 = load ptr, ptr %17, align 8
-  %19 = load ptr, ptr %8, align 8
-  %20 = call ptr @tvb_get_ptr(ptr noundef %19, i32 noundef 0, i32 noundef %13)
-  %21 = call ptr @oid_encoded2string(ptr noundef %18, ptr noundef %20, i32 noundef %13)
+  %19 = call ptr @tvb_get_ptr(ptr noundef nonnull %11, i32 noundef 0, i32 noundef %13)
+  %20 = call ptr @oid_encoded2string(ptr noundef %18, ptr noundef %19, i32 noundef %13)
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %14, %12, %10
-  %.sink.i = phi ptr [ %21, %14 ], [ @.str.43, %12 ], [ @.str.43, %10 ]
+  %.sink.i = phi ptr [ %20, %14 ], [ @.str.43, %12 ], [ @.str.43, %10 ]
   store ptr %.sink.i, ptr %6, align 8
   br label %dissect_ber_any_oid_str.exit
 
@@ -5059,7 +4961,7 @@ define internal fastcc i32 @dissect_ber_sq_of(i1 noundef zeroext %0, i32 noundef
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %15) #14
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #14
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #14
-  br i1 %0, label %56, label %20
+  br i1 %0, label %50, label %20
 
 20:                                               ; preds = %11
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 16
@@ -5071,7 +4973,7 @@ define internal fastcc i32 @dissect_ber_sq_of(i1 noundef zeroext %0, i32 noundef
   %27 = load i8, ptr %12, align 1
   %28 = and i8 %27, -3
   %or.cond.not = icmp eq i8 %28, 1
-  br i1 %or.cond.not, label %59, label %29
+  br i1 %or.cond.not, label %53, label %29
 
 29:                                               ; preds = %20
   %30 = load i8, ptr %13, align 1, !range !8, !noundef !9
@@ -5081,7 +4983,7 @@ define internal fastcc i32 @dissect_ber_sq_of(i1 noundef zeroext %0, i32 noundef
   %33 = load i32, ptr %16, align 4
   %.not = icmp eq i32 %33, %1
   %or.cond = select i1 %or.cond5.not, i1 %.not, i1 false
-  br i1 %or.cond, label %59, label %34
+  br i1 %or.cond, label %53, label %34
 
 34:                                               ; preds = %29
   call void @tvb_ensure_bytes_exist(ptr noundef %4, i32 noundef %5, i32 noundef 2)
@@ -5089,394 +4991,388 @@ define internal fastcc i32 @dissect_ber_sq_of(i1 noundef zeroext %0, i32 noundef
   %36 = icmp eq i32 %1, 16
   %37 = select i1 %36, ptr @ei_ber_expected_set, ptr @ei_ber_expected_sequence
   %38 = select i1 %36, ptr @.str.325, ptr @.str.324
-  %39 = load i8, ptr %12, align 1
-  %40 = sext i8 %39 to i32
-  %41 = call ptr @val_to_str_const(i32 noundef %40, ptr noundef nonnull @ber_class_codes, ptr noundef nonnull @.str.3)
-  %42 = load i8, ptr %12, align 1
-  %43 = sext i8 %42 to i32
-  %44 = load i8, ptr %13, align 1, !range !8, !noundef !9
-  %45 = trunc nuw i8 %44 to i1
-  %46 = call ptr @tfs_get_string(i1 noundef zeroext %45, ptr noundef nonnull @tfs_constructed_primitive)
-  %47 = load i32, ptr %16, align 4
-  %48 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %3, ptr noundef %35, ptr noundef nonnull %37, ptr noundef %4, i32 noundef %5, i32 noundef %23, ptr noundef nonnull @.str.353, ptr noundef nonnull %38, ptr noundef %41, i32 noundef %43, ptr noundef %46, i32 noundef %47)
-  %49 = load i8, ptr @decode_unexpected, align 1, !range !8, !noundef !9
-  %50 = trunc nuw i8 %49 to i1
-  br i1 %50, label %51, label %237
+  %39 = sext i8 %27 to i32
+  %40 = call ptr @val_to_str_const(i32 noundef %39, ptr noundef nonnull @ber_class_codes, ptr noundef nonnull @.str.3)
+  %41 = call ptr @tfs_get_string(i1 noundef zeroext %31, ptr noundef nonnull @tfs_constructed_primitive)
+  %42 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %3, ptr noundef %35, ptr noundef nonnull %37, ptr noundef %4, i32 noundef %5, i32 noundef %23, ptr noundef nonnull @.str.353, ptr noundef nonnull %38, ptr noundef %40, i32 noundef %39, ptr noundef %41, i32 noundef %33)
+  %43 = load i8, ptr @decode_unexpected, align 1, !range !8, !noundef !9
+  %44 = trunc nuw i8 %43 to i1
+  br i1 %44, label %45, label %231
 
-51:                                               ; preds = %34
-  %52 = load i32, ptr @ett_ber_unknown, align 4
-  %53 = call ptr @proto_item_add_subtree(ptr noundef %48, i32 noundef %52)
-  %54 = load ptr, ptr %21, align 8
-  %55 = call fastcc i32 @try_dissect_unknown_ber(ptr noundef %54, ptr noundef %4, i32 noundef %5, ptr noundef %53, i32 noundef 1)
-  br label %237
+45:                                               ; preds = %34
+  %46 = load i32, ptr @ett_ber_unknown, align 4
+  %47 = call ptr @proto_item_add_subtree(ptr noundef %42, i32 noundef %46)
+  %48 = load ptr, ptr %21, align 8
+  %49 = call fastcc i32 @try_dissect_unknown_ber(ptr noundef %48, ptr noundef %4, i32 noundef %5, ptr noundef %47, i32 noundef 1)
+  br label %231
 
-56:                                               ; preds = %11
-  %57 = tail call i32 @tvb_reported_length_remaining(ptr noundef %4, i32 noundef %5)
-  store i32 %57, ptr %17, align 4
-  %58 = add i32 %57, %5
-  br label %59
+50:                                               ; preds = %11
+  %51 = tail call i32 @tvb_reported_length_remaining(ptr noundef %4, i32 noundef %5)
+  store i32 %51, ptr %17, align 4
+  %52 = add i32 %51, %5
+  br label %53
 
-59:                                               ; preds = %29, %20, %56
-  %.0216 = phi i32 [ %58, %56 ], [ %26, %20 ], [ %26, %29 ]
-  %.0198 = phi i32 [ %5, %56 ], [ %24, %20 ], [ %24, %29 ]
-  %60 = call i32 @tvb_captured_length_remaining(ptr noundef %4, i32 noundef %.0198)
-  %61 = call i32 @tvb_reported_length_remaining(ptr noundef %4, i32 noundef %.0198)
-  %62 = icmp eq i32 %60, %61
-  br i1 %62, label %.preheader, label %.loopexit
+53:                                               ; preds = %29, %20, %50
+  %54 = phi i32 [ %51, %50 ], [ %25, %20 ], [ %25, %29 ]
+  %.0216 = phi i32 [ %52, %50 ], [ %26, %20 ], [ %26, %29 ]
+  %.0198 = phi i32 [ %5, %50 ], [ %24, %20 ], [ %24, %29 ]
+  %55 = call i32 @tvb_captured_length_remaining(ptr noundef %4, i32 noundef %.0198)
+  %56 = call i32 @tvb_reported_length_remaining(ptr noundef %4, i32 noundef %.0198)
+  %57 = icmp eq i32 %55, %56
+  br i1 %57, label %.preheader, label %.loopexit
 
-.preheader:                                       ; preds = %59
-  %63 = icmp slt i32 %.0198, %.0216
-  br i1 %63, label %.lr.ph, label %.loopexit
+.preheader:                                       ; preds = %53
+  %58 = icmp slt i32 %.0198, %.0216
+  br i1 %58, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %.preheader, %88
-  %.1199272 = phi i32 [ %87, %88 ], [ %.0198, %.preheader ]
-  %.1209271 = phi i32 [ %89, %88 ], [ 0, %.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %83
+  %.1199272 = phi i32 [ %82, %83 ], [ %.0198, %.preheader ]
+  %.1209271 = phi i32 [ %84, %83 ], [ 0, %.preheader ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #14
-  %64 = call zeroext i8 @tvb_get_uint8(ptr noundef %4, i32 noundef %.1199272)
-  %65 = icmp eq i8 %64, 0
-  %66 = add nsw i32 %.1199272, 1
-  br i1 %65, label %67, label %.lr.ph._crit_edge
+  %59 = call zeroext i8 @tvb_get_uint8(ptr noundef %4, i32 noundef %.1199272)
+  %60 = icmp eq i8 %59, 0
+  %61 = add nsw i32 %.1199272, 1
+  br i1 %60, label %62, label %.lr.ph._crit_edge
 
-67:                                               ; preds = %.lr.ph
-  %68 = call zeroext i8 @tvb_get_uint8(ptr noundef %4, i32 noundef %66)
-  %69 = icmp eq i8 %68, 0
-  br i1 %69, label %.thread, label %.lr.ph._crit_edge
+62:                                               ; preds = %.lr.ph
+  %63 = call zeroext i8 @tvb_get_uint8(ptr noundef %4, i32 noundef %61)
+  %64 = icmp eq i8 %63, 0
+  br i1 %64, label %.thread, label %.lr.ph._crit_edge
 
-.lr.ph._crit_edge:                                ; preds = %.lr.ph, %67
-  %70 = call zeroext i8 @tvb_get_uint8(ptr noundef %4, i32 noundef %.1199272)
-  %71 = lshr i8 %70, 6
-  %72 = lshr i8 %70, 5
-  %.lobit.i = and i8 %72, 1
-  %73 = and i8 %70, 31
-  %74 = zext nneg i8 %73 to i32
-  %75 = icmp eq i8 %73, 31
-  br i1 %75, label %.preheader.i, label %get_ber_identifier.exit
+.lr.ph._crit_edge:                                ; preds = %.lr.ph, %62
+  %65 = call zeroext i8 @tvb_get_uint8(ptr noundef %4, i32 noundef %.1199272)
+  %66 = lshr i8 %65, 6
+  %67 = lshr i8 %65, 5
+  %.lobit.i = and i8 %67, 1
+  %68 = and i8 %65, 31
+  %69 = zext nneg i8 %68 to i32
+  %70 = icmp eq i8 %68, 31
+  br i1 %70, label %.preheader.i, label %get_ber_identifier.exit
 
-.preheader.i:                                     ; preds = %.lr.ph._crit_edge, %78
-  %.129.i = phi i32 [ %80, %78 ], [ %66, %.lr.ph._crit_edge ]
-  %.1.i = phi i32 [ %84, %78 ], [ 0, %.lr.ph._crit_edge ]
-  %76 = call i32 @tvb_reported_length_remaining(ptr noundef %4, i32 noundef %.129.i)
-  %77 = icmp sgt i32 %76, 0
-  br i1 %77, label %78, label %get_ber_identifier.exit
+.preheader.i:                                     ; preds = %.lr.ph._crit_edge, %73
+  %.129.i = phi i32 [ %75, %73 ], [ %61, %.lr.ph._crit_edge ]
+  %.1.i = phi i32 [ %79, %73 ], [ 0, %.lr.ph._crit_edge ]
+  %71 = call i32 @tvb_reported_length_remaining(ptr noundef %4, i32 noundef %.129.i)
+  %72 = icmp sgt i32 %71, 0
+  br i1 %72, label %73, label %get_ber_identifier.exit
 
-78:                                               ; preds = %.preheader.i
-  %79 = call zeroext i8 @tvb_get_uint8(ptr noundef %4, i32 noundef %.129.i)
-  %80 = add i32 %.129.i, 1
-  %81 = shl i32 %.1.i, 7
-  %82 = and i8 %79, 127
-  %83 = zext nneg i8 %82 to i32
-  %84 = or disjoint i32 %81, %83
-  %.not.i = icmp sgt i8 %79, -1
+73:                                               ; preds = %.preheader.i
+  %74 = call zeroext i8 @tvb_get_uint8(ptr noundef %4, i32 noundef %.129.i)
+  %75 = add i32 %.129.i, 1
+  %76 = shl i32 %.1.i, 7
+  %77 = and i8 %74, 127
+  %78 = zext nneg i8 %77 to i32
+  %79 = or disjoint i32 %76, %78
+  %.not.i = icmp sgt i8 %74, -1
   br i1 %.not.i, label %get_ber_identifier.exit, label %.preheader.i, !llvm.loop !6
 
-get_ber_identifier.exit:                          ; preds = %.preheader.i, %78, %.lr.ph._crit_edge
-  %.028.i = phi i32 [ %66, %.lr.ph._crit_edge ], [ %80, %78 ], [ %.129.i, %.preheader.i ]
-  %.0.i = phi i32 [ %74, %.lr.ph._crit_edge ], [ %84, %78 ], [ %.1.i, %.preheader.i ]
-  store i8 %71, ptr @last_class, align 1
+get_ber_identifier.exit:                          ; preds = %.preheader.i, %73, %.lr.ph._crit_edge
+  %.028.i = phi i32 [ %61, %.lr.ph._crit_edge ], [ %75, %73 ], [ %.129.i, %.preheader.i ]
+  %.0.i = phi i32 [ %69, %.lr.ph._crit_edge ], [ %79, %73 ], [ %.1.i, %.preheader.i ]
+  store i8 %66, ptr @last_class, align 1
   store i8 %.lobit.i, ptr @last_pc, align 1
   store i32 %.0.i, ptr @last_tag, align 4
-  %85 = call fastcc noundef i32 @try_get_ber_length(ptr noundef %4, i32 noundef %.028.i, ptr noundef nonnull %18, ptr noundef nonnull %14, i32 noundef 1)
-  %86 = load i32, ptr %18, align 4
-  %87 = add i32 %86, %85
-  %.not228 = icmp sgt i32 %87, %.1199272
-  br i1 %.not228, label %88, label %.thread
+  %80 = call fastcc noundef i32 @try_get_ber_length(ptr noundef %4, i32 noundef %.028.i, ptr noundef nonnull %18, ptr noundef nonnull %14, i32 noundef 1)
+  %81 = load i32, ptr %18, align 4
+  %82 = add i32 %81, %80
+  %.not228 = icmp sgt i32 %82, %.1199272
+  br i1 %.not228, label %83, label %.thread
 
-.thread:                                          ; preds = %67, %get_ber_identifier.exit
-  %.2215.ph = phi i1 [ false, %get_ber_identifier.exit ], [ true, %67 ]
-  %.2210.ph = phi i32 [ 0, %get_ber_identifier.exit ], [ %.1209271, %67 ]
+.thread:                                          ; preds = %62, %get_ber_identifier.exit
+  %.2215.ph = phi i1 [ false, %get_ber_identifier.exit ], [ true, %62 ]
+  %.2210.ph = phi i32 [ 0, %get_ber_identifier.exit ], [ %.1209271, %62 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #14
   br label %.loopexit
 
-88:                                               ; preds = %get_ber_identifier.exit
-  %89 = add i32 %.1209271, 1
+83:                                               ; preds = %get_ber_identifier.exit
+  %84 = add i32 %.1209271, 1
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #14
-  %90 = icmp slt i32 %87, %.0216
-  br i1 %90, label %.lr.ph, label %.loopexit
+  %85 = icmp slt i32 %82, %.0216
+  br i1 %85, label %.lr.ph, label %.loopexit
 
-.loopexit:                                        ; preds = %88, %.preheader, %.thread, %59
-  %.0213 = phi i1 [ false, %59 ], [ %.2215.ph, %.thread ], [ true, %.preheader ], [ true, %88 ]
-  %.0208 = phi i32 [ 0, %59 ], [ %.2210.ph, %.thread ], [ 0, %.preheader ], [ %89, %88 ]
-  %91 = icmp sgt i32 %9, 0
-  br i1 %91, label %92, label %ber_check_items.exit
+.loopexit:                                        ; preds = %83, %.preheader, %.thread, %53
+  %.0213 = phi i1 [ false, %53 ], [ %.2215.ph, %.thread ], [ true, %.preheader ], [ true, %83 ]
+  %.0208 = phi i32 [ 0, %53 ], [ %.2210.ph, %.thread ], [ 0, %.preheader ], [ %84, %83 ]
+  %86 = icmp sgt i32 %9, 0
+  br i1 %86, label %87, label %ber_check_items.exit
 
-92:                                               ; preds = %.loopexit
-  %93 = call ptr @proto_registrar_get_nth(i32 noundef %9)
+87:                                               ; preds = %.loopexit
+  %88 = call ptr @proto_registrar_get_nth(i32 noundef %9)
   %.not229 = icmp eq ptr %3, null
-  br i1 %.not229, label %ber_check_items.exit, label %94
+  br i1 %.not229, label %ber_check_items.exit, label %89
 
-94:                                               ; preds = %92
-  %95 = getelementptr inbounds nuw i8, ptr %93, i64 16
-  %96 = load i32, ptr %95, align 8
-  %97 = icmp eq i32 %96, 0
-  %98 = load i32, ptr %17, align 4
-  br i1 %97, label %99, label %101
+89:                                               ; preds = %87
+  %90 = getelementptr inbounds nuw i8, ptr %88, i64 16
+  %91 = load i32, ptr %90, align 8
+  %92 = icmp eq i32 %91, 0
+  br i1 %92, label %93, label %95
 
-99:                                               ; preds = %94
-  %100 = call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %9, ptr noundef %4, i32 noundef %.0198, i32 noundef %98, i32 noundef 0)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %100, ptr noundef nonnull @.str.354)
-  br label %108
+93:                                               ; preds = %89
+  %94 = call ptr @proto_tree_add_item(ptr noundef nonnull %3, i32 noundef %9, ptr noundef %4, i32 noundef %.0198, i32 noundef %54, i32 noundef 0)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %94, ptr noundef nonnull @.str.354)
+  br label %102
 
-101:                                              ; preds = %94
-  br i1 %.0213, label %102, label %106
+95:                                               ; preds = %89
+  br i1 %.0213, label %96, label %100
 
-102:                                              ; preds = %101
-  %103 = call ptr @proto_tree_add_uint(ptr noundef nonnull %3, i32 noundef %9, ptr noundef %4, i32 noundef %.0198, i32 noundef %98, i32 noundef %.0208)
-  %104 = icmp eq i32 %.0208, 1
-  %105 = select i1 %104, ptr @.str.355, ptr @.str.356
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %103, ptr noundef nonnull %105)
-  br label %108
+96:                                               ; preds = %95
+  %97 = call ptr @proto_tree_add_uint(ptr noundef nonnull %3, i32 noundef %9, ptr noundef %4, i32 noundef %.0198, i32 noundef %54, i32 noundef %.0208)
+  %98 = icmp eq i32 %.0208, 1
+  %99 = select i1 %98, ptr @.str.355, ptr @.str.356
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %97, ptr noundef nonnull %99)
+  br label %102
 
-106:                                              ; preds = %101
-  %107 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef nonnull %3, i32 noundef %9, ptr noundef %4, i32 noundef %.0198, i32 noundef %98, i32 noundef %.0208, ptr noundef nonnull @.str.357)
-  br label %108
+100:                                              ; preds = %95
+  %101 = call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef nonnull %3, i32 noundef %9, ptr noundef %4, i32 noundef %.0198, i32 noundef %54, i32 noundef %.0208, ptr noundef nonnull @.str.357)
+  br label %102
 
-108:                                              ; preds = %102, %106, %99
-  %.0207 = phi ptr [ %100, %99 ], [ %103, %102 ], [ %107, %106 ]
-  %109 = call ptr @proto_item_add_subtree(ptr noundef %.0207, i32 noundef %10)
+102:                                              ; preds = %96, %100, %93
+  %.0207 = phi ptr [ %94, %93 ], [ %97, %96 ], [ %101, %100 ]
+  %103 = call ptr @proto_item_add_subtree(ptr noundef %.0207, i32 noundef %10)
   %.not.i239 = icmp ne i32 %6, -1
-  %110 = icmp slt i32 %.0208, %6
-  %or.cond.i = and i1 %.not.i239, %110
-  br i1 %or.cond.i, label %.sink.split.i, label %111
+  %104 = icmp slt i32 %.0208, %6
+  %or.cond.i = and i1 %.not.i239, %104
+  br i1 %or.cond.i, label %.sink.split.i, label %105
 
-111:                                              ; preds = %108
+105:                                              ; preds = %102
   %.not17.i = icmp ne i32 %7, -1
-  %112 = icmp sgt i32 %.0208, %7
-  %or.cond18.i = and i1 %.not17.i, %112
+  %106 = icmp sgt i32 %.0208, %7
+  %or.cond18.i = and i1 %.not17.i, %106
   br i1 %or.cond18.i, label %.sink.split.i, label %ber_check_items.exit
 
-.sink.split.i:                                    ; preds = %111, %108
-  %.str.362.sink.i = phi ptr [ @.str.361, %108 ], [ @.str.362, %111 ]
-  %113 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %114 = load ptr, ptr %113, align 8
-  %115 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %114, ptr noundef %.0207, ptr noundef nonnull @ei_ber_size_constraint_items, ptr noundef nonnull %.str.362.sink.i, i32 noundef %.0208, i32 noundef %6, i32 noundef %7)
+.sink.split.i:                                    ; preds = %105, %102
+  %.str.362.sink.i = phi ptr [ @.str.361, %102 ], [ @.str.362, %105 ]
+  %107 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %108 = load ptr, ptr %107, align 8
+  %109 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %108, ptr noundef %.0207, ptr noundef nonnull @ei_ber_size_constraint_items, ptr noundef nonnull %.str.362.sink.i, i32 noundef %.0208, i32 noundef %6, i32 noundef %7)
   br label %ber_check_items.exit
 
-ber_check_items.exit:                             ; preds = %.sink.split.i, %111, %92, %.loopexit
-  %.0206 = phi ptr [ null, %92 ], [ %3, %.loopexit ], [ %109, %111 ], [ %109, %.sink.split.i ]
-  %116 = icmp slt i32 %.0198, %.0216
-  br i1 %116, label %.lr.ph275, label %._crit_edge
+ber_check_items.exit:                             ; preds = %.sink.split.i, %105, %87, %.loopexit
+  %.0206 = phi ptr [ null, %87 ], [ %3, %.loopexit ], [ %103, %105 ], [ %103, %.sink.split.i ]
+  %110 = icmp slt i32 %.0198, %.0216
+  br i1 %110, label %.lr.ph275, label %._crit_edge
 
 .lr.ph275:                                        ; preds = %ber_check_items.exit
-  %117 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %118 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  %119 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %120 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %121 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  br label %122
+  %111 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %8, i64 12
+  %113 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %114 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %115 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  br label %116
 
-122:                                              ; preds = %.lr.ph275, %227
-  %.3274 = phi i32 [ %.0198, %.lr.ph275 ], [ %156, %227 ]
+116:                                              ; preds = %.lr.ph275, %221
+  %.3274 = phi i32 [ %.0198, %.lr.ph275 ], [ %150, %221 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #14
-  %123 = call zeroext i8 @tvb_get_uint8(ptr noundef %4, i32 noundef %.3274)
-  %124 = icmp eq i8 %123, 0
-  %125 = add nsw i32 %.3274, 1
-  br i1 %124, label %126, label %._crit_edge282
+  %117 = call zeroext i8 @tvb_get_uint8(ptr noundef %4, i32 noundef %.3274)
+  %118 = icmp eq i8 %117, 0
+  %119 = add nsw i32 %.3274, 1
+  br i1 %118, label %120, label %._crit_edge282
 
-126:                                              ; preds = %122
-  %127 = call zeroext i8 @tvb_get_uint8(ptr noundef %4, i32 noundef %125)
-  %128 = icmp eq i8 %127, 0
-  br i1 %128, label %129, label %._crit_edge282
+120:                                              ; preds = %116
+  %121 = call zeroext i8 @tvb_get_uint8(ptr noundef %4, i32 noundef %119)
+  %122 = icmp eq i8 %121, 0
+  br i1 %122, label %123, label %._crit_edge282
 
-129:                                              ; preds = %126
-  %130 = load i8, ptr @show_internal_ber_fields, align 1, !range !8, !noundef !9
-  %131 = trunc nuw i8 %130 to i1
-  br i1 %131, label %132, label %136
+123:                                              ; preds = %120
+  %124 = load i8, ptr @show_internal_ber_fields, align 1, !range !8, !noundef !9
+  %125 = trunc nuw i8 %124 to i1
+  br i1 %125, label %126, label %130
 
-132:                                              ; preds = %129
-  %133 = load i32, ptr @hf_ber_seq_of_eoc, align 4
-  %134 = sub i32 %.0216, %.3274
-  %135 = call ptr @proto_tree_add_item(ptr noundef %.0206, i32 noundef %133, ptr noundef %4, i32 noundef %.3274, i32 noundef %134, i32 noundef 0)
-  br label %136
+126:                                              ; preds = %123
+  %127 = load i32, ptr @hf_ber_seq_of_eoc, align 4
+  %128 = sub i32 %.0216, %.3274
+  %129 = call ptr @proto_tree_add_item(ptr noundef %.0206, i32 noundef %127, ptr noundef %4, i32 noundef %.3274, i32 noundef %128, i32 noundef 0)
+  br label %130
 
-136:                                              ; preds = %132, %129
-  %137 = add i32 %.3274, 2
+130:                                              ; preds = %126, %123
+  %131 = add i32 %.3274, 2
   br label %.thread261
 
-._crit_edge282:                                   ; preds = %122, %126
-  %138 = call zeroext i8 @tvb_get_uint8(ptr noundef %4, i32 noundef %.3274)
-  %139 = lshr i8 %138, 6
-  %140 = lshr i8 %138, 5
-  %.lobit.i240 = and i8 %140, 1
-  %141 = and i8 %138, 31
-  %142 = zext nneg i8 %141 to i32
-  %143 = icmp eq i8 %141, 31
-  br i1 %143, label %.preheader.i243, label %get_ber_identifier.exit247
+._crit_edge282:                                   ; preds = %116, %120
+  %132 = call zeroext i8 @tvb_get_uint8(ptr noundef %4, i32 noundef %.3274)
+  %133 = lshr i8 %132, 6
+  %134 = lshr i8 %132, 5
+  %.lobit.i240 = and i8 %134, 1
+  %135 = and i8 %132, 31
+  %136 = zext nneg i8 %135 to i32
+  %137 = icmp eq i8 %135, 31
+  br i1 %137, label %.preheader.i243, label %get_ber_identifier.exit247
 
-.preheader.i243:                                  ; preds = %._crit_edge282, %146
-  %.129.i244 = phi i32 [ %148, %146 ], [ %125, %._crit_edge282 ]
-  %.1.i245 = phi i32 [ %152, %146 ], [ 0, %._crit_edge282 ]
-  %144 = call i32 @tvb_reported_length_remaining(ptr noundef %4, i32 noundef %.129.i244)
-  %145 = icmp sgt i32 %144, 0
-  br i1 %145, label %146, label %get_ber_identifier.exit247
+.preheader.i243:                                  ; preds = %._crit_edge282, %140
+  %.129.i244 = phi i32 [ %142, %140 ], [ %119, %._crit_edge282 ]
+  %.1.i245 = phi i32 [ %146, %140 ], [ 0, %._crit_edge282 ]
+  %138 = call i32 @tvb_reported_length_remaining(ptr noundef %4, i32 noundef %.129.i244)
+  %139 = icmp sgt i32 %138, 0
+  br i1 %139, label %140, label %get_ber_identifier.exit247
 
-146:                                              ; preds = %.preheader.i243
-  %147 = call zeroext i8 @tvb_get_uint8(ptr noundef %4, i32 noundef %.129.i244)
-  %148 = add i32 %.129.i244, 1
-  %149 = shl i32 %.1.i245, 7
-  %150 = and i8 %147, 127
-  %151 = zext nneg i8 %150 to i32
-  %152 = or disjoint i32 %149, %151
-  %.not.i246 = icmp sgt i8 %147, -1
+140:                                              ; preds = %.preheader.i243
+  %141 = call zeroext i8 @tvb_get_uint8(ptr noundef %4, i32 noundef %.129.i244)
+  %142 = add i32 %.129.i244, 1
+  %143 = shl i32 %.1.i245, 7
+  %144 = and i8 %141, 127
+  %145 = zext nneg i8 %144 to i32
+  %146 = or disjoint i32 %143, %145
+  %.not.i246 = icmp sgt i8 %141, -1
   br i1 %.not.i246, label %get_ber_identifier.exit247, label %.preheader.i243, !llvm.loop !6
 
-get_ber_identifier.exit247:                       ; preds = %.preheader.i243, %146, %._crit_edge282
-  %.028.i241 = phi i32 [ %125, %._crit_edge282 ], [ %148, %146 ], [ %.129.i244, %.preheader.i243 ]
-  %.0.i242 = phi i32 [ %142, %._crit_edge282 ], [ %152, %146 ], [ %.1.i245, %.preheader.i243 ]
-  store i8 %139, ptr @last_class, align 1
+get_ber_identifier.exit247:                       ; preds = %.preheader.i243, %140, %._crit_edge282
+  %.028.i241 = phi i32 [ %119, %._crit_edge282 ], [ %142, %140 ], [ %.129.i244, %.preheader.i243 ]
+  %.0.i242 = phi i32 [ %136, %._crit_edge282 ], [ %146, %140 ], [ %.1.i245, %.preheader.i243 ]
+  store i8 %133, ptr @last_class, align 1
   store i8 %.lobit.i240, ptr @last_pc, align 1
   store i32 %.0.i242, ptr @last_tag, align 4
-  %153 = sub i32 %.028.i241, %.3274
-  %154 = call fastcc noundef i32 @try_get_ber_length(ptr noundef %4, i32 noundef %.028.i241, ptr noundef nonnull %19, ptr noundef nonnull %15, i32 noundef 1)
-  %155 = load i32, ptr %19, align 4
-  %156 = add i32 %155, %154
-  %.not231 = icmp sgt i32 %156, %.3274
-  br i1 %.not231, label %158, label %157
+  %147 = sub i32 %.028.i241, %.3274
+  %148 = call fastcc noundef i32 @try_get_ber_length(ptr noundef %4, i32 noundef %.028.i241, ptr noundef nonnull %19, ptr noundef nonnull %15, i32 noundef 1)
+  %149 = load i32, ptr %19, align 4
+  %150 = add i32 %149, %148
+  %.not231 = icmp sgt i32 %150, %.3274
+  br i1 %.not231, label %152, label %151
 
-157:                                              ; preds = %get_ber_identifier.exit247
+151:                                              ; preds = %get_ber_identifier.exit247
   call void @except_throw(i64 noundef 1, i64 noundef 3, ptr noundef null) #15
   unreachable
 
-158:                                              ; preds = %get_ber_identifier.exit247
-  %159 = icmp ult i8 %138, 64
-  %160 = icmp eq i32 %.0.i242, 0
-  %or.cond7 = select i1 %159, i1 %160, i1 false
-  br i1 %or.cond7, label %161, label %164
+152:                                              ; preds = %get_ber_identifier.exit247
+  %153 = icmp ult i8 %132, 64
+  %154 = icmp eq i32 %.0.i242, 0
+  %or.cond7 = select i1 %153, i1 %154, i1 false
+  br i1 %or.cond7, label %155, label %158
 
-161:                                              ; preds = %158
-  %162 = call i32 @dissect_ber_identifier(ptr poison, ptr noundef %.0206, ptr noundef %4, i32 noundef %.3274, ptr noundef null, ptr noundef null, ptr noundef null)
-  %163 = call i32 @dissect_ber_length(ptr poison, ptr noundef %.0206, ptr noundef %4, i32 noundef %162, ptr noundef null, ptr noundef null)
+155:                                              ; preds = %152
+  %156 = call i32 @dissect_ber_identifier(ptr poison, ptr noundef %.0206, ptr noundef %4, i32 noundef %.3274, ptr noundef null, ptr noundef null, ptr noundef null)
+  %157 = call i32 @dissect_ber_length(ptr poison, ptr noundef %.0206, ptr noundef %4, i32 noundef %156, ptr noundef null, ptr noundef null)
   br label %.thread261
 
-164:                                              ; preds = %158
-  %165 = load i8, ptr %117, align 8
-  %.not232 = icmp eq i8 %165, 99
-  br i1 %.not232, label %201, label %166
+158:                                              ; preds = %152
+  %159 = load i8, ptr %111, align 8
+  %.not232 = icmp eq i8 %159, 99
+  br i1 %.not232, label %195, label %160
 
-166:                                              ; preds = %164
-  %.not233 = icmp eq i8 %165, %139
-  br i1 %.not233, label %167, label %169
+160:                                              ; preds = %158
+  %.not233 = icmp eq i8 %159, %133
+  br i1 %.not233, label %161, label %163
 
-167:                                              ; preds = %166
-  %168 = load i32, ptr %118, align 4
-  %.not234 = icmp eq i32 %168, %.0.i242
-  br i1 %.not234, label %201, label %169
+161:                                              ; preds = %160
+  %162 = load i32, ptr %112, align 4
+  %.not234 = icmp eq i32 %162, %.0.i242
+  br i1 %.not234, label %195, label %163
 
-169:                                              ; preds = %167, %166
-  %170 = load i32, ptr %119, align 8
-  %171 = and i32 %170, 8
-  %.not235 = icmp eq i32 %171, 0
-  br i1 %.not235, label %172, label %201
+163:                                              ; preds = %161, %160
+  %164 = load i32, ptr %113, align 8
+  %165 = and i32 %164, 8
+  %.not235 = icmp eq i32 %165, 0
+  br i1 %.not235, label %166, label %195
 
-172:                                              ; preds = %169
-  %173 = icmp eq i8 %165, 0
-  %174 = zext nneg i8 %139 to i32
-  br i1 %173, label %175, label %184
+166:                                              ; preds = %163
+  %167 = icmp eq i8 %159, 0
+  %168 = zext nneg i8 %133 to i32
+  br i1 %167, label %169, label %178
 
-175:                                              ; preds = %172
-  %176 = load ptr, ptr %120, align 8
-  %177 = call ptr @val_to_str_const(i32 noundef 0, ptr noundef nonnull @ber_class_codes, ptr noundef nonnull @.str.3)
-  %178 = load i8, ptr %117, align 8
-  %179 = sext i8 %178 to i32
-  %180 = load i32, ptr %118, align 4
-  %181 = call ptr @val_to_str_ext_const(i32 noundef %180, ptr noundef nonnull @ber_uni_tag_codes_ext, ptr noundef nonnull @.str.3)
-  %182 = call ptr @val_to_str_const(i32 noundef %174, ptr noundef nonnull @ber_class_codes, ptr noundef nonnull @.str.3)
-  %183 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.0206, ptr noundef %176, ptr noundef nonnull @ei_ber_sequence_field_wrong, ptr noundef %4, i32 noundef %.3274, i32 noundef %153, ptr noundef nonnull @.str.358, ptr noundef %177, i32 noundef %179, i32 noundef %180, ptr noundef %181, ptr noundef %182, i32 noundef %174, i32 noundef %.0.i242)
-  br label %193
+169:                                              ; preds = %166
+  %170 = load ptr, ptr %114, align 8
+  %171 = call ptr @val_to_str_const(i32 noundef 0, ptr noundef nonnull @ber_class_codes, ptr noundef nonnull @.str.3)
+  %172 = load i8, ptr %111, align 8
+  %173 = sext i8 %172 to i32
+  %174 = load i32, ptr %112, align 4
+  %175 = call ptr @val_to_str_ext_const(i32 noundef %174, ptr noundef nonnull @ber_uni_tag_codes_ext, ptr noundef nonnull @.str.3)
+  %176 = call ptr @val_to_str_const(i32 noundef %168, ptr noundef nonnull @ber_class_codes, ptr noundef nonnull @.str.3)
+  %177 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.0206, ptr noundef %170, ptr noundef nonnull @ei_ber_sequence_field_wrong, ptr noundef %4, i32 noundef %.3274, i32 noundef %147, ptr noundef nonnull @.str.358, ptr noundef %171, i32 noundef %173, i32 noundef %174, ptr noundef %175, ptr noundef %176, i32 noundef %168, i32 noundef %.0.i242)
+  br label %187
 
-184:                                              ; preds = %172
-  %185 = sext i8 %165 to i32
-  %186 = load ptr, ptr %120, align 8
-  %187 = call ptr @val_to_str_const(i32 noundef %185, ptr noundef nonnull @ber_class_codes, ptr noundef nonnull @.str.3)
-  %188 = load i8, ptr %117, align 8
-  %189 = sext i8 %188 to i32
-  %190 = load i32, ptr %118, align 4
-  %191 = call ptr @val_to_str_const(i32 noundef %174, ptr noundef nonnull @ber_class_codes, ptr noundef nonnull @.str.3)
-  %192 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.0206, ptr noundef %186, ptr noundef nonnull @ei_ber_sequence_field_wrong, ptr noundef %4, i32 noundef %.3274, i32 noundef %153, ptr noundef nonnull @.str.359, ptr noundef %187, i32 noundef %189, i32 noundef %190, ptr noundef %191, i32 noundef %174, i32 noundef %.0.i242)
-  br label %193
+178:                                              ; preds = %166
+  %179 = sext i8 %159 to i32
+  %180 = load ptr, ptr %114, align 8
+  %181 = call ptr @val_to_str_const(i32 noundef %179, ptr noundef nonnull @ber_class_codes, ptr noundef nonnull @.str.3)
+  %182 = load i8, ptr %111, align 8
+  %183 = sext i8 %182 to i32
+  %184 = load i32, ptr %112, align 4
+  %185 = call ptr @val_to_str_const(i32 noundef %168, ptr noundef nonnull @ber_class_codes, ptr noundef nonnull @.str.3)
+  %186 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.0206, ptr noundef %180, ptr noundef nonnull @ei_ber_sequence_field_wrong, ptr noundef %4, i32 noundef %.3274, i32 noundef %147, ptr noundef nonnull @.str.359, ptr noundef %181, i32 noundef %183, i32 noundef %184, ptr noundef %185, i32 noundef %168, i32 noundef %.0.i242)
+  br label %187
 
-193:                                              ; preds = %184, %175
-  %.0201 = phi ptr [ %183, %175 ], [ %192, %184 ]
-  %194 = load i8, ptr @decode_unexpected, align 1, !range !8, !noundef !9
-  %195 = trunc nuw i8 %194 to i1
-  br i1 %195, label %196, label %227, !llvm.loop !24
+187:                                              ; preds = %178, %169
+  %.0201 = phi ptr [ %177, %169 ], [ %186, %178 ]
+  %188 = load i8, ptr @decode_unexpected, align 1, !range !8, !noundef !9
+  %189 = trunc nuw i8 %188 to i1
+  br i1 %189, label %190, label %221, !llvm.loop !24
 
-196:                                              ; preds = %193
-  %197 = load i32, ptr @ett_ber_unknown, align 4
-  %198 = call ptr @proto_item_add_subtree(ptr noundef %.0201, i32 noundef %197)
-  %199 = load ptr, ptr %120, align 8
-  %200 = call fastcc i32 @try_dissect_unknown_ber(ptr noundef %199, ptr noundef %4, i32 noundef %.3274, ptr noundef %198, i32 noundef 1)
-  br label %227, !llvm.loop !24
+190:                                              ; preds = %187
+  %191 = load i32, ptr @ett_ber_unknown, align 4
+  %192 = call ptr @proto_item_add_subtree(ptr noundef %.0201, i32 noundef %191)
+  %193 = load ptr, ptr %114, align 8
+  %194 = call fastcc i32 @try_dissect_unknown_ber(ptr noundef %193, ptr noundef %4, i32 noundef %.3274, ptr noundef %192, i32 noundef 1)
+  br label %221, !llvm.loop !24
 
-201:                                              ; preds = %167, %169, %164
-  %202 = load i32, ptr %119, align 8
-  %203 = and i32 %202, 6
-  %or.cond238 = icmp eq i32 %203, 0
-  br i1 %or.cond238, label %204, label %207
+195:                                              ; preds = %161, %163, %158
+  %196 = load i32, ptr %113, align 8
+  %197 = and i32 %196, 6
+  %or.cond238 = icmp eq i32 %197, 0
+  br i1 %or.cond238, label %198, label %201
+
+198:                                              ; preds = %195
+  %199 = call i32 @dissect_ber_identifier(ptr poison, ptr noundef %.0206, ptr noundef %4, i32 noundef %.3274, ptr noundef null, ptr noundef null, ptr noundef null)
+  %200 = call i32 @dissect_ber_length(ptr poison, ptr noundef %.0206, ptr noundef %4, i32 noundef %199, ptr noundef null, ptr noundef null)
+  %.pre = load i32, ptr %113, align 8
+  br label %201
+
+201:                                              ; preds = %198, %195
+  %202 = phi i32 [ %196, %195 ], [ %.pre, %198 ]
+  %.0202 = phi i32 [ %.3274, %195 ], [ %200, %198 ]
+  %203 = icmp eq i32 %202, 2
+  br i1 %203, label %204, label %210
 
 204:                                              ; preds = %201
-  %205 = call i32 @dissect_ber_identifier(ptr poison, ptr noundef %.0206, ptr noundef %4, i32 noundef %.3274, ptr noundef null, ptr noundef null, ptr noundef null)
-  %206 = call i32 @dissect_ber_length(ptr poison, ptr noundef %.0206, ptr noundef %4, i32 noundef %205, ptr noundef null, ptr noundef null)
-  %.pre = load i32, ptr %119, align 8
-  br label %207
+  %205 = load i8, ptr %111, align 8
+  %206 = icmp eq i8 %205, 2
+  br i1 %206, label %207, label %210
 
-207:                                              ; preds = %204, %201
-  %208 = phi i32 [ %202, %201 ], [ %.pre, %204 ]
-  %.0202 = phi i32 [ %.3274, %201 ], [ %206, %204 ]
-  %209 = icmp eq i32 %208, 2
-  br i1 %209, label %210, label %216
+207:                                              ; preds = %204
+  %208 = call i32 @dissect_ber_identifier(ptr poison, ptr noundef %.0206, ptr noundef %4, i32 noundef %.0202, ptr noundef null, ptr noundef null, ptr noundef null)
+  %209 = call i32 @dissect_ber_length(ptr poison, ptr noundef %.0206, ptr noundef %4, i32 noundef %208, ptr noundef null, ptr noundef null)
+  br label %210
 
-210:                                              ; preds = %207
-  %211 = load i8, ptr %117, align 8
-  %212 = icmp eq i8 %211, 2
-  br i1 %212, label %213, label %216
+210:                                              ; preds = %207, %204, %201
+  %.1203 = phi i32 [ %209, %207 ], [ %.0202, %204 ], [ %.0202, %201 ]
+  %211 = sub i32 %150, %.1203
+  %212 = call i32 @tvb_reported_length_remaining(ptr noundef %4, i32 noundef %.1203)
+  %213 = call i32 @llvm.smin.i32(i32 %212, i32 %211)
+  %214 = call ptr @tvb_new_subset_length(ptr noundef %4, i32 noundef %.1203, i32 noundef %213)
+  %215 = load i32, ptr %113, align 8
+  %216 = icmp eq i32 %215, 2
+  %217 = load ptr, ptr %115, align 8
+  %218 = load ptr, ptr %8, align 8
+  %219 = load i32, ptr %218, align 4
+  %220 = call i32 %217(i1 noundef zeroext %216, ptr noundef %214, i32 noundef 0, ptr noundef %2, ptr noundef %.0206, i32 noundef %219)
+  br label %221
 
-213:                                              ; preds = %210
-  %214 = call i32 @dissect_ber_identifier(ptr poison, ptr noundef %.0206, ptr noundef %4, i32 noundef %.0202, ptr noundef null, ptr noundef null, ptr noundef null)
-  %215 = call i32 @dissect_ber_length(ptr poison, ptr noundef %.0206, ptr noundef %4, i32 noundef %214, ptr noundef null, ptr noundef null)
-  br label %216
-
-216:                                              ; preds = %213, %210, %207
-  %.1203 = phi i32 [ %215, %213 ], [ %.0202, %210 ], [ %.0202, %207 ]
-  %217 = sub i32 %156, %.1203
-  %218 = call i32 @tvb_reported_length_remaining(ptr noundef %4, i32 noundef %.1203)
-  %219 = call i32 @llvm.smin.i32(i32 %218, i32 %217)
-  %220 = call ptr @tvb_new_subset_length(ptr noundef %4, i32 noundef %.1203, i32 noundef %219)
-  %221 = load i32, ptr %119, align 8
-  %222 = icmp eq i32 %221, 2
-  %223 = load ptr, ptr %121, align 8
-  %224 = load ptr, ptr %8, align 8
-  %225 = load i32, ptr %224, align 4
-  %226 = call i32 %223(i1 noundef zeroext %222, ptr noundef %220, i32 noundef 0, ptr noundef %2, ptr noundef %.0206, i32 noundef %225)
-  br label %227
-
-.thread261:                                       ; preds = %136, %161
-  %.2.ph = phi i32 [ %156, %161 ], [ %137, %136 ]
+.thread261:                                       ; preds = %130, %155
+  %.2.ph = phi i32 [ %150, %155 ], [ %131, %130 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #14
-  br label %237
+  br label %231
 
-227:                                              ; preds = %193, %196, %216
+221:                                              ; preds = %187, %190, %210
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #14
-  %228 = icmp slt i32 %156, %.0216
-  br i1 %228, label %122, label %._crit_edge
+  %222 = icmp slt i32 %150, %.0216
+  br i1 %222, label %116, label %._crit_edge
 
-._crit_edge:                                      ; preds = %227, %ber_check_items.exit
-  %.3.lcssa = phi i32 [ %.0198, %ber_check_items.exit ], [ %156, %227 ]
+._crit_edge:                                      ; preds = %221, %ber_check_items.exit
+  %.3.lcssa = phi i32 [ %.0198, %ber_check_items.exit ], [ %150, %221 ]
   %.not230 = icmp eq i32 %.3.lcssa, %.0216
-  br i1 %.not230, label %237, label %229
+  br i1 %.not230, label %231, label %223
 
-229:                                              ; preds = %._crit_edge
-  %230 = add i32 %.3.lcssa, -2
-  call void @tvb_ensure_bytes_exist(ptr noundef %4, i32 noundef %230, i32 noundef 2)
-  %231 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %232 = load ptr, ptr %231, align 8
-  %233 = icmp eq i32 %1, 16
-  %234 = select i1 %233, ptr @.str.324, ptr @.str.325
-  %235 = sub i32 %.3.lcssa, %.0216
-  %236 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.0206, ptr noundef %232, ptr noundef nonnull @ei_ber_error_length, ptr noundef %4, i32 noundef %230, i32 noundef 2, ptr noundef nonnull @.str.360, ptr noundef nonnull %234, i32 noundef %235)
-  br label %237
+223:                                              ; preds = %._crit_edge
+  %224 = add i32 %.3.lcssa, -2
+  call void @tvb_ensure_bytes_exist(ptr noundef %4, i32 noundef %224, i32 noundef 2)
+  %225 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %226 = load ptr, ptr %225, align 8
+  %227 = icmp eq i32 %1, 16
+  %228 = select i1 %227, ptr @.str.324, ptr @.str.325
+  %229 = sub i32 %.3.lcssa, %.0216
+  %230 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.0206, ptr noundef %226, ptr noundef nonnull @ei_ber_error_length, ptr noundef %4, i32 noundef %224, i32 noundef 2, ptr noundef nonnull @.str.360, ptr noundef nonnull %228, i32 noundef %229)
+  br label %231
 
-237:                                              ; preds = %.thread261, %._crit_edge, %229, %34, %51
-  %.0 = phi i32 [ %26, %51 ], [ %26, %34 ], [ %.0216, %229 ], [ %.0216, %._crit_edge ], [ %.2.ph, %.thread261 ]
+231:                                              ; preds = %.thread261, %._crit_edge, %223, %34, %45
+  %.0 = phi i32 [ %26, %45 ], [ %26, %34 ], [ %.0216, %223 ], [ %.0216, %._crit_edge ], [ %.2.ph, %.thread261 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15) #14
@@ -5516,7 +5412,7 @@ define i32 @dissect_ber_GeneralizedTime(i1 noundef zeroext %0, ptr noundef reado
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %9) #14
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #14
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #14
-  br i1 %0, label %43, label %12
+  br i1 %0, label %39, label %12
 
 12:                                               ; preds = %6
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -5530,103 +5426,95 @@ define i32 @dissect_ber_GeneralizedTime(i1 noundef zeroext %0, ptr noundef reado
   %21 = load i32, ptr %10, align 4
   %22 = icmp ne i32 %21, 24
   %or.cond = select i1 %20, i1 true, i1 %22
-  br i1 %or.cond, label %23, label %46
+  br i1 %or.cond, label %23, label %42
 
 23:                                               ; preds = %12
   %24 = sub i32 %14, %4
   call void @tvb_ensure_bytes_exist(ptr noundef %3, i32 noundef %4, i32 noundef 2)
   %25 = load ptr, ptr %13, align 8
-  %26 = load i8, ptr %8, align 1
-  %27 = sext i8 %26 to i32
-  %28 = call ptr @val_to_str_const(i32 noundef %27, ptr noundef nonnull @ber_class_codes, ptr noundef nonnull @.str.3)
-  %29 = load i8, ptr %8, align 1
-  %30 = sext i8 %29 to i32
-  %31 = load i8, ptr %9, align 1, !range !8, !noundef !9
-  %32 = trunc nuw i8 %31 to i1
-  %33 = call ptr @tfs_get_string(i1 noundef zeroext %32, ptr noundef nonnull @tfs_constructed_primitive)
-  %34 = load i32, ptr %10, align 4
-  %35 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %25, ptr noundef nonnull @ei_ber_expected_generalized_time, ptr noundef %3, i32 noundef %4, i32 noundef %24, ptr noundef nonnull @.str.27, ptr noundef %28, i32 noundef %30, ptr noundef %33, i32 noundef %34)
-  %36 = load i8, ptr @decode_unexpected, align 1, !range !8, !noundef !9
-  %37 = trunc nuw i8 %36 to i1
-  br i1 %37, label %38, label %84
+  %26 = sext i8 %19 to i32
+  %27 = call ptr @val_to_str_const(i32 noundef %26, ptr noundef nonnull @ber_class_codes, ptr noundef nonnull @.str.3)
+  %28 = load i8, ptr %9, align 1, !range !8, !noundef !9
+  %29 = trunc nuw i8 %28 to i1
+  %30 = call ptr @tfs_get_string(i1 noundef zeroext %29, ptr noundef nonnull @tfs_constructed_primitive)
+  %31 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %25, ptr noundef nonnull @ei_ber_expected_generalized_time, ptr noundef %3, i32 noundef %4, i32 noundef %24, ptr noundef nonnull @.str.27, ptr noundef %27, i32 noundef %26, ptr noundef %30, i32 noundef %21)
+  %32 = load i8, ptr @decode_unexpected, align 1, !range !8, !noundef !9
+  %33 = trunc nuw i8 %32 to i1
+  br i1 %33, label %34, label %77
 
-38:                                               ; preds = %23
-  %39 = load i32, ptr @ett_ber_unknown, align 4
-  %40 = call ptr @proto_item_add_subtree(ptr noundef %35, i32 noundef %39)
-  %41 = load ptr, ptr %13, align 8
-  %42 = call fastcc i32 @try_dissect_unknown_ber(ptr noundef %41, ptr noundef %3, i32 noundef %4, ptr noundef %40, i32 noundef 1)
-  br label %84
+34:                                               ; preds = %23
+  %35 = load i32, ptr @ett_ber_unknown, align 4
+  %36 = call ptr @proto_item_add_subtree(ptr noundef %31, i32 noundef %35)
+  %37 = load ptr, ptr %13, align 8
+  %38 = call fastcc i32 @try_dissect_unknown_ber(ptr noundef %37, ptr noundef %3, i32 noundef %4, ptr noundef %36, i32 noundef 1)
+  br label %77
 
-43:                                               ; preds = %6
-  %44 = tail call i32 @tvb_reported_length_remaining(ptr noundef %3, i32 noundef %4)
-  store i32 %44, ptr %11, align 4
-  %45 = add i32 %44, %4
-  br label %46
+39:                                               ; preds = %6
+  %40 = tail call i32 @tvb_reported_length_remaining(ptr noundef %3, i32 noundef %4)
+  %41 = add i32 %40, %4
+  br label %42
 
-46:                                               ; preds = %12, %43
-  %47 = phi i32 [ %44, %43 ], [ %17, %12 ]
-  %.072 = phi i32 [ %45, %43 ], [ %18, %12 ]
-  %.071 = phi i32 [ 0, %43 ], [ %16, %12 ]
-  %.070 = phi i32 [ 0, %43 ], [ %14, %12 ]
-  %.069 = phi i32 [ %4, %43 ], [ %15, %12 ]
-  %48 = add i32 %47, -30
-  %or.cond3 = icmp ult i32 %48, -18
-  %49 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %50 = load ptr, ptr %49, align 8
-  br i1 %or.cond3, label %51, label %60
+42:                                               ; preds = %12, %39
+  %43 = phi i32 [ %40, %39 ], [ %17, %12 ]
+  %.072 = phi i32 [ %41, %39 ], [ %18, %12 ]
+  %.071 = phi i32 [ 0, %39 ], [ %16, %12 ]
+  %.070 = phi i32 [ 0, %39 ], [ %14, %12 ]
+  %.069 = phi i32 [ %4, %39 ], [ %15, %12 ]
+  %44 = add i32 %43, -30
+  %or.cond3 = icmp ult i32 %44, -18
+  %45 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %46 = load ptr, ptr %45, align 8
+  br i1 %or.cond3, label %47, label %56
 
-51:                                               ; preds = %46
-  %52 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %50, ptr noundef nonnull @ei_ber_error_length, ptr noundef %3, i32 noundef %.070, i32 noundef %.071, ptr noundef nonnull @.str.28, i32 noundef %47)
-  %53 = load i8, ptr @decode_unexpected, align 1, !range !8, !noundef !9
-  %54 = trunc nuw i8 %53 to i1
-  br i1 %54, label %55, label %84
+47:                                               ; preds = %42
+  %48 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %46, ptr noundef nonnull @ei_ber_error_length, ptr noundef %3, i32 noundef %.070, i32 noundef %.071, ptr noundef nonnull @.str.28, i32 noundef %43)
+  %49 = load i8, ptr @decode_unexpected, align 1, !range !8, !noundef !9
+  %50 = trunc nuw i8 %49 to i1
+  br i1 %50, label %51, label %77
 
-55:                                               ; preds = %51
-  %56 = load i32, ptr @ett_ber_unknown, align 4
-  %57 = call ptr @proto_item_add_subtree(ptr noundef %52, i32 noundef %56)
-  %58 = load ptr, ptr %49, align 8
-  %59 = call fastcc i32 @try_dissect_unknown_ber(ptr noundef %58, ptr noundef %3, i32 noundef %.069, ptr noundef %57, i32 noundef 1)
-  br label %84
+51:                                               ; preds = %47
+  %52 = load i32, ptr @ett_ber_unknown, align 4
+  %53 = call ptr @proto_item_add_subtree(ptr noundef %48, i32 noundef %52)
+  %54 = load ptr, ptr %45, align 8
+  %55 = call fastcc i32 @try_dissect_unknown_ber(ptr noundef %54, ptr noundef %3, i32 noundef %.069, ptr noundef %53, i32 noundef 1)
+  br label %77
 
-60:                                               ; preds = %46
-  %61 = getelementptr inbounds nuw i8, ptr %50, i64 408
-  %62 = load ptr, ptr %61, align 8
-  %63 = call ptr @tvb_get_string_enc(ptr noundef %62, ptr noundef %3, i32 noundef %.069, i32 noundef %47, i32 noundef 0)
-  %64 = call ptr @iso8601_to_nstime(ptr noundef nonnull %7, ptr noundef %63, i32 noundef 1)
-  %.not = icmp eq ptr %64, null
-  br i1 %.not, label %65, label %76
+56:                                               ; preds = %42
+  %57 = getelementptr inbounds nuw i8, ptr %46, i64 408
+  %58 = load ptr, ptr %57, align 8
+  %59 = call ptr @tvb_get_string_enc(ptr noundef %58, ptr noundef %3, i32 noundef %.069, i32 noundef %43, i32 noundef 0)
+  %60 = call ptr @iso8601_to_nstime(ptr noundef nonnull %7, ptr noundef %59, i32 noundef 1)
+  %.not = icmp eq ptr %60, null
+  br i1 %.not, label %61, label %71
 
-65:                                               ; preds = %60
-  %66 = load ptr, ptr %49, align 8
-  %67 = load i32, ptr %11, align 4
-  %68 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %66, ptr noundef nonnull @ei_ber_invalid_format_generalized_time, ptr noundef %3, i32 noundef %.069, i32 noundef %67, ptr noundef nonnull @.str.29, ptr noundef %63)
-  %69 = load i8, ptr @decode_unexpected, align 1, !range !8, !noundef !9
-  %70 = trunc nuw i8 %69 to i1
-  br i1 %70, label %71, label %84
+61:                                               ; preds = %56
+  %62 = load ptr, ptr %45, align 8
+  %63 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %62, ptr noundef nonnull @ei_ber_invalid_format_generalized_time, ptr noundef %3, i32 noundef %.069, i32 noundef %43, ptr noundef nonnull @.str.29, ptr noundef %59)
+  %64 = load i8, ptr @decode_unexpected, align 1, !range !8, !noundef !9
+  %65 = trunc nuw i8 %64 to i1
+  br i1 %65, label %66, label %77
 
-71:                                               ; preds = %65
-  %72 = load i32, ptr @ett_ber_unknown, align 4
-  %73 = call ptr @proto_item_add_subtree(ptr noundef %68, i32 noundef %72)
-  %74 = load ptr, ptr %49, align 8
-  %75 = call fastcc i32 @try_dissect_unknown_ber(ptr noundef %74, ptr noundef %3, i32 noundef %.069, ptr noundef %73, i32 noundef 1)
-  br label %84
+66:                                               ; preds = %61
+  %67 = load i32, ptr @ett_ber_unknown, align 4
+  %68 = call ptr @proto_item_add_subtree(ptr noundef %63, i32 noundef %67)
+  %69 = load ptr, ptr %45, align 8
+  %70 = call fastcc i32 @try_dissect_unknown_ber(ptr noundef %69, ptr noundef %3, i32 noundef %.069, ptr noundef %68, i32 noundef 1)
+  br label %77
 
-76:                                               ; preds = %60
-  %77 = icmp sgt i32 %5, 0
-  br i1 %77, label %78, label %81
+71:                                               ; preds = %56
+  %72 = icmp sgt i32 %5, 0
+  br i1 %72, label %73, label %75
 
-78:                                               ; preds = %76
-  %79 = load i32, ptr %11, align 4
-  %80 = call ptr @proto_tree_add_time(ptr noundef %2, i32 noundef %5, ptr noundef %3, i32 noundef %.069, i32 noundef %79, ptr noundef nonnull %7)
-  br label %81
+73:                                               ; preds = %71
+  %74 = call ptr @proto_tree_add_time(ptr noundef %2, i32 noundef %5, ptr noundef %3, i32 noundef %.069, i32 noundef %43, ptr noundef nonnull %7)
+  br label %75
 
-81:                                               ; preds = %78, %76
-  %82 = load i32, ptr %11, align 4
-  %83 = add i32 %82, %.069
-  br label %84
+75:                                               ; preds = %73, %71
+  %76 = add i32 %43, %.069
+  br label %77
 
-84:                                               ; preds = %65, %71, %51, %55, %23, %38, %81
-  %.0 = phi i32 [ %83, %81 ], [ %18, %38 ], [ %18, %23 ], [ %.072, %55 ], [ %.072, %51 ], [ %.072, %71 ], [ %.072, %65 ]
+77:                                               ; preds = %61, %66, %47, %51, %23, %34, %75
+  %.0 = phi i32 [ %76, %75 ], [ %18, %34 ], [ %18, %23 ], [ %.072, %51 ], [ %.072, %47 ], [ %.072, %66 ], [ %.072, %61 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #14
@@ -5675,7 +5563,7 @@ define i32 @dissect_ber_UTCTime(i1 noundef zeroext %0, ptr noundef readonly capt
   br label %21
 
 21:                                               ; preds = %20, %19
-  br i1 %0, label %52, label %22
+  br i1 %0, label %48, label %22
 
 22:                                               ; preds = %21
   %23 = call i32 @dissect_ber_identifier(ptr poison, ptr noundef %2, ptr noundef %3, i32 noundef %4, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef nonnull %11)
@@ -5685,252 +5573,220 @@ define i32 @dissect_ber_UTCTime(i1 noundef zeroext %0, ptr noundef readonly capt
   %27 = load i32, ptr %11, align 4
   %28 = icmp ne i32 %27, 23
   %or.cond = select i1 %26, i1 true, i1 %28
-  br i1 %or.cond, label %29, label %._crit_edge
-
-._crit_edge:                                      ; preds = %22
-  %.pre = load i32, ptr %12, align 4
-  br label %54
+  br i1 %or.cond, label %29, label %thread-pre-split
 
 29:                                               ; preds = %22
   %30 = sub i32 %23, %4
   call void @tvb_ensure_bytes_exist(ptr noundef %3, i32 noundef %4, i32 noundef 2)
   %31 = load ptr, ptr %13, align 8
-  %32 = load i8, ptr %9, align 1
-  %33 = sext i8 %32 to i32
-  %34 = call ptr @val_to_str_const(i32 noundef %33, ptr noundef nonnull @ber_class_codes, ptr noundef nonnull @.str.3)
-  %35 = load i8, ptr %9, align 1
-  %36 = sext i8 %35 to i32
-  %37 = load i8, ptr %10, align 1, !range !8, !noundef !9
-  %38 = trunc nuw i8 %37 to i1
-  %39 = call ptr @tfs_get_string(i1 noundef zeroext %38, ptr noundef nonnull @tfs_constructed_primitive)
-  %40 = load i32, ptr %11, align 4
-  %41 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %31, ptr noundef nonnull @ei_ber_expected_utc_time, ptr noundef %3, i32 noundef %4, i32 noundef %30, ptr noundef nonnull @.str.30, ptr noundef %34, i32 noundef %36, ptr noundef %39, i32 noundef %40)
-  %42 = load i8, ptr @decode_unexpected, align 1, !range !8, !noundef !9
-  %43 = trunc nuw i8 %42 to i1
-  br i1 %43, label %44, label %49
+  %32 = sext i8 %25 to i32
+  %33 = call ptr @val_to_str_const(i32 noundef %32, ptr noundef nonnull @ber_class_codes, ptr noundef nonnull @.str.3)
+  %34 = load i8, ptr %10, align 1, !range !8, !noundef !9
+  %35 = trunc nuw i8 %34 to i1
+  %36 = call ptr @tfs_get_string(i1 noundef zeroext %35, ptr noundef nonnull @tfs_constructed_primitive)
+  %37 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %31, ptr noundef nonnull @ei_ber_expected_utc_time, ptr noundef %3, i32 noundef %4, i32 noundef %30, ptr noundef nonnull @.str.30, ptr noundef %33, i32 noundef %32, ptr noundef %36, i32 noundef %27)
+  %38 = load i8, ptr @decode_unexpected, align 1, !range !8, !noundef !9
+  %39 = trunc nuw i8 %38 to i1
+  br i1 %39, label %40, label %45
 
-44:                                               ; preds = %29
-  %45 = load i32, ptr @ett_ber_unknown, align 4
-  %46 = call ptr @proto_item_add_subtree(ptr noundef %41, i32 noundef %45)
-  %47 = load ptr, ptr %13, align 8
-  %48 = call fastcc i32 @try_dissect_unknown_ber(ptr noundef %47, ptr noundef %3, i32 noundef %4, ptr noundef %46, i32 noundef 1)
-  br label %49
+40:                                               ; preds = %29
+  %41 = load i32, ptr @ett_ber_unknown, align 4
+  %42 = call ptr @proto_item_add_subtree(ptr noundef %37, i32 noundef %41)
+  %43 = load ptr, ptr %13, align 8
+  %44 = call fastcc i32 @try_dissect_unknown_ber(ptr noundef %43, ptr noundef %3, i32 noundef %4, ptr noundef %42, i32 noundef 1)
+  br label %45
 
-49:                                               ; preds = %44, %29
-  %50 = load i32, ptr %12, align 4
-  %51 = add i32 %50, %24
-  br label %155
+45:                                               ; preds = %40, %29
+  %46 = load i32, ptr %12, align 4
+  %47 = add i32 %46, %24
+  br label %135
 
-52:                                               ; preds = %21
-  %53 = tail call i32 @tvb_reported_length_remaining(ptr noundef %3, i32 noundef %4)
-  store i32 %53, ptr %12, align 4
-  br label %54
+48:                                               ; preds = %21
+  %49 = tail call i32 @tvb_reported_length_remaining(ptr noundef %3, i32 noundef %4)
+  br label %50
 
-54:                                               ; preds = %._crit_edge, %52
-  %55 = phi i32 [ %53, %52 ], [ %.pre, %._crit_edge ]
-  %.0130 = phi i32 [ %4, %52 ], [ %24, %._crit_edge ]
-  %56 = add i32 %55, -20
-  %or.cond3 = icmp ult i32 %56, -10
-  %57 = load ptr, ptr %13, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 408
-  %59 = load ptr, ptr %58, align 8
-  br i1 %or.cond3, label %60, label %68
+thread-pre-split:                                 ; preds = %22
+  %.pr = load i32, ptr %12, align 4
+  br label %50
 
-60:                                               ; preds = %54
-  %61 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %59, ptr noundef nonnull @.str.31, i32 noundef %55)
-  %62 = load ptr, ptr %13, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 408
-  %64 = load ptr, ptr %63, align 8
-  %65 = load i32, ptr %12, align 4
-  %66 = call i32 @llvm.umin.i32(i32 %65, i32 19)
-  %67 = call ptr @tvb_get_string_enc(ptr noundef %64, ptr noundef %3, i32 noundef %.0130, i32 noundef %66, i32 noundef 0)
+50:                                               ; preds = %thread-pre-split, %48
+  %51 = phi i32 [ %.pr, %thread-pre-split ], [ %49, %48 ]
+  %.0130 = phi i32 [ %24, %thread-pre-split ], [ %4, %48 ]
+  %52 = add i32 %51, -20
+  %or.cond3 = icmp ult i32 %52, -10
+  %53 = load ptr, ptr %13, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 408
+  %55 = load ptr, ptr %54, align 8
+  br i1 %or.cond3, label %56, label %63
+
+56:                                               ; preds = %50
+  %57 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %55, ptr noundef nonnull @.str.31, i32 noundef %51)
+  %58 = load ptr, ptr %13, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 408
+  %60 = load ptr, ptr %59, align 8
+  %61 = call i32 @llvm.umin.i32(i32 %51, i32 19)
+  %62 = call ptr @tvb_get_string_enc(ptr noundef %60, ptr noundef %3, i32 noundef %.0130, i32 noundef %61, i32 noundef 0)
   br label %.loopexit
 
-68:                                               ; preds = %54
-  %69 = call ptr @tvb_get_string_enc(ptr noundef %59, ptr noundef %3, i32 noundef %.0130, i32 noundef %55, i32 noundef 0)
-  br label %70
+63:                                               ; preds = %50
+  %64 = call ptr @tvb_get_string_enc(ptr noundef %55, ptr noundef %3, i32 noundef %.0130, i32 noundef %51, i32 noundef 0)
+  br label %65
 
-70:                                               ; preds = %68, %74
-  %indvars.iv = phi i64 [ 0, %68 ], [ %indvars.iv.next, %74 ]
-  %71 = getelementptr i8, ptr %69, i64 %indvars.iv
-  %72 = load i8, ptr %71, align 1
-  %73 = add i8 %72, -58
-  %or.cond156 = icmp ult i8 %73, -10
-  br i1 %or.cond156, label %.loopexit, label %74
+65:                                               ; preds = %63, %69
+  %indvars.iv = phi i64 [ 0, %63 ], [ %indvars.iv.next, %69 ]
+  %66 = getelementptr i8, ptr %64, i64 %indvars.iv
+  %67 = load i8, ptr %66, align 1
+  %68 = add i8 %67, -58
+  %or.cond156 = icmp ult i8 %68, -10
+  br i1 %or.cond156, label %.loopexit, label %69
 
-74:                                               ; preds = %70
+69:                                               ; preds = %65
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 10
-  br i1 %exitcond.not, label %75, label %70, !llvm.loop !25
+  br i1 %exitcond.not, label %70, label %65, !llvm.loop !25
 
-75:                                               ; preds = %74
-  %76 = getelementptr i8, ptr %69, i64 2
-  %77 = getelementptr i8, ptr %69, i64 4
-  %78 = getelementptr i8, ptr %69, i64 6
-  %79 = getelementptr i8, ptr %69, i64 8
-  %80 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %17, i64 noundef 15, i32 noundef 2, i64 noundef 29, ptr noundef nonnull @.str.33, ptr noundef %69, ptr noundef %76, ptr noundef %77, ptr noundef %78, ptr noundef %79)
-  %81 = getelementptr i8, ptr %17, i64 14
-  %82 = load i32, ptr %12, align 4
-  %83 = icmp ugt i32 %82, 11
-  br i1 %83, label %84, label %95
+70:                                               ; preds = %69
+  %71 = getelementptr i8, ptr %64, i64 2
+  %72 = getelementptr i8, ptr %64, i64 4
+  %73 = getelementptr i8, ptr %64, i64 6
+  %74 = getelementptr i8, ptr %64, i64 8
+  %75 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %17, i64 noundef 15, i32 noundef 2, i64 noundef 29, ptr noundef nonnull @.str.33, ptr noundef %64, ptr noundef %71, ptr noundef %72, ptr noundef %73, ptr noundef %74)
+  %76 = getelementptr i8, ptr %17, i64 14
+  %77 = icmp ugt i32 %51, 11
+  br i1 %77, label %78, label %89
 
-84:                                               ; preds = %75
-  %85 = getelementptr i8, ptr %69, i64 10
-  %86 = load i8, ptr %85, align 1
-  %87 = add i8 %86, -48
-  %or.cond157 = icmp ult i8 %87, 10
-  br i1 %or.cond157, label %88, label %95
+78:                                               ; preds = %70
+  %79 = getelementptr i8, ptr %64, i64 10
+  %80 = load i8, ptr %79, align 1
+  %81 = add i8 %80, -48
+  %or.cond157 = icmp ult i8 %81, 10
+  br i1 %or.cond157, label %82, label %89
 
-88:                                               ; preds = %84
-  %89 = getelementptr i8, ptr %69, i64 11
-  %90 = load i8, ptr %89, align 1
-  %91 = add i8 %90, -48
-  %or.cond158 = icmp ult i8 %91, 10
-  br i1 %or.cond158, label %92, label %.loopexit
+82:                                               ; preds = %78
+  %83 = getelementptr i8, ptr %64, i64 11
+  %84 = load i8, ptr %83, align 1
+  %85 = add i8 %84, -48
+  %or.cond158 = icmp ult i8 %85, 10
+  br i1 %or.cond158, label %86, label %.loopexit
 
-92:                                               ; preds = %88
-  %93 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %81, i64 noundef 4, i32 noundef 2, i64 noundef 15, ptr noundef nonnull @.str.34, ptr noundef %85)
-  %94 = getelementptr i8, ptr %17, i64 17
-  br label %95
+86:                                               ; preds = %82
+  %87 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %76, i64 noundef 4, i32 noundef 2, i64 noundef 15, ptr noundef nonnull @.str.34, ptr noundef %79)
+  %88 = getelementptr i8, ptr %17, i64 17
+  br label %89
 
-95:                                               ; preds = %84, %92, %75
-  %.neg = phi i64 [ 12, %92 ], [ 15, %84 ], [ 15, %75 ]
-  %.0133 = phi ptr [ %94, %92 ], [ %81, %84 ], [ %81, %75 ]
-  %.1 = phi i32 [ 12, %92 ], [ 10, %84 ], [ 10, %75 ]
-  %96 = zext nneg i32 %.1 to i64
-  %97 = getelementptr i8, ptr %69, i64 %96
-  %98 = load i8, ptr %97, align 1
-  switch i8 %98, label %116 [
-    i8 90, label %99
-    i8 45, label %104
-    i8 43, label %104
+89:                                               ; preds = %78, %86, %70
+  %.neg = phi i64 [ 12, %86 ], [ 15, %78 ], [ 15, %70 ]
+  %.0133 = phi ptr [ %88, %86 ], [ %76, %78 ], [ %76, %70 ]
+  %.1 = phi i32 [ 12, %86 ], [ 10, %78 ], [ 10, %70 ]
+  %90 = zext nneg i32 %.1 to i64
+  %91 = getelementptr i8, ptr %64, i64 %90
+  %92 = load i8, ptr %91, align 1
+  switch i8 %92, label %108 [
+    i8 90, label %93
+    i8 45, label %97
+    i8 43, label %97
   ]
 
-99:                                               ; preds = %95
-  %100 = load i32, ptr %12, align 4
-  %101 = or disjoint i32 %.1, 1
-  %.not153 = icmp eq i32 %100, %101
-  br i1 %.not153, label %102, label %.loopexit
+93:                                               ; preds = %89
+  %94 = or disjoint i32 %.1, 1
+  %.not153 = icmp eq i32 %51, %94
+  br i1 %.not153, label %95, label %.loopexit
 
-102:                                              ; preds = %99
-  %103 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %.0133, i64 noundef 7, i32 noundef 2, i64 noundef %.neg, ptr noundef nonnull @.str.37)
-  br label %122
+95:                                               ; preds = %93
+  %96 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %.0133, i64 noundef 7, i32 noundef 2, i64 noundef %.neg, ptr noundef nonnull @.str.37)
+  br label %114
 
-104:                                              ; preds = %95, %95
-  %105 = load i32, ptr %12, align 4
-  %106 = add nuw nsw i32 %.1, 5
-  %.not152 = icmp eq i32 %105, %106
+97:                                               ; preds = %89, %89
+  %98 = add nuw nsw i32 %.1, 5
+  %.not152 = icmp eq i32 %51, %98
   br i1 %.not152, label %.preheader.preheader, label %.loopexit
 
-.preheader.preheader:                             ; preds = %104
-  %107 = add nuw nsw i32 %.1, 4
-  %wide.trip.count = zext nneg i32 %107 to i64
+.preheader.preheader:                             ; preds = %97
+  %99 = add nuw nsw i32 %.1, 4
+  %wide.trip.count = zext nneg i32 %99 to i64
   br label %.preheader
 
-.preheader:                                       ; preds = %.preheader.preheader, %108
-  %indvars.iv166 = phi i64 [ %96, %.preheader.preheader ], [ %indvars.iv.next167, %108 ]
+.preheader:                                       ; preds = %.preheader.preheader, %100
+  %indvars.iv166 = phi i64 [ %90, %.preheader.preheader ], [ %indvars.iv.next167, %100 ]
   %exitcond169.not = icmp eq i64 %indvars.iv166, %wide.trip.count
-  br i1 %exitcond169.not, label %112, label %108
+  br i1 %exitcond169.not, label %104, label %100
 
-108:                                              ; preds = %.preheader
+100:                                              ; preds = %.preheader
   %indvars.iv.next167 = add nuw nsw i64 %indvars.iv166, 1
-  %109 = getelementptr i8, ptr %69, i64 %indvars.iv.next167
-  %110 = load i8, ptr %109, align 1
-  %111 = add i8 %110, -58
-  %or.cond159 = icmp ult i8 %111, -10
+  %101 = getelementptr i8, ptr %64, i64 %indvars.iv.next167
+  %102 = load i8, ptr %101, align 1
+  %103 = add i8 %102, -58
+  %or.cond159 = icmp ult i8 %103, -10
   br i1 %or.cond159, label %.loopexit, label %.preheader, !llvm.loop !26
 
-112:                                              ; preds = %.preheader
-  %113 = zext i8 %98 to i32
-  %114 = getelementptr i8, ptr %97, i64 1
-  %115 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %.0133, i64 noundef 12, i32 noundef 2, i64 noundef %.neg, ptr noundef nonnull @.str.39, i32 noundef %113, ptr noundef %114)
+104:                                              ; preds = %.preheader
+  %105 = zext i8 %92 to i32
+  %106 = getelementptr i8, ptr %91, i64 1
+  %107 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %.0133, i64 noundef 12, i32 noundef 2, i64 noundef %.neg, ptr noundef nonnull @.str.39, i32 noundef %105, ptr noundef %106)
+  br label %114
+
+108:                                              ; preds = %89
+  %109 = load ptr, ptr %13, align 8
+  %110 = getelementptr inbounds nuw i8, ptr %109, i64 408
+  %111 = load ptr, ptr %110, align 8
+  %112 = or disjoint i32 %.1, 1
+  %113 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %111, ptr noundef nonnull @.str.40, i32 noundef %112)
+  br label %.loopexit
+
+114:                                              ; preds = %95, %104
+  br i1 %.not, label %116, label %115
+
+115:                                              ; preds = %114
+  store ptr %17, ptr %6, align 8
+  br label %120
+
+116:                                              ; preds = %114
+  %117 = icmp sgt i32 %5, 0
+  br i1 %117, label %118, label %120
+
+118:                                              ; preds = %116
+  %119 = call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %5, ptr noundef %3, i32 noundef %.0130, i32 noundef %51, ptr noundef %17)
+  br label %120
+
+120:                                              ; preds = %116, %118, %115
+  br i1 %.not151, label %122, label %121
+
+121:                                              ; preds = %120
+  store i32 %51, ptr %7, align 4
   br label %122
 
-116:                                              ; preds = %95
-  %117 = load ptr, ptr %13, align 8
-  %118 = getelementptr inbounds nuw i8, ptr %117, i64 408
-  %119 = load ptr, ptr %118, align 8
-  %120 = or disjoint i32 %.1, 1
-  %121 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %119, ptr noundef nonnull @.str.40, i32 noundef %120)
-  br label %.loopexit
+122:                                              ; preds = %121, %120
+  %123 = add i32 %.0130, %51
+  br label %135
 
-122:                                              ; preds = %112, %102
-  %.2 = phi i32 [ %105, %112 ], [ %100, %102 ]
-  %123 = load i32, ptr %12, align 4
-  %.not155 = icmp eq i32 %123, %.2
-  br i1 %.not155, label %133, label %124
+.loopexit:                                        ; preds = %65, %100, %97, %93, %82, %108, %56
+  %.0134 = phi ptr [ %62, %56 ], [ %64, %108 ], [ %64, %82 ], [ %64, %93 ], [ %64, %97 ], [ %64, %100 ], [ %64, %65 ]
+  %.0128 = phi ptr [ %57, %56 ], [ %113, %108 ], [ @.str.35, %82 ], [ @.str.36, %93 ], [ @.str.38, %97 ], [ @.str.38, %100 ], [ @.str.32, %65 ]
+  %124 = icmp sgt i32 %5, 0
+  br i1 %124, label %125, label %129
 
-124:                                              ; preds = %122
-  %125 = load ptr, ptr %13, align 8
-  %126 = getelementptr inbounds nuw i8, ptr %125, i64 408
-  %127 = load ptr, ptr %126, align 8
-  %128 = sub i32 %123, %.2
-  %129 = add i32 %.2, -1
-  %130 = icmp eq i32 %123, %129
-  %131 = select i1 %130, ptr @.str.42, ptr @.str.43
-  %132 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %127, ptr noundef nonnull @.str.41, i32 noundef %128, ptr noundef nonnull %131, i32 noundef %.2)
-  br label %.loopexit
+125:                                              ; preds = %.loopexit
+  %126 = call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %5, ptr noundef %3, i32 noundef %.0130, i32 noundef %51, ptr noundef %.0134)
+  %127 = load i32, ptr @ett_ber_unknown, align 4
+  %128 = call ptr @proto_item_add_subtree(ptr noundef %126, i32 noundef %127)
+  br label %129
 
-133:                                              ; preds = %122
-  br i1 %.not, label %135, label %134
+129:                                              ; preds = %.loopexit, %125
+  %.0129 = phi ptr [ %128, %125 ], [ %2, %.loopexit ]
+  %130 = load ptr, ptr %13, align 8
+  %131 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.0129, ptr noundef %130, ptr noundef nonnull @ei_ber_invalid_format_utctime, ptr noundef %3, i32 noundef %.0130, i32 noundef %51, ptr noundef nonnull @.str.44, ptr noundef %.0128)
+  br i1 %.not151, label %133, label %132
 
-134:                                              ; preds = %133
-  store ptr %17, ptr %6, align 8
-  br label %139
+132:                                              ; preds = %129
+  store i32 %51, ptr %7, align 4
+  br label %133
 
-135:                                              ; preds = %133
-  %136 = icmp sgt i32 %5, 0
-  br i1 %136, label %137, label %139
+133:                                              ; preds = %132, %129
+  %134 = add i32 %.0130, %51
+  br label %135
 
-137:                                              ; preds = %135
-  %138 = call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %5, ptr noundef %3, i32 noundef %.0130, i32 noundef %.2, ptr noundef %17)
-  %.pre170.pre = load i32, ptr %12, align 4
-  br label %139
-
-139:                                              ; preds = %135, %137, %134
-  %.pre170 = phi i32 [ %.2, %135 ], [ %.pre170.pre, %137 ], [ %.2, %134 ]
-  br i1 %.not151, label %141, label %140
-
-140:                                              ; preds = %139
-  store i32 %.pre170, ptr %7, align 4
-  br label %141
-
-141:                                              ; preds = %140, %139
-  %142 = add i32 %.pre170, %.0130
-  br label %155
-
-.loopexit:                                        ; preds = %70, %108, %104, %99, %88, %124, %116, %60
-  %.0134 = phi ptr [ %67, %60 ], [ %69, %116 ], [ %69, %124 ], [ %69, %88 ], [ %69, %99 ], [ %69, %104 ], [ %69, %108 ], [ %69, %70 ]
-  %.0128 = phi ptr [ %61, %60 ], [ %121, %116 ], [ %132, %124 ], [ @.str.35, %88 ], [ @.str.36, %99 ], [ @.str.38, %104 ], [ @.str.38, %108 ], [ @.str.32, %70 ]
-  %143 = icmp sgt i32 %5, 0
-  %.pre172 = load i32, ptr %12, align 4
-  br i1 %143, label %144, label %148
-
-144:                                              ; preds = %.loopexit
-  %145 = call ptr @proto_tree_add_string(ptr noundef %2, i32 noundef %5, ptr noundef %3, i32 noundef %.0130, i32 noundef %.pre172, ptr noundef %.0134)
-  %146 = load i32, ptr @ett_ber_unknown, align 4
-  %147 = call ptr @proto_item_add_subtree(ptr noundef %145, i32 noundef %146)
-  %.pre171 = load i32, ptr %12, align 4
-  br label %148
-
-148:                                              ; preds = %.loopexit, %144
-  %149 = phi i32 [ %.pre171, %144 ], [ %.pre172, %.loopexit ]
-  %.0129 = phi ptr [ %147, %144 ], [ %2, %.loopexit ]
-  %150 = load ptr, ptr %13, align 8
-  %151 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %.0129, ptr noundef %150, ptr noundef nonnull @ei_ber_invalid_format_utctime, ptr noundef %3, i32 noundef %.0130, i32 noundef %149, ptr noundef nonnull @.str.44, ptr noundef %.0128)
-  %.pre173 = load i32, ptr %12, align 4
-  br i1 %.not151, label %153, label %152
-
-152:                                              ; preds = %148
-  store i32 %.pre173, ptr %7, align 4
-  br label %153
-
-153:                                              ; preds = %152, %148
-  %154 = add i32 %.pre173, %.0130
-  br label %155
-
-155:                                              ; preds = %153, %141, %49
-  %.0 = phi i32 [ %154, %153 ], [ %142, %141 ], [ %51, %49 ]
+135:                                              ; preds = %133, %122, %45
+  %.0 = phi i32 [ %134, %133 ], [ %123, %122 ], [ %47, %45 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %10) #14
@@ -5963,7 +5819,7 @@ define hidden i32 @dissect_ber_constrained_bitstring(i1 noundef zeroext %0, ptr 
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %15) #14
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %16) #14
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %17) #14
-  br i1 %0, label %50, label %19
+  br i1 %0, label %46, label %19
 
 19:                                               ; preds = %12
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -5986,310 +5842,297 @@ define hidden i32 @dissect_ber_constrained_bitstring(i1 noundef zeroext %0, ptr 
 31:                                               ; preds = %27
   call void @tvb_ensure_bytes_exist(ptr noundef %3, i32 noundef %4, i32 noundef 2)
   %32 = load ptr, ptr %20, align 8
-  %33 = load i8, ptr %13, align 1
-  %34 = sext i8 %33 to i32
-  %35 = call ptr @val_to_str_const(i32 noundef %34, ptr noundef nonnull @ber_class_codes, ptr noundef nonnull @.str.3)
-  %36 = load i8, ptr %13, align 1
-  %37 = sext i8 %36 to i32
-  %38 = load i8, ptr %14, align 1, !range !8, !noundef !9
-  %39 = trunc nuw i8 %38 to i1
-  %40 = call ptr @tfs_get_string(i1 noundef zeroext %39, ptr noundef nonnull @tfs_constructed_primitive)
-  %41 = load i32, ptr %16, align 4
-  %42 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %32, ptr noundef nonnull @ei_ber_expected_bitstring, ptr noundef %3, i32 noundef %4, i32 noundef %22, ptr noundef nonnull @.str.45, ptr noundef %35, i32 noundef %37, ptr noundef %40, i32 noundef %41)
-  %43 = load i8, ptr @decode_unexpected, align 1, !range !8, !noundef !9
-  %44 = trunc nuw i8 %43 to i1
-  br i1 %44, label %45, label %ber_check_length.exit
+  %33 = sext i8 %26 to i32
+  %34 = call ptr @val_to_str_const(i32 noundef %33, ptr noundef nonnull @ber_class_codes, ptr noundef nonnull @.str.3)
+  %35 = load i8, ptr %14, align 1, !range !8, !noundef !9
+  %36 = trunc nuw i8 %35 to i1
+  %37 = call ptr @tfs_get_string(i1 noundef zeroext %36, ptr noundef nonnull @tfs_constructed_primitive)
+  %38 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %32, ptr noundef nonnull @ei_ber_expected_bitstring, ptr noundef %3, i32 noundef %4, i32 noundef %22, ptr noundef nonnull @.str.45, ptr noundef %34, i32 noundef %33, ptr noundef %37, i32 noundef %29)
+  %39 = load i8, ptr @decode_unexpected, align 1, !range !8, !noundef !9
+  %40 = trunc nuw i8 %39 to i1
+  br i1 %40, label %41, label %ber_check_length.exit
 
-45:                                               ; preds = %31
-  %46 = load i32, ptr @ett_ber_unknown, align 4
-  %47 = call ptr @proto_item_add_subtree(ptr noundef %42, i32 noundef %46)
-  %48 = load ptr, ptr %20, align 8
-  %49 = call fastcc i32 @try_dissect_unknown_ber(ptr noundef %48, ptr noundef %3, i32 noundef %4, ptr noundef %47, i32 noundef 1)
+41:                                               ; preds = %31
+  %42 = load i32, ptr @ett_ber_unknown, align 4
+  %43 = call ptr @proto_item_add_subtree(ptr noundef %38, i32 noundef %42)
+  %44 = load ptr, ptr %20, align 8
+  %45 = call fastcc i32 @try_dissect_unknown_ber(ptr noundef %44, ptr noundef %3, i32 noundef %4, ptr noundef %43, i32 noundef 1)
   br label %ber_check_length.exit
 
-50:                                               ; preds = %12
+46:                                               ; preds = %12
   store i8 0, ptr %14, align 1
-  %51 = tail call i32 @tvb_reported_length_remaining(ptr noundef %3, i32 noundef %4)
-  store i32 %51, ptr %17, align 4
-  %52 = add i32 %51, %4
+  %47 = tail call i32 @tvb_reported_length_remaining(ptr noundef %3, i32 noundef %4)
+  store i32 %47, ptr %17, align 4
+  %48 = add i32 %47, %4
   br label %thread-pre-split
 
-thread-pre-split:                                 ; preds = %27, %19, %50
-  %53 = phi i32 [ %24, %19 ], [ %51, %50 ], [ %24, %27 ]
-  %.0157 = phi i32 [ %25, %19 ], [ %52, %50 ], [ %25, %27 ]
-  %.0154 = phi i32 [ %23, %19 ], [ %4, %50 ], [ %23, %27 ]
-  %54 = icmp slt i32 %53, 1
-  br i1 %54, label %55, label %61
+thread-pre-split:                                 ; preds = %27, %19, %46
+  %49 = phi i32 [ %24, %19 ], [ %47, %46 ], [ %24, %27 ]
+  %.0157 = phi i32 [ %25, %19 ], [ %48, %46 ], [ %25, %27 ]
+  %.0154 = phi i32 [ %23, %19 ], [ %4, %46 ], [ %23, %27 ]
+  %50 = icmp slt i32 %49, 1
+  br i1 %50, label %51, label %57
 
-55:                                               ; preds = %thread-pre-split
-  %56 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %57 = load ptr, ptr %56, align 8
-  %58 = getelementptr inbounds nuw i8, ptr %57, i64 20
-  %59 = load i32, ptr %58, align 4
-  %60 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %57, ptr noundef nonnull @ei_ber_constr_bitstr, ptr noundef %3, i32 noundef %.0154, i32 noundef %53, ptr noundef nonnull @.str.46, i32 noundef %59, i32 noundef %.0154, i32 noundef %53)
+51:                                               ; preds = %thread-pre-split
+  %52 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %53 = load ptr, ptr %52, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 20
+  %55 = load i32, ptr %54, align 4
+  %56 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %2, ptr noundef %53, ptr noundef nonnull @ei_ber_constr_bitstr, ptr noundef %3, i32 noundef %.0154, i32 noundef %49, ptr noundef nonnull @.str.46, i32 noundef %55, i32 noundef %.0154, i32 noundef %49)
   br label %ber_check_length.exit
 
-61:                                               ; preds = %thread-pre-split
-  %62 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  store ptr null, ptr %62, align 8
-  %63 = load i8, ptr %14, align 1, !range !8, !noundef !9
-  %64 = trunc nuw i8 %63 to i1
-  br i1 %64, label %.thread, label %65
+57:                                               ; preds = %thread-pre-split
+  %58 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  store ptr null, ptr %58, align 8
+  %59 = load i8, ptr %14, align 1, !range !8, !noundef !9
+  %60 = trunc nuw i8 %59 to i1
+  br i1 %60, label %.thread, label %61
 
-65:                                               ; preds = %61
-  %66 = call zeroext i8 @tvb_get_uint8(ptr noundef %3, i32 noundef %.0154)
-  %67 = zext i8 %66 to i32
-  %68 = icmp eq i8 %66, 0
-  %69 = load i32, ptr %17, align 4
-  %70 = icmp eq i32 %69, 1
-  %or.cond3 = select i1 %68, i1 %70, i1 false
-  br i1 %or.cond3, label %71, label %89
+61:                                               ; preds = %57
+  %62 = call zeroext i8 @tvb_get_uint8(ptr noundef %3, i32 noundef %.0154)
+  %63 = zext i8 %62 to i32
+  %64 = icmp eq i8 %62, 0
+  %65 = icmp eq i32 %49, 1
+  %or.cond3 = and i1 %65, %64
+  br i1 %or.cond3, label %66, label %81
 
-71:                                               ; preds = %65
-  %72 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %3, i32 noundef %.0154, i32 noundef 1, i32 noundef 0)
-  store ptr %72, ptr %62, align 8
-  %73 = load i32, ptr @hf_ber_bitstring_empty, align 4
-  %74 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %73, ptr noundef %3, i32 noundef %.0154, i32 noundef 1, i32 noundef 0)
+66:                                               ; preds = %61
+  %67 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %3, i32 noundef %.0154, i32 noundef 1, i32 noundef 0)
+  store ptr %67, ptr %58, align 8
+  %68 = load i32, ptr @hf_ber_bitstring_empty, align 4
+  %69 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %68, ptr noundef %3, i32 noundef %.0154, i32 noundef 1, i32 noundef 0)
   %.not180 = icmp eq ptr %11, null
-  br i1 %.not180, label %80, label %75
+  br i1 %.not180, label %74, label %70
 
-75:                                               ; preds = %71
-  %76 = load i32, ptr %17, align 4
-  %77 = call i32 @tvb_reported_length_remaining(ptr noundef %3, i32 noundef %.0154)
-  %78 = call i32 @llvm.smin.i32(i32 %77, i32 %76)
-  %79 = call ptr @tvb_new_subset_length(ptr noundef %3, i32 noundef %.0154, i32 noundef %78)
-  store ptr %79, ptr %11, align 8
-  br label %80
+70:                                               ; preds = %66
+  %71 = call i32 @tvb_reported_length_remaining(ptr noundef %3, i32 noundef %.0154)
+  %72 = call i32 @llvm.smin.i32(i32 %71, i32 1)
+  %73 = call ptr @tvb_new_subset_length(ptr noundef %3, i32 noundef %.0154, i32 noundef %72)
+  store ptr %73, ptr %11, align 8
+  br label %74
 
-80:                                               ; preds = %75, %71
-  %81 = load i32, ptr %17, align 4
-  %82 = shl i32 %81, 3
-  %.not.i = icmp ne i32 %5, -1
-  %83 = icmp ult i32 %82, %5
-  %or.cond.i = and i1 %.not.i, %83
-  br i1 %or.cond.i, label %.sink.split.i, label %84
+74:                                               ; preds = %70, %66
+  %75 = add i32 %5, -9
+  %or.cond.i = icmp ult i32 %75, -10
+  br i1 %or.cond.i, label %.sink.split.i, label %76
 
-84:                                               ; preds = %80
-  %85 = icmp ugt i32 %82, %6
-  br i1 %85, label %.sink.split.i, label %ber_check_length.exit
+76:                                               ; preds = %74
+  %77 = icmp ult i32 %6, 8
+  br i1 %77, label %.sink.split.i, label %ber_check_length.exit
 
-.sink.split.i:                                    ; preds = %84, %80
-  %.str.365.sink.i = phi ptr [ @.str.363, %80 ], [ @.str.365, %84 ]
+.sink.split.i:                                    ; preds = %76, %74
+  %.str.365.sink.i = phi ptr [ @.str.363, %74 ], [ @.str.365, %76 ]
+  %78 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %79 = load ptr, ptr %78, align 8
+  %80 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %79, ptr noundef %67, ptr noundef nonnull @ei_ber_size_constraint_string, ptr noundef nonnull %.str.365.sink.i, ptr noundef nonnull @.str.364, i32 noundef 8, i32 noundef %5, i32 noundef %6)
+  br label %ber_check_length.exit
+
+81:                                               ; preds = %61
+  %82 = load i32, ptr @hf_ber_bitstring_padding, align 4
+  %83 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %82, ptr noundef %3, i32 noundef %.0154, i32 noundef 1, i32 noundef 0)
+  %84 = icmp ugt i8 %62, 7
+  br i1 %84, label %85, label %89
+
+85:                                               ; preds = %81
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %87 = load ptr, ptr %86, align 8
-  %88 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %87, ptr noundef %72, ptr noundef nonnull @ei_ber_size_constraint_string, ptr noundef nonnull %.str.365.sink.i, ptr noundef nonnull @.str.364, i32 noundef %82, i32 noundef %5, i32 noundef %6)
-  br label %ber_check_length.exit
+  %88 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %87, ptr noundef %83, ptr noundef nonnull @ei_ber_illegal_padding, ptr noundef nonnull @.str.47, i32 noundef %63)
+  br label %89
 
-89:                                               ; preds = %65
-  %90 = load i32, ptr @hf_ber_bitstring_padding, align 4
-  %91 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %90, ptr noundef %3, i32 noundef %.0154, i32 noundef 1, i32 noundef 0)
-  %92 = icmp ugt i8 %66, 7
-  br i1 %92, label %93, label %97
+89:                                               ; preds = %85, %81
+  %90 = add i32 %.0154, 1
+  %91 = add nsw i32 %49, -1
+  store i32 %91, ptr %17, align 4
+  %92 = icmp sgt i32 %9, 0
+  br i1 %92, label %93, label %.loopexit
 
 93:                                               ; preds = %89
-  %94 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %95 = load ptr, ptr %94, align 8
-  %96 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %95, ptr noundef %91, ptr noundef nonnull @ei_ber_illegal_padding, ptr noundef nonnull @.str.47, i32 noundef %67)
-  br label %97
-
-97:                                               ; preds = %93, %89
-  %98 = add i32 %.0154, 1
-  %99 = load i32, ptr %17, align 4
-  %100 = add i32 %99, -1
-  store i32 %100, ptr %17, align 4
-  %101 = icmp sgt i32 %9, 0
-  br i1 %101, label %102, label %.loopexit
-
-102:                                              ; preds = %97
-  %103 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %3, i32 noundef %98, i32 noundef %100, i32 noundef 0)
-  store ptr %103, ptr %62, align 8
+  %94 = call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %9, ptr noundef %3, i32 noundef %90, i32 noundef %91, i32 noundef 0)
+  store ptr %94, ptr %58, align 8
   %.not177 = icmp eq ptr %7, null
-  %.pre205.pre206 = load i32, ptr %17, align 4
-  br i1 %.not177, label %.loopexit, label %104
+  br i1 %.not177, label %.loopexit, label %95
 
-104:                                              ; preds = %102
-  %105 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %106 = load ptr, ptr %105, align 8
-  %107 = getelementptr inbounds nuw i8, ptr %106, i64 408
-  %108 = load ptr, ptr %107, align 8
-  %109 = sext i32 %.pre205.pre206 to i64
-  %110 = call ptr @tvb_memdup(ptr noundef %108, ptr noundef %3, i32 noundef %98, i64 noundef %109)
-  %111 = add i32 %8, 7
-  %112 = sdiv i32 %111, 8
-  %113 = load i8, ptr @show_internal_ber_fields, align 1, !range !8, !noundef !9
-  %114 = trunc nuw i8 %113 to i1
-  br i1 %114, label %115, label %121
+95:                                               ; preds = %93
+  %96 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %97 = load ptr, ptr %96, align 8
+  %98 = getelementptr inbounds nuw i8, ptr %97, i64 408
+  %99 = load ptr, ptr %98, align 8
+  %100 = zext nneg i32 %91 to i64
+  %101 = call ptr @tvb_memdup(ptr noundef %99, ptr noundef %3, i32 noundef %90, i64 noundef %100)
+  %102 = add i32 %8, 7
+  %103 = sdiv i32 %102, 8
+  %104 = load i8, ptr @show_internal_ber_fields, align 1, !range !8, !noundef !9
+  %105 = trunc nuw i8 %104 to i1
+  %106 = icmp sle i32 %49, %103
+  %or.cond193 = and i1 %106, %105
+  br i1 %or.cond193, label %107, label %110
 
-115:                                              ; preds = %104
-  %116 = load i32, ptr %17, align 4
-  %117 = icmp slt i32 %116, %112
-  br i1 %117, label %118, label %121
+107:                                              ; preds = %95
+  %108 = shl nuw nsw i32 %91, 3
+  %.neg = sub i32 %8, %108
+  %109 = add i32 %.neg, %63
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %94, ptr noundef nonnull @.str.48, i32 noundef %109)
+  br label %110
 
-118:                                              ; preds = %115
-  %.neg = add i32 %8, %67
-  %119 = shl i32 %116, 3
-  %120 = sub i32 %.neg, %119
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %103, ptr noundef nonnull @.str.48, i32 noundef %120)
-  br label %121
+110:                                              ; preds = %107, %95
+  %111 = icmp sgt i32 %10, 0
+  br i1 %111, label %112, label %114
 
-121:                                              ; preds = %115, %118, %104
-  %122 = icmp sgt i32 %10, 0
-  br i1 %122, label %123, label %125
+112:                                              ; preds = %110
+  %113 = call ptr @proto_item_add_subtree(ptr noundef %94, i32 noundef %10)
+  br label %114
 
-123:                                              ; preds = %121
-  %124 = call ptr @proto_item_add_subtree(ptr noundef %103, i32 noundef %10)
-  br label %125
+114:                                              ; preds = %112, %110
+  %.0160 = phi ptr [ %113, %112 ], [ null, %110 ]
+  %115 = icmp sgt i32 %102, 7
+  br i1 %115, label %.lr.ph, label %.preheader
 
-125:                                              ; preds = %123, %121
-  %.0160 = phi ptr [ %124, %123 ], [ null, %121 ]
-  %126 = icmp sgt i32 %111, 7
-  br i1 %126, label %.lr.ph, label %.preheader
+.lr.ph:                                           ; preds = %114
+  %116 = getelementptr inbounds nuw i8, ptr %18, i64 64
+  %wide.trip.count = zext nneg i32 %103 to i64
+  br label %119
 
-.lr.ph:                                           ; preds = %125
-  %127 = getelementptr inbounds nuw i8, ptr %18, i64 64
-  %wide.trip.count = zext nneg i32 %112 to i64
-  br label %130
+.preheader.loopexit:                              ; preds = %137
+  %.pre = load i32, ptr %17, align 4
+  br label %.preheader
 
-.preheader:                                       ; preds = %148, %125
-  %128 = load i32, ptr %17, align 4
-  %129 = icmp sgt i32 %128, 0
-  br i1 %129, label %.lr.ph197.preheader, label %.loopexit
+.preheader:                                       ; preds = %.preheader.loopexit, %114
+  %117 = phi i32 [ %.pre, %.preheader.loopexit ], [ %91, %114 ]
+  %118 = icmp sgt i32 %117, 0
+  br i1 %118, label %.lr.ph198.preheader, label %.loopexit
 
-.lr.ph197.preheader:                              ; preds = %.preheader
-  %wide.trip.count203 = zext nneg i32 %128 to i64
-  br label %.lr.ph197
+.lr.ph198.preheader:                              ; preds = %.preheader
+  %wide.trip.count204 = zext nneg i32 %117 to i64
+  br label %.lr.ph198
 
-130:                                              ; preds = %.lr.ph, %148
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %148 ]
-  %131 = shl i64 %indvars.iv, 3
-  %132 = getelementptr ptr, ptr %7, i64 %131
+119:                                              ; preds = %.lr.ph, %137
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %137 ]
+  %120 = shl i64 %indvars.iv, 3
+  %121 = getelementptr ptr, ptr %7, i64 %120
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %18) #14
-  %133 = trunc nuw nsw i64 %131 to i32
-  %134 = sub i32 %8, %133
-  %135 = icmp sgt i32 %134, 8
-  br i1 %135, label %136, label %137
+  %122 = trunc nuw nsw i64 %120 to i32
+  %123 = sub i32 %8, %122
+  %124 = icmp sgt i32 %123, 8
+  br i1 %124, label %125, label %126
 
-136:                                              ; preds = %130
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %18, ptr noundef align 1 dereferenceable(64) %132, i64 noundef 64, i1 noundef false) #14
-  store ptr null, ptr %127, align 16
+125:                                              ; preds = %119
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %18, ptr noundef align 1 dereferenceable(64) %121, i64 noundef 64, i1 noundef false) #14
+  store ptr null, ptr %116, align 16
+  br label %126
+
+126:                                              ; preds = %125, %119
+  %.0153 = phi ptr [ %18, %125 ], [ %121, %119 ]
+  %127 = load i32, ptr %17, align 4
+  %128 = sext i32 %127 to i64
+  %129 = icmp slt i64 %indvars.iv, %128
+  br i1 %129, label %.sink.split, label %137
+
+.sink.split:                                      ; preds = %126
+  %130 = getelementptr i8, ptr %101, i64 %indvars.iv
+  %131 = load i8, ptr %130, align 1
+  %132 = icmp sgt i32 %123, 7
+  %133 = lshr i32 255, %123
+  %134 = trunc nuw i32 %133 to i8
+  %135 = and i8 %131, %134
+  %.sink = select i1 %132, i8 0, i8 %135
+  store i8 %.sink, ptr %130, align 1
+  %136 = zext i8 %131 to i64
   br label %137
 
-137:                                              ; preds = %136, %130
-  %.0153 = phi ptr [ %18, %136 ], [ %132, %130 ]
-  %138 = load i32, ptr %17, align 4
-  %139 = sext i32 %138 to i64
-  %140 = icmp slt i64 %indvars.iv, %139
-  br i1 %140, label %.sink.split, label %148
-
-.sink.split:                                      ; preds = %137
-  %141 = getelementptr i8, ptr %110, i64 %indvars.iv
-  %142 = load i8, ptr %141, align 1
-  %143 = icmp sgt i32 %134, 7
-  %144 = lshr i32 255, %134
-  %145 = trunc nuw i32 %144 to i8
-  %146 = and i8 %142, %145
-  %.sink = select i1 %143, i8 0, i8 %146
-  store i8 %.sink, ptr %141, align 1
-  %147 = zext i8 %142 to i64
-  br label %148
-
-148:                                              ; preds = %.sink.split, %137
-  %.0152.shrunk = phi i64 [ 0, %137 ], [ %147, %.sink.split ]
-  %149 = load i32, ptr %17, align 4
-  %150 = add i32 %149, -1
-  %151 = trunc nuw nsw i64 %indvars.iv to i32
-  %152 = call i32 @llvm.smin.i32(i32 %151, i32 %150)
-  %153 = add i32 %152, %98
-  call void @proto_tree_add_bitmask_list_value(ptr noundef %.0160, ptr noundef %3, i32 noundef %153, i32 noundef 1, ptr noundef %.0153, i64 noundef %.0152.shrunk)
+137:                                              ; preds = %.sink.split, %126
+  %.0152.shrunk = phi i64 [ 0, %126 ], [ %136, %.sink.split ]
+  %138 = add i32 %127, -1
+  %139 = trunc nuw nsw i64 %indvars.iv to i32
+  %140 = call i32 @llvm.smin.i32(i32 %139, i32 %138)
+  %141 = add i32 %140, %90
+  call void @proto_tree_add_bitmask_list_value(ptr noundef %.0160, ptr noundef %3, i32 noundef %141, i32 noundef 1, ptr noundef %.0153, i64 noundef %.0152.shrunk)
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %18) #14
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.preheader, label %130, !llvm.loop !27
+  br i1 %exitcond.not, label %.preheader.loopexit, label %119, !llvm.loop !27
 
-154:                                              ; preds = %.lr.ph197
-  %indvars.iv.next201 = add nuw nsw i64 %indvars.iv200, 1
-  %exitcond204.not = icmp eq i64 %indvars.iv.next201, %wide.trip.count203
-  br i1 %exitcond204.not, label %.loopexit, label %.lr.ph197, !llvm.loop !28
+142:                                              ; preds = %.lr.ph198
+  %indvars.iv.next202 = add nuw nsw i64 %indvars.iv201, 1
+  %exitcond205.not = icmp eq i64 %indvars.iv.next202, %wide.trip.count204
+  br i1 %exitcond205.not, label %.loopexit, label %.lr.ph198, !llvm.loop !28
 
-.lr.ph197:                                        ; preds = %.lr.ph197.preheader, %154
-  %indvars.iv200 = phi i64 [ 0, %.lr.ph197.preheader ], [ %indvars.iv.next201, %154 ]
-  %155 = getelementptr i8, ptr %110, i64 %indvars.iv200
-  %156 = load i8, ptr %155, align 1
-  %.not178 = icmp eq i8 %156, 0
-  br i1 %.not178, label %154, label %157
+.lr.ph198:                                        ; preds = %.lr.ph198.preheader, %142
+  %indvars.iv201 = phi i64 [ 0, %.lr.ph198.preheader ], [ %indvars.iv.next202, %142 ]
+  %143 = getelementptr i8, ptr %101, i64 %indvars.iv201
+  %144 = load i8, ptr %143, align 1
+  %.not178 = icmp eq i8 %144, 0
+  br i1 %.not178, label %142, label %145
 
-157:                                              ; preds = %.lr.ph197
-  %158 = load ptr, ptr %105, align 8
-  %159 = getelementptr inbounds nuw i8, ptr %158, i64 408
-  %160 = load ptr, ptr %159, align 8
-  %161 = call ptr @bytes_to_str_maxlen(ptr noundef %160, ptr noundef %110, i64 noundef %wide.trip.count203, i64 noundef 36)
-  %162 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %158, ptr noundef %103, ptr noundef nonnull @ei_ber_bits_unknown, ptr noundef nonnull @.str.49, ptr noundef %161)
-  %.pre205.pre = load i32, ptr %17, align 4
+145:                                              ; preds = %.lr.ph198
+  %146 = load ptr, ptr %96, align 8
+  %147 = getelementptr inbounds nuw i8, ptr %146, i64 408
+  %148 = load ptr, ptr %147, align 8
+  %149 = call ptr @bytes_to_str_maxlen(ptr noundef %148, ptr noundef %101, i64 noundef %wide.trip.count204, i64 noundef 36)
+  %150 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %146, ptr noundef %94, ptr noundef nonnull @ei_ber_bits_unknown, ptr noundef nonnull @.str.49, ptr noundef %149)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %154, %.preheader, %157, %102, %97
-  %.pre205 = phi i32 [ %.pre205.pre206, %102 ], [ %100, %97 ], [ %.pre205.pre, %157 ], [ %128, %.preheader ], [ %128, %154 ]
-  %.1159 = phi ptr [ %103, %102 ], [ null, %97 ], [ %103, %157 ], [ %103, %.preheader ], [ %103, %154 ]
+.loopexit:                                        ; preds = %142, %.preheader, %145, %93, %89
+  %151 = phi i32 [ %91, %93 ], [ %91, %89 ], [ %117, %145 ], [ %117, %.preheader ], [ %117, %142 ]
+  %.1159 = phi ptr [ %94, %93 ], [ null, %89 ], [ %94, %145 ], [ %94, %.preheader ], [ %94, %142 ]
   %.not179 = icmp eq ptr %11, null
-  br i1 %.not179, label %167, label %163
+  br i1 %.not179, label %156, label %152
 
-163:                                              ; preds = %.loopexit
-  %164 = call i32 @tvb_reported_length_remaining(ptr noundef %3, i32 noundef %98)
-  %165 = call i32 @llvm.smin.i32(i32 %164, i32 %.pre205)
-  %166 = call ptr @tvb_new_subset_length(ptr noundef %3, i32 noundef %98, i32 noundef %165)
-  store ptr %166, ptr %11, align 8
-  %.pre = load i32, ptr %17, align 4
-  br label %167
+152:                                              ; preds = %.loopexit
+  %153 = call i32 @tvb_reported_length_remaining(ptr noundef %3, i32 noundef %90)
+  %154 = call i32 @llvm.smin.i32(i32 %153, i32 %151)
+  %155 = call ptr @tvb_new_subset_length(ptr noundef %3, i32 noundef %90, i32 noundef %154)
+  store ptr %155, ptr %11, align 8
+  br label %156
 
-167:                                              ; preds = %.loopexit, %163
-  %168 = phi i32 [ %.pre205, %.loopexit ], [ %.pre, %163 ]
-  %169 = add i8 %66, -1
-  %or.cond6 = icmp ult i8 %169, 7
-  %170 = icmp sgt i32 %168, 0
-  %or.cond8 = select i1 %or.cond6, i1 %170, i1 false
-  br i1 %or.cond8, label %171, label %.thread
+156:                                              ; preds = %.loopexit, %152
+  %157 = add i8 %62, -1
+  %or.cond6 = icmp ult i8 %157, 7
+  %158 = icmp sgt i32 %151, 0
+  %or.cond8 = select i1 %or.cond6, i1 %158, i1 false
+  br i1 %or.cond8, label %159, label %.thread
 
-171:                                              ; preds = %167
-  %172 = add i32 %168, %.0154
-  %173 = call zeroext i8 @tvb_get_uint8(ptr noundef %3, i32 noundef %172)
-  %174 = sub nuw nsw i32 8, %67
-  %175 = lshr i32 255, %174
-  %176 = trunc nuw i32 %175 to i8
-  %177 = and i8 %173, %176
-  %.not181 = icmp eq i8 %177, 0
-  br i1 %.not181, label %.thread, label %178
+159:                                              ; preds = %156
+  %160 = add i32 %151, %.0154
+  %161 = call zeroext i8 @tvb_get_uint8(ptr noundef %3, i32 noundef %160)
+  %162 = sub nuw nsw i32 8, %63
+  %163 = lshr i32 255, %162
+  %164 = trunc nuw i32 %163 to i8
+  %165 = and i8 %161, %164
+  %.not181 = icmp eq i8 %165, 0
+  br i1 %.not181, label %.thread, label %166
 
-178:                                              ; preds = %171
-  %179 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %180 = load ptr, ptr %179, align 8
-  %181 = zext nneg i8 %177 to i32
-  %182 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %180, ptr noundef %.1159, ptr noundef nonnull @ei_ber_bits_set_padded, ptr noundef nonnull @.str.50, i32 noundef %181)
+166:                                              ; preds = %159
+  %167 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %168 = load ptr, ptr %167, align 8
+  %169 = zext nneg i8 %165 to i32
+  %170 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %168, ptr noundef %.1159, ptr noundef nonnull @ei_ber_bits_set_padded, ptr noundef nonnull @.str.50, i32 noundef %169)
+  %.pre206 = load i32, ptr %17, align 4
   br label %.thread
 
-.thread:                                          ; preds = %61, %171, %178, %167
-  %183 = phi i32 [ %67, %171 ], [ %67, %178 ], [ %67, %167 ], [ 0, %61 ]
-  %.0158192 = phi ptr [ %.1159, %171 ], [ %.1159, %178 ], [ %.1159, %167 ], [ null, %61 ]
-  %184 = load i32, ptr %17, align 4
-  %185 = shl i32 %184, 3
-  %186 = sub i32 %185, %183
+.thread:                                          ; preds = %57, %159, %166, %156
+  %171 = phi i32 [ %151, %159 ], [ %.pre206, %166 ], [ %151, %156 ], [ %49, %57 ]
+  %172 = phi i32 [ %63, %159 ], [ %63, %166 ], [ %63, %156 ], [ 0, %57 ]
+  %.0158192 = phi ptr [ %.1159, %159 ], [ %.1159, %166 ], [ %.1159, %156 ], [ null, %57 ]
+  %173 = shl i32 %171, 3
+  %174 = sub i32 %173, %172
   %.not.i182 = icmp ne i32 %5, -1
-  %187 = icmp ult i32 %186, %5
-  %or.cond.i183 = and i1 %.not.i182, %187
-  br i1 %or.cond.i183, label %.sink.split.i184, label %188
+  %175 = icmp ult i32 %174, %5
+  %or.cond.i183 = and i1 %.not.i182, %175
+  br i1 %or.cond.i183, label %.sink.split.i184, label %176
 
-188:                                              ; preds = %.thread
-  %189 = icmp ugt i32 %186, %6
-  br i1 %189, label %.sink.split.i184, label %ber_check_length.exit
+176:                                              ; preds = %.thread
+  %177 = icmp ugt i32 %174, %6
+  br i1 %177, label %.sink.split.i184, label %ber_check_length.exit
 
-.sink.split.i184:                                 ; preds = %188, %.thread
-  %.str.365.sink.i185 = phi ptr [ @.str.363, %.thread ], [ @.str.365, %188 ]
-  %190 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %191 = load ptr, ptr %190, align 8
-  %192 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %191, ptr noundef %.0158192, ptr noundef nonnull @ei_ber_size_constraint_string, ptr noundef nonnull %.str.365.sink.i185, ptr noundef nonnull @.str.364, i32 noundef %186, i32 noundef %5, i32 noundef %6)
+.sink.split.i184:                                 ; preds = %176, %.thread
+  %.str.365.sink.i185 = phi ptr [ @.str.363, %.thread ], [ @.str.365, %176 ]
+  %178 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %179 = load ptr, ptr %178, align 8
+  %180 = call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %179, ptr noundef %.0158192, ptr noundef nonnull @ei_ber_size_constraint_string, ptr noundef nonnull %.str.365.sink.i185, ptr noundef nonnull @.str.364, i32 noundef %174, i32 noundef %5, i32 noundef %6)
   br label %ber_check_length.exit
 
-ber_check_length.exit:                            ; preds = %.sink.split.i184, %188, %.sink.split.i, %84, %31, %45, %55
-  %.0 = phi i32 [ %.0154, %55 ], [ %25, %45 ], [ %25, %31 ], [ %.0157, %84 ], [ %.0157, %.sink.split.i ], [ %.0157, %188 ], [ %.0157, %.sink.split.i184 ]
+ber_check_length.exit:                            ; preds = %.sink.split.i184, %176, %.sink.split.i, %76, %31, %41, %51
+  %.0 = phi i32 [ %.0154, %51 ], [ %25, %41 ], [ %25, %31 ], [ %.0157, %76 ], [ %.0157, %.sink.split.i ], [ %.0157, %176 ], [ %.0157, %.sink.split.i184 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %17) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %16) #14
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15) #14
@@ -6969,18 +6812,17 @@ define internal i32 @dissect_ber_OBJECT_IDENTIFIER(i1 noundef zeroext %0, ptr no
   %16 = load ptr, ptr %15, align 8
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 408
   %18 = load ptr, ptr %17, align 8
-  %19 = load ptr, ptr %7, align 8
-  %20 = call ptr @tvb_get_ptr(ptr noundef %19, i32 noundef 0, i32 noundef %13)
-  %21 = call ptr @oid_encoded2string(ptr noundef %18, ptr noundef %20, i32 noundef %13)
+  %19 = call ptr @tvb_get_ptr(ptr noundef nonnull %11, i32 noundef 0, i32 noundef %13)
+  %20 = call ptr @oid_encoded2string(ptr noundef %18, ptr noundef %19, i32 noundef %13)
   br label %dissect_ber_object_identifier_str.exit
 
 dissect_ber_object_identifier_str.exit:           ; preds = %9, %12, %14
-  %.sink.i.i = phi ptr [ %21, %14 ], [ @.str.43, %12 ], [ @.str.43, %9 ]
-  %22 = getelementptr inbounds nuw i8, ptr %3, i64 72
-  store ptr %.sink.i.i, ptr %22, align 8
+  %.sink.i.i = phi ptr [ %20, %14 ], [ @.str.43, %12 ], [ @.str.43, %9 ]
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 72
+  store ptr %.sink.i.i, ptr %21, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #14
-  %23 = getelementptr inbounds nuw i8, ptr %3, i64 61
-  store i8 1, ptr %23, align 1
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 61
+  store i8 1, ptr %22, align 1
   ret i32 %10
 }
 

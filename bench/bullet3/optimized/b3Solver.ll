@@ -2059,7 +2059,6 @@ _ZNK20b3AlignedObjectArrayI13b3InertiaDataE4copyEiiPS0_.exit.i.i: ; preds = %37,
           to label %.noexc134 unwind label %173
 
 .noexc134:                                        ; preds = %.noexc133
-  store i32 0, ptr %153, align 4, !tbaa !131
   %161 = getelementptr inbounds nuw i8, ptr %152, i64 16
   %162 = load ptr, ptr %161, align 16, !tbaa !130
   %.not.i16.i.i = icmp eq ptr %162, null

@@ -3623,7 +3623,6 @@ define void @Rsb_DecPrintFunc(ptr noundef readonly captures(none) %0, i32 nounde
   %.val31 = load i32, ptr %11, align 4, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #18
   %12 = zext i32 %1 to i64
-  store i64 %12, ptr %7, align 8, !tbaa !10
   %13 = shl nuw i32 1, %.val31
   %14 = zext nneg i32 %13 to i64
   %15 = lshr i64 %12, %14
@@ -3717,130 +3716,121 @@ define void @Rsb_DecPrintFunc(ptr noundef readonly captures(none) %0, i32 nounde
 
 Abc_TtPrintBinary.exit:                           ; preds = %._crit_edge.us.i
   %putchar.i = call i32 @putchar(i32 10)
-  %70 = zext nneg i32 %.val31 to i64
-  %71 = shl nuw i64 1, %70
-  %72 = load i64, ptr %7, align 8, !tbaa !10
-  %73 = lshr i64 %72, %71
-  store i64 %73, ptr %7, align 8, !tbaa !10
-  %74 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10)
+  %70 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10)
   br label %.preheader.us.i45
 
 .preheader.us.i45:                                ; preds = %._crit_edge.us.i49, %Abc_TtPrintBinary.exit
-  %.013.us.i46 = phi ptr [ %85, %._crit_edge.us.i49 ], [ %7, %Abc_TtPrintBinary.exit ]
-  br label %75
+  %.013.us.i46 = phi ptr [ %81, %._crit_edge.us.i49 ], [ %7, %Abc_TtPrintBinary.exit ]
+  br label %71
 
-75:                                               ; preds = %75, %.preheader.us.i45
-  %.01112.us.i47 = phi i32 [ 0, %.preheader.us.i45 ], [ %84, %75 ]
-  %76 = lshr i32 %.01112.us.i47, 5
-  %77 = zext nneg i32 %76 to i64
-  %78 = getelementptr inbounds nuw i32, ptr %.013.us.i46, i64 %77
-  %79 = load i32, ptr %78, align 4, !tbaa !3
-  %80 = and i32 %.01112.us.i47, 31
-  %81 = lshr i32 %79, %80
-  %82 = and i32 %81, 1
-  %83 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %82)
-  %84 = add nuw nsw i32 %.01112.us.i47, 1
-  %exitcond.not.i48 = icmp eq i32 %84, %smax.i
-  br i1 %exitcond.not.i48, label %._crit_edge.us.i49, label %75, !llvm.loop !66
+71:                                               ; preds = %71, %.preheader.us.i45
+  %.01112.us.i47 = phi i32 [ 0, %.preheader.us.i45 ], [ %80, %71 ]
+  %72 = lshr i32 %.01112.us.i47, 5
+  %73 = zext nneg i32 %72 to i64
+  %74 = getelementptr inbounds nuw i32, ptr %.013.us.i46, i64 %73
+  %75 = load i32, ptr %74, align 4, !tbaa !3
+  %76 = and i32 %.01112.us.i47, 31
+  %77 = lshr i32 %75, %76
+  %78 = and i32 %77, 1
+  %79 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %78)
+  %80 = add nuw nsw i32 %.01112.us.i47, 1
+  %exitcond.not.i48 = icmp eq i32 %80, %smax.i
+  br i1 %exitcond.not.i48, label %._crit_edge.us.i49, label %71, !llvm.loop !66
 
-._crit_edge.us.i49:                               ; preds = %75
-  %85 = getelementptr inbounds nuw i8, ptr %.013.us.i46, i64 8
-  %86 = icmp ult ptr %85, %55
-  br i1 %86, label %.preheader.us.i45, label %Abc_TtPrintBinary.exit51, !llvm.loop !67
+._crit_edge.us.i49:                               ; preds = %71
+  %81 = getelementptr inbounds nuw i8, ptr %.013.us.i46, i64 8
+  %82 = icmp ult ptr %81, %55
+  br i1 %82, label %.preheader.us.i45, label %Abc_TtPrintBinary.exit51, !llvm.loop !67
 
 Abc_TtPrintBinary.exit51.critedge:                ; preds = %6
   %putchar.i.c = tail call i32 @putchar(i32 10)
-  %87 = zext nneg i32 %.val31 to i64
-  %88 = shl nuw i64 1, %87
-  %89 = lshr i64 %12, %88
-  store i64 %89, ptr %7, align 8, !tbaa !10
-  %90 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10)
+  %83 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10)
   br label %Abc_TtPrintBinary.exit51
 
 Abc_TtPrintBinary.exit51:                         ; preds = %._crit_edge.us.i49, %Abc_TtPrintBinary.exit51.critedge
   %putchar.i50 = call i32 @putchar(i32 10)
-  %91 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11)
-  %92 = getelementptr inbounds i64, ptr %8, i64 %54
+  %84 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.11)
+  %85 = getelementptr inbounds i64, ptr %8, i64 %54
   br i1 %or.cond.i, label %Abc_TtPrintBinary.exit62, label %.preheader.us.preheader.i54
 
 .preheader.us.preheader.i54:                      ; preds = %Abc_TtPrintBinary.exit51
-  %93 = call noundef range(i32 -2147483648, 65) i32 @llvm.smin.i32(i32 %13, i32 64)
-  %smax.i55 = call i32 @llvm.smax.i32(i32 %93, i32 1)
+  %86 = call noundef range(i32 -2147483648, 65) i32 @llvm.smin.i32(i32 %13, i32 64)
+  %smax.i55 = call i32 @llvm.smax.i32(i32 %86, i32 1)
   br label %.preheader.us.i56
 
 .preheader.us.i56:                                ; preds = %._crit_edge.us.i60, %.preheader.us.preheader.i54
-  %.013.us.i57 = phi ptr [ %104, %._crit_edge.us.i60 ], [ %8, %.preheader.us.preheader.i54 ]
-  br label %94
+  %.013.us.i57 = phi ptr [ %97, %._crit_edge.us.i60 ], [ %8, %.preheader.us.preheader.i54 ]
+  br label %87
 
-94:                                               ; preds = %94, %.preheader.us.i56
-  %.01112.us.i58 = phi i32 [ 0, %.preheader.us.i56 ], [ %103, %94 ]
-  %95 = lshr i32 %.01112.us.i58, 5
-  %96 = zext nneg i32 %95 to i64
-  %97 = getelementptr inbounds nuw i32, ptr %.013.us.i57, i64 %96
-  %98 = load i32, ptr %97, align 4, !tbaa !3
-  %99 = and i32 %.01112.us.i58, 31
-  %100 = lshr i32 %98, %99
-  %101 = and i32 %100, 1
-  %102 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %101)
-  %103 = add nuw nsw i32 %.01112.us.i58, 1
-  %exitcond.not.i59 = icmp eq i32 %103, %smax.i55
-  br i1 %exitcond.not.i59, label %._crit_edge.us.i60, label %94, !llvm.loop !66
+87:                                               ; preds = %87, %.preheader.us.i56
+  %.01112.us.i58 = phi i32 [ 0, %.preheader.us.i56 ], [ %96, %87 ]
+  %88 = lshr i32 %.01112.us.i58, 5
+  %89 = zext nneg i32 %88 to i64
+  %90 = getelementptr inbounds nuw i32, ptr %.013.us.i57, i64 %89
+  %91 = load i32, ptr %90, align 4, !tbaa !3
+  %92 = and i32 %.01112.us.i58, 31
+  %93 = lshr i32 %91, %92
+  %94 = and i32 %93, 1
+  %95 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %94)
+  %96 = add nuw nsw i32 %.01112.us.i58, 1
+  %exitcond.not.i59 = icmp eq i32 %96, %smax.i55
+  br i1 %exitcond.not.i59, label %._crit_edge.us.i60, label %87, !llvm.loop !66
 
-._crit_edge.us.i60:                               ; preds = %94
-  %104 = getelementptr inbounds nuw i8, ptr %.013.us.i57, i64 8
-  %105 = icmp ult ptr %104, %92
-  br i1 %105, label %.preheader.us.i56, label %Abc_TtPrintBinary.exit62, !llvm.loop !67
+._crit_edge.us.i60:                               ; preds = %87
+  %97 = getelementptr inbounds nuw i8, ptr %.013.us.i57, i64 8
+  %98 = icmp ult ptr %97, %85
+  br i1 %98, label %.preheader.us.i56, label %Abc_TtPrintBinary.exit62, !llvm.loop !67
 
 Abc_TtPrintBinary.exit62:                         ; preds = %._crit_edge.us.i60, %Abc_TtPrintBinary.exit51
   %putchar.i61 = call i32 @putchar(i32 10)
   call void @Kit_DsdPrintFromTruth(ptr noundef nonnull %8, i32 noundef %.val31) #18
   %putchar = call i32 @putchar(i32 10)
-  %106 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12)
-  %107 = icmp slt i32 %5, 7
-  %108 = add nsw i32 %5, -6
-  %109 = shl nuw i32 1, %108
-  %110 = select i1 %107, i32 1, i32 %109
-  %111 = sext i32 %110 to i64
-  %112 = getelementptr inbounds i64, ptr %2, i64 %111
-  %113 = icmp slt i32 %110, 1
+  %99 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.12)
+  %100 = icmp slt i32 %5, 7
+  %101 = add nsw i32 %5, -6
+  %102 = shl nuw i32 1, %101
+  %103 = select i1 %100, i32 1, i32 %102
+  %104 = sext i32 %103 to i64
+  %105 = getelementptr inbounds i64, ptr %2, i64 %104
+  %106 = icmp slt i32 %103, 1
   %.not.i63 = icmp eq i32 %5, 31
-  %or.cond.i64 = or i1 %.not.i63, %113
+  %or.cond.i64 = or i1 %.not.i63, %106
   br i1 %or.cond.i64, label %Abc_TtPrintBinary.exit73, label %.preheader.us.preheader.i65
 
 .preheader.us.preheader.i65:                      ; preds = %Abc_TtPrintBinary.exit62
-  %114 = shl nuw nsw i32 1, %5
-  %115 = call i32 @llvm.umin.i32(i32 %114, i32 64)
+  %107 = shl nuw nsw i32 1, %5
+  %108 = call i32 @llvm.umin.i32(i32 %107, i32 64)
   br label %.preheader.us.i67
 
 .preheader.us.i67:                                ; preds = %._crit_edge.us.i71, %.preheader.us.preheader.i65
-  %.013.us.i68 = phi ptr [ %126, %._crit_edge.us.i71 ], [ %2, %.preheader.us.preheader.i65 ]
-  br label %116
+  %.013.us.i68 = phi ptr [ %119, %._crit_edge.us.i71 ], [ %2, %.preheader.us.preheader.i65 ]
+  br label %109
 
-116:                                              ; preds = %116, %.preheader.us.i67
-  %.01112.us.i69 = phi i32 [ 0, %.preheader.us.i67 ], [ %125, %116 ]
-  %117 = lshr i32 %.01112.us.i69, 5
-  %118 = zext nneg i32 %117 to i64
-  %119 = getelementptr inbounds nuw i32, ptr %.013.us.i68, i64 %118
-  %120 = load i32, ptr %119, align 4, !tbaa !3
-  %121 = and i32 %.01112.us.i69, 31
-  %122 = lshr i32 %120, %121
-  %123 = and i32 %122, 1
-  %124 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %123)
-  %125 = add nuw nsw i32 %.01112.us.i69, 1
-  %exitcond.not.i70 = icmp eq i32 %125, %115
-  br i1 %exitcond.not.i70, label %._crit_edge.us.i71, label %116, !llvm.loop !66
+109:                                              ; preds = %109, %.preheader.us.i67
+  %.01112.us.i69 = phi i32 [ 0, %.preheader.us.i67 ], [ %118, %109 ]
+  %110 = lshr i32 %.01112.us.i69, 5
+  %111 = zext nneg i32 %110 to i64
+  %112 = getelementptr inbounds nuw i32, ptr %.013.us.i68, i64 %111
+  %113 = load i32, ptr %112, align 4, !tbaa !3
+  %114 = and i32 %.01112.us.i69, 31
+  %115 = lshr i32 %113, %114
+  %116 = and i32 %115, 1
+  %117 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef %116)
+  %118 = add nuw nsw i32 %.01112.us.i69, 1
+  %exitcond.not.i70 = icmp eq i32 %118, %108
+  br i1 %exitcond.not.i70, label %._crit_edge.us.i71, label %109, !llvm.loop !66
 
-._crit_edge.us.i71:                               ; preds = %116
-  %126 = getelementptr inbounds nuw i8, ptr %.013.us.i68, i64 8
-  %127 = icmp ult ptr %126, %112
-  br i1 %127, label %.preheader.us.i67, label %Abc_TtPrintBinary.exit73, !llvm.loop !67
+._crit_edge.us.i71:                               ; preds = %109
+  %119 = getelementptr inbounds nuw i8, ptr %.013.us.i68, i64 8
+  %120 = icmp ult ptr %119, %105
+  br i1 %120, label %.preheader.us.i67, label %Abc_TtPrintBinary.exit73, !llvm.loop !67
 
 Abc_TtPrintBinary.exit73:                         ; preds = %._crit_edge.us.i71, %Abc_TtPrintBinary.exit62
   %putchar.i72 = call i32 @putchar(i32 10)
   call void @Kit_DsdPrintFromTruth(ptr noundef %2, i32 noundef %5) #18
   %putchar28 = call i32 @putchar(i32 10)
-  %128 = icmp sgt i32 %4, 0
-  br i1 %128, label %.lr.ph.preheader, label %._crit_edge
+  %121 = icmp sgt i32 %4, 0
+  br i1 %121, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %Abc_TtPrintBinary.exit73
   %wide.trip.count = zext nneg i32 %4 to i64
@@ -3848,39 +3838,39 @@ Abc_TtPrintBinary.exit73:                         ; preds = %._crit_edge.us.i71,
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %129 = trunc nuw nsw i64 %indvars.iv to i32
-  %130 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %129)
-  %131 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
-  %132 = load ptr, ptr %131, align 8, !tbaa !7
-  call void @Kit_DsdPrintFromTruth(ptr noundef %132, i32 noundef %5) #18
+  %122 = trunc nuw nsw i64 %indvars.iv to i32
+  %123 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.13, i32 noundef %122)
+  %124 = getelementptr inbounds nuw ptr, ptr %3, i64 %indvars.iv
+  %125 = load ptr, ptr %124, align 8, !tbaa !7
+  call void @Kit_DsdPrintFromTruth(ptr noundef %125, i32 noundef %5) #18
   %putchar30 = call i32 @putchar(i32 10)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !68
 
 ._crit_edge:                                      ; preds = %.lr.ph, %Abc_TtPrintBinary.exit73
-  %133 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14)
-  %134 = load ptr, ptr %9, align 8, !tbaa !51
-  %135 = getelementptr i8, ptr %134, i64 4
-  %.val75 = load i32, ptr %135, align 4, !tbaa !16
-  %136 = icmp sgt i32 %.val75, 0
-  br i1 %136, label %.lr.ph78, label %._crit_edge79
+  %126 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.14)
+  %127 = load ptr, ptr %9, align 8, !tbaa !51
+  %128 = getelementptr i8, ptr %127, i64 4
+  %.val75 = load i32, ptr %128, align 4, !tbaa !16
+  %129 = icmp sgt i32 %.val75, 0
+  br i1 %129, label %.lr.ph78, label %._crit_edge79
 
 .lr.ph78:                                         ; preds = %._crit_edge, %.lr.ph78
   %indvars.iv81 = phi i64 [ %indvars.iv.next82, %.lr.ph78 ], [ 0, %._crit_edge ]
-  %137 = phi ptr [ %142, %.lr.ph78 ], [ %134, %._crit_edge ]
-  %138 = getelementptr i8, ptr %137, i64 8
-  %.val32 = load ptr, ptr %138, align 8, !tbaa !25
-  %139 = getelementptr inbounds nuw i32, ptr %.val32, i64 %indvars.iv81
-  %140 = load i32, ptr %139, align 4, !tbaa !3
-  %141 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %140)
+  %130 = phi ptr [ %135, %.lr.ph78 ], [ %127, %._crit_edge ]
+  %131 = getelementptr i8, ptr %130, i64 8
+  %.val32 = load ptr, ptr %131, align 8, !tbaa !25
+  %132 = getelementptr inbounds nuw i32, ptr %.val32, i64 %indvars.iv81
+  %133 = load i32, ptr %132, align 4, !tbaa !3
+  %134 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.15, i32 noundef %133)
   %indvars.iv.next82 = add nuw nsw i64 %indvars.iv81, 1
-  %142 = load ptr, ptr %9, align 8, !tbaa !51
-  %143 = getelementptr i8, ptr %142, i64 4
-  %.val = load i32, ptr %143, align 4, !tbaa !16
-  %144 = sext i32 %.val to i64
-  %145 = icmp slt i64 %indvars.iv.next82, %144
-  br i1 %145, label %.lr.ph78, label %._crit_edge79, !llvm.loop !69
+  %135 = load ptr, ptr %9, align 8, !tbaa !51
+  %136 = getelementptr i8, ptr %135, i64 4
+  %.val = load i32, ptr %136, align 4, !tbaa !16
+  %137 = sext i32 %.val to i64
+  %138 = icmp slt i64 %indvars.iv.next82, %137
+  br i1 %138, label %.lr.ph78, label %._crit_edge79, !llvm.loop !69
 
 ._crit_edge79:                                    ; preds = %.lr.ph78, %._crit_edge
   %putchar29 = call i32 @putchar(i32 10)

@@ -252,7 +252,7 @@ define ptr @PKCS12_item_decrypt_d2i_ex(ptr noundef readonly captures(none) %0, p
   %14 = load i32, ptr %4, align 8, !tbaa !18
   %15 = call ptr @PKCS12_pbe_crypt_ex(ptr noundef %0, ptr noundef %2, i32 noundef %3, ptr noundef %13, i32 noundef %14, ptr noundef nonnull %9, ptr noundef nonnull %11, i32 noundef 0, ptr noundef %6, ptr noundef %7)
   %.not = icmp eq ptr %15, null
-  br i1 %.not, label %29, label %16
+  br i1 %.not, label %25, label %16
 
 16:                                               ; preds = %8
   %17 = load ptr, ptr %9, align 8, !tbaa !13
@@ -261,32 +261,28 @@ define ptr @PKCS12_item_decrypt_d2i_ex(ptr noundef readonly captures(none) %0, p
   %19 = sext i32 %18 to i64
   %20 = call ptr @ASN1_item_d2i(ptr noundef null, ptr noundef nonnull %10, i64 noundef %19, ptr noundef %1) #3
   %.not11 = icmp eq i32 %5, 0
-  br i1 %.not11, label %25, label %21
+  br i1 %.not11, label %22, label %21
 
 21:                                               ; preds = %16
-  %22 = load ptr, ptr %9, align 8, !tbaa !13
-  %23 = load i32, ptr %11, align 4, !tbaa !3
-  %24 = sext i32 %23 to i64
-  call void @OPENSSL_cleanse(ptr noundef %22, i64 noundef %24) #3
-  br label %25
+  call void @OPENSSL_cleanse(ptr noundef %17, i64 noundef %19) #3
+  br label %22
 
-25:                                               ; preds = %21, %16
+22:                                               ; preds = %21, %16
   %.not12 = icmp eq ptr %20, null
-  br i1 %.not12, label %26, label %27
+  br i1 %.not12, label %23, label %24
 
-26:                                               ; preds = %25
+23:                                               ; preds = %22
   call void @ERR_new() #3
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 159, ptr noundef nonnull @__func__.PKCS12_item_decrypt_d2i_ex) #3
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 35, i32 noundef 101, ptr noundef null) #3
-  br label %27
+  br label %24
 
-27:                                               ; preds = %26, %25
-  %28 = load ptr, ptr %9, align 8, !tbaa !13
-  call void @CRYPTO_free(ptr noundef %28, ptr noundef nonnull @.str, i32 noundef 160) #3
-  br label %29
+24:                                               ; preds = %23, %22
+  call void @CRYPTO_free(ptr noundef %17, ptr noundef nonnull @.str, i32 noundef 160) #3
+  br label %25
 
-29:                                               ; preds = %8, %27
-  %.0 = phi ptr [ %20, %27 ], [ null, %8 ]
+25:                                               ; preds = %8, %24
+  %.0 = phi ptr [ %20, %24 ], [ null, %8 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #3

@@ -10274,12 +10274,10 @@ mustObeyClient.exit.thread:                       ; preds = %mustObeyClient.exit
 
 90:                                               ; preds = %86, %._crit_edge.i
   %91 = call ptr @sdsnew(ptr noundef null) #43
-  store ptr %91, ptr %2, align 8, !tbaa !310
   %92 = load ptr, ptr %13, align 8, !tbaa !481
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 216
   %94 = load ptr, ptr %93, align 8, !tbaa !356
   %95 = call ptr (ptr, ptr, ...) @sdscatprintf(ptr noundef %91, ptr noundef nonnull @.str.179, ptr noundef %94) #43
-  store ptr %95, ptr %2, align 8, !tbaa !310
   call void @flagTransaction(ptr noundef nonnull %0) #43
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 224
   store i64 0, ptr %96, align 8, !tbaa !491

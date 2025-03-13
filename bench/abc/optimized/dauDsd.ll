@@ -11654,7 +11654,6 @@ Abc_TtCofactor0p.exit.thread245.i:                ; preds = %Abc_TtSuppFindFirst
   %494 = and i64 %493, %487
   %495 = lshr i64 %494, %66
   %496 = or i64 %495, %494
-  store i64 %496, ptr %21, align 16, !tbaa !29
   %497 = sext i32 %481 to i64
   %498 = getelementptr inbounds [6 x i64], ptr @s_Truths6Neg, i64 0, i64 %497
   %499 = load i64, ptr %498, align 8, !tbaa !29

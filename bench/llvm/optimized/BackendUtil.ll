@@ -30373,43 +30373,43 @@ define internal void @"_ZNSt17_Function_handlerIFvRN4llvm11PassManagerINS0_6Modu
   %5 = getelementptr inbounds nuw i8, ptr %.val, i64 24
   %6 = load i8, ptr %5, align 8, !tbaa !861, !range !48, !noundef !49
   %7 = trunc nuw i8 %6 to i1
-  br i1 %7, label %8, label %_ZN4llvm19LowerAllowCheckPass7OptionsC2ERKS1_.exit.i.i.i
+  br i1 %7, label %_ZNKRSt8optionalISt6vectorIjSaIjEEE5valueEv.exit.i.i.i, label %_ZN4llvm19LowerAllowCheckPass7OptionsC2ERKS1_.exit.i.i.i
 
-8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw i8, ptr %.val, i64 8
-  %10 = load ptr, ptr %9, align 8, !tbaa !863
-  %11 = load ptr, ptr %.val, align 8, !tbaa !866
+_ZNKRSt8optionalISt6vectorIjSaIjEEE5valueEv.exit.i.i.i: ; preds = %4
+  %8 = getelementptr inbounds nuw i8, ptr %.val, i64 8
+  %9 = load ptr, ptr %8, align 8, !tbaa !863
+  %10 = load ptr, ptr %.val, align 8, !tbaa !866
+  %11 = ptrtoint ptr %9 to i64
   %12 = ptrtoint ptr %10 to i64
-  %13 = ptrtoint ptr %11 to i64
-  %14 = sub i64 %12, %13
-  %.not.i.i.i = icmp eq ptr %10, %11
-  br i1 %.not.i.i.i, label %_ZN4llvm19LowerAllowCheckPass7OptionsC2ERKS1_.exit.i.i.i, label %15
+  %13 = sub i64 %11, %12
+  %.not.i.i.i = icmp eq ptr %9, %10
+  br i1 %.not.i.i.i, label %_ZN4llvm19LowerAllowCheckPass7OptionsC2ERKS1_.exit.i.i.i, label %14
 
-15:                                               ; preds = %8
-  %16 = icmp ugt i64 %14, 9223372036854775804
-  br i1 %16, label %17, label %18, !prof !516
+14:                                               ; preds = %_ZNKRSt8optionalISt6vectorIjSaIjEEE5valueEv.exit.i.i.i
+  %15 = icmp ugt i64 %13, 9223372036854775804
+  br i1 %15, label %16, label %17, !prof !516
 
-17:                                               ; preds = %15
+16:                                               ; preds = %14
   tail call void @_ZSt28__throw_bad_array_new_lengthv() #27
   unreachable
 
-18:                                               ; preds = %15
-  %19 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %14) #29
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %19, ptr align 4 %11, i64 %14, i1 false)
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 %14
-  %21 = ptrtoint ptr %20 to i64
-  %22 = ptrtoint ptr %19 to i64
-  %23 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %14) #29
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %23, ptr align 4 %11, i64 %14, i1 false)
+17:                                               ; preds = %14
+  %18 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %13) #29
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %18, ptr align 4 %10, i64 %13, i1 false)
+  %19 = getelementptr inbounds nuw i8, ptr %18, i64 %13
+  %20 = ptrtoint ptr %19 to i64
+  %21 = ptrtoint ptr %18 to i64
+  %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %13) #29
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %22, ptr align 4 %10, i64 %13, i1 false)
   br label %_ZN4llvm19LowerAllowCheckPass7OptionsC2ERKS1_.exit.i.i.i
 
-_ZN4llvm19LowerAllowCheckPass7OptionsC2ERKS1_.exit.i.i.i: ; preds = %18, %8, %4
-  %24 = phi i64 [ %14, %18 ], [ 0, %4 ], [ 0, %8 ]
-  %25 = phi i64 [ %22, %18 ], [ 0, %4 ], [ 0, %8 ]
-  %.sroa.13.033.i.i.i = phi i64 [ %21, %18 ], [ 0, %4 ], [ 0, %8 ]
-  %.sroa.0.032.i.i.i = phi ptr [ %19, %18 ], [ null, %4 ], [ null, %8 ]
-  %26 = phi ptr [ %23, %18 ], [ null, %4 ], [ null, %8 ]
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 %24
+_ZN4llvm19LowerAllowCheckPass7OptionsC2ERKS1_.exit.i.i.i: ; preds = %17, %_ZNKRSt8optionalISt6vectorIjSaIjEEE5valueEv.exit.i.i.i, %4
+  %23 = phi i64 [ %13, %17 ], [ 0, %4 ], [ 0, %_ZNKRSt8optionalISt6vectorIjSaIjEEE5valueEv.exit.i.i.i ]
+  %24 = phi i64 [ %21, %17 ], [ 0, %4 ], [ 0, %_ZNKRSt8optionalISt6vectorIjSaIjEEE5valueEv.exit.i.i.i ]
+  %25 = phi ptr [ %18, %17 ], [ null, %4 ], [ null, %_ZNKRSt8optionalISt6vectorIjSaIjEEE5valueEv.exit.i.i.i ]
+  %.sroa.9.029.i.i.i = phi i64 [ %20, %17 ], [ 0, %4 ], [ 0, %_ZNKRSt8optionalISt6vectorIjSaIjEEE5valueEv.exit.i.i.i ]
+  %26 = phi ptr [ %22, %17 ], [ null, %4 ], [ null, %_ZNKRSt8optionalISt6vectorIjSaIjEEE5valueEv.exit.i.i.i ]
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 %23
   %28 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #29, !noalias !1454
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN4llvm6detail9PassModelINS_8FunctionENS_19LowerAllowCheckPassENS_15AnalysisManagerIS2_JEEEJEEE, i64 16), ptr %28, align 8, !tbaa !3, !noalias !1454
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
@@ -30499,12 +30499,12 @@ _ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15Analysi
   br label %_ZN4llvm19LowerAllowCheckPass7OptionsD2Ev.exit.i.i.i
 
 _ZN4llvm19LowerAllowCheckPass7OptionsD2Ev.exit.i.i.i: ; preds = %_ZNSt6vectorISt10unique_ptrIN4llvm6detail11PassConceptINS1_6ModuleENS1_15AnalysisManagerIS4_JEEEJEEESt14default_deleteIS7_EESaISA_EE17_M_realloc_insertIJSA_EEEvN9__gnu_cxx17__normal_iteratorIPSA_SC_EEDpOT_.exit.i.i.i, %40
-  %.not.i.i.i.i6.i.i.i = icmp eq ptr %.sroa.0.032.i.i.i, null
+  %.not.i.i.i.i6.i.i.i = icmp eq ptr %25, null
   br i1 %.not.i.i.i.i6.i.i.i, label %"_ZSt10__invoke_rIvRZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS4_11LangOptionsERNS0_11PassBuilderEE3$_2JRNS0_11PassManagerINS0_6ModuleENS0_15AnalysisManagerISG_JEEEJEEENS0_17OptimizationLevelENS0_18ThinOrFullLTOPhaseEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.exit", label %65
 
 65:                                               ; preds = %_ZN4llvm19LowerAllowCheckPass7OptionsD2Ev.exit.i.i.i
-  %66 = sub i64 %.sroa.13.033.i.i.i, %25
-  tail call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.032.i.i.i, i64 noundef %66) #28
+  %66 = sub i64 %.sroa.9.029.i.i.i, %24
+  tail call void @_ZdlPvm(ptr noundef nonnull %25, i64 noundef %66) #28
   br label %"_ZSt10__invoke_rIvRZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS4_11LangOptionsERNS0_11PassBuilderEE3$_2JRNS0_11PassManagerINS0_6ModuleENS0_15AnalysisManagerISG_JEEEJEEENS0_17OptimizationLevelENS0_18ThinOrFullLTOPhaseEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.exit"
 
 "_ZSt10__invoke_rIvRZL13addSanitizersRKN4llvm6TripleERKN5clang14CodeGenOptionsERKNS4_11LangOptionsERNS0_11PassBuilderEE3$_2JRNS0_11PassManagerINS0_6ModuleENS0_15AnalysisManagerISG_JEEEJEEENS0_17OptimizationLevelENS0_18ThinOrFullLTOPhaseEEENSt9enable_ifIX16is_invocable_r_vIT_T0_DpT1_EESO_E4typeEOSP_DpOSQ_.exit": ; preds = %_ZN4llvm19LowerAllowCheckPass7OptionsD2Ev.exit.i.i.i, %65

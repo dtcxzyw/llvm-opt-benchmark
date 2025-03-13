@@ -2822,38 +2822,39 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @brin_summarize_range(pt
   %67 = getelementptr inbounds nuw i8, ptr %66, i64 18
   %68 = load i8, ptr %67, align 2, !range !4, !noundef !5
   %69 = trunc nuw i8 %68 to i1
-  br i1 %69, label %70, label %71
+  br i1 %69, label %70, label %73
 
 70:                                               ; preds = %64
   call fastcc void @brinsummarize(ptr noundef nonnull %35, ptr noundef nonnull %.029, i32 noundef %22, i1 noundef zeroext true, ptr noundef nonnull %4, ptr noundef null)
-  br label %78
+  %.pre = load double, ptr %4, align 8
+  %71 = fptosi double %.pre to i32
+  %72 = sext i32 %71 to i64
+  br label %80
 
-71:                                               ; preds = %64
-  %72 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #10
-  br i1 %72, label %73, label %78
+73:                                               ; preds = %64
+  %74 = call zeroext i1 @errstart(i32 noundef 14, ptr noundef null) #10
+  br i1 %74, label %75, label %80
 
-73:                                               ; preds = %71
-  %74 = call i32 @errcode(i32 noundef 325) #10
-  %75 = load ptr, ptr %36, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 4
-  %77 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, ptr noundef nonnull %76) #10
+75:                                               ; preds = %73
+  %76 = call i32 @errcode(i32 noundef 325) #10
+  %77 = load ptr, ptr %36, align 8
+  %78 = getelementptr inbounds nuw i8, ptr %77, i64 4
+  %79 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.12, ptr noundef nonnull %78) #10
   call void @errfinish(ptr noundef nonnull @.str.1, i32 noundef 1467, ptr noundef nonnull @__func__.brin_summarize_range) #10
-  br label %78
+  br label %80
 
-78:                                               ; preds = %71, %73, %70
+80:                                               ; preds = %73, %75, %70
+  %81 = phi i64 [ 0, %73 ], [ 0, %75 ], [ %72, %70 ]
   call void @AtEOXact_GUC(i1 noundef zeroext false, i32 noundef %.0) #10
-  %79 = load i32, ptr %2, align 4
-  %80 = load i32, ptr %3, align 4
-  call void @SetUserIdAndSecContext(i32 noundef %79, i32 noundef %80) #10
+  %82 = load i32, ptr %2, align 4
+  %83 = load i32, ptr %3, align 4
+  call void @SetUserIdAndSecContext(i32 noundef %82, i32 noundef %83) #10
   call void @relation_close(ptr noundef nonnull %35, i32 noundef 4) #10
   call void @relation_close(ptr noundef nonnull %.029, i32 noundef 4) #10
-  %81 = load double, ptr %4, align 8
-  %82 = fptosi double %81 to i32
-  %83 = sext i32 %82 to i64
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #10
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %2) #10
-  ret i64 %83
+  ret i64 %81
 }
 
 declare zeroext i1 @RecoveryInProgress() local_unnamed_addr #2

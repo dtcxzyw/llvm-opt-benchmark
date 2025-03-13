@@ -557,56 +557,55 @@ define dso_local i32 @snd_hda_get_conn_index(ptr noundef %0, i16 noundef zeroext
   br label %26
 
 26:                                               ; preds = %.thread7, %21
-  %27 = phi i64 [ 0, %21 ], [ %51, %.thread7 ]
-  %28 = load ptr, ptr %5, align 8
-  %29 = getelementptr i16, ptr %28, i64 %27
-  %30 = load i16, ptr %29, align 2
-  %31 = zext i16 %30 to i32
-  %32 = load i16, ptr %23, align 4
-  %33 = zext i16 %32 to i32
-  %34 = icmp ugt i16 %32, %30
-  br i1 %34, label %.thread6, label %35
+  %27 = phi i64 [ 0, %21 ], [ %50, %.thread7 ]
+  %28 = getelementptr i16, ptr %9, i64 %27
+  %29 = load i16, ptr %28, align 2
+  %30 = zext i16 %29 to i32
+  %31 = load i16, ptr %23, align 4
+  %32 = zext i16 %31 to i32
+  %33 = icmp ugt i16 %31, %29
+  br i1 %33, label %.thread6, label %34
 
-35:                                               ; preds = %26
-  %36 = load i32, ptr %24, align 8
-  %37 = add i32 %36, %33
-  %38 = icmp ugt i32 %37, %31
-  br i1 %38, label %39, label %.thread6
+34:                                               ; preds = %26
+  %35 = load i32, ptr %24, align 8
+  %36 = add i32 %35, %32
+  %37 = icmp ugt i32 %36, %30
+  br i1 %37, label %38, label %.thread6
 
-39:                                               ; preds = %35
-  %40 = load ptr, ptr %25, align 8
-  %41 = sub nsw i32 %31, %33
-  %42 = sext i32 %41 to i64
-  %43 = getelementptr i32, ptr %40, i64 %42
-  %44 = load i32, ptr %43, align 4
-  %45 = icmp ne i32 %44, 0
-  %46 = and i32 %44, 11534336
-  %47 = icmp eq i32 %46, 0
-  %48 = and i1 %45, %47
-  br i1 %48, label %.thread7, label %.thread6
+38:                                               ; preds = %34
+  %39 = load ptr, ptr %25, align 8
+  %40 = sub nsw i32 %30, %32
+  %41 = sext i32 %40 to i64
+  %42 = getelementptr i32, ptr %39, i64 %41
+  %43 = load i32, ptr %42, align 4
+  %44 = icmp ne i32 %43, 0
+  %45 = and i32 %43, 11534336
+  %46 = icmp eq i32 %45, 0
+  %47 = and i1 %44, %46
+  br i1 %47, label %.thread7, label %.thread6
 
-.thread6:                                         ; preds = %26, %35, %39
-  %49 = call i32 @snd_hda_get_conn_index(ptr noundef %0, i16 noundef zeroext %30, i16 noundef zeroext %2, i32 noundef %22)
-  %50 = icmp slt i32 %49, 0
-  br i1 %50, label %.thread7, label %.thread5.loopexit.split.loop.exit14
+.thread6:                                         ; preds = %26, %34, %38
+  %48 = call i32 @snd_hda_get_conn_index(ptr noundef %0, i16 noundef zeroext %29, i16 noundef zeroext %2, i32 noundef %22)
+  %49 = icmp slt i32 %48, 0
+  br i1 %49, label %.thread7, label %.thread5.loopexit.split.loop.exit14
 
-.thread7:                                         ; preds = %.thread6, %39
-  %51 = add nuw nsw i64 %27, 1
-  %52 = icmp eq i64 %51, %10
-  br i1 %52, label %.thread5, label %26, !llvm.loop !13
+.thread7:                                         ; preds = %.thread6, %38
+  %50 = add nuw nsw i64 %27, 1
+  %51 = icmp eq i64 %50, %10
+  br i1 %51, label %.thread5, label %26, !llvm.loop !13
 
 .thread5.loopexit10:                              ; preds = %11
-  %53 = trunc nuw nsw i64 %indvars.iv to i32
+  %52 = trunc nuw nsw i64 %indvars.iv to i32
   br label %.thread5
 
 .thread5.loopexit.split.loop.exit14:              ; preds = %.thread6
-  %54 = trunc i64 %27 to i32
+  %53 = trunc i64 %27 to i32
   br label %.thread5
 
 .thread5:                                         ; preds = %.thread7, %.thread5.loopexit.split.loop.exit14, %.thread5.loopexit10, %4, %17
-  %55 = phi i32 [ -1, %17 ], [ -1, %4 ], [ %53, %.thread5.loopexit10 ], [ %54, %.thread5.loopexit.split.loop.exit14 ], [ -1, %.thread7 ]
+  %54 = phi i32 [ -1, %17 ], [ -1, %4 ], [ %52, %.thread5.loopexit10 ], [ %53, %.thread5.loopexit.split.loop.exit14 ], [ -1, %.thread7 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #24
-  ret i32 %55
+  ret i32 %54
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid

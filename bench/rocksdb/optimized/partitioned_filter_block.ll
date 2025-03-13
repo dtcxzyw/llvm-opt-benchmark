@@ -1447,7 +1447,7 @@ _ZN7rocksdb6StatusC2ERKS0_.exit.i.thread:         ; preds = %_ZN7rocksdb29Partit
   br i1 %.not.i2749, label %207, label %_ZN7rocksdb6Status10UpdateIfOkERKS0_.exit
 
 207:                                              ; preds = %_ZN7rocksdb6StatusC2ERKS0_.exit.i.thread, %_ZN7rocksdb6StatusC2ERKS0_.exit.i
-  %.sroa.2010.1.i51 = phi ptr [ null, %_ZN7rocksdb6StatusC2ERKS0_.exit.i.thread ], [ %.pre.i.i, %_ZN7rocksdb6StatusC2ERKS0_.exit.i ]
+  %storemerge.i51 = phi ptr [ null, %_ZN7rocksdb6StatusC2ERKS0_.exit.i.thread ], [ %.pre.i.i, %_ZN7rocksdb6StatusC2ERKS0_.exit.i ]
   store i8 %192, ptr %191, align 8, !tbaa !129
   %208 = getelementptr inbounds nuw i8, ptr %0, i64 161
   store i8 %194, ptr %208, align 1, !tbaa !132
@@ -1461,7 +1461,7 @@ _ZN7rocksdb6StatusC2ERKS0_.exit.i.thread:         ; preds = %_ZN7rocksdb29Partit
   store i8 %202, ptr %212, align 1, !tbaa !138
   %213 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %214 = load ptr, ptr %213, align 8, !tbaa !76
-  store ptr %.sroa.2010.1.i51, ptr %213, align 8, !tbaa !76
+  store ptr %storemerge.i51, ptr %213, align 8, !tbaa !76
   %.not.i.i.i.i.i.i.i = icmp eq ptr %214, null
   br i1 %.not.i.i.i.i.i.i.i, label %_ZN7rocksdb6Status10UpdateIfOkERKS0_.exit, label %_ZN7rocksdb6StatusD2Ev.exit.sink.split.i
 

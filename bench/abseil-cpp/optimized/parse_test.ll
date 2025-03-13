@@ -46930,8 +46930,6 @@ _ZN7testing7MatcherIRKN4absl16UnrecognizedFlagEEaSEOS5_.exit.thread: ; preds = %
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %79 = load i64, ptr %46, align 8, !tbaa !21
   store i64 %79, ptr %78, align 8, !tbaa !21
-  store ptr null, ptr %45, align 8, !tbaa !608
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKN4absl16UnrecognizedFlagEEE, i64 16), ptr %5, align 8, !tbaa !49
   br label %_ZN7testing8internal11MatcherBaseIRKN4absl16UnrecognizedFlagEED2Ev.exit
 
 80:                                               ; preds = %59

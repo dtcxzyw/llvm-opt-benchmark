@@ -3003,7 +3003,7 @@ emitter_json_object_end.exit:                     ; preds = %106, %emitter_inden
   %130 = load i64, ptr %36, align 8, !tbaa !4
   %131 = load i64, ptr %37, align 8, !tbaa !4
   call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef %0, ptr noundef nonnull @.str.272, i64 noundef %129, i64 noundef %130, i64 noundef %131)
-  br i1 %6, label %132, label %296
+  br i1 %6, label %132, label %295
 
 132:                                              ; preds = %emitter_json_object_end.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %51) #14
@@ -3033,10 +3033,9 @@ select.unfold.i:                                  ; preds = %134, %select.unfold
   call fastcc void @emitter_print_value(ptr noundef nonnull readonly %0, i32 noundef %136, i32 noundef %138, i32 noundef %140, ptr noundef nonnull %141)
   %142 = getelementptr inbounds nuw i8, ptr %.016.i, i64 24
   %143 = load ptr, ptr %142, align 8, !tbaa !39
-  %144 = load ptr, ptr %51, align 8, !tbaa !30
-  %.not14.i = icmp eq ptr %143, %144
+  %.not14.i = icmp eq ptr %143, %135
   %.not1317.i = icmp eq ptr %143, null
-  %.not13.i = or i1 %.not1317.i, %.not14.i
+  %.not13.i = or i1 %.not14.i, %.not1317.i
   br i1 %.not13.i, label %select.unfold._crit_edge.i, label %select.unfold.i
 
 select.unfold._crit_edge.i:                       ; preds = %select.unfold.i, %134
@@ -3050,436 +3049,436 @@ emitter_table_row.exit:                           ; preds = %132, %select.unfold
   store i64 7, ptr %57, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %58) #14
   store i64 8, ptr %58, align 8, !tbaa !4
-  %145 = call i32 @mallctlnametomib(ptr noundef nonnull @.str.274, ptr noundef nonnull %56, ptr noundef nonnull %57) #14
-  %.not94 = icmp eq i32 %145, 0
-  br i1 %.not94, label %147, label %146
+  %144 = call i32 @mallctlnametomib(ptr noundef nonnull @.str.274, ptr noundef nonnull %56, ptr noundef nonnull %57) #14
+  %.not94 = icmp eq i32 %144, 0
+  br i1 %.not94, label %146, label %145
 
-146:                                              ; preds = %emitter_table_row.exit
+145:                                              ; preds = %emitter_table_row.exit
   call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.275, ptr noundef nonnull @.str.274) #14
   call void @abort() #15
   unreachable
 
-147:                                              ; preds = %emitter_table_row.exit
-  %148 = getelementptr inbounds nuw i8, ptr %56, i64 16
-  store i64 0, ptr %148, align 16, !tbaa !4
-  %149 = load i64, ptr %57, align 8, !tbaa !4
-  %150 = call i32 @mallctlbymib(ptr noundef nonnull %56, i64 noundef %149, ptr noundef nonnull %55, ptr noundef nonnull %58, ptr noundef null, i64 noundef 0) #14
-  %.not95 = icmp eq i32 %150, 0
-  br i1 %.not95, label %152, label %151
+146:                                              ; preds = %emitter_table_row.exit
+  %147 = getelementptr inbounds nuw i8, ptr %56, i64 16
+  store i64 0, ptr %147, align 16, !tbaa !4
+  %148 = load i64, ptr %57, align 8, !tbaa !4
+  %149 = call i32 @mallctlbymib(ptr noundef nonnull %56, i64 noundef %148, ptr noundef nonnull %55, ptr noundef nonnull %58, ptr noundef null, i64 noundef 0) #14
+  %.not95 = icmp eq i32 %149, 0
+  br i1 %.not95, label %151, label %150
 
-151:                                              ; preds = %147
+150:                                              ; preds = %146
   call void @je_malloc_write(ptr noundef nonnull @.str.276) #14
   call void @abort() #15
   unreachable
 
-152:                                              ; preds = %147
+151:                                              ; preds = %146
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %58) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %57) #14
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %56) #14
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %59) #14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %60) #14
   store i64 7, ptr %60, align 8, !tbaa !4
-  %153 = call nonnull align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @je_tsd_tls)
-  %154 = getelementptr inbounds nuw i8, ptr %153, i64 888
-  %155 = load i8, ptr %154, align 8, !tbaa !8
-  %.not.i = icmp eq i8 %155, 0
-  br i1 %.not.i, label %tsd_fetch_impl.exit, label %156, !prof !27
+  %152 = call nonnull align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @je_tsd_tls)
+  %153 = getelementptr inbounds nuw i8, ptr %152, i64 888
+  %154 = load i8, ptr %153, align 8, !tbaa !8
+  %.not.i = icmp eq i8 %154, 0
+  br i1 %.not.i, label %tsd_fetch_impl.exit, label %155, !prof !27
 
-156:                                              ; preds = %152
-  %157 = call ptr @je_tsd_fetch_slow(ptr noundef nonnull %153, i1 noundef zeroext false) #14
+155:                                              ; preds = %151
+  %156 = call ptr @je_tsd_fetch_slow(ptr noundef nonnull %152, i1 noundef zeroext false) #14
   br label %tsd_fetch_impl.exit
 
-tsd_fetch_impl.exit:                              ; preds = %152, %156
-  %.0.i = phi ptr [ %157, %156 ], [ %153, %152 ]
-  %158 = call i32 @je_ctl_mibnametomib(ptr noundef %.0.i, ptr noundef nonnull %59, i64 noundef 0, ptr noundef nonnull @.str.277, ptr noundef nonnull %60) #14
-  %.not96 = icmp eq i32 %158, 0
-  br i1 %.not96, label %160, label %159
+tsd_fetch_impl.exit:                              ; preds = %151, %155
+  %.0.i = phi ptr [ %156, %155 ], [ %152, %151 ]
+  %157 = call i32 @je_ctl_mibnametomib(ptr noundef %.0.i, ptr noundef nonnull %59, i64 noundef 0, ptr noundef nonnull @.str.277, ptr noundef nonnull %60) #14
+  %.not96 = icmp eq i32 %157, 0
+  br i1 %.not96, label %159, label %158
 
-159:                                              ; preds = %tsd_fetch_impl.exit
+158:                                              ; preds = %tsd_fetch_impl.exit
   call void @je_malloc_write(ptr noundef nonnull @.str.215) #14
   call void @abort() #15
   unreachable
 
-160:                                              ; preds = %tsd_fetch_impl.exit
+159:                                              ; preds = %tsd_fetch_impl.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %60) #14
-  %161 = getelementptr inbounds nuw i8, ptr %52, i64 16
-  %162 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  %163 = getelementptr inbounds nuw i8, ptr %53, i64 16
-  %164 = getelementptr inbounds nuw i8, ptr %53, i64 48
-  %165 = getelementptr inbounds nuw i8, ptr %53, i64 56
-  %166 = getelementptr inbounds nuw i8, ptr %53, i64 88
-  %167 = getelementptr inbounds nuw i8, ptr %53, i64 96
-  %168 = getelementptr inbounds nuw i8, ptr %53, i64 128
-  %169 = getelementptr inbounds nuw i8, ptr %53, i64 136
-  %170 = getelementptr inbounds nuw i8, ptr %53, i64 168
-  %171 = getelementptr inbounds nuw i8, ptr %53, i64 176
-  %172 = getelementptr inbounds nuw i8, ptr %53, i64 208
-  %173 = getelementptr inbounds nuw i8, ptr %53, i64 216
-  %174 = getelementptr inbounds nuw i8, ptr %53, i64 248
-  %175 = getelementptr inbounds nuw i8, ptr %53, i64 256
-  %176 = getelementptr inbounds nuw i8, ptr %53, i64 288
-  %177 = getelementptr inbounds nuw i8, ptr %53, i64 296
-  %178 = getelementptr inbounds nuw i8, ptr %53, i64 328
-  %179 = getelementptr inbounds nuw i8, ptr %53, i64 336
-  %180 = getelementptr inbounds nuw i8, ptr %53, i64 368
-  %181 = getelementptr inbounds nuw i8, ptr %53, i64 376
-  %182 = getelementptr inbounds nuw i8, ptr %53, i64 408
-  %183 = getelementptr inbounds nuw i8, ptr %53, i64 416
-  %184 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  %185 = getelementptr inbounds nuw i8, ptr %54, i64 16
-  %186 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %187 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  br label %199
+  %160 = getelementptr inbounds nuw i8, ptr %52, i64 16
+  %161 = getelementptr inbounds nuw i8, ptr %53, i64 8
+  %162 = getelementptr inbounds nuw i8, ptr %53, i64 16
+  %163 = getelementptr inbounds nuw i8, ptr %53, i64 48
+  %164 = getelementptr inbounds nuw i8, ptr %53, i64 56
+  %165 = getelementptr inbounds nuw i8, ptr %53, i64 88
+  %166 = getelementptr inbounds nuw i8, ptr %53, i64 96
+  %167 = getelementptr inbounds nuw i8, ptr %53, i64 128
+  %168 = getelementptr inbounds nuw i8, ptr %53, i64 136
+  %169 = getelementptr inbounds nuw i8, ptr %53, i64 168
+  %170 = getelementptr inbounds nuw i8, ptr %53, i64 176
+  %171 = getelementptr inbounds nuw i8, ptr %53, i64 208
+  %172 = getelementptr inbounds nuw i8, ptr %53, i64 216
+  %173 = getelementptr inbounds nuw i8, ptr %53, i64 248
+  %174 = getelementptr inbounds nuw i8, ptr %53, i64 256
+  %175 = getelementptr inbounds nuw i8, ptr %53, i64 288
+  %176 = getelementptr inbounds nuw i8, ptr %53, i64 296
+  %177 = getelementptr inbounds nuw i8, ptr %53, i64 328
+  %178 = getelementptr inbounds nuw i8, ptr %53, i64 336
+  %179 = getelementptr inbounds nuw i8, ptr %53, i64 368
+  %180 = getelementptr inbounds nuw i8, ptr %53, i64 376
+  %181 = getelementptr inbounds nuw i8, ptr %53, i64 408
+  %182 = getelementptr inbounds nuw i8, ptr %53, i64 416
+  %183 = getelementptr inbounds nuw i8, ptr %54, i64 8
+  %184 = getelementptr inbounds nuw i8, ptr %54, i64 16
+  %185 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %186 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  br label %198
 
-188:                                              ; preds = %emitter_json_object_end.exit131
+187:                                              ; preds = %emitter_json_object_end.exit131
   %.val.i109 = load i32, ptr %0, align 8, !tbaa !11
   %spec.select.i.i110 = icmp ult i32 %.val.i109, 2
-  br i1 %spec.select.i.i110, label %189, label %emitter_json_object_end.exit119
+  br i1 %spec.select.i.i110, label %188, label %emitter_json_object_end.exit119
 
-189:                                              ; preds = %188
-  %190 = load i32, ptr %186, align 8, !tbaa !20
-  %191 = add nsw i32 %190, -1
-  store i32 %191, ptr %186, align 8, !tbaa !20
-  store i8 1, ptr %187, align 4, !tbaa !18
+188:                                              ; preds = %187
+  %189 = load i32, ptr %185, align 8, !tbaa !20
+  %190 = add nsw i32 %189, -1
+  store i32 %190, ptr %185, align 8, !tbaa !20
+  store i8 1, ptr %186, align 4, !tbaa !18
   %.not.i111 = icmp eq i32 %.val.i109, 1
-  br i1 %.not.i111, label %emitter_indent.exit.i113, label %192
+  br i1 %.not.i111, label %emitter_indent.exit.i113, label %191
 
-192:                                              ; preds = %189
+191:                                              ; preds = %188
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.12)
-  %193 = load i32, ptr %186, align 8, !tbaa !20
-  %194 = load i32, ptr %0, align 8, !tbaa !11
-  %195 = icmp ne i32 %194, 0
-  %.07.i.i112 = select i1 %195, ptr @.str.10, ptr @.str.13
-  %196 = icmp sgt i32 %193, 0
-  br i1 %196, label %.lr.ph.preheader.i.i114, label %emitter_indent.exit.i113
+  %192 = load i32, ptr %185, align 8, !tbaa !20
+  %193 = load i32, ptr %0, align 8, !tbaa !11
+  %194 = icmp ne i32 %193, 0
+  %.07.i.i112 = select i1 %194, ptr @.str.10, ptr @.str.13
+  %195 = icmp sgt i32 %192, 0
+  br i1 %195, label %.lr.ph.preheader.i.i114, label %emitter_indent.exit.i113
 
-.lr.ph.preheader.i.i114:                          ; preds = %192
-  %197 = zext i1 %195 to i32
-  %.08.i.i115 = shl nuw nsw i32 %193, %197
+.lr.ph.preheader.i.i114:                          ; preds = %191
+  %196 = zext i1 %194 to i32
+  %.08.i.i115 = shl nuw nsw i32 %192, %196
   br label %.lr.ph.i.i116
 
 .lr.ph.i.i116:                                    ; preds = %.lr.ph.i.i116, %.lr.ph.preheader.i.i114
-  %.09.i.i117 = phi i32 [ %198, %.lr.ph.i.i116 ], [ 0, %.lr.ph.preheader.i.i114 ]
+  %.09.i.i117 = phi i32 [ %197, %.lr.ph.i.i116 ], [ 0, %.lr.ph.preheader.i.i114 ]
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %0, ptr noundef nonnull @.str.7, ptr noundef nonnull %.07.i.i112)
-  %198 = add nuw nsw i32 %.09.i.i117, 1
-  %exitcond.not.i.i118 = icmp eq i32 %198, %.08.i.i115
+  %197 = add nuw nsw i32 %.09.i.i117, 1
+  %exitcond.not.i.i118 = icmp eq i32 %197, %.08.i.i115
   br i1 %exitcond.not.i.i118, label %emitter_indent.exit.i113, label %.lr.ph.i.i116, !llvm.loop !21
 
-emitter_indent.exit.i113:                         ; preds = %.lr.ph.i.i116, %192, %189
+emitter_indent.exit.i113:                         ; preds = %.lr.ph.i.i116, %191, %188
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.519)
   br label %emitter_json_object_end.exit119
 
-emitter_json_object_end.exit119:                  ; preds = %188, %emitter_indent.exit.i113
+emitter_json_object_end.exit119:                  ; preds = %187, %emitter_indent.exit.i113
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %59) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %55) #14
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %54) #14
   call void @llvm.lifetime.end.p0(i64 440, ptr nonnull %53) #14
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %52) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %51) #14
-  br label %296
+  br label %295
 
-199:                                              ; preds = %160, %emitter_json_object_end.exit131
-  %indvars.iv = phi i64 [ 0, %160 ], [ %indvars.iv.next, %emitter_json_object_end.exit131 ]
-  %200 = getelementptr inbounds nuw [9 x ptr], ptr @global_mutex_names, i64 0, i64 %indvars.iv
-  %201 = load ptr, ptr %200, align 8, !tbaa !24
-  %202 = load i64, ptr %55, align 8, !tbaa !4
+198:                                              ; preds = %159, %emitter_json_object_end.exit131
+  %indvars.iv = phi i64 [ 0, %159 ], [ %indvars.iv.next, %emitter_json_object_end.exit131 ]
+  %199 = getelementptr inbounds nuw [9 x ptr], ptr @global_mutex_names, i64 0, i64 %indvars.iv
+  %200 = load ptr, ptr %199, align 8, !tbaa !24
+  %201 = load i64, ptr %55, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #14
   store i64 7, ptr %10, align 8, !tbaa !4
-  %203 = load i8, ptr %154, align 8, !tbaa !8
-  %.not.i.i = icmp eq i8 %203, 0
-  br i1 %.not.i.i, label %tsd_fetch_impl.exit.i, label %204, !prof !27
+  %202 = load i8, ptr %153, align 8, !tbaa !8
+  %.not.i.i = icmp eq i8 %202, 0
+  br i1 %.not.i.i, label %tsd_fetch_impl.exit.i, label %203, !prof !27
 
-204:                                              ; preds = %199
-  %205 = call ptr @je_tsd_fetch_slow(ptr noundef nonnull %153, i1 noundef zeroext false) #14
+203:                                              ; preds = %198
+  %204 = call ptr @je_tsd_fetch_slow(ptr noundef nonnull %152, i1 noundef zeroext false) #14
   br label %tsd_fetch_impl.exit.i
 
-tsd_fetch_impl.exit.i:                            ; preds = %204, %199
-  %.0.i.i = phi ptr [ %205, %204 ], [ %153, %199 ]
-  %206 = call i32 @je_ctl_mibnametomib(ptr noundef %.0.i.i, ptr noundef nonnull %59, i64 noundef 2, ptr noundef %201, ptr noundef nonnull %10) #14
-  %.not.i120 = icmp eq i32 %206, 0
-  br i1 %.not.i120, label %208, label %207
+tsd_fetch_impl.exit.i:                            ; preds = %203, %198
+  %.0.i.i = phi ptr [ %204, %203 ], [ %152, %198 ]
+  %205 = call i32 @je_ctl_mibnametomib(ptr noundef %.0.i.i, ptr noundef nonnull %59, i64 noundef 2, ptr noundef %200, ptr noundef nonnull %10) #14
+  %.not.i120 = icmp eq i32 %205, 0
+  br i1 %.not.i120, label %207, label %206
 
-207:                                              ; preds = %tsd_fetch_impl.exit.i
+206:                                              ; preds = %tsd_fetch_impl.exit.i
   call void @je_malloc_write(ptr noundef nonnull @.str.215) #14
   call void @abort() #15
   unreachable
 
-208:                                              ; preds = %tsd_fetch_impl.exit.i
+207:                                              ; preds = %tsd_fetch_impl.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #14
-  store ptr %201, ptr %161, align 8, !tbaa !8
-  store i32 5, ptr %162, align 8, !tbaa !38
+  store ptr %200, ptr %160, align 8, !tbaa !8
+  store i32 5, ptr %161, align 8, !tbaa !38
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #14
   store i64 7, ptr %11, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #14
   store i64 8, ptr %12, align 8, !tbaa !4
-  %209 = load i8, ptr %154, align 8, !tbaa !8
-  %.not.i77.i = icmp eq i8 %209, 0
-  br i1 %.not.i77.i, label %tsd_fetch_impl.exit79.i, label %210, !prof !27
+  %208 = load i8, ptr %153, align 8, !tbaa !8
+  %.not.i77.i = icmp eq i8 %208, 0
+  br i1 %.not.i77.i, label %tsd_fetch_impl.exit79.i, label %209, !prof !27
 
-210:                                              ; preds = %208
-  %211 = call ptr @je_tsd_fetch_slow(ptr noundef nonnull %153, i1 noundef zeroext false) #14
+209:                                              ; preds = %207
+  %210 = call ptr @je_tsd_fetch_slow(ptr noundef nonnull %152, i1 noundef zeroext false) #14
   br label %tsd_fetch_impl.exit79.i
 
-tsd_fetch_impl.exit79.i:                          ; preds = %210, %208
-  %.0.i78.i = phi ptr [ %211, %210 ], [ %153, %208 ]
-  %212 = call i32 @je_ctl_bymibname(ptr noundef %.0.i78.i, ptr noundef nonnull %59, i64 noundef 3, ptr noundef nonnull @.str.293, ptr noundef nonnull %11, ptr noundef nonnull %163, ptr noundef nonnull %12, ptr noundef null, i64 noundef 0) #14
-  %.not70.i = icmp eq i32 %212, 0
-  br i1 %.not70.i, label %214, label %213
+tsd_fetch_impl.exit79.i:                          ; preds = %209, %207
+  %.0.i78.i = phi ptr [ %210, %209 ], [ %152, %207 ]
+  %211 = call i32 @je_ctl_bymibname(ptr noundef %.0.i78.i, ptr noundef nonnull %59, i64 noundef 3, ptr noundef nonnull @.str.293, ptr noundef nonnull %11, ptr noundef nonnull %162, ptr noundef nonnull %12, ptr noundef null, i64 noundef 0) #14
+  %.not70.i = icmp eq i32 %211, 0
+  br i1 %.not70.i, label %213, label %212
 
-213:                                              ; preds = %tsd_fetch_impl.exit79.i
+212:                                              ; preds = %tsd_fetch_impl.exit79.i
   call void @je_malloc_write(ptr noundef nonnull @.str.217) #14
   call void @abort() #15
   unreachable
 
-214:                                              ; preds = %tsd_fetch_impl.exit79.i
+213:                                              ; preds = %tsd_fetch_impl.exit79.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #14
-  store i32 5, ptr %164, align 16, !tbaa !38
-  %215 = load i64, ptr %163, align 16, !tbaa !8
-  %216 = icmp eq i64 %202, 0
-  %217 = icmp eq i64 %215, 0
-  %or.cond.i.i = or i1 %216, %217
-  br i1 %or.cond.i.i, label %rate_per_second.exit.i, label %218
+  store i32 5, ptr %163, align 16, !tbaa !38
+  %214 = load i64, ptr %162, align 16, !tbaa !8
+  %215 = icmp eq i64 %201, 0
+  %216 = icmp eq i64 %214, 0
+  %or.cond.i.i = or i1 %215, %216
+  br i1 %or.cond.i.i, label %rate_per_second.exit.i, label %217
 
-218:                                              ; preds = %214
-  %219 = icmp ult i64 %202, 1000000000
-  br i1 %219, label %rate_per_second.exit.i, label %220
+217:                                              ; preds = %213
+  %218 = icmp ult i64 %201, 1000000000
+  br i1 %218, label %rate_per_second.exit.i, label %219
 
-220:                                              ; preds = %218
-  %221 = udiv i64 %202, 1000000000
-  %222 = udiv i64 %215, %221
+219:                                              ; preds = %217
+  %220 = udiv i64 %201, 1000000000
+  %221 = udiv i64 %214, %220
   br label %rate_per_second.exit.i
 
-rate_per_second.exit.i:                           ; preds = %220, %218, %214
-  %.0.i98.i = phi i64 [ %222, %220 ], [ 0, %214 ], [ %215, %218 ]
-  store i64 %.0.i98.i, ptr %165, align 8, !tbaa !8
-  store i32 5, ptr %166, align 8, !tbaa !38
+rate_per_second.exit.i:                           ; preds = %219, %217, %213
+  %.0.i98.i = phi i64 [ %221, %219 ], [ 0, %213 ], [ %214, %217 ]
+  store i64 %.0.i98.i, ptr %164, align 8, !tbaa !8
+  store i32 5, ptr %165, align 8, !tbaa !38
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #14
   store i64 7, ptr %13, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #14
   store i64 8, ptr %14, align 8, !tbaa !4
-  %223 = load i8, ptr %154, align 8, !tbaa !8
-  %.not.i80.i = icmp eq i8 %223, 0
-  br i1 %.not.i80.i, label %tsd_fetch_impl.exit82.i, label %224, !prof !27
+  %222 = load i8, ptr %153, align 8, !tbaa !8
+  %.not.i80.i = icmp eq i8 %222, 0
+  br i1 %.not.i80.i, label %tsd_fetch_impl.exit82.i, label %223, !prof !27
 
-224:                                              ; preds = %rate_per_second.exit.i
-  %225 = call ptr @je_tsd_fetch_slow(ptr noundef nonnull %153, i1 noundef zeroext false) #14
+223:                                              ; preds = %rate_per_second.exit.i
+  %224 = call ptr @je_tsd_fetch_slow(ptr noundef nonnull %152, i1 noundef zeroext false) #14
   br label %tsd_fetch_impl.exit82.i
 
-tsd_fetch_impl.exit82.i:                          ; preds = %224, %rate_per_second.exit.i
-  %.0.i81.i = phi ptr [ %225, %224 ], [ %153, %rate_per_second.exit.i ]
-  %226 = call i32 @je_ctl_bymibname(ptr noundef %.0.i81.i, ptr noundef nonnull %59, i64 noundef 3, ptr noundef nonnull @.str.294, ptr noundef nonnull %13, ptr noundef nonnull %167, ptr noundef nonnull %14, ptr noundef null, i64 noundef 0) #14
-  %.not71.i = icmp eq i32 %226, 0
-  br i1 %.not71.i, label %228, label %227
+tsd_fetch_impl.exit82.i:                          ; preds = %223, %rate_per_second.exit.i
+  %.0.i81.i = phi ptr [ %224, %223 ], [ %152, %rate_per_second.exit.i ]
+  %225 = call i32 @je_ctl_bymibname(ptr noundef %.0.i81.i, ptr noundef nonnull %59, i64 noundef 3, ptr noundef nonnull @.str.294, ptr noundef nonnull %13, ptr noundef nonnull %166, ptr noundef nonnull %14, ptr noundef null, i64 noundef 0) #14
+  %.not71.i = icmp eq i32 %225, 0
+  br i1 %.not71.i, label %227, label %226
 
-227:                                              ; preds = %tsd_fetch_impl.exit82.i
+226:                                              ; preds = %tsd_fetch_impl.exit82.i
   call void @je_malloc_write(ptr noundef nonnull @.str.217) #14
   call void @abort() #15
   unreachable
 
-228:                                              ; preds = %tsd_fetch_impl.exit82.i
+227:                                              ; preds = %tsd_fetch_impl.exit82.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #14
-  store i32 5, ptr %168, align 16, !tbaa !38
-  %229 = load i64, ptr %167, align 16, !tbaa !8
-  %230 = icmp eq i64 %229, 0
-  %or.cond.i99.i = or i1 %216, %230
-  br i1 %or.cond.i99.i, label %rate_per_second.exit101.i, label %231
+  store i32 5, ptr %167, align 16, !tbaa !38
+  %228 = load i64, ptr %166, align 16, !tbaa !8
+  %229 = icmp eq i64 %228, 0
+  %or.cond.i99.i = or i1 %215, %229
+  br i1 %or.cond.i99.i, label %rate_per_second.exit101.i, label %230
 
-231:                                              ; preds = %228
-  %232 = icmp ult i64 %202, 1000000000
-  br i1 %232, label %rate_per_second.exit101.i, label %233
+230:                                              ; preds = %227
+  %231 = icmp ult i64 %201, 1000000000
+  br i1 %231, label %rate_per_second.exit101.i, label %232
 
-233:                                              ; preds = %231
-  %234 = udiv i64 %202, 1000000000
-  %235 = udiv i64 %229, %234
+232:                                              ; preds = %230
+  %233 = udiv i64 %201, 1000000000
+  %234 = udiv i64 %228, %233
   br label %rate_per_second.exit101.i
 
-rate_per_second.exit101.i:                        ; preds = %233, %231, %228
-  %.0.i100.i = phi i64 [ %235, %233 ], [ 0, %228 ], [ %229, %231 ]
-  store i64 %.0.i100.i, ptr %169, align 8, !tbaa !8
-  store i32 5, ptr %170, align 8, !tbaa !38
+rate_per_second.exit101.i:                        ; preds = %232, %230, %227
+  %.0.i100.i = phi i64 [ %234, %232 ], [ 0, %227 ], [ %228, %230 ]
+  store i64 %.0.i100.i, ptr %168, align 8, !tbaa !8
+  store i32 5, ptr %169, align 8, !tbaa !38
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #14
   store i64 7, ptr %15, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #14
   store i64 8, ptr %16, align 8, !tbaa !4
-  %236 = load i8, ptr %154, align 8, !tbaa !8
-  %.not.i83.i = icmp eq i8 %236, 0
-  br i1 %.not.i83.i, label %tsd_fetch_impl.exit85.i, label %237, !prof !27
+  %235 = load i8, ptr %153, align 8, !tbaa !8
+  %.not.i83.i = icmp eq i8 %235, 0
+  br i1 %.not.i83.i, label %tsd_fetch_impl.exit85.i, label %236, !prof !27
 
-237:                                              ; preds = %rate_per_second.exit101.i
-  %238 = call ptr @je_tsd_fetch_slow(ptr noundef nonnull %153, i1 noundef zeroext false) #14
+236:                                              ; preds = %rate_per_second.exit101.i
+  %237 = call ptr @je_tsd_fetch_slow(ptr noundef nonnull %152, i1 noundef zeroext false) #14
   br label %tsd_fetch_impl.exit85.i
 
-tsd_fetch_impl.exit85.i:                          ; preds = %237, %rate_per_second.exit101.i
-  %.0.i84.i = phi ptr [ %238, %237 ], [ %153, %rate_per_second.exit101.i ]
-  %239 = call i32 @je_ctl_bymibname(ptr noundef %.0.i84.i, ptr noundef nonnull %59, i64 noundef 3, ptr noundef nonnull @.str.295, ptr noundef nonnull %15, ptr noundef nonnull %171, ptr noundef nonnull %16, ptr noundef null, i64 noundef 0) #14
-  %.not72.i = icmp eq i32 %239, 0
-  br i1 %.not72.i, label %241, label %240
+tsd_fetch_impl.exit85.i:                          ; preds = %236, %rate_per_second.exit101.i
+  %.0.i84.i = phi ptr [ %237, %236 ], [ %152, %rate_per_second.exit101.i ]
+  %238 = call i32 @je_ctl_bymibname(ptr noundef %.0.i84.i, ptr noundef nonnull %59, i64 noundef 3, ptr noundef nonnull @.str.295, ptr noundef nonnull %15, ptr noundef nonnull %170, ptr noundef nonnull %16, ptr noundef null, i64 noundef 0) #14
+  %.not72.i = icmp eq i32 %238, 0
+  br i1 %.not72.i, label %240, label %239
 
-240:                                              ; preds = %tsd_fetch_impl.exit85.i
+239:                                              ; preds = %tsd_fetch_impl.exit85.i
   call void @je_malloc_write(ptr noundef nonnull @.str.217) #14
   call void @abort() #15
   unreachable
 
-241:                                              ; preds = %tsd_fetch_impl.exit85.i
+240:                                              ; preds = %tsd_fetch_impl.exit85.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #14
-  store i32 5, ptr %172, align 16, !tbaa !38
-  %242 = load i64, ptr %171, align 16, !tbaa !8
-  %243 = icmp eq i64 %242, 0
-  %or.cond.i102.i = or i1 %216, %243
-  br i1 %or.cond.i102.i, label %rate_per_second.exit104.i, label %244
+  store i32 5, ptr %171, align 16, !tbaa !38
+  %241 = load i64, ptr %170, align 16, !tbaa !8
+  %242 = icmp eq i64 %241, 0
+  %or.cond.i102.i = or i1 %215, %242
+  br i1 %or.cond.i102.i, label %rate_per_second.exit104.i, label %243
 
-244:                                              ; preds = %241
-  %245 = icmp ult i64 %202, 1000000000
-  br i1 %245, label %rate_per_second.exit104.i, label %246
+243:                                              ; preds = %240
+  %244 = icmp ult i64 %201, 1000000000
+  br i1 %244, label %rate_per_second.exit104.i, label %245
 
-246:                                              ; preds = %244
-  %247 = udiv i64 %202, 1000000000
-  %248 = udiv i64 %242, %247
+245:                                              ; preds = %243
+  %246 = udiv i64 %201, 1000000000
+  %247 = udiv i64 %241, %246
   br label %rate_per_second.exit104.i
 
-rate_per_second.exit104.i:                        ; preds = %246, %244, %241
-  %.0.i103.i = phi i64 [ %248, %246 ], [ 0, %241 ], [ %242, %244 ]
-  store i64 %.0.i103.i, ptr %173, align 8, !tbaa !8
-  store i32 5, ptr %174, align 8, !tbaa !38
+rate_per_second.exit104.i:                        ; preds = %245, %243, %240
+  %.0.i103.i = phi i64 [ %247, %245 ], [ 0, %240 ], [ %241, %243 ]
+  store i64 %.0.i103.i, ptr %172, align 8, !tbaa !8
+  store i32 5, ptr %173, align 8, !tbaa !38
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #14
   store i64 7, ptr %17, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #14
   store i64 8, ptr %18, align 8, !tbaa !4
-  %249 = load i8, ptr %154, align 8, !tbaa !8
-  %.not.i86.i = icmp eq i8 %249, 0
-  br i1 %.not.i86.i, label %tsd_fetch_impl.exit88.i, label %250, !prof !27
+  %248 = load i8, ptr %153, align 8, !tbaa !8
+  %.not.i86.i = icmp eq i8 %248, 0
+  br i1 %.not.i86.i, label %tsd_fetch_impl.exit88.i, label %249, !prof !27
 
-250:                                              ; preds = %rate_per_second.exit104.i
-  %251 = call ptr @je_tsd_fetch_slow(ptr noundef nonnull %153, i1 noundef zeroext false) #14
+249:                                              ; preds = %rate_per_second.exit104.i
+  %250 = call ptr @je_tsd_fetch_slow(ptr noundef nonnull %152, i1 noundef zeroext false) #14
   br label %tsd_fetch_impl.exit88.i
 
-tsd_fetch_impl.exit88.i:                          ; preds = %250, %rate_per_second.exit104.i
-  %.0.i87.i = phi ptr [ %251, %250 ], [ %153, %rate_per_second.exit104.i ]
-  %252 = call i32 @je_ctl_bymibname(ptr noundef %.0.i87.i, ptr noundef nonnull %59, i64 noundef 3, ptr noundef nonnull @.str.296, ptr noundef nonnull %17, ptr noundef nonnull %175, ptr noundef nonnull %18, ptr noundef null, i64 noundef 0) #14
-  %.not73.i = icmp eq i32 %252, 0
-  br i1 %.not73.i, label %254, label %253
+tsd_fetch_impl.exit88.i:                          ; preds = %249, %rate_per_second.exit104.i
+  %.0.i87.i = phi ptr [ %250, %249 ], [ %152, %rate_per_second.exit104.i ]
+  %251 = call i32 @je_ctl_bymibname(ptr noundef %.0.i87.i, ptr noundef nonnull %59, i64 noundef 3, ptr noundef nonnull @.str.296, ptr noundef nonnull %17, ptr noundef nonnull %174, ptr noundef nonnull %18, ptr noundef null, i64 noundef 0) #14
+  %.not73.i = icmp eq i32 %251, 0
+  br i1 %.not73.i, label %253, label %252
 
-253:                                              ; preds = %tsd_fetch_impl.exit88.i
+252:                                              ; preds = %tsd_fetch_impl.exit88.i
   call void @je_malloc_write(ptr noundef nonnull @.str.217) #14
   call void @abort() #15
   unreachable
 
-254:                                              ; preds = %tsd_fetch_impl.exit88.i
+253:                                              ; preds = %tsd_fetch_impl.exit88.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #14
-  store i32 5, ptr %176, align 16, !tbaa !38
-  %255 = load i64, ptr %175, align 16, !tbaa !8
-  %256 = icmp eq i64 %255, 0
-  %or.cond.i105.i = or i1 %216, %256
-  br i1 %or.cond.i105.i, label %rate_per_second.exit107.i, label %257
+  store i32 5, ptr %175, align 16, !tbaa !38
+  %254 = load i64, ptr %174, align 16, !tbaa !8
+  %255 = icmp eq i64 %254, 0
+  %or.cond.i105.i = or i1 %215, %255
+  br i1 %or.cond.i105.i, label %rate_per_second.exit107.i, label %256
 
-257:                                              ; preds = %254
-  %258 = icmp ult i64 %202, 1000000000
-  br i1 %258, label %rate_per_second.exit107.i, label %259
+256:                                              ; preds = %253
+  %257 = icmp ult i64 %201, 1000000000
+  br i1 %257, label %rate_per_second.exit107.i, label %258
 
-259:                                              ; preds = %257
-  %260 = udiv i64 %202, 1000000000
-  %261 = udiv i64 %255, %260
+258:                                              ; preds = %256
+  %259 = udiv i64 %201, 1000000000
+  %260 = udiv i64 %254, %259
   br label %rate_per_second.exit107.i
 
-rate_per_second.exit107.i:                        ; preds = %259, %257, %254
-  %.0.i106.i = phi i64 [ %261, %259 ], [ 0, %254 ], [ %255, %257 ]
-  store i64 %.0.i106.i, ptr %177, align 8, !tbaa !8
-  store i32 5, ptr %178, align 8, !tbaa !38
+rate_per_second.exit107.i:                        ; preds = %258, %256, %253
+  %.0.i106.i = phi i64 [ %260, %258 ], [ 0, %253 ], [ %254, %256 ]
+  store i64 %.0.i106.i, ptr %176, align 8, !tbaa !8
+  store i32 5, ptr %177, align 8, !tbaa !38
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #14
   store i64 7, ptr %19, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #14
   store i64 8, ptr %20, align 8, !tbaa !4
-  %262 = load i8, ptr %154, align 8, !tbaa !8
-  %.not.i89.i = icmp eq i8 %262, 0
-  br i1 %.not.i89.i, label %tsd_fetch_impl.exit91.i, label %263, !prof !27
+  %261 = load i8, ptr %153, align 8, !tbaa !8
+  %.not.i89.i = icmp eq i8 %261, 0
+  br i1 %.not.i89.i, label %tsd_fetch_impl.exit91.i, label %262, !prof !27
 
-263:                                              ; preds = %rate_per_second.exit107.i
-  %264 = call ptr @je_tsd_fetch_slow(ptr noundef nonnull %153, i1 noundef zeroext false) #14
+262:                                              ; preds = %rate_per_second.exit107.i
+  %263 = call ptr @je_tsd_fetch_slow(ptr noundef nonnull %152, i1 noundef zeroext false) #14
   br label %tsd_fetch_impl.exit91.i
 
-tsd_fetch_impl.exit91.i:                          ; preds = %263, %rate_per_second.exit107.i
-  %.0.i90.i = phi ptr [ %264, %263 ], [ %153, %rate_per_second.exit107.i ]
-  %265 = call i32 @je_ctl_bymibname(ptr noundef %.0.i90.i, ptr noundef nonnull %59, i64 noundef 3, ptr noundef nonnull @.str.297, ptr noundef nonnull %19, ptr noundef nonnull %179, ptr noundef nonnull %20, ptr noundef null, i64 noundef 0) #14
-  %.not74.i = icmp eq i32 %265, 0
-  br i1 %.not74.i, label %267, label %266
+tsd_fetch_impl.exit91.i:                          ; preds = %262, %rate_per_second.exit107.i
+  %.0.i90.i = phi ptr [ %263, %262 ], [ %152, %rate_per_second.exit107.i ]
+  %264 = call i32 @je_ctl_bymibname(ptr noundef %.0.i90.i, ptr noundef nonnull %59, i64 noundef 3, ptr noundef nonnull @.str.297, ptr noundef nonnull %19, ptr noundef nonnull %178, ptr noundef nonnull %20, ptr noundef null, i64 noundef 0) #14
+  %.not74.i = icmp eq i32 %264, 0
+  br i1 %.not74.i, label %266, label %265
 
-266:                                              ; preds = %tsd_fetch_impl.exit91.i
+265:                                              ; preds = %tsd_fetch_impl.exit91.i
   call void @je_malloc_write(ptr noundef nonnull @.str.217) #14
   call void @abort() #15
   unreachable
 
-267:                                              ; preds = %tsd_fetch_impl.exit91.i
+266:                                              ; preds = %tsd_fetch_impl.exit91.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #14
-  store i32 5, ptr %180, align 16, !tbaa !38
-  %268 = load i64, ptr %179, align 16, !tbaa !8
-  %269 = icmp eq i64 %268, 0
-  %or.cond.i108.i = or i1 %216, %269
-  br i1 %or.cond.i108.i, label %rate_per_second.exit110.i, label %270
+  store i32 5, ptr %179, align 16, !tbaa !38
+  %267 = load i64, ptr %178, align 16, !tbaa !8
+  %268 = icmp eq i64 %267, 0
+  %or.cond.i108.i = or i1 %215, %268
+  br i1 %or.cond.i108.i, label %rate_per_second.exit110.i, label %269
 
-270:                                              ; preds = %267
-  %271 = icmp ult i64 %202, 1000000000
-  br i1 %271, label %rate_per_second.exit110.i, label %272
+269:                                              ; preds = %266
+  %270 = icmp ult i64 %201, 1000000000
+  br i1 %270, label %rate_per_second.exit110.i, label %271
 
-272:                                              ; preds = %270
-  %273 = udiv i64 %202, 1000000000
-  %274 = udiv i64 %268, %273
+271:                                              ; preds = %269
+  %272 = udiv i64 %201, 1000000000
+  %273 = udiv i64 %267, %272
   br label %rate_per_second.exit110.i
 
-rate_per_second.exit110.i:                        ; preds = %272, %270, %267
-  %.0.i109.i = phi i64 [ %274, %272 ], [ 0, %267 ], [ %268, %270 ]
-  store i64 %.0.i109.i, ptr %181, align 8, !tbaa !8
-  store i32 5, ptr %182, align 8, !tbaa !38
+rate_per_second.exit110.i:                        ; preds = %271, %269, %266
+  %.0.i109.i = phi i64 [ %273, %271 ], [ 0, %266 ], [ %267, %269 ]
+  store i64 %.0.i109.i, ptr %180, align 8, !tbaa !8
+  store i32 5, ptr %181, align 8, !tbaa !38
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #14
   store i64 7, ptr %21, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #14
   store i64 8, ptr %22, align 8, !tbaa !4
-  %275 = load i8, ptr %154, align 8, !tbaa !8
-  %.not.i92.i = icmp eq i8 %275, 0
-  br i1 %.not.i92.i, label %tsd_fetch_impl.exit94.i, label %276, !prof !27
+  %274 = load i8, ptr %153, align 8, !tbaa !8
+  %.not.i92.i = icmp eq i8 %274, 0
+  br i1 %.not.i92.i, label %tsd_fetch_impl.exit94.i, label %275, !prof !27
 
-276:                                              ; preds = %rate_per_second.exit110.i
-  %277 = call ptr @je_tsd_fetch_slow(ptr noundef nonnull %153, i1 noundef zeroext false) #14
+275:                                              ; preds = %rate_per_second.exit110.i
+  %276 = call ptr @je_tsd_fetch_slow(ptr noundef nonnull %152, i1 noundef zeroext false) #14
   br label %tsd_fetch_impl.exit94.i
 
-tsd_fetch_impl.exit94.i:                          ; preds = %276, %rate_per_second.exit110.i
-  %.0.i93.i = phi ptr [ %277, %276 ], [ %153, %rate_per_second.exit110.i ]
-  %278 = call i32 @je_ctl_bymibname(ptr noundef %.0.i93.i, ptr noundef nonnull %59, i64 noundef 3, ptr noundef nonnull @.str.298, ptr noundef nonnull %21, ptr noundef nonnull %183, ptr noundef nonnull %22, ptr noundef null, i64 noundef 0) #14
-  %.not75.i = icmp eq i32 %278, 0
-  br i1 %.not75.i, label %280, label %279
+tsd_fetch_impl.exit94.i:                          ; preds = %275, %rate_per_second.exit110.i
+  %.0.i93.i = phi ptr [ %276, %275 ], [ %152, %rate_per_second.exit110.i ]
+  %277 = call i32 @je_ctl_bymibname(ptr noundef %.0.i93.i, ptr noundef nonnull %59, i64 noundef 3, ptr noundef nonnull @.str.298, ptr noundef nonnull %21, ptr noundef nonnull %182, ptr noundef nonnull %22, ptr noundef null, i64 noundef 0) #14
+  %.not75.i = icmp eq i32 %277, 0
+  br i1 %.not75.i, label %279, label %278
 
-279:                                              ; preds = %tsd_fetch_impl.exit94.i
+278:                                              ; preds = %tsd_fetch_impl.exit94.i
   call void @je_malloc_write(ptr noundef nonnull @.str.217) #14
   call void @abort() #15
   unreachable
 
-280:                                              ; preds = %tsd_fetch_impl.exit94.i
+279:                                              ; preds = %tsd_fetch_impl.exit94.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #14
-  store i32 4, ptr %184, align 8, !tbaa !38
+  store i32 4, ptr %183, align 8, !tbaa !38
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #14
   store i64 7, ptr %23, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #14
   store i64 4, ptr %24, align 8, !tbaa !4
-  %281 = load i8, ptr %154, align 8, !tbaa !8
-  %.not.i95.i = icmp eq i8 %281, 0
-  br i1 %.not.i95.i, label %tsd_fetch_impl.exit97.i, label %282, !prof !27
+  %280 = load i8, ptr %153, align 8, !tbaa !8
+  %.not.i95.i = icmp eq i8 %280, 0
+  br i1 %.not.i95.i, label %tsd_fetch_impl.exit97.i, label %281, !prof !27
 
-282:                                              ; preds = %280
-  %283 = call ptr @je_tsd_fetch_slow(ptr noundef nonnull %153, i1 noundef zeroext false) #14
+281:                                              ; preds = %279
+  %282 = call ptr @je_tsd_fetch_slow(ptr noundef nonnull %152, i1 noundef zeroext false) #14
   br label %tsd_fetch_impl.exit97.i
 
-tsd_fetch_impl.exit97.i:                          ; preds = %282, %280
-  %.0.i96.i = phi ptr [ %283, %282 ], [ %153, %280 ]
-  %284 = call i32 @je_ctl_bymibname(ptr noundef %.0.i96.i, ptr noundef nonnull %59, i64 noundef 3, ptr noundef nonnull @.str.299, ptr noundef nonnull %23, ptr noundef nonnull %185, ptr noundef nonnull %24, ptr noundef null, i64 noundef 0) #14
-  %.not76.i = icmp eq i32 %284, 0
-  br i1 %.not76.i, label %mutex_stats_read_global.exit, label %285
+tsd_fetch_impl.exit97.i:                          ; preds = %281, %279
+  %.0.i96.i = phi ptr [ %282, %281 ], [ %152, %279 ]
+  %283 = call i32 @je_ctl_bymibname(ptr noundef %.0.i96.i, ptr noundef nonnull %59, i64 noundef 3, ptr noundef nonnull @.str.299, ptr noundef nonnull %23, ptr noundef nonnull %184, ptr noundef nonnull %24, ptr noundef null, i64 noundef 0) #14
+  %.not76.i = icmp eq i32 %283, 0
+  br i1 %.not76.i, label %mutex_stats_read_global.exit, label %284
 
-285:                                              ; preds = %tsd_fetch_impl.exit97.i
+284:                                              ; preds = %tsd_fetch_impl.exit97.i
   call void @je_malloc_write(ptr noundef nonnull @.str.217) #14
   call void @abort() #15
   unreachable
@@ -3487,370 +3486,370 @@ tsd_fetch_impl.exit97.i:                          ; preds = %282, %280
 mutex_stats_read_global.exit:                     ; preds = %tsd_fetch_impl.exit97.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #14
-  call fastcc void @emitter_json_object_kv_begin(ptr noundef %0, ptr noundef %201)
+  call fastcc void @emitter_json_object_kv_begin(ptr noundef %0, ptr noundef %200)
   call fastcc void @mutex_stats_emit(ptr noundef %0, ptr noundef nonnull %51, ptr noundef %53, ptr noundef %54)
   %.val.i121 = load i32, ptr %0, align 8, !tbaa !11
   %spec.select.i.i122 = icmp ult i32 %.val.i121, 2
-  br i1 %spec.select.i.i122, label %286, label %emitter_json_object_end.exit131
+  br i1 %spec.select.i.i122, label %285, label %emitter_json_object_end.exit131
 
-286:                                              ; preds = %mutex_stats_read_global.exit
-  %287 = load i32, ptr %186, align 8, !tbaa !20
-  %288 = add nsw i32 %287, -1
-  store i32 %288, ptr %186, align 8, !tbaa !20
-  store i8 1, ptr %187, align 4, !tbaa !18
+285:                                              ; preds = %mutex_stats_read_global.exit
+  %286 = load i32, ptr %185, align 8, !tbaa !20
+  %287 = add nsw i32 %286, -1
+  store i32 %287, ptr %185, align 8, !tbaa !20
+  store i8 1, ptr %186, align 4, !tbaa !18
   %.not.i123 = icmp eq i32 %.val.i121, 1
-  br i1 %.not.i123, label %emitter_indent.exit.i125, label %289
+  br i1 %.not.i123, label %emitter_indent.exit.i125, label %288
 
-289:                                              ; preds = %286
+288:                                              ; preds = %285
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.12)
-  %290 = load i32, ptr %186, align 8, !tbaa !20
-  %291 = load i32, ptr %0, align 8, !tbaa !11
-  %292 = icmp ne i32 %291, 0
-  %.07.i.i124 = select i1 %292, ptr @.str.10, ptr @.str.13
-  %293 = icmp sgt i32 %290, 0
-  br i1 %293, label %.lr.ph.preheader.i.i126, label %emitter_indent.exit.i125
+  %289 = load i32, ptr %185, align 8, !tbaa !20
+  %290 = load i32, ptr %0, align 8, !tbaa !11
+  %291 = icmp ne i32 %290, 0
+  %.07.i.i124 = select i1 %291, ptr @.str.10, ptr @.str.13
+  %292 = icmp sgt i32 %289, 0
+  br i1 %292, label %.lr.ph.preheader.i.i126, label %emitter_indent.exit.i125
 
-.lr.ph.preheader.i.i126:                          ; preds = %289
-  %294 = zext i1 %292 to i32
-  %.08.i.i127 = shl nuw nsw i32 %290, %294
+.lr.ph.preheader.i.i126:                          ; preds = %288
+  %293 = zext i1 %291 to i32
+  %.08.i.i127 = shl nuw nsw i32 %289, %293
   br label %.lr.ph.i.i128
 
 .lr.ph.i.i128:                                    ; preds = %.lr.ph.i.i128, %.lr.ph.preheader.i.i126
-  %.09.i.i129 = phi i32 [ %295, %.lr.ph.i.i128 ], [ 0, %.lr.ph.preheader.i.i126 ]
+  %.09.i.i129 = phi i32 [ %294, %.lr.ph.i.i128 ], [ 0, %.lr.ph.preheader.i.i126 ]
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %0, ptr noundef nonnull @.str.7, ptr noundef nonnull %.07.i.i124)
-  %295 = add nuw nsw i32 %.09.i.i129, 1
-  %exitcond.not.i.i130 = icmp eq i32 %295, %.08.i.i127
+  %294 = add nuw nsw i32 %.09.i.i129, 1
+  %exitcond.not.i.i130 = icmp eq i32 %294, %.08.i.i127
   br i1 %exitcond.not.i.i130, label %emitter_indent.exit.i125, label %.lr.ph.i.i128, !llvm.loop !21
 
-emitter_indent.exit.i125:                         ; preds = %.lr.ph.i.i128, %289, %286
+emitter_indent.exit.i125:                         ; preds = %.lr.ph.i.i128, %288, %285
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.519)
   br label %emitter_json_object_end.exit131
 
 emitter_json_object_end.exit131:                  ; preds = %mutex_stats_read_global.exit, %emitter_indent.exit.i125
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 9
-  br i1 %exitcond.not, label %188, label %199, !llvm.loop !40
+  br i1 %exitcond.not, label %187, label %198, !llvm.loop !40
 
-296:                                              ; preds = %emitter_json_object_end.exit119, %emitter_json_object_end.exit
+295:                                              ; preds = %emitter_json_object_end.exit119, %emitter_json_object_end.exit
   %.val.i132 = load i32, ptr %0, align 8, !tbaa !11
   %spec.select.i.i133 = icmp ult i32 %.val.i132, 2
-  br i1 %spec.select.i.i133, label %297, label %emitter_json_object_end.exit142
+  br i1 %spec.select.i.i133, label %296, label %emitter_json_object_end.exit142
 
-297:                                              ; preds = %296
-  %298 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %299 = load i32, ptr %298, align 8, !tbaa !20
-  %300 = add nsw i32 %299, -1
-  store i32 %300, ptr %298, align 8, !tbaa !20
-  %301 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i8 1, ptr %301, align 4, !tbaa !18
+296:                                              ; preds = %295
+  %297 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %298 = load i32, ptr %297, align 8, !tbaa !20
+  %299 = add nsw i32 %298, -1
+  store i32 %299, ptr %297, align 8, !tbaa !20
+  %300 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i8 1, ptr %300, align 4, !tbaa !18
   %.not.i134 = icmp eq i32 %.val.i132, 1
-  br i1 %.not.i134, label %emitter_indent.exit.i136, label %302
+  br i1 %.not.i134, label %emitter_indent.exit.i136, label %301
 
-302:                                              ; preds = %297
+301:                                              ; preds = %296
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.12)
-  %303 = load i32, ptr %298, align 8, !tbaa !20
-  %304 = load i32, ptr %0, align 8, !tbaa !11
-  %305 = icmp ne i32 %304, 0
-  %.07.i.i135 = select i1 %305, ptr @.str.10, ptr @.str.13
-  %306 = icmp sgt i32 %303, 0
-  br i1 %306, label %.lr.ph.preheader.i.i137, label %emitter_indent.exit.i136
+  %302 = load i32, ptr %297, align 8, !tbaa !20
+  %303 = load i32, ptr %0, align 8, !tbaa !11
+  %304 = icmp ne i32 %303, 0
+  %.07.i.i135 = select i1 %304, ptr @.str.10, ptr @.str.13
+  %305 = icmp sgt i32 %302, 0
+  br i1 %305, label %.lr.ph.preheader.i.i137, label %emitter_indent.exit.i136
 
-.lr.ph.preheader.i.i137:                          ; preds = %302
-  %307 = zext i1 %305 to i32
-  %.08.i.i138 = shl nuw nsw i32 %303, %307
+.lr.ph.preheader.i.i137:                          ; preds = %301
+  %306 = zext i1 %304 to i32
+  %.08.i.i138 = shl nuw nsw i32 %302, %306
   br label %.lr.ph.i.i139
 
 .lr.ph.i.i139:                                    ; preds = %.lr.ph.i.i139, %.lr.ph.preheader.i.i137
-  %.09.i.i140 = phi i32 [ %308, %.lr.ph.i.i139 ], [ 0, %.lr.ph.preheader.i.i137 ]
+  %.09.i.i140 = phi i32 [ %307, %.lr.ph.i.i139 ], [ 0, %.lr.ph.preheader.i.i137 ]
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %0, ptr noundef nonnull @.str.7, ptr noundef nonnull %.07.i.i135)
-  %308 = add nuw nsw i32 %.09.i.i140, 1
-  %exitcond.not.i.i141 = icmp eq i32 %308, %.08.i.i138
+  %307 = add nuw nsw i32 %.09.i.i140, 1
+  %exitcond.not.i.i141 = icmp eq i32 %307, %.08.i.i138
   br i1 %exitcond.not.i.i141, label %emitter_indent.exit.i136, label %.lr.ph.i.i139, !llvm.loop !21
 
-emitter_indent.exit.i136:                         ; preds = %.lr.ph.i.i139, %302, %297
+emitter_indent.exit.i136:                         ; preds = %.lr.ph.i.i139, %301, %296
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.519)
   br label %emitter_json_object_end.exit142
 
-emitter_json_object_end.exit142:                  ; preds = %296, %emitter_indent.exit.i136
+emitter_json_object_end.exit142:                  ; preds = %295, %emitter_indent.exit.i136
   %brmerge = or i1 %1, %2
   %brmerge101 = or i1 %brmerge, %3
-  br i1 %brmerge101, label %309, label %393
+  br i1 %brmerge101, label %308, label %392
 
-309:                                              ; preds = %emitter_json_object_end.exit142
+308:                                              ; preds = %emitter_json_object_end.exit142
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %61) #14
   call fastcc void @emitter_json_object_kv_begin(ptr noundef %0, ptr noundef nonnull @.str.278)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %62) #14
   store i64 4, ptr %62, align 8, !tbaa !4
-  %310 = call i32 @mallctl(ptr noundef nonnull @.str.194, ptr noundef nonnull %61, ptr noundef nonnull %62, ptr noundef null, i64 noundef 0) #14
-  %.not97 = icmp eq i32 %310, 0
-  br i1 %.not97, label %312, label %311
+  %309 = call i32 @mallctl(ptr noundef nonnull @.str.194, ptr noundef nonnull %61, ptr noundef nonnull %62, ptr noundef null, i64 noundef 0) #14
+  %.not97 = icmp eq i32 %309, 0
+  br i1 %.not97, label %311, label %310
 
-311:                                              ; preds = %309
+310:                                              ; preds = %308
   call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.15, ptr noundef nonnull @.str.194) #14
   call void @abort() #15
   unreachable
 
-312:                                              ; preds = %309
+311:                                              ; preds = %308
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %62) #14
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %63) #14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %64) #14
   store i64 3, ptr %64, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %65) #14
-  %313 = load i32, ptr %61, align 4, !tbaa !26
-  %314 = zext i32 %313 to i64
-  %315 = call ptr @llvm.stacksave.p0()
-  %316 = alloca i8, i64 %314, align 16
+  %312 = load i32, ptr %61, align 4, !tbaa !26
+  %313 = zext i32 %312 to i64
+  %314 = call ptr @llvm.stacksave.p0()
+  %315 = alloca i8, i64 %313, align 16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %66) #14
-  %317 = call i32 @mallctlnametomib(ptr noundef nonnull @.str.279, ptr noundef nonnull %63, ptr noundef nonnull %64) #14
-  %.not98 = icmp eq i32 %317, 0
-  br i1 %.not98, label %.preheader178, label %320
+  %316 = call i32 @mallctlnametomib(ptr noundef nonnull @.str.279, ptr noundef nonnull %63, ptr noundef nonnull %64) #14
+  %.not98 = icmp eq i32 %316, 0
+  br i1 %.not98, label %.preheader178, label %319
 
-.preheader178:                                    ; preds = %312
-  %318 = load i32, ptr %61, align 4, !tbaa !26
-  %.not187 = icmp eq i32 %318, 0
+.preheader178:                                    ; preds = %311
+  %317 = load i32, ptr %61, align 4, !tbaa !26
+  %.not187 = icmp eq i32 %317, 0
   br i1 %.not187, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader178
-  %319 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  br label %321
+  %318 = getelementptr inbounds nuw i8, ptr %63, i64 8
+  br label %320
 
-320:                                              ; preds = %312
+319:                                              ; preds = %311
   call void (ptr, ...) @je_malloc_printf(ptr noundef nonnull @.str.275, ptr noundef nonnull @.str.279) #14
   call void @abort() #15
   unreachable
 
-321:                                              ; preds = %.lr.ph, %326
-  %indvars.iv189 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next190, %326 ]
-  %.0182 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %326 ]
-  store i64 %indvars.iv189, ptr %319, align 8, !tbaa !4
+320:                                              ; preds = %.lr.ph, %325
+  %indvars.iv189 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next190, %325 ]
+  %.0182 = phi i32 [ 0, %.lr.ph ], [ %spec.select, %325 ]
+  store i64 %indvars.iv189, ptr %318, align 8, !tbaa !4
   store i64 1, ptr %65, align 8, !tbaa !4
-  %322 = load i64, ptr %64, align 8, !tbaa !4
-  %323 = getelementptr inbounds nuw i8, ptr %316, i64 %indvars.iv189
-  %324 = call i32 @mallctlbymib(ptr noundef nonnull %63, i64 noundef %322, ptr noundef nonnull %323, ptr noundef nonnull %65, ptr noundef null, i64 noundef 0) #14
-  %.not100 = icmp eq i32 %324, 0
-  br i1 %.not100, label %326, label %325
+  %321 = load i64, ptr %64, align 8, !tbaa !4
+  %322 = getelementptr inbounds nuw i8, ptr %315, i64 %indvars.iv189
+  %323 = call i32 @mallctlbymib(ptr noundef nonnull %63, i64 noundef %321, ptr noundef nonnull %322, ptr noundef nonnull %65, ptr noundef null, i64 noundef 0) #14
+  %.not100 = icmp eq i32 %323, 0
+  br i1 %.not100, label %325, label %324
 
-325:                                              ; preds = %321
+324:                                              ; preds = %320
   call void @je_malloc_write(ptr noundef nonnull @.str.276) #14
   call void @abort() #15
   unreachable
 
-326:                                              ; preds = %321
-  %327 = load i8, ptr %323, align 1, !tbaa !41, !range !22, !noundef !23
-  %328 = zext nneg i8 %327 to i32
-  %spec.select = add i32 %.0182, %328
+325:                                              ; preds = %320
+  %326 = load i8, ptr %322, align 1, !tbaa !41, !range !22, !noundef !23
+  %327 = zext nneg i8 %326 to i32
+  %spec.select = add i32 %.0182, %327
   %indvars.iv.next190 = add nuw nsw i64 %indvars.iv189, 1
-  %329 = load i32, ptr %61, align 4, !tbaa !26
-  %330 = zext i32 %329 to i64
-  %331 = icmp samesign ult i64 %indvars.iv.next190, %330
-  br i1 %331, label %321, label %._crit_edge.loopexit, !llvm.loop !42
+  %328 = load i32, ptr %61, align 4, !tbaa !26
+  %329 = zext i32 %328 to i64
+  %330 = icmp samesign ult i64 %indvars.iv.next190, %329
+  br i1 %330, label %320, label %._crit_edge.loopexit, !llvm.loop !42
 
-._crit_edge.loopexit:                             ; preds = %326
-  %332 = icmp ult i32 %spec.select, 2
+._crit_edge.loopexit:                             ; preds = %325
+  %331 = icmp ult i32 %spec.select, 2
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.preheader178
-  %.0.lcssa = phi i1 [ true, %.preheader178 ], [ %332, %._crit_edge.loopexit ]
-  %333 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  store i64 4097, ptr %333, align 8, !tbaa !4
+  %.0.lcssa = phi i1 [ true, %.preheader178 ], [ %331, %._crit_edge.loopexit ]
+  %332 = getelementptr inbounds nuw i8, ptr %63, i64 8
+  store i64 4097, ptr %332, align 8, !tbaa !4
   store i64 1, ptr %65, align 8, !tbaa !4
-  %334 = load i64, ptr %64, align 8, !tbaa !4
-  %335 = call i32 @mallctlbymib(ptr noundef nonnull %63, i64 noundef %334, ptr noundef nonnull %66, ptr noundef nonnull %65, ptr noundef null, i64 noundef 0) #14
-  %.not99 = icmp eq i32 %335, 0
-  br i1 %.not99, label %337, label %336
+  %333 = load i64, ptr %64, align 8, !tbaa !4
+  %334 = call i32 @mallctlbymib(ptr noundef nonnull %63, i64 noundef %333, ptr noundef nonnull %66, ptr noundef nonnull %65, ptr noundef null, i64 noundef 0) #14
+  %.not99 = icmp eq i32 %334, 0
+  br i1 %.not99, label %336, label %335
 
-336:                                              ; preds = %._crit_edge
+335:                                              ; preds = %._crit_edge
   call void @je_malloc_write(ptr noundef nonnull @.str.276) #14
   call void @abort() #15
   unreachable
 
-337:                                              ; preds = %._crit_edge
+336:                                              ; preds = %._crit_edge
   %.not177 = xor i1 %1, true
   %brmerge103.not = and i1 %3, %.0.lcssa
   %or.cond = select i1 %.not177, i1 true, i1 %brmerge103.not
-  br i1 %or.cond, label %339, label %338
+  br i1 %or.cond, label %338, label %337
 
-338:                                              ; preds = %337
+337:                                              ; preds = %336
   call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef %0, ptr noundef nonnull @.str.280)
   call fastcc void @emitter_json_object_kv_begin(ptr noundef %0, ptr noundef nonnull @.str.281)
   call fastcc void @stats_arena_print(ptr noundef %0, i32 noundef 4096, i1 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i1 noundef zeroext %7, i1 noundef zeroext %8) #16
   call fastcc void @emitter_json_object_end(ptr noundef %0)
-  br label %339
+  br label %338
 
-339:                                              ; preds = %338, %337
-  %340 = load i8, ptr %66, align 1, !tbaa !41, !range !22, !noundef !23
-  %341 = trunc nuw i8 %340 to i1
-  %brmerge106.demorgan = and i1 %2, %341
-  br i1 %brmerge106.demorgan, label %342, label %emitter_json_object_end.exit153
+338:                                              ; preds = %337, %336
+  %339 = load i8, ptr %66, align 1, !tbaa !41, !range !22, !noundef !23
+  %340 = trunc nuw i8 %339 to i1
+  %brmerge106.demorgan = and i1 %2, %340
+  br i1 %brmerge106.demorgan, label %341, label %emitter_json_object_end.exit153
 
-342:                                              ; preds = %339
+341:                                              ; preds = %338
   call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef %0, ptr noundef nonnull @.str.282)
   call fastcc void @emitter_json_object_kv_begin(ptr noundef %0, ptr noundef nonnull @.str.283)
   call fastcc void @stats_arena_print(ptr noundef %0, i32 noundef 4097, i1 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i1 noundef zeroext %7, i1 noundef zeroext %8) #16
   %.val.i143 = load i32, ptr %0, align 8, !tbaa !11
   %spec.select.i.i144 = icmp ult i32 %.val.i143, 2
-  br i1 %spec.select.i.i144, label %343, label %emitter_json_object_end.exit153
+  br i1 %spec.select.i.i144, label %342, label %emitter_json_object_end.exit153
 
-343:                                              ; preds = %342
-  %344 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %345 = load i32, ptr %344, align 8, !tbaa !20
-  %346 = add nsw i32 %345, -1
-  store i32 %346, ptr %344, align 8, !tbaa !20
-  %347 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i8 1, ptr %347, align 4, !tbaa !18
+342:                                              ; preds = %341
+  %343 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %344 = load i32, ptr %343, align 8, !tbaa !20
+  %345 = add nsw i32 %344, -1
+  store i32 %345, ptr %343, align 8, !tbaa !20
+  %346 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i8 1, ptr %346, align 4, !tbaa !18
   %.not.i145 = icmp eq i32 %.val.i143, 1
-  br i1 %.not.i145, label %emitter_indent.exit.i147, label %348
+  br i1 %.not.i145, label %emitter_indent.exit.i147, label %347
 
-348:                                              ; preds = %343
+347:                                              ; preds = %342
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.12)
-  %349 = load i32, ptr %344, align 8, !tbaa !20
-  %350 = load i32, ptr %0, align 8, !tbaa !11
-  %351 = icmp ne i32 %350, 0
-  %.07.i.i146 = select i1 %351, ptr @.str.10, ptr @.str.13
-  %352 = icmp sgt i32 %349, 0
-  br i1 %352, label %.lr.ph.preheader.i.i148, label %emitter_indent.exit.i147
+  %348 = load i32, ptr %343, align 8, !tbaa !20
+  %349 = load i32, ptr %0, align 8, !tbaa !11
+  %350 = icmp ne i32 %349, 0
+  %.07.i.i146 = select i1 %350, ptr @.str.10, ptr @.str.13
+  %351 = icmp sgt i32 %348, 0
+  br i1 %351, label %.lr.ph.preheader.i.i148, label %emitter_indent.exit.i147
 
-.lr.ph.preheader.i.i148:                          ; preds = %348
-  %353 = zext i1 %351 to i32
-  %.08.i.i149 = shl nuw nsw i32 %349, %353
+.lr.ph.preheader.i.i148:                          ; preds = %347
+  %352 = zext i1 %350 to i32
+  %.08.i.i149 = shl nuw nsw i32 %348, %352
   br label %.lr.ph.i.i150
 
 .lr.ph.i.i150:                                    ; preds = %.lr.ph.i.i150, %.lr.ph.preheader.i.i148
-  %.09.i.i151 = phi i32 [ %354, %.lr.ph.i.i150 ], [ 0, %.lr.ph.preheader.i.i148 ]
+  %.09.i.i151 = phi i32 [ %353, %.lr.ph.i.i150 ], [ 0, %.lr.ph.preheader.i.i148 ]
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %0, ptr noundef nonnull @.str.7, ptr noundef nonnull %.07.i.i146)
-  %354 = add nuw nsw i32 %.09.i.i151, 1
-  %exitcond.not.i.i152 = icmp eq i32 %354, %.08.i.i149
+  %353 = add nuw nsw i32 %.09.i.i151, 1
+  %exitcond.not.i.i152 = icmp eq i32 %353, %.08.i.i149
   br i1 %exitcond.not.i.i152, label %emitter_indent.exit.i147, label %.lr.ph.i.i150, !llvm.loop !21
 
-emitter_indent.exit.i147:                         ; preds = %.lr.ph.i.i150, %348, %343
+emitter_indent.exit.i147:                         ; preds = %.lr.ph.i.i150, %347, %342
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.519)
   br label %emitter_json_object_end.exit153
 
-emitter_json_object_end.exit153:                  ; preds = %emitter_indent.exit.i147, %342, %339
-  %355 = load i32, ptr %61, align 4
-  %356 = icmp ne i32 %355, 0
-  %or.cond186 = select i1 %3, i1 %356, i1 false
+emitter_json_object_end.exit153:                  ; preds = %emitter_indent.exit.i147, %341, %338
+  %354 = load i32, ptr %61, align 4
+  %355 = icmp ne i32 %354, 0
+  %or.cond186 = select i1 %3, i1 %355, i1 false
   br i1 %or.cond186, label %.lr.ph184, label %.loopexit
 
 .lr.ph184:                                        ; preds = %emitter_json_object_end.exit153
-  %357 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %358 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  br label %359
+  %356 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %357 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  br label %358
 
-359:                                              ; preds = %.lr.ph184, %377
-  %360 = phi i32 [ %355, %.lr.ph184 ], [ %378, %377 ]
-  %indvars.iv192 = phi i64 [ 0, %.lr.ph184 ], [ %indvars.iv.next193, %377 ]
-  %361 = getelementptr inbounds nuw i8, ptr %316, i64 %indvars.iv192
-  %362 = load i8, ptr %361, align 1, !tbaa !41, !range !22, !noundef !23
-  %363 = trunc nuw i8 %362 to i1
-  br i1 %363, label %364, label %377
+358:                                              ; preds = %.lr.ph184, %376
+  %359 = phi i32 [ %354, %.lr.ph184 ], [ %377, %376 ]
+  %indvars.iv192 = phi i64 [ 0, %.lr.ph184 ], [ %indvars.iv.next193, %376 ]
+  %360 = getelementptr inbounds nuw i8, ptr %315, i64 %indvars.iv192
+  %361 = load i8, ptr %360, align 1, !tbaa !41, !range !22, !noundef !23
+  %362 = trunc nuw i8 %361 to i1
+  br i1 %362, label %363, label %376
 
-364:                                              ; preds = %359
+363:                                              ; preds = %358
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %67) #14
-  %365 = trunc nuw i64 %indvars.iv192 to i32
-  %366 = call i64 (ptr, i64, ptr, ...) @je_malloc_snprintf(ptr noundef nonnull %67, i64 noundef 20, ptr noundef nonnull @.str.231, i32 noundef %365) #14
+  %364 = trunc nuw i64 %indvars.iv192 to i32
+  %365 = call i64 (ptr, i64, ptr, ...) @je_malloc_snprintf(ptr noundef nonnull %67, i64 noundef 20, ptr noundef nonnull @.str.231, i32 noundef %364) #14
   call fastcc void @emitter_json_object_kv_begin(ptr noundef %0, ptr noundef nonnull %67)
   call void (ptr, ptr, ...) @emitter_table_printf(ptr noundef %0, ptr noundef nonnull @.str.284, ptr noundef nonnull %67)
-  call fastcc void @stats_arena_print(ptr noundef %0, i32 noundef %365, i1 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i1 noundef zeroext %7, i1 noundef zeroext %8) #16
+  call fastcc void @stats_arena_print(ptr noundef %0, i32 noundef %364, i1 noundef zeroext %4, i1 noundef zeroext %5, i1 noundef zeroext %6, i1 noundef zeroext %7, i1 noundef zeroext %8) #16
   %.val.i154 = load i32, ptr %0, align 8, !tbaa !11
   %spec.select.i.i155 = icmp ult i32 %.val.i154, 2
-  br i1 %spec.select.i.i155, label %367, label %emitter_json_object_end.exit164
+  br i1 %spec.select.i.i155, label %366, label %emitter_json_object_end.exit164
 
-367:                                              ; preds = %364
-  %368 = load i32, ptr %357, align 8, !tbaa !20
-  %369 = add nsw i32 %368, -1
-  store i32 %369, ptr %357, align 8, !tbaa !20
-  store i8 1, ptr %358, align 4, !tbaa !18
+366:                                              ; preds = %363
+  %367 = load i32, ptr %356, align 8, !tbaa !20
+  %368 = add nsw i32 %367, -1
+  store i32 %368, ptr %356, align 8, !tbaa !20
+  store i8 1, ptr %357, align 4, !tbaa !18
   %.not.i156 = icmp eq i32 %.val.i154, 1
-  br i1 %.not.i156, label %emitter_indent.exit.i158, label %370
+  br i1 %.not.i156, label %emitter_indent.exit.i158, label %369
 
-370:                                              ; preds = %367
+369:                                              ; preds = %366
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.12)
-  %371 = load i32, ptr %357, align 8, !tbaa !20
-  %372 = load i32, ptr %0, align 8, !tbaa !11
-  %373 = icmp ne i32 %372, 0
-  %.07.i.i157 = select i1 %373, ptr @.str.10, ptr @.str.13
-  %374 = icmp sgt i32 %371, 0
-  br i1 %374, label %.lr.ph.preheader.i.i159, label %emitter_indent.exit.i158
+  %370 = load i32, ptr %356, align 8, !tbaa !20
+  %371 = load i32, ptr %0, align 8, !tbaa !11
+  %372 = icmp ne i32 %371, 0
+  %.07.i.i157 = select i1 %372, ptr @.str.10, ptr @.str.13
+  %373 = icmp sgt i32 %370, 0
+  br i1 %373, label %.lr.ph.preheader.i.i159, label %emitter_indent.exit.i158
 
-.lr.ph.preheader.i.i159:                          ; preds = %370
-  %375 = zext i1 %373 to i32
-  %.08.i.i160 = shl nuw nsw i32 %371, %375
+.lr.ph.preheader.i.i159:                          ; preds = %369
+  %374 = zext i1 %372 to i32
+  %.08.i.i160 = shl nuw nsw i32 %370, %374
   br label %.lr.ph.i.i161
 
 .lr.ph.i.i161:                                    ; preds = %.lr.ph.i.i161, %.lr.ph.preheader.i.i159
-  %.09.i.i162 = phi i32 [ %376, %.lr.ph.i.i161 ], [ 0, %.lr.ph.preheader.i.i159 ]
+  %.09.i.i162 = phi i32 [ %375, %.lr.ph.i.i161 ], [ 0, %.lr.ph.preheader.i.i159 ]
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %0, ptr noundef nonnull @.str.7, ptr noundef nonnull %.07.i.i157)
-  %376 = add nuw nsw i32 %.09.i.i162, 1
-  %exitcond.not.i.i163 = icmp eq i32 %376, %.08.i.i160
+  %375 = add nuw nsw i32 %.09.i.i162, 1
+  %exitcond.not.i.i163 = icmp eq i32 %375, %.08.i.i160
   br i1 %exitcond.not.i.i163, label %emitter_indent.exit.i158, label %.lr.ph.i.i161, !llvm.loop !21
 
-emitter_indent.exit.i158:                         ; preds = %.lr.ph.i.i161, %370, %367
+emitter_indent.exit.i158:                         ; preds = %.lr.ph.i.i161, %369, %366
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.519)
   br label %emitter_json_object_end.exit164
 
-emitter_json_object_end.exit164:                  ; preds = %364, %emitter_indent.exit.i158
+emitter_json_object_end.exit164:                  ; preds = %363, %emitter_indent.exit.i158
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %67) #14
   %.pre = load i32, ptr %61, align 4, !tbaa !26
-  br label %377
+  br label %376
 
-377:                                              ; preds = %359, %emitter_json_object_end.exit164
-  %378 = phi i32 [ %360, %359 ], [ %.pre, %emitter_json_object_end.exit164 ]
+376:                                              ; preds = %358, %emitter_json_object_end.exit164
+  %377 = phi i32 [ %359, %358 ], [ %.pre, %emitter_json_object_end.exit164 ]
   %indvars.iv.next193 = add nuw nsw i64 %indvars.iv192, 1
-  %379 = zext i32 %378 to i64
-  %380 = icmp samesign ult i64 %indvars.iv.next193, %379
-  br i1 %380, label %359, label %.loopexit, !llvm.loop !43
+  %378 = zext i32 %377 to i64
+  %379 = icmp samesign ult i64 %indvars.iv.next193, %378
+  br i1 %379, label %358, label %.loopexit, !llvm.loop !43
 
-.loopexit:                                        ; preds = %377, %emitter_json_object_end.exit153
+.loopexit:                                        ; preds = %376, %emitter_json_object_end.exit153
   %.val.i165 = load i32, ptr %0, align 8, !tbaa !11
   %spec.select.i.i166 = icmp ult i32 %.val.i165, 2
-  br i1 %spec.select.i.i166, label %381, label %emitter_json_object_end.exit175
+  br i1 %spec.select.i.i166, label %380, label %emitter_json_object_end.exit175
 
-381:                                              ; preds = %.loopexit
-  %382 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %383 = load i32, ptr %382, align 8, !tbaa !20
-  %384 = add nsw i32 %383, -1
-  store i32 %384, ptr %382, align 8, !tbaa !20
-  %385 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i8 1, ptr %385, align 4, !tbaa !18
+380:                                              ; preds = %.loopexit
+  %381 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %382 = load i32, ptr %381, align 8, !tbaa !20
+  %383 = add nsw i32 %382, -1
+  store i32 %383, ptr %381, align 8, !tbaa !20
+  %384 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i8 1, ptr %384, align 4, !tbaa !18
   %.not.i167 = icmp eq i32 %.val.i165, 1
-  br i1 %.not.i167, label %emitter_indent.exit.i169, label %386
+  br i1 %.not.i167, label %emitter_indent.exit.i169, label %385
 
-386:                                              ; preds = %381
+385:                                              ; preds = %380
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.12)
-  %387 = load i32, ptr %382, align 8, !tbaa !20
-  %388 = load i32, ptr %0, align 8, !tbaa !11
-  %389 = icmp ne i32 %388, 0
-  %.07.i.i168 = select i1 %389, ptr @.str.10, ptr @.str.13
-  %390 = icmp sgt i32 %387, 0
-  br i1 %390, label %.lr.ph.preheader.i.i170, label %emitter_indent.exit.i169
+  %386 = load i32, ptr %381, align 8, !tbaa !20
+  %387 = load i32, ptr %0, align 8, !tbaa !11
+  %388 = icmp ne i32 %387, 0
+  %.07.i.i168 = select i1 %388, ptr @.str.10, ptr @.str.13
+  %389 = icmp sgt i32 %386, 0
+  br i1 %389, label %.lr.ph.preheader.i.i170, label %emitter_indent.exit.i169
 
-.lr.ph.preheader.i.i170:                          ; preds = %386
-  %391 = zext i1 %389 to i32
-  %.08.i.i171 = shl nuw nsw i32 %387, %391
+.lr.ph.preheader.i.i170:                          ; preds = %385
+  %390 = zext i1 %388 to i32
+  %.08.i.i171 = shl nuw nsw i32 %386, %390
   br label %.lr.ph.i.i172
 
 .lr.ph.i.i172:                                    ; preds = %.lr.ph.i.i172, %.lr.ph.preheader.i.i170
-  %.09.i.i173 = phi i32 [ %392, %.lr.ph.i.i172 ], [ 0, %.lr.ph.preheader.i.i170 ]
+  %.09.i.i173 = phi i32 [ %391, %.lr.ph.i.i172 ], [ 0, %.lr.ph.preheader.i.i170 ]
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %0, ptr noundef nonnull @.str.7, ptr noundef nonnull %.07.i.i168)
-  %392 = add nuw nsw i32 %.09.i.i173, 1
-  %exitcond.not.i.i174 = icmp eq i32 %392, %.08.i.i171
+  %391 = add nuw nsw i32 %.09.i.i173, 1
+  %exitcond.not.i.i174 = icmp eq i32 %391, %.08.i.i171
   br i1 %exitcond.not.i.i174, label %emitter_indent.exit.i169, label %.lr.ph.i.i172, !llvm.loop !21
 
-emitter_indent.exit.i169:                         ; preds = %.lr.ph.i.i172, %386, %381
+emitter_indent.exit.i169:                         ; preds = %.lr.ph.i.i172, %385, %380
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.519)
   br label %emitter_json_object_end.exit175
 
 emitter_json_object_end.exit175:                  ; preds = %.loopexit, %emitter_indent.exit.i169
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %66) #14
-  call void @llvm.stackrestore.p0(ptr %315)
+  call void @llvm.stackrestore.p0(ptr %314)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %65) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %64) #14
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %63) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %61) #14
-  br label %393
+  br label %392
 
-393:                                              ; preds = %emitter_json_object_end.exit142, %emitter_json_object_end.exit175
+392:                                              ; preds = %emitter_json_object_end.exit142, %emitter_json_object_end.exit175
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %37) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35) #14
@@ -8271,7 +8270,7 @@ select.unfold._crit_edge.i470:                    ; preds = %select.unfold.i465
   br label %emitter_table_row.exit471
 
 emitter_table_row.exit471:                        ; preds = %1085, %select.unfold._crit_edge.i470
-  br i1 %4, label %1096, label %1246
+  br i1 %4, label %1096, label %1245
 
 1096:                                             ; preds = %emitter_table_row.exit471
   %1097 = load i64, ptr %70, align 8, !tbaa !4
@@ -8302,10 +8301,9 @@ select.unfold.i.i:                                ; preds = %1099, %select.unfol
   call fastcc void @emitter_print_value(ptr noundef nonnull readonly %0, i32 noundef %1101, i32 noundef %1103, i32 noundef %1105, ptr noundef nonnull %1106)
   %1107 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 24
   %1108 = load ptr, ptr %1107, align 8, !tbaa !39
-  %1109 = load ptr, ptr %23, align 8, !tbaa !30
-  %.not14.i.i = icmp eq ptr %1108, %1109
+  %.not14.i.i = icmp eq ptr %1108, %1100
   %.not1317.i.i = icmp eq ptr %1108, null
-  %.not13.i.i = or i1 %.not1317.i.i, %.not14.i.i
+  %.not13.i.i = or i1 %.not14.i.i, %.not1317.i.i
   br i1 %.not13.i.i, label %select.unfold._crit_edge.i.i, label %select.unfold.i.i
 
 select.unfold._crit_edge.i.i:                     ; preds = %select.unfold.i.i, %1099
@@ -8316,405 +8314,405 @@ emitter_table_row.exit.i:                         ; preds = %select.unfold._crit
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %27) #14
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28) #14
   store i64 7, ptr %28, align 8, !tbaa !4
-  %1110 = call nonnull align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @je_tsd_tls)
-  %1111 = getelementptr inbounds nuw i8, ptr %1110, i64 888
-  %1112 = load i8, ptr %1111, align 8, !tbaa !8
-  %.not.i.i = icmp eq i8 %1112, 0
-  br i1 %.not.i.i, label %tsd_fetch_impl.exit.i, label %1113, !prof !27
+  %1109 = call nonnull align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @je_tsd_tls)
+  %1110 = getelementptr inbounds nuw i8, ptr %1109, i64 888
+  %1111 = load i8, ptr %1110, align 8, !tbaa !8
+  %.not.i.i = icmp eq i8 %1111, 0
+  br i1 %.not.i.i, label %tsd_fetch_impl.exit.i, label %1112, !prof !27
 
-1113:                                             ; preds = %emitter_table_row.exit.i
-  %1114 = call ptr @je_tsd_fetch_slow(ptr noundef nonnull %1110, i1 noundef zeroext false) #14
+1112:                                             ; preds = %emitter_table_row.exit.i
+  %1113 = call ptr @je_tsd_fetch_slow(ptr noundef nonnull %1109, i1 noundef zeroext false) #14
   br label %tsd_fetch_impl.exit.i
 
-tsd_fetch_impl.exit.i:                            ; preds = %1113, %emitter_table_row.exit.i
-  %.0.i.i = phi ptr [ %1114, %1113 ], [ %1110, %emitter_table_row.exit.i ]
-  %1115 = call i32 @je_ctl_mibnametomib(ptr noundef %.0.i.i, ptr noundef nonnull %27, i64 noundef 0, ptr noundef nonnull @.str.278, ptr noundef nonnull %28) #14
-  %.not.i472 = icmp eq i32 %1115, 0
-  br i1 %.not.i472, label %1117, label %1116
+tsd_fetch_impl.exit.i:                            ; preds = %1112, %emitter_table_row.exit.i
+  %.0.i.i = phi ptr [ %1113, %1112 ], [ %1109, %emitter_table_row.exit.i ]
+  %1114 = call i32 @je_ctl_mibnametomib(ptr noundef %.0.i.i, ptr noundef nonnull %27, i64 noundef 0, ptr noundef nonnull @.str.278, ptr noundef nonnull %28) #14
+  %.not.i472 = icmp eq i32 %1114, 0
+  br i1 %.not.i472, label %1116, label %1115
+
+1115:                                             ; preds = %tsd_fetch_impl.exit.i
+  call void @je_malloc_write(ptr noundef nonnull @.str.215) #14
+  call void @abort() #15
+  unreachable
 
 1116:                                             ; preds = %tsd_fetch_impl.exit.i
-  call void @je_malloc_write(ptr noundef nonnull @.str.215) #14
-  call void @abort() #15
-  unreachable
-
-1117:                                             ; preds = %tsd_fetch_impl.exit.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #14
-  %1118 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  store i64 %227, ptr %1118, align 16, !tbaa !4
+  %1117 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  store i64 %227, ptr %1117, align 16, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29) #14
   store i64 7, ptr %29, align 8, !tbaa !4
-  %1119 = load i8, ptr %1111, align 8, !tbaa !8
-  %.not.i13.i = icmp eq i8 %1119, 0
-  br i1 %.not.i13.i, label %tsd_fetch_impl.exit15.i, label %1120, !prof !27
+  %1118 = load i8, ptr %1110, align 8, !tbaa !8
+  %.not.i13.i = icmp eq i8 %1118, 0
+  br i1 %.not.i13.i, label %tsd_fetch_impl.exit15.i, label %1119, !prof !27
 
-1120:                                             ; preds = %1117
-  %1121 = call ptr @je_tsd_fetch_slow(ptr noundef nonnull %1110, i1 noundef zeroext false) #14
+1119:                                             ; preds = %1116
+  %1120 = call ptr @je_tsd_fetch_slow(ptr noundef nonnull %1109, i1 noundef zeroext false) #14
   br label %tsd_fetch_impl.exit15.i
 
-tsd_fetch_impl.exit15.i:                          ; preds = %1120, %1117
-  %.0.i14.i = phi ptr [ %1121, %1120 ], [ %1110, %1117 ]
-  %1122 = call i32 @je_ctl_mibnametomib(ptr noundef %.0.i14.i, ptr noundef nonnull %27, i64 noundef 3, ptr noundef nonnull @.str.273, ptr noundef nonnull %29) #14
-  %.not12.i = icmp eq i32 %1122, 0
-  br i1 %.not12.i, label %1124, label %1123
+tsd_fetch_impl.exit15.i:                          ; preds = %1119, %1116
+  %.0.i14.i = phi ptr [ %1120, %1119 ], [ %1109, %1116 ]
+  %1121 = call i32 @je_ctl_mibnametomib(ptr noundef %.0.i14.i, ptr noundef nonnull %27, i64 noundef 3, ptr noundef nonnull @.str.273, ptr noundef nonnull %29) #14
+  %.not12.i = icmp eq i32 %1121, 0
+  br i1 %.not12.i, label %1123, label %1122
 
-1123:                                             ; preds = %tsd_fetch_impl.exit15.i
+1122:                                             ; preds = %tsd_fetch_impl.exit15.i
   call void @je_malloc_write(ptr noundef nonnull @.str.215) #14
   call void @abort() #15
   unreachable
 
-1124:                                             ; preds = %tsd_fetch_impl.exit15.i
+1123:                                             ; preds = %tsd_fetch_impl.exit15.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29) #14
-  %1125 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %1126 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %1127 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %1128 = getelementptr inbounds nuw i8, ptr %25, i64 48
-  %1129 = icmp eq i64 %1097, 0
-  %1130 = icmp ult i64 %1097, 1000000000
-  %1131 = udiv i64 %1097, 1000000000
-  %1132 = getelementptr inbounds nuw i8, ptr %25, i64 56
-  %1133 = getelementptr inbounds nuw i8, ptr %25, i64 88
-  %1134 = getelementptr inbounds nuw i8, ptr %25, i64 96
-  %1135 = getelementptr inbounds nuw i8, ptr %25, i64 128
-  %1136 = getelementptr inbounds nuw i8, ptr %25, i64 136
-  %1137 = getelementptr inbounds nuw i8, ptr %25, i64 168
-  %1138 = getelementptr inbounds nuw i8, ptr %25, i64 176
-  %1139 = getelementptr inbounds nuw i8, ptr %25, i64 208
-  %1140 = getelementptr inbounds nuw i8, ptr %25, i64 216
-  %1141 = getelementptr inbounds nuw i8, ptr %25, i64 248
-  %1142 = getelementptr inbounds nuw i8, ptr %25, i64 256
-  %1143 = getelementptr inbounds nuw i8, ptr %25, i64 288
-  %1144 = getelementptr inbounds nuw i8, ptr %25, i64 296
-  %1145 = getelementptr inbounds nuw i8, ptr %25, i64 328
-  %1146 = getelementptr inbounds nuw i8, ptr %25, i64 336
-  %1147 = getelementptr inbounds nuw i8, ptr %25, i64 368
-  %1148 = getelementptr inbounds nuw i8, ptr %25, i64 376
-  %1149 = getelementptr inbounds nuw i8, ptr %25, i64 408
-  %1150 = getelementptr inbounds nuw i8, ptr %25, i64 416
-  %1151 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %1152 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %1153 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %1154 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  br label %1166
+  %1124 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  %1125 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %1126 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  %1127 = getelementptr inbounds nuw i8, ptr %25, i64 48
+  %1128 = icmp eq i64 %1097, 0
+  %1129 = icmp ult i64 %1097, 1000000000
+  %1130 = udiv i64 %1097, 1000000000
+  %1131 = getelementptr inbounds nuw i8, ptr %25, i64 56
+  %1132 = getelementptr inbounds nuw i8, ptr %25, i64 88
+  %1133 = getelementptr inbounds nuw i8, ptr %25, i64 96
+  %1134 = getelementptr inbounds nuw i8, ptr %25, i64 128
+  %1135 = getelementptr inbounds nuw i8, ptr %25, i64 136
+  %1136 = getelementptr inbounds nuw i8, ptr %25, i64 168
+  %1137 = getelementptr inbounds nuw i8, ptr %25, i64 176
+  %1138 = getelementptr inbounds nuw i8, ptr %25, i64 208
+  %1139 = getelementptr inbounds nuw i8, ptr %25, i64 216
+  %1140 = getelementptr inbounds nuw i8, ptr %25, i64 248
+  %1141 = getelementptr inbounds nuw i8, ptr %25, i64 256
+  %1142 = getelementptr inbounds nuw i8, ptr %25, i64 288
+  %1143 = getelementptr inbounds nuw i8, ptr %25, i64 296
+  %1144 = getelementptr inbounds nuw i8, ptr %25, i64 328
+  %1145 = getelementptr inbounds nuw i8, ptr %25, i64 336
+  %1146 = getelementptr inbounds nuw i8, ptr %25, i64 368
+  %1147 = getelementptr inbounds nuw i8, ptr %25, i64 376
+  %1148 = getelementptr inbounds nuw i8, ptr %25, i64 408
+  %1149 = getelementptr inbounds nuw i8, ptr %25, i64 416
+  %1150 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %1151 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  %1152 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %1153 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  br label %1165
 
-1155:                                             ; preds = %emitter_json_object_end.exit29.i
+1154:                                             ; preds = %emitter_json_object_end.exit29.i
   %.val.i.i = load i32, ptr %0, align 8, !tbaa !11
   %spec.select.i.i.i = icmp ult i32 %.val.i.i, 2
-  br i1 %spec.select.i.i.i, label %1156, label %stats_arena_mutexes_print.exit
+  br i1 %spec.select.i.i.i, label %1155, label %stats_arena_mutexes_print.exit
 
-1156:                                             ; preds = %1155
-  %1157 = load i32, ptr %1153, align 8, !tbaa !20
-  %1158 = add nsw i32 %1157, -1
-  store i32 %1158, ptr %1153, align 8, !tbaa !20
-  store i8 1, ptr %1154, align 4, !tbaa !18
+1155:                                             ; preds = %1154
+  %1156 = load i32, ptr %1152, align 8, !tbaa !20
+  %1157 = add nsw i32 %1156, -1
+  store i32 %1157, ptr %1152, align 8, !tbaa !20
+  store i8 1, ptr %1153, align 4, !tbaa !18
   %.not.i17.i = icmp eq i32 %.val.i.i, 1
-  br i1 %.not.i17.i, label %emitter_indent.exit.i.i, label %1159
+  br i1 %.not.i17.i, label %emitter_indent.exit.i.i, label %1158
 
-1159:                                             ; preds = %1156
+1158:                                             ; preds = %1155
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.12)
-  %1160 = load i32, ptr %1153, align 8, !tbaa !20
-  %1161 = load i32, ptr %0, align 8, !tbaa !11
-  %1162 = icmp ne i32 %1161, 0
-  %.07.i.i.i = select i1 %1162, ptr @.str.10, ptr @.str.13
-  %1163 = icmp sgt i32 %1160, 0
-  br i1 %1163, label %.lr.ph.preheader.i.i.i, label %emitter_indent.exit.i.i
+  %1159 = load i32, ptr %1152, align 8, !tbaa !20
+  %1160 = load i32, ptr %0, align 8, !tbaa !11
+  %1161 = icmp ne i32 %1160, 0
+  %.07.i.i.i = select i1 %1161, ptr @.str.10, ptr @.str.13
+  %1162 = icmp sgt i32 %1159, 0
+  br i1 %1162, label %.lr.ph.preheader.i.i.i, label %emitter_indent.exit.i.i
 
-.lr.ph.preheader.i.i.i:                           ; preds = %1159
-  %1164 = zext i1 %1162 to i32
-  %.08.i.i.i = shl nuw nsw i32 %1160, %1164
+.lr.ph.preheader.i.i.i:                           ; preds = %1158
+  %1163 = zext i1 %1161 to i32
+  %.08.i.i.i = shl nuw nsw i32 %1159, %1163
   br label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %.lr.ph.i.i.i, %.lr.ph.preheader.i.i.i
-  %.09.i.i.i = phi i32 [ %1165, %.lr.ph.i.i.i ], [ 0, %.lr.ph.preheader.i.i.i ]
+  %.09.i.i.i = phi i32 [ %1164, %.lr.ph.i.i.i ], [ 0, %.lr.ph.preheader.i.i.i ]
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %0, ptr noundef nonnull @.str.7, ptr noundef nonnull %.07.i.i.i)
-  %1165 = add nuw nsw i32 %.09.i.i.i, 1
-  %exitcond.not.i.i.i = icmp eq i32 %1165, %.08.i.i.i
+  %1164 = add nuw nsw i32 %.09.i.i.i, 1
+  %exitcond.not.i.i.i = icmp eq i32 %1164, %.08.i.i.i
   br i1 %exitcond.not.i.i.i, label %emitter_indent.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !21
 
-emitter_indent.exit.i.i:                          ; preds = %.lr.ph.i.i.i, %1159, %1156
+emitter_indent.exit.i.i:                          ; preds = %.lr.ph.i.i.i, %1158, %1155
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.519)
   br label %stats_arena_mutexes_print.exit
 
-1166:                                             ; preds = %emitter_json_object_end.exit29.i, %1124
-  %indvars.iv.i = phi i64 [ 0, %1124 ], [ %indvars.iv.next.i, %emitter_json_object_end.exit29.i ]
-  %1167 = getelementptr inbounds nuw [12 x ptr], ptr @arena_mutex_names, i64 0, i64 %indvars.iv.i
-  %1168 = load ptr, ptr %1167, align 8, !tbaa !24
-  call fastcc void @emitter_json_object_kv_begin(ptr noundef nonnull %0, ptr noundef %1168)
+1165:                                             ; preds = %emitter_json_object_end.exit29.i, %1123
+  %indvars.iv.i = phi i64 [ 0, %1123 ], [ %indvars.iv.next.i, %emitter_json_object_end.exit29.i ]
+  %1166 = getelementptr inbounds nuw [12 x ptr], ptr @arena_mutex_names, i64 0, i64 %indvars.iv.i
+  %1167 = load ptr, ptr %1166, align 8, !tbaa !24
+  call fastcc void @emitter_json_object_kv_begin(ptr noundef nonnull %0, ptr noundef %1167)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #14
   store i64 7, ptr %8, align 8, !tbaa !4
-  %1169 = load i8, ptr %1111, align 8, !tbaa !8
-  %.not.i.i.i = icmp eq i8 %1169, 0
-  br i1 %.not.i.i.i, label %tsd_fetch_impl.exit.i.i, label %1170, !prof !27
+  %1168 = load i8, ptr %1110, align 8, !tbaa !8
+  %.not.i.i.i = icmp eq i8 %1168, 0
+  br i1 %.not.i.i.i, label %tsd_fetch_impl.exit.i.i, label %1169, !prof !27
 
-1170:                                             ; preds = %1166
-  %1171 = call ptr @je_tsd_fetch_slow(ptr noundef nonnull %1110, i1 noundef zeroext false) #14
+1169:                                             ; preds = %1165
+  %1170 = call ptr @je_tsd_fetch_slow(ptr noundef nonnull %1109, i1 noundef zeroext false) #14
   br label %tsd_fetch_impl.exit.i.i
 
-tsd_fetch_impl.exit.i.i:                          ; preds = %1170, %1166
-  %.0.i.i.i = phi ptr [ %1171, %1170 ], [ %1110, %1166 ]
-  %1172 = call i32 @je_ctl_mibnametomib(ptr noundef %.0.i.i.i, ptr noundef nonnull %27, i64 noundef 4, ptr noundef %1168, ptr noundef nonnull %8) #14
-  %.not.i18.i = icmp eq i32 %1172, 0
-  br i1 %.not.i18.i, label %1174, label %1173
+tsd_fetch_impl.exit.i.i:                          ; preds = %1169, %1165
+  %.0.i.i.i = phi ptr [ %1170, %1169 ], [ %1109, %1165 ]
+  %1171 = call i32 @je_ctl_mibnametomib(ptr noundef %.0.i.i.i, ptr noundef nonnull %27, i64 noundef 4, ptr noundef %1167, ptr noundef nonnull %8) #14
+  %.not.i18.i = icmp eq i32 %1171, 0
+  br i1 %.not.i18.i, label %1173, label %1172
 
-1173:                                             ; preds = %tsd_fetch_impl.exit.i.i
+1172:                                             ; preds = %tsd_fetch_impl.exit.i.i
   call void @je_malloc_write(ptr noundef nonnull @.str.215) #14
   call void @abort() #15
   unreachable
 
-1174:                                             ; preds = %tsd_fetch_impl.exit.i.i
+1173:                                             ; preds = %tsd_fetch_impl.exit.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #14
-  store ptr %1168, ptr %1125, align 8, !tbaa !8
-  store i32 5, ptr %1126, align 8, !tbaa !38
+  store ptr %1167, ptr %1124, align 8, !tbaa !8
+  store i32 5, ptr %1125, align 8, !tbaa !38
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #14
   store i64 7, ptr %9, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #14
   store i64 8, ptr %10, align 8, !tbaa !4
-  %1175 = load i8, ptr %1111, align 8, !tbaa !8
-  %.not.i77.i.i = icmp eq i8 %1175, 0
-  br i1 %.not.i77.i.i, label %tsd_fetch_impl.exit79.i.i, label %1176, !prof !27
+  %1174 = load i8, ptr %1110, align 8, !tbaa !8
+  %.not.i77.i.i = icmp eq i8 %1174, 0
+  br i1 %.not.i77.i.i, label %tsd_fetch_impl.exit79.i.i, label %1175, !prof !27
 
-1176:                                             ; preds = %1174
-  %1177 = call ptr @je_tsd_fetch_slow(ptr noundef nonnull %1110, i1 noundef zeroext false) #14
+1175:                                             ; preds = %1173
+  %1176 = call ptr @je_tsd_fetch_slow(ptr noundef nonnull %1109, i1 noundef zeroext false) #14
   br label %tsd_fetch_impl.exit79.i.i
 
-tsd_fetch_impl.exit79.i.i:                        ; preds = %1176, %1174
-  %.0.i78.i.i = phi ptr [ %1177, %1176 ], [ %1110, %1174 ]
-  %1178 = call i32 @je_ctl_bymibname(ptr noundef %.0.i78.i.i, ptr noundef nonnull %27, i64 noundef 5, ptr noundef nonnull @.str.293, ptr noundef nonnull %9, ptr noundef nonnull %1127, ptr noundef nonnull %10, ptr noundef null, i64 noundef 0) #14
-  %.not70.i.i = icmp eq i32 %1178, 0
-  br i1 %.not70.i.i, label %1180, label %1179
+tsd_fetch_impl.exit79.i.i:                        ; preds = %1175, %1173
+  %.0.i78.i.i = phi ptr [ %1176, %1175 ], [ %1109, %1173 ]
+  %1177 = call i32 @je_ctl_bymibname(ptr noundef %.0.i78.i.i, ptr noundef nonnull %27, i64 noundef 5, ptr noundef nonnull @.str.293, ptr noundef nonnull %9, ptr noundef nonnull %1126, ptr noundef nonnull %10, ptr noundef null, i64 noundef 0) #14
+  %.not70.i.i = icmp eq i32 %1177, 0
+  br i1 %.not70.i.i, label %1179, label %1178
 
-1179:                                             ; preds = %tsd_fetch_impl.exit79.i.i
+1178:                                             ; preds = %tsd_fetch_impl.exit79.i.i
   call void @je_malloc_write(ptr noundef nonnull @.str.217) #14
   call void @abort() #15
   unreachable
 
-1180:                                             ; preds = %tsd_fetch_impl.exit79.i.i
+1179:                                             ; preds = %tsd_fetch_impl.exit79.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #14
-  store i32 5, ptr %1128, align 16, !tbaa !38
-  %1181 = load i64, ptr %1127, align 16, !tbaa !8
-  %1182 = icmp eq i64 %1181, 0
-  %brmerge.i = or i1 %1130, %1182
-  %.mux.i = select i1 %1129, i64 0, i64 %1181
-  br i1 %brmerge.i, label %rate_per_second.exit.i.i, label %1183
+  store i32 5, ptr %1127, align 16, !tbaa !38
+  %1180 = load i64, ptr %1126, align 16, !tbaa !8
+  %1181 = icmp eq i64 %1180, 0
+  %brmerge.i = or i1 %1129, %1181
+  %.mux.i = select i1 %1128, i64 0, i64 %1180
+  br i1 %brmerge.i, label %rate_per_second.exit.i.i, label %1182
 
-1183:                                             ; preds = %1180
-  %1184 = udiv i64 %1181, %1131
+1182:                                             ; preds = %1179
+  %1183 = udiv i64 %1180, %1130
   br label %rate_per_second.exit.i.i
 
-rate_per_second.exit.i.i:                         ; preds = %1183, %1180
-  %.0.i98.i.i = phi i64 [ %1184, %1183 ], [ %.mux.i, %1180 ]
-  store i64 %.0.i98.i.i, ptr %1132, align 8, !tbaa !8
-  store i32 5, ptr %1133, align 8, !tbaa !38
+rate_per_second.exit.i.i:                         ; preds = %1182, %1179
+  %.0.i98.i.i = phi i64 [ %1183, %1182 ], [ %.mux.i, %1179 ]
+  store i64 %.0.i98.i.i, ptr %1131, align 8, !tbaa !8
+  store i32 5, ptr %1132, align 8, !tbaa !38
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #14
   store i64 7, ptr %11, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #14
   store i64 8, ptr %12, align 8, !tbaa !4
-  %1185 = load i8, ptr %1111, align 8, !tbaa !8
-  %.not.i80.i.i = icmp eq i8 %1185, 0
-  br i1 %.not.i80.i.i, label %tsd_fetch_impl.exit82.i.i, label %1186, !prof !27
+  %1184 = load i8, ptr %1110, align 8, !tbaa !8
+  %.not.i80.i.i = icmp eq i8 %1184, 0
+  br i1 %.not.i80.i.i, label %tsd_fetch_impl.exit82.i.i, label %1185, !prof !27
 
-1186:                                             ; preds = %rate_per_second.exit.i.i
-  %1187 = call ptr @je_tsd_fetch_slow(ptr noundef nonnull %1110, i1 noundef zeroext false) #14
+1185:                                             ; preds = %rate_per_second.exit.i.i
+  %1186 = call ptr @je_tsd_fetch_slow(ptr noundef nonnull %1109, i1 noundef zeroext false) #14
   br label %tsd_fetch_impl.exit82.i.i
 
-tsd_fetch_impl.exit82.i.i:                        ; preds = %1186, %rate_per_second.exit.i.i
-  %.0.i81.i.i = phi ptr [ %1187, %1186 ], [ %1110, %rate_per_second.exit.i.i ]
-  %1188 = call i32 @je_ctl_bymibname(ptr noundef %.0.i81.i.i, ptr noundef nonnull %27, i64 noundef 5, ptr noundef nonnull @.str.294, ptr noundef nonnull %11, ptr noundef nonnull %1134, ptr noundef nonnull %12, ptr noundef null, i64 noundef 0) #14
-  %.not71.i.i = icmp eq i32 %1188, 0
-  br i1 %.not71.i.i, label %1190, label %1189
+tsd_fetch_impl.exit82.i.i:                        ; preds = %1185, %rate_per_second.exit.i.i
+  %.0.i81.i.i = phi ptr [ %1186, %1185 ], [ %1109, %rate_per_second.exit.i.i ]
+  %1187 = call i32 @je_ctl_bymibname(ptr noundef %.0.i81.i.i, ptr noundef nonnull %27, i64 noundef 5, ptr noundef nonnull @.str.294, ptr noundef nonnull %11, ptr noundef nonnull %1133, ptr noundef nonnull %12, ptr noundef null, i64 noundef 0) #14
+  %.not71.i.i = icmp eq i32 %1187, 0
+  br i1 %.not71.i.i, label %1189, label %1188
 
-1189:                                             ; preds = %tsd_fetch_impl.exit82.i.i
+1188:                                             ; preds = %tsd_fetch_impl.exit82.i.i
   call void @je_malloc_write(ptr noundef nonnull @.str.217) #14
   call void @abort() #15
   unreachable
 
-1190:                                             ; preds = %tsd_fetch_impl.exit82.i.i
+1189:                                             ; preds = %tsd_fetch_impl.exit82.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #14
-  store i32 5, ptr %1135, align 16, !tbaa !38
-  %1191 = load i64, ptr %1134, align 16, !tbaa !8
-  %1192 = icmp eq i64 %1191, 0
-  %brmerge31.i = or i1 %1130, %1192
-  %.mux32.i = select i1 %1129, i64 0, i64 %1191
-  br i1 %brmerge31.i, label %rate_per_second.exit101.i.i, label %1193
+  store i32 5, ptr %1134, align 16, !tbaa !38
+  %1190 = load i64, ptr %1133, align 16, !tbaa !8
+  %1191 = icmp eq i64 %1190, 0
+  %brmerge31.i = or i1 %1129, %1191
+  %.mux32.i = select i1 %1128, i64 0, i64 %1190
+  br i1 %brmerge31.i, label %rate_per_second.exit101.i.i, label %1192
 
-1193:                                             ; preds = %1190
-  %1194 = udiv i64 %1191, %1131
+1192:                                             ; preds = %1189
+  %1193 = udiv i64 %1190, %1130
   br label %rate_per_second.exit101.i.i
 
-rate_per_second.exit101.i.i:                      ; preds = %1193, %1190
-  %.0.i100.i.i = phi i64 [ %1194, %1193 ], [ %.mux32.i, %1190 ]
-  store i64 %.0.i100.i.i, ptr %1136, align 8, !tbaa !8
-  store i32 5, ptr %1137, align 8, !tbaa !38
+rate_per_second.exit101.i.i:                      ; preds = %1192, %1189
+  %.0.i100.i.i = phi i64 [ %1193, %1192 ], [ %.mux32.i, %1189 ]
+  store i64 %.0.i100.i.i, ptr %1135, align 8, !tbaa !8
+  store i32 5, ptr %1136, align 8, !tbaa !38
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #14
   store i64 7, ptr %13, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #14
   store i64 8, ptr %14, align 8, !tbaa !4
-  %1195 = load i8, ptr %1111, align 8, !tbaa !8
-  %.not.i83.i.i = icmp eq i8 %1195, 0
-  br i1 %.not.i83.i.i, label %tsd_fetch_impl.exit85.i.i, label %1196, !prof !27
+  %1194 = load i8, ptr %1110, align 8, !tbaa !8
+  %.not.i83.i.i = icmp eq i8 %1194, 0
+  br i1 %.not.i83.i.i, label %tsd_fetch_impl.exit85.i.i, label %1195, !prof !27
 
-1196:                                             ; preds = %rate_per_second.exit101.i.i
-  %1197 = call ptr @je_tsd_fetch_slow(ptr noundef nonnull %1110, i1 noundef zeroext false) #14
+1195:                                             ; preds = %rate_per_second.exit101.i.i
+  %1196 = call ptr @je_tsd_fetch_slow(ptr noundef nonnull %1109, i1 noundef zeroext false) #14
   br label %tsd_fetch_impl.exit85.i.i
 
-tsd_fetch_impl.exit85.i.i:                        ; preds = %1196, %rate_per_second.exit101.i.i
-  %.0.i84.i.i = phi ptr [ %1197, %1196 ], [ %1110, %rate_per_second.exit101.i.i ]
-  %1198 = call i32 @je_ctl_bymibname(ptr noundef %.0.i84.i.i, ptr noundef nonnull %27, i64 noundef 5, ptr noundef nonnull @.str.295, ptr noundef nonnull %13, ptr noundef nonnull %1138, ptr noundef nonnull %14, ptr noundef null, i64 noundef 0) #14
-  %.not72.i.i = icmp eq i32 %1198, 0
-  br i1 %.not72.i.i, label %1200, label %1199
+tsd_fetch_impl.exit85.i.i:                        ; preds = %1195, %rate_per_second.exit101.i.i
+  %.0.i84.i.i = phi ptr [ %1196, %1195 ], [ %1109, %rate_per_second.exit101.i.i ]
+  %1197 = call i32 @je_ctl_bymibname(ptr noundef %.0.i84.i.i, ptr noundef nonnull %27, i64 noundef 5, ptr noundef nonnull @.str.295, ptr noundef nonnull %13, ptr noundef nonnull %1137, ptr noundef nonnull %14, ptr noundef null, i64 noundef 0) #14
+  %.not72.i.i = icmp eq i32 %1197, 0
+  br i1 %.not72.i.i, label %1199, label %1198
 
-1199:                                             ; preds = %tsd_fetch_impl.exit85.i.i
+1198:                                             ; preds = %tsd_fetch_impl.exit85.i.i
   call void @je_malloc_write(ptr noundef nonnull @.str.217) #14
   call void @abort() #15
   unreachable
 
-1200:                                             ; preds = %tsd_fetch_impl.exit85.i.i
+1199:                                             ; preds = %tsd_fetch_impl.exit85.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #14
-  store i32 5, ptr %1139, align 16, !tbaa !38
-  %1201 = load i64, ptr %1138, align 16, !tbaa !8
-  %1202 = icmp eq i64 %1201, 0
-  %brmerge33.i = or i1 %1130, %1202
-  %.mux34.i = select i1 %1129, i64 0, i64 %1201
-  br i1 %brmerge33.i, label %rate_per_second.exit104.i.i, label %1203
+  store i32 5, ptr %1138, align 16, !tbaa !38
+  %1200 = load i64, ptr %1137, align 16, !tbaa !8
+  %1201 = icmp eq i64 %1200, 0
+  %brmerge33.i = or i1 %1129, %1201
+  %.mux34.i = select i1 %1128, i64 0, i64 %1200
+  br i1 %brmerge33.i, label %rate_per_second.exit104.i.i, label %1202
 
-1203:                                             ; preds = %1200
-  %1204 = udiv i64 %1201, %1131
+1202:                                             ; preds = %1199
+  %1203 = udiv i64 %1200, %1130
   br label %rate_per_second.exit104.i.i
 
-rate_per_second.exit104.i.i:                      ; preds = %1203, %1200
-  %.0.i103.i.i = phi i64 [ %1204, %1203 ], [ %.mux34.i, %1200 ]
-  store i64 %.0.i103.i.i, ptr %1140, align 8, !tbaa !8
-  store i32 5, ptr %1141, align 8, !tbaa !38
+rate_per_second.exit104.i.i:                      ; preds = %1202, %1199
+  %.0.i103.i.i = phi i64 [ %1203, %1202 ], [ %.mux34.i, %1199 ]
+  store i64 %.0.i103.i.i, ptr %1139, align 8, !tbaa !8
+  store i32 5, ptr %1140, align 8, !tbaa !38
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #14
   store i64 7, ptr %15, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #14
   store i64 8, ptr %16, align 8, !tbaa !4
-  %1205 = load i8, ptr %1111, align 8, !tbaa !8
-  %.not.i86.i.i = icmp eq i8 %1205, 0
-  br i1 %.not.i86.i.i, label %tsd_fetch_impl.exit88.i.i, label %1206, !prof !27
+  %1204 = load i8, ptr %1110, align 8, !tbaa !8
+  %.not.i86.i.i = icmp eq i8 %1204, 0
+  br i1 %.not.i86.i.i, label %tsd_fetch_impl.exit88.i.i, label %1205, !prof !27
 
-1206:                                             ; preds = %rate_per_second.exit104.i.i
-  %1207 = call ptr @je_tsd_fetch_slow(ptr noundef nonnull %1110, i1 noundef zeroext false) #14
+1205:                                             ; preds = %rate_per_second.exit104.i.i
+  %1206 = call ptr @je_tsd_fetch_slow(ptr noundef nonnull %1109, i1 noundef zeroext false) #14
   br label %tsd_fetch_impl.exit88.i.i
 
-tsd_fetch_impl.exit88.i.i:                        ; preds = %1206, %rate_per_second.exit104.i.i
-  %.0.i87.i.i = phi ptr [ %1207, %1206 ], [ %1110, %rate_per_second.exit104.i.i ]
-  %1208 = call i32 @je_ctl_bymibname(ptr noundef %.0.i87.i.i, ptr noundef nonnull %27, i64 noundef 5, ptr noundef nonnull @.str.296, ptr noundef nonnull %15, ptr noundef nonnull %1142, ptr noundef nonnull %16, ptr noundef null, i64 noundef 0) #14
-  %.not73.i.i = icmp eq i32 %1208, 0
-  br i1 %.not73.i.i, label %1210, label %1209
+tsd_fetch_impl.exit88.i.i:                        ; preds = %1205, %rate_per_second.exit104.i.i
+  %.0.i87.i.i = phi ptr [ %1206, %1205 ], [ %1109, %rate_per_second.exit104.i.i ]
+  %1207 = call i32 @je_ctl_bymibname(ptr noundef %.0.i87.i.i, ptr noundef nonnull %27, i64 noundef 5, ptr noundef nonnull @.str.296, ptr noundef nonnull %15, ptr noundef nonnull %1141, ptr noundef nonnull %16, ptr noundef null, i64 noundef 0) #14
+  %.not73.i.i = icmp eq i32 %1207, 0
+  br i1 %.not73.i.i, label %1209, label %1208
 
-1209:                                             ; preds = %tsd_fetch_impl.exit88.i.i
+1208:                                             ; preds = %tsd_fetch_impl.exit88.i.i
   call void @je_malloc_write(ptr noundef nonnull @.str.217) #14
   call void @abort() #15
   unreachable
 
-1210:                                             ; preds = %tsd_fetch_impl.exit88.i.i
+1209:                                             ; preds = %tsd_fetch_impl.exit88.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #14
-  store i32 5, ptr %1143, align 16, !tbaa !38
-  %1211 = load i64, ptr %1142, align 16, !tbaa !8
-  %1212 = icmp eq i64 %1211, 0
-  %brmerge35.i = or i1 %1130, %1212
-  %.mux36.i = select i1 %1129, i64 0, i64 %1211
-  br i1 %brmerge35.i, label %rate_per_second.exit107.i.i, label %1213
+  store i32 5, ptr %1142, align 16, !tbaa !38
+  %1210 = load i64, ptr %1141, align 16, !tbaa !8
+  %1211 = icmp eq i64 %1210, 0
+  %brmerge35.i = or i1 %1129, %1211
+  %.mux36.i = select i1 %1128, i64 0, i64 %1210
+  br i1 %brmerge35.i, label %rate_per_second.exit107.i.i, label %1212
 
-1213:                                             ; preds = %1210
-  %1214 = udiv i64 %1211, %1131
+1212:                                             ; preds = %1209
+  %1213 = udiv i64 %1210, %1130
   br label %rate_per_second.exit107.i.i
 
-rate_per_second.exit107.i.i:                      ; preds = %1213, %1210
-  %.0.i106.i.i = phi i64 [ %1214, %1213 ], [ %.mux36.i, %1210 ]
-  store i64 %.0.i106.i.i, ptr %1144, align 8, !tbaa !8
-  store i32 5, ptr %1145, align 8, !tbaa !38
+rate_per_second.exit107.i.i:                      ; preds = %1212, %1209
+  %.0.i106.i.i = phi i64 [ %1213, %1212 ], [ %.mux36.i, %1209 ]
+  store i64 %.0.i106.i.i, ptr %1143, align 8, !tbaa !8
+  store i32 5, ptr %1144, align 8, !tbaa !38
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #14
   store i64 7, ptr %17, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #14
   store i64 8, ptr %18, align 8, !tbaa !4
-  %1215 = load i8, ptr %1111, align 8, !tbaa !8
-  %.not.i89.i.i = icmp eq i8 %1215, 0
-  br i1 %.not.i89.i.i, label %tsd_fetch_impl.exit91.i.i, label %1216, !prof !27
+  %1214 = load i8, ptr %1110, align 8, !tbaa !8
+  %.not.i89.i.i = icmp eq i8 %1214, 0
+  br i1 %.not.i89.i.i, label %tsd_fetch_impl.exit91.i.i, label %1215, !prof !27
 
-1216:                                             ; preds = %rate_per_second.exit107.i.i
-  %1217 = call ptr @je_tsd_fetch_slow(ptr noundef nonnull %1110, i1 noundef zeroext false) #14
+1215:                                             ; preds = %rate_per_second.exit107.i.i
+  %1216 = call ptr @je_tsd_fetch_slow(ptr noundef nonnull %1109, i1 noundef zeroext false) #14
   br label %tsd_fetch_impl.exit91.i.i
 
-tsd_fetch_impl.exit91.i.i:                        ; preds = %1216, %rate_per_second.exit107.i.i
-  %.0.i90.i.i = phi ptr [ %1217, %1216 ], [ %1110, %rate_per_second.exit107.i.i ]
-  %1218 = call i32 @je_ctl_bymibname(ptr noundef %.0.i90.i.i, ptr noundef nonnull %27, i64 noundef 5, ptr noundef nonnull @.str.297, ptr noundef nonnull %17, ptr noundef nonnull %1146, ptr noundef nonnull %18, ptr noundef null, i64 noundef 0) #14
-  %.not74.i.i = icmp eq i32 %1218, 0
-  br i1 %.not74.i.i, label %1220, label %1219
+tsd_fetch_impl.exit91.i.i:                        ; preds = %1215, %rate_per_second.exit107.i.i
+  %.0.i90.i.i = phi ptr [ %1216, %1215 ], [ %1109, %rate_per_second.exit107.i.i ]
+  %1217 = call i32 @je_ctl_bymibname(ptr noundef %.0.i90.i.i, ptr noundef nonnull %27, i64 noundef 5, ptr noundef nonnull @.str.297, ptr noundef nonnull %17, ptr noundef nonnull %1145, ptr noundef nonnull %18, ptr noundef null, i64 noundef 0) #14
+  %.not74.i.i = icmp eq i32 %1217, 0
+  br i1 %.not74.i.i, label %1219, label %1218
 
-1219:                                             ; preds = %tsd_fetch_impl.exit91.i.i
+1218:                                             ; preds = %tsd_fetch_impl.exit91.i.i
   call void @je_malloc_write(ptr noundef nonnull @.str.217) #14
   call void @abort() #15
   unreachable
 
-1220:                                             ; preds = %tsd_fetch_impl.exit91.i.i
+1219:                                             ; preds = %tsd_fetch_impl.exit91.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #14
-  store i32 5, ptr %1147, align 16, !tbaa !38
-  %1221 = load i64, ptr %1146, align 16, !tbaa !8
-  %1222 = icmp eq i64 %1221, 0
-  %brmerge37.i = or i1 %1130, %1222
-  %.mux38.i = select i1 %1129, i64 0, i64 %1221
-  br i1 %brmerge37.i, label %rate_per_second.exit110.i.i, label %1223
+  store i32 5, ptr %1146, align 16, !tbaa !38
+  %1220 = load i64, ptr %1145, align 16, !tbaa !8
+  %1221 = icmp eq i64 %1220, 0
+  %brmerge37.i = or i1 %1129, %1221
+  %.mux38.i = select i1 %1128, i64 0, i64 %1220
+  br i1 %brmerge37.i, label %rate_per_second.exit110.i.i, label %1222
 
-1223:                                             ; preds = %1220
-  %1224 = udiv i64 %1221, %1131
+1222:                                             ; preds = %1219
+  %1223 = udiv i64 %1220, %1130
   br label %rate_per_second.exit110.i.i
 
-rate_per_second.exit110.i.i:                      ; preds = %1223, %1220
-  %.0.i109.i.i = phi i64 [ %1224, %1223 ], [ %.mux38.i, %1220 ]
-  store i64 %.0.i109.i.i, ptr %1148, align 8, !tbaa !8
-  store i32 5, ptr %1149, align 8, !tbaa !38
+rate_per_second.exit110.i.i:                      ; preds = %1222, %1219
+  %.0.i109.i.i = phi i64 [ %1223, %1222 ], [ %.mux38.i, %1219 ]
+  store i64 %.0.i109.i.i, ptr %1147, align 8, !tbaa !8
+  store i32 5, ptr %1148, align 8, !tbaa !38
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #14
   store i64 7, ptr %19, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #14
   store i64 8, ptr %20, align 8, !tbaa !4
-  %1225 = load i8, ptr %1111, align 8, !tbaa !8
-  %.not.i92.i.i = icmp eq i8 %1225, 0
-  br i1 %.not.i92.i.i, label %tsd_fetch_impl.exit94.i.i, label %1226, !prof !27
+  %1224 = load i8, ptr %1110, align 8, !tbaa !8
+  %.not.i92.i.i = icmp eq i8 %1224, 0
+  br i1 %.not.i92.i.i, label %tsd_fetch_impl.exit94.i.i, label %1225, !prof !27
 
-1226:                                             ; preds = %rate_per_second.exit110.i.i
-  %1227 = call ptr @je_tsd_fetch_slow(ptr noundef nonnull %1110, i1 noundef zeroext false) #14
+1225:                                             ; preds = %rate_per_second.exit110.i.i
+  %1226 = call ptr @je_tsd_fetch_slow(ptr noundef nonnull %1109, i1 noundef zeroext false) #14
   br label %tsd_fetch_impl.exit94.i.i
 
-tsd_fetch_impl.exit94.i.i:                        ; preds = %1226, %rate_per_second.exit110.i.i
-  %.0.i93.i.i = phi ptr [ %1227, %1226 ], [ %1110, %rate_per_second.exit110.i.i ]
-  %1228 = call i32 @je_ctl_bymibname(ptr noundef %.0.i93.i.i, ptr noundef nonnull %27, i64 noundef 5, ptr noundef nonnull @.str.298, ptr noundef nonnull %19, ptr noundef nonnull %1150, ptr noundef nonnull %20, ptr noundef null, i64 noundef 0) #14
-  %.not75.i.i = icmp eq i32 %1228, 0
-  br i1 %.not75.i.i, label %1230, label %1229
+tsd_fetch_impl.exit94.i.i:                        ; preds = %1225, %rate_per_second.exit110.i.i
+  %.0.i93.i.i = phi ptr [ %1226, %1225 ], [ %1109, %rate_per_second.exit110.i.i ]
+  %1227 = call i32 @je_ctl_bymibname(ptr noundef %.0.i93.i.i, ptr noundef nonnull %27, i64 noundef 5, ptr noundef nonnull @.str.298, ptr noundef nonnull %19, ptr noundef nonnull %1149, ptr noundef nonnull %20, ptr noundef null, i64 noundef 0) #14
+  %.not75.i.i = icmp eq i32 %1227, 0
+  br i1 %.not75.i.i, label %1229, label %1228
 
-1229:                                             ; preds = %tsd_fetch_impl.exit94.i.i
+1228:                                             ; preds = %tsd_fetch_impl.exit94.i.i
   call void @je_malloc_write(ptr noundef nonnull @.str.217) #14
   call void @abort() #15
   unreachable
 
-1230:                                             ; preds = %tsd_fetch_impl.exit94.i.i
+1229:                                             ; preds = %tsd_fetch_impl.exit94.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #14
-  store i32 4, ptr %1151, align 8, !tbaa !38
+  store i32 4, ptr %1150, align 8, !tbaa !38
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #14
   store i64 7, ptr %21, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #14
   store i64 4, ptr %22, align 8, !tbaa !4
-  %1231 = load i8, ptr %1111, align 8, !tbaa !8
-  %.not.i95.i.i = icmp eq i8 %1231, 0
-  br i1 %.not.i95.i.i, label %tsd_fetch_impl.exit97.i.i, label %1232, !prof !27
+  %1230 = load i8, ptr %1110, align 8, !tbaa !8
+  %.not.i95.i.i = icmp eq i8 %1230, 0
+  br i1 %.not.i95.i.i, label %tsd_fetch_impl.exit97.i.i, label %1231, !prof !27
 
-1232:                                             ; preds = %1230
-  %1233 = call ptr @je_tsd_fetch_slow(ptr noundef nonnull %1110, i1 noundef zeroext false) #14
+1231:                                             ; preds = %1229
+  %1232 = call ptr @je_tsd_fetch_slow(ptr noundef nonnull %1109, i1 noundef zeroext false) #14
   br label %tsd_fetch_impl.exit97.i.i
 
-tsd_fetch_impl.exit97.i.i:                        ; preds = %1232, %1230
-  %.0.i96.i.i = phi ptr [ %1233, %1232 ], [ %1110, %1230 ]
-  %1234 = call i32 @je_ctl_bymibname(ptr noundef %.0.i96.i.i, ptr noundef nonnull %27, i64 noundef 5, ptr noundef nonnull @.str.299, ptr noundef nonnull %21, ptr noundef nonnull %1152, ptr noundef nonnull %22, ptr noundef null, i64 noundef 0) #14
-  %.not76.i.i = icmp eq i32 %1234, 0
-  br i1 %.not76.i.i, label %mutex_stats_read_arena.exit.i, label %1235
+tsd_fetch_impl.exit97.i.i:                        ; preds = %1231, %1229
+  %.0.i96.i.i = phi ptr [ %1232, %1231 ], [ %1109, %1229 ]
+  %1233 = call i32 @je_ctl_bymibname(ptr noundef %.0.i96.i.i, ptr noundef nonnull %27, i64 noundef 5, ptr noundef nonnull @.str.299, ptr noundef nonnull %21, ptr noundef nonnull %1151, ptr noundef nonnull %22, ptr noundef null, i64 noundef 0) #14
+  %.not76.i.i = icmp eq i32 %1233, 0
+  br i1 %.not76.i.i, label %mutex_stats_read_arena.exit.i, label %1234
 
-1235:                                             ; preds = %tsd_fetch_impl.exit97.i.i
+1234:                                             ; preds = %tsd_fetch_impl.exit97.i.i
   call void @je_malloc_write(ptr noundef nonnull @.str.217) #14
   call void @abort() #15
   unreachable
@@ -8725,86 +8723,86 @@ mutex_stats_read_arena.exit.i:                    ; preds = %tsd_fetch_impl.exit
   call fastcc void @mutex_stats_emit(ptr noundef nonnull %0, ptr noundef nonnull %23, ptr noundef %25, ptr noundef %26)
   %.val.i19.i = load i32, ptr %0, align 8, !tbaa !11
   %spec.select.i.i20.i = icmp ult i32 %.val.i19.i, 2
-  br i1 %spec.select.i.i20.i, label %1236, label %emitter_json_object_end.exit29.i
+  br i1 %spec.select.i.i20.i, label %1235, label %emitter_json_object_end.exit29.i
 
-1236:                                             ; preds = %mutex_stats_read_arena.exit.i
-  %1237 = load i32, ptr %1153, align 8, !tbaa !20
-  %1238 = add nsw i32 %1237, -1
-  store i32 %1238, ptr %1153, align 8, !tbaa !20
-  store i8 1, ptr %1154, align 4, !tbaa !18
+1235:                                             ; preds = %mutex_stats_read_arena.exit.i
+  %1236 = load i32, ptr %1152, align 8, !tbaa !20
+  %1237 = add nsw i32 %1236, -1
+  store i32 %1237, ptr %1152, align 8, !tbaa !20
+  store i8 1, ptr %1153, align 4, !tbaa !18
   %.not.i21.i = icmp eq i32 %.val.i19.i, 1
-  br i1 %.not.i21.i, label %emitter_indent.exit.i23.i, label %1239
+  br i1 %.not.i21.i, label %emitter_indent.exit.i23.i, label %1238
 
-1239:                                             ; preds = %1236
+1238:                                             ; preds = %1235
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.12)
-  %1240 = load i32, ptr %1153, align 8, !tbaa !20
-  %1241 = load i32, ptr %0, align 8, !tbaa !11
-  %1242 = icmp ne i32 %1241, 0
-  %.07.i.i22.i = select i1 %1242, ptr @.str.10, ptr @.str.13
-  %1243 = icmp sgt i32 %1240, 0
-  br i1 %1243, label %.lr.ph.preheader.i.i24.i, label %emitter_indent.exit.i23.i
+  %1239 = load i32, ptr %1152, align 8, !tbaa !20
+  %1240 = load i32, ptr %0, align 8, !tbaa !11
+  %1241 = icmp ne i32 %1240, 0
+  %.07.i.i22.i = select i1 %1241, ptr @.str.10, ptr @.str.13
+  %1242 = icmp sgt i32 %1239, 0
+  br i1 %1242, label %.lr.ph.preheader.i.i24.i, label %emitter_indent.exit.i23.i
 
-.lr.ph.preheader.i.i24.i:                         ; preds = %1239
-  %1244 = zext i1 %1242 to i32
-  %.08.i.i25.i = shl nuw nsw i32 %1240, %1244
+.lr.ph.preheader.i.i24.i:                         ; preds = %1238
+  %1243 = zext i1 %1241 to i32
+  %.08.i.i25.i = shl nuw nsw i32 %1239, %1243
   br label %.lr.ph.i.i26.i
 
 .lr.ph.i.i26.i:                                   ; preds = %.lr.ph.i.i26.i, %.lr.ph.preheader.i.i24.i
-  %.09.i.i27.i = phi i32 [ %1245, %.lr.ph.i.i26.i ], [ 0, %.lr.ph.preheader.i.i24.i ]
+  %.09.i.i27.i = phi i32 [ %1244, %.lr.ph.i.i26.i ], [ 0, %.lr.ph.preheader.i.i24.i ]
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull readonly %0, ptr noundef nonnull @.str.7, ptr noundef nonnull %.07.i.i22.i)
-  %1245 = add nuw nsw i32 %.09.i.i27.i, 1
-  %exitcond.not.i.i28.i = icmp eq i32 %1245, %.08.i.i25.i
+  %1244 = add nuw nsw i32 %.09.i.i27.i, 1
+  %exitcond.not.i.i28.i = icmp eq i32 %1244, %.08.i.i25.i
   br i1 %exitcond.not.i.i28.i, label %emitter_indent.exit.i23.i, label %.lr.ph.i.i26.i, !llvm.loop !21
 
-emitter_indent.exit.i23.i:                        ; preds = %.lr.ph.i.i26.i, %1239, %1236
+emitter_indent.exit.i23.i:                        ; preds = %.lr.ph.i.i26.i, %1238, %1235
   call void (ptr, ptr, ...) @emitter_printf(ptr noundef nonnull %0, ptr noundef nonnull @.str.519)
   br label %emitter_json_object_end.exit29.i
 
 emitter_json_object_end.exit29.i:                 ; preds = %emitter_indent.exit.i23.i, %mutex_stats_read_arena.exit.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 12
-  br i1 %exitcond.not.i, label %1155, label %1166, !llvm.loop !50
+  br i1 %exitcond.not.i, label %1154, label %1165, !llvm.loop !50
 
-stats_arena_mutexes_print.exit:                   ; preds = %1155, %emitter_indent.exit.i.i
+stats_arena_mutexes_print.exit:                   ; preds = %1154, %emitter_indent.exit.i.i
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %27) #14
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %26) #14
   call void @llvm.lifetime.end.p0(i64 440, ptr nonnull %25) #14
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %24) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #14
-  br label %1246
+  br label %1245
 
-1246:                                             ; preds = %stats_arena_mutexes_print.exit, %emitter_table_row.exit471
-  br i1 %2, label %1247, label %1249
+1245:                                             ; preds = %stats_arena_mutexes_print.exit, %emitter_table_row.exit471
+  br i1 %2, label %1246, label %1248
 
-1247:                                             ; preds = %1246
-  %1248 = load i64, ptr %70, align 8, !tbaa !4
-  call fastcc void @stats_arena_bins_print(ptr noundef %0, i1 noundef zeroext %4, i32 noundef %1, i64 noundef %1248) #16
-  br label %1249
+1246:                                             ; preds = %1245
+  %1247 = load i64, ptr %70, align 8, !tbaa !4
+  call fastcc void @stats_arena_bins_print(ptr noundef %0, i1 noundef zeroext %4, i32 noundef %1, i64 noundef %1247) #16
+  br label %1248
 
-1249:                                             ; preds = %1247, %1246
-  br i1 %3, label %1250, label %1252
+1248:                                             ; preds = %1246, %1245
+  br i1 %3, label %1249, label %1251
 
-1250:                                             ; preds = %1249
-  %1251 = load i64, ptr %70, align 8, !tbaa !4
-  call fastcc void @stats_arena_lextents_print(ptr noundef %0, i32 noundef %1, i64 noundef %1251) #16
-  br label %1252
+1249:                                             ; preds = %1248
+  %1250 = load i64, ptr %70, align 8, !tbaa !4
+  call fastcc void @stats_arena_lextents_print(ptr noundef %0, i32 noundef %1, i64 noundef %1250) #16
+  br label %1251
 
-1252:                                             ; preds = %1250, %1249
-  br i1 %5, label %1253, label %1254
+1251:                                             ; preds = %1249, %1248
+  br i1 %5, label %1252, label %1253
 
-1253:                                             ; preds = %1252
+1252:                                             ; preds = %1251
   call fastcc void @stats_arena_extents_print(ptr noundef %0, i32 noundef %1) #16
-  br label %1254
+  br label %1253
 
-1254:                                             ; preds = %1253, %1252
-  br i1 %6, label %1255, label %1257
+1253:                                             ; preds = %1252, %1251
+  br i1 %6, label %1254, label %1256
 
-1255:                                             ; preds = %1254
-  %1256 = load i64, ptr %70, align 8, !tbaa !4
-  call fastcc void @stats_arena_hpa_shard_print(ptr noundef %0, i32 noundef %1, i64 noundef %1256)
-  br label %1257
+1254:                                             ; preds = %1253
+  %1255 = load i64, ptr %70, align 8, !tbaa !4
+  call fastcc void @stats_arena_hpa_shard_print(ptr noundef %0, i32 noundef %1, i64 noundef %1255)
+  br label %1256
 
-1257:                                             ; preds = %1255, %1254
+1256:                                             ; preds = %1254, %1253
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %172) #14
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %171) #14
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %134) #14

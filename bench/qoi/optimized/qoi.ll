@@ -657,7 +657,7 @@ define dso_local i32 @qoi_write(ptr noundef readonly captures(none) %0, ptr noun
   %5 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #8
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %19, label %6
+  br i1 %.not, label %18, label %6
 
 6:                                                ; preds = %3
   %7 = call ptr @qoi_encode(ptr noundef %1, ptr noundef %2, ptr noundef nonnull %4)
@@ -666,7 +666,7 @@ define dso_local i32 @qoi_write(ptr noundef readonly captures(none) %0, ptr noun
 
 8:                                                ; preds = %6
   %9 = call i32 @fclose(ptr noundef nonnull %5)
-  br label %19
+  br label %18
 
 10:                                               ; preds = %6
   %11 = load i32, ptr %4, align 4, !tbaa !13
@@ -677,12 +677,11 @@ define dso_local i32 @qoi_write(ptr noundef readonly captures(none) %0, ptr noun
   %16 = call i32 @fclose(ptr noundef nonnull %5)
   call void @free(ptr noundef nonnull %7) #8
   %.not16 = icmp eq i32 %15, 0
-  %17 = load i32, ptr %4, align 4
-  %18 = select i1 %.not16, i32 %17, i32 0
-  br label %19
+  %17 = select i1 %.not16, i32 %11, i32 0
+  br label %18
 
-19:                                               ; preds = %3, %10, %8
-  %.0 = phi i32 [ %18, %10 ], [ 0, %8 ], [ 0, %3 ]
+18:                                               ; preds = %3, %10, %8
+  %.0 = phi i32 [ %17, %10 ], [ 0, %8 ], [ 0, %3 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #8
   ret i32 %.0
 }

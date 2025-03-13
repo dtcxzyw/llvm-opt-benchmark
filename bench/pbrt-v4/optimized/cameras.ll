@@ -11159,18 +11159,17 @@ _ZNK4pbrt15RealisticCamera10LensFrontZEv.exit:    ; preds = %_ZNK4pbrt15Realisti
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 32
   store i64 0, ptr %23, align 8, !tbaa !97
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %5) #29
-  %24 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i64 0, ptr %24, align 8, !tbaa !97
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, i8 0, i64 28, i1 false)
-  %25 = call noundef float @_ZNK4pbrt15RealisticCamera20TraceLensesFromSceneERKNS_3RayEPS1_(ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull %5)
-  %26 = fcmp une float %25, 0.000000e+00
-  br i1 %26, label %28, label %27
+  %24 = call noundef float @_ZNK4pbrt15RealisticCamera20TraceLensesFromSceneERKNS_3RayEPS1_(ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull %5)
+  %25 = fcmp une float %24, 0.000000e+00
+  br i1 %25, label %27, label %26
 
-27:                                               ; preds = %_ZNK4pbrt15RealisticCamera10LensFrontZEv.exit
+26:                                               ; preds = %_ZNK4pbrt15RealisticCamera10LensFrontZEv.exit
   call void @_ZN4pbrt9ErrorExitIJEEEvPKcDpOT_(ptr noundef nonnull @.str.38) #30
   unreachable
 
-28:                                               ; preds = %_ZNK4pbrt15RealisticCamera10LensFrontZEv.exit
+27:                                               ; preds = %_ZNK4pbrt15RealisticCamera10LensFrontZEv.exit
+  %28 = getelementptr inbounds nuw i8, ptr %5, i64 32
   %.sroa.037.0.copyload = load float, ptr %5, align 8
   %.sroa.340.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 8
   %.sroa.340.0.copyload = load float, ptr %.sroa.340.0..sroa_idx, align 8
@@ -11202,17 +11201,16 @@ _ZNK4pbrt15RealisticCamera10LensFrontZEv.exit:    ; preds = %_ZNK4pbrt15Realisti
   store <2 x float> zeroinitializer, ptr %.sroa.542.0..sroa_idx, align 4
   store float 1.000000e+00, ptr %.sroa.745.0..sroa_idx, align 4
   store float 0.000000e+00, ptr %.sroa.9.0..sroa_idx47, align 8
-  store i64 0, ptr %24, align 8, !tbaa !97
+  store i64 0, ptr %28, align 8, !tbaa !97
   %45 = call noundef float @_ZNK4pbrt15RealisticCamera19TraceLensesFromFilmERKNS_3RayEPS1_(ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull %4)
   %46 = fcmp oeq float %45, 0.000000e+00
   br i1 %46, label %47, label %48
 
-47:                                               ; preds = %28
+47:                                               ; preds = %27
   call void @_ZN4pbrt9ErrorExitIJEEEvPKcDpOT_(ptr noundef nonnull @.str.39) #30
   unreachable
 
-48:                                               ; preds = %28
-  %.sroa.023.0.copyload = load float, ptr %5, align 8
+48:                                               ; preds = %27
   %.sroa.0.0.copyload16 = load float, ptr %4, align 8
   %.sroa.317.0.copyload = load float, ptr %.sroa.27.0..sroa_idx.i, align 8
   %.sroa.5.0.copyload = load float, ptr %21, align 4
@@ -11225,7 +11223,7 @@ _ZNK4pbrt15RealisticCamera10LensFrontZEv.exit:    ; preds = %_ZNK4pbrt15Realisti
   %54 = fadd float %.sroa.317.0.copyload, %53
   %55 = fneg float %54
   store float %55, ptr %50, align 4, !tbaa !6
-  %56 = fsub float %.sroa.023.0.copyload, %.sroa.0.0.copyload16
+  %56 = fsub float %10, %.sroa.0.0.copyload16
   %57 = fdiv float %56, %.sroa.5.0.copyload
   %58 = fmul float %57, %.sroa.720.0.copyload
   %59 = fadd float %.sroa.317.0.copyload, %58
@@ -14782,102 +14780,101 @@ define dso_local void @_ZNK4pbrt15RealisticCamera19TestExitPupilBoundsEv(ptr nou
   %.sroa.23.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %2, i64 20
   %65 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %66 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %67 = getelementptr inbounds nuw i8, ptr %3, i64 32
   %.sroa.051.0.vec.extract = extractelement <2 x float> %.sroa.051.0, i64 0
   %.sroa.9.8.vec.extract59 = extractelement <2 x float> %.sroa.9.0, i64 0
   %.sroa.051.4.vec.extract = extractelement <2 x float> %.sroa.051.0, i64 1
   %.sroa.9.12.vec.extract61 = extractelement <2 x float> %.sroa.9.0, i64 1
-  br label %70
+  br label %69
 
-68:                                               ; preds = %154
-  %69 = load ptr, ptr @stderr, align 8, !tbaa !450
-  %fputc = call i32 @fputc(i32 46, ptr %69)
+67:                                               ; preds = %153
+  %68 = load ptr, ptr @stderr, align 8, !tbaa !450
+  %fputc = call i32 @fputc(i32 46, ptr %68)
   ret void
 
-70:                                               ; preds = %61, %154
-  %.078 = phi i32 [ 0, %61 ], [ %155, %154 ]
-  %71 = load i64, ptr @_ZZNK4pbrt15RealisticCamera19TestExitPupilBoundsEvE3rng.0, align 8, !tbaa !448
-  %72 = mul i64 %71, 6364136223846793005
+69:                                               ; preds = %61, %153
+  %.078 = phi i32 [ 0, %61 ], [ %154, %153 ]
+  %70 = load i64, ptr @_ZZNK4pbrt15RealisticCamera19TestExitPupilBoundsEvE3rng.0, align 8, !tbaa !448
+  %71 = mul i64 %70, 6364136223846793005
   %.b = load i1, ptr @_ZZNK4pbrt15RealisticCamera19TestExitPupilBoundsEvE3rng.1, align 8
-  %73 = select i1 %.b, i64 -2720673578348880933, i64 0
-  %74 = add i64 %72, %73
-  %75 = lshr i64 %71, 45
-  %76 = lshr i64 %71, 27
-  %77 = xor i64 %75, %76
-  %78 = trunc i64 %77 to i32
-  %79 = lshr i64 %71, 59
-  %80 = trunc nuw nsw i64 %79 to i32
-  %81 = call noundef i32 @llvm.fshr.i32(i32 %78, i32 %78, i32 %80)
-  %82 = uitofp i32 %81 to float
-  %83 = fmul float %82, 0x3DF0000000000000
-  %84 = fcmp olt float %83, 0x3FEFFFFFE0000000
-  %.sroa.speculated.i29 = select i1 %84, float %83, float 0x3FEFFFFFE0000000
-  %85 = mul i64 %74, 6364136223846793005
-  %86 = add i64 %85, %73
-  store i64 %86, ptr @_ZZNK4pbrt15RealisticCamera19TestExitPupilBoundsEvE3rng.0, align 8, !tbaa !448
-  %87 = lshr i64 %74, 45
-  %88 = lshr i64 %74, 27
-  %89 = xor i64 %87, %88
-  %90 = trunc i64 %89 to i32
-  %91 = lshr i64 %74, 59
-  %92 = trunc nuw nsw i64 %91 to i32
-  %93 = call noundef i32 @llvm.fshr.i32(i32 %90, i32 %90, i32 %92)
-  %94 = uitofp i32 %93 to float
-  %95 = fmul float %94, 0x3DF0000000000000
-  %96 = fcmp olt float %95, 0x3FEFFFFFE0000000
-  %.sroa.speculated.i30 = select i1 %96, float %95, float 0x3FEFFFFFE0000000
-  %97 = fmul float %.sroa.speculated.i29, 2.000000e+00
-  %98 = fmul float %.sroa.speculated.i30, 2.000000e+00
+  %72 = select i1 %.b, i64 -2720673578348880933, i64 0
+  %73 = add i64 %71, %72
+  %74 = lshr i64 %70, 45
+  %75 = lshr i64 %70, 27
+  %76 = xor i64 %74, %75
+  %77 = trunc i64 %76 to i32
+  %78 = lshr i64 %70, 59
+  %79 = trunc nuw nsw i64 %78 to i32
+  %80 = call noundef i32 @llvm.fshr.i32(i32 %77, i32 %77, i32 %79)
+  %81 = uitofp i32 %80 to float
+  %82 = fmul float %81, 0x3DF0000000000000
+  %83 = fcmp olt float %82, 0x3FEFFFFFE0000000
+  %.sroa.speculated.i29 = select i1 %83, float %82, float 0x3FEFFFFFE0000000
+  %84 = mul i64 %73, 6364136223846793005
+  %85 = add i64 %84, %72
+  store i64 %85, ptr @_ZZNK4pbrt15RealisticCamera19TestExitPupilBoundsEvE3rng.0, align 8, !tbaa !448
+  %86 = lshr i64 %73, 45
+  %87 = lshr i64 %73, 27
+  %88 = xor i64 %86, %87
+  %89 = trunc i64 %88 to i32
+  %90 = lshr i64 %73, 59
+  %91 = trunc nuw nsw i64 %90 to i32
+  %92 = call noundef i32 @llvm.fshr.i32(i32 %89, i32 %89, i32 %91)
+  %93 = uitofp i32 %92 to float
+  %94 = fmul float %93, 0x3DF0000000000000
+  %95 = fcmp olt float %94, 0x3FEFFFFFE0000000
+  %.sroa.speculated.i30 = select i1 %95, float %94, float 0x3FEFFFFFE0000000
+  %96 = fmul float %.sroa.speculated.i29, 2.000000e+00
+  %97 = fmul float %.sroa.speculated.i30, 2.000000e+00
+  %98 = fadd float %96, -1.000000e+00
   %99 = fadd float %97, -1.000000e+00
-  %100 = fadd float %98, -1.000000e+00
+  %100 = fcmp oeq float %98, 0.000000e+00
   %101 = fcmp oeq float %99, 0.000000e+00
-  %102 = fcmp oeq float %100, 0.000000e+00
-  %or.cond.i = and i1 %101, %102
-  br i1 %or.cond.i, label %_ZN4pbrt27SampleUniformDiskConcentricENS_6Point2IfEE.exit, label %103
+  %or.cond.i = and i1 %100, %101
+  br i1 %or.cond.i, label %_ZN4pbrt27SampleUniformDiskConcentricENS_6Point2IfEE.exit, label %102
 
-103:                                              ; preds = %70
+102:                                              ; preds = %69
+  %103 = call noundef float @llvm.fabs.f32(float %98)
   %104 = call noundef float @llvm.fabs.f32(float %99)
-  %105 = call noundef float @llvm.fabs.f32(float %100)
-  %106 = fcmp ogt float %104, %105
-  br i1 %106, label %107, label %110
+  %105 = fcmp ogt float %103, %104
+  br i1 %105, label %106, label %109
 
-107:                                              ; preds = %103
-  %108 = fdiv float %100, %99
-  %109 = fmul float %108, 0x3FE921FB60000000
-  br label %114
+106:                                              ; preds = %102
+  %107 = fdiv float %99, %98
+  %108 = fmul float %107, 0x3FE921FB60000000
+  br label %113
 
-110:                                              ; preds = %103
-  %111 = fdiv float %99, %100
-  %112 = fmul float %111, 0x3FE921FB60000000
-  %113 = fsub float 0x3FF921FB60000000, %112
-  br label %114
+109:                                              ; preds = %102
+  %110 = fdiv float %98, %99
+  %111 = fmul float %110, 0x3FE921FB60000000
+  %112 = fsub float 0x3FF921FB60000000, %111
+  br label %113
 
-114:                                              ; preds = %110, %107
-  %.024.i = phi float [ %109, %107 ], [ %113, %110 ]
-  %.0.i = phi float [ %99, %107 ], [ %100, %110 ]
-  %115 = call noundef float @cosf(float noundef %.024.i) #29, !tbaa !125
-  %116 = call noundef float @sinf(float noundef %.024.i) #29, !tbaa !125
+113:                                              ; preds = %109, %106
+  %.024.i = phi float [ %108, %106 ], [ %112, %109 ]
+  %.0.i = phi float [ %98, %106 ], [ %99, %109 ]
+  %114 = call noundef float @cosf(float noundef %.024.i) #29, !tbaa !125
+  %115 = call noundef float @sinf(float noundef %.024.i) #29, !tbaa !125
+  %116 = fmul float %.0.i, %114
   %117 = fmul float %.0.i, %115
-  %118 = fmul float %.0.i, %116
-  %.sroa.0.0.vec.insert.i.i29.i = insertelement <2 x float> poison, float %117, i64 0
-  %.sroa.0.4.vec.insert.i.i30.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i29.i, float %118, i64 1
+  %.sroa.0.0.vec.insert.i.i29.i = insertelement <2 x float> poison, float %116, i64 0
+  %.sroa.0.4.vec.insert.i.i30.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i.i29.i, float %117, i64 1
   br label %_ZN4pbrt27SampleUniformDiskConcentricENS_6Point2IfEE.exit
 
-_ZN4pbrt27SampleUniformDiskConcentricENS_6Point2IfEE.exit: ; preds = %70, %114
-  %.sroa.035.0.i = phi <2 x float> [ %.sroa.0.4.vec.insert.i.i30.i, %114 ], [ zeroinitializer, %70 ]
-  %119 = load ptr, ptr %62, align 8, !tbaa !336
-  %120 = load i64, ptr %63, align 8, !tbaa !334
-  %121 = getelementptr %"struct.pbrt::RealisticCamera::LensElementInterface", ptr %119, i64 %120
-  %122 = getelementptr i8, ptr %121, i64 -4
-  %123 = load float, ptr %122, align 4, !tbaa !376
+_ZN4pbrt27SampleUniformDiskConcentricENS_6Point2IfEE.exit: ; preds = %69, %113
+  %.sroa.035.0.i = phi <2 x float> [ %.sroa.0.4.vec.insert.i.i30.i, %113 ], [ zeroinitializer, %69 ]
+  %118 = load ptr, ptr %62, align 8, !tbaa !336
+  %119 = load i64, ptr %63, align 8, !tbaa !334
+  %120 = getelementptr %"struct.pbrt::RealisticCamera::LensElementInterface", ptr %118, i64 %119
+  %121 = getelementptr i8, ptr %120, i64 -4
+  %122 = load float, ptr %121, align 4, !tbaa !376
   %.sroa.037.0.vec.extract42 = extractelement <2 x float> %.sroa.035.0.i, i64 0
-  %124 = fmul float %.sroa.037.0.vec.extract42, %123
+  %123 = fmul float %.sroa.037.0.vec.extract42, %122
   %.sroa.037.4.vec.extract47 = extractelement <2 x float> %.sroa.035.0.i, i64 1
-  %125 = fmul float %.sroa.037.4.vec.extract47, %123
+  %124 = fmul float %.sroa.037.4.vec.extract47, %122
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %2) #29
-  %126 = fsub float %124, %29
-  %.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %126, i64 0
-  %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i, float %125, i64 1
+  %125 = fsub float %123, %29
+  %.sroa.0.0.vec.insert.i = insertelement <2 x float> poison, float %125, i64 0
+  %.sroa.0.4.vec.insert.i = insertelement <2 x float> %.sroa.0.0.vec.insert.i, float %124, i64 1
   store <2 x float> %.sroa.065.4.vec.insert, ptr %2, align 8
   store float 0.000000e+00, ptr %.sroa.27.0..sroa_idx.i, align 8
   store <2 x float> %.sroa.0.4.vec.insert.i, ptr %64, align 4
@@ -14885,55 +14882,53 @@ _ZN4pbrt27SampleUniformDiskConcentricENS_6Point2IfEE.exit: ; preds = %70, %114
   store float 0.000000e+00, ptr %65, align 8, !tbaa !150
   store i64 0, ptr %66, align 8, !tbaa !97
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #29
-  store i64 0, ptr %67, align 8, !tbaa !97
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %3, i8 0, i64 28, i1 false)
-  %127 = call noundef float @_ZNK4pbrt15RealisticCamera19TraceLensesFromFilmERKNS_3RayEPS1_(ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull %3)
-  %128 = fcmp une float %127, 0.000000e+00
-  br i1 %128, label %129, label %154
+  %126 = call noundef float @_ZNK4pbrt15RealisticCamera19TraceLensesFromFilmERKNS_3RayEPS1_(ptr noundef nonnull align 8 dereferenceable(1128) %0, ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull %3)
+  %127 = fcmp une float %126, 0.000000e+00
+  br i1 %127, label %128, label %153
 
-129:                                              ; preds = %_ZN4pbrt27SampleUniformDiskConcentricENS_6Point2IfEE.exit
-  %130 = fcmp oge float %124, %.sroa.051.0.vec.extract
-  %131 = fcmp ole float %124, %.sroa.9.8.vec.extract59
-  %or.cond.i35.not76 = select i1 %130, i1 %131, i1 false
-  %132 = fcmp oge float %125, %.sroa.051.4.vec.extract
-  %or.cond.not73 = select i1 %or.cond.i35.not76, i1 %132, i1 false
-  %133 = fcmp ole float %125, %.sroa.9.12.vec.extract61
-  %or.cond71 = select i1 %or.cond.not73, i1 %133, i1 false
-  br i1 %or.cond71, label %154, label %_ZN4pbrt6InsideIfEEbNS_6Point2IT_EERKNS_7Bounds2IS2_EE.exit.thread
+128:                                              ; preds = %_ZN4pbrt27SampleUniformDiskConcentricENS_6Point2IfEE.exit
+  %129 = fcmp oge float %123, %.sroa.051.0.vec.extract
+  %130 = fcmp ole float %123, %.sroa.9.8.vec.extract59
+  %or.cond.i35.not76 = select i1 %129, i1 %130, i1 false
+  %131 = fcmp oge float %124, %.sroa.051.4.vec.extract
+  %or.cond.not73 = select i1 %or.cond.i35.not76, i1 %131, i1 false
+  %132 = fcmp ole float %124, %.sroa.9.12.vec.extract61
+  %or.cond71 = select i1 %or.cond.not73, i1 %132, i1 false
+  br i1 %or.cond71, label %153, label %_ZN4pbrt6InsideIfEEbNS_6Point2IT_EERKNS_7Bounds2IS2_EE.exit.thread
 
-_ZN4pbrt6InsideIfEEbNS_6Point2IT_EERKNS_7Bounds2IS2_EE.exit.thread: ; preds = %129
-  %134 = load ptr, ptr @stderr, align 8, !tbaa !450
+_ZN4pbrt6InsideIfEEbNS_6Point2IT_EERKNS_7Bounds2IS2_EE.exit.thread: ; preds = %128
+  %133 = load ptr, ptr @stderr, align 8, !tbaa !450
+  %134 = fpext float %123 to double
   %135 = fpext float %124 to double
-  %136 = fpext float %125 to double
-  %137 = fpext float %.sroa.051.0.vec.extract to double
-  %138 = fpext float %.sroa.051.4.vec.extract to double
-  %139 = fpext float %.sroa.9.8.vec.extract59 to double
-  %140 = fpext float %.sroa.9.12.vec.extract61 to double
-  %141 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %134, ptr noundef nonnull @.str.73, double noundef %135, double noundef %136, double noundef %137, double noundef %138, double noundef %139, double noundef %140) #33
-  %142 = sitofp i32 %.sroa.speculated to float
-  %143 = load i64, ptr %32, align 8, !tbaa !342
-  %144 = uitofp i64 %143 to float
-  %145 = fdiv float %142, %144
-  %146 = fmul float %.0.i.i.i, %145
-  %147 = fmul float %146, 5.000000e-01
-  call void @_ZNK4pbrt15RealisticCamera15RenderExitPupilEffPKc(ptr noundef nonnull align 8 dereferenceable(1128) %0, float noundef %147, float noundef 0.000000e+00, ptr noundef nonnull @.str.74)
-  %148 = sitofp i32 %45 to float
-  %149 = load i64, ptr %32, align 8, !tbaa !342
-  %150 = uitofp i64 %149 to float
-  %151 = fdiv float %148, %150
-  %152 = fmul float %.0.i.i.i, %151
-  %153 = fmul float %152, 5.000000e-01
-  call void @_ZNK4pbrt15RealisticCamera15RenderExitPupilEffPKc(ptr noundef nonnull align 8 dereferenceable(1128) %0, float noundef %153, float noundef 0.000000e+00, ptr noundef nonnull @.str.75)
+  %136 = fpext float %.sroa.051.0.vec.extract to double
+  %137 = fpext float %.sroa.051.4.vec.extract to double
+  %138 = fpext float %.sroa.9.8.vec.extract59 to double
+  %139 = fpext float %.sroa.9.12.vec.extract61 to double
+  %140 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %133, ptr noundef nonnull @.str.73, double noundef %134, double noundef %135, double noundef %136, double noundef %137, double noundef %138, double noundef %139) #33
+  %141 = sitofp i32 %.sroa.speculated to float
+  %142 = load i64, ptr %32, align 8, !tbaa !342
+  %143 = uitofp i64 %142 to float
+  %144 = fdiv float %141, %143
+  %145 = fmul float %.0.i.i.i, %144
+  %146 = fmul float %145, 5.000000e-01
+  call void @_ZNK4pbrt15RealisticCamera15RenderExitPupilEffPKc(ptr noundef nonnull align 8 dereferenceable(1128) %0, float noundef %146, float noundef 0.000000e+00, ptr noundef nonnull @.str.74)
+  %147 = sitofp i32 %45 to float
+  %148 = load i64, ptr %32, align 8, !tbaa !342
+  %149 = uitofp i64 %148 to float
+  %150 = fdiv float %147, %149
+  %151 = fmul float %.0.i.i.i, %150
+  %152 = fmul float %151, 5.000000e-01
+  call void @_ZNK4pbrt15RealisticCamera15RenderExitPupilEffPKc(ptr noundef nonnull align 8 dereferenceable(1128) %0, float noundef %152, float noundef 0.000000e+00, ptr noundef nonnull @.str.75)
   call void @_ZNK4pbrt15RealisticCamera15RenderExitPupilEffPKc(ptr noundef nonnull align 8 dereferenceable(1128) %0, float noundef %29, float noundef 0.000000e+00, ptr noundef nonnull @.str.76)
   call void @exit(i32 noundef 0) #32
   unreachable
 
-154:                                              ; preds = %129, %_ZN4pbrt27SampleUniformDiskConcentricENS_6Point2IfEE.exit
+153:                                              ; preds = %128, %_ZN4pbrt27SampleUniformDiskConcentricENS_6Point2IfEE.exit
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #29
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #29
-  %155 = add nuw nsw i32 %.078, 1
-  %exitcond.not = icmp eq i32 %155, 1000
-  br i1 %exitcond.not, label %68, label %70, !llvm.loop !452
+  %154 = add nuw nsw i32 %.078, 1
+  %exitcond.not = icmp eq i32 %154, 1000
+  br i1 %exitcond.not, label %67, label %69, !llvm.loop !452
 }
 
 ; Function Attrs: nofree nounwind

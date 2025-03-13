@@ -3998,8 +3998,7 @@ listTypeLength.exit:                              ; preds = %18, %22
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 56
   %36 = load i32, ptr %35, align 8, !tbaa !89
   call void @notifyKeyspaceEvent(i32 noundef 16, ptr noundef nonnull %33, ptr noundef %1, i32 noundef %36) #9
-  %37 = load ptr, ptr %6, align 8, !tbaa !48
-  call void @addReplyBulk(ptr noundef nonnull %0, ptr noundef %37) #9
+  call void @addReplyBulk(ptr noundef nonnull %0, ptr noundef %3) #9
   ret void
 }
 

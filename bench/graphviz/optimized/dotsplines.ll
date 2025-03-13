@@ -190,16 +190,16 @@ define internal fastcc void @dot_splines_(ptr noundef %0, i32 noundef range(i32 
   %18 = alloca %struct.pointf_s, align 8
   %19 = alloca %struct.pointf_s, align 8
   %20 = alloca %struct.pointf_s, align 8
-  %21 = alloca %struct.boxf, align 8
+  %21 = alloca %struct.Agedgeinfo_t, align 8
   %22 = alloca %struct.Agedgeinfo_t, align 8
   %23 = alloca %struct.Agedgeinfo_t, align 8
-  %24 = alloca %struct.Agedgeinfo_t, align 8
+  %24 = alloca %struct.Agedgepair_s, align 8
   %25 = alloca %struct.Agedgepair_s, align 8
   %26 = alloca %struct.Agedgepair_s, align 8
-  %27 = alloca %struct.Agedgepair_s, align 8
+  %27 = alloca %struct.pathend_t, align 8
   %28 = alloca %struct.pathend_t, align 8
-  %29 = alloca %struct.pathend_t, align 8
-  %30 = alloca %struct.boxes_t, align 8
+  %29 = alloca %struct.boxes_t, align 8
+  %30 = alloca %struct.boxf, align 8
   %31 = alloca %struct.boxf, align 8
   %32 = alloca %struct.boxf, align 8
   %33 = alloca i64, align 8
@@ -1137,44 +1137,44 @@ place_vnlabel.exit:                               ; preds = %512, %499, %.lr.ph7
   %.sroa.gep343 = getelementptr inbounds nuw i8, ptr %45, i64 56
   %.sroa.gep344 = getelementptr inbounds nuw i8, ptr %45, i64 120
   %.sroa.gep342 = getelementptr inbounds i8, ptr %45, i64 -8
-  %539 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %540 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %541 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  %.sroa.gep333.i = getelementptr inbounds nuw i8, ptr %25, i64 56
-  %.sroa.gep334.i = getelementptr inbounds nuw i8, ptr %25, i64 120
-  %.sroa.gep331.i = getelementptr inbounds i8, ptr %25, i64 -8
-  %542 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  %543 = getelementptr inbounds nuw i8, ptr %22, i64 72
-  %544 = getelementptr inbounds nuw i8, ptr %22, i64 152
-  %545 = getelementptr inbounds nuw i8, ptr %22, i64 160
-  %546 = getelementptr inbounds nuw i8, ptr %25, i64 64
-  %.sroa.gep314.i = getelementptr inbounds nuw i8, ptr %26, i64 56
-  %.sroa.gep315.i = getelementptr inbounds nuw i8, ptr %26, i64 120
-  %.sroa.gep312.i = getelementptr inbounds i8, ptr %26, i64 -8
-  %547 = getelementptr inbounds nuw i8, ptr %23, i64 24
-  %548 = getelementptr inbounds nuw i8, ptr %23, i64 72
-  %549 = getelementptr inbounds nuw i8, ptr %23, i64 152
-  %550 = getelementptr inbounds nuw i8, ptr %23, i64 160
-  %551 = getelementptr inbounds nuw i8, ptr %26, i64 64
-  %552 = getelementptr inbounds nuw i8, ptr %22, i64 104
+  %539 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  %540 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  %541 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  %.sroa.gep333.i = getelementptr inbounds nuw i8, ptr %24, i64 56
+  %.sroa.gep334.i = getelementptr inbounds nuw i8, ptr %24, i64 120
+  %.sroa.gep331.i = getelementptr inbounds i8, ptr %24, i64 -8
+  %542 = getelementptr inbounds nuw i8, ptr %21, i64 24
+  %543 = getelementptr inbounds nuw i8, ptr %21, i64 72
+  %544 = getelementptr inbounds nuw i8, ptr %21, i64 152
+  %545 = getelementptr inbounds nuw i8, ptr %21, i64 160
+  %546 = getelementptr inbounds nuw i8, ptr %24, i64 64
+  %.sroa.gep314.i = getelementptr inbounds nuw i8, ptr %25, i64 56
+  %.sroa.gep315.i = getelementptr inbounds nuw i8, ptr %25, i64 120
+  %.sroa.gep312.i = getelementptr inbounds i8, ptr %25, i64 -8
+  %547 = getelementptr inbounds nuw i8, ptr %22, i64 24
+  %548 = getelementptr inbounds nuw i8, ptr %22, i64 72
+  %549 = getelementptr inbounds nuw i8, ptr %22, i64 152
+  %550 = getelementptr inbounds nuw i8, ptr %22, i64 160
+  %551 = getelementptr inbounds nuw i8, ptr %25, i64 64
+  %552 = getelementptr inbounds nuw i8, ptr %21, i64 104
   %553 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %554 = icmp eq i16 %52, 10
-  %.sroa.28.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %28, i64 16
-  %555 = getelementptr inbounds nuw i8, ptr %28, i64 56
-  %556 = getelementptr inbounds nuw i8, ptr %28, i64 52
-  %557 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  %558 = getelementptr inbounds nuw i8, ptr %30, i64 24
-  %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %30, i64 8
-  %559 = getelementptr inbounds nuw i8, ptr %29, i64 56
-  %560 = getelementptr inbounds nuw i8, ptr %29, i64 52
+  %.sroa.28.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %555 = getelementptr inbounds nuw i8, ptr %27, i64 56
+  %556 = getelementptr inbounds nuw i8, ptr %27, i64 52
+  %557 = getelementptr inbounds nuw i8, ptr %29, i64 16
+  %558 = getelementptr inbounds nuw i8, ptr %29, i64 24
+  %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %559 = getelementptr inbounds nuw i8, ptr %28, i64 56
+  %560 = getelementptr inbounds nuw i8, ptr %28, i64 52
   %561 = getelementptr inbounds nuw i8, ptr %46, i64 64
   %562 = getelementptr inbounds nuw i8, ptr %46, i64 81
   %563 = getelementptr inbounds nuw i8, ptr %46, i64 16
   %564 = getelementptr inbounds nuw i8, ptr %46, i64 33
-  %.sroa.28.0..sroa_idx814.i = getelementptr inbounds nuw i8, ptr %29, i64 16
-  %.sroa.gep339.i = getelementptr inbounds nuw i8, ptr %27, i64 56
-  %.sroa.gep340.i = getelementptr inbounds nuw i8, ptr %27, i64 120
-  %.sroa.gep337.i = getelementptr inbounds i8, ptr %27, i64 -8
+  %.sroa.28.0..sroa_idx814.i = getelementptr inbounds nuw i8, ptr %28, i64 16
+  %.sroa.gep339.i = getelementptr inbounds nuw i8, ptr %26, i64 56
+  %.sroa.gep340.i = getelementptr inbounds nuw i8, ptr %26, i64 120
+  %.sroa.gep337.i = getelementptr inbounds i8, ptr %26, i64 -8
   %565 = getelementptr inbounds nuw i8, ptr %38, i64 16
   %.sroa.gep190.i = getelementptr inbounds nuw i8, ptr %38, i64 56
   %.sroa.gep191.i = getelementptr inbounds nuw i8, ptr %38, i64 120
@@ -1249,7 +1249,7 @@ place_vnlabel.exit:                               ; preds = %512, %499, %.lr.ph7
   %621 = getelementptr inbounds nuw i8, ptr %41, i64 72
   %622 = getelementptr inbounds nuw i8, ptr %41, i64 88
   %623 = getelementptr inbounds nuw i8, ptr %46, i64 96
-  %624 = getelementptr inbounds nuw i8, ptr %29, i64 80
+  %624 = getelementptr inbounds nuw i8, ptr %28, i64 80
   %625 = getelementptr inbounds nuw i8, ptr %7, i64 80
   %626 = getelementptr inbounds nuw i8, ptr %44, i64 24
   %627 = getelementptr inbounds nuw i8, ptr %44, i64 72
@@ -3686,17 +3686,18 @@ make_flat_edge.exit:                              ; preds = %1873, %1827, %.thre
   br label %.loopexit619
 
 1880:                                             ; preds = %920
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %31)
+  call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %21) #22
   call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %22) #22
   call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %23) #22
-  call void @llvm.lifetime.start.p0(i64 240, ptr nonnull %24) #22
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %24) #22
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %25) #22
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %26) #22
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %27) #22
+  call void @llvm.lifetime.start.p0(i64 696, ptr nonnull %27) #22
   call void @llvm.lifetime.start.p0(i64 696, ptr nonnull %28) #22
-  call void @llvm.lifetime.start.p0(i64 696, ptr nonnull %29) #22
-  store ptr %22, ptr %539, align 8, !tbaa !38
-  store ptr %23, ptr %540, align 8, !tbaa !38
-  store ptr %24, ptr %541, align 8, !tbaa !38
+  store ptr %21, ptr %539, align 8, !tbaa !38
+  store ptr %22, ptr %540, align 8, !tbaa !38
+  store ptr %23, ptr %541, align 8, !tbaa !38
   %1881 = load ptr, ptr %634, align 8, !tbaa !74
   %1882 = load i32, ptr %1881, align 8
   %1883 = and i32 %1882, 3
@@ -3726,18 +3727,18 @@ make_flat_edge.exit:                              ; preds = %1873, %1827, %.thre
   br i1 %1904, label %1907, label %1974
 
 1907:                                             ; preds = %1880
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %22, ptr noundef nonnull align 8 dereferenceable(240) %1906, i64 240, i1 false), !tbaa.struct !124
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %25, ptr noundef nonnull align 8 dereferenceable(64) %1881, i64 64, i1 false), !tbaa.struct !136
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %21, ptr noundef nonnull align 8 dereferenceable(240) %1906, i64 240, i1 false), !tbaa.struct !124
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %24, ptr noundef nonnull align 8 dereferenceable(64) %1881, i64 64, i1 false), !tbaa.struct !136
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %546, ptr noundef nonnull align 8 dereferenceable(64) %1885, i64 64, i1 false), !tbaa.struct !136
-  store ptr %22, ptr %539, align 8, !tbaa !38
+  store ptr %21, ptr %539, align 8, !tbaa !38
   %1908 = load ptr, ptr %1905, align 8, !tbaa !16
   %1909 = getelementptr inbounds nuw i8, ptr %1908, i64 220
   %1910 = load i32, ptr %1909, align 4, !tbaa !104
   %1911 = and i32 %1910, 32
   %.not351.i = icmp eq i32 %1911, 0
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %23, ptr noundef nonnull align 8 dereferenceable(240) %1908, i64 240, i1 false)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %26, ptr noundef nonnull align 8 dereferenceable(64) %1881, i64 64, i1 false)
-  store ptr %23, ptr %540, align 8, !tbaa !123
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %22, ptr noundef nonnull align 8 dereferenceable(240) %1908, i64 240, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %25, ptr noundef nonnull align 8 dereferenceable(64) %1881, i64 64, i1 false)
+  store ptr %22, ptr %540, align 8, !tbaa !123
   %1912 = load i32, ptr %1881, align 8
   %1913 = and i32 %1912, 3
   br i1 %.not351.i, label %1942, label %1914
@@ -3747,7 +3748,7 @@ make_flat_edge.exit:                              ; preds = %1873, %1827, %.thre
   %1916 = select i1 %1915, ptr %1881, ptr %1894
   %1917 = getelementptr inbounds nuw i8, ptr %1916, i64 56
   %1918 = load ptr, ptr %1917, align 8, !tbaa !107
-  %1919 = load i32, ptr %26, align 8
+  %1919 = load i32, ptr %25, align 8
   %1920 = and i32 %1919, 3
   %1921 = icmp eq i32 %1920, 3
   %.sroa.sel316.i = select i1 %1921, ptr %.sroa.gep314.i, ptr %.sroa.gep315.i
@@ -3773,7 +3774,7 @@ make_flat_edge.exit:                              ; preds = %1873, %1827, %.thre
   %1934 = select i1 %1933, ptr %1881, ptr %1894
   %1935 = getelementptr inbounds nuw i8, ptr %1934, i64 56
   %1936 = load ptr, ptr %1935, align 8, !tbaa !107
-  %1937 = load i32, ptr %25, align 8
+  %1937 = load i32, ptr %24, align 8
   %1938 = and i32 %1937, 3
   %1939 = icmp eq i32 %1938, 3
   %.sroa.sel219.v.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel = select i1 %1939, ptr %.sroa.gep333.i, ptr %.sroa.gep334.i
@@ -3788,7 +3789,7 @@ make_flat_edge.exit:                              ; preds = %1873, %1827, %.thre
   %1944 = select i1 %1943, ptr %1881, ptr %1885
   %1945 = getelementptr inbounds nuw i8, ptr %1944, i64 56
   %1946 = load ptr, ptr %1945, align 8, !tbaa !107
-  %1947 = load i32, ptr %25, align 8
+  %1947 = load i32, ptr %24, align 8
   %1948 = and i32 %1947, 3
   %1949 = icmp eq i32 %1948, 3
   %.sroa.sel222.v.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel = select i1 %1949, ptr %.sroa.gep333.i, ptr %.sroa.gep334.i
@@ -3852,16 +3853,16 @@ getmainedge.exit.i:                               ; preds = %.preheader.i.i, %ge
   br i1 %.not350.i, label %1999, label %1978
 
 1978:                                             ; preds = %1974
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %22, ptr noundef nonnull align 8 dereferenceable(240) %1906, i64 240, i1 false), !tbaa.struct !124
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %25, ptr noundef nonnull align 8 dereferenceable(64) %1881, i64 64, i1 false), !tbaa.struct !136
-  store ptr %22, ptr %539, align 8, !tbaa !123
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %21, ptr noundef nonnull align 8 dereferenceable(240) %1906, i64 240, i1 false), !tbaa.struct !124
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %24, ptr noundef nonnull align 8 dereferenceable(64) %1881, i64 64, i1 false), !tbaa.struct !136
+  store ptr %21, ptr %539, align 8, !tbaa !123
   %1979 = load i32, ptr %1881, align 8
   %1980 = and i32 %1979, 3
   %1981 = icmp eq i32 %1980, 2
   %1982 = select i1 %1981, ptr %1881, ptr %1894
   %1983 = getelementptr inbounds nuw i8, ptr %1982, i64 56
   %1984 = load ptr, ptr %1983, align 8, !tbaa !107
-  %1985 = load i32, ptr %25, align 8
+  %1985 = load i32, ptr %24, align 8
   %1986 = and i32 %1985, 3
   %1987 = icmp eq i32 %1986, 3
   %.sroa.sel335.i = select i1 %1987, ptr %.sroa.gep333.i, ptr %.sroa.gep334.i
@@ -3891,8 +3892,8 @@ getmainedge.exit.i:                               ; preds = %.preheader.i.i, %ge
 
 1999:                                             ; preds = %.sink.split, %1974
   %2000 = phi i32 [ %1882, %1974 ], [ %.ph, %.sink.split ]
-  %2001 = phi ptr [ %1906, %1974 ], [ %22, %.sink.split ]
-  %.0286.i = phi ptr [ %1881, %1974 ], [ %25, %.sink.split ]
+  %2001 = phi ptr [ %1906, %1974 ], [ %21, %.sink.split ]
+  %.0286.i = phi ptr [ %1881, %1974 ], [ %24, %.sink.split ]
   br i1 %487, label %2002, label %makeLineEdge.exit.thread.i
 
 2002:                                             ; preds = %1999
@@ -4166,8 +4167,8 @@ points_append.exit199.i.i:                        ; preds = %points_append.exit1
   unreachable
 
 makeLineEdge.exit.thread.i:                       ; preds = %2029, %._crit_edge.i.i, %1999
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %30) #22
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %30, i8 0, i64 32, i1 false)
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %29) #22
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %29, i8 0, i64 32, i1 false)
   %2136 = and i32 %2000, 3
   %2137 = icmp eq i32 %2136, 3
   %.0286.sroa.gep.i = getelementptr inbounds nuw i8, ptr %.0286.i, i64 56
@@ -4178,13 +4179,13 @@ makeLineEdge.exit.thread.i:                       ; preds = %2029, %._crit_edge.
   %.sroa.gep320.i = getelementptr inbounds i8, ptr %.0286.i, i64 -8
   %.sroa.sel321.i = select i1 %2139, ptr %.0286.sroa.gep.i, ptr %.sroa.gep320.i
   %2140 = load ptr, ptr %.sroa.sel321.i, align 8, !tbaa !107
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %31) #22
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %30) #22
   %2141 = getelementptr i8, ptr %2138, i64 16
   %.val.i478 = load ptr, ptr %2141, align 8, !tbaa !16
-  call fastcc void @maximal_bbox(ptr dead_on_unwind noalias writable align 8 %31, ptr noundef %0, ptr noundef nonnull readonly %47, ptr %.val.i478, ptr noundef null, ptr noundef nonnull %.0286.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %31, i64 32, i1 false), !tbaa.struct !205
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %31) #22
-  %.sroa.0780.0.copyload.i = load double, ptr %28, align 8, !tbaa !70
+  call fastcc void @maximal_bbox(ptr dead_on_unwind noalias writable align 8 %30, ptr noundef %0, ptr noundef nonnull readonly %47, ptr %.val.i478, ptr noundef null, ptr noundef nonnull %.0286.i)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %30, i64 32, i1 false), !tbaa.struct !205
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %30) #22
+  %.sroa.0780.0.copyload.i = load double, ptr %27, align 8, !tbaa !70
   %.sroa.28.0.copyload.i = load double, ptr %.sroa.28.0..sroa_idx.i, align 8, !tbaa !70
   %2142 = load ptr, ptr %2141, align 8, !tbaa !16
   %2143 = getelementptr inbounds nuw i8, ptr %2142, i64 216
@@ -4206,7 +4207,7 @@ makeLineEdge.exit.thread.i:                       ; preds = %2029, %._crit_edge.
 
 spline_merge.exit.i:                              ; preds = %2150, %2146, %makeLineEdge.exit.thread.i
   %2154 = phi i1 [ false, %makeLineEdge.exit.thread.i ], [ true, %2146 ], [ %2153, %2150 ]
-  call void @beginpath(ptr noundef nonnull %46, ptr noundef nonnull %.0286.i, i32 noundef 1, ptr noundef nonnull %28, i1 noundef zeroext %2154) #22
+  call void @beginpath(ptr noundef nonnull %46, ptr noundef nonnull %.0286.i, i32 noundef 1, ptr noundef nonnull %27, i1 noundef zeroext %2154) #22
   %2155 = load i32, ptr %556, align 4, !tbaa !188
   %2156 = add nsw i32 %2155, -1
   %2157 = sext i32 %2156 to i64
@@ -4339,7 +4340,7 @@ rank_box.exit.i:                                  ; preds = %2197, %2189
 
 ._crit_edge.i.i.i:                                ; preds = %rank_box.exit.i
   %.pre.i.i.i = load i64, ptr %.phi.trans.insert.i.i.i, align 8, !tbaa !213
-  %.pre45.i.i.i = load ptr, ptr %30, align 8, !tbaa !214
+  %.pre45.i.i.i = load ptr, ptr %29, align 8, !tbaa !214
   br label %boxes_append.exit.i
 
 2226:                                             ; preds = %rank_box.exit.i
@@ -4350,7 +4351,7 @@ rank_box.exit.i:                                  ; preds = %2197, %2189
   br i1 %mul.ov.i.i.i, label %2249, label %2229
 
 2229:                                             ; preds = %2226
-  %2230 = load ptr, ptr %30, align 8, !tbaa !214
+  %2230 = load ptr, ptr %29, align 8, !tbaa !214
   %2231 = shl nuw i64 %spec.select.i.i.i, 5
   %2232 = call ptr @realloc(ptr noundef %2230, i64 noundef %2231) #26
   %2233 = icmp eq ptr %2232, null
@@ -4378,7 +4379,7 @@ rank_box.exit.i:                                  ; preds = %2197, %2189
 
 2247:                                             ; preds = %2241, %2234
   %2248 = phi i64 [ %2238, %2234 ], [ %2243, %2241 ]
-  store ptr %2232, ptr %30, align 8, !tbaa !214
+  store ptr %2232, ptr %29, align 8, !tbaa !214
   store i64 %spec.select.i.i.i, ptr %558, align 8, !tbaa !212
   br label %boxes_append.exit.i
 
@@ -4508,8 +4509,7 @@ straight_len.exit.i:                              ; preds = %2288, %2283, %2280,
   %.1295910.i = phi i32 [ %2310, %.thread.i486 ], [ %.1295.i, %._crit_edge1225.i ]
   %.1297909.i = phi i32 [ 0, %.thread.i486 ], [ %2313, %._crit_edge1225.i ]
   %.1309908.i = phi i1 [ true, %.thread.i486 ], [ %.03081035.i, %._crit_edge1225.i ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %21)
-  call fastcc void @maximal_bbox(ptr dead_on_unwind noalias writable align 8 %21, ptr noundef %0, ptr noundef nonnull readonly %47, ptr %2316, ptr noundef nonnull %.12871038.i, ptr noundef %2315)
+  call fastcc void @maximal_bbox(ptr dead_on_unwind noalias writable align 8 %31, ptr noundef %0, ptr noundef nonnull readonly %47, ptr %2316, ptr noundef nonnull %.12871038.i, ptr noundef %2315)
   %2317 = icmp eq i64 %2259, %2254
   br i1 %2317, label %2318, label %boxes_append.exit397.i
 
@@ -4544,7 +4544,7 @@ straight_len.exit.i:                              ; preds = %2288, %2283, %2280,
 
 2335:                                             ; preds = %2329, %2324
   %2336 = phi i64 [ %2255, %2324 ], [ %2331, %2329 ]
-  store ptr %2322, ptr %30, align 8, !tbaa !214
+  store ptr %2322, ptr %29, align 8, !tbaa !214
   store i64 %2319, ptr %558, align 8, !tbaa !212
   br label %boxes_append.exit397.i
 
@@ -4563,10 +4563,9 @@ boxes_append.exit397.i:                           ; preds = %2335, %2314
   %2344 = add i64 %2343, %2259
   %2345 = urem i64 %2344, %2342
   %2346 = getelementptr inbounds nuw %struct.boxf, ptr %2341, i64 %2345
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2346, ptr noundef nonnull readonly align 8 dereferenceable(32) %21, i64 32, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %2346, ptr noundef nonnull align 8 dereferenceable(32) %31, i64 32, i1 false)
   %2347 = add i64 %2223, 2
   store i64 %2347, ptr %557, align 8, !tbaa !210
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %21)
   %2348 = load ptr, ptr %2186, align 8, !tbaa !16
   %2349 = getelementptr inbounds nuw i8, ptr %2348, i64 272
   %2350 = load ptr, ptr %2349, align 8, !tbaa !73
@@ -4597,7 +4596,7 @@ boxes_append.exit397.i:                           ; preds = %2335, %2314
   %2370 = load ptr, ptr %2369, align 8, !tbaa !73
   %2371 = load ptr, ptr %2370, align 8, !tbaa !74
   call fastcc void @maximal_bbox(ptr dead_on_unwind noalias writable align 8 %32, ptr noundef %0, ptr noundef nonnull readonly %47, ptr %2368, ptr noundef nonnull %.12871038.i, ptr noundef %2371)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %32, i64 32, i1 false), !tbaa.struct !205
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %32, i64 32, i1 false), !tbaa.struct !205
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %32) #22
   %2372 = load i32, ptr %.12871038.i, align 8
   %2373 = and i32 %2372, 3
@@ -4626,7 +4625,7 @@ boxes_append.exit397.i:                           ; preds = %2335, %2314
 
 spline_merge.exit398.i:                           ; preds = %2385, %2381, %2367
   %2389 = phi i1 [ false, %2367 ], [ true, %2381 ], [ %2388, %2385 ]
-  call void @endpath(ptr noundef nonnull %46, ptr noundef nonnull %.12871038.i, i32 noundef 1, ptr noundef nonnull %29, i1 noundef zeroext %2389) #22
+  call void @endpath(ptr noundef nonnull %46, ptr noundef nonnull %.12871038.i, i32 noundef 1, ptr noundef nonnull %28, i1 noundef zeroext %2389) #22
   %2390 = load i32, ptr %560, align 4, !tbaa !188
   %2391 = add nsw i32 %2390, -1
   %2392 = sext i32 %2391 to i64
@@ -4670,7 +4669,7 @@ spline_merge.exit398.i:                           ; preds = %2385, %2381, %2367
 2412:                                             ; preds = %2408, %spline_merge.exit398.i
   store double 0x3FF921FB54442D18, ptr %561, align 8, !tbaa !216
   store i8 1, ptr %562, align 1, !tbaa !217
-  call fastcc void @completeregularpath(ptr noundef nonnull %46, ptr noundef nonnull %.1287.ph1082.i, ptr noundef nonnull %.12871038.i, ptr noundef %28, ptr noundef %29, ptr noundef %30)
+  call fastcc void @completeregularpath(ptr noundef nonnull %46, ptr noundef nonnull %.1287.ph1082.i, ptr noundef nonnull %.12871038.i, ptr noundef %27, ptr noundef %28, ptr noundef %29)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33) #22
   store i64 0, ptr %33, align 8, !tbaa !133
   br i1 %554, label %2413, label %2415
@@ -4712,12 +4711,12 @@ spline_merge.exit398.i:                           ; preds = %2385, %2381, %2367
 .thread911.i:                                     ; preds = %2424
   call void @free(ptr noundef %.0307.i) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.phi.trans.insert.i.i.i, i8 0, i64 16, i1 false)
-  %2426 = load ptr, ptr %30, align 8, !tbaa !214
+  %2426 = load ptr, ptr %29, align 8, !tbaa !214
   call void @free(ptr noundef %2426) #22
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %30, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %29, i8 0, i64 32, i1 false)
   call void @free(ptr noundef %.sroa.0625.2.ph1077.i) #22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33) #22
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %30) #22
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %29) #22
   br label %make_regular_edge.exit
 
 ._crit_edge.i:                                    ; preds = %points_append.exit.i
@@ -4874,7 +4873,7 @@ straight_path.exit.i:                             ; preds = %2480, %2475, %point
   %2507 = load ptr, ptr %2506, align 8, !tbaa !219
   %2508 = load ptr, ptr %2507, align 8, !tbaa !74
   call fastcc void @maximal_bbox(ptr dead_on_unwind noalias writable align 8 %34, ptr noundef %0, ptr noundef nonnull readonly %47, ptr %2505, ptr noundef %2508, ptr noundef nonnull %.013.lcssa.i.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %34, i64 32, i1 false), !tbaa.struct !205
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %27, ptr noundef nonnull align 8 dereferenceable(32) %34, i64 32, i1 false), !tbaa.struct !205
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %34) #22
   %2509 = load ptr, ptr %2504, align 8, !tbaa !16
   %2510 = getelementptr inbounds nuw i8, ptr %2509, i64 216
@@ -4896,7 +4895,7 @@ straight_path.exit.i:                             ; preds = %2480, %2475, %point
 
 spline_merge.exit411.i:                           ; preds = %2517, %2513, %straight_path.exit.i
   %2521 = phi i1 [ false, %straight_path.exit.i ], [ true, %2513 ], [ %2520, %2517 ]
-  call void @beginpath(ptr noundef nonnull %46, ptr noundef nonnull %.013.lcssa.i.i, i32 noundef 1, ptr noundef nonnull %28, i1 noundef zeroext %2521) #22
+  call void @beginpath(ptr noundef nonnull %46, ptr noundef nonnull %.013.lcssa.i.i, i32 noundef 1, ptr noundef nonnull %27, i1 noundef zeroext %2521) #22
   %2522 = load i32, ptr %556, align 4, !tbaa !188
   %2523 = add nsw i32 %2522, -1
   %2524 = sext i32 %2523 to i64
@@ -5092,7 +5091,7 @@ rank_box.exit423.i:                               ; preds = %2587, %.critedge.i4
 
 ._crit_edge.i.i424.i:                             ; preds = %rank_box.exit423.i
   %.pre.i.i426.i = load i64, ptr %.phi.trans.insert.i.i.i, align 8, !tbaa !213
-  %.pre45.i.i427.i = load ptr, ptr %30, align 8, !tbaa !214
+  %.pre45.i.i427.i = load ptr, ptr %29, align 8, !tbaa !214
   br label %boxes_append.exit431.i
 
 2616:                                             ; preds = %rank_box.exit423.i
@@ -5103,7 +5102,7 @@ rank_box.exit423.i:                               ; preds = %2587, %.critedge.i4
   br i1 %mul.ov.i.i429.i, label %2639, label %2619
 
 2619:                                             ; preds = %2616
-  %2620 = load ptr, ptr %30, align 8, !tbaa !214
+  %2620 = load ptr, ptr %29, align 8, !tbaa !214
   %2621 = shl nuw i64 %spec.select.i.i428.i, 5
   %2622 = call ptr @realloc(ptr noundef %2620, i64 noundef %2621) #26
   %2623 = icmp eq ptr %2622, null
@@ -5131,7 +5130,7 @@ rank_box.exit423.i:                               ; preds = %2587, %.critedge.i4
 
 2637:                                             ; preds = %2631, %2624
   %2638 = phi i64 [ %2628, %2624 ], [ %2633, %2631 ]
-  store ptr %2622, ptr %30, align 8, !tbaa !214
+  store ptr %2622, ptr %29, align 8, !tbaa !214
   store i64 %spec.select.i.i428.i, ptr %558, align 8, !tbaa !212
   br label %boxes_append.exit431.i
 
@@ -5162,11 +5161,11 @@ boxes_append.exit431.i:                           ; preds = %2637, %._crit_edge.
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %35) #22
   %.val376.i = load ptr, ptr %.lcssa.i, align 8, !tbaa !16
   call fastcc void @maximal_bbox(ptr dead_on_unwind noalias writable align 8 %35, ptr noundef %0, ptr noundef nonnull readonly %47, ptr %.val376.i, ptr noundef nonnull %.1287.lcssa.i, ptr noundef null)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %29, ptr noundef nonnull align 8 dereferenceable(32) %35, i64 32, i1 false), !tbaa.struct !205
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %35, i64 32, i1 false), !tbaa.struct !205
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %35) #22
-  %.sroa.0780.0.copyload787.i = load double, ptr %29, align 8, !tbaa !70
+  %.sroa.0780.0.copyload787.i = load double, ptr %28, align 8, !tbaa !70
   %.sroa.28.0.copyload815.i = load double, ptr %.sroa.28.0..sroa_idx814.i, align 8, !tbaa !70
-  %2650 = select i1 %1904, ptr %26, ptr %.1287.lcssa.i
+  %2650 = select i1 %1904, ptr %25, ptr %.1287.lcssa.i
   %2651 = load i32, ptr %.1287.lcssa.i, align 8
   %2652 = and i32 %2651, 3
   %2653 = icmp eq i32 %2652, 2
@@ -5195,7 +5194,7 @@ boxes_append.exit431.i:                           ; preds = %2637, %._crit_edge.
 
 spline_merge.exit432.i:                           ; preds = %2664, %2660, %boxes_append.exit431.i
   %2668 = phi i1 [ false, %boxes_append.exit431.i ], [ true, %2660 ], [ %2667, %2664 ]
-  call void @endpath(ptr noundef nonnull %46, ptr noundef nonnull %2650, i32 noundef 1, ptr noundef nonnull %29, i1 noundef zeroext %2668) #22
+  call void @endpath(ptr noundef nonnull %46, ptr noundef nonnull %2650, i32 noundef 1, ptr noundef nonnull %28, i1 noundef zeroext %2668) #22
   %2669 = load i32, ptr %560, align 4, !tbaa !188
   %2670 = add nsw i32 %2669, -1
   %2671 = sext i32 %2670 to i64
@@ -5234,11 +5233,11 @@ spline_merge.exit432.i:                           ; preds = %2664, %2660, %boxes
   br label %2691
 
 2691:                                             ; preds = %2687, %spline_merge.exit432.i
-  call fastcc void @completeregularpath(ptr noundef nonnull %46, ptr noundef nonnull %.0291.ph.lcssa.i, ptr noundef nonnull %.1287.lcssa.i, ptr noundef %28, ptr noundef %29, ptr noundef %30)
+  call fastcc void @completeregularpath(ptr noundef nonnull %46, ptr noundef nonnull %.0291.ph.lcssa.i, ptr noundef nonnull %.1287.lcssa.i, ptr noundef %27, ptr noundef %28, ptr noundef %29)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.phi.trans.insert.i.i.i, i8 0, i64 16, i1 false)
-  %2692 = load ptr, ptr %30, align 8, !tbaa !214
+  %2692 = load ptr, ptr %29, align 8, !tbaa !214
   call void @free(ptr noundef %2692) #22
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %30, i8 0, i64 32, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %29, i8 0, i64 32, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %36) #22
   store i64 0, ptr %36, align 8, !tbaa !133
   br i1 %554, label %.thread925.i, label %2694
@@ -5281,7 +5280,7 @@ spline_merge.exit432.i:                           ; preds = %2664, %2660, %boxes
   call void @free(ptr noundef %.0302928.i) #22
   call void @free(ptr noundef %.sroa.0625.2.ph.lcssa.i) #22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36) #22
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %30) #22
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %29) #22
   br label %make_regular_edge.exit
 
 ._crit_edge1098.i:                                ; preds = %points_append.exit444.i
@@ -5358,7 +5357,7 @@ points_append.exit444.i:                          ; preds = %2723, %2717, %.lr.p
   br i1 %2739, label %.lr.ph1097.i, label %._crit_edge1098.i, !llvm.loop !226
 
 2740:                                             ; preds = %._crit_edge1098.i
-  %2741 = load i32, ptr %26, align 8
+  %2741 = load i32, ptr %25, align 8
   %2742 = and i32 %2741, 3
   %2743 = icmp eq i32 %2742, 2
   %.sroa.sel.v.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel = select i1 %2743, ptr %.sroa.gep314.i, ptr %.sroa.gep312.i
@@ -5375,7 +5374,7 @@ points_append.exit444.i:                          ; preds = %2723, %2717, %.lr.p
   %.in.i = phi ptr [ %.sroa.sel.v.sroa.sel.v.sroa.sel.v.i.sroa.sel.v.sroa.sel, %2740 ], [ %.sroa.sel329.i, %2744 ]
   %2749 = load ptr, ptr %.in.i, align 8, !tbaa !107
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36) #22
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %30) #22
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %29) #22
   br label %makeLineEdge.exit.i
 
 makeLineEdge.exit.i:                              ; preds = %2748, %points_append.exit199.i.i, %points_append.exit163.i.i
@@ -5582,7 +5581,7 @@ points_append.exit476.i:                          ; preds = %2786, %2780, %.lr.p
 2811:                                             ; preds = %2800
   %2812 = load ptr, ptr %541, align 8, !tbaa !123
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(240) %2812, ptr noundef nonnull align 8 dereferenceable(240) %2807, i64 240, i1 false), !tbaa.struct !124
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %27, ptr noundef nonnull align 8 dereferenceable(64) %2805, i64 64, i1 false), !tbaa.struct !136
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %26, ptr noundef nonnull align 8 dereferenceable(64) %2805, i64 64, i1 false), !tbaa.struct !136
   store ptr %2812, ptr %541, align 8, !tbaa !123
   %2813 = load i32, ptr %2805, align 8
   %2814 = and i32 %2813, 3
@@ -5591,7 +5590,7 @@ points_append.exit476.i:                          ; preds = %2786, %2780, %.lr.p
   %2816 = getelementptr inbounds i8, ptr %2805, i64 %.idx369.i
   %2817 = getelementptr inbounds nuw i8, ptr %2816, i64 56
   %2818 = load ptr, ptr %2817, align 8, !tbaa !107
-  %2819 = load i32, ptr %27, align 8
+  %2819 = load i32, ptr %26, align 8
   %2820 = and i32 %2819, 3
   %2821 = icmp eq i32 %2820, 3
   %.sroa.sel341.i = select i1 %2821, ptr %.sroa.gep339.i, ptr %.sroa.gep340.i
@@ -5621,7 +5620,7 @@ points_append.exit476.i:                          ; preds = %2786, %2780, %.lr.p
   br label %2837
 
 2837:                                             ; preds = %2811, %2800
-  %.3.i = phi ptr [ %27, %2811 ], [ %2805, %2800 ]
+  %.3.i = phi ptr [ %26, %2811 ], [ %2805, %2800 ]
   br i1 %2759, label %.lr.ph1119.i, label %.preheader.i484
 
 .preheader.i484:                                  ; preds = %.lr.ph1119.i, %2837
@@ -5751,14 +5750,15 @@ points_append.exit508.i:                          ; preds = %2868, %2862, %.lr.p
   br i1 %exitcond1209.not.i, label %._crit_edge1126.i, label %.lr.ph1125.i, !llvm.loop !234
 
 make_regular_edge.exit:                           ; preds = %.thread911.i, %.thread930.i, %points_sync.exit.i, %._crit_edge1135.i
-  call void @llvm.lifetime.end.p0(i64 696, ptr nonnull %29) #22
   call void @llvm.lifetime.end.p0(i64 696, ptr nonnull %28) #22
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %27) #22
+  call void @llvm.lifetime.end.p0(i64 696, ptr nonnull %27) #22
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %26) #22
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %25) #22
-  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %24) #22
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %24) #22
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %23) #22
   call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %22) #22
+  call void @llvm.lifetime.end.p0(i64 240, ptr nonnull %21) #22
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %31)
   br label %.loopexit619
 
 .loopexit619:                                     ; preds = %919, %906, %make_regular_edge.exit, %make_flat_edge.exit, %._crit_edge858

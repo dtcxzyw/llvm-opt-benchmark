@@ -5517,7 +5517,6 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i33:   ; preds = %49
 
 locale_getKeywordsStart_77.exit:                  ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i33
   %56 = getelementptr inbounds nuw i8, ptr %50, i64 %55
-  store ptr %56, ptr %5, align 8, !tbaa !56
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7) #20
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 1
   %58 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %57) #20

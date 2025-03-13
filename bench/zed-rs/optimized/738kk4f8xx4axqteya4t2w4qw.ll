@@ -83921,7 +83921,7 @@ define hidden void @"_ZN5image6codecs4tiff20TiffDecoder$LT$R$GT$3new17h45fd1a1ab
   br label %153
 
 90:                                               ; preds = %109, %84
-  %.sroa.7.0.i = phi i64 [ %.sroa.05.0.i.i, %109 ], [ %88, %84 ]
+  %.sroa.5.0.i = phi i64 [ %.sroa.05.0.i.i, %109 ], [ %88, %84 ]
   %.sroa.045.0.i = phi i8 [ 1, %109 ], [ 0, %84 ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %22), !noalias !18778
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %17), !noalias !18778
@@ -83992,7 +83992,7 @@ define hidden void @"_ZN5image6codecs4tiff20TiffDecoder$LT$R$GT$3new17h45fd1a1ab
 114:                                              ; preds = %90
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %22, ptr noundef nonnull align 8 dereferenceable(48) %17, i64 48, i1 false), !noalias !18778
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %17), !noalias !18778
-  %115 = invoke noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h16fbffac132c848fE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %22, i64 noundef %.sroa.7.0.i)
+  %115 = invoke noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h16fbffac132c848fE"(ptr noalias noundef nonnull align 8 dereferenceable(48) %22, i64 noundef %.sroa.5.0.i)
           to label %118 unwind label %151, !noalias !18785
 
 116:                                              ; preds = %146
@@ -84020,7 +84020,7 @@ define hidden void @"_ZN5image6codecs4tiff20TiffDecoder$LT$R$GT$3new17h45fd1a1ab
   unreachable
 
 125:                                              ; preds = %118
-  store i64 %.sroa.7.0.i, ptr %120, align 8, !noalias !18785
+  store i64 %.sroa.5.0.i, ptr %120, align 8, !noalias !18785
   call void @llvm.lifetime.start.p0(i64 352, ptr nonnull %21), !noalias !18778
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %20)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %20, ptr noundef nonnull align 8 dereferenceable(32) %23, i64 32, i1 false), !noalias !18778
@@ -84051,7 +84051,7 @@ define hidden void @"_ZN5image6codecs4tiff20TiffDecoder$LT$R$GT$3new17h45fd1a1ab
   store i64 134217728, ptr %.sroa.5.0..sroa_idx.i, align 8, !noalias !18778
   store i64 1, ptr %21, align 8, !noalias !18778
   %134 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  store i64 %.sroa.7.0.i, ptr %134, align 8, !noalias !18778
+  store i64 %.sroa.5.0.i, ptr %134, align 8, !noalias !18778
   %135 = getelementptr inbounds nuw i8, ptr %21, i64 216
   store i64 1, ptr %135, align 8, !noalias !18778
   %.sroa.5211.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %21, i64 224
@@ -84148,9 +84148,9 @@ define hidden void @"_ZN5image6codecs4tiff20TiffDecoder$LT$R$GT$3new17h45fd1a1ab
   %.sroa.29.1 = phi ptr [ %.sroa.29.0, %154 ], [ %.sroa.29.0.copyload, %143 ]
   %.sroa.15.1 = phi i16 [ %.sroa.15.0, %154 ], [ %.sroa.15.0.copyload, %143 ]
   %.sroa.0.1 = phi i64 [ 2, %154 ], [ %.sroa.0.0.copyload, %143 ]
-  %.sink270.i = phi i64 [ %155, %154 ], [ %144, %143 ]
+  %.sink267.i = phi i64 [ %155, %154 ], [ %144, %143 ]
   %147 = load ptr, ptr %38, align 8, !noalias !18778, !nonnull !9, !noundef !9
-  call void @__rust_dealloc(ptr noundef nonnull %147, i64 noundef %.sink270.i, i64 noundef 1) #49, !noalias !18785
+  call void @__rust_dealloc(ptr noundef nonnull %147, i64 noundef %.sink267.i, i64 noundef 1) #49, !noalias !18785
   br label %"_ZN4tiff7decoder16Decoder$LT$R$GT$3new17hf61527c3a63c1963E.exit"
 
 148:                                              ; preds = %146

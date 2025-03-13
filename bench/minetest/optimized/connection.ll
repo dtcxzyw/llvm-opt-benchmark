@@ -4623,20 +4623,20 @@ if.then.i325:                                     ; preds = %if.end108
 
 if.end.i:                                         ; preds = %if.then.i325, %if.end108
   %conv8.pre-phi.i = phi i64 [ 0, %if.end108 ], [ %conv.i, %if.then.i325 ]
-  %storemerge.i = phi ptr [ null, %if.end108 ], [ %call.i328, %if.then.i325 ]
-  store ptr %storemerge.i, ptr %chunkdata, align 8, !tbaa !47
+  %61 = phi ptr [ null, %if.end108 ], [ %call.i328, %if.then.i325 ]
+  store ptr %61, ptr %chunkdata, align 8, !tbaa !47
   %call5.i329 = invoke noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #33
           to label %invoke.cont115 unwind label %lpad114
 
 invoke.cont115:                                   ; preds = %if.end.i
   %refcount.i326 = getelementptr inbounds nuw i8, ptr %chunkdata, i64 16
   store ptr %call5.i329, ptr %refcount.i326, align 8, !tbaa !50
-  call void @llvm.memset.p0.i64(ptr align 1 %storemerge.i, i8 0, i64 %conv8.pre-phi.i, i1 false)
+  call void @llvm.memset.p0.i64(ptr align 1 %61, i8 0, i64 %conv8.pre-phi.i, i1 false)
   store i32 1, ptr %call5.i329, align 4, !tbaa !48
-  %61 = load ptr, ptr %0, align 8, !tbaa !18
-  %arrayidx120 = getelementptr inbounds nuw i8, ptr %61, i64 14
+  %62 = load ptr, ptr %0, align 8, !tbaa !18
+  %arrayidx120 = getelementptr inbounds nuw i8, ptr %62, i64 14
   %conv121 = zext i32 %conv113 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %storemerge.i, ptr nonnull align 1 %arrayidx120, i64 %conv121, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %61, ptr nonnull align 1 %arrayidx120, i64 %conv121, i1 false)
   %conv122 = zext i16 %rev.i.i196 to i32
   %call124 = invoke noundef zeroext i1 @_ZN3con19IncomingSplitPacket6insertEjR12SharedBufferIhE(ptr noundef nonnull align 8 dereferenceable(64) %sp.0, i32 noundef %conv122, ptr noundef nonnull align 8 dereferenceable(24) %chunkdata)
           to label %invoke.cont123 unwind label %lpad116
@@ -4658,21 +4658,21 @@ _ZN12SharedBufferIhEC2Ev.exit334:                 ; preds = %if.then125
   br label %cleanup
 
 lpad114:                                          ; preds = %if.end.i, %if.then.i325
-  %62 = landingpad { ptr, i32 }
+  %63 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup139
 
 lpad116:                                          ; preds = %if.end132, %if.then130, %if.then125, %invoke.cont115
-  %63 = landingpad { ptr, i32 }
+  %64 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup
 
 if.end127:                                        ; preds = %invoke.cont123
   %_M_node_count.i.i.i = getelementptr inbounds nuw i8, ptr %sp.0, i64 56
-  %64 = load i64, ptr %_M_node_count.i.i.i, align 8, !tbaa !116
-  %65 = load i32, ptr %chunk_count74, align 4, !tbaa !101
-  %conv.i336 = zext i32 %65 to i64
-  %cmp.i337 = icmp eq i64 %64, %conv.i336
+  %65 = load i64, ptr %_M_node_count.i.i.i, align 8, !tbaa !116
+  %66 = load i32, ptr %chunk_count74, align 4, !tbaa !101
+  %conv.i336 = zext i32 %66 to i64
+  %cmp.i337 = icmp eq i64 %65, %conv.i336
   br i1 %cmp.i337, label %if.end132, label %if.then130
 
 if.then130:                                       ; preds = %if.end127
@@ -4699,50 +4699,44 @@ invoke.cont133:                                   ; preds = %if.end132
 delete.notnull:                                   ; preds = %invoke.cont133
   call void @_ZN3con19IncomingSplitPacketD2Ev(ptr noundef nonnull align 8 dereferenceable(64) %sp.0) #31
   call void @_ZdlPv(ptr noundef nonnull %sp.0) #32
-  %.pre = load ptr, ptr %refcount.i326, align 8, !tbaa !50
   br label %cleanup
 
 lpad135:                                          ; preds = %invoke.cont133
-  %66 = landingpad { ptr, i32 }
+  %67 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN12SharedBufferIhED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %agg.result) #31
   br label %ehcleanup
 
 cleanup:                                          ; preds = %delete.notnull, %_ZN12SharedBufferIhEC2Ev.exit342, %_ZN12SharedBufferIhEC2Ev.exit334
-  %67 = phi ptr [ %call5.i329, %_ZN12SharedBufferIhEC2Ev.exit342 ], [ %call5.i329, %_ZN12SharedBufferIhEC2Ev.exit334 ], [ %.pre, %delete.notnull ]
-  %68 = load i32, ptr %67, align 4, !tbaa !48
+  %68 = load i32, ptr %call5.i329, align 4, !tbaa !48
   %dec.i.i = add i32 %68, -1
-  store i32 %dec.i.i, ptr %67, align 4, !tbaa !48
+  store i32 %dec.i.i, ptr %call5.i329, align 4, !tbaa !48
   %cmp.i.i = icmp eq i32 %dec.i.i, 0
   br i1 %cmp.i.i, label %if.then.i.i345, label %_ZN12SharedBufferIhED2Ev.exit
 
 if.then.i.i345:                                   ; preds = %cleanup
-  %69 = load ptr, ptr %chunkdata, align 8, !tbaa !47
-  %isnull.i.i = icmp eq ptr %69, null
+  %isnull.i.i = icmp eq ptr %61, null
   br i1 %isnull.i.i, label %delete.notnull5.i.i, label %delete.end.i.i
 
 delete.end.i.i:                                   ; preds = %if.then.i.i345
-  call void @_ZdaPv(ptr noundef nonnull %69) #32
-  %.pre.i.i = load ptr, ptr %refcount.i326, align 8, !tbaa !50
-  %isnull4.i.i = icmp eq ptr %.pre.i.i, null
-  br i1 %isnull4.i.i, label %_ZN12SharedBufferIhED2Ev.exit, label %delete.notnull5.i.i
+  call void @_ZdaPv(ptr noundef nonnull %61) #32
+  br label %delete.notnull5.i.i
 
 delete.notnull5.i.i:                              ; preds = %delete.end.i.i, %if.then.i.i345
-  %70 = phi ptr [ %.pre.i.i, %delete.end.i.i ], [ %67, %if.then.i.i345 ]
-  call void @_ZdlPv(ptr noundef nonnull %70) #32
+  call void @_ZdlPv(ptr noundef nonnull %call5.i329) #32
   br label %_ZN12SharedBufferIhED2Ev.exit
 
-_ZN12SharedBufferIhED2Ev.exit:                    ; preds = %delete.notnull5.i.i, %delete.end.i.i, %cleanup
+_ZN12SharedBufferIhED2Ev.exit:                    ; preds = %delete.notnull5.i.i, %cleanup
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %chunkdata) #31
   br label %cleanup144
 
 ehcleanup:                                        ; preds = %lpad135, %lpad116
-  %.pn = phi { ptr, i32 } [ %66, %lpad135 ], [ %63, %lpad116 ]
+  %.pn = phi { ptr, i32 } [ %67, %lpad135 ], [ %64, %lpad116 ]
   call void @_ZN12SharedBufferIhED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %chunkdata) #31
   br label %ehcleanup139
 
 ehcleanup139:                                     ; preds = %ehcleanup, %lpad114
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %62, %lpad114 ]
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %ehcleanup ], [ %63, %lpad114 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %chunkdata) #31
   br label %ehcleanup149
 

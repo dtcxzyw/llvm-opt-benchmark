@@ -3800,12 +3800,12 @@ define internal fastcc void @"_ZN4llvm15handleErrorImplIZZZNS_10localCacheERKNS_
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 16
   %46 = load i8, ptr %45, align 8, !noalias !256
   %47 = trunc i8 %46 to i1
-  br i1 %47, label %_ZN4llvm7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit.i.i, label %48
+  br i1 %47, label %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.i.i.i, label %48
 
 48:                                               ; preds = %30
   %49 = load ptr, ptr %44, align 8, !tbaa !48, !noalias !256
   %.not.i.i.i.i.i.i = icmp eq ptr %49, null
-  br i1 %.not.i.i.i.i.i.i, label %_ZN4llvm7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit.i.i, label %_ZNKSt14default_deleteIN4llvm12MemoryBufferEEclEPS1_.exit.i.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.i, label %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.i.i.i, label %_ZNKSt14default_deleteIN4llvm12MemoryBufferEEclEPS1_.exit.i.i.i.i.i.i
 
 _ZNKSt14default_deleteIN4llvm12MemoryBufferEEclEPS1_.exit.i.i.i.i.i.i: ; preds = %48
   %50 = load ptr, ptr %49, align 8, !tbaa !50, !noalias !256
@@ -3813,9 +3813,9 @@ _ZNKSt14default_deleteIN4llvm12MemoryBufferEEclEPS1_.exit.i.i.i.i.i.i: ; preds =
   %52 = load ptr, ptr %51, align 8, !noalias !256
   call void %52(ptr noundef nonnull align 8 dereferenceable(24) %49) #15, !noalias !256
   %.pre.pre.i.i.i.i = load i8, ptr %45, align 8, !noalias !256
-  br label %_ZN4llvm7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit.i.i
+  br label %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.i.i.i
 
-_ZN4llvm7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit.i.i: ; preds = %_ZNKSt14default_deleteIN4llvm12MemoryBufferEEclEPS1_.exit.i.i.i.i.i.i, %48, %30
+_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.i.i.i: ; preds = %_ZNKSt14default_deleteIN4llvm12MemoryBufferEEclEPS1_.exit.i.i.i.i.i.i, %48, %30
   %53 = phi i8 [ %46, %30 ], [ %.pre.pre.i.i.i.i, %_ZNKSt14default_deleteIN4llvm12MemoryBufferEEclEPS1_.exit.i.i.i.i.i.i ], [ %46, %48 ]
   %54 = and i8 %53, -2
   store i8 %54, ptr %45, align 8, !noalias !256
@@ -3836,14 +3836,14 @@ _ZN4llvm7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.
   %59 = icmp eq ptr %58, null
   br i1 %59, label %_ZN4llvm12consumeErrorENS_5ErrorE.exit.i.i, label %60
 
-60:                                               ; preds = %_ZN4llvm7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit.i.i
+60:                                               ; preds = %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.i.i.i
   %61 = load ptr, ptr %58, align 8, !tbaa !50, !noalias !256
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %63 = load ptr, ptr %62, align 8, !noalias !256
   call void %63(ptr noundef nonnull align 8 dereferenceable(8) %58) #15, !noalias !256
   br label %_ZN4llvm12consumeErrorENS_5ErrorE.exit.i.i
 
-_ZN4llvm12consumeErrorENS_5ErrorE.exit.i.i:       ; preds = %60, %_ZN4llvm7ErrorOrISt10unique_ptrINS_12MemoryBufferESt14default_deleteIS2_EEED2Ev.exit.i.i
+_ZN4llvm12consumeErrorENS_5ErrorE.exit.i.i:       ; preds = %60, %_ZNSt10unique_ptrIN4llvm12MemoryBufferESt14default_deleteIS1_EED2Ev.exit.i.i.i
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4), !noalias !256
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5), !noalias !256
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6) #15, !noalias !256

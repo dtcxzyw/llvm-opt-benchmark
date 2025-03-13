@@ -51377,7 +51377,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_20UsdSkelSkinningQueryEEC2ERKS2
 
 38:                                               ; preds = %34
   invoke void %37(ptr noundef nonnull align 8 dereferenceable(16) %35)
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i unwind label %65
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i unwind label %64
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %38, %34, %31, %._crit_edge.i.i, %20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
@@ -51394,7 +51394,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_20UsdSkelSkinningQueryEEaSEOS2_
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %42 = load ptr, ptr %41, align 8
   %.not27.i.i6 = icmp eq ptr %42, null
-  br i1 %.not27.i.i6, label %43, label %54
+  br i1 %.not27.i.i6, label %43, label %53
 
 43:                                               ; preds = %40
   %44 = getelementptr inbounds i8, ptr %7, i64 -16
@@ -51415,49 +51415,44 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_20UsdSkelSkinningQueryEEaSEOS2_
   call void @_ZN32pxrInternal_v0_24__pxrReserved__20UsdSkelSkinningQueryD2Ev(ptr noundef nonnull align 8 dereferenceable(400) %.02430.i.i11) #24
   %51 = getelementptr inbounds nuw i8, ptr %.02430.i.i11, i64 400
   %.not28.i.i12 = icmp eq ptr %51, %50
-  br i1 %.not28.i.i12, label %._crit_edge.loopexit.i.i13, label %.lr.ph.i.i10, !llvm.loop !472
+  br i1 %.not28.i.i12, label %._crit_edge.i.i15, label %.lr.ph.i.i10, !llvm.loop !472
 
-._crit_edge.loopexit.i.i13:                       ; preds = %.lr.ph.i.i10
-  %.pre.i.i14 = load ptr, ptr %5, align 8
-  br label %._crit_edge.i.i15
-
-._crit_edge.i.i15:                                ; preds = %._crit_edge.loopexit.i.i13, %47
-  %52 = phi ptr [ %.pre.i.i14, %._crit_edge.loopexit.i.i13 ], [ %48, %47 ]
-  %53 = getelementptr inbounds i8, ptr %52, i64 -16
-  call void @_ZdlPv(ptr noundef nonnull %53) #24
+._crit_edge.i.i15:                                ; preds = %.lr.ph.i.i10, %47
+  %52 = getelementptr inbounds i8, ptr %48, i64 -16
+  call void @_ZdlPv(ptr noundef nonnull %52) #24
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_20UsdSkelSkinningQueryEED2Ev.exit
 
-54:                                               ; preds = %40
-  %55 = atomicrmw sub ptr %42, i64 1 release, align 8
-  %56 = icmp eq i64 %55, 1
-  br i1 %56, label %57, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_20UsdSkelSkinningQueryEED2Ev.exit
+53:                                               ; preds = %40
+  %54 = atomicrmw sub ptr %42, i64 1 release, align 8
+  %55 = icmp eq i64 %54, 1
+  br i1 %55, label %56, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_20UsdSkelSkinningQueryEED2Ev.exit
 
-57:                                               ; preds = %54
+56:                                               ; preds = %53
   fence acquire
-  %58 = load ptr, ptr %41, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
-  %60 = load ptr, ptr %59, align 8
-  %.not.i.i.i8 = icmp eq ptr %60, null
-  br i1 %.not.i.i.i8, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_20UsdSkelSkinningQueryEED2Ev.exit, label %61
+  %57 = load ptr, ptr %41, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 8
+  %59 = load ptr, ptr %58, align 8
+  %.not.i.i.i8 = icmp eq ptr %59, null
+  br i1 %.not.i.i.i8, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_20UsdSkelSkinningQueryEED2Ev.exit, label %60
 
-61:                                               ; preds = %57
-  invoke void %60(ptr noundef nonnull align 8 dereferenceable(16) %58)
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_20UsdSkelSkinningQueryEED2Ev.exit unwind label %62
+60:                                               ; preds = %56
+  invoke void %59(ptr noundef nonnull align 8 dereferenceable(16) %57)
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_20UsdSkelSkinningQueryEED2Ev.exit unwind label %61
 
-62:                                               ; preds = %61
-  %63 = landingpad { ptr, i32 }
+61:                                               ; preds = %60
+  %62 = landingpad { ptr, i32 }
           catch ptr null
-  %64 = extractvalue { ptr, i32 } %63, 0
-  call void @__clang_call_terminate(ptr %64) #25
+  %63 = extractvalue { ptr, i32 } %62, 0
+  call void @__clang_call_terminate(ptr %63) #25
   unreachable
 
-65:                                               ; preds = %38
-  %66 = landingpad { ptr, i32 }
+64:                                               ; preds = %38
+  %65 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_20UsdSkelSkinningQueryEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #24
-  resume { ptr, i32 } %66
+  resume { ptr, i32 } %65
 
-_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_20UsdSkelSkinningQueryEED2Ev.exit: ; preds = %43, %._crit_edge.i.i15, %54, %57, %61, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_20UsdSkelSkinningQueryEEC2ERKS2_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_20UsdSkelSkinningQueryEEaSEOS2_.exit.thread, %2
+_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_20UsdSkelSkinningQueryEED2Ev.exit: ; preds = %43, %._crit_edge.i.i15, %53, %56, %60, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_20UsdSkelSkinningQueryEEC2ERKS2_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_20UsdSkelSkinningQueryEEaSEOS2_.exit.thread, %2
   ret ptr %0
 }
 

@@ -34377,15 +34377,15 @@ define internal fastcc void @struct_members(ptr noundef nonnull writeonly captur
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %5, i8 0, i64 56, i1 false)
   %7 = tail call zeroext i1 @equal(ptr noundef %1, ptr noundef nonnull @.str.69) #13
-  br i1 %7, label %._crit_edge.thread, label %.lr.ph45
+  br i1 %7, label %._crit_edge.thread, label %.lr.ph46
 
-.lr.ph45:                                         ; preds = %3
+.lr.ph46:                                         ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %9
 
-9:                                                ; preds = %.lr.ph45, %.loopexit
-  %.044 = phi ptr [ %5, %.lr.ph45 ], [ %.1, %.loopexit ]
-  %.03043 = phi i32 [ 0, %.lr.ph45 ], [ %.131, %.loopexit ]
+9:                                                ; preds = %.lr.ph46, %.loopexit
+  %.045 = phi ptr [ %5, %.lr.ph46 ], [ %.1, %.loopexit ]
+  %.03044 = phi i32 [ 0, %.lr.ph46 ], [ %.131, %.loopexit ]
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %6) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %6, i8 0, i64 12, i1 false)
   %10 = load ptr, ptr %4, align 8, !tbaa !25
@@ -34404,9 +34404,9 @@ define internal fastcc void @struct_members(ptr noundef nonnull writeonly captur
   %18 = call noalias dereferenceable_or_null(56) ptr @calloc(i64 noundef 1, i64 noundef 56) #14
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   store ptr %11, ptr %19, align 8, !tbaa !157
-  %20 = add nsw i32 %.03043, 1
+  %20 = add nsw i32 %.03044, 1
   %21 = getelementptr inbounds nuw i8, ptr %18, i64 32
-  store i32 %.03043, ptr %21, align 8, !tbaa !170
+  store i32 %.03044, ptr %21, align 8, !tbaa !170
   %22 = load i32, ptr %8, align 4, !tbaa !81
   %.not38 = icmp eq i32 %22, 0
   br i1 %.not38, label %23, label %26
@@ -34420,7 +34420,7 @@ define internal fastcc void @struct_members(ptr noundef nonnull writeonly captur
   %27 = phi i32 [ %25, %23 ], [ %22, %17 ]
   %28 = getelementptr inbounds nuw i8, ptr %18, i64 36
   store i32 %27, ptr %28, align 4, !tbaa !225
-  store ptr %18, ptr %.044, align 8, !tbaa !160
+  store ptr %18, ptr %.045, align 8, !tbaa !160
   br label %.loopexit
 
 29:                                               ; preds = %9, %14
@@ -34428,107 +34428,152 @@ define internal fastcc void @struct_members(ptr noundef nonnull writeonly captur
   %31 = call zeroext i1 @consume(ptr noundef nonnull %4, ptr noundef %30, ptr noundef nonnull @.str.99) #13
   br i1 %31, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %29, %60
-  %.241 = phi ptr [ %36, %60 ], [ %.044, %29 ]
-  %.23240 = phi i32 [ %42, %60 ], [ %.03043, %29 ]
-  %.03339 = phi i1 [ false, %60 ], [ true, %29 ]
+.lr.ph:                                           ; preds = %29
+  %32 = load i32, ptr %8, align 4
+  %.fr = freeze i32 %32
+  %.not37 = icmp eq i32 %.fr, 0
+  br i1 %.not37, label %.lr.ph.split.us, label %.lr.ph.split
+
+.lr.ph.split.us:                                  ; preds = %.lr.ph, %57
+  %.241.us = phi ptr [ %37, %57 ], [ %.045, %.lr.ph ]
+  %.23240.us = phi i32 [ %43, %57 ], [ %.03044, %.lr.ph ]
+  %.03339.us = phi i1 [ false, %57 ], [ true, %.lr.ph ]
+  %.pre52 = load ptr, ptr %4, align 8, !tbaa !25
+  br i1 %.03339.us, label %35, label %33
+
+33:                                               ; preds = %.lr.ph.split.us
+  %34 = call ptr @skip(ptr noundef %.pre52, ptr noundef nonnull @.str.57) #13
+  store ptr %34, ptr %4, align 8, !tbaa !25
+  br label %35
+
+35:                                               ; preds = %33, %.lr.ph.split.us
+  %36 = phi ptr [ %34, %33 ], [ %.pre52, %.lr.ph.split.us ]
+  %37 = call noalias dereferenceable_or_null(56) ptr @calloc(i64 noundef 1, i64 noundef 56) #14
+  %38 = call fastcc ptr @declarator(ptr noundef %4, ptr noundef %36, ptr noundef nonnull %11)
+  %39 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  store ptr %38, ptr %39, align 8, !tbaa !157
+  %40 = getelementptr inbounds nuw i8, ptr %38, i64 32
+  %41 = load ptr, ptr %40, align 8, !tbaa !83
+  %42 = getelementptr inbounds nuw i8, ptr %37, i64 24
+  store ptr %41, ptr %42, align 8, !tbaa !156
+  %43 = add nsw i32 %.23240.us, 1
+  %44 = getelementptr inbounds nuw i8, ptr %37, i64 32
+  store i32 %.23240.us, ptr %44, align 8, !tbaa !170
+  %45 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %46 = load i32, ptr %45, align 8, !tbaa !38
+  %47 = getelementptr inbounds nuw i8, ptr %37, i64 36
+  store i32 %46, ptr %47, align 4, !tbaa !225
+  %48 = load ptr, ptr %4, align 8, !tbaa !25
+  %49 = call zeroext i1 @consume(ptr noundef nonnull %4, ptr noundef %48, ptr noundef nonnull @.str.3) #13
+  br i1 %49, label %50, label %57
+
+50:                                               ; preds = %35
+  %51 = getelementptr inbounds nuw i8, ptr %37, i64 44
+  store i8 1, ptr %51, align 4, !tbaa !128
+  %52 = load ptr, ptr %4, align 8, !tbaa !25
+  %53 = call fastcc ptr @conditional(ptr noundef nonnull %4, ptr noundef %52)
+  %54 = call fastcc i64 @eval2(ptr noundef %53, ptr noundef null)
+  %55 = trunc i64 %54 to i32
+  %56 = getelementptr inbounds nuw i8, ptr %37, i64 52
+  store i32 %55, ptr %56, align 4, !tbaa !180
+  br label %57
+
+57:                                               ; preds = %50, %35
+  store ptr %37, ptr %.241.us, align 8, !tbaa !160
+  %58 = load ptr, ptr %4, align 8, !tbaa !25
+  %59 = call zeroext i1 @consume(ptr noundef nonnull %4, ptr noundef %58, ptr noundef nonnull @.str.99) #13
+  br i1 %59, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !233
+
+.lr.ph.split:                                     ; preds = %.lr.ph, %82
+  %.241 = phi ptr [ %64, %82 ], [ %.045, %.lr.ph ]
+  %.23240 = phi i32 [ %70, %82 ], [ %.03044, %.lr.ph ]
+  %.03339 = phi i1 [ false, %82 ], [ true, %.lr.ph ]
   %.pre = load ptr, ptr %4, align 8, !tbaa !25
-  br i1 %.03339, label %34, label %32
+  br i1 %.03339, label %62, label %60
 
-32:                                               ; preds = %.lr.ph
-  %33 = call ptr @skip(ptr noundef %.pre, ptr noundef nonnull @.str.57) #13
-  store ptr %33, ptr %4, align 8, !tbaa !25
-  br label %34
+60:                                               ; preds = %.lr.ph.split
+  %61 = call ptr @skip(ptr noundef %.pre, ptr noundef nonnull @.str.57) #13
+  store ptr %61, ptr %4, align 8, !tbaa !25
+  br label %62
 
-34:                                               ; preds = %32, %.lr.ph
-  %35 = phi ptr [ %33, %32 ], [ %.pre, %.lr.ph ]
-  %36 = call noalias dereferenceable_or_null(56) ptr @calloc(i64 noundef 1, i64 noundef 56) #14
-  %37 = call fastcc ptr @declarator(ptr noundef %4, ptr noundef %35, ptr noundef nonnull %11)
-  %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  store ptr %37, ptr %38, align 8, !tbaa !157
-  %39 = getelementptr inbounds nuw i8, ptr %37, i64 32
-  %40 = load ptr, ptr %39, align 8, !tbaa !83
-  %41 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  store ptr %40, ptr %41, align 8, !tbaa !156
-  %42 = add nsw i32 %.23240, 1
-  %43 = getelementptr inbounds nuw i8, ptr %36, i64 32
-  store i32 %.23240, ptr %43, align 8, !tbaa !170
-  %44 = load i32, ptr %8, align 4, !tbaa !81
-  %.not37 = icmp eq i32 %44, 0
-  br i1 %.not37, label %45, label %48
+62:                                               ; preds = %60, %.lr.ph.split
+  %63 = phi ptr [ %61, %60 ], [ %.pre, %.lr.ph.split ]
+  %64 = call noalias dereferenceable_or_null(56) ptr @calloc(i64 noundef 1, i64 noundef 56) #14
+  %65 = call fastcc ptr @declarator(ptr noundef %4, ptr noundef %63, ptr noundef nonnull %11)
+  %66 = getelementptr inbounds nuw i8, ptr %64, i64 8
+  store ptr %65, ptr %66, align 8, !tbaa !157
+  %67 = getelementptr inbounds nuw i8, ptr %65, i64 32
+  %68 = load ptr, ptr %67, align 8, !tbaa !83
+  %69 = getelementptr inbounds nuw i8, ptr %64, i64 24
+  store ptr %68, ptr %69, align 8, !tbaa !156
+  %70 = add nsw i32 %.23240, 1
+  %71 = getelementptr inbounds nuw i8, ptr %64, i64 32
+  store i32 %.23240, ptr %71, align 8, !tbaa !170
+  %72 = getelementptr inbounds nuw i8, ptr %64, i64 36
+  store i32 %.fr, ptr %72, align 4, !tbaa !225
+  %73 = load ptr, ptr %4, align 8, !tbaa !25
+  %74 = call zeroext i1 @consume(ptr noundef nonnull %4, ptr noundef %73, ptr noundef nonnull @.str.3) #13
+  br i1 %74, label %75, label %82
 
-45:                                               ; preds = %34
-  %46 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  %47 = load i32, ptr %46, align 8, !tbaa !38
-  br label %48
+75:                                               ; preds = %62
+  %76 = getelementptr inbounds nuw i8, ptr %64, i64 44
+  store i8 1, ptr %76, align 4, !tbaa !128
+  %77 = load ptr, ptr %4, align 8, !tbaa !25
+  %78 = call fastcc ptr @conditional(ptr noundef nonnull %4, ptr noundef %77)
+  %79 = call fastcc i64 @eval2(ptr noundef %78, ptr noundef null)
+  %80 = trunc i64 %79 to i32
+  %81 = getelementptr inbounds nuw i8, ptr %64, i64 52
+  store i32 %80, ptr %81, align 4, !tbaa !180
+  br label %82
 
-48:                                               ; preds = %34, %45
-  %49 = phi i32 [ %47, %45 ], [ %44, %34 ]
-  %50 = getelementptr inbounds nuw i8, ptr %36, i64 36
-  store i32 %49, ptr %50, align 4, !tbaa !225
-  %51 = load ptr, ptr %4, align 8, !tbaa !25
-  %52 = call zeroext i1 @consume(ptr noundef nonnull %4, ptr noundef %51, ptr noundef nonnull @.str.3) #13
-  br i1 %52, label %53, label %60
+82:                                               ; preds = %75, %62
+  store ptr %64, ptr %.241, align 8, !tbaa !160
+  %83 = load ptr, ptr %4, align 8, !tbaa !25
+  %84 = call zeroext i1 @consume(ptr noundef nonnull %4, ptr noundef %83, ptr noundef nonnull @.str.99) #13
+  br i1 %84, label %.loopexit, label %.lr.ph.split, !llvm.loop !233
 
-53:                                               ; preds = %48
-  %54 = getelementptr inbounds nuw i8, ptr %36, i64 44
-  store i8 1, ptr %54, align 4, !tbaa !128
-  %55 = load ptr, ptr %4, align 8, !tbaa !25
-  %56 = call fastcc ptr @conditional(ptr noundef nonnull %4, ptr noundef %55)
-  %57 = call fastcc i64 @eval2(ptr noundef %56, ptr noundef null)
-  %58 = trunc i64 %57 to i32
-  %59 = getelementptr inbounds nuw i8, ptr %36, i64 52
-  store i32 %58, ptr %59, align 4, !tbaa !180
-  br label %60
-
-60:                                               ; preds = %53, %48
-  store ptr %36, ptr %.241, align 8, !tbaa !160
-  %61 = load ptr, ptr %4, align 8, !tbaa !25
-  %62 = call zeroext i1 @consume(ptr noundef nonnull %4, ptr noundef %61, ptr noundef nonnull @.str.99) #13
-  br i1 %62, label %.loopexit, label %.lr.ph, !llvm.loop !233
-
-.loopexit:                                        ; preds = %60, %29, %26
-  %.131 = phi i32 [ %20, %26 ], [ %.03043, %29 ], [ %42, %60 ]
-  %.1 = phi ptr [ %18, %26 ], [ %.044, %29 ], [ %36, %60 ]
+.loopexit:                                        ; preds = %82, %57, %29, %26
+  %.131 = phi i32 [ %20, %26 ], [ %.03044, %29 ], [ %43, %57 ], [ %70, %82 ]
+  %.1 = phi ptr [ %18, %26 ], [ %.045, %29 ], [ %37, %57 ], [ %64, %82 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %6) #13
-  %63 = load ptr, ptr %4, align 8, !tbaa !25
-  %64 = call zeroext i1 @equal(ptr noundef %63, ptr noundef nonnull @.str.69) #13
-  br i1 %64, label %._crit_edge, label %9
+  %85 = load ptr, ptr %4, align 8, !tbaa !25
+  %86 = call zeroext i1 @equal(ptr noundef %85, ptr noundef nonnull @.str.69) #13
+  br i1 %86, label %._crit_edge, label %9
 
 ._crit_edge:                                      ; preds = %.loopexit
   %.not = icmp eq ptr %.1, %5
-  br i1 %.not, label %._crit_edge.thread, label %65
+  br i1 %.not, label %._crit_edge.thread, label %87
 
-65:                                               ; preds = %._crit_edge
-  %66 = getelementptr inbounds nuw i8, ptr %.1, i64 8
-  %67 = load ptr, ptr %66, align 8, !tbaa !157
-  %68 = load i32, ptr %67, align 8, !tbaa !61
-  %69 = icmp eq i32 %68, 12
-  br i1 %69, label %70, label %._crit_edge.thread
+87:                                               ; preds = %._crit_edge
+  %88 = getelementptr inbounds nuw i8, ptr %.1, i64 8
+  %89 = load ptr, ptr %88, align 8, !tbaa !157
+  %90 = load i32, ptr %89, align 8, !tbaa !61
+  %91 = icmp eq i32 %90, 12
+  br i1 %91, label %92, label %._crit_edge.thread
 
-70:                                               ; preds = %65
-  %71 = getelementptr inbounds nuw i8, ptr %67, i64 48
-  %72 = load i32, ptr %71, align 8, !tbaa !173
-  %73 = icmp slt i32 %72, 0
-  br i1 %73, label %74, label %._crit_edge.thread
+92:                                               ; preds = %87
+  %93 = getelementptr inbounds nuw i8, ptr %89, i64 48
+  %94 = load i32, ptr %93, align 8, !tbaa !173
+  %95 = icmp slt i32 %94, 0
+  br i1 %95, label %96, label %._crit_edge.thread
 
-74:                                               ; preds = %70
-  %75 = getelementptr inbounds nuw i8, ptr %67, i64 24
-  %76 = load ptr, ptr %75, align 8, !tbaa !123
-  %77 = call ptr @array_of(ptr noundef %76, i32 noundef 0) #13
-  store ptr %77, ptr %66, align 8, !tbaa !157
-  %78 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  store i8 1, ptr %78, align 8, !tbaa !158
+96:                                               ; preds = %92
+  %97 = getelementptr inbounds nuw i8, ptr %89, i64 24
+  %98 = load ptr, ptr %97, align 8, !tbaa !123
+  %99 = call ptr @array_of(ptr noundef %98, i32 noundef 0) #13
+  store ptr %99, ptr %88, align 8, !tbaa !157
+  %100 = getelementptr inbounds nuw i8, ptr %2, i64 80
+  store i8 1, ptr %100, align 8, !tbaa !158
   br label %._crit_edge.thread
 
-._crit_edge.thread:                               ; preds = %3, %74, %70, %65, %._crit_edge
-  %79 = load ptr, ptr %4, align 8, !tbaa !25
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
-  %81 = load ptr, ptr %80, align 8, !tbaa !26
-  store ptr %81, ptr %0, align 8, !tbaa !25
-  %82 = load ptr, ptr %5, align 8, !tbaa !160
-  %83 = getelementptr inbounds nuw i8, ptr %2, i64 72
-  store ptr %82, ptr %83, align 8, !tbaa !164
+._crit_edge.thread:                               ; preds = %3, %96, %92, %87, %._crit_edge
+  %101 = load ptr, ptr %4, align 8, !tbaa !25
+  %102 = getelementptr inbounds nuw i8, ptr %101, i64 8
+  %103 = load ptr, ptr %102, align 8, !tbaa !26
+  store ptr %103, ptr %0, align 8, !tbaa !25
+  %104 = load ptr, ptr %5, align 8, !tbaa !160
+  %105 = getelementptr inbounds nuw i8, ptr %2, i64 72
+  store ptr %104, ptr %105, align 8, !tbaa !164
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %5) #13
   ret void
 }

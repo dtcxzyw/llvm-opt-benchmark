@@ -155628,18 +155628,18 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i35
   br label %732
 
 732:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i359, %726
-  %733 = phi i64 [ %728, %726 ], [ %.pre.i361, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i359 ]
-  %734 = getelementptr inbounds nuw i8, ptr %721, i64 8
-  %735 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  store i64 %733, ptr %735, align 8, !tbaa !19, !alias.scope !2177
+  %733 = phi ptr [ %722, %726 ], [ %723, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i359 ]
+  %734 = phi i64 [ %728, %726 ], [ %.pre.i361, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i359 ]
+  %735 = getelementptr inbounds nuw i8, ptr %721, i64 8
+  %736 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  store i64 %734, ptr %736, align 8, !tbaa !19, !alias.scope !2177
   store ptr %724, ptr %721, align 8, !tbaa !16
-  store i64 0, ptr %734, align 8, !tbaa !19
+  store i64 0, ptr %735, align 8, !tbaa !19
   store i8 0, ptr %724, align 8, !tbaa !10
-  %736 = load ptr, ptr %35, align 8, !tbaa !16
   br label %737
 
 737:                                              ; preds = %711, %732
-  %738 = phi ptr [ %736, %732 ], [ @.str.7, %711 ]
+  %738 = phi ptr [ %733, %732 ], [ @.str.7, %711 ]
   invoke void @_ZN11flatbuffers3cpp12CppGenerator17GenUnionUnpackValB5cxx11ERKNS_8FieldDefEPKcS6_(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef nonnull align 8 dereferenceable(1633) %1, ptr noundef nonnull align 8 dereferenceable(312) %5, ptr noundef nonnull %712, ptr noundef %738)
           to label %739 unwind label %758
 

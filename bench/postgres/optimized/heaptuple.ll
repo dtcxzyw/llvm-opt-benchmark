@@ -1438,17 +1438,17 @@ define internal fastcc void @expand_tuple(ptr noundef captures(address_is_null) 
   %32 = getelementptr inbounds nuw %struct.AttrMissing, ptr %27, i64 %31
   %33 = load i8, ptr %32, align 8, !range !4, !noundef !5
   %34 = trunc nuw i8 %33 to i1
-  br i1 %34, label %._crit_edge.loopexit, label %.lr.ph228
+  br i1 %34, label %._crit_edge.loopexit, label %.lr.ph229
 
-.lr.ph:                                           ; preds = %.lr.ph228
+.lr.ph:                                           ; preds = %.lr.ph229
   %35 = getelementptr inbounds nuw %struct.AttrMissing, ptr %27, i64 %indvars.iv.next
   %36 = load i8, ptr %35, align 8, !range !4, !noundef !5
   %37 = trunc nuw i8 %36 to i1
-  br i1 %37, label %._crit_edge.loopexit, label %.lr.ph228, !llvm.loop !13
+  br i1 %37, label %._crit_edge.loopexit, label %.lr.ph229, !llvm.loop !13
 
-.lr.ph228:                                        ; preds = %.lr.ph.preheader, %.lr.ph
-  %indvars.iv227 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ %31, %.lr.ph.preheader ]
-  %indvars.iv.next = add nuw nsw i64 %indvars.iv227, 1
+.lr.ph229:                                        ; preds = %.lr.ph.preheader, %.lr.ph
+  %indvars.iv228 = phi i64 [ %indvars.iv.next, %.lr.ph ], [ %31, %.lr.ph.preheader ]
+  %indvars.iv.next = add nuw nsw i64 %indvars.iv228, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.thread172, label %.lr.ph, !llvm.loop !13
 
@@ -1467,20 +1467,20 @@ define internal fastcc void @expand_tuple(ptr noundef captures(address_is_null) 
 .lr.ph192:                                        ; preds = %._crit_edge
   %40 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %41 = sext i32 %.0147.lcssa to i64
-  %wide.trip.count203 = sext i32 %15 to i64
+  %wide.trip.count204 = sext i32 %15 to i64
   br label %42
 
 42:                                               ; preds = %.lr.ph192, %105
-  %indvars.iv201 = phi i64 [ %41, %.lr.ph192 ], [ %indvars.iv.next202, %105 ]
+  %indvars.iv202 = phi i64 [ %41, %.lr.ph192 ], [ %indvars.iv.next203, %105 ]
   %.0145189 = phi i64 [ %21, %.lr.ph192 ], [ %.1146, %105 ]
   %.1150188 = phi i1 [ %.0149.lcssa, %.lr.ph192 ], [ %.2151, %105 ]
-  %43 = getelementptr inbounds %struct.AttrMissing, ptr %27, i64 %indvars.iv201
+  %43 = getelementptr inbounds %struct.AttrMissing, ptr %27, i64 %indvars.iv202
   %44 = load i8, ptr %43, align 8, !range !4, !noundef !5
   %45 = trunc nuw i8 %44 to i1
   br i1 %45, label %46, label %105
 
 46:                                               ; preds = %42
-  %47 = getelementptr inbounds [0 x %struct.CompactAttribute], ptr %40, i64 0, i64 %indvars.iv201
+  %47 = getelementptr inbounds [0 x %struct.CompactAttribute], ptr %40, i64 0, i64 %indvars.iv202
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 4
   %49 = load i16, ptr %48, align 4
   %50 = icmp eq i16 %49, -1
@@ -1574,18 +1574,18 @@ define internal fastcc void @expand_tuple(ptr noundef captures(address_is_null) 
 105:                                              ; preds = %42, %102
   %.2151 = phi i1 [ %.1150188, %102 ], [ true, %42 ]
   %.1146 = phi i64 [ %104, %102 ], [ %.0145189, %42 ]
-  %indvars.iv.next202 = add nsw i64 %indvars.iv201, 1
-  %exitcond204.not = icmp eq i64 %indvars.iv.next202, %wide.trip.count203
-  br i1 %exitcond204.not, label %._crit_edge193, label %42, !llvm.loop !14
+  %indvars.iv.next203 = add nsw i64 %indvars.iv202, 1
+  %exitcond205.not = icmp eq i64 %indvars.iv.next203, %wide.trip.count204
+  br i1 %exitcond205.not, label %._crit_edge193, label %42, !llvm.loop !14
 
 ._crit_edge193:                                   ; preds = %105, %._crit_edge
   %.1150.lcssa = phi i1 [ %.0149.lcssa, %._crit_edge ], [ %.2151, %105 ]
   %.0145.lcssa = phi i64 [ %21, %._crit_edge ], [ %.1146, %105 ]
   br i1 %.1150.lcssa, label %.thread172, label %110
 
-.thread172:                                       ; preds = %.lr.ph228, %4, %25, %._crit_edge193
-  %.0179 = phi ptr [ %27, %._crit_edge193 ], [ null, %25 ], [ null, %4 ], [ %27, %.lr.ph228 ]
-  %.2177 = phi i64 [ %.0145.lcssa, %._crit_edge193 ], [ %21, %25 ], [ %21, %4 ], [ %21, %.lr.ph228 ]
+.thread172:                                       ; preds = %.lr.ph229, %4, %25, %._crit_edge193
+  %.0179 = phi ptr [ %27, %._crit_edge193 ], [ null, %25 ], [ null, %4 ], [ %27, %.lr.ph229 ]
+  %.2177 = phi i64 [ %.0145.lcssa, %._crit_edge193 ], [ %21, %25 ], [ %21, %4 ], [ %21, %.lr.ph229 ]
   %106 = add i32 %15, 7
   %107 = sdiv i32 %106, 8
   %108 = sext i32 %107 to i64
@@ -1653,14 +1653,14 @@ define internal fastcc void @expand_tuple(ptr noundef captures(address_is_null) 
   %.pre = load ptr, ptr %0, align 8
   %147 = getelementptr inbounds nuw i8, ptr %.pre, i64 16
   %148 = load ptr, ptr %147, align 8
-  br i1 %.0148, label %149, label %._crit_edge211
+  br i1 %.0148, label %149, label %._crit_edge212
 
 149:                                              ; preds = %111
   %150 = getelementptr inbounds nuw i8, ptr %148, i64 23
   store ptr %150, ptr %5, align 8
-  br label %._crit_edge211
+  br label %._crit_edge212
 
-._crit_edge211:                                   ; preds = %111, %149
+._crit_edge212:                                   ; preds = %111, %149
   %151 = phi ptr [ %150, %149 ], [ null, %111 ]
   %152 = getelementptr inbounds i8, ptr %148, i64 %113
   store ptr %152, ptr %7, align 8
@@ -1690,25 +1690,25 @@ define internal fastcc void @expand_tuple(ptr noundef captures(address_is_null) 
   %170 = trunc i32 %15 to i16
   %171 = or i16 %169, %170
   store i16 %171, ptr %167, align 2
-  %.pre213 = load ptr, ptr %1, align 8
+  %.pre214 = load ptr, ptr %1, align 8
   br i1 %.0148, label %172, label %174
 
 172:                                              ; preds = %153
-  %173 = getelementptr inbounds nuw i8, ptr %.pre213, i64 15
+  %173 = getelementptr inbounds nuw i8, ptr %.pre214, i64 15
   store ptr %173, ptr %5, align 8
   br label %174
 
 174:                                              ; preds = %172, %153
   %175 = phi ptr [ %173, %172 ], [ null, %153 ]
-  %176 = getelementptr inbounds i8, ptr %.pre213, i64 %155
+  %176 = getelementptr inbounds i8, ptr %.pre214, i64 %155
   store ptr %176, ptr %7, align 8
-  %177 = getelementptr inbounds nuw i8, ptr %.pre213, i64 12
+  %177 = getelementptr inbounds nuw i8, ptr %.pre214, i64 12
   br label %178
 
-178:                                              ; preds = %174, %._crit_edge211
-  %179 = phi ptr [ %152, %._crit_edge211 ], [ %176, %174 ]
-  %180 = phi ptr [ %151, %._crit_edge211 ], [ %175, %174 ]
-  %.0143 = phi ptr [ %129, %._crit_edge211 ], [ %177, %174 ]
+178:                                              ; preds = %174, %._crit_edge212
+  %179 = phi ptr [ %152, %._crit_edge212 ], [ %176, %174 ]
+  %180 = phi ptr [ %151, %._crit_edge212 ], [ %175, %174 ]
+  %.0143 = phi ptr [ %129, %._crit_edge212 ], [ %177, %174 ]
   br i1 %.0148, label %181, label %201
 
 181:                                              ; preds = %178
@@ -1722,7 +1722,7 @@ define internal fastcc void @expand_tuple(ptr noundef captures(address_is_null) 
   %185 = getelementptr i8, ptr %180, i64 %184
   %186 = getelementptr i8, ptr %185, i64 -1
   store ptr %186, ptr %5, align 8
-  %.pre217 = add nuw nsw i32 %14, 7
+  %.pre218 = add nuw nsw i32 %14, 7
   br label %198
 
 187:                                              ; preds = %181
@@ -1742,12 +1742,12 @@ define internal fastcc void @expand_tuple(ptr noundef captures(address_is_null) 
   %196 = trunc i32 %195 to i8
   %197 = xor i8 %196, -1
   store i8 %197, ptr %192, align 1
-  %.pre214.pre = load ptr, ptr %7, align 8
+  %.pre215.pre = load ptr, ptr %7, align 8
   br label %198
 
 198:                                              ; preds = %187, %194, %182
-  %.pre-phi = phi i32 [ %188, %187 ], [ %188, %194 ], [ %.pre217, %182 ]
-  %.pre214 = phi ptr [ %179, %187 ], [ %.pre214.pre, %194 ], [ %179, %182 ]
+  %.pre-phi = phi i32 [ %188, %187 ], [ %188, %194 ], [ %.pre218, %182 ]
+  %.pre215 = phi ptr [ %179, %187 ], [ %.pre215.pre, %194 ], [ %179, %182 ]
   %199 = and i32 %.pre-phi, 7
   %200 = shl nuw nsw i32 1, %199
   store i32 %200, ptr %6, align 4
@@ -1755,7 +1755,7 @@ define internal fastcc void @expand_tuple(ptr noundef captures(address_is_null) 
 
 201:                                              ; preds = %198, %178
   %.promoted = phi i32 [ %200, %198 ], [ 0, %178 ]
-  %202 = phi ptr [ %.pre214, %198 ], [ %179, %178 ]
+  %202 = phi ptr [ %.pre215, %198 ], [ %179, %178 ]
   %203 = load ptr, ptr %8, align 8
   %204 = load i8, ptr %17, align 2
   %205 = zext i8 %204 to i64
@@ -1774,82 +1774,86 @@ define internal fastcc void @expand_tuple(ptr noundef captures(address_is_null) 
 .lr.ph198.split.preheader:                        ; preds = %.lr.ph198
   %210 = and i16 %12, 2047
   %211 = zext nneg i16 %210 to i64
-  %wide.trip.count208 = zext i32 %15 to i64
+  %wide.trip.count209 = zext i32 %15 to i64
   br label %.lr.ph198.split
 
-.lr.ph198.split.us:                               ; preds = %.lr.ph198, %fill_val.exit.us
-  %storemerge.i.us200 = phi i32 [ %storemerge.i.us, %fill_val.exit.us ], [ %.promoted, %.lr.ph198 ]
-  %.1196.us = phi i32 [ %219, %fill_val.exit.us ], [ %14, %.lr.ph198 ]
+.lr.ph198.split.us:                               ; preds = %.lr.ph198
+  %.promoted201 = load ptr, ptr %5, align 8
+  br label %212
+
+212:                                              ; preds = %fill_val.exit.us, %.lr.ph198.split.us
+  %213 = phi ptr [ %.promoted201, %.lr.ph198.split.us ], [ %218, %fill_val.exit.us ]
+  %storemerge.i.us200 = phi i32 [ %.promoted, %.lr.ph198.split.us ], [ %storemerge.i.us, %fill_val.exit.us ]
+  %.1196.us = phi i32 [ %14, %.lr.ph198.split.us ], [ %221, %fill_val.exit.us ]
   %.not85.i.us = icmp eq i32 %storemerge.i.us200, 128
-  br i1 %.not85.i.us, label %214, label %212
+  br i1 %.not85.i.us, label %216, label %214
 
-212:                                              ; preds = %.lr.ph198.split.us
-  %213 = shl i32 %storemerge.i.us200, 1
+214:                                              ; preds = %212
+  %215 = shl i32 %storemerge.i.us200, 1
   br label %fill_val.exit.us
 
-214:                                              ; preds = %.lr.ph198.split.us
-  %215 = load ptr, ptr %5, align 8
-  %216 = getelementptr inbounds nuw i8, ptr %215, i64 1
-  store ptr %216, ptr %5, align 8
-  store i8 0, ptr %216, align 1
+216:                                              ; preds = %212
+  %217 = getelementptr inbounds nuw i8, ptr %213, i64 1
+  store i8 0, ptr %217, align 1
   br label %fill_val.exit.us
 
-fill_val.exit.us:                                 ; preds = %214, %212
-  %storemerge.i.us = phi i32 [ 1, %214 ], [ %213, %212 ]
-  %217 = load i16, ptr %.0143, align 2
-  %218 = or i16 %217, 1
-  store i16 %218, ptr %.0143, align 2
-  %219 = add nuw nsw i32 %.1196.us, 1
-  %exitcond210.not = icmp eq i32 %219, %15
-  br i1 %exitcond210.not, label %._crit_edge199, label %.lr.ph198.split.us, !llvm.loop !15
+fill_val.exit.us:                                 ; preds = %216, %214
+  %218 = phi ptr [ %217, %216 ], [ %213, %214 ]
+  %storemerge.i.us = phi i32 [ 1, %216 ], [ %215, %214 ]
+  %219 = load i16, ptr %.0143, align 2
+  %220 = or i16 %219, 1
+  store i16 %220, ptr %.0143, align 2
+  %221 = add nuw nsw i32 %.1196.us, 1
+  %exitcond211.not = icmp eq i32 %221, %15
+  br i1 %exitcond211.not, label %._crit_edge199, label %212, !llvm.loop !15
 
-.lr.ph198.split:                                  ; preds = %.lr.ph198.split.preheader, %237
-  %indvars.iv205 = phi i64 [ %211, %.lr.ph198.split.preheader ], [ %indvars.iv.next206, %237 ]
-  %220 = getelementptr inbounds nuw %struct.AttrMissing, ptr %.0178, i64 %indvars.iv205
-  %221 = load i8, ptr %220, align 8, !range !4, !noundef !5
-  %222 = trunc nuw i8 %221 to i1
-  br i1 %222, label %223, label %228
+.lr.ph198.split:                                  ; preds = %.lr.ph198.split.preheader, %239
+  %indvars.iv206 = phi i64 [ %211, %.lr.ph198.split.preheader ], [ %indvars.iv.next207, %239 ]
+  %222 = getelementptr inbounds nuw %struct.AttrMissing, ptr %.0178, i64 %indvars.iv206
+  %223 = load i8, ptr %222, align 8, !range !4, !noundef !5
+  %224 = trunc nuw i8 %223 to i1
+  br i1 %224, label %225, label %230
 
-223:                                              ; preds = %.lr.ph198.split
-  %224 = getelementptr inbounds nuw [0 x %struct.CompactAttribute], ptr %209, i64 0, i64 %indvars.iv205
-  %225 = load ptr, ptr %5, align 8
-  %.not165 = icmp eq ptr %225, null
+225:                                              ; preds = %.lr.ph198.split
+  %226 = getelementptr inbounds nuw [0 x %struct.CompactAttribute], ptr %209, i64 0, i64 %indvars.iv206
+  %227 = load ptr, ptr %5, align 8
+  %.not165 = icmp eq ptr %227, null
   %. = select i1 %.not165, ptr null, ptr %5
-  %226 = getelementptr inbounds nuw i8, ptr %220, i64 8
-  %227 = load i64, ptr %226, align 8
-  call fastcc void @fill_val(ptr noundef nonnull %224, ptr noundef %., ptr noundef %6, ptr noundef %7, ptr noundef nonnull %.0143, i64 noundef %227, i1 noundef zeroext false)
-  br label %237
+  %228 = getelementptr inbounds nuw i8, ptr %222, i64 8
+  %229 = load i64, ptr %228, align 8
+  call fastcc void @fill_val(ptr noundef nonnull %226, ptr noundef %., ptr noundef %6, ptr noundef %7, ptr noundef nonnull %.0143, i64 noundef %229, i1 noundef zeroext false)
+  br label %239
 
-228:                                              ; preds = %.lr.ph198.split
-  %229 = load i32, ptr %6, align 4
-  %.not85.i = icmp eq i32 %229, 128
-  br i1 %.not85.i, label %232, label %230
+230:                                              ; preds = %.lr.ph198.split
+  %231 = load i32, ptr %6, align 4
+  %.not85.i = icmp eq i32 %231, 128
+  br i1 %.not85.i, label %234, label %232
 
-230:                                              ; preds = %228
-  %231 = shl i32 %229, 1
+232:                                              ; preds = %230
+  %233 = shl i32 %231, 1
   br label %fill_val.exit
 
-232:                                              ; preds = %228
-  %233 = load ptr, ptr %5, align 8
-  %234 = getelementptr inbounds nuw i8, ptr %233, i64 1
-  store ptr %234, ptr %5, align 8
-  store i8 0, ptr %234, align 1
+234:                                              ; preds = %230
+  %235 = load ptr, ptr %5, align 8
+  %236 = getelementptr inbounds nuw i8, ptr %235, i64 1
+  store ptr %236, ptr %5, align 8
+  store i8 0, ptr %236, align 1
   br label %fill_val.exit
 
-fill_val.exit:                                    ; preds = %230, %232
-  %storemerge.i = phi i32 [ 1, %232 ], [ %231, %230 ]
+fill_val.exit:                                    ; preds = %232, %234
+  %storemerge.i = phi i32 [ 1, %234 ], [ %233, %232 ]
   store i32 %storemerge.i, ptr %6, align 4
-  %235 = load i16, ptr %.0143, align 2
-  %236 = or i16 %235, 1
-  store i16 %236, ptr %.0143, align 2
-  br label %237
+  %237 = load i16, ptr %.0143, align 2
+  %238 = or i16 %237, 1
+  store i16 %238, ptr %.0143, align 2
+  br label %239
 
-237:                                              ; preds = %fill_val.exit, %223
-  %indvars.iv.next206 = add nuw nsw i64 %indvars.iv205, 1
-  %exitcond209.not = icmp eq i64 %indvars.iv.next206, %wide.trip.count208
-  br i1 %exitcond209.not, label %._crit_edge199, label %.lr.ph198.split, !llvm.loop !15
+239:                                              ; preds = %fill_val.exit, %225
+  %indvars.iv.next207 = add nuw nsw i64 %indvars.iv206, 1
+  %exitcond210.not = icmp eq i64 %indvars.iv.next207, %wide.trip.count209
+  br i1 %exitcond210.not, label %._crit_edge199, label %.lr.ph198.split, !llvm.loop !15
 
-._crit_edge199:                                   ; preds = %237, %fill_val.exit.us, %201
+._crit_edge199:                                   ; preds = %239, %fill_val.exit.us, %201
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12

@@ -5518,11 +5518,11 @@ _ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_15SdfAbstractDataEEptEv.exit.
           to label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSEOS0_.exit unwind label %131
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenaSEOS0_.exit: ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__8TfRefPtrINS_15SdfAbstractDataEEptEv.exit.i
-  %.pre262 = load ptr, ptr %28, align 8
+  %.pre260 = load ptr, ptr %28, align 8
   %.pre = load i64, ptr %27, align 8
   %81 = inttoptr i64 %.pre to ptr
   store i64 0, ptr %27, align 8
-  %82 = ptrtoint ptr %.pre262 to i64
+  %82 = ptrtoint ptr %.pre260 to i64
   %83 = and i64 %82, 7
   %.not.i.i37 = icmp eq i64 %83, 0
   br i1 %.not.i.i37, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit38, label %84
@@ -6307,11 +6307,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit119: ; preds = %_ZN32pxrIn
   %415 = atomicrmw add ptr %414, i32 2 monotonic, align 4
   %416 = and i32 %415, 1
   %.not1.i.i122 = icmp eq i32 %416, 0
-  %spec.select263 = select i1 %.not1.i.i122, ptr %414, ptr %.sroa.0.1
+  %spec.select261 = select i1 %.not1.i.i122, ptr %414, ptr %.sroa.0.1
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7_AddRefEv.exit.i123
 
 _ZNK32pxrInternal_v0_24__pxrReserved__7TfToken7_AddRefEv.exit.i123: ; preds = %412, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit119
-  %.sroa.0.8 = phi ptr [ %.sroa.0.1, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit119 ], [ %spec.select263, %412 ]
+  %.sroa.0.8 = phi ptr [ %.sroa.0.1, %_ZN32pxrInternal_v0_24__pxrReserved__7SdfPathD2Ev.exit119 ], [ %spec.select261, %412 ]
   %417 = load ptr, ptr %410, align 8
   %418 = ptrtoint ptr %417 to i64
   %419 = and i64 %418, 7

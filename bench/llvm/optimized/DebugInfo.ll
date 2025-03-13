@@ -8048,66 +8048,58 @@ define dso_local ptr @LLVMInstructionGetDebugLoc(ptr noundef readonly captures(n
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @LLVMInstructionSetDebugLoc(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca %"class.llvm::DebugLoc", align 8
-  %4 = alloca %"class.llvm::DebugLoc", align 8
   %.not = icmp eq ptr %1, null
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  br i1 %.not, label %15, label %6
+  br i1 %.not, label %14, label %4
 
-6:                                                ; preds = %2
+4:                                                ; preds = %2
   call void @_ZN4llvm8DebugLocC1EPKNS_6MDNodeE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull %1) #17
-  %7 = icmp eq ptr %3, %5
-  br i1 %7, label %_ZN4llvm11Instruction11setDebugLocENS_8DebugLocE.exit, label %8
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %6 = icmp eq ptr %3, %5
+  br i1 %6, label %_ZN4llvm11Instruction11setDebugLocENS_8DebugLocE.exit, label %7
 
-8:                                                ; preds = %6
-  %9 = load ptr, ptr %5, align 8, !tbaa !107
-  %.not.i.i.i.i.i = icmp eq ptr %9, null
-  br i1 %.not.i.i.i.i.i, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i, label %10
+7:                                                ; preds = %4
+  %8 = load ptr, ptr %5, align 8, !tbaa !107
+  %.not.i.i.i.i.i = icmp eq ptr %8, null
+  br i1 %.not.i.i.i.i.i, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i, label %9
 
-10:                                               ; preds = %8
-  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 4 dereferenceable(8) %9) #17
+9:                                                ; preds = %7
+  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 4 dereferenceable(8) %8) #17
   br label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i
 
-_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i:   ; preds = %10, %8
-  %11 = load ptr, ptr %3, align 8, !tbaa !107
-  store ptr %11, ptr %5, align 8, !tbaa !107
-  %.not.i6.i.i.i.i = icmp eq ptr %11, null
-  br i1 %.not.i6.i.i.i.i, label %_ZN4llvm8DebugLocD2Ev.exit, label %12
+_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i:   ; preds = %9, %7
+  %10 = load ptr, ptr %3, align 8, !tbaa !107
+  store ptr %10, ptr %5, align 8, !tbaa !107
+  %.not.i6.i.i.i.i = icmp eq ptr %10, null
+  br i1 %.not.i6.i.i.i.i, label %_ZN4llvm8DebugLocD2Ev.exit, label %11
 
-12:                                               ; preds = %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i
-  %13 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking7retrackEPvRNS_8MetadataES1_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(8) %11, ptr noundef nonnull align 8 dereferenceable(8) %5) #17
+11:                                               ; preds = %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i
+  %12 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking7retrackEPvRNS_8MetadataES1_(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(8) %10, ptr noundef nonnull align 8 dereferenceable(8) %5) #17
   br label %_ZN4llvm8DebugLocD2Ev.exit
 
-_ZN4llvm11Instruction11setDebugLocENS_8DebugLocE.exit: ; preds = %6
+_ZN4llvm11Instruction11setDebugLocENS_8DebugLocE.exit: ; preds = %4
   %.pr = load ptr, ptr %3, align 8, !tbaa !107
   %.not.i.i.i.i = icmp eq ptr %.pr, null
-  br i1 %.not.i.i.i.i, label %_ZN4llvm8DebugLocD2Ev.exit, label %14
+  br i1 %.not.i.i.i.i, label %_ZN4llvm8DebugLocD2Ev.exit, label %13
 
-14:                                               ; preds = %_ZN4llvm11Instruction11setDebugLocENS_8DebugLocE.exit
+13:                                               ; preds = %_ZN4llvm11Instruction11setDebugLocENS_8DebugLocE.exit
   call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(8) %.pr) #17
   br label %_ZN4llvm8DebugLocD2Ev.exit
 
-15:                                               ; preds = %2
-  store ptr null, ptr %4, align 8, !tbaa !107
-  %16 = icmp eq ptr %4, %5
-  br i1 %16, label %_ZN4llvm8DebugLocD2Ev.exit, label %17
+14:                                               ; preds = %2
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %16 = load ptr, ptr %15, align 8, !tbaa !107
+  %.not.i.i.i.i.i4 = icmp eq ptr %16, null
+  br i1 %.not.i.i.i.i.i4, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i5, label %17
 
-17:                                               ; preds = %15
-  %18 = load ptr, ptr %5, align 8, !tbaa !107
-  %.not.i.i.i.i.i4 = icmp eq ptr %18, null
-  br i1 %.not.i.i.i.i.i4, label %_ZN4llvm8DebugLocD2Ev.exit, label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i5
+17:                                               ; preds = %14
+  tail call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %15, ptr noundef nonnull align 4 dereferenceable(8) %16) #17
+  br label %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i5
 
-_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i5:  ; preds = %17
-  call void @_ZN4llvm16MetadataTracking7untrackEPvRNS_8MetadataE(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 4 dereferenceable(8) %18) #17
-  %.pre = load ptr, ptr %4, align 8, !tbaa !107
-  store ptr %.pre, ptr %5, align 8, !tbaa !107
-  %.not.i6.i.i.i.i6 = icmp eq ptr %.pre, null
-  br i1 %.not.i6.i.i.i.i6, label %_ZN4llvm8DebugLocD2Ev.exit, label %19
-
-19:                                               ; preds = %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i5
-  %20 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking7retrackEPvRNS_8MetadataES1_(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 4 dereferenceable(8) %.pre, ptr noundef nonnull align 8 dereferenceable(8) %5) #17
+_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i5:  ; preds = %17, %14
+  store ptr null, ptr %15, align 8, !tbaa !107
   br label %_ZN4llvm8DebugLocD2Ev.exit
 
-_ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %17, %12, %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i, %15, %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i5, %19, %14, %_ZN4llvm11Instruction11setDebugLocENS_8DebugLocE.exit
+_ZN4llvm8DebugLocD2Ev.exit:                       ; preds = %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i5, %11, %_ZN4llvm13TrackingMDRef7untrackEv.exit.i.i.i.i, %13, %_ZN4llvm11Instruction11setDebugLocENS_8DebugLocE.exit
   ret void
 }
 

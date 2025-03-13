@@ -83600,8 +83600,6 @@ _ZN7testing7MatcherIRKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEEaSEOS
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %73 = load i64, ptr %43, align 8, !tbaa !14
   store i64 %73, ptr %72, align 8, !tbaa !14
-  store ptr null, ptr %42, align 8, !tbaa !1797
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEEE, i64 16), ptr %5, align 8, !tbaa !39
   br label %_ZN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEEEED2Ev.exit
 
 74:                                               ; preds = %53

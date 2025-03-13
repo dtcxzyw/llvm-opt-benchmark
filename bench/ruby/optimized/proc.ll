@@ -3857,9 +3857,9 @@ define internal i64 @rb_proc_parameters(i32 noundef %0, ptr noundef readonly cap
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #21
   br label %tailrecurse52.i
 
-tailrecurse52.i:                                  ; preds = %44, %3
-  %.tr53.i = phi i64 [ %2, %3 ], [ %46, %44 ]
-  %.tr54.i = phi ptr [ %6, %3 ], [ null, %44 ]
+tailrecurse52.i:                                  ; preds = %48, %3
+  %.tr53.i = phi i64 [ %2, %3 ], [ %50, %48 ]
+  %.tr54.i = phi ptr [ %6, %3 ], [ null, %48 ]
   %.not.i10 = icmp eq ptr %.tr54.i, null
   br i1 %.not.i10, label %tailrecurse.us.i, label %tailrecurse.i
 
@@ -3886,23 +3886,26 @@ tailrecurse.i:                                    ; preds = %tailrecurse52.i, %2
   %13 = inttoptr i64 %.tr.i to ptr
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 32
   %15 = load ptr, ptr %14, align 8, !tbaa !7
-  %16 = getelementptr inbounds nuw i8, ptr %15, i64 32
-  %17 = load i8, ptr %16, align 8
-  %18 = and i8 %17, 2
-  %.not16.i = icmp eq i8 %18, 0
-  %19 = zext i1 %.not16.i to i32
-  store i32 %19, ptr %.tr54.i, align 4, !tbaa !41
-  %20 = getelementptr i8, ptr %15, i64 24
-  %.val.i = load i32, ptr %20, align 8, !tbaa !14
-  switch i32 %.val.i, label %.split25.us.i [
-    i32 0, label %.split27.us.i
+  %16 = getelementptr i8, ptr %15, i64 24
+  %.val.i = load i32, ptr %16, align 8, !tbaa !14
+  switch i32 %.val.i, label %.split25.us.i.loopexit17 [
+    i32 0, label %.split27.us.i.loopexit18
     i32 3, label %23
-    i32 1, label %.split29.us.i
-    i32 2, label %rb_proc_get_iseq.exit
+    i32 1, label %.split29.us.i.loopexit19
+    i32 2, label %rb_proc_get_iseq.exit.loopexit20
   ]
 
-.split27.us.i:                                    ; preds = %tailrecurse.i, %tailrecurse.us.i
-  %.us-phi.i = phi ptr [ %9, %tailrecurse.us.i ], [ %15, %tailrecurse.i ]
+.split27.us.i.loopexit18:                         ; preds = %tailrecurse.i
+  %17 = getelementptr inbounds nuw i8, ptr %15, i64 32
+  %18 = load i8, ptr %17, align 8
+  %19 = and i8 %18, 2
+  %.not16.i.le42 = icmp eq i8 %19, 0
+  %20 = zext i1 %.not16.i.le42 to i32
+  store i32 %20, ptr %.tr54.i, align 4, !tbaa !41
+  br label %.split27.us.i
+
+.split27.us.i:                                    ; preds = %tailrecurse.us.i, %.split27.us.i.loopexit18
+  %.us-phi.i = phi ptr [ %15, %.split27.us.i.loopexit18 ], [ %9, %tailrecurse.us.i ]
   %21 = getelementptr inbounds nuw i8, ptr %.us-phi.i, i64 16
   %22 = load ptr, ptr %21, align 8, !tbaa !35
   br label %rb_proc_get_iseq.exit
@@ -3911,170 +3914,191 @@ tailrecurse.i:                                    ; preds = %tailrecurse52.i, %2
   %24 = load i64, ptr %15, align 8, !tbaa !35
   br label %tailrecurse.i
 
-.split29.us.i:                                    ; preds = %tailrecurse.i, %tailrecurse.us.i
-  %.us-phi30.i = phi ptr [ %9, %tailrecurse.us.i ], [ %15, %tailrecurse.i ]
-  %25 = getelementptr inbounds nuw i8, ptr %.us-phi30.i, i64 16
-  %26 = load ptr, ptr %25, align 8, !tbaa !35
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %28 = load ptr, ptr %27, align 8, !tbaa !37
-  %29 = icmp eq ptr %28, @bmcall
-  br i1 %29, label %30, label %rb_proc_get_iseq.exit
+.split29.us.i.loopexit19:                         ; preds = %tailrecurse.i
+  %25 = getelementptr inbounds nuw i8, ptr %15, i64 32
+  %26 = load i8, ptr %25, align 8
+  %27 = and i8 %26, 2
+  %.not16.i.le44 = icmp eq i8 %27, 0
+  %28 = zext i1 %.not16.i.le44 to i32
+  store i32 %28, ptr %.tr54.i, align 4, !tbaa !41
+  br label %.split29.us.i
 
-30:                                               ; preds = %.split29.us.i
-  br i1 %.not.i10, label %32, label %31
+.split29.us.i:                                    ; preds = %tailrecurse.us.i, %.split29.us.i.loopexit19
+  %.us-phi30.i = phi ptr [ %15, %.split29.us.i.loopexit19 ], [ %9, %tailrecurse.us.i ]
+  %29 = getelementptr inbounds nuw i8, ptr %.us-phi30.i, i64 16
+  %30 = load ptr, ptr %29, align 8, !tbaa !35
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
+  %32 = load ptr, ptr %31, align 8, !tbaa !37
+  %33 = icmp eq ptr %32, @bmcall
+  br i1 %33, label %34, label %rb_proc_get_iseq.exit
 
-31:                                               ; preds = %30
+34:                                               ; preds = %.split29.us.i
+  br i1 %.not.i10, label %36, label %35
+
+35:                                               ; preds = %34
   store i32 0, ptr %.tr54.i, align 4, !tbaa !41
-  br label %32
+  br label %36
 
-32:                                               ; preds = %31, %30
-  %33 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  %34 = load ptr, ptr %33, align 8, !tbaa !40
-  %35 = ptrtoint ptr %34 to i64
-  %36 = call ptr @rb_check_typeddata(i64 noundef %35, ptr noundef nonnull @method_data_type) #21
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 32
+36:                                               ; preds = %35, %34
+  %37 = getelementptr inbounds nuw i8, ptr %30, i64 24
+  %38 = load ptr, ptr %37, align 8, !tbaa !40
+  %39 = ptrtoint ptr %38 to i64
+  %40 = call ptr @rb_check_typeddata(i64 noundef %39, ptr noundef nonnull @method_data_type) #21
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 32
   br label %tailrecurse.i.i
 
-tailrecurse.i.i:                                  ; preds = %47, %32
-  %.pn.in.i = phi ptr [ %37, %32 ], [ %48, %47 ]
+tailrecurse.i.i:                                  ; preds = %51, %36
+  %.pn.in.i = phi ptr [ %41, %36 ], [ %52, %51 ]
   %.pn.i = load ptr, ptr %.pn.in.i, align 8, !tbaa !35
   %.tr.i.in.i = getelementptr inbounds nuw i8, ptr %.pn.i, i64 16
   %.tr.i.i = load ptr, ptr %.tr.i.in.i, align 8, !tbaa !77
-  %38 = load i64, ptr %.tr.i.i, align 8
-  %39 = trunc i64 %38 to i32
-  %40 = and i32 %39, 15
-  switch i32 %40, label %rb_proc_get_iseq.exit [
-    i32 0, label %41
-    i32 4, label %44
-    i32 6, label %47
+  %42 = load i64, ptr %.tr.i.i, align 8
+  %43 = trunc i64 %42 to i32
+  %44 = and i32 %43, 15
+  switch i32 %44, label %rb_proc_get_iseq.exit [
+    i32 0, label %45
+    i32 4, label %48
+    i32 6, label %51
   ]
 
-41:                                               ; preds = %tailrecurse.i.i
-  %42 = getelementptr inbounds nuw i8, ptr %.tr.i.i, i64 8
-  %43 = load ptr, ptr %42, align 8, !tbaa !35
+45:                                               ; preds = %tailrecurse.i.i
+  %46 = getelementptr inbounds nuw i8, ptr %.tr.i.i, i64 8
+  %47 = load ptr, ptr %46, align 8, !tbaa !35
   br label %rb_proc_get_iseq.exit
 
-44:                                               ; preds = %tailrecurse.i.i
-  %45 = getelementptr inbounds nuw i8, ptr %.tr.i.i, i64 8
-  %46 = load i64, ptr %45, align 8, !tbaa !35
+48:                                               ; preds = %tailrecurse.i.i
+  %49 = getelementptr inbounds nuw i8, ptr %.tr.i.i, i64 8
+  %50 = load i64, ptr %49, align 8, !tbaa !35
   br label %tailrecurse52.i
 
-47:                                               ; preds = %tailrecurse.i.i
-  %48 = getelementptr inbounds nuw i8, ptr %.tr.i.i, i64 8
+51:                                               ; preds = %tailrecurse.i.i
+  %52 = getelementptr inbounds nuw i8, ptr %.tr.i.i, i64 8
   br label %tailrecurse.i.i
 
-.split25.us.i:                                    ; preds = %tailrecurse.i, %tailrecurse.us.i
+.split25.us.i.loopexit17:                         ; preds = %tailrecurse.i
   unreachable
 
-rb_proc_get_iseq.exit:                            ; preds = %.split29.us.i, %tailrecurse.i, %tailrecurse.us.i, %tailrecurse.i.i, %.split27.us.i, %41
-  %.0.i11 = phi ptr [ %22, %.split27.us.i ], [ %43, %41 ], [ null, %tailrecurse.i.i ], [ null, %tailrecurse.us.i ], [ null, %tailrecurse.i ], [ null, %.split29.us.i ]
-  %49 = load i64, ptr @rb_proc_parameters.keyword_ids, align 8, !tbaa !36
-  %.not = icmp eq i64 %49, 0
-  br i1 %.not, label %50, label %rb_scan_args_n_opt.exit
+.split25.us.i:                                    ; preds = %tailrecurse.us.i
+  unreachable
 
-50:                                               ; preds = %rb_proc_get_iseq.exit
+rb_proc_get_iseq.exit.loopexit20:                 ; preds = %tailrecurse.i
+  %53 = getelementptr inbounds nuw i8, ptr %15, i64 32
+  %54 = load i8, ptr %53, align 8
+  %55 = and i8 %54, 2
+  %.not16.i.le46 = icmp eq i8 %55, 0
+  %56 = zext i1 %.not16.i.le46 to i32
+  store i32 %56, ptr %.tr54.i, align 4, !tbaa !41
+  br label %rb_proc_get_iseq.exit
+
+rb_proc_get_iseq.exit:                            ; preds = %.split29.us.i, %tailrecurse.us.i, %tailrecurse.i.i, %rb_proc_get_iseq.exit.loopexit20, %.split27.us.i, %45
+  %.0.i11 = phi ptr [ %22, %.split27.us.i ], [ %47, %45 ], [ null, %rb_proc_get_iseq.exit.loopexit20 ], [ null, %tailrecurse.i.i ], [ null, %tailrecurse.us.i ], [ null, %.split29.us.i ]
+  %57 = load i64, ptr @rb_proc_parameters.keyword_ids, align 8, !tbaa !36
+  %.not = icmp eq i64 %57, 0
+  br i1 %.not, label %58, label %rb_scan_args_n_opt.exit
+
+58:                                               ; preds = %rb_proc_get_iseq.exit
   %.pr.i = load i64, ptr @rb_proc_parameters.rbimpl_id, align 8, !tbaa !36
   %.not4.i = icmp eq i64 %.pr.i, 0
   br i1 %.not4.i, label %.lr.ph.i, label %rbimpl_intern_const.exit
 
-.lr.ph.i:                                         ; preds = %50, %.lr.ph.i
-  %51 = call i64 @rb_intern2(ptr noundef nonnull @.str.45, i64 noundef 6) #21
-  store i64 %51, ptr @rb_proc_parameters.rbimpl_id, align 8, !tbaa !36
-  %.not.i12 = icmp eq i64 %51, 0
+.lr.ph.i:                                         ; preds = %58, %.lr.ph.i
+  %59 = call i64 @rb_intern2(ptr noundef nonnull @.str.45, i64 noundef 6) #21
+  store i64 %59, ptr @rb_proc_parameters.rbimpl_id, align 8, !tbaa !36
+  %.not.i12 = icmp eq i64 %59, 0
   br i1 %.not.i12, label %.lr.ph.i, label %rbimpl_intern_const.exit, !llvm.loop !92
 
-rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %50
-  %.lcssa.i = phi i64 [ %.pr.i, %50 ], [ %51, %.lr.ph.i ]
+rbimpl_intern_const.exit:                         ; preds = %.lr.ph.i, %58
+  %.lcssa.i = phi i64 [ %.pr.i, %58 ], [ %59, %.lr.ph.i ]
   store i64 %.lcssa.i, ptr @rb_proc_parameters.keyword_ids, align 8, !tbaa !36
   br label %rb_scan_args_n_opt.exit
 
 rb_scan_args_n_opt.exit:                          ; preds = %rb_proc_get_iseq.exit, %rbimpl_intern_const.exit
-  %52 = icmp sgt i32 %0, 0
-  br i1 %52, label %53, label %59
+  %60 = icmp sgt i32 %0, 0
+  br i1 %60, label %61, label %67
 
-53:                                               ; preds = %rb_scan_args_n_opt.exit
-  %54 = zext nneg i32 %0 to i64
-  %55 = getelementptr i64, ptr %1, i64 %54
-  %56 = getelementptr i8, ptr %55, i64 -8
-  %57 = load i64, ptr %56, align 8, !tbaa !36
-  %58 = call i32 @rb_keyword_given_p() #21
-  %.not14 = icmp eq i32 %58, 0
-  br i1 %.not14, label %.thread57, label %61
+61:                                               ; preds = %rb_scan_args_n_opt.exit
+  %62 = zext nneg i32 %0 to i64
+  %63 = getelementptr i64, ptr %1, i64 %62
+  %64 = getelementptr i8, ptr %63, i64 -8
+  %65 = load i64, ptr %64, align 8, !tbaa !36
+  %66 = call i32 @rb_keyword_given_p() #21
+  %.not14 = icmp eq i32 %66, 0
+  br i1 %.not14, label %.thread89, label %69
 
-59:                                               ; preds = %rb_scan_args_n_opt.exit
-  %60 = icmp slt i32 %0, 0
-  br i1 %60, label %.thread57, label %rb_scan_args_set.exit.thread
+67:                                               ; preds = %rb_scan_args_n_opt.exit
+  %68 = icmp slt i32 %0, 0
+  br i1 %68, label %.thread89, label %rb_scan_args_set.exit.thread
 
-61:                                               ; preds = %53
-  %62 = call i64 @rb_hash_dup(i64 noundef %57) #21
-  %63 = add nsw i32 %0, -1
-  %64 = icmp eq i32 %63, 0
-  br i1 %64, label %rb_scan_args_set.exit, label %.thread57
+69:                                               ; preds = %61
+  %70 = call i64 @rb_hash_dup(i64 noundef %65) #21
+  %71 = add nsw i32 %0, -1
+  %72 = icmp eq i32 %71, 0
+  br i1 %72, label %rb_scan_args_set.exit, label %.thread89
 
-.thread57:                                        ; preds = %53, %61, %59
-  %.0.i52 = phi i32 [ %63, %61 ], [ %0, %59 ], [ %0, %53 ]
-  call void @rb_error_arity(i32 noundef %.0.i52, i32 noundef 0, i32 noundef 0) #22
+.thread89:                                        ; preds = %61, %69, %67
+  %.0.i84 = phi i32 [ %71, %69 ], [ %0, %67 ], [ %0, %61 ]
+  call void @rb_error_arity(i32 noundef %.0.i84, i32 noundef 0, i32 noundef 0) #22
   unreachable
 
-rb_scan_args_set.exit:                            ; preds = %61
-  %65 = icmp eq i64 %62, 4
-  br i1 %65, label %rb_scan_args_set.exit.thread, label %66
+rb_scan_args_set.exit:                            ; preds = %69
+  %73 = icmp eq i64 %70, 4
+  br i1 %73, label %rb_scan_args_set.exit.thread, label %74
 
-66:                                               ; preds = %rb_scan_args_set.exit
-  %67 = call i32 @rb_get_kwargs(i64 noundef %62, ptr noundef nonnull @rb_proc_parameters.keyword_ids, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %5) #21
-  %68 = load i64, ptr %5, align 8, !tbaa !36
-  %69 = icmp eq i64 %68, 4
-  br i1 %69, label %rb_scan_args_set.exit.thread, label %70
+74:                                               ; preds = %rb_scan_args_set.exit
+  %75 = call i32 @rb_get_kwargs(i64 noundef %70, ptr noundef nonnull @rb_proc_parameters.keyword_ids, i32 noundef 0, i32 noundef 1, ptr noundef nonnull %5) #21
+  %76 = load i64, ptr %5, align 8, !tbaa !36
+  %77 = icmp eq i64 %76, 4
+  br i1 %77, label %rb_scan_args_set.exit.thread, label %78
 
-70:                                               ; preds = %66
-  %71 = and i64 %68, -5
-  %.not15 = icmp eq i64 %71, 0
-  %72 = zext i1 %.not15 to i32
-  store i32 %72, ptr %6, align 4, !tbaa !41
+78:                                               ; preds = %74
+  %79 = and i64 %76, -5
+  %.not15 = icmp eq i64 %79, 0
+  %80 = zext i1 %.not15 to i32
+  store i32 %80, ptr %6, align 4, !tbaa !41
   br label %rb_scan_args_set.exit.thread
 
-rb_scan_args_set.exit.thread:                     ; preds = %59, %66, %70, %rb_scan_args_set.exit
+rb_scan_args_set.exit.thread:                     ; preds = %67, %74, %78, %rb_scan_args_set.exit
   %.not9 = icmp eq ptr %.0.i11, null
-  br i1 %.not9, label %73, label %89
+  br i1 %.not9, label %81, label %97
 
-73:                                               ; preds = %rb_scan_args_set.exit.thread
+81:                                               ; preds = %rb_scan_args_set.exit.thread
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #21
-  %74 = inttoptr i64 %2 to ptr
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 32
-  %76 = load ptr, ptr %75, align 8, !tbaa !7
-  %77 = call fastcc i32 @rb_vm_block_min_max_arity(ptr noundef %76, ptr noundef nonnull %4)
-  %78 = getelementptr inbounds nuw i8, ptr %76, i64 32
-  %79 = load i8, ptr %78, align 8
-  %80 = and i8 %79, 2
-  %.not.i13 = icmp eq i8 %80, 0
-  %81 = load i32, ptr %4, align 4, !tbaa !41
-  br i1 %.not.i13, label %84, label %82
+  %82 = inttoptr i64 %2 to ptr
+  %83 = getelementptr inbounds nuw i8, ptr %82, i64 32
+  %84 = load ptr, ptr %83, align 8, !tbaa !7
+  %85 = call fastcc i32 @rb_vm_block_min_max_arity(ptr noundef %84, ptr noundef nonnull %4)
+  %86 = getelementptr inbounds nuw i8, ptr %84, i64 32
+  %87 = load i8, ptr %86, align 8
+  %88 = and i8 %87, 2
+  %.not.i13 = icmp eq i8 %88, 0
+  %89 = load i32, ptr %4, align 4, !tbaa !41
+  br i1 %.not.i13, label %92, label %90
 
-82:                                               ; preds = %73
-  %83 = icmp eq i32 %77, %81
-  br i1 %83, label %rb_proc_arity.exit, label %85
+90:                                               ; preds = %81
+  %91 = icmp eq i32 %85, %89
+  br i1 %91, label %rb_proc_arity.exit, label %93
 
-84:                                               ; preds = %73
-  %.not5.i = icmp eq i32 %81, -1
-  br i1 %.not5.i, label %85, label %rb_proc_arity.exit
+92:                                               ; preds = %81
+  %.not5.i = icmp eq i32 %89, -1
+  br i1 %.not5.i, label %93, label %rb_proc_arity.exit
 
-85:                                               ; preds = %84, %82
-  %86 = xor i32 %77, -1
+93:                                               ; preds = %92, %90
+  %94 = xor i32 %85, -1
   br label %rb_proc_arity.exit
 
-rb_proc_arity.exit:                               ; preds = %82, %84, %85
-  %87 = phi i32 [ %86, %85 ], [ %77, %84 ], [ %77, %82 ]
+rb_proc_arity.exit:                               ; preds = %90, %92, %93
+  %95 = phi i32 [ %94, %93 ], [ %85, %92 ], [ %85, %90 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #21
-  %88 = call i64 @rb_unnamed_parameters(i32 noundef %87)
-  br label %92
+  %96 = call i64 @rb_unnamed_parameters(i32 noundef %95)
+  br label %100
 
-89:                                               ; preds = %rb_scan_args_set.exit.thread
-  %90 = load i32, ptr %6, align 4, !tbaa !41
-  %91 = call i64 @rb_iseq_parameters(ptr noundef nonnull %.0.i11, i32 noundef %90) #21
-  br label %92
+97:                                               ; preds = %rb_scan_args_set.exit.thread
+  %98 = load i32, ptr %6, align 4, !tbaa !41
+  %99 = call i64 @rb_iseq_parameters(ptr noundef nonnull %.0.i11, i32 noundef %98) #21
+  br label %100
 
-92:                                               ; preds = %89, %rb_proc_arity.exit
-  %.0 = phi i64 [ %91, %89 ], [ %88, %rb_proc_arity.exit ]
+100:                                              ; preds = %97, %rb_proc_arity.exit
+  %.0 = phi i64 [ %99, %97 ], [ %96, %rb_proc_arity.exit ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #21
   ret i64 %.0

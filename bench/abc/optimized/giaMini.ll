@@ -6991,12 +6991,12 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_StrStart.exit, 
   %29 = getelementptr i8, ptr %.val78, i64 4
   %invariant.gep = getelementptr i8, ptr %23, i64 4
   %invariant.gep102 = getelementptr i8, ptr %23, i64 8
+  %.val78.val = load i32, ptr %29, align 4, !tbaa !34
   %30 = zext nneg i32 %.val7698 to i64
   br label %31
 
 31:                                               ; preds = %.lr.ph.split, %31
   %indvars.iv = phi i64 [ 0, %.lr.ph.split ], [ %indvars.iv.next, %31 ]
-  %.val78.val = load i32, ptr %29, align 4, !tbaa !34
   %32 = trunc nuw nsw i64 %indvars.iv to i32
   %33 = sub nsw i32 %32, %.val7698
   %34 = add i32 %33, %.val78.val
@@ -7164,23 +7164,23 @@ Vec_IntStartFull.exit:                            ; preds = %Vec_StrStart.exit, 
 .lr.ph:                                           ; preds = %Vec_IntStartFull.exit
   %26 = getelementptr i8, ptr %0, i64 72
   %.val157 = load ptr, ptr %26, align 8, !tbaa !42
-  %27 = getelementptr i8, ptr %.val157, i64 4
-  %28 = getelementptr i8, ptr %0, i64 32
-  %.val137 = load ptr, ptr %28, align 8, !tbaa !41
-  %29 = getelementptr i8, ptr %.val157, i64 8
-  %.val138.val = load ptr, ptr %29, align 8, !tbaa !11
+  %27 = getelementptr i8, ptr %0, i64 32
+  %.val137 = load ptr, ptr %27, align 8, !tbaa !41
+  %28 = getelementptr i8, ptr %.val157, i64 8
+  %.val138.val = load ptr, ptr %28, align 8, !tbaa !11
   %.not = icmp eq ptr %.val137, null
   br i1 %.not, label %.critedge, label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph
+  %29 = getelementptr i8, ptr %.val157, i64 4
   %invariant.gep = getelementptr i8, ptr %23, i64 4
   %invariant.gep184 = getelementptr i8, ptr %23, i64 8
+  %.val157.val = load i32, ptr %29, align 4, !tbaa !34
   %30 = zext nneg i32 %.val140180 to i64
   br label %31
 
 31:                                               ; preds = %.lr.ph.split, %31
   %indvars.iv = phi i64 [ 0, %.lr.ph.split ], [ %indvars.iv.next, %31 ]
-  %.val157.val = load i32, ptr %27, align 4, !tbaa !34
   %32 = trunc nuw nsw i64 %indvars.iv to i32
   %33 = sub nsw i32 %32, %.val140180
   %34 = add i32 %33, %.val157.val

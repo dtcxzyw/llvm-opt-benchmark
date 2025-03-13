@@ -2748,42 +2748,45 @@ define internal fastcc range(i32 0, 3) i32 @make_revoked(ptr noundef %0, ptr nou
   store ptr null, ptr %6, align 8, !tbaa !51
   %7 = call i32 @unpack_revinfo(ptr noundef nonnull %6, ptr noundef nonnull %3, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef %1)
   %8 = icmp eq i32 %7, 0
-  br i1 %8, label %36, label %9
+  br i1 %8, label %37, label %9
 
 9:                                                ; preds = %2
   %.not38 = icmp eq ptr %0, null
-  br i1 %.not38, label %.thread34, label %10
+  br i1 %.not38, label %.thread34, label %11
 
-10:                                               ; preds = %9
-  %11 = load ptr, ptr %6, align 8, !tbaa !51
-  %12 = call i32 @X509_REVOKED_set_revocationDate(ptr noundef nonnull %0, ptr noundef %11) #12
-  %.not = icmp eq i32 %12, 0
-  br i1 %.not, label %36, label %13
+.thread34:                                        ; preds = %9
+  %10 = load i32, ptr %3, align 4
+  br label %35
 
-13:                                               ; preds = %10
-  %14 = load i32, ptr %3, align 4
-  %.not39 = icmp eq i32 %14, -1
-  br i1 %.not39, label %25, label %15
+11:                                               ; preds = %9
+  %12 = load ptr, ptr %6, align 8, !tbaa !51
+  %13 = call i32 @X509_REVOKED_set_revocationDate(ptr noundef nonnull %0, ptr noundef %12) #12
+  %.not = icmp eq i32 %13, 0
+  br i1 %.not, label %37, label %14
 
-15:                                               ; preds = %13
-  %16 = call ptr @ASN1_ENUMERATED_new() #12
-  %17 = icmp eq ptr %16, null
-  br i1 %17, label %36, label %18
+14:                                               ; preds = %11
+  %15 = load i32, ptr %3, align 4
+  %.not39 = icmp eq i32 %15, -1
+  br i1 %.not39, label %25, label %16
 
-18:                                               ; preds = %15
-  %19 = load i32, ptr %3, align 4, !tbaa !11
-  %20 = sext i32 %19 to i64
-  %21 = call i32 @ASN1_ENUMERATED_set(ptr noundef nonnull %16, i64 noundef %20) #12
+16:                                               ; preds = %14
+  %17 = call ptr @ASN1_ENUMERATED_new() #12
+  %18 = icmp eq ptr %17, null
+  br i1 %18, label %37, label %19
+
+19:                                               ; preds = %16
+  %20 = sext i32 %15 to i64
+  %21 = call i32 @ASN1_ENUMERATED_set(ptr noundef nonnull %17, i64 noundef %20) #12
   %.not27 = icmp eq i32 %21, 0
-  br i1 %.not27, label %36, label %22
+  br i1 %.not27, label %37, label %22
 
-22:                                               ; preds = %18
-  %23 = call i32 @X509_REVOKED_add1_ext_i2d(ptr noundef nonnull %0, i32 noundef 141, ptr noundef nonnull %16, i32 noundef 0, i64 noundef 0) #12
+22:                                               ; preds = %19
+  %23 = call i32 @X509_REVOKED_add1_ext_i2d(ptr noundef nonnull %0, i32 noundef 141, ptr noundef nonnull %17, i32 noundef 0, i64 noundef 0) #12
   %24 = icmp slt i32 %23, 1
-  br i1 %24, label %36, label %25
+  br i1 %24, label %37, label %25
 
-25:                                               ; preds = %22, %13
-  %.1 = phi ptr [ %16, %22 ], [ null, %13 ]
+25:                                               ; preds = %22, %14
+  %.1 = phi ptr [ %17, %22 ], [ null, %14 ]
   %26 = load ptr, ptr %5, align 8
   %.not40 = icmp eq ptr %26, null
   br i1 %.not40, label %30, label %27
@@ -2791,36 +2794,36 @@ define internal fastcc range(i32 0, 3) i32 @make_revoked(ptr noundef %0, ptr nou
 27:                                               ; preds = %25
   %28 = call i32 @X509_REVOKED_add1_ext_i2d(ptr noundef nonnull %0, i32 noundef 142, ptr noundef nonnull %26, i32 noundef 0, i64 noundef 0) #12
   %29 = icmp slt i32 %28, 1
-  br i1 %29, label %36, label %30
+  br i1 %29, label %37, label %30
 
 30:                                               ; preds = %27, %25
   %31 = load ptr, ptr %4, align 8
   %.not41 = icmp eq ptr %31, null
-  br i1 %.not41, label %.thread34, label %32
+  br i1 %.not41, label %35, label %32
 
 32:                                               ; preds = %30
   %33 = call i32 @X509_REVOKED_add1_ext_i2d(ptr noundef nonnull %0, i32 noundef 430, ptr noundef nonnull %31, i32 noundef 0, i64 noundef 0) #12
   %34 = icmp slt i32 %33, 1
-  br i1 %34, label %36, label %.thread34
+  br i1 %34, label %37, label %35
 
-.thread34:                                        ; preds = %9, %32, %30
-  %.13337 = phi ptr [ %.1, %32 ], [ %.1, %30 ], [ null, %9 ]
-  %35 = load i32, ptr %3, align 4, !tbaa !11
-  %.not28 = icmp eq i32 %35, -1
+35:                                               ; preds = %.thread34, %32, %30
+  %36 = phi i32 [ %10, %.thread34 ], [ %15, %32 ], [ %15, %30 ]
+  %.13337 = phi ptr [ null, %.thread34 ], [ %.1, %32 ], [ %.1, %30 ]
+  %.not28 = icmp eq i32 %36, -1
   %. = select i1 %.not28, i32 1, i32 2
-  br label %36
+  br label %37
 
-36:                                               ; preds = %.thread34, %32, %27, %22, %15, %18, %10, %2
-  %.020 = phi i32 [ 0, %2 ], [ 0, %15 ], [ 0, %22 ], [ 0, %27 ], [ 0, %32 ], [ 0, %18 ], [ 0, %10 ], [ %., %.thread34 ]
-  %.0 = phi ptr [ null, %2 ], [ null, %15 ], [ %16, %22 ], [ %.1, %27 ], [ %.1, %32 ], [ %16, %18 ], [ null, %10 ], [ %.13337, %.thread34 ]
+37:                                               ; preds = %35, %32, %27, %22, %16, %19, %11, %2
+  %.020 = phi i32 [ 0, %2 ], [ 0, %16 ], [ 0, %22 ], [ 0, %27 ], [ 0, %32 ], [ 0, %19 ], [ 0, %11 ], [ %., %35 ]
+  %.0 = phi ptr [ null, %2 ], [ null, %16 ], [ %17, %22 ], [ %.1, %27 ], [ %.1, %32 ], [ %17, %19 ], [ null, %11 ], [ %.13337, %35 ]
   call void @CRYPTO_free(ptr noundef null, ptr noundef nonnull @.str.202, i32 noundef 2480) #12
-  %37 = load ptr, ptr %4, align 8, !tbaa !49
-  call void @ASN1_OBJECT_free(ptr noundef %37) #12
-  %38 = load ptr, ptr %5, align 8, !tbaa !51
-  call void @ASN1_GENERALIZEDTIME_free(ptr noundef %38) #12
+  %38 = load ptr, ptr %4, align 8, !tbaa !49
+  call void @ASN1_OBJECT_free(ptr noundef %38) #12
+  %39 = load ptr, ptr %5, align 8, !tbaa !51
+  call void @ASN1_GENERALIZEDTIME_free(ptr noundef %39) #12
   call void @ASN1_ENUMERATED_free(ptr noundef %.0) #12
-  %39 = load ptr, ptr %6, align 8, !tbaa !51
-  call void @ASN1_TIME_free(ptr noundef %39) #12
+  %40 = load ptr, ptr %6, align 8, !tbaa !51
+  call void @ASN1_TIME_free(ptr noundef %40) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #12

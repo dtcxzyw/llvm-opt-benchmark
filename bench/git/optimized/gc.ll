@@ -4641,6 +4641,7 @@ define internal i32 @is_crontab_available() #0 {
 
 5:                                                ; preds = %0
   %6 = load i32, ptr %3, align 4, !tbaa !4
+  %.pre = load ptr, ptr %2, align 8, !tbaa !26
   br label %16
 
 7:                                                ; preds = %0
@@ -4667,8 +4668,8 @@ check_crontab_process.exit:                       ; preds = %7, %14
   br label %16
 
 16:                                               ; preds = %check_crontab_process.exit, %5
+  %17 = phi ptr [ %.pre, %5 ], [ %8, %check_crontab_process.exit ]
   %.0 = phi i32 [ %6, %5 ], [ %.0.i, %check_crontab_process.exit ]
-  %17 = load ptr, ptr %2, align 8, !tbaa !26
   call void @free(ptr noundef %17) #21
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #21
@@ -4862,7 +4863,7 @@ get_random_minute.exit:                           ; preds = %2, %11
 _.exit:                                           ; preds = %24, %26
   %.0.i39 = phi ptr [ %27, %26 ], [ @.str.189, %24 ]
   %28 = call i32 (ptr, ...) @error(ptr noundef %.0.i39) #21
-  br label %98
+  br label %97
 
 29:                                               ; preds = %get_random_minute.exit
   %30 = call i32 @finish_command(ptr noundef nonnull %5) #21
@@ -4883,7 +4884,7 @@ _.exit:                                           ; preds = %24, %26
 _.exit42:                                         ; preds = %32, %34
   %.0.i41 = phi ptr [ %35, %34 ], [ @.str.191, %32 ]
   %36 = call i32 (ptr, ...) @error(ptr noundef %.0.i41) #21
-  br label %98
+  br label %97
 
 37:                                               ; preds = %29
   %38 = call ptr @fdopen_tempfile(ptr noundef nonnull %31, ptr noundef nonnull @.str.138) #21
@@ -4902,7 +4903,7 @@ _.exit42:                                         ; preds = %32, %34
 _.exit45:                                         ; preds = %39, %41
   %.0.i44 = phi ptr [ %42, %41 ], [ @.str.192, %39 ]
   %43 = call i32 (ptr, ...) @error(ptr noundef %.0.i44) #21
-  br label %98
+  br label %97
 
 44:                                               ; preds = %37
   %45 = call noalias ptr @fdopen(i32 noundef %1, ptr noundef nonnull @.str.95) #21
@@ -4993,60 +4994,58 @@ get_extra_config_parameters.exit:                 ; preds = %56, %.critedge.i
 
 75:                                               ; preds = %get_extra_config_parameters.exit, %._crit_edge
   %76 = call i32 @fflush(ptr noundef nonnull %38)
-  %77 = load ptr, ptr %4, align 8, !tbaa !26
-  call void @strvec_split(ptr noundef nonnull %6, ptr noundef %77) #21
-  %78 = call ptr @get_tempfile_path(ptr noundef nonnull %31) #21
-  %79 = call ptr @strvec_push(ptr noundef nonnull %6, ptr noundef %78) #21
-  %80 = getelementptr inbounds nuw i8, ptr %6, i64 104
-  %81 = load i16, ptr %80, align 8
-  %82 = and i16 %81, -9
-  store i16 %82, ptr %80, align 8
-  %83 = call i32 @start_command(ptr noundef nonnull %6) #21
-  %.not32 = icmp eq i32 %83, 0
-  br i1 %.not32, label %89, label %84
+  call void @strvec_split(ptr noundef nonnull %6, ptr noundef %15) #21
+  %77 = call ptr @get_tempfile_path(ptr noundef nonnull %31) #21
+  %78 = call ptr @strvec_push(ptr noundef nonnull %6, ptr noundef %77) #21
+  %79 = getelementptr inbounds nuw i8, ptr %6, i64 104
+  %80 = load i16, ptr %79, align 8
+  %81 = and i16 %80, -9
+  store i16 %81, ptr %79, align 8
+  %82 = call i32 @start_command(ptr noundef nonnull %6) #21
+  %.not32 = icmp eq i32 %82, 0
+  br i1 %.not32, label %88, label %83
 
-84:                                               ; preds = %75
-  %85 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !4
-  %.not4.i47 = icmp eq i32 %85, 0
-  br i1 %.not4.i47, label %_.exit49, label %86
+83:                                               ; preds = %75
+  %84 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !4
+  %.not4.i47 = icmp eq i32 %84, 0
+  br i1 %.not4.i47, label %_.exit49, label %85
 
-86:                                               ; preds = %84
-  %87 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.204, i32 noundef 5) #21
+85:                                               ; preds = %83
+  %86 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.204, i32 noundef 5) #21
   br label %_.exit49
 
-_.exit49:                                         ; preds = %84, %86
-  %.0.i48 = phi ptr [ %87, %86 ], [ @.str.204, %84 ]
-  %88 = call i32 (ptr, ...) @error(ptr noundef %.0.i48) #21
-  br label %98
+_.exit49:                                         ; preds = %83, %85
+  %.0.i48 = phi ptr [ %86, %85 ], [ @.str.204, %83 ]
+  %87 = call i32 (ptr, ...) @error(ptr noundef %.0.i48) #21
+  br label %97
 
-89:                                               ; preds = %75
-  %90 = call i32 @finish_command(ptr noundef nonnull %6) #21
-  %.not33 = icmp eq i32 %90, 0
-  br i1 %.not33, label %96, label %91
+88:                                               ; preds = %75
+  %89 = call i32 @finish_command(ptr noundef nonnull %6) #21
+  %.not33 = icmp eq i32 %89, 0
+  br i1 %.not33, label %95, label %90
 
-91:                                               ; preds = %89
-  %92 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !4
-  %.not4.i50 = icmp eq i32 %92, 0
-  br i1 %.not4.i50, label %_.exit52, label %93
+90:                                               ; preds = %88
+  %91 = load i32, ptr @git_gettext_enabled, align 4, !tbaa !4
+  %.not4.i50 = icmp eq i32 %91, 0
+  br i1 %.not4.i50, label %_.exit52, label %92
 
-93:                                               ; preds = %91
-  %94 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.205, i32 noundef 5) #21
+92:                                               ; preds = %90
+  %93 = call ptr @dcgettext(ptr noundef null, ptr noundef nonnull @.str.205, i32 noundef 5) #21
   br label %_.exit52
 
-_.exit52:                                         ; preds = %91, %93
-  %.0.i51 = phi ptr [ %94, %93 ], [ @.str.205, %91 ]
-  %95 = call i32 (ptr, ...) @error(ptr noundef %.0.i51) #21
-  br label %98
+_.exit52:                                         ; preds = %90, %92
+  %.0.i51 = phi ptr [ %93, %92 ], [ @.str.205, %90 ]
+  %94 = call i32 (ptr, ...) @error(ptr noundef %.0.i51) #21
+  br label %97
 
-96:                                               ; preds = %89
-  %97 = call i32 @fclose(ptr noundef %45)
-  br label %98
+95:                                               ; preds = %88
+  %96 = call i32 @fclose(ptr noundef %45)
+  br label %97
 
-98:                                               ; preds = %_.exit52, %96, %_.exit49, %_.exit45, %_.exit42, %_.exit
-  %.0 = phi i32 [ -1, %_.exit ], [ -1, %_.exit49 ], [ -1, %_.exit52 ], [ 0, %96 ], [ -1, %_.exit45 ], [ -1, %_.exit42 ]
-  %99 = call i32 @delete_tempfile(ptr noundef nonnull %8) #21
-  %100 = load ptr, ptr %4, align 8, !tbaa !26
-  call void @free(ptr noundef %100) #21
+97:                                               ; preds = %_.exit52, %95, %_.exit49, %_.exit45, %_.exit42, %_.exit
+  %.0 = phi i32 [ -1, %_.exit ], [ -1, %_.exit49 ], [ -1, %_.exit52 ], [ 0, %95 ], [ -1, %_.exit45 ], [ -1, %_.exit42 ]
+  %98 = call i32 @delete_tempfile(ptr noundef nonnull %8) #21
+  call void @free(ptr noundef %15) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #21
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #21
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %6) #21
@@ -5301,60 +5300,57 @@ define internal range(i32 0, 2) i32 @schtasks_update_schedule(i32 noundef %0, i3
   call void @strvec_split(ptr noundef nonnull %11, ptr noundef %23) #21
   call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %11, ptr noundef nonnull @.str.260, ptr noundef nonnull @.str.255, ptr noundef %21, ptr noundef nonnull @.str.256, ptr noundef null) #21
   call void @free(ptr noundef %21) #21
-  %24 = load ptr, ptr %10, align 8, !tbaa !26
-  call void @free(ptr noundef %24) #21
-  %25 = call i32 @run_command(ptr noundef nonnull %11) #21
+  call void @free(ptr noundef %23) #21
+  %24 = call i32 @run_command(ptr noundef nonnull %11) #21
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %11) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #21
-  %.not.i2 = icmp eq i32 %25, 0
-  br i1 %.not.i2, label %26, label %schtasks_schedule_tasks.exit
+  %.not.i2 = icmp eq i32 %24, 0
+  br i1 %.not.i2, label %25, label %schtasks_schedule_tasks.exit
 
-26:                                               ; preds = %20
+25:                                               ; preds = %20
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #21
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %8) #21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %8, ptr noundef nonnull align 8 dereferenceable(120) @__const.schtasks_remove_task.child, i64 120, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) @__const.get_maintpath.sb, i64 24, i1 false)
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %6, ptr noundef nonnull @.str.259, ptr noundef nonnull @.str.116) #21
-  %27 = call ptr @strbuf_detach(ptr noundef nonnull %6, ptr noundef null) #21
+  %26 = call ptr @strbuf_detach(ptr noundef nonnull %6, ptr noundef null) #21
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #21
-  %28 = call fastcc i32 @get_schedule_cmd(ptr noundef nonnull @.str.177, ptr noundef null, ptr noundef nonnull %7)
-  %29 = load ptr, ptr %7, align 8, !tbaa !26
-  call void @strvec_split(ptr noundef nonnull %8, ptr noundef %29) #21
-  call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %8, ptr noundef nonnull @.str.260, ptr noundef nonnull @.str.255, ptr noundef %27, ptr noundef nonnull @.str.256, ptr noundef null) #21
-  call void @free(ptr noundef %27) #21
-  %30 = load ptr, ptr %7, align 8, !tbaa !26
-  call void @free(ptr noundef %30) #21
-  %31 = call i32 @run_command(ptr noundef nonnull %8) #21
+  %27 = call fastcc i32 @get_schedule_cmd(ptr noundef nonnull @.str.177, ptr noundef null, ptr noundef nonnull %7)
+  %28 = load ptr, ptr %7, align 8, !tbaa !26
+  call void @strvec_split(ptr noundef nonnull %8, ptr noundef %28) #21
+  call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %8, ptr noundef nonnull @.str.260, ptr noundef nonnull @.str.255, ptr noundef %26, ptr noundef nonnull @.str.256, ptr noundef null) #21
+  call void @free(ptr noundef %26) #21
+  call void @free(ptr noundef %28) #21
+  %29 = call i32 @run_command(ptr noundef nonnull %8) #21
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %8) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #21
-  %.not1.i = icmp eq i32 %31, 0
-  br i1 %.not1.i, label %32, label %schtasks_schedule_tasks.exit
+  %.not1.i = icmp eq i32 %29, 0
+  br i1 %.not1.i, label %30, label %schtasks_schedule_tasks.exit
 
-32:                                               ; preds = %26
+30:                                               ; preds = %25
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #21
   call void @llvm.lifetime.start.p0(i64 120, ptr nonnull %5) #21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %5, ptr noundef nonnull align 8 dereferenceable(120) @__const.schtasks_remove_task.child, i64 120, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #21
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %3, ptr noundef nonnull align 8 dereferenceable(24) @__const.get_maintpath.sb, i64 24, i1 false)
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %3, ptr noundef nonnull @.str.259, ptr noundef nonnull @.str.117) #21
-  %33 = call ptr @strbuf_detach(ptr noundef nonnull %3, ptr noundef null) #21
+  %31 = call ptr @strbuf_detach(ptr noundef nonnull %3, ptr noundef null) #21
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #21
-  %34 = call fastcc i32 @get_schedule_cmd(ptr noundef nonnull @.str.177, ptr noundef null, ptr noundef nonnull %4)
-  %35 = load ptr, ptr %4, align 8, !tbaa !26
-  call void @strvec_split(ptr noundef nonnull %5, ptr noundef %35) #21
-  call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %5, ptr noundef nonnull @.str.260, ptr noundef nonnull @.str.255, ptr noundef %33, ptr noundef nonnull @.str.256, ptr noundef null) #21
+  %32 = call fastcc i32 @get_schedule_cmd(ptr noundef nonnull @.str.177, ptr noundef null, ptr noundef nonnull %4)
+  %33 = load ptr, ptr %4, align 8, !tbaa !26
+  call void @strvec_split(ptr noundef nonnull %5, ptr noundef %33) #21
+  call void (ptr, ...) @strvec_pushl(ptr noundef nonnull %5, ptr noundef nonnull @.str.260, ptr noundef nonnull @.str.255, ptr noundef %31, ptr noundef nonnull @.str.256, ptr noundef null) #21
+  call void @free(ptr noundef %31) #21
   call void @free(ptr noundef %33) #21
-  %36 = load ptr, ptr %4, align 8, !tbaa !26
-  call void @free(ptr noundef %36) #21
-  %37 = call i32 @run_command(ptr noundef nonnull %5) #21
+  %34 = call i32 @run_command(ptr noundef nonnull %5) #21
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %5) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #21
-  %38 = icmp ne i32 %37, 0
+  %35 = icmp ne i32 %34, 0
   br label %schtasks_schedule_tasks.exit
 
-schtasks_schedule_tasks.exit:                     ; preds = %32, %26, %20, %17, %15, %12
-  %.0.shrunk = phi i1 [ true, %15 ], [ true, %12 ], [ %19, %17 ], [ true, %26 ], [ true, %20 ], [ %38, %32 ]
+schtasks_schedule_tasks.exit:                     ; preds = %30, %25, %20, %17, %15, %12
+  %.0.shrunk = phi i1 [ true, %15 ], [ true, %12 ], [ %19, %17 ], [ true, %25 ], [ true, %20 ], [ %35, %30 ]
   %.0 = zext i1 %.0.shrunk to i32
   ret i32 %.0
 }
@@ -5593,8 +5589,8 @@ _.exit13:                                         ; preds = %52, %54
   br label %57
 
 57:                                               ; preds = %.critedge, %49, %_.exit13, %_.exit
+  %58 = phi ptr [ %41, %_.exit ], [ %41, %_.exit13 ], [ %41, %49 ], [ null, %.critedge ]
   %.0 = phi i32 [ -1, %_.exit ], [ -1, %_.exit13 ], [ 0, %49 ], [ -1, %.critedge ]
-  %58 = load ptr, ptr %3, align 8, !tbaa !26
   call void @free(ptr noundef %58) #21
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %4) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #21
@@ -5717,7 +5713,7 @@ switch.lookup:
   %.not.i = icmp eq ptr %15, null
   br i1 %.not.i, label %16, label %launchctl_service_filename.exit
 
-default.unreachable49:                            ; preds = %get_extra_launchctl_strings.exit
+default.unreachable51:                            ; preds = %get_extra_launchctl_strings.exit
   unreachable
 
 16:                                               ; preds = %switch.lookup
@@ -5774,7 +5770,7 @@ get_extra_launchctl_strings.exit:                 ; preds = %get_random_minute.e
   %.05.i = phi ptr [ %25, %.critedge.i ], [ %24, %get_random_minute.exit ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #21
   call void (ptr, ptr, ...) @strbuf_addf(ptr noundef nonnull %7, ptr noundef nonnull @.str.229, ptr noundef %12, ptr noundef %0, ptr noundef %0, ptr noundef %.05.i, ptr noundef nonnull %switch.load) #21
-  switch i32 %1, label %default.unreachable49 [
+  switch i32 %1, label %default.unreachable51 [
     i32 3, label %.preheader
     i32 2, label %.preheader43
     i32 1, label %31
@@ -5906,17 +5902,21 @@ launchctl_list_contains_plist.exit:               ; preds = %58
   %81 = call fastcc i32 @launchctl_boot_plist(i32 noundef 0, ptr noundef %15)
   %82 = call fastcc i32 @launchctl_boot_plist(i32 noundef 1, ptr noundef %15)
   %.not38 = icmp eq i32 %82, 0
-  br i1 %.not38, label %85, label %83
+  br i1 %.not38, label %._crit_edge49, label %83
+
+._crit_edge49:                                    ; preds = %80
+  %.pre50 = load ptr, ptr %10, align 8, !tbaa !26
+  br label %85
 
 83:                                               ; preds = %80
   %84 = call fastcc ptr @_(ptr noundef nonnull @.str.236)
   call void (ptr, ...) @die(ptr noundef %84, ptr noundef nonnull %15) #22
   unreachable
 
-85:                                               ; preds = %80, %67
+85:                                               ; preds = %._crit_edge49, %67
+  %86 = phi ptr [ %.pre50, %._crit_edge49 ], [ %59, %67 ]
   call void @free(ptr noundef nonnull %15) #21
   call void @free(ptr noundef %12) #21
-  %86 = load ptr, ptr %10, align 8, !tbaa !26
   call void @free(ptr noundef %86) #21
   call void @strbuf_release(ptr noundef nonnull %7) #21
   call void @strbuf_release(ptr noundef nonnull %8) #21
@@ -5963,8 +5963,7 @@ define internal fastcc i32 @launchctl_boot_plist(i32 noundef range(i32 0, 2) %0,
 
 16:                                               ; preds = %2
   %17 = call i32 @finish_command(ptr noundef nonnull %4) #21
-  %18 = load ptr, ptr %3, align 8, !tbaa !26
-  call void @free(ptr noundef %18) #21
+  call void @free(ptr noundef %8) #21
   call void @free(ptr noundef %6) #21
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %4) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #21
@@ -6127,8 +6126,7 @@ get_extra_config_parameters.exit:                 ; preds = %switch.lookup18, %.
   %46 = call i32 @finish_command(ptr noundef nonnull %5) #21
   %47 = call i32 @delete_tempfile(ptr noundef nonnull %6) #21
   call void @free(ptr noundef %9) #21
-  %48 = load ptr, ptr %4, align 8, !tbaa !26
-  call void @free(ptr noundef %48) #21
+  call void @free(ptr noundef %36) #21
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #21
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #21
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %5) #21

@@ -46096,7 +46096,6 @@ define internal fastcc i64 @_ZN5clang13TreeTransformIN12_GLOBAL__N_130Substitute
   %3 = alloca i8, align 1
   %4 = alloca %"class.llvm::SmallVector.467", align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #22
-  store i8 0, ptr %3, align 1, !tbaa !1074
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #22
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %5, ptr %4, align 8, !tbaa !722
@@ -49746,7 +49745,6 @@ define internal fastcc i64 @_ZN5clang13TreeTransformIN12_GLOBAL__N_130Substitute
   %.not = icmp eq ptr %9, null
   %spec.select = select i1 %.not, ptr %1, ptr %9
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #22
-  store i8 0, ptr %3, align 1, !tbaa !1074
   %.val = load ptr, ptr %0, align 8, !tbaa !1743
   %10 = getelementptr inbounds nuw i8, ptr %.val, i64 4608
   %11 = load ptr, ptr %10, align 8, !tbaa !722

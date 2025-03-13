@@ -3294,31 +3294,31 @@ Abc_UtilStrsav.exit193:                           ; preds = %Abc_UtilStrsav.exit
   br i1 %59, label %.lr.ph259, label %._crit_edge
 
 .lr.ph259:                                        ; preds = %Abc_UtilStrsav.exit193
-  %60 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %61 = getelementptr i8, ptr %0, i64 16
-  %62 = getelementptr i8, ptr %0, i64 64
-  %63 = getelementptr inbounds nuw i8, ptr %39, i64 64
-  %64 = getelementptr i8, ptr %39, i64 32
-  %65 = getelementptr i8, ptr %0, i64 72
-  %66 = getelementptr inbounds nuw i8, ptr %39, i64 72
-  %67 = getelementptr inbounds nuw i8, ptr %39, i64 232
-  %68 = getelementptr i8, ptr %5, i64 8
-  %69 = getelementptr i8, ptr %16, i64 8
-  %70 = getelementptr i8, ptr %28, i64 8
+  %60 = getelementptr i8, ptr %5, i64 8
+  %61 = getelementptr i8, ptr %16, i64 8
+  %62 = getelementptr i8, ptr %28, i64 8
+  %63 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %64 = getelementptr i8, ptr %0, i64 16
+  %65 = getelementptr i8, ptr %0, i64 64
+  %66 = getelementptr inbounds nuw i8, ptr %39, i64 64
+  %67 = getelementptr i8, ptr %39, i64 32
+  %68 = getelementptr i8, ptr %0, i64 72
+  %69 = getelementptr inbounds nuw i8, ptr %39, i64 72
+  %70 = getelementptr inbounds nuw i8, ptr %39, i64 232
   br label %71
 
 71:                                               ; preds = %.lr.ph259, %.critedge12
   %indvars.iv279 = phi i64 [ 0, %.lr.ph259 ], [ %indvars.iv.next280, %.critedge12 ]
-  %.val168 = load ptr, ptr %68, align 8, !tbaa !50
+  %.val168 = load ptr, ptr %60, align 8, !tbaa !50
   %72 = getelementptr inbounds nuw ptr, ptr %.val168, i64 %indvars.iv279
   %73 = load ptr, ptr %72, align 8, !tbaa !53
-  %.val169 = load ptr, ptr %69, align 8, !tbaa !50
+  %.val169 = load ptr, ptr %61, align 8, !tbaa !50
   %74 = getelementptr inbounds nuw ptr, ptr %.val169, i64 %indvars.iv279
   %75 = load ptr, ptr %74, align 8, !tbaa !53
-  %.val170 = load ptr, ptr %70, align 8, !tbaa !50
+  %.val170 = load ptr, ptr %62, align 8, !tbaa !50
   %76 = getelementptr inbounds nuw ptr, ptr %.val170, i64 %indvars.iv279
   %77 = load ptr, ptr %76, align 8, !tbaa !53
-  %78 = load i32, ptr %60, align 4, !tbaa !76
+  %78 = load i32, ptr %63, align 4, !tbaa !76
   %.not137 = icmp eq i32 %78, 0
   br i1 %.not137, label %85, label %79
 
@@ -3334,8 +3334,8 @@ Abc_UtilStrsav.exit193:                           ; preds = %Abc_UtilStrsav.exit
   br label %85
 
 85:                                               ; preds = %71, %79
-  %.val161234 = load i32, ptr %61, align 8, !tbaa !43
-  %.val162235 = load ptr, ptr %62, align 8, !tbaa !30
+  %.val161234 = load i32, ptr %64, align 8, !tbaa !43
+  %.val162235 = load ptr, ptr %65, align 8, !tbaa !30
   %86 = getelementptr i8, ptr %.val162235, i64 4
   %.val162.val236 = load i32, ptr %86, align 4, !tbaa !31
   %87 = sub nsw i32 %.val162.val236, %.val161234
@@ -3370,7 +3370,7 @@ Abc_UtilStrsav.exit193:                           ; preds = %Abc_UtilStrsav.exit
   %95 = load i64, ptr %94, align 4
   %96 = or i64 %95, 2684354559
   store i64 %96, ptr %94, align 4
-  %97 = load ptr, ptr %63, align 8, !tbaa !30
+  %97 = load ptr, ptr %66, align 8, !tbaa !30
   %98 = getelementptr i8, ptr %97, i64 4
   %.val.i194 = load i32, ptr %98, align 4, !tbaa !31
   %99 = and i32 %.val.i194, 536870911
@@ -3379,8 +3379,8 @@ Abc_UtilStrsav.exit193:                           ; preds = %Abc_UtilStrsav.exit
   %102 = and i64 %96, -2305843004918726657
   %103 = or disjoint i64 %101, %102
   store i64 %103, ptr %94, align 4
-  %104 = load ptr, ptr %63, align 8, !tbaa !30
-  %.val10.i = load ptr, ptr %64, align 8, !tbaa !8
+  %104 = load ptr, ptr %66, align 8, !tbaa !30
+  %.val10.i = load ptr, ptr %67, align 8, !tbaa !8
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 4
   %106 = load i32, ptr %105, align 4, !tbaa !31
   %107 = load i32, ptr %104, align 8, !tbaa !32
@@ -3452,7 +3452,7 @@ Gia_ManAppendCi.exit:                             ; preds = %.Vec_IntGrow.exit10
   %139 = sext i32 %137 to i64
   %140 = getelementptr inbounds i32, ptr %131, i64 %139
   store i32 %136, ptr %140, align 4, !tbaa !34
-  %.val11.i = load ptr, ptr %64, align 8, !tbaa !8
+  %.val11.i = load ptr, ptr %67, align 8, !tbaa !8
   %141 = ptrtoint ptr %.val11.i to i64
   %142 = sub i64 %132, %141
   %143 = sdiv exact i64 %142, 12
@@ -3461,8 +3461,8 @@ Gia_ManAppendCi.exit:                             ; preds = %.Vec_IntGrow.exit10
   %146 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %.val166300, i64 %93, i32 1
   store i32 %145, ptr %146, align 4, !tbaa !3
   %indvars.iv.next = add nuw nsw i64 %indvars.iv299, 1
-  %.val161 = load i32, ptr %61, align 8, !tbaa !43
-  %.val162 = load ptr, ptr %62, align 8, !tbaa !30
+  %.val161 = load i32, ptr %64, align 8, !tbaa !43
+  %.val162 = load ptr, ptr %65, align 8, !tbaa !30
   %147 = getelementptr i8, ptr %.val162, i64 4
   %.val162.val = load i32, ptr %147, align 4, !tbaa !31
   %148 = sub nsw i32 %.val162.val, %.val161
@@ -3552,7 +3552,7 @@ Gia_ObjIsPi.exit.thread:                          ; preds = %.lr.ph248.split, %G
   br i1 %or.cond, label %185, label %Gia_ObjIsPi.exit199.thread
 
 Gia_ObjIsPi.exit199.thread:                       ; preds = %.lr.ph245.split
-  %.val6.i = load ptr, ptr %65, align 8, !tbaa !35
+  %.val6.i = load ptr, ptr %68, align 8, !tbaa !35
   %174 = getelementptr i8, ptr %.val6.i, i64 4
   %.val6.val.i = load i32, ptr %174, align 4, !tbaa !31
   %175 = sub i32 %173, %.val162.val.lcssa
@@ -3655,8 +3655,8 @@ Gia_ObjIsPo.exit:                                 ; preds = %224
   %228 = lshr i64 %.val171, 32
   %229 = trunc nuw i64 %228 to i32
   %230 = and i32 %229, 536870911
-  %.val3.i = load i32, ptr %61, align 8, !tbaa !43
-  %.val4.i202 = load ptr, ptr %65, align 8, !tbaa !35
+  %.val3.i = load i32, ptr %64, align 8, !tbaa !43
+  %.val4.i202 = load ptr, ptr %68, align 8, !tbaa !35
   %231 = getelementptr i8, ptr %.val4.i202, i64 4
   %.val4.val.i203 = load i32, ptr %231, align 4, !tbaa !31
   %232 = sub nsw i32 %.val4.val.i203, %.val3.i
@@ -3672,7 +3672,7 @@ Gia_ObjIsPo.exit:                                 ; preds = %224
   %239 = load i64, ptr %238, align 4
   %240 = or i64 %239, 2147483648
   store i64 %240, ptr %238, align 4
-  %.val18.i = load ptr, ptr %64, align 8, !tbaa !8
+  %.val18.i = load ptr, ptr %67, align 8, !tbaa !8
   %241 = ptrtoint ptr %238 to i64
   %242 = ptrtoint ptr %.val18.i to i64
   %243 = sub i64 %241, %242
@@ -3690,7 +3690,7 @@ Gia_ObjIsPo.exit:                                 ; preds = %224
   %255 = or disjoint i64 %250, %254
   %256 = or disjoint i64 %255, %249
   store i64 %256, ptr %238, align 4
-  %257 = load ptr, ptr %66, align 8, !tbaa !35
+  %257 = load ptr, ptr %69, align 8, !tbaa !35
   %258 = getelementptr i8, ptr %257, i64 4
   %.val.i204 = load i32, ptr %258, align 4, !tbaa !31
   %259 = and i32 %.val.i204, 536870911
@@ -3699,8 +3699,8 @@ Gia_ObjIsPo.exit:                                 ; preds = %224
   %262 = and i64 %256, -2305843004918726657
   %263 = or disjoint i64 %262, %261
   store i64 %263, ptr %238, align 4
-  %264 = load ptr, ptr %66, align 8, !tbaa !35
-  %.val19.i = load ptr, ptr %64, align 8, !tbaa !8
+  %264 = load ptr, ptr %69, align 8, !tbaa !35
+  %.val19.i = load ptr, ptr %67, align 8, !tbaa !8
   %265 = ptrtoint ptr %.val19.i to i64
   %266 = sub i64 %241, %265
   %267 = sdiv exact i64 %266, 12
@@ -3771,7 +3771,7 @@ Vec_IntPush.exit.i:                               ; preds = %293, %Vec_IntGrow.e
   %298 = sext i32 %296 to i64
   %299 = getelementptr inbounds i32, ptr %295, i64 %298
   store i32 %268, ptr %299, align 4, !tbaa !34
-  %300 = load ptr, ptr %67, align 8, !tbaa !36
+  %300 = load ptr, ptr %70, align 8, !tbaa !36
   %.not.i208 = icmp eq ptr %300, null
   br i1 %.not.i208, label %Gia_ManAppendCo.exit, label %301
 
@@ -3784,7 +3784,7 @@ Vec_IntPush.exit.i:                               ; preds = %293, %Vec_IntGrow.e
   br label %Gia_ManAppendCo.exit
 
 Gia_ManAppendCo.exit:                             ; preds = %Vec_IntPush.exit.i, %301
-  %.val20.i = load ptr, ptr %64, align 8, !tbaa !8
+  %.val20.i = load ptr, ptr %67, align 8, !tbaa !8
   %306 = ptrtoint ptr %.val20.i to i64
   %307 = sub i64 %241, %306
   %308 = sdiv exact i64 %307, 12

@@ -4349,7 +4349,7 @@ define i64 @dt_tag_import(ptr noundef readonly captures(none) %0) local_unnamed_
   %4 = alloca i32, align 4
   %5 = tail call noalias ptr @fopen(ptr noundef %0, ptr noundef nonnull @.str.61)
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %78, label %6
+  br i1 %.not, label %75, label %6
 
 6:                                                ; preds = %1
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #11
@@ -4367,7 +4367,7 @@ define i64 @dt_tag_import(ptr noundef readonly captures(none) %0) local_unnamed_
   %.069138 = phi i64 [ %.170123, %.thread113 ], [ 0, %6 ]
   %.075137 = phi i32 [ %.065108119, %.thread113 ], [ 0, %6 ]
   %.076136 = phi i32 [ %.066106121, %.thread113 ], [ 0, %6 ]
-  %.077135 = phi i32 [ %63, %.thread113 ], [ 0, %6 ]
+  %.077135 = phi i32 [ %60, %.thread113 ], [ 0, %6 ]
   %8 = load ptr, ptr %2, align 8, !tbaa !57
   br label %9
 
@@ -4448,134 +4448,132 @@ define i64 @dt_tag_import(ptr noundef readonly captures(none) %0) local_unnamed_
   %spec.select = select i1 %.not87, ptr %35, ptr %33
   %36 = call noalias ptr @g_strdup(ptr noundef nonnull %spec.select) #11
   %.not92 = icmp eq i32 %.075137, 0
-  br i1 %.not92, label %37, label %39
+  %.pre = load i32, ptr %4, align 4, !tbaa !54
+  br i1 %.not92, label %37, label %38
 
 37:                                               ; preds = %32
-  %38 = load i32, ptr %4, align 4, !tbaa !54
-  call void @dt_tag_set_synonyms(i32 noundef %38, ptr noundef nonnull @.str.26)
-  br label %39
+  call void @dt_tag_set_synonyms(i32 noundef %.pre, ptr noundef nonnull @.str.26)
+  br label %38
 
-39:                                               ; preds = %37, %32
-  %40 = load i32, ptr %4, align 4, !tbaa !54
-  call void @dt_tag_add_synonym(i32 noundef %40, ptr noundef %36)
+38:                                               ; preds = %37, %32
+  call void @dt_tag_add_synonym(i32 noundef %.pre, ptr noundef %36)
   call void @g_free(ptr noundef %36) #11
   br label %.thread113
 
 .thread:                                          ; preds = %26, %28, %.critedge2, %24
-  %41 = phi i8 [ 91, %24 ], [ %23, %.critedge2 ], [ %.pr.pre, %26 ], [ 123, %28 ]
+  %39 = phi i8 [ 91, %24 ], [ %23, %.critedge2 ], [ %.pr.pre, %26 ], [ 123, %28 ]
   %.173.ph = phi ptr [ %.072, %24 ], [ %.072, %.critedge2 ], [ %27, %26 ], [ %.072, %28 ]
   %.not89.ph = phi i1 [ true, %24 ], [ true, %.critedge2 ], [ false, %26 ], [ true, %28 ]
   %.066.ph = phi i32 [ 0, %24 ], [ 0, %.critedge2 ], [ 1, %26 ], [ 0, %28 ]
-  %.not87102 = icmp eq i8 %41, 126
+  %.not87102 = icmp eq i8 %39, 126
   %spec.select103.idx = zext i1 %.not87102 to i64
   %spec.select103 = getelementptr inbounds nuw i8, ptr %.173.ph, i64 %spec.select103.idx
-  %42 = call ptr @g_list_nth(ptr noundef %.064139, i32 noundef %16) #11
-  %.not85131 = icmp eq ptr %42, null
+  %40 = call ptr @g_list_nth(ptr noundef %.064139, i32 noundef %16) #11
+  %.not85131 = icmp eq ptr %40, null
   br i1 %.not85131, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.thread, %.lr.ph
-  %.063133 = phi ptr [ %44, %.lr.ph ], [ %42, %.thread ]
-  %.2132 = phi ptr [ %45, %.lr.ph ], [ %.064139, %.thread ]
-  %43 = getelementptr inbounds nuw i8, ptr %.063133, i64 8
-  %44 = load ptr, ptr %43, align 8, !tbaa !62
-  %45 = call ptr @g_list_delete_link(ptr noundef %.2132, ptr noundef nonnull %.063133) #11
-  %.not85 = icmp eq ptr %44, null
+  %.063133 = phi ptr [ %42, %.lr.ph ], [ %40, %.thread ]
+  %.2132 = phi ptr [ %43, %.lr.ph ], [ %.064139, %.thread ]
+  %41 = getelementptr inbounds nuw i8, ptr %.063133, i64 8
+  %42 = load ptr, ptr %41, align 8, !tbaa !62
+  %43 = call ptr @g_list_delete_link(ptr noundef %.2132, ptr noundef nonnull %.063133) #11
+  %.not85 = icmp eq ptr %42, null
   br i1 %.not85, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.thread
-  %.2.lcssa = phi ptr [ %.064139, %.thread ], [ %45, %.lr.ph ]
-  %46 = call noalias ptr @g_strdup(ptr noundef nonnull %spec.select103) #11
-  %47 = call ptr @g_list_append(ptr noundef %.2.lcssa, ptr noundef %46) #11
-  br i1 %.not87102, label %62, label %48
+  %.2.lcssa = phi ptr [ %.064139, %.thread ], [ %43, %.lr.ph ]
+  %44 = call noalias ptr @g_strdup(ptr noundef nonnull %spec.select103) #11
+  %45 = call ptr @g_list_append(ptr noundef %.2.lcssa, ptr noundef %44) #11
+  br i1 %.not87102, label %59, label %46
 
-48:                                               ; preds = %._crit_edge
-  %49 = call ptr @dt_util_glist_to_str(ptr noundef nonnull @.str.31, ptr noundef %47) #11
+46:                                               ; preds = %._crit_edge
+  %47 = call ptr @dt_util_glist_to_str(ptr noundef nonnull @.str.31, ptr noundef %45) #11
   %.not88 = icmp ne i32 %.076136, 0
-  %50 = add i32 %.077135, 1
-  %51 = icmp ult i32 %50, %16
-  %or.cond95 = and i1 %.not88, %51
-  br i1 %or.cond95, label %52, label %56
+  %48 = add i32 %.077135, 1
+  %49 = icmp ult i32 %48, %16
+  %or.cond95 = and i1 %.not88, %49
+  br i1 %or.cond95, label %50, label %53
 
-52:                                               ; preds = %48
-  %53 = load i32, ptr %4, align 4, !tbaa !54
-  call void @dt_tag_rename(i32 noundef %53, ptr noundef %49)
-  br i1 %.not89.ph, label %54, label %61
+50:                                               ; preds = %46
+  %51 = load i32, ptr %4, align 4, !tbaa !54
+  call void @dt_tag_rename(i32 noundef %51, ptr noundef %47)
+  br i1 %.not89.ph, label %52, label %58
 
-54:                                               ; preds = %52
-  %55 = load i32, ptr %4, align 4, !tbaa !54
-  call void @dt_tag_set_flags(i32 noundef %55, i32 noundef 0)
+52:                                               ; preds = %50
+  call void @dt_tag_set_flags(i32 noundef %51, i32 noundef 0)
   br label %.thread128
 
-56:                                               ; preds = %48
-  %57 = add nsw i64 %.069138, 1
+53:                                               ; preds = %46
+  %54 = add nsw i64 %.069138, 1
   store i32 1, ptr %4, align 4, !tbaa !54
-  %58 = call i32 @dt_tag_new(ptr noundef %49, ptr noundef nonnull %4)
-  br i1 %.not89.ph, label %.thread128, label %59
+  %55 = call i32 @dt_tag_new(ptr noundef %47, ptr noundef nonnull %4)
+  br i1 %.not89.ph, label %.thread128, label %56
 
-59:                                               ; preds = %56
-  %60 = load i32, ptr %4, align 4, !tbaa !54
-  call void @dt_tag_set_flags(i32 noundef %60, i32 noundef 1)
-  br label %61
+56:                                               ; preds = %53
+  %57 = load i32, ptr %4, align 4, !tbaa !54
+  call void @dt_tag_set_flags(i32 noundef %57, i32 noundef 1)
+  br label %58
 
-.thread128:                                       ; preds = %56, %54
-  %.3.ph = phi i64 [ %57, %56 ], [ %.069138, %54 ]
-  call void @g_free(ptr noundef %49) #11
+.thread128:                                       ; preds = %53, %52
+  %.3.ph = phi i64 [ %54, %53 ], [ %.069138, %52 ]
+  call void @g_free(ptr noundef %47) #11
   br label %.thread113
 
-61:                                               ; preds = %59, %52
-  %.3 = phi i64 [ %.069138, %52 ], [ %57, %59 ]
-  call void @g_free(ptr noundef %49) #11
+58:                                               ; preds = %56, %50
+  %.3 = phi i64 [ %.069138, %50 ], [ %54, %56 ]
+  call void @g_free(ptr noundef %47) #11
   br label %.thread113
 
-62:                                               ; preds = %._crit_edge
+59:                                               ; preds = %._crit_edge
   %spec.select130 = select i1 %.not89.ph, i32 0, i32 %16
   br label %.thread113
 
-.thread113:                                       ; preds = %62, %.thread128, %39, %30, %61
-  %.1125 = phi ptr [ %47, %61 ], [ %47, %.thread128 ], [ %.064139, %39 ], [ %.064139, %30 ], [ %47, %62 ]
-  %.170123 = phi i64 [ %.3, %61 ], [ %.3.ph, %.thread128 ], [ %.069138, %39 ], [ %.069138, %30 ], [ %.069138, %62 ]
-  %.066106121 = phi i32 [ %.066.ph, %61 ], [ %.066.ph, %.thread128 ], [ 0, %39 ], [ 0, %30 ], [ %.066.ph, %62 ]
-  %.065108119 = phi i32 [ 0, %61 ], [ 0, %.thread128 ], [ 1, %39 ], [ 1, %30 ], [ 0, %62 ]
-  %63 = phi i32 [ %16, %61 ], [ 0, %.thread128 ], [ 0, %39 ], [ 0, %30 ], [ %spec.select130, %62 ]
-  %64 = call i64 @getline(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %5) #11
-  %.not81 = icmp eq i64 %64, -1
+.thread113:                                       ; preds = %59, %.thread128, %38, %30, %58
+  %.1125 = phi ptr [ %45, %58 ], [ %45, %.thread128 ], [ %.064139, %38 ], [ %.064139, %30 ], [ %45, %59 ]
+  %.170123 = phi i64 [ %.3, %58 ], [ %.3.ph, %.thread128 ], [ %.069138, %38 ], [ %.069138, %30 ], [ %.069138, %59 ]
+  %.066106121 = phi i32 [ %.066.ph, %58 ], [ %.066.ph, %.thread128 ], [ 0, %38 ], [ 0, %30 ], [ %.066.ph, %59 ]
+  %.065108119 = phi i32 [ 0, %58 ], [ 0, %.thread128 ], [ 1, %38 ], [ 1, %30 ], [ 0, %59 ]
+  %60 = phi i32 [ %16, %58 ], [ 0, %.thread128 ], [ 0, %38 ], [ 0, %30 ], [ %spec.select130, %59 ]
+  %61 = call i64 @getline(ptr noundef nonnull %2, ptr noundef nonnull %3, ptr noundef nonnull %5) #11
+  %.not81 = icmp eq i64 %61, -1
   br i1 %.not81, label %._crit_edge142, label %.lr.ph141
 
 ._crit_edge142:                                   ; preds = %.thread113, %6
   %.069.lcssa = phi i64 [ 0, %6 ], [ %.170123, %.thread113 ]
   %.064.lcssa = phi ptr [ null, %6 ], [ %.1125, %.thread113 ]
-  %65 = load ptr, ptr %2, align 8, !tbaa !57
-  call void @free(ptr noundef %65) #11
+  %62 = load ptr, ptr %2, align 8, !tbaa !57
+  call void @free(ptr noundef %62) #11
   call void @g_list_free_full(ptr noundef %.064.lcssa, ptr noundef nonnull @g_free) #11
-  %66 = call i32 @fclose(ptr noundef nonnull %5)
-  %67 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !55
-  %68 = and i32 %67, 1
-  %69 = icmp ne i32 %68, 0
-  %70 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3168), align 8
-  %71 = icmp ne i32 %70, 0
-  %or.cond = select i1 %69, i1 %71, i1 false
-  br i1 %or.cond, label %72, label %76
+  %63 = call i32 @fclose(ptr noundef nonnull %5)
+  %64 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3128), align 8, !tbaa !55
+  %65 = and i32 %64, 1
+  %66 = icmp ne i32 %65, 0
+  %67 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 3168), align 8
+  %68 = icmp ne i32 %67, 0
+  %or.cond = select i1 %66, i1 %68, i1 false
+  br i1 %or.cond, label %69, label %73
 
-72:                                               ; preds = %._crit_edge142
-  %73 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !9
-  %74 = and i32 %73, 1048576
-  %.not82 = icmp eq i32 %74, 0
-  br i1 %.not82, label %76, label %75
+69:                                               ; preds = %._crit_edge142
+  %70 = load i32, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 8), align 8, !tbaa !9
+  %71 = and i32 %70, 1048576
+  %.not82 = icmp eq i32 %71, 0
+  br i1 %.not82, label %73, label %72
 
-75:                                               ; preds = %72
+72:                                               ; preds = %69
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.1, i32 noundef 1777, ptr noundef nonnull @__FUNCTION__.dt_tag_import) #11
-  br label %76
+  br label %73
 
-76:                                               ; preds = %72, %75, %._crit_edge142
-  %77 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !56
-  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %77, i32 noundef 9) #11
+73:                                               ; preds = %69, %72, %._crit_edge142
+  %74 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 96), align 8, !tbaa !56
+  call void (ptr, i32, ...) @dt_control_signal_raise(ptr noundef %74, i32 noundef 9) #11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
-  br label %78
+  br label %75
 
-78:                                               ; preds = %1, %76
-  %.0 = phi i64 [ %.069.lcssa, %76 ], [ -1, %1 ]
+75:                                               ; preds = %1, %73
+  %.0 = phi i64 [ %.069.lcssa, %73 ], [ -1, %1 ]
   ret i64 %.0
 }
 

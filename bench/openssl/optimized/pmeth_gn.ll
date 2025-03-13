@@ -559,11 +559,12 @@ define ptr @EVP_PKEY_new_mac_key(i32 noundef %0, ptr noundef %1, ptr noundef %2,
 
 16:                                               ; preds = %13
   %17 = call i32 @EVP_PKEY_generate(ptr noundef nonnull %6, ptr noundef nonnull %5)
+  %.pre = load ptr, ptr %5, align 8, !tbaa !31
   br label %EVP_PKEY_keygen.exit
 
 EVP_PKEY_keygen.exit:                             ; preds = %16, %15, %10, %7
+  %18 = phi ptr [ %.pre, %16 ], [ null, %15 ], [ null, %10 ], [ null, %7 ]
   call void @EVP_PKEY_CTX_free(ptr noundef nonnull %6) #6
-  %18 = load ptr, ptr %5, align 8, !tbaa !31
   br label %19
 
 19:                                               ; preds = %4, %EVP_PKEY_keygen.exit

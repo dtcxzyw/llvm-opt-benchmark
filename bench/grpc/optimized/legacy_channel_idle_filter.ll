@@ -7213,7 +7213,7 @@ _ZNK9grpc_core8Activity10is_currentEv.exit:       ; preds = %2, %14
   unreachable
 
 .critedge19:                                      ; preds = %.critedge.preheader, %_ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit23
-  %.sroa.894.0174 = phi i64 [ %.sroa.894.1.ph, %_ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit23 ], [ undef, %.critedge.preheader ]
+  %.sroa.895.0157 = phi i64 [ %.sroa.895.1.ph, %_ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit23 ], [ undef, %.critedge.preheader ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %13) #34
   %36 = load i8, ptr %20, align 8, !tbaa !97, !noalias !349
   switch i8 %36, label %101 [
@@ -7307,7 +7307,7 @@ _ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit35.i.thread: ; preds = 
   br label %.critedge21
 
 64:                                               ; preds = %_ZN9grpc_core14promise_detail11PromiseLikeINS0_9ImmediateIN4absl12lts_202407226StatusEEEvED2Ev.exit, %_ZN4absl12lts_202407226StatusD2Ev.exit31
-  %.sroa.894.5.ph = phi i64 [ %41, %_ZN4absl12lts_202407226StatusD2Ev.exit31 ], [ %.sroa.894.0174, %_ZN9grpc_core14promise_detail11PromiseLikeINS0_9ImmediateIN4absl12lts_202407226StatusEEEvED2Ev.exit ]
+  %.sroa.895.5.ph = phi i64 [ %41, %_ZN4absl12lts_202407226StatusD2Ev.exit31 ], [ %.sroa.895.0157, %_ZN9grpc_core14promise_detail11PromiseLikeINS0_9ImmediateIN4absl12lts_202407226StatusEEEvED2Ev.exit ]
   %.sroa.0.3.ph = phi i8 [ 1, %_ZN4absl12lts_202407226StatusD2Ev.exit31 ], [ 0, %_ZN9grpc_core14promise_detail11PromiseLikeINS0_9ImmediateIN4absl12lts_202407226StatusEEEvED2Ev.exit ]
   %65 = load i64, ptr %21, align 8, !tbaa !50, !noalias !371
   %66 = and i64 %65, 1
@@ -7331,7 +7331,7 @@ _ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit35.i: ; preds = %67, %6
   br i1 %42, label %_ZN9grpc_core14promise_detail11PromiseLikeINS0_9ImmediateIN4absl12lts_202407226StatusEEEvEclEv.exit, label %"_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_5SleepEJZNS_18LegacyMaxAgeFilter8PostInitEvE3$_1ZNS4_8PostInitEvE3$_2EE8PollOnceEv.exit"
 
 _ZN9grpc_core14promise_detail11PromiseLikeINS0_9ImmediateIN4absl12lts_202407226StatusEEEvEclEv.exit: ; preds = %.critedge19, %_ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit35.i
-  %.sroa.894.7 = phi i64 [ %.sroa.894.0174, %.critedge19 ], [ %.sroa.894.5.ph, %_ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit35.i ]
+  %.sroa.895.7 = phi i64 [ %.sroa.895.0157, %.critedge19 ], [ %.sroa.895.5.ph, %_ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit35.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #34, !noalias !349
   call void @llvm.experimental.noalias.scope.decl(metadata !372)
   %72 = load i64, ptr %19, align 8, !tbaa !50, !noalias !375
@@ -7430,7 +7430,7 @@ _ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit33.i: ; preds = %_ZN9gr
   br label %"_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_5SleepEJZNS_18LegacyMaxAgeFilter8PostInitEvE3$_1ZNS4_8PostInitEvE3$_2EE8PollOnceEv.exit.thread"
 
 101:                                              ; preds = %_ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit33.i.thread, %.critedge19
-  %.sroa.894.3 = phi i64 [ %.sroa.894.0174, %.critedge19 ], [ %.sroa.894.7, %_ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit33.i.thread ]
+  %.sroa.895.3 = phi i64 [ %.sroa.895.0157, %.critedge19 ], [ %.sroa.895.7, %_ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit33.i.thread ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #34, !noalias !384
   call void @_ZN9grpc_core5SleepclEv(ptr dead_on_unwind nonnull writable sret(%"class.grpc_core::Poll") align 8 %6, ptr noundef nonnull align 8 dereferenceable(40) %19), !noalias !384
   %102 = load i8, ptr %6, align 8, !tbaa !358, !range !143, !noalias !384, !noundef !144
@@ -7455,11 +7455,11 @@ _ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit32.i: ; preds = %_ZN9gr
   br label %"_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_5SleepEJZNS_18LegacyMaxAgeFilter8PostInitEvE3$_1ZNS4_8PostInitEvE3$_2EE8PollOnceEv.exit.thread"
 
 common.resume:                                    ; preds = %_ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit34.i, %_ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit32.i, %_ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit24
-  %common.resume.op = phi { ptr, i32 } [ %.pn168, %_ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit24 ], [ %104, %_ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit32.i ], [ %.pn.i, %_ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit34.i ]
+  %common.resume.op = phi { ptr, i32 } [ %.pn151, %_ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit24 ], [ %104, %_ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit32.i ], [ %.pn.i, %_ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit34.i ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_5SleepEJZNS_18LegacyMaxAgeFilter8PostInitEvE3$_1ZNS4_8PostInitEvE3$_2EE8PollOnceEv.exit.thread": ; preds = %_ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit33.i, %106
-  %.sroa.894.6.ph = phi i64 [ %107, %106 ], [ %72, %_ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit33.i ]
+  %.sroa.895.6.ph = phi i64 [ %107, %106 ], [ %72, %_ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit33.i ]
   store i8 1, ptr %13, align 8, !tbaa !358
   br label %.loopexit
 
@@ -7469,13 +7469,13 @@ common.resume:                                    ; preds = %_ZN9grpc_core4PollI
   br i1 %108, label %.loopexit, label %.critedge21
 
 .loopexit:                                        ; preds = %"_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_5SleepEJZNS_18LegacyMaxAgeFilter8PostInitEvE3$_1ZNS4_8PostInitEvE3$_2EE8PollOnceEv.exit", %"_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_5SleepEJZNS_18LegacyMaxAgeFilter8PostInitEvE3$_1ZNS4_8PostInitEvE3$_2EE8PollOnceEv.exit.thread"
-  %.sroa.894.6134 = phi i64 [ %.sroa.894.6.ph, %"_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_5SleepEJZNS_18LegacyMaxAgeFilter8PostInitEvE3$_1ZNS4_8PostInitEvE3$_2EE8PollOnceEv.exit.thread" ], [ %.sroa.894.5.ph, %"_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_5SleepEJZNS_18LegacyMaxAgeFilter8PostInitEvE3$_1ZNS4_8PostInitEvE3$_2EE8PollOnceEv.exit" ]
-  store i64 %.sroa.894.6134, ptr %31, align 8, !tbaa !50
+  %.sroa.895.6127 = phi i64 [ %.sroa.895.6.ph, %"_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_5SleepEJZNS_18LegacyMaxAgeFilter8PostInitEvE3$_1ZNS4_8PostInitEvE3$_2EE8PollOnceEv.exit.thread" ], [ %.sroa.895.5.ph, %"_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_5SleepEJZNS_18LegacyMaxAgeFilter8PostInitEvE3$_1ZNS4_8PostInitEvE3$_2EE8PollOnceEv.exit" ]
+  store i64 %.sroa.895.6127, ptr %31, align 8, !tbaa !50
   invoke fastcc void @"_ZN9grpc_core14promise_detail15PromiseActivityINS0_6TrySeqINS_5SleepEJZNS_18LegacyMaxAgeFilter8PostInitEvE3$_1ZNS4_8PostInitEvE3$_2EEENS_22ExecCtxWakeupSchedulerEZNS4_8PostInitEvE3$_3JNS_13RefCountedPtrINS_5ArenaEEEEE8MarkDoneEv"(ptr noundef nonnull align 8 dereferenceable(144) %1)
           to label %111 unwind label %117
 
 .critedge21:                                      ; preds = %105, %_ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit35.i.thread, %"_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_5SleepEJZNS_18LegacyMaxAgeFilter8PostInitEvE3$_1ZNS4_8PostInitEvE3$_2EE8PollOnceEv.exit"
-  %.sroa.894.1.ph = phi i64 [ %.sroa.894.5.ph, %"_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_5SleepEJZNS_18LegacyMaxAgeFilter8PostInitEvE3$_1ZNS4_8PostInitEvE3$_2EE8PollOnceEv.exit" ], [ %.sroa.894.3, %105 ], [ %.sroa.894.0174, %_ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit35.i.thread ]
+  %.sroa.895.1.ph = phi i64 [ %.sroa.895.5.ph, %"_ZN9grpc_core14promise_detail8SeqStateINS0_12TrySeqTraitsENS_5SleepEJZNS_18LegacyMaxAgeFilter8PostInitEvE3$_1ZNS4_8PostInitEvE3$_2EE8PollOnceEv.exit" ], [ %.sroa.895.3, %105 ], [ %.sroa.895.0157, %_ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit35.i.thread ]
   %109 = load i8, ptr %32, align 4, !tbaa !330
   store i8 0, ptr %32, align 4, !tbaa !330
   switch i8 %109, label %_ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit23 [
@@ -7510,7 +7510,7 @@ _ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit23: ; preds = %.critedg
   br label %_ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit24
 
 _ZN9grpc_core4PollIN4absl12lts_202407226StatusEED2Ev.exit24: ; preds = %115, %117
-  %.pn168 = phi { ptr, i32 } [ %116, %115 ], [ %118, %117 ]
+  %.pn151 = phi { ptr, i32 } [ %116, %115 ], [ %118, %117 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #34
   br label %common.resume
 

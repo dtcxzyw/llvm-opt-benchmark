@@ -80,129 +80,132 @@ ocsp_find_signer.exit.thread:                     ; preds = %11, %ocsp_find_sign
   %.1 = phi ptr [ %28, %30 ], [ null, %22 ]
   %33 = call fastcc i32 @ocsp_verify_signer(ptr noundef nonnull %.sink.i46, i32 noundef 1, ptr noundef %2, i64 noundef %.025, ptr noundef %.1, ptr noundef nonnull %5)
   %34 = icmp slt i32 %33, 1
-  br i1 %34, label %ocsp_check_issuer.exit.thread, label %35
+  br i1 %34, label %.ocsp_check_issuer.exit.thread_crit_edge, label %35
+
+.ocsp_check_issuer.exit.thread_crit_edge:         ; preds = %32
+  %.pre = load ptr, ptr %5, align 8, !tbaa !3
+  br label %ocsp_check_issuer.exit.thread
 
 35:                                               ; preds = %32
   %36 = and i64 %.025, 256
   %.not36 = icmp eq i64 %36, 0
+  %.pre58 = load ptr, ptr %5, align 8, !tbaa !3
   br i1 %.not36, label %37, label %ocsp_check_issuer.exit.thread
 
 37:                                               ; preds = %35
-  %38 = load ptr, ptr %5, align 8, !tbaa !3
-  %39 = getelementptr i8, ptr %0, i64 32
-  %.val = load ptr, ptr %39, align 8, !tbaa !19
-  %40 = call i32 @OPENSSL_sk_num(ptr noundef %38) #4
-  %41 = icmp slt i32 %40, 1
-  br i1 %41, label %42, label %43
+  %38 = getelementptr i8, ptr %0, i64 32
+  %.val = load ptr, ptr %38, align 8, !tbaa !19
+  %39 = call i32 @OPENSSL_sk_num(ptr noundef %.pre58) #4
+  %40 = icmp slt i32 %39, 1
+  br i1 %40, label %41, label %42
 
-42:                                               ; preds = %37
+41:                                               ; preds = %37
   call void @ERR_new() #4
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 230, ptr noundef nonnull @__func__.ocsp_check_issuer) #4
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 39, i32 noundef 105, ptr noundef null) #4
   br label %ocsp_check_issuer.exit.thread
 
-43:                                               ; preds = %37
-  %44 = call i32 @OPENSSL_sk_num(ptr noundef %.val) #4
-  %45 = icmp slt i32 %44, 1
-  br i1 %45, label %46, label %47
+42:                                               ; preds = %37
+  %43 = call i32 @OPENSSL_sk_num(ptr noundef %.val) #4
+  %44 = icmp slt i32 %43, 1
+  br i1 %44, label %45, label %46
 
-46:                                               ; preds = %43
+45:                                               ; preds = %42
   call void @ERR_new() #4
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 274, ptr noundef nonnull @__func__.ocsp_check_ids) #4
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 39, i32 noundef 111, ptr noundef null) #4
   br label %ocsp_check_issuer.exit.thread
 
-47:                                               ; preds = %43
-  %48 = call ptr @OPENSSL_sk_value(ptr noundef %.val, i32 noundef 0) #4
-  %49 = load ptr, ptr %48, align 8, !tbaa !20
-  %.not19.i.i = icmp eq i32 %44, 1
+46:                                               ; preds = %42
+  %47 = call ptr @OPENSSL_sk_value(ptr noundef %.val, i32 noundef 0) #4
+  %48 = load ptr, ptr %47, align 8, !tbaa !20
+  %.not19.i.i = icmp eq i32 %43, 1
   br i1 %.not19.i.i, label %.loopexit.i, label %.lr.ph.i.i
 
-50:                                               ; preds = %.lr.ph.i.i
-  %51 = add nuw nsw i32 %.01518.i.i, 1
-  %exitcond.not.i.i = icmp eq i32 %51, %44
+49:                                               ; preds = %.lr.ph.i.i
+  %50 = add nuw nsw i32 %.01518.i.i, 1
+  %exitcond.not.i.i = icmp eq i32 %50, %43
   br i1 %exitcond.not.i.i, label %.loopexit.i, label %.lr.ph.i.i, !llvm.loop !24
 
-.lr.ph.i.i:                                       ; preds = %47, %50
-  %.01518.i.i = phi i32 [ %51, %50 ], [ 1, %47 ]
-  %52 = call ptr @OPENSSL_sk_value(ptr noundef %.val, i32 noundef %.01518.i.i) #4
-  %53 = load ptr, ptr %52, align 8, !tbaa !20
-  %54 = call i32 @OCSP_id_issuer_cmp(ptr noundef %49, ptr noundef %53) #4
-  %.not.i.i = icmp eq i32 %54, 0
-  br i1 %.not.i.i, label %50, label %55
+.lr.ph.i.i:                                       ; preds = %46, %49
+  %.01518.i.i = phi i32 [ %50, %49 ], [ 1, %46 ]
+  %51 = call ptr @OPENSSL_sk_value(ptr noundef %.val, i32 noundef %.01518.i.i) #4
+  %52 = load ptr, ptr %51, align 8, !tbaa !20
+  %53 = call i32 @OCSP_id_issuer_cmp(ptr noundef %48, ptr noundef %52) #4
+  %.not.i.i = icmp eq i32 %53, 0
+  br i1 %.not.i.i, label %49, label %54
 
-55:                                               ; preds = %.lr.ph.i.i
-  %56 = load ptr, ptr %53, align 8, !tbaa !26
-  %57 = load ptr, ptr %49, align 8, !tbaa !26
-  %58 = call i32 @OBJ_cmp(ptr noundef %56, ptr noundef %57) #4
-  %.not17.i.i = icmp eq i32 %58, 0
+54:                                               ; preds = %.lr.ph.i.i
+  %55 = load ptr, ptr %52, align 8, !tbaa !26
+  %56 = load ptr, ptr %48, align 8, !tbaa !26
+  %57 = call i32 @OBJ_cmp(ptr noundef %55, ptr noundef %56) #4
+  %.not17.i.i = icmp eq i32 %57, 0
   br i1 %.not17.i.i, label %ocsp_check_issuer.exit.thread53, label %.loopexit.i
 
-.loopexit.i:                                      ; preds = %50, %55, %47
-  %.02.ph.i = phi ptr [ %49, %47 ], [ null, %55 ], [ %49, %50 ]
-  %59 = call ptr @OPENSSL_sk_value(ptr noundef %38, i32 noundef 0) #4
-  %60 = call i32 @OPENSSL_sk_num(ptr noundef %38) #4
-  %61 = icmp sgt i32 %60, 1
-  br i1 %61, label %62, label %ocsp_check_issuer.exit
+.loopexit.i:                                      ; preds = %49, %54, %46
+  %.02.ph.i = phi ptr [ %48, %46 ], [ null, %54 ], [ %48, %49 ]
+  %58 = call ptr @OPENSSL_sk_value(ptr noundef %.pre58, i32 noundef 0) #4
+  %59 = call i32 @OPENSSL_sk_num(ptr noundef %.pre58) #4
+  %60 = icmp sgt i32 %59, 1
+  br i1 %60, label %61, label %ocsp_check_issuer.exit
 
-62:                                               ; preds = %.loopexit.i
-  %63 = call ptr @OPENSSL_sk_value(ptr noundef %38, i32 noundef 1) #4
-  %64 = call fastcc i32 @ocsp_match_issuerid(ptr noundef %63, ptr noundef %.02.ph.i, ptr noundef %.val)
-  %65 = icmp slt i32 %64, 0
-  br i1 %65, label %ocsp_check_issuer.exit.thread, label %66
+61:                                               ; preds = %.loopexit.i
+  %62 = call ptr @OPENSSL_sk_value(ptr noundef %.pre58, i32 noundef 1) #4
+  %63 = call fastcc i32 @ocsp_match_issuerid(ptr noundef %62, ptr noundef %.02.ph.i, ptr noundef %.val)
+  %64 = icmp slt i32 %63, 0
+  br i1 %64, label %ocsp_check_issuer.exit.thread, label %65
 
-66:                                               ; preds = %62
-  %.not.i42 = icmp eq i32 %64, 0
-  br i1 %.not.i42, label %ocsp_check_issuer.exit, label %67
+65:                                               ; preds = %61
+  %.not.i42 = icmp eq i32 %63, 0
+  br i1 %.not.i42, label %ocsp_check_issuer.exit, label %66
 
-67:                                               ; preds = %66
-  %68 = call i32 @X509_get_extension_flags(ptr noundef %59) #4
-  %69 = and i32 %68, 4
-  %.not.i19.i = icmp eq i32 %69, 0
-  br i1 %.not.i19.i, label %73, label %70
+66:                                               ; preds = %65
+  %67 = call i32 @X509_get_extension_flags(ptr noundef %58) #4
+  %68 = and i32 %67, 4
+  %.not.i19.i = icmp eq i32 %68, 0
+  br i1 %.not.i19.i, label %72, label %69
 
-70:                                               ; preds = %67
-  %71 = call i32 @X509_get_extended_key_usage(ptr noundef %59) #4
-  %72 = and i32 %71, 32
-  %.not2.i.i = icmp eq i32 %72, 0
-  br i1 %.not2.i.i, label %73, label %ocsp_check_issuer.exit.thread
+69:                                               ; preds = %66
+  %70 = call i32 @X509_get_extended_key_usage(ptr noundef %58) #4
+  %71 = and i32 %70, 32
+  %.not2.i.i = icmp eq i32 %71, 0
+  br i1 %.not2.i.i, label %72, label %ocsp_check_issuer.exit.thread
 
-73:                                               ; preds = %70, %67
+72:                                               ; preds = %69, %66
   call void @ERR_new() #4
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 376, ptr noundef nonnull @__func__.ocsp_check_delegated) #4
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 39, i32 noundef 103, ptr noundef null) #4
   br label %ocsp_check_issuer.exit.thread53
 
-ocsp_check_issuer.exit:                           ; preds = %.loopexit.i, %66
-  %74 = call fastcc i32 @ocsp_match_issuerid(ptr noundef %59, ptr noundef %.02.ph.i, ptr noundef %.val)
-  %.not37 = icmp eq i32 %74, 0
+ocsp_check_issuer.exit:                           ; preds = %.loopexit.i, %65
+  %73 = call fastcc i32 @ocsp_match_issuerid(ptr noundef %58, ptr noundef %.02.ph.i, ptr noundef %.val)
+  %.not37 = icmp eq i32 %73, 0
   br i1 %.not37, label %ocsp_check_issuer.exit.thread53, label %ocsp_check_issuer.exit.thread
 
-ocsp_check_issuer.exit.thread53:                  ; preds = %55, %73, %ocsp_check_issuer.exit
-  %75 = and i64 %.025, 32
-  %.not38 = icmp eq i64 %75, 0
-  br i1 %.not38, label %76, label %ocsp_check_issuer.exit.thread
+ocsp_check_issuer.exit.thread53:                  ; preds = %54, %72, %ocsp_check_issuer.exit
+  %74 = and i64 %.025, 32
+  %.not38 = icmp eq i64 %74, 0
+  br i1 %.not38, label %75, label %ocsp_check_issuer.exit.thread
 
-76:                                               ; preds = %ocsp_check_issuer.exit.thread53
-  %77 = load ptr, ptr %5, align 8, !tbaa !3
-  %78 = call i32 @OPENSSL_sk_num(ptr noundef %77) #4
-  %79 = add nsw i32 %78, -1
-  %80 = call ptr @OPENSSL_sk_value(ptr noundef %77, i32 noundef %79) #4
-  %81 = call i32 @X509_check_trust(ptr noundef %80, i32 noundef 180, i32 noundef 0) #4
-  %.not39 = icmp eq i32 %81, 1
-  br i1 %.not39, label %ocsp_check_issuer.exit.thread, label %82
+75:                                               ; preds = %ocsp_check_issuer.exit.thread53
+  %76 = call i32 @OPENSSL_sk_num(ptr noundef %.pre58) #4
+  %77 = add nsw i32 %76, -1
+  %78 = call ptr @OPENSSL_sk_value(ptr noundef %.pre58, i32 noundef %77) #4
+  %79 = call i32 @X509_check_trust(ptr noundef %78, i32 noundef 180, i32 noundef 0) #4
+  %.not39 = icmp eq i32 %79, 1
+  br i1 %.not39, label %ocsp_check_issuer.exit.thread, label %80
 
-82:                                               ; preds = %76
+80:                                               ; preds = %75
   call void @ERR_new() #4
   call void @ERR_set_debug(ptr noundef nonnull @.str, i32 noundef 149, ptr noundef nonnull @__func__.OCSP_basic_verify) #4
   call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 39, i32 noundef 112, ptr noundef null) #4
   br label %ocsp_check_issuer.exit.thread
 
-ocsp_check_issuer.exit.thread:                    ; preds = %70, %46, %62, %42, %76, %35, %ocsp_check_issuer.exit.thread53, %ocsp_check_issuer.exit, %32, %30, %25, %ocsp_find_signer.exit.thread, %82, %15
-  %.024 = phi ptr [ null, %15 ], [ null, %ocsp_find_signer.exit.thread ], [ null, %25 ], [ %.1, %32 ], [ %.1, %ocsp_check_issuer.exit ], [ %.1, %ocsp_check_issuer.exit.thread53 ], [ %.1, %82 ], [ %28, %30 ], [ %.1, %35 ], [ %.1, %76 ], [ %.1, %42 ], [ %.1, %62 ], [ %.1, %46 ], [ %.1, %70 ]
-  %.0 = phi i32 [ 0, %15 ], [ %18, %ocsp_find_signer.exit.thread ], [ -1, %25 ], [ %33, %32 ], [ %74, %ocsp_check_issuer.exit ], [ 0, %ocsp_check_issuer.exit.thread53 ], [ 0, %82 ], [ -1, %30 ], [ 1, %35 ], [ 1, %76 ], [ -1, %42 ], [ -1, %62 ], [ -1, %46 ], [ 1, %70 ]
-  %83 = load ptr, ptr %5, align 8, !tbaa !3
-  call void @OSSL_STACK_OF_X509_free(ptr noundef %83) #4
+ocsp_check_issuer.exit.thread:                    ; preds = %.ocsp_check_issuer.exit.thread_crit_edge, %69, %45, %61, %41, %75, %35, %ocsp_check_issuer.exit.thread53, %ocsp_check_issuer.exit, %30, %25, %ocsp_find_signer.exit.thread, %80, %15
+  %81 = phi ptr [ null, %15 ], [ null, %ocsp_find_signer.exit.thread ], [ null, %25 ], [ %.pre, %.ocsp_check_issuer.exit.thread_crit_edge ], [ %.pre58, %ocsp_check_issuer.exit ], [ %.pre58, %ocsp_check_issuer.exit.thread53 ], [ %.pre58, %80 ], [ null, %30 ], [ %.pre58, %35 ], [ %.pre58, %75 ], [ %.pre58, %41 ], [ %.pre58, %61 ], [ %.pre58, %45 ], [ %.pre58, %69 ]
+  %.024 = phi ptr [ null, %15 ], [ null, %ocsp_find_signer.exit.thread ], [ null, %25 ], [ %.1, %.ocsp_check_issuer.exit.thread_crit_edge ], [ %.1, %ocsp_check_issuer.exit ], [ %.1, %ocsp_check_issuer.exit.thread53 ], [ %.1, %80 ], [ %28, %30 ], [ %.1, %35 ], [ %.1, %75 ], [ %.1, %41 ], [ %.1, %61 ], [ %.1, %45 ], [ %.1, %69 ]
+  %.0 = phi i32 [ 0, %15 ], [ %18, %ocsp_find_signer.exit.thread ], [ -1, %25 ], [ %33, %.ocsp_check_issuer.exit.thread_crit_edge ], [ %73, %ocsp_check_issuer.exit ], [ 0, %ocsp_check_issuer.exit.thread53 ], [ 0, %80 ], [ -1, %30 ], [ 1, %35 ], [ 1, %75 ], [ -1, %41 ], [ -1, %61 ], [ -1, %45 ], [ 1, %69 ]
+  call void @OSSL_STACK_OF_X509_free(ptr noundef %81) #4
   call void @OPENSSL_sk_free(ptr noundef %.024) #4
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #4
   ret i32 %.0

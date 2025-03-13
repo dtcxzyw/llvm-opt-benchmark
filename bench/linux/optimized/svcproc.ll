@@ -347,7 +347,7 @@ define internal range(i32 0, 1625948161) i32 @nlmsvc_proc_share(ptr noundef %0) 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 36
   store i32 67108864, ptr %21, align 4
-  br label %43
+  br label %42
 
 22:                                               ; preds = %16, %1
   store ptr null, ptr %2, align 8, !annotation !9
@@ -361,7 +361,7 @@ define internal range(i32 0, 1625948161) i32 @nlmsvc_proc_share(ptr noundef %0) 
 26:                                               ; preds = %22
   %27 = icmp eq i32 %23, 812974080
   %28 = select i1 %27, i32 1625948160, i32 0
-  br label %43
+  br label %42
 
 29:                                               ; preds = %22
   %30 = load ptr, ptr %2, align 8
@@ -395,15 +395,14 @@ define internal range(i32 0, 1625948161) i32 @nlmsvc_proc_share(ptr noundef %0) 
   %41 = getelementptr inbounds nuw i8, ptr %5, i64 40
   call void @nlmsvc_release_lockowner(ptr noundef nonnull %41) #7
   call void @nlmsvc_release_host(ptr noundef %30) #7
-  %42 = load ptr, ptr %3, align 8
-  call void @nlm_release_file(ptr noundef %42) #7
-  br label %43
+  call void @nlm_release_file(ptr noundef %31) #7
+  br label %42
 
-43:                                               ; preds = %39, %26, %20
-  %44 = phi i32 [ %28, %26 ], [ 0, %39 ], [ 0, %20 ]
+42:                                               ; preds = %39, %26, %20
+  %43 = phi i32 [ %28, %26 ], [ 0, %39 ], [ 0, %20 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #7
-  ret i32 %44
+  ret i32 %43
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -436,7 +435,7 @@ define internal range(i32 0, 1625948161) i32 @nlmsvc_proc_unshare(ptr noundef %0
 16:                                               ; preds = %1
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 36
   store i32 67108864, ptr %17, align 4
-  br label %39
+  br label %38
 
 18:                                               ; preds = %1
   store ptr null, ptr %2, align 8, !annotation !9
@@ -450,7 +449,7 @@ define internal range(i32 0, 1625948161) i32 @nlmsvc_proc_unshare(ptr noundef %0
 22:                                               ; preds = %18
   %23 = icmp eq i32 %19, 812974080
   %24 = select i1 %23, i32 1625948160, i32 0
-  br label %39
+  br label %38
 
 25:                                               ; preds = %18
   %26 = load ptr, ptr %2, align 8
@@ -484,15 +483,14 @@ define internal range(i32 0, 1625948161) i32 @nlmsvc_proc_unshare(ptr noundef %0
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 40
   call void @nlmsvc_release_lockowner(ptr noundef nonnull %37) #7
   call void @nlmsvc_release_host(ptr noundef %26) #7
-  %38 = load ptr, ptr %3, align 8
-  call void @nlm_release_file(ptr noundef %38) #7
-  br label %39
+  call void @nlm_release_file(ptr noundef %27) #7
+  br label %38
 
-39:                                               ; preds = %35, %22, %16
-  %40 = phi i32 [ 0, %16 ], [ %24, %22 ], [ 0, %35 ]
+38:                                               ; preds = %35, %22, %16
+  %39 = phi i32 [ 0, %16 ], [ %24, %22 ], [ 0, %35 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #7
-  ret i32 %40
+  ret i32 %39
 }
 
 ; Function Attrs: fn_ret_thunk_extern nounwind null_pointer_is_valid
@@ -580,7 +578,7 @@ define internal range(i32 0, 1625948161) i32 @__nlmsvc_proc_test(ptr noundef %0,
 10:                                               ; preds = %2
   %11 = icmp eq i32 %7, 812974080
   %12 = select i1 %11, i32 1625948160, i32 0
-  br label %31
+  br label %30
 
 13:                                               ; preds = %2
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 40
@@ -625,15 +623,14 @@ define internal range(i32 0, 1625948161) i32 @__nlmsvc_proc_test(ptr noundef %0,
   %29 = phi i32 [ 0, %.thread ], [ %spec.select, %26 ]
   call void @nlmsvc_put_lockowner(ptr noundef %16) #7
   call void @nlmsvc_release_host(ptr noundef %18) #7
-  %30 = load ptr, ptr %4, align 8
-  call void @nlm_release_file(ptr noundef %30) #7
-  br label %31
+  call void @nlm_release_file(ptr noundef %17) #7
+  br label %30
 
-31:                                               ; preds = %28, %10
-  %32 = phi i32 [ %12, %10 ], [ %29, %28 ]
+30:                                               ; preds = %28, %10
+  %31 = phi i32 [ %12, %10 ], [ %29, %28 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
-  ret i32 %32
+  ret i32 %31
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -795,7 +792,7 @@ define internal range(i32 0, 1625948161) i32 @__nlmsvc_proc_lock(ptr noundef %0,
 10:                                               ; preds = %2
   %11 = icmp eq i32 %7, 812974080
   %12 = select i1 %11, i32 1625948160, i32 0
-  br label %32
+  br label %31
 
 13:                                               ; preds = %2
   %14 = load ptr, ptr %4, align 8
@@ -841,15 +838,14 @@ define internal range(i32 0, 1625948161) i32 @__nlmsvc_proc_lock(ptr noundef %0,
   %30 = phi i32 [ 0, %.thread ], [ %spec.select, %27 ]
   call void @nlmsvc_release_lockowner(ptr noundef nonnull %16) #7
   call void @nlmsvc_release_host(ptr noundef %15) #7
-  %31 = load ptr, ptr %4, align 8
-  call void @nlm_release_file(ptr noundef %31) #7
-  br label %32
+  call void @nlm_release_file(ptr noundef %14) #7
+  br label %31
 
-32:                                               ; preds = %29, %10
-  %33 = phi i32 [ %12, %10 ], [ %30, %29 ]
+31:                                               ; preds = %29, %10
+  %32 = phi i32 [ %12, %10 ], [ %30, %29 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
-  ret i32 %33
+  ret i32 %32
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -880,7 +876,7 @@ define internal range(i32 0, 1625948161) i32 @__nlmsvc_proc_cancel(ptr noundef %
 15:                                               ; preds = %2
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 36
   store i32 67108864, ptr %16, align 4
-  br label %38
+  br label %37
 
 17:                                               ; preds = %2
   store ptr null, ptr %3, align 8, !annotation !9
@@ -894,7 +890,7 @@ define internal range(i32 0, 1625948161) i32 @__nlmsvc_proc_cancel(ptr noundef %
 21:                                               ; preds = %17
   %22 = icmp eq i32 %18, 812974080
   %23 = select i1 %22, i32 1625948160, i32 0
-  br label %38
+  br label %37
 
 24:                                               ; preds = %17
   %25 = load ptr, ptr %4, align 8
@@ -928,15 +924,14 @@ define internal range(i32 0, 1625948161) i32 @__nlmsvc_proc_cancel(ptr noundef %
   call void @nlmsvc_release_lockowner(ptr noundef nonnull %26) #7
   %36 = load ptr, ptr %3, align 8
   call void @nlmsvc_release_host(ptr noundef %36) #7
-  %37 = load ptr, ptr %4, align 8
-  call void @nlm_release_file(ptr noundef %37) #7
-  br label %38
+  call void @nlm_release_file(ptr noundef %25) #7
+  br label %37
 
-38:                                               ; preds = %34, %21, %15
-  %39 = phi i32 [ 0, %15 ], [ %23, %21 ], [ 0, %34 ]
+37:                                               ; preds = %34, %21, %15
+  %38 = phi i32 [ 0, %15 ], [ %23, %21 ], [ 0, %34 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
-  ret i32 %39
+  ret i32 %38
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -967,7 +962,7 @@ define internal range(i32 0, 1625948161) i32 @__nlmsvc_proc_unlock(ptr noundef %
 15:                                               ; preds = %2
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 36
   store i32 67108864, ptr %16, align 4
-  br label %38
+  br label %37
 
 17:                                               ; preds = %2
   store ptr null, ptr %3, align 8, !annotation !9
@@ -981,7 +976,7 @@ define internal range(i32 0, 1625948161) i32 @__nlmsvc_proc_unlock(ptr noundef %
 21:                                               ; preds = %17
   %22 = icmp eq i32 %18, 812974080
   %23 = select i1 %22, i32 1625948160, i32 0
-  br label %38
+  br label %37
 
 24:                                               ; preds = %17
   %25 = load ptr, ptr %4, align 8
@@ -1015,15 +1010,14 @@ define internal range(i32 0, 1625948161) i32 @__nlmsvc_proc_unlock(ptr noundef %
   call void @nlmsvc_release_lockowner(ptr noundef nonnull %26) #7
   %36 = load ptr, ptr %3, align 8
   call void @nlmsvc_release_host(ptr noundef %36) #7
-  %37 = load ptr, ptr %4, align 8
-  call void @nlm_release_file(ptr noundef %37) #7
-  br label %38
+  call void @nlm_release_file(ptr noundef %25) #7
+  br label %37
 
-38:                                               ; preds = %34, %21, %15
-  %39 = phi i32 [ 0, %15 ], [ %23, %21 ], [ 0, %34 ]
+37:                                               ; preds = %34, %21, %15
+  %38 = phi i32 [ 0, %15 ], [ %23, %21 ], [ 0, %34 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #7
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #7
-  ret i32 %39
+  ret i32 %38
 }
 
 ; Function Attrs: null_pointer_is_valid

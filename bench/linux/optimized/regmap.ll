@@ -7230,7 +7230,6 @@ define internal fastcc i32 @_regmap_raw_write_impl(ptr noundef %0, i32 noundef %
   %330 = phi ptr [ %2, %290 ], [ %318, %313 ]
   %331 = select i1 %4, i32 1, i32 %328
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6) #24
-  store i8 0, ptr %6, align 1, !annotation !27
   %332 = udiv i32 %.pre-phi, %326
   %333 = icmp ugt i32 %331, 1
   br i1 %333, label %334, label %342
@@ -8987,7 +8986,6 @@ define internal fastcc i32 @_regmap_multi_reg_write(ptr noundef %0, ptr noundef 
 
 222:                                              ; preds = %220
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #24
-  store i8 0, ptr %4, align 1, !annotation !27
   %223 = load i32, ptr %221, align 4
   %224 = getelementptr inbounds nuw i8, ptr %191, i64 40
   %225 = load i32, ptr %224, align 8

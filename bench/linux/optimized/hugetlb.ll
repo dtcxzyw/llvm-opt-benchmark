@@ -2759,7 +2759,6 @@ define internal fastcc ptr @dequeue_hugetlb_folio_nodemask(ptr noundef %0, i32 n
 define dso_local void @restore_reserve_on_error(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef %3) local_unnamed_addr #0 align 16 {
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #22
-  store i64 0, ptr %5, align 8, !annotation !41
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %7 = load i64, ptr %6, align 8
   %8 = and i64 %7, 128
@@ -2786,6 +2785,7 @@ define dso_local void @restore_reserve_on_error(ptr noundef readonly captures(no
 
 24:                                               ; preds = %18, %10
   %25 = phi ptr [ %17, %10 ], [ %23, %18 ]
+  store i64 0, ptr %5, align 8, !annotation !41
   %26 = icmp eq ptr %25, null
   br i1 %26, label %.thread, label %27
 
@@ -3449,7 +3449,6 @@ define dso_local noundef ptr @alloc_hugetlb_folio(ptr noundef %0, i64 noundef %1
   %26 = sdiv exact i64 %25, 6088
   %27 = trunc i64 %26 to i32
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #22
-  store i64 0, ptr %8, align 8, !annotation !41
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %29 = load i64, ptr %28, align 8
   %30 = and i64 %29, 128
@@ -3474,6 +3473,7 @@ define dso_local noundef ptr @alloc_hugetlb_folio(ptr noundef %0, i64 noundef %1
 
 44:                                               ; preds = %38, %32
   %45 = phi ptr [ %37, %32 ], [ %43, %38 ]
+  store i64 0, ptr %8, align 8, !annotation !41
   %46 = icmp eq ptr %45, null
   br i1 %46, label %.thread, label %47
 
@@ -9234,7 +9234,6 @@ define dso_local range(i32 0, 1025) i32 @hugetlb_fault(ptr noundef %0, ptr nound
 
 .critedge19:                                      ; preds = %467, %468
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #22
-  store i64 0, ptr %5, align 8, !annotation !41
   %471 = load i64, ptr %106, align 8
   %472 = and i64 %471, 128
   %473 = icmp eq i64 %472, 0
@@ -9262,6 +9261,7 @@ define dso_local range(i32 0, 1025) i32 @hugetlb_fault(ptr noundef %0, ptr nound
   br i1 %488, label %vma_needs_reservation.exit.thread, label %489
 
 489:                                              ; preds = %486
+  store i64 0, ptr %5, align 8, !annotation !41
   %490 = load i64, ptr %1, align 8
   %491 = sub i64 %24, %490
   %492 = load i32, ptr %35, align 8

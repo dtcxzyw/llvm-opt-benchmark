@@ -745,12 +745,12 @@ Aig_ObjFaninId0.exit370:                          ; preds = %220, %228
   %312 = lshr i32 %310, 16
   %313 = add i32 %312, %292
   %314 = add i32 %313, %311
-  store i32 %314, ptr %290, align 4, !tbaa !9
   %indvars.iv.next558 = add nuw nsw i64 %indvars.iv557, 1
   %exitcond561.not = icmp eq i64 %indvars.iv.next558, %wide.trip.count560
   br i1 %exitcond561.not, label %._crit_edge455, label %291, !llvm.loop !64
 
 ._crit_edge455:                                   ; preds = %291
+  store i32 %314, ptr %290, align 4, !tbaa !9
   %.val349 = load i32, ptr %97, align 8, !tbaa !56
   %315 = sub nsw i32 %.val318, %.val349
   %316 = sext i32 %315 to i64

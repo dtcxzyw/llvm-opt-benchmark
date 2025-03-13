@@ -40554,7 +40554,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i: ; preds = %214
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEENS1_IPhS6_EEET0_T_SB_SA_.exit.i: ; preds = %._crit_edge377, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i
   %.sroa.0420.0 = phi ptr [ %217, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i ], [ null, %._crit_edge377 ]
-  %.sroa.16.0 = phi i64 [ %219, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i ], [ 0, %._crit_edge377 ]
+  %.sroa.12426.0 = phi i64 [ %219, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i ], [ 0, %._crit_edge377 ]
   %220 = load ptr, ptr %68, align 8, !tbaa !3
   %.not.i.i.i.i111 = icmp eq ptr %220, null
   br i1 %.not.i.i.i.i111, label %_ZNSt6vectorIhSaIhEED2Ev.exit.i, label %221
@@ -40871,7 +40871,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i134: ; preds = %350
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEENS1_IPhS6_EEET0_T_SB_SA_.exit.i118: ; preds = %._crit_edge402, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i134
   %.sroa.0.0 = phi ptr [ %353, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i134 ], [ null, %._crit_edge402 ]
-  %.sroa.14.0 = phi i64 [ %355, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i134 ], [ 0, %._crit_edge402 ]
+  %.sroa.12.0 = phi i64 [ %355, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i134 ], [ 0, %._crit_edge402 ]
   %356 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %357 = load i64, ptr %356, align 8, !tbaa !163
   %358 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -40925,7 +40925,7 @@ _ZN4LIEF15vector_iostream5writeESt6vectorIhSaIhEE.exit: ; preds = %_ZSt4copyIN9_
   br i1 %.not.i.i.i136, label %_ZNSt6vectorIhSaIhEED2Ev.exit, label %384
 
 384:                                              ; preds = %_ZN4LIEF15vector_iostream5writeESt6vectorIhSaIhEE.exit
-  %385 = sub i64 %.sroa.14.0, %380
+  %385 = sub i64 %.sroa.12.0, %380
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.0, i64 noundef %385) #24
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit
 
@@ -41383,7 +41383,7 @@ _ZN4LIEF15vector_iostream5writeESt6vectorIhSaIhEE.exit159: ; preds = %580, %604
   br i1 %.not.i.i.i160, label %_ZNSt6vectorIhSaIhEED2Ev.exit161, label %606
 
 606:                                              ; preds = %_ZN4LIEF15vector_iostream5writeESt6vectorIhSaIhEE.exit159
-  %607 = sub i64 %.sroa.16.0, %592
+  %607 = sub i64 %.sroa.12426.0, %592
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.0420.0, i64 noundef %607) #24
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit161
 
@@ -61611,7 +61611,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i: ; preds = %214
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEENS1_IPhS6_EEET0_T_SB_SA_.exit.i: ; preds = %._crit_edge377, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i
   %.sroa.0420.0 = phi ptr [ %217, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i ], [ null, %._crit_edge377 ]
-  %.sroa.16.0 = phi i64 [ %219, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i ], [ 0, %._crit_edge377 ]
+  %.sroa.12426.0 = phi i64 [ %219, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i ], [ 0, %._crit_edge377 ]
   %220 = load ptr, ptr %68, align 8, !tbaa !3
   %.not.i.i.i.i111 = icmp eq ptr %220, null
   br i1 %.not.i.i.i.i111, label %_ZNSt6vectorIhSaIhEED2Ev.exit.i, label %221
@@ -61928,7 +61928,7 @@ _ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i134: ; preds = %350
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKhSt6vectorIhSaIhEEEENS1_IPhS6_EEET0_T_SB_SA_.exit.i118: ; preds = %._crit_edge402, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i134
   %.sroa.0.0 = phi ptr [ %353, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i134 ], [ null, %._crit_edge402 ]
-  %.sroa.14.0 = phi i64 [ %355, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i134 ], [ 0, %._crit_edge402 ]
+  %.sroa.12.0 = phi i64 [ %355, %_ZNSt12_Vector_baseIhSaIhEE13_M_deallocateEPhm.exit.i134 ], [ 0, %._crit_edge402 ]
   %356 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %357 = load i64, ptr %356, align 8, !tbaa !163
   %358 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -61982,7 +61982,7 @@ _ZN4LIEF15vector_iostream5writeESt6vectorIhSaIhEE.exit: ; preds = %_ZSt4copyIN9_
   br i1 %.not.i.i.i136, label %_ZNSt6vectorIhSaIhEED2Ev.exit, label %384
 
 384:                                              ; preds = %_ZN4LIEF15vector_iostream5writeESt6vectorIhSaIhEE.exit
-  %385 = sub i64 %.sroa.14.0, %380
+  %385 = sub i64 %.sroa.12.0, %380
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.0, i64 noundef %385) #24
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit
 
@@ -62440,7 +62440,7 @@ _ZN4LIEF15vector_iostream5writeESt6vectorIhSaIhEE.exit159: ; preds = %580, %604
   br i1 %.not.i.i.i160, label %_ZNSt6vectorIhSaIhEED2Ev.exit161, label %606
 
 606:                                              ; preds = %_ZN4LIEF15vector_iostream5writeESt6vectorIhSaIhEE.exit159
-  %607 = sub i64 %.sroa.16.0, %592
+  %607 = sub i64 %.sroa.12426.0, %592
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.0420.0, i64 noundef %607) #24
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit161
 

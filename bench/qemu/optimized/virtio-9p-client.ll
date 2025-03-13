@@ -769,7 +769,6 @@ define dso_local noundef ptr @v9fs_tversion(ptr noundef readonly byval(%struct.T
 
 v9fs_string_size.exit:                            ; preds = %8, %17
   store i32 0, ptr %3, align 4, !annotation !4
-  store i16 0, ptr %4, align 2, !annotation !4
   %19 = trunc i64 %15 to i32
   %20 = add i32 %19, 2
   %21 = and i32 %20, 65535
@@ -852,6 +851,7 @@ v9fs_string_size.exit:                            ; preds = %8, %17
   br label %90
 
 73:                                               ; preds = %51
+  store i16 0, ptr %4, align 2, !annotation !4
   call void @v9fs_rversion(ptr noundef nonnull %23, ptr noundef nonnull %4, ptr noundef nonnull %5)
   %74 = load ptr, ptr %5, align 8
   %75 = load i16, ptr %4, align 2
@@ -891,8 +891,8 @@ v9fs_string_size.exit:                            ; preds = %8, %17
   br label %90
 
 90:                                               ; preds = %56, %70, %86, %87, %89, %83, %80, %v9fs_string_size.exit
+  %.val = phi ptr [ null, %v9fs_string_size.exit ], [ null, %80 ], [ %74, %83 ], [ %74, %89 ], [ %74, %87 ], [ %74, %86 ], [ null, %70 ], [ null, %56 ]
   %.0 = phi ptr [ %23, %v9fs_string_size.exit ], [ null, %80 ], [ null, %83 ], [ null, %89 ], [ null, %87 ], [ null, %86 ], [ null, %70 ], [ null, %56 ]
-  %.val = load ptr, ptr %5, align 8
   call void @g_free(ptr noundef %.val) #14
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %4) #14

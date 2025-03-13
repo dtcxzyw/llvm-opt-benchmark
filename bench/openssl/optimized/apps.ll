@@ -2468,11 +2468,12 @@ define dso_local ptr @load_pubkey(ptr noundef %0, i32 noundef %1, i32 noundef %2
 
 16:                                               ; preds = %13
   %17 = call i32 @load_key_certs_crls(ptr noundef %.015, i32 noundef %1, i32 noundef %2, ptr noundef %3, ptr noundef nonnull %spec.store.select, i32 noundef 0, ptr noundef nonnull %7, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
+  %.pre = load ptr, ptr %7, align 8, !tbaa !37
   br label %18
 
 18:                                               ; preds = %16, %13
+  %19 = phi ptr [ %.pre, %16 ], [ %14, %13 ]
   call void @CRYPTO_free(ptr noundef %.0, ptr noundef nonnull @.str.1, i32 noundef 640) #27
-  %19 = load ptr, ptr %7, align 8, !tbaa !37
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #27
   ret ptr %19
 }
@@ -2489,30 +2490,25 @@ define dso_local ptr @load_keyparams_suppress(ptr noundef %0, i32 noundef %1, i3
   %11 = icmp ne ptr %10, null
   %12 = icmp ne ptr %3, null
   %or.cond = and i1 %12, %11
-  br i1 %or.cond, label %13, label %20
+  br i1 %or.cond, label %13, label %19
 
 13:                                               ; preds = %6
   %14 = call i32 @EVP_PKEY_is_a(ptr noundef nonnull %10, ptr noundef nonnull %3) #27
   %.not = icmp eq i32 %14, 0
-  br i1 %.not, label %15, label %._crit_edge
-
-._crit_edge:                                      ; preds = %13
-  %.pre = load ptr, ptr %7, align 8, !tbaa !37
-  br label %20
+  br i1 %.not, label %15, label %19
 
 15:                                               ; preds = %13
   %16 = load ptr, ptr @bio_err, align 8, !tbaa !26
   call void @ERR_print_errors(ptr noundef %16) #27
   %17 = load ptr, ptr @bio_err, align 8, !tbaa !26
   %18 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %17, ptr noundef nonnull @.str.31, ptr noundef nonnull %spec.store.select, ptr noundef %0) #27
-  %19 = load ptr, ptr %7, align 8, !tbaa !37
-  call void @EVP_PKEY_free(ptr noundef %19) #27
-  br label %20
+  call void @EVP_PKEY_free(ptr noundef nonnull %10) #27
+  br label %19
 
-20:                                               ; preds = %._crit_edge, %15, %6
-  %21 = phi ptr [ %.pre, %._crit_edge ], [ null, %15 ], [ %10, %6 ]
+19:                                               ; preds = %15, %13, %6
+  %20 = phi ptr [ null, %15 ], [ %10, %13 ], [ %10, %6 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #27
-  ret ptr %21
+  ret ptr %20
 }
 
 declare i32 @EVP_PKEY_is_a(ptr noundef, ptr noundef) local_unnamed_addr #3
@@ -2774,8 +2770,8 @@ define dso_local ptr @load_certs_multifile(ptr noundef %0, ptr noundef %1, ptr n
   %.pre.i = tail call ptr @__ctype_b_loc() #28
   br label %10
 
-10:                                               ; preds = %.preheader, %36
-  %.01426 = phi ptr [ %0, %.preheader ], [ %31, %36 ]
+10:                                               ; preds = %.preheader, %35
+  %.01426 = phi ptr [ %0, %.preheader ], [ %31, %35 ]
   %11 = load i8, ptr %.01426, align 1, !tbaa !13
   %.not19.i = icmp eq i8 %11, 44
   br i1 %.not19.i, label %.critedge.thread.i, label %.lr.ph.i
@@ -2831,34 +2827,34 @@ next_item.exit:                                   ; preds = %.critedge.i, %.loop
   %31 = phi ptr [ null, %.critedge.i ], [ %30, %.loopexit.loopexit.i ]
   %32 = call i32 @load_cert_certs(ptr noundef nonnull %.01426, ptr noundef null, ptr noundef nonnull %5, i32 noundef 0, ptr noundef %1, ptr noundef %2, ptr noundef %3)
   %.not16 = icmp eq i32 %32, 0
+  %.pre = load ptr, ptr %5, align 8, !tbaa !39
   br i1 %.not16, label %.thread20, label %33
 
 33:                                               ; preds = %next_item.exit
-  %34 = load ptr, ptr %5, align 8, !tbaa !39
-  %35 = call i32 @X509_add_certs(ptr noundef nonnull %6, ptr noundef %34, i32 noundef 5) #27
-  %.not17 = icmp eq i32 %35, 0
-  br i1 %.not17, label %.thread, label %36
+  %34 = call i32 @X509_add_certs(ptr noundef nonnull %6, ptr noundef %.pre, i32 noundef 5) #27
+  %.not17 = icmp eq i32 %34, 0
+  br i1 %.not17, label %.thread, label %35
 
-36:                                               ; preds = %33
-  %37 = load ptr, ptr %5, align 8, !tbaa !39
-  call void @OSSL_STACK_OF_X509_free(ptr noundef %37) #27
+35:                                               ; preds = %33
+  call void @OSSL_STACK_OF_X509_free(ptr noundef %.pre) #27
   store ptr null, ptr %5, align 8, !tbaa !39
   %.not = icmp eq ptr %31, null
   br i1 %.not, label %.loopexit, label %10
 
 .thread:                                          ; preds = %33, %8
-  %38 = load ptr, ptr @bio_err, align 8, !tbaa !26
-  %39 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %38, ptr noundef nonnull @.str.35) #27
+  %36 = phi ptr [ null, %8 ], [ %.pre, %33 ]
+  %37 = load ptr, ptr @bio_err, align 8, !tbaa !26
+  %38 = call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %37, ptr noundef nonnull @.str.35) #27
   br label %.thread20
 
 .thread20:                                        ; preds = %next_item.exit, %4, %.thread
-  %40 = load ptr, ptr %5, align 8, !tbaa !39
-  call void @OSSL_STACK_OF_X509_free(ptr noundef %40) #27
+  %39 = phi ptr [ null, %4 ], [ %36, %.thread ], [ %.pre, %next_item.exit ]
+  call void @OSSL_STACK_OF_X509_free(ptr noundef %39) #27
   call void @OSSL_STACK_OF_X509_free(ptr noundef %6) #27
   br label %.loopexit
 
-.loopexit:                                        ; preds = %36, %.thread20
-  %.013 = phi ptr [ null, %.thread20 ], [ %6, %36 ]
+.loopexit:                                        ; preds = %35, %.thread20
+  %.013 = phi ptr [ null, %.thread20 ], [ %6, %35 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #27
   ret ptr %.013
 }

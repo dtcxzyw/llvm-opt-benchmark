@@ -11531,7 +11531,7 @@ define internal fastcc i32 @internal_connect(ptr noundef %0, ptr noundef nonnull
   %20 = load i64, ptr %19, align 8, !tbaa !90
   %21 = icmp sgt i64 %20, 0
   %22 = icmp eq i32 %11, 115
-  %or.cond = and i1 %21, %22
+  %or.cond = and i1 %22, %21
   br i1 %or.cond, label %28, label %23
 
 23:                                               ; preds = %15, %18

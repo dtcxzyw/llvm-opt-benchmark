@@ -462,7 +462,7 @@ define ptr @serv_name_lookup(i32 noundef %0, i32 noundef %1) local_unnamed_addr 
   store ptr null, ptr %3, align 8
   %4 = call fastcc ptr @_serv_name_lookup(i32 noundef %0, i32 noundef %1, ptr noundef nonnull %3)
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %5, label %25
+  br i1 %.not, label %5, label %23
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr %3, align 8
@@ -472,30 +472,26 @@ define ptr @serv_name_lookup(i32 noundef %0, i32 noundef %1) local_unnamed_addr 
 8:                                                ; preds = %5
   %9 = load ptr, ptr @addr_resolv_scope, align 8
   %10 = call noalias dereferenceable_or_null(40) ptr @wmem_alloc0(ptr noundef %9, i64 noundef 40) #26
-  store ptr %10, ptr %3, align 8
   %11 = load ptr, ptr @serv_port_hashtable, align 8
   %12 = zext i32 %1 to i64
   %13 = inttoptr i64 %12 to ptr
   %14 = call ptr @wmem_map_insert(ptr noundef %11, ptr noundef %13, ptr noundef %10)
-  %.pre = load ptr, ptr %3, align 8
   br label %15
 
 15:                                               ; preds = %8, %5
-  %16 = phi ptr [ %.pre, %8 ], [ %6, %5 ]
+  %16 = phi ptr [ %10, %8 ], [ %6, %5 ]
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 32
   %18 = load ptr, ptr %17, align 8
   %19 = icmp eq ptr %18, null
-  br i1 %19, label %20, label %25
+  br i1 %19, label %20, label %23
 
 20:                                               ; preds = %15
   %21 = load ptr, ptr @addr_resolv_scope, align 8
   %22 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %21, ptr noundef nonnull @.str, i32 noundef %1)
-  %23 = load ptr, ptr %3, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
-  store ptr %22, ptr %24, align 8
-  br label %25
+  store ptr %22, ptr %17, align 8
+  br label %23
 
-25:                                               ; preds = %15, %20, %2
+23:                                               ; preds = %15, %20, %2
   %.0 = phi ptr [ %4, %2 ], [ %22, %20 ], [ %18, %15 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #24
   ret ptr %.0
@@ -3194,7 +3190,7 @@ define ptr @udp_port_to_display(ptr noundef %0, i32 noundef %1) local_unnamed_ad
 6:                                                ; preds = %2
   %7 = tail call noalias dereferenceable_or_null(64) ptr @wmem_alloc(ptr noundef %0, i64 noundef 64) #26
   tail call void @uint32_to_str_buf(i32 noundef %1, ptr noundef %7, i64 noundef 64)
-  br label %31
+  br label %29
 
 8:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #24
@@ -3211,16 +3207,14 @@ define ptr @udp_port_to_display(ptr noundef %0, i32 noundef %1) local_unnamed_ad
 13:                                               ; preds = %10
   %14 = load ptr, ptr @addr_resolv_scope, align 8
   %15 = call noalias dereferenceable_or_null(40) ptr @wmem_alloc0(ptr noundef %14, i64 noundef 40) #26
-  store ptr %15, ptr %3, align 8
   %16 = load ptr, ptr @serv_port_hashtable, align 8
   %17 = zext i32 %1 to i64
   %18 = inttoptr i64 %17 to ptr
   %19 = call ptr @wmem_map_insert(ptr noundef %16, ptr noundef %18, ptr noundef %15)
-  %.pre.i = load ptr, ptr %3, align 8
   br label %20
 
 20:                                               ; preds = %13, %10
-  %21 = phi ptr [ %.pre.i, %13 ], [ %11, %10 ]
+  %21 = phi ptr [ %15, %13 ], [ %11, %10 ]
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
@@ -3229,19 +3223,17 @@ define ptr @udp_port_to_display(ptr noundef %0, i32 noundef %1) local_unnamed_ad
 25:                                               ; preds = %20
   %26 = load ptr, ptr @addr_resolv_scope, align 8
   %27 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %26, ptr noundef nonnull @.str, i32 noundef %1)
-  %28 = load ptr, ptr %3, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 32
-  store ptr %27, ptr %29, align 8
+  store ptr %27, ptr %22, align 8
   br label %serv_name_lookup.exit
 
 serv_name_lookup.exit:                            ; preds = %8, %20, %25
   %.0.i = phi ptr [ %9, %8 ], [ %27, %25 ], [ %23, %20 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #24
-  %30 = call noalias ptr @wmem_strdup(ptr noundef %0, ptr noundef %.0.i)
-  br label %31
+  %28 = call noalias ptr @wmem_strdup(ptr noundef %0, ptr noundef %.0.i)
+  br label %29
 
-31:                                               ; preds = %serv_name_lookup.exit, %6
-  %.0 = phi ptr [ %30, %serv_name_lookup.exit ], [ %7, %6 ]
+29:                                               ; preds = %serv_name_lookup.exit, %6
+  %.0 = phi ptr [ %28, %serv_name_lookup.exit ], [ %7, %6 ]
   ret ptr %.0
 }
 
@@ -3255,7 +3247,7 @@ define hidden ptr @dccp_port_to_display(ptr noundef %0, i32 noundef %1) local_un
 6:                                                ; preds = %2
   %7 = tail call noalias dereferenceable_or_null(64) ptr @wmem_alloc(ptr noundef %0, i64 noundef 64) #26
   tail call void @uint32_to_str_buf(i32 noundef %1, ptr noundef %7, i64 noundef 64)
-  br label %31
+  br label %29
 
 8:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #24
@@ -3272,16 +3264,14 @@ define hidden ptr @dccp_port_to_display(ptr noundef %0, i32 noundef %1) local_un
 13:                                               ; preds = %10
   %14 = load ptr, ptr @addr_resolv_scope, align 8
   %15 = call noalias dereferenceable_or_null(40) ptr @wmem_alloc0(ptr noundef %14, i64 noundef 40) #26
-  store ptr %15, ptr %3, align 8
   %16 = load ptr, ptr @serv_port_hashtable, align 8
   %17 = zext i32 %1 to i64
   %18 = inttoptr i64 %17 to ptr
   %19 = call ptr @wmem_map_insert(ptr noundef %16, ptr noundef %18, ptr noundef %15)
-  %.pre.i = load ptr, ptr %3, align 8
   br label %20
 
 20:                                               ; preds = %13, %10
-  %21 = phi ptr [ %.pre.i, %13 ], [ %11, %10 ]
+  %21 = phi ptr [ %15, %13 ], [ %11, %10 ]
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
@@ -3290,19 +3280,17 @@ define hidden ptr @dccp_port_to_display(ptr noundef %0, i32 noundef %1) local_un
 25:                                               ; preds = %20
   %26 = load ptr, ptr @addr_resolv_scope, align 8
   %27 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %26, ptr noundef nonnull @.str, i32 noundef %1)
-  %28 = load ptr, ptr %3, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 32
-  store ptr %27, ptr %29, align 8
+  store ptr %27, ptr %22, align 8
   br label %serv_name_lookup.exit
 
 serv_name_lookup.exit:                            ; preds = %8, %20, %25
   %.0.i = phi ptr [ %9, %8 ], [ %27, %25 ], [ %23, %20 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #24
-  %30 = call noalias ptr @wmem_strdup(ptr noundef %0, ptr noundef %.0.i)
-  br label %31
+  %28 = call noalias ptr @wmem_strdup(ptr noundef %0, ptr noundef %.0.i)
+  br label %29
 
-31:                                               ; preds = %serv_name_lookup.exit, %6
-  %.0 = phi ptr [ %30, %serv_name_lookup.exit ], [ %7, %6 ]
+29:                                               ; preds = %serv_name_lookup.exit, %6
+  %.0 = phi ptr [ %28, %serv_name_lookup.exit ], [ %7, %6 ]
   ret ptr %.0
 }
 
@@ -3316,7 +3304,7 @@ define ptr @tcp_port_to_display(ptr noundef %0, i32 noundef %1) local_unnamed_ad
 6:                                                ; preds = %2
   %7 = tail call noalias dereferenceable_or_null(64) ptr @wmem_alloc(ptr noundef %0, i64 noundef 64) #26
   tail call void @uint32_to_str_buf(i32 noundef %1, ptr noundef %7, i64 noundef 64)
-  br label %31
+  br label %29
 
 8:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #24
@@ -3333,16 +3321,14 @@ define ptr @tcp_port_to_display(ptr noundef %0, i32 noundef %1) local_unnamed_ad
 13:                                               ; preds = %10
   %14 = load ptr, ptr @addr_resolv_scope, align 8
   %15 = call noalias dereferenceable_or_null(40) ptr @wmem_alloc0(ptr noundef %14, i64 noundef 40) #26
-  store ptr %15, ptr %3, align 8
   %16 = load ptr, ptr @serv_port_hashtable, align 8
   %17 = zext i32 %1 to i64
   %18 = inttoptr i64 %17 to ptr
   %19 = call ptr @wmem_map_insert(ptr noundef %16, ptr noundef %18, ptr noundef %15)
-  %.pre.i = load ptr, ptr %3, align 8
   br label %20
 
 20:                                               ; preds = %13, %10
-  %21 = phi ptr [ %.pre.i, %13 ], [ %11, %10 ]
+  %21 = phi ptr [ %15, %13 ], [ %11, %10 ]
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
@@ -3351,19 +3337,17 @@ define ptr @tcp_port_to_display(ptr noundef %0, i32 noundef %1) local_unnamed_ad
 25:                                               ; preds = %20
   %26 = load ptr, ptr @addr_resolv_scope, align 8
   %27 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %26, ptr noundef nonnull @.str, i32 noundef %1)
-  %28 = load ptr, ptr %3, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 32
-  store ptr %27, ptr %29, align 8
+  store ptr %27, ptr %22, align 8
   br label %serv_name_lookup.exit
 
 serv_name_lookup.exit:                            ; preds = %8, %20, %25
   %.0.i = phi ptr [ %9, %8 ], [ %27, %25 ], [ %23, %20 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #24
-  %30 = call noalias ptr @wmem_strdup(ptr noundef %0, ptr noundef %.0.i)
-  br label %31
+  %28 = call noalias ptr @wmem_strdup(ptr noundef %0, ptr noundef %.0.i)
+  br label %29
 
-31:                                               ; preds = %serv_name_lookup.exit, %6
-  %.0 = phi ptr [ %30, %serv_name_lookup.exit ], [ %7, %6 ]
+29:                                               ; preds = %serv_name_lookup.exit, %6
+  %.0 = phi ptr [ %28, %serv_name_lookup.exit ], [ %7, %6 ]
   ret ptr %.0
 }
 
@@ -3377,7 +3361,7 @@ define ptr @sctp_port_to_display(ptr noundef %0, i32 noundef %1) local_unnamed_a
 6:                                                ; preds = %2
   %7 = tail call noalias dereferenceable_or_null(64) ptr @wmem_alloc(ptr noundef %0, i64 noundef 64) #26
   tail call void @uint32_to_str_buf(i32 noundef %1, ptr noundef %7, i64 noundef 64)
-  br label %31
+  br label %29
 
 8:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #24
@@ -3394,16 +3378,14 @@ define ptr @sctp_port_to_display(ptr noundef %0, i32 noundef %1) local_unnamed_a
 13:                                               ; preds = %10
   %14 = load ptr, ptr @addr_resolv_scope, align 8
   %15 = call noalias dereferenceable_or_null(40) ptr @wmem_alloc0(ptr noundef %14, i64 noundef 40) #26
-  store ptr %15, ptr %3, align 8
   %16 = load ptr, ptr @serv_port_hashtable, align 8
   %17 = zext i32 %1 to i64
   %18 = inttoptr i64 %17 to ptr
   %19 = call ptr @wmem_map_insert(ptr noundef %16, ptr noundef %18, ptr noundef %15)
-  %.pre.i = load ptr, ptr %3, align 8
   br label %20
 
 20:                                               ; preds = %13, %10
-  %21 = phi ptr [ %.pre.i, %13 ], [ %11, %10 ]
+  %21 = phi ptr [ %15, %13 ], [ %11, %10 ]
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 32
   %23 = load ptr, ptr %22, align 8
   %24 = icmp eq ptr %23, null
@@ -3412,19 +3394,17 @@ define ptr @sctp_port_to_display(ptr noundef %0, i32 noundef %1) local_unnamed_a
 25:                                               ; preds = %20
   %26 = load ptr, ptr @addr_resolv_scope, align 8
   %27 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %26, ptr noundef nonnull @.str, i32 noundef %1)
-  %28 = load ptr, ptr %3, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 32
-  store ptr %27, ptr %29, align 8
+  store ptr %27, ptr %22, align 8
   br label %serv_name_lookup.exit
 
 serv_name_lookup.exit:                            ; preds = %8, %20, %25
   %.0.i = phi ptr [ %9, %8 ], [ %27, %25 ], [ %23, %20 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #24
-  %30 = call noalias ptr @wmem_strdup(ptr noundef %0, ptr noundef %.0.i)
-  br label %31
+  %28 = call noalias ptr @wmem_strdup(ptr noundef %0, ptr noundef %.0.i)
+  br label %29
 
-31:                                               ; preds = %serv_name_lookup.exit, %6
-  %.0 = phi ptr [ %30, %serv_name_lookup.exit ], [ %7, %6 ]
+29:                                               ; preds = %serv_name_lookup.exit, %6
+  %.0 = phi ptr [ %28, %serv_name_lookup.exit ], [ %7, %6 ]
   ret ptr %.0
 }
 
@@ -3439,7 +3419,7 @@ define noalias ptr @port_with_resolution_to_str(ptr noundef %0, i32 noundef %1, 
 
 8:                                                ; preds = %3
   %9 = tail call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %0, ptr noundef nonnull @.str, i32 noundef %2)
-  br label %33
+  br label %31
 
 10:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #24
@@ -3456,16 +3436,14 @@ define noalias ptr @port_with_resolution_to_str(ptr noundef %0, i32 noundef %1, 
 15:                                               ; preds = %12
   %16 = load ptr, ptr @addr_resolv_scope, align 8
   %17 = call noalias dereferenceable_or_null(40) ptr @wmem_alloc0(ptr noundef %16, i64 noundef 40) #26
-  store ptr %17, ptr %4, align 8
   %18 = load ptr, ptr @serv_port_hashtable, align 8
   %19 = zext i32 %2 to i64
   %20 = inttoptr i64 %19 to ptr
   %21 = call ptr @wmem_map_insert(ptr noundef %18, ptr noundef %20, ptr noundef %17)
-  %.pre.i = load ptr, ptr %4, align 8
   br label %22
 
 22:                                               ; preds = %15, %12
-  %23 = phi ptr [ %.pre.i, %15 ], [ %13, %12 ]
+  %23 = phi ptr [ %17, %15 ], [ %13, %12 ]
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 32
   %25 = load ptr, ptr %24, align 8
   %26 = icmp eq ptr %25, null
@@ -3474,19 +3452,17 @@ define noalias ptr @port_with_resolution_to_str(ptr noundef %0, i32 noundef %1, 
 27:                                               ; preds = %22
   %28 = load ptr, ptr @addr_resolv_scope, align 8
   %29 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %28, ptr noundef nonnull @.str, i32 noundef %2)
-  %30 = load ptr, ptr %4, align 8
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 32
-  store ptr %29, ptr %31, align 8
+  store ptr %29, ptr %24, align 8
   br label %serv_name_lookup.exit
 
 serv_name_lookup.exit:                            ; preds = %10, %22, %27
   %.0.i = phi ptr [ %11, %10 ], [ %29, %27 ], [ %25, %22 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #24
-  %32 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef %.0.i, i32 noundef %2)
-  br label %33
+  %30 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %0, ptr noundef nonnull @.str.3, ptr noundef %.0.i, i32 noundef %2)
+  br label %31
 
-33:                                               ; preds = %serv_name_lookup.exit, %8
-  %.0 = phi ptr [ %9, %8 ], [ %32, %serv_name_lookup.exit ]
+31:                                               ; preds = %serv_name_lookup.exit, %8
+  %.0 = phi ptr [ %9, %8 ], [ %30, %serv_name_lookup.exit ]
   ret ptr %.0
 }
 
@@ -3501,7 +3477,7 @@ define i32 @port_with_resolution_to_str_buf(ptr noundef %0, i64 noundef %1, i32 
 
 9:                                                ; preds = %4
   %10 = tail call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef %1, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str, i32 noundef %3)
-  br label %34
+  br label %32
 
 11:                                               ; preds = %4
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #24
@@ -3518,16 +3494,14 @@ define i32 @port_with_resolution_to_str_buf(ptr noundef %0, i64 noundef %1, i32 
 16:                                               ; preds = %13
   %17 = load ptr, ptr @addr_resolv_scope, align 8
   %18 = call noalias dereferenceable_or_null(40) ptr @wmem_alloc0(ptr noundef %17, i64 noundef 40) #26
-  store ptr %18, ptr %5, align 8
   %19 = load ptr, ptr @serv_port_hashtable, align 8
   %20 = zext i32 %3 to i64
   %21 = inttoptr i64 %20 to ptr
   %22 = call ptr @wmem_map_insert(ptr noundef %19, ptr noundef %21, ptr noundef %18)
-  %.pre.i = load ptr, ptr %5, align 8
   br label %23
 
 23:                                               ; preds = %16, %13
-  %24 = phi ptr [ %.pre.i, %16 ], [ %14, %13 ]
+  %24 = phi ptr [ %18, %16 ], [ %14, %13 ]
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 32
   %26 = load ptr, ptr %25, align 8
   %27 = icmp eq ptr %26, null
@@ -3536,19 +3510,17 @@ define i32 @port_with_resolution_to_str_buf(ptr noundef %0, i64 noundef %1, i32 
 28:                                               ; preds = %23
   %29 = load ptr, ptr @addr_resolv_scope, align 8
   %30 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef %29, ptr noundef nonnull @.str, i32 noundef %3)
-  %31 = load ptr, ptr %5, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 32
-  store ptr %30, ptr %32, align 8
+  store ptr %30, ptr %25, align 8
   br label %serv_name_lookup.exit
 
 serv_name_lookup.exit:                            ; preds = %11, %23, %28
   %.0.i = phi ptr [ %12, %11 ], [ %30, %28 ], [ %26, %23 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #24
-  %33 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef %1, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.3, ptr noundef %.0.i, i32 noundef %3)
-  br label %34
+  %31 = call i32 (ptr, i64, i32, i64, ptr, ...) @__snprintf_chk(ptr noundef %0, i64 noundef %1, i32 noundef 2, i64 noundef -1, ptr noundef nonnull @.str.3, ptr noundef %.0.i, i32 noundef %3)
+  br label %32
 
-34:                                               ; preds = %serv_name_lookup.exit, %9
-  %.0 = phi i32 [ %10, %9 ], [ %33, %serv_name_lookup.exit ]
+32:                                               ; preds = %serv_name_lookup.exit, %9
+  %.0 = phi i32 [ %10, %9 ], [ %31, %serv_name_lookup.exit ]
   ret i32 %.0
 }
 

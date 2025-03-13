@@ -25302,16 +25302,16 @@ define internal fastcc range(i64 16, 1) i64 @_ZN5clang13TreeTransformIN12_GLOBAL
   %21 = load ptr, ptr %20, align 8, !tbaa !802
   %22 = tail call noundef ptr @_ZNK5clang10ASTContext24getTrivialTypeSourceInfoENS_8QualTypeENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(23216) %21, i64 %.sroa.0.0.copyload.i, i32 0) #20
   %23 = tail call fastcc noundef ptr @_ZN5clang13TreeTransformIN12_GLOBAL__N_136OutlinedFunctionDeclBodyInstantiatorEE13TransformTypeEPNS_14TypeSourceInfoE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %22)
-  %.not.i202 = icmp eq ptr %23, null
-  br i1 %.not.i202, label %_ZN5clang13TreeTransformIN12_GLOBAL__N_136OutlinedFunctionDeclBodyInstantiatorEE13TransformTypeENS_8QualTypeE.exit.thread, label %_ZN5clang13TreeTransformIN12_GLOBAL__N_136OutlinedFunctionDeclBodyInstantiatorEE13TransformTypeENS_8QualTypeE.exit
+  %.not.i200 = icmp eq ptr %23, null
+  br i1 %.not.i200, label %_ZN5clang13TreeTransformIN12_GLOBAL__N_136OutlinedFunctionDeclBodyInstantiatorEE13TransformTypeENS_8QualTypeE.exit.thread, label %_ZN5clang13TreeTransformIN12_GLOBAL__N_136OutlinedFunctionDeclBodyInstantiatorEE13TransformTypeENS_8QualTypeE.exit
 
 _ZN5clang13TreeTransformIN12_GLOBAL__N_136OutlinedFunctionDeclBodyInstantiatorEE13TransformTypeENS_8QualTypeE.exit: ; preds = %19
-  %.sroa.0.0.copyload.i.i203 = load i64, ptr %23, align 8, !tbaa !688
-  %.not.i.i40 = icmp ult i64 %.sroa.0.0.copyload.i.i203, 16
+  %.sroa.0.0.copyload.i.i201 = load i64, ptr %23, align 8, !tbaa !688
+  %.not.i.i40 = icmp ult i64 %.sroa.0.0.copyload.i.i201, 16
   br i1 %.not.i.i40, label %_ZN5clang13TreeTransformIN12_GLOBAL__N_136OutlinedFunctionDeclBodyInstantiatorEE13TransformTypeENS_8QualTypeE.exit.thread, label %24
 
 24:                                               ; preds = %_ZN5clang13TreeTransformIN12_GLOBAL__N_136OutlinedFunctionDeclBodyInstantiatorEE13TransformTypeENS_8QualTypeE.exit, %4
-  %.sroa.0120.0 = phi i64 [ 0, %4 ], [ %.sroa.0.0.copyload.i.i203, %_ZN5clang13TreeTransformIN12_GLOBAL__N_136OutlinedFunctionDeclBodyInstantiatorEE13TransformTypeENS_8QualTypeE.exit ]
+  %.sroa.0120.0 = phi i64 [ 0, %4 ], [ %.sroa.0.0.copyload.i.i201, %_ZN5clang13TreeTransformIN12_GLOBAL__N_136OutlinedFunctionDeclBodyInstantiatorEE13TransformTypeENS_8QualTypeE.exit ]
   call void @llvm.lifetime.start.p0(i64 280, ptr nonnull %14) #20
   %25 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %25, ptr %14, align 8, !tbaa !683
@@ -25663,13 +25663,13 @@ _ZNK5clang11AutoTypeLoc25getNestedNameSpecifierLocEv.exit.thread: ; preds = %_ZN
 166:                                              ; preds = %_ZNK5clang11AutoTypeLoc25getNestedNameSpecifierLocEv.exit.thread
   %167 = zext i32 %164 to i64
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull %161, i64 noundef %167, i64 noundef 24) #20
-  %.pre196 = load i32, ptr %26, align 8, !tbaa !685
-  %.pre198.pre = load i32, ptr %162, align 8, !tbaa !685
+  %.pre194 = load i32, ptr %26, align 8, !tbaa !685
+  %.pre196.pre = load i32, ptr %162, align 8, !tbaa !685
   br label %_ZN4llvm15SmallVectorImplIN5clang16TemplateArgumentEE7reserveEm.exit
 
 _ZN4llvm15SmallVectorImplIN5clang16TemplateArgumentEE7reserveEm.exit: ; preds = %_ZNK5clang11AutoTypeLoc25getNestedNameSpecifierLocEv.exit.thread, %166
-  %.pre198 = phi i32 [ 0, %_ZNK5clang11AutoTypeLoc25getNestedNameSpecifierLocEv.exit.thread ], [ %.pre198.pre, %166 ]
-  %168 = phi i32 [ %164, %_ZNK5clang11AutoTypeLoc25getNestedNameSpecifierLocEv.exit.thread ], [ %.pre196, %166 ]
+  %.pre196 = phi i32 [ 0, %_ZNK5clang11AutoTypeLoc25getNestedNameSpecifierLocEv.exit.thread ], [ %.pre196.pre, %166 ]
+  %168 = phi i32 [ %164, %_ZNK5clang11AutoTypeLoc25getNestedNameSpecifierLocEv.exit.thread ], [ %.pre194, %166 ]
   %169 = load ptr, ptr %14, align 8, !tbaa !683
   %170 = zext i32 %168 to i64
   %171 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %169, i64 %170
@@ -25677,7 +25677,7 @@ _ZN4llvm15SmallVectorImplIN5clang16TemplateArgumentEE7reserveEm.exit: ; preds = 
   br i1 %.not188, label %._crit_edge, label %.lr.ph190
 
 ._crit_edge:                                      ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang16TemplateArgumentELb1EE9push_backERKS2_.exit, %_ZN4llvm15SmallVectorImplIN5clang16TemplateArgumentEE7reserveEm.exit
-  %172 = phi i32 [ %.pre198, %_ZN4llvm15SmallVectorImplIN5clang16TemplateArgumentEE7reserveEm.exit ], [ %203, %_ZN4llvm23SmallVectorTemplateBaseIN5clang16TemplateArgumentELb1EE9push_backERKS2_.exit ]
+  %172 = phi i32 [ %.pre196, %_ZN4llvm15SmallVectorImplIN5clang16TemplateArgumentEE7reserveEm.exit ], [ %203, %_ZN4llvm23SmallVectorTemplateBaseIN5clang16TemplateArgumentELb1EE9push_backERKS2_.exit ]
   %173 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %174 = load i32, ptr %173, align 16
   %175 = lshr i32 %174, 19
@@ -25699,7 +25699,7 @@ _ZN4llvm15SmallVectorImplIN5clang16TemplateArgumentEE7reserveEm.exit: ; preds = 
   br i1 %.not.i.i66, label %205, label %.critedge
 
 .lr.ph190:                                        ; preds = %_ZN4llvm15SmallVectorImplIN5clang16TemplateArgumentEE7reserveEm.exit, %_ZN4llvm23SmallVectorTemplateBaseIN5clang16TemplateArgumentELb1EE9push_backERKS2_.exit
-  %183 = phi i32 [ %203, %_ZN4llvm23SmallVectorTemplateBaseIN5clang16TemplateArgumentELb1EE9push_backERKS2_.exit ], [ %.pre198, %_ZN4llvm15SmallVectorImplIN5clang16TemplateArgumentEE7reserveEm.exit ]
+  %183 = phi i32 [ %203, %_ZN4llvm23SmallVectorTemplateBaseIN5clang16TemplateArgumentELb1EE9push_backERKS2_.exit ], [ %.pre196, %_ZN4llvm15SmallVectorImplIN5clang16TemplateArgumentEE7reserveEm.exit ]
   %.036189 = phi ptr [ %204, %_ZN4llvm23SmallVectorTemplateBaseIN5clang16TemplateArgumentELb1EE9push_backERKS2_.exit ], [ %169, %_ZN4llvm15SmallVectorImplIN5clang16TemplateArgumentEE7reserveEm.exit ]
   %184 = zext i32 %183 to i64
   %185 = add nuw nsw i64 %184, 1
@@ -47353,7 +47353,6 @@ define internal fastcc i64 @_ZN5clang13TreeTransformIN12_GLOBAL__N_136OutlinedFu
   %5 = alloca i8, align 1
   %6 = alloca %"class.llvm::SmallVector.1291", align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #20
-  store i8 0, ptr %5, align 1, !tbaa !677
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %6) #20
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %7, ptr %6, align 8, !tbaa !683
@@ -48237,7 +48236,6 @@ define internal fastcc i64 @_ZN5clang13TreeTransformIN12_GLOBAL__N_136OutlinedFu
   %3 = alloca i8, align 1
   %4 = alloca %"class.llvm::SmallVector.466", align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #20
-  store i8 0, ptr %3, align 1, !tbaa !677
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #20
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %5, ptr %4, align 8, !tbaa !683
@@ -49256,7 +49254,6 @@ define internal fastcc i64 @_ZN5clang13TreeTransformIN12_GLOBAL__N_136OutlinedFu
   %13 = alloca %"class.llvm::SmallVector.2453", align 8
   %14 = alloca %"class.llvm::SmallVector.2453", align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %10) #20
-  store i8 0, ptr %10, align 1, !tbaa !677
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %11) #20
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store ptr %15, ptr %11, align 8, !tbaa !683
@@ -49996,7 +49993,6 @@ define internal fastcc i64 @_ZN5clang13TreeTransformIN12_GLOBAL__N_136OutlinedFu
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 12
   store i32 8, ptr %7, align 4, !tbaa !684
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #20
-  store i8 0, ptr %4, align 1, !tbaa !677
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load i32, ptr %9, align 8, !tbaa !2311
@@ -52639,7 +52635,6 @@ define internal fastcc i64 @_ZN5clang13TreeTransformIN12_GLOBAL__N_136OutlinedFu
   %.not = icmp eq ptr %9, null
   %spec.select = select i1 %.not, ptr %1, ptr %9
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #20
-  store i8 0, ptr %3, align 1, !tbaa !677
   %.val = load ptr, ptr %0, align 8, !tbaa !869
   %10 = getelementptr inbounds nuw i8, ptr %.val, i64 4608
   %11 = load ptr, ptr %10, align 8, !tbaa !683
@@ -54474,7 +54469,6 @@ define internal fastcc i64 @_ZN5clang13TreeTransformIN12_GLOBAL__N_136OutlinedFu
 
 13:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #20
-  store i8 0, ptr %3, align 1, !tbaa !677
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #20
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %14, ptr %4, align 8, !tbaa !683
@@ -55170,7 +55164,6 @@ define internal fastcc i64 @_ZN5clang13TreeTransformIN12_GLOBAL__N_136OutlinedFu
 
 21:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #20
-  store i8 0, ptr %3, align 1, !tbaa !677
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #20
   %22 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %22, ptr %4, align 8, !tbaa !683
@@ -55301,7 +55294,6 @@ define internal fastcc i64 @_ZN5clang13TreeTransformIN12_GLOBAL__N_136OutlinedFu
 
 9:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #20
-  store i8 0, ptr %3, align 1, !tbaa !677
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #20
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %10, ptr %4, align 8, !tbaa !683
@@ -56478,7 +56470,6 @@ _ZN5clang10CXXNewExpr12getArraySizeEv.exit:       ; preds = %10
   %21 = phi i32 [ %11, %10 ], [ %.pre.pre, %._crit_edge ], [ %11, %_ZN5clang10CXXNewExpr12getArraySizeEv.exit ]
   %.sroa.0153.0 = phi ptr [ undef, %10 ], [ %19, %._crit_edge ], [ null, %_ZN5clang10CXXNewExpr12getArraySizeEv.exit ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %4) #20
-  store i8 0, ptr %4, align 1, !tbaa !677
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %5) #20
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %22, ptr %5, align 8, !tbaa !683
@@ -58777,7 +58768,6 @@ define internal fastcc i64 @_ZN5clang13TreeTransformIN12_GLOBAL__N_136OutlinedFu
   %3 = alloca i8, align 1
   %4 = alloca %"class.llvm::SmallVector.1291", align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #20
-  store i8 0, ptr %3, align 1, !tbaa !677
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %4) #20
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %5, ptr %4, align 8, !tbaa !683

@@ -2203,7 +2203,7 @@ Abc_UtilStrsav.exit:                              ; preds = %1, %6
   br i1 %.not13, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %Abc_UtilStrsav.exit, %Vec_PtrPush.exit
-  %.014 = phi ptr [ %44, %Vec_PtrPush.exit ], [ %12, %Abc_UtilStrsav.exit ]
+  %.014 = phi ptr [ %43, %Vec_PtrPush.exit ], [ %12, %Abc_UtilStrsav.exit ]
   %13 = tail call i32 @Abc_SopCheckReadTruth(ptr noundef nonnull %2, ptr noundef nonnull %.014, i32 noundef 0)
   %.not11 = icmp eq i32 %13, 0
   br i1 %.not11, label %._crit_edge, label %14
@@ -2266,25 +2266,24 @@ Vec_PtrGrow.exit.i:                               ; preds = %25, %23
 
 Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11_crit_edge.i, %Vec_PtrGrow.exit.i, %37
   %39 = phi ptr [ %.pre.i, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %38, %37 ], [ %27, %Vec_PtrGrow.exit.i ]
-  %40 = load i32, ptr %3, align 4, !tbaa !45
-  %41 = add nsw i32 %40, 1
-  store i32 %41, ptr %3, align 4, !tbaa !45
-  %42 = sext i32 %40 to i64
-  %43 = getelementptr inbounds ptr, ptr %39, i64 %42
-  store ptr %15, ptr %43, align 8, !tbaa !48
-  %44 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.15) #21
-  %.not = icmp eq ptr %44, null
+  %40 = add nsw i32 %16, 1
+  store i32 %40, ptr %3, align 4, !tbaa !45
+  %41 = sext i32 %16 to i64
+  %42 = getelementptr inbounds ptr, ptr %39, i64 %41
+  store ptr %15, ptr %42, align 8, !tbaa !48
+  %43 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.15) #21
+  %.not = icmp eq ptr %43, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !54
 
 ._crit_edge:                                      ; preds = %Vec_PtrPush.exit, %.lr.ph, %Abc_UtilStrsav.exit
   %.not12 = icmp eq ptr %11, null
-  br i1 %.not12, label %46, label %45
+  br i1 %.not12, label %45, label %44
 
-45:                                               ; preds = %._crit_edge
+44:                                               ; preds = %._crit_edge
   tail call void @free(ptr noundef nonnull %11) #21
-  br label %46
+  br label %45
 
-46:                                               ; preds = %._crit_edge, %45
+45:                                               ; preds = %._crit_edge, %44
   ret ptr %2
 }
 
@@ -2570,7 +2569,7 @@ Abc_UtilStrsav.exit:                              ; preds = %1, %6
   br i1 %.not13, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %Abc_UtilStrsav.exit, %Vec_PtrPush.exit
-  %.014 = phi ptr [ %44, %Vec_PtrPush.exit ], [ %12, %Abc_UtilStrsav.exit ]
+  %.014 = phi ptr [ %43, %Vec_PtrPush.exit ], [ %12, %Abc_UtilStrsav.exit ]
   %13 = tail call i32 @Abc_SopCheckReadTruth(ptr noundef nonnull %2, ptr noundef nonnull %.014, i32 noundef 1)
   %.not11 = icmp eq i32 %13, 0
   br i1 %.not11, label %._crit_edge, label %14
@@ -2633,25 +2632,24 @@ Vec_PtrGrow.exit.i:                               ; preds = %25, %23
 
 Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11_crit_edge.i, %Vec_PtrGrow.exit.i, %37
   %39 = phi ptr [ %.pre.i, %.Vec_PtrGrow.exit11_crit_edge.i ], [ %38, %37 ], [ %27, %Vec_PtrGrow.exit.i ]
-  %40 = load i32, ptr %3, align 4, !tbaa !45
-  %41 = add nsw i32 %40, 1
-  store i32 %41, ptr %3, align 4, !tbaa !45
-  %42 = sext i32 %40 to i64
-  %43 = getelementptr inbounds ptr, ptr %39, i64 %42
-  store ptr %15, ptr %43, align 8, !tbaa !48
-  %44 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.15) #21
-  %.not = icmp eq ptr %44, null
+  %40 = add nsw i32 %16, 1
+  store i32 %40, ptr %3, align 4, !tbaa !45
+  %41 = sext i32 %16 to i64
+  %42 = getelementptr inbounds ptr, ptr %39, i64 %41
+  store ptr %15, ptr %42, align 8, !tbaa !48
+  %43 = tail call ptr @strtok(ptr noundef null, ptr noundef nonnull @.str.15) #21
+  %.not = icmp eq ptr %43, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !59
 
 ._crit_edge:                                      ; preds = %Vec_PtrPush.exit, %.lr.ph, %Abc_UtilStrsav.exit
   %.not12 = icmp eq ptr %11, null
-  br i1 %.not12, label %46, label %45
+  br i1 %.not12, label %45, label %44
 
-45:                                               ; preds = %._crit_edge
+44:                                               ; preds = %._crit_edge
   tail call void @free(ptr noundef nonnull %11) #21
-  br label %46
+  br label %45
 
-46:                                               ; preds = %._crit_edge, %45
+45:                                               ; preds = %._crit_edge, %44
   ret ptr %2
 }
 

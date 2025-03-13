@@ -2127,7 +2127,6 @@ define dso_local i32 @drm_syncobj_wait_ioctl(ptr noundef readonly captures(none)
 
 25:                                               ; preds = %21
   store ptr null, ptr %5, align 8, !annotation !24
-  store i64 0, ptr %6, align 8, !annotation !24
   %26 = load i64, ptr %1, align 8
   %27 = inttoptr i64 %26 to ptr
   %28 = call fastcc i32 @drm_syncobj_array_find(ptr noundef %2, ptr noundef %27, i32 noundef %23, ptr noundef nonnull %5), !range !34
@@ -2135,6 +2134,7 @@ define dso_local i32 @drm_syncobj_wait_ioctl(ptr noundef readonly captures(none)
   br i1 %29, label %81, label %30
 
 30:                                               ; preds = %25
+  store i64 0, ptr %6, align 8, !annotation !24
   %31 = load i32, ptr %17, align 4
   %32 = and i32 %31, 8
   %33 = icmp eq i32 %32, 0
@@ -2388,7 +2388,6 @@ define dso_local i32 @drm_syncobj_timeline_wait_ioctl(ptr noundef readonly captu
 
 24:                                               ; preds = %20
   store ptr null, ptr %5, align 8, !annotation !24
-  store i64 0, ptr %6, align 8, !annotation !24
   %25 = load i64, ptr %1, align 8
   %26 = inttoptr i64 %25 to ptr
   %27 = call fastcc i32 @drm_syncobj_array_find(ptr noundef %2, ptr noundef %26, i32 noundef %22, ptr noundef nonnull %5), !range !34
@@ -2396,6 +2395,7 @@ define dso_local i32 @drm_syncobj_timeline_wait_ioctl(ptr noundef readonly captu
   br i1 %28, label %82, label %29
 
 29:                                               ; preds = %24
+  store i64 0, ptr %6, align 8, !annotation !24
   %30 = load i32, ptr %17, align 4
   %31 = and i32 %30, 8
   %32 = icmp eq i32 %31, 0

@@ -8157,7 +8157,7 @@ _ZN4core5clone5Clone5clone17hae1c1d7612642a71E.exit.i: ; preds = %.noexc.i, %56
   %82 = mul i64 %6, 40
   %83 = add i64 %82, 55
   %84 = and i64 %83, -16
-  %85 = add nuw i64 %17, %84
+  %85 = add nuw i64 %84, %17
   %86 = icmp ult i64 %85, 9223372036854775793
   call void @llvm.assume(i1 %86)
   %87 = sub nsw i64 0, %84

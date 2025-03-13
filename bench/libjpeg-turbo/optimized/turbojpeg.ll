@@ -8189,9 +8189,9 @@ tjPlaneHeight.exit:                               ; preds = %tj3YUVPlaneHeight.e
   store i32 %134, ptr %135, align 4, !tbaa !88
   %136 = getelementptr inbounds nuw i8, ptr %9, i64 4
   store i32 %134, ptr %136, align 4, !tbaa !88
-  %137 = sext i32 %80 to i64
-  %138 = mul nsw i64 %.0.i61, %137
-  %139 = icmp ugt i64 %138, 2147483647
+  %137 = zext nneg i32 %80 to i64
+  %138 = mul nuw nsw i64 %.0.i61, %137
+  %139 = icmp samesign ugt i64 %138, 2147483647
   br i1 %139, label %153, label %140
 
 140:                                              ; preds = %tjPlaneHeight.exit
@@ -8203,8 +8203,8 @@ tjPlaneHeight.exit:                               ; preds = %tj3YUVPlaneHeight.e
 
 .thread:                                          ; preds = %140
   %145 = mul nsw i32 %80, %76
-  %146 = sext i32 %145 to i64
-  %147 = getelementptr inbounds i8, ptr %1, i64 %146
+  %146 = zext nneg i32 %145 to i64
+  %147 = getelementptr inbounds nuw i8, ptr %1, i64 %146
   %148 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %147, ptr %148, align 8, !tbaa !52
   %149 = mul nsw i32 %132, %134
@@ -9316,9 +9316,9 @@ tj3YUVPlaneHeight.exit79:                         ; preds = %111, %.sink.split.i
   store i32 %130, ptr %131, align 4, !tbaa !88
   %132 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 %130, ptr %132, align 4, !tbaa !88
-  %133 = sext i32 %82 to i64
-  %134 = mul nsw i64 %.0.i68, %133
-  %135 = icmp ugt i64 %134, 2147483647
+  %133 = zext nneg i32 %82 to i64
+  %134 = mul nuw nsw i64 %.0.i68, %133
+  %135 = icmp samesign ugt i64 %134, 2147483647
   %136 = zext nneg i32 %130 to i64
   %137 = mul nuw nsw i64 %.0.i78, %136
   %138 = icmp samesign ugt i64 %137, 2147483647
@@ -9328,8 +9328,8 @@ tj3YUVPlaneHeight.exit79:                         ; preds = %111, %.sink.split.i
 .thread:                                          ; preds = %tj3YUVPlaneHeight.exit79
   %139 = trunc nuw nsw i64 %.0.i78 to i32
   %140 = mul nsw i32 %82, %78
-  %141 = sext i32 %140 to i64
-  %142 = getelementptr inbounds i8, ptr %6, i64 %141
+  %141 = zext nneg i32 %140 to i64
+  %142 = getelementptr inbounds nuw i8, ptr %6, i64 %141
   %143 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %142, ptr %143, align 8, !tbaa !52
   %144 = mul nsw i32 %130, %139
@@ -11712,9 +11712,9 @@ tj3YUVPlaneHeight.exit97:                         ; preds = %160, %.sink.split.i
   store i32 %179, ptr %180, align 4, !tbaa !88
   %181 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 %179, ptr %181, align 4, !tbaa !88
-  %182 = sext i32 %130 to i64
-  %183 = mul nsw i64 %.0.i86, %182
-  %184 = icmp ugt i64 %183, 2147483647
+  %182 = zext nneg i32 %130 to i64
+  %183 = mul nuw nsw i64 %.0.i86, %182
+  %184 = icmp samesign ugt i64 %183, 2147483647
   %185 = zext nneg i32 %179 to i64
   %186 = mul nuw nsw i64 %.0.i96, %185
   %187 = icmp samesign ugt i64 %186, 2147483647
@@ -11724,8 +11724,8 @@ tj3YUVPlaneHeight.exit97:                         ; preds = %160, %.sink.split.i
 .thread:                                          ; preds = %tj3YUVPlaneHeight.exit97
   %188 = trunc nuw nsw i64 %.0.i96 to i32
   %189 = mul nsw i32 %130, %126
-  %190 = sext i32 %189 to i64
-  %191 = getelementptr inbounds i8, ptr %3, i64 %190
+  %190 = zext nneg i32 %189 to i64
+  %191 = getelementptr inbounds nuw i8, ptr %3, i64 %190
   %192 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %191, ptr %192, align 8, !tbaa !52
   %193 = mul nsw i32 %179, %188
@@ -12912,9 +12912,9 @@ tj3YUVPlaneHeight.exit77:                         ; preds = %110, %.sink.split.i
   store i32 %129, ptr %130, align 4, !tbaa !88
   %131 = getelementptr inbounds nuw i8, ptr %10, i64 4
   store i32 %129, ptr %131, align 4, !tbaa !88
-  %132 = sext i32 %81 to i64
-  %133 = mul nsw i64 %.0.i66, %132
-  %134 = icmp ugt i64 %133, 2147483647
+  %132 = zext nneg i32 %81 to i64
+  %133 = mul nuw nsw i64 %.0.i66, %132
+  %134 = icmp samesign ugt i64 %133, 2147483647
   %135 = zext nneg i32 %129 to i64
   %136 = mul nuw nsw i64 %.0.i76, %135
   %137 = icmp samesign ugt i64 %136, 2147483647
@@ -12924,8 +12924,8 @@ tj3YUVPlaneHeight.exit77:                         ; preds = %110, %.sink.split.i
 .thread:                                          ; preds = %tj3YUVPlaneHeight.exit77
   %138 = trunc nuw nsw i64 %.0.i76 to i32
   %139 = mul nsw i32 %81, %77
-  %140 = sext i32 %139 to i64
-  %141 = getelementptr inbounds i8, ptr %1, i64 %140
+  %140 = zext nneg i32 %139 to i64
+  %141 = getelementptr inbounds nuw i8, ptr %1, i64 %140
   %142 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %141, ptr %142, align 8, !tbaa !52
   %143 = mul nsw i32 %129, %138

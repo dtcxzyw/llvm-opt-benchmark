@@ -848,10 +848,6 @@ uv__signal_tree_s_RB_REMOVE.exit:                 ; preds = %color119.i, %if.the
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %lookup.i)
   %signum1.i = getelementptr inbounds nuw i8, ptr %lookup.i, i64 104
   store i32 %75, ptr %signum1.i, align 8
-  %flags.i = getelementptr inbounds nuw i8, ptr %lookup.i, i64 88
-  store i32 0, ptr %flags.i, align 8
-  %loop.i = getelementptr inbounds nuw i8, ptr %lookup.i, i64 8
-  store ptr null, ptr %loop.i, align 8
   %tobool.not6.i.i = icmp eq ptr %tmp.05.i.i, null
   br i1 %tobool.not6.i.i, label %if.then4, label %while.body.i.i12
 
@@ -1121,10 +1117,6 @@ if.end9:                                          ; preds = %if.then8, %if.end5
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %lookup.i)
   %signum1.i = getelementptr inbounds nuw i8, ptr %lookup.i, i64 104
   store i32 %signum, ptr %signum1.i, align 8
-  %flags.i = getelementptr inbounds nuw i8, ptr %lookup.i, i64 88
-  store i32 0, ptr %flags.i, align 8
-  %loop.i = getelementptr inbounds nuw i8, ptr %lookup.i, i64 8
-  store ptr null, ptr %loop.i, align 8
   %tmp.05.i.i = load ptr, ptr @uv__signal_tree.0, align 8
   %tobool.not6.i.i = icmp eq ptr %tmp.05.i.i, null
   br i1 %tobool.not6.i.i, label %if.end9.split, label %while.body.i.i
@@ -2075,10 +2067,6 @@ if.end:                                           ; preds = %do.body.i
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %lookup.i)
   %signum1.i = getelementptr inbounds nuw i8, ptr %lookup.i, i64 104
   store i32 %signum, ptr %signum1.i, align 8
-  %flags.i = getelementptr inbounds nuw i8, ptr %lookup.i, i64 88
-  store i32 0, ptr %flags.i, align 8
-  %loop.i = getelementptr inbounds nuw i8, ptr %lookup.i, i64 8
-  store ptr null, ptr %loop.i, align 8
   %tmp.05.i.i = load ptr, ptr @uv__signal_tree.0, align 8
   %tobool.not6.i.i = icmp eq ptr %tmp.05.i.i, null
   br i1 %tobool.not6.i.i, label %uv__signal_first_handle.exit.thread, label %while.body.i.i

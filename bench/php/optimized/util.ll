@@ -3496,19 +3496,19 @@ define hidden ptr @phar_get_or_create_entry_data(ptr noundef %0, i64 noundef %1,
   %21 = phi i1 [ false, %8 ], [ %19, %15 ]
   %22 = call i32 @phar_get_archive(ptr noundef nonnull %12, ptr noundef %0, i64 noundef %1, ptr noundef null, i64 noundef 0, ptr noundef %6)
   %23 = icmp eq i32 %22, -1
-  br i1 %23, label %114, label %24
+  br i1 %23, label %112, label %24
 
 24:                                               ; preds = %20
   %25 = load ptr, ptr %10, align 8, !tbaa !18
   %26 = load i64, ptr %11, align 8, !tbaa !51
   %27 = call i32 @phar_get_entry_data(ptr noundef nonnull %13, ptr noundef %0, i64 noundef %1, ptr noundef %25, i64 noundef %26, ptr noundef %4, i8 noundef signext %5, ptr noundef %6, i32 noundef %7)
   %28 = icmp eq i32 %27, -1
-  br i1 %28, label %114, label %29
+  br i1 %28, label %112, label %29
 
 29:                                               ; preds = %24
   %30 = load ptr, ptr %13, align 8, !tbaa !76
   %.not28 = icmp eq ptr %30, null
-  br i1 %.not28, label %31, label %114
+  br i1 %.not28, label %31, label %112
 
 31:                                               ; preds = %29
   %32 = call i32 @phar_path_check(ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull %14) #16
@@ -3517,13 +3517,13 @@ define hidden ptr @phar_get_or_create_entry_data(ptr noundef %0, i64 noundef %1,
 
 34:                                               ; preds = %31
   %.not36 = icmp eq ptr %6, null
-  br i1 %.not36, label %114, label %35
+  br i1 %.not36, label %112, label %35
 
 35:                                               ; preds = %34
   %36 = load ptr, ptr %10, align 8, !tbaa !18
   %37 = load ptr, ptr %14, align 8, !tbaa !18
   %38 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %6, i64 noundef 0, ptr noundef nonnull @.str.11, ptr noundef %36, ptr noundef %37) #16
-  br label %114
+  br label %112
 
 39:                                               ; preds = %31
   %40 = load ptr, ptr %12, align 8, !tbaa !58
@@ -3540,12 +3540,12 @@ define hidden ptr @phar_get_or_create_entry_data(ptr noundef %0, i64 noundef %1,
 
 47:                                               ; preds = %44
   %.not35 = icmp eq ptr %6, null
-  br i1 %.not35, label %114, label %48
+  br i1 %.not35, label %112, label %48
 
 48:                                               ; preds = %47
   %49 = load ptr, ptr %10, align 8, !tbaa !18
   %50 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %6, i64 noundef 4096, ptr noundef nonnull @.str.12, ptr noundef %49, ptr noundef %0) #16
-  br label %114
+  br label %112
 
 51:                                               ; preds = %44, %39
   %52 = call noalias ptr @_emalloc_40() #16
@@ -3556,7 +3556,7 @@ define hidden ptr @phar_get_or_create_entry_data(ptr noundef %0, i64 noundef %1,
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %.sroa.19, i8 0, i64 9, i1 false)
   %53 = call ptr @_php_stream_fopen_tmpfile(i32 noundef 0) #16
   %.not30 = icmp eq ptr %53, null
-  br i1 %.not30, label %54, label %59
+  br i1 %.not30, label %54, label %58
 
 54:                                               ; preds = %51
   %.not31 = icmp eq ptr %6, null
@@ -3567,155 +3567,154 @@ define hidden ptr @phar_get_or_create_entry_data(ptr noundef %0, i64 noundef %1,
   br label %57
 
 57:                                               ; preds = %55, %54
-  %58 = load ptr, ptr %13, align 8, !tbaa !76
-  call void @_efree(ptr noundef %58) #16
-  br label %114
+  call void @_efree(ptr noundef %52) #16
+  br label %112
 
-59:                                               ; preds = %51
+58:                                               ; preds = %51
   %.not54 = icmp eq i8 %5, 2
   %.sroa.7.0 = select i1 %.not54, i32 511, i32 438
-  %60 = load i64, ptr %11, align 8
-  %61 = icmp ne i64 %60, 0
-  %or.cond = select i1 %21, i1 %61, i1 false
-  br i1 %or.cond, label %62, label %zend_string_alloc.exit
+  %59 = load i64, ptr %11, align 8
+  %60 = icmp ne i64 %59, 0
+  %or.cond = select i1 %21, i1 %60, i1 false
+  br i1 %or.cond, label %61, label %zend_string_alloc.exit
 
-62:                                               ; preds = %59
-  %63 = add i64 %60, -1
-  store i64 %63, ptr %11, align 8, !tbaa !51
+61:                                               ; preds = %58
+  %62 = add i64 %59, -1
+  store i64 %62, ptr %11, align 8, !tbaa !51
   br label %zend_string_alloc.exit
 
-zend_string_alloc.exit:                           ; preds = %62, %59
-  %64 = phi i64 [ %63, %62 ], [ %60, %59 ]
-  %65 = load ptr, ptr %12, align 8, !tbaa !58
-  %66 = load ptr, ptr %10, align 8, !tbaa !18
-  call void @phar_add_virtual_dirs(ptr noundef %65, ptr noundef %66, i64 noundef %64)
-  %67 = call i64 @time(ptr noundef null) #16
-  %68 = trunc i64 %67 to i32
-  %69 = select i1 %.not54, i16 11, i16 3
-  %70 = load ptr, ptr %10, align 8, !tbaa !18
-  %71 = load i64, ptr %11, align 8, !tbaa !51
-  %72 = and i64 %71, -8
-  %73 = add i64 %72, 32
-  %74 = call noalias ptr @_emalloc(i64 noundef %73) #18
-  store i32 1, ptr %74, align 4, !tbaa !21
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 4
-  store i32 22, ptr %75, align 4, !tbaa !19
-  %76 = getelementptr inbounds nuw i8, ptr %74, i64 8
-  store i64 0, ptr %76, align 8, !tbaa !23
-  %77 = getelementptr inbounds nuw i8, ptr %74, i64 16
-  store i64 %71, ptr %77, align 8, !tbaa !25
-  %78 = getelementptr inbounds nuw i8, ptr %74, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %78, ptr align 1 %70, i64 %71, i1 false)
-  %79 = getelementptr inbounds nuw [1 x i8], ptr %78, i64 0, i64 %71
-  store i8 0, ptr %79, align 1, !tbaa !19
-  %80 = getelementptr inbounds nuw i8, ptr %65, i64 316
-  %81 = load i16, ptr %80, align 4
-  %82 = shl i16 %81, 2
-  %83 = and i16 %82, 128
-  %84 = and i16 %81, 64
-  %.not32 = icmp eq i16 %84, 0
-  %85 = select i1 %.not54, i8 53, i8 48
-  %.sroa.1844.0 = select i1 %.not32, i8 0, i8 %85
-  %86 = or disjoint i16 %69, %83
-  %.sroa.1945.1 = or disjoint i16 %86, %84
-  %87 = getelementptr inbounds nuw i8, ptr %65, i64 64
+zend_string_alloc.exit:                           ; preds = %61, %58
+  %63 = phi i64 [ %62, %61 ], [ %59, %58 ]
+  %64 = load ptr, ptr %12, align 8, !tbaa !58
+  %65 = load ptr, ptr %10, align 8, !tbaa !18
+  call void @phar_add_virtual_dirs(ptr noundef %64, ptr noundef %65, i64 noundef %63)
+  %66 = call i64 @time(ptr noundef null) #16
+  %67 = trunc i64 %66 to i32
+  %68 = select i1 %.not54, i16 11, i16 3
+  %69 = load ptr, ptr %10, align 8, !tbaa !18
+  %70 = load i64, ptr %11, align 8, !tbaa !51
+  %71 = and i64 %70, -8
+  %72 = add i64 %71, 32
+  %73 = call noalias ptr @_emalloc(i64 noundef %72) #18
+  store i32 1, ptr %73, align 4, !tbaa !21
+  %74 = getelementptr inbounds nuw i8, ptr %73, i64 4
+  store i32 22, ptr %74, align 4, !tbaa !19
+  %75 = getelementptr inbounds nuw i8, ptr %73, i64 8
+  store i64 0, ptr %75, align 8, !tbaa !23
+  %76 = getelementptr inbounds nuw i8, ptr %73, i64 16
+  store i64 %70, ptr %76, align 8, !tbaa !25
+  %77 = getelementptr inbounds nuw i8, ptr %73, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %77, ptr align 1 %69, i64 %70, i1 false)
+  %78 = getelementptr inbounds nuw [1 x i8], ptr %77, i64 0, i64 %70
+  store i8 0, ptr %78, align 1, !tbaa !19
+  %79 = getelementptr inbounds nuw i8, ptr %64, i64 316
+  %80 = load i16, ptr %79, align 4
+  %81 = shl i16 %80, 2
+  %82 = and i16 %81, 128
+  %83 = and i16 %80, 64
+  %.not32 = icmp eq i16 %83, 0
+  %84 = select i1 %.not54, i8 53, i8 48
+  %.sroa.1844.0 = select i1 %.not32, i8 0, i8 %84
+  %85 = or disjoint i16 %68, %82
+  %.sroa.1945.1 = or disjoint i16 %85, %83
+  %86 = getelementptr inbounds nuw i8, ptr %64, i64 64
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9) #16
   store ptr null, ptr %9, align 8, !tbaa !19
-  %88 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  store i32 13, ptr %88, align 8, !tbaa !19
-  %89 = call ptr @zend_hash_add(ptr noundef nonnull %87, ptr noundef nonnull %74, ptr noundef nonnull %9) #16
-  %.not.i = icmp eq ptr %89, null
-  br i1 %.not.i, label %98, label %90
+  %87 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  store i32 13, ptr %87, align 8, !tbaa !19
+  %88 = call ptr @zend_hash_add(ptr noundef nonnull %86, ptr noundef nonnull %73, ptr noundef nonnull %9) #16
+  %.not.i = icmp eq ptr %88, null
+  br i1 %.not.i, label %97, label %89
 
-90:                                               ; preds = %zend_string_alloc.exit
-  %91 = getelementptr inbounds nuw i8, ptr %65, i64 68
-  %92 = load i32, ptr %91, align 4, !tbaa !19
-  %93 = and i32 %92, 128
-  %.not46.i = icmp eq i32 %93, 0
-  br i1 %.not46.i, label %96, label %94
+89:                                               ; preds = %zend_string_alloc.exit
+  %90 = getelementptr inbounds nuw i8, ptr %64, i64 68
+  %91 = load i32, ptr %90, align 4, !tbaa !19
+  %92 = and i32 %91, 128
+  %.not46.i = icmp eq i32 %92, 0
+  br i1 %.not46.i, label %95, label %93
 
-94:                                               ; preds = %90
-  %95 = call noalias dereferenceable_or_null(152) ptr @__zend_malloc(i64 noundef 152) #18
-  br label %105
+93:                                               ; preds = %89
+  %94 = call noalias dereferenceable_or_null(152) ptr @__zend_malloc(i64 noundef 152) #18
+  br label %104
 
-96:                                               ; preds = %90
-  %97 = call noalias ptr @_emalloc_160() #16
-  br label %105
+95:                                               ; preds = %89
+  %96 = call noalias ptr @_emalloc_160() #16
+  br label %104
 
-98:                                               ; preds = %zend_string_alloc.exit
+97:                                               ; preds = %zend_string_alloc.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #16
-  %99 = call i32 @_php_stream_free(ptr noundef nonnull %53, i32 noundef 3) #16
+  %98 = call i32 @_php_stream_free(ptr noundef nonnull %53, i32 noundef 3) #16
   %.not34 = icmp eq ptr %6, null
-  br i1 %.not34, label %103, label %100
+  br i1 %.not34, label %102, label %99
 
-100:                                              ; preds = %98
-  %101 = load ptr, ptr %65, align 8, !tbaa !41
-  %102 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %6, i64 noundef 0, ptr noundef nonnull @.str.14, ptr noundef nonnull %78, ptr noundef %101) #16
-  br label %103
+99:                                               ; preds = %97
+  %100 = load ptr, ptr %64, align 8, !tbaa !41
+  %101 = call i64 (ptr, i64, ptr, ...) @zend_spprintf(ptr noundef nonnull %6, i64 noundef 0, ptr noundef nonnull @.str.14, ptr noundef nonnull %77, ptr noundef %100) #16
+  %.pre = load ptr, ptr %13, align 8, !tbaa !76
+  br label %102
 
-103:                                              ; preds = %100, %98
-  %104 = load ptr, ptr %13, align 8, !tbaa !76
-  call void @_efree(ptr noundef %104) #16
-  call void @_efree(ptr noundef nonnull %74) #16
-  br label %114
+102:                                              ; preds = %99, %97
+  %103 = phi ptr [ %.pre, %99 ], [ %52, %97 ]
+  call void @_efree(ptr noundef %103) #16
+  call void @_efree(ptr noundef nonnull %73) #16
+  br label %112
 
-105:                                              ; preds = %96, %94
-  %106 = phi ptr [ %95, %94 ], [ %97, %96 ]
-  store ptr %106, ptr %89, align 8, !tbaa !19
-  store i32 0, ptr %106, align 1
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %106, i64 4
-  store i32 %68, ptr %.sroa.4.0..sroa_idx, align 1
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %106, i64 8
+104:                                              ; preds = %95, %93
+  %105 = phi ptr [ %94, %93 ], [ %96, %95 ]
+  store ptr %105, ptr %88, align 8, !tbaa !19
+  store i32 0, ptr %105, align 1
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %105, i64 4
+  store i32 %67, ptr %.sroa.4.0..sroa_idx, align 1
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %105, i64 8
   store i64 0, ptr %.sroa.5.0..sroa_idx, align 1
-  %.sroa.537.0..sroa_idx = getelementptr inbounds nuw i8, ptr %106, i64 16
+  %.sroa.537.0..sroa_idx = getelementptr inbounds nuw i8, ptr %105, i64 16
   store i32 %.sroa.7.0, ptr %.sroa.537.0..sroa_idx, align 1
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %106, i64 20
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %105, i64 20
   store i32 %.sroa.7.0, ptr %.sroa.7.0..sroa_idx, align 1
-  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %106, i64 24
+  %.sroa.9.0..sroa_idx = getelementptr inbounds nuw i8, ptr %105, i64 24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %.sroa.9.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.9, i64 24, i1 false)
-  %.sroa.938.0..sroa_idx = getelementptr inbounds nuw i8, ptr %106, i64 48
-  store ptr %74, ptr %.sroa.938.0..sroa_idx, align 1
-  %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %106, i64 56
+  %.sroa.938.0..sroa_idx = getelementptr inbounds nuw i8, ptr %105, i64 48
+  store ptr %73, ptr %.sroa.938.0..sroa_idx, align 1
+  %.sroa.13.0..sroa_idx = getelementptr inbounds nuw i8, ptr %105, i64 56
   store i32 2, ptr %.sroa.13.0..sroa_idx, align 1
-  %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %106, i64 60
+  %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %105, i64 60
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(28) %.sroa.14.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(28) %.sroa.14, i64 28, i1 false)
-  %.sroa.1441.0..sroa_idx = getelementptr inbounds nuw i8, ptr %106, i64 88
+  %.sroa.1441.0..sroa_idx = getelementptr inbounds nuw i8, ptr %105, i64 88
   store ptr %53, ptr %.sroa.1441.0..sroa_idx, align 1
-  %.sroa.16.0..sroa_idx = getelementptr inbounds nuw i8, ptr %106, i64 96
+  %.sroa.16.0..sroa_idx = getelementptr inbounds nuw i8, ptr %105, i64 96
   store ptr null, ptr %.sroa.16.0..sroa_idx, align 1
-  %.sroa.1642.0..sroa_idx = getelementptr inbounds nuw i8, ptr %106, i64 104
+  %.sroa.1642.0..sroa_idx = getelementptr inbounds nuw i8, ptr %105, i64 104
   store i32 1, ptr %.sroa.1642.0..sroa_idx, align 1
-  %.sroa.17.0..sroa_idx = getelementptr inbounds nuw i8, ptr %106, i64 108
+  %.sroa.17.0..sroa_idx = getelementptr inbounds nuw i8, ptr %105, i64 108
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %.sroa.17.0..sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.17, i64 12, i1 false)
-  %.sroa.1743.0..sroa_idx = getelementptr inbounds nuw i8, ptr %106, i64 120
-  store ptr %65, ptr %.sroa.1743.0..sroa_idx, align 1
-  %.sroa.18.0..sroa_idx = getelementptr inbounds nuw i8, ptr %106, i64 128
+  %.sroa.1743.0..sroa_idx = getelementptr inbounds nuw i8, ptr %105, i64 120
+  store ptr %64, ptr %.sroa.1743.0..sroa_idx, align 1
+  %.sroa.18.0..sroa_idx = getelementptr inbounds nuw i8, ptr %105, i64 128
   store ptr null, ptr %.sroa.18.0..sroa_idx, align 1
-  %.sroa.1844.0..sroa_idx = getelementptr inbounds nuw i8, ptr %106, i64 136
+  %.sroa.1844.0..sroa_idx = getelementptr inbounds nuw i8, ptr %105, i64 136
   store i8 %.sroa.1844.0, ptr %.sroa.1844.0..sroa_idx, align 1
-  %.sroa.19.0..sroa_idx = getelementptr inbounds nuw i8, ptr %106, i64 137
+  %.sroa.19.0..sroa_idx = getelementptr inbounds nuw i8, ptr %105, i64 137
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %.sroa.19.0..sroa_idx, ptr noundef nonnull align 1 dereferenceable(9) %.sroa.19, i64 9, i1 false)
-  %.sroa.1945.0..sroa_idx = getelementptr inbounds nuw i8, ptr %106, i64 146
+  %.sroa.1945.0..sroa_idx = getelementptr inbounds nuw i8, ptr %105, i64 146
   store i16 %.sroa.1945.1, ptr %.sroa.1945.0..sroa_idx, align 1
-  %.sroa.28.0..sroa_idx = getelementptr inbounds nuw i8, ptr %106, i64 148
+  %.sroa.28.0..sroa_idx = getelementptr inbounds nuw i8, ptr %105, i64 148
   store i32 0, ptr %.sroa.28.0..sroa_idx, align 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #16
-  %107 = getelementptr inbounds nuw i8, ptr %65, i64 264
-  %108 = load i32, ptr %107, align 8, !tbaa !75
-  %109 = add nsw i32 %108, 1
-  store i32 %109, ptr %107, align 8, !tbaa !75
-  %110 = load ptr, ptr %13, align 8, !tbaa !76
-  store ptr %65, ptr %110, align 8, !tbaa !80
-  %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
-  store ptr %53, ptr %111, align 8, !tbaa !86
-  %112 = getelementptr inbounds nuw i8, ptr %110, i64 16
-  %113 = getelementptr inbounds nuw i8, ptr %110, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %112, i8 0, i64 16, i1 false)
-  store ptr %106, ptr %113, align 8, !tbaa !83
-  br label %114
+  %106 = getelementptr inbounds nuw i8, ptr %64, i64 264
+  %107 = load i32, ptr %106, align 8, !tbaa !75
+  %108 = add nsw i32 %107, 1
+  store i32 %108, ptr %106, align 8, !tbaa !75
+  store ptr %64, ptr %52, align 8, !tbaa !80
+  %109 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  store ptr %53, ptr %109, align 8, !tbaa !86
+  %110 = getelementptr inbounds nuw i8, ptr %52, i64 16
+  %111 = getelementptr inbounds nuw i8, ptr %52, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %110, i8 0, i64 16, i1 false)
+  store ptr %105, ptr %111, align 8, !tbaa !83
+  br label %112
 
-114:                                              ; preds = %47, %48, %34, %35, %29, %24, %20, %105, %103, %57
-  %.0 = phi ptr [ null, %103 ], [ %110, %105 ], [ null, %57 ], [ null, %20 ], [ null, %24 ], [ %30, %29 ], [ null, %35 ], [ null, %34 ], [ null, %48 ], [ null, %47 ]
+112:                                              ; preds = %47, %48, %34, %35, %29, %24, %20, %104, %102, %57
+  %.0 = phi ptr [ null, %102 ], [ %52, %104 ], [ null, %57 ], [ null, %20 ], [ null, %24 ], [ %30, %29 ], [ null, %35 ], [ null, %34 ], [ null, %48 ], [ null, %47 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #16
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.9)

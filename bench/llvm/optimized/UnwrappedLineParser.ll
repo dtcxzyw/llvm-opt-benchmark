@@ -6295,7 +6295,7 @@ _ZNK5clang6format19UnwrappedLineParser13computePPHashEv.exit: ; preds = %.lr.ph.
   %103 = getelementptr inbounds nuw i8, ptr %102, i64 24
   %104 = load i32, ptr %103, align 8, !tbaa !20
   %105 = icmp ugt i32 %104, 300
-  br i1 %105, label %334, label %106
+  br i1 %105, label %337, label %106
 
 106:                                              ; preds = %"_ZZN5clang6format19UnwrappedLineParser10parseBlockEbjbbPNS1_10IfStmtKindEbENK3$_0clEv.exit"
   br i1 %41, label %107, label %114
@@ -6370,351 +6370,356 @@ _ZNK5clang6format19UnwrappedLineParser13computePPHashEv.exit: ; preds = %.lr.ph.
   %148 = getelementptr inbounds nuw i8, ptr %147, i64 16
   %149 = load i16, ptr %148, align 8, !tbaa !45
   %150 = icmp eq i16 %149, 1
-  br i1 %150, label %333, label %151
+  br i1 %150, label %151, label %153
 
 151:                                              ; preds = %145
-  br i1 %41, label %152, label %155
+  %152 = load ptr, ptr %8, align 8, !tbaa !334
+  br label %336
 
-152:                                              ; preds = %151
-  %153 = getelementptr inbounds nuw i8, ptr %147, i64 67
-  %154 = load i8, ptr %153, align 1, !tbaa !49
-  %.not74 = icmp eq i8 %154, 80
-  br i1 %.not74, label %163, label %156
+153:                                              ; preds = %145
+  br i1 %41, label %154, label %157
 
-155:                                              ; preds = %151
+154:                                              ; preds = %153
+  %155 = getelementptr inbounds nuw i8, ptr %147, i64 67
+  %156 = load i8, ptr %155, align 1, !tbaa !49
+  %.not74 = icmp eq i8 %156, 80
+  br i1 %.not74, label %166, label %158
+
+157:                                              ; preds = %153
   %.not73 = icmp eq i16 %149, 25
-  br i1 %.not73, label %.thread, label %156
+  br i1 %.not73, label %.thread, label %158
 
-156:                                              ; preds = %155, %152
-  %157 = load ptr, ptr %0, align 8, !tbaa !95
-  %158 = getelementptr inbounds nuw i8, ptr %157, i64 24
-  store i32 %82, ptr %158, align 8, !tbaa !20
-  %159 = getelementptr inbounds nuw i8, ptr %147, i64 65
-  %160 = load i16, ptr %159, align 1
-  %161 = and i16 %160, -385
-  %162 = or disjoint i16 %161, 128
-  store i16 %162, ptr %159, align 1
-  br label %333
+158:                                              ; preds = %157, %154
+  %159 = load ptr, ptr %0, align 8, !tbaa !95
+  %160 = getelementptr inbounds nuw i8, ptr %159, i64 24
+  store i32 %82, ptr %160, align 8, !tbaa !20
+  %161 = getelementptr inbounds nuw i8, ptr %147, i64 65
+  %162 = load i16, ptr %161, align 1
+  %163 = and i16 %162, -385
+  %164 = or disjoint i16 %163, 128
+  store i16 %164, ptr %161, align 1
+  %165 = load ptr, ptr %8, align 8, !tbaa !334
+  br label %336
 
-163:                                              ; preds = %152
-  %164 = icmp eq i16 %149, 25
-  br i1 %164, label %.thread, label %_ZN5clang6format11FormatToken16setFinalizedTypeENS0_9TokenTypeE.exit
+166:                                              ; preds = %154
+  %167 = icmp eq i16 %149, 25
+  br i1 %167, label %.thread, label %_ZN5clang6format11FormatToken16setFinalizedTypeENS0_9TokenTypeE.exit
 
-.thread:                                          ; preds = %155, %163
-  %165 = getelementptr inbounds nuw i8, ptr %147, i64 65
-  %166 = load i16, ptr %165, align 1
-  %167 = and i16 %166, -385
-  %168 = or disjoint i16 %167, 128
-  store i16 %168, ptr %165, align 1
-  %169 = getelementptr inbounds nuw i8, ptr %23, i64 67
-  %170 = load i8, ptr %169, align 1, !tbaa !49
-  %171 = icmp eq i8 %170, 82
+.thread:                                          ; preds = %157, %166
+  %168 = getelementptr inbounds nuw i8, ptr %147, i64 65
+  %169 = load i16, ptr %168, align 1
+  %170 = and i16 %169, -385
+  %171 = or disjoint i16 %170, 128
+  store i16 %171, ptr %168, align 1
+  %172 = getelementptr inbounds nuw i8, ptr %23, i64 67
+  %173 = load i8, ptr %172, align 1, !tbaa !49
+  %174 = icmp eq i8 %173, 82
   %.pre78 = load ptr, ptr %22, align 8, !tbaa !214
-  br i1 %171, label %172, label %_ZN5clang6format11FormatToken16setFinalizedTypeENS0_9TokenTypeE.exit
+  br i1 %174, label %175, label %_ZN5clang6format11FormatToken16setFinalizedTypeENS0_9TokenTypeE.exit
 
-172:                                              ; preds = %.thread
-  %173 = getelementptr inbounds nuw i8, ptr %.pre78, i64 256
-  %174 = getelementptr inbounds nuw i8, ptr %.pre78, i64 296
-  %175 = load i8, ptr %174, align 8, !tbaa !335, !range !32, !noundef !33
-  %176 = trunc nuw i8 %175 to i1
-  %177 = load i32, ptr %173, align 8
-  %178 = icmp eq i32 %177, 1
-  %or.cond.i = select i1 %176, i1 %178, i1 false
-  br i1 %or.cond.i, label %_ZN5clang6format11FormatToken16setFinalizedTypeENS0_9TokenTypeE.exit, label %179
+175:                                              ; preds = %.thread
+  %176 = getelementptr inbounds nuw i8, ptr %.pre78, i64 256
+  %177 = getelementptr inbounds nuw i8, ptr %.pre78, i64 296
+  %178 = load i8, ptr %177, align 8, !tbaa !335, !range !32, !noundef !33
+  %179 = trunc nuw i8 %178 to i1
+  %180 = load i32, ptr %176, align 8
+  %181 = icmp eq i32 %180, 1
+  %or.cond.i = select i1 %179, i1 %181, i1 false
+  br i1 %or.cond.i, label %_ZN5clang6format11FormatToken16setFinalizedTypeENS0_9TokenTypeE.exit, label %182
 
-179:                                              ; preds = %172
-  %180 = getelementptr inbounds nuw i8, ptr %.pre78, i64 67
-  store i8 84, ptr %180, align 1, !tbaa !49
-  %181 = getelementptr inbounds nuw i8, ptr %.pre78, i64 65
-  %182 = load i16, ptr %181, align 1
-  %183 = or i16 %182, 8192
-  store i16 %183, ptr %181, align 1
+182:                                              ; preds = %175
+  %183 = getelementptr inbounds nuw i8, ptr %.pre78, i64 67
+  store i8 84, ptr %183, align 1, !tbaa !49
+  %184 = getelementptr inbounds nuw i8, ptr %.pre78, i64 65
+  %185 = load i16, ptr %184, align 1
+  %186 = or i16 %185, 8192
+  store i16 %186, ptr %184, align 1
   %.pre77 = load ptr, ptr %22, align 8, !tbaa !214
   br label %_ZN5clang6format11FormatToken16setFinalizedTypeENS0_9TokenTypeE.exit
 
-_ZN5clang6format11FormatToken16setFinalizedTypeENS0_9TokenTypeE.exit: ; preds = %179, %172, %.thread, %163
-  %184 = phi ptr [ %.pre77, %179 ], [ %.pre78, %172 ], [ %.pre78, %.thread ], [ %147, %163 ]
-  %185 = getelementptr inbounds nuw i8, ptr %184, i64 16
-  %186 = load i16, ptr %185, align 8, !tbaa !45
-  %187 = icmp eq i16 %186, 25
-  br i1 %187, label %188, label %192
+_ZN5clang6format11FormatToken16setFinalizedTypeENS0_9TokenTypeE.exit: ; preds = %182, %175, %.thread, %166
+  %187 = phi ptr [ %.pre77, %182 ], [ %.pre78, %175 ], [ %.pre78, %.thread ], [ %147, %166 ]
+  %188 = getelementptr inbounds nuw i8, ptr %187, i64 16
+  %189 = load i16, ptr %188, align 8, !tbaa !45
+  %190 = icmp eq i16 %189, 25
+  br i1 %190, label %191, label %195
 
-188:                                              ; preds = %_ZN5clang6format11FormatToken16setFinalizedTypeENS0_9TokenTypeE.exit
-  %189 = getelementptr inbounds nuw i8, ptr %23, i64 67
-  %190 = load i8, ptr %189, align 1, !tbaa !49
-  %191 = icmp ne i8 %190, 51
-  br label %192
+191:                                              ; preds = %_ZN5clang6format11FormatToken16setFinalizedTypeENS0_9TokenTypeE.exit
+  %192 = getelementptr inbounds nuw i8, ptr %23, i64 67
+  %193 = load i8, ptr %192, align 1, !tbaa !49
+  %194 = icmp ne i8 %193, 51
+  br label %195
 
-192:                                              ; preds = %188, %_ZN5clang6format11FormatToken16setFinalizedTypeENS0_9TokenTypeE.exit
-  %.not43 = phi i1 [ true, %_ZN5clang6format11FormatToken16setFinalizedTypeENS0_9TokenTypeE.exit ], [ %191, %188 ]
-  %193 = load ptr, ptr %8, align 8, !tbaa !334
-  br i1 %146, label %194, label %"_ZZN5clang6format19UnwrappedLineParser10parseBlockEbjbbPNS1_10IfStmtKindEbEN3$_1clEv.exit.thread"
+195:                                              ; preds = %191, %_ZN5clang6format11FormatToken16setFinalizedTypeENS0_9TokenTypeE.exit
+  %.not43 = phi i1 [ true, %_ZN5clang6format11FormatToken16setFinalizedTypeENS0_9TokenTypeE.exit ], [ %194, %191 ]
+  %196 = load ptr, ptr %8, align 8, !tbaa !334
+  br i1 %146, label %197, label %"_ZZN5clang6format19UnwrappedLineParser10parseBlockEbjbbPNS1_10IfStmtKindEbEN3$_1clEv.exit.thread"
 
-194:                                              ; preds = %192
-  %195 = getelementptr inbounds nuw i8, ptr %23, i64 208
-  %196 = load ptr, ptr %195, align 8, !tbaa !437
-  %.not.i46 = icmp ne ptr %196, null
+197:                                              ; preds = %195
+  %198 = getelementptr inbounds nuw i8, ptr %23, i64 208
+  %199 = load ptr, ptr %198, align 8, !tbaa !437
+  %.not.i46 = icmp ne ptr %199, null
   %brmerge70 = select i1 %.not.i46, i1 true, i1 %32
-  br i1 %brmerge70, label %197, label %"_ZZN5clang6format19UnwrappedLineParser10parseBlockEbjbbPNS1_10IfStmtKindEbEN3$_1clEv.exit.thread"
+  br i1 %brmerge70, label %200, label %"_ZZN5clang6format19UnwrappedLineParser10parseBlockEbjbbPNS1_10IfStmtKindEbEN3$_1clEv.exit.thread"
 
-197:                                              ; preds = %194
-  %.not12.i = icmp eq ptr %193, null
-  br i1 %.not12.i, label %202, label %198
+200:                                              ; preds = %197
+  %.not12.i = icmp eq ptr %196, null
+  br i1 %.not12.i, label %205, label %201
 
-198:                                              ; preds = %197
-  %199 = getelementptr inbounds nuw i8, ptr %193, i64 227
-  %200 = load i8, ptr %199, align 1, !tbaa !451, !range !32, !noundef !33
-  %201 = trunc nuw i8 %200 to i1
-  br label %202
+201:                                              ; preds = %200
+  %202 = getelementptr inbounds nuw i8, ptr %196, i64 227
+  %203 = load i8, ptr %202, align 1, !tbaa !451, !range !32, !noundef !33
+  %204 = trunc nuw i8 %203 to i1
+  br label %205
 
-202:                                              ; preds = %198, %197
-  %.not16.i = phi i1 [ true, %197 ], [ %201, %198 ]
+205:                                              ; preds = %201, %200
+  %.not16.i = phi i1 [ true, %200 ], [ %204, %201 ]
   %brmerge.not.i = select i1 %4, i1 %.not16.i, i1 false
-  br i1 %brmerge.not.i, label %"_ZZN5clang6format19UnwrappedLineParser10parseBlockEbjbbPNS1_10IfStmtKindEbEN3$_1clEv.exit.thread", label %203
+  br i1 %brmerge.not.i, label %"_ZZN5clang6format19UnwrappedLineParser10parseBlockEbjbbPNS1_10IfStmtKindEbEN3$_1clEv.exit.thread", label %206
 
-203:                                              ; preds = %202
-  %204 = getelementptr inbounds nuw i8, ptr %23, i64 67
-  %205 = load i8, ptr %204, align 1, !tbaa !49
-  %206 = icmp ne i8 %205, 42
-  %brmerge15.i = select i1 %206, i1 true, i1 %.not16.i
-  br i1 %brmerge15.i, label %207, label %.critedge.i
+206:                                              ; preds = %205
+  %207 = getelementptr inbounds nuw i8, ptr %23, i64 67
+  %208 = load i8, ptr %207, align 1, !tbaa !49
+  %209 = icmp ne i8 %208, 42
+  %brmerge15.i = select i1 %209, i1 true, i1 %.not16.i
+  br i1 %brmerge15.i, label %210, label %.critedge.i
 
-207:                                              ; preds = %203
-  %208 = load ptr, ptr %24, align 8, !tbaa !308
-  %209 = load ptr, ptr %208, align 8, !tbaa !14
-  %210 = getelementptr inbounds nuw i8, ptr %209, i64 24
-  %211 = load ptr, ptr %210, align 8
-  %212 = call noundef ptr %211(ptr noundef nonnull align 8 dereferenceable(8) %208) #22
-  %213 = getelementptr inbounds nuw i8, ptr %212, i64 16
-  %214 = load i16, ptr %213, align 8, !tbaa !45
-  %215 = icmp eq i16 %214, 25
-  br i1 %215, label %216, label %.critedge.i
+210:                                              ; preds = %206
+  %211 = load ptr, ptr %24, align 8, !tbaa !308
+  %212 = load ptr, ptr %211, align 8, !tbaa !14
+  %213 = getelementptr inbounds nuw i8, ptr %212, i64 24
+  %214 = load ptr, ptr %213, align 8
+  %215 = call noundef ptr %214(ptr noundef nonnull align 8 dereferenceable(8) %211) #22
+  %216 = getelementptr inbounds nuw i8, ptr %215, i64 16
+  %217 = load i16, ptr %216, align 8, !tbaa !45
+  %218 = icmp eq i16 %217, 25
+  br i1 %218, label %219, label %.critedge.i
 
-216:                                              ; preds = %207
-  %217 = getelementptr inbounds nuw i8, ptr %212, i64 227
-  %218 = load i8, ptr %217, align 1, !tbaa !451, !range !32, !noundef !33
-  %219 = trunc nuw i8 %218 to i1
-  br i1 %219, label %.critedge.i, label %"_ZZN5clang6format19UnwrappedLineParser10parseBlockEbjbbPNS1_10IfStmtKindEbEN3$_1clEv.exit.thread"
+219:                                              ; preds = %210
+  %220 = getelementptr inbounds nuw i8, ptr %215, i64 227
+  %221 = load i8, ptr %220, align 1, !tbaa !451, !range !32, !noundef !33
+  %222 = trunc nuw i8 %221 to i1
+  br i1 %222, label %.critedge.i, label %"_ZZN5clang6format19UnwrappedLineParser10parseBlockEbjbbPNS1_10IfStmtKindEbEN3$_1clEv.exit.thread"
 
-.critedge.i:                                      ; preds = %216, %207, %203
-  %220 = load ptr, ptr %33, align 8, !tbaa !216
-  %221 = load ptr, ptr %220, align 8, !tbaa !79
-  %222 = getelementptr inbounds nuw i8, ptr %220, i64 8
-  %223 = load i32, ptr %222, align 8, !tbaa !80
-  %224 = zext i32 %223 to i64
-  %225 = getelementptr inbounds nuw %"struct.clang::format::UnwrappedLine", ptr %221, i64 %224
-  %226 = getelementptr inbounds i8, ptr %225, i64 -48
-  %227 = load i32, ptr %226, align 8, !tbaa !20
-  %228 = add i32 %82, 1
-  %229 = icmp eq i32 %227, %228
-  br i1 %229, label %230, label %233
+.critedge.i:                                      ; preds = %219, %210, %206
+  %223 = load ptr, ptr %33, align 8, !tbaa !216
+  %224 = load ptr, ptr %223, align 8, !tbaa !79
+  %225 = getelementptr inbounds nuw i8, ptr %223, i64 8
+  %226 = load i32, ptr %225, align 8, !tbaa !80
+  %227 = zext i32 %226 to i64
+  %228 = getelementptr inbounds nuw %"struct.clang::format::UnwrappedLine", ptr %224, i64 %227
+  %229 = getelementptr inbounds i8, ptr %228, i64 -48
+  %230 = load i32, ptr %229, align 8, !tbaa !20
+  %231 = add i32 %82, 1
+  %232 = icmp eq i32 %230, %231
+  br i1 %232, label %233, label %236
 
-230:                                              ; preds = %.critedge.i
-  %231 = getelementptr inbounds i8, ptr %225, i64 -72
-  %232 = call noundef zeroext i1 @_ZNK5clang6format19UnwrappedLineParser17mightFitOnOneLineERNS0_13UnwrappedLineEPKNS0_11FormatTokenE(ptr noundef nonnull align 8 dereferenceable(3600) %0, ptr noundef nonnull align 8 dereferenceable(68) %231, ptr noundef null)
-  br i1 %232, label %233, label %"_ZZN5clang6format19UnwrappedLineParser10parseBlockEbjbbPNS1_10IfStmtKindEbEN3$_1clEv.exit.thread"
+233:                                              ; preds = %.critedge.i
+  %234 = getelementptr inbounds i8, ptr %228, i64 -72
+  %235 = call noundef zeroext i1 @_ZNK5clang6format19UnwrappedLineParser17mightFitOnOneLineERNS0_13UnwrappedLineEPKNS0_11FormatTokenE(ptr noundef nonnull align 8 dereferenceable(3600) %0, ptr noundef nonnull align 8 dereferenceable(68) %234, ptr noundef null)
+  br i1 %235, label %236, label %"_ZZN5clang6format19UnwrappedLineParser10parseBlockEbjbbPNS1_10IfStmtKindEbEN3$_1clEv.exit.thread"
 
-233:                                              ; preds = %230, %.critedge.i
-  %234 = load i8, ptr %204, align 1, !tbaa !49
-  %235 = icmp eq i8 %234, 42
-  br i1 %235, label %"_ZZN5clang6format19UnwrappedLineParser10parseBlockEbjbbPNS1_10IfStmtKindEbEN3$_1clEv.exit.thread67", label %"_ZZN5clang6format19UnwrappedLineParser10parseBlockEbjbbPNS1_10IfStmtKindEbEN3$_1clEv.exit"
+236:                                              ; preds = %233, %.critedge.i
+  %237 = load i8, ptr %207, align 1, !tbaa !49
+  %238 = icmp eq i8 %237, 42
+  br i1 %238, label %"_ZZN5clang6format19UnwrappedLineParser10parseBlockEbjbbPNS1_10IfStmtKindEbEN3$_1clEv.exit.thread67", label %"_ZZN5clang6format19UnwrappedLineParser10parseBlockEbjbbPNS1_10IfStmtKindEbEN3$_1clEv.exit"
 
-"_ZZN5clang6format19UnwrappedLineParser10parseBlockEbjbbPNS1_10IfStmtKindEbEN3$_1clEv.exit": ; preds = %233
+"_ZZN5clang6format19UnwrappedLineParser10parseBlockEbjbbPNS1_10IfStmtKindEbEN3$_1clEv.exit": ; preds = %236
   %spec.select = select i1 %.not.i46, ptr %23, ptr null
   %not..not.i46 = xor i1 %.not.i46, true
-  %236 = sext i1 %not..not.i46 to i64
-  %237 = load ptr, ptr %33, align 8, !tbaa !216
-  %238 = load ptr, ptr %237, align 8, !tbaa !79
-  %239 = getelementptr %"struct.clang::format::UnwrappedLine", ptr %238, i64 %37
-  %240 = getelementptr %"struct.clang::format::UnwrappedLine", ptr %239, i64 %236
-  %241 = call noundef zeroext i1 @_ZNK5clang6format19UnwrappedLineParser17mightFitOnOneLineERNS0_13UnwrappedLineEPKNS0_11FormatTokenE(ptr noundef nonnull align 8 dereferenceable(3600) %0, ptr noundef nonnull align 8 dereferenceable(68) %240, ptr noundef %spec.select)
-  br i1 %241, label %"_ZZN5clang6format19UnwrappedLineParser10parseBlockEbjbbPNS1_10IfStmtKindEbEN3$_1clEv.exit.thread67", label %"_ZZN5clang6format19UnwrappedLineParser10parseBlockEbjbbPNS1_10IfStmtKindEbEN3$_1clEv.exit.thread"
+  %239 = sext i1 %not..not.i46 to i64
+  %240 = load ptr, ptr %33, align 8, !tbaa !216
+  %241 = load ptr, ptr %240, align 8, !tbaa !79
+  %242 = getelementptr %"struct.clang::format::UnwrappedLine", ptr %241, i64 %37
+  %243 = getelementptr %"struct.clang::format::UnwrappedLine", ptr %242, i64 %239
+  %244 = call noundef zeroext i1 @_ZNK5clang6format19UnwrappedLineParser17mightFitOnOneLineERNS0_13UnwrappedLineEPKNS0_11FormatTokenE(ptr noundef nonnull align 8 dereferenceable(3600) %0, ptr noundef nonnull align 8 dereferenceable(68) %243, ptr noundef %spec.select)
+  br i1 %244, label %"_ZZN5clang6format19UnwrappedLineParser10parseBlockEbjbbPNS1_10IfStmtKindEbEN3$_1clEv.exit.thread67", label %"_ZZN5clang6format19UnwrappedLineParser10parseBlockEbjbbPNS1_10IfStmtKindEbEN3$_1clEv.exit.thread"
 
-"_ZZN5clang6format19UnwrappedLineParser10parseBlockEbjbbPNS1_10IfStmtKindEbEN3$_1clEv.exit.thread67": ; preds = %233, %"_ZZN5clang6format19UnwrappedLineParser10parseBlockEbjbbPNS1_10IfStmtKindEbEN3$_1clEv.exit"
-  %242 = load ptr, ptr %22, align 8, !tbaa !214
-  %243 = getelementptr inbounds nuw i8, ptr %23, i64 200
-  store ptr %242, ptr %243, align 8, !tbaa !453
-  %244 = getelementptr inbounds nuw i8, ptr %242, i64 200
-  store ptr %23, ptr %244, align 8, !tbaa !453
+"_ZZN5clang6format19UnwrappedLineParser10parseBlockEbjbbPNS1_10IfStmtKindEbEN3$_1clEv.exit.thread67": ; preds = %236, %"_ZZN5clang6format19UnwrappedLineParser10parseBlockEbjbbPNS1_10IfStmtKindEbEN3$_1clEv.exit"
+  %245 = load ptr, ptr %22, align 8, !tbaa !214
+  %246 = getelementptr inbounds nuw i8, ptr %23, i64 200
+  store ptr %245, ptr %246, align 8, !tbaa !453
+  %247 = getelementptr inbounds nuw i8, ptr %245, i64 200
+  store ptr %23, ptr %247, align 8, !tbaa !453
   br label %"_ZZN5clang6format19UnwrappedLineParser10parseBlockEbjbbPNS1_10IfStmtKindEbEN3$_1clEv.exit.thread"
 
-"_ZZN5clang6format19UnwrappedLineParser10parseBlockEbjbbPNS1_10IfStmtKindEbEN3$_1clEv.exit.thread": ; preds = %194, %230, %216, %202, %192, %"_ZZN5clang6format19UnwrappedLineParser10parseBlockEbjbbPNS1_10IfStmtKindEbEN3$_1clEv.exit.thread67", %"_ZZN5clang6format19UnwrappedLineParser10parseBlockEbjbbPNS1_10IfStmtKindEbEN3$_1clEv.exit"
-  %245 = load ptr, ptr %58, align 8, !tbaa !79
-  %246 = load i32, ptr %60, align 8, !tbaa !80
-  %247 = zext i32 %246 to i64
-  %248 = getelementptr inbounds nuw %"struct.clang::format::UnwrappedLineParser::PPBranch", ptr %245, i64 %247
-  %.not14.i47 = icmp eq i32 %246, 0
+"_ZZN5clang6format19UnwrappedLineParser10parseBlockEbjbbPNS1_10IfStmtKindEbEN3$_1clEv.exit.thread": ; preds = %197, %233, %219, %205, %195, %"_ZZN5clang6format19UnwrappedLineParser10parseBlockEbjbbPNS1_10IfStmtKindEbEN3$_1clEv.exit.thread67", %"_ZZN5clang6format19UnwrappedLineParser10parseBlockEbjbbPNS1_10IfStmtKindEbEN3$_1clEv.exit"
+  %248 = load ptr, ptr %58, align 8, !tbaa !79
+  %249 = load i32, ptr %60, align 8, !tbaa !80
+  %250 = zext i32 %249 to i64
+  %251 = getelementptr inbounds nuw %"struct.clang::format::UnwrappedLineParser::PPBranch", ptr %248, i64 %250
+  %.not14.i47 = icmp eq i32 %249, 0
   br i1 %.not14.i47, label %_ZNK5clang6format19UnwrappedLineParser13computePPHashEv.exit55, label %.lr.ph.i48
 
 .lr.ph.i48:                                       ; preds = %"_ZZN5clang6format19UnwrappedLineParser10parseBlockEbjbbPNS1_10IfStmtKindEbEN3$_1clEv.exit.thread", %.lr.ph.i48
-  %.016.i49 = phi ptr [ %264, %.lr.ph.i48 ], [ %245, %"_ZZN5clang6format19UnwrappedLineParser10parseBlockEbjbbPNS1_10IfStmtKindEbEN3$_1clEv.exit.thread" ]
-  %.01315.i50 = phi i64 [ %263, %.lr.ph.i48 ], [ 0, %"_ZZN5clang6format19UnwrappedLineParser10parseBlockEbjbbPNS1_10IfStmtKindEbEN3$_1clEv.exit.thread" ]
-  %249 = load i32, ptr %.016.i49, align 8, !tbaa !365
-  %250 = zext i32 %249 to i64
-  %251 = shl i64 %.01315.i50, 6
-  %252 = lshr i64 %.01315.i50, 2
-  %253 = add i64 %251, 2654435769
-  %254 = add i64 %253, %252
-  %255 = add i64 %254, %250
-  %256 = xor i64 %255, %.01315.i50
-  %257 = getelementptr inbounds nuw i8, ptr %.016.i49, i64 8
-  %.val9.i51 = load i64, ptr %257, align 8, !tbaa !78
-  %258 = add i64 %.val9.i51, 2654435769
-  %259 = shl i64 %256, 6
-  %260 = add i64 %258, %259
-  %261 = lshr i64 %256, 2
-  %262 = add i64 %260, %261
-  %263 = xor i64 %262, %256
-  %264 = getelementptr inbounds nuw i8, ptr %.016.i49, i64 16
-  %.not.i52 = icmp eq ptr %264, %248
+  %.016.i49 = phi ptr [ %267, %.lr.ph.i48 ], [ %248, %"_ZZN5clang6format19UnwrappedLineParser10parseBlockEbjbbPNS1_10IfStmtKindEbEN3$_1clEv.exit.thread" ]
+  %.01315.i50 = phi i64 [ %266, %.lr.ph.i48 ], [ 0, %"_ZZN5clang6format19UnwrappedLineParser10parseBlockEbjbbPNS1_10IfStmtKindEbEN3$_1clEv.exit.thread" ]
+  %252 = load i32, ptr %.016.i49, align 8, !tbaa !365
+  %253 = zext i32 %252 to i64
+  %254 = shl i64 %.01315.i50, 6
+  %255 = lshr i64 %.01315.i50, 2
+  %256 = add i64 %254, 2654435769
+  %257 = add i64 %256, %255
+  %258 = add i64 %257, %253
+  %259 = xor i64 %258, %.01315.i50
+  %260 = getelementptr inbounds nuw i8, ptr %.016.i49, i64 8
+  %.val9.i51 = load i64, ptr %260, align 8, !tbaa !78
+  %261 = add i64 %.val9.i51, 2654435769
+  %262 = shl i64 %259, 6
+  %263 = add i64 %261, %262
+  %264 = lshr i64 %259, 2
+  %265 = add i64 %263, %264
+  %266 = xor i64 %265, %259
+  %267 = getelementptr inbounds nuw i8, ptr %.016.i49, i64 16
+  %.not.i52 = icmp eq ptr %267, %251
   br i1 %.not.i52, label %_ZNK5clang6format19UnwrappedLineParser13computePPHashEv.exit55, label %.lr.ph.i48
 
 _ZNK5clang6format19UnwrappedLineParser13computePPHashEv.exit55: ; preds = %.lr.ph.i48, %"_ZZN5clang6format19UnwrappedLineParser10parseBlockEbjbbPNS1_10IfStmtKindEbEN3$_1clEv.exit.thread"
-  %.013.lcssa.i54 = phi i64 [ 0, %"_ZZN5clang6format19UnwrappedLineParser10parseBlockEbjbbPNS1_10IfStmtKindEbEN3$_1clEv.exit.thread" ], [ %263, %.lr.ph.i48 ]
-  %265 = sub i32 0, %.037
-  call void @_ZN5clang6format19UnwrappedLineParser9nextTokenEi(ptr noundef nonnull align 8 dereferenceable(3600) %0, i32 noundef %265)
-  %266 = load ptr, ptr %9, align 8, !tbaa !329
-  %267 = getelementptr inbounds nuw i8, ptr %266, i64 717
-  %268 = load i8, ptr %267, align 1, !tbaa !454, !range !32, !noundef !33
-  %269 = trunc nuw i8 %268 to i1
-  %.not42 = xor i1 %269, true
+  %.013.lcssa.i54 = phi i64 [ 0, %"_ZZN5clang6format19UnwrappedLineParser10parseBlockEbjbbPNS1_10IfStmtKindEbEN3$_1clEv.exit.thread" ], [ %266, %.lr.ph.i48 ]
+  %268 = sub i32 0, %.037
+  call void @_ZN5clang6format19UnwrappedLineParser9nextTokenEi(ptr noundef nonnull align 8 dereferenceable(3600) %0, i32 noundef %268)
+  %269 = load ptr, ptr %9, align 8, !tbaa !329
+  %270 = getelementptr inbounds nuw i8, ptr %269, i64 717
+  %271 = load i8, ptr %270, align 1, !tbaa !454, !range !32, !noundef !33
+  %272 = trunc nuw i8 %271 to i1
+  %.not42 = xor i1 %272, true
   %brmerge = or i1 %.not43, %.not42
   br i1 %brmerge, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %_ZNK5clang6format19UnwrappedLineParser13computePPHashEv.exit55
-  %270 = load ptr, ptr %22, align 8, !tbaa !214
-  %271 = getelementptr inbounds nuw i8, ptr %270, i64 16
-  %272 = load i16, ptr %271, align 8, !tbaa !45
-  %273 = icmp eq i16 %272, 63
-  br i1 %273, label %.lr.ph, label %.loopexit
+  %273 = load ptr, ptr %22, align 8, !tbaa !214
+  %274 = getelementptr inbounds nuw i8, ptr %273, i64 16
+  %275 = load i16, ptr %274, align 8, !tbaa !45
+  %276 = icmp eq i16 %275, 63
+  br i1 %276, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %274 = phi ptr [ %276, %.lr.ph ], [ %270, %.preheader ]
-  %275 = getelementptr inbounds nuw i8, ptr %274, i64 227
-  store i8 1, ptr %275, align 1, !tbaa !451
+  %277 = phi ptr [ %279, %.lr.ph ], [ %273, %.preheader ]
+  %278 = getelementptr inbounds nuw i8, ptr %277, i64 227
+  store i8 1, ptr %278, align 1, !tbaa !451
   call void @_ZN5clang6format19UnwrappedLineParser9nextTokenEi(ptr noundef nonnull align 8 dereferenceable(3600) %0, i32 noundef 0)
-  %276 = load ptr, ptr %22, align 8, !tbaa !214
-  %277 = getelementptr inbounds nuw i8, ptr %276, i64 16
-  %278 = load i16, ptr %277, align 8, !tbaa !45
-  %279 = icmp eq i16 %278, 63
-  br i1 %279, label %.lr.ph, label %.loopexit.loopexit, !llvm.loop !455
+  %279 = load ptr, ptr %22, align 8, !tbaa !214
+  %280 = getelementptr inbounds nuw i8, ptr %279, i64 16
+  %281 = load i16, ptr %280, align 8, !tbaa !45
+  %282 = icmp eq i16 %281, 63
+  br i1 %282, label %.lr.ph, label %.loopexit.loopexit, !llvm.loop !455
 
 .loopexit.loopexit:                               ; preds = %.lr.ph
   %.pre79 = load ptr, ptr %9, align 8, !tbaa !329
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.preheader, %_ZNK5clang6format19UnwrappedLineParser13computePPHashEv.exit55
-  %280 = phi ptr [ %.pre79, %.loopexit.loopexit ], [ %266, %.preheader ], [ %266, %_ZNK5clang6format19UnwrappedLineParser13computePPHashEv.exit55 ]
-  %281 = getelementptr inbounds nuw i8, ptr %280, i64 431
-  %282 = load i8, ptr %281, align 1, !tbaa !219
-  %283 = icmp eq i8 %282, 10
-  br i1 %283, label %284, label %"_ZZN5clang6format19UnwrappedLineParser10parseBlockEbjbbPNS1_10IfStmtKindEbENK3$_0clEv.exit56"
+  %283 = phi ptr [ %.pre79, %.loopexit.loopexit ], [ %269, %.preheader ], [ %269, %_ZNK5clang6format19UnwrappedLineParser13computePPHashEv.exit55 ]
+  %284 = getelementptr inbounds nuw i8, ptr %283, i64 431
+  %285 = load i8, ptr %284, align 1, !tbaa !219
+  %286 = icmp eq i8 %285, 10
+  br i1 %286, label %287, label %"_ZZN5clang6format19UnwrappedLineParser10parseBlockEbjbbPNS1_10IfStmtKindEbENK3$_0clEv.exit56"
 
-284:                                              ; preds = %.loopexit
-  %285 = load ptr, ptr %22, align 8, !tbaa !214
-  %286 = getelementptr inbounds nuw i8, ptr %285, i64 16
-  %287 = load i16, ptr %286, align 8, !tbaa !45
-  %288 = icmp eq i16 %287, 62
-  br i1 %288, label %289, label %"_ZZN5clang6format19UnwrappedLineParser10parseBlockEbjbbPNS1_10IfStmtKindEbENK3$_0clEv.exit56"
+287:                                              ; preds = %.loopexit
+  %288 = load ptr, ptr %22, align 8, !tbaa !214
+  %289 = getelementptr inbounds nuw i8, ptr %288, i64 16
+  %290 = load i16, ptr %289, align 8, !tbaa !45
+  %291 = icmp eq i16 %290, 62
+  br i1 %291, label %292, label %"_ZZN5clang6format19UnwrappedLineParser10parseBlockEbjbbPNS1_10IfStmtKindEbENK3$_0clEv.exit56"
 
-289:                                              ; preds = %284
+292:                                              ; preds = %287
   call void @_ZN5clang6format19UnwrappedLineParser9nextTokenEi(ptr noundef nonnull align 8 dereferenceable(3600) %0, i32 noundef 0)
-  %290 = getelementptr inbounds nuw i8, ptr %0, i64 2848
-  %291 = load ptr, ptr %290, align 8, !tbaa !381
-  %292 = load ptr, ptr %22, align 8, !tbaa !214
-  %293 = call noundef zeroext i1 @_ZNK5clang6format18AdditionalKeywords19isVerilogIdentifierERKNS0_11FormatTokenE(ptr noundef nonnull align 8 dereferenceable(2072) %291, ptr noundef nonnull align 8 dereferenceable(305) %292)
-  br i1 %293, label %294, label %"_ZZN5clang6format19UnwrappedLineParser10parseBlockEbjbbPNS1_10IfStmtKindEbENK3$_0clEv.exit56"
+  %293 = getelementptr inbounds nuw i8, ptr %0, i64 2848
+  %294 = load ptr, ptr %293, align 8, !tbaa !381
+  %295 = load ptr, ptr %22, align 8, !tbaa !214
+  %296 = call noundef zeroext i1 @_ZNK5clang6format18AdditionalKeywords19isVerilogIdentifierERKNS0_11FormatTokenE(ptr noundef nonnull align 8 dereferenceable(2072) %294, ptr noundef nonnull align 8 dereferenceable(305) %295)
+  br i1 %296, label %297, label %"_ZZN5clang6format19UnwrappedLineParser10parseBlockEbjbbPNS1_10IfStmtKindEbENK3$_0clEv.exit56"
 
-294:                                              ; preds = %289
+297:                                              ; preds = %292
   call void @_ZN5clang6format19UnwrappedLineParser9nextTokenEi(ptr noundef nonnull align 8 dereferenceable(3600) %0, i32 noundef 0)
   br label %"_ZZN5clang6format19UnwrappedLineParser10parseBlockEbjbbPNS1_10IfStmtKindEbENK3$_0clEv.exit56"
 
-"_ZZN5clang6format19UnwrappedLineParser10parseBlockEbjbbPNS1_10IfStmtKindEbENK3$_0clEv.exit56": ; preds = %.loopexit, %284, %289, %294
+"_ZZN5clang6format19UnwrappedLineParser10parseBlockEbjbbPNS1_10IfStmtKindEbENK3$_0clEv.exit56": ; preds = %.loopexit, %287, %292, %297
   %.pre81 = load ptr, ptr %22, align 8, !tbaa !214
-  br i1 %41, label %295, label %301
+  br i1 %41, label %298, label %304
 
-295:                                              ; preds = %"_ZZN5clang6format19UnwrappedLineParser10parseBlockEbjbbPNS1_10IfStmtKindEbENK3$_0clEv.exit56"
-  %296 = getelementptr inbounds nuw i8, ptr %.pre81, i64 16
-  %297 = load i16, ptr %296, align 8, !tbaa !45
-  %298 = icmp eq i16 %297, 22
-  br i1 %298, label %299, label %301
+298:                                              ; preds = %"_ZZN5clang6format19UnwrappedLineParser10parseBlockEbjbbPNS1_10IfStmtKindEbENK3$_0clEv.exit56"
+  %299 = getelementptr inbounds nuw i8, ptr %.pre81, i64 16
+  %300 = load i16, ptr %299, align 8, !tbaa !45
+  %301 = icmp eq i16 %300, 22
+  br i1 %301, label %302, label %304
 
-299:                                              ; preds = %295
-  %300 = call noundef zeroext i1 @_ZN5clang6format19UnwrappedLineParser11parseParensENS0_9TokenTypeE(ptr noundef nonnull align 8 dereferenceable(3600) %0, i8 noundef zeroext -92)
+302:                                              ; preds = %298
+  %303 = call noundef zeroext i1 @_ZN5clang6format19UnwrappedLineParser11parseParensENS0_9TokenTypeE(ptr noundef nonnull align 8 dereferenceable(3600) %0, i8 noundef zeroext -92)
   %.pre80 = load ptr, ptr %22, align 8, !tbaa !214
-  br label %301
+  br label %304
 
-301:                                              ; preds = %299, %295, %"_ZZN5clang6format19UnwrappedLineParser10parseBlockEbjbbPNS1_10IfStmtKindEbENK3$_0clEv.exit56"
-  %302 = phi ptr [ %.pre80, %299 ], [ %.pre81, %295 ], [ %.pre81, %"_ZZN5clang6format19UnwrappedLineParser10parseBlockEbjbbPNS1_10IfStmtKindEbENK3$_0clEv.exit56" ]
-  %303 = load ptr, ptr %0, align 8, !tbaa !95
-  %304 = getelementptr inbounds nuw i8, ptr %303, i64 24
-  store i32 %82, ptr %304, align 8, !tbaa !20
-  %305 = getelementptr inbounds nuw i8, ptr %302, i64 16
-  %306 = load i16, ptr %305, align 8, !tbaa !45
-  %307 = icmp eq i16 %306, 162
-  br i1 %307, label %308, label %309
+304:                                              ; preds = %302, %298, %"_ZZN5clang6format19UnwrappedLineParser10parseBlockEbjbbPNS1_10IfStmtKindEbENK3$_0clEv.exit56"
+  %305 = phi ptr [ %.pre80, %302 ], [ %.pre81, %298 ], [ %.pre81, %"_ZZN5clang6format19UnwrappedLineParser10parseBlockEbjbbPNS1_10IfStmtKindEbENK3$_0clEv.exit56" ]
+  %306 = load ptr, ptr %0, align 8, !tbaa !95
+  %307 = getelementptr inbounds nuw i8, ptr %306, i64 24
+  store i32 %82, ptr %307, align 8, !tbaa !20
+  %308 = getelementptr inbounds nuw i8, ptr %305, i64 16
+  %309 = load i16, ptr %308, align 8, !tbaa !45
+  %310 = icmp eq i16 %309, 162
+  br i1 %310, label %311, label %312
 
-308:                                              ; preds = %301
+311:                                              ; preds = %304
   call void @_ZN5clang6format19UnwrappedLineParser9nextTokenEi(ptr noundef nonnull align 8 dereferenceable(3600) %0, i32 noundef 0)
   %.pre82 = load ptr, ptr %22, align 8, !tbaa !214
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre82, i64 16
   %.pre83 = load i16, ptr %.phi.trans.insert, align 8, !tbaa !45
-  br label %309
+  br label %312
 
-309:                                              ; preds = %308, %301
-  %310 = phi i16 [ %.pre83, %308 ], [ %306, %301 ]
-  %311 = icmp eq i16 %310, 37
-  br i1 %311, label %312, label %313
+312:                                              ; preds = %311, %304
+  %313 = phi i16 [ %.pre83, %311 ], [ %309, %304 ]
+  %314 = icmp eq i16 %313, 37
+  br i1 %314, label %315, label %316
 
-312:                                              ; preds = %309
+315:                                              ; preds = %312
   call void @_ZN5clang6format19UnwrappedLineParser9nextTokenEi(ptr noundef nonnull align 8 dereferenceable(3600) %0, i32 noundef 0)
   call void @_ZN5clang6format19UnwrappedLineParser22parseStructuralElementEPKNS0_11FormatTokenEPNS1_10IfStmtKindEPPS2_PbS9_(ptr noundef nonnull align 8 dereferenceable(3600) %0, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
-  br label %313
+  br label %316
 
-313:                                              ; preds = %312, %309
-  br i1 %3, label %314, label %320
+316:                                              ; preds = %315, %312
+  br i1 %3, label %317, label %323
 
-314:                                              ; preds = %313
-  %315 = load ptr, ptr %22, align 8, !tbaa !214
-  %316 = getelementptr inbounds nuw i8, ptr %315, i64 16
-  %317 = load i16, ptr %316, align 8, !tbaa !45
-  %318 = icmp eq i16 %317, 63
-  br i1 %318, label %319, label %320
+317:                                              ; preds = %316
+  %318 = load ptr, ptr %22, align 8, !tbaa !214
+  %319 = getelementptr inbounds nuw i8, ptr %318, i64 16
+  %320 = load i16, ptr %319, align 8, !tbaa !45
+  %321 = icmp eq i16 %320, 63
+  br i1 %321, label %322, label %323
 
-319:                                              ; preds = %314
+322:                                              ; preds = %317
   call void @_ZN5clang6format19UnwrappedLineParser9nextTokenEi(ptr noundef nonnull align 8 dereferenceable(3600) %0, i32 noundef 0)
-  br label %320
+  br label %323
 
-320:                                              ; preds = %319, %314, %313
-  %321 = icmp eq i64 %.013.lcssa.i, %.013.lcssa.i54
-  br i1 %321, label %322, label %333
+323:                                              ; preds = %322, %317, %316
+  %324 = icmp eq i64 %.013.lcssa.i, %.013.lcssa.i54
+  br i1 %324, label %325, label %336
 
-322:                                              ; preds = %320
-  %323 = load ptr, ptr %0, align 8, !tbaa !95
-  %324 = getelementptr inbounds nuw i8, ptr %323, i64 48
-  store i64 %127, ptr %324, align 8, !tbaa !430
+325:                                              ; preds = %323
+  %326 = load ptr, ptr %0, align 8, !tbaa !95
+  %327 = getelementptr inbounds nuw i8, ptr %326, i64 48
+  store i64 %127, ptr %327, align 8, !tbaa !430
   %.not41 = icmp eq i64 %127, -1
-  br i1 %.not41, label %333, label %325
+  br i1 %.not41, label %336, label %328
 
-325:                                              ; preds = %322
-  %326 = load ptr, ptr %33, align 8, !tbaa !216
-  %327 = getelementptr inbounds nuw i8, ptr %326, i64 8
-  %328 = load i32, ptr %327, align 8, !tbaa !80
-  %329 = zext i32 %328 to i64
-  %330 = add nsw i64 %329, -1
-  %331 = load ptr, ptr %326, align 8, !tbaa !79
-  %332 = getelementptr inbounds nuw %"struct.clang::format::UnwrappedLine", ptr %331, i64 %127, i32 13
-  store i64 %330, ptr %332, align 8, !tbaa !456
-  br label %333
+328:                                              ; preds = %325
+  %329 = load ptr, ptr %33, align 8, !tbaa !216
+  %330 = getelementptr inbounds nuw i8, ptr %329, i64 8
+  %331 = load i32, ptr %330, align 8, !tbaa !80
+  %332 = zext i32 %331 to i64
+  %333 = add nsw i64 %332, -1
+  %334 = load ptr, ptr %329, align 8, !tbaa !79
+  %335 = getelementptr inbounds nuw %"struct.clang::format::UnwrappedLine", ptr %334, i64 %127, i32 13
+  store i64 %333, ptr %335, align 8, !tbaa !456
+  br label %336
 
-333:                                              ; preds = %320, %325, %322, %145, %156
-  %.1 = load ptr, ptr %8, align 8, !tbaa !334
+336:                                              ; preds = %323, %328, %325, %158, %151
+  %.1 = phi ptr [ %152, %151 ], [ %165, %158 ], [ %196, %325 ], [ %196, %328 ], [ %196, %323 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
   call fastcc void @_ZN5clang6format12_GLOBAL__N_122ScopedDeclarationStateD2Ev(ptr nonnull %.pre, ptr nonnull %133) #22
-  br label %334
+  br label %337
 
-334:                                              ; preds = %"_ZZN5clang6format19UnwrappedLineParser10parseBlockEbjbbPNS1_10IfStmtKindEbENK3$_0clEv.exit", %333
-  %.0 = phi ptr [ %.1, %333 ], [ null, %"_ZZN5clang6format19UnwrappedLineParser10parseBlockEbjbbPNS1_10IfStmtKindEbENK3$_0clEv.exit" ]
+337:                                              ; preds = %"_ZZN5clang6format19UnwrappedLineParser10parseBlockEbjbbPNS1_10IfStmtKindEbENK3$_0clEv.exit", %336
+  %.0 = phi ptr [ %.1, %336 ], [ null, %"_ZZN5clang6format19UnwrappedLineParser10parseBlockEbjbbPNS1_10IfStmtKindEbENK3$_0clEv.exit" ]
   ret ptr %.0
 }
 

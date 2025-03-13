@@ -863,175 +863,163 @@ tree_add_auth_node.exit44.thread52.i:             ; preds = %tree_add_auth_node.
 
 ._crit_edge59.i:                                  ; preds = %._crit_edge.i32, %.lr.ph58.i, %tree_add_auth_node.exit.thread47.i
   %336 = icmp eq ptr %.027.i, %6
-  br i1 %336, label %._crit_edge59.i.tree_calculate_authority_set.exit_crit_edge, label %337
+  %.140 = select i1 %336, ptr %6, ptr %297
+  %337 = load ptr, ptr %.140, align 8, !tbaa !35
+  %338 = call i64 @sk_num(ptr noundef %3) #8
+  %339 = icmp eq i64 %338, 0
+  br i1 %339, label %.loopexit, label %340
 
-._crit_edge59.i.tree_calculate_authority_set.exit_crit_edge: ; preds = %._crit_edge59.i
-  %.pre115 = load ptr, ptr %6, align 8, !tbaa !35
-  br label %tree_calculate_authority_set.exit
-
-337:                                              ; preds = %._crit_edge59.i
-  %338 = load ptr, ptr %297, align 8, !tbaa !6
-  store ptr %338, ptr %6, align 8, !tbaa !35
-  br label %tree_calculate_authority_set.exit
-
-tree_calculate_authority_set.exit:                ; preds = %._crit_edge59.i.tree_calculate_authority_set.exit_crit_edge, %337
-  %339 = phi ptr [ %.pre115, %._crit_edge59.i.tree_calculate_authority_set.exit_crit_edge ], [ %338, %337 ]
-  %340 = call i64 @sk_num(ptr noundef %3) #8
-  %341 = icmp eq i64 %340, 0
-  br i1 %341, label %.loopexit, label %342
-
-342:                                              ; preds = %tree_calculate_authority_set.exit
-  %343 = load ptr, ptr %48, align 8, !tbaa !17
-  %344 = load i32, ptr %52, align 8, !tbaa !16
-  %345 = sext i32 %344 to i64
-  %346 = getelementptr %struct.X509_POLICY_LEVEL_st, ptr %343, i64 %345
-  %347 = getelementptr i8, ptr %346, i64 -16
-  %348 = load ptr, ptr %347, align 8, !tbaa !23
-  %.fr.i = freeze ptr %348
-  %349 = call i64 @sk_num(ptr noundef %3) #8
-  %.not54.i = icmp eq i64 %349, 0
+340:                                              ; preds = %._crit_edge59.i
+  %341 = load ptr, ptr %48, align 8, !tbaa !17
+  %342 = load i32, ptr %52, align 8, !tbaa !16
+  %343 = sext i32 %342 to i64
+  %344 = getelementptr %struct.X509_POLICY_LEVEL_st, ptr %341, i64 %343
+  %345 = getelementptr i8, ptr %344, i64 -16
+  %346 = load ptr, ptr %345, align 8, !tbaa !23
+  %.fr.i = freeze ptr %346
+  %347 = call i64 @sk_num(ptr noundef %3) #8
+  %.not54.i = icmp eq i64 %347, 0
   br i1 %.not54.i, label %.preheader.i35, label %.lr.ph.i34
 
-350:                                              ; preds = %.lr.ph.i34
-  %351 = add nuw i64 %.03343.i, 1
-  %352 = call i64 @sk_num(ptr noundef %3) #8
-  %353 = icmp ult i64 %351, %352
-  br i1 %353, label %.lr.ph.i34, label %.preheader.i35, !llvm.loop !78
+348:                                              ; preds = %.lr.ph.i34
+  %349 = add nuw i64 %.03343.i, 1
+  %350 = call i64 @sk_num(ptr noundef %3) #8
+  %351 = icmp ult i64 %349, %350
+  br i1 %351, label %.lr.ph.i34, label %.preheader.i35, !llvm.loop !78
 
-.preheader.i35:                                   ; preds = %350, %342
-  %354 = call i64 @sk_num(ptr noundef %3) #8
-  %.not55.i = icmp eq i64 %354, 0
+.preheader.i35:                                   ; preds = %348, %340
+  %352 = call i64 @sk_num(ptr noundef %3) #8
+  %.not55.i = icmp eq i64 %352, 0
   br i1 %.not55.i, label %.loopexit, label %.lr.ph45.i
 
 .lr.ph45.i:                                       ; preds = %.preheader.i35
   %.not38.i = icmp eq ptr %.fr.i, null
-  %355 = getelementptr inbounds nuw i8, ptr %.fr.i, i64 8
-  %356 = getelementptr inbounds nuw i8, ptr %48, i64 32
+  %353 = getelementptr inbounds nuw i8, ptr %.fr.i, i64 8
+  %354 = getelementptr inbounds nuw i8, ptr %48, i64 32
   br i1 %.not38.i, label %.lr.ph45.split.us.i, label %.lr.ph45.split.i
 
-.lr.ph45.split.us.i:                              ; preds = %.lr.ph45.i, %366
-  %.144.us.i = phi i64 [ %367, %366 ], [ 0, %.lr.ph45.i ]
-  %357 = call ptr @sk_value(ptr noundef %3, i64 noundef %.144.us.i) #8
-  %358 = call ptr @tree_find_sk(ptr noundef %339, ptr noundef %357) #8
-  %.not.us.i = icmp eq ptr %358, null
-  br i1 %.not.us.i, label %366, label %359
+.lr.ph45.split.us.i:                              ; preds = %.lr.ph45.i, %364
+  %.144.us.i = phi i64 [ %365, %364 ], [ 0, %.lr.ph45.i ]
+  %355 = call ptr @sk_value(ptr noundef %3, i64 noundef %.144.us.i) #8
+  %356 = call ptr @tree_find_sk(ptr noundef %337, ptr noundef %355) #8
+  %.not.us.i = icmp eq ptr %356, null
+  br i1 %.not.us.i, label %364, label %357
 
-359:                                              ; preds = %.lr.ph45.split.us.i
-  %360 = load ptr, ptr %356, align 8, !tbaa !15
-  %.not40.us.i = icmp eq ptr %360, null
-  br i1 %.not40.us.i, label %361, label %363
+357:                                              ; preds = %.lr.ph45.split.us.i
+  %358 = load ptr, ptr %354, align 8, !tbaa !15
+  %.not40.us.i = icmp eq ptr %358, null
+  br i1 %.not40.us.i, label %359, label %361
 
-361:                                              ; preds = %359
-  %362 = call ptr @sk_new_null() #8
-  store ptr %362, ptr %356, align 8, !tbaa !15
-  %.not41.us.i = icmp eq ptr %362, null
-  br i1 %.not41.us.i, label %.loopexit, label %363
+359:                                              ; preds = %357
+  %360 = call ptr @sk_new_null() #8
+  store ptr %360, ptr %354, align 8, !tbaa !15
+  %.not41.us.i = icmp eq ptr %360, null
+  br i1 %.not41.us.i, label %.loopexit, label %361
 
-363:                                              ; preds = %361, %359
-  %364 = phi ptr [ %362, %361 ], [ %360, %359 ]
-  %365 = call i64 @sk_push(ptr noundef nonnull %364, ptr noundef nonnull %358) #8
-  %.not42.us.i = icmp eq i64 %365, 0
-  br i1 %.not42.us.i, label %tree_calculate_user_set.exit, label %366
+361:                                              ; preds = %359, %357
+  %362 = phi ptr [ %360, %359 ], [ %358, %357 ]
+  %363 = call i64 @sk_push(ptr noundef nonnull %362, ptr noundef nonnull %356) #8
+  %.not42.us.i = icmp eq i64 %363, 0
+  br i1 %.not42.us.i, label %tree_calculate_user_set.exit, label %364
 
-366:                                              ; preds = %363, %.lr.ph45.split.us.i
-  %367 = add nuw i64 %.144.us.i, 1
-  %368 = call i64 @sk_num(ptr noundef %3) #8
-  %369 = icmp ult i64 %367, %368
-  br i1 %369, label %.lr.ph45.split.us.i, label %.loopexit, !llvm.loop !79
+364:                                              ; preds = %361, %.lr.ph45.split.us.i
+  %365 = add nuw i64 %.144.us.i, 1
+  %366 = call i64 @sk_num(ptr noundef %3) #8
+  %367 = icmp ult i64 %365, %366
+  br i1 %367, label %.lr.ph45.split.us.i, label %.loopexit, !llvm.loop !79
 
-.lr.ph.i34:                                       ; preds = %342, %350
-  %.03343.i = phi i64 [ %351, %350 ], [ 0, %342 ]
-  %370 = call ptr @sk_value(ptr noundef %3, i64 noundef %.03343.i) #8
-  %371 = call i32 @OBJ_obj2nid(ptr noundef %370) #8
-  %372 = icmp eq i32 %371, 746
-  br i1 %372, label %373, label %350
+.lr.ph.i34:                                       ; preds = %340, %348
+  %.03343.i = phi i64 [ %349, %348 ], [ 0, %340 ]
+  %368 = call ptr @sk_value(ptr noundef %3, i64 noundef %.03343.i) #8
+  %369 = call i32 @OBJ_obj2nid(ptr noundef %368) #8
+  %370 = icmp eq i32 %369, 746
+  br i1 %370, label %371, label %348
 
-373:                                              ; preds = %.lr.ph.i34
-  %374 = load i32, ptr %50, align 8, !tbaa !58
-  %375 = or i32 %374, 2
-  store i32 %375, ptr %50, align 8, !tbaa !58
+371:                                              ; preds = %.lr.ph.i34
+  %372 = load i32, ptr %50, align 8, !tbaa !58
+  %373 = or i32 %372, 2
+  store i32 %373, ptr %50, align 8, !tbaa !58
   br label %.loopexit
 
-.lr.ph45.split.i:                                 ; preds = %.lr.ph45.i, %397
-  %.144.i = phi i64 [ %398, %397 ], [ 0, %.lr.ph45.i ]
-  %376 = call ptr @sk_value(ptr noundef %3, i64 noundef %.144.i) #8
-  %377 = call ptr @tree_find_sk(ptr noundef %339, ptr noundef %376) #8
-  %.not.i36 = icmp eq ptr %377, null
-  br i1 %.not.i36, label %378, label %390
+.lr.ph45.split.i:                                 ; preds = %.lr.ph45.i, %395
+  %.144.i = phi i64 [ %396, %395 ], [ 0, %.lr.ph45.i ]
+  %374 = call ptr @sk_value(ptr noundef %3, i64 noundef %.144.i) #8
+  %375 = call ptr @tree_find_sk(ptr noundef %337, ptr noundef %374) #8
+  %.not.i36 = icmp eq ptr %375, null
+  br i1 %.not.i36, label %376, label %388
 
-378:                                              ; preds = %.lr.ph45.split.i
-  %379 = load ptr, ptr %.fr.i, align 8, !tbaa !27
-  %380 = load i32, ptr %379, align 8, !tbaa !30
-  %381 = and i32 %380, 16
-  %382 = call ptr @policy_data_new(ptr noundef null, ptr noundef %376, i32 noundef %381) #8
-  %.not39.i = icmp eq ptr %382, null
-  br i1 %.not39.i, label %tree_calculate_user_set.exit, label %383
+376:                                              ; preds = %.lr.ph45.split.i
+  %377 = load ptr, ptr %.fr.i, align 8, !tbaa !27
+  %378 = load i32, ptr %377, align 8, !tbaa !30
+  %379 = and i32 %378, 16
+  %380 = call ptr @policy_data_new(ptr noundef null, ptr noundef %374, i32 noundef %379) #8
+  %.not39.i = icmp eq ptr %380, null
+  br i1 %.not39.i, label %tree_calculate_user_set.exit, label %381
 
-383:                                              ; preds = %378
-  %384 = load ptr, ptr %.fr.i, align 8, !tbaa !27
-  %385 = getelementptr inbounds nuw i8, ptr %384, i64 16
-  %386 = load ptr, ptr %385, align 8, !tbaa !68
-  %387 = getelementptr inbounds nuw i8, ptr %382, i64 16
-  store ptr %386, ptr %387, align 8, !tbaa !68
-  store i32 12, ptr %382, align 8, !tbaa !30
-  %388 = load ptr, ptr %355, align 8, !tbaa !72
-  %389 = call ptr @level_add_node(ptr noundef null, ptr noundef nonnull %382, ptr noundef %388, ptr noundef nonnull %48) #8
-  br label %390
+381:                                              ; preds = %376
+  %382 = load ptr, ptr %.fr.i, align 8, !tbaa !27
+  %383 = getelementptr inbounds nuw i8, ptr %382, i64 16
+  %384 = load ptr, ptr %383, align 8, !tbaa !68
+  %385 = getelementptr inbounds nuw i8, ptr %380, i64 16
+  store ptr %384, ptr %385, align 8, !tbaa !68
+  store i32 12, ptr %380, align 8, !tbaa !30
+  %386 = load ptr, ptr %353, align 8, !tbaa !72
+  %387 = call ptr @level_add_node(ptr noundef null, ptr noundef nonnull %380, ptr noundef %386, ptr noundef nonnull %48) #8
+  br label %388
 
-390:                                              ; preds = %383, %.lr.ph45.split.i
-  %.034.i = phi ptr [ %377, %.lr.ph45.split.i ], [ %389, %383 ]
-  %391 = load ptr, ptr %356, align 8, !tbaa !15
-  %.not40.i = icmp eq ptr %391, null
-  br i1 %.not40.i, label %392, label %394
+388:                                              ; preds = %381, %.lr.ph45.split.i
+  %.034.i = phi ptr [ %375, %.lr.ph45.split.i ], [ %387, %381 ]
+  %389 = load ptr, ptr %354, align 8, !tbaa !15
+  %.not40.i = icmp eq ptr %389, null
+  br i1 %.not40.i, label %390, label %392
 
-392:                                              ; preds = %390
-  %393 = call ptr @sk_new_null() #8
-  store ptr %393, ptr %356, align 8, !tbaa !15
-  %.not41.i = icmp eq ptr %393, null
-  br i1 %.not41.i, label %.loopexit, label %394
+390:                                              ; preds = %388
+  %391 = call ptr @sk_new_null() #8
+  store ptr %391, ptr %354, align 8, !tbaa !15
+  %.not41.i = icmp eq ptr %391, null
+  br i1 %.not41.i, label %.loopexit, label %392
 
-394:                                              ; preds = %392, %390
-  %395 = phi ptr [ %393, %392 ], [ %391, %390 ]
-  %396 = call i64 @sk_push(ptr noundef nonnull %395, ptr noundef %.034.i) #8
-  %.not42.i = icmp eq i64 %396, 0
-  br i1 %.not42.i, label %tree_calculate_user_set.exit, label %397
+392:                                              ; preds = %390, %388
+  %393 = phi ptr [ %391, %390 ], [ %389, %388 ]
+  %394 = call i64 @sk_push(ptr noundef nonnull %393, ptr noundef %.034.i) #8
+  %.not42.i = icmp eq i64 %394, 0
+  br i1 %.not42.i, label %tree_calculate_user_set.exit, label %395
 
-397:                                              ; preds = %394
-  %398 = add nuw i64 %.144.i, 1
-  %399 = call i64 @sk_num(ptr noundef %3) #8
-  %400 = icmp ult i64 %398, %399
-  br i1 %400, label %.lr.ph45.split.i, label %.loopexit, !llvm.loop !79
+395:                                              ; preds = %392
+  %396 = add nuw i64 %.144.i, 1
+  %397 = call i64 @sk_num(ptr noundef %3) #8
+  %398 = icmp ult i64 %396, %397
+  br i1 %398, label %.lr.ph45.split.i, label %.loopexit, !llvm.loop !79
 
-.loopexit:                                        ; preds = %392, %397, %361, %366, %373, %tree_calculate_authority_set.exit, %.preheader.i35
-  br i1 %336, label %401, label %403
+.loopexit:                                        ; preds = %390, %395, %359, %364, %371, %._crit_edge59.i, %.preheader.i35
+  br i1 %336, label %399, label %400
 
-401:                                              ; preds = %.loopexit
-  %402 = load ptr, ptr %6, align 8, !tbaa !35
-  call void @sk_free(ptr noundef %402) #8
-  br label %403
+399:                                              ; preds = %.loopexit
+  call void @sk_free(ptr noundef %337) #8
+  br label %400
 
-403:                                              ; preds = %401, %.loopexit
+400:                                              ; preds = %399, %.loopexit
   store ptr %48, ptr %0, align 8, !tbaa !36
-  %404 = load i32, ptr %1, align 4, !tbaa !38
-  %.not24 = icmp eq i32 %404, 0
-  br i1 %.not24, label %409, label %405
+  %401 = load i32, ptr %1, align 4, !tbaa !38
+  %.not24 = icmp eq i32 %401, 0
+  br i1 %.not24, label %406, label %402
 
-405:                                              ; preds = %403
-  %406 = call ptr @X509_policy_tree_get0_user_policies(ptr noundef nonnull %48) #8
-  %407 = call i64 @sk_num(ptr noundef %406) #8
-  %408 = icmp eq i64 %407, 0
-  br i1 %408, label %.thread66, label %409
+402:                                              ; preds = %400
+  %403 = call ptr @X509_policy_tree_get0_user_policies(ptr noundef nonnull %48) #8
+  %404 = call i64 @sk_num(ptr noundef %403) #8
+  %405 = icmp eq i64 %404, 0
+  br i1 %405, label %.thread66, label %406
 
-409:                                              ; preds = %405, %403
+406:                                              ; preds = %402, %400
   br label %.thread66
 
-tree_calculate_user_set.exit:                     ; preds = %223, %144, %170, %135, %201, %323, %tree_add_auth_node.exit44.i, %394, %378, %363, %300, %tree_add_auth_node.exit.i, %tree_add_unmatched.exit.sink.split.i.i.i, %tree_init.exit
-  %.04549 = phi ptr [ null, %tree_init.exit ], [ %48, %tree_add_unmatched.exit.sink.split.i.i.i ], [ %48, %tree_add_auth_node.exit.i ], [ %48, %300 ], [ %48, %363 ], [ %48, %378 ], [ %48, %394 ], [ %48, %tree_add_auth_node.exit44.i ], [ %48, %323 ], [ %48, %201 ], [ %48, %135 ], [ %48, %170 ], [ %48, %144 ], [ %48, %223 ]
+tree_calculate_user_set.exit:                     ; preds = %223, %144, %170, %135, %201, %323, %tree_add_auth_node.exit44.i, %392, %376, %361, %300, %tree_add_auth_node.exit.i, %tree_add_unmatched.exit.sink.split.i.i.i, %tree_init.exit
+  %.04549 = phi ptr [ null, %tree_init.exit ], [ %48, %tree_add_unmatched.exit.sink.split.i.i.i ], [ %48, %tree_add_auth_node.exit.i ], [ %48, %300 ], [ %48, %361 ], [ %48, %376 ], [ %48, %392 ], [ %48, %tree_add_auth_node.exit44.i ], [ %48, %323 ], [ %48, %201 ], [ %48, %135 ], [ %48, %170 ], [ %48, %144 ], [ %48, %223 ]
   call void @X509_policy_tree_free(ptr noundef %.04549)
   br label %.thread66
 
-.thread66:                                        ; preds = %5, %405, %tree_evaluate.exit, %tree_init.exit, %tree_calculate_user_set.exit, %409, %tree_init.exit.thread57, %tree_init.exit.thread, %113
-  %.0 = phi i32 [ 0, %tree_calculate_user_set.exit ], [ 1, %409 ], [ -2, %tree_init.exit.thread57 ], [ 0, %tree_init.exit.thread ], [ -1, %113 ], [ %., %tree_evaluate.exit ], [ -2, %405 ], [ 1, %5 ], [ 1, %tree_init.exit ]
+.thread66:                                        ; preds = %5, %402, %tree_evaluate.exit, %tree_init.exit, %tree_calculate_user_set.exit, %406, %tree_init.exit.thread57, %tree_init.exit.thread, %113
+  %.0 = phi i32 [ 0, %tree_calculate_user_set.exit ], [ 1, %406 ], [ -2, %tree_init.exit.thread57 ], [ 0, %tree_init.exit.thread ], [ -1, %113 ], [ %., %tree_evaluate.exit ], [ -2, %402 ], [ 1, %5 ], [ 1, %tree_init.exit ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
   ret i32 %.0
 }

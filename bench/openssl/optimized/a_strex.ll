@@ -574,20 +574,18 @@ do_dump.exit:                                     ; preds = %.thread96, %do_hex_
   br i1 %103, label %.thread, label %104
 
 104:                                              ; preds = %99
-  %105 = load i8, ptr %9, align 1, !tbaa !7
-  %.not81 = icmp eq i8 %105, 0
-  br i1 %.not81, label %108, label %106
+  br i1 %.not77, label %107, label %105
 
-106:                                              ; preds = %104
-  %107 = call i32 %0(ptr noundef nonnull %1, ptr noundef nonnull @.str.11, i32 noundef 1) #8, !callees !5
-  %.not82 = icmp eq i32 %107, 0
-  br i1 %.not82, label %.thread, label %108
+105:                                              ; preds = %104
+  %106 = call i32 %0(ptr noundef nonnull %1, ptr noundef nonnull @.str.11, i32 noundef 1) #8, !callees !5
+  %.not82 = icmp eq i32 %106, 0
+  br i1 %.not82, label %.thread, label %107
 
-108:                                              ; preds = %106, %104
+107:                                              ; preds = %105, %104
   br label %.thread
 
-.thread:                                          ; preds = %15, %do_dump.exit, %106, %99, %97, %92, %.thread102, %20, %108
-  %.1 = phi i32 [ %spec.select87, %108 ], [ -1, %20 ], [ -1, %.thread102 ], [ %spec.select87, %92 ], [ -1, %97 ], [ -1, %99 ], [ -1, %106 ], [ %spec.select90, %do_dump.exit ], [ -1, %15 ]
+.thread:                                          ; preds = %15, %do_dump.exit, %105, %99, %97, %92, %.thread102, %20, %107
+  %.1 = phi i32 [ %spec.select87, %107 ], [ -1, %20 ], [ -1, %.thread102 ], [ %spec.select87, %92 ], [ -1, %97 ], [ -1, %99 ], [ -1, %105 ], [ %spec.select90, %do_dump.exit ], [ -1, %15 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #8
   ret i32 %.1
 }

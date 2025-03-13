@@ -104779,9 +104779,8 @@ define hidden { i64, ptr } @"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u
   %24 = add i64 %.sroa.0.0.sroa.speculated.i.i6.i, %10
   store i64 %24, ptr %5, align 8, !alias.scope !26696, !noalias !26699
   %25 = add i64 %.sroa.0.0.sroa.speculated.i.i6.i, %.sroa.01.0
-  %26 = load i64, ptr %17, align 8, !noundef !4
-  %27 = icmp ugt i64 %26, %.sroa.0.0.sroa.speculated.i.i6.i
-  br i1 %27, label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hde7ce7716f535d77E.exit.thread", label %9
+  %26 = icmp ult i64 %19, %18
+  br i1 %26, label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hde7ce7716f535d77E.exit.thread", label %9
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind nonlazybind uwtable
@@ -104836,9 +104835,8 @@ define hidden { i64, ptr } @"_ZN66_$LT$std..io..cursor..Cursor$LT$T$GT$$u20$as$u
   %25 = add i64 %.sroa.0.0.sroa.speculated.i.i6.i, %11
   store i64 %25, ptr %5, align 8, !alias.scope !26714, !noalias !26717
   %26 = add i64 %.sroa.0.0.sroa.speculated.i.i6.i, %.sroa.01.0
-  %27 = load i64, ptr %18, align 8, !noundef !4
-  %28 = icmp ugt i64 %27, %.sroa.0.0.sroa.speculated.i.i6.i
-  br i1 %28, label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hde7ce7716f535d77E.exit.thread", label %10
+  %27 = icmp ult i64 %20, %19
+  br i1 %27, label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hde7ce7716f535d77E.exit.thread", label %10
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn uwtable

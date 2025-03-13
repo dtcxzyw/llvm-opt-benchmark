@@ -11730,16 +11730,16 @@ _ZNSt12_Vector_baseIPKN4Luau4TypeESaIS3_EE11_M_allocateEm.exit.i.i.i: ; preds = 
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEENS1_IPS5_SA_EEET0_T_SF_SE_.exit.i.i
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEENS1_IPS5_SA_EEET0_T_SF_SE_.exit.i.i: ; preds = %_ZNSt12_Vector_baseIPKN4Luau4TypeESaIS3_EE11_M_allocateEm.exit.i.i.i, %3
-  %.sroa.0.1.i = phi ptr [ %13, %_ZNSt12_Vector_baseIPKN4Luau4TypeESaIS3_EE11_M_allocateEm.exit.i.i.i ], [ null, %3 ]
-  %.sroa.14.1.i = phi ptr [ %14, %_ZNSt12_Vector_baseIPKN4Luau4TypeESaIS3_EE11_M_allocateEm.exit.i.i.i ], [ null, %3 ]
-  %15 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i, i64 %10
+  %.sroa.0.0.i = phi ptr [ %13, %_ZNSt12_Vector_baseIPKN4Luau4TypeESaIS3_EE11_M_allocateEm.exit.i.i.i ], [ null, %3 ]
+  %.sroa.12.1.i = phi ptr [ %14, %_ZNSt12_Vector_baseIPKN4Luau4TypeESaIS3_EE11_M_allocateEm.exit.i.i.i ], [ null, %3 ]
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !248
-  store ptr %.sroa.0.1.i, ptr %4, align 8, !tbaa !45
+  store ptr %.sroa.0.0.i, ptr %4, align 8, !tbaa !45
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %15, ptr %18, align 8, !tbaa !49
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %.sroa.14.1.i, ptr %19, align 8, !tbaa !50
+  store ptr %.sroa.12.1.i, ptr %19, align 8, !tbaa !50
   %20 = invoke noundef ptr @_ZN4Luau9TypeArena7addTypeINS_9UnionTypeEEEPKNS_4TypeET_(ptr noundef nonnull align 8 dereferenceable(88) %17, ptr noundef nonnull %4)
           to label %21 unwind label %28
 
@@ -11808,16 +11808,16 @@ _ZNSt12_Vector_baseIPKN4Luau4TypeESaIS3_EE11_M_allocateEm.exit.i.i.i: ; preds = 
   br label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEENS1_IPS5_SA_EEET0_T_SF_SE_.exit.i.i
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPKPKN4Luau4TypeESt6vectorIS5_SaIS5_EEEENS1_IPS5_SA_EEET0_T_SF_SE_.exit.i.i: ; preds = %_ZNSt12_Vector_baseIPKN4Luau4TypeESaIS3_EE11_M_allocateEm.exit.i.i.i, %3
-  %.sroa.0.1.i = phi ptr [ %13, %_ZNSt12_Vector_baseIPKN4Luau4TypeESaIS3_EE11_M_allocateEm.exit.i.i.i ], [ null, %3 ]
-  %.sroa.14.1.i = phi ptr [ %14, %_ZNSt12_Vector_baseIPKN4Luau4TypeESaIS3_EE11_M_allocateEm.exit.i.i.i ], [ null, %3 ]
-  %15 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i, i64 %10
+  %.sroa.0.0.i = phi ptr [ %13, %_ZNSt12_Vector_baseIPKN4Luau4TypeESaIS3_EE11_M_allocateEm.exit.i.i.i ], [ null, %3 ]
+  %.sroa.12.1.i = phi ptr [ %14, %_ZNSt12_Vector_baseIPKN4Luau4TypeESaIS3_EE11_M_allocateEm.exit.i.i.i ], [ null, %3 ]
+  %15 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i, i64 %10
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !248
-  store ptr %.sroa.0.1.i, ptr %4, align 8, !tbaa !45
+  store ptr %.sroa.0.0.i, ptr %4, align 8, !tbaa !45
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %15, ptr %18, align 8, !tbaa !49
   %19 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %.sroa.14.1.i, ptr %19, align 8, !tbaa !50
+  store ptr %.sroa.12.1.i, ptr %19, align 8, !tbaa !50
   %20 = invoke noundef ptr @_ZN4Luau9TypeArena7addTypeINS_16IntersectionTypeEEEPKNS_4TypeET_(ptr noundef nonnull align 8 dereferenceable(88) %17, ptr noundef nonnull %4)
           to label %21 unwind label %28
 

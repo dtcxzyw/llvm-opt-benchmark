@@ -2549,16 +2549,16 @@ entry:
   %finish_on_exit.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   store i8 0, ptr %finish_on_exit.i, align 8
   %cmp.i.not = icmp eq ptr %call, null
-  br i1 %cmp.i.not, label %_ZN4node6crypto13EnginePointeraSEOS1_.exit.thread, label %nrvo.skipdtor
+  br i1 %cmp.i.not, label %if.then, label %nrvo.skipdtor
 
-_ZN4node6crypto13EnginePointeraSEOS1_.exit.thread: ; preds = %entry
+if.then:                                          ; preds = %entry
   %call2 = tail call ptr @ENGINE_by_id(ptr noundef nonnull @.str.73) #25
   store ptr %call2, ptr %agg.result, align 8
   store i8 0, ptr %finish_on_exit.i, align 8
   %cmp.i6.not = icmp eq ptr %call2, null
   br i1 %cmp.i6.not, label %if.end13, label %if.then5
 
-if.then5:                                         ; preds = %_ZN4node6crypto13EnginePointeraSEOS1_.exit.thread
+if.then5:                                         ; preds = %if.then
   %call7 = tail call i32 @ENGINE_ctrl_cmd_string(ptr noundef nonnull %call2, ptr noundef nonnull @.str.74, ptr noundef %id, i32 noundef 0) #25
   %tobool.not = icmp eq i32 %call7, 0
   br i1 %tobool.not, label %do.body10.i, label %lor.lhs.false
@@ -2583,7 +2583,7 @@ _ZN4node6crypto13EnginePointer5resetEP9engine_stb.exit: ; preds = %do.body10.i
   store i8 0, ptr %finish_on_exit.i, align 8
   br label %if.end13
 
-if.end13:                                         ; preds = %_ZN4node6crypto13EnginePointeraSEOS1_.exit.thread, %_ZN4node6crypto13EnginePointer5resetEP9engine_stb.exit
+if.end13:                                         ; preds = %if.then, %_ZN4node6crypto13EnginePointer5resetEP9engine_stb.exit
   %cmp = icmp eq ptr %errors, null
   br i1 %cmp, label %nrvo.skipdtor, label %if.then15
 

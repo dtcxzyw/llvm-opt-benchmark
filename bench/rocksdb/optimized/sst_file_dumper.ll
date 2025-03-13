@@ -6752,7 +6752,7 @@ _ZNSt10unique_ptrIN7rocksdb12TableBuilderESt14default_deleteIS1_EE5resetEPS1_.ex
   br label %_ZNSt10unique_ptrIN7rocksdb20InternalIteratorBaseINS0_5SliceEEESt14default_deleteIS3_EED2Ev.exit71
 
 .loopexit.split-lp:                               ; preds = %174, %274
-  %.sroa.59132.5 = phi ptr [ %263, %274 ], [ %70, %174 ]
+  %.sroa.48122.5 = phi ptr [ %263, %274 ], [ %70, %174 ]
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt10unique_ptrIN7rocksdb20InternalIteratorBaseINS0_5SliceEEESt14default_deleteIS3_EED2Ev.exit71
@@ -7051,7 +7051,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit67: ; preds = %_ZN
   br label %_ZNSt10unique_ptrIN7rocksdb20InternalIteratorBaseINS0_5SliceEEESt14default_deleteIS3_EED2Ev.exit71
 
 _ZNSt10unique_ptrIN7rocksdb20InternalIteratorBaseINS0_5SliceEEESt14default_deleteIS3_EED2Ev.exit: ; preds = %265, %237, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit64
-  %.sroa.59132.2 = phi ptr [ %263, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit64 ], [ null, %265 ], [ null, %237 ]
+  %.sroa.48122.2 = phi ptr [ %263, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit64 ], [ null, %265 ], [ null, %237 ]
   %326 = load ptr, ptr %173, align 8, !tbaa !19
   %327 = getelementptr inbounds nuw i8, ptr %326, i64 8
   %328 = load ptr, ptr %327, align 8
@@ -7071,11 +7071,11 @@ _ZNSt10unique_ptrIN7rocksdb12TableBuilderESt14default_deleteIS1_EED2Ev.exit: ; p
   call void @llvm.lifetime.end.p0(i64 296, ptr nonnull %14) #26
   call void @_ZN7rocksdb22BlockBasedTableOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %13) #26
   call void @llvm.lifetime.end.p0(i64 248, ptr nonnull %13) #26
-  %.not.i.i75 = icmp eq ptr %.sroa.59132.2, null
+  %.not.i.i75 = icmp eq ptr %.sroa.48122.2, null
   br i1 %.not.i.i75, label %_ZN7rocksdb6StatusD2Ev.exit77, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i76
 
 _ZNSt10unique_ptrIN7rocksdb20InternalIteratorBaseINS0_5SliceEEESt14default_deleteIS3_EED2Ev.exit71: ; preds = %.loopexit, %.loopexit.split-lp, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit67, %314, %272, %244, %217
-  %.sroa.59132.3 = phi ptr [ %70, %.loopexit ], [ %70, %217 ], [ %263, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit67 ], [ %263, %314 ], [ %.sroa.59132.5, %.loopexit.split-lp ], [ %235, %272 ], [ %70, %244 ]
+  %.sroa.48122.3 = phi ptr [ %70, %.loopexit ], [ %70, %217 ], [ %263, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit67 ], [ %263, %314 ], [ %.sroa.48122.5, %.loopexit.split-lp ], [ %235, %272 ], [ %70, %244 ]
   %.pn24 = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %.pn22, %217 ], [ %.pn20, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit67 ], [ %315, %314 ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %273, %272 ], [ %245, %244 ]
   %332 = load ptr, ptr %173, align 8, !tbaa !19
   %333 = getelementptr inbounds nuw i8, ptr %332, i64 8
@@ -7084,7 +7084,7 @@ _ZNSt10unique_ptrIN7rocksdb20InternalIteratorBaseINS0_5SliceEEESt14default_delet
   br label %335
 
 335:                                              ; preds = %211, %_ZNSt10unique_ptrIN7rocksdb20InternalIteratorBaseINS0_5SliceEEESt14default_deleteIS3_EED2Ev.exit71
-  %.sroa.59132.1 = phi ptr [ %.sroa.59132.3, %_ZNSt10unique_ptrIN7rocksdb20InternalIteratorBaseINS0_5SliceEEESt14default_deleteIS3_EED2Ev.exit71 ], [ %70, %211 ]
+  %.sroa.48122.1 = phi ptr [ %.sroa.48122.3, %_ZNSt10unique_ptrIN7rocksdb20InternalIteratorBaseINS0_5SliceEEESt14default_deleteIS3_EED2Ev.exit71 ], [ %70, %211 ]
   %.pn24.pn.pn = phi { ptr, i32 } [ %.pn24, %_ZNSt10unique_ptrIN7rocksdb20InternalIteratorBaseINS0_5SliceEEESt14default_deleteIS3_EED2Ev.exit71 ], [ %212, %211 ]
   %.not.i72 = icmp eq ptr %164, null
   br i1 %.not.i72, label %_ZNSt10unique_ptrIN7rocksdb12TableBuilderESt14default_deleteIS1_EED2Ev.exit74, label %_ZNKSt14default_deleteIN7rocksdb12TableBuilderEEclEPS1_.exit.i73
@@ -7097,22 +7097,22 @@ _ZNKSt14default_deleteIN7rocksdb12TableBuilderEEclEPS1_.exit.i73: ; preds = %335
   br label %_ZNSt10unique_ptrIN7rocksdb12TableBuilderESt14default_deleteIS1_EED2Ev.exit74
 
 _ZNSt10unique_ptrIN7rocksdb12TableBuilderESt14default_deleteIS1_EED2Ev.exit74: ; preds = %.thread, %335, %_ZNKSt14default_deleteIN7rocksdb12TableBuilderEEclEPS1_.exit.i73
-  %.sroa.59132.4 = phi ptr [ %.sroa.59132.1, %335 ], [ %.sroa.59132.1, %_ZNKSt14default_deleteIN7rocksdb12TableBuilderEEclEPS1_.exit.i73 ], [ %70, %.thread ]
+  %.sroa.48122.4 = phi ptr [ %.sroa.48122.1, %335 ], [ %.sroa.48122.1, %_ZNKSt14default_deleteIN7rocksdb12TableBuilderEEclEPS1_.exit.i73 ], [ %70, %.thread ]
   %.pn24.pn.pn112 = phi { ptr, i32 } [ %.pn24.pn.pn, %335 ], [ %.pn24.pn.pn, %_ZNKSt14default_deleteIN7rocksdb12TableBuilderEEclEPS1_.exit.i73 ], [ %210, %.thread ]
   call void @_ZN7rocksdb22BlockBasedTableFactoryD2Ev(ptr noundef nonnull align 8 dereferenceable(296) %14) #26
   br label %339
 
 339:                                              ; preds = %_ZNSt10unique_ptrIN7rocksdb12TableBuilderESt14default_deleteIS1_EED2Ev.exit74, %208
-  %.sroa.59132.0 = phi ptr [ %.sroa.59132.4, %_ZNSt10unique_ptrIN7rocksdb12TableBuilderESt14default_deleteIS1_EED2Ev.exit74 ], [ %70, %208 ]
+  %.sroa.48122.0 = phi ptr [ %.sroa.48122.4, %_ZNSt10unique_ptrIN7rocksdb12TableBuilderESt14default_deleteIS1_EED2Ev.exit74 ], [ %70, %208 ]
   %.pn24.pn.pn.pn = phi { ptr, i32 } [ %.pn24.pn.pn112, %_ZNSt10unique_ptrIN7rocksdb12TableBuilderESt14default_deleteIS1_EED2Ev.exit74 ], [ %209, %208 ]
   call void @llvm.lifetime.end.p0(i64 296, ptr nonnull %14) #26
   call void @_ZN7rocksdb22BlockBasedTableOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(248) %13) #26
   call void @llvm.lifetime.end.p0(i64 248, ptr nonnull %13) #26
-  %.not.i.i80 = icmp eq ptr %.sroa.59132.0, null
+  %.not.i.i80 = icmp eq ptr %.sroa.48122.0, null
   br i1 %.not.i.i80, label %_ZNKSt14default_deleteIN7rocksdb3EnvEEclEPS1_.exit.i84, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i81
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i76: ; preds = %_ZNSt10unique_ptrIN7rocksdb12TableBuilderESt14default_deleteIS1_EED2Ev.exit
-  call void @_ZdaPv(ptr noundef nonnull %.sroa.59132.2) #27
+  call void @_ZdaPv(ptr noundef nonnull %.sroa.48122.2) #27
   br label %_ZN7rocksdb6StatusD2Ev.exit77
 
 _ZN7rocksdb6StatusD2Ev.exit77:                    ; preds = %_ZN7rocksdb6StatusC2EOS0_.exit35.thread, %_ZNSt10unique_ptrIN7rocksdb12TableBuilderESt14default_deleteIS1_EED2Ev.exit, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i76
@@ -7134,7 +7134,7 @@ _ZNSt10unique_ptrIN7rocksdb3EnvESt14default_deleteIS1_EED2Ev.exit: ; preds = %_Z
   ret void
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i81: ; preds = %339
-  call void @_ZdaPv(ptr noundef nonnull %.sroa.59132.0) #27
+  call void @_ZdaPv(ptr noundef nonnull %.sroa.48122.0) #27
   br label %_ZNKSt14default_deleteIN7rocksdb3EnvEEclEPS1_.exit.i84
 
 _ZNKSt14default_deleteIN7rocksdb3EnvEEclEPS1_.exit.i84: ; preds = %339, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i81, %.thread115

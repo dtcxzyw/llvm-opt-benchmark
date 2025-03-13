@@ -123,72 +123,67 @@ define internal range(i32 0, 2) i32 @test_rsa_oaep(i32 noundef %0) #0 {
   store i32 0, ptr %5, align 4, !tbaa !9
   %6 = call fastcc i32 @test_rsa_simple(i32 noundef %0, i32 noundef 4, i32 noundef 4, ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef nonnull %2)
   %.not = icmp eq i32 %6, 0
+  %.pre = load ptr, ptr %2, align 8, !tbaa !4
   br i1 %.not, label %.loopexit, label %7
 
 7:                                                ; preds = %1
   %8 = load i32, ptr %5, align 4, !tbaa !9
-  %9 = load ptr, ptr %2, align 8, !tbaa !4
-  %10 = call i32 @RSA_private_decrypt(i32 noundef %8, ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef %9, i32 noundef 4) #5
-  %11 = icmp slt i32 %10, 1
-  br i1 %11, label %.loopexit, label %12
+  %9 = call i32 @RSA_private_decrypt(i32 noundef %8, ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef %.pre, i32 noundef 4) #5
+  %10 = icmp slt i32 %9, 1
+  br i1 %10, label %.loopexit, label %11
 
-12:                                               ; preds = %7
-  %13 = zext nneg i32 %10 to i64
-  %14 = call i32 @test_mem_eq(ptr noundef nonnull @.str.5, i32 noundef 302, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull %3, i64 noundef %13, ptr noundef nonnull @test_rsa_oaep.ptext_ex, i64 noundef 8) #5
-  %.not16 = icmp eq i32 %14, 0
+11:                                               ; preds = %7
+  %12 = zext nneg i32 %9 to i64
+  %13 = call i32 @test_mem_eq(ptr noundef nonnull @.str.5, i32 noundef 302, ptr noundef nonnull @.str.9, ptr noundef nonnull @.str.10, ptr noundef nonnull %3, i64 noundef %12, ptr noundef nonnull @test_rsa_oaep.ptext_ex, i64 noundef 8) #5
+  %.not16 = icmp eq i32 %13, 0
   br i1 %.not16, label %.loopexit, label %.preheader19
 
-.preheader19:                                     ; preds = %12
-  %15 = load i32, ptr %5, align 4, !tbaa !9
-  %16 = icmp sgt i32 %15, 0
-  br i1 %16, label %.lr.ph, label %.preheader
+.preheader19:                                     ; preds = %11
+  %14 = icmp sgt i32 %8, 0
+  br i1 %14, label %.lr.ph.preheader, label %.preheader
 
-.preheader:                                       ; preds = %26, %.preheader19
-  %17 = phi i32 [ %15, %.preheader19 ], [ %29, %26 ]
-  %18 = icmp sgt i32 %17, -1
-  br i1 %18, label %.lr.ph23, label %.loopexit
+.lr.ph.preheader:                                 ; preds = %.preheader19
+  %wide.trip.count = zext nneg i32 %8 to i64
+  br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader19, %26
-  %indvars.iv = phi i64 [ %indvars.iv.next, %26 ], [ 0, %.preheader19 ]
-  %19 = phi i32 [ %29, %26 ], [ %15, %.preheader19 ]
-  %20 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %indvars.iv
-  %21 = load i8, ptr %20, align 1, !tbaa !11
-  %22 = xor i8 %21, 1
-  store i8 %22, ptr %20, align 1, !tbaa !11
-  %23 = load ptr, ptr %2, align 8, !tbaa !4
-  %24 = call i32 @RSA_private_decrypt(i32 noundef %19, ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef %23, i32 noundef 4) #5
-  %25 = call i32 @test_int_le(ptr noundef nonnull @.str.5, i32 noundef 310, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.8, i32 noundef %24, i32 noundef 0) #5
-  %.not18 = icmp eq i32 %25, 0
-  br i1 %.not18, label %.loopexit, label %26
+.preheader:                                       ; preds = %21, %.preheader19
+  %15 = icmp sgt i32 %8, -1
+  br i1 %15, label %.lr.ph23, label %.loopexit
 
-26:                                               ; preds = %.lr.ph
-  %27 = load i8, ptr %20, align 1, !tbaa !11
-  %28 = xor i8 %27, 1
-  store i8 %28, ptr %20, align 1, !tbaa !11
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %21
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %21 ]
+  %16 = getelementptr inbounds nuw [256 x i8], ptr %4, i64 0, i64 %indvars.iv
+  %17 = load i8, ptr %16, align 1, !tbaa !11
+  %18 = xor i8 %17, 1
+  store i8 %18, ptr %16, align 1, !tbaa !11
+  %19 = call i32 @RSA_private_decrypt(i32 noundef %8, ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef %.pre, i32 noundef 4) #5
+  %20 = call i32 @test_int_le(ptr noundef nonnull @.str.5, i32 noundef 310, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.8, i32 noundef %19, i32 noundef 0) #5
+  %.not18 = icmp eq i32 %20, 0
+  br i1 %.not18, label %.loopexit, label %21
+
+21:                                               ; preds = %.lr.ph
+  %22 = load i8, ptr %16, align 1, !tbaa !11
+  %23 = xor i8 %22, 1
+  store i8 %23, ptr %16, align 1, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %29 = load i32, ptr %5, align 4, !tbaa !9
-  %30 = sext i32 %29 to i64
-  %31 = icmp slt i64 %indvars.iv.next, %30
-  br i1 %31, label %.lr.ph, label %.preheader, !llvm.loop !12
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
+  br i1 %exitcond.not, label %.preheader, label %.lr.ph, !llvm.loop !12
 
-32:                                               ; preds = %.lr.ph23
-  %33 = add nsw i32 %.122, 1
-  %34 = load i32, ptr %5, align 4, !tbaa !9
-  %35 = icmp slt i32 %33, %34
-  br i1 %35, label %.lr.ph23, label %.loopexit, !llvm.loop !14
+24:                                               ; preds = %.lr.ph23
+  %25 = add nsw i32 %.122, 1
+  %exitcond28.not = icmp eq i32 %25, %8
+  br i1 %exitcond28.not, label %.loopexit, label %.lr.ph23, !llvm.loop !14
 
-.lr.ph23:                                         ; preds = %.preheader, %32
-  %.122 = phi i32 [ %33, %32 ], [ -1, %.preheader ]
-  %36 = load ptr, ptr %2, align 8, !tbaa !4
-  %37 = call i32 @RSA_private_decrypt(i32 noundef %.122, ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef %36, i32 noundef 4) #5
-  %38 = call i32 @test_int_le(ptr noundef nonnull @.str.5, i32 noundef 319, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.8, i32 noundef %37, i32 noundef 0) #5
-  %.not17 = icmp eq i32 %38, 0
-  br i1 %.not17, label %.loopexit, label %32
+.lr.ph23:                                         ; preds = %.preheader, %24
+  %.122 = phi i32 [ %25, %24 ], [ -1, %.preheader ]
+  %26 = call i32 @RSA_private_decrypt(i32 noundef %.122, ptr noundef nonnull %4, ptr noundef nonnull %3, ptr noundef %.pre, i32 noundef 4) #5
+  %27 = call i32 @test_int_le(ptr noundef nonnull @.str.5, i32 noundef 319, ptr noundef nonnull @.str.6, ptr noundef nonnull @.str.8, i32 noundef %26, i32 noundef 0) #5
+  %.not17 = icmp eq i32 %27, 0
+  br i1 %.not17, label %.loopexit, label %24
 
-.loopexit:                                        ; preds = %.lr.ph, %.lr.ph23, %32, %.preheader, %7, %12, %1
-  %.014 = phi i32 [ 0, %7 ], [ 0, %12 ], [ 0, %1 ], [ 1, %.preheader ], [ 0, %.lr.ph23 ], [ 1, %32 ], [ 0, %.lr.ph ]
-  %39 = load ptr, ptr %2, align 8, !tbaa !4
-  call void @RSA_free(ptr noundef %39) #5
+.loopexit:                                        ; preds = %.lr.ph, %.lr.ph23, %24, %.preheader, %7, %11, %1
+  %.014 = phi i32 [ 0, %7 ], [ 0, %11 ], [ 0, %1 ], [ 1, %.preheader ], [ 0, %.lr.ph23 ], [ 1, %24 ], [ 0, %.lr.ph ]
+  call void @RSA_free(ptr noundef %.pre) #5
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #5
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %4) #5
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3) #5

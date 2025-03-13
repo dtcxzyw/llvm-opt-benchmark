@@ -21376,7 +21376,6 @@ define internal fastcc void @edit_cursor_right(ptr noundef nonnull %0, ptr nound
   %4 = alloca i64, align 8
   %5 = alloca %struct.rowcol_s, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #32
-  store i64 1, ptr %4, align 8, !tbaa !57
   %6 = load ptr, ptr %1, align 8, !tbaa !255
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %8 = load i64, ptr %7, align 8, !tbaa !260

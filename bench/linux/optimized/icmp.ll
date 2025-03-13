@@ -1219,7 +1219,6 @@ define dso_local noundef range(i32 0, 2) i32 @ip6_err_gen_icmpv6_unreach(ptr nou
   br label %47
 
 47:                                               ; preds = %46, %37
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !9
   %48 = tail call ptr @skb_pull(ptr noundef nonnull %35, i32 noundef %1) #13
   %49 = getelementptr inbounds nuw i8, ptr %35, i64 200
   %50 = load ptr, ptr %49, align 8
@@ -1253,6 +1252,7 @@ define dso_local noundef range(i32 0, 2) i32 @ip6_err_gen_icmpv6_unreach(ptr nou
   br label %72
 
 72:                                               ; preds = %70, %67, %47
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !9
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %74 = load ptr, ptr %73, align 8
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 180

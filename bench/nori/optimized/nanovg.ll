@@ -9771,7 +9771,7 @@ fons__allocAtlas.exit.thread:                     ; preds = %21, %fons__deleteAt
 56:                                               ; preds = %49
   %57 = load i32, ptr %2, align 4
   %58 = load i32, ptr %3, align 4
-  %59 = mul nsw i32 %.pre, %58
+  %59 = mul nsw i32 %58, %.pre
   %60 = add nsw i32 %59, %57
   %61 = sext i32 %60 to i64
   %62 = getelementptr inbounds i8, ptr %calloc, i64 %61
@@ -25043,7 +25043,7 @@ define dso_local void @nvgTextBox(ptr noundef %0, float noundef %1, float nounde
   %17 = getelementptr inbounds nuw i8, ptr %14, i64 268
   %18 = load i32, ptr %17, align 4
   %19 = icmp eq i32 %18, -1
-  br i1 %19, label %88, label %20
+  br i1 %19, label %86, label %20
 
 20:                                               ; preds = %6
   %21 = and i32 %.fr65, 120
@@ -25061,61 +25061,61 @@ define dso_local void @nvgTextBox(ptr noundef %0, float noundef %1, float nounde
   %26 = and i32 %.fr65, 4
   %.not47 = icmp eq i32 %26, 0
   %27 = fadd float %1, %3
-  %28 = getelementptr inbounds nuw i8, ptr %14, i64 256
+  %28 = load float, ptr %8, align 4
+  %29 = getelementptr inbounds nuw i8, ptr %14, i64 256
   br i1 %.not45, label %.preheader.lr.ph.split.us, label %.preheader
 
 .preheader.lr.ph.split.us:                        ; preds = %.preheader.lr.ph
-  %29 = and i32 %.fr65, 2
-  %.not46 = icmp eq i32 %29, 0
+  %30 = and i32 %.fr65, 2
+  %.not46 = icmp eq i32 %30, 0
   br i1 %.not46, label %.preheader.lr.ph.split.us.split.us, label %.preheader.us
 
 .preheader.lr.ph.split.us.split.us:               ; preds = %.preheader.lr.ph.split.us
   br i1 %.not47, label %.preheader.us.us.us, label %.preheader.us.us
 
 .preheader.us.us.us:                              ; preds = %.preheader.lr.ph.split.us.split.us, %.preheader.us.us.us
-  %30 = phi i32 [ %35, %.preheader.us.us.us ], [ %23, %.preheader.lr.ph.split.us.split.us ]
-  %31 = add nsw i32 %30, -1
-  %32 = sext i32 %31 to i64
-  %33 = getelementptr inbounds [2 x %struct.NVGtextRow], ptr %7, i64 0, i64 %32, i32 2
-  %34 = load ptr, ptr %33, align 8
-  %35 = call i32 @nvgTextBreakLines(ptr noundef nonnull %0, ptr noundef %34, ptr noundef %5, float noundef %3, ptr noundef nonnull %7, i32 noundef 2)
-  %.not.us.us.us = icmp eq i32 %35, 0
+  %31 = phi i32 [ %36, %.preheader.us.us.us ], [ %23, %.preheader.lr.ph.split.us.split.us ]
+  %32 = add nsw i32 %31, -1
+  %33 = sext i32 %32 to i64
+  %34 = getelementptr inbounds [2 x %struct.NVGtextRow], ptr %7, i64 0, i64 %33, i32 2
+  %35 = load ptr, ptr %34, align 8
+  %36 = call i32 @nvgTextBreakLines(ptr noundef nonnull %0, ptr noundef %35, ptr noundef %5, float noundef %3, ptr noundef nonnull %7, i32 noundef 2)
+  %.not.us.us.us = icmp eq i32 %36, 0
   br i1 %.not.us.us.us, label %._crit_edge54, label %.preheader.us.us.us, !llvm.loop !124
 
 .preheader.us.us:                                 ; preds = %.preheader.lr.ph.split.us.split.us, %._crit_edge.split.us.split.us.split.us62.us
-  %36 = phi i32 [ %42, %._crit_edge.split.us.split.us.split.us62.us ], [ %23, %.preheader.lr.ph.split.us.split.us ]
+  %37 = phi i32 [ %43, %._crit_edge.split.us.split.us.split.us62.us ], [ %23, %.preheader.lr.ph.split.us.split.us ]
   %.053.us.us = phi float [ %.1.lcssa.us.us, %._crit_edge.split.us.split.us.split.us62.us ], [ %2, %.preheader.lr.ph.split.us.split.us ]
-  %37 = icmp sgt i32 %36, 0
-  br i1 %37, label %.lr.ph.us.us.preheader, label %._crit_edge.split.us.split.us.split.us62.us
+  %38 = icmp sgt i32 %37, 0
+  br i1 %38, label %.lr.ph.us.us.preheader, label %._crit_edge.split.us.split.us.split.us62.us
 
 .lr.ph.us.us.preheader:                           ; preds = %.preheader.us.us
-  %wide.trip.count81 = zext nneg i32 %36 to i64
+  %wide.trip.count81 = zext nneg i32 %37 to i64
   br label %.lr.ph.us.us
 
 ._crit_edge.split.us.split.us.split.us62.us:      ; preds = %.lr.ph.us.us, %.preheader.us.us
   %.1.lcssa.us.us = phi float [ %.053.us.us, %.preheader.us.us ], [ %53, %.lr.ph.us.us ]
-  %38 = add nsw i32 %36, -1
-  %39 = sext i32 %38 to i64
-  %40 = getelementptr inbounds [2 x %struct.NVGtextRow], ptr %7, i64 0, i64 %39, i32 2
-  %41 = load ptr, ptr %40, align 8
-  %42 = call i32 @nvgTextBreakLines(ptr noundef nonnull %0, ptr noundef %41, ptr noundef %5, float noundef %3, ptr noundef nonnull %7, i32 noundef 2)
-  %.not.us.us = icmp eq i32 %42, 0
+  %39 = add nsw i32 %37, -1
+  %40 = sext i32 %39 to i64
+  %41 = getelementptr inbounds [2 x %struct.NVGtextRow], ptr %7, i64 0, i64 %40, i32 2
+  %42 = load ptr, ptr %41, align 8
+  %43 = call i32 @nvgTextBreakLines(ptr noundef nonnull %0, ptr noundef %42, ptr noundef %5, float noundef %3, ptr noundef nonnull %7, i32 noundef 2)
+  %.not.us.us = icmp eq i32 %43, 0
   br i1 %.not.us.us, label %._crit_edge54, label %.preheader.us.us, !llvm.loop !124
 
 .lr.ph.us.us:                                     ; preds = %.lr.ph.us.us.preheader, %.lr.ph.us.us
   %indvars.iv78 = phi i64 [ 0, %.lr.ph.us.us.preheader ], [ %indvars.iv.next79, %.lr.ph.us.us ]
   %.149.us.us.us60.us = phi float [ %.053.us.us, %.lr.ph.us.us.preheader ], [ %53, %.lr.ph.us.us ]
-  %43 = getelementptr inbounds nuw [2 x %struct.NVGtextRow], ptr %7, i64 0, i64 %indvars.iv78
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
-  %45 = load float, ptr %44, align 8
-  %46 = fsub float %27, %45
-  %47 = load ptr, ptr %43, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %49 = load ptr, ptr %48, align 8
-  %50 = call float @nvgText(ptr noundef nonnull %0, float noundef %46, float noundef %.149.us.us.us60.us, ptr noundef %47, ptr noundef %49)
-  %51 = load float, ptr %8, align 4
-  %52 = load float, ptr %28, align 4
-  %53 = call float @llvm.fmuladd.f32(float %51, float %52, float %.149.us.us.us60.us)
+  %44 = getelementptr inbounds nuw [2 x %struct.NVGtextRow], ptr %7, i64 0, i64 %indvars.iv78
+  %45 = getelementptr inbounds nuw i8, ptr %44, i64 24
+  %46 = load float, ptr %45, align 8
+  %47 = fsub float %27, %46
+  %48 = load ptr, ptr %44, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %50 = load ptr, ptr %49, align 8
+  %51 = call float @nvgText(ptr noundef nonnull %0, float noundef %47, float noundef %.149.us.us.us60.us, ptr noundef %48, ptr noundef %50)
+  %52 = load float, ptr %29, align 4
+  %53 = call float @llvm.fmuladd.f32(float %28, float %52, float %.149.us.us.us60.us)
   %indvars.iv.next79 = add nuw nsw i64 %indvars.iv78, 1
   %exitcond82.not = icmp eq i64 %indvars.iv.next79, %wide.trip.count81
   br i1 %exitcond82.not, label %._crit_edge.split.us.split.us.split.us62.us, label %.lr.ph.us.us, !llvm.loop !125
@@ -25131,7 +25131,7 @@ define dso_local void @nvgTextBox(ptr noundef %0, float noundef %1, float nounde
   br label %.lr.ph.us
 
 ._crit_edge.split.us.split.us57:                  ; preds = %.lr.ph.us, %.preheader.us
-  %.1.lcssa.us = phi float [ %.053.us, %.preheader.us ], [ %72, %.lr.ph.us ]
+  %.1.lcssa.us = phi float [ %.053.us, %.preheader.us ], [ %71, %.lr.ph.us ]
   %56 = add nsw i32 %54, -1
   %57 = sext i32 %56 to i64
   %58 = getelementptr inbounds [2 x %struct.NVGtextRow], ptr %7, i64 0, i64 %57, i32 2
@@ -25142,7 +25142,7 @@ define dso_local void @nvgTextBox(ptr noundef %0, float noundef %1, float nounde
 
 .lr.ph.us:                                        ; preds = %.lr.ph.us.preheader, %.lr.ph.us
   %indvars.iv73 = phi i64 [ 0, %.lr.ph.us.preheader ], [ %indvars.iv.next74, %.lr.ph.us ]
-  %.149.us.us55 = phi float [ %.053.us, %.lr.ph.us.preheader ], [ %72, %.lr.ph.us ]
+  %.149.us.us55 = phi float [ %.053.us, %.lr.ph.us.preheader ], [ %71, %.lr.ph.us ]
   %61 = getelementptr inbounds nuw [2 x %struct.NVGtextRow], ptr %7, i64 0, i64 %indvars.iv73
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 24
   %63 = load float, ptr %62, align 8
@@ -25152,53 +25152,51 @@ define dso_local void @nvgTextBox(ptr noundef %0, float noundef %1, float nounde
   %67 = getelementptr inbounds nuw i8, ptr %61, i64 8
   %68 = load ptr, ptr %67, align 8
   %69 = call float @nvgText(ptr noundef nonnull %0, float noundef %65, float noundef %.149.us.us55, ptr noundef %66, ptr noundef %68)
-  %70 = load float, ptr %8, align 4
-  %71 = load float, ptr %28, align 4
-  %72 = call float @llvm.fmuladd.f32(float %70, float %71, float %.149.us.us55)
+  %70 = load float, ptr %29, align 4
+  %71 = call float @llvm.fmuladd.f32(float %28, float %70, float %.149.us.us55)
   %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
   %exitcond77.not = icmp eq i64 %indvars.iv.next74, %wide.trip.count76
   br i1 %exitcond77.not, label %._crit_edge.split.us.split.us57, label %.lr.ph.us, !llvm.loop !125
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge.split
-  %73 = phi i32 [ %87, %._crit_edge.split ], [ %23, %.preheader.lr.ph ]
+  %72 = phi i32 [ %85, %._crit_edge.split ], [ %23, %.preheader.lr.ph ]
   %.053 = phi float [ %.1.lcssa, %._crit_edge.split ], [ %2, %.preheader.lr.ph ]
-  %74 = icmp sgt i32 %73, 0
-  br i1 %74, label %.lr.ph.preheader, label %._crit_edge.split
+  %73 = icmp sgt i32 %72, 0
+  br i1 %73, label %.lr.ph.preheader, label %._crit_edge.split
 
 .lr.ph.preheader:                                 ; preds = %.preheader
-  %wide.trip.count = zext nneg i32 %73 to i64
+  %wide.trip.count = zext nneg i32 %72 to i64
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.149 = phi float [ %.053, %.lr.ph.preheader ], [ %82, %.lr.ph ]
-  %75 = getelementptr inbounds nuw [2 x %struct.NVGtextRow], ptr %7, i64 0, i64 %indvars.iv
-  %76 = load ptr, ptr %75, align 8
-  %77 = getelementptr inbounds nuw i8, ptr %75, i64 8
-  %78 = load ptr, ptr %77, align 8
-  %79 = call float @nvgText(ptr noundef nonnull %0, float noundef %1, float noundef %.149, ptr noundef %76, ptr noundef %78)
-  %80 = load float, ptr %8, align 4
-  %81 = load float, ptr %28, align 4
-  %82 = call float @llvm.fmuladd.f32(float %80, float %81, float %.149)
+  %.149 = phi float [ %.053, %.lr.ph.preheader ], [ %80, %.lr.ph ]
+  %74 = getelementptr inbounds nuw [2 x %struct.NVGtextRow], ptr %7, i64 0, i64 %indvars.iv
+  %75 = load ptr, ptr %74, align 8
+  %76 = getelementptr inbounds nuw i8, ptr %74, i64 8
+  %77 = load ptr, ptr %76, align 8
+  %78 = call float @nvgText(ptr noundef nonnull %0, float noundef %1, float noundef %.149, ptr noundef %75, ptr noundef %77)
+  %79 = load float, ptr %29, align 4
+  %80 = call float @llvm.fmuladd.f32(float %28, float %79, float %.149)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.split, label %.lr.ph, !llvm.loop !125
 
 ._crit_edge.split:                                ; preds = %.lr.ph, %.preheader
-  %.1.lcssa = phi float [ %.053, %.preheader ], [ %82, %.lr.ph ]
-  %83 = add nsw i32 %73, -1
-  %84 = sext i32 %83 to i64
-  %85 = getelementptr inbounds [2 x %struct.NVGtextRow], ptr %7, i64 0, i64 %84, i32 2
-  %86 = load ptr, ptr %85, align 8
-  %87 = call i32 @nvgTextBreakLines(ptr noundef nonnull %0, ptr noundef %86, ptr noundef %5, float noundef %3, ptr noundef nonnull %7, i32 noundef 2)
-  %.not = icmp eq i32 %87, 0
+  %.1.lcssa = phi float [ %.053, %.preheader ], [ %80, %.lr.ph ]
+  %81 = add nsw i32 %72, -1
+  %82 = sext i32 %81 to i64
+  %83 = getelementptr inbounds [2 x %struct.NVGtextRow], ptr %7, i64 0, i64 %82, i32 2
+  %84 = load ptr, ptr %83, align 8
+  %85 = call i32 @nvgTextBreakLines(ptr noundef nonnull %0, ptr noundef %84, ptr noundef %5, float noundef %3, ptr noundef nonnull %7, i32 noundef 2)
+  %.not = icmp eq i32 %85, 0
   br i1 %.not, label %._crit_edge54, label %.preheader, !llvm.loop !124
 
 ._crit_edge54:                                    ; preds = %._crit_edge.split, %._crit_edge.split.us.split.us57, %._crit_edge.split.us.split.us.split.us62.us, %.preheader.us.us.us, %20
   store i32 %.fr65, ptr %15, align 4
-  br label %88
+  br label %86
 
-88:                                               ; preds = %6, %._crit_edge54
+86:                                               ; preds = %6, %._crit_edge54
   ret void
 }
 
@@ -26157,11 +26155,11 @@ define dso_local void @nvgTextBoxBounds(ptr noundef captures(none) %0, float nou
 
 33:                                               ; preds = %7
   %.not94 = icmp eq ptr %6, null
-  br i1 %.not94, label %241, label %34
+  br i1 %.not94, label %238, label %34
 
 34:                                               ; preds = %33
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %6, i8 0, i64 16, i1 false)
-  br label %241
+  br label %238
 
 35:                                               ; preds = %7
   %36 = fmul float %21, %21
@@ -26256,26 +26254,27 @@ define dso_local void @nvgTextBoxBounds(ptr noundef captures(none) %0, float nou
   %.not91 = icmp eq i32 %106, 0
   %107 = and i32 %.fr143, 4
   %.not93 = icmp eq i32 %107, 0
-  %108 = getelementptr inbounds nuw i8, ptr %17, i64 256
+  %108 = load float, ptr %9, align 4
+  %109 = getelementptr inbounds nuw i8, ptr %17, i64 256
   br i1 %.not91, label %.preheader.lr.ph.split.us, label %.preheader
 
 .preheader.lr.ph.split.us:                        ; preds = %.preheader.lr.ph
-  %109 = and i32 %.fr143, 2
-  %.not92 = icmp eq i32 %109, 0
+  %110 = and i32 %.fr143, 2
+  %.not92 = icmp eq i32 %110, 0
   br i1 %.not92, label %.preheader.lr.ph.split.us.split.us, label %.preheader.us
 
 .preheader.lr.ph.split.us.split.us:               ; preds = %.preheader.lr.ph.split.us
   br i1 %.not93, label %.preheader.us.us.us, label %.preheader.us.us
 
 .preheader.us.us.us:                              ; preds = %.preheader.lr.ph.split.us.split.us, %._crit_edge.split.us.us.split.us.us.split.us.us
-  %110 = phi i32 [ %116, %._crit_edge.split.us.us.split.us.us.split.us.us ], [ %105, %.preheader.lr.ph.split.us.split.us ]
+  %111 = phi i32 [ %117, %._crit_edge.split.us.us.split.us.us.split.us.us ], [ %105, %.preheader.lr.ph.split.us.split.us ]
   %.076117.us.us.us = phi float [ %.1.lcssa.us.us.us, %._crit_edge.split.us.us.split.us.us.split.us.us ], [ %2, %.preheader.lr.ph.split.us.split.us ]
   %.078116.us.us.us = phi float [ %.179.lcssa.us.us.us, %._crit_edge.split.us.us.split.us.us.split.us.us ], [ %2, %.preheader.lr.ph.split.us.split.us ]
   %.080115.us.us.us = phi float [ %.181.lcssa.us.us.us, %._crit_edge.split.us.us.split.us.us.split.us.us ], [ %1, %.preheader.lr.ph.split.us.split.us ]
   %.082114.us.us.us = phi float [ %.183.lcssa.us.us.us, %._crit_edge.split.us.us.split.us.us.split.us.us ], [ %2, %.preheader.lr.ph.split.us.split.us ]
   %.084113.us.us.us = phi float [ %.185.lcssa.us.us.us, %._crit_edge.split.us.us.split.us.us.split.us.us ], [ %1, %.preheader.lr.ph.split.us.split.us ]
-  %111 = icmp sgt i32 %110, 0
-  br i1 %111, label %.lr.ph.us.us.us, label %._crit_edge.split.us.us.split.us.us.split.us.us
+  %112 = icmp sgt i32 %111, 0
+  br i1 %112, label %.lr.ph.us.us.us, label %._crit_edge.split.us.us.split.us.us.split.us.us
 
 ._crit_edge.split.us.us.split.us.us.split.us.us:  ; preds = %119, %.preheader.us.us.us
   %.185.lcssa.us.us.us = phi float [ %.084113.us.us.us, %.preheader.us.us.us ], [ %130, %119 ]
@@ -26283,18 +26282,17 @@ define dso_local void @nvgTextBoxBounds(ptr noundef captures(none) %0, float nou
   %.181.lcssa.us.us.us = phi float [ %.080115.us.us.us, %.preheader.us.us.us ], [ %132, %119 ]
   %.179.lcssa.us.us.us = phi float [ %.078116.us.us.us, %.preheader.us.us.us ], [ %138, %119 ]
   %.1.lcssa.us.us.us = phi float [ %.076117.us.us.us, %.preheader.us.us.us ], [ %139, %119 ]
-  %112 = add nsw i32 %110, -1
-  %113 = sext i32 %112 to i64
-  %114 = getelementptr inbounds [2 x %struct.NVGtextRow], ptr %8, i64 0, i64 %113, i32 2
-  %115 = load ptr, ptr %114, align 8
-  %116 = call i32 @nvgTextBreakLines(ptr noundef nonnull %0, ptr noundef %115, ptr noundef %5, float noundef %3, ptr noundef nonnull %8, i32 noundef 2)
-  %.not.us.us.us = icmp eq i32 %116, 0
+  %113 = add nsw i32 %111, -1
+  %114 = sext i32 %113 to i64
+  %115 = getelementptr inbounds [2 x %struct.NVGtextRow], ptr %8, i64 0, i64 %114, i32 2
+  %116 = load ptr, ptr %115, align 8
+  %117 = call i32 @nvgTextBreakLines(ptr noundef nonnull %0, ptr noundef %116, ptr noundef %5, float noundef %3, ptr noundef nonnull %8, i32 noundef 2)
+  %.not.us.us.us = icmp eq i32 %117, 0
   br i1 %.not.us.us.us, label %._crit_edge118, label %.preheader.us.us.us, !llvm.loop !128
 
 .lr.ph.us.us.us:                                  ; preds = %.preheader.us.us.us
-  %117 = load float, ptr %9, align 4
-  %118 = load float, ptr %108, align 4
-  %wide.trip.count180 = zext nneg i32 %110 to i64
+  %118 = load float, ptr %109, align 4
+  %wide.trip.count180 = zext nneg i32 %111 to i64
   br label %119
 
 119:                                              ; preds = %119, %.lr.ph.us.us.us
@@ -26323,7 +26321,7 @@ define dso_local void @nvgTextBoxBounds(ptr noundef captures(none) %0, float nou
   %136 = fadd float %104, %.1103.us.us.us.us.us.us
   %137 = fcmp ogt float %.179102.us.us.us.us.us.us, %136
   %138 = select i1 %137, float %.179102.us.us.us.us.us.us, float %136
-  %139 = call float @llvm.fmuladd.f32(float %117, float %118, float %.1103.us.us.us.us.us.us)
+  %139 = call float @llvm.fmuladd.f32(float %108, float %118, float %.1103.us.us.us.us.us.us)
   %indvars.iv.next178 = add nuw nsw i64 %indvars.iv177, 1
   %exitcond181.not = icmp eq i64 %indvars.iv.next178, %wide.trip.count180
   br i1 %exitcond181.not, label %._crit_edge.split.us.us.split.us.us.split.us.us, label %119, !llvm.loop !129
@@ -26338,12 +26336,12 @@ define dso_local void @nvgTextBoxBounds(ptr noundef captures(none) %0, float nou
   %141 = icmp sgt i32 %140, 0
   br i1 %141, label %.lr.ph.us.us, label %._crit_edge.split.us.us.split.us.us.split
 
-._crit_edge.split.us.us.split.us.us.split:        ; preds = %149, %.preheader.us.us
-  %.185.lcssa.us.us = phi float [ %.084113.us.us, %.preheader.us.us ], [ %163, %149 ]
-  %.183.lcssa.us.us = phi float [ %.082114.us.us, %.preheader.us.us ], [ %168, %149 ]
-  %.181.lcssa.us.us = phi float [ %.080115.us.us, %.preheader.us.us ], [ %165, %149 ]
-  %.179.lcssa.us.us = phi float [ %.078116.us.us, %.preheader.us.us ], [ %171, %149 ]
-  %.1.lcssa.us.us = phi float [ %.076117.us.us, %.preheader.us.us ], [ %172, %149 ]
+._crit_edge.split.us.us.split.us.us.split:        ; preds = %148, %.preheader.us.us
+  %.185.lcssa.us.us = phi float [ %.084113.us.us, %.preheader.us.us ], [ %162, %148 ]
+  %.183.lcssa.us.us = phi float [ %.082114.us.us, %.preheader.us.us ], [ %167, %148 ]
+  %.181.lcssa.us.us = phi float [ %.080115.us.us, %.preheader.us.us ], [ %164, %148 ]
+  %.179.lcssa.us.us = phi float [ %.078116.us.us, %.preheader.us.us ], [ %170, %148 ]
+  %.1.lcssa.us.us = phi float [ %.076117.us.us, %.preheader.us.us ], [ %171, %148 ]
   %142 = add nsw i32 %140, -1
   %143 = sext i32 %142 to i64
   %144 = getelementptr inbounds [2 x %struct.NVGtextRow], ptr %8, i64 0, i64 %143, i32 2
@@ -26353,169 +26351,166 @@ define dso_local void @nvgTextBoxBounds(ptr noundef captures(none) %0, float nou
   br i1 %.not.us.us, label %._crit_edge118, label %.preheader.us.us, !llvm.loop !128
 
 .lr.ph.us.us:                                     ; preds = %.preheader.us.us
-  %147 = load float, ptr %9, align 4
-  %148 = load float, ptr %108, align 4
+  %147 = load float, ptr %109, align 4
   %wide.trip.count175 = zext nneg i32 %140 to i64
-  br label %149
+  br label %148
 
-149:                                              ; preds = %149, %.lr.ph.us.us
-  %indvars.iv172 = phi i64 [ %indvars.iv.next173, %149 ], [ 0, %.lr.ph.us.us ]
-  %.1103.us.us.us.us = phi float [ %172, %149 ], [ %.076117.us.us, %.lr.ph.us.us ]
-  %.179102.us.us.us.us = phi float [ %171, %149 ], [ %.078116.us.us, %.lr.ph.us.us ]
-  %.181101.us.us.us.us = phi float [ %165, %149 ], [ %.080115.us.us, %.lr.ph.us.us ]
-  %.183100.us.us.us.us = phi float [ %168, %149 ], [ %.082114.us.us, %.lr.ph.us.us ]
-  %.18599.us.us.us.us = phi float [ %163, %149 ], [ %.084113.us.us, %.lr.ph.us.us ]
-  %150 = getelementptr inbounds nuw [2 x %struct.NVGtextRow], ptr %8, i64 0, i64 %indvars.iv172
-  %151 = getelementptr inbounds nuw i8, ptr %150, i64 24
-  %152 = load float, ptr %151, align 8
-  %153 = fsub float %3, %152
-  %154 = getelementptr inbounds nuw i8, ptr %150, i64 28
-  %155 = load float, ptr %154, align 4
-  %156 = fadd float %1, %155
-  %157 = fadd float %153, %156
-  %158 = getelementptr inbounds nuw i8, ptr %150, i64 32
-  %159 = load float, ptr %158, align 8
-  %160 = fadd float %1, %159
-  %161 = fadd float %153, %160
-  %162 = fcmp olt float %.18599.us.us.us.us, %157
-  %163 = select i1 %162, float %.18599.us.us.us.us, float %157
-  %164 = fcmp ogt float %.181101.us.us.us.us, %161
-  %165 = select i1 %164, float %.181101.us.us.us.us, float %161
-  %166 = fadd float %102, %.1103.us.us.us.us
-  %167 = fcmp olt float %.183100.us.us.us.us, %166
-  %168 = select i1 %167, float %.183100.us.us.us.us, float %166
-  %169 = fadd float %104, %.1103.us.us.us.us
-  %170 = fcmp ogt float %.179102.us.us.us.us, %169
-  %171 = select i1 %170, float %.179102.us.us.us.us, float %169
-  %172 = call float @llvm.fmuladd.f32(float %147, float %148, float %.1103.us.us.us.us)
+148:                                              ; preds = %148, %.lr.ph.us.us
+  %indvars.iv172 = phi i64 [ %indvars.iv.next173, %148 ], [ 0, %.lr.ph.us.us ]
+  %.1103.us.us.us.us = phi float [ %171, %148 ], [ %.076117.us.us, %.lr.ph.us.us ]
+  %.179102.us.us.us.us = phi float [ %170, %148 ], [ %.078116.us.us, %.lr.ph.us.us ]
+  %.181101.us.us.us.us = phi float [ %164, %148 ], [ %.080115.us.us, %.lr.ph.us.us ]
+  %.183100.us.us.us.us = phi float [ %167, %148 ], [ %.082114.us.us, %.lr.ph.us.us ]
+  %.18599.us.us.us.us = phi float [ %162, %148 ], [ %.084113.us.us, %.lr.ph.us.us ]
+  %149 = getelementptr inbounds nuw [2 x %struct.NVGtextRow], ptr %8, i64 0, i64 %indvars.iv172
+  %150 = getelementptr inbounds nuw i8, ptr %149, i64 24
+  %151 = load float, ptr %150, align 8
+  %152 = fsub float %3, %151
+  %153 = getelementptr inbounds nuw i8, ptr %149, i64 28
+  %154 = load float, ptr %153, align 4
+  %155 = fadd float %1, %154
+  %156 = fadd float %152, %155
+  %157 = getelementptr inbounds nuw i8, ptr %149, i64 32
+  %158 = load float, ptr %157, align 8
+  %159 = fadd float %1, %158
+  %160 = fadd float %152, %159
+  %161 = fcmp olt float %.18599.us.us.us.us, %156
+  %162 = select i1 %161, float %.18599.us.us.us.us, float %156
+  %163 = fcmp ogt float %.181101.us.us.us.us, %160
+  %164 = select i1 %163, float %.181101.us.us.us.us, float %160
+  %165 = fadd float %102, %.1103.us.us.us.us
+  %166 = fcmp olt float %.183100.us.us.us.us, %165
+  %167 = select i1 %166, float %.183100.us.us.us.us, float %165
+  %168 = fadd float %104, %.1103.us.us.us.us
+  %169 = fcmp ogt float %.179102.us.us.us.us, %168
+  %170 = select i1 %169, float %.179102.us.us.us.us, float %168
+  %171 = call float @llvm.fmuladd.f32(float %108, float %147, float %.1103.us.us.us.us)
   %indvars.iv.next173 = add nuw nsw i64 %indvars.iv172, 1
   %exitcond176.not = icmp eq i64 %indvars.iv.next173, %wide.trip.count175
-  br i1 %exitcond176.not, label %._crit_edge.split.us.us.split.us.us.split, label %149, !llvm.loop !129
+  br i1 %exitcond176.not, label %._crit_edge.split.us.us.split.us.us.split, label %148, !llvm.loop !129
 
 .preheader.us:                                    ; preds = %.preheader.lr.ph.split.us, %._crit_edge.split.us.us.split
-  %173 = phi i32 [ %179, %._crit_edge.split.us.us.split ], [ %105, %.preheader.lr.ph.split.us ]
+  %172 = phi i32 [ %178, %._crit_edge.split.us.us.split ], [ %105, %.preheader.lr.ph.split.us ]
   %.076117.us = phi float [ %.1.lcssa.us, %._crit_edge.split.us.us.split ], [ %2, %.preheader.lr.ph.split.us ]
   %.078116.us = phi float [ %.179.lcssa.us, %._crit_edge.split.us.us.split ], [ %2, %.preheader.lr.ph.split.us ]
   %.080115.us = phi float [ %.181.lcssa.us, %._crit_edge.split.us.us.split ], [ %1, %.preheader.lr.ph.split.us ]
   %.082114.us = phi float [ %.183.lcssa.us, %._crit_edge.split.us.us.split ], [ %2, %.preheader.lr.ph.split.us ]
   %.084113.us = phi float [ %.185.lcssa.us, %._crit_edge.split.us.us.split ], [ %1, %.preheader.lr.ph.split.us ]
-  %174 = icmp sgt i32 %173, 0
-  br i1 %174, label %.lr.ph.us, label %._crit_edge.split.us.us.split
+  %173 = icmp sgt i32 %172, 0
+  br i1 %173, label %.lr.ph.us, label %._crit_edge.split.us.us.split
 
-._crit_edge.split.us.us.split:                    ; preds = %182, %.preheader.us
-  %.185.lcssa.us = phi float [ %.084113.us, %.preheader.us ], [ %197, %182 ]
-  %.183.lcssa.us = phi float [ %.082114.us, %.preheader.us ], [ %202, %182 ]
-  %.181.lcssa.us = phi float [ %.080115.us, %.preheader.us ], [ %199, %182 ]
-  %.179.lcssa.us = phi float [ %.078116.us, %.preheader.us ], [ %205, %182 ]
-  %.1.lcssa.us = phi float [ %.076117.us, %.preheader.us ], [ %206, %182 ]
-  %175 = add nsw i32 %173, -1
-  %176 = sext i32 %175 to i64
-  %177 = getelementptr inbounds [2 x %struct.NVGtextRow], ptr %8, i64 0, i64 %176, i32 2
-  %178 = load ptr, ptr %177, align 8
-  %179 = call i32 @nvgTextBreakLines(ptr noundef nonnull %0, ptr noundef %178, ptr noundef %5, float noundef %3, ptr noundef nonnull %8, i32 noundef 2)
-  %.not.us = icmp eq i32 %179, 0
+._crit_edge.split.us.us.split:                    ; preds = %180, %.preheader.us
+  %.185.lcssa.us = phi float [ %.084113.us, %.preheader.us ], [ %195, %180 ]
+  %.183.lcssa.us = phi float [ %.082114.us, %.preheader.us ], [ %200, %180 ]
+  %.181.lcssa.us = phi float [ %.080115.us, %.preheader.us ], [ %197, %180 ]
+  %.179.lcssa.us = phi float [ %.078116.us, %.preheader.us ], [ %203, %180 ]
+  %.1.lcssa.us = phi float [ %.076117.us, %.preheader.us ], [ %204, %180 ]
+  %174 = add nsw i32 %172, -1
+  %175 = sext i32 %174 to i64
+  %176 = getelementptr inbounds [2 x %struct.NVGtextRow], ptr %8, i64 0, i64 %175, i32 2
+  %177 = load ptr, ptr %176, align 8
+  %178 = call i32 @nvgTextBreakLines(ptr noundef nonnull %0, ptr noundef %177, ptr noundef %5, float noundef %3, ptr noundef nonnull %8, i32 noundef 2)
+  %.not.us = icmp eq i32 %178, 0
   br i1 %.not.us, label %._crit_edge118, label %.preheader.us, !llvm.loop !128
 
 .lr.ph.us:                                        ; preds = %.preheader.us
-  %180 = load float, ptr %9, align 4
-  %181 = load float, ptr %108, align 4
-  %wide.trip.count170 = zext nneg i32 %173 to i64
-  br label %182
+  %179 = load float, ptr %109, align 4
+  %wide.trip.count170 = zext nneg i32 %172 to i64
+  br label %180
 
-182:                                              ; preds = %182, %.lr.ph.us
-  %indvars.iv167 = phi i64 [ %indvars.iv.next168, %182 ], [ 0, %.lr.ph.us ]
-  %.1103.us.us = phi float [ %206, %182 ], [ %.076117.us, %.lr.ph.us ]
-  %.179102.us.us = phi float [ %205, %182 ], [ %.078116.us, %.lr.ph.us ]
-  %.181101.us.us = phi float [ %199, %182 ], [ %.080115.us, %.lr.ph.us ]
-  %.183100.us.us = phi float [ %202, %182 ], [ %.082114.us, %.lr.ph.us ]
-  %.18599.us.us = phi float [ %197, %182 ], [ %.084113.us, %.lr.ph.us ]
-  %183 = getelementptr inbounds nuw [2 x %struct.NVGtextRow], ptr %8, i64 0, i64 %indvars.iv167
-  %184 = getelementptr inbounds nuw i8, ptr %183, i64 24
-  %185 = load float, ptr %184, align 8
-  %186 = fmul float %185, -5.000000e-01
-  %187 = call float @llvm.fmuladd.f32(float %3, float 5.000000e-01, float %186)
-  %188 = getelementptr inbounds nuw i8, ptr %183, i64 28
-  %189 = load float, ptr %188, align 4
-  %190 = fadd float %1, %189
-  %191 = fadd float %187, %190
-  %192 = getelementptr inbounds nuw i8, ptr %183, i64 32
-  %193 = load float, ptr %192, align 8
-  %194 = fadd float %1, %193
-  %195 = fadd float %187, %194
-  %196 = fcmp olt float %.18599.us.us, %191
-  %197 = select i1 %196, float %.18599.us.us, float %191
-  %198 = fcmp ogt float %.181101.us.us, %195
-  %199 = select i1 %198, float %.181101.us.us, float %195
-  %200 = fadd float %102, %.1103.us.us
-  %201 = fcmp olt float %.183100.us.us, %200
-  %202 = select i1 %201, float %.183100.us.us, float %200
-  %203 = fadd float %104, %.1103.us.us
-  %204 = fcmp ogt float %.179102.us.us, %203
-  %205 = select i1 %204, float %.179102.us.us, float %203
-  %206 = call float @llvm.fmuladd.f32(float %180, float %181, float %.1103.us.us)
+180:                                              ; preds = %180, %.lr.ph.us
+  %indvars.iv167 = phi i64 [ %indvars.iv.next168, %180 ], [ 0, %.lr.ph.us ]
+  %.1103.us.us = phi float [ %204, %180 ], [ %.076117.us, %.lr.ph.us ]
+  %.179102.us.us = phi float [ %203, %180 ], [ %.078116.us, %.lr.ph.us ]
+  %.181101.us.us = phi float [ %197, %180 ], [ %.080115.us, %.lr.ph.us ]
+  %.183100.us.us = phi float [ %200, %180 ], [ %.082114.us, %.lr.ph.us ]
+  %.18599.us.us = phi float [ %195, %180 ], [ %.084113.us, %.lr.ph.us ]
+  %181 = getelementptr inbounds nuw [2 x %struct.NVGtextRow], ptr %8, i64 0, i64 %indvars.iv167
+  %182 = getelementptr inbounds nuw i8, ptr %181, i64 24
+  %183 = load float, ptr %182, align 8
+  %184 = fmul float %183, -5.000000e-01
+  %185 = call float @llvm.fmuladd.f32(float %3, float 5.000000e-01, float %184)
+  %186 = getelementptr inbounds nuw i8, ptr %181, i64 28
+  %187 = load float, ptr %186, align 4
+  %188 = fadd float %1, %187
+  %189 = fadd float %185, %188
+  %190 = getelementptr inbounds nuw i8, ptr %181, i64 32
+  %191 = load float, ptr %190, align 8
+  %192 = fadd float %1, %191
+  %193 = fadd float %185, %192
+  %194 = fcmp olt float %.18599.us.us, %189
+  %195 = select i1 %194, float %.18599.us.us, float %189
+  %196 = fcmp ogt float %.181101.us.us, %193
+  %197 = select i1 %196, float %.181101.us.us, float %193
+  %198 = fadd float %102, %.1103.us.us
+  %199 = fcmp olt float %.183100.us.us, %198
+  %200 = select i1 %199, float %.183100.us.us, float %198
+  %201 = fadd float %104, %.1103.us.us
+  %202 = fcmp ogt float %.179102.us.us, %201
+  %203 = select i1 %202, float %.179102.us.us, float %201
+  %204 = call float @llvm.fmuladd.f32(float %108, float %179, float %.1103.us.us)
   %indvars.iv.next168 = add nuw nsw i64 %indvars.iv167, 1
   %exitcond171.not = icmp eq i64 %indvars.iv.next168, %wide.trip.count170
-  br i1 %exitcond171.not, label %._crit_edge.split.us.us.split, label %182, !llvm.loop !129
+  br i1 %exitcond171.not, label %._crit_edge.split.us.us.split, label %180, !llvm.loop !129
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %._crit_edge.split
-  %207 = phi i32 [ %236, %._crit_edge.split ], [ %105, %.preheader.lr.ph ]
+  %205 = phi i32 [ %233, %._crit_edge.split ], [ %105, %.preheader.lr.ph ]
   %.076117 = phi float [ %.1.lcssa, %._crit_edge.split ], [ %2, %.preheader.lr.ph ]
   %.078116 = phi float [ %.179.lcssa, %._crit_edge.split ], [ %2, %.preheader.lr.ph ]
   %.080115 = phi float [ %.181.lcssa, %._crit_edge.split ], [ %1, %.preheader.lr.ph ]
   %.082114 = phi float [ %.183.lcssa, %._crit_edge.split ], [ %2, %.preheader.lr.ph ]
   %.084113 = phi float [ %.185.lcssa, %._crit_edge.split ], [ %1, %.preheader.lr.ph ]
-  %208 = icmp sgt i32 %207, 0
-  br i1 %208, label %.lr.ph, label %._crit_edge.split
+  %206 = icmp sgt i32 %205, 0
+  br i1 %206, label %.lr.ph, label %._crit_edge.split
 
 .lr.ph:                                           ; preds = %.preheader
-  %209 = load float, ptr %9, align 4
-  %210 = load float, ptr %108, align 4
-  %wide.trip.count = zext nneg i32 %207 to i64
-  br label %211
+  %207 = load float, ptr %109, align 4
+  %wide.trip.count = zext nneg i32 %205 to i64
+  br label %208
 
-211:                                              ; preds = %.lr.ph, %211
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %211 ]
-  %.1103 = phi float [ %.076117, %.lr.ph ], [ %231, %211 ]
-  %.179102 = phi float [ %.078116, %.lr.ph ], [ %230, %211 ]
-  %.181101 = phi float [ %.080115, %.lr.ph ], [ %224, %211 ]
-  %.183100 = phi float [ %.082114, %.lr.ph ], [ %227, %211 ]
-  %.18599 = phi float [ %.084113, %.lr.ph ], [ %222, %211 ]
-  %212 = getelementptr inbounds nuw [2 x %struct.NVGtextRow], ptr %8, i64 0, i64 %indvars.iv
-  %213 = getelementptr inbounds nuw i8, ptr %212, i64 28
-  %214 = load float, ptr %213, align 4
-  %215 = fadd float %1, %214
-  %216 = fadd float %215, 0.000000e+00
-  %217 = getelementptr inbounds nuw i8, ptr %212, i64 32
-  %218 = load float, ptr %217, align 8
-  %219 = fadd float %1, %218
-  %220 = fadd float %219, 0.000000e+00
-  %221 = fcmp olt float %.18599, %215
-  %222 = select i1 %221, float %.18599, float %216
-  %223 = fcmp ogt float %.181101, %219
-  %224 = select i1 %223, float %.181101, float %220
-  %225 = fadd float %102, %.1103
-  %226 = fcmp olt float %.183100, %225
-  %227 = select i1 %226, float %.183100, float %225
-  %228 = fadd float %104, %.1103
-  %229 = fcmp ogt float %.179102, %228
-  %230 = select i1 %229, float %.179102, float %228
-  %231 = call float @llvm.fmuladd.f32(float %209, float %210, float %.1103)
+208:                                              ; preds = %.lr.ph, %208
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %208 ]
+  %.1103 = phi float [ %.076117, %.lr.ph ], [ %228, %208 ]
+  %.179102 = phi float [ %.078116, %.lr.ph ], [ %227, %208 ]
+  %.181101 = phi float [ %.080115, %.lr.ph ], [ %221, %208 ]
+  %.183100 = phi float [ %.082114, %.lr.ph ], [ %224, %208 ]
+  %.18599 = phi float [ %.084113, %.lr.ph ], [ %219, %208 ]
+  %209 = getelementptr inbounds nuw [2 x %struct.NVGtextRow], ptr %8, i64 0, i64 %indvars.iv
+  %210 = getelementptr inbounds nuw i8, ptr %209, i64 28
+  %211 = load float, ptr %210, align 4
+  %212 = fadd float %1, %211
+  %213 = fadd float %212, 0.000000e+00
+  %214 = getelementptr inbounds nuw i8, ptr %209, i64 32
+  %215 = load float, ptr %214, align 8
+  %216 = fadd float %1, %215
+  %217 = fadd float %216, 0.000000e+00
+  %218 = fcmp olt float %.18599, %212
+  %219 = select i1 %218, float %.18599, float %213
+  %220 = fcmp ogt float %.181101, %216
+  %221 = select i1 %220, float %.181101, float %217
+  %222 = fadd float %102, %.1103
+  %223 = fcmp olt float %.183100, %222
+  %224 = select i1 %223, float %.183100, float %222
+  %225 = fadd float %104, %.1103
+  %226 = fcmp ogt float %.179102, %225
+  %227 = select i1 %226, float %.179102, float %225
+  %228 = call float @llvm.fmuladd.f32(float %108, float %207, float %.1103)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge.split, label %211, !llvm.loop !129
+  br i1 %exitcond.not, label %._crit_edge.split, label %208, !llvm.loop !129
 
-._crit_edge.split:                                ; preds = %211, %.preheader
-  %.185.lcssa = phi float [ %.084113, %.preheader ], [ %222, %211 ]
-  %.183.lcssa = phi float [ %.082114, %.preheader ], [ %227, %211 ]
-  %.181.lcssa = phi float [ %.080115, %.preheader ], [ %224, %211 ]
-  %.179.lcssa = phi float [ %.078116, %.preheader ], [ %230, %211 ]
-  %.1.lcssa = phi float [ %.076117, %.preheader ], [ %231, %211 ]
-  %232 = add nsw i32 %207, -1
-  %233 = sext i32 %232 to i64
-  %234 = getelementptr inbounds [2 x %struct.NVGtextRow], ptr %8, i64 0, i64 %233, i32 2
-  %235 = load ptr, ptr %234, align 8
-  %236 = call i32 @nvgTextBreakLines(ptr noundef nonnull %0, ptr noundef %235, ptr noundef %5, float noundef %3, ptr noundef nonnull %8, i32 noundef 2)
-  %.not = icmp eq i32 %236, 0
+._crit_edge.split:                                ; preds = %208, %.preheader
+  %.185.lcssa = phi float [ %.084113, %.preheader ], [ %219, %208 ]
+  %.183.lcssa = phi float [ %.082114, %.preheader ], [ %224, %208 ]
+  %.181.lcssa = phi float [ %.080115, %.preheader ], [ %221, %208 ]
+  %.179.lcssa = phi float [ %.078116, %.preheader ], [ %227, %208 ]
+  %.1.lcssa = phi float [ %.076117, %.preheader ], [ %228, %208 ]
+  %229 = add nsw i32 %205, -1
+  %230 = sext i32 %229 to i64
+  %231 = getelementptr inbounds [2 x %struct.NVGtextRow], ptr %8, i64 0, i64 %230, i32 2
+  %232 = load ptr, ptr %231, align 8
+  %233 = call i32 @nvgTextBreakLines(ptr noundef nonnull %0, ptr noundef %232, ptr noundef %5, float noundef %3, ptr noundef nonnull %8, i32 noundef 2)
+  %.not = icmp eq i32 %233, 0
   br i1 %.not, label %._crit_edge118, label %.preheader, !llvm.loop !128
 
 ._crit_edge118:                                   ; preds = %._crit_edge.split, %._crit_edge.split.us.us.split, %._crit_edge.split.us.us.split.us.us.split, %._crit_edge.split.us.us.split.us.us.split.us.us, %35
@@ -26525,19 +26520,19 @@ define dso_local void @nvgTextBoxBounds(ptr noundef captures(none) %0, float nou
   %.078.lcssa = phi float [ %2, %35 ], [ %.179.lcssa.us.us.us, %._crit_edge.split.us.us.split.us.us.split.us.us ], [ %.179.lcssa.us.us, %._crit_edge.split.us.us.split.us.us.split ], [ %.179.lcssa.us, %._crit_edge.split.us.us.split ], [ %.179.lcssa, %._crit_edge.split ]
   store i32 %.fr143, ptr %28, align 4
   %.not90 = icmp eq ptr %6, null
-  br i1 %.not90, label %241, label %237
+  br i1 %.not90, label %238, label %234
 
-237:                                              ; preds = %._crit_edge118
+234:                                              ; preds = %._crit_edge118
   store float %.084.lcssa, ptr %6, align 4
-  %238 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store float %.082.lcssa, ptr %238, align 4
-  %239 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store float %.080.lcssa, ptr %239, align 4
-  %240 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  store float %.078.lcssa, ptr %240, align 4
-  br label %241
+  %235 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  store float %.082.lcssa, ptr %235, align 4
+  %236 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store float %.080.lcssa, ptr %236, align 4
+  %237 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  store float %.078.lcssa, ptr %237, align 4
+  br label %238
 
-241:                                              ; preds = %33, %34, %237, %._crit_edge118
+238:                                              ; preds = %33, %34, %234, %._crit_edge118
   ret void
 }
 

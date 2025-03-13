@@ -3128,7 +3128,6 @@ zend_hash_str_find_ptr.exit:                      ; preds = %413, %416
   %451 = getelementptr inbounds nuw i8, ptr %442, i64 1384
   %452 = getelementptr inbounds nuw i8, ptr %442, i64 2184
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %451, i8 0, i64 9, i1 false)
-  store i64 9126969344, ptr %452, align 8, !tbaa !174
   %453 = getelementptr inbounds nuw i8, ptr %442, i64 1504
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %453, i8 0, i64 12, i1 false)
   %454 = getelementptr inbounds nuw i8, ptr %442, i64 744
@@ -3144,7 +3143,6 @@ zend_hash_str_find_ptr.exit:                      ; preds = %413, %416
   %459 = getelementptr inbounds nuw i8, ptr %442, i64 1532
   store i32 0, ptr %459, align 4, !tbaa !180
   %460 = getelementptr inbounds nuw i8, ptr %442, i64 2140
-  store i32 0, ptr %460, align 4, !tbaa !181
   %461 = getelementptr inbounds nuw i8, ptr %442, i64 2144
   store ptr null, ptr %461, align 8, !tbaa !182
   %462 = getelementptr inbounds nuw i8, ptr %442, i64 2176

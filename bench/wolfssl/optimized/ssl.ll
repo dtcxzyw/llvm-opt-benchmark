@@ -9221,7 +9221,6 @@ define i32 @wolfSSL_CTX_use_certificate_buffer(ptr noundef %0, ptr noundef %1, i
 define i32 @wolfSSL_CTX_use_PrivateKey_buffer(ptr noundef %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #22
-  store i64 0, ptr %5, align 8, !tbaa !27
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.split, label %.split7
 

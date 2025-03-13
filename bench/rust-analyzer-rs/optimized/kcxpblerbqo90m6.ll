@@ -1513,7 +1513,7 @@ define internal fastcc noundef ptr @"_ZN115_$LT$core..iter..adapters..take_while
   %28 = phi ptr [ null, %.thread11.i.i ], [ %15, %26 ]
   %29 = phi ptr [ %9, %.thread11.i.i ], [ %.pre.i.i.i, %26 ]
   %30 = invoke fastcc { i64, ptr } @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hf42a31cda131ec00E"(ptr nonnull align 8 dereferenceable(32) %0, ptr nonnull align 1 dereferenceable(1) %3, ptr noundef %.0.i.i, ptr noundef nonnull %29)
-          to label %.noexc unwind label %43
+          to label %.noexc unwind label %.body
 
 .noexc:                                           ; preds = %27
   %31 = extractvalue { i64, ptr } %30, 0
@@ -1523,7 +1523,7 @@ define internal fastcc noundef ptr @"_ZN115_$LT$core..iter..adapters..take_while
 
 33:                                               ; preds = %23, %16
   %34 = icmp eq ptr %.0.i.i, null
-  br i1 %34, label %.body, label %35
+  br i1 %34, label %"_ZN4core3ptr374drop_in_place$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..sources..successors..Successors$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hcebfa8d59cefcec3E.exit", label %35
 
 35:                                               ; preds = %33
   %36 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 48
@@ -1531,11 +1531,11 @@ define internal fastcc noundef ptr @"_ZN115_$LT$core..iter..adapters..take_while
   %38 = add i32 %37, -1
   store i32 %38, ptr %36, align 4, !noalias !182
   %39 = icmp eq i32 %38, 0
-  br i1 %39, label %40, label %.body
+  br i1 %39, label %40, label %"_ZN4core3ptr374drop_in_place$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..sources..successors..Successors$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hcebfa8d59cefcec3E.exit"
 
 40:                                               ; preds = %35
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %.0.i.i)
-          to label %.body unwind label %41, !noalias !159
+          to label %"_ZN4core3ptr374drop_in_place$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..sources..successors..Successors$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hcebfa8d59cefcec3E.exit" unwind label %41, !noalias !159
 
 41:                                               ; preds = %40
   %42 = landingpad { ptr, i32 }
@@ -1543,65 +1543,62 @@ define internal fastcc noundef ptr @"_ZN115_$LT$core..iter..adapters..take_while
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #50, !noalias !159
   unreachable
 
-43:                                               ; preds = %27
-  %44 = landingpad { ptr, i32 }
+.body:                                            ; preds = %27
+  %43 = landingpad { ptr, i32 }
           cleanup
-  br label %.body
+  %.pre = load ptr, ptr %7, align 8, !alias.scope !189
+  call void @llvm.experimental.noalias.scope.decl(metadata !196)
+  call void @llvm.experimental.noalias.scope.decl(metadata !197)
+  call void @llvm.experimental.noalias.scope.decl(metadata !198)
+  %44 = icmp eq ptr %.pre, null
+  br i1 %44, label %"_ZN4core3ptr374drop_in_place$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..sources..successors..Successors$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hcebfa8d59cefcec3E.exit", label %45
 
-.body:                                            ; preds = %33, %35, %40, %43
-  %eh.lpad-body = phi { ptr, i32 } [ %44, %43 ], [ %17, %40 ], [ %17, %35 ], [ %17, %33 ]
-  call void @llvm.experimental.noalias.scope.decl(metadata !189)
-  call void @llvm.experimental.noalias.scope.decl(metadata !192)
-  call void @llvm.experimental.noalias.scope.decl(metadata !195)
-  %45 = load ptr, ptr %7, align 8, !alias.scope !198, !noundef !9
-  %46 = icmp eq ptr %45, null
-  br i1 %46, label %"_ZN4core3ptr374drop_in_place$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..sources..successors..Successors$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hcebfa8d59cefcec3E.exit", label %47
+45:                                               ; preds = %.body
+  %46 = getelementptr inbounds nuw i8, ptr %.pre, i64 48
+  %47 = load i32, ptr %46, align 4, !noalias !199, !noundef !9
+  %48 = add i32 %47, -1
+  store i32 %48, ptr %46, align 4, !noalias !199
+  %49 = icmp eq i32 %48, 0
+  br i1 %49, label %50, label %"_ZN4core3ptr374drop_in_place$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..sources..successors..Successors$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hcebfa8d59cefcec3E.exit"
 
-47:                                               ; preds = %.body
-  %48 = getelementptr inbounds nuw i8, ptr %45, i64 48
-  %49 = load i32, ptr %48, align 4, !noalias !199, !noundef !9
-  %50 = add i32 %49, -1
-  store i32 %50, ptr %48, align 4, !noalias !199
-  %51 = icmp eq i32 %50, 0
-  br i1 %51, label %52, label %"_ZN4core3ptr374drop_in_place$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..sources..successors..Successors$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hcebfa8d59cefcec3E.exit"
-
-52:                                               ; preds = %47
-  invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %45)
-          to label %"_ZN4core3ptr374drop_in_place$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..sources..successors..Successors$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hcebfa8d59cefcec3E.exit" unwind label %62
+50:                                               ; preds = %45
+  invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %.pre)
+          to label %"_ZN4core3ptr374drop_in_place$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..sources..successors..Successors$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hcebfa8d59cefcec3E.exit" unwind label %60
 
 "_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hc2e29dbd4812df10E.exit": ; preds = %.noexc, %26, %.thread.i.i, %1
   %.1.i = phi ptr [ null, %1 ], [ %.0.i.i, %.thread.i.i ], [ %.0.i.i, %26 ], [ %32, %.noexc ]
   call void @llvm.experimental.noalias.scope.decl(metadata !206)
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !209)
   call void @llvm.experimental.noalias.scope.decl(metadata !212)
-  %54 = load ptr, ptr %53, align 8, !alias.scope !215, !noundef !9
-  %55 = icmp eq ptr %54, null
-  br i1 %55, label %"_ZN4core3ptr374drop_in_place$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..sources..successors..Successors$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hcebfa8d59cefcec3E.exit2", label %56
+  %52 = load ptr, ptr %51, align 8, !alias.scope !215, !noundef !9
+  %53 = icmp eq ptr %52, null
+  br i1 %53, label %"_ZN4core3ptr374drop_in_place$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..sources..successors..Successors$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hcebfa8d59cefcec3E.exit2", label %54
 
-56:                                               ; preds = %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hc2e29dbd4812df10E.exit"
-  %57 = getelementptr inbounds nuw i8, ptr %54, i64 48
-  %58 = load i32, ptr %57, align 4, !noalias !216, !noundef !9
-  %59 = add i32 %58, -1
-  store i32 %59, ptr %57, align 4, !noalias !216
-  %60 = icmp eq i32 %59, 0
-  br i1 %60, label %61, label %"_ZN4core3ptr374drop_in_place$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..sources..successors..Successors$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hcebfa8d59cefcec3E.exit2"
+54:                                               ; preds = %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hc2e29dbd4812df10E.exit"
+  %55 = getelementptr inbounds nuw i8, ptr %52, i64 48
+  %56 = load i32, ptr %55, align 4, !noalias !216, !noundef !9
+  %57 = add i32 %56, -1
+  store i32 %57, ptr %55, align 4, !noalias !216
+  %58 = icmp eq i32 %57, 0
+  br i1 %58, label %59, label %"_ZN4core3ptr374drop_in_place$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..sources..successors..Successors$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hcebfa8d59cefcec3E.exit2"
 
-61:                                               ; preds = %56
-  call void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %54), !noalias !216
+59:                                               ; preds = %54
+  call void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %52), !noalias !216
   br label %"_ZN4core3ptr374drop_in_place$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..sources..successors..Successors$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hcebfa8d59cefcec3E.exit2"
 
-"_ZN4core3ptr374drop_in_place$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..sources..successors..Successors$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hcebfa8d59cefcec3E.exit2": ; preds = %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hc2e29dbd4812df10E.exit", %56, %61
+"_ZN4core3ptr374drop_in_place$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..sources..successors..Successors$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hcebfa8d59cefcec3E.exit2": ; preds = %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hc2e29dbd4812df10E.exit", %54, %59
   ret ptr %.1.i
 
-62:                                               ; preds = %52
-  %63 = landingpad { ptr, i32 }
+60:                                               ; preds = %50
+  %61 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #50
   unreachable
 
-"_ZN4core3ptr374drop_in_place$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..sources..successors..Successors$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hcebfa8d59cefcec3E.exit": ; preds = %47, %.body, %52
-  resume { ptr, i32 } %eh.lpad-body
+"_ZN4core3ptr374drop_in_place$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..sources..successors..Successors$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hcebfa8d59cefcec3E.exit": ; preds = %33, %35, %40, %45, %.body, %50
+  %eh.lpad-body8 = phi { ptr, i32 } [ %43, %45 ], [ %43, %.body ], [ %43, %50 ], [ %17, %40 ], [ %17, %35 ], [ %17, %33 ]
+  resume { ptr, i32 } %eh.lpad-body8
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -1685,7 +1682,7 @@ define internal fastcc noundef ptr @"_ZN115_$LT$core..iter..adapters..take_while
   %28 = phi ptr [ null, %.thread11.i.i ], [ %15, %26 ]
   %29 = phi ptr [ %9, %.thread11.i.i ], [ %.pre.i.i.i, %26 ]
   %30 = invoke fastcc { i64, ptr } @"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold5check28_$u7b$$u7b$closure$u7d$$u7d$17hf42a31cda131ec00E"(ptr nonnull align 8 dereferenceable(32) %0, ptr nonnull align 1 dereferenceable(1) %3, ptr noundef %.0.i.i, ptr noundef nonnull %29)
-          to label %.noexc unwind label %43
+          to label %.noexc unwind label %.body
 
 .noexc:                                           ; preds = %27
   %31 = extractvalue { i64, ptr } %30, 0
@@ -1695,7 +1692,7 @@ define internal fastcc noundef ptr @"_ZN115_$LT$core..iter..adapters..take_while
 
 33:                                               ; preds = %23, %16
   %34 = icmp eq ptr %.0.i.i, null
-  br i1 %34, label %.body, label %35
+  br i1 %34, label %"_ZN4core3ptr374drop_in_place$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..sources..successors..Successors$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h4a44d623e5c6f226E.exit", label %35
 
 35:                                               ; preds = %33
   %36 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 48
@@ -1703,11 +1700,11 @@ define internal fastcc noundef ptr @"_ZN115_$LT$core..iter..adapters..take_while
   %38 = add i32 %37, -1
   store i32 %38, ptr %36, align 4, !noalias !249
   %39 = icmp eq i32 %38, 0
-  br i1 %39, label %40, label %.body
+  br i1 %39, label %40, label %"_ZN4core3ptr374drop_in_place$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..sources..successors..Successors$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h4a44d623e5c6f226E.exit"
 
 40:                                               ; preds = %35
   invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %.0.i.i)
-          to label %.body unwind label %41, !noalias !226
+          to label %"_ZN4core3ptr374drop_in_place$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..sources..successors..Successors$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h4a44d623e5c6f226E.exit" unwind label %41, !noalias !226
 
 41:                                               ; preds = %40
   %42 = landingpad { ptr, i32 }
@@ -1715,65 +1712,62 @@ define internal fastcc noundef ptr @"_ZN115_$LT$core..iter..adapters..take_while
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #50, !noalias !226
   unreachable
 
-43:                                               ; preds = %27
-  %44 = landingpad { ptr, i32 }
+.body:                                            ; preds = %27
+  %43 = landingpad { ptr, i32 }
           cleanup
-  br label %.body
+  %.pre = load ptr, ptr %7, align 8, !alias.scope !256
+  call void @llvm.experimental.noalias.scope.decl(metadata !263)
+  call void @llvm.experimental.noalias.scope.decl(metadata !264)
+  call void @llvm.experimental.noalias.scope.decl(metadata !265)
+  %44 = icmp eq ptr %.pre, null
+  br i1 %44, label %"_ZN4core3ptr374drop_in_place$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..sources..successors..Successors$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h4a44d623e5c6f226E.exit", label %45
 
-.body:                                            ; preds = %33, %35, %40, %43
-  %eh.lpad-body = phi { ptr, i32 } [ %44, %43 ], [ %17, %40 ], [ %17, %35 ], [ %17, %33 ]
-  call void @llvm.experimental.noalias.scope.decl(metadata !256)
-  call void @llvm.experimental.noalias.scope.decl(metadata !259)
-  call void @llvm.experimental.noalias.scope.decl(metadata !262)
-  %45 = load ptr, ptr %7, align 8, !alias.scope !265, !noundef !9
-  %46 = icmp eq ptr %45, null
-  br i1 %46, label %"_ZN4core3ptr374drop_in_place$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..sources..successors..Successors$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h4a44d623e5c6f226E.exit", label %47
+45:                                               ; preds = %.body
+  %46 = getelementptr inbounds nuw i8, ptr %.pre, i64 48
+  %47 = load i32, ptr %46, align 4, !noalias !266, !noundef !9
+  %48 = add i32 %47, -1
+  store i32 %48, ptr %46, align 4, !noalias !266
+  %49 = icmp eq i32 %48, 0
+  br i1 %49, label %50, label %"_ZN4core3ptr374drop_in_place$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..sources..successors..Successors$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h4a44d623e5c6f226E.exit"
 
-47:                                               ; preds = %.body
-  %48 = getelementptr inbounds nuw i8, ptr %45, i64 48
-  %49 = load i32, ptr %48, align 4, !noalias !266, !noundef !9
-  %50 = add i32 %49, -1
-  store i32 %50, ptr %48, align 4, !noalias !266
-  %51 = icmp eq i32 %50, 0
-  br i1 %51, label %52, label %"_ZN4core3ptr374drop_in_place$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..sources..successors..Successors$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h4a44d623e5c6f226E.exit"
-
-52:                                               ; preds = %47
-  invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %45)
-          to label %"_ZN4core3ptr374drop_in_place$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..sources..successors..Successors$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h4a44d623e5c6f226E.exit" unwind label %62
+50:                                               ; preds = %45
+  invoke void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %.pre)
+          to label %"_ZN4core3ptr374drop_in_place$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..sources..successors..Successors$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h4a44d623e5c6f226E.exit" unwind label %60
 
 "_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h6ecff5ef2ee905f8E.exit": ; preds = %.noexc, %26, %.thread.i.i, %1
   %.1.i = phi ptr [ null, %1 ], [ %.0.i.i, %.thread.i.i ], [ %.0.i.i, %26 ], [ %32, %.noexc ]
   call void @llvm.experimental.noalias.scope.decl(metadata !273)
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !276)
   call void @llvm.experimental.noalias.scope.decl(metadata !279)
-  %54 = load ptr, ptr %53, align 8, !alias.scope !282, !noundef !9
-  %55 = icmp eq ptr %54, null
-  br i1 %55, label %"_ZN4core3ptr374drop_in_place$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..sources..successors..Successors$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h4a44d623e5c6f226E.exit2", label %56
+  %52 = load ptr, ptr %51, align 8, !alias.scope !282, !noundef !9
+  %53 = icmp eq ptr %52, null
+  br i1 %53, label %"_ZN4core3ptr374drop_in_place$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..sources..successors..Successors$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h4a44d623e5c6f226E.exit2", label %54
 
-56:                                               ; preds = %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h6ecff5ef2ee905f8E.exit"
-  %57 = getelementptr inbounds nuw i8, ptr %54, i64 48
-  %58 = load i32, ptr %57, align 4, !noalias !283, !noundef !9
-  %59 = add i32 %58, -1
-  store i32 %59, ptr %57, align 4, !noalias !283
-  %60 = icmp eq i32 %59, 0
-  br i1 %60, label %61, label %"_ZN4core3ptr374drop_in_place$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..sources..successors..Successors$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h4a44d623e5c6f226E.exit2"
+54:                                               ; preds = %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h6ecff5ef2ee905f8E.exit"
+  %55 = getelementptr inbounds nuw i8, ptr %52, i64 48
+  %56 = load i32, ptr %55, align 4, !noalias !283, !noundef !9
+  %57 = add i32 %56, -1
+  store i32 %57, ptr %55, align 4, !noalias !283
+  %58 = icmp eq i32 %57, 0
+  br i1 %58, label %59, label %"_ZN4core3ptr374drop_in_place$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..sources..successors..Successors$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h4a44d623e5c6f226E.exit2"
 
-61:                                               ; preds = %56
-  call void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %54), !noalias !283
+59:                                               ; preds = %54
+  call void @_ZN5rowan6cursor4free17ha2e1b2c8c83f79d6E(ptr noundef nonnull %52), !noalias !283
   br label %"_ZN4core3ptr374drop_in_place$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..sources..successors..Successors$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h4a44d623e5c6f226E.exit2"
 
-"_ZN4core3ptr374drop_in_place$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..sources..successors..Successors$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h4a44d623e5c6f226E.exit2": ; preds = %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h6ecff5ef2ee905f8E.exit", %56, %61
+"_ZN4core3ptr374drop_in_place$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..sources..successors..Successors$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h4a44d623e5c6f226E.exit2": ; preds = %"_ZN115_$LT$core..iter..adapters..take_while..TakeWhile$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h6ecff5ef2ee905f8E.exit", %54, %59
   ret ptr %.1.i
 
-62:                                               ; preds = %52
-  %63 = landingpad { ptr, i32 }
+60:                                               ; preds = %50
+  %61 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #50
   unreachable
 
-"_ZN4core3ptr374drop_in_place$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..sources..successors..Successors$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h4a44d623e5c6f226E.exit": ; preds = %47, %.body, %52
-  resume { ptr, i32 } %eh.lpad-body
+"_ZN4core3ptr374drop_in_place$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..sources..successors..Successors$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h4a44d623e5c6f226E.exit": ; preds = %33, %35, %40, %45, %.body, %50
+  %eh.lpad-body8 = phi { ptr, i32 } [ %43, %45 ], [ %43, %.body ], [ %43, %50 ], [ %17, %40 ], [ %17, %35 ], [ %17, %33 ]
+  resume { ptr, i32 } %eh.lpad-body8
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -42739,17 +42733,17 @@ attributes #52 = { nounwind }
 !186 = distinct !{!186, !"_ZN4core3ptr47drop_in_place$LT$rowan..cursor..SyntaxToken$GT$17h17236d7faa377b02E.llvm.273501356006530532"}
 !187 = distinct !{!187, !188, !"_ZN4core3ptr85drop_in_place$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h80269fa6d59e446bE: argument 0"}
 !188 = distinct !{!188, !"_ZN4core3ptr85drop_in_place$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h80269fa6d59e446bE"}
-!189 = !{!190}
-!190 = distinct !{!190, !191, !"_ZN4core3ptr374drop_in_place$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..sources..successors..Successors$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hcebfa8d59cefcec3E: argument 0"}
-!191 = distinct !{!191, !"_ZN4core3ptr374drop_in_place$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..sources..successors..Successors$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hcebfa8d59cefcec3E"}
-!192 = !{!193}
-!193 = distinct !{!193, !194, !"_ZN4core3ptr215drop_in_place$LT$core..iter..sources..successors..Successors$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h0df719d20b1fc05cE.llvm.273501356006530532: argument 0"}
-!194 = distinct !{!194, !"_ZN4core3ptr215drop_in_place$LT$core..iter..sources..successors..Successors$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h0df719d20b1fc05cE.llvm.273501356006530532"}
-!195 = !{!196}
-!196 = distinct !{!196, !197, !"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17hb56b0fef7502cac5E.llvm.273501356006530532: argument 0"}
-!197 = distinct !{!197, !"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17hb56b0fef7502cac5E.llvm.273501356006530532"}
-!198 = !{!196, !193, !190}
-!199 = !{!200, !202, !204, !196, !193, !190}
+!189 = !{!190, !192, !194}
+!190 = distinct !{!190, !191, !"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17hb56b0fef7502cac5E.llvm.273501356006530532: argument 0"}
+!191 = distinct !{!191, !"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17hb56b0fef7502cac5E.llvm.273501356006530532"}
+!192 = distinct !{!192, !193, !"_ZN4core3ptr215drop_in_place$LT$core..iter..sources..successors..Successors$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h0df719d20b1fc05cE.llvm.273501356006530532: argument 0"}
+!193 = distinct !{!193, !"_ZN4core3ptr215drop_in_place$LT$core..iter..sources..successors..Successors$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h0df719d20b1fc05cE.llvm.273501356006530532"}
+!194 = distinct !{!194, !195, !"_ZN4core3ptr374drop_in_place$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..sources..successors..Successors$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hcebfa8d59cefcec3E: argument 0"}
+!195 = distinct !{!195, !"_ZN4core3ptr374drop_in_place$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..sources..successors..Successors$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17hcebfa8d59cefcec3E"}
+!196 = !{!194}
+!197 = !{!192}
+!198 = !{!190}
+!199 = !{!200, !202, !204, !190, !192, !194}
 !200 = distinct !{!200, !201, !"_ZN68_$LT$rowan..cursor..SyntaxToken$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb5327116d610b57fE.llvm.273501356006530532: argument 0"}
 !201 = distinct !{!201, !"_ZN68_$LT$rowan..cursor..SyntaxToken$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb5327116d610b57fE.llvm.273501356006530532"}
 !202 = distinct !{!202, !203, !"_ZN4core3ptr47drop_in_place$LT$rowan..cursor..SyntaxToken$GT$17h17236d7faa377b02E.llvm.273501356006530532: argument 0"}
@@ -42806,17 +42800,17 @@ attributes #52 = { nounwind }
 !253 = distinct !{!253, !"_ZN4core3ptr47drop_in_place$LT$rowan..cursor..SyntaxToken$GT$17h17236d7faa377b02E.llvm.273501356006530532"}
 !254 = distinct !{!254, !255, !"_ZN4core3ptr85drop_in_place$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h80269fa6d59e446bE: argument 0"}
 !255 = distinct !{!255, !"_ZN4core3ptr85drop_in_place$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$17h80269fa6d59e446bE"}
-!256 = !{!257}
-!257 = distinct !{!257, !258, !"_ZN4core3ptr374drop_in_place$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..sources..successors..Successors$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h4a44d623e5c6f226E: argument 0"}
-!258 = distinct !{!258, !"_ZN4core3ptr374drop_in_place$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..sources..successors..Successors$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h4a44d623e5c6f226E"}
-!259 = !{!260}
-!260 = distinct !{!260, !261, !"_ZN4core3ptr215drop_in_place$LT$core..iter..sources..successors..Successors$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h4ac81deac15ed9a6E.llvm.273501356006530532: argument 0"}
-!261 = distinct !{!261, !"_ZN4core3ptr215drop_in_place$LT$core..iter..sources..successors..Successors$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h4ac81deac15ed9a6E.llvm.273501356006530532"}
-!262 = !{!263}
-!263 = distinct !{!263, !264, !"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17hb56b0fef7502cac5E.llvm.273501356006530532: argument 0"}
-!264 = distinct !{!264, !"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17hb56b0fef7502cac5E.llvm.273501356006530532"}
-!265 = !{!263, !260, !257}
-!266 = !{!267, !269, !271, !263, !260, !257}
+!256 = !{!257, !259, !261}
+!257 = distinct !{!257, !258, !"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17hb56b0fef7502cac5E.llvm.273501356006530532: argument 0"}
+!258 = distinct !{!258, !"_ZN4core3ptr113drop_in_place$LT$core..option..Option$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$GT$$GT$17hb56b0fef7502cac5E.llvm.273501356006530532"}
+!259 = distinct !{!259, !260, !"_ZN4core3ptr215drop_in_place$LT$core..iter..sources..successors..Successors$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h4ac81deac15ed9a6E.llvm.273501356006530532: argument 0"}
+!260 = distinct !{!260, !"_ZN4core3ptr215drop_in_place$LT$core..iter..sources..successors..Successors$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h4ac81deac15ed9a6E.llvm.273501356006530532"}
+!261 = distinct !{!261, !262, !"_ZN4core3ptr374drop_in_place$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..sources..successors..Successors$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h4a44d623e5c6f226E: argument 0"}
+!262 = distinct !{!262, !"_ZN4core3ptr374drop_in_place$LT$core..iter..adapters..take_while..TakeWhile$LT$core..iter..sources..successors..Successors$LT$rowan..api..SyntaxToken$LT$syntax..syntax_node..RustLanguage$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$ide..extend_selection..extend_tokens_from_range..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$17h4a44d623e5c6f226E"}
+!263 = !{!261}
+!264 = !{!259}
+!265 = !{!257}
+!266 = !{!267, !269, !271, !257, !259, !261}
 !267 = distinct !{!267, !268, !"_ZN68_$LT$rowan..cursor..SyntaxToken$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb5327116d610b57fE.llvm.273501356006530532: argument 0"}
 !268 = distinct !{!268, !"_ZN68_$LT$rowan..cursor..SyntaxToken$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb5327116d610b57fE.llvm.273501356006530532"}
 !269 = distinct !{!269, !270, !"_ZN4core3ptr47drop_in_place$LT$rowan..cursor..SyntaxToken$GT$17h17236d7faa377b02E.llvm.273501356006530532: argument 0"}

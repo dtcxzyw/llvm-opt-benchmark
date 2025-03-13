@@ -25037,7 +25037,6 @@ define internal fastcc i64 @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustCons
   %3 = alloca i8, align 1
   %4 = alloca %"class.llvm::SmallVector.467", align 8
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #25
-  store i8 0, ptr %3, align 1, !tbaa !748
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #25
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %5, ptr %4, align 8, !tbaa !30
@@ -29973,7 +29972,6 @@ define internal fastcc i64 @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustCons
   %.not = icmp eq ptr %9, null
   %spec.select = select i1 %.not, ptr %1, ptr %9
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %3) #25
-  store i8 0, ptr %3, align 1, !tbaa !748
   %.val = load ptr, ptr %0, align 8, !tbaa !1087
   %10 = getelementptr inbounds nuw i8, ptr %.val, i64 4608
   %11 = load ptr, ptr %10, align 8, !tbaa !30
@@ -39571,16 +39569,16 @@ define internal fastcc i64 @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustCons
   %21 = load ptr, ptr %20, align 8, !tbaa !696
   %22 = tail call noundef ptr @_ZNK5clang10ASTContext24getTrivialTypeSourceInfoENS_8QualTypeENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(23216) %21, i64 %.sroa.0.0.copyload.i, i32 0) #25
   %23 = tail call fastcc noundef ptr @_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE13TransformTypeEPNS_14TypeSourceInfoE(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %22)
-  %.not.i209 = icmp eq ptr %23, null
-  br i1 %.not.i209, label %_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE13TransformTypeENS_8QualTypeE.exit.thread, label %_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE13TransformTypeENS_8QualTypeE.exit
+  %.not.i207 = icmp eq ptr %23, null
+  br i1 %.not.i207, label %_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE13TransformTypeENS_8QualTypeE.exit.thread, label %_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE13TransformTypeENS_8QualTypeE.exit
 
 _ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE13TransformTypeENS_8QualTypeE.exit: ; preds = %19
-  %.sroa.0.0.copyload.i.i210 = load i64, ptr %23, align 8, !tbaa !20
-  %.not.i.i41 = icmp ult i64 %.sroa.0.0.copyload.i.i210, 16
+  %.sroa.0.0.copyload.i.i208 = load i64, ptr %23, align 8, !tbaa !20
+  %.not.i.i41 = icmp ult i64 %.sroa.0.0.copyload.i.i208, 16
   br i1 %.not.i.i41, label %_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE13TransformTypeENS_8QualTypeE.exit.thread, label %24
 
 24:                                               ; preds = %_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE13TransformTypeENS_8QualTypeE.exit, %4
-  %.sroa.0122.0 = phi i64 [ 0, %4 ], [ %.sroa.0.0.copyload.i.i210, %_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE13TransformTypeENS_8QualTypeE.exit ]
+  %.sroa.0122.0 = phi i64 [ 0, %4 ], [ %.sroa.0.0.copyload.i.i208, %_ZN5clang13TreeTransformIN12_GLOBAL__N_121AdjustConstraintDepthEE13TransformTypeENS_8QualTypeE.exit ]
   call void @llvm.lifetime.start.p0(i64 280, ptr nonnull %14) #25
   %25 = getelementptr inbounds nuw i8, ptr %14, i64 16
   store ptr %25, ptr %14, align 8, !tbaa !30
@@ -39954,13 +39952,13 @@ _ZNK5clang11AutoTypeLoc25getNestedNameSpecifierLocEv.exit.thread: ; preds = %_ZN
 177:                                              ; preds = %171
   %178 = zext i32 %175 to i64
   call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %15, ptr noundef nonnull %172, i64 noundef %178, i64 noundef 24) #25
-  %.pre203 = load i32, ptr %26, align 8, !tbaa !28
-  %.pre205.pre = load i32, ptr %173, align 8, !tbaa !28
+  %.pre201 = load i32, ptr %26, align 8, !tbaa !28
+  %.pre203.pre = load i32, ptr %173, align 8, !tbaa !28
   br label %_ZN4llvm15SmallVectorImplIN5clang16TemplateArgumentEE7reserveEm.exit
 
 _ZN4llvm15SmallVectorImplIN5clang16TemplateArgumentEE7reserveEm.exit: ; preds = %171, %177
-  %.pre205 = phi i32 [ 0, %171 ], [ %.pre205.pre, %177 ]
-  %179 = phi i32 [ %175, %171 ], [ %.pre203, %177 ]
+  %.pre203 = phi i32 [ 0, %171 ], [ %.pre203.pre, %177 ]
+  %179 = phi i32 [ %175, %171 ], [ %.pre201, %177 ]
   %180 = load ptr, ptr %14, align 8, !tbaa !30
   %181 = zext i32 %179 to i64
   %182 = getelementptr inbounds nuw %"class.clang::TemplateArgumentLoc", ptr %180, i64 %181
@@ -39968,7 +39966,7 @@ _ZN4llvm15SmallVectorImplIN5clang16TemplateArgumentEE7reserveEm.exit: ; preds = 
   br i1 %.not194, label %._crit_edge, label %.lr.ph196
 
 ._crit_edge:                                      ; preds = %_ZN4llvm23SmallVectorTemplateBaseIN5clang16TemplateArgumentELb1EE9push_backERKS2_.exit, %_ZN4llvm15SmallVectorImplIN5clang16TemplateArgumentEE7reserveEm.exit
-  %183 = phi i32 [ %.pre205, %_ZN4llvm15SmallVectorImplIN5clang16TemplateArgumentEE7reserveEm.exit ], [ %214, %_ZN4llvm23SmallVectorTemplateBaseIN5clang16TemplateArgumentELb1EE9push_backERKS2_.exit ]
+  %183 = phi i32 [ %.pre203, %_ZN4llvm15SmallVectorImplIN5clang16TemplateArgumentEE7reserveEm.exit ], [ %214, %_ZN4llvm23SmallVectorTemplateBaseIN5clang16TemplateArgumentELb1EE9push_backERKS2_.exit ]
   %184 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %185 = load i32, ptr %184, align 16
   %186 = lshr i32 %185, 19
@@ -39990,7 +39988,7 @@ _ZN4llvm15SmallVectorImplIN5clang16TemplateArgumentEE7reserveEm.exit: ; preds = 
   br i1 %.not.i.i68, label %216, label %.critedge
 
 .lr.ph196:                                        ; preds = %_ZN4llvm15SmallVectorImplIN5clang16TemplateArgumentEE7reserveEm.exit, %_ZN4llvm23SmallVectorTemplateBaseIN5clang16TemplateArgumentELb1EE9push_backERKS2_.exit
-  %194 = phi i32 [ %214, %_ZN4llvm23SmallVectorTemplateBaseIN5clang16TemplateArgumentELb1EE9push_backERKS2_.exit ], [ %.pre205, %_ZN4llvm15SmallVectorImplIN5clang16TemplateArgumentEE7reserveEm.exit ]
+  %194 = phi i32 [ %214, %_ZN4llvm23SmallVectorTemplateBaseIN5clang16TemplateArgumentELb1EE9push_backERKS2_.exit ], [ %.pre203, %_ZN4llvm15SmallVectorImplIN5clang16TemplateArgumentEE7reserveEm.exit ]
   %.036195 = phi ptr [ %215, %_ZN4llvm23SmallVectorTemplateBaseIN5clang16TemplateArgumentELb1EE9push_backERKS2_.exit ], [ %180, %_ZN4llvm15SmallVectorImplIN5clang16TemplateArgumentEE7reserveEm.exit ]
   %195 = zext i32 %194 to i64
   %196 = add nuw nsw i64 %195, 1

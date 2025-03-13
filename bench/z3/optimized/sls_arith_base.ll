@@ -105869,11 +105869,11 @@ _ZNSt4pairIj6vectorIN3sls10arith_baseI13checked_int64ILb1EEE15nonlinear_coeffELb
 
 .lr.ph.i:                                         ; preds = %39, %_ZNSt4pairIj6vectorIN3sls10arith_baseI13checked_int64ILb1EEE15nonlinear_coeffELb1EjEEaSEOS8_Qcl13_S_assignableIT_T0_EE.exit.i
   %42 = phi i32 [ %52, %_ZNSt4pairIj6vectorIN3sls10arith_baseI13checked_int64ILb1EEE15nonlinear_coeffELb1EjEEaSEOS8_Qcl13_S_assignableIT_T0_EE.exit.i ], [ %40, %39 ]
-  %.018.i = phi ptr [ %.0.i, %_ZNSt4pairIj6vectorIN3sls10arith_baseI13checked_int64ILb1EEE15nonlinear_coeffELb1EjEEaSEOS8_Qcl13_S_assignableIT_T0_EE.exit.i ], [ %.pn22, %39 ]
-  %.0917.i = phi ptr [ %.018.i, %_ZNSt4pairIj6vectorIN3sls10arith_baseI13checked_int64ILb1EEE15nonlinear_coeffELb1EjEEaSEOS8_Qcl13_S_assignableIT_T0_EE.exit.i ], [ %.023, %39 ]
-  store i32 %42, ptr %.0917.i, align 8, !tbaa !314
-  %43 = getelementptr inbounds i8, ptr %.0917.i, i64 -8
-  %44 = getelementptr inbounds nuw i8, ptr %.0917.i, i64 8
+  %.017.i = phi ptr [ %.0.i, %_ZNSt4pairIj6vectorIN3sls10arith_baseI13checked_int64ILb1EEE15nonlinear_coeffELb1EjEEaSEOS8_Qcl13_S_assignableIT_T0_EE.exit.i ], [ %.pn22, %39 ]
+  %.0916.i = phi ptr [ %.017.i, %_ZNSt4pairIj6vectorIN3sls10arith_baseI13checked_int64ILb1EEE15nonlinear_coeffELb1EjEEaSEOS8_Qcl13_S_assignableIT_T0_EE.exit.i ], [ %.023, %39 ]
+  store i32 %42, ptr %.0916.i, align 8, !tbaa !314
+  %43 = getelementptr inbounds i8, ptr %.0916.i, i64 -8
+  %44 = getelementptr inbounds nuw i8, ptr %.0916.i, i64 8
   %45 = load ptr, ptr %44, align 8, !tbaa !254
   %.not.i.i.i.i = icmp eq ptr %45, null
   br i1 %.not.i.i.i.i, label %_ZNSt4pairIj6vectorIN3sls10arith_baseI13checked_int64ILb1EEE15nonlinear_coeffELb1EjEEaSEOS8_Qcl13_S_assignableIT_T0_EE.exit.i, label %46
@@ -105894,15 +105894,15 @@ _ZNSt4pairIj6vectorIN3sls10arith_baseI13checked_int64ILb1EEE15nonlinear_coeffELb
   %51 = load ptr, ptr %43, align 8, !tbaa !318
   store ptr %51, ptr %44, align 8, !tbaa !318
   store ptr null, ptr %43, align 8, !tbaa !318
-  %.0.i = getelementptr inbounds i8, ptr %.018.i, i64 -16
+  %.0.i = getelementptr inbounds i8, ptr %.017.i, i64 -16
   %52 = load i32, ptr %.0.i, align 8, !tbaa !314
   %53 = icmp ult i32 %7, %52
   br i1 %53, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !1367
 
 ._crit_edge.i:                                    ; preds = %_ZNSt4pairIj6vectorIN3sls10arith_baseI13checked_int64ILb1EEE15nonlinear_coeffELb1EjEEaSEOS8_Qcl13_S_assignableIT_T0_EE.exit.i
-  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.018.i, i64 8
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %.017.i, i64 8
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !254
-  store i32 %7, ptr %.018.i, align 8, !tbaa !314
+  store i32 %7, ptr %.017.i, align 8, !tbaa !314
   %.not.i.i.i10.i = icmp eq ptr %.pre.i, null
   br i1 %.not.i.i.i10.i, label %_ZSt25__unguarded_linear_insertIPSt4pairIj6vectorIN3sls10arith_baseI13checked_int64ILb1EEE15nonlinear_coeffELb1EjEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS6_9init_ineqEjRNS6_4ineqEEUlRKT_RKT0_E0_EEEvSG_SJ_.exit, label %54
 
@@ -105919,8 +105919,8 @@ _ZNSt4pairIj6vectorIN3sls10arith_baseI13checked_int64ILb1EEE15nonlinear_coeffELb
   unreachable
 
 _ZSt25__unguarded_linear_insertIPSt4pairIj6vectorIN3sls10arith_baseI13checked_int64ILb1EEE15nonlinear_coeffELb1EjEEN9__gnu_cxx5__ops14_Val_comp_iterIZNS6_9init_ineqEjRNS6_4ineqEEUlRKT_RKT0_E0_EEEvSG_SJ_.exit: ; preds = %39, %._crit_edge.i, %54
-  %.09.lcssa24.i = phi ptr [ %.018.i, %._crit_edge.i ], [ %.018.i, %54 ], [ %.023, %39 ]
-  %59 = getelementptr inbounds nuw i8, ptr %.09.lcssa24.i, i64 8
+  %.09.lcssa21.i = phi ptr [ %.017.i, %._crit_edge.i ], [ %.017.i, %54 ], [ %.023, %39 ]
+  %59 = getelementptr inbounds nuw i8, ptr %.09.lcssa21.i, i64 8
   store ptr %11, ptr %59, align 8, !tbaa !318
   br label %60
 

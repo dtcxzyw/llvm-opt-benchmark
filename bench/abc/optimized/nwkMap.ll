@@ -701,14 +701,14 @@ Vec_PtrStart.exit:                                ; preds = %3, %7
 
 .lr.ph:                                           ; preds = %Vec_PtrStart.exit
   %18 = getelementptr i8, ptr %15, i64 8
+  %.val83 = load ptr, ptr %18, align 8, !tbaa !63
   %19 = getelementptr i8, ptr %2, i64 8
   %wide.trip.count = zext nneg i32 %.val78 to i64
-  %.val83.pre = load ptr, ptr %18, align 8, !tbaa !63
   br label %20
 
 20:                                               ; preds = %.lr.ph, %31
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %31 ]
-  %21 = getelementptr inbounds nuw ptr, ptr %.val83.pre, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw ptr, ptr %.val83, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8, !tbaa !64
   %23 = icmp eq ptr %22, null
   br i1 %23, label %31, label %24

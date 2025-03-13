@@ -295,18 +295,19 @@ _ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit14:
   call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrIN5clang6driver7CommandESt14default_deleteIS4_EELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(48) %35, i64 noundef %40)
   %52 = load ptr, ptr %35, align 8, !tbaa !10
   %53 = getelementptr inbounds i8, ptr %52, i64 %51
+  %.pre.i15 = load i64, ptr %53, align 8, !tbaa !28
   br label %_ZN5clang6driver7JobList6addJobESt10unique_ptrINS0_7CommandESt14default_deleteIS3_EE.exit.i
 
 _ZN5clang6driver7JobList6addJobESt10unique_ptrINS0_7CommandESt14default_deleteIS3_EE.exit.i: ; preds = %48, %47, %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit14
-  %54 = phi ptr [ %.pre3.i.i.i, %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit14 ], [ %52, %48 ], [ %.pre.i.i.i, %47 ]
+  %54 = phi i64 [ %36, %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit14 ], [ %.pre.i15, %48 ], [ %36, %47 ]
+  %55 = phi ptr [ %.pre3.i.i.i, %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit14 ], [ %52, %48 ], [ %.pre.i.i.i, %47 ]
   %.016.i.i.i.i.i = phi ptr [ %7, %_ZN4llvm23SmallVectorTemplateBaseIPKcLb1EE9push_backES2_.exit14 ], [ %53, %48 ], [ %7, %47 ]
-  %55 = load i32, ptr %37, align 8, !tbaa !13
-  %56 = zext i32 %55 to i64
-  %57 = getelementptr inbounds nuw %"class.std::unique_ptr.93", ptr %54, i64 %56
-  %58 = load i64, ptr %.016.i.i.i.i.i, align 8, !tbaa !28
-  store i64 %58, ptr %57, align 8, !tbaa !28
+  %56 = load i32, ptr %37, align 8, !tbaa !13
+  %57 = zext i32 %56 to i64
+  %58 = getelementptr inbounds nuw %"class.std::unique_ptr.93", ptr %55, i64 %57
+  store i64 %54, ptr %58, align 8, !tbaa !28
   store ptr null, ptr %.016.i.i.i.i.i, align 8, !tbaa !28
-  %59 = add i32 %55, 1
+  %59 = add i32 %56, 1
   store i32 %59, ptr %37, align 8, !tbaa !13
   %60 = load ptr, ptr %7, align 8, !tbaa !28
   %.not.i.i = icmp eq ptr %60, null

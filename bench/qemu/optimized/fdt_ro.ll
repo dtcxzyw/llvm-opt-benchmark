@@ -2289,27 +2289,26 @@ define dso_local i32 @fdt_stringlist_count(ptr noundef %0, i32 noundef %1, ptr n
   %44 = icmp sgt i32 %40, 0
   br i1 %44, label %.lr.ph, label %.loopexit
 
-.lr.ph:                                           ; preds = %38, %53
-  %.024 = phi i32 [ %54, %53 ], [ 0, %38 ]
-  %.01523 = phi ptr [ %51, %53 ], [ %39, %38 ]
+.lr.ph:                                           ; preds = %38, %52
+  %.024 = phi i32 [ %53, %52 ], [ 0, %38 ]
+  %.01523 = phi ptr [ %50, %52 ], [ %39, %38 ]
   %45 = ptrtoint ptr %.01523 to i64
   %46 = sub i64 %43, %45
   %47 = call i64 @strnlen(ptr noundef %.01523, i64 noundef %46) #10
-  %48 = trunc i64 %47 to i32
-  %49 = add i32 %48, 1
-  store i32 %49, ptr %5, align 4
-  %50 = sext i32 %49 to i64
-  %51 = getelementptr inbounds i8, ptr %.01523, i64 %50
-  %52 = icmp ugt ptr %51, %42
-  br i1 %52, label %.loopexit, label %53
+  %48 = shl i64 %47, 32
+  %sext = add i64 %48, 4294967296
+  %49 = ashr exact i64 %sext, 32
+  %50 = getelementptr inbounds i8, ptr %.01523, i64 %49
+  %51 = icmp ugt ptr %50, %42
+  br i1 %51, label %.loopexit, label %52
 
-53:                                               ; preds = %.lr.ph
-  %54 = add i32 %.024, 1
-  %55 = icmp ult ptr %51, %42
-  br i1 %55, label %.lr.ph, label %.loopexit, !llvm.loop !19
+52:                                               ; preds = %.lr.ph
+  %53 = add i32 %.024, 1
+  %54 = icmp ult ptr %50, %42
+  br i1 %54, label %.lr.ph, label %.loopexit, !llvm.loop !19
 
-.loopexit:                                        ; preds = %.lr.ph, %53, %38, %36
-  %.016 = phi i32 [ %37, %36 ], [ 0, %38 ], [ -15, %.lr.ph ], [ %54, %53 ]
+.loopexit:                                        ; preds = %52, %.lr.ph, %38, %36
+  %.016 = phi i32 [ %37, %36 ], [ 0, %38 ], [ -15, %.lr.ph ], [ %53, %52 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #9
   ret i32 %.016
 }
@@ -2388,34 +2387,34 @@ define dso_local i32 @fdt_stringlist_search(ptr noundef %0, i32 noundef %1, ptr 
   br i1 %47, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %39, %60
-  %.027 = phi ptr [ %54, %60 ], [ %40, %39 ]
+  %.027 = phi ptr [ %53, %60 ], [ %40, %39 ]
   %.01926 = phi i32 [ %61, %60 ], [ 0, %39 ]
   %48 = ptrtoint ptr %.027 to i64
   %49 = sub i64 %46, %48
   %50 = call i64 @strnlen(ptr noundef %.027, i64 noundef %49) #10
-  %51 = trunc i64 %50 to i32
-  %52 = add i32 %51, 1
-  store i32 %52, ptr %6, align 4
-  %53 = sext i32 %52 to i64
-  %54 = getelementptr inbounds i8, ptr %.027, i64 %53
-  %55 = icmp ugt ptr %54, %45
-  br i1 %55, label %.loopexit, label %56
+  %51 = shl i64 %50, 32
+  %sext = add i64 %51, 4294967296
+  %52 = ashr exact i64 %sext, 32
+  %53 = getelementptr inbounds i8, ptr %.027, i64 %52
+  %54 = icmp ugt ptr %53, %45
+  br i1 %54, label %.loopexit, label %55
 
-56:                                               ; preds = %.lr.ph
-  %57 = icmp eq i32 %51, %42
+55:                                               ; preds = %.lr.ph
+  %56 = trunc i64 %50 to i32
+  %57 = icmp eq i32 %56, %42
   br i1 %57, label %58, label %60
 
-58:                                               ; preds = %56
-  %bcmp = call i32 @bcmp(ptr %.027, ptr nonnull %3, i64 %53)
+58:                                               ; preds = %55
+  %bcmp = call i32 @bcmp(ptr %.027, ptr nonnull %3, i64 %52)
   %59 = icmp eq i32 %bcmp, 0
   br i1 %59, label %.loopexit, label %60
 
-60:                                               ; preds = %58, %56
+60:                                               ; preds = %58, %55
   %61 = add i32 %.01926, 1
-  %62 = icmp ult ptr %54, %45
+  %62 = icmp ult ptr %53, %45
   br i1 %62, label %.lr.ph, label %.loopexit, !llvm.loop !20
 
-.loopexit:                                        ; preds = %.lr.ph, %58, %60, %39, %37
+.loopexit:                                        ; preds = %60, %58, %.lr.ph, %39, %37
   %.020 = phi i32 [ %38, %37 ], [ -1, %39 ], [ -15, %.lr.ph ], [ %.01926, %58 ], [ -1, %60 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #9
   ret i32 %.020
@@ -2496,34 +2495,34 @@ define dso_local noundef ptr @fdt_stringlist_get(ptr noundef %0, i32 noundef %1,
   %47 = ptrtoint ptr %45 to i64
   br label %51
 
-48:                                               ; preds = %61
+48:                                               ; preds = %60
   %49 = add i32 %.02540, -1
-  %50 = icmp ult ptr %58, %45
+  %50 = icmp ult ptr %57, %45
   br i1 %50, label %51, label %._crit_edge, !llvm.loop !21
 
 51:                                               ; preds = %.lr.ph, %48
-  %.041 = phi ptr [ %42, %.lr.ph ], [ %58, %48 ]
+  %.041 = phi ptr [ %42, %.lr.ph ], [ %57, %48 ]
   %.02540 = phi i32 [ %3, %.lr.ph ], [ %49, %48 ]
   %52 = ptrtoint ptr %.041 to i64
   %53 = sub i64 %47, %52
   %54 = call i64 @strnlen(ptr noundef %.041, i64 noundef %53) #10
-  %55 = trunc i64 %54 to i32
-  %56 = add i32 %55, 1
-  store i32 %56, ptr %7, align 4
-  %57 = sext i32 %56 to i64
-  %58 = getelementptr inbounds i8, ptr %.041, i64 %57
-  %59 = icmp ugt ptr %58, %45
-  br i1 %59, label %60, label %61
+  %55 = shl i64 %54, 32
+  %sext = add i64 %55, 4294967296
+  %56 = ashr exact i64 %sext, 32
+  %57 = getelementptr inbounds i8, ptr %.041, i64 %56
+  %58 = icmp ugt ptr %57, %45
+  br i1 %58, label %59, label %60
 
-60:                                               ; preds = %51
+59:                                               ; preds = %51
   %.not33 = icmp eq ptr %4, null
   br i1 %.not33, label %64, label %.sink.split
 
-61:                                               ; preds = %51
-  %62 = icmp eq i32 %.02540, 0
-  br i1 %62, label %63, label %48
+60:                                               ; preds = %51
+  %61 = icmp eq i32 %.02540, 0
+  br i1 %61, label %62, label %48
 
-63:                                               ; preds = %61
+62:                                               ; preds = %60
+  %63 = trunc i64 %54 to i32
   %.not32 = icmp eq ptr %4, null
   br i1 %.not32, label %64, label %.sink.split
 
@@ -2531,14 +2530,14 @@ define dso_local noundef ptr @fdt_stringlist_get(ptr noundef %0, i32 noundef %1,
   %.not31 = icmp eq ptr %4, null
   br i1 %.not31, label %64, label %.sink.split
 
-.sink.split:                                      ; preds = %._crit_edge, %63, %60, %39
-  %.sink50 = phi i32 [ %40, %39 ], [ -15, %60 ], [ %55, %63 ], [ -1, %._crit_edge ]
-  %.024.ph = phi ptr [ null, %39 ], [ null, %60 ], [ %.041, %63 ], [ null, %._crit_edge ]
+.sink.split:                                      ; preds = %._crit_edge, %62, %59, %39
+  %.sink50 = phi i32 [ %40, %39 ], [ -15, %59 ], [ %63, %62 ], [ -1, %._crit_edge ]
+  %.024.ph = phi ptr [ null, %39 ], [ null, %59 ], [ %.041, %62 ], [ null, %._crit_edge ]
   store i32 %.sink50, ptr %4, align 4
   br label %64
 
-64:                                               ; preds = %.sink.split, %._crit_edge, %63, %60, %38
-  %.024 = phi ptr [ null, %38 ], [ null, %60 ], [ %.041, %63 ], [ null, %._crit_edge ], [ %.024.ph, %.sink.split ]
+64:                                               ; preds = %.sink.split, %._crit_edge, %62, %59, %38
+  %.024 = phi ptr [ null, %38 ], [ null, %59 ], [ %.041, %62 ], [ null, %._crit_edge ], [ %.024.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
   ret ptr %.024
 }

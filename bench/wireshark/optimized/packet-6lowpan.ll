@@ -2235,7 +2235,7 @@ define internal fastcc noundef ptr @dissect_6lowpan_iphc(ptr noundef %0, ptr nou
   br i1 %.not380, label %._crit_edge, label %29
 
 ._crit_edge:                                      ; preds = %17
-  %.pre441 = and i32 %24, 128
+  %.pre = and i32 %24, 128
   br label %62
 
 29:                                               ; preds = %17
@@ -2280,7 +2280,7 @@ define internal fastcc noundef ptr @dissect_6lowpan_iphc(ptr noundef %0, ptr nou
   br label %62
 
 62:                                               ; preds = %._crit_edge, %29
-  %.pre-phi = phi i32 [ %.pre441, %._crit_edge ], [ %40, %29 ]
+  %.pre-phi = phi i32 [ %.pre, %._crit_edge ], [ %40, %29 ]
   %.0369 = phi ptr [ null, %._crit_edge ], [ %61, %29 ]
   %.not385 = icmp eq i32 %.pre-phi, 0
   br i1 %.not385, label %74, label %63
@@ -2788,7 +2788,7 @@ proto_item_set_generated.exit417:                 ; preds = %243, %240, %237, %p
 
 313:                                              ; preds = %287
   %314 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %.0369, ptr noundef nonnull @ei_6lowpan_illegal_dest_addr_mode)
-  br label %443
+  br label %442
 
 315:                                              ; preds = %proto_item_set_generated.exit417
   %316 = and i32 %24, 7
@@ -2797,7 +2797,7 @@ proto_item_set_generated.exit417:                 ; preds = %243, %240, %237, %p
 
 317:                                              ; preds = %315
   %318 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %.0369, ptr noundef nonnull @ei_6lowpan_illegal_dest_addr_mode)
-  br label %443
+  br label %442
 
 319:                                              ; preds = %315
   switch i32 %28, label %default.unreachable [
@@ -2999,7 +2999,7 @@ lowpan_parse_nhc_proto.exit:                      ; preds = %switch.lookup, %404
   store i8 %.0.i429, ptr %416, align 2
   %417 = add i32 %3, -40
   %418 = call fastcc ptr @dissect_6lowpan_iphc_nhc(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %403, i32 noundef %417, ptr noundef nonnull %205, ptr noundef %.0351439)
-  br label %441
+  br label %440
 
 419:                                              ; preds = %proto_item_set_generated.exit428
   %420 = call i32 @tvb_captured_length_remaining(ptr noundef %0, i32 noundef %403)
@@ -3020,7 +3020,6 @@ lowpan_parse_nhc_proto.exit:                      ; preds = %switch.lookup, %404
 
 431:                                              ; preds = %419
   %432 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %403)
-  %.pre = load i32, ptr %429, align 4
   br label %435
 
 433:                                              ; preds = %419
@@ -3028,23 +3027,22 @@ lowpan_parse_nhc_proto.exit:                      ; preds = %switch.lookup, %404
   br label %435
 
 435:                                              ; preds = %433, %431
-  %436 = phi i32 [ %.pre, %431 ], [ %420, %433 ]
   %.sink = phi i32 [ %432, %431 ], [ %434, %433 ]
-  %437 = getelementptr inbounds nuw i8, ptr %425, i64 16
-  store i32 %.sink, ptr %437, align 8
-  %438 = getelementptr i8, ptr %425, i64 24
-  %439 = zext i32 %436 to i64
-  %440 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %438, i32 noundef %403, i64 noundef %439)
-  br label %441
+  %436 = getelementptr inbounds nuw i8, ptr %425, i64 16
+  store i32 %.sink, ptr %436, align 8
+  %437 = getelementptr i8, ptr %425, i64 24
+  %438 = zext i32 %420 to i64
+  %439 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %437, i32 noundef %403, i64 noundef %438)
+  br label %440
 
-441:                                              ; preds = %435, %lowpan_parse_nhc_proto.exit
+440:                                              ; preds = %435, %lowpan_parse_nhc_proto.exit
   %.0354 = phi ptr [ %418, %lowpan_parse_nhc_proto.exit ], [ %425, %435 ]
-  %442 = call fastcc ptr @lowpan_reassemble_ipv6(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %9, ptr noundef %.0354)
-  call void @add_new_data_source(ptr noundef %1, ptr noundef %442, ptr noundef nonnull @.str.299)
-  br label %443
+  %441 = call fastcc ptr @lowpan_reassemble_ipv6(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %9, ptr noundef %.0354)
+  call void @add_new_data_source(ptr noundef %1, ptr noundef %441, ptr noundef nonnull @.str.299)
+  br label %442
 
-443:                                              ; preds = %441, %317, %313
-  %.0 = phi ptr [ %442, %441 ], [ null, %313 ], [ null, %317 ]
+442:                                              ; preds = %440, %317, %313
+  %.0 = phi ptr [ %441, %440 ], [ null, %313 ], [ null, %317 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9) #13
   ret ptr %.0
 }
@@ -3086,7 +3084,7 @@ define internal fastcc noundef ptr @dissect_6lowpan_hc1(ptr noundef %0, ptr noun
 30:                                               ; preds = %22
   %31 = load ptr, ptr %7, align 8
   %32 = call ptr @expert_add_info(ptr noundef %1, ptr noundef %31, ptr noundef nonnull @ei_6lowpan_hc1_more_bits)
-  br label %245
+  br label %244
 
 33:                                               ; preds = %24, %6
   %.0227 = phi i32 [ %29, %24 ], [ 0, %6 ]
@@ -3427,11 +3425,11 @@ default.unreachable:                              ; preds = %106
   %217 = getelementptr i8, ptr %205, i64 32
   %218 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %217, i32 noundef %199, i64 noundef %203)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #13
-  br label %243
+  br label %242
 
 219:                                              ; preds = %175
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #13
-  br label %245
+  br label %244
 
 .thread:                                          ; preds = %111, %113, %109, %127
   %.9254 = phi i32 [ %.8, %127 ], [ %126, %113 ], [ %.8, %111 ], [ %.8, %109 ]
@@ -3455,7 +3453,6 @@ default.unreachable:                              ; preds = %106
 
 233:                                              ; preds = %.thread
   %234 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %221)
-  %.pre = load i32, ptr %231, align 4
   br label %237
 
 235:                                              ; preds = %.thread
@@ -3463,23 +3460,22 @@ default.unreachable:                              ; preds = %106
   br label %237
 
 237:                                              ; preds = %235, %233
-  %238 = phi i32 [ %.pre, %233 ], [ %222, %235 ]
   %.sink296 = phi i32 [ %234, %233 ], [ %236, %235 ]
-  %239 = getelementptr inbounds nuw i8, ptr %227, i64 16
-  store i32 %.sink296, ptr %239, align 8
-  %240 = getelementptr i8, ptr %227, i64 24
-  %241 = zext i32 %238 to i64
-  %242 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %240, i32 noundef %221, i64 noundef %241)
-  br label %243
+  %238 = getelementptr inbounds nuw i8, ptr %227, i64 16
+  store i32 %.sink296, ptr %238, align 8
+  %239 = getelementptr i8, ptr %227, i64 24
+  %240 = zext i32 %222 to i64
+  %241 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef %239, i32 noundef %221, i64 noundef %240)
+  br label %242
 
-243:                                              ; preds = %.thread255, %237
+242:                                              ; preds = %.thread255, %237
   %.1224 = phi ptr [ %227, %237 ], [ %205, %.thread255 ]
-  %244 = call fastcc ptr @lowpan_reassemble_ipv6(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %8, ptr noundef %.1224)
-  call void @add_new_data_source(ptr noundef %1, ptr noundef %244, ptr noundef nonnull @.str.311)
-  br label %245
+  %243 = call fastcc ptr @lowpan_reassemble_ipv6(ptr noundef %0, ptr noundef %1, ptr noundef nonnull %8, ptr noundef %.1224)
+  call void @add_new_data_source(ptr noundef %1, ptr noundef %243, ptr noundef nonnull @.str.311)
+  br label %244
 
-245:                                              ; preds = %219, %243, %30
-  %.0 = phi ptr [ %244, %243 ], [ null, %219 ], [ null, %30 ]
+244:                                              ; preds = %219, %242, %30
+  %.0 = phi ptr [ %243, %242 ], [ null, %219 ], [ null, %30 ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %8) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #13
   ret ptr %.0

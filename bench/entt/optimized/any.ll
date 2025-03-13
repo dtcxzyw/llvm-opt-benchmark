@@ -63106,7 +63106,7 @@ define hidden void @_ZN40Any_SBOMoveValidButUnspecifiedState_Test8TestBodyEv(ptr
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN4entt7type_idIiEERKNS_9type_infoEvE8instance) #24
   br label %_ZN4entt9basic_anyILm16ELm8EED2Ev.exit88
 
-_ZN4entt9basic_anyILm16ELm8EED2Ev.exit88:         ; preds = %6, %4, %1
+_ZN4entt9basic_anyILm16ELm8EED2Ev.exit88:         ; preds = %1, %4, %6
   ret void
 }
 

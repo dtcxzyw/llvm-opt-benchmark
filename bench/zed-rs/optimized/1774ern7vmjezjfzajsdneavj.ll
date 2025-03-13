@@ -111295,7 +111295,7 @@ define hidden void @"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$
   br i1 %.not3.i.i, label %16, label %18
 
 16:                                               ; preds = %18, %9
-  %17 = add i64 %7, %13
+  %17 = add i64 %13, %7
   store i64 %17, ptr %12, align 8
   br label %"_ZN4core3ptr206drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$core..ops..range..Range$LT$multi_buffer..anchor..Anchor$GT$$C$alloc..alloc..Global$GT$$GT$17he91fc12e861e52eeE.exit"
 
@@ -111322,7 +111322,7 @@ define hidden void @"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$
   br i1 %.not3.i.i7, label %32, label %34
 
 32:                                               ; preds = %34, %25
-  %33 = add i64 %7, %29
+  %33 = add i64 %29, %7
   store i64 %33, ptr %28, align 8
   br label %"_ZN4core3ptr206drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$core..ops..range..Range$LT$multi_buffer..anchor..Anchor$GT$$C$alloc..alloc..Global$GT$$GT$17he91fc12e861e52eeE.exit"
 
@@ -111371,7 +111371,7 @@ define hidden void @"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$
   br i1 %.not3.i.i, label %21, label %23
 
 21:                                               ; preds = %23, %16
-  %22 = add i64 %15, %18
+  %22 = add i64 %18, %15
   store i64 %22, ptr %17, align 8
   br label %"_ZN4core3ptr170drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$text..InsertionFragment$C$alloc..alloc..Global$GT$$GT$17h83ff860f79a59e83E.exit"
 
@@ -111467,7 +111467,7 @@ define hidden void @"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$
   br i1 %.not3.i.i7, label %61, label %63
 
 61:                                               ; preds = %63, %56
-  %62 = add i64 %55, %58
+  %62 = add i64 %58, %55
   store i64 %62, ptr %57, align 8
   br label %"_ZN4core3ptr170drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$text..InsertionFragment$C$alloc..alloc..Global$GT$$GT$17h83ff860f79a59e83E.exit"
 
@@ -111583,7 +111583,7 @@ define hidden void @"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$
   br i1 %.not3.i.i, label %20, label %22
 
 20:                                               ; preds = %22, %15
-  %21 = add i64 %14, %17
+  %21 = add i64 %17, %14
   store i64 %21, ptr %16, align 8
   br label %"_ZN4core3ptr192drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$sum_tree..Node$LT$text..InsertionFragment$GT$$C$alloc..alloc..Global$GT$$GT$17h4c72c1b88975edc5E.exit"
 
@@ -111656,7 +111656,7 @@ define hidden void @"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$
   br i1 %.not3.i.i7, label %55, label %57
 
 55:                                               ; preds = %57, %50
-  %56 = add i64 %49, %52
+  %56 = add i64 %52, %49
   store i64 %56, ptr %51, align 8
   br label %"_ZN4core3ptr192drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$sum_tree..Node$LT$text..InsertionFragment$GT$$C$alloc..alloc..Global$GT$$GT$17h4c72c1b88975edc5E.exit"
 
@@ -111699,7 +111699,7 @@ define hidden void @"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$
   br i1 %.not3.i.i, label %16, label %18
 
 16:                                               ; preds = %18, %11
-  %17 = add i64 %10, %13
+  %17 = add i64 %13, %10
   store i64 %17, ptr %12, align 8
   br label %"_ZN4core3ptr175drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$vim..state..ReplayableAction$C$alloc..alloc..Global$GT$$GT$17h7a68537646e2134cE.exit"
 
@@ -111746,7 +111746,7 @@ define hidden void @"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$
   br i1 %.not3.i.i7, label %44, label %46
 
 44:                                               ; preds = %46, %39
-  %45 = add i64 %38, %41
+  %45 = add i64 %41, %38
   store i64 %45, ptr %40, align 8
   br label %"_ZN4core3ptr175drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$vim..state..ReplayableAction$C$alloc..alloc..Global$GT$$GT$17h7a68537646e2134cE.exit"
 

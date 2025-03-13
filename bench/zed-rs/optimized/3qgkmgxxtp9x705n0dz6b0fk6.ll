@@ -83106,6 +83106,7 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15clone_from_impl17
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %6, ptr nonnull align 1 %5, i64 %9, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %11 = load i64, ptr %10, align 8, !noundef !5
+  %invariant.gep = getelementptr i8, ptr %6, i64 -48
   %12 = icmp eq i64 %11, 0
   br i1 %12, label %._crit_edge, label %.lr.ph
 
@@ -83121,7 +83122,6 @@ define hidden void @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$15clone_from_impl17
   %.sroa.4.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 32
   %.sroa.6.0..sroa_idx.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 40
   %21 = ptrtoint ptr %5 to i64
-  %invariant.gep = getelementptr i8, ptr %6, i64 -48
   br label %24
 
 22:                                               ; preds = %39
@@ -105090,6 +105090,7 @@ _ZN4gpui8platform5linux7wayland6client21WaylandClientStatePtr10get_client17h26d0
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %.sroa.0.0.i.i, ptr nonnull align 1 %98, i64 %.pre-phi.i.i, i1 false), !noalias !28504
   %99 = getelementptr inbounds nuw i8, ptr %15, i64 2208
   %100 = load i64, ptr %99, align 8, !alias.scope !28502, !noalias !28503, !noundef !5
+  %invariant.gep.i.i.i.i = getelementptr i8, ptr %.sroa.0.0.i.i, i64 -80
   %101 = icmp eq i64 %100, 0
   br i1 %101, label %.loopexit.i.i, label %.lr.ph.i.i.i.i
 
@@ -105113,7 +105114,6 @@ _ZN4gpui8platform5linux7wayland6client21WaylandClientStatePtr10get_client17h26d0
   %.sroa.5.0..sroa_idx.i3.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 64
   %.sroa.67.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 68
   %110 = ptrtoint ptr %98 to i64
-  %invariant.gep.i.i.i.i = getelementptr i8, ptr %.sroa.0.0.i.i, i64 -80
   br label %111
 
 .body.i.i.i.i:                                    ; preds = %152, %149, %147

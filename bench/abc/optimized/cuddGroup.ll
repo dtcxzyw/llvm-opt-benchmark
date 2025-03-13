@@ -39,7 +39,7 @@ define ptr @Cudd_MakeTreeNode(ptr noundef captures(none) %0, i32 noundef %1, i32
   br i1 %22, label %23, label %31
 
 23:                                               ; preds = %19
-  %24 = tail call ptr @Mtr_InitGroupTree(i32 noundef 0, i32 noundef %6) #11
+  %24 = tail call ptr @Mtr_InitGroupTree(i32 noundef 0, i32 noundef %6) #12
   store ptr %24, ptr %20, align 8, !tbaa !26
   %25 = icmp eq ptr %24, null
   br i1 %25, label %39, label %26
@@ -61,7 +61,7 @@ define ptr @Cudd_MakeTreeNode(ptr noundef captures(none) %0, i32 noundef %1, i32
   %34 = load i32, ptr %33, align 8, !tbaa !30
   %spec.select = tail call i32 @llvm.umax.i32(i32 %., i32 %34)
   store i32 %spec.select, ptr %33, align 8, !tbaa !30
-  %35 = tail call ptr @Mtr_MakeGroup(ptr noundef nonnull %.037, i32 noundef %15, i32 noundef %2, i32 noundef %3) #11
+  %35 = tail call ptr @Mtr_MakeGroup(ptr noundef nonnull %.037, i32 noundef %15, i32 noundef %2, i32 noundef %3) #12
   %36 = icmp eq ptr %35, null
   br i1 %36, label %39, label %37
 
@@ -95,7 +95,7 @@ define range(i32 0, 2) i32 @cuddTreeSifting(ptr noundef %0, i32 noundef %1) loca
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %8 = load i32, ptr %7, align 8, !tbaa !3
-  %9 = tail call ptr @Mtr_InitGroupTree(i32 noundef 0, i32 noundef %8) #11
+  %9 = tail call ptr @Mtr_InitGroupTree(i32 noundef 0, i32 noundef %8) #12
   store ptr %9, ptr %3, align 8, !tbaa !26
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 328
   %11 = load ptr, ptr %10, align 8, !tbaa !27
@@ -131,7 +131,7 @@ define range(i32 0, 2) i32 @cuddTreeSifting(ptr noundef %0, i32 noundef %1) loca
   br i1 %5, label %25, label %26
 
 25:                                               ; preds = %._crit_edge
-  tail call void @Cudd_FreeTree(ptr noundef nonnull %0) #11
+  tail call void @Cudd_FreeTree(ptr noundef nonnull %0) #12
   br label %26
 
 26:                                               ; preds = %25, %._crit_edge
@@ -342,18 +342,18 @@ ddFindNodeHiLo.exit:                              ; preds = %.preheader.i, %8, %
   br label %55
 
 51:                                               ; preds = %42, %42
-  %52 = tail call i32 @cuddSwapping(ptr noundef nonnull %0, i32 noundef %15, i32 noundef %.2, i32 noundef %2) #11
+  %52 = tail call i32 @cuddSwapping(ptr noundef nonnull %0, i32 noundef %15, i32 noundef %.2, i32 noundef %2) #12
   br label %.loopexit
 
 53:                                               ; preds = %42
-  %54 = tail call i32 @cuddSifting(ptr noundef nonnull %0, i32 noundef %15, i32 noundef %.2) #11
+  %54 = tail call i32 @cuddSifting(ptr noundef nonnull %0, i32 noundef %15, i32 noundef %.2) #12
   br label %.loopexit
 
 55:                                               ; preds = %.preheader, %55
   %56 = phi i32 [ %.pre113, %.preheader ], [ %61, %55 ]
   %57 = phi i32 [ %.pre112, %.preheader ], [ %60, %55 ]
   %58 = sub i32 %57, %56
-  %59 = tail call i32 @cuddSifting(ptr noundef nonnull %0, i32 noundef %15, i32 noundef %.2) #11
+  %59 = tail call i32 @cuddSifting(ptr noundef nonnull %0, i32 noundef %15, i32 noundef %.2) #12
   %60 = load i32, ptr %49, align 4, !tbaa !42
   %61 = load i32, ptr %50, align 8, !tbaa !43
   %62 = sub i32 %60, %61
@@ -363,11 +363,11 @@ ddFindNodeHiLo.exit:                              ; preds = %.preheader.i, %8, %
   br i1 %or.cond, label %55, label %.loopexit, !llvm.loop !44
 
 65:                                               ; preds = %42
-  %66 = tail call i32 @cuddSymmSifting(ptr noundef nonnull %0, i32 noundef %15, i32 noundef %.2) #11
+  %66 = tail call i32 @cuddSymmSifting(ptr noundef nonnull %0, i32 noundef %15, i32 noundef %.2) #12
   br label %.loopexit
 
 67:                                               ; preds = %42
-  %68 = tail call i32 @cuddSymmSiftingConv(ptr noundef nonnull %0, i32 noundef %15, i32 noundef %.2) #11
+  %68 = tail call i32 @cuddSymmSiftingConv(ptr noundef nonnull %0, i32 noundef %15, i32 noundef %.2) #12
   br label %.loopexit
 
 69:                                               ; preds = %42
@@ -426,7 +426,7 @@ ddFindNodeHiLo.exit:                              ; preds = %.preheader.i, %8, %
   br label %96
 
 96:                                               ; preds = %89, %93, %91, %87
-  %97 = tail call i32 @cuddWindowReorder(ptr noundef nonnull %0, i32 noundef %15, i32 noundef %.2, i32 noundef 10) #11
+  %97 = tail call i32 @cuddWindowReorder(ptr noundef nonnull %0, i32 noundef %15, i32 noundef %.2, i32 noundef 10) #12
   %98 = load i32, ptr %45, align 4, !tbaa !42
   %99 = load i32, ptr %46, align 8, !tbaa !43
   %100 = sub i32 %98, %99
@@ -436,26 +436,26 @@ ddFindNodeHiLo.exit:                              ; preds = %.preheader.i, %8, %
   br i1 %or.cond3, label %82, label %.loopexit, !llvm.loop !46
 
 103:                                              ; preds = %42, %42, %42, %42, %42, %42
-  %104 = tail call i32 @cuddWindowReorder(ptr noundef nonnull %0, i32 noundef %15, i32 noundef %.2, i32 noundef %2) #11
+  %104 = tail call i32 @cuddWindowReorder(ptr noundef nonnull %0, i32 noundef %15, i32 noundef %.2, i32 noundef %2) #12
   br label %.loopexit
 
 105:                                              ; preds = %42
-  %106 = tail call i32 @cuddAnnealing(ptr noundef nonnull %0, i32 noundef %15, i32 noundef %.2) #11
+  %106 = tail call i32 @cuddAnnealing(ptr noundef nonnull %0, i32 noundef %15, i32 noundef %.2) #12
   br label %.loopexit
 
 107:                                              ; preds = %42
-  %108 = tail call i32 @cuddGa(ptr noundef nonnull %0, i32 noundef %15, i32 noundef %.2) #11
+  %108 = tail call i32 @cuddGa(ptr noundef nonnull %0, i32 noundef %15, i32 noundef %.2) #12
   br label %.loopexit
 
 109:                                              ; preds = %42
-  %110 = tail call i32 @cuddLinearAndSifting(ptr noundef nonnull %0, i32 noundef %15, i32 noundef %.2) #11
+  %110 = tail call i32 @cuddLinearAndSifting(ptr noundef nonnull %0, i32 noundef %15, i32 noundef %.2) #12
   br label %.loopexit
 
 111:                                              ; preds = %.preheader101, %111
   %112 = phi i32 [ %.pre109, %.preheader101 ], [ %117, %111 ]
   %113 = phi i32 [ %.pre, %.preheader101 ], [ %116, %111 ]
   %114 = sub i32 %113, %112
-  %115 = tail call i32 @cuddLinearAndSifting(ptr noundef nonnull %0, i32 noundef %15, i32 noundef %.2) #11
+  %115 = tail call i32 @cuddLinearAndSifting(ptr noundef nonnull %0, i32 noundef %15, i32 noundef %.2) #12
   %116 = load i32, ptr %43, align 4, !tbaa !42
   %117 = load i32, ptr %44, align 8, !tbaa !43
   %118 = sub i32 %116, %117
@@ -465,7 +465,7 @@ ddFindNodeHiLo.exit:                              ; preds = %.preheader.i, %8, %
   br i1 %or.cond5, label %111, label %.loopexit, !llvm.loop !47
 
 121:                                              ; preds = %42
-  %122 = tail call i32 @cuddExact(ptr noundef nonnull %0, i32 noundef %15, i32 noundef %.2) #11
+  %122 = tail call i32 @cuddExact(ptr noundef nonnull %0, i32 noundef %15, i32 noundef %.2) #12
   br label %.loopexit
 
 123:                                              ; preds = %42
@@ -553,12 +553,12 @@ define internal fastcc range(i32 0, 2) i32 @ddGroupSifting(ptr noundef %0, i32 n
   store ptr null, ptr @entry, align 8, !tbaa !50
   %8 = sext i32 %7 to i64
   %9 = shl nsw i64 %8, 2
-  %10 = tail call noalias ptr @malloc(i64 noundef %9) #12
+  %10 = tail call noalias ptr @malloc(i64 noundef %9) #13
   %11 = icmp eq ptr %10, null
   br i1 %11, label %.thread268, label %12
 
 12:                                               ; preds = %5
-  %13 = tail call noalias ptr @malloc(i64 noundef %9) #12
+  %13 = tail call noalias ptr @malloc(i64 noundef %9) #13
   store ptr %13, ptr @entry, align 8, !tbaa !50
   %14 = icmp eq ptr %13, null
   br i1 %14, label %.thread271, label %16
@@ -566,11 +566,11 @@ define internal fastcc range(i32 0, 2) i32 @ddGroupSifting(ptr noundef %0, i32 n
 .thread271:                                       ; preds = %12
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 624
   store i32 1, ptr %15, align 8, !tbaa !51
-  tail call void @free(ptr noundef nonnull %10) #11
-  br label %200
+  tail call void @free(ptr noundef nonnull %10) #12
+  br label %201
 
 16:                                               ; preds = %12
-  %17 = tail call noalias ptr @malloc(i64 noundef %9) #12
+  %17 = tail call noalias ptr @malloc(i64 noundef %9) #13
   %18 = icmp eq ptr %17, null
   br i1 %18, label %.loopexit.thread260, label %.preheader226
 
@@ -583,376 +583,376 @@ define internal fastcc range(i32 0, 2) i32 @ddGroupSifting(ptr noundef %0, i32 n
   %21 = load ptr, ptr %20, align 8, !tbaa !24
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %23 = load ptr, ptr %22, align 8, !tbaa !31
-  %wide.trip.count = zext nneg i32 %7 to i64
-  br label %25
+  %24 = zext nneg i32 %7 to i64
+  %25 = shl nuw nsw i64 %24, 2
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %17, i8 0, i64 %25, i1 false), !tbaa !25
+  br label %27
 
 .loopexit.thread260:                              ; preds = %16
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  store i32 1, ptr %24, align 8, !tbaa !51
-  br label %198
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 624
+  store i32 1, ptr %26, align 8, !tbaa !51
+  br label %199
 
-25:                                               ; preds = %.lr.ph, %41
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %41 ]
-  %.0163230 = phi i32 [ 0, %.lr.ph ], [ %.1164, %41 ]
-  %26 = getelementptr inbounds nuw i32, ptr %17, i64 %indvars.iv
-  store i32 0, ptr %26, align 4, !tbaa !25
-  %27 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv
-  %28 = load i32, ptr %27, align 4, !tbaa !25
-  %29 = sext i32 %28 to i64
-  %30 = getelementptr inbounds %struct.DdSubtable, ptr %23, i64 %29
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 28
-  %32 = load i32, ptr %31, align 4, !tbaa !32
-  %.not200 = icmp ult i32 %28, %32
-  br i1 %.not200, label %41, label %33
+27:                                               ; preds = %.lr.ph, %42
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %42 ]
+  %.0163230 = phi i32 [ 0, %.lr.ph ], [ %.1164, %42 ]
+  %28 = getelementptr inbounds nuw i32, ptr %21, i64 %indvars.iv
+  %29 = load i32, ptr %28, align 4, !tbaa !25
+  %30 = sext i32 %29 to i64
+  %31 = getelementptr inbounds %struct.DdSubtable, ptr %23, i64 %30
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 28
+  %33 = load i32, ptr %32, align 4, !tbaa !32
+  %.not200 = icmp ult i32 %29, %33
+  br i1 %.not200, label %42, label %34
 
-33:                                               ; preds = %25
-  %34 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  %35 = load i32, ptr %34, align 8, !tbaa !52
-  %36 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
-  store i32 %35, ptr %36, align 4, !tbaa !25
-  %37 = sext i32 %.0163230 to i64
-  %38 = getelementptr inbounds i32, ptr %10, i64 %37
-  %39 = trunc nuw nsw i64 %indvars.iv to i32
-  store i32 %39, ptr %38, align 4, !tbaa !25
-  %40 = add nsw i32 %.0163230, 1
-  br label %41
+34:                                               ; preds = %27
+  %35 = getelementptr inbounds nuw i8, ptr %31, i64 16
+  %36 = load i32, ptr %35, align 8, !tbaa !52
+  %37 = getelementptr inbounds nuw i32, ptr %13, i64 %indvars.iv
+  store i32 %36, ptr %37, align 4, !tbaa !25
+  %38 = sext i32 %.0163230 to i64
+  %39 = getelementptr inbounds i32, ptr %10, i64 %38
+  %40 = trunc nuw nsw i64 %indvars.iv to i32
+  store i32 %40, ptr %39, align 4, !tbaa !25
+  %41 = add nsw i32 %.0163230, 1
+  br label %42
 
-41:                                               ; preds = %25, %33
-  %.1164 = phi i32 [ %40, %33 ], [ %.0163230, %25 ]
+42:                                               ; preds = %27, %34
+  %.1164 = phi i32 [ %41, %34 ], [ %.0163230, %27 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %25, !llvm.loop !53
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %24
+  br i1 %exitcond.not, label %._crit_edge, label %27, !llvm.loop !53
 
-._crit_edge:                                      ; preds = %41, %.preheader226
-  %.0163.lcssa = phi i32 [ 0, %.preheader226 ], [ %.1164, %41 ]
-  %42 = sext i32 %.0163.lcssa to i64
-  tail call void @qsort(ptr noundef nonnull %10, i64 noundef %42, i64 noundef 4, ptr noundef nonnull @ddUniqueCompareGroup) #11
+._crit_edge:                                      ; preds = %42, %.preheader226
+  %.0163.lcssa = phi i32 [ 0, %.preheader226 ], [ %.1164, %42 ]
+  %43 = sext i32 %.0163.lcssa to i64
+  tail call void @qsort(ptr noundef nonnull %10, i64 noundef %43, i64 noundef 4, ptr noundef nonnull @ddUniqueCompareGroup) #12
   %.not = icmp eq i32 %4, 0
-  %43 = icmp slt i32 %7, 1
-  %or.cond239.not = or i1 %43, %.not
+  %44 = icmp slt i32 %7, 1
+  %or.cond239.not = or i1 %44, %.not
   br i1 %or.cond239.not, label %.loopexit225, label %.lr.ph232
 
 .lr.ph232:                                        ; preds = %._crit_edge
-  %44 = load i32, ptr %6, align 8, !tbaa !3
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %47 = sext i32 %44 to i64
+  %45 = load i32, ptr %6, align 8, !tbaa !3
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %48 = sext i32 %45 to i64
   %wide.trip.count247 = zext nneg i32 %7 to i64
-  br label %48
+  br label %49
 
-48:                                               ; preds = %.lr.ph232, %ddResetVarHandled.exit
+49:                                               ; preds = %.lr.ph232, %ddResetVarHandled.exit
   %indvars.iv244 = phi i64 [ 0, %.lr.ph232 ], [ %indvars.iv.next245, %ddResetVarHandled.exit ]
-  %.not221 = icmp slt i64 %indvars.iv244, %47
-  br i1 %.not221, label %49, label %ddResetVarHandled.exit
+  %.not221 = icmp slt i64 %indvars.iv244, %48
+  br i1 %.not221, label %50, label %ddResetVarHandled.exit
 
-49:                                               ; preds = %48
-  %50 = load ptr, ptr %45, align 8, !tbaa !31
-  %51 = load ptr, ptr %46, align 8, !tbaa !24
-  %52 = getelementptr inbounds nuw i32, ptr %51, i64 %indvars.iv244
-  %53 = load i32, ptr %52, align 4, !tbaa !25
-  %54 = sext i32 %53 to i64
-  %55 = getelementptr inbounds %struct.DdSubtable, ptr %50, i64 %54, i32 10
-  store i32 0, ptr %55, align 4, !tbaa !54
+50:                                               ; preds = %49
+  %51 = load ptr, ptr %46, align 8, !tbaa !31
+  %52 = load ptr, ptr %47, align 8, !tbaa !24
+  %53 = getelementptr inbounds nuw i32, ptr %52, i64 %indvars.iv244
+  %54 = load i32, ptr %53, align 4, !tbaa !25
+  %55 = sext i32 %54 to i64
+  %56 = getelementptr inbounds %struct.DdSubtable, ptr %51, i64 %55, i32 10
+  store i32 0, ptr %56, align 4, !tbaa !54
   br label %ddResetVarHandled.exit
 
-ddResetVarHandled.exit:                           ; preds = %48, %49
+ddResetVarHandled.exit:                           ; preds = %49, %50
   %indvars.iv.next245 = add nuw nsw i64 %indvars.iv244, 1
   %exitcond248.not = icmp eq i64 %indvars.iv.next245, %wide.trip.count247
-  br i1 %exitcond248.not, label %.loopexit225, label %48, !llvm.loop !55
+  br i1 %exitcond248.not, label %.loopexit225, label %49, !llvm.loop !55
 
 .loopexit225:                                     ; preds = %ddResetVarHandled.exit, %._crit_edge
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 456
-  %57 = load i32, ptr %56, align 8, !tbaa !56
-  %.0163.233 = tail call i32 @llvm.smin.i32(i32 %.0163.lcssa, i32 %57)
-  %58 = icmp sgt i32 %.0163.233, 0
-  br i1 %58, label %.lr.ph236, label %._crit_edge237
+  %57 = getelementptr inbounds nuw i8, ptr %0, i64 456
+  %58 = load i32, ptr %57, align 8, !tbaa !56
+  %.0163.233 = tail call i32 @llvm.smin.i32(i32 %.0163.lcssa, i32 %58)
+  %59 = icmp sgt i32 %.0163.233, 0
+  br i1 %59, label %.lr.ph236, label %._crit_edge237
 
 .lr.ph236:                                        ; preds = %.loopexit225
-  %59 = getelementptr inbounds nuw i8, ptr %0, i64 460
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 536
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 328
-  br label %64
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 460
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 312
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 536
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 328
+  br label %65
 
-64:                                               ; preds = %.lr.ph236, %ddSetVarHandled.exit
+65:                                               ; preds = %.lr.ph236, %ddSetVarHandled.exit
   %indvars.iv249 = phi i64 [ 0, %.lr.ph236 ], [ %indvars.iv.next250, %ddSetVarHandled.exit ]
-  %65 = load i32, ptr @ddTotalNumberSwapping, align 4, !tbaa !25
-  %66 = load i32, ptr %59, align 4, !tbaa !57
-  %.not188 = icmp slt i32 %65, %66
-  br i1 %.not188, label %67, label %._crit_edge237
+  %66 = load i32, ptr @ddTotalNumberSwapping, align 4, !tbaa !25
+  %67 = load i32, ptr %60, align 4, !tbaa !57
+  %.not188 = icmp slt i32 %66, %67
+  br i1 %.not188, label %68, label %._crit_edge237
 
-67:                                               ; preds = %64
-  %68 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv249
-  %69 = load i32, ptr %68, align 4, !tbaa !25
-  %70 = sext i32 %69 to i64
-  %71 = getelementptr inbounds i32, ptr %17, i64 %70
-  %72 = load i32, ptr %71, align 4, !tbaa !25
-  %73 = icmp eq i32 %72, 1
-  br i1 %73, label %ddSetVarHandled.exit, label %74
+68:                                               ; preds = %65
+  %69 = getelementptr inbounds nuw i32, ptr %10, i64 %indvars.iv249
+  %70 = load i32, ptr %69, align 4, !tbaa !25
+  %71 = sext i32 %70 to i64
+  %72 = getelementptr inbounds i32, ptr %17, i64 %71
+  %73 = load i32, ptr %72, align 4, !tbaa !25
+  %74 = icmp eq i32 %73, 1
+  br i1 %74, label %ddSetVarHandled.exit, label %75
 
-74:                                               ; preds = %67
-  %75 = load ptr, ptr %60, align 8, !tbaa !24
-  %76 = getelementptr inbounds i32, ptr %75, i64 %70
-  %77 = load i32, ptr %76, align 4, !tbaa !25
-  %78 = icmp slt i32 %77, %1
-  %79 = icmp sgt i32 %77, %2
-  %or.cond204 = or i1 %78, %79
-  br i1 %or.cond204, label %ddSetVarHandled.exit, label %80
+75:                                               ; preds = %68
+  %76 = load ptr, ptr %61, align 8, !tbaa !24
+  %77 = getelementptr inbounds i32, ptr %76, i64 %71
+  %78 = load i32, ptr %77, align 4, !tbaa !25
+  %79 = icmp slt i32 %78, %1
+  %80 = icmp sgt i32 %78, %2
+  %or.cond204 = or i1 %79, %80
+  br i1 %or.cond204, label %ddSetVarHandled.exit, label %81
 
-80:                                               ; preds = %74
-  %81 = load ptr, ptr %61, align 8, !tbaa !31
-  %82 = sext i32 %77 to i64
-  %83 = getelementptr inbounds %struct.DdSubtable, ptr %81, i64 %82
-  %84 = getelementptr inbounds nuw i8, ptr %83, i64 32
-  %85 = load i32, ptr %84, align 8, !tbaa !58
-  %86 = icmp eq i32 %85, 1
-  br i1 %86, label %ddSetVarHandled.exit, label %87
+81:                                               ; preds = %75
+  %82 = load ptr, ptr %62, align 8, !tbaa !31
+  %83 = sext i32 %78 to i64
+  %84 = getelementptr inbounds %struct.DdSubtable, ptr %82, i64 %83
+  %85 = getelementptr inbounds nuw i8, ptr %84, i64 32
+  %86 = load i32, ptr %85, align 8, !tbaa !58
+  %87 = icmp eq i32 %86, 1
+  br i1 %87, label %ddSetVarHandled.exit, label %88
 
-87:                                               ; preds = %80
-  %88 = getelementptr inbounds nuw i8, ptr %83, i64 28
-  %89 = load i32, ptr %88, align 4, !tbaa !32
-  %90 = icmp eq i32 %77, %89
-  %.ddNoCheck = select i1 %90, ptr %3, ptr @ddNoCheck
-  %91 = tail call fastcc i32 @ddGroupSiftingAux(ptr noundef nonnull %0, i32 noundef %77, i32 noundef %1, i32 noundef %2, ptr noundef %.ddNoCheck, i32 noundef %4)
-  %.not189 = icmp eq i32 %91, 0
-  br i1 %.not189, label %.loopexit, label %92
+88:                                               ; preds = %81
+  %89 = getelementptr inbounds nuw i8, ptr %84, i64 28
+  %90 = load i32, ptr %89, align 4, !tbaa !32
+  %91 = icmp eq i32 %78, %90
+  %.ddNoCheck = select i1 %91, ptr %3, ptr @ddNoCheck
+  %92 = tail call fastcc i32 @ddGroupSiftingAux(ptr noundef nonnull %0, i32 noundef %78, i32 noundef %1, i32 noundef %2, ptr noundef %.ddNoCheck, i32 noundef %4)
+  %.not189 = icmp eq i32 %92, 0
+  br i1 %.not189, label %.loopexit, label %93
 
-92:                                               ; preds = %87
-  br i1 %.not, label %93, label %.thread
+93:                                               ; preds = %88
+  br i1 %.not, label %94, label %.thread
 
-93:                                               ; preds = %92
-  %94 = load i32, ptr %62, align 8, !tbaa !36
-  %95 = icmp eq i32 %94, 7
-  br i1 %95, label %96, label %.thread
+94:                                               ; preds = %93
+  %95 = load i32, ptr %63, align 8, !tbaa !36
+  %96 = icmp eq i32 %95, 7
+  br i1 %96, label %97, label %.thread
 
-96:                                               ; preds = %93
-  %97 = load ptr, ptr %60, align 8, !tbaa !24
-  %98 = getelementptr inbounds i32, ptr %97, i64 %70
-  %99 = load i32, ptr %98, align 4, !tbaa !25
-  %100 = load ptr, ptr %61, align 8, !tbaa !31
-  %101 = sext i32 %99 to i64
-  %102 = getelementptr inbounds %struct.DdSubtable, ptr %100, i64 %101, i32 6
-  %103 = load i32, ptr %102, align 4, !tbaa !32
-  %104 = icmp eq i32 %99, %103
-  br i1 %104, label %105, label %.thread
+97:                                               ; preds = %94
+  %98 = load ptr, ptr %61, align 8, !tbaa !24
+  %99 = getelementptr inbounds i32, ptr %98, i64 %71
+  %100 = load i32, ptr %99, align 4, !tbaa !25
+  %101 = load ptr, ptr %62, align 8, !tbaa !31
+  %102 = sext i32 %100 to i64
+  %103 = getelementptr inbounds %struct.DdSubtable, ptr %101, i64 %102, i32 6
+  %104 = load i32, ptr %103, align 4, !tbaa !32
+  %105 = icmp eq i32 %100, %104
+  br i1 %105, label %106, label %.thread
 
-105:                                              ; preds = %96
-  %.not190 = icmp eq i32 %99, %2
-  br i1 %.not190, label %130, label %106
+106:                                              ; preds = %97
+  %.not190 = icmp eq i32 %100, %2
+  br i1 %.not190, label %131, label %107
 
-106:                                              ; preds = %105
-  %107 = load ptr, ptr %63, align 8, !tbaa !27
-  %108 = add nsw i32 %99, 1
-  %109 = sext i32 %108 to i64
-  %110 = getelementptr inbounds i32, ptr %107, i64 %109
-  %111 = load i32, ptr %110, align 4, !tbaa !25
-  %112 = sext i32 %111 to i64
-  %113 = getelementptr inbounds i32, ptr %17, i64 %112
-  %114 = load i32, ptr %113, align 4, !tbaa !25
-  %115 = icmp eq i32 %114, 0
-  br i1 %115, label %116, label %130
+107:                                              ; preds = %106
+  %108 = load ptr, ptr %64, align 8, !tbaa !27
+  %109 = add nsw i32 %100, 1
+  %110 = sext i32 %109 to i64
+  %111 = getelementptr inbounds i32, ptr %108, i64 %110
+  %112 = load i32, ptr %111, align 4, !tbaa !25
+  %113 = sext i32 %112 to i64
+  %114 = getelementptr inbounds i32, ptr %17, i64 %113
+  %115 = load i32, ptr %114, align 4, !tbaa !25
+  %116 = icmp eq i32 %115, 0
+  br i1 %116, label %117, label %131
 
-116:                                              ; preds = %106
-  %117 = getelementptr inbounds %struct.DdSubtable, ptr %100, i64 %109, i32 6
-  %118 = load i32, ptr %117, align 4, !tbaa !32
-  %119 = icmp eq i32 %108, %118
-  br i1 %119, label %120, label %130
+117:                                              ; preds = %107
+  %118 = getelementptr inbounds %struct.DdSubtable, ptr %101, i64 %110, i32 6
+  %119 = load i32, ptr %118, align 4, !tbaa !32
+  %120 = icmp eq i32 %109, %119
+  br i1 %120, label %121, label %131
 
-120:                                              ; preds = %116
-  %121 = tail call fastcc i32 @ddSecDiffCheck(ptr noundef nonnull %0, i32 noundef %99, i32 noundef %108)
-  %.not191 = icmp eq i32 %121, 0
-  br i1 %.not191, label %130, label %122
+121:                                              ; preds = %117
+  %122 = tail call fastcc i32 @ddSecDiffCheck(ptr noundef nonnull %0, i32 noundef %100, i32 noundef %109)
+  %.not191 = icmp eq i32 %122, 0
+  br i1 %.not191, label %131, label %123
 
-122:                                              ; preds = %120
-  %123 = load ptr, ptr %61, align 8, !tbaa !31
-  br label %124
+123:                                              ; preds = %121
+  %124 = load ptr, ptr %62, align 8, !tbaa !31
+  br label %125
 
-124:                                              ; preds = %124, %122
-  %.0.i205 = phi i32 [ %108, %122 ], [ %127, %124 ]
-  %125 = sext i32 %.0.i205 to i64
-  %126 = getelementptr inbounds %struct.DdSubtable, ptr %123, i64 %125, i32 6
-  %127 = load i32, ptr %126, align 4, !tbaa !32
-  %128 = icmp ult i32 %.0.i205, %127
-  br i1 %128, label %124, label %ddCreateGroup.exit, !llvm.loop !59
+125:                                              ; preds = %125, %123
+  %.0.i205 = phi i32 [ %109, %123 ], [ %128, %125 ]
+  %126 = sext i32 %.0.i205 to i64
+  %127 = getelementptr inbounds %struct.DdSubtable, ptr %124, i64 %126, i32 6
+  %128 = load i32, ptr %127, align 4, !tbaa !32
+  %129 = icmp ult i32 %.0.i205, %128
+  br i1 %129, label %125, label %ddCreateGroup.exit, !llvm.loop !59
 
-ddCreateGroup.exit:                               ; preds = %124
-  %129 = getelementptr inbounds %struct.DdSubtable, ptr %123, i64 %101, i32 6
-  store i32 %108, ptr %129, align 4, !tbaa !32
-  store i32 %99, ptr %126, align 4, !tbaa !32
-  br label %130
+ddCreateGroup.exit:                               ; preds = %125
+  %130 = getelementptr inbounds %struct.DdSubtable, ptr %124, i64 %102, i32 6
+  store i32 %109, ptr %130, align 4, !tbaa !32
+  store i32 %100, ptr %127, align 4, !tbaa !32
+  br label %131
 
-130:                                              ; preds = %120, %ddCreateGroup.exit, %116, %106, %105
-  %.not194 = phi i1 [ false, %ddCreateGroup.exit ], [ true, %120 ], [ true, %116 ], [ true, %106 ], [ true, %105 ]
-  %.not192 = icmp eq i32 %99, %1
-  br i1 %.not192, label %156, label %131
+131:                                              ; preds = %121, %ddCreateGroup.exit, %117, %107, %106
+  %.not194 = phi i1 [ false, %ddCreateGroup.exit ], [ true, %121 ], [ true, %117 ], [ true, %107 ], [ true, %106 ]
+  %.not192 = icmp eq i32 %100, %1
+  br i1 %.not192, label %157, label %132
 
-131:                                              ; preds = %130
-  %132 = load ptr, ptr %63, align 8, !tbaa !27
-  %133 = add nsw i32 %99, -1
-  %134 = sext i32 %133 to i64
-  %135 = getelementptr inbounds i32, ptr %132, i64 %134
-  %136 = load i32, ptr %135, align 4, !tbaa !25
-  %137 = sext i32 %136 to i64
-  %138 = getelementptr inbounds i32, ptr %17, i64 %137
-  %139 = load i32, ptr %138, align 4, !tbaa !25
-  %140 = icmp eq i32 %139, 0
-  br i1 %140, label %141, label %156
+132:                                              ; preds = %131
+  %133 = load ptr, ptr %64, align 8, !tbaa !27
+  %134 = add nsw i32 %100, -1
+  %135 = sext i32 %134 to i64
+  %136 = getelementptr inbounds i32, ptr %133, i64 %135
+  %137 = load i32, ptr %136, align 4, !tbaa !25
+  %138 = sext i32 %137 to i64
+  %139 = getelementptr inbounds i32, ptr %17, i64 %138
+  %140 = load i32, ptr %139, align 4, !tbaa !25
+  %141 = icmp eq i32 %140, 0
+  br i1 %141, label %142, label %157
 
-141:                                              ; preds = %131
-  %142 = load ptr, ptr %61, align 8, !tbaa !31
-  %143 = getelementptr inbounds %struct.DdSubtable, ptr %142, i64 %134, i32 6
-  %144 = load i32, ptr %143, align 4, !tbaa !32
-  %145 = icmp eq i32 %133, %144
-  br i1 %145, label %146, label %156
+142:                                              ; preds = %132
+  %143 = load ptr, ptr %62, align 8, !tbaa !31
+  %144 = getelementptr inbounds %struct.DdSubtable, ptr %143, i64 %135, i32 6
+  %145 = load i32, ptr %144, align 4, !tbaa !32
+  %146 = icmp eq i32 %134, %145
+  br i1 %146, label %147, label %157
 
-146:                                              ; preds = %141
-  %147 = tail call fastcc i32 @ddSecDiffCheck(ptr noundef nonnull %0, i32 noundef %133, i32 noundef %99)
-  %.not193 = icmp eq i32 %147, 0
-  br i1 %.not193, label %156, label %148
+147:                                              ; preds = %142
+  %148 = tail call fastcc i32 @ddSecDiffCheck(ptr noundef nonnull %0, i32 noundef %134, i32 noundef %100)
+  %.not193 = icmp eq i32 %148, 0
+  br i1 %.not193, label %157, label %149
 
-148:                                              ; preds = %146
-  %149 = load ptr, ptr %61, align 8, !tbaa !31
-  br label %150
+149:                                              ; preds = %147
+  %150 = load ptr, ptr %62, align 8, !tbaa !31
+  br label %151
 
-150:                                              ; preds = %150, %148
-  %.0.i206 = phi i32 [ %99, %148 ], [ %153, %150 ]
-  %151 = sext i32 %.0.i206 to i64
-  %152 = getelementptr inbounds %struct.DdSubtable, ptr %149, i64 %151, i32 6
-  %153 = load i32, ptr %152, align 4, !tbaa !32
-  %154 = icmp ult i32 %.0.i206, %153
-  br i1 %154, label %150, label %.thread253, !llvm.loop !59
+151:                                              ; preds = %151, %149
+  %.0.i206 = phi i32 [ %100, %149 ], [ %154, %151 ]
+  %152 = sext i32 %.0.i206 to i64
+  %153 = getelementptr inbounds %struct.DdSubtable, ptr %150, i64 %152, i32 6
+  %154 = load i32, ptr %153, align 4, !tbaa !32
+  %155 = icmp ult i32 %.0.i206, %154
+  br i1 %155, label %151, label %.thread253, !llvm.loop !59
 
-.thread253:                                       ; preds = %150
-  %155 = getelementptr inbounds %struct.DdSubtable, ptr %149, i64 %134, i32 6
-  store i32 %99, ptr %155, align 4, !tbaa !32
-  store i32 %133, ptr %152, align 4, !tbaa !32
+.thread253:                                       ; preds = %151
+  %156 = getelementptr inbounds %struct.DdSubtable, ptr %150, i64 %135, i32 6
+  store i32 %100, ptr %156, align 4, !tbaa !32
+  store i32 %134, ptr %153, align 4, !tbaa !32
   br label %.preheader223
 
-156:                                              ; preds = %146, %141, %131, %130
+157:                                              ; preds = %147, %142, %132, %131
   br i1 %.not194, label %.thread, label %.preheader223
 
-.preheader223:                                    ; preds = %.thread253, %156
-  %157 = load ptr, ptr %61, align 8, !tbaa !31
-  br label %158
+.preheader223:                                    ; preds = %.thread253, %157
+  %158 = load ptr, ptr %62, align 8, !tbaa !31
+  br label %159
 
-158:                                              ; preds = %.preheader223, %158
-  %.1168 = phi i32 [ %161, %158 ], [ %99, %.preheader223 ]
-  %159 = sext i32 %.1168 to i64
-  %160 = getelementptr inbounds %struct.DdSubtable, ptr %157, i64 %159, i32 6
-  %161 = load i32, ptr %160, align 4, !tbaa !32
-  %162 = icmp ult i32 %.1168, %161
-  br i1 %162, label %158, label %163, !llvm.loop !60
+159:                                              ; preds = %.preheader223, %159
+  %.1168 = phi i32 [ %162, %159 ], [ %100, %.preheader223 ]
+  %160 = sext i32 %.1168 to i64
+  %161 = getelementptr inbounds %struct.DdSubtable, ptr %158, i64 %160, i32 6
+  %162 = load i32, ptr %161, align 4, !tbaa !32
+  %163 = icmp ult i32 %.1168, %162
+  br i1 %163, label %159, label %164, !llvm.loop !60
 
-163:                                              ; preds = %158
-  %164 = tail call fastcc i32 @ddGroupSiftingAux(ptr noundef nonnull %0, i32 noundef %.1168, i32 noundef %1, i32 noundef %2, ptr noundef nonnull @ddNoCheck, i32 noundef 0)
-  %.not195 = icmp eq i32 %164, 0
+164:                                              ; preds = %159
+  %165 = tail call fastcc i32 @ddGroupSiftingAux(ptr noundef nonnull %0, i32 noundef %.1168, i32 noundef %1, i32 noundef %2, ptr noundef nonnull @ddNoCheck, i32 noundef 0)
+  %.not195 = icmp eq i32 %165, 0
   br i1 %.not195, label %.loopexit, label %.thread
 
-.thread:                                          ; preds = %92, %93, %96, %163, %156
-  %165 = load ptr, ptr %60, align 8, !tbaa !24
-  %166 = getelementptr inbounds i32, ptr %165, i64 %70
-  %167 = load i32, ptr %166, align 4, !tbaa !25
-  %168 = load ptr, ptr %61, align 8, !tbaa !31
-  %169 = sext i32 %167 to i64
-  %170 = getelementptr inbounds %struct.DdSubtable, ptr %168, i64 %169, i32 6
-  %171 = load i32, ptr %170, align 4, !tbaa !32
-  %.not196 = icmp eq i32 %167, %171
-  br i1 %.not196, label %185, label %.preheader222
+.thread:                                          ; preds = %93, %94, %97, %164, %157
+  %166 = load ptr, ptr %61, align 8, !tbaa !24
+  %167 = getelementptr inbounds i32, ptr %166, i64 %71
+  %168 = load i32, ptr %167, align 4, !tbaa !25
+  %169 = load ptr, ptr %62, align 8, !tbaa !31
+  %170 = sext i32 %168 to i64
+  %171 = getelementptr inbounds %struct.DdSubtable, ptr %169, i64 %170, i32 6
+  %172 = load i32, ptr %171, align 4, !tbaa !32
+  %.not196 = icmp eq i32 %168, %172
+  br i1 %.not196, label %186, label %.preheader222
 
 .preheader222:                                    ; preds = %.thread
-  %172 = load ptr, ptr %63, align 8, !tbaa !27
-  br label %173
+  %173 = load ptr, ptr %64, align 8, !tbaa !27
+  br label %174
 
-173:                                              ; preds = %.preheader222, %173
-  %.2169 = phi i32 [ %180, %173 ], [ %167, %.preheader222 ]
-  %174 = sext i32 %.2169 to i64
-  %175 = getelementptr inbounds i32, ptr %172, i64 %174
-  %176 = load i32, ptr %175, align 4, !tbaa !25
-  %177 = sext i32 %176 to i64
-  %178 = getelementptr inbounds i32, ptr %17, i64 %177
-  store i32 1, ptr %178, align 4, !tbaa !25
-  %179 = getelementptr inbounds %struct.DdSubtable, ptr %168, i64 %174, i32 6
-  %180 = load i32, ptr %179, align 4, !tbaa !32
-  %.not197 = icmp eq i32 %180, %167
-  br i1 %.not197, label %181, label %173, !llvm.loop !61
+174:                                              ; preds = %.preheader222, %174
+  %.2169 = phi i32 [ %181, %174 ], [ %168, %.preheader222 ]
+  %175 = sext i32 %.2169 to i64
+  %176 = getelementptr inbounds i32, ptr %173, i64 %175
+  %177 = load i32, ptr %176, align 4, !tbaa !25
+  %178 = sext i32 %177 to i64
+  %179 = getelementptr inbounds i32, ptr %17, i64 %178
+  store i32 1, ptr %179, align 4, !tbaa !25
+  %180 = getelementptr inbounds %struct.DdSubtable, ptr %169, i64 %175, i32 6
+  %181 = load i32, ptr %180, align 4, !tbaa !32
+  %.not197 = icmp eq i32 %181, %168
+  br i1 %.not197, label %182, label %174, !llvm.loop !61
 
-181:                                              ; preds = %173
-  %or.cond = and i1 %.not, %90
-  br i1 %or.cond, label %.preheader, label %185
+182:                                              ; preds = %174
+  %or.cond = and i1 %.not, %91
+  br i1 %or.cond, label %.preheader, label %186
 
-.preheader:                                       ; preds = %181, %.preheader
-  %.3 = phi i32 [ %184, %.preheader ], [ %167, %181 ]
-  %182 = sext i32 %.3 to i64
-  %183 = getelementptr inbounds %struct.DdSubtable, ptr %168, i64 %182, i32 6
-  %184 = load i32, ptr %183, align 4, !tbaa !32
-  store i32 %.3, ptr %183, align 4, !tbaa !32
-  %.not198 = icmp eq i32 %184, %167
+.preheader:                                       ; preds = %182, %.preheader
+  %.3 = phi i32 [ %185, %.preheader ], [ %168, %182 ]
+  %183 = sext i32 %.3 to i64
+  %184 = getelementptr inbounds %struct.DdSubtable, ptr %169, i64 %183, i32 6
+  %185 = load i32, ptr %184, align 4, !tbaa !32
+  store i32 %.3, ptr %184, align 4, !tbaa !32
+  %.not198 = icmp eq i32 %185, %168
   br i1 %.not198, label %ddSetVarHandled.exit, label %.preheader, !llvm.loop !62
 
-185:                                              ; preds = %181, %.thread
-  br i1 %.not, label %ddSetVarHandled.exit, label %186
+186:                                              ; preds = %182, %.thread
+  br i1 %.not, label %ddSetVarHandled.exit, label %187
 
-186:                                              ; preds = %185
-  %187 = load i32, ptr %6, align 8, !tbaa !3
-  %188 = icmp sge i32 %69, %187
-  %189 = icmp slt i32 %69, 0
-  %or.cond.i = or i1 %189, %188
-  br i1 %or.cond.i, label %ddSetVarHandled.exit, label %190
+187:                                              ; preds = %186
+  %188 = load i32, ptr %6, align 8, !tbaa !3
+  %189 = icmp sge i32 %70, %188
+  %190 = icmp slt i32 %70, 0
+  %or.cond.i = or i1 %190, %189
+  br i1 %or.cond.i, label %ddSetVarHandled.exit, label %191
 
-190:                                              ; preds = %186
-  %191 = getelementptr inbounds %struct.DdSubtable, ptr %168, i64 %169, i32 10
-  store i32 1, ptr %191, align 4, !tbaa !54
+191:                                              ; preds = %187
+  %192 = getelementptr inbounds %struct.DdSubtable, ptr %169, i64 %170, i32 10
+  store i32 1, ptr %192, align 4, !tbaa !54
   br label %ddSetVarHandled.exit
 
-ddSetVarHandled.exit:                             ; preds = %.preheader, %190, %186, %185, %74, %80, %67
+ddSetVarHandled.exit:                             ; preds = %.preheader, %191, %187, %186, %75, %81, %68
   %indvars.iv.next250 = add nuw nsw i64 %indvars.iv249, 1
-  %192 = load i32, ptr %56, align 8, !tbaa !56
-  %.0163. = tail call i32 @llvm.smin.i32(i32 %.0163.lcssa, i32 %192)
-  %193 = sext i32 %.0163. to i64
-  %194 = icmp slt i64 %indvars.iv.next250, %193
-  br i1 %194, label %64, label %._crit_edge237, !llvm.loop !63
+  %193 = load i32, ptr %57, align 8, !tbaa !56
+  %.0163. = tail call i32 @llvm.smin.i32(i32 %.0163.lcssa, i32 %193)
+  %194 = sext i32 %.0163. to i64
+  %195 = icmp slt i64 %indvars.iv.next250, %194
+  br i1 %195, label %65, label %._crit_edge237, !llvm.loop !63
 
-._crit_edge237:                                   ; preds = %64, %ddSetVarHandled.exit, %.loopexit225
-  tail call void @free(ptr noundef %17) #11
-  tail call void @free(ptr noundef %10) #11
-  %195 = load ptr, ptr @entry, align 8, !tbaa !50
-  %.not199 = icmp eq ptr %195, null
-  br i1 %.not199, label %200, label %196
+._crit_edge237:                                   ; preds = %65, %ddSetVarHandled.exit, %.loopexit225
+  tail call void @free(ptr noundef %17) #12
+  tail call void @free(ptr noundef %10) #12
+  %196 = load ptr, ptr @entry, align 8, !tbaa !50
+  %.not199 = icmp eq ptr %196, null
+  br i1 %.not199, label %201, label %197
 
-196:                                              ; preds = %._crit_edge237
-  tail call void @free(ptr noundef nonnull %195) #11
+197:                                              ; preds = %._crit_edge237
+  tail call void @free(ptr noundef nonnull %196) #12
   store ptr null, ptr @entry, align 8, !tbaa !50
-  br label %200
+  br label %201
 
-.loopexit:                                        ; preds = %163, %87
+.loopexit:                                        ; preds = %164, %88
   %.pr.pre = load ptr, ptr @entry, align 8, !tbaa !50
   %.not201 = icmp eq ptr %.pr.pre, null
-  br i1 %.not201, label %.thread274, label %198
+  br i1 %.not201, label %.thread274, label %199
 
 .thread274:                                       ; preds = %.loopexit
-  tail call void @free(ptr noundef nonnull %10) #11
-  br label %199
+  tail call void @free(ptr noundef nonnull %10) #12
+  br label %200
 
 .thread268:                                       ; preds = %5
-  %197 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  store i32 1, ptr %197, align 8, !tbaa !51
-  br label %200
+  %198 = getelementptr inbounds nuw i8, ptr %0, i64 624
+  store i32 1, ptr %198, align 8, !tbaa !51
+  br label %201
 
-198:                                              ; preds = %.loopexit, %.loopexit.thread260
+199:                                              ; preds = %.loopexit, %.loopexit.thread260
   %.pr264 = phi ptr [ %13, %.loopexit.thread260 ], [ %.pr.pre, %.loopexit ]
-  tail call void @free(ptr noundef nonnull %.pr264) #11
+  tail call void @free(ptr noundef nonnull %.pr264) #12
   store ptr null, ptr @entry, align 8, !tbaa !50
-  tail call void @free(ptr noundef nonnull %10) #11
+  tail call void @free(ptr noundef nonnull %10) #12
   %.not203 = icmp eq ptr %17, null
-  br i1 %.not203, label %200, label %199
+  br i1 %.not203, label %201, label %200
 
-199:                                              ; preds = %.thread274, %198
-  tail call void @free(ptr noundef nonnull %17) #11
-  br label %200
+200:                                              ; preds = %.thread274, %199
+  tail call void @free(ptr noundef nonnull %17) #12
+  br label %201
 
-200:                                              ; preds = %.thread271, %.thread268, %198, %199, %196, %._crit_edge237
-  %.0 = phi i32 [ 1, %._crit_edge237 ], [ 1, %196 ], [ 0, %199 ], [ 0, %198 ], [ 0, %.thread268 ], [ 0, %.thread271 ]
+201:                                              ; preds = %.thread271, %.thread268, %199, %200, %197, %._crit_edge237
+  %.0 = phi i32 [ 1, %._crit_edge237 ], [ 1, %197 ], [ 0, %200 ], [ 0, %199 ], [ 0, %.thread268 ], [ 0, %.thread271 ]
   ret i32 %.0
 }
 
@@ -971,7 +971,7 @@ define internal range(i32 0, 2) i32 @ddExtSymmCheck(ptr noundef %0, i32 noundef 
   %9 = sext i32 %2 to i64
   %10 = getelementptr inbounds i32, ptr %5, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !25
-  %12 = tail call i32 @cuddTestInteract(ptr noundef %0, i32 noundef %8, i32 noundef %11) #11
+  %12 = tail call i32 @cuddTestInteract(ptr noundef %0, i32 noundef %8, i32 noundef %11) #12
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %.loopexit, label %13
 
@@ -1199,12 +1199,12 @@ define internal range(i32 0, 2) i32 @ddVarGroupCheck(ptr noundef %0, i32 noundef
   %9 = sext i32 %2 to i64
   %10 = getelementptr inbounds i32, ptr %5, i64 %9
   %11 = load i32, ptr %10, align 4, !tbaa !25
-  %12 = tail call i32 @Cudd_bddIsVarToBeUngrouped(ptr noundef %0, i32 noundef %8) #11
+  %12 = tail call i32 @Cudd_bddIsVarToBeUngrouped(ptr noundef %0, i32 noundef %8) #12
   %.not = icmp eq i32 %12, 0
   br i1 %.not, label %13, label %51
 
 13:                                               ; preds = %3
-  %14 = tail call i32 @Cudd_bddReadPairIndex(ptr noundef nonnull %0, i32 noundef %8) #11
+  %14 = tail call i32 @Cudd_bddReadPairIndex(ptr noundef nonnull %0, i32 noundef %8) #12
   %15 = icmp eq i32 %14, %11
   br i1 %15, label %16, label %50
 
@@ -1247,12 +1247,12 @@ ddIsVarHandled.exit27:                            ; preds = %31
   br i1 %.not21, label %50, label %ddIsVarHandled.exit.thread
 
 ddIsVarHandled.exit.thread:                       ; preds = %31, %16, %ddIsVarHandled.exit27, %ddIsVarHandled.exit
-  %40 = tail call i32 @Cudd_bddIsVarToBeGrouped(ptr noundef nonnull %0, i32 noundef %8) #11
+  %40 = tail call i32 @Cudd_bddIsVarToBeGrouped(ptr noundef nonnull %0, i32 noundef %8) #12
   %.not22 = icmp eq i32 %40, 0
   br i1 %.not22, label %41, label %43
 
 41:                                               ; preds = %ddIsVarHandled.exit.thread
-  %42 = tail call i32 @Cudd_bddIsVarToBeGrouped(ptr noundef nonnull %0, i32 noundef %11) #11
+  %42 = tail call i32 @Cudd_bddIsVarToBeGrouped(ptr noundef nonnull %0, i32 noundef %11) #12
   %.not23 = icmp eq i32 %42, 0
   br i1 %.not23, label %50, label %43
 
@@ -1298,7 +1298,7 @@ define internal i32 @ddUniqueCompareGroup(ptr noundef readonly captures(none) %0
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 0, 2) i32 @ddGroupSiftingAux(ptr noundef %0, i32 noundef %1, i32 noundef %2, i32 noundef %3, ptr noundef readonly captures(none) %4, i32 noundef range(i32 0, 2) %5) unnamed_addr #0 {
   %7 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #12
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 228
   %9 = load i32, ptr %8, align 4, !tbaa !42
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 304
@@ -1321,7 +1321,7 @@ define internal fastcc range(i32 0, 2) i32 @ddGroupSiftingAux(ptr noundef %0, i3
 .lr.ph:                                           ; preds = %.preheader158, %22
   %.0123162 = phi i32 [ %26, %22 ], [ %1, %.preheader158 ]
   %20 = add nsw i32 %.0123162, -1
-  %21 = tail call i32 %4(ptr noundef nonnull %0, i32 noundef %20, i32 noundef %.0123162) #11, !callees !79
+  %21 = tail call i32 %4(ptr noundef nonnull %0, i32 noundef %20, i32 noundef %.0123162) #12, !callees !79
   %.not = icmp eq i32 %21, 0
   br i1 %.not, label %._crit_edge, label %22
 
@@ -1343,7 +1343,7 @@ define internal fastcc range(i32 0, 2) i32 @ddGroupSiftingAux(ptr noundef %0, i3
 .lr.ph166:                                        ; preds = %._crit_edge, %38
   %.1164 = phi i32 [ %.0, %38 ], [ %1, %._crit_edge ]
   %30 = add nsw i32 %.1164, 1
-  %31 = tail call i32 %4(ptr noundef nonnull %0, i32 noundef %.1164, i32 noundef %30) #11, !callees !79
+  %31 = tail call i32 %4(ptr noundef nonnull %0, i32 noundef %.1164, i32 noundef %30) #12, !callees !79
   %.not140 = icmp eq i32 %31, 0
   br i1 %.not140, label %.loopexit157, label %.preheader
 
@@ -1400,7 +1400,7 @@ define internal fastcc range(i32 0, 2) i32 @ddGroupSiftingAux(ptr noundef %0, i3
   br i1 %.not152, label %116, label %107
 
 57:                                               ; preds = %49
-  %58 = tail call i32 @cuddNextHigh(ptr noundef nonnull %0, i32 noundef %.0125) #11
+  %58 = tail call i32 @cuddNextHigh(ptr noundef nonnull %0, i32 noundef %.0125) #12
   %59 = icmp sgt i32 %58, %3
   br i1 %59, label %60, label %67
 
@@ -1558,7 +1558,7 @@ define internal fastcc range(i32 0, 2) i32 @ddGroupSiftingAux(ptr noundef %0, i3
 
 .loopexit:                                        ; preds = %107, %..loopexit156_crit_edge, %116, %..loopexit_crit_edge, %51
   %.0124 = phi i32 [ 1, %51 ], [ 0, %..loopexit_crit_edge ], [ 0, %116 ], [ 1, %..loopexit156_crit_edge ], [ 1, %107 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #11
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12
   ret i32 %.0124
 }
 
@@ -1599,7 +1599,7 @@ define internal fastcc range(i32 0, 2) i32 @ddSecDiffCheck(ptr noundef %0, i32 n
   %32 = load i32, ptr %31, align 4, !tbaa !25
   %33 = getelementptr inbounds i32, ptr %30, i64 %16
   %34 = load i32, ptr %33, align 4, !tbaa !25
-  %35 = tail call i32 @cuddTestInteract(ptr noundef nonnull %0, i32 noundef %32, i32 noundef %34) #11
+  %35 = tail call i32 @cuddTestInteract(ptr noundef nonnull %0, i32 noundef %32, i32 noundef %34) #12
   %.not = icmp ne i32 %35, 0
   %. = zext i1 %.not to i32
   br label %36
@@ -1668,7 +1668,7 @@ define internal fastcc range(i32 0, 2) i32 @ddGroupSiftingDown(ptr noundef %0, i
   br i1 %39, label %42, label %40
 
 40:                                               ; preds = %35
-  %41 = tail call i32 @cuddTestInteract(ptr noundef nonnull %0, i32 noundef %23, i32 noundef %38) #11
+  %41 = tail call i32 @cuddTestInteract(ptr noundef nonnull %0, i32 noundef %23, i32 noundef %38) #12
   %.not216 = icmp eq i32 %41, 0
   br i1 %.not216, label %55, label %42
 
@@ -1696,7 +1696,7 @@ define internal fastcc range(i32 0, 2) i32 @ddGroupSiftingDown(ptr noundef %0, i
 
 ._crit_edge:                                      ; preds = %55, %.critedge219
   %.0179.lcssa = phi i32 [ 0, %.critedge219 ], [ %.1180, %55 ]
-  %57 = tail call i32 @cuddNextHigh(ptr noundef nonnull %0, i32 noundef %1) #11
+  %57 = tail call i32 @cuddNextHigh(ptr noundef nonnull %0, i32 noundef %1) #12
   %.not241 = icmp sle i32 %57, %2
   %58 = icmp sgt i32 %.0179.lcssa, 0
   %or.cond242 = select i1 %.not241, i1 %58, i1 false
@@ -1728,7 +1728,7 @@ define internal fastcc range(i32 0, 2) i32 @ddGroupSiftingDown(ptr noundef %0, i
   br i1 %.not206, label %70, label %66, !llvm.loop !98
 
 70:                                               ; preds = %66
-  %71 = tail call i32 %3(ptr noundef nonnull %0, i32 noundef %.0178247, i32 noundef %.1190243) #11, !callees !79
+  %71 = tail call i32 %3(ptr noundef nonnull %0, i32 noundef %.0178247, i32 noundef %.1190243) #12, !callees !79
   %.not207 = icmp eq i32 %71, 0
   %72 = load ptr, ptr %6, align 8, !tbaa !31
   %73 = sext i32 %.0178247 to i64
@@ -1740,7 +1740,7 @@ define internal fastcc range(i32 0, 2) i32 @ddGroupSiftingDown(ptr noundef %0, i
   store i32 %.1190243, ptr %74, align 4, !tbaa !32
   %77 = getelementptr inbounds %struct.DdSubtable, ptr %72, i64 %67, i32 6
   store i32 %75, ptr %77, align 4, !tbaa !32
-  %78 = tail call ptr @cuddDynamicAllocNode(ptr noundef nonnull %0) #11
+  %78 = tail call ptr @cuddDynamicAllocNode(ptr noundef nonnull %0) #12
   %79 = icmp eq ptr %78, null
   br i1 %79, label %190, label %80
 
@@ -1775,7 +1775,7 @@ define internal fastcc range(i32 0, 2) i32 @ddGroupSiftingDown(ptr noundef %0, i
   %96 = load ptr, ptr %19, align 8, !tbaa !27
   %97 = getelementptr inbounds i32, ptr %96, i64 %63
   %98 = load i32, ptr %97, align 4, !tbaa !25
-  %99 = tail call i32 @cuddTestInteract(ptr noundef nonnull %0, i32 noundef %23, i32 noundef %98) #11
+  %99 = tail call i32 @cuddTestInteract(ptr noundef nonnull %0, i32 noundef %23, i32 noundef %98) #12
   %.not213 = icmp eq i32 %99, 0
   br i1 %.not213, label %112, label %100
 
@@ -1797,12 +1797,12 @@ define internal fastcc range(i32 0, 2) i32 @ddGroupSiftingDown(ptr noundef %0, i
 
 112:                                              ; preds = %100, %95
   %.4 = phi i32 [ %111, %100 ], [ %.2181246, %95 ]
-  %113 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %.0178247, i32 noundef %.1190243) #11
+  %113 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %.0178247, i32 noundef %.1190243) #12
   %114 = icmp eq i32 %113, 0
   br i1 %114, label %190, label %115
 
 115:                                              ; preds = %112
-  %116 = tail call ptr @cuddDynamicAllocNode(ptr noundef nonnull %0) #11
+  %116 = tail call ptr @cuddDynamicAllocNode(ptr noundef nonnull %0) #12
   %117 = icmp eq ptr %116, null
   br i1 %117, label %190, label %118
 
@@ -1827,7 +1827,7 @@ define internal fastcc range(i32 0, 2) i32 @ddGroupSiftingDown(ptr noundef %0, i
 
 129:                                              ; preds = %118
   %spec.select = tail call i32 @llvm.smin.i32(i32 %113, i32 %.0183245)
-  %130 = tail call i32 @cuddNextHigh(ptr noundef nonnull %0, i32 noundef %.1190243) #11
+  %130 = tail call i32 @cuddNextHigh(ptr noundef nonnull %0, i32 noundef %.1190243) #12
   br label %.loopexit
 
 131:                                              ; preds = %91, %89
@@ -1845,7 +1845,7 @@ define internal fastcc range(i32 0, 2) i32 @ddGroupSiftingDown(ptr noundef %0, i
   br i1 %137, label %140, label %138
 
 138:                                              ; preds = %133
-  %139 = tail call i32 @cuddTestInteract(ptr noundef nonnull %0, i32 noundef %23, i32 noundef %136) #11
+  %139 = tail call i32 @cuddTestInteract(ptr noundef nonnull %0, i32 noundef %23, i32 noundef %136) #12
   %.not208 = icmp eq i32 %139, 0
   br i1 %.not208, label %152, label %140
 
@@ -1906,7 +1906,7 @@ define internal fastcc range(i32 0, 2) i32 @ddGroupSiftingDown(ptr noundef %0, i
   br i1 %170, label %173, label %171
 
 171:                                              ; preds = %.lr.ph239
-  %172 = tail call i32 @cuddTestInteract(ptr noundef nonnull %0, i32 noundef %23, i32 noundef %169) #11
+  %172 = tail call i32 @cuddTestInteract(ptr noundef nonnull %0, i32 noundef %23, i32 noundef %169) #12
   %.not211 = icmp eq i32 %172, 0
   br i1 %.not211, label %186, label %173
 
@@ -1935,7 +1935,7 @@ define internal fastcc range(i32 0, 2) i32 @ddGroupSiftingDown(ptr noundef %0, i
   %.1188 = phi i32 [ %.0187244, %80 ], [ %113, %129 ], [ %154, %162 ], [ %154, %186 ]
   %.1184 = phi i32 [ %.0183245, %80 ], [ %spec.select, %129 ], [ %spec.select221, %162 ], [ %spec.select221, %186 ]
   %.3 = phi i32 [ %.2181246, %80 ], [ %.4, %129 ], [ %.6, %162 ], [ %.8, %186 ]
-  %187 = tail call i32 @cuddNextHigh(ptr noundef nonnull %0, i32 noundef %.0182) #11
+  %187 = tail call i32 @cuddNextHigh(ptr noundef nonnull %0, i32 noundef %.0182) #12
   %.not = icmp sle i32 %187, %2
   %188 = sub nsw i32 %.1188, %.3
   %189 = icmp slt i32 %188, %.1184
@@ -2005,7 +2005,7 @@ define internal fastcc range(i32 0, 2) i32 @ddGroupSiftingBackward(ptr noundef %
   br i1 %.not105, label %._crit_edge, label %.lr.ph, !llvm.loop !106
 
 ._crit_edge:                                      ; preds = %.lr.ph
-  %14 = tail call i32 @Cudd_ReadSize(ptr noundef %0) #11
+  %14 = tail call i32 @Cudd_ReadSize(ptr noundef %0) #12
   %15 = add nsw i32 %14, 1
   %.not107 = icmp eq i32 %3, 0
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 328
@@ -2018,7 +2018,7 @@ define internal fastcc range(i32 0, 2) i32 @ddGroupSiftingBackward(ptr noundef %
   %20 = load i32, ptr %19, align 4, !tbaa !25
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 312
   %22 = load ptr, ptr %21, align 8, !tbaa !24
-  %23 = tail call i32 @Cudd_bddReadPairIndex(ptr noundef nonnull %0, i32 noundef %20) #11
+  %23 = tail call i32 @Cudd_bddReadPairIndex(ptr noundef nonnull %0, i32 noundef %20) #12
   %24 = sext i32 %23 to i64
   %25 = getelementptr inbounds i32, ptr %22, i64 %24
   %26 = load i32, ptr %25, align 4, !tbaa !25
@@ -2131,7 +2131,7 @@ define internal fastcc range(i32 0, 2) i32 @ddGroupSiftingBackward(ptr noundef %
   br i1 %79, label %80, label %82
 
 80:                                               ; preds = %73
-  %81 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %68, i32 noundef %75) #11
+  %81 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %68, i32 noundef %75) #12
   %.not111 = icmp eq i32 %81, 0
   br i1 %.not111, label %ddGroupMoveBackward.exit.thread, label %140
 
@@ -2192,7 +2192,7 @@ ddDissolveGroup.exit:                             ; preds = %.preheader177
 .preheader70.us.i:                                ; preds = %.preheader70.us.i, %.preheader70.us.preheader.i
   %.06476.us.i = phi i32 [ %110, %.preheader70.us.i ], [ 1, %.preheader70.us.preheader.i ]
   %108 = add nsw i32 %.06476.us.i, %87
-  %109 = tail call i32 @cuddNextLow(ptr noundef nonnull %0, i32 noundef %108) #11
+  %109 = tail call i32 @cuddNextLow(ptr noundef nonnull %0, i32 noundef %108) #12
   %110 = add nuw i32 %.06476.us.i, 1
   %exitcond93.i = icmp eq i32 %.06476.us.i, %107
   br i1 %exitcond93.i, label %.preheader.i, label %.preheader70.us.i, !llvm.loop !111
@@ -2211,19 +2211,19 @@ ddDissolveGroup.exit:                             ; preds = %.preheader177
   %.174.i = phi i32 [ %.05978.i, %.preheader70.i ], [ %115, %114 ]
   %.16273.i = phi i32 [ %.06177.i, %.preheader70.i ], [ %.174.i, %114 ]
   %.06772.i = phi i32 [ 1, %.preheader70.i ], [ %116, %114 ]
-  %112 = tail call i32 @cuddSwapInPlace(ptr noundef %0, i32 noundef %.174.i, i32 noundef %.16273.i) #11
+  %112 = tail call i32 @cuddSwapInPlace(ptr noundef %0, i32 noundef %.174.i, i32 noundef %.16273.i) #12
   %113 = icmp eq i32 %112, 0
   br i1 %113, label %ddGroupMoveBackward.exit.thread, label %114
 
 114:                                              ; preds = %111
-  %115 = tail call i32 @cuddNextLow(ptr noundef %0, i32 noundef %.174.i) #11
+  %115 = tail call i32 @cuddNextLow(ptr noundef %0, i32 noundef %.174.i) #12
   %116 = add nuw i32 %.06772.i, 1
   %exitcond.i = icmp eq i32 %116, %105
   br i1 %exitcond.i, label %._crit_edge.i, label %111, !llvm.loop !112
 
 ._crit_edge.i:                                    ; preds = %114
   %117 = add nsw i32 %.06476.i, %87
-  %118 = tail call i32 @cuddNextLow(ptr noundef %0, i32 noundef %117) #11
+  %118 = tail call i32 @cuddNextLow(ptr noundef %0, i32 noundef %117) #12
   %119 = add nuw i32 %.06476.i, 1
   %exitcond91.i = icmp eq i32 %.06476.i, %106
   br i1 %exitcond91.i, label %.preheader.i, label %.preheader70.i, !llvm.loop !111
@@ -2231,12 +2231,12 @@ ddDissolveGroup.exit:                             ; preds = %.preheader177
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %.26380.i = phi i32 [ %124, %.lr.ph.i ], [ %95, %.preheader.i ]
   %.16579.i = phi i32 [ %125, %.lr.ph.i ], [ 0, %.preheader.i ]
-  %120 = tail call i32 @cuddNextHigh(ptr noundef %0, i32 noundef %.26380.i) #11
+  %120 = tail call i32 @cuddNextHigh(ptr noundef %0, i32 noundef %.26380.i) #12
   %121 = load ptr, ptr %58, align 8, !tbaa !31
   %122 = sext i32 %.26380.i to i64
   %123 = getelementptr inbounds %struct.DdSubtable, ptr %121, i64 %122, i32 6
   store i32 %120, ptr %123, align 4, !tbaa !32
-  %124 = tail call i32 @cuddNextHigh(ptr noundef %0, i32 noundef %.26380.i) #11
+  %124 = tail call i32 @cuddNextHigh(ptr noundef %0, i32 noundef %.26380.i) #12
   %125 = add nuw nsw i32 %.16579.i, 1
   %exitcond94.not.i = icmp eq i32 %125, %103
   br i1 %exitcond94.not.i, label %._crit_edge81.i, label %.lr.ph.i, !llvm.loop !113
@@ -2247,19 +2247,19 @@ ddDissolveGroup.exit:                             ; preds = %.preheader177
   %127 = sext i32 %.263.lcssa.i to i64
   %128 = getelementptr inbounds %struct.DdSubtable, ptr %126, i64 %127, i32 6
   store i32 %95, ptr %128, align 4, !tbaa !32
-  %129 = tail call i32 @cuddNextHigh(ptr noundef %0, i32 noundef %.263.lcssa.i) #11
+  %129 = tail call i32 @cuddNextHigh(ptr noundef %0, i32 noundef %.263.lcssa.i) #12
   %130 = icmp sgt i32 %102, 0
   br i1 %130, label %.lr.ph85.i, label %ddGroupMoveBackward.exit
 
 .lr.ph85.i:                                       ; preds = %._crit_edge81.i, %.lr.ph85.i
   %.283.i = phi i32 [ %135, %.lr.ph85.i ], [ %129, %._crit_edge81.i ]
   %.26682.i = phi i32 [ %136, %.lr.ph85.i ], [ 0, %._crit_edge81.i ]
-  %131 = tail call i32 @cuddNextHigh(ptr noundef nonnull %0, i32 noundef %.283.i) #11
+  %131 = tail call i32 @cuddNextHigh(ptr noundef nonnull %0, i32 noundef %.283.i) #12
   %132 = load ptr, ptr %58, align 8, !tbaa !31
   %133 = sext i32 %.283.i to i64
   %134 = getelementptr inbounds %struct.DdSubtable, ptr %132, i64 %133, i32 6
   store i32 %131, ptr %134, align 4, !tbaa !32
-  %135 = tail call i32 @cuddNextHigh(ptr noundef nonnull %0, i32 noundef %.283.i) #11
+  %135 = tail call i32 @cuddNextHigh(ptr noundef nonnull %0, i32 noundef %.283.i) #12
   %136 = add nuw nsw i32 %.26682.i, 1
   %exitcond95.not.i = icmp eq i32 %136, %102
   br i1 %exitcond95.not.i, label %ddGroupMoveBackward.exit, label %.lr.ph85.i, !llvm.loop !114
@@ -2335,7 +2335,7 @@ define internal fastcc range(i32 0, 2) i32 @ddGroupSiftingUp(ptr noundef %0, i32
   br i1 %29, label %32, label %30
 
 30:                                               ; preds = %25
-  %31 = tail call i32 @cuddTestInteract(ptr noundef nonnull %0, i32 noundef %28, i32 noundef %10) #11
+  %31 = tail call i32 @cuddTestInteract(ptr noundef nonnull %0, i32 noundef %28, i32 noundef %10) #12
   %.not170 = icmp eq i32 %31, 0
   br i1 %.not170, label %44, label %32
 
@@ -2362,7 +2362,7 @@ define internal fastcc range(i32 0, 2) i32 @ddGroupSiftingUp(ptr noundef %0, i32
 
 ._crit_edge:                                      ; preds = %44, %.preheader
   %.0.lcssa = phi i32 [ %22, %.preheader ], [ %.1, %44 ]
-  %45 = tail call i32 @cuddNextLow(ptr noundef nonnull %0, i32 noundef %1) #11
+  %45 = tail call i32 @cuddNextLow(ptr noundef nonnull %0, i32 noundef %1) #12
   %46 = icmp sge i32 %45, %2
   %47 = icmp sle i32 %.0.lcssa, %22
   %48 = select i1 %46, i1 %47, i1 false
@@ -2382,7 +2382,7 @@ define internal fastcc range(i32 0, 2) i32 @ddGroupSiftingUp(ptr noundef %0, i32
   %53 = sext i32 %.0153181 to i64
   %54 = getelementptr inbounds %struct.DdSubtable, ptr %52, i64 %53, i32 6
   %55 = load i32, ptr %54, align 4, !tbaa !32
-  %56 = tail call i32 %3(ptr noundef nonnull %0, i32 noundef %.0153181, i32 noundef %.0148183) #11, !callees !79
+  %56 = tail call i32 %3(ptr noundef nonnull %0, i32 noundef %.0153181, i32 noundef %.0148183) #12, !callees !79
   %.not = icmp eq i32 %56, 0
   %57 = load ptr, ptr %15, align 8, !tbaa !31
   %58 = getelementptr inbounds %struct.DdSubtable, ptr %57, i64 %53, i32 6
@@ -2405,7 +2405,7 @@ define internal fastcc range(i32 0, 2) i32 @ddGroupSiftingUp(ptr noundef %0, i32
 
 67:                                               ; preds = %63
   store i32 %55, ptr %65, align 4, !tbaa !32
-  %68 = tail call ptr @cuddDynamicAllocNode(ptr noundef nonnull %0) #11
+  %68 = tail call ptr @cuddDynamicAllocNode(ptr noundef nonnull %0) #12
   %69 = icmp eq ptr %68, null
   br i1 %69, label %166, label %70
 
@@ -2442,12 +2442,12 @@ define internal fastcc range(i32 0, 2) i32 @ddGroupSiftingUp(ptr noundef %0, i32
   %88 = load ptr, ptr %6, align 8, !tbaa !27
   %89 = getelementptr inbounds i32, ptr %88, i64 %53
   %90 = load i32, ptr %89, align 4, !tbaa !25
-  %91 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %.0153181, i32 noundef %.0148183) #11
+  %91 = tail call i32 @cuddSwapInPlace(ptr noundef nonnull %0, i32 noundef %.0153181, i32 noundef %.0148183) #12
   %92 = icmp eq i32 %91, 0
   br i1 %92, label %166, label %93
 
 93:                                               ; preds = %87
-  %94 = tail call i32 @cuddTestInteract(ptr noundef nonnull %0, i32 noundef %90, i32 noundef %10) #11
+  %94 = tail call i32 @cuddTestInteract(ptr noundef nonnull %0, i32 noundef %90, i32 noundef %10) #12
   %.not166 = icmp eq i32 %94, 0
   br i1 %.not166, label %108, label %95
 
@@ -2469,7 +2469,7 @@ define internal fastcc range(i32 0, 2) i32 @ddGroupSiftingUp(ptr noundef %0, i32
 
 108:                                              ; preds = %95, %93
   %.4 = phi i32 [ %107, %95 ], [ %.2184, %93 ]
-  %109 = tail call ptr @cuddDynamicAllocNode(ptr noundef nonnull %0) #11
+  %109 = tail call ptr @cuddDynamicAllocNode(ptr noundef nonnull %0) #12
   %110 = icmp eq ptr %109, null
   br i1 %110, label %166, label %111
 
@@ -2514,7 +2514,7 @@ define internal fastcc range(i32 0, 2) i32 @ddGroupSiftingUp(ptr noundef %0, i32
   %132 = sext i32 %.1146 to i64
   %133 = getelementptr inbounds i32, ptr %131, i64 %132
   %134 = load i32, ptr %133, align 4, !tbaa !25
-  %135 = tail call i32 @cuddTestInteract(ptr noundef nonnull %0, i32 noundef %134, i32 noundef %10) #11
+  %135 = tail call i32 @cuddTestInteract(ptr noundef nonnull %0, i32 noundef %134, i32 noundef %10) #12
   %.not164 = icmp eq i32 %135, 0
   %.pre = load ptr, ptr %15, align 8, !tbaa !31
   br i1 %.not164, label %148, label %136
@@ -2559,7 +2559,7 @@ define internal fastcc range(i32 0, 2) i32 @ddGroupSiftingUp(ptr noundef %0, i32
 161:                                              ; preds = %160, %122, %70
   %.1150 = phi i32 [ %.0149182, %70 ], [ %spec.select, %122 ], [ %spec.select172, %160 ]
   %.3 = phi i32 [ %.2184, %70 ], [ %.4, %122 ], [ %.6, %160 ]
-  %162 = tail call i32 @cuddNextLow(ptr noundef nonnull %0, i32 noundef %55) #11
+  %162 = tail call i32 @cuddNextLow(ptr noundef nonnull %0, i32 noundef %55) #12
   %163 = icmp sge i32 %162, %2
   %164 = icmp sle i32 %.3, %.1150
   %165 = select i1 %163, i1 %164, i1 false
@@ -2645,7 +2645,7 @@ define internal fastcc i32 @ddGroupMove(ptr noundef %0, i32 noundef %1, i32 noun
 .preheader104.us:                                 ; preds = %.preheader104.us.preheader, %.preheader104.us
   %.095116.us = phi i32 [ %24, %.preheader104.us ], [ 1, %.preheader104.us.preheader ]
   %22 = add nsw i32 %.095116.us, %2
-  %23 = tail call i32 @cuddNextLow(ptr noundef nonnull %0, i32 noundef %22) #11
+  %23 = tail call i32 @cuddNextLow(ptr noundef nonnull %0, i32 noundef %22) #12
   %24 = add nuw i32 %.095116.us, 1
   %exitcond145 = icmp eq i32 %.095116.us, %21
   br i1 %exitcond145, label %.preheader, label %.preheader104.us, !llvm.loop !123
@@ -2666,19 +2666,19 @@ define internal fastcc i32 @ddGroupMove(ptr noundef %0, i32 noundef %1, i32 noun
   %.190113 = phi i32 [ %.089118, %.preheader104 ], [ %29, %28 ]
   %.193112 = phi i32 [ %.092117, %.preheader104 ], [ %.190113, %28 ]
   %.098111 = phi i32 [ 1, %.preheader104 ], [ %30, %28 ]
-  %26 = tail call i32 @cuddSwapInPlace(ptr noundef %0, i32 noundef %.190113, i32 noundef %.193112) #11
+  %26 = tail call i32 @cuddSwapInPlace(ptr noundef %0, i32 noundef %.190113, i32 noundef %.193112) #12
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %.loopexit105, label %28
 
 28:                                               ; preds = %25
-  %29 = tail call i32 @cuddNextLow(ptr noundef %0, i32 noundef %.190113) #11
+  %29 = tail call i32 @cuddNextLow(ptr noundef %0, i32 noundef %.190113) #12
   %30 = add nuw i32 %.098111, 1
   %exitcond = icmp eq i32 %30, %19
   br i1 %exitcond, label %._crit_edge, label %25, !llvm.loop !124
 
 ._crit_edge:                                      ; preds = %28
   %31 = add nsw i32 %.095116, %2
-  %32 = tail call i32 @cuddNextLow(ptr noundef %0, i32 noundef %31) #11
+  %32 = tail call i32 @cuddNextLow(ptr noundef %0, i32 noundef %31) #12
   %33 = add nuw i32 %.095116, 1
   %exitcond143 = icmp eq i32 %.095116, %20
   br i1 %exitcond143, label %.preheader, label %.preheader104, !llvm.loop !123
@@ -2686,12 +2686,12 @@ define internal fastcc i32 @ddGroupMove(ptr noundef %0, i32 noundef %1, i32 noun
 .lr.ph:                                           ; preds = %.preheader, %.lr.ph
   %.294125 = phi i32 [ %38, %.lr.ph ], [ %9, %.preheader ]
   %.196124 = phi i32 [ %39, %.lr.ph ], [ 0, %.preheader ]
-  %34 = tail call i32 @cuddNextHigh(ptr noundef %0, i32 noundef %.294125) #11
+  %34 = tail call i32 @cuddNextHigh(ptr noundef %0, i32 noundef %.294125) #12
   %35 = load ptr, ptr %5, align 8, !tbaa !31
   %36 = sext i32 %.294125 to i64
   %37 = getelementptr inbounds %struct.DdSubtable, ptr %35, i64 %36, i32 6
   store i32 %34, ptr %37, align 4, !tbaa !32
-  %38 = tail call i32 @cuddNextHigh(ptr noundef %0, i32 noundef %.294125) #11
+  %38 = tail call i32 @cuddNextHigh(ptr noundef %0, i32 noundef %.294125) #12
   %39 = add nuw nsw i32 %.196124, 1
   %exitcond146.not = icmp eq i32 %39, %17
   br i1 %exitcond146.not, label %._crit_edge126, label %.lr.ph, !llvm.loop !125
@@ -2704,19 +2704,19 @@ define internal fastcc i32 @ddGroupMove(ptr noundef %0, i32 noundef %1, i32 noun
   %41 = sext i32 %.294.lcssa to i64
   %42 = getelementptr inbounds %struct.DdSubtable, ptr %40, i64 %41, i32 6
   store i32 %9, ptr %42, align 4, !tbaa !32
-  %43 = tail call i32 @cuddNextHigh(ptr noundef %0, i32 noundef %.294.lcssa) #11
+  %43 = tail call i32 @cuddNextHigh(ptr noundef %0, i32 noundef %.294.lcssa) #12
   %44 = icmp sgt i32 %16, 0
   br i1 %44, label %.lr.ph131, label %._crit_edge132
 
 .lr.ph131:                                        ; preds = %._crit_edge126, %.lr.ph131
   %.2129 = phi i32 [ %49, %.lr.ph131 ], [ %43, %._crit_edge126 ]
   %.297128 = phi i32 [ %50, %.lr.ph131 ], [ 0, %._crit_edge126 ]
-  %45 = tail call i32 @cuddNextHigh(ptr noundef nonnull %0, i32 noundef %.2129) #11
+  %45 = tail call i32 @cuddNextHigh(ptr noundef nonnull %0, i32 noundef %.2129) #12
   %46 = load ptr, ptr %5, align 8, !tbaa !31
   %47 = sext i32 %.2129 to i64
   %48 = getelementptr inbounds %struct.DdSubtable, ptr %46, i64 %47, i32 6
   store i32 %45, ptr %48, align 4, !tbaa !32
-  %49 = tail call i32 @cuddNextHigh(ptr noundef nonnull %0, i32 noundef %.2129) #11
+  %49 = tail call i32 @cuddNextHigh(ptr noundef nonnull %0, i32 noundef %.2129) #12
   %50 = add nuw nsw i32 %.297128, 1
   %exitcond147.not = icmp eq i32 %50, %16
   br i1 %exitcond147.not, label %._crit_edge132, label %.lr.ph131, !llvm.loop !126
@@ -2727,7 +2727,7 @@ define internal fastcc i32 @ddGroupMove(ptr noundef %0, i32 noundef %1, i32 noun
   %52 = sext i32 %.2.lcssa to i64
   %53 = getelementptr inbounds %struct.DdSubtable, ptr %51, i64 %52, i32 6
   store i32 %43, ptr %53, align 4, !tbaa !32
-  %54 = tail call ptr @cuddDynamicAllocNode(ptr noundef nonnull %0) #11
+  %54 = tail call ptr @cuddDynamicAllocNode(ptr noundef nonnull %0) #12
   %55 = icmp eq ptr %54, null
   br i1 %55, label %.loopexit105, label %56
 
@@ -2804,6 +2804,9 @@ declare i32 @llvm.umax.i32(i32, i32) #10
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #10
 
+; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2815,8 +2818,9 @@ attributes #7 = { mustprogress nounwind willreturn allockind("free") memory(argm
 attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #9 = { nofree nounwind }
 attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nounwind }
-attributes #12 = { nounwind allocsize(0) }
+attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #12 = { nounwind }
+attributes #13 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

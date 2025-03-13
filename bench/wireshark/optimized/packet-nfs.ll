@@ -6364,8 +6364,7 @@ define internal noundef i32 @dissect_nfs2_getattr_call(ptr noundef %0, ptr nound
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr %5, align 4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %8, i32 noundef 25, ptr noundef nonnull @.str.2238, i32 noundef %9)
-  %10 = load i32, ptr %5, align 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2239, i32 noundef %10)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2239, i32 noundef %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #22
   ret i32 %6
 }
@@ -6386,8 +6385,7 @@ define internal noundef i32 @dissect_nfs2_setattr_call(ptr noundef %0, ptr nound
   %9 = load ptr, ptr %8, align 8
   %10 = load i32, ptr %5, align 4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %9, i32 noundef 25, ptr noundef nonnull @.str.2238, i32 noundef %10)
-  %11 = load i32, ptr %5, align 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2245, i32 noundef %11)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2245, i32 noundef %10)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #22
   ret i32 %7
 }
@@ -6411,9 +6409,8 @@ define internal i32 @dissect_nfs2_lookup_call(ptr noundef %0, ptr noundef %1, pt
   %10 = load i32, ptr %5, align 4
   %11 = load ptr, ptr %6, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %9, i32 noundef 25, ptr noundef nonnull @.str.2247, i32 noundef %10, ptr noundef %11)
-  %12 = load i32, ptr %5, align 4
-  %13 = load ptr, ptr %6, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2248, i32 noundef %12, ptr noundef %13)
+  %12 = load ptr, ptr %6, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2248, i32 noundef %10, ptr noundef %12)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #22
   ret i32 %7
@@ -6434,8 +6431,7 @@ define internal noundef i32 @dissect_nfs2_readlink_call(ptr noundef %0, ptr noun
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr %5, align 4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %8, i32 noundef 25, ptr noundef nonnull @.str.2238, i32 noundef %9)
-  %10 = load i32, ptr %5, align 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2251, i32 noundef %10)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2251, i32 noundef %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #22
   ret i32 %6
 }
@@ -6541,11 +6537,10 @@ define internal noundef i32 @dissect_nfs2_read_call(ptr noundef %0, ptr noundef 
   %23 = load i32, ptr %6, align 4
   %24 = load i32, ptr %7, align 4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.2255, i32 noundef %21, i32 noundef %22, i32 noundef %23, i32 noundef %24)
-  %25 = load i32, ptr %8, align 4
-  %26 = load i32, ptr %5, align 4
-  %27 = load i32, ptr %6, align 4
-  %28 = load i32, ptr %7, align 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2256, i32 noundef %25, i32 noundef %26, i32 noundef %27, i32 noundef %28)
+  %25 = load i32, ptr %5, align 4
+  %26 = load i32, ptr %6, align 4
+  %27 = load i32, ptr %7, align 4
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2256, i32 noundef %21, i32 noundef %25, i32 noundef %26, i32 noundef %27)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #22
@@ -6641,18 +6636,17 @@ define internal i32 @dissect_nfs2_write_call(ptr noundef %0, ptr noundef %1, ptr
   %23 = load i32, ptr %6, align 4
   %24 = load i32, ptr %7, align 4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %20, i32 noundef 25, ptr noundef nonnull @.str.2259, i32 noundef %21, i32 noundef %22, i32 noundef %23, i32 noundef %24)
-  %25 = load i32, ptr %8, align 4
-  %26 = load i32, ptr %5, align 4
-  %27 = load i32, ptr %6, align 4
-  %28 = load i32, ptr %7, align 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2260, i32 noundef %25, i32 noundef %26, i32 noundef %27, i32 noundef %28)
-  %29 = load i32, ptr @hf_nfs_data, align 4
-  %30 = call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %2, i32 noundef %29, i32 noundef %18)
+  %25 = load i32, ptr %5, align 4
+  %26 = load i32, ptr %6, align 4
+  %27 = load i32, ptr %7, align 4
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2260, i32 noundef %21, i32 noundef %25, i32 noundef %26, i32 noundef %27)
+  %28 = load i32, ptr @hf_nfs_data, align 4
+  %29 = call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %2, i32 noundef %28, i32 noundef %18)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #22
-  ret i32 %30
+  ret i32 %29
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
@@ -6675,9 +6669,8 @@ define internal noundef i32 @dissect_nfs2_create_call(ptr noundef %0, ptr nounde
   %11 = load i32, ptr %5, align 4
   %12 = load ptr, ptr %6, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2247, i32 noundef %11, ptr noundef %12)
-  %13 = load i32, ptr %5, align 4
-  %14 = load ptr, ptr %6, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2261, i32 noundef %13, ptr noundef %14)
+  %13 = load ptr, ptr %6, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2261, i32 noundef %11, ptr noundef %13)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #22
   ret i32 %8
@@ -6702,9 +6695,8 @@ define internal i32 @dissect_nfs2_remove_call(ptr noundef %0, ptr noundef %1, pt
   %10 = load i32, ptr %5, align 4
   %11 = load ptr, ptr %6, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %9, i32 noundef 25, ptr noundef nonnull @.str.2247, i32 noundef %10, ptr noundef %11)
-  %12 = load i32, ptr %5, align 4
-  %13 = load ptr, ptr %6, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2262, i32 noundef %12, ptr noundef %13)
+  %12 = load ptr, ptr %6, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2262, i32 noundef %10, ptr noundef %12)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #22
   ret i32 %7
@@ -6778,11 +6770,9 @@ define internal i32 @dissect_nfs2_rename_call(ptr noundef %0, ptr noundef %1, pt
   %15 = load i32, ptr %7, align 4
   %16 = load ptr, ptr %8, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %12, i32 noundef 25, ptr noundef nonnull @.str.2267, i32 noundef %13, ptr noundef %14, i32 noundef %15, ptr noundef %16)
-  %17 = load i32, ptr %5, align 4
-  %18 = load ptr, ptr %6, align 8
-  %19 = load i32, ptr %7, align 4
-  %20 = load ptr, ptr %8, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2268, i32 noundef %17, ptr noundef %18, i32 noundef %19, ptr noundef %20)
+  %17 = load ptr, ptr %6, align 8
+  %18 = load ptr, ptr %8, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2268, i32 noundef %13, ptr noundef %17, i32 noundef %15, ptr noundef %18)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
@@ -6854,10 +6844,8 @@ define internal i32 @dissect_nfs2_link_call(ptr noundef %0, ptr noundef %1, ptr 
   %13 = load i32, ptr %6, align 4
   %14 = load ptr, ptr %7, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %11, i32 noundef 25, ptr noundef nonnull @.str.2271, i32 noundef %12, i32 noundef %13, ptr noundef %14)
-  %15 = load i32, ptr %5, align 4
-  %16 = load i32, ptr %6, align 4
-  %17 = load ptr, ptr %7, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2272, i32 noundef %15, i32 noundef %16, ptr noundef %17)
+  %15 = load ptr, ptr %7, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2272, i32 noundef %12, i32 noundef %13, ptr noundef %15)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #22
@@ -6931,10 +6919,9 @@ define internal noundef i32 @dissect_nfs2_symlink_call(ptr noundef %0, ptr nound
   %15 = load ptr, ptr %6, align 8
   %16 = load ptr, ptr %7, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %13, i32 noundef 25, ptr noundef nonnull @.str.2275, i32 noundef %14, ptr noundef %15, ptr noundef %16)
-  %17 = load i32, ptr %5, align 4
-  %18 = load ptr, ptr %6, align 8
-  %19 = load ptr, ptr %7, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2276, i32 noundef %17, ptr noundef %18, ptr noundef %19)
+  %17 = load ptr, ptr %6, align 8
+  %18 = load ptr, ptr %7, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2276, i32 noundef %14, ptr noundef %17, ptr noundef %18)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #22
@@ -7002,9 +6989,8 @@ define internal noundef i32 @dissect_nfs2_mkdir_call(ptr noundef %0, ptr noundef
   %11 = load i32, ptr %5, align 4
   %12 = load ptr, ptr %6, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2247, i32 noundef %11, ptr noundef %12)
-  %13 = load i32, ptr %5, align 4
-  %14 = load ptr, ptr %6, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2279, i32 noundef %13, ptr noundef %14)
+  %13 = load ptr, ptr %6, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2279, i32 noundef %11, ptr noundef %13)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #22
   ret i32 %8
@@ -7029,9 +7015,8 @@ define internal i32 @dissect_nfs2_rmdir_call(ptr noundef %0, ptr noundef %1, ptr
   %10 = load i32, ptr %5, align 4
   %11 = load ptr, ptr %6, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %9, i32 noundef 25, ptr noundef nonnull @.str.2247, i32 noundef %10, ptr noundef %11)
-  %12 = load i32, ptr %5, align 4
-  %13 = load ptr, ptr %6, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2280, i32 noundef %12, ptr noundef %13)
+  %12 = load ptr, ptr %6, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2280, i32 noundef %10, ptr noundef %12)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #22
   ret i32 %7
@@ -7099,8 +7084,7 @@ define internal noundef i32 @dissect_nfs2_readdir_call(ptr noundef %0, ptr nound
   %14 = load ptr, ptr %13, align 8
   %15 = load i32, ptr %5, align 4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.2238, i32 noundef %15)
-  %16 = load i32, ptr %5, align 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2283, i32 noundef %16)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2283, i32 noundef %15)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #22
   ret i32 %12
 }
@@ -7169,8 +7153,7 @@ define internal noundef i32 @dissect_nfs2_statfs_call(ptr noundef %0, ptr nounde
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr %5, align 4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %8, i32 noundef 25, ptr noundef nonnull @.str.2238, i32 noundef %9)
-  %10 = load i32, ptr %5, align 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2287, i32 noundef %10)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2287, i32 noundef %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #22
   ret i32 %6
 }
@@ -7515,7 +7498,7 @@ dissect_nfs2_status.exit:                         ; preds = %5, %13, %16
   %20 = load i32, ptr %6, align 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #22
   %cond = icmp eq i32 %20, 0
-  br i1 %cond, label %21, label %28
+  br i1 %cond, label %21, label %27
 
 21:                                               ; preds = %dissect_nfs2_status.exit
   %22 = call i32 @dissect_fhandle(ptr noundef %0, i32 noundef 4, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.2244, ptr noundef nonnull %7, ptr noundef %4)
@@ -7524,20 +7507,19 @@ dissect_nfs2_status.exit:                         ; preds = %5, %13, %16
   %25 = load ptr, ptr %24, align 8
   %26 = load i32, ptr %7, align 4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %25, i32 noundef 25, ptr noundef nonnull @.str.2238, i32 noundef %26)
-  %27 = load i32, ptr %7, align 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2250, ptr noundef %3, i32 noundef %27)
-  br label %32
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2250, ptr noundef %3, i32 noundef %26)
+  br label %31
 
-28:                                               ; preds = %dissect_nfs2_status.exit
-  %29 = call ptr @val_to_str_ext(i32 noundef %20, ptr noundef nonnull @names_nfs2_stat_ext, ptr noundef nonnull @.str.2241)
-  %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %31 = load ptr, ptr %30, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %31, i32 noundef 25, ptr noundef nonnull @.str.2242, ptr noundef %29)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2243, ptr noundef %3, ptr noundef %29)
-  br label %32
+27:                                               ; preds = %dissect_nfs2_status.exit
+  %28 = call ptr @val_to_str_ext(i32 noundef %20, ptr noundef nonnull @names_nfs2_stat_ext, ptr noundef nonnull @.str.2241)
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %30 = load ptr, ptr %29, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %30, i32 noundef 25, ptr noundef nonnull @.str.2242, ptr noundef %28)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2243, ptr noundef %3, ptr noundef %28)
+  br label %31
 
-32:                                               ; preds = %28, %21
-  %.0 = phi i32 [ %23, %21 ], [ 4, %28 ]
+31:                                               ; preds = %27, %21
+  %.0 = phi i32 [ %23, %21 ], [ 4, %27 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #22
   ret i32 %.0
 }
@@ -7633,8 +7615,7 @@ define internal i32 @dissect_nfs3_getattr_call(ptr noundef %0, ptr noundef %1, p
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr %5, align 4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %8, i32 noundef 25, ptr noundef nonnull @.str.2238, i32 noundef %9)
-  %10 = load i32, ptr %5, align 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2239, i32 noundef %10)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2239, i32 noundef %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #22
   ret i32 %6
 }
@@ -7724,8 +7705,7 @@ dissect_sattrguard3.exit:                         ; preds = %4, %16
   %24 = load ptr, ptr %23, align 8
   %25 = load i32, ptr %6, align 4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %24, i32 noundef 25, ptr noundef nonnull @.str.2238, i32 noundef %25)
-  %26 = load i32, ptr %6, align 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2245, i32 noundef %26)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2245, i32 noundef %25)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #22
   ret i32 %.0.i
 }
@@ -7792,9 +7772,8 @@ define internal i32 @dissect_nfs3_lookup_call(ptr noundef %0, ptr noundef %1, pt
   %10 = load i32, ptr %5, align 4
   %11 = load ptr, ptr %6, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %9, i32 noundef 25, ptr noundef nonnull @.str.2247, i32 noundef %10, ptr noundef %11)
-  %12 = load i32, ptr %5, align 4
-  %13 = load ptr, ptr %6, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2248, i32 noundef %12, ptr noundef %13)
+  %12 = load ptr, ptr %6, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2248, i32 noundef %10, ptr noundef %12)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #22
   ret i32 %7
@@ -7833,7 +7812,7 @@ define internal noundef i32 @dissect_nfs3_lookup_reply(ptr noundef %0, ptr nound
 
 dissect_nfs3_status.exit:                         ; preds = %4, %8, %13, %16
   %cond = icmp eq i32 %7, 0
-  br i1 %cond, label %20, label %28
+  br i1 %cond, label %20, label %27
 
 20:                                               ; preds = %dissect_nfs3_status.exit
   %21 = call i32 @dissect_nfs3_fh(ptr noundef %0, i32 noundef 4, ptr noundef %1, ptr noundef %2, ptr noundef nonnull @.str.2237, ptr noundef nonnull %6, ptr noundef %3)
@@ -7843,38 +7822,37 @@ dissect_nfs3_status.exit:                         ; preds = %4, %8, %13, %16
   %25 = load ptr, ptr %24, align 8
   %26 = load i32, ptr %6, align 4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %25, i32 noundef 25, ptr noundef nonnull @.str.2238, i32 noundef %26)
-  %27 = load i32, ptr %6, align 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2306, i32 noundef %27)
-  br label %41
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2306, i32 noundef %26)
+  br label %40
 
-28:                                               ; preds = %dissect_nfs3_status.exit
+27:                                               ; preds = %dissect_nfs3_status.exit
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #22
-  %29 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 4)
-  %30 = load i32, ptr @ett_nfs3_post_op_attr, align 4
-  %31 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef 4, i32 noundef -1, i32 noundef %30, ptr noundef nonnull %5, ptr noundef nonnull @.str.2305)
-  %32 = load i32, ptr @hf_nfs3_attributes_follow, align 4
-  %33 = call ptr @proto_tree_add_uint(ptr noundef %31, i32 noundef %32, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef %29)
-  %cond.i = icmp eq i32 %29, 1
-  br i1 %cond.i, label %34, label %dissect_nfs3_post_op_attr.exit
+  %28 = tail call i32 @tvb_get_ntohl(ptr noundef %0, i32 noundef 4)
+  %29 = load i32, ptr @ett_nfs3_post_op_attr, align 4
+  %30 = call ptr @proto_tree_add_subtree(ptr noundef %2, ptr noundef %0, i32 noundef 4, i32 noundef -1, i32 noundef %29, ptr noundef nonnull %5, ptr noundef nonnull @.str.2305)
+  %31 = load i32, ptr @hf_nfs3_attributes_follow, align 4
+  %32 = call ptr @proto_tree_add_uint(ptr noundef %30, i32 noundef %31, ptr noundef %0, i32 noundef 4, i32 noundef 4, i32 noundef %28)
+  %cond.i = icmp eq i32 %28, 1
+  br i1 %cond.i, label %33, label %dissect_nfs3_post_op_attr.exit
 
-34:                                               ; preds = %28
-  %35 = call fastcc i32 @dissect_nfs_fattr3(ptr noundef readonly %1, ptr noundef %0, i32 noundef 8, ptr noundef %31, ptr noundef nonnull @.str, i32 noundef 2)
+33:                                               ; preds = %27
+  %34 = call fastcc i32 @dissect_nfs_fattr3(ptr noundef readonly %1, ptr noundef %0, i32 noundef 8, ptr noundef %30, ptr noundef nonnull @.str, i32 noundef 2)
   br label %dissect_nfs3_post_op_attr.exit
 
-dissect_nfs3_post_op_attr.exit:                   ; preds = %28, %34
-  %.0.i = phi i32 [ %35, %34 ], [ 8, %28 ]
-  %36 = load ptr, ptr %5, align 8
-  %37 = add i32 %.0.i, -4
-  call void @proto_item_set_len(ptr noundef %36, i32 noundef %37)
+dissect_nfs3_post_op_attr.exit:                   ; preds = %27, %33
+  %.0.i = phi i32 [ %34, %33 ], [ 8, %27 ]
+  %35 = load ptr, ptr %5, align 8
+  %36 = add i32 %.0.i, -4
+  call void @proto_item_set_len(ptr noundef %35, i32 noundef %36)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #22
-  %38 = call ptr @val_to_str_ext(i32 noundef %7, ptr noundef nonnull @names_nfs3_status_ext, ptr noundef nonnull @.str.2241)
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %40 = load ptr, ptr %39, align 8
-  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %40, i32 noundef 25, ptr noundef nonnull @.str.2242, ptr noundef %38)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2307, ptr noundef %38)
-  br label %41
+  %37 = call ptr @val_to_str_ext(i32 noundef %7, ptr noundef nonnull @names_nfs3_status_ext, ptr noundef nonnull @.str.2241)
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %39 = load ptr, ptr %38, align 8
+  call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %39, i32 noundef 25, ptr noundef nonnull @.str.2242, ptr noundef %37)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2307, ptr noundef %37)
+  br label %40
 
-41:                                               ; preds = %dissect_nfs3_post_op_attr.exit, %20
+40:                                               ; preds = %dissect_nfs3_post_op_attr.exit, %20
   %.0 = phi i32 [ %23, %20 ], [ %.0.i, %dissect_nfs3_post_op_attr.exit ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #22
   ret i32 %.0
@@ -7898,14 +7876,13 @@ define internal noundef i32 @dissect_nfs3_access_call(ptr noundef %0, ptr nounde
   %13 = load ptr, ptr %12, align 8
   %14 = load i32, ptr %5, align 4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %13, i32 noundef 25, ptr noundef nonnull @.str.2238, i32 noundef %14)
-  %15 = load i32, ptr %5, align 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2308, i32 noundef %15)
-  %16 = load i32, ptr %6, align 4
-  %17 = call ptr @display_access_items(ptr noundef %0, i32 noundef %7, ptr noundef %1, ptr noundef %2, i32 noundef %16, i8 noundef signext 67, i32 noundef 3, ptr noundef null, ptr noundef nonnull @.str.2309)
-  %18 = add i32 %7, 4
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2308, i32 noundef %14)
+  %15 = load i32, ptr %6, align 4
+  %16 = call ptr @display_access_items(ptr noundef %0, i32 noundef %7, ptr noundef %1, ptr noundef %2, i32 noundef %15, i8 noundef signext 67, i32 noundef 3, ptr noundef null, ptr noundef nonnull @.str.2309)
+  %17 = add i32 %7, 4
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #22
-  ret i32 %18
+  ret i32 %17
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
@@ -7987,8 +7964,7 @@ define internal i32 @dissect_nfs3_readlink_call(ptr noundef %0, ptr noundef %1, 
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr %5, align 4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %8, i32 noundef 25, ptr noundef nonnull @.str.2238, i32 noundef %9)
-  %10 = load i32, ptr %5, align 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2251, i32 noundef %10)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2251, i32 noundef %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #22
   ret i32 %6
 }
@@ -8124,8 +8100,7 @@ define internal i32 @dissect_nfs3_read_call(ptr noundef %0, ptr noundef %1, ptr 
   %14 = load ptr, ptr %13, align 8
   %15 = load i32, ptr %5, align 4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %14, i32 noundef 25, ptr noundef nonnull @.str.2313, i32 noundef %15, i64 noundef %7, i32 noundef %10)
-  %16 = load i32, ptr %5, align 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2314, i32 noundef %16, i64 noundef %7, i32 noundef %10)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2314, i32 noundef %15, i64 noundef %7, i32 noundef %10)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #22
   ret i32 %12
 }
@@ -8259,13 +8234,12 @@ define internal i32 @dissect_nfs3_write_call(ptr noundef %0, ptr noundef %1, ptr
   %19 = load i32, ptr %5, align 4
   %20 = call ptr @val_to_str(i32 noundef %13, ptr noundef nonnull @names_stable_how, ptr noundef nonnull @.str.2319)
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %18, i32 noundef 25, ptr noundef nonnull @.str.2318, i32 noundef %19, i64 noundef %7, i32 noundef %10, ptr noundef %20)
-  %21 = load i32, ptr %5, align 4
-  %22 = call ptr @val_to_str(i32 noundef %13, ptr noundef nonnull @names_stable_how, ptr noundef nonnull @.str.2319)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2320, i32 noundef %21, i64 noundef %7, i32 noundef %10, ptr noundef %22)
-  %23 = load i32, ptr @hf_nfs_data, align 4
-  %24 = call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %2, i32 noundef %23, i32 noundef %16)
+  %21 = call ptr @val_to_str(i32 noundef %13, ptr noundef nonnull @names_stable_how, ptr noundef nonnull @.str.2319)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2320, i32 noundef %19, i64 noundef %7, i32 noundef %10, ptr noundef %21)
+  %22 = load i32, ptr @hf_nfs_data, align 4
+  %23 = call i32 @dissect_rpc_data(ptr noundef %0, ptr noundef %2, i32 noundef %22, i32 noundef %16)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #22
-  ret i32 %24
+  ret i32 %23
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
@@ -8376,10 +8350,9 @@ dissect_createmode3.exit:                         ; preds = %4, %9
   %23 = load ptr, ptr %6, align 8
   %24 = call ptr @val_to_str(i32 noundef %8, ptr noundef nonnull @names_createmode3, ptr noundef nonnull @.str.2327)
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %21, i32 noundef 25, ptr noundef nonnull @.str.2326, i32 noundef %22, ptr noundef %23, ptr noundef %24)
-  %25 = load i32, ptr %5, align 4
-  %26 = load ptr, ptr %6, align 8
-  %27 = call ptr @val_to_str(i32 noundef %8, ptr noundef nonnull @names_createmode3, ptr noundef nonnull @.str.2327)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2328, i32 noundef %25, ptr noundef %26, ptr noundef %27)
+  %25 = load ptr, ptr %6, align 8
+  %26 = call ptr @val_to_str(i32 noundef %8, ptr noundef nonnull @names_createmode3, ptr noundef nonnull @.str.2327)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2328, i32 noundef %22, ptr noundef %25, ptr noundef %26)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #22
   ret i32 %.0
@@ -8481,9 +8454,8 @@ define internal i32 @dissect_nfs3_mkdir_call(ptr noundef %0, ptr noundef %1, ptr
   %11 = load i32, ptr %5, align 4
   %12 = load ptr, ptr %6, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %10, i32 noundef 25, ptr noundef nonnull @.str.2247, i32 noundef %11, ptr noundef %12)
-  %13 = load i32, ptr %5, align 4
-  %14 = load ptr, ptr %6, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2279, i32 noundef %13, ptr noundef %14)
+  %13 = load ptr, ptr %6, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2279, i32 noundef %11, ptr noundef %13)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #22
   ret i32 %8
@@ -8591,10 +8563,9 @@ define internal i32 @dissect_nfs3_symlink_call(ptr noundef %0, ptr noundef %1, p
   %15 = load ptr, ptr %6, align 8
   %16 = load ptr, ptr %7, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %13, i32 noundef 25, ptr noundef nonnull @.str.2275, i32 noundef %14, ptr noundef %15, ptr noundef %16)
-  %17 = load i32, ptr %5, align 4
-  %18 = load ptr, ptr %6, align 8
-  %19 = load ptr, ptr %7, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2276, i32 noundef %17, ptr noundef %18, ptr noundef %19)
+  %17 = load ptr, ptr %6, align 8
+  %18 = load ptr, ptr %7, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2276, i32 noundef %14, ptr noundef %17, ptr noundef %18)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #22
@@ -8722,9 +8693,8 @@ define internal i32 @dissect_nfs3_mknod_call(ptr noundef %0, ptr noundef %1, ptr
   %22 = load i32, ptr %6, align 4
   %23 = load ptr, ptr %7, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %21, i32 noundef 25, ptr noundef nonnull @.str.2340, i32 noundef %22, ptr noundef %23, ptr noundef %19)
-  %24 = load i32, ptr %6, align 4
-  %25 = load ptr, ptr %7, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2341, i32 noundef %24, ptr noundef %25, ptr noundef %19)
+  %24 = load ptr, ptr %7, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2341, i32 noundef %22, ptr noundef %24, ptr noundef %19)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #22
   ret i32 %.0
@@ -8825,9 +8795,8 @@ define internal i32 @dissect_nfs3_remove_call(ptr noundef %0, ptr noundef %1, pt
   %10 = load i32, ptr %5, align 4
   %11 = load ptr, ptr %6, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %9, i32 noundef 25, ptr noundef nonnull @.str.2247, i32 noundef %10, ptr noundef %11)
-  %12 = load i32, ptr %5, align 4
-  %13 = load ptr, ptr %6, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2262, i32 noundef %12, ptr noundef %13)
+  %12 = load ptr, ptr %6, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2262, i32 noundef %10, ptr noundef %12)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #22
   ret i32 %7
@@ -8895,9 +8864,8 @@ define internal i32 @dissect_nfs3_rmdir_call(ptr noundef %0, ptr noundef %1, ptr
   %10 = load i32, ptr %5, align 4
   %11 = load ptr, ptr %6, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %9, i32 noundef 25, ptr noundef nonnull @.str.2247, i32 noundef %10, ptr noundef %11)
-  %12 = load i32, ptr %5, align 4
-  %13 = load ptr, ptr %6, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2280, i32 noundef %12, ptr noundef %13)
+  %12 = load ptr, ptr %6, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2280, i32 noundef %10, ptr noundef %12)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #22
   ret i32 %7
@@ -8974,11 +8942,9 @@ define internal i32 @dissect_nfs3_rename_call(ptr noundef %0, ptr noundef %1, pt
   %15 = load i32, ptr %7, align 4
   %16 = load ptr, ptr %8, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %12, i32 noundef 25, ptr noundef nonnull @.str.2267, i32 noundef %13, ptr noundef %14, i32 noundef %15, ptr noundef %16)
-  %17 = load i32, ptr %5, align 4
-  %18 = load ptr, ptr %6, align 8
-  %19 = load i32, ptr %7, align 4
-  %20 = load ptr, ptr %8, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2268, i32 noundef %17, ptr noundef %18, i32 noundef %19, ptr noundef %20)
+  %17 = load ptr, ptr %6, align 8
+  %18 = load ptr, ptr %8, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2268, i32 noundef %13, ptr noundef %17, i32 noundef %15, ptr noundef %18)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #22
@@ -9054,10 +9020,8 @@ define internal i32 @dissect_nfs3_link_call(ptr noundef %0, ptr noundef %1, ptr 
   %13 = load i32, ptr %6, align 4
   %14 = load ptr, ptr %7, align 8
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %11, i32 noundef 25, ptr noundef nonnull @.str.2271, i32 noundef %12, i32 noundef %13, ptr noundef %14)
-  %15 = load i32, ptr %5, align 4
-  %16 = load i32, ptr %6, align 4
-  %17 = load ptr, ptr %7, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2272, i32 noundef %15, i32 noundef %16, ptr noundef %17)
+  %15 = load ptr, ptr %7, align 8
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2272, i32 noundef %12, i32 noundef %13, ptr noundef %15)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #22
@@ -9171,8 +9135,7 @@ define internal i32 @dissect_nfs3_readdir_call(ptr noundef %0, ptr noundef %1, p
   %15 = load ptr, ptr %14, align 8
   %16 = load i32, ptr %5, align 4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %15, i32 noundef 25, ptr noundef nonnull @.str.2238, i32 noundef %16)
-  %17 = load i32, ptr %5, align 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2283, i32 noundef %17)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2283, i32 noundef %16)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #22
   ret i32 %13
 }
@@ -9291,8 +9254,7 @@ define internal i32 @dissect_nfs3_readdirplus_call(ptr noundef %0, ptr noundef %
   %17 = load ptr, ptr %16, align 8
   %18 = load i32, ptr %5, align 4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %17, i32 noundef 25, ptr noundef nonnull @.str.2238, i32 noundef %18)
-  %19 = load i32, ptr %5, align 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2349, i32 noundef %19)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2349, i32 noundef %18)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #22
   ret i32 %15
 }
@@ -9402,8 +9364,7 @@ define internal i32 @dissect_nfs3_fsstat_call(ptr noundef %0, ptr noundef %1, pt
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr %5, align 4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %8, i32 noundef 25, ptr noundef nonnull @.str.2238, i32 noundef %9)
-  %10 = load i32, ptr %5, align 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2354, i32 noundef %10)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2354, i32 noundef %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #22
   ret i32 %6
 }
@@ -9528,8 +9489,7 @@ define internal i32 @dissect_nfs3_fsinfo_call(ptr noundef %0, ptr noundef %1, pt
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr %5, align 4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %8, i32 noundef 25, ptr noundef nonnull @.str.2238, i32 noundef %9)
-  %10 = load i32, ptr %5, align 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2357, i32 noundef %10)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2357, i32 noundef %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #22
   ret i32 %6
 }
@@ -9663,8 +9623,7 @@ define internal i32 @dissect_nfs3_pathconf_call(ptr noundef %0, ptr noundef %1, 
   %8 = load ptr, ptr %7, align 8
   %9 = load i32, ptr %5, align 4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %8, i32 noundef 25, ptr noundef nonnull @.str.2238, i32 noundef %9)
-  %10 = load i32, ptr %5, align 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2360, i32 noundef %10)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2360, i32 noundef %9)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #22
   ret i32 %6
 }
@@ -9798,8 +9757,7 @@ define internal i32 @dissect_nfs3_commit_call(ptr noundef %0, ptr noundef %1, pt
   %12 = load ptr, ptr %11, align 8
   %13 = load i32, ptr %5, align 4
   call void (ptr, i32, ptr, ...) @col_append_fstr(ptr noundef %12, i32 noundef 25, ptr noundef nonnull @.str.2238, i32 noundef %13)
-  %14 = load i32, ptr %5, align 4
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2363, i32 noundef %14)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %2, ptr noundef nonnull @.str.2363, i32 noundef %13)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #22
   ret i32 %10
 }

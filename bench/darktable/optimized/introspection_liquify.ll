@@ -1299,7 +1299,7 @@ define void @distort_mask(ptr noundef readonly captures(none) %0, ptr noundef ca
   call fastcc void @_build_global_distortion_map(ptr noundef %0, ptr %.val, ptr %.val19, float noundef %10, ptr noundef %5, ptr noundef %7, i32 noundef 0, ptr noundef nonnull %8)
   %13 = load ptr, ptr %8, align 8, !tbaa !100
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %27, label %15
+  br i1 %14, label %26, label %15
 
 15:                                               ; preds = %6
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -1317,15 +1317,13 @@ define void @distort_mask(ptr noundef readonly captures(none) %0, ptr noundef ca
   store i32 1, ptr %23, align 4, !tbaa !102
   call fastcc void @_apply_global_distortion_map(i32 1, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull %13, ptr noundef %7)
   store i32 %24, ptr %23, align 4, !tbaa !102
-  %.pre = load ptr, ptr %8, align 8, !tbaa !100
   br label %25
 
 25:                                               ; preds = %22, %15
-  %26 = phi ptr [ %.pre, %22 ], [ %13, %15 ]
-  call void @free(ptr noundef %26) #29
-  br label %27
+  call void @free(ptr noundef nonnull %13) #29
+  br label %26
 
-27:                                               ; preds = %6, %25
+26:                                               ; preds = %6, %25
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #29
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #29
   ret void
@@ -1554,7 +1552,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   %10 = load i32, ptr %9, align 4, !tbaa !102
   %11 = tail call i32 @dt_iop_have_required_input_format(i32 noundef 4, ptr noundef %0, i32 noundef %10, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef %5) #29
   %.not = icmp eq i32 %11, 0
-  br i1 %.not, label %32, label %12
+  br i1 %.not, label %31, label %12
 
 12:                                               ; preds = %6
   %13 = load i32, ptr %9, align 4, !tbaa !102
@@ -1572,7 +1570,7 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
   call fastcc void @_build_global_distortion_map(ptr noundef %0, ptr %.val, ptr %.val23, float noundef %16, ptr noundef %5, ptr noundef %7, i32 noundef 0, ptr noundef nonnull %8)
   %19 = load ptr, ptr %8, align 8, !tbaa !100
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %31, label %21
+  br i1 %20, label %30, label %21
 
 21:                                               ; preds = %12
   %22 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -1587,20 +1585,18 @@ define void @process(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr
 28:                                               ; preds = %21
   %.val24 = load i32, ptr %9, align 4, !tbaa !102
   call fastcc void @_apply_global_distortion_map(i32 %.val24, ptr noundef %2, ptr noundef %3, ptr noundef nonnull %4, ptr noundef %5, ptr noundef nonnull %19, ptr noundef %7)
-  %.pre = load ptr, ptr %8, align 8, !tbaa !100
   br label %29
 
 29:                                               ; preds = %28, %21
-  %30 = phi ptr [ %.pre, %28 ], [ %19, %21 ]
-  call void @free(ptr noundef %30) #29
-  br label %31
+  call void @free(ptr noundef nonnull %19) #29
+  br label %30
 
-31:                                               ; preds = %12, %29
+30:                                               ; preds = %12, %29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #29
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #29
-  br label %32
+  br label %31
 
-32:                                               ; preds = %6, %31
+31:                                               ; preds = %6, %30
   ret void
 }
 

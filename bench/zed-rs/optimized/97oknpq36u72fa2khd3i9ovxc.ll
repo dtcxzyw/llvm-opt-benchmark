@@ -19977,7 +19977,7 @@ define hidden void @"_ZN4tiff7decoder16Decoder$LT$R$GT$3new17h9e23987ade0f160aE"
   br label %155
 
 84:                                               ; preds = %109, %77
-  %.sroa.7.0 = phi i64 [ %.sroa.05.0.i, %109 ], [ %81, %77 ]
+  %.sroa.5.0 = phi i64 [ %.sroa.05.0.i, %109 ], [ %81, %77 ]
   %.sroa.045.0 = phi i8 [ 1, %109 ], [ 0, %77 ]
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8)
@@ -20075,7 +20075,7 @@ define hidden void @"_ZN4tiff7decoder16Decoder$LT$R$GT$3new17h9e23987ade0f160aE"
 115:                                              ; preds = %84
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %14, ptr noundef nonnull align 8 dereferenceable(48) %8, i64 48, i1 false)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8)
-  %116 = invoke fastcc noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h5f212c8224b0b017E"(ptr noalias noundef align 8 dereferenceable(48) %14, i64 noundef %.sroa.7.0)
+  %116 = invoke fastcc noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h5f212c8224b0b017E"(ptr noalias noundef align 8 dereferenceable(48) %14, i64 noundef %.sroa.5.0)
           to label %119 unwind label %153
 
 117:                                              ; preds = %147
@@ -20103,7 +20103,7 @@ define hidden void @"_ZN4tiff7decoder16Decoder$LT$R$GT$3new17h9e23987ade0f160aE"
   unreachable
 
 126:                                              ; preds = %119
-  store i64 %.sroa.7.0, ptr %121, align 8
+  store i64 %.sroa.5.0, ptr %121, align 8
   call void @llvm.lifetime.start.p0(i64 352, ptr nonnull %13)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %15, i64 32, i1 false)
@@ -20138,7 +20138,7 @@ define hidden void @"_ZN4tiff7decoder16Decoder$LT$R$GT$3new17h9e23987ade0f160aE"
   store i64 134217728, ptr %.sroa.5.0..sroa_idx, align 8
   store i64 1, ptr %13, align 8
   %135 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  store i64 %.sroa.7.0, ptr %135, align 8
+  store i64 %.sroa.5.0, ptr %135, align 8
   %136 = getelementptr inbounds nuw i8, ptr %13, i64 216
   store i64 1, ptr %136, align 8
   %.sroa.5211.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 224
@@ -20226,9 +20226,9 @@ define hidden void @"_ZN4tiff7decoder16Decoder$LT$R$GT$3new17h9e23987ade0f160aE"
           to label %150 unwind label %117
 
 "_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hfed631b09689acf2E.exit193.sink.split": ; preds = %144, %156
-  %.sink259 = phi i64 [ %157, %156 ], [ %145, %144 ]
+  %.sink256 = phi i64 [ %157, %156 ], [ %145, %144 ]
   %149 = load ptr, ptr %24, align 8, !noalias !9, !nonnull !9, !noundef !9
-  call void @__rust_dealloc(ptr noundef nonnull %149, i64 noundef %.sink259, i64 noundef 1) #52, !noalias !9
+  call void @__rust_dealloc(ptr noundef nonnull %149, i64 noundef %.sink256, i64 noundef 1) #52, !noalias !9
   br label %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hfed631b09689acf2E.exit193"
 
 "_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hfed631b09689acf2E.exit193": ; preds = %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17hfed631b09689acf2E.exit193.sink.split", %144, %156
@@ -20251,7 +20251,7 @@ define hidden void @"_ZN4tiff7decoder16Decoder$LT$R$GT$3new17h9e23987ade0f160aE"
   call void @__rust_dealloc(ptr noundef nonnull %121, i64 noundef 8, i64 noundef 8) #52, !noalias !4679
   br label %"_ZN4core3ptr68drop_in_place$LT$std..collections..hash..set..HashSet$LT$u64$GT$$GT$17h34d829606adc5df8E.exit191"
 
-153:                                              ; preds = %115, %123
+153:                                              ; preds = %123, %115
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   %154 = getelementptr inbounds nuw i8, ptr %14, i64 32

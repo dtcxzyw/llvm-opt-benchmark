@@ -1209,13 +1209,11 @@ define internal void @do_mt_hash_work() #0 {
 
 ossl_ht_mt_TEST_MT_ENTRY_get.exit.thread:         ; preds = %41, %46, %49
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
-  store ptr null, ptr %6, align 8, !tbaa !61
   br label %58
 
 ossl_ht_mt_TEST_MT_ENTRY_get.exit:                ; preds = %49
   %52 = load ptr, ptr %47, align 8, !tbaa !30
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
-  store ptr %52, ptr %6, align 8, !tbaa !61
   %.not39 = icmp eq ptr %52, null
   %.not40 = icmp eq ptr %52, %30
   %or.cond = select i1 %.not39, i1 true, i1 %.not40
@@ -1247,7 +1245,7 @@ ossl_ht_mt_TEST_MT_ENTRY_get.exit:                ; preds = %49
   br i1 %66, label %70, label %67
 
 67:                                               ; preds = %64
-  %68 = load i32, ptr %30, align 8, !tbaa !63
+  %68 = load i32, ptr %30, align 8, !tbaa !61
   %.not34 = icmp eq i32 %68, 0
   %69 = zext i1 %.not34 to i32
   br label %70
@@ -1270,7 +1268,7 @@ ossl_ht_mt_TEST_MT_ENTRY_get.exit:                ; preds = %49
 
 75:                                               ; preds = %70
   %76 = load ptr, ptr %74, align 8, !tbaa !30
-  store ptr %76, ptr %.026, align 8, !tbaa !61
+  store ptr %76, ptr %.026, align 8, !tbaa !63
   br label %ossl_ht_mt_TEST_MT_ENTRY_insert.exit
 
 ossl_ht_mt_TEST_MT_ENTRY_insert.exit:             ; preds = %70, %75
@@ -1282,7 +1280,7 @@ ossl_ht_mt_TEST_MT_ENTRY_insert.exit:             ; preds = %70, %75
 77:                                               ; preds = %ossl_ht_mt_TEST_MT_ENTRY_insert.exit
   %78 = load i32, ptr %8, align 4, !tbaa !6
   %79 = select i1 %66, ptr @.str.71, ptr @.str.72
-  %80 = load i32, ptr %30, align 8, !tbaa !63
+  %80 = load i32, ptr %30, align 8, !tbaa !61
   %.not36 = icmp eq i32 %80, 0
   %81 = select i1 %.not36, ptr @.str.74, ptr @.str.73
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.5, i32 noundef 604, ptr noundef nonnull @.str.70, i32 noundef %78, i32 noundef %.025, ptr noundef nonnull %79, i32 noundef %25, ptr noundef nonnull %81) #13
@@ -1297,7 +1295,7 @@ ossl_ht_mt_TEST_MT_ENTRY_insert.exit:             ; preds = %70, %75
   br i1 %.not37, label %87, label %86
 
 86:                                               ; preds = %85
-  store i32 1, ptr %30, align 8, !tbaa !63
+  store i32 1, ptr %30, align 8, !tbaa !61
   br label %87
 
 87:                                               ; preds = %86, %85
@@ -1313,12 +1311,12 @@ ossl_ht_mt_TEST_MT_ENTRY_insert.exit:             ; preds = %70, %75
 93:                                               ; preds = %39
   %94 = load ptr, ptr @m_ht, align 8, !tbaa !48
   call void @ossl_ht_write_lock(ptr noundef %94) #13
-  %95 = load i32, ptr %30, align 8, !tbaa !63
+  %95 = load i32, ptr %30, align 8, !tbaa !61
   %96 = icmp eq i32 %95, 1
   br i1 %96, label %97, label %101
 
 97:                                               ; preds = %93
-  store i32 0, ptr %30, align 8, !tbaa !63
+  store i32 0, ptr %30, align 8, !tbaa !61
   %98 = getelementptr inbounds nuw i8, ptr %30, i64 4
   %99 = load ptr, ptr @worker_lock, align 8, !tbaa !50
   %100 = call i32 @CRYPTO_atomic_add(ptr noundef nonnull %98, i32 noundef 1, ptr noundef nonnull %7, ptr noundef %99) #13
@@ -1332,7 +1330,7 @@ ossl_ht_mt_TEST_MT_ENTRY_insert.exit:             ; preds = %70, %75
 
 104:                                              ; preds = %101
   %105 = load i32, ptr %8, align 4, !tbaa !6
-  %106 = load i32, ptr %30, align 8, !tbaa !63
+  %106 = load i32, ptr %30, align 8, !tbaa !61
   %.not32 = icmp eq i32 %106, 0
   %107 = select i1 %.not32, ptr @.str.74, ptr @.str.73
   call void (ptr, i32, ptr, ...) @test_info(ptr noundef nonnull @.str.5, i32 noundef 631, ptr noundef nonnull @.str.76, i32 noundef %105, i32 noundef %95, i32 noundef %25, ptr noundef nonnull %107) #13
@@ -1486,8 +1484,8 @@ attributes #13 = { nounwind }
 !58 = !{!"mtkey_st", !23, i64 0, !27, i64 16}
 !59 = !{!58, !25, i64 8}
 !60 = !{!58, !7, i64 16}
-!61 = !{!62, !62, i64 0}
-!62 = !{!"p1 _ZTS13test_mt_entry", !26, i64 0}
-!63 = !{!64, !7, i64 0}
-!64 = !{!"test_mt_entry", !7, i64 0, !7, i64 4}
+!61 = !{!62, !7, i64 0}
+!62 = !{!"test_mt_entry", !7, i64 0, !7, i64 4}
+!63 = !{!64, !64, i64 0}
+!64 = !{!"p1 _ZTS13test_mt_entry", !26, i64 0}
 !65 = distinct !{!65, !5}

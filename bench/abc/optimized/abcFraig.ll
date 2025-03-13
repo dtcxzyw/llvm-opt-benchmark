@@ -628,13 +628,13 @@ Vec_PtrStart.exit.i:                              ; preds = %92, %85
 
 .lr.ph.i:                                         ; preds = %Vec_PtrStart.exit.i
   %100 = getelementptr i8, ptr %.val84.i, i64 8
+  %.val81.val.i = load ptr, ptr %100, align 8, !tbaa !36
   %wide.trip.count.i = zext nneg i32 %.val84.val.i to i64
-  %.val81.val.pre.i = load ptr, ptr %100, align 8, !tbaa !36
   br label %101
 
 101:                                              ; preds = %115, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %115 ]
-  %102 = getelementptr inbounds nuw ptr, ptr %.val81.val.pre.i, i64 %indvars.iv.i
+  %102 = getelementptr inbounds nuw ptr, ptr %.val81.val.i, i64 %indvars.iv.i
   %103 = load ptr, ptr %102, align 8, !tbaa !37
   %104 = icmp eq ptr %103, null
   br i1 %104, label %115, label %105

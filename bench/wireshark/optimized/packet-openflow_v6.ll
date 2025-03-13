@@ -5609,16 +5609,16 @@ define internal fastcc i32 @dissect_openflow_oxm_v6(ptr noundef %0, ptr noundef 
   %20 = zext nneg i8 %19 to i32
   %21 = lshr i32 %16, %20
   %22 = load i32, ptr %5, align 4
-  switch i32 %22, label %133 [
+  switch i32 %22, label %125 [
     i32 32768, label %23
-    i32 32769, label %114
-    i32 65535, label %124
+    i32 32769, label %109
+    i32 65535, label %118
   ]
 
 23:                                               ; preds = %4
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %25 = load i32, ptr %24, align 4
-  switch i32 %25, label %97 [
+  switch i32 %25, label %93 [
     i32 0, label %26
     i32 1, label %26
     i32 43, label %26
@@ -5628,23 +5628,23 @@ define internal fastcc i32 @dissect_openflow_oxm_v6(ptr noundef %0, ptr noundef 
     i32 25, label %29
     i32 32, label %29
     i32 33, label %29
-    i32 5, label %39
-    i32 6, label %43
-    i32 10, label %54
-    i32 11, label %58
-    i32 12, label %58
-    i32 22, label %58
-    i32 23, label %58
-    i32 13, label %67
-    i32 14, label %67
-    i32 15, label %67
-    i32 16, label %67
-    i32 17, label %67
-    i32 18, label %67
-    i32 26, label %71
-    i32 27, label %71
-    i32 34, label %81
-    i32 44, label %89
+    i32 5, label %38
+    i32 6, label %42
+    i32 10, label %52
+    i32 11, label %56
+    i32 12, label %56
+    i32 22, label %56
+    i32 23, label %56
+    i32 13, label %64
+    i32 14, label %64
+    i32 15, label %64
+    i32 16, label %64
+    i32 17, label %64
+    i32 18, label %64
+    i32 26, label %68
+    i32 27, label %68
+    i32 34, label %77
+    i32 44, label %85
   ]
 
 26:                                               ; preds = %23, %23, %23
@@ -5656,168 +5656,159 @@ define internal fastcc i32 @dissect_openflow_oxm_v6(ptr noundef %0, ptr noundef 
   %30 = load i32, ptr @hf_openflow_v6_oxm_value_etheraddr, align 4
   %31 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %30, ptr noundef %0, i32 noundef %14, i32 noundef 6, i32 noundef 0)
   %32 = add i32 %14, 6
-  %33 = load i8, ptr %18, align 4, !range !41, !noundef !42
-  %34 = trunc nuw i8 %33 to i1
-  br i1 %34, label %35, label %.thread
+  %33 = trunc nuw i8 %19 to i1
+  br i1 %33, label %34, label %.thread
 
-35:                                               ; preds = %29
-  %36 = load i32, ptr @hf_openflow_v6_oxm_mask_etheraddr, align 4
-  %37 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %36, ptr noundef %0, i32 noundef %32, i32 noundef 6, i32 noundef 0)
-  %38 = add i32 %14, 12
+34:                                               ; preds = %29
+  %35 = load i32, ptr @hf_openflow_v6_oxm_mask_etheraddr, align 4
+  %36 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %35, ptr noundef %0, i32 noundef %32, i32 noundef 6, i32 noundef 0)
+  %37 = add i32 %14, 12
   br label %.thread
 
-39:                                               ; preds = %23
-  %40 = load i32, ptr @hf_openflow_v6_oxm_value_ethertype, align 4
-  %41 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %40, ptr noundef %0, i32 noundef %14, i32 noundef 2, i32 noundef 0)
-  %42 = add i32 %14, 2
+38:                                               ; preds = %23
+  %39 = load i32, ptr @hf_openflow_v6_oxm_value_ethertype, align 4
+  %40 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %39, ptr noundef %0, i32 noundef %14, i32 noundef 2, i32 noundef 0)
+  %41 = add i32 %14, 2
   br label %.thread
 
-43:                                               ; preds = %23
-  %44 = load i32, ptr @hf_openflow_v6_oxm_value_vlan_present, align 4
-  %45 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %44, ptr noundef %0, i32 noundef %14, i32 noundef 2, i32 noundef 0)
-  %46 = load i32, ptr @hf_openflow_v6_oxm_value_vlan_vid, align 4
-  %47 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %46, ptr noundef %0, i32 noundef %14, i32 noundef 2, i32 noundef 0)
-  %48 = add i32 %14, 2
-  %49 = load i8, ptr %18, align 4, !range !41, !noundef !42
-  %50 = trunc nuw i8 %49 to i1
-  br i1 %50, label %51, label %.thread
+42:                                               ; preds = %23
+  %43 = load i32, ptr @hf_openflow_v6_oxm_value_vlan_present, align 4
+  %44 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %43, ptr noundef %0, i32 noundef %14, i32 noundef 2, i32 noundef 0)
+  %45 = load i32, ptr @hf_openflow_v6_oxm_value_vlan_vid, align 4
+  %46 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %45, ptr noundef %0, i32 noundef %14, i32 noundef 2, i32 noundef 0)
+  %47 = add i32 %14, 2
+  %48 = trunc nuw i8 %19 to i1
+  br i1 %48, label %49, label %.thread
 
-51:                                               ; preds = %43
-  %52 = load i32, ptr @hf_openflow_v6_oxm_mask_vlan, align 4
-  %53 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %52, ptr noundef %0, i32 noundef %48, i32 noundef 2, i32 noundef 0)
+49:                                               ; preds = %42
+  %50 = load i32, ptr @hf_openflow_v6_oxm_mask_vlan, align 4
+  %51 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %50, ptr noundef %0, i32 noundef %47, i32 noundef 2, i32 noundef 0)
   br label %.thread
 
-54:                                               ; preds = %23
-  %55 = load i32, ptr @hf_openflow_v6_oxm_value_ipproto, align 4
-  %56 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %55, ptr noundef %0, i32 noundef %14, i32 noundef 1, i32 noundef 0)
-  %57 = add i32 %14, 1
+52:                                               ; preds = %23
+  %53 = load i32, ptr @hf_openflow_v6_oxm_value_ipproto, align 4
+  %54 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %53, ptr noundef %0, i32 noundef %14, i32 noundef 1, i32 noundef 0)
+  %55 = add i32 %14, 1
   br label %.thread
 
-58:                                               ; preds = %23, %23, %23, %23
-  %59 = load i32, ptr @hf_openflow_v6_oxm_value_ipv4addr, align 4
-  %60 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %59, ptr noundef %0, i32 noundef %14, i32 noundef 4, i32 noundef 0)
-  %61 = load i8, ptr %18, align 4, !range !41, !noundef !42
-  %62 = trunc nuw i8 %61 to i1
-  br i1 %62, label %63, label %.thread
+56:                                               ; preds = %23, %23, %23, %23
+  %57 = load i32, ptr @hf_openflow_v6_oxm_value_ipv4addr, align 4
+  %58 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %57, ptr noundef %0, i32 noundef %14, i32 noundef 4, i32 noundef 0)
+  %59 = trunc nuw i8 %19 to i1
+  br i1 %59, label %60, label %.thread
 
-63:                                               ; preds = %58
-  %64 = load i32, ptr @hf_openflow_v6_oxm_mask_ipv4addr, align 4
-  %65 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %64, ptr noundef %0, i32 noundef %15, i32 noundef 4, i32 noundef 0)
-  %66 = add i32 %14, 8
+60:                                               ; preds = %56
+  %61 = load i32, ptr @hf_openflow_v6_oxm_mask_ipv4addr, align 4
+  %62 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %61, ptr noundef %0, i32 noundef %15, i32 noundef 4, i32 noundef 0)
+  %63 = add i32 %14, 8
   br label %.thread
 
-67:                                               ; preds = %23, %23, %23, %23, %23, %23
-  %68 = load i32, ptr @hf_openflow_v6_oxm_value_uint16, align 4
-  %69 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %68, ptr noundef %0, i32 noundef %14, i32 noundef 2, i32 noundef 0)
-  %70 = add i32 %14, 2
+64:                                               ; preds = %23, %23, %23, %23, %23, %23
+  %65 = load i32, ptr @hf_openflow_v6_oxm_value_uint16, align 4
+  %66 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %65, ptr noundef %0, i32 noundef %14, i32 noundef 2, i32 noundef 0)
+  %67 = add i32 %14, 2
   br label %.thread
 
-71:                                               ; preds = %23, %23
-  %72 = load i32, ptr @hf_openflow_v6_oxm_value_ipv6addr, align 4
-  %73 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %72, ptr noundef %0, i32 noundef %14, i32 noundef 16, i32 noundef 0)
-  %74 = add i32 %14, 16
-  %75 = load i8, ptr %18, align 4, !range !41, !noundef !42
-  %76 = trunc nuw i8 %75 to i1
-  br i1 %76, label %77, label %.thread
+68:                                               ; preds = %23, %23
+  %69 = load i32, ptr @hf_openflow_v6_oxm_value_ipv6addr, align 4
+  %70 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %69, ptr noundef %0, i32 noundef %14, i32 noundef 16, i32 noundef 0)
+  %71 = add i32 %14, 16
+  %72 = trunc nuw i8 %19 to i1
+  br i1 %72, label %73, label %.thread
 
-77:                                               ; preds = %71
-  %78 = load i32, ptr @hf_openflow_v6_oxm_mask_ipv6addr, align 4
-  %79 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %78, ptr noundef %0, i32 noundef %74, i32 noundef 16, i32 noundef 0)
-  %80 = add i32 %14, 32
+73:                                               ; preds = %68
+  %74 = load i32, ptr @hf_openflow_v6_oxm_mask_ipv6addr, align 4
+  %75 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %74, ptr noundef %0, i32 noundef %71, i32 noundef 16, i32 noundef 0)
+  %76 = add i32 %14, 32
   br label %.thread
 
-81:                                               ; preds = %23
+77:                                               ; preds = %23
   %trunc = trunc i32 %21 to i8
   switch i8 %trunc, label %.thread [
-    i8 3, label %82
-    i8 4, label %86
+    i8 3, label %78
+    i8 4, label %82
   ]
 
-82:                                               ; preds = %81
-  %83 = load i32, ptr @hf_openflow_v6_oxm_value_uint24, align 4
-  %84 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %83, ptr noundef %0, i32 noundef %14, i32 noundef 3, i32 noundef 0)
-  %85 = add i32 %14, 3
+78:                                               ; preds = %77
+  %79 = load i32, ptr @hf_openflow_v6_oxm_value_uint24, align 4
+  %80 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %79, ptr noundef %0, i32 noundef %14, i32 noundef 3, i32 noundef 0)
+  %81 = add i32 %14, 3
   br label %.thread
 
-86:                                               ; preds = %81
-  %87 = load i32, ptr @hf_openflow_v6_oxm_value_uint32, align 4
-  %88 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %87, ptr noundef %0, i32 noundef %14, i32 noundef 4, i32 noundef 0)
+82:                                               ; preds = %77
+  %83 = load i32, ptr @hf_openflow_v6_oxm_value_uint32, align 4
+  %84 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %83, ptr noundef %0, i32 noundef %14, i32 noundef 4, i32 noundef 0)
   br label %.thread
 
-89:                                               ; preds = %23
-  %90 = load i32, ptr @hf_openflow_v6_oxm_value_uint16, align 4
-  %91 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %13, i32 noundef %90, ptr noundef %0, i32 noundef %14, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %6)
-  %92 = load i32, ptr %6, align 4
-  %93 = call ptr @val_to_str_const(i32 noundef %92, ptr noundef nonnull @openflow_v6_header_type_namespace_values, ptr noundef nonnull @.str.1585)
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %91, ptr noundef nonnull @.str.1584, ptr noundef %93)
-  %94 = add i32 %14, 2
-  %95 = load i32, ptr @hf_openflow_v6_oxm_value_uint16, align 4
-  %96 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %95, ptr noundef %0, i32 noundef %94, i32 noundef 2, i32 noundef 0)
+85:                                               ; preds = %23
+  %86 = load i32, ptr @hf_openflow_v6_oxm_value_uint16, align 4
+  %87 = call ptr @proto_tree_add_item_ret_uint(ptr noundef %13, i32 noundef %86, ptr noundef %0, i32 noundef %14, i32 noundef 2, i32 noundef 0, ptr noundef nonnull %6)
+  %88 = load i32, ptr %6, align 4
+  %89 = call ptr @val_to_str_const(i32 noundef %88, ptr noundef nonnull @openflow_v6_header_type_namespace_values, ptr noundef nonnull @.str.1585)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %87, ptr noundef nonnull @.str.1584, ptr noundef %89)
+  %90 = add i32 %14, 2
+  %91 = load i32, ptr @hf_openflow_v6_oxm_value_uint16, align 4
+  %92 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %91, ptr noundef %0, i32 noundef %90, i32 noundef 2, i32 noundef 0)
   br label %.thread
 
-97:                                               ; preds = %23
-  %98 = and i32 %21, 255
-  %.not = icmp eq i32 %98, 0
-  br i1 %.not, label %.thread, label %99
+93:                                               ; preds = %23
+  %94 = and i32 %21, 255
+  %.not = icmp eq i32 %94, 0
+  br i1 %.not, label %.thread, label %95
 
-99:                                               ; preds = %97
-  %100 = load i32, ptr @hf_openflow_v6_oxm_value, align 4
-  %101 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %100, ptr noundef %0, i32 noundef %14, i32 noundef %98, i32 noundef 0)
-  %102 = add i32 %98, %14
-  %103 = load i8, ptr %18, align 4, !range !41, !noundef !42
-  %104 = trunc nuw i8 %103 to i1
-  br i1 %104, label %105, label %.thread
+95:                                               ; preds = %93
+  %96 = load i32, ptr @hf_openflow_v6_oxm_value, align 4
+  %97 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %96, ptr noundef %0, i32 noundef %14, i32 noundef %94, i32 noundef 0)
+  %98 = add i32 %94, %14
+  %99 = trunc nuw i8 %19 to i1
+  br i1 %99, label %100, label %.thread
 
-105:                                              ; preds = %99
-  %106 = load i32, ptr @hf_openflow_v6_oxm_mask, align 4
-  %107 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %106, ptr noundef %0, i32 noundef %102, i32 noundef %98, i32 noundef 0)
-  %108 = add i32 %102, %98
+100:                                              ; preds = %95
+  %101 = load i32, ptr @hf_openflow_v6_oxm_mask, align 4
+  %102 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %101, ptr noundef %0, i32 noundef %98, i32 noundef %94, i32 noundef 0)
+  %103 = add i32 %98, %94
   br label %.thread
 
-.thread:                                          ; preds = %97, %81, %99, %105, %82, %86, %71, %77, %58, %63, %43, %51, %29, %35, %89, %67, %54, %39, %26
-  %.0 = phi i32 [ %108, %105 ], [ %102, %99 ], [ %15, %89 ], [ %85, %82 ], [ %15, %86 ], [ %80, %77 ], [ %74, %71 ], [ %70, %67 ], [ %66, %63 ], [ %15, %58 ], [ %57, %54 ], [ %15, %51 ], [ %48, %43 ], [ %42, %39 ], [ %38, %35 ], [ %32, %29 ], [ %15, %26 ], [ %14, %81 ], [ %14, %97 ]
-  %109 = and i32 %17, 65535
-  %110 = icmp sgt i32 %109, %.0
-  br i1 %110, label %111, label %137
+.thread:                                          ; preds = %93, %77, %95, %100, %78, %82, %68, %73, %56, %60, %42, %49, %29, %34, %85, %64, %52, %38, %26
+  %.0 = phi i32 [ %103, %100 ], [ %98, %95 ], [ %15, %85 ], [ %81, %78 ], [ %15, %82 ], [ %76, %73 ], [ %71, %68 ], [ %67, %64 ], [ %63, %60 ], [ %15, %56 ], [ %55, %52 ], [ %15, %49 ], [ %47, %42 ], [ %41, %38 ], [ %37, %34 ], [ %32, %29 ], [ %15, %26 ], [ %14, %77 ], [ %14, %93 ]
+  %104 = and i32 %17, 65535
+  %105 = icmp sgt i32 %104, %.0
+  br i1 %105, label %106, label %128
 
-111:                                              ; preds = %.thread
-  %112 = sub i32 %109, %.0
-  %113 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %13, ptr noundef %1, ptr noundef nonnull @ei_openflow_v6_oxm_undecoded, ptr noundef %0, i32 noundef %.0, i32 noundef %112, ptr noundef nonnull @.str.1586)
-  br label %137
+106:                                              ; preds = %.thread
+  %107 = sub i32 %104, %.0
+  %108 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %13, ptr noundef %1, ptr noundef nonnull @ei_openflow_v6_oxm_undecoded, ptr noundef %0, i32 noundef %.0, i32 noundef %107, ptr noundef nonnull @.str.1586)
+  br label %128
 
-114:                                              ; preds = %4
-  %115 = load i32, ptr @hf_openflow_v6_oxm_value, align 4
-  %116 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %115, ptr noundef %0, i32 noundef %14, i32 noundef 8, i32 noundef 0)
-  %117 = add i32 %14, 8
-  %118 = load i8, ptr %18, align 4, !range !41, !noundef !42
-  %119 = trunc nuw i8 %118 to i1
-  br i1 %119, label %120, label %137
+109:                                              ; preds = %4
+  %110 = load i32, ptr @hf_openflow_v6_oxm_value, align 4
+  %111 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %110, ptr noundef %0, i32 noundef %14, i32 noundef 8, i32 noundef 0)
+  %112 = add i32 %14, 8
+  %113 = trunc nuw i8 %19 to i1
+  br i1 %113, label %114, label %128
 
-120:                                              ; preds = %114
-  %121 = load i32, ptr @hf_openflow_v6_oxm_mask, align 4
-  %122 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %121, ptr noundef %0, i32 noundef %117, i32 noundef 8, i32 noundef 0)
-  %123 = add i32 %14, 16
-  br label %137
+114:                                              ; preds = %109
+  %115 = load i32, ptr @hf_openflow_v6_oxm_mask, align 4
+  %116 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %115, ptr noundef %0, i32 noundef %112, i32 noundef 8, i32 noundef 0)
+  %117 = add i32 %14, 16
+  br label %128
 
-124:                                              ; preds = %4
-  %125 = load i32, ptr @hf_openflow_v6_oxm_experimenter_experimenter, align 4
-  %126 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %125, ptr noundef %0, i32 noundef %14, i32 noundef 4, i32 noundef 0)
-  %127 = load i32, ptr @hf_openflow_v6_oxm_experimenter_value, align 4
-  %128 = load i32, ptr %10, align 4
-  %129 = add i32 %128, -4
-  %130 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %127, ptr noundef %0, i32 noundef %15, i32 noundef %129, i32 noundef 0)
-  %131 = load i32, ptr %10, align 4
-  %132 = add i32 %131, %14
-  br label %137
+118:                                              ; preds = %4
+  %119 = load i32, ptr @hf_openflow_v6_oxm_experimenter_experimenter, align 4
+  %120 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %119, ptr noundef %0, i32 noundef %14, i32 noundef 4, i32 noundef 0)
+  %121 = load i32, ptr @hf_openflow_v6_oxm_experimenter_value, align 4
+  %122 = add i32 %16, -4
+  %123 = call ptr @proto_tree_add_item(ptr noundef %13, i32 noundef %121, ptr noundef %0, i32 noundef %15, i32 noundef %122, i32 noundef 0)
+  %124 = add i32 %16, %14
+  br label %128
 
-133:                                              ; preds = %4
-  %134 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %13, ptr noundef %1, ptr noundef nonnull @ei_openflow_v6_oxm_undecoded, ptr noundef %0, i32 noundef %14, i32 noundef %16, ptr noundef nonnull @.str.1587)
-  %135 = load i32, ptr %10, align 4
-  %136 = add i32 %135, %14
-  br label %137
+125:                                              ; preds = %4
+  %126 = call ptr (ptr, ptr, ptr, ptr, i32, i32, ptr, ...) @proto_tree_add_expert_format(ptr noundef %13, ptr noundef %1, ptr noundef nonnull @ei_openflow_v6_oxm_undecoded, ptr noundef %0, i32 noundef %14, i32 noundef %16, ptr noundef nonnull @.str.1587)
+  %127 = add i32 %16, %14
+  br label %128
 
-137:                                              ; preds = %120, %114, %133, %124, %.thread, %111
-  %.2 = phi i32 [ %109, %111 ], [ %.0, %.thread ], [ %123, %120 ], [ %117, %114 ], [ %132, %124 ], [ %136, %133 ]
+128:                                              ; preds = %114, %109, %125, %118, %.thread, %106
+  %.2 = phi i32 [ %104, %106 ], [ %.0, %.thread ], [ %117, %114 ], [ %112, %109 ], [ %124, %118 ], [ %127, %125 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #4
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #4
   ret i32 %.2

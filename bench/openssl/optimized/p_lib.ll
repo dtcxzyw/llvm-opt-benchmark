@@ -1206,7 +1206,6 @@ define internal fastcc i32 @evp_pkey_cmp_any(ptr noundef %0, ptr noundef %1, i32
 
 .thread55:                                        ; preds = %37
   %39 = load ptr, ptr %5, align 8, !tbaa !34
-  store ptr %39, ptr %4, align 8, !tbaa !34
   br label %47
 
 40:                                               ; preds = %37, %34, %26
@@ -3539,16 +3538,16 @@ EVP_PKEY_set_params.exit:                         ; preds = %20, %13, %4
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @EVP_PKEY_get1_encoded_public_key(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define range(i64 0, -1) i64 @EVP_PKEY_get1_encoded_public_key(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = alloca i64, align 8
   %4 = icmp eq ptr %0, null
-  br i1 %4, label %33, label %5
+  br i1 %4, label %31, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %7 = load ptr, ptr %6, align 8, !tbaa !30
   %.not = icmp eq ptr %7, null
-  br i1 %.not, label %22, label %8
+  br i1 %.not, label %20, label %8
 
 8:                                                ; preds = %5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #12
@@ -3556,58 +3555,56 @@ define i64 @EVP_PKEY_get1_encoded_public_key(ptr noundef %0, ptr noundef %1) loc
   %9 = call i32 @EVP_PKEY_get_octet_string_param(ptr noundef nonnull %0, ptr noundef nonnull @.str.2, ptr noundef null, i64 noundef 0, ptr noundef nonnull %3)
   %10 = load i64, ptr %3, align 8, !tbaa !71
   %11 = icmp eq i64 %10, -1
-  br i1 %11, label %21, label %12
+  br i1 %11, label %19, label %12
 
 12:                                               ; preds = %8
   store ptr null, ptr %1, align 8, !tbaa !47
   %13 = call noalias ptr @CRYPTO_malloc(i64 noundef %10, ptr noundef nonnull @.str, i32 noundef 1464) #12
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %21, label %15
+  br i1 %14, label %19, label %15
 
 15:                                               ; preds = %12
-  %16 = load i64, ptr %3, align 8, !tbaa !71
-  %17 = call i32 @EVP_PKEY_get_octet_string_param(ptr noundef nonnull %0, ptr noundef nonnull @.str.2, ptr noundef nonnull %13, i64 noundef %16, ptr noundef null)
-  %.not17 = icmp eq i32 %17, 0
-  br i1 %.not17, label %18, label %19
+  %16 = call i32 @EVP_PKEY_get_octet_string_param(ptr noundef nonnull %0, ptr noundef nonnull @.str.2, ptr noundef nonnull %13, i64 noundef %10, ptr noundef null)
+  %.not17 = icmp eq i32 %16, 0
+  br i1 %.not17, label %17, label %18
+
+17:                                               ; preds = %15
+  call void @CRYPTO_free(ptr noundef nonnull %13, ptr noundef nonnull @.str, i32 noundef 1471) #12
+  br label %19
 
 18:                                               ; preds = %15
-  call void @CRYPTO_free(ptr noundef nonnull %13, ptr noundef nonnull @.str, i32 noundef 1471) #12
-  br label %21
-
-19:                                               ; preds = %15
   store ptr %13, ptr %1, align 8, !tbaa !47
-  %20 = load i64, ptr %3, align 8, !tbaa !71
-  br label %21
+  br label %19
 
-21:                                               ; preds = %12, %8, %19, %18
-  %.1 = phi i64 [ %20, %19 ], [ 0, %18 ], [ 0, %8 ], [ 0, %12 ]
+19:                                               ; preds = %12, %8, %18, %17
+  %.1 = phi i64 [ %10, %18 ], [ 0, %17 ], [ 0, %8 ], [ 0, %12 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #12
-  br label %33
+  br label %31
 
-22:                                               ; preds = %5
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %24 = load ptr, ptr %23, align 8, !tbaa !20
-  %25 = icmp eq ptr %24, null
-  br i1 %25, label %evp_pkey_asn1_ctrl.exit.thread, label %26
+20:                                               ; preds = %5
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %22 = load ptr, ptr %21, align 8, !tbaa !20
+  %23 = icmp eq ptr %22, null
+  br i1 %23, label %evp_pkey_asn1_ctrl.exit.thread, label %24
 
-26:                                               ; preds = %22
-  %27 = getelementptr inbounds nuw i8, ptr %24, i64 176
-  %28 = load ptr, ptr %27, align 8, !tbaa !94
-  %29 = icmp eq ptr %28, null
-  br i1 %29, label %evp_pkey_asn1_ctrl.exit.thread, label %evp_pkey_asn1_ctrl.exit
+24:                                               ; preds = %20
+  %25 = getelementptr inbounds nuw i8, ptr %22, i64 176
+  %26 = load ptr, ptr %25, align 8, !tbaa !94
+  %27 = icmp eq ptr %26, null
+  br i1 %27, label %evp_pkey_asn1_ctrl.exit.thread, label %evp_pkey_asn1_ctrl.exit
 
-evp_pkey_asn1_ctrl.exit:                          ; preds = %26
-  %30 = tail call i32 %28(ptr noundef nonnull %0, i32 noundef 10, i64 noundef 0, ptr noundef %1) #12
-  %.fr = freeze i32 %30
-  %31 = icmp slt i32 %.fr, 1
-  %32 = zext nneg i32 %.fr to i64
-  br i1 %31, label %evp_pkey_asn1_ctrl.exit.thread, label %33
+evp_pkey_asn1_ctrl.exit:                          ; preds = %24
+  %28 = tail call i32 %26(ptr noundef nonnull %0, i32 noundef 10, i64 noundef 0, ptr noundef %1) #12
+  %.fr = freeze i32 %28
+  %29 = icmp slt i32 %.fr, 1
+  %30 = zext nneg i32 %.fr to i64
+  br i1 %29, label %evp_pkey_asn1_ctrl.exit.thread, label %31
 
-evp_pkey_asn1_ctrl.exit.thread:                   ; preds = %22, %26, %evp_pkey_asn1_ctrl.exit
-  br label %33
+evp_pkey_asn1_ctrl.exit.thread:                   ; preds = %20, %24, %evp_pkey_asn1_ctrl.exit
+  br label %31
 
-33:                                               ; preds = %evp_pkey_asn1_ctrl.exit.thread, %evp_pkey_asn1_ctrl.exit, %2, %21
-  %.0 = phi i64 [ %.1, %21 ], [ 0, %2 ], [ 0, %evp_pkey_asn1_ctrl.exit.thread ], [ %32, %evp_pkey_asn1_ctrl.exit ]
+31:                                               ; preds = %evp_pkey_asn1_ctrl.exit.thread, %evp_pkey_asn1_ctrl.exit, %2, %19
+  %.0 = phi i64 [ %.1, %19 ], [ 0, %2 ], [ 0, %evp_pkey_asn1_ctrl.exit.thread ], [ %30, %evp_pkey_asn1_ctrl.exit ]
   ret i64 %.0
 }
 

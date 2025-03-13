@@ -429,7 +429,6 @@ compute_user_block_size.exit78:                   ; preds = %.preheader.i75, %91
 
 101:                                              ; preds = %98, %compute_user_block_size.exit78
   %102 = call i64 @copy_some_to_file(i32 noundef %46, i32 noundef %.147, i64 noundef 0, i64 noundef %.044, i64 noundef -1)
-  store i64 %102, ptr %4, align 8, !tbaa !19
   %103 = call i32 @write_pad(i32 noundef %.147, i64 noundef %102, ptr noundef nonnull %4)
   %104 = icmp slt i32 %103, 0
   br i1 %104, label %105, label %107

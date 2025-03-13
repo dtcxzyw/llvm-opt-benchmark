@@ -2240,24 +2240,25 @@ define linkonce_odr hidden void @_ZN5clang4ento9BugReport7addNoteEN4llvm9StringR
   call void @_ZN4llvm23SmallVectorTemplateBaseISt10shared_ptrIN5clang4ento23PathDiagnosticNotePieceEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %17, i64 noundef %21)
   %33 = load ptr, ptr %17, align 8, !tbaa !101
   %34 = getelementptr inbounds i8, ptr %33, i64 %32
+  %.pre = load ptr, ptr %34, align 8, !tbaa !384
   br label %_ZN4llvm23SmallVectorTemplateBaseISt10shared_ptrIN5clang4ento23PathDiagnosticNotePieceEELb0EE9push_backEOS5_.exit
 
 _ZN4llvm23SmallVectorTemplateBaseISt10shared_ptrIN5clang4ento23PathDiagnosticNotePieceEELb0EE9push_backEOS5_.exit: ; preds = %._crit_edge, %28, %29
-  %35 = phi ptr [ %.pre3.i, %._crit_edge ], [ %33, %29 ], [ %.pre.i, %28 ]
+  %35 = phi ptr [ %12, %._crit_edge ], [ %.pre, %29 ], [ %12, %28 ]
+  %36 = phi ptr [ %.pre3.i, %._crit_edge ], [ %33, %29 ], [ %.pre.i, %28 ]
   %.016.i.i.i = phi ptr [ %7, %._crit_edge ], [ %34, %29 ], [ %7, %28 ]
-  %36 = load i32, ptr %18, align 8, !tbaa !103
-  %37 = zext i32 %36 to i64
-  %38 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %35, i64 %37
-  %39 = load ptr, ptr %.016.i.i.i, align 8, !tbaa !384
-  store ptr %39, ptr %38, align 8, !tbaa !384
-  %40 = getelementptr inbounds nuw i8, ptr %38, i64 8
+  %37 = load i32, ptr %18, align 8, !tbaa !103
+  %38 = zext i32 %37 to i64
+  %39 = getelementptr inbounds nuw %"class.std::shared_ptr", ptr %36, i64 %38
+  store ptr %35, ptr %39, align 8, !tbaa !384
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
   store ptr null, ptr %40, align 8, !tbaa !378
   %41 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 8
   %42 = load ptr, ptr %41, align 8, !tbaa !378
   store ptr null, ptr %41, align 8, !tbaa !378
   store ptr %42, ptr %40, align 8, !tbaa !378
   store ptr null, ptr %.016.i.i.i, align 8, !tbaa !384
-  %43 = add i32 %36, 1
+  %43 = add i32 %37, 1
   store i32 %43, ptr %18, align 8, !tbaa !103
   %44 = load ptr, ptr %8, align 8, !tbaa !378
   %.not.i.i = icmp eq ptr %44, null

@@ -9576,7 +9576,7 @@ _ZN3syn5token7Bracket8surround17h1c5a0ec9f4d05f43E.exit38: ; preds = %"_ZN3syn4a
   call void @"_ZN65_$LT$proc_macro2..Ident$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h629b5813b48ddffcE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %138, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
   %139 = getelementptr inbounds nuw i8, ptr %.sroa.7.2.ph, i64 476
   call void @_ZN3syn5token8printing5punct17h32409e3f9cc0b330E(ptr noalias noundef nonnull readonly align 1 @anon.e4fd49bda13fc8b05702603de3f8b493.126.llvm.15435319159651575738, i64 noundef 1, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %139, i64 noundef 1, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
-  call void @"_ZN60_$LT$syn..ty..Type$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hfe21a6835586d0a0E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(232) %.sroa.7.2.ph, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
+  call void @"_ZN60_$LT$syn..ty..Type$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hfe21a6835586d0a0E"(ptr noalias noundef readonly align 8 dereferenceable(232) %.sroa.7.2.ph, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
   br label %147
 
 140:                                              ; preds = %"_ZN71_$LT$proc_macro2..TokenStream$u20$as$u20$quote..ext..TokenStreamExt$GT$10append_all17h461c7d421261f82dE.exit"
@@ -9675,17 +9675,17 @@ define void @"_ZN3syn8generics8printing84_$LT$impl$u20$quote..to_tokens..ToToken
   %.sroa.6.0.copyload = load ptr, ptr %.sroa.6.0..sroa_idx, align 8
   %23 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %.sroa.0.sroa.4.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
-  br label %.outer58
+  br label %.outer56
 
-.outer58:                                         ; preds = %"_ZN76_$LT$core..option..Option$LT$T$GT$$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h8da2345c5f6e4a15E.exit22", %"_ZN83_$LT$syn..print..TokensOrDefault$LT$T$GT$$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hcca4feb314ec5254E.exit"
+.outer56:                                         ; preds = %"_ZN76_$LT$core..option..Option$LT$T$GT$$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h8da2345c5f6e4a15E.exit22", %"_ZN83_$LT$syn..print..TokensOrDefault$LT$T$GT$$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hcca4feb314ec5254E.exit"
   %.sroa.6.0.ph = phi ptr [ %.sroa.6.1.ph, %"_ZN76_$LT$core..option..Option$LT$T$GT$$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h8da2345c5f6e4a15E.exit22" ], [ %.sroa.6.0.copyload, %"_ZN83_$LT$syn..print..TokensOrDefault$LT$T$GT$$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hcca4feb314ec5254E.exit" ]
   %.sroa.0.0.ph = phi ptr [ %.sroa.0.1.ph, %"_ZN76_$LT$core..option..Option$LT$T$GT$$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h8da2345c5f6e4a15E.exit22" ], [ %.sroa.0.0.copyload, %"_ZN83_$LT$syn..print..TokensOrDefault$LT$T$GT$$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hcca4feb314ec5254E.exit" ]
   %.07.ph = phi i1 [ %73, %"_ZN76_$LT$core..option..Option$LT$T$GT$$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h8da2345c5f6e4a15E.exit22" ], [ true, %"_ZN83_$LT$syn..print..TokensOrDefault$LT$T$GT$$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17hcca4feb314ec5254E.exit" ]
   br label %24
 
-24:                                               ; preds = %.outer58, %33
-  %.sroa.6.0 = phi ptr [ %.sroa.6.1.ph, %33 ], [ %.sroa.6.0.ph, %.outer58 ]
-  %.sroa.0.0 = phi ptr [ %.sroa.0.1.ph, %33 ], [ %.sroa.0.0.ph, %.outer58 ]
+24:                                               ; preds = %.outer56, %33
+  %.sroa.6.0 = phi ptr [ %.sroa.6.1.ph, %33 ], [ %.sroa.6.0.ph, %.outer56 ]
+  %.sroa.0.0 = phi ptr [ %.sroa.0.1.ph, %33 ], [ %.sroa.0.0.ph, %.outer56 ]
   %25 = icmp ne ptr %.sroa.0.0, null
   call void @llvm.assume(i1 %25)
   %26 = icmp eq ptr %.sroa.0.0, %.sroa.5.0.copyload
@@ -9805,8 +9805,8 @@ default.unreachable:                              ; preds = %57
   br label %63
 
 63:                                               ; preds = %57, %62
-  %.sink57 = phi i64 [ 432, %62 ], [ 296, %57 ]
-  %64 = getelementptr inbounds nuw i8, ptr %.sroa.7.2.ph, i64 %.sink57
+  %.sink55 = phi i64 [ 432, %62 ], [ 296, %57 ]
+  %64 = getelementptr inbounds nuw i8, ptr %.sroa.7.2.ph, i64 %.sink55
   call void @"_ZN65_$LT$proc_macro2..Ident$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h629b5813b48ddffcE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %64, ptr noalias noundef nonnull align 8 dereferenceable(32) %1)
   %65 = icmp eq ptr %.sroa.10.2.ph, null
   br i1 %65, label %.outer.backedge, label %66
@@ -9842,7 +9842,7 @@ default.unreachable:                              ; preds = %57
 
 "_ZN76_$LT$core..option..Option$LT$T$GT$$u20$as$u20$quote..to_tokens..ToTokens$GT$9to_tokens17h8da2345c5f6e4a15E.exit22": ; preds = %67, %72
   %73 = icmp ne ptr %.sroa.9.2.ph, null
-  br label %.outer58
+  br label %.outer56
 }
 
 ; Function Attrs: nonlazybind uwtable

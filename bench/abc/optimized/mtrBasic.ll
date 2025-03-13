@@ -89,74 +89,74 @@ define noundef ptr @Mtr_CopyTree(ptr noundef readonly captures(address_is_null) 
 
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %10 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %11, i8 0, i64 32, i1 false)
-  %13 = load ptr, ptr %12, align 8, !tbaa !10
-  %.not = icmp eq ptr %13, null
-  br i1 %.not, label %17, label %14
+  %10 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 0, i64 32, i1 false)
+  %12 = load ptr, ptr %11, align 8, !tbaa !10
+  %.not = icmp eq ptr %12, null
+  br i1 %.not, label %17, label %13
 
-14:                                               ; preds = %8
-  %15 = tail call ptr @Mtr_CopyTree(ptr noundef nonnull %13, i32 noundef %1)
-  store ptr %15, ptr %10, align 8, !tbaa !10
+13:                                               ; preds = %8
+  %14 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %15 = tail call ptr @Mtr_CopyTree(ptr noundef nonnull %12, i32 noundef %1)
+  store ptr %15, ptr %14, align 8, !tbaa !10
   %16 = icmp eq ptr %15, null
   br i1 %16, label %Mtr_DeallocNode.exit, label %17
 
-Mtr_DeallocNode.exit:                             ; preds = %14
+Mtr_DeallocNode.exit:                             ; preds = %13
   tail call void @free(ptr noundef nonnull %6) #13
   br label %.loopexit
 
-17:                                               ; preds = %14, %8
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %19 = load ptr, ptr %18, align 8, !tbaa !11
-  %.not48 = icmp eq ptr %19, null
-  br i1 %.not48, label %24, label %20
+17:                                               ; preds = %13, %8
+  %18 = phi ptr [ %15, %13 ], [ null, %8 ]
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %20 = load ptr, ptr %19, align 8, !tbaa !11
+  %.not48 = icmp eq ptr %20, null
+  br i1 %.not48, label %25, label %21
 
-20:                                               ; preds = %17
-  %21 = tail call ptr @Mtr_CopyTree(ptr noundef nonnull %19, i32 noundef %1)
-  store ptr %21, ptr %9, align 8, !tbaa !11
-  %22 = icmp eq ptr %21, null
-  br i1 %22, label %23, label %24
+21:                                               ; preds = %17
+  %22 = tail call ptr @Mtr_CopyTree(ptr noundef nonnull %20, i32 noundef %1)
+  store ptr %22, ptr %9, align 8, !tbaa !11
+  %23 = icmp eq ptr %22, null
+  br i1 %23, label %24, label %25
 
-23:                                               ; preds = %20
+24:                                               ; preds = %21
   tail call void @Mtr_FreeTree(ptr noundef nonnull %6)
   br label %.loopexit
 
-24:                                               ; preds = %20, %17
-  %25 = phi ptr [ %21, %20 ], [ null, %17 ]
-  %26 = load i32, ptr %0, align 8, !tbaa !3
-  store i32 %26, ptr %6, align 8, !tbaa !3
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %28 = load i32, ptr %27, align 4, !tbaa !12
-  %29 = mul i32 %28, %1
-  %30 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  store i32 %29, ptr %30, align 4, !tbaa !12
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %32 = load i32, ptr %31, align 8, !tbaa !13
-  %33 = mul i32 %32, %1
-  %34 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i32 %33, ptr %34, align 8, !tbaa !13
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %36 = load i32, ptr %35, align 4, !tbaa !14
-  %37 = mul i32 %36, %1
-  %38 = getelementptr inbounds nuw i8, ptr %6, i64 12
-  store i32 %37, ptr %38, align 4, !tbaa !14
-  %.not49 = icmp eq ptr %25, null
-  br i1 %.not49, label %41, label %39
+25:                                               ; preds = %21, %17
+  %26 = phi ptr [ %22, %21 ], [ null, %17 ]
+  %27 = load i32, ptr %0, align 8, !tbaa !3
+  store i32 %27, ptr %6, align 8, !tbaa !3
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %29 = load i32, ptr %28, align 4, !tbaa !12
+  %30 = mul i32 %29, %1
+  %31 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  store i32 %30, ptr %31, align 4, !tbaa !12
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %33 = load i32, ptr %32, align 8, !tbaa !13
+  %34 = mul i32 %33, %1
+  %35 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store i32 %34, ptr %35, align 8, !tbaa !13
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %37 = load i32, ptr %36, align 4, !tbaa !14
+  %38 = mul i32 %37, %1
+  %39 = getelementptr inbounds nuw i8, ptr %6, i64 12
+  store i32 %38, ptr %39, align 4, !tbaa !14
+  %.not49 = icmp eq ptr %26, null
+  br i1 %.not49, label %42, label %40
 
-39:                                               ; preds = %24
-  %40 = getelementptr inbounds nuw i8, ptr %25, i64 32
-  store ptr %6, ptr %40, align 8, !tbaa !15
-  br label %41
+40:                                               ; preds = %25
+  %41 = getelementptr inbounds nuw i8, ptr %26, i64 32
+  store ptr %6, ptr %41, align 8, !tbaa !15
+  br label %42
 
-41:                                               ; preds = %39, %24
-  %42 = load ptr, ptr %10, align 8, !tbaa !10
-  %.not50 = icmp eq ptr %42, null
+42:                                               ; preds = %40, %25
+  %.not50 = icmp eq ptr %18, null
   br i1 %.not50, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %41, %.preheader
-  %.052 = phi ptr [ %45, %.preheader ], [ %42, %41 ]
+.preheader:                                       ; preds = %42, %.preheader
+  %.052 = phi ptr [ %45, %.preheader ], [ %18, %42 ]
   %43 = getelementptr inbounds nuw i8, ptr %.052, i64 16
   store ptr %6, ptr %43, align 8, !tbaa !16
   %44 = getelementptr inbounds nuw i8, ptr %.052, i64 40
@@ -164,8 +164,8 @@ Mtr_DeallocNode.exit:                             ; preds = %14
   %.not51 = icmp eq ptr %45, null
   br i1 %.not51, label %.loopexit, label %.preheader, !llvm.loop !17
 
-.loopexit:                                        ; preds = %.preheader, %41, %5, %2, %23, %Mtr_DeallocNode.exit
-  %.040 = phi ptr [ null, %Mtr_DeallocNode.exit ], [ null, %23 ], [ null, %2 ], [ null, %5 ], [ %6, %41 ], [ %6, %.preheader ]
+.loopexit:                                        ; preds = %.preheader, %42, %5, %2, %24, %Mtr_DeallocNode.exit
+  %.040 = phi ptr [ null, %Mtr_DeallocNode.exit ], [ null, %24 ], [ null, %2 ], [ null, %5 ], [ %6, %42 ], [ %6, %.preheader ]
   ret ptr %.040
 }
 

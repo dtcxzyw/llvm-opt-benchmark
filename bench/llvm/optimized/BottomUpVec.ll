@@ -4375,19 +4375,19 @@ _ZNKSt8functionIFSt10unique_ptrIN4llvm9sandboxir10RegionPassESt14default_deleteI
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7)
   %24 = load ptr, ptr %8, align 8
   %.not.i = icmp eq ptr %24, null
-  br i1 %.not.i, label %25, label %30
+  %25 = ptrtoint ptr %24 to i64
+  br i1 %.not.i, label %26, label %31
 
-25:                                               ; preds = %_ZNKSt8functionIFSt10unique_ptrIN4llvm9sandboxir10RegionPassESt14default_deleteIS3_EENS1_9StringRefES7_EEclES7_S7_.exit
-  %26 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #20
-  %27 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %26, ptr noundef nonnull @.str.19)
-  %28 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(48) %27, ptr %1, i64 %2)
-  %29 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %28, ptr noundef nonnull @.str.20)
+26:                                               ; preds = %_ZNKSt8functionIFSt10unique_ptrIN4llvm9sandboxir10RegionPassESt14default_deleteIS3_EENS1_9StringRefES7_EEclES7_S7_.exit
+  %27 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4errsEv() #20
+  %28 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %27, ptr noundef nonnull @.str.19)
+  %29 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsENS_9StringRefE(ptr noundef nonnull align 8 dereferenceable(48) %28, ptr %1, i64 %2)
+  %30 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm11raw_ostreamlsEPKc(ptr noundef nonnull align 8 dereferenceable(48) %29, ptr noundef nonnull @.str.20)
   call void @exit(i32 noundef 1) #24
   unreachable
 
-30:                                               ; preds = %_ZNKSt8functionIFSt10unique_ptrIN4llvm9sandboxir10RegionPassESt14default_deleteIS3_EENS1_9StringRefES7_EEclES7_S7_.exit
-  %31 = ptrtoint ptr %24 to i64
-  store i64 %31, ptr %9, align 8, !tbaa !364
+31:                                               ; preds = %_ZNKSt8functionIFSt10unique_ptrIN4llvm9sandboxir10RegionPassESt14default_deleteIS3_EENS1_9StringRefES7_EEclES7_S7_.exit
+  store i64 %25, ptr %9, align 8, !tbaa !364
   store ptr null, ptr %8, align 8, !tbaa !364
   %32 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %33 = getelementptr inbounds nuw i8, ptr %10, i64 48
@@ -4400,7 +4400,7 @@ _ZNKSt8functionIFSt10unique_ptrIN4llvm9sandboxir10RegionPassESt14default_deleteI
   %.pre3.i.i = load ptr, ptr %32, align 8, !tbaa !25
   br i1 %.not.i.i.not.i.i, label %_ZN4llvm9sandboxir11PassManagerINS0_10RegionPassES2_E7addPassESt10unique_ptrIS2_St14default_deleteIS2_EE.exit, label %39, !prof !33
 
-39:                                               ; preds = %30
+39:                                               ; preds = %31
   %40 = getelementptr inbounds nuw %"class.std::unique_ptr.31", ptr %.pre3.i.i, i64 %35
   %41 = icmp uge ptr %9, %.pre3.i.i
   %42 = icmp ult ptr %9, %40
@@ -4419,18 +4419,19 @@ _ZNKSt8functionIFSt10unique_ptrIN4llvm9sandboxir10RegionPassESt14default_deleteI
   call void @_ZN4llvm23SmallVectorTemplateBaseISt10unique_ptrINS_9sandboxir10RegionPassESt14default_deleteIS3_EELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %32, i64 noundef %36)
   %48 = load ptr, ptr %32, align 8, !tbaa !25
   %49 = getelementptr inbounds i8, ptr %48, i64 %47
+  %.pre = load i64, ptr %49, align 8, !tbaa !364
   br label %_ZN4llvm9sandboxir11PassManagerINS0_10RegionPassES2_E7addPassESt10unique_ptrIS2_St14default_deleteIS2_EE.exit
 
-_ZN4llvm9sandboxir11PassManagerINS0_10RegionPassES2_E7addPassESt10unique_ptrIS2_St14default_deleteIS2_EE.exit: ; preds = %30, %43, %44
-  %50 = phi ptr [ %.pre3.i.i, %30 ], [ %48, %44 ], [ %.pre.i.i, %43 ]
-  %.016.i.i.i.i = phi ptr [ %9, %30 ], [ %49, %44 ], [ %9, %43 ]
-  %51 = load i32, ptr %33, align 8, !tbaa !26
-  %52 = zext i32 %51 to i64
-  %53 = getelementptr inbounds nuw %"class.std::unique_ptr.31", ptr %50, i64 %52
-  %54 = load i64, ptr %.016.i.i.i.i, align 8, !tbaa !364
-  store i64 %54, ptr %53, align 8, !tbaa !364
+_ZN4llvm9sandboxir11PassManagerINS0_10RegionPassES2_E7addPassESt10unique_ptrIS2_St14default_deleteIS2_EE.exit: ; preds = %31, %43, %44
+  %50 = phi i64 [ %25, %31 ], [ %.pre, %44 ], [ %25, %43 ]
+  %51 = phi ptr [ %.pre3.i.i, %31 ], [ %48, %44 ], [ %.pre.i.i, %43 ]
+  %.016.i.i.i.i = phi ptr [ %9, %31 ], [ %49, %44 ], [ %9, %43 ]
+  %52 = load i32, ptr %33, align 8, !tbaa !26
+  %53 = zext i32 %52 to i64
+  %54 = getelementptr inbounds nuw %"class.std::unique_ptr.31", ptr %51, i64 %53
+  store i64 %50, ptr %54, align 8, !tbaa !364
   store ptr null, ptr %.016.i.i.i.i, align 8, !tbaa !364
-  %55 = add i32 %51, 1
+  %55 = add i32 %52, 1
   store i32 %55, ptr %33, align 8, !tbaa !26
   %56 = load ptr, ptr %9, align 8, !tbaa !364
   %.not.i7 = icmp eq ptr %56, null

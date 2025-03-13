@@ -64569,20 +64569,22 @@ _ZN4node25MultiplyWithOverflowCheckImEET_S1_S1_.exit: ; preds = %if.end8
   %1 = load i64, ptr %byte_offset_, align 8
   %call21 = call ptr @_ZN2v810Int32Array3NewENS_5LocalINS_11ArrayBufferEEEmm(ptr nonnull %call11, i64 noundef %1, i64 noundef %count) #24
   %cmp.i.i58 = icmp eq ptr %call21, null
-  br i1 %cmp.i.i58, label %_ZN2v814PersistentBaseINS_10Int32ArrayEE3NewEPNS_7IsolateEPS1_.exit, label %if.end.i59
+  br i1 %cmp.i.i58, label %_ZN2v814PersistentBaseINS_10Int32ArrayEE3NewEPNS_7IsolateEPS1_.exit.thread, label %_ZN2v814PersistentBaseINS_10Int32ArrayEE3NewEPNS_7IsolateEPS1_.exit
 
-if.end.i59:                                       ; preds = %_ZN4node25MultiplyWithOverflowCheckImEET_S1_S1_.exit
+_ZN2v814PersistentBaseINS_10Int32ArrayEE3NewEPNS_7IsolateEPS1_.exit: ; preds = %_ZN4node25MultiplyWithOverflowCheckImEET_S1_S1_.exit
   %2 = load i64, ptr %call21, align 8
   %call2.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %isolate, i64 noundef %2) #24
-  br label %_ZN2v814PersistentBaseINS_10Int32ArrayEE3NewEPNS_7IsolateEPS1_.exit
-
-_ZN2v814PersistentBaseINS_10Int32ArrayEE3NewEPNS_7IsolateEPS1_.exit: ; preds = %_ZN4node25MultiplyWithOverflowCheckImEET_S1_S1_.exit, %if.end.i59
-  %retval.i.0 = phi ptr [ %call2.i, %if.end.i59 ], [ null, %_ZN4node25MultiplyWithOverflowCheckImEET_S1_S1_.exit ]
-  store ptr %retval.i.0, ptr %ref.tmp, align 8
+  store ptr %call2.i, ptr %ref.tmp, align 8
   %cmp.i.not = icmp eq ptr %js_array_, %ref.tmp
   br i1 %cmp.i.not, label %_ZN2v86GlobalINS_10Int32ArrayEEaSIS1_EERS2_ONS0_IT_EE.exit, label %if.then.i44
 
-if.then.i44:                                      ; preds = %_ZN2v814PersistentBaseINS_10Int32ArrayEE3NewEPNS_7IsolateEPS1_.exit
+_ZN2v814PersistentBaseINS_10Int32ArrayEE3NewEPNS_7IsolateEPS1_.exit.thread: ; preds = %_ZN4node25MultiplyWithOverflowCheckImEET_S1_S1_.exit
+  store ptr null, ptr %ref.tmp, align 8
+  %cmp.i.not18 = icmp eq ptr %js_array_, %ref.tmp
+  br i1 %cmp.i.not18, label %_ZN2v814PersistentBaseINS_10Int32ArrayEE5ResetEv.exit, label %if.then.i44
+
+if.then.i44:                                      ; preds = %_ZN2v814PersistentBaseINS_10Int32ArrayEE3NewEPNS_7IsolateEPS1_.exit.thread, %_ZN2v814PersistentBaseINS_10Int32ArrayEE3NewEPNS_7IsolateEPS1_.exit
+  %.pr1319 = phi ptr [ null, %_ZN2v814PersistentBaseINS_10Int32ArrayEE3NewEPNS_7IsolateEPS1_.exit.thread ], [ %call2.i, %_ZN2v814PersistentBaseINS_10Int32ArrayEE3NewEPNS_7IsolateEPS1_.exit ]
   %3 = load ptr, ptr %js_array_, align 8
   %cmp.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_10Int32ArrayEE5ResetEv.exit.i, label %if.end.i.i
@@ -64590,32 +64592,30 @@ if.then.i44:                                      ; preds = %_ZN2v814PersistentB
 if.end.i.i:                                       ; preds = %if.then.i44
   call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %3) #24
   store ptr null, ptr %js_array_, align 8
-  %.pr = load ptr, ptr %ref.tmp, align 8
   br label %_ZN2v814PersistentBaseINS_10Int32ArrayEE5ResetEv.exit.i
 
 _ZN2v814PersistentBaseINS_10Int32ArrayEE5ResetEv.exit.i: ; preds = %if.then.i44, %if.end.i.i
-  %.pr13 = phi ptr [ %retval.i.0, %if.then.i44 ], [ %.pr, %if.end.i.i ]
-  %cmp.i.i47 = icmp eq ptr %.pr13, null
+  %cmp.i.i47 = icmp eq ptr %.pr1319, null
   br i1 %cmp.i.i47, label %_ZN2v814PersistentBaseINS_10Int32ArrayEE5ResetEv.exit, label %_ZN2v86GlobalINS_10Int32ArrayEEaSIS1_EERS2_ONS0_IT_EE.exit.thread
 
 _ZN2v86GlobalINS_10Int32ArrayEEaSIS1_EERS2_ONS0_IT_EE.exit.thread: ; preds = %_ZN2v814PersistentBaseINS_10Int32ArrayEE5ResetEv.exit.i
-  store ptr %.pr13, ptr %js_array_, align 8
+  store ptr %.pr1319, ptr %js_array_, align 8
   call void @_ZN2v812api_internal19MoveGlobalReferenceEPPmS2_(ptr noundef nonnull %ref.tmp, ptr noundef nonnull %js_array_) #24
   br label %_ZN2v814PersistentBaseINS_10Int32ArrayEE5ResetEv.exit.sink.split
 
 _ZN2v86GlobalINS_10Int32ArrayEEaSIS1_EERS2_ONS0_IT_EE.exit: ; preds = %_ZN2v814PersistentBaseINS_10Int32ArrayEE3NewEPNS_7IsolateEPS1_.exit
-  %cmp.i.i = icmp eq ptr %retval.i.0, null
+  %cmp.i.i = icmp eq ptr %call2.i, null
   br i1 %cmp.i.i, label %_ZN2v814PersistentBaseINS_10Int32ArrayEE5ResetEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %_ZN2v86GlobalINS_10Int32ArrayEEaSIS1_EERS2_ONS0_IT_EE.exit
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %retval.i.0) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %call2.i) #24
   br label %_ZN2v814PersistentBaseINS_10Int32ArrayEE5ResetEv.exit.sink.split
 
 _ZN2v814PersistentBaseINS_10Int32ArrayEE5ResetEv.exit.sink.split: ; preds = %if.end.i, %_ZN2v86GlobalINS_10Int32ArrayEEaSIS1_EERS2_ONS0_IT_EE.exit.thread
   store ptr null, ptr %ref.tmp, align 8
   br label %_ZN2v814PersistentBaseINS_10Int32ArrayEE5ResetEv.exit
 
-_ZN2v814PersistentBaseINS_10Int32ArrayEE5ResetEv.exit: ; preds = %_ZN2v814PersistentBaseINS_10Int32ArrayEE5ResetEv.exit.sink.split, %_ZN2v814PersistentBaseINS_10Int32ArrayEE5ResetEv.exit.i, %_ZN2v86GlobalINS_10Int32ArrayEEaSIS1_EERS2_ONS0_IT_EE.exit
+_ZN2v814PersistentBaseINS_10Int32ArrayEE5ResetEv.exit: ; preds = %_ZN2v814PersistentBaseINS_10Int32ArrayEE5ResetEv.exit.sink.split, %_ZN2v814PersistentBaseINS_10Int32ArrayEE5ResetEv.exit.i, %_ZN2v814PersistentBaseINS_10Int32ArrayEE3NewEPNS_7IsolateEPS1_.exit.thread, %_ZN2v86GlobalINS_10Int32ArrayEEaSIS1_EERS2_ONS0_IT_EE.exit
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope) #24
   br label %return
 
@@ -64674,20 +64674,22 @@ _ZN4node25MultiplyWithOverflowCheckImEET_S1_S1_.exit: ; preds = %if.end8
   %1 = load i64, ptr %byte_offset_, align 8
   %call21 = call ptr @_ZN2v811Uint32Array3NewENS_5LocalINS_11ArrayBufferEEEmm(ptr nonnull %call11, i64 noundef %1, i64 noundef %count) #24
   %cmp.i.i58 = icmp eq ptr %call21, null
-  br i1 %cmp.i.i58, label %_ZN2v814PersistentBaseINS_11Uint32ArrayEE3NewEPNS_7IsolateEPS1_.exit, label %if.end.i59
+  br i1 %cmp.i.i58, label %_ZN2v814PersistentBaseINS_11Uint32ArrayEE3NewEPNS_7IsolateEPS1_.exit.thread, label %_ZN2v814PersistentBaseINS_11Uint32ArrayEE3NewEPNS_7IsolateEPS1_.exit
 
-if.end.i59:                                       ; preds = %_ZN4node25MultiplyWithOverflowCheckImEET_S1_S1_.exit
+_ZN2v814PersistentBaseINS_11Uint32ArrayEE3NewEPNS_7IsolateEPS1_.exit: ; preds = %_ZN4node25MultiplyWithOverflowCheckImEET_S1_S1_.exit
   %2 = load i64, ptr %call21, align 8
   %call2.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %isolate, i64 noundef %2) #24
-  br label %_ZN2v814PersistentBaseINS_11Uint32ArrayEE3NewEPNS_7IsolateEPS1_.exit
-
-_ZN2v814PersistentBaseINS_11Uint32ArrayEE3NewEPNS_7IsolateEPS1_.exit: ; preds = %_ZN4node25MultiplyWithOverflowCheckImEET_S1_S1_.exit, %if.end.i59
-  %retval.i.0 = phi ptr [ %call2.i, %if.end.i59 ], [ null, %_ZN4node25MultiplyWithOverflowCheckImEET_S1_S1_.exit ]
-  store ptr %retval.i.0, ptr %ref.tmp, align 8
+  store ptr %call2.i, ptr %ref.tmp, align 8
   %cmp.i.not = icmp eq ptr %js_array_, %ref.tmp
   br i1 %cmp.i.not, label %_ZN2v86GlobalINS_11Uint32ArrayEEaSIS1_EERS2_ONS0_IT_EE.exit, label %if.then.i48
 
-if.then.i48:                                      ; preds = %_ZN2v814PersistentBaseINS_11Uint32ArrayEE3NewEPNS_7IsolateEPS1_.exit
+_ZN2v814PersistentBaseINS_11Uint32ArrayEE3NewEPNS_7IsolateEPS1_.exit.thread: ; preds = %_ZN4node25MultiplyWithOverflowCheckImEET_S1_S1_.exit
+  store ptr null, ptr %ref.tmp, align 8
+  %cmp.i.not18 = icmp eq ptr %js_array_, %ref.tmp
+  br i1 %cmp.i.not18, label %_ZN2v814PersistentBaseINS_11Uint32ArrayEE5ResetEv.exit, label %if.then.i48
+
+if.then.i48:                                      ; preds = %_ZN2v814PersistentBaseINS_11Uint32ArrayEE3NewEPNS_7IsolateEPS1_.exit.thread, %_ZN2v814PersistentBaseINS_11Uint32ArrayEE3NewEPNS_7IsolateEPS1_.exit
+  %.pr1319 = phi ptr [ null, %_ZN2v814PersistentBaseINS_11Uint32ArrayEE3NewEPNS_7IsolateEPS1_.exit.thread ], [ %call2.i, %_ZN2v814PersistentBaseINS_11Uint32ArrayEE3NewEPNS_7IsolateEPS1_.exit ]
   %3 = load ptr, ptr %js_array_, align 8
   %cmp.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_11Uint32ArrayEE5ResetEv.exit.i, label %if.end.i.i
@@ -64695,32 +64697,30 @@ if.then.i48:                                      ; preds = %_ZN2v814PersistentB
 if.end.i.i:                                       ; preds = %if.then.i48
   call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %3) #24
   store ptr null, ptr %js_array_, align 8
-  %.pr = load ptr, ptr %ref.tmp, align 8
   br label %_ZN2v814PersistentBaseINS_11Uint32ArrayEE5ResetEv.exit.i
 
 _ZN2v814PersistentBaseINS_11Uint32ArrayEE5ResetEv.exit.i: ; preds = %if.then.i48, %if.end.i.i
-  %.pr13 = phi ptr [ %retval.i.0, %if.then.i48 ], [ %.pr, %if.end.i.i ]
-  %cmp.i.i51 = icmp eq ptr %.pr13, null
+  %cmp.i.i51 = icmp eq ptr %.pr1319, null
   br i1 %cmp.i.i51, label %_ZN2v814PersistentBaseINS_11Uint32ArrayEE5ResetEv.exit, label %_ZN2v86GlobalINS_11Uint32ArrayEEaSIS1_EERS2_ONS0_IT_EE.exit.thread
 
 _ZN2v86GlobalINS_11Uint32ArrayEEaSIS1_EERS2_ONS0_IT_EE.exit.thread: ; preds = %_ZN2v814PersistentBaseINS_11Uint32ArrayEE5ResetEv.exit.i
-  store ptr %.pr13, ptr %js_array_, align 8
+  store ptr %.pr1319, ptr %js_array_, align 8
   call void @_ZN2v812api_internal19MoveGlobalReferenceEPPmS2_(ptr noundef nonnull %ref.tmp, ptr noundef nonnull %js_array_) #24
   br label %_ZN2v814PersistentBaseINS_11Uint32ArrayEE5ResetEv.exit.sink.split
 
 _ZN2v86GlobalINS_11Uint32ArrayEEaSIS1_EERS2_ONS0_IT_EE.exit: ; preds = %_ZN2v814PersistentBaseINS_11Uint32ArrayEE3NewEPNS_7IsolateEPS1_.exit
-  %cmp.i.i = icmp eq ptr %retval.i.0, null
+  %cmp.i.i = icmp eq ptr %call2.i, null
   br i1 %cmp.i.i, label %_ZN2v814PersistentBaseINS_11Uint32ArrayEE5ResetEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %_ZN2v86GlobalINS_11Uint32ArrayEEaSIS1_EERS2_ONS0_IT_EE.exit
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %retval.i.0) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %call2.i) #24
   br label %_ZN2v814PersistentBaseINS_11Uint32ArrayEE5ResetEv.exit.sink.split
 
 _ZN2v814PersistentBaseINS_11Uint32ArrayEE5ResetEv.exit.sink.split: ; preds = %if.end.i, %_ZN2v86GlobalINS_11Uint32ArrayEEaSIS1_EERS2_ONS0_IT_EE.exit.thread
   store ptr null, ptr %ref.tmp, align 8
   br label %_ZN2v814PersistentBaseINS_11Uint32ArrayEE5ResetEv.exit
 
-_ZN2v814PersistentBaseINS_11Uint32ArrayEE5ResetEv.exit: ; preds = %_ZN2v814PersistentBaseINS_11Uint32ArrayEE5ResetEv.exit.sink.split, %_ZN2v814PersistentBaseINS_11Uint32ArrayEE5ResetEv.exit.i, %_ZN2v86GlobalINS_11Uint32ArrayEEaSIS1_EERS2_ONS0_IT_EE.exit
+_ZN2v814PersistentBaseINS_11Uint32ArrayEE5ResetEv.exit: ; preds = %_ZN2v814PersistentBaseINS_11Uint32ArrayEE5ResetEv.exit.sink.split, %_ZN2v814PersistentBaseINS_11Uint32ArrayEE5ResetEv.exit.i, %_ZN2v814PersistentBaseINS_11Uint32ArrayEE3NewEPNS_7IsolateEPS1_.exit.thread, %_ZN2v86GlobalINS_11Uint32ArrayEEaSIS1_EERS2_ONS0_IT_EE.exit
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope) #24
   br label %return
 
@@ -69524,20 +69524,22 @@ if.end8:                                          ; preds = %do.end5
   %1 = load i64, ptr %byte_offset_, align 8
   %call21 = call ptr @_ZN2v810Uint8Array3NewENS_5LocalINS_11ArrayBufferEEEmm(ptr nonnull %call11, i64 noundef %1, i64 noundef %count) #24
   %cmp.i.i.i = icmp eq ptr %call21, null
-  br i1 %cmp.i.i.i, label %_ZN2v86GlobalINS_10Uint8ArrayEEC2IS1_EEPNS_7IsolateENS_5LocalIT_EE.exit, label %if.end.i.i
+  br i1 %cmp.i.i.i, label %_ZN2v86GlobalINS_10Uint8ArrayEEC2IS1_EEPNS_7IsolateENS_5LocalIT_EE.exit.thread, label %_ZN2v86GlobalINS_10Uint8ArrayEEC2IS1_EEPNS_7IsolateENS_5LocalIT_EE.exit
 
-if.end.i.i:                                       ; preds = %if.end8
+_ZN2v86GlobalINS_10Uint8ArrayEEC2IS1_EEPNS_7IsolateENS_5LocalIT_EE.exit: ; preds = %if.end8
   %2 = load i64, ptr %call21, align 8
   %call2.i.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %isolate, i64 noundef %2) #24
-  br label %_ZN2v86GlobalINS_10Uint8ArrayEEC2IS1_EEPNS_7IsolateENS_5LocalIT_EE.exit
-
-_ZN2v86GlobalINS_10Uint8ArrayEEC2IS1_EEPNS_7IsolateENS_5LocalIT_EE.exit: ; preds = %if.end8, %if.end.i.i
-  %retval.i.i.0 = phi ptr [ %call2.i.i, %if.end.i.i ], [ null, %if.end8 ]
-  store ptr %retval.i.i.0, ptr %ref.tmp, align 8
+  store ptr %call2.i.i, ptr %ref.tmp, align 8
   %cmp.i.not = icmp eq ptr %js_array_, %ref.tmp
   br i1 %cmp.i.not, label %_ZN2v86GlobalINS_10Uint8ArrayEEaSIS1_EERS2_ONS0_IT_EE.exit, label %if.then.i48
 
-if.then.i48:                                      ; preds = %_ZN2v86GlobalINS_10Uint8ArrayEEC2IS1_EEPNS_7IsolateENS_5LocalIT_EE.exit
+_ZN2v86GlobalINS_10Uint8ArrayEEC2IS1_EEPNS_7IsolateENS_5LocalIT_EE.exit.thread: ; preds = %if.end8
+  store ptr null, ptr %ref.tmp, align 8
+  %cmp.i.not19 = icmp eq ptr %js_array_, %ref.tmp
+  br i1 %cmp.i.not19, label %_ZN2v814PersistentBaseINS_10Uint8ArrayEE5ResetEv.exit, label %if.then.i48
+
+if.then.i48:                                      ; preds = %_ZN2v86GlobalINS_10Uint8ArrayEEC2IS1_EEPNS_7IsolateENS_5LocalIT_EE.exit.thread, %_ZN2v86GlobalINS_10Uint8ArrayEEC2IS1_EEPNS_7IsolateENS_5LocalIT_EE.exit
+  %.pr1320 = phi ptr [ null, %_ZN2v86GlobalINS_10Uint8ArrayEEC2IS1_EEPNS_7IsolateENS_5LocalIT_EE.exit.thread ], [ %call2.i.i, %_ZN2v86GlobalINS_10Uint8ArrayEEC2IS1_EEPNS_7IsolateENS_5LocalIT_EE.exit ]
   %3 = load ptr, ptr %js_array_, align 8
   %cmp.i.i.i50 = icmp eq ptr %3, null
   br i1 %cmp.i.i.i50, label %_ZN2v814PersistentBaseINS_10Uint8ArrayEE5ResetEv.exit.i, label %if.end.i.i51
@@ -69545,32 +69547,30 @@ if.then.i48:                                      ; preds = %_ZN2v86GlobalINS_10
 if.end.i.i51:                                     ; preds = %if.then.i48
   call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %3) #24
   store ptr null, ptr %js_array_, align 8
-  %.pr = load ptr, ptr %ref.tmp, align 8
   br label %_ZN2v814PersistentBaseINS_10Uint8ArrayEE5ResetEv.exit.i
 
 _ZN2v814PersistentBaseINS_10Uint8ArrayEE5ResetEv.exit.i: ; preds = %if.then.i48, %if.end.i.i51
-  %.pr13 = phi ptr [ %retval.i.i.0, %if.then.i48 ], [ %.pr, %if.end.i.i51 ]
-  %cmp.i.i53 = icmp eq ptr %.pr13, null
+  %cmp.i.i53 = icmp eq ptr %.pr1320, null
   br i1 %cmp.i.i53, label %_ZN2v814PersistentBaseINS_10Uint8ArrayEE5ResetEv.exit, label %_ZN2v86GlobalINS_10Uint8ArrayEEaSIS1_EERS2_ONS0_IT_EE.exit.thread
 
 _ZN2v86GlobalINS_10Uint8ArrayEEaSIS1_EERS2_ONS0_IT_EE.exit.thread: ; preds = %_ZN2v814PersistentBaseINS_10Uint8ArrayEE5ResetEv.exit.i
-  store ptr %.pr13, ptr %js_array_, align 8
+  store ptr %.pr1320, ptr %js_array_, align 8
   call void @_ZN2v812api_internal19MoveGlobalReferenceEPPmS2_(ptr noundef nonnull %ref.tmp, ptr noundef nonnull %js_array_) #24
   br label %_ZN2v814PersistentBaseINS_10Uint8ArrayEE5ResetEv.exit.sink.split
 
 _ZN2v86GlobalINS_10Uint8ArrayEEaSIS1_EERS2_ONS0_IT_EE.exit: ; preds = %_ZN2v86GlobalINS_10Uint8ArrayEEC2IS1_EEPNS_7IsolateENS_5LocalIT_EE.exit
-  %cmp.i.i = icmp eq ptr %retval.i.i.0, null
+  %cmp.i.i = icmp eq ptr %call2.i.i, null
   br i1 %cmp.i.i, label %_ZN2v814PersistentBaseINS_10Uint8ArrayEE5ResetEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %_ZN2v86GlobalINS_10Uint8ArrayEEaSIS1_EERS2_ONS0_IT_EE.exit
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %retval.i.i.0) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %call2.i.i) #24
   br label %_ZN2v814PersistentBaseINS_10Uint8ArrayEE5ResetEv.exit.sink.split
 
 _ZN2v814PersistentBaseINS_10Uint8ArrayEE5ResetEv.exit.sink.split: ; preds = %if.end.i, %_ZN2v86GlobalINS_10Uint8ArrayEEaSIS1_EERS2_ONS0_IT_EE.exit.thread
   store ptr null, ptr %ref.tmp, align 8
   br label %_ZN2v814PersistentBaseINS_10Uint8ArrayEE5ResetEv.exit
 
-_ZN2v814PersistentBaseINS_10Uint8ArrayEE5ResetEv.exit: ; preds = %_ZN2v814PersistentBaseINS_10Uint8ArrayEE5ResetEv.exit.sink.split, %_ZN2v814PersistentBaseINS_10Uint8ArrayEE5ResetEv.exit.i, %_ZN2v86GlobalINS_10Uint8ArrayEEaSIS1_EERS2_ONS0_IT_EE.exit
+_ZN2v814PersistentBaseINS_10Uint8ArrayEE5ResetEv.exit: ; preds = %_ZN2v814PersistentBaseINS_10Uint8ArrayEE5ResetEv.exit.sink.split, %_ZN2v814PersistentBaseINS_10Uint8ArrayEE5ResetEv.exit.i, %_ZN2v86GlobalINS_10Uint8ArrayEEC2IS1_EEPNS_7IsolateENS_5LocalIT_EE.exit.thread, %_ZN2v86GlobalINS_10Uint8ArrayEEaSIS1_EERS2_ONS0_IT_EE.exit
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope) #24
   br label %return
 
@@ -69670,20 +69670,22 @@ _ZN4node25MultiplyWithOverflowCheckImEET_S1_S1_.exit: ; preds = %if.end8
   %1 = load i64, ptr %byte_offset_, align 8
   %call21 = call ptr @_ZN2v812Float64Array3NewENS_5LocalINS_11ArrayBufferEEEmm(ptr nonnull %call11, i64 noundef %1, i64 noundef %count) #24
   %cmp.i.i60 = icmp eq ptr %call21, null
-  br i1 %cmp.i.i60, label %_ZN2v814PersistentBaseINS_12Float64ArrayEE3NewEPNS_7IsolateEPS1_.exit, label %if.end.i61
+  br i1 %cmp.i.i60, label %_ZN2v814PersistentBaseINS_12Float64ArrayEE3NewEPNS_7IsolateEPS1_.exit.thread, label %_ZN2v814PersistentBaseINS_12Float64ArrayEE3NewEPNS_7IsolateEPS1_.exit
 
-if.end.i61:                                       ; preds = %_ZN4node25MultiplyWithOverflowCheckImEET_S1_S1_.exit
+_ZN2v814PersistentBaseINS_12Float64ArrayEE3NewEPNS_7IsolateEPS1_.exit: ; preds = %_ZN4node25MultiplyWithOverflowCheckImEET_S1_S1_.exit
   %2 = load i64, ptr %call21, align 8
   %call2.i = call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %isolate, i64 noundef %2) #24
-  br label %_ZN2v814PersistentBaseINS_12Float64ArrayEE3NewEPNS_7IsolateEPS1_.exit
-
-_ZN2v814PersistentBaseINS_12Float64ArrayEE3NewEPNS_7IsolateEPS1_.exit: ; preds = %_ZN4node25MultiplyWithOverflowCheckImEET_S1_S1_.exit, %if.end.i61
-  %retval.i.0 = phi ptr [ %call2.i, %if.end.i61 ], [ null, %_ZN4node25MultiplyWithOverflowCheckImEET_S1_S1_.exit ]
-  store ptr %retval.i.0, ptr %ref.tmp, align 8
+  store ptr %call2.i, ptr %ref.tmp, align 8
   %cmp.i.not = icmp eq ptr %js_array_, %ref.tmp
   br i1 %cmp.i.not, label %_ZN2v86GlobalINS_12Float64ArrayEEaSIS1_EERS2_ONS0_IT_EE.exit, label %if.then.i50
 
-if.then.i50:                                      ; preds = %_ZN2v814PersistentBaseINS_12Float64ArrayEE3NewEPNS_7IsolateEPS1_.exit
+_ZN2v814PersistentBaseINS_12Float64ArrayEE3NewEPNS_7IsolateEPS1_.exit.thread: ; preds = %_ZN4node25MultiplyWithOverflowCheckImEET_S1_S1_.exit
+  store ptr null, ptr %ref.tmp, align 8
+  %cmp.i.not18 = icmp eq ptr %js_array_, %ref.tmp
+  br i1 %cmp.i.not18, label %_ZN2v814PersistentBaseINS_12Float64ArrayEE5ResetEv.exit, label %if.then.i50
+
+if.then.i50:                                      ; preds = %_ZN2v814PersistentBaseINS_12Float64ArrayEE3NewEPNS_7IsolateEPS1_.exit.thread, %_ZN2v814PersistentBaseINS_12Float64ArrayEE3NewEPNS_7IsolateEPS1_.exit
+  %.pr1319 = phi ptr [ null, %_ZN2v814PersistentBaseINS_12Float64ArrayEE3NewEPNS_7IsolateEPS1_.exit.thread ], [ %call2.i, %_ZN2v814PersistentBaseINS_12Float64ArrayEE3NewEPNS_7IsolateEPS1_.exit ]
   %3 = load ptr, ptr %js_array_, align 8
   %cmp.i.i.i = icmp eq ptr %3, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_12Float64ArrayEE5ResetEv.exit.i, label %if.end.i.i
@@ -69691,32 +69693,30 @@ if.then.i50:                                      ; preds = %_ZN2v814PersistentB
 if.end.i.i:                                       ; preds = %if.then.i50
   call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %3) #24
   store ptr null, ptr %js_array_, align 8
-  %.pr = load ptr, ptr %ref.tmp, align 8
   br label %_ZN2v814PersistentBaseINS_12Float64ArrayEE5ResetEv.exit.i
 
 _ZN2v814PersistentBaseINS_12Float64ArrayEE5ResetEv.exit.i: ; preds = %if.then.i50, %if.end.i.i
-  %.pr13 = phi ptr [ %retval.i.0, %if.then.i50 ], [ %.pr, %if.end.i.i ]
-  %cmp.i.i53 = icmp eq ptr %.pr13, null
+  %cmp.i.i53 = icmp eq ptr %.pr1319, null
   br i1 %cmp.i.i53, label %_ZN2v814PersistentBaseINS_12Float64ArrayEE5ResetEv.exit, label %_ZN2v86GlobalINS_12Float64ArrayEEaSIS1_EERS2_ONS0_IT_EE.exit.thread
 
 _ZN2v86GlobalINS_12Float64ArrayEEaSIS1_EERS2_ONS0_IT_EE.exit.thread: ; preds = %_ZN2v814PersistentBaseINS_12Float64ArrayEE5ResetEv.exit.i
-  store ptr %.pr13, ptr %js_array_, align 8
+  store ptr %.pr1319, ptr %js_array_, align 8
   call void @_ZN2v812api_internal19MoveGlobalReferenceEPPmS2_(ptr noundef nonnull %ref.tmp, ptr noundef nonnull %js_array_) #24
   br label %_ZN2v814PersistentBaseINS_12Float64ArrayEE5ResetEv.exit.sink.split
 
 _ZN2v86GlobalINS_12Float64ArrayEEaSIS1_EERS2_ONS0_IT_EE.exit: ; preds = %_ZN2v814PersistentBaseINS_12Float64ArrayEE3NewEPNS_7IsolateEPS1_.exit
-  %cmp.i.i = icmp eq ptr %retval.i.0, null
+  %cmp.i.i = icmp eq ptr %call2.i, null
   br i1 %cmp.i.i, label %_ZN2v814PersistentBaseINS_12Float64ArrayEE5ResetEv.exit, label %if.end.i
 
 if.end.i:                                         ; preds = %_ZN2v86GlobalINS_12Float64ArrayEEaSIS1_EERS2_ONS0_IT_EE.exit
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %retval.i.0) #24
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %call2.i) #24
   br label %_ZN2v814PersistentBaseINS_12Float64ArrayEE5ResetEv.exit.sink.split
 
 _ZN2v814PersistentBaseINS_12Float64ArrayEE5ResetEv.exit.sink.split: ; preds = %if.end.i, %_ZN2v86GlobalINS_12Float64ArrayEEaSIS1_EERS2_ONS0_IT_EE.exit.thread
   store ptr null, ptr %ref.tmp, align 8
   br label %_ZN2v814PersistentBaseINS_12Float64ArrayEE5ResetEv.exit
 
-_ZN2v814PersistentBaseINS_12Float64ArrayEE5ResetEv.exit: ; preds = %_ZN2v814PersistentBaseINS_12Float64ArrayEE5ResetEv.exit.sink.split, %_ZN2v814PersistentBaseINS_12Float64ArrayEE5ResetEv.exit.i, %_ZN2v86GlobalINS_12Float64ArrayEEaSIS1_EERS2_ONS0_IT_EE.exit
+_ZN2v814PersistentBaseINS_12Float64ArrayEE5ResetEv.exit: ; preds = %_ZN2v814PersistentBaseINS_12Float64ArrayEE5ResetEv.exit.sink.split, %_ZN2v814PersistentBaseINS_12Float64ArrayEE5ResetEv.exit.i, %_ZN2v814PersistentBaseINS_12Float64ArrayEE3NewEPNS_7IsolateEPS1_.exit.thread, %_ZN2v86GlobalINS_12Float64ArrayEEaSIS1_EERS2_ONS0_IT_EE.exit
   call void @_ZN2v811HandleScopeD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %handle_scope) #24
   br label %return
 
@@ -70679,31 +70679,29 @@ _ZN2v814PersistentBaseINS_12Float64ArrayEE3NewEPNS_7IsolateEPS1_.exit: ; preds =
 
 _ZN2v814PersistentBaseINS_12Float64ArrayEE3NewEPNS_7IsolateEPS1_.exit.thread: ; preds = %_ZN4node25MultiplyWithOverflowCheckImEET_S1_S1_.exit
   store ptr null, ptr %ref.tmp, align 8
-  %js_array_13 = getelementptr inbounds nuw i8, ptr %this, i64 40
-  %cmp.i.not14 = icmp eq ptr %js_array_13, %ref.tmp
-  br i1 %cmp.i.not14, label %_ZN2v814PersistentBaseINS_12Float64ArrayEE5ResetEv.exit, label %if.then.i40
+  %js_array_12 = getelementptr inbounds nuw i8, ptr %this, i64 40
+  %cmp.i.not13 = icmp eq ptr %js_array_12, %ref.tmp
+  br i1 %cmp.i.not13, label %_ZN2v814PersistentBaseINS_12Float64ArrayEE5ResetEv.exit, label %if.then.i40
 
 if.then.i40:                                      ; preds = %_ZN2v814PersistentBaseINS_12Float64ArrayEE3NewEPNS_7IsolateEPS1_.exit.thread, %_ZN2v814PersistentBaseINS_12Float64ArrayEE3NewEPNS_7IsolateEPS1_.exit
-  %js_array_17 = phi ptr [ %js_array_13, %_ZN2v814PersistentBaseINS_12Float64ArrayEE3NewEPNS_7IsolateEPS1_.exit.thread ], [ %js_array_, %_ZN2v814PersistentBaseINS_12Float64ArrayEE3NewEPNS_7IsolateEPS1_.exit ]
-  %retval.i.016 = phi ptr [ null, %_ZN2v814PersistentBaseINS_12Float64ArrayEE3NewEPNS_7IsolateEPS1_.exit.thread ], [ %call2.i, %_ZN2v814PersistentBaseINS_12Float64ArrayEE3NewEPNS_7IsolateEPS1_.exit ]
-  %7 = load ptr, ptr %js_array_17, align 8
-  %cmp.i.i.i = icmp eq ptr %7, null
+  %js_array_14 = phi ptr [ %js_array_12, %_ZN2v814PersistentBaseINS_12Float64ArrayEE3NewEPNS_7IsolateEPS1_.exit.thread ], [ %js_array_, %_ZN2v814PersistentBaseINS_12Float64ArrayEE3NewEPNS_7IsolateEPS1_.exit ]
+  %7 = phi ptr [ null, %_ZN2v814PersistentBaseINS_12Float64ArrayEE3NewEPNS_7IsolateEPS1_.exit.thread ], [ %call2.i, %_ZN2v814PersistentBaseINS_12Float64ArrayEE3NewEPNS_7IsolateEPS1_.exit ]
+  %8 = load ptr, ptr %js_array_14, align 8
+  %cmp.i.i.i = icmp eq ptr %8, null
   br i1 %cmp.i.i.i, label %_ZN2v814PersistentBaseINS_12Float64ArrayEE5ResetEv.exit.i, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %if.then.i40
-  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %7) #24
-  store ptr null, ptr %js_array_17, align 8
-  %.pre = load ptr, ptr %ref.tmp, align 8
+  call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %8) #24
+  store ptr null, ptr %js_array_14, align 8
   br label %_ZN2v814PersistentBaseINS_12Float64ArrayEE5ResetEv.exit.i
 
 _ZN2v814PersistentBaseINS_12Float64ArrayEE5ResetEv.exit.i: ; preds = %if.then.i40, %if.end.i.i
-  %8 = phi ptr [ %retval.i.016, %if.then.i40 ], [ %.pre, %if.end.i.i ]
-  %cmp.i.i43 = icmp eq ptr %8, null
+  %cmp.i.i43 = icmp eq ptr %7, null
   br i1 %cmp.i.i43, label %_ZN2v814PersistentBaseINS_12Float64ArrayEE5ResetEv.exit, label %if.then2.i
 
 if.then2.i:                                       ; preds = %_ZN2v814PersistentBaseINS_12Float64ArrayEE5ResetEv.exit.i
-  store ptr %8, ptr %js_array_17, align 8
-  call void @_ZN2v812api_internal19MoveGlobalReferenceEPPmS2_(ptr noundef nonnull %ref.tmp, ptr noundef nonnull %js_array_17) #24
+  store ptr %7, ptr %js_array_14, align 8
+  call void @_ZN2v812api_internal19MoveGlobalReferenceEPPmS2_(ptr noundef nonnull %ref.tmp, ptr noundef nonnull %js_array_14) #24
   br label %_ZN2v814PersistentBaseINS_12Float64ArrayEE5ResetEv.exit.sink.split
 
 _ZN2v86GlobalINS_12Float64ArrayEEaSIS1_EERS2_ONS0_IT_EE.exit: ; preds = %_ZN2v814PersistentBaseINS_12Float64ArrayEE3NewEPNS_7IsolateEPS1_.exit

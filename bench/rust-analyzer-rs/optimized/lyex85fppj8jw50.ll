@@ -16286,9 +16286,9 @@ define internal fastcc noundef i32 @_ZN13project_model9workspace21add_target_cra
 
 180:                                              ; preds = %171
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %25)
-  br i1 %86, label %.thread293, label %185
+  br i1 %86, label %.thread291, label %185
 
-.thread293:                                       ; preds = %180
+.thread291:                                       ; preds = %180
   %181 = call { i64, ptr } @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$11allocate_in17h874446c1602eb4adE"(i64 noundef 28, i1 noundef zeroext false)
   %182 = extractvalue { i64, ptr } %181, 0
   %183 = extractvalue { i64, ptr } %181, 1
@@ -16309,7 +16309,7 @@ define internal fastcc noundef i32 @_ZN13project_model9workspace21add_target_cra
   %187 = load i64, ptr %186, align 8, !range !19, !noundef !4
   %188 = icmp eq i64 %187, -9223372036854775808
   call void @llvm.experimental.noalias.scope.decl(metadata !3438)
-  br i1 %188, label %.thread291, label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h24ed6c29c559978cE.exit"
+  br i1 %188, label %.thread289, label %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h24ed6c29c559978cE.exit"
 
 "_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h24ed6c29c559978cE.exit": ; preds = %185
   call void @llvm.experimental.noalias.scope.decl(metadata !3441)
@@ -16325,7 +16325,7 @@ define internal fastcc noundef i32 @_ZN13project_model9workspace21add_target_cra
   call void @llvm.assume(i1 %196)
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %195, ptr nonnull readonly align 1 %191, i64 %192, i1 false), !noalias !3452
   %197 = icmp eq i64 %194, -9223372036854775808
-  br i1 %197, label %.thread291, label %204
+  br i1 %197, label %.thread289, label %204
 
 198:                                              ; preds = %204
   %199 = extractvalue { i64, ptr } %205, 0
@@ -16345,7 +16345,7 @@ define internal fastcc noundef i32 @_ZN13project_model9workspace21add_target_cra
   %202 = icmp eq i64 %.pre, -9223372036854775807
   br i1 %202, label %214, label %210
 
-.thread291:                                       ; preds = %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h24ed6c29c559978cE.exit", %185
+.thread289:                                       ; preds = %"_ZN4core6option19Option$LT$$RF$T$GT$6cloned17h24ed6c29c559978cE.exit", %185
   %203 = getelementptr inbounds nuw i8, ptr %25, i64 24
   store i64 -9223372036854775807, ptr %203, align 8
   br label %214
@@ -16372,7 +16372,7 @@ define internal fastcc noundef i32 @_ZN13project_model9workspace21add_target_cra
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #22, !noalias !3461
   unreachable
 
-210:                                              ; preds = %.thread293, %198
+210:                                              ; preds = %.thread291, %198
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %23, ptr noundef nonnull align 8 dereferenceable(48) %25, i64 48, i1 false)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %24)
   call void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h591131d1899f1935E"(ptr noalias noundef nonnull sret({ [3 x i64], i64, [2 x i64] }) align 8 captures(none) dereferenceable(48) %24, ptr noalias noundef nonnull align 8 dereferenceable(32) %1, i32 noundef %177, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %23)
@@ -16381,7 +16381,7 @@ define internal fastcc noundef i32 @_ZN13project_model9workspace21add_target_cra
   %213 = icmp eq i64 %212, -9223372036854775807
   br i1 %213, label %.thread248, label %217
 
-214:                                              ; preds = %.thread291, %198
+214:                                              ; preds = %.thread289, %198
   %215 = getelementptr inbounds nuw i8, ptr %25, i64 24
   %216 = load i64, ptr %215, align 8, !range !153, !noundef !4
   %.not122 = icmp eq i64 %216, -9223372036854775807

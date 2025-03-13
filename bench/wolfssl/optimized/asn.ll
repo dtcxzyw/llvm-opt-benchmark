@@ -5506,16 +5506,19 @@ define i32 @TraditionalEnc(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr n
   %36 = load i32, ptr %18, align 4, !tbaa !22
   %37 = call i32 @wc_CreatePKCS8Key(ptr noundef nonnull %32, ptr noundef nonnull %15, ptr noundef %0, i32 noundef %1, i32 noundef %34, ptr noundef %35, i32 noundef %36)
   %38 = icmp sgt i32 %37, -1
-  br i1 %38, label %39, label %.thread53
+  br i1 %38, label %39, label %.thread45..thread53_crit_edge
+
+.thread45..thread53_crit_edge:                    ; preds = %.thread45
+  %.pre = load i32, ptr %15, align 4, !tbaa !22
+  br label %.thread53
 
 39:                                               ; preds = %.thread45
-  store i32 %37, ptr %15, align 4, !tbaa !22
   %40 = call i32 @wc_EncryptPKCS8Key(ptr noundef nonnull %32, i32 noundef %37, ptr noundef %2, ptr noundef %3, ptr noundef %4, i32 noundef %5, i32 noundef %6, i32 noundef %7, i32 noundef %8, ptr noundef %9, i32 noundef %10, i32 noundef %11, ptr noundef %12, ptr poison)
   br label %.thread53
 
-.thread53:                                        ; preds = %39, %.thread45
-  %.4 = phi i32 [ %40, %39 ], [ %37, %.thread45 ]
-  %41 = load i32, ptr %15, align 4, !tbaa !22
+.thread53:                                        ; preds = %.thread45..thread53_crit_edge, %39
+  %41 = phi i32 [ %37, %39 ], [ %.pre, %.thread45..thread53_crit_edge ]
+  %.4 = phi i32 [ %40, %39 ], [ %37, %.thread45..thread53_crit_edge ]
   %42 = ptrtoint ptr %32 to i64
   %43 = trunc i64 %42 to i32
   %44 = sub i32 0, %43
@@ -14632,7 +14635,6 @@ define i32 @wc_KeyPemToDer(ptr noundef %0, i32 noundef %1, ptr noundef writeonly
   br i1 %or.cond, label %FreeDer.exit, label %12
 
 12:                                               ; preds = %9
-  store i64 0, ptr %7, align 8
   %13 = sext i32 %1 to i64
   %14 = call i32 @PemToDer(ptr noundef nonnull %0, i64 noundef %13, i32 noundef 1, ptr noundef nonnull %6, ptr noundef null, ptr noundef nonnull %7, ptr noundef null)
   %15 = icmp slt i32 %14, 0
@@ -15690,7 +15692,6 @@ define internal fastcc i32 @eccToPKCS8(ptr noundef %0, ptr noundef %1, ptr nound
   store i32 %28, ptr %51, align 16, !tbaa !3
   %52 = call i32 @SizeASN_Items(ptr noundef nonnull @pkcs8KeyASN, ptr noundef nonnull %5, i32 noundef 8, ptr noundef nonnull %6)
   %53 = load i32, ptr %6, align 4, !tbaa !22
-  store i32 %53, ptr %10, align 4, !tbaa !22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #22
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #22

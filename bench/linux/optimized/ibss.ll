@@ -3159,7 +3159,6 @@ define internal fastcc void @__ieee80211_sta_join_ibss(ptr noundef %0, ptr nound
 
 46:                                               ; preds = %44, %40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, i8 0, i64 32, i1 false), !annotation !35
-  store i8 0, ptr %11, align 1, !annotation !35
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef align 8 dereferenceable(32) %3, i64 32, i1 false)
   %47 = load ptr, ptr %9, align 8
   %48 = load ptr, ptr %16, align 8
@@ -3240,6 +3239,7 @@ define internal fastcc void @__ieee80211_sta_join_ibss(ptr noundef %0, ptr nound
   br label %224
 
 94:                                               ; preds = %83
+  store i8 0, ptr %11, align 1, !annotation !35
   %95 = icmp ne i32 %69, 0
   %96 = zext i1 %95 to i8
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 3552

@@ -3235,25 +3235,23 @@ define hidden noundef i32 @PIDL_dissect_cvstring(ptr noundef %0, i32 noundef %1,
 46:                                               ; preds = %44
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %48 = load ptr, ptr %47, align 8
-  %49 = load ptr, ptr %10, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %48, ptr noundef nonnull @.str.9, ptr noundef %49)
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %48, ptr noundef nonnull @.str.9, ptr noundef nonnull %40)
   %.not42 = icmp eq i32 %11, 2
   br i1 %.not42, label %.loopexit, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %46
-  %50 = add nsw i32 %11, -2
+  %49 = add nsw i32 %11, -2
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %.041 = phi i32 [ %52, %.lr.ph ], [ %50, %.lr.ph.preheader ]
+  %.041 = phi i32 [ %50, %.lr.ph ], [ %49, %.lr.ph.preheader ]
   %.pn40 = phi ptr [ %.032, %.lr.ph ], [ %48, %.lr.ph.preheader ]
   %.032.in = getelementptr inbounds nuw i8, ptr %.pn40, i64 24
   %.032 = load ptr, ptr %.032.in, align 8
-  %51 = load ptr, ptr %10, align 8
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.032, ptr noundef nonnull @.str.11, ptr noundef %51)
-  %52 = add nsw i32 %.041, -1
-  %53 = icmp samesign ugt i32 %.041, 1
-  br i1 %53, label %.lr.ph, label %.loopexit, !llvm.loop !16
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %.032, ptr noundef nonnull @.str.11, ptr noundef nonnull %40)
+  %50 = add nsw i32 %.041, -1
+  %51 = icmp samesign ugt i32 %.041, 1
+  br i1 %51, label %.lr.ph, label %.loopexit, !llvm.loop !16
 
 .loopexit:                                        ; preds = %.lr.ph, %46, %37, %42, %44, %9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #19

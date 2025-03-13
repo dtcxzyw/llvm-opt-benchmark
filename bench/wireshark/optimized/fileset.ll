@@ -403,20 +403,20 @@ g_string_append_c_inline.exit:                    ; preds = %18, %24
   %26 = tail call i32 @fileset_filename_match_pattern(ptr noundef %0, ptr noundef null, ptr noundef null, ptr noundef null)
   %.not = icmp eq i32 %26, 0
   %27 = load ptr, ptr %9, align 8
-  br i1 %.not, label %59, label %28
+  br i1 %.not, label %50, label %28
 
 28:                                               ; preds = %g_string_append_c_inline.exit
   %29 = tail call ptr @g_dir_open(ptr noundef %27, i32 noundef 0, ptr noundef null)
   %.not20 = icmp eq ptr %29, null
-  br i1 %.not20, label %61, label %.preheader
+  br i1 %.not20, label %52, label %.preheader
 
 .preheader:                                       ; preds = %28
   %30 = tail call ptr @g_dir_read_name(ptr noundef nonnull %29)
-  %.not2123 = icmp eq ptr %30, null
-  br i1 %.not2123, label %._crit_edge, label %.lr.ph
+  %.not2125 = icmp eq ptr %30, null
+  br i1 %.not2125, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader, %57
-  %31 = phi ptr [ %58, %57 ], [ %30, %.preheader ]
+.lr.ph:                                           ; preds = %.preheader, %48
+  %31 = phi ptr [ %49, %48 ], [ %30, %.preheader ]
   %32 = call ptr @get_basename(ptr noundef %0)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
@@ -431,86 +431,96 @@ fileset_is_file_in_set.exit.thread:               ; preds = %.lr.ph
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
-  br label %57
+  br label %48
 
 35:                                               ; preds = %.lr.ph
   %36 = call i32 @fileset_filename_match_pattern(ptr noundef %32, ptr noundef nonnull %4, ptr noundef nonnull %6, ptr noundef null)
   %37 = icmp eq i32 %33, %36
-  br i1 %37, label %38, label %fileset_is_file_in_set.exit
+  %.pre.i = load ptr, ptr %3, align 8
+  %.pre8.i = load ptr, ptr %4, align 8
+  br i1 %37, label %38, label %._crit_edge.i
+
+._crit_edge.i:                                    ; preds = %35
+  %.pre9.i = load ptr, ptr %5, align 8
+  %.pre11.i = load ptr, ptr %6, align 8
+  br label %.critedge
 
 38:                                               ; preds = %35
-  %39 = load ptr, ptr %3, align 8
-  %40 = load ptr, ptr %4, align 8
-  %41 = call i32 @g_strcmp0(ptr noundef %39, ptr noundef %40)
+  %39 = call i32 @g_strcmp0(ptr noundef %.pre.i, ptr noundef %.pre8.i)
+  %40 = icmp eq i32 %39, 0
+  %.pre10.i = load ptr, ptr %5, align 8
+  %.pre12.i = load ptr, ptr %6, align 8
+  br i1 %40, label %fileset_is_file_in_set.exit, label %.critedge
+
+fileset_is_file_in_set.exit:                      ; preds = %38
+  %41 = call i32 @g_strcmp0(ptr noundef %.pre10.i, ptr noundef %.pre12.i)
   %42 = icmp eq i32 %41, 0
-  br i1 %42, label %43, label %fileset_is_file_in_set.exit
-
-43:                                               ; preds = %38
-  %44 = load ptr, ptr %5, align 8
-  %45 = load ptr, ptr %6, align 8
-  %46 = call i32 @g_strcmp0(ptr noundef %44, ptr noundef %45)
-  %47 = icmp eq i32 %46, 0
-  br label %fileset_is_file_in_set.exit
-
-fileset_is_file_in_set.exit:                      ; preds = %35, %38, %43
-  %.0.i = phi i1 [ false, %38 ], [ false, %35 ], [ %47, %43 ]
-  %48 = load ptr, ptr %3, align 8
-  call void @g_free(ptr noundef %48)
-  %49 = load ptr, ptr %4, align 8
-  call void @g_free(ptr noundef %49)
-  %50 = load ptr, ptr %5, align 8
-  call void @g_free(ptr noundef %50)
-  %51 = load ptr, ptr %6, align 8
-  call void @g_free(ptr noundef %51)
+  call void @g_free(ptr noundef %.pre.i)
+  call void @g_free(ptr noundef %.pre8.i)
+  call void @g_free(ptr noundef %.pre10.i)
+  call void @g_free(ptr noundef %.pre12.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
-  br i1 %.0.i, label %52, label %57
+  br i1 %42, label %43, label %48
 
-52:                                               ; preds = %fileset_is_file_in_set.exit
-  %53 = load ptr, ptr %9, align 8
-  %54 = call ptr @get_basename(ptr noundef %0)
-  %55 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %31, ptr noundef %54) #10
-  %56 = icmp eq i32 %55, 0
-  call fastcc void @fileset_add_file(ptr noundef %53, ptr noundef nonnull %31, i1 noundef zeroext %56)
-  br label %57
+43:                                               ; preds = %fileset_is_file_in_set.exit
+  %44 = load ptr, ptr %9, align 8
+  %45 = call ptr @get_basename(ptr noundef %0)
+  %46 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %31, ptr noundef %45) #10
+  %47 = icmp eq i32 %46, 0
+  call fastcc void @fileset_add_file(ptr noundef %44, ptr noundef nonnull %31, i1 noundef zeroext %47)
+  br label %48
 
-57:                                               ; preds = %fileset_is_file_in_set.exit.thread, %52, %fileset_is_file_in_set.exit
-  %58 = call ptr @g_dir_read_name(ptr noundef nonnull %29)
-  %.not21 = icmp eq ptr %58, null
+.critedge:                                        ; preds = %._crit_edge.i, %38
+  %.ph = phi ptr [ %.pre11.i, %._crit_edge.i ], [ %.pre12.i, %38 ]
+  %.ph24 = phi ptr [ %.pre9.i, %._crit_edge.i ], [ %.pre10.i, %38 ]
+  call void @g_free(ptr noundef %.pre.i)
+  call void @g_free(ptr noundef %.pre8.i)
+  call void @g_free(ptr noundef %.ph24)
+  call void @g_free(ptr noundef %.ph)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
+  br label %48
+
+48:                                               ; preds = %.critedge, %fileset_is_file_in_set.exit.thread, %43, %fileset_is_file_in_set.exit
+  %49 = call ptr @g_dir_read_name(ptr noundef nonnull %29)
+  %.not21 = icmp eq ptr %49, null
   br i1 %.not21, label %._crit_edge, label %.lr.ph, !llvm.loop !9
 
-._crit_edge:                                      ; preds = %57, %.preheader
+._crit_edge:                                      ; preds = %48, %.preheader
   call void @g_dir_close(ptr noundef nonnull %29)
-  br label %61
+  br label %52
 
-59:                                               ; preds = %g_string_append_c_inline.exit
-  %60 = tail call ptr @get_basename(ptr noundef %0)
-  tail call fastcc void @fileset_add_file(ptr noundef %27, ptr noundef %60, i1 noundef zeroext true)
-  br label %61
+50:                                               ; preds = %g_string_append_c_inline.exit
+  %51 = tail call ptr @get_basename(ptr noundef %0)
+  tail call fastcc void @fileset_add_file(ptr noundef %27, ptr noundef %51, i1 noundef zeroext true)
+  br label %52
 
-61:                                               ; preds = %28, %._crit_edge, %59
-  %62 = call ptr @g_string_free(ptr noundef %9, i32 noundef 1)
-  %63 = load ptr, ptr @set.0, align 8
-  %64 = call ptr @g_list_sort(ptr noundef %63, ptr noundef nonnull @fileset_sort_compare)
-  store ptr %64, ptr @set.0, align 8
+52:                                               ; preds = %28, %._crit_edge, %50
+  %53 = call ptr @g_string_free(ptr noundef %9, i32 noundef 1)
+  %54 = load ptr, ptr @set.0, align 8
+  %55 = call ptr @g_list_sort(ptr noundef %54, ptr noundef nonnull @fileset_sort_compare)
+  store ptr %55, ptr @set.0, align 8
   call void @fileset_dlg_begin_add_file(ptr noundef %1)
-  %65 = load ptr, ptr @set.0, align 8
-  %66 = call ptr @g_list_first(ptr noundef %65)
-  %.not7.i = icmp eq ptr %66, null
+  %56 = load ptr, ptr @set.0, align 8
+  %57 = call ptr @g_list_first(ptr noundef %56)
+  %.not7.i = icmp eq ptr %57, null
   br i1 %.not7.i, label %fileset_update_dlg.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %61, %.lr.ph.i
-  %.08.i = phi ptr [ %69, %.lr.ph.i ], [ %66, %61 ]
-  %67 = load ptr, ptr %.08.i, align 8
-  call void @fileset_dlg_add_file(ptr noundef %67, ptr noundef %1)
-  %68 = getelementptr inbounds nuw i8, ptr %.08.i, i64 8
-  %69 = load ptr, ptr %68, align 8
-  %.not.i = icmp eq ptr %69, null
+.lr.ph.i:                                         ; preds = %52, %.lr.ph.i
+  %.08.i = phi ptr [ %60, %.lr.ph.i ], [ %57, %52 ]
+  %58 = load ptr, ptr %.08.i, align 8
+  call void @fileset_dlg_add_file(ptr noundef %58, ptr noundef %1)
+  %59 = getelementptr inbounds nuw i8, ptr %.08.i, i64 8
+  %60 = load ptr, ptr %59, align 8
+  %.not.i = icmp eq ptr %60, null
   br i1 %.not.i, label %fileset_update_dlg.exit, label %.lr.ph.i, !llvm.loop !8
 
-fileset_update_dlg.exit:                          ; preds = %.lr.ph.i, %61
+fileset_update_dlg.exit:                          ; preds = %.lr.ph.i, %52
   call void @fileset_dlg_end_add_file(ptr noundef %1)
   ret void
 }

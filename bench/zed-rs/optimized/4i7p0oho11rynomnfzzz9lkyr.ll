@@ -147034,10 +147034,10 @@ define internal fastcc void @_ZN6editor7element16HighlightedRange11paint_lines17
   %16 = icmp eq i64 %3, 0
   br i1 %16, label %17, label %18
 
-17:                                               ; preds = %5, %185
+17:                                               ; preds = %5, %181
   ret void
 
-default.unreachable20:                            ; preds = %74
+default.unreachable18:                            ; preds = %70
   unreachable
 
 18:                                               ; preds = %5
@@ -147075,356 +147075,349 @@ default.unreachable20:                            ; preds = %74
   %.sroa.10.0 = phi ptr [ undef, %33 ], [ %.sroa.10.0.be, %.backedge ]
   %.sroa.6.0 = phi i64 [ undef, %33 ], [ %.sroa.6.0.be, %.backedge ]
   %40 = phi i64 [ 0, %33 ], [ %.be, %.backedge ]
-  %41 = phi ptr [ %2, %33 ], [ %.be30, %.backedge ]
+  %41 = phi ptr [ %2, %33 ], [ %.be34, %.backedge ]
   %switch = phi i1 [ true, %33 ], [ false, %.backedge ]
-  br i1 %switch, label %42, label %47
+  br i1 %switch, label %42, label %46
 
 42:                                               ; preds = %39
   %43 = icmp eq ptr %41, %34
-  br i1 %43, label %.thread, label %44
+  br i1 %43, label %.thread, label %.thread21
 
-44:                                               ; preds = %42
-  %45 = getelementptr inbounds nuw i8, ptr %41, i64 8
-  %46 = add i64 %40, 1
-  br label %47
+.thread21:                                        ; preds = %42
+  %44 = getelementptr inbounds nuw i8, ptr %41, i64 8
+  %45 = add i64 %40, 1
+  br label %48
 
-47:                                               ; preds = %44, %39
-  %48 = phi i64 [ %40, %39 ], [ %46, %44 ]
-  %49 = phi ptr [ %41, %39 ], [ %45, %44 ]
-  %.sroa.024.0 = phi i64 [ %.sroa.6.0, %39 ], [ %40, %44 ]
-  %.sroa.325.0 = phi ptr [ %.sroa.10.0, %39 ], [ %41, %44 ]
-  %50 = icmp eq ptr %.sroa.325.0, null
-  br i1 %50, label %.thread, label %51
+46:                                               ; preds = %39
+  %47 = icmp eq ptr %.sroa.10.0, null
+  br i1 %47, label %.thread, label %48
 
-51:                                               ; preds = %47
-  %52 = getelementptr inbounds nuw i8, ptr %.sroa.325.0, i64 4
-  %53 = load float, ptr %52, align 4, !noundef !4
-  %54 = add i64 %.sroa.024.0, 1
-  %55 = uitofp i64 %54 to float
-  %56 = invoke noundef float @"_ZN4gpui8geometry85_$LT$impl$u20$core..ops..arith..Mul$LT$gpui..geometry..Pixels$GT$$u20$for$u20$f32$GT$3mul17h80f64fe16a56aad5E"(float noundef %55, float noundef %36)
-          to label %58 unwind label %.loopexit
+48:                                               ; preds = %.thread21, %46
+  %.sroa.325.025 = phi ptr [ %41, %.thread21 ], [ %.sroa.10.0, %46 ]
+  %.sroa.024.024 = phi i64 [ %40, %.thread21 ], [ %.sroa.6.0, %46 ]
+  %49 = phi ptr [ %44, %.thread21 ], [ %41, %46 ]
+  %50 = phi i64 [ %45, %.thread21 ], [ %40, %46 ]
+  %51 = getelementptr inbounds nuw i8, ptr %.sroa.325.025, i64 4
+  %52 = load float, ptr %51, align 4, !noundef !4
+  %53 = add i64 %.sroa.024.024, 1
+  %54 = uitofp i64 %53 to float
+  %55 = invoke noundef float @"_ZN4gpui8geometry85_$LT$impl$u20$core..ops..arith..Mul$LT$gpui..geometry..Pixels$GT$$u20$for$u20$f32$GT$3mul17h80f64fe16a56aad5E"(float noundef %54, float noundef %36)
+          to label %57 unwind label %.loopexit
 
-.thread:                                          ; preds = %42, %47
-  %57 = invoke noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %2, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %20)
-          to label %153 unwind label %.loopexit.split-lp, !range !28493
+.thread:                                          ; preds = %42, %46
+  %56 = invoke noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %2, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %20)
+          to label %149 unwind label %.loopexit.split-lp, !range !28493
 
-58:                                               ; preds = %51
-  %59 = fadd float %1, %56
-  store float %53, ptr %14, align 4
-  store float %59, ptr %37, align 4
-  %60 = icmp eq ptr %49, %34
-  br i1 %60, label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h14193be8a6827352E.exit.thread", label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h14193be8a6827352E.exit"
+57:                                               ; preds = %48
+  %58 = fadd float %1, %55
+  store float %52, ptr %14, align 4
+  store float %58, ptr %37, align 4
+  %59 = icmp eq ptr %49, %34
+  br i1 %59, label %.thread26, label %60
 
-"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h14193be8a6827352E.exit": ; preds = %58
+60:                                               ; preds = %57
   %61 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  %62 = add i64 %48, 1
-  %63 = icmp eq ptr %49, null
-  br i1 %63, label %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h14193be8a6827352E.exit.thread", label %64
+  %62 = add i64 %50, 1
+  %63 = getelementptr inbounds nuw i8, ptr %49, i64 4
+  %64 = load float, ptr %63, align 4, !noundef !4
+  store float %64, ptr %13, align 4
+  store float %58, ptr %38, align 4
+  %65 = invoke noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %13, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %14)
+          to label %70 unwind label %.loopexit, !range !28493
 
-64:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h14193be8a6827352E.exit"
-  %65 = getelementptr inbounds nuw i8, ptr %49, i64 4
-  %66 = load float, ptr %65, align 4, !noundef !4
-  store float %66, ptr %13, align 4
-  store float %59, ptr %38, align 4
-  %67 = invoke noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %13, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %14)
-          to label %74 unwind label %.loopexit, !range !28493
+.thread26:                                        ; preds = %57
+  %66 = load float, ptr %.sroa.325.025, align 4, !noundef !4
+  %67 = fsub float %52, %66
+  %68 = fmul float %67, 5.000000e-01
+  store float %68, ptr %7, align 4
+  %69 = invoke noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %24)
+          to label %128 unwind label %.loopexit, !range !28493
 
-"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h14193be8a6827352E.exit.thread": ; preds = %58, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h14193be8a6827352E.exit"
-  %.sroa.0.0.i.i.i28 = phi i64 [ %48, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h14193be8a6827352E.exit" ], [ undef, %58 ]
-  %68 = phi ptr [ %61, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h14193be8a6827352E.exit" ], [ %49, %58 ]
-  %69 = phi i64 [ %62, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h14193be8a6827352E.exit" ], [ %48, %58 ]
-  %70 = load float, ptr %.sroa.325.0, align 4, !noundef !4
-  %71 = fsub float %53, %70
-  %72 = fmul float %71, 5.000000e-01
-  store float %72, ptr %7, align 4
-  %73 = invoke noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %24)
-          to label %132 unwind label %.loopexit, !range !28493
-
-74:                                               ; preds = %64
-  switch i8 %67, label %default.unreachable20 [
-    i8 2, label %75
-    i8 -1, label %77
-    i8 0, label %81
-    i8 1, label %84
+70:                                               ; preds = %60
+  switch i8 %65, label %default.unreachable18 [
+    i8 2, label %71
+    i8 -1, label %73
+    i8 0, label %77
+    i8 1, label %80
   ]
 
-75:                                               ; preds = %74
+71:                                               ; preds = %70
   invoke void @_ZN4core6option13unwrap_failed17hba6b08832f9ce30bE(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.b3aa91ad3910538ca077da0228902b5c.741) #46
-          to label %76 unwind label %.loopexit.split-lp
+          to label %72 unwind label %.loopexit.split-lp
 
-76:                                               ; preds = %75
+72:                                               ; preds = %71
   unreachable
 
-77:                                               ; preds = %74
-  %78 = fsub float %53, %66
-  %79 = fmul float %78, 5.000000e-01
-  store float %79, ptr %8, align 4
-  %80 = invoke noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %8, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %24)
-          to label %88 unwind label %.loopexit, !range !28493
+73:                                               ; preds = %70
+  %74 = fsub float %52, %64
+  %75 = fmul float %74, 5.000000e-01
+  store float %75, ptr %8, align 4
+  %76 = invoke noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %8, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %24)
+          to label %84 unwind label %.loopexit, !range !28493
 
-81:                                               ; preds = %74
-  %82 = load float, ptr %14, align 4, !noundef !4
-  %83 = load float, ptr %37, align 4, !noundef !4
-  invoke void @"_ZN4gpui5scene34Path$LT$gpui..geometry..Pixels$GT$7line_to17h66ecde6d2e52bf8eE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %15, float noundef %82, float noundef %83)
+77:                                               ; preds = %70
+  %78 = load float, ptr %14, align 4, !noundef !4
+  %79 = load float, ptr %37, align 4, !noundef !4
+  invoke void @"_ZN4gpui5scene34Path$LT$gpui..geometry..Pixels$GT$7line_to17h66ecde6d2e52bf8eE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %15, float noundef %78, float noundef %79)
           to label %.backedge unwind label %.loopexit
 
-84:                                               ; preds = %74
-  %85 = fsub float %66, %53
-  %86 = fmul float %85, 5.000000e-01
-  store float %86, ptr %9, align 4
-  %87 = invoke noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %9, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %24)
-          to label %112 unwind label %.loopexit, !range !28493
+80:                                               ; preds = %70
+  %81 = fsub float %64, %52
+  %82 = fmul float %81, 5.000000e-01
+  store float %82, ptr %9, align 4
+  %83 = invoke noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %9, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %24)
+          to label %108 unwind label %.loopexit, !range !28493
 
-88:                                               ; preds = %77
-  %cond82 = icmp eq i8 %80, -1
-  %89 = load float, ptr %8, align 4
-  %.sroa.030.0 = select i1 %cond82, float %89, float %25
-  %90 = load float, ptr %14, align 4, !noundef !4
-  %91 = load float, ptr %37, align 4, !noundef !4
-  %92 = fsub float %91, %25
-  invoke void @"_ZN4gpui5scene34Path$LT$gpui..geometry..Pixels$GT$7line_to17h66ecde6d2e52bf8eE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %15, float noundef %90, float noundef %92)
-          to label %93 unwind label %.loopexit
+84:                                               ; preds = %73
+  %cond82 = icmp eq i8 %76, -1
+  %85 = load float, ptr %8, align 4
+  %.sroa.030.0 = select i1 %cond82, float %85, float %25
+  %86 = load float, ptr %14, align 4, !noundef !4
+  %87 = load float, ptr %37, align 4, !noundef !4
+  %88 = fsub float %87, %25
+  invoke void @"_ZN4gpui5scene34Path$LT$gpui..geometry..Pixels$GT$7line_to17h66ecde6d2e52bf8eE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %15, float noundef %86, float noundef %88)
+          to label %89 unwind label %.loopexit
 
-93:                                               ; preds = %88
-  %94 = invoke noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %24, ptr noalias noundef readonly align 4 dereferenceable(4) @anon.b3aa91ad3910538ca077da0228902b5c.694)
-          to label %95 unwind label %.loopexit, !range !28493
+89:                                               ; preds = %84
+  %90 = invoke noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %24, ptr noalias noundef readonly align 4 dereferenceable(4) @anon.b3aa91ad3910538ca077da0228902b5c.694)
+          to label %91 unwind label %.loopexit, !range !28493
 
-95:                                               ; preds = %93
-  %cond83 = icmp eq i8 %94, 1
-  br i1 %cond83, label %96, label %100
+91:                                               ; preds = %89
+  %cond83 = icmp eq i8 %90, 1
+  br i1 %cond83, label %92, label %96
 
-96:                                               ; preds = %95
-  %97 = load float, ptr %14, align 4, !noundef !4
-  %98 = load float, ptr %37, align 4, !noundef !4
-  %99 = fsub float %97, %.sroa.030.0
-  invoke void @"_ZN4gpui5scene34Path$LT$gpui..geometry..Pixels$GT$8curve_to17h0b7d6f03c0c1c718E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %15, float noundef %99, float noundef %98, float noundef %97, float noundef %98)
-          to label %100 unwind label %.loopexit
+92:                                               ; preds = %91
+  %93 = load float, ptr %14, align 4, !noundef !4
+  %94 = load float, ptr %37, align 4, !noundef !4
+  %95 = fsub float %93, %.sroa.030.0
+  invoke void @"_ZN4gpui5scene34Path$LT$gpui..geometry..Pixels$GT$8curve_to17h0b7d6f03c0c1c718E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %15, float noundef %95, float noundef %94, float noundef %93, float noundef %94)
+          to label %96 unwind label %.loopexit
 
-100:                                              ; preds = %96, %95
-  %101 = load float, ptr %13, align 4, !noundef !4
-  %102 = load float, ptr %38, align 4, !noundef !4
-  %103 = fadd float %.sroa.030.0, %101
-  %104 = fadd float %102, 0.000000e+00
-  invoke void @"_ZN4gpui5scene34Path$LT$gpui..geometry..Pixels$GT$7line_to17h66ecde6d2e52bf8eE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %15, float noundef %103, float noundef %104)
-          to label %105 unwind label %.loopexit
+96:                                               ; preds = %92, %91
+  %97 = load float, ptr %13, align 4, !noundef !4
+  %98 = load float, ptr %38, align 4, !noundef !4
+  %99 = fadd float %.sroa.030.0, %97
+  %100 = fadd float %98, 0.000000e+00
+  invoke void @"_ZN4gpui5scene34Path$LT$gpui..geometry..Pixels$GT$7line_to17h66ecde6d2e52bf8eE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %15, float noundef %99, float noundef %100)
+          to label %101 unwind label %.loopexit
 
-105:                                              ; preds = %100
-  %106 = invoke noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %24, ptr noalias noundef readonly align 4 dereferenceable(4) @anon.b3aa91ad3910538ca077da0228902b5c.694)
-          to label %107 unwind label %.loopexit, !range !28493
+101:                                              ; preds = %96
+  %102 = invoke noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %24, ptr noalias noundef readonly align 4 dereferenceable(4) @anon.b3aa91ad3910538ca077da0228902b5c.694)
+          to label %103 unwind label %.loopexit, !range !28493
 
-107:                                              ; preds = %105
-  %cond84 = icmp eq i8 %106, 1
+103:                                              ; preds = %101
+  %cond84 = icmp eq i8 %102, 1
   br i1 %cond84, label %.invoke, label %.backedge
 
-.invoke:                                          ; preds = %107, %131
-  %108 = load float, ptr %13, align 4, !noundef !4
-  %109 = load float, ptr %38, align 4, !noundef !4
-  %110 = fadd float %108, 0.000000e+00
-  %111 = fadd float %25, %109
-  invoke void @"_ZN4gpui5scene34Path$LT$gpui..geometry..Pixels$GT$8curve_to17h0b7d6f03c0c1c718E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %15, float noundef %110, float noundef %111, float noundef %108, float noundef %109)
+.invoke:                                          ; preds = %103, %127
+  %104 = load float, ptr %13, align 4, !noundef !4
+  %105 = load float, ptr %38, align 4, !noundef !4
+  %106 = fadd float %104, 0.000000e+00
+  %107 = fadd float %25, %105
+  invoke void @"_ZN4gpui5scene34Path$LT$gpui..geometry..Pixels$GT$8curve_to17h0b7d6f03c0c1c718E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %15, float noundef %106, float noundef %107, float noundef %104, float noundef %105)
           to label %.backedge unwind label %.loopexit
 
-.backedge:                                        ; preds = %.invoke, %150, %131, %107, %81, %151
-  %.sroa.10.0.be = phi ptr [ null, %150 ], [ %49, %131 ], [ %49, %107 ], [ %49, %81 ], [ null, %151 ], [ %49, %.invoke ]
-  %.sroa.6.0.be = phi i64 [ %.sroa.0.0.i.i.i28, %150 ], [ %48, %131 ], [ %48, %107 ], [ %48, %81 ], [ %.sroa.0.0.i.i.i28, %151 ], [ %48, %.invoke ]
-  %.be = phi i64 [ %69, %150 ], [ %62, %131 ], [ %62, %107 ], [ %62, %81 ], [ %69, %151 ], [ %62, %.invoke ]
-  %.be30 = phi ptr [ %68, %150 ], [ %61, %131 ], [ %61, %107 ], [ %61, %81 ], [ %68, %151 ], [ %61, %.invoke ]
+.backedge:                                        ; preds = %.invoke, %146, %127, %103, %77, %147
+  %.sroa.10.0.be = phi ptr [ null, %146 ], [ %49, %127 ], [ %49, %103 ], [ %49, %77 ], [ null, %147 ], [ %49, %.invoke ]
+  %.sroa.6.0.be = phi i64 [ undef, %146 ], [ %50, %127 ], [ %50, %103 ], [ %50, %77 ], [ undef, %147 ], [ %50, %.invoke ]
+  %.be = phi i64 [ %50, %146 ], [ %62, %127 ], [ %62, %103 ], [ %62, %77 ], [ %50, %147 ], [ %62, %.invoke ]
+  %.be34 = phi ptr [ %34, %146 ], [ %61, %127 ], [ %61, %103 ], [ %61, %77 ], [ %34, %147 ], [ %61, %.invoke ]
   br label %39
 
-112:                                              ; preds = %84
-  %cond85 = icmp eq i8 %87, -1
-  %113 = load float, ptr %9, align 4
-  %.sroa.027.0 = select i1 %cond85, float %113, float %25
-  %114 = load float, ptr %14, align 4, !noundef !4
-  %115 = load float, ptr %37, align 4, !noundef !4
-  %116 = fsub float %115, %25
-  invoke void @"_ZN4gpui5scene34Path$LT$gpui..geometry..Pixels$GT$7line_to17h66ecde6d2e52bf8eE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %15, float noundef %114, float noundef %116)
-          to label %117 unwind label %.loopexit
+108:                                              ; preds = %80
+  %cond85 = icmp eq i8 %83, -1
+  %109 = load float, ptr %9, align 4
+  %.sroa.027.0 = select i1 %cond85, float %109, float %25
+  %110 = load float, ptr %14, align 4, !noundef !4
+  %111 = load float, ptr %37, align 4, !noundef !4
+  %112 = fsub float %111, %25
+  invoke void @"_ZN4gpui5scene34Path$LT$gpui..geometry..Pixels$GT$7line_to17h66ecde6d2e52bf8eE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %15, float noundef %110, float noundef %112)
+          to label %113 unwind label %.loopexit
 
-117:                                              ; preds = %112
-  %118 = invoke noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %24, ptr noalias noundef readonly align 4 dereferenceable(4) @anon.b3aa91ad3910538ca077da0228902b5c.694)
-          to label %119 unwind label %.loopexit, !range !28493
+113:                                              ; preds = %108
+  %114 = invoke noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %24, ptr noalias noundef readonly align 4 dereferenceable(4) @anon.b3aa91ad3910538ca077da0228902b5c.694)
+          to label %115 unwind label %.loopexit, !range !28493
 
-119:                                              ; preds = %117
-  %cond86 = icmp eq i8 %118, 1
-  br i1 %cond86, label %120, label %125
+115:                                              ; preds = %113
+  %cond86 = icmp eq i8 %114, 1
+  br i1 %cond86, label %116, label %121
 
-120:                                              ; preds = %119
-  %121 = load float, ptr %14, align 4, !noundef !4
-  %122 = load float, ptr %37, align 4, !noundef !4
-  %123 = fadd float %.sroa.027.0, %121
-  %124 = fadd float %122, 0.000000e+00
-  invoke void @"_ZN4gpui5scene34Path$LT$gpui..geometry..Pixels$GT$8curve_to17h0b7d6f03c0c1c718E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %15, float noundef %123, float noundef %124, float noundef %121, float noundef %122)
+116:                                              ; preds = %115
+  %117 = load float, ptr %14, align 4, !noundef !4
+  %118 = load float, ptr %37, align 4, !noundef !4
+  %119 = fadd float %.sroa.027.0, %117
+  %120 = fadd float %118, 0.000000e+00
+  invoke void @"_ZN4gpui5scene34Path$LT$gpui..geometry..Pixels$GT$8curve_to17h0b7d6f03c0c1c718E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %15, float noundef %119, float noundef %120, float noundef %117, float noundef %118)
+          to label %121 unwind label %.loopexit
+
+121:                                              ; preds = %116, %115
+  %122 = load float, ptr %13, align 4, !noundef !4
+  %123 = load float, ptr %38, align 4, !noundef !4
+  %124 = fsub float %122, %.sroa.027.0
+  invoke void @"_ZN4gpui5scene34Path$LT$gpui..geometry..Pixels$GT$7line_to17h66ecde6d2e52bf8eE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %15, float noundef %124, float noundef %123)
           to label %125 unwind label %.loopexit
 
-125:                                              ; preds = %120, %119
-  %126 = load float, ptr %13, align 4, !noundef !4
-  %127 = load float, ptr %38, align 4, !noundef !4
-  %128 = fsub float %126, %.sroa.027.0
-  invoke void @"_ZN4gpui5scene34Path$LT$gpui..geometry..Pixels$GT$7line_to17h66ecde6d2e52bf8eE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %15, float noundef %128, float noundef %127)
-          to label %129 unwind label %.loopexit
+125:                                              ; preds = %121
+  %126 = invoke noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %24, ptr noalias noundef readonly align 4 dereferenceable(4) @anon.b3aa91ad3910538ca077da0228902b5c.694)
+          to label %127 unwind label %.loopexit, !range !28493
 
-129:                                              ; preds = %125
-  %130 = invoke noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %24, ptr noalias noundef readonly align 4 dereferenceable(4) @anon.b3aa91ad3910538ca077da0228902b5c.694)
-          to label %131 unwind label %.loopexit, !range !28493
-
-131:                                              ; preds = %129
-  %cond87 = icmp eq i8 %130, 1
+127:                                              ; preds = %125
+  %cond87 = icmp eq i8 %126, 1
   br i1 %cond87, label %.invoke, label %.backedge
 
-132:                                              ; preds = %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h14193be8a6827352E.exit.thread"
-  %cond88 = icmp eq i8 %73, -1
-  %133 = load float, ptr %7, align 4
-  %.sroa.041.0 = select i1 %cond88, float %133, float %25
-  %134 = load float, ptr %14, align 4, !noundef !4
-  %135 = load float, ptr %37, align 4, !noundef !4
-  %136 = fsub float %135, %25
-  invoke void @"_ZN4gpui5scene34Path$LT$gpui..geometry..Pixels$GT$7line_to17h66ecde6d2e52bf8eE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %15, float noundef %134, float noundef %136)
-          to label %137 unwind label %.loopexit
+128:                                              ; preds = %.thread26
+  %cond88 = icmp eq i8 %69, -1
+  %129 = load float, ptr %7, align 4
+  %.sroa.041.0 = select i1 %cond88, float %129, float %25
+  %130 = load float, ptr %14, align 4, !noundef !4
+  %131 = load float, ptr %37, align 4, !noundef !4
+  %132 = fsub float %131, %25
+  invoke void @"_ZN4gpui5scene34Path$LT$gpui..geometry..Pixels$GT$7line_to17h66ecde6d2e52bf8eE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %15, float noundef %130, float noundef %132)
+          to label %133 unwind label %.loopexit
 
-137:                                              ; preds = %132
-  %138 = invoke noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %24, ptr noalias noundef readonly align 4 dereferenceable(4) @anon.b3aa91ad3910538ca077da0228902b5c.694)
-          to label %139 unwind label %.loopexit, !range !28493
+133:                                              ; preds = %128
+  %134 = invoke noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %24, ptr noalias noundef readonly align 4 dereferenceable(4) @anon.b3aa91ad3910538ca077da0228902b5c.694)
+          to label %135 unwind label %.loopexit, !range !28493
 
-139:                                              ; preds = %137
-  %cond89 = icmp eq i8 %138, 1
-  br i1 %cond89, label %140, label %144
+135:                                              ; preds = %133
+  %cond89 = icmp eq i8 %134, 1
+  br i1 %cond89, label %136, label %140
 
-140:                                              ; preds = %139
-  %141 = load float, ptr %14, align 4, !noundef !4
-  %142 = load float, ptr %37, align 4, !noundef !4
-  %143 = fsub float %141, %.sroa.041.0
-  invoke void @"_ZN4gpui5scene34Path$LT$gpui..geometry..Pixels$GT$8curve_to17h0b7d6f03c0c1c718E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %15, float noundef %143, float noundef %142, float noundef %141, float noundef %142)
+136:                                              ; preds = %135
+  %137 = load float, ptr %14, align 4, !noundef !4
+  %138 = load float, ptr %37, align 4, !noundef !4
+  %139 = fsub float %137, %.sroa.041.0
+  invoke void @"_ZN4gpui5scene34Path$LT$gpui..geometry..Pixels$GT$8curve_to17h0b7d6f03c0c1c718E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %15, float noundef %139, float noundef %138, float noundef %137, float noundef %138)
+          to label %140 unwind label %.loopexit
+
+140:                                              ; preds = %136, %135
+  %141 = load float, ptr %.sroa.325.025, align 4, !noundef !4
+  %142 = fadd float %.sroa.041.0, %141
+  %143 = fadd float %58, 0.000000e+00
+  invoke void @"_ZN4gpui5scene34Path$LT$gpui..geometry..Pixels$GT$7line_to17h66ecde6d2e52bf8eE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %15, float noundef %142, float noundef %143)
           to label %144 unwind label %.loopexit
 
-144:                                              ; preds = %140, %139
-  %145 = load float, ptr %.sroa.325.0, align 4, !noundef !4
-  %146 = fadd float %.sroa.041.0, %145
-  %147 = fadd float %59, 0.000000e+00
-  invoke void @"_ZN4gpui5scene34Path$LT$gpui..geometry..Pixels$GT$7line_to17h66ecde6d2e52bf8eE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %15, float noundef %146, float noundef %147)
-          to label %148 unwind label %.loopexit
+144:                                              ; preds = %140
+  %145 = invoke noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %24, ptr noalias noundef readonly align 4 dereferenceable(4) @anon.b3aa91ad3910538ca077da0228902b5c.694)
+          to label %146 unwind label %.loopexit, !range !28493
 
-148:                                              ; preds = %144
-  %149 = invoke noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %24, ptr noalias noundef readonly align 4 dereferenceable(4) @anon.b3aa91ad3910538ca077da0228902b5c.694)
-          to label %150 unwind label %.loopexit, !range !28493
+146:                                              ; preds = %144
+  %cond90 = icmp eq i8 %145, 1
+  br i1 %cond90, label %147, label %.backedge
 
-150:                                              ; preds = %148
-  %cond90 = icmp eq i8 %149, 1
-  br i1 %cond90, label %151, label %.backedge
-
-151:                                              ; preds = %150
-  %152 = fsub float %59, %25
-  invoke void @"_ZN4gpui5scene34Path$LT$gpui..geometry..Pixels$GT$8curve_to17h0b7d6f03c0c1c718E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %15, float noundef %145, float noundef %152, float noundef %145, float noundef %59)
+147:                                              ; preds = %146
+  %148 = fsub float %58, %25
+  invoke void @"_ZN4gpui5scene34Path$LT$gpui..geometry..Pixels$GT$8curve_to17h0b7d6f03c0c1c718E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %15, float noundef %141, float noundef %148, float noundef %141, float noundef %58)
           to label %.backedge unwind label %.loopexit
 
-153:                                              ; preds = %.thread
-  %cond91 = icmp eq i8 %57, 1
-  br i1 %cond91, label %154, label %176
+149:                                              ; preds = %.thread
+  %cond91 = icmp eq i8 %56, 1
+  br i1 %cond91, label %150, label %172
 
-154:                                              ; preds = %153
-  %155 = load float, ptr %20, align 4, !noundef !4
-  %156 = fsub float %21, %155
-  %157 = fmul float %156, 5.000000e-01
-  store float %157, ptr %6, align 4
-  %158 = invoke noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %24)
-          to label %159 unwind label %.loopexit.split-lp, !range !28493
+150:                                              ; preds = %149
+  %151 = load float, ptr %20, align 4, !noundef !4
+  %152 = fsub float %21, %151
+  %153 = fmul float %152, 5.000000e-01
+  store float %153, ptr %6, align 4
+  %154 = invoke noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %24)
+          to label %155 unwind label %.loopexit.split-lp, !range !28493
 
-159:                                              ; preds = %154
-  %cond92 = icmp eq i8 %158, -1
-  %.sroa.050.0 = select i1 %cond92, float %157, float %25
-  %160 = fadd float %1, %36
-  %161 = fadd float %155, 0.000000e+00
-  %162 = fadd float %25, %160
-  invoke void @"_ZN4gpui5scene34Path$LT$gpui..geometry..Pixels$GT$7line_to17h66ecde6d2e52bf8eE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %15, float noundef %161, float noundef %162)
-          to label %163 unwind label %.loopexit.split-lp
+155:                                              ; preds = %150
+  %cond92 = icmp eq i8 %154, -1
+  %.sroa.050.0 = select i1 %cond92, float %153, float %25
+  %156 = fadd float %1, %36
+  %157 = fadd float %151, 0.000000e+00
+  %158 = fadd float %25, %156
+  invoke void @"_ZN4gpui5scene34Path$LT$gpui..geometry..Pixels$GT$7line_to17h66ecde6d2e52bf8eE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %15, float noundef %157, float noundef %158)
+          to label %159 unwind label %.loopexit.split-lp
 
-163:                                              ; preds = %159
-  %164 = invoke noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %24, ptr noalias noundef readonly align 4 dereferenceable(4) @anon.b3aa91ad3910538ca077da0228902b5c.694)
-          to label %165 unwind label %.loopexit.split-lp, !range !28493
+159:                                              ; preds = %155
+  %160 = invoke noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %24, ptr noalias noundef readonly align 4 dereferenceable(4) @anon.b3aa91ad3910538ca077da0228902b5c.694)
+          to label %161 unwind label %.loopexit.split-lp, !range !28493
 
-165:                                              ; preds = %163
-  %cond93 = icmp eq i8 %164, 1
-  br i1 %cond93, label %166, label %169
+161:                                              ; preds = %159
+  %cond93 = icmp eq i8 %160, 1
+  br i1 %cond93, label %162, label %165
 
-166:                                              ; preds = %165
-  %167 = fadd float %155, %.sroa.050.0
-  %168 = fadd float %160, 0.000000e+00
-  invoke void @"_ZN4gpui5scene34Path$LT$gpui..geometry..Pixels$GT$8curve_to17h0b7d6f03c0c1c718E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %15, float noundef %167, float noundef %168, float noundef %155, float noundef %160)
-          to label %169 unwind label %.loopexit.split-lp
+162:                                              ; preds = %161
+  %163 = fadd float %151, %.sroa.050.0
+  %164 = fadd float %156, 0.000000e+00
+  invoke void @"_ZN4gpui5scene34Path$LT$gpui..geometry..Pixels$GT$8curve_to17h0b7d6f03c0c1c718E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %15, float noundef %163, float noundef %164, float noundef %151, float noundef %156)
+          to label %165 unwind label %.loopexit.split-lp
 
-169:                                              ; preds = %166, %165
-  %170 = fsub float %21, %.sroa.050.0
-  invoke void @"_ZN4gpui5scene34Path$LT$gpui..geometry..Pixels$GT$7line_to17h66ecde6d2e52bf8eE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %15, float noundef %170, float noundef %160)
-          to label %171 unwind label %.loopexit.split-lp
+165:                                              ; preds = %162, %161
+  %166 = fsub float %21, %.sroa.050.0
+  invoke void @"_ZN4gpui5scene34Path$LT$gpui..geometry..Pixels$GT$7line_to17h66ecde6d2e52bf8eE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %15, float noundef %166, float noundef %156)
+          to label %167 unwind label %.loopexit.split-lp
 
-171:                                              ; preds = %169
-  %172 = invoke noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %24, ptr noalias noundef readonly align 4 dereferenceable(4) @anon.b3aa91ad3910538ca077da0228902b5c.694)
-          to label %173 unwind label %.loopexit.split-lp, !range !28493
+167:                                              ; preds = %165
+  %168 = invoke noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %24, ptr noalias noundef readonly align 4 dereferenceable(4) @anon.b3aa91ad3910538ca077da0228902b5c.694)
+          to label %169 unwind label %.loopexit.split-lp, !range !28493
 
-173:                                              ; preds = %171
-  %cond94 = icmp eq i8 %172, 1
-  br i1 %cond94, label %174, label %176
+169:                                              ; preds = %167
+  %cond94 = icmp eq i8 %168, 1
+  br i1 %cond94, label %170, label %172
 
-174:                                              ; preds = %173
-  %175 = fsub float %160, %25
-  invoke void @"_ZN4gpui5scene34Path$LT$gpui..geometry..Pixels$GT$8curve_to17h0b7d6f03c0c1c718E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %15, float noundef %21, float noundef %175, float noundef %21, float noundef %160)
-          to label %176 unwind label %.loopexit.split-lp
+170:                                              ; preds = %169
+  %171 = fsub float %156, %25
+  invoke void @"_ZN4gpui5scene34Path$LT$gpui..geometry..Pixels$GT$8curve_to17h0b7d6f03c0c1c718E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %15, float noundef %21, float noundef %171, float noundef %21, float noundef %156)
+          to label %172 unwind label %.loopexit.split-lp
 
-176:                                              ; preds = %174, %153, %173
-  %177 = fadd float %21, 0.000000e+00
-  invoke void @"_ZN4gpui5scene34Path$LT$gpui..geometry..Pixels$GT$7line_to17h66ecde6d2e52bf8eE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %15, float noundef %177, float noundef %32)
-          to label %178 unwind label %.loopexit.split-lp
+172:                                              ; preds = %170, %149, %169
+  %173 = fadd float %21, 0.000000e+00
+  invoke void @"_ZN4gpui5scene34Path$LT$gpui..geometry..Pixels$GT$7line_to17h66ecde6d2e52bf8eE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %15, float noundef %173, float noundef %32)
+          to label %174 unwind label %.loopexit.split-lp
 
-178:                                              ; preds = %176
-  %179 = invoke noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %24, ptr noalias noundef readonly align 4 dereferenceable(4) @anon.b3aa91ad3910538ca077da0228902b5c.694)
-          to label %180 unwind label %.loopexit.split-lp, !range !28493
+174:                                              ; preds = %172
+  %175 = invoke noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %24, ptr noalias noundef readonly align 4 dereferenceable(4) @anon.b3aa91ad3910538ca077da0228902b5c.694)
+          to label %176 unwind label %.loopexit.split-lp, !range !28493
 
-180:                                              ; preds = %178
-  %cond95 = icmp eq i8 %179, 1
-  br i1 %cond95, label %181, label %184
+176:                                              ; preds = %174
+  %cond95 = icmp eq i8 %175, 1
+  br i1 %cond95, label %177, label %180
+
+177:                                              ; preds = %176
+  %178 = fadd float %21, %.sroa.015.0
+  %179 = fadd float %1, 0.000000e+00
+  invoke void @"_ZN4gpui5scene34Path$LT$gpui..geometry..Pixels$GT$8curve_to17h0b7d6f03c0c1c718E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %15, float noundef %178, float noundef %179, float noundef %21, float noundef %1)
+          to label %180 unwind label %.loopexit.split-lp
+
+180:                                              ; preds = %177, %176
+  invoke void @"_ZN4gpui5scene34Path$LT$gpui..geometry..Pixels$GT$7line_to17h66ecde6d2e52bf8eE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %15, float noundef %30, float noundef %1)
+          to label %181 unwind label %.loopexit.split-lp
 
 181:                                              ; preds = %180
-  %182 = fadd float %21, %.sroa.015.0
-  %183 = fadd float %1, 0.000000e+00
-  invoke void @"_ZN4gpui5scene34Path$LT$gpui..geometry..Pixels$GT$8curve_to17h0b7d6f03c0c1c718E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %15, float noundef %182, float noundef %183, float noundef %21, float noundef %1)
-          to label %184 unwind label %.loopexit.split-lp
-
-184:                                              ; preds = %181, %180
-  invoke void @"_ZN4gpui5scene34Path$LT$gpui..geometry..Pixels$GT$7line_to17h66ecde6d2e52bf8eE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %15, float noundef %30, float noundef %1)
-          to label %185 unwind label %.loopexit.split-lp
-
-185:                                              ; preds = %184
   call void @llvm.lifetime.start.p0(i64 112, ptr nonnull %12)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(112) %12, ptr noundef nonnull align 8 dereferenceable(112) %15, i64 112, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11)
-  %186 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %186, i64 16, i1 false)
+  %182 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %11, ptr noundef nonnull align 8 dereferenceable(16) %182, i64 16, i1 false)
   call void @_ZN4gpui6window13WindowContext10paint_path17he93cd0819bcc5594E(ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(112) %12, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(16) %11)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %12)
   call void @llvm.lifetime.end.p0(i64 112, ptr nonnull %15)
   br label %17
 
-187:                                              ; preds = %188
+183:                                              ; preds = %184
   resume { ptr, i32 } %lpad.phi
 
-.loopexit:                                        ; preds = %.invoke, %51, %64, %77, %88, %93, %96, %100, %105, %81, %84, %112, %117, %120, %125, %129, %"_ZN4core6option15Option$LT$T$GT$18get_or_insert_with17h14193be8a6827352E.exit.thread", %132, %137, %140, %144, %148, %151
+.loopexit:                                        ; preds = %.invoke, %48, %60, %73, %84, %89, %92, %96, %101, %77, %80, %108, %113, %116, %121, %125, %.thread26, %128, %133, %136, %140, %144, %147
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %188
+  br label %184
 
-.loopexit.split-lp:                               ; preds = %18, %75, %.thread, %154, %159, %163, %166, %169, %171, %174, %176, %178, %181, %184
+.loopexit.split-lp:                               ; preds = %18, %71, %.thread, %150, %155, %159, %162, %165, %167, %170, %172, %174, %177, %180
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %188
+  br label %184
 
-188:                                              ; preds = %.loopexit.split-lp, %.loopexit
+184:                                              ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr68drop_in_place$LT$gpui..scene..Path$LT$gpui..geometry..Pixels$GT$$GT$17hf402224d1380952eE"(ptr noalias noundef nonnull align 8 dereferenceable(112) %15) #43
-          to label %187 unwind label %189
+          to label %183 unwind label %185
 
-189:                                              ; preds = %188
-  %190 = landingpad { ptr, i32 }
+185:                                              ; preds = %184
+  %186 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #45
   unreachable

@@ -62,20 +62,20 @@ define noundef ptr @Cudd_CofMinterm(ptr noundef %0, ptr noundef %1) local_unname
   %31 = zext nneg i32 %30 to i64
   %32 = getelementptr inbounds nuw double, ptr %8, i64 %31
   %wide.trip.count68 = zext nneg i32 %10 to i64
-  %33 = load ptr, ptr %29, align 8, !tbaa !27
-  br label %34
+  %33 = load double, ptr %32, align 8, !tbaa !27
+  %34 = load ptr, ptr %29, align 8, !tbaa !28
+  br label %35
 
-34:                                               ; preds = %.lr.ph.split.us.preheader, %34
-  %indvars.iv65 = phi i64 [ 0, %.lr.ph.split.us.preheader ], [ %indvars.iv.next66, %34 ]
-  %35 = load double, ptr %32, align 8, !tbaa !28
-  %36 = getelementptr inbounds nuw i32, ptr %33, i64 %indvars.iv65
+35:                                               ; preds = %.lr.ph.split.us.preheader, %35
+  %indvars.iv65 = phi i64 [ 0, %.lr.ph.split.us.preheader ], [ %indvars.iv.next66, %35 ]
+  %36 = getelementptr inbounds nuw i32, ptr %34, i64 %indvars.iv65
   %37 = load i32, ptr %36, align 4, !tbaa !24
   %38 = sext i32 %37 to i64
   %39 = getelementptr inbounds double, ptr %14, i64 %38
-  store double %35, ptr %39, align 8, !tbaa !28
+  store double %33, ptr %39, align 8, !tbaa !27
   %indvars.iv.next66 = add nuw nsw i64 %indvars.iv65, 1
   %exitcond69.not = icmp eq i64 %indvars.iv.next66, %wide.trip.count68
-  br i1 %exitcond69.not, label %._crit_edge, label %34, !llvm.loop !29
+  br i1 %exitcond69.not, label %._crit_edge, label %35, !llvm.loop !29
 
 .lr.ph.split:                                     ; preds = %.thread78
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 328
@@ -89,7 +89,7 @@ define noundef ptr @Cudd_CofMinterm(ptr noundef %0, ptr noundef %1) local_unname
   %48 = sext i32 %27 to i64
   %49 = sext i32 %47 to i64
   %wide.trip.count = zext nneg i32 %10 to i64
-  %50 = load ptr, ptr %40, align 8, !tbaa !27
+  %50 = load ptr, ptr %40, align 8, !tbaa !28
   br label %51
 
 51:                                               ; preds = %.lr.ph.split, %51
@@ -98,23 +98,23 @@ define noundef ptr @Cudd_CofMinterm(ptr noundef %0, ptr noundef %1) local_unname
   %52 = sub nsw i64 %indvars.iv, %48
   %.pn = select i1 %.not57, i64 %42, i64 %52
   %.sink.in = getelementptr inbounds double, ptr %8, i64 %.pn
-  %.sink = load double, ptr %.sink.in, align 8, !tbaa !28
+  %.sink = load double, ptr %.sink.in, align 8, !tbaa !27
   %53 = getelementptr inbounds nuw i32, ptr %50, i64 %indvars.iv
   %54 = load i32, ptr %53, align 4, !tbaa !24
   %55 = sext i32 %54 to i64
   %56 = getelementptr inbounds double, ptr %14, i64 %55
-  store double %.sink, ptr %56, align 8, !tbaa !28
+  store double %.sink, ptr %56, align 8, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %51, !llvm.loop !29
 
-._crit_edge:                                      ; preds = %51, %34, %.._crit_edge_crit_edge
-  %.pre-phi77 = phi i64 [ %.pre76, %.._crit_edge_crit_edge ], [ %31, %34 ], [ %42, %51 ]
+._crit_edge:                                      ; preds = %51, %35, %.._crit_edge_crit_edge
+  %.pre-phi77 = phi i64 [ %.pre76, %.._crit_edge_crit_edge ], [ %31, %35 ], [ %42, %51 ]
   %57 = getelementptr inbounds double, ptr %8, i64 %.pre-phi77
-  %58 = load double, ptr %57, align 8, !tbaa !28
+  %58 = load double, ptr %57, align 8, !tbaa !27
   %59 = sext i32 %10 to i64
   %60 = getelementptr inbounds double, ptr %14, i64 %59
-  store double %58, ptr %60, align 8, !tbaa !28
+  store double %58, ptr %60, align 8, !tbaa !27
   br label %63
 
 61:                                               ; preds = %9
@@ -230,11 +230,11 @@ define internal fastcc ptr @ddCofMintermAux(ptr noundef %0, ptr noundef %1, ptr 
   br i1 %41, label %42, label %43
 
 42:                                               ; preds = %35, %31
-  store double 0.000000e+00, ptr %26, align 8, !tbaa !28
+  store double 0.000000e+00, ptr %26, align 8, !tbaa !27
   br label %179
 
 43:                                               ; preds = %35
-  store double 1.000000e+00, ptr %26, align 8, !tbaa !28
+  store double 1.000000e+00, ptr %26, align 8, !tbaa !27
   br label %179
 
 44:                                               ; preds = %30
@@ -299,9 +299,9 @@ define internal fastcc ptr @ddCofMintermAux(ptr noundef %0, ptr noundef %1, ptr 
 90:                                               ; preds = %76, %81
   %.0102 = phi i64 [ %89, %81 ], [ 0, %76 ]
   %91 = getelementptr inbounds double, ptr %55, i64 %.0103
-  %92 = load double, ptr %91, align 8, !tbaa !28
+  %92 = load double, ptr %91, align 8, !tbaa !27
   %93 = load ptr, ptr %4, align 8, !tbaa !34
-  store double %92, ptr %93, align 8, !tbaa !28
+  store double %92, ptr %93, align 8, !tbaa !27
   %94 = icmp sgt i32 %.0104, 1
   br i1 %94, label %.lr.ph, label %._crit_edge
 
@@ -372,7 +372,7 @@ define internal fastcc ptr @ddCofMintermAux(ptr noundef %0, ptr noundef %1, ptr 
 
 134:                                              ; preds = %112, %129
   %.0101.in = phi ptr [ %133, %129 ], [ %91, %112 ]
-  %.0101 = load double, ptr %.0101.in, align 8, !tbaa !28
+  %.0101 = load double, ptr %.0101.in, align 8, !tbaa !27
   br i1 %80, label %139, label %135
 
 135:                                              ; preds = %134
@@ -428,11 +428,11 @@ define internal fastcc ptr @ddCofMintermAux(ptr noundef %0, ptr noundef %1, ptr 
 166:                                              ; preds = %145, %162
   %.pn = phi i64 [ %165, %162 ], [ %.0102, %145 ]
   %.0.in = getelementptr inbounds double, ptr %60, i64 %.pn
-  %.0 = load double, ptr %.0.in, align 8, !tbaa !28
+  %.0 = load double, ptr %.0.in, align 8, !tbaa !27
   %167 = fadd double %.0101, %.0
   %168 = fmul double %167, 5.000000e-01
   %169 = getelementptr inbounds nuw double, ptr %93, i64 %indvars.iv
-  store double %168, ptr %169, align 8, !tbaa !28
+  store double %168, ptr %169, align 8, !tbaa !27
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %101, !llvm.loop !39
@@ -544,8 +544,8 @@ attributes #7 = { nounwind allocsize(0) }
 !24 = !{!6, !6, i64 0}
 !25 = !{!5, !6, i64 0}
 !26 = !{!4, !17, i64 312}
-!27 = !{!4, !17, i64 328}
-!28 = !{!13, !13, i64 0}
+!27 = !{!13, !13, i64 0}
+!28 = !{!4, !17, i64 328}
 !29 = distinct !{!29, !30}
 !30 = !{!"llvm.loop.mustprogress"}
 !31 = !{!4, !6, i64 624}

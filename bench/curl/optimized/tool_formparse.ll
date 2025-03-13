@@ -447,7 +447,7 @@ define dso_local range(i32 0, 2) i32 @formparse(ptr noundef readonly captures(no
 
 tool_mime_new_parts.exit.thread:                  ; preds = %14
   store ptr null, ptr %2, align 8, !tbaa !35
-  br label %185
+  br label %182
 
 16:                                               ; preds = %14
   store i32 1, ptr %15, align 8, !tbaa !32
@@ -458,12 +458,12 @@ tool_mime_new_parts.exit.thread:                  ; preds = %14
 17:                                               ; preds = %16, %5
   %18 = tail call noalias ptr @strdup(ptr noundef %1) #15
   %.not124 = icmp eq ptr %18, null
-  br i1 %.not124, label %185, label %19
+  br i1 %.not124, label %182, label %19
 
 19:                                               ; preds = %17
   %20 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %18, i32 noundef 61) #18
   %.not125 = icmp eq ptr %20, null
-  br i1 %.not125, label %182, label %21
+  br i1 %.not125, label %179, label %21
 
 21:                                               ; preds = %19
   %22 = icmp ugt ptr %20, %18
@@ -510,14 +510,14 @@ tool_mime_new_parts.exit.thread:                  ; preds = %14
   store ptr null, ptr %11, align 8, !tbaa !34
   %41 = load ptr, ptr %8, align 8, !tbaa !33
   %.not127 = icmp eq ptr %41, null
-  br i1 %.not127, label %178, label %42
+  br i1 %.not127, label %175, label %42
 
 42:                                               ; preds = %38
   %43 = tail call noalias ptr @strdup(ptr noundef nonnull %41) #15
   %44 = getelementptr inbounds nuw i8, ptr %31, i64 48
   store ptr %43, ptr %44, align 8, !tbaa !18
   %.not128 = icmp eq ptr %43, null
-  br i1 %.not128, label %tool_mime_new_parts.exit160.thread176, label %178
+  br i1 %.not128, label %tool_mime_new_parts.exit160.thread176, label %175
 
 45:                                               ; preds = %21
   %.not129 = icmp eq ptr %spec.select, null
@@ -530,7 +530,7 @@ tool_mime_new_parts.exit.thread:                  ; preds = %14
   %47 = load i8, ptr %46, align 1
   %48 = icmp ne i8 %47, 0
   %brmerge154 = or i1 %4, %48
-  br i1 %brmerge154, label %.thread186, label %49
+  br i1 %brmerge154, label %.thread187, label %49
 
 49:                                               ; preds = %.tail
   %50 = load ptr, ptr %3, align 8, !tbaa !35
@@ -548,7 +548,7 @@ tool_mime_new_parts.exit.thread:                  ; preds = %14
   %56 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %57 = load ptr, ptr %56, align 8, !tbaa !37
   store ptr %57, ptr %3, align 8, !tbaa !35
-  br label %185
+  br label %182
 
 .tail.thread:                                     ; preds = %45
   %58 = icmp ne i8 %24, 64
@@ -679,12 +679,12 @@ tool_mime_new_parts.exit163:                      ; preds = %108
   %109 = load ptr, ptr %3, align 8, !tbaa !35
   %110 = getelementptr inbounds nuw i8, ptr %109, i64 72
   %111 = load ptr, ptr %110, align 8, !tbaa !4
-  br label %178
+  br label %175
 
 112:                                              ; preds = %.tail.thread
   %113 = icmp ne i8 %24, 60
   %brmerge158 = or i1 %4, %113
-  br i1 %brmerge158, label %.thread186, label %114
+  br i1 %brmerge158, label %.thread187, label %114
 
 114:                                              ; preds = %112
   %115 = getelementptr inbounds nuw i8, ptr %20, i64 2
@@ -711,7 +711,7 @@ tool_mime_new_parts.exit163:                      ; preds = %108
   store ptr %126, ptr %127, align 8, !tbaa !26
   %128 = load i32, ptr %12, align 4, !tbaa !27
   %129 = icmp eq i32 %128, 26
-  br i1 %129, label %130, label %157
+  br i1 %129, label %130, label %.thread189
 
 130:                                              ; preds = %122
   %131 = getelementptr inbounds nuw i8, ptr %121, i64 88
@@ -729,12 +729,12 @@ tool_mime_new_parts.exit163:                      ; preds = %108
   call void @free(ptr noundef %137) #15
   store ptr null, ptr %136, align 8, !tbaa !20
   store i64 -1, ptr %131, align 8, !tbaa !22
-  br label %157
+  br label %.thread189
 
-.thread186:                                       ; preds = %.tail, %112
+.thread187:                                       ; preds = %.tail, %112
   br i1 %4, label %141, label %138
 
-138:                                              ; preds = %.thread186
+138:                                              ; preds = %.thread187
   %139 = call fastcc i32 @get_param_part(ptr noundef %0, i8 noundef signext 0, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef nonnull %9, ptr noundef nonnull %10, ptr noundef %11)
   %140 = icmp slt i32 %139, 0
   br i1 %140, label %tool_mime_new_parts.exit160.thread176, label %._crit_edge
@@ -743,9 +743,9 @@ tool_mime_new_parts.exit163:                      ; preds = %108
   %.pre = load ptr, ptr %7, align 8, !tbaa !33
   br label %141
 
-141:                                              ; preds = %.thread186, %._crit_edge
-  %142 = phi ptr [ %.pre, %._crit_edge ], [ %23, %.thread186 ]
-  %.094 = phi i32 [ %139, %._crit_edge ], [ 0, %.thread186 ]
+141:                                              ; preds = %.thread187, %._crit_edge
+  %142 = phi ptr [ %.pre, %._crit_edge ], [ %23, %.thread187 ]
+  %.094 = phi i32 [ %139, %._crit_edge ], [ 0, %.thread187 ]
   %143 = load ptr, ptr %3, align 8, !tbaa !35
   %144 = call noalias ptr @strdup(ptr noundef readonly %142) #15
   %.not.i = icmp eq ptr %144, null
@@ -775,94 +775,91 @@ tool_mime_new.exit.i:                             ; preds = %145
   call void @free(ptr noundef nonnull %144) #15
   br label %tool_mime_new_parts.exit160.thread176
 
-153:                                              ; preds = %149, %147
+153:                                              ; preds = %147, %149
   %154 = getelementptr inbounds nuw i8, ptr %146, i64 24
   store ptr %144, ptr %154, align 8, !tbaa !20
   %155 = load ptr, ptr %11, align 8, !tbaa !34
   %156 = getelementptr inbounds nuw i8, ptr %146, i64 64
   store ptr %155, ptr %156, align 8, !tbaa !21
   store ptr null, ptr %11, align 8, !tbaa !34
-  br label %157
+  %.pre181 = load ptr, ptr %9, align 8, !tbaa !33
+  %.not144 = icmp eq ptr %.pre181, null
+  br i1 %.not144, label %.thread189, label %157
 
-157:                                              ; preds = %153, %135, %122
-  %.2 = phi ptr [ %146, %153 ], [ %121, %135 ], [ %121, %122 ]
-  %.195 = phi i32 [ %.094, %153 ], [ %116, %135 ], [ %116, %122 ]
-  %158 = load ptr, ptr %9, align 8, !tbaa !33
-  %.not144 = icmp eq ptr %158, null
-  br i1 %.not144, label %162, label %159
+157:                                              ; preds = %153
+  %158 = call noalias ptr @strdup(ptr noundef nonnull %.pre181) #15
+  %159 = getelementptr inbounds nuw i8, ptr %146, i64 40
+  store ptr %158, ptr %159, align 8, !tbaa !17
+  %.not145 = icmp eq ptr %158, null
+  br i1 %.not145, label %tool_mime_new_parts.exit160.thread176, label %.thread189
 
-159:                                              ; preds = %157
-  %160 = call noalias ptr @strdup(ptr noundef nonnull %158) #15
-  %161 = getelementptr inbounds nuw i8, ptr %.2, i64 40
-  store ptr %160, ptr %161, align 8, !tbaa !17
-  %.not145 = icmp eq ptr %160, null
-  br i1 %.not145, label %tool_mime_new_parts.exit160.thread176, label %162
+.thread189:                                       ; preds = %122, %135, %153, %157
+  %.195194 = phi i32 [ %.094, %153 ], [ %.094, %157 ], [ %116, %135 ], [ %116, %122 ]
+  %.2193 = phi ptr [ %146, %153 ], [ %146, %157 ], [ %121, %135 ], [ %121, %122 ]
+  %160 = load ptr, ptr %8, align 8, !tbaa !33
+  %.not146 = icmp eq ptr %160, null
+  br i1 %.not146, label %164, label %161
 
-162:                                              ; preds = %157, %159
-  %163 = load ptr, ptr %8, align 8, !tbaa !33
-  %.not146 = icmp eq ptr %163, null
-  br i1 %.not146, label %167, label %164
+161:                                              ; preds = %.thread189
+  %162 = call noalias ptr @strdup(ptr noundef nonnull %160) #15
+  %163 = getelementptr inbounds nuw i8, ptr %.2193, i64 48
+  store ptr %162, ptr %163, align 8, !tbaa !18
+  %.not147 = icmp eq ptr %162, null
+  br i1 %.not147, label %tool_mime_new_parts.exit160.thread176, label %164
 
-164:                                              ; preds = %162
-  %165 = call noalias ptr @strdup(ptr noundef nonnull %163) #15
-  %166 = getelementptr inbounds nuw i8, ptr %.2, i64 48
-  store ptr %165, ptr %166, align 8, !tbaa !18
-  %.not147 = icmp eq ptr %165, null
-  br i1 %.not147, label %tool_mime_new_parts.exit160.thread176, label %167
+164:                                              ; preds = %.thread189, %161
+  %165 = load ptr, ptr %10, align 8, !tbaa !33
+  %.not148 = icmp eq ptr %165, null
+  br i1 %.not148, label %169, label %166
 
-167:                                              ; preds = %162, %164
-  %168 = load ptr, ptr %10, align 8, !tbaa !33
-  %.not148 = icmp eq ptr %168, null
-  br i1 %.not148, label %172, label %169
+166:                                              ; preds = %164
+  %167 = call noalias ptr @strdup(ptr noundef nonnull %165) #15
+  %168 = getelementptr inbounds nuw i8, ptr %.2193, i64 56
+  store ptr %167, ptr %168, align 8, !tbaa !19
+  %.not149 = icmp eq ptr %167, null
+  br i1 %.not149, label %tool_mime_new_parts.exit160.thread176, label %169
 
-169:                                              ; preds = %167
-  %170 = call noalias ptr @strdup(ptr noundef nonnull %168) #15
-  %171 = getelementptr inbounds nuw i8, ptr %.2, i64 56
-  store ptr %170, ptr %171, align 8, !tbaa !19
-  %.not149 = icmp eq ptr %170, null
-  br i1 %.not149, label %tool_mime_new_parts.exit160.thread176, label %172
+169:                                              ; preds = %166, %164
+  %.not150 = icmp eq i32 %.195194, 0
+  br i1 %.not150, label %175, label %170
 
-172:                                              ; preds = %169, %167
-  %.not150 = icmp eq i32 %.195, 0
-  br i1 %.not150, label %178, label %173
+170:                                              ; preds = %169
+  %171 = trunc nuw i32 %.195194 to i8
+  %172 = load ptr, ptr %6, align 8, !tbaa !33
+  store i8 %171, ptr %172, align 1, !tbaa !36
+  %173 = getelementptr inbounds nuw i8, ptr %0, i64 1328
+  %174 = load ptr, ptr %173, align 8, !tbaa !38
+  call void (ptr, ptr, ...) @warnf(ptr noundef %174, ptr noundef nonnull @.str.4, ptr noundef nonnull %172) #15
+  br label %175
 
-173:                                              ; preds = %172
-  %174 = trunc nuw i32 %.195 to i8
-  %175 = load ptr, ptr %6, align 8, !tbaa !33
-  store i8 %174, ptr %175, align 1, !tbaa !36
-  %176 = getelementptr inbounds nuw i8, ptr %0, i64 1328
-  %177 = load ptr, ptr %176, align 8, !tbaa !38
-  call void (ptr, ptr, ...) @warnf(ptr noundef %177, ptr noundef nonnull @.str.4, ptr noundef nonnull %175) #15
-  br label %178
-
-178:                                              ; preds = %tool_mime_new_parts.exit163, %42, %38, %173, %172
-  %.3 = phi ptr [ %.2, %173 ], [ %.2, %172 ], [ %111, %tool_mime_new_parts.exit163 ], [ %31, %42 ], [ %31, %38 ]
+175:                                              ; preds = %tool_mime_new_parts.exit163, %42, %38, %170, %169
+  %.3 = phi ptr [ %.2193, %170 ], [ %.2193, %169 ], [ %111, %tool_mime_new_parts.exit163 ], [ %31, %42 ], [ %31, %38 ]
   %.not151 = icmp eq ptr %spec.select, null
-  br i1 %.not151, label %185, label %179
+  br i1 %.not151, label %182, label %176
 
-179:                                              ; preds = %178
-  %180 = call noalias ptr @strdup(ptr noundef nonnull %18) #15
-  %181 = getelementptr inbounds nuw i8, ptr %.3, i64 32
-  store ptr %180, ptr %181, align 8, !tbaa !16
-  %.not152 = icmp eq ptr %180, null
-  br i1 %.not152, label %tool_mime_new_parts.exit160.thread176, label %185
+176:                                              ; preds = %175
+  %177 = call noalias ptr @strdup(ptr noundef nonnull %18) #15
+  %178 = getelementptr inbounds nuw i8, ptr %.3, i64 32
+  store ptr %177, ptr %178, align 8, !tbaa !16
+  %.not152 = icmp eq ptr %177, null
+  br i1 %.not152, label %tool_mime_new_parts.exit160.thread176, label %182
 
-tool_mime_new_parts.exit160.thread176:            ; preds = %60, %tool_mime_new_parts.exit163.thread, %95, %100, %105, %68, %134, %53, %26, %42, %114, %118, %138, %159, %164, %169, %179, %29, %89, %tool_mime_new.exit.i, %141
-  %.pre181 = load ptr, ptr %11, align 8, !tbaa !34
-  br label %185
+tool_mime_new_parts.exit160.thread176:            ; preds = %60, %tool_mime_new_parts.exit163.thread, %95, %100, %105, %68, %134, %53, %26, %42, %114, %118, %138, %157, %161, %166, %176, %29, %89, %tool_mime_new.exit.i, %141
+  %.pre182 = load ptr, ptr %11, align 8, !tbaa !34
+  br label %182
 
-182:                                              ; preds = %19
-  %183 = getelementptr inbounds nuw i8, ptr %0, i64 1328
-  %184 = load ptr, ptr %183, align 8, !tbaa !38
-  tail call void (ptr, ptr, ...) @warnf(ptr noundef %184, ptr noundef nonnull @.str.5) #15
-  br label %185
+179:                                              ; preds = %19
+  %180 = getelementptr inbounds nuw i8, ptr %0, i64 1328
+  %181 = load ptr, ptr %180, align 8, !tbaa !38
+  tail call void (ptr, ptr, ...) @warnf(ptr noundef %181, ptr noundef nonnull @.str.5) #15
+  br label %182
 
-185:                                              ; preds = %17, %182, %tool_mime_new_parts.exit.thread, %tool_mime_new_parts.exit160.thread176, %.thread, %179, %178
-  %186 = phi ptr [ null, %182 ], [ null, %17 ], [ null, %tool_mime_new_parts.exit.thread ], [ %.pre181, %tool_mime_new_parts.exit160.thread176 ], [ null, %.thread ], [ null, %179 ], [ null, %178 ]
-  %.099 = phi ptr [ %18, %182 ], [ null, %17 ], [ null, %tool_mime_new_parts.exit.thread ], [ %18, %tool_mime_new_parts.exit160.thread176 ], [ %18, %.thread ], [ %18, %179 ], [ %18, %178 ]
-  %.096 = phi i32 [ 1, %182 ], [ 1, %17 ], [ 1, %tool_mime_new_parts.exit.thread ], [ 1, %tool_mime_new_parts.exit160.thread176 ], [ 0, %.thread ], [ 0, %179 ], [ 0, %178 ]
+182:                                              ; preds = %17, %179, %tool_mime_new_parts.exit.thread, %tool_mime_new_parts.exit160.thread176, %.thread, %176, %175
+  %183 = phi ptr [ null, %179 ], [ null, %17 ], [ null, %tool_mime_new_parts.exit.thread ], [ %.pre182, %tool_mime_new_parts.exit160.thread176 ], [ null, %.thread ], [ null, %176 ], [ null, %175 ]
+  %.099 = phi ptr [ %18, %179 ], [ null, %17 ], [ null, %tool_mime_new_parts.exit.thread ], [ %18, %tool_mime_new_parts.exit160.thread176 ], [ %18, %.thread ], [ %18, %176 ], [ %18, %175 ]
+  %.096 = phi i32 [ 1, %179 ], [ 1, %17 ], [ 1, %tool_mime_new_parts.exit.thread ], [ 1, %tool_mime_new_parts.exit160.thread176 ], [ 0, %.thread ], [ 0, %176 ], [ 0, %175 ]
   call void @free(ptr noundef %.099) #15
-  call void @curl_slist_free_all(ptr noundef %186) #15
+  call void @curl_slist_free_all(ptr noundef %183) #15
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #15

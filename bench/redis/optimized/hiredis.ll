@@ -2759,7 +2759,7 @@ define range(i32 -1, 1) i32 @redisvAppendCommand(ptr noundef captures(none) %0, 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %8, ptr noundef nonnull align 1 dereferenceable(13) @.str.7, i64 13, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 25
   store i8 0, ptr %9, align 1, !tbaa !22
-  br label %30
+  br label %28
 
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2768,7 +2768,7 @@ define range(i32 -1, 1) i32 @redisvAppendCommand(ptr noundef captures(none) %0, 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(21) %12, ptr noundef nonnull align 1 dereferenceable(21) @.str.9, i64 21, i1 false)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 33
   store i8 0, ptr %13, align 1, !tbaa !22
-  br label %30
+  br label %28
 
 14:                                               ; preds = %3
   %15 = load ptr, ptr %4, align 8, !tbaa !24
@@ -2777,7 +2777,7 @@ define range(i32 -1, 1) i32 @redisvAppendCommand(ptr noundef captures(none) %0, 
   %18 = load ptr, ptr %17, align 8, !tbaa !43
   %19 = call ptr @hi_sdscatlen(ptr noundef %18, ptr noundef %15, i64 noundef %16) #13
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %21, label %27
+  br i1 %20, label %21, label %26
 
 21:                                               ; preds = %14
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2786,20 +2786,18 @@ define range(i32 -1, 1) i32 @redisvAppendCommand(ptr noundef captures(none) %0, 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %23, ptr noundef nonnull align 1 dereferenceable(13) @.str.7, i64 13, i1 false)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 25
   store i8 0, ptr %24, align 1, !tbaa !22
-  %25 = load ptr, ptr %4, align 8, !tbaa !24
-  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @hiredisAllocFns, i64 32), align 8, !tbaa !20
-  call void %26(ptr noundef %25) #13
-  br label %30
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @hiredisAllocFns, i64 32), align 8, !tbaa !20
+  call void %25(ptr noundef %15) #13
+  br label %28
 
-27:                                               ; preds = %14
+26:                                               ; preds = %14
   store ptr %19, ptr %17, align 8, !tbaa !43
-  %28 = load ptr, ptr %4, align 8, !tbaa !24
-  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @hiredisAllocFns, i64 32), align 8, !tbaa !20
-  call void %29(ptr noundef %28) #13
-  br label %30
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @hiredisAllocFns, i64 32), align 8, !tbaa !20
+  call void %27(ptr noundef %15) #13
+  br label %28
 
-30:                                               ; preds = %27, %21, %10, %6
-  %.0 = phi i32 [ -1, %6 ], [ -1, %10 ], [ -1, %21 ], [ 0, %27 ]
+28:                                               ; preds = %26, %21, %10, %6
+  %.0 = phi i32 [ -1, %6 ], [ -1, %10 ], [ -1, %21 ], [ 0, %26 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
   ret i32 %.0
 }
@@ -2842,7 +2840,7 @@ define range(i32 -1, 1) i32 @redisAppendCommand(ptr noundef captures(none) %0, p
   %18 = load ptr, ptr %17, align 8, !tbaa !43
   %19 = call ptr @hi_sdscatlen(ptr noundef %18, ptr noundef %15, i64 noundef %16) #13
   %20 = icmp eq ptr %19, null
-  br i1 %20, label %21, label %27
+  br i1 %20, label %21, label %26
 
 21:                                               ; preds = %14
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2851,20 +2849,18 @@ define range(i32 -1, 1) i32 @redisAppendCommand(ptr noundef captures(none) %0, p
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %23, ptr noundef nonnull align 1 dereferenceable(13) @.str.7, i64 13, i1 false)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 25
   store i8 0, ptr %24, align 1, !tbaa !22
-  %25 = load ptr, ptr %3, align 8, !tbaa !24
-  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @hiredisAllocFns, i64 32), align 8, !tbaa !20
-  call void %26(ptr noundef %25) #13
+  %25 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @hiredisAllocFns, i64 32), align 8, !tbaa !20
+  call void %25(ptr noundef %15) #13
   br label %redisvAppendCommand.exit
 
-27:                                               ; preds = %14
+26:                                               ; preds = %14
   store ptr %19, ptr %17, align 8, !tbaa !43
-  %28 = load ptr, ptr %3, align 8, !tbaa !24
-  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @hiredisAllocFns, i64 32), align 8, !tbaa !20
-  call void %29(ptr noundef %28) #13
+  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @hiredisAllocFns, i64 32), align 8, !tbaa !20
+  call void %27(ptr noundef %15) #13
   br label %redisvAppendCommand.exit
 
-redisvAppendCommand.exit:                         ; preds = %6, %10, %21, %27
-  %.0.i = phi i32 [ -1, %6 ], [ -1, %10 ], [ -1, %21 ], [ 0, %27 ]
+redisvAppendCommand.exit:                         ; preds = %6, %10, %21, %26
+  %.0.i = phi i32 [ -1, %6 ], [ -1, %10 ], [ -1, %21 ], [ 0, %26 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #13
   call void @llvm.va_end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #13
@@ -2886,7 +2882,7 @@ define range(i32 -1, 1) i32 @redisAppendCommandArgv(ptr noundef captures(none) %
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %10, ptr noundef nonnull align 1 dereferenceable(13) @.str.7, i64 13, i1 false)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 25
   store i8 0, ptr %11, align 1, !tbaa !22
-  br label %25
+  br label %23
 
 12:                                               ; preds = %4
   %13 = load ptr, ptr %5, align 8, !tbaa !24
@@ -2894,7 +2890,7 @@ define range(i32 -1, 1) i32 @redisAppendCommandArgv(ptr noundef captures(none) %
   %15 = load ptr, ptr %14, align 8, !tbaa !43
   %16 = call ptr @hi_sdscatlen(ptr noundef %15, ptr noundef %13, i64 noundef %6) #13
   %17 = icmp eq ptr %16, null
-  br i1 %17, label %18, label %23
+  br i1 %17, label %18, label %22
 
 18:                                               ; preds = %12
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2903,18 +2899,16 @@ define range(i32 -1, 1) i32 @redisAppendCommandArgv(ptr noundef captures(none) %
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %20, ptr noundef nonnull align 1 dereferenceable(13) @.str.7, i64 13, i1 false)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 25
   store i8 0, ptr %21, align 1, !tbaa !22
-  %22 = load ptr, ptr %5, align 8, !tbaa !24
-  call void @hi_sdsfree(ptr noundef %22) #13
-  br label %25
+  call void @hi_sdsfree(ptr noundef %13) #13
+  br label %23
 
-23:                                               ; preds = %12
+22:                                               ; preds = %12
   store ptr %16, ptr %14, align 8, !tbaa !43
-  %24 = load ptr, ptr %5, align 8, !tbaa !24
-  call void @hi_sdsfree(ptr noundef %24) #13
-  br label %25
+  call void @hi_sdsfree(ptr noundef %13) #13
+  br label %23
 
-25:                                               ; preds = %23, %18, %8
-  %.0 = phi i32 [ -1, %8 ], [ -1, %18 ], [ 0, %23 ]
+23:                                               ; preds = %22, %18, %8
+  %.0 = phi i32 [ -1, %8 ], [ -1, %18 ], [ 0, %22 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
   ret i32 %.0
 }
@@ -2955,7 +2949,7 @@ define ptr @redisvCommand(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_
   %19 = load ptr, ptr %18, align 8, !tbaa !43
   %20 = call ptr @hi_sdscatlen(ptr noundef %19, ptr noundef %16, i64 noundef %17) #13
   %21 = icmp eq ptr %20, null
-  br i1 %21, label %22, label %28
+  br i1 %21, label %22, label %27
 
 22:                                               ; preds = %15
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -2964,41 +2958,39 @@ define ptr @redisvCommand(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %24, ptr noundef nonnull align 1 dereferenceable(13) @.str.7, i64 13, i1 false)
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 25
   store i8 0, ptr %25, align 1, !tbaa !22
-  %26 = load ptr, ptr %5, align 8, !tbaa !24
-  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @hiredisAllocFns, i64 32), align 8, !tbaa !20
-  call void %27(ptr noundef %26) #13
+  %26 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @hiredisAllocFns, i64 32), align 8, !tbaa !20
+  call void %26(ptr noundef %16) #13
   br label %redisvAppendCommand.exit.thread
 
 redisvAppendCommand.exit.thread:                  ; preds = %7, %11, %22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
-  br label %37
+  br label %35
 
-28:                                               ; preds = %15
+27:                                               ; preds = %15
   store ptr %20, ptr %18, align 8, !tbaa !43
-  %29 = load ptr, ptr %5, align 8, !tbaa !24
-  %30 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @hiredisAllocFns, i64 32), align 8, !tbaa !20
-  call void %30(ptr noundef %29) #13
+  %28 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @hiredisAllocFns, i64 32), align 8, !tbaa !20
+  call void %28(ptr noundef %16) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #13
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %32 = load i32, ptr %31, align 8, !tbaa !58
-  %33 = and i32 %32, 1
-  %.not.i = icmp eq i32 %33, 0
-  br i1 %.not.i, label %__redisBlockForReply.exit, label %34
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %30 = load i32, ptr %29, align 8, !tbaa !58
+  %31 = and i32 %30, 1
+  %.not.i = icmp eq i32 %31, 0
+  br i1 %.not.i, label %__redisBlockForReply.exit, label %32
 
-34:                                               ; preds = %28
-  %35 = call i32 @redisGetReply(ptr noundef nonnull %0, ptr noundef nonnull %4)
-  %.not3.i = icmp eq i32 %35, 0
-  %36 = load ptr, ptr %4, align 8
-  %spec.select.i = select i1 %.not3.i, ptr %36, ptr null
+32:                                               ; preds = %27
+  %33 = call i32 @redisGetReply(ptr noundef nonnull %0, ptr noundef nonnull %4)
+  %.not3.i = icmp eq i32 %33, 0
+  %34 = load ptr, ptr %4, align 8
+  %spec.select.i = select i1 %.not3.i, ptr %34, ptr null
   br label %__redisBlockForReply.exit
 
-__redisBlockForReply.exit:                        ; preds = %28, %34
-  %.0.i5 = phi ptr [ null, %28 ], [ %spec.select.i, %34 ]
+__redisBlockForReply.exit:                        ; preds = %27, %32
+  %.0.i5 = phi ptr [ null, %27 ], [ %spec.select.i, %32 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
-  br label %37
+  br label %35
 
-37:                                               ; preds = %redisvAppendCommand.exit.thread, %__redisBlockForReply.exit
+35:                                               ; preds = %redisvAppendCommand.exit.thread, %__redisBlockForReply.exit
   %.0 = phi ptr [ %.0.i5, %__redisBlockForReply.exit ], [ null, %redisvAppendCommand.exit.thread ]
   ret ptr %.0
 }
@@ -3038,7 +3030,7 @@ define ptr @redisCommandArgv(ptr noundef %0, i32 noundef %1, ptr noundef readonl
   %16 = load ptr, ptr %15, align 8, !tbaa !43
   %17 = call ptr @hi_sdscatlen(ptr noundef %16, ptr noundef %14, i64 noundef %7) #13
   %18 = icmp eq ptr %17, null
-  br i1 %18, label %19, label %24
+  br i1 %18, label %19, label %23
 
 19:                                               ; preds = %13
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -3047,39 +3039,37 @@ define ptr @redisCommandArgv(ptr noundef %0, i32 noundef %1, ptr noundef readonl
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(13) %21, ptr noundef nonnull align 1 dereferenceable(13) @.str.7, i64 13, i1 false)
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 25
   store i8 0, ptr %22, align 1, !tbaa !22
-  %23 = load ptr, ptr %6, align 8, !tbaa !24
-  call void @hi_sdsfree(ptr noundef %23) #13
+  call void @hi_sdsfree(ptr noundef %14) #13
   br label %redisAppendCommandArgv.exit.thread
 
 redisAppendCommandArgv.exit.thread:               ; preds = %9, %19
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
-  br label %32
+  br label %30
 
-24:                                               ; preds = %13
+23:                                               ; preds = %13
   store ptr %17, ptr %15, align 8, !tbaa !43
-  %25 = load ptr, ptr %6, align 8, !tbaa !24
-  call void @hi_sdsfree(ptr noundef %25) #13
+  call void @hi_sdsfree(ptr noundef %14) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %27 = load i32, ptr %26, align 8, !tbaa !58
-  %28 = and i32 %27, 1
-  %.not.i = icmp eq i32 %28, 0
-  br i1 %.not.i, label %__redisBlockForReply.exit, label %29
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %25 = load i32, ptr %24, align 8, !tbaa !58
+  %26 = and i32 %25, 1
+  %.not.i = icmp eq i32 %26, 0
+  br i1 %.not.i, label %__redisBlockForReply.exit, label %27
 
-29:                                               ; preds = %24
-  %30 = call i32 @redisGetReply(ptr noundef nonnull %0, ptr noundef nonnull %5)
-  %.not3.i = icmp eq i32 %30, 0
-  %31 = load ptr, ptr %5, align 8
-  %spec.select.i = select i1 %.not3.i, ptr %31, ptr null
+27:                                               ; preds = %23
+  %28 = call i32 @redisGetReply(ptr noundef nonnull %0, ptr noundef nonnull %5)
+  %.not3.i = icmp eq i32 %28, 0
+  %29 = load ptr, ptr %5, align 8
+  %spec.select.i = select i1 %.not3.i, ptr %29, ptr null
   br label %__redisBlockForReply.exit
 
-__redisBlockForReply.exit:                        ; preds = %24, %29
-  %.0.i5 = phi ptr [ null, %24 ], [ %spec.select.i, %29 ]
+__redisBlockForReply.exit:                        ; preds = %23, %27
+  %.0.i5 = phi ptr [ null, %23 ], [ %spec.select.i, %27 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
-  br label %32
+  br label %30
 
-32:                                               ; preds = %redisAppendCommandArgv.exit.thread, %__redisBlockForReply.exit
+30:                                               ; preds = %redisAppendCommandArgv.exit.thread, %__redisBlockForReply.exit
   %.0 = phi ptr [ %.0.i5, %__redisBlockForReply.exit ], [ null, %redisAppendCommandArgv.exit.thread ]
   ret ptr %.0
 }

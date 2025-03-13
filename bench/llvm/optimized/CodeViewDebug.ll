@@ -19796,7 +19796,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4l
   br i1 %12, label %13, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %2
-  %.pre7 = load i32, ptr %9, align 4, !tbaa !582
+  %.pre8 = load i32, ptr %9, align 4, !tbaa !582
   br label %54
 
 13:                                               ; preds = %2
@@ -19836,17 +19836,18 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4l
   call void @_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_8MDStringENS_13TinyPtrVectorIPKNS_12DISubprogramEEEELb0EE4growEm(ptr noundef nonnull align 8 dereferenceable(16) %14, i64 noundef %20)
   %32 = load ptr, ptr %14, align 8, !tbaa !63
   %33 = getelementptr inbounds i8, ptr %32, i64 %31
+  %.pre = load ptr, ptr %33, align 8, !tbaa !1506
   br label %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_8MDStringENS_13TinyPtrVectorIPKNS_12DISubprogramEEEELb0EE9push_backEOS9_.exit
 
 _ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_8MDStringENS_13TinyPtrVectorIPKNS_12DISubprogramEEEELb0EE9push_backEOS9_.exit: ; preds = %13, %27, %28
-  %34 = phi ptr [ %.pre3.i, %13 ], [ %32, %28 ], [ %.pre.i, %27 ]
+  %34 = phi ptr [ %15, %13 ], [ %.pre, %28 ], [ %15, %27 ]
+  %35 = phi ptr [ %.pre3.i, %13 ], [ %32, %28 ], [ %.pre.i, %27 ]
   %.016.i.i.i = phi ptr [ %5, %13 ], [ %33, %28 ], [ %5, %27 ]
-  %35 = load i32, ptr %17, align 8, !tbaa !64
-  %36 = zext i32 %35 to i64
-  %37 = getelementptr inbounds nuw %"struct.std::pair.1130", ptr %34, i64 %36
-  %38 = load ptr, ptr %.016.i.i.i, align 8, !tbaa !1506
-  store ptr %38, ptr %37, align 8, !tbaa !1506
-  %39 = getelementptr inbounds nuw i8, ptr %37, i64 8
+  %36 = load i32, ptr %17, align 8, !tbaa !64
+  %37 = zext i32 %36 to i64
+  %38 = getelementptr inbounds nuw %"struct.std::pair.1130", ptr %35, i64 %37
+  store ptr %34, ptr %38, align 8, !tbaa !1506
+  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = getelementptr inbounds nuw i8, ptr %.016.i.i.i, i64 8
   %41 = load i64, ptr %40, align 8
   store i64 %41, ptr %39, align 8
@@ -19875,8 +19876,8 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_8MDStringENS_13TinyPtrVectorIPKNS_
 
 _ZN4llvm11SmallVectorIPKNS_12DISubprogramELj4EED2Ev.exit.i.i: ; preds = %51, %47
   call void @_ZdlPvm(ptr noundef nonnull %46, i64 noundef 48) #27
-  %.pre = load i32, ptr %17, align 8, !tbaa !64
-  %52 = add i32 %.pre, -1
+  %.pre7 = load i32, ptr %17, align 8, !tbaa !64
+  %52 = add i32 %.pre7, -1
   br label %_ZN4llvm13TinyPtrVectorIPKNS_12DISubprogramEED2Ev.exit
 
 _ZN4llvm13TinyPtrVectorIPKNS_12DISubprogramEED2Ev.exit: ; preds = %_ZN4llvm11SmallVectorIPKNS_12DISubprogramELj4EED2Ev.exit.i.i, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPNS_8MDStringENS_13TinyPtrVectorIPKNS_12DISubprogramEEEELb0EE9push_backEOS9_.exit
@@ -19886,7 +19887,7 @@ _ZN4llvm13TinyPtrVectorIPKNS_12DISubprogramEED2Ev.exit: ; preds = %_ZN4llvm11Sma
   br label %54
 
 54:                                               ; preds = %._crit_edge, %_ZN4llvm13TinyPtrVectorIPKNS_12DISubprogramEED2Ev.exit
-  %55 = phi i32 [ %.pre7, %._crit_edge ], [ %53, %_ZN4llvm13TinyPtrVectorIPKNS_12DISubprogramEED2Ev.exit ]
+  %55 = phi i32 [ %.pre8, %._crit_edge ], [ %53, %_ZN4llvm13TinyPtrVectorIPKNS_12DISubprogramEED2Ev.exit ]
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %57 = zext i32 %55 to i64
   %58 = load ptr, ptr %56, align 8, !tbaa !63

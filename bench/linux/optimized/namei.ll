@@ -467,9 +467,9 @@ define dso_local i32 @ext4_htree_fill_tree(ptr noundef %0, i32 noundef %1, i32 n
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 6, ptr %20, align 8
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %10, i64 40
-  %.pre = load ptr, ptr %.phi.trans.insert, align 8
-  %.phi.trans.insert42 = getelementptr inbounds nuw i8, ptr %.pre, i64 872
-  %.pre43 = load ptr, ptr %.phi.trans.insert42, align 8
+  %.pre42 = load ptr, ptr %.phi.trans.insert, align 8
+  %.phi.trans.insert43 = getelementptr inbounds nuw i8, ptr %.pre42, i64 872
+  %.pre44 = load ptr, ptr %.phi.trans.insert43, align 8
   br label %34
 
 21:                                               ; preds = %15
@@ -492,7 +492,7 @@ define dso_local i32 @ext4_htree_fill_tree(ptr noundef %0, i32 noundef %1, i32 n
   br label %34
 
 34:                                               ; preds = %.thread, %30, %21
-  %35 = phi ptr [ %.pre43, %.thread ], [ %25, %30 ], [ %25, %21 ]
+  %35 = phi ptr [ %.pre44, %.thread ], [ %25, %30 ], [ %25, %21 ]
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 196
   %37 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %36, ptr %37, align 8
@@ -616,7 +616,7 @@ define dso_local i32 @ext4_htree_fill_tree(ptr noundef %0, i32 noundef %1, i32 n
   %111 = load i64, ptr %102, align 8
   %112 = and i64 %111, 256
   %113 = icmp eq i64 %112, 0
-  br i1 %113, label %.critedge, label %.loopexit27
+  br i1 %113, label %.critedge, label %.loopexit27.loopexit
 
 .critedge:                                        ; preds = %105, %110
   %114 = call i32 @__SCT__cond_resched() #13
@@ -626,7 +626,7 @@ define dso_local i32 @ext4_htree_fill_tree(ptr noundef %0, i32 noundef %1, i32 n
   %118 = and i32 %117, 268435455
   %119 = call fastcc i32 @htree_dirblock_to_tree(ptr noundef %0, ptr noundef %10, i32 noundef %118, ptr noundef nonnull %5, i32 noundef %1, i32 noundef %2)
   %120 = icmp slt i32 %119, 0
-  br i1 %120, label %.loopexit27, label %121
+  br i1 %120, label %.loopexit27.loopexit, label %121
 
 121:                                              ; preds = %.critedge
   %122 = add i32 %119, %106
@@ -718,7 +718,7 @@ define dso_local i32 @ext4_htree_fill_tree(ptr noundef %0, i32 noundef %1, i32 n
   %175 = trunc i64 %174 to i32
   store i32 %149, ptr %3, align 4
   %176 = icmp slt i32 %175, 0
-  br i1 %176, label %.loopexit27, label %177
+  br i1 %176, label %.loopexit27.loopexit, label %177
 
 177:                                              ; preds = %.thread23, %173
   %178 = phi i32 [ %.ph22, %.thread23 ], [ %175, %173 ]
@@ -760,14 +760,19 @@ define dso_local i32 @ext4_htree_fill_tree(ptr noundef %0, i32 noundef %1, i32 n
   %202 = icmp eq i64 %196, %194
   br i1 %202, label %.loopexit, label %195, !llvm.loop !25
 
-.loopexit27:                                      ; preds = %173, %.critedge, %110, %81, %63
-  %203 = phi i32 [ %94, %81 ], [ %72, %63 ], [ %175, %173 ], [ %119, %.critedge ], [ -512, %110 ]
-  %204 = load ptr, ptr %6, align 16
-  %205 = icmp eq ptr %204, null
+.loopexit27.loopexit:                             ; preds = %110, %.critedge, %173
+  %.ph36 = phi i32 [ -512, %110 ], [ %119, %.critedge ], [ %175, %173 ]
+  %.pre = load ptr, ptr %6, align 16
+  br label %.loopexit27
+
+.loopexit27:                                      ; preds = %.loopexit27.loopexit, %81, %63
+  %203 = phi ptr [ %82, %81 ], [ %64, %63 ], [ %.pre, %.loopexit27.loopexit ]
+  %204 = phi i32 [ %94, %81 ], [ %72, %63 ], [ %.ph36, %.loopexit27.loopexit ]
+  %205 = icmp eq ptr %203, null
   br i1 %205, label %.loopexit, label %206
 
 206:                                              ; preds = %.loopexit27
-  %207 = getelementptr inbounds nuw i8, ptr %204, i64 40
+  %207 = getelementptr inbounds nuw i8, ptr %203, i64 40
   %208 = load ptr, ptr %207, align 8
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 30
   %210 = load i8, ptr %209, align 2
@@ -789,7 +794,7 @@ define dso_local i32 @ext4_htree_fill_tree(ptr noundef %0, i32 noundef %1, i32 n
   br i1 %219, label %.loopexit, label %212, !llvm.loop !25
 
 .loopexit:                                        ; preds = %200, %195, %217, %212, %.loopexit27, %186, %57, %51, %49
-  %220 = phi i32 [ %59, %57 ], [ %52, %51 ], [ %46, %49 ], [ %122, %186 ], [ %203, %.loopexit27 ], [ %203, %212 ], [ %203, %217 ], [ %122, %195 ], [ %122, %200 ]
+  %220 = phi i32 [ %59, %57 ], [ %52, %51 ], [ %46, %49 ], [ %122, %186 ], [ %204, %.loopexit27 ], [ %204, %212 ], [ %204, %217 ], [ %122, %195 ], [ %122, %200 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #13
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %6) #13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #13
@@ -7422,7 +7427,6 @@ thread-pre-split:                                 ; preds = %25, %28
 
 52:                                               ; preds = %48
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #13
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(72) %5, i8 0, i64 72, i1 false), !annotation !13
   %53 = call fastcc ptr @dx_probe(ptr noundef %1, ptr noundef %0, ptr noundef null, ptr noundef nonnull %5)
   %54 = icmp ugt ptr %53, inttoptr (i64 -4096 to ptr)
   br i1 %54, label %.loopexit51, label %55

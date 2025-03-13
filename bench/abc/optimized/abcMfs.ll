@@ -1791,34 +1791,34 @@ Vec_IntStart.exit:                                ; preds = %2, %Vec_IntAlloc.ex
 .lr.ph:                                           ; preds = %Vec_IntStart.exit
   %16 = getelementptr i8, ptr %.val86, i64 8
   %.val87.val = load ptr, ptr %16, align 8, !tbaa !26
-  br label %20
+  %.val86.val = load i32, ptr %14, align 4, !tbaa !24
+  %17 = sext i32 %.val86.val to i64
+  br label %21
 
-.critedge.preheader:                              ; preds = %20, %Vec_IntStart.exit
-  %17 = icmp sgt i32 %.val99.val, 0
-  br i1 %17, label %.lr.ph114, label %.critedge4
+.critedge.preheader:                              ; preds = %21, %Vec_IntStart.exit
+  %18 = icmp sgt i32 %.val99.val, 0
+  br i1 %18, label %.lr.ph114, label %.critedge4
 
 .lr.ph114:                                        ; preds = %.critedge.preheader
-  %18 = getelementptr i8, ptr %.val99, i64 8
-  %.val91.val = load ptr, ptr %18, align 8, !tbaa !26
-  %19 = zext nneg i32 %.val99.val to i64
+  %19 = getelementptr i8, ptr %.val99, i64 8
+  %.val91.val = load ptr, ptr %19, align 8, !tbaa !26
+  %20 = zext nneg i32 %.val99.val to i64
   br label %30
 
-20:                                               ; preds = %.lr.ph, %20
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %20 ]
-  %21 = getelementptr inbounds nuw ptr, ptr %.val87.val, i64 %indvars.iv
-  %22 = load ptr, ptr %21, align 8, !tbaa !27
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 64
-  %24 = load i32, ptr %23, align 8, !tbaa !28
-  %25 = getelementptr i8, ptr %22, i64 16
-  %.val100 = load i32, ptr %25, align 8, !tbaa !87
-  %26 = sext i32 %24 to i64
-  %27 = getelementptr inbounds i32, ptr %12, i64 %26
-  store i32 %.val100, ptr %27, align 4, !tbaa !35
+21:                                               ; preds = %.lr.ph, %21
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %21 ]
+  %22 = getelementptr inbounds nuw ptr, ptr %.val87.val, i64 %indvars.iv
+  %23 = load ptr, ptr %22, align 8, !tbaa !27
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 64
+  %25 = load i32, ptr %24, align 8, !tbaa !28
+  %26 = getelementptr i8, ptr %23, i64 16
+  %.val100 = load i32, ptr %26, align 8, !tbaa !87
+  %27 = sext i32 %25 to i64
+  %28 = getelementptr inbounds i32, ptr %12, i64 %27
+  store i32 %.val100, ptr %28, align 4, !tbaa !35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.val86.val = load i32, ptr %14, align 4, !tbaa !24
-  %28 = sext i32 %.val86.val to i64
-  %29 = icmp slt i64 %indvars.iv.next, %28
-  br i1 %29, label %20, label %.critedge.preheader, !llvm.loop !88
+  %29 = icmp slt i64 %indvars.iv.next, %17
+  br i1 %29, label %21, label %.critedge.preheader, !llvm.loop !88
 
 30:                                               ; preds = %.lr.ph114, %.critedge
   %indvars.iv125 = phi i64 [ 0, %.lr.ph114 ], [ %indvars.iv.next126, %.critedge ]
@@ -1850,7 +1850,7 @@ Vec_IntStart.exit:                                ; preds = %2, %Vec_IntAlloc.ex
 
 .critedge:                                        ; preds = %34, %30, %41, %37
   %indvars.iv.next126 = add nuw nsw i64 %indvars.iv125, 1
-  %45 = icmp samesign ult i64 %indvars.iv.next126, %19
+  %45 = icmp samesign ult i64 %indvars.iv.next126, %20
   br i1 %45, label %30, label %.lr.ph117, !llvm.loop !89
 
 .lr.ph117:                                        ; preds = %.critedge, %.critedge2

@@ -30315,7 +30315,12 @@ _ZNK15ref_vector_coreI4sort19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit6
   %201 = load ptr, ptr %4, align 8, !tbaa !573
   %202 = load ptr, ptr %143, align 8, !tbaa !140
   %203 = icmp eq ptr %202, null
-  br i1 %203, label %204, label %_ZN4smt26parser10sort_stackEv.exit75
+  br i1 %203, label %204, label %._ZN4smt26parser10sort_stackEv.exit70.thread_crit_edge
+
+._ZN4smt26parser10sort_stackEv.exit70.thread_crit_edge: ; preds = %198
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %202, i64 8
+  %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !257
+  br label %_ZN4smt26parser10sort_stackEv.exit75
 
 204:                                              ; preds = %198
   %205 = invoke noalias noundef ptr @_ZN6memory8allocateEm(i64 noundef 16)
@@ -30335,7 +30340,7 @@ _ZNK15ref_vector_coreI4sort19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit6
   store ptr null, ptr %210, align 8, !tbaa !257
   %211 = load ptr, ptr %143, align 8, !tbaa !140
   %.not.i.i66 = icmp eq ptr %211, %205
-  br i1 %.not.i.i66, label %_ZN4smt26parser10sort_stackEv.exit75, label %212
+  br i1 %.not.i.i66, label %_ZN4smt26parser10sort_stackEv.exit70, label %212
 
 212:                                              ; preds = %.noexc68
   invoke void @_Z7deallocI10ref_vectorI4sort11ast_managerEEvPT_(ptr noundef %211)
@@ -30345,17 +30350,20 @@ _ZNK15ref_vector_coreI4sort19ref_manager_wrapperIS0_11ast_managerEE4sizeEv.exit6
   store ptr %205, ptr %143, align 8, !tbaa !140
   br label %_ZN4smt26parser10sort_stackEv.exit75
 
-_ZN4smt26parser10sort_stackEv.exit75:             ; preds = %.noexc68, %198, %.noexc69
-  %.sink = phi ptr [ %202, %198 ], [ %205, %.noexc69 ], [ %211, %.noexc68 ]
-  %213 = getelementptr inbounds nuw i8, ptr %.sink, i64 8
+_ZN4smt26parser10sort_stackEv.exit70:             ; preds = %.noexc68
+  %213 = getelementptr inbounds nuw i8, ptr %211, i64 8
   %214 = load ptr, ptr %213, align 8, !tbaa !257
+  br label %_ZN4smt26parser10sort_stackEv.exit75
+
+_ZN4smt26parser10sort_stackEv.exit75:             ; preds = %.noexc69, %._ZN4smt26parser10sort_stackEv.exit70.thread_crit_edge, %_ZN4smt26parser10sort_stackEv.exit70
+  %.sink = phi ptr [ %214, %_ZN4smt26parser10sort_stackEv.exit70 ], [ %.pre, %._ZN4smt26parser10sort_stackEv.exit70.thread_crit_edge ], [ null, %.noexc69 ]
   %215 = zext i32 %.0.i.i to i64
-  %216 = getelementptr inbounds nuw ptr, ptr %214, i64 %215
-  %217 = icmp eq ptr %214, null
+  %216 = getelementptr inbounds nuw ptr, ptr %.sink, i64 %215
+  %217 = icmp eq ptr %.sink, null
   br i1 %217, label %223, label %218
 
 218:                                              ; preds = %_ZN4smt26parser10sort_stackEv.exit75
-  %219 = getelementptr inbounds i8, ptr %214, i64 -4
+  %219 = getelementptr inbounds i8, ptr %.sink, i64 -4
   %220 = load i32, ptr %219, align 4, !tbaa !106
   %221 = add i32 %220, -1
   %222 = zext i32 %221 to i64
@@ -30363,7 +30371,7 @@ _ZN4smt26parser10sort_stackEv.exit75:             ; preds = %.noexc68, %198, %.n
 
 223:                                              ; preds = %218, %_ZN4smt26parser10sort_stackEv.exit75
   %.0.i.i.i = phi i64 [ %222, %218 ], [ 4294967295, %_ZN4smt26parser10sort_stackEv.exit75 ]
-  %224 = getelementptr inbounds nuw ptr, ptr %214, i64 %.0.i.i.i
+  %224 = getelementptr inbounds nuw ptr, ptr %.sink, i64 %.0.i.i.i
   %225 = load ptr, ptr %224, align 8, !tbaa !260
   %226 = invoke noundef ptr @_ZN11cmd_context14find_func_declERK6symboljPKjjPKP4sortS6_(ptr noundef nonnull align 8 dereferenceable(896) %199, ptr noundef nonnull align 8 dereferenceable(8) %3, i32 noundef %200, ptr noundef %201, i32 noundef %197, ptr noundef %216, ptr noundef %225)
           to label %227 unwind label %.loopexit.split-lp

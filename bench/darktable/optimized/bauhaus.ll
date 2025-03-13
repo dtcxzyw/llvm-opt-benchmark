@@ -8050,27 +8050,29 @@ _build_label.exit:                                ; preds = %204, %207
 
 217:                                              ; preds = %213
   %218 = call fastcc i32 @_show_pango_text(ptr noundef nonnull %18, ptr noundef %37, ptr noundef %36, ptr noundef nonnull %.0.i218, float noundef 0.000000e+00, float noundef 0.000000e+00, float noundef 0.000000e+00, i32 noundef 0, i32 noundef 1, i32 noundef 3, i32 noundef 0, ptr noundef nonnull %8, ptr noundef nonnull %9)
+  %.pre = load float, ptr %9, align 4, !tbaa !144
+  %.pre258 = load float, ptr %8, align 4, !tbaa !144
   br label %219
 
 219:                                              ; preds = %217, %213, %210, %_build_label.exit
+  %220 = phi float [ %.pre258, %217 ], [ 0.000000e+00, %213 ], [ 0.000000e+00, %210 ], [ 0.000000e+00, %_build_label.exit ]
+  %221 = phi float [ %.pre, %217 ], [ 0.000000e+00, %213 ], [ 0.000000e+00, %210 ], [ 0.000000e+00, %_build_label.exit ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #19
   store float 0.000000e+00, ptr %10, align 4, !tbaa !144
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #19
   store float 0.000000e+00, ptr %11, align 4, !tbaa !144
-  %220 = call fastcc i32 @_show_pango_text(ptr noundef nonnull %18, ptr noundef %37, ptr noundef %36, ptr noundef %.0, float noundef %198, float noundef 0.000000e+00, float noundef 0.000000e+00, i32 noundef 1, i32 noundef 1, i32 noundef %175, i32 noundef 0, ptr noundef nonnull %10, ptr noundef nonnull %11)
-  %221 = sitofp i32 %71 to float
-  %222 = load float, ptr %9, align 4, !tbaa !144
-  %223 = load float, ptr %11, align 4, !tbaa !144
-  %224 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %222, float %223)
-  %225 = fsub reassoc nsz arcp contract afn float %221, %224
-  %226 = fmul reassoc nsz arcp contract afn float %225, 5.000000e-01
-  %227 = call reassoc nsz arcp contract afn float @llvm.floor.f32(float %226)
-  %228 = fptosi float %227 to i32
-  %229 = getelementptr inbounds nuw i8, ptr %18, i64 404
-  store i32 %228, ptr %229, align 4, !tbaa !127
-  %230 = load float, ptr %8, align 4, !tbaa !144
+  %222 = call fastcc i32 @_show_pango_text(ptr noundef nonnull %18, ptr noundef %37, ptr noundef %36, ptr noundef %.0, float noundef %198, float noundef 0.000000e+00, float noundef 0.000000e+00, i32 noundef 1, i32 noundef 1, i32 noundef %175, i32 noundef 0, ptr noundef nonnull %10, ptr noundef nonnull %11)
+  %223 = sitofp i32 %71 to float
+  %224 = load float, ptr %11, align 4, !tbaa !144
+  %225 = call reassoc nsz arcp contract afn float @llvm.maxnum.f32(float %221, float %224)
+  %226 = fsub reassoc nsz arcp contract afn float %223, %225
+  %227 = fmul reassoc nsz arcp contract afn float %226, 5.000000e-01
+  %228 = call reassoc nsz arcp contract afn float @llvm.floor.f32(float %227)
+  %229 = fptosi float %228 to i32
+  %230 = getelementptr inbounds nuw i8, ptr %18, i64 404
+  store i32 %229, ptr %230, align 4, !tbaa !127
   %231 = load float, ptr %10, align 4, !tbaa !144
-  %232 = fadd reassoc nsz arcp contract afn float %231, %230
+  %232 = fadd reassoc nsz arcp contract afn float %231, %220
   %233 = fcmp reassoc nsz arcp contract afn ogt float %232, %198
   %234 = getelementptr inbounds nuw i8, ptr %18, i64 420
   %235 = load i32, ptr %234, align 4, !tbaa !223
@@ -8083,22 +8085,22 @@ _build_label.exit:                                ; preds = %204, %207
   ]
 
 237:                                              ; preds = %236
-  %238 = fdiv reassoc nsz arcp contract afn float %230, %232
+  %238 = fdiv reassoc nsz arcp contract afn float %220, %232
   %239 = getelementptr inbounds nuw i8, ptr %18, i64 324
   %240 = load i32, ptr %239, align 4, !tbaa !195
   %.not211 = icmp eq i32 %240, 0
   br i1 %.not211, label %246, label %241
 
 241:                                              ; preds = %237
-  %242 = sitofp i32 %228 to float
+  %242 = sitofp i32 %229 to float
   %243 = fmul reassoc nsz arcp contract afn float %238, %198
   %244 = fadd reassoc nsz arcp contract afn float %243, -8.000000e+00
   %245 = call fastcc i32 @_show_pango_text(ptr noundef nonnull %18, ptr noundef %37, ptr noundef %36, ptr noundef %.0.i218, float noundef 0.000000e+00, float noundef %242, float noundef %244, i32 noundef 0, i32 noundef 0, i32 noundef 3, i32 noundef 0, ptr noundef null, ptr noundef null)
-  %.pre258 = load i32, ptr %229, align 4, !tbaa !127
+  %.pre260 = load i32, ptr %230, align 4, !tbaa !127
   br label %246
 
 246:                                              ; preds = %241, %237
-  %247 = phi i32 [ %.pre258, %241 ], [ %228, %237 ]
+  %247 = phi i32 [ %.pre260, %241 ], [ %229, %237 ]
   %248 = sitofp i32 %247 to float
   %249 = fsub reassoc nsz arcp contract afn float 1.000000e+00, %238
   %250 = fmul reassoc nsz arcp contract afn float %249, %198
@@ -8112,12 +8114,12 @@ _build_label.exit:                                ; preds = %204, %207
   %256 = select reassoc nsz arcp contract afn i1 %255, float 0.000000e+00, float %254
   %257 = fptosi float %256 to i32
   %258 = sitofp i32 %257 to float
-  %259 = sitofp i32 %228 to float
+  %259 = sitofp i32 %229 to float
   %260 = call fastcc i32 @_show_pango_text(ptr noundef nonnull %18, ptr noundef %37, ptr noundef %36, ptr noundef %.0, float noundef %258, float noundef %259, float noundef %198, i32 noundef 0, i32 noundef 0, i32 noundef %175, i32 noundef 0, ptr noundef null, ptr noundef null)
   br label %287
 
 261:                                              ; preds = %236
-  %262 = sitofp i32 %228 to float
+  %262 = sitofp i32 %229 to float
   %263 = call fastcc i32 @_show_pango_text(ptr noundef nonnull %18, ptr noundef %37, ptr noundef %36, ptr noundef %.0, float noundef 0.000000e+00, float noundef %262, float noundef %198, i32 noundef 0, i32 noundef 0, i32 noundef %175, i32 noundef 0, ptr noundef null, ptr noundef null)
   br label %287
 
@@ -8134,13 +8136,13 @@ _build_label.exit:                                ; preds = %204, %207
   br i1 %.not210, label %271, label %268
 
 268:                                              ; preds = %265
-  %269 = sitofp i32 %228 to float
+  %269 = sitofp i32 %229 to float
   %270 = call fastcc i32 @_show_pango_text(ptr noundef nonnull %18, ptr noundef %37, ptr noundef %36, ptr noundef %.0.i218, float noundef 0.000000e+00, float noundef %269, float noundef 0.000000e+00, i32 noundef 0, i32 noundef 0, i32 noundef 3, i32 noundef 0, ptr noundef null, ptr noundef null)
-  %.pre = load i32, ptr %229, align 4, !tbaa !127
+  %.pre259 = load i32, ptr %230, align 4, !tbaa !127
   br label %271
 
 271:                                              ; preds = %268, %265
-  %272 = phi i32 [ %.pre, %268 ], [ %228, %265 ]
+  %272 = phi i32 [ %.pre259, %268 ], [ %229, %265 ]
   %273 = sitofp i32 %272 to float
   %274 = call fastcc i32 @_show_pango_text(ptr noundef nonnull %18, ptr noundef %37, ptr noundef %36, ptr noundef %.0, float noundef %198, float noundef %273, float noundef 0.000000e+00, i32 noundef 1, i32 noundef 0, i32 noundef %175, i32 noundef 0, ptr noundef null, ptr noundef null)
   br label %287
@@ -8152,12 +8154,12 @@ _build_label.exit:                                ; preds = %204, %207
   %279 = select reassoc nsz arcp contract afn i1 %278, float 0.000000e+00, float %277
   %280 = fptosi float %279 to i32
   %281 = sitofp i32 %280 to float
-  %282 = sitofp i32 %228 to float
+  %282 = sitofp i32 %229 to float
   %283 = call fastcc i32 @_show_pango_text(ptr noundef nonnull %18, ptr noundef %37, ptr noundef %36, ptr noundef %.0, float noundef %281, float noundef %282, float noundef 0.000000e+00, i32 noundef 0, i32 noundef 0, i32 noundef %175, i32 noundef 0, ptr noundef null, ptr noundef null)
   br label %287
 
 284:                                              ; preds = %264
-  %285 = sitofp i32 %228 to float
+  %285 = sitofp i32 %229 to float
   %286 = call fastcc i32 @_show_pango_text(ptr noundef nonnull %18, ptr noundef %37, ptr noundef %36, ptr noundef %.0, float noundef 0.000000e+00, float noundef %285, float noundef 0.000000e+00, i32 noundef 0, i32 noundef 0, i32 noundef %175, i32 noundef 0, ptr noundef null, ptr noundef null)
   br label %287
 
