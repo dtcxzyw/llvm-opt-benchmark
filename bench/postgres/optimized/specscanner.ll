@@ -2249,7 +2249,7 @@ declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #16
 declare ptr @__errno_location() local_unnamed_addr #17
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #15
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: nofree nounwind
 declare void @clearerr(ptr noundef captures(none)) local_unnamed_addr #15

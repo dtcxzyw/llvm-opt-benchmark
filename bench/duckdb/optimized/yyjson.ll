@@ -47811,7 +47811,7 @@ define noundef zeroext i1 @_ZN13duckdb_yyjson21yyjson_val_write_fileEPKcPKNS_10y
   br label %_ZN13duckdb_yyjsonL17write_dat_to_fileEPKcPhmPNS_16yyjson_write_errE.exit
 
 19:                                               ; preds = %14
-  %20 = call i64 @fwrite(ptr noundef nonnull %13, i64 noundef %15, i64 noundef 1, ptr noundef nonnull %16)
+  %20 = call i64 @fwrite(ptr noundef nonnull readonly %13, i64 noundef %15, i64 noundef 1, ptr noundef nonnull %16)
   %.not.i = icmp eq i64 %20, 1
   br i1 %.not.i, label %23, label %21
 
@@ -47879,7 +47879,7 @@ define noundef zeroext i1 @_ZN13duckdb_yyjson19yyjson_val_write_fpEP8_IO_FILEPKN
 
 13:                                               ; preds = %11
   %14 = load i64, ptr %7, align 8, !tbaa !85
-  %15 = call i64 @fwrite(ptr noundef nonnull %12, i64 noundef %14, i64 noundef 1, ptr noundef nonnull %0)
+  %15 = call i64 @fwrite(ptr noundef nonnull readonly %12, i64 noundef %14, i64 noundef 1, ptr noundef nonnull %0)
   %.not.i = icmp eq i64 %15, 1
   br i1 %.not.i, label %_ZN13duckdb_yyjsonL15write_dat_to_fpEP8_IO_FILEPhmPNS_16yyjson_write_errE.exit, label %16
 
@@ -47957,7 +47957,7 @@ define noundef zeroext i1 @_ZN13duckdb_yyjson15yyjson_write_fpEP8_IO_FILEPKNS_10
 
 17:                                               ; preds = %15
   %18 = load i64, ptr %7, align 8, !tbaa !85
-  %19 = call i64 @fwrite(ptr noundef nonnull %16, i64 noundef %18, i64 noundef 1, ptr noundef nonnull %0)
+  %19 = call i64 @fwrite(ptr noundef nonnull readonly %16, i64 noundef %18, i64 noundef 1, ptr noundef nonnull %0)
   %.not.i.i = icmp eq i64 %19, 1
   br i1 %.not.i.i, label %_ZN13duckdb_yyjsonL15write_dat_to_fpEP8_IO_FILEPhmPNS_16yyjson_write_errE.exit.i, label %20
 
@@ -60526,7 +60526,7 @@ define noundef zeroext i1 @_ZN13duckdb_yyjson25yyjson_mut_val_write_fileEPKcPKNS
   br label %_ZN13duckdb_yyjsonL17write_dat_to_fileEPKcPhmPNS_16yyjson_write_errE.exit
 
 19:                                               ; preds = %14
-  %20 = call i64 @fwrite(ptr noundef nonnull %13, i64 noundef %15, i64 noundef 1, ptr noundef nonnull %16)
+  %20 = call i64 @fwrite(ptr noundef nonnull readonly %13, i64 noundef %15, i64 noundef 1, ptr noundef nonnull %16)
   %.not.i = icmp eq i64 %20, 1
   br i1 %.not.i, label %23, label %21
 
@@ -60594,7 +60594,7 @@ define noundef zeroext i1 @_ZN13duckdb_yyjson23yyjson_mut_val_write_fpEP8_IO_FIL
 
 13:                                               ; preds = %11
   %14 = load i64, ptr %7, align 8, !tbaa !85
-  %15 = call i64 @fwrite(ptr noundef nonnull %12, i64 noundef %14, i64 noundef 1, ptr noundef nonnull %0)
+  %15 = call i64 @fwrite(ptr noundef nonnull readonly %12, i64 noundef %14, i64 noundef 1, ptr noundef nonnull %0)
   %.not.i = icmp eq i64 %15, 1
   br i1 %.not.i, label %_ZN13duckdb_yyjsonL15write_dat_to_fpEP8_IO_FILEPhmPNS_16yyjson_write_errE.exit, label %16
 
@@ -60672,7 +60672,7 @@ define noundef zeroext i1 @_ZN13duckdb_yyjson19yyjson_mut_write_fpEP8_IO_FILEPKN
 
 17:                                               ; preds = %15
   %18 = load i64, ptr %7, align 8, !tbaa !85
-  %19 = call i64 @fwrite(ptr noundef nonnull %16, i64 noundef %18, i64 noundef 1, ptr noundef nonnull %0)
+  %19 = call i64 @fwrite(ptr noundef nonnull readonly %16, i64 noundef %18, i64 noundef 1, ptr noundef nonnull %0)
   %.not.i.i = icmp eq i64 %19, 1
   br i1 %.not.i.i, label %_ZN13duckdb_yyjsonL15write_dat_to_fpEP8_IO_FILEPhmPNS_16yyjson_write_errE.exit.i, label %20
 
@@ -61006,7 +61006,7 @@ _ZN13duckdb_yyjsonL16is_truncated_strEPhS0_PKcb.exit118: ; preds = %30, %40, %.l
 declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #19
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #19
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nofree noinline norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc noundef zeroext i1 @_ZN13duckdb_yyjsonL15read_number_rawEPPhS1_jPNS_10yyjson_valEPPKc(ptr noundef nonnull captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, ptr noundef writeonly captures(none) %3, ptr noundef nonnull writeonly captures(none) %4) unnamed_addr #24 {
@@ -61687,7 +61687,7 @@ declare i64 @llvm.cttz.i64(i64, i1 immarg) #26
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #19
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #19
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #27

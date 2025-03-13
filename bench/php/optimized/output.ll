@@ -102,7 +102,7 @@ define internal void @reverse_conflict_dtor(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i64 @php_output_stdout(ptr noundef captures(none) %0, i64 noundef returned %1) #2 {
+define internal noundef i64 @php_output_stdout(ptr noundef readonly captures(none) %0, i64 noundef returned %1) #2 {
   %3 = load ptr, ptr @stdout, align 8, !tbaa !9
   %4 = tail call i64 @fwrite(ptr noundef %0, i64 noundef 1, i64 noundef %1, ptr noundef %3)
   ret i64 %1
@@ -118,7 +118,7 @@ define dso_local void @php_output_shutdown() local_unnamed_addr #0 {
 }
 
 ; Function Attrs: cold nofree nounwind uwtable
-define internal noundef i64 @php_output_stderr(ptr noundef captures(none) %0, i64 noundef returned %1) #3 {
+define internal noundef i64 @php_output_stderr(ptr noundef readonly captures(none) %0, i64 noundef returned %1) #3 {
   %3 = load ptr, ptr @stderr, align 8, !tbaa !9
   %4 = tail call i64 @fwrite(ptr noundef %0, i64 noundef 1, i64 noundef %1, ptr noundef %3) #23
   ret i64 %1
@@ -3427,7 +3427,7 @@ define hidden void @zif_output_add_rewrite_var(ptr noundef readonly captures(non
 declare i32 @php_url_scanner_add_var(ptr noundef, i64 noundef, ptr noundef, i64 noundef, i1 noundef zeroext) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #16
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #16
 
 declare zeroext i1 @zend_is_compiling() local_unnamed_addr #1
 

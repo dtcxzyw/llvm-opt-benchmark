@@ -586,7 +586,7 @@ define range(i32 0, 3) i32 @Cudd_bddGenConjDecomp(ptr noundef initializes((448, 
   %.0.lcssa.i = phi i32 [ 0, %.preheader166.i ], [ %..0.i, %.lr.ph.i ]
   call void @st__free_gen(ptr noundef nonnull %52) #8
   %59 = call i32 @Cudd_SupportSize(ptr noundef nonnull %0, ptr noundef %1) #8
-  %ldexp.i = call double @ldexp(double 1.000000e+00, i32 %59) #8
+  %ldexp.i = call double @ldexp(double 1.000000e+00, i32 %59)
   %60 = call ptr @st__init_table(ptr noundef nonnull @st__ptrcmp, ptr noundef nonnull @st__ptrhash) #8
   %61 = icmp eq ptr %60, null
   br i1 %61, label %.preheader154.i, label %62
@@ -3095,14 +3095,14 @@ define internal fastcc range(i32 0, 9) i32 @PairInTables(ptr noundef %0, ptr nou
   ret i32 %.0
 }
 
-; Function Attrs: nofree willreturn memory(errnomem: write)
+; Function Attrs: nofree nounwind willreturn memory(errnomem: write)
 declare double @ldexp(double, i32) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #7
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #6
@@ -3112,7 +3112,7 @@ attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memo
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree willreturn memory(errnomem: write) }
+attributes #5 = { nofree nounwind willreturn memory(errnomem: write) }
 attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nofree nounwind }
 attributes #8 = { nounwind }

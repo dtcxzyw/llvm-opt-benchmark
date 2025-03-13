@@ -2894,7 +2894,7 @@ declare void @apply_mailmap_to_header(ptr noundef, ptr noundef, ptr noundef) loc
 declare ptr @strbuf_detach(ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #9
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: noreturn
 declare void @die_errno(ptr noundef, ...) local_unnamed_addr #5

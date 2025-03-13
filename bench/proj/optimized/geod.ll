@@ -948,7 +948,7 @@ declare noundef ptr @_Z6rtodmsPcmdii(ptr noundef, i64 noundef, double noundef, i
 declare noundef i32 @putc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #4
+declare noundef ptr @fgets(ptr noundef writeonly, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare noundef ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3

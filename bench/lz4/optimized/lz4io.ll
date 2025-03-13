@@ -2260,7 +2260,7 @@ declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #6
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #15
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind memory(read)
 declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #16
@@ -2274,7 +2274,7 @@ declare ptr @LZ4F_getErrorName(i64 noundef) local_unnamed_addr #12
 declare i64 @TIME_clockSpan_ns(i64) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 declare ptr @TPool_create(i32 noundef, i32 noundef) local_unnamed_addr #12
 
@@ -7151,7 +7151,7 @@ WR_removeBuffID.exit:                             ; preds = %145, %159, %166
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc void @LZ4IO_writeBuffer(ptr captures(none) %.0.val, i64 %.8.val, ptr noundef captures(none) %0) unnamed_addr #3 {
+define internal fastcc void @LZ4IO_writeBuffer(ptr readonly captures(none) %.0.val, i64 %.8.val, ptr noundef captures(none) %0) unnamed_addr #3 {
   %2 = tail call i64 @fwrite(ptr noundef %.0.val, i64 noundef 1, i64 noundef %.8.val, ptr noundef %0)
   %.not = icmp eq i64 %2, %.8.val
   br i1 %.not, label %36, label %3
@@ -8661,7 +8661,7 @@ thread-pre-split68:                               ; preds = %542, %537
   %568 = getelementptr inbounds nuw i8, ptr %3, i64 36
   %569 = load i32, ptr %568, align 4, !tbaa !22
   call void @llvm.lifetime.start.p0(i64 65536, ptr nonnull %5) #24
-  %570 = call i64 @fwrite(ptr noundef nonnull %12, i64 noundef 1, i64 noundef 4, ptr noundef %2)
+  %570 = call i64 @fwrite(ptr noundef nonnull readonly %12, i64 noundef 1, i64 noundef 4, ptr noundef %2)
   %.not.i46 = icmp eq i64 %570, 4
   br i1 %.not.i46, label %.preheader.i49, label %571
 

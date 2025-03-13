@@ -2517,7 +2517,7 @@ declare ptr @g_ptr_array_remove_index(ptr noundef, i32 noundef) local_unnamed_ad
 declare void @MateParser(ptr noundef, i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #3
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: cold noreturn null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @yy_fatal_error(ptr noundef %0) unnamed_addr #8 {

@@ -2210,7 +2210,7 @@ declare i32 @g_hash_table_lookup_extended(ptr noundef, ptr noundef, ptr noundef,
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #10
+declare noundef ptr @fgets(ptr noundef writeonly, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: null_pointer_is_valid
 declare i32 @g_path_is_absolute(ptr noundef) local_unnamed_addr #4

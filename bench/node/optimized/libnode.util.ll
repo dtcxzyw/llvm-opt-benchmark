@@ -1156,7 +1156,7 @@ declare noundef i64 @ftell(ptr noundef captures(none)) local_unnamed_addr #9
 declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #9
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local void @_ZN4node18DiagnosticFilename9LocalTimeEP2tm(ptr noundef %tm_struct) local_unnamed_addr #3 align 2 {

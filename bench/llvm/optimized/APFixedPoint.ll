@@ -7516,7 +7516,7 @@ _ZN4llvm7APFloat16convertFromAPIntERKNS_5APIntEbNS_12RoundingModeE.exit: ; preds
   %36 = load i32, ptr %7, align 8
   %37 = shl i32 %36, 3
   %38 = ashr i32 %37, 19
-  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %38) #20
+  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %38)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4)
   call void @_ZN4llvm6detail9IEEEFloatC1Ed(ptr noundef nonnull align 8 dereferenceable(24) %4, double noundef %ldexp) #20
   %39 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase10IEEEdoubleEv() #23
@@ -7732,7 +7732,7 @@ _ZN4llvm7APFloatC2ERKS0_.exit:                    ; preds = %50, %51
   %56 = shl i32 %55, 3
   %57 = ashr i32 %56, 19
   %58 = sub nsw i32 0, %57
-  %ldexp = call double @ldexp(double 1.000000e+00, i32 %58) #20
+  %ldexp = call double @ldexp(double 1.000000e+00, i32 %58)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9)
   call void @_ZN4llvm6detail9IEEEFloatC1Ed(ptr noundef nonnull align 8 dereferenceable(24) %9, double noundef %ldexp) #20
   %59 = tail call noundef nonnull align 1 ptr @_ZN4llvm11APFloatBase10IEEEdoubleEv() #23
@@ -7780,7 +7780,7 @@ _ZN4llvm6APSIntC2Ejb.exit:                        ; preds = %71, %72
   %76 = load i32, ptr %2, align 4
   %77 = shl i32 %76, 3
   %78 = ashr i32 %77, 19
-  %ldexp86 = call double @ldexp(double 1.000000e+00, i32 %78) #20
+  %ldexp86 = call double @ldexp(double 1.000000e+00, i32 %78)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8)
   call void @_ZN4llvm6detail9IEEEFloatC1Ed(ptr noundef nonnull align 8 dereferenceable(24) %8, double noundef %ldexp86) #20
   call void @_ZN4llvm7APFloat7StorageC1ENS_6detail9IEEEFloatERKNS_12fltSemanticsE(ptr noundef nonnull align 8 dereferenceable(24) %14, ptr noundef nonnull %8, ptr noundef nonnull align 1 %59) #20
@@ -8867,7 +8867,7 @@ declare i32 @llvm.umin.i32(i32, i32) #18
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #18
 
-; Function Attrs: nofree willreturn memory(errnomem: write)
+; Function Attrs: nofree nounwind willreturn memory(errnomem: write)
 declare double @ldexp(double, i32) local_unnamed_addr #19
 
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -8889,7 +8889,7 @@ attributes #15 = { mustprogress nounwind willreturn allockind("free") memory(arg
 attributes #16 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #17 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #19 = { nofree willreturn memory(errnomem: write) }
+attributes #19 = { nofree nounwind willreturn memory(errnomem: write) }
 attributes #20 = { nounwind }
 attributes #21 = { builtin nounwind }
 attributes #22 = { nounwind willreturn memory(read) }

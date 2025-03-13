@@ -198,7 +198,7 @@ define i32 @BIO_dump_fp(ptr noundef %0, ptr noundef readonly captures(none) %1, 
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @write_fp(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef captures(none) %2) #3 {
+define internal noundef i32 @write_fp(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef captures(none) %2) #3 {
   %4 = tail call i64 @fwrite(ptr noundef %0, i64 noundef %1, i64 noundef 1, ptr noundef %2)
   %5 = trunc i64 %4 to i32
   ret i32 %5
@@ -297,7 +297,7 @@ define noundef i32 @BIO_hex_string(ptr noundef %0, i32 noundef %1, i32 noundef %
 declare i32 @BIO_printf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 declare i32 @BIO_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 

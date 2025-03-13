@@ -70,7 +70,7 @@ define noundef i32 @File_Close(ptr noundef captures(none) %0) local_unnamed_addr
 declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef i32 @File_Read(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #1 {
+define noundef i32 @File_Read(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #1 {
   %4 = load i64, ptr %2, align 8, !tbaa !12
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %13, label %6
@@ -93,13 +93,13 @@ define noundef i32 @File_Read(ptr noundef readonly captures(none) %0, ptr nounde
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind memory(read)
 declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef i32 @File_Write(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #1 {
+define noundef i32 @File_Write(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #1 {
   %4 = load i64, ptr %2, align 8, !tbaa !12
   %5 = icmp eq i64 %4, 0
   br i1 %5, label %13, label %6
@@ -122,7 +122,7 @@ define noundef i32 @File_Write(ptr noundef readonly captures(none) %0, ptr nound
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
 define noundef i32 @File_Seek(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #1 {
@@ -156,7 +156,7 @@ define void @FileSeqInStream_CreateVTable(ptr noundef writeonly captures(none) i
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal range(i32 0, 9) i32 @FileSeqInStream_Read(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) #1 {
+define internal range(i32 0, 9) i32 @FileSeqInStream_Read(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef captures(none) %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load i64, ptr %2, align 8, !tbaa !12
   %6 = icmp eq i64 %5, 0
@@ -192,7 +192,7 @@ define void @FileInStream_CreateVTable(ptr noundef writeonly captures(none) init
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal range(i32 0, 9) i32 @FileInStream_Read(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2) #1 {
+define internal range(i32 0, 9) i32 @FileInStream_Read(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef captures(none) %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i64, ptr %2, align 8, !tbaa !12
   %6 = icmp eq i64 %5, 0
@@ -246,14 +246,14 @@ define void @FileOutStream_CreateVTable(ptr noundef writeonly captures(none) ini
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i64 @FileOutStream_Write(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2) #1 {
+define internal noundef i64 @FileOutStream_Write(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = icmp eq i64 %2, 0
   br i1 %5, label %File_Write.exit, label %6
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr %4, align 8, !tbaa !3
-  %8 = tail call i64 @fwrite(ptr noundef %1, i64 noundef 1, i64 noundef %2, ptr noundef %7)
+  %8 = tail call i64 @fwrite(ptr noundef readonly %1, i64 noundef 1, i64 noundef %2, ptr noundef %7)
   %9 = icmp eq i64 %8, %2
   br i1 %9, label %File_Write.exit, label %10
 

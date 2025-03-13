@@ -7519,7 +7519,7 @@ declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #13
+declare noundef ptr @fgets(ptr noundef writeonly, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: null_pointer_is_valid
 declare i32 @ws_xton(i8 noundef signext) local_unnamed_addr #2

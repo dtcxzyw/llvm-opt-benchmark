@@ -13447,7 +13447,7 @@ _ZNSt5dequeI8FileLineSaIS0_EE9push_backERKS0_.exit: ; preds = %_ZNSt16allocator_
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #9
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: cold mustprogress nofree noreturn nounwind uwtable
 define internal fastcc void @_ZL14yy_fatal_errorPKc(ptr noundef %0) unnamed_addr #14 {

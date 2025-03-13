@@ -1677,7 +1677,7 @@ declare noundef i64 @ftell(ptr noundef captures(none)) local_unnamed_addr #7
 declare i64 @curlx_sotouz(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #7
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @pubkey_pem_to_der(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %2) unnamed_addr #2 {

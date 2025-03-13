@@ -143,7 +143,7 @@ define dso_local noundef zeroext i1 @_ZNK3ozz2io4File6openedEv(ptr noundef nonnu
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local noundef i64 @_ZN3ozz2io4File4ReadEPvm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef captures(none) %1, i64 noundef %2) unnamed_addr #0 align 2 {
+define dso_local noundef i64 @_ZN3ozz2io4File4ReadEPvm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !7
   %6 = tail call i64 @fread(ptr noundef %1, i64 noundef 1, i64 noundef %2, ptr noundef %5)
@@ -151,10 +151,10 @@ define dso_local noundef i64 @_ZN3ozz2io4File4ReadEPvm(ptr noundef nonnull reado
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #1
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local noundef i64 @_ZN3ozz2io4File5WriteEPKvm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef captures(none) %1, i64 noundef %2) unnamed_addr #0 align 2 {
+define dso_local noundef i64 @_ZN3ozz2io4File5WriteEPKvm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) unnamed_addr #0 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !tbaa !7
   %6 = tail call i64 @fwrite(ptr noundef %1, i64 noundef 1, i64 noundef %2, ptr noundef %5)
@@ -162,7 +162,7 @@ define dso_local noundef i64 @_ZN3ozz2io4File5WriteEPKvm(ptr noundef nonnull rea
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #1
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define dso_local noundef i32 @_ZN3ozz2io4File4SeekEiNS0_6Stream6OriginE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, i32 noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {

@@ -10208,7 +10208,7 @@ declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef)
 declare noundef i64 @ftell(ptr noundef captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #18
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #18
@@ -27435,7 +27435,7 @@ define internal fastcc void @fons__blurRows(ptr noundef captures(none) %0, i32 n
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @stbi__stdio_read(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) #38 {
+define internal noundef i32 @stbi__stdio_read(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) #38 {
   %4 = sext i32 %2 to i64
   %5 = tail call i64 @fread(ptr noundef %1, i64 noundef 1, i64 noundef %4, ptr noundef %0)
   %6 = trunc i64 %5 to i32

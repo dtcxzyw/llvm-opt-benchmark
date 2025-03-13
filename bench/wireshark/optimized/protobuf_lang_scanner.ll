@@ -3340,7 +3340,7 @@ define hidden i32 @protobuf_lang_get_lineno(ptr noundef readonly captures(none) 
 declare void @pbl_parser_error(ptr noundef, ptr noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: cold noreturn null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @yy_fatal_error(ptr noundef %0) unnamed_addr #6 {

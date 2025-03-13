@@ -12918,7 +12918,7 @@ declare void @g_slice_free1(i64 noundef, ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #13
 
-; Function Attrs: nofree willreturn memory(errnomem: write)
+; Function Attrs: nofree nounwind willreturn memory(errnomem: write)
 declare double @ldexp(double, i32) local_unnamed_addr #14
 
 attributes #0 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -12935,7 +12935,7 @@ attributes #10 = { mustprogress nofree nosync nounwind null_pointer_is_valid wil
 attributes #11 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #12 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #14 = { nofree willreturn memory(errnomem: write) }
+attributes #14 = { nofree nounwind willreturn memory(errnomem: write) }
 attributes #15 = { nounwind }
 attributes #16 = { allocsize(1) }
 attributes #17 = { nounwind willreturn memory(read) }

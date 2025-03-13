@@ -537,7 +537,7 @@ _ZN5faiss14VectorIOReaderD2Ev.exit:               ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef i64 @_ZN5faiss12FileIOReaderclEPvmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(49) %0, ptr noundef captures(none) %1, i64 noundef %2, i64 noundef %3) unnamed_addr #6 align 2 {
+define noundef i64 @_ZN5faiss12FileIOReaderclEPvmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(49) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, i64 noundef %3) unnamed_addr #6 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8, !tbaa !28
   %7 = tail call i64 @fread(ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %6)
@@ -560,7 +560,7 @@ define void @_ZN5faiss12FileIOReaderD0Ev(ptr noundef nonnull align 8 dereference
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef i64 @_ZN5faiss12FileIOWriterclEPKvmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(49) %0, ptr noundef captures(none) %1, i64 noundef %2, i64 noundef %3) unnamed_addr #6 align 2 {
+define noundef i64 @_ZN5faiss12FileIOWriterclEPKvmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(49) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i64 noundef %3) unnamed_addr #6 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %6 = load ptr, ptr %5, align 8, !tbaa !32
   %7 = tail call i64 @fwrite(ptr noundef %1, i64 noundef %2, i64 noundef %3, ptr noundef %6)
@@ -1297,7 +1297,7 @@ declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #18
 declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #18
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #18
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fileno(ptr noundef captures(none)) local_unnamed_addr #18
@@ -1491,7 +1491,7 @@ _ZN5faiss8IOWriterD2Ev.exit:                      ; preds = %_ZNKSt7__cxx1112bas
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #18
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN5faiss16BufferedIOReaderC2EPNS_8IOReaderEm(ptr noundef nonnull align 8 dereferenceable(112) %0, ptr noundef %1, i64 noundef %2) unnamed_addr #2 align 2 personality ptr @__gxx_personality_v0 {

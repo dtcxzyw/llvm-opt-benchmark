@@ -1738,7 +1738,7 @@ declare i32 @gzwfile_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_
 declare i64 @lz4wfile_write(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid memory(read)
 declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #8

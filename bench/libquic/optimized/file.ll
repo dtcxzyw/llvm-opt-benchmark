@@ -142,7 +142,7 @@ define hidden i32 @BIO_rw_filename(ptr noundef %0, ptr noundef %1) local_unnamed
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @file_write(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) #6 {
+define internal noundef i32 @file_write(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #6 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8, !tbaa !10
   %.not = icmp eq i32 %5, 0
@@ -164,7 +164,7 @@ define internal noundef i32 @file_write(ptr noundef readonly captures(none) %0, 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @file_read(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) #0 {
+define internal noundef i32 @file_read(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load i32, ptr %4, align 8, !tbaa !10
   %.not = icmp eq i32 %5, 0
@@ -199,7 +199,7 @@ define internal noundef i32 @file_read(ptr noundef readonly captures(none) %0, p
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal i32 @file_puts(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #6 {
+define internal i32 @file_puts(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #6 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i32, ptr %3, align 8, !tbaa !10
   %.not.i = icmp eq i32 %4, 0
@@ -212,7 +212,7 @@ define internal i32 @file_puts(ptr noundef readonly captures(none) %0, ptr nound
   %8 = ashr exact i64 %sext, 32
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %10 = load ptr, ptr %9, align 8, !tbaa !17
-  %11 = tail call i64 @fwrite(ptr noundef nonnull %1, i64 noundef %8, i64 noundef 1, ptr noundef %10)
+  %11 = tail call i64 @fwrite(ptr noundef nonnull readonly %1, i64 noundef %8, i64 noundef 1, ptr noundef %10)
   %12 = trunc i64 %11 to i32
   %13 = icmp sgt i32 %12, 0
   %spec.select.i = select i1 %13, i32 %7, i32 %12
@@ -462,10 +462,10 @@ define internal range(i32 0, 2) i32 @file_free(ptr noundef captures(address_is_n
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind memory(read)
 declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #7
@@ -474,7 +474,7 @@ declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #7
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #2
+declare noundef ptr @fgets(ptr noundef writeonly, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #2

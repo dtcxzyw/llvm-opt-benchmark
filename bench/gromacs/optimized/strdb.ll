@@ -106,7 +106,7 @@ define noundef zeroext i1 @_Z10get_a_lineP8_IO_FILEPci(ptr noundef captures(none
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #2
+declare noundef ptr @fgets(ptr noundef writeonly, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare noundef ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3

@@ -493,7 +493,7 @@ declare i32 @isatty(i32 noundef) local_unnamed_addr #6
 declare noundef i32 @fileno(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i64 @zend_stream_stdio_reader(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2) #8 {
+define internal noundef i64 @zend_stream_stdio_reader(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) #8 {
   %4 = tail call i64 @fread(ptr noundef %1, i64 noundef 1, i64 noundef %2, ptr noundef %0)
   ret i64 %4
 }
@@ -779,7 +779,7 @@ declare void @zend_llist_destroy(ptr noundef) local_unnamed_addr #9
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #7
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #7

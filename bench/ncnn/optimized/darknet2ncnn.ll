@@ -303,7 +303,7 @@ declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly ca
 declare void @exit(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local void @_Z14fread_or_errorPvmmP8_IO_FILEPKc(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef captures(none) %3, ptr noundef %4) local_unnamed_addr #6 {
+define dso_local void @_Z14fread_or_errorPvmmP8_IO_FILEPKc(ptr noundef writeonly captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef captures(none) %3, ptr noundef %4) local_unnamed_addr #6 {
   %6 = tail call i64 @fread(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3)
   %.not = icmp eq i64 %2, %6
   br i1 %.not, label %11, label %7
@@ -320,7 +320,7 @@ define dso_local void @_Z14fread_or_errorPvmmP8_IO_FILEPKc(ptr noundef captures(
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #4
@@ -16734,7 +16734,6 @@ _Z14fread_or_errorPvmmP8_IO_FILEPKc.exit51:       ; preds = %_Z14fread_or_errorP
 
 30:                                               ; preds = %_Z14fread_or_errorPvmmP8_IO_FILEPKc.exit51
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #32
-  store i64 0, ptr %6, align 8, !tbaa !33
   %31 = call i64 @fread(ptr noundef nonnull %6, i64 noundef 8, i64 noundef 1, ptr noundef nonnull %8)
   %.not.i58 = icmp eq i64 %31, 1
   br i1 %.not.i58, label %_Z14fread_or_errorPvmmP8_IO_FILEPKc.exit59, label %32
@@ -16752,7 +16751,6 @@ _Z14fread_or_errorPvmmP8_IO_FILEPKc.exit59:       ; preds = %30
 
 36:                                               ; preds = %_Z14fread_or_errorPvmmP8_IO_FILEPKc.exit51
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #32
-  store i32 0, ptr %7, align 4, !tbaa !42
   %37 = call i64 @fread(ptr noundef nonnull %7, i64 noundef 4, i64 noundef 1, ptr noundef nonnull %8)
   %.not.i60 = icmp eq i64 %37, 1
   br i1 %.not.i60, label %_Z14fread_or_errorPvmmP8_IO_FILEPKc.exit61, label %38
@@ -17856,7 +17854,7 @@ _ZNSt5dequeIP7SectionSaIS1_EED2Ev.exit:           ; preds = %322, %_ZNSt11_Deque
 declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZNSt5dequeIP7SectionSaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(80) %0) unnamed_addr #9 comdat align 2 personality ptr @__gxx_personality_v0 {

@@ -32172,7 +32172,7 @@ define internal i32 @dissect_lpp_T_errorCause(ptr noundef %0, i32 noundef %1, pt
   ret i32 %6
 }
 
-; Function Attrs: nofree willreturn memory(errnomem: write)
+; Function Attrs: nofree nounwind willreturn memory(errnomem: write)
 declare double @ldexp(double, i32) local_unnamed_addr #8
 
 declare double @exp2(double) local_unnamed_addr
@@ -32188,7 +32188,7 @@ attributes #4 = { null_pointer_is_valid allocsize(1) "no-trapping-math"="true" "
 attributes #5 = { mustprogress nofree nounwind null_pointer_is_valid willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nofree null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nofree willreturn memory(errnomem: write) }
+attributes #8 = { nofree nounwind willreturn memory(errnomem: write) }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { nounwind }
 attributes #11 = { allocsize(1) }

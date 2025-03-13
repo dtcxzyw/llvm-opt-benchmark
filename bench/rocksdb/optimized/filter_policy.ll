@@ -21854,7 +21854,7 @@ declare double @llvm.sqrt.f64(double) #34
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #34
 
-; Function Attrs: nofree willreturn memory(errnomem: write)
+; Function Attrs: nofree nounwind willreturn memory(errnomem: write)
 declare double @ldexp(double, i32) local_unnamed_addr #36
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -21899,7 +21899,7 @@ attributes #32 = { nofree nounwind uwtable "frame-pointer"="non-leaf" "min-legal
 attributes #33 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #34 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #35 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #36 = { nofree willreturn memory(errnomem: write) }
+attributes #36 = { nofree nounwind willreturn memory(errnomem: write) }
 attributes #37 = { nofree nounwind willreturn memory(argmem: read) }
 attributes #38 = { builtin nounwind }
 attributes #39 = { nounwind }

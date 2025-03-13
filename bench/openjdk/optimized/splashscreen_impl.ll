@@ -1187,7 +1187,7 @@ declare void @SplashCreateThread(ptr noundef) local_unnamed_addr #4
 declare noalias noundef ptr @fopen64(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @readFile(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) #8 {
+define internal noundef i32 @readFile(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) #8 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8
   %6 = sext i32 %2 to i64
@@ -1509,7 +1509,7 @@ declare i32 @SplashDecodePngStream(ptr noundef, ptr noundef) #4
 declare i32 @SplashDecodeJpegStream(ptr noundef, ptr noundef) #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #10
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fgetc(ptr noundef captures(none)) local_unnamed_addr #10

@@ -5584,7 +5584,7 @@ if.end102:                                        ; preds = %if.end102.sink.spli
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN7porting20secure_rand_fill_bufEPvm(ptr noundef captures(none) %buf, i64 noundef %len) local_unnamed_addr #11 {
+define dso_local noundef zeroext i1 @_ZN7porting20secure_rand_fill_bufEPvm(ptr noundef writeonly captures(none) %buf, i64 noundef %len) local_unnamed_addr #11 {
 entry:
   %call = tail call noalias ptr @fopen(ptr noundef nonnull @.str.40, ptr noundef nonnull @.str.41)
   %tobool.not = icmp eq ptr %call, null
@@ -5605,7 +5605,7 @@ cleanup:                                          ; preds = %if.end, %entry
 declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #10
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #10

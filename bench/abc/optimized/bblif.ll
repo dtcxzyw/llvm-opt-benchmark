@@ -100,7 +100,7 @@ declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 no
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind uwtable
-define void @Vec_StrWrite(ptr noundef captures(none) %0, ptr noundef captures(none) %1) local_unnamed_addr #3 {
+define void @Vec_StrWrite(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %4 = tail call i64 @fwrite(ptr noundef nonnull %3, i64 noundef 4, i64 noundef 1, ptr noundef %0)
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -112,7 +112,7 @@ define void @Vec_StrWrite(ptr noundef captures(none) %0, ptr noundef captures(no
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
 define noalias noundef ptr @Vec_StrRead(ptr noundef captures(none) %0) local_unnamed_addr #5 {
@@ -201,14 +201,14 @@ Bbl_ManFileSize.exit:                             ; preds = %4, %5
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind uwtable
 define void @Bbl_ManDumpBinaryBlif(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = tail call noalias ptr @fopen(ptr noundef %1, ptr noundef nonnull @.str.3)
   %4 = load ptr, ptr %0, align 8, !tbaa !16
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %6 = tail call i64 @fwrite(ptr noundef nonnull %5, i64 noundef 4, i64 noundef 1, ptr noundef %3)
+  %6 = tail call i64 @fwrite(ptr noundef nonnull readonly %5, i64 noundef 4, i64 noundef 1, ptr noundef %3)
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %8 = load ptr, ptr %7, align 8, !tbaa !11
   %9 = load i32, ptr %5, align 4, !tbaa !3
@@ -217,7 +217,7 @@ define void @Bbl_ManDumpBinaryBlif(ptr noundef readonly captures(none) %0, ptr n
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !20
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 4
-  %15 = tail call i64 @fwrite(ptr noundef nonnull %14, i64 noundef 4, i64 noundef 1, ptr noundef %3)
+  %15 = tail call i64 @fwrite(ptr noundef nonnull readonly %14, i64 noundef 4, i64 noundef 1, ptr noundef %3)
   %16 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %17 = load ptr, ptr %16, align 8, !tbaa !11
   %18 = load i32, ptr %14, align 4, !tbaa !3
@@ -226,7 +226,7 @@ define void @Bbl_ManDumpBinaryBlif(ptr noundef readonly captures(none) %0, ptr n
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %22 = load ptr, ptr %21, align 8, !tbaa !21
   %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
-  %24 = tail call i64 @fwrite(ptr noundef nonnull %23, i64 noundef 4, i64 noundef 1, ptr noundef %3)
+  %24 = tail call i64 @fwrite(ptr noundef nonnull readonly %23, i64 noundef 4, i64 noundef 1, ptr noundef %3)
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 8
   %26 = load ptr, ptr %25, align 8, !tbaa !11
   %27 = load i32, ptr %23, align 4, !tbaa !3

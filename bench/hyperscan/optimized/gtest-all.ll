@@ -62748,7 +62748,7 @@ define hidden void @_ZN7testing8internal14CapturedStream14ReadEntireFileB5cxx11E
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #20
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN7testing8internal13CaptureStreamEiPKcPPNS0_14CapturedStreamE(i32 noundef %0, ptr noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
@@ -66005,7 +66005,7 @@ declare noundef i32 @vfprintf(ptr noundef captures(none), ptr noundef readonly c
 declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #20
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #20
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #20
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @remove(ptr noundef readonly captures(none)) local_unnamed_addr #20

@@ -1109,7 +1109,7 @@ EpdConvert.exit61:                                ; preds = %34, %35, %40
   br i1 %50, label %51, label %64
 
 51:                                               ; preds = %48
-  %ldexp41 = tail call double @ldexp(double 1.000000e+00, i32 %49) #20
+  %ldexp41 = tail call double @ldexp(double 1.000000e+00, i32 %49)
   %52 = fdiv double %.sroa.0.1, %ldexp41
   %53 = fadd double %52, %4
   %.pre = load i32, ptr %45, align 8, !tbaa !6
@@ -1125,7 +1125,7 @@ EpdConvert.exit61:                                ; preds = %34, %35, %40
   br i1 %58, label %59, label %64
 
 59:                                               ; preds = %56
-  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %57) #20
+  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %57)
   %60 = fdiv double %4, %ldexp
   %61 = fadd double %.sroa.0.1, %60
   br label %64
@@ -1229,7 +1229,7 @@ define void @EpdAdd2(ptr noundef captures(none) %0, ptr noundef readonly capture
   br i1 %31, label %32, label %46
 
 32:                                               ; preds = %29
-  %ldexp51 = tail call double @ldexp(double 1.000000e+00, i32 %30) #20
+  %ldexp51 = tail call double @ldexp(double 1.000000e+00, i32 %30)
   %33 = fdiv double %7, %ldexp51
   %34 = fadd double %33, %4
   %.pre71 = load i32, ptr %24, align 8, !tbaa !6
@@ -1245,7 +1245,7 @@ define void @EpdAdd2(ptr noundef captures(none) %0, ptr noundef readonly capture
   br i1 %39, label %40, label %46
 
 40:                                               ; preds = %37
-  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %38) #20
+  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %38)
   %41 = fdiv double %4, %ldexp
   %42 = load double, ptr %1, align 8, !tbaa !3
   %43 = fadd double %41, %42
@@ -1349,7 +1349,7 @@ define void @EpdAdd3(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br i1 %40, label %41, label %55
 
 41:                                               ; preds = %38
-  %ldexp55 = tail call double @ldexp(double 1.000000e+00, i32 %39) #20
+  %ldexp55 = tail call double @ldexp(double 1.000000e+00, i32 %39)
   %42 = fdiv double %8, %ldexp55
   %43 = fadd double %42, %5
   %.pre76 = load i32, ptr %33, align 8, !tbaa !6
@@ -1365,7 +1365,7 @@ define void @EpdAdd3(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br i1 %48, label %49, label %55
 
 49:                                               ; preds = %46
-  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %47) #20
+  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %47)
   %50 = fdiv double %5, %ldexp
   %51 = load double, ptr %1, align 8, !tbaa !3
   %52 = fadd double %50, %51
@@ -1497,7 +1497,7 @@ EpdConvert.exit60:                                ; preds = %35, %36, %41
   br i1 %51, label %52, label %67
 
 52:                                               ; preds = %49
-  %ldexp41 = tail call double @ldexp(double 1.000000e+00, i32 %50) #20
+  %ldexp41 = tail call double @ldexp(double 1.000000e+00, i32 %50)
   %53 = fdiv double %.sroa.0.1, %ldexp41
   %54 = fsub double %4, %53
   %.pre = load i32, ptr %46, align 8, !tbaa !6
@@ -1513,7 +1513,7 @@ EpdConvert.exit60:                                ; preds = %35, %36, %41
   br i1 %59, label %60, label %63
 
 60:                                               ; preds = %57
-  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %58) #20
+  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %58)
   %61 = fdiv double %4, %ldexp
   %62 = fsub double %61, %.sroa.0.1
   br label %67
@@ -1607,7 +1607,7 @@ define void @EpdSubtract2(ptr noundef captures(none) %0, ptr noundef readonly ca
   br i1 %32, label %33, label %49
 
 33:                                               ; preds = %30
-  %ldexp51 = tail call double @ldexp(double 1.000000e+00, i32 %31) #20
+  %ldexp51 = tail call double @ldexp(double 1.000000e+00, i32 %31)
   %34 = fdiv double %7, %ldexp51
   %35 = fsub double %4, %34
   %.pre70 = load i32, ptr %25, align 8, !tbaa !6
@@ -1623,7 +1623,7 @@ define void @EpdSubtract2(ptr noundef captures(none) %0, ptr noundef readonly ca
   br i1 %40, label %41, label %45
 
 41:                                               ; preds = %38
-  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %39) #20
+  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %39)
   %42 = fdiv double %4, %ldexp
   %43 = load double, ptr %1, align 8, !tbaa !3
   %44 = fsub double %42, %43
@@ -1723,7 +1723,7 @@ define void @EpdSubtract3(ptr noundef readonly captures(none) %0, ptr noundef re
   br i1 %37, label %38, label %54
 
 38:                                               ; preds = %35
-  %ldexp56 = tail call double @ldexp(double 1.000000e+00, i32 %36) #20
+  %ldexp56 = tail call double @ldexp(double 1.000000e+00, i32 %36)
   %39 = fdiv double %8, %ldexp56
   %40 = fsub double %5, %39
   %.pre76 = load i32, ptr %30, align 8, !tbaa !6
@@ -1739,7 +1739,7 @@ define void @EpdSubtract3(ptr noundef readonly captures(none) %0, ptr noundef re
   br i1 %45, label %46, label %50
 
 46:                                               ; preds = %43
-  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %44) #20
+  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %44)
   %47 = fdiv double %5, %ldexp
   %48 = load double, ptr %1, align 8, !tbaa !3
   %49 = fsub double %47, %48
@@ -1775,7 +1775,7 @@ define void @EpdPow2(i32 noundef %0, ptr noundef writeonly captures(none) %1) lo
   br i1 %5, label %6, label %19
 
 6:                                                ; preds = %2
-  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %0) #20
+  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %0)
   store double %ldexp, ptr %1, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 0, ptr %7, align 8, !tbaa !6
@@ -1896,7 +1896,7 @@ define void @EpdPow2Decimal(i32 noundef %0, ptr noundef captures(none) %1) local
   br i1 %9, label %10, label %25
 
 10:                                               ; preds = %2
-  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %0) #20
+  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %0)
   store double %ldexp, ptr %1, align 8, !tbaa !3
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 0, ptr %11, align 8, !tbaa !6
@@ -2077,7 +2077,7 @@ declare ptr @strchr(ptr, i32) local_unnamed_addr #14
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #15
 
-; Function Attrs: nofree willreturn memory(errnomem: write)
+; Function Attrs: nofree nounwind willreturn memory(errnomem: write)
 declare double @ldexp(double, i32) local_unnamed_addr #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -2102,7 +2102,7 @@ attributes #12 = { mustprogress nofree nounwind willreturn memory(errnomem: writ
 attributes #13 = { nofree nounwind memory(argmem: write, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { nofree nounwind willreturn memory(argmem: read) }
 attributes #15 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #16 = { nofree willreturn memory(errnomem: write) }
+attributes #16 = { nofree nounwind willreturn memory(errnomem: write) }
 attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #18 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #19 = { nounwind allocsize(0) }

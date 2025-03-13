@@ -1291,7 +1291,7 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5clearEv(ptr 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7reserveEm(ptr noundef nonnull align 8 dereferenceable(32), i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #14
+declare noundef ptr @fgets(ptr noundef writeonly, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #14
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #11
 
@@ -3467,7 +3467,7 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL19cb_skip_float_asciiEP8_IO_FILE
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_chchEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_read_list_chchEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = alloca i8, align 1
   %5 = call i64 @fread(ptr noundef nonnull %4, i64 noundef 1, i64 noundef 1, ptr noundef %0)
   %6 = icmp eq i64 %5, 0
@@ -9983,7 +9983,7 @@ define internal noundef zeroext i1 @_ZN3vcg3plyL17cb_skip_list_bin8EP8_IO_FILEPv
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_chchEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
+define internal noundef zeroext i1 @_ZN3vcg3plyL12cb_read_chchEP8_IO_FILEPvPNS0_14PropDescriptorE(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) #12 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %5 = load i64, ptr %4, align 8
   %6 = getelementptr inbounds i8, ptr %1, i64 %5
@@ -11820,7 +11820,7 @@ define internal fastcc noundef i32 @_ZN3vcg3plyL11ReadScalarAEP8_IO_FILEPvii(ptr
 declare i32 @__isoc99_fscanf(ptr noundef, ptr noundef, ...) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #14
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @_ZN3vcg3ply7PlyFile7compileEPNS0_10PlyElementE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(120) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #21 align 2 {

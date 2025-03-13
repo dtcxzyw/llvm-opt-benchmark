@@ -473,7 +473,7 @@ define internal noundef i32 @_ZL10luaB_printP9lua_State(ptr noundef %0) #0 {
 9:                                                ; preds = %7, %.lr.ph
   %10 = load i64, ptr %2, align 8, !tbaa !30
   %11 = load ptr, ptr @stdout, align 8, !tbaa !28
-  %12 = call i64 @fwrite(ptr noundef %5, i64 noundef 1, i64 noundef %10, ptr noundef %11)
+  %12 = call i64 @fwrite(ptr noundef readonly %5, i64 noundef 1, i64 noundef %10, ptr noundef %11)
   call void @_Z10lua_settopP9lua_Statei(ptr noundef %0, i32 noundef -2)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #11
   %13 = add nuw i32 %.010, 1
@@ -849,7 +849,7 @@ declare noundef i32 @_Z16lua_setmetatableP9lua_Statei(ptr noundef, i32 noundef) 
 declare noundef ptr @_Z14luaL_tolstringP9lua_StateiPm(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 declare void @_Z15lua_pushbooleanP9lua_Statei(ptr noundef, i32 noundef) local_unnamed_addr #1
 

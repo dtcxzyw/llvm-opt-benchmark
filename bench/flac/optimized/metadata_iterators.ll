@@ -2869,7 +2869,7 @@ define range(i32 0, 12) i32 @FLAC__metadata_simple_iterator_set_block(ptr nounde
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @write_metadata_block_stationary_(ptr noundef captures(none) %0, ptr noundef captures(none) %1) unnamed_addr #0 {
+define internal fastcc range(i32 0, 2) i32 @write_metadata_block_stationary_(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #0 {
   %3 = alloca [4 x i8], align 1
   %4 = alloca [4 x i8], align 1
   %5 = load ptr, ptr %0, align 8, !tbaa !24
@@ -3162,7 +3162,7 @@ write_metadata_block_header_.exit47:              ; preds = %write_metadata_bloc
 }
 
 ; Function Attrs: nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @rewrite_whole_file_(ptr noundef %0, ptr noundef captures(address_is_null) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @rewrite_whole_file_(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef range(i32 0, 2) %2) unnamed_addr #2 {
   %4 = alloca [4 x i8], align 1
   %5 = alloca [4 x i8], align 1
   %6 = alloca [8192 x i8], align 16
@@ -9811,7 +9811,7 @@ unpack_uint32_.exit:                              ; preds = %.lr.ph.i
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #12
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
 define internal fastcc range(i32 0, 2) i32 @open_tempfile_(ptr noundef %0, ptr noundef %1, ptr noundef nonnull writeonly captures(none) %2, ptr noundef nonnull captures(none) initializes((0, 8)) %3, ptr noundef writeonly captures(none) %4) unnamed_addr #23 {
@@ -9868,7 +9868,7 @@ define internal fastcc range(i32 0, 2) i32 @open_tempfile_(ptr noundef %0, ptr n
 }
 
 ; Function Attrs: nofree nounwind sspstrong uwtable
-define internal fastcc range(i32 0, 2) i32 @write_metadata_block_data_(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef captures(none) %2) unnamed_addr #25 {
+define internal fastcc range(i32 0, 2) i32 @write_metadata_block_data_(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef readonly captures(none) %2) unnamed_addr #25 {
   %4 = alloca [4 x i8], align 1
   %5 = alloca [1024 x i8], align 16
   %6 = alloca [4 x i8], align 1

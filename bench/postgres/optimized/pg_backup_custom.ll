@@ -342,7 +342,7 @@ define internal range(i32 0, -1) i32 @_ReadByte(ptr noundef readonly captures(no
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_WriteBuf(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2) #0 {
+define internal void @_WriteBuf(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i64 @fwrite(ptr noundef %1, i64 noundef 1, i64 noundef %2, ptr noundef %5)
@@ -359,7 +359,7 @@ define internal void @_WriteBuf(ptr noundef readonly captures(none) %0, ptr noun
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @_ReadBuf(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2) #0 {
+define internal void @_ReadBuf(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i64 @fread(ptr noundef %1, i64 noundef 1, i64 noundef %2, ptr noundef %5)
@@ -1152,7 +1152,7 @@ declare i64 @WriteInt(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare ptr @AllocateCompressor(ptr noundef byval(%struct.pg_compress_specification) align 8, ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal void @_CustomWriteFunc(ptr noundef %0, ptr noundef captures(none) %1, i64 noundef %2) #0 {
+define internal void @_CustomWriteFunc(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %_WriteBuf.exit, label %4
 
@@ -1161,7 +1161,7 @@ define internal void @_CustomWriteFunc(ptr noundef %0, ptr noundef captures(none
   %6 = tail call i64 @WriteInt(ptr noundef %0, i32 noundef %5) #7
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 488
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call i64 @fwrite(ptr noundef %1, i64 noundef 1, i64 noundef %2, ptr noundef %8)
+  %9 = tail call i64 @fwrite(ptr noundef readonly %1, i64 noundef 1, i64 noundef %2, ptr noundef %8)
   %.not.i = icmp eq i64 %9, %2
   br i1 %.not.i, label %_WriteBuf.exit, label %10
 
@@ -1269,7 +1269,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #5
 declare ptr @pg_malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #3
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @feof(ptr noundef captures(none)) local_unnamed_addr #3
@@ -1334,7 +1334,7 @@ declare void @EndRestoreLOs(ptr noundef) local_unnamed_addr #2
 declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #3
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @WriteHead(ptr noundef) local_unnamed_addr #2
 

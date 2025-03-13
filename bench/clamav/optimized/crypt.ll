@@ -1942,7 +1942,7 @@ declare void @_ZN11SecPassword3GetEPwm(ptr noundef nonnull align 8 dereferenceab
 declare noundef zeroext i1 @_Z10WideToCharPKwPcm(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress uwtable
-define void @_Z6GetRndPhm(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #2 {
+define void @_Z6GetRndPhm(ptr noundef writeonly captures(none) %0, i64 noundef %1) local_unnamed_addr #2 {
   %3 = alloca %class.RarTime, align 8
   %4 = tail call noalias ptr @fopen64(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1)
   %.not = icmp eq ptr %4, null
@@ -2001,7 +2001,7 @@ _ZL13TimeRandomizePhm.exit:                       ; preds = %.critedge, %._crit_
 declare noalias noundef ptr @fopen64(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #10
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #10

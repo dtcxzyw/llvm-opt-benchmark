@@ -671,7 +671,7 @@ define noundef range(i32 0, 2) i32 @_ZN25LibRaw_bigfile_datastream5validEv(ptr n
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN25LibRaw_bigfile_datastream4readEPvmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef captures(none) %1, i64 noundef %2, i64 noundef %3) unnamed_addr #0 align 2 {
+define noundef i32 @_ZN25LibRaw_bigfile_datastream4readEPvmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, i64 noundef %3) unnamed_addr #0 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !tbaa !79
   %.not = icmp eq ptr %6, null
@@ -695,7 +695,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #12
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN25LibRaw_bigfile_datastream3eofEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0) unnamed_addr #0 align 2 {
@@ -787,7 +787,7 @@ define noundef ptr @_ZN25LibRaw_bigfile_datastream4getsEPci(ptr noundef nonnull 
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #12
+declare noundef ptr @fgets(ptr noundef writeonly, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN25LibRaw_bigfile_datastream9scanf_oneEPKcPv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #0 align 2 {

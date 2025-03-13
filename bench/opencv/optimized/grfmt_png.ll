@@ -1718,7 +1718,7 @@ declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noun
 declare void @png_init_io(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef zeroext i1 @_ZN2cv10PngDecoder22readFromStreamOrBufferEPvm(ptr noundef nonnull align 8 captures(none) dereferenceable(3976) %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef zeroext i1 @_ZN2cv10PngDecoder22readFromStreamOrBufferEPvm(ptr noundef nonnull align 8 captures(none) dereferenceable(3976) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.std::__cxx11::basic_stringstream", align 8
   %5 = alloca %"class.std::__cxx11::basic_string", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 400
@@ -4085,7 +4085,7 @@ _ZNSt14_Function_baseD2Ev.exit8:                  ; preds = %.body, %58
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #10
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
 declare noundef ptr @_ZN2cv5utils7logging8internal15getGlobalLogTagEv() local_unnamed_addr #0
 
@@ -5174,7 +5174,7 @@ declare void @png_write_end(ptr noundef, ptr noundef) local_unnamed_addr #0
 declare void @png_destroy_write_struct(ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define hidden noundef i64 @_ZN2cv10PngEncoder21writeToStreamOrBufferEPKvmP8_IO_FILE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8960) %0, ptr noundef captures(address_is_null) %1, i64 noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
+define hidden noundef i64 @_ZN2cv10PngEncoder21writeToStreamOrBufferEPKvmP8_IO_FILE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8960) %0, ptr noundef readonly captures(address_is_null) %1, i64 noundef %2, ptr noundef captures(address_is_null) %3) local_unnamed_addr #5 align 2 personality ptr @__gxx_personality_v0 {
   %5 = icmp ne ptr %1, null
   %6 = icmp ne i64 %2, 0
   %or.cond = and i1 %5, %6
@@ -5230,7 +5230,7 @@ define hidden noundef i64 @_ZN2cv10PngEncoder21writeToStreamOrBufferEPKvmP8_IO_F
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #10
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 

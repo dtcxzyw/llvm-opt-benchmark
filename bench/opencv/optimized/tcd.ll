@@ -874,7 +874,7 @@ define internal fastcc range(i32 0, 2) i32 @opj_tcd_init_tile(ptr noundef readon
   %335 = fadd double %334, 1.000000e+00
   %336 = load i32, ptr %.2469626, align 4, !tbaa !116
   %337 = sub i32 %330, %336
-  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %337) #16
+  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %337)
   %338 = fmul double %ldexp, %335
   %339 = fptrunc double %338 to float
   %340 = getelementptr inbounds nuw i8, ptr %.0466627, i64 40
@@ -5562,7 +5562,7 @@ declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #14
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare { i32, i1 } @llvm.umul.with.overflow.i32(i32, i32) #14
 
-; Function Attrs: nofree willreturn memory(errnomem: write)
+; Function Attrs: nofree nounwind willreturn memory(errnomem: write)
 declare double @ldexp(double, i32) local_unnamed_addr #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -5604,7 +5604,7 @@ attributes #11 = { mustprogress nofree nounwind willreturn memory(errnomem: writ
 attributes #12 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { nofree willreturn memory(errnomem: write) }
+attributes #15 = { nofree nounwind willreturn memory(errnomem: write) }
 attributes #16 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}

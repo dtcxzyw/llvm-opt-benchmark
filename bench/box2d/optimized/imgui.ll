@@ -4729,22 +4729,22 @@ declare noundef i64 @ftell(ptr noundef captures(none)) local_unnamed_addr #24
 declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #24
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local noundef i64 @_Z10ImFileReadPvyyP8_IO_FILE(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #22 {
+define dso_local noundef i64 @_Z10ImFileReadPvyyP8_IO_FILE(ptr noundef writeonly captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #22 {
   %5 = tail call i64 @fread(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3)
   ret i64 %5
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #24
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #24
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local noundef i64 @_Z11ImFileWritePKvyyP8_IO_FILE(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #22 {
+define dso_local noundef i64 @_Z11ImFileWritePKvyyP8_IO_FILE(ptr noundef readonly captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef captures(none) %3) local_unnamed_addr #22 {
   %5 = tail call i64 @fwrite(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef %3)
   ret i64 %5
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #24
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #24
 
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef ptr @_Z18ImFileLoadToMemoryPKcS0_Pmi(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(address_is_null) %2, i32 noundef %3) local_unnamed_addr #0 {
@@ -19450,7 +19450,7 @@ _ZN5ImGui23SaveIniSettingsToMemoryEPm.exit:       ; preds = %_ZN5ImGui23SaveIniS
   %spec.select.i20.i = select i1 %.not.i.i, ptr @_ZN15ImGuiTextBuffer11EmptyStringE, ptr %158
   %spec.select.i.i = tail call noundef i32 @llvm.usub.sat.i32(i32 %157, i32 1)
   %161 = sext i32 %spec.select.i.i to i64
-  %162 = tail call noundef i64 @fwrite(ptr noundef nonnull %spec.select.i20.i, i64 noundef 1, i64 noundef %161, ptr noundef nonnull %159)
+  %162 = tail call noundef i64 @fwrite(ptr noundef nonnull readonly %spec.select.i20.i, i64 noundef 1, i64 noundef %161, ptr noundef nonnull %159)
   %163 = tail call i32 @fclose(ptr noundef nonnull %159)
   br label %164
 
@@ -67168,7 +67168,7 @@ _ZN8ImVectorIcE6resizeEi.exit.i:                  ; preds = %81, %11
   %spec.select.i11.i = call noundef i32 @llvm.usub.sat.i32(i32 %84, i32 1)
   %85 = sext i32 %spec.select.i11.i to i64
   %86 = load ptr, ptr %8, align 8, !tbaa !562
-  %87 = call noundef i64 @fwrite(ptr noundef nonnull %spec.select.i.i, i64 noundef 1, i64 noundef %85, ptr noundef %86)
+  %87 = call noundef i64 @fwrite(ptr noundef nonnull readonly %spec.select.i.i, i64 noundef 1, i64 noundef %85, ptr noundef %86)
   br label %_ZL8LogTextVR12ImGuiContextPKcP13__va_list_tag.exit
 
 88:                                               ; preds = %7
@@ -67336,7 +67336,7 @@ _ZN8ImVectorIcE6resizeEi.exit.i:                  ; preds = %81, %11
   %spec.select.i11.i = tail call noundef i32 @llvm.usub.sat.i32(i32 %84, i32 1)
   %85 = sext i32 %spec.select.i11.i to i64
   %86 = load ptr, ptr %8, align 8, !tbaa !562
-  %87 = tail call noundef i64 @fwrite(ptr noundef nonnull %spec.select.i.i, i64 noundef 1, i64 noundef %85, ptr noundef %86)
+  %87 = tail call noundef i64 @fwrite(ptr noundef nonnull readonly %spec.select.i.i, i64 noundef 1, i64 noundef %85, ptr noundef %86)
   br label %_ZL8LogTextVR12ImGuiContextPKcP13__va_list_tag.exit
 
 88:                                               ; preds = %7

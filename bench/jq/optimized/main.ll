@@ -1741,7 +1741,7 @@ define internal void @stderr_cb(ptr readonly captures(none) %0, i64 %1, ptr %2) 
   %11 = tail call i32 @jv_string_length_bytes(i64 %9, ptr %10) #19
   %12 = sext i32 %11 to i64
   %13 = load ptr, ptr @stderr, align 8, !tbaa !20
-  %14 = tail call i64 @fwrite(ptr noundef %7, i64 noundef 1, i64 noundef range(i64 -2147483648, 2147483648) %12, ptr noundef %13) #20
+  %14 = tail call i64 @fwrite(ptr noundef readonly %7, i64 noundef 1, i64 noundef range(i64 -2147483648, 2147483648) %12, ptr noundef %13) #20
   br label %21
 
 15:                                               ; preds = %3
@@ -1973,7 +1973,7 @@ define internal fastcc i32 @process(ptr noundef %0, i64 %1, ptr %2, i32 noundef 
   %111 = tail call i32 @jv_string_length_bytes(i64 %109, ptr %110) #19
   %112 = sext i32 %111 to i64
   %113 = load ptr, ptr @stdout, align 8, !tbaa !20
-  %114 = tail call i64 @fwrite(ptr noundef %107, i64 noundef 1, i64 noundef range(i64 -2147483648, 2147483648) %112, ptr noundef %113)
+  %114 = tail call i64 @fwrite(ptr noundef readonly %107, i64 noundef 1, i64 noundef range(i64 -2147483648, 2147483648) %112, ptr noundef %113)
   br label %115
 
 115:                                              ; preds = %106, %85
@@ -2081,7 +2081,7 @@ define internal fastcc i32 @process(ptr noundef %0, i64 %1, ptr %2, i32 noundef 
   %164 = tail call i32 @jv_string_length_bytes(i64 %162, ptr %163) #19
   %165 = sext i32 %164 to i64
   %166 = load ptr, ptr @stderr, align 8, !tbaa !20
-  %167 = tail call i64 @fwrite(ptr noundef %160, i64 noundef 1, i64 noundef range(i64 -2147483648, 2147483648) %165, ptr noundef %166) #20
+  %167 = tail call i64 @fwrite(ptr noundef readonly %160, i64 noundef 1, i64 noundef range(i64 -2147483648, 2147483648) %165, ptr noundef %166) #20
   br label %180
 
 168:                                              ; preds = %153
@@ -2214,7 +2214,7 @@ declare i32 @jv_string_length_bytes(i64, ptr) local_unnamed_addr #3
 declare { i64, ptr } @jv_dump_string(i64, ptr, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 declare void @jq_start(ptr noundef, i64, ptr, i32 noundef) local_unnamed_addr #3
 

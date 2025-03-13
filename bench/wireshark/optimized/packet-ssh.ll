@@ -6375,7 +6375,7 @@ declare void @g_hash_table_remove_all(ptr noundef) local_unnamed_addr #2
 declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #13
+declare noundef ptr @fgets(ptr noundef writeonly, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid memory(read)
 declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #14

@@ -3499,7 +3499,7 @@ if.then63.i:                                      ; preds = %if.end52.i
   %316 = load i32, ptr %height67.i, align 4
   %mul68.i = mul nsw i32 %316, %315
   %conv.i143.i = sext i32 %mul68.i to i64
-  %call.i144.i = call i64 @fwrite(ptr noundef %314, i64 noundef 4, i64 noundef %conv.i143.i, ptr noundef nonnull %call49.i)
+  %call.i144.i = call i64 @fwrite(ptr noundef readonly %314, i64 noundef 4, i64 noundef %conv.i143.i, ptr noundef nonnull %call49.i)
   br label %if.end1683.sink.split
 
 if.then72.i:                                      ; preds = %if.end52.i
@@ -4122,7 +4122,7 @@ if.then63.i996:                                   ; preds = %if.end52.i971
   %385 = load i32, ptr %height67.i998, align 4
   %mul68.i999 = mul nsw i32 %mul66.i, %385
   %conv.i143.i1000 = sext i32 %mul68.i999 to i64
-  %call.i144.i1001 = call i64 @fwrite(ptr noundef %383, i64 noundef 4, i64 noundef %conv.i143.i1000, ptr noundef nonnull %call49.i969)
+  %call.i144.i1001 = call i64 @fwrite(ptr noundef readonly %383, i64 noundef 4, i64 noundef %conv.i143.i1000, ptr noundef nonnull %call49.i969)
   br label %if.end1767.sink.split
 
 if.then72.i972:                                   ; preds = %if.end52.i971
@@ -4748,7 +4748,7 @@ if.then63.i1327:                                  ; preds = %if.end52.i1301
   %454 = load i32, ptr %height67.i1330, align 4
   %mul68.i1331 = mul nsw i32 %mul66.i1329, %454
   %conv.i143.i1332 = sext i32 %mul68.i1331 to i64
-  %call.i144.i1333 = call i64 @fwrite(ptr noundef %452, i64 noundef 4, i64 noundef %conv.i143.i1332, ptr noundef nonnull %call49.i1299)
+  %call.i144.i1333 = call i64 @fwrite(ptr noundef readonly %452, i64 noundef 4, i64 noundef %conv.i143.i1332, ptr noundef nonnull %call49.i1299)
   br label %if.end1853.sink.split
 
 if.then72.i1302:                                  ; preds = %if.end52.i1301
@@ -5668,7 +5668,7 @@ declare noundef zeroext i1 @_ZN7msdfgen7saveBmpERKNS_14BitmapConstRefIfLi1EEEPKc
 declare noundef zeroext i1 @_ZN7msdfgen8saveTiffERKNS_14BitmapConstRefIfLi1EEEPKc(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 declare noundef zeroext i1 @_ZN7msdfgen7saveBmpERKNS_14BitmapConstRefIfLi3EEEPKc(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef) local_unnamed_addr #1
 

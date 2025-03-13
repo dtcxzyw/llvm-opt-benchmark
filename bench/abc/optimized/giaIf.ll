@@ -14327,7 +14327,7 @@ declare ptr @If_DsdManGetCellStr(ptr noundef) local_unnamed_addr #7
 declare ptr @Extra_FileNameGeneric(ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #10
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @Gia_ManMappingVerify_rec(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #4 {

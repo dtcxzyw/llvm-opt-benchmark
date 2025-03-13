@@ -1779,7 +1779,7 @@ define hidden void @_ZN10fileStreamC2EPKcS1_(ptr noundef nonnull writeonly align
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden void @_ZN10fileStream5writeEPKcm(ptr noundef nonnull align 8 captures(none) dereferenceable(65) %0, ptr noundef captures(none) %1, i64 noundef %2) unnamed_addr #10 align 2 {
+define hidden void @_ZN10fileStream5writeEPKcm(ptr noundef nonnull align 8 captures(none) dereferenceable(65) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) unnamed_addr #10 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %5 = load ptr, ptr %4, align 8
   %.not = icmp eq ptr %5, null
@@ -1844,7 +1844,7 @@ _ZN12outputStream15update_positionEPKcm.exit:     ; preds = %27, %6, %3
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #11
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define hidden noundef i64 @_ZN10fileStream8fileSizeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(65) %0) local_unnamed_addr #10 align 2 {

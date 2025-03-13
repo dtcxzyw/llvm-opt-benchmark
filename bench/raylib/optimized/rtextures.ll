@@ -5021,7 +5021,7 @@ define hidden i32 @qoi_write(ptr noundef readonly captures(none) %0, ptr noundef
 declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #6
@@ -5083,7 +5083,7 @@ define hidden noalias noundef ptr @qoi_read(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define hidden void @stbi_flip_vertically_on_write(i32 noundef %0) local_unnamed_addr #3 {
@@ -26951,7 +26951,7 @@ define noundef i32 @GetColor(i32 noundef %0) local_unnamed_addr #7 {
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @stbi__stdio_read(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) #8 {
+define internal noundef i32 @stbi__stdio_read(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) #8 {
   %4 = sext i32 %2 to i64
   %5 = tail call i64 @fread(ptr noundef %1, i64 noundef 1, i64 noundef %4, ptr noundef %0)
   %6 = trunc i64 %5 to i32
@@ -43887,7 +43887,7 @@ stbiw__write1.exit37:                             ; preds = %110, %120
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @stbi__stdio_write(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) #8 {
+define internal void @stbi__stdio_write(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #8 {
   %4 = sext i32 %2 to i64
   %5 = tail call i64 @fwrite(ptr noundef %1, i64 noundef 1, i64 noundef %4, ptr noundef %0)
   ret void

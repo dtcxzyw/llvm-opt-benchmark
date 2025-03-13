@@ -2682,7 +2682,7 @@ declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #16
 declare i32 @isatty(i32 noundef) local_unnamed_addr #17
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #11
+declare noundef ptr @fgets(ptr noundef writeonly, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define dso_local void @linenoiseFree(ptr noundef captures(none) %0) local_unnamed_addr #18 {

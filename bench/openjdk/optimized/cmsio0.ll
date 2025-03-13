@@ -532,7 +532,7 @@ declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #7
 declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @FileRead(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i32 noundef %3) #0 {
+define internal noundef i32 @FileRead(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, i32 noundef %3) #0 {
   %5 = zext i32 %2 to i64
   %6 = zext i32 %3 to i64
   %7 = load ptr, ptr %0, align 8
@@ -614,7 +614,7 @@ define internal noundef i32 @FileTell(ptr noundef readonly captures(none) %0) #0
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal range(i32 0, 2) i32 @FileWrite(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef captures(none) %2) #9 {
+define internal range(i32 0, 2) i32 @FileWrite(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2) #9 {
   %4 = icmp eq i32 %1, 0
   br i1 %4, label %14, label %5
 
@@ -3899,7 +3899,7 @@ _cmsSearchTag.exit.thread:                        ; preds = %10, %2, %_cmsSearch
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #7
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #7
@@ -3908,7 +3908,7 @@ declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef)
 declare noundef i64 @ftell(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #7
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 declare i32 @_cmsWriteAlignment(ptr noundef) local_unnamed_addr #1
 

@@ -1944,7 +1944,7 @@ define internal fastcc noundef ptr @gatherInfo(ptr noundef captures(none) %0, pt
 9:                                                ; preds = %4
   %10 = icmp eq i32 %2, 0
   %spec.store.select = select i1 %10, i32 1023, i32 %2
-  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %spec.store.select) #10
+  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %spec.store.select)
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 40
   store double %ldexp, ptr %11, align 8, !tbaa !68
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -3223,9 +3223,9 @@ declare ptr @cuddHashTableLookup2(ptr noundef, ptr noundef, ptr noundef) local_u
 declare i32 @cuddHashTableInsert2(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #7
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
-; Function Attrs: nofree willreturn memory(errnomem: write)
+; Function Attrs: nofree nounwind willreturn memory(errnomem: write)
 declare double @ldexp(double, i32) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
@@ -3239,7 +3239,7 @@ attributes #4 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "t
 attributes #5 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nofree nounwind }
-attributes #8 = { nofree willreturn memory(errnomem: write) }
+attributes #8 = { nofree nounwind willreturn memory(errnomem: write) }
 attributes #9 = { nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" }
 attributes #10 = { nounwind }
 attributes #11 = { nounwind allocsize(0) }

@@ -5048,16 +5048,16 @@ define dso_local noundef double @_Z11VL_ITOR_D_WiPKj(i32 noundef %0, ptr noundef
   %26 = getelementptr inbounds i32, ptr %1, i64 %25
   %27 = load i32, ptr %26, align 4
   %28 = uitofp i32 %8 to double
-  %ldexp.i = tail call noundef double @ldexp(double 1.000000e+00, i32 64) #24
+  %ldexp.i = tail call noundef double @ldexp(double 1.000000e+00, i32 64)
   %29 = fmul double %ldexp.i, %28
   %30 = uitofp i32 %23 to double
-  %ldexp.i25 = tail call noundef double @ldexp(double 1.000000e+00, i32 32) #24
+  %ldexp.i25 = tail call noundef double @ldexp(double 1.000000e+00, i32 32)
   %31 = fmul double %ldexp.i25, %30
   %32 = uitofp i32 %27 to double
   %33 = fadd double %29, %31
   %34 = fadd double %33, %32
   %35 = shl nsw i32 %24, 5
-  %ldexp.i26 = tail call noundef double @ldexp(double 1.000000e+00, i32 %35) #24
+  %ldexp.i26 = tail call noundef double @ldexp(double 1.000000e+00, i32 %35)
   %36 = fmul double %ldexp.i26, %34
   br label %37
 
@@ -5123,16 +5123,16 @@ define dso_local noundef double @_Z12VL_ISTOR_D_WiPKj(i32 noundef %0, ptr nounde
   %35 = getelementptr inbounds i32, ptr %1, i64 %34
   %36 = load i32, ptr %35, align 4
   %37 = uitofp i32 %17 to double
-  %ldexp.i.i = tail call noundef double @ldexp(double 1.000000e+00, i32 64) #24
+  %ldexp.i.i = tail call noundef double @ldexp(double 1.000000e+00, i32 64)
   %38 = fmul double %ldexp.i.i, %37
   %39 = uitofp i32 %32 to double
-  %ldexp.i25.i = tail call noundef double @ldexp(double 1.000000e+00, i32 32) #24
+  %ldexp.i25.i = tail call noundef double @ldexp(double 1.000000e+00, i32 32)
   %40 = fmul double %ldexp.i25.i, %39
   %41 = uitofp i32 %36 to double
   %42 = fadd double %38, %40
   %43 = fadd double %42, %41
   %44 = shl nsw i32 %33, 5
-  %ldexp.i26.i = tail call noundef double @ldexp(double 1.000000e+00, i32 %44) #24
+  %ldexp.i26.i = tail call noundef double @ldexp(double 1.000000e+00, i32 %44)
   %45 = fmul double %ldexp.i26.i, %43
   br label %_Z11VL_ITOR_D_WiPKj.exit
 
@@ -5211,16 +5211,16 @@ _ZL11VL_NEGATE_WiPjPKj.exit:                      ; preds = %.lr.ph.i, %46
   %83 = getelementptr inbounds i32, ptr %3, i64 %82
   %84 = load i32, ptr %83, align 4
   %85 = uitofp i32 %65 to double
-  %ldexp.i.i18 = tail call noundef double @ldexp(double 1.000000e+00, i32 64) #24
+  %ldexp.i.i18 = tail call noundef double @ldexp(double 1.000000e+00, i32 64)
   %86 = fmul double %ldexp.i.i18, %85
   %87 = uitofp i32 %80 to double
-  %ldexp.i25.i19 = tail call noundef double @ldexp(double 1.000000e+00, i32 32) #24
+  %ldexp.i25.i19 = tail call noundef double @ldexp(double 1.000000e+00, i32 32)
   %88 = fmul double %ldexp.i25.i19, %87
   %89 = uitofp i32 %84 to double
   %90 = fadd double %86, %88
   %91 = fadd double %90, %89
   %92 = shl nsw i32 %81, 5
-  %ldexp.i26.i20 = tail call noundef double @ldexp(double 1.000000e+00, i32 %92) #24
+  %ldexp.i26.i20 = tail call noundef double @ldexp(double 1.000000e+00, i32 %92)
   %93 = fmul double %ldexp.i26.i20, %91
   br label %_Z11VL_ITOR_D_WiPKj.exit21
 
@@ -33873,7 +33873,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7_S_copyEPcPKcm.exit: ; pre
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #1
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2ERKS4_mm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %2, i64 noundef %3) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -36845,7 +36845,7 @@ declare i32 @llvm.fshr.i32(i32, i32, i32) #49
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.fshl.i32(i32, i32, i32) #49
 
-; Function Attrs: nofree willreturn memory(errnomem: write)
+; Function Attrs: nofree nounwind willreturn memory(errnomem: write)
 declare double @ldexp(double, i32) local_unnamed_addr #50
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -36943,7 +36943,7 @@ attributes #46 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vect
 attributes #47 = { uwtable "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #48 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #49 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #50 = { nofree willreturn memory(errnomem: write) }
+attributes #50 = { nofree nounwind willreturn memory(errnomem: write) }
 attributes #51 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #52 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #53 = { nofree nounwind willreturn memory(argmem: read) }

@@ -3438,7 +3438,7 @@ declare noundef double @_ZN32pxrInternal_v0_24__pxrReserved__16TfStringToDoubleE
 declare noundef i64 @_ZN32pxrInternal_v0_24__pxrReserved__15TfStringToInt64EPKcPb(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc noundef i32 @_ZL21yy_get_previous_statePv(ptr noundef captures(none) %0) unnamed_addr #5 {
@@ -5149,7 +5149,7 @@ declare noundef i32 @getc(ptr noundef captures(none)) local_unnamed_addr #4
 declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #25
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
 declare void @clearerr(ptr noundef captures(none)) local_unnamed_addr #4

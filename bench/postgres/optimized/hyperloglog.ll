@@ -213,7 +213,7 @@ define dso_local double @estimateHyperLogLog(ptr noundef readonly captures(none)
   %8 = getelementptr inbounds i8, ptr %7, i64 %6
   %9 = load i8, ptr %8, align 1
   %10 = zext i8 %9 to i32
-  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %10) #11
+  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %10)
   %11 = fdiv double 1.000000e+00, %ldexp
   %12 = fadd double %.02433, %11
   %13 = add i32 %.02234, 1
@@ -301,7 +301,7 @@ declare i32 @llvm.ctlz.i32(i32, i1 immarg) #6
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #7
 
-; Function Attrs: nofree willreturn memory(errnomem: write)
+; Function Attrs: nofree nounwind willreturn memory(errnomem: write)
 declare double @ldexp(double, i32) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -318,7 +318,7 @@ attributes #4 = { nofree nounwind memory(read, inaccessiblemem: none, errnomem: 
 attributes #5 = { mustprogress nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #8 = { nofree willreturn memory(errnomem: write) }
+attributes #8 = { nofree nounwind willreturn memory(errnomem: write) }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { cold nounwind }
 attributes #11 = { nounwind }

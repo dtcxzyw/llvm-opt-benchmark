@@ -1080,7 +1080,7 @@ _imageio_dng_write_tiff_header.exit.i:            ; preds = %.sink.split.i.i, %3
   %394 = sext i32 %81 to i64
   %395 = sext i32 %82 to i64
   %396 = mul nsw i64 %395, %394
-  %397 = call i64 @fwrite(ptr noundef %80, i64 noundef 4, i64 noundef %396, ptr noundef nonnull %89)
+  %397 = call i64 @fwrite(ptr noundef readonly %80, i64 noundef 4, i64 noundef %396, ptr noundef nonnull %89)
   %398 = trunc i64 %397 to i32
   %399 = mul nsw i32 %82, %81
   %.not23.i = icmp eq i32 %399, %398
@@ -5205,7 +5205,7 @@ declare float @llvm.fabs.f32(float) #13
 declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #10
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #10

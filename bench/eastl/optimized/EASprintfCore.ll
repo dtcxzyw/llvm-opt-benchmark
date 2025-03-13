@@ -165,7 +165,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local noundef i32 @_ZN2EA4StdC12SprintfLocal11FILEWriter8EPKcmPvNS0_18WriteFunctionStateE(ptr noalias noundef captures(none) %pData, i64 noundef %nCount, ptr noalias noundef captures(none) %pContext8, i32 noundef %0) local_unnamed_addr #3 {
+define dso_local noundef i32 @_ZN2EA4StdC12SprintfLocal11FILEWriter8EPKcmPvNS0_18WriteFunctionStateE(ptr noalias noundef readonly captures(none) %pData, i64 noundef %nCount, ptr noalias noundef captures(none) %pContext8, i32 noundef %0) local_unnamed_addr #3 {
 entry:
   %call = tail call i64 @fwrite(ptr noundef %pData, i64 noundef 1, i64 noundef %nCount, ptr noundef %pContext8)
   %cmp = icmp eq i64 %call, %nCount
@@ -175,10 +175,10 @@ entry:
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local noundef i32 @_ZN2EA4StdC12SprintfLocal12FILEWriter16EPKDsmPvNS0_18WriteFunctionStateE(ptr noalias noundef captures(none) %pData, i64 noundef %nCount, ptr noalias noundef captures(none) %pContext16, i32 noundef %0) local_unnamed_addr #3 {
+define dso_local noundef i32 @_ZN2EA4StdC12SprintfLocal12FILEWriter16EPKDsmPvNS0_18WriteFunctionStateE(ptr noalias noundef readonly captures(none) %pData, i64 noundef %nCount, ptr noalias noundef captures(none) %pContext16, i32 noundef %0) local_unnamed_addr #3 {
 entry:
   %call = tail call i64 @fwrite(ptr noundef %pData, i64 noundef 2, i64 noundef %nCount, ptr noundef %pContext16)
   %cmp = icmp eq i64 %call, %nCount
@@ -188,7 +188,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local noundef i32 @_ZN2EA4StdC12SprintfLocal12FILEWriter32EPKDimPvNS0_18WriteFunctionStateE(ptr noalias noundef captures(none) %pData, i64 noundef %nCount, ptr noalias noundef captures(none) %pContext32, i32 noundef %0) local_unnamed_addr #3 {
+define dso_local noundef i32 @_ZN2EA4StdC12SprintfLocal12FILEWriter32EPKDimPvNS0_18WriteFunctionStateE(ptr noalias noundef readonly captures(none) %pData, i64 noundef %nCount, ptr noalias noundef captures(none) %pContext32, i32 noundef %0) local_unnamed_addr #3 {
 entry:
   %call = tail call i64 @fwrite(ptr noundef %pData, i64 noundef 4, i64 noundef %nCount, ptr noundef %pContext32)
   %cmp = icmp eq i64 %call, %nCount

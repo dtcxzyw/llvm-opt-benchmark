@@ -78,7 +78,7 @@ define void @_ZN6Assimp15DefaultIOStreamD0Ev(ptr noundef nonnull align 8 derefer
 declare void @_ZN6Assimp6Intern22AllocateFromAssimpHeapdlEPv(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef i64 @_ZN6Assimp15DefaultIOStream4ReadEPvmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef captures(none) %1, i64 noundef %2, i64 noundef %3) unnamed_addr #3 align 2 {
+define noundef i64 @_ZN6Assimp15DefaultIOStream4ReadEPvmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, i64 noundef %3) unnamed_addr #3 align 2 {
   %5 = icmp eq i64 %3, 0
   br i1 %5, label %11, label %6
 
@@ -98,10 +98,10 @@ define noundef i64 @_ZN6Assimp15DefaultIOStream4ReadEPvmm(ptr noundef nonnull re
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #1
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef i64 @_ZN6Assimp15DefaultIOStream5WriteEPKvmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef captures(none) %1, i64 noundef %2, i64 noundef %3) unnamed_addr #3 align 2 {
+define noundef i64 @_ZN6Assimp15DefaultIOStream5WriteEPKvmm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i64 noundef %3) unnamed_addr #3 align 2 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
@@ -117,7 +117,7 @@ define noundef i64 @_ZN6Assimp15DefaultIOStream5WriteEPKvmm(ptr noundef nonnull 
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #1
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define noundef range(i32 -1, 1) i32 @_ZN6Assimp15DefaultIOStream4SeekEm8aiOrigin(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, i64 noundef %1, i32 noundef %2) unnamed_addr #3 align 2 {

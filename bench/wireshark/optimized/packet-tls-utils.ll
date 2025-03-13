@@ -8566,7 +8566,7 @@ declare zeroext i1 @file_needs_reopen(i32 noundef, ptr noundef) local_unnamed_ad
 declare noundef i32 @fileno(ptr noundef captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #18
+declare noundef ptr @fgets(ptr noundef writeonly, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
 declare noundef i32 @feof(ptr noundef captures(none)) local_unnamed_addr #18

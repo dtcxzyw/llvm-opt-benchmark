@@ -9089,7 +9089,7 @@ declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #16
 declare noundef i64 @ftello(ptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i64 @mz_zip_file_read_func(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef captures(none) %2, i64 noundef %3) #17 {
+define internal noundef i64 @mz_zip_file_read_func(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef writeonly captures(none) %2, i64 noundef %3) #17 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 112
@@ -11205,7 +11205,7 @@ mz_zip_reader_file_stat.exit.thread:              ; preds = %41, %42, %13, %4, %
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i64 @mz_zip_file_write_callback(ptr noundef captures(none) %0, i64 %1, ptr noundef captures(none) %2, i64 noundef %3) #17 {
+define internal noundef i64 @mz_zip_file_write_callback(ptr noundef captures(none) %0, i64 %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #17 {
   %5 = tail call i64 @fwrite(ptr noundef %2, i64 noundef 1, i64 noundef %3, ptr noundef %0)
   ret i64 %5
 }
@@ -13521,7 +13521,7 @@ define range(i32 0, 2) i32 @mz_zip_writer_init_file_v2(ptr noundef initializes((
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i64 @mz_zip_file_write_func(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef captures(none) %2, i64 noundef %3) #17 {
+define internal noundef i64 @mz_zip_file_write_func(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2, i64 noundef %3) #17 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 112
@@ -16184,7 +16184,7 @@ tdefl_create_comp_flags_from_zip_params.exit:     ; preds = %281
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #16
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @mz_zip_writer_add_file(ptr noundef %0, ptr noundef %1, ptr noundef readonly captures(none) %2, ptr noundef captures(address_is_null) %3, i16 noundef zeroext %4, i32 noundef %5) local_unnamed_addr #7 {
@@ -21429,7 +21429,7 @@ define internal fastcc void @mz_zip_reader_sort_central_dir_offsets_by_filename(
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #16
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @utime(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #16

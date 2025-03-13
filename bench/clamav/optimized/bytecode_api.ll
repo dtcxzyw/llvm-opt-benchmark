@@ -4839,7 +4839,7 @@ define range(i32 -1, 1) i32 @cli_bcapi_debug_print_str_start(ptr noundef readonl
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef i32 @cli_bcapi_debug_print_str_nonl(ptr noundef readnone captures(none) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #19 {
+define noundef i32 @cli_bcapi_debug_print_str_nonl(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #19 {
   %4 = icmp eq ptr %1, null
   %5 = icmp eq i32 %2, 0
   %or.cond = or i1 %4, %5
@@ -4863,7 +4863,7 @@ define noundef i32 @cli_bcapi_debug_print_str_nonl(ptr noundef readnone captures
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #15
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: nofree nounwind memory(argmem: read, errnomem: write) uwtable
 define i32 @cli_bcapi_entropy_buffer(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #20 {

@@ -1099,7 +1099,7 @@ define internal noundef i32 @on_stream_close_callback(ptr noundef %0, i32 nounde
 declare void @nghttp2_session_callbacks_set_on_data_chunk_recv_callback(ptr noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @on_data_chunk_recv_callback(ptr noundef %0, i8 zeroext %1, i32 noundef %2, ptr noundef captures(none) %3, i64 noundef %4, ptr readnone captures(none) %5) #0 {
+define internal noundef i32 @on_data_chunk_recv_callback(ptr noundef %0, i8 zeroext %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4, ptr readnone captures(none) %5) #0 {
   %7 = tail call ptr @nghttp2_session_get_stream_user_data(ptr noundef %0, i32 noundef %2) #16
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %12, label %8
@@ -1124,7 +1124,7 @@ declare i32 @SSL_read(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr 
 declare ptr @nghttp2_session_get_stream_user_data(ptr noundef, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 declare i32 @nghttp2_session_terminate_session(ptr noundef, i32 noundef) local_unnamed_addr #9
 

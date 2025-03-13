@@ -15861,7 +15861,7 @@ define internal fastcc void @emit_diff_symbol_from_struct(ptr noundef %0, ptr no
   br label %260
 
 19:                                               ; preds = %2, %2, %2, %2, %2, %2, %2, %2
-  tail call fastcc void @emit_line_0(ptr noundef %0, ptr noundef nonnull @.str.41, ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.41, i32 noundef 0, ptr noundef %5, i32 noundef %7)
+  tail call fastcc void @emit_line_0(ptr noundef %0, ptr noundef nonnull @.str.41, ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.41, i32 noundef 0, ptr noundef readonly %5, i32 noundef %7)
   br label %260
 
 20:                                               ; preds = %2, %2
@@ -15874,7 +15874,7 @@ define internal fastcc void @emit_diff_symbol_from_struct(ptr noundef %0, ptr no
   %25 = tail call i32 @want_color_fd(i32 noundef 1, i32 noundef %24) #32
   %.not.i194 = icmp eq i32 %25, 0
   %.0.i195 = select i1 %.not.i194, ptr @.str.41, ptr @diff_colors
-  tail call fastcc void @emit_line_0(ptr noundef %0, ptr noundef nonnull %.0.i193, ptr noundef null, i32 noundef 0, ptr noundef nonnull readonly %.0.i195, i32 noundef 0, ptr noundef %5, i32 noundef %7)
+  tail call fastcc void @emit_line_0(ptr noundef %0, ptr noundef nonnull %.0.i193, ptr noundef null, i32 noundef 0, ptr noundef nonnull readonly %.0.i195, i32 noundef 0, ptr noundef readonly %5, i32 noundef %7)
   br label %260
 
 26:                                               ; preds = %2
@@ -16088,7 +16088,7 @@ switch.lookup303:                                 ; preds = %81
   %110 = tail call i32 @want_color_fd(i32 noundef 1, i32 noundef %109) #32
   %.not.i249 = icmp eq i32 %110, 0
   %.0.i250 = select i1 %.not.i249, ptr @.str.41, ptr @diff_colors
-  tail call fastcc void @emit_line_0(ptr noundef %0, ptr noundef nonnull %.0.i248, ptr noundef null, i32 noundef 0, ptr noundef nonnull readonly %.0.i250, i32 noundef 0, ptr noundef %5, i32 noundef %7)
+  tail call fastcc void @emit_line_0(ptr noundef %0, ptr noundef nonnull %.0.i248, ptr noundef null, i32 noundef 0, ptr noundef nonnull readonly %.0.i250, i32 noundef 0, ptr noundef readonly %5, i32 noundef %7)
   %111 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %112 = load ptr, ptr %111, align 8, !tbaa !63
   %113 = tail call i64 @fwrite(ptr nonnull @.str.304, i64 2, i64 1, ptr %112)
@@ -16110,7 +16110,7 @@ switch.lookup303:                                 ; preds = %81
   %.0176 = getelementptr inbounds nuw i8, ptr %5, i64 %.0176.idx
   %121 = sext i1 %.not183 to i32
   %.0175 = add nsw i32 %7, %121
-  tail call fastcc void @emit_line_0(ptr noundef %0, ptr noundef nonnull %.0.i252, ptr noundef null, i32 noundef 0, ptr noundef nonnull readonly %.0.i254, i32 noundef 0, ptr noundef nonnull %.0176, i32 noundef %.0175)
+  tail call fastcc void @emit_line_0(ptr noundef %0, ptr noundef nonnull %.0.i252, ptr noundef null, i32 noundef 0, ptr noundef nonnull readonly %.0.i254, i32 noundef 0, ptr noundef nonnull readonly %.0176, i32 noundef %.0175)
   br label %260
 
 122:                                              ; preds = %2
@@ -16269,7 +16269,7 @@ diff_line_prefix.exit274:                         ; preds = %194, %197
   %212 = tail call i32 @want_color_fd(i32 noundef 1, i32 noundef %211) #32
   %.not.i277 = icmp eq i32 %212, 0
   %.0.i278 = select i1 %.not.i277, ptr @.str.41, ptr @diff_colors
-  tail call fastcc void @emit_line_0(ptr noundef %0, ptr noundef nonnull %.0.i276, ptr noundef null, i32 noundef 0, ptr noundef nonnull readonly %.0.i278, i32 noundef 0, ptr noundef %5, i32 noundef %7)
+  tail call fastcc void @emit_line_0(ptr noundef %0, ptr noundef nonnull %.0.i276, ptr noundef null, i32 noundef 0, ptr noundef nonnull readonly %.0.i278, i32 noundef 0, ptr noundef readonly %5, i32 noundef %7)
   br label %260
 
 213:                                              ; preds = %2
@@ -16282,7 +16282,7 @@ diff_line_prefix.exit274:                         ; preds = %194, %197
   %218 = tail call i32 @want_color_fd(i32 noundef 1, i32 noundef %217) #32
   %.not.i281 = icmp eq i32 %218, 0
   %.0.i282 = select i1 %.not.i281, ptr @.str.41, ptr @diff_colors
-  tail call fastcc void @emit_line_0(ptr noundef %0, ptr noundef nonnull %.0.i280, ptr noundef null, i32 noundef 0, ptr noundef nonnull readonly %.0.i282, i32 noundef 0, ptr noundef %5, i32 noundef %7)
+  tail call fastcc void @emit_line_0(ptr noundef %0, ptr noundef nonnull %.0.i280, ptr noundef null, i32 noundef 0, ptr noundef nonnull readonly %.0.i282, i32 noundef 0, ptr noundef readonly %5, i32 noundef %7)
   br label %260
 
 219:                                              ; preds = %2
@@ -16295,7 +16295,7 @@ diff_line_prefix.exit274:                         ; preds = %194, %197
   %224 = tail call i32 @want_color_fd(i32 noundef 1, i32 noundef %223) #32
   %.not.i285 = icmp eq i32 %224, 0
   %.0.i286 = select i1 %.not.i285, ptr @.str.41, ptr @diff_colors
-  tail call fastcc void @emit_line_0(ptr noundef %0, ptr noundef nonnull %.0.i284, ptr noundef null, i32 noundef 0, ptr noundef nonnull readonly %.0.i286, i32 noundef 0, ptr noundef %5, i32 noundef %7)
+  tail call fastcc void @emit_line_0(ptr noundef %0, ptr noundef nonnull %.0.i284, ptr noundef null, i32 noundef 0, ptr noundef nonnull readonly %.0.i286, i32 noundef 0, ptr noundef readonly %5, i32 noundef %7)
   br label %260
 
 225:                                              ; preds = %2
@@ -16372,7 +16372,7 @@ declare ptr @xmemdupz(ptr noundef, i64 noundef) local_unnamed_addr #3
 declare noundef i32 @putc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @emit_line_0(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, i32 noundef range(i32 0, 2) %3, ptr noundef readonly captures(none) %4, i32 noundef range(i32 -128, 128) %5, ptr noundef captures(none) %6, i32 noundef %7) unnamed_addr #0 {
+define internal fastcc void @emit_line_0(ptr noundef %0, ptr noundef readonly captures(address) %1, ptr noundef readonly captures(address) %2, i32 noundef range(i32 0, 2) %3, ptr noundef readonly captures(none) %4, i32 noundef range(i32 -128, 128) %5, ptr noundef readonly captures(none) %6, i32 noundef %7) unnamed_addr #0 {
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 440
   %10 = load ptr, ptr %9, align 8, !tbaa !63
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 528
@@ -16592,7 +16592,7 @@ declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #6
 declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #18
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #18
 
 declare void @ws_check_emit(ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -16962,7 +16962,7 @@ is_conflict_marker.exit.thread:                   ; preds = %.lr.ph.i, %37, %28,
   %74 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %71, ptr noundef nonnull @.str.376, ptr noundef %26, ptr noundef %72, i32 noundef %73, ptr noundef %68) #32
   tail call void @free(ptr noundef %68) #32
   %75 = load ptr, ptr %6, align 8, !tbaa !289
-  tail call fastcc void @emit_line_0(ptr noundef %75, ptr noundef nonnull %.0.i50, ptr noundef null, i32 noundef 0, ptr noundef nonnull readonly %.0.i48, i32 noundef 0, ptr noundef nonnull %1, i32 noundef 1)
+  tail call fastcc void @emit_line_0(ptr noundef %75, ptr noundef nonnull %.0.i50, ptr noundef null, i32 noundef 0, ptr noundef nonnull readonly %.0.i48, i32 noundef 0, ptr noundef nonnull readonly %1, i32 noundef 1)
   %76 = load i32, ptr %61, align 8, !tbaa !290
   %77 = load ptr, ptr %6, align 8, !tbaa !289
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 440

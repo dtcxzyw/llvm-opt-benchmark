@@ -10101,7 +10101,6 @@ _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %46, %_ZNKSt14defaul
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #29
   store i32 0, ptr @_ZN12_GLOBAL__N_111fopen_countE, align 4, !tbaa !10
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %8) #29
-  store i8 0, ptr %8, align 1, !tbaa !17
   %58 = load ptr, ptr %9, align 8, !tbaa !4
   %59 = call i64 @fread(ptr noundef nonnull %8, i64 noundef 1, i64 noundef 1, ptr noundef %58)
   %60 = icmp eq i64 %59, 0
@@ -10194,7 +10193,7 @@ _ZNSt10unique_ptrIN3fmt3v1113buffered_fileESt14default_deleteIS2_EED2Ev.exit: ; 
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #18
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZNSt10unique_ptrIN3fmt3v1113buffered_fileESt14default_deleteIS2_EED2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {

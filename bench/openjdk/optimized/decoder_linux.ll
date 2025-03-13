@@ -105,7 +105,7 @@ define hidden noundef zeroext i1 @_ZN7ElfFile21specifies_noexecstackEPKc(ptr nou
 declare noundef ptr @_ZN2os5fopenEPKcS1_(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #3
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 declare noundef zeroext i1 @_ZN7ElfFile11is_elf_fileER10Elf64_Ehdr(ptr noundef nonnull align 8 dereferenceable(64)) local_unnamed_addr #1
 

@@ -605,7 +605,7 @@ define internal void @finish_input_gif(ptr readnone captures(none) %0, ptr readn
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #3
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @ReadColorMap(ptr noundef readonly captures(none) %0, i32 noundef range(i32 2, 257) %1, ptr noundef readonly captures(none) %2) unnamed_addr #0 {

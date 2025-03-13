@@ -2169,7 +2169,7 @@ Abc_Clock.exit282._crit_edge:                     ; preds = %635, %Abc_Clock.exi
   %657 = load ptr, ptr %74, align 8, !tbaa !32
   %658 = getelementptr i8, ptr %657, i64 104
   %.val = load i32, ptr %658, align 8, !tbaa !9
-  %ldexp = call double @ldexp(double 1.000000e+00, i32 %.val) #19
+  %ldexp = call double @ldexp(double 1.000000e+00, i32 %.val)
   %659 = fdiv double %656, %ldexp
   %660 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.39, double noundef %647, double noundef %659)
   %661 = load ptr, ptr @stdout, align 8, !tbaa !118
@@ -3240,7 +3240,7 @@ declare noundef i32 @vfprintf(ptr noundef captures(none), ptr noundef readonly c
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #16
 
-; Function Attrs: nofree willreturn memory(errnomem: write)
+; Function Attrs: nofree nounwind willreturn memory(errnomem: write)
 declare double @ldexp(double, i32) local_unnamed_addr #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -3263,7 +3263,7 @@ attributes #13 = { mustprogress nounwind willreturn allockind("realloc") allocsi
 attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #15 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { nofree nounwind }
-attributes #17 = { nofree willreturn memory(errnomem: write) }
+attributes #17 = { nofree nounwind willreturn memory(errnomem: write) }
 attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #19 = { nounwind }
 attributes #20 = { nounwind allocsize(0) }

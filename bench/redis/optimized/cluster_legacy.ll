@@ -2536,7 +2536,7 @@ declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #11
 declare noalias ptr @zmalloc(i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #11
+declare noundef ptr @fgets(ptr noundef writeonly, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #11
 
 declare ptr @sdssplitargs(ptr noundef, ptr noundef) local_unnamed_addr #2
 

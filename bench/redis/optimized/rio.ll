@@ -289,7 +289,7 @@ define dso_local zeroext range(i8 1, 9) i8 @rioCheckType(ptr noundef readonly ca
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i64 @rioFileRead(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2) #7 {
+define internal noundef i64 @rioFileRead(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) #7 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load ptr, ptr %4, align 8, !tbaa !12
   %6 = tail call i64 @fread(ptr noundef %1, i64 noundef %2, i64 noundef 1, ptr noundef %5)
@@ -1202,7 +1202,7 @@ define internal noundef i32 @rioBufferFlush(ptr readnone captures(none) %0) #9 {
 declare ptr @sdscatlen(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i64 @rioFileWrite(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2) #2 {
+define internal noundef i64 @rioFileWrite(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %6 = load i64, ptr %5, align 8, !tbaa !12
@@ -1351,7 +1351,7 @@ define internal range(i32 0, 2) i32 @rioFileFlush(ptr noundef readonly captures(
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #10
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
 declare void @_serverAssert(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
@@ -1939,7 +1939,7 @@ define internal range(i32 0, 2) i32 @rioConnsetFlush(ptr noundef captures(none) 
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #10
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
 declare ptr @sdsMakeRoomFor(ptr noundef, i64 noundef) local_unnamed_addr #3
 

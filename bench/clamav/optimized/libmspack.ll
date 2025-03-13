@@ -527,7 +527,7 @@ define internal void @mspack_fmap_close(ptr noundef captures(address_is_null) %0
 }
 
 ; Function Attrs: nounwind uwtable
-define internal i32 @mspack_fmap_read(ptr noundef captures(address_is_null) %0, ptr noundef captures(none) %1, i32 noundef %2) #0 {
+define internal i32 @mspack_fmap_read(ptr noundef captures(address_is_null) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) #0 {
   %4 = icmp slt i32 %2, 0
   br i1 %4, label %5, label %6
 
@@ -623,7 +623,7 @@ fmap_readn.exit:                                  ; preds = %31, %11
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, -2147483648) i32 @mspack_fmap_write(ptr noundef captures(address_is_null) %0, ptr noundef captures(none) %1, i32 noundef %2) #0 {
+define internal range(i32 -1, -2147483648) i32 @mspack_fmap_write(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #0 {
   %4 = icmp sgt i32 %2, -1
   %5 = icmp ne ptr %0, null
   %or.cond = and i1 %5, %4
@@ -844,10 +844,10 @@ declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noun
 declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #10
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #10
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #10

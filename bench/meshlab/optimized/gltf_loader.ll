@@ -3207,7 +3207,7 @@ _ZL19stbi__vertical_flipPviii.exit:               ; preds = %._crit_edge.i29, %3
 declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal noundef i32 @_ZL16stbi__stdio_readPvPci(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) #17 {
+define internal noundef i32 @_ZL16stbi__stdio_readPvPci(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) #17 {
   %4 = sext i32 %2 to i64
   %5 = tail call i64 @fread(ptr noundef %1, i64 noundef 1, i64 noundef %4, ptr noundef %0)
   %6 = trunc i64 %5 to i32
@@ -3228,7 +3228,7 @@ define internal noundef i32 @_ZL15stbi__stdio_eofPv(ptr noundef captures(none) %
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #16
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @feof(ptr noundef captures(none)) local_unnamed_addr #16
@@ -37001,14 +37001,14 @@ define range(i32 0, 2) i32 @stbi_write_bmp(ptr noundef readonly captures(none) %
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal void @_ZL17stbi__stdio_writePvS_i(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) #17 {
+define internal void @_ZL17stbi__stdio_writePvS_i(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #17 {
   %4 = sext i32 %2 to i64
   %5 = tail call i64 @fwrite(ptr noundef %1, i64 noundef 1, i64 noundef %4, ptr noundef %0)
   ret void
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #16
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress uwtable
 define noundef range(i32 0, 2) i32 @stbi_write_tga_to_func(ptr noundef %0, ptr noundef %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, ptr noundef %5) local_unnamed_addr #10 {

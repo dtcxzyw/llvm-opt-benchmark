@@ -804,7 +804,7 @@ declare i32 @__fprintf_chk(ptr noundef, i32 noundef, ptr noundef, ...) local_unn
 declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #9
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: null_pointer_is_valid
 declare void @rtpstream_id_copy_pinfo_shallow(ptr noundef, ptr noundef, i1 noundef zeroext) local_unnamed_addr #5

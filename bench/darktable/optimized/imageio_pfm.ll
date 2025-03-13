@@ -59,7 +59,6 @@ define range(i32 0, 9) i32 @dt_imageio_open_pfm(ptr noundef %0, ptr noundef read
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %7, i8 0, i64 10, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %8, i8 0, i64 64, i1 false)
   %25 = call i32 (ptr, ptr, ...) @__isoc99_fscanf(ptr noundef nonnull %10, ptr noundef nonnull @.str.2, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef nonnull %8) #9
-  store i32 %25, ptr %4, align 4, !tbaa !9
   %.not131 = icmp eq i32 %25, 3
   br i1 %.not131, label %26, label %137
 
@@ -344,7 +343,7 @@ declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 nounde
 declare double @g_ascii_strtod(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @dt_mipmap_cache_alloc(ptr noundef, ptr noundef) local_unnamed_addr #3
 

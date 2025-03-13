@@ -42812,7 +42812,7 @@ declare i64 @llvm.umin.i64(i64, i64) #33
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #34
 
-; Function Attrs: nofree willreturn memory(errnomem: write)
+; Function Attrs: nofree nounwind willreturn memory(errnomem: write)
 declare double @ldexp(double, i32) local_unnamed_addr #35
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -42859,7 +42859,7 @@ attributes #31 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true
 attributes #32 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #33 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #34 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #35 = { nofree willreturn memory(errnomem: write) }
+attributes #35 = { nofree nounwind willreturn memory(errnomem: write) }
 attributes #36 = { noreturn }
 attributes #37 = { nounwind }
 attributes #38 = { builtin nounwind }

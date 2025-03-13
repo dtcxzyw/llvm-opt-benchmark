@@ -6633,7 +6633,7 @@ accel_finish_startup.exit.thread:                 ; preds = %222, %224, %accel_u
 declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #5
+declare noundef ptr @fgets(ptr noundef writeonly, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #5
@@ -9301,7 +9301,7 @@ define internal void @preload_send_header(ptr readnone captures(none) %0, ptr re
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i64 @preload_ub_write(ptr noundef captures(none) %0, i64 noundef %1) #22 {
+define internal noundef i64 @preload_ub_write(ptr noundef readonly captures(none) %0, i64 noundef %1) #22 {
   %3 = load ptr, ptr @stdout, align 8, !tbaa !382
   %4 = tail call i64 @fwrite(ptr noundef %0, i64 noundef 1, i64 noundef %1, ptr noundef %3)
   ret i64 %4
@@ -11085,7 +11085,7 @@ declare void @php_request_shutdown(ptr noundef) local_unnamed_addr #2
 declare void @sapi_activate() local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #5

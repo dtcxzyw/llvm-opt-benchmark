@@ -92,7 +92,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #1
 declare void @curl_slist_free_all(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local i64 @tool_mime_stdin_read(ptr noundef captures(none) %0, i64 %1, i64 noundef %2, ptr noundef captures(none) %3) #0 {
+define dso_local i64 @tool_mime_stdin_read(ptr noundef writeonly captures(none) %0, i64 %1, i64 noundef %2, ptr noundef captures(none) %3) #0 {
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %6 = load i64, ptr %5, align 8, !tbaa !22
   %7 = icmp sgt i64 %6, -1
@@ -178,7 +178,7 @@ declare i64 @curlx_sotouz(i64 noundef) local_unnamed_addr #2
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind memory(read)
 declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #6

@@ -477,7 +477,7 @@ pqTraceOutput_NotificationResponse.exit:          ; preds = %72, %74
   %165 = load i32, ptr %7, align 4
   %166 = add i32 %40, 1
   %167 = sub i32 %166, %165
-  call fastcc void @pqTraceOutputNchar(ptr noundef %163, i32 noundef %167, ptr noundef nonnull %1, ptr noundef nonnull %7, i1 noundef zeroext %33)
+  call fastcc void @pqTraceOutputNchar(ptr noundef %163, i32 noundef %167, ptr noundef nonnull readonly %1, ptr noundef nonnull %7, i1 noundef zeroext %33)
   br label %pqTraceOutput_Bind.exit
 
 168:                                              ; preds = %51
@@ -640,7 +640,7 @@ pqTraceOutputInt32.exit.i:                        ; preds = %211, %209
   br i1 %242, label %244, label %243
 
 243:                                              ; preds = %.lr.ph40.i
-  call fastcc void @pqTraceOutputNchar(ptr noundef %203, i32 noundef %240, ptr noundef nonnull %1, ptr noundef nonnull %7, i1 noundef zeroext false)
+  call fastcc void @pqTraceOutputNchar(ptr noundef %203, i32 noundef %240, ptr noundef nonnull readonly %1, ptr noundef nonnull %7, i1 noundef zeroext false)
   br label %244
 
 244:                                              ; preds = %243, %.lr.ph40.i
@@ -1149,7 +1149,7 @@ pqTraceOutputInt32.exit32.i:                      ; preds = %492, %490
   br i1 %.not.i166, label %pqTraceOutput_Bind.exit, label %542
 
 542:                                              ; preds = %532
-  call fastcc void @pqTraceOutputNchar(ptr noundef %534, i32 noundef %540, ptr noundef nonnull %1, ptr noundef nonnull %7, i1 noundef zeroext false)
+  call fastcc void @pqTraceOutputNchar(ptr noundef %534, i32 noundef %540, ptr noundef nonnull readonly %1, ptr noundef nonnull %7, i1 noundef zeroext false)
   br label %pqTraceOutput_Bind.exit
 
 543:                                              ; preds = %51
@@ -1331,7 +1331,7 @@ define internal fastcc void @pqTraceOutput_Describe(ptr noundef %0, ptr noundef 
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @pqTraceOutput_DataRow(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #3 {
+define internal fastcc void @pqTraceOutput_DataRow(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull captures(none) %2) unnamed_addr #3 {
   %4 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %0, ptr noundef nonnull @.str.39) #11
   %5 = load i32, ptr %2, align 4
   %6 = sext i32 %5 to i64
@@ -1397,7 +1397,7 @@ define internal fastcc void @pqTraceOutput_Execute(ptr noundef %0, ptr noundef %
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @pqTraceOutput_GSSResponse(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef nonnull captures(none) %2, i32 noundef %3, i1 noundef zeroext %4) unnamed_addr #3 {
+define internal fastcc void @pqTraceOutput_GSSResponse(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull captures(none) %2, i32 noundef %3, i1 noundef zeroext %4) unnamed_addr #3 {
   %6 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %0, ptr noundef nonnull @.str.43) #11
   %7 = load i32, ptr %2, align 4
   %8 = add i32 %3, 1
@@ -1450,7 +1450,7 @@ define internal fastcc void @pqTraceOutput_SASLInitialResponse(ptr noundef %0, p
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @pqTraceOutput_SASLResponse(ptr noundef %0, ptr noundef captures(none) %1, ptr noundef nonnull captures(none) %2, i32 noundef %3, i1 noundef zeroext %4) unnamed_addr #3 {
+define internal fastcc void @pqTraceOutput_SASLResponse(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef nonnull captures(none) %2, i32 noundef %3, i1 noundef zeroext %4) unnamed_addr #3 {
   %6 = tail call i32 (ptr, ptr, ...) @pg_fprintf(ptr noundef %0, ptr noundef nonnull @.str.46) #11
   %7 = load i32, ptr %2, align 4
   %8 = add i32 %3, 1
@@ -1775,7 +1775,7 @@ declare i32 @pg_snprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnam
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @pqTraceOutputNchar(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2, ptr noundef nonnull captures(none) %3, i1 noundef zeroext %4) unnamed_addr #3 {
+define internal fastcc void @pqTraceOutputNchar(ptr noundef %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef nonnull captures(none) %3, i1 noundef zeroext %4) unnamed_addr #3 {
   %6 = load i32, ptr %3, align 4
   %7 = sext i32 %6 to i64
   %8 = getelementptr inbounds i8, ptr %2, i64 %7
@@ -1854,7 +1854,7 @@ define internal fastcc void @pqTraceOutputNchar(ptr noundef %0, i32 noundef %1, 
 declare ptr @__ctype_b_loc() local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #1
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @pqTraceOutputNR(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull captures(none) %3, i1 noundef zeroext %4) unnamed_addr #3 {

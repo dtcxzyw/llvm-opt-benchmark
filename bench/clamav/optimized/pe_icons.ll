@@ -1615,7 +1615,7 @@ declare ptr @cli_gettmpdir() local_unnamed_addr #2
 declare ptr @cli_max_malloc(i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @makebmp(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 16, 257) %2, i32 noundef %3, ptr noundef nonnull captures(none) %4) unnamed_addr #0 {
+define internal fastcc void @makebmp(ptr noundef %0, ptr noundef %1, i32 noundef range(i32 16, 257) %2, i32 noundef %3, ptr noundef nonnull readonly captures(none) %4) unnamed_addr #0 {
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
@@ -1629,12 +1629,12 @@ define internal fastcc void @makebmp(ptr noundef %0, ptr noundef %1, i32 noundef
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #13
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %11) #13
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %60, label %12
+  br i1 %.not, label %56, label %12
 
 12:                                               ; preds = %5
   %13 = tail call ptr @cli_gentemp_with_prefix(ptr noundef nonnull %1, ptr noundef nonnull @.str.27) #13
   %.not31 = icmp eq ptr %13, null
-  br i1 %.not31, label %60, label %14
+  br i1 %.not31, label %56, label %14
 
 14:                                               ; preds = %12
   %15 = tail call noalias ptr @fopen(ptr noundef nonnull %13, ptr noundef nonnull @.str.28)
@@ -1645,7 +1645,7 @@ define internal fastcc void @makebmp(ptr noundef %0, ptr noundef %1, i32 noundef
   %17 = tail call i32 @cli_unlink(ptr noundef nonnull %13) #13
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.29, ptr noundef nonnull %13) #13
   tail call void @free(ptr noundef nonnull %13) #13
-  br label %60
+  br label %56
 
 18:                                               ; preds = %14
   %19 = shl nuw nsw i32 %2, 2
@@ -1657,91 +1657,88 @@ define internal fastcc void @makebmp(ptr noundef %0, ptr noundef %1, i32 noundef
   store i32 %20, ptr %11, align 4, !tbaa !73
   %22 = tail call i64 @fwrite(ptr noundef nonnull @.str.30, i64 noundef 2, i64 noundef 1, ptr noundef nonnull %15)
   %.not33 = icmp eq i64 %22, 0
-  br i1 %.not33, label %39, label %23
+  br i1 %.not33, label %40, label %23
 
 23:                                               ; preds = %18
   %24 = call i64 @fwrite(ptr noundef nonnull %8, i64 noundef 4, i64 noundef 1, ptr noundef nonnull %15)
   %.not34 = icmp eq i64 %24, 0
-  br i1 %.not34, label %39, label %25
+  br i1 %.not34, label %40, label %25
 
 25:                                               ; preds = %23
   %26 = tail call i64 @fwrite(ptr noundef nonnull @.str.31, i64 noundef 12, i64 noundef 1, ptr noundef nonnull %15)
   %.not35 = icmp eq i64 %26, 0
-  br i1 %.not35, label %39, label %27
+  br i1 %.not35, label %40, label %27
 
 27:                                               ; preds = %25
   %28 = call i64 @fwrite(ptr noundef nonnull %6, i64 noundef 4, i64 noundef 1, ptr noundef nonnull %15)
   %.not36 = icmp eq i64 %28, 0
-  br i1 %.not36, label %39, label %29
+  br i1 %.not36, label %40, label %29
 
 29:                                               ; preds = %27
   %30 = call i64 @fwrite(ptr noundef nonnull %7, i64 noundef 4, i64 noundef 1, ptr noundef nonnull %15)
   %.not37 = icmp eq i64 %30, 0
-  br i1 %.not37, label %39, label %31
+  br i1 %.not37, label %40, label %31
 
 31:                                               ; preds = %29
   %32 = call i64 @fwrite(ptr noundef nonnull %9, i64 noundef 4, i64 noundef 1, ptr noundef nonnull %15)
   %.not38 = icmp eq i64 %32, 0
-  br i1 %.not38, label %39, label %33
+  br i1 %.not38, label %40, label %33
 
 33:                                               ; preds = %31
   %34 = call i64 @fwrite(ptr noundef nonnull %10, i64 noundef 4, i64 noundef 1, ptr noundef nonnull %15)
   %.not39 = icmp eq i64 %34, 0
-  br i1 %.not39, label %39, label %35
+  br i1 %.not39, label %40, label %35
 
 35:                                               ; preds = %33
   %36 = call i64 @fwrite(ptr noundef nonnull %11, i64 noundef 4, i64 noundef 1, ptr noundef nonnull %15)
   %.not40 = icmp eq i64 %36, 0
-  br i1 %.not40, label %39, label %37
+  br i1 %.not40, label %40, label %37
 
 37:                                               ; preds = %35
   %38 = tail call i64 @fwrite(ptr noundef nonnull @.str.32, i64 noundef 16, i64 noundef 1, ptr noundef nonnull %15)
   %.not41 = icmp eq i64 %38, 0
-  br i1 %.not41, label %39, label %42
+  br i1 %.not41, label %40, label %.preheader
 
-39:                                               ; preds = %37, %35, %33, %31, %29, %27, %25, %23, %18
-  %40 = tail call i32 @fclose(ptr noundef nonnull %15)
-  %41 = tail call i32 @cli_unlink(ptr noundef nonnull %13) #13
+.preheader:                                       ; preds = %37
+  %39 = zext nneg i32 %19 to i64
+  br label %43
+
+40:                                               ; preds = %37, %35, %33, %31, %29, %27, %25, %23, %18
+  %41 = tail call i32 @fclose(ptr noundef nonnull %15)
+  %42 = tail call i32 @cli_unlink(ptr noundef nonnull %13) #13
   tail call void @free(ptr noundef nonnull %13) #13
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.33) #13
-  br label %60
+  br label %56
 
-42:                                               ; preds = %37
-  %43 = load i32, ptr %7, align 4, !tbaa !60
-  %44 = load i32, ptr %6, align 4
-  %45 = shl nsw i32 %44, 2
-  %46 = sext i32 %45 to i64
-  br label %47
-
-47:                                               ; preds = %49, %42
-  %.0.in = phi i32 [ %43, %42 ], [ %.0, %49 ]
+43:                                               ; preds = %.preheader, %45
+  %.0.in = phi i32 [ %.0, %45 ], [ %3, %.preheader ]
   %.0 = add i32 %.0.in, -1
-  %48 = icmp ult i32 %.0, %43
-  br i1 %48, label %49, label %57
+  %44 = icmp ult i32 %.0, %3
+  br i1 %44, label %45, label %53
 
-49:                                               ; preds = %47
-  %50 = mul i32 %44, %.0
-  %51 = zext i32 %50 to i64
-  %52 = getelementptr inbounds nuw i32, ptr %4, i64 %51
-  %53 = tail call i64 @fwrite(ptr noundef nonnull %52, i64 noundef %46, i64 noundef 1, ptr noundef nonnull %15)
-  %.not42 = icmp eq i64 %53, 0
-  br i1 %.not42, label %54, label %47
+45:                                               ; preds = %43
+  %46 = mul i32 %.0, %2
+  %47 = zext i32 %46 to i64
+  %48 = getelementptr inbounds nuw i32, ptr %4, i64 %47
+  %49 = tail call i64 @fwrite(ptr noundef nonnull %48, i64 noundef %39, i64 noundef 1, ptr noundef nonnull %15)
+  %.not42 = icmp eq i64 %49, 0
+  br i1 %.not42, label %50, label %43
 
-54:                                               ; preds = %49
-  %55 = tail call i32 @fclose(ptr noundef nonnull %15)
-  %56 = tail call i32 @cli_unlink(ptr noundef nonnull %13) #13
-  br label %59
+50:                                               ; preds = %45
+  %51 = tail call i32 @fclose(ptr noundef nonnull %15)
+  %52 = tail call i32 @cli_unlink(ptr noundef nonnull %13) #13
+  br label %55
 
-57:                                               ; preds = %47
-  %58 = tail call i32 @fclose(ptr noundef nonnull %15)
+53:                                               ; preds = %43
+  %54 = tail call i32 @fclose(ptr noundef nonnull %15)
   tail call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.34, ptr noundef %0, ptr noundef nonnull %13) #13
-  br label %59
+  br label %55
 
-59:                                               ; preds = %57, %54
+55:                                               ; preds = %53, %50
   tail call void @free(ptr noundef nonnull %13) #13
-  br label %60
+  br label %56
 
-60:                                               ; preds = %12, %5, %59, %39, %16
+56:                                               ; preds = %12, %5, %55, %40, %16
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %11) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #13
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #13
@@ -3791,7 +3788,7 @@ declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noun
 declare i32 @cli_unlink(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #9
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #9

@@ -16373,7 +16373,7 @@ define linkonce_odr noundef i32 @_ZN6NewBdd3Man15UniqueCreateIntEtjj(ptr noundef
 91:                                               ; preds = %89
   %92 = load i16, ptr %0, align 8, !tbaa !365
   %93 = zext i16 %92 to i32
-  %ldexp.i = tail call double @ldexp(double 1.000000e+00, i32 %93) #25
+  %ldexp.i = tail call double @ldexp(double 1.000000e+00, i32 %93)
   %94 = lshr i32 %2, 1
   %95 = zext nneg i32 %94 to i64
   %96 = load ptr, ptr %84, align 8, !tbaa !371
@@ -16410,7 +16410,7 @@ _ZNK6NewBdd3Man8OneCountEj.exit:                  ; preds = %91, %100
 112:                                              ; preds = %110
   %113 = load i16, ptr %0, align 8, !tbaa !365
   %114 = zext i16 %113 to i32
-  %ldexp.i32 = tail call double @ldexp(double 1.000000e+00, i32 %114) #25
+  %ldexp.i32 = tail call double @ldexp(double 1.000000e+00, i32 %114)
   %115 = lshr i32 %3, 1
   %116 = zext nneg i32 %115 to i64
   %117 = load ptr, ptr %84, align 8, !tbaa !371
@@ -30138,7 +30138,7 @@ _ZSt4findISt20_List_const_iteratorIiEiET_S2_S2_RKT0_.exit42: ; preds = %.lr.ph.i
 160:                                              ; preds = %157
   %161 = load i16, ptr %146, align 8, !tbaa !365
   %162 = zext i16 %161 to i32
-  %ldexp.i = tail call double @ldexp(double 1.000000e+00, i32 %162) #25
+  %ldexp.i = tail call double @ldexp(double 1.000000e+00, i32 %162)
   %163 = lshr i32 %150, 1
   %164 = zext nneg i32 %163 to i64
   %165 = load ptr, ptr %151, align 8, !tbaa !371
@@ -30185,7 +30185,7 @@ _ZNK6NewBdd3Man8OneCountEj.exit:                  ; preds = %160, %169
 186:                                              ; preds = %183
   %187 = load i16, ptr %177, align 8, !tbaa !365
   %188 = zext i16 %187 to i32
-  %ldexp.i44 = tail call double @ldexp(double 1.000000e+00, i32 %188) #25
+  %ldexp.i44 = tail call double @ldexp(double 1.000000e+00, i32 %188)
   %189 = lshr i32 %179, 1
   %190 = zext nneg i32 %189 to i64
   %191 = load ptr, ptr %180, align 8, !tbaa !371
@@ -30231,7 +30231,7 @@ _ZNK6NewBdd3Man8OneCountEj.exit46:                ; preds = %186, %195
 215:                                              ; preds = %213
   %216 = load i16, ptr %202, align 8, !tbaa !365
   %217 = zext i16 %216 to i32
-  %ldexp.i48 = tail call double @ldexp(double 1.000000e+00, i32 %217) #25
+  %ldexp.i48 = tail call double @ldexp(double 1.000000e+00, i32 %217)
   %218 = lshr i32 %206, 1
   %219 = zext nneg i32 %218 to i64
   %220 = load ptr, ptr %207, align 8, !tbaa !371
@@ -30277,7 +30277,7 @@ _ZNK6NewBdd3Man8OneCountEj.exit50:                ; preds = %215, %224
 240:                                              ; preds = %238
   %241 = load i16, ptr %232, align 8, !tbaa !365
   %242 = zext i16 %241 to i32
-  %ldexp.i52 = tail call double @ldexp(double 1.000000e+00, i32 %242) #25
+  %ldexp.i52 = tail call double @ldexp(double 1.000000e+00, i32 %242)
   %243 = lshr i32 %234, 1
   %244 = zext nneg i32 %243 to i64
   %245 = load ptr, ptr %235, align 8, !tbaa !371
@@ -30323,7 +30323,7 @@ _ZNK6NewBdd3Man8OneCountEj.exit54:                ; preds = %240, %249
 269:                                              ; preds = %267
   %270 = load i16, ptr %256, align 8, !tbaa !365
   %271 = zext i16 %270 to i32
-  %ldexp.i56 = tail call double @ldexp(double 1.000000e+00, i32 %271) #25
+  %ldexp.i56 = tail call double @ldexp(double 1.000000e+00, i32 %271)
   %272 = lshr exact i32 %260, 1
   %273 = zext nneg i32 %272 to i64
   %274 = load ptr, ptr %261, align 8, !tbaa !371
@@ -30369,7 +30369,7 @@ _ZNK6NewBdd3Man8OneCountEj.exit58:                ; preds = %269, %278
 294:                                              ; preds = %292
   %295 = load i16, ptr %286, align 8, !tbaa !365
   %296 = zext i16 %295 to i32
-  %ldexp.i60 = tail call double @ldexp(double 1.000000e+00, i32 %296) #25
+  %ldexp.i60 = tail call double @ldexp(double 1.000000e+00, i32 %296)
   %297 = lshr i32 %288, 1
   %298 = zext nneg i32 %297 to i64
   %299 = load ptr, ptr %289, align 8, !tbaa !371
@@ -64129,7 +64129,7 @@ declare i64 @llvm.umax.i64(i64, i64) #22
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #23
 
-; Function Attrs: nofree willreturn memory(errnomem: write)
+; Function Attrs: nofree nounwind willreturn memory(errnomem: write)
 declare double @ldexp(double, i32) local_unnamed_addr #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -64165,7 +64165,7 @@ attributes #20 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-ma
 attributes #21 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #22 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #23 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #24 = { nofree willreturn memory(errnomem: write) }
+attributes #24 = { nofree nounwind willreturn memory(errnomem: write) }
 attributes #25 = { nounwind }
 attributes #26 = { noreturn nounwind }
 attributes #27 = { builtin nounwind allocsize(0) }

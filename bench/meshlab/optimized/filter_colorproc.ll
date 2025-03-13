@@ -46463,7 +46463,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #27
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #25
 
-; Function Attrs: nofree willreturn memory(errnomem: write)
+; Function Attrs: nofree nounwind willreturn memory(errnomem: write)
 declare double @ldexp(double, i32) local_unnamed_addr #28
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -46497,7 +46497,7 @@ attributes #24 = { nocallback nofree nosync nounwind willreturn memory(inaccessi
 attributes #25 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #26 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #27 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #28 = { nofree willreturn memory(errnomem: write) }
+attributes #28 = { nofree nounwind willreturn memory(errnomem: write) }
 attributes #29 = { builtin nounwind }
 attributes #30 = { nounwind }
 attributes #31 = { noreturn nounwind }

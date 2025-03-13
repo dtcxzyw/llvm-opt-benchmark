@@ -314,7 +314,7 @@ declare i32 @BIO_free(ptr noundef) local_unnamed_addr #1
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: nofree nounwind uwtable
-define internal range(i32 0, 2) i32 @send_fp_chars(ptr noundef captures(address_is_null) %0, ptr noundef captures(none) %1, i32 noundef %2) #3 {
+define internal range(i32 0, 2) i32 @send_fp_chars(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #3 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %8, label %4
 
@@ -673,7 +673,7 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 declare i32 @BIO_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 declare ptr @ASN1_tag2str(i32 noundef) local_unnamed_addr #1
 

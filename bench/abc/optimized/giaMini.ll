@@ -1623,7 +1623,7 @@ Vec_PtrFreeFree.exit:                             ; preds = %Vec_PtrFreeData.exi
 declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #6
+declare noundef ptr @fgets(ptr noundef writeonly, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #7
@@ -1748,9 +1748,9 @@ define void @Gia_ManWriteMiniAig(ptr noundef readonly captures(none) %0, ptr nou
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %10 = tail call i64 @fwrite(ptr noundef nonnull %9, i64 noundef 4, i64 noundef 1, ptr noundef nonnull %4)
+  %10 = tail call i64 @fwrite(ptr noundef nonnull readonly %9, i64 noundef 4, i64 noundef 1, ptr noundef nonnull %4)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %12 = tail call i64 @fwrite(ptr noundef nonnull %11, i64 noundef 4, i64 noundef 1, ptr noundef nonnull %4)
+  %12 = tail call i64 @fwrite(ptr noundef nonnull readonly %11, i64 noundef 4, i64 noundef 1, ptr noundef nonnull %4)
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %14 = load ptr, ptr %13, align 8, !tbaa !3
   %15 = load i32, ptr %9, align 4, !tbaa !13
@@ -3789,11 +3789,11 @@ define void @Gia_ManWriteMiniLut(ptr noundef %0, ptr noundef %1) local_unnamed_a
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %10 = tail call i64 @fwrite(ptr noundef nonnull %9, i64 noundef 4, i64 noundef 1, ptr noundef nonnull %4)
+  %10 = tail call i64 @fwrite(ptr noundef nonnull readonly %9, i64 noundef 4, i64 noundef 1, ptr noundef nonnull %4)
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %12 = tail call i64 @fwrite(ptr noundef nonnull %11, i64 noundef 4, i64 noundef 1, ptr noundef nonnull %4)
+  %12 = tail call i64 @fwrite(ptr noundef nonnull readonly %11, i64 noundef 4, i64 noundef 1, ptr noundef nonnull %4)
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %14 = tail call i64 @fwrite(ptr noundef nonnull %13, i64 noundef 4, i64 noundef 1, ptr noundef nonnull %4)
+  %14 = tail call i64 @fwrite(ptr noundef nonnull readonly %13, i64 noundef 4, i64 noundef 1, ptr noundef nonnull %4)
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %16 = load ptr, ptr %15, align 8, !tbaa !74
   %17 = load i32, ptr %9, align 4, !tbaa !73
@@ -6901,9 +6901,9 @@ Vec_IntFree.exit141:                              ; preds = %Vec_IntFree.exit139
   br label %Mini_AigDump.exit
 
 190:                                              ; preds = %Vec_IntFree.exit141
-  %191 = tail call i64 @fwrite(ptr noundef nonnull %4, i64 noundef 4, i64 noundef 1, ptr noundef nonnull %186)
+  %191 = tail call i64 @fwrite(ptr noundef nonnull readonly %4, i64 noundef 4, i64 noundef 1, ptr noundef nonnull %186)
   %192 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %193 = tail call i64 @fwrite(ptr noundef nonnull %192, i64 noundef 4, i64 noundef 1, ptr noundef nonnull %186)
+  %193 = tail call i64 @fwrite(ptr noundef nonnull readonly %192, i64 noundef 4, i64 noundef 1, ptr noundef nonnull %186)
   %194 = load ptr, ptr %3, align 8, !tbaa !3
   %195 = load i32, ptr %4, align 4, !tbaa !13
   %196 = sext i32 %195 to i64
@@ -7774,10 +7774,10 @@ declare void @Gia_ObjAddFanout(ptr noundef, ptr noundef, ptr noundef) local_unna
 declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @Mini_LutPush(ptr noundef captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3) unnamed_addr #2 {

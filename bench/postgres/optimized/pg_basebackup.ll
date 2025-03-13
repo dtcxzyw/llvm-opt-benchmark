@@ -4382,7 +4382,7 @@ progress_update_filename.exit:                    ; preds = %110, %113
 declare void @appendPQExpBuffer(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 declare ptr @createPQExpBuffer() local_unnamed_addr #2
 
@@ -4462,7 +4462,7 @@ define internal void @ReceiveBackupManifestInMemoryChunk(i64 noundef %0, ptr nou
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @ReceiveBackupManifestChunk(i64 noundef %0, ptr noundef captures(none) %1, ptr noundef %2) #0 {
+define internal void @ReceiveBackupManifestChunk(i64 noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) #0 {
   %4 = tail call ptr @__errno_location() #21
   store i32 0, ptr %4, align 4
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 1024

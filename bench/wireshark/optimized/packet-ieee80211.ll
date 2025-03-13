@@ -52571,7 +52571,7 @@ declare i32 @llvm.smax.i32(i32, i32) #22
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.fshl.i16(i16, i16, i16) #22
 
-; Function Attrs: nofree willreturn memory(errnomem: write)
+; Function Attrs: nofree nounwind willreturn memory(errnomem: write)
 declare double @ldexp(double, i32) local_unnamed_addr #23
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -52606,7 +52606,7 @@ attributes #19 = { mustprogress nofree nounwind null_pointer_is_valid willreturn
 attributes #20 = { nounwind null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #21 = { nofree nounwind willreturn memory(argmem: read) }
 attributes #22 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #23 = { nofree willreturn memory(errnomem: write) }
+attributes #23 = { nofree nounwind willreturn memory(errnomem: write) }
 attributes #24 = { nounwind }
 attributes #25 = { allocsize(1) }
 attributes #26 = { nounwind willreturn memory(read) }

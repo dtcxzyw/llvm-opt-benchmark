@@ -2582,7 +2582,7 @@ Abc_Clock.exit50.i:                               ; preds = %1022, %1019
   %1098 = load i32, ptr %1035, align 8, !tbaa !97
   %1099 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1061, ptr noundef nonnull @.str.28, i32 noundef %1098) #20
   %1100 = load i32, ptr %106, align 4, !tbaa !36
-  %ldexp.i.i.i = call double @ldexp(double 1.000000e+00, i32 %1100) #20
+  %ldexp.i.i.i = call double @ldexp(double 1.000000e+00, i32 %1100)
   %1101 = load i32, ptr %106, align 4, !tbaa !36
   %1102 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %1061, ptr noundef nonnull @.str.29, double noundef %ldexp.i.i.i, i32 noundef %1101) #20
   %1103 = call i64 @fwrite(ptr nonnull @.str.16, i64 2, i64 1, ptr %1061)
@@ -2785,7 +2785,7 @@ Super_ManStop.exit126:                            ; preds = %1192, %1194
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #2
@@ -4034,7 +4034,7 @@ Vec_StrPush.exit.i206:                            ; preds = %516, %Vec_StrGrow.e
 Vec_StrPrintStr.exit212:                          ; preds = %Vec_StrPush.exit.i206, %Vec_StrPrintStr.exit199
   %523 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %524 = load i32, ptr %523, align 4, !tbaa !36
-  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %524) #20
+  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %524)
   %525 = load i32, ptr %523, align 4, !tbaa !36
   %526 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.29, double noundef %ldexp, i32 noundef %525) #20
   %527 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %3) #25
@@ -6145,7 +6145,7 @@ declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_add
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #18
 
-; Function Attrs: nofree willreturn memory(errnomem: write)
+; Function Attrs: nofree nounwind willreturn memory(errnomem: write)
 declare double @ldexp(double, i32) local_unnamed_addr #19
 
 ; Function Attrs: nofree nounwind
@@ -6173,7 +6173,7 @@ attributes #15 = { mustprogress nofree nounwind willreturn allockind("alloc,zero
 attributes #16 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { nofree nounwind }
 attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #19 = { nofree willreturn memory(errnomem: write) }
+attributes #19 = { nofree nounwind willreturn memory(errnomem: write) }
 attributes #20 = { nounwind }
 attributes #21 = { cold nounwind }
 attributes #22 = { cold }

@@ -1513,7 +1513,7 @@ declare void @cairo_surface_destroy(ptr noundef) local_unnamed_addr #3
 declare i32 @cairo_surface_write_to_png_stream(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef range(i32 0, 12) i32 @topo_cairo_write(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) #9 {
+define internal noundef range(i32 0, 12) i32 @topo_cairo_write(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #9 {
   %4 = zext i32 %2 to i64
   %5 = tail call i64 @fwrite(ptr noundef %1, i64 noundef %4, i64 noundef 1, ptr noundef %0)
   %6 = icmp eq i64 %5, 0
@@ -2070,7 +2070,7 @@ declare i64 @XInternAtom(ptr noundef, ptr noundef, i32 noundef) local_unnamed_ad
 declare i32 @XGetWindowProperty(ptr noundef, i64 noundef, i64 noundef, i64 noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #11

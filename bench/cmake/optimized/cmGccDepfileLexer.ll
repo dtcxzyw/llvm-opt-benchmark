@@ -2439,7 +2439,7 @@ declare noundef i32 @getc(ptr noundef captures(none)) local_unnamed_addr #20
 declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #21
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #20
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #20
 
 ; Function Attrs: nofree nounwind
 declare void @clearerr(ptr noundef captures(none)) local_unnamed_addr #20

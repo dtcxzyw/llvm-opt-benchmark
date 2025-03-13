@@ -1317,7 +1317,7 @@ _ZSt4endlIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_.exit: ; preds = %109,
 declare noundef i32 @printf(ptr noundef readonly captures(none), ...) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef i32 @_ZN2cv12ppf_match_3d6Pose3D9writePoseEP8_IO_FILE(ptr noundef nonnull align 8 captures(none) dereferenceable(232) %0, ptr noundef captures(none) %1) local_unnamed_addr #13 align 2 {
+define noundef i32 @_ZN2cv12ppf_match_3d6Pose3D9writePoseEP8_IO_FILE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %0, ptr noundef captures(none) %1) local_unnamed_addr #13 align 2 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #26
   store i32 7673, ptr %3, align 4, !tbaa !11
@@ -1341,10 +1341,10 @@ define noundef i32 @_ZN2cv12ppf_match_3d6Pose3D9writePoseEP8_IO_FILE(ptr noundef
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #12
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef range(i32 -1, 1) i32 @_ZN2cv12ppf_match_3d6Pose3D8readPoseEP8_IO_FILE(ptr noundef nonnull align 8 captures(none) dereferenceable(232) %0, ptr noundef captures(none) %1) local_unnamed_addr #13 align 2 {
+define noundef range(i32 -1, 1) i32 @_ZN2cv12ppf_match_3d6Pose3D8readPoseEP8_IO_FILE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(232) %0, ptr noundef captures(none) %1) local_unnamed_addr #13 align 2 {
   %3 = alloca i32, align 4
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #26
   %4 = call i64 @fread(ptr noundef nonnull %3, i64 noundef 4, i64 noundef 1, ptr noundef %1)
@@ -1378,10 +1378,10 @@ define noundef range(i32 -1, 1) i32 @_ZN2cv12ppf_match_3d6Pose3D8readPoseEP8_IO_
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #12
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef range(i32 -1, 1) i32 @_ZN2cv12ppf_match_3d6Pose3D9writePoseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(232) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 -1, 1) i32 @_ZN2cv12ppf_match_3d6Pose3D9writePoseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(232) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
   %3 = alloca i32, align 4
   %4 = load ptr, ptr %1, align 8, !tbaa !114
   %5 = tail call noalias ptr @fopen(ptr noundef %4, ptr noundef nonnull @.str.1)
@@ -1393,19 +1393,19 @@ define noundef range(i32 -1, 1) i32 @_ZN2cv12ppf_match_3d6Pose3D9writePoseERKNSt
   store i32 7673, ptr %3, align 4, !tbaa !11
   %7 = call i64 @fwrite(ptr noundef nonnull %3, i64 noundef 4, i64 noundef 1, ptr noundef nonnull %5)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %9 = tail call i64 @fwrite(ptr noundef nonnull %8, i64 noundef 8, i64 noundef 1, ptr noundef nonnull %5)
+  %9 = tail call i64 @fwrite(ptr noundef nonnull readonly %8, i64 noundef 8, i64 noundef 1, ptr noundef nonnull %5)
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %11 = tail call i64 @fwrite(ptr noundef nonnull %10, i64 noundef 4, i64 noundef 1, ptr noundef nonnull %5)
+  %11 = tail call i64 @fwrite(ptr noundef nonnull readonly %10, i64 noundef 4, i64 noundef 1, ptr noundef nonnull %5)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %13 = tail call i64 @fwrite(ptr noundef nonnull %12, i64 noundef 4, i64 noundef 1, ptr noundef nonnull %5)
+  %13 = tail call i64 @fwrite(ptr noundef nonnull readonly %12, i64 noundef 4, i64 noundef 1, ptr noundef nonnull %5)
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %15 = tail call i64 @fwrite(ptr noundef nonnull %14, i64 noundef 128, i64 noundef 1, ptr noundef nonnull %5)
+  %15 = tail call i64 @fwrite(ptr noundef nonnull readonly %14, i64 noundef 128, i64 noundef 1, ptr noundef nonnull %5)
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %17 = tail call i64 @fwrite(ptr noundef nonnull %16, i64 noundef 24, i64 noundef 1, ptr noundef nonnull %5)
+  %17 = tail call i64 @fwrite(ptr noundef nonnull readonly %16, i64 noundef 24, i64 noundef 1, ptr noundef nonnull %5)
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %19 = tail call i64 @fwrite(ptr noundef nonnull %18, i64 noundef 32, i64 noundef 1, ptr noundef nonnull %5)
+  %19 = tail call i64 @fwrite(ptr noundef nonnull readonly %18, i64 noundef 32, i64 noundef 1, ptr noundef nonnull %5)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %21 = tail call i64 @fwrite(ptr noundef nonnull %20, i64 noundef 8, i64 noundef 1, ptr noundef nonnull %5)
+  %21 = tail call i64 @fwrite(ptr noundef nonnull readonly %20, i64 noundef 8, i64 noundef 1, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #26
   %22 = tail call i32 @fclose(ptr noundef nonnull %5)
   br label %23
@@ -1422,7 +1422,7 @@ declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noun
 declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef range(i32 -1, 1) i32 @_ZN2cv12ppf_match_3d6Pose3D8readPoseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(232) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 -1, 1) i32 @_ZN2cv12ppf_match_3d6Pose3D8readPoseERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(232) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8, !tbaa !114
   %4 = tail call noalias ptr @fopen(ptr noundef %3, ptr noundef nonnull @.str.2)
   %.not = icmp eq ptr %4, null
@@ -1497,7 +1497,7 @@ _ZNSt6vectorIN2cv3PtrINS0_12ppf_match_3d6Pose3DEEESaIS4_EE9push_backERKS4_.exit:
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef i32 @_ZN2cv12ppf_match_3d13PoseCluster3D16writePoseClusterEP8_IO_FILE(ptr noundef nonnull align 8 captures(none) dereferenceable(44) %0, ptr noundef captures(none) %1) local_unnamed_addr #13 align 2 {
+define noundef i32 @_ZN2cv12ppf_match_3d13PoseCluster3D16writePoseClusterEP8_IO_FILE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(44) %0, ptr noundef captures(none) %1) local_unnamed_addr #13 align 2 {
   %3 = alloca i32, align 4
   %4 = alloca i32, align 4
   %5 = alloca i32, align 4
@@ -1516,16 +1516,15 @@ define noundef i32 @_ZN2cv12ppf_match_3d13PoseCluster3D16writePoseClusterEP8_IO_
   %15 = ptrtoint ptr %13 to i64
   %16 = ptrtoint ptr %14 to i64
   %17 = sub i64 %15, %16
-  %18 = lshr exact i64 %17, 4
+  %18 = lshr i64 %17, 4
   %19 = trunc i64 %18 to i32
   store i32 %19, ptr %5, align 4, !tbaa !11
   %20 = call i64 @fwrite(ptr noundef nonnull %5, i64 noundef 4, i64 noundef 1, ptr noundef %1)
-  %21 = load i32, ptr %5, align 4, !tbaa !11
-  %22 = icmp sgt i32 %21, 0
-  br i1 %22, label %.lr.ph.preheader, label %._crit_edge
+  %21 = icmp sgt i32 %19, 0
+  br i1 %21, label %.lr.ph.preheader, label %._crit_edge
 
 .lr.ph.preheader:                                 ; preds = %2
-  %wide.trip.count = zext nneg i32 %21 to i64
+  %wide.trip.count = and i64 %18, 2147483647
   br label %.lr.ph
 
 ._crit_edge:                                      ; preds = %.lr.ph, %2
@@ -1535,26 +1534,26 @@ define noundef i32 @_ZN2cv12ppf_match_3d13PoseCluster3D16writePoseClusterEP8_IO_
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %23 = load ptr, ptr %11, align 8, !tbaa !126
-  %24 = getelementptr inbounds nuw %"struct.cv::Ptr", ptr %23, i64 %indvars.iv
-  %25 = load ptr, ptr %24, align 8, !tbaa !74
+  %22 = load ptr, ptr %11, align 8, !tbaa !126
+  %23 = getelementptr inbounds nuw %"struct.cv::Ptr", ptr %22, i64 %indvars.iv
+  %24 = load ptr, ptr %23, align 8, !tbaa !74
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #26
   store i32 7673, ptr %3, align 4, !tbaa !11
-  %26 = call i64 @fwrite(ptr noundef nonnull %3, i64 noundef 4, i64 noundef 1, ptr noundef %1)
-  %27 = getelementptr inbounds nuw i8, ptr %25, i64 168
-  %28 = tail call i64 @fwrite(ptr noundef nonnull %27, i64 noundef 8, i64 noundef 1, ptr noundef %1)
-  %29 = getelementptr inbounds nuw i8, ptr %25, i64 32
-  %30 = tail call i64 @fwrite(ptr noundef nonnull %29, i64 noundef 4, i64 noundef 1, ptr noundef %1)
-  %31 = getelementptr inbounds nuw i8, ptr %25, i64 24
-  %32 = tail call i64 @fwrite(ptr noundef nonnull %31, i64 noundef 4, i64 noundef 1, ptr noundef %1)
-  %33 = getelementptr inbounds nuw i8, ptr %25, i64 40
-  %34 = tail call i64 @fwrite(ptr noundef nonnull %33, i64 noundef 128, i64 noundef 1, ptr noundef %1)
-  %35 = getelementptr inbounds nuw i8, ptr %25, i64 176
-  %36 = tail call i64 @fwrite(ptr noundef nonnull %35, i64 noundef 24, i64 noundef 1, ptr noundef %1)
-  %37 = getelementptr inbounds nuw i8, ptr %25, i64 200
-  %38 = tail call i64 @fwrite(ptr noundef nonnull %37, i64 noundef 32, i64 noundef 1, ptr noundef %1)
-  %39 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %40 = tail call i64 @fwrite(ptr noundef nonnull %39, i64 noundef 8, i64 noundef 1, ptr noundef %1)
+  %25 = call i64 @fwrite(ptr noundef nonnull %3, i64 noundef 4, i64 noundef 1, ptr noundef %1)
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 168
+  %27 = tail call i64 @fwrite(ptr noundef nonnull readonly %26, i64 noundef 8, i64 noundef 1, ptr noundef %1)
+  %28 = getelementptr inbounds nuw i8, ptr %24, i64 32
+  %29 = tail call i64 @fwrite(ptr noundef nonnull readonly %28, i64 noundef 4, i64 noundef 1, ptr noundef %1)
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 24
+  %31 = tail call i64 @fwrite(ptr noundef nonnull readonly %30, i64 noundef 4, i64 noundef 1, ptr noundef %1)
+  %32 = getelementptr inbounds nuw i8, ptr %24, i64 40
+  %33 = tail call i64 @fwrite(ptr noundef nonnull readonly %32, i64 noundef 128, i64 noundef 1, ptr noundef %1)
+  %34 = getelementptr inbounds nuw i8, ptr %24, i64 176
+  %35 = tail call i64 @fwrite(ptr noundef nonnull readonly %34, i64 noundef 24, i64 noundef 1, ptr noundef %1)
+  %36 = getelementptr inbounds nuw i8, ptr %24, i64 200
+  %37 = tail call i64 @fwrite(ptr noundef nonnull readonly %36, i64 noundef 32, i64 noundef 1, ptr noundef %1)
+  %38 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  %39 = tail call i64 @fwrite(ptr noundef nonnull readonly %38, i64 noundef 8, i64 noundef 1, ptr noundef %1)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -1936,7 +1935,7 @@ _ZNSt12__shared_ptrIN2cv12ppf_match_3d6Pose3DELN9__gnu_cxx12_Lock_policyE2EED2Ev
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef range(i32 -1, 1) i32 @_ZN2cv12ppf_match_3d13PoseCluster3D16writePoseClusterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 captures(none) dereferenceable(44) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
+define noundef range(i32 -1, 1) i32 @_ZN2cv12ppf_match_3d13PoseCluster3D16writePoseClusterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(44) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %1) local_unnamed_addr #13 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8, !tbaa !114
   %4 = tail call noalias ptr @fopen(ptr noundef %3, ptr noundef nonnull @.str.1)
   %.not = icmp eq ptr %4, null

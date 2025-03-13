@@ -4034,7 +4034,7 @@ base_yy_init_buffer.exit:                         ; preds = %35, %.thread.i
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: noreturn
 declare void @mmfatal(i32 noundef, ptr noundef, ...) local_unnamed_addr #3
@@ -5497,7 +5497,7 @@ declare noundef i32 @getc(ptr noundef captures(none)) local_unnamed_addr #2
 declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #17
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
 declare void @clearerr(ptr noundef captures(none)) local_unnamed_addr #2

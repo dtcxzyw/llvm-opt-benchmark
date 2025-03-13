@@ -967,7 +967,7 @@ _ZN7consoleL11append_utf8EDiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
 
 336:                                              ; preds = %_ZN7consoleL11append_utf8EDiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i
   %337 = load ptr, ptr @_ZN7consoleL3outE, align 8, !tbaa !13
-  %338 = call i64 @fwrite(ptr noundef %330, i64 noundef %331, i64 noundef 1, ptr noundef %337)
+  %338 = call i64 @fwrite(ptr noundef readonly %330, i64 noundef %331, i64 noundef 1, ptr noundef %337)
   br label %_ZN7consoleL13put_codepointEPKcmi.exit.i
 
 339:                                              ; preds = %_ZN7consoleL11append_utf8EDiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit.i
@@ -982,7 +982,7 @@ _ZN7consoleL11append_utf8EDiRNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE
 
 .noexc99.i:                                       ; preds = %339
   %343 = load ptr, ptr @_ZN7consoleL3ttyE, align 8, !tbaa !13
-  %344 = call i64 @fwrite(ptr noundef %330, i64 noundef %331, i64 noundef 1, ptr noundef %343)
+  %344 = call i64 @fwrite(ptr noundef readonly %330, i64 noundef %331, i64 noundef 1, ptr noundef %343)
   %345 = load ptr, ptr @_ZN7consoleL3ttyE, align 8, !tbaa !13
   %346 = call i64 @fwrite(ptr nonnull @.str.11, i64 4, i64 1, ptr %345)
   %347 = load ptr, ptr @_ZN7consoleL3ttyE, align 8, !tbaa !13
@@ -1357,7 +1357,7 @@ declare noundef i32 @putc(i32 noundef, ptr noundef captures(none)) local_unnamed
 declare void @_ZSt24__throw_out_of_range_fmtPKcz(ptr noundef, ...) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 declare i32 @__isoc99_fscanf(ptr noundef, ptr noundef, ...) local_unnamed_addr #0
 

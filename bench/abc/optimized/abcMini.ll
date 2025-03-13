@@ -837,9 +837,9 @@ Mini_AigStop.exit:                                ; preds = %1, %7
 
 13:                                               ; preds = %Mini_AigStop.exit
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  %15 = tail call i64 @fwrite(ptr noundef nonnull %14, i64 noundef 4, i64 noundef 1, ptr noundef nonnull %9)
+  %15 = tail call i64 @fwrite(ptr noundef nonnull readonly %14, i64 noundef 4, i64 noundef 1, ptr noundef nonnull %9)
   %16 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %17 = tail call i64 @fwrite(ptr noundef nonnull %16, i64 noundef 4, i64 noundef 1, ptr noundef nonnull %9)
+  %17 = tail call i64 @fwrite(ptr noundef nonnull readonly %16, i64 noundef 4, i64 noundef 1, ptr noundef nonnull %9)
   %18 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %19 = load ptr, ptr %18, align 8, !tbaa !3
   %20 = load i32, ptr %14, align 4, !tbaa !31
@@ -1116,13 +1116,13 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #9

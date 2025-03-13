@@ -15212,7 +15212,7 @@ Cba_ManNtk.exit:                                  ; preds = %Cba_ManNtk.exit.lr.
 declare ptr @Abc_FrameReadLibGen(...) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 declare ptr @Abc_NamStr(ptr noundef, i32 noundef) local_unnamed_addr #5
 

@@ -91,7 +91,7 @@ declare i32 @error_errno(ptr noundef, ...) local_unnamed_addr #2
 declare ptr @xfdopen(i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #5
+declare noundef ptr @fgets(ptr noundef writeonly, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @read_mailmap_line(ptr noundef %0, ptr noundef %1) unnamed_addr #0 {

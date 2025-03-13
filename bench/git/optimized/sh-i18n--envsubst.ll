@@ -505,7 +505,7 @@ note_variables.exit.backedge:                     ; preds = %.critedge108.i, %18
   %223 = ptrtoint ptr %spec.select.i.i15 to i64
   %224 = sub i64 %222, %223
   %225 = load ptr, ptr @stdout, align 8, !tbaa !19
-  %226 = tail call i64 @fwrite(ptr noundef nonnull %spec.select.i.i15, i64 noundef %224, i64 noundef 1, ptr noundef %225)
+  %226 = tail call i64 @fwrite(ptr noundef nonnull readonly %spec.select.i.i15, i64 noundef %224, i64 noundef 1, ptr noundef %225)
   %227 = load ptr, ptr @stdout, align 8, !tbaa !19
   %228 = tail call i32 @putc(i32 noundef 10, ptr noundef %227)
   br label %229
@@ -581,7 +581,7 @@ declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #5
 declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #5

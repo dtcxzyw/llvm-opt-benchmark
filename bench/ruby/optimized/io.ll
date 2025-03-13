@@ -8078,7 +8078,7 @@ rb_stderr_to_original_p.exit.thread:              ; preds = %2, %rb_stderr_to_or
 declare i64 @rb_ractor_stderr() local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #15
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: nounwind sspstrong uwtable
 define dso_local void @rb_write_error(ptr noundef nonnull %0) local_unnamed_addr #0 {

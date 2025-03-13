@@ -849,7 +849,7 @@ Vec_PtrPush.exit255:                              ; preds = %.Vec_PtrGrow.exit11
   %215 = load ptr, ptr @stdout, align 8, !tbaa !58
   %216 = fmul double %214, 1.000000e+02
   %.val227 = load i32, ptr %21, align 8, !tbaa !37
-  %ldexp = call double @ldexp(double 1.000000e+00, i32 %.val227) #15
+  %ldexp = call double @ldexp(double 1.000000e+00, i32 %.val227)
   %217 = fdiv double %216, %ldexp
   %218 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %215, ptr noundef nonnull @.str.11, double noundef %214, double noundef %217) #15
   %219 = load ptr, ptr @stdout, align 8, !tbaa !58
@@ -937,7 +937,7 @@ Vec_PtrFree.exit257:                              ; preds = %.critedge, %230
   %248 = load ptr, ptr @stdout, align 8, !tbaa !58
   %249 = fmul double %239, 1.000000e+02
   %.val = load i32, ptr %21, align 8, !tbaa !37
-  %ldexp218 = call double @ldexp(double 1.000000e+00, i32 %.val) #15
+  %ldexp218 = call double @ldexp(double 1.000000e+00, i32 %.val)
   %250 = fdiv double %249, %ldexp218
   %251 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %248, ptr noundef nonnull @.str.11, double noundef %239, double noundef %250) #15
   %252 = load ptr, ptr @stdout, align 8, !tbaa !58
@@ -1760,7 +1760,7 @@ declare noundef i32 @vfprintf(ptr noundef captures(none), ptr noundef readonly c
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #13
 
-; Function Attrs: nofree willreturn memory(errnomem: write)
+; Function Attrs: nofree nounwind willreturn memory(errnomem: write)
 declare double @ldexp(double, i32) local_unnamed_addr #14
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1777,7 +1777,7 @@ attributes #10 = { mustprogress nounwind willreturn allockind("realloc") allocsi
 attributes #11 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #12 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { nofree nounwind }
-attributes #14 = { nofree willreturn memory(errnomem: write) }
+attributes #14 = { nofree nounwind willreturn memory(errnomem: write) }
 attributes #15 = { nounwind }
 attributes #16 = { nounwind allocsize(0) }
 attributes #17 = { nounwind allocsize(1) }

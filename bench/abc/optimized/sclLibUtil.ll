@@ -3856,7 +3856,7 @@ define void @Abc_SclMarkSkippedCells(ptr noundef readonly captures(none) %0) loc
 declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #6
+declare noundef ptr @fgets(ptr noundef writeonly, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
 declare ptr @strtok(ptr noundef, ptr noundef readonly captures(none)) local_unnamed_addr #18

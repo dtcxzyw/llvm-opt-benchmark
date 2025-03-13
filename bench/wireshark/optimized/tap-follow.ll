@@ -1041,7 +1041,7 @@ declare ptr @ws_utf8_make_valid_strbuf(ptr noundef, ptr noundef, i64 noundef) lo
 declare i64 @wmem_strbuf_get_len(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @wmem_strbuf_get_str(ptr noundef) local_unnamed_addr #1

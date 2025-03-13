@@ -354,15 +354,15 @@ define void @Rwr_ManWriteToFile(ptr noundef readonly captures(none) %0, ptr noun
 
 8:                                                ; preds = %2
   %9 = load i64, ptr %4, align 8, !tbaa !3
-  %.neg28 = mul i64 %9, -1000000
+  %.neg29 = mul i64 %9, -1000000
   %10 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %11 = load i64, ptr %10, align 8, !tbaa !8
   %.neg = sdiv i64 %11, -1000
-  %.neg29 = add i64 %.neg, %.neg28
+  %.neg30 = add i64 %.neg, %.neg29
   br label %Abc_Clock.exit
 
 Abc_Clock.exit:                                   ; preds = %2, %8
-  %.0.i.neg = phi i64 [ %.neg29, %8 ], [ 1, %2 ]
+  %.0.i.neg = phi i64 [ %.neg30, %8 ], [ 1, %2 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #15
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %13 = load ptr, ptr %12, align 8, !tbaa !9
@@ -424,42 +424,39 @@ Abc_Clock.exit:                                   ; preds = %2, %8
 ._crit_edge:                                      ; preds = %24, %Abc_Clock.exit
   %53 = call noalias ptr @fopen(ptr noundef %1, ptr noundef nonnull @.str.14)
   %54 = call i64 @fwrite(ptr noundef nonnull %5, i64 noundef 4, i64 noundef 1, ptr noundef %53)
-  %55 = load i32, ptr %5, align 4, !tbaa !30
-  %56 = shl nsw i32 %55, 1
-  %57 = sext i32 %56 to i64
-  %58 = call i64 @fwrite(ptr noundef %20, i64 noundef 4, i64 noundef %57, ptr noundef %53)
+  %55 = call i64 @fwrite(ptr noundef %20, i64 noundef 4, i64 noundef %18, ptr noundef %53)
   %.not = icmp eq ptr %20, null
-  br i1 %.not, label %60, label %59
+  br i1 %.not, label %57, label %56
 
-59:                                               ; preds = %._crit_edge
+56:                                               ; preds = %._crit_edge
   call void @free(ptr noundef nonnull %20) #15
-  br label %60
+  br label %57
 
-60:                                               ; preds = %._crit_edge, %59
-  %61 = call i32 @fclose(ptr noundef %53)
-  %62 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %55)
+57:                                               ; preds = %._crit_edge, %56
+  %58 = call i32 @fclose(ptr noundef %53)
+  %59 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %16)
   call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.8, ptr noundef nonnull @.str.9)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #15
-  %63 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #15
-  %64 = icmp slt i32 %63, 0
-  br i1 %64, label %Abc_Clock.exit27, label %65
+  %60 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %3) #15
+  %61 = icmp slt i32 %60, 0
+  br i1 %61, label %Abc_Clock.exit28, label %62
 
-65:                                               ; preds = %60
-  %66 = load i64, ptr %3, align 8, !tbaa !3
-  %67 = mul nsw i64 %66, 1000000
-  %68 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %69 = load i64, ptr %68, align 8, !tbaa !8
-  %70 = sdiv i64 %69, 1000
-  %71 = add nsw i64 %70, %67
-  br label %Abc_Clock.exit27
+62:                                               ; preds = %57
+  %63 = load i64, ptr %3, align 8, !tbaa !3
+  %64 = mul nsw i64 %63, 1000000
+  %65 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %66 = load i64, ptr %65, align 8, !tbaa !8
+  %67 = sdiv i64 %66, 1000
+  %68 = add nsw i64 %67, %64
+  br label %Abc_Clock.exit28
 
-Abc_Clock.exit27:                                 ; preds = %60, %65
-  %.0.i26 = phi i64 [ %71, %65 ], [ -1, %60 ]
+Abc_Clock.exit28:                                 ; preds = %57, %62
+  %.0.i27 = phi i64 [ %68, %62 ], [ -1, %57 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #15
-  %72 = add i64 %.0.i26, %.0.i.neg
-  %73 = sitofp i64 %72 to double
-  %74 = fdiv double %73, 1.000000e+06
-  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.10, double noundef %74)
+  %69 = add i64 %.0.i27, %.0.i.neg
+  %70 = sitofp i64 %69 to double
+  %71 = fdiv double %70, 1.000000e+06
+  call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str.10, double noundef %71)
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #15
   ret void
 }
@@ -468,7 +465,7 @@ Abc_Clock.exit27:                                 ; preds = %60, %65
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #6
@@ -616,7 +613,7 @@ Abc_Clock.exit46:                                 ; preds = %71, %80
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @Rwr_ListAddToTail(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #7 {

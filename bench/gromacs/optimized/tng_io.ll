@@ -12557,7 +12557,7 @@ tng_block_destroy.exit:                           ; preds = %185, %172, %134, %1
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tng_first_frame_nr_of_next_frame_set_get(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_first_frame_nr_of_next_frame_set_get(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !137
   %5 = tail call i64 @ftello64(ptr noundef %4)
@@ -19801,7 +19801,7 @@ tng_block_destroy.exit:                           ; preds = %86, %89
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #8
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 3) i32 @tng_frame_set_with_time_new(ptr noundef %0, i64 noundef %1, i64 noundef %2, double noundef %3) local_unnamed_addr #4 {
@@ -22048,13 +22048,13 @@ tng_file_input_numerical.exit86.thread:           ; preds = %83, %81, %tng_file_
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tng_frame_data_write(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef captures(none) %3, i8 noundef signext %4) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_frame_data_write(ptr noundef %0, i64 noundef %1, i64 noundef %2, ptr noundef readonly captures(none) %3, i8 noundef signext %4) local_unnamed_addr #4 {
   %6 = tail call fastcc i32 @tng_frame_gen_data_write(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef 0, i64 noundef 0, i64 noundef 0, ptr noundef %3, i8 noundef signext %4)
   ret i32 %6
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 3) i32 @tng_frame_gen_data_write(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef range(i32 0, 2) %3, i64 noundef %4, i64 noundef %5, ptr noundef captures(none) %6, i8 noundef signext %7) unnamed_addr #4 {
+define internal fastcc range(i32 0, 3) i32 @tng_frame_gen_data_write(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef range(i32 0, 2) %3, i64 noundef %4, i64 noundef %5, ptr noundef readonly captures(none) %6, i8 noundef signext %7) unnamed_addr #4 {
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
   %11 = alloca ptr, align 8
@@ -23071,7 +23071,7 @@ switch.lookup:                                    ; preds = %366
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tng_frame_particle_data_write(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef captures(none) %5, i8 noundef signext %6) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_frame_particle_data_write(ptr noundef %0, i64 noundef %1, i64 noundef %2, i64 noundef %3, i64 noundef %4, ptr noundef readonly captures(none) %5, i8 noundef signext %6) local_unnamed_addr #4 {
   %8 = tail call fastcc i32 @tng_frame_gen_data_write(ptr noundef %0, i64 noundef %1, i64 noundef %2, i32 noundef 1, i64 noundef %3, i64 noundef %4, ptr noundef %5, i8 noundef signext %6)
   ret i32 %8
 }
@@ -32133,7 +32133,7 @@ define range(i32 0, 3) i32 @tng_util_num_frames_with_data_of_block_id_get(ptr no
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #8
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @tng_md5_hash_update(ptr noundef readonly captures(none) %0, ptr noundef %1, i64 noundef %2, i64 noundef %3) unnamed_addr #4 {

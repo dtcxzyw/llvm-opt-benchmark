@@ -49085,7 +49085,7 @@ define internal range(i32 -2, 1) i32 @ma_default_vfs_close(ptr readnone captures
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal range(i32 -51, 1) i32 @ma_default_vfs_read(ptr readnone captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, i64 noundef %3, ptr noundef writeonly captures(address_is_null) %4) #8 {
+define internal range(i32 -51, 1) i32 @ma_default_vfs_read(ptr readnone captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, i64 noundef %3, ptr noundef writeonly captures(address_is_null) %4) #8 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %7, label %6
 
@@ -49131,7 +49131,7 @@ ma_default_vfs_read__stdio.exit:                  ; preds = %18, %16, %13, %7
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal range(i32 -51, 1) i32 @ma_default_vfs_write(ptr readnone captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef captures(address_is_null) %2, i64 noundef %3, ptr noundef writeonly captures(address_is_null) %4) #8 {
+define internal range(i32 -51, 1) i32 @ma_default_vfs_write(ptr readnone captures(none) %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, i64 noundef %3, ptr noundef writeonly captures(address_is_null) %4) #8 {
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %7, label %6
 
@@ -49146,7 +49146,7 @@ define internal range(i32 -51, 1) i32 @ma_default_vfs_write(ptr readnone capture
   br i1 %or.cond, label %ma_default_vfs_write__stdio.exit, label %10
 
 10:                                               ; preds = %7
-  %11 = tail call i64 @fwrite(ptr noundef nonnull %2, i64 noundef 1, i64 noundef %3, ptr noundef nonnull %1)
+  %11 = tail call i64 @fwrite(ptr noundef nonnull readonly %2, i64 noundef 1, i64 noundef %3, ptr noundef nonnull %1)
   br i1 %.not, label %13, label %12
 
 12:                                               ; preds = %10
@@ -49543,7 +49543,7 @@ define i32 @ma_vfs_or_default_write(ptr noundef %0, ptr noundef %1, ptr noundef 
   br i1 %or.cond.i13, label %ma_vfs_write.exit, label %22
 
 22:                                               ; preds = %19
-  %23 = tail call i64 @fwrite(ptr noundef nonnull %2, i64 noundef 1, i64 noundef %3, ptr noundef nonnull %1)
+  %23 = tail call i64 @fwrite(ptr noundef nonnull readonly %2, i64 noundef 1, i64 noundef %3, ptr noundef nonnull %1)
   br i1 %.not.i12, label %25, label %24
 
 24:                                               ; preds = %22
@@ -66949,7 +66949,7 @@ define internal i32 @ma_encoder__on_write_vfs(ptr noundef readonly captures(none
   br i1 %or.cond.i13.i, label %ma_vfs_or_default_write.exit, label %25
 
 25:                                               ; preds = %22
-  %26 = tail call i64 @fwrite(ptr noundef nonnull %1, i64 noundef 1, i64 noundef %2, ptr noundef nonnull %8)
+  %26 = tail call i64 @fwrite(ptr noundef nonnull readonly %1, i64 noundef 1, i64 noundef %2, ptr noundef nonnull %8)
   br i1 %.not.i12.i, label %28, label %27
 
 27:                                               ; preds = %25
@@ -93557,13 +93557,13 @@ ma_dr_wav__free_from_callbacks.exit:              ; preds = %8, %5, %3, %10
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i64 @ma_dr_wav__on_read_stdio(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2) #8 {
+define internal noundef i64 @ma_dr_wav__on_read_stdio(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) #8 {
   %4 = tail call i64 @fread(ptr noundef %1, i64 noundef 1, i64 noundef %2, ptr noundef %0)
   ret i64 %4
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i64 @ma_dr_wav__on_write_stdio(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2) #8 {
+define internal noundef i64 @ma_dr_wav__on_write_stdio(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #8 {
   %4 = tail call i64 @fwrite(ptr noundef %1, i64 noundef 1, i64 noundef %2, ptr noundef %0)
   ret i64 %4
 }
@@ -97438,7 +97438,7 @@ define noundef nonnull ptr @ma_dr_flac_version_string() local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i64 @ma_dr_flac__on_read_stdio(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2) #8 {
+define internal noundef i64 @ma_dr_flac__on_read_stdio(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) #8 {
   %4 = tail call i64 @fread(ptr noundef %1, i64 noundef 1, i64 noundef %2, ptr noundef %0)
   ret i64 %4
 }
@@ -106364,7 +106364,7 @@ define internal noundef i32 @ma_dr_mp3__on_seek_memory(ptr noundef captures(none
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i64 @ma_dr_mp3__on_read_stdio(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2) #8 {
+define internal noundef i64 @ma_dr_mp3__on_read_stdio(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) #8 {
   %4 = tail call i64 @fread(ptr noundef %1, i64 noundef 1, i64 noundef %2, ptr noundef %0)
   ret i64 %4
 }
@@ -122680,7 +122680,7 @@ ma_paged_audio_buffer_get_length_in_pcm_frames.exit: ; preds = %.lr.ph.i.i, %2, 
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #9
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @feof(ptr noundef captures(none)) local_unnamed_addr #9
@@ -122689,7 +122689,7 @@ declare noundef i32 @feof(ptr noundef captures(none)) local_unnamed_addr #9
 declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #74
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #9
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #9

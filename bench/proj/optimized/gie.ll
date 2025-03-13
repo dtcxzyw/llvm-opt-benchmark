@@ -3932,7 +3932,7 @@ _ZL6at_tagP4ffio.exit.thread:                     ; preds = %12, %14, %1
 declare noundef ptr @_Z9pj_shrinkPc(ptr noundef) local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #3
+declare noundef ptr @fgets(ptr noundef writeonly, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 declare noundef ptr @_Z8pj_chompPc(ptr noundef) local_unnamed_addr #14
 
@@ -4837,7 +4837,7 @@ declare void @llvm.va_end.p0(ptr) #22
 declare ptr @__errno_location() local_unnamed_addr #21
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #23
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #23
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fputs(ptr noundef readonly captures(none), ptr noundef captures(none)) local_unnamed_addr #23

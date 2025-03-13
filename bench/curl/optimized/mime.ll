@@ -1286,7 +1286,7 @@ mime_open_file.exit.thread:                       ; preds = %6, %7, %mime_open_f
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i64 @mime_file_read(ptr noundef captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef captures(none) %3) #9 {
+define internal noundef i64 @mime_file_read(ptr noundef writeonly captures(none) %0, i64 noundef %1, i64 noundef %2, ptr noundef captures(none) %3) #9 {
   %.not = icmp eq i64 %2, 0
   br i1 %.not, label %13, label %5
 
@@ -2869,7 +2869,7 @@ declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef)
 declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #8
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #8

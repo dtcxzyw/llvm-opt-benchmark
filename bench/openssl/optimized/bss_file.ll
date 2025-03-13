@@ -125,7 +125,7 @@ declare void @BIO_set_flags(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare i32 @bwrite_conv(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #2
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @file_write(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) #7 {
+define internal noundef i32 @file_write(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) #7 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8, !tbaa !7
   %6 = icmp ne i32 %5, 0
@@ -151,7 +151,7 @@ define internal noundef i32 @file_write(ptr noundef readonly captures(none) %0, 
 declare i32 @bread_conv(ptr noundef, ptr noundef, i64 noundef, ptr noundef) #2
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @file_read(ptr noundef readonly captures(none) %0, ptr noundef captures(address_is_null) %1, i32 noundef %2) #0 {
+define internal noundef i32 @file_read(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, i32 noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 8, !tbaa !7
   %6 = icmp ne i32 %5, 0
@@ -191,7 +191,7 @@ define internal noundef i32 @file_read(ptr noundef readonly captures(none) %0, p
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal i32 @file_puts(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1) #7 {
+define internal i32 @file_puts(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #7 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 8, !tbaa !7
   %.not = icmp eq i32 %4, 0
@@ -204,7 +204,7 @@ define internal i32 @file_puts(ptr noundef readonly captures(none) %0, ptr nound
   %8 = ashr exact i64 %sext, 32
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load ptr, ptr %9, align 8, !tbaa !18
-  %11 = tail call i64 @fwrite(ptr noundef nonnull %1, i64 noundef %8, i64 noundef 1, ptr noundef %10)
+  %11 = tail call i64 @fwrite(ptr noundef nonnull readonly %1, i64 noundef %8, i64 noundef 1, ptr noundef %10)
   %12 = and i64 %11, 4294967295
   %.not.i = icmp eq i64 %12, 0
   %spec.select.i = select i1 %.not.i, i32 0, i32 %7
@@ -484,10 +484,10 @@ define internal range(i32 0, 2) i32 @file_free(ptr noundef captures(address_is_n
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind memory(read)
 declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #9
@@ -496,7 +496,7 @@ declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #9
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #6
+declare noundef ptr @fgets(ptr noundef writeonly, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #6

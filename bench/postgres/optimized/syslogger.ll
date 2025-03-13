@@ -809,7 +809,7 @@ logfile_rotate.exit:                              ; preds = %set_next_rotation_t
 346:                                              ; preds = %340, %330
   %.0.i.i = phi ptr [ %338, %330 ], [ %spec.select.i.i, %340 ]
   %347 = sext i32 %335 to i64
-  %348 = call i64 @fwrite(ptr noundef %333, i64 noundef 1, i64 noundef %347, ptr noundef %.0.i.i)
+  %348 = call i64 @fwrite(ptr noundef readonly %333, i64 noundef 1, i64 noundef %347, ptr noundef %.0.i.i)
   %349 = trunc i64 %348 to i32
   %.not.i.i = icmp eq i32 %335, %349
   br i1 %.not.i.i, label %write_syslogger_file.exit.i, label %350
@@ -846,7 +846,7 @@ write_syslogger_file.exit.i:                      ; preds = %350, %346
 364:                                              ; preds = %358, %352
   %.0.i143.i = phi ptr [ %356, %352 ], [ %spec.select.i142.i, %358 ]
   %365 = zext nneg i16 %.sroa.5.0.copyload.i to i64
-  %366 = call i64 @fwrite(ptr noundef nonnull %353, i64 noundef 1, i64 noundef %365, ptr noundef %.0.i143.i)
+  %366 = call i64 @fwrite(ptr noundef nonnull readonly %353, i64 noundef 1, i64 noundef %365, ptr noundef %.0.i143.i)
   %367 = trunc i64 %366 to i32
   %.not.i144.i = icmp eq i32 %280, %367
   br i1 %.not.i144.i, label %369, label %368
@@ -884,7 +884,7 @@ write_syslogger_file.exit.i:                      ; preds = %350, %346
   %.pre-phi = phi i64 [ %.pre, %._crit_edge.split.loop.exit214.i ], [ %371, %375 ]
   %.0122.lcssa.ph.i = phi i32 [ %376, %._crit_edge.split.loop.exit214.i ], [ %.0100194.i, %375 ]
   %377 = load ptr, ptr @syslogFile, align 8
-  %378 = call i64 @fwrite(ptr noundef nonnull %.0195.i, i64 noundef 1, i64 noundef %.pre-phi, ptr noundef %377)
+  %378 = call i64 @fwrite(ptr noundef nonnull readonly %.0195.i, i64 noundef 1, i64 noundef %.pre-phi, ptr noundef %377)
   %379 = trunc i64 %378 to i32
   %.not.i150.i = icmp eq i32 %.0122.lcssa.ph.i, %379
   br i1 %.not.i150.i, label %select.unfold.i, label %380
@@ -955,7 +955,7 @@ select.unfold.thread.i:                           ; preds = %select.unfold.i, %2
   %402 = load i32, ptr %401, align 8
   %403 = load ptr, ptr @syslogFile, align 8
   %404 = sext i32 %402 to i64
-  %405 = call i64 @fwrite(ptr noundef %400, i64 noundef 1, i64 noundef %404, ptr noundef %403)
+  %405 = call i64 @fwrite(ptr noundef readonly %400, i64 noundef 1, i64 noundef %404, ptr noundef %403)
   %406 = trunc i64 %405 to i32
   %.not.i.i95 = icmp eq i32 %402, %406
   br i1 %.not.i.i95, label %write_syslogger_file.exit.i96, label %407
@@ -985,7 +985,7 @@ write_syslogger_file.exit.i96:                    ; preds = %407, %398
 415:                                              ; preds = %413
   %416 = load ptr, ptr @syslogFile, align 8
   %417 = zext nneg i32 %.0 to i64
-  %418 = call i64 @fwrite(ptr noundef nonnull %8, i64 noundef 1, i64 noundef %417, ptr noundef %416)
+  %418 = call i64 @fwrite(ptr noundef nonnull readonly %8, i64 noundef 1, i64 noundef %417, ptr noundef %416)
   %419 = trunc i64 %418 to i32
   %.not.i23.i = icmp eq i32 %.0, %419
   br i1 %.not.i23.i, label %flush_pipe_input.exit, label %420
@@ -1524,7 +1524,7 @@ declare i32 @errcode_for_file_access() local_unnamed_addr #2
 declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @write_syslogger_file(ptr noundef captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 {
+define dso_local void @write_syslogger_file(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #5 {
   %4 = and i32 %2, 8
   %5 = icmp ne i32 %4, 0
   %6 = load ptr, ptr @csvlogFile, align 8
@@ -1559,7 +1559,7 @@ define dso_local void @write_syslogger_file(ptr noundef captures(none) %0, i32 n
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #7
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 declare void @write_stderr(ptr noundef, ...) local_unnamed_addr #2
 

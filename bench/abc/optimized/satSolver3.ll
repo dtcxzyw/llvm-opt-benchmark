@@ -4736,7 +4736,7 @@ Abc_Clock.exit:                                   ; preds = %87, %90
 
 luby.exit:                                        ; preds = %.lr.ph23.i, %.preheader.i
   %.1.lcssa.i = phi i32 [ %.0.lcssa.i, %.preheader.i ], [ %124, %.lr.ph23.i ]
-  %ldexp.i = call double @ldexp(double 1.000000e+00, i32 %.1.lcssa.i) #31
+  %ldexp.i = call double @ldexp(double 1.000000e+00, i32 %.1.lcssa.i)
   %127 = fmul double %ldexp.i, 1.000000e+02
   %128 = fptosi double %127 to i64
   %129 = load i32, ptr %23, align 4, !tbaa !139
@@ -12303,7 +12303,7 @@ declare i32 @llvm.umin.i32(i32, i32) #24
 ; Function Attrs: nofree nounwind
 declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #25
 
-; Function Attrs: nofree willreturn memory(errnomem: write)
+; Function Attrs: nofree nounwind willreturn memory(errnomem: write)
 declare double @ldexp(double, i32) local_unnamed_addr #26
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -12350,7 +12350,7 @@ attributes #22 = { mustprogress nocallback nofree nosync nounwind speculatable w
 attributes #23 = { inlinehint nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #24 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #25 = { nofree nounwind }
-attributes #26 = { nofree willreturn memory(errnomem: write) }
+attributes #26 = { nofree nounwind willreturn memory(errnomem: write) }
 attributes #27 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #28 = { nounwind allocsize(1) }
 attributes #29 = { nounwind allocsize(0) }

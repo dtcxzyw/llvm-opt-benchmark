@@ -630,7 +630,7 @@ define dso_local noundef zeroext i1 @_ZNK6FileIO9isReadingEv(ptr noundef nonnull
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN6FileIO5writeEPKvm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0, ptr noundef captures(none) %1, i64 noundef %2) unnamed_addr #6 align 2 {
+define dso_local noundef zeroext i1 @_ZN6FileIO5writeEPKvm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) unnamed_addr #6 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not = icmp ne ptr %5, null
@@ -649,10 +649,10 @@ define dso_local noundef zeroext i1 @_ZN6FileIO5writeEPKvm(ptr noundef nonnull r
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #7
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN6FileIO4readEPvm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0, ptr noundef captures(none) %1, i64 noundef %2) unnamed_addr #6 align 2 {
+define dso_local noundef zeroext i1 @_ZN6FileIO4readEPvm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) unnamed_addr #6 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %.not = icmp ne ptr %5, null
@@ -673,7 +673,7 @@ define dso_local noundef zeroext i1 @_ZN6FileIO4readEPvm(ptr noundef nonnull rea
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #7
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN12BuildContextD2Ev(ptr noundef nonnull align 8 dereferenceable(16472) %0) unnamed_addr #9 comdat align 2 {

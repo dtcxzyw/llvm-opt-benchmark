@@ -351,7 +351,7 @@ declare void @stat_validity_update(ptr noundef, i32 noundef) local_unnamed_addr 
 declare noundef i32 @fileno(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #5
+declare noundef ptr @fgets(ptr noundef writeonly, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 declare i32 @get_oid_hex(ptr noundef, ptr noundef) local_unnamed_addr #4
 

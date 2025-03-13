@@ -2731,7 +2731,7 @@ define dso_local i32 @dasm_checkstep(ptr noundef readonly captures(none) %0, i32
 }
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @owrite(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #5 {
+define dso_local void @owrite(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #5 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %5 = load ptr, ptr %4, align 8, !tbaa !70
   %6 = tail call i64 @fwrite(ptr noundef %1, i64 noundef 1, i64 noundef %2, ptr noundef %5)
@@ -2752,7 +2752,7 @@ define dso_local void @owrite(ptr noundef readonly captures(none) %0, ptr nounde
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #10
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #10
@@ -3399,7 +3399,7 @@ dasm_getpclabel.exit.thread.i:                    ; preds = %dasm_getpclabel.exi
 327:                                              ; preds = %254
   %328 = load ptr, ptr %109, align 8, !tbaa !63
   %329 = load i64, ptr %104, align 8, !tbaa !82
-  %330 = call i64 @fwrite(ptr noundef %328, i64 noundef 1, i64 noundef %329, ptr noundef %255)
+  %330 = call i64 @fwrite(ptr noundef readonly %328, i64 noundef 1, i64 noundef %329, ptr noundef %255)
   %.not.i.i43 = icmp eq i64 %330, %329
   br i1 %.not.i.i43, label %emit_asm_debug.exit, label %331
 

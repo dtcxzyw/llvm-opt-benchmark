@@ -77054,7 +77054,7 @@ declare noundef i64 @ftell(ptr noundef captures(none)) local_unnamed_addr #45
 declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #45
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #45
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #45
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define internal float @nk_font_text_width(ptr readonly captures(address_is_null) %0, float noundef %1, ptr noundef readonly captures(address_is_null) %2, i32 noundef %3) #26 {

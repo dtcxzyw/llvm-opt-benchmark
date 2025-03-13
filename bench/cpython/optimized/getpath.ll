@@ -1893,7 +1893,7 @@ declare ptr @PyList_New(i64 noundef) local_unnamed_addr #1
 declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #8
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 declare ptr @_Py_DecodeUTF8_surrogateescape(ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #1
 

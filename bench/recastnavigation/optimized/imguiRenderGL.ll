@@ -9037,7 +9037,7 @@ declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #21
 declare noundef i64 @ftell(ptr noundef captures(none)) local_unnamed_addr #21
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #21
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #21
 
 declare void @glGenTextures(i32 noundef, ptr noundef) local_unnamed_addr #22
 

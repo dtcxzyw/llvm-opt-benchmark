@@ -567,7 +567,7 @@ define internal fastcc void @cannot(ptr noundef %0) unnamed_addr #6 {
 declare hidden i32 @luaU_dump(ptr noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind uwtable
-define internal range(i32 0, 2) i32 @writer(ptr readnone captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2, ptr noundef captures(none) %3) #7 {
+define internal range(i32 0, 2) i32 @writer(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, ptr noundef captures(none) %3) #7 {
   %5 = tail call i64 @fwrite(ptr noundef %1, i64 noundef %2, i64 noundef 1, ptr noundef %3)
   %6 = icmp ne i64 %5, 1
   %7 = icmp ne i64 %2, 0
@@ -599,7 +599,7 @@ declare ptr @strerror(i32 noundef) local_unnamed_addr #9
 declare ptr @__errno_location() local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

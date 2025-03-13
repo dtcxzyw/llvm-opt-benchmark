@@ -95056,7 +95056,7 @@ declare ptr @Abc_NtkDarOutdec(ptr noundef, i32 noundef, i32 noundef) local_unnam
 declare ptr @Abc_NtkNodeDup(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #13
+declare noundef ptr @fgets(ptr noundef writeonly, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #13
 
 declare void @Abc_ColorTest(...) local_unnamed_addr #8
 
@@ -97859,7 +97859,7 @@ declare i32 @llvm.fshl.i32(i32, i32, i32) #29
 declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_addr #30
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #30
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #30
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #30

@@ -12173,7 +12173,7 @@ declare i32 @wc_InitRsaKey_ex(ptr noundef, ptr noundef, i32 noundef) local_unnam
 declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #2
@@ -15367,7 +15367,7 @@ ecc_test_key_decode.exit:                         ; preds = %ecc_test_vector.exi
 
 304:                                              ; preds = %302
   %305 = zext nneg i32 %297 to i64
-  %306 = call i64 @fwrite(ptr noundef nonnull %4, i64 noundef 1, i64 noundef %305, ptr noundef nonnull %303)
+  %306 = call i64 @fwrite(ptr noundef nonnull readonly %4, i64 noundef 1, i64 noundef %305, ptr noundef nonnull %303)
   %307 = trunc i64 %306 to i32
   %308 = call i32 @fclose(ptr noundef nonnull %303)
   %.not11.i.i = icmp eq i32 %297, %307
@@ -16221,7 +16221,7 @@ declare i32 @wc_EccPrivateKeyDecode(ptr noundef, ptr noundef, ptr noundef, i32 n
 declare i32 @wc_EccPublicKeyDecode(ptr noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc range(i32 -1610743578, 1) i32 @_SaveDerAndPem(ptr noundef nonnull captures(none) %0, i32 noundef range(i32 0, -2147483648) %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 30802, 30843) %3) unnamed_addr #12 {
+define internal fastcc range(i32 -1610743578, 1) i32 @_SaveDerAndPem(ptr noundef nonnull readonly captures(none) %0, i32 noundef range(i32 0, -2147483648) %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 30802, 30843) %3) unnamed_addr #12 {
   %5 = tail call noalias ptr @fopen(ptr noundef %2, ptr noundef nonnull @.str.288)
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %6, label %7
@@ -16250,7 +16250,7 @@ declare i32 @wc_EccPublicKeyToDer(ptr noundef, ptr noundef, i32 noundef, i32 nou
 declare i32 @wc_EccPrivateKeyToPKCS8(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 declare ptr @wc_ecc_new_point() local_unnamed_addr #3
 

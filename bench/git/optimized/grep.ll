@@ -326,7 +326,7 @@ define dso_local void @grep_init(ptr noundef initializes((0, 880)) %0, ptr nound
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal void @std_output(ptr readnone captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2) #5 {
+define internal void @std_output(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #5 {
   %4 = load ptr, ptr @stdout, align 8, !tbaa !28
   %5 = tail call i64 @fwrite(ptr noundef %1, i64 noundef %2, i64 noundef 1, ptr noundef %4)
   ret void
@@ -2583,7 +2583,7 @@ declare ptr @string_list_append_nodup(ptr noundef, ptr noundef) local_unnamed_ad
 declare ptr @xstrfmt(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #10
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
 declare ptr @xcalloc(i64 noundef, i64 noundef) local_unnamed_addr #2
 

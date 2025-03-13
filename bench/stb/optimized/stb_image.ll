@@ -293,7 +293,7 @@ define void @stbi__refill_buffer(ptr noundef %0) local_unnamed_addr #2 {
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef i32 @stbi__stdio_read(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) #4 {
+define noundef i32 @stbi__stdio_read(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) #4 {
   %4 = sext i32 %2 to i64
   %5 = tail call i64 @fread(ptr noundef %1, i64 noundef 1, i64 noundef %4, ptr noundef %0)
   %6 = trunc i64 %5 to i32
@@ -301,7 +301,7 @@ define noundef i32 @stbi__stdio_read(ptr noundef captures(none) %0, ptr noundef 
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind uwtable
 define void @stbi__stdio_skip(ptr noundef captures(none) %0, i32 noundef %1) #4 {

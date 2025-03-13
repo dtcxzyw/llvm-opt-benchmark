@@ -35,7 +35,7 @@ define hidden void @_ZN8rawspeed10FileWriterC2EPKc(ptr noundef nonnull writeonly
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK8rawspeed10FileWriter9writeFileENS_6BufferEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr captures(address_is_null) %1, i32 %2, i32 noundef %3) local_unnamed_addr #1 align 2 {
+define hidden void @_ZNK8rawspeed10FileWriter9writeFileENS_6BufferEj(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr readonly captures(address_is_null) %1, i32 %2, i32 noundef %3) local_unnamed_addr #1 align 2 {
   %5 = load ptr, ptr %0, align 8, !tbaa !6
   %6 = tail call noalias ptr @fopen(ptr noundef %5, ptr noundef nonnull @.str)
   %7 = icmp eq ptr %6, null
@@ -100,7 +100,7 @@ define linkonce_odr hidden void @_ZN8rawspeed14ThrowExceptionINS_15FileIOExcepti
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #3
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #3

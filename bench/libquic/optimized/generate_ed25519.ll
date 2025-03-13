@@ -249,7 +249,7 @@ declare void @_Z10PrintUsagePK8argument(ptr noundef) local_unnamed_addr #2
 declare void @ED25519_keypair(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef zeroext i1 @_ZL11WriteToFileRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKhm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull captures(none) %1, i64 noundef range(i64 32, 65) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZL11WriteToFileRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKhm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull readonly captures(none) %1, i64 noundef range(i64 32, 65) %2) unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %4 = load ptr, ptr %0, align 8, !tbaa !25
   %5 = tail call noalias ptr @fopen(ptr noundef %4, ptr noundef nonnull @.str.5)
   %.not11 = icmp eq ptr %5, null
@@ -428,7 +428,7 @@ declare ptr @strerror(i32 noundef) local_unnamed_addr #7
 declare ptr @__errno_location() local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #6

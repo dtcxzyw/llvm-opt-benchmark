@@ -893,7 +893,7 @@ define internal noundef i32 @H5FD_stdio_get_handle(ptr noundef %0, i64 %1, ptr n
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5FD_stdio_read(ptr noundef captures(none) %0, i32 %1, i64 %2, i64 noundef %3, i64 noundef %4, ptr noundef captures(none) %5) #0 {
+define internal range(i32 -1, 1) i32 @H5FD_stdio_read(ptr noundef captures(none) %0, i32 %1, i64 %2, i64 noundef %3, i64 noundef %4, ptr noundef writeonly captures(none) %5) #0 {
   %7 = tail call i32 @H5Eclear2(i64 noundef 0) #12
   %8 = icmp eq i64 %3, -1
   br i1 %8, label %9, label %38
@@ -1207,7 +1207,7 @@ define internal range(i32 -1, 1) i32 @H5FD_stdio_read(ptr noundef captures(none)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @H5FD_stdio_write(ptr noundef captures(none) %0, i32 %1, i64 %2, i64 noundef %3, i64 noundef %4, ptr noundef captures(none) %5) #0 {
+define internal range(i32 -1, 1) i32 @H5FD_stdio_write(ptr noundef captures(none) %0, i32 %1, i64 %2, i64 noundef %3, i64 noundef %4, ptr noundef readonly captures(none) %5) #0 {
   %7 = tail call i32 @H5Eclear2(i64 noundef 0) #12
   %8 = icmp eq i64 %3, -1
   br i1 %8, label %9, label %38
@@ -2182,7 +2182,7 @@ declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) loca
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind memory(read)
 declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #7
@@ -2191,7 +2191,7 @@ declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #7
 declare noundef i32 @feof(ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fflush(ptr noundef captures(none)) local_unnamed_addr #4

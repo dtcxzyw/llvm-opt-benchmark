@@ -38051,7 +38051,7 @@ _ZN4llvm13IRBuilderBase12CreateSIToFPEPNS_5ValueEPNS_4TypeERKNS_5TwineE.exit: ; 
   %32 = load i32, ptr %2, align 4
   %33 = shl i32 %32, 3
   %34 = ashr i32 %33, 19
-  %ldexp = call double @ldexp(double 1.000000e+00, i32 %34) #21
+  %ldexp = call double @ldexp(double 1.000000e+00, i32 %34)
   %35 = call noundef ptr @_ZN4llvm10ConstantFP3getEPNS_4TypeEd(ptr noundef %14, double noundef %ldexp) #21
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #21
   %36 = getelementptr inbounds nuw i8, ptr %7, i64 32
@@ -43295,7 +43295,7 @@ declare i32 @llvm.umax.i32(i32, i32) #18
 
 declare double @exp2(double) local_unnamed_addr
 
-; Function Attrs: nofree willreturn memory(errnomem: write)
+; Function Attrs: nofree nounwind willreturn memory(errnomem: write)
 declare double @ldexp(double, i32) local_unnamed_addr #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -43321,7 +43321,7 @@ attributes #16 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-wi
 attributes #17 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #19 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #20 = { nofree willreturn memory(errnomem: write) }
+attributes #20 = { nofree nounwind willreturn memory(errnomem: write) }
 attributes #21 = { nounwind }
 attributes #22 = { nounwind willreturn memory(read) }
 attributes #23 = { builtin nounwind allocsize(0) }

@@ -1894,7 +1894,7 @@ initBuf.exit.i:                                   ; preds = %.split.i.i, %.split
   br i1 %.not.i119.i, label %.critedge.i.i, label %360
 
 360:                                              ; preds = %356
-  %361 = call i64 @fwrite(ptr noundef %357, i64 noundef %358, i64 noundef 1, ptr noundef nonnull %359)
+  %361 = call i64 @fwrite(ptr noundef readonly %357, i64 noundef %358, i64 noundef 1, ptr noundef nonnull %359)
   %.not7.i.i = icmp eq i64 %361, 1
   br i1 %.not7.i.i, label %.thread.i.i, label %362
 
@@ -3642,7 +3642,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #15
 declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
 declare ptr @strerror(i32 noundef) local_unnamed_addr #8

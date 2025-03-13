@@ -1714,7 +1714,7 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #10
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #12
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #12
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
@@ -3697,7 +3697,7 @@ _ZNSt10unique_ptrIN6opencc16SerializedValuesESt14default_deleteIS1_EED2Ev.exit7:
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #12
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #12
 
 declare void @_ZN6marisa6fwriteEP8_IO_FILERKNS_4TrieE(ptr noundef, ptr noundef nonnull align 8 dereferenceable(8)) local_unnamed_addr #7
 

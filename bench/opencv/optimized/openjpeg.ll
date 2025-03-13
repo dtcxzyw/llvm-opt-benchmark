@@ -1144,7 +1144,7 @@ declare hidden void @opj_stream_set_user_data_length(ptr noundef, i64 noundef) l
 declare hidden void @opj_stream_set_read_function(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind uwtable
-define internal range(i64 1, 0) i64 @opj_read_from_file(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef captures(none) %2) #7 {
+define internal range(i64 1, 0) i64 @opj_read_from_file(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef captures(none) %2) #7 {
   %4 = tail call i64 @fread(ptr noundef %0, i64 noundef 1, i64 noundef %1, ptr noundef %2)
   %.not = icmp eq i64 %4, 0
   %5 = select i1 %.not, i64 -1, i64 %4
@@ -1154,7 +1154,7 @@ define internal range(i64 1, 0) i64 @opj_read_from_file(ptr noundef captures(non
 declare hidden void @opj_stream_set_write_function(ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i64 @opj_write_from_file(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef captures(none) %2) #7 {
+define internal noundef i64 @opj_write_from_file(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef captures(none) %2) #7 {
   %4 = tail call i64 @fwrite(ptr noundef %0, i64 noundef 1, i64 noundef %1, ptr noundef %2)
   ret i64 %4
 }
@@ -1202,10 +1202,10 @@ declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef)
 declare noundef i64 @ftell(ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }

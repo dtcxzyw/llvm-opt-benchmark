@@ -3701,7 +3701,7 @@ define void @luby2_test() local_unnamed_addr #2 {
 
 luby2.exit:                                       ; preds = %.lr.ph23.i, %.preheader.i
   %.1.lcssa.i = phi i32 [ %.0.lcssa.i, %.preheader.i ], [ %7, %.lr.ph23.i ]
-  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %.1.lcssa.i) #27
+  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %.1.lcssa.i)
   %10 = fptosi double %ldexp to i32
   tail call void (i32, ptr, ...) @Abc_Print(i32 poison, ptr noundef nonnull @.str, i32 noundef %10)
   %11 = add nuw nsw i32 %.05, 1
@@ -6472,7 +6472,7 @@ Abc_Clock.exit:                                   ; preds = %391, %394
 
 luby2.exit:                                       ; preds = %.lr.ph23.i, %.preheader.i
   %.1.lcssa.i = phi i32 [ %.0.lcssa.i, %.preheader.i ], [ %416, %.lr.ph23.i ]
-  %ldexp = call double @ldexp(double 1.000000e+00, i32 %.1.lcssa.i) #27
+  %ldexp = call double @ldexp(double 1.000000e+00, i32 %.1.lcssa.i)
   %419 = fmul double %ldexp, 1.000000e+02
   %420 = fptosi double %419 to i64
   %421 = load i32, ptr %326, align 4, !tbaa !187
@@ -9688,7 +9688,7 @@ declare void @llvm.assume(i1 noundef) #25
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.scmp.i32.i32(i32, i32) #24
 
-; Function Attrs: nofree willreturn memory(errnomem: write)
+; Function Attrs: nofree nounwind willreturn memory(errnomem: write)
 declare double @ldexp(double, i32) local_unnamed_addr #26
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -9717,7 +9717,7 @@ attributes #22 = { nofree "no-trapping-math"="true" "stack-protector-buffer-size
 attributes #23 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #24 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #25 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #26 = { nofree willreturn memory(errnomem: write) }
+attributes #26 = { nofree nounwind willreturn memory(errnomem: write) }
 attributes #27 = { nounwind }
 attributes #28 = { nounwind allocsize(1) }
 attributes #29 = { nounwind allocsize(0) }

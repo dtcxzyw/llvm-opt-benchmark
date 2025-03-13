@@ -666,7 +666,7 @@ _ZN3fmt3v1119basic_memory_bufferIcLm500ENS0_6detail9allocatorIcEEED2Ev.exit: ; p
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #1
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #1
@@ -4063,7 +4063,7 @@ define dso_local noundef zeroext i1 @_ZN3fmt3v116detail13write_consoleEiNS0_17ba
 }
 
 ; Function Attrs: mustprogress uwtable
-define dso_local void @_ZN3fmt3v116detail5printEP8_IO_FILENS0_17basic_string_viewIcEE(ptr noundef captures(none) %0, ptr captures(none) %1, i64 %2) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
+define dso_local void @_ZN3fmt3v116detail5printEP8_IO_FILENS0_17basic_string_viewIcEE(ptr noundef captures(none) %0, ptr readonly captures(none) %1, i64 %2) local_unnamed_addr #7 personality ptr @__gxx_personality_v0 {
   %4 = alloca %"class.fmt::v11::detail::format_string_checker", align 8
   %5 = tail call i64 @fwrite(ptr noundef %1, i64 noundef 1, i64 noundef %2, ptr noundef %0)
   %6 = icmp ult i64 %5, %2

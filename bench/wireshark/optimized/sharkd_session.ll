@@ -1806,7 +1806,7 @@ define internal void @sharkd_session_filter_free(ptr noundef %0) #0 {
 declare void @set_resolution_synchrony(i1 noundef zeroext) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #3
+declare noundef ptr @fgets(ptr noundef writeonly, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid
 declare i32 @json_parse(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2

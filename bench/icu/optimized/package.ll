@@ -1959,7 +1959,7 @@ _ZN6icu_777Package11allocStringEai.exit151:       ; preds = %207
 declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #10
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
 define noundef nonnull ptr @_ZN6icu_777Package11allocStringEai(ptr noundef nonnull align 8 captures(ret: address, provenance) dereferenceable(201237) %0, i8 noundef signext %1, i32 noundef %2) local_unnamed_addr #8 align 2 {
@@ -3390,7 +3390,7 @@ define internal fastcc void @_ZL16makeFullFilenamePKcS0_Pci(ptr noundef %0, ptr 
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #10
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #10

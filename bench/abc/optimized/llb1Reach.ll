@@ -2624,7 +2624,7 @@ Abc_Clock.exit356:                                ; preds = %369, %391
   %438 = load ptr, ptr %49, align 8, !tbaa !51
   %439 = getelementptr i8, ptr %438, i64 104
   %.val341 = load i32, ptr %439, align 8, !tbaa !78
-  %ldexp = call double @ldexp(double 1.000000e+00, i32 %.val341) #13
+  %ldexp = call double @ldexp(double 1.000000e+00, i32 %.val341)
   %440 = fdiv double %437, %ldexp
   %441 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %436, ptr noundef nonnull @.str.17, double noundef %426, double noundef %440) #13
   %442 = load ptr, ptr @stdout, align 8, !tbaa !133
@@ -2828,7 +2828,7 @@ declare void @llvm.va_end.p0(ptr) #9
 ; Function Attrs: nofree nounwind
 declare noundef i32 @vfprintf(ptr noundef captures(none), ptr noundef readonly captures(none), ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: nofree willreturn memory(errnomem: write)
+; Function Attrs: nofree nounwind willreturn memory(errnomem: write)
 declare double @ldexp(double, i32) local_unnamed_addr #11
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
@@ -2845,7 +2845,7 @@ attributes #7 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-siz
 attributes #8 = { mustprogress nounwind willreturn allockind("realloc") allocsize(1) memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #10 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree willreturn memory(errnomem: write) }
+attributes #11 = { nofree nounwind willreturn memory(errnomem: write) }
 attributes #12 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #13 = { nounwind }
 attributes #14 = { nounwind allocsize(0) }

@@ -568,7 +568,7 @@ define noundef ptr @Abc_NtkComputeReachable(ptr noundef %0, ptr noundef readonly
   %95 = load ptr, ptr @stdout, align 8, !tbaa !64
   %96 = fmul double %88, 1.000000e+02
   %.val148 = load i32, ptr %87, align 8, !tbaa !50
-  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %.val148) #15
+  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %.val148)
   %97 = fdiv double %96, %ldexp
   %98 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %95, ptr noundef nonnull @.str.9, double noundef %88, double noundef %97) #15
   %99 = load ptr, ptr @stdout, align 8, !tbaa !64
@@ -912,7 +912,7 @@ declare noundef i32 @vfprintf(ptr noundef captures(none), ptr noundef readonly c
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #12
 
-; Function Attrs: nofree willreturn memory(errnomem: write)
+; Function Attrs: nofree nounwind willreturn memory(errnomem: write)
 declare double @ldexp(double, i32) local_unnamed_addr #13
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -928,7 +928,7 @@ attributes #9 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-siz
 attributes #10 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #11 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { nofree nounwind }
-attributes #13 = { nofree willreturn memory(errnomem: write) }
+attributes #13 = { nofree nounwind willreturn memory(errnomem: write) }
 attributes #14 = { nounwind allocsize(0) }
 attributes #15 = { nounwind }
 attributes #16 = { nounwind allocsize(1) }

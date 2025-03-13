@@ -344,7 +344,7 @@ power.exit:                                       ; preds = %14
   store i64 %32, ptr %33, align 8, !tbaa !29
   %34 = load i32, ptr %25, align 8, !tbaa !28
   %35 = add nsw i32 %34, 1
-  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %35) #21
+  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %35)
   %36 = fptosi double %ldexp to i32
   %37 = getelementptr inbounds nuw i8, ptr %3, i64 48
   store i32 %36, ptr %37, align 8, !tbaa !30
@@ -3151,7 +3151,7 @@ declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #19
 
-; Function Attrs: nofree willreturn memory(errnomem: write)
+; Function Attrs: nofree nounwind willreturn memory(errnomem: write)
 declare double @ldexp(double, i32) local_unnamed_addr #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -3182,7 +3182,7 @@ attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memo
 attributes #17 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #19 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #20 = { nofree willreturn memory(errnomem: write) }
+attributes #20 = { nofree nounwind willreturn memory(errnomem: write) }
 attributes #21 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}

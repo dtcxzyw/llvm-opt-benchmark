@@ -646,7 +646,7 @@ define double @Cudd_CountMinterm(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   %9 = xor i64 %8, 1
   %10 = inttoptr i64 %9 to ptr
   store ptr %10, ptr @zero, align 8, !tbaa !24
-  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %2) #23
+  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %2)
   %11 = tail call ptr @cuddHashTableInit(ptr noundef %0, i32 noundef 1, i32 noundef 2) #23
   %12 = icmp eq ptr %11, null
   br i1 %12, label %16, label %13
@@ -6217,9 +6217,9 @@ declare i32 @st__insert(ptr noundef, ptr noundef, ptr noundef) local_unnamed_add
 declare void @EpdFree(ptr noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #18
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #18
 
-; Function Attrs: nofree willreturn memory(errnomem: write)
+; Function Attrs: nofree nounwind willreturn memory(errnomem: write)
 declare double @ldexp(double, i32) local_unnamed_addr #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -6253,7 +6253,7 @@ attributes #15 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem
 attributes #16 = { nofree norecurse nosync nounwind memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { cold nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #18 = { nofree nounwind }
-attributes #19 = { nofree willreturn memory(errnomem: write) }
+attributes #19 = { nofree nounwind willreturn memory(errnomem: write) }
 attributes #20 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #21 = { nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #22 = { nounwind allocsize(0) }

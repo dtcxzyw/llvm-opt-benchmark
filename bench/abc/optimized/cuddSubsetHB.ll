@@ -89,8 +89,8 @@ define ptr @cuddSubsetHeavyBranch(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br i1 %24, label %191, label %25
 
 25:                                               ; preds = %14
-  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %spec.store.select) #7
-  %ldexp.i = tail call double @ldexp(double 1.000000e+00, i32 %spec.store.select) #7
+  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %spec.store.select)
+  %ldexp.i = tail call double @ldexp(double 1.000000e+00, i32 %spec.store.select)
   store double %ldexp.i, ptr @max, align 8, !tbaa !30
   %26 = tail call ptr @st__init_table(ptr noundef nonnull @st__ptrcmp, ptr noundef nonnull @st__ptrhash) #7
   %27 = icmp eq ptr %26, null
@@ -165,7 +165,7 @@ define ptr @cuddSubsetHeavyBranch(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br label %191
 
 SubsetCountMinterm.exit:                          ; preds = %42
-  %ldexp.i108 = tail call double @ldexp(double 1.000000e+00, i32 %spec.store.select) #7
+  %ldexp.i108 = tail call double @ldexp(double 1.000000e+00, i32 %spec.store.select)
   store double %ldexp.i108, ptr @max, align 8, !tbaa !30
   store i32 128, ptr @maxPages, align 4, !tbaa !31
   %50 = tail call noalias dereferenceable_or_null(1024) ptr @malloc(i64 noundef 1024) #8
@@ -2521,18 +2521,18 @@ declare ptr @Cudd_ReadVars(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 declare ptr @cuddBddIteRecur(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nofree willreturn memory(errnomem: write)
+; Function Attrs: nofree nounwind willreturn memory(errnomem: write)
 declare double @ldexp(double, i32) local_unnamed_addr #5
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree willreturn memory(errnomem: write) }
+attributes #5 = { nofree nounwind willreturn memory(errnomem: write) }
 attributes #6 = { nofree nounwind }
 attributes #7 = { nounwind }
 attributes #8 = { nounwind allocsize(0) }

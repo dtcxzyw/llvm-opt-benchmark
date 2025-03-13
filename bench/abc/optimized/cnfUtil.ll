@@ -2091,7 +2091,7 @@ Vec_IntFreeP.exit104:                             ; preds = %Vec_IntFreeP.exit, 
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #2
+declare noundef ptr @fgets(ptr noundef writeonly, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
 declare ptr @strtok(ptr noundef, ptr noundef readonly captures(none)) local_unnamed_addr #12

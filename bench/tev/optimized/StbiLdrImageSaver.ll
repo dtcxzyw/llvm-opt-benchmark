@@ -3603,7 +3603,7 @@ define dso_local range(i32 0, 2) i32 @stbi_write_png(ptr noundef readonly captur
 declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #9
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #9
@@ -4952,7 +4952,7 @@ define internal fastcc void @_ZL14stbiw__writefvP19stbi__write_contextPKcP13__va
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal void @_ZL17stbi__stdio_writePvS_i(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) #12 {
+define internal void @_ZL17stbi__stdio_writePvS_i(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) #12 {
   %4 = sext i32 %2 to i64
   %5 = tail call i64 @fwrite(ptr noundef %1, i64 noundef 1, i64 noundef %4, ptr noundef %0)
   ret void

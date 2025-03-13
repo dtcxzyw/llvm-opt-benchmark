@@ -2117,12 +2117,12 @@ define dso_local void @_ZN20Sample_TempObstacles7saveAllEPKc(ptr noundef nonnull
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %6 = load ptr, ptr %5, align 8
   %.not = icmp eq ptr %6, null
-  br i1 %.not, label %67, label %7
+  br i1 %.not, label %69, label %7
 
 7:                                                ; preds = %2
   %8 = tail call noalias ptr @fopen(ptr noundef %1, ptr noundef nonnull @.str.52)
   %.not26 = icmp eq ptr %8, null
-  br i1 %.not26, label %67, label %9
+  br i1 %.not26, label %69, label %9
 
 9:                                                ; preds = %7
   store i32 1414743380, ptr %3, align 4
@@ -2145,100 +2145,103 @@ define dso_local void @_ZN20Sample_TempObstacles7saveAllEPKc(ptr noundef nonnull
   %wide.trip.count = zext nneg i32 %14 to i64
   br label %.lr.ph.split
 
-.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %26
-  %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %26 ]
-  %18 = phi i32 [ 0, %.lr.ph.split.preheader ], [ %27, %26 ]
-  %19 = getelementptr inbounds nuw %struct.dtCompressedTile, ptr %17, i64 %indvars.iv
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %21 = load ptr, ptr %20, align 8
-  %.not31 = icmp eq ptr %21, null
-  br i1 %.not31, label %26, label %22
+.lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %27
+  %indvars.iv = phi i64 [ 0, %.lr.ph.split.preheader ], [ %indvars.iv.next, %27 ]
+  %18 = phi i32 [ 0, %.lr.ph.split.preheader ], [ %29, %27 ]
+  %19 = phi i32 [ 0, %.lr.ph.split.preheader ], [ %28, %27 ]
+  %20 = getelementptr inbounds nuw %struct.dtCompressedTile, ptr %17, i64 %indvars.iv
+  %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  %22 = load ptr, ptr %21, align 8
+  %.not31 = icmp eq ptr %22, null
+  br i1 %.not31, label %27, label %23
 
-22:                                               ; preds = %.lr.ph.split
-  %23 = getelementptr inbounds nuw i8, ptr %19, i64 40
-  %24 = load i32, ptr %23, align 8
-  %.not32 = icmp ne i32 %24, 0
-  %25 = zext i1 %.not32 to i32
-  %spec.select = add nsw i32 %18, %25
-  br label %26
+23:                                               ; preds = %.lr.ph.split
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 40
+  %25 = load i32, ptr %24, align 8
+  %.not32 = icmp eq i32 %25, 0
+  %26 = add nsw i32 %18, 1
+  %spec.select = select i1 %.not32, i32 %19, i32 %26
+  %spec.select41 = select i1 %.not32, i32 %18, i32 %26
+  br label %27
 
-26:                                               ; preds = %22, %.lr.ph.split
-  %27 = phi i32 [ %18, %.lr.ph.split ], [ %spec.select, %22 ]
+27:                                               ; preds = %23, %.lr.ph.split
+  %28 = phi i32 [ %19, %.lr.ph.split ], [ %spec.select, %23 ]
+  %29 = phi i32 [ %18, %.lr.ph.split ], [ %spec.select41, %23 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !18
 
-._crit_edge:                                      ; preds = %26, %.lr.ph, %9
-  %.lcssa33 = phi i32 [ 0, %9 ], [ 0, %.lr.ph ], [ %27, %26 ]
+._crit_edge:                                      ; preds = %27, %.lr.ph, %9
+  %.lcssa33 = phi i32 [ 0, %9 ], [ 0, %.lr.ph ], [ %28, %27 ]
   store i32 %.lcssa33, ptr %11, align 4
-  %28 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %29 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %28, ptr noundef nonnull align 4 dereferenceable(52) %29, i64 52, i1 false)
-  %30 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %32 = load ptr, ptr %31, align 8
-  %33 = tail call noundef ptr @_ZNK9dtNavMesh9getParamsEv(ptr noundef nonnull align 8 dereferenceable(100) %32)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %30, ptr noundef nonnull align 4 dereferenceable(28) %33, i64 28, i1 false)
-  %34 = call i64 @fwrite(ptr noundef nonnull %3, i64 noundef 92, i64 noundef 1, ptr noundef nonnull %8)
-  %35 = load ptr, ptr %5, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 84
-  %37 = load i32, ptr %36, align 4
-  %38 = icmp sgt i32 %37, 0
-  br i1 %38, label %.lr.ph39, label %._crit_edge40
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 40
+  %31 = getelementptr inbounds nuw i8, ptr %12, i64 40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(52) %30, ptr noundef nonnull align 4 dereferenceable(52) %31, i64 52, i1 false)
+  %32 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %34 = load ptr, ptr %33, align 8
+  %35 = tail call noundef ptr @_ZNK9dtNavMesh9getParamsEv(ptr noundef nonnull align 8 dereferenceable(100) %34)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(28) %32, ptr noundef nonnull align 4 dereferenceable(28) %35, i64 28, i1 false)
+  %36 = call i64 @fwrite(ptr noundef nonnull %3, i64 noundef 92, i64 noundef 1, ptr noundef nonnull %8)
+  %37 = load ptr, ptr %5, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %37, i64 84
+  %39 = load i32, ptr %38, align 4
+  %40 = icmp sgt i32 %39, 0
+  br i1 %40, label %.lr.ph39, label %._crit_edge40
 
 .lr.ph39:                                         ; preds = %._crit_edge
-  %39 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  br label %40
+  %41 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  br label %42
 
-40:                                               ; preds = %.lr.ph39, %60
-  %41 = phi ptr [ %35, %.lr.ph39 ], [ %61, %60 ]
-  %indvars.iv43 = phi i64 [ 0, %.lr.ph39 ], [ %indvars.iv.next44, %60 ]
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 24
-  %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds nuw %struct.dtCompressedTile, ptr %43, i64 %indvars.iv43
-  %.not27 = icmp eq ptr %43, null
-  br i1 %.not27, label %60, label %45
+42:                                               ; preds = %.lr.ph39, %62
+  %43 = phi ptr [ %37, %.lr.ph39 ], [ %63, %62 ]
+  %indvars.iv44 = phi i64 [ 0, %.lr.ph39 ], [ %indvars.iv.next45, %62 ]
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
+  %45 = load ptr, ptr %44, align 8
+  %46 = getelementptr inbounds nuw %struct.dtCompressedTile, ptr %45, i64 %indvars.iv44
+  %.not27 = icmp eq ptr %45, null
+  br i1 %.not27, label %62, label %47
 
-45:                                               ; preds = %40
-  %46 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %47 = load ptr, ptr %46, align 8
-  %.not28 = icmp eq ptr %47, null
-  br i1 %.not28, label %60, label %48
+47:                                               ; preds = %42
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  %49 = load ptr, ptr %48, align 8
+  %.not28 = icmp eq ptr %49, null
+  br i1 %.not28, label %62, label %50
 
-48:                                               ; preds = %45
-  %49 = getelementptr inbounds nuw i8, ptr %44, i64 40
-  %50 = load i32, ptr %49, align 8
-  %.not29 = icmp eq i32 %50, 0
-  br i1 %.not29, label %60, label %51
+50:                                               ; preds = %47
+  %51 = getelementptr inbounds nuw i8, ptr %46, i64 40
+  %52 = load i32, ptr %51, align 8
+  %.not29 = icmp eq i32 %52, 0
+  br i1 %.not29, label %62, label %53
 
-51:                                               ; preds = %48
-  %52 = tail call noundef i32 @_ZNK11dtTileCache10getTileRefEPK16dtCompressedTile(ptr noundef nonnull align 8 dereferenceable(912) %41, ptr noundef nonnull %44)
-  store i32 %52, ptr %4, align 4
-  %53 = load i32, ptr %49, align 8
-  store i32 %53, ptr %39, align 4
-  %54 = call i64 @fwrite(ptr noundef nonnull %4, i64 noundef 8, i64 noundef 1, ptr noundef nonnull %8)
-  %55 = getelementptr inbounds nuw i8, ptr %44, i64 32
-  %56 = load ptr, ptr %55, align 8
-  %57 = load i32, ptr %49, align 8
-  %58 = sext i32 %57 to i64
-  %59 = tail call i64 @fwrite(ptr noundef %56, i64 noundef %58, i64 noundef 1, ptr noundef nonnull %8)
+53:                                               ; preds = %50
+  %54 = tail call noundef i32 @_ZNK11dtTileCache10getTileRefEPK16dtCompressedTile(ptr noundef nonnull align 8 dereferenceable(912) %43, ptr noundef nonnull %46)
+  store i32 %54, ptr %4, align 4
+  %55 = load i32, ptr %51, align 8
+  store i32 %55, ptr %41, align 4
+  %56 = call i64 @fwrite(ptr noundef nonnull %4, i64 noundef 8, i64 noundef 1, ptr noundef nonnull %8)
+  %57 = getelementptr inbounds nuw i8, ptr %46, i64 32
+  %58 = load ptr, ptr %57, align 8
+  %59 = load i32, ptr %51, align 8
+  %60 = sext i32 %59 to i64
+  %61 = tail call i64 @fwrite(ptr noundef %58, i64 noundef %60, i64 noundef 1, ptr noundef nonnull %8)
   %.pre = load ptr, ptr %5, align 8
-  br label %60
+  br label %62
 
-60:                                               ; preds = %40, %45, %48, %51
-  %61 = phi ptr [ %41, %40 ], [ %41, %45 ], [ %41, %48 ], [ %.pre, %51 ]
-  %indvars.iv.next44 = add nuw nsw i64 %indvars.iv43, 1
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 84
-  %63 = load i32, ptr %62, align 4
-  %64 = sext i32 %63 to i64
-  %65 = icmp slt i64 %indvars.iv.next44, %64
-  br i1 %65, label %40, label %._crit_edge40, !llvm.loop !19
+62:                                               ; preds = %42, %47, %50, %53
+  %63 = phi ptr [ %43, %42 ], [ %43, %47 ], [ %43, %50 ], [ %.pre, %53 ]
+  %indvars.iv.next45 = add nuw nsw i64 %indvars.iv44, 1
+  %64 = getelementptr inbounds nuw i8, ptr %63, i64 84
+  %65 = load i32, ptr %64, align 4
+  %66 = sext i32 %65 to i64
+  %67 = icmp slt i64 %indvars.iv.next45, %66
+  br i1 %67, label %42, label %._crit_edge40, !llvm.loop !19
 
-._crit_edge40:                                    ; preds = %60, %._crit_edge
-  %66 = tail call i32 @fclose(ptr noundef nonnull %8)
-  br label %67
+._crit_edge40:                                    ; preds = %62, %._crit_edge
+  %68 = tail call i32 @fclose(ptr noundef nonnull %8)
+  br label %69
 
-67:                                               ; preds = %7, %2, %._crit_edge40
+69:                                               ; preds = %7, %2, %._crit_edge40
   ret void
 }
 
@@ -3753,7 +3756,7 @@ declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noun
 declare noundef ptr @_ZNK9dtNavMesh9getParamsEv(ptr noundef nonnull align 8 dereferenceable(100)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #11
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #11
 
 declare noundef i32 @_ZNK11dtTileCache10getTileRefEPK16dtCompressedTile(ptr noundef nonnull align 8 dereferenceable(912), ptr noundef) local_unnamed_addr #3
 
@@ -3761,7 +3764,7 @@ declare noundef i32 @_ZNK11dtTileCache10getTileRefEPK16dtCompressedTile(ptr noun
 declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #11
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #11
 
 declare noundef ptr @_Z7dtAllocm11dtAllocHint(i64 noundef, i32 noundef) local_unnamed_addr #3
 

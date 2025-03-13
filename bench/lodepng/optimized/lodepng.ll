@@ -246,7 +246,7 @@ declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #2
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef range(i32 0, 80) i32 @_Z17lodepng_save_filePKhmPKc(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
+define noundef range(i32 0, 80) i32 @_Z17lodepng_save_filePKhmPKc(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #0 {
   %4 = tail call noalias ptr @fopen(ptr noundef %2, ptr noundef nonnull @.str.2)
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %8, label %5
@@ -262,7 +262,7 @@ define noundef range(i32 0, 80) i32 @_Z17lodepng_save_filePKhmPKc(ptr noundef ca
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind uwtable
 define noundef range(i32 0, 84) i32 @_Z28lodepng_huffman_code_lengthsPjPKjmj(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i32 noundef %3) local_unnamed_addr #3 {
@@ -20102,7 +20102,7 @@ define noundef i32 @_Z19lodepng_encode_filePKcPKhjj16LodePNGColorTypej(ptr nound
   br i1 %.not.i, label %_Z17lodepng_save_filePKhmPKc.exit, label %13
 
 13:                                               ; preds = %10
-  %14 = tail call i64 @fwrite(ptr noundef %.pre, i64 noundef 1, i64 noundef %11, ptr noundef nonnull %12)
+  %14 = tail call i64 @fwrite(ptr noundef readonly %.pre, i64 noundef 1, i64 noundef %11, ptr noundef nonnull %12)
   %15 = tail call i32 @fclose(ptr noundef nonnull %12)
   br label %_Z17lodepng_save_filePKhmPKc.exit
 
@@ -20132,7 +20132,7 @@ define noundef i32 @_Z21lodepng_encode32_filePKcPKhjj(ptr noundef readonly captu
   br i1 %.not.i.i, label %_Z19lodepng_encode_filePKcPKhjj16LodePNGColorTypej.exit, label %11
 
 11:                                               ; preds = %8
-  %12 = tail call i64 @fwrite(ptr noundef %.pre.i, i64 noundef 1, i64 noundef %9, ptr noundef nonnull %10)
+  %12 = tail call i64 @fwrite(ptr noundef readonly %.pre.i, i64 noundef 1, i64 noundef %9, ptr noundef nonnull %10)
   %13 = tail call i32 @fclose(ptr noundef nonnull %10)
   br label %_Z19lodepng_encode_filePKcPKhjj16LodePNGColorTypej.exit
 
@@ -20162,7 +20162,7 @@ define noundef i32 @_Z21lodepng_encode24_filePKcPKhjj(ptr noundef readonly captu
   br i1 %.not.i.i, label %_Z19lodepng_encode_filePKcPKhjj16LodePNGColorTypej.exit, label %11
 
 11:                                               ; preds = %8
-  %12 = tail call i64 @fwrite(ptr noundef %.pre.i, i64 noundef 1, i64 noundef %9, ptr noundef nonnull %10)
+  %12 = tail call i64 @fwrite(ptr noundef readonly %.pre.i, i64 noundef 1, i64 noundef %9, ptr noundef nonnull %10)
   %13 = tail call i32 @fclose(ptr noundef nonnull %10)
   br label %_Z19lodepng_encode_filePKcPKhjj16LodePNGColorTypej.exit
 
@@ -20262,7 +20262,7 @@ define noundef range(i32 0, 80) i32 @_ZN7lodepng9save_fileERKSt6vectorIhSaIhEERK
   %11 = sub i64 %9, %10
   %12 = icmp eq ptr %3, %5
   %spec.select = select i1 %12, ptr null, ptr %3
-  %13 = tail call i64 @fwrite(ptr noundef %spec.select, i64 noundef 1, i64 noundef %11, ptr noundef nonnull %7)
+  %13 = tail call i64 @fwrite(ptr noundef readonly %spec.select, i64 noundef 1, i64 noundef %11, ptr noundef nonnull %7)
   %14 = tail call i32 @fclose(ptr noundef nonnull %7)
   br label %_Z17lodepng_save_filePKhmPKc.exit
 
@@ -21214,7 +21214,7 @@ define noundef i32 @_ZN7lodepng6encodeERKNSt7__cxx1112basic_stringIcSt11char_tra
   %25 = sub i64 %23, %24
   %26 = icmp eq ptr %17, %19
   %spec.select.i = select i1 %26, ptr null, ptr %17
-  %27 = call i64 @fwrite(ptr noundef %spec.select.i, i64 noundef 1, i64 noundef %25, ptr noundef nonnull %21)
+  %27 = call i64 @fwrite(ptr noundef readonly %spec.select.i, i64 noundef 1, i64 noundef %25, ptr noundef nonnull %21)
   %28 = call i32 @fclose(ptr noundef nonnull %21)
   br label %_ZN7lodepng9save_fileERKSt6vectorIhSaIhEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit
 
@@ -21304,7 +21304,7 @@ _ZL24lodepng_get_raw_size_lctjj16LodePNGColorTypej.exit: ; preds = %6, %switch.l
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fseek(ptr noundef captures(none), i64 noundef, i32 noundef) local_unnamed_addr #2

@@ -24962,7 +24962,7 @@ define linkonce_odr void @_ZN3vcg3tri2io11ExporterVMIINS_5SMeshEE11WriteStringEP
 _ZN3vcg3tri2io11ExporterVMIINS_5SMeshEE8WriteOutEPKvmm.exit.thread: ; preds = %1
   %6 = load i32, ptr @_ZZN3vcg3tri2io11ExporterVMIINS_5SMeshEE3posEvE1p, align 4
   %7 = add i32 %6, 4
-  br label %21
+  br label %20
 
 8:                                                ; preds = %1
   %9 = load ptr, ptr @_ZZN3vcg3tri2io11ExporterVMIINS_5SMeshEE7Out_memEvE7out_mem, align 8
@@ -24978,52 +24978,48 @@ _ZN3vcg3tri2io11ExporterVMIINS_5SMeshEE8WriteOutEPKvmm.exit.thread: ; preds = %1
 15:                                               ; preds = %1
   %16 = load ptr, ptr @_ZZN3vcg3tri2io11ExporterVMIINS_5SMeshEE1FEvE1f, align 8
   %17 = call i64 @fwrite(ptr noundef nonnull %2, i64 noundef 4, i64 noundef 1, ptr noundef %16)
-  %.pre.pre = load i32, ptr %2, align 4
   br label %_ZN3vcg3tri2io11ExporterVMIINS_5SMeshEE8WriteOutEPKvmm.exitthread-pre-split
 
 _ZN3vcg3tri2io11ExporterVMIINS_5SMeshEE8WriteOutEPKvmm.exitthread-pre-split: ; preds = %15, %8
-  %.pre = phi i32 [ %.pre.pre, %15 ], [ %4, %8 ]
   %.pr = load i32, ptr @_ZZN3vcg3tri2io11ExporterVMIINS_5SMeshEE8Out_modeEvE8out_mode, align 4
   br label %_ZN3vcg3tri2io11ExporterVMIINS_5SMeshEE8WriteOutEPKvmm.exit
 
 _ZN3vcg3tri2io11ExporterVMIINS_5SMeshEE8WriteOutEPKvmm.exit: ; preds = %_ZN3vcg3tri2io11ExporterVMIINS_5SMeshEE8WriteOutEPKvmm.exitthread-pre-split, %1
-  %18 = phi i32 [ %.pre, %_ZN3vcg3tri2io11ExporterVMIINS_5SMeshEE8WriteOutEPKvmm.exitthread-pre-split ], [ %4, %1 ]
-  %19 = phi i32 [ %.pr, %_ZN3vcg3tri2io11ExporterVMIINS_5SMeshEE8WriteOutEPKvmm.exitthread-pre-split ], [ %5, %1 ]
-  %20 = zext i32 %18 to i64
-  switch i32 %19, label %_ZN3vcg3tri2io11ExporterVMIINS_5SMeshEE8WriteOutEPKvmm.exit3 [
+  %18 = phi i32 [ %.pr, %_ZN3vcg3tri2io11ExporterVMIINS_5SMeshEE8WriteOutEPKvmm.exitthread-pre-split ], [ %5, %1 ]
+  %19 = and i64 %3, 4294967295
+  switch i32 %18, label %_ZN3vcg3tri2io11ExporterVMIINS_5SMeshEE8WriteOutEPKvmm.exit3 [
     i32 0, label %_ZN3vcg3tri2io11ExporterVMIINS_5SMeshEE8WriteOutEPKvmm.exit._crit_edge
-    i32 1, label %25
-    i32 2, label %32
+    i32 1, label %23
+    i32 2, label %30
   ]
 
 _ZN3vcg3tri2io11ExporterVMIINS_5SMeshEE8WriteOutEPKvmm.exit._crit_edge: ; preds = %_ZN3vcg3tri2io11ExporterVMIINS_5SMeshEE8WriteOutEPKvmm.exit
-  %.pre4 = load i32, ptr @_ZZN3vcg3tri2io11ExporterVMIINS_5SMeshEE3posEvE1p, align 4
-  br label %21
+  %.pre = load i32, ptr @_ZZN3vcg3tri2io11ExporterVMIINS_5SMeshEE3posEvE1p, align 4
+  br label %20
 
-21:                                               ; preds = %_ZN3vcg3tri2io11ExporterVMIINS_5SMeshEE8WriteOutEPKvmm.exit._crit_edge, %_ZN3vcg3tri2io11ExporterVMIINS_5SMeshEE8WriteOutEPKvmm.exit.thread
-  %22 = phi i32 [ %7, %_ZN3vcg3tri2io11ExporterVMIINS_5SMeshEE8WriteOutEPKvmm.exit.thread ], [ %.pre4, %_ZN3vcg3tri2io11ExporterVMIINS_5SMeshEE8WriteOutEPKvmm.exit._crit_edge ]
-  %23 = phi i32 [ %4, %_ZN3vcg3tri2io11ExporterVMIINS_5SMeshEE8WriteOutEPKvmm.exit.thread ], [ %18, %_ZN3vcg3tri2io11ExporterVMIINS_5SMeshEE8WriteOutEPKvmm.exit._crit_edge ]
-  %24 = add i32 %22, %23
-  store i32 %24, ptr @_ZZN3vcg3tri2io11ExporterVMIINS_5SMeshEE3posEvE1p, align 4
+20:                                               ; preds = %_ZN3vcg3tri2io11ExporterVMIINS_5SMeshEE8WriteOutEPKvmm.exit._crit_edge, %_ZN3vcg3tri2io11ExporterVMIINS_5SMeshEE8WriteOutEPKvmm.exit.thread
+  %21 = phi i32 [ %.pre, %_ZN3vcg3tri2io11ExporterVMIINS_5SMeshEE8WriteOutEPKvmm.exit._crit_edge ], [ %7, %_ZN3vcg3tri2io11ExporterVMIINS_5SMeshEE8WriteOutEPKvmm.exit.thread ]
+  %22 = add i32 %21, %4
+  store i32 %22, ptr @_ZZN3vcg3tri2io11ExporterVMIINS_5SMeshEE3posEvE1p, align 4
   br label %_ZN3vcg3tri2io11ExporterVMIINS_5SMeshEE8WriteOutEPKvmm.exit3
 
-25:                                               ; preds = %_ZN3vcg3tri2io11ExporterVMIINS_5SMeshEE8WriteOutEPKvmm.exit
-  %26 = load ptr, ptr @_ZZN3vcg3tri2io11ExporterVMIINS_5SMeshEE7Out_memEvE7out_mem, align 8
-  %27 = load i32, ptr @_ZZN3vcg3tri2io11ExporterVMIINS_5SMeshEE3posEvE1p, align 4
-  %28 = zext i32 %27 to i64
-  %29 = getelementptr inbounds nuw i8, ptr %26, i64 %28
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %29, ptr nonnull align 1 %0, i64 %20, i1 false)
-  %30 = load i32, ptr @_ZZN3vcg3tri2io11ExporterVMIINS_5SMeshEE3posEvE1p, align 4
-  %31 = add i32 %30, %18
-  store i32 %31, ptr @_ZZN3vcg3tri2io11ExporterVMIINS_5SMeshEE3posEvE1p, align 4
+23:                                               ; preds = %_ZN3vcg3tri2io11ExporterVMIINS_5SMeshEE8WriteOutEPKvmm.exit
+  %24 = load ptr, ptr @_ZZN3vcg3tri2io11ExporterVMIINS_5SMeshEE7Out_memEvE7out_mem, align 8
+  %25 = load i32, ptr @_ZZN3vcg3tri2io11ExporterVMIINS_5SMeshEE3posEvE1p, align 4
+  %26 = zext i32 %25 to i64
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 %26
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %27, ptr nonnull align 1 %0, i64 %19, i1 false)
+  %28 = load i32, ptr @_ZZN3vcg3tri2io11ExporterVMIINS_5SMeshEE3posEvE1p, align 4
+  %29 = add i32 %28, %4
+  store i32 %29, ptr @_ZZN3vcg3tri2io11ExporterVMIINS_5SMeshEE3posEvE1p, align 4
   br label %_ZN3vcg3tri2io11ExporterVMIINS_5SMeshEE8WriteOutEPKvmm.exit3
 
-32:                                               ; preds = %_ZN3vcg3tri2io11ExporterVMIINS_5SMeshEE8WriteOutEPKvmm.exit
-  %33 = load ptr, ptr @_ZZN3vcg3tri2io11ExporterVMIINS_5SMeshEE1FEvE1f, align 8
-  %34 = tail call i64 @fwrite(ptr noundef nonnull %0, i64 noundef 1, i64 noundef %20, ptr noundef %33)
+30:                                               ; preds = %_ZN3vcg3tri2io11ExporterVMIINS_5SMeshEE8WriteOutEPKvmm.exit
+  %31 = load ptr, ptr @_ZZN3vcg3tri2io11ExporterVMIINS_5SMeshEE1FEvE1f, align 8
+  %32 = tail call i64 @fwrite(ptr noundef nonnull %0, i64 noundef 1, i64 noundef %19, ptr noundef %31)
   br label %_ZN3vcg3tri2io11ExporterVMIINS_5SMeshEE8WriteOutEPKvmm.exit3
 
-_ZN3vcg3tri2io11ExporterVMIINS_5SMeshEE8WriteOutEPKvmm.exit3: ; preds = %_ZN3vcg3tri2io11ExporterVMIINS_5SMeshEE8WriteOutEPKvmm.exit, %21, %25, %32
+_ZN3vcg3tri2io11ExporterVMIINS_5SMeshEE8WriteOutEPKvmm.exit3: ; preds = %_ZN3vcg3tri2io11ExporterVMIINS_5SMeshEE8WriteOutEPKvmm.exit, %20, %23, %30
   ret void
 }
 
@@ -25553,7 +25549,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #14
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @snprintf(ptr noalias noundef writeonly captures(none), i64 noundef, ptr noundef readonly captures(none), ...) local_unnamed_addr #14
@@ -34279,7 +34275,7 @@ declare noundef i32 @_ZN3vcg3ply7PlyFile4ReadEPv(ptr noundef nonnull align 8 der
 declare void @_ZN3vcg3ply7PlyFileD1Ev(ptr noundef nonnull align 8 dereferenceable(120)) unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #14
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #17

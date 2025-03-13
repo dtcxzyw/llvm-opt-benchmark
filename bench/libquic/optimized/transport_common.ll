@@ -806,13 +806,13 @@ define hidden noundef zeroext i1 @_Z20SocketSetNonBlockingib(i32 noundef %0, i1 
 declare i32 @fcntl(i32 noundef, i32 noundef, ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden noundef i32 @_Z18PrintErrorCallbackPKcmPv(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef captures(none) %2) #9 {
+define hidden noundef i32 @_Z18PrintErrorCallbackPKcmPv(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef captures(none) %2) #9 {
   %4 = tail call i64 @fwrite(ptr noundef %0, i64 noundef %1, i64 noundef 1, ptr noundef %2)
   ret i32 1
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress uwtable
 define hidden noundef zeroext i1 @_Z12TransferDataP6ssl_sti(ptr noundef %0, i32 noundef %1) local_unnamed_addr #1 {

@@ -4887,7 +4887,7 @@ _ZN10fileStream4readEPvm.exit:                    ; preds = %3, %9
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #9
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #9
 
 declare void @_Z8FreeHeapPv(ptr noundef) local_unnamed_addr #1
 

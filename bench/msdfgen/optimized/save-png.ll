@@ -341,7 +341,7 @@ declare void @longjmp(ptr noundef, i32 noundef) #5
 declare void @png_set_write_fn(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN7msdfgenL8pngWriteEP14png_struct_defPhm(ptr noundef %png, ptr noundef captures(none) %data, i64 noundef %length) #0 {
+define internal void @_ZN7msdfgenL8pngWriteEP14png_struct_defPhm(ptr noundef %png, ptr noundef readonly captures(none) %data, i64 noundef %length) #0 {
 entry:
   %call = tail call ptr @png_get_io_ptr(ptr noundef %png)
   %call1 = tail call i64 @fwrite(ptr noundef %data, i64 noundef 1, i64 noundef %length, ptr noundef %call)
@@ -415,7 +415,7 @@ declare noundef nonnull ptr @_Znwm(i64 noundef) local_unnamed_addr #10
 declare void @_ZdlPv(ptr noundef) local_unnamed_addr #11
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #3
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 declare ptr @png_get_io_ptr(ptr noundef) local_unnamed_addr #1
 

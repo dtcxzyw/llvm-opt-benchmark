@@ -380,7 +380,7 @@ declare void @rewind(ptr noundef captures(none)) local_unnamed_addr #3
 declare ptr @calloc_arena(i64 noundef) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #3
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @file_read_binary(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #5 {
@@ -1211,7 +1211,7 @@ declare noundef i32 @closedir(ptr noundef captures(none)) local_unnamed_addr #3
 declare noalias noundef ptr @popen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #3
+declare noundef ptr @fgets(ptr noundef writeonly, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @pclose(ptr noundef captures(none)) local_unnamed_addr #3

@@ -6611,7 +6611,7 @@ declare i32 @cli_unlink(ptr noundef) local_unnamed_addr #1
 declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #14
+declare noundef ptr @fgets(ptr noundef writeonly, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #14

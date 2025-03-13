@@ -44436,7 +44436,7 @@ declare double @llvm.sqrt.f64(double) #22
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #22
 
-; Function Attrs: nofree willreturn memory(errnomem: write)
+; Function Attrs: nofree nounwind willreturn memory(errnomem: write)
 declare double @ldexp(double, i32) local_unnamed_addr #25
 
 declare double @exp2(double) local_unnamed_addr
@@ -44469,7 +44469,7 @@ attributes #21 = { nocallback nofree nosync nounwind willreturn memory(inaccessi
 attributes #22 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #23 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
 attributes #24 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #25 = { nofree willreturn memory(errnomem: write) }
+attributes #25 = { nofree nounwind willreturn memory(errnomem: write) }
 attributes #26 = { nofree nounwind willreturn memory(argmem: read) }
 attributes #27 = { builtin nounwind }
 attributes #28 = { nounwind }

@@ -1549,7 +1549,7 @@ entry:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN8facebook5velox14LocalWriteFile6appendESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, i64 %data.coerce0, ptr captures(none) %data.coerce1) unnamed_addr #6 align 2 {
+define void @_ZN8facebook5velox14LocalWriteFile6appendESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, i64 %data.coerce0, ptr readonly captures(none) %data.coerce1) unnamed_addr #6 align 2 {
 entry:
   %closed_ = getelementptr inbounds nuw i8, ptr %this, i64 24
   %0 = load i8, ptr %closed_, align 8
@@ -1576,7 +1576,7 @@ if.end8:                                          ; preds = %if.end
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #17
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN8facebook5velox14LocalWriteFile6appendESt10unique_ptrIN5folly5IOBufESt14default_deleteIS4_EE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %this, ptr noundef readonly captures(none) %data) unnamed_addr #0 align 2 {

@@ -118,7 +118,7 @@ declare noundef i64 @ftell(ptr noundef captures(none)) local_unnamed_addr #3
 declare ptr @wolfSSL_Malloc(i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #3
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind uwtable
 define range(i32 -244, 1) i32 @wc_FileExists(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #5 {

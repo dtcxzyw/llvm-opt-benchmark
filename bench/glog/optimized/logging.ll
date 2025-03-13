@@ -2813,451 +2813,447 @@ define void @_ZN6google10LogMessageC2EPKciRKNS_7logging8internal13CheckOpStringE
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6google10LogMessage9SendToLogEv(ptr noundef nonnull align 8 dereferenceable(96) %0) #0 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = alloca [66 x i8], align 16
-  %3 = alloca %"class.std::chrono::time_point", align 8
+  %2 = alloca %"class.std::chrono::time_point", align 8
   %.b8 = load i1, ptr @_ZZN6google10LogMessage9SendToLogEvE32already_warned_before_initgoogle, align 1
-  br i1 %.b8, label %9, label %4
+  br i1 %.b8, label %8, label %3
 
-4:                                                ; preds = %1
-  %5 = tail call noundef zeroext i1 @_ZN6google26IsGoogleLoggingInitializedEv()
-  br i1 %5, label %9, label %6
+3:                                                ; preds = %1
+  %4 = tail call noundef zeroext i1 @_ZN6google26IsGoogleLoggingInitializedEv()
+  br i1 %4, label %8, label %5
 
-6:                                                ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 66, ptr nonnull %2) #49
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(66) %2, ptr noundef nonnull align 16 dereferenceable(66) @__const._ZN6google10LogMessage9SendToLogEv.w, i64 66, i1 false)
-  %7 = load ptr, ptr @stderr, align 8, !tbaa !79
-  %8 = call i64 @fwrite(ptr noundef nonnull %2, i64 noundef 65, i64 noundef 1, ptr noundef %7) #55
+5:                                                ; preds = %3
+  %6 = load ptr, ptr @stderr, align 8, !tbaa !79
+  %7 = tail call i64 @fwrite(ptr noundef nonnull readonly @__const._ZN6google10LogMessage9SendToLogEv.w, i64 noundef 65, i64 noundef 1, ptr noundef %6) #55
   store i1 true, ptr @_ZZN6google10LogMessage9SendToLogEvE32already_warned_before_initgoogle, align 1
-  call void @llvm.lifetime.end.p0(i64 66, ptr nonnull %2) #49
-  br label %9
+  br label %8
 
-9:                                                ; preds = %6, %4, %1
-  %10 = load i8, ptr @_ZN3fLB17FLAGS_logtostderrE, align 1, !tbaa !92, !range !93, !noundef !94
-  %11 = trunc nuw i8 %10 to i1
+8:                                                ; preds = %5, %3, %1
+  %9 = load i8, ptr @_ZN3fLB17FLAGS_logtostderrE, align 1, !tbaa !92, !range !93, !noundef !94
+  %10 = trunc nuw i8 %9 to i1
   %.pre23 = load i8, ptr @_ZN3fLB17FLAGS_logtostdoutE, align 1, !tbaa !92, !range !93
-  br i1 %11, label %16, label %12
+  br i1 %10, label %15, label %11
 
-12:                                               ; preds = %9
-  %13 = trunc nuw i8 %.pre23 to i1
-  br i1 %13, label %.thread, label %14
+11:                                               ; preds = %8
+  %12 = trunc nuw i8 %.pre23 to i1
+  br i1 %12, label %.thread, label %13
 
-14:                                               ; preds = %12
-  %15 = tail call noundef zeroext i1 @_ZN6google26IsGoogleLoggingInitializedEv()
-  br i1 %15, label %95, label %._crit_edge
+13:                                               ; preds = %11
+  %14 = tail call noundef zeroext i1 @_ZN6google26IsGoogleLoggingInitializedEv()
+  br i1 %14, label %94, label %._crit_edge
 
-._crit_edge:                                      ; preds = %14
+._crit_edge:                                      ; preds = %13
   %.pre = load i8, ptr @_ZN3fLB17FLAGS_logtostdoutE, align 1, !tbaa !92, !range !93
-  br label %16
+  br label %15
 
-16:                                               ; preds = %._crit_edge, %9
-  %17 = phi i8 [ %.pre, %._crit_edge ], [ %.pre23, %9 ]
-  %18 = trunc nuw i8 %17 to i1
-  br i1 %18, label %.thread, label %26
+15:                                               ; preds = %._crit_edge, %8
+  %16 = phi i8 [ %.pre, %._crit_edge ], [ %.pre23, %8 ]
+  %17 = trunc nuw i8 %16 to i1
+  br i1 %17, label %.thread, label %25
 
-.thread:                                          ; preds = %12, %16
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %20 = load ptr, ptr %19, align 8, !tbaa !91
-  %21 = getelementptr inbounds nuw i8, ptr %20, i64 30360
-  %22 = load i32, ptr %21, align 8, !tbaa !99
-  %23 = getelementptr inbounds nuw i8, ptr %20, i64 4
-  %24 = getelementptr inbounds nuw i8, ptr %20, i64 30400
-  %25 = load i64, ptr %24, align 8, !tbaa !128
-  tail call fastcc void @_ZN6googleL20ColoredWriteToStdoutENS_11LogSeverityEPKcm(i32 noundef %22, ptr noundef nonnull %23, i64 noundef %25)
+.thread:                                          ; preds = %11, %15
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %19 = load ptr, ptr %18, align 8, !tbaa !91
+  %20 = getelementptr inbounds nuw i8, ptr %19, i64 30360
+  %21 = load i32, ptr %20, align 8, !tbaa !99
+  %22 = getelementptr inbounds nuw i8, ptr %19, i64 4
+  %23 = getelementptr inbounds nuw i8, ptr %19, i64 30400
+  %24 = load i64, ptr %23, align 8, !tbaa !128
+  tail call fastcc void @_ZN6googleL20ColoredWriteToStdoutENS_11LogSeverityEPKcm(i32 noundef %21, ptr noundef nonnull %22, i64 noundef %24)
   br label %_ZN6googleL20ColoredWriteToStderrENS_11LogSeverityEPKcm.exit
 
-26:                                               ; preds = %16
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %28 = load ptr, ptr %27, align 8, !tbaa !91
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 30360
-  %30 = load i32, ptr %29, align 8, !tbaa !99
-  %31 = getelementptr inbounds nuw i8, ptr %28, i64 4
-  %32 = getelementptr inbounds nuw i8, ptr %28, i64 30400
-  %33 = load i64, ptr %32, align 8, !tbaa !128
-  %34 = load ptr, ptr @stderr, align 8, !tbaa !79
-  %35 = load i8, ptr @_ZN6google14LogDestination24terminal_supports_color_E, align 1, !tbaa !92, !range !93, !noundef !94
-  %36 = trunc nuw i8 %35 to i1
-  br i1 %36, label %37, label %47
+25:                                               ; preds = %15
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %27 = load ptr, ptr %26, align 8, !tbaa !91
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 30360
+  %29 = load i32, ptr %28, align 8, !tbaa !99
+  %30 = getelementptr inbounds nuw i8, ptr %27, i64 4
+  %31 = getelementptr inbounds nuw i8, ptr %27, i64 30400
+  %32 = load i64, ptr %31, align 8, !tbaa !128
+  %33 = load ptr, ptr @stderr, align 8, !tbaa !79
+  %34 = load i8, ptr @_ZN6google14LogDestination24terminal_supports_color_E, align 1, !tbaa !92, !range !93, !noundef !94
+  %35 = trunc nuw i8 %34 to i1
+  br i1 %35, label %36, label %46
 
-37:                                               ; preds = %26
-  %38 = load ptr, ptr @stdout, align 8, !tbaa !79
-  %39 = icmp eq ptr %34, %38
-  br i1 %39, label %.critedge.i.i, label %40
+36:                                               ; preds = %25
+  %37 = load ptr, ptr @stdout, align 8, !tbaa !79
+  %38 = icmp eq ptr %33, %37
+  br i1 %38, label %.critedge.i.i, label %39
 
-40:                                               ; preds = %37
-  %41 = load i8, ptr @_ZN3fLB22FLAGS_colorlogtostderrE, align 1, !tbaa !92, !range !93, !noundef !94
-  %42 = trunc nuw i8 %41 to i1
-  br i1 %42, label %45, label %47
+39:                                               ; preds = %36
+  %40 = load i8, ptr @_ZN3fLB22FLAGS_colorlogtostderrE, align 1, !tbaa !92, !range !93, !noundef !94
+  %41 = trunc nuw i8 %40 to i1
+  br i1 %41, label %44, label %46
 
-.critedge.i.i:                                    ; preds = %37
-  %43 = load i8, ptr @_ZN3fLB22FLAGS_colorlogtostdoutE, align 1, !tbaa !92, !range !93, !noundef !94
-  %44 = trunc nuw i8 %43 to i1
-  br i1 %44, label %45, label %47
+.critedge.i.i:                                    ; preds = %36
+  %42 = load i8, ptr @_ZN3fLB22FLAGS_colorlogtostdoutE, align 1, !tbaa !92, !range !93, !noundef !94
+  %43 = trunc nuw i8 %42 to i1
+  br i1 %43, label %44, label %46
 
-45:                                               ; preds = %.critedge.i.i, %40
-  switch i32 %30, label %46 [
-    i32 0, label %47
+44:                                               ; preds = %.critedge.i.i, %39
+  switch i32 %29, label %45 [
+    i32 0, label %46
     i32 1, label %_ZN6googleL16GetAnsiColorCodeENS_9GLogColorE.exit.i.i
     i32 2, label %_ZN6googleL15SeverityToColorENS_11LogSeverityE.exit.thread14.i.i
     i32 3, label %_ZN6googleL15SeverityToColorENS_11LogSeverityE.exit.thread14.i.i
   ]
 
-_ZN6googleL15SeverityToColorENS_11LogSeverityE.exit.thread14.i.i: ; preds = %45, %45
+_ZN6googleL15SeverityToColorENS_11LogSeverityE.exit.thread14.i.i: ; preds = %44, %44
   br label %_ZN6googleL16GetAnsiColorCodeENS_9GLogColorE.exit.i.i
 
-46:                                               ; preds = %45
+45:                                               ; preds = %44
   unreachable
 
-47:                                               ; preds = %45, %.critedge.i.i, %40, %26
-  %48 = tail call i64 @fwrite(ptr noundef nonnull %31, i64 noundef %33, i64 noundef 1, ptr noundef %34) #55
+46:                                               ; preds = %44, %.critedge.i.i, %39, %25
+  %47 = tail call i64 @fwrite(ptr noundef nonnull readonly %30, i64 noundef %32, i64 noundef 1, ptr noundef %33) #55
   br label %_ZN6googleL20ColoredWriteToStderrENS_11LogSeverityEPKcm.exit
 
-_ZN6googleL16GetAnsiColorCodeENS_9GLogColorE.exit.i.i: ; preds = %_ZN6googleL15SeverityToColorENS_11LogSeverityE.exit.thread14.i.i, %45
-  %.0.i13.i.i = phi ptr [ @.str.104, %_ZN6googleL15SeverityToColorENS_11LogSeverityE.exit.thread14.i.i ], [ @.str.106, %45 ]
-  %49 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %34, ptr noundef nonnull @.str.102, ptr noundef nonnull %.0.i13.i.i) #56
-  %50 = tail call i64 @fwrite(ptr noundef nonnull %31, i64 noundef %33, i64 noundef 1, ptr noundef %34) #55
-  %51 = tail call i64 @fwrite(ptr nonnull @.str.103, i64 3, i64 1, ptr %34) #55
+_ZN6googleL16GetAnsiColorCodeENS_9GLogColorE.exit.i.i: ; preds = %_ZN6googleL15SeverityToColorENS_11LogSeverityE.exit.thread14.i.i, %44
+  %.0.i13.i.i = phi ptr [ @.str.104, %_ZN6googleL15SeverityToColorENS_11LogSeverityE.exit.thread14.i.i ], [ @.str.106, %44 ]
+  %48 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %33, ptr noundef nonnull @.str.102, ptr noundef nonnull %.0.i13.i.i) #56
+  %49 = tail call i64 @fwrite(ptr noundef nonnull readonly %30, i64 noundef %32, i64 noundef 1, ptr noundef %33) #55
+  %50 = tail call i64 @fwrite(ptr nonnull @.str.103, i64 3, i64 1, ptr %33) #55
   br label %_ZN6googleL20ColoredWriteToStderrENS_11LogSeverityEPKcm.exit
 
-_ZN6googleL20ColoredWriteToStderrENS_11LogSeverityEPKcm.exit: ; preds = %_ZN6googleL16GetAnsiColorCodeENS_9GLogColorE.exit.i.i, %47, %.thread
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %53 = load ptr, ptr %52, align 8, !tbaa !91
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 30360
-  %55 = load i32, ptr %54, align 8, !tbaa !99
-  %56 = getelementptr inbounds nuw i8, ptr %53, i64 30424
-  %57 = load ptr, ptr %56, align 8, !tbaa !104
-  %58 = getelementptr inbounds nuw i8, ptr %53, i64 30416
-  %59 = load ptr, ptr %58, align 8, !tbaa !103
-  %60 = getelementptr inbounds nuw i8, ptr %53, i64 30364
-  %61 = load i32, ptr %60, align 4, !tbaa !100
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %63 = getelementptr inbounds nuw i8, ptr %53, i64 4
-  %64 = getelementptr inbounds nuw i8, ptr %53, i64 30392
-  %65 = load i64, ptr %64, align 8, !tbaa !125
-  %66 = getelementptr inbounds nuw i8, ptr %63, i64 %65
-  %67 = getelementptr inbounds nuw i8, ptr %53, i64 30400
-  %68 = load i64, ptr %67, align 8, !tbaa !128
-  %69 = xor i64 %65, -1
-  %70 = add i64 %68, %69
-  br label %71
+_ZN6googleL20ColoredWriteToStderrENS_11LogSeverityEPKcm.exit: ; preds = %_ZN6googleL16GetAnsiColorCodeENS_9GLogColorE.exit.i.i, %46, %.thread
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %52 = load ptr, ptr %51, align 8, !tbaa !91
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 30360
+  %54 = load i32, ptr %53, align 8, !tbaa !99
+  %55 = getelementptr inbounds nuw i8, ptr %52, i64 30424
+  %56 = load ptr, ptr %55, align 8, !tbaa !104
+  %57 = getelementptr inbounds nuw i8, ptr %52, i64 30416
+  %58 = load ptr, ptr %57, align 8, !tbaa !103
+  %59 = getelementptr inbounds nuw i8, ptr %52, i64 30364
+  %60 = load i32, ptr %59, align 4, !tbaa !100
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %62 = getelementptr inbounds nuw i8, ptr %52, i64 4
+  %63 = getelementptr inbounds nuw i8, ptr %52, i64 30392
+  %64 = load i64, ptr %63, align 8, !tbaa !125
+  %65 = getelementptr inbounds nuw i8, ptr %62, i64 %64
+  %66 = getelementptr inbounds nuw i8, ptr %52, i64 30400
+  %67 = load i64, ptr %66, align 8, !tbaa !128
+  %68 = xor i64 %64, -1
+  %69 = add i64 %67, %68
+  br label %70
 
-71:                                               ; preds = %71, %_ZN6googleL20ColoredWriteToStderrENS_11LogSeverityEPKcm.exit
-  %72 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(56) @_ZN6google14LogDestination11sink_mutex_E) #49
-  switch i32 %72, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i [
-    i32 11, label %71
-    i32 35, label %73
+70:                                               ; preds = %70, %_ZN6googleL20ColoredWriteToStderrENS_11LogSeverityEPKcm.exit
+  %71 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(56) @_ZN6google14LogDestination11sink_mutex_E) #49
+  switch i32 %71, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i [
+    i32 11, label %70
+    i32 35, label %72
   ]
 
-73:                                               ; preds = %71
+72:                                               ; preds = %70
   tail call void @_ZSt20__throw_system_errori(i32 noundef 35) #52
   unreachable
 
-_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i: ; preds = %71
-  %74 = load ptr, ptr @_ZN6google14LogDestination6sinks_E, align 8, !tbaa !42
-  %.not13.i = icmp eq ptr %74, null
-  br i1 %.not13.i, label %_ZN6google14LogDestination10LogToSinksENS_11LogSeverityEPKcS3_iRKNS_14LogMessageTimeES3_m.exit, label %75
+_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i: ; preds = %70
+  %73 = load ptr, ptr @_ZN6google14LogDestination6sinks_E, align 8, !tbaa !42
+  %.not13.i = icmp eq ptr %73, null
+  br i1 %.not13.i, label %_ZN6google14LogDestination10LogToSinksENS_11LogSeverityEPKcS3_iRKNS_14LogMessageTimeES3_m.exit, label %74
 
-75:                                               ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i
-  %76 = getelementptr inbounds nuw i8, ptr %74, i64 8
-  %77 = load ptr, ptr %76, align 8, !tbaa !129
-  %78 = load ptr, ptr %74, align 8, !tbaa !44
+74:                                               ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i
+  %75 = getelementptr inbounds nuw i8, ptr %73, i64 8
+  %76 = load ptr, ptr %75, align 8, !tbaa !129
+  %77 = load ptr, ptr %73, align 8, !tbaa !44
+  %78 = ptrtoint ptr %76 to i64
   %79 = ptrtoint ptr %77 to i64
-  %80 = ptrtoint ptr %78 to i64
-  %81 = sub i64 %79, %80
-  %82 = ashr exact i64 %81, 3
-  br label %83
+  %80 = sub i64 %78, %79
+  %81 = ashr exact i64 %80, 3
+  br label %82
 
-83:                                               ; preds = %84, %75
-  %.0.i = phi i64 [ %82, %75 ], [ %85, %84 ]
+82:                                               ; preds = %83, %74
+  %.0.i = phi i64 [ %81, %74 ], [ %84, %83 ]
   %.not.i = icmp eq i64 %.0.i, 0
-  br i1 %.not.i, label %_ZN6google14LogDestination10LogToSinksENS_11LogSeverityEPKcS3_iRKNS_14LogMessageTimeES3_m.exit, label %84
+  br i1 %.not.i, label %_ZN6google14LogDestination10LogToSinksENS_11LogSeverityEPKcS3_iRKNS_14LogMessageTimeES3_m.exit, label %83
 
-84:                                               ; preds = %83
-  %85 = add i64 %.0.i, -1
-  %86 = load ptr, ptr @_ZN6google14LogDestination6sinks_E, align 8, !tbaa !42
-  %87 = load ptr, ptr %86, align 8, !tbaa !44
-  %88 = getelementptr inbounds nuw ptr, ptr %87, i64 %85
-  %89 = load ptr, ptr %88, align 8, !tbaa !130
-  %90 = load ptr, ptr %89, align 8, !tbaa !3
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 16
-  %92 = load ptr, ptr %91, align 8
-  invoke void %92(ptr noundef nonnull align 8 dereferenceable(8) %89, i32 noundef %55, ptr noundef %57, ptr noundef %59, i32 noundef %61, ptr noundef nonnull align 8 dereferenceable(80) %62, ptr noundef nonnull %66, i64 noundef %70)
-          to label %83 unwind label %_ZNSt11shared_lockISt12shared_mutexED2Ev.exit.i, !llvm.loop !132
+83:                                               ; preds = %82
+  %84 = add i64 %.0.i, -1
+  %85 = load ptr, ptr @_ZN6google14LogDestination6sinks_E, align 8, !tbaa !42
+  %86 = load ptr, ptr %85, align 8, !tbaa !44
+  %87 = getelementptr inbounds nuw ptr, ptr %86, i64 %84
+  %88 = load ptr, ptr %87, align 8, !tbaa !130
+  %89 = load ptr, ptr %88, align 8, !tbaa !3
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 16
+  %91 = load ptr, ptr %90, align 8
+  invoke void %91(ptr noundef nonnull align 8 dereferenceable(8) %88, i32 noundef %54, ptr noundef %56, ptr noundef %58, i32 noundef %60, ptr noundef nonnull align 8 dereferenceable(80) %61, ptr noundef nonnull %65, i64 noundef %69)
+          to label %82 unwind label %_ZNSt11shared_lockISt12shared_mutexED2Ev.exit.i, !llvm.loop !132
 
 common.resume:                                    ; preds = %_ZNSt11shared_lockISt12shared_mutexED2Ev.exit16.i, %_ZNSt11shared_lockISt12shared_mutexED2Ev.exit.i13, %_ZNSt11shared_lockISt12shared_mutexED2Ev.exit.i
-  %common.resume.op = phi { ptr, i32 } [ %93, %_ZNSt11shared_lockISt12shared_mutexED2Ev.exit.i ], [ %158, %_ZNSt11shared_lockISt12shared_mutexED2Ev.exit.i13 ], [ %.pn.i, %_ZNSt11shared_lockISt12shared_mutexED2Ev.exit16.i ]
+  %common.resume.op = phi { ptr, i32 } [ %92, %_ZNSt11shared_lockISt12shared_mutexED2Ev.exit.i ], [ %157, %_ZNSt11shared_lockISt12shared_mutexED2Ev.exit.i13 ], [ %.pn.i, %_ZNSt11shared_lockISt12shared_mutexED2Ev.exit16.i ]
   resume { ptr, i32 } %common.resume.op
 
-_ZNSt11shared_lockISt12shared_mutexED2Ev.exit.i:  ; preds = %84
-  %93 = landingpad { ptr, i32 }
+_ZNSt11shared_lockISt12shared_mutexED2Ev.exit.i:  ; preds = %83
+  %92 = landingpad { ptr, i32 }
           cleanup
-  %94 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) @_ZN6google14LogDestination11sink_mutex_E) #49
+  %93 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) @_ZN6google14LogDestination11sink_mutex_E) #49
   br label %common.resume
 
-95:                                               ; preds = %14
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %97 = load ptr, ptr %96, align 8, !tbaa !91
-  %98 = getelementptr inbounds nuw i8, ptr %97, i64 30360
-  %99 = load i32, ptr %98, align 8, !tbaa !99
-  %100 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %101 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %102 = getelementptr inbounds nuw i8, ptr %97, i64 4
-  %103 = getelementptr inbounds nuw i8, ptr %97, i64 30400
-  %104 = load i64, ptr %103, align 8, !tbaa !128
-  tail call void @_ZN6google14LogDestination16LogToAllLogfilesENS_11LogSeverityERKNSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEEEPKcm(i32 noundef %99, ptr noundef nonnull align 8 dereferenceable(8) %101, ptr noundef nonnull %102, i64 noundef %104)
-  %105 = load ptr, ptr %96, align 8, !tbaa !91
-  %106 = getelementptr inbounds nuw i8, ptr %105, i64 30360
-  %107 = load i32, ptr %106, align 8, !tbaa !99
-  %108 = getelementptr inbounds nuw i8, ptr %105, i64 4
-  %109 = getelementptr inbounds nuw i8, ptr %105, i64 30400
-  %110 = load i64, ptr %109, align 8, !tbaa !128
-  %111 = getelementptr inbounds nuw i8, ptr %105, i64 30392
-  %112 = load i64, ptr %111, align 8, !tbaa !125
-  tail call void @_ZN6google14LogDestination16MaybeLogToStderrENS_11LogSeverityEPKcmm(i32 noundef %107, ptr noundef nonnull %108, i64 noundef %110, i64 noundef %112)
-  %113 = load ptr, ptr %96, align 8, !tbaa !91
-  %114 = getelementptr inbounds nuw i8, ptr %113, i64 30360
-  %115 = load i32, ptr %114, align 8, !tbaa !99
-  %116 = getelementptr inbounds nuw i8, ptr %113, i64 4
-  %117 = getelementptr inbounds nuw i8, ptr %113, i64 30400
-  %118 = load i64, ptr %117, align 8, !tbaa !128
-  tail call void @_ZN6google14LogDestination15MaybeLogToEmailENS_11LogSeverityEPKcm(i32 noundef %115, ptr noundef nonnull %116, i64 noundef %118)
-  %119 = load ptr, ptr %96, align 8, !tbaa !91
-  %120 = getelementptr inbounds nuw i8, ptr %119, i64 30360
-  %121 = load i32, ptr %120, align 8, !tbaa !99
-  %122 = getelementptr inbounds nuw i8, ptr %119, i64 30424
-  %123 = load ptr, ptr %122, align 8, !tbaa !104
-  %124 = getelementptr inbounds nuw i8, ptr %119, i64 30416
-  %125 = load ptr, ptr %124, align 8, !tbaa !103
-  %126 = getelementptr inbounds nuw i8, ptr %119, i64 30364
-  %127 = load i32, ptr %126, align 4, !tbaa !100
-  %128 = getelementptr inbounds nuw i8, ptr %119, i64 4
-  %129 = getelementptr inbounds nuw i8, ptr %119, i64 30392
-  %130 = load i64, ptr %129, align 8, !tbaa !125
-  %131 = getelementptr inbounds nuw i8, ptr %128, i64 %130
-  %132 = getelementptr inbounds nuw i8, ptr %119, i64 30400
-  %133 = load i64, ptr %132, align 8, !tbaa !128
-  %134 = xor i64 %130, -1
-  %135 = add i64 %133, %134
-  br label %136
+94:                                               ; preds = %13
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %96 = load ptr, ptr %95, align 8, !tbaa !91
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 30360
+  %98 = load i32, ptr %97, align 8, !tbaa !99
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %100 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %101 = getelementptr inbounds nuw i8, ptr %96, i64 4
+  %102 = getelementptr inbounds nuw i8, ptr %96, i64 30400
+  %103 = load i64, ptr %102, align 8, !tbaa !128
+  tail call void @_ZN6google14LogDestination16LogToAllLogfilesENS_11LogSeverityERKNSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEEEPKcm(i32 noundef %98, ptr noundef nonnull align 8 dereferenceable(8) %100, ptr noundef nonnull %101, i64 noundef %103)
+  %104 = load ptr, ptr %95, align 8, !tbaa !91
+  %105 = getelementptr inbounds nuw i8, ptr %104, i64 30360
+  %106 = load i32, ptr %105, align 8, !tbaa !99
+  %107 = getelementptr inbounds nuw i8, ptr %104, i64 4
+  %108 = getelementptr inbounds nuw i8, ptr %104, i64 30400
+  %109 = load i64, ptr %108, align 8, !tbaa !128
+  %110 = getelementptr inbounds nuw i8, ptr %104, i64 30392
+  %111 = load i64, ptr %110, align 8, !tbaa !125
+  tail call void @_ZN6google14LogDestination16MaybeLogToStderrENS_11LogSeverityEPKcmm(i32 noundef %106, ptr noundef nonnull %107, i64 noundef %109, i64 noundef %111)
+  %112 = load ptr, ptr %95, align 8, !tbaa !91
+  %113 = getelementptr inbounds nuw i8, ptr %112, i64 30360
+  %114 = load i32, ptr %113, align 8, !tbaa !99
+  %115 = getelementptr inbounds nuw i8, ptr %112, i64 4
+  %116 = getelementptr inbounds nuw i8, ptr %112, i64 30400
+  %117 = load i64, ptr %116, align 8, !tbaa !128
+  tail call void @_ZN6google14LogDestination15MaybeLogToEmailENS_11LogSeverityEPKcm(i32 noundef %114, ptr noundef nonnull %115, i64 noundef %117)
+  %118 = load ptr, ptr %95, align 8, !tbaa !91
+  %119 = getelementptr inbounds nuw i8, ptr %118, i64 30360
+  %120 = load i32, ptr %119, align 8, !tbaa !99
+  %121 = getelementptr inbounds nuw i8, ptr %118, i64 30424
+  %122 = load ptr, ptr %121, align 8, !tbaa !104
+  %123 = getelementptr inbounds nuw i8, ptr %118, i64 30416
+  %124 = load ptr, ptr %123, align 8, !tbaa !103
+  %125 = getelementptr inbounds nuw i8, ptr %118, i64 30364
+  %126 = load i32, ptr %125, align 4, !tbaa !100
+  %127 = getelementptr inbounds nuw i8, ptr %118, i64 4
+  %128 = getelementptr inbounds nuw i8, ptr %118, i64 30392
+  %129 = load i64, ptr %128, align 8, !tbaa !125
+  %130 = getelementptr inbounds nuw i8, ptr %127, i64 %129
+  %131 = getelementptr inbounds nuw i8, ptr %118, i64 30400
+  %132 = load i64, ptr %131, align 8, !tbaa !128
+  %133 = xor i64 %129, -1
+  %134 = add i64 %132, %133
+  br label %135
 
-136:                                              ; preds = %136, %95
-  %137 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(56) @_ZN6google14LogDestination11sink_mutex_E) #49
-  switch i32 %137, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i9 [
-    i32 11, label %136
-    i32 35, label %138
+135:                                              ; preds = %135, %94
+  %136 = tail call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(56) @_ZN6google14LogDestination11sink_mutex_E) #49
+  switch i32 %136, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i9 [
+    i32 11, label %135
+    i32 35, label %137
   ]
 
-138:                                              ; preds = %136
+137:                                              ; preds = %135
   tail call void @_ZSt20__throw_system_errori(i32 noundef 35) #52
   unreachable
 
-_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i9: ; preds = %136
-  %139 = load ptr, ptr @_ZN6google14LogDestination6sinks_E, align 8, !tbaa !42
-  %.not13.i10 = icmp eq ptr %139, null
-  br i1 %.not13.i10, label %_ZN6google14LogDestination10LogToSinksENS_11LogSeverityEPKcS3_iRKNS_14LogMessageTimeES3_m.exit, label %140
+_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i9: ; preds = %135
+  %138 = load ptr, ptr @_ZN6google14LogDestination6sinks_E, align 8, !tbaa !42
+  %.not13.i10 = icmp eq ptr %138, null
+  br i1 %.not13.i10, label %_ZN6google14LogDestination10LogToSinksENS_11LogSeverityEPKcS3_iRKNS_14LogMessageTimeES3_m.exit, label %139
 
-140:                                              ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i9
-  %141 = getelementptr inbounds nuw i8, ptr %139, i64 8
-  %142 = load ptr, ptr %141, align 8, !tbaa !129
-  %143 = load ptr, ptr %139, align 8, !tbaa !44
+139:                                              ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i9
+  %140 = getelementptr inbounds nuw i8, ptr %138, i64 8
+  %141 = load ptr, ptr %140, align 8, !tbaa !129
+  %142 = load ptr, ptr %138, align 8, !tbaa !44
+  %143 = ptrtoint ptr %141 to i64
   %144 = ptrtoint ptr %142 to i64
-  %145 = ptrtoint ptr %143 to i64
-  %146 = sub i64 %144, %145
-  %147 = ashr exact i64 %146, 3
-  br label %148
+  %145 = sub i64 %143, %144
+  %146 = ashr exact i64 %145, 3
+  br label %147
 
-148:                                              ; preds = %149, %140
-  %.0.i11 = phi i64 [ %147, %140 ], [ %150, %149 ]
+147:                                              ; preds = %148, %139
+  %.0.i11 = phi i64 [ %146, %139 ], [ %149, %148 ]
   %.not.i12 = icmp eq i64 %.0.i11, 0
-  br i1 %.not.i12, label %_ZN6google14LogDestination10LogToSinksENS_11LogSeverityEPKcS3_iRKNS_14LogMessageTimeES3_m.exit, label %149
+  br i1 %.not.i12, label %_ZN6google14LogDestination10LogToSinksENS_11LogSeverityEPKcS3_iRKNS_14LogMessageTimeES3_m.exit, label %148
 
-149:                                              ; preds = %148
-  %150 = add i64 %.0.i11, -1
-  %151 = load ptr, ptr @_ZN6google14LogDestination6sinks_E, align 8, !tbaa !42
-  %152 = load ptr, ptr %151, align 8, !tbaa !44
-  %153 = getelementptr inbounds nuw ptr, ptr %152, i64 %150
-  %154 = load ptr, ptr %153, align 8, !tbaa !130
-  %155 = load ptr, ptr %154, align 8, !tbaa !3
-  %156 = getelementptr inbounds nuw i8, ptr %155, i64 16
-  %157 = load ptr, ptr %156, align 8
-  invoke void %157(ptr noundef nonnull align 8 dereferenceable(8) %154, i32 noundef %121, ptr noundef %123, ptr noundef %125, i32 noundef %127, ptr noundef nonnull align 8 dereferenceable(80) %100, ptr noundef nonnull %131, i64 noundef %135)
-          to label %148 unwind label %_ZNSt11shared_lockISt12shared_mutexED2Ev.exit.i13, !llvm.loop !132
+148:                                              ; preds = %147
+  %149 = add i64 %.0.i11, -1
+  %150 = load ptr, ptr @_ZN6google14LogDestination6sinks_E, align 8, !tbaa !42
+  %151 = load ptr, ptr %150, align 8, !tbaa !44
+  %152 = getelementptr inbounds nuw ptr, ptr %151, i64 %149
+  %153 = load ptr, ptr %152, align 8, !tbaa !130
+  %154 = load ptr, ptr %153, align 8, !tbaa !3
+  %155 = getelementptr inbounds nuw i8, ptr %154, i64 16
+  %156 = load ptr, ptr %155, align 8
+  invoke void %156(ptr noundef nonnull align 8 dereferenceable(8) %153, i32 noundef %120, ptr noundef %122, ptr noundef %124, i32 noundef %126, ptr noundef nonnull align 8 dereferenceable(80) %99, ptr noundef nonnull %130, i64 noundef %134)
+          to label %147 unwind label %_ZNSt11shared_lockISt12shared_mutexED2Ev.exit.i13, !llvm.loop !132
 
-_ZNSt11shared_lockISt12shared_mutexED2Ev.exit.i13: ; preds = %149
-  %158 = landingpad { ptr, i32 }
+_ZNSt11shared_lockISt12shared_mutexED2Ev.exit.i13: ; preds = %148
+  %157 = landingpad { ptr, i32 }
           cleanup
-  %159 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) @_ZN6google14LogDestination11sink_mutex_E) #49
+  %158 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) @_ZN6google14LogDestination11sink_mutex_E) #49
   br label %common.resume
 
-_ZN6google14LogDestination10LogToSinksENS_11LogSeverityEPKcS3_iRKNS_14LogMessageTimeES3_m.exit: ; preds = %148, %83, %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i9, %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i
-  %160 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) @_ZN6google14LogDestination11sink_mutex_E) #49
-  %161 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %162 = load ptr, ptr %161, align 8, !tbaa !91
-  %163 = getelementptr inbounds nuw i8, ptr %162, i64 30360
-  %164 = load i32, ptr %163, align 8, !tbaa !99
-  %165 = icmp eq i32 %164, 3
-  br i1 %165, label %166, label %240
+_ZN6google14LogDestination10LogToSinksENS_11LogSeverityEPKcS3_iRKNS_14LogMessageTimeES3_m.exit: ; preds = %147, %82, %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i9, %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i
+  %159 = tail call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) @_ZN6google14LogDestination11sink_mutex_E) #49
+  %160 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %161 = load ptr, ptr %160, align 8, !tbaa !91
+  %162 = getelementptr inbounds nuw i8, ptr %161, i64 30360
+  %163 = load i32, ptr %162, align 8, !tbaa !99
+  %164 = icmp eq i32 %163, 3
+  br i1 %164, label %165, label %239
 
-166:                                              ; preds = %_ZN6google14LogDestination10LogToSinksENS_11LogSeverityEPKcS3_iRKNS_14LogMessageTimeES3_m.exit
-  %167 = load i8, ptr @_ZN6googleL14exit_on_dfatalE, align 1, !tbaa !92, !range !93, !noundef !94
-  %168 = trunc nuw i8 %167 to i1
-  br i1 %168, label %169, label %240
+165:                                              ; preds = %_ZN6google14LogDestination10LogToSinksENS_11LogSeverityEPKcS3_iRKNS_14LogMessageTimeES3_m.exit
+  %166 = load i8, ptr @_ZN6googleL14exit_on_dfatalE, align 1, !tbaa !92, !range !93, !noundef !94
+  %167 = trunc nuw i8 %166 to i1
+  br i1 %167, label %168, label %239
 
-169:                                              ; preds = %166
-  %170 = getelementptr inbounds nuw i8, ptr %162, i64 30433
-  %171 = load i8, ptr %170, align 1, !tbaa !95, !range !93, !noundef !94
-  %172 = trunc nuw i8 %171 to i1
-  br i1 %172, label %173, label %186
+168:                                              ; preds = %165
+  %169 = getelementptr inbounds nuw i8, ptr %161, i64 30433
+  %170 = load i8, ptr %169, align 1, !tbaa !95, !range !93, !noundef !94
+  %171 = trunc nuw i8 %170 to i1
+  br i1 %171, label %172, label %185
 
-173:                                              ; preds = %169
-  %174 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6googleL24fatal_msg_data_exclusiveE, i64 30424), align 8, !tbaa !104
-  store ptr %174, ptr @_ZN6googleL12crash_reasonE, align 8, !tbaa !134
-  %175 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN6googleL24fatal_msg_data_exclusiveE, i64 30364), align 4, !tbaa !100
-  store i32 %175, ptr getelementptr inbounds nuw (i8, ptr @_ZN6googleL12crash_reasonE, i64 8), align 8, !tbaa !136
-  %176 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN6googleL24fatal_msg_data_exclusiveE, i64 30392), align 8, !tbaa !125
-  %177 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN6googleL24fatal_msg_data_exclusiveE, i64 4), i64 %176
-  store ptr %177, ptr getelementptr inbounds nuw (i8, ptr @_ZN6googleL12crash_reasonE, i64 16), align 8, !tbaa !137
-  %178 = tail call noundef i32 @_ZN6google24glog_internal_namespace_13GetStackTraceEPPvii(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN6googleL12crash_reasonE, i64 24), i32 noundef 32, i32 noundef 4)
-  store i32 %178, ptr getelementptr inbounds nuw (i8, ptr @_ZN6googleL12crash_reasonE, i64 280), align 8, !tbaa !138
+172:                                              ; preds = %168
+  %173 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN6googleL24fatal_msg_data_exclusiveE, i64 30424), align 8, !tbaa !104
+  store ptr %173, ptr @_ZN6googleL12crash_reasonE, align 8, !tbaa !134
+  %174 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZN6googleL24fatal_msg_data_exclusiveE, i64 30364), align 4, !tbaa !100
+  store i32 %174, ptr getelementptr inbounds nuw (i8, ptr @_ZN6googleL12crash_reasonE, i64 8), align 8, !tbaa !136
+  %175 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_ZN6googleL24fatal_msg_data_exclusiveE, i64 30392), align 8, !tbaa !125
+  %176 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN6googleL24fatal_msg_data_exclusiveE, i64 4), i64 %175
+  store ptr %176, ptr getelementptr inbounds nuw (i8, ptr @_ZN6googleL12crash_reasonE, i64 16), align 8, !tbaa !137
+  %177 = tail call noundef i32 @_ZN6google24glog_internal_namespace_13GetStackTraceEPPvii(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_ZN6googleL12crash_reasonE, i64 24), i32 noundef 32, i32 noundef 4)
+  store i32 %177, ptr getelementptr inbounds nuw (i8, ptr @_ZN6googleL12crash_reasonE, i64 280), align 8, !tbaa !138
   tail call void @_ZN6google24glog_internal_namespace_14SetCrashReasonEPKNS_7logging8internal11CrashReasonE(ptr noundef nonnull @_ZN6googleL12crash_reasonE)
-  %179 = load ptr, ptr %161, align 8, !tbaa !91
-  %180 = getelementptr inbounds nuw i8, ptr %179, i64 30400
-  %181 = load i64, ptr %180, align 8, !tbaa !68
-  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %181, i64 255)
-  %182 = getelementptr inbounds nuw i8, ptr %179, i64 4
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 @_ZN6googleL13fatal_messageE, ptr nonnull align 4 %182, i64 %.sroa.speculated, i1 false)
-  %183 = getelementptr inbounds nuw [256 x i8], ptr @_ZN6googleL13fatal_messageE, i64 0, i64 %.sroa.speculated
-  store i8 0, ptr %183, align 1, !tbaa !51
-  %184 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %185 = load i64, ptr %184, align 8, !tbaa !68
-  store i64 %185, ptr @_ZN6googleL10fatal_timeE, align 8, !tbaa !68
-  br label %186
+  %178 = load ptr, ptr %160, align 8, !tbaa !91
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 30400
+  %180 = load i64, ptr %179, align 8, !tbaa !68
+  %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %180, i64 255)
+  %181 = getelementptr inbounds nuw i8, ptr %178, i64 4
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 @_ZN6googleL13fatal_messageE, ptr nonnull align 4 %181, i64 %.sroa.speculated, i1 false)
+  %182 = getelementptr inbounds nuw [256 x i8], ptr @_ZN6googleL13fatal_messageE, i64 0, i64 %.sroa.speculated
+  store i8 0, ptr %182, align 1, !tbaa !51
+  %183 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %184 = load i64, ptr %183, align 8, !tbaa !68
+  store i64 %184, ptr @_ZN6googleL10fatal_timeE, align 8, !tbaa !68
+  br label %185
 
-186:                                              ; preds = %173, %169
-  %187 = load i8, ptr @_ZN3fLB17FLAGS_logtostderrE, align 1, !tbaa !92, !range !93, !noundef !94
-  %188 = trunc nuw i8 %187 to i1
-  br i1 %188, label %.loopexit, label %189
+185:                                              ; preds = %172, %168
+  %186 = load i8, ptr @_ZN3fLB17FLAGS_logtostderrE, align 1, !tbaa !92, !range !93, !noundef !94
+  %187 = trunc nuw i8 %186 to i1
+  br i1 %187, label %.loopexit, label %188
 
-189:                                              ; preds = %186
-  %190 = load i8, ptr @_ZN3fLB17FLAGS_logtostdoutE, align 1, !tbaa !92, !range !93, !noundef !94
-  %191 = trunc nuw i8 %190 to i1
-  br i1 %191, label %.loopexit, label %.preheader
+188:                                              ; preds = %185
+  %189 = load i8, ptr @_ZN3fLB17FLAGS_logtostdoutE, align 1, !tbaa !92, !range !93, !noundef !94
+  %190 = trunc nuw i8 %189 to i1
+  br i1 %190, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %189, %199
-  %.0.idx22 = phi i64 [ %.0.add, %199 ], [ 0, %189 ]
+.preheader:                                       ; preds = %188, %198
+  %.0.idx22 = phi i64 [ %.0.add, %198 ], [ 0, %188 ]
   %.0.ptr = getelementptr inbounds nuw i8, ptr @_ZN6google14LogDestination17log_destinations_E, i64 %.0.idx22
-  %192 = load ptr, ptr %.0.ptr, align 8, !tbaa !80
-  %.not21 = icmp eq ptr %192, null
-  br i1 %.not21, label %199, label %193
+  %191 = load ptr, ptr %.0.ptr, align 8, !tbaa !80
+  %.not21 = icmp eq ptr %191, null
+  br i1 %.not21, label %198, label %192
 
-193:                                              ; preds = %.preheader
-  %194 = getelementptr inbounds nuw i8, ptr %192, i64 200
-  %195 = load ptr, ptr %194, align 8, !tbaa !76
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #49
-  store i64 0, ptr %3, align 8
-  %196 = load ptr, ptr %195, align 8, !tbaa !3
-  %197 = getelementptr inbounds nuw i8, ptr %196, i64 16
-  %198 = load ptr, ptr %197, align 8
-  call void %198(ptr noundef nonnull align 8 dereferenceable(8) %195, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull @.str.22, i64 noundef 0)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #49
-  br label %199
+192:                                              ; preds = %.preheader
+  %193 = getelementptr inbounds nuw i8, ptr %191, i64 200
+  %194 = load ptr, ptr %193, align 8, !tbaa !76
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #49
+  store i64 0, ptr %2, align 8
+  %195 = load ptr, ptr %194, align 8, !tbaa !3
+  %196 = getelementptr inbounds nuw i8, ptr %195, i64 16
+  %197 = load ptr, ptr %196, align 8
+  call void %197(ptr noundef nonnull align 8 dereferenceable(8) %194, i1 noundef zeroext true, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.22, i64 noundef 0)
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #49
+  br label %198
 
-199:                                              ; preds = %193, %.preheader
+198:                                              ; preds = %192, %.preheader
   %.0.add = add nuw nsw i64 %.0.idx22, 8
   %.not = icmp eq i64 %.0.add, 32
   br i1 %.not, label %.loopexit, label %.preheader
 
-.loopexit:                                        ; preds = %199, %189, %186
-  %200 = load ptr, ptr %161, align 8, !tbaa !91
-  br label %201
+.loopexit:                                        ; preds = %198, %188, %185
+  %199 = load ptr, ptr %160, align 8, !tbaa !91
+  br label %200
 
-201:                                              ; preds = %201, %.loopexit
-  %202 = call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(56) @_ZN6google14LogDestination11sink_mutex_E) #49
-  switch i32 %202, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i15 [
-    i32 11, label %201
-    i32 35, label %203
+200:                                              ; preds = %200, %.loopexit
+  %201 = call noundef i32 @pthread_rwlock_rdlock(ptr noundef nonnull align 8 dereferenceable(56) @_ZN6google14LogDestination11sink_mutex_E) #49
+  switch i32 %201, label %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i15 [
+    i32 11, label %200
+    i32 35, label %202
   ]
 
-203:                                              ; preds = %201
+202:                                              ; preds = %200
   call void @_ZSt20__throw_system_errori(i32 noundef 35) #52
   unreachable
 
-_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i15: ; preds = %201
-  %204 = load ptr, ptr @_ZN6google14LogDestination6sinks_E, align 8, !tbaa !42
-  %.not19.i = icmp eq ptr %204, null
-  br i1 %.not19.i, label %.loopexit.i, label %205
+_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i15: ; preds = %200
+  %203 = load ptr, ptr @_ZN6google14LogDestination6sinks_E, align 8, !tbaa !42
+  %.not19.i = icmp eq ptr %203, null
+  br i1 %.not19.i, label %.loopexit.i, label %204
 
-205:                                              ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i15
-  %206 = getelementptr inbounds nuw i8, ptr %204, i64 8
-  %207 = load ptr, ptr %206, align 8, !tbaa !129
-  %208 = load ptr, ptr %204, align 8, !tbaa !44
+204:                                              ; preds = %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i15
+  %205 = getelementptr inbounds nuw i8, ptr %203, i64 8
+  %206 = load ptr, ptr %205, align 8, !tbaa !129
+  %207 = load ptr, ptr %203, align 8, !tbaa !44
+  %208 = ptrtoint ptr %206 to i64
   %209 = ptrtoint ptr %207 to i64
-  %210 = ptrtoint ptr %208 to i64
-  %211 = sub i64 %209, %210
-  %212 = ashr exact i64 %211, 3
-  br label %213
+  %210 = sub i64 %208, %209
+  %211 = ashr exact i64 %210, 3
+  br label %212
 
-213:                                              ; preds = %214, %205
-  %.0.i16 = phi i64 [ %212, %205 ], [ %215, %214 ]
+212:                                              ; preds = %213, %204
+  %.0.i16 = phi i64 [ %211, %204 ], [ %214, %213 ]
   %.not.i17 = icmp eq i64 %.0.i16, 0
-  br i1 %.not.i17, label %.loopexit.i, label %214
+  br i1 %.not.i17, label %.loopexit.i, label %213
 
-214:                                              ; preds = %213
-  %215 = add i64 %.0.i16, -1
-  %216 = load ptr, ptr @_ZN6google14LogDestination6sinks_E, align 8, !tbaa !42
-  %217 = load ptr, ptr %216, align 8, !tbaa !44
-  %218 = getelementptr inbounds nuw ptr, ptr %217, i64 %215
-  %219 = load ptr, ptr %218, align 8, !tbaa !130
-  %220 = load ptr, ptr %219, align 8, !tbaa !3
-  %221 = getelementptr inbounds nuw i8, ptr %220, i64 24
-  %222 = load ptr, ptr %221, align 8
-  invoke void %222(ptr noundef nonnull align 8 dereferenceable(8) %219)
-          to label %213 unwind label %223, !llvm.loop !139
+213:                                              ; preds = %212
+  %214 = add i64 %.0.i16, -1
+  %215 = load ptr, ptr @_ZN6google14LogDestination6sinks_E, align 8, !tbaa !42
+  %216 = load ptr, ptr %215, align 8, !tbaa !44
+  %217 = getelementptr inbounds nuw ptr, ptr %216, i64 %214
+  %218 = load ptr, ptr %217, align 8, !tbaa !130
+  %219 = load ptr, ptr %218, align 8, !tbaa !3
+  %220 = getelementptr inbounds nuw i8, ptr %219, i64 24
+  %221 = load ptr, ptr %220, align 8
+  invoke void %221(ptr noundef nonnull align 8 dereferenceable(8) %218)
+          to label %212 unwind label %222, !llvm.loop !139
 
-223:                                              ; preds = %214
-  %224 = landingpad { ptr, i32 }
+222:                                              ; preds = %213
+  %223 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt11shared_lockISt12shared_mutexED2Ev.exit16.i
 
-.loopexit.i:                                      ; preds = %213, %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i15
-  %225 = getelementptr inbounds nuw i8, ptr %200, i64 30368
-  %.unpack.i = load i64, ptr %225, align 8, !tbaa !101
-  %.elt11.i = getelementptr inbounds nuw i8, ptr %200, i64 30376
+.loopexit.i:                                      ; preds = %212, %_ZNSt11shared_lockISt12shared_mutexEC2ERS0_.exit.i15
+  %224 = getelementptr inbounds nuw i8, ptr %199, i64 30368
+  %.unpack.i = load i64, ptr %224, align 8, !tbaa !101
+  %.elt11.i = getelementptr inbounds nuw i8, ptr %199, i64 30376
   %.unpack12.i = load i64, ptr %.elt11.i, align 8, !tbaa !101
-  %226 = icmp eq i64 %.unpack.i, ptrtoint (ptr @_ZN6google10LogMessage10SendToSinkEv to i64)
-  %227 = icmp eq i64 %.unpack12.i, 0
-  %228 = icmp eq i64 %.unpack.i, ptrtoint (ptr @_ZN6google10LogMessage16SendToSinkAndLogEv to i64)
-  %229 = or i1 %226, %228
-  %or.cond.i = and i1 %229, %227
+  %225 = icmp eq i64 %.unpack.i, ptrtoint (ptr @_ZN6google10LogMessage10SendToSinkEv to i64)
+  %226 = icmp eq i64 %.unpack12.i, 0
+  %227 = icmp eq i64 %.unpack.i, ptrtoint (ptr @_ZN6google10LogMessage16SendToSinkAndLogEv to i64)
+  %228 = or i1 %225, %227
+  %or.cond.i = and i1 %228, %226
   br i1 %or.cond.i, label %.critedge.i, label %_ZN6google14LogDestination12WaitForSinksEPNS_7logging8internal14LogMessageDataE.exit
 
 .critedge.i:                                      ; preds = %.loopexit.i
-  %230 = getelementptr inbounds nuw i8, ptr %200, i64 30384
-  %231 = load ptr, ptr %230, align 8, !tbaa !51
-  %.not13.i19 = icmp eq ptr %231, null
-  br i1 %.not13.i19, label %_ZN6google14LogDestination12WaitForSinksEPNS_7logging8internal14LogMessageDataE.exit, label %232
+  %229 = getelementptr inbounds nuw i8, ptr %199, i64 30384
+  %230 = load ptr, ptr %229, align 8, !tbaa !51
+  %.not13.i19 = icmp eq ptr %230, null
+  br i1 %.not13.i19, label %_ZN6google14LogDestination12WaitForSinksEPNS_7logging8internal14LogMessageDataE.exit, label %231
 
-232:                                              ; preds = %.critedge.i
-  %233 = load ptr, ptr %231, align 8, !tbaa !3
-  %234 = getelementptr inbounds nuw i8, ptr %233, i64 24
-  %235 = load ptr, ptr %234, align 8
-  invoke void %235(ptr noundef nonnull align 8 dereferenceable(8) %231)
-          to label %_ZN6google14LogDestination12WaitForSinksEPNS_7logging8internal14LogMessageDataE.exit unwind label %236
+231:                                              ; preds = %.critedge.i
+  %232 = load ptr, ptr %230, align 8, !tbaa !3
+  %233 = getelementptr inbounds nuw i8, ptr %232, i64 24
+  %234 = load ptr, ptr %233, align 8
+  invoke void %234(ptr noundef nonnull align 8 dereferenceable(8) %230)
+          to label %_ZN6google14LogDestination12WaitForSinksEPNS_7logging8internal14LogMessageDataE.exit unwind label %235
 
-236:                                              ; preds = %232
-  %237 = landingpad { ptr, i32 }
+235:                                              ; preds = %231
+  %236 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt11shared_lockISt12shared_mutexED2Ev.exit16.i
 
-_ZNSt11shared_lockISt12shared_mutexED2Ev.exit16.i: ; preds = %236, %223
-  %.pn.i = phi { ptr, i32 } [ %224, %223 ], [ %237, %236 ]
-  %238 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) @_ZN6google14LogDestination11sink_mutex_E) #49
+_ZNSt11shared_lockISt12shared_mutexED2Ev.exit16.i: ; preds = %235, %222
+  %.pn.i = phi { ptr, i32 } [ %223, %222 ], [ %236, %235 ]
+  %237 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) @_ZN6google14LogDestination11sink_mutex_E) #49
   br label %common.resume
 
-_ZN6google14LogDestination12WaitForSinksEPNS_7logging8internal14LogMessageDataE.exit: ; preds = %.loopexit.i, %.critedge.i, %232
-  %239 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) @_ZN6google14LogDestination11sink_mutex_E) #49
-  br label %240
+_ZN6google14LogDestination12WaitForSinksEPNS_7logging8internal14LogMessageDataE.exit: ; preds = %.loopexit.i, %.critedge.i, %231
+  %238 = call noundef i32 @pthread_rwlock_unlock(ptr noundef nonnull align 8 dereferenceable(56) @_ZN6google14LogDestination11sink_mutex_E) #49
+  br label %239
 
-240:                                              ; preds = %_ZN6google14LogDestination12WaitForSinksEPNS_7logging8internal14LogMessageDataE.exit, %166, %_ZN6google14LogDestination10LogToSinksENS_11LogSeverityEPKcS3_iRKNS_14LogMessageTimeES3_m.exit
+239:                                              ; preds = %_ZN6google14LogDestination12WaitForSinksEPNS_7logging8internal14LogMessageDataE.exit, %165, %_ZN6google14LogDestination10LogToSinksENS_11LogSeverityEPKcS3_iRKNS_14LogMessageTimeES3_m.exit
   ret void
 }
 
@@ -4082,13 +4078,13 @@ _ZN6googleL15SeverityToColorENS_11LogSeverityE.exit.thread14.i.i: ; preds = %25,
   unreachable
 
 27:                                               ; preds = %25, %.critedge.i.i, %20, %13
-  %28 = tail call i64 @fwrite(ptr noundef %2, i64 noundef %3, i64 noundef 1, ptr noundef %14) #55
+  %28 = tail call i64 @fwrite(ptr noundef readonly %2, i64 noundef %3, i64 noundef 1, ptr noundef %14) #55
   br label %_ZN6googleL20ColoredWriteToStderrENS_11LogSeverityEPKcm.exit
 
 _ZN6googleL16GetAnsiColorCodeENS_9GLogColorE.exit.i.i: ; preds = %_ZN6googleL15SeverityToColorENS_11LogSeverityE.exit.thread14.i.i, %25
   %.0.i13.i.i = phi ptr [ @.str.104, %_ZN6googleL15SeverityToColorENS_11LogSeverityE.exit.thread14.i.i ], [ @.str.106, %25 ]
   %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.102, ptr noundef nonnull %.0.i13.i.i) #56
-  %30 = tail call i64 @fwrite(ptr noundef %2, i64 noundef %3, i64 noundef 1, ptr noundef %14) #55
+  %30 = tail call i64 @fwrite(ptr noundef readonly %2, i64 noundef %3, i64 noundef 1, ptr noundef %14) #55
   %31 = tail call i64 @fwrite(ptr nonnull @.str.103, i64 3, i64 1, ptr %14) #55
   br label %_ZN6googleL20ColoredWriteToStderrENS_11LogSeverityEPKcm.exit
 
@@ -4166,7 +4162,7 @@ _ZN6googleL20ColoredWriteToStderrENS_11LogSeverityEPKcm.exit: ; preds = %_ZN6goo
 declare noundef zeroext i1 @_ZN6google26IsGoogleLoggingInitializedEv() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define internal fastcc void @_ZN6googleL20ColoredWriteToStdoutENS_11LogSeverityEPKcm(i32 noundef %0, ptr noundef captures(none) %1, i64 noundef %2) unnamed_addr #26 {
+define internal fastcc void @_ZN6googleL20ColoredWriteToStdoutENS_11LogSeverityEPKcm(i32 noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) unnamed_addr #26 {
   %4 = load i32, ptr @_ZN3fLI21FLAGS_stderrthresholdE, align 4, !tbaa !97
   %.not = icmp slt i32 %0, %4
   %stdout.val = load ptr, ptr @stdout, align 8
@@ -4205,13 +4201,13 @@ _ZN6googleL15SeverityToColorENS_11LogSeverityE.exit.thread14.i: ; preds = %14, %
   unreachable
 
 16:                                               ; preds = %14, %.critedge.i, %9, %3
-  %17 = tail call i64 @fwrite(ptr noundef %1, i64 noundef %2, i64 noundef 1, ptr noundef %.0)
+  %17 = tail call i64 @fwrite(ptr noundef readonly %1, i64 noundef %2, i64 noundef 1, ptr noundef %.0)
   br label %_ZN6googleL28ColoredWriteToStderrOrStdoutEP8_IO_FILENS_11LogSeverityEPKcm.exit
 
 _ZN6googleL16GetAnsiColorCodeENS_9GLogColorE.exit.i: ; preds = %_ZN6googleL15SeverityToColorENS_11LogSeverityE.exit.thread14.i, %14
   %.0.i13.i = phi ptr [ @.str.104, %_ZN6googleL15SeverityToColorENS_11LogSeverityE.exit.thread14.i ], [ @.str.106, %14 ]
   %18 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %.0, ptr noundef nonnull @.str.102, ptr noundef nonnull %.0.i13.i) #49
-  %19 = tail call i64 @fwrite(ptr noundef %1, i64 noundef %2, i64 noundef 1, ptr noundef %.0)
+  %19 = tail call i64 @fwrite(ptr noundef readonly %1, i64 noundef %2, i64 noundef 1, ptr noundef %.0)
   %20 = tail call i64 @fwrite(ptr nonnull @.str.103, i64 3, i64 1, ptr %.0)
   br label %_ZN6googleL28ColoredWriteToStderrOrStdoutEP8_IO_FILENS_11LogSeverityEPKcm.exit
 
@@ -4266,13 +4262,13 @@ _ZN6googleL15SeverityToColorENS_11LogSeverityE.exit.thread14.i.i: ; preds = %21,
   unreachable
 
 23:                                               ; preds = %21, %.critedge.i.i, %16, %9
-  %24 = tail call i64 @fwrite(ptr noundef %1, i64 noundef %2, i64 noundef 1, ptr noundef %10) #55
+  %24 = tail call i64 @fwrite(ptr noundef readonly %1, i64 noundef %2, i64 noundef 1, ptr noundef %10) #55
   br label %_ZN6googleL20ColoredWriteToStderrENS_11LogSeverityEPKcm.exit
 
 _ZN6googleL16GetAnsiColorCodeENS_9GLogColorE.exit.i.i: ; preds = %_ZN6googleL15SeverityToColorENS_11LogSeverityE.exit.thread14.i.i, %21
   %.0.i13.i.i = phi ptr [ @.str.104, %_ZN6googleL15SeverityToColorENS_11LogSeverityE.exit.thread14.i.i ], [ @.str.106, %21 ]
   %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %10, ptr noundef nonnull @.str.102, ptr noundef nonnull %.0.i13.i.i) #56
-  %26 = tail call i64 @fwrite(ptr noundef %1, i64 noundef %2, i64 noundef 1, ptr noundef %10) #55
+  %26 = tail call i64 @fwrite(ptr noundef readonly %1, i64 noundef %2, i64 noundef 1, ptr noundef %10) #55
   %27 = tail call i64 @fwrite(ptr nonnull @.str.103, i64 3, i64 1, ptr %10) #55
   br label %_ZN6googleL20ColoredWriteToStderrENS_11LogSeverityEPKcm.exit
 
@@ -12951,7 +12947,7 @@ define internal void @_ZN6google12_GLOBAL__N_113LogFileObjectD0Ev(ptr noundef no
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal void @_ZN6google12_GLOBAL__N_113LogFileObject5WriteEbRKNSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEEEPKcm(ptr noundef nonnull align 8 dereferenceable(200) %0, i1 noundef zeroext %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef captures(none) %3, i64 noundef %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define internal void @_ZN6google12_GLOBAL__N_113LogFileObject5WriteEbRKNSt6chrono10time_pointINS2_3_V212system_clockENS2_8durationIlSt5ratioILl1ELl1000000000EEEEEEPKcm(ptr noundef nonnull align 8 dereferenceable(200) %0, i1 noundef zeroext %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %2, ptr noundef readonly captures(none) %3, i64 noundef %4) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %6 = alloca i8, align 1
   %7 = alloca i8, align 1
   %8 = alloca i8, align 1
@@ -16893,7 +16889,7 @@ declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly ca
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZN6google24glog_internal_namespace_10MyUserNameB5cxx11Ev() local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #19
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #19
 
 ; Function Attrs: nounwind
 declare i32 @posix_fadvise(i32 noundef, i64 noundef, i64 noundef, i32 noundef) local_unnamed_addr #17

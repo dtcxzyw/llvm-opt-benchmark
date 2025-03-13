@@ -4411,14 +4411,14 @@ define dso_local noundef zeroext i1 @_ZN6spdlog7details2os5fsyncEP8_IO_FILE(ptr 
 declare i32 @fsync(i32 noundef) local_unnamed_addr #23
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local noundef zeroext i1 @_ZN6spdlog7details2os12fwrite_bytesEPKvmP8_IO_FILE(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #16 {
+define dso_local noundef zeroext i1 @_ZN6spdlog7details2os12fwrite_bytesEPKvmP8_IO_FILE(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef captures(none) %2) local_unnamed_addr #16 {
   %4 = tail call i64 @fwrite_unlocked(ptr noundef %0, i64 noundef 1, i64 noundef %1, ptr noundef %2)
   %5 = icmp eq i64 %4, %1
   ret i1 %5
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite_unlocked(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #17
+declare noundef i64 @fwrite_unlocked(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN6spdlog7details8registryC2Ev(ptr noundef nonnull align 8 dereferenceable(336) initializes((0, 120)) %0) unnamed_addr #6 align 2 personality ptr @__gxx_personality_v0 {

@@ -1939,7 +1939,7 @@ get8.exit18:                                      ; preds = %69, %71, %79, %81
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 0, 2) i32 @getn(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #17 {
+define range(i32 0, 2) i32 @getn(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2) local_unnamed_addr #17 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %5 = load ptr, ptr %4, align 8, !tbaa !59
   %.not = icmp eq ptr %5, null
@@ -1983,7 +1983,7 @@ define range(i32 0, 2) i32 @getn(ptr noundef captures(none) %0, ptr noundef capt
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #24
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #24
 
 ; Function Attrs: nofree nounwind uwtable
 define void @skip(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #17 {

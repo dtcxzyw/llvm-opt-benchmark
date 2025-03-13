@@ -1206,7 +1206,7 @@ Vec_IntPush.exit:                                 ; preds = %.Vec_IntGrow.exit10
   br i1 %202, label %203, label %206
 
 203:                                              ; preds = %Vec_IntPush.exit
-  %ldexp = call double @ldexp(double 1.000000e+00, i32 %81) #18
+  %ldexp = call double @ldexp(double 1.000000e+00, i32 %81)
   %204 = fdiv double 1.000000e+00, %ldexp
   %205 = fadd double %.0107208, %204
   br label %206
@@ -1512,7 +1512,7 @@ Vec_IntPush.exit172:                              ; preds = %.Vec_IntGrow.exit10
   br i1 %345, label %346, label %349
 
 346:                                              ; preds = %Vec_IntPush.exit172
-  %ldexp117 = call double @ldexp(double 1.000000e+00, i32 %81) #18
+  %ldexp117 = call double @ldexp(double 1.000000e+00, i32 %81)
   %347 = fdiv double 1.000000e+00, %ldexp117
   %348 = fadd double %.1, %347
   br label %349
@@ -2667,7 +2667,7 @@ Vec_PtrPush.exit246.us:                           ; preds = %Vec_PtrGrow.exit.i2
   br label %380
 
 377:                                              ; preds = %134
-  %ldexp.us = call double @ldexp(double 1.000000e+00, i32 %101) #18
+  %ldexp.us = call double @ldexp(double 1.000000e+00, i32 %101)
   %378 = fdiv double 1.000000e+00, %ldexp.us
   %379 = fadd double %.1286.us, %378
   br label %380
@@ -3537,7 +3537,7 @@ declare i32 @llvm.smin.i32(i32, i32) #15
 ; Function Attrs: nofree nounwind
 declare noundef i32 @putchar(i32 noundef) local_unnamed_addr #16
 
-; Function Attrs: nofree willreturn memory(errnomem: write)
+; Function Attrs: nofree nounwind willreturn memory(errnomem: write)
 declare double @ldexp(double, i32) local_unnamed_addr #17
 
 ; Function Attrs: nofree nounwind
@@ -3566,7 +3566,7 @@ attributes #13 = { mustprogress nofree nounwind willreturn memory(argmem: read) 
 attributes #14 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #16 = { nofree nounwind }
-attributes #17 = { nofree willreturn memory(errnomem: write) }
+attributes #17 = { nofree nounwind willreturn memory(errnomem: write) }
 attributes #18 = { nounwind }
 attributes #19 = { nounwind allocsize(0) }
 attributes #20 = { nounwind allocsize(1) }

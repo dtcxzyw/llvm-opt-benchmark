@@ -11999,7 +11999,7 @@ declare void @_ZN2cv3Mat6createEiii(ptr noundef nonnull align 8 dereferenceable(
 declare noundef zeroext i1 @_ZNK2cv11_InputArray12isContinuousEi(ptr noundef nonnull align 8 dereferenceable(24), i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #14
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #14
 
 declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 
@@ -25019,7 +25019,7 @@ define linkonce_odr hidden void @_ZN7cvflann11KMeansIndexINS_10HammingLUTEE9save
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #14
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN7cvflann11KMeansIndexINS_10HammingLUTEE9load_treeEP8_IO_FILERPNS2_10KMeansNodeEi(ptr noundef nonnull align 8 dereferenceable(212) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, i32 noundef %3) local_unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -42237,50 +42237,48 @@ define linkonce_odr hidden void @_ZN7cvflann17KDTreeSingleIndexINS_2L2IfEEE9save
   store i64 %16, ptr %4, align 8, !tbaa !26
   %17 = call i64 @fwrite(ptr noundef nonnull %4, i64 noundef 8, i64 noundef 1, ptr noundef %1)
   %18 = load ptr, ptr %9, align 8, !tbaa !710
-  %19 = load i64, ptr %4, align 8, !tbaa !26
-  %20 = tail call i64 @fwrite(ptr noundef nonnull %18, i64 noundef 8, i64 noundef %19, ptr noundef %1)
+  %19 = tail call i64 @fwrite(ptr noundef nonnull %18, i64 noundef 8, i64 noundef %16, ptr noundef %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #34
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %char = load i8, ptr %21, align 4
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %char = load i8, ptr %20, align 4
   %chari = sext i8 %char to i32
   %fputc = tail call i32 @fputc(i32 %chari, ptr %1)
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %23 = tail call i64 @fwrite(ptr noundef nonnull align 4 dereferenceable(4) %22, i64 noundef 4, i64 noundef 1, ptr noundef %1)
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %22 = tail call i64 @fwrite(ptr noundef nonnull align 4 dereferenceable(4) %21, i64 noundef 4, i64 noundef 1, ptr noundef %1)
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 96
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #34
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %26 = load ptr, ptr %25, align 8, !tbaa !303
-  %27 = load ptr, ptr %24, align 8, !tbaa !302
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %25 = load ptr, ptr %24, align 8, !tbaa !303
+  %26 = load ptr, ptr %23, align 8, !tbaa !302
+  %27 = ptrtoint ptr %25 to i64
   %28 = ptrtoint ptr %26 to i64
-  %29 = ptrtoint ptr %27 to i64
-  %30 = sub i64 %28, %29
-  %31 = ashr exact i64 %30, 2
-  store i64 %31, ptr %3, align 8, !tbaa !26
-  %32 = call i64 @fwrite(ptr noundef nonnull %3, i64 noundef 8, i64 noundef 1, ptr noundef %1)
-  %33 = load ptr, ptr %24, align 8, !tbaa !302
-  %34 = load i64, ptr %3, align 8, !tbaa !26
-  %35 = tail call i64 @fwrite(ptr noundef nonnull %33, i64 noundef 4, i64 noundef %34, ptr noundef %1)
+  %29 = sub i64 %27, %28
+  %30 = ashr exact i64 %29, 2
+  store i64 %30, ptr %3, align 8, !tbaa !26
+  %31 = call i64 @fwrite(ptr noundef nonnull %3, i64 noundef 8, i64 noundef 1, ptr noundef %1)
+  %32 = load ptr, ptr %23, align 8, !tbaa !302
+  %33 = tail call i64 @fwrite(ptr noundef nonnull %32, i64 noundef 4, i64 noundef %30, ptr noundef %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #34
-  %36 = load i8, ptr %21, align 4, !tbaa !708, !range !65, !noundef !66
-  %37 = trunc nuw i8 %36 to i1
-  br i1 %37, label %38, label %48
+  %34 = load i8, ptr %20, align 4, !tbaa !708, !range !65, !noundef !66
+  %35 = trunc nuw i8 %34 to i1
+  br i1 %35, label %36, label %46
 
-38:                                               ; preds = %2
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %40 = tail call i64 @fwrite(ptr noundef nonnull align 8 dereferenceable(32) %39, i64 noundef 32, i64 noundef 1, ptr noundef %1)
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %42 = load ptr, ptr %41, align 8, !tbaa !660
-  %43 = load i64, ptr %39, align 8, !tbaa !656
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %45 = load i64, ptr %44, align 8, !tbaa !659
-  %46 = mul i64 %45, %43
-  %47 = tail call i64 @fwrite(ptr noundef %42, i64 noundef 4, i64 noundef %46, ptr noundef %1)
-  br label %48
+36:                                               ; preds = %2
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %38 = tail call i64 @fwrite(ptr noundef nonnull align 8 dereferenceable(32) %37, i64 noundef 32, i64 noundef 1, ptr noundef %1)
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %40 = load ptr, ptr %39, align 8, !tbaa !660
+  %41 = load i64, ptr %37, align 8, !tbaa !656
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %43 = load i64, ptr %42, align 8, !tbaa !659
+  %44 = mul i64 %43, %41
+  %45 = tail call i64 @fwrite(ptr noundef %40, i64 noundef 4, i64 noundef %44, ptr noundef %1)
+  br label %46
 
-48:                                               ; preds = %38, %2
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %50 = load ptr, ptr %49, align 8, !tbaa !706
-  tail call void @_ZN7cvflann17KDTreeSingleIndexINS_2L2IfEEE9save_treeEP8_IO_FILEPNS3_4NodeE(ptr noundef nonnull align 8 dereferenceable(241) %0, ptr noundef %1, ptr noundef %50)
+46:                                               ; preds = %36, %2
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %48 = load ptr, ptr %47, align 8, !tbaa !706
+  tail call void @_ZN7cvflann17KDTreeSingleIndexINS_2L2IfEEE9save_treeEP8_IO_FILEPNS3_4NodeE(ptr noundef nonnull align 8 dereferenceable(241) %0, ptr noundef %1, ptr noundef %48)
   ret void
 }
 
@@ -76415,50 +76413,48 @@ define linkonce_odr hidden void @_ZN7cvflann17KDTreeSingleIndexINS_2L1IfEEE9save
   store i64 %16, ptr %4, align 8, !tbaa !26
   %17 = call i64 @fwrite(ptr noundef nonnull %4, i64 noundef 8, i64 noundef 1, ptr noundef %1)
   %18 = load ptr, ptr %9, align 8, !tbaa !1314
-  %19 = load i64, ptr %4, align 8, !tbaa !26
-  %20 = tail call i64 @fwrite(ptr noundef nonnull %18, i64 noundef 8, i64 noundef %19, ptr noundef %1)
+  %19 = tail call i64 @fwrite(ptr noundef nonnull %18, i64 noundef 8, i64 noundef %16, ptr noundef %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #34
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %char = load i8, ptr %21, align 4
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %char = load i8, ptr %20, align 4
   %chari = sext i8 %char to i32
   %fputc = tail call i32 @fputc(i32 %chari, ptr %1)
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %23 = tail call i64 @fwrite(ptr noundef nonnull align 4 dereferenceable(4) %22, i64 noundef 4, i64 noundef 1, ptr noundef %1)
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %22 = tail call i64 @fwrite(ptr noundef nonnull align 4 dereferenceable(4) %21, i64 noundef 4, i64 noundef 1, ptr noundef %1)
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 96
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #34
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %26 = load ptr, ptr %25, align 8, !tbaa !303
-  %27 = load ptr, ptr %24, align 8, !tbaa !302
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %25 = load ptr, ptr %24, align 8, !tbaa !303
+  %26 = load ptr, ptr %23, align 8, !tbaa !302
+  %27 = ptrtoint ptr %25 to i64
   %28 = ptrtoint ptr %26 to i64
-  %29 = ptrtoint ptr %27 to i64
-  %30 = sub i64 %28, %29
-  %31 = ashr exact i64 %30, 2
-  store i64 %31, ptr %3, align 8, !tbaa !26
-  %32 = call i64 @fwrite(ptr noundef nonnull %3, i64 noundef 8, i64 noundef 1, ptr noundef %1)
-  %33 = load ptr, ptr %24, align 8, !tbaa !302
-  %34 = load i64, ptr %3, align 8, !tbaa !26
-  %35 = tail call i64 @fwrite(ptr noundef nonnull %33, i64 noundef 4, i64 noundef %34, ptr noundef %1)
+  %29 = sub i64 %27, %28
+  %30 = ashr exact i64 %29, 2
+  store i64 %30, ptr %3, align 8, !tbaa !26
+  %31 = call i64 @fwrite(ptr noundef nonnull %3, i64 noundef 8, i64 noundef 1, ptr noundef %1)
+  %32 = load ptr, ptr %23, align 8, !tbaa !302
+  %33 = tail call i64 @fwrite(ptr noundef nonnull %32, i64 noundef 4, i64 noundef %30, ptr noundef %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #34
-  %36 = load i8, ptr %21, align 4, !tbaa !1312, !range !65, !noundef !66
-  %37 = trunc nuw i8 %36 to i1
-  br i1 %37, label %38, label %48
+  %34 = load i8, ptr %20, align 4, !tbaa !1312, !range !65, !noundef !66
+  %35 = trunc nuw i8 %34 to i1
+  br i1 %35, label %36, label %46
 
-38:                                               ; preds = %2
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %40 = tail call i64 @fwrite(ptr noundef nonnull align 8 dereferenceable(32) %39, i64 noundef 32, i64 noundef 1, ptr noundef %1)
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %42 = load ptr, ptr %41, align 8, !tbaa !660
-  %43 = load i64, ptr %39, align 8, !tbaa !656
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %45 = load i64, ptr %44, align 8, !tbaa !659
-  %46 = mul i64 %45, %43
-  %47 = tail call i64 @fwrite(ptr noundef %42, i64 noundef 4, i64 noundef %46, ptr noundef %1)
-  br label %48
+36:                                               ; preds = %2
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %38 = tail call i64 @fwrite(ptr noundef nonnull align 8 dereferenceable(32) %37, i64 noundef 32, i64 noundef 1, ptr noundef %1)
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %40 = load ptr, ptr %39, align 8, !tbaa !660
+  %41 = load i64, ptr %37, align 8, !tbaa !656
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %43 = load i64, ptr %42, align 8, !tbaa !659
+  %44 = mul i64 %43, %41
+  %45 = tail call i64 @fwrite(ptr noundef %40, i64 noundef 4, i64 noundef %44, ptr noundef %1)
+  br label %46
 
-48:                                               ; preds = %38, %2
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %50 = load ptr, ptr %49, align 8, !tbaa !1310
-  tail call void @_ZN7cvflann17KDTreeSingleIndexINS_2L1IfEEE9save_treeEP8_IO_FILEPNS3_4NodeE(ptr noundef nonnull align 8 dereferenceable(241) %0, ptr noundef %1, ptr noundef %50)
+46:                                               ; preds = %36, %2
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %48 = load ptr, ptr %47, align 8, !tbaa !1310
+  tail call void @_ZN7cvflann17KDTreeSingleIndexINS_2L1IfEEE9save_treeEP8_IO_FILEPNS3_4NodeE(ptr noundef nonnull align 8 dereferenceable(241) %0, ptr noundef %1, ptr noundef %48)
   ret void
 }
 

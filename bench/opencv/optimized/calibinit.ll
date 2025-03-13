@@ -18004,7 +18004,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit32: ; preds = %_ZN
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #27
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #27
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #27
@@ -21478,50 +21478,48 @@ define linkonce_odr hidden void @_ZN7cvflann17KDTreeSingleIndexINS_9L2_SimpleIfE
   store i64 %16, ptr %4, align 8, !tbaa !69
   %17 = call i64 @fwrite(ptr noundef nonnull %4, i64 noundef 8, i64 noundef 1, ptr noundef %1)
   %18 = load ptr, ptr %9, align 8, !tbaa !487
-  %19 = load i64, ptr %4, align 8, !tbaa !69
-  %20 = tail call i64 @fwrite(ptr noundef nonnull %18, i64 noundef 8, i64 noundef %19, ptr noundef %1)
+  %19 = tail call i64 @fwrite(ptr noundef nonnull %18, i64 noundef 8, i64 noundef %16, ptr noundef %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #40
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  %char = load i8, ptr %21, align 4
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  %char = load i8, ptr %20, align 4
   %chari = sext i8 %char to i32
   %fputc = tail call i32 @fputc(i32 %chari, ptr %1)
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %23 = tail call i64 @fwrite(ptr noundef nonnull align 4 dereferenceable(4) %22, i64 noundef 4, i64 noundef 1, ptr noundef %1)
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %22 = tail call i64 @fwrite(ptr noundef nonnull align 4 dereferenceable(4) %21, i64 noundef 4, i64 noundef 1, ptr noundef %1)
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 96
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #40
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %26 = load ptr, ptr %25, align 8, !tbaa !80
-  %27 = load ptr, ptr %24, align 8, !tbaa !81
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %25 = load ptr, ptr %24, align 8, !tbaa !80
+  %26 = load ptr, ptr %23, align 8, !tbaa !81
+  %27 = ptrtoint ptr %25 to i64
   %28 = ptrtoint ptr %26 to i64
-  %29 = ptrtoint ptr %27 to i64
-  %30 = sub i64 %28, %29
-  %31 = ashr exact i64 %30, 2
-  store i64 %31, ptr %3, align 8, !tbaa !69
-  %32 = call i64 @fwrite(ptr noundef nonnull %3, i64 noundef 8, i64 noundef 1, ptr noundef %1)
-  %33 = load ptr, ptr %24, align 8, !tbaa !81
-  %34 = load i64, ptr %3, align 8, !tbaa !69
-  %35 = tail call i64 @fwrite(ptr noundef nonnull %33, i64 noundef 4, i64 noundef %34, ptr noundef %1)
+  %29 = sub i64 %27, %28
+  %30 = ashr exact i64 %29, 2
+  store i64 %30, ptr %3, align 8, !tbaa !69
+  %31 = call i64 @fwrite(ptr noundef nonnull %3, i64 noundef 8, i64 noundef 1, ptr noundef %1)
+  %32 = load ptr, ptr %23, align 8, !tbaa !81
+  %33 = tail call i64 @fwrite(ptr noundef nonnull %32, i64 noundef 4, i64 noundef %30, ptr noundef %1)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #40
-  %36 = load i8, ptr %21, align 4, !tbaa !483, !range !278, !noundef !279
-  %37 = trunc nuw i8 %36 to i1
-  br i1 %37, label %38, label %48
+  %34 = load i8, ptr %20, align 4, !tbaa !483, !range !278, !noundef !279
+  %35 = trunc nuw i8 %34 to i1
+  br i1 %35, label %36, label %46
 
-38:                                               ; preds = %2
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %40 = tail call i64 @fwrite(ptr noundef nonnull align 8 dereferenceable(32) %39, i64 noundef 32, i64 noundef 1, ptr noundef %1)
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  %42 = load ptr, ptr %41, align 8, !tbaa !111
-  %43 = load i64, ptr %39, align 8, !tbaa !108
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %45 = load i64, ptr %44, align 8, !tbaa !110
-  %46 = mul i64 %45, %43
-  %47 = tail call i64 @fwrite(ptr noundef %42, i64 noundef 4, i64 noundef %46, ptr noundef %1)
-  br label %48
+36:                                               ; preds = %2
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %38 = tail call i64 @fwrite(ptr noundef nonnull align 8 dereferenceable(32) %37, i64 noundef 32, i64 noundef 1, ptr noundef %1)
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  %40 = load ptr, ptr %39, align 8, !tbaa !111
+  %41 = load i64, ptr %37, align 8, !tbaa !108
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  %43 = load i64, ptr %42, align 8, !tbaa !110
+  %44 = mul i64 %43, %41
+  %45 = tail call i64 @fwrite(ptr noundef %40, i64 noundef 4, i64 noundef %44, ptr noundef %1)
+  br label %46
 
-48:                                               ; preds = %38, %2
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %50 = load ptr, ptr %49, align 8, !tbaa !481
-  tail call void @_ZN7cvflann17KDTreeSingleIndexINS_9L2_SimpleIfEEE9save_treeEP8_IO_FILEPNS3_4NodeE(ptr noundef nonnull align 8 dereferenceable(241) %0, ptr noundef %1, ptr noundef %50)
+46:                                               ; preds = %36, %2
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %48 = load ptr, ptr %47, align 8, !tbaa !481
+  tail call void @_ZN7cvflann17KDTreeSingleIndexINS_9L2_SimpleIfEEE9save_treeEP8_IO_FILEPNS3_4NodeE(ptr noundef nonnull align 8 dereferenceable(241) %0, ptr noundef %1, ptr noundef %48)
   ret void
 }
 
@@ -23294,7 +23292,7 @@ tailrecurse:                                      ; preds = %8, %3
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #27
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #27
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN7cvflann10load_valueINS_17KDTreeSingleIndexINS_9L2_SimpleIfEEE8IntervalEEEvP8_IO_FILERSt6vectorIT_SaIS9_EE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #3 comdat personality ptr @__gxx_personality_v0 {

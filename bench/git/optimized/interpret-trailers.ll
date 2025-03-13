@@ -830,7 +830,7 @@ declare void @trailer_config_init() local_unnamed_addr #3
 declare ptr @parse_trailers(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #8
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
 declare i64 @trailer_block_start(ptr noundef) local_unnamed_addr #3
 

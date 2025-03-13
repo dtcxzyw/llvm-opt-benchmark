@@ -621,7 +621,7 @@ _ZN3fmt3v1119basic_memory_bufferIcLm500ESaIcEED2Ev.exit: ; preds = %17, %19
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #1
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #1
@@ -2948,7 +2948,7 @@ define noundef zeroext i1 @_ZN3fmt3v116detail13write_consoleEiNS0_17basic_string
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN3fmt3v116detail5printEP8_IO_FILENS0_17basic_string_viewIcEE(ptr noundef captures(none) %0, ptr captures(none) %1, i64 %2) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
+define void @_ZN3fmt3v116detail5printEP8_IO_FILENS0_17basic_string_viewIcEE(ptr noundef captures(none) %0, ptr readonly captures(none) %1, i64 %2) local_unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %4 = tail call i64 @fwrite(ptr noundef %1, i64 noundef 1, i64 noundef %2, ptr noundef %0)
   %5 = icmp ult i64 %4, %2
   br i1 %5, label %6, label %_ZN3fmt3v116detail12fwrite_fullyEPKvmP8_IO_FILE.exit
@@ -2992,7 +2992,7 @@ define void @_ZN3fmt3v1115vprint_bufferedEP8_IO_FILENS0_17basic_string_viewIcEEN
 11:                                               ; preds = %5
   %12 = load ptr, ptr %6, align 8, !tbaa !20
   %13 = load i64, ptr %9, align 8, !tbaa !8
-  %14 = call i64 @fwrite(ptr noundef %12, i64 noundef 1, i64 noundef %13, ptr noundef %0)
+  %14 = call i64 @fwrite(ptr noundef readonly %12, i64 noundef 1, i64 noundef %13, ptr noundef %0)
   %15 = icmp ult i64 %14, %13
   br i1 %15, label %16, label %_ZN3fmt3v116detail5printEP8_IO_FILENS0_17basic_string_viewIcEE.exit
 
@@ -3098,7 +3098,7 @@ define void @_ZN3fmt3v118vprintlnEP8_IO_FILENS0_17basic_string_viewIcEENS0_17bas
   store i8 10, ptr %21, align 1, !tbaa !40
   %22 = load ptr, ptr %6, align 8, !tbaa !20
   %23 = load i64, ptr %9, align 8, !tbaa !8
-  %24 = call i64 @fwrite(ptr noundef %22, i64 noundef 1, i64 noundef %23, ptr noundef %0)
+  %24 = call i64 @fwrite(ptr noundef readonly %22, i64 noundef 1, i64 noundef %23, ptr noundef %0)
   %25 = icmp ult i64 %24, %23
   br i1 %25, label %26, label %_ZN3fmt3v116detail5printEP8_IO_FILENS0_17basic_string_viewIcEE.exit
 

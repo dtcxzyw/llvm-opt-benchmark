@@ -572,7 +572,7 @@ inet_hist_match_divider.exit97:                   ; preds = %inet_hist_match_div
 inet_hist_match_divider.exit97.thread:            ; preds = %178, %inet_hist_match_divider.exit97
   %.1.i82104 = phi i32 [ %.1.i82, %inet_hist_match_divider.exit97 ], [ %.0.i93, %178 ]
   %187 = tail call i32 @llvm.smax.i32(i32 %.1.i73, i32 %.1.i82104)
-  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %187) #9
+  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %187)
   %188 = fdiv double 1.000000e+00, %ldexp
   %189 = fadd double %.049109, %188
   br label %190
@@ -1473,7 +1473,7 @@ declare void @llvm.assume(i1 noundef) #6
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #7
 
-; Function Attrs: nofree willreturn memory(errnomem: write)
+; Function Attrs: nofree nounwind willreturn memory(errnomem: write)
 declare double @ldexp(double, i32) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -1490,7 +1490,7 @@ attributes #4 = { cold "no-trapping-math"="true" "stack-protector-buffer-size"="
 attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #6 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #7 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { nofree willreturn memory(errnomem: write) }
+attributes #8 = { nofree nounwind willreturn memory(errnomem: write) }
 attributes #9 = { nounwind }
 attributes #10 = { cold nounwind }
 

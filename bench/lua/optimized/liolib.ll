@@ -1348,7 +1348,7 @@ declare noundef i32 @ungetc(i32 noundef, ptr noundef captures(none)) local_unnam
 declare ptr @lua_pushstring(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
 declare ptr @localeconv() local_unnamed_addr #5
@@ -1593,7 +1593,7 @@ define internal fastcc i32 @g_write(ptr noundef %0, ptr noundef captures(none) %
 declare i32 @lua_numbertocstring(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 declare i32 @luaL_newmetatable(ptr noundef, ptr noundef) local_unnamed_addr #1
 

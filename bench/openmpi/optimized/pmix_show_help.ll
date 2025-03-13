@@ -1452,7 +1452,7 @@ declare i32 @asprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 declare ptr @strerror(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #12
+declare noundef ptr @fgets(ptr noundef writeonly, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #12
 
 declare i32 @PMIx_Argv_count(ptr noundef) local_unnamed_addr #3
 

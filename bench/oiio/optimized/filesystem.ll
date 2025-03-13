@@ -9095,7 +9095,7 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit20: ; preds = %_ZNSt7__cxx
 declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #12
+declare noundef ptr @fgets(ptr noundef writeonly, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @feof(ptr noundef captures(none)) local_unnamed_addr #12
@@ -10225,7 +10225,7 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit32: ; preds = %.body, %44
 declare noalias noundef ptr @popen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #12
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @pclose(ptr noundef captures(none)) local_unnamed_addr #12
@@ -10293,7 +10293,7 @@ declare void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEEC1Ev(ptr noundef nonnull
 declare void @_ZNSt14basic_ofstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(248)) unnamed_addr #5 align 2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN11OpenImageIO6v3_1_010Filesystem10read_bytesENS0_17basic_string_viewIcSt11char_traitsIcEEEPvmm(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_ZN11OpenImageIO6v3_1_010Filesystem10read_bytesENS0_17basic_string_viewIcSt11char_traitsIcEEEPvmm(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2, i64 noundef %3) local_unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %5 = alloca %"class.OpenImageIO::v3_1_0::basic_string_view", align 8
   %6 = alloca %"class.OpenImageIO::v3_1_0::basic_string_view", align 8
   %7 = load ptr, ptr %0, align 8, !tbaa !3
@@ -19558,7 +19558,7 @@ define noundef zeroext i1 @_ZN11OpenImageIO6v3_1_010Filesystem6IOFile4seekEl(ptr
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN11OpenImageIO6v3_1_010Filesystem6IOFile4readEPvm(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef captures(none) %1, i64 noundef %2) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
+define noundef i64 @_ZN11OpenImageIO6v3_1_010Filesystem6IOFile4readEPvm(ptr noundef nonnull align 8 dereferenceable(152) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load ptr, ptr %4, align 8, !tbaa !389
   %6 = icmp eq ptr %5, null
@@ -19697,7 +19697,7 @@ declare noundef i32 @fileno(ptr noundef captures(none)) local_unnamed_addr #12
 declare noundef i64 @pread(i32 noundef, ptr noundef captures(none), i64 noundef, i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noundef i64 @_ZN11OpenImageIO6v3_1_010Filesystem6IOFile5writeEPKvm(ptr noundef nonnull align 8 captures(none) dereferenceable(152) %0, ptr noundef captures(none) %1, i64 noundef %2) unnamed_addr #13 align 2 {
+define noundef i64 @_ZN11OpenImageIO6v3_1_010Filesystem6IOFile5writeEPKvm(ptr noundef nonnull align 8 captures(none) dereferenceable(152) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) unnamed_addr #13 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load ptr, ptr %4, align 8, !tbaa !389
   %6 = icmp ne ptr %5, null
@@ -19730,7 +19730,7 @@ define noundef i64 @_ZN11OpenImageIO6v3_1_010Filesystem6IOFile5writeEPKvm(ptr no
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #12
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree uwtable
 define noundef range(i64 0, -9223372036854775808) i64 @_ZN11OpenImageIO6v3_1_010Filesystem6IOFile6pwriteEPKvml(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(152) %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i64 noundef %3) unnamed_addr #21 align 2 {

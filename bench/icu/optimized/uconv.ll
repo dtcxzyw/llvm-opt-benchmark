@@ -1970,7 +1970,7 @@ declare void @ucnv_setFromUCallBack_77(ptr noundef, ptr noundef, ptr noundef, pt
 declare void @ucnv_setFallback_77(ptr noundef, i8 noundef signext) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #3
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind memory(read)
 declare noundef i32 @ferror(ptr noundef captures(none)) local_unnamed_addr #7
@@ -2059,7 +2059,7 @@ declare void @ucnv_fromUnicode_77(ptr noundef, ptr noundef, ptr noundef, ptr nou
 declare void @ucnv_getInvalidUChars_77(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #3
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #3
 
 declare void @ucnv_close_77(ptr noundef) local_unnamed_addr #4
 

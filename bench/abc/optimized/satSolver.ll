@@ -4846,7 +4846,7 @@ define void @luby_test() local_unnamed_addr #18 {
 
 luby.exit:                                        ; preds = %.lr.ph23.i, %.preheader.i
   %.1.lcssa.i = phi i32 [ %.0.lcssa.i, %.preheader.i ], [ %7, %.lr.ph23.i ]
-  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %.1.lcssa.i) #33
+  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %.1.lcssa.i)
   %10 = fptosi double %ldexp to i32
   %11 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %10)
   %12 = add nuw nsw i32 %.05, 1
@@ -5049,7 +5049,7 @@ Abc_Clock.exit:                                   ; preds = %81, %84
 
 luby.exit:                                        ; preds = %.lr.ph23.i, %.preheader.i
   %.1.lcssa.i = phi i32 [ %.0.lcssa.i, %.preheader.i ], [ %122, %.lr.ph23.i ]
-  %ldexp = call double @ldexp(double 1.000000e+00, i32 %.1.lcssa.i) #33
+  %ldexp = call double @ldexp(double 1.000000e+00, i32 %.1.lcssa.i)
   %125 = fmul double %ldexp, 1.000000e+02
   %126 = fptosi double %125 to i64
   %127 = load i32, ptr %23, align 4, !tbaa !144
@@ -12992,7 +12992,7 @@ declare i64 @llvm.fshl.i64(i64, i64, i64) #26
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #26
 
-; Function Attrs: nofree willreturn memory(errnomem: write)
+; Function Attrs: nofree nounwind willreturn memory(errnomem: write)
 declare double @ldexp(double, i32) local_unnamed_addr #28
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -13035,7 +13035,7 @@ attributes #24 = { mustprogress nocallback nofree nosync nounwind speculatable w
 attributes #25 = { inlinehint nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #26 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #27 = { nofree nounwind }
-attributes #28 = { nofree willreturn memory(errnomem: write) }
+attributes #28 = { nofree nounwind willreturn memory(errnomem: write) }
 attributes #29 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #30 = { nounwind allocsize(1) }
 attributes #31 = { nounwind allocsize(0) }

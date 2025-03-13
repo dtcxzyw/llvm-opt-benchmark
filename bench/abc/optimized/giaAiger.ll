@@ -201,7 +201,7 @@ Gia_AigerWriteInt.exit:                           ; preds = %4
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define noalias noundef ptr @Gia_AigerCollectLiterals(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {
@@ -5252,7 +5252,7 @@ Abc_UtilStrsav.exit35:                            ; preds = %38, %43
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: nounwind uwtable
 define noundef ptr @Gia_AigerWriteIntoMemoryStr(ptr noundef readonly captures(none) %0) local_unnamed_addr #7 {

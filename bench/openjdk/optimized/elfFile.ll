@@ -154,7 +154,7 @@ define hidden noundef zeroext i1 @_ZN10FileReader12set_positionEl(ptr noundef no
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden noundef zeroext i1 @_ZN10FileReader4readEPvm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN10FileReader4readEPvm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i64 @fread(ptr noundef %1, i64 noundef %2, i64 noundef 1, ptr noundef %5)
@@ -163,10 +163,10 @@ define hidden noundef zeroext i1 @_ZN10FileReader4readEPvm(ptr noundef nonnull r
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden noundef i64 @_ZN10FileReader11read_bufferEPvm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef captures(none) %1, i64 noundef %2) local_unnamed_addr #3 align 2 {
+define hidden noundef i64 @_ZN10FileReader11read_bufferEPvm(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef writeonly captures(none) %1, i64 noundef %2) local_unnamed_addr #3 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
   %6 = tail call i64 @fread(ptr noundef %1, i64 noundef 1, i64 noundef %2, ptr noundef %5)
@@ -2323,7 +2323,7 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader12set_posi
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader10read_dwordEPj(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef captures(none) %1) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader10read_dwordEPj(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = add nsw i64 %4, 4
@@ -2336,7 +2336,7 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader10read_dwo
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader9read_wordEPt(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef captures(none) %1) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader9read_wordEPt(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = add nsw i64 %4, 2
@@ -2349,7 +2349,7 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader9read_word
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader9read_byteEPv(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef captures(none) %1) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader9read_byteEPv(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = add nsw i64 %4, 1
@@ -2381,7 +2381,7 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader13move_pos
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden noundef zeroext i1 @_ZN9DwarfFile12DebugAranges23read_address_descriptorERNS0_17AddressDescriptorE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN9DwarfFile12DebugAranges23read_address_descriptorERNS0_17AddressDescriptorE(ptr noundef nonnull align 8 captures(none) dereferenceable(64) %0, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = add nsw i64 %4, 8
@@ -2431,7 +2431,7 @@ define hidden noundef zeroext i1 @_ZN9DwarfFile12DebugAranges20is_terminating_en
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader18read_address_sizedEPm(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef captures(none) %1) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader18read_address_sizedEPm(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = add nsw i64 %4, 8
@@ -5533,7 +5533,7 @@ define hidden void @_ZN9DwarfFile17LineNumberProgram27write_filename_for_overflo
 }
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader10read_qwordEPm(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef captures(none) %1) local_unnamed_addr #3 align 2 {
+define hidden noundef zeroext i1 @_ZN9DwarfFile21MarkedDwarfFileReader10read_qwordEPm(ptr noundef nonnull align 8 captures(none) dereferenceable(40) %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #3 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load i64, ptr %3, align 8
   %5 = add nsw i64 %4, 8

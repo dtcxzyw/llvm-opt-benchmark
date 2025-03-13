@@ -8889,7 +8889,7 @@ _ZN7testing8internal11CmpHelperEQImjEENS_15AssertionResultEPKcS4_RKT_RKT0_.exit:
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #13
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #13
@@ -55196,7 +55196,7 @@ define internal noalias noundef ptr @"_ZZN12_GLOBAL__N_124networking_file_api_Te
 }
 
 ; Function Attrs: inlinehint mustprogress nofree nounwind uwtable
-define internal noundef i64 @"_ZZN12_GLOBAL__N_124networking_file_api_Test8TestBodyEvEN3$_18__invokeEP6pj_ctxP16PROJ_FILE_HANDLEPvmS6_"(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) initializes((1, 2)) %4) #22 align 2 {
+define internal noundef i64 @"_ZZN12_GLOBAL__N_124networking_file_api_Test8TestBodyEvEN3$_18__invokeEP6pj_ctxP16PROJ_FILE_HANDLEPvmS6_"(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) initializes((1, 2)) %4) #22 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 1
   store i8 1, ptr %6, align 1, !tbaa !725
   %7 = tail call noundef i64 @fread(ptr noundef %2, i64 noundef 1, i64 noundef %3, ptr noundef %1)
@@ -55204,15 +55204,15 @@ define internal noundef i64 @"_ZZN12_GLOBAL__N_124networking_file_api_Test8TestB
 }
 
 ; Function Attrs: inlinehint mustprogress nofree nounwind uwtable
-define internal noundef i64 @"_ZZN12_GLOBAL__N_124networking_file_api_Test8TestBodyEvEN3$_28__invokeEP6pj_ctxP16PROJ_FILE_HANDLEPKvmPv"(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) initializes((2, 3)) %4) #22 align 2 {
+define internal noundef i64 @"_ZZN12_GLOBAL__N_124networking_file_api_Test8TestBodyEvEN3$_28__invokeEP6pj_ctxP16PROJ_FILE_HANDLEPKvmPv"(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef writeonly captures(none) initializes((2, 3)) %4) #22 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %4, i64 2
   store i8 1, ptr %6, align 1, !tbaa !728
-  %7 = tail call noundef i64 @fwrite(ptr noundef %2, i64 noundef 1, i64 noundef %3, ptr noundef %1)
+  %7 = tail call noundef i64 @fwrite(ptr noundef readonly %2, i64 noundef 1, i64 noundef %3, ptr noundef %1)
   ret i64 %7
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #13
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: inlinehint mustprogress nofree nounwind uwtable
 define internal noundef range(i32 0, 2) i32 @"_ZZN12_GLOBAL__N_124networking_file_api_Test8TestBodyEvEN3$_38__invokeEP6pj_ctxP16PROJ_FILE_HANDLExiPv"(ptr readnone captures(none) %0, ptr noundef captures(none) %1, i64 noundef %2, i32 noundef %3, ptr noundef writeonly captures(none) initializes((3, 4)) %4) #22 align 2 {

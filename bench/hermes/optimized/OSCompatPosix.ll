@@ -811,7 +811,7 @@ while.end:                                        ; preds = %while.end.loopexit,
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #7
+declare noundef ptr @fgets(ptr noundef writeonly, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare i64 @atoll(ptr noundef captures(none)) local_unnamed_addr #9

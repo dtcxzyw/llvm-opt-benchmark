@@ -4047,7 +4047,7 @@ declare i32 @hwloc_bitmap_isincluded(ptr noundef, ptr noundef) local_unnamed_add
 declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #13
+declare noundef ptr @fgets(ptr noundef writeonly, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
 declare i32 @hwloc_bitmap_next_unset(ptr noundef, i32 noundef) local_unnamed_addr #2

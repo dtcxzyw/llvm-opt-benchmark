@@ -536,53 +536,52 @@ define hidden noundef i32 @_ZN2cv12ppf_match_3d14hashtableWriteEPKNS0_8HSHTBL_iE
 
 .lr.ph31:                                         ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %14 = load i64, ptr %4, align 8
-  br label %15
+  br label %14
 
-15:                                               ; preds = %.lr.ph31, %._crit_edge28
-  %.01929 = phi i64 [ 0, %.lr.ph31 ], [ %30, %._crit_edge28 ]
-  %16 = load ptr, ptr %13, align 8, !tbaa !3
-  %17 = getelementptr inbounds nuw ptr, ptr %16, i64 %.01929
-  %18 = load ptr, ptr %17, align 8, !tbaa !13
+14:                                               ; preds = %.lr.ph31, %._crit_edge28
+  %.01929 = phi i64 [ 0, %.lr.ph31 ], [ %29, %._crit_edge28 ]
+  %15 = load ptr, ptr %13, align 8, !tbaa !3
+  %16 = getelementptr inbounds nuw ptr, ptr %15, i64 %.01929
+  %17 = load ptr, ptr %16, align 8, !tbaa !13
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #19
-  %.not21 = icmp eq ptr %18, null
+  %.not21 = icmp eq ptr %17, null
   br i1 %.not21, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %15, %.lr.ph
-  %.022 = phi ptr [ %22, %.lr.ph ], [ %18, %15 ]
-  %19 = phi i64 [ %20, %.lr.ph ], [ 0, %15 ]
-  %20 = add i64 %19, 1
-  %21 = getelementptr inbounds nuw i8, ptr %.022, i64 16
-  %22 = load ptr, ptr %21, align 8, !tbaa !15
-  %.not = icmp eq ptr %22, null
+.lr.ph:                                           ; preds = %14, %.lr.ph
+  %18 = phi i64 [ %19, %.lr.ph ], [ 0, %14 ]
+  %.022 = phi ptr [ %21, %.lr.ph ], [ %17, %14 ]
+  %19 = add i64 %18, 1
+  %20 = getelementptr inbounds nuw i8, ptr %.022, i64 16
+  %21 = load ptr, ptr %20, align 8, !tbaa !15
+  %.not = icmp eq ptr %21, null
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !30
 
-._crit_edge:                                      ; preds = %.lr.ph, %15
-  %.lcssa = phi i64 [ 0, %15 ], [ %20, %.lr.ph ]
+._crit_edge:                                      ; preds = %.lr.ph, %14
+  %.lcssa = phi i64 [ 0, %14 ], [ %19, %.lr.ph ]
   store i64 %.lcssa, ptr %7, align 8
-  %23 = call i64 @fwrite(ptr noundef nonnull %7, i64 noundef 8, i64 noundef 1, ptr noundef %2)
-  %24 = load ptr, ptr %13, align 8, !tbaa !3
-  %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %.01929
-  %.123 = load ptr, ptr %25, align 8, !tbaa !13
+  %22 = call i64 @fwrite(ptr noundef nonnull %7, i64 noundef 8, i64 noundef 1, ptr noundef %2)
+  %23 = load ptr, ptr %13, align 8, !tbaa !3
+  %24 = getelementptr inbounds nuw ptr, ptr %23, i64 %.01929
+  %.123 = load ptr, ptr %24, align 8, !tbaa !13
   %.not2024 = icmp eq ptr %.123, null
   br i1 %.not2024, label %._crit_edge28, label %.lr.ph27
 
 .lr.ph27:                                         ; preds = %._crit_edge, %.lr.ph27
   %.125 = phi ptr [ %.1, %.lr.ph27 ], [ %.123, %._crit_edge ]
-  %26 = tail call i64 @fwrite(ptr noundef nonnull %.125, i64 noundef 4, i64 noundef 1, ptr noundef %2)
-  %27 = getelementptr inbounds nuw i8, ptr %.125, i64 8
-  %28 = tail call i64 @fwrite(ptr noundef nonnull %27, i64 noundef %14, i64 noundef 1, ptr noundef %2)
-  %29 = getelementptr inbounds nuw i8, ptr %.125, i64 16
-  %.1 = load ptr, ptr %29, align 8, !tbaa !13
+  %25 = tail call i64 @fwrite(ptr noundef nonnull %.125, i64 noundef 4, i64 noundef 1, ptr noundef %2)
+  %26 = getelementptr inbounds nuw i8, ptr %.125, i64 8
+  %27 = tail call i64 @fwrite(ptr noundef nonnull %26, i64 noundef %1, i64 noundef 1, ptr noundef %2)
+  %28 = getelementptr inbounds nuw i8, ptr %.125, i64 16
+  %.1 = load ptr, ptr %28, align 8, !tbaa !13
   %.not20 = icmp eq ptr %.1, null
   br i1 %.not20, label %._crit_edge28, label %.lr.ph27, !llvm.loop !31
 
 ._crit_edge28:                                    ; preds = %.lr.ph27, %._crit_edge
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #19
-  %30 = add nuw i64 %.01929, 1
-  %31 = load i64, ptr %0, align 8, !tbaa !11
-  %32 = icmp ult i64 %30, %31
-  br i1 %32, label %15, label %._crit_edge32, !llvm.loop !32
+  %29 = add nuw i64 %.01929, 1
+  %30 = load i64, ptr %0, align 8, !tbaa !11
+  %31 = icmp ult i64 %29, %30
+  br i1 %31, label %14, label %._crit_edge32, !llvm.loop !32
 
 ._crit_edge32:                                    ; preds = %._crit_edge28, %3
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #19
@@ -591,7 +590,7 @@ define hidden noundef i32 @_ZN2cv12ppf_match_3d14hashtableWriteEPKNS0_8HSHTBL_iE
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #13
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN2cv12ppf_match_3d14hashtablePrintEPNS0_8HSHTBL_iE(ptr noundef readonly captures(none) %0) local_unnamed_addr #10 {
@@ -947,7 +946,7 @@ _ZN2cv12ppf_match_3d15hashtableInsertEPNS0_8HSHTBL_iEjPv.exit: ; preds = %84, %.
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #13
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #13
 
 declare noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef, i64 noundef) local_unnamed_addr #0
 

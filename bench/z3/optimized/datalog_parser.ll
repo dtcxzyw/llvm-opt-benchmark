@@ -4688,7 +4688,7 @@ _ZN11line_reader11resize_dataEj.exit.i:           ; preds = %.lr.ph.preheader.i.
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #15
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZN6dlexer12read_commentEv(ptr noundef nonnull align 8 dereferenceable(153) %0) local_unnamed_addr #3 comdat align 2 {

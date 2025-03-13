@@ -2217,7 +2217,7 @@ PyMarshal_ReadObjectFromFile.exit:                ; preds = %.thread, %Py_DECREF
 declare ptr @PyMem_Malloc(i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define dso_local ptr @PyMarshal_ReadObjectFromString(ptr noundef %0, i64 noundef %1) local_unnamed_addr #0 {
@@ -2633,7 +2633,7 @@ define internal fastcc range(i32 0, 2) i32 @w_reserve(ptr noundef nonnull %0, i6
 declare i32 @_PyBytes_Resize(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 declare ptr @_Py_hashtable_new_full(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -3191,7 +3191,7 @@ w_float_str.exit472:                              ; preds = %211, %213
 241:                                              ; preds = %233
   %242 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call fastcc void @w_long(i64 noundef %.val428, ptr noundef nonnull %2)
-  tail call fastcc void @w_string(ptr noundef nonnull %242, i64 noundef %.val428, ptr noundef nonnull %2)
+  tail call fastcc void @w_string(ptr noundef nonnull readonly %242, i64 noundef %.val428, ptr noundef nonnull %2)
   br label %w_float_str.exit
 
 243:                                              ; preds = %221
@@ -4857,7 +4857,7 @@ declare double @PyComplex_RealAsDouble(ptr noundef) local_unnamed_addr #3
 declare double @PyComplex_ImagAsDouble(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @w_pstring(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @w_pstring(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = icmp sgt i64 %1, 2147483647
   br i1 %4, label %5, label %10
 
@@ -4880,7 +4880,7 @@ define internal fastcc void @w_pstring(ptr noundef captures(none) %0, i64 nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @w_short_pstring(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @w_short_pstring(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !15
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 32
@@ -5156,7 +5156,7 @@ declare void @PyLong_FreeExport(ptr noundef) local_unnamed_addr #3
 declare i32 @PyFloat_Pack8(double noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @w_string(ptr noundef captures(none) %0, i64 noundef %1, ptr noundef nonnull %2) unnamed_addr #0 {
+define internal fastcc void @w_string(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef nonnull %2) unnamed_addr #0 {
   %.not = icmp eq i64 %1, 0
   br i1 %.not, label %w_reserve.exit.thread, label %4
 

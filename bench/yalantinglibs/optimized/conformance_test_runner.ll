@@ -3970,7 +3970,7 @@ declare void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnam
 declare noundef zeroext i1 @_ZN6google8protobuf20ConformanceTestSuite8RunSuiteEPNS0_21ConformanceTestRunnerEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKS9_PN11conformance10FailureSetE(ptr noundef nonnull align 8 dereferenceable(400), ptr noundef, ptr noundef, ptr noundef nonnull align 8 dereferenceable(32), ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN6google8protobuf14ForkPipeRunnerD2Ev(ptr noundef nonnull align 8 dereferenceable(120) %this) unnamed_addr #7 comdat align 2 personality ptr @__gxx_personality_v0 {

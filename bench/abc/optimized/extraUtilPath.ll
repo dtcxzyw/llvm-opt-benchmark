@@ -3944,7 +3944,7 @@ Abc_Word2Double.exit:                             ; preds = %Abc_Word2Double.exi
 
 Abc_Word2Double.exit112:                          ; preds = %96
   %97 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.16, i32 noundef %.val102.val, i32 noundef 1000, double noundef %.1.i, double noundef %.1.i109)
-  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %.val102.val) #23
+  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %.val102.val)
   br label %98
 
 98:                                               ; preds = %105, %Abc_Word2Double.exit112
@@ -4269,7 +4269,7 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 
 declare double @exp2(double) local_unnamed_addr
 
-; Function Attrs: nofree willreturn memory(errnomem: write)
+; Function Attrs: nofree nounwind willreturn memory(errnomem: write)
 declare double @ldexp(double, i32) local_unnamed_addr #21
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -4296,7 +4296,7 @@ attributes #17 = { mustprogress nocallback nofree nosync nounwind willreturn }
 attributes #18 = { nofree nounwind }
 attributes #19 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #20 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #21 = { nofree willreturn memory(errnomem: write) }
+attributes #21 = { nofree nounwind willreturn memory(errnomem: write) }
 attributes #22 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #23 = { nounwind }
 attributes #24 = { nounwind allocsize(0,1) }

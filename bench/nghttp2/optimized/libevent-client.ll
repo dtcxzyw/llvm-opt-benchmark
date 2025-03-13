@@ -706,9 +706,9 @@ define internal fastcc void @submit_request(ptr noundef readonly captures(none) 
   %51 = load ptr, ptr %50, align 8, !tbaa !43
   %52 = getelementptr inbounds nuw i8, ptr %46, i64 24
   %53 = load i64, ptr %52, align 8, !tbaa !45
-  %54 = tail call i64 @fwrite(ptr noundef %47, i64 noundef 1, i64 noundef %49, ptr noundef %44) #19
+  %54 = tail call i64 @fwrite(ptr noundef readonly %47, i64 noundef 1, i64 noundef %49, ptr noundef %44) #19
   %55 = tail call i64 @fwrite(ptr nonnull @.str.17, i64 2, i64 1, ptr %44) #19
-  %56 = tail call i64 @fwrite(ptr noundef %51, i64 noundef 1, i64 noundef %53, ptr noundef %44) #19
+  %56 = tail call i64 @fwrite(ptr noundef readonly %51, i64 noundef 1, i64 noundef %53, ptr noundef %44) #19
   %fputc.i.i = tail call i32 @fputc(i32 10, ptr %44)
   %57 = add nuw nsw i64 %.012.i, 1
   %exitcond.not.i = icmp eq i64 %57, 4
@@ -782,7 +782,7 @@ define internal noundef i32 @on_frame_recv_callback(ptr readnone captures(none) 
 declare void @nghttp2_session_callbacks_set_on_data_chunk_recv_callback(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @on_data_chunk_recv_callback(ptr readnone captures(none) %0, i8 zeroext %1, i32 noundef %2, ptr noundef captures(none) %3, i64 noundef %4, ptr noundef readonly captures(none) %5) #14 {
+define internal noundef i32 @on_data_chunk_recv_callback(ptr readnone captures(none) %0, i8 zeroext %1, i32 noundef %2, ptr noundef readonly captures(none) %3, i64 noundef %4, ptr noundef readonly captures(none) %5) #14 {
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %8 = load ptr, ptr %7, align 8, !tbaa !35
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 48
@@ -828,7 +828,7 @@ define internal range(i32 -902, 1) i32 @on_stream_close_callback(ptr noundef %0,
 declare void @nghttp2_session_callbacks_set_on_header_callback(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind uwtable
-define internal noundef i32 @on_header_callback(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, i64 noundef %3, ptr noundef captures(none) %4, i64 noundef %5, i8 zeroext %6, ptr noundef readonly captures(none) %7) #14 {
+define internal noundef i32 @on_header_callback(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i64 noundef %3, ptr noundef readonly captures(none) %4, i64 noundef %5, i8 zeroext %6, ptr noundef readonly captures(none) %7) #14 {
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %10 = load i8, ptr %9, align 4, !tbaa !9
   %cond = icmp eq i8 %10, 1
@@ -852,9 +852,9 @@ define internal noundef i32 @on_header_callback(ptr readnone captures(none) %0, 
 
 23:                                               ; preds = %15
   %24 = load ptr, ptr @stderr, align 8, !tbaa !4
-  %25 = tail call i64 @fwrite(ptr noundef %2, i64 noundef 1, i64 noundef %3, ptr noundef %24) #19
+  %25 = tail call i64 @fwrite(ptr noundef readonly %2, i64 noundef 1, i64 noundef %3, ptr noundef %24) #19
   %26 = tail call i64 @fwrite(ptr nonnull @.str.17, i64 2, i64 1, ptr %24) #19
-  %27 = tail call i64 @fwrite(ptr noundef %4, i64 noundef 1, i64 noundef %5, ptr noundef %24) #19
+  %27 = tail call i64 @fwrite(ptr noundef readonly %4, i64 noundef 1, i64 noundef %5, ptr noundef %24) #19
   %fputc.i = tail call i32 @fputc(i32 10, ptr %24)
   br label %28
 
@@ -903,7 +903,7 @@ declare void @nghttp2_session_callbacks_del(ptr noundef) local_unnamed_addr #6
 declare i32 @bufferevent_write(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #2
 
 declare i32 @nghttp2_session_terminate_session(ptr noundef, i32 noundef) local_unnamed_addr #6
 

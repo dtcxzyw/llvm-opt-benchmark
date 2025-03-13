@@ -22837,7 +22837,7 @@ define dso_local void @_ZN7testing8internal14ReadEntireFileB5cxx11EP8_IO_FILE(pt
 }
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #18
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN7testing8internal18GetInjectableArgvsB5cxx11Ev(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector.105") align 8 captures(none) %0) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {

@@ -16164,7 +16164,7 @@ declare noalias noundef ptr @fopen64(ptr noundef readonly captures(none), ptr no
 declare i32 @sqlite3_strlike(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #16
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare i32 @memcmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #7
@@ -18045,7 +18045,7 @@ declare noundef ptr @getenv(ptr noundef captures(none)) local_unnamed_addr #19
 declare i32 @getpid() local_unnamed_addr #18
 
 ; Function Attrs: nofree nounwind
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #16
+declare noundef ptr @fgets(ptr noundef writeonly, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: nofree noreturn nounwind
 declare void @exit(i32 noundef) local_unnamed_addr #20
@@ -38660,7 +38660,7 @@ declare noundef i32 @mkdir(ptr noundef readonly captures(none), i32 noundef) loc
 declare noundef i32 @chmod(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #16
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fwrite(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #16
+declare noundef i64 @fwrite(ptr noundef readonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: nounwind
 declare i64 @time(ptr noundef) local_unnamed_addr #18
@@ -42247,7 +42247,7 @@ zipfileMtimeToDos.exit:                           ; preds = %zipfileNewEntry.exi
   %402 = call i32 @fseek(ptr noundef %400, i64 noundef %401, i32 noundef 0)
   %403 = and i64 %396, 2147483647
   %404 = load ptr, ptr %10, align 8, !tbaa !831
-  %405 = call i64 @fwrite(ptr noundef nonnull %287, i64 noundef 1, i64 noundef %403, ptr noundef %404)
+  %405 = call i64 @fwrite(ptr noundef nonnull readonly %287, i64 noundef 1, i64 noundef %403, ptr noundef %404)
   %406 = trunc i64 %405 to i32
   %.not.not.i.i = icmp eq i32 %397, %406
   br i1 %.not.not.i.i, label %.thread.i.i, label %zipfileAppendData.exit.i
@@ -42275,7 +42275,7 @@ zipfileAppendData.exit.i:                         ; preds = %399
   %416 = call i32 @fseek(ptr noundef %415, i64 noundef %411, i32 noundef 0)
   %417 = zext nneg i32 %.0167252 to i64
   %418 = load ptr, ptr %10, align 8, !tbaa !831
-  %419 = call i64 @fwrite(ptr noundef %.0171251, i64 noundef 1, i64 noundef %417, ptr noundef %418)
+  %419 = call i64 @fwrite(ptr noundef readonly %.0171251, i64 noundef 1, i64 noundef %417, ptr noundef %418)
   %420 = trunc i64 %419 to i32
   %.not.not.i14.i = icmp eq i32 %.0167252, %420
   br i1 %.not.not.i14.i, label %.thread.i15.i, label %423
@@ -42690,7 +42690,7 @@ define internal range(i32 0, 2) i32 @zipfileCommit(ptr noundef captures(none) %0
   %18 = tail call i32 @fseek(ptr noundef %16, i64 noundef %17, i32 noundef 0)
   %19 = zext nneg i32 %12 to i64
   %20 = load ptr, ptr %2, align 8, !tbaa !831
-  %21 = tail call i64 @fwrite(ptr noundef %15, i64 noundef 1, i64 noundef %19, ptr noundef %20)
+  %21 = tail call i64 @fwrite(ptr noundef readonly %15, i64 noundef 1, i64 noundef %19, ptr noundef %20)
   %22 = trunc i64 %21 to i32
   %.not.not.i = icmp eq i32 %12, %22
   br i1 %.not.not.i, label %.thread.i, label %zipfileAppendData.exit.thread
@@ -42784,7 +42784,7 @@ zipfileAppendData.exit:                           ; preds = %10, %.thread.i
   %71 = load i64, ptr %5, align 8, !tbaa !886
   %72 = tail call i32 @fseek(ptr noundef %70, i64 noundef %71, i32 noundef 0)
   %73 = load ptr, ptr %2, align 8, !tbaa !831
-  %74 = tail call i64 @fwrite(ptr noundef %69, i64 noundef 1, i64 noundef 22, ptr noundef %73)
+  %74 = tail call i64 @fwrite(ptr noundef readonly %69, i64 noundef 1, i64 noundef 22, ptr noundef %73)
   %75 = and i64 %74, 4294967295
   %.not.not.i.i = icmp eq i64 %75, 22
   br i1 %.not.not.i.i, label %.thread.i.i, label %78
@@ -44063,7 +44063,7 @@ zipfileEntryFree.exit:                            ; preds = %.thread151, %37, %z
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @zipfileReadData(ptr noundef captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2, i64 noundef %3, ptr noundef writeonly captures(none) %4) unnamed_addr #2 {
+define internal fastcc range(i32 0, 2) i32 @zipfileReadData(ptr noundef captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, i64 noundef %3, ptr noundef writeonly captures(none) %4) unnamed_addr #2 {
   %6 = tail call i32 @fseek(ptr noundef %0, i64 noundef %3, i32 noundef 0)
   %7 = sext i32 %2 to i64
   %8 = tail call i64 @fread(ptr noundef %1, i64 noundef 1, i64 noundef %7, ptr noundef %0)

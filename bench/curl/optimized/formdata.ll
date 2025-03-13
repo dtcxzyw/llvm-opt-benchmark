@@ -1674,7 +1674,7 @@ declare i32 @curl_mime_type(ptr noundef, ptr noundef) local_unnamed_addr #3
 declare i32 @curl_mime_data_cb(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: nofree nounwind
-declare noundef i64 @fread(ptr noundef captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) #4
+declare noundef i64 @fread(ptr noundef writeonly captures(none), i64 noundef, i64 noundef, ptr noundef captures(none)) #4
 
 ; Function Attrs: nofree nounwind uwtable
 define internal noundef i32 @fseeko_wrapper(ptr noundef captures(none) %0, i64 noundef %1, i32 noundef %2) #5 {

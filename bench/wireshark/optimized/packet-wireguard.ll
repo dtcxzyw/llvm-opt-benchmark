@@ -3047,7 +3047,7 @@ declare noundef i32 @fileno(ptr noundef captures(none)) local_unnamed_addr #10
 declare noalias noundef ptr @fopen(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
-declare noundef ptr @fgets(ptr noundef, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #10
+declare noundef ptr @fgets(ptr noundef writeonly, i32 noundef, ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid
 declare noundef i32 @feof(ptr noundef captures(none)) local_unnamed_addr #10
