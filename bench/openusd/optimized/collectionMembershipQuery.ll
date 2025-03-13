@@ -10459,7 +10459,7 @@ _ZNSt16allocator_traitsISaIZN32pxrInternal_v0_24__pxrReserved__60UsdComputePathE
   %236 = ptrtoint ptr %.val27.i.i83 to i64
   %237 = sub i64 %235, %236
   %238 = icmp eq i64 %237, 9223372036854775800
-  br i1 %238, label %.invoke257, label %_ZNKSt6vectorIZN32pxrInternal_v0_24__pxrReserved__60UsdComputePathExpressionFromCollectionMembershipQueryRuleMapERKSt13unordered_mapINS0_7SdfPathENS0_7TfTokenENS2_4HashESt8equal_toIS2_ESaISt4pairIKS2_S3_EEEE10StackEntrySaISE_EE12_M_check_lenEmPKc.exit.i.i
+  br i1 %238, label %.invoke260, label %_ZNKSt6vectorIZN32pxrInternal_v0_24__pxrReserved__60UsdComputePathExpressionFromCollectionMembershipQueryRuleMapERKSt13unordered_mapINS0_7SdfPathENS0_7TfTokenENS2_4HashESt8equal_toIS2_ESaISt4pairIKS2_S3_EEEE10StackEntrySaISE_EE12_M_check_lenEmPKc.exit.i.i
 
 _ZNKSt6vectorIZN32pxrInternal_v0_24__pxrReserved__60UsdComputePathExpressionFromCollectionMembershipQueryRuleMapERKSt13unordered_mapINS0_7SdfPathENS0_7TfTokenENS2_4HashESt8equal_toIS2_ESaISt4pairIKS2_S3_EEEE10StackEntrySaISE_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %234
   %239 = sdiv exact i64 %237, 120
@@ -10596,7 +10596,7 @@ _ZNSt6vectorIZN32pxrInternal_v0_24__pxrReserved__60UsdComputePathExpressionFromC
           cleanup
   br label %.body87
 
-.loopexit.split-lp155.loopexit.split-lp:          ; preds = %.invoke257, %245, %188, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathEZNS3_60UsdComputePathExpressionFromCollectionMembershipQueryRuleMapERKSt13unordered_mapIS4_NS3_7TfTokenENS4_4HashESt8equal_toIS4_ESaIS2_IKS4_S6_EEEE4RuleESt6vectorISH_SaISH_EEEEEvT_SN_.exit.thread
+.loopexit.split-lp155.loopexit.split-lp:          ; preds = %.invoke260, %245, %188, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPSt4pairIN32pxrInternal_v0_24__pxrReserved__7SdfPathEZNS3_60UsdComputePathExpressionFromCollectionMembershipQueryRuleMapERKSt13unordered_mapIS4_NS3_7TfTokenENS4_4HashESt8equal_toIS4_ESaIS2_IKS4_S6_EEEE4RuleESt6vectorISH_SaISH_EEEEEvT_SN_.exit.thread
   %lpad.loopexit.split-lp160 = landingpad { ptr, i32 }
           cleanup
   br label %.body87
@@ -10619,19 +10619,20 @@ _ZNSt6vectorIZN32pxrInternal_v0_24__pxrReserved__60UsdComputePathExpressionFromC
   %310 = getelementptr inbounds nuw i8, ptr %10, i64 40
   %311 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %312 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %.val59204.pre = load ptr, ptr %303, align 8
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %_ZNSt6vectorIZN32pxrInternal_v0_24__pxrReserved__60UsdComputePathExpressionFromCollectionMembershipQueryRuleMapERKSt13unordered_mapINS0_7SdfPathENS0_7TfTokenENS2_4HashESt8equal_toIS2_ESaISt4pairIKS2_S3_EEEE10StackEntrySaISE_EE12emplace_backIJS2_RZNS0_60UsdComputePathExpressionFromCollectionMembershipQueryRuleMapESD_E4RuleEEERSE_DpOT_.exit
+  %.val59204 = phi ptr [ %.val59204.pre, %.preheader.lr.ph ], [ %.val59204238, %_ZNSt6vectorIZN32pxrInternal_v0_24__pxrReserved__60UsdComputePathExpressionFromCollectionMembershipQueryRuleMapERKSt13unordered_mapINS0_7SdfPathENS0_7TfTokenENS2_4HashESt8equal_toIS2_ESaISt4pairIKS2_S3_EEEE10StackEntrySaISE_EE12emplace_backIJS2_RZNS0_60UsdComputePathExpressionFromCollectionMembershipQueryRuleMapESD_E4RuleEEERSE_DpOT_.exit ]
   %.sroa.0142.0211 = phi ptr [ %.val47, %.preheader.lr.ph ], [ %496, %_ZNSt6vectorIZN32pxrInternal_v0_24__pxrReserved__60UsdComputePathExpressionFromCollectionMembershipQueryRuleMapERKSt13unordered_mapINS0_7SdfPathENS0_7TfTokenENS2_4HashESt8equal_toIS2_ESaISt4pairIKS2_S3_EEEE10StackEntrySaISE_EE12emplace_backIJS2_RZNS0_60UsdComputePathExpressionFromCollectionMembershipQueryRuleMapESD_E4RuleEEERSE_DpOT_.exit ]
   %.val58203 = load ptr, ptr %9, align 8
-  %.val59204 = load ptr, ptr %303, align 8
   %313 = icmp eq ptr %.val58203, %.val59204
   br i1 %313, label %.critedge.thread, label %.lr.ph207
 
 .lr.ph207:                                        ; preds = %.preheader, %_ZN32pxrInternal_v0_24__pxrReserved__17SdfPathExpressionD2Ev.exit
-  %.val59206 = phi ptr [ %.val59, %_ZN32pxrInternal_v0_24__pxrReserved__17SdfPathExpressionD2Ev.exit ], [ %.val59204, %.preheader ]
+  %.val59204239 = phi ptr [ %.val59, %_ZN32pxrInternal_v0_24__pxrReserved__17SdfPathExpressionD2Ev.exit ], [ %.val59204, %.preheader ]
   %.val58205 = phi ptr [ %.val58, %_ZN32pxrInternal_v0_24__pxrReserved__17SdfPathExpressionD2Ev.exit ], [ %.val58203, %.preheader ]
-  %314 = getelementptr inbounds i8, ptr %.val59206, i64 -120
+  %314 = getelementptr inbounds i8, ptr %.val59204239, i64 -120
   %315 = invoke noundef zeroext i1 @_ZNK32pxrInternal_v0_24__pxrReserved__7SdfPath9HasPrefixERKS0_(ptr noundef nonnull align 4 dereferenceable(8) %.sroa.0142.0211, ptr noundef nonnull align 4 dereferenceable(8) %314)
           to label %316 unwind label %.loopexit154
 
@@ -10960,7 +10961,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17SdfPathExpressionD2Ev.exit: ; preds = %_Z
   br i1 %451, label %.critedge.thread, label %.lr.ph207, !llvm.loop !111
 
 .critedge:                                        ; preds = %316
-  %452 = getelementptr inbounds i8, ptr %.val59206, i64 -8
+  %452 = getelementptr inbounds i8, ptr %.val59204239, i64 -8
   %453 = load i32, ptr %452, align 8
   %454 = getelementptr inbounds nuw i8, ptr %.sroa.0142.0211, i64 8
   %455 = load i32, ptr %454, align 4
@@ -10983,7 +10984,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__17SdfPathExpressionD2Ev.exit: ; preds = %_Z
 
 .critedge.thread:                                 ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__17SdfPathExpressionD2Ev.exit, %.preheader, %461
   %.val58193 = phi ptr [ %.val58205, %461 ], [ %.val58203, %.preheader ], [ %.val58, %_ZN32pxrInternal_v0_24__pxrReserved__17SdfPathExpressionD2Ev.exit ]
-  %.val59181 = phi ptr [ %.val59206, %461 ], [ %.val59204, %.preheader ], [ %.val59, %_ZN32pxrInternal_v0_24__pxrReserved__17SdfPathExpressionD2Ev.exit ]
+  %.val59181 = phi ptr [ %.val59204239, %461 ], [ %.val59204, %.preheader ], [ %.val59, %_ZN32pxrInternal_v0_24__pxrReserved__17SdfPathExpressionD2Ev.exit ]
   %464 = phi i1 [ false, %461 ], [ true, %.preheader ], [ true, %_ZN32pxrInternal_v0_24__pxrReserved__17SdfPathExpressionD2Ev.exit ]
   %465 = getelementptr inbounds nuw i8, ptr %.sroa.0142.0211, i64 8
   %.val64 = load i32, ptr %465, align 4
@@ -11005,13 +11006,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__17SdfPathExpressionD2Ev.exit: ; preds = %_Z
   %471 = ptrtoint ptr %.val58193 to i64
   %472 = sub i64 %470, %471
   %473 = icmp eq i64 %472, 9223372036854775800
-  br i1 %473, label %.invoke257, label %_ZNKSt6vectorIZN32pxrInternal_v0_24__pxrReserved__60UsdComputePathExpressionFromCollectionMembershipQueryRuleMapERKSt13unordered_mapINS0_7SdfPathENS0_7TfTokenENS2_4HashESt8equal_toIS2_ESaISt4pairIKS2_S3_EEEE10StackEntrySaISE_EE12_M_check_lenEmPKc.exit.i.i95
+  br i1 %473, label %.invoke260, label %_ZNKSt6vectorIZN32pxrInternal_v0_24__pxrReserved__60UsdComputePathExpressionFromCollectionMembershipQueryRuleMapERKSt13unordered_mapINS0_7SdfPathENS0_7TfTokenENS2_4HashESt8equal_toIS2_ESaISt4pairIKS2_S3_EEEE10StackEntrySaISE_EE12_M_check_lenEmPKc.exit.i.i95
 
-.invoke257:                                       ; preds = %469, %234
+.invoke260:                                       ; preds = %469, %234
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.19) #25
           to label %.cont unwind label %.loopexit.split-lp155.loopexit.split-lp
 
-.cont:                                            ; preds = %.invoke257
+.cont:                                            ; preds = %.invoke260
   unreachable
 
 _ZNKSt6vectorIZN32pxrInternal_v0_24__pxrReserved__60UsdComputePathExpressionFromCollectionMembershipQueryRuleMapERKSt13unordered_mapINS0_7SdfPathENS0_7TfTokenENS2_4HashESt8equal_toIS2_ESaISt4pairIKS2_S3_EEEE10StackEntrySaISE_EE12_M_check_lenEmPKc.exit.i.i95: ; preds = %469
@@ -11075,6 +11076,7 @@ _ZNSt6vectorIZN32pxrInternal_v0_24__pxrReserved__60UsdComputePathExpressionFromC
   br label %_ZNSt6vectorIZN32pxrInternal_v0_24__pxrReserved__60UsdComputePathExpressionFromCollectionMembershipQueryRuleMapERKSt13unordered_mapINS0_7SdfPathENS0_7TfTokenENS2_4HashESt8equal_toIS2_ESaISt4pairIKS2_S3_EEEE10StackEntrySaISE_EE12emplace_backIJS2_RZNS0_60UsdComputePathExpressionFromCollectionMembershipQueryRuleMapESD_E4RuleEEERSE_DpOT_.exit
 
 _ZNSt6vectorIZN32pxrInternal_v0_24__pxrReserved__60UsdComputePathExpressionFromCollectionMembershipQueryRuleMapERKSt13unordered_mapINS0_7SdfPathENS0_7TfTokenENS2_4HashESt8equal_toIS2_ESaISt4pairIKS2_S3_EEEE10StackEntrySaISE_EE12emplace_backIJS2_RZNS0_60UsdComputePathExpressionFromCollectionMembershipQueryRuleMapESD_E4RuleEEERSE_DpOT_.exit: ; preds = %_ZNSt6vectorIZN32pxrInternal_v0_24__pxrReserved__60UsdComputePathExpressionFromCollectionMembershipQueryRuleMapERKSt13unordered_mapINS0_7SdfPathENS0_7TfTokenENS2_4HashESt8equal_toIS2_ESaISt4pairIKS2_S3_EEEE10StackEntrySaISE_EE17_M_realloc_insertIJS2_RZNS0_60UsdComputePathExpressionFromCollectionMembershipQueryRuleMapESD_E4RuleEEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit.i, %.noexc99, %.critedge, %458, %461
+  %.val59204238 = phi ptr [ %483, %_ZNSt6vectorIZN32pxrInternal_v0_24__pxrReserved__60UsdComputePathExpressionFromCollectionMembershipQueryRuleMapERKSt13unordered_mapINS0_7SdfPathENS0_7TfTokenENS2_4HashESt8equal_toIS2_ESaISt4pairIKS2_S3_EEEE10StackEntrySaISE_EE17_M_realloc_insertIJS2_RZNS0_60UsdComputePathExpressionFromCollectionMembershipQueryRuleMapESD_E4RuleEEEvN9__gnu_cxx17__normal_iteratorIPSE_SG_EEDpOT_.exit.i ], [ %468, %.noexc99 ], [ %.val59204239, %.critedge ], [ %.val59204239, %458 ], [ %.val59204239, %461 ]
   %496 = getelementptr inbounds nuw i8, ptr %.sroa.0142.0211, i64 12
   %.not153 = icmp eq ptr %496, %.val45
   br i1 %.not153, label %._crit_edge212, label %.preheader

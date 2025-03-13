@@ -23148,11 +23148,10 @@ _ZNR9hb_iter_tI13hb_map_iter_tI13hb_zip_iter_tI10hb_array_tIKN3CFF27cff1_font_di
   %112 = getelementptr inbounds nuw i8, ptr %18, i64 24
   %113 = add i32 %17, -1
   %114 = getelementptr inbounds nuw i8, ptr %15, i64 24
-  store ptr %114, ptr %9, align 8, !tbaa !678
   %115 = icmp ne i32 %111, 0
   %116 = icmp ne i32 %113, 0
   %117 = select i1 %115, i1 %116, i1 false
-  br i1 %117, label %14, label %._crit_edge, !llvm.loop !679
+  br i1 %117, label %14, label %._crit_edge, !llvm.loop !678
 
 ._crit_edge:                                      ; preds = %_ZNR9hb_iter_tI13hb_map_iter_tI13hb_zip_iter_tI10hb_array_tIKN3CFF27cff1_font_dict_values_mod_tEES6_EZNS3_7FDArrayIN2OT7IntTypeItLj2EEEE9serializeIS4_S4_S7_30cff1_font_dict_op_serializer_tEEbP22hb_serialize_context_tT1_RT2_EUlRK9hb_pair_tIRS5_SL_EE_L24hb_function_sortedness_t0ELPv0EElEppEv.exit, %2
   ret void
@@ -23167,7 +23166,7 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK3CFF29cff_font_dict_op_ser
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %10 = load i32, ptr %9, align 4, !tbaa !680
+  %10 = load i32, ptr %9, align 4, !tbaa !679
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %12 = load i32, ptr %11, align 4, !tbaa !51
   %.not.i.i.i = icmp eq i32 %12, 0
@@ -23237,7 +23236,7 @@ _ZN22hb_serialize_context_t13allocate_sizeIN2OT7IntTypeIhLj1EEEEEPT_mb.exit.thre
 _ZN3CFF14UnsizedByteStr14serialize_int2IjEEbP22hb_serialize_context_tT_.exit: ; preds = %33
   %41 = load i32, ptr %5, align 8, !tbaa !298
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %43 = load i32, ptr %42, align 4, !tbaa !681
+  %43 = load i32, ptr %42, align 4, !tbaa !680
   %44 = load ptr, ptr %16, align 8, !tbaa !65
   %45 = load i32, ptr %11, align 4, !tbaa !51
   %.not.i.i.i.i.i = icmp eq i32 %45, 0
@@ -23391,7 +23390,7 @@ _ZN22hb_serialize_context_t13allocate_sizeIhEEPT_mb.exit: ; preds = %101, %102
   %110 = load i8, ptr %86, align 4, !tbaa !302
   %111 = zext i8 %110 to i64
   %112 = icmp samesign ult i64 %indvars.iv.next, %111
-  br i1 %112, label %.lr.ph, label %.thread, !llvm.loop !682
+  br i1 %112, label %.lr.ph, label %.thread, !llvm.loop !681
 
 .thread:                                          ; preds = %.lr.ph, %.preheader, %_ZN22hb_serialize_context_t13allocate_sizeIN2OT7IntTypeIhLj1EEEEEPT_mb.exit.i.i, %_ZN22hb_serialize_context_t13allocate_sizeIN2OT7IntTypeIsLj2EEEEEPT_mb.exit.i.i, %8, %23, %_ZN22hb_serialize_context_t13allocate_sizeIN2OT7IntTypeIhLj1EEEEEPT_mb.exit.thread.sink.split.i.i, %_ZN3CFF14UnsizedByteStr14serialize_int2IjEEbP22hb_serialize_context_tT_.exit, %52, %_ZN22hb_serialize_context_t13allocate_sizeIN2OT7IntTypeIhLj1EEEEEPT_mb.exit.i.i.i.i, %54, %63, %_ZN22hb_serialize_context_t13allocate_sizeIN2OT7IntTypeIiLj4EEEEEPT_mb.exit.i.i.i.i, %65, %76, %_ZN22hb_serialize_context_t13allocate_sizeIN2OT7IntTypeIhLj1EEEEEPT_mb.exit.i.i.i, %82, %85, %100, %_ZN22hb_serialize_context_t13allocate_sizeIhEEPT_mb.exit
   %.017 = phi i1 [ false, %_ZN22hb_serialize_context_t13allocate_sizeIhEEPT_mb.exit ], [ false, %100 ], [ false, %85 ], [ false, %_ZN22hb_serialize_context_t13allocate_sizeIN2OT7IntTypeIhLj1EEEEEPT_mb.exit.i.i ], [ false, %_ZN22hb_serialize_context_t13allocate_sizeIN2OT7IntTypeIsLj2EEEEEPT_mb.exit.i.i ], [ false, %8 ], [ false, %23 ], [ false, %_ZN22hb_serialize_context_t13allocate_sizeIN2OT7IntTypeIhLj1EEEEEPT_mb.exit.thread.sink.split.i.i ], [ true, %82 ], [ false, %_ZN22hb_serialize_context_t13allocate_sizeIN2OT7IntTypeIhLj1EEEEEPT_mb.exit.i.i.i ], [ false, %_ZN22hb_serialize_context_t13allocate_sizeIN2OT7IntTypeIhLj1EEEEEPT_mb.exit.i.i.i.i ], [ false, %_ZN22hb_serialize_context_t13allocate_sizeIN2OT7IntTypeIiLj4EEEEEPT_mb.exit.i.i.i.i ], [ false, %52 ], [ false, %_ZN3CFF14UnsizedByteStr14serialize_int2IjEEbP22hb_serialize_context_tT_.exit ], [ false, %63 ], [ false, %54 ], [ false, %76 ], [ false, %65 ], [ true, %.preheader ], [ true, %.lr.ph ]
@@ -23557,13 +23556,13 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZNK29cff1_top_dict_op_seriali
   ]
 
 ._crit_edge:                                      ; preds = %4
-  %.pre = load ptr, ptr %3, align 8, !tbaa !683
+  %.pre = load ptr, ptr %3, align 8, !tbaa !682
   br label %304
 
 8:                                                ; preds = %4
-  %9 = load ptr, ptr %3, align 8, !tbaa !683
+  %9 = load ptr, ptr %3, align 8, !tbaa !682
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %11 = load i32, ptr %10, align 4, !tbaa !685
+  %11 = load i32, ptr %10, align 4, !tbaa !684
   %.not38 = icmp eq i32 %11, 0
   br i1 %.not38, label %304, label %12
 
@@ -23655,9 +23654,9 @@ _ZN22hb_serialize_context_t13allocate_sizeIN2OT7IntTypeIhLj1EEEEEPT_mb.exit.i.i.
   br label %_ZN3CFF4Dict18serialize_link4_opEP22hb_serialize_context_tjjNS1_8whence_tE.exit
 
 50:                                               ; preds = %4
-  %51 = load ptr, ptr %3, align 8, !tbaa !683
+  %51 = load ptr, ptr %3, align 8, !tbaa !682
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 20
-  %53 = load i32, ptr %52, align 4, !tbaa !686
+  %53 = load i32, ptr %52, align 4, !tbaa !685
   %.not37 = icmp eq i32 %53, 0
   br i1 %.not37, label %304, label %54
 
@@ -23749,9 +23748,9 @@ _ZN22hb_serialize_context_t13allocate_sizeIN2OT7IntTypeIhLj1EEEEEPT_mb.exit.i.i.
   br label %_ZN3CFF4Dict18serialize_link4_opEP22hb_serialize_context_tjjNS1_8whence_tE.exit
 
 92:                                               ; preds = %4
-  %93 = load ptr, ptr %3, align 8, !tbaa !683
+  %93 = load ptr, ptr %3, align 8, !tbaa !682
   %94 = getelementptr inbounds nuw i8, ptr %93, i64 32
-  %95 = load i32, ptr %94, align 4, !tbaa !687
+  %95 = load i32, ptr %94, align 4, !tbaa !686
   %96 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %97 = load i32, ptr %96, align 4, !tbaa !51
   %.not.i.i.i52 = icmp eq i32 %97, 0
@@ -23819,9 +23818,9 @@ _ZN22hb_serialize_context_t13allocate_sizeIN2OT7IntTypeIhLj1EEEEEPT_mb.exit.thre
   br label %_ZN3CFF4Dict18serialize_link4_opEP22hb_serialize_context_tjjNS1_8whence_tE.exit
 
 _ZN3CFF14UnsizedByteStr14serialize_int2IjEEbP22hb_serialize_context_tT_.exit: ; preds = %118
-  %126 = load ptr, ptr %3, align 8, !tbaa !683
+  %126 = load ptr, ptr %3, align 8, !tbaa !682
   %127 = getelementptr inbounds nuw i8, ptr %126, i64 36
-  %128 = load i32, ptr %127, align 4, !tbaa !688
+  %128 = load i32, ptr %127, align 4, !tbaa !687
   %129 = load ptr, ptr %101, align 8, !tbaa !65
   %130 = load i32, ptr %96, align 4, !tbaa !51
   %.not.i.i.i.i.i54 = icmp eq i32 %130, 0
@@ -23907,7 +23906,7 @@ _ZN22hb_serialize_context_t13allocate_sizeIN2OT7IntTypeIhLj1EEEEEPT_mb.exit.i.i.
 
 163:                                              ; preds = %4, %4, %4, %4, %4, %4, %4, %4, %4
   %164 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %165 = load ptr, ptr %164, align 8, !tbaa !689
+  %165 = load ptr, ptr %164, align 8, !tbaa !688
   switch i32 %7, label %_ZN3CFF18name_dict_values_t16name_op_to_indexEj.exit [
     i32 278, label %173
     i32 1, label %166
@@ -24063,7 +24062,7 @@ _ZN22hb_serialize_context_t13allocate_sizeIN2OT7IntTypeIhLj1EEEEEPT_mb.exit.i.i7
   %227 = load i8, ptr %226, align 4, !tbaa !302
   %228 = zext i8 %227 to i32
   %229 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %230 = load i32, ptr %229, align 8, !tbaa !690
+  %230 = load i32, ptr %229, align 8, !tbaa !689
   %231 = add i32 %230, 3
   %.not = icmp ugt i32 %231, %228
   br i1 %.not, label %_ZN3CFF14UnsizedByteStr14serialize_int2IjEEbP22hb_serialize_context_tT_.exit86.thread, label %232, !prof !47
@@ -24078,7 +24077,7 @@ _ZN22hb_serialize_context_t13allocate_sizeIN2OT7IntTypeIhLj1EEEEEPT_mb.exit.i.i7
   %238 = sub i8 %227, %237
   store i8 %238, ptr %233, align 4, !tbaa !302
   %239 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %240 = load ptr, ptr %239, align 8, !tbaa !689
+  %240 = load ptr, ptr %239, align 8, !tbaa !688
   %241 = getelementptr inbounds nuw i8, ptr %240, i64 36
   %242 = load i32, ptr %241, align 4, !tbaa !98
   %243 = getelementptr inbounds nuw i8, ptr %1, i64 44
@@ -24148,7 +24147,7 @@ _ZN22hb_serialize_context_t13allocate_sizeIN2OT7IntTypeIhLj1EEEEEPT_mb.exit.thre
   br label %_ZN3CFF14UnsizedByteStr14serialize_int2IjEEbP22hb_serialize_context_tT_.exit86.thread
 
 _ZN3CFF14UnsizedByteStr14serialize_int2IjEEbP22hb_serialize_context_tT_.exit86: ; preds = %265
-  %273 = load ptr, ptr %239, align 8, !tbaa !689
+  %273 = load ptr, ptr %239, align 8, !tbaa !688
   %274 = getelementptr inbounds nuw i8, ptr %273, i64 40
   %275 = load i32, ptr %274, align 4, !tbaa !98
   %276 = load i32, ptr %243, align 4, !tbaa !51
@@ -25299,17 +25298,16 @@ attributes #16 = { nounwind allocsize(1) }
 !675 = !{!123, !93, i64 0}
 !676 = distinct !{!676, !100}
 !677 = !{!123, !11, i64 20}
-!678 = !{!658, !42, i64 0}
-!679 = distinct !{!679, !100}
-!680 = !{!18, !11, i64 4}
-!681 = !{!18, !11, i64 8}
-!682 = distinct !{!682, !100}
-!683 = !{!684, !162, i64 0}
-!684 = !{!"_ZTS20top_dict_modifiers_t", !162, i64 0, !36, i64 8}
-!685 = !{!20, !11, i64 24}
-!686 = !{!20, !11, i64 20}
-!687 = !{!20, !11, i64 32}
-!688 = !{!20, !11, i64 36}
-!689 = !{!684, !36, i64 8}
-!690 = !{!691, !11, i64 16}
-!691 = !{!"_ZTSN3CFF19cff1_top_dict_val_tE", !299, i64 0, !11, i64 16}
+!678 = distinct !{!678, !100}
+!679 = !{!18, !11, i64 4}
+!680 = !{!18, !11, i64 8}
+!681 = distinct !{!681, !100}
+!682 = !{!683, !162, i64 0}
+!683 = !{!"_ZTS20top_dict_modifiers_t", !162, i64 0, !36, i64 8}
+!684 = !{!20, !11, i64 24}
+!685 = !{!20, !11, i64 20}
+!686 = !{!20, !11, i64 32}
+!687 = !{!20, !11, i64 36}
+!688 = !{!683, !36, i64 8}
+!689 = !{!690, !11, i64 16}
+!690 = !{!"_ZTSN3CFF19cff1_top_dict_val_tE", !299, i64 0, !11, i64 16}

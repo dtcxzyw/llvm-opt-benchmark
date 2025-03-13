@@ -7457,7 +7457,7 @@ _ZNSt3__114__split_bufferIN7mitsuba14Hierarchical2DIfLm0EE5LevelERNS_9allocatorI
 .noexc.i.i.i.i:                                   ; preds = %_ZNSt3__114__split_bufferIN7mitsuba14Hierarchical2DIfLm0EE5LevelERNS_9allocatorIS4_EEEC2EmmS7_.exit
   %40 = shl nuw nsw i64 %38, 2
   %41 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %40) #34
-          to label %42 unwind label %52
+          to label %42 unwind label %50
 
 42:                                               ; preds = %_ZNSt3__114__split_bufferIN7mitsuba14Hierarchical2DIfLm0EE5LevelERNS_9allocatorIS4_EEEC2EmmS7_.exit, %.noexc.i.i.i.i
   %.pre-phi.i.i = phi i64 [ 0, %_ZNSt3__114__split_bufferIN7mitsuba14Hierarchical2DIfLm0EE5LevelERNS_9allocatorIS4_EEEC2EmmS7_.exit ], [ %40, %.noexc.i.i.i.i ]
@@ -7472,30 +7472,28 @@ _ZNSt3__114__split_bufferIN7mitsuba14Hierarchical2DIfLm0EE5LevelERNS_9allocatorI
   %46 = sub nsw i64 0, %12
   %47 = getelementptr inbounds %"struct.mitsuba::Hierarchical2D<float>::Level", ptr %28, i64 %46
   invoke void @_ZNSt3__134__uninitialized_allocator_relocateB8ne190000INS_9allocatorIN7mitsuba14Hierarchical2DIfLm0EE5LevelEEES5_EEvRT_PT0_SA_SA_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %8, ptr noundef %7, ptr noundef nonnull %47)
-          to label %_ZNSt3__114__split_bufferIN7mitsuba14Hierarchical2DIfLm0EE5LevelERNS_9allocatorIS4_EEE5clearB8ne190000Ev.exit.i unwind label %52
+          to label %_ZNSt3__114__split_bufferIN7mitsuba14Hierarchical2DIfLm0EE5LevelERNS_9allocatorIS4_EEE5clearB8ne190000Ev.exit.i unwind label %50
 
 _ZNSt3__114__split_bufferIN7mitsuba14Hierarchical2DIfLm0EE5LevelERNS_9allocatorIS4_EEE5clearB8ne190000Ev.exit.i: ; preds = %42
   %48 = load ptr, ptr %0, align 8
   store ptr %47, ptr %0, align 8
-  %49 = load ptr, ptr %29, align 8
-  store ptr %49, ptr %6, align 8
-  %50 = load ptr, ptr %20, align 8
-  store ptr %50, ptr %5, align 8
+  store ptr %45, ptr %6, align 8
+  store ptr %31, ptr %5, align 8
   %.not.i7 = icmp eq ptr %48, null
-  br i1 %.not.i7, label %_ZNSt3__114__split_bufferIN7mitsuba14Hierarchical2DIfLm0EE5LevelERNS_9allocatorIS4_EEED2Ev.exit, label %51
+  br i1 %.not.i7, label %_ZNSt3__114__split_bufferIN7mitsuba14Hierarchical2DIfLm0EE5LevelERNS_9allocatorIS4_EEED2Ev.exit, label %49
 
-51:                                               ; preds = %_ZNSt3__114__split_bufferIN7mitsuba14Hierarchical2DIfLm0EE5LevelERNS_9allocatorIS4_EEE5clearB8ne190000Ev.exit.i
+49:                                               ; preds = %_ZNSt3__114__split_bufferIN7mitsuba14Hierarchical2DIfLm0EE5LevelERNS_9allocatorIS4_EEE5clearB8ne190000Ev.exit.i
   tail call void @_ZdlPv(ptr noundef nonnull %48) #33
   br label %_ZNSt3__114__split_bufferIN7mitsuba14Hierarchical2DIfLm0EE5LevelERNS_9allocatorIS4_EEED2Ev.exit
 
-_ZNSt3__114__split_bufferIN7mitsuba14Hierarchical2DIfLm0EE5LevelERNS_9allocatorIS4_EEED2Ev.exit: ; preds = %_ZNSt3__114__split_bufferIN7mitsuba14Hierarchical2DIfLm0EE5LevelERNS_9allocatorIS4_EEE5clearB8ne190000Ev.exit.i, %51
-  ret ptr %49
+_ZNSt3__114__split_bufferIN7mitsuba14Hierarchical2DIfLm0EE5LevelERNS_9allocatorIS4_EEED2Ev.exit: ; preds = %_ZNSt3__114__split_bufferIN7mitsuba14Hierarchical2DIfLm0EE5LevelERNS_9allocatorIS4_EEE5clearB8ne190000Ev.exit.i, %49
+  ret ptr %45
 
-52:                                               ; preds = %42, %.noexc.i.i.i.i
-  %53 = landingpad { ptr, i32 }
+50:                                               ; preds = %42, %.noexc.i.i.i.i
+  %51 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt3__114__split_bufferIN7mitsuba14Hierarchical2DIfLm0EE5LevelERNS_9allocatorIS4_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #31
-  resume { ptr, i32 } %53
+  resume { ptr, i32 } %51
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -7575,7 +7573,7 @@ _ZNSt3__114__split_bufferIN7mitsuba14Hierarchical2DIfLm0EE5LevelERNS_9allocatorI
 .noexc.i.i.i.i:                                   ; preds = %_ZNSt3__114__split_bufferIN7mitsuba14Hierarchical2DIfLm0EE5LevelERNS_9allocatorIS4_EEEC2EmmS7_.exit
   %40 = shl nuw nsw i64 %38, 2
   %41 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %40) #34
-          to label %42 unwind label %52
+          to label %42 unwind label %50
 
 42:                                               ; preds = %_ZNSt3__114__split_bufferIN7mitsuba14Hierarchical2DIfLm0EE5LevelERNS_9allocatorIS4_EEEC2EmmS7_.exit, %.noexc.i.i.i.i
   %.pre-phi.i.i = phi i64 [ 0, %_ZNSt3__114__split_bufferIN7mitsuba14Hierarchical2DIfLm0EE5LevelERNS_9allocatorIS4_EEEC2EmmS7_.exit ], [ %40, %.noexc.i.i.i.i ]
@@ -7590,30 +7588,28 @@ _ZNSt3__114__split_bufferIN7mitsuba14Hierarchical2DIfLm0EE5LevelERNS_9allocatorI
   %46 = sub nsw i64 0, %12
   %47 = getelementptr inbounds %"struct.mitsuba::Hierarchical2D<float>::Level", ptr %28, i64 %46
   invoke void @_ZNSt3__134__uninitialized_allocator_relocateB8ne190000INS_9allocatorIN7mitsuba14Hierarchical2DIfLm0EE5LevelEEES5_EEvRT_PT0_SA_SA_(ptr noundef nonnull align 1 dereferenceable(1) %5, ptr noundef %8, ptr noundef %7, ptr noundef nonnull %47)
-          to label %_ZNSt3__114__split_bufferIN7mitsuba14Hierarchical2DIfLm0EE5LevelERNS_9allocatorIS4_EEE5clearB8ne190000Ev.exit.i unwind label %52
+          to label %_ZNSt3__114__split_bufferIN7mitsuba14Hierarchical2DIfLm0EE5LevelERNS_9allocatorIS4_EEE5clearB8ne190000Ev.exit.i unwind label %50
 
 _ZNSt3__114__split_bufferIN7mitsuba14Hierarchical2DIfLm0EE5LevelERNS_9allocatorIS4_EEE5clearB8ne190000Ev.exit.i: ; preds = %42
   %48 = load ptr, ptr %0, align 8
   store ptr %47, ptr %0, align 8
-  %49 = load ptr, ptr %29, align 8
-  store ptr %49, ptr %6, align 8
-  %50 = load ptr, ptr %20, align 8
-  store ptr %50, ptr %5, align 8
+  store ptr %45, ptr %6, align 8
+  store ptr %31, ptr %5, align 8
   %.not.i7 = icmp eq ptr %48, null
-  br i1 %.not.i7, label %_ZNSt3__114__split_bufferIN7mitsuba14Hierarchical2DIfLm0EE5LevelERNS_9allocatorIS4_EEED2Ev.exit, label %51
+  br i1 %.not.i7, label %_ZNSt3__114__split_bufferIN7mitsuba14Hierarchical2DIfLm0EE5LevelERNS_9allocatorIS4_EEED2Ev.exit, label %49
 
-51:                                               ; preds = %_ZNSt3__114__split_bufferIN7mitsuba14Hierarchical2DIfLm0EE5LevelERNS_9allocatorIS4_EEE5clearB8ne190000Ev.exit.i
+49:                                               ; preds = %_ZNSt3__114__split_bufferIN7mitsuba14Hierarchical2DIfLm0EE5LevelERNS_9allocatorIS4_EEE5clearB8ne190000Ev.exit.i
   tail call void @_ZdlPv(ptr noundef nonnull %48) #33
   br label %_ZNSt3__114__split_bufferIN7mitsuba14Hierarchical2DIfLm0EE5LevelERNS_9allocatorIS4_EEED2Ev.exit
 
-_ZNSt3__114__split_bufferIN7mitsuba14Hierarchical2DIfLm0EE5LevelERNS_9allocatorIS4_EEED2Ev.exit: ; preds = %_ZNSt3__114__split_bufferIN7mitsuba14Hierarchical2DIfLm0EE5LevelERNS_9allocatorIS4_EEE5clearB8ne190000Ev.exit.i, %51
-  ret ptr %49
+_ZNSt3__114__split_bufferIN7mitsuba14Hierarchical2DIfLm0EE5LevelERNS_9allocatorIS4_EEED2Ev.exit: ; preds = %_ZNSt3__114__split_bufferIN7mitsuba14Hierarchical2DIfLm0EE5LevelERNS_9allocatorIS4_EEE5clearB8ne190000Ev.exit.i, %49
+  ret ptr %45
 
-52:                                               ; preds = %42, %.noexc.i.i.i.i
-  %53 = landingpad { ptr, i32 }
+50:                                               ; preds = %42, %.noexc.i.i.i.i
+  %51 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt3__114__split_bufferIN7mitsuba14Hierarchical2DIfLm0EE5LevelERNS_9allocatorIS4_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %4) #31
-  resume { ptr, i32 } %53
+  resume { ptr, i32 } %51
 }
 
 ; Function Attrs: mustprogress noreturn uwtable

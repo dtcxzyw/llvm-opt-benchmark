@@ -3404,8 +3404,7 @@ Abc_Clock.exit105:                                ; preds = %Vec_IntReverseOrder
 183:                                              ; preds = %Abc_Clock.exit105
   %184 = icmp eq i32 %182, -1
   %185 = select i1 %184, ptr @.str.11, ptr @.str.12
-  %.val85 = load i32, ptr %155, align 4, !tbaa !31
-  %186 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, ptr noundef nonnull %185, i32 noundef %.val93, i32 noundef %.val85)
+  %186 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.10, ptr noundef nonnull %185, i32 noundef %.val93, i32 noundef %154)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6) #21
   %187 = call i32 @clock_gettime(i32 noundef 1, ptr noundef nonnull %6) #21
   %188 = icmp slt i32 %187, 0

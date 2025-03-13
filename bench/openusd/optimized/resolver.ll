@@ -7514,31 +7514,35 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_10PlugP
 1055:                                             ; preds = %1052, %1035, %.lr.ph.i44
   %1056 = getelementptr inbounds nuw i8, ptr %.sroa.04.055.i, i64 32
   %.not14.i = icmp eq ptr %1056, %966
-  br i1 %.not14.i, label %.loopexit.i41, label %.lr.ph.i44
+  br i1 %.not14.i, label %.loopexit.loopexit.i, label %.lr.ph.i44
 
-.loopexit.i41:                                    ; preds = %1055, %979, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i43
-  %1057 = load ptr, ptr %12, align 8
-  %1058 = load ptr, ptr %845, align 8
-  %.not4.i.i.i.i70.i = icmp eq ptr %1057, %1058
+.loopexit.loopexit.i:                             ; preds = %1055
+  %.pre.i = load ptr, ptr %845, align 8
+  br label %.loopexit.i41
+
+.loopexit.i41:                                    ; preds = %.loopexit.loopexit.i, %979, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i43
+  %1057 = phi ptr [ %.pre.i, %.loopexit.loopexit.i ], [ %965, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i43 ], [ null, %979 ]
+  %1058 = load ptr, ptr %12, align 8
+  %.not4.i.i.i.i70.i = icmp eq ptr %1058, %1057
   br i1 %.not4.i.i.i.i70.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i76.i, label %.lr.ph.i.i.i.i71.i
 
 .lr.ph.i.i.i.i71.i:                               ; preds = %.loopexit.i41, %.lr.ph.i.i.i.i71.i
-  %.05.i.i.i.i72.i = phi ptr [ %1059, %.lr.ph.i.i.i.i71.i ], [ %1057, %.loopexit.i41 ]
+  %.05.i.i.i.i72.i = phi ptr [ %1059, %.lr.ph.i.i.i.i71.i ], [ %1058, %.loopexit.i41 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i72.i) #15
   %1059 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i72.i, i64 32
-  %.not.i.i.i.i73.i = icmp eq ptr %1059, %1058
+  %.not.i.i.i.i73.i = icmp eq ptr %1059, %1057
   br i1 %.not.i.i.i.i73.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i76.i, label %.lr.ph.i.i.i.i71.i, !llvm.loop !23
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i76.i: ; preds = %.lr.ph.i.i.i.i71.i, %.loopexit.i41
-  %.not.i.i.i77.i = icmp eq ptr %1057, null
+  %.not.i.i.i77.i = icmp eq ptr %1058, null
   br i1 %.not.i.i.i77.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit78.i, label %1060
 
 1060:                                             ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i76.i
   %1061 = load ptr, ptr %846, align 8
   %1062 = ptrtoint ptr %1061 to i64
-  %1063 = ptrtoint ptr %1057 to i64
+  %1063 = ptrtoint ptr %1058 to i64
   %1064 = sub i64 %1062, %1063
-  call void @_ZdlPvm(ptr noundef nonnull %1057, i64 noundef %1064) #35
+  call void @_ZdlPvm(ptr noundef nonnull %1058, i64 noundef %1064) #35
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit78.i
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit78.i: ; preds = %1060, %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i76.i, %946

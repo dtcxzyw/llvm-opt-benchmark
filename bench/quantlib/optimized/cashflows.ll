@@ -8655,8 +8655,6 @@ invoke.cont35:                                    ; preds = %cond.false.i31, %in
 
 invoke.cont38:                                    ; preds = %invoke.cont35
   %sub = fsub double %call33, %call39
-  %pn.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %coupon, i64 8
-  %.pre = load ptr, ptr %pn.i.phi.trans.insert, align 8, !tbaa !42
   br label %cleanup
 
 lpad28:                                           ; preds = %invoke.cont29
@@ -8675,7 +8673,7 @@ if.else40:                                        ; preds = %if.end20.thread, %i
           to label %cleanup unwind label %lpad
 
 cleanup:                                          ; preds = %if.else40, %invoke.cont38
-  %16 = phi ptr [ %.pre, %invoke.cont38 ], [ %15, %if.else40 ]
+  %16 = phi ptr [ %6, %invoke.cont38 ], [ %15, %if.else40 ]
   %retval.0 = phi double [ %sub, %invoke.cont38 ], [ %call42, %if.else40 ]
   %cmp.not.i.i = icmp eq ptr %16, null
   br i1 %cmp.not.i.i, label %_ZN5boost10shared_ptrIN8QuantLib6CouponEED2Ev.exit, label %if.then.i.i

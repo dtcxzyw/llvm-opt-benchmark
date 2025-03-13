@@ -17465,11 +17465,10 @@ _ZSt8_DestroyIPN4Luau9TypeErrorES1_EvT_S3_RSaIT0_E.exit.i: ; preds = %.lr.ph.i, 
   br i1 %.not.i.i.i13, label %_ZNSt6vectorIN4Luau9TypeErrorESaIS1_EED2Ev.exit, label %133
 
 133:                                              ; preds = %_ZSt8_DestroyIPN4Luau9TypeErrorES1_EvT_S3_RSaIT0_E.exit.i
-  %134 = load ptr, ptr %56, align 8, !tbaa !251
-  %135 = ptrtoint ptr %134 to i64
-  %136 = ptrtoint ptr %132 to i64
-  %137 = sub i64 %135, %136
-  call void @_ZdlPvm(ptr noundef nonnull %132, i64 noundef %137) #24
+  %134 = ptrtoint ptr %58 to i64
+  %135 = ptrtoint ptr %132 to i64
+  %136 = sub i64 %134, %135
+  call void @_ZdlPvm(ptr noundef nonnull %132, i64 noundef %136) #24
   br label %_ZNSt6vectorIN4Luau9TypeErrorESaIS1_EED2Ev.exit
 
 _ZNSt6vectorIN4Luau9TypeErrorESaIS1_EED2Ev.exit:  ; preds = %_ZSt8_DestroyIPN4Luau9TypeErrorES1_EvT_S3_RSaIT0_E.exit.i, %133

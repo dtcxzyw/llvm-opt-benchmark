@@ -15475,58 +15475,55 @@ define noalias noundef ptr @fstUtilityExtractEnumTableFromString(ptr noundef rea
   br label %.lr.ph68
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %27 = phi ptr [ %19, %.lr.ph.preheader ], [ %34, %.lr.ph ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.065 = phi ptr [ %26, %.lr.ph.preheader ], [ %29, %.lr.ph ]
-  %28 = getelementptr inbounds nuw i8, ptr %.065, i64 1
-  %29 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %28, i32 noundef 32) #40
-  store i8 0, ptr %29, align 1, !tbaa !6
-  %30 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
-  store ptr %28, ptr %30, align 8, !tbaa !28
-  %31 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #40
-  %32 = trunc i64 %31 to i32
-  %33 = tail call i32 @fstUtilityEscToBin(ptr noundef null, ptr noundef nonnull %28, i32 noundef %32)
-  %34 = load ptr, ptr %20, align 8, !tbaa !253
-  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv
-  %36 = load ptr, ptr %35, align 8, !tbaa !28
-  %37 = sext i32 %33 to i64
-  %38 = getelementptr inbounds i8, ptr %36, i64 %37
-  store i8 0, ptr %38, align 1, !tbaa !6
+  %.065 = phi ptr [ %26, %.lr.ph.preheader ], [ %28, %.lr.ph ]
+  %27 = getelementptr inbounds nuw i8, ptr %.065, i64 1
+  %28 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %27, i32 noundef 32) #40
+  store i8 0, ptr %28, align 1, !tbaa !6
+  %29 = getelementptr inbounds nuw ptr, ptr %19, i64 %indvars.iv
+  store ptr %27, ptr %29, align 8, !tbaa !28
+  %30 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %27) #40
+  %31 = trunc i64 %30 to i32
+  %32 = tail call i32 @fstUtilityEscToBin(ptr noundef null, ptr noundef nonnull %27, i32 noundef %31)
+  %33 = load ptr, ptr %29, align 8, !tbaa !28
+  %34 = sext i32 %32 to i64
+  %35 = getelementptr inbounds i8, ptr %33, i64 %34
+  store i8 0, ptr %35, align 1, !tbaa !6
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.lr.ph68.preheader, label %.lr.ph, !llvm.loop !255
 
-.lr.ph68:                                         ; preds = %.lr.ph68.preheader, %42
-  %indvars.iv70 = phi i64 [ 0, %.lr.ph68.preheader ], [ %indvars.iv.next71, %42 ]
-  %.167 = phi ptr [ %29, %.lr.ph68.preheader ], [ %40, %42 ]
-  %39 = getelementptr inbounds nuw i8, ptr %.167, i64 1
-  %40 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %39, i32 noundef 32) #40
-  %.not63 = icmp eq ptr %40, null
-  br i1 %.not63, label %42, label %41
+.lr.ph68:                                         ; preds = %.lr.ph68.preheader, %40
+  %36 = phi ptr [ %21, %.lr.ph68.preheader ], [ %45, %40 ]
+  %indvars.iv70 = phi i64 [ 0, %.lr.ph68.preheader ], [ %indvars.iv.next71, %40 ]
+  %.167 = phi ptr [ %28, %.lr.ph68.preheader ], [ %38, %40 ]
+  %37 = getelementptr inbounds nuw i8, ptr %.167, i64 1
+  %38 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %37, i32 noundef 32) #40
+  %.not63 = icmp eq ptr %38, null
+  br i1 %.not63, label %40, label %39
 
-41:                                               ; preds = %.lr.ph68
-  store i8 0, ptr %40, align 1, !tbaa !6
-  br label %42
+39:                                               ; preds = %.lr.ph68
+  store i8 0, ptr %38, align 1, !tbaa !6
+  br label %40
 
-42:                                               ; preds = %41, %.lr.ph68
-  %43 = load ptr, ptr %22, align 8, !tbaa !254
-  %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %indvars.iv70
-  store ptr %39, ptr %44, align 8, !tbaa !28
-  %45 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %39) #40
-  %46 = trunc i64 %45 to i32
-  %47 = tail call i32 @fstUtilityEscToBin(ptr noundef null, ptr noundef nonnull %39, i32 noundef %46)
-  %48 = load ptr, ptr %22, align 8, !tbaa !254
-  %49 = getelementptr inbounds nuw ptr, ptr %48, i64 %indvars.iv70
-  %50 = load ptr, ptr %49, align 8, !tbaa !28
-  %51 = sext i32 %47 to i64
-  %52 = getelementptr inbounds i8, ptr %50, i64 %51
-  store i8 0, ptr %52, align 1, !tbaa !6
+40:                                               ; preds = %39, %.lr.ph68
+  %41 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv70
+  store ptr %37, ptr %41, align 8, !tbaa !28
+  %42 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %37) #40
+  %43 = trunc i64 %42 to i32
+  %44 = tail call i32 @fstUtilityEscToBin(ptr noundef null, ptr noundef nonnull %37, i32 noundef %43)
+  %45 = load ptr, ptr %22, align 8, !tbaa !254
+  %46 = getelementptr inbounds nuw ptr, ptr %45, i64 %indvars.iv70
+  %47 = load ptr, ptr %46, align 8, !tbaa !28
+  %48 = sext i32 %44 to i64
+  %49 = getelementptr inbounds i8, ptr %47, i64 %48
+  store i8 0, ptr %49, align 1, !tbaa !6
   %indvars.iv.next71 = add nuw nsw i64 %indvars.iv70, 1
   %exitcond74.not = icmp eq i64 %indvars.iv.next71, %wide.trip.count73
   br i1 %exitcond74.not, label %.loopexit, label %.lr.ph68, !llvm.loop !256
 
-.loopexit:                                        ; preds = %42, %14, %10, %1
-  %.052 = phi ptr [ null, %1 ], [ null, %10 ], [ %15, %14 ], [ %15, %42 ]
+.loopexit:                                        ; preds = %40, %14, %10, %1
+  %.052 = phi ptr [ null, %1 ], [ null, %10 ], [ %15, %14 ], [ %15, %40 ]
   ret ptr %.052
 }
 

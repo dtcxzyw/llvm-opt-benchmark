@@ -292,7 +292,7 @@ define dso_local void @callthunks_patch_module_calls(ptr noundef readonly captur
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
   store ptr %13, ptr %12, align 8
   %14 = load i1, ptr @thunks_initialized, align 1
-  br i1 %14, label %15, label %46
+  br i1 %14, label %15, label %45
 
 15:                                               ; preds = %2
   tail call void @mutex_lock(ptr noundef nonnull @text_mutex) #12
@@ -340,18 +340,17 @@ define dso_local void @callthunks_patch_module_calls(ptr noundef readonly captur
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit3
   %41 = load i1, ptr @debug_callthunks, align 4
-  br i1 %41, label %42, label %45
+  br i1 %41, label %42, label %44
 
 42:                                               ; preds = %.loopexit
-  %43 = load ptr, ptr %12, align 8
-  %44 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, ptr noundef %43) #13
+  %43 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.2, ptr noundef nonnull %13) #13
+  br label %44
+
+44:                                               ; preds = %42, %.loopexit
+  call void @mutex_unlock(ptr noundef nonnull @text_mutex) #12
   br label %45
 
-45:                                               ; preds = %42, %.loopexit
-  call void @mutex_unlock(ptr noundef nonnull @text_mutex) #12
-  br label %46
-
-46:                                               ; preds = %45, %2
+45:                                               ; preds = %44, %2
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #12
   ret void
 }

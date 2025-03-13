@@ -1567,7 +1567,7 @@ _ZN9perf_dataD2Ev.exit:                           ; preds = %_ZNSt3mapImdSt4less
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #27
   store ptr %0, ptr %6, align 8, !tbaa !49
   %124 = invoke noundef ptr @_ZNSt8_Rb_treeImSt4pairIKmdESt10_Select1stIS2_ESt4lessImESaIS2_EE7_M_copyILb0ENS8_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS2_ESD_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %122, ptr noundef nonnull %116, ptr noundef nonnull align 8 dereferenceable(8) %6)
-          to label %.noexc.i.i.i unwind label %222
+          to label %.noexc.i.i.i unwind label %221
 
 .noexc.i.i.i:                                     ; preds = %123, %.noexc.i.i.i
   %.0.i.i.i.i.i.i.i = phi ptr [ %126, %.noexc.i.i.i ], [ %124, %123 ]
@@ -1839,24 +1839,23 @@ _ZSt8_DestroyIP9perf_dataS0_EvT_S2_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyI9pe
   br i1 %.not.i.i.i49, label %_ZNSt6vectorI9perf_dataSaIS0_EED2Ev.exit, label %217
 
 217:                                              ; preds = %_ZSt8_DestroyIP9perf_dataS0_EvT_S2_RSaIT0_E.exit.i
-  %218 = load ptr, ptr %44, align 8, !tbaa !58
-  %219 = ptrtoint ptr %218 to i64
-  %220 = ptrtoint ptr %.pr.i to i64
-  %221 = sub i64 %219, %220
-  call void @_ZdlPvm(ptr noundef nonnull %.pr.i, i64 noundef %221) #28
+  %218 = ptrtoint ptr %43 to i64
+  %219 = ptrtoint ptr %.pr.i to i64
+  %220 = sub i64 %218, %219
+  call void @_ZdlPvm(ptr noundef nonnull %.pr.i, i64 noundef %220) #28
   br label %_ZNSt6vectorI9perf_dataSaIS0_EED2Ev.exit
 
 _ZNSt6vectorI9perf_dataSaIS0_EED2Ev.exit:         ; preds = %_ZSt8_DestroyIP9perf_dataS0_EvT_S2_RSaIT0_E.exit.i, %217
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #27
   ret void
 
-222:                                              ; preds = %123
-  %223 = landingpad { ptr, i32 }
+221:                                              ; preds = %123
+  %222 = landingpad { ptr, i32 }
           cleanup
   br label %.body29
 
-.body29:                                          ; preds = %222, %151, %201, %203, %192, %185, %168, %112
-  %.pn23 = phi { ptr, i32 } [ %113, %112 ], [ %204, %203 ], [ %202, %201 ], [ %169, %168 ], [ %193, %192 ], [ %186, %185 ], [ %223, %222 ], [ %152, %151 ]
+.body29:                                          ; preds = %221, %151, %201, %203, %192, %185, %168, %112
+  %.pn23 = phi { ptr, i32 } [ %113, %112 ], [ %204, %203 ], [ %202, %201 ], [ %169, %168 ], [ %193, %192 ], [ %186, %185 ], [ %222, %221 ], [ %152, %151 ]
   call void @_ZNSt6vectorI9perf_dataSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #27
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #27
   resume { ptr, i32 } %.pn23
@@ -2134,7 +2133,7 @@ _ZN9perf_dataD2Ev.exit:                           ; preds = %_ZNSt3mapImdSt4less
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #27
   store ptr %0, ptr %6, align 8, !tbaa !49
   %124 = invoke noundef ptr @_ZNSt8_Rb_treeImSt4pairIKmdESt10_Select1stIS2_ESt4lessImESaIS2_EE7_M_copyILb0ENS8_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS2_ESD_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %122, ptr noundef nonnull %116, ptr noundef nonnull align 8 dereferenceable(8) %6)
-          to label %.noexc.i.i.i unwind label %222
+          to label %.noexc.i.i.i unwind label %221
 
 .noexc.i.i.i:                                     ; preds = %123, %.noexc.i.i.i
   %.0.i.i.i.i.i.i.i = phi ptr [ %126, %.noexc.i.i.i ], [ %124, %123 ]
@@ -2406,24 +2405,23 @@ _ZSt8_DestroyIP9perf_dataS0_EvT_S2_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyI9pe
   br i1 %.not.i.i.i49, label %_ZNSt6vectorI9perf_dataSaIS0_EED2Ev.exit, label %217
 
 217:                                              ; preds = %_ZSt8_DestroyIP9perf_dataS0_EvT_S2_RSaIT0_E.exit.i
-  %218 = load ptr, ptr %44, align 8, !tbaa !58
-  %219 = ptrtoint ptr %218 to i64
-  %220 = ptrtoint ptr %.pr.i to i64
-  %221 = sub i64 %219, %220
-  call void @_ZdlPvm(ptr noundef nonnull %.pr.i, i64 noundef %221) #28
+  %218 = ptrtoint ptr %43 to i64
+  %219 = ptrtoint ptr %.pr.i to i64
+  %220 = sub i64 %218, %219
+  call void @_ZdlPvm(ptr noundef nonnull %.pr.i, i64 noundef %220) #28
   br label %_ZNSt6vectorI9perf_dataSaIS0_EED2Ev.exit
 
 _ZNSt6vectorI9perf_dataSaIS0_EED2Ev.exit:         ; preds = %_ZSt8_DestroyIP9perf_dataS0_EvT_S2_RSaIT0_E.exit.i, %217
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #27
   ret void
 
-222:                                              ; preds = %123
-  %223 = landingpad { ptr, i32 }
+221:                                              ; preds = %123
+  %222 = landingpad { ptr, i32 }
           cleanup
   br label %.body29
 
-.body29:                                          ; preds = %222, %151, %201, %203, %192, %185, %168, %112
-  %.pn23 = phi { ptr, i32 } [ %113, %112 ], [ %204, %203 ], [ %202, %201 ], [ %169, %168 ], [ %193, %192 ], [ %186, %185 ], [ %223, %222 ], [ %152, %151 ]
+.body29:                                          ; preds = %221, %151, %201, %203, %192, %185, %168, %112
+  %.pn23 = phi { ptr, i32 } [ %113, %112 ], [ %204, %203 ], [ %202, %201 ], [ %169, %168 ], [ %193, %192 ], [ %186, %185 ], [ %222, %221 ], [ %152, %151 ]
   call void @_ZNSt6vectorI9perf_dataSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #27
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #27
   resume { ptr, i32 } %.pn23
@@ -2701,7 +2699,7 @@ _ZN9perf_dataD2Ev.exit:                           ; preds = %_ZNSt3mapImdSt4less
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #27
   store ptr %0, ptr %6, align 8, !tbaa !49
   %124 = invoke noundef ptr @_ZNSt8_Rb_treeImSt4pairIKmdESt10_Select1stIS2_ESt4lessImESaIS2_EE7_M_copyILb0ENS8_11_Alloc_nodeEEEPSt13_Rb_tree_nodeIS2_ESD_PSt18_Rb_tree_node_baseRT0_(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %122, ptr noundef nonnull %116, ptr noundef nonnull align 8 dereferenceable(8) %6)
-          to label %.noexc.i.i.i unwind label %222
+          to label %.noexc.i.i.i unwind label %221
 
 .noexc.i.i.i:                                     ; preds = %123, %.noexc.i.i.i
   %.0.i.i.i.i.i.i.i = phi ptr [ %126, %.noexc.i.i.i ], [ %124, %123 ]
@@ -2973,24 +2971,23 @@ _ZSt8_DestroyIP9perf_dataS0_EvT_S2_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyI9pe
   br i1 %.not.i.i.i49, label %_ZNSt6vectorI9perf_dataSaIS0_EED2Ev.exit, label %217
 
 217:                                              ; preds = %_ZSt8_DestroyIP9perf_dataS0_EvT_S2_RSaIT0_E.exit.i
-  %218 = load ptr, ptr %44, align 8, !tbaa !58
-  %219 = ptrtoint ptr %218 to i64
-  %220 = ptrtoint ptr %.pr.i to i64
-  %221 = sub i64 %219, %220
-  call void @_ZdlPvm(ptr noundef nonnull %.pr.i, i64 noundef %221) #28
+  %218 = ptrtoint ptr %43 to i64
+  %219 = ptrtoint ptr %.pr.i to i64
+  %220 = sub i64 %218, %219
+  call void @_ZdlPvm(ptr noundef nonnull %.pr.i, i64 noundef %220) #28
   br label %_ZNSt6vectorI9perf_dataSaIS0_EED2Ev.exit
 
 _ZNSt6vectorI9perf_dataSaIS0_EED2Ev.exit:         ; preds = %_ZSt8_DestroyIP9perf_dataS0_EvT_S2_RSaIT0_E.exit.i, %217
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #27
   ret void
 
-222:                                              ; preds = %123
-  %223 = landingpad { ptr, i32 }
+221:                                              ; preds = %123
+  %222 = landingpad { ptr, i32 }
           cleanup
   br label %.body29
 
-.body29:                                          ; preds = %222, %151, %201, %203, %192, %185, %168, %112
-  %.pn23 = phi { ptr, i32 } [ %113, %112 ], [ %204, %203 ], [ %202, %201 ], [ %169, %168 ], [ %193, %192 ], [ %186, %185 ], [ %223, %222 ], [ %152, %151 ]
+.body29:                                          ; preds = %221, %151, %201, %203, %192, %185, %168, %112
+  %.pn23 = phi { ptr, i32 } [ %113, %112 ], [ %204, %203 ], [ %202, %201 ], [ %169, %168 ], [ %193, %192 ], [ %186, %185 ], [ %222, %221 ], [ %152, %151 ]
   call void @_ZNSt6vectorI9perf_dataSaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %7) #27
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %7) #27
   resume { ptr, i32 } %.pn23
