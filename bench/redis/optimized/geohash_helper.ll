@@ -65,7 +65,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable
 define dso_local range(i32 0, 2) i32 @geohashBoundingBox(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) local_unnamed_addr #2 {
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %38, label %3
@@ -100,10 +100,10 @@ define dso_local range(i32 0, 2) i32 @geohashBoundingBox(ptr noundef readonly ca
   %25 = fdiv double %22, 0x41584F6F63E51090
   %26 = fadd double %7, %24
   %27 = fmul double %26, 0x3F91DF46A2529D39
-  %28 = tail call double @cos(double noundef %27) #11, !tbaa !16
+  %28 = tail call double @cos(double noundef %27) #12, !tbaa !16
   %29 = fsub double %7, %24
   %30 = fmul double %29, 0x3F91DF46A2529D39
-  %31 = tail call double @cos(double noundef %30) #11, !tbaa !16
+  %31 = tail call double @cos(double noundef %30) #12, !tbaa !16
   %32 = fcmp olt double %7, 0.000000e+00
   %..v.v = select i1 %32, double %31, double %28
   %..v = fdiv double %25, %..v.v
@@ -124,7 +124,7 @@ define dso_local range(i32 0, 2) i32 @geohashBoundingBox(ptr noundef readonly ca
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @cos(double noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
@@ -138,11 +138,11 @@ define dso_local void @geohashCalculateAreasByShapeWGS84(ptr dead_on_unwind noal
   %9 = alloca %struct.GeoHashArea, align 8
   %10 = alloca %struct.GeoHashArea, align 8
   %11 = alloca %struct.GeoHashArea, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #11
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #11
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #11
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #12
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #12
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %7) #12
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %14 = load double, ptr %13, align 8, !tbaa !7
@@ -173,10 +173,10 @@ geohashBoundingBox.exit:                          ; preds = %2, %23
   %33 = fdiv double %30, 0x41584F6F63E51090
   %34 = fadd double %16, %32
   %35 = fmul double %34, 0x3F91DF46A2529D39
-  %36 = tail call double @cos(double noundef %35) #11, !tbaa !16
+  %36 = tail call double @cos(double noundef %35) #12, !tbaa !16
   %37 = fsub double %16, %32
   %38 = fmul double %37, 0x3F91DF46A2529D39
-  %39 = tail call double @cos(double noundef %38) #11, !tbaa !16
+  %39 = tail call double @cos(double noundef %38) #12, !tbaa !16
   %40 = fcmp olt double %16, 0.000000e+00
   %..v.v.i = select i1 %40, double %39, double %36
   %..v.i = fdiv double %33, %..v.v.i
@@ -253,9 +253,9 @@ geohashBoundingBox.exit:                          ; preds = %2, %23
 geohashEstimateStepsByRadius.exit:                ; preds = %58, %72
   %.018.i = phi i8 [ %73, %72 ], [ 26, %58 ]
   %74 = zext nneg i8 %.018.i to i32
-  call void @geohashGetCoordRange(ptr noundef nonnull %3, ptr noundef nonnull %4) #11
-  %75 = call i32 @geohashEncode(ptr noundef nonnull %3, ptr noundef nonnull %4, double noundef %14, double noundef %16, i8 noundef zeroext %.018.i, ptr noundef nonnull %5) #11
-  call void @geohashNeighbors(ptr noundef nonnull %5, ptr noundef nonnull %6) #11
+  call void @geohashGetCoordRange(ptr noundef nonnull %3, ptr noundef nonnull %4) #12
+  %75 = call i32 @geohashEncode(ptr noundef nonnull %3, ptr noundef nonnull %4, double noundef %14, double noundef %16, i8 noundef zeroext %.018.i, ptr noundef nonnull %5) #12
+  call void @geohashNeighbors(ptr noundef nonnull %5, ptr noundef nonnull %6) #12
   %76 = load double, ptr %3, align 8
   %77 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %78 = load double, ptr %77, align 8
@@ -265,11 +265,11 @@ geohashEstimateStepsByRadius.exit:                ; preds = %58, %72
   %82 = load i64, ptr %5, align 8
   %83 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %84 = load i8, ptr %83, align 8
-  %85 = call i32 @geohashDecode(double %76, double %78, double %79, double %81, i64 %82, i8 %84, ptr noundef nonnull %7) #11
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #11
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9) #11
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10) #11
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11) #11
+  %85 = call i32 @geohashDecode(double %76, double %78, double %79, double %81, i64 %82, i8 %84, ptr noundef nonnull %7) #12
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %8) #12
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9) #12
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10) #12
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %11) #12
   %86 = load double, ptr %3, align 8
   %87 = load double, ptr %77, align 8
   %88 = load double, ptr %4, align 8
@@ -277,7 +277,7 @@ geohashEstimateStepsByRadius.exit:                ; preds = %58, %72
   %90 = load i64, ptr %6, align 8
   %91 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %92 = load i8, ptr %91, align 8
-  %93 = call i32 @geohashDecode(double %86, double %87, double %88, double %89, i64 %90, i8 %92, ptr noundef nonnull %8) #11
+  %93 = call i32 @geohashDecode(double %86, double %87, double %88, double %89, i64 %90, i8 %92, ptr noundef nonnull %8) #12
   %94 = getelementptr inbounds nuw i8, ptr %6, i64 48
   %95 = load double, ptr %3, align 8
   %96 = load double, ptr %77, align 8
@@ -286,7 +286,7 @@ geohashEstimateStepsByRadius.exit:                ; preds = %58, %72
   %99 = load i64, ptr %94, align 8
   %100 = getelementptr inbounds nuw i8, ptr %6, i64 56
   %101 = load i8, ptr %100, align 8
-  %102 = call i32 @geohashDecode(double %95, double %96, double %97, double %98, i64 %99, i8 %101, ptr noundef nonnull %9) #11
+  %102 = call i32 @geohashDecode(double %95, double %96, double %97, double %98, i64 %99, i8 %101, ptr noundef nonnull %9) #12
   %103 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %104 = load double, ptr %3, align 8
   %105 = load double, ptr %77, align 8
@@ -295,7 +295,7 @@ geohashEstimateStepsByRadius.exit:                ; preds = %58, %72
   %108 = load i64, ptr %103, align 8
   %109 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %110 = load i8, ptr %109, align 8
-  %111 = call i32 @geohashDecode(double %104, double %105, double %106, double %107, i64 %108, i8 %110, ptr noundef nonnull %10) #11
+  %111 = call i32 @geohashDecode(double %104, double %105, double %106, double %107, i64 %108, i8 %110, ptr noundef nonnull %10) #12
   %112 = getelementptr inbounds nuw i8, ptr %6, i64 32
   %113 = load double, ptr %3, align 8
   %114 = load double, ptr %77, align 8
@@ -304,7 +304,7 @@ geohashEstimateStepsByRadius.exit:                ; preds = %58, %72
   %117 = load i64, ptr %112, align 8
   %118 = getelementptr inbounds nuw i8, ptr %6, i64 40
   %119 = load i8, ptr %118, align 8
-  %120 = call i32 @geohashDecode(double %113, double %114, double %115, double %116, i64 %117, i8 %119, ptr noundef nonnull %11) #11
+  %120 = call i32 @geohashDecode(double %113, double %114, double %115, double %116, i64 %117, i8 %119, ptr noundef nonnull %11) #12
   %121 = getelementptr inbounds nuw i8, ptr %8, i64 40
   %122 = load double, ptr %121, align 8, !tbaa !17
   %123 = fcmp olt double %122, %34
@@ -320,10 +320,10 @@ geohashEstimateStepsByRadius.exit:                ; preds = %58, %72
   %133 = select i1 %132, i1 true, i1 %129
   %134 = select i1 %133, i1 true, i1 %126
   %narrow = select i1 %134, i1 true, i1 %123
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11) #11
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10) #11
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #11
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #11
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %11) #12
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %10) #12
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %9) #12
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %8) #12
   %135 = icmp samesign ugt i8 %.018.i, 1
   %or.cond = and i1 %135, %narrow
   br i1 %or.cond, label %136, label %147
@@ -331,15 +331,15 @@ geohashEstimateStepsByRadius.exit:                ; preds = %58, %72
 136:                                              ; preds = %geohashEstimateStepsByRadius.exit
   %137 = add nsw i32 %74, -1
   %138 = trunc nuw nsw i32 %137 to i8
-  %139 = call i32 @geohashEncode(ptr noundef nonnull %3, ptr noundef nonnull %4, double noundef %14, double noundef %16, i8 noundef zeroext %138, ptr noundef nonnull %5) #11
-  call void @geohashNeighbors(ptr noundef nonnull %5, ptr noundef nonnull %6) #11
+  %139 = call i32 @geohashEncode(ptr noundef nonnull %3, ptr noundef nonnull %4, double noundef %14, double noundef %16, i8 noundef zeroext %138, ptr noundef nonnull %5) #12
+  call void @geohashNeighbors(ptr noundef nonnull %5, ptr noundef nonnull %6) #12
   %140 = load double, ptr %3, align 8
   %141 = load double, ptr %77, align 8
   %142 = load double, ptr %4, align 8
   %143 = load double, ptr %80, align 8
   %144 = load i64, ptr %5, align 8
   %145 = load i8, ptr %83, align 8
-  %146 = call i32 @geohashDecode(double %140, double %141, double %142, double %143, i64 %144, i8 %145, ptr noundef nonnull %7) #11
+  %146 = call i32 @geohashDecode(double %140, double %141, double %142, double %143, i64 %144, i8 %145, ptr noundef nonnull %7) #12
   br label %147
 
 147:                                              ; preds = %136, %geohashEstimateStepsByRadius.exit
@@ -429,15 +429,15 @@ geohashEstimateStepsByRadius.exit:                ; preds = %58, %72
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %186, ptr noundef nonnull align 8 dereferenceable(128) %6, i64 128, i1 false), !tbaa.struct !44
   %187 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %187, ptr noundef nonnull align 8 dereferenceable(48) %7, i64 48, i1 false), !tbaa.struct !45
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #11
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #11
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #12
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #12
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @sqrt(double noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -477,13 +477,13 @@ define dso_local noundef double @geohashGetLatDistance(double noundef %0, double
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #5
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write) uwtable
 define dso_local double @geohashGetDistance(double noundef %0, double noundef %1, double noundef %2, double noundef %3) local_unnamed_addr #9 {
   %5 = fmul double %0, 0x3F91DF46A2529D39
   %6 = fmul double %2, 0x3F91DF46A2529D39
   %7 = fsub double %6, %5
   %8 = fmul double %7, 5.000000e-01
-  %9 = tail call double @sin(double noundef %8) #11, !tbaa !16
+  %9 = tail call double @sin(double noundef %8) #12, !tbaa !16
   %10 = fcmp oeq double %9, 0.000000e+00
   br i1 %10, label %11, label %17
 
@@ -500,15 +500,15 @@ define dso_local double @geohashGetDistance(double noundef %0, double noundef %1
   %19 = fmul double %3, 0x3F91DF46A2529D39
   %20 = fsub double %19, %18
   %21 = fmul double %20, 5.000000e-01
-  %22 = tail call double @sin(double noundef %21) #11, !tbaa !16
-  %23 = tail call double @cos(double noundef %18) #11, !tbaa !16
-  %24 = tail call double @cos(double noundef %19) #11, !tbaa !16
+  %22 = tail call double @sin(double noundef %21) #12, !tbaa !16
+  %23 = tail call double @cos(double noundef %18) #12, !tbaa !16
+  %24 = tail call double @cos(double noundef %19) #12, !tbaa !16
   %25 = fmul double %23, %24
   %26 = fmul double %9, %25
   %27 = fmul double %9, %26
   %28 = tail call double @llvm.fmuladd.f64(double %22, double %22, double %27)
-  %29 = tail call double @sqrt(double noundef %28) #11, !tbaa !16
-  %30 = tail call double @asin(double noundef %29) #11, !tbaa !16
+  %29 = tail call double @sqrt(double noundef %28) #12, !tbaa !16
+  %30 = tail call double @asin(double noundef %29) #12, !tbaa !16
   %31 = fmul double %30, 0x41684F6F63E51090
   br label %32
 
@@ -517,19 +517,19 @@ define dso_local double @geohashGetDistance(double noundef %0, double noundef %1
   ret double %.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @sin(double noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @asin(double noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define dso_local range(i32 0, 2) i32 @geohashGetDistanceIfInRadius(double noundef %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, ptr noundef writeonly captures(none) initializes((0, 8)) %5) local_unnamed_addr #9 {
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, errnomem: write) uwtable
+define dso_local range(i32 0, 2) i32 @geohashGetDistanceIfInRadius(double noundef %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, ptr noundef writeonly captures(none) initializes((0, 8)) %5) local_unnamed_addr #10 {
   %7 = fmul double %0, 0x3F91DF46A2529D39
   %8 = fmul double %2, 0x3F91DF46A2529D39
   %9 = fsub double %8, %7
   %10 = fmul double %9, 5.000000e-01
-  %11 = tail call double @sin(double noundef %10) #11, !tbaa !16
+  %11 = tail call double @sin(double noundef %10) #12, !tbaa !16
   %12 = fcmp oeq double %11, 0.000000e+00
   br i1 %12, label %13, label %19
 
@@ -546,15 +546,15 @@ define dso_local range(i32 0, 2) i32 @geohashGetDistanceIfInRadius(double nounde
   %21 = fmul double %3, 0x3F91DF46A2529D39
   %22 = fsub double %21, %20
   %23 = fmul double %22, 5.000000e-01
-  %24 = tail call double @sin(double noundef %23) #11, !tbaa !16
-  %25 = tail call double @cos(double noundef %20) #11, !tbaa !16
-  %26 = tail call double @cos(double noundef %21) #11, !tbaa !16
+  %24 = tail call double @sin(double noundef %23) #12, !tbaa !16
+  %25 = tail call double @cos(double noundef %20) #12, !tbaa !16
+  %26 = tail call double @cos(double noundef %21) #12, !tbaa !16
   %27 = fmul double %25, %26
   %28 = fmul double %11, %27
   %29 = fmul double %11, %28
   %30 = tail call double @llvm.fmuladd.f64(double %24, double %24, double %29)
-  %31 = tail call double @sqrt(double noundef %30) #11, !tbaa !16
-  %32 = tail call double @asin(double noundef %31) #11, !tbaa !16
+  %31 = tail call double @sqrt(double noundef %30) #12, !tbaa !16
+  %32 = tail call double @asin(double noundef %31) #12, !tbaa !16
   %33 = fmul double %32, 0x41684F6F63E51090
   br label %geohashGetDistance.exit
 
@@ -566,13 +566,13 @@ geohashGetDistance.exit:                          ; preds = %13, %19
   ret i32 %.
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define dso_local range(i32 0, 2) i32 @geohashGetDistanceIfInRadiusWGS84(double noundef %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, ptr noundef writeonly captures(none) initializes((0, 8)) %5) local_unnamed_addr #9 {
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, errnomem: write) uwtable
+define dso_local range(i32 0, 2) i32 @geohashGetDistanceIfInRadiusWGS84(double noundef %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, ptr noundef writeonly captures(none) initializes((0, 8)) %5) local_unnamed_addr #10 {
   %7 = fmul double %0, 0x3F91DF46A2529D39
   %8 = fmul double %2, 0x3F91DF46A2529D39
   %9 = fsub double %8, %7
   %10 = fmul double %9, 5.000000e-01
-  %11 = tail call double @sin(double noundef %10) #11, !tbaa !16
+  %11 = tail call double @sin(double noundef %10) #12, !tbaa !16
   %12 = fcmp oeq double %11, 0.000000e+00
   br i1 %12, label %13, label %19
 
@@ -589,15 +589,15 @@ define dso_local range(i32 0, 2) i32 @geohashGetDistanceIfInRadiusWGS84(double n
   %21 = fmul double %3, 0x3F91DF46A2529D39
   %22 = fsub double %21, %20
   %23 = fmul double %22, 5.000000e-01
-  %24 = tail call double @sin(double noundef %23) #11, !tbaa !16
-  %25 = tail call double @cos(double noundef %20) #11, !tbaa !16
-  %26 = tail call double @cos(double noundef %21) #11, !tbaa !16
+  %24 = tail call double @sin(double noundef %23) #12, !tbaa !16
+  %25 = tail call double @cos(double noundef %20) #12, !tbaa !16
+  %26 = tail call double @cos(double noundef %21) #12, !tbaa !16
   %27 = fmul double %25, %26
   %28 = fmul double %11, %27
   %29 = fmul double %11, %28
   %30 = tail call double @llvm.fmuladd.f64(double %24, double %24, double %29)
-  %31 = tail call double @sqrt(double noundef %30) #11, !tbaa !16
-  %32 = tail call double @asin(double noundef %31) #11, !tbaa !16
+  %31 = tail call double @sqrt(double noundef %30) #12, !tbaa !16
+  %32 = tail call double @asin(double noundef %31) #12, !tbaa !16
   %33 = fmul double %32, 0x41684F6F63E51090
   br label %geohashGetDistanceIfInRadius.exit
 
@@ -609,8 +609,8 @@ geohashGetDistanceIfInRadius.exit:                ; preds = %13, %19
   ret i32 %..i
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define dso_local range(i32 0, 2) i32 @geohashGetDistanceIfInRectangle(double noundef %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, ptr noundef writeonly captures(none) %6) local_unnamed_addr #9 {
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, errnomem: write) uwtable
+define dso_local range(i32 0, 2) i32 @geohashGetDistanceIfInRectangle(double noundef %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, ptr noundef writeonly captures(none) %6) local_unnamed_addr #10 {
   %8 = fmul double %3, 0x3F91DF46A2529D39
   %9 = fmul double %5, 0x3F91DF46A2529D39
   %10 = fsub double %8, %9
@@ -625,7 +625,7 @@ define dso_local range(i32 0, 2) i32 @geohashGetDistanceIfInRectangle(double nou
   %17 = fmul double %2, 0x3F91DF46A2529D39
   %18 = fsub double %17, %16
   %19 = fmul double %18, 5.000000e-01
-  %20 = tail call double @sin(double noundef %19) #11, !tbaa !16
+  %20 = tail call double @sin(double noundef %19) #12, !tbaa !16
   %21 = fcmp oeq double %20, 0.000000e+00
   %22 = fsub double %9, %9
   br i1 %21, label %23, label %26
@@ -637,15 +637,15 @@ define dso_local range(i32 0, 2) i32 @geohashGetDistanceIfInRectangle(double nou
 
 26:                                               ; preds = %15
   %27 = fmul double %22, 5.000000e-01
-  %28 = tail call double @sin(double noundef %27) #11, !tbaa !16
-  %29 = tail call double @cos(double noundef %9) #11, !tbaa !16
-  %30 = tail call double @cos(double noundef %9) #11, !tbaa !16
+  %28 = tail call double @sin(double noundef %27) #12, !tbaa !16
+  %29 = tail call double @cos(double noundef %9) #12, !tbaa !16
+  %30 = tail call double @cos(double noundef %9) #12, !tbaa !16
   %31 = fmul double %29, %30
   %32 = fmul double %20, %31
   %33 = fmul double %20, %32
   %34 = tail call double @llvm.fmuladd.f64(double %28, double %28, double %33)
-  %35 = tail call double @sqrt(double noundef %34) #11, !tbaa !16
-  %36 = tail call double @asin(double noundef %35) #11, !tbaa !16
+  %35 = tail call double @sqrt(double noundef %34) #12, !tbaa !16
+  %36 = tail call double @asin(double noundef %35) #12, !tbaa !16
   %37 = fmul double %36, 0x41684F6F63E51090
   br label %geohashGetDistance.exit
 
@@ -658,7 +658,7 @@ geohashGetDistance.exit:                          ; preds = %23, %26
 40:                                               ; preds = %geohashGetDistance.exit
   %41 = fsub double %16, %17
   %42 = fmul double %41, 5.000000e-01
-  %43 = tail call double @sin(double noundef %42) #11, !tbaa !16
+  %43 = tail call double @sin(double noundef %42) #12, !tbaa !16
   %44 = fcmp oeq double %43, 0.000000e+00
   %45 = fsub double %9, %8
   br i1 %44, label %46, label %49
@@ -670,15 +670,15 @@ geohashGetDistance.exit:                          ; preds = %23, %26
 
 49:                                               ; preds = %40
   %50 = fmul double %45, 5.000000e-01
-  %51 = tail call double @sin(double noundef %50) #11, !tbaa !16
-  %52 = tail call double @cos(double noundef %8) #11, !tbaa !16
-  %53 = tail call double @cos(double noundef %9) #11, !tbaa !16
+  %51 = tail call double @sin(double noundef %50) #12, !tbaa !16
+  %52 = tail call double @cos(double noundef %8) #12, !tbaa !16
+  %53 = tail call double @cos(double noundef %9) #12, !tbaa !16
   %54 = fmul double %52, %53
   %55 = fmul double %43, %54
   %56 = fmul double %43, %55
   %57 = tail call double @llvm.fmuladd.f64(double %51, double %51, double %56)
-  %58 = tail call double @sqrt(double noundef %57) #11, !tbaa !16
-  %59 = tail call double @asin(double noundef %58) #11, !tbaa !16
+  %58 = tail call double @sqrt(double noundef %57) #12, !tbaa !16
+  %59 = tail call double @asin(double noundef %58) #12, !tbaa !16
   %60 = fmul double %59, 0x41684F6F63E51090
   br label %geohashGetDistance.exit16
 
@@ -693,26 +693,27 @@ geohashGetDistance.exit16:                        ; preds = %46, %49
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #10
+declare i32 @llvm.smax.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #10
+declare i32 @llvm.umin.i32(i32, i32) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.sqrt.f64(double) #10
+declare double @llvm.sqrt.f64(double) #11
 
 attributes #0 = { nofree norecurse nosync nounwind memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn memory(errnomem: write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nounwind willreturn memory(write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nounwind }
+attributes #9 = { mustprogress nofree nounwind willreturn memory(errnomem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nounwind willreturn memory(argmem: write, errnomem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

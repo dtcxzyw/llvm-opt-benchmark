@@ -2950,7 +2950,7 @@ unreachable:                                      ; preds = %invoke.cont388, %in
 
 declare i64 @_ZNK8QuantLib8Exercise8lastDateEv(ptr noundef nonnull align 8 dereferenceable(36)) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read, errnomem: write) uwtable
 define noundef double @_ZNK8QuantLib15COSHestonEngine2c1Ed(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(408) %this, double noundef %t) local_unnamed_addr #12 align 2 {
 entry:
   %theta_ = getelementptr inbounds nuw i8, ptr %this, i64 376
@@ -2974,7 +2974,7 @@ entry:
   ret double %div
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read, errnomem: write) uwtable
 define noundef double @_ZNK8QuantLib15COSHestonEngine2c2Ed(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(408) %this, double noundef %t) local_unnamed_addr #12 align 2 {
 entry:
   %sigma_ = getelementptr inbounds nuw i8, ptr %this, i64 384
@@ -3428,13 +3428,13 @@ unreachable:                                      ; preds = %invoke.cont14
 
 declare noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8QuantLib13HestonProcess13dividendYieldEv(ptr noundef nonnull align 8 dereferenceable(220)) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @log(double noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #13
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @exp(double noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -3612,10 +3612,10 @@ _ZStmlIdESt7complexIT_ERKS2_S4_.exit182:          ; preds = %_ZStmlIdESt7complex
   ret { double, double } %call.i.i241
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @sin(double noundef) local_unnamed_addr #14
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @cos(double noundef) local_unnamed_addr #14
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
@@ -3958,7 +3958,7 @@ ehcleanup32:                                      ; preds = %ehcleanup, %lpad
 
 declare noundef double @_ZNK8QuantLib18YieldTermStructure8discountEdb(ptr noundef nonnull align 8 dereferenceable(152), double noundef, i1 noundef zeroext) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read, errnomem: write) uwtable
 define noundef double @_ZNK8QuantLib15COSHestonEngine2c3Ed(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(408) %this, double noundef %t) local_unnamed_addr #12 align 2 {
 entry:
   %sigma_ = getelementptr inbounds nuw i8, ptr %this, i64 384
@@ -4101,7 +4101,7 @@ entry:
   ret double %div
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read, errnomem: write) uwtable
 define noundef double @_ZNK8QuantLib15COSHestonEngine2c4Ed(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(408) %this, double noundef %t) local_unnamed_addr #12 align 2 {
 entry:
   %sigma_ = getelementptr inbounds nuw i8, ptr %this, i64 384
@@ -4376,7 +4376,7 @@ entry:
   ret double %div
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read, errnomem: write) uwtable
 define noundef double @_ZNK8QuantLib15COSHestonEngine2muEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(408) %this, double noundef %t) local_unnamed_addr #12 align 2 {
 entry:
   %theta_.i = getelementptr inbounds nuw i8, ptr %this, i64 376
@@ -4400,7 +4400,7 @@ entry:
   ret double %div.i
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read, errnomem: write) uwtable
 define noundef double @_ZNK8QuantLib15COSHestonEngine3varEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(408) %this, double noundef %t) local_unnamed_addr #12 align 2 {
 entry:
   %sigma_.i = getelementptr inbounds nuw i8, ptr %this, i64 384
@@ -4467,7 +4467,7 @@ entry:
   ret double %div.i
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read, errnomem: write) uwtable
 define noundef double @_ZNK8QuantLib15COSHestonEngine4skewEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(408) %this, double noundef %t) local_unnamed_addr #12 align 2 {
 entry:
   %call = tail call noundef double @_ZNK8QuantLib15COSHestonEngine2c3Ed(ptr noundef nonnull align 8 dereferenceable(408) %this, double noundef %t)
@@ -4537,10 +4537,10 @@ entry:
   ret double %div
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @pow(double noundef, double noundef) local_unnamed_addr #14
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read, errnomem: write) uwtable
 define noundef double @_ZNK8QuantLib15COSHestonEngine8kurtosisEd(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(408) %this, double noundef %t) local_unnamed_addr #12 align 2 {
 entry:
   %call = tail call noundef double @_ZNK8QuantLib15COSHestonEngine2c4Ed(ptr noundef nonnull align 8 dereferenceable(408) %this, double noundef %t)
@@ -7993,9 +7993,9 @@ attributes #8 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "
 attributes #9 = { cold noreturn nounwind memory(inaccessiblemem: write) }
 attributes #10 = { mustprogress nofree nounwind willreturn memory(read) }
 attributes #11 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree nounwind willreturn memory(argmem: read, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { mustprogress nofree nounwind willreturn memory(write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { inlinehint nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #16 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #17 = { nofree nounwind }

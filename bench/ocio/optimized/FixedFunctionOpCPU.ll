@@ -828,7 +828,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev26Renderer_ACES_RedMod03_FwdC2ERSt10
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree nounwind memory(argmem: readwrite, errnomem: write) uwtable
 define hidden void @_ZNK19OpenColorIO_v2_5dev26Renderer_ACES_RedMod03_Fwd5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, i64 noundef %3) unnamed_addr #5 align 2 {
   %5 = icmp sgt i64 %3, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -967,7 +967,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev26Renderer_ACES_RedMod03_InvC2ERSt10
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree nounwind memory(argmem: readwrite, errnomem: write) uwtable
 define hidden void @_ZNK19OpenColorIO_v2_5dev26Renderer_ACES_RedMod03_Inv5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, i64 noundef %3) unnamed_addr #5 align 2 {
   %5 = icmp sgt i64 %3, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -1096,7 +1096,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev26Renderer_ACES_RedMod10_FwdC2ERSt10
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree nounwind memory(argmem: readwrite, errnomem: write) uwtable
 define hidden void @_ZNK19OpenColorIO_v2_5dev26Renderer_ACES_RedMod10_Fwd5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, i64 noundef %3) unnamed_addr #5 align 2 {
   %5 = icmp sgt i64 %3, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -1204,7 +1204,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev26Renderer_ACES_RedMod10_InvC2ERSt10
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree nounwind memory(argmem: readwrite, errnomem: write) uwtable
 define hidden void @_ZNK19OpenColorIO_v2_5dev26Renderer_ACES_RedMod10_Inv5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(20) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, i64 noundef %3) unnamed_addr #5 align 2 {
   %5 = icmp sgt i64 %3, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -1309,7 +1309,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev24Renderer_ACES_Glow03_FwdC2ERSt10sh
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree nounwind memory(argmem: readwrite, errnomem: write) uwtable
 define hidden void @_ZNK19OpenColorIO_v2_5dev24Renderer_ACES_Glow03_Fwd5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, i64 noundef %3) unnamed_addr #5 align 2 {
   %5 = icmp sgt i64 %3, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -1419,7 +1419,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev24Renderer_ACES_Glow03_InvC2ERSt10sh
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree nounwind memory(argmem: readwrite, errnomem: write) uwtable
 define hidden void @_ZNK19OpenColorIO_v2_5dev24Renderer_ACES_Glow03_Inv5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, i64 noundef %3) unnamed_addr #5 align 2 {
   %5 = icmp sgt i64 %3, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -1538,7 +1538,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev29Renderer_ACES_DarkToDim10_FwdC2ERS
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree nounwind memory(argmem: readwrite, errnomem: write) uwtable
 define hidden void @_ZNK19OpenColorIO_v2_5dev29Renderer_ACES_DarkToDim10_Fwd5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(12) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, i64 noundef %3) unnamed_addr #5 align 2 {
   %5 = icmp sgt i64 %3, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -1585,7 +1585,7 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev29Renderer_ACES_DarkToDim10_Fwd5app
   br i1 %exitcond.not, label %._crit_edge, label %7, !llvm.loop !32
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write) uwtable
 define hidden noundef float @_ZN19OpenColorIO_v2_5dev8compressEffff(float noundef %0, float noundef %1, float noundef %2, float noundef %3) local_unnamed_addr #7 {
   %5 = fsub float %0, %1
   %6 = fdiv float %5, %2
@@ -1599,7 +1599,7 @@ define hidden noundef float @_ZN19OpenColorIO_v2_5dev8compressEffff(float nounde
   ret float %13
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write) uwtable
 define hidden noundef float @_ZN19OpenColorIO_v2_5dev10uncompressEffff(float noundef %0, float noundef %1, float noundef %2, float noundef %3) local_unnamed_addr #7 {
   %5 = fadd float %1, %2
   %6 = fcmp ult float %0, %5
@@ -1622,7 +1622,7 @@ define hidden noundef float @_ZN19OpenColorIO_v2_5dev10uncompressEffff(float nou
   ret float %.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, errnomem: readwrite) uwtable
 define hidden void @_ZN19OpenColorIO_v2_5dev29Renderer_ACES_GamutComp13_FwdC2ERSt10shared_ptrIKNS_19FixedFunctionOpDataEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 48)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev29Renderer_ACES_GamutComp13_FwdE, i64 16), ptr %0, align 8, !tbaa !3
   %3 = load ptr, ptr %1, align 8, !tbaa !33
@@ -1696,7 +1696,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev29Renderer_ACES_GamutComp13_FwdC2ERS
 
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree nounwind memory(argmem: readwrite, errnomem: write) uwtable
 define hidden void @_ZNK19OpenColorIO_v2_5dev29Renderer_ACES_GamutComp13_Fwd5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, i64 noundef %3) unnamed_addr #5 align 2 {
   %5 = icmp sgt i64 %3, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -1826,7 +1826,7 @@ _ZN19OpenColorIO_v2_5dev10gamut_compIPFfffffEEEffffffT_.exit24: ; preds = %_ZN19
   br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !55
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, errnomem: readwrite) uwtable
 define hidden void @_ZN19OpenColorIO_v2_5dev29Renderer_ACES_GamutComp13_InvC2ERSt10shared_ptrIKNS_19FixedFunctionOpDataEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(48) initializes((0, 48)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   %3 = load ptr, ptr %1, align 8, !tbaa !33
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 176
@@ -1898,7 +1898,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev29Renderer_ACES_GamutComp13_InvC2ERS
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree nounwind memory(argmem: readwrite, errnomem: write) uwtable
 define hidden void @_ZNK19OpenColorIO_v2_5dev29Renderer_ACES_GamutComp13_Inv5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, i64 noundef %3) unnamed_addr #5 align 2 {
   %5 = icmp sgt i64 %3, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -3142,7 +3142,7 @@ define hidden void @_ZNK19OpenColorIO_v2_5dev31Renderer_ACES_GAMUT_COMPRESS_203i
   br i1 %exitcond.not, label %._crit_edge, label %10, !llvm.loop !113
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, errnomem: readwrite) uwtable
 define hidden void @_ZN19OpenColorIO_v2_5dev25Renderer_REC2100_SurroundC2ERSt10shared_ptrIKNS_19FixedFunctionOpDataEE(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #8 align 2 personality ptr @__gxx_personality_v0 {
   store ptr getelementptr inbounds nuw inrange(-16, 48) (i8, ptr @_ZTVN19OpenColorIO_v2_5dev25Renderer_REC2100_SurroundE, i64 16), ptr %0, align 8, !tbaa !3
   %3 = load ptr, ptr %1, align 8, !tbaa !33
@@ -3171,10 +3171,10 @@ define hidden void @_ZN19OpenColorIO_v2_5dev25Renderer_REC2100_SurroundC2ERSt10s
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare float @powf(float noundef, float noundef) local_unnamed_addr #12
 
-; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree nounwind memory(argmem: readwrite, errnomem: write) uwtable
 define hidden void @_ZNK19OpenColorIO_v2_5dev25Renderer_REC2100_Surround5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(16) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, i64 noundef %3) unnamed_addr #5 align 2 {
   %5 = icmp sgt i64 %3, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -3603,7 +3603,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev19Renderer_XYZ_TO_LUVC2ERSt10shared_
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree nounwind memory(argmem: readwrite, errnomem: write) uwtable
 define hidden void @_ZNK19OpenColorIO_v2_5dev19Renderer_XYZ_TO_LUV5applyEPKvPvl(ptr nonnull readnone align 8 captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, i64 noundef %3) unnamed_addr #5 align 2 {
   %5 = icmp sgt i64 %3, 0
   br i1 %5, label %.lr.ph, label %._crit_edge
@@ -3920,10 +3920,10 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %2
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @log(double noundef) local_unnamed_addr #12
 
-; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree nounwind memory(argmem: readwrite, errnomem: write) uwtable
 define hidden void @_ZNK19OpenColorIO_v2_5dev25Renderer_LIN_TO_GAMMA_LOG5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(48) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, i64 noundef %3) unnamed_addr #5 align 2 {
   %5 = icmp sgt i64 %3, 0
   br i1 %5, label %.preheader.lr.ph, label %._crit_edge
@@ -4029,7 +4029,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev25Renderer_GAMMA_LOG_TO_LINC2ERSt10s
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree nounwind memory(argmem: readwrite, errnomem: write) uwtable
 define hidden void @_ZNK19OpenColorIO_v2_5dev25Renderer_GAMMA_LOG_TO_LIN5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(56) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, i64 noundef %3) unnamed_addr #5 align 2 {
   %5 = icmp sgt i64 %3, 0
   br i1 %5, label %.preheader.lr.ph, label %._crit_edge
@@ -4219,7 +4219,7 @@ _ZNSt6vectorIdSaIdEED2Ev.exit:                    ; preds = %2
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree nounwind memory(argmem: readwrite, errnomem: write) uwtable
 define hidden void @_ZNK19OpenColorIO_v2_5dev26Renderer_LIN_TO_DOUBLE_LOG5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(60) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, i64 noundef %3) unnamed_addr #5 align 2 {
   %5 = icmp sgt i64 %3, 0
   br i1 %5, label %.preheader.lr.ph, label %._crit_edge
@@ -4344,7 +4344,7 @@ define hidden void @_ZN19OpenColorIO_v2_5dev26Renderer_DOUBLE_LOG_TO_LINC2ERSt10
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree nounwind memory(argmem: readwrite, errnomem: write) uwtable
 define hidden void @_ZNK19OpenColorIO_v2_5dev26Renderer_DOUBLE_LOG_TO_LIN5applyEPKvPvl(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(68) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, i64 noundef %3) unnamed_addr #5 align 2 {
   %5 = icmp sgt i64 %3, 0
   br i1 %5, label %.preheader.lr.ph, label %._crit_edge
@@ -5732,10 +5732,10 @@ define linkonce_odr hidden void @_ZN19OpenColorIO_v2_5dev26Renderer_DOUBLE_LOG_T
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare float @atan2f(float noundef, float noundef) local_unnamed_addr #12
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare float @sqrtf(float noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -5750,10 +5750,10 @@ declare float @llvm.floor.f32(float) #6
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
 declare <4 x i32> @llvm.x86.sse2.cvttps2dq(<4 x float>) #18
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare float @logf(float noundef) local_unnamed_addr #12
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare float @expf(float noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress noinline nounwind uwtable
@@ -7985,14 +7985,14 @@ attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-siz
 attributes #2 = { nofree nounwind }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind memory(argmem: readwrite, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #7 = { mustprogress nofree nounwind willreturn memory(write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn memory(errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, errnomem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { mustprogress uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree nounwind willreturn memory(write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="128" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

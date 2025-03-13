@@ -1314,7 +1314,7 @@ define internal void @__cxx_global_var_init.55() #0 section ".text.startup" comd
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind uwtable
+; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none, errnomem: readwrite) uwtable
 define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead_on_unwind noalias writable writeonly sret(%"struct.Luau::Compile::Constant") align 8 %0, i32 noundef %1, ptr noundef readonly %2, i64 noundef %3) local_unnamed_addr #2 {
   switch i32 %1, label %.thread [
     i32 2, label %5
@@ -1396,7 +1396,7 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
 21:                                               ; preds = %18
   %22 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %23 = load double, ptr %22, align 8, !tbaa !11
-  %24 = tail call double @acos(double noundef %23) #11, !tbaa !4
+  %24 = tail call double @acos(double noundef %23) #10, !tbaa !4
   store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !16
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %25, align 4, !tbaa !15, !alias.scope !16
@@ -1416,7 +1416,7 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
 32:                                               ; preds = %29
   %33 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %34 = load double, ptr %33, align 8, !tbaa !11
-  %35 = tail call double @asin(double noundef %34) #11, !tbaa !4
+  %35 = tail call double @asin(double noundef %34) #10, !tbaa !4
   store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !19
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %36, align 4, !tbaa !15, !alias.scope !19
@@ -1444,7 +1444,7 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   %49 = load double, ptr %48, align 8, !tbaa !11
   %50 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %51 = load double, ptr %50, align 8, !tbaa !11
-  %52 = tail call double @atan2(double noundef %49, double noundef %51) #11, !tbaa !4
+  %52 = tail call double @atan2(double noundef %49, double noundef %51) #10, !tbaa !4
   store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !22
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %53, align 4, !tbaa !15, !alias.scope !22
@@ -1464,7 +1464,7 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
 60:                                               ; preds = %57
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %62 = load double, ptr %61, align 8, !tbaa !11
-  %63 = tail call double @atan(double noundef %62) #11, !tbaa !4
+  %63 = tail call double @atan(double noundef %62) #10, !tbaa !4
   store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !25
   %64 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %64, align 4, !tbaa !15, !alias.scope !25
@@ -1504,7 +1504,7 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
 82:                                               ; preds = %79
   %83 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %84 = load double, ptr %83, align 8, !tbaa !11
-  %85 = tail call double @cosh(double noundef %84) #11, !tbaa !4
+  %85 = tail call double @cosh(double noundef %84) #10, !tbaa !4
   store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !31
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %86, align 4, !tbaa !15, !alias.scope !31
@@ -1524,7 +1524,7 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
 93:                                               ; preds = %90
   %94 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %95 = load double, ptr %94, align 8, !tbaa !11
-  %96 = tail call double @cos(double noundef %95) #11, !tbaa !4
+  %96 = tail call double @cos(double noundef %95) #10, !tbaa !4
   store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !34
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %97, align 4, !tbaa !15, !alias.scope !34
@@ -1564,7 +1564,7 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
 115:                                              ; preds = %112
   %116 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %117 = load double, ptr %116, align 8, !tbaa !11
-  %118 = tail call double @exp(double noundef %117) #11, !tbaa !4
+  %118 = tail call double @exp(double noundef %117) #10, !tbaa !4
   store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !40
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %119, align 4, !tbaa !15, !alias.scope !40
@@ -1612,7 +1612,7 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   %143 = load double, ptr %142, align 8, !tbaa !11
   %144 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %145 = load double, ptr %144, align 8, !tbaa !11
-  %146 = tail call double @fmod(double noundef %143, double noundef %145) #11, !tbaa !4
+  %146 = tail call double @fmod(double noundef %143, double noundef %145) #10, !tbaa !4
   store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !46
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %147, align 4, !tbaa !15, !alias.scope !46
@@ -1641,7 +1641,7 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   %161 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %162 = load double, ptr %161, align 8, !tbaa !11
   %163 = fptosi double %162 to i32
-  %164 = tail call double @ldexp(double noundef %160, i32 noundef %163) #11, !tbaa !4
+  %164 = tail call double @ldexp(double noundef %160, i32 noundef %163) #10, !tbaa !4
   store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !49
   %165 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %165, align 4, !tbaa !15, !alias.scope !49
@@ -1661,7 +1661,7 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
 172:                                              ; preds = %169
   %173 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %174 = load double, ptr %173, align 8, !tbaa !11
-  %175 = tail call double @log10(double noundef %174) #11, !tbaa !4
+  %175 = tail call double @log10(double noundef %174) #10, !tbaa !4
   store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !52
   %176 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %176, align 4, !tbaa !15, !alias.scope !52
@@ -1683,7 +1683,7 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
 182:                                              ; preds = %179
   %183 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %184 = load double, ptr %183, align 8, !tbaa !11
-  %185 = tail call double @log(double noundef %184) #11, !tbaa !4
+  %185 = tail call double @log(double noundef %184) #10, !tbaa !4
   store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !55
   %186 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %186, align 4, !tbaa !15, !alias.scope !55
@@ -1711,7 +1711,7 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
 199:                                              ; preds = %195
   %200 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %201 = load double, ptr %200, align 8, !tbaa !11
-  %202 = tail call double @log2(double noundef %201) #11, !tbaa !4
+  %202 = tail call double @log2(double noundef %201) #10, !tbaa !4
   store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !58
   %203 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %203, align 4, !tbaa !15, !alias.scope !58
@@ -1726,7 +1726,7 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   br i1 %206, label %209, label %213
 
 209:                                              ; preds = %205
-  %210 = tail call double @log10(double noundef %208) #11, !tbaa !4
+  %210 = tail call double @log10(double noundef %208) #10, !tbaa !4
   store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !61
   %211 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %211, align 4, !tbaa !15, !alias.scope !61
@@ -1735,9 +1735,9 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   br label %845
 
 213:                                              ; preds = %205
-  %214 = tail call double @log(double noundef %208) #11, !tbaa !4
+  %214 = tail call double @log(double noundef %208) #10, !tbaa !4
   %215 = load double, ptr %196, align 8, !tbaa !11
-  %216 = tail call double @log(double noundef %215) #11, !tbaa !4
+  %216 = tail call double @log(double noundef %215) #10, !tbaa !4
   %217 = fdiv double %214, %216
   store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !64
   %218 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -1856,7 +1856,7 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
   %267 = load double, ptr %266, align 8, !tbaa !11
   %268 = getelementptr inbounds nuw i8, ptr %2, i64 32
   %269 = load double, ptr %268, align 8, !tbaa !11
-  %270 = tail call double @pow(double noundef %267, double noundef %269) #11, !tbaa !4
+  %270 = tail call double @pow(double noundef %267, double noundef %269) #10, !tbaa !4
   store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !82
   %271 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %271, align 4, !tbaa !15, !alias.scope !82
@@ -1896,7 +1896,7 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
 289:                                              ; preds = %286
   %290 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %291 = load double, ptr %290, align 8, !tbaa !11
-  %292 = tail call double @sinh(double noundef %291) #11, !tbaa !4
+  %292 = tail call double @sinh(double noundef %291) #10, !tbaa !4
   store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !88
   %293 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %293, align 4, !tbaa !15, !alias.scope !88
@@ -1916,7 +1916,7 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
 300:                                              ; preds = %297
   %301 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %302 = load double, ptr %301, align 8, !tbaa !11
-  %303 = tail call double @sin(double noundef %302) #11, !tbaa !4
+  %303 = tail call double @sin(double noundef %302) #10, !tbaa !4
   store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !91
   %304 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %304, align 4, !tbaa !15, !alias.scope !91
@@ -1936,7 +1936,7 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
 311:                                              ; preds = %308
   %312 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %313 = load double, ptr %312, align 8, !tbaa !11
-  %314 = tail call double @sqrt(double noundef %313) #11, !tbaa !4
+  %314 = tail call double @sqrt(double noundef %313) #10, !tbaa !4
   store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !94
   %315 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %315, align 4, !tbaa !15, !alias.scope !94
@@ -1956,7 +1956,7 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
 322:                                              ; preds = %319
   %323 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %324 = load double, ptr %323, align 8, !tbaa !11
-  %325 = tail call double @tanh(double noundef %324) #11, !tbaa !4
+  %325 = tail call double @tanh(double noundef %324) #10, !tbaa !4
   store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !97
   %326 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %326, align 4, !tbaa !15, !alias.scope !97
@@ -1976,7 +1976,7 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
 333:                                              ; preds = %330
   %334 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %335 = load double, ptr %334, align 8, !tbaa !11
-  %336 = tail call double @tan(double noundef %335) #11, !tbaa !4
+  %336 = tail call double @tan(double noundef %335) #10, !tbaa !4
   store i32 3, ptr %0, align 8, !tbaa !8, !alias.scope !100
   %337 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store i32 0, ptr %337, align 4, !tbaa !15, !alias.scope !100
@@ -2888,68 +2888,68 @@ define dso_local void @_ZN4Luau7Compile11foldBuiltinEiPKNS0_8ConstantEm(ptr dead
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #3
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @acos(double noundef) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @asin(double noundef) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @atan2(double noundef, double noundef) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @atan(double noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.ceil.f64(double) #3
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @cosh(double noundef) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @cos(double noundef) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @exp(double noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.floor.f64(double) #3
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @fmod(double noundef, double noundef) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nofree nounwind willreturn
-declare double @ldexp(double noundef, i32 noundef) local_unnamed_addr #5
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
+declare double @ldexp(double noundef, i32 noundef) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @log10(double noundef) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @log(double noundef) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @log2(double noundef) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @pow(double noundef, double noundef) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @sinh(double noundef) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @sin(double noundef) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @sqrt(double noundef) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @tanh(double noundef) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @tan(double noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal fastcc void @_ZN4Luau7CompileL5ctypeERKNS0_8ConstantE(ptr dead_on_unwind noalias writable writeonly align 8 captures(none) initializes((0, 16)) %0, i32 %.0.val) unnamed_addr #6 {
+define internal fastcc void @_ZN4Luau7CompileL5ctypeERKNS0_8ConstantE(ptr dead_on_unwind noalias writable writeonly align 8 captures(none) initializes((0, 16)) %0, i32 %.0.val) unnamed_addr #5 {
   switch i32 %.0.val, label %17 [
     i32 1, label %2
     i32 2, label %5
@@ -3013,7 +3013,7 @@ declare double @llvm.round.f64(double) #3
 declare double @llvm.fmuladd.f64(double, double, double) #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define dso_local void @_ZN4Luau7Compile15foldBuiltinMathENS_7AstNameE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.Luau::Compile::Constant") align 8 captures(none) initializes((0, 16)) %0, ptr readonly captures(address_is_null) %1) local_unnamed_addr #7 {
+define dso_local void @_ZN4Luau7Compile15foldBuiltinMathENS_7AstNameE(ptr dead_on_unwind noalias writable writeonly sret(%"struct.Luau::Compile::Constant") align 8 captures(none) initializes((0, 16)) %0, ptr readonly captures(address_is_null) %1) local_unnamed_addr #6 {
   %.not.i = icmp eq ptr %1, null
   br i1 %.not.i, label %_ZNK4Luau7AstNameeqEPKc.exit2.thread, label %sub_0
 
@@ -3043,7 +3043,7 @@ _ZNK4Luau7AstNameeqEPKc.exit.tail:                ; preds = %sub_1
   br label %17
 
 _ZNK4Luau7AstNameeqEPKc.exit2:                    ; preds = %sub_1, %sub_0, %_ZNK4Luau7AstNameeqEPKc.exit.tail
-  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.58) #12
+  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(5) @.str.58) #11
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %14, label %_ZNK4Luau7AstNameeqEPKc.exit2.thread
 
@@ -3064,10 +3064,10 @@ _ZNK4Luau7AstNameeqEPKc.exit2.thread:             ; preds = %2, %_ZNK4Luau7AstNa
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable
 define internal void @_GLOBAL__sub_I_BuiltinFolding.cpp() #0 section ".text.startup" {
@@ -3081,24 +3081,23 @@ define internal void @_GLOBAL__sub_I_BuiltinFolding.cpp() #0 section ".text.star
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshr.i32(i32, i32, i32) #10
+declare i32 @llvm.fshr.i32(i32, i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.fshl.i32(i32, i32, i32) #10
+declare i32 @llvm.fshl.i32(i32, i32, i32) #9
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none, errnomem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { mustprogress nofree nounwind willreturn memory(write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nounwind }
-attributes #12 = { nounwind willreturn memory(read) }
+attributes #4 = { mustprogress nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nounwind }
+attributes #11 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

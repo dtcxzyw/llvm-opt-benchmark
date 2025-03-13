@@ -69,7 +69,7 @@ define hidden void @_ZN18JfrAdaptiveSamplerD2Ev(ptr noundef nonnull align 8 capt
   br i1 %4, label %6, label %5
 
 5:                                                ; preds = %1
-  tail call void @_ZN11JfrCHeapObjdlEPvm(ptr noundef nonnull %3, i64 noundef 64) #16
+  tail call void @_ZN11JfrCHeapObjdlEPvm(ptr noundef nonnull %3, i64 noundef 64) #17
   br label %6
 
 6:                                                ; preds = %5, %1
@@ -79,7 +79,7 @@ define hidden void @_ZN18JfrAdaptiveSamplerD2Ev(ptr noundef nonnull align 8 capt
   br i1 %9, label %11, label %10
 
 10:                                               ; preds = %6
-  tail call void @_ZN11JfrCHeapObjdlEPvm(ptr noundef nonnull %8, i64 noundef 64) #16
+  tail call void @_ZN11JfrCHeapObjdlEPvm(ptr noundef nonnull %8, i64 noundef 64) #17
   br label %11
 
 11:                                               ; preds = %10, %6
@@ -91,7 +91,7 @@ declare void @_ZN11JfrCHeapObjdlEPvm(ptr noundef, i64 noundef) local_unnamed_add
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
 define hidden void @_ZN18JfrAdaptiveSamplerD0Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
-  tail call void @llvm.trap() #17
+  tail call void @llvm.trap() #18
   unreachable
 }
 
@@ -100,7 +100,7 @@ declare void @llvm.trap() #5
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN18JfrAdaptiveSampler10initializeEv(ptr noundef nonnull align 8 captures(none) dereferenceable(76) %0) unnamed_addr #2 align 2 {
-  %2 = tail call noundef ptr @_ZN11JfrCHeapObjnwEm(i64 noundef 64) #16
+  %2 = tail call noundef ptr @_ZN11JfrCHeapObjnwEm(i64 noundef 64) #17
   %3 = icmp eq ptr %2, null
   br i1 %3, label %.thread, label %4
 
@@ -116,7 +116,7 @@ define hidden noundef zeroext i1 @_ZN18JfrAdaptiveSampler10initializeEv(ptr noun
   store volatile i64 0, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %2, ptr %9, align 8
-  %10 = tail call noundef ptr @_ZN11JfrCHeapObjnwEm(i64 noundef 64) #16
+  %10 = tail call noundef ptr @_ZN11JfrCHeapObjnwEm(i64 noundef 64) #17
   %11 = icmp eq ptr %10, null
   br i1 %11, label %.thread, label %12
 
@@ -151,14 +151,14 @@ declare noundef ptr @_ZN11JfrCHeapObjnwEm(i64 noundef) local_unnamed_addr #3
 define hidden noundef zeroext i1 @_ZN18JfrAdaptiveSampler6sampleEl(ptr noundef nonnull align 8 dereferenceable(76) %0, i64 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load volatile ptr, ptr %3, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !6
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !6
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load volatile i64, ptr %5, align 8
   %7 = icmp eq i64 %1, 0
   br i1 %7, label %8, label %_ZNK16JfrSamplerWindow10is_expiredEl.exit.i
 
 8:                                                ; preds = %2
-  %9 = tail call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #16
+  %9 = tail call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #17
   br label %_ZNK16JfrSamplerWindow10is_expiredEl.exit.i
 
 _ZNK16JfrSamplerWindow10is_expiredEl.exit.i:      ; preds = %8, %2
@@ -168,7 +168,7 @@ _ZNK16JfrSamplerWindow10is_expiredEl.exit.i:      ; preds = %8, %2
 
 10:                                               ; preds = %_ZNK16JfrSamplerWindow10is_expiredEl.exit.i
   %11 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  %12 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull %11) #16, !srcloc !7
+  %12 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull %11) #17, !srcloc !7
   %13 = add i64 %12, 1
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 48
   %15 = load i64, ptr %14, align 8
@@ -184,19 +184,19 @@ _ZNK16JfrSamplerWindow10is_expiredEl.exit.i:      ; preds = %8, %2
 
 _ZNK16JfrSamplerWindow6sampleElPb.exit:           ; preds = %_ZNK16JfrSamplerWindow10is_expiredEl.exit.i
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %22 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, i32 0, ptr nonnull %21) #16, !srcloc !8
+  %22 = tail call noundef i32 asm sideeffect "lock cmpxchgl $1,($3)", "={ax},r,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i32 1, i32 0, ptr nonnull %21) #17, !srcloc !8
   %23 = icmp eq i32 %22, 0
   br i1 %23, label %24, label %_ZN10JfrTryLockD2Ev.exit
 
 24:                                               ; preds = %_ZNK16JfrSamplerWindow6sampleElPb.exit
   %25 = load volatile ptr, ptr %3, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !6
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !6
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 32
   %27 = load volatile i64, ptr %26, align 8
   br i1 %7, label %28, label %_ZNK16JfrSamplerWindow10is_expiredEl.exit.i3
 
 28:                                               ; preds = %24
-  %29 = tail call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #16
+  %29 = tail call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #17
   br label %_ZNK16JfrSamplerWindow10is_expiredEl.exit.i3
 
 _ZNK16JfrSamplerWindow10is_expiredEl.exit.i3:     ; preds = %28, %24
@@ -209,8 +209,8 @@ _ZNK16JfrSamplerWindow10is_expiredEl.exit.i3:     ; preds = %28, %24
   br label %31
 
 31:                                               ; preds = %30, %_ZNK16JfrSamplerWindow10is_expiredEl.exit.i3
-  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !9
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !6
+  tail call void asm sideeffect "lock; addl $$0,0(%rsp)", "~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !9
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !6
   store volatile i32 0, ptr %21, align 8
   br label %_ZN10JfrTryLockD2Ev.exit
 
@@ -227,7 +227,7 @@ define hidden noundef zeroext i1 @_ZNK16JfrSamplerWindow6sampleElPb(ptr noundef 
   br i1 %6, label %7, label %_ZNK16JfrSamplerWindow10is_expiredEl.exit
 
 7:                                                ; preds = %3
-  %8 = tail call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #16
+  %8 = tail call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #17
   br label %_ZNK16JfrSamplerWindow10is_expiredEl.exit
 
 _ZNK16JfrSamplerWindow10is_expiredEl.exit:        ; preds = %3, %7
@@ -239,7 +239,7 @@ _ZNK16JfrSamplerWindow10is_expiredEl.exit:        ; preds = %3, %7
 
 11:                                               ; preds = %_ZNK16JfrSamplerWindow10is_expiredEl.exit
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %13 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull %12) #16, !srcloc !7
+  %13 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 1, ptr nonnull %12) #17, !srcloc !7
   %14 = add i64 %13, 1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %16 = load i64, ptr %15, align 8
@@ -262,14 +262,14 @@ _ZNK16JfrSamplerWindow6sampleEv.exit:             ; preds = %17, %11, %_ZNK16Jfr
 define hidden void @_ZN18JfrAdaptiveSampler13rotate_windowEl(ptr noundef nonnull align 8 dereferenceable(76) %0, i64 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load volatile ptr, ptr %3, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !6
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !6
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = load volatile i64, ptr %5, align 8
   %7 = icmp eq i64 %1, 0
   br i1 %7, label %8, label %_ZNK16JfrSamplerWindow10is_expiredEl.exit
 
 8:                                                ; preds = %2
-  %9 = tail call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #16
+  %9 = tail call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #17
   br label %_ZNK16JfrSamplerWindow10is_expiredEl.exit
 
 _ZNK16JfrSamplerWindow10is_expiredEl.exit:        ; preds = %2, %8
@@ -290,7 +290,7 @@ define hidden void @_ZN18JfrAdaptiveSampler6rotateEPK16JfrSamplerWindow(ptr noun
   %3 = load ptr, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call noundef nonnull align 8 dereferenceable(32) ptr %5(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr noundef %1) #16
+  %6 = tail call noundef nonnull align 8 dereferenceable(32) ptr %5(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr noundef %1) #17
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %8 = load i8, ptr %7, align 8
   %9 = trunc i8 %8 to i1
@@ -346,10 +346,10 @@ _ZN18JfrAdaptiveSampler9configureERK16JfrSamplerParams.exit.i: ; preds = %28, %1
 37:                                               ; preds = %32
   %38 = getelementptr inbounds nuw i8, ptr %33, i64 56
   store volatile i64 0, ptr %38, align 8
-  %39 = tail call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #16
+  %39 = tail call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #17
   %40 = load i64, ptr %34, align 8
   %41 = mul nsw i64 %40, 1000000
-  %42 = tail call noundef i64 @_ZN16JfrTimeConverter20nanos_to_countertimeElb(i64 noundef %41, i1 noundef zeroext false) #16
+  %42 = tail call noundef i64 @_ZN16JfrTimeConverter20nanos_to_countertimeElb(i64 noundef %41, i1 noundef zeroext false) #17
   %43 = add nsw i64 %42, %39
   br label %_ZN18JfrAdaptiveSampler9configureERK16JfrSamplerParamsPK16JfrSamplerWindow.exit
 
@@ -358,7 +358,7 @@ _ZN18JfrAdaptiveSampler9configureERK16JfrSamplerParamsPK16JfrSamplerWindow.exit:
   %44 = getelementptr inbounds nuw i8, ptr %33, i64 32
   store volatile i64 %.sink.i.i, ptr %44, align 8
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !6
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !6
   store volatile ptr %33, ptr %45, align 8
   ret void
 }
@@ -367,7 +367,7 @@ _ZN18JfrAdaptiveSampler9configureERK16JfrSamplerParamsPK16JfrSamplerWindow.exit:
 define hidden void @_ZN18JfrAdaptiveSampler11reconfigureEv(ptr noundef nonnull align 8 dereferenceable(76) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load volatile ptr, ptr %2, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !6
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !6
   tail call void @_ZN18JfrAdaptiveSampler6rotateEPK16JfrSamplerWindow(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr noundef %3)
   ret void
 }
@@ -429,10 +429,10 @@ _ZN18JfrAdaptiveSampler9configureERK16JfrSamplerParams.exit: ; preds = %7, %25
 34:                                               ; preds = %29
   %35 = getelementptr inbounds nuw i8, ptr %30, i64 56
   store volatile i64 0, ptr %35, align 8
-  %36 = tail call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #16
+  %36 = tail call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #17
   %37 = load i64, ptr %31, align 8
   %38 = mul nsw i64 %37, 1000000
-  %39 = tail call noundef i64 @_ZN16JfrTimeConverter20nanos_to_countertimeElb(i64 noundef %38, i1 noundef zeroext false) #16
+  %39 = tail call noundef i64 @_ZN16JfrTimeConverter20nanos_to_countertimeElb(i64 noundef %38, i1 noundef zeroext false) #17
   %40 = add nsw i64 %39, %36
   br label %_ZN16JfrSamplerWindow10initializeERK16JfrSamplerParams.exit
 
@@ -562,9 +562,9 @@ _ZN18JfrAdaptiveSampler19project_sample_sizeERK16JfrSamplerParamsPK16JfrSamplerW
 _Z14next_geometricdd.exit.i:                      ; preds = %55, %53, %41
   %.0.i.i14 = phi double [ 0x3FEFAE147AE147AE, %55 ], [ %51, %53 ], [ 1.000000e-02, %41 ]
   %56 = fsub double 1.000000e+00, %.0.i.i14
-  %57 = tail call double @log(double noundef %56) #16
+  %57 = tail call double @log(double noundef %56) #17
   %58 = fsub double 1.000000e+00, %42
-  %59 = tail call double @log(double noundef %58) #16
+  %59 = tail call double @log(double noundef %58) #17
   %60 = fdiv double %57, %59
   %61 = tail call double @llvm.ceil.f64(double %60)
   %62 = fptoui double %61 to i64
@@ -594,10 +594,10 @@ define hidden void @_ZN16JfrSamplerWindow10initializeERK16JfrSamplerParams(ptr n
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store volatile i64 0, ptr %7, align 8
-  %8 = tail call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #16
+  %8 = tail call noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() #17
   %9 = load i64, ptr %3, align 8
   %10 = mul nsw i64 %9, 1000000
-  %11 = tail call noundef i64 @_ZN16JfrTimeConverter20nanos_to_countertimeElb(i64 noundef %10, i1 noundef zeroext false) #16
+  %11 = tail call noundef i64 @_ZN16JfrTimeConverter20nanos_to_countertimeElb(i64 noundef %10, i1 noundef zeroext false) #17
   %12 = add nsw i64 %11, %8
   br label %13
 
@@ -642,8 +642,8 @@ _ZN18JfrAdaptiveSampler13amortize_debtEPK16JfrSamplerWindow.exit: ; preds = %3, 
   ret i64 %20
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define hidden noundef i64 @_ZN18JfrAdaptiveSampler24derive_sampling_intervalEdPK16JfrSamplerWindow(ptr noundef nonnull align 8 captures(none) dereferenceable(76) %0, double noundef %1, ptr noundef %2) local_unnamed_addr #8 align 2 {
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write) uwtable
+define hidden noundef i64 @_ZN18JfrAdaptiveSampler24derive_sampling_intervalEdPK16JfrSamplerWindow(ptr noundef nonnull align 8 captures(none) dereferenceable(76) %0, double noundef %1, ptr noundef %2) local_unnamed_addr #10 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 56
   %5 = load volatile i64, ptr %4, align 8
   %6 = uitofp i64 %5 to double
@@ -683,9 +683,9 @@ define hidden noundef i64 @_ZN18JfrAdaptiveSampler24derive_sampling_intervalEdPK
 _Z14next_geometricdd.exit:                        ; preds = %15, %27, %29
   %.0.i = phi double [ 0x3FEFAE147AE147AE, %29 ], [ %25, %27 ], [ 1.000000e-02, %15 ]
   %30 = fsub double 1.000000e+00, %.0.i
-  %31 = tail call double @log(double noundef %30) #16
+  %31 = tail call double @log(double noundef %30) #17
   %32 = fsub double 1.000000e+00, %16
-  %33 = tail call double @log(double noundef %32) #16
+  %33 = tail call double @log(double noundef %32) #17
   %34 = fdiv double %31, %33
   %35 = tail call double @llvm.ceil.f64(double %34)
   %36 = fptoui double %35 to i64
@@ -819,7 +819,7 @@ define hidden void @_ZN24JfrGTestFixedRateSamplerC2Emmm(ptr noundef nonnull alig
 
 ; Function Attrs: mustprogress nounwind uwtable
 define hidden noundef zeroext i1 @_ZN24JfrGTestFixedRateSampler10initializeEv(ptr noundef nonnull align 8 dereferenceable(120) %0) unnamed_addr #2 align 2 {
-  %2 = tail call noundef ptr @_ZN11JfrCHeapObjnwEm(i64 noundef 64) #16
+  %2 = tail call noundef ptr @_ZN11JfrCHeapObjnwEm(i64 noundef 64) #17
   %3 = icmp eq ptr %2, null
   br i1 %3, label %_ZN18JfrAdaptiveSampler10initializeEv.exit, label %4
 
@@ -835,7 +835,7 @@ define hidden noundef zeroext i1 @_ZN24JfrGTestFixedRateSampler10initializeEv(pt
   store volatile i64 0, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store ptr %2, ptr %9, align 8
-  %10 = tail call noundef ptr @_ZN11JfrCHeapObjnwEm(i64 noundef 64) #16
+  %10 = tail call noundef ptr @_ZN11JfrCHeapObjnwEm(i64 noundef 64) #17
   %11 = icmp eq ptr %10, null
   br i1 %11, label %_ZN18JfrAdaptiveSampler10initializeEv.exit, label %12
 
@@ -861,12 +861,12 @@ _ZN18JfrAdaptiveSampler10initializeEv.exit:       ; preds = %1, %4, %12
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink6.i
   store ptr %.sink.i, ptr %19, align 8
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  tail call void @_ZN6Thread11SpinAcquireEPViPKc(ptr noundef nonnull %20, ptr noundef null) #16
+  tail call void @_ZN6Thread11SpinAcquireEPViPKc(ptr noundef nonnull %20, ptr noundef null) #17
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %22 = load volatile ptr, ptr %21, align 8
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #16, !srcloc !6
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !6
   tail call void @_ZN18JfrAdaptiveSampler6rotateEPK16JfrSamplerWindow(ptr noundef nonnull align 8 dereferenceable(76) %0, ptr noundef %22)
-  tail call void @_ZN6Thread11SpinReleaseEPVi(ptr noundef nonnull %20) #16
+  tail call void @_ZN6Thread11SpinReleaseEPVi(ptr noundef nonnull %20) #17
   ret i1 %.0.i
 }
 
@@ -947,7 +947,7 @@ define linkonce_odr hidden void @_ZN24JfrGTestFixedRateSamplerD2Ev(ptr noundef n
   br i1 %4, label %6, label %5
 
 5:                                                ; preds = %1
-  tail call void @_ZN11JfrCHeapObjdlEPvm(ptr noundef nonnull %3, i64 noundef 64) #16
+  tail call void @_ZN11JfrCHeapObjdlEPvm(ptr noundef nonnull %3, i64 noundef 64) #17
   br label %6
 
 6:                                                ; preds = %5, %1
@@ -957,7 +957,7 @@ define linkonce_odr hidden void @_ZN24JfrGTestFixedRateSamplerD2Ev(ptr noundef n
   br i1 %9, label %_ZN18JfrAdaptiveSamplerD2Ev.exit, label %10
 
 10:                                               ; preds = %6
-  tail call void @_ZN11JfrCHeapObjdlEPvm(ptr noundef nonnull %8, i64 noundef 64) #16
+  tail call void @_ZN11JfrCHeapObjdlEPvm(ptr noundef nonnull %8, i64 noundef 64) #17
   br label %_ZN18JfrAdaptiveSamplerD2Ev.exit
 
 _ZN18JfrAdaptiveSamplerD2Ev.exit:                 ; preds = %6, %10
@@ -973,7 +973,7 @@ define linkonce_odr hidden void @_ZN24JfrGTestFixedRateSamplerD0Ev(ptr noundef n
   br i1 %4, label %6, label %5
 
 5:                                                ; preds = %1
-  tail call void @_ZN11JfrCHeapObjdlEPvm(ptr noundef nonnull %3, i64 noundef 64) #16
+  tail call void @_ZN11JfrCHeapObjdlEPvm(ptr noundef nonnull %3, i64 noundef 64) #17
   br label %6
 
 6:                                                ; preds = %5, %1
@@ -983,23 +983,23 @@ define linkonce_odr hidden void @_ZN24JfrGTestFixedRateSamplerD0Ev(ptr noundef n
   br i1 %9, label %_ZN24JfrGTestFixedRateSamplerD2Ev.exit, label %10
 
 10:                                               ; preds = %6
-  tail call void @_ZN11JfrCHeapObjdlEPvm(ptr noundef nonnull %8, i64 noundef 64) #16
+  tail call void @_ZN11JfrCHeapObjdlEPvm(ptr noundef nonnull %8, i64 noundef 64) #17
   br label %_ZN24JfrGTestFixedRateSamplerD2Ev.exit
 
 _ZN24JfrGTestFixedRateSamplerD2Ev.exit:           ; preds = %6, %10
-  tail call void @_ZN11JfrCHeapObjdlEPvm(ptr noundef nonnull %0, i64 noundef 120) #16
+  tail call void @_ZN11JfrCHeapObjdlEPvm(ptr noundef nonnull %0, i64 noundef 120) #17
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @__cxx_global_var_init.4() #10 section ".text.startup" comdat($_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_160ELS1_0ELS1_0ELS1_0EE7_tagsetE) {
+define internal void @__cxx_global_var_init.4() #11 section ".text.startup" comdat($_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_160ELS1_0ELS1_0ELS1_0EE7_tagsetE) {
   %1 = load i8, ptr @_ZGVN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_160ELS1_0ELS1_0ELS1_0EE7_tagsetE, align 8
   %2 = icmp eq i8 %1, 0
   br i1 %2, label %3, label %4
 
 3:                                                ; preds = %0
   store i8 1, ptr @_ZGVN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_160ELS1_0ELS1_0ELS1_0EE7_tagsetE, align 8
-  tail call void @_ZN9LogTagSetC1EPFmPcmEN6LogTag4typeES4_S4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_160ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr noundef nonnull @_ZN9LogPrefixILN6LogTag4typeE64ELS1_156ELS1_160ELS1_0ELS1_0ELS1_0EE6prefixEPcm, i32 noundef 64, i32 noundef 156, i32 noundef 160, i32 noundef 0, i32 noundef 0) #16
+  tail call void @_ZN9LogTagSetC1EPFmPcmEN6LogTag4typeES4_S4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_160ELS1_0ELS1_0ELS1_0EE7_tagsetE, ptr noundef nonnull @_ZN9LogPrefixILN6LogTag4typeE64ELS1_156ELS1_160ELS1_0ELS1_0ELS1_0EE6prefixEPcm, i32 noundef 64, i32 noundef 156, i32 noundef 160, i32 noundef 0, i32 noundef 0) #17
   br label %4
 
 4:                                                ; preds = %3, %0
@@ -1011,44 +1011,44 @@ define linkonce_odr hidden noundef i64 @_ZN9LogPrefixILN6LogTag4typeE64ELS1_156E
   ret i64 0
 }
 
-declare void @_ZN9LogTagSetC1EPFmPcmEN6LogTag4typeES4_S4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) unnamed_addr #11
+declare void @_ZN9LogTagSetC1EPFmPcmEN6LogTag4typeES4_S4_S4_S4_(ptr noundef nonnull align 8 dereferenceable(112), ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef) unnamed_addr #12
 
-declare noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() local_unnamed_addr #11
+declare noundef i64 @_ZN33FastUnorderedElapsedCounterSource3nowEv() local_unnamed_addr #12
 
-declare noundef i64 @_ZN16JfrTimeConverter20nanos_to_countertimeElb(i64 noundef, i1 noundef zeroext) local_unnamed_addr #11
+declare noundef i64 @_ZN16JfrTimeConverter20nanos_to_countertimeElb(i64 noundef, i1 noundef zeroext) local_unnamed_addr #12
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @log(double noundef) local_unnamed_addr #12
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.ceil.f64(double) #13
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
+declare double @log(double noundef) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #13
+declare double @llvm.ceil.f64(double) #14
 
-declare void @_ZN6Thread11SpinAcquireEPViPKc(ptr noundef, ptr noundef) local_unnamed_addr #11
+; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare double @llvm.fmuladd.f64(double, double, double) #14
 
-declare void @_ZN6Thread11SpinReleaseEPVi(ptr noundef) local_unnamed_addr #11
+declare void @_ZN6Thread11SpinAcquireEPViPKc(ptr noundef, ptr noundef) local_unnamed_addr #12
+
+declare void @_ZN6Thread11SpinReleaseEPVi(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN7LogImplILN6LogTag4typeE64ELS1_156ELS1_160ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef %0, ...) local_unnamed_addr #2 comdat align 2 {
   %2 = alloca [1 x %struct.__va_list_tag], align 16
   call void @llvm.va_start.p0(ptr nonnull %2)
-  call void @_ZN9LogTagSet6vwriteEN8LogLevel4typeEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_160ELS1_0ELS1_0ELS1_0EE7_tagsetE, i32 noundef 2, ptr noundef %0, ptr noundef nonnull %2) #16
+  call void @_ZN9LogTagSet6vwriteEN8LogLevel4typeEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(112) @_ZN16LogTagSetMappingILN6LogTag4typeE64ELS1_156ELS1_160ELS1_0ELS1_0ELS1_0EE7_tagsetE, i32 noundef 2, ptr noundef %0, ptr noundef nonnull %2) #17
   call void @llvm.va_end.p0(ptr nonnull %2)
   ret void
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #14
+declare void @llvm.va_start.p0(ptr) #15
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #14
+declare void @llvm.va_end.p0(ptr) #15
 
-declare void @_ZN9LogTagSet6vwriteEN8LogLevel4typeEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(112), i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #11
+declare void @_ZN9LogTagSet6vwriteEN8LogLevel4typeEPKcP13__va_list_tag(ptr noundef nonnull align 8 dereferenceable(112), i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #15
+declare i64 @llvm.umin.i64(i64, i64) #16
 
 attributes #0 = { mustprogress nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
@@ -1060,14 +1060,15 @@ attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #16 = { nounwind }
-attributes #17 = { noreturn nounwind }
+attributes #10 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite, errnomem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree nounwind willreturn memory(errnomem: write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #17 = { nounwind }
+attributes #18 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

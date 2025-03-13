@@ -97,7 +97,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define ptr @PyInit_cmath() local_unnamed_addr #0 {
-  %1 = tail call ptr @PyModuleDef_Init(ptr noundef nonnull @cmathmodule) #11
+  %1 = tail call ptr @PyModuleDef_Init(ptr noundef nonnull @cmathmodule) #10
   ret ptr %1
 }
 
@@ -105,15 +105,15 @@ declare ptr @PyModuleDef_Init(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @cmath_acos(ptr readnone captures(none) %0, ptr noundef %1) #0 {
-  %3 = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %1) #11
-  %4 = tail call ptr @PyErr_Occurred() #11
+  %3 = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %1) #10
+  %4 = tail call ptr @PyErr_Occurred() #10
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %67
 
 5:                                                ; preds = %2
   %6 = extractvalue { double, double } %3, 1
   %7 = extractvalue { double, double } %3, 0
-  %8 = tail call ptr @__errno_location() #12
+  %8 = tail call ptr @__errno_location() #11
   store i32 0, ptr %8, align 4, !tbaa !3
   %9 = tail call double @llvm.fabs.f64(double %7)
   %10 = fcmp ueq double %9, 0x7FF0000000000000
@@ -184,11 +184,11 @@ special_type.exit.i:                              ; preds = %22, %20, %19, %18
   br i1 %or.cond31.i, label %39, label %48
 
 39:                                               ; preds = %36
-  %40 = tail call double @atan2(double noundef %11, double noundef %7) #11, !tbaa !3
+  %40 = tail call double @atan2(double noundef %11, double noundef %7) #10, !tbaa !3
   %41 = fmul double %7, 5.000000e-01
   %42 = fmul double %6, 5.000000e-01
-  %43 = tail call double @hypot(double noundef %41, double noundef %42) #11, !tbaa !3
-  %44 = tail call double @log(double noundef %43) #11, !tbaa !3
+  %43 = tail call double @hypot(double noundef %41, double noundef %42) #10, !tbaa !3
+  %44 = tail call double @log(double noundef %43) #10, !tbaa !3
   %45 = fadd double %44, 0x3FF62E42FEFA39EF
   %46 = fneg double %6
   %47 = tail call double @llvm.copysign.f64(double %45, double %46)
@@ -204,12 +204,12 @@ special_type.exit.i:                              ; preds = %22, %20, %19, %18
   %55 = tail call fastcc { double, double } @cmath_sqrt_impl(double %54, double %6)
   %56 = extractvalue { double, double } %55, 0
   %57 = extractvalue { double, double } %55, 1
-  %58 = tail call double @atan2(double noundef %52, double noundef %56) #11, !tbaa !3
+  %58 = tail call double @atan2(double noundef %52, double noundef %56) #10, !tbaa !3
   %59 = fmul double %58, 2.000000e+00
   %60 = fneg double %52
   %61 = fmul double %57, %60
   %62 = tail call double @llvm.fmuladd.f64(double %56, double %53, double %61)
-  %63 = tail call double @asinh(double noundef %62) #11, !tbaa !3
+  %63 = tail call double @asinh(double noundef %62) #10, !tbaa !3
   br label %cmath_acos_impl.exit.thread
 
 cmath_acos_impl.exit.thread:                      ; preds = %39, %48
@@ -229,7 +229,7 @@ cmath_acos_impl.exit:                             ; preds = %29, %30, %31, %33
 65:                                               ; preds = %cmath_acos_impl.exit, %cmath_acos_impl.exit.thread
   %.sroa.3.0.i15 = phi double [ %.sroa.5.0.i, %cmath_acos_impl.exit.thread ], [ %.sroa.3.0.copyload.i, %cmath_acos_impl.exit ]
   %.sroa.028.0.i14 = phi double [ %.sroa.03.0.i, %cmath_acos_impl.exit.thread ], [ %.sroa.028.0.copyload.i, %cmath_acos_impl.exit ]
-  %66 = tail call ptr @PyComplex_FromCComplex(double %.sroa.028.0.i14, double %.sroa.3.0.i15) #11
+  %66 = tail call ptr @PyComplex_FromCComplex(double %.sroa.028.0.i14, double %.sroa.3.0.i15) #10
   br label %67
 
 67:                                               ; preds = %2, %65
@@ -239,15 +239,15 @@ cmath_acos_impl.exit:                             ; preds = %29, %30, %31, %33
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @cmath_acosh(ptr readnone captures(none) %0, ptr noundef %1) #0 {
-  %3 = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %1) #11
-  %4 = tail call ptr @PyErr_Occurred() #11
+  %3 = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %1) #10
+  %4 = tail call ptr @PyErr_Occurred() #10
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %63
 
 5:                                                ; preds = %2
   %6 = extractvalue { double, double } %3, 1
   %7 = extractvalue { double, double } %3, 0
-  %8 = tail call ptr @__errno_location() #12
+  %8 = tail call ptr @__errno_location() #11
   store i32 0, ptr %8, align 4, !tbaa !3
   %9 = tail call double @llvm.fabs.f64(double %7)
   %10 = fcmp ueq double %9, 0x7FF0000000000000
@@ -320,10 +320,10 @@ special_type.exit.i:                              ; preds = %22, %20, %19, %18
 39:                                               ; preds = %36
   %40 = fmul double %7, 5.000000e-01
   %41 = fmul double %6, 5.000000e-01
-  %42 = tail call double @hypot(double noundef %40, double noundef %41) #11, !tbaa !3
-  %43 = tail call double @log(double noundef %42) #11, !tbaa !3
+  %42 = tail call double @hypot(double noundef %40, double noundef %41) #10, !tbaa !3
+  %43 = tail call double @log(double noundef %42) #10, !tbaa !3
   %44 = fadd double %43, 0x3FF62E42FEFA39EF
-  %45 = tail call double @atan2(double noundef %6, double noundef %7) #11, !tbaa !3
+  %45 = tail call double @atan2(double noundef %6, double noundef %7) #10, !tbaa !3
   br label %cmath_acosh_impl.exit.thread
 
 46:                                               ; preds = %36
@@ -337,8 +337,8 @@ special_type.exit.i:                              ; preds = %22, %20, %19, %18
   %54 = extractvalue { double, double } %52, 1
   %55 = fmul double %50, %54
   %56 = tail call double @llvm.fmuladd.f64(double %49, double %53, double %55)
-  %57 = tail call double @asinh(double noundef %56) #11, !tbaa !3
-  %58 = tail call double @atan2(double noundef %50, double noundef %53) #11, !tbaa !3
+  %57 = tail call double @asinh(double noundef %56) #10, !tbaa !3
+  %58 = tail call double @atan2(double noundef %50, double noundef %53) #10, !tbaa !3
   %59 = fmul double %58, 2.000000e+00
   br label %cmath_acosh_impl.exit.thread
 
@@ -359,7 +359,7 @@ cmath_acosh_impl.exit:                            ; preds = %29, %30, %31, %33
 61:                                               ; preds = %cmath_acosh_impl.exit, %cmath_acosh_impl.exit.thread
   %.sroa.3.0.i15 = phi double [ %.sroa.5.0.i, %cmath_acosh_impl.exit.thread ], [ %.sroa.3.0.copyload.i, %cmath_acosh_impl.exit ]
   %.sroa.026.0.i14 = phi double [ %.sroa.03.0.i, %cmath_acosh_impl.exit.thread ], [ %.sroa.026.0.copyload.i, %cmath_acosh_impl.exit ]
-  %62 = tail call ptr @PyComplex_FromCComplex(double %.sroa.026.0.i14, double %.sroa.3.0.i15) #11
+  %62 = tail call ptr @PyComplex_FromCComplex(double %.sroa.026.0.i14, double %.sroa.3.0.i15) #10
   br label %63
 
 63:                                               ; preds = %2, %61
@@ -369,15 +369,15 @@ cmath_acosh_impl.exit:                            ; preds = %29, %30, %31, %33
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @cmath_asin(ptr readnone captures(none) %0, ptr noundef %1) #0 {
-  %3 = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %1) #11
-  %4 = tail call ptr @PyErr_Occurred() #11
+  %3 = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %1) #10
+  %4 = tail call ptr @PyErr_Occurred() #10
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %21
 
 5:                                                ; preds = %2
   %6 = extractvalue { double, double } %3, 1
   %7 = extractvalue { double, double } %3, 0
-  %8 = tail call ptr @__errno_location() #12
+  %8 = tail call ptr @__errno_location() #11
   store i32 0, ptr %8, align 4, !tbaa !3
   %9 = fneg double %6
   %10 = tail call fastcc { double, double } @cmath_asinh_impl(double %9, double %7)
@@ -389,19 +389,19 @@ define internal ptr @cmath_asin(ptr readnone captures(none) %0, ptr noundef %1) 
 
 12:                                               ; preds = %5
   %13 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !9
-  tail call void @PyErr_SetString(ptr noundef %13, ptr noundef nonnull @.str.25) #11
+  tail call void @PyErr_SetString(ptr noundef %13, ptr noundef nonnull @.str.25) #10
   br label %21
 
 14:                                               ; preds = %5
   %15 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !9
-  tail call void @PyErr_SetString(ptr noundef %15, ptr noundef nonnull @.str.26) #11
+  tail call void @PyErr_SetString(ptr noundef %15, ptr noundef nonnull @.str.26) #10
   br label %21
 
 16:                                               ; preds = %5
   %17 = extractvalue { double, double } %10, 0
   %18 = fneg double %17
   %19 = extractvalue { double, double } %10, 1
-  %20 = tail call ptr @PyComplex_FromCComplex(double %19, double %18) #11
+  %20 = tail call ptr @PyComplex_FromCComplex(double %19, double %18) #10
   br label %21
 
 21:                                               ; preds = %2, %16, %14, %12
@@ -411,15 +411,15 @@ define internal ptr @cmath_asin(ptr readnone captures(none) %0, ptr noundef %1) 
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @cmath_asinh(ptr readnone captures(none) %0, ptr noundef %1) #0 {
-  %3 = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %1) #11
-  %4 = tail call ptr @PyErr_Occurred() #11
+  %3 = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %1) #10
+  %4 = tail call ptr @PyErr_Occurred() #10
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %19
 
 5:                                                ; preds = %2
   %6 = extractvalue { double, double } %3, 1
   %7 = extractvalue { double, double } %3, 0
-  %8 = tail call ptr @__errno_location() #12
+  %8 = tail call ptr @__errno_location() #11
   store i32 0, ptr %8, align 4, !tbaa !3
   %9 = tail call fastcc { double, double } @cmath_asinh_impl(double %7, double %6)
   %10 = load i32, ptr %8, align 4, !tbaa !3
@@ -430,18 +430,18 @@ define internal ptr @cmath_asinh(ptr readnone captures(none) %0, ptr noundef %1)
 
 11:                                               ; preds = %5
   %12 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !9
-  tail call void @PyErr_SetString(ptr noundef %12, ptr noundef nonnull @.str.25) #11
+  tail call void @PyErr_SetString(ptr noundef %12, ptr noundef nonnull @.str.25) #10
   br label %19
 
 13:                                               ; preds = %5
   %14 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !9
-  tail call void @PyErr_SetString(ptr noundef %14, ptr noundef nonnull @.str.26) #11
+  tail call void @PyErr_SetString(ptr noundef %14, ptr noundef nonnull @.str.26) #10
   br label %19
 
 15:                                               ; preds = %5
   %16 = extractvalue { double, double } %9, 1
   %17 = extractvalue { double, double } %9, 0
-  %18 = tail call ptr @PyComplex_FromCComplex(double %17, double %16) #11
+  %18 = tail call ptr @PyComplex_FromCComplex(double %17, double %16) #10
   br label %19
 
 19:                                               ; preds = %2, %15, %13, %11
@@ -451,15 +451,15 @@ define internal ptr @cmath_asinh(ptr readnone captures(none) %0, ptr noundef %1)
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @cmath_atan(ptr readnone captures(none) %0, ptr noundef %1) #0 {
-  %3 = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %1) #11
-  %4 = tail call ptr @PyErr_Occurred() #11
+  %3 = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %1) #10
+  %4 = tail call ptr @PyErr_Occurred() #10
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %21
 
 5:                                                ; preds = %2
   %6 = extractvalue { double, double } %3, 1
   %7 = extractvalue { double, double } %3, 0
-  %8 = tail call ptr @__errno_location() #12
+  %8 = tail call ptr @__errno_location() #11
   store i32 0, ptr %8, align 4, !tbaa !3
   %9 = fneg double %6
   %10 = tail call fastcc { double, double } @cmath_atanh_impl(double %9, double %7)
@@ -471,19 +471,19 @@ define internal ptr @cmath_atan(ptr readnone captures(none) %0, ptr noundef %1) 
 
 12:                                               ; preds = %5
   %13 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !9
-  tail call void @PyErr_SetString(ptr noundef %13, ptr noundef nonnull @.str.25) #11
+  tail call void @PyErr_SetString(ptr noundef %13, ptr noundef nonnull @.str.25) #10
   br label %21
 
 14:                                               ; preds = %5
   %15 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !9
-  tail call void @PyErr_SetString(ptr noundef %15, ptr noundef nonnull @.str.26) #11
+  tail call void @PyErr_SetString(ptr noundef %15, ptr noundef nonnull @.str.26) #10
   br label %21
 
 16:                                               ; preds = %5
   %17 = extractvalue { double, double } %10, 0
   %18 = fneg double %17
   %19 = extractvalue { double, double } %10, 1
-  %20 = tail call ptr @PyComplex_FromCComplex(double %19, double %18) #11
+  %20 = tail call ptr @PyComplex_FromCComplex(double %19, double %18) #10
   br label %21
 
 21:                                               ; preds = %2, %16, %14, %12
@@ -493,15 +493,15 @@ define internal ptr @cmath_atan(ptr readnone captures(none) %0, ptr noundef %1) 
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @cmath_atanh(ptr readnone captures(none) %0, ptr noundef %1) #0 {
-  %3 = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %1) #11
-  %4 = tail call ptr @PyErr_Occurred() #11
+  %3 = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %1) #10
+  %4 = tail call ptr @PyErr_Occurred() #10
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %19
 
 5:                                                ; preds = %2
   %6 = extractvalue { double, double } %3, 1
   %7 = extractvalue { double, double } %3, 0
-  %8 = tail call ptr @__errno_location() #12
+  %8 = tail call ptr @__errno_location() #11
   store i32 0, ptr %8, align 4, !tbaa !3
   %9 = tail call fastcc { double, double } @cmath_atanh_impl(double %7, double %6)
   %10 = load i32, ptr %8, align 4, !tbaa !3
@@ -512,18 +512,18 @@ define internal ptr @cmath_atanh(ptr readnone captures(none) %0, ptr noundef %1)
 
 11:                                               ; preds = %5
   %12 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !9
-  tail call void @PyErr_SetString(ptr noundef %12, ptr noundef nonnull @.str.25) #11
+  tail call void @PyErr_SetString(ptr noundef %12, ptr noundef nonnull @.str.25) #10
   br label %19
 
 13:                                               ; preds = %5
   %14 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !9
-  tail call void @PyErr_SetString(ptr noundef %14, ptr noundef nonnull @.str.26) #11
+  tail call void @PyErr_SetString(ptr noundef %14, ptr noundef nonnull @.str.26) #10
   br label %19
 
 15:                                               ; preds = %5
   %16 = extractvalue { double, double } %9, 1
   %17 = extractvalue { double, double } %9, 0
-  %18 = tail call ptr @PyComplex_FromCComplex(double %17, double %16) #11
+  %18 = tail call ptr @PyComplex_FromCComplex(double %17, double %16) #10
   br label %19
 
 19:                                               ; preds = %2, %15, %13, %11
@@ -533,15 +533,15 @@ define internal ptr @cmath_atanh(ptr readnone captures(none) %0, ptr noundef %1)
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @cmath_cos(ptr readnone captures(none) %0, ptr noundef %1) #0 {
-  %3 = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %1) #11
-  %4 = tail call ptr @PyErr_Occurred() #11
+  %3 = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %1) #10
+  %4 = tail call ptr @PyErr_Occurred() #10
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %20
 
 5:                                                ; preds = %2
   %6 = extractvalue { double, double } %3, 1
   %7 = extractvalue { double, double } %3, 0
-  %8 = tail call ptr @__errno_location() #12
+  %8 = tail call ptr @__errno_location() #11
   store i32 0, ptr %8, align 4, !tbaa !3
   %9 = fneg double %6
   %10 = tail call fastcc { double, double } @cmath_cosh_impl(double %9, double %7)
@@ -553,18 +553,18 @@ define internal ptr @cmath_cos(ptr readnone captures(none) %0, ptr noundef %1) #
 
 12:                                               ; preds = %5
   %13 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !9
-  tail call void @PyErr_SetString(ptr noundef %13, ptr noundef nonnull @.str.25) #11
+  tail call void @PyErr_SetString(ptr noundef %13, ptr noundef nonnull @.str.25) #10
   br label %20
 
 14:                                               ; preds = %5
   %15 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !9
-  tail call void @PyErr_SetString(ptr noundef %15, ptr noundef nonnull @.str.26) #11
+  tail call void @PyErr_SetString(ptr noundef %15, ptr noundef nonnull @.str.26) #10
   br label %20
 
 16:                                               ; preds = %5
   %17 = extractvalue { double, double } %10, 1
   %18 = extractvalue { double, double } %10, 0
-  %19 = tail call ptr @PyComplex_FromCComplex(double %18, double %17) #11
+  %19 = tail call ptr @PyComplex_FromCComplex(double %18, double %17) #10
   br label %20
 
 20:                                               ; preds = %2, %16, %14, %12
@@ -574,15 +574,15 @@ define internal ptr @cmath_cos(ptr readnone captures(none) %0, ptr noundef %1) #
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @cmath_cosh(ptr readnone captures(none) %0, ptr noundef %1) #0 {
-  %3 = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %1) #11
-  %4 = tail call ptr @PyErr_Occurred() #11
+  %3 = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %1) #10
+  %4 = tail call ptr @PyErr_Occurred() #10
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %19
 
 5:                                                ; preds = %2
   %6 = extractvalue { double, double } %3, 1
   %7 = extractvalue { double, double } %3, 0
-  %8 = tail call ptr @__errno_location() #12
+  %8 = tail call ptr @__errno_location() #11
   store i32 0, ptr %8, align 4, !tbaa !3
   %9 = tail call fastcc { double, double } @cmath_cosh_impl(double %7, double %6)
   %10 = load i32, ptr %8, align 4, !tbaa !3
@@ -593,18 +593,18 @@ define internal ptr @cmath_cosh(ptr readnone captures(none) %0, ptr noundef %1) 
 
 11:                                               ; preds = %5
   %12 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !9
-  tail call void @PyErr_SetString(ptr noundef %12, ptr noundef nonnull @.str.25) #11
+  tail call void @PyErr_SetString(ptr noundef %12, ptr noundef nonnull @.str.25) #10
   br label %19
 
 13:                                               ; preds = %5
   %14 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !9
-  tail call void @PyErr_SetString(ptr noundef %14, ptr noundef nonnull @.str.26) #11
+  tail call void @PyErr_SetString(ptr noundef %14, ptr noundef nonnull @.str.26) #10
   br label %19
 
 15:                                               ; preds = %5
   %16 = extractvalue { double, double } %9, 1
   %17 = extractvalue { double, double } %9, 0
-  %18 = tail call ptr @PyComplex_FromCComplex(double %17, double %16) #11
+  %18 = tail call ptr @PyComplex_FromCComplex(double %17, double %16) #10
   br label %19
 
 19:                                               ; preds = %2, %15, %13, %11
@@ -614,15 +614,15 @@ define internal ptr @cmath_cosh(ptr readnone captures(none) %0, ptr noundef %1) 
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @cmath_exp(ptr readnone captures(none) %0, ptr noundef %1) #0 {
-  %3 = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %1) #11
-  %4 = tail call ptr @PyErr_Occurred() #11
+  %3 = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %1) #10
+  %4 = tail call ptr @PyErr_Occurred() #10
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %83
 
 5:                                                ; preds = %2
   %6 = extractvalue { double, double } %3, 1
   %7 = extractvalue { double, double } %3, 0
-  %8 = tail call ptr @__errno_location() #12
+  %8 = tail call ptr @__errno_location() #11
   %9 = tail call double @llvm.fabs.f64(double %7)
   %10 = fcmp one double %9, 0x7FF0000000000000
   %11 = tail call double @llvm.fabs.f64(double %6)
@@ -640,8 +640,8 @@ define internal ptr @cmath_exp(ptr readnone captures(none) %0, ptr noundef %1) #
 
 16:                                               ; preds = %15
   %17 = fcmp ogt double %7, 0.000000e+00
-  %18 = tail call double @cos(double noundef %6) #11, !tbaa !3
-  %19 = tail call double @sin(double noundef %6) #11, !tbaa !3
+  %18 = tail call double @cos(double noundef %6) #10, !tbaa !3
+  %19 = tail call double @sin(double noundef %6) #10, !tbaa !3
   br i1 %17, label %20, label %23
 
 20:                                               ; preds = %16
@@ -736,29 +736,29 @@ special_type.exit41.i:                            ; preds = %47, %45, %44, %43
 
 57:                                               ; preds = %55
   %58 = fadd double %7, -1.000000e+00
-  %59 = tail call double @exp(double noundef %58) #11, !tbaa !3
-  %60 = tail call double @cos(double noundef %6) #11, !tbaa !3
+  %59 = tail call double @exp(double noundef %58) #10, !tbaa !3
+  %60 = tail call double @cos(double noundef %6) #10, !tbaa !3
   %61 = fmul double %59, %60
   %62 = fmul double %61, 0x4005BF0A8B145769
-  %63 = tail call double @sin(double noundef %6) #11, !tbaa !3
+  %63 = tail call double @sin(double noundef %6) #10, !tbaa !3
   %64 = fmul double %59, %63
   %65 = fmul double %64, 0x4005BF0A8B145769
   br label %72
 
 66:                                               ; preds = %55
-  %67 = tail call double @exp(double noundef %7) #11, !tbaa !3
-  %68 = tail call double @cos(double noundef %6) #11, !tbaa !3
+  %67 = tail call double @exp(double noundef %7) #10, !tbaa !3
+  %68 = tail call double @cos(double noundef %6) #10, !tbaa !3
   %69 = fmul double %67, %68
-  %70 = tail call double @sin(double noundef %6) #11, !tbaa !3
+  %70 = tail call double @sin(double noundef %6) #10, !tbaa !3
   %71 = fmul double %67, %70
   br label %72
 
 72:                                               ; preds = %66, %57
   %.sroa.030.2.i = phi double [ %62, %57 ], [ %69, %66 ]
   %.sroa.7.2.i = phi double [ %65, %57 ], [ %71, %66 ]
-  %73 = tail call double @llvm.fabs.f64(double %.sroa.030.2.i) #13
+  %73 = tail call double @llvm.fabs.f64(double %.sroa.030.2.i) #12
   %74 = fcmp oeq double %73, 0x7FF0000000000000
-  %75 = tail call double @llvm.fabs.f64(double %.sroa.7.2.i) #13
+  %75 = tail call double @llvm.fabs.f64(double %.sroa.7.2.i) #12
   %76 = fcmp oeq double %75, 0x7FF0000000000000
   %or.cond36.i = select i1 %74, i1 true, i1 %76
   br i1 %or.cond36.i, label %79, label %81
@@ -766,20 +766,20 @@ special_type.exit41.i:                            ; preds = %47, %45, %44, %43
 77:                                               ; preds = %53
   store i32 33, ptr %8, align 4, !tbaa !3
   %78 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !9
-  tail call void @PyErr_SetString(ptr noundef %78, ptr noundef nonnull @.str.25) #11
+  tail call void @PyErr_SetString(ptr noundef %78, ptr noundef nonnull @.str.25) #10
   br label %83
 
 79:                                               ; preds = %72
   store i32 34, ptr %8, align 4, !tbaa !3
   %80 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !9
-  tail call void @PyErr_SetString(ptr noundef %80, ptr noundef nonnull @.str.26) #11
+  tail call void @PyErr_SetString(ptr noundef %80, ptr noundef nonnull @.str.26) #10
   br label %83
 
 81:                                               ; preds = %72, %51, %53
   %.sroa.030.1.i.ph = phi double [ %.sroa.030.0.i, %53 ], [ %.sroa.030.0.i, %51 ], [ %.sroa.030.2.i, %72 ]
   %.sroa.7.1.i.ph = phi double [ %.sroa.7.0.i, %53 ], [ %.sroa.7.0.i, %51 ], [ %.sroa.7.2.i, %72 ]
   store i32 0, ptr %8, align 4, !tbaa !3
-  %82 = tail call ptr @PyComplex_FromCComplex(double %.sroa.030.1.i.ph, double %.sroa.7.1.i.ph) #11
+  %82 = tail call ptr @PyComplex_FromCComplex(double %.sroa.030.1.i.ph, double %.sroa.7.1.i.ph) #10
   br label %83
 
 83:                                               ; preds = %2, %81, %79, %77
@@ -790,7 +790,7 @@ special_type.exit41.i:                            ; preds = %47, %45, %44, %43
 ; Function Attrs: nounwind uwtable
 define internal ptr @cmath_isclose(ptr readnone captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
   %5 = alloca [4 x ptr], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #11
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #10
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %8, label %.thread
 
@@ -808,7 +808,7 @@ define internal ptr @cmath_isclose(ptr readnone captures(none) %0, ptr noundef %
 
 11:                                               ; preds = %8, %.thread
   %12 = phi i64 [ %7, %.thread ], [ %2, %8 ]
-  %13 = call ptr @_PyArg_UnpackKeywords(ptr noundef %1, i64 noundef %2, ptr noundef null, ptr noundef %3, ptr noundef nonnull @cmath_isclose._parser, i32 noundef 2, i32 noundef 2, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %5) #11
+  %13 = call ptr @_PyArg_UnpackKeywords(ptr noundef %1, i64 noundef %2, ptr noundef null, ptr noundef %3, ptr noundef nonnull @cmath_isclose._parser, i32 noundef 2, i32 noundef 2, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %5) #10
   %.not52 = icmp eq ptr %13, null
   br i1 %.not52, label %86, label %.thread69
 
@@ -816,20 +816,20 @@ define internal ptr @cmath_isclose(ptr readnone captures(none) %0, ptr noundef %
   %14 = phi ptr [ %13, %11 ], [ %1, %8 ]
   %15 = phi i64 [ %12, %11 ], [ 2, %8 ]
   %16 = load ptr, ptr %14, align 8, !tbaa !9
-  %17 = call { double, double } @PyComplex_AsCComplex(ptr noundef %16) #11
+  %17 = call { double, double } @PyComplex_AsCComplex(ptr noundef %16) #10
   %18 = extractvalue { double, double } %17, 0
   %19 = extractvalue { double, double } %17, 1
-  %20 = call ptr @PyErr_Occurred() #11
+  %20 = call ptr @PyErr_Occurred() #10
   %.not53 = icmp eq ptr %20, null
   br i1 %.not53, label %21, label %86
 
 21:                                               ; preds = %.thread69
   %22 = getelementptr i8, ptr %14, i64 8
   %23 = load ptr, ptr %22, align 8, !tbaa !9
-  %24 = call { double, double } @PyComplex_AsCComplex(ptr noundef %23) #11
+  %24 = call { double, double } @PyComplex_AsCComplex(ptr noundef %23) #10
   %25 = extractvalue { double, double } %24, 0
   %26 = extractvalue { double, double } %24, 1
-  %27 = call ptr @PyErr_Occurred() #11
+  %27 = call ptr @PyErr_Occurred() #10
   %.not54 = icmp eq ptr %27, null
   br i1 %.not54, label %28, label %86
 
@@ -855,12 +855,12 @@ define internal ptr @cmath_isclose(ptr readnone captures(none) %0, ptr noundef %
   br label %41
 
 36:                                               ; preds = %32
-  %37 = call double @PyFloat_AsDouble(ptr noundef nonnull %31) #11
+  %37 = call double @PyFloat_AsDouble(ptr noundef nonnull %31) #10
   %38 = fcmp oeq double %37, -1.000000e+00
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %36
-  %40 = call ptr @PyErr_Occurred() #11
+  %40 = call ptr @PyErr_Occurred() #10
   %.not58 = icmp eq ptr %40, null
   br i1 %.not58, label %41, label %86
 
@@ -884,12 +884,12 @@ define internal ptr @cmath_isclose(ptr readnone captures(none) %0, ptr noundef %
   br label %53
 
 48:                                               ; preds = %42
-  %49 = call double @PyFloat_AsDouble(ptr noundef nonnull %44) #11
+  %49 = call double @PyFloat_AsDouble(ptr noundef nonnull %44) #10
   %50 = fcmp oeq double %49, -1.000000e+00
   br i1 %50, label %51, label %53
 
 51:                                               ; preds = %48
-  %52 = call ptr @PyErr_Occurred() #11
+  %52 = call ptr @PyErr_Occurred() #10
   %.not61 = icmp eq ptr %52, null
   br i1 %.not61, label %.thread75, label %86
 
@@ -908,31 +908,31 @@ define internal ptr @cmath_isclose(ptr readnone captures(none) %0, ptr noundef %
   br i1 %or.cond27.i, label %cmath_isclose_impl.exit.thread, label %59
 
 59:                                               ; preds = %56
-  %60 = call double @llvm.fabs.f64(double %18) #13
+  %60 = call double @llvm.fabs.f64(double %18) #12
   %61 = fcmp oeq double %60, 0x7FF0000000000000
-  %62 = call double @llvm.fabs.f64(double %19) #13
+  %62 = call double @llvm.fabs.f64(double %19) #12
   %63 = fcmp oeq double %62, 0x7FF0000000000000
   %or.cond29.i = select i1 %61, i1 true, i1 %63
-  %64 = call double @llvm.fabs.f64(double %25) #13
+  %64 = call double @llvm.fabs.f64(double %25) #12
   %65 = fcmp oeq double %64, 0x7FF0000000000000
   %or.cond31.i = select i1 %or.cond29.i, i1 true, i1 %65
-  %66 = call double @llvm.fabs.f64(double %26) #13
+  %66 = call double @llvm.fabs.f64(double %26) #12
   %67 = fcmp oeq double %66, 0x7FF0000000000000
   %or.cond33.i = select i1 %or.cond31.i, i1 true, i1 %67
   br i1 %or.cond33.i, label %cmath_isclose_impl.exit.thread, label %68
 
 68:                                               ; preds = %59
-  %69 = call { double, double } @_Py_c_diff(double %18, double %19, double %25, double %26) #11
+  %69 = call { double, double } @_Py_c_diff(double %18, double %19, double %25, double %26) #10
   %70 = extractvalue { double, double } %69, 0
   %71 = extractvalue { double, double } %69, 1
-  %72 = call double @_Py_c_abs(double %70, double %71) #11
-  %73 = call double @_Py_c_abs(double %25, double %26) #11
+  %72 = call double @_Py_c_abs(double %70, double %71) #10
+  %73 = call double @_Py_c_abs(double %25, double %26) #10
   %74 = fmul double %.041, %73
   %75 = fcmp ugt double %72, %74
   br i1 %75, label %76, label %cmath_isclose_impl.exit.thread
 
 76:                                               ; preds = %68
-  %77 = call double @_Py_c_abs(double %18, double %19) #11
+  %77 = call double @_Py_c_abs(double %18, double %19) #10
   %78 = fmul double %.041, %77
   %79 = fcmp ugt double %72, %78
   br i1 %79, label %80, label %cmath_isclose_impl.exit.thread
@@ -944,26 +944,26 @@ define internal ptr @cmath_isclose(ptr readnone captures(none) %0, ptr noundef %
 
 .thread75:                                        ; preds = %51, %53
   %83 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !9
-  call void @PyErr_SetString(ptr noundef %83, ptr noundef nonnull @.str.31) #11
-  %84 = call ptr @PyErr_Occurred() #11
+  call void @PyErr_SetString(ptr noundef %83, ptr noundef nonnull @.str.31) #10
+  %84 = call ptr @PyErr_Occurred() #10
   %.not62 = icmp eq ptr %84, null
   br i1 %.not62, label %cmath_isclose_impl.exit.thread, label %86
 
 cmath_isclose_impl.exit.thread:                   ; preds = %80, %68, %76, %59, %56, %.thread75
   %.0.i72 = phi i64 [ -1, %.thread75 ], [ %82, %80 ], [ 1, %68 ], [ 1, %76 ], [ 0, %59 ], [ 1, %56 ]
-  %85 = call ptr @PyBool_FromLong(i64 noundef %.0.i72) #11
+  %85 = call ptr @PyBool_FromLong(i64 noundef %.0.i72) #10
   br label %86
 
 86:                                               ; preds = %.thread75, %51, %39, %21, %.thread69, %11, %cmath_isclose_impl.exit.thread
   %.0 = phi ptr [ null, %.thread69 ], [ null, %21 ], [ null, %.thread75 ], [ %85, %cmath_isclose_impl.exit.thread ], [ null, %51 ], [ null, %39 ], [ null, %11 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #11
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #10
   ret ptr %.0
 }
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @cmath_isfinite(ptr readnone captures(none) %0, ptr noundef %1) #0 {
-  %3 = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %1) #11
-  %4 = tail call ptr @PyErr_Occurred() #11
+  %3 = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %1) #10
+  %4 = tail call ptr @PyErr_Occurred() #10
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %15
 
@@ -976,7 +976,7 @@ define internal ptr @cmath_isfinite(ptr readnone captures(none) %0, ptr noundef 
   %11 = fcmp one double %10, 0x7FF0000000000000
   %12 = select i1 %9, i1 %11, i1 false
   %13 = zext i1 %12 to i64
-  %14 = tail call ptr @PyBool_FromLong(i64 noundef %13) #11
+  %14 = tail call ptr @PyBool_FromLong(i64 noundef %13) #10
   br label %15
 
 15:                                               ; preds = %2, %5
@@ -986,21 +986,21 @@ define internal ptr @cmath_isfinite(ptr readnone captures(none) %0, ptr noundef 
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @cmath_isinf(ptr readnone captures(none) %0, ptr noundef %1) #0 {
-  %3 = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %1) #11
-  %4 = tail call ptr @PyErr_Occurred() #11
+  %3 = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %1) #10
+  %4 = tail call ptr @PyErr_Occurred() #10
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %14
 
 5:                                                ; preds = %2
   %6 = extractvalue { double, double } %3, 1
   %7 = extractvalue { double, double } %3, 0
-  %8 = tail call double @llvm.fabs.f64(double %7) #13
+  %8 = tail call double @llvm.fabs.f64(double %7) #12
   %9 = fcmp oeq double %8, 0x7FF0000000000000
-  %10 = tail call double @llvm.fabs.f64(double %6) #13
+  %10 = tail call double @llvm.fabs.f64(double %6) #12
   %11 = fcmp oeq double %10, 0x7FF0000000000000
   %narrow.i = select i1 %9, i1 true, i1 %11
   %12 = zext i1 %narrow.i to i64
-  %13 = tail call ptr @PyBool_FromLong(i64 noundef %12) #11
+  %13 = tail call ptr @PyBool_FromLong(i64 noundef %12) #10
   br label %14
 
 14:                                               ; preds = %2, %5
@@ -1010,8 +1010,8 @@ define internal ptr @cmath_isinf(ptr readnone captures(none) %0, ptr noundef %1)
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @cmath_isnan(ptr readnone captures(none) %0, ptr noundef %1) #0 {
-  %3 = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %1) #11
-  %4 = tail call ptr @PyErr_Occurred() #11
+  %3 = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %1) #10
+  %4 = tail call ptr @PyErr_Occurred() #10
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %13
 
@@ -1022,7 +1022,7 @@ define internal ptr @cmath_isnan(ptr readnone captures(none) %0, ptr noundef %1)
   %9 = fcmp uno double %6, 0.000000e+00
   %10 = select i1 %8, i1 true, i1 %9
   %11 = zext i1 %10 to i64
-  %12 = tail call ptr @PyBool_FromLong(i64 noundef %11) #11
+  %12 = tail call ptr @PyBool_FromLong(i64 noundef %11) #10
   br label %13
 
 13:                                               ; preds = %2, %5
@@ -1037,16 +1037,16 @@ define internal ptr @cmath_log(ptr readnone captures(none) %0, ptr noundef reado
   br i1 %or.cond, label %7, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call i32 @_PyArg_CheckPositional(ptr noundef nonnull @.str.14, i64 noundef %2, i64 noundef 1, i64 noundef 2) #11
+  %6 = tail call i32 @_PyArg_CheckPositional(ptr noundef nonnull @.str.14, i64 noundef %2, i64 noundef 1, i64 noundef 2) #10
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %cmath_log_impl.exit, label %7
 
 7:                                                ; preds = %3, %5
   %8 = load ptr, ptr %1, align 8, !tbaa !9
-  %9 = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %8) #11
+  %9 = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %8) #10
   %10 = extractvalue { double, double } %9, 0
   %11 = extractvalue { double, double } %9, 1
-  %12 = tail call ptr @PyErr_Occurred() #11
+  %12 = tail call ptr @PyErr_Occurred() #10
   %.not12 = icmp eq ptr %12, null
   br i1 %.not12, label %13, label %cmath_log_impl.exit
 
@@ -1061,7 +1061,7 @@ define internal ptr @cmath_log(ptr readnone captures(none) %0, ptr noundef reado
 
 18:                                               ; preds = %13, %15
   %.011 = phi ptr [ null, %13 ], [ %17, %15 ]
-  %19 = tail call ptr @__errno_location() #12
+  %19 = tail call ptr @__errno_location() #11
   store i32 0, ptr %19, align 4, !tbaa !3
   %20 = tail call fastcc { double, double } @c_log(double %10, double %11)
   %21 = extractvalue { double, double } %20, 0
@@ -1070,8 +1070,8 @@ define internal ptr @cmath_log(ptr readnone captures(none) %0, ptr noundef reado
   br i1 %.not.i, label %35, label %23
 
 23:                                               ; preds = %18
-  %24 = tail call { double, double } @PyComplex_AsCComplex(ptr noundef nonnull %.011) #11
-  %25 = tail call ptr @PyErr_Occurred() #11
+  %24 = tail call { double, double } @PyComplex_AsCComplex(ptr noundef nonnull %.011) #10
+  %25 = tail call ptr @PyErr_Occurred() #10
   %.not19.i = icmp eq ptr %25, null
   br i1 %.not19.i, label %26, label %cmath_log_impl.exit
 
@@ -1081,7 +1081,7 @@ define internal ptr @cmath_log(ptr readnone captures(none) %0, ptr noundef reado
   %29 = tail call fastcc { double, double } @c_log(double %28, double %27)
   %30 = extractvalue { double, double } %29, 0
   %31 = extractvalue { double, double } %29, 1
-  %32 = tail call { double, double } @_Py_c_quot(double %21, double %22, double %30, double %31) #11
+  %32 = tail call { double, double } @_Py_c_quot(double %21, double %22, double %30, double %31) #10
   %33 = extractvalue { double, double } %32, 0
   %34 = extractvalue { double, double } %32, 1
   br label %35
@@ -1098,21 +1098,21 @@ define internal ptr @cmath_log(ptr readnone captures(none) %0, ptr noundef reado
 
 37:                                               ; preds = %35
   %38 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !9
-  tail call void @PyErr_SetString(ptr noundef %38, ptr noundef nonnull @.str.25) #11
+  tail call void @PyErr_SetString(ptr noundef %38, ptr noundef nonnull @.str.25) #10
   br label %cmath_log_impl.exit
 
 39:                                               ; preds = %35
   %40 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !9
-  tail call void @PyErr_SetString(ptr noundef %40, ptr noundef nonnull @.str.26) #11
+  tail call void @PyErr_SetString(ptr noundef %40, ptr noundef nonnull @.str.26) #10
   br label %cmath_log_impl.exit
 
 41:                                               ; preds = %35
   %42 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !9
-  %43 = tail call ptr @PyErr_SetFromErrno(ptr noundef %42) #11
+  %43 = tail call ptr @PyErr_SetFromErrno(ptr noundef %42) #10
   br label %cmath_log_impl.exit
 
 44:                                               ; preds = %35
-  %45 = tail call ptr @PyComplex_FromCComplex(double %.sroa.011.0.i, double %.sroa.614.0.i) #11
+  %45 = tail call ptr @PyComplex_FromCComplex(double %.sroa.011.0.i, double %.sroa.614.0.i) #10
   br label %cmath_log_impl.exit
 
 cmath_log_impl.exit:                              ; preds = %44, %41, %39, %37, %23, %7, %5
@@ -1122,15 +1122,15 @@ cmath_log_impl.exit:                              ; preds = %44, %41, %39, %37, 
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @cmath_log10(ptr readnone captures(none) %0, ptr noundef %1) #0 {
-  %3 = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %1) #11
-  %4 = tail call ptr @PyErr_Occurred() #11
+  %3 = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %1) #10
+  %4 = tail call ptr @PyErr_Occurred() #10
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %21
 
 5:                                                ; preds = %2
   %6 = extractvalue { double, double } %3, 1
   %7 = extractvalue { double, double } %3, 0
-  %8 = tail call ptr @__errno_location() #12
+  %8 = tail call ptr @__errno_location() #11
   store i32 0, ptr %8, align 4, !tbaa !3
   %9 = tail call fastcc { double, double } @c_log(double %7, double %6)
   %10 = load i32, ptr %8, align 4, !tbaa !3
@@ -1141,12 +1141,12 @@ define internal ptr @cmath_log10(ptr readnone captures(none) %0, ptr noundef %1)
 
 11:                                               ; preds = %5
   %12 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !9
-  tail call void @PyErr_SetString(ptr noundef %12, ptr noundef nonnull @.str.25) #11
+  tail call void @PyErr_SetString(ptr noundef %12, ptr noundef nonnull @.str.25) #10
   br label %21
 
 13:                                               ; preds = %5
   %14 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !9
-  tail call void @PyErr_SetString(ptr noundef %14, ptr noundef nonnull @.str.26) #11
+  tail call void @PyErr_SetString(ptr noundef %14, ptr noundef nonnull @.str.26) #10
   br label %21
 
 15:                                               ; preds = %5
@@ -1154,7 +1154,7 @@ define internal ptr @cmath_log10(ptr readnone captures(none) %0, ptr noundef %1)
   %17 = fdiv double %16, 0x40026BB1BBB55516
   %18 = extractvalue { double, double } %9, 0
   %19 = fdiv double %18, 0x40026BB1BBB55516
-  %20 = tail call ptr @PyComplex_FromCComplex(double %19, double %17) #11
+  %20 = tail call ptr @PyComplex_FromCComplex(double %19, double %17) #10
   br label %21
 
 21:                                               ; preds = %2, %15, %13, %11
@@ -1164,17 +1164,17 @@ define internal ptr @cmath_log10(ptr readnone captures(none) %0, ptr noundef %1)
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @cmath_phase(ptr readnone captures(none) %0, ptr noundef %1) #0 {
-  %3 = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %1) #11
-  %4 = tail call ptr @PyErr_Occurred() #11
+  %3 = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %1) #10
+  %4 = tail call ptr @PyErr_Occurred() #10
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %cmath_phase_impl.exit
 
 5:                                                ; preds = %2
   %6 = extractvalue { double, double } %3, 1
   %7 = extractvalue { double, double } %3, 0
-  %8 = tail call ptr @__errno_location() #12
+  %8 = tail call ptr @__errno_location() #11
   store i32 0, ptr %8, align 4, !tbaa !3
-  %9 = tail call double @atan2(double noundef %6, double noundef %7) #11, !tbaa !3
+  %9 = tail call double @atan2(double noundef %6, double noundef %7) #10, !tbaa !3
   %10 = load i32, ptr %8, align 4, !tbaa !3
   switch i32 %10, label %15 [
     i32 0, label %18
@@ -1184,21 +1184,21 @@ define internal ptr @cmath_phase(ptr readnone captures(none) %0, ptr noundef %1)
 
 11:                                               ; preds = %5
   %12 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !9
-  tail call void @PyErr_SetString(ptr noundef %12, ptr noundef nonnull @.str.25) #11
+  tail call void @PyErr_SetString(ptr noundef %12, ptr noundef nonnull @.str.25) #10
   br label %cmath_phase_impl.exit
 
 13:                                               ; preds = %5
   %14 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !9
-  tail call void @PyErr_SetString(ptr noundef %14, ptr noundef nonnull @.str.26) #11
+  tail call void @PyErr_SetString(ptr noundef %14, ptr noundef nonnull @.str.26) #10
   br label %cmath_phase_impl.exit
 
 15:                                               ; preds = %5
   %16 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !9
-  %17 = tail call ptr @PyErr_SetFromErrno(ptr noundef %16) #11
+  %17 = tail call ptr @PyErr_SetFromErrno(ptr noundef %16) #10
   br label %cmath_phase_impl.exit
 
 18:                                               ; preds = %5
-  %19 = tail call ptr @PyFloat_FromDouble(double noundef %9) #11
+  %19 = tail call ptr @PyFloat_FromDouble(double noundef %9) #10
   br label %cmath_phase_impl.exit
 
 cmath_phase_impl.exit:                            ; preds = %18, %15, %13, %11, %2
@@ -1208,18 +1208,18 @@ cmath_phase_impl.exit:                            ; preds = %18, %15, %13, %11, 
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @cmath_polar(ptr readnone captures(none) %0, ptr noundef %1) #0 {
-  %3 = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %1) #11
-  %4 = tail call ptr @PyErr_Occurred() #11
+  %3 = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %1) #10
+  %4 = tail call ptr @PyErr_Occurred() #10
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %cmath_polar_impl.exit
 
 5:                                                ; preds = %2
   %6 = extractvalue { double, double } %3, 1
   %7 = extractvalue { double, double } %3, 0
-  %8 = tail call ptr @__errno_location() #12
+  %8 = tail call ptr @__errno_location() #11
   store i32 0, ptr %8, align 4, !tbaa !3
-  %9 = tail call double @atan2(double noundef %6, double noundef %7) #11, !tbaa !3
-  %10 = tail call double @_Py_c_abs(double %7, double %6) #11
+  %9 = tail call double @atan2(double noundef %6, double noundef %7) #10, !tbaa !3
+  %10 = tail call double @_Py_c_abs(double %7, double %6) #10
   %11 = load i32, ptr %8, align 4, !tbaa !3
   switch i32 %11, label %16 [
     i32 0, label %19
@@ -1229,21 +1229,21 @@ define internal ptr @cmath_polar(ptr readnone captures(none) %0, ptr noundef %1)
 
 12:                                               ; preds = %5
   %13 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !9
-  tail call void @PyErr_SetString(ptr noundef %13, ptr noundef nonnull @.str.25) #11
+  tail call void @PyErr_SetString(ptr noundef %13, ptr noundef nonnull @.str.25) #10
   br label %cmath_polar_impl.exit
 
 14:                                               ; preds = %5
   %15 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !9
-  tail call void @PyErr_SetString(ptr noundef %15, ptr noundef nonnull @.str.26) #11
+  tail call void @PyErr_SetString(ptr noundef %15, ptr noundef nonnull @.str.26) #10
   br label %cmath_polar_impl.exit
 
 16:                                               ; preds = %5
   %17 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !9
-  %18 = tail call ptr @PyErr_SetFromErrno(ptr noundef %17) #11
+  %18 = tail call ptr @PyErr_SetFromErrno(ptr noundef %17) #10
   br label %cmath_polar_impl.exit
 
 19:                                               ; preds = %5
-  %20 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.32, double noundef %10, double noundef %9) #11
+  %20 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.32, double noundef %10, double noundef %9) #10
   br label %cmath_polar_impl.exit
 
 cmath_polar_impl.exit:                            ; preds = %19, %16, %14, %12, %2
@@ -1257,7 +1257,7 @@ define internal ptr @cmath_rect(ptr readnone captures(none) %0, ptr noundef read
   br i1 %or.cond, label %6, label %4
 
 4:                                                ; preds = %3
-  %5 = tail call i32 @_PyArg_CheckPositional(ptr noundef nonnull @.str.18, i64 noundef %2, i64 noundef 2, i64 noundef 2) #11
+  %5 = tail call i32 @_PyArg_CheckPositional(ptr noundef nonnull @.str.18, i64 noundef %2, i64 noundef 2, i64 noundef 2) #10
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %cmath_rect_impl.exit, label %6
 
@@ -1274,12 +1274,12 @@ define internal ptr @cmath_rect(ptr readnone captures(none) %0, ptr noundef read
   br label %16
 
 11:                                               ; preds = %6
-  %12 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %7) #11
+  %12 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %7) #10
   %13 = fcmp oeq double %12, -1.000000e+00
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %11
-  %15 = tail call ptr @PyErr_Occurred() #11
+  %15 = tail call ptr @PyErr_Occurred() #10
   %.not21 = icmp eq ptr %15, null
   br i1 %.not21, label %16, label %cmath_rect_impl.exit
 
@@ -1298,18 +1298,18 @@ define internal ptr @cmath_rect(ptr readnone captures(none) %0, ptr noundef read
   br label %27
 
 22:                                               ; preds = %16
-  %23 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %18) #11
+  %23 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %18) #10
   %24 = fcmp oeq double %23, -1.000000e+00
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %22
-  %26 = tail call ptr @PyErr_Occurred() #11
+  %26 = tail call ptr @PyErr_Occurred() #10
   %.not23 = icmp eq ptr %26, null
   br i1 %.not23, label %27, label %cmath_rect_impl.exit
 
 27:                                               ; preds = %22, %25, %20
   %.0 = phi double [ %.val26, %20 ], [ -1.000000e+00, %25 ], [ %23, %22 ]
-  %28 = tail call ptr @__errno_location() #12
+  %28 = tail call ptr @__errno_location() #11
   %29 = tail call double @llvm.fabs.f64(double %.015)
   %30 = fcmp ueq double %29, 0x7FF0000000000000
   %31 = tail call double @llvm.fabs.f64(double %.0)
@@ -1327,19 +1327,19 @@ define internal ptr @cmath_rect(ptr readnone captures(none) %0, ptr noundef read
 
 36:                                               ; preds = %35
   %37 = fcmp ogt double %.015, 0.000000e+00
-  %38 = tail call double @cos(double noundef %.0) #11, !tbaa !3
+  %38 = tail call double @cos(double noundef %.0) #10, !tbaa !3
   br i1 %37, label %39, label %43
 
 39:                                               ; preds = %36
   %40 = tail call double @llvm.copysign.f64(double 0x7FF0000000000000, double %38)
-  %41 = tail call double @sin(double noundef %.0) #11, !tbaa !3
+  %41 = tail call double @sin(double noundef %.0) #10, !tbaa !3
   %42 = tail call double @llvm.copysign.f64(double 0x7FF0000000000000, double %41)
   br label %73
 
 43:                                               ; preds = %36
   %44 = fneg double %38
   %45 = tail call double @llvm.copysign.f64(double 0x7FF0000000000000, double %44)
-  %46 = tail call double @sin(double noundef %.0) #11, !tbaa !3
+  %46 = tail call double @sin(double noundef %.0) #10, !tbaa !3
   %47 = fneg double %46
   %48 = tail call double @llvm.copysign.f64(double 0x7FF0000000000000, double %47)
   br label %73
@@ -1424,23 +1424,23 @@ special_type.exit36.i:                            ; preds = %69, %67, %66, %65
   br label %85
 
 79:                                               ; preds = %75
-  %80 = tail call double @cos(double noundef %.0) #11, !tbaa !3
+  %80 = tail call double @cos(double noundef %.0) #10, !tbaa !3
   %81 = fmul double %.015, %80
-  %82 = tail call double @sin(double noundef %.0) #11, !tbaa !3
+  %82 = tail call double @sin(double noundef %.0) #10, !tbaa !3
   %83 = fmul double %.015, %82
   br label %85
 
 math_error.exit.i:                                ; preds = %73
   store i32 33, ptr %28, align 4, !tbaa !3
   %84 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !9
-  tail call void @PyErr_SetString(ptr noundef %84, ptr noundef nonnull @.str.25) #11
+  tail call void @PyErr_SetString(ptr noundef %84, ptr noundef nonnull @.str.25) #10
   br label %cmath_rect_impl.exit
 
 85:                                               ; preds = %79, %77, %73
   %.sroa.8.1.ph.i = phi double [ %83, %79 ], [ %78, %77 ], [ %.sroa.8.0.i, %73 ]
   %.sroa.0.1.ph.i = phi double [ %81, %79 ], [ %.015, %77 ], [ %.sroa.0.0.i, %73 ]
   store i32 0, ptr %28, align 4, !tbaa !3
-  %86 = tail call ptr @PyComplex_FromCComplex(double %.sroa.0.1.ph.i, double %.sroa.8.1.ph.i) #11
+  %86 = tail call ptr @PyComplex_FromCComplex(double %.sroa.0.1.ph.i, double %.sroa.8.1.ph.i) #10
   br label %cmath_rect_impl.exit
 
 cmath_rect_impl.exit:                             ; preds = %85, %math_error.exit.i, %25, %14, %4
@@ -1450,15 +1450,15 @@ cmath_rect_impl.exit:                             ; preds = %85, %math_error.exi
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @cmath_sin(ptr readnone captures(none) %0, ptr noundef %1) #0 {
-  %3 = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %1) #11
-  %4 = tail call ptr @PyErr_Occurred() #11
+  %3 = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %1) #10
+  %4 = tail call ptr @PyErr_Occurred() #10
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %21
 
 5:                                                ; preds = %2
   %6 = extractvalue { double, double } %3, 1
   %7 = extractvalue { double, double } %3, 0
-  %8 = tail call ptr @__errno_location() #12
+  %8 = tail call ptr @__errno_location() #11
   store i32 0, ptr %8, align 4, !tbaa !3
   %9 = fneg double %6
   %10 = tail call fastcc { double, double } @cmath_sinh_impl(double %9, double %7)
@@ -1470,19 +1470,19 @@ define internal ptr @cmath_sin(ptr readnone captures(none) %0, ptr noundef %1) #
 
 12:                                               ; preds = %5
   %13 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !9
-  tail call void @PyErr_SetString(ptr noundef %13, ptr noundef nonnull @.str.25) #11
+  tail call void @PyErr_SetString(ptr noundef %13, ptr noundef nonnull @.str.25) #10
   br label %21
 
 14:                                               ; preds = %5
   %15 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !9
-  tail call void @PyErr_SetString(ptr noundef %15, ptr noundef nonnull @.str.26) #11
+  tail call void @PyErr_SetString(ptr noundef %15, ptr noundef nonnull @.str.26) #10
   br label %21
 
 16:                                               ; preds = %5
   %17 = extractvalue { double, double } %10, 0
   %18 = fneg double %17
   %19 = extractvalue { double, double } %10, 1
-  %20 = tail call ptr @PyComplex_FromCComplex(double %19, double %18) #11
+  %20 = tail call ptr @PyComplex_FromCComplex(double %19, double %18) #10
   br label %21
 
 21:                                               ; preds = %2, %16, %14, %12
@@ -1492,15 +1492,15 @@ define internal ptr @cmath_sin(ptr readnone captures(none) %0, ptr noundef %1) #
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @cmath_sinh(ptr readnone captures(none) %0, ptr noundef %1) #0 {
-  %3 = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %1) #11
-  %4 = tail call ptr @PyErr_Occurred() #11
+  %3 = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %1) #10
+  %4 = tail call ptr @PyErr_Occurred() #10
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %19
 
 5:                                                ; preds = %2
   %6 = extractvalue { double, double } %3, 1
   %7 = extractvalue { double, double } %3, 0
-  %8 = tail call ptr @__errno_location() #12
+  %8 = tail call ptr @__errno_location() #11
   store i32 0, ptr %8, align 4, !tbaa !3
   %9 = tail call fastcc { double, double } @cmath_sinh_impl(double %7, double %6)
   %10 = load i32, ptr %8, align 4, !tbaa !3
@@ -1511,18 +1511,18 @@ define internal ptr @cmath_sinh(ptr readnone captures(none) %0, ptr noundef %1) 
 
 11:                                               ; preds = %5
   %12 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !9
-  tail call void @PyErr_SetString(ptr noundef %12, ptr noundef nonnull @.str.25) #11
+  tail call void @PyErr_SetString(ptr noundef %12, ptr noundef nonnull @.str.25) #10
   br label %19
 
 13:                                               ; preds = %5
   %14 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !9
-  tail call void @PyErr_SetString(ptr noundef %14, ptr noundef nonnull @.str.26) #11
+  tail call void @PyErr_SetString(ptr noundef %14, ptr noundef nonnull @.str.26) #10
   br label %19
 
 15:                                               ; preds = %5
   %16 = extractvalue { double, double } %9, 1
   %17 = extractvalue { double, double } %9, 0
-  %18 = tail call ptr @PyComplex_FromCComplex(double %17, double %16) #11
+  %18 = tail call ptr @PyComplex_FromCComplex(double %17, double %16) #10
   br label %19
 
 19:                                               ; preds = %2, %15, %13, %11
@@ -1532,15 +1532,15 @@ define internal ptr @cmath_sinh(ptr readnone captures(none) %0, ptr noundef %1) 
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @cmath_sqrt(ptr readnone captures(none) %0, ptr noundef %1) #0 {
-  %3 = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %1) #11
-  %4 = tail call ptr @PyErr_Occurred() #11
+  %3 = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %1) #10
+  %4 = tail call ptr @PyErr_Occurred() #10
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %19
 
 5:                                                ; preds = %2
   %6 = extractvalue { double, double } %3, 1
   %7 = extractvalue { double, double } %3, 0
-  %8 = tail call ptr @__errno_location() #12
+  %8 = tail call ptr @__errno_location() #11
   store i32 0, ptr %8, align 4, !tbaa !3
   %9 = tail call fastcc { double, double } @cmath_sqrt_impl(double %7, double %6)
   %10 = load i32, ptr %8, align 4, !tbaa !3
@@ -1551,18 +1551,18 @@ define internal ptr @cmath_sqrt(ptr readnone captures(none) %0, ptr noundef %1) 
 
 11:                                               ; preds = %5
   %12 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !9
-  tail call void @PyErr_SetString(ptr noundef %12, ptr noundef nonnull @.str.25) #11
+  tail call void @PyErr_SetString(ptr noundef %12, ptr noundef nonnull @.str.25) #10
   br label %19
 
 13:                                               ; preds = %5
   %14 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !9
-  tail call void @PyErr_SetString(ptr noundef %14, ptr noundef nonnull @.str.26) #11
+  tail call void @PyErr_SetString(ptr noundef %14, ptr noundef nonnull @.str.26) #10
   br label %19
 
 15:                                               ; preds = %5
   %16 = extractvalue { double, double } %9, 1
   %17 = extractvalue { double, double } %9, 0
-  %18 = tail call ptr @PyComplex_FromCComplex(double %17, double %16) #11
+  %18 = tail call ptr @PyComplex_FromCComplex(double %17, double %16) #10
   br label %19
 
 19:                                               ; preds = %2, %15, %13, %11
@@ -1572,15 +1572,15 @@ define internal ptr @cmath_sqrt(ptr readnone captures(none) %0, ptr noundef %1) 
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @cmath_tan(ptr readnone captures(none) %0, ptr noundef %1) #0 {
-  %3 = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %1) #11
-  %4 = tail call ptr @PyErr_Occurred() #11
+  %3 = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %1) #10
+  %4 = tail call ptr @PyErr_Occurred() #10
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %21
 
 5:                                                ; preds = %2
   %6 = extractvalue { double, double } %3, 1
   %7 = extractvalue { double, double } %3, 0
-  %8 = tail call ptr @__errno_location() #12
+  %8 = tail call ptr @__errno_location() #11
   store i32 0, ptr %8, align 4, !tbaa !3
   %9 = fneg double %6
   %10 = tail call fastcc { double, double } @cmath_tanh_impl(double %9, double %7)
@@ -1592,19 +1592,19 @@ define internal ptr @cmath_tan(ptr readnone captures(none) %0, ptr noundef %1) #
 
 12:                                               ; preds = %5
   %13 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !9
-  tail call void @PyErr_SetString(ptr noundef %13, ptr noundef nonnull @.str.25) #11
+  tail call void @PyErr_SetString(ptr noundef %13, ptr noundef nonnull @.str.25) #10
   br label %21
 
 14:                                               ; preds = %5
   %15 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !9
-  tail call void @PyErr_SetString(ptr noundef %15, ptr noundef nonnull @.str.26) #11
+  tail call void @PyErr_SetString(ptr noundef %15, ptr noundef nonnull @.str.26) #10
   br label %21
 
 16:                                               ; preds = %5
   %17 = extractvalue { double, double } %10, 0
   %18 = fneg double %17
   %19 = extractvalue { double, double } %10, 1
-  %20 = tail call ptr @PyComplex_FromCComplex(double %19, double %18) #11
+  %20 = tail call ptr @PyComplex_FromCComplex(double %19, double %18) #10
   br label %21
 
 21:                                               ; preds = %2, %16, %14, %12
@@ -1614,15 +1614,15 @@ define internal ptr @cmath_tan(ptr readnone captures(none) %0, ptr noundef %1) #
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @cmath_tanh(ptr readnone captures(none) %0, ptr noundef %1) #0 {
-  %3 = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %1) #11
-  %4 = tail call ptr @PyErr_Occurred() #11
+  %3 = tail call { double, double } @PyComplex_AsCComplex(ptr noundef %1) #10
+  %4 = tail call ptr @PyErr_Occurred() #10
   %.not = icmp eq ptr %4, null
   br i1 %.not, label %5, label %19
 
 5:                                                ; preds = %2
   %6 = extractvalue { double, double } %3, 1
   %7 = extractvalue { double, double } %3, 0
-  %8 = tail call ptr @__errno_location() #12
+  %8 = tail call ptr @__errno_location() #11
   store i32 0, ptr %8, align 4, !tbaa !3
   %9 = tail call fastcc { double, double } @cmath_tanh_impl(double %7, double %6)
   %10 = load i32, ptr %8, align 4, !tbaa !3
@@ -1633,18 +1633,18 @@ define internal ptr @cmath_tanh(ptr readnone captures(none) %0, ptr noundef %1) 
 
 11:                                               ; preds = %5
   %12 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !9
-  tail call void @PyErr_SetString(ptr noundef %12, ptr noundef nonnull @.str.25) #11
+  tail call void @PyErr_SetString(ptr noundef %12, ptr noundef nonnull @.str.25) #10
   br label %19
 
 13:                                               ; preds = %5
   %14 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !9
-  tail call void @PyErr_SetString(ptr noundef %14, ptr noundef nonnull @.str.26) #11
+  tail call void @PyErr_SetString(ptr noundef %14, ptr noundef nonnull @.str.26) #10
   br label %19
 
 15:                                               ; preds = %5
   %16 = extractvalue { double, double } %9, 1
   %17 = extractvalue { double, double } %9, 0
-  %18 = tail call ptr @PyComplex_FromCComplex(double %17, double %16) #11
+  %18 = tail call ptr @PyComplex_FromCComplex(double %17, double %16) #10
   br label %19
 
 19:                                               ; preds = %2, %15, %13, %11
@@ -1675,19 +1675,19 @@ declare i1 @llvm.is.fpclass.f64(double, i32 immarg) #4
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #4
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @atan2(double noundef, double noundef) local_unnamed_addr #5
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @log(double noundef) local_unnamed_addr #5
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @hypot(double noundef, double noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.copysign.f64(double, double) #4
 
-; Function Attrs: mustprogress nofree nounwind willreturn uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
 define internal fastcc { double, double } @cmath_sqrt_impl(double %0, double %1) unnamed_addr #6 {
   %3 = tail call double @llvm.fabs.f64(double %0)
   %4 = fcmp ueq double %3, 0x7FF0000000000000
@@ -1697,7 +1697,7 @@ define internal fastcc { double, double } @cmath_sqrt_impl(double %0, double %1)
   br i1 %or.cond39, label %7, label %32
 
 7:                                                ; preds = %2
-  %8 = tail call ptr @__errno_location() #12
+  %8 = tail call ptr @__errno_location() #11
   store i32 0, ptr %8, align 4, !tbaa !3
   br i1 %4, label %15, label %9
 
@@ -1774,20 +1774,20 @@ special_type.exit44:                              ; preds = %24, %25, %26, %28
   br i1 %or.cond4, label %38, label %45
 
 38:                                               ; preds = %35
-  %39 = tail call double @ldexp(double noundef %3, i32 noundef 53) #11, !tbaa !3
-  %40 = tail call double @ldexp(double noundef %5, i32 noundef 53) #11, !tbaa !3
-  %41 = tail call double @hypot(double noundef %39, double noundef %40) #11, !tbaa !3
+  %39 = tail call double @ldexp(double noundef %3, i32 noundef 53) #10, !tbaa !3
+  %40 = tail call double @ldexp(double noundef %5, i32 noundef 53) #10, !tbaa !3
+  %41 = tail call double @hypot(double noundef %39, double noundef %40) #10, !tbaa !3
   %42 = fadd double %39, %41
-  %43 = tail call double @sqrt(double noundef %42) #11, !tbaa !3
-  %44 = tail call double @ldexp(double noundef %43, i32 noundef -27) #11, !tbaa !3
+  %43 = tail call double @sqrt(double noundef %42) #10, !tbaa !3
+  %44 = tail call double @ldexp(double noundef %43, i32 noundef -27) #10, !tbaa !3
   br label %52
 
 45:                                               ; preds = %35
   %46 = fmul double %3, 1.250000e-01
   %47 = fmul double %5, 1.250000e-01
-  %48 = tail call double @hypot(double noundef %46, double noundef %47) #11, !tbaa !3
+  %48 = tail call double @hypot(double noundef %46, double noundef %47) #10, !tbaa !3
   %49 = fadd double %46, %48
-  %50 = tail call double @sqrt(double noundef %49) #11, !tbaa !3
+  %50 = tail call double @sqrt(double noundef %49) #10, !tbaa !3
   %51 = fmul double %50, 2.000000e+00
   br label %52
 
@@ -1800,7 +1800,7 @@ special_type.exit44:                              ; preds = %24, %25, %26, %28
   %57 = tail call double @llvm.copysign.f64(double %.0, double %1)
   %.sroa.7.0 = select i1 %55, double %57, double %56
   %.sroa.0.0 = select i1 %55, double %54, double %.0
-  %58 = tail call ptr @__errno_location() #12
+  %58 = tail call ptr @__errno_location() #11
   store i32 0, ptr %58, align 4, !tbaa !3
   br label %59
 
@@ -1812,20 +1812,20 @@ special_type.exit44:                              ; preds = %24, %25, %26, %28
   ret { double, double } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @asinh(double noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #4
 
-; Function Attrs: mustprogress nofree nounwind willreturn
-declare double @ldexp(double noundef, i32 noundef) local_unnamed_addr #7
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
+declare double @ldexp(double noundef, i32 noundef) local_unnamed_addr #5
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @sqrt(double noundef) local_unnamed_addr #5
 
-; Function Attrs: mustprogress nofree nounwind willreturn uwtable
-define internal fastcc { double, double } @cmath_asinh_impl(double %0, double %1) unnamed_addr #6 {
+; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
+define internal fastcc { double, double } @cmath_asinh_impl(double %0, double %1) unnamed_addr #7 {
   %3 = tail call double @llvm.fabs.f64(double %0)
   %4 = fcmp ueq double %3, 0x7FF0000000000000
   %5 = tail call double @llvm.fabs.f64(double %1)
@@ -1834,7 +1834,7 @@ define internal fastcc { double, double } @cmath_asinh_impl(double %0, double %1
   br i1 %or.cond, label %7, label %32
 
 7:                                                ; preds = %2
-  %8 = tail call ptr @__errno_location() #12
+  %8 = tail call ptr @__errno_location() #11
   store i32 0, ptr %8, align 4, !tbaa !3
   br i1 %4, label %15, label %9
 
@@ -1907,8 +1907,8 @@ special_type.exit43:                              ; preds = %24, %25, %26, %28
 35:                                               ; preds = %32
   %36 = fmul double %0, 5.000000e-01
   %37 = fmul double %1, 5.000000e-01
-  %38 = tail call double @hypot(double noundef %36, double noundef %37) #11, !tbaa !3
-  %39 = tail call double @log(double noundef %38) #11, !tbaa !3
+  %38 = tail call double @hypot(double noundef %36, double noundef %37) #10, !tbaa !3
+  %39 = tail call double @log(double noundef %38) #10, !tbaa !3
   %40 = fadd double %39, 0x3FF62E42FEFA39EF
   %41 = tail call double @llvm.copysign.f64(double %40, double %0)
   br label %59
@@ -1926,7 +1926,7 @@ special_type.exit43:                              ; preds = %24, %25, %26, %28
   %52 = fneg double %47
   %53 = fmul double %50, %52
   %54 = tail call double @llvm.fmuladd.f64(double %46, double %51, double %53)
-  %55 = tail call double @asinh(double noundef %54) #11, !tbaa !3
+  %55 = tail call double @asinh(double noundef %54) #10, !tbaa !3
   %56 = fneg double %51
   %57 = fmul double %47, %56
   %58 = tail call double @llvm.fmuladd.f64(double %46, double %50, double %57)
@@ -1935,8 +1935,8 @@ special_type.exit43:                              ; preds = %24, %25, %26, %28
 59:                                               ; preds = %42, %35
   %.sink = phi double [ %58, %42 ], [ %3, %35 ]
   %.sroa.03.1 = phi double [ %55, %42 ], [ %41, %35 ]
-  %60 = tail call double @atan2(double noundef %1, double noundef %.sink) #11, !tbaa !3
-  %61 = tail call ptr @__errno_location() #12
+  %60 = tail call double @atan2(double noundef %1, double noundef %.sink) #10, !tbaa !3
+  %61 = tail call ptr @__errno_location() #11
   store i32 0, ptr %61, align 4, !tbaa !3
   br label %62
 
@@ -1958,7 +1958,7 @@ define internal fastcc { double, double } @cmath_atanh_impl(double %0, double %1
   br i1 %or.cond, label %7, label %34
 
 7:                                                ; preds = %2
-  %8 = tail call ptr @__errno_location() #12
+  %8 = tail call ptr @__errno_location() #11
   store i32 0, ptr %8, align 4, !tbaa !3
   br i1 %4, label %15, label %9
 
@@ -2033,13 +2033,13 @@ common.ret2:                                      ; preds = %86, %special_type.e
   ret { double, double } %common.ret2.op
 
 36:                                               ; preds = %34
-  %37 = tail call { double, double } @_Py_c_neg(double %0, double %1) #11
+  %37 = tail call { double, double } @_Py_c_neg(double %0, double %1) #10
   %38 = extractvalue { double, double } %37, 0
   %39 = extractvalue { double, double } %37, 1
   %40 = tail call fastcc { double, double } @cmath_atanh_impl(double %38, double %39)
   %41 = extractvalue { double, double } %40, 0
   %42 = extractvalue { double, double } %40, 1
-  %43 = tail call { double, double } @_Py_c_neg(double %41, double %42) #11
+  %43 = tail call { double, double } @_Py_c_neg(double %41, double %42) #10
   br label %common.ret2
 
 44:                                               ; preds = %34
@@ -2051,7 +2051,7 @@ common.ret2:                                      ; preds = %86, %special_type.e
 47:                                               ; preds = %44
   %48 = fmul double %0, 5.000000e-01
   %49 = fmul double %1, 5.000000e-01
-  %50 = tail call double @hypot(double noundef %48, double noundef %49) #11, !tbaa !3
+  %50 = tail call double @hypot(double noundef %48, double noundef %49) #10, !tbaa !3
   %51 = fmul double %0, 2.500000e-01
   %52 = fdiv double %51, %50
   %53 = fdiv double %52, %50
@@ -2070,13 +2070,13 @@ common.ret2:                                      ; preds = %86, %special_type.e
 
 60:                                               ; preds = %58
   %sqrt = tail call double @llvm.sqrt.f64(double %5)
-  %61 = tail call double @hypot(double noundef %5, double noundef 2.000000e+00) #11, !tbaa !3
-  %62 = tail call double @sqrt(double noundef %61) #11, !tbaa !3
+  %61 = tail call double @hypot(double noundef %5, double noundef 2.000000e+00) #10, !tbaa !3
+  %62 = tail call double @sqrt(double noundef %61) #10, !tbaa !3
   %63 = fdiv double %sqrt, %62
-  %64 = tail call double @log(double noundef %63) #11, !tbaa !3
+  %64 = tail call double @log(double noundef %63) #10, !tbaa !3
   %65 = fneg double %64
   %66 = fneg double %5
-  %67 = tail call double @atan2(double noundef 2.000000e+00, double noundef %66) #11, !tbaa !3
+  %67 = tail call double @atan2(double noundef 2.000000e+00, double noundef %66) #10, !tbaa !3
   %68 = fmul double %67, 5.000000e-01
   %69 = tail call double @llvm.copysign.f64(double %68, double %1)
   br label %86
@@ -2091,7 +2091,7 @@ common.ret2:                                      ; preds = %86, %special_type.e
   br i1 %76, label %_Py_log1p.exit, label %77
 
 77:                                               ; preds = %70
-  %78 = tail call double @log1p(double noundef %75) #11, !tbaa !3
+  %78 = tail call double @log1p(double noundef %75) #10, !tbaa !3
   br label %_Py_log1p.exit
 
 _Py_log1p.exit:                                   ; preds = %70, %77
@@ -2101,7 +2101,7 @@ _Py_log1p.exit:                                   ; preds = %70, %77
   %81 = fadd double %0, 1.000000e+00
   %82 = fneg double %73
   %83 = tail call double @llvm.fmuladd.f64(double %72, double %81, double %82)
-  %84 = tail call double @atan2(double noundef %80, double noundef %83) #11, !tbaa !3
+  %84 = tail call double @atan2(double noundef %80, double noundef %83) #10, !tbaa !3
   %85 = fmul double %84, -5.000000e-01
   br label %86
 
@@ -2109,7 +2109,7 @@ _Py_log1p.exit:                                   ; preds = %70, %77
   %.sink = phi i32 [ 0, %_Py_log1p.exit ], [ 0, %60 ], [ 0, %47 ], [ 33, %58 ]
   %.sroa.014.0 = phi double [ %79, %_Py_log1p.exit ], [ %65, %60 ], [ %53, %47 ], [ 0x7FF0000000000000, %58 ]
   %.sroa.7.0 = phi double [ %85, %_Py_log1p.exit ], [ %69, %60 ], [ %54, %47 ], [ %1, %58 ]
-  %87 = tail call ptr @__errno_location() #12
+  %87 = tail call ptr @__errno_location() #11
   store i32 %.sink, ptr %87, align 4, !tbaa !3
   %88 = insertvalue { double, double } poison, double %.sroa.014.0, 0
   %89 = insertvalue { double, double } %88, double %.sroa.7.0, 1
@@ -2118,11 +2118,11 @@ _Py_log1p.exit:                                   ; preds = %70, %77
 
 declare { double, double } @_Py_c_neg(double, double) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @log1p(double noundef) local_unnamed_addr #5
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc { double, double } @cmath_cosh_impl(double %0, double %1) unnamed_addr #8 {
+; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
+define internal fastcc { double, double } @cmath_cosh_impl(double %0, double %1) unnamed_addr #6 {
   %3 = tail call double @llvm.fabs.f64(double %0)
   %4 = fcmp ueq double %3, 0x7FF0000000000000
   %5 = tail call double @llvm.fabs.f64(double %1)
@@ -2140,9 +2140,9 @@ define internal fastcc { double, double } @cmath_cosh_impl(double %0, double %1)
 
 10:                                               ; preds = %9
   %11 = fcmp ogt double %0, 0.000000e+00
-  %12 = tail call double @cos(double noundef %1) #11, !tbaa !3
+  %12 = tail call double @cos(double noundef %1) #10, !tbaa !3
   %13 = tail call double @llvm.copysign.f64(double 0x7FF0000000000000, double %12)
-  %14 = tail call double @sin(double noundef %1) #11, !tbaa !3
+  %14 = tail call double @sin(double noundef %1) #10, !tbaa !3
   br i1 %11, label %15, label %17
 
 15:                                               ; preds = %10
@@ -2223,7 +2223,7 @@ special_type.exit35:                              ; preds = %36, %37, %38, %40
   %45 = fcmp une double %5, 0x7FF0000000000000
   %46 = fcmp uno double %0, 0.000000e+00
   %or.cond28 = select i1 %45, i1 true, i1 %46
-  %47 = tail call ptr @__errno_location() #12
+  %47 = tail call ptr @__errno_location() #11
   br i1 %or.cond28, label %49, label %48
 
 48:                                               ; preds = %44
@@ -2241,34 +2241,34 @@ special_type.exit35:                              ; preds = %36, %37, %38, %40
 52:                                               ; preds = %50
   %53 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %0)
   %54 = fsub double %0, %53
-  %55 = tail call double @cos(double noundef %1) #11, !tbaa !3
-  %56 = tail call double @cosh(double noundef %54) #11, !tbaa !3
+  %55 = tail call double @cos(double noundef %1) #10, !tbaa !3
+  %56 = tail call double @cosh(double noundef %54) #10, !tbaa !3
   %57 = fmul double %55, %56
   %58 = fmul double %57, 0x4005BF0A8B145769
-  %59 = tail call double @sin(double noundef %1) #11, !tbaa !3
-  %60 = tail call double @sinh(double noundef %54) #11, !tbaa !3
+  %59 = tail call double @sin(double noundef %1) #10, !tbaa !3
+  %60 = tail call double @sinh(double noundef %54) #10, !tbaa !3
   %61 = fmul double %59, %60
   %62 = fmul double %61, 0x4005BF0A8B145769
   br label %70
 
 63:                                               ; preds = %50
-  %64 = tail call double @cos(double noundef %1) #11, !tbaa !3
-  %65 = tail call double @cosh(double noundef %0) #11, !tbaa !3
+  %64 = tail call double @cos(double noundef %1) #10, !tbaa !3
+  %65 = tail call double @cosh(double noundef %0) #10, !tbaa !3
   %66 = fmul double %64, %65
-  %67 = tail call double @sin(double noundef %1) #11, !tbaa !3
-  %68 = tail call double @sinh(double noundef %0) #11, !tbaa !3
+  %67 = tail call double @sin(double noundef %1) #10, !tbaa !3
+  %68 = tail call double @sinh(double noundef %0) #10, !tbaa !3
   %69 = fmul double %67, %68
   br label %70
 
 70:                                               ; preds = %63, %52
   %.sroa.025.2 = phi double [ %58, %52 ], [ %66, %63 ]
   %.sroa.7.2 = phi double [ %62, %52 ], [ %69, %63 ]
-  %71 = tail call double @llvm.fabs.f64(double %.sroa.025.2) #13
+  %71 = tail call double @llvm.fabs.f64(double %.sroa.025.2) #12
   %72 = fcmp oeq double %71, 0x7FF0000000000000
-  %73 = tail call double @llvm.fabs.f64(double %.sroa.7.2) #13
+  %73 = tail call double @llvm.fabs.f64(double %.sroa.7.2) #12
   %74 = fcmp oeq double %73, 0x7FF0000000000000
   %or.cond30 = select i1 %72, i1 true, i1 %74
-  %75 = tail call ptr @__errno_location() #12
+  %75 = tail call ptr @__errno_location() #11
   br i1 %or.cond30, label %76, label %77
 
 76:                                               ; preds = %70
@@ -2287,19 +2287,19 @@ special_type.exit35:                              ; preds = %36, %37, %38, %40
   ret { double, double } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @cos(double noundef) local_unnamed_addr #5
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @sin(double noundef) local_unnamed_addr #5
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @cosh(double noundef) local_unnamed_addr #5
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @sinh(double noundef) local_unnamed_addr #5
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @exp(double noundef) local_unnamed_addr #5
 
 declare ptr @_PyArg_UnpackKeywords(ptr noundef, i64 noundef, ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, i32 noundef, i32 noundef, ptr noundef) local_unnamed_addr #1
@@ -2314,7 +2314,7 @@ declare { double, double } @_Py_c_diff(double, double, double, double) local_unn
 
 declare i32 @_PyArg_CheckPositional(ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nounwind willreturn uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
 define internal fastcc { double, double } @c_log(double %0, double %1) unnamed_addr #6 {
   %3 = tail call double @llvm.fabs.f64(double %0)
   %4 = fcmp ueq double %3, 0x7FF0000000000000
@@ -2324,7 +2324,7 @@ define internal fastcc { double, double } @c_log(double %0, double %1) unnamed_a
   br i1 %or.cond49, label %7, label %32
 
 7:                                                ; preds = %2
-  %8 = tail call ptr @__errno_location() #12
+  %8 = tail call ptr @__errno_location() #11
   store i32 0, ptr %8, align 4, !tbaa !3
   br i1 %4, label %15, label %9
 
@@ -2397,8 +2397,8 @@ special_type.exit54:                              ; preds = %24, %25, %26, %28
 35:                                               ; preds = %32
   %36 = fmul double %3, 5.000000e-01
   %37 = fmul double %5, 5.000000e-01
-  %38 = tail call double @hypot(double noundef %36, double noundef %37) #11, !tbaa !3
-  %39 = tail call double @log(double noundef %38) #11, !tbaa !3
+  %38 = tail call double @hypot(double noundef %36, double noundef %37) #10, !tbaa !3
+  %39 = tail call double @log(double noundef %38) #10, !tbaa !3
   %40 = fadd double %39, 0x3FE62E42FEFA39EF
   br label %74
 
@@ -2415,21 +2415,21 @@ special_type.exit54:                              ; preds = %24, %25, %26, %28
   br i1 %or.cond5, label %47, label %53
 
 47:                                               ; preds = %44
-  %48 = tail call double @ldexp(double noundef %3, i32 noundef 53) #11, !tbaa !3
-  %49 = tail call double @ldexp(double noundef %5, i32 noundef 53) #11, !tbaa !3
-  %50 = tail call double @hypot(double noundef %48, double noundef %49) #11, !tbaa !3
-  %51 = tail call double @log(double noundef %50) #11, !tbaa !3
+  %48 = tail call double @ldexp(double noundef %3, i32 noundef 53) #10, !tbaa !3
+  %49 = tail call double @ldexp(double noundef %5, i32 noundef 53) #10, !tbaa !3
+  %50 = tail call double @hypot(double noundef %48, double noundef %49) #10, !tbaa !3
+  %51 = tail call double @log(double noundef %50) #10, !tbaa !3
   %52 = fadd double %51, 0xC0425E4F7B2737FA
   br label %74
 
 53:                                               ; preds = %44
-  %54 = tail call double @atan2(double noundef %1, double noundef %0) #11, !tbaa !3
-  %55 = tail call ptr @__errno_location() #12
+  %54 = tail call double @atan2(double noundef %1, double noundef %0) #10, !tbaa !3
+  %55 = tail call ptr @__errno_location() #11
   store i32 33, ptr %55, align 4, !tbaa !3
   br label %77
 
 56:                                               ; preds = %41
-  %57 = tail call double @hypot(double noundef %3, double noundef %5) #11, !tbaa !3
+  %57 = tail call double @hypot(double noundef %3, double noundef %5) #10, !tbaa !3
   %58 = fcmp oge double %57, 7.100000e-01
   %59 = fcmp ole double %57, 1.730000e+00
   %or.cond7 = and i1 %58, %59
@@ -2447,7 +2447,7 @@ special_type.exit54:                              ; preds = %24, %25, %26, %28
   br i1 %68, label %_Py_log1p.exit, label %69
 
 69:                                               ; preds = %60
-  %70 = tail call double @log1p(double noundef %67) #11, !tbaa !3
+  %70 = tail call double @log1p(double noundef %67) #10, !tbaa !3
   br label %_Py_log1p.exit
 
 _Py_log1p.exit:                                   ; preds = %60, %69
@@ -2456,13 +2456,13 @@ _Py_log1p.exit:                                   ; preds = %60, %69
   br label %74
 
 72:                                               ; preds = %56
-  %73 = tail call double @log(double noundef %57) #11, !tbaa !3
+  %73 = tail call double @log(double noundef %57) #10, !tbaa !3
   br label %74
 
 74:                                               ; preds = %47, %72, %_Py_log1p.exit, %35
   %.sroa.0.0 = phi double [ %40, %35 ], [ %52, %47 ], [ %71, %_Py_log1p.exit ], [ %73, %72 ]
-  %75 = tail call double @atan2(double noundef %1, double noundef %0) #11, !tbaa !3
-  %76 = tail call ptr @__errno_location() #12
+  %75 = tail call double @atan2(double noundef %1, double noundef %0) #10, !tbaa !3
+  %76 = tail call ptr @__errno_location() #11
   store i32 0, ptr %76, align 4, !tbaa !3
   br label %77
 
@@ -2482,8 +2482,8 @@ declare ptr @PyFloat_FromDouble(double noundef) local_unnamed_addr #1
 
 declare ptr @Py_BuildValue(ptr noundef, ...) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc { double, double } @cmath_sinh_impl(double %0, double %1) unnamed_addr #8 {
+; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
+define internal fastcc { double, double } @cmath_sinh_impl(double %0, double %1) unnamed_addr #6 {
   %3 = tail call double @llvm.fabs.f64(double %0)
   %4 = fcmp ueq double %3, 0x7FF0000000000000
   %5 = tail call double @llvm.fabs.f64(double %1)
@@ -2501,19 +2501,19 @@ define internal fastcc { double, double } @cmath_sinh_impl(double %0, double %1)
 
 10:                                               ; preds = %9
   %11 = fcmp ogt double %0, 0.000000e+00
-  %12 = tail call double @cos(double noundef %1) #11, !tbaa !3
+  %12 = tail call double @cos(double noundef %1) #10, !tbaa !3
   br i1 %11, label %13, label %17
 
 13:                                               ; preds = %10
   %14 = tail call double @llvm.copysign.f64(double 0x7FF0000000000000, double %12)
-  %15 = tail call double @sin(double noundef %1) #11, !tbaa !3
+  %15 = tail call double @sin(double noundef %1) #10, !tbaa !3
   %16 = tail call double @llvm.copysign.f64(double 0x7FF0000000000000, double %15)
   br label %46
 
 17:                                               ; preds = %10
   %18 = fneg double %12
   %19 = tail call double @llvm.copysign.f64(double 0x7FF0000000000000, double %18)
-  %20 = tail call double @sin(double noundef %1) #11, !tbaa !3
+  %20 = tail call double @sin(double noundef %1) #10, !tbaa !3
   %21 = tail call double @llvm.copysign.f64(double 0x7FF0000000000000, double %20)
   br label %46
 
@@ -2586,7 +2586,7 @@ special_type.exit35:                              ; preds = %38, %39, %40, %42
   %47 = fcmp une double %5, 0x7FF0000000000000
   %48 = fcmp uno double %0, 0.000000e+00
   %or.cond28 = select i1 %47, i1 true, i1 %48
-  %49 = tail call ptr @__errno_location() #12
+  %49 = tail call ptr @__errno_location() #11
   br i1 %or.cond28, label %51, label %50
 
 50:                                               ; preds = %46
@@ -2604,34 +2604,34 @@ special_type.exit35:                              ; preds = %38, %39, %40, %42
 54:                                               ; preds = %52
   %55 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %0)
   %56 = fsub double %0, %55
-  %57 = tail call double @cos(double noundef %1) #11, !tbaa !3
-  %58 = tail call double @sinh(double noundef %56) #11, !tbaa !3
+  %57 = tail call double @cos(double noundef %1) #10, !tbaa !3
+  %58 = tail call double @sinh(double noundef %56) #10, !tbaa !3
   %59 = fmul double %57, %58
   %60 = fmul double %59, 0x4005BF0A8B145769
-  %61 = tail call double @sin(double noundef %1) #11, !tbaa !3
-  %62 = tail call double @cosh(double noundef %56) #11, !tbaa !3
+  %61 = tail call double @sin(double noundef %1) #10, !tbaa !3
+  %62 = tail call double @cosh(double noundef %56) #10, !tbaa !3
   %63 = fmul double %61, %62
   %64 = fmul double %63, 0x4005BF0A8B145769
   br label %72
 
 65:                                               ; preds = %52
-  %66 = tail call double @cos(double noundef %1) #11, !tbaa !3
-  %67 = tail call double @sinh(double noundef %0) #11, !tbaa !3
+  %66 = tail call double @cos(double noundef %1) #10, !tbaa !3
+  %67 = tail call double @sinh(double noundef %0) #10, !tbaa !3
   %68 = fmul double %66, %67
-  %69 = tail call double @sin(double noundef %1) #11, !tbaa !3
-  %70 = tail call double @cosh(double noundef %0) #11, !tbaa !3
+  %69 = tail call double @sin(double noundef %1) #10, !tbaa !3
+  %70 = tail call double @cosh(double noundef %0) #10, !tbaa !3
   %71 = fmul double %69, %70
   br label %72
 
 72:                                               ; preds = %65, %54
   %.sroa.025.2 = phi double [ %60, %54 ], [ %68, %65 ]
   %.sroa.7.2 = phi double [ %64, %54 ], [ %71, %65 ]
-  %73 = tail call double @llvm.fabs.f64(double %.sroa.025.2) #13
+  %73 = tail call double @llvm.fabs.f64(double %.sroa.025.2) #12
   %74 = fcmp oeq double %73, 0x7FF0000000000000
-  %75 = tail call double @llvm.fabs.f64(double %.sroa.7.2) #13
+  %75 = tail call double @llvm.fabs.f64(double %.sroa.7.2) #12
   %76 = fcmp oeq double %75, 0x7FF0000000000000
   %or.cond30 = select i1 %74, i1 true, i1 %76
-  %77 = tail call ptr @__errno_location() #12
+  %77 = tail call ptr @__errno_location() #11
   br i1 %or.cond30, label %78, label %79
 
 78:                                               ; preds = %72
@@ -2650,8 +2650,8 @@ special_type.exit35:                              ; preds = %38, %39, %40, %42
   ret { double, double } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: write) uwtable
-define internal fastcc { double, double } @cmath_tanh_impl(double %0, double %1) unnamed_addr #8 {
+; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable
+define internal fastcc { double, double } @cmath_tanh_impl(double %0, double %1) unnamed_addr #6 {
   %3 = tail call double @llvm.fabs.f64(double %0)
   %4 = fcmp ueq double %3, 0x7FF0000000000000
   %5 = tail call double @llvm.fabs.f64(double %1)
@@ -2669,9 +2669,9 @@ define internal fastcc { double, double } @cmath_tanh_impl(double %0, double %1)
 
 10:                                               ; preds = %9
   %11 = fcmp ogt double %0, 0.000000e+00
-  %12 = tail call double @sin(double noundef %1) #11, !tbaa !3
+  %12 = tail call double @sin(double noundef %1) #10, !tbaa !3
   %13 = fmul double %12, 2.000000e+00
-  %14 = tail call double @cos(double noundef %1) #11, !tbaa !3
+  %14 = tail call double @cos(double noundef %1) #10, !tbaa !3
   %15 = fmul double %13, %14
   %16 = tail call double @llvm.copysign.f64(double 0.000000e+00, double %15)
   %. = select i1 %11, double 1.000000e+00, double -1.000000e+00
@@ -2745,7 +2745,7 @@ special_type.exit44:                              ; preds = %33, %34, %35, %37
   %.sroa.6.0 = phi double [ %.sroa.6.0.copyload, %special_type.exit44 ], [ %16, %10 ]
   %42 = fcmp une double %5, 0x7FF0000000000000
   %brmerge = or i1 %4, %42
-  %43 = tail call ptr @__errno_location() #12
+  %43 = tail call ptr @__errno_location() #11
   br i1 %brmerge, label %45, label %44
 
 44:                                               ; preds = %41
@@ -2762,19 +2762,19 @@ special_type.exit44:                              ; preds = %33, %34, %35, %37
 
 48:                                               ; preds = %46
   %49 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %0)
-  %50 = tail call double @sin(double noundef %1) #11, !tbaa !3
+  %50 = tail call double @sin(double noundef %1) #10, !tbaa !3
   %51 = fmul double %50, 4.000000e+00
-  %52 = tail call double @cos(double noundef %1) #11, !tbaa !3
+  %52 = tail call double @cos(double noundef %1) #10, !tbaa !3
   %53 = fmul double %51, %52
   %54 = fmul double %3, -2.000000e+00
-  %55 = tail call double @exp(double noundef %54) #11, !tbaa !3
+  %55 = tail call double @exp(double noundef %54) #10, !tbaa !3
   %56 = fmul double %53, %55
   br label %70
 
 57:                                               ; preds = %46
-  %58 = tail call double @tanh(double noundef %0) #11, !tbaa !3
-  %59 = tail call double @tan(double noundef %1) #11, !tbaa !3
-  %60 = tail call double @cosh(double noundef %0) #11, !tbaa !3
+  %58 = tail call double @tanh(double noundef %0) #10, !tbaa !3
+  %59 = tail call double @tan(double noundef %1) #10, !tbaa !3
+  %60 = tail call double @cosh(double noundef %0) #10, !tbaa !3
   %61 = fdiv double 1.000000e+00, %60
   %62 = fmul double %58, %59
   %63 = tail call double @llvm.fmuladd.f64(double %62, double %62, double 1.000000e+00)
@@ -2789,7 +2789,7 @@ special_type.exit44:                              ; preds = %33, %34, %35, %37
 70:                                               ; preds = %57, %48
   %.sroa.034.2 = phi double [ %49, %48 ], [ %66, %57 ]
   %.sroa.6.2 = phi double [ %56, %48 ], [ %69, %57 ]
-  %71 = tail call ptr @__errno_location() #12
+  %71 = tail call ptr @__errno_location() #11
   store i32 0, ptr %71, align 4, !tbaa !3
   br label %72
 
@@ -2801,52 +2801,52 @@ special_type.exit44:                              ; preds = %33, %34, %35, %37
   ret { double, double } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @tanh(double noundef) local_unnamed_addr #5
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @tan(double noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @cmath_exec(ptr noundef %0) #0 {
-  %2 = tail call ptr @PyFloat_FromDouble(double noundef 0x400921FB54442D18) #11
-  %3 = tail call i32 @PyModule_Add(ptr noundef %0, ptr noundef nonnull @.str.34, ptr noundef %2) #11
+  %2 = tail call ptr @PyFloat_FromDouble(double noundef 0x400921FB54442D18) #10
+  %3 = tail call i32 @PyModule_Add(ptr noundef %0, ptr noundef nonnull @.str.34, ptr noundef %2) #10
   %4 = icmp slt i32 %3, 0
   br i1 %4, label %30, label %5
 
 5:                                                ; preds = %1
-  %6 = tail call ptr @PyFloat_FromDouble(double noundef 0x4005BF0A8B145769) #11
-  %7 = tail call i32 @PyModule_Add(ptr noundef %0, ptr noundef nonnull @.str.35, ptr noundef %6) #11
+  %6 = tail call ptr @PyFloat_FromDouble(double noundef 0x4005BF0A8B145769) #10
+  %7 = tail call i32 @PyModule_Add(ptr noundef %0, ptr noundef nonnull @.str.35, ptr noundef %6) #10
   %8 = icmp slt i32 %7, 0
   br i1 %8, label %30, label %9
 
 9:                                                ; preds = %5
-  %10 = tail call ptr @PyFloat_FromDouble(double noundef 0x401921FB54442D18) #11
-  %11 = tail call i32 @PyModule_Add(ptr noundef %0, ptr noundef nonnull @.str.36, ptr noundef %10) #11
+  %10 = tail call ptr @PyFloat_FromDouble(double noundef 0x401921FB54442D18) #10
+  %11 = tail call i32 @PyModule_Add(ptr noundef %0, ptr noundef nonnull @.str.36, ptr noundef %10) #10
   %12 = icmp slt i32 %11, 0
   br i1 %12, label %30, label %13
 
 13:                                               ; preds = %9
-  %14 = tail call ptr @PyFloat_FromDouble(double noundef 0x7FF0000000000000) #11
-  %15 = tail call i32 @PyModule_Add(ptr noundef %0, ptr noundef nonnull @.str.37, ptr noundef %14) #11
+  %14 = tail call ptr @PyFloat_FromDouble(double noundef 0x7FF0000000000000) #10
+  %15 = tail call i32 @PyModule_Add(ptr noundef %0, ptr noundef nonnull @.str.37, ptr noundef %14) #10
   %16 = icmp slt i32 %15, 0
   br i1 %16, label %30, label %17
 
 17:                                               ; preds = %13
-  %18 = tail call ptr @PyComplex_FromCComplex(double 0.000000e+00, double 0x7FF0000000000000) #11
-  %19 = tail call i32 @PyModule_Add(ptr noundef %0, ptr noundef nonnull @.str.38, ptr noundef %18) #11
+  %18 = tail call ptr @PyComplex_FromCComplex(double 0.000000e+00, double 0x7FF0000000000000) #10
+  %19 = tail call i32 @PyModule_Add(ptr noundef %0, ptr noundef nonnull @.str.38, ptr noundef %18) #10
   %20 = icmp slt i32 %19, 0
   br i1 %20, label %30, label %21
 
 21:                                               ; preds = %17
-  %22 = tail call ptr @PyFloat_FromDouble(double noundef 0x7FF8000000000000) #11
-  %23 = tail call i32 @PyModule_Add(ptr noundef %0, ptr noundef nonnull @.str.39, ptr noundef %22) #11
+  %22 = tail call ptr @PyFloat_FromDouble(double noundef 0x7FF8000000000000) #10
+  %23 = tail call i32 @PyModule_Add(ptr noundef %0, ptr noundef nonnull @.str.39, ptr noundef %22) #10
   %24 = icmp slt i32 %23, 0
   br i1 %24, label %30, label %25
 
 25:                                               ; preds = %21
-  %26 = tail call ptr @PyComplex_FromCComplex(double 0.000000e+00, double 0x7FF8000000000000) #11
-  %27 = tail call i32 @PyModule_Add(ptr noundef %0, ptr noundef nonnull @.str.40, ptr noundef %26) #11
+  %26 = tail call ptr @PyComplex_FromCComplex(double 0.000000e+00, double 0x7FF8000000000000) #10
+  %27 = tail call i32 @PyModule_Add(ptr noundef %0, ptr noundef nonnull @.str.40, ptr noundef %26) #10
   %28 = icmp slt i32 %27, 0
   br i1 %28, label %30, label %29
 
@@ -3918,25 +3918,24 @@ define internal range(i32 -1, 1) i32 @cmath_exec(ptr noundef %0) #0 {
 declare i32 @PyModule_Add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.sqrt.f64(double) #10
+declare double @llvm.sqrt.f64(double) #9
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #5 = { mustprogress nofree nounwind willreturn memory(write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nounwind }
-attributes #12 = { nounwind willreturn memory(none) }
-attributes #13 = { memory(none) }
+attributes #5 = { mustprogress nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nounwind willreturn memory(readwrite, argmem: write, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nounwind }
+attributes #11 = { nounwind willreturn memory(none) }
+attributes #12 = { memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

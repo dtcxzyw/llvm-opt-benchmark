@@ -262,103 +262,103 @@ target triple = "x86_64-pc-linux-gnu"
 define dso_local { i64, ptr } @binop_plus(i64 %0, ptr %1, i64 %2, ptr %3) local_unnamed_addr #0 {
   %5 = alloca [15 x i8], align 1
   %6 = alloca [15 x i8], align 1
-  %7 = tail call i32 @jv_get_kind(i64 %0, ptr %1) #14
+  %7 = tail call i32 @jv_get_kind(i64 %0, ptr %1) #13
   %8 = icmp eq i32 %7, 1
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %4
-  tail call void @jv_free(i64 %0, ptr %1) #14
+  tail call void @jv_free(i64 %0, ptr %1) #13
   %10 = insertvalue { i64, ptr } poison, i64 %2, 0
   %11 = insertvalue { i64, ptr } %10, ptr %3, 1
   br label %64
 
 12:                                               ; preds = %4
-  %13 = tail call i32 @jv_get_kind(i64 %2, ptr %3) #14
+  %13 = tail call i32 @jv_get_kind(i64 %2, ptr %3) #13
   %14 = icmp eq i32 %13, 1
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %12
-  tail call void @jv_free(i64 %2, ptr %3) #14
+  tail call void @jv_free(i64 %2, ptr %3) #13
   %16 = insertvalue { i64, ptr } poison, i64 %0, 0
   %17 = insertvalue { i64, ptr } %16, ptr %1, 1
   br label %64
 
 18:                                               ; preds = %12
-  %19 = tail call i32 @jv_get_kind(i64 %0, ptr %1) #14
+  %19 = tail call i32 @jv_get_kind(i64 %0, ptr %1) #13
   %20 = icmp eq i32 %19, 4
   br i1 %20, label %21, label %29
 
 21:                                               ; preds = %18
-  %22 = tail call i32 @jv_get_kind(i64 %2, ptr %3) #14
+  %22 = tail call i32 @jv_get_kind(i64 %2, ptr %3) #13
   %23 = icmp eq i32 %22, 4
   br i1 %23, label %24, label %29
 
 24:                                               ; preds = %21
-  %25 = tail call double @jv_number_value(i64 %0, ptr %1) #14
-  %26 = tail call double @jv_number_value(i64 %2, ptr %3) #14
+  %25 = tail call double @jv_number_value(i64 %0, ptr %1) #13
+  %26 = tail call double @jv_number_value(i64 %2, ptr %3) #13
   %27 = fadd double %25, %26
-  %28 = tail call { i64, ptr } @jv_number(double noundef %27) #14
-  tail call void @jv_free(i64 %0, ptr %1) #14
-  tail call void @jv_free(i64 %2, ptr %3) #14
+  %28 = tail call { i64, ptr } @jv_number(double noundef %27) #13
+  tail call void @jv_free(i64 %0, ptr %1) #13
+  tail call void @jv_free(i64 %2, ptr %3) #13
   br label %64
 
 29:                                               ; preds = %21, %18
-  %30 = tail call i32 @jv_get_kind(i64 %0, ptr %1) #14
+  %30 = tail call i32 @jv_get_kind(i64 %0, ptr %1) #13
   %31 = icmp eq i32 %30, 5
   br i1 %31, label %32, label %37
 
 32:                                               ; preds = %29
-  %33 = tail call i32 @jv_get_kind(i64 %2, ptr %3) #14
+  %33 = tail call i32 @jv_get_kind(i64 %2, ptr %3) #13
   %34 = icmp eq i32 %33, 5
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %32
-  %36 = tail call { i64, ptr } @jv_string_concat(i64 %0, ptr %1, i64 %2, ptr %3) #14
+  %36 = tail call { i64, ptr } @jv_string_concat(i64 %0, ptr %1, i64 %2, ptr %3) #13
   br label %64
 
 37:                                               ; preds = %32, %29
-  %38 = tail call i32 @jv_get_kind(i64 %0, ptr %1) #14
+  %38 = tail call i32 @jv_get_kind(i64 %0, ptr %1) #13
   %39 = icmp eq i32 %38, 6
   br i1 %39, label %40, label %45
 
 40:                                               ; preds = %37
-  %41 = tail call i32 @jv_get_kind(i64 %2, ptr %3) #14
+  %41 = tail call i32 @jv_get_kind(i64 %2, ptr %3) #13
   %42 = icmp eq i32 %41, 6
   br i1 %42, label %43, label %45
 
 43:                                               ; preds = %40
-  %44 = tail call { i64, ptr } @jv_array_concat(i64 %0, ptr %1, i64 %2, ptr %3) #14
+  %44 = tail call { i64, ptr } @jv_array_concat(i64 %0, ptr %1, i64 %2, ptr %3) #13
   br label %64
 
 45:                                               ; preds = %40, %37
-  %46 = tail call i32 @jv_get_kind(i64 %0, ptr %1) #14
+  %46 = tail call i32 @jv_get_kind(i64 %0, ptr %1) #13
   %47 = icmp eq i32 %46, 7
   br i1 %47, label %48, label %53
 
 48:                                               ; preds = %45
-  %49 = tail call i32 @jv_get_kind(i64 %2, ptr %3) #14
+  %49 = tail call i32 @jv_get_kind(i64 %2, ptr %3) #13
   %50 = icmp eq i32 %49, 7
   br i1 %50, label %51, label %53
 
 51:                                               ; preds = %48
-  %52 = tail call { i64, ptr } @jv_object_merge(i64 %0, ptr %1, i64 %2, ptr %3) #14
+  %52 = tail call { i64, ptr } @jv_object_merge(i64 %0, ptr %1, i64 %2, ptr %3) #13
   br label %64
 
 53:                                               ; preds = %48, %45
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %5) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %6) #14
-  %54 = tail call i32 @jv_get_kind(i64 %0, ptr %1) #14
-  %55 = tail call ptr @jv_kind_name(i32 noundef %54) #14
-  %56 = tail call i32 @jv_get_kind(i64 %2, ptr %3) #14
-  %57 = tail call ptr @jv_kind_name(i32 noundef %56) #14
-  %58 = call ptr @jv_dump_string_trunc(i64 %0, ptr %1, ptr noundef nonnull %5, i64 noundef 15) #14
-  %59 = call ptr @jv_dump_string_trunc(i64 %2, ptr %3, ptr noundef nonnull %6, i64 noundef 15) #14
-  %60 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.8, ptr noundef %55, ptr noundef %58, ptr noundef %57, ptr noundef %59, ptr noundef nonnull @.str) #14
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %6) #13
+  %54 = tail call i32 @jv_get_kind(i64 %0, ptr %1) #13
+  %55 = tail call ptr @jv_kind_name(i32 noundef %54) #13
+  %56 = tail call i32 @jv_get_kind(i64 %2, ptr %3) #13
+  %57 = tail call ptr @jv_kind_name(i32 noundef %56) #13
+  %58 = call ptr @jv_dump_string_trunc(i64 %0, ptr %1, ptr noundef nonnull %5, i64 noundef 15) #13
+  %59 = call ptr @jv_dump_string_trunc(i64 %2, ptr %3, ptr noundef nonnull %6, i64 noundef 15) #13
+  %60 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.8, ptr noundef %55, ptr noundef %58, ptr noundef %57, ptr noundef %59, ptr noundef nonnull @.str) #13
   %61 = extractvalue { i64, ptr } %60, 0
   %62 = extractvalue { i64, ptr } %60, 1
-  %63 = call { i64, ptr } @jv_invalid_with_msg(i64 %61, ptr %62) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %6) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %5) #14
+  %63 = call { i64, ptr } @jv_invalid_with_msg(i64 %61, ptr %62) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %5) #13
   br label %64
 
 64:                                               ; preds = %53, %51, %43, %35, %24, %15, %9
@@ -384,40 +384,40 @@ declare { i64, ptr } @jv_object_merge(i64, ptr, i64, ptr) local_unnamed_addr #1
 define dso_local { i64, ptr } @binop_minus(i64 %0, ptr %1, i64 %2, ptr %3) local_unnamed_addr #0 {
   %5 = alloca [15 x i8], align 1
   %6 = alloca [15 x i8], align 1
-  %7 = tail call i32 @jv_get_kind(i64 %0, ptr %1) #14
+  %7 = tail call i32 @jv_get_kind(i64 %0, ptr %1) #13
   %8 = icmp eq i32 %7, 4
   br i1 %8, label %9, label %17
 
 9:                                                ; preds = %4
-  %10 = tail call i32 @jv_get_kind(i64 %2, ptr %3) #14
+  %10 = tail call i32 @jv_get_kind(i64 %2, ptr %3) #13
   %11 = icmp eq i32 %10, 4
   br i1 %11, label %12, label %17
 
 12:                                               ; preds = %9
-  %13 = tail call double @jv_number_value(i64 %0, ptr %1) #14
-  %14 = tail call double @jv_number_value(i64 %2, ptr %3) #14
+  %13 = tail call double @jv_number_value(i64 %0, ptr %1) #13
+  %14 = tail call double @jv_number_value(i64 %2, ptr %3) #13
   %15 = fsub double %13, %14
-  %16 = tail call { i64, ptr } @jv_number(double noundef %15) #14
-  tail call void @jv_free(i64 %0, ptr %1) #14
-  tail call void @jv_free(i64 %2, ptr %3) #14
+  %16 = tail call { i64, ptr } @jv_number(double noundef %15) #13
+  tail call void @jv_free(i64 %0, ptr %1) #13
+  tail call void @jv_free(i64 %2, ptr %3) #13
   br label %72
 
 17:                                               ; preds = %9, %4
-  %18 = tail call i32 @jv_get_kind(i64 %0, ptr %1) #14
+  %18 = tail call i32 @jv_get_kind(i64 %0, ptr %1) #13
   %19 = icmp eq i32 %18, 6
   br i1 %19, label %20, label %61
 
 20:                                               ; preds = %17
-  %21 = tail call i32 @jv_get_kind(i64 %2, ptr %3) #14
+  %21 = tail call i32 @jv_get_kind(i64 %2, ptr %3) #13
   %22 = icmp eq i32 %21, 6
   br i1 %22, label %.preheader91, label %61
 
 .preheader91:                                     ; preds = %20
-  %23 = tail call { i64, ptr } @jv_array() #14
-  %24 = tail call { i64, ptr } @jv_copy(i64 %0, ptr %1) #14
+  %23 = tail call { i64, ptr } @jv_array() #13
+  %24 = tail call { i64, ptr } @jv_copy(i64 %0, ptr %1) #13
   %25 = extractvalue { i64, ptr } %24, 0
   %26 = extractvalue { i64, ptr } %24, 1
-  %27 = tail call i32 @jv_array_length(i64 %25, ptr %26) #14
+  %27 = tail call i32 @jv_array_length(i64 %25, ptr %26) #13
   %.not74100 = icmp sgt i32 %27, 0
   br i1 %.not74100, label %.lr.ph104.preheader, label %.loopexit
 
@@ -433,39 +433,39 @@ define dso_local { i64, ptr } @binop_minus(i64 %0, ptr %1, i64 %2, ptr %3) local
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %.preheader91
   %.merged = phi { i64, ptr } [ %23, %.preheader91 ], [ %31, %.loopexit.loopexit ]
-  tail call void @jv_free(i64 %0, ptr %1) #14
-  tail call void @jv_free(i64 %2, ptr %3) #14
+  tail call void @jv_free(i64 %0, ptr %1) #13
+  tail call void @jv_free(i64 %2, ptr %3) #13
   br label %72
 
 .lr.ph104:                                        ; preds = %.lr.ph104.preheader, %._crit_edge
   %.sroa.666.2103 = phi ptr [ %.sroa.666.3, %._crit_edge ], [ %28, %.lr.ph104.preheader ]
   %.sroa.064.2102 = phi i64 [ %.sroa.064.3, %._crit_edge ], [ %29, %.lr.ph104.preheader ]
   %.1101 = phi i32 [ %60, %._crit_edge ], [ 0, %.lr.ph104.preheader ]
-  %32 = tail call { i64, ptr } @jv_copy(i64 %0, ptr %1) #14
+  %32 = tail call { i64, ptr } @jv_copy(i64 %0, ptr %1) #13
   %33 = extractvalue { i64, ptr } %32, 0
   %34 = extractvalue { i64, ptr } %32, 1
-  %35 = tail call { i64, ptr } @jv_array_get(i64 %33, ptr %34, i32 noundef %.1101) #14
+  %35 = tail call { i64, ptr } @jv_array_get(i64 %33, ptr %34, i32 noundef %.1101) #13
   %36 = extractvalue { i64, ptr } %35, 0
   %37 = extractvalue { i64, ptr } %35, 1
-  %38 = tail call { i64, ptr } @jv_copy(i64 %2, ptr %3) #14
+  %38 = tail call { i64, ptr } @jv_copy(i64 %2, ptr %3) #13
   %39 = extractvalue { i64, ptr } %38, 0
   %40 = extractvalue { i64, ptr } %38, 1
-  %41 = tail call i32 @jv_array_length(i64 %39, ptr %40) #14
+  %41 = tail call i32 @jv_array_length(i64 %39, ptr %40) #13
   %.not7892 = icmp sgt i32 %41, 0
   br i1 %.not7892, label %.lr.ph, label %.loopexit113
 
 .lr.ph:                                           ; preds = %.lr.ph104, %52
   %.17193 = phi i32 [ %53, %52 ], [ 0, %.lr.ph104 ]
-  %42 = tail call { i64, ptr } @jv_copy(i64 %2, ptr %3) #14
+  %42 = tail call { i64, ptr } @jv_copy(i64 %2, ptr %3) #13
   %43 = extractvalue { i64, ptr } %42, 0
   %44 = extractvalue { i64, ptr } %42, 1
-  %45 = tail call { i64, ptr } @jv_array_get(i64 %43, ptr %44, i32 noundef %.17193) #14
+  %45 = tail call { i64, ptr } @jv_array_get(i64 %43, ptr %44, i32 noundef %.17193) #13
   %46 = extractvalue { i64, ptr } %45, 0
   %47 = extractvalue { i64, ptr } %45, 1
-  %48 = tail call { i64, ptr } @jv_copy(i64 %36, ptr %37) #14
+  %48 = tail call { i64, ptr } @jv_copy(i64 %36, ptr %37) #13
   %49 = extractvalue { i64, ptr } %48, 0
   %50 = extractvalue { i64, ptr } %48, 1
-  %51 = tail call i32 @jv_equal(i64 %49, ptr %50, i64 %46, ptr %47) #14
+  %51 = tail call i32 @jv_equal(i64 %49, ptr %50, i64 %46, ptr %47) #13
   %.not79.not = icmp eq i32 %51, 0
   br i1 %.not79.not, label %52, label %._crit_edge
 
@@ -475,10 +475,10 @@ define dso_local { i64, ptr } @binop_minus(i64 %0, ptr %1, i64 %2, ptr %3) local
   br i1 %exitcond.not, label %.loopexit113, label %.lr.ph, !llvm.loop !4
 
 .loopexit113:                                     ; preds = %52, %.lr.ph104
-  %54 = tail call { i64, ptr } @jv_copy(i64 %36, ptr %37) #14
+  %54 = tail call { i64, ptr } @jv_copy(i64 %36, ptr %37) #13
   %55 = extractvalue { i64, ptr } %54, 0
   %56 = extractvalue { i64, ptr } %54, 1
-  %57 = tail call { i64, ptr } @jv_array_append(i64 %.sroa.064.2102, ptr %.sroa.666.2103, i64 %55, ptr %56) #14
+  %57 = tail call { i64, ptr } @jv_array_append(i64 %.sroa.064.2102, ptr %.sroa.666.2103, i64 %55, ptr %56) #13
   %58 = extractvalue { i64, ptr } %57, 0
   %59 = extractvalue { i64, ptr } %57, 1
   br label %._crit_edge
@@ -486,26 +486,26 @@ define dso_local { i64, ptr } @binop_minus(i64 %0, ptr %1, i64 %2, ptr %3) local
 ._crit_edge:                                      ; preds = %.lr.ph, %.loopexit113
   %.sroa.064.3 = phi i64 [ %58, %.loopexit113 ], [ %.sroa.064.2102, %.lr.ph ]
   %.sroa.666.3 = phi ptr [ %59, %.loopexit113 ], [ %.sroa.666.2103, %.lr.ph ]
-  tail call void @jv_free(i64 %36, ptr %37) #14
+  tail call void @jv_free(i64 %36, ptr %37) #13
   %60 = add nuw nsw i32 %.1101, 1
   %exitcond111.not = icmp eq i32 %60, %27
   br i1 %exitcond111.not, label %.loopexit.loopexit, label %.lr.ph104, !llvm.loop !6
 
 61:                                               ; preds = %20, %17
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %5) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %6) #14
-  %62 = tail call i32 @jv_get_kind(i64 %0, ptr %1) #14
-  %63 = tail call ptr @jv_kind_name(i32 noundef %62) #14
-  %64 = tail call i32 @jv_get_kind(i64 %2, ptr %3) #14
-  %65 = tail call ptr @jv_kind_name(i32 noundef %64) #14
-  %66 = call ptr @jv_dump_string_trunc(i64 %0, ptr %1, ptr noundef nonnull %5, i64 noundef 15) #14
-  %67 = call ptr @jv_dump_string_trunc(i64 %2, ptr %3, ptr noundef nonnull %6, i64 noundef 15) #14
-  %68 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.8, ptr noundef %63, ptr noundef %66, ptr noundef %65, ptr noundef %67, ptr noundef nonnull @.str.1) #14
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %6) #13
+  %62 = tail call i32 @jv_get_kind(i64 %0, ptr %1) #13
+  %63 = tail call ptr @jv_kind_name(i32 noundef %62) #13
+  %64 = tail call i32 @jv_get_kind(i64 %2, ptr %3) #13
+  %65 = tail call ptr @jv_kind_name(i32 noundef %64) #13
+  %66 = call ptr @jv_dump_string_trunc(i64 %0, ptr %1, ptr noundef nonnull %5, i64 noundef 15) #13
+  %67 = call ptr @jv_dump_string_trunc(i64 %2, ptr %3, ptr noundef nonnull %6, i64 noundef 15) #13
+  %68 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.8, ptr noundef %63, ptr noundef %66, ptr noundef %65, ptr noundef %67, ptr noundef nonnull @.str.1) #13
   %69 = extractvalue { i64, ptr } %68, 0
   %70 = extractvalue { i64, ptr } %68, 1
-  %71 = call { i64, ptr } @jv_invalid_with_msg(i64 %69, ptr %70) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %6) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %5) #14
+  %71 = call { i64, ptr } @jv_invalid_with_msg(i64 %69, ptr %70) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %5) #13
   br label %72
 
 72:                                               ; preds = %61, %.loopexit, %12
@@ -535,20 +535,20 @@ declare { i64, ptr } @jv_array_append(i64, ptr, i64, ptr) local_unnamed_addr #1
 define dso_local { i64, ptr } @binop_multiply(i64 %0, ptr %1, i64 %2, ptr %3) local_unnamed_addr #0 {
   %5 = alloca [15 x i8], align 1
   %6 = alloca [15 x i8], align 1
-  %7 = tail call i32 @jv_get_kind(i64 %0, ptr %1) #14
-  %8 = tail call i32 @jv_get_kind(i64 %2, ptr %3) #14
+  %7 = tail call i32 @jv_get_kind(i64 %0, ptr %1) #13
+  %8 = tail call i32 @jv_get_kind(i64 %2, ptr %3) #13
   %9 = icmp eq i32 %7, 4
   %10 = icmp eq i32 %8, 4
   %or.cond = select i1 %9, i1 %10, i1 false
   br i1 %or.cond, label %11, label %16
 
 11:                                               ; preds = %4
-  %12 = tail call double @jv_number_value(i64 %0, ptr %1) #14
-  %13 = tail call double @jv_number_value(i64 %2, ptr %3) #14
+  %12 = tail call double @jv_number_value(i64 %0, ptr %1) #13
+  %13 = tail call double @jv_number_value(i64 %2, ptr %3) #13
   %14 = fmul double %12, %13
-  %15 = tail call { i64, ptr } @jv_number(double noundef %14) #14
-  tail call void @jv_free(i64 %0, ptr %1) #14
-  tail call void @jv_free(i64 %2, ptr %3) #14
+  %15 = tail call { i64, ptr } @jv_number(double noundef %14) #13
+  tail call void @jv_free(i64 %0, ptr %1) #13
+  tail call void @jv_free(i64 %2, ptr %3) #13
   br label %54
 
 16:                                               ; preds = %4
@@ -570,22 +570,22 @@ define dso_local { i64, ptr } @binop_multiply(i64 %0, ptr %1, i64 %2, ptr %3) lo
   %.sroa.6.0 = phi ptr [ %1, %20 ], [ %3, %19 ]
   %.sroa.025.0 = phi i64 [ %2, %20 ], [ %0, %19 ]
   %.sroa.7.0 = phi ptr [ %3, %20 ], [ %1, %19 ]
-  %22 = tail call double @jv_number_value(i64 %.sroa.019.0, ptr %.sroa.6.0) #14
+  %22 = tail call double @jv_number_value(i64 %.sroa.019.0, ptr %.sroa.6.0) #13
   %or.cond71 = fcmp ult double %22, 0.000000e+00
   br i1 %or.cond71, label %23, label %25
 
 23:                                               ; preds = %21
-  %24 = tail call { i64, ptr } @jv_null() #14
+  %24 = tail call { i64, ptr } @jv_null() #13
   br label %.loopexit
 
 25:                                               ; preds = %21
   %26 = fptosi double %22 to i32
-  %27 = tail call { i64, ptr } @jv_copy(i64 %.sroa.025.0, ptr %.sroa.7.0) #14
+  %27 = tail call { i64, ptr } @jv_copy(i64 %.sroa.025.0, ptr %.sroa.7.0) #13
   %28 = extractvalue { i64, ptr } %27, 0
   %29 = extractvalue { i64, ptr } %27, 1
-  %30 = tail call i32 @jv_string_length_bytes(i64 %28, ptr %29) #14
+  %30 = tail call i32 @jv_string_length_bytes(i64 %28, ptr %29) #13
   %31 = mul i32 %30, %26
-  %32 = tail call { i64, ptr } @jv_string_empty(i32 noundef %31) #14
+  %32 = tail call { i64, ptr } @jv_string_empty(i32 noundef %31) #13
   %33 = icmp sgt i32 %26, 0
   br i1 %33, label %.lr.ph, label %.loopexit
 
@@ -594,16 +594,16 @@ define dso_local { i64, ptr } @binop_multiply(i64 %0, ptr %1, i64 %2, ptr %3) lo
   %.072 = phi i32 [ %36, %.lr.ph ], [ %26, %25 ]
   %.sroa.867.2 = extractvalue { i64, ptr } %.pn73, 1
   %.sroa.065.2 = extractvalue { i64, ptr } %.pn73, 0
-  %34 = tail call ptr @jv_string_value(i64 %.sroa.025.0, ptr %.sroa.7.0) #14
-  %35 = tail call { i64, ptr } @jv_string_append_buf(i64 %.sroa.065.2, ptr %.sroa.867.2, ptr noundef %34, i32 noundef %30) #14
+  %34 = tail call ptr @jv_string_value(i64 %.sroa.025.0, ptr %.sroa.7.0) #13
+  %35 = tail call { i64, ptr } @jv_string_append_buf(i64 %.sroa.065.2, ptr %.sroa.867.2, ptr noundef %34, i32 noundef %30) #13
   %36 = add nsw i32 %.072, -1
   %37 = icmp samesign ugt i32 %.072, 1
   br i1 %37, label %.lr.ph, label %.loopexit, !llvm.loop !7
 
 .loopexit:                                        ; preds = %.lr.ph, %25, %23
   %.merged = phi { i64, ptr } [ %24, %23 ], [ %32, %25 ], [ %35, %.lr.ph ]
-  tail call void @jv_free(i64 %.sroa.025.0, ptr %.sroa.7.0) #14
-  tail call void @jv_free(i64 %.sroa.019.0, ptr %.sroa.6.0) #14
+  tail call void @jv_free(i64 %.sroa.025.0, ptr %.sroa.7.0) #13
+  tail call void @jv_free(i64 %.sroa.019.0, ptr %.sroa.6.0) #13
   br label %54
 
 38:                                               ; preds = %16
@@ -613,24 +613,24 @@ define dso_local { i64, ptr } @binop_multiply(i64 %0, ptr %1, i64 %2, ptr %3) lo
   br i1 %or.cond7, label %41, label %43
 
 41:                                               ; preds = %38
-  %42 = tail call { i64, ptr } @jv_object_merge_recursive(i64 %0, ptr %1, i64 %2, ptr %3) #14
+  %42 = tail call { i64, ptr } @jv_object_merge_recursive(i64 %0, ptr %1, i64 %2, ptr %3) #13
   br label %54
 
 43:                                               ; preds = %38
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %5) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %6) #14
-  %44 = tail call i32 @jv_get_kind(i64 %0, ptr %1) #14
-  %45 = tail call ptr @jv_kind_name(i32 noundef %44) #14
-  %46 = tail call i32 @jv_get_kind(i64 %2, ptr %3) #14
-  %47 = tail call ptr @jv_kind_name(i32 noundef %46) #14
-  %48 = call ptr @jv_dump_string_trunc(i64 %0, ptr %1, ptr noundef nonnull %5, i64 noundef 15) #14
-  %49 = call ptr @jv_dump_string_trunc(i64 %2, ptr %3, ptr noundef nonnull %6, i64 noundef 15) #14
-  %50 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.8, ptr noundef %45, ptr noundef %48, ptr noundef %47, ptr noundef %49, ptr noundef nonnull @.str.2) #14
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %6) #13
+  %44 = tail call i32 @jv_get_kind(i64 %0, ptr %1) #13
+  %45 = tail call ptr @jv_kind_name(i32 noundef %44) #13
+  %46 = tail call i32 @jv_get_kind(i64 %2, ptr %3) #13
+  %47 = tail call ptr @jv_kind_name(i32 noundef %46) #13
+  %48 = call ptr @jv_dump_string_trunc(i64 %0, ptr %1, ptr noundef nonnull %5, i64 noundef 15) #13
+  %49 = call ptr @jv_dump_string_trunc(i64 %2, ptr %3, ptr noundef nonnull %6, i64 noundef 15) #13
+  %50 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.8, ptr noundef %45, ptr noundef %48, ptr noundef %47, ptr noundef %49, ptr noundef nonnull @.str.2) #13
   %51 = extractvalue { i64, ptr } %50, 0
   %52 = extractvalue { i64, ptr } %50, 1
-  %53 = call { i64, ptr } @jv_invalid_with_msg(i64 %51, ptr %52) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %6) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %5) #14
+  %53 = call { i64, ptr } @jv_invalid_with_msg(i64 %51, ptr %52) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %5) #13
   br label %54
 
 54:                                               ; preds = %43, %41, %.loopexit, %11
@@ -659,75 +659,75 @@ define dso_local { i64, ptr } @binop_divide(i64 %0, ptr %1, i64 %2, ptr %3) loca
   %6 = alloca [15 x i8], align 1
   %7 = alloca [15 x i8], align 1
   %8 = alloca [15 x i8], align 1
-  %9 = tail call i32 @jv_get_kind(i64 %0, ptr %1) #14
+  %9 = tail call i32 @jv_get_kind(i64 %0, ptr %1) #13
   %10 = icmp eq i32 %9, 4
   br i1 %10, label %11, label %33
 
 11:                                               ; preds = %4
-  %12 = tail call i32 @jv_get_kind(i64 %2, ptr %3) #14
+  %12 = tail call i32 @jv_get_kind(i64 %2, ptr %3) #13
   %13 = icmp eq i32 %12, 4
   br i1 %13, label %14, label %33
 
 14:                                               ; preds = %11
-  %15 = tail call double @jv_number_value(i64 %2, ptr %3) #14
+  %15 = tail call double @jv_number_value(i64 %2, ptr %3) #13
   %16 = fcmp oeq double %15, 0.000000e+00
   br i1 %16, label %17, label %28
 
 17:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %7) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %8) #14
-  %18 = tail call i32 @jv_get_kind(i64 %0, ptr %1) #14
-  %19 = tail call ptr @jv_kind_name(i32 noundef %18) #14
-  %20 = tail call i32 @jv_get_kind(i64 %2, ptr %3) #14
-  %21 = tail call ptr @jv_kind_name(i32 noundef %20) #14
-  %22 = call ptr @jv_dump_string_trunc(i64 %0, ptr %1, ptr noundef nonnull %7, i64 noundef 15) #14
-  %23 = call ptr @jv_dump_string_trunc(i64 %2, ptr %3, ptr noundef nonnull %8, i64 noundef 15) #14
-  %24 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.8, ptr noundef %19, ptr noundef %22, ptr noundef %21, ptr noundef %23, ptr noundef nonnull @.str.3) #14
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %7) #13
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %8) #13
+  %18 = tail call i32 @jv_get_kind(i64 %0, ptr %1) #13
+  %19 = tail call ptr @jv_kind_name(i32 noundef %18) #13
+  %20 = tail call i32 @jv_get_kind(i64 %2, ptr %3) #13
+  %21 = tail call ptr @jv_kind_name(i32 noundef %20) #13
+  %22 = call ptr @jv_dump_string_trunc(i64 %0, ptr %1, ptr noundef nonnull %7, i64 noundef 15) #13
+  %23 = call ptr @jv_dump_string_trunc(i64 %2, ptr %3, ptr noundef nonnull %8, i64 noundef 15) #13
+  %24 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.8, ptr noundef %19, ptr noundef %22, ptr noundef %21, ptr noundef %23, ptr noundef nonnull @.str.3) #13
   %25 = extractvalue { i64, ptr } %24, 0
   %26 = extractvalue { i64, ptr } %24, 1
-  %27 = call { i64, ptr } @jv_invalid_with_msg(i64 %25, ptr %26) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %8) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %7) #14
+  %27 = call { i64, ptr } @jv_invalid_with_msg(i64 %25, ptr %26) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %7) #13
   br label %52
 
 28:                                               ; preds = %14
-  %29 = tail call double @jv_number_value(i64 %0, ptr %1) #14
-  %30 = tail call double @jv_number_value(i64 %2, ptr %3) #14
+  %29 = tail call double @jv_number_value(i64 %0, ptr %1) #13
+  %30 = tail call double @jv_number_value(i64 %2, ptr %3) #13
   %31 = fdiv double %29, %30
-  %32 = tail call { i64, ptr } @jv_number(double noundef %31) #14
-  tail call void @jv_free(i64 %0, ptr %1) #14
-  tail call void @jv_free(i64 %2, ptr %3) #14
+  %32 = tail call { i64, ptr } @jv_number(double noundef %31) #13
+  tail call void @jv_free(i64 %0, ptr %1) #13
+  tail call void @jv_free(i64 %2, ptr %3) #13
   br label %52
 
 33:                                               ; preds = %11, %4
-  %34 = tail call i32 @jv_get_kind(i64 %0, ptr %1) #14
+  %34 = tail call i32 @jv_get_kind(i64 %0, ptr %1) #13
   %35 = icmp eq i32 %34, 5
   br i1 %35, label %36, label %41
 
 36:                                               ; preds = %33
-  %37 = tail call i32 @jv_get_kind(i64 %2, ptr %3) #14
+  %37 = tail call i32 @jv_get_kind(i64 %2, ptr %3) #13
   %38 = icmp eq i32 %37, 5
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %36
-  %40 = tail call { i64, ptr } @jv_string_split(i64 %0, ptr %1, i64 %2, ptr %3) #14
+  %40 = tail call { i64, ptr } @jv_string_split(i64 %0, ptr %1, i64 %2, ptr %3) #13
   br label %52
 
 41:                                               ; preds = %36, %33
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %5) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %6) #14
-  %42 = tail call i32 @jv_get_kind(i64 %0, ptr %1) #14
-  %43 = tail call ptr @jv_kind_name(i32 noundef %42) #14
-  %44 = tail call i32 @jv_get_kind(i64 %2, ptr %3) #14
-  %45 = tail call ptr @jv_kind_name(i32 noundef %44) #14
-  %46 = call ptr @jv_dump_string_trunc(i64 %0, ptr %1, ptr noundef nonnull %5, i64 noundef 15) #14
-  %47 = call ptr @jv_dump_string_trunc(i64 %2, ptr %3, ptr noundef nonnull %6, i64 noundef 15) #14
-  %48 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.8, ptr noundef %43, ptr noundef %46, ptr noundef %45, ptr noundef %47, ptr noundef nonnull @.str.4) #14
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %6) #13
+  %42 = tail call i32 @jv_get_kind(i64 %0, ptr %1) #13
+  %43 = tail call ptr @jv_kind_name(i32 noundef %42) #13
+  %44 = tail call i32 @jv_get_kind(i64 %2, ptr %3) #13
+  %45 = tail call ptr @jv_kind_name(i32 noundef %44) #13
+  %46 = call ptr @jv_dump_string_trunc(i64 %0, ptr %1, ptr noundef nonnull %5, i64 noundef 15) #13
+  %47 = call ptr @jv_dump_string_trunc(i64 %2, ptr %3, ptr noundef nonnull %6, i64 noundef 15) #13
+  %48 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.8, ptr noundef %43, ptr noundef %46, ptr noundef %45, ptr noundef %47, ptr noundef nonnull @.str.4) #13
   %49 = extractvalue { i64, ptr } %48, 0
   %50 = extractvalue { i64, ptr } %48, 1
-  %51 = call { i64, ptr } @jv_invalid_with_msg(i64 %49, ptr %50) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %6) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %5) #14
+  %51 = call { i64, ptr } @jv_invalid_with_msg(i64 %49, ptr %50) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %5) #13
   br label %52
 
 52:                                               ; preds = %41, %39, %28, %17
@@ -743,27 +743,27 @@ define dso_local { i64, ptr } @binop_mod(i64 %0, ptr %1, i64 %2, ptr %3) local_u
   %6 = alloca [15 x i8], align 1
   %7 = alloca [15 x i8], align 1
   %8 = alloca [15 x i8], align 1
-  %9 = tail call i32 @jv_get_kind(i64 %0, ptr %1) #14
+  %9 = tail call i32 @jv_get_kind(i64 %0, ptr %1) #13
   %10 = icmp eq i32 %9, 4
   br i1 %10, label %11, label %49
 
 11:                                               ; preds = %4
-  %12 = tail call i32 @jv_get_kind(i64 %2, ptr %3) #14
+  %12 = tail call i32 @jv_get_kind(i64 %2, ptr %3) #13
   %13 = icmp eq i32 %12, 4
   br i1 %13, label %14, label %49
 
 14:                                               ; preds = %11
-  %15 = tail call double @jv_number_value(i64 %0, ptr %1) #14
-  %16 = tail call double @jv_number_value(i64 %2, ptr %3) #14
+  %15 = tail call double @jv_number_value(i64 %0, ptr %1) #13
+  %16 = tail call double @jv_number_value(i64 %2, ptr %3) #13
   %17 = fcmp uno double %15, 0.000000e+00
   %18 = fcmp uno double %16, 0.000000e+00
   %or.cond = select i1 %17, i1 true, i1 %18
   br i1 %or.cond, label %19, label %21
 
 19:                                               ; preds = %14
-  tail call void @jv_free(i64 %0, ptr %1) #14
-  tail call void @jv_free(i64 %2, ptr %3) #14
-  %20 = tail call { i64, ptr } @jv_number(double noundef 0x7FF8000000000000) #14
+  tail call void @jv_free(i64 %0, ptr %1) #13
+  tail call void @jv_free(i64 %2, ptr %3) #13
+  %20 = tail call { i64, ptr } @jv_number(double noundef 0x7FF8000000000000) #13
   br label %60
 
 21:                                               ; preds = %14
@@ -778,20 +778,20 @@ define dso_local { i64, ptr } @binop_mod(i64 %0, ptr %1, i64 %2, ptr %3) local_u
   ]
 
 27:                                               ; preds = %21
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %7) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %8) #14
-  %28 = tail call i32 @jv_get_kind(i64 %0, ptr %1) #14
-  %29 = tail call ptr @jv_kind_name(i32 noundef %28) #14
-  %30 = tail call i32 @jv_get_kind(i64 %2, ptr %3) #14
-  %31 = tail call ptr @jv_kind_name(i32 noundef %30) #14
-  %32 = call ptr @jv_dump_string_trunc(i64 %0, ptr %1, ptr noundef nonnull %7, i64 noundef 15) #14
-  %33 = call ptr @jv_dump_string_trunc(i64 %2, ptr %3, ptr noundef nonnull %8, i64 noundef 15) #14
-  %34 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.8, ptr noundef %29, ptr noundef %32, ptr noundef %31, ptr noundef %33, ptr noundef nonnull @.str.5) #14
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %7) #13
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %8) #13
+  %28 = tail call i32 @jv_get_kind(i64 %0, ptr %1) #13
+  %29 = tail call ptr @jv_kind_name(i32 noundef %28) #13
+  %30 = tail call i32 @jv_get_kind(i64 %2, ptr %3) #13
+  %31 = tail call ptr @jv_kind_name(i32 noundef %30) #13
+  %32 = call ptr @jv_dump_string_trunc(i64 %0, ptr %1, ptr noundef nonnull %7, i64 noundef 15) #13
+  %33 = call ptr @jv_dump_string_trunc(i64 %2, ptr %3, ptr noundef nonnull %8, i64 noundef 15) #13
+  %34 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.8, ptr noundef %29, ptr noundef %32, ptr noundef %31, ptr noundef %33, ptr noundef nonnull @.str.5) #13
   %35 = extractvalue { i64, ptr } %34, 0
   %36 = extractvalue { i64, ptr } %34, 1
-  %37 = call { i64, ptr } @jv_invalid_with_msg(i64 %35, ptr %36) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %8) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %7) #14
+  %37 = call { i64, ptr } @jv_invalid_with_msg(i64 %35, ptr %36) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %8) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %7) #13
   br label %60
 
 38:                                               ; preds = %21
@@ -806,26 +806,26 @@ define dso_local { i64, ptr } @binop_mod(i64 %0, ptr %1, i64 %2, ptr %3) local_u
 
 46:                                               ; preds = %21, %38
   %47 = phi double [ %45, %38 ], [ 0.000000e+00, %21 ]
-  %48 = tail call { i64, ptr } @jv_number(double noundef %47) #14
-  tail call void @jv_free(i64 %0, ptr %1) #14
-  tail call void @jv_free(i64 %2, ptr %3) #14
+  %48 = tail call { i64, ptr } @jv_number(double noundef %47) #13
+  tail call void @jv_free(i64 %0, ptr %1) #13
+  tail call void @jv_free(i64 %2, ptr %3) #13
   br label %60
 
 49:                                               ; preds = %11, %4
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %5) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %6) #14
-  %50 = tail call i32 @jv_get_kind(i64 %0, ptr %1) #14
-  %51 = tail call ptr @jv_kind_name(i32 noundef %50) #14
-  %52 = tail call i32 @jv_get_kind(i64 %2, ptr %3) #14
-  %53 = tail call ptr @jv_kind_name(i32 noundef %52) #14
-  %54 = call ptr @jv_dump_string_trunc(i64 %0, ptr %1, ptr noundef nonnull %5, i64 noundef 15) #14
-  %55 = call ptr @jv_dump_string_trunc(i64 %2, ptr %3, ptr noundef nonnull %6, i64 noundef 15) #14
-  %56 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.8, ptr noundef %51, ptr noundef %54, ptr noundef %53, ptr noundef %55, ptr noundef nonnull @.str.6) #14
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %5) #13
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %6) #13
+  %50 = tail call i32 @jv_get_kind(i64 %0, ptr %1) #13
+  %51 = tail call ptr @jv_kind_name(i32 noundef %50) #13
+  %52 = tail call i32 @jv_get_kind(i64 %2, ptr %3) #13
+  %53 = tail call ptr @jv_kind_name(i32 noundef %52) #13
+  %54 = call ptr @jv_dump_string_trunc(i64 %0, ptr %1, ptr noundef nonnull %5, i64 noundef 15) #13
+  %55 = call ptr @jv_dump_string_trunc(i64 %2, ptr %3, ptr noundef nonnull %6, i64 noundef 15) #13
+  %56 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.8, ptr noundef %51, ptr noundef %54, ptr noundef %53, ptr noundef %55, ptr noundef nonnull @.str.6) #13
   %57 = extractvalue { i64, ptr } %56, 0
   %58 = extractvalue { i64, ptr } %56, 1
-  %59 = call { i64, ptr } @jv_invalid_with_msg(i64 %57, ptr %58) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %6) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %5) #14
+  %59 = call { i64, ptr } @jv_invalid_with_msg(i64 %57, ptr %58) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %6) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %5) #13
   br label %60
 
 60:                                               ; preds = %19, %46, %27, %49
@@ -835,8 +835,8 @@ define dso_local { i64, ptr } @binop_mod(i64 %0, ptr %1, i64 %2, ptr %3) local_u
 
 ; Function Attrs: nounwind uwtable
 define dso_local { i64, ptr } @binop_equal(i64 %0, ptr %1, i64 %2, ptr %3) local_unnamed_addr #0 {
-  %5 = tail call i32 @jv_equal(i64 %0, ptr %1, i64 %2, ptr %3) #14
-  %6 = tail call { i64, ptr } @jv_bool(i32 noundef %5) #14
+  %5 = tail call i32 @jv_equal(i64 %0, ptr %1, i64 %2, ptr %3) #13
+  %6 = tail call { i64, ptr } @jv_bool(i32 noundef %5) #13
   ret { i64, ptr } %6
 }
 
@@ -844,48 +844,48 @@ declare { i64, ptr } @jv_bool(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
 define dso_local { i64, ptr } @binop_notequal(i64 %0, ptr %1, i64 %2, ptr %3) local_unnamed_addr #0 {
-  %5 = tail call i32 @jv_equal(i64 %0, ptr %1, i64 %2, ptr %3) #14
+  %5 = tail call i32 @jv_equal(i64 %0, ptr %1, i64 %2, ptr %3) #13
   %.not = icmp eq i32 %5, 0
   %6 = zext i1 %.not to i32
-  %7 = tail call { i64, ptr } @jv_bool(i32 noundef %6) #14
+  %7 = tail call { i64, ptr } @jv_bool(i32 noundef %6) #13
   ret { i64, ptr } %7
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local { i64, ptr } @binop_less(i64 %0, ptr %1, i64 %2, ptr %3) local_unnamed_addr #0 {
 order_cmp.exit:
-  %4 = tail call i32 @jv_cmp(i64 %0, ptr %1, i64 %2, ptr %3) #14
+  %4 = tail call i32 @jv_cmp(i64 %0, ptr %1, i64 %2, ptr %3) #13
   %.lobit = lshr i32 %4, 31
-  %5 = tail call { i64, ptr } @jv_bool(i32 noundef %.lobit) #14
+  %5 = tail call { i64, ptr } @jv_bool(i32 noundef %.lobit) #13
   ret { i64, ptr } %5
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local { i64, ptr } @binop_greater(i64 %0, ptr %1, i64 %2, ptr %3) local_unnamed_addr #0 {
-  %5 = tail call i32 @jv_cmp(i64 %0, ptr %1, i64 %2, ptr %3) #14
+  %5 = tail call i32 @jv_cmp(i64 %0, ptr %1, i64 %2, ptr %3) #13
   %6 = icmp sgt i32 %5, 0
   %7 = zext i1 %6 to i32
-  %8 = tail call { i64, ptr } @jv_bool(i32 noundef %7) #14
+  %8 = tail call { i64, ptr } @jv_bool(i32 noundef %7) #13
   ret { i64, ptr } %8
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local { i64, ptr } @binop_lesseq(i64 %0, ptr %1, i64 %2, ptr %3) local_unnamed_addr #0 {
 order_cmp.exit:
-  %4 = tail call i32 @jv_cmp(i64 %0, ptr %1, i64 %2, ptr %3) #14
+  %4 = tail call i32 @jv_cmp(i64 %0, ptr %1, i64 %2, ptr %3) #13
   %5 = icmp slt i32 %4, 1
   %spec.select = zext i1 %5 to i32
-  %6 = tail call { i64, ptr } @jv_bool(i32 noundef %spec.select) #14
+  %6 = tail call { i64, ptr } @jv_bool(i32 noundef %spec.select) #13
   ret { i64, ptr } %6
 }
 
 ; Function Attrs: nounwind uwtable
 define dso_local { i64, ptr } @binop_greatereq(i64 %0, ptr %1, i64 %2, ptr %3) local_unnamed_addr #0 {
 order_cmp.exit:
-  %4 = tail call i32 @jv_cmp(i64 %0, ptr %1, i64 %2, ptr %3) #14
+  %4 = tail call i32 @jv_cmp(i64 %0, ptr %1, i64 %2, ptr %3) #13
   %5 = icmp sgt i32 %4, -1
   %spec.select = zext i1 %5 to i32
-  %6 = tail call { i64, ptr } @jv_bool(i32 noundef %spec.select) #14
+  %6 = tail call { i64, ptr } @jv_bool(i32 noundef %spec.select) #13
   ret { i64, ptr } %6
 }
 
@@ -894,18 +894,18 @@ define dso_local i32 @builtins_bind(ptr noundef %0, ptr noundef captures(none) %
   %3 = alloca [2 x %struct.bytecoded_builtin], align 16
   %4 = alloca [2 x %struct.bytecoded_builtin], align 16
   %5 = alloca %struct.block, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #14
-  %6 = tail call ptr @locfile_init(ptr noundef %0, ptr noundef nonnull @.str.7, ptr noundef nonnull @jq_builtins, i32 noundef 9894) #14
-  %7 = call i32 @jq_parse_library(ptr noundef %6, ptr noundef nonnull %5) #14
-  call void @locfile_free(ptr noundef %6) #14
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #13
+  %6 = tail call ptr @locfile_init(ptr noundef %0, ptr noundef nonnull @.str.7, ptr noundef nonnull @jq_builtins, i32 noundef 9894) #13
+  %7 = call i32 @jq_parse_library(ptr noundef %6, ptr noundef nonnull %5) #13
+  call void @locfile_free(ptr noundef %6) #13
   %8 = load ptr, ptr %5, align 8
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %10 = load ptr, ptr %9, align 8
-  %11 = call { ptr, ptr } (...) @gen_noop() #14
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #14
+  %11 = call { ptr, ptr } (...) @gen_noop() #13
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %3) #13
   store ptr @.str.9, ptr %3, align 16, !tbaa !8
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %13 = call { ptr, ptr } @gen_op_simple(i32 noundef 19) #14
+  %13 = call { ptr, ptr } @gen_op_simple(i32 noundef 19) #13
   %14 = extractvalue { ptr, ptr } %13, 0
   store ptr %14, ptr %12, align 8
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -914,19 +914,19 @@ define dso_local i32 @builtins_bind(ptr noundef %0, ptr noundef captures(none) %
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 24
   store ptr @.str.10, ptr %17, align 8, !tbaa !8
   %18 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  %19 = call { i64, ptr } @jv_false() #14
+  %19 = call { i64, ptr } @jv_false() #13
   %20 = extractvalue { i64, ptr } %19, 0
   %21 = extractvalue { i64, ptr } %19, 1
-  %22 = call { ptr, ptr } @gen_const(i64 %20, ptr %21) #14
+  %22 = call { ptr, ptr } @gen_const(i64 %20, ptr %21) #13
   %23 = extractvalue { ptr, ptr } %22, 0
   %24 = extractvalue { ptr, ptr } %22, 1
-  %25 = call { i64, ptr } @jv_true() #14
+  %25 = call { i64, ptr } @jv_true() #13
   %26 = extractvalue { i64, ptr } %25, 0
   %27 = extractvalue { i64, ptr } %25, 1
-  %28 = call { ptr, ptr } @gen_const(i64 %26, ptr %27) #14
+  %28 = call { ptr, ptr } @gen_const(i64 %26, ptr %27) #13
   %29 = extractvalue { ptr, ptr } %28, 0
   %30 = extractvalue { ptr, ptr } %28, 1
-  %31 = call { ptr, ptr } @gen_condbranch(ptr %23, ptr %24, ptr %29, ptr %30) #14
+  %31 = call { ptr, ptr } @gen_condbranch(ptr %23, ptr %24, ptr %29, ptr %30) #13
   %32 = extractvalue { ptr, ptr } %31, 0
   store ptr %32, ptr %18, align 16
   %33 = getelementptr inbounds nuw i8, ptr %3, i64 40
@@ -938,26 +938,26 @@ define dso_local i32 @builtins_bind(ptr noundef %0, ptr noundef captures(none) %
 
 35:                                               ; preds = %169
   %indvars.iv107.i.sroa.gep11 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #14
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %3) #13
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #13
   store ptr @.str.11, ptr %4, align 16, !tbaa !8
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %37 = call { ptr, ptr } @gen_op_simple(i32 noundef 25) #14
+  %37 = call { ptr, ptr } @gen_op_simple(i32 noundef 25) #13
   %38 = extractvalue { ptr, ptr } %37, 0
   %39 = extractvalue { ptr, ptr } %37, 1
-  %40 = call { ptr, ptr } (...) @gen_noop() #14
+  %40 = call { ptr, ptr } (...) @gen_noop() #13
   %41 = extractvalue { ptr, ptr } %40, 0
   %42 = extractvalue { ptr, ptr } %40, 1
-  %43 = call { ptr, ptr } @gen_call(ptr noundef nonnull @.str.12, ptr %41, ptr %42) #14
+  %43 = call { ptr, ptr } @gen_call(ptr noundef nonnull @.str.12, ptr %41, ptr %42) #13
   %44 = extractvalue { ptr, ptr } %43, 0
   %45 = extractvalue { ptr, ptr } %43, 1
-  %46 = call { ptr, ptr } @block_join(ptr %38, ptr %39, ptr %44, ptr %45) #14
+  %46 = call { ptr, ptr } @block_join(ptr %38, ptr %39, ptr %44, ptr %45) #13
   %47 = extractvalue { ptr, ptr } %46, 0
   %48 = extractvalue { ptr, ptr } %46, 1
-  %49 = call { ptr, ptr } @gen_op_simple(i32 noundef 26) #14
+  %49 = call { ptr, ptr } @gen_op_simple(i32 noundef 26) #13
   %50 = extractvalue { ptr, ptr } %49, 0
   %51 = extractvalue { ptr, ptr } %49, 1
-  %52 = call { ptr, ptr } @block_join(ptr %47, ptr %48, ptr %50, ptr %51) #14
+  %52 = call { ptr, ptr } @block_join(ptr %47, ptr %48, ptr %50, ptr %51) #13
   %53 = extractvalue { ptr, ptr } %52, 0
   store ptr %53, ptr %36, align 8
   %54 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -965,115 +965,115 @@ define dso_local i32 @builtins_bind(ptr noundef %0, ptr noundef captures(none) %
   store ptr %55, ptr %54, align 16
   store ptr @.str.13, ptr %indvars.iv107.i.sroa.gep11, align 8, !tbaa !8
   %56 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %57 = call { ptr, ptr } @gen_op_var_fresh(i32 noundef 8, ptr noundef nonnull @.str.13) #14
+  %57 = call { ptr, ptr } @gen_op_var_fresh(i32 noundef 8, ptr noundef nonnull @.str.13) #13
   %58 = extractvalue { ptr, ptr } %57, 0
   %59 = extractvalue { ptr, ptr } %57, 1
-  %60 = call { ptr, ptr } @gen_op_var_fresh(i32 noundef 8, ptr noundef nonnull @.str.19) #14
+  %60 = call { ptr, ptr } @gen_op_var_fresh(i32 noundef 8, ptr noundef nonnull @.str.19) #13
   %61 = extractvalue { ptr, ptr } %60, 0
   %62 = extractvalue { ptr, ptr } %60, 1
-  %63 = call { ptr, ptr } @gen_op_simple(i32 noundef 1) #14
+  %63 = call { ptr, ptr } @gen_op_simple(i32 noundef 1) #13
   %64 = extractvalue { ptr, ptr } %63, 0
   %65 = extractvalue { ptr, ptr } %63, 1
-  %66 = call { i64, ptr } @jv_null() #14
+  %66 = call { i64, ptr } @jv_null() #13
   %67 = extractvalue { i64, ptr } %66, 0
   %68 = extractvalue { i64, ptr } %66, 1
-  %69 = call { ptr, ptr } @gen_const(i64 %67, ptr %68) #14
+  %69 = call { ptr, ptr } @gen_const(i64 %67, ptr %68) #13
   %70 = extractvalue { ptr, ptr } %69, 0
   %71 = extractvalue { ptr, ptr } %69, 1
-  %72 = call { ptr, ptr } @block_join(ptr %64, ptr %65, ptr %70, ptr %71) #14
+  %72 = call { ptr, ptr } @block_join(ptr %64, ptr %65, ptr %70, ptr %71) #13
   %73 = extractvalue { ptr, ptr } %72, 0
   %74 = extractvalue { ptr, ptr } %72, 1
-  %75 = call { ptr, ptr } @block_join(ptr %73, ptr %74, ptr %58, ptr %59) #14
+  %75 = call { ptr, ptr } @block_join(ptr %73, ptr %74, ptr %58, ptr %59) #13
   %76 = extractvalue { ptr, ptr } %75, 0
   %77 = extractvalue { ptr, ptr } %75, 1
-  %78 = call { ptr, ptr } @gen_op_simple(i32 noundef 1) #14
+  %78 = call { ptr, ptr } @gen_op_simple(i32 noundef 1) #13
   %79 = extractvalue { ptr, ptr } %78, 0
   %80 = extractvalue { ptr, ptr } %78, 1
-  %81 = call { ptr, ptr } @block_join(ptr %76, ptr %77, ptr %79, ptr %80) #14
+  %81 = call { ptr, ptr } @block_join(ptr %76, ptr %77, ptr %79, ptr %80) #13
   %82 = extractvalue { ptr, ptr } %81, 0
   %83 = extractvalue { ptr, ptr } %81, 1
-  %84 = call { i64, ptr } @jv_true() #14
+  %84 = call { i64, ptr } @jv_true() #13
   %85 = extractvalue { i64, ptr } %84, 0
   %86 = extractvalue { i64, ptr } %84, 1
-  %87 = call { ptr, ptr } @gen_const(i64 %85, ptr %86) #14
+  %87 = call { ptr, ptr } @gen_const(i64 %85, ptr %86) #13
   %88 = extractvalue { ptr, ptr } %87, 0
   %89 = extractvalue { ptr, ptr } %87, 1
-  %90 = call { ptr, ptr } @block_join(ptr %82, ptr %83, ptr %88, ptr %89) #14
+  %90 = call { ptr, ptr } @block_join(ptr %82, ptr %83, ptr %88, ptr %89) #13
   %91 = extractvalue { ptr, ptr } %90, 0
   %92 = extractvalue { ptr, ptr } %90, 1
-  %93 = call { ptr, ptr } @block_join(ptr %91, ptr %92, ptr %61, ptr %62) #14
+  %93 = call { ptr, ptr } @block_join(ptr %91, ptr %92, ptr %61, ptr %62) #13
   %94 = extractvalue { ptr, ptr } %93, 0
   %95 = extractvalue { ptr, ptr } %93, 1
-  %96 = call { ptr, ptr } (...) @gen_noop() #14
+  %96 = call { ptr, ptr } (...) @gen_noop() #13
   %97 = extractvalue { ptr, ptr } %96, 0
   %98 = extractvalue { ptr, ptr } %96, 1
-  %99 = call { ptr, ptr } @gen_call(ptr noundef nonnull @.str.12, ptr %97, ptr %98) #14
+  %99 = call { ptr, ptr } @gen_call(ptr noundef nonnull @.str.12, ptr %97, ptr %98) #13
   %100 = extractvalue { ptr, ptr } %99, 0
   %101 = extractvalue { ptr, ptr } %99, 1
-  %102 = call { ptr, ptr } @gen_op_simple(i32 noundef 1) #14
+  %102 = call { ptr, ptr } @gen_op_simple(i32 noundef 1) #13
   %103 = extractvalue { ptr, ptr } %102, 0
   %104 = extractvalue { ptr, ptr } %102, 1
-  %105 = call { ptr, ptr } @block_join(ptr %100, ptr %101, ptr %103, ptr %104) #14
+  %105 = call { ptr, ptr } @block_join(ptr %100, ptr %101, ptr %103, ptr %104) #13
   %106 = extractvalue { ptr, ptr } %105, 0
   %107 = extractvalue { ptr, ptr } %105, 1
-  %108 = call { ptr, ptr } @gen_op_bound(i32 noundef 8, ptr %58, ptr %59) #14
+  %108 = call { ptr, ptr } @gen_op_bound(i32 noundef 8, ptr %58, ptr %59) #13
   %109 = extractvalue { ptr, ptr } %108, 0
   %110 = extractvalue { ptr, ptr } %108, 1
-  %111 = call { ptr, ptr } @block_join(ptr %106, ptr %107, ptr %109, ptr %110) #14
+  %111 = call { ptr, ptr } @block_join(ptr %106, ptr %107, ptr %109, ptr %110) #13
   %112 = extractvalue { ptr, ptr } %111, 0
   %113 = extractvalue { ptr, ptr } %111, 1
-  %114 = call { i64, ptr } @jv_false() #14
+  %114 = call { i64, ptr } @jv_false() #13
   %115 = extractvalue { i64, ptr } %114, 0
   %116 = extractvalue { i64, ptr } %114, 1
-  %117 = call { ptr, ptr } @gen_const(i64 %115, ptr %116) #14
+  %117 = call { ptr, ptr } @gen_const(i64 %115, ptr %116) #13
   %118 = extractvalue { ptr, ptr } %117, 0
   %119 = extractvalue { ptr, ptr } %117, 1
-  %120 = call { ptr, ptr } @block_join(ptr %112, ptr %113, ptr %118, ptr %119) #14
+  %120 = call { ptr, ptr } @block_join(ptr %112, ptr %113, ptr %118, ptr %119) #13
   %121 = extractvalue { ptr, ptr } %120, 0
   %122 = extractvalue { ptr, ptr } %120, 1
-  %123 = call { ptr, ptr } @gen_op_bound(i32 noundef 8, ptr %61, ptr %62) #14
+  %123 = call { ptr, ptr } @gen_op_bound(i32 noundef 8, ptr %61, ptr %62) #13
   %124 = extractvalue { ptr, ptr } %123, 0
   %125 = extractvalue { ptr, ptr } %123, 1
-  %126 = call { ptr, ptr } @block_join(ptr %121, ptr %122, ptr %124, ptr %125) #14
+  %126 = call { ptr, ptr } @block_join(ptr %121, ptr %122, ptr %124, ptr %125) #13
   %127 = extractvalue { ptr, ptr } %126, 0
   %128 = extractvalue { ptr, ptr } %126, 1
-  %129 = call { ptr, ptr } @gen_op_simple(i32 noundef 19) #14
+  %129 = call { ptr, ptr } @gen_op_simple(i32 noundef 19) #13
   %130 = extractvalue { ptr, ptr } %129, 0
   %131 = extractvalue { ptr, ptr } %129, 1
-  %132 = call { ptr, ptr } @block_join(ptr %127, ptr %128, ptr %130, ptr %131) #14
+  %132 = call { ptr, ptr } @block_join(ptr %127, ptr %128, ptr %130, ptr %131) #13
   %133 = extractvalue { ptr, ptr } %132, 0
   %134 = extractvalue { ptr, ptr } %132, 1
-  %135 = call { ptr, ptr } @gen_op_simple(i32 noundef 19) #14
+  %135 = call { ptr, ptr } @gen_op_simple(i32 noundef 19) #13
   %136 = extractvalue { ptr, ptr } %135, 0
   %137 = extractvalue { ptr, ptr } %135, 1
-  %138 = call { ptr, ptr } @gen_op_target(i32 noundef 14, ptr %133, ptr %134) #14
+  %138 = call { ptr, ptr } @gen_op_target(i32 noundef 14, ptr %133, ptr %134) #13
   %139 = extractvalue { ptr, ptr } %138, 0
   %140 = extractvalue { ptr, ptr } %138, 1
-  %141 = call { ptr, ptr } @block_join(ptr %94, ptr %95, ptr %139, ptr %140) #14
+  %141 = call { ptr, ptr } @block_join(ptr %94, ptr %95, ptr %139, ptr %140) #13
   %142 = extractvalue { ptr, ptr } %141, 0
   %143 = extractvalue { ptr, ptr } %141, 1
-  %144 = call { ptr, ptr } @block_join(ptr %142, ptr %143, ptr %133, ptr %134) #14
+  %144 = call { ptr, ptr } @block_join(ptr %142, ptr %143, ptr %133, ptr %134) #13
   %145 = extractvalue { ptr, ptr } %144, 0
   %146 = extractvalue { ptr, ptr } %144, 1
-  %147 = call { ptr, ptr } @gen_op_bound(i32 noundef 7, ptr %61, ptr %62) #14
+  %147 = call { ptr, ptr } @gen_op_bound(i32 noundef 7, ptr %61, ptr %62) #13
   %148 = extractvalue { ptr, ptr } %147, 0
   %149 = extractvalue { ptr, ptr } %147, 1
-  %150 = call { ptr, ptr } @gen_op_target(i32 noundef 18, ptr %136, ptr %137) #14
+  %150 = call { ptr, ptr } @gen_op_target(i32 noundef 18, ptr %136, ptr %137) #13
   %151 = extractvalue { ptr, ptr } %150, 0
   %152 = extractvalue { ptr, ptr } %150, 1
-  %153 = call { ptr, ptr } @block_join(ptr %148, ptr %149, ptr %151, ptr %152) #14
+  %153 = call { ptr, ptr } @block_join(ptr %148, ptr %149, ptr %151, ptr %152) #13
   %154 = extractvalue { ptr, ptr } %153, 0
   %155 = extractvalue { ptr, ptr } %153, 1
-  %156 = call { ptr, ptr } @block_join(ptr %154, ptr %155, ptr %136, ptr %137) #14
+  %156 = call { ptr, ptr } @block_join(ptr %154, ptr %155, ptr %136, ptr %137) #13
   %157 = extractvalue { ptr, ptr } %156, 0
   %158 = extractvalue { ptr, ptr } %156, 1
-  %159 = call { ptr, ptr } @gen_op_bound(i32 noundef 7, ptr %58, ptr %59) #14
+  %159 = call { ptr, ptr } @gen_op_bound(i32 noundef 7, ptr %58, ptr %59) #13
   %160 = extractvalue { ptr, ptr } %159, 0
   %161 = extractvalue { ptr, ptr } %159, 1
-  %162 = call { ptr, ptr } @block_join(ptr %157, ptr %158, ptr %160, ptr %161) #14
+  %162 = call { ptr, ptr } @block_join(ptr %157, ptr %158, ptr %160, ptr %161) #13
   %163 = extractvalue { ptr, ptr } %162, 0
   %164 = extractvalue { ptr, ptr } %162, 1
-  %165 = call { ptr, ptr } @block_join(ptr %145, ptr %146, ptr %163, ptr %164) #14
+  %165 = call { ptr, ptr } @block_join(ptr %145, ptr %146, ptr %163, ptr %164) #13
   %166 = extractvalue { ptr, ptr } %165, 0
   store ptr %166, ptr %56, align 16
   %167 = getelementptr inbounds nuw i8, ptr %4, i64 40
@@ -1087,17 +1087,17 @@ define dso_local i32 @builtins_bind(ptr noundef %0, ptr noundef captures(none) %
   %.sroa.082.0101.i = phi ptr [ %.sroa.082.098.i, %2 ], [ %.sroa.082.0.i, %169 ]
   %.sroa.10.0100.i = phi ptr [ %.sroa.10.097.i, %2 ], [ %.sroa.10.0.i, %169 ]
   %171 = load ptr, ptr %indvars.iv.i.sroa.phi, align 8, !tbaa !8
-  %172 = call { ptr, ptr } (...) @gen_noop() #14
+  %172 = call { ptr, ptr } (...) @gen_noop() #13
   %173 = extractvalue { ptr, ptr } %172, 0
   %174 = extractvalue { ptr, ptr } %172, 1
   %175 = getelementptr inbounds nuw i8, ptr %indvars.iv.i.sroa.phi, i64 8
   %176 = load ptr, ptr %175, align 8
   %177 = getelementptr inbounds nuw i8, ptr %indvars.iv.i.sroa.phi, i64 16
   %178 = load ptr, ptr %177, align 8
-  %179 = call { ptr, ptr } @gen_function(ptr noundef %171, ptr %173, ptr %174, ptr %176, ptr %178) #14
+  %179 = call { ptr, ptr } @gen_function(ptr noundef %171, ptr %173, ptr %174, ptr %176, ptr %178) #13
   %180 = extractvalue { ptr, ptr } %179, 0
   %181 = extractvalue { ptr, ptr } %179, 1
-  %182 = call { ptr, ptr } @block_join(ptr %.sroa.082.0101.i, ptr %.sroa.10.0100.i, ptr %180, ptr %181) #14
+  %182 = call { ptr, ptr } @block_join(ptr %.sroa.082.0101.i, ptr %.sroa.10.0100.i, ptr %180, ptr %181) #13
   %.sroa.10.0.i = extractvalue { ptr, ptr } %182, 1
   %.sroa.082.0.i = extractvalue { ptr, ptr } %182, 0
   br i1 %170, label %169, label %35, !llvm.loop !16
@@ -1108,118 +1108,118 @@ define dso_local i32 @builtins_bind(ptr noundef %0, ptr noundef captures(none) %
   %.sroa.10.1104.i = phi ptr [ %.sroa.10.0.i, %35 ], [ %198, %183 ]
   %.sroa.082.1103.i = phi ptr [ %.sroa.082.0.i, %35 ], [ %197, %183 ]
   %185 = load ptr, ptr %indvars.iv107.i.sroa.phi, align 8, !tbaa !8
-  %186 = call { ptr, ptr } @gen_param(ptr noundef nonnull @.str.12) #14
+  %186 = call { ptr, ptr } @gen_param(ptr noundef nonnull @.str.12) #13
   %187 = extractvalue { ptr, ptr } %186, 0
   %188 = extractvalue { ptr, ptr } %186, 1
   %189 = getelementptr inbounds nuw i8, ptr %indvars.iv107.i.sroa.phi, i64 8
   %190 = load ptr, ptr %189, align 8
   %191 = getelementptr inbounds nuw i8, ptr %indvars.iv107.i.sroa.phi, i64 16
   %192 = load ptr, ptr %191, align 8
-  %193 = call { ptr, ptr } @gen_function(ptr noundef %185, ptr %187, ptr %188, ptr %190, ptr %192) #14
+  %193 = call { ptr, ptr } @gen_function(ptr noundef %185, ptr %187, ptr %188, ptr %190, ptr %192) #13
   %194 = extractvalue { ptr, ptr } %193, 0
   %195 = extractvalue { ptr, ptr } %193, 1
-  %196 = call { ptr, ptr } @block_join(ptr %.sroa.082.1103.i, ptr %.sroa.10.1104.i, ptr %194, ptr %195) #14
+  %196 = call { ptr, ptr } @block_join(ptr %.sroa.082.1103.i, ptr %.sroa.10.1104.i, ptr %194, ptr %195) #13
   %197 = extractvalue { ptr, ptr } %196, 0
   %198 = extractvalue { ptr, ptr } %196, 1
   br i1 %184, label %183, label %bind_bytecoded_builtins.exit, !llvm.loop !17
 
 bind_bytecoded_builtins.exit:                     ; preds = %183
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #14
-  %199 = call { ptr, ptr } @gen_op_var_fresh(i32 noundef 8, ptr noundef nonnull @.str.14) #14
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #13
+  %199 = call { ptr, ptr } @gen_op_var_fresh(i32 noundef 8, ptr noundef nonnull @.str.14) #13
   %200 = extractvalue { ptr, ptr } %199, 0
   %201 = extractvalue { ptr, ptr } %199, 1
-  %202 = call { ptr, ptr } @gen_op_var_fresh(i32 noundef 8, ptr noundef nonnull @.str.15) #14
+  %202 = call { ptr, ptr } @gen_op_var_fresh(i32 noundef 8, ptr noundef nonnull @.str.15) #13
   %203 = extractvalue { ptr, ptr } %202, 0
   %204 = extractvalue { ptr, ptr } %202, 1
-  %205 = call { ptr, ptr } @gen_op_simple(i32 noundef 1) #14
+  %205 = call { ptr, ptr } @gen_op_simple(i32 noundef 1) #13
   %206 = extractvalue { ptr, ptr } %205, 0
   %207 = extractvalue { ptr, ptr } %205, 1
-  %208 = call { ptr, ptr } (...) @gen_noop() #14
+  %208 = call { ptr, ptr } (...) @gen_noop() #13
   %209 = extractvalue { ptr, ptr } %208, 0
   %210 = extractvalue { ptr, ptr } %208, 1
-  %211 = call { ptr, ptr } @gen_call(ptr noundef nonnull @.str.16, ptr %209, ptr %210) #14
+  %211 = call { ptr, ptr } @gen_call(ptr noundef nonnull @.str.16, ptr %209, ptr %210) #13
   %212 = extractvalue { ptr, ptr } %211, 0
   %213 = extractvalue { ptr, ptr } %211, 1
-  %214 = call { ptr, ptr } @block_join(ptr %206, ptr %207, ptr %212, ptr %213) #14
+  %214 = call { ptr, ptr } @block_join(ptr %206, ptr %207, ptr %212, ptr %213) #13
   %215 = extractvalue { ptr, ptr } %214, 0
   %216 = extractvalue { ptr, ptr } %214, 1
-  %217 = call { ptr, ptr } @block_join(ptr %215, ptr %216, ptr %203, ptr %204) #14
+  %217 = call { ptr, ptr } @block_join(ptr %215, ptr %216, ptr %203, ptr %204) #13
   %218 = extractvalue { ptr, ptr } %217, 0
   %219 = extractvalue { ptr, ptr } %217, 1
-  %220 = call { ptr, ptr } (...) @gen_noop() #14
+  %220 = call { ptr, ptr } (...) @gen_noop() #13
   %221 = extractvalue { ptr, ptr } %220, 0
   %222 = extractvalue { ptr, ptr } %220, 1
-  %223 = call { ptr, ptr } @gen_call(ptr noundef nonnull @.str.17, ptr %221, ptr %222) #14
+  %223 = call { ptr, ptr } @gen_call(ptr noundef nonnull @.str.17, ptr %221, ptr %222) #13
   %224 = extractvalue { ptr, ptr } %223, 0
   %225 = extractvalue { ptr, ptr } %223, 1
-  %226 = call { ptr, ptr } @block_join(ptr %218, ptr %219, ptr %224, ptr %225) #14
+  %226 = call { ptr, ptr } @block_join(ptr %218, ptr %219, ptr %224, ptr %225) #13
   %227 = extractvalue { ptr, ptr } %226, 0
   %228 = extractvalue { ptr, ptr } %226, 1
-  %229 = call { ptr, ptr } @gen_op_simple(i32 noundef 1) #14
+  %229 = call { ptr, ptr } @gen_op_simple(i32 noundef 1) #13
   %230 = extractvalue { ptr, ptr } %229, 0
   %231 = extractvalue { ptr, ptr } %229, 1
-  %232 = call { ptr, ptr } @block_join(ptr %227, ptr %228, ptr %230, ptr %231) #14
+  %232 = call { ptr, ptr } @block_join(ptr %227, ptr %228, ptr %230, ptr %231) #13
   %233 = extractvalue { ptr, ptr } %232, 0
   %234 = extractvalue { ptr, ptr } %232, 1
-  %235 = call { ptr, ptr } @gen_op_bound(i32 noundef 6, ptr %203, ptr %204) #14
+  %235 = call { ptr, ptr } @gen_op_bound(i32 noundef 6, ptr %203, ptr %204) #13
   %236 = extractvalue { ptr, ptr } %235, 0
   %237 = extractvalue { ptr, ptr } %235, 1
-  %238 = call { ptr, ptr } @block_join(ptr %233, ptr %234, ptr %236, ptr %237) #14
+  %238 = call { ptr, ptr } @block_join(ptr %233, ptr %234, ptr %236, ptr %237) #13
   %239 = extractvalue { ptr, ptr } %238, 0
   %240 = extractvalue { ptr, ptr } %238, 1
-  %241 = call { ptr, ptr } @block_join(ptr %239, ptr %240, ptr %200, ptr %201) #14
+  %241 = call { ptr, ptr } @block_join(ptr %239, ptr %240, ptr %200, ptr %201) #13
   %242 = extractvalue { ptr, ptr } %241, 0
   %243 = extractvalue { ptr, ptr } %241, 1
-  %244 = call { ptr, ptr } @gen_op_bound(i32 noundef 22, ptr %200, ptr %201) #14
+  %244 = call { ptr, ptr } @gen_op_bound(i32 noundef 22, ptr %200, ptr %201) #13
   %245 = extractvalue { ptr, ptr } %244, 0
   %246 = extractvalue { ptr, ptr } %244, 1
-  %247 = call { ptr, ptr } @block_join(ptr %242, ptr %243, ptr %245, ptr %246) #14
+  %247 = call { ptr, ptr } @block_join(ptr %242, ptr %243, ptr %245, ptr %246) #13
   %248 = extractvalue { ptr, ptr } %247, 0
   %249 = extractvalue { ptr, ptr } %247, 1
-  %250 = call { ptr, ptr } @gen_param(ptr noundef nonnull @.str.16) #14
+  %250 = call { ptr, ptr } @gen_param(ptr noundef nonnull @.str.16) #13
   %251 = extractvalue { ptr, ptr } %250, 0
   %252 = extractvalue { ptr, ptr } %250, 1
-  %253 = call { ptr, ptr } @gen_param(ptr noundef nonnull @.str.17) #14
+  %253 = call { ptr, ptr } @gen_param(ptr noundef nonnull @.str.17) #13
   %254 = extractvalue { ptr, ptr } %253, 0
   %255 = extractvalue { ptr, ptr } %253, 1
-  %256 = call { ptr, ptr } @block_join(ptr %251, ptr %252, ptr %254, ptr %255) #14
+  %256 = call { ptr, ptr } @block_join(ptr %251, ptr %252, ptr %254, ptr %255) #13
   %257 = extractvalue { ptr, ptr } %256, 0
   %258 = extractvalue { ptr, ptr } %256, 1
-  %259 = call { ptr, ptr } @gen_function(ptr noundef nonnull @.str.18, ptr %257, ptr %258, ptr %248, ptr %249) #14
+  %259 = call { ptr, ptr } @gen_function(ptr noundef nonnull @.str.18, ptr %257, ptr %258, ptr %248, ptr %249) #13
   %260 = extractvalue { ptr, ptr } %259, 0
   %261 = extractvalue { ptr, ptr } %259, 1
-  %262 = call { ptr, ptr } @block_join(ptr %197, ptr %198, ptr %260, ptr %261) #14
+  %262 = call { ptr, ptr } @block_join(ptr %197, ptr %198, ptr %260, ptr %261) #13
   %263 = extractvalue { ptr, ptr } %262, 0
   %264 = extractvalue { ptr, ptr } %262, 1
-  %265 = call { ptr, ptr } @block_join(ptr %263, ptr %264, ptr %8, ptr %10) #14
+  %265 = call { ptr, ptr } @block_join(ptr %263, ptr %264, ptr %8, ptr %10) #13
   %266 = extractvalue { ptr, ptr } %265, 0
   %267 = extractvalue { ptr, ptr } %265, 1
   store ptr %266, ptr %5, align 8, !tbaa !18
   store ptr %267, ptr %9, align 8, !tbaa !18
-  %268 = call { ptr, ptr } @gen_cbinding(ptr noundef nonnull @function_list, i32 noundef 133, ptr %266, ptr %267) #14
+  %268 = call { ptr, ptr } @gen_cbinding(ptr noundef nonnull @function_list, i32 noundef 133, ptr %266, ptr %267) #13
   %269 = extractvalue { ptr, ptr } %268, 0
   %270 = extractvalue { ptr, ptr } %268, 1
   store ptr %269, ptr %5, align 8, !tbaa !18
   store ptr %270, ptr %9, align 8, !tbaa !18
-  %271 = call { i64, ptr } @block_list_funcs(ptr %269, ptr %270, i32 noundef 1) #14
+  %271 = call { i64, ptr } @block_list_funcs(ptr %269, ptr %270, i32 noundef 1) #13
   %272 = extractvalue { i64, ptr } %271, 0
   %273 = extractvalue { i64, ptr } %271, 1
-  %274 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.233) #14
+  %274 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.233) #13
   %275 = extractvalue { i64, ptr } %274, 0
   %276 = extractvalue { i64, ptr } %274, 1
-  %277 = call { i64, ptr } @jv_array_append(i64 %272, ptr %273, i64 %275, ptr %276) #14
+  %277 = call { i64, ptr } @jv_array_append(i64 %272, ptr %273, i64 %275, ptr %276) #13
   %278 = extractvalue { i64, ptr } %277, 0
   %279 = extractvalue { i64, ptr } %277, 1
-  %280 = call { ptr, ptr } (...) @gen_noop() #14
+  %280 = call { ptr, ptr } (...) @gen_noop() #13
   %281 = extractvalue { ptr, ptr } %280, 0
   %282 = extractvalue { ptr, ptr } %280, 1
-  %283 = call { ptr, ptr } @gen_const(i64 %278, ptr %279) #14
+  %283 = call { ptr, ptr } @gen_const(i64 %278, ptr %279) #13
   %284 = extractvalue { ptr, ptr } %283, 0
   %285 = extractvalue { ptr, ptr } %283, 1
-  %286 = call { ptr, ptr } @gen_function(ptr noundef nonnull @.str.234, ptr %281, ptr %282, ptr %284, ptr %285) #14
+  %286 = call { ptr, ptr } @gen_function(ptr noundef nonnull @.str.234, ptr %281, ptr %282, ptr %284, ptr %285) #13
   %287 = extractvalue { ptr, ptr } %286, 0
   %288 = extractvalue { ptr, ptr } %286, 1
-  %289 = call { ptr, ptr } @block_join(ptr %269, ptr %270, ptr %287, ptr %288) #14
+  %289 = call { ptr, ptr } @block_join(ptr %269, ptr %270, ptr %287, ptr %288) #13
   %290 = extractvalue { ptr, ptr } %289, 0
   %291 = extractvalue { ptr, ptr } %289, 1
   store ptr %290, ptr %5, align 8, !tbaa !18
@@ -1227,12 +1227,12 @@ bind_bytecoded_builtins.exit:                     ; preds = %183
   %292 = load ptr, ptr %1, align 8
   %293 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %294 = load ptr, ptr %293, align 8
-  %295 = call { ptr, ptr } @block_bind_referenced(ptr %290, ptr %291, ptr %292, ptr %294, i32 noundef 128) #14
+  %295 = call { ptr, ptr } @block_bind_referenced(ptr %290, ptr %291, ptr %292, ptr %294, i32 noundef 128) #13
   %296 = extractvalue { ptr, ptr } %295, 0
   %297 = extractvalue { ptr, ptr } %295, 1
   store ptr %296, ptr %1, align 8, !tbaa !18
   store ptr %297, ptr %293, align 8, !tbaa !18
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #14
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #13
   ret i32 %7
 }
 
@@ -1285,27 +1285,27 @@ declare { ptr, ptr } @gen_op_target(i32 noundef, ptr, ptr) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_acos(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
-  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %.not = icmp eq i32 %5, 4
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
-  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
-  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
-  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
-  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #14
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #13
+  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
+  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #13
+  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #13
+  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #13
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
-  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #13
   br label %18
 
 14:                                               ; preds = %3
-  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #14
-  %16 = tail call double @acos(double noundef %15) #14, !tbaa !19
-  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #14
-  tail call void @jv_free(i64 %1, ptr %2) #14
+  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #13
+  %16 = tail call double @acos(double noundef %15) #13, !tbaa !19
+  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #13
+  tail call void @jv_free(i64 %1, ptr %2) #13
   br label %18
 
 18:                                               ; preds = %14, %6
@@ -1316,27 +1316,27 @@ define internal { i64, ptr } @f_acos(ptr readnone captures(none) %0, i64 %1, ptr
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_acosh(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
-  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %.not = icmp eq i32 %5, 4
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
-  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
-  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
-  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
-  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #14
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #13
+  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
+  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #13
+  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #13
+  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #13
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
-  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #13
   br label %18
 
 14:                                               ; preds = %3
-  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #14
-  %16 = tail call double @acosh(double noundef %15) #14, !tbaa !19
-  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #14
-  tail call void @jv_free(i64 %1, ptr %2) #14
+  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #13
+  %16 = tail call double @acosh(double noundef %15) #13, !tbaa !19
+  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #13
+  tail call void @jv_free(i64 %1, ptr %2) #13
   br label %18
 
 18:                                               ; preds = %14, %6
@@ -1347,27 +1347,27 @@ define internal { i64, ptr } @f_acosh(ptr readnone captures(none) %0, i64 %1, pt
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_asin(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
-  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %.not = icmp eq i32 %5, 4
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
-  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
-  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
-  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
-  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #14
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #13
+  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
+  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #13
+  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #13
+  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #13
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
-  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #13
   br label %18
 
 14:                                               ; preds = %3
-  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #14
-  %16 = tail call double @asin(double noundef %15) #14, !tbaa !19
-  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #14
-  tail call void @jv_free(i64 %1, ptr %2) #14
+  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #13
+  %16 = tail call double @asin(double noundef %15) #13, !tbaa !19
+  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #13
+  tail call void @jv_free(i64 %1, ptr %2) #13
   br label %18
 
 18:                                               ; preds = %14, %6
@@ -1378,27 +1378,27 @@ define internal { i64, ptr } @f_asin(ptr readnone captures(none) %0, i64 %1, ptr
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_asinh(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
-  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %.not = icmp eq i32 %5, 4
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
-  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
-  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
-  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
-  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #14
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #13
+  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
+  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #13
+  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #13
+  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #13
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
-  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #13
   br label %18
 
 14:                                               ; preds = %3
-  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #14
-  %16 = tail call double @asinh(double noundef %15) #14, !tbaa !19
-  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #14
-  tail call void @jv_free(i64 %1, ptr %2) #14
+  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #13
+  %16 = tail call double @asinh(double noundef %15) #13, !tbaa !19
+  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #13
+  tail call void @jv_free(i64 %1, ptr %2) #13
   br label %18
 
 18:                                               ; preds = %14, %6
@@ -1409,27 +1409,27 @@ define internal { i64, ptr } @f_asinh(ptr readnone captures(none) %0, i64 %1, pt
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_atan(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
-  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %.not = icmp eq i32 %5, 4
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
-  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
-  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
-  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
-  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #14
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #13
+  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
+  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #13
+  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #13
+  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #13
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
-  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #13
   br label %18
 
 14:                                               ; preds = %3
-  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #14
-  %16 = tail call double @atan(double noundef %15) #14, !tbaa !19
-  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #14
-  tail call void @jv_free(i64 %1, ptr %2) #14
+  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #13
+  %16 = tail call double @atan(double noundef %15) #13, !tbaa !19
+  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #13
+  tail call void @jv_free(i64 %1, ptr %2) #13
   br label %18
 
 18:                                               ; preds = %14, %6
@@ -1441,8 +1441,8 @@ define internal { i64, ptr } @f_atan(ptr readnone captures(none) %0, i64 %1, ptr
 define internal { i64, ptr } @f_atan2(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr noundef readonly byval(%struct.jv) align 8 captures(none) %5) #0 {
   %7 = alloca [15 x i8], align 1
   %8 = alloca [15 x i8], align 1
-  tail call void @jv_free(i64 %1, ptr %2) #14
-  %9 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #14
+  tail call void @jv_free(i64 %1, ptr %2) #13
+  %9 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #13
   %.not = icmp eq i32 %9, 4
   %10 = load i64, ptr %5, align 8
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1450,43 +1450,43 @@ define internal { i64, ptr } @f_atan2(ptr readnone captures(none) %0, i64 %1, pt
   br i1 %.not, label %21, label %13
 
 13:                                               ; preds = %6
-  tail call void @jv_free(i64 %10, ptr %12) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %8) #14
-  %14 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #14
-  %15 = tail call ptr @jv_kind_name(i32 noundef %14) #14
-  %16 = call ptr @jv_dump_string_trunc(i64 %3, ptr %4, ptr noundef nonnull %8, i64 noundef 15) #14
-  %17 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %15, ptr noundef %16, ptr noundef nonnull @.str.154) #14
+  tail call void @jv_free(i64 %10, ptr %12) #13
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %8) #13
+  %14 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #13
+  %15 = tail call ptr @jv_kind_name(i32 noundef %14) #13
+  %16 = call ptr @jv_dump_string_trunc(i64 %3, ptr %4, ptr noundef nonnull %8, i64 noundef 15) #13
+  %17 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %15, ptr noundef %16, ptr noundef nonnull @.str.154) #13
   %18 = extractvalue { i64, ptr } %17, 0
   %19 = extractvalue { i64, ptr } %17, 1
-  %20 = call { i64, ptr } @jv_invalid_with_msg(i64 %18, ptr %19) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %8) #14
+  %20 = call { i64, ptr } @jv_invalid_with_msg(i64 %18, ptr %19) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %8) #13
   br label %36
 
 21:                                               ; preds = %6
-  %22 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #14
+  %22 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #13
   %.not11 = icmp eq i32 %22, 4
   br i1 %.not11, label %31, label %23
 
 23:                                               ; preds = %21
-  tail call void @jv_free(i64 %3, ptr %4) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %7) #14
-  %24 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #14
-  %25 = tail call ptr @jv_kind_name(i32 noundef %24) #14
-  %26 = call ptr @jv_dump_string_trunc(i64 %10, ptr %12, ptr noundef nonnull %7, i64 noundef 15) #14
-  %27 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %25, ptr noundef %26, ptr noundef nonnull @.str.154) #14
+  tail call void @jv_free(i64 %3, ptr %4) #13
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %7) #13
+  %24 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #13
+  %25 = tail call ptr @jv_kind_name(i32 noundef %24) #13
+  %26 = call ptr @jv_dump_string_trunc(i64 %10, ptr %12, ptr noundef nonnull %7, i64 noundef 15) #13
+  %27 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %25, ptr noundef %26, ptr noundef nonnull @.str.154) #13
   %28 = extractvalue { i64, ptr } %27, 0
   %29 = extractvalue { i64, ptr } %27, 1
-  %30 = call { i64, ptr } @jv_invalid_with_msg(i64 %28, ptr %29) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %7) #14
+  %30 = call { i64, ptr } @jv_invalid_with_msg(i64 %28, ptr %29) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %7) #13
   br label %36
 
 31:                                               ; preds = %21
-  %32 = tail call double @jv_number_value(i64 %3, ptr %4) #14
-  %33 = tail call double @jv_number_value(i64 %10, ptr %12) #14
-  %34 = tail call double @atan2(double noundef %32, double noundef %33) #14, !tbaa !19
-  %35 = tail call { i64, ptr } @jv_number(double noundef %34) #14
-  tail call void @jv_free(i64 %3, ptr %4) #14
-  tail call void @jv_free(i64 %10, ptr %12) #14
+  %32 = tail call double @jv_number_value(i64 %3, ptr %4) #13
+  %33 = tail call double @jv_number_value(i64 %10, ptr %12) #13
+  %34 = tail call double @atan2(double noundef %32, double noundef %33) #13, !tbaa !19
+  %35 = tail call { i64, ptr } @jv_number(double noundef %34) #13
+  tail call void @jv_free(i64 %3, ptr %4) #13
+  tail call void @jv_free(i64 %10, ptr %12) #13
   br label %36
 
 36:                                               ; preds = %31, %23, %13
@@ -1497,27 +1497,27 @@ define internal { i64, ptr } @f_atan2(ptr readnone captures(none) %0, i64 %1, pt
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_atanh(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
-  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %.not = icmp eq i32 %5, 4
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
-  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
-  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
-  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
-  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #14
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #13
+  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
+  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #13
+  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #13
+  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #13
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
-  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #13
   br label %18
 
 14:                                               ; preds = %3
-  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #14
-  %16 = tail call double @atanh(double noundef %15) #14, !tbaa !19
-  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #14
-  tail call void @jv_free(i64 %1, ptr %2) #14
+  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #13
+  %16 = tail call double @atanh(double noundef %15) #13, !tbaa !19
+  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #13
+  tail call void @jv_free(i64 %1, ptr %2) #13
   br label %18
 
 18:                                               ; preds = %14, %6
@@ -1528,27 +1528,27 @@ define internal { i64, ptr } @f_atanh(ptr readnone captures(none) %0, i64 %1, pt
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_cbrt(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
-  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %.not = icmp eq i32 %5, 4
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
-  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
-  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
-  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
-  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #14
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #13
+  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
+  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #13
+  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #13
+  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #13
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
-  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #13
   br label %18
 
 14:                                               ; preds = %3
-  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #14
-  %16 = tail call double @cbrt(double noundef %15) #15
-  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #14
-  tail call void @jv_free(i64 %1, ptr %2) #14
+  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #13
+  %16 = tail call double @cbrt(double noundef %15) #14
+  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #13
+  tail call void @jv_free(i64 %1, ptr %2) #13
   br label %18
 
 18:                                               ; preds = %14, %6
@@ -1559,27 +1559,27 @@ define internal { i64, ptr } @f_cbrt(ptr readnone captures(none) %0, i64 %1, ptr
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_cos(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
-  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %.not = icmp eq i32 %5, 4
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
-  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
-  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
-  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
-  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #14
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #13
+  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
+  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #13
+  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #13
+  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #13
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
-  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #13
   br label %18
 
 14:                                               ; preds = %3
-  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #14
-  %16 = tail call double @cos(double noundef %15) #14, !tbaa !19
-  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #14
-  tail call void @jv_free(i64 %1, ptr %2) #14
+  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #13
+  %16 = tail call double @cos(double noundef %15) #13, !tbaa !19
+  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #13
+  tail call void @jv_free(i64 %1, ptr %2) #13
   br label %18
 
 18:                                               ; preds = %14, %6
@@ -1590,27 +1590,27 @@ define internal { i64, ptr } @f_cos(ptr readnone captures(none) %0, i64 %1, ptr 
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_cosh(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
-  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %.not = icmp eq i32 %5, 4
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
-  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
-  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
-  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
-  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #14
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #13
+  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
+  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #13
+  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #13
+  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #13
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
-  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #13
   br label %18
 
 14:                                               ; preds = %3
-  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #14
-  %16 = tail call double @cosh(double noundef %15) #14, !tbaa !19
-  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #14
-  tail call void @jv_free(i64 %1, ptr %2) #14
+  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #13
+  %16 = tail call double @cosh(double noundef %15) #13, !tbaa !19
+  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #13
+  tail call void @jv_free(i64 %1, ptr %2) #13
   br label %18
 
 18:                                               ; preds = %14, %6
@@ -1621,27 +1621,27 @@ define internal { i64, ptr } @f_cosh(ptr readnone captures(none) %0, i64 %1, ptr
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_exp(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
-  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %.not = icmp eq i32 %5, 4
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
-  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
-  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
-  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
-  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #14
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #13
+  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
+  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #13
+  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #13
+  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #13
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
-  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #13
   br label %18
 
 14:                                               ; preds = %3
-  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #14
-  %16 = tail call double @exp(double noundef %15) #14, !tbaa !19
-  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #14
-  tail call void @jv_free(i64 %1, ptr %2) #14
+  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #13
+  %16 = tail call double @exp(double noundef %15) #13, !tbaa !19
+  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #13
+  tail call void @jv_free(i64 %1, ptr %2) #13
   br label %18
 
 18:                                               ; preds = %14, %6
@@ -1652,27 +1652,27 @@ define internal { i64, ptr } @f_exp(ptr readnone captures(none) %0, i64 %1, ptr 
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_exp2(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
-  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %.not = icmp eq i32 %5, 4
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
-  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
-  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
-  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
-  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #14
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #13
+  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
+  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #13
+  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #13
+  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #13
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
-  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #13
   br label %18
 
 14:                                               ; preds = %3
-  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #14
-  %16 = tail call double @exp2(double noundef %15) #14, !tbaa !19
-  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #14
-  tail call void @jv_free(i64 %1, ptr %2) #14
+  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #13
+  %16 = tail call double @exp2(double noundef %15) #13, !tbaa !19
+  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #13
+  tail call void @jv_free(i64 %1, ptr %2) #13
   br label %18
 
 18:                                               ; preds = %14, %6
@@ -1683,27 +1683,27 @@ define internal { i64, ptr } @f_exp2(ptr readnone captures(none) %0, i64 %1, ptr
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_floor(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
-  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %.not = icmp eq i32 %5, 4
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
-  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
-  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
-  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
-  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #14
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #13
+  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
+  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #13
+  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #13
+  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #13
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
-  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #13
   br label %18
 
 14:                                               ; preds = %3
-  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #14
+  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #13
   %16 = tail call double @llvm.floor.f64(double %15)
-  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #14
-  tail call void @jv_free(i64 %1, ptr %2) #14
+  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #13
+  tail call void @jv_free(i64 %1, ptr %2) #13
   br label %18
 
 18:                                               ; preds = %14, %6
@@ -1715,8 +1715,8 @@ define internal { i64, ptr } @f_floor(ptr readnone captures(none) %0, i64 %1, pt
 define internal { i64, ptr } @f_hypot(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr noundef readonly byval(%struct.jv) align 8 captures(none) %5) #0 {
   %7 = alloca [15 x i8], align 1
   %8 = alloca [15 x i8], align 1
-  tail call void @jv_free(i64 %1, ptr %2) #14
-  %9 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #14
+  tail call void @jv_free(i64 %1, ptr %2) #13
+  %9 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #13
   %.not = icmp eq i32 %9, 4
   %10 = load i64, ptr %5, align 8
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1724,43 +1724,43 @@ define internal { i64, ptr } @f_hypot(ptr readnone captures(none) %0, i64 %1, pt
   br i1 %.not, label %21, label %13
 
 13:                                               ; preds = %6
-  tail call void @jv_free(i64 %10, ptr %12) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %8) #14
-  %14 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #14
-  %15 = tail call ptr @jv_kind_name(i32 noundef %14) #14
-  %16 = call ptr @jv_dump_string_trunc(i64 %3, ptr %4, ptr noundef nonnull %8, i64 noundef 15) #14
-  %17 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %15, ptr noundef %16, ptr noundef nonnull @.str.154) #14
+  tail call void @jv_free(i64 %10, ptr %12) #13
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %8) #13
+  %14 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #13
+  %15 = tail call ptr @jv_kind_name(i32 noundef %14) #13
+  %16 = call ptr @jv_dump_string_trunc(i64 %3, ptr %4, ptr noundef nonnull %8, i64 noundef 15) #13
+  %17 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %15, ptr noundef %16, ptr noundef nonnull @.str.154) #13
   %18 = extractvalue { i64, ptr } %17, 0
   %19 = extractvalue { i64, ptr } %17, 1
-  %20 = call { i64, ptr } @jv_invalid_with_msg(i64 %18, ptr %19) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %8) #14
+  %20 = call { i64, ptr } @jv_invalid_with_msg(i64 %18, ptr %19) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %8) #13
   br label %36
 
 21:                                               ; preds = %6
-  %22 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #14
+  %22 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #13
   %.not11 = icmp eq i32 %22, 4
   br i1 %.not11, label %31, label %23
 
 23:                                               ; preds = %21
-  tail call void @jv_free(i64 %3, ptr %4) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %7) #14
-  %24 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #14
-  %25 = tail call ptr @jv_kind_name(i32 noundef %24) #14
-  %26 = call ptr @jv_dump_string_trunc(i64 %10, ptr %12, ptr noundef nonnull %7, i64 noundef 15) #14
-  %27 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %25, ptr noundef %26, ptr noundef nonnull @.str.154) #14
+  tail call void @jv_free(i64 %3, ptr %4) #13
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %7) #13
+  %24 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #13
+  %25 = tail call ptr @jv_kind_name(i32 noundef %24) #13
+  %26 = call ptr @jv_dump_string_trunc(i64 %10, ptr %12, ptr noundef nonnull %7, i64 noundef 15) #13
+  %27 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %25, ptr noundef %26, ptr noundef nonnull @.str.154) #13
   %28 = extractvalue { i64, ptr } %27, 0
   %29 = extractvalue { i64, ptr } %27, 1
-  %30 = call { i64, ptr } @jv_invalid_with_msg(i64 %28, ptr %29) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %7) #14
+  %30 = call { i64, ptr } @jv_invalid_with_msg(i64 %28, ptr %29) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %7) #13
   br label %36
 
 31:                                               ; preds = %21
-  %32 = tail call double @jv_number_value(i64 %3, ptr %4) #14
-  %33 = tail call double @jv_number_value(i64 %10, ptr %12) #14
-  %34 = tail call double @hypot(double noundef %32, double noundef %33) #14, !tbaa !19
-  %35 = tail call { i64, ptr } @jv_number(double noundef %34) #14
-  tail call void @jv_free(i64 %3, ptr %4) #14
-  tail call void @jv_free(i64 %10, ptr %12) #14
+  %32 = tail call double @jv_number_value(i64 %3, ptr %4) #13
+  %33 = tail call double @jv_number_value(i64 %10, ptr %12) #13
+  %34 = tail call double @hypot(double noundef %32, double noundef %33) #13, !tbaa !19
+  %35 = tail call { i64, ptr } @jv_number(double noundef %34) #13
+  tail call void @jv_free(i64 %3, ptr %4) #13
+  tail call void @jv_free(i64 %10, ptr %12) #13
   br label %36
 
 36:                                               ; preds = %31, %23, %13
@@ -1771,27 +1771,27 @@ define internal { i64, ptr } @f_hypot(ptr readnone captures(none) %0, i64 %1, pt
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_j0(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
-  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %.not = icmp eq i32 %5, 4
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
-  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
-  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
-  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
-  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #14
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #13
+  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
+  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #13
+  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #13
+  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #13
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
-  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #13
   br label %18
 
 14:                                               ; preds = %3
-  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #14
-  %16 = tail call double @j0(double noundef %15) #14
-  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #14
-  tail call void @jv_free(i64 %1, ptr %2) #14
+  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #13
+  %16 = tail call double @j0(double noundef %15) #13
+  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #13
+  tail call void @jv_free(i64 %1, ptr %2) #13
   br label %18
 
 18:                                               ; preds = %14, %6
@@ -1802,27 +1802,27 @@ define internal { i64, ptr } @f_j0(ptr readnone captures(none) %0, i64 %1, ptr %
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_j1(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
-  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %.not = icmp eq i32 %5, 4
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
-  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
-  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
-  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
-  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #14
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #13
+  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
+  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #13
+  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #13
+  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #13
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
-  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #13
   br label %18
 
 14:                                               ; preds = %3
-  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #14
-  %16 = tail call double @j1(double noundef %15) #14
-  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #14
-  tail call void @jv_free(i64 %1, ptr %2) #14
+  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #13
+  %16 = tail call double @j1(double noundef %15) #13
+  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #13
+  tail call void @jv_free(i64 %1, ptr %2) #13
   br label %18
 
 18:                                               ; preds = %14, %6
@@ -1833,27 +1833,27 @@ define internal { i64, ptr } @f_j1(ptr readnone captures(none) %0, i64 %1, ptr %
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_log(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
-  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %.not = icmp eq i32 %5, 4
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
-  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
-  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
-  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
-  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #14
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #13
+  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
+  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #13
+  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #13
+  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #13
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
-  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #13
   br label %18
 
 14:                                               ; preds = %3
-  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #14
-  %16 = tail call double @log(double noundef %15) #14, !tbaa !19
-  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #14
-  tail call void @jv_free(i64 %1, ptr %2) #14
+  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #13
+  %16 = tail call double @log(double noundef %15) #13, !tbaa !19
+  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #13
+  tail call void @jv_free(i64 %1, ptr %2) #13
   br label %18
 
 18:                                               ; preds = %14, %6
@@ -1864,27 +1864,27 @@ define internal { i64, ptr } @f_log(ptr readnone captures(none) %0, i64 %1, ptr 
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_log10(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
-  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %.not = icmp eq i32 %5, 4
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
-  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
-  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
-  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
-  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #14
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #13
+  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
+  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #13
+  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #13
+  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #13
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
-  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #13
   br label %18
 
 14:                                               ; preds = %3
-  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #14
-  %16 = tail call double @log10(double noundef %15) #14, !tbaa !19
-  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #14
-  tail call void @jv_free(i64 %1, ptr %2) #14
+  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #13
+  %16 = tail call double @log10(double noundef %15) #13, !tbaa !19
+  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #13
+  tail call void @jv_free(i64 %1, ptr %2) #13
   br label %18
 
 18:                                               ; preds = %14, %6
@@ -1895,27 +1895,27 @@ define internal { i64, ptr } @f_log10(ptr readnone captures(none) %0, i64 %1, pt
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_log2(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
-  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %.not = icmp eq i32 %5, 4
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
-  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
-  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
-  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
-  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #14
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #13
+  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
+  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #13
+  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #13
+  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #13
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
-  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #13
   br label %18
 
 14:                                               ; preds = %3
-  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #14
-  %16 = tail call double @log2(double noundef %15) #14, !tbaa !19
-  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #14
-  tail call void @jv_free(i64 %1, ptr %2) #14
+  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #13
+  %16 = tail call double @log2(double noundef %15) #13, !tbaa !19
+  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #13
+  tail call void @jv_free(i64 %1, ptr %2) #13
   br label %18
 
 18:                                               ; preds = %14, %6
@@ -1927,8 +1927,8 @@ define internal { i64, ptr } @f_log2(ptr readnone captures(none) %0, i64 %1, ptr
 define internal { i64, ptr } @f_pow(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr noundef readonly byval(%struct.jv) align 8 captures(none) %5) #0 {
   %7 = alloca [15 x i8], align 1
   %8 = alloca [15 x i8], align 1
-  tail call void @jv_free(i64 %1, ptr %2) #14
-  %9 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #14
+  tail call void @jv_free(i64 %1, ptr %2) #13
+  %9 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #13
   %.not = icmp eq i32 %9, 4
   %10 = load i64, ptr %5, align 8
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1936,43 +1936,43 @@ define internal { i64, ptr } @f_pow(ptr readnone captures(none) %0, i64 %1, ptr 
   br i1 %.not, label %21, label %13
 
 13:                                               ; preds = %6
-  tail call void @jv_free(i64 %10, ptr %12) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %8) #14
-  %14 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #14
-  %15 = tail call ptr @jv_kind_name(i32 noundef %14) #14
-  %16 = call ptr @jv_dump_string_trunc(i64 %3, ptr %4, ptr noundef nonnull %8, i64 noundef 15) #14
-  %17 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %15, ptr noundef %16, ptr noundef nonnull @.str.154) #14
+  tail call void @jv_free(i64 %10, ptr %12) #13
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %8) #13
+  %14 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #13
+  %15 = tail call ptr @jv_kind_name(i32 noundef %14) #13
+  %16 = call ptr @jv_dump_string_trunc(i64 %3, ptr %4, ptr noundef nonnull %8, i64 noundef 15) #13
+  %17 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %15, ptr noundef %16, ptr noundef nonnull @.str.154) #13
   %18 = extractvalue { i64, ptr } %17, 0
   %19 = extractvalue { i64, ptr } %17, 1
-  %20 = call { i64, ptr } @jv_invalid_with_msg(i64 %18, ptr %19) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %8) #14
+  %20 = call { i64, ptr } @jv_invalid_with_msg(i64 %18, ptr %19) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %8) #13
   br label %36
 
 21:                                               ; preds = %6
-  %22 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #14
+  %22 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #13
   %.not11 = icmp eq i32 %22, 4
   br i1 %.not11, label %31, label %23
 
 23:                                               ; preds = %21
-  tail call void @jv_free(i64 %3, ptr %4) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %7) #14
-  %24 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #14
-  %25 = tail call ptr @jv_kind_name(i32 noundef %24) #14
-  %26 = call ptr @jv_dump_string_trunc(i64 %10, ptr %12, ptr noundef nonnull %7, i64 noundef 15) #14
-  %27 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %25, ptr noundef %26, ptr noundef nonnull @.str.154) #14
+  tail call void @jv_free(i64 %3, ptr %4) #13
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %7) #13
+  %24 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #13
+  %25 = tail call ptr @jv_kind_name(i32 noundef %24) #13
+  %26 = call ptr @jv_dump_string_trunc(i64 %10, ptr %12, ptr noundef nonnull %7, i64 noundef 15) #13
+  %27 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %25, ptr noundef %26, ptr noundef nonnull @.str.154) #13
   %28 = extractvalue { i64, ptr } %27, 0
   %29 = extractvalue { i64, ptr } %27, 1
-  %30 = call { i64, ptr } @jv_invalid_with_msg(i64 %28, ptr %29) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %7) #14
+  %30 = call { i64, ptr } @jv_invalid_with_msg(i64 %28, ptr %29) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %7) #13
   br label %36
 
 31:                                               ; preds = %21
-  %32 = tail call double @jv_number_value(i64 %3, ptr %4) #14
-  %33 = tail call double @jv_number_value(i64 %10, ptr %12) #14
-  %34 = tail call double @pow(double noundef %32, double noundef %33) #14, !tbaa !19
-  %35 = tail call { i64, ptr } @jv_number(double noundef %34) #14
-  tail call void @jv_free(i64 %3, ptr %4) #14
-  tail call void @jv_free(i64 %10, ptr %12) #14
+  %32 = tail call double @jv_number_value(i64 %3, ptr %4) #13
+  %33 = tail call double @jv_number_value(i64 %10, ptr %12) #13
+  %34 = tail call double @pow(double noundef %32, double noundef %33) #13, !tbaa !19
+  %35 = tail call { i64, ptr } @jv_number(double noundef %34) #13
+  tail call void @jv_free(i64 %3, ptr %4) #13
+  tail call void @jv_free(i64 %10, ptr %12) #13
   br label %36
 
 36:                                               ; preds = %31, %23, %13
@@ -1984,8 +1984,8 @@ define internal { i64, ptr } @f_pow(ptr readnone captures(none) %0, i64 %1, ptr 
 define internal { i64, ptr } @f_remainder(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr noundef readonly byval(%struct.jv) align 8 captures(none) %5) #0 {
   %7 = alloca [15 x i8], align 1
   %8 = alloca [15 x i8], align 1
-  tail call void @jv_free(i64 %1, ptr %2) #14
-  %9 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #14
+  tail call void @jv_free(i64 %1, ptr %2) #13
+  %9 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #13
   %.not = icmp eq i32 %9, 4
   %10 = load i64, ptr %5, align 8
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -1993,43 +1993,43 @@ define internal { i64, ptr } @f_remainder(ptr readnone captures(none) %0, i64 %1
   br i1 %.not, label %21, label %13
 
 13:                                               ; preds = %6
-  tail call void @jv_free(i64 %10, ptr %12) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %8) #14
-  %14 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #14
-  %15 = tail call ptr @jv_kind_name(i32 noundef %14) #14
-  %16 = call ptr @jv_dump_string_trunc(i64 %3, ptr %4, ptr noundef nonnull %8, i64 noundef 15) #14
-  %17 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %15, ptr noundef %16, ptr noundef nonnull @.str.154) #14
+  tail call void @jv_free(i64 %10, ptr %12) #13
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %8) #13
+  %14 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #13
+  %15 = tail call ptr @jv_kind_name(i32 noundef %14) #13
+  %16 = call ptr @jv_dump_string_trunc(i64 %3, ptr %4, ptr noundef nonnull %8, i64 noundef 15) #13
+  %17 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %15, ptr noundef %16, ptr noundef nonnull @.str.154) #13
   %18 = extractvalue { i64, ptr } %17, 0
   %19 = extractvalue { i64, ptr } %17, 1
-  %20 = call { i64, ptr } @jv_invalid_with_msg(i64 %18, ptr %19) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %8) #14
+  %20 = call { i64, ptr } @jv_invalid_with_msg(i64 %18, ptr %19) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %8) #13
   br label %36
 
 21:                                               ; preds = %6
-  %22 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #14
+  %22 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #13
   %.not11 = icmp eq i32 %22, 4
   br i1 %.not11, label %31, label %23
 
 23:                                               ; preds = %21
-  tail call void @jv_free(i64 %3, ptr %4) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %7) #14
-  %24 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #14
-  %25 = tail call ptr @jv_kind_name(i32 noundef %24) #14
-  %26 = call ptr @jv_dump_string_trunc(i64 %10, ptr %12, ptr noundef nonnull %7, i64 noundef 15) #14
-  %27 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %25, ptr noundef %26, ptr noundef nonnull @.str.154) #14
+  tail call void @jv_free(i64 %3, ptr %4) #13
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %7) #13
+  %24 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #13
+  %25 = tail call ptr @jv_kind_name(i32 noundef %24) #13
+  %26 = call ptr @jv_dump_string_trunc(i64 %10, ptr %12, ptr noundef nonnull %7, i64 noundef 15) #13
+  %27 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %25, ptr noundef %26, ptr noundef nonnull @.str.154) #13
   %28 = extractvalue { i64, ptr } %27, 0
   %29 = extractvalue { i64, ptr } %27, 1
-  %30 = call { i64, ptr } @jv_invalid_with_msg(i64 %28, ptr %29) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %7) #14
+  %30 = call { i64, ptr } @jv_invalid_with_msg(i64 %28, ptr %29) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %7) #13
   br label %36
 
 31:                                               ; preds = %21
-  %32 = tail call double @jv_number_value(i64 %3, ptr %4) #14
-  %33 = tail call double @jv_number_value(i64 %10, ptr %12) #14
-  %34 = tail call double @remainder(double noundef %32, double noundef %33) #14, !tbaa !19
-  %35 = tail call { i64, ptr } @jv_number(double noundef %34) #14
-  tail call void @jv_free(i64 %3, ptr %4) #14
-  tail call void @jv_free(i64 %10, ptr %12) #14
+  %32 = tail call double @jv_number_value(i64 %3, ptr %4) #13
+  %33 = tail call double @jv_number_value(i64 %10, ptr %12) #13
+  %34 = tail call double @remainder(double noundef %32, double noundef %33) #13, !tbaa !19
+  %35 = tail call { i64, ptr } @jv_number(double noundef %34) #13
+  tail call void @jv_free(i64 %3, ptr %4) #13
+  tail call void @jv_free(i64 %10, ptr %12) #13
   br label %36
 
 36:                                               ; preds = %31, %23, %13
@@ -2040,27 +2040,27 @@ define internal { i64, ptr } @f_remainder(ptr readnone captures(none) %0, i64 %1
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_sin(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
-  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %.not = icmp eq i32 %5, 4
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
-  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
-  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
-  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
-  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #14
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #13
+  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
+  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #13
+  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #13
+  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #13
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
-  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #13
   br label %18
 
 14:                                               ; preds = %3
-  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #14
-  %16 = tail call double @sin(double noundef %15) #14, !tbaa !19
-  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #14
-  tail call void @jv_free(i64 %1, ptr %2) #14
+  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #13
+  %16 = tail call double @sin(double noundef %15) #13, !tbaa !19
+  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #13
+  tail call void @jv_free(i64 %1, ptr %2) #13
   br label %18
 
 18:                                               ; preds = %14, %6
@@ -2071,27 +2071,27 @@ define internal { i64, ptr } @f_sin(ptr readnone captures(none) %0, i64 %1, ptr 
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_sinh(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
-  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %.not = icmp eq i32 %5, 4
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
-  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
-  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
-  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
-  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #14
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #13
+  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
+  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #13
+  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #13
+  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #13
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
-  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #13
   br label %18
 
 14:                                               ; preds = %3
-  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #14
-  %16 = tail call double @sinh(double noundef %15) #14, !tbaa !19
-  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #14
-  tail call void @jv_free(i64 %1, ptr %2) #14
+  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #13
+  %16 = tail call double @sinh(double noundef %15) #13, !tbaa !19
+  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #13
+  tail call void @jv_free(i64 %1, ptr %2) #13
   br label %18
 
 18:                                               ; preds = %14, %6
@@ -2102,27 +2102,27 @@ define internal { i64, ptr } @f_sinh(ptr readnone captures(none) %0, i64 %1, ptr
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_sqrt(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
-  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %.not = icmp eq i32 %5, 4
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
-  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
-  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
-  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
-  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #14
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #13
+  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
+  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #13
+  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #13
+  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #13
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
-  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #13
   br label %18
 
 14:                                               ; preds = %3
-  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #14
-  %16 = tail call double @sqrt(double noundef %15) #14, !tbaa !19
-  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #14
-  tail call void @jv_free(i64 %1, ptr %2) #14
+  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #13
+  %16 = tail call double @sqrt(double noundef %15) #13, !tbaa !19
+  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #13
+  tail call void @jv_free(i64 %1, ptr %2) #13
   br label %18
 
 18:                                               ; preds = %14, %6
@@ -2133,27 +2133,27 @@ define internal { i64, ptr } @f_sqrt(ptr readnone captures(none) %0, i64 %1, ptr
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_tan(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
-  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %.not = icmp eq i32 %5, 4
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
-  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
-  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
-  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
-  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #14
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #13
+  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
+  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #13
+  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #13
+  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #13
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
-  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #13
   br label %18
 
 14:                                               ; preds = %3
-  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #14
-  %16 = tail call double @tan(double noundef %15) #14, !tbaa !19
-  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #14
-  tail call void @jv_free(i64 %1, ptr %2) #14
+  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #13
+  %16 = tail call double @tan(double noundef %15) #13, !tbaa !19
+  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #13
+  tail call void @jv_free(i64 %1, ptr %2) #13
   br label %18
 
 18:                                               ; preds = %14, %6
@@ -2164,27 +2164,27 @@ define internal { i64, ptr } @f_tan(ptr readnone captures(none) %0, i64 %1, ptr 
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_tanh(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
-  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %.not = icmp eq i32 %5, 4
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
-  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
-  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
-  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
-  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #14
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #13
+  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
+  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #13
+  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #13
+  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #13
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
-  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #13
   br label %18
 
 14:                                               ; preds = %3
-  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #14
-  %16 = tail call double @tanh(double noundef %15) #14, !tbaa !19
-  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #14
-  tail call void @jv_free(i64 %1, ptr %2) #14
+  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #13
+  %16 = tail call double @tanh(double noundef %15) #13, !tbaa !19
+  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #13
+  tail call void @jv_free(i64 %1, ptr %2) #13
   br label %18
 
 18:                                               ; preds = %14, %6
@@ -2195,27 +2195,27 @@ define internal { i64, ptr } @f_tanh(ptr readnone captures(none) %0, i64 %1, ptr
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_tgamma(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
-  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %.not = icmp eq i32 %5, 4
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
-  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
-  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
-  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
-  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #14
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #13
+  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
+  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #13
+  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #13
+  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #13
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
-  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #13
   br label %18
 
 14:                                               ; preds = %3
-  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #14
-  %16 = tail call double @tgamma(double noundef %15) #14, !tbaa !19
-  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #14
-  tail call void @jv_free(i64 %1, ptr %2) #14
+  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #13
+  %16 = tail call double @tgamma(double noundef %15) #13, !tbaa !19
+  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #13
+  tail call void @jv_free(i64 %1, ptr %2) #13
   br label %18
 
 18:                                               ; preds = %14, %6
@@ -2226,27 +2226,27 @@ define internal { i64, ptr } @f_tgamma(ptr readnone captures(none) %0, i64 %1, p
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_y0(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
-  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %.not = icmp eq i32 %5, 4
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
-  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
-  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
-  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
-  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #14
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #13
+  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
+  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #13
+  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #13
+  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #13
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
-  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #13
   br label %18
 
 14:                                               ; preds = %3
-  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #14
-  %16 = tail call double @y0(double noundef %15) #14
-  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #14
-  tail call void @jv_free(i64 %1, ptr %2) #14
+  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #13
+  %16 = tail call double @y0(double noundef %15) #13
+  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #13
+  tail call void @jv_free(i64 %1, ptr %2) #13
   br label %18
 
 18:                                               ; preds = %14, %6
@@ -2257,27 +2257,27 @@ define internal { i64, ptr } @f_y0(ptr readnone captures(none) %0, i64 %1, ptr %
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_y1(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
-  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %.not = icmp eq i32 %5, 4
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
-  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
-  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
-  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
-  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #14
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #13
+  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
+  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #13
+  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #13
+  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #13
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
-  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #13
   br label %18
 
 14:                                               ; preds = %3
-  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #14
-  %16 = tail call double @y1(double noundef %15) #14
-  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #14
-  tail call void @jv_free(i64 %1, ptr %2) #14
+  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #13
+  %16 = tail call double @y1(double noundef %15) #13
+  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #13
+  tail call void @jv_free(i64 %1, ptr %2) #13
   br label %18
 
 18:                                               ; preds = %14, %6
@@ -2289,8 +2289,8 @@ define internal { i64, ptr } @f_y1(ptr readnone captures(none) %0, i64 %1, ptr %
 define internal { i64, ptr } @f_jn(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr noundef readonly byval(%struct.jv) align 8 captures(none) %5) #0 {
   %7 = alloca [15 x i8], align 1
   %8 = alloca [15 x i8], align 1
-  tail call void @jv_free(i64 %1, ptr %2) #14
-  %9 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #14
+  tail call void @jv_free(i64 %1, ptr %2) #13
+  %9 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #13
   %.not = icmp eq i32 %9, 4
   %10 = load i64, ptr %5, align 8
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -2298,44 +2298,44 @@ define internal { i64, ptr } @f_jn(ptr readnone captures(none) %0, i64 %1, ptr %
   br i1 %.not, label %21, label %13
 
 13:                                               ; preds = %6
-  tail call void @jv_free(i64 %10, ptr %12) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %8) #14
-  %14 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #14
-  %15 = tail call ptr @jv_kind_name(i32 noundef %14) #14
-  %16 = call ptr @jv_dump_string_trunc(i64 %3, ptr %4, ptr noundef nonnull %8, i64 noundef 15) #14
-  %17 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %15, ptr noundef %16, ptr noundef nonnull @.str.154) #14
+  tail call void @jv_free(i64 %10, ptr %12) #13
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %8) #13
+  %14 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #13
+  %15 = tail call ptr @jv_kind_name(i32 noundef %14) #13
+  %16 = call ptr @jv_dump_string_trunc(i64 %3, ptr %4, ptr noundef nonnull %8, i64 noundef 15) #13
+  %17 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %15, ptr noundef %16, ptr noundef nonnull @.str.154) #13
   %18 = extractvalue { i64, ptr } %17, 0
   %19 = extractvalue { i64, ptr } %17, 1
-  %20 = call { i64, ptr } @jv_invalid_with_msg(i64 %18, ptr %19) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %8) #14
+  %20 = call { i64, ptr } @jv_invalid_with_msg(i64 %18, ptr %19) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %8) #13
   br label %37
 
 21:                                               ; preds = %6
-  %22 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #14
+  %22 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #13
   %.not11 = icmp eq i32 %22, 4
   br i1 %.not11, label %31, label %23
 
 23:                                               ; preds = %21
-  tail call void @jv_free(i64 %3, ptr %4) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %7) #14
-  %24 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #14
-  %25 = tail call ptr @jv_kind_name(i32 noundef %24) #14
-  %26 = call ptr @jv_dump_string_trunc(i64 %10, ptr %12, ptr noundef nonnull %7, i64 noundef 15) #14
-  %27 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %25, ptr noundef %26, ptr noundef nonnull @.str.154) #14
+  tail call void @jv_free(i64 %3, ptr %4) #13
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %7) #13
+  %24 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #13
+  %25 = tail call ptr @jv_kind_name(i32 noundef %24) #13
+  %26 = call ptr @jv_dump_string_trunc(i64 %10, ptr %12, ptr noundef nonnull %7, i64 noundef 15) #13
+  %27 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %25, ptr noundef %26, ptr noundef nonnull @.str.154) #13
   %28 = extractvalue { i64, ptr } %27, 0
   %29 = extractvalue { i64, ptr } %27, 1
-  %30 = call { i64, ptr } @jv_invalid_with_msg(i64 %28, ptr %29) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %7) #14
+  %30 = call { i64, ptr } @jv_invalid_with_msg(i64 %28, ptr %29) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %7) #13
   br label %37
 
 31:                                               ; preds = %21
-  %32 = tail call double @jv_number_value(i64 %3, ptr %4) #14
+  %32 = tail call double @jv_number_value(i64 %3, ptr %4) #13
   %33 = fptosi double %32 to i32
-  %34 = tail call double @jv_number_value(i64 %10, ptr %12) #14
-  %35 = tail call double @jn(i32 noundef %33, double noundef %34) #14
-  %36 = tail call { i64, ptr } @jv_number(double noundef %35) #14
-  tail call void @jv_free(i64 %3, ptr %4) #14
-  tail call void @jv_free(i64 %10, ptr %12) #14
+  %34 = tail call double @jv_number_value(i64 %10, ptr %12) #13
+  %35 = tail call double @jn(i32 noundef %33, double noundef %34) #13
+  %36 = tail call { i64, ptr } @jv_number(double noundef %35) #13
+  tail call void @jv_free(i64 %3, ptr %4) #13
+  tail call void @jv_free(i64 %10, ptr %12) #13
   br label %37
 
 37:                                               ; preds = %31, %23, %13
@@ -2347,8 +2347,8 @@ define internal { i64, ptr } @f_jn(ptr readnone captures(none) %0, i64 %1, ptr %
 define internal { i64, ptr } @f_yn(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr noundef readonly byval(%struct.jv) align 8 captures(none) %5) #0 {
   %7 = alloca [15 x i8], align 1
   %8 = alloca [15 x i8], align 1
-  tail call void @jv_free(i64 %1, ptr %2) #14
-  %9 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #14
+  tail call void @jv_free(i64 %1, ptr %2) #13
+  %9 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #13
   %.not = icmp eq i32 %9, 4
   %10 = load i64, ptr %5, align 8
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -2356,44 +2356,44 @@ define internal { i64, ptr } @f_yn(ptr readnone captures(none) %0, i64 %1, ptr %
   br i1 %.not, label %21, label %13
 
 13:                                               ; preds = %6
-  tail call void @jv_free(i64 %10, ptr %12) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %8) #14
-  %14 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #14
-  %15 = tail call ptr @jv_kind_name(i32 noundef %14) #14
-  %16 = call ptr @jv_dump_string_trunc(i64 %3, ptr %4, ptr noundef nonnull %8, i64 noundef 15) #14
-  %17 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %15, ptr noundef %16, ptr noundef nonnull @.str.154) #14
+  tail call void @jv_free(i64 %10, ptr %12) #13
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %8) #13
+  %14 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #13
+  %15 = tail call ptr @jv_kind_name(i32 noundef %14) #13
+  %16 = call ptr @jv_dump_string_trunc(i64 %3, ptr %4, ptr noundef nonnull %8, i64 noundef 15) #13
+  %17 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %15, ptr noundef %16, ptr noundef nonnull @.str.154) #13
   %18 = extractvalue { i64, ptr } %17, 0
   %19 = extractvalue { i64, ptr } %17, 1
-  %20 = call { i64, ptr } @jv_invalid_with_msg(i64 %18, ptr %19) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %8) #14
+  %20 = call { i64, ptr } @jv_invalid_with_msg(i64 %18, ptr %19) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %8) #13
   br label %37
 
 21:                                               ; preds = %6
-  %22 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #14
+  %22 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #13
   %.not11 = icmp eq i32 %22, 4
   br i1 %.not11, label %31, label %23
 
 23:                                               ; preds = %21
-  tail call void @jv_free(i64 %3, ptr %4) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %7) #14
-  %24 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #14
-  %25 = tail call ptr @jv_kind_name(i32 noundef %24) #14
-  %26 = call ptr @jv_dump_string_trunc(i64 %10, ptr %12, ptr noundef nonnull %7, i64 noundef 15) #14
-  %27 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %25, ptr noundef %26, ptr noundef nonnull @.str.154) #14
+  tail call void @jv_free(i64 %3, ptr %4) #13
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %7) #13
+  %24 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #13
+  %25 = tail call ptr @jv_kind_name(i32 noundef %24) #13
+  %26 = call ptr @jv_dump_string_trunc(i64 %10, ptr %12, ptr noundef nonnull %7, i64 noundef 15) #13
+  %27 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %25, ptr noundef %26, ptr noundef nonnull @.str.154) #13
   %28 = extractvalue { i64, ptr } %27, 0
   %29 = extractvalue { i64, ptr } %27, 1
-  %30 = call { i64, ptr } @jv_invalid_with_msg(i64 %28, ptr %29) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %7) #14
+  %30 = call { i64, ptr } @jv_invalid_with_msg(i64 %28, ptr %29) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %7) #13
   br label %37
 
 31:                                               ; preds = %21
-  %32 = tail call double @jv_number_value(i64 %3, ptr %4) #14
+  %32 = tail call double @jv_number_value(i64 %3, ptr %4) #13
   %33 = fptosi double %32 to i32
-  %34 = tail call double @jv_number_value(i64 %10, ptr %12) #14
-  %35 = tail call double @yn(i32 noundef %33, double noundef %34) #14
-  %36 = tail call { i64, ptr } @jv_number(double noundef %35) #14
-  tail call void @jv_free(i64 %3, ptr %4) #14
-  tail call void @jv_free(i64 %10, ptr %12) #14
+  %34 = tail call double @jv_number_value(i64 %10, ptr %12) #13
+  %35 = tail call double @yn(i32 noundef %33, double noundef %34) #13
+  %36 = tail call { i64, ptr } @jv_number(double noundef %35) #13
+  tail call void @jv_free(i64 %3, ptr %4) #13
+  tail call void @jv_free(i64 %10, ptr %12) #13
   br label %37
 
 37:                                               ; preds = %31, %23, %13
@@ -2404,27 +2404,27 @@ define internal { i64, ptr } @f_yn(ptr readnone captures(none) %0, i64 %1, ptr %
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_ceil(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
-  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %.not = icmp eq i32 %5, 4
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
-  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
-  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
-  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
-  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #14
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #13
+  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
+  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #13
+  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #13
+  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #13
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
-  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #13
   br label %18
 
 14:                                               ; preds = %3
-  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #14
+  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #13
   %16 = tail call double @llvm.ceil.f64(double %15)
-  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #14
-  tail call void @jv_free(i64 %1, ptr %2) #14
+  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #13
+  tail call void @jv_free(i64 %1, ptr %2) #13
   br label %18
 
 18:                                               ; preds = %14, %6
@@ -2436,8 +2436,8 @@ define internal { i64, ptr } @f_ceil(ptr readnone captures(none) %0, i64 %1, ptr
 define internal { i64, ptr } @f_copysign(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr noundef readonly byval(%struct.jv) align 8 captures(none) %5) #0 {
   %7 = alloca [15 x i8], align 1
   %8 = alloca [15 x i8], align 1
-  tail call void @jv_free(i64 %1, ptr %2) #14
-  %9 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #14
+  tail call void @jv_free(i64 %1, ptr %2) #13
+  %9 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #13
   %.not = icmp eq i32 %9, 4
   %10 = load i64, ptr %5, align 8
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -2445,43 +2445,43 @@ define internal { i64, ptr } @f_copysign(ptr readnone captures(none) %0, i64 %1,
   br i1 %.not, label %21, label %13
 
 13:                                               ; preds = %6
-  tail call void @jv_free(i64 %10, ptr %12) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %8) #14
-  %14 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #14
-  %15 = tail call ptr @jv_kind_name(i32 noundef %14) #14
-  %16 = call ptr @jv_dump_string_trunc(i64 %3, ptr %4, ptr noundef nonnull %8, i64 noundef 15) #14
-  %17 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %15, ptr noundef %16, ptr noundef nonnull @.str.154) #14
+  tail call void @jv_free(i64 %10, ptr %12) #13
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %8) #13
+  %14 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #13
+  %15 = tail call ptr @jv_kind_name(i32 noundef %14) #13
+  %16 = call ptr @jv_dump_string_trunc(i64 %3, ptr %4, ptr noundef nonnull %8, i64 noundef 15) #13
+  %17 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %15, ptr noundef %16, ptr noundef nonnull @.str.154) #13
   %18 = extractvalue { i64, ptr } %17, 0
   %19 = extractvalue { i64, ptr } %17, 1
-  %20 = call { i64, ptr } @jv_invalid_with_msg(i64 %18, ptr %19) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %8) #14
+  %20 = call { i64, ptr } @jv_invalid_with_msg(i64 %18, ptr %19) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %8) #13
   br label %36
 
 21:                                               ; preds = %6
-  %22 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #14
+  %22 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #13
   %.not11 = icmp eq i32 %22, 4
   br i1 %.not11, label %31, label %23
 
 23:                                               ; preds = %21
-  tail call void @jv_free(i64 %3, ptr %4) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %7) #14
-  %24 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #14
-  %25 = tail call ptr @jv_kind_name(i32 noundef %24) #14
-  %26 = call ptr @jv_dump_string_trunc(i64 %10, ptr %12, ptr noundef nonnull %7, i64 noundef 15) #14
-  %27 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %25, ptr noundef %26, ptr noundef nonnull @.str.154) #14
+  tail call void @jv_free(i64 %3, ptr %4) #13
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %7) #13
+  %24 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #13
+  %25 = tail call ptr @jv_kind_name(i32 noundef %24) #13
+  %26 = call ptr @jv_dump_string_trunc(i64 %10, ptr %12, ptr noundef nonnull %7, i64 noundef 15) #13
+  %27 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %25, ptr noundef %26, ptr noundef nonnull @.str.154) #13
   %28 = extractvalue { i64, ptr } %27, 0
   %29 = extractvalue { i64, ptr } %27, 1
-  %30 = call { i64, ptr } @jv_invalid_with_msg(i64 %28, ptr %29) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %7) #14
+  %30 = call { i64, ptr } @jv_invalid_with_msg(i64 %28, ptr %29) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %7) #13
   br label %36
 
 31:                                               ; preds = %21
-  %32 = tail call double @jv_number_value(i64 %3, ptr %4) #14
-  %33 = tail call double @jv_number_value(i64 %10, ptr %12) #14
+  %32 = tail call double @jv_number_value(i64 %3, ptr %4) #13
+  %33 = tail call double @jv_number_value(i64 %10, ptr %12) #13
   %34 = tail call double @llvm.copysign.f64(double %32, double %33)
-  %35 = tail call { i64, ptr } @jv_number(double noundef %34) #14
-  tail call void @jv_free(i64 %3, ptr %4) #14
-  tail call void @jv_free(i64 %10, ptr %12) #14
+  %35 = tail call { i64, ptr } @jv_number(double noundef %34) #13
+  tail call void @jv_free(i64 %3, ptr %4) #13
+  tail call void @jv_free(i64 %10, ptr %12) #13
   br label %36
 
 36:                                               ; preds = %31, %23, %13
@@ -2493,8 +2493,8 @@ define internal { i64, ptr } @f_copysign(ptr readnone captures(none) %0, i64 %1,
 define internal { i64, ptr } @f_drem(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr noundef readonly byval(%struct.jv) align 8 captures(none) %5) #0 {
   %7 = alloca [15 x i8], align 1
   %8 = alloca [15 x i8], align 1
-  tail call void @jv_free(i64 %1, ptr %2) #14
-  %9 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #14
+  tail call void @jv_free(i64 %1, ptr %2) #13
+  %9 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #13
   %.not = icmp eq i32 %9, 4
   %10 = load i64, ptr %5, align 8
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -2502,43 +2502,43 @@ define internal { i64, ptr } @f_drem(ptr readnone captures(none) %0, i64 %1, ptr
   br i1 %.not, label %21, label %13
 
 13:                                               ; preds = %6
-  tail call void @jv_free(i64 %10, ptr %12) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %8) #14
-  %14 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #14
-  %15 = tail call ptr @jv_kind_name(i32 noundef %14) #14
-  %16 = call ptr @jv_dump_string_trunc(i64 %3, ptr %4, ptr noundef nonnull %8, i64 noundef 15) #14
-  %17 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %15, ptr noundef %16, ptr noundef nonnull @.str.154) #14
+  tail call void @jv_free(i64 %10, ptr %12) #13
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %8) #13
+  %14 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #13
+  %15 = tail call ptr @jv_kind_name(i32 noundef %14) #13
+  %16 = call ptr @jv_dump_string_trunc(i64 %3, ptr %4, ptr noundef nonnull %8, i64 noundef 15) #13
+  %17 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %15, ptr noundef %16, ptr noundef nonnull @.str.154) #13
   %18 = extractvalue { i64, ptr } %17, 0
   %19 = extractvalue { i64, ptr } %17, 1
-  %20 = call { i64, ptr } @jv_invalid_with_msg(i64 %18, ptr %19) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %8) #14
+  %20 = call { i64, ptr } @jv_invalid_with_msg(i64 %18, ptr %19) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %8) #13
   br label %36
 
 21:                                               ; preds = %6
-  %22 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #14
+  %22 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #13
   %.not11 = icmp eq i32 %22, 4
   br i1 %.not11, label %31, label %23
 
 23:                                               ; preds = %21
-  tail call void @jv_free(i64 %3, ptr %4) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %7) #14
-  %24 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #14
-  %25 = tail call ptr @jv_kind_name(i32 noundef %24) #14
-  %26 = call ptr @jv_dump_string_trunc(i64 %10, ptr %12, ptr noundef nonnull %7, i64 noundef 15) #14
-  %27 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %25, ptr noundef %26, ptr noundef nonnull @.str.154) #14
+  tail call void @jv_free(i64 %3, ptr %4) #13
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %7) #13
+  %24 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #13
+  %25 = tail call ptr @jv_kind_name(i32 noundef %24) #13
+  %26 = call ptr @jv_dump_string_trunc(i64 %10, ptr %12, ptr noundef nonnull %7, i64 noundef 15) #13
+  %27 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %25, ptr noundef %26, ptr noundef nonnull @.str.154) #13
   %28 = extractvalue { i64, ptr } %27, 0
   %29 = extractvalue { i64, ptr } %27, 1
-  %30 = call { i64, ptr } @jv_invalid_with_msg(i64 %28, ptr %29) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %7) #14
+  %30 = call { i64, ptr } @jv_invalid_with_msg(i64 %28, ptr %29) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %7) #13
   br label %36
 
 31:                                               ; preds = %21
-  %32 = tail call double @jv_number_value(i64 %3, ptr %4) #14
-  %33 = tail call double @jv_number_value(i64 %10, ptr %12) #14
-  %34 = tail call double @drem(double noundef %32, double noundef %33) #14
-  %35 = tail call { i64, ptr } @jv_number(double noundef %34) #14
-  tail call void @jv_free(i64 %3, ptr %4) #14
-  tail call void @jv_free(i64 %10, ptr %12) #14
+  %32 = tail call double @jv_number_value(i64 %3, ptr %4) #13
+  %33 = tail call double @jv_number_value(i64 %10, ptr %12) #13
+  %34 = tail call double @drem(double noundef %32, double noundef %33) #13
+  %35 = tail call { i64, ptr } @jv_number(double noundef %34) #13
+  tail call void @jv_free(i64 %3, ptr %4) #13
+  tail call void @jv_free(i64 %10, ptr %12) #13
   br label %36
 
 36:                                               ; preds = %31, %23, %13
@@ -2549,27 +2549,27 @@ define internal { i64, ptr } @f_drem(ptr readnone captures(none) %0, i64 %1, ptr
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_erf(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
-  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %.not = icmp eq i32 %5, 4
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
-  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
-  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
-  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
-  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #14
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #13
+  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
+  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #13
+  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #13
+  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #13
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
-  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #13
   br label %18
 
 14:                                               ; preds = %3
-  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #14
-  %16 = tail call double @erf(double noundef %15) #14, !tbaa !19
-  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #14
-  tail call void @jv_free(i64 %1, ptr %2) #14
+  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #13
+  %16 = tail call double @erf(double noundef %15) #13, !tbaa !19
+  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #13
+  tail call void @jv_free(i64 %1, ptr %2) #13
   br label %18
 
 18:                                               ; preds = %14, %6
@@ -2580,27 +2580,27 @@ define internal { i64, ptr } @f_erf(ptr readnone captures(none) %0, i64 %1, ptr 
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_erfc(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
-  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %.not = icmp eq i32 %5, 4
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
-  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
-  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
-  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
-  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #14
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #13
+  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
+  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #13
+  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #13
+  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #13
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
-  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #13
   br label %18
 
 14:                                               ; preds = %3
-  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #14
-  %16 = tail call double @erfc(double noundef %15) #14, !tbaa !19
-  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #14
-  tail call void @jv_free(i64 %1, ptr %2) #14
+  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #13
+  %16 = tail call double @erfc(double noundef %15) #13, !tbaa !19
+  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #13
+  tail call void @jv_free(i64 %1, ptr %2) #13
   br label %18
 
 18:                                               ; preds = %14, %6
@@ -2611,27 +2611,27 @@ define internal { i64, ptr } @f_erfc(ptr readnone captures(none) %0, i64 %1, ptr
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_exp10(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
-  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %.not = icmp eq i32 %5, 4
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
-  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
-  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
-  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
-  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #14
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #13
+  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
+  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #13
+  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #13
+  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #13
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
-  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #13
   br label %18
 
 14:                                               ; preds = %3
-  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #14
-  %16 = tail call double @exp10(double noundef %15) #14
-  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #14
-  tail call void @jv_free(i64 %1, ptr %2) #14
+  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #13
+  %16 = tail call double @exp10(double noundef %15) #13
+  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #13
+  tail call void @jv_free(i64 %1, ptr %2) #13
   br label %18
 
 18:                                               ; preds = %14, %6
@@ -2642,27 +2642,27 @@ define internal { i64, ptr } @f_exp10(ptr readnone captures(none) %0, i64 %1, pt
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_expm1(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
-  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %.not = icmp eq i32 %5, 4
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
-  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
-  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
-  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
-  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #14
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #13
+  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
+  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #13
+  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #13
+  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #13
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
-  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #13
   br label %18
 
 14:                                               ; preds = %3
-  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #14
-  %16 = tail call double @expm1(double noundef %15) #14, !tbaa !19
-  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #14
-  tail call void @jv_free(i64 %1, ptr %2) #14
+  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #13
+  %16 = tail call double @expm1(double noundef %15) #13, !tbaa !19
+  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #13
+  tail call void @jv_free(i64 %1, ptr %2) #13
   br label %18
 
 18:                                               ; preds = %14, %6
@@ -2673,27 +2673,27 @@ define internal { i64, ptr } @f_expm1(ptr readnone captures(none) %0, i64 %1, pt
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_fabs(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
-  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %.not = icmp eq i32 %5, 4
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
-  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
-  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
-  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
-  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #14
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #13
+  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
+  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #13
+  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #13
+  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #13
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
-  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #13
   br label %18
 
 14:                                               ; preds = %3
-  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #14
+  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #13
   %16 = tail call double @llvm.fabs.f64(double %15)
-  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #14
-  tail call void @jv_free(i64 %1, ptr %2) #14
+  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #13
+  tail call void @jv_free(i64 %1, ptr %2) #13
   br label %18
 
 18:                                               ; preds = %14, %6
@@ -2705,8 +2705,8 @@ define internal { i64, ptr } @f_fabs(ptr readnone captures(none) %0, i64 %1, ptr
 define internal { i64, ptr } @f_fdim(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr noundef readonly byval(%struct.jv) align 8 captures(none) %5) #0 {
   %7 = alloca [15 x i8], align 1
   %8 = alloca [15 x i8], align 1
-  tail call void @jv_free(i64 %1, ptr %2) #14
-  %9 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #14
+  tail call void @jv_free(i64 %1, ptr %2) #13
+  %9 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #13
   %.not = icmp eq i32 %9, 4
   %10 = load i64, ptr %5, align 8
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -2714,43 +2714,43 @@ define internal { i64, ptr } @f_fdim(ptr readnone captures(none) %0, i64 %1, ptr
   br i1 %.not, label %21, label %13
 
 13:                                               ; preds = %6
-  tail call void @jv_free(i64 %10, ptr %12) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %8) #14
-  %14 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #14
-  %15 = tail call ptr @jv_kind_name(i32 noundef %14) #14
-  %16 = call ptr @jv_dump_string_trunc(i64 %3, ptr %4, ptr noundef nonnull %8, i64 noundef 15) #14
-  %17 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %15, ptr noundef %16, ptr noundef nonnull @.str.154) #14
+  tail call void @jv_free(i64 %10, ptr %12) #13
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %8) #13
+  %14 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #13
+  %15 = tail call ptr @jv_kind_name(i32 noundef %14) #13
+  %16 = call ptr @jv_dump_string_trunc(i64 %3, ptr %4, ptr noundef nonnull %8, i64 noundef 15) #13
+  %17 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %15, ptr noundef %16, ptr noundef nonnull @.str.154) #13
   %18 = extractvalue { i64, ptr } %17, 0
   %19 = extractvalue { i64, ptr } %17, 1
-  %20 = call { i64, ptr } @jv_invalid_with_msg(i64 %18, ptr %19) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %8) #14
+  %20 = call { i64, ptr } @jv_invalid_with_msg(i64 %18, ptr %19) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %8) #13
   br label %36
 
 21:                                               ; preds = %6
-  %22 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #14
+  %22 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #13
   %.not11 = icmp eq i32 %22, 4
   br i1 %.not11, label %31, label %23
 
 23:                                               ; preds = %21
-  tail call void @jv_free(i64 %3, ptr %4) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %7) #14
-  %24 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #14
-  %25 = tail call ptr @jv_kind_name(i32 noundef %24) #14
-  %26 = call ptr @jv_dump_string_trunc(i64 %10, ptr %12, ptr noundef nonnull %7, i64 noundef 15) #14
-  %27 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %25, ptr noundef %26, ptr noundef nonnull @.str.154) #14
+  tail call void @jv_free(i64 %3, ptr %4) #13
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %7) #13
+  %24 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #13
+  %25 = tail call ptr @jv_kind_name(i32 noundef %24) #13
+  %26 = call ptr @jv_dump_string_trunc(i64 %10, ptr %12, ptr noundef nonnull %7, i64 noundef 15) #13
+  %27 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %25, ptr noundef %26, ptr noundef nonnull @.str.154) #13
   %28 = extractvalue { i64, ptr } %27, 0
   %29 = extractvalue { i64, ptr } %27, 1
-  %30 = call { i64, ptr } @jv_invalid_with_msg(i64 %28, ptr %29) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %7) #14
+  %30 = call { i64, ptr } @jv_invalid_with_msg(i64 %28, ptr %29) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %7) #13
   br label %36
 
 31:                                               ; preds = %21
-  %32 = tail call double @jv_number_value(i64 %3, ptr %4) #14
-  %33 = tail call double @jv_number_value(i64 %10, ptr %12) #14
-  %34 = tail call double @fdim(double noundef %32, double noundef %33) #14, !tbaa !19
-  %35 = tail call { i64, ptr } @jv_number(double noundef %34) #14
-  tail call void @jv_free(i64 %3, ptr %4) #14
-  tail call void @jv_free(i64 %10, ptr %12) #14
+  %32 = tail call double @jv_number_value(i64 %3, ptr %4) #13
+  %33 = tail call double @jv_number_value(i64 %10, ptr %12) #13
+  %34 = tail call double @fdim(double noundef %32, double noundef %33) #13, !tbaa !19
+  %35 = tail call { i64, ptr } @jv_number(double noundef %34) #13
+  tail call void @jv_free(i64 %3, ptr %4) #13
+  tail call void @jv_free(i64 %10, ptr %12) #13
   br label %36
 
 36:                                               ; preds = %31, %23, %13
@@ -2763,8 +2763,8 @@ define internal { i64, ptr } @f_fma(ptr readnone captures(none) %0, i64 %1, ptr 
   %8 = alloca [15 x i8], align 1
   %9 = alloca [15 x i8], align 1
   %10 = alloca [15 x i8], align 1
-  tail call void @jv_free(i64 %1, ptr %2) #14
-  %11 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #14
+  tail call void @jv_free(i64 %1, ptr %2) #13
+  %11 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #13
   %.not = icmp eq i32 %11, 4
   %12 = load i64, ptr %5, align 8
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -2772,75 +2772,75 @@ define internal { i64, ptr } @f_fma(ptr readnone captures(none) %0, i64 %1, ptr 
   br i1 %.not, label %26, label %15
 
 15:                                               ; preds = %7
-  tail call void @jv_free(i64 %12, ptr %14) #14
+  tail call void @jv_free(i64 %12, ptr %14) #13
   %16 = load i64, ptr %6, align 8
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %18 = load ptr, ptr %17, align 8
-  tail call void @jv_free(i64 %16, ptr %18) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %10) #14
-  %19 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #14
-  %20 = tail call ptr @jv_kind_name(i32 noundef %19) #14
-  %21 = call ptr @jv_dump_string_trunc(i64 %3, ptr %4, ptr noundef nonnull %10, i64 noundef 15) #14
-  %22 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %20, ptr noundef %21, ptr noundef nonnull @.str.154) #14
+  tail call void @jv_free(i64 %16, ptr %18) #13
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %10) #13
+  %19 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #13
+  %20 = tail call ptr @jv_kind_name(i32 noundef %19) #13
+  %21 = call ptr @jv_dump_string_trunc(i64 %3, ptr %4, ptr noundef nonnull %10, i64 noundef 15) #13
+  %22 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %20, ptr noundef %21, ptr noundef nonnull @.str.154) #13
   %23 = extractvalue { i64, ptr } %22, 0
   %24 = extractvalue { i64, ptr } %22, 1
-  %25 = call { i64, ptr } @jv_invalid_with_msg(i64 %23, ptr %24) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %10) #14
+  %25 = call { i64, ptr } @jv_invalid_with_msg(i64 %23, ptr %24) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %10) #13
   br label %58
 
 26:                                               ; preds = %7
-  %27 = tail call i32 @jv_get_kind(i64 %12, ptr %14) #14
+  %27 = tail call i32 @jv_get_kind(i64 %12, ptr %14) #13
   %.not13 = icmp eq i32 %27, 4
   br i1 %.not13, label %39, label %28
 
 28:                                               ; preds = %26
-  tail call void @jv_free(i64 %3, ptr %4) #14
+  tail call void @jv_free(i64 %3, ptr %4) #13
   %29 = load i64, ptr %6, align 8
   %30 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %31 = load ptr, ptr %30, align 8
-  tail call void @jv_free(i64 %29, ptr %31) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %9) #14
-  %32 = tail call i32 @jv_get_kind(i64 %12, ptr %14) #14
-  %33 = tail call ptr @jv_kind_name(i32 noundef %32) #14
-  %34 = call ptr @jv_dump_string_trunc(i64 %12, ptr %14, ptr noundef nonnull %9, i64 noundef 15) #14
-  %35 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %33, ptr noundef %34, ptr noundef nonnull @.str.154) #14
+  tail call void @jv_free(i64 %29, ptr %31) #13
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %9) #13
+  %32 = tail call i32 @jv_get_kind(i64 %12, ptr %14) #13
+  %33 = tail call ptr @jv_kind_name(i32 noundef %32) #13
+  %34 = call ptr @jv_dump_string_trunc(i64 %12, ptr %14, ptr noundef nonnull %9, i64 noundef 15) #13
+  %35 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %33, ptr noundef %34, ptr noundef nonnull @.str.154) #13
   %36 = extractvalue { i64, ptr } %35, 0
   %37 = extractvalue { i64, ptr } %35, 1
-  %38 = call { i64, ptr } @jv_invalid_with_msg(i64 %36, ptr %37) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %9) #14
+  %38 = call { i64, ptr } @jv_invalid_with_msg(i64 %36, ptr %37) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %9) #13
   br label %58
 
 39:                                               ; preds = %26
   %40 = load i64, ptr %6, align 8
   %41 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %42 = load ptr, ptr %41, align 8
-  %43 = tail call i32 @jv_get_kind(i64 %40, ptr %42) #14
+  %43 = tail call i32 @jv_get_kind(i64 %40, ptr %42) #13
   %.not14 = icmp eq i32 %43, 4
   br i1 %.not14, label %52, label %44
 
 44:                                               ; preds = %39
-  tail call void @jv_free(i64 %3, ptr %4) #14
-  tail call void @jv_free(i64 %12, ptr %14) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %8) #14
-  %45 = tail call i32 @jv_get_kind(i64 %40, ptr %42) #14
-  %46 = tail call ptr @jv_kind_name(i32 noundef %45) #14
-  %47 = call ptr @jv_dump_string_trunc(i64 %40, ptr %42, ptr noundef nonnull %8, i64 noundef 15) #14
-  %48 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %46, ptr noundef %47, ptr noundef nonnull @.str.154) #14
+  tail call void @jv_free(i64 %3, ptr %4) #13
+  tail call void @jv_free(i64 %12, ptr %14) #13
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %8) #13
+  %45 = tail call i32 @jv_get_kind(i64 %40, ptr %42) #13
+  %46 = tail call ptr @jv_kind_name(i32 noundef %45) #13
+  %47 = call ptr @jv_dump_string_trunc(i64 %40, ptr %42, ptr noundef nonnull %8, i64 noundef 15) #13
+  %48 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %46, ptr noundef %47, ptr noundef nonnull @.str.154) #13
   %49 = extractvalue { i64, ptr } %48, 0
   %50 = extractvalue { i64, ptr } %48, 1
-  %51 = call { i64, ptr } @jv_invalid_with_msg(i64 %49, ptr %50) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %8) #14
+  %51 = call { i64, ptr } @jv_invalid_with_msg(i64 %49, ptr %50) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %8) #13
   br label %58
 
 52:                                               ; preds = %39
-  %53 = tail call double @jv_number_value(i64 %3, ptr %4) #14
-  %54 = tail call double @jv_number_value(i64 %12, ptr %14) #14
-  %55 = tail call double @jv_number_value(i64 %40, ptr %42) #14
+  %53 = tail call double @jv_number_value(i64 %3, ptr %4) #13
+  %54 = tail call double @jv_number_value(i64 %12, ptr %14) #13
+  %55 = tail call double @jv_number_value(i64 %40, ptr %42) #13
   %56 = tail call double @llvm.fma.f64(double %53, double %54, double %55)
-  %57 = tail call { i64, ptr } @jv_number(double noundef %56) #14
-  tail call void @jv_free(i64 %3, ptr %4) #14
-  tail call void @jv_free(i64 %12, ptr %14) #14
-  tail call void @jv_free(i64 %40, ptr %42) #14
+  %57 = tail call { i64, ptr } @jv_number(double noundef %56) #13
+  tail call void @jv_free(i64 %3, ptr %4) #13
+  tail call void @jv_free(i64 %12, ptr %14) #13
+  tail call void @jv_free(i64 %40, ptr %42) #13
   br label %58
 
 58:                                               ; preds = %52, %44, %28, %15
@@ -2852,8 +2852,8 @@ define internal { i64, ptr } @f_fma(ptr readnone captures(none) %0, i64 %1, ptr 
 define internal { i64, ptr } @f_fmax(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr noundef readonly byval(%struct.jv) align 8 captures(none) %5) #0 {
   %7 = alloca [15 x i8], align 1
   %8 = alloca [15 x i8], align 1
-  tail call void @jv_free(i64 %1, ptr %2) #14
-  %9 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #14
+  tail call void @jv_free(i64 %1, ptr %2) #13
+  %9 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #13
   %.not = icmp eq i32 %9, 4
   %10 = load i64, ptr %5, align 8
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -2861,43 +2861,43 @@ define internal { i64, ptr } @f_fmax(ptr readnone captures(none) %0, i64 %1, ptr
   br i1 %.not, label %21, label %13
 
 13:                                               ; preds = %6
-  tail call void @jv_free(i64 %10, ptr %12) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %8) #14
-  %14 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #14
-  %15 = tail call ptr @jv_kind_name(i32 noundef %14) #14
-  %16 = call ptr @jv_dump_string_trunc(i64 %3, ptr %4, ptr noundef nonnull %8, i64 noundef 15) #14
-  %17 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %15, ptr noundef %16, ptr noundef nonnull @.str.154) #14
+  tail call void @jv_free(i64 %10, ptr %12) #13
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %8) #13
+  %14 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #13
+  %15 = tail call ptr @jv_kind_name(i32 noundef %14) #13
+  %16 = call ptr @jv_dump_string_trunc(i64 %3, ptr %4, ptr noundef nonnull %8, i64 noundef 15) #13
+  %17 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %15, ptr noundef %16, ptr noundef nonnull @.str.154) #13
   %18 = extractvalue { i64, ptr } %17, 0
   %19 = extractvalue { i64, ptr } %17, 1
-  %20 = call { i64, ptr } @jv_invalid_with_msg(i64 %18, ptr %19) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %8) #14
+  %20 = call { i64, ptr } @jv_invalid_with_msg(i64 %18, ptr %19) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %8) #13
   br label %36
 
 21:                                               ; preds = %6
-  %22 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #14
+  %22 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #13
   %.not11 = icmp eq i32 %22, 4
   br i1 %.not11, label %31, label %23
 
 23:                                               ; preds = %21
-  tail call void @jv_free(i64 %3, ptr %4) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %7) #14
-  %24 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #14
-  %25 = tail call ptr @jv_kind_name(i32 noundef %24) #14
-  %26 = call ptr @jv_dump_string_trunc(i64 %10, ptr %12, ptr noundef nonnull %7, i64 noundef 15) #14
-  %27 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %25, ptr noundef %26, ptr noundef nonnull @.str.154) #14
+  tail call void @jv_free(i64 %3, ptr %4) #13
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %7) #13
+  %24 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #13
+  %25 = tail call ptr @jv_kind_name(i32 noundef %24) #13
+  %26 = call ptr @jv_dump_string_trunc(i64 %10, ptr %12, ptr noundef nonnull %7, i64 noundef 15) #13
+  %27 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %25, ptr noundef %26, ptr noundef nonnull @.str.154) #13
   %28 = extractvalue { i64, ptr } %27, 0
   %29 = extractvalue { i64, ptr } %27, 1
-  %30 = call { i64, ptr } @jv_invalid_with_msg(i64 %28, ptr %29) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %7) #14
+  %30 = call { i64, ptr } @jv_invalid_with_msg(i64 %28, ptr %29) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %7) #13
   br label %36
 
 31:                                               ; preds = %21
-  %32 = tail call double @jv_number_value(i64 %3, ptr %4) #14
-  %33 = tail call double @jv_number_value(i64 %10, ptr %12) #14
+  %32 = tail call double @jv_number_value(i64 %3, ptr %4) #13
+  %33 = tail call double @jv_number_value(i64 %10, ptr %12) #13
   %34 = tail call double @llvm.maxnum.f64(double %32, double %33)
-  %35 = tail call { i64, ptr } @jv_number(double noundef %34) #14
-  tail call void @jv_free(i64 %3, ptr %4) #14
-  tail call void @jv_free(i64 %10, ptr %12) #14
+  %35 = tail call { i64, ptr } @jv_number(double noundef %34) #13
+  tail call void @jv_free(i64 %3, ptr %4) #13
+  tail call void @jv_free(i64 %10, ptr %12) #13
   br label %36
 
 36:                                               ; preds = %31, %23, %13
@@ -2909,8 +2909,8 @@ define internal { i64, ptr } @f_fmax(ptr readnone captures(none) %0, i64 %1, ptr
 define internal { i64, ptr } @f_fmin(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr noundef readonly byval(%struct.jv) align 8 captures(none) %5) #0 {
   %7 = alloca [15 x i8], align 1
   %8 = alloca [15 x i8], align 1
-  tail call void @jv_free(i64 %1, ptr %2) #14
-  %9 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #14
+  tail call void @jv_free(i64 %1, ptr %2) #13
+  %9 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #13
   %.not = icmp eq i32 %9, 4
   %10 = load i64, ptr %5, align 8
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -2918,43 +2918,43 @@ define internal { i64, ptr } @f_fmin(ptr readnone captures(none) %0, i64 %1, ptr
   br i1 %.not, label %21, label %13
 
 13:                                               ; preds = %6
-  tail call void @jv_free(i64 %10, ptr %12) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %8) #14
-  %14 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #14
-  %15 = tail call ptr @jv_kind_name(i32 noundef %14) #14
-  %16 = call ptr @jv_dump_string_trunc(i64 %3, ptr %4, ptr noundef nonnull %8, i64 noundef 15) #14
-  %17 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %15, ptr noundef %16, ptr noundef nonnull @.str.154) #14
+  tail call void @jv_free(i64 %10, ptr %12) #13
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %8) #13
+  %14 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #13
+  %15 = tail call ptr @jv_kind_name(i32 noundef %14) #13
+  %16 = call ptr @jv_dump_string_trunc(i64 %3, ptr %4, ptr noundef nonnull %8, i64 noundef 15) #13
+  %17 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %15, ptr noundef %16, ptr noundef nonnull @.str.154) #13
   %18 = extractvalue { i64, ptr } %17, 0
   %19 = extractvalue { i64, ptr } %17, 1
-  %20 = call { i64, ptr } @jv_invalid_with_msg(i64 %18, ptr %19) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %8) #14
+  %20 = call { i64, ptr } @jv_invalid_with_msg(i64 %18, ptr %19) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %8) #13
   br label %36
 
 21:                                               ; preds = %6
-  %22 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #14
+  %22 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #13
   %.not11 = icmp eq i32 %22, 4
   br i1 %.not11, label %31, label %23
 
 23:                                               ; preds = %21
-  tail call void @jv_free(i64 %3, ptr %4) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %7) #14
-  %24 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #14
-  %25 = tail call ptr @jv_kind_name(i32 noundef %24) #14
-  %26 = call ptr @jv_dump_string_trunc(i64 %10, ptr %12, ptr noundef nonnull %7, i64 noundef 15) #14
-  %27 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %25, ptr noundef %26, ptr noundef nonnull @.str.154) #14
+  tail call void @jv_free(i64 %3, ptr %4) #13
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %7) #13
+  %24 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #13
+  %25 = tail call ptr @jv_kind_name(i32 noundef %24) #13
+  %26 = call ptr @jv_dump_string_trunc(i64 %10, ptr %12, ptr noundef nonnull %7, i64 noundef 15) #13
+  %27 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %25, ptr noundef %26, ptr noundef nonnull @.str.154) #13
   %28 = extractvalue { i64, ptr } %27, 0
   %29 = extractvalue { i64, ptr } %27, 1
-  %30 = call { i64, ptr } @jv_invalid_with_msg(i64 %28, ptr %29) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %7) #14
+  %30 = call { i64, ptr } @jv_invalid_with_msg(i64 %28, ptr %29) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %7) #13
   br label %36
 
 31:                                               ; preds = %21
-  %32 = tail call double @jv_number_value(i64 %3, ptr %4) #14
-  %33 = tail call double @jv_number_value(i64 %10, ptr %12) #14
+  %32 = tail call double @jv_number_value(i64 %3, ptr %4) #13
+  %33 = tail call double @jv_number_value(i64 %10, ptr %12) #13
   %34 = tail call double @llvm.minnum.f64(double %32, double %33)
-  %35 = tail call { i64, ptr } @jv_number(double noundef %34) #14
-  tail call void @jv_free(i64 %3, ptr %4) #14
-  tail call void @jv_free(i64 %10, ptr %12) #14
+  %35 = tail call { i64, ptr } @jv_number(double noundef %34) #13
+  tail call void @jv_free(i64 %3, ptr %4) #13
+  tail call void @jv_free(i64 %10, ptr %12) #13
   br label %36
 
 36:                                               ; preds = %31, %23, %13
@@ -2966,8 +2966,8 @@ define internal { i64, ptr } @f_fmin(ptr readnone captures(none) %0, i64 %1, ptr
 define internal { i64, ptr } @f_fmod(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr noundef readonly byval(%struct.jv) align 8 captures(none) %5) #0 {
   %7 = alloca [15 x i8], align 1
   %8 = alloca [15 x i8], align 1
-  tail call void @jv_free(i64 %1, ptr %2) #14
-  %9 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #14
+  tail call void @jv_free(i64 %1, ptr %2) #13
+  %9 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #13
   %.not = icmp eq i32 %9, 4
   %10 = load i64, ptr %5, align 8
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -2975,43 +2975,43 @@ define internal { i64, ptr } @f_fmod(ptr readnone captures(none) %0, i64 %1, ptr
   br i1 %.not, label %21, label %13
 
 13:                                               ; preds = %6
-  tail call void @jv_free(i64 %10, ptr %12) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %8) #14
-  %14 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #14
-  %15 = tail call ptr @jv_kind_name(i32 noundef %14) #14
-  %16 = call ptr @jv_dump_string_trunc(i64 %3, ptr %4, ptr noundef nonnull %8, i64 noundef 15) #14
-  %17 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %15, ptr noundef %16, ptr noundef nonnull @.str.154) #14
+  tail call void @jv_free(i64 %10, ptr %12) #13
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %8) #13
+  %14 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #13
+  %15 = tail call ptr @jv_kind_name(i32 noundef %14) #13
+  %16 = call ptr @jv_dump_string_trunc(i64 %3, ptr %4, ptr noundef nonnull %8, i64 noundef 15) #13
+  %17 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %15, ptr noundef %16, ptr noundef nonnull @.str.154) #13
   %18 = extractvalue { i64, ptr } %17, 0
   %19 = extractvalue { i64, ptr } %17, 1
-  %20 = call { i64, ptr } @jv_invalid_with_msg(i64 %18, ptr %19) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %8) #14
+  %20 = call { i64, ptr } @jv_invalid_with_msg(i64 %18, ptr %19) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %8) #13
   br label %36
 
 21:                                               ; preds = %6
-  %22 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #14
+  %22 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #13
   %.not11 = icmp eq i32 %22, 4
   br i1 %.not11, label %31, label %23
 
 23:                                               ; preds = %21
-  tail call void @jv_free(i64 %3, ptr %4) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %7) #14
-  %24 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #14
-  %25 = tail call ptr @jv_kind_name(i32 noundef %24) #14
-  %26 = call ptr @jv_dump_string_trunc(i64 %10, ptr %12, ptr noundef nonnull %7, i64 noundef 15) #14
-  %27 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %25, ptr noundef %26, ptr noundef nonnull @.str.154) #14
+  tail call void @jv_free(i64 %3, ptr %4) #13
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %7) #13
+  %24 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #13
+  %25 = tail call ptr @jv_kind_name(i32 noundef %24) #13
+  %26 = call ptr @jv_dump_string_trunc(i64 %10, ptr %12, ptr noundef nonnull %7, i64 noundef 15) #13
+  %27 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %25, ptr noundef %26, ptr noundef nonnull @.str.154) #13
   %28 = extractvalue { i64, ptr } %27, 0
   %29 = extractvalue { i64, ptr } %27, 1
-  %30 = call { i64, ptr } @jv_invalid_with_msg(i64 %28, ptr %29) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %7) #14
+  %30 = call { i64, ptr } @jv_invalid_with_msg(i64 %28, ptr %29) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %7) #13
   br label %36
 
 31:                                               ; preds = %21
-  %32 = tail call double @jv_number_value(i64 %3, ptr %4) #14
-  %33 = tail call double @jv_number_value(i64 %10, ptr %12) #14
-  %34 = tail call double @fmod(double noundef %32, double noundef %33) #14, !tbaa !19
-  %35 = tail call { i64, ptr } @jv_number(double noundef %34) #14
-  tail call void @jv_free(i64 %3, ptr %4) #14
-  tail call void @jv_free(i64 %10, ptr %12) #14
+  %32 = tail call double @jv_number_value(i64 %3, ptr %4) #13
+  %33 = tail call double @jv_number_value(i64 %10, ptr %12) #13
+  %34 = tail call double @fmod(double noundef %32, double noundef %33) #13, !tbaa !19
+  %35 = tail call { i64, ptr } @jv_number(double noundef %34) #13
+  tail call void @jv_free(i64 %3, ptr %4) #13
+  tail call void @jv_free(i64 %10, ptr %12) #13
   br label %36
 
 36:                                               ; preds = %31, %23, %13
@@ -3022,27 +3022,27 @@ define internal { i64, ptr } @f_fmod(ptr readnone captures(none) %0, i64 %1, ptr
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_gamma(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
-  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %.not = icmp eq i32 %5, 4
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
-  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
-  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
-  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
-  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #14
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #13
+  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
+  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #13
+  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #13
+  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #13
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
-  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #13
   br label %18
 
 14:                                               ; preds = %3
-  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #14
-  %16 = tail call double @gamma(double noundef %15) #14
-  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #14
-  tail call void @jv_free(i64 %1, ptr %2) #14
+  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #13
+  %16 = tail call double @gamma(double noundef %15) #13
+  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #13
+  tail call void @jv_free(i64 %1, ptr %2) #13
   br label %18
 
 18:                                               ; preds = %14, %6
@@ -3053,27 +3053,27 @@ define internal { i64, ptr } @f_gamma(ptr readnone captures(none) %0, i64 %1, pt
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_lgamma(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
-  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %.not = icmp eq i32 %5, 4
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
-  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
-  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
-  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
-  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #14
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #13
+  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
+  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #13
+  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #13
+  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #13
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
-  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #13
   br label %18
 
 14:                                               ; preds = %3
-  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #14
-  %16 = tail call double @lgamma(double noundef %15) #14
-  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #14
-  tail call void @jv_free(i64 %1, ptr %2) #14
+  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #13
+  %16 = tail call double @lgamma(double noundef %15) #13
+  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #13
+  tail call void @jv_free(i64 %1, ptr %2) #13
   br label %18
 
 18:                                               ; preds = %14, %6
@@ -3084,27 +3084,27 @@ define internal { i64, ptr } @f_lgamma(ptr readnone captures(none) %0, i64 %1, p
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_log1p(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
-  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %.not = icmp eq i32 %5, 4
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
-  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
-  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
-  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
-  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #14
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #13
+  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
+  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #13
+  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #13
+  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #13
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
-  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #13
   br label %18
 
 14:                                               ; preds = %3
-  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #14
-  %16 = tail call double @log1p(double noundef %15) #14, !tbaa !19
-  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #14
-  tail call void @jv_free(i64 %1, ptr %2) #14
+  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #13
+  %16 = tail call double @log1p(double noundef %15) #13, !tbaa !19
+  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #13
+  tail call void @jv_free(i64 %1, ptr %2) #13
   br label %18
 
 18:                                               ; preds = %14, %6
@@ -3115,27 +3115,27 @@ define internal { i64, ptr } @f_log1p(ptr readnone captures(none) %0, i64 %1, pt
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_logb(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
-  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %.not = icmp eq i32 %5, 4
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
-  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
-  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
-  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
-  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #14
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #13
+  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
+  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #13
+  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #13
+  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #13
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
-  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #13
   br label %18
 
 14:                                               ; preds = %3
-  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #14
-  %16 = tail call double @logb(double noundef %15) #14, !tbaa !19
-  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #14
-  tail call void @jv_free(i64 %1, ptr %2) #14
+  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #13
+  %16 = tail call double @logb(double noundef %15) #13, !tbaa !19
+  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #13
+  tail call void @jv_free(i64 %1, ptr %2) #13
   br label %18
 
 18:                                               ; preds = %14, %6
@@ -3146,27 +3146,27 @@ define internal { i64, ptr } @f_logb(ptr readnone captures(none) %0, i64 %1, ptr
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_nearbyint(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
-  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %.not = icmp eq i32 %5, 4
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
-  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
-  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
-  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
-  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #14
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #13
+  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
+  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #13
+  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #13
+  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #13
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
-  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #13
   br label %18
 
 14:                                               ; preds = %3
-  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #14
+  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #13
   %16 = tail call double @llvm.nearbyint.f64(double %15)
-  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #14
-  tail call void @jv_free(i64 %1, ptr %2) #14
+  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #13
+  tail call void @jv_free(i64 %1, ptr %2) #13
   br label %18
 
 18:                                               ; preds = %14, %6
@@ -3178,8 +3178,8 @@ define internal { i64, ptr } @f_nearbyint(ptr readnone captures(none) %0, i64 %1
 define internal { i64, ptr } @f_nextafter(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr noundef readonly byval(%struct.jv) align 8 captures(none) %5) #0 {
   %7 = alloca [15 x i8], align 1
   %8 = alloca [15 x i8], align 1
-  tail call void @jv_free(i64 %1, ptr %2) #14
-  %9 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #14
+  tail call void @jv_free(i64 %1, ptr %2) #13
+  %9 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #13
   %.not = icmp eq i32 %9, 4
   %10 = load i64, ptr %5, align 8
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -3187,43 +3187,43 @@ define internal { i64, ptr } @f_nextafter(ptr readnone captures(none) %0, i64 %1
   br i1 %.not, label %21, label %13
 
 13:                                               ; preds = %6
-  tail call void @jv_free(i64 %10, ptr %12) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %8) #14
-  %14 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #14
-  %15 = tail call ptr @jv_kind_name(i32 noundef %14) #14
-  %16 = call ptr @jv_dump_string_trunc(i64 %3, ptr %4, ptr noundef nonnull %8, i64 noundef 15) #14
-  %17 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %15, ptr noundef %16, ptr noundef nonnull @.str.154) #14
+  tail call void @jv_free(i64 %10, ptr %12) #13
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %8) #13
+  %14 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #13
+  %15 = tail call ptr @jv_kind_name(i32 noundef %14) #13
+  %16 = call ptr @jv_dump_string_trunc(i64 %3, ptr %4, ptr noundef nonnull %8, i64 noundef 15) #13
+  %17 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %15, ptr noundef %16, ptr noundef nonnull @.str.154) #13
   %18 = extractvalue { i64, ptr } %17, 0
   %19 = extractvalue { i64, ptr } %17, 1
-  %20 = call { i64, ptr } @jv_invalid_with_msg(i64 %18, ptr %19) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %8) #14
+  %20 = call { i64, ptr } @jv_invalid_with_msg(i64 %18, ptr %19) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %8) #13
   br label %36
 
 21:                                               ; preds = %6
-  %22 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #14
+  %22 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #13
   %.not11 = icmp eq i32 %22, 4
   br i1 %.not11, label %31, label %23
 
 23:                                               ; preds = %21
-  tail call void @jv_free(i64 %3, ptr %4) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %7) #14
-  %24 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #14
-  %25 = tail call ptr @jv_kind_name(i32 noundef %24) #14
-  %26 = call ptr @jv_dump_string_trunc(i64 %10, ptr %12, ptr noundef nonnull %7, i64 noundef 15) #14
-  %27 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %25, ptr noundef %26, ptr noundef nonnull @.str.154) #14
+  tail call void @jv_free(i64 %3, ptr %4) #13
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %7) #13
+  %24 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #13
+  %25 = tail call ptr @jv_kind_name(i32 noundef %24) #13
+  %26 = call ptr @jv_dump_string_trunc(i64 %10, ptr %12, ptr noundef nonnull %7, i64 noundef 15) #13
+  %27 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %25, ptr noundef %26, ptr noundef nonnull @.str.154) #13
   %28 = extractvalue { i64, ptr } %27, 0
   %29 = extractvalue { i64, ptr } %27, 1
-  %30 = call { i64, ptr } @jv_invalid_with_msg(i64 %28, ptr %29) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %7) #14
+  %30 = call { i64, ptr } @jv_invalid_with_msg(i64 %28, ptr %29) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %7) #13
   br label %36
 
 31:                                               ; preds = %21
-  %32 = tail call double @jv_number_value(i64 %3, ptr %4) #14
-  %33 = tail call double @jv_number_value(i64 %10, ptr %12) #14
-  %34 = tail call double @nextafter(double noundef %32, double noundef %33) #14, !tbaa !19
-  %35 = tail call { i64, ptr } @jv_number(double noundef %34) #14
-  tail call void @jv_free(i64 %3, ptr %4) #14
-  tail call void @jv_free(i64 %10, ptr %12) #14
+  %32 = tail call double @jv_number_value(i64 %3, ptr %4) #13
+  %33 = tail call double @jv_number_value(i64 %10, ptr %12) #13
+  %34 = tail call double @nextafter(double noundef %32, double noundef %33) #13, !tbaa !19
+  %35 = tail call { i64, ptr } @jv_number(double noundef %34) #13
+  tail call void @jv_free(i64 %3, ptr %4) #13
+  tail call void @jv_free(i64 %10, ptr %12) #13
   br label %36
 
 36:                                               ; preds = %31, %23, %13
@@ -3235,8 +3235,8 @@ define internal { i64, ptr } @f_nextafter(ptr readnone captures(none) %0, i64 %1
 define internal { i64, ptr } @f_nexttoward(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr noundef readonly byval(%struct.jv) align 8 captures(none) %5) #0 {
   %7 = alloca [15 x i8], align 1
   %8 = alloca [15 x i8], align 1
-  tail call void @jv_free(i64 %1, ptr %2) #14
-  %9 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #14
+  tail call void @jv_free(i64 %1, ptr %2) #13
+  %9 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #13
   %.not = icmp eq i32 %9, 4
   %10 = load i64, ptr %5, align 8
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -3244,44 +3244,44 @@ define internal { i64, ptr } @f_nexttoward(ptr readnone captures(none) %0, i64 %
   br i1 %.not, label %21, label %13
 
 13:                                               ; preds = %6
-  tail call void @jv_free(i64 %10, ptr %12) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %8) #14
-  %14 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #14
-  %15 = tail call ptr @jv_kind_name(i32 noundef %14) #14
-  %16 = call ptr @jv_dump_string_trunc(i64 %3, ptr %4, ptr noundef nonnull %8, i64 noundef 15) #14
-  %17 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %15, ptr noundef %16, ptr noundef nonnull @.str.154) #14
+  tail call void @jv_free(i64 %10, ptr %12) #13
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %8) #13
+  %14 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #13
+  %15 = tail call ptr @jv_kind_name(i32 noundef %14) #13
+  %16 = call ptr @jv_dump_string_trunc(i64 %3, ptr %4, ptr noundef nonnull %8, i64 noundef 15) #13
+  %17 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %15, ptr noundef %16, ptr noundef nonnull @.str.154) #13
   %18 = extractvalue { i64, ptr } %17, 0
   %19 = extractvalue { i64, ptr } %17, 1
-  %20 = call { i64, ptr } @jv_invalid_with_msg(i64 %18, ptr %19) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %8) #14
+  %20 = call { i64, ptr } @jv_invalid_with_msg(i64 %18, ptr %19) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %8) #13
   br label %37
 
 21:                                               ; preds = %6
-  %22 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #14
+  %22 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #13
   %.not11 = icmp eq i32 %22, 4
   br i1 %.not11, label %31, label %23
 
 23:                                               ; preds = %21
-  tail call void @jv_free(i64 %3, ptr %4) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %7) #14
-  %24 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #14
-  %25 = tail call ptr @jv_kind_name(i32 noundef %24) #14
-  %26 = call ptr @jv_dump_string_trunc(i64 %10, ptr %12, ptr noundef nonnull %7, i64 noundef 15) #14
-  %27 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %25, ptr noundef %26, ptr noundef nonnull @.str.154) #14
+  tail call void @jv_free(i64 %3, ptr %4) #13
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %7) #13
+  %24 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #13
+  %25 = tail call ptr @jv_kind_name(i32 noundef %24) #13
+  %26 = call ptr @jv_dump_string_trunc(i64 %10, ptr %12, ptr noundef nonnull %7, i64 noundef 15) #13
+  %27 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %25, ptr noundef %26, ptr noundef nonnull @.str.154) #13
   %28 = extractvalue { i64, ptr } %27, 0
   %29 = extractvalue { i64, ptr } %27, 1
-  %30 = call { i64, ptr } @jv_invalid_with_msg(i64 %28, ptr %29) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %7) #14
+  %30 = call { i64, ptr } @jv_invalid_with_msg(i64 %28, ptr %29) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %7) #13
   br label %37
 
 31:                                               ; preds = %21
-  %32 = tail call double @jv_number_value(i64 %3, ptr %4) #14
-  %33 = tail call double @jv_number_value(i64 %10, ptr %12) #14
+  %32 = tail call double @jv_number_value(i64 %3, ptr %4) #13
+  %33 = tail call double @jv_number_value(i64 %10, ptr %12) #13
   %34 = fpext double %33 to x86_fp80
-  %35 = tail call double @nexttoward(double noundef %32, x86_fp80 noundef %34) #14, !tbaa !19
-  %36 = tail call { i64, ptr } @jv_number(double noundef %35) #14
-  tail call void @jv_free(i64 %3, ptr %4) #14
-  tail call void @jv_free(i64 %10, ptr %12) #14
+  %35 = tail call double @nexttoward(double noundef %32, x86_fp80 noundef %34) #13, !tbaa !19
+  %36 = tail call { i64, ptr } @jv_number(double noundef %35) #13
+  tail call void @jv_free(i64 %3, ptr %4) #13
+  tail call void @jv_free(i64 %10, ptr %12) #13
   br label %37
 
 37:                                               ; preds = %31, %23, %13
@@ -3292,27 +3292,27 @@ define internal { i64, ptr } @f_nexttoward(ptr readnone captures(none) %0, i64 %
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_rint(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
-  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %.not = icmp eq i32 %5, 4
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
-  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
-  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
-  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
-  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #14
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #13
+  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
+  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #13
+  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #13
+  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #13
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
-  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #13
   br label %18
 
 14:                                               ; preds = %3
-  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #14
+  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #13
   %16 = tail call double @llvm.rint.f64(double %15)
-  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #14
-  tail call void @jv_free(i64 %1, ptr %2) #14
+  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #13
+  tail call void @jv_free(i64 %1, ptr %2) #13
   br label %18
 
 18:                                               ; preds = %14, %6
@@ -3323,27 +3323,27 @@ define internal { i64, ptr } @f_rint(ptr readnone captures(none) %0, i64 %1, ptr
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_round(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
-  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %.not = icmp eq i32 %5, 4
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
-  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
-  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
-  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
-  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #14
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #13
+  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
+  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #13
+  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #13
+  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #13
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
-  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #13
   br label %18
 
 14:                                               ; preds = %3
-  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #14
+  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #13
   %16 = tail call double @llvm.round.f64(double %15)
-  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #14
-  tail call void @jv_free(i64 %1, ptr %2) #14
+  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #13
+  tail call void @jv_free(i64 %1, ptr %2) #13
   br label %18
 
 18:                                               ; preds = %14, %6
@@ -3355,8 +3355,8 @@ define internal { i64, ptr } @f_round(ptr readnone captures(none) %0, i64 %1, pt
 define internal { i64, ptr } @f_scalb(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr noundef readonly byval(%struct.jv) align 8 captures(none) %5) #0 {
   %7 = alloca [15 x i8], align 1
   %8 = alloca [15 x i8], align 1
-  tail call void @jv_free(i64 %1, ptr %2) #14
-  %9 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #14
+  tail call void @jv_free(i64 %1, ptr %2) #13
+  %9 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #13
   %.not = icmp eq i32 %9, 4
   %10 = load i64, ptr %5, align 8
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -3364,43 +3364,43 @@ define internal { i64, ptr } @f_scalb(ptr readnone captures(none) %0, i64 %1, pt
   br i1 %.not, label %21, label %13
 
 13:                                               ; preds = %6
-  tail call void @jv_free(i64 %10, ptr %12) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %8) #14
-  %14 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #14
-  %15 = tail call ptr @jv_kind_name(i32 noundef %14) #14
-  %16 = call ptr @jv_dump_string_trunc(i64 %3, ptr %4, ptr noundef nonnull %8, i64 noundef 15) #14
-  %17 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %15, ptr noundef %16, ptr noundef nonnull @.str.154) #14
+  tail call void @jv_free(i64 %10, ptr %12) #13
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %8) #13
+  %14 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #13
+  %15 = tail call ptr @jv_kind_name(i32 noundef %14) #13
+  %16 = call ptr @jv_dump_string_trunc(i64 %3, ptr %4, ptr noundef nonnull %8, i64 noundef 15) #13
+  %17 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %15, ptr noundef %16, ptr noundef nonnull @.str.154) #13
   %18 = extractvalue { i64, ptr } %17, 0
   %19 = extractvalue { i64, ptr } %17, 1
-  %20 = call { i64, ptr } @jv_invalid_with_msg(i64 %18, ptr %19) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %8) #14
+  %20 = call { i64, ptr } @jv_invalid_with_msg(i64 %18, ptr %19) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %8) #13
   br label %36
 
 21:                                               ; preds = %6
-  %22 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #14
+  %22 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #13
   %.not11 = icmp eq i32 %22, 4
   br i1 %.not11, label %31, label %23
 
 23:                                               ; preds = %21
-  tail call void @jv_free(i64 %3, ptr %4) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %7) #14
-  %24 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #14
-  %25 = tail call ptr @jv_kind_name(i32 noundef %24) #14
-  %26 = call ptr @jv_dump_string_trunc(i64 %10, ptr %12, ptr noundef nonnull %7, i64 noundef 15) #14
-  %27 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %25, ptr noundef %26, ptr noundef nonnull @.str.154) #14
+  tail call void @jv_free(i64 %3, ptr %4) #13
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %7) #13
+  %24 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #13
+  %25 = tail call ptr @jv_kind_name(i32 noundef %24) #13
+  %26 = call ptr @jv_dump_string_trunc(i64 %10, ptr %12, ptr noundef nonnull %7, i64 noundef 15) #13
+  %27 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %25, ptr noundef %26, ptr noundef nonnull @.str.154) #13
   %28 = extractvalue { i64, ptr } %27, 0
   %29 = extractvalue { i64, ptr } %27, 1
-  %30 = call { i64, ptr } @jv_invalid_with_msg(i64 %28, ptr %29) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %7) #14
+  %30 = call { i64, ptr } @jv_invalid_with_msg(i64 %28, ptr %29) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %7) #13
   br label %36
 
 31:                                               ; preds = %21
-  %32 = tail call double @jv_number_value(i64 %3, ptr %4) #14
-  %33 = tail call double @jv_number_value(i64 %10, ptr %12) #14
-  %34 = tail call double @scalb(double noundef %32, double noundef %33) #14
-  %35 = tail call { i64, ptr } @jv_number(double noundef %34) #14
-  tail call void @jv_free(i64 %3, ptr %4) #14
-  tail call void @jv_free(i64 %10, ptr %12) #14
+  %32 = tail call double @jv_number_value(i64 %3, ptr %4) #13
+  %33 = tail call double @jv_number_value(i64 %10, ptr %12) #13
+  %34 = tail call double @scalb(double noundef %32, double noundef %33) #13
+  %35 = tail call { i64, ptr } @jv_number(double noundef %34) #13
+  tail call void @jv_free(i64 %3, ptr %4) #13
+  tail call void @jv_free(i64 %10, ptr %12) #13
   br label %36
 
 36:                                               ; preds = %31, %23, %13
@@ -3412,8 +3412,8 @@ define internal { i64, ptr } @f_scalb(ptr readnone captures(none) %0, i64 %1, pt
 define internal { i64, ptr } @f_scalbln(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr noundef readonly byval(%struct.jv) align 8 captures(none) %5) #0 {
   %7 = alloca [15 x i8], align 1
   %8 = alloca [15 x i8], align 1
-  tail call void @jv_free(i64 %1, ptr %2) #14
-  %9 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #14
+  tail call void @jv_free(i64 %1, ptr %2) #13
+  %9 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #13
   %.not = icmp eq i32 %9, 4
   %10 = load i64, ptr %5, align 8
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -3421,44 +3421,44 @@ define internal { i64, ptr } @f_scalbln(ptr readnone captures(none) %0, i64 %1, 
   br i1 %.not, label %21, label %13
 
 13:                                               ; preds = %6
-  tail call void @jv_free(i64 %10, ptr %12) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %8) #14
-  %14 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #14
-  %15 = tail call ptr @jv_kind_name(i32 noundef %14) #14
-  %16 = call ptr @jv_dump_string_trunc(i64 %3, ptr %4, ptr noundef nonnull %8, i64 noundef 15) #14
-  %17 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %15, ptr noundef %16, ptr noundef nonnull @.str.154) #14
+  tail call void @jv_free(i64 %10, ptr %12) #13
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %8) #13
+  %14 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #13
+  %15 = tail call ptr @jv_kind_name(i32 noundef %14) #13
+  %16 = call ptr @jv_dump_string_trunc(i64 %3, ptr %4, ptr noundef nonnull %8, i64 noundef 15) #13
+  %17 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %15, ptr noundef %16, ptr noundef nonnull @.str.154) #13
   %18 = extractvalue { i64, ptr } %17, 0
   %19 = extractvalue { i64, ptr } %17, 1
-  %20 = call { i64, ptr } @jv_invalid_with_msg(i64 %18, ptr %19) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %8) #14
+  %20 = call { i64, ptr } @jv_invalid_with_msg(i64 %18, ptr %19) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %8) #13
   br label %37
 
 21:                                               ; preds = %6
-  %22 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #14
+  %22 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #13
   %.not11 = icmp eq i32 %22, 4
   br i1 %.not11, label %31, label %23
 
 23:                                               ; preds = %21
-  tail call void @jv_free(i64 %3, ptr %4) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %7) #14
-  %24 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #14
-  %25 = tail call ptr @jv_kind_name(i32 noundef %24) #14
-  %26 = call ptr @jv_dump_string_trunc(i64 %10, ptr %12, ptr noundef nonnull %7, i64 noundef 15) #14
-  %27 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %25, ptr noundef %26, ptr noundef nonnull @.str.154) #14
+  tail call void @jv_free(i64 %3, ptr %4) #13
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %7) #13
+  %24 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #13
+  %25 = tail call ptr @jv_kind_name(i32 noundef %24) #13
+  %26 = call ptr @jv_dump_string_trunc(i64 %10, ptr %12, ptr noundef nonnull %7, i64 noundef 15) #13
+  %27 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %25, ptr noundef %26, ptr noundef nonnull @.str.154) #13
   %28 = extractvalue { i64, ptr } %27, 0
   %29 = extractvalue { i64, ptr } %27, 1
-  %30 = call { i64, ptr } @jv_invalid_with_msg(i64 %28, ptr %29) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %7) #14
+  %30 = call { i64, ptr } @jv_invalid_with_msg(i64 %28, ptr %29) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %7) #13
   br label %37
 
 31:                                               ; preds = %21
-  %32 = tail call double @jv_number_value(i64 %3, ptr %4) #14
-  %33 = tail call double @jv_number_value(i64 %10, ptr %12) #14
+  %32 = tail call double @jv_number_value(i64 %3, ptr %4) #13
+  %33 = tail call double @jv_number_value(i64 %10, ptr %12) #13
   %34 = fptosi double %33 to i64
-  %35 = tail call double @scalbln(double noundef %32, i64 noundef %34) #14, !tbaa !19
-  %36 = tail call { i64, ptr } @jv_number(double noundef %35) #14
-  tail call void @jv_free(i64 %3, ptr %4) #14
-  tail call void @jv_free(i64 %10, ptr %12) #14
+  %35 = tail call double @scalbln(double noundef %32, i64 noundef %34) #13, !tbaa !19
+  %36 = tail call { i64, ptr } @jv_number(double noundef %35) #13
+  tail call void @jv_free(i64 %3, ptr %4) #13
+  tail call void @jv_free(i64 %10, ptr %12) #13
   br label %37
 
 37:                                               ; preds = %31, %23, %13
@@ -3469,27 +3469,27 @@ define internal { i64, ptr } @f_scalbln(ptr readnone captures(none) %0, i64 %1, 
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_significand(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
-  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %.not = icmp eq i32 %5, 4
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
-  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
-  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
-  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
-  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #14
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #13
+  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
+  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #13
+  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #13
+  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #13
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
-  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #13
   br label %18
 
 14:                                               ; preds = %3
-  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #14
-  %16 = tail call double @significand(double noundef %15) #14
-  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #14
-  tail call void @jv_free(i64 %1, ptr %2) #14
+  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #13
+  %16 = tail call double @significand(double noundef %15) #13
+  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #13
+  tail call void @jv_free(i64 %1, ptr %2) #13
   br label %18
 
 18:                                               ; preds = %14, %6
@@ -3500,27 +3500,27 @@ define internal { i64, ptr } @f_significand(ptr readnone captures(none) %0, i64 
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_trunc(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
-  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %.not = icmp eq i32 %5, 4
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
-  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
-  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
-  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
-  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #14
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #13
+  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
+  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #13
+  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #13
+  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.154) #13
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
-  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #13
   br label %18
 
 14:                                               ; preds = %3
-  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #14
+  %15 = tail call double @jv_number_value(i64 %1, ptr %2) #13
   %16 = tail call double @llvm.trunc.f64(double %15)
-  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #14
-  tail call void @jv_free(i64 %1, ptr %2) #14
+  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #13
+  tail call void @jv_free(i64 %1, ptr %2) #13
   br label %18
 
 18:                                               ; preds = %14, %6
@@ -3532,8 +3532,8 @@ define internal { i64, ptr } @f_trunc(ptr readnone captures(none) %0, i64 %1, pt
 define internal { i64, ptr } @f_ldexp(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr noundef readonly byval(%struct.jv) align 8 captures(none) %5) #0 {
   %7 = alloca [15 x i8], align 1
   %8 = alloca [15 x i8], align 1
-  tail call void @jv_free(i64 %1, ptr %2) #14
-  %9 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #14
+  tail call void @jv_free(i64 %1, ptr %2) #13
+  %9 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #13
   %.not = icmp eq i32 %9, 4
   %10 = load i64, ptr %5, align 8
   %11 = getelementptr inbounds nuw i8, ptr %5, i64 8
@@ -3541,44 +3541,44 @@ define internal { i64, ptr } @f_ldexp(ptr readnone captures(none) %0, i64 %1, pt
   br i1 %.not, label %21, label %13
 
 13:                                               ; preds = %6
-  tail call void @jv_free(i64 %10, ptr %12) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %8) #14
-  %14 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #14
-  %15 = tail call ptr @jv_kind_name(i32 noundef %14) #14
-  %16 = call ptr @jv_dump_string_trunc(i64 %3, ptr %4, ptr noundef nonnull %8, i64 noundef 15) #14
-  %17 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %15, ptr noundef %16, ptr noundef nonnull @.str.154) #14
+  tail call void @jv_free(i64 %10, ptr %12) #13
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %8) #13
+  %14 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #13
+  %15 = tail call ptr @jv_kind_name(i32 noundef %14) #13
+  %16 = call ptr @jv_dump_string_trunc(i64 %3, ptr %4, ptr noundef nonnull %8, i64 noundef 15) #13
+  %17 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %15, ptr noundef %16, ptr noundef nonnull @.str.154) #13
   %18 = extractvalue { i64, ptr } %17, 0
   %19 = extractvalue { i64, ptr } %17, 1
-  %20 = call { i64, ptr } @jv_invalid_with_msg(i64 %18, ptr %19) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %8) #14
+  %20 = call { i64, ptr } @jv_invalid_with_msg(i64 %18, ptr %19) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %8) #13
   br label %37
 
 21:                                               ; preds = %6
-  %22 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #14
+  %22 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #13
   %.not11 = icmp eq i32 %22, 4
   br i1 %.not11, label %31, label %23
 
 23:                                               ; preds = %21
-  tail call void @jv_free(i64 %3, ptr %4) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %7) #14
-  %24 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #14
-  %25 = tail call ptr @jv_kind_name(i32 noundef %24) #14
-  %26 = call ptr @jv_dump_string_trunc(i64 %10, ptr %12, ptr noundef nonnull %7, i64 noundef 15) #14
-  %27 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %25, ptr noundef %26, ptr noundef nonnull @.str.154) #14
+  tail call void @jv_free(i64 %3, ptr %4) #13
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %7) #13
+  %24 = tail call i32 @jv_get_kind(i64 %10, ptr %12) #13
+  %25 = tail call ptr @jv_kind_name(i32 noundef %24) #13
+  %26 = call ptr @jv_dump_string_trunc(i64 %10, ptr %12, ptr noundef nonnull %7, i64 noundef 15) #13
+  %27 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %25, ptr noundef %26, ptr noundef nonnull @.str.154) #13
   %28 = extractvalue { i64, ptr } %27, 0
   %29 = extractvalue { i64, ptr } %27, 1
-  %30 = call { i64, ptr } @jv_invalid_with_msg(i64 %28, ptr %29) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %7) #14
+  %30 = call { i64, ptr } @jv_invalid_with_msg(i64 %28, ptr %29) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %7) #13
   br label %37
 
 31:                                               ; preds = %21
-  %32 = tail call double @jv_number_value(i64 %3, ptr %4) #14
-  %33 = tail call double @jv_number_value(i64 %10, ptr %12) #14
+  %32 = tail call double @jv_number_value(i64 %3, ptr %4) #13
+  %33 = tail call double @jv_number_value(i64 %10, ptr %12) #13
   %34 = fptosi double %33 to i32
-  %35 = tail call double @ldexp(double noundef %32, i32 noundef %34) #14, !tbaa !19
-  %36 = tail call { i64, ptr } @jv_number(double noundef %35) #14
-  tail call void @jv_free(i64 %3, ptr %4) #14
-  tail call void @jv_free(i64 %10, ptr %12) #14
+  %35 = tail call double @ldexp(double noundef %32, i32 noundef %34) #13, !tbaa !19
+  %36 = tail call { i64, ptr } @jv_number(double noundef %35) #13
+  tail call void @jv_free(i64 %3, ptr %4) #13
+  tail call void @jv_free(i64 %10, ptr %12) #13
   br label %37
 
 37:                                               ; preds = %31, %23, %13
@@ -3590,42 +3590,42 @@ define internal { i64, ptr } @f_ldexp(ptr readnone captures(none) %0, i64 %1, pt
 define internal { i64, ptr } @f_modf(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
   %5 = alloca double, align 8
-  %6 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %6 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %.not = icmp eq i32 %6, 4
   br i1 %.not, label %15, label %7
 
 7:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
-  %8 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
-  %9 = tail call ptr @jv_kind_name(i32 noundef %8) #14
-  %10 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
-  %11 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %9, ptr noundef %10, ptr noundef nonnull @.str.154) #14
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #13
+  %8 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
+  %9 = tail call ptr @jv_kind_name(i32 noundef %8) #13
+  %10 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #13
+  %11 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %9, ptr noundef %10, ptr noundef nonnull @.str.154) #13
   %12 = extractvalue { i64, ptr } %11, 0
   %13 = extractvalue { i64, ptr } %11, 1
-  %14 = call { i64, ptr } @jv_invalid_with_msg(i64 %12, ptr %13) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  %14 = call { i64, ptr } @jv_invalid_with_msg(i64 %12, ptr %13) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #13
   br label %32
 
 15:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
-  %16 = tail call double @jv_number_value(i64 %1, ptr %2) #14
-  %17 = call double @modf(double noundef %16, ptr noundef nonnull %5) #14
-  %18 = tail call { i64, ptr } @jv_array() #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13
+  %16 = tail call double @jv_number_value(i64 %1, ptr %2) #13
+  %17 = call double @modf(double noundef %16, ptr noundef nonnull %5) #13
+  %18 = tail call { i64, ptr } @jv_array() #13
   %19 = extractvalue { i64, ptr } %18, 0
   %20 = extractvalue { i64, ptr } %18, 1
-  %21 = tail call { i64, ptr } @jv_number(double noundef %17) #14
+  %21 = tail call { i64, ptr } @jv_number(double noundef %17) #13
   %22 = extractvalue { i64, ptr } %21, 0
   %23 = extractvalue { i64, ptr } %21, 1
-  %24 = tail call { i64, ptr } @jv_array_append(i64 %19, ptr %20, i64 %22, ptr %23) #14
+  %24 = tail call { i64, ptr } @jv_array_append(i64 %19, ptr %20, i64 %22, ptr %23) #13
   %25 = extractvalue { i64, ptr } %24, 0
   %26 = extractvalue { i64, ptr } %24, 1
   %27 = load double, ptr %5, align 8, !tbaa !21
-  %28 = tail call { i64, ptr } @jv_number(double noundef %27) #14
+  %28 = tail call { i64, ptr } @jv_number(double noundef %27) #13
   %29 = extractvalue { i64, ptr } %28, 0
   %30 = extractvalue { i64, ptr } %28, 1
-  %31 = tail call { i64, ptr } @jv_array_append(i64 %25, ptr %26, i64 %29, ptr %30) #14
-  tail call void @jv_free(i64 %1, ptr %2) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
+  %31 = tail call { i64, ptr } @jv_array_append(i64 %25, ptr %26, i64 %29, ptr %30) #13
+  tail call void @jv_free(i64 %1, ptr %2) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
   br label %32
 
 32:                                               ; preds = %15, %7
@@ -3637,43 +3637,43 @@ define internal { i64, ptr } @f_modf(ptr readnone captures(none) %0, i64 %1, ptr
 define internal { i64, ptr } @f_frexp(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
   %5 = alloca i32, align 4
-  %6 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %6 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %.not = icmp eq i32 %6, 4
   br i1 %.not, label %15, label %7
 
 7:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
-  %8 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
-  %9 = tail call ptr @jv_kind_name(i32 noundef %8) #14
-  %10 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
-  %11 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %9, ptr noundef %10, ptr noundef nonnull @.str.154) #14
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #13
+  %8 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
+  %9 = tail call ptr @jv_kind_name(i32 noundef %8) #13
+  %10 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #13
+  %11 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %9, ptr noundef %10, ptr noundef nonnull @.str.154) #13
   %12 = extractvalue { i64, ptr } %11, 0
   %13 = extractvalue { i64, ptr } %11, 1
-  %14 = call { i64, ptr } @jv_invalid_with_msg(i64 %12, ptr %13) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  %14 = call { i64, ptr } @jv_invalid_with_msg(i64 %12, ptr %13) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #13
   br label %33
 
 15:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #14
-  %16 = tail call double @jv_number_value(i64 %1, ptr %2) #14
-  %17 = call double @frexp(double noundef %16, ptr noundef nonnull %5) #14
-  %18 = tail call { i64, ptr } @jv_array() #14
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #13
+  %16 = tail call double @jv_number_value(i64 %1, ptr %2) #13
+  %17 = call double @frexp(double noundef %16, ptr noundef nonnull %5) #13
+  %18 = tail call { i64, ptr } @jv_array() #13
   %19 = extractvalue { i64, ptr } %18, 0
   %20 = extractvalue { i64, ptr } %18, 1
-  %21 = tail call { i64, ptr } @jv_number(double noundef %17) #14
+  %21 = tail call { i64, ptr } @jv_number(double noundef %17) #13
   %22 = extractvalue { i64, ptr } %21, 0
   %23 = extractvalue { i64, ptr } %21, 1
-  %24 = tail call { i64, ptr } @jv_array_append(i64 %19, ptr %20, i64 %22, ptr %23) #14
+  %24 = tail call { i64, ptr } @jv_array_append(i64 %19, ptr %20, i64 %22, ptr %23) #13
   %25 = extractvalue { i64, ptr } %24, 0
   %26 = extractvalue { i64, ptr } %24, 1
   %27 = load i32, ptr %5, align 4, !tbaa !19
   %28 = sitofp i32 %27 to double
-  %29 = tail call { i64, ptr } @jv_number(double noundef %28) #14
+  %29 = tail call { i64, ptr } @jv_number(double noundef %28) #13
   %30 = extractvalue { i64, ptr } %29, 0
   %31 = extractvalue { i64, ptr } %29, 1
-  %32 = tail call { i64, ptr } @jv_array_append(i64 %25, ptr %26, i64 %30, ptr %31) #14
-  tail call void @jv_free(i64 %1, ptr %2) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #14
+  %32 = tail call { i64, ptr } @jv_array_append(i64 %25, ptr %26, i64 %30, ptr %31) #13
+  tail call void @jv_free(i64 %1, ptr %2) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #13
   br label %33
 
 33:                                               ; preds = %15, %7
@@ -3685,43 +3685,43 @@ define internal { i64, ptr } @f_frexp(ptr readnone captures(none) %0, i64 %1, pt
 define internal { i64, ptr } @f_lgamma_r(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
   %5 = alloca i32, align 4
-  %6 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %6 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %.not = icmp eq i32 %6, 4
   br i1 %.not, label %15, label %7
 
 7:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
-  %8 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
-  %9 = tail call ptr @jv_kind_name(i32 noundef %8) #14
-  %10 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
-  %11 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %9, ptr noundef %10, ptr noundef nonnull @.str.154) #14
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #13
+  %8 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
+  %9 = tail call ptr @jv_kind_name(i32 noundef %8) #13
+  %10 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #13
+  %11 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %9, ptr noundef %10, ptr noundef nonnull @.str.154) #13
   %12 = extractvalue { i64, ptr } %11, 0
   %13 = extractvalue { i64, ptr } %11, 1
-  %14 = call { i64, ptr } @jv_invalid_with_msg(i64 %12, ptr %13) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  %14 = call { i64, ptr } @jv_invalid_with_msg(i64 %12, ptr %13) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #13
   br label %33
 
 15:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #14
-  %16 = tail call double @jv_number_value(i64 %1, ptr %2) #14
-  %17 = call double @lgamma_r(double noundef %16, ptr noundef nonnull %5) #14
-  %18 = call { i64, ptr } @jv_array() #14
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #13
+  %16 = tail call double @jv_number_value(i64 %1, ptr %2) #13
+  %17 = call double @lgamma_r(double noundef %16, ptr noundef nonnull %5) #13
+  %18 = call { i64, ptr } @jv_array() #13
   %19 = extractvalue { i64, ptr } %18, 0
   %20 = extractvalue { i64, ptr } %18, 1
-  %21 = call { i64, ptr } @jv_number(double noundef %17) #14
+  %21 = call { i64, ptr } @jv_number(double noundef %17) #13
   %22 = extractvalue { i64, ptr } %21, 0
   %23 = extractvalue { i64, ptr } %21, 1
-  %24 = call { i64, ptr } @jv_array_append(i64 %19, ptr %20, i64 %22, ptr %23) #14
+  %24 = call { i64, ptr } @jv_array_append(i64 %19, ptr %20, i64 %22, ptr %23) #13
   %25 = extractvalue { i64, ptr } %24, 0
   %26 = extractvalue { i64, ptr } %24, 1
   %27 = load i32, ptr %5, align 4, !tbaa !19
   %28 = sitofp i32 %27 to double
-  %29 = call { i64, ptr } @jv_number(double noundef %28) #14
+  %29 = call { i64, ptr } @jv_number(double noundef %28) #13
   %30 = extractvalue { i64, ptr } %29, 0
   %31 = extractvalue { i64, ptr } %29, 1
-  %32 = call { i64, ptr } @jv_array_append(i64 %25, ptr %26, i64 %30, ptr %31) #14
-  call void @jv_free(i64 %1, ptr %2) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #14
+  %32 = call { i64, ptr } @jv_array_append(i64 %25, ptr %26, i64 %30, ptr %31) #13
+  call void @jv_free(i64 %1, ptr %2) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #13
   br label %33
 
 33:                                               ; preds = %15, %7
@@ -3732,25 +3732,25 @@ define internal { i64, ptr } @f_lgamma_r(ptr readnone captures(none) %0, i64 %1,
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_negate(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
-  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %.not = icmp eq i32 %5, 4
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
-  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
-  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
-  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
-  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.156) #14
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #13
+  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
+  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #13
+  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #13
+  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.156) #13
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
-  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #13
   br label %16
 
 14:                                               ; preds = %3
-  %15 = tail call { i64, ptr } @jv_number_negate(i64 %1, ptr %2) #14
-  tail call void @jv_free(i64 %1, ptr %2) #14
+  %15 = tail call { i64, ptr } @jv_number_negate(i64 %1, ptr %2) #13
+  tail call void @jv_free(i64 %1, ptr %2) #13
   br label %16
 
 16:                                               ; preds = %14, %6
@@ -3760,7 +3760,7 @@ define internal { i64, ptr } @f_negate(ptr readnone captures(none) %0, i64 %1, p
 
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_plus(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr noundef readonly byval(%struct.jv) align 8 captures(none) %5) #0 {
-  tail call void @jv_free(i64 %1, ptr %2) #14
+  tail call void @jv_free(i64 %1, ptr %2) #13
   %7 = load i64, ptr %5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %9 = load ptr, ptr %8, align 8
@@ -3770,7 +3770,7 @@ define internal { i64, ptr } @f_plus(ptr readnone captures(none) %0, i64 %1, ptr
 
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_minus(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr noundef readonly byval(%struct.jv) align 8 captures(none) %5) #0 {
-  tail call void @jv_free(i64 %1, ptr %2) #14
+  tail call void @jv_free(i64 %1, ptr %2) #13
   %7 = load i64, ptr %5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %9 = load ptr, ptr %8, align 8
@@ -3780,7 +3780,7 @@ define internal { i64, ptr } @f_minus(ptr readnone captures(none) %0, i64 %1, pt
 
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_multiply(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr noundef readonly byval(%struct.jv) align 8 captures(none) %5) #0 {
-  tail call void @jv_free(i64 %1, ptr %2) #14
+  tail call void @jv_free(i64 %1, ptr %2) #13
   %7 = load i64, ptr %5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %9 = load ptr, ptr %8, align 8
@@ -3790,7 +3790,7 @@ define internal { i64, ptr } @f_multiply(ptr readnone captures(none) %0, i64 %1,
 
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_divide(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr noundef readonly byval(%struct.jv) align 8 captures(none) %5) #0 {
-  tail call void @jv_free(i64 %1, ptr %2) #14
+  tail call void @jv_free(i64 %1, ptr %2) #13
   %7 = load i64, ptr %5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %9 = load ptr, ptr %8, align 8
@@ -3800,7 +3800,7 @@ define internal { i64, ptr } @f_divide(ptr readnone captures(none) %0, i64 %1, p
 
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_mod(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr noundef readonly byval(%struct.jv) align 8 captures(none) %5) #0 {
-  tail call void @jv_free(i64 %1, ptr %2) #14
+  tail call void @jv_free(i64 %1, ptr %2) #13
   %7 = load i64, ptr %5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %9 = load ptr, ptr %8, align 8
@@ -3810,112 +3810,112 @@ define internal { i64, ptr } @f_mod(ptr readnone captures(none) %0, i64 %1, ptr 
 
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_equal(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr noundef readonly byval(%struct.jv) align 8 captures(none) %5) #0 {
-  tail call void @jv_free(i64 %1, ptr %2) #14
+  tail call void @jv_free(i64 %1, ptr %2) #13
   %7 = load i64, ptr %5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 @jv_equal(i64 %3, ptr %4, i64 %7, ptr %9) #14
-  %11 = tail call { i64, ptr } @jv_bool(i32 noundef %10) #14
+  %10 = tail call i32 @jv_equal(i64 %3, ptr %4, i64 %7, ptr %9) #13
+  %11 = tail call { i64, ptr } @jv_bool(i32 noundef %10) #13
   ret { i64, ptr } %11
 }
 
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_notequal(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr noundef readonly byval(%struct.jv) align 8 captures(none) %5) #0 {
-  tail call void @jv_free(i64 %1, ptr %2) #14
+  tail call void @jv_free(i64 %1, ptr %2) #13
   %7 = load i64, ptr %5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 @jv_equal(i64 %3, ptr %4, i64 %7, ptr %9) #14
+  %10 = tail call i32 @jv_equal(i64 %3, ptr %4, i64 %7, ptr %9) #13
   %.not.i = icmp eq i32 %10, 0
   %11 = zext i1 %.not.i to i32
-  %12 = tail call { i64, ptr } @jv_bool(i32 noundef %11) #14
+  %12 = tail call { i64, ptr } @jv_bool(i32 noundef %11) #13
   ret { i64, ptr } %12
 }
 
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_less(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr noundef readonly byval(%struct.jv) align 8 captures(none) %5) #0 {
-  tail call void @jv_free(i64 %1, ptr %2) #14
+  tail call void @jv_free(i64 %1, ptr %2) #13
   %7 = load i64, ptr %5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 @jv_cmp(i64 %3, ptr %4, i64 %7, ptr %9) #14
+  %10 = tail call i32 @jv_cmp(i64 %3, ptr %4, i64 %7, ptr %9) #13
   %.lobit.i = lshr i32 %10, 31
-  %11 = tail call { i64, ptr } @jv_bool(i32 noundef %.lobit.i) #14
+  %11 = tail call { i64, ptr } @jv_bool(i32 noundef %.lobit.i) #13
   ret { i64, ptr } %11
 }
 
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_lesseq(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr noundef readonly byval(%struct.jv) align 8 captures(none) %5) #0 {
-  tail call void @jv_free(i64 %1, ptr %2) #14
+  tail call void @jv_free(i64 %1, ptr %2) #13
   %7 = load i64, ptr %5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 @jv_cmp(i64 %3, ptr %4, i64 %7, ptr %9) #14
+  %10 = tail call i32 @jv_cmp(i64 %3, ptr %4, i64 %7, ptr %9) #13
   %11 = icmp slt i32 %10, 1
   %spec.select.i = zext i1 %11 to i32
-  %12 = tail call { i64, ptr } @jv_bool(i32 noundef %spec.select.i) #14
+  %12 = tail call { i64, ptr } @jv_bool(i32 noundef %spec.select.i) #13
   ret { i64, ptr } %12
 }
 
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_greater(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr noundef readonly byval(%struct.jv) align 8 captures(none) %5) #0 {
-  tail call void @jv_free(i64 %1, ptr %2) #14
+  tail call void @jv_free(i64 %1, ptr %2) #13
   %7 = load i64, ptr %5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 @jv_cmp(i64 %3, ptr %4, i64 %7, ptr %9) #14
+  %10 = tail call i32 @jv_cmp(i64 %3, ptr %4, i64 %7, ptr %9) #13
   %11 = icmp sgt i32 %10, 0
   %12 = zext i1 %11 to i32
-  %13 = tail call { i64, ptr } @jv_bool(i32 noundef %12) #14
+  %13 = tail call { i64, ptr } @jv_bool(i32 noundef %12) #13
   ret { i64, ptr } %13
 }
 
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_greatereq(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr noundef readonly byval(%struct.jv) align 8 captures(none) %5) #0 {
-  tail call void @jv_free(i64 %1, ptr %2) #14
+  tail call void @jv_free(i64 %1, ptr %2) #13
   %7 = load i64, ptr %5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call i32 @jv_cmp(i64 %3, ptr %4, i64 %7, ptr %9) #14
+  %10 = tail call i32 @jv_cmp(i64 %3, ptr %4, i64 %7, ptr %9) #13
   %11 = icmp sgt i32 %10, -1
   %spec.select.i = zext i1 %11 to i32
-  %12 = tail call { i64, ptr } @jv_bool(i32 noundef %spec.select.i) #14
+  %12 = tail call { i64, ptr } @jv_bool(i32 noundef %spec.select.i) #13
   ret { i64, ptr } %12
 }
 
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_dump(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
-  %4 = tail call { i64, ptr } @jv_dump_string(i64 %1, ptr %2, i32 noundef 0) #14
+  %4 = tail call { i64, ptr } @jv_dump_string(i64 %1, ptr %2, i32 noundef 0) #13
   ret { i64, ptr } %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_json_parse(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
-  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %.not = icmp eq i32 %5, 5
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
-  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
-  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
-  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
-  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.157) #14
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #13
+  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
+  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #13
+  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #13
+  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.157) #13
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
-  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #13
   br label %21
 
 14:                                               ; preds = %3
-  %15 = tail call ptr @jv_string_value(i64 %1, ptr %2) #14
-  %16 = tail call { i64, ptr } @jv_copy(i64 %1, ptr %2) #14
+  %15 = tail call ptr @jv_string_value(i64 %1, ptr %2) #13
+  %16 = tail call { i64, ptr } @jv_copy(i64 %1, ptr %2) #13
   %17 = extractvalue { i64, ptr } %16, 0
   %18 = extractvalue { i64, ptr } %16, 1
-  %19 = tail call i32 @jv_string_length_bytes(i64 %17, ptr %18) #14
-  %20 = tail call { i64, ptr } @jv_parse_sized(ptr noundef %15, i32 noundef %19) #14
-  tail call void @jv_free(i64 %1, ptr %2) #14
+  %19 = tail call i32 @jv_string_length_bytes(i64 %17, ptr %18) #13
+  %20 = tail call { i64, ptr } @jv_parse_sized(ptr noundef %15, i32 noundef %19) #13
+  tail call void @jv_free(i64 %1, ptr %2) #13
   br label %21
 
 21:                                               ; preds = %14, %6
@@ -3927,7 +3927,7 @@ define internal { i64, ptr } @f_json_parse(ptr readnone captures(none) %0, i64 %
 define internal { i64, ptr } @f_tonumber(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
   %5 = alloca [15 x i8], align 1
-  %6 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %6 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %7 = icmp eq i32 %6, 4
   br i1 %7, label %8, label %11
 
@@ -3937,45 +3937,45 @@ define internal { i64, ptr } @f_tonumber(ptr readnone captures(none) %0, i64 %1,
   br label %38
 
 11:                                               ; preds = %3
-  %12 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %12 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %13 = icmp eq i32 %12, 5
   br i1 %13, label %14, label %30
 
 14:                                               ; preds = %11
-  %15 = tail call ptr @jv_string_value(i64 %1, ptr %2) #14
-  %16 = tail call { i64, ptr } @jv_number_with_literal(ptr noundef %15) #14
+  %15 = tail call ptr @jv_string_value(i64 %1, ptr %2) #13
+  %16 = tail call { i64, ptr } @jv_number_with_literal(ptr noundef %15) #13
   %17 = extractvalue { i64, ptr } %16, 0
   %18 = extractvalue { i64, ptr } %16, 1
-  %19 = tail call i32 @jv_get_kind(i64 %17, ptr %18) #14
+  %19 = tail call i32 @jv_get_kind(i64 %17, ptr %18) #13
   %20 = icmp eq i32 %19, 0
   br i1 %20, label %21, label %29
 
 21:                                               ; preds = %14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %5) #14
-  %22 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
-  %23 = tail call ptr @jv_kind_name(i32 noundef %22) #14
-  %24 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %5, i64 noundef 15) #14
-  %25 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %23, ptr noundef %24, ptr noundef nonnull @.str.158) #14
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %5) #13
+  %22 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
+  %23 = tail call ptr @jv_kind_name(i32 noundef %22) #13
+  %24 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %5, i64 noundef 15) #13
+  %25 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %23, ptr noundef %24, ptr noundef nonnull @.str.158) #13
   %26 = extractvalue { i64, ptr } %25, 0
   %27 = extractvalue { i64, ptr } %25, 1
-  %28 = call { i64, ptr } @jv_invalid_with_msg(i64 %26, ptr %27) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %5) #14
+  %28 = call { i64, ptr } @jv_invalid_with_msg(i64 %26, ptr %27) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %5) #13
   br label %38
 
 29:                                               ; preds = %14
-  tail call void @jv_free(i64 %1, ptr %2) #14
+  tail call void @jv_free(i64 %1, ptr %2) #13
   br label %38
 
 30:                                               ; preds = %11
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
-  %31 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
-  %32 = tail call ptr @jv_kind_name(i32 noundef %31) #14
-  %33 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
-  %34 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %32, ptr noundef %33, ptr noundef nonnull @.str.158) #14
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #13
+  %31 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
+  %32 = tail call ptr @jv_kind_name(i32 noundef %31) #13
+  %33 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #13
+  %34 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %32, ptr noundef %33, ptr noundef nonnull @.str.158) #13
   %35 = extractvalue { i64, ptr } %34, 0
   %36 = extractvalue { i64, ptr } %34, 1
-  %37 = call { i64, ptr } @jv_invalid_with_msg(i64 %35, ptr %36) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  %37 = call { i64, ptr } @jv_invalid_with_msg(i64 %35, ptr %36) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #13
   br label %38
 
 38:                                               ; preds = %21, %29, %30, %8
@@ -3985,7 +3985,7 @@ define internal { i64, ptr } @f_tonumber(ptr readnone captures(none) %0, i64 %1,
 
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_tostring(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
-  %4 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %4 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %5 = icmp eq i32 %4, 5
   br i1 %5, label %6, label %9
 
@@ -3995,7 +3995,7 @@ define internal { i64, ptr } @f_tostring(ptr readnone captures(none) %0, i64 %1,
   br label %11
 
 9:                                                ; preds = %3
-  %10 = tail call { i64, ptr } @jv_dump_string(i64 %1, ptr %2, i32 noundef 0) #14
+  %10 = tail call { i64, ptr } @jv_dump_string(i64 %1, ptr %2, i32 noundef 0) #13
   br label %11
 
 11:                                               ; preds = %9, %6
@@ -4006,29 +4006,29 @@ define internal { i64, ptr } @f_tostring(ptr readnone captures(none) %0, i64 %1,
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_keys(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
-  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %6 = icmp eq i32 %5, 7
   br i1 %6, label %10, label %7
 
 7:                                                ; preds = %3
-  %8 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %8 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %9 = icmp eq i32 %8, 6
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %7, %3
-  %11 = tail call { i64, ptr } @jv_keys(i64 %1, ptr %2) #14
+  %11 = tail call { i64, ptr } @jv_keys(i64 %1, ptr %2) #13
   br label %20
 
 12:                                               ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
-  %13 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
-  %14 = tail call ptr @jv_kind_name(i32 noundef %13) #14
-  %15 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
-  %16 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %14, ptr noundef %15, ptr noundef nonnull @.str.159) #14
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #13
+  %13 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
+  %14 = tail call ptr @jv_kind_name(i32 noundef %13) #13
+  %15 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #13
+  %16 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %14, ptr noundef %15, ptr noundef nonnull @.str.159) #13
   %17 = extractvalue { i64, ptr } %16, 0
   %18 = extractvalue { i64, ptr } %16, 1
-  %19 = call { i64, ptr } @jv_invalid_with_msg(i64 %17, ptr %18) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  %19 = call { i64, ptr } @jv_invalid_with_msg(i64 %17, ptr %18) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #13
   br label %20
 
 20:                                               ; preds = %12, %10
@@ -4039,29 +4039,29 @@ define internal { i64, ptr } @f_keys(ptr readnone captures(none) %0, i64 %1, ptr
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_keys_unsorted(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
-  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %6 = icmp eq i32 %5, 7
   br i1 %6, label %10, label %7
 
 7:                                                ; preds = %3
-  %8 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %8 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %9 = icmp eq i32 %8, 6
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %7, %3
-  %11 = tail call { i64, ptr } @jv_keys_unsorted(i64 %1, ptr %2) #14
+  %11 = tail call { i64, ptr } @jv_keys_unsorted(i64 %1, ptr %2) #13
   br label %20
 
 12:                                               ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
-  %13 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
-  %14 = tail call ptr @jv_kind_name(i32 noundef %13) #14
-  %15 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
-  %16 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %14, ptr noundef %15, ptr noundef nonnull @.str.159) #14
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #13
+  %13 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
+  %14 = tail call ptr @jv_kind_name(i32 noundef %13) #13
+  %15 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #13
+  %16 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %14, ptr noundef %15, ptr noundef nonnull @.str.159) #13
   %17 = extractvalue { i64, ptr } %16, 0
   %18 = extractvalue { i64, ptr } %16, 1
-  %19 = call { i64, ptr } @jv_invalid_with_msg(i64 %17, ptr %18) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  %19 = call { i64, ptr } @jv_invalid_with_msg(i64 %17, ptr %18) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #13
   br label %20
 
 20:                                               ; preds = %12, %10
@@ -4071,56 +4071,56 @@ define internal { i64, ptr } @f_keys_unsorted(ptr readnone captures(none) %0, i6
 
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_startswith(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4) #0 {
-  %6 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %6 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %.not = icmp eq i32 %6, 5
   br i1 %.not, label %7, label %9
 
 7:                                                ; preds = %5
-  %8 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #14
+  %8 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #13
   %.not31 = icmp eq i32 %8, 5
   br i1 %.not31, label %14, label %9
 
 9:                                                ; preds = %7, %5
-  %10 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.160) #14
+  %10 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.160) #13
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
-  tail call void @jv_free(i64 %1, ptr %2) #14
-  tail call void @jv_free(i64 %3, ptr %4) #14
-  %13 = tail call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
+  tail call void @jv_free(i64 %1, ptr %2) #13
+  tail call void @jv_free(i64 %3, ptr %4) #13
+  %13 = tail call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #13
   br label %33
 
 14:                                               ; preds = %7
-  %15 = tail call { i64, ptr } @jv_copy(i64 %1, ptr %2) #14
+  %15 = tail call { i64, ptr } @jv_copy(i64 %1, ptr %2) #13
   %16 = extractvalue { i64, ptr } %15, 0
   %17 = extractvalue { i64, ptr } %15, 1
-  %18 = tail call i32 @jv_string_length_bytes(i64 %16, ptr %17) #14
-  %19 = tail call { i64, ptr } @jv_copy(i64 %3, ptr %4) #14
+  %18 = tail call i32 @jv_string_length_bytes(i64 %16, ptr %17) #13
+  %19 = tail call { i64, ptr } @jv_copy(i64 %3, ptr %4) #13
   %20 = extractvalue { i64, ptr } %19, 0
   %21 = extractvalue { i64, ptr } %19, 1
-  %22 = tail call i32 @jv_string_length_bytes(i64 %20, ptr %21) #14
+  %22 = tail call i32 @jv_string_length_bytes(i64 %20, ptr %21) #13
   %.not32 = icmp sgt i32 %22, %18
   br i1 %.not32, label %30, label %23
 
 23:                                               ; preds = %14
-  %24 = tail call ptr @jv_string_value(i64 %1, ptr %2) #14
-  %25 = tail call ptr @jv_string_value(i64 %3, ptr %4) #14
+  %24 = tail call ptr @jv_string_value(i64 %1, ptr %2) #13
+  %25 = tail call ptr @jv_string_value(i64 %3, ptr %4) #13
   %26 = sext i32 %22 to i64
   %bcmp = tail call i32 @bcmp(ptr %24, ptr %25, i64 %26)
   %27 = icmp eq i32 %bcmp, 0
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %23
-  %29 = tail call { i64, ptr } @jv_true() #14
+  %29 = tail call { i64, ptr } @jv_true() #13
   br label %32
 
 30:                                               ; preds = %23, %14
-  %31 = tail call { i64, ptr } @jv_false() #14
+  %31 = tail call { i64, ptr } @jv_false() #13
   br label %32
 
 32:                                               ; preds = %30, %28
   %.pn = phi { i64, ptr } [ %29, %28 ], [ %31, %30 ]
-  tail call void @jv_free(i64 %1, ptr %2) #14
-  tail call void @jv_free(i64 %3, ptr %4) #14
+  tail call void @jv_free(i64 %1, ptr %2) #13
+  tail call void @jv_free(i64 %3, ptr %4) #13
   br label %33
 
 33:                                               ; preds = %32, %9
@@ -4130,35 +4130,35 @@ define internal { i64, ptr } @f_startswith(ptr readnone captures(none) %0, i64 %
 
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_endswith(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4) #0 {
-  %6 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %6 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %.not = icmp eq i32 %6, 5
   br i1 %.not, label %7, label %9
 
 7:                                                ; preds = %5
-  %8 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #14
+  %8 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #13
   %.not35 = icmp eq i32 %8, 5
   br i1 %.not35, label %14, label %9
 
 9:                                                ; preds = %7, %5
-  %10 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.161) #14
+  %10 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.161) #13
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
-  tail call void @jv_free(i64 %1, ptr %2) #14
-  tail call void @jv_free(i64 %3, ptr %4) #14
-  %13 = tail call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
+  tail call void @jv_free(i64 %1, ptr %2) #13
+  tail call void @jv_free(i64 %3, ptr %4) #13
+  %13 = tail call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #13
   br label %36
 
 14:                                               ; preds = %7
-  %15 = tail call ptr @jv_string_value(i64 %1, ptr %2) #14
-  %16 = tail call ptr @jv_string_value(i64 %3, ptr %4) #14
-  %17 = tail call { i64, ptr } @jv_copy(i64 %1, ptr %2) #14
+  %15 = tail call ptr @jv_string_value(i64 %1, ptr %2) #13
+  %16 = tail call ptr @jv_string_value(i64 %3, ptr %4) #13
+  %17 = tail call { i64, ptr } @jv_copy(i64 %1, ptr %2) #13
   %18 = extractvalue { i64, ptr } %17, 0
   %19 = extractvalue { i64, ptr } %17, 1
-  %20 = tail call i32 @jv_string_length_bytes(i64 %18, ptr %19) #14
-  %21 = tail call { i64, ptr } @jv_copy(i64 %3, ptr %4) #14
+  %20 = tail call i32 @jv_string_length_bytes(i64 %18, ptr %19) #13
+  %21 = tail call { i64, ptr } @jv_copy(i64 %3, ptr %4) #13
   %22 = extractvalue { i64, ptr } %21, 0
   %23 = extractvalue { i64, ptr } %21, 1
-  %24 = tail call i32 @jv_string_length_bytes(i64 %22, ptr %23) #14
+  %24 = tail call i32 @jv_string_length_bytes(i64 %22, ptr %23) #13
   %25 = icmp ult i32 %20, %24
   br i1 %25, label %31, label %26
 
@@ -4172,17 +4172,17 @@ define internal { i64, ptr } @f_endswith(ptr readnone captures(none) %0, i64 %1,
   br i1 %.not36, label %33, label %31
 
 31:                                               ; preds = %26, %14
-  %32 = tail call { i64, ptr } @jv_false() #14
+  %32 = tail call { i64, ptr } @jv_false() #13
   br label %35
 
 33:                                               ; preds = %26
-  %34 = tail call { i64, ptr } @jv_true() #14
+  %34 = tail call { i64, ptr } @jv_true() #13
   br label %35
 
 35:                                               ; preds = %33, %31
   %.pn = phi { i64, ptr } [ %32, %31 ], [ %34, %33 ]
-  tail call void @jv_free(i64 %1, ptr %2) #14
-  tail call void @jv_free(i64 %3, ptr %4) #14
+  tail call void @jv_free(i64 %1, ptr %2) #13
+  tail call void @jv_free(i64 %3, ptr %4) #13
   br label %36
 
 36:                                               ; preds = %35, %9
@@ -4192,26 +4192,26 @@ define internal { i64, ptr } @f_endswith(ptr readnone captures(none) %0, i64 %1,
 
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_string_split(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4) #0 {
-  %6 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %6 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %.not = icmp eq i32 %6, 5
   br i1 %.not, label %7, label %9
 
 7:                                                ; preds = %5
-  %8 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #14
+  %8 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #13
   %.not13 = icmp eq i32 %8, 5
   br i1 %.not13, label %14, label %9
 
 9:                                                ; preds = %7, %5
-  %10 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.162) #14
+  %10 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.162) #13
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
-  tail call void @jv_free(i64 %1, ptr %2) #14
-  tail call void @jv_free(i64 %3, ptr %4) #14
-  %13 = tail call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
+  tail call void @jv_free(i64 %1, ptr %2) #13
+  tail call void @jv_free(i64 %3, ptr %4) #13
+  %13 = tail call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #13
   br label %16
 
 14:                                               ; preds = %7
-  %15 = tail call { i64, ptr } @jv_string_split(i64 %1, ptr %2, i64 %3, ptr %4) #14
+  %15 = tail call { i64, ptr } @jv_string_split(i64 %1, ptr %2, i64 %3, ptr %4) #13
   br label %16
 
 16:                                               ; preds = %14, %9
@@ -4221,20 +4221,20 @@ define internal { i64, ptr } @f_string_split(ptr readnone captures(none) %0, i64
 
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_string_explode(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
-  %4 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %4 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %.not = icmp eq i32 %4, 5
   br i1 %.not, label %10, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.163) #14
+  %6 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.163) #13
   %7 = extractvalue { i64, ptr } %6, 0
   %8 = extractvalue { i64, ptr } %6, 1
-  tail call void @jv_free(i64 %1, ptr %2) #14
-  %9 = tail call { i64, ptr } @jv_invalid_with_msg(i64 %7, ptr %8) #14
+  tail call void @jv_free(i64 %1, ptr %2) #13
+  %9 = tail call { i64, ptr } @jv_invalid_with_msg(i64 %7, ptr %8) #13
   br label %12
 
 10:                                               ; preds = %3
-  %11 = tail call { i64, ptr } @jv_string_explode(i64 %1, ptr %2) #14
+  %11 = tail call { i64, ptr } @jv_string_explode(i64 %1, ptr %2) #13
   br label %12
 
 12:                                               ; preds = %10, %5
@@ -4245,24 +4245,24 @@ define internal { i64, ptr } @f_string_explode(ptr readnone captures(none) %0, i
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_string_implode(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
-  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %.not = icmp eq i32 %5, 6
   br i1 %.not, label %11, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.164) #14
+  %7 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.164) #13
   %8 = extractvalue { i64, ptr } %7, 0
   %9 = extractvalue { i64, ptr } %7, 1
-  tail call void @jv_free(i64 %1, ptr %2) #14
-  %10 = tail call { i64, ptr } @jv_invalid_with_msg(i64 %8, ptr %9) #14
+  tail call void @jv_free(i64 %1, ptr %2) #13
+  %10 = tail call { i64, ptr } @jv_invalid_with_msg(i64 %8, ptr %9) #13
   br label %39
 
 11:                                               ; preds = %3
-  %12 = tail call { i64, ptr } @jv_copy(i64 %1, ptr %2) #14
+  %12 = tail call { i64, ptr } @jv_copy(i64 %1, ptr %2) #13
   %13 = extractvalue { i64, ptr } %12, 0
   %14 = extractvalue { i64, ptr } %12, 1
-  %15 = tail call i32 @jv_array_length(i64 %13, ptr %14) #14
-  %16 = tail call { i64, ptr } @jv_string_empty(i32 noundef %15) #14
+  %15 = tail call i32 @jv_array_length(i64 %13, ptr %14) #13
+  %16 = tail call { i64, ptr } @jv_string_empty(i32 noundef %15) #13
   %.not5275 = icmp sgt i32 %15, 0
   br i1 %.not5275, label %.lr.ph, label %._crit_edge
 
@@ -4271,52 +4271,52 @@ define internal { i64, ptr } @f_string_implode(ptr readnone captures(none) %0, i
   %.04776 = phi i32 [ %38, %33 ], [ 0, %11 ]
   %.sroa.7.077 = extractvalue { i64, ptr } %.pn, 1
   %.sroa.024.078 = extractvalue { i64, ptr } %.pn, 0
-  %17 = tail call { i64, ptr } @jv_copy(i64 %1, ptr %2) #14
+  %17 = tail call { i64, ptr } @jv_copy(i64 %1, ptr %2) #13
   %18 = extractvalue { i64, ptr } %17, 0
   %19 = extractvalue { i64, ptr } %17, 1
-  %20 = tail call { i64, ptr } @jv_array_get(i64 %18, ptr %19, i32 noundef %.04776) #14
+  %20 = tail call { i64, ptr } @jv_array_get(i64 %18, ptr %19, i32 noundef %.04776) #13
   %21 = extractvalue { i64, ptr } %20, 0
   %22 = extractvalue { i64, ptr } %20, 1
-  %23 = tail call i32 @jv_get_kind(i64 %21, ptr %22) #14
+  %23 = tail call i32 @jv_get_kind(i64 %21, ptr %22) #13
   %.not50 = icmp eq i32 %23, 4
   br i1 %.not50, label %24, label %.thread63
 
 24:                                               ; preds = %.lr.ph
-  %25 = tail call i32 @jvp_number_is_nan(i64 %21, ptr %22) #14
+  %25 = tail call i32 @jvp_number_is_nan(i64 %21, ptr %22) #13
   %.not51 = icmp eq i32 %25, 0
   br i1 %.not51, label %33, label %.thread63
 
 .thread63:                                        ; preds = %24, %.lr.ph
-  tail call void @jv_free(i64 %1, ptr %2) #14
-  tail call void @jv_free(i64 %.sroa.024.078, ptr %.sroa.7.077) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
-  %26 = tail call i32 @jv_get_kind(i64 %21, ptr %22) #14
-  %27 = tail call ptr @jv_kind_name(i32 noundef %26) #14
-  %28 = call ptr @jv_dump_string_trunc(i64 %21, ptr %22, ptr noundef nonnull %4, i64 noundef 15) #14
-  %29 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %27, ptr noundef %28, ptr noundef nonnull @.str.165) #14
+  tail call void @jv_free(i64 %1, ptr %2) #13
+  tail call void @jv_free(i64 %.sroa.024.078, ptr %.sroa.7.077) #13
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #13
+  %26 = tail call i32 @jv_get_kind(i64 %21, ptr %22) #13
+  %27 = tail call ptr @jv_kind_name(i32 noundef %26) #13
+  %28 = call ptr @jv_dump_string_trunc(i64 %21, ptr %22, ptr noundef nonnull %4, i64 noundef 15) #13
+  %29 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %27, ptr noundef %28, ptr noundef nonnull @.str.165) #13
   %30 = extractvalue { i64, ptr } %29, 0
   %31 = extractvalue { i64, ptr } %29, 1
-  %32 = call { i64, ptr } @jv_invalid_with_msg(i64 %30, ptr %31) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  %32 = call { i64, ptr } @jv_invalid_with_msg(i64 %30, ptr %31) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #13
   br label %39
 
 33:                                               ; preds = %24
-  %34 = tail call double @jv_number_value(i64 %21, ptr %22) #14
+  %34 = tail call double @jv_number_value(i64 %21, ptr %22) #13
   %35 = fptosi double %34 to i32
-  tail call void @jv_free(i64 %21, ptr %22) #14
+  tail call void @jv_free(i64 %21, ptr %22) #13
   %or.cond = icmp ugt i32 %35, 1114111
   %36 = and i32 %35, 2095104
   %or.cond4 = icmp eq i32 %36, 55296
   %or.cond53 = or i1 %or.cond, %or.cond4
   %.0 = select i1 %or.cond53, i32 65533, i32 %35
-  %37 = tail call { i64, ptr } @jv_string_append_codepoint(i64 %.sroa.024.078, ptr %.sroa.7.077, i32 noundef %.0) #14
+  %37 = tail call { i64, ptr } @jv_string_append_codepoint(i64 %.sroa.024.078, ptr %.sroa.7.077, i32 noundef %.0) #13
   %38 = add nuw nsw i32 %.04776, 1
   %exitcond.not = icmp eq i32 %38, %15
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !23
 
 ._crit_edge:                                      ; preds = %33, %11
   %.pn.lcssa = phi { i64, ptr } [ %16, %11 ], [ %37, %33 ]
-  tail call void @jv_free(i64 %1, ptr %2) #14
+  tail call void @jv_free(i64 %1, ptr %2) #13
   br label %39
 
 39:                                               ; preds = %._crit_edge, %.thread63, %6
@@ -4326,7 +4326,7 @@ define internal { i64, ptr } @f_string_implode(ptr readnone captures(none) %0, i
 
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_string_indexes(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4) #0 {
-  %6 = tail call { i64, ptr } @jv_string_indexes(i64 %1, ptr %2, i64 %3, ptr %4) #14
+  %6 = tail call { i64, ptr } @jv_string_indexes(i64 %1, ptr %2, i64 %3, ptr %4) #13
   ret { i64, ptr } %6
 }
 
@@ -4353,38 +4353,38 @@ define internal { i64, ptr } @f_setpath(ptr readnone captures(none) %0, i64 %1, 
   %7 = load i64, ptr %5, align 8
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %9 = load ptr, ptr %8, align 8
-  %10 = tail call { i64, ptr } @jv_setpath(i64 %1, ptr %2, i64 %3, ptr %4, i64 %7, ptr %9) #14
+  %10 = tail call { i64, ptr } @jv_setpath(i64 %1, ptr %2, i64 %3, ptr %4, i64 %7, ptr %9) #13
   ret { i64, ptr } %10
 }
 
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_getpath(ptr noundef %0, i64 %1, ptr %2, i64 %3, ptr %4) #0 {
   %6 = alloca %struct.jv, align 8
-  %7 = tail call { i64, ptr } @jv_copy(i64 %1, ptr %2) #14
+  %7 = tail call { i64, ptr } @jv_copy(i64 %1, ptr %2) #13
   %8 = extractvalue { i64, ptr } %7, 0
   %9 = extractvalue { i64, ptr } %7, 1
-  %10 = tail call { i64, ptr } @jv_copy(i64 %3, ptr %4) #14
+  %10 = tail call { i64, ptr } @jv_copy(i64 %3, ptr %4) #13
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
-  %13 = tail call { i64, ptr } @jv_getpath(i64 %8, ptr %9, i64 %11, ptr %12) #14
+  %13 = tail call { i64, ptr } @jv_getpath(i64 %8, ptr %9, i64 %11, ptr %12) #13
   %14 = extractvalue { i64, ptr } %13, 0
   store i64 %14, ptr %6, align 8
   %15 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %16 = extractvalue { i64, ptr } %13, 1
   store ptr %16, ptr %15, align 8
-  %17 = tail call { i64, ptr } @_jq_path_append(ptr noundef %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr noundef nonnull byval(%struct.jv) align 8 %6) #14
+  %17 = tail call { i64, ptr } @_jq_path_append(ptr noundef %0, i64 %1, ptr %2, i64 %3, ptr %4, ptr noundef nonnull byval(%struct.jv) align 8 %6) #13
   ret { i64, ptr } %17
 }
 
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_delpaths(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4) #0 {
-  %6 = tail call { i64, ptr } @jv_delpaths(i64 %1, ptr %2, i64 %3, ptr %4) #14
+  %6 = tail call { i64, ptr } @jv_delpaths(i64 %1, ptr %2, i64 %3, ptr %4) #13
   ret { i64, ptr } %6
 }
 
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_has(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4) #0 {
-  %6 = tail call { i64, ptr } @jv_has(i64 %1, ptr %2, i64 %3, ptr %4) #14
+  %6 = tail call { i64, ptr } @jv_has(i64 %1, ptr %2, i64 %3, ptr %4) #13
   ret { i64, ptr } %6
 }
 
@@ -4392,31 +4392,31 @@ define internal { i64, ptr } @f_has(ptr readnone captures(none) %0, i64 %1, ptr 
 define internal { i64, ptr } @f_contains(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4) #0 {
   %6 = alloca [15 x i8], align 1
   %7 = alloca [15 x i8], align 1
-  %8 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
-  %9 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #14
+  %8 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
+  %9 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #13
   %10 = icmp eq i32 %8, %9
   br i1 %10, label %11, label %14
 
 11:                                               ; preds = %5
-  %12 = tail call i32 @jv_contains(i64 %1, ptr %2, i64 %3, ptr %4) #14
-  %13 = tail call { i64, ptr } @jv_bool(i32 noundef %12) #14
+  %12 = tail call i32 @jv_contains(i64 %1, ptr %2, i64 %3, ptr %4) #13
+  %13 = tail call { i64, ptr } @jv_bool(i32 noundef %12) #13
   br label %25
 
 14:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %6) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %7) #14
-  %15 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
-  %16 = tail call ptr @jv_kind_name(i32 noundef %15) #14
-  %17 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #14
-  %18 = tail call ptr @jv_kind_name(i32 noundef %17) #14
-  %19 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %6, i64 noundef 15) #14
-  %20 = call ptr @jv_dump_string_trunc(i64 %3, ptr %4, ptr noundef nonnull %7, i64 noundef 15) #14
-  %21 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.8, ptr noundef %16, ptr noundef %19, ptr noundef %18, ptr noundef %20, ptr noundef nonnull @.str.167) #14
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %7) #13
+  %15 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
+  %16 = tail call ptr @jv_kind_name(i32 noundef %15) #13
+  %17 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #13
+  %18 = tail call ptr @jv_kind_name(i32 noundef %17) #13
+  %19 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %6, i64 noundef 15) #13
+  %20 = call ptr @jv_dump_string_trunc(i64 %3, ptr %4, ptr noundef nonnull %7, i64 noundef 15) #13
+  %21 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.8, ptr noundef %16, ptr noundef %19, ptr noundef %18, ptr noundef %20, ptr noundef nonnull @.str.167) #13
   %22 = extractvalue { i64, ptr } %21, 0
   %23 = extractvalue { i64, ptr } %21, 1
-  %24 = call { i64, ptr } @jv_invalid_with_msg(i64 %22, ptr %23) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %7) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %6) #14
+  %24 = call { i64, ptr } @jv_invalid_with_msg(i64 %22, ptr %23) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %6) #13
   br label %25
 
 25:                                               ; preds = %14, %11
@@ -4427,70 +4427,70 @@ define internal { i64, ptr } @f_contains(ptr readnone captures(none) %0, i64 %1,
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_length(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
-  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %6 = icmp eq i32 %5, 6
   br i1 %6, label %7, label %11
 
 7:                                                ; preds = %3
-  %8 = tail call i32 @jv_array_length(i64 %1, ptr %2) #14
+  %8 = tail call i32 @jv_array_length(i64 %1, ptr %2) #13
   %9 = sitofp i32 %8 to double
-  %10 = tail call { i64, ptr } @jv_number(double noundef %9) #14
+  %10 = tail call { i64, ptr } @jv_number(double noundef %9) #13
   br label %45
 
 11:                                               ; preds = %3
-  %12 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %12 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %13 = icmp eq i32 %12, 7
   br i1 %13, label %14, label %18
 
 14:                                               ; preds = %11
-  %15 = tail call i32 @jv_object_length(i64 %1, ptr %2) #14
+  %15 = tail call i32 @jv_object_length(i64 %1, ptr %2) #13
   %16 = sitofp i32 %15 to double
-  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #14
+  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #13
   br label %45
 
 18:                                               ; preds = %11
-  %19 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %19 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %20 = icmp eq i32 %19, 5
   br i1 %20, label %21, label %25
 
 21:                                               ; preds = %18
-  %22 = tail call i32 @jv_string_length_codepoints(i64 %1, ptr %2) #14
+  %22 = tail call i32 @jv_string_length_codepoints(i64 %1, ptr %2) #13
   %23 = sitofp i32 %22 to double
-  %24 = tail call { i64, ptr } @jv_number(double noundef %23) #14
+  %24 = tail call { i64, ptr } @jv_number(double noundef %23) #13
   br label %45
 
 25:                                               ; preds = %18
-  %26 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %26 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %27 = icmp eq i32 %26, 4
   br i1 %27, label %28, label %32
 
 28:                                               ; preds = %25
-  %29 = tail call double @jv_number_value(i64 %1, ptr %2) #14
+  %29 = tail call double @jv_number_value(i64 %1, ptr %2) #13
   %30 = tail call double @llvm.fabs.f64(double %29)
-  %31 = tail call { i64, ptr } @jv_number(double noundef %30) #14
-  tail call void @jv_free(i64 %1, ptr %2) #14
+  %31 = tail call { i64, ptr } @jv_number(double noundef %30) #13
+  tail call void @jv_free(i64 %1, ptr %2) #13
   br label %45
 
 32:                                               ; preds = %25
-  %33 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %33 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %34 = icmp eq i32 %33, 1
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %32
-  tail call void @jv_free(i64 %1, ptr %2) #14
-  %36 = tail call { i64, ptr } @jv_number(double noundef 0.000000e+00) #14
+  tail call void @jv_free(i64 %1, ptr %2) #13
+  %36 = tail call { i64, ptr } @jv_number(double noundef 0.000000e+00) #13
   br label %45
 
 37:                                               ; preds = %32
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
-  %38 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
-  %39 = tail call ptr @jv_kind_name(i32 noundef %38) #14
-  %40 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
-  %41 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %39, ptr noundef %40, ptr noundef nonnull @.str.168) #14
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #13
+  %38 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
+  %39 = tail call ptr @jv_kind_name(i32 noundef %38) #13
+  %40 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #13
+  %41 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %39, ptr noundef %40, ptr noundef nonnull @.str.168) #13
   %42 = extractvalue { i64, ptr } %41, 0
   %43 = extractvalue { i64, ptr } %41, 1
-  %44 = call { i64, ptr } @jv_invalid_with_msg(i64 %42, ptr %43) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  %44 = call { i64, ptr } @jv_invalid_with_msg(i64 %42, ptr %43) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #13
   br label %45
 
 45:                                               ; preds = %37, %35, %28, %21, %14, %7
@@ -4501,26 +4501,26 @@ define internal { i64, ptr } @f_length(ptr readnone captures(none) %0, i64 %1, p
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_utf8bytelength(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
-  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %.not = icmp eq i32 %5, 5
   br i1 %.not, label %14, label %6
 
 6:                                                ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
-  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
-  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #14
-  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
-  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.169) #14
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #13
+  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
+  %8 = tail call ptr @jv_kind_name(i32 noundef %7) #13
+  %9 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #13
+  %10 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %8, ptr noundef %9, ptr noundef nonnull @.str.169) #13
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
-  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  %13 = call { i64, ptr } @jv_invalid_with_msg(i64 %11, ptr %12) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #13
   br label %18
 
 14:                                               ; preds = %3
-  %15 = tail call i32 @jv_string_length_bytes(i64 %1, ptr %2) #14
+  %15 = tail call i32 @jv_string_length_bytes(i64 %1, ptr %2) #13
   %16 = sitofp i32 %15 to double
-  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #14
+  %17 = tail call { i64, ptr } @jv_number(double noundef %16) #13
   br label %18
 
 18:                                               ; preds = %14, %6
@@ -4530,37 +4530,37 @@ define internal { i64, ptr } @f_utf8bytelength(ptr readnone captures(none) %0, i
 
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_type(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
-  %4 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
-  %5 = tail call ptr @jv_kind_name(i32 noundef %4) #14
-  %6 = tail call { i64, ptr } @jv_string(ptr noundef %5) #14
-  tail call void @jv_free(i64 %1, ptr %2) #14
+  %4 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
+  %5 = tail call ptr @jv_kind_name(i32 noundef %4) #13
+  %6 = tail call { i64, ptr } @jv_string(ptr noundef %5) #13
+  tail call void @jv_free(i64 %1, ptr %2) #13
   ret { i64, ptr } %6
 }
 
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_isinfinite(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
-  %4 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %4 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %.not = icmp eq i32 %4, 4
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %3
-  tail call void @jv_free(i64 %1, ptr %2) #14
-  %6 = tail call { i64, ptr } @jv_false() #14
+  tail call void @jv_free(i64 %1, ptr %2) #13
+  %6 = tail call { i64, ptr } @jv_false() #13
   br label %15
 
 7:                                                ; preds = %3
-  %8 = tail call double @jv_number_value(i64 %1, ptr %2) #14
-  tail call void @jv_free(i64 %1, ptr %2) #14
-  %9 = tail call double @llvm.fabs.f64(double %8) #16
+  %8 = tail call double @jv_number_value(i64 %1, ptr %2) #13
+  tail call void @jv_free(i64 %1, ptr %2) #13
+  %9 = tail call double @llvm.fabs.f64(double %8) #15
   %10 = fcmp oeq double %9, 0x7FF0000000000000
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %7
-  %12 = tail call { i64, ptr } @jv_true() #14
+  %12 = tail call { i64, ptr } @jv_true() #13
   br label %15
 
 13:                                               ; preds = %7
-  %14 = tail call { i64, ptr } @jv_false() #14
+  %14 = tail call { i64, ptr } @jv_false() #13
   br label %15
 
 15:                                               ; preds = %11, %13, %5
@@ -4570,27 +4570,27 @@ define internal { i64, ptr } @f_isinfinite(ptr readnone captures(none) %0, i64 %
 
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_isnan(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
-  %4 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %4 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %.not = icmp eq i32 %4, 4
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %3
-  tail call void @jv_free(i64 %1, ptr %2) #14
-  %6 = tail call { i64, ptr } @jv_false() #14
+  tail call void @jv_free(i64 %1, ptr %2) #13
+  %6 = tail call { i64, ptr } @jv_false() #13
   br label %14
 
 7:                                                ; preds = %3
-  %8 = tail call double @jv_number_value(i64 %1, ptr %2) #14
-  tail call void @jv_free(i64 %1, ptr %2) #14
+  %8 = tail call double @jv_number_value(i64 %1, ptr %2) #13
+  tail call void @jv_free(i64 %1, ptr %2) #13
   %9 = fcmp uno double %8, 0.000000e+00
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %7
-  %11 = tail call { i64, ptr } @jv_true() #14
+  %11 = tail call { i64, ptr } @jv_true() #13
   br label %14
 
 12:                                               ; preds = %7
-  %13 = tail call { i64, ptr } @jv_false() #14
+  %13 = tail call { i64, ptr } @jv_false() #13
   br label %14
 
 14:                                               ; preds = %10, %12, %5
@@ -4600,27 +4600,27 @@ define internal { i64, ptr } @f_isnan(ptr readnone captures(none) %0, i64 %1, pt
 
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_isnormal(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
-  %4 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %4 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %.not = icmp eq i32 %4, 4
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %3
-  tail call void @jv_free(i64 %1, ptr %2) #14
-  %6 = tail call { i64, ptr } @jv_false() #14
+  tail call void @jv_free(i64 %1, ptr %2) #13
+  %6 = tail call { i64, ptr } @jv_false() #13
   br label %14
 
 7:                                                ; preds = %3
-  %8 = tail call double @jv_number_value(i64 %1, ptr %2) #14
-  tail call void @jv_free(i64 %1, ptr %2) #14
+  %8 = tail call double @jv_number_value(i64 %1, ptr %2) #13
+  tail call void @jv_free(i64 %1, ptr %2) #13
   %9 = tail call i1 @llvm.is.fpclass.f64(double %8, i32 264)
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %7
-  %11 = tail call { i64, ptr } @jv_true() #14
+  %11 = tail call { i64, ptr } @jv_true() #13
   br label %14
 
 12:                                               ; preds = %7
-  %13 = tail call { i64, ptr } @jv_false() #14
+  %13 = tail call { i64, ptr } @jv_false() #13
   br label %14
 
 14:                                               ; preds = %10, %12, %5
@@ -4630,42 +4630,42 @@ define internal { i64, ptr } @f_isnormal(ptr readnone captures(none) %0, i64 %1,
 
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_infinite(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
-  tail call void @jv_free(i64 %1, ptr %2) #14
-  %4 = tail call { i64, ptr } @jv_number(double noundef 0x7FF0000000000000) #14
+  tail call void @jv_free(i64 %1, ptr %2) #13
+  %4 = tail call { i64, ptr } @jv_number(double noundef 0x7FF0000000000000) #13
   ret { i64, ptr } %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_nan(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
-  tail call void @jv_free(i64 %1, ptr %2) #14
-  %4 = tail call { i64, ptr } @jv_number(double noundef 0x7FF8000000000000) #14
+  tail call void @jv_free(i64 %1, ptr %2) #13
+  %4 = tail call { i64, ptr } @jv_number(double noundef 0x7FF8000000000000) #13
   ret { i64, ptr } %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_sort(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca [15 x i8], align 1
-  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %6 = icmp eq i32 %5, 6
   br i1 %6, label %7, label %12
 
 7:                                                ; preds = %3
-  %8 = tail call { i64, ptr } @jv_copy(i64 %1, ptr %2) #14
+  %8 = tail call { i64, ptr } @jv_copy(i64 %1, ptr %2) #13
   %9 = extractvalue { i64, ptr } %8, 0
   %10 = extractvalue { i64, ptr } %8, 1
-  %11 = tail call { i64, ptr } @jv_sort(i64 %1, ptr %2, i64 %9, ptr %10) #14
+  %11 = tail call { i64, ptr } @jv_sort(i64 %1, ptr %2, i64 %9, ptr %10) #13
   br label %20
 
 12:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
-  %13 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
-  %14 = tail call ptr @jv_kind_name(i32 noundef %13) #14
-  %15 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #14
-  %16 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %14, ptr noundef %15, ptr noundef nonnull @.str.170) #14
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #13
+  %13 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
+  %14 = tail call ptr @jv_kind_name(i32 noundef %13) #13
+  %15 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %4, i64 noundef 15) #13
+  %16 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %14, ptr noundef %15, ptr noundef nonnull @.str.170) #13
   %17 = extractvalue { i64, ptr } %16, 0
   %18 = extractvalue { i64, ptr } %16, 1
-  %19 = call { i64, ptr } @jv_invalid_with_msg(i64 %17, ptr %18) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  %19 = call { i64, ptr } @jv_invalid_with_msg(i64 %17, ptr %18) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #13
   br label %20
 
 20:                                               ; preds = %12, %7
@@ -4677,46 +4677,46 @@ define internal { i64, ptr } @f_sort(ptr readnone captures(none) %0, i64 %1, ptr
 define internal { i64, ptr } @f_sort_by_impl(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4) #0 {
   %6 = alloca [15 x i8], align 1
   %7 = alloca [15 x i8], align 1
-  %8 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %8 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %9 = icmp eq i32 %8, 6
   br i1 %9, label %10, label %25
 
 10:                                               ; preds = %5
-  %11 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #14
+  %11 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #13
   %12 = icmp eq i32 %11, 6
   br i1 %12, label %13, label %25
 
 13:                                               ; preds = %10
-  %14 = tail call { i64, ptr } @jv_copy(i64 %1, ptr %2) #14
+  %14 = tail call { i64, ptr } @jv_copy(i64 %1, ptr %2) #13
   %15 = extractvalue { i64, ptr } %14, 0
   %16 = extractvalue { i64, ptr } %14, 1
-  %17 = tail call i32 @jv_array_length(i64 %15, ptr %16) #14
-  %18 = tail call { i64, ptr } @jv_copy(i64 %3, ptr %4) #14
+  %17 = tail call i32 @jv_array_length(i64 %15, ptr %16) #13
+  %18 = tail call { i64, ptr } @jv_copy(i64 %3, ptr %4) #13
   %19 = extractvalue { i64, ptr } %18, 0
   %20 = extractvalue { i64, ptr } %18, 1
-  %21 = tail call i32 @jv_array_length(i64 %19, ptr %20) #14
+  %21 = tail call i32 @jv_array_length(i64 %19, ptr %20) #13
   %22 = icmp eq i32 %17, %21
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %13
-  %24 = tail call { i64, ptr } @jv_sort(i64 %1, ptr %2, i64 %3, ptr %4) #14
+  %24 = tail call { i64, ptr } @jv_sort(i64 %1, ptr %2, i64 %3, ptr %4) #13
   br label %36
 
 25:                                               ; preds = %13, %10, %5
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %6) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %7) #14
-  %26 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
-  %27 = tail call ptr @jv_kind_name(i32 noundef %26) #14
-  %28 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #14
-  %29 = tail call ptr @jv_kind_name(i32 noundef %28) #14
-  %30 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %6, i64 noundef 15) #14
-  %31 = call ptr @jv_dump_string_trunc(i64 %3, ptr %4, ptr noundef nonnull %7, i64 noundef 15) #14
-  %32 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.8, ptr noundef %27, ptr noundef %30, ptr noundef %29, ptr noundef %31, ptr noundef nonnull @.str.171) #14
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %7) #13
+  %26 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
+  %27 = tail call ptr @jv_kind_name(i32 noundef %26) #13
+  %28 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #13
+  %29 = tail call ptr @jv_kind_name(i32 noundef %28) #13
+  %30 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %6, i64 noundef 15) #13
+  %31 = call ptr @jv_dump_string_trunc(i64 %3, ptr %4, ptr noundef nonnull %7, i64 noundef 15) #13
+  %32 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.8, ptr noundef %27, ptr noundef %30, ptr noundef %29, ptr noundef %31, ptr noundef nonnull @.str.171) #13
   %33 = extractvalue { i64, ptr } %32, 0
   %34 = extractvalue { i64, ptr } %32, 1
-  %35 = call { i64, ptr } @jv_invalid_with_msg(i64 %33, ptr %34) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %7) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %6) #14
+  %35 = call { i64, ptr } @jv_invalid_with_msg(i64 %33, ptr %34) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %6) #13
   br label %36
 
 36:                                               ; preds = %25, %23
@@ -4728,46 +4728,46 @@ define internal { i64, ptr } @f_sort_by_impl(ptr readnone captures(none) %0, i64
 define internal { i64, ptr } @f_group_by_impl(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4) #0 {
   %6 = alloca [15 x i8], align 1
   %7 = alloca [15 x i8], align 1
-  %8 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %8 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %9 = icmp eq i32 %8, 6
   br i1 %9, label %10, label %25
 
 10:                                               ; preds = %5
-  %11 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #14
+  %11 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #13
   %12 = icmp eq i32 %11, 6
   br i1 %12, label %13, label %25
 
 13:                                               ; preds = %10
-  %14 = tail call { i64, ptr } @jv_copy(i64 %1, ptr %2) #14
+  %14 = tail call { i64, ptr } @jv_copy(i64 %1, ptr %2) #13
   %15 = extractvalue { i64, ptr } %14, 0
   %16 = extractvalue { i64, ptr } %14, 1
-  %17 = tail call i32 @jv_array_length(i64 %15, ptr %16) #14
-  %18 = tail call { i64, ptr } @jv_copy(i64 %3, ptr %4) #14
+  %17 = tail call i32 @jv_array_length(i64 %15, ptr %16) #13
+  %18 = tail call { i64, ptr } @jv_copy(i64 %3, ptr %4) #13
   %19 = extractvalue { i64, ptr } %18, 0
   %20 = extractvalue { i64, ptr } %18, 1
-  %21 = tail call i32 @jv_array_length(i64 %19, ptr %20) #14
+  %21 = tail call i32 @jv_array_length(i64 %19, ptr %20) #13
   %22 = icmp eq i32 %17, %21
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %13
-  %24 = tail call { i64, ptr } @jv_group(i64 %1, ptr %2, i64 %3, ptr %4) #14
+  %24 = tail call { i64, ptr } @jv_group(i64 %1, ptr %2, i64 %3, ptr %4) #13
   br label %36
 
 25:                                               ; preds = %13, %10, %5
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %6) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %7) #14
-  %26 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
-  %27 = tail call ptr @jv_kind_name(i32 noundef %26) #14
-  %28 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #14
-  %29 = tail call ptr @jv_kind_name(i32 noundef %28) #14
-  %30 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %6, i64 noundef 15) #14
-  %31 = call ptr @jv_dump_string_trunc(i64 %3, ptr %4, ptr noundef nonnull %7, i64 noundef 15) #14
-  %32 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.8, ptr noundef %27, ptr noundef %30, ptr noundef %29, ptr noundef %31, ptr noundef nonnull @.str.171) #14
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %7) #13
+  %26 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
+  %27 = tail call ptr @jv_kind_name(i32 noundef %26) #13
+  %28 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #13
+  %29 = tail call ptr @jv_kind_name(i32 noundef %28) #13
+  %30 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %6, i64 noundef 15) #13
+  %31 = call ptr @jv_dump_string_trunc(i64 %3, ptr %4, ptr noundef nonnull %7, i64 noundef 15) #13
+  %32 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.8, ptr noundef %27, ptr noundef %30, ptr noundef %29, ptr noundef %31, ptr noundef nonnull @.str.171) #13
   %33 = extractvalue { i64, ptr } %32, 0
   %34 = extractvalue { i64, ptr } %32, 1
-  %35 = call { i64, ptr } @jv_invalid_with_msg(i64 %33, ptr %34) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %7) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %6) #14
+  %35 = call { i64, ptr } @jv_invalid_with_msg(i64 %33, ptr %34) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %6) #13
   br label %36
 
 36:                                               ; preds = %25, %23
@@ -4778,29 +4778,29 @@ define internal { i64, ptr } @f_group_by_impl(ptr readnone captures(none) %0, i6
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_bsearch(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4) #0 {
   %6 = alloca [15 x i8], align 1
-  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %.not = icmp eq i32 %7, 6
   br i1 %.not, label %16, label %8
 
 8:                                                ; preds = %5
-  tail call void @jv_free(i64 %3, ptr %4) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %6) #14
-  %9 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
-  %10 = tail call ptr @jv_kind_name(i32 noundef %9) #14
-  %11 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %6, i64 noundef 15) #14
-  %12 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %10, ptr noundef %11, ptr noundef nonnull @.str.172) #14
+  tail call void @jv_free(i64 %3, ptr %4) #13
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %6) #13
+  %9 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
+  %10 = tail call ptr @jv_kind_name(i32 noundef %9) #13
+  %11 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %6, i64 noundef 15) #13
+  %12 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %10, ptr noundef %11, ptr noundef nonnull @.str.172) #13
   %13 = extractvalue { i64, ptr } %12, 0
   %14 = extractvalue { i64, ptr } %12, 1
-  %15 = call { i64, ptr } @jv_invalid_with_msg(i64 %13, ptr %14) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %6) #14
+  %15 = call { i64, ptr } @jv_invalid_with_msg(i64 %13, ptr %14) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %6) #13
   br label %49
 
 16:                                               ; preds = %5
-  %17 = tail call { i64, ptr } @jv_copy(i64 %1, ptr %2) #14
+  %17 = tail call { i64, ptr } @jv_copy(i64 %1, ptr %2) #13
   %18 = extractvalue { i64, ptr } %17, 0
   %19 = extractvalue { i64, ptr } %17, 1
-  %20 = tail call i32 @jv_array_length(i64 %18, ptr %19) #14
-  %21 = tail call { i64, ptr } @jv_invalid() #14
+  %20 = tail call i32 @jv_array_length(i64 %18, ptr %19) #13
+  %21 = tail call { i64, ptr } @jv_invalid() #13
   %22 = icmp sgt i32 %20, 0
   br i1 %22, label %.lr.ph, label %.loopexit
 
@@ -4810,22 +4810,22 @@ define internal { i64, ptr } @f_bsearch(ptr readnone captures(none) %0, i64 %1, 
   %23 = sub nsw i32 %.04156, %.04057
   %24 = sdiv i32 %23, 2
   %25 = add nsw i32 %24, %.04057
-  %26 = tail call { i64, ptr } @jv_copy(i64 %3, ptr %4) #14
+  %26 = tail call { i64, ptr } @jv_copy(i64 %3, ptr %4) #13
   %27 = extractvalue { i64, ptr } %26, 0
   %28 = extractvalue { i64, ptr } %26, 1
-  %29 = tail call { i64, ptr } @jv_copy(i64 %1, ptr %2) #14
+  %29 = tail call { i64, ptr } @jv_copy(i64 %1, ptr %2) #13
   %30 = extractvalue { i64, ptr } %29, 0
   %31 = extractvalue { i64, ptr } %29, 1
-  %32 = tail call { i64, ptr } @jv_array_get(i64 %30, ptr %31, i32 noundef %25) #14
+  %32 = tail call { i64, ptr } @jv_array_get(i64 %30, ptr %31, i32 noundef %25) #13
   %33 = extractvalue { i64, ptr } %32, 0
   %34 = extractvalue { i64, ptr } %32, 1
-  %35 = tail call i32 @jv_cmp(i64 %27, ptr %28, i64 %33, ptr %34) #14
+  %35 = tail call i32 @jv_cmp(i64 %27, ptr %28, i64 %33, ptr %34) #13
   %36 = icmp eq i32 %35, 0
   br i1 %36, label %.thread, label %39
 
 .thread:                                          ; preds = %.lr.ph
   %37 = sitofp i32 %25 to double
-  %38 = tail call { i64, ptr } @jv_number(double noundef %37) #14
+  %38 = tail call { i64, ptr } @jv_number(double noundef %37) #13
   br label %.loopexit
 
 39:                                               ; preds = %.lr.ph
@@ -4841,20 +4841,20 @@ define internal { i64, ptr } @f_bsearch(ptr readnone captures(none) %0, i64 %1, 
   %.pn = phi { i64, ptr } [ %38, %.thread ], [ %21, %16 ], [ %21, %39 ]
   %.sroa.639.2 = extractvalue { i64, ptr } %.pn, 1
   %.sroa.037.2 = extractvalue { i64, ptr } %.pn, 0
-  %43 = tail call i32 @jv_get_kind(i64 %.sroa.037.2, ptr %.sroa.639.2) #14
+  %43 = tail call i32 @jv_get_kind(i64 %.sroa.037.2, ptr %.sroa.639.2) #13
   %.not53 = icmp eq i32 %43, 0
   br i1 %.not53, label %44, label %48
 
 44:                                               ; preds = %.loopexit
   %45 = xor i32 %.04055, -1
   %46 = sitofp i32 %45 to double
-  %47 = tail call { i64, ptr } @jv_number(double noundef %46) #14
+  %47 = tail call { i64, ptr } @jv_number(double noundef %46) #13
   br label %48
 
 48:                                               ; preds = %44, %.loopexit
   %.merged = phi { i64, ptr } [ %.pn, %.loopexit ], [ %47, %44 ]
-  tail call void @jv_free(i64 %1, ptr %2) #14
-  tail call void @jv_free(i64 %3, ptr %4) #14
+  tail call void @jv_free(i64 %1, ptr %2) #13
+  tail call void @jv_free(i64 %3, ptr %4) #13
   br label %49
 
 49:                                               ; preds = %48, %8
@@ -4864,7 +4864,7 @@ define internal { i64, ptr } @f_bsearch(ptr readnone captures(none) %0, i64 %1, 
 
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_min(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
-  %4 = tail call { i64, ptr } @jv_copy(i64 %1, ptr %2) #14
+  %4 = tail call { i64, ptr } @jv_copy(i64 %1, ptr %2) #13
   %5 = extractvalue { i64, ptr } %4, 0
   %6 = extractvalue { i64, ptr } %4, 1
   %7 = tail call fastcc { i64, ptr } @minmax_by(i64 %1, ptr %2, i64 %5, ptr %6, i32 noundef 1)
@@ -4873,7 +4873,7 @@ define internal { i64, ptr } @f_min(ptr readnone captures(none) %0, i64 %1, ptr 
 
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_max(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
-  %4 = tail call { i64, ptr } @jv_copy(i64 %1, ptr %2) #14
+  %4 = tail call { i64, ptr } @jv_copy(i64 %1, ptr %2) #13
   %5 = extractvalue { i64, ptr } %4, 0
   %6 = extractvalue { i64, ptr } %4, 1
   %7 = tail call fastcc { i64, ptr } @minmax_by(i64 %1, ptr %2, i64 %5, ptr %6, i32 noundef 0)
@@ -4894,7 +4894,7 @@ define internal { i64, ptr } @f_max_by_impl(ptr readnone captures(none) %0, i64 
 
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_error(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
-  %4 = tail call { i64, ptr } @jv_invalid_with_msg(i64 %1, ptr %2) #14
+  %4 = tail call { i64, ptr } @jv_invalid_with_msg(i64 %1, ptr %2) #13
   ret { i64, ptr } %4
 }
 
@@ -4909,42 +4909,42 @@ define internal { i64, ptr } @f_format(ptr readnone captures(none) %0, i64 %1, p
   %12 = alloca [128 x i32], align 16
   %13 = alloca [4 x i8], align 4
   %14 = alloca [4 x i8], align 1
-  %15 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #14
+  %15 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #13
   %.not = icmp eq i32 %15, 5
   br i1 %.not, label %24, label %16
 
 16:                                               ; preds = %5
-  tail call void @jv_free(i64 %1, ptr %2) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %11) #14
-  %17 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #14
-  %18 = tail call ptr @jv_kind_name(i32 noundef %17) #14
-  %19 = call ptr @jv_dump_string_trunc(i64 %3, ptr %4, ptr noundef nonnull %11, i64 noundef 15) #14
-  %20 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %18, ptr noundef %19, ptr noundef nonnull @.str.175) #14
+  tail call void @jv_free(i64 %1, ptr %2) #13
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %11) #13
+  %17 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #13
+  %18 = tail call ptr @jv_kind_name(i32 noundef %17) #13
+  %19 = call ptr @jv_dump_string_trunc(i64 %3, ptr %4, ptr noundef nonnull %11, i64 noundef 15) #13
+  %20 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %18, ptr noundef %19, ptr noundef nonnull @.str.175) #13
   %21 = extractvalue { i64, ptr } %20, 0
   %22 = extractvalue { i64, ptr } %20, 1
-  %23 = call { i64, ptr } @jv_invalid_with_msg(i64 %21, ptr %22) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %11) #14
+  %23 = call { i64, ptr } @jv_invalid_with_msg(i64 %21, ptr %22) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %11) #13
   br label %f_tostring.exit
 
 24:                                               ; preds = %5
-  %25 = tail call ptr @jv_string_value(i64 %3, ptr %4) #14
-  %26 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(5) @.str.176) #17
+  %25 = tail call ptr @jv_string_value(i64 %3, ptr %4) #13
+  %26 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(5) @.str.176) #16
   %.not445 = icmp eq i32 %26, 0
   br i1 %.not445, label %27, label %29
 
 27:                                               ; preds = %24
-  tail call void @jv_free(i64 %3, ptr %4) #14
-  %28 = tail call { i64, ptr } @jv_dump_string(i64 %1, ptr %2, i32 noundef 0) #14
+  tail call void @jv_free(i64 %3, ptr %4) #13
+  %28 = tail call { i64, ptr } @jv_dump_string(i64 %1, ptr %2, i32 noundef 0) #13
   br label %f_tostring.exit
 
 29:                                               ; preds = %24
-  %30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(5) @.str.177) #17
+  %30 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(5) @.str.177) #16
   %.not446 = icmp eq i32 %30, 0
   br i1 %.not446, label %31, label %39
 
 31:                                               ; preds = %29
-  tail call void @jv_free(i64 %3, ptr %4) #14
-  %32 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  tail call void @jv_free(i64 %3, ptr %4) #13
+  %32 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %33 = icmp eq i32 %32, 5
   br i1 %33, label %34, label %37
 
@@ -4954,16 +4954,16 @@ define internal { i64, ptr } @f_format(ptr readnone captures(none) %0, i64 %1, p
   br label %f_tostring.exit
 
 37:                                               ; preds = %31
-  %38 = tail call { i64, ptr } @jv_dump_string(i64 %1, ptr %2, i32 noundef 0) #14
+  %38 = tail call { i64, ptr } @jv_dump_string(i64 %1, ptr %2, i32 noundef 0) #13
   br label %f_tostring.exit
 
 39:                                               ; preds = %29
-  %40 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(4) @.str.178) #17
+  %40 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(4) @.str.178) #16
   %.not447 = icmp eq i32 %40, 0
   br i1 %.not447, label %43, label %41
 
 41:                                               ; preds = %39
-  %42 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(4) @.str.179) #17
+  %42 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(4) @.str.179) #16
   %.not448 = icmp eq i32 %42, 0
   br i1 %.not448, label %43, label %117
 
@@ -4971,30 +4971,30 @@ define internal { i64, ptr } @f_format(ptr readnone captures(none) %0, i64 %1, p
   %.str.181..str.185 = phi ptr [ @.str.185, %41 ], [ @.str.181, %39 ]
   %.str.182..str.186 = phi ptr [ @.str.186, %41 ], [ @.str.182, %39 ]
   %.str.183..str.187 = phi ptr [ @.str.187, %41 ], [ @.str.183, %39 ]
-  tail call void @jv_free(i64 %3, ptr %4) #14
-  %44 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  tail call void @jv_free(i64 %3, ptr %4) #13
+  %44 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %.not450 = icmp eq i32 %44, 6
   br i1 %.not450, label %.preheader, label %45
 
 45:                                               ; preds = %43
   %.str.180..str.184 = select i1 %.not447, ptr @.str.180, ptr @.str.184
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %10) #14
-  %46 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
-  %47 = tail call ptr @jv_kind_name(i32 noundef %46) #14
-  %48 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %10, i64 noundef 15) #14
-  %49 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %47, ptr noundef %48, ptr noundef nonnull %.str.180..str.184) #14
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %10) #13
+  %46 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
+  %47 = tail call ptr @jv_kind_name(i32 noundef %46) #13
+  %48 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %10, i64 noundef 15) #13
+  %49 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %47, ptr noundef %48, ptr noundef nonnull %.str.180..str.184) #13
   %50 = extractvalue { i64, ptr } %49, 0
   %51 = extractvalue { i64, ptr } %49, 1
-  %52 = call { i64, ptr } @jv_invalid_with_msg(i64 %50, ptr %51) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %10) #14
+  %52 = call { i64, ptr } @jv_invalid_with_msg(i64 %50, ptr %51) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %10) #13
   br label %f_tostring.exit
 
 .preheader:                                       ; preds = %43
-  %53 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.185) #14
-  %54 = tail call { i64, ptr } @jv_copy(i64 %1, ptr %2) #14
+  %53 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.185) #13
+  %54 = tail call { i64, ptr } @jv_copy(i64 %1, ptr %2) #13
   %55 = extractvalue { i64, ptr } %54, 0
   %56 = extractvalue { i64, ptr } %54, 1
-  %57 = tail call i32 @jv_array_length(i64 %55, ptr %56) #14
+  %57 = tail call i32 @jv_array_length(i64 %55, ptr %56) #13
   %.not453.not642 = icmp sgt i32 %57, 0
   br i1 %.not453.not642, label %.lr.ph646.preheader, label %.thread498
 
@@ -5007,17 +5007,17 @@ define internal { i64, ptr } @f_format(ptr readnone captures(none) %0, i64 %1, p
   %.sroa.17.2645 = phi ptr [ %.sroa.17.5, %105 ], [ %58, %.lr.ph646.preheader ]
   %.sroa.0256.2644 = phi i64 [ %.sroa.0256.5, %105 ], [ %59, %.lr.ph646.preheader ]
   %.1416643 = phi i32 [ %106, %105 ], [ 0, %.lr.ph646.preheader ]
-  %60 = tail call { i64, ptr } @jv_copy(i64 %1, ptr %2) #14
+  %60 = tail call { i64, ptr } @jv_copy(i64 %1, ptr %2) #13
   %61 = extractvalue { i64, ptr } %60, 0
   %62 = extractvalue { i64, ptr } %60, 1
-  %63 = tail call { i64, ptr } @jv_array_get(i64 %61, ptr %62, i32 noundef %.1416643) #14
+  %63 = tail call { i64, ptr } @jv_array_get(i64 %61, ptr %62, i32 noundef %.1416643) #13
   %64 = extractvalue { i64, ptr } %63, 0
   %65 = extractvalue { i64, ptr } %63, 1
   %.not454 = icmp eq i32 %.1416643, 0
   br i1 %.not454, label %70, label %66
 
 66:                                               ; preds = %.lr.ph646
-  %67 = tail call { i64, ptr } @jv_string_append_str(i64 %.sroa.0256.2644, ptr %.sroa.17.2645, ptr noundef nonnull %.str.182..str.186) #14
+  %67 = tail call { i64, ptr } @jv_string_append_str(i64 %.sroa.0256.2644, ptr %.sroa.17.2645, ptr noundef nonnull %.str.182..str.186) #13
   %68 = extractvalue { i64, ptr } %67, 0
   %69 = extractvalue { i64, ptr } %67, 1
   br label %70
@@ -5025,7 +5025,7 @@ define internal { i64, ptr } @f_format(ptr readnone captures(none) %0, i64 %1, p
 70:                                               ; preds = %66, %.lr.ph646
   %.sroa.0256.4 = phi i64 [ %68, %66 ], [ %.sroa.0256.2644, %.lr.ph646 ]
   %.sroa.17.4 = phi ptr [ %69, %66 ], [ %.sroa.17.2645, %.lr.ph646 ]
-  %71 = tail call i32 @jv_get_kind(i64 %64, ptr %65) #14
+  %71 = tail call i32 @jv_get_kind(i64 %64, ptr %65) #13
   switch i32 %71, label %107 [
     i32 1, label %72
     i32 3, label %73
@@ -5035,48 +5035,48 @@ define internal { i64, ptr } @f_format(ptr readnone captures(none) %0, i64 %1, p
   ]
 
 72:                                               ; preds = %70
-  tail call void @jv_free(i64 %64, ptr %65) #14
+  tail call void @jv_free(i64 %64, ptr %65) #13
   br label %105
 
 73:                                               ; preds = %70, %70
-  %74 = tail call { i64, ptr } @jv_dump_string(i64 %64, ptr %65, i32 noundef 0) #14
+  %74 = tail call { i64, ptr } @jv_dump_string(i64 %64, ptr %65, i32 noundef 0) #13
   %75 = extractvalue { i64, ptr } %74, 0
   %76 = extractvalue { i64, ptr } %74, 1
-  %77 = tail call { i64, ptr } @jv_string_concat(i64 %.sroa.0256.4, ptr %.sroa.17.4, i64 %75, ptr %76) #14
+  %77 = tail call { i64, ptr } @jv_string_concat(i64 %.sroa.0256.4, ptr %.sroa.17.4, i64 %75, ptr %76) #13
   %78 = extractvalue { i64, ptr } %77, 0
   %79 = extractvalue { i64, ptr } %77, 1
   br label %105
 
 80:                                               ; preds = %70
-  %81 = tail call double @jv_number_value(i64 %64, ptr %65) #14
-  %82 = tail call double @jv_number_value(i64 %64, ptr %65) #14
+  %81 = tail call double @jv_number_value(i64 %64, ptr %65) #13
+  %82 = tail call double @jv_number_value(i64 %64, ptr %65) #13
   %83 = fcmp une double %81, %82
   br i1 %83, label %84, label %85
 
 84:                                               ; preds = %80
-  tail call void @jv_free(i64 %64, ptr %65) #14
+  tail call void @jv_free(i64 %64, ptr %65) #13
   br label %105
 
 85:                                               ; preds = %80
-  %86 = tail call { i64, ptr } @jv_dump_string(i64 %64, ptr %65, i32 noundef 0) #14
+  %86 = tail call { i64, ptr } @jv_dump_string(i64 %64, ptr %65, i32 noundef 0) #13
   %87 = extractvalue { i64, ptr } %86, 0
   %88 = extractvalue { i64, ptr } %86, 1
-  %89 = tail call { i64, ptr } @jv_string_concat(i64 %.sroa.0256.4, ptr %.sroa.17.4, i64 %87, ptr %88) #14
+  %89 = tail call { i64, ptr } @jv_string_concat(i64 %.sroa.0256.4, ptr %.sroa.17.4, i64 %87, ptr %88) #13
   %90 = extractvalue { i64, ptr } %89, 0
   %91 = extractvalue { i64, ptr } %89, 1
   br label %105
 
 92:                                               ; preds = %70
-  %93 = tail call { i64, ptr } @jv_string_append_str(i64 %.sroa.0256.4, ptr %.sroa.17.4, ptr noundef nonnull %.str.181..str.185) #14
+  %93 = tail call { i64, ptr } @jv_string_append_str(i64 %.sroa.0256.4, ptr %.sroa.17.4, ptr noundef nonnull %.str.181..str.185) #13
   %94 = extractvalue { i64, ptr } %93, 0
   %95 = extractvalue { i64, ptr } %93, 1
   %96 = tail call fastcc { i64, ptr } @escape_string(i64 %64, ptr %65, ptr noundef nonnull %.str.183..str.187)
   %97 = extractvalue { i64, ptr } %96, 0
   %98 = extractvalue { i64, ptr } %96, 1
-  %99 = tail call { i64, ptr } @jv_string_concat(i64 %94, ptr %95, i64 %97, ptr %98) #14
+  %99 = tail call { i64, ptr } @jv_string_concat(i64 %94, ptr %95, i64 %97, ptr %98) #13
   %100 = extractvalue { i64, ptr } %99, 0
   %101 = extractvalue { i64, ptr } %99, 1
-  %102 = tail call { i64, ptr } @jv_string_append_str(i64 %100, ptr %101, ptr noundef nonnull %.str.181..str.185) #14
+  %102 = tail call { i64, ptr } @jv_string_append_str(i64 %100, ptr %101, ptr noundef nonnull %.str.181..str.185) #13
   %103 = extractvalue { i64, ptr } %102, 0
   %104 = extractvalue { i64, ptr } %102, 1
   br label %105
@@ -5089,17 +5089,17 @@ define internal { i64, ptr } @f_format(ptr readnone captures(none) %0, i64 %1, p
   br i1 %exitcond704.not, label %.thread498.loopexit, label %.lr.ph646, !llvm.loop !24
 
 107:                                              ; preds = %70
-  tail call void @jv_free(i64 %1, ptr %2) #14
-  tail call void @jv_free(i64 %.sroa.0256.4, ptr %.sroa.17.4) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %9) #14
-  %108 = tail call i32 @jv_get_kind(i64 %64, ptr %65) #14
-  %109 = tail call ptr @jv_kind_name(i32 noundef %108) #14
-  %110 = call ptr @jv_dump_string_trunc(i64 %64, ptr %65, ptr noundef nonnull %9, i64 noundef 15) #14
-  %111 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %109, ptr noundef %110, ptr noundef nonnull @.str.188) #14
+  tail call void @jv_free(i64 %1, ptr %2) #13
+  tail call void @jv_free(i64 %.sroa.0256.4, ptr %.sroa.17.4) #13
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %9) #13
+  %108 = tail call i32 @jv_get_kind(i64 %64, ptr %65) #13
+  %109 = tail call ptr @jv_kind_name(i32 noundef %108) #13
+  %110 = call ptr @jv_dump_string_trunc(i64 %64, ptr %65, ptr noundef nonnull %9, i64 noundef 15) #13
+  %111 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %109, ptr noundef %110, ptr noundef nonnull @.str.188) #13
   %112 = extractvalue { i64, ptr } %111, 0
   %113 = extractvalue { i64, ptr } %111, 1
-  %114 = call { i64, ptr } @jv_invalid_with_msg(i64 %112, ptr %113) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %9) #14
+  %114 = call { i64, ptr } @jv_invalid_with_msg(i64 %112, ptr %113) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %9) #13
   br label %f_tostring.exit
 
 .thread498.loopexit:                              ; preds = %105
@@ -5109,17 +5109,17 @@ define internal { i64, ptr } @f_format(ptr readnone captures(none) %0, i64 %1, p
 
 .thread498:                                       ; preds = %.thread498.loopexit, %.preheader
   %.merged705 = phi { i64, ptr } [ %53, %.preheader ], [ %116, %.thread498.loopexit ]
-  tail call void @jv_free(i64 %1, ptr %2) #14
+  tail call void @jv_free(i64 %1, ptr %2) #13
   br label %f_tostring.exit
 
 117:                                              ; preds = %41
-  %118 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(5) @.str.189) #17
+  %118 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(5) @.str.189) #16
   %.not455 = icmp eq i32 %118, 0
   br i1 %.not455, label %119, label %130
 
 119:                                              ; preds = %117
-  tail call void @jv_free(i64 %3, ptr %4) #14
-  %120 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  tail call void @jv_free(i64 %3, ptr %4) #13
+  %120 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %121 = icmp eq i32 %120, 5
   br i1 %121, label %122, label %125
 
@@ -5129,7 +5129,7 @@ define internal { i64, ptr } @f_format(ptr readnone captures(none) %0, i64 %1, p
   br label %f_tostring.exit484
 
 125:                                              ; preds = %119
-  %126 = tail call { i64, ptr } @jv_dump_string(i64 %1, ptr %2, i32 noundef 0) #14
+  %126 = tail call { i64, ptr } @jv_dump_string(i64 %1, ptr %2, i32 noundef 0) #13
   br label %f_tostring.exit484
 
 f_tostring.exit484:                               ; preds = %122, %125
@@ -5140,15 +5140,15 @@ f_tostring.exit484:                               ; preds = %122, %125
   br label %f_tostring.exit
 
 130:                                              ; preds = %117
-  %131 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(4) @.str.191) #17
+  %131 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(4) @.str.191) #16
   %.not456 = icmp eq i32 %131, 0
   br i1 %.not456, label %132, label %171
 
 132:                                              ; preds = %130
-  tail call void @jv_free(i64 %3, ptr %4) #14
+  tail call void @jv_free(i64 %3, ptr %4) #13
   %133 = tail call { i64, ptr } @f_tostring(ptr poison, i64 %1, ptr %2)
   %134 = extractvalue { i64, ptr } %133, 0
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %12) #14
+  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %12) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(512) %12, i8 0, i64 512, i1 false)
   br label %135
 
@@ -5166,19 +5166,19 @@ f_tostring.exit484:                               ; preds = %122, %125
 
 140:                                              ; preds = %135
   %141 = extractvalue { i64, ptr } %133, 1
-  %142 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.185) #14
-  %143 = tail call ptr @jv_string_value(i64 %134, ptr %141) #14
-  %144 = tail call { i64, ptr } @jv_copy(i64 %134, ptr %141) #14
+  %142 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.185) #13
+  %143 = tail call ptr @jv_string_value(i64 %134, ptr %141) #13
+  %144 = tail call { i64, ptr } @jv_copy(i64 %134, ptr %141) #13
   %145 = extractvalue { i64, ptr } %144, 0
   %146 = extractvalue { i64, ptr } %144, 1
-  %147 = tail call i32 @jv_string_length_bytes(i64 %145, ptr %146) #14
+  %147 = tail call i32 @jv_string_length_bytes(i64 %145, ptr %146) #13
   %148 = icmp sgt i32 %147, 0
   br i1 %148, label %.lr.ph639, label %._crit_edge640
 
 ._crit_edge640:                                   ; preds = %163, %140
   %.pn459.lcssa = phi { i64, ptr } [ %142, %140 ], [ %.pn, %163 ]
-  tail call void @jv_free(i64 %134, ptr %141) #14
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %12) #14
+  tail call void @jv_free(i64 %134, ptr %141) #13
+  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %12) #13
   br label %f_tostring.exit
 
 .lr.ph639:                                        ; preds = %140, %163
@@ -5200,39 +5200,39 @@ f_tostring.exit484:                               ; preds = %122, %125
   br i1 %.not458, label %158, label %156
 
 156:                                              ; preds = %152
-  %157 = tail call { i64, ptr } @jv_string_append_buf(i64 %.sroa.0397.7637, ptr %.sroa.26.7636, ptr noundef nonnull %.0423635, i32 noundef 1) #14
+  %157 = tail call { i64, ptr } @jv_string_append_buf(i64 %.sroa.0397.7637, ptr %.sroa.26.7636, ptr noundef nonnull %.0423635, i32 noundef 1) #13
   br label %163
 
 158:                                              ; preds = %152, %.lr.ph639
-  %159 = tail call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.193, i32 noundef %150) #14
+  %159 = tail call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.193, i32 noundef %150) #13
   %160 = extractvalue { i64, ptr } %159, 0
   %161 = extractvalue { i64, ptr } %159, 1
-  %162 = tail call { i64, ptr } @jv_string_concat(i64 %.sroa.0397.7637, ptr %.sroa.26.7636, i64 %160, ptr %161) #14
+  %162 = tail call { i64, ptr } @jv_string_concat(i64 %.sroa.0397.7637, ptr %.sroa.26.7636, i64 %160, ptr %161) #13
   br label %163
 
 163:                                              ; preds = %158, %156
   %.pn = phi { i64, ptr } [ %157, %156 ], [ %162, %158 ]
   %164 = getelementptr inbounds nuw i8, ptr %.0423635, i64 1
   %165 = add nuw nsw i32 %.0424634, 1
-  %166 = tail call { i64, ptr } @jv_copy(i64 %134, ptr %141) #14
+  %166 = tail call { i64, ptr } @jv_copy(i64 %134, ptr %141) #13
   %167 = extractvalue { i64, ptr } %166, 0
   %168 = extractvalue { i64, ptr } %166, 1
-  %169 = tail call i32 @jv_string_length_bytes(i64 %167, ptr %168) #14
+  %169 = tail call i32 @jv_string_length_bytes(i64 %167, ptr %168) #13
   %170 = icmp slt i32 %165, %169
   br i1 %170, label %.lr.ph639, label %._crit_edge640, !llvm.loop !27
 
 171:                                              ; preds = %130
-  %172 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(5) @.str.194) #17
+  %172 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(5) @.str.194) #16
   %.not462 = icmp eq i32 %172, 0
   br i1 %.not462, label %173, label %sub_0
 
 173:                                              ; preds = %171
-  tail call void @jv_free(i64 %3, ptr %4) #14
+  tail call void @jv_free(i64 %3, ptr %4) #13
   %174 = tail call { i64, ptr } @f_tostring(ptr poison, i64 %1, ptr %2)
   %175 = extractvalue { i64, ptr } %174, 0
   %176 = extractvalue { i64, ptr } %174, 1
-  %177 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.185) #14
-  %178 = tail call ptr @jv_string_value(i64 %175, ptr %176) #14
+  %177 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.185) #13
+  %178 = tail call ptr @jv_string_value(i64 %175, ptr %176) #13
   br label %179
 
 179:                                              ; preds = %.backedge, %173
@@ -5248,11 +5248,11 @@ f_tostring.exit484:                               ; preds = %122, %125
 
 181:                                              ; preds = %179
   %182 = getelementptr inbounds nuw i8, ptr %.0425, i64 1
-  %183 = call { i64, ptr } @jv_string_append_buf(i64 %.sroa.0176.0, ptr %.sroa.11.0, ptr noundef nonnull %.0425, i32 noundef 1) #14
+  %183 = call { i64, ptr } @jv_string_append_buf(i64 %.sroa.0176.0, ptr %.sroa.11.0, ptr noundef nonnull %.0425, i32 noundef 1) #13
   br label %.backedge
 
 184:                                              ; preds = %179
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #14
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %13) #13
   store i32 0, ptr %13, align 4
   br label %185
 
@@ -5292,16 +5292,16 @@ f_tostring.exit484:                               ; preds = %122, %125
   br label %207
 
 199:                                              ; preds = %.critedge
-  call void @jv_free(i64 %.sroa.0176.0, ptr %.sroa.11.0) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %8) #14
-  %200 = call i32 @jv_get_kind(i64 %175, ptr %176) #14
-  %201 = call ptr @jv_kind_name(i32 noundef %200) #14
-  %202 = call ptr @jv_dump_string_trunc(i64 %175, ptr %176, ptr noundef nonnull %8, i64 noundef 15) #14
-  %203 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %201, ptr noundef %202, ptr noundef nonnull @.str.195) #14
+  call void @jv_free(i64 %.sroa.0176.0, ptr %.sroa.11.0) #13
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %8) #13
+  %200 = call i32 @jv_get_kind(i64 %175, ptr %176) #13
+  %201 = call ptr @jv_kind_name(i32 noundef %200) #13
+  %202 = call ptr @jv_dump_string_trunc(i64 %175, ptr %176, ptr noundef nonnull %8, i64 noundef 15) #13
+  %203 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %201, ptr noundef %202, ptr noundef nonnull @.str.195) #13
   %204 = extractvalue { i64, ptr } %203, 0
   %205 = extractvalue { i64, ptr } %203, 1
-  %206 = call { i64, ptr } @jv_invalid_with_msg(i64 %204, ptr %205) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %8) #14
+  %206 = call { i64, ptr } @jv_invalid_with_msg(i64 %204, ptr %205) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %8) #13
   br label %.thread519
 
 207:                                              ; preds = %.preheader562, %220
@@ -5341,16 +5341,16 @@ f_tostring.exit484:                               ; preds = %122, %125
   br i1 %.not658, label %207, label %230, !llvm.loop !28
 
 222:                                              ; preds = %216
-  call void @jv_free(i64 %.sroa.0176.0, ptr %.sroa.11.0) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %7) #14
-  %223 = call i32 @jv_get_kind(i64 %175, ptr %176) #14
-  %224 = call ptr @jv_kind_name(i32 noundef %223) #14
-  %225 = call ptr @jv_dump_string_trunc(i64 %175, ptr %176, ptr noundef nonnull %7, i64 noundef 15) #14
-  %226 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %224, ptr noundef %225, ptr noundef nonnull @.str.195) #14
+  call void @jv_free(i64 %.sroa.0176.0, ptr %.sroa.11.0) #13
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %7) #13
+  %223 = call i32 @jv_get_kind(i64 %175, ptr %176) #13
+  %224 = call ptr @jv_kind_name(i32 noundef %223) #13
+  %225 = call ptr @jv_dump_string_trunc(i64 %175, ptr %176, ptr noundef nonnull %7, i64 noundef 15) #13
+  %226 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %224, ptr noundef %225, ptr noundef nonnull @.str.195) #13
   %227 = extractvalue { i64, ptr } %226, 0
   %228 = extractvalue { i64, ptr } %226, 1
-  %229 = call { i64, ptr } @jv_invalid_with_msg(i64 %227, ptr %228) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %7) #14
+  %229 = call { i64, ptr } @jv_invalid_with_msg(i64 %227, ptr %228) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %7) #13
   br label %.thread519
 
 230:                                              ; preds = %220
@@ -5360,32 +5360,32 @@ f_tostring.exit484:                               ; preds = %122, %125
 .critedge9:                                       ; preds = %189, %187, %191
   %231 = and i64 %indvars.iv700, 4294967295
   %232 = getelementptr inbounds nuw i8, ptr %13, i64 %231
-  %233 = call i32 @jvp_utf8_is_valid(ptr noundef nonnull %13, ptr noundef nonnull %232) #14
+  %233 = call i32 @jvp_utf8_is_valid(ptr noundef nonnull %13, ptr noundef nonnull %232) #13
   %.not467 = icmp eq i32 %233, 0
   br i1 %.not467, label %234, label %242
 
 234:                                              ; preds = %.critedge9
-  call void @jv_free(i64 %.sroa.0176.0, ptr %.sroa.11.0) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %6) #14
-  %235 = call i32 @jv_get_kind(i64 %175, ptr %176) #14
-  %236 = call ptr @jv_kind_name(i32 noundef %235) #14
-  %237 = call ptr @jv_dump_string_trunc(i64 %175, ptr %176, ptr noundef nonnull %6, i64 noundef 15) #14
-  %238 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %236, ptr noundef %237, ptr noundef nonnull @.str.195) #14
+  call void @jv_free(i64 %.sroa.0176.0, ptr %.sroa.11.0) #13
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %6) #13
+  %235 = call i32 @jv_get_kind(i64 %175, ptr %176) #13
+  %236 = call ptr @jv_kind_name(i32 noundef %235) #13
+  %237 = call ptr @jv_dump_string_trunc(i64 %175, ptr %176, ptr noundef nonnull %6, i64 noundef 15) #13
+  %238 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %236, ptr noundef %237, ptr noundef nonnull @.str.195) #13
   %239 = extractvalue { i64, ptr } %238, 0
   %240 = extractvalue { i64, ptr } %238, 1
-  %241 = call { i64, ptr } @jv_invalid_with_msg(i64 %239, ptr %240) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %6) #14
+  %241 = call { i64, ptr } @jv_invalid_with_msg(i64 %239, ptr %240) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %6) #13
   br label %.thread519
 
 .thread519:                                       ; preds = %199, %222, %234
   %.pn554 = phi { i64, ptr } [ %241, %234 ], [ %229, %222 ], [ %206, %199 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #14
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #13
   br label %f_tostring.exit
 
 242:                                              ; preds = %.critedge9
   %243 = trunc nuw nsw i64 %indvars.iv700 to i32
-  %244 = call { i64, ptr } @jv_string_append_buf(i64 %.sroa.0176.0, ptr %.sroa.11.0, ptr noundef nonnull %13, i32 noundef %243) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #14
+  %244 = call { i64, ptr } @jv_string_append_buf(i64 %.sroa.0176.0, ptr %.sroa.11.0, ptr noundef nonnull %13, i32 noundef %243) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %13) #13
   br label %.backedge
 
 .backedge:                                        ; preds = %242, %181
@@ -5394,7 +5394,7 @@ f_tostring.exit484:                               ; preds = %122, %125
   br label %179, !llvm.loop !30
 
 245:                                              ; preds = %179
-  call void @jv_free(i64 %175, ptr %176) #14
+  call void @jv_free(i64 %175, ptr %176) #13
   br label %f_tostring.exit
 
 sub_0:                                            ; preds = %171
@@ -5415,16 +5415,16 @@ sub_1:                                            ; preds = %sub_0
   br i1 %251, label %252, label %.tail.thread
 
 252:                                              ; preds = %.tail
-  tail call void @jv_free(i64 %3, ptr %4) #14
-  %253 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  tail call void @jv_free(i64 %3, ptr %4) #13
+  %253 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %.not470 = icmp eq i32 %253, 6
   br i1 %.not470, label %.preheader563, label %254
 
 254:                                              ; preds = %252
-  %255 = tail call { i64, ptr } @jv_array() #14
+  %255 = tail call { i64, ptr } @jv_array() #13
   %256 = extractvalue { i64, ptr } %255, 0
   %257 = extractvalue { i64, ptr } %255, 1
-  %258 = tail call { i64, ptr } @jv_array_set(i64 %256, ptr %257, i32 noundef 0, i64 %1, ptr %2) #14
+  %258 = tail call { i64, ptr } @jv_array_set(i64 %256, ptr %257, i32 noundef 0, i64 %1, ptr %2) #13
   %259 = extractvalue { i64, ptr } %258, 0
   %260 = extractvalue { i64, ptr } %258, 1
   br label %.preheader563
@@ -5432,11 +5432,11 @@ sub_1:                                            ; preds = %sub_0
 .preheader563:                                    ; preds = %254, %252
   %.sroa.0324.0 = phi i64 [ %259, %254 ], [ %1, %252 ]
   %.sroa.43.0 = phi ptr [ %260, %254 ], [ %2, %252 ]
-  %261 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.185) #14
-  %262 = tail call { i64, ptr } @jv_copy(i64 %.sroa.0324.0, ptr %.sroa.43.0) #14
+  %261 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.185) #13
+  %262 = tail call { i64, ptr } @jv_copy(i64 %.sroa.0324.0, ptr %.sroa.43.0) #13
   %263 = extractvalue { i64, ptr } %262, 0
   %264 = extractvalue { i64, ptr } %262, 1
-  %265 = tail call i32 @jv_array_length(i64 %263, ptr %264) #14
+  %265 = tail call i32 @jv_array_length(i64 %263, ptr %264) #13
   %.not473.not617 = icmp sgt i32 %265, 0
   br i1 %.not473.not617, label %.lr.ph621, label %.thread540
 
@@ -5445,17 +5445,17 @@ sub_1:                                            ; preds = %sub_0
   %.1434618 = phi i32 [ %295, %294 ], [ 0, %.preheader563 ]
   %.sroa.15.2620 = extractvalue { i64, ptr } %.pn475.pn, 1
   %.sroa.0128.2619 = extractvalue { i64, ptr } %.pn475.pn, 0
-  %266 = tail call { i64, ptr } @jv_copy(i64 %.sroa.0324.0, ptr %.sroa.43.0) #14
+  %266 = tail call { i64, ptr } @jv_copy(i64 %.sroa.0324.0, ptr %.sroa.43.0) #13
   %267 = extractvalue { i64, ptr } %266, 0
   %268 = extractvalue { i64, ptr } %266, 1
-  %269 = tail call { i64, ptr } @jv_array_get(i64 %267, ptr %268, i32 noundef %.1434618) #14
+  %269 = tail call { i64, ptr } @jv_array_get(i64 %267, ptr %268, i32 noundef %.1434618) #13
   %270 = extractvalue { i64, ptr } %269, 0
   %271 = extractvalue { i64, ptr } %269, 1
   %.not474 = icmp eq i32 %.1434618, 0
   br i1 %.not474, label %276, label %272
 
 272:                                              ; preds = %.lr.ph621
-  %273 = tail call { i64, ptr } @jv_string_append_str(i64 %.sroa.0128.2619, ptr %.sroa.15.2620, ptr noundef nonnull @.str.197) #14
+  %273 = tail call { i64, ptr } @jv_string_append_str(i64 %.sroa.0128.2619, ptr %.sroa.15.2620, ptr noundef nonnull @.str.197) #13
   %274 = extractvalue { i64, ptr } %273, 0
   %275 = extractvalue { i64, ptr } %273, 1
   br label %276
@@ -5463,7 +5463,7 @@ sub_1:                                            ; preds = %sub_0
 276:                                              ; preds = %272, %.lr.ph621
   %.sroa.0128.4 = phi i64 [ %274, %272 ], [ %.sroa.0128.2619, %.lr.ph621 ]
   %.sroa.15.4 = phi ptr [ %275, %272 ], [ %.sroa.15.2620, %.lr.ph621 ]
-  %277 = tail call i32 @jv_get_kind(i64 %270, ptr %271) #14
+  %277 = tail call i32 @jv_get_kind(i64 %270, ptr %271) #13
   switch i32 %277, label %296 [
     i32 1, label %278
     i32 3, label %278
@@ -5473,23 +5473,23 @@ sub_1:                                            ; preds = %sub_0
   ]
 
 278:                                              ; preds = %276, %276, %276, %276
-  %279 = tail call { i64, ptr } @jv_dump_string(i64 %270, ptr %271, i32 noundef 0) #14
+  %279 = tail call { i64, ptr } @jv_dump_string(i64 %270, ptr %271, i32 noundef 0) #13
   %280 = extractvalue { i64, ptr } %279, 0
   %281 = extractvalue { i64, ptr } %279, 1
-  %282 = tail call { i64, ptr } @jv_string_concat(i64 %.sroa.0128.4, ptr %.sroa.15.4, i64 %280, ptr %281) #14
+  %282 = tail call { i64, ptr } @jv_string_concat(i64 %.sroa.0128.4, ptr %.sroa.15.4, i64 %280, ptr %281) #13
   br label %294
 
 283:                                              ; preds = %276
-  %284 = tail call { i64, ptr } @jv_string_append_str(i64 %.sroa.0128.4, ptr %.sroa.15.4, ptr noundef nonnull @.str.198) #14
+  %284 = tail call { i64, ptr } @jv_string_append_str(i64 %.sroa.0128.4, ptr %.sroa.15.4, ptr noundef nonnull @.str.198) #13
   %285 = extractvalue { i64, ptr } %284, 0
   %286 = extractvalue { i64, ptr } %284, 1
   %287 = tail call fastcc { i64, ptr } @escape_string(i64 %270, ptr %271, ptr noundef nonnull @.str.199)
   %288 = extractvalue { i64, ptr } %287, 0
   %289 = extractvalue { i64, ptr } %287, 1
-  %290 = tail call { i64, ptr } @jv_string_concat(i64 %285, ptr %286, i64 %288, ptr %289) #14
+  %290 = tail call { i64, ptr } @jv_string_concat(i64 %285, ptr %286, i64 %288, ptr %289) #13
   %291 = extractvalue { i64, ptr } %290, 0
   %292 = extractvalue { i64, ptr } %290, 1
-  %293 = tail call { i64, ptr } @jv_string_append_str(i64 %291, ptr %292, ptr noundef nonnull @.str.198) #14
+  %293 = tail call { i64, ptr } @jv_string_append_str(i64 %291, ptr %292, ptr noundef nonnull @.str.198) #13
   br label %294
 
 294:                                              ; preds = %278, %283
@@ -5499,32 +5499,32 @@ sub_1:                                            ; preds = %sub_0
   br i1 %exitcond699.not, label %.thread540, label %.lr.ph621, !llvm.loop !31
 
 296:                                              ; preds = %276
-  tail call void @jv_free(i64 %.sroa.0324.0, ptr %.sroa.43.0) #14
-  tail call void @jv_free(i64 %.sroa.0128.4, ptr %.sroa.15.4) #14
+  tail call void @jv_free(i64 %.sroa.0324.0, ptr %.sroa.43.0) #13
+  tail call void @jv_free(i64 %.sroa.0128.4, ptr %.sroa.15.4) #13
   %297 = tail call fastcc { i64, ptr } @type_error(i64 %270, ptr %271, ptr noundef nonnull @.str.200)
   br label %f_tostring.exit
 
 .thread540:                                       ; preds = %294, %.preheader563
   %.merged = phi { i64, ptr } [ %261, %.preheader563 ], [ %.pn475, %294 ]
-  tail call void @jv_free(i64 %.sroa.0324.0, ptr %.sroa.43.0) #14
+  tail call void @jv_free(i64 %.sroa.0324.0, ptr %.sroa.43.0) #13
   br label %f_tostring.exit
 
 .tail.thread:                                     ; preds = %sub_1, %sub_0, %.tail
-  %298 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(7) @.str.201) #17
+  %298 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(7) @.str.201) #16
   %.not477 = icmp eq i32 %298, 0
   br i1 %.not477, label %299, label %342
 
 299:                                              ; preds = %.tail.thread
-  tail call void @jv_free(i64 %3, ptr %4) #14
+  tail call void @jv_free(i64 %3, ptr %4) #13
   %300 = tail call { i64, ptr } @f_tostring(ptr poison, i64 %1, ptr %2)
   %301 = extractvalue { i64, ptr } %300, 0
   %302 = extractvalue { i64, ptr } %300, 1
-  %303 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.185) #14
-  %304 = tail call ptr @jv_string_value(i64 %301, ptr %302) #14
-  %305 = tail call { i64, ptr } @jv_copy(i64 %301, ptr %302) #14
+  %303 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.185) #13
+  %304 = tail call ptr @jv_string_value(i64 %301, ptr %302) #13
+  %305 = tail call { i64, ptr } @jv_copy(i64 %301, ptr %302) #13
   %306 = extractvalue { i64, ptr } %305, 0
   %307 = extractvalue { i64, ptr } %305, 1
-  %308 = tail call i32 @jv_string_length_bytes(i64 %306, ptr %307) #14
+  %308 = tail call i32 @jv_string_length_bytes(i64 %306, ptr %307) #13
   %309 = icmp sgt i32 %308, 0
   br i1 %309, label %.lr.ph614, label %._crit_edge615
 
@@ -5536,7 +5536,7 @@ sub_1:                                            ; preds = %sub_0
 
 ._crit_edge615:                                   ; preds = %.thread547, %299
   %.pn478.lcssa = phi { i64, ptr } [ %303, %299 ], [ %340, %.thread547 ]
-  call void @jv_free(i64 %301, ptr %302) #14
+  call void @jv_free(i64 %301, ptr %302) #13
   br label %f_tostring.exit
 
 313:                                              ; preds = %.lr.ph614, %.thread547
@@ -5548,7 +5548,7 @@ sub_1:                                            ; preds = %sub_0
   br label %316
 
 315:                                              ; preds = %322
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #14
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %14) #13
   br label %327
 
 316:                                              ; preds = %313, %322
@@ -5602,31 +5602,31 @@ sub_1:                                            ; preds = %sub_0
   br label %.thread547
 
 .thread547:                                       ; preds = %325, %339, %337
-  %340 = call { i64, ptr } @jv_string_append_buf(i64 %.sroa.0397.21612, ptr %.sroa.26.21611, ptr noundef nonnull %14, i32 noundef 4) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #14
+  %340 = call { i64, ptr } @jv_string_append_buf(i64 %.sroa.0397.21612, ptr %.sroa.26.21611, ptr noundef nonnull %14, i32 noundef 4) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %14) #13
   %indvars.iv.next697 = add nuw nsw i64 %indvars.iv696, 3
   %341 = icmp samesign ult i64 %indvars.iv.next697, %312
   br i1 %341, label %313, label %._crit_edge615, !llvm.loop !34
 
 342:                                              ; preds = %.tail.thread
-  %343 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(8) @.str.202) #17
+  %343 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(8) @.str.202) #16
   %.not480 = icmp eq i32 %343, 0
   br i1 %.not480, label %344, label %402
 
 344:                                              ; preds = %342
-  tail call void @jv_free(i64 %3, ptr %4) #14
+  tail call void @jv_free(i64 %3, ptr %4) #13
   %345 = tail call { i64, ptr } @f_tostring(ptr poison, i64 %1, ptr %2)
   %346 = extractvalue { i64, ptr } %345, 0
   %347 = extractvalue { i64, ptr } %345, 1
-  %348 = tail call ptr @jv_string_value(i64 %346, ptr %347) #14
-  %349 = tail call { i64, ptr } @jv_copy(i64 %346, ptr %347) #14
+  %348 = tail call ptr @jv_string_value(i64 %346, ptr %347) #13
+  %349 = tail call { i64, ptr } @jv_copy(i64 %346, ptr %347) #13
   %350 = extractvalue { i64, ptr } %349, 0
   %351 = extractvalue { i64, ptr } %349, 1
-  %352 = tail call i32 @jv_string_length_bytes(i64 %350, ptr %351) #14
+  %352 = tail call i32 @jv_string_length_bytes(i64 %350, ptr %351) #13
   %353 = sext i32 %352 to i64
   %354 = mul nsw i64 %353, 3
   %355 = lshr i64 %354, 2
-  %356 = tail call ptr @jv_mem_calloc(i64 noundef %355, i64 noundef 1) #14
+  %356 = tail call ptr @jv_mem_calloc(i64 noundef %355, i64 noundef 1) #13
   tail call void @llvm.memset.p0.i64(ptr align 1 %356, i8 0, i64 %355, i1 false)
   %357 = icmp sgt i32 %352, 0
   br i1 %357, label %.lr.ph.preheader, label %._crit_edge.thread
@@ -5689,7 +5689,7 @@ sub_1:                                            ; preds = %sub_0
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !35
 
 .critedge19:                                      ; preds = %360
-  tail call void @free(ptr noundef %356) #14
+  tail call void @free(ptr noundef %356) #13
   %387 = tail call fastcc { i64, ptr } @type_error(i64 %346, ptr %347, ptr noundef nonnull @.str.203)
   br label %f_tostring.exit
 
@@ -5713,7 +5713,7 @@ sub_1:                                            ; preds = %sub_0
   br label %._crit_edge.thread.sink.split
 
 394:                                              ; preds = %._crit_edge
-  tail call void @free(ptr noundef %356) #14
+  tail call void @free(ptr noundef %356) #13
   %395 = tail call fastcc { i64, ptr } @type_error(i64 %346, ptr %347, ptr noundef nonnull @.str.204)
   br label %f_tostring.exit
 
@@ -5731,20 +5731,20 @@ sub_1:                                            ; preds = %sub_0
 
 ._crit_edge.thread:                               ; preds = %._crit_edge.thread.sink.split, %344, %._crit_edge
   %.2 = phi i32 [ %.0406.lcssa, %._crit_edge ], [ 0, %344 ], [ %398, %._crit_edge.thread.sink.split ]
-  %401 = tail call { i64, ptr } @jv_string_sized(ptr noundef %356, i32 noundef %.2) #14
-  tail call void @jv_free(i64 %346, ptr %347) #14
-  tail call void @free(ptr noundef %356) #14
+  %401 = tail call { i64, ptr } @jv_string_sized(ptr noundef %356, i32 noundef %.2) #13
+  tail call void @jv_free(i64 %346, ptr %347) #13
+  tail call void @free(ptr noundef %356) #13
   br label %f_tostring.exit
 
 402:                                              ; preds = %342
-  tail call void @jv_free(i64 %1, ptr %2) #14
-  %403 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.205) #14
+  tail call void @jv_free(i64 %1, ptr %2) #13
+  %403 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.205) #13
   %404 = extractvalue { i64, ptr } %403, 0
   %405 = extractvalue { i64, ptr } %403, 1
-  %406 = tail call { i64, ptr } @jv_string_concat(i64 %3, ptr %4, i64 %404, ptr %405) #14
+  %406 = tail call { i64, ptr } @jv_string_concat(i64 %3, ptr %4, i64 %404, ptr %405) #13
   %407 = extractvalue { i64, ptr } %406, 0
   %408 = extractvalue { i64, ptr } %406, 1
-  %409 = tail call { i64, ptr } @jv_invalid_with_msg(i64 %407, ptr %408) #14
+  %409 = tail call { i64, ptr } @jv_invalid_with_msg(i64 %407, ptr %408) #13
   br label %f_tostring.exit
 
 f_tostring.exit:                                  ; preds = %394, %._crit_edge.thread, %.critedge19, %.thread540, %296, %245, %.thread519, %.thread498, %107, %37, %34, %27, %f_tostring.exit484, %._crit_edge640, %._crit_edge615, %402, %45, %16
@@ -5754,8 +5754,8 @@ f_tostring.exit:                                  ; preds = %394, %._crit_edge.t
 
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_env(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
-  tail call void @jv_free(i64 %1, ptr %2) #14
-  %4 = tail call { i64, ptr } @jv_object() #14
+  tail call void @jv_free(i64 %1, ptr %2) #13
+  %4 = tail call { i64, ptr } @jv_object() #13
   %5 = load ptr, ptr @environ, align 8, !tbaa !36
   %6 = load ptr, ptr %5, align 8, !tbaa !38
   %.not29 = icmp eq ptr %6, null
@@ -5780,18 +5780,18 @@ define internal { i64, ptr } @f_env(ptr readnone captures(none) %0, i64 %1, ptr 
   %.sroa.6.032 = phi ptr [ %.sroa.6.1, %42 ], [ %7, %.lr.ph.preheader ]
   %.sroa.023.031 = phi i64 [ %.sroa.023.1, %42 ], [ %8, %.lr.ph.preheader ]
   %.030 = phi ptr [ %43, %42 ], [ %5, %.lr.ph.preheader ]
-  %12 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %11, i32 noundef 61) #17
+  %12 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %11, i32 noundef 61) #16
   %13 = icmp eq ptr %12, null
   br i1 %13, label %14, label %24
 
 14:                                               ; preds = %.lr.ph
-  %15 = tail call { i64, ptr } @jv_string(ptr noundef nonnull %11) #14
+  %15 = tail call { i64, ptr } @jv_string(ptr noundef nonnull %11) #13
   %16 = extractvalue { i64, ptr } %15, 0
   %17 = extractvalue { i64, ptr } %15, 1
-  %18 = tail call { i64, ptr } @jv_null() #14
+  %18 = tail call { i64, ptr } @jv_null() #13
   %19 = extractvalue { i64, ptr } %18, 0
   %20 = extractvalue { i64, ptr } %18, 1
-  %21 = tail call { i64, ptr } @jv_object_set(i64 %.sroa.023.031, ptr %.sroa.6.032, i64 %16, ptr %17, i64 %19, ptr %20) #14
+  %21 = tail call { i64, ptr } @jv_object_set(i64 %.sroa.023.031, ptr %.sroa.6.032, i64 %16, ptr %17, i64 %19, ptr %20) #13
   %22 = extractvalue { i64, ptr } %21, 0
   %23 = extractvalue { i64, ptr } %21, 1
   br label %42
@@ -5806,14 +5806,14 @@ define internal { i64, ptr } @f_env(ptr readnone captures(none) %0, i64 %1, ptr 
 29:                                               ; preds = %24
   %30 = sub i64 %26, %25
   %31 = trunc i64 %30 to i32
-  %32 = tail call { i64, ptr } @jv_string_sized(ptr noundef nonnull %11, i32 noundef %31) #14
+  %32 = tail call { i64, ptr } @jv_string_sized(ptr noundef nonnull %11, i32 noundef %31) #13
   %33 = extractvalue { i64, ptr } %32, 0
   %34 = extractvalue { i64, ptr } %32, 1
   %35 = getelementptr inbounds nuw i8, ptr %12, i64 1
-  %36 = tail call { i64, ptr } @jv_string(ptr noundef nonnull %35) #14
+  %36 = tail call { i64, ptr } @jv_string(ptr noundef nonnull %35) #13
   %37 = extractvalue { i64, ptr } %36, 0
   %38 = extractvalue { i64, ptr } %36, 1
-  %39 = tail call { i64, ptr } @jv_object_set(i64 %.sroa.023.031, ptr %.sroa.6.032, i64 %33, ptr %34, i64 %37, ptr %38) #14
+  %39 = tail call { i64, ptr } @jv_object_set(i64 %.sroa.023.031, ptr %.sroa.6.032, i64 %33, ptr %34, i64 %37, ptr %38) #13
   %40 = extractvalue { i64, ptr } %39, 0
   %41 = extractvalue { i64, ptr } %39, 1
   br label %42
@@ -5829,41 +5829,41 @@ define internal { i64, ptr } @f_env(ptr readnone captures(none) %0, i64 %1, ptr 
 
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_halt(ptr noundef %0, i64 %1, ptr %2) #0 {
-  tail call void @jv_free(i64 %1, ptr %2) #14
-  %4 = tail call { i64, ptr } @jv_invalid() #14
+  tail call void @jv_free(i64 %1, ptr %2) #13
+  %4 = tail call { i64, ptr } @jv_invalid() #13
   %5 = extractvalue { i64, ptr } %4, 0
   %6 = extractvalue { i64, ptr } %4, 1
-  %7 = tail call { i64, ptr } @jv_invalid() #14
+  %7 = tail call { i64, ptr } @jv_invalid() #13
   %8 = extractvalue { i64, ptr } %7, 0
   %9 = extractvalue { i64, ptr } %7, 1
-  tail call void @jq_halt(ptr noundef %0, i64 %5, ptr %6, i64 %8, ptr %9) #14
-  %10 = tail call { i64, ptr } @jv_true() #14
+  tail call void @jq_halt(ptr noundef %0, i64 %5, ptr %6, i64 %8, ptr %9) #13
+  %10 = tail call { i64, ptr } @jv_true() #13
   ret { i64, ptr } %10
 }
 
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_halt_error(ptr noundef %0, i64 %1, ptr %2, i64 %3, ptr %4) #0 {
   %6 = alloca [15 x i8], align 1
-  %7 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #14
+  %7 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #13
   %.not = icmp eq i32 %7, 4
   br i1 %.not, label %16, label %8
 
 8:                                                ; preds = %5
-  tail call void @jv_free(i64 %3, ptr %4) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %6) #14
-  %9 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
-  %10 = tail call ptr @jv_kind_name(i32 noundef %9) #14
-  %11 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %6, i64 noundef 15) #14
-  %12 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %10, ptr noundef %11, ptr noundef nonnull @.str.207) #14
+  tail call void @jv_free(i64 %3, ptr %4) #13
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %6) #13
+  %9 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
+  %10 = tail call ptr @jv_kind_name(i32 noundef %9) #13
+  %11 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %6, i64 noundef 15) #13
+  %12 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %10, ptr noundef %11, ptr noundef nonnull @.str.207) #13
   %13 = extractvalue { i64, ptr } %12, 0
   %14 = extractvalue { i64, ptr } %12, 1
-  %15 = call { i64, ptr } @jv_invalid_with_msg(i64 %13, ptr %14) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %6) #14
+  %15 = call { i64, ptr } @jv_invalid_with_msg(i64 %13, ptr %14) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %6) #13
   br label %18
 
 16:                                               ; preds = %5
-  tail call void @jq_halt(ptr noundef %0, i64 %3, ptr %4, i64 %1, ptr %2) #14
-  %17 = tail call { i64, ptr } @jv_true() #14
+  tail call void @jq_halt(ptr noundef %0, i64 %3, ptr %4, i64 %1, ptr %2) #13
+  %17 = tail call { i64, ptr } @jv_true() #13
   br label %18
 
 18:                                               ; preds = %16, %8
@@ -5873,22 +5873,22 @@ define internal { i64, ptr } @f_halt_error(ptr noundef %0, i64 %1, ptr %2, i64 %
 
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_get_search_list(ptr noundef %0, i64 %1, ptr %2) #0 {
-  tail call void @jv_free(i64 %1, ptr %2) #14
-  %4 = tail call { i64, ptr } @jq_get_lib_dirs(ptr noundef %0) #14
+  tail call void @jv_free(i64 %1, ptr %2) #13
+  %4 = tail call { i64, ptr } @jq_get_lib_dirs(ptr noundef %0) #13
   ret { i64, ptr } %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_get_prog_origin(ptr noundef %0, i64 %1, ptr %2) #0 {
-  tail call void @jv_free(i64 %1, ptr %2) #14
-  %4 = tail call { i64, ptr } @jq_get_prog_origin(ptr noundef %0) #14
+  tail call void @jv_free(i64 %1, ptr %2) #13
+  %4 = tail call { i64, ptr } @jq_get_prog_origin(ptr noundef %0) #13
   ret { i64, ptr } %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_get_jq_origin(ptr noundef %0, i64 %1, ptr %2) #0 {
-  tail call void @jv_free(i64 %1, ptr %2) #14
-  %4 = tail call { i64, ptr } @jq_get_jq_origin(ptr noundef %0) #14
+  tail call void @jv_free(i64 %1, ptr %2) #13
+  %4 = tail call { i64, ptr } @jq_get_jq_origin(ptr noundef %0) #13
   ret { i64, ptr } %4
 }
 
@@ -5903,77 +5903,77 @@ define internal { i64, ptr } @f_match(ptr readnone captures(none) %0, i64 %1, pt
   %14 = alloca %struct.jv, align 8
   %15 = alloca %struct.jv, align 8
   %16 = alloca [90 x i8], align 16
-  %17 = tail call { i64, ptr } @jv_true() #14
+  %17 = tail call { i64, ptr } @jv_true() #13
   %18 = extractvalue { i64, ptr } %17, 0
   %19 = extractvalue { i64, ptr } %17, 1
   %20 = load i64, ptr %6, align 8
   %21 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %22 = load ptr, ptr %21, align 8
-  %23 = tail call i32 @jv_equal(i64 %20, ptr %22, i64 %18, ptr %19) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #14
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #14
-  %24 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %23 = tail call i32 @jv_equal(i64 %20, ptr %22, i64 %18, ptr %19) #13
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #13
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %12) #13
+  %24 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %.not = icmp eq i32 %24, 5
   br i1 %.not, label %36, label %25
 
 25:                                               ; preds = %7
-  tail call void @jv_free(i64 %3, ptr %4) #14
+  tail call void @jv_free(i64 %3, ptr %4) #13
   %26 = load i64, ptr %5, align 8
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %28 = load ptr, ptr %27, align 8
-  tail call void @jv_free(i64 %26, ptr %28) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %10) #14
-  %29 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
-  %30 = tail call ptr @jv_kind_name(i32 noundef %29) #14
-  %31 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %10, i64 noundef 15) #14
-  %32 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %30, ptr noundef %31, ptr noundef nonnull @.str.208) #14
+  tail call void @jv_free(i64 %26, ptr %28) #13
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %10) #13
+  %29 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
+  %30 = tail call ptr @jv_kind_name(i32 noundef %29) #13
+  %31 = call ptr @jv_dump_string_trunc(i64 %1, ptr %2, ptr noundef nonnull %10, i64 noundef 15) #13
+  %32 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %30, ptr noundef %31, ptr noundef nonnull @.str.208) #13
   %33 = extractvalue { i64, ptr } %32, 0
   %34 = extractvalue { i64, ptr } %32, 1
-  %35 = call { i64, ptr } @jv_invalid_with_msg(i64 %33, ptr %34) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %10) #14
+  %35 = call { i64, ptr } @jv_invalid_with_msg(i64 %33, ptr %34) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %10) #13
   br label %.critedge
 
 36:                                               ; preds = %7
-  %37 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #14
+  %37 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #13
   %.not437 = icmp eq i32 %37, 5
   br i1 %.not437, label %49, label %38
 
 38:                                               ; preds = %36
-  tail call void @jv_free(i64 %1, ptr %2) #14
+  tail call void @jv_free(i64 %1, ptr %2) #13
   %39 = load i64, ptr %5, align 8
   %40 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %41 = load ptr, ptr %40, align 8
-  tail call void @jv_free(i64 %39, ptr %41) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %9) #14
-  %42 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #14
-  %43 = tail call ptr @jv_kind_name(i32 noundef %42) #14
-  %44 = call ptr @jv_dump_string_trunc(i64 %3, ptr %4, ptr noundef nonnull %9, i64 noundef 15) #14
-  %45 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %43, ptr noundef %44, ptr noundef nonnull @.str.209) #14
+  tail call void @jv_free(i64 %39, ptr %41) #13
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %9) #13
+  %42 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #13
+  %43 = tail call ptr @jv_kind_name(i32 noundef %42) #13
+  %44 = call ptr @jv_dump_string_trunc(i64 %3, ptr %4, ptr noundef nonnull %9, i64 noundef 15) #13
+  %45 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %43, ptr noundef %44, ptr noundef nonnull @.str.209) #13
   %46 = extractvalue { i64, ptr } %45, 0
   %47 = extractvalue { i64, ptr } %45, 1
-  %48 = call { i64, ptr } @jv_invalid_with_msg(i64 %46, ptr %47) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %9) #14
+  %48 = call { i64, ptr } @jv_invalid_with_msg(i64 %46, ptr %47) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %9) #13
   br label %.critedge
 
 49:                                               ; preds = %36
   %50 = load i64, ptr %5, align 8
   %51 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %52 = load ptr, ptr %51, align 8
-  %53 = tail call i32 @jv_get_kind(i64 %50, ptr %52) #14
+  %53 = tail call i32 @jv_get_kind(i64 %50, ptr %52) #13
   %54 = icmp eq i32 %53, 5
   br i1 %54, label %.preheader478, label %98
 
 .preheader478:                                    ; preds = %49
-  %55 = tail call { i64, ptr } @jv_copy(i64 %50, ptr %52) #14
+  %55 = tail call { i64, ptr } @jv_copy(i64 %50, ptr %52) #13
   %56 = extractvalue { i64, ptr } %55, 0
   %57 = extractvalue { i64, ptr } %55, 1
-  %58 = tail call { i64, ptr } @jv_string_explode(i64 %56, ptr %57) #14
+  %58 = tail call { i64, ptr } @jv_string_explode(i64 %56, ptr %57) #13
   %59 = extractvalue { i64, ptr } %58, 0
   %60 = extractvalue { i64, ptr } %58, 1
-  %61 = tail call { i64, ptr } @jv_copy(i64 %59, ptr %60) #14
+  %61 = tail call { i64, ptr } @jv_copy(i64 %59, ptr %60) #13
   %62 = extractvalue { i64, ptr } %61, 0
   %63 = extractvalue { i64, ptr } %61, 1
-  %64 = tail call i32 @jv_array_length(i64 %62, ptr %63) #14
+  %64 = tail call i32 @jv_array_length(i64 %62, ptr %63) #13
   %.not441.not492 = icmp sgt i32 %64, 0
   br i1 %.not441.not492, label %.lr.ph, label %.thread468
 
@@ -5981,13 +5981,13 @@ define internal { i64, ptr } @f_match(ptr readnone captures(none) %0, i64 %1, pt
   %.2495 = phi i32 [ %.3, %87 ], [ 0, %.preheader478 ]
   %.2410494 = phi i32 [ %.3411, %87 ], [ 256, %.preheader478 ]
   %.1414493 = phi i32 [ %88, %87 ], [ 0, %.preheader478 ]
-  %65 = tail call { i64, ptr } @jv_copy(i64 %59, ptr %60) #14
+  %65 = tail call { i64, ptr } @jv_copy(i64 %59, ptr %60) #13
   %66 = extractvalue { i64, ptr } %65, 0
   %67 = extractvalue { i64, ptr } %65, 1
-  %68 = tail call { i64, ptr } @jv_array_get(i64 %66, ptr %67, i32 noundef %.1414493) #14
+  %68 = tail call { i64, ptr } @jv_array_get(i64 %66, ptr %67, i32 noundef %.1414493) #13
   %69 = extractvalue { i64, ptr } %68, 0
   %70 = extractvalue { i64, ptr } %68, 1
-  %71 = tail call double @jv_number_value(i64 %69, ptr %70) #14
+  %71 = tail call double @jv_number_value(i64 %69, ptr %70) #13
   %72 = fptosi double %71 to i32
   switch i32 %72, label %89 [
     i32 103, label %87
@@ -6036,16 +6036,16 @@ define internal { i64, ptr } @f_match(ptr readnone captures(none) %0, i64 %1, pt
   br i1 %exitcond.not, label %.thread468.loopexit, label %.lr.ph, !llvm.loop !40
 
 89:                                               ; preds = %.lr.ph
-  tail call void @jv_free(i64 %1, ptr %2) #14
-  tail call void @jv_free(i64 %3, ptr %4) #14
-  tail call void @jv_free(i64 %59, ptr %60) #14
-  %90 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.210) #14
+  tail call void @jv_free(i64 %1, ptr %2) #13
+  tail call void @jv_free(i64 %3, ptr %4) #13
+  tail call void @jv_free(i64 %59, ptr %60) #13
+  %90 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.210) #13
   %91 = extractvalue { i64, ptr } %90, 0
   %92 = extractvalue { i64, ptr } %90, 1
-  %93 = tail call { i64, ptr } @jv_string_concat(i64 %50, ptr %52, i64 %91, ptr %92) #14
+  %93 = tail call { i64, ptr } @jv_string_concat(i64 %50, ptr %52, i64 %91, ptr %92) #13
   %94 = extractvalue { i64, ptr } %93, 0
   %95 = extractvalue { i64, ptr } %93, 1
-  %96 = tail call { i64, ptr } @jv_invalid_with_msg(i64 %94, ptr %95) #14
+  %96 = tail call { i64, ptr } @jv_invalid_with_msg(i64 %94, ptr %95) #13
   br label %.critedge
 
 .thread468.loopexit:                              ; preds = %87
@@ -6055,60 +6055,60 @@ define internal { i64, ptr } @f_match(ptr readnone captures(none) %0, i64 %1, pt
 .thread468:                                       ; preds = %.thread468.loopexit, %.preheader478
   %.0408.lcssa = phi i32 [ 256, %.preheader478 ], [ %.3411, %.thread468.loopexit ]
   %.0.lcssa = phi i1 [ false, %.preheader478 ], [ %97, %.thread468.loopexit ]
-  tail call void @jv_free(i64 %59, ptr %60) #14
+  tail call void @jv_free(i64 %59, ptr %60) #13
   br label %108
 
 98:                                               ; preds = %49
-  %99 = tail call i32 @jv_get_kind(i64 %50, ptr %52) #14
+  %99 = tail call i32 @jv_get_kind(i64 %50, ptr %52) #13
   %.not438 = icmp eq i32 %99, 1
   br i1 %.not438, label %108, label %100
 
 100:                                              ; preds = %98
-  tail call void @jv_free(i64 %1, ptr %2) #14
-  tail call void @jv_free(i64 %3, ptr %4) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %8) #14
-  %101 = tail call i32 @jv_get_kind(i64 %50, ptr %52) #14
-  %102 = tail call ptr @jv_kind_name(i32 noundef %101) #14
-  %103 = call ptr @jv_dump_string_trunc(i64 %50, ptr %52, ptr noundef nonnull %8, i64 noundef 15) #14
-  %104 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %102, ptr noundef %103, ptr noundef nonnull @.str.209) #14
+  tail call void @jv_free(i64 %1, ptr %2) #13
+  tail call void @jv_free(i64 %3, ptr %4) #13
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %8) #13
+  %101 = tail call i32 @jv_get_kind(i64 %50, ptr %52) #13
+  %102 = tail call ptr @jv_kind_name(i32 noundef %101) #13
+  %103 = call ptr @jv_dump_string_trunc(i64 %50, ptr %52, ptr noundef nonnull %8, i64 noundef 15) #13
+  %104 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %102, ptr noundef %103, ptr noundef nonnull @.str.209) #13
   %105 = extractvalue { i64, ptr } %104, 0
   %106 = extractvalue { i64, ptr } %104, 1
-  %107 = call { i64, ptr } @jv_invalid_with_msg(i64 %105, ptr %106) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %8) #14
+  %107 = call { i64, ptr } @jv_invalid_with_msg(i64 %105, ptr %106) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %8) #13
   br label %.critedge
 
 108:                                              ; preds = %.thread468, %98
   %.4412 = phi i32 [ %.0408.lcssa, %.thread468 ], [ 256, %98 ]
   %.4 = phi i1 [ %.0.lcssa, %.thread468 ], [ false, %98 ]
-  tail call void @jv_free(i64 %50, ptr %52) #14
-  %109 = tail call ptr @jv_string_value(i64 %3, ptr %4) #14
-  %110 = tail call ptr @jv_string_value(i64 %3, ptr %4) #14
-  %111 = tail call { i64, ptr } @jv_copy(i64 %3, ptr %4) #14
+  tail call void @jv_free(i64 %50, ptr %52) #13
+  %109 = tail call ptr @jv_string_value(i64 %3, ptr %4) #13
+  %110 = tail call ptr @jv_string_value(i64 %3, ptr %4) #13
+  %111 = tail call { i64, ptr } @jv_copy(i64 %3, ptr %4) #13
   %112 = extractvalue { i64, ptr } %111, 0
   %113 = extractvalue { i64, ptr } %111, 1
-  %114 = tail call i32 @jv_string_length_bytes(i64 %112, ptr %113) #14
+  %114 = tail call i32 @jv_string_length_bytes(i64 %112, ptr %113) #13
   %115 = sext i32 %114 to i64
   %116 = getelementptr inbounds i8, ptr %110, i64 %115
-  %117 = call i32 @onig_new(ptr noundef nonnull %11, ptr noundef %109, ptr noundef %116, i32 noundef %.4412, ptr noundef nonnull @OnigEncodingUTF8, ptr noundef nonnull @OnigSyntaxPerl_NG, ptr noundef nonnull %12) #14
+  %117 = call i32 @onig_new(ptr noundef nonnull %11, ptr noundef %109, ptr noundef %116, i32 noundef %.4412, ptr noundef nonnull @OnigEncodingUTF8, ptr noundef nonnull @OnigSyntaxPerl_NG, ptr noundef nonnull %12) #13
   %.not442 = icmp eq i32 %117, 0
   br i1 %.not442, label %130, label %118
 
 118:                                              ; preds = %108
-  call void @llvm.lifetime.start.p0(i64 90, ptr nonnull %13) #14
-  %119 = call i32 (ptr, i32, ...) @onig_error_code_to_str(ptr noundef nonnull %13, i32 noundef %117, ptr noundef nonnull %12) #14
-  call void @jv_free(i64 %1, ptr %2) #14
-  call void @jv_free(i64 %3, ptr %4) #14
-  %120 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.211) #14
+  call void @llvm.lifetime.start.p0(i64 90, ptr nonnull %13) #13
+  %119 = call i32 (ptr, i32, ...) @onig_error_code_to_str(ptr noundef nonnull %13, i32 noundef %117, ptr noundef nonnull %12) #13
+  call void @jv_free(i64 %1, ptr %2) #13
+  call void @jv_free(i64 %3, ptr %4) #13
+  %120 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.211) #13
   %121 = extractvalue { i64, ptr } %120, 0
   %122 = extractvalue { i64, ptr } %120, 1
-  %123 = call { i64, ptr } @jv_string(ptr noundef nonnull %13) #14
+  %123 = call { i64, ptr } @jv_string(ptr noundef nonnull %13) #13
   %124 = extractvalue { i64, ptr } %123, 0
   %125 = extractvalue { i64, ptr } %123, 1
-  %126 = call { i64, ptr } @jv_string_concat(i64 %121, ptr %122, i64 %124, ptr %125) #14
+  %126 = call { i64, ptr } @jv_string_concat(i64 %121, ptr %122, i64 %124, ptr %125) #13
   %127 = extractvalue { i64, ptr } %126, 0
   %128 = extractvalue { i64, ptr } %126, 1
-  %129 = call { i64, ptr } @jv_invalid_with_msg(i64 %127, ptr %128) #14
-  call void @llvm.lifetime.end.p0(i64 90, ptr nonnull %13) #14
+  %129 = call { i64, ptr } @jv_invalid_with_msg(i64 %127, ptr %128) #13
+  call void @llvm.lifetime.end.p0(i64 90, ptr nonnull %13) #13
   br label %.critedge
 
 130:                                              ; preds = %108
@@ -6116,26 +6116,26 @@ define internal { i64, ptr } @f_match(ptr readnone captures(none) %0, i64 %1, pt
   br i1 %.not443, label %133, label %131
 
 131:                                              ; preds = %130
-  %132 = call { i64, ptr } @jv_false() #14
+  %132 = call { i64, ptr } @jv_false() #13
   br label %135
 
 133:                                              ; preds = %130
-  %134 = call { i64, ptr } @jv_array() #14
+  %134 = call { i64, ptr } @jv_array() #13
   br label %135
 
 135:                                              ; preds = %133, %131
   %.pn = phi { i64, ptr } [ %132, %131 ], [ %134, %133 ]
   %.sroa.12.0 = extractvalue { i64, ptr } %.pn, 1
   %.sroa.0353.0 = extractvalue { i64, ptr } %.pn, 0
-  %136 = call ptr @jv_string_value(i64 %1, ptr %2) #14
-  %137 = call ptr @jv_string_value(i64 %1, ptr %2) #14
-  %138 = call { i64, ptr } @jv_copy(i64 %1, ptr %2) #14
+  %136 = call ptr @jv_string_value(i64 %1, ptr %2) #13
+  %137 = call ptr @jv_string_value(i64 %1, ptr %2) #13
+  %138 = call { i64, ptr } @jv_copy(i64 %1, ptr %2) #13
   %139 = extractvalue { i64, ptr } %138, 0
   %140 = extractvalue { i64, ptr } %138, 1
-  %141 = call i32 @jv_string_length_bytes(i64 %139, ptr %140) #14
+  %141 = call i32 @jv_string_length_bytes(i64 %139, ptr %140) #13
   %142 = sext i32 %141 to i64
   %143 = getelementptr inbounds nuw i8, ptr %137, i64 %142
-  %144 = call ptr @onig_region_new() #14
+  %144 = call ptr @onig_region_new() #13
   %invariant.gep = getelementptr i8, ptr %136, i64 1
   %145 = getelementptr inbounds nuw i8, ptr %144, i64 16
   %146 = getelementptr inbounds nuw i8, ptr %144, i64 8
@@ -6149,8 +6149,8 @@ define internal { i64, ptr } @f_match(ptr readnone captures(none) %0, i64 %1, pt
   %.sroa.0353.1.us = phi i64 [ %.sroa.0353.3.us, %429 ], [ %.sroa.0353.0, %135 ]
   %.sroa.12.1.us = phi ptr [ %.sroa.12.3.us, %429 ], [ %.sroa.12.0, %135 ]
   %150 = load ptr, ptr %11, align 8, !tbaa !41
-  %151 = call ptr @jv_string_value(i64 %1, ptr %2) #14
-  %152 = call i32 @onig_search(ptr noundef %150, ptr noundef %151, ptr noundef %143, ptr noundef %.0416.us, ptr noundef %143, ptr noundef %144, i32 noundef 0) #14
+  %151 = call ptr @jv_string_value(i64 %1, ptr %2) #13
+  %152 = call i32 @onig_search(ptr noundef %150, ptr noundef %151, ptr noundef %143, ptr noundef %.0416.us, ptr noundef %143, ptr noundef %144, i32 noundef 0) #13
   %153 = icmp sgt i32 %152, -1
   br i1 %153, label %154, label %.split534.us
 
@@ -6171,16 +6171,16 @@ define internal { i64, ptr } @f_match(ptr readnone captures(none) %0, i64 %1, pt
 ._crit_edge.us:                                   ; preds = %._crit_edge.us.loopexit, %.preheader477.us
   %.0426.lcssa.us = phi double [ 0.000000e+00, %.preheader477.us ], [ %162, %._crit_edge.us.loopexit ]
   %.0421.lcssa.us = phi double [ 0.000000e+00, %.preheader477.us ], [ %161, %._crit_edge.us.loopexit ]
-  %163 = call { i64, ptr } @jv_object() #14
+  %163 = call { i64, ptr } @jv_object() #13
   %164 = extractvalue { i64, ptr } %163, 0
   %165 = extractvalue { i64, ptr } %163, 1
-  %166 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.212) #14
+  %166 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.212) #13
   %167 = extractvalue { i64, ptr } %166, 0
   %168 = extractvalue { i64, ptr } %166, 1
-  %169 = call { i64, ptr } @jv_number(double noundef %.0421.lcssa.us) #14
+  %169 = call { i64, ptr } @jv_number(double noundef %.0421.lcssa.us) #13
   %170 = extractvalue { i64, ptr } %169, 0
   %171 = extractvalue { i64, ptr } %169, 1
-  %172 = call { i64, ptr } @jv_object_set(i64 %164, ptr %165, i64 %167, ptr %168, i64 %170, ptr %171) #14
+  %172 = call { i64, ptr } @jv_object_set(i64 %164, ptr %165, i64 %167, ptr %168, i64 %170, ptr %171) #13
   %173 = extractvalue { i64, ptr } %172, 0
   %174 = extractvalue { i64, ptr } %172, 1
   %175 = load ptr, ptr %145, align 8, !tbaa !43
@@ -6188,30 +6188,30 @@ define internal { i64, ptr } @f_match(ptr readnone captures(none) %0, i64 %1, pt
   %177 = load ptr, ptr %146, align 8, !tbaa !47
   %178 = load i32, ptr %177, align 4, !tbaa !19
   %179 = sub nsw i32 %176, %178
-  %180 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.113) #14
+  %180 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.113) #13
   %181 = extractvalue { i64, ptr } %180, 0
   %182 = extractvalue { i64, ptr } %180, 1
-  %183 = call { i64, ptr } @jv_number(double noundef %.0426.lcssa.us) #14
+  %183 = call { i64, ptr } @jv_number(double noundef %.0426.lcssa.us) #13
   %184 = extractvalue { i64, ptr } %183, 0
   %185 = extractvalue { i64, ptr } %183, 1
-  %186 = call { i64, ptr } @jv_object_set(i64 %173, ptr %174, i64 %181, ptr %182, i64 %184, ptr %185) #14
+  %186 = call { i64, ptr } @jv_object_set(i64 %173, ptr %174, i64 %181, ptr %182, i64 %184, ptr %185) #13
   %187 = extractvalue { i64, ptr } %186, 0
   %188 = extractvalue { i64, ptr } %186, 1
-  %189 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.213) #14
+  %189 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.213) #13
   %190 = extractvalue { i64, ptr } %189, 0
   %191 = extractvalue { i64, ptr } %189, 1
   %192 = load ptr, ptr %146, align 8, !tbaa !47
   %193 = load i32, ptr %192, align 4, !tbaa !19
   %194 = sext i32 %193 to i64
   %195 = getelementptr inbounds i8, ptr %136, i64 %194
-  %196 = call { i64, ptr } @jv_string_sized(ptr noundef %195, i32 noundef %179) #14
+  %196 = call { i64, ptr } @jv_string_sized(ptr noundef %195, i32 noundef %179) #13
   %197 = extractvalue { i64, ptr } %196, 0
   %198 = extractvalue { i64, ptr } %196, 1
-  %199 = call { i64, ptr } @jv_object_set(i64 %187, ptr %188, i64 %190, ptr %191, i64 %197, ptr %198) #14
+  %199 = call { i64, ptr } @jv_object_set(i64 %187, ptr %188, i64 %190, ptr %191, i64 %197, ptr %198) #13
   %200 = extractvalue { i64, ptr } %199, 0
   %201 = extractvalue { i64, ptr } %199, 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #14
-  %202 = call { i64, ptr } @jv_array() #14
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %15) #13
+  %202 = call { i64, ptr } @jv_array() #13
   %203 = extractvalue { i64, ptr } %202, 0
   store i64 %203, ptr %15, align 8
   %204 = extractvalue { i64, ptr } %202, 1
@@ -6222,22 +6222,22 @@ define internal { i64, ptr } @f_match(ptr readnone captures(none) %0, i64 %1, pt
 
 ._crit_edge523.us:                                ; preds = %345, %._crit_edge.us
   %207 = load ptr, ptr %11, align 8, !tbaa !41
-  %208 = call i32 @onig_foreach_name(ptr noundef %207, ptr noundef nonnull @f_match_name_iter, ptr noundef nonnull %15) #14
-  %209 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.215) #14
+  %208 = call i32 @onig_foreach_name(ptr noundef %207, ptr noundef nonnull @f_match_name_iter, ptr noundef nonnull %15) #13
+  %209 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.215) #13
   %210 = extractvalue { i64, ptr } %209, 0
   %211 = extractvalue { i64, ptr } %209, 1
   %212 = load i64, ptr %15, align 8
   %213 = load ptr, ptr %147, align 8
-  %214 = call { i64, ptr } @jv_object_set(i64 %200, ptr %201, i64 %210, ptr %211, i64 %212, ptr %213) #14
+  %214 = call { i64, ptr } @jv_object_set(i64 %200, ptr %201, i64 %210, ptr %211, i64 %212, ptr %213) #13
   %215 = extractvalue { i64, ptr } %214, 0
   %216 = extractvalue { i64, ptr } %214, 1
-  %217 = call { i64, ptr } @jv_array_append(i64 %.sroa.0353.1.us, ptr %.sroa.12.1.us, i64 %215, ptr %216) #14
+  %217 = call { i64, ptr } @jv_array_append(i64 %.sroa.0353.1.us, ptr %.sroa.12.1.us, i64 %215, ptr %216) #13
   %218 = load ptr, ptr %145, align 8, !tbaa !43
   %219 = load i32, ptr %218, align 4, !tbaa !19
   %220 = sext i32 %219 to i64
   %221 = getelementptr inbounds i8, ptr %136, i64 %220
-  call void @onig_region_free(ptr noundef nonnull %144, i32 noundef 0) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #14
+  call void @onig_region_free(ptr noundef nonnull %144, i32 noundef 0) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %15) #13
   br label %429
 
 .lr.ph522.us:                                     ; preds = %._crit_edge.us, %345
@@ -6265,28 +6265,28 @@ define internal { i64, ptr } @f_match(ptr readnone captures(none) %0, i64 %1, pt
   %.3424.lcssa.us = phi double [ 0.000000e+00, %.preheader475.us ], [ %229, %._crit_edge511.us.loopexit ]
   %.lcssa.us = phi i32 [ %227, %.preheader475.us ], [ %280, %._crit_edge511.us.loopexit ]
   %232 = sub nsw i32 %.lcssa.us, %231
-  %233 = call { i64, ptr } @jv_object() #14
+  %233 = call { i64, ptr } @jv_object() #13
   %234 = extractvalue { i64, ptr } %233, 0
   %235 = extractvalue { i64, ptr } %233, 1
-  %236 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.212) #14
+  %236 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.212) #13
   %237 = extractvalue { i64, ptr } %236, 0
   %238 = extractvalue { i64, ptr } %236, 1
-  %239 = call { i64, ptr } @jv_number(double noundef %.3424.lcssa.us) #14
+  %239 = call { i64, ptr } @jv_number(double noundef %.3424.lcssa.us) #13
   %240 = extractvalue { i64, ptr } %239, 0
   %241 = extractvalue { i64, ptr } %239, 1
-  %242 = call { i64, ptr } @jv_object_set(i64 %234, ptr %235, i64 %237, ptr %238, i64 %240, ptr %241) #14
+  %242 = call { i64, ptr } @jv_object_set(i64 %234, ptr %235, i64 %237, ptr %238, i64 %240, ptr %241) #13
   %243 = extractvalue { i64, ptr } %242, 0
   %244 = extractvalue { i64, ptr } %242, 1
-  %245 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.113) #14
+  %245 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.113) #13
   %246 = extractvalue { i64, ptr } %245, 0
   %247 = extractvalue { i64, ptr } %245, 1
-  %248 = call { i64, ptr } @jv_number(double noundef %.2428.lcssa.us) #14
+  %248 = call { i64, ptr } @jv_number(double noundef %.2428.lcssa.us) #13
   %249 = extractvalue { i64, ptr } %248, 0
   %250 = extractvalue { i64, ptr } %248, 1
-  %251 = call { i64, ptr } @jv_object_set(i64 %243, ptr %244, i64 %246, ptr %247, i64 %249, ptr %250) #14
+  %251 = call { i64, ptr } @jv_object_set(i64 %243, ptr %244, i64 %246, ptr %247, i64 %249, ptr %250) #13
   %252 = extractvalue { i64, ptr } %251, 0
   %253 = extractvalue { i64, ptr } %251, 1
-  %254 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.213) #14
+  %254 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.213) #13
   %255 = extractvalue { i64, ptr } %254, 0
   %256 = extractvalue { i64, ptr } %254, 1
   %257 = load ptr, ptr %146, align 8, !tbaa !47
@@ -6294,10 +6294,10 @@ define internal { i64, ptr } @f_match(ptr readnone captures(none) %0, i64 %1, pt
   %259 = load i32, ptr %258, align 4, !tbaa !19
   %260 = sext i32 %259 to i64
   %261 = getelementptr inbounds i8, ptr %136, i64 %260
-  %262 = call { i64, ptr } @jv_string_sized(ptr noundef %261, i32 noundef %232) #14
+  %262 = call { i64, ptr } @jv_string_sized(ptr noundef %261, i32 noundef %232) #13
   %263 = extractvalue { i64, ptr } %262, 0
   %264 = extractvalue { i64, ptr } %262, 1
-  %265 = call { i64, ptr } @jv_object_set(i64 %252, ptr %253, i64 %255, ptr %256, i64 %263, ptr %264) #14
+  %265 = call { i64, ptr } @jv_object_set(i64 %252, ptr %253, i64 %255, ptr %256, i64 %263, ptr %264) #13
   br label %345
 
 .lr.ph510.us:                                     ; preds = %.preheader475.us, %.lr.ph510.us
@@ -6312,7 +6312,7 @@ define internal { i64, ptr } @f_match(ptr readnone captures(none) %0, i64 %1, pt
   %271 = icmp eq ptr %.2432507.us, %270
   %spec.select456.us = select i1 %271, i64 %.2428508.us, i64 %.3424509.us
   %272 = load i8, ptr %.2432507.us, align 1, !tbaa !25
-  %273 = call i32 @jvp_utf8_decode_length(i8 noundef signext %272) #14
+  %273 = call i32 @jvp_utf8_decode_length(i8 noundef signext %272) #13
   %274 = sext i32 %273 to i64
   %275 = getelementptr inbounds i8, ptr %.2432507.us, i64 %274
   %276 = add i64 %.2428508.us, 1
@@ -6335,32 +6335,32 @@ define internal { i64, ptr } @f_match(ptr readnone captures(none) %0, i64 %1, pt
 
 ._crit_edge518.us:                                ; preds = %._crit_edge518.us.loopexit, %.preheader.us
   %.2423.lcssa.us = phi double [ 0.000000e+00, %.preheader.us ], [ %286, %._crit_edge518.us.loopexit ]
-  %287 = call { i64, ptr } @jv_object() #14
+  %287 = call { i64, ptr } @jv_object() #13
   %288 = extractvalue { i64, ptr } %287, 0
   %289 = extractvalue { i64, ptr } %287, 1
-  %290 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.212) #14
+  %290 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.212) #13
   %291 = extractvalue { i64, ptr } %290, 0
   %292 = extractvalue { i64, ptr } %290, 1
-  %293 = call { i64, ptr } @jv_number(double noundef %.2423.lcssa.us) #14
+  %293 = call { i64, ptr } @jv_number(double noundef %.2423.lcssa.us) #13
   %294 = extractvalue { i64, ptr } %293, 0
   %295 = extractvalue { i64, ptr } %293, 1
-  %296 = call { i64, ptr } @jv_object_set(i64 %288, ptr %289, i64 %291, ptr %292, i64 %294, ptr %295) #14
+  %296 = call { i64, ptr } @jv_object_set(i64 %288, ptr %289, i64 %291, ptr %292, i64 %294, ptr %295) #13
   %297 = extractvalue { i64, ptr } %296, 0
   %298 = extractvalue { i64, ptr } %296, 1
-  %299 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.213) #14
+  %299 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.213) #13
   %300 = extractvalue { i64, ptr } %299, 0
   %301 = extractvalue { i64, ptr } %299, 1
-  %302 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.185) #14
+  %302 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.185) #13
   %303 = extractvalue { i64, ptr } %302, 0
   %304 = extractvalue { i64, ptr } %302, 1
-  %305 = call { i64, ptr } @jv_object_set(i64 %297, ptr %298, i64 %300, ptr %301, i64 %303, ptr %304) #14
+  %305 = call { i64, ptr } @jv_object_set(i64 %297, ptr %298, i64 %300, ptr %301, i64 %303, ptr %304) #13
   br label %337
 
 .lr.ph517.us:                                     ; preds = %.preheader.us, %.lr.ph517.us
   %.2423516.us = phi i64 [ %310, %.lr.ph517.us ], [ 0, %.preheader.us ]
   %.1431515.us = phi ptr [ %309, %.lr.ph517.us ], [ %136, %.preheader.us ]
   %306 = load i8, ptr %.1431515.us, align 1, !tbaa !25
-  %307 = call i32 @jvp_utf8_decode_length(i8 noundef signext %306) #14
+  %307 = call i32 @jvp_utf8_decode_length(i8 noundef signext %306) #13
   %308 = sext i32 %307 to i64
   %309 = getelementptr inbounds i8, ptr %.1431515.us, i64 %308
   %310 = add i64 %.2423516.us, 1
@@ -6373,56 +6373,56 @@ define internal { i64, ptr } @f_match(ptr readnone captures(none) %0, i64 %1, pt
   br i1 %316, label %.lr.ph517.us, label %._crit_edge518.us.loopexit, !llvm.loop !50
 
 317:                                              ; preds = %284
-  %318 = call { i64, ptr } @jv_object() #14
+  %318 = call { i64, ptr } @jv_object() #13
   %319 = extractvalue { i64, ptr } %318, 0
   %320 = extractvalue { i64, ptr } %318, 1
-  %321 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.212) #14
+  %321 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.212) #13
   %322 = extractvalue { i64, ptr } %321, 0
   %323 = extractvalue { i64, ptr } %321, 1
-  %324 = call { i64, ptr } @jv_number(double noundef -1.000000e+00) #14
+  %324 = call { i64, ptr } @jv_number(double noundef -1.000000e+00) #13
   %325 = extractvalue { i64, ptr } %324, 0
   %326 = extractvalue { i64, ptr } %324, 1
-  %327 = call { i64, ptr } @jv_object_set(i64 %319, ptr %320, i64 %322, ptr %323, i64 %325, ptr %326) #14
+  %327 = call { i64, ptr } @jv_object_set(i64 %319, ptr %320, i64 %322, ptr %323, i64 %325, ptr %326) #13
   %328 = extractvalue { i64, ptr } %327, 0
   %329 = extractvalue { i64, ptr } %327, 1
-  %330 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.213) #14
+  %330 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.213) #13
   %331 = extractvalue { i64, ptr } %330, 0
   %332 = extractvalue { i64, ptr } %330, 1
-  %333 = call { i64, ptr } @jv_null() #14
+  %333 = call { i64, ptr } @jv_null() #13
   %334 = extractvalue { i64, ptr } %333, 0
   %335 = extractvalue { i64, ptr } %333, 1
-  %336 = call { i64, ptr } @jv_object_set(i64 %328, ptr %329, i64 %331, ptr %332, i64 %334, ptr %335) #14
+  %336 = call { i64, ptr } @jv_object_set(i64 %328, ptr %329, i64 %331, ptr %332, i64 %334, ptr %335) #13
   br label %337
 
 337:                                              ; preds = %317, %._crit_edge518.us
   %.pn448.us = phi { i64, ptr } [ %336, %317 ], [ %305, %._crit_edge518.us ]
   %.sroa.13.0.us = extractvalue { i64, ptr } %.pn448.us, 1
   %.sroa.089.0.us = extractvalue { i64, ptr } %.pn448.us, 0
-  %338 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.113) #14
+  %338 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.113) #13
   %339 = extractvalue { i64, ptr } %338, 0
   %340 = extractvalue { i64, ptr } %338, 1
-  %341 = call { i64, ptr } @jv_number(double noundef 0.000000e+00) #14
+  %341 = call { i64, ptr } @jv_number(double noundef 0.000000e+00) #13
   %342 = extractvalue { i64, ptr } %341, 0
   %343 = extractvalue { i64, ptr } %341, 1
-  %344 = call { i64, ptr } @jv_object_set(i64 %.sroa.089.0.us, ptr %.sroa.13.0.us, i64 %339, ptr %340, i64 %342, ptr %343) #14
+  %344 = call { i64, ptr } @jv_object_set(i64 %.sroa.089.0.us, ptr %.sroa.13.0.us, i64 %339, ptr %340, i64 %342, ptr %343) #13
   br label %345
 
 345:                                              ; preds = %337, %._crit_edge511.us
   %.sink572 = phi { i64, ptr } [ %344, %337 ], [ %265, %._crit_edge511.us ]
   %346 = extractvalue { i64, ptr } %.sink572, 0
   %347 = extractvalue { i64, ptr } %.sink572, 1
-  %348 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.214) #14
+  %348 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.214) #13
   %349 = extractvalue { i64, ptr } %348, 0
   %350 = extractvalue { i64, ptr } %348, 1
-  %351 = call { i64, ptr } @jv_null() #14
+  %351 = call { i64, ptr } @jv_null() #13
   %352 = extractvalue { i64, ptr } %351, 0
   %353 = extractvalue { i64, ptr } %351, 1
-  %354 = call { i64, ptr } @jv_object_set(i64 %346, ptr %347, i64 %349, ptr %350, i64 %352, ptr %353) #14
+  %354 = call { i64, ptr } @jv_object_set(i64 %346, ptr %347, i64 %349, ptr %350, i64 %352, ptr %353) #13
   %355 = extractvalue { i64, ptr } %354, 0
   %356 = extractvalue { i64, ptr } %354, 1
   %357 = load i64, ptr %15, align 8
   %358 = load ptr, ptr %147, align 8
-  %359 = call { i64, ptr } @jv_array_append(i64 %357, ptr %358, i64 %355, ptr %356) #14
+  %359 = call { i64, ptr } @jv_array_append(i64 %357, ptr %358, i64 %355, ptr %356) #13
   %storemerge446.us = extractvalue { i64, ptr } %359, 0
   store i64 %storemerge446.us, ptr %15, align 8
   %storemerge.us = extractvalue { i64, ptr } %359, 1
@@ -6444,7 +6444,7 @@ define internal { i64, ptr } @f_match(ptr readnone captures(none) %0, i64 %1, pt
   %367 = icmp eq ptr %.0430501.us, %366
   %spec.select454.us = select i1 %367, i64 %.0426502.us, i64 %.0421503.us
   %368 = load i8, ptr %.0430501.us, align 1, !tbaa !25
-  %369 = call i32 @jvp_utf8_decode_length(i8 noundef signext %368) #14
+  %369 = call i32 @jvp_utf8_decode_length(i8 noundef signext %368) #13
   %370 = sext i32 %369 to i64
   %371 = getelementptr inbounds i8, ptr %.0430501.us, i64 %370
   %372 = add i64 %.0426502.us, 1
@@ -6462,38 +6462,38 @@ define internal { i64, ptr } @f_match(ptr readnone captures(none) %0, i64 %1, pt
 
 ._crit_edge527.us:                                ; preds = %._crit_edge527.us.loopexit, %.preheader476.us
   %.0418.lcssa.us = phi double [ 0.000000e+00, %.preheader476.us ], [ %379, %._crit_edge527.us.loopexit ]
-  %380 = call { i64, ptr } @jv_object() #14
+  %380 = call { i64, ptr } @jv_object() #13
   %381 = extractvalue { i64, ptr } %380, 0
   %382 = extractvalue { i64, ptr } %380, 1
-  %383 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.212) #14
+  %383 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.212) #13
   %384 = extractvalue { i64, ptr } %383, 0
   %385 = extractvalue { i64, ptr } %383, 1
-  %386 = call { i64, ptr } @jv_number(double noundef %.0418.lcssa.us) #14
+  %386 = call { i64, ptr } @jv_number(double noundef %.0418.lcssa.us) #13
   %387 = extractvalue { i64, ptr } %386, 0
   %388 = extractvalue { i64, ptr } %386, 1
-  %389 = call { i64, ptr } @jv_object_set(i64 %381, ptr %382, i64 %384, ptr %385, i64 %387, ptr %388) #14
+  %389 = call { i64, ptr } @jv_object_set(i64 %381, ptr %382, i64 %384, ptr %385, i64 %387, ptr %388) #13
   %390 = extractvalue { i64, ptr } %389, 0
   %391 = extractvalue { i64, ptr } %389, 1
-  %392 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.113) #14
+  %392 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.113) #13
   %393 = extractvalue { i64, ptr } %392, 0
   %394 = extractvalue { i64, ptr } %392, 1
-  %395 = call { i64, ptr } @jv_number(double noundef 0.000000e+00) #14
+  %395 = call { i64, ptr } @jv_number(double noundef 0.000000e+00) #13
   %396 = extractvalue { i64, ptr } %395, 0
   %397 = extractvalue { i64, ptr } %395, 1
-  %398 = call { i64, ptr } @jv_object_set(i64 %390, ptr %391, i64 %393, ptr %394, i64 %396, ptr %397) #14
+  %398 = call { i64, ptr } @jv_object_set(i64 %390, ptr %391, i64 %393, ptr %394, i64 %396, ptr %397) #13
   %399 = extractvalue { i64, ptr } %398, 0
   %400 = extractvalue { i64, ptr } %398, 1
-  %401 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.213) #14
+  %401 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.213) #13
   %402 = extractvalue { i64, ptr } %401, 0
   %403 = extractvalue { i64, ptr } %401, 1
-  %404 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.185) #14
+  %404 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.185) #13
   %405 = extractvalue { i64, ptr } %404, 0
   %406 = extractvalue { i64, ptr } %404, 1
-  %407 = call { i64, ptr } @jv_object_set(i64 %399, ptr %400, i64 %402, ptr %403, i64 %405, ptr %406) #14
+  %407 = call { i64, ptr } @jv_object_set(i64 %399, ptr %400, i64 %402, ptr %403, i64 %405, ptr %406) #13
   %408 = extractvalue { i64, ptr } %407, 0
   %409 = extractvalue { i64, ptr } %407, 1
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #14
-  %410 = call { i64, ptr } @jv_array() #14
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %14) #13
+  %410 = call { i64, ptr } @jv_array() #13
   %411 = extractvalue { i64, ptr } %410, 0
   store i64 %411, ptr %14, align 8
   %412 = extractvalue { i64, ptr } %410, 1
@@ -6504,21 +6504,21 @@ define internal { i64, ptr } @f_match(ptr readnone captures(none) %0, i64 %1, pt
 
 ._crit_edge532.us:                                ; preds = %470, %._crit_edge527.us
   %415 = load ptr, ptr %11, align 8, !tbaa !41
-  %416 = call i32 @onig_foreach_name(ptr noundef %415, ptr noundef nonnull @f_match_name_iter, ptr noundef nonnull %14) #14
-  %417 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.215) #14
+  %416 = call i32 @onig_foreach_name(ptr noundef %415, ptr noundef nonnull @f_match_name_iter, ptr noundef nonnull %14) #13
+  %417 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.215) #13
   %418 = extractvalue { i64, ptr } %417, 0
   %419 = extractvalue { i64, ptr } %417, 1
   %420 = load i64, ptr %14, align 8
   %421 = load ptr, ptr %149, align 8
-  %422 = call { i64, ptr } @jv_object_set(i64 %408, ptr %409, i64 %418, ptr %419, i64 %420, ptr %421) #14
+  %422 = call { i64, ptr } @jv_object_set(i64 %408, ptr %409, i64 %418, ptr %419, i64 %420, ptr %421) #13
   %423 = extractvalue { i64, ptr } %422, 0
   %424 = extractvalue { i64, ptr } %422, 1
-  %425 = call { i64, ptr } @jv_array_append(i64 %.sroa.0353.1.us, ptr %.sroa.12.1.us, i64 %423, ptr %424) #14
+  %425 = call { i64, ptr } @jv_array_append(i64 %.sroa.0353.1.us, ptr %.sroa.12.1.us, i64 %423, ptr %424) #13
   %426 = load ptr, ptr %145, align 8, !tbaa !43
   %427 = load i32, ptr %426, align 4, !tbaa !19
   %428 = sext i32 %427 to i64
   %gep.us = getelementptr i8, ptr %invariant.gep, i64 %428
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #14
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %14) #13
   br label %429
 
 429:                                              ; preds = %._crit_edge532.us, %._crit_edge523.us
@@ -6532,75 +6532,75 @@ define internal { i64, ptr } @f_match(ptr readnone captures(none) %0, i64 %1, pt
 
 .lr.ph531.us:                                     ; preds = %._crit_edge527.us, %470
   %indvars.iv548 = phi i64 [ %indvars.iv.next549, %470 ], [ 1, %._crit_edge527.us ]
-  %432 = call { i64, ptr } @jv_object() #14
+  %432 = call { i64, ptr } @jv_object() #13
   %433 = extractvalue { i64, ptr } %432, 0
   %434 = extractvalue { i64, ptr } %432, 1
   %435 = load ptr, ptr %146, align 8, !tbaa !47
   %436 = getelementptr inbounds nuw i32, ptr %435, i64 %indvars.iv548
   %437 = load i32, ptr %436, align 4, !tbaa !19
   %438 = icmp eq i32 %437, -1
-  %439 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.212) #14
+  %439 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.212) #13
   %440 = extractvalue { i64, ptr } %439, 0
   %441 = extractvalue { i64, ptr } %439, 1
   br i1 %438, label %456, label %442
 
 442:                                              ; preds = %.lr.ph531.us
-  %443 = call { i64, ptr } @jv_number(double noundef %.0418.lcssa.us) #14
+  %443 = call { i64, ptr } @jv_number(double noundef %.0418.lcssa.us) #13
   %444 = extractvalue { i64, ptr } %443, 0
   %445 = extractvalue { i64, ptr } %443, 1
-  %446 = call { i64, ptr } @jv_object_set(i64 %433, ptr %434, i64 %440, ptr %441, i64 %444, ptr %445) #14
+  %446 = call { i64, ptr } @jv_object_set(i64 %433, ptr %434, i64 %440, ptr %441, i64 %444, ptr %445) #13
   %447 = extractvalue { i64, ptr } %446, 0
   %448 = extractvalue { i64, ptr } %446, 1
-  %449 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.213) #14
+  %449 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.213) #13
   %450 = extractvalue { i64, ptr } %449, 0
   %451 = extractvalue { i64, ptr } %449, 1
-  %452 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.185) #14
+  %452 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.185) #13
   %453 = extractvalue { i64, ptr } %452, 0
   %454 = extractvalue { i64, ptr } %452, 1
-  %455 = call { i64, ptr } @jv_object_set(i64 %447, ptr %448, i64 %450, ptr %451, i64 %453, ptr %454) #14
+  %455 = call { i64, ptr } @jv_object_set(i64 %447, ptr %448, i64 %450, ptr %451, i64 %453, ptr %454) #13
   br label %470
 
 456:                                              ; preds = %.lr.ph531.us
-  %457 = call { i64, ptr } @jv_number(double noundef -1.000000e+00) #14
+  %457 = call { i64, ptr } @jv_number(double noundef -1.000000e+00) #13
   %458 = extractvalue { i64, ptr } %457, 0
   %459 = extractvalue { i64, ptr } %457, 1
-  %460 = call { i64, ptr } @jv_object_set(i64 %433, ptr %434, i64 %440, ptr %441, i64 %458, ptr %459) #14
+  %460 = call { i64, ptr } @jv_object_set(i64 %433, ptr %434, i64 %440, ptr %441, i64 %458, ptr %459) #13
   %461 = extractvalue { i64, ptr } %460, 0
   %462 = extractvalue { i64, ptr } %460, 1
-  %463 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.213) #14
+  %463 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.213) #13
   %464 = extractvalue { i64, ptr } %463, 0
   %465 = extractvalue { i64, ptr } %463, 1
-  %466 = call { i64, ptr } @jv_null() #14
+  %466 = call { i64, ptr } @jv_null() #13
   %467 = extractvalue { i64, ptr } %466, 0
   %468 = extractvalue { i64, ptr } %466, 1
-  %469 = call { i64, ptr } @jv_object_set(i64 %461, ptr %462, i64 %464, ptr %465, i64 %467, ptr %468) #14
+  %469 = call { i64, ptr } @jv_object_set(i64 %461, ptr %462, i64 %464, ptr %465, i64 %467, ptr %468) #13
   br label %470
 
 470:                                              ; preds = %456, %442
   %.pn452.us = phi { i64, ptr } [ %469, %456 ], [ %455, %442 ]
   %.sroa.16.0.us = extractvalue { i64, ptr } %.pn452.us, 1
   %.sroa.0200.0.us = extractvalue { i64, ptr } %.pn452.us, 0
-  %471 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.113) #14
+  %471 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.113) #13
   %472 = extractvalue { i64, ptr } %471, 0
   %473 = extractvalue { i64, ptr } %471, 1
-  %474 = call { i64, ptr } @jv_number(double noundef 0.000000e+00) #14
+  %474 = call { i64, ptr } @jv_number(double noundef 0.000000e+00) #13
   %475 = extractvalue { i64, ptr } %474, 0
   %476 = extractvalue { i64, ptr } %474, 1
-  %477 = call { i64, ptr } @jv_object_set(i64 %.sroa.0200.0.us, ptr %.sroa.16.0.us, i64 %472, ptr %473, i64 %475, ptr %476) #14
+  %477 = call { i64, ptr } @jv_object_set(i64 %.sroa.0200.0.us, ptr %.sroa.16.0.us, i64 %472, ptr %473, i64 %475, ptr %476) #13
   %478 = extractvalue { i64, ptr } %477, 0
   %479 = extractvalue { i64, ptr } %477, 1
-  %480 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.214) #14
+  %480 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.214) #13
   %481 = extractvalue { i64, ptr } %480, 0
   %482 = extractvalue { i64, ptr } %480, 1
-  %483 = call { i64, ptr } @jv_null() #14
+  %483 = call { i64, ptr } @jv_null() #13
   %484 = extractvalue { i64, ptr } %483, 0
   %485 = extractvalue { i64, ptr } %483, 1
-  %486 = call { i64, ptr } @jv_object_set(i64 %478, ptr %479, i64 %481, ptr %482, i64 %484, ptr %485) #14
+  %486 = call { i64, ptr } @jv_object_set(i64 %478, ptr %479, i64 %481, ptr %482, i64 %484, ptr %485) #13
   %487 = extractvalue { i64, ptr } %486, 0
   %488 = extractvalue { i64, ptr } %486, 1
   %489 = load i64, ptr %14, align 8
   %490 = load ptr, ptr %149, align 8
-  %491 = call { i64, ptr } @jv_array_append(i64 %489, ptr %490, i64 %487, ptr %488) #14
+  %491 = call { i64, ptr } @jv_array_append(i64 %489, ptr %490, i64 %487, ptr %488) #13
   %492 = extractvalue { i64, ptr } %491, 0
   %493 = extractvalue { i64, ptr } %491, 1
   store i64 %492, ptr %14, align 8
@@ -6615,7 +6615,7 @@ define internal { i64, ptr } @f_match(ptr readnone captures(none) %0, i64 %1, pt
   %.0418525.us = phi i64 [ %501, %.lr.ph526.us ], [ 0, %.preheader476.us ]
   %.0419524.us = phi ptr [ %500, %.lr.ph526.us ], [ %136, %.preheader476.us ]
   %497 = load i8, ptr %.0419524.us, align 1, !tbaa !25
-  %498 = call i32 @jvp_utf8_decode_length(i8 noundef signext %497) #14
+  %498 = call i32 @jvp_utf8_decode_length(i8 noundef signext %497) #13
   %499 = sext i32 %498 to i64
   %500 = getelementptr inbounds i8, ptr %.0419524.us, i64 %499
   %501 = add i64 %.0418525.us, 1
@@ -6642,13 +6642,13 @@ define internal { i64, ptr } @f_match(ptr readnone captures(none) %0, i64 %1, pt
 
 .split:                                           ; preds = %135
   %509 = load ptr, ptr %11, align 8, !tbaa !41
-  %510 = call ptr @jv_string_value(i64 %1, ptr %2) #14
-  %511 = call i32 @onig_search(ptr noundef %509, ptr noundef %510, ptr noundef %143, ptr noundef %137, ptr noundef %143, ptr noundef %144, i32 noundef 0) #14
+  %510 = call ptr @jv_string_value(i64 %1, ptr %2) #13
+  %511 = call i32 @onig_search(ptr noundef %509, ptr noundef %510, ptr noundef %143, ptr noundef %137, ptr noundef %143, ptr noundef %144, i32 noundef 0) #13
   %512 = icmp sgt i32 %511, -1
   br i1 %512, label %513, label %.split534.us
 
 513:                                              ; preds = %.split
-  %514 = call { i64, ptr } @jv_true() #14
+  %514 = call { i64, ptr } @jv_true() #13
   %515 = extractvalue { i64, ptr } %514, 0
   %516 = extractvalue { i64, ptr } %514, 1
   br label %.loopexit
@@ -6661,59 +6661,59 @@ define internal { i64, ptr } @f_match(ptr readnone captures(none) %0, i64 %1, pt
   br i1 %517, label %.loopexit, label %518
 
 518:                                              ; preds = %.split534.us
-  call void @llvm.lifetime.start.p0(i64 90, ptr nonnull %16) #14
-  %519 = call i32 (ptr, i32, ...) @onig_error_code_to_str(ptr noundef nonnull %16, i32 noundef %.us-phi536, ptr noundef nonnull %12) #14
-  call void @jv_free(i64 %.us-phi, ptr %.us-phi535) #14
-  %520 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.211) #14
+  call void @llvm.lifetime.start.p0(i64 90, ptr nonnull %16) #13
+  %519 = call i32 (ptr, i32, ...) @onig_error_code_to_str(ptr noundef nonnull %16, i32 noundef %.us-phi536, ptr noundef nonnull %12) #13
+  call void @jv_free(i64 %.us-phi, ptr %.us-phi535) #13
+  %520 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.211) #13
   %521 = extractvalue { i64, ptr } %520, 0
   %522 = extractvalue { i64, ptr } %520, 1
-  %523 = call { i64, ptr } @jv_string(ptr noundef nonnull %16) #14
+  %523 = call { i64, ptr } @jv_string(ptr noundef nonnull %16) #13
   %524 = extractvalue { i64, ptr } %523, 0
   %525 = extractvalue { i64, ptr } %523, 1
-  %526 = call { i64, ptr } @jv_string_concat(i64 %521, ptr %522, i64 %524, ptr %525) #14
+  %526 = call { i64, ptr } @jv_string_concat(i64 %521, ptr %522, i64 %524, ptr %525) #13
   %527 = extractvalue { i64, ptr } %526, 0
   %528 = extractvalue { i64, ptr } %526, 1
-  %529 = call { i64, ptr } @jv_invalid_with_msg(i64 %527, ptr %528) #14
+  %529 = call { i64, ptr } @jv_invalid_with_msg(i64 %527, ptr %528) #13
   %530 = extractvalue { i64, ptr } %529, 0
   %531 = extractvalue { i64, ptr } %529, 1
-  call void @llvm.lifetime.end.p0(i64 90, ptr nonnull %16) #14
+  call void @llvm.lifetime.end.p0(i64 90, ptr nonnull %16) #13
   br label %.loopexit
 
 .loopexit:                                        ; preds = %429, %.split534.us, %518, %513
   %.sroa.0353.2 = phi i64 [ %515, %513 ], [ %.us-phi, %.split534.us ], [ %530, %518 ], [ %.sroa.0353.3.us, %429 ]
   %.sroa.12.2 = phi ptr [ %516, %513 ], [ %.us-phi535, %.split534.us ], [ %531, %518 ], [ %.sroa.12.3.us, %429 ]
-  call void @onig_region_free(ptr noundef %144, i32 noundef 1) #14
+  call void @onig_region_free(ptr noundef %144, i32 noundef 1) #13
   %532 = load ptr, ptr %11, align 8, !tbaa !41
-  call void @onig_free(ptr noundef %532) #14
-  call void @jv_free(i64 %1, ptr %2) #14
-  call void @jv_free(i64 %3, ptr %4) #14
+  call void @onig_free(ptr noundef %532) #13
+  call void @jv_free(i64 %1, ptr %2) #13
+  call void @jv_free(i64 %3, ptr %4) #13
   %533 = insertvalue { i64, ptr } poison, i64 %.sroa.0353.2, 0
   %534 = insertvalue { i64, ptr } %533, ptr %.sroa.12.2, 1
   br label %.critedge
 
 .critedge:                                        ; preds = %100, %118, %.loopexit, %89, %38, %25
   %.fca.1.insert.merged = phi { i64, ptr } [ %35, %25 ], [ %48, %38 ], [ %129, %118 ], [ %534, %.loopexit ], [ %107, %100 ], [ %96, %89 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #14
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #13
   ret { i64, ptr } %.fca.1.insert.merged
 }
 
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_modulemeta(ptr noundef %0, i64 %1, ptr %2) #0 {
-  %4 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %4 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %.not = icmp eq i32 %4, 5
   br i1 %.not, label %10, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.216) #14
+  %6 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.216) #13
   %7 = extractvalue { i64, ptr } %6, 0
   %8 = extractvalue { i64, ptr } %6, 1
-  tail call void @jv_free(i64 %1, ptr %2) #14
-  %9 = tail call { i64, ptr } @jv_invalid_with_msg(i64 %7, ptr %8) #14
+  tail call void @jv_free(i64 %1, ptr %2) #13
+  %9 = tail call { i64, ptr } @jv_invalid_with_msg(i64 %7, ptr %8) #13
   br label %12
 
 10:                                               ; preds = %3
-  %11 = tail call { i64, ptr } @load_module_meta(ptr noundef %0, i64 %1, ptr %2) #14
+  %11 = tail call { i64, ptr } @load_module_meta(ptr noundef %0, i64 %1, ptr %2) #13
   br label %12
 
 12:                                               ; preds = %10, %5
@@ -6725,42 +6725,42 @@ define internal { i64, ptr } @f_modulemeta(ptr noundef %0, i64 %1, ptr %2) #0 {
 define internal { i64, ptr } @f_input(ptr noundef %0, i64 %1, ptr %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  tail call void @jv_free(i64 %1, ptr %2) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
-  call void @jq_get_input_cb(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %5) #14
+  tail call void @jv_free(i64 %1, ptr %2) #13
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13
+  call void @jq_get_input_cb(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %5) #13
   %6 = load ptr, ptr %4, align 8, !tbaa !56
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.sink.split, label %8
 
 8:                                                ; preds = %3
   %9 = load ptr, ptr %5, align 8, !tbaa !56
-  %10 = call { i64, ptr } %6(ptr noundef %0, ptr noundef %9) #14
+  %10 = call { i64, ptr } %6(ptr noundef %0, ptr noundef %9) #13
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
-  %13 = call i32 @jv_get_kind(i64 %11, ptr %12) #14
+  %13 = call i32 @jv_get_kind(i64 %11, ptr %12) #13
   %.not13 = icmp eq i32 %13, 0
   br i1 %.not13, label %14, label %23
 
 14:                                               ; preds = %8
-  %15 = call { i64, ptr } @jv_copy(i64 %11, ptr %12) #14
+  %15 = call { i64, ptr } @jv_copy(i64 %11, ptr %12) #13
   %16 = extractvalue { i64, ptr } %15, 0
   %17 = extractvalue { i64, ptr } %15, 1
-  %18 = call i32 @jv_invalid_has_msg(i64 %16, ptr %17) #14
+  %18 = call i32 @jv_invalid_has_msg(i64 %16, ptr %17) #13
   %.not12 = icmp eq i32 %18, 0
   br i1 %.not12, label %.sink.split, label %23
 
 .sink.split:                                      ; preds = %14, %3
-  %19 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.217) #14
+  %19 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.217) #13
   %20 = extractvalue { i64, ptr } %19, 0
   %21 = extractvalue { i64, ptr } %19, 1
-  %22 = call { i64, ptr } @jv_invalid_with_msg(i64 %20, ptr %21) #14
+  %22 = call { i64, ptr } @jv_invalid_with_msg(i64 %20, ptr %21) #13
   br label %23
 
 23:                                               ; preds = %.sink.split, %14, %8
   %.fca.1.insert.merged = phi { i64, ptr } [ %10, %14 ], [ %10, %8 ], [ %22, %.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
   ret { i64, ptr } %.fca.1.insert.merged
 }
 
@@ -6768,24 +6768,24 @@ define internal { i64, ptr } @f_input(ptr noundef %0, i64 %1, ptr %2) #0 {
 define internal { i64, ptr } @f_debug(ptr noundef %0, i64 %1, ptr %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
-  call void @jq_get_debug_cb(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %5) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13
+  call void @jq_get_debug_cb(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %5) #13
   %6 = load ptr, ptr %4, align 8, !tbaa !56
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %12, label %7
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr %5, align 8, !tbaa !56
-  %9 = call { i64, ptr } @jv_copy(i64 %1, ptr %2) #14
+  %9 = call { i64, ptr } @jv_copy(i64 %1, ptr %2) #13
   %10 = extractvalue { i64, ptr } %9, 0
   %11 = extractvalue { i64, ptr } %9, 1
-  call void %6(ptr noundef %8, i64 %10, ptr %11) #14
+  call void %6(ptr noundef %8, i64 %10, ptr %11) #13
   br label %12
 
 12:                                               ; preds = %7, %3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
   %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %1, 0
   %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %2, 1
   ret { i64, ptr } %.fca.1.insert
@@ -6795,24 +6795,24 @@ define internal { i64, ptr } @f_debug(ptr noundef %0, i64 %1, ptr %2) #0 {
 define internal { i64, ptr } @f_stderr(ptr noundef %0, i64 %1, ptr %2) #0 {
   %4 = alloca ptr, align 8
   %5 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
-  call void @jq_get_stderr_cb(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %5) #14
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #13
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13
+  call void @jq_get_stderr_cb(ptr noundef %0, ptr noundef nonnull %4, ptr noundef nonnull %5) #13
   %6 = load ptr, ptr %4, align 8, !tbaa !56
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %12, label %7
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr %5, align 8, !tbaa !56
-  %9 = call { i64, ptr } @jv_copy(i64 %1, ptr %2) #14
+  %9 = call { i64, ptr } @jv_copy(i64 %1, ptr %2) #13
   %10 = extractvalue { i64, ptr } %9, 0
   %11 = extractvalue { i64, ptr } %9, 1
-  call void %6(ptr noundef %8, i64 %10, ptr %11) #14
+  call void %6(ptr noundef %8, i64 %10, ptr %11) #13
   br label %12
 
 12:                                               ; preds = %7, %3
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
   %.fca.0.insert = insertvalue { i64, ptr } poison, i64 %1, 0
   %.fca.1.insert = insertvalue { i64, ptr } %.fca.0.insert, ptr %2, 1
   ret { i64, ptr } %.fca.1.insert
@@ -6821,34 +6821,34 @@ define internal { i64, ptr } @f_stderr(ptr noundef %0, i64 %1, ptr %2) #0 {
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_strptime(ptr readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4) #0 {
   %6 = alloca %struct.tm, align 8
-  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %.not = icmp eq i32 %7, 5
   br i1 %.not, label %8, label %10
 
 8:                                                ; preds = %5
-  %9 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #14
+  %9 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #13
   %.not53 = icmp eq i32 %9, 5
   br i1 %.not53, label %15, label %10
 
 10:                                               ; preds = %8, %5
-  %11 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.218) #14
+  %11 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.218) #13
   %12 = extractvalue { i64, ptr } %11, 0
   %13 = extractvalue { i64, ptr } %11, 1
-  tail call void @jv_free(i64 %1, ptr %2) #14
-  tail call void @jv_free(i64 %3, ptr %4) #14
-  %14 = tail call { i64, ptr } @jv_invalid_with_msg(i64 %12, ptr %13) #14
+  tail call void @jv_free(i64 %1, ptr %2) #13
+  tail call void @jv_free(i64 %3, ptr %4) #13
+  %14 = tail call { i64, ptr } @jv_invalid_with_msg(i64 %12, ptr %13) #13
   br label %106
 
 15:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %6, i8 0, i64 56, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i32 8, ptr %16, align 8, !tbaa !57
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 28
   store i32 367, ptr %17, align 4, !tbaa !60
-  %18 = tail call ptr @jv_string_value(i64 %1, ptr %2) #14
-  %19 = tail call ptr @jv_string_value(i64 %3, ptr %4) #14
-  %20 = call ptr @strptime(ptr noundef %18, ptr noundef %19, ptr noundef nonnull %6) #14
+  %18 = tail call ptr @jv_string_value(i64 %1, ptr %2) #13
+  %19 = tail call ptr @jv_string_value(i64 %3, ptr %4) #13
+  %20 = call ptr @strptime(ptr noundef %18, ptr noundef %19, ptr noundef nonnull %6) #13
   %21 = icmp eq ptr %20, null
   br i1 %21, label %31, label %22
 
@@ -6858,7 +6858,7 @@ define internal { i64, ptr } @f_strptime(ptr readnone captures(none) %0, i64 %1,
   br i1 %.not54, label %36, label %24
 
 24:                                               ; preds = %22
-  %25 = tail call ptr @__ctype_b_loc() #15
+  %25 = tail call ptr @__ctype_b_loc() #14
   %26 = load ptr, ptr %25, align 8, !tbaa !61
   %27 = zext i8 %23 to i64
   %28 = getelementptr inbounds nuw i16, ptr %26, i64 %27
@@ -6868,16 +6868,16 @@ define internal { i64, ptr } @f_strptime(ptr readnone captures(none) %0, i64 %1,
   br i1 %.not55, label %31, label %36
 
 31:                                               ; preds = %24, %15
-  %32 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.219, ptr noundef %18, ptr noundef %19) #14
+  %32 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.219, ptr noundef %18, ptr noundef %19) #13
   %33 = extractvalue { i64, ptr } %32, 0
   %34 = extractvalue { i64, ptr } %32, 1
-  call void @jv_free(i64 %1, ptr %2) #14
-  call void @jv_free(i64 %3, ptr %4) #14
-  %35 = call { i64, ptr } @jv_invalid_with_msg(i64 %33, ptr %34) #14
+  call void @jv_free(i64 %1, ptr %2) #13
+  call void @jv_free(i64 %3, ptr %4) #13
+  %35 = call { i64, ptr } @jv_invalid_with_msg(i64 %33, ptr %34) #13
   br label %105
 
 36:                                               ; preds = %24, %22
-  call void @jv_free(i64 %3, ptr %4) #14
+  call void @jv_free(i64 %3, ptr %4) #13
   %37 = load i32, ptr %16, align 8, !tbaa !57
   %38 = icmp eq i32 %37, 8
   %39 = getelementptr inbounds nuw i8, ptr %6, i64 12
@@ -6971,20 +6971,20 @@ set_tm_yday.exit:                                 ; preds = %77, %79
 97:                                               ; preds = %94
   %98 = extractvalue { i64, ptr } %95, 1
   %99 = extractvalue { i64, ptr } %95, 0
-  %100 = call { i64, ptr } @jv_string(ptr noundef nonnull %20) #14
+  %100 = call { i64, ptr } @jv_string(ptr noundef nonnull %20) #13
   %101 = extractvalue { i64, ptr } %100, 0
   %102 = extractvalue { i64, ptr } %100, 1
-  %103 = call { i64, ptr } @jv_array_append(i64 %99, ptr %98, i64 %101, ptr %102) #14
+  %103 = call { i64, ptr } @jv_array_append(i64 %99, ptr %98, i64 %101, ptr %102) #13
   br label %104
 
 104:                                              ; preds = %97, %94
   %.merged57 = phi { i64, ptr } [ %103, %97 ], [ %95, %94 ]
-  call void @jv_free(i64 %1, ptr %2) #14
+  call void @jv_free(i64 %1, ptr %2) #13
   br label %105
 
 105:                                              ; preds = %104, %31
   %.merged = phi { i64, ptr } [ %35, %31 ], [ %.merged57, %104 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #13
   br label %106
 
 106:                                              ; preds = %105, %10
@@ -6995,7 +6995,7 @@ set_tm_yday.exit:                                 ; preds = %77, %79
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_strftime(ptr noundef readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4) #0 {
   %6 = alloca %struct.tm, align 8
-  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %8 = icmp eq i32 %7, 4
   br i1 %8, label %9, label %15
 
@@ -7003,83 +7003,83 @@ define internal { i64, ptr } @f_strftime(ptr noundef readnone captures(none) %0,
   %10 = tail call { i64, ptr } @f_gmtime(ptr poison, i64 %1, ptr %2)
   %11 = extractvalue { i64, ptr } %10, 0
   %12 = extractvalue { i64, ptr } %10, 1
-  %13 = tail call i32 @jv_get_kind(i64 %11, ptr %12) #14
+  %13 = tail call i32 @jv_get_kind(i64 %11, ptr %12) #13
   %.not48 = icmp eq i32 %13, 0
   br i1 %.not48, label %14, label %22
 
 14:                                               ; preds = %9
-  tail call void @jv_free(i64 %3, ptr %4) #14
+  tail call void @jv_free(i64 %3, ptr %4) #13
   br label %51
 
 15:                                               ; preds = %5
-  %16 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %16 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %.not = icmp eq i32 %16, 6
   br i1 %.not, label %22, label %17
 
 17:                                               ; preds = %15
-  %18 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.220) #14
+  %18 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.220) #13
   %19 = extractvalue { i64, ptr } %18, 0
   %20 = extractvalue { i64, ptr } %18, 1
-  tail call void @jv_free(i64 %1, ptr %2) #14
-  tail call void @jv_free(i64 %3, ptr %4) #14
-  %21 = tail call { i64, ptr } @jv_invalid_with_msg(i64 %19, ptr %20) #14
+  tail call void @jv_free(i64 %1, ptr %2) #13
+  tail call void @jv_free(i64 %3, ptr %4) #13
+  %21 = tail call { i64, ptr } @jv_invalid_with_msg(i64 %19, ptr %20) #13
   br label %51
 
 22:                                               ; preds = %15, %9
   %.sroa.029.0 = phi i64 [ %11, %9 ], [ %1, %15 ]
   %.sroa.10.0 = phi ptr [ %12, %9 ], [ %2, %15 ]
-  %23 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #14
+  %23 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #13
   %.not44 = icmp eq i32 %23, 5
   br i1 %.not44, label %29, label %24
 
 24:                                               ; preds = %22
-  %25 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.221) #14
+  %25 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.221) #13
   %26 = extractvalue { i64, ptr } %25, 0
   %27 = extractvalue { i64, ptr } %25, 1
-  tail call void @jv_free(i64 %.sroa.029.0, ptr %.sroa.10.0) #14
-  tail call void @jv_free(i64 %3, ptr %4) #14
-  %28 = tail call { i64, ptr } @jv_invalid_with_msg(i64 %26, ptr %27) #14
+  tail call void @jv_free(i64 %.sroa.029.0, ptr %.sroa.10.0) #13
+  tail call void @jv_free(i64 %3, ptr %4) #13
+  %28 = tail call { i64, ptr } @jv_invalid_with_msg(i64 %26, ptr %27) #13
   br label %51
 
 29:                                               ; preds = %22
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #13
   %30 = call fastcc i32 @jv2tm(i64 %.sroa.029.0, ptr %.sroa.10.0, ptr noundef %6)
   %.not45 = icmp eq i32 %30, 0
   br i1 %.not45, label %31, label %36
 
 31:                                               ; preds = %29
-  %32 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.220) #14
+  %32 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.220) #13
   %33 = extractvalue { i64, ptr } %32, 0
   %34 = extractvalue { i64, ptr } %32, 1
-  tail call void @jv_free(i64 %3, ptr %4) #14
-  %35 = tail call { i64, ptr } @jv_invalid_with_msg(i64 %33, ptr %34) #14
+  tail call void @jv_free(i64 %3, ptr %4) #13
+  %35 = tail call { i64, ptr } @jv_invalid_with_msg(i64 %33, ptr %34) #13
   br label %50
 
 36:                                               ; preds = %29
-  %37 = tail call ptr @jv_string_value(i64 %3, ptr %4) #14
-  %38 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %37) #17
+  %37 = tail call ptr @jv_string_value(i64 %3, ptr %4) #13
+  %38 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %37) #16
   %39 = add i64 %38, 100
   %40 = alloca i8, i64 %39, align 16
-  %41 = call i64 @strftime(ptr noundef nonnull %40, i64 noundef %39, ptr noundef nonnull %37, ptr noundef nonnull %6) #14
-  call void @jv_free(i64 %3, ptr %4) #14
+  %41 = call i64 @strftime(ptr noundef nonnull %40, i64 noundef %39, ptr noundef nonnull %37, ptr noundef nonnull %6) #13
+  call void @jv_free(i64 %3, ptr %4) #13
   %42 = add i64 %41, -1
   %or.cond.not = icmp ult i64 %42, %39
   br i1 %or.cond.not, label %48, label %43
 
 43:                                               ; preds = %36
-  %44 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.222) #14
+  %44 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.222) #13
   %45 = extractvalue { i64, ptr } %44, 0
   %46 = extractvalue { i64, ptr } %44, 1
-  %47 = call { i64, ptr } @jv_invalid_with_msg(i64 %45, ptr %46) #14
+  %47 = call { i64, ptr } @jv_invalid_with_msg(i64 %45, ptr %46) #13
   br label %50
 
 48:                                               ; preds = %36
-  %49 = call { i64, ptr } @jv_string(ptr noundef nonnull %40) #14
+  %49 = call { i64, ptr } @jv_string(ptr noundef nonnull %40) #13
   br label %50
 
 50:                                               ; preds = %43, %48, %31
   %.pn.pn = phi { i64, ptr } [ %35, %31 ], [ %47, %43 ], [ %49, %48 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #13
   br label %51
 
 51:                                               ; preds = %50, %24, %17, %14
@@ -7090,7 +7090,7 @@ define internal { i64, ptr } @f_strftime(ptr noundef readnone captures(none) %0,
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_strflocaltime(ptr noundef readnone captures(none) %0, i64 %1, ptr %2, i64 %3, ptr %4) #0 {
   %6 = alloca %struct.tm, align 8
-  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %7 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %8 = icmp eq i32 %7, 4
   br i1 %8, label %9, label %13
 
@@ -7101,74 +7101,74 @@ define internal { i64, ptr } @f_strflocaltime(ptr noundef readnone captures(none
   br label %20
 
 13:                                               ; preds = %5
-  %14 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %14 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %.not = icmp eq i32 %14, 6
   br i1 %.not, label %20, label %15
 
 15:                                               ; preds = %13
-  %16 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.223) #14
+  %16 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.223) #13
   %17 = extractvalue { i64, ptr } %16, 0
   %18 = extractvalue { i64, ptr } %16, 1
-  tail call void @jv_free(i64 %1, ptr %2) #14
-  tail call void @jv_free(i64 %3, ptr %4) #14
-  %19 = tail call { i64, ptr } @jv_invalid_with_msg(i64 %17, ptr %18) #14
+  tail call void @jv_free(i64 %1, ptr %2) #13
+  tail call void @jv_free(i64 %3, ptr %4) #13
+  %19 = tail call { i64, ptr } @jv_invalid_with_msg(i64 %17, ptr %18) #13
   br label %49
 
 20:                                               ; preds = %13, %9
   %.sroa.027.0 = phi i64 [ %11, %9 ], [ %1, %13 ]
   %.sroa.8.0 = phi ptr [ %12, %9 ], [ %2, %13 ]
-  %21 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #14
+  %21 = tail call i32 @jv_get_kind(i64 %3, ptr %4) #13
   %.not39 = icmp eq i32 %21, 5
   br i1 %.not39, label %27, label %22
 
 22:                                               ; preds = %20
-  %23 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.224) #14
+  %23 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.224) #13
   %24 = extractvalue { i64, ptr } %23, 0
   %25 = extractvalue { i64, ptr } %23, 1
-  tail call void @jv_free(i64 %.sroa.027.0, ptr %.sroa.8.0) #14
-  tail call void @jv_free(i64 %3, ptr %4) #14
-  %26 = tail call { i64, ptr } @jv_invalid_with_msg(i64 %24, ptr %25) #14
+  tail call void @jv_free(i64 %.sroa.027.0, ptr %.sroa.8.0) #13
+  tail call void @jv_free(i64 %3, ptr %4) #13
+  %26 = tail call { i64, ptr } @jv_invalid_with_msg(i64 %24, ptr %25) #13
   br label %49
 
 27:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #14
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6) #13
   %28 = call fastcc i32 @jv2tm(i64 %.sroa.027.0, ptr %.sroa.8.0, ptr noundef %6)
   %.not40 = icmp eq i32 %28, 0
   br i1 %.not40, label %29, label %34
 
 29:                                               ; preds = %27
-  %30 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.223) #14
+  %30 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.223) #13
   %31 = extractvalue { i64, ptr } %30, 0
   %32 = extractvalue { i64, ptr } %30, 1
-  tail call void @jv_free(i64 %3, ptr %4) #14
-  %33 = tail call { i64, ptr } @jv_invalid_with_msg(i64 %31, ptr %32) #14
+  tail call void @jv_free(i64 %3, ptr %4) #13
+  %33 = tail call { i64, ptr } @jv_invalid_with_msg(i64 %31, ptr %32) #13
   br label %48
 
 34:                                               ; preds = %27
-  %35 = tail call ptr @jv_string_value(i64 %3, ptr %4) #14
-  %36 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %35) #17
+  %35 = tail call ptr @jv_string_value(i64 %3, ptr %4) #13
+  %36 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %35) #16
   %37 = add i64 %36, 100
   %38 = alloca i8, i64 %37, align 16
-  %39 = call i64 @strftime(ptr noundef nonnull %38, i64 noundef %37, ptr noundef nonnull %35, ptr noundef nonnull %6) #14
-  call void @jv_free(i64 %3, ptr %4) #14
+  %39 = call i64 @strftime(ptr noundef nonnull %38, i64 noundef %37, ptr noundef nonnull %35, ptr noundef nonnull %6) #13
+  call void @jv_free(i64 %3, ptr %4) #13
   %40 = add i64 %39, -1
   %or.cond.not = icmp ult i64 %40, %37
   br i1 %or.cond.not, label %46, label %41
 
 41:                                               ; preds = %34
-  %42 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.225) #14
+  %42 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.225) #13
   %43 = extractvalue { i64, ptr } %42, 0
   %44 = extractvalue { i64, ptr } %42, 1
-  %45 = call { i64, ptr } @jv_invalid_with_msg(i64 %43, ptr %44) #14
+  %45 = call { i64, ptr } @jv_invalid_with_msg(i64 %43, ptr %44) #13
   br label %48
 
 46:                                               ; preds = %34
-  %47 = call { i64, ptr } @jv_string(ptr noundef nonnull %38) #14
+  %47 = call { i64, ptr } @jv_string(ptr noundef nonnull %38) #13
   br label %48
 
 48:                                               ; preds = %41, %46, %29
   %.pn.pn = phi { i64, ptr } [ %33, %29 ], [ %45, %41 ], [ %47, %46 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #14
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6) #13
   br label %49
 
 49:                                               ; preds = %48, %22, %15
@@ -7179,60 +7179,60 @@ define internal { i64, ptr } @f_strflocaltime(ptr noundef readnone captures(none
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_mktime(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca %struct.tm, align 8
-  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %5 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %.not = icmp eq i32 %5, 6
   br i1 %.not, label %11, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.226) #14
+  %7 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.226) #13
   %8 = extractvalue { i64, ptr } %7, 0
   %9 = extractvalue { i64, ptr } %7, 1
-  tail call void @jv_free(i64 %1, ptr %2) #14
-  %10 = tail call { i64, ptr } @jv_invalid_with_msg(i64 %8, ptr %9) #14
+  tail call void @jv_free(i64 %1, ptr %2) #13
+  %10 = tail call { i64, ptr } @jv_invalid_with_msg(i64 %8, ptr %9) #13
   br label %34
 
 11:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #13
   %12 = call fastcc i32 @jv2tm(i64 %1, ptr %2, ptr noundef %4)
   %.not15 = icmp eq i32 %12, 0
   br i1 %.not15, label %13, label %18
 
 13:                                               ; preds = %11
-  %14 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.227) #14
+  %14 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.227) #13
   %15 = extractvalue { i64, ptr } %14, 0
   %16 = extractvalue { i64, ptr } %14, 1
-  %17 = tail call { i64, ptr } @jv_invalid_with_msg(i64 %15, ptr %16) #14
+  %17 = tail call { i64, ptr } @jv_invalid_with_msg(i64 %15, ptr %16) #13
   br label %33
 
 18:                                               ; preds = %11
-  %19 = call i64 @timegm(ptr noundef nonnull %4) #14
+  %19 = call i64 @timegm(ptr noundef nonnull %4) #13
   switch i64 %19, label %30 [
     i64 -1, label %20
     i64 -2, label %25
   ]
 
 20:                                               ; preds = %18
-  %21 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.228) #14
+  %21 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.228) #13
   %22 = extractvalue { i64, ptr } %21, 0
   %23 = extractvalue { i64, ptr } %21, 1
-  %24 = call { i64, ptr } @jv_invalid_with_msg(i64 %22, ptr %23) #14
+  %24 = call { i64, ptr } @jv_invalid_with_msg(i64 %22, ptr %23) #13
   br label %33
 
 25:                                               ; preds = %18
-  %26 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.229) #14
+  %26 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.229) #13
   %27 = extractvalue { i64, ptr } %26, 0
   %28 = extractvalue { i64, ptr } %26, 1
-  %29 = call { i64, ptr } @jv_invalid_with_msg(i64 %27, ptr %28) #14
+  %29 = call { i64, ptr } @jv_invalid_with_msg(i64 %27, ptr %28) #13
   br label %33
 
 30:                                               ; preds = %18
   %31 = sitofp i64 %19 to double
-  %32 = call { i64, ptr } @jv_number(double noundef %31) #14
+  %32 = call { i64, ptr } @jv_number(double noundef %31) #13
   br label %33
 
 33:                                               ; preds = %20, %25, %30, %13
   %.pn.pn = phi { i64, ptr } [ %17, %13 ], [ %24, %20 ], [ %29, %25 ], [ %32, %30 ]
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #13
   br label %34
 
 34:                                               ; preds = %33, %6
@@ -7244,61 +7244,61 @@ define internal { i64, ptr } @f_mktime(ptr readnone captures(none) %0, i64 %1, p
 define internal { i64, ptr } @f_gmtime(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca %struct.tm, align 8
   %5 = alloca i64, align 8
-  %6 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %6 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %.not = icmp eq i32 %6, 4
   br i1 %.not, label %12, label %7
 
 7:                                                ; preds = %3
-  %8 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.230) #14
+  %8 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.230) #13
   %9 = extractvalue { i64, ptr } %8, 0
   %10 = extractvalue { i64, ptr } %8, 1
-  tail call void @jv_free(i64 %1, ptr %2) #14
-  %11 = tail call { i64, ptr } @jv_invalid_with_msg(i64 %9, ptr %10) #14
+  tail call void @jv_free(i64 %1, ptr %2) #13
+  %11 = tail call { i64, ptr } @jv_invalid_with_msg(i64 %9, ptr %10) #13
   br label %41
 
 12:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false)
-  %13 = tail call double @jv_number_value(i64 %1, ptr %2) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
+  %13 = tail call double @jv_number_value(i64 %1, ptr %2) #13
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13
   %14 = fptosi double %13 to i64
   store i64 %14, ptr %5, align 8, !tbaa !66
-  tail call void @jv_free(i64 %1, ptr %2) #14
-  %15 = call ptr @gmtime_r(ptr noundef nonnull %5, ptr noundef nonnull %4) #14
+  tail call void @jv_free(i64 %1, ptr %2) #13
+  %15 = call ptr @gmtime_r(ptr noundef nonnull %5, ptr noundef nonnull %4) #13
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %22
 
 17:                                               ; preds = %12
-  %18 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.231) #14
+  %18 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.231) #13
   %19 = extractvalue { i64, ptr } %18, 0
   %20 = extractvalue { i64, ptr } %18, 1
-  %21 = call { i64, ptr } @jv_invalid_with_msg(i64 %19, ptr %20) #14
+  %21 = call { i64, ptr } @jv_invalid_with_msg(i64 %19, ptr %20) #13
   br label %40
 
 22:                                               ; preds = %12
   %23 = call fastcc { i64, ptr } @tm2jv(ptr noundef %15)
   %24 = extractvalue { i64, ptr } %23, 0
   %25 = extractvalue { i64, ptr } %23, 1
-  %26 = call { i64, ptr } @jv_copy(i64 %24, ptr %25) #14
+  %26 = call { i64, ptr } @jv_copy(i64 %24, ptr %25) #13
   %27 = extractvalue { i64, ptr } %26, 0
   %28 = extractvalue { i64, ptr } %26, 1
-  %29 = call { i64, ptr } @jv_array_get(i64 %27, ptr %28, i32 noundef 5) #14
+  %29 = call { i64, ptr } @jv_array_get(i64 %27, ptr %28, i32 noundef 5) #13
   %30 = extractvalue { i64, ptr } %29, 0
   %31 = extractvalue { i64, ptr } %29, 1
-  %32 = call double @jv_number_value(i64 %30, ptr %31) #14
+  %32 = call double @jv_number_value(i64 %30, ptr %31) #13
   %33 = call double @llvm.floor.f64(double %13)
   %34 = fsub double %13, %33
   %35 = fadd double %34, %32
-  %36 = call { i64, ptr } @jv_number(double noundef %35) #14
+  %36 = call { i64, ptr } @jv_number(double noundef %35) #13
   %37 = extractvalue { i64, ptr } %36, 0
   %38 = extractvalue { i64, ptr } %36, 1
-  %39 = call { i64, ptr } @jv_array_set(i64 %24, ptr %25, i32 noundef 5, i64 %37, ptr %38) #14
+  %39 = call { i64, ptr } @jv_array_set(i64 %24, ptr %25, i32 noundef 5, i64 %37, ptr %38) #13
   br label %40
 
 40:                                               ; preds = %22, %17
   %.pn = phi { i64, ptr } [ %21, %17 ], [ %39, %22 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #13
   br label %41
 
 41:                                               ; preds = %40, %7
@@ -7310,61 +7310,61 @@ define internal { i64, ptr } @f_gmtime(ptr readnone captures(none) %0, i64 %1, p
 define internal { i64, ptr } @f_localtime(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca %struct.tm, align 8
   %5 = alloca i64, align 8
-  %6 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #14
+  %6 = tail call i32 @jv_get_kind(i64 %1, ptr %2) #13
   %.not = icmp eq i32 %6, 4
   br i1 %.not, label %12, label %7
 
 7:                                                ; preds = %3
-  %8 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.232) #14
+  %8 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.232) #13
   %9 = extractvalue { i64, ptr } %8, 0
   %10 = extractvalue { i64, ptr } %8, 1
-  tail call void @jv_free(i64 %1, ptr %2) #14
-  %11 = tail call { i64, ptr } @jv_invalid_with_msg(i64 %9, ptr %10) #14
+  tail call void @jv_free(i64 %1, ptr %2) #13
+  %11 = tail call { i64, ptr } @jv_invalid_with_msg(i64 %9, ptr %10) #13
   br label %41
 
 12:                                               ; preds = %3
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %4, i8 0, i64 56, i1 false)
-  %13 = tail call double @jv_number_value(i64 %1, ptr %2) #14
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #14
+  %13 = tail call double @jv_number_value(i64 %1, ptr %2) #13
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #13
   %14 = fptosi double %13 to i64
   store i64 %14, ptr %5, align 8, !tbaa !66
-  tail call void @jv_free(i64 %1, ptr %2) #14
-  %15 = call ptr @localtime_r(ptr noundef nonnull %5, ptr noundef nonnull %4) #14
+  tail call void @jv_free(i64 %1, ptr %2) #13
+  %15 = call ptr @localtime_r(ptr noundef nonnull %5, ptr noundef nonnull %4) #13
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %22
 
 17:                                               ; preds = %12
-  %18 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.231) #14
+  %18 = call { i64, ptr } @jv_string(ptr noundef nonnull @.str.231) #13
   %19 = extractvalue { i64, ptr } %18, 0
   %20 = extractvalue { i64, ptr } %18, 1
-  %21 = call { i64, ptr } @jv_invalid_with_msg(i64 %19, ptr %20) #14
+  %21 = call { i64, ptr } @jv_invalid_with_msg(i64 %19, ptr %20) #13
   br label %40
 
 22:                                               ; preds = %12
   %23 = call fastcc { i64, ptr } @tm2jv(ptr noundef %15)
   %24 = extractvalue { i64, ptr } %23, 0
   %25 = extractvalue { i64, ptr } %23, 1
-  %26 = call { i64, ptr } @jv_copy(i64 %24, ptr %25) #14
+  %26 = call { i64, ptr } @jv_copy(i64 %24, ptr %25) #13
   %27 = extractvalue { i64, ptr } %26, 0
   %28 = extractvalue { i64, ptr } %26, 1
-  %29 = call { i64, ptr } @jv_array_get(i64 %27, ptr %28, i32 noundef 5) #14
+  %29 = call { i64, ptr } @jv_array_get(i64 %27, ptr %28, i32 noundef 5) #13
   %30 = extractvalue { i64, ptr } %29, 0
   %31 = extractvalue { i64, ptr } %29, 1
-  %32 = call double @jv_number_value(i64 %30, ptr %31) #14
+  %32 = call double @jv_number_value(i64 %30, ptr %31) #13
   %33 = call double @llvm.floor.f64(double %13)
   %34 = fsub double %13, %33
   %35 = fadd double %34, %32
-  %36 = call { i64, ptr } @jv_number(double noundef %35) #14
+  %36 = call { i64, ptr } @jv_number(double noundef %35) #13
   %37 = extractvalue { i64, ptr } %36, 0
   %38 = extractvalue { i64, ptr } %36, 1
-  %39 = call { i64, ptr } @jv_array_set(i64 %24, ptr %25, i32 noundef 5, i64 %37, ptr %38) #14
+  %39 = call { i64, ptr } @jv_array_set(i64 %24, ptr %25, i32 noundef 5, i64 %37, ptr %38) #13
   br label %40
 
 40:                                               ; preds = %22, %17
   %.pn = phi { i64, ptr } [ %21, %17 ], [ %39, %22 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #14
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4) #13
   br label %41
 
 41:                                               ; preds = %40, %7
@@ -7375,14 +7375,14 @@ define internal { i64, ptr } @f_localtime(ptr readnone captures(none) %0, i64 %1
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_now(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
   %4 = alloca %struct.timeval, align 8
-  tail call void @jv_free(i64 %1, ptr %2) #14
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #14
-  %5 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #14
+  tail call void @jv_free(i64 %1, ptr %2) #13
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #13
+  %5 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #13
   %6 = icmp eq i32 %5, -1
   br i1 %6, label %7, label %10
 
 7:                                                ; preds = %3
-  %8 = tail call i64 @time(ptr noundef null) #14
+  %8 = tail call i64 @time(ptr noundef null) #13
   %9 = sitofp i64 %8 to double
   br label %18
 
@@ -7398,24 +7398,24 @@ define internal { i64, ptr } @f_now(ptr readnone captures(none) %0, i64 %1, ptr 
 
 18:                                               ; preds = %10, %7
   %.sink = phi double [ %17, %10 ], [ %9, %7 ]
-  %19 = tail call { i64, ptr } @jv_number(double noundef %.sink) #14
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #14
+  %19 = tail call { i64, ptr } @jv_number(double noundef %.sink) #13
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #13
   ret { i64, ptr } %19
 }
 
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_current_filename(ptr noundef %0, i64 %1, ptr %2) #0 {
-  tail call void @jv_free(i64 %1, ptr %2) #14
-  %4 = tail call { i64, ptr } @jq_util_input_get_current_filename(ptr noundef %0) #14
+  tail call void @jv_free(i64 %1, ptr %2) #13
+  %4 = tail call { i64, ptr } @jq_util_input_get_current_filename(ptr noundef %0) #13
   %5 = extractvalue { i64, ptr } %4, 0
   %6 = extractvalue { i64, ptr } %4, 1
-  %7 = tail call i32 @jv_get_kind(i64 %5, ptr %6) #14
+  %7 = tail call i32 @jv_get_kind(i64 %5, ptr %6) #13
   %.not5 = icmp eq i32 %7, 0
   br i1 %.not5, label %8, label %10
 
 8:                                                ; preds = %3
-  tail call void @jv_free(i64 %5, ptr %6) #14
-  %9 = tail call { i64, ptr } @jv_null() #14
+  tail call void @jv_free(i64 %5, ptr %6) #13
+  %9 = tail call { i64, ptr } @jv_null() #13
   br label %10
 
 10:                                               ; preds = %3, %8
@@ -7425,73 +7425,73 @@ define internal { i64, ptr } @f_current_filename(ptr noundef %0, i64 %1, ptr %2)
 
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_current_line(ptr noundef %0, i64 %1, ptr %2) #0 {
-  tail call void @jv_free(i64 %1, ptr %2) #14
-  %4 = tail call { i64, ptr } @jq_util_input_get_current_line(ptr noundef %0) #14
+  tail call void @jv_free(i64 %1, ptr %2) #13
+  %4 = tail call { i64, ptr } @jq_util_input_get_current_line(ptr noundef %0) #13
   ret { i64, ptr } %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal { i64, ptr } @f_have_decnum(ptr readnone captures(none) %0, i64 %1, ptr %2) #0 {
-  tail call void @jv_free(i64 %1, ptr %2) #14
-  %4 = tail call { i64, ptr } @jv_true() #14
+  tail call void @jv_free(i64 %1, ptr %2) #13
+  %4 = tail call { i64, ptr } @jv_true() #13
   ret { i64, ptr } %4
 }
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc { i64, ptr } @type_error(i64 %0, ptr %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca [15 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #14
-  %5 = tail call i32 @jv_get_kind(i64 %0, ptr %1) #14
-  %6 = tail call ptr @jv_kind_name(i32 noundef %5) #14
-  %7 = call ptr @jv_dump_string_trunc(i64 %0, ptr %1, ptr noundef nonnull %4, i64 noundef 15) #14
-  %8 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %6, ptr noundef %7, ptr noundef %2) #14
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %4) #13
+  %5 = tail call i32 @jv_get_kind(i64 %0, ptr %1) #13
+  %6 = tail call ptr @jv_kind_name(i32 noundef %5) #13
+  %7 = call ptr @jv_dump_string_trunc(i64 %0, ptr %1, ptr noundef nonnull %4, i64 noundef 15) #13
+  %8 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.155, ptr noundef %6, ptr noundef %7, ptr noundef %2) #13
   %9 = extractvalue { i64, ptr } %8, 0
   %10 = extractvalue { i64, ptr } %8, 1
-  %11 = call { i64, ptr } @jv_invalid_with_msg(i64 %9, ptr %10) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #14
+  %11 = call { i64, ptr } @jv_invalid_with_msg(i64 %9, ptr %10) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %4) #13
   ret { i64, ptr } %11
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @acos(double noundef) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @acosh(double noundef) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @asin(double noundef) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @asinh(double noundef) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @atan(double noundef) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @atan2(double noundef, double noundef) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @atanh(double noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare double @cbrt(double noundef) local_unnamed_addr #5
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @cos(double noundef) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @cosh(double noundef) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @exp(double noundef) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @exp2(double noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.floor.f64(double) #3
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @hypot(double noundef, double noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
@@ -7500,37 +7500,37 @@ declare double @j0(double noundef) local_unnamed_addr #6
 ; Function Attrs: nounwind
 declare double @j1(double noundef) local_unnamed_addr #6
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @log(double noundef) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @log10(double noundef) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @log2(double noundef) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @pow(double noundef, double noundef) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @remainder(double noundef, double noundef) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @sin(double noundef) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @sinh(double noundef) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @sqrt(double noundef) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @tan(double noundef) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @tanh(double noundef) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @tgamma(double noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
@@ -7554,7 +7554,7 @@ declare double @llvm.copysign.f64(double, double) #3
 ; Function Attrs: nounwind
 declare double @drem(double noundef, double noundef) local_unnamed_addr #6
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @erf(double noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
@@ -7563,13 +7563,13 @@ declare double @erfc(double noundef) local_unnamed_addr #6
 ; Function Attrs: nounwind
 declare double @exp10(double noundef) local_unnamed_addr #6
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @expm1(double noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #3
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @fdim(double noundef, double noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -7581,7 +7581,7 @@ declare double @llvm.maxnum.f64(double, double) #3
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.minnum.f64(double, double) #3
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @fmod(double noundef, double noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
@@ -7590,10 +7590,10 @@ declare double @gamma(double noundef) local_unnamed_addr #6
 ; Function Attrs: nounwind
 declare double @lgamma(double noundef) local_unnamed_addr #6
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @log1p(double noundef) local_unnamed_addr #4
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @logb(double noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -7614,7 +7614,7 @@ declare double @llvm.round.f64(double) #3
 ; Function Attrs: nounwind
 declare double @scalb(double noundef, double noundef) local_unnamed_addr #6
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @scalbln(double noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
@@ -7623,14 +7623,14 @@ declare double @significand(double noundef) local_unnamed_addr #6
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.trunc.f64(double) #3
 
-; Function Attrs: mustprogress nofree nounwind willreturn
-declare double @ldexp(double noundef, i32 noundef) local_unnamed_addr #7
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
+declare double @ldexp(double noundef, i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write)
-declare double @modf(double noundef, ptr noundef captures(none)) local_unnamed_addr #8
+declare double @modf(double noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write)
-declare double @frexp(double noundef, ptr noundef captures(none)) local_unnamed_addr #8
+declare double @frexp(double noundef, ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: nounwind
 declare double @lgamma_r(double noundef, ptr noundef) local_unnamed_addr #6
@@ -7660,40 +7660,40 @@ declare { i64, ptr } @jv_string_indexes(i64, ptr, i64, ptr) local_unnamed_addr #
 ; Function Attrs: nounwind uwtable
 define internal fastcc { i64, ptr } @string_trim(i64 %0, ptr %1, i32 noundef range(i32 1, 4) %2) unnamed_addr #0 {
   %4 = alloca i32, align 4
-  %5 = tail call i32 @jv_get_kind(i64 %0, ptr %1) #14
+  %5 = tail call i32 @jv_get_kind(i64 %0, ptr %1) #13
   %.not = icmp eq i32 %5, 5
   br i1 %.not, label %11, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.166) #14
+  %7 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.166) #13
   %8 = extractvalue { i64, ptr } %7, 0
   %9 = extractvalue { i64, ptr } %7, 1
-  tail call void @jv_free(i64 %0, ptr %1) #14
-  %10 = tail call { i64, ptr } @jv_invalid_with_msg(i64 %8, ptr %9) #14
+  tail call void @jv_free(i64 %0, ptr %1) #13
+  %10 = tail call { i64, ptr } @jv_invalid_with_msg(i64 %8, ptr %9) #13
   br label %43
 
 11:                                               ; preds = %3
-  %12 = tail call { i64, ptr } @jv_copy(i64 %0, ptr %1) #14
+  %12 = tail call { i64, ptr } @jv_copy(i64 %0, ptr %1) #13
   %13 = extractvalue { i64, ptr } %12, 0
   %14 = extractvalue { i64, ptr } %12, 1
-  %15 = tail call i32 @jv_string_length_bytes(i64 %13, ptr %14) #14
-  %16 = tail call ptr @jv_string_value(i64 %0, ptr %1) #14
+  %15 = tail call i32 @jv_string_length_bytes(i64 %13, ptr %14) #13
+  %16 = tail call ptr @jv_string_value(i64 %0, ptr %1) #13
   %17 = sext i32 %15 to i64
   %18 = getelementptr inbounds i8, ptr %16, i64 %17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #13
   %19 = and i32 %2, 1
   %.not49 = icmp eq i32 %19, 0
   br i1 %.not49, label %.thread, label %.preheader62
 
 .preheader62:                                     ; preds = %11, %21
   %.142 = phi ptr [ %20, %21 ], [ %16, %11 ]
-  %20 = call ptr @jvp_utf8_next(ptr noundef %.142, ptr noundef %18, ptr noundef nonnull %4) #14
+  %20 = call ptr @jvp_utf8_next(ptr noundef %.142, ptr noundef %18, ptr noundef nonnull %4) #13
   %.not50 = icmp eq ptr %20, null
   br i1 %.not50, label %.thread, label %21
 
 21:                                               ; preds = %.preheader62
   %22 = load i32, ptr %4, align 4, !tbaa !19
-  %23 = call i32 @jvp_codepoint_is_whitespace(i32 noundef %22) #14
+  %23 = call i32 @jvp_codepoint_is_whitespace(i32 noundef %22) #13
   %.not51 = icmp eq i32 %23, 0
   br i1 %.not51, label %.thread, label %.preheader62
 
@@ -7707,10 +7707,10 @@ define internal fastcc { i64, ptr } @string_trim(i64 %0, ptr %1, i32 noundef ran
 .preheader:                                       ; preds = %.thread, %.preheader
   %.140 = phi ptr [ %.2, %.preheader ], [ %18, %.thread ]
   %25 = getelementptr inbounds i8, ptr %.140, i64 -1
-  %26 = call ptr @jvp_utf8_backtrack(ptr noundef nonnull %25, ptr noundef %.041, ptr noundef null) #14
-  %27 = call ptr @jvp_utf8_next(ptr noundef %26, ptr noundef %.140, ptr noundef nonnull %4) #14
+  %26 = call ptr @jvp_utf8_backtrack(ptr noundef nonnull %25, ptr noundef %.041, ptr noundef null) #13
+  %27 = call ptr @jvp_utf8_next(ptr noundef %26, ptr noundef %.140, ptr noundef nonnull %4) #13
   %28 = load i32, ptr %4, align 4, !tbaa !19
-  %29 = call i32 @jvp_codepoint_is_whitespace(i32 noundef %28) #14
+  %29 = call i32 @jvp_codepoint_is_whitespace(i32 noundef %28) #13
   %.not53 = icmp ne i32 %29, 0
   %30 = icmp ne ptr %26, %.041
   %.2 = select i1 %.not53, ptr %26, ptr %.140
@@ -7734,13 +7734,13 @@ define internal fastcc { i64, ptr } @string_trim(i64 %0, ptr %1, i32 noundef ran
   %38 = ptrtoint ptr %.041 to i64
   %39 = sub i64 %37, %38
   %40 = trunc i64 %39 to i32
-  %41 = call { i64, ptr } @jv_string_sized(ptr noundef %.041, i32 noundef %40) #14
-  call void @jv_free(i64 %0, ptr %1) #14
+  %41 = call { i64, ptr } @jv_string_sized(ptr noundef %.041, i32 noundef %40) #13
+  call void @jv_free(i64 %0, ptr %1) #13
   br label %42
 
 42:                                               ; preds = %36, %33
   %.merged = phi { i64, ptr } [ %35, %33 ], [ %41, %36 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #13
   br label %43
 
 43:                                               ; preds = %42, %6
@@ -7786,107 +7786,107 @@ define internal fastcc { i64, ptr } @minmax_by(i64 %0, ptr %1, i64 %2, ptr %3, i
   %9 = alloca [15 x i8], align 1
   %10 = alloca [15 x i8], align 1
   %11 = alloca [15 x i8], align 1
-  %12 = tail call i32 @jv_get_kind(i64 %0, ptr %1) #14
+  %12 = tail call i32 @jv_get_kind(i64 %0, ptr %1) #13
   %.not = icmp eq i32 %12, 6
   br i1 %.not, label %24, label %13
 
 13:                                               ; preds = %5
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %10) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %11) #14
-  %14 = tail call i32 @jv_get_kind(i64 %0, ptr %1) #14
-  %15 = tail call ptr @jv_kind_name(i32 noundef %14) #14
-  %16 = tail call i32 @jv_get_kind(i64 %2, ptr %3) #14
-  %17 = tail call ptr @jv_kind_name(i32 noundef %16) #14
-  %18 = call ptr @jv_dump_string_trunc(i64 %0, ptr %1, ptr noundef nonnull %10, i64 noundef 15) #14
-  %19 = call ptr @jv_dump_string_trunc(i64 %2, ptr %3, ptr noundef nonnull %11, i64 noundef 15) #14
-  %20 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.8, ptr noundef %15, ptr noundef %18, ptr noundef %17, ptr noundef %19, ptr noundef nonnull @.str.173) #14
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %10) #13
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %11) #13
+  %14 = tail call i32 @jv_get_kind(i64 %0, ptr %1) #13
+  %15 = tail call ptr @jv_kind_name(i32 noundef %14) #13
+  %16 = tail call i32 @jv_get_kind(i64 %2, ptr %3) #13
+  %17 = tail call ptr @jv_kind_name(i32 noundef %16) #13
+  %18 = call ptr @jv_dump_string_trunc(i64 %0, ptr %1, ptr noundef nonnull %10, i64 noundef 15) #13
+  %19 = call ptr @jv_dump_string_trunc(i64 %2, ptr %3, ptr noundef nonnull %11, i64 noundef 15) #13
+  %20 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.8, ptr noundef %15, ptr noundef %18, ptr noundef %17, ptr noundef %19, ptr noundef nonnull @.str.173) #13
   %21 = extractvalue { i64, ptr } %20, 0
   %22 = extractvalue { i64, ptr } %20, 1
-  %23 = call { i64, ptr } @jv_invalid_with_msg(i64 %21, ptr %22) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %11) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %10) #14
+  %23 = call { i64, ptr } @jv_invalid_with_msg(i64 %21, ptr %22) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %11) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %10) #13
   br label %114
 
 24:                                               ; preds = %5
-  %25 = tail call i32 @jv_get_kind(i64 %2, ptr %3) #14
+  %25 = tail call i32 @jv_get_kind(i64 %2, ptr %3) #13
   %.not73 = icmp eq i32 %25, 6
   br i1 %.not73, label %37, label %26
 
 26:                                               ; preds = %24
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %8) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %9) #14
-  %27 = tail call i32 @jv_get_kind(i64 %0, ptr %1) #14
-  %28 = tail call ptr @jv_kind_name(i32 noundef %27) #14
-  %29 = tail call i32 @jv_get_kind(i64 %2, ptr %3) #14
-  %30 = tail call ptr @jv_kind_name(i32 noundef %29) #14
-  %31 = call ptr @jv_dump_string_trunc(i64 %0, ptr %1, ptr noundef nonnull %8, i64 noundef 15) #14
-  %32 = call ptr @jv_dump_string_trunc(i64 %2, ptr %3, ptr noundef nonnull %9, i64 noundef 15) #14
-  %33 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.8, ptr noundef %28, ptr noundef %31, ptr noundef %30, ptr noundef %32, ptr noundef nonnull @.str.173) #14
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %8) #13
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %9) #13
+  %27 = tail call i32 @jv_get_kind(i64 %0, ptr %1) #13
+  %28 = tail call ptr @jv_kind_name(i32 noundef %27) #13
+  %29 = tail call i32 @jv_get_kind(i64 %2, ptr %3) #13
+  %30 = tail call ptr @jv_kind_name(i32 noundef %29) #13
+  %31 = call ptr @jv_dump_string_trunc(i64 %0, ptr %1, ptr noundef nonnull %8, i64 noundef 15) #13
+  %32 = call ptr @jv_dump_string_trunc(i64 %2, ptr %3, ptr noundef nonnull %9, i64 noundef 15) #13
+  %33 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.8, ptr noundef %28, ptr noundef %31, ptr noundef %30, ptr noundef %32, ptr noundef nonnull @.str.173) #13
   %34 = extractvalue { i64, ptr } %33, 0
   %35 = extractvalue { i64, ptr } %33, 1
-  %36 = call { i64, ptr } @jv_invalid_with_msg(i64 %34, ptr %35) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %9) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %8) #14
+  %36 = call { i64, ptr } @jv_invalid_with_msg(i64 %34, ptr %35) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %9) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %8) #13
   br label %114
 
 37:                                               ; preds = %24
-  %38 = tail call { i64, ptr } @jv_copy(i64 %0, ptr %1) #14
+  %38 = tail call { i64, ptr } @jv_copy(i64 %0, ptr %1) #13
   %39 = extractvalue { i64, ptr } %38, 0
   %40 = extractvalue { i64, ptr } %38, 1
-  %41 = tail call i32 @jv_array_length(i64 %39, ptr %40) #14
-  %42 = tail call { i64, ptr } @jv_copy(i64 %2, ptr %3) #14
+  %41 = tail call i32 @jv_array_length(i64 %39, ptr %40) #13
+  %42 = tail call { i64, ptr } @jv_copy(i64 %2, ptr %3) #13
   %43 = extractvalue { i64, ptr } %42, 0
   %44 = extractvalue { i64, ptr } %42, 1
-  %45 = tail call i32 @jv_array_length(i64 %43, ptr %44) #14
+  %45 = tail call i32 @jv_array_length(i64 %43, ptr %44) #13
   %.not74 = icmp eq i32 %41, %45
   br i1 %.not74, label %57, label %46
 
 46:                                               ; preds = %37
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %6) #14
-  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %7) #14
-  %47 = tail call i32 @jv_get_kind(i64 %0, ptr %1) #14
-  %48 = tail call ptr @jv_kind_name(i32 noundef %47) #14
-  %49 = tail call i32 @jv_get_kind(i64 %2, ptr %3) #14
-  %50 = tail call ptr @jv_kind_name(i32 noundef %49) #14
-  %51 = call ptr @jv_dump_string_trunc(i64 %0, ptr %1, ptr noundef nonnull %6, i64 noundef 15) #14
-  %52 = call ptr @jv_dump_string_trunc(i64 %2, ptr %3, ptr noundef nonnull %7, i64 noundef 15) #14
-  %53 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.8, ptr noundef %48, ptr noundef %51, ptr noundef %50, ptr noundef %52, ptr noundef nonnull @.str.174) #14
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %6) #13
+  call void @llvm.lifetime.start.p0(i64 15, ptr nonnull %7) #13
+  %47 = tail call i32 @jv_get_kind(i64 %0, ptr %1) #13
+  %48 = tail call ptr @jv_kind_name(i32 noundef %47) #13
+  %49 = tail call i32 @jv_get_kind(i64 %2, ptr %3) #13
+  %50 = tail call ptr @jv_kind_name(i32 noundef %49) #13
+  %51 = call ptr @jv_dump_string_trunc(i64 %0, ptr %1, ptr noundef nonnull %6, i64 noundef 15) #13
+  %52 = call ptr @jv_dump_string_trunc(i64 %2, ptr %3, ptr noundef nonnull %7, i64 noundef 15) #13
+  %53 = call { i64, ptr } (ptr, ...) @jv_string_fmt(ptr noundef nonnull @.str.8, ptr noundef %48, ptr noundef %51, ptr noundef %50, ptr noundef %52, ptr noundef nonnull @.str.174) #13
   %54 = extractvalue { i64, ptr } %53, 0
   %55 = extractvalue { i64, ptr } %53, 1
-  %56 = call { i64, ptr } @jv_invalid_with_msg(i64 %54, ptr %55) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %7) #14
-  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %6) #14
+  %56 = call { i64, ptr } @jv_invalid_with_msg(i64 %54, ptr %55) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %7) #13
+  call void @llvm.lifetime.end.p0(i64 15, ptr nonnull %6) #13
   br label %114
 
 57:                                               ; preds = %37
-  %58 = tail call { i64, ptr } @jv_copy(i64 %0, ptr %1) #14
+  %58 = tail call { i64, ptr } @jv_copy(i64 %0, ptr %1) #13
   %59 = extractvalue { i64, ptr } %58, 0
   %60 = extractvalue { i64, ptr } %58, 1
-  %61 = tail call i32 @jv_array_length(i64 %59, ptr %60) #14
+  %61 = tail call i32 @jv_array_length(i64 %59, ptr %60) #13
   %62 = icmp eq i32 %61, 0
   br i1 %62, label %63, label %65
 
 63:                                               ; preds = %57
-  tail call void @jv_free(i64 %0, ptr %1) #14
-  tail call void @jv_free(i64 %2, ptr %3) #14
-  %64 = tail call { i64, ptr } @jv_null() #14
+  tail call void @jv_free(i64 %0, ptr %1) #13
+  tail call void @jv_free(i64 %2, ptr %3) #13
+  %64 = tail call { i64, ptr } @jv_null() #13
   br label %114
 
 65:                                               ; preds = %57
-  %66 = tail call { i64, ptr } @jv_copy(i64 %0, ptr %1) #14
+  %66 = tail call { i64, ptr } @jv_copy(i64 %0, ptr %1) #13
   %67 = extractvalue { i64, ptr } %66, 0
   %68 = extractvalue { i64, ptr } %66, 1
-  %69 = tail call { i64, ptr } @jv_array_get(i64 %67, ptr %68, i32 noundef 0) #14
-  %70 = tail call { i64, ptr } @jv_copy(i64 %2, ptr %3) #14
+  %69 = tail call { i64, ptr } @jv_array_get(i64 %67, ptr %68, i32 noundef 0) #13
+  %70 = tail call { i64, ptr } @jv_copy(i64 %2, ptr %3) #13
   %71 = extractvalue { i64, ptr } %70, 0
   %72 = extractvalue { i64, ptr } %70, 1
-  %73 = tail call { i64, ptr } @jv_array_get(i64 %71, ptr %72, i32 noundef 0) #14
+  %73 = tail call { i64, ptr } @jv_array_get(i64 %71, ptr %72, i32 noundef 0) #13
   %74 = extractvalue { i64, ptr } %73, 0
   %75 = extractvalue { i64, ptr } %73, 1
-  %76 = tail call { i64, ptr } @jv_copy(i64 %0, ptr %1) #14
+  %76 = tail call { i64, ptr } @jv_copy(i64 %0, ptr %1) #13
   %77 = extractvalue { i64, ptr } %76, 0
   %78 = extractvalue { i64, ptr } %76, 1
-  %79 = tail call i32 @jv_array_length(i64 %77, ptr %78) #14
+  %79 = tail call i32 @jv_array_length(i64 %77, ptr %78) #13
   %80 = icmp sgt i32 %79, 1
   br i1 %80, label %.lr.ph.preheader, label %._crit_edge
 
@@ -7904,9 +7904,9 @@ define internal fastcc { i64, ptr } @minmax_by(i64 %0, ptr %1, i64 %2, ptr %3, i
   %.sroa.019.0.lcssa = phi i64 [ %74, %65 ], [ %.sroa.019.1, %._crit_edge.loopexit ]
   %.sroa.7.0.lcssa = phi ptr [ %75, %65 ], [ %.sroa.7.1, %._crit_edge.loopexit ]
   %.merged = phi { i64, ptr } [ %69, %65 ], [ %84, %._crit_edge.loopexit ]
-  tail call void @jv_free(i64 %0, ptr %1) #14
-  tail call void @jv_free(i64 %2, ptr %3) #14
-  tail call void @jv_free(i64 %.sroa.019.0.lcssa, ptr %.sroa.7.0.lcssa) #14
+  tail call void @jv_free(i64 %0, ptr %1) #13
+  tail call void @jv_free(i64 %2, ptr %3) #13
+  tail call void @jv_free(i64 %.sroa.019.0.lcssa, ptr %.sroa.7.0.lcssa) #13
   br label %114
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %107
@@ -7915,36 +7915,36 @@ define internal fastcc { i64, ptr } @minmax_by(i64 %0, ptr %1, i64 %2, ptr %3, i
   %.sroa.7.077 = phi ptr [ %.sroa.7.1, %107 ], [ %75, %.lr.ph.preheader ]
   %.sroa.019.076 = phi i64 [ %.sroa.019.1, %107 ], [ %74, %.lr.ph.preheader ]
   %.075 = phi i32 [ %108, %107 ], [ 1, %.lr.ph.preheader ]
-  %85 = tail call { i64, ptr } @jv_copy(i64 %2, ptr %3) #14
+  %85 = tail call { i64, ptr } @jv_copy(i64 %2, ptr %3) #13
   %86 = extractvalue { i64, ptr } %85, 0
   %87 = extractvalue { i64, ptr } %85, 1
-  %88 = tail call { i64, ptr } @jv_array_get(i64 %86, ptr %87, i32 noundef %.075) #14
+  %88 = tail call { i64, ptr } @jv_array_get(i64 %86, ptr %87, i32 noundef %.075) #13
   %89 = extractvalue { i64, ptr } %88, 0
   %90 = extractvalue { i64, ptr } %88, 1
-  %91 = tail call { i64, ptr } @jv_copy(i64 %89, ptr %90) #14
+  %91 = tail call { i64, ptr } @jv_copy(i64 %89, ptr %90) #13
   %92 = extractvalue { i64, ptr } %91, 0
   %93 = extractvalue { i64, ptr } %91, 1
-  %94 = tail call { i64, ptr } @jv_copy(i64 %.sroa.019.076, ptr %.sroa.7.077) #14
+  %94 = tail call { i64, ptr } @jv_copy(i64 %.sroa.019.076, ptr %.sroa.7.077) #13
   %95 = extractvalue { i64, ptr } %94, 0
   %96 = extractvalue { i64, ptr } %94, 1
-  %97 = tail call i32 @jv_cmp(i64 %92, ptr %93, i64 %95, ptr %96) #14
+  %97 = tail call i32 @jv_cmp(i64 %92, ptr %93, i64 %95, ptr %96) #13
   %.lobit = lshr i32 %97, 31
   %98 = icmp eq i32 %.lobit, %4
   br i1 %98, label %99, label %106
 
 99:                                               ; preds = %.lr.ph
-  tail call void @jv_free(i64 %.sroa.019.076, ptr %.sroa.7.077) #14
-  tail call void @jv_free(i64 %.sroa.071.178, ptr %.sroa.8.179) #14
-  %100 = tail call { i64, ptr } @jv_copy(i64 %0, ptr %1) #14
+  tail call void @jv_free(i64 %.sroa.019.076, ptr %.sroa.7.077) #13
+  tail call void @jv_free(i64 %.sroa.071.178, ptr %.sroa.8.179) #13
+  %100 = tail call { i64, ptr } @jv_copy(i64 %0, ptr %1) #13
   %101 = extractvalue { i64, ptr } %100, 0
   %102 = extractvalue { i64, ptr } %100, 1
-  %103 = tail call { i64, ptr } @jv_array_get(i64 %101, ptr %102, i32 noundef %.075) #14
+  %103 = tail call { i64, ptr } @jv_array_get(i64 %101, ptr %102, i32 noundef %.075) #13
   %104 = extractvalue { i64, ptr } %103, 0
   %105 = extractvalue { i64, ptr } %103, 1
   br label %107
 
 106:                                              ; preds = %.lr.ph
-  tail call void @jv_free(i64 %89, ptr %90) #14
+  tail call void @jv_free(i64 %89, ptr %90) #13
   br label %107
 
 107:                                              ; preds = %106, %99
@@ -7953,10 +7953,10 @@ define internal fastcc { i64, ptr } @minmax_by(i64 %0, ptr %1, i64 %2, ptr %3, i
   %.sroa.071.2 = phi i64 [ %104, %99 ], [ %.sroa.071.178, %106 ]
   %.sroa.8.2 = phi ptr [ %105, %99 ], [ %.sroa.8.179, %106 ]
   %108 = add nuw nsw i32 %.075, 1
-  %109 = tail call { i64, ptr } @jv_copy(i64 %0, ptr %1) #14
+  %109 = tail call { i64, ptr } @jv_copy(i64 %0, ptr %1) #13
   %110 = extractvalue { i64, ptr } %109, 0
   %111 = extractvalue { i64, ptr } %109, 1
-  %112 = tail call i32 @jv_array_length(i64 %110, ptr %111) #14
+  %112 = tail call i32 @jv_array_length(i64 %110, ptr %111) #13
   %113 = icmp slt i32 %108, %112
   br i1 %113, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !70
 
@@ -7966,7 +7966,7 @@ define internal fastcc { i64, ptr } @minmax_by(i64 %0, ptr %1, i64 %2, ptr %3, i
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
 
 declare { i64, ptr } @jv_string_append_str(i64, ptr, ptr noundef) local_unnamed_addr #1
 
@@ -7974,7 +7974,7 @@ declare { i64, ptr } @jv_string_append_str(i64, ptr, ptr noundef) local_unnamed_
 define internal fastcc { i64, ptr } @escape_string(i64 %0, ptr %1, ptr noundef %2) unnamed_addr #0 {
   %4 = alloca [128 x ptr], align 16
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %4) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %4, i8 0, i64 1024, i1 false)
   store ptr @.str.206, ptr %4, align 16, !tbaa !38
   %6 = load i8, ptr %2, align 1, !tbaa !25
@@ -7988,7 +7988,7 @@ define internal fastcc { i64, ptr } @escape_string(i64 %0, ptr %1, ptr noundef %
   %9 = sext i8 %7 to i64
   %10 = getelementptr inbounds [128 x ptr], ptr %4, i64 0, i64 %9
   store ptr %8, ptr %10, align 8, !tbaa !38
-  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #17
+  %11 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %8) #16
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 %11
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 1
   %14 = load i8, ptr %13, align 1, !tbaa !25
@@ -7996,17 +7996,17 @@ define internal fastcc { i64, ptr } @escape_string(i64 %0, ptr %1, ptr noundef %
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !71
 
 ._crit_edge:                                      ; preds = %.lr.ph, %3
-  %15 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.185) #14
-  %16 = tail call ptr @jv_string_value(i64 %0, ptr %1) #14
-  %17 = tail call { i64, ptr } @jv_copy(i64 %0, ptr %1) #14
+  %15 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.185) #13
+  %16 = tail call ptr @jv_string_value(i64 %0, ptr %1) #13
+  %17 = tail call { i64, ptr } @jv_copy(i64 %0, ptr %1) #13
   %18 = extractvalue { i64, ptr } %17, 0
   %19 = extractvalue { i64, ptr } %17, 1
-  %20 = tail call i32 @jv_string_length_bytes(i64 %18, ptr %19) #14
+  %20 = tail call i32 @jv_string_length_bytes(i64 %18, ptr %19) #13
   %21 = sext i32 %20 to i64
   %22 = getelementptr inbounds i8, ptr %16, i64 %21
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #14
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #13
   store i32 0, ptr %5, align 4, !tbaa !19
-  %23 = call ptr @jvp_utf8_next(ptr noundef %16, ptr noundef %22, ptr noundef nonnull %5) #14
+  %23 = call ptr @jvp_utf8_next(ptr noundef %16, ptr noundef %22, ptr noundef nonnull %5) #13
   %.not3241 = icmp eq ptr %23, null
   br i1 %.not3241, label %._crit_edge47, label %.lr.ph46
 
@@ -8028,7 +8028,7 @@ define internal fastcc { i64, ptr } @escape_string(i64 %0, ptr %1, ptr noundef %
   br i1 %.not33, label %33, label %31
 
 31:                                               ; preds = %27
-  %32 = call { i64, ptr } @jv_string_append_str(i64 %.sroa.023.044, ptr %.sroa.6.043, ptr noundef nonnull %30) #14
+  %32 = call { i64, ptr } @jv_string_append_str(i64 %.sroa.023.044, ptr %.sroa.6.043, ptr noundef nonnull %30) #13
   br label %39
 
 33:                                               ; preds = %27, %.lr.ph46
@@ -8036,25 +8036,25 @@ define internal fastcc { i64, ptr } @escape_string(i64 %0, ptr %1, ptr noundef %
   %35 = ptrtoint ptr %.02742 to i64
   %36 = sub i64 %34, %35
   %37 = trunc i64 %36 to i32
-  %38 = call { i64, ptr } @jv_string_append_buf(i64 %.sroa.023.044, ptr %.sroa.6.043, ptr noundef %.02742, i32 noundef %37) #14
+  %38 = call { i64, ptr } @jv_string_append_buf(i64 %.sroa.023.044, ptr %.sroa.6.043, ptr noundef %.02742, i32 noundef %37) #13
   br label %39
 
 39:                                               ; preds = %33, %31
   %.pn = phi { i64, ptr } [ %32, %31 ], [ %38, %33 ]
-  %40 = call ptr @jvp_utf8_next(ptr noundef nonnull %24, ptr noundef %22, ptr noundef nonnull %5) #14
+  %40 = call ptr @jvp_utf8_next(ptr noundef nonnull %24, ptr noundef %22, ptr noundef nonnull %5) #13
   %.not32 = icmp eq ptr %40, null
   br i1 %.not32, label %._crit_edge47, label %.lr.ph46, !llvm.loop !72
 
 ._crit_edge47:                                    ; preds = %39, %._crit_edge
   %.pn34.lcssa = phi { i64, ptr } [ %15, %._crit_edge ], [ %.pn, %39 ]
-  call void @jv_free(i64 %0, ptr %1) #14
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #14
-  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #14
+  call void @jv_free(i64 %0, ptr %1) #13
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #13
+  call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %4) #13
   ret { i64, ptr } %.pn34.lcssa
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
 
 declare i32 @jvp_utf8_is_valid(ptr noundef, ptr noundef) local_unnamed_addr #1
 
@@ -8063,15 +8063,15 @@ declare { i64, ptr } @jv_array_set(i64, ptr, i32 noundef, i64, ptr) local_unname
 declare ptr @jv_mem_calloc(i64 noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #11
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8
 
 declare { i64, ptr } @jv_object() local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #9
+declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #8
 
 declare { i64, ptr } @jv_object_set(i64, ptr, i64, ptr, i64, ptr) local_unnamed_addr #1
 
@@ -8122,38 +8122,38 @@ define internal noundef i32 @f_match_name_iter(ptr noundef %0, ptr noundef %1, i
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %40 ]
   %.sroa.7.033 = phi ptr [ %.sroa.7.0.copyload, %.lr.ph ], [ %.sroa.7.1, %40 ]
   %.sroa.018.032 = phi i64 [ %.sroa.018.0.copyload, %.lr.ph ], [ %.sroa.018.1, %40 ]
-  %13 = tail call { i64, ptr } @jv_copy(i64 %.sroa.018.032, ptr %.sroa.7.033) #14
+  %13 = tail call { i64, ptr } @jv_copy(i64 %.sroa.018.032, ptr %.sroa.7.033) #13
   %14 = extractvalue { i64, ptr } %13, 0
   %15 = extractvalue { i64, ptr } %13, 1
   %16 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv
   %17 = load i32, ptr %16, align 4, !tbaa !19
   %18 = add nsw i32 %17, -1
-  %19 = tail call { i64, ptr } @jv_array_get(i64 %14, ptr %15, i32 noundef %18) #14
+  %19 = tail call { i64, ptr } @jv_array_get(i64 %14, ptr %15, i32 noundef %18) #13
   %20 = extractvalue { i64, ptr } %19, 0
   %21 = extractvalue { i64, ptr } %19, 1
-  %22 = tail call i32 @jv_get_kind(i64 %20, ptr %21) #14
+  %22 = tail call i32 @jv_get_kind(i64 %20, ptr %21) #13
   %23 = icmp eq i32 %22, 7
   br i1 %23, label %24, label %39
 
 24:                                               ; preds = %12
-  %25 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.214) #14
+  %25 = tail call { i64, ptr } @jv_string(ptr noundef nonnull @.str.214) #13
   %26 = extractvalue { i64, ptr } %25, 0
   %27 = extractvalue { i64, ptr } %25, 1
-  %28 = tail call { i64, ptr } @jv_string_sized(ptr noundef %0, i32 noundef %11) #14
+  %28 = tail call { i64, ptr } @jv_string_sized(ptr noundef %0, i32 noundef %11) #13
   %29 = extractvalue { i64, ptr } %28, 0
   %30 = extractvalue { i64, ptr } %28, 1
-  %31 = tail call { i64, ptr } @jv_object_set(i64 %20, ptr %21, i64 %26, ptr %27, i64 %29, ptr %30) #14
+  %31 = tail call { i64, ptr } @jv_object_set(i64 %20, ptr %21, i64 %26, ptr %27, i64 %29, ptr %30) #13
   %32 = extractvalue { i64, ptr } %31, 0
   %33 = extractvalue { i64, ptr } %31, 1
   %34 = load i32, ptr %16, align 4, !tbaa !19
   %35 = add nsw i32 %34, -1
-  %36 = tail call { i64, ptr } @jv_array_set(i64 %.sroa.018.032, ptr %.sroa.7.033, i32 noundef %35, i64 %32, ptr %33) #14
+  %36 = tail call { i64, ptr } @jv_array_set(i64 %.sroa.018.032, ptr %.sroa.7.033, i32 noundef %35, i64 %32, ptr %33) #13
   %37 = extractvalue { i64, ptr } %36, 0
   %38 = extractvalue { i64, ptr } %36, 1
   br label %40
 
 39:                                               ; preds = %12
-  tail call void @jv_free(i64 %20, ptr %21) #14
+  tail call void @jv_free(i64 %20, ptr %21) #13
   br label %40
 
 40:                                               ; preds = %39, %24
@@ -8186,79 +8186,79 @@ declare ptr @__ctype_b_loc() local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc { i64, ptr } @tm2jv(ptr noundef nonnull readonly captures(none) %0) unnamed_addr #0 {
-  %2 = tail call { i64, ptr } @jv_array() #14
+  %2 = tail call { i64, ptr } @jv_array() #13
   %3 = extractvalue { i64, ptr } %2, 0
   %4 = extractvalue { i64, ptr } %2, 1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %6 = load i32, ptr %5, align 4, !tbaa !65
   %7 = add nsw i32 %6, 1900
   %8 = sitofp i32 %7 to double
-  %9 = tail call { i64, ptr } @jv_number(double noundef %8) #14
+  %9 = tail call { i64, ptr } @jv_number(double noundef %8) #13
   %10 = extractvalue { i64, ptr } %9, 0
   %11 = extractvalue { i64, ptr } %9, 1
-  %12 = tail call { i64, ptr } @jv_array_append(i64 %3, ptr %4, i64 %10, ptr %11) #14
+  %12 = tail call { i64, ptr } @jv_array_append(i64 %3, ptr %4, i64 %10, ptr %11) #13
   %13 = extractvalue { i64, ptr } %12, 0
   %14 = extractvalue { i64, ptr } %12, 1
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load i32, ptr %15, align 8, !tbaa !74
   %17 = sitofp i32 %16 to double
-  %18 = tail call { i64, ptr } @jv_number(double noundef %17) #14
+  %18 = tail call { i64, ptr } @jv_number(double noundef %17) #13
   %19 = extractvalue { i64, ptr } %18, 0
   %20 = extractvalue { i64, ptr } %18, 1
-  %21 = tail call { i64, ptr } @jv_array_append(i64 %13, ptr %14, i64 %19, ptr %20) #14
+  %21 = tail call { i64, ptr } @jv_array_append(i64 %13, ptr %14, i64 %19, ptr %20) #13
   %22 = extractvalue { i64, ptr } %21, 0
   %23 = extractvalue { i64, ptr } %21, 1
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %25 = load i32, ptr %24, align 4, !tbaa !75
   %26 = sitofp i32 %25 to double
-  %27 = tail call { i64, ptr } @jv_number(double noundef %26) #14
+  %27 = tail call { i64, ptr } @jv_number(double noundef %26) #13
   %28 = extractvalue { i64, ptr } %27, 0
   %29 = extractvalue { i64, ptr } %27, 1
-  %30 = tail call { i64, ptr } @jv_array_append(i64 %22, ptr %23, i64 %28, ptr %29) #14
+  %30 = tail call { i64, ptr } @jv_array_append(i64 %22, ptr %23, i64 %28, ptr %29) #13
   %31 = extractvalue { i64, ptr } %30, 0
   %32 = extractvalue { i64, ptr } %30, 1
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load i32, ptr %33, align 8, !tbaa !76
   %35 = sitofp i32 %34 to double
-  %36 = tail call { i64, ptr } @jv_number(double noundef %35) #14
+  %36 = tail call { i64, ptr } @jv_number(double noundef %35) #13
   %37 = extractvalue { i64, ptr } %36, 0
   %38 = extractvalue { i64, ptr } %36, 1
-  %39 = tail call { i64, ptr } @jv_array_append(i64 %31, ptr %32, i64 %37, ptr %38) #14
+  %39 = tail call { i64, ptr } @jv_array_append(i64 %31, ptr %32, i64 %37, ptr %38) #13
   %40 = extractvalue { i64, ptr } %39, 0
   %41 = extractvalue { i64, ptr } %39, 1
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %43 = load i32, ptr %42, align 4, !tbaa !77
   %44 = sitofp i32 %43 to double
-  %45 = tail call { i64, ptr } @jv_number(double noundef %44) #14
+  %45 = tail call { i64, ptr } @jv_number(double noundef %44) #13
   %46 = extractvalue { i64, ptr } %45, 0
   %47 = extractvalue { i64, ptr } %45, 1
-  %48 = tail call { i64, ptr } @jv_array_append(i64 %40, ptr %41, i64 %46, ptr %47) #14
+  %48 = tail call { i64, ptr } @jv_array_append(i64 %40, ptr %41, i64 %46, ptr %47) #13
   %49 = extractvalue { i64, ptr } %48, 0
   %50 = extractvalue { i64, ptr } %48, 1
   %51 = load i32, ptr %0, align 8, !tbaa !78
   %52 = sitofp i32 %51 to double
-  %53 = tail call { i64, ptr } @jv_number(double noundef %52) #14
+  %53 = tail call { i64, ptr } @jv_number(double noundef %52) #13
   %54 = extractvalue { i64, ptr } %53, 0
   %55 = extractvalue { i64, ptr } %53, 1
-  %56 = tail call { i64, ptr } @jv_array_append(i64 %49, ptr %50, i64 %54, ptr %55) #14
+  %56 = tail call { i64, ptr } @jv_array_append(i64 %49, ptr %50, i64 %54, ptr %55) #13
   %57 = extractvalue { i64, ptr } %56, 0
   %58 = extractvalue { i64, ptr } %56, 1
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %60 = load i32, ptr %59, align 8, !tbaa !57
   %61 = sitofp i32 %60 to double
-  %62 = tail call { i64, ptr } @jv_number(double noundef %61) #14
+  %62 = tail call { i64, ptr } @jv_number(double noundef %61) #13
   %63 = extractvalue { i64, ptr } %62, 0
   %64 = extractvalue { i64, ptr } %62, 1
-  %65 = tail call { i64, ptr } @jv_array_append(i64 %57, ptr %58, i64 %63, ptr %64) #14
+  %65 = tail call { i64, ptr } @jv_array_append(i64 %57, ptr %58, i64 %63, ptr %64) #13
   %66 = extractvalue { i64, ptr } %65, 0
   %67 = extractvalue { i64, ptr } %65, 1
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %69 = load i32, ptr %68, align 4, !tbaa !60
   %70 = sitofp i32 %69 to double
-  %71 = tail call { i64, ptr } @jv_number(double noundef %70) #14
+  %71 = tail call { i64, ptr } @jv_number(double noundef %70) #13
   %72 = extractvalue { i64, ptr } %71, 0
   %73 = extractvalue { i64, ptr } %71, 1
-  %74 = tail call { i64, ptr } @jv_array_append(i64 %66, ptr %67, i64 %72, ptr %73) #14
+  %74 = tail call { i64, ptr } @jv_array_append(i64 %66, ptr %67, i64 %72, ptr %73) #13
   ret { i64, ptr } %74
 }
 
@@ -8272,29 +8272,29 @@ define internal fastcc range(i32 0, 2) i32 @jv2tm(i64 %0, ptr %1, ptr noundef no
 
 4:                                                ; preds = %3, %25
   %.03047 = phi i64 [ 0, %3 ], [ %30, %25 ]
-  %5 = tail call { i64, ptr } @jv_copy(i64 %0, ptr %1) #14
+  %5 = tail call { i64, ptr } @jv_copy(i64 %0, ptr %1) #13
   %6 = extractvalue { i64, ptr } %5, 0
   %7 = extractvalue { i64, ptr } %5, 1
   %8 = trunc nuw nsw i64 %.03047 to i32
-  %9 = tail call { i64, ptr } @jv_array_get(i64 %6, ptr %7, i32 noundef %8) #14
+  %9 = tail call { i64, ptr } @jv_array_get(i64 %6, ptr %7, i32 noundef %8) #13
   %10 = extractvalue { i64, ptr } %9, 0
   %11 = extractvalue { i64, ptr } %9, 1
-  %12 = tail call i32 @jv_get_kind(i64 %10, ptr %11) #14
+  %12 = tail call i32 @jv_get_kind(i64 %10, ptr %11) #13
   %.not45 = icmp eq i32 %12, 0
   br i1 %.not45, label %.thread37, label %13
 
 13:                                               ; preds = %4
-  %14 = tail call i32 @jv_get_kind(i64 %10, ptr %11) #14
+  %14 = tail call i32 @jv_get_kind(i64 %10, ptr %11) #13
   %.not33 = icmp eq i32 %14, 4
   br i1 %.not33, label %15, label %31
 
 15:                                               ; preds = %13
-  %16 = tail call i32 @jvp_number_is_nan(i64 %10, ptr %11) #14
+  %16 = tail call i32 @jvp_number_is_nan(i64 %10, ptr %11) #13
   %.not34 = icmp eq i32 %16, 0
   br i1 %.not34, label %17, label %31
 
 17:                                               ; preds = %15
-  %18 = tail call double @jv_number_value(i64 %10, ptr %11) #14
+  %18 = tail call double @jv_number_value(i64 %10, ptr %11) #13
   %19 = icmp eq i64 %.03047, 0
   %20 = fadd double %18, -1.900000e+03
   %.0 = select i1 %19, double %20, double %18
@@ -8313,18 +8313,18 @@ define internal fastcc range(i32 0, 2) i32 @jv2tm(i64 %0, ptr %1, ptr noundef no
   %28 = load i64, ptr %27, align 8, !tbaa !66
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 %28
   store i32 %26, ptr %29, align 4, !tbaa !19
-  tail call void @jv_free(i64 %10, ptr %11) #14
+  tail call void @jv_free(i64 %10, ptr %11) #13
   %30 = add nuw nsw i64 %.03047, 1
   %exitcond.not = icmp eq i64 %30, 8
   br i1 %exitcond.not, label %.thread37, label %4, !llvm.loop !79
 
 31:                                               ; preds = %13, %15
-  tail call void @jv_free(i64 %0, ptr %1) #14
-  tail call void @jv_free(i64 %10, ptr %11) #14
+  tail call void @jv_free(i64 %0, ptr %1) #13
+  tail call void @jv_free(i64 %10, ptr %11) #13
   br label %32
 
 .thread37:                                        ; preds = %4, %25
-  tail call void @jv_free(i64 %0, ptr %1) #14
+  tail call void @jv_free(i64 %0, ptr %1) #13
   br label %32
 
 32:                                               ; preds = %31, %.thread37
@@ -8345,7 +8345,7 @@ declare ptr @gmtime_r(ptr noundef, ptr noundef) local_unnamed_addr #6
 declare ptr @localtime_r(ptr noundef, ptr noundef) local_unnamed_addr #6
 
 ; Function Attrs: nofree nounwind
-declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #12
+declare noundef i32 @gettimeofday(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: nounwind
 declare i64 @time(ptr noundef) local_unnamed_addr #6
@@ -8357,26 +8357,25 @@ declare { i64, ptr } @jq_util_input_get_current_line(ptr noundef) local_unnamed_
 declare { i64, ptr } @block_list_funcs(ptr, ptr, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #13
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #12
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { mustprogress nofree nounwind willreturn memory(write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #11 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #14 = { nounwind }
-attributes #15 = { nounwind willreturn memory(none) }
-attributes #16 = { memory(none) }
-attributes #17 = { nounwind willreturn memory(read) }
+attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #10 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #13 = { nounwind }
+attributes #14 = { nounwind willreturn memory(none) }
+attributes #15 = { memory(none) }
+attributes #16 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

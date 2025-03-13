@@ -5,7 +5,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 @lj_char_bits = external hidden local_unnamed_addr constant [257 x i8], align 16
 
-; Function Attrs: nofree nounwind uwtable
+; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none, errnomem: readwrite) uwtable
 define hidden i32 @lj_strscan_scan(ptr noundef %0, i32 noundef %1, ptr noundef captures(none) %2, i32 noundef %3) local_unnamed_addr #0 {
   %5 = zext i32 %1 to i64
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 %5
@@ -684,8 +684,8 @@ define internal fastcc i32 @strscan_oct(ptr noundef readonly captures(none) %0, 
   ret i32 %.022
 }
 
-; Function Attrs: nofree nounwind uwtable
-define internal fastcc noundef i32 @strscan_hex(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5, i32 noundef %6) unnamed_addr #0 {
+; Function Attrs: nofree nounwind memory(argmem: readwrite, errnomem: write) uwtable
+define internal fastcc noundef i32 @strscan_hex(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5, i32 noundef %6) unnamed_addr #3 {
   %8 = icmp ugt i32 %6, 16
   %.not79 = icmp eq i32 %6, 0
   br i1 %.not79, label %._crit_edge, label %.lr.ph.preheader
@@ -883,7 +883,7 @@ define internal fastcc noundef i32 @strscan_hex(ptr noundef readonly captures(no
 
 93:                                               ; preds = %90, %.thread.i
   %.02740.i = phi double [ %.02738.i, %.thread.i ], [ %.027.i, %90 ]
-  %94 = tail call double @ldexp(double noundef %.02740.i, i32 noundef %.161) #7, !tbaa !17
+  %94 = tail call double @ldexp(double noundef %.02740.i, i32 noundef %.161) #8, !tbaa !17
   br label %strscan_double.exit
 
 strscan_double.exit:                              ; preds = %90, %93
@@ -896,8 +896,8 @@ strscan_double.exit:                              ; preds = %90, %93
   ret i32 %.056
 }
 
-; Function Attrs: nofree nounwind uwtable
-define internal fastcc noundef i32 @strscan_bin(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5, i32 noundef %6) unnamed_addr #0 {
+; Function Attrs: nofree nounwind memory(argmem: readwrite, errnomem: write) uwtable
+define internal fastcc noundef i32 @strscan_bin(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5, i32 noundef %6) unnamed_addr #3 {
   %8 = icmp ne i32 %4, 0
   %9 = icmp ugt i32 %6, 64
   %or.cond = or i1 %8, %9
@@ -991,7 +991,7 @@ define internal fastcc noundef i32 @strscan_bin(ptr noundef readonly captures(no
   br i1 %.not50, label %strscan_double.exit, label %46
 
 46:                                               ; preds = %40
-  %47 = tail call double @ldexp(double noundef %.027.i, i32 noundef 2) #7, !tbaa !17
+  %47 = tail call double @ldexp(double noundef %.027.i, i32 noundef 2) #8, !tbaa !17
   br label %strscan_double.exit
 
 strscan_double.exit:                              ; preds = %40, %46
@@ -1004,10 +1004,10 @@ strscan_double.exit:                              ; preds = %40, %46
   ret i32 %.039
 }
 
-; Function Attrs: nofree nounwind uwtable
+; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none, errnomem: readwrite) uwtable
 define internal fastcc noundef i32 @strscan_dec(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, i32 noundef %2, i32 noundef %3, i32 noundef %4, i32 noundef range(i32 0, 2) %5, i32 noundef %6) unnamed_addr #0 {
   %8 = alloca [512 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %8) #7
+  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %8) #8
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %._crit_edge360.thread, label %9
 
@@ -1682,7 +1682,7 @@ define internal fastcc noundef i32 @strscan_dec(ptr noundef readonly captures(no
 
 312:                                              ; preds = %309, %.thread.i
   %.02740.i = phi double [ %.02738.i, %.thread.i ], [ %.027.i, %309 ]
-  %313 = call double @ldexp(double noundef %.02740.i, i32 noundef %.2194) #7, !tbaa !17
+  %313 = call double @ldexp(double noundef %.02740.i, i32 noundef %.2194) #8, !tbaa !17
   br label %314
 
 314:                                              ; preds = %309, %312
@@ -1692,11 +1692,11 @@ define internal fastcc noundef i32 @strscan_dec(ptr noundef readonly captures(no
 
 .thread305:                                       ; preds = %148, %144, %119, %113, %120, %124, %129, %314, %.thread309, %133
   %.2215 = phi i32 [ 0, %133 ], [ 0, %.thread309 ], [ %.4248, %314 ], [ 0, %119 ], [ 3, %113 ], [ 4, %120 ], [ %2, %124 ], [ %.3247, %129 ], [ %.4248, %144 ], [ %.4248, %148 ]
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %8) #7
+  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %8) #8
   ret i32 %.2215
 }
 
-; Function Attrs: nofree nounwind uwtable
+; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none, errnomem: readwrite) uwtable
 define hidden range(i32 0, 2) i32 @lj_strscan_num(ptr noundef %0, ptr noundef captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -1708,31 +1708,32 @@ define hidden range(i32 0, 2) i32 @lj_strscan_num(ptr noundef %0, ptr noundef ca
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctlz.i64(i64, i1 immarg) #3
+declare i64 @llvm.ctlz.i64(i64, i1 immarg) #4
 
-; Function Attrs: mustprogress nofree nounwind willreturn
-declare double @ldexp(double noundef, i32 noundef) local_unnamed_addr #4
-
-; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umin.i32(i32, i32) #5
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
+declare double @ldexp(double noundef, i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.usub.sat.i32(i32, i32) #5
+declare i32 @llvm.umin.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.umax.i32(i32, i32) #5
+declare i32 @llvm.usub.sat.i32(i32, i32) #6
+
+; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #6
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
-attributes #0 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none, errnomem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { mustprogress nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #7 = { nounwind }
+attributes #3 = { nofree nounwind memory(argmem: readwrite, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { mustprogress nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

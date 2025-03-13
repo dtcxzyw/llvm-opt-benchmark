@@ -234,7 +234,7 @@ i128_udiv.exit:                                   ; preds = %i128_ucomp.exit.i.i
   %111 = ptrtoint ptr %9 to i64
   %reass.sub = sub i64 %110, %111
   %112 = add i64 %reass.sub, 2
-  %113 = call ptr @calloc_string(i64 noundef %112) #19
+  %113 = call ptr @calloc_string(i64 noundef %112) #20
   br i1 %11, label %114, label %116
 
 114:                                              ; preds = %109
@@ -776,7 +776,7 @@ define dso_local { i64, i64 } @i128_sub64(i64 %0, i64 %1, i64 noundef %2) local_
 
 ; Function Attrs: nounwind uwtable
 define dso_local { i64, i64 } @i128_extend(i64 %0, i64 %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = tail call i32 @type_kind_bitsize(i32 noundef %2) #19
+  %4 = tail call i32 @type_kind_bitsize(i32 noundef %2) #20
   %5 = icmp eq i32 %4, 128
   br i1 %5, label %i128_ashr64.exit, label %6
 
@@ -1721,19 +1721,19 @@ define dso_local range(i32 -1, 128) i32 @i128_msb(ptr noundef readonly captures(
   ret i32 %3
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write) uwtable
 define dso_local double @i128_to_float(i64 %0, i64 %1) local_unnamed_addr #10 {
   %3 = uitofp i64 %1 to double
   %4 = uitofp i64 %0 to double
-  %5 = tail call double @ldexp(double noundef %4, i32 noundef 64) #19
+  %5 = tail call double @ldexp(double noundef %4, i32 noundef 64) #20
   %6 = fadd double %5, %3
   ret double %6
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @ldexp(double noundef, i32 noundef) local_unnamed_addr #11
 
-; Function Attrs: nofree nounwind uwtable
+; Function Attrs: nofree nounwind memory(errnomem: write) uwtable
 define dso_local double @i128_to_float_signed(i64 %0, i64 %1) local_unnamed_addr #12 {
   %3 = icmp slt i64 %0, 0
   br i1 %3, label %4, label %common.ret
@@ -1779,7 +1779,7 @@ i128_neg.exit:                                    ; preds = %5, %.split, %i128_n
 common.ret:                                       ; preds = %12, %2
   %19 = uitofp i64 %1 to double
   %20 = uitofp i64 %0 to double
-  %21 = tail call double @ldexp(double noundef %20, i32 noundef 64) #19
+  %21 = tail call double @ldexp(double noundef %20, i32 noundef 64) #20
   %22 = fadd double %21, %19
   br label %common.ret20
 }
@@ -2265,7 +2265,7 @@ define dso_local noundef zeroext i1 @binary_op_matches_res(i32 noundef %0, i32 n
   br label %16
 
 15:                                               ; preds = %2
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.binary_op_matches_res, ptr noundef nonnull @.str.2, i32 noundef 598) #20
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.binary_op_matches_res, ptr noundef nonnull @.str.2, i32 noundef 598) #21
   unreachable
 
 16:                                               ; preds = %13, %11, %9, %7, %5, %3
@@ -2416,7 +2416,7 @@ int_compare.exit:                                 ; preds = %20, %23, %25, %27, 
   br label %binary_op_matches_res.exit
 
 79:                                               ; preds = %int_compare.exit
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.binary_op_matches_res, ptr noundef nonnull @.str.2, i32 noundef 598) #20
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.binary_op_matches_res, ptr noundef nonnull @.str.2, i32 noundef 598) #21
   unreachable
 
 binary_op_matches_res.exit:                       ; preds = %67, %69, %71, %73, %75, %77
@@ -2517,7 +2517,7 @@ int_signed_compare.exit:                          ; preds = %12, %15, %17, %19, 
   br label %binary_op_matches_res.exit
 
 46:                                               ; preds = %int_signed_compare.exit
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.binary_op_matches_res, ptr noundef nonnull @.str.2, i32 noundef 598) #20
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.binary_op_matches_res, ptr noundef nonnull @.str.2, i32 noundef 598) #21
   unreachable
 
 binary_op_matches_res.exit:                       ; preds = %34, %36, %38, %40, %42, %44
@@ -2587,7 +2587,7 @@ int_unsigned_compare.exit:                        ; preds = %3, %thread-pre-spli
   br label %binary_op_matches_res.exit
 
 28:                                               ; preds = %int_unsigned_compare.exit
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.binary_op_matches_res, ptr noundef nonnull @.str.2, i32 noundef 598) #20
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.binary_op_matches_res, ptr noundef nonnull @.str.2, i32 noundef 598) #21
   unreachable
 
 binary_op_matches_res.exit:                       ; preds = %16, %18, %20, %22, %24, %26
@@ -2635,7 +2635,7 @@ define dso_local zeroext i1 @int_fits(ptr noundef readonly byval(%struct.Int) al
   br label %36
 
 11:                                               ; preds = %2
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.int_fits, ptr noundef nonnull @.str.2, i32 noundef 686) #20
+  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.int_fits, ptr noundef nonnull @.str.2, i32 noundef 686) #21
   unreachable
 
 12:                                               ; preds = %6, %5, %4, %3, %2
@@ -2950,8 +2950,8 @@ define dso_local void @int_mul(ptr dead_on_unwind noalias writable writeonly sre
 define dso_local void @int_conv(ptr dead_on_unwind noalias writable writeonly sret(%struct.Int) align 8 captures(none) initializes((0, 20)) %0, ptr noundef readonly byval(%struct.Int) align 8 captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i32, ptr %4, align 8
-  %6 = tail call i32 @type_kind_bitsize(i32 noundef %5) #19
-  %7 = tail call i32 @type_kind_bitsize(i32 noundef %2) #19
+  %6 = tail call i32 @type_kind_bitsize(i32 noundef %5) #20
+  %7 = tail call i32 @type_kind_bitsize(i32 noundef %2) #20
   %8 = icmp eq i32 %7, 128
   br i1 %8, label %9, label %10
 
@@ -3702,8 +3702,8 @@ i128_shl64.exit10:                                ; preds = %29, %30, %32, %36, 
   ret void
 }
 
-; Function Attrs: nofree nounwind uwtable
-define dso_local double @int_to_real(ptr noundef readonly byval(%struct.Int) align 8 captures(none) %0) local_unnamed_addr #12 {
+; Function Attrs: nofree nounwind memory(argmem: read, errnomem: write) uwtable
+define dso_local double @int_to_real(ptr noundef readonly byval(%struct.Int) align 8 captures(none) %0) local_unnamed_addr #16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i32, ptr %2, align 8
   %4 = add i32 %3, -3
@@ -3720,7 +3720,7 @@ define dso_local double @int_to_real(ptr noundef readonly byval(%struct.Int) ali
 11:                                               ; preds = %1
   %12 = uitofp i64 %8 to double
   %13 = uitofp i64 %6 to double
-  %14 = tail call double @ldexp(double noundef %13, i32 noundef 64) #19
+  %14 = tail call double @ldexp(double noundef %13, i32 noundef 64) #20
   %15 = fadd double %14, %12
   br label %16
 
@@ -3741,7 +3741,7 @@ define dso_local zeroext i1 @int_is_neg(ptr noundef readonly byval(%struct.Int) 
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write) uwtable
 define dso_local zeroext i1 @i128_can_convert_from_double(double noundef %0) local_unnamed_addr #10 {
   %2 = tail call double @llvm.fabs.f64(double %0)
   %3 = fcmp one double %2, 0x7FF0000000000000
@@ -3750,7 +3750,7 @@ define dso_local zeroext i1 @i128_can_convert_from_double(double noundef %0) loc
   br i1 %or.cond, label %5, label %8
 
 5:                                                ; preds = %1
-  %6 = tail call double @ldexp(double noundef 1.000000e+00, i32 noundef 128) #19
+  %6 = tail call double @ldexp(double noundef 1.000000e+00, i32 noundef 128) #20
   %7 = fcmp olt double %0, %6
   br label %8
 
@@ -3759,20 +3759,20 @@ define dso_local zeroext i1 @i128_can_convert_from_double(double noundef %0) loc
   ret i1 %9
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write) uwtable
 define dso_local zeroext i1 @i128_can_convert_from_double_signed(double noundef %0) local_unnamed_addr #10 {
   %2 = tail call double @llvm.fabs.f64(double %0)
   %3 = fcmp ueq double %2, 0x7FF0000000000000
   br i1 %3, label %11, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call double @ldexp(double noundef 1.000000e+00, i32 noundef 127) #19
+  %5 = tail call double @ldexp(double noundef 1.000000e+00, i32 noundef 127) #20
   %6 = fneg double %5
   %7 = fcmp ult double %0, %6
   br i1 %7, label %11, label %8
 
 8:                                                ; preds = %4
-  %9 = tail call double @ldexp(double noundef 1.000000e+00, i32 noundef 127) #19
+  %9 = tail call double @ldexp(double noundef 1.000000e+00, i32 noundef 127) #20
   %10 = fcmp olt double %0, %9
   br label %11
 
@@ -3781,17 +3781,17 @@ define dso_local zeroext i1 @i128_can_convert_from_double_signed(double noundef 
   ret i1 %12
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write) uwtable
 define dso_local { i64, i64 } @i128_from_double(double noundef %0) local_unnamed_addr #10 {
-  %2 = tail call double @ldexp(double noundef 1.000000e+00, i32 noundef 64) #19
+  %2 = tail call double @ldexp(double noundef 1.000000e+00, i32 noundef 64) #20
   %3 = fcmp ult double %0, %2
   br i1 %3, label %10, label %4
 
 4:                                                ; preds = %1
-  %5 = tail call double @ldexp(double noundef %0, i32 noundef -64) #19
+  %5 = tail call double @ldexp(double noundef %0, i32 noundef -64) #20
   %6 = fptoui double %5 to i64
   %7 = uitofp i64 %6 to double
-  %8 = tail call double @ldexp(double noundef %7, i32 noundef 64) #19
+  %8 = tail call double @ldexp(double noundef %7, i32 noundef 64) #20
   %9 = fsub double %0, %8
   br label %10
 
@@ -3838,22 +3838,22 @@ i128_neg.exit:                                    ; preds = %6, %3, %13
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #16
+declare double @llvm.fabs.f64(double) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.fshl.i64(i64, i64, i64) #16
+declare i64 @llvm.fshl.i64(i64, i64, i64) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.ctpop.i64(i64) #16
+declare i64 @llvm.ctpop.i64(i64) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #18
+declare void @llvm.experimental.noalias.scope.decl(metadata) #19
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -3865,17 +3865,18 @@ attributes #6 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable 
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
 attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree nounwind willreturn uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nounwind willreturn memory(errnomem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree nounwind willreturn memory(errnomem: write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nofree nounwind memory(errnomem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #17 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #18 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #19 = { nounwind }
-attributes #20 = { noreturn nounwind }
+attributes #16 = { nofree nounwind memory(argmem: read, errnomem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #18 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #19 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #20 = { nounwind }
+attributes #21 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 

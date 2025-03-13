@@ -74532,7 +74532,7 @@ switch.lookup:
   ret i1 %.0.i1
 }
 
-; Function Attrs: mustprogress nofree nounwind nonlazybind willreturn memory(write) uwtable
+; Function Attrs: mustprogress nofree nounwind nonlazybind willreturn memory(errnomem: write) uwtable
 define noundef double @_ZN5typst9visualize8gradient8Gradient20correct_aspect_ratio17h607cfec6ca2354acE(double noundef %0, double noundef %1) unnamed_addr #27 {
   %3 = frem double %0, 0x401921FB54442D18
   %4 = fcmp olt double %3, 0.000000e+00
@@ -173410,19 +173410,19 @@ declare double @llvm.sin.f64(double) #37
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.cos.f64(double) #37
 
-; Function Attrs: mustprogress nofree nounwind nonlazybind willreturn memory(write) uwtable
+; Function Attrs: mustprogress nofree nounwind nonlazybind willreturn memory(errnomem: write) uwtable
 declare noundef double @hypot(double noundef, double noundef) unnamed_addr #27
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.sqrt.f64(double) #37
 
-; Function Attrs: mustprogress nofree nounwind nonlazybind willreturn memory(write) uwtable
+; Function Attrs: mustprogress nofree nounwind nonlazybind willreturn memory(errnomem: write) uwtable
 declare noundef double @atan2(double noundef, double noundef) unnamed_addr #27
 
-; Function Attrs: mustprogress nofree nounwind nonlazybind willreturn memory(write) uwtable
+; Function Attrs: mustprogress nofree nounwind nonlazybind willreturn memory(errnomem: write) uwtable
 declare noundef double @tan(double noundef) unnamed_addr #27
 
-; Function Attrs: mustprogress nofree nounwind nonlazybind willreturn memory(write) uwtable
+; Function Attrs: mustprogress nofree nounwind nonlazybind willreturn memory(errnomem: write) uwtable
 declare noundef double @atan(double noundef) unnamed_addr #27
 
 ; Function Attrs: nonlazybind uwtable
@@ -176815,7 +176815,7 @@ attributes #23 = { mustprogress nofree norecurse nosync nounwind nonlazybind wil
 attributes #24 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #25 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #26 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #27 = { mustprogress nofree nounwind nonlazybind willreturn memory(write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #27 = { mustprogress nofree nounwind nonlazybind willreturn memory(errnomem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #28 = { mustprogress nofree nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #29 = { nounwind nonlazybind memory(readwrite, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #30 = { mustprogress nofree norecurse noreturn nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

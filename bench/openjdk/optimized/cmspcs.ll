@@ -67,7 +67,7 @@ define hidden void @cmsXYZ2Lab(ptr noundef readonly captures(address_is_null) %0
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %3
-  %6 = tail call ptr @cmsD50_XYZ() #10
+  %6 = tail call ptr @cmsD50_XYZ() #12
   br label %7
 
 7:                                                ; preds = %5, %3
@@ -83,7 +83,7 @@ define hidden void @cmsXYZ2Lab(ptr noundef readonly captures(address_is_null) %0
   br label %f.exit
 
 14:                                               ; preds = %7
-  %15 = tail call double @pow(double noundef %10, double noundef 0x3FD5555555555555) #10
+  %15 = tail call double @pow(double noundef %10, double noundef 0x3FD5555555555555) #12
   br label %f.exit
 
 f.exit:                                           ; preds = %12, %14
@@ -101,7 +101,7 @@ f.exit:                                           ; preds = %12, %14
   br label %f.exit17
 
 24:                                               ; preds = %f.exit
-  %25 = tail call double @pow(double noundef %20, double noundef 0x3FD5555555555555) #10
+  %25 = tail call double @pow(double noundef %20, double noundef 0x3FD5555555555555) #12
   br label %f.exit17
 
 f.exit17:                                         ; preds = %22, %24
@@ -119,7 +119,7 @@ f.exit17:                                         ; preds = %22, %24
   br label %f.exit19
 
 34:                                               ; preds = %f.exit17
-  %35 = tail call double @pow(double noundef %30, double noundef 0x3FD5555555555555) #10
+  %35 = tail call double @pow(double noundef %30, double noundef 0x3FD5555555555555) #12
   br label %f.exit19
 
 f.exit19:                                         ; preds = %32, %34
@@ -148,7 +148,7 @@ define hidden void @cmsLab2XYZ(ptr noundef readonly captures(address_is_null) %0
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %3
-  %6 = tail call ptr @cmsD50_XYZ() #10
+  %6 = tail call ptr @cmsD50_XYZ() #12
   br label %7
 
 7:                                                ; preds = %5, %3
@@ -414,7 +414,7 @@ ab2Fix4.exit12:                                   ; preds = %ab2Fix4.exit, %42, 
   ret void
 }
 
-; Function Attrs: nofree nounwind memory(write, argmem: readwrite) uwtable
+; Function Attrs: nofree nounwind memory(argmem: readwrite, errnomem: write) uwtable
 define hidden void @cmsLab2LCh(ptr noundef writeonly captures(none) initializes((0, 16)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
   %3 = load double, ptr %1, align 8
   store double %3, ptr %0, align 8
@@ -425,7 +425,7 @@ define hidden void @cmsLab2LCh(ptr noundef writeonly captures(none) initializes(
   %8 = load double, ptr %7, align 8
   %9 = fmul double %8, %8
   %10 = fadd double %6, %9
-  %11 = tail call double @pow(double noundef %10, double noundef 5.000000e-01) #10
+  %11 = tail call double @pow(double noundef %10, double noundef 5.000000e-01) #12
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %11, ptr %12, align 8
   %13 = load double, ptr %7, align 8
@@ -436,7 +436,7 @@ define hidden void @cmsLab2LCh(ptr noundef writeonly captures(none) initializes(
   br i1 %or.cond.i, label %atan2deg.exit, label %17
 
 17:                                               ; preds = %2
-  %18 = tail call double @atan2(double noundef %13, double noundef %14) #10
+  %18 = tail call double @atan2(double noundef %13, double noundef %14) #12
   %19 = fmul double %18, 0x404CA5DC1A63C1F8
   %20 = fcmp ogt double %19, 3.600000e+02
   br i1 %20, label %.lr.ph.i, label %.preheader.i
@@ -465,10 +465,10 @@ atan2deg.exit:                                    ; preds = %.lr.ph13.i, %2, %.p
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @pow(double noundef, double noundef) local_unnamed_addr #5
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable
 define hidden void @cmsLCh2Lab(ptr noundef writeonly captures(none) initializes((0, 24)) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load double, ptr %3, align 8
@@ -478,22 +478,22 @@ define hidden void @cmsLCh2Lab(ptr noundef writeonly captures(none) initializes(
   store double %7, ptr %0, align 8
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load double, ptr %8, align 8
-  %10 = tail call double @cos(double noundef %6) #10
+  %10 = tail call double @cos(double noundef %6) #12
   %11 = fmul double %9, %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %11, ptr %12, align 8
   %13 = load double, ptr %8, align 8
-  %14 = tail call double @sin(double noundef %6) #10
+  %14 = tail call double @sin(double noundef %6) #12
   %15 = fmul double %13, %14
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %15, ptr %16, align 8
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @cos(double noundef) local_unnamed_addr #5
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @sin(double noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
@@ -587,27 +587,27 @@ define hidden void @cmsXYZEncoded2Float(ptr noundef writeonly captures(none) ini
   %3 = load i16, ptr %1, align 2
   %4 = zext i16 %3 to i32
   %5 = shl nuw nsw i32 %4, 1
-  %6 = tail call double @_cms15Fixed16toDouble(i32 noundef %5) #10
+  %6 = tail call double @_cms15Fixed16toDouble(i32 noundef %5) #12
   store double %6, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %8 = load i16, ptr %7, align 2
   %9 = zext i16 %8 to i32
   %10 = shl nuw nsw i32 %9, 1
-  %11 = tail call double @_cms15Fixed16toDouble(i32 noundef %10) #10
+  %11 = tail call double @_cms15Fixed16toDouble(i32 noundef %10) #12
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %11, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %14 = load i16, ptr %13, align 2
   %15 = zext i16 %14 to i32
   %16 = shl nuw nsw i32 %15, 1
-  %17 = tail call double @_cms15Fixed16toDouble(i32 noundef %16) #10
+  %17 = tail call double @_cms15Fixed16toDouble(i32 noundef %16) #12
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store double %17, ptr %18, align 8
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define hidden double @cmsDeltaE(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #6 {
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read, errnomem: write) uwtable
+define hidden double @cmsDeltaE(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #7 {
   %3 = load double, ptr %0, align 8
   %4 = load double, ptr %1, align 8
   %5 = fsub double %3, %4
@@ -626,15 +626,15 @@ define hidden double @cmsDeltaE(ptr noundef readonly captures(none) %0, ptr noun
   %18 = fadd double %16, %17
   %19 = fmul double %15, %15
   %20 = fadd double %18, %19
-  %21 = tail call double @pow(double noundef %20, double noundef 5.000000e-01) #10
+  %21 = tail call double @pow(double noundef %20, double noundef 5.000000e-01) #12
   ret double %21
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #3
 
-; Function Attrs: nofree nounwind memory(write, argmem: readwrite) uwtable
-define hidden double @cmsCIE94DeltaE(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
+; Function Attrs: nofree nounwind memory(argmem: read, errnomem: write) uwtable
+define hidden double @cmsCIE94DeltaE(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #8 {
   %3 = load double, ptr %0, align 8
   %4 = load double, ptr %1, align 8
   %5 = fsub double %3, %4
@@ -645,7 +645,7 @@ define hidden double @cmsCIE94DeltaE(ptr noundef readonly captures(none) %0, ptr
   %10 = load double, ptr %9, align 8
   %11 = fmul double %10, %10
   %12 = fadd double %8, %11
-  %13 = tail call double @pow(double noundef %12, double noundef 5.000000e-01) #10
+  %13 = tail call double @pow(double noundef %12, double noundef 5.000000e-01) #12
   %14 = load double, ptr %9, align 8
   %15 = load double, ptr %6, align 8
   %16 = fcmp oeq double %14, 0.000000e+00
@@ -654,7 +654,7 @@ define hidden double @cmsCIE94DeltaE(ptr noundef readonly captures(none) %0, ptr
   br i1 %or.cond.i.i, label %cmsLab2LCh.exit, label %18
 
 18:                                               ; preds = %2
-  %19 = tail call double @atan2(double noundef %14, double noundef %15) #10
+  %19 = tail call double @atan2(double noundef %14, double noundef %15) #12
   br label %cmsLab2LCh.exit
 
 cmsLab2LCh.exit:                                  ; preds = %18, %2
@@ -665,7 +665,7 @@ cmsLab2LCh.exit:                                  ; preds = %18, %2
   %24 = load double, ptr %23, align 8
   %25 = fmul double %24, %24
   %26 = fadd double %22, %25
-  %27 = tail call double @pow(double noundef %26, double noundef 5.000000e-01) #10
+  %27 = tail call double @pow(double noundef %26, double noundef 5.000000e-01) #12
   %28 = load double, ptr %23, align 8
   %29 = load double, ptr %20, align 8
   %30 = fcmp oeq double %28, 0.000000e+00
@@ -674,7 +674,7 @@ cmsLab2LCh.exit:                                  ; preds = %18, %2
   br i1 %or.cond.i.i19, label %cmsLab2LCh.exit27, label %32
 
 32:                                               ; preds = %cmsLab2LCh.exit
-  %33 = tail call double @atan2(double noundef %28, double noundef %29) #10
+  %33 = tail call double @atan2(double noundef %28, double noundef %29) #12
   br label %cmsLab2LCh.exit27
 
 cmsLab2LCh.exit27:                                ; preds = %32, %cmsLab2LCh.exit
@@ -693,7 +693,7 @@ cmsLab2LCh.exit27:                                ; preds = %32, %cmsLab2LCh.exi
   %46 = fadd double %44, %45
   %47 = fmul double %43, %43
   %48 = fadd double %46, %47
-  %49 = tail call double @pow(double noundef %48, double noundef 5.000000e-01) #10
+  %49 = tail call double @pow(double noundef %48, double noundef 5.000000e-01) #12
   %50 = fmul double %49, %49
   %51 = fmul double %5, %5
   %52 = fsub double %50, %51
@@ -703,13 +703,13 @@ cmsLab2LCh.exit27:                                ; preds = %32, %cmsLab2LCh.exi
   br i1 %55, label %58, label %56
 
 56:                                               ; preds = %cmsLab2LCh.exit27
-  %57 = tail call double @pow(double noundef %54, double noundef 5.000000e-01) #10
+  %57 = tail call double @pow(double noundef %54, double noundef 5.000000e-01) #12
   br label %58
 
 58:                                               ; preds = %cmsLab2LCh.exit27, %56
   %.0 = phi double [ %57, %56 ], [ 0.000000e+00, %cmsLab2LCh.exit27 ]
   %59 = fmul double %13, %27
-  %60 = tail call double @sqrt(double noundef %59) #10
+  %60 = tail call double @sqrt(double noundef %59) #12
   %61 = tail call double @llvm.fmuladd.f64(double %60, double 4.800000e-02, double 1.000000e+00)
   %62 = tail call double @llvm.fmuladd.f64(double %60, double 1.400000e-02, double 1.000000e+00)
   %63 = fmul double %61, %61
@@ -723,11 +723,11 @@ cmsLab2LCh.exit27:                                ; preds = %32, %cmsLab2LCh.exi
   ret double %sqrt
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @sqrt(double noundef) local_unnamed_addr #5
 
-; Function Attrs: nofree nounwind memory(write, argmem: readwrite) uwtable
-define hidden double @cmsBFDdeltaE(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
+; Function Attrs: nofree nounwind memory(argmem: read, errnomem: write) uwtable
+define hidden double @cmsBFDdeltaE(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #8 {
   %.val = load double, ptr %0, align 8
   %3 = fcmp ogt double %.val, 0x401FFCE5710880D8
   br i1 %3, label %4, label %9
@@ -747,7 +747,7 @@ ComputeLBFD.exit:                                 ; preds = %4, %9
   %.0.in.i = phi double [ %8, %4 ], [ %10, %9 ]
   %.0.i = fmul double %.0.in.i, 1.000000e+02
   %11 = fadd double %.0.i, 1.500000e+00
-  %12 = tail call double @log(double noundef %11) #10
+  %12 = tail call double @log(double noundef %11) #12
   %.val59 = load double, ptr %1, align 8
   %13 = fcmp ogt double %.val59, 0x401FFCE5710880D8
   br i1 %13, label %14, label %19
@@ -767,7 +767,7 @@ ComputeLBFD.exit62:                               ; preds = %14, %19
   %.0.in.i60 = phi double [ %18, %14 ], [ %20, %19 ]
   %.0.i61 = fmul double %.0.in.i60, 1.000000e+02
   %21 = fadd double %.0.i61, 1.500000e+00
-  %22 = tail call double @log(double noundef %21) #10
+  %22 = tail call double @log(double noundef %21) #12
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %24 = load double, ptr %23, align 8
   %25 = fmul double %24, %24
@@ -775,7 +775,7 @@ ComputeLBFD.exit62:                               ; preds = %14, %19
   %27 = load double, ptr %26, align 8
   %28 = fmul double %27, %27
   %29 = fadd double %25, %28
-  %30 = tail call double @pow(double noundef %29, double noundef 5.000000e-01) #10
+  %30 = tail call double @pow(double noundef %29, double noundef 5.000000e-01) #12
   %31 = load double, ptr %26, align 8
   %32 = load double, ptr %23, align 8
   %33 = fcmp oeq double %31, 0.000000e+00
@@ -784,7 +784,7 @@ ComputeLBFD.exit62:                               ; preds = %14, %19
   br i1 %or.cond.i.i, label %cmsLab2LCh.exit, label %35
 
 35:                                               ; preds = %ComputeLBFD.exit62
-  %36 = tail call double @atan2(double noundef %31, double noundef %32) #10
+  %36 = tail call double @atan2(double noundef %31, double noundef %32) #12
   %37 = fmul double %36, 0x404CA5DC1A63C1F8
   %38 = fcmp ogt double %37, 3.600000e+02
   br i1 %38, label %.lr.ph.i.i, label %.preheader.i.i
@@ -815,7 +815,7 @@ cmsLab2LCh.exit:                                  ; preds = %.lr.ph13.i.i, %Comp
   %48 = load double, ptr %47, align 8
   %49 = fmul double %48, %48
   %50 = fadd double %46, %49
-  %51 = tail call double @pow(double noundef %50, double noundef 5.000000e-01) #10
+  %51 = tail call double @pow(double noundef %50, double noundef 5.000000e-01) #12
   %52 = load double, ptr %47, align 8
   %53 = load double, ptr %44, align 8
   %54 = fcmp oeq double %52, 0.000000e+00
@@ -824,7 +824,7 @@ cmsLab2LCh.exit:                                  ; preds = %.lr.ph13.i.i, %Comp
   br i1 %or.cond.i.i63, label %cmsLab2LCh.exit71, label %56
 
 56:                                               ; preds = %cmsLab2LCh.exit
-  %57 = tail call double @atan2(double noundef %52, double noundef %53) #10
+  %57 = tail call double @atan2(double noundef %52, double noundef %53) #12
   %58 = fmul double %57, 0x404CA5DC1A63C1F8
   %59 = fcmp ogt double %58, 3.600000e+02
   br i1 %59, label %.lr.ph.i.i69, label %.preheader.i.i64
@@ -863,7 +863,7 @@ cmsLab2LCh.exit71:                                ; preds = %.lr.ph13.i.i67, %cm
   %77 = fadd double %75, %76
   %78 = fmul double %74, %74
   %79 = fadd double %77, %78
-  %80 = tail call double @pow(double noundef %79, double noundef 5.000000e-01) #10
+  %80 = tail call double @pow(double noundef %79, double noundef 5.000000e-01) #12
   %81 = fmul double %80, %80
   %82 = load double, ptr %1, align 8
   %83 = load double, ptr %0, align 8
@@ -877,7 +877,7 @@ cmsLab2LCh.exit71:                                ; preds = %.lr.ph13.i.i67, %cm
 89:                                               ; preds = %cmsLab2LCh.exit71
   %90 = fsub double %81, %85
   %91 = fsub double %90, %86
-  %92 = tail call double @sqrt(double noundef %91) #10
+  %92 = tail call double @sqrt(double noundef %91) #12
   br label %93
 
 93:                                               ; preds = %cmsLab2LCh.exit71, %89
@@ -902,23 +902,23 @@ cmsLab2LCh.exit71:                                ; preds = %.lr.ph13.i.i67, %cm
   %sqrt = tail call double @llvm.sqrt.f64(double %110)
   %111 = fadd double %99, -2.540000e+02
   %112 = fdiv double %111, 0x404CA5DC1A63C1F8
-  %113 = tail call double @cos(double noundef %112) #10
+  %113 = tail call double @cos(double noundef %112) #12
   %114 = tail call double @llvm.fmuladd.f64(double %99, double 2.000000e+00, double -1.360000e+02)
   %115 = fdiv double %114, 0x404CA5DC1A63C1F8
-  %116 = tail call double @cos(double noundef %115) #10
+  %116 = tail call double @cos(double noundef %115) #12
   %117 = fmul double %116, -4.000000e-02
   %118 = tail call double @llvm.fmuladd.f64(double %113, double 5.500000e-02, double %117)
   %119 = tail call double @llvm.fmuladd.f64(double %99, double 3.000000e+00, double -3.100000e+01)
   %120 = fdiv double %119, 0x404CA5DC1A63C1F8
-  %121 = tail call double @cos(double noundef %120) #10
+  %121 = tail call double @cos(double noundef %120) #12
   %122 = tail call double @llvm.fmuladd.f64(double %121, double 7.000000e-02, double %118)
   %123 = tail call double @llvm.fmuladd.f64(double %99, double 4.000000e+00, double 1.140000e+02)
   %124 = fdiv double %123, 0x404CA5DC1A63C1F8
-  %125 = tail call double @cos(double noundef %124) #10
+  %125 = tail call double @cos(double noundef %124) #12
   %126 = tail call double @llvm.fmuladd.f64(double %125, double 4.900000e-02, double %122)
   %127 = tail call double @llvm.fmuladd.f64(double %99, double 5.000000e+00, double -1.030000e+02)
   %128 = fdiv double %127, 0x404CA5DC1A63C1F8
-  %129 = tail call double @cos(double noundef %128) #10
+  %129 = tail call double @cos(double noundef %128) #12
   %130 = tail call double @llvm.fmuladd.f64(double %129, double -1.500000e-02, double %126)
   %131 = fadd double %130, 6.270000e-01
   %132 = tail call double @llvm.fmuladd.f64(double %sqrt, double %131, double 1.000000e+00)
@@ -926,23 +926,23 @@ cmsLab2LCh.exit71:                                ; preds = %.lr.ph13.i.i67, %cm
   %134 = fmul double %106, %133
   %135 = fadd double %99, -3.080000e+02
   %136 = fdiv double %135, 0x404CA5DC1A63C1F8
-  %137 = tail call double @cos(double noundef %136) #10
+  %137 = tail call double @cos(double noundef %136) #12
   %138 = tail call double @llvm.fmuladd.f64(double %99, double 2.000000e+00, double -1.600000e+02)
   %139 = fdiv double %138, 0x404CA5DC1A63C1F8
-  %140 = tail call double @cos(double noundef %139) #10
+  %140 = tail call double @cos(double noundef %139) #12
   %141 = fmul double %140, -3.790000e-01
   %142 = tail call double @llvm.fmuladd.f64(double %137, double -2.600000e-01, double %141)
   %143 = tail call double @llvm.fmuladd.f64(double %99, double 3.000000e+00, double 2.540000e+02)
   %144 = fdiv double %143, 0x404CA5DC1A63C1F8
-  %145 = tail call double @cos(double noundef %144) #10
+  %145 = tail call double @cos(double noundef %144) #12
   %146 = tail call double @llvm.fmuladd.f64(double %145, double -6.360000e-01, double %142)
   %147 = tail call double @llvm.fmuladd.f64(double %99, double 4.000000e+00, double 1.400000e+02)
   %148 = fdiv double %147, 0x404CA5DC1A63C1F8
-  %149 = tail call double @cos(double noundef %148) #10
+  %149 = tail call double @cos(double noundef %148) #12
   %150 = tail call double @llvm.fmuladd.f64(double %149, double 2.260000e-01, double %146)
   %151 = tail call double @llvm.fmuladd.f64(double %99, double 5.000000e+00, double 2.800000e+02)
   %152 = fdiv double %151, 0x404CA5DC1A63C1F8
-  %153 = tail call double @cos(double noundef %152) #10
+  %153 = tail call double @cos(double noundef %152) #12
   %154 = tail call double @llvm.fmuladd.f64(double %153, double -1.940000e-01, double %150)
   %155 = fmul double %101, %107
   %156 = fmul double %101, %155
@@ -950,7 +950,7 @@ cmsLab2LCh.exit71:                                ; preds = %.lr.ph13.i.i67, %cm
   %158 = fmul double %101, %157
   %159 = tail call double @llvm.fmuladd.f64(double %157, double %101, double 7.000000e+07)
   %160 = fdiv double %158, %159
-  %161 = tail call double @sqrt(double noundef %160) #10
+  %161 = tail call double @sqrt(double noundef %160) #12
   %162 = fmul double %161, %154
   %163 = fmul double %102, %102
   %164 = fdiv double %65, %106
@@ -961,12 +961,12 @@ cmsLab2LCh.exit71:                                ; preds = %.lr.ph13.i.i67, %cm
   %169 = fadd double %166, %168
   %170 = fmul double %164, %162
   %171 = tail call double @llvm.fmuladd.f64(double %170, double %167, double %169)
-  %172 = tail call double @sqrt(double noundef %171) #10
+  %172 = tail call double @sqrt(double noundef %171) #12
   ret double %172
 }
 
-; Function Attrs: nofree nounwind memory(write, argmem: readwrite) uwtable
-define hidden double @cmsCMCdeltaE(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, double noundef %2, double noundef %3) local_unnamed_addr #4 {
+; Function Attrs: nofree nounwind memory(argmem: read, errnomem: write) uwtable
+define hidden double @cmsCMCdeltaE(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, double noundef %2, double noundef %3) local_unnamed_addr #8 {
   %5 = load double, ptr %0, align 8
   %6 = fcmp oeq double %5, 0.000000e+00
   br i1 %6, label %7, label %10
@@ -984,7 +984,7 @@ define hidden double @cmsCMCdeltaE(ptr noundef readonly captures(none) %0, ptr n
   %15 = load double, ptr %14, align 8
   %16 = fmul double %15, %15
   %17 = fadd double %13, %16
-  %18 = tail call double @pow(double noundef %17, double noundef 5.000000e-01) #10
+  %18 = tail call double @pow(double noundef %17, double noundef 5.000000e-01) #12
   %19 = load double, ptr %14, align 8
   %20 = load double, ptr %11, align 8
   %21 = fcmp oeq double %19, 0.000000e+00
@@ -993,7 +993,7 @@ define hidden double @cmsCMCdeltaE(ptr noundef readonly captures(none) %0, ptr n
   br i1 %or.cond.i.i, label %cmsLab2LCh.exit, label %23
 
 23:                                               ; preds = %10
-  %24 = tail call double @atan2(double noundef %19, double noundef %20) #10
+  %24 = tail call double @atan2(double noundef %19, double noundef %20) #12
   %25 = fmul double %24, 0x404CA5DC1A63C1F8
   %26 = fcmp ogt double %25, 3.600000e+02
   br i1 %26, label %.lr.ph.i.i, label %.preheader.i.i
@@ -1024,7 +1024,7 @@ cmsLab2LCh.exit:                                  ; preds = %.lr.ph13.i.i, %10, 
   %36 = load double, ptr %35, align 8
   %37 = fmul double %36, %36
   %38 = fadd double %34, %37
-  %39 = tail call double @pow(double noundef %38, double noundef 5.000000e-01) #10
+  %39 = tail call double @pow(double noundef %38, double noundef 5.000000e-01) #12
   %40 = load double, ptr %35, align 8
   %41 = load double, ptr %32, align 8
   %42 = fcmp oeq double %40, 0.000000e+00
@@ -1033,7 +1033,7 @@ cmsLab2LCh.exit:                                  ; preds = %.lr.ph13.i.i, %10, 
   br i1 %or.cond.i.i37, label %cmsLab2LCh.exit45, label %44
 
 44:                                               ; preds = %cmsLab2LCh.exit
-  %45 = tail call double @atan2(double noundef %40, double noundef %41) #10
+  %45 = tail call double @atan2(double noundef %40, double noundef %41) #12
   br label %cmsLab2LCh.exit45
 
 cmsLab2LCh.exit45:                                ; preds = %44, %cmsLab2LCh.exit
@@ -1053,7 +1053,7 @@ cmsLab2LCh.exit45:                                ; preds = %44, %cmsLab2LCh.exi
   %59 = fadd double %57, %58
   %60 = fmul double %56, %56
   %61 = fadd double %59, %60
-  %62 = tail call double @pow(double noundef %61, double noundef 5.000000e-01) #10
+  %62 = tail call double @pow(double noundef %61, double noundef 5.000000e-01) #12
   %63 = fmul double %62, %62
   %64 = fmul double %48, %48
   %65 = fmul double %49, %49
@@ -1064,7 +1064,7 @@ cmsLab2LCh.exit45:                                ; preds = %44, %cmsLab2LCh.exi
 68:                                               ; preds = %cmsLab2LCh.exit45
   %69 = fsub double %63, %64
   %70 = fsub double %69, %65
-  %71 = tail call double @sqrt(double noundef %70) #10
+  %71 = tail call double @sqrt(double noundef %70) #12
   br label %72
 
 72:                                               ; preds = %cmsLab2LCh.exit45, %68
@@ -1077,7 +1077,7 @@ cmsLab2LCh.exit45:                                ; preds = %44, %cmsLab2LCh.exi
   %.61 = select i1 %or.cond, double 5.600000e-01, double 3.600000e-01
   %75 = fadd double %.2.lcssa.i.i, %.
   %76 = fdiv double %75, 0x404CA5DC1A63C1F8
-  %77 = tail call double @cos(double noundef %76) #10
+  %77 = tail call double @cos(double noundef %76) #12
   %78 = fmul double %77, %.60
   %79 = tail call double @llvm.fabs.f64(double %78)
   %80 = fadd double %79, %.61
@@ -1096,7 +1096,7 @@ cmsLab2LCh.exit45:                                ; preds = %44, %cmsLab2LCh.exi
   %92 = fmul double %18, %91
   %93 = tail call double @llvm.fmuladd.f64(double %91, double %18, double 1.900000e+03)
   %94 = fdiv double %92, %93
-  %95 = tail call double @sqrt(double noundef %94) #10
+  %95 = tail call double @sqrt(double noundef %94) #12
   %96 = tail call double @llvm.fmuladd.f64(double %80, double %95, double 1.000000e+00)
   %97 = fsub double %96, %95
   %98 = fmul double %84, %97
@@ -1118,8 +1118,8 @@ cmsLab2LCh.exit45:                                ; preds = %44, %cmsLab2LCh.exi
   ret double %.0
 }
 
-; Function Attrs: nofree nounwind memory(write, argmem: readwrite) uwtable
-define hidden double @cmsCIE2000DeltaE(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, double noundef %2, double noundef %3, double noundef %4) local_unnamed_addr #4 {
+; Function Attrs: nofree nounwind memory(argmem: read, errnomem: write) uwtable
+define hidden double @cmsCIE2000DeltaE(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, double noundef %2, double noundef %3, double noundef %4) local_unnamed_addr #8 {
   %6 = load double, ptr %0, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load double, ptr %7, align 8
@@ -1140,11 +1140,11 @@ define hidden double @cmsCIE2000DeltaE(ptr noundef readonly captures(none) %0, p
   %sqrt97 = tail call double @llvm.sqrt.f64(double %21)
   %22 = fadd double %sqrt98, %sqrt97
   %23 = fmul double %22, 5.000000e-01
-  %24 = tail call double @pow(double noundef %23, double noundef 7.000000e+00) #10
-  %25 = tail call double @pow(double noundef %23, double noundef 7.000000e+00) #10
+  %24 = tail call double @pow(double noundef %23, double noundef 7.000000e+00) #12
+  %25 = tail call double @pow(double noundef %23, double noundef 7.000000e+00) #12
   %26 = fadd double %25, 0x41F6BCC41E900000
   %27 = fdiv double %24, %26
-  %28 = tail call double @sqrt(double noundef %27) #10
+  %28 = tail call double @sqrt(double noundef %27) #12
   %29 = fsub double 1.000000e+00, %28
   %30 = fmul double %29, 5.000000e-01
   %31 = fadd double %30, 1.000000e+00
@@ -1155,7 +1155,7 @@ define hidden double @cmsCIE2000DeltaE(ptr noundef readonly captures(none) %0, p
   br i1 %or.cond.i, label %atan2deg.exit, label %35
 
 35:                                               ; preds = %5
-  %36 = tail call double @atan2(double noundef %10, double noundef %32) #10
+  %36 = tail call double @atan2(double noundef %10, double noundef %32) #12
   %37 = fmul double %36, 0x404CA5DC1A63C1F8
   %38 = fcmp ogt double %37, 3.600000e+02
   br i1 %38, label %.lr.ph.i, label %.preheader.i
@@ -1186,7 +1186,7 @@ atan2deg.exit:                                    ; preds = %.lr.ph13.i, %5, %.p
   br i1 %or.cond.i88, label %atan2deg.exit96, label %47
 
 47:                                               ; preds = %atan2deg.exit
-  %48 = tail call double @atan2(double noundef %18, double noundef %44) #10
+  %48 = tail call double @atan2(double noundef %18, double noundef %44) #12
   %49 = fmul double %48, 0x404CA5DC1A63C1F8
   %50 = fcmp ogt double %49, 3.600000e+02
   br i1 %50, label %.lr.ph.i94, label %.preheader.i89
@@ -1257,32 +1257,32 @@ atan2deg.exit96:                                  ; preds = %.lr.ph13.i92, %atan
   %83 = fsub double %14, %6
   %84 = fsub double %sqrt99, %sqrt
   %85 = fmul double %sqrt99, %sqrt
-  %86 = tail call double @sqrt(double noundef %85) #10
+  %86 = tail call double @sqrt(double noundef %85) #12
   %87 = fmul double %86, 2.000000e+00
   %88 = fmul double %75, 0x400921FB54442D18
   %89 = fdiv double %88, 1.800000e+02
   %90 = fmul double %89, 5.000000e-01
-  %91 = tail call double @sin(double noundef %90) #10
+  %91 = tail call double @sin(double noundef %90) #12
   %92 = fmul double %87, %91
   %93 = fadd double %80, -3.000000e+01
   %94 = fmul double %93, 0x400921FB54442D18
   %95 = fdiv double %94, 1.800000e+02
-  %96 = tail call double @cos(double noundef %95) #10
+  %96 = tail call double @cos(double noundef %95) #12
   %97 = tail call double @llvm.fmuladd.f64(double %96, double -1.700000e-01, double 1.000000e+00)
   %98 = fmul double %80, 2.000000e+00
   %99 = fmul double %98, 0x400921FB54442D18
   %100 = fdiv double %99, 1.800000e+02
-  %101 = tail call double @cos(double noundef %100) #10
+  %101 = tail call double @cos(double noundef %100) #12
   %102 = tail call double @llvm.fmuladd.f64(double %101, double 2.400000e-01, double %97)
   %103 = tail call double @llvm.fmuladd.f64(double %80, double 3.000000e+00, double 6.000000e+00)
   %104 = fmul double %103, 0x400921FB54442D18
   %105 = fdiv double %104, 1.800000e+02
-  %106 = tail call double @cos(double noundef %105) #10
+  %106 = tail call double @cos(double noundef %105) #12
   %107 = tail call double @llvm.fmuladd.f64(double %106, double 3.200000e-01, double %102)
   %108 = tail call double @llvm.fmuladd.f64(double %80, double 4.000000e+00, double -6.300000e+01)
   %109 = fmul double %108, 0x400921FB54442D18
   %110 = fdiv double %109, 1.800000e+02
-  %111 = tail call double @cos(double noundef %110) #10
+  %111 = tail call double @cos(double noundef %110) #12
   %112 = tail call double @llvm.fmuladd.f64(double %111, double -2.000000e-01, double %107)
   %113 = fadd double %6, %14
   %114 = fmul double %113, 5.000000e-01
@@ -1302,18 +1302,18 @@ atan2deg.exit96:                                  ; preds = %.lr.ph13.i92, %atan
   %127 = fdiv double %126, 2.500000e+01
   %128 = fneg double %127
   %129 = fmul double %127, %128
-  %130 = tail call double @exp(double noundef %129) #10
+  %130 = tail call double @exp(double noundef %129) #12
   %131 = fmul double %130, 3.000000e+01
-  %132 = tail call double @pow(double noundef %82, double noundef 7.000000e+00) #10
-  %133 = tail call double @pow(double noundef %82, double noundef 7.000000e+00) #10
+  %132 = tail call double @pow(double noundef %82, double noundef 7.000000e+00) #12
+  %133 = tail call double @pow(double noundef %82, double noundef 7.000000e+00) #12
   %134 = fadd double %133, 0x41F6BCC41E900000
   %135 = fdiv double %132, %134
-  %136 = tail call double @sqrt(double noundef %135) #10
+  %136 = tail call double @sqrt(double noundef %135) #12
   %137 = fmul double %136, 2.000000e+00
   %138 = fmul double %131, 0x400921FB54442D18
   %139 = fdiv double %138, 1.800000e+02
   %140 = fmul double %139, 2.000000e+00
-  %141 = tail call double @sin(double noundef %140) #10
+  %141 = tail call double @sin(double noundef %140) #12
   %142 = fneg double %141
   %143 = fmul double %137, %142
   %144 = fmul double %2, %120
@@ -1329,15 +1329,15 @@ atan2deg.exit96:                                  ; preds = %.lr.ph13.i92, %atan
   %154 = fadd double %150, %153
   %155 = fmul double %148, %143
   %156 = tail call double @llvm.fmuladd.f64(double %155, double %152, double %154)
-  %157 = tail call double @sqrt(double noundef %156) #10
+  %157 = tail call double @sqrt(double noundef %156) #12
   ret double %157
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @exp(double noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden range(i32 0, 256) i32 @_cmsReasonableGridpointsByColorspace(i32 noundef %0, i32 noundef %1) local_unnamed_addr #7 {
+define hidden range(i32 0, 256) i32 @_cmsReasonableGridpointsByColorspace(i32 noundef %0, i32 noundef %1) local_unnamed_addr #9 {
   %3 = and i32 %1, 16711680
   %.not = icmp eq i32 %3, 0
   br i1 %.not, label %7, label %4
@@ -1392,7 +1392,7 @@ define hidden range(i32 0, 256) i32 @_cmsReasonableGridpointsByColorspace(i32 no
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden range(i32 0, 16) i32 @cmsChannelsOf(i32 noundef %0) local_unnamed_addr #7 {
+define hidden range(i32 0, 16) i32 @cmsChannelsOf(i32 noundef %0) local_unnamed_addr #9 {
   %2 = tail call i32 @cmsChannelsOfColorSpace(i32 noundef %0)
   %3 = icmp slt i32 %2, 0
   %. = select i1 %3, i32 3, i32 %2
@@ -1400,7 +1400,7 @@ define hidden range(i32 0, 16) i32 @cmsChannelsOf(i32 noundef %0) local_unnamed_
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define hidden range(i32 0, 2) i32 @_cmsEndPointsBySpace(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #8 {
+define hidden range(i32 0, 2) i32 @_cmsEndPointsBySpace(i32 noundef %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2, ptr noundef writeonly captures(address_is_null) %3) local_unnamed_addr #10 {
   switch i32 %0, label %30 [
     i32 1196573017, label %5
     i32 1380401696, label %10
@@ -1520,7 +1520,7 @@ define hidden range(i32 0, 2) i32 @_cmsEndPointsBySpace(i32 noundef %0, ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden range(i32 0, 1501067553) i32 @_cmsICCcolorSpace(i32 noundef %0) local_unnamed_addr #7 {
+define hidden range(i32 0, 1501067553) i32 @_cmsICCcolorSpace(i32 noundef %0) local_unnamed_addr #9 {
   %switch.tableidx = add i32 %0, -1
   %2 = icmp ult i32 %switch.tableidx, 30
   br i1 %2, label %switch.lookup, label %4
@@ -1537,7 +1537,7 @@ switch.lookup:                                    ; preds = %1
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden range(i32 0, 30) i32 @_cmsLCMScolorSpace(i32 noundef %0) local_unnamed_addr #7 {
+define hidden range(i32 0, 30) i32 @_cmsLCMScolorSpace(i32 noundef %0) local_unnamed_addr #9 {
   switch i32 %0, label %28 [
     i32 1196573017, label %29
     i32 1380401696, label %2
@@ -1670,7 +1670,7 @@ define hidden range(i32 0, 30) i32 @_cmsLCMScolorSpace(i32 noundef %0) local_unn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden range(i32 -1, 16) i32 @cmsChannelsOfColorSpace(i32 noundef %0) local_unnamed_addr #7 {
+define hidden range(i32 -1, 16) i32 @cmsChannelsOfColorSpace(i32 noundef %0) local_unnamed_addr #9 {
   switch i32 %0, label %16 [
     i32 1296255025, label %17
     i32 826494034, label %17
@@ -1769,28 +1769,30 @@ define hidden range(i32 -1, 16) i32 @cmsChannelsOfColorSpace(i32 noundef %0) loc
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.floor.f64(double) #3
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @atan2(double noundef, double noundef) local_unnamed_addr #5
 
 declare double @_cms15Fixed16toDouble(i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @log(double noundef) local_unnamed_addr #5
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.sqrt.f64(double) #9
+declare double @llvm.sqrt.f64(double) #11
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { nofree nounwind memory(write, argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nounwind }
+attributes #4 = { nofree nounwind memory(argmem: readwrite, errnomem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn memory(errnomem: write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: read, errnomem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree nounwind memory(argmem: read, errnomem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

@@ -43295,7 +43295,7 @@ declare i32 @llvm.umax.i32(i32, i32) #18
 
 declare double @exp2(double) local_unnamed_addr
 
-; Function Attrs: nofree willreturn
+; Function Attrs: nofree willreturn memory(errnomem: write)
 declare double @ldexp(double, i32) local_unnamed_addr #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -43321,7 +43321,7 @@ attributes #16 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-wi
 attributes #17 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #18 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #19 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #20 = { nofree willreturn }
+attributes #20 = { nofree willreturn memory(errnomem: write) }
 attributes #21 = { nounwind }
 attributes #22 = { nounwind willreturn memory(read) }
 attributes #23 = { builtin nounwind allocsize(0) }

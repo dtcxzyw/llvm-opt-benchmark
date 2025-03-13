@@ -1107,7 +1107,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: nounwind uwtable
 define ptr @PyInit_math() local_unnamed_addr #0 {
-  %1 = tail call ptr @PyModuleDef_Init(ptr noundef nonnull @mathmodule) #16
+  %1 = tail call ptr @PyModuleDef_Init(ptr noundef nonnull @mathmodule) #15
   ret ptr %1
 }
 
@@ -1134,7 +1134,7 @@ define internal noundef i32 @math_clear(ptr noundef readonly captures(none) %0) 
   br i1 %8, label %9, label %Py_DECREF.exit
 
 9:                                                ; preds = %6
-  tail call void @_Py_Dealloc(ptr noundef nonnull %3) #16
+  tail call void @_Py_Dealloc(ptr noundef nonnull %3) #15
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %9, %6, %4, %1
@@ -1156,7 +1156,7 @@ Py_DECREF.exit:                                   ; preds = %9, %6, %4, %1
   br i1 %16, label %17, label %Py_DECREF.exit21
 
 17:                                               ; preds = %14
-  tail call void @_Py_Dealloc(ptr noundef nonnull %11) #16
+  tail call void @_Py_Dealloc(ptr noundef nonnull %11) #15
   br label %Py_DECREF.exit21
 
 Py_DECREF.exit21:                                 ; preds = %17, %14, %12, %Py_DECREF.exit
@@ -1178,7 +1178,7 @@ Py_DECREF.exit21:                                 ; preds = %17, %14, %12, %Py_D
   br i1 %24, label %25, label %Py_DECREF.exit23
 
 25:                                               ; preds = %22
-  tail call void @_Py_Dealloc(ptr noundef nonnull %19) #16
+  tail call void @_Py_Dealloc(ptr noundef nonnull %19) #15
   br label %Py_DECREF.exit23
 
 Py_DECREF.exit23:                                 ; preds = %25, %22, %20, %Py_DECREF.exit21
@@ -1206,7 +1206,7 @@ define internal void @math_free(ptr noundef readonly captures(none) %0) #0 {
   br i1 %8, label %9, label %Py_DECREF.exit.i
 
 9:                                                ; preds = %6
-  tail call void @_Py_Dealloc(ptr noundef nonnull %3) #16
+  tail call void @_Py_Dealloc(ptr noundef nonnull %3) #15
   br label %Py_DECREF.exit.i
 
 Py_DECREF.exit.i:                                 ; preds = %9, %6, %4, %1
@@ -1228,7 +1228,7 @@ Py_DECREF.exit.i:                                 ; preds = %9, %6, %4, %1
   br i1 %16, label %17, label %Py_DECREF.exit21.i
 
 17:                                               ; preds = %14
-  tail call void @_Py_Dealloc(ptr noundef nonnull %11) #16
+  tail call void @_Py_Dealloc(ptr noundef nonnull %11) #15
   br label %Py_DECREF.exit21.i
 
 Py_DECREF.exit21.i:                               ; preds = %17, %14, %12, %Py_DECREF.exit.i
@@ -1250,7 +1250,7 @@ Py_DECREF.exit21.i:                               ; preds = %17, %14, %12, %Py_D
   br i1 %24, label %25, label %math_clear.exit
 
 25:                                               ; preds = %22
-  tail call void @_Py_Dealloc(ptr noundef nonnull %19) #16
+  tail call void @_Py_Dealloc(ptr noundef nonnull %19) #15
   br label %math_clear.exit
 
 math_clear.exit:                                  ; preds = %Py_DECREF.exit21.i, %20, %22, %25
@@ -1265,19 +1265,19 @@ define internal ptr @math_acos(ptr readnone captures(none) %0, ptr noundef %1) #
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @math_acosh(ptr readnone captures(none) %0, ptr noundef %1) #0 {
-  %3 = tail call double @PyFloat_AsDouble(ptr noundef %1) #16
+  %3 = tail call double @PyFloat_AsDouble(ptr noundef %1) #15
   %4 = fcmp oeq double %3, -1.000000e+00
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %2
-  %6 = tail call ptr @PyErr_Occurred() #16
+  %6 = tail call ptr @PyErr_Occurred() #15
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %7, label %math_1.exit
 
 7:                                                ; preds = %5, %2
-  %8 = tail call ptr @__errno_location() #17
+  %8 = tail call ptr @__errno_location() #16
   store i32 0, ptr %8, align 4, !tbaa !14
-  %9 = tail call double @acosh(double noundef %3) #16
+  %9 = tail call double @acosh(double noundef %3) #15
   %10 = fcmp ord double %9, 0.000000e+00
   %11 = fcmp uno double %3, 0.000000e+00
   %or.cond.i = or i1 %11, %10
@@ -1305,7 +1305,7 @@ define internal ptr @math_acosh(ptr readnone captures(none) %0, ptr noundef %1) 
 
 21:                                               ; preds = %19
   %22 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !12
-  tail call void @PyErr_SetString(ptr noundef %22, ptr noundef nonnull @.str.60) #16
+  tail call void @PyErr_SetString(ptr noundef %22, ptr noundef nonnull @.str.60) #15
   br label %math_1.exit
 
 23:                                               ; preds = %19
@@ -1314,21 +1314,21 @@ define internal ptr @math_acosh(ptr readnone captures(none) %0, ptr noundef %1) 
 
 25:                                               ; preds = %23
   %26 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !12
-  tail call void @PyErr_SetString(ptr noundef %26, ptr noundef nonnull @.str.59) #16
+  tail call void @PyErr_SetString(ptr noundef %26, ptr noundef nonnull @.str.59) #15
   br label %math_1.exit
 
 27:                                               ; preds = %19
   %28 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !12
-  %29 = tail call ptr @PyErr_SetFromErrno(ptr noundef %28) #16
+  %29 = tail call ptr @PyErr_SetFromErrno(ptr noundef %28) #15
   br label %math_1.exit
 
 is_error.exit.i:                                  ; preds = %23, %19, %17
-  %30 = tail call ptr @PyFloat_FromDouble(double noundef %9) #16
+  %30 = tail call ptr @PyFloat_FromDouble(double noundef %9) #15
   br label %math_1.exit
 
 31:                                               ; preds = %12, %7
   %32 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !12
-  tail call void @PyErr_SetString(ptr noundef %32, ptr noundef nonnull @.str.60) #16
+  tail call void @PyErr_SetString(ptr noundef %32, ptr noundef nonnull @.str.60) #15
   br label %math_1.exit
 
 math_1.exit:                                      ; preds = %5, %21, %25, %27, %is_error.exit.i, %31
@@ -1344,19 +1344,19 @@ define internal ptr @math_asin(ptr readnone captures(none) %0, ptr noundef %1) #
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @math_asinh(ptr readnone captures(none) %0, ptr noundef %1) #0 {
-  %3 = tail call double @PyFloat_AsDouble(ptr noundef %1) #16
+  %3 = tail call double @PyFloat_AsDouble(ptr noundef %1) #15
   %4 = fcmp oeq double %3, -1.000000e+00
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %2
-  %6 = tail call ptr @PyErr_Occurred() #16
+  %6 = tail call ptr @PyErr_Occurred() #15
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %7, label %math_1.exit
 
 7:                                                ; preds = %5, %2
-  %8 = tail call ptr @__errno_location() #17
+  %8 = tail call ptr @__errno_location() #16
   store i32 0, ptr %8, align 4, !tbaa !14
-  %9 = tail call double @asinh(double noundef %3) #16
+  %9 = tail call double @asinh(double noundef %3) #15
   %10 = fcmp ord double %9, 0.000000e+00
   %11 = fcmp uno double %3, 0.000000e+00
   %or.cond.i = or i1 %11, %10
@@ -1384,7 +1384,7 @@ define internal ptr @math_asinh(ptr readnone captures(none) %0, ptr noundef %1) 
 
 21:                                               ; preds = %19
   %22 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !12
-  tail call void @PyErr_SetString(ptr noundef %22, ptr noundef nonnull @.str.60) #16
+  tail call void @PyErr_SetString(ptr noundef %22, ptr noundef nonnull @.str.60) #15
   br label %math_1.exit
 
 23:                                               ; preds = %19
@@ -1393,21 +1393,21 @@ define internal ptr @math_asinh(ptr readnone captures(none) %0, ptr noundef %1) 
 
 25:                                               ; preds = %23
   %26 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !12
-  tail call void @PyErr_SetString(ptr noundef %26, ptr noundef nonnull @.str.59) #16
+  tail call void @PyErr_SetString(ptr noundef %26, ptr noundef nonnull @.str.59) #15
   br label %math_1.exit
 
 27:                                               ; preds = %19
   %28 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !12
-  %29 = tail call ptr @PyErr_SetFromErrno(ptr noundef %28) #16
+  %29 = tail call ptr @PyErr_SetFromErrno(ptr noundef %28) #15
   br label %math_1.exit
 
 is_error.exit.i:                                  ; preds = %23, %19, %17
-  %30 = tail call ptr @PyFloat_FromDouble(double noundef %9) #16
+  %30 = tail call ptr @PyFloat_FromDouble(double noundef %9) #15
   br label %math_1.exit
 
 31:                                               ; preds = %12, %7
   %32 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !12
-  tail call void @PyErr_SetString(ptr noundef %32, ptr noundef nonnull @.str.60) #16
+  tail call void @PyErr_SetString(ptr noundef %32, ptr noundef nonnull @.str.60) #15
   br label %math_1.exit
 
 math_1.exit:                                      ; preds = %5, %21, %25, %27, %is_error.exit.i, %31
@@ -1429,19 +1429,19 @@ define internal ptr @math_atan2(ptr readnone captures(none) %0, ptr noundef read
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @math_atanh(ptr readnone captures(none) %0, ptr noundef %1) #0 {
-  %3 = tail call double @PyFloat_AsDouble(ptr noundef %1) #16
+  %3 = tail call double @PyFloat_AsDouble(ptr noundef %1) #15
   %4 = fcmp oeq double %3, -1.000000e+00
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %2
-  %6 = tail call ptr @PyErr_Occurred() #16
+  %6 = tail call ptr @PyErr_Occurred() #15
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %7, label %math_1.exit
 
 7:                                                ; preds = %5, %2
-  %8 = tail call ptr @__errno_location() #17
+  %8 = tail call ptr @__errno_location() #16
   store i32 0, ptr %8, align 4, !tbaa !14
-  %9 = tail call double @atanh(double noundef %3) #16
+  %9 = tail call double @atanh(double noundef %3) #15
   %10 = fcmp ord double %9, 0.000000e+00
   %11 = fcmp uno double %3, 0.000000e+00
   %or.cond.i = or i1 %11, %10
@@ -1469,7 +1469,7 @@ define internal ptr @math_atanh(ptr readnone captures(none) %0, ptr noundef %1) 
 
 21:                                               ; preds = %19
   %22 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !12
-  tail call void @PyErr_SetString(ptr noundef %22, ptr noundef nonnull @.str.60) #16
+  tail call void @PyErr_SetString(ptr noundef %22, ptr noundef nonnull @.str.60) #15
   br label %math_1.exit
 
 23:                                               ; preds = %19
@@ -1478,27 +1478,27 @@ define internal ptr @math_atanh(ptr readnone captures(none) %0, ptr noundef %1) 
 
 25:                                               ; preds = %23
   %26 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !12
-  tail call void @PyErr_SetString(ptr noundef %26, ptr noundef nonnull @.str.59) #16
+  tail call void @PyErr_SetString(ptr noundef %26, ptr noundef nonnull @.str.59) #15
   br label %math_1.exit
 
 27:                                               ; preds = %19
   %28 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !12
-  %29 = tail call ptr @PyErr_SetFromErrno(ptr noundef %28) #16
+  %29 = tail call ptr @PyErr_SetFromErrno(ptr noundef %28) #15
   br label %math_1.exit
 
 is_error.exit.i:                                  ; preds = %23, %19, %17
-  %30 = tail call ptr @PyFloat_FromDouble(double noundef %9) #16
+  %30 = tail call ptr @PyFloat_FromDouble(double noundef %9) #15
   br label %math_1.exit
 
 31:                                               ; preds = %12, %7
-  %32 = tail call ptr @PyOS_double_to_string(double noundef %3, i8 noundef signext 114, i32 noundef 0, i32 noundef 2, ptr noundef null) #16
+  %32 = tail call ptr @PyOS_double_to_string(double noundef %3, i8 noundef signext 114, i32 noundef 0, i32 noundef 2, ptr noundef null) #15
   %.not24.i = icmp eq ptr %32, null
   br i1 %.not24.i, label %math_1.exit, label %33
 
 33:                                               ; preds = %31
   %34 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !12
-  %35 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %34, ptr noundef nonnull @.str.61, ptr noundef nonnull %32) #16
-  tail call void @PyMem_Free(ptr noundef nonnull %32) #16
+  %35 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %34, ptr noundef nonnull @.str.61, ptr noundef nonnull %32) #15
+  tail call void @PyMem_Free(ptr noundef nonnull %32) #15
   br label %math_1.exit
 
 math_1.exit:                                      ; preds = %5, %21, %25, %27, %is_error.exit.i, %31, %33
@@ -1508,19 +1508,19 @@ math_1.exit:                                      ; preds = %5, %21, %25, %27, %
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @math_cbrt(ptr readnone captures(none) %0, ptr noundef %1) #0 {
-  %3 = tail call double @PyFloat_AsDouble(ptr noundef %1) #16
+  %3 = tail call double @PyFloat_AsDouble(ptr noundef %1) #15
   %4 = fcmp oeq double %3, -1.000000e+00
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %2
-  %6 = tail call ptr @PyErr_Occurred() #16
+  %6 = tail call ptr @PyErr_Occurred() #15
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %7, label %math_1.exit
 
 7:                                                ; preds = %5, %2
-  %8 = tail call ptr @__errno_location() #17
+  %8 = tail call ptr @__errno_location() #16
   store i32 0, ptr %8, align 4, !tbaa !14
-  %9 = tail call double @cbrt(double noundef %3) #16
+  %9 = tail call double @cbrt(double noundef %3) #15
   %10 = fcmp ord double %9, 0.000000e+00
   %11 = fcmp uno double %3, 0.000000e+00
   %or.cond.i = or i1 %11, %10
@@ -1535,12 +1535,12 @@ define internal ptr @math_cbrt(ptr readnone captures(none) %0, ptr noundef %1) #
   br i1 %or.cond26.i, label %is_error.exit.i, label %18
 
 is_error.exit.i:                                  ; preds = %12
-  %17 = tail call ptr @PyFloat_FromDouble(double noundef %9) #16
+  %17 = tail call ptr @PyFloat_FromDouble(double noundef %9) #15
   br label %math_1.exit
 
 18:                                               ; preds = %12, %7
   %19 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !12
-  tail call void @PyErr_SetString(ptr noundef %19, ptr noundef nonnull @.str.60) #16
+  tail call void @PyErr_SetString(ptr noundef %19, ptr noundef nonnull @.str.60) #15
   br label %math_1.exit
 
 math_1.exit:                                      ; preds = %5, %is_error.exit.i, %18
@@ -1564,12 +1564,12 @@ define internal ptr @math_ceil(ptr noundef readonly captures(none) %0, ptr nound
   %7 = getelementptr i8, ptr %0, i64 32
   %.val = load ptr, ptr %7, align 8, !tbaa !3
   %8 = load ptr, ptr %.val, align 8, !tbaa !20
-  %9 = tail call ptr @_PyObject_LookupSpecial(ptr noundef nonnull %1, ptr noundef %8) #16
+  %9 = tail call ptr @_PyObject_LookupSpecial(ptr noundef nonnull %1, ptr noundef %8) #15
   %.not18 = icmp eq ptr %9, null
   br i1 %.not18, label %28, label %10
 
 10:                                               ; preds = %6
-  %11 = tail call ptr @_PyThreadState_GetCurrent() #16
+  %11 = tail call ptr @_PyThreadState_GetCurrent() #15
   %12 = getelementptr i8, ptr %9, i64 8
   %.val.i.i.i = load ptr, ptr %12, align 8, !tbaa !16
   %13 = getelementptr i8, ptr %.val.i.i.i, i64 168
@@ -1587,12 +1587,12 @@ _PyVectorcall_FunctionInline.exit.i.i:            ; preds = %10
   br i1 %18, label %_PyVectorcall_FunctionInline.exit.thread.i.i, label %20
 
 _PyVectorcall_FunctionInline.exit.thread.i.i:     ; preds = %_PyVectorcall_FunctionInline.exit.i.i, %10
-  %19 = tail call ptr @_PyObject_MakeTpCall(ptr noundef %11, ptr noundef nonnull %9, ptr noundef null, i64 noundef 0, ptr noundef null) #16
+  %19 = tail call ptr @_PyObject_MakeTpCall(ptr noundef %11, ptr noundef nonnull %9, ptr noundef null, i64 noundef 0, ptr noundef null) #15
   br label %_PyObject_CallNoArgs.exit
 
 20:                                               ; preds = %_PyVectorcall_FunctionInline.exit.i.i
-  %21 = tail call ptr %.0.copyload.i.i.i(ptr noundef nonnull %9, ptr noundef null, i64 noundef 0, ptr noundef null) #16
-  %22 = tail call ptr @_Py_CheckFunctionResult(ptr noundef %11, ptr noundef nonnull %9, ptr noundef %21, ptr noundef null) #16
+  %21 = tail call ptr %.0.copyload.i.i.i(ptr noundef nonnull %9, ptr noundef null, i64 noundef 0, ptr noundef null) #15
+  %22 = tail call ptr @_Py_CheckFunctionResult(ptr noundef %11, ptr noundef nonnull %9, ptr noundef %21, ptr noundef null) #15
   br label %_PyObject_CallNoArgs.exit
 
 _PyObject_CallNoArgs.exit:                        ; preds = %_PyVectorcall_FunctionInline.exit.thread.i.i, %20
@@ -1608,28 +1608,28 @@ _PyObject_CallNoArgs.exit:                        ; preds = %_PyVectorcall_Funct
   br i1 %26, label %27, label %Py_DECREF.exit.thread
 
 27:                                               ; preds = %24
-  tail call void @_Py_Dealloc(ptr noundef nonnull %9) #16
+  tail call void @_Py_Dealloc(ptr noundef nonnull %9) #15
   br label %Py_DECREF.exit.thread
 
 28:                                               ; preds = %6
-  %29 = tail call ptr @PyErr_Occurred() #16
+  %29 = tail call ptr @PyErr_Occurred() #15
   %.not19 = icmp eq ptr %29, null
   br i1 %.not19, label %30, label %Py_DECREF.exit.thread
 
 30:                                               ; preds = %28
-  %31 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %1) #16
+  %31 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %1) #15
   %32 = fcmp oeq double %31, -1.000000e+00
   br i1 %32, label %33, label %Py_DECREF.exit
 
 33:                                               ; preds = %30
-  %34 = tail call ptr @PyErr_Occurred() #16
+  %34 = tail call ptr @PyErr_Occurred() #15
   %.not20 = icmp eq ptr %34, null
   br i1 %.not20, label %Py_DECREF.exit, label %Py_DECREF.exit.thread
 
 Py_DECREF.exit:                                   ; preds = %33, %30, %4
   %.014 = phi double [ %.val22, %4 ], [ %31, %30 ], [ -1.000000e+00, %33 ]
   %35 = tail call double @llvm.ceil.f64(double %.014)
-  %36 = tail call ptr @PyLong_FromDouble(double noundef %35) #16
+  %36 = tail call ptr @PyLong_FromDouble(double noundef %35) #15
   br label %Py_DECREF.exit.thread
 
 Py_DECREF.exit.thread:                            ; preds = %27, %24, %_PyObject_CallNoArgs.exit, %33, %28, %Py_DECREF.exit
@@ -1668,19 +1668,19 @@ define internal ptr @math_degrees(ptr readnone captures(none) %0, ptr noundef %1
   br label %11
 
 6:                                                ; preds = %2
-  %7 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %1) #16
+  %7 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %1) #15
   %8 = fcmp oeq double %7, -1.000000e+00
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %6
-  %10 = tail call ptr @PyErr_Occurred() #16
+  %10 = tail call ptr @PyErr_Occurred() #15
   %.not9 = icmp eq ptr %10, null
   br i1 %.not9, label %11, label %14
 
 11:                                               ; preds = %6, %9, %4
   %.0 = phi double [ %.val10, %4 ], [ -1.000000e+00, %9 ], [ %7, %6 ]
   %12 = fmul double %.0, 0x404CA5DC1A63C1F8
-  %13 = tail call ptr @PyFloat_FromDouble(double noundef %12) #16
+  %13 = tail call ptr @PyFloat_FromDouble(double noundef %12) #15
   br label %14
 
 14:                                               ; preds = %9, %11
@@ -1695,7 +1695,7 @@ define internal ptr @math_dist(ptr readnone captures(none) %0, ptr noundef reado
   br i1 %or.cond, label %7, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call i32 @_PyArg_CheckPositional(ptr noundef nonnull @.str.14, i64 noundef %2, i64 noundef 2, i64 noundef 2) #16
+  %6 = tail call i32 @_PyArg_CheckPositional(ptr noundef nonnull @.str.14, i64 noundef %2, i64 noundef 2, i64 noundef 2) #15
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %120, label %7
 
@@ -1703,7 +1703,7 @@ define internal ptr @math_dist(ptr readnone captures(none) %0, ptr noundef reado
   %8 = load ptr, ptr %1, align 8, !tbaa !12
   %9 = getelementptr i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #15
   %11 = getelementptr i8, ptr %8, i64 8
   %.val116.i = load ptr, ptr %11, align 8, !tbaa !16
   %12 = getelementptr i8, ptr %.val116.i, i64 168
@@ -1713,7 +1713,7 @@ define internal ptr @math_dist(ptr readnone captures(none) %0, ptr noundef reado
   br i1 %.not.not.not.not.i, label %14, label %17
 
 14:                                               ; preds = %7
-  %15 = tail call ptr @PySequence_Tuple(ptr noundef nonnull %8) #16
+  %15 = tail call ptr @PySequence_Tuple(ptr noundef nonnull %8) #15
   %16 = icmp eq ptr %15, null
   br i1 %16, label %math_dist_impl.exit, label %17
 
@@ -1728,7 +1728,7 @@ define internal ptr @math_dist(ptr readnone captures(none) %0, ptr noundef reado
   br i1 %.not88.not.not.i, label %21, label %31
 
 21:                                               ; preds = %17
-  %22 = tail call ptr @PySequence_Tuple(ptr noundef nonnull %10) #16
+  %22 = tail call ptr @PySequence_Tuple(ptr noundef nonnull %10) #15
   %23 = icmp eq ptr %22, null
   br i1 %23, label %24, label %31
 
@@ -1747,7 +1747,7 @@ define internal ptr @math_dist(ptr readnone captures(none) %0, ptr noundef reado
   br i1 %29, label %30, label %math_dist_impl.exit
 
 30:                                               ; preds = %27
-  tail call void @_Py_Dealloc(ptr noundef nonnull %.067.i) #16
+  tail call void @_Py_Dealloc(ptr noundef nonnull %.067.i) #15
   br label %math_dist_impl.exit
 
 31:                                               ; preds = %21, %17
@@ -1761,7 +1761,7 @@ define internal ptr @math_dist(ptr readnone captures(none) %0, ptr noundef reado
 
 .thread.i:                                        ; preds = %31
   %34 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !12
-  tail call void @PyErr_SetString(ptr noundef %34, ptr noundef nonnull @.str.62) #16
+  tail call void @PyErr_SetString(ptr noundef %34, ptr noundef nonnull @.str.62) #15
   br label %107
 
 35:                                               ; preds = %31
@@ -1770,12 +1770,12 @@ define internal ptr @math_dist(ptr readnone captures(none) %0, ptr noundef reado
 
 37:                                               ; preds = %35
   %38 = shl i64 %.067.val.i, 3
-  %39 = tail call ptr @PyMem_Malloc(i64 noundef %38) #16
+  %39 = tail call ptr @PyMem_Malloc(i64 noundef %38) #15
   %40 = icmp eq ptr %39, null
   br i1 %40, label %.thread3.i, label %.lr.ph.i
 
 .thread3.i:                                       ; preds = %37
-  %41 = tail call ptr @PyErr_NoMemory() #16
+  %41 = tail call ptr @PyErr_NoMemory() #15
   br label %106
 
 42:                                               ; preds = %35
@@ -1809,22 +1809,22 @@ define internal ptr @math_dist(ptr readnone captures(none) %0, ptr noundef reado
   br i1 %.not8.i, label %53, label %58
 
 53:                                               ; preds = %52
-  %54 = tail call double @PyLong_AsDouble(ptr noundef nonnull %48) #16
+  %54 = tail call double @PyLong_AsDouble(ptr noundef nonnull %48) #15
   %55 = fcmp oeq double %54, -1.000000e+00
   br i1 %55, label %56, label %63
 
 56:                                               ; preds = %53
-  %57 = tail call ptr @PyErr_Occurred() #16
+  %57 = tail call ptr @PyErr_Occurred() #15
   %.not96.i = icmp eq ptr %57, null
   br i1 %.not96.i, label %63, label %105
 
 58:                                               ; preds = %52
-  %59 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %48) #16
+  %59 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %48) #15
   %60 = fcmp oeq double %59, -1.000000e+00
   br i1 %60, label %61, label %63
 
 61:                                               ; preds = %58
-  %62 = tail call ptr @PyErr_Occurred() #16
+  %62 = tail call ptr @PyErr_Occurred() #15
   %.not95.i = icmp eq ptr %62, null
   br i1 %.not95.i, label %63, label %105
 
@@ -1847,22 +1847,22 @@ define internal ptr @math_dist(ptr readnone captures(none) %0, ptr noundef reado
   br i1 %.not10.i, label %70, label %75
 
 70:                                               ; preds = %69
-  %71 = tail call double @PyLong_AsDouble(ptr noundef nonnull %65) #16
+  %71 = tail call double @PyLong_AsDouble(ptr noundef nonnull %65) #15
   %72 = fcmp oeq double %71, -1.000000e+00
   br i1 %72, label %73, label %80
 
 73:                                               ; preds = %70
-  %74 = tail call ptr @PyErr_Occurred() #16
+  %74 = tail call ptr @PyErr_Occurred() #15
   %.not100.i = icmp eq ptr %74, null
   br i1 %.not100.i, label %80, label %105
 
 75:                                               ; preds = %69
-  %76 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %65) #16
+  %76 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %65) #15
   %77 = fcmp oeq double %76, -1.000000e+00
   br i1 %77, label %78, label %80
 
 78:                                               ; preds = %75
-  %79 = tail call ptr @PyErr_Occurred() #16
+  %79 = tail call ptr @PyErr_Occurred() #15
   %.not99.i = icmp eq ptr %79, null
   br i1 %.not99.i, label %80, label %105
 
@@ -1887,7 +1887,7 @@ define internal ptr @math_dist(ptr readnone captures(none) %0, ptr noundef reado
   br i1 %.not90.i, label %._crit_edge.thread.i, label %90
 
 90:                                               ; preds = %._crit_edge.i
-  call void @PyMem_Free(ptr noundef nonnull %.119.i) #16
+  call void @PyMem_Free(ptr noundef nonnull %.119.i) #15
   br label %._crit_edge.thread.i
 
 ._crit_edge.thread.i:                             ; preds = %42, %90, %._crit_edge.i
@@ -1906,7 +1906,7 @@ define internal ptr @math_dist(ptr readnone captures(none) %0, ptr noundef reado
   br i1 %96, label %97, label %Py_DECREF.exit109.i
 
 97:                                               ; preds = %94
-  call void @_Py_Dealloc(ptr noundef nonnull %.067.i) #16
+  call void @_Py_Dealloc(ptr noundef nonnull %.067.i) #15
   br label %Py_DECREF.exit109.i
 
 Py_DECREF.exit109.i:                              ; preds = %97, %94, %92, %._crit_edge.thread.i
@@ -1924,11 +1924,11 @@ Py_DECREF.exit109.i:                              ; preds = %97, %94, %92, %._cr
   br i1 %102, label %103, label %Py_DECREF.exit107.i
 
 103:                                              ; preds = %100
-  call void @_Py_Dealloc(ptr noundef nonnull %.069.i) #16
+  call void @_Py_Dealloc(ptr noundef nonnull %.069.i) #15
   br label %Py_DECREF.exit107.i
 
 Py_DECREF.exit107.i:                              ; preds = %103, %100, %98, %Py_DECREF.exit109.i
-  %104 = call ptr @PyFloat_FromDouble(double noundef %91) #16
+  %104 = call ptr @PyFloat_FromDouble(double noundef %91) #15
   br label %math_dist_impl.exit
 
 105:                                              ; preds = %78, %73, %61, %56
@@ -1937,7 +1937,7 @@ Py_DECREF.exit107.i:                              ; preds = %103, %100, %98, %Py
 
 106:                                              ; preds = %105, %.thread3.i
   %.06.i = phi ptr [ null, %.thread3.i ], [ %.119.i, %105 ]
-  call void @PyMem_Free(ptr noundef %.06.i) #16
+  call void @PyMem_Free(ptr noundef %.06.i) #15
   br label %107
 
 107:                                              ; preds = %106, %105, %.thread.i
@@ -1955,7 +1955,7 @@ Py_DECREF.exit107.i:                              ; preds = %103, %100, %98, %Py
   br i1 %112, label %113, label %Py_DECREF.exit105.i
 
 113:                                              ; preds = %110
-  call void @_Py_Dealloc(ptr noundef nonnull %.067.i) #16
+  call void @_Py_Dealloc(ptr noundef nonnull %.067.i) #15
   br label %Py_DECREF.exit105.i
 
 Py_DECREF.exit105.i:                              ; preds = %113, %110, %108, %107
@@ -1973,12 +1973,12 @@ Py_DECREF.exit105.i:                              ; preds = %113, %110, %108, %1
   br i1 %118, label %119, label %math_dist_impl.exit
 
 119:                                              ; preds = %116
-  call void @_Py_Dealloc(ptr noundef nonnull %.069.i) #16
+  call void @_Py_Dealloc(ptr noundef nonnull %.069.i) #15
   br label %math_dist_impl.exit
 
 math_dist_impl.exit:                              ; preds = %14, %24, %25, %27, %30, %Py_DECREF.exit107.i, %Py_DECREF.exit105.i, %114, %116, %119
   %.066.i = phi ptr [ %104, %Py_DECREF.exit107.i ], [ null, %14 ], [ null, %24 ], [ null, %Py_DECREF.exit105.i ], [ null, %25 ], [ null, %27 ], [ null, %30 ], [ null, %114 ], [ null, %116 ], [ null, %119 ]
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #15
   br label %120
 
 120:                                              ; preds = %5, %math_dist_impl.exit
@@ -1988,19 +1988,19 @@ math_dist_impl.exit:                              ; preds = %14, %24, %25, %27, 
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @math_erf(ptr readnone captures(none) %0, ptr noundef %1) #0 {
-  %3 = tail call double @PyFloat_AsDouble(ptr noundef %1) #16
+  %3 = tail call double @PyFloat_AsDouble(ptr noundef %1) #15
   %4 = fcmp oeq double %3, -1.000000e+00
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %2
-  %6 = tail call ptr @PyErr_Occurred() #16
+  %6 = tail call ptr @PyErr_Occurred() #15
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %7, label %math_1a.exit
 
 7:                                                ; preds = %5, %2
-  %8 = tail call ptr @__errno_location() #17
+  %8 = tail call ptr @__errno_location() #16
   store i32 0, ptr %8, align 4, !tbaa !14
-  %9 = tail call double @erf(double noundef %3) #16, !callees !36
+  %9 = tail call double @erf(double noundef %3) #15, !callees !36
   %10 = load i32, ptr %8, align 4, !tbaa !14
   switch i32 %10, label %18 [
     i32 0, label %is_error.exit.i
@@ -2010,7 +2010,7 @@ define internal ptr @math_erf(ptr readnone captures(none) %0, ptr noundef %1) #0
 
 11:                                               ; preds = %7
   %12 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !12
-  tail call void @PyErr_SetString(ptr noundef %12, ptr noundef nonnull @.str.60) #16
+  tail call void @PyErr_SetString(ptr noundef %12, ptr noundef nonnull @.str.60) #15
   br label %math_1a.exit
 
 13:                                               ; preds = %7
@@ -2020,16 +2020,16 @@ define internal ptr @math_erf(ptr readnone captures(none) %0, ptr noundef %1) #0
 
 16:                                               ; preds = %13
   %17 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !12
-  tail call void @PyErr_SetString(ptr noundef %17, ptr noundef nonnull @.str.59) #16
+  tail call void @PyErr_SetString(ptr noundef %17, ptr noundef nonnull @.str.59) #15
   br label %math_1a.exit
 
 18:                                               ; preds = %7
   %19 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !12
-  %20 = tail call ptr @PyErr_SetFromErrno(ptr noundef %19) #16
+  %20 = tail call ptr @PyErr_SetFromErrno(ptr noundef %19) #15
   br label %math_1a.exit
 
 is_error.exit.i:                                  ; preds = %7, %13
-  %21 = tail call ptr @PyFloat_FromDouble(double noundef %9) #16
+  %21 = tail call ptr @PyFloat_FromDouble(double noundef %9) #15
   br label %math_1a.exit
 
 math_1a.exit:                                     ; preds = %16, %18, %5, %11, %is_error.exit.i
@@ -2039,19 +2039,19 @@ math_1a.exit:                                     ; preds = %16, %18, %5, %11, %
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @math_erfc(ptr readnone captures(none) %0, ptr noundef %1) #0 {
-  %3 = tail call double @PyFloat_AsDouble(ptr noundef %1) #16
+  %3 = tail call double @PyFloat_AsDouble(ptr noundef %1) #15
   %4 = fcmp oeq double %3, -1.000000e+00
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %2
-  %6 = tail call ptr @PyErr_Occurred() #16
+  %6 = tail call ptr @PyErr_Occurred() #15
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %7, label %math_1a.exit
 
 7:                                                ; preds = %5, %2
-  %8 = tail call ptr @__errno_location() #17
+  %8 = tail call ptr @__errno_location() #16
   store i32 0, ptr %8, align 4, !tbaa !14
-  %9 = tail call double @erfc(double noundef %3) #16, !callees !36
+  %9 = tail call double @erfc(double noundef %3) #15, !callees !36
   %10 = load i32, ptr %8, align 4, !tbaa !14
   switch i32 %10, label %18 [
     i32 0, label %is_error.exit.i
@@ -2061,7 +2061,7 @@ define internal ptr @math_erfc(ptr readnone captures(none) %0, ptr noundef %1) #
 
 11:                                               ; preds = %7
   %12 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !12
-  tail call void @PyErr_SetString(ptr noundef %12, ptr noundef nonnull @.str.60) #16
+  tail call void @PyErr_SetString(ptr noundef %12, ptr noundef nonnull @.str.60) #15
   br label %math_1a.exit
 
 13:                                               ; preds = %7
@@ -2071,16 +2071,16 @@ define internal ptr @math_erfc(ptr readnone captures(none) %0, ptr noundef %1) #
 
 16:                                               ; preds = %13
   %17 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !12
-  tail call void @PyErr_SetString(ptr noundef %17, ptr noundef nonnull @.str.59) #16
+  tail call void @PyErr_SetString(ptr noundef %17, ptr noundef nonnull @.str.59) #15
   br label %math_1a.exit
 
 18:                                               ; preds = %7
   %19 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !12
-  %20 = tail call ptr @PyErr_SetFromErrno(ptr noundef %19) #16
+  %20 = tail call ptr @PyErr_SetFromErrno(ptr noundef %19) #15
   br label %math_1a.exit
 
 is_error.exit.i:                                  ; preds = %7, %13
-  %21 = tail call ptr @PyFloat_FromDouble(double noundef %9) #16
+  %21 = tail call ptr @PyFloat_FromDouble(double noundef %9) #15
   br label %math_1a.exit
 
 math_1a.exit:                                     ; preds = %16, %18, %5, %11, %is_error.exit.i
@@ -2090,19 +2090,19 @@ math_1a.exit:                                     ; preds = %16, %18, %5, %11, %
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @math_exp(ptr readnone captures(none) %0, ptr noundef %1) #0 {
-  %3 = tail call double @PyFloat_AsDouble(ptr noundef %1) #16
+  %3 = tail call double @PyFloat_AsDouble(ptr noundef %1) #15
   %4 = fcmp oeq double %3, -1.000000e+00
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %2
-  %6 = tail call ptr @PyErr_Occurred() #16
+  %6 = tail call ptr @PyErr_Occurred() #15
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %7, label %math_1.exit
 
 7:                                                ; preds = %5, %2
-  %8 = tail call ptr @__errno_location() #17
+  %8 = tail call ptr @__errno_location() #16
   store i32 0, ptr %8, align 4, !tbaa !14
-  %9 = tail call double @exp(double noundef %3) #16
+  %9 = tail call double @exp(double noundef %3) #15
   %10 = fcmp ord double %9, 0.000000e+00
   %11 = fcmp uno double %3, 0.000000e+00
   %or.cond.i = or i1 %11, %10
@@ -2118,7 +2118,7 @@ define internal ptr @math_exp(ptr readnone captures(none) %0, ptr noundef %1) #0
 
 17:                                               ; preds = %12
   %18 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !12
-  tail call void @PyErr_SetString(ptr noundef %18, ptr noundef nonnull @.str.59) #16
+  tail call void @PyErr_SetString(ptr noundef %18, ptr noundef nonnull @.str.59) #15
   br label %math_1.exit
 
 19:                                               ; preds = %12
@@ -2135,7 +2135,7 @@ define internal ptr @math_exp(ptr readnone captures(none) %0, ptr noundef %1) #0
 
 23:                                               ; preds = %21
   %24 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !12
-  tail call void @PyErr_SetString(ptr noundef %24, ptr noundef nonnull @.str.60) #16
+  tail call void @PyErr_SetString(ptr noundef %24, ptr noundef nonnull @.str.60) #15
   br label %math_1.exit
 
 25:                                               ; preds = %21
@@ -2144,21 +2144,21 @@ define internal ptr @math_exp(ptr readnone captures(none) %0, ptr noundef %1) #0
 
 27:                                               ; preds = %25
   %28 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !12
-  tail call void @PyErr_SetString(ptr noundef %28, ptr noundef nonnull @.str.59) #16
+  tail call void @PyErr_SetString(ptr noundef %28, ptr noundef nonnull @.str.59) #15
   br label %math_1.exit
 
 29:                                               ; preds = %21
   %30 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !12
-  %31 = tail call ptr @PyErr_SetFromErrno(ptr noundef %30) #16
+  %31 = tail call ptr @PyErr_SetFromErrno(ptr noundef %30) #15
   br label %math_1.exit
 
 is_error.exit.i:                                  ; preds = %25, %21, %19
-  %32 = tail call ptr @PyFloat_FromDouble(double noundef %9) #16
+  %32 = tail call ptr @PyFloat_FromDouble(double noundef %9) #15
   br label %math_1.exit
 
 33:                                               ; preds = %7
   %34 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !12
-  tail call void @PyErr_SetString(ptr noundef %34, ptr noundef nonnull @.str.60) #16
+  tail call void @PyErr_SetString(ptr noundef %34, ptr noundef nonnull @.str.60) #15
   br label %math_1.exit
 
 math_1.exit:                                      ; preds = %5, %17, %23, %27, %29, %is_error.exit.i, %33
@@ -2174,19 +2174,19 @@ define internal ptr @math_exp2(ptr readnone captures(none) %0, ptr noundef %1) #
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @math_expm1(ptr readnone captures(none) %0, ptr noundef %1) #0 {
-  %3 = tail call double @PyFloat_AsDouble(ptr noundef %1) #16
+  %3 = tail call double @PyFloat_AsDouble(ptr noundef %1) #15
   %4 = fcmp oeq double %3, -1.000000e+00
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %2
-  %6 = tail call ptr @PyErr_Occurred() #16
+  %6 = tail call ptr @PyErr_Occurred() #15
   %.not.i = icmp eq ptr %6, null
   br i1 %.not.i, label %7, label %math_1.exit
 
 7:                                                ; preds = %5, %2
-  %8 = tail call ptr @__errno_location() #17
+  %8 = tail call ptr @__errno_location() #16
   store i32 0, ptr %8, align 4, !tbaa !14
-  %9 = tail call double @expm1(double noundef %3) #16
+  %9 = tail call double @expm1(double noundef %3) #15
   %10 = fcmp ord double %9, 0.000000e+00
   %11 = fcmp uno double %3, 0.000000e+00
   %or.cond.i = or i1 %11, %10
@@ -2202,7 +2202,7 @@ define internal ptr @math_expm1(ptr readnone captures(none) %0, ptr noundef %1) 
 
 17:                                               ; preds = %12
   %18 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !12
-  tail call void @PyErr_SetString(ptr noundef %18, ptr noundef nonnull @.str.59) #16
+  tail call void @PyErr_SetString(ptr noundef %18, ptr noundef nonnull @.str.59) #15
   br label %math_1.exit
 
 19:                                               ; preds = %12
@@ -2219,7 +2219,7 @@ define internal ptr @math_expm1(ptr readnone captures(none) %0, ptr noundef %1) 
 
 23:                                               ; preds = %21
   %24 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !12
-  tail call void @PyErr_SetString(ptr noundef %24, ptr noundef nonnull @.str.60) #16
+  tail call void @PyErr_SetString(ptr noundef %24, ptr noundef nonnull @.str.60) #15
   br label %math_1.exit
 
 25:                                               ; preds = %21
@@ -2228,21 +2228,21 @@ define internal ptr @math_expm1(ptr readnone captures(none) %0, ptr noundef %1) 
 
 27:                                               ; preds = %25
   %28 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !12
-  tail call void @PyErr_SetString(ptr noundef %28, ptr noundef nonnull @.str.59) #16
+  tail call void @PyErr_SetString(ptr noundef %28, ptr noundef nonnull @.str.59) #15
   br label %math_1.exit
 
 29:                                               ; preds = %21
   %30 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !12
-  %31 = tail call ptr @PyErr_SetFromErrno(ptr noundef %30) #16
+  %31 = tail call ptr @PyErr_SetFromErrno(ptr noundef %30) #15
   br label %math_1.exit
 
 is_error.exit.i:                                  ; preds = %25, %21, %19
-  %32 = tail call ptr @PyFloat_FromDouble(double noundef %9) #16
+  %32 = tail call ptr @PyFloat_FromDouble(double noundef %9) #15
   br label %math_1.exit
 
 33:                                               ; preds = %7
   %34 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !12
-  tail call void @PyErr_SetString(ptr noundef %34, ptr noundef nonnull @.str.60) #16
+  tail call void @PyErr_SetString(ptr noundef %34, ptr noundef nonnull @.str.60) #15
   br label %math_1.exit
 
 math_1.exit:                                      ; preds = %5, %17, %23, %27, %29, %is_error.exit.i, %33
@@ -2259,13 +2259,13 @@ define internal ptr @math_fabs(ptr readnone captures(none) %0, ptr noundef %1) #
 ; Function Attrs: nounwind uwtable
 define internal ptr @math_factorial(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #16
-  %4 = call i64 @PyLong_AsLongAndOverflow(ptr noundef %1, ptr noundef nonnull %3) #16
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #15
+  %4 = call i64 @PyLong_AsLongAndOverflow(ptr noundef %1, ptr noundef nonnull %3) #15
   %5 = icmp eq i64 %4, -1
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %2
-  %7 = call ptr @PyErr_Occurred() #16
+  %7 = call ptr @PyErr_Occurred() #15
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %8, label %Py_DECREF.exit
 
@@ -2276,7 +2276,7 @@ define internal ptr @math_factorial(ptr readnone captures(none) %0, ptr noundef 
 
 11:                                               ; preds = %8
   %12 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !12
-  %13 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %12, ptr noundef nonnull @.str.63, i64 noundef 9223372036854775807) #16
+  %13 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %12, ptr noundef nonnull @.str.63, i64 noundef 9223372036854775807) #15
   br label %Py_DECREF.exit
 
 14:                                               ; preds = %8
@@ -2287,7 +2287,7 @@ define internal ptr @math_factorial(ptr readnone captures(none) %0, ptr noundef 
 
 17:                                               ; preds = %14
   %18 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !12
-  call void @PyErr_SetString(ptr noundef %18, ptr noundef nonnull @.str.64) #16
+  call void @PyErr_SetString(ptr noundef %18, ptr noundef nonnull @.str.64) #15
   br label %Py_DECREF.exit
 
 19:                                               ; preds = %14
@@ -2297,11 +2297,11 @@ define internal ptr @math_factorial(ptr readnone captures(none) %0, ptr noundef 
 21:                                               ; preds = %19
   %22 = getelementptr [21 x i64], ptr @SmallFactorials, i64 0, i64 %4
   %23 = load i64, ptr %22, align 8, !tbaa !37
-  %24 = call ptr @PyLong_FromUnsignedLong(i64 noundef %23) #16
+  %24 = call ptr @PyLong_FromUnsignedLong(i64 noundef %23) #15
   br label %Py_DECREF.exit
 
 25:                                               ; preds = %19
-  %26 = call ptr @PyLong_FromLong(i64 noundef 1) #16
+  %26 = call ptr @PyLong_FromLong(i64 noundef 1) #15
   %27 = icmp eq ptr %26, null
   br i1 %27, label %Py_DECREF.exit, label %28
 
@@ -2340,7 +2340,7 @@ _Py_NewRef.exit.i:                                ; preds = %31, %28
   br i1 %45, label %75, label %46
 
 46:                                               ; preds = %38
-  %47 = call ptr @PyNumber_Multiply(ptr noundef %.03665.i, ptr noundef nonnull %44) #16
+  %47 = call ptr @PyNumber_Multiply(ptr noundef %.03665.i, ptr noundef nonnull %44) #15
   %48 = load i32, ptr %44, align 8, !tbaa !13
   %.not.i53.i = icmp sgt i32 %48, -1
   br i1 %.not.i53.i, label %49, label %Py_DECREF.exit54.i
@@ -2352,7 +2352,7 @@ _Py_NewRef.exit.i:                                ; preds = %31, %28
   br i1 %51, label %52, label %Py_DECREF.exit54.i
 
 52:                                               ; preds = %49
-  call void @_Py_Dealloc(ptr noundef nonnull %44) #16
+  call void @_Py_Dealloc(ptr noundef nonnull %44) #15
   br label %Py_DECREF.exit54.i
 
 Py_DECREF.exit54.i:                               ; preds = %52, %49, %46
@@ -2371,11 +2371,11 @@ Py_DECREF.exit54.i:                               ; preds = %52, %49, %46
   br i1 %58, label %59, label %Py_DECREF.exit52.i
 
 59:                                               ; preds = %56
-  call void @_Py_Dealloc(ptr noundef nonnull %.03665.i) #16
+  call void @_Py_Dealloc(ptr noundef nonnull %.03665.i) #15
   br label %Py_DECREF.exit52.i
 
 Py_DECREF.exit52.i:                               ; preds = %59, %56, %54
-  %60 = call ptr @PyNumber_Multiply(ptr noundef %.03864.i, ptr noundef nonnull %47) #16
+  %60 = call ptr @PyNumber_Multiply(ptr noundef %.03864.i, ptr noundef nonnull %47) #15
   %61 = icmp eq ptr %60, null
   br i1 %61, label %75, label %62
 
@@ -2391,7 +2391,7 @@ Py_DECREF.exit52.i:                               ; preds = %59, %56, %54
   br i1 %66, label %67, label %Py_DECREF.exit50.i
 
 67:                                               ; preds = %64
-  call void @_Py_Dealloc(ptr noundef nonnull %.03864.i) #16
+  call void @_Py_Dealloc(ptr noundef nonnull %.03864.i) #15
   br label %Py_DECREF.exit50.i
 
 Py_DECREF.exit50.i:                               ; preds = %67, %64, %62, %35
@@ -2426,7 +2426,7 @@ Py_DECREF.exit50.i:                               ; preds = %67, %64, %62, %35
   br i1 %79, label %80, label %Py_DECREF.exit46.i
 
 80:                                               ; preds = %77
-  call void @_Py_Dealloc(ptr noundef nonnull %.03864.i) #16
+  call void @_Py_Dealloc(ptr noundef nonnull %.03864.i) #15
   br label %Py_DECREF.exit46.i
 
 Py_DECREF.exit46.i:                               ; preds = %80, %77, %75
@@ -2443,7 +2443,7 @@ Py_DECREF.exit46.i:                               ; preds = %80, %77, %75
 Py_DECREF.exit48.sink.split.i:                    ; preds = %82, %72
   %.2.sink.i = phi ptr [ %.137.i, %72 ], [ %.2.i, %82 ]
   %.0.ph.i = phi ptr [ %.139.i, %72 ], [ null, %82 ]
-  call void @_Py_Dealloc(ptr noundef nonnull %.2.sink.i) #16
+  call void @_Py_Dealloc(ptr noundef nonnull %.2.sink.i) #15
   br label %factorial_odd_part.exit
 
 factorial_odd_part.exit:                          ; preds = %70, %72, %Py_DECREF.exit48.sink.split.i
@@ -2462,7 +2462,7 @@ factorial_odd_part.exit:                          ; preds = %70, %72, %Py_DECREF
 
 count_set_bits.exit:                              ; preds = %.preheader
   %89 = sub i64 %4, %86
-  %90 = call ptr @_PyLong_Lshift(ptr noundef nonnull %.0.i, i64 noundef %89) #16
+  %90 = call ptr @_PyLong_Lshift(ptr noundef nonnull %.0.i, i64 noundef %89) #15
   %91 = load i32, ptr %.0.i, align 8, !tbaa !13
   %.not.i = icmp sgt i32 %91, -1
   br i1 %.not.i, label %92, label %Py_DECREF.exit
@@ -2474,12 +2474,12 @@ count_set_bits.exit:                              ; preds = %.preheader
   br i1 %94, label %95, label %Py_DECREF.exit
 
 95:                                               ; preds = %92
-  call void @_Py_Dealloc(ptr noundef nonnull %.0.i) #16
+  call void @_Py_Dealloc(ptr noundef nonnull %.0.i) #15
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %82, %Py_DECREF.exit46.i, %25, %95, %92, %count_set_bits.exit, %factorial_odd_part.exit, %6, %21, %17, %11
   %.0 = phi ptr [ null, %11 ], [ null, %17 ], [ %24, %21 ], [ null, %6 ], [ null, %factorial_odd_part.exit ], [ %90, %count_set_bits.exit ], [ %90, %92 ], [ %90, %95 ], [ null, %25 ], [ null, %Py_DECREF.exit46.i ], [ null, %82 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #15
   ret ptr %.0
 }
 
@@ -2500,12 +2500,12 @@ define internal ptr @math_floor(ptr noundef readonly captures(none) %0, ptr noun
   %.val = load ptr, ptr %7, align 8, !tbaa !3
   %8 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %9 = load ptr, ptr %8, align 8, !tbaa !40
-  %10 = tail call ptr @_PyObject_LookupSpecial(ptr noundef nonnull %1, ptr noundef %9) #16
+  %10 = tail call ptr @_PyObject_LookupSpecial(ptr noundef nonnull %1, ptr noundef %9) #15
   %.not18 = icmp eq ptr %10, null
   br i1 %.not18, label %29, label %11
 
 11:                                               ; preds = %6
-  %12 = tail call ptr @_PyThreadState_GetCurrent() #16
+  %12 = tail call ptr @_PyThreadState_GetCurrent() #15
   %13 = getelementptr i8, ptr %10, i64 8
   %.val.i.i.i = load ptr, ptr %13, align 8, !tbaa !16
   %14 = getelementptr i8, ptr %.val.i.i.i, i64 168
@@ -2523,12 +2523,12 @@ _PyVectorcall_FunctionInline.exit.i.i:            ; preds = %11
   br i1 %19, label %_PyVectorcall_FunctionInline.exit.thread.i.i, label %21
 
 _PyVectorcall_FunctionInline.exit.thread.i.i:     ; preds = %_PyVectorcall_FunctionInline.exit.i.i, %11
-  %20 = tail call ptr @_PyObject_MakeTpCall(ptr noundef %12, ptr noundef nonnull %10, ptr noundef null, i64 noundef 0, ptr noundef null) #16
+  %20 = tail call ptr @_PyObject_MakeTpCall(ptr noundef %12, ptr noundef nonnull %10, ptr noundef null, i64 noundef 0, ptr noundef null) #15
   br label %_PyObject_CallNoArgs.exit
 
 21:                                               ; preds = %_PyVectorcall_FunctionInline.exit.i.i
-  %22 = tail call ptr %.0.copyload.i.i.i(ptr noundef nonnull %10, ptr noundef null, i64 noundef 0, ptr noundef null) #16
-  %23 = tail call ptr @_Py_CheckFunctionResult(ptr noundef %12, ptr noundef nonnull %10, ptr noundef %22, ptr noundef null) #16
+  %22 = tail call ptr %.0.copyload.i.i.i(ptr noundef nonnull %10, ptr noundef null, i64 noundef 0, ptr noundef null) #15
+  %23 = tail call ptr @_Py_CheckFunctionResult(ptr noundef %12, ptr noundef nonnull %10, ptr noundef %22, ptr noundef null) #15
   br label %_PyObject_CallNoArgs.exit
 
 _PyObject_CallNoArgs.exit:                        ; preds = %_PyVectorcall_FunctionInline.exit.thread.i.i, %21
@@ -2544,28 +2544,28 @@ _PyObject_CallNoArgs.exit:                        ; preds = %_PyVectorcall_Funct
   br i1 %27, label %28, label %Py_DECREF.exit.thread
 
 28:                                               ; preds = %25
-  tail call void @_Py_Dealloc(ptr noundef nonnull %10) #16
+  tail call void @_Py_Dealloc(ptr noundef nonnull %10) #15
   br label %Py_DECREF.exit.thread
 
 29:                                               ; preds = %6
-  %30 = tail call ptr @PyErr_Occurred() #16
+  %30 = tail call ptr @PyErr_Occurred() #15
   %.not19 = icmp eq ptr %30, null
   br i1 %.not19, label %31, label %Py_DECREF.exit.thread
 
 31:                                               ; preds = %29
-  %32 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %1) #16
+  %32 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %1) #15
   %33 = fcmp oeq double %32, -1.000000e+00
   br i1 %33, label %34, label %Py_DECREF.exit
 
 34:                                               ; preds = %31
-  %35 = tail call ptr @PyErr_Occurred() #16
+  %35 = tail call ptr @PyErr_Occurred() #15
   %.not20 = icmp eq ptr %35, null
   br i1 %.not20, label %Py_DECREF.exit, label %Py_DECREF.exit.thread
 
 Py_DECREF.exit:                                   ; preds = %34, %31, %4
   %.014 = phi double [ %.val22, %4 ], [ %32, %31 ], [ -1.000000e+00, %34 ]
   %36 = tail call double @llvm.floor.f64(double %.014)
-  %37 = tail call ptr @PyLong_FromDouble(double noundef %36) #16
+  %37 = tail call ptr @PyLong_FromDouble(double noundef %36) #15
   br label %Py_DECREF.exit.thread
 
 Py_DECREF.exit.thread:                            ; preds = %28, %25, %_PyObject_CallNoArgs.exit, %34, %29, %Py_DECREF.exit
@@ -2579,7 +2579,7 @@ define internal ptr @math_fma(ptr readnone captures(none) %0, ptr noundef readon
   br i1 %or.cond, label %6, label %4
 
 4:                                                ; preds = %3
-  %5 = tail call i32 @_PyArg_CheckPositional(ptr noundef nonnull @.str.23, i64 noundef %2, i64 noundef 3, i64 noundef 3) #16
+  %5 = tail call i32 @_PyArg_CheckPositional(ptr noundef nonnull @.str.23, i64 noundef %2, i64 noundef 3, i64 noundef 3) #15
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %math_fma_impl.exit, label %6
 
@@ -2596,12 +2596,12 @@ define internal ptr @math_fma(ptr readnone captures(none) %0, ptr noundef readon
   br label %16
 
 11:                                               ; preds = %6
-  %12 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %7) #16
+  %12 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %7) #15
   %13 = fcmp oeq double %12, -1.000000e+00
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %11
-  %15 = tail call ptr @PyErr_Occurred() #16
+  %15 = tail call ptr @PyErr_Occurred() #15
   %.not29 = icmp eq ptr %15, null
   br i1 %.not29, label %16, label %math_fma_impl.exit
 
@@ -2620,12 +2620,12 @@ define internal ptr @math_fma(ptr readnone captures(none) %0, ptr noundef readon
   br label %27
 
 22:                                               ; preds = %16
-  %23 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %18) #16
+  %23 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %18) #15
   %24 = fcmp oeq double %23, -1.000000e+00
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %22
-  %26 = tail call ptr @PyErr_Occurred() #16
+  %26 = tail call ptr @PyErr_Occurred() #15
   %.not31 = icmp eq ptr %26, null
   br i1 %.not31, label %27, label %math_fma_impl.exit
 
@@ -2644,12 +2644,12 @@ define internal ptr @math_fma(ptr readnone captures(none) %0, ptr noundef readon
   br label %38
 
 33:                                               ; preds = %27
-  %34 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %29) #16
+  %34 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %29) #15
   %35 = fcmp oeq double %34, -1.000000e+00
   br i1 %35, label %36, label %38
 
 36:                                               ; preds = %33
-  %37 = tail call ptr @PyErr_Occurred() #16
+  %37 = tail call ptr @PyErr_Occurred() #15
   %.not33 = icmp eq ptr %37, null
   br i1 %.not33, label %38, label %math_fma_impl.exit
 
@@ -2661,7 +2661,7 @@ define internal ptr @math_fma(ptr readnone captures(none) %0, ptr noundef readon
   br i1 %41, label %44, label %42
 
 42:                                               ; preds = %38
-  %43 = tail call ptr @PyFloat_FromDouble(double noundef %39) #16
+  %43 = tail call ptr @PyFloat_FromDouble(double noundef %39) #15
   br label %math_fma_impl.exit
 
 44:                                               ; preds = %38
@@ -2676,7 +2676,7 @@ define internal ptr @math_fma(ptr readnone captures(none) %0, ptr noundef readon
 
 48:                                               ; preds = %46
   %49 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !12
-  tail call void @PyErr_SetString(ptr noundef %49, ptr noundef nonnull @.str.65) #16
+  tail call void @PyErr_SetString(ptr noundef %49, ptr noundef nonnull @.str.65) #15
   br label %math_fma_impl.exit
 
 50:                                               ; preds = %44
@@ -2692,11 +2692,11 @@ define internal ptr @math_fma(ptr readnone captures(none) %0, ptr noundef readon
 
 57:                                               ; preds = %50
   %58 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !12
-  tail call void @PyErr_SetString(ptr noundef %58, ptr noundef nonnull @.str.66) #16
+  tail call void @PyErr_SetString(ptr noundef %58, ptr noundef nonnull @.str.66) #15
   br label %math_fma_impl.exit
 
 59:                                               ; preds = %50, %46
-  %60 = tail call ptr @PyFloat_FromDouble(double noundef %39) #16
+  %60 = tail call ptr @PyFloat_FromDouble(double noundef %39) #15
   br label %math_fma_impl.exit
 
 math_fma_impl.exit:                               ; preds = %59, %57, %48, %42, %36, %25, %14, %4
@@ -2710,7 +2710,7 @@ define internal ptr @math_fmod(ptr readnone captures(none) %0, ptr noundef reado
   br i1 %or.cond, label %6, label %4
 
 4:                                                ; preds = %3
-  %5 = tail call i32 @_PyArg_CheckPositional(ptr noundef nonnull @.str.24, i64 noundef %2, i64 noundef 2, i64 noundef 2) #16
+  %5 = tail call i32 @_PyArg_CheckPositional(ptr noundef nonnull @.str.24, i64 noundef %2, i64 noundef 2, i64 noundef 2) #15
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %math_fmod_impl.exit, label %6
 
@@ -2727,12 +2727,12 @@ define internal ptr @math_fmod(ptr readnone captures(none) %0, ptr noundef reado
   br label %16
 
 11:                                               ; preds = %6
-  %12 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %7) #16
+  %12 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %7) #15
   %13 = fcmp oeq double %12, -1.000000e+00
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %11
-  %15 = tail call ptr @PyErr_Occurred() #16
+  %15 = tail call ptr @PyErr_Occurred() #15
   %.not21 = icmp eq ptr %15, null
   br i1 %.not21, label %16, label %math_fmod_impl.exit
 
@@ -2751,18 +2751,18 @@ define internal ptr @math_fmod(ptr readnone captures(none) %0, ptr noundef reado
   br label %27
 
 22:                                               ; preds = %16
-  %23 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %18) #16
+  %23 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %18) #15
   %24 = fcmp oeq double %23, -1.000000e+00
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %22
-  %26 = tail call ptr @PyErr_Occurred() #16
+  %26 = tail call ptr @PyErr_Occurred() #15
   %.not23 = icmp eq ptr %26, null
   br i1 %.not23, label %27, label %math_fmod_impl.exit
 
 27:                                               ; preds = %22, %25, %20
   %.0 = phi double [ %.val26, %20 ], [ -1.000000e+00, %25 ], [ %23, %22 ]
-  %28 = tail call double @llvm.fabs.f64(double %.0) #18
+  %28 = tail call double @llvm.fabs.f64(double %.0) #17
   %29 = fcmp une double %28, 0x7FF0000000000000
   %30 = tail call double @llvm.fabs.f64(double %.015)
   %31 = fcmp ueq double %30, 0x7FF0000000000000
@@ -2770,13 +2770,13 @@ define internal ptr @math_fmod(ptr readnone captures(none) %0, ptr noundef reado
   br i1 %or.cond.i, label %34, label %32
 
 32:                                               ; preds = %27
-  %33 = tail call ptr @PyFloat_FromDouble(double noundef %.015) #16
+  %33 = tail call ptr @PyFloat_FromDouble(double noundef %.015) #15
   br label %math_fmod_impl.exit
 
 34:                                               ; preds = %27
-  %35 = tail call ptr @__errno_location() #17
+  %35 = tail call ptr @__errno_location() #16
   store i32 0, ptr %35, align 4, !tbaa !14
-  %36 = tail call double @fmod(double noundef %.015, double noundef %.0) #16, !tbaa !14
+  %36 = tail call double @fmod(double noundef %.015, double noundef %.0) #15, !tbaa !14
   %37 = fcmp uno double %36, 0.000000e+00
   br i1 %37, label %38, label %39
 
@@ -2802,7 +2802,7 @@ define internal ptr @math_fmod(ptr readnone captures(none) %0, ptr noundef reado
 
 40:                                               ; preds = %39, %.thread4.i
   %41 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !12
-  tail call void @PyErr_SetString(ptr noundef %41, ptr noundef nonnull @.str.60) #16
+  tail call void @PyErr_SetString(ptr noundef %41, ptr noundef nonnull @.str.60) #15
   br label %math_fmod_impl.exit
 
 42:                                               ; preds = %39
@@ -2812,16 +2812,16 @@ define internal ptr @math_fmod(ptr readnone captures(none) %0, ptr noundef reado
 
 45:                                               ; preds = %42
   %46 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !12
-  tail call void @PyErr_SetString(ptr noundef %46, ptr noundef nonnull @.str.59) #16
+  tail call void @PyErr_SetString(ptr noundef %46, ptr noundef nonnull @.str.59) #15
   br label %math_fmod_impl.exit
 
 47:                                               ; preds = %39
   %48 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !12
-  %49 = tail call ptr @PyErr_SetFromErrno(ptr noundef %48) #16
+  %49 = tail call ptr @PyErr_SetFromErrno(ptr noundef %48) #15
   br label %math_fmod_impl.exit
 
 is_error.exit.i:                                  ; preds = %42, %39, %.thread.i
-  %50 = tail call ptr @PyFloat_FromDouble(double noundef %36) #16
+  %50 = tail call ptr @PyFloat_FromDouble(double noundef %36) #15
   br label %math_fmod_impl.exit
 
 math_fmod_impl.exit:                              ; preds = %is_error.exit.i, %47, %45, %40, %32, %25, %14, %4
@@ -2843,22 +2843,22 @@ define internal ptr @math_frexp(ptr readnone captures(none) %0, ptr noundef %1) 
   br label %12
 
 7:                                                ; preds = %2
-  %8 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %1) #16
+  %8 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %1) #15
   %9 = fcmp oeq double %8, -1.000000e+00
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %7
-  %11 = tail call ptr @PyErr_Occurred() #16
+  %11 = tail call ptr @PyErr_Occurred() #15
   %.not9 = icmp eq ptr %11, null
   br i1 %.not9, label %.thread, label %19
 
 .thread:                                          ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #15
   br label %14
 
 12:                                               ; preds = %7, %5
   %.0 = phi double [ %.val10, %5 ], [ %8, %7 ]
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #15
   %13 = fcmp uno double %.0, 0.000000e+00
   br i1 %13, label %math_frexp_impl.exit, label %14
 
@@ -2868,15 +2868,15 @@ define internal ptr @math_frexp(ptr readnone captures(none) %0, ptr noundef %1) 
   br i1 %or.cond.i, label %15, label %math_frexp_impl.exit
 
 15:                                               ; preds = %14
-  %16 = call double @frexp(double noundef %.012, ptr noundef nonnull %3) #16
+  %16 = call double @frexp(double noundef %.012, ptr noundef nonnull %3) #15
   %.pre.i = load i32, ptr %3, align 4, !tbaa !14
   br label %math_frexp_impl.exit
 
 math_frexp_impl.exit:                             ; preds = %12, %14, %15
   %17 = phi i32 [ %.pre.i, %15 ], [ 0, %14 ], [ 0, %12 ]
   %.0.i = phi double [ %16, %15 ], [ %.012, %14 ], [ %.0, %12 ]
-  %18 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.67, double noundef %.0.i, i32 noundef %17) #16
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #16
+  %18 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.67, double noundef %.0.i, i32 noundef %17) #15
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #15
   br label %19
 
 19:                                               ; preds = %10, %math_frexp_impl.exit
@@ -2887,24 +2887,24 @@ math_frexp_impl.exit:                             ; preds = %12, %14, %15
 ; Function Attrs: nounwind uwtable
 define internal ptr @math_fsum(ptr readnone captures(none) %0, ptr noundef %1) #0 {
   %3 = alloca [32 x double], align 16
-  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %3) #16
-  %4 = tail call ptr @PyObject_GetIter(ptr noundef %1) #16
+  call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %3) #15
+  %4 = tail call ptr @PyObject_GetIter(ptr noundef %1) #15
   %5 = icmp eq ptr %4, null
   br i1 %5, label %134, label %.preheader150
 
 .preheader150:                                    ; preds = %2
-  %6 = tail call ptr @PyIter_Next(ptr noundef nonnull %4) #16
+  %6 = tail call ptr @PyIter_Next(ptr noundef nonnull %4) #15
   %7 = icmp eq ptr %6, null
   br i1 %7, label %._crit_edge180.thread, label %.lr.ph179
 
 ._crit_edge180:                                   ; preds = %77
   %8 = fcmp uno double %.183, 0.000000e+00
-  %9 = call ptr @PyErr_Occurred() #16
+  %9 = call ptr @PyErr_Occurred() #15
   %.not113 = icmp eq ptr %9, null
   br i1 %.not113, label %80, label %Py_DECREF.exit118
 
 ._crit_edge180.thread:                            ; preds = %.preheader150
-  %10 = tail call ptr @PyErr_Occurred() #16
+  %10 = tail call ptr @PyErr_Occurred() #15
   %.not113199 = icmp eq ptr %10, null
   br i1 %.not113199, label %.thread, label %Py_DECREF.exit118
 
@@ -2930,22 +2930,22 @@ define internal ptr @math_fsum(ptr readnone captures(none) %0, ptr noundef %1) #
   br i1 %.not148, label %16, label %21
 
 16:                                               ; preds = %15
-  %17 = call double @PyLong_AsDouble(ptr noundef nonnull %11) #16
+  %17 = call double @PyLong_AsDouble(ptr noundef nonnull %11) #15
   %18 = fcmp oeq double %17, -1.000000e+00
   br i1 %18, label %19, label %26
 
 19:                                               ; preds = %16
-  %20 = call ptr @PyErr_Occurred() #16
+  %20 = call ptr @PyErr_Occurred() #15
   %.not110 = icmp eq ptr %20, null
   br i1 %.not110, label %26, label %128
 
 21:                                               ; preds = %15
-  %22 = call double @PyFloat_AsDouble(ptr noundef nonnull %11) #16
+  %22 = call double @PyFloat_AsDouble(ptr noundef nonnull %11) #15
   %23 = fcmp oeq double %22, -1.000000e+00
   br i1 %23, label %24, label %26
 
 24:                                               ; preds = %21
-  %25 = call ptr @PyErr_Occurred() #16
+  %25 = call ptr @PyErr_Occurred() #15
   %.not109 = icmp eq ptr %25, null
   br i1 %.not109, label %26, label %128
 
@@ -2962,7 +2962,7 @@ define internal ptr @math_fsum(ptr readnone captures(none) %0, ptr noundef %1) #
   br i1 %30, label %31, label %Py_DECREF.exit
 
 31:                                               ; preds = %28
-  call void @_Py_Dealloc(ptr noundef nonnull %11) #16
+  call void @_Py_Dealloc(ptr noundef nonnull %11) #15
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %26, %28, %31
@@ -3016,7 +3016,7 @@ Py_DECREF.exit:                                   ; preds = %26, %28, %31
 
 54:                                               ; preds = %51
   %55 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !12
-  call void @PyErr_SetString(ptr noundef %55, ptr noundef nonnull @.str.68) #16
+  call void @PyErr_SetString(ptr noundef %55, ptr noundef nonnull @.str.68) #15
   br label %Py_DECREF.exit118
 
 56:                                               ; preds = %51
@@ -3043,7 +3043,7 @@ Py_DECREF.exit:                                   ; preds = %26, %28, %31
   br i1 %66, label %68, label %71
 
 68:                                               ; preds = %65
-  %69 = call ptr @PyMem_Malloc(i64 noundef %67) #16
+  %69 = call ptr @PyMem_Malloc(i64 noundef %67) #15
   %.not.i123 = icmp eq ptr %69, null
   br i1 %.not.i123, label %_fsum_realloc.exit, label %.thread30.i
 
@@ -3053,13 +3053,13 @@ Py_DECREF.exit:                                   ; preds = %26, %28, %31
   br label %_fsum_realloc.exit.thread
 
 71:                                               ; preds = %65
-  %72 = call ptr @PyMem_Realloc(ptr noundef %.0133175, i64 noundef %67) #16
+  %72 = call ptr @PyMem_Realloc(ptr noundef %.0133175, i64 noundef %67) #15
   %73 = icmp eq ptr %72, null
   br i1 %73, label %_fsum_realloc.exit, label %_fsum_realloc.exit.thread
 
 _fsum_realloc.exit:                               ; preds = %61, %68, %71
   %74 = load ptr, ptr @PyExc_MemoryError, align 8, !tbaa !12
-  call void @PyErr_SetString(ptr noundef %74, ptr noundef nonnull @.str.70) #16
+  call void @PyErr_SetString(ptr noundef %74, ptr noundef nonnull @.str.70) #15
   br label %Py_DECREF.exit118
 
 _fsum_realloc.exit.thread:                        ; preds = %.thread30.i, %71, %60
@@ -3076,7 +3076,7 @@ _fsum_realloc.exit.thread:                        ; preds = %.thread30.i, %71, %
   %.194 = phi i64 [ 0, %56 ], [ %75, %_fsum_realloc.exit.thread ], [ %.097.lcssa, %._crit_edge ]
   %.186 = phi double [ %59, %56 ], [ %.085177, %_fsum_realloc.exit.thread ], [ %.085177, %._crit_edge ]
   %.183 = phi double [ %.284, %56 ], [ %.082178, %_fsum_realloc.exit.thread ], [ %.082178, %._crit_edge ]
-  %78 = call ptr @PyIter_Next(ptr noundef nonnull %4) #16
+  %78 = call ptr @PyIter_Next(ptr noundef nonnull %4) #15
   %79 = icmp eq ptr %78, null
   br i1 %79, label %._crit_edge180, label %.lr.ph179
 
@@ -3089,11 +3089,11 @@ _fsum_realloc.exit.thread:                        ; preds = %.thread30.i, %71, %
 
 83:                                               ; preds = %82
   %84 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !12
-  call void @PyErr_SetString(ptr noundef %84, ptr noundef nonnull @.str.69) #16
+  call void @PyErr_SetString(ptr noundef %84, ptr noundef nonnull @.str.69) #15
   br label %Py_DECREF.exit118
 
 85:                                               ; preds = %82
-  %86 = call ptr @PyFloat_FromDouble(double noundef %.186) #16
+  %86 = call ptr @PyFloat_FromDouble(double noundef %.186) #15
   br label %Py_DECREF.exit118
 
 87:                                               ; preds = %80
@@ -3159,7 +3159,7 @@ _fsum_realloc.exit.thread:                        ; preds = %.thread30.i, %71, %
 .thread:                                          ; preds = %._crit_edge180.thread, %89, %101, %109, %111, %120, %115, %87
   %.0133.lcssa200210214 = phi ptr [ %.2135, %120 ], [ %.2135, %115 ], [ %.2135, %111 ], [ %.2135, %109 ], [ %.2135, %101 ], [ %.2135, %87 ], [ %.2135, %89 ], [ %3, %._crit_edge180.thread ]
   %.079 = phi double [ %117, %120 ], [ %96, %115 ], [ %96, %111 ], [ %96, %109 ], [ %96, %101 ], [ 0.000000e+00, %87 ], [ %92, %89 ], [ 0.000000e+00, %._crit_edge180.thread ]
-  %121 = call ptr @PyFloat_FromDouble(double noundef %.079) #16
+  %121 = call ptr @PyFloat_FromDouble(double noundef %.079) #15
   br label %Py_DECREF.exit118
 
 Py_DECREF.exit118:                                ; preds = %._crit_edge180.thread, %133, %130, %128, %_fsum_realloc.exit, %83, %85, %._crit_edge180, %.thread, %54
@@ -3176,7 +3176,7 @@ Py_DECREF.exit118:                                ; preds = %._crit_edge180.thre
   br i1 %125, label %126, label %Py_DECREF.exit116
 
 126:                                              ; preds = %123
-  call void @_Py_Dealloc(ptr noundef nonnull %4) #16
+  call void @_Py_Dealloc(ptr noundef nonnull %4) #15
   br label %Py_DECREF.exit116
 
 Py_DECREF.exit116:                                ; preds = %Py_DECREF.exit118, %123, %126
@@ -3184,7 +3184,7 @@ Py_DECREF.exit116:                                ; preds = %Py_DECREF.exit118, 
   br i1 %.not114, label %134, label %127
 
 127:                                              ; preds = %Py_DECREF.exit116
-  call void @PyMem_Free(ptr noundef %.0133169) #16
+  call void @PyMem_Free(ptr noundef %.0133169) #15
   br label %134
 
 128:                                              ; preds = %24, %19
@@ -3199,12 +3199,12 @@ Py_DECREF.exit116:                                ; preds = %Py_DECREF.exit118, 
   br i1 %132, label %133, label %Py_DECREF.exit118
 
 133:                                              ; preds = %130
-  call void @_Py_Dealloc(ptr noundef nonnull %11) #16
+  call void @_Py_Dealloc(ptr noundef nonnull %11) #15
   br label %Py_DECREF.exit118
 
 134:                                              ; preds = %Py_DECREF.exit116, %127, %2
   %.087 = phi ptr [ null, %2 ], [ %.088, %127 ], [ %.088, %Py_DECREF.exit116 ]
-  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3) #15
   ret ptr %.087
 }
 
@@ -3241,16 +3241,16 @@ define internal ptr @math_gcd(ptr readnone captures(none) %0, ptr noundef readon
   br i1 %.not3.i, label %11, label %15
 
 11:                                               ; preds = %7
-  %12 = tail call ptr @_PyLong_GCD(ptr noundef nonnull %5, ptr noundef nonnull %9) #16
+  %12 = tail call ptr @_PyLong_GCD(ptr noundef nonnull %5, ptr noundef nonnull %9) #15
   br label %math_gcd_impl.exit
 
 13:                                               ; preds = %3
-  %14 = tail call ptr @PyLong_FromLong(i64 noundef 0) #16
+  %14 = tail call ptr @PyLong_FromLong(i64 noundef 0) #15
   br label %math_gcd_impl.exit
 
 15:                                               ; preds = %7, %4, %._crit_edge.i
   %16 = phi ptr [ %.pre.i, %._crit_edge.i ], [ %5, %4 ], [ %5, %7 ]
-  %17 = tail call ptr @PyNumber_Index(ptr noundef %16) #16
+  %17 = tail call ptr @PyNumber_Index(ptr noundef %16) #15
   %18 = icmp eq ptr %17, null
   br i1 %18, label %math_gcd_impl.exit, label %19
 
@@ -3263,7 +3263,7 @@ define internal ptr @math_gcd(ptr readnone captures(none) %0, ptr noundef readon
   br i1 %.not475.i, label %.lr.ph.i, label %math_gcd_impl.exit
 
 21:                                               ; preds = %19
-  %22 = tail call ptr @PyNumber_Absolute(ptr noundef nonnull %17) #16
+  %22 = tail call ptr @PyNumber_Absolute(ptr noundef nonnull %17) #15
   %23 = load i32, ptr %17, align 8, !tbaa !13
   %.not.i55.i = icmp sgt i32 %23, -1
   br i1 %.not.i55.i, label %24, label %math_gcd_impl.exit
@@ -3275,7 +3275,7 @@ define internal ptr @math_gcd(ptr readnone captures(none) %0, ptr noundef readon
   br i1 %26, label %27, label %math_gcd_impl.exit
 
 27:                                               ; preds = %24
-  tail call void @_Py_Dealloc(ptr noundef nonnull %17) #16
+  tail call void @_Py_Dealloc(ptr noundef nonnull %17) #15
   br label %math_gcd_impl.exit
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %Py_DECREF.exit54.i
@@ -3283,7 +3283,7 @@ define internal ptr @math_gcd(ptr readnone captures(none) %0, ptr noundef readon
   %.0386.i = phi ptr [ %.240.i, %Py_DECREF.exit54.i ], [ %17, %.preheader.i ]
   %28 = getelementptr ptr, ptr %1, i64 %.0287.i
   %29 = load ptr, ptr %28, align 8, !tbaa !12
-  %30 = tail call ptr @_PyNumber_Index(ptr noundef %29) #16
+  %30 = tail call ptr @_PyNumber_Index(ptr noundef %29) #15
   %31 = icmp eq ptr %30, null
   br i1 %31, label %32, label %38
 
@@ -3299,7 +3299,7 @@ define internal ptr @math_gcd(ptr readnone captures(none) %0, ptr noundef readon
   br i1 %36, label %37, label %math_gcd_impl.exit
 
 37:                                               ; preds = %34
-  tail call void @_Py_Dealloc(ptr noundef nonnull %.0386.i) #16
+  tail call void @_Py_Dealloc(ptr noundef nonnull %.0386.i) #15
   br label %math_gcd_impl.exit
 
 38:                                               ; preds = %.lr.ph.i
@@ -3318,11 +3318,11 @@ define internal ptr @math_gcd(ptr readnone captures(none) %0, ptr noundef readon
   br i1 %44, label %45, label %Py_DECREF.exit54.i
 
 45:                                               ; preds = %42
-  tail call void @_Py_Dealloc(ptr noundef nonnull %30) #16
+  tail call void @_Py_Dealloc(ptr noundef nonnull %30) #15
   br label %Py_DECREF.exit54.i
 
 46:                                               ; preds = %38
-  %47 = tail call ptr @_PyLong_GCD(ptr noundef %.0386.i, ptr noundef nonnull %30) #16
+  %47 = tail call ptr @_PyLong_GCD(ptr noundef %.0386.i, ptr noundef nonnull %30) #15
   %48 = load i32, ptr %.0386.i, align 8, !tbaa !13
   %.not.i49.i = icmp sgt i32 %48, -1
   br i1 %.not.i49.i, label %49, label %Py_DECREF.exit50.i
@@ -3334,7 +3334,7 @@ define internal ptr @math_gcd(ptr readnone captures(none) %0, ptr noundef readon
   br i1 %51, label %52, label %Py_DECREF.exit50.i
 
 52:                                               ; preds = %49
-  tail call void @_Py_Dealloc(ptr noundef nonnull %.0386.i) #16
+  tail call void @_Py_Dealloc(ptr noundef nonnull %.0386.i) #15
   br label %Py_DECREF.exit50.i
 
 Py_DECREF.exit50.i:                               ; preds = %52, %49, %46
@@ -3349,7 +3349,7 @@ Py_DECREF.exit50.i:                               ; preds = %52, %49, %46
   br i1 %56, label %57, label %Py_DECREF.exit.i
 
 57:                                               ; preds = %54
-  tail call void @_Py_Dealloc(ptr noundef nonnull %30) #16
+  tail call void @_Py_Dealloc(ptr noundef nonnull %30) #15
   br label %Py_DECREF.exit.i
 
 Py_DECREF.exit.i:                                 ; preds = %57, %54, %Py_DECREF.exit50.i
@@ -3370,18 +3370,18 @@ math_gcd_impl.exit:                               ; preds = %Py_DECREF.exit.i, %
 ; Function Attrs: nounwind uwtable
 define internal ptr @math_hypot(ptr readnone captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) #0 {
   %4 = alloca [16 x double], align 16
-  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %4) #15
   %5 = icmp sgt i64 %2, 16
   br i1 %5, label %6, label %12
 
 6:                                                ; preds = %3
   %7 = shl i64 %2, 3
-  %8 = tail call ptr @PyMem_Malloc(i64 noundef %7) #16
+  %8 = tail call ptr @PyMem_Malloc(i64 noundef %7) #15
   %9 = icmp eq ptr %8, null
   br i1 %9, label %10, label %.lr.ph.preheader.i
 
 10:                                               ; preds = %6
-  %11 = tail call ptr @PyErr_NoMemory() #16
+  %11 = tail call ptr @PyErr_NoMemory() #15
   br label %math_hypot_impl.exit
 
 12:                                               ; preds = %3
@@ -3413,22 +3413,22 @@ define internal ptr @math_hypot(ptr readnone captures(none) %0, ptr noundef read
   br i1 %.not2.i, label %20, label %25
 
 20:                                               ; preds = %19
-  %21 = tail call double @PyLong_AsDouble(ptr noundef nonnull %15) #16
+  %21 = tail call double @PyLong_AsDouble(ptr noundef nonnull %15) #15
   %22 = fcmp oeq double %21, -1.000000e+00
   br i1 %22, label %23, label %30
 
 23:                                               ; preds = %20
-  %24 = tail call ptr @PyErr_Occurred() #16
+  %24 = tail call ptr @PyErr_Occurred() #15
   %.not49.i = icmp eq ptr %24, null
   br i1 %.not49.i, label %30, label %42
 
 25:                                               ; preds = %19
-  %26 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %15) #16
+  %26 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %15) #15
   %27 = fcmp oeq double %26, -1.000000e+00
   br i1 %27, label %28, label %30
 
 28:                                               ; preds = %25
-  %29 = tail call ptr @PyErr_Occurred() #16
+  %29 = tail call ptr @PyErr_Occurred() #15
   %.not48.i = icmp eq ptr %29, null
   br i1 %.not48.i, label %30, label %42
 
@@ -3452,12 +3452,12 @@ define internal ptr @math_hypot(ptr readnone captures(none) %0, ptr noundef read
   br i1 %.not.i, label %._crit_edge.thread.i, label %39
 
 39:                                               ; preds = %._crit_edge.i
-  call void @PyMem_Free(ptr noundef nonnull %.010.i) #16
+  call void @PyMem_Free(ptr noundef nonnull %.010.i) #15
   br label %._crit_edge.thread.i
 
 ._crit_edge.thread.i:                             ; preds = %12, %39, %._crit_edge.i
   %40 = phi double [ %38, %39 ], [ %38, %._crit_edge.i ], [ 0.000000e+00, %12 ]
-  %41 = call ptr @PyFloat_FromDouble(double noundef %40) #16
+  %41 = call ptr @PyFloat_FromDouble(double noundef %40) #15
   br label %math_hypot_impl.exit
 
 42:                                               ; preds = %28, %23
@@ -3465,19 +3465,19 @@ define internal ptr @math_hypot(ptr readnone captures(none) %0, ptr noundef read
   br i1 %.not50.i, label %math_hypot_impl.exit, label %43
 
 43:                                               ; preds = %42
-  call void @PyMem_Free(ptr noundef nonnull %.010.i) #16
+  call void @PyMem_Free(ptr noundef nonnull %.010.i) #15
   br label %math_hypot_impl.exit
 
 math_hypot_impl.exit:                             ; preds = %10, %._crit_edge.thread.i, %42, %43
   %.034.i = phi ptr [ %11, %10 ], [ %41, %._crit_edge.thread.i ], [ null, %43 ], [ null, %42 ]
-  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %4) #15
   ret ptr %.034.i
 }
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @math_isclose(ptr readnone captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
   %5 = alloca [4 x ptr], align 16
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #15
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %8, label %.thread
 
@@ -3495,7 +3495,7 @@ define internal ptr @math_isclose(ptr readnone captures(none) %0, ptr noundef %1
 
 11:                                               ; preds = %8, %.thread
   %12 = phi i64 [ %7, %.thread ], [ %2, %8 ]
-  %13 = call ptr @_PyArg_UnpackKeywords(ptr noundef %1, i64 noundef %2, ptr noundef null, ptr noundef %3, ptr noundef nonnull @math_isclose._parser, i32 noundef 2, i32 noundef 2, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %5) #16
+  %13 = call ptr @_PyArg_UnpackKeywords(ptr noundef %1, i64 noundef %2, ptr noundef null, ptr noundef %3, ptr noundef nonnull @math_isclose._parser, i32 noundef 2, i32 noundef 2, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %5) #15
   %.not60 = icmp eq ptr %13, null
   br i1 %.not60, label %87, label %.thread83
 
@@ -3514,12 +3514,12 @@ define internal ptr @math_isclose(ptr readnone captures(none) %0, ptr noundef %1
   br label %25
 
 20:                                               ; preds = %.thread83
-  %21 = call double @PyFloat_AsDouble(ptr noundef nonnull %16) #16
+  %21 = call double @PyFloat_AsDouble(ptr noundef nonnull %16) #15
   %22 = fcmp oeq double %21, -1.000000e+00
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %20
-  %24 = call ptr @PyErr_Occurred() #16
+  %24 = call ptr @PyErr_Occurred() #15
   %.not62 = icmp eq ptr %24, null
   br i1 %.not62, label %25, label %87
 
@@ -3538,12 +3538,12 @@ define internal ptr @math_isclose(ptr readnone captures(none) %0, ptr noundef %1
   br label %36
 
 31:                                               ; preds = %25
-  %32 = call double @PyFloat_AsDouble(ptr noundef nonnull %27) #16
+  %32 = call double @PyFloat_AsDouble(ptr noundef nonnull %27) #15
   %33 = fcmp oeq double %32, -1.000000e+00
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %31
-  %35 = call ptr @PyErr_Occurred() #16
+  %35 = call ptr @PyErr_Occurred() #15
   %.not64 = icmp eq ptr %35, null
   br i1 %.not64, label %36, label %87
 
@@ -3570,12 +3570,12 @@ define internal ptr @math_isclose(ptr readnone captures(none) %0, ptr noundef %1
   br label %49
 
 44:                                               ; preds = %40
-  %45 = call double @PyFloat_AsDouble(ptr noundef nonnull %39) #16
+  %45 = call double @PyFloat_AsDouble(ptr noundef nonnull %39) #15
   %46 = fcmp oeq double %45, -1.000000e+00
   br i1 %46, label %47, label %49
 
 47:                                               ; preds = %44
-  %48 = call ptr @PyErr_Occurred() #16
+  %48 = call ptr @PyErr_Occurred() #15
   %.not68 = icmp eq ptr %48, null
   br i1 %.not68, label %49, label %87
 
@@ -3599,12 +3599,12 @@ define internal ptr @math_isclose(ptr readnone captures(none) %0, ptr noundef %1
   br label %61
 
 56:                                               ; preds = %50
-  %57 = call double @PyFloat_AsDouble(ptr noundef nonnull %52) #16
+  %57 = call double @PyFloat_AsDouble(ptr noundef nonnull %52) #15
   %58 = fcmp oeq double %57, -1.000000e+00
   br i1 %58, label %59, label %61
 
 59:                                               ; preds = %56
-  %60 = call ptr @PyErr_Occurred() #16
+  %60 = call ptr @PyErr_Occurred() #15
   %.not71 = icmp eq ptr %60, null
   br i1 %.not71, label %.thread91, label %87
 
@@ -3621,9 +3621,9 @@ define internal ptr @math_isclose(ptr readnone captures(none) %0, ptr noundef %1
   br i1 %65, label %math_isclose_impl.exit.thread, label %66
 
 66:                                               ; preds = %64
-  %67 = call double @llvm.fabs.f64(double %.045) #18
+  %67 = call double @llvm.fabs.f64(double %.045) #17
   %68 = fcmp oeq double %67, 0x7FF0000000000000
-  %69 = call double @llvm.fabs.f64(double %.044) #18
+  %69 = call double @llvm.fabs.f64(double %.044) #17
   %70 = fcmp oeq double %69, 0x7FF0000000000000
   %or.cond23.i = or i1 %68, %70
   br i1 %or.cond23.i, label %math_isclose_impl.exit.thread, label %71
@@ -3649,19 +3649,19 @@ define internal ptr @math_isclose(ptr readnone captures(none) %0, ptr noundef %1
 
 .thread91:                                        ; preds = %59, %61
   %84 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !12
-  call void @PyErr_SetString(ptr noundef %84, ptr noundef nonnull @.str.76) #16
-  %85 = call ptr @PyErr_Occurred() #16
+  call void @PyErr_SetString(ptr noundef %84, ptr noundef nonnull @.str.76) #15
+  %85 = call ptr @PyErr_Occurred() #15
   %.not72 = icmp eq ptr %85, null
   br i1 %.not72, label %math_isclose_impl.exit.thread, label %87
 
 math_isclose_impl.exit.thread:                    ; preds = %81, %71, %77, %66, %64, %.thread91
   %.0.i86 = phi i64 [ -1, %.thread91 ], [ %83, %81 ], [ 1, %71 ], [ 1, %77 ], [ 0, %66 ], [ 1, %64 ]
-  %86 = call ptr @PyBool_FromLong(i64 noundef %.0.i86) #16
+  %86 = call ptr @PyBool_FromLong(i64 noundef %.0.i86) #15
   br label %87
 
 87:                                               ; preds = %.thread91, %59, %47, %34, %23, %11, %math_isclose_impl.exit.thread
   %.046 = phi ptr [ null, %.thread91 ], [ %86, %math_isclose_impl.exit.thread ], [ null, %59 ], [ null, %47 ], [ null, %34 ], [ null, %23 ], [ null, %11 ]
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #15
   ret ptr %.046
 }
 
@@ -3678,12 +3678,12 @@ define internal ptr @math_isfinite(ptr readnone captures(none) %0, ptr noundef %
   br label %11
 
 6:                                                ; preds = %2
-  %7 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %1) #16
+  %7 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %1) #15
   %8 = fcmp oeq double %7, -1.000000e+00
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %6
-  %10 = tail call ptr @PyErr_Occurred() #16
+  %10 = tail call ptr @PyErr_Occurred() #15
   %.not9 = icmp eq ptr %10, null
   br i1 %.not9, label %11, label %16
 
@@ -3692,7 +3692,7 @@ define internal ptr @math_isfinite(ptr readnone captures(none) %0, ptr noundef %
   %12 = tail call double @llvm.fabs.f64(double %.0)
   %13 = fcmp one double %12, 0x7FF0000000000000
   %14 = zext i1 %13 to i64
-  %15 = tail call ptr @PyBool_FromLong(i64 noundef %14) #16
+  %15 = tail call ptr @PyBool_FromLong(i64 noundef %14) #15
   br label %16
 
 16:                                               ; preds = %9, %11
@@ -3713,24 +3713,24 @@ define internal ptr @math_isinf(ptr readnone captures(none) %0, ptr noundef %1) 
   br label %11
 
 6:                                                ; preds = %2
-  %7 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %1) #16
+  %7 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %1) #15
   %8 = fcmp oeq double %7, -1.000000e+00
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %6
-  %10 = tail call ptr @PyErr_Occurred() #16
+  %10 = tail call ptr @PyErr_Occurred() #15
   %.not9 = icmp eq ptr %10, null
   br i1 %.not9, label %11, label %18
 
 11:                                               ; preds = %6, %9, %4
   %.0 = phi double [ %.val10, %4 ], [ -1.000000e+00, %9 ], [ %7, %6 ]
-  %12 = tail call double @llvm.fabs.f64(double %.0) #18
+  %12 = tail call double @llvm.fabs.f64(double %.0) #17
   %13 = fcmp oeq double %12, 0x7FF0000000000000
   %14 = bitcast double %.0 to i64
   %.inv.i = icmp sgt i64 %14, -1
   %15 = select i1 %.inv.i, i64 1, i64 -1
   %16 = select i1 %13, i64 %15, i64 0
-  %17 = tail call ptr @PyBool_FromLong(i64 noundef %16) #16
+  %17 = tail call ptr @PyBool_FromLong(i64 noundef %16) #15
   br label %18
 
 18:                                               ; preds = %9, %11
@@ -3751,12 +3751,12 @@ define internal ptr @math_isnan(ptr readnone captures(none) %0, ptr noundef %1) 
   br label %11
 
 6:                                                ; preds = %2
-  %7 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %1) #16
+  %7 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %1) #15
   %8 = fcmp oeq double %7, -1.000000e+00
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %6
-  %10 = tail call ptr @PyErr_Occurred() #16
+  %10 = tail call ptr @PyErr_Occurred() #15
   %.not9 = icmp eq ptr %10, null
   br i1 %.not9, label %11, label %15
 
@@ -3764,7 +3764,7 @@ define internal ptr @math_isnan(ptr readnone captures(none) %0, ptr noundef %1) 
   %.0 = phi double [ %.val10, %4 ], [ -1.000000e+00, %9 ], [ %7, %6 ]
   %12 = fcmp uno double %.0, 0.000000e+00
   %13 = zext i1 %12 to i64
-  %14 = tail call ptr @PyBool_FromLong(i64 noundef %13) #16
+  %14 = tail call ptr @PyBool_FromLong(i64 noundef %13) #15
   br label %15
 
 15:                                               ; preds = %9, %11
@@ -3774,7 +3774,7 @@ define internal ptr @math_isnan(ptr readnone captures(none) %0, ptr noundef %1) 
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @math_isqrt(ptr readnone captures(none) %0, ptr noundef %1) #0 {
-  %3 = tail call ptr @_PyNumber_Index(ptr noundef %1) #16
+  %3 = tail call ptr @_PyNumber_Index(ptr noundef %1) #15
   %4 = icmp eq ptr %3, null
   br i1 %4, label %Py_DECREF.exit134, label %5
 
@@ -3789,7 +3789,7 @@ define internal ptr @math_isqrt(ptr readnone captures(none) %0, ptr noundef %1) 
 
 8:                                                ; preds = %5
   %9 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !12
-  tail call void @PyErr_SetString(ptr noundef %9, ptr noundef nonnull @.str.77) #16
+  tail call void @PyErr_SetString(ptr noundef %9, ptr noundef nonnull @.str.77) #15
   br label %Py_XDECREF.exit
 
 10:                                               ; preds = %5
@@ -3804,15 +3804,15 @@ define internal ptr @math_isqrt(ptr readnone captures(none) %0, ptr noundef %1) 
   br i1 %14, label %15, label %Py_DECREF.exit
 
 15:                                               ; preds = %12
-  tail call void @_Py_Dealloc(ptr noundef nonnull %3) #16
+  tail call void @_Py_Dealloc(ptr noundef nonnull %3) #15
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %10, %12, %15
-  %16 = tail call ptr @PyLong_FromLong(i64 noundef 0) #16
+  %16 = tail call ptr @PyLong_FromLong(i64 noundef 0) #15
   br label %Py_DECREF.exit134
 
 17:                                               ; preds = %5
-  %18 = tail call i64 @_PyLong_NumBits(ptr noundef nonnull %3) #16
+  %18 = tail call i64 @_PyLong_NumBits(ptr noundef nonnull %3) #15
   %19 = add i64 %18, -1
   %20 = sdiv i64 %19, 2
   %21 = icmp slt i64 %19, 64
@@ -3821,7 +3821,7 @@ Py_DECREF.exit:                                   ; preds = %10, %12, %15
 22:                                               ; preds = %17
   %23 = trunc i64 %20 to i32
   %24 = sub i32 31, %23
-  %25 = tail call i64 @PyLong_AsUnsignedLongLong(ptr noundef nonnull %3) #16
+  %25 = tail call i64 @PyLong_AsUnsignedLongLong(ptr noundef nonnull %3) #15
   %26 = load i32, ptr %3, align 8, !tbaa !13
   %.not.i115 = icmp sgt i32 %26, -1
   br i1 %.not.i115, label %27, label %Py_DECREF.exit116
@@ -3833,7 +3833,7 @@ Py_DECREF.exit:                                   ; preds = %10, %12, %15
   br i1 %29, label %30, label %Py_DECREF.exit116
 
 30:                                               ; preds = %27
-  tail call void @_Py_Dealloc(ptr noundef nonnull %3) #16
+  tail call void @_Py_Dealloc(ptr noundef nonnull %3) #15
   br label %Py_DECREF.exit116
 
 Py_DECREF.exit116:                                ; preds = %22, %27, %30
@@ -3841,7 +3841,7 @@ Py_DECREF.exit116:                                ; preds = %22, %27, %30
   br i1 %31, label %32, label %34
 
 32:                                               ; preds = %Py_DECREF.exit116
-  %33 = tail call ptr @PyErr_Occurred() #16
+  %33 = tail call ptr @PyErr_Occurred() #15
   %.not112 = icmp eq ptr %33, null
   br i1 %.not112, label %34, label %Py_DECREF.exit134
 
@@ -3872,7 +3872,7 @@ Py_DECREF.exit116:                                ; preds = %22, %27, %30
   %.neg = sext i1 %57 to i32
   %58 = add i32 %54, %.neg
   %59 = zext i32 %58 to i64
-  %60 = tail call ptr @PyLong_FromUnsignedLong(i64 noundef %59) #16
+  %60 = tail call ptr @PyLong_FromUnsignedLong(i64 noundef %59) #15
   br label %Py_DECREF.exit134
 
 .preheader:                                       ; preds = %17, %.preheader
@@ -3891,12 +3891,12 @@ Py_DECREF.exit116:                                ; preds = %22, %27, %30
   %68 = lshr i64 %20, %67
   %69 = shl nuw nsw i64 %20, 1
   %70 = add nsw i64 %69, -62
-  %71 = tail call ptr @_PyLong_Rshift(ptr noundef nonnull %3, i64 noundef %70) #16
+  %71 = tail call ptr @_PyLong_Rshift(ptr noundef nonnull %3, i64 noundef %70) #15
   %72 = icmp eq ptr %71, null
   br i1 %72, label %Py_XDECREF.exit, label %73
 
 73:                                               ; preds = %65
-  %74 = tail call i64 @PyLong_AsUnsignedLongLong(ptr noundef nonnull %71) #16
+  %74 = tail call i64 @PyLong_AsUnsignedLongLong(ptr noundef nonnull %71) #15
   %75 = load i32, ptr %71, align 8, !tbaa !13
   %.not.i117 = icmp sgt i32 %75, -1
   br i1 %.not.i117, label %76, label %Py_DECREF.exit118
@@ -3908,7 +3908,7 @@ Py_DECREF.exit116:                                ; preds = %22, %27, %30
   br i1 %78, label %79, label %Py_DECREF.exit118
 
 79:                                               ; preds = %76
-  tail call void @_Py_Dealloc(ptr noundef nonnull %71) #16
+  tail call void @_Py_Dealloc(ptr noundef nonnull %71) #15
   br label %Py_DECREF.exit118
 
 Py_DECREF.exit118:                                ; preds = %73, %76, %79
@@ -3935,7 +3935,7 @@ Py_DECREF.exit118:                                ; preds = %73, %76, %79
   br label %.split95
 
 97:                                               ; preds = %Py_DECREF.exit118
-  %98 = tail call ptr @PyErr_Occurred() #16
+  %98 = tail call ptr @PyErr_Occurred() #15
   %.not = icmp eq ptr %98, null
   br i1 %.not, label %.split95, label %Py_XDECREF.exit
 
@@ -3945,7 +3945,7 @@ Py_DECREF.exit118:                                ; preds = %73, %76, %79
   %100 = sub i32 31, %99
   %101 = lshr i32 %phi.call, %100
   %102 = zext i32 %101 to i64
-  %103 = tail call ptr @PyLong_FromUnsignedLong(i64 noundef %102) #16
+  %103 = tail call ptr @PyLong_FromUnsignedLong(i64 noundef %102) #15
   %104 = icmp eq ptr %103, null
   br i1 %104, label %Py_XDECREF.exit, label %105
 
@@ -3971,12 +3971,12 @@ Py_DECREF.exit118:                                ; preds = %73, %76, %79
   %112 = lshr i64 %20, %indvars.iv174
   %113 = add nsw i64 %.069171, %112
   %114 = sub i64 %.neg166, %113
-  %115 = tail call ptr @_PyLong_Rshift(ptr noundef nonnull %3, i64 noundef %114) #16
+  %115 = tail call ptr @_PyLong_Rshift(ptr noundef nonnull %3, i64 noundef %114) #15
   %116 = icmp eq ptr %115, null
   br i1 %116, label %.loopexit, label %117
 
 117:                                              ; preds = %111
-  %118 = tail call ptr @PyNumber_FloorDivide(ptr noundef nonnull %115, ptr noundef nonnull %.194169) #16
+  %118 = tail call ptr @PyNumber_FloorDivide(ptr noundef nonnull %115, ptr noundef nonnull %.194169) #15
   %119 = load i32, ptr %115, align 8, !tbaa !13
   %.not.i119 = icmp sgt i32 %119, -1
   br i1 %.not.i119, label %120, label %Py_DECREF.exit120
@@ -3988,7 +3988,7 @@ Py_DECREF.exit118:                                ; preds = %73, %76, %79
   br i1 %122, label %123, label %Py_DECREF.exit120
 
 123:                                              ; preds = %120
-  tail call void @_Py_Dealloc(ptr noundef nonnull %115) #16
+  tail call void @_Py_Dealloc(ptr noundef nonnull %115) #15
   br label %Py_DECREF.exit120
 
 Py_DECREF.exit120:                                ; preds = %117, %120, %123
@@ -3998,7 +3998,7 @@ Py_DECREF.exit120:                                ; preds = %117, %120, %123
 125:                                              ; preds = %Py_DECREF.exit120
   %126 = xor i64 %.069171, -1
   %127 = add nsw i64 %112, %126
-  %128 = tail call ptr @_PyLong_Lshift(ptr noundef nonnull %.194169, i64 noundef %127) #16
+  %128 = tail call ptr @_PyLong_Lshift(ptr noundef nonnull %.194169, i64 noundef %127) #15
   %129 = load i32, ptr %.194169, align 8, !tbaa !13
   %.not.i121 = icmp sgt i32 %129, -1
   br i1 %.not.i121, label %130, label %Py_DECREF.exit122
@@ -4010,7 +4010,7 @@ Py_DECREF.exit120:                                ; preds = %117, %120, %123
   br i1 %132, label %133, label %Py_DECREF.exit122
 
 133:                                              ; preds = %130
-  tail call void @_Py_Dealloc(ptr noundef nonnull %.194169) #16
+  tail call void @_Py_Dealloc(ptr noundef nonnull %.194169) #15
   br label %Py_DECREF.exit122
 
 Py_DECREF.exit122:                                ; preds = %125, %130, %133
@@ -4029,11 +4029,11 @@ Py_DECREF.exit122:                                ; preds = %125, %130, %133
   br i1 %139, label %140, label %Py_XDECREF.exit
 
 140:                                              ; preds = %137
-  tail call void @_Py_Dealloc(ptr noundef nonnull %118) #16
+  tail call void @_Py_Dealloc(ptr noundef nonnull %118) #15
   br label %Py_XDECREF.exit
 
 141:                                              ; preds = %Py_DECREF.exit122
-  %142 = tail call ptr @PyNumber_Add(ptr noundef nonnull %128, ptr noundef nonnull %118) #16
+  %142 = tail call ptr @PyNumber_Add(ptr noundef nonnull %128, ptr noundef nonnull %118) #15
   %143 = load i32, ptr %128, align 8, !tbaa !13
   %.not.i125 = icmp sgt i32 %143, -1
   br i1 %.not.i125, label %144, label %Py_DECREF.exit126
@@ -4045,7 +4045,7 @@ Py_DECREF.exit122:                                ; preds = %125, %130, %133
   br i1 %146, label %147, label %Py_DECREF.exit126
 
 147:                                              ; preds = %144
-  tail call void @_Py_Dealloc(ptr noundef nonnull %128) #16
+  tail call void @_Py_Dealloc(ptr noundef nonnull %128) #15
   br label %Py_DECREF.exit126
 
 Py_DECREF.exit126:                                ; preds = %141, %144, %147
@@ -4060,7 +4060,7 @@ Py_DECREF.exit126:                                ; preds = %141, %144, %147
   br i1 %151, label %152, label %Py_DECREF.exit124
 
 152:                                              ; preds = %149
-  tail call void @_Py_Dealloc(ptr noundef nonnull %118) #16
+  tail call void @_Py_Dealloc(ptr noundef nonnull %118) #15
   br label %Py_DECREF.exit124
 
 Py_DECREF.exit124:                                ; preds = %152, %149, %Py_DECREF.exit126
@@ -4069,12 +4069,12 @@ Py_DECREF.exit124:                                ; preds = %152, %149, %Py_DECR
 
 .thread:                                          ; preds = %109, %105
   %.194.lcssa = phi ptr [ %103, %105 ], [ %142, %109 ]
-  %153 = tail call ptr @PyNumber_Multiply(ptr noundef nonnull %.194.lcssa, ptr noundef nonnull %.194.lcssa) #16
+  %153 = tail call ptr @PyNumber_Multiply(ptr noundef nonnull %.194.lcssa, ptr noundef nonnull %.194.lcssa) #15
   %154 = icmp eq ptr %153, null
   br i1 %154, label %.loopexit, label %155
 
 155:                                              ; preds = %.thread
-  %156 = tail call i32 @PyObject_RichCompareBool(ptr noundef nonnull %3, ptr noundef nonnull %153, i32 noundef 0) #16
+  %156 = tail call i32 @PyObject_RichCompareBool(ptr noundef nonnull %3, ptr noundef nonnull %153, i32 noundef 0) #15
   %157 = load i32, ptr %153, align 8, !tbaa !13
   %.not.i129 = icmp sgt i32 %157, -1
   br i1 %.not.i129, label %158, label %Py_DECREF.exit130
@@ -4086,7 +4086,7 @@ Py_DECREF.exit124:                                ; preds = %152, %149, %Py_DECR
   br i1 %160, label %161, label %Py_DECREF.exit130
 
 161:                                              ; preds = %158
-  tail call void @_Py_Dealloc(ptr noundef nonnull %153) #16
+  tail call void @_Py_Dealloc(ptr noundef nonnull %153) #15
   br label %Py_DECREF.exit130
 
 Py_DECREF.exit130:                                ; preds = %155, %158, %161
@@ -4096,7 +4096,7 @@ Py_DECREF.exit130:                                ; preds = %155, %158, %161
   ]
 
 162:                                              ; preds = %Py_DECREF.exit130
-  %163 = tail call ptr @PyNumber_Subtract(ptr noundef nonnull %.194.lcssa, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 14104)) #16
+  %163 = tail call ptr @PyNumber_Subtract(ptr noundef nonnull %.194.lcssa, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 14104)) #15
   %164 = load i32, ptr %.194.lcssa, align 8, !tbaa !13
   %.not.i131 = icmp sgt i32 %164, -1
   br i1 %.not.i131, label %165, label %Py_DECREF.exit132
@@ -4108,7 +4108,7 @@ Py_DECREF.exit130:                                ; preds = %155, %158, %161
   br i1 %167, label %168, label %Py_DECREF.exit132
 
 168:                                              ; preds = %165
-  tail call void @_Py_Dealloc(ptr noundef nonnull %.194.lcssa) #16
+  tail call void @_Py_Dealloc(ptr noundef nonnull %.194.lcssa) #15
   br label %Py_DECREF.exit132
 
 Py_DECREF.exit132:                                ; preds = %168, %165, %162, %Py_DECREF.exit130
@@ -4124,7 +4124,7 @@ Py_DECREF.exit132:                                ; preds = %168, %165, %162, %P
   br i1 %172, label %173, label %Py_DECREF.exit134
 
 173:                                              ; preds = %170
-  tail call void @_Py_Dealloc(ptr noundef nonnull %3) #16
+  tail call void @_Py_Dealloc(ptr noundef nonnull %3) #15
   br label %Py_DECREF.exit134
 
 .loopexit:                                        ; preds = %Py_DECREF.exit120, %111, %.thread, %Py_DECREF.exit130
@@ -4140,7 +4140,7 @@ Py_DECREF.exit132:                                ; preds = %168, %165, %162, %P
   br i1 %177, label %178, label %Py_XDECREF.exit
 
 178:                                              ; preds = %175
-  tail call void @_Py_Dealloc(ptr noundef nonnull %.093.ph) #16
+  tail call void @_Py_Dealloc(ptr noundef nonnull %.093.ph) #15
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %Py_DECREF.exit124, %135, %137, %140, %.split95, %97, %65, %8, %.loopexit, %175, %178
@@ -4155,7 +4155,7 @@ Py_XDECREF.exit:                                  ; preds = %Py_DECREF.exit124, 
   br i1 %182, label %183, label %Py_DECREF.exit134
 
 183:                                              ; preds = %180
-  tail call void @_Py_Dealloc(ptr noundef nonnull %3) #16
+  tail call void @_Py_Dealloc(ptr noundef nonnull %3) #15
   br label %Py_DECREF.exit134
 
 Py_DECREF.exit134:                                ; preds = %183, %180, %Py_XDECREF.exit, %173, %170, %Py_DECREF.exit132, %34, %32, %2, %Py_DECREF.exit
@@ -4169,12 +4169,12 @@ define internal ptr @math_lcm(ptr readnone captures(none) %0, ptr noundef readon
   br i1 %4, label %5, label %7
 
 5:                                                ; preds = %3
-  %6 = tail call ptr @PyLong_FromLong(i64 noundef 1) #16
+  %6 = tail call ptr @PyLong_FromLong(i64 noundef 1) #15
   br label %math_lcm_impl.exit
 
 7:                                                ; preds = %3
   %8 = load ptr, ptr %1, align 8, !tbaa !12
-  %9 = tail call ptr @PyNumber_Index(ptr noundef %8) #16
+  %9 = tail call ptr @PyNumber_Index(ptr noundef %8) #15
   %10 = icmp eq ptr %9, null
   br i1 %10, label %math_lcm_impl.exit, label %11
 
@@ -4187,7 +4187,7 @@ define internal ptr @math_lcm(ptr readnone captures(none) %0, ptr noundef readon
   br i1 %13, label %.lr.ph.i, label %math_lcm_impl.exit
 
 14:                                               ; preds = %11
-  %15 = tail call ptr @PyNumber_Absolute(ptr noundef nonnull %9) #16
+  %15 = tail call ptr @PyNumber_Absolute(ptr noundef nonnull %9) #15
   %16 = load i32, ptr %9, align 8, !tbaa !13
   %.not.i41.i = icmp sgt i32 %16, -1
   br i1 %.not.i41.i, label %17, label %math_lcm_impl.exit
@@ -4199,7 +4199,7 @@ define internal ptr @math_lcm(ptr readnone captures(none) %0, ptr noundef readon
   br i1 %19, label %20, label %math_lcm_impl.exit
 
 20:                                               ; preds = %17
-  tail call void @_Py_Dealloc(ptr noundef nonnull %9) #16
+  tail call void @_Py_Dealloc(ptr noundef nonnull %9) #15
   br label %math_lcm_impl.exit
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %Py_DECREF.exit38.i
@@ -4207,7 +4207,7 @@ define internal ptr @math_lcm(ptr readnone captures(none) %0, ptr noundef readon
   %.0292.i = phi ptr [ %.130.i, %Py_DECREF.exit38.i ], [ %9, %.preheader.i ]
   %21 = getelementptr ptr, ptr %1, i64 %.0194.i
   %22 = load ptr, ptr %21, align 8, !tbaa !12
-  %23 = tail call ptr @PyNumber_Index(ptr noundef %22) #16
+  %23 = tail call ptr @PyNumber_Index(ptr noundef %22) #15
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %31
 
@@ -4223,7 +4223,7 @@ define internal ptr @math_lcm(ptr readnone captures(none) %0, ptr noundef readon
   br i1 %29, label %30, label %math_lcm_impl.exit
 
 30:                                               ; preds = %27
-  tail call void @_Py_Dealloc(ptr noundef nonnull %.0292.i) #16
+  tail call void @_Py_Dealloc(ptr noundef nonnull %.0292.i) #15
   br label %math_lcm_impl.exit
 
 31:                                               ; preds = %.lr.ph.i
@@ -4242,7 +4242,7 @@ define internal ptr @math_lcm(ptr readnone captures(none) %0, ptr noundef readon
   br i1 %37, label %38, label %Py_DECREF.exit38.i
 
 38:                                               ; preds = %35
-  tail call void @_Py_Dealloc(ptr noundef nonnull %23) #16
+  tail call void @_Py_Dealloc(ptr noundef nonnull %23) #15
   br label %Py_DECREF.exit38.i
 
 39:                                               ; preds = %31
@@ -4260,16 +4260,16 @@ define internal ptr @math_lcm(ptr readnone captures(none) %0, ptr noundef readon
   br i1 %46, label %47, label %49
 
 47:                                               ; preds = %43, %39
-  %48 = tail call ptr @PyLong_FromLong(i64 noundef 0) #16
+  %48 = tail call ptr @PyLong_FromLong(i64 noundef 0) #15
   br label %long_lcm.exit.i
 
 49:                                               ; preds = %43
-  %50 = tail call ptr @_PyLong_GCD(ptr noundef nonnull %.0292.i, ptr noundef nonnull %23) #16
+  %50 = tail call ptr @_PyLong_GCD(ptr noundef nonnull %.0292.i, ptr noundef nonnull %23) #15
   %51 = icmp eq ptr %50, null
   br i1 %51, label %long_lcm.exit.i, label %52
 
 52:                                               ; preds = %49
-  %53 = tail call ptr @PyNumber_FloorDivide(ptr noundef nonnull %.0292.i, ptr noundef nonnull %50) #16
+  %53 = tail call ptr @PyNumber_FloorDivide(ptr noundef nonnull %.0292.i, ptr noundef nonnull %50) #15
   %54 = load i32, ptr %50, align 8, !tbaa !13
   %.not.i22.i.i = icmp sgt i32 %54, -1
   br i1 %.not.i22.i.i, label %55, label %Py_DECREF.exit23.i.i
@@ -4281,7 +4281,7 @@ define internal ptr @math_lcm(ptr readnone captures(none) %0, ptr noundef readon
   br i1 %57, label %58, label %Py_DECREF.exit23.i.i
 
 58:                                               ; preds = %55
-  tail call void @_Py_Dealloc(ptr noundef nonnull %50) #16
+  tail call void @_Py_Dealloc(ptr noundef nonnull %50) #15
   br label %Py_DECREF.exit23.i.i
 
 Py_DECREF.exit23.i.i:                             ; preds = %58, %55, %52
@@ -4289,7 +4289,7 @@ Py_DECREF.exit23.i.i:                             ; preds = %58, %55, %52
   br i1 %59, label %long_lcm.exit.i, label %60
 
 60:                                               ; preds = %Py_DECREF.exit23.i.i
-  %61 = tail call ptr @PyNumber_Multiply(ptr noundef nonnull %53, ptr noundef nonnull %23) #16
+  %61 = tail call ptr @PyNumber_Multiply(ptr noundef nonnull %53, ptr noundef nonnull %23) #15
   %62 = load i32, ptr %53, align 8, !tbaa !13
   %.not.i20.i.i = icmp sgt i32 %62, -1
   br i1 %.not.i20.i.i, label %63, label %Py_DECREF.exit21.i.i
@@ -4301,7 +4301,7 @@ Py_DECREF.exit23.i.i:                             ; preds = %58, %55, %52
   br i1 %65, label %66, label %Py_DECREF.exit21.i.i
 
 66:                                               ; preds = %63
-  tail call void @_Py_Dealloc(ptr noundef nonnull %53) #16
+  tail call void @_Py_Dealloc(ptr noundef nonnull %53) #15
   br label %Py_DECREF.exit21.i.i
 
 Py_DECREF.exit21.i.i:                             ; preds = %66, %63, %60
@@ -4309,7 +4309,7 @@ Py_DECREF.exit21.i.i:                             ; preds = %66, %63, %60
   br i1 %67, label %long_lcm.exit.i, label %68
 
 68:                                               ; preds = %Py_DECREF.exit21.i.i
-  %69 = tail call ptr @PyNumber_Absolute(ptr noundef nonnull %61) #16
+  %69 = tail call ptr @PyNumber_Absolute(ptr noundef nonnull %61) #15
   %70 = load i32, ptr %61, align 8, !tbaa !13
   %.not.i.i.i = icmp sgt i32 %70, -1
   br i1 %.not.i.i.i, label %71, label %long_lcm.exit.i
@@ -4321,7 +4321,7 @@ Py_DECREF.exit21.i.i:                             ; preds = %66, %63, %60
   br i1 %73, label %74, label %long_lcm.exit.i
 
 74:                                               ; preds = %71
-  tail call void @_Py_Dealloc(ptr noundef nonnull %61) #16
+  tail call void @_Py_Dealloc(ptr noundef nonnull %61) #15
   br label %long_lcm.exit.i
 
 long_lcm.exit.i:                                  ; preds = %74, %71, %68, %Py_DECREF.exit21.i.i, %Py_DECREF.exit23.i.i, %49, %47
@@ -4337,7 +4337,7 @@ long_lcm.exit.i:                                  ; preds = %74, %71, %68, %Py_D
   br i1 %78, label %79, label %Py_DECREF.exit36.i
 
 79:                                               ; preds = %76
-  tail call void @_Py_Dealloc(ptr noundef nonnull %.0292.i) #16
+  tail call void @_Py_Dealloc(ptr noundef nonnull %.0292.i) #15
   br label %Py_DECREF.exit36.i
 
 Py_DECREF.exit36.i:                               ; preds = %79, %76, %long_lcm.exit.i
@@ -4352,7 +4352,7 @@ Py_DECREF.exit36.i:                               ; preds = %79, %76, %long_lcm.
   br i1 %83, label %84, label %Py_DECREF.exit.i
 
 84:                                               ; preds = %81
-  tail call void @_Py_Dealloc(ptr noundef nonnull %23) #16
+  tail call void @_Py_Dealloc(ptr noundef nonnull %23) #15
   br label %Py_DECREF.exit.i
 
 Py_DECREF.exit.i:                                 ; preds = %84, %81, %Py_DECREF.exit36.i
@@ -4377,7 +4377,7 @@ define internal ptr @math_ldexp(ptr readnone captures(none) %0, ptr noundef read
   br i1 %or.cond, label %7, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call i32 @_PyArg_CheckPositional(ptr noundef nonnull @.str.36, i64 noundef %2, i64 noundef 2, i64 noundef 2) #16
+  %6 = tail call i32 @_PyArg_CheckPositional(ptr noundef nonnull @.str.36, i64 noundef %2, i64 noundef 2, i64 noundef 2) #15
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %60, label %7
 
@@ -4394,12 +4394,12 @@ define internal ptr @math_ldexp(ptr readnone captures(none) %0, ptr noundef read
   br label %17
 
 12:                                               ; preds = %7
-  %13 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %8) #16
+  %13 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %8) #15
   %14 = fcmp oeq double %13, -1.000000e+00
   br i1 %14, label %15, label %17
 
 15:                                               ; preds = %12
-  %16 = tail call ptr @PyErr_Occurred() #16
+  %16 = tail call ptr @PyErr_Occurred() #15
   %.not15 = icmp eq ptr %16, null
   br i1 %.not15, label %17, label %60
 
@@ -4407,7 +4407,7 @@ define internal ptr @math_ldexp(ptr readnone captures(none) %0, ptr noundef read
   %.012 = phi double [ %.val16, %10 ], [ -1.000000e+00, %15 ], [ %13, %12 ]
   %18 = getelementptr i8, ptr %1, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #15
   %20 = getelementptr i8, ptr %19, i64 8
   %.val.i = load ptr, ptr %20, align 8, !tbaa !16
   %21 = getelementptr i8, ptr %.val.i, i64 168
@@ -4417,12 +4417,12 @@ define internal ptr @math_ldexp(ptr readnone captures(none) %0, ptr noundef read
   br i1 %.not.i, label %32, label %23
 
 23:                                               ; preds = %17
-  %24 = call i64 @PyLong_AsLongAndOverflow(ptr noundef nonnull %19, ptr noundef nonnull %4) #16
+  %24 = call i64 @PyLong_AsLongAndOverflow(ptr noundef nonnull %19, ptr noundef nonnull %4) #15
   %25 = icmp eq i64 %24, -1
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %23
-  %27 = call ptr @PyErr_Occurred() #16
+  %27 = call ptr @PyErr_Occurred() #15
   %.not19.i = icmp eq ptr %27, null
   br i1 %.not19.i, label %28, label %math_ldexp_impl.exit
 
@@ -4437,7 +4437,7 @@ define internal ptr @math_ldexp(ptr readnone captures(none) %0, ptr noundef read
 
 32:                                               ; preds = %17
   %33 = load ptr, ptr @PyExc_TypeError, align 8, !tbaa !12
-  tail call void @PyErr_SetString(ptr noundef %33, ptr noundef nonnull @.str.78) #16
+  tail call void @PyErr_SetString(ptr noundef %33, ptr noundef nonnull @.str.78) #15
   br label %math_ldexp_impl.exit
 
 34:                                               ; preds = %28
@@ -4446,7 +4446,7 @@ define internal ptr @math_ldexp(ptr readnone captures(none) %0, ptr noundef read
 
 36:                                               ; preds = %34
   %37 = call double @llvm.copysign.f64(double 0x7FF0000000000000, double %.012)
-  %38 = tail call ptr @__errno_location() #17
+  %38 = tail call ptr @__errno_location() #16
   br label %.thread8.sink.split.i
 
 39:                                               ; preds = %34
@@ -4458,10 +4458,10 @@ define internal ptr @math_ldexp(ptr readnone captures(none) %0, ptr noundef read
   br label %is_error.exit.sink.split.i
 
 43:                                               ; preds = %39
-  %44 = tail call ptr @__errno_location() #17
+  %44 = tail call ptr @__errno_location() #16
   store i32 0, ptr %44, align 4, !tbaa !14
   %45 = trunc nsw i64 %.0.i to i32
-  %46 = call double @ldexp(double noundef %.012, i32 noundef %45) #16, !tbaa !14
+  %46 = call double @ldexp(double noundef %.012, i32 noundef %45) #15, !tbaa !14
   %47 = call double @llvm.fabs.f64(double %46)
   %48 = fcmp oeq double %47, 0x7FF0000000000000
   br i1 %48, label %.thread8.sink.split.i, label %49
@@ -4476,7 +4476,7 @@ define internal ptr @math_ldexp(ptr readnone captures(none) %0, ptr noundef read
 
 50:                                               ; preds = %49
   %51 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !12
-  call void @PyErr_SetString(ptr noundef %51, ptr noundef nonnull @.str.60) #16
+  call void @PyErr_SetString(ptr noundef %51, ptr noundef nonnull @.str.60) #15
   br label %math_ldexp_impl.exit
 
 .thread8.sink.split.i:                            ; preds = %43, %36
@@ -4494,28 +4494,28 @@ define internal ptr @math_ldexp(ptr readnone captures(none) %0, ptr noundef read
 
 53:                                               ; preds = %.thread8.i
   %54 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !12
-  call void @PyErr_SetString(ptr noundef %54, ptr noundef nonnull @.str.59) #16
+  call void @PyErr_SetString(ptr noundef %54, ptr noundef nonnull @.str.59) #15
   br label %math_ldexp_impl.exit
 
 55:                                               ; preds = %49
   %56 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !12
-  %57 = call ptr @PyErr_SetFromErrno(ptr noundef %56) #16
+  %57 = call ptr @PyErr_SetFromErrno(ptr noundef %56) #15
   br label %math_ldexp_impl.exit
 
 is_error.exit.sink.split.i:                       ; preds = %41, %28
   %.0155.ph.i = phi double [ %42, %41 ], [ %.012, %28 ]
-  %58 = tail call ptr @__errno_location() #17
+  %58 = tail call ptr @__errno_location() #16
   store i32 0, ptr %58, align 4, !tbaa !14
   br label %is_error.exit.i
 
 is_error.exit.i:                                  ; preds = %is_error.exit.sink.split.i, %.thread8.i, %49
   %.0155.i = phi double [ %46, %49 ], [ %.01511.i, %.thread8.i ], [ %.0155.ph.i, %is_error.exit.sink.split.i ]
-  %59 = call ptr @PyFloat_FromDouble(double noundef %.0155.i) #16
+  %59 = call ptr @PyFloat_FromDouble(double noundef %.0155.i) #15
   br label %math_ldexp_impl.exit
 
 math_ldexp_impl.exit:                             ; preds = %26, %32, %50, %53, %55, %is_error.exit.i
   %.016.i = phi ptr [ %59, %is_error.exit.i ], [ null, %32 ], [ null, %26 ], [ null, %50 ], [ null, %53 ], [ null, %55 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #15
   br label %60
 
 60:                                               ; preds = %15, %5, %math_ldexp_impl.exit
@@ -4538,7 +4538,7 @@ define internal ptr @math_log(ptr readnone captures(none) %0, ptr noundef readon
   br i1 %or.cond, label %9, label %7
 
 7:                                                ; preds = %3
-  %8 = tail call i32 @_PyArg_CheckPositional(ptr noundef nonnull @.str.38, i64 noundef %2, i64 noundef 1, i64 noundef 2) #16
+  %8 = tail call i32 @_PyArg_CheckPositional(ptr noundef nonnull @.str.38, i64 noundef %2, i64 noundef 1, i64 noundef 2) #15
   %.not = icmp eq i32 %8, 0
   br i1 %.not, label %Py_DECREF.exit, label %9
 
@@ -4553,7 +4553,7 @@ define internal ptr @math_log(ptr readnone captures(none) %0, ptr noundef readon
   br i1 %.not.i26, label %61, label %14
 
 14:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #15
   %15 = getelementptr i8, ptr %10, i64 16
   %.val19.i = load i64, ptr %15, align 8, !tbaa !45
   %16 = and i64 %.val19.i, 3
@@ -4562,28 +4562,28 @@ define internal ptr @math_log(ptr readnone captures(none) %0, ptr noundef readon
 
 18:                                               ; preds = %14
   %19 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !12
-  %20 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %19, ptr noundef nonnull @.str.79, ptr noundef nonnull %10) #16
+  %20 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %19, ptr noundef nonnull @.str.79, ptr noundef nonnull %10) #15
   br label %60
 
 21:                                               ; preds = %14
-  %22 = tail call double @PyLong_AsDouble(ptr noundef nonnull %10) #16
+  %22 = tail call double @PyLong_AsDouble(ptr noundef nonnull %10) #15
   %23 = fcmp oeq double %22, -1.000000e+00
   br i1 %23, label %24, label %46
 
 24:                                               ; preds = %21
-  %25 = tail call ptr @PyErr_Occurred() #16
+  %25 = tail call ptr @PyErr_Occurred() #15
   %.not16.i = icmp eq ptr %25, null
   br i1 %.not16.i, label %46, label %26
 
 26:                                               ; preds = %24
   %27 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !12
-  %28 = tail call i32 @PyErr_ExceptionMatches(ptr noundef %27) #16
+  %28 = tail call i32 @PyErr_ExceptionMatches(ptr noundef %27) #15
   %.not17.i = icmp eq i32 %28, 0
   br i1 %.not17.i, label %60, label %29
 
 29:                                               ; preds = %26
-  tail call void @PyErr_Clear() #16
-  %30 = call double @_PyLong_Frexp(ptr noundef nonnull %10, ptr noundef nonnull %5) #16
+  tail call void @PyErr_Clear() #15
+  %30 = call double @_PyLong_Frexp(ptr noundef nonnull %10, ptr noundef nonnull %5) #15
   %31 = call double @llvm.fabs.f64(double %30)
   %32 = fcmp ueq double %31, 0x7FF0000000000000
   br i1 %32, label %40, label %33
@@ -4597,7 +4597,7 @@ define internal ptr @math_log(ptr readnone captures(none) %0, ptr noundef readon
   br label %m_log.exit42
 
 37:                                               ; preds = %33
-  %38 = tail call ptr @__errno_location() #17
+  %38 = tail call ptr @__errno_location() #16
   store i32 33, ptr %38, align 4, !tbaa !14
   %39 = fcmp oeq double %30, 0.000000e+00
   %..i39 = select i1 %39, double 0xFFF0000000000000, double 0x7FF8000000000000
@@ -4608,7 +4608,7 @@ define internal ptr @math_log(ptr readnone captures(none) %0, ptr noundef readon
   br i1 %or.cond.i41, label %m_log.exit42, label %41
 
 41:                                               ; preds = %40
-  %42 = tail call ptr @__errno_location() #17
+  %42 = tail call ptr @__errno_location() #16
   store i32 33, ptr %42, align 4, !tbaa !14
   br label %m_log.exit42
 
@@ -4633,7 +4633,7 @@ m_log.exit42:                                     ; preds = %35, %37, %40, %41
   br label %m_log.exit
 
 53:                                               ; preds = %49
-  %54 = tail call ptr @__errno_location() #17
+  %54 = tail call ptr @__errno_location() #16
   store i32 33, ptr %54, align 4, !tbaa !14
   %55 = fcmp oeq double %22, 0.000000e+00
   %..i = select i1 %55, double 0xFFF0000000000000, double 0x7FF8000000000000
@@ -4644,18 +4644,18 @@ m_log.exit42:                                     ; preds = %35, %37, %40, %41
   br i1 %or.cond.i, label %m_log.exit, label %57
 
 57:                                               ; preds = %56
-  %58 = tail call ptr @__errno_location() #17
+  %58 = tail call ptr @__errno_location() #16
   store i32 33, ptr %58, align 4, !tbaa !14
   br label %m_log.exit
 
 m_log.exit:                                       ; preds = %57, %56, %53, %51, %m_log.exit42
   %.0.i = phi double [ %45, %m_log.exit42 ], [ %52, %51 ], [ 0x7FF8000000000000, %57 ], [ %..i, %53 ], [ %22, %56 ]
-  %59 = call ptr @PyFloat_FromDouble(double noundef %.0.i) #16
+  %59 = call ptr @PyFloat_FromDouble(double noundef %.0.i) #15
   br label %60
 
 60:                                               ; preds = %m_log.exit, %26, %18
   %.015.i = phi ptr [ %59, %m_log.exit ], [ null, %18 ], [ null, %26 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
   br label %loghelper.exit
 
 61:                                               ; preds = %9
@@ -4681,7 +4681,7 @@ loghelper.exit:                                   ; preds = %60, %61
   br i1 %.not.i29, label %107, label %71
 
 71:                                               ; preds = %65
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #15
   %72 = getelementptr i8, ptr %67, i64 16
   %.val19.i30 = load i64, ptr %72, align 8, !tbaa !45
   %73 = and i64 %.val19.i30, 3
@@ -4690,29 +4690,29 @@ loghelper.exit:                                   ; preds = %60, %61
 
 75:                                               ; preds = %71
   %76 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !12
-  %77 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %76, ptr noundef nonnull @.str.79, ptr noundef nonnull %67) #16
+  %77 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %76, ptr noundef nonnull @.str.79, ptr noundef nonnull %67) #15
   br label %106
 
 78:                                               ; preds = %71
-  %79 = call double @PyLong_AsDouble(ptr noundef nonnull %67) #16
+  %79 = call double @PyLong_AsDouble(ptr noundef nonnull %67) #15
   %80 = fcmp oeq double %79, -1.000000e+00
   br i1 %80, label %81, label %92
 
 81:                                               ; preds = %78
-  %82 = call ptr @PyErr_Occurred() #16
+  %82 = call ptr @PyErr_Occurred() #15
   %.not16.i34 = icmp eq ptr %82, null
   br i1 %.not16.i34, label %92, label %83
 
 83:                                               ; preds = %81
   %84 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !12
-  %85 = call i32 @PyErr_ExceptionMatches(ptr noundef %84) #16
+  %85 = call i32 @PyErr_ExceptionMatches(ptr noundef %84) #15
   %.not17.i35 = icmp eq i32 %85, 0
   br i1 %.not17.i35, label %106, label %86
 
 86:                                               ; preds = %83
-  call void @PyErr_Clear() #16
-  %87 = call double @_PyLong_Frexp(ptr noundef nonnull %67, ptr noundef nonnull %4) #16
-  %88 = call double @m_log(double noundef %87) #16, !callees !51
+  call void @PyErr_Clear() #15
+  %87 = call double @_PyLong_Frexp(ptr noundef nonnull %67, ptr noundef nonnull %4) #15
+  %88 = call double @m_log(double noundef %87) #15, !callees !51
   %89 = load i64, ptr %4, align 8, !tbaa !37
   %90 = sitofp i64 %89 to double
   %91 = call double @llvm.fmuladd.f64(double %90, double 0x3FE62E42FEFA39EF, double %88)
@@ -4732,7 +4732,7 @@ loghelper.exit:                                   ; preds = %60, %61
   br label %m_log.exit46
 
 99:                                               ; preds = %95
-  %100 = tail call ptr @__errno_location() #17
+  %100 = tail call ptr @__errno_location() #16
   store i32 33, ptr %100, align 4, !tbaa !14
   %101 = fcmp oeq double %79, 0.000000e+00
   %..i43 = select i1 %101, double 0xFFF0000000000000, double 0x7FF8000000000000
@@ -4743,18 +4743,18 @@ loghelper.exit:                                   ; preds = %60, %61
   br i1 %or.cond.i45, label %m_log.exit46, label %103
 
 103:                                              ; preds = %102
-  %104 = tail call ptr @__errno_location() #17
+  %104 = tail call ptr @__errno_location() #16
   store i32 33, ptr %104, align 4, !tbaa !14
   br label %m_log.exit46
 
 m_log.exit46:                                     ; preds = %103, %102, %99, %97, %86
   %.0.i33 = phi double [ %91, %86 ], [ %98, %97 ], [ 0x7FF8000000000000, %103 ], [ %..i43, %99 ], [ %79, %102 ]
-  %105 = call ptr @PyFloat_FromDouble(double noundef %.0.i33) #16
+  %105 = call ptr @PyFloat_FromDouble(double noundef %.0.i33) #15
   br label %106
 
 106:                                              ; preds = %m_log.exit46, %83, %75
   %.015.i31 = phi ptr [ %105, %m_log.exit46 ], [ null, %75 ], [ null, %83 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #15
   br label %loghelper.exit36
 
 107:                                              ; preds = %65
@@ -4778,7 +4778,7 @@ loghelper.exit36:                                 ; preds = %106, %107
   br i1 %114, label %Py_DECREF.exit.sink.split, label %Py_DECREF.exit
 
 115:                                              ; preds = %loghelper.exit36
-  %116 = call ptr @PyNumber_TrueDivide(ptr noundef nonnull %.1.i, ptr noundef nonnull %.1.i32) #16
+  %116 = call ptr @PyNumber_TrueDivide(ptr noundef nonnull %.1.i, ptr noundef nonnull %.1.i32) #15
   %117 = load i32, ptr %.1.i, align 8, !tbaa !13
   %.not.i20 = icmp sgt i32 %117, -1
   br i1 %.not.i20, label %118, label %Py_DECREF.exit21
@@ -4790,7 +4790,7 @@ loghelper.exit36:                                 ; preds = %106, %107
   br i1 %120, label %121, label %Py_DECREF.exit21
 
 121:                                              ; preds = %118
-  call void @_Py_Dealloc(ptr noundef nonnull %.1.i) #16
+  call void @_Py_Dealloc(ptr noundef nonnull %.1.i) #15
   br label %Py_DECREF.exit21
 
 Py_DECREF.exit21:                                 ; preds = %115, %118, %121
@@ -4807,7 +4807,7 @@ Py_DECREF.exit21:                                 ; preds = %115, %118, %121
 Py_DECREF.exit.sink.split:                        ; preds = %123, %112
   %.1.i32.sink = phi ptr [ %.1.i, %112 ], [ %.1.i32, %123 ]
   %.0.ph = phi ptr [ null, %112 ], [ %116, %123 ]
-  call void @_Py_Dealloc(ptr noundef nonnull %.1.i32.sink) #16
+  call void @_Py_Dealloc(ptr noundef nonnull %.1.i32.sink) #15
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %Py_DECREF.exit.sink.split, %123, %Py_DECREF.exit21, %112, %110, %loghelper.exit, %7
@@ -4833,7 +4833,7 @@ define internal ptr @math_log10(ptr readnone captures(none) %0, ptr noundef %1) 
   br i1 %.not.i, label %54, label %7
 
 7:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15
   %8 = getelementptr i8, ptr %1, i64 16
   %.val19.i = load i64, ptr %8, align 8, !tbaa !45
   %9 = and i64 %.val19.i, 3
@@ -4842,28 +4842,28 @@ define internal ptr @math_log10(ptr readnone captures(none) %0, ptr noundef %1) 
 
 11:                                               ; preds = %7
   %12 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !12
-  %13 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %12, ptr noundef nonnull @.str.79, ptr noundef nonnull %1) #16
+  %13 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %12, ptr noundef nonnull @.str.79, ptr noundef nonnull %1) #15
   br label %53
 
 14:                                               ; preds = %7
-  %15 = tail call double @PyLong_AsDouble(ptr noundef nonnull %1) #16
+  %15 = tail call double @PyLong_AsDouble(ptr noundef nonnull %1) #15
   %16 = fcmp oeq double %15, -1.000000e+00
   br i1 %16, label %17, label %39
 
 17:                                               ; preds = %14
-  %18 = tail call ptr @PyErr_Occurred() #16
+  %18 = tail call ptr @PyErr_Occurred() #15
   %.not16.i = icmp eq ptr %18, null
   br i1 %.not16.i, label %39, label %19
 
 19:                                               ; preds = %17
   %20 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !12
-  %21 = tail call i32 @PyErr_ExceptionMatches(ptr noundef %20) #16
+  %21 = tail call i32 @PyErr_ExceptionMatches(ptr noundef %20) #15
   %.not17.i = icmp eq i32 %21, 0
   br i1 %.not17.i, label %53, label %22
 
 22:                                               ; preds = %19
-  tail call void @PyErr_Clear() #16
-  %23 = call double @_PyLong_Frexp(ptr noundef nonnull %1, ptr noundef nonnull %3) #16
+  tail call void @PyErr_Clear() #15
+  %23 = call double @_PyLong_Frexp(ptr noundef nonnull %1, ptr noundef nonnull %3) #15
   %24 = call double @llvm.fabs.f64(double %23)
   %25 = fcmp ueq double %24, 0x7FF0000000000000
   br i1 %25, label %33, label %26
@@ -4877,7 +4877,7 @@ define internal ptr @math_log10(ptr readnone captures(none) %0, ptr noundef %1) 
   br label %m_log10.exit6
 
 30:                                               ; preds = %26
-  %31 = tail call ptr @__errno_location() #17
+  %31 = tail call ptr @__errno_location() #16
   store i32 33, ptr %31, align 4, !tbaa !14
   %32 = fcmp oeq double %23, 0.000000e+00
   %..i3 = select i1 %32, double 0xFFF0000000000000, double 0x7FF8000000000000
@@ -4888,7 +4888,7 @@ define internal ptr @math_log10(ptr readnone captures(none) %0, ptr noundef %1) 
   br i1 %or.cond.i5, label %m_log10.exit6, label %34
 
 34:                                               ; preds = %33
-  %35 = tail call ptr @__errno_location() #17
+  %35 = tail call ptr @__errno_location() #16
   store i32 33, ptr %35, align 4, !tbaa !14
   br label %m_log10.exit6
 
@@ -4913,7 +4913,7 @@ m_log10.exit6:                                    ; preds = %28, %30, %33, %34
   br label %m_log10.exit
 
 46:                                               ; preds = %42
-  %47 = tail call ptr @__errno_location() #17
+  %47 = tail call ptr @__errno_location() #16
   store i32 33, ptr %47, align 4, !tbaa !14
   %48 = fcmp oeq double %15, 0.000000e+00
   %..i = select i1 %48, double 0xFFF0000000000000, double 0x7FF8000000000000
@@ -4924,18 +4924,18 @@ m_log10.exit6:                                    ; preds = %28, %30, %33, %34
   br i1 %or.cond.i, label %m_log10.exit, label %50
 
 50:                                               ; preds = %49
-  %51 = tail call ptr @__errno_location() #17
+  %51 = tail call ptr @__errno_location() #16
   store i32 33, ptr %51, align 4, !tbaa !14
   br label %m_log10.exit
 
 m_log10.exit:                                     ; preds = %50, %49, %46, %44, %m_log10.exit6
   %.0.i = phi double [ %38, %m_log10.exit6 ], [ %45, %44 ], [ 0x7FF8000000000000, %50 ], [ %..i, %46 ], [ %15, %49 ]
-  %52 = call ptr @PyFloat_FromDouble(double noundef %.0.i) #16
+  %52 = call ptr @PyFloat_FromDouble(double noundef %.0.i) #15
   br label %53
 
 53:                                               ; preds = %m_log10.exit, %19, %11
   %.015.i = phi ptr [ %52, %m_log10.exit ], [ null, %11 ], [ null, %19 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
   br label %loghelper.exit
 
 54:                                               ; preds = %2
@@ -4959,7 +4959,7 @@ define internal ptr @math_log2(ptr readnone captures(none) %0, ptr noundef %1) #
   br i1 %.not.i, label %54, label %7
 
 7:                                                ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15
   %8 = getelementptr i8, ptr %1, i64 16
   %.val19.i = load i64, ptr %8, align 8, !tbaa !45
   %9 = and i64 %.val19.i, 3
@@ -4968,28 +4968,28 @@ define internal ptr @math_log2(ptr readnone captures(none) %0, ptr noundef %1) #
 
 11:                                               ; preds = %7
   %12 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !12
-  %13 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %12, ptr noundef nonnull @.str.79, ptr noundef nonnull %1) #16
+  %13 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %12, ptr noundef nonnull @.str.79, ptr noundef nonnull %1) #15
   br label %53
 
 14:                                               ; preds = %7
-  %15 = tail call double @PyLong_AsDouble(ptr noundef nonnull %1) #16
+  %15 = tail call double @PyLong_AsDouble(ptr noundef nonnull %1) #15
   %16 = fcmp oeq double %15, -1.000000e+00
   br i1 %16, label %17, label %39
 
 17:                                               ; preds = %14
-  %18 = tail call ptr @PyErr_Occurred() #16
+  %18 = tail call ptr @PyErr_Occurred() #15
   %.not16.i = icmp eq ptr %18, null
   br i1 %.not16.i, label %39, label %19
 
 19:                                               ; preds = %17
   %20 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !12
-  %21 = tail call i32 @PyErr_ExceptionMatches(ptr noundef %20) #16
+  %21 = tail call i32 @PyErr_ExceptionMatches(ptr noundef %20) #15
   %.not17.i = icmp eq i32 %21, 0
   br i1 %.not17.i, label %53, label %22
 
 22:                                               ; preds = %19
-  tail call void @PyErr_Clear() #16
-  %23 = call double @_PyLong_Frexp(ptr noundef nonnull %1, ptr noundef nonnull %3) #16
+  tail call void @PyErr_Clear() #15
+  %23 = call double @_PyLong_Frexp(ptr noundef nonnull %1, ptr noundef nonnull %3) #15
   %24 = call double @llvm.fabs.f64(double %23)
   %25 = fcmp ueq double %24, 0x7FF0000000000000
   br i1 %25, label %26, label %29
@@ -4999,7 +4999,7 @@ define internal ptr @math_log2(ptr readnone captures(none) %0, ptr noundef %1) #
   br i1 %or.cond.i5, label %m_log2.exit6, label %27
 
 27:                                               ; preds = %26
-  %28 = tail call ptr @__errno_location() #17
+  %28 = tail call ptr @__errno_location() #16
   store i32 33, ptr %28, align 4, !tbaa !14
   br label %m_log2.exit6
 
@@ -5013,7 +5013,7 @@ define internal ptr @math_log2(ptr readnone captures(none) %0, ptr noundef %1) #
 
 33:                                               ; preds = %29
   %34 = fcmp oeq double %23, 0.000000e+00
-  %35 = tail call ptr @__errno_location() #17
+  %35 = tail call ptr @__errno_location() #16
   store i32 33, ptr %35, align 4, !tbaa !14
   %..i3 = select i1 %34, double 0xFFF0000000000000, double 0x7FF8000000000000
   br label %m_log2.exit6
@@ -5035,7 +5035,7 @@ m_log2.exit6:                                     ; preds = %26, %27, %31, %33
   br i1 %or.cond.i, label %m_log2.exit, label %43
 
 43:                                               ; preds = %42
-  %44 = tail call ptr @__errno_location() #17
+  %44 = tail call ptr @__errno_location() #16
   store i32 33, ptr %44, align 4, !tbaa !14
   br label %m_log2.exit
 
@@ -5049,19 +5049,19 @@ m_log2.exit6:                                     ; preds = %26, %27, %31, %33
 
 49:                                               ; preds = %45
   %50 = fcmp oeq double %15, 0.000000e+00
-  %51 = tail call ptr @__errno_location() #17
+  %51 = tail call ptr @__errno_location() #16
   store i32 33, ptr %51, align 4, !tbaa !14
   %..i = select i1 %50, double 0xFFF0000000000000, double 0x7FF8000000000000
   br label %m_log2.exit
 
 m_log2.exit:                                      ; preds = %49, %47, %43, %42, %m_log2.exit6
   %.0.i = phi double [ %38, %m_log2.exit6 ], [ %48, %47 ], [ 0x7FF8000000000000, %43 ], [ %15, %42 ], [ %..i, %49 ]
-  %52 = call ptr @PyFloat_FromDouble(double noundef %.0.i) #16
+  %52 = call ptr @PyFloat_FromDouble(double noundef %.0.i) #15
   br label %53
 
 53:                                               ; preds = %m_log2.exit, %19, %11
   %.015.i = phi ptr [ %52, %m_log2.exit ], [ null, %11 ], [ null, %19 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
   br label %loghelper.exit
 
 54:                                               ; preds = %2
@@ -5087,29 +5087,29 @@ define internal ptr @math_modf(ptr readnone captures(none) %0, ptr noundef %1) #
   br label %12
 
 7:                                                ; preds = %2
-  %8 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %1) #16
+  %8 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %1) #15
   %9 = fcmp oeq double %8, -1.000000e+00
   br i1 %9, label %10, label %12
 
 10:                                               ; preds = %7
-  %11 = tail call ptr @PyErr_Occurred() #16
+  %11 = tail call ptr @PyErr_Occurred() #15
   %.not9 = icmp eq ptr %11, null
   br i1 %.not9, label %.thread14, label %27
 
 12:                                               ; preds = %7, %5
   %.0 = phi double [ %.val10, %5 ], [ %8, %7 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
-  %13 = tail call double @llvm.fabs.f64(double %.0) #18
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15
+  %13 = tail call double @llvm.fabs.f64(double %.0) #17
   %14 = fcmp oeq double %13, 0x7FF0000000000000
   br i1 %14, label %15, label %18
 
 .thread14:                                        ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #15
   br label %22
 
 15:                                               ; preds = %12
   %16 = tail call double @llvm.copysign.f64(double 0.000000e+00, double %.0)
-  %17 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.81, double noundef %16, double noundef %.0) #16
+  %17 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.81, double noundef %16, double noundef %.0) #15
   br label %math_modf_impl.exit
 
 18:                                               ; preds = %12
@@ -5117,21 +5117,21 @@ define internal ptr @math_modf(ptr readnone captures(none) %0, ptr noundef %1) #
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %18
-  %21 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.81, double noundef %.0, double noundef %.0) #16
+  %21 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.81, double noundef %.0, double noundef %.0) #15
   br label %math_modf_impl.exit
 
 22:                                               ; preds = %.thread14, %18
   %.01216 = phi double [ -1.000000e+00, %.thread14 ], [ %.0, %18 ]
-  %23 = tail call ptr @__errno_location() #17
+  %23 = tail call ptr @__errno_location() #16
   store i32 0, ptr %23, align 4, !tbaa !14
-  %24 = call double @modf(double noundef %.01216, ptr noundef nonnull %3) #16
+  %24 = call double @modf(double noundef %.01216, ptr noundef nonnull %3) #15
   %25 = load double, ptr %3, align 8, !tbaa !33
-  %26 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.81, double noundef %24, double noundef %25) #16
+  %26 = tail call ptr (ptr, ...) @Py_BuildValue(ptr noundef nonnull @.str.81, double noundef %24, double noundef %25) #15
   br label %math_modf_impl.exit
 
 math_modf_impl.exit:                              ; preds = %15, %20, %22
   %.0.i = phi ptr [ %17, %15 ], [ %21, %20 ], [ %26, %22 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #16
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
   br label %27
 
 27:                                               ; preds = %10, %math_modf_impl.exit
@@ -5145,7 +5145,7 @@ define internal ptr @math_pow(ptr readnone captures(none) %0, ptr noundef readon
   br i1 %or.cond, label %6, label %4
 
 4:                                                ; preds = %3
-  %5 = tail call i32 @_PyArg_CheckPositional(ptr noundef nonnull @.str.43, i64 noundef %2, i64 noundef 2, i64 noundef 2) #16
+  %5 = tail call i32 @_PyArg_CheckPositional(ptr noundef nonnull @.str.43, i64 noundef %2, i64 noundef 2, i64 noundef 2) #15
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %math_pow_impl.exit, label %6
 
@@ -5162,12 +5162,12 @@ define internal ptr @math_pow(ptr readnone captures(none) %0, ptr noundef readon
   br label %16
 
 11:                                               ; preds = %6
-  %12 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %7) #16
+  %12 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %7) #15
   %13 = fcmp oeq double %12, -1.000000e+00
   br i1 %13, label %14, label %16
 
 14:                                               ; preds = %11
-  %15 = tail call ptr @PyErr_Occurred() #16
+  %15 = tail call ptr @PyErr_Occurred() #15
   %.not21 = icmp eq ptr %15, null
   br i1 %.not21, label %16, label %math_pow_impl.exit
 
@@ -5186,12 +5186,12 @@ define internal ptr @math_pow(ptr readnone captures(none) %0, ptr noundef readon
   br label %27
 
 22:                                               ; preds = %16
-  %23 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %18) #16
+  %23 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %18) #15
   %24 = fcmp oeq double %23, -1.000000e+00
   br i1 %24, label %25, label %27
 
 25:                                               ; preds = %22
-  %26 = tail call ptr @PyErr_Occurred() #16
+  %26 = tail call ptr @PyErr_Occurred() #15
   %.not23 = icmp eq ptr %26, null
   br i1 %.not23, label %27, label %math_pow_impl.exit
 
@@ -5202,7 +5202,7 @@ define internal ptr @math_pow(ptr readnone captures(none) %0, ptr noundef readon
   %30 = tail call double @llvm.fabs.f64(double %.0)
   %31 = fcmp ueq double %30, 0x7FF0000000000000
   %or.cond.i = or i1 %29, %31
-  %32 = tail call ptr @__errno_location() #17
+  %32 = tail call ptr @__errno_location() #16
   store i32 0, ptr %32, align 4, !tbaa !14
   br i1 %or.cond.i, label %33, label %68
 
@@ -5275,7 +5275,7 @@ define internal ptr @math_pow(ptr readnone captures(none) %0, ptr noundef readon
   br label %is_error.exit.i
 
 68:                                               ; preds = %27
-  %69 = tail call double @pow(double noundef %.015, double noundef %.0) #16, !tbaa !14
+  %69 = tail call double @pow(double noundef %.015, double noundef %.0) #15, !tbaa !14
   %70 = tail call double @llvm.fabs.f64(double %69)
   %71 = fcmp ueq double %70, 0x7FF0000000000000
   br i1 %71, label %72, label %75
@@ -5308,7 +5308,7 @@ define internal ptr @math_pow(ptr readnone captures(none) %0, ptr noundef readon
 
 .thread.i:                                        ; preds = %.thread.sink.split.i, %75
   %76 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !12
-  tail call void @PyErr_SetString(ptr noundef %76, ptr noundef nonnull @.str.60) #16
+  tail call void @PyErr_SetString(ptr noundef %76, ptr noundef nonnull @.str.60) #15
   br label %math_pow_impl.exit
 
 77:                                               ; preds = %._crit_edge30, %.thread9.i
@@ -5318,17 +5318,17 @@ define internal ptr @math_pow(ptr readnone captures(none) %0, ptr noundef readon
 
 79:                                               ; preds = %77
   %80 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !12
-  tail call void @PyErr_SetString(ptr noundef %80, ptr noundef nonnull @.str.59) #16
+  tail call void @PyErr_SetString(ptr noundef %80, ptr noundef nonnull @.str.59) #15
   br label %math_pow_impl.exit
 
 81:                                               ; preds = %75
   %82 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !12
-  %83 = tail call ptr @PyErr_SetFromErrno(ptr noundef %82) #16
+  %83 = tail call ptr @PyErr_SetFromErrno(ptr noundef %82) #15
   br label %math_pow_impl.exit
 
 is_error.exit.i:                                  ; preds = %63, %60, %58, %53, %55, %51, %66, %39, %77, %75, %.thread5.i
   %.0338.i = phi double [ %36, %.thread5.i ], [ %69, %75 ], [ %69, %77 ], [ 0.000000e+00, %63 ], [ %.0, %60 ], [ 1.000000e+00, %58 ], [ 1.000000e+00, %53 ], [ %57, %55 ], [ %52, %51 ], [ %67, %66 ], [ %41, %39 ]
-  %84 = tail call ptr @PyFloat_FromDouble(double noundef %.0338.i) #16
+  %84 = tail call ptr @PyFloat_FromDouble(double noundef %.0338.i) #15
   br label %math_pow_impl.exit
 
 math_pow_impl.exit:                               ; preds = %is_error.exit.i, %81, %79, %.thread.i, %25, %14, %4
@@ -5349,19 +5349,19 @@ define internal ptr @math_radians(ptr readnone captures(none) %0, ptr noundef %1
   br label %11
 
 6:                                                ; preds = %2
-  %7 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %1) #16
+  %7 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %1) #15
   %8 = fcmp oeq double %7, -1.000000e+00
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %6
-  %10 = tail call ptr @PyErr_Occurred() #16
+  %10 = tail call ptr @PyErr_Occurred() #15
   %.not9 = icmp eq ptr %10, null
   br i1 %.not9, label %11, label %14
 
 11:                                               ; preds = %6, %9, %4
   %.0 = phi double [ %.val10, %4 ], [ -1.000000e+00, %9 ], [ %7, %6 ]
   %12 = fmul double %.0, 0x3F91DF46A2529D39
-  %13 = tail call ptr @PyFloat_FromDouble(double noundef %12) #16
+  %13 = tail call ptr @PyFloat_FromDouble(double noundef %12) #15
   br label %14
 
 14:                                               ; preds = %9, %11
@@ -5412,7 +5412,7 @@ define internal ptr @math_sumprod(ptr readnone captures(none) %0, ptr noundef re
   br i1 %or.cond, label %7, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call i32 @_PyArg_CheckPositional(ptr noundef nonnull @.str.51, i64 noundef %2, i64 noundef 2, i64 noundef 2) #16
+  %6 = tail call i32 @_PyArg_CheckPositional(ptr noundef nonnull @.str.51, i64 noundef %2, i64 noundef 2, i64 noundef 2) #15
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %math_sumprod_impl.exit, label %7
 
@@ -5420,12 +5420,12 @@ define internal ptr @math_sumprod(ptr readnone captures(none) %0, ptr noundef re
   %8 = load ptr, ptr %1, align 8, !tbaa !12
   %9 = getelementptr i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !12
-  %11 = tail call ptr @PyObject_GetIter(ptr noundef %8) #16
+  %11 = tail call ptr @PyObject_GetIter(ptr noundef %8) #15
   %12 = icmp eq ptr %11, null
   br i1 %12, label %math_sumprod_impl.exit, label %13
 
 13:                                               ; preds = %7
-  %14 = tail call ptr @PyObject_GetIter(ptr noundef %10) #16
+  %14 = tail call ptr @PyObject_GetIter(ptr noundef %10) #15
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %22
 
@@ -5441,11 +5441,11 @@ define internal ptr @math_sumprod(ptr readnone captures(none) %0, ptr noundef re
   br i1 %20, label %21, label %math_sumprod_impl.exit
 
 21:                                               ; preds = %18
-  tail call void @_Py_Dealloc(ptr noundef nonnull %11) #16
+  tail call void @_Py_Dealloc(ptr noundef nonnull %11) #15
   br label %math_sumprod_impl.exit
 
 22:                                               ; preds = %13
-  %23 = tail call ptr @PyLong_FromLong(i64 noundef 0) #16
+  %23 = tail call ptr @PyLong_FromLong(i64 noundef 0) #15
   %24 = icmp eq ptr %23, null
   br i1 %24, label %25, label %36
 
@@ -5461,7 +5461,7 @@ define internal ptr @math_sumprod(ptr readnone captures(none) %0, ptr noundef re
   br i1 %29, label %30, label %Py_DECREF.exit289.i
 
 30:                                               ; preds = %27
-  tail call void @_Py_Dealloc(ptr noundef nonnull %11) #16
+  tail call void @_Py_Dealloc(ptr noundef nonnull %11) #15
   br label %Py_DECREF.exit289.i
 
 Py_DECREF.exit289.i:                              ; preds = %30, %27, %25
@@ -5476,7 +5476,7 @@ Py_DECREF.exit289.i:                              ; preds = %30, %27, %25
   br i1 %34, label %35, label %math_sumprod_impl.exit
 
 35:                                               ; preds = %32
-  tail call void @_Py_Dealloc(ptr noundef nonnull %14) #16
+  tail call void @_Py_Dealloc(ptr noundef nonnull %14) #15
   br label %math_sumprod_impl.exit
 
 36:                                               ; preds = %22
@@ -5508,44 +5508,44 @@ Py_DECREF.exit275.i:                              ; preds = %Py_DECREF.exit275.i
   %.0110.i = phi i1 [ true, %Py_DECREF.exit283.i ], [ %.0110.i.ph, %Py_DECREF.exit275.i.outer ]
   %.0107.i = phi i1 [ true, %Py_DECREF.exit283.i ], [ %.0107.i.ph, %Py_DECREF.exit275.i.outer ]
   %.0101.i = phi i8 [ %.1102.i, %Py_DECREF.exit283.i ], [ %.0101.i.ph, %Py_DECREF.exit275.i.outer ]
-  %43 = call ptr %39(ptr noundef nonnull %11) #16
+  %43 = call ptr %39(ptr noundef nonnull %11) #15
   %44 = icmp eq ptr %43, null
   br i1 %44, label %45, label %51
 
 45:                                               ; preds = %Py_DECREF.exit275.i
-  %46 = call ptr @PyErr_Occurred() #16
+  %46 = call ptr @PyErr_Occurred() #15
   %.not.i = icmp eq ptr %46, null
   br i1 %.not.i, label %51, label %47
 
 47:                                               ; preds = %45
   %48 = load ptr, ptr @PyExc_StopIteration, align 8, !tbaa !12
-  %49 = call i32 @PyErr_ExceptionMatches(ptr noundef %48) #16
+  %49 = call i32 @PyErr_ExceptionMatches(ptr noundef %48) #15
   %.not232.i = icmp eq i32 %49, 0
   br i1 %.not232.i, label %.loopexit.i, label %50
 
 50:                                               ; preds = %47
-  call void @PyErr_Clear() #16
+  call void @PyErr_Clear() #15
   br label %51
 
 51:                                               ; preds = %50, %45, %Py_DECREF.exit275.i
   %.1102.i = phi i8 [ %.0101.i, %Py_DECREF.exit275.i ], [ 1, %50 ], [ 1, %45 ]
-  %52 = call ptr %42(ptr noundef nonnull %14) #16
+  %52 = call ptr %42(ptr noundef nonnull %14) #15
   %53 = icmp eq ptr %52, null
   br i1 %53, label %54, label %60
 
 54:                                               ; preds = %51
-  %55 = call ptr @PyErr_Occurred() #16
+  %55 = call ptr @PyErr_Occurred() #15
   %.not233.i = icmp eq ptr %55, null
   br i1 %.not233.i, label %60, label %56
 
 56:                                               ; preds = %54
   %57 = load ptr, ptr @PyExc_StopIteration, align 8, !tbaa !12
-  %58 = call i32 @PyErr_ExceptionMatches(ptr noundef %57) #16
+  %58 = call i32 @PyErr_ExceptionMatches(ptr noundef %57) #15
   %.not234.i = icmp eq i32 %58, 0
   br i1 %.not234.i, label %.loopexit.i, label %59
 
 59:                                               ; preds = %56
-  call void @PyErr_Clear() #16
+  call void @PyErr_Clear() #15
   br label %60
 
 60:                                               ; preds = %59, %54, %51
@@ -5556,7 +5556,7 @@ Py_DECREF.exit275.i:                              ; preds = %Py_DECREF.exit275.i
 
 62:                                               ; preds = %60
   %63 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !12
-  %64 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %63, ptr noundef nonnull @.str.83) #16
+  %64 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %63, ptr noundef nonnull @.str.83) #15
   br label %.loopexit.i
 
 65:                                               ; preds = %60
@@ -5576,14 +5576,14 @@ Py_DECREF.exit275.i:                              ; preds = %Py_DECREF.exit275.i
   br i1 %.not62.i, label %.loopexit, label %72
 
 72:                                               ; preds = %67
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #16
-  %73 = call i64 @PyLong_AsLongAndOverflow(ptr noundef nonnull %43, ptr noundef nonnull %4) #16
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #15
+  %73 = call i64 @PyLong_AsLongAndOverflow(ptr noundef nonnull %43, ptr noundef nonnull %4) #15
   %74 = load i32, ptr %4, align 4, !tbaa !14
   %.not237.i = icmp eq i32 %74, 0
   br i1 %.not237.i, label %75, label %Py_DECREF.exit283.thread.i
 
 75:                                               ; preds = %72
-  %76 = call i64 @PyLong_AsLongAndOverflow(ptr noundef nonnull %52, ptr noundef nonnull %4) #16
+  %76 = call i64 @PyLong_AsLongAndOverflow(ptr noundef nonnull %52, ptr noundef nonnull %4) #15
   %77 = load i32, ptr %4, align 4, !tbaa !14
   %.not238.i = icmp eq i32 %77, 0
   br i1 %.not238.i, label %78, label %Py_DECREF.exit283.thread.i
@@ -5631,7 +5631,7 @@ _check_long_mult_overflow.exit.thread.i:          ; preds = %_check_long_mult_ov
   br i1 %104, label %105, label %Py_DECREF.exit285.i
 
 105:                                              ; preds = %102
-  call void @_Py_Dealloc(ptr noundef nonnull %43) #16
+  call void @_Py_Dealloc(ptr noundef nonnull %43) #15
   br label %Py_DECREF.exit285.i
 
 Py_DECREF.exit285.i:                              ; preds = %105, %102, %99
@@ -5646,15 +5646,15 @@ Py_DECREF.exit285.i:                              ; preds = %105, %102, %99
   br i1 %109, label %110, label %Py_DECREF.exit283.i
 
 110:                                              ; preds = %107
-  call void @_Py_Dealloc(ptr noundef nonnull %52) #16
+  call void @_Py_Dealloc(ptr noundef nonnull %52) #15
   br label %Py_DECREF.exit283.i
 
 Py_DECREF.exit283.thread.i:                       ; preds = %_check_long_mult_overflow.exit.thread.i, %_check_long_mult_overflow.exit.i, %75, %72
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #15
   br label %.loopexit
 
 Py_DECREF.exit283.i:                              ; preds = %110, %107, %Py_DECREF.exit285.i
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #15
   br label %Py_DECREF.exit275.i
 
 .loopexit:                                        ; preds = %67, %66, %Py_DECREF.exit283.thread.i
@@ -5662,12 +5662,12 @@ Py_DECREF.exit283.i:                              ; preds = %110, %107, %Py_DECR
   br i1 %.0110.i, label %112, label %Py_DECREF.exit279.i
 
 112:                                              ; preds = %.loopexit
-  %113 = call ptr @PyLong_FromLong(i64 noundef %.0122.i) #16
+  %113 = call ptr @PyLong_FromLong(i64 noundef %.0122.i) #15
   %114 = icmp eq ptr %113, null
   br i1 %114, label %.loopexit.i, label %115
 
 115:                                              ; preds = %112
-  %116 = call ptr @PyNumber_Add(ptr noundef %.0179.i.ph, ptr noundef nonnull %113) #16
+  %116 = call ptr @PyNumber_Add(ptr noundef %.0179.i.ph, ptr noundef nonnull %113) #15
   %117 = icmp eq ptr %116, null
   br i1 %117, label %.loopexit.i, label %118
 
@@ -5683,7 +5683,7 @@ Py_DECREF.exit283.i:                              ; preds = %110, %107, %Py_DECR
   br i1 %122, label %123, label %Py_DECREF.exit281.i
 
 123:                                              ; preds = %120
-  call void @_Py_Dealloc(ptr noundef nonnull %.0179.i.ph) #16
+  call void @_Py_Dealloc(ptr noundef nonnull %.0179.i.ph) #15
   br label %Py_DECREF.exit281.i
 
 Py_DECREF.exit281.i:                              ; preds = %123, %120, %118
@@ -5698,7 +5698,7 @@ Py_DECREF.exit281.i:                              ; preds = %123, %120, %118
   br i1 %127, label %128, label %Py_DECREF.exit279.i
 
 128:                                              ; preds = %125
-  call void @_Py_Dealloc(ptr noundef nonnull %113) #16
+  call void @_Py_Dealloc(ptr noundef nonnull %113) #15
   br label %Py_DECREF.exit279.i
 
 Py_DECREF.exit279.i:                              ; preds = %65, %128, %125, %Py_DECREF.exit281.i, %.loopexit
@@ -5740,12 +5740,12 @@ Py_DECREF.exit279.i:                              ; preds = %65, %128, %125, %Py
 141:                                              ; preds = %140
   %142 = getelementptr i8, ptr %43, i64 16
   %.1184.val319.i = load double, ptr %142, align 8, !tbaa !17
-  %143 = call double @PyLong_AsDouble(ptr noundef nonnull %52) #16
+  %143 = call double @PyLong_AsDouble(ptr noundef nonnull %52) #15
   %144 = fcmp oeq double %143, -1.000000e+00
   br i1 %144, label %145, label %155
 
 145:                                              ; preds = %141
-  %146 = call ptr @PyErr_Occurred() #16
+  %146 = call ptr @PyErr_Occurred() #15
   %.not249.i = icmp eq ptr %146, null
   br i1 %.not249.i, label %155, label %Py_DECREF.exit275.thread.sink.split.i
 
@@ -5761,12 +5761,12 @@ Py_DECREF.exit279.i:                              ; preds = %65, %128, %125, %Py
 149:                                              ; preds = %148
   %150 = getelementptr i8, ptr %52, i64 16
   %.2191.val318.i = load double, ptr %150, align 8, !tbaa !17
-  %151 = call double @PyLong_AsDouble(ptr noundef nonnull %43) #16
+  %151 = call double @PyLong_AsDouble(ptr noundef nonnull %43) #15
   %152 = fcmp oeq double %151, -1.000000e+00
   br i1 %152, label %153, label %155
 
 153:                                              ; preds = %149
-  %154 = call ptr @PyErr_Occurred() #16
+  %154 = call ptr @PyErr_Occurred() #15
   %.not248.i = icmp eq ptr %154, null
   br i1 %.not248.i, label %155, label %Py_DECREF.exit275.thread.sink.split.i
 
@@ -5812,7 +5812,7 @@ Py_DECREF.exit279.i:                              ; preds = %65, %128, %125, %Py
   br i1 %185, label %186, label %Py_DECREF.exit277.i
 
 186:                                              ; preds = %183
-  call void @_Py_Dealloc(ptr noundef nonnull %43) #16
+  call void @_Py_Dealloc(ptr noundef nonnull %43) #15
   br label %Py_DECREF.exit277.i
 
 Py_DECREF.exit277.i:                              ; preds = %186, %183, %181
@@ -5836,11 +5836,11 @@ Py_DECREF.exit275.i.outer.backedge:               ; preds = %Py_DECREF.exit277.i
   br i1 %190, label %191, label %Py_DECREF.exit275.i.outer.backedge
 
 191:                                              ; preds = %188
-  call void @_Py_Dealloc(ptr noundef nonnull %52) #16
+  call void @_Py_Dealloc(ptr noundef nonnull %52) #15
   br label %Py_DECREF.exit275.i.outer.backedge
 
 Py_DECREF.exit275.thread.sink.split.i:            ; preds = %153, %145
-  call void @PyErr_Clear() #16
+  call void @PyErr_Clear() #15
   br label %Py_DECREF.exit275.thread.i
 
 Py_DECREF.exit275.thread.i:                       ; preds = %Py_DECREF.exit275.thread.sink.split.i, %155, %148, %147, %130
@@ -5855,12 +5855,12 @@ Py_DECREF.exit275.thread.i:                       ; preds = %Py_DECREF.exit275.t
   %198 = fadd double %197, %196
   %199 = fadd double %.sroa.9.0.i.ph, %198
   %200 = fadd double %193, %199
-  %201 = call ptr @PyFloat_FromDouble(double noundef %200) #16
+  %201 = call ptr @PyFloat_FromDouble(double noundef %200) #15
   %202 = icmp eq ptr %201, null
   br i1 %202, label %.loopexit.i, label %203
 
 203:                                              ; preds = %192
-  %204 = call ptr @PyNumber_Add(ptr noundef %.2181.i, ptr noundef nonnull %201) #16
+  %204 = call ptr @PyNumber_Add(ptr noundef %.2181.i, ptr noundef nonnull %201) #15
   %205 = icmp eq ptr %204, null
   br i1 %205, label %.loopexit.i, label %206
 
@@ -5876,7 +5876,7 @@ Py_DECREF.exit275.thread.i:                       ; preds = %Py_DECREF.exit275.t
   br i1 %210, label %211, label %Py_DECREF.exit273.i
 
 211:                                              ; preds = %208
-  call void @_Py_Dealloc(ptr noundef nonnull %.2181.i) #16
+  call void @_Py_Dealloc(ptr noundef nonnull %.2181.i) #15
   br label %Py_DECREF.exit273.i
 
 Py_DECREF.exit273.i:                              ; preds = %211, %208, %206
@@ -5891,7 +5891,7 @@ Py_DECREF.exit273.i:                              ; preds = %211, %208, %206
   br i1 %215, label %216, label %Py_DECREF.exit271.i
 
 216:                                              ; preds = %213
-  call void @_Py_Dealloc(ptr noundef nonnull %201) #16
+  call void @_Py_Dealloc(ptr noundef nonnull %201) #15
   br label %Py_DECREF.exit271.i
 
 Py_DECREF.exit271.i:                              ; preds = %216, %213, %Py_DECREF.exit273.i, %Py_DECREF.exit275.thread.i, %Py_DECREF.exit279.i
@@ -5903,12 +5903,12 @@ Py_DECREF.exit271.i:                              ; preds = %216, %213, %Py_DECR
   br i1 %129, label %246, label %217
 
 217:                                              ; preds = %Py_DECREF.exit271.i
-  %218 = call ptr @PyNumber_Multiply(ptr noundef %43, ptr noundef %52) #16
+  %218 = call ptr @PyNumber_Multiply(ptr noundef %43, ptr noundef %52) #15
   %219 = icmp eq ptr %218, null
   br i1 %219, label %.loopexit.i, label %220
 
 220:                                              ; preds = %217
-  %221 = call ptr @PyNumber_Add(ptr noundef %.3182.i, ptr noundef nonnull %218) #16
+  %221 = call ptr @PyNumber_Add(ptr noundef %.3182.i, ptr noundef nonnull %218) #15
   %222 = icmp eq ptr %221, null
   br i1 %222, label %.loopexit.i, label %223
 
@@ -5924,7 +5924,7 @@ Py_DECREF.exit271.i:                              ; preds = %216, %213, %Py_DECR
   br i1 %227, label %228, label %Py_DECREF.exit269.i
 
 228:                                              ; preds = %225
-  call void @_Py_Dealloc(ptr noundef nonnull %.3182.i) #16
+  call void @_Py_Dealloc(ptr noundef nonnull %.3182.i) #15
   br label %Py_DECREF.exit269.i
 
 Py_DECREF.exit269.i:                              ; preds = %228, %225, %223
@@ -5942,7 +5942,7 @@ Py_DECREF.exit269.i:                              ; preds = %228, %225, %223
   br i1 %233, label %234, label %Py_DECREF.exit267.i
 
 234:                                              ; preds = %231
-  call void @_Py_Dealloc(ptr noundef nonnull %43) #16
+  call void @_Py_Dealloc(ptr noundef nonnull %43) #15
   br label %Py_DECREF.exit267.i
 
 Py_DECREF.exit267.i:                              ; preds = %234, %231, %229, %Py_DECREF.exit269.i
@@ -5960,7 +5960,7 @@ Py_DECREF.exit267.i:                              ; preds = %234, %231, %229, %P
   br i1 %239, label %240, label %Py_DECREF.exit265.i
 
 240:                                              ; preds = %237
-  call void @_Py_Dealloc(ptr noundef nonnull %52) #16
+  call void @_Py_Dealloc(ptr noundef nonnull %52) #15
   br label %Py_DECREF.exit265.i
 
 Py_DECREF.exit265.i:                              ; preds = %240, %237, %235, %Py_DECREF.exit267.i
@@ -5975,7 +5975,7 @@ Py_DECREF.exit265.i:                              ; preds = %240, %237, %235, %P
   br i1 %244, label %245, label %Py_DECREF.exit275.i.outer.backedge
 
 245:                                              ; preds = %242
-  call void @_Py_Dealloc(ptr noundef nonnull %218) #16
+  call void @_Py_Dealloc(ptr noundef nonnull %218) #15
   br label %Py_DECREF.exit275.i.outer.backedge
 
 246:                                              ; preds = %Py_DECREF.exit271.i
@@ -5990,7 +5990,7 @@ Py_DECREF.exit265.i:                              ; preds = %240, %237, %235, %P
   br i1 %250, label %251, label %Py_DECREF.exit261.i
 
 251:                                              ; preds = %248
-  call void @_Py_Dealloc(ptr noundef nonnull %11) #16
+  call void @_Py_Dealloc(ptr noundef nonnull %11) #15
   br label %Py_DECREF.exit261.i
 
 Py_DECREF.exit261.i:                              ; preds = %251, %248, %246
@@ -6005,7 +6005,7 @@ Py_DECREF.exit261.i:                              ; preds = %251, %248, %246
   br i1 %255, label %256, label %math_sumprod_impl.exit
 
 256:                                              ; preds = %253
-  call void @_Py_Dealloc(ptr noundef nonnull %14) #16
+  call void @_Py_Dealloc(ptr noundef nonnull %14) #15
   br label %math_sumprod_impl.exit
 
 .loopexit.i:                                      ; preds = %56, %47, %220, %217, %203, %192, %115, %112, %62
@@ -6024,7 +6024,7 @@ Py_DECREF.exit261.i:                              ; preds = %251, %248, %246
   br i1 %261, label %262, label %Py_DECREF.exit257.i
 
 262:                                              ; preds = %259
-  call void @_Py_Dealloc(ptr noundef nonnull %11) #16
+  call void @_Py_Dealloc(ptr noundef nonnull %11) #15
   br label %Py_DECREF.exit257.i
 
 Py_DECREF.exit257.i:                              ; preds = %262, %259, %.loopexit.i
@@ -6039,7 +6039,7 @@ Py_DECREF.exit257.i:                              ; preds = %262, %259, %.loopex
   br i1 %266, label %267, label %Py_DECREF.exit255.i
 
 267:                                              ; preds = %264
-  call void @_Py_Dealloc(ptr noundef nonnull %14) #16
+  call void @_Py_Dealloc(ptr noundef nonnull %14) #15
   br label %Py_DECREF.exit255.i
 
 Py_DECREF.exit255.i:                              ; preds = %267, %264, %Py_DECREF.exit257.i
@@ -6054,7 +6054,7 @@ Py_DECREF.exit255.i:                              ; preds = %267, %264, %Py_DECR
   br i1 %271, label %272, label %Py_DECREF.exit.i
 
 272:                                              ; preds = %269
-  call void @_Py_Dealloc(ptr noundef nonnull %.1180.ph.i) #16
+  call void @_Py_Dealloc(ptr noundef nonnull %.1180.ph.i) #15
   br label %Py_DECREF.exit.i
 
 Py_DECREF.exit.i:                                 ; preds = %272, %269, %Py_DECREF.exit255.i
@@ -6072,7 +6072,7 @@ Py_DECREF.exit.i:                                 ; preds = %272, %269, %Py_DECR
   br i1 %277, label %278, label %Py_XDECREF.exit.i
 
 278:                                              ; preds = %275
-  call void @_Py_Dealloc(ptr noundef nonnull %43) #16
+  call void @_Py_Dealloc(ptr noundef nonnull %43) #15
   br label %Py_XDECREF.exit.i
 
 Py_XDECREF.exit.i:                                ; preds = %278, %275, %273, %Py_DECREF.exit.i
@@ -6091,7 +6091,7 @@ Py_XDECREF.exit.i:                                ; preds = %278, %275, %273, %P
   br i1 %283, label %284, label %Py_XDECREF.exit325.i
 
 284:                                              ; preds = %281
-  call void @_Py_Dealloc(ptr noundef nonnull %.1190.ph.i) #16
+  call void @_Py_Dealloc(ptr noundef nonnull %.1190.ph.i) #15
   br label %Py_XDECREF.exit325.i
 
 Py_XDECREF.exit325.i:                             ; preds = %284, %281, %279, %Py_XDECREF.exit.i
@@ -6110,7 +6110,7 @@ Py_XDECREF.exit325.i:                             ; preds = %284, %281, %279, %P
   br i1 %289, label %290, label %math_sumprod_impl.exit
 
 290:                                              ; preds = %287
-  call void @_Py_Dealloc(ptr noundef nonnull %.1201.ph.i) #16
+  call void @_Py_Dealloc(ptr noundef nonnull %.1201.ph.i) #15
   br label %math_sumprod_impl.exit
 
 math_sumprod_impl.exit:                           ; preds = %290, %287, %285, %Py_XDECREF.exit325.i, %256, %253, %Py_DECREF.exit261.i, %35, %32, %Py_DECREF.exit289.i, %21, %18, %16, %7, %5
@@ -6129,7 +6129,7 @@ define internal ptr @math_trunc(ptr noundef readonly captures(none) %0, ptr noun
   %5 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @PyFloat_Type, i64 96), align 8, !tbaa !53
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 128
   %7 = load ptr, ptr %6, align 8, !tbaa !54
-  %8 = tail call ptr %7(ptr noundef nonnull %1) #16
+  %8 = tail call ptr %7(ptr noundef nonnull %1) #15
   br label %Py_DECREF.exit
 
 9:                                                ; preds = %2
@@ -6137,12 +6137,12 @@ define internal ptr @math_trunc(ptr noundef readonly captures(none) %0, ptr noun
   %.val = load ptr, ptr %10, align 8, !tbaa !3
   %11 = getelementptr inbounds nuw i8, ptr %.val, i64 16
   %12 = load ptr, ptr %11, align 8, !tbaa !56
-  %13 = tail call ptr @_PyObject_LookupSpecial(ptr noundef nonnull %1, ptr noundef %12) #16
+  %13 = tail call ptr @_PyObject_LookupSpecial(ptr noundef nonnull %1, ptr noundef %12) #15
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %22
 
 15:                                               ; preds = %9
-  %16 = tail call ptr @PyErr_Occurred() #16
+  %16 = tail call ptr @PyErr_Occurred() #15
   %.not12 = icmp eq ptr %16, null
   br i1 %.not12, label %17, label %Py_DECREF.exit
 
@@ -6151,11 +6151,11 @@ define internal ptr @math_trunc(ptr noundef readonly captures(none) %0, ptr noun
   %.val13 = load ptr, ptr %3, align 8, !tbaa !16
   %19 = getelementptr inbounds nuw i8, ptr %.val13, i64 24
   %20 = load ptr, ptr %19, align 8, !tbaa !57
-  %21 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %18, ptr noundef nonnull @.str.84, ptr noundef %20) #16
+  %21 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %18, ptr noundef nonnull @.str.84, ptr noundef %20) #15
   br label %Py_DECREF.exit
 
 22:                                               ; preds = %9
-  %23 = tail call ptr @_PyThreadState_GetCurrent() #16
+  %23 = tail call ptr @_PyThreadState_GetCurrent() #15
   %24 = getelementptr i8, ptr %13, i64 8
   %.val.i.i.i = load ptr, ptr %24, align 8, !tbaa !16
   %25 = getelementptr i8, ptr %.val.i.i.i, i64 168
@@ -6173,12 +6173,12 @@ _PyVectorcall_FunctionInline.exit.i.i:            ; preds = %22
   br i1 %30, label %_PyVectorcall_FunctionInline.exit.thread.i.i, label %32
 
 _PyVectorcall_FunctionInline.exit.thread.i.i:     ; preds = %_PyVectorcall_FunctionInline.exit.i.i, %22
-  %31 = tail call ptr @_PyObject_MakeTpCall(ptr noundef %23, ptr noundef nonnull %13, ptr noundef null, i64 noundef 0, ptr noundef null) #16
+  %31 = tail call ptr @_PyObject_MakeTpCall(ptr noundef %23, ptr noundef nonnull %13, ptr noundef null, i64 noundef 0, ptr noundef null) #15
   br label %_PyObject_CallNoArgs.exit
 
 32:                                               ; preds = %_PyVectorcall_FunctionInline.exit.i.i
-  %33 = tail call ptr %.0.copyload.i.i.i(ptr noundef nonnull %13, ptr noundef null, i64 noundef 0, ptr noundef null) #16
-  %34 = tail call ptr @_Py_CheckFunctionResult(ptr noundef %23, ptr noundef nonnull %13, ptr noundef %33, ptr noundef null) #16
+  %33 = tail call ptr %.0.copyload.i.i.i(ptr noundef nonnull %13, ptr noundef null, i64 noundef 0, ptr noundef null) #15
+  %34 = tail call ptr @_Py_CheckFunctionResult(ptr noundef %23, ptr noundef nonnull %13, ptr noundef %33, ptr noundef null) #15
   br label %_PyObject_CallNoArgs.exit
 
 _PyObject_CallNoArgs.exit:                        ; preds = %_PyVectorcall_FunctionInline.exit.thread.i.i, %32
@@ -6194,7 +6194,7 @@ _PyObject_CallNoArgs.exit:                        ; preds = %_PyVectorcall_Funct
   br i1 %38, label %39, label %Py_DECREF.exit
 
 39:                                               ; preds = %36
-  tail call void @_Py_Dealloc(ptr noundef nonnull %13) #16
+  tail call void @_Py_Dealloc(ptr noundef nonnull %13) #15
   br label %Py_DECREF.exit
 
 Py_DECREF.exit:                                   ; preds = %39, %36, %_PyObject_CallNoArgs.exit, %17, %15, %4
@@ -6207,7 +6207,7 @@ define internal ptr @math_prod(ptr readnone captures(none) %0, ptr noundef %1, i
   %5 = alloca i32, align 4
   %6 = alloca i32, align 4
   %7 = alloca [2 x ptr], align 16
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #16
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #15
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %10, label %.thread
 
@@ -6229,7 +6229,7 @@ define internal ptr @math_prod(ptr readnone captures(none) %0, ptr noundef %1, i
 
 14:                                               ; preds = %10, %.thread
   %15 = phi i64 [ %9, %.thread ], [ %2, %10 ]
-  %16 = call ptr @_PyArg_UnpackKeywords(ptr noundef %1, i64 noundef %2, ptr noundef null, ptr noundef %3, ptr noundef nonnull @math_prod._parser, i32 noundef 1, i32 noundef 1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %7) #16
+  %16 = call ptr @_PyArg_UnpackKeywords(ptr noundef %1, i64 noundef %2, ptr noundef null, ptr noundef %3, ptr noundef nonnull @math_prod._parser, i32 noundef 1, i32 noundef 1, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %7) #15
   %.not27 = icmp eq ptr %16, null
   br i1 %.not27, label %math_prod_impl.exit, label %.thread31
 
@@ -6246,7 +6246,7 @@ define internal ptr @math_prod(ptr readnone captures(none) %0, ptr noundef %1, i
 21:                                               ; preds = %.thread31.thread, %.thread31, %18
   %22 = phi ptr [ %17, %18 ], [ %17, %.thread31 ], [ %13, %.thread31.thread ]
   %.0 = phi ptr [ %20, %18 ], [ null, %.thread31 ], [ null, %.thread31.thread ]
-  %23 = call ptr @PyObject_GetIter(ptr noundef %22) #16
+  %23 = call ptr @PyObject_GetIter(ptr noundef %22) #15
   %24 = icmp eq ptr %23, null
   br i1 %24, label %math_prod_impl.exit, label %25
 
@@ -6269,8 +6269,8 @@ Py_INCREF.exit.i:                                 ; preds = %29, %25
   br i1 %.not.i, label %32, label %112
 
 32:                                               ; preds = %Py_INCREF.exit.i
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #16
-  %33 = call i64 @PyLong_AsLongAndOverflow(ptr noundef nonnull %spec.select.i, ptr noundef nonnull %5) #16
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #15
+  %33 = call i64 @PyLong_AsLongAndOverflow(ptr noundef nonnull %spec.select.i, ptr noundef nonnull %5) #15
   %34 = load i32, ptr %5, align 4, !tbaa !14
   %35 = icmp eq i32 %34, 0
   br i1 %35, label %36, label %.outer17.i.preheader
@@ -6289,7 +6289,7 @@ Py_INCREF.exit.i:                                 ; preds = %29, %25
 .outer17.i.sink.split:                            ; preds = %77, %38
   %.sink = phi ptr [ %spec.select.i, %38 ], [ %44, %77 ]
   %.066.ph.i.ph = phi i64 [ %33, %38 ], [ %62, %77 ]
-  call void @_Py_Dealloc(ptr noundef nonnull %.sink) #16
+  call void @_Py_Dealloc(ptr noundef nonnull %.sink) #15
   br label %.outer17.i.preheader
 
 .outer17.i.preheader:                             ; preds = %38, %36, %32, %.outer17.i.sink.split
@@ -6309,7 +6309,7 @@ Py_INCREF.exit.i:                                 ; preds = %29, %25
   br i1 %.not116.i, label %43, label %Py_DECREF.exit157.i
 
 43:                                               ; preds = %42
-  %44 = call ptr @PyIter_Next(ptr noundef nonnull %23) #16
+  %44 = call ptr @PyIter_Next(ptr noundef nonnull %23) #15
   %45 = icmp eq ptr %44, null
   br i1 %45, label %46, label %55
 
@@ -6325,16 +6325,16 @@ Py_INCREF.exit.i:                                 ; preds = %29, %25
   br i1 %50, label %51, label %Py_DECREF.exit163.i
 
 51:                                               ; preds = %48
-  call void @_Py_Dealloc(ptr noundef nonnull %23) #16
+  call void @_Py_Dealloc(ptr noundef nonnull %23) #15
   br label %Py_DECREF.exit163.i
 
 Py_DECREF.exit163.i:                              ; preds = %51, %48, %46
-  %52 = call ptr @PyErr_Occurred() #16
+  %52 = call ptr @PyErr_Occurred() #15
   %.not115.i = icmp eq ptr %52, null
   br i1 %.not115.i, label %53, label %Py_DECREF.exit157.thread.i
 
 53:                                               ; preds = %Py_DECREF.exit163.i
-  %54 = call ptr @PyLong_FromLong(i64 noundef %.066.ph.i) #16
+  %54 = call ptr @PyLong_FromLong(i64 noundef %.066.ph.i) #15
   br label %Py_DECREF.exit157.thread.i
 
 55:                                               ; preds = %43
@@ -6344,7 +6344,7 @@ Py_DECREF.exit163.i:                              ; preds = %51, %48, %46
   br i1 %.not13.i, label %57, label %Py_DECREF.exit161.thread.i
 
 57:                                               ; preds = %55
-  %58 = call i64 @PyLong_AsLongAndOverflow(ptr noundef nonnull %44, ptr noundef nonnull %5) #16
+  %58 = call i64 @PyLong_AsLongAndOverflow(ptr noundef nonnull %44, ptr noundef nonnull %5) #15
   %59 = load i32, ptr %5, align 4, !tbaa !14
   %60 = icmp eq i32 %59, 0
   br i1 %60, label %61, label %Py_DECREF.exit161.thread.i
@@ -6384,7 +6384,7 @@ _check_long_mult_overflow.exit.thread.i:          ; preds = %_check_long_mult_ov
   br label %.outer17.i
 
 Py_DECREF.exit161.thread.i:                       ; preds = %_check_long_mult_overflow.exit.i, %57, %55
-  %80 = call ptr @PyLong_FromLong(i64 noundef %.066.ph.i) #16
+  %80 = call ptr @PyLong_FromLong(i64 noundef %.066.ph.i) #15
   %81 = icmp eq ptr %80, null
   br i1 %81, label %82, label %93
 
@@ -6400,7 +6400,7 @@ Py_DECREF.exit161.thread.i:                       ; preds = %_check_long_mult_ov
   br i1 %86, label %87, label %Py_DECREF.exit159.i
 
 87:                                               ; preds = %84
-  call void @_Py_Dealloc(ptr noundef nonnull %44) #16
+  call void @_Py_Dealloc(ptr noundef nonnull %44) #15
   br label %Py_DECREF.exit159.i
 
 Py_DECREF.exit159.i:                              ; preds = %87, %84, %82
@@ -6415,11 +6415,11 @@ Py_DECREF.exit159.i:                              ; preds = %87, %84, %82
   br i1 %91, label %92, label %Py_DECREF.exit157.thread.i
 
 92:                                               ; preds = %89
-  call void @_Py_Dealloc(ptr noundef nonnull %23) #16
+  call void @_Py_Dealloc(ptr noundef nonnull %23) #15
   br label %Py_DECREF.exit157.thread.i
 
 93:                                               ; preds = %Py_DECREF.exit161.thread.i
-  %94 = call ptr @PyNumber_Multiply(ptr noundef nonnull %80, ptr noundef nonnull %44) #16
+  %94 = call ptr @PyNumber_Multiply(ptr noundef nonnull %80, ptr noundef nonnull %44) #15
   %95 = load i32, ptr %80, align 8, !tbaa !13
   %.not.i154.i = icmp sgt i32 %95, -1
   br i1 %.not.i154.i, label %96, label %Py_DECREF.exit155.i
@@ -6431,7 +6431,7 @@ Py_DECREF.exit159.i:                              ; preds = %87, %84, %82
   br i1 %98, label %99, label %Py_DECREF.exit155.i
 
 99:                                               ; preds = %96
-  call void @_Py_Dealloc(ptr noundef nonnull %80) #16
+  call void @_Py_Dealloc(ptr noundef nonnull %80) #15
   br label %Py_DECREF.exit155.i
 
 Py_DECREF.exit155.i:                              ; preds = %99, %96, %93
@@ -6446,7 +6446,7 @@ Py_DECREF.exit155.i:                              ; preds = %99, %96, %93
   br i1 %103, label %104, label %Py_DECREF.exit153.i
 
 104:                                              ; preds = %101
-  call void @_Py_Dealloc(ptr noundef nonnull %44) #16
+  call void @_Py_Dealloc(ptr noundef nonnull %44) #15
   br label %Py_DECREF.exit153.i
 
 Py_DECREF.exit153.i:                              ; preds = %104, %101, %Py_DECREF.exit155.i
@@ -6465,16 +6465,16 @@ Py_DECREF.exit153.i:                              ; preds = %104, %101, %Py_DECR
   br i1 %110, label %111, label %Py_DECREF.exit157.thread.i
 
 111:                                              ; preds = %108
-  call void @_Py_Dealloc(ptr noundef nonnull %23) #16
+  call void @_Py_Dealloc(ptr noundef nonnull %23) #15
   br label %Py_DECREF.exit157.thread.i
 
 Py_DECREF.exit157.thread.i:                       ; preds = %111, %108, %106, %92, %89, %Py_DECREF.exit159.i, %53, %Py_DECREF.exit163.i
   %.2.ph.i = phi ptr [ null, %111 ], [ null, %108 ], [ null, %106 ], [ null, %92 ], [ null, %89 ], [ null, %Py_DECREF.exit159.i ], [ null, %Py_DECREF.exit163.i ], [ %54, %53 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #15
   br label %math_prod_impl.exit
 
 Py_DECREF.exit157.i:                              ; preds = %42
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #15
   %.phi.trans.insert.i = getelementptr i8, ptr %.397.i, i64 8
   %.195.val.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !16
   br label %112
@@ -6503,7 +6503,7 @@ Py_DECREF.exit139.i.preheader:                    ; preds = %120, %112
   br i1 %118, label %119, label %.outer.i.preheader
 
 119:                                              ; preds = %116
-  call void @_Py_Dealloc(ptr noundef nonnull %.195.i) #16
+  call void @_Py_Dealloc(ptr noundef nonnull %.195.i) #15
   br label %.outer.i.preheader
 
 .outer.i.preheader:                               ; preds = %119, %116, %113
@@ -6519,7 +6519,7 @@ Py_DECREF.exit139.i.preheader:                    ; preds = %120, %112
   br i1 %.not122.i, label %121, label %Py_DECREF.exit139.i.preheader
 
 121:                                              ; preds = %120
-  %122 = call ptr @PyIter_Next(ptr noundef nonnull %23) #16
+  %122 = call ptr @PyIter_Next(ptr noundef nonnull %23) #15
   %123 = icmp eq ptr %122, null
   br i1 %123, label %124, label %133
 
@@ -6535,16 +6535,16 @@ Py_DECREF.exit139.i.preheader:                    ; preds = %120, %112
   br i1 %128, label %129, label %Py_DECREF.exit147.i
 
 129:                                              ; preds = %126
-  call void @_Py_Dealloc(ptr noundef nonnull %23) #16
+  call void @_Py_Dealloc(ptr noundef nonnull %23) #15
   br label %Py_DECREF.exit147.i
 
 Py_DECREF.exit147.i:                              ; preds = %129, %126, %124
-  %130 = call ptr @PyErr_Occurred() #16
+  %130 = call ptr @PyErr_Occurred() #15
   %.not121.i = icmp eq ptr %130, null
   br i1 %.not121.i, label %131, label %math_prod_impl.exit
 
 131:                                              ; preds = %Py_DECREF.exit147.i
-  %132 = call ptr @PyFloat_FromDouble(double noundef %.069.ph.i) #16
+  %132 = call ptr @PyFloat_FromDouble(double noundef %.069.ph.i) #15
   br label %math_prod_impl.exit
 
 133:                                              ; preds = %121
@@ -6567,7 +6567,7 @@ Py_DECREF.exit147.i:                              ; preds = %129, %126, %124
   br i1 %140, label %141, label %.outer.backedge.i
 
 141:                                              ; preds = %138
-  call void @_Py_Dealloc(ptr noundef nonnull %122) #16
+  call void @_Py_Dealloc(ptr noundef nonnull %122) #15
   br label %.outer.backedge.i
 
 .outer.backedge.i:                                ; preds = %Py_DECREF.exit143.i, %141, %138, %135
@@ -6580,14 +6580,14 @@ Py_DECREF.exit147.i:                              ; preds = %129, %126, %124
   br i1 %.not16.i, label %143, label %153
 
 143:                                              ; preds = %142
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #16
-  %144 = call i64 @PyLong_AsLongAndOverflow(ptr noundef nonnull %122, ptr noundef nonnull %6) #16
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #15
+  %144 = call i64 @PyLong_AsLongAndOverflow(ptr noundef nonnull %122, ptr noundef nonnull %6) #15
   %145 = load i32, ptr %6, align 4, !tbaa !14
   %.not120.i = icmp eq i32 %145, 0
   br i1 %.not120.i, label %146, label %Py_DECREF.exit143.thread.i
 
 Py_DECREF.exit143.thread.i:                       ; preds = %143
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #15
   br label %153
 
 146:                                              ; preds = %143
@@ -6603,15 +6603,15 @@ Py_DECREF.exit143.thread.i:                       ; preds = %143
   br i1 %151, label %152, label %Py_DECREF.exit143.i, !llvm.loop !59
 
 152:                                              ; preds = %149
-  call void @_Py_Dealloc(ptr noundef nonnull %122) #16
+  call void @_Py_Dealloc(ptr noundef nonnull %122) #15
   br label %Py_DECREF.exit143.i, !llvm.loop !59
 
 Py_DECREF.exit143.i:                              ; preds = %152, %149, %146
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #16
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #15
   br label %.outer.backedge.i
 
 153:                                              ; preds = %Py_DECREF.exit143.thread.i, %142
-  %154 = call ptr @PyFloat_FromDouble(double noundef %.069.ph.i) #16
+  %154 = call ptr @PyFloat_FromDouble(double noundef %.069.ph.i) #15
   %155 = icmp eq ptr %154, null
   br i1 %155, label %156, label %167
 
@@ -6627,7 +6627,7 @@ Py_DECREF.exit143.i:                              ; preds = %152, %149, %146
   br i1 %160, label %161, label %Py_DECREF.exit141.i
 
 161:                                              ; preds = %158
-  call void @_Py_Dealloc(ptr noundef nonnull %122) #16
+  call void @_Py_Dealloc(ptr noundef nonnull %122) #15
   br label %Py_DECREF.exit141.i
 
 Py_DECREF.exit141.i:                              ; preds = %161, %158, %156
@@ -6642,11 +6642,11 @@ Py_DECREF.exit141.i:                              ; preds = %161, %158, %156
   br i1 %165, label %166, label %math_prod_impl.exit
 
 166:                                              ; preds = %163
-  call void @_Py_Dealloc(ptr noundef nonnull %23) #16
+  call void @_Py_Dealloc(ptr noundef nonnull %23) #15
   br label %math_prod_impl.exit
 
 167:                                              ; preds = %153
-  %168 = call ptr @PyNumber_Multiply(ptr noundef nonnull %154, ptr noundef nonnull %122) #16
+  %168 = call ptr @PyNumber_Multiply(ptr noundef nonnull %154, ptr noundef nonnull %122) #15
   %169 = load i32, ptr %154, align 8, !tbaa !13
   %.not.i136.i = icmp sgt i32 %169, -1
   br i1 %.not.i136.i, label %170, label %Py_DECREF.exit137.i
@@ -6658,7 +6658,7 @@ Py_DECREF.exit141.i:                              ; preds = %161, %158, %156
   br i1 %172, label %173, label %Py_DECREF.exit137.i
 
 173:                                              ; preds = %170
-  call void @_Py_Dealloc(ptr noundef nonnull %154) #16
+  call void @_Py_Dealloc(ptr noundef nonnull %154) #15
   br label %Py_DECREF.exit137.i
 
 Py_DECREF.exit137.i:                              ; preds = %173, %170, %167
@@ -6673,7 +6673,7 @@ Py_DECREF.exit137.i:                              ; preds = %173, %170, %167
   br i1 %177, label %178, label %Py_DECREF.exit135.i
 
 178:                                              ; preds = %175
-  call void @_Py_Dealloc(ptr noundef nonnull %122) #16
+  call void @_Py_Dealloc(ptr noundef nonnull %122) #15
   br label %Py_DECREF.exit135.i
 
 Py_DECREF.exit135.i:                              ; preds = %178, %175, %Py_DECREF.exit137.i
@@ -6692,17 +6692,17 @@ Py_DECREF.exit135.i:                              ; preds = %178, %175, %Py_DECR
   br i1 %184, label %185, label %math_prod_impl.exit
 
 185:                                              ; preds = %182
-  call void @_Py_Dealloc(ptr noundef nonnull %23) #16
+  call void @_Py_Dealloc(ptr noundef nonnull %23) #15
   br label %math_prod_impl.exit
 
 Py_DECREF.exit139.i:                              ; preds = %Py_DECREF.exit139.i.preheader, %Py_DECREF.exit127.i
   %.8.i = phi ptr [ %197, %Py_DECREF.exit127.i ], [ %.8.i.ph, %Py_DECREF.exit139.i.preheader ]
-  %186 = call ptr @PyIter_Next(ptr noundef nonnull %23) #16
+  %186 = call ptr @PyIter_Next(ptr noundef nonnull %23) #15
   %187 = icmp eq ptr %186, null
   br i1 %187, label %188, label %196
 
 188:                                              ; preds = %Py_DECREF.exit139.i
-  %189 = call ptr @PyErr_Occurred() #16
+  %189 = call ptr @PyErr_Occurred() #15
   %.not123.i = icmp eq ptr %189, null
   br i1 %.not123.i, label %Py_DECREF.exit131.i, label %190
 
@@ -6718,11 +6718,11 @@ Py_DECREF.exit139.i:                              ; preds = %Py_DECREF.exit139.i
   br i1 %194, label %195, label %Py_DECREF.exit131.i
 
 195:                                              ; preds = %192
-  call void @_Py_Dealloc(ptr noundef nonnull %.8.i) #16
+  call void @_Py_Dealloc(ptr noundef nonnull %.8.i) #15
   br label %Py_DECREF.exit131.i
 
 196:                                              ; preds = %Py_DECREF.exit139.i
-  %197 = call ptr @PyNumber_Multiply(ptr noundef nonnull %.8.i, ptr noundef nonnull %186) #16
+  %197 = call ptr @PyNumber_Multiply(ptr noundef nonnull %.8.i, ptr noundef nonnull %186) #15
   %198 = load i32, ptr %.8.i, align 8, !tbaa !13
   %.not.i128.i = icmp sgt i32 %198, -1
   br i1 %.not.i128.i, label %199, label %Py_DECREF.exit129.i
@@ -6734,7 +6734,7 @@ Py_DECREF.exit139.i:                              ; preds = %Py_DECREF.exit139.i
   br i1 %201, label %202, label %Py_DECREF.exit129.i
 
 202:                                              ; preds = %199
-  call void @_Py_Dealloc(ptr noundef nonnull %.8.i) #16
+  call void @_Py_Dealloc(ptr noundef nonnull %.8.i) #15
   br label %Py_DECREF.exit129.i
 
 Py_DECREF.exit129.i:                              ; preds = %202, %199, %196
@@ -6749,7 +6749,7 @@ Py_DECREF.exit129.i:                              ; preds = %202, %199, %196
   br i1 %206, label %207, label %Py_DECREF.exit127.i
 
 207:                                              ; preds = %204
-  call void @_Py_Dealloc(ptr noundef nonnull %186) #16
+  call void @_Py_Dealloc(ptr noundef nonnull %186) #15
   br label %Py_DECREF.exit127.i
 
 Py_DECREF.exit127.i:                              ; preds = %207, %204, %Py_DECREF.exit129.i
@@ -6769,12 +6769,12 @@ Py_DECREF.exit131.i:                              ; preds = %Py_DECREF.exit127.i
   br i1 %212, label %213, label %math_prod_impl.exit
 
 213:                                              ; preds = %210
-  call void @_Py_Dealloc(ptr noundef nonnull %23) #16
+  call void @_Py_Dealloc(ptr noundef nonnull %23) #15
   br label %math_prod_impl.exit
 
 math_prod_impl.exit:                              ; preds = %213, %210, %Py_DECREF.exit131.i, %185, %182, %180, %166, %163, %Py_DECREF.exit141.i, %131, %Py_DECREF.exit147.i, %Py_DECREF.exit157.thread.i, %21, %14
   %.023 = phi ptr [ null, %14 ], [ null, %21 ], [ %.2.ph.i, %Py_DECREF.exit157.thread.i ], [ %.9.i, %Py_DECREF.exit131.i ], [ %.9.i, %210 ], [ %.9.i, %213 ], [ null, %185 ], [ null, %182 ], [ null, %180 ], [ null, %166 ], [ null, %163 ], [ null, %Py_DECREF.exit141.i ], [ null, %Py_DECREF.exit147.i ], [ %132, %131 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #16
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #15
   ret ptr %.023
 }
 
@@ -6786,7 +6786,7 @@ define internal ptr @math_perm(ptr readnone captures(none) %0, ptr noundef reado
   br i1 %or.cond, label %8, label %6
 
 6:                                                ; preds = %3
-  %7 = tail call i32 @_PyArg_CheckPositional(ptr noundef nonnull @.str.54, i64 noundef %2, i64 noundef 1, i64 noundef 2) #16
+  %7 = tail call i32 @_PyArg_CheckPositional(ptr noundef nonnull @.str.54, i64 noundef %2, i64 noundef 1, i64 noundef 2) #15
   %.not = icmp eq i32 %7, 0
   br i1 %.not, label %85, label %8
 
@@ -6796,13 +6796,13 @@ define internal ptr @math_perm(ptr readnone captures(none) %0, ptr noundef reado
   br i1 %10, label %.thread, label %11
 
 .thread:                                          ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #15
   br label %15
 
 11:                                               ; preds = %8
   %12 = getelementptr i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #16
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #15
   %14 = icmp eq ptr %13, @_Py_NoneStruct
   br i1 %14, label %15, label %17
 
@@ -6811,12 +6811,12 @@ define internal ptr @math_perm(ptr readnone captures(none) %0, ptr noundef reado
   br label %math_perm_impl.exit
 
 17:                                               ; preds = %11
-  %18 = tail call ptr @PyNumber_Index(ptr noundef %9) #16
+  %18 = tail call ptr @PyNumber_Index(ptr noundef %9) #15
   %19 = icmp eq ptr %18, null
   br i1 %19, label %math_perm_impl.exit, label %20
 
 20:                                               ; preds = %17
-  %21 = tail call ptr @PyNumber_Index(ptr noundef %13) #16
+  %21 = tail call ptr @PyNumber_Index(ptr noundef %13) #15
   %22 = icmp eq ptr %21, null
   br i1 %22, label %23, label %29
 
@@ -6832,7 +6832,7 @@ define internal ptr @math_perm(ptr readnone captures(none) %0, ptr noundef reado
   br i1 %27, label %28, label %math_perm_impl.exit
 
 28:                                               ; preds = %25
-  tail call void @_Py_Dealloc(ptr noundef nonnull %18) #16
+  tail call void @_Py_Dealloc(ptr noundef nonnull %18) #15
   br label %math_perm_impl.exit
 
 29:                                               ; preds = %20
@@ -6844,7 +6844,7 @@ define internal ptr @math_perm(ptr readnone captures(none) %0, ptr noundef reado
 
 33:                                               ; preds = %29
   %34 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !12
-  tail call void @PyErr_SetString(ptr noundef %34, ptr noundef nonnull @.str.87) #16
+  tail call void @PyErr_SetString(ptr noundef %34, ptr noundef nonnull @.str.87) #15
   br label %74
 
 35:                                               ; preds = %29
@@ -6856,11 +6856,11 @@ define internal ptr @math_perm(ptr readnone captures(none) %0, ptr noundef reado
 
 39:                                               ; preds = %35
   %40 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !12
-  tail call void @PyErr_SetString(ptr noundef %40, ptr noundef nonnull @.str.88) #16
+  tail call void @PyErr_SetString(ptr noundef %40, ptr noundef nonnull @.str.88) #15
   br label %74
 
 41:                                               ; preds = %35
-  %42 = tail call i32 @PyObject_RichCompareBool(ptr noundef nonnull %18, ptr noundef nonnull %21, i32 noundef 0) #16
+  %42 = tail call i32 @PyObject_RichCompareBool(ptr noundef nonnull %18, ptr noundef nonnull %21, i32 noundef 0) #15
   %.not.i = icmp eq i32 %42, 0
   br i1 %.not.i, label %47, label %43
 
@@ -6869,22 +6869,22 @@ define internal ptr @math_perm(ptr readnone captures(none) %0, ptr noundef reado
   br i1 %44, label %45, label %74
 
 45:                                               ; preds = %43
-  %46 = tail call ptr @PyLong_FromLong(i64 noundef 0) #16
+  %46 = tail call ptr @PyLong_FromLong(i64 noundef 0) #15
   br label %63
 
 47:                                               ; preds = %41
-  %48 = call i64 @PyLong_AsLongLongAndOverflow(ptr noundef nonnull %21, ptr noundef nonnull %4) #16
+  %48 = call i64 @PyLong_AsLongLongAndOverflow(ptr noundef nonnull %21, ptr noundef nonnull %4) #15
   %49 = load i32, ptr %4, align 4, !tbaa !14
   %50 = icmp sgt i32 %49, 0
   br i1 %50, label %51, label %54
 
 51:                                               ; preds = %47
   %52 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !12
-  %53 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %52, ptr noundef nonnull @.str.89, i64 noundef 9223372036854775807) #16
+  %53 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %52, ptr noundef nonnull @.str.89, i64 noundef 9223372036854775807) #15
   br label %74
 
 54:                                               ; preds = %47
-  %55 = call i64 @PyLong_AsLongLongAndOverflow(ptr noundef nonnull %18, ptr noundef nonnull %4) #16
+  %55 = call i64 @PyLong_AsLongLongAndOverflow(ptr noundef nonnull %18, ptr noundef nonnull %4) #15
   %56 = load i32, ptr %4, align 4, !tbaa !14
   %57 = icmp eq i32 %56, 0
   %58 = icmp sgt i64 %48, 1
@@ -6912,7 +6912,7 @@ define internal ptr @math_perm(ptr readnone captures(none) %0, ptr noundef reado
   br i1 %67, label %68, label %Py_DECREF.exit38.i
 
 68:                                               ; preds = %65
-  call void @_Py_Dealloc(ptr noundef nonnull %18) #16
+  call void @_Py_Dealloc(ptr noundef nonnull %18) #15
   br label %Py_DECREF.exit38.i
 
 Py_DECREF.exit38.i:                               ; preds = %68, %65, %63
@@ -6927,7 +6927,7 @@ Py_DECREF.exit38.i:                               ; preds = %68, %65, %63
   br i1 %72, label %73, label %math_perm_impl.exit
 
 73:                                               ; preds = %70
-  call void @_Py_Dealloc(ptr noundef nonnull %21) #16
+  call void @_Py_Dealloc(ptr noundef nonnull %21) #15
   br label %math_perm_impl.exit
 
 74:                                               ; preds = %51, %43, %39, %33
@@ -6942,7 +6942,7 @@ Py_DECREF.exit38.i:                               ; preds = %68, %65, %63
   br i1 %78, label %79, label %Py_DECREF.exit34.i
 
 79:                                               ; preds = %76
-  call void @_Py_Dealloc(ptr noundef nonnull %18) #16
+  call void @_Py_Dealloc(ptr noundef nonnull %18) #15
   br label %Py_DECREF.exit34.i
 
 Py_DECREF.exit34.i:                               ; preds = %79, %76, %74
@@ -6957,12 +6957,12 @@ Py_DECREF.exit34.i:                               ; preds = %79, %76, %74
   br i1 %83, label %84, label %math_perm_impl.exit
 
 84:                                               ; preds = %81
-  call void @_Py_Dealloc(ptr noundef nonnull %21) #16
+  call void @_Py_Dealloc(ptr noundef nonnull %21) #15
   br label %math_perm_impl.exit
 
 math_perm_impl.exit:                              ; preds = %15, %17, %23, %25, %28, %Py_DECREF.exit38.i, %70, %73, %Py_DECREF.exit34.i, %81, %84
   %.0.i = phi ptr [ %16, %15 ], [ null, %17 ], [ null, %23 ], [ null, %25 ], [ null, %28 ], [ %.027.i, %Py_DECREF.exit38.i ], [ %.027.i, %70 ], [ %.027.i, %73 ], [ null, %Py_DECREF.exit34.i ], [ null, %81 ], [ null, %84 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #15
   br label %85
 
 85:                                               ; preds = %6, %math_perm_impl.exit
@@ -6977,7 +6977,7 @@ define internal ptr @math_comb(ptr readnone captures(none) %0, ptr noundef reado
   br i1 %or.cond, label %7, label %5
 
 5:                                                ; preds = %3
-  %6 = tail call i32 @_PyArg_CheckPositional(ptr noundef nonnull @.str.55, i64 noundef %2, i64 noundef 2, i64 noundef 2) #16
+  %6 = tail call i32 @_PyArg_CheckPositional(ptr noundef nonnull @.str.55, i64 noundef %2, i64 noundef 2, i64 noundef 2) #15
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %108, label %7
 
@@ -6985,13 +6985,13 @@ define internal ptr @math_comb(ptr readnone captures(none) %0, ptr noundef reado
   %8 = load ptr, ptr %1, align 8, !tbaa !12
   %9 = getelementptr i8, ptr %1, i64 8
   %10 = load ptr, ptr %9, align 8, !tbaa !12
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #16
-  %11 = tail call ptr @PyNumber_Index(ptr noundef %8) #16
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #15
+  %11 = tail call ptr @PyNumber_Index(ptr noundef %8) #15
   %12 = icmp eq ptr %11, null
   br i1 %12, label %math_comb_impl.exit, label %13
 
 13:                                               ; preds = %7
-  %14 = tail call ptr @PyNumber_Index(ptr noundef %10) #16
+  %14 = tail call ptr @PyNumber_Index(ptr noundef %10) #15
   %15 = icmp eq ptr %14, null
   br i1 %15, label %16, label %22
 
@@ -7007,7 +7007,7 @@ define internal ptr @math_comb(ptr readnone captures(none) %0, ptr noundef reado
   br i1 %20, label %21, label %math_comb_impl.exit
 
 21:                                               ; preds = %18
-  tail call void @_Py_Dealloc(ptr noundef nonnull %11) #16
+  tail call void @_Py_Dealloc(ptr noundef nonnull %11) #15
   br label %math_comb_impl.exit
 
 22:                                               ; preds = %13
@@ -7019,7 +7019,7 @@ define internal ptr @math_comb(ptr readnone captures(none) %0, ptr noundef reado
 
 26:                                               ; preds = %22
   %27 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !12
-  tail call void @PyErr_SetString(ptr noundef %27, ptr noundef nonnull @.str.87) #16
+  tail call void @PyErr_SetString(ptr noundef %27, ptr noundef nonnull @.str.87) #15
   br label %97
 
 28:                                               ; preds = %22
@@ -7031,17 +7031,17 @@ define internal ptr @math_comb(ptr readnone captures(none) %0, ptr noundef reado
 
 32:                                               ; preds = %28
   %33 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !12
-  tail call void @PyErr_SetString(ptr noundef %33, ptr noundef nonnull @.str.88) #16
+  tail call void @PyErr_SetString(ptr noundef %33, ptr noundef nonnull @.str.88) #15
   br label %97
 
 34:                                               ; preds = %28
-  %35 = call i64 @PyLong_AsLongLongAndOverflow(ptr noundef nonnull %11, ptr noundef nonnull %4) #16
+  %35 = call i64 @PyLong_AsLongLongAndOverflow(ptr noundef nonnull %11, ptr noundef nonnull %4) #15
   %36 = load i32, ptr %4, align 4, !tbaa !14
   %.not.i = icmp eq i32 %36, 0
   br i1 %.not.i, label %37, label %49
 
 37:                                               ; preds = %34
-  %38 = call i64 @PyLong_AsLongLongAndOverflow(ptr noundef nonnull %14, ptr noundef nonnull %4) #16
+  %38 = call i64 @PyLong_AsLongLongAndOverflow(ptr noundef nonnull %14, ptr noundef nonnull %4) #15
   %39 = load i32, ptr %4, align 4, !tbaa !14
   %.not53.i = icmp ne i32 %39, 0
   %40 = icmp sgt i64 %38, %35
@@ -7049,7 +7049,7 @@ define internal ptr @math_comb(ptr readnone captures(none) %0, ptr noundef reado
   br i1 %or.cond.i, label %41, label %43
 
 41:                                               ; preds = %37
-  %42 = call ptr @PyLong_FromLong(i64 noundef 0) #16
+  %42 = call ptr @PyLong_FromLong(i64 noundef 0) #15
   br label %86
 
 43:                                               ; preds = %37
@@ -7063,7 +7063,7 @@ define internal ptr @math_comb(ptr readnone captures(none) %0, ptr noundef reado
   br label %86
 
 49:                                               ; preds = %34
-  %50 = call ptr @PyNumber_Subtract(ptr noundef nonnull %11, ptr noundef nonnull %14) #16
+  %50 = call ptr @PyNumber_Subtract(ptr noundef nonnull %11, ptr noundef nonnull %14) #15
   %51 = icmp eq ptr %50, null
   br i1 %51, label %97, label %52
 
@@ -7086,15 +7086,15 @@ define internal ptr @math_comb(ptr readnone captures(none) %0, ptr noundef reado
   br i1 %60, label %61, label %Py_DECREF.exit66.i
 
 61:                                               ; preds = %58
-  call void @_Py_Dealloc(ptr noundef nonnull %50) #16
+  call void @_Py_Dealloc(ptr noundef nonnull %50) #15
   br label %Py_DECREF.exit66.i
 
 Py_DECREF.exit66.i:                               ; preds = %61, %58, %56
-  %62 = call ptr @PyLong_FromLong(i64 noundef 0) #16
+  %62 = call ptr @PyLong_FromLong(i64 noundef 0) #15
   br label %86
 
 63:                                               ; preds = %52
-  %64 = call i32 @PyObject_RichCompareBool(ptr noundef nonnull %50, ptr noundef nonnull %14, i32 noundef 0) #16
+  %64 = call i32 @PyObject_RichCompareBool(ptr noundef nonnull %50, ptr noundef nonnull %14, i32 noundef 0) #15
   %65 = icmp sgt i32 %64, 0
   br i1 %65, label %66, label %72
 
@@ -7110,7 +7110,7 @@ Py_DECREF.exit66.i:                               ; preds = %61, %58, %56
   br i1 %70, label %71, label %Py_DECREF.exit64.i
 
 71:                                               ; preds = %68
-  call void @_Py_Dealloc(ptr noundef nonnull %14) #16
+  call void @_Py_Dealloc(ptr noundef nonnull %14) #15
   br label %Py_DECREF.exit64.i
 
 72:                                               ; preds = %63
@@ -7125,7 +7125,7 @@ Py_DECREF.exit66.i:                               ; preds = %61, %58, %56
   br i1 %76, label %77, label %Py_DECREF.exit62.i
 
 77:                                               ; preds = %74
-  call void @_Py_Dealloc(ptr noundef nonnull %50) #16
+  call void @_Py_Dealloc(ptr noundef nonnull %50) #15
   br label %Py_DECREF.exit62.i
 
 Py_DECREF.exit62.i:                               ; preds = %77, %74, %72
@@ -7134,14 +7134,14 @@ Py_DECREF.exit62.i:                               ; preds = %77, %74, %72
 
 Py_DECREF.exit64.i:                               ; preds = %Py_DECREF.exit62.i, %71, %68, %66
   %.3.i = phi ptr [ %14, %Py_DECREF.exit62.i ], [ %50, %66 ], [ %50, %68 ], [ %50, %71 ]
-  %79 = call i64 @PyLong_AsLongLongAndOverflow(ptr noundef nonnull %.3.i, ptr noundef nonnull %4) #16
+  %79 = call i64 @PyLong_AsLongLongAndOverflow(ptr noundef nonnull %.3.i, ptr noundef nonnull %4) #15
   %80 = load i32, ptr %4, align 4, !tbaa !14
   %.not54.i = icmp eq i32 %80, 0
   br i1 %.not54.i, label %84, label %81
 
 81:                                               ; preds = %Py_DECREF.exit64.i
   %82 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !12
-  %83 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %82, ptr noundef nonnull @.str.90, i64 noundef 9223372036854775807) #16
+  %83 = call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %82, ptr noundef nonnull @.str.90, i64 noundef 9223372036854775807) #15
   br label %97
 
 84:                                               ; preds = %Py_DECREF.exit64.i, %43
@@ -7164,7 +7164,7 @@ Py_DECREF.exit64.i:                               ; preds = %Py_DECREF.exit62.i,
   br i1 %90, label %91, label %Py_DECREF.exit60.i
 
 91:                                               ; preds = %88
-  call void @_Py_Dealloc(ptr noundef nonnull %11) #16
+  call void @_Py_Dealloc(ptr noundef nonnull %11) #15
   br label %Py_DECREF.exit60.i
 
 Py_DECREF.exit60.i:                               ; preds = %91, %88, %86
@@ -7179,7 +7179,7 @@ Py_DECREF.exit60.i:                               ; preds = %91, %88, %86
   br i1 %95, label %96, label %math_comb_impl.exit
 
 96:                                               ; preds = %93
-  call void @_Py_Dealloc(ptr noundef nonnull %.1.i) #16
+  call void @_Py_Dealloc(ptr noundef nonnull %.1.i) #15
   br label %math_comb_impl.exit
 
 97:                                               ; preds = %81, %Py_DECREF.exit62.i, %49, %32, %26
@@ -7195,7 +7195,7 @@ Py_DECREF.exit60.i:                               ; preds = %91, %88, %86
   br i1 %101, label %102, label %Py_DECREF.exit56.i
 
 102:                                              ; preds = %99
-  call void @_Py_Dealloc(ptr noundef nonnull %11) #16
+  call void @_Py_Dealloc(ptr noundef nonnull %11) #15
   br label %Py_DECREF.exit56.i
 
 Py_DECREF.exit56.i:                               ; preds = %102, %99, %97
@@ -7210,12 +7210,12 @@ Py_DECREF.exit56.i:                               ; preds = %102, %99, %97
   br i1 %106, label %107, label %math_comb_impl.exit
 
 107:                                              ; preds = %104
-  call void @_Py_Dealloc(ptr noundef nonnull %.044.i) #16
+  call void @_Py_Dealloc(ptr noundef nonnull %.044.i) #15
   br label %math_comb_impl.exit
 
 math_comb_impl.exit:                              ; preds = %7, %16, %18, %21, %Py_DECREF.exit60.i, %93, %96, %Py_DECREF.exit56.i, %104, %107
   %.0.i = phi ptr [ null, %7 ], [ null, %16 ], [ null, %18 ], [ null, %21 ], [ %.033.i, %Py_DECREF.exit60.i ], [ %.033.i, %93 ], [ %.033.i, %96 ], [ null, %Py_DECREF.exit56.i ], [ null, %104 ], [ null, %107 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #16
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #15
   br label %108
 
 108:                                              ; preds = %5, %math_comb_impl.exit
@@ -7226,7 +7226,7 @@ math_comb_impl.exit:                              ; preds = %7, %16, %18, %21, %
 ; Function Attrs: nounwind uwtable
 define internal ptr @math_nextafter(ptr readnone captures(none) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3) #0 {
   %5 = alloca [3 x ptr], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #16
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #15
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %8, label %.thread
 
@@ -7244,7 +7244,7 @@ define internal ptr @math_nextafter(ptr readnone captures(none) %0, ptr noundef 
 
 11:                                               ; preds = %8, %.thread
   %12 = phi i64 [ %7, %.thread ], [ %2, %8 ]
-  %13 = call ptr @_PyArg_UnpackKeywords(ptr noundef %1, i64 noundef %2, ptr noundef null, ptr noundef %3, ptr noundef nonnull @math_nextafter._parser, i32 noundef 2, i32 noundef 2, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %5) #16
+  %13 = call ptr @_PyArg_UnpackKeywords(ptr noundef %1, i64 noundef %2, ptr noundef null, ptr noundef %3, ptr noundef nonnull @math_nextafter._parser, i32 noundef 2, i32 noundef 2, i32 noundef 0, i32 noundef 0, ptr noundef nonnull %5) #15
   %.not40 = icmp eq ptr %13, null
   br i1 %.not40, label %math_nextafter_impl.exit, label %.thread52
 
@@ -7263,12 +7263,12 @@ define internal ptr @math_nextafter(ptr readnone captures(none) %0, ptr noundef 
   br label %25
 
 20:                                               ; preds = %.thread52
-  %21 = call double @PyFloat_AsDouble(ptr noundef nonnull %16) #16
+  %21 = call double @PyFloat_AsDouble(ptr noundef nonnull %16) #15
   %22 = fcmp oeq double %21, -1.000000e+00
   br i1 %22, label %23, label %25
 
 23:                                               ; preds = %20
-  %24 = call ptr @PyErr_Occurred() #16
+  %24 = call ptr @PyErr_Occurred() #15
   %.not42 = icmp eq ptr %24, null
   br i1 %.not42, label %25, label %math_nextafter_impl.exit
 
@@ -7287,12 +7287,12 @@ define internal ptr @math_nextafter(ptr readnone captures(none) %0, ptr noundef 
   br label %36
 
 31:                                               ; preds = %25
-  %32 = call double @PyFloat_AsDouble(ptr noundef nonnull %27) #16
+  %32 = call double @PyFloat_AsDouble(ptr noundef nonnull %27) #15
   %33 = fcmp oeq double %32, -1.000000e+00
   br i1 %33, label %34, label %36
 
 34:                                               ; preds = %31
-  %35 = call ptr @PyErr_Occurred() #16
+  %35 = call ptr @PyErr_Occurred() #15
   %.not44 = icmp eq ptr %35, null
   br i1 %.not44, label %36, label %math_nextafter_impl.exit
 
@@ -7308,12 +7308,12 @@ define internal ptr @math_nextafter(ptr readnone captures(none) %0, ptr noundef 
   br i1 %40, label %.thread54, label %43
 
 .thread54:                                        ; preds = %36, %37
-  %41 = call double @nextafter(double noundef %.032, double noundef %.031) #16, !tbaa !14
-  %42 = call ptr @PyFloat_FromDouble(double noundef %41) #16
+  %41 = call double @nextafter(double noundef %.032, double noundef %.031) #15, !tbaa !14
+  %42 = call ptr @PyFloat_FromDouble(double noundef %41) #15
   br label %math_nextafter_impl.exit
 
 43:                                               ; preds = %37
-  %44 = call ptr @PyNumber_Index(ptr noundef %39) #16
+  %44 = call ptr @PyNumber_Index(ptr noundef %39) #15
   %45 = icmp eq ptr %44, null
   br i1 %45, label %math_nextafter_impl.exit, label %46
 
@@ -7326,7 +7326,7 @@ define internal ptr @math_nextafter(ptr readnone captures(none) %0, ptr noundef 
 
 50:                                               ; preds = %46
   %51 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !12
-  call void @PyErr_SetString(ptr noundef %51, ptr noundef nonnull @.str.92) #16
+  call void @PyErr_SetString(ptr noundef %51, ptr noundef nonnull @.str.92) #15
   %52 = load i32, ptr %44, align 8, !tbaa !13
   %.not.i68.i = icmp sgt i32 %52, -1
   br i1 %.not.i68.i, label %53, label %math_nextafter_impl.exit
@@ -7338,11 +7338,11 @@ define internal ptr @math_nextafter(ptr readnone captures(none) %0, ptr noundef 
   br i1 %55, label %56, label %math_nextafter_impl.exit
 
 56:                                               ; preds = %53
-  call void @_Py_Dealloc(ptr noundef nonnull %44) #16
+  call void @_Py_Dealloc(ptr noundef nonnull %44) #15
   br label %math_nextafter_impl.exit
 
 57:                                               ; preds = %46
-  %58 = call i64 @PyLong_AsUnsignedLongLong(ptr noundef nonnull %44) #16
+  %58 = call i64 @PyLong_AsUnsignedLongLong(ptr noundef nonnull %44) #15
   %59 = load i32, ptr %44, align 8, !tbaa !13
   %.not.i.i = icmp sgt i32 %59, -1
   br i1 %.not.i.i, label %60, label %Py_DECREF.exit.i
@@ -7354,7 +7354,7 @@ define internal ptr @math_nextafter(ptr readnone captures(none) %0, ptr noundef 
   br i1 %62, label %63, label %Py_DECREF.exit.i
 
 63:                                               ; preds = %60
-  call void @_Py_Dealloc(ptr noundef nonnull %44) #16
+  call void @_Py_Dealloc(ptr noundef nonnull %44) #15
   br label %Py_DECREF.exit.i
 
 Py_DECREF.exit.i:                                 ; preds = %63, %60, %57
@@ -7364,22 +7364,22 @@ Py_DECREF.exit.i:                                 ; preds = %63, %60, %57
   ]
 
 64:                                               ; preds = %Py_DECREF.exit.i
-  %65 = call ptr @PyErr_Occurred() #16
+  %65 = call ptr @PyErr_Occurred() #15
   %.not.i = icmp eq ptr %65, null
   br i1 %.not.i, label %.thread.i, label %66
 
 66:                                               ; preds = %64
   %67 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !12
-  %68 = call i32 @PyErr_ExceptionMatches(ptr noundef %67) #16
+  %68 = call i32 @PyErr_ExceptionMatches(ptr noundef %67) #15
   %.not63.i = icmp eq i32 %68, 0
   br i1 %.not63.i, label %math_nextafter_impl.exit, label %69
 
 69:                                               ; preds = %66
-  call void @PyErr_Clear() #16
+  call void @PyErr_Clear() #15
   br label %.thread.i
 
 70:                                               ; preds = %Py_DECREF.exit.i
-  %71 = call ptr @PyFloat_FromDouble(double noundef %.032) #16
+  %71 = call ptr @PyFloat_FromDouble(double noundef %.032) #15
   br label %math_nextafter_impl.exit
 
 .thread.i:                                        ; preds = %69, %64, %Py_DECREF.exit.i
@@ -7387,7 +7387,7 @@ Py_DECREF.exit.i:                                 ; preds = %63, %60, %57
   br i1 %72, label %73, label %75
 
 73:                                               ; preds = %.thread.i
-  %74 = call ptr @PyFloat_FromDouble(double noundef %.032) #16
+  %74 = call ptr @PyFloat_FromDouble(double noundef %.032) #15
   br label %math_nextafter_impl.exit
 
 75:                                               ; preds = %.thread.i
@@ -7395,7 +7395,7 @@ Py_DECREF.exit.i:                                 ; preds = %63, %60, %57
   br i1 %76, label %77, label %79
 
 77:                                               ; preds = %75
-  %78 = call ptr @PyFloat_FromDouble(double noundef %.031) #16
+  %78 = call ptr @PyFloat_FromDouble(double noundef %.031) #15
   br label %math_nextafter_impl.exit
 
 79:                                               ; preds = %75
@@ -7405,7 +7405,7 @@ Py_DECREF.exit.i:                                 ; preds = %63, %60, %57
   br i1 %82, label %83, label %85
 
 83:                                               ; preds = %79
-  %84 = call ptr @PyFloat_FromDouble(double noundef %.032) #16
+  %84 = call ptr @PyFloat_FromDouble(double noundef %.032) #15
   br label %math_nextafter_impl.exit
 
 85:                                               ; preds = %79
@@ -7423,7 +7423,7 @@ Py_DECREF.exit.i:                                 ; preds = %63, %60, %57
   br i1 %.not67.i, label %95, label %93
 
 93:                                               ; preds = %91
-  %94 = call ptr @PyFloat_FromDouble(double noundef %.031) #16
+  %94 = call ptr @PyFloat_FromDouble(double noundef %.031) #15
   br label %math_nextafter_impl.exit
 
 95:                                               ; preds = %91
@@ -7435,13 +7435,13 @@ Py_DECREF.exit.i:                                 ; preds = %63, %60, %57
   %99 = sub nuw i64 %58, %87
   %100 = or i64 %99, %98
   %101 = bitcast i64 %100 to double
-  %102 = call ptr @PyFloat_FromDouble(double noundef %101) #16
+  %102 = call ptr @PyFloat_FromDouble(double noundef %101) #15
   br label %math_nextafter_impl.exit
 
 103:                                              ; preds = %95
   %104 = sub i64 %80, %58
   %105 = bitcast i64 %104 to double
-  %106 = call ptr @PyFloat_FromDouble(double noundef %105) #16
+  %106 = call ptr @PyFloat_FromDouble(double noundef %105) #15
   br label %math_nextafter_impl.exit
 
 107:                                              ; preds = %85
@@ -7456,11 +7456,11 @@ Py_DECREF.exit.i:                                 ; preds = %63, %60, %57
 111:                                              ; preds = %109
   %112 = sub i64 %80, %58
   %113 = bitcast i64 %112 to double
-  %114 = call ptr @PyFloat_FromDouble(double noundef %113) #16
+  %114 = call ptr @PyFloat_FromDouble(double noundef %113) #15
   br label %math_nextafter_impl.exit
 
 115:                                              ; preds = %109
-  %116 = call ptr @PyFloat_FromDouble(double noundef %.031) #16
+  %116 = call ptr @PyFloat_FromDouble(double noundef %.031) #15
   br label %math_nextafter_impl.exit
 
 117:                                              ; preds = %107
@@ -7471,16 +7471,16 @@ Py_DECREF.exit.i:                                 ; preds = %63, %60, %57
 119:                                              ; preds = %117
   %120 = add i64 %58, %80
   %121 = bitcast i64 %120 to double
-  %122 = call ptr @PyFloat_FromDouble(double noundef %121) #16
+  %122 = call ptr @PyFloat_FromDouble(double noundef %121) #15
   br label %math_nextafter_impl.exit
 
 123:                                              ; preds = %117
-  %124 = call ptr @PyFloat_FromDouble(double noundef %.031) #16
+  %124 = call ptr @PyFloat_FromDouble(double noundef %.031) #15
   br label %math_nextafter_impl.exit
 
 math_nextafter_impl.exit:                         ; preds = %123, %119, %115, %111, %103, %97, %93, %83, %77, %73, %70, %66, %56, %53, %50, %43, %.thread54, %34, %23, %11
   %.033 = phi ptr [ null, %34 ], [ null, %23 ], [ null, %11 ], [ %42, %.thread54 ], [ null, %43 ], [ null, %66 ], [ %71, %70 ], [ %74, %73 ], [ %78, %77 ], [ %84, %83 ], [ %94, %93 ], [ %102, %97 ], [ %106, %103 ], [ %114, %111 ], [ %116, %115 ], [ %122, %119 ], [ %124, %123 ], [ null, %50 ], [ null, %53 ], [ null, %56 ]
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #15
   ret ptr %.033
 }
 
@@ -7497,12 +7497,12 @@ define internal ptr @math_ulp(ptr readnone captures(none) %0, ptr noundef %1) #0
   br label %11
 
 6:                                                ; preds = %2
-  %7 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %1) #16
+  %7 = tail call double @PyFloat_AsDouble(ptr noundef nonnull %1) #15
   %8 = fcmp oeq double %7, -1.000000e+00
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %6
-  %10 = tail call ptr @PyErr_Occurred() #16
+  %10 = tail call ptr @PyErr_Occurred() #15
   %.not11 = icmp eq ptr %10, null
   br i1 %.not11, label %.thread, label %28
 
@@ -7518,13 +7518,13 @@ define internal ptr @math_ulp(ptr readnone captures(none) %0, ptr noundef %1) #0
   br i1 %14, label %math_ulp_impl.exit.thread, label %15
 
 15:                                               ; preds = %.thread
-  %16 = tail call double @nextafter(double noundef %13, double noundef 0x7FF0000000000000) #16, !tbaa !14
-  %17 = tail call double @llvm.fabs.f64(double %16) #18
+  %16 = tail call double @nextafter(double noundef %13, double noundef 0x7FF0000000000000) #15, !tbaa !14
+  %17 = tail call double @llvm.fabs.f64(double %16) #17
   %18 = fcmp oeq double %17, 0x7FF0000000000000
   br i1 %18, label %19, label %22
 
 19:                                               ; preds = %15
-  %20 = tail call double @nextafter(double noundef %13, double noundef 0xFFF0000000000000) #16, !tbaa !14
+  %20 = tail call double @nextafter(double noundef %13, double noundef 0xFFF0000000000000) #15, !tbaa !14
   %21 = fsub double %13, %20
   br label %math_ulp_impl.exit
 
@@ -7538,13 +7538,13 @@ math_ulp_impl.exit:                               ; preds = %11, %19, %22
   br i1 %24, label %25, label %math_ulp_impl.exit.thread
 
 25:                                               ; preds = %math_ulp_impl.exit
-  %26 = tail call ptr @PyErr_Occurred() #16
+  %26 = tail call ptr @PyErr_Occurred() #15
   %.not12 = icmp eq ptr %26, null
   br i1 %.not12, label %math_ulp_impl.exit.thread, label %28
 
 math_ulp_impl.exit.thread:                        ; preds = %.thread, %25, %math_ulp_impl.exit
   %.0.i15 = phi double [ -1.000000e+00, %25 ], [ %.0.i, %math_ulp_impl.exit ], [ 0x7FF0000000000000, %.thread ]
-  %27 = tail call ptr @PyFloat_FromDouble(double noundef %.0.i15) #16
+  %27 = tail call ptr @PyFloat_FromDouble(double noundef %.0.i15) #15
   br label %28
 
 28:                                               ; preds = %25, %9, %math_ulp_impl.exit.thread
@@ -7554,19 +7554,19 @@ math_ulp_impl.exit.thread:                        ; preds = %.thread, %25, %math
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @math_1(ptr noundef %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 0, 2) %2, ptr noundef %3) unnamed_addr #0 {
-  %5 = tail call double @PyFloat_AsDouble(ptr noundef %0) #16
+  %5 = tail call double @PyFloat_AsDouble(ptr noundef %0) #15
   %6 = fcmp oeq double %5, -1.000000e+00
   br i1 %6, label %7, label %9
 
 7:                                                ; preds = %4
-  %8 = tail call ptr @PyErr_Occurred() #16
+  %8 = tail call ptr @PyErr_Occurred() #15
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %9, label %is_error.exit.thread
 
 9:                                                ; preds = %7, %4
-  %10 = tail call ptr @__errno_location() #17
+  %10 = tail call ptr @__errno_location() #16
   store i32 0, ptr %10, align 4, !tbaa !14
-  %11 = tail call double %1(double noundef %5) #16
+  %11 = tail call double %1(double noundef %5) #15
   %12 = fcmp ord double %11, 0.000000e+00
   %13 = fcmp uno double %5, 0.000000e+00
   %or.cond = or i1 %13, %12
@@ -7586,7 +7586,7 @@ define internal fastcc ptr @math_1(ptr noundef %0, ptr noundef readonly captures
 
 20:                                               ; preds = %19
   %21 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !12
-  tail call void @PyErr_SetString(ptr noundef %21, ptr noundef nonnull @.str.59) #16
+  tail call void @PyErr_SetString(ptr noundef %21, ptr noundef nonnull @.str.59) #15
   br label %is_error.exit.thread
 
 22:                                               ; preds = %14
@@ -7603,7 +7603,7 @@ define internal fastcc ptr @math_1(ptr noundef %0, ptr noundef readonly captures
 
 26:                                               ; preds = %24
   %27 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !12
-  tail call void @PyErr_SetString(ptr noundef %27, ptr noundef nonnull @.str.60) #16
+  tail call void @PyErr_SetString(ptr noundef %27, ptr noundef nonnull @.str.60) #15
   br label %is_error.exit.thread
 
 28:                                               ; preds = %24
@@ -7612,16 +7612,16 @@ define internal fastcc ptr @math_1(ptr noundef %0, ptr noundef readonly captures
 
 30:                                               ; preds = %28
   %31 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !12
-  tail call void @PyErr_SetString(ptr noundef %31, ptr noundef nonnull @.str.59) #16
+  tail call void @PyErr_SetString(ptr noundef %31, ptr noundef nonnull @.str.59) #15
   br label %is_error.exit.thread
 
 32:                                               ; preds = %24
   %33 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !12
-  %34 = tail call ptr @PyErr_SetFromErrno(ptr noundef %33) #16
+  %34 = tail call ptr @PyErr_SetFromErrno(ptr noundef %33) #15
   br label %is_error.exit.thread
 
 is_error.exit:                                    ; preds = %24, %28, %22
-  %35 = tail call ptr @PyFloat_FromDouble(double noundef %11) #16
+  %35 = tail call ptr @PyFloat_FromDouble(double noundef %11) #15
   br label %is_error.exit.thread
 
 36:                                               ; preds = %9, %19
@@ -7629,19 +7629,19 @@ is_error.exit:                                    ; preds = %24, %28, %22
   br i1 %.not23, label %42, label %37
 
 37:                                               ; preds = %36
-  %38 = tail call ptr @PyOS_double_to_string(double noundef %5, i8 noundef signext 114, i32 noundef 0, i32 noundef 2, ptr noundef null) #16
+  %38 = tail call ptr @PyOS_double_to_string(double noundef %5, i8 noundef signext 114, i32 noundef 0, i32 noundef 2, ptr noundef null) #15
   %.not24 = icmp eq ptr %38, null
   br i1 %.not24, label %is_error.exit.thread, label %39
 
 39:                                               ; preds = %37
   %40 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !12
-  %41 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %40, ptr noundef nonnull %3, ptr noundef nonnull %38) #16
-  tail call void @PyMem_Free(ptr noundef nonnull %38) #16
+  %41 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %40, ptr noundef nonnull %3, ptr noundef nonnull %38) #15
+  tail call void @PyMem_Free(ptr noundef nonnull %38) #15
   br label %is_error.exit.thread
 
 42:                                               ; preds = %36
   %43 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !12
-  tail call void @PyErr_SetString(ptr noundef %43, ptr noundef nonnull @.str.60) #16
+  tail call void @PyErr_SetString(ptr noundef %43, ptr noundef nonnull @.str.60) #15
   br label %is_error.exit.thread
 
 is_error.exit.thread:                             ; preds = %32, %30, %26, %42, %39, %37, %7, %is_error.exit, %20
@@ -7649,7 +7649,7 @@ is_error.exit.thread:                             ; preds = %32, %30, %26, %42, 
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @acos(double noundef) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -7683,16 +7683,16 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 declare ptr @PyErr_SetFromErrno(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @acosh(double noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @asin(double noundef) #2
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @asinh(double noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @atan(double noundef) #2
 
 ; Function Attrs: nounwind uwtable
@@ -7701,37 +7701,37 @@ define internal fastcc ptr @math_2(ptr noundef readonly captures(none) %0, i64 n
   br i1 %or.cond, label %7, label %5
 
 5:                                                ; preds = %4
-  %6 = tail call i32 @_PyArg_CheckPositional(ptr noundef %3, i64 noundef %1, i64 noundef 2, i64 noundef 2) #16
+  %6 = tail call i32 @_PyArg_CheckPositional(ptr noundef %3, i64 noundef %1, i64 noundef 2, i64 noundef 2) #15
   %.not = icmp eq i32 %6, 0
   br i1 %.not, label %is_error.exit.thread, label %7
 
 7:                                                ; preds = %4, %5
   %8 = load ptr, ptr %0, align 8, !tbaa !12
-  %9 = tail call double @PyFloat_AsDouble(ptr noundef %8) #16
+  %9 = tail call double @PyFloat_AsDouble(ptr noundef %8) #15
   %10 = fcmp oeq double %9, -1.000000e+00
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %7
-  %12 = tail call ptr @PyErr_Occurred() #16
+  %12 = tail call ptr @PyErr_Occurred() #15
   %.not20 = icmp eq ptr %12, null
   br i1 %.not20, label %13, label %is_error.exit.thread
 
 13:                                               ; preds = %11, %7
   %14 = getelementptr i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !12
-  %16 = tail call double @PyFloat_AsDouble(ptr noundef %15) #16
+  %16 = tail call double @PyFloat_AsDouble(ptr noundef %15) #15
   %17 = fcmp oeq double %16, -1.000000e+00
   br i1 %17, label %18, label %20
 
 18:                                               ; preds = %13
-  %19 = tail call ptr @PyErr_Occurred() #16
+  %19 = tail call ptr @PyErr_Occurred() #15
   %.not21 = icmp eq ptr %19, null
   br i1 %.not21, label %20, label %is_error.exit.thread
 
 20:                                               ; preds = %18, %13
-  %21 = tail call ptr @__errno_location() #17
+  %21 = tail call ptr @__errno_location() #16
   store i32 0, ptr %21, align 4, !tbaa !14
-  %22 = tail call double %2(double noundef %9, double noundef %16) #16, !callees !60
+  %22 = tail call double %2(double noundef %9, double noundef %16) #15, !callees !60
   %23 = fcmp uno double %22, 0.000000e+00
   br i1 %23, label %24, label %25
 
@@ -7770,7 +7770,7 @@ define internal fastcc ptr @math_2(ptr noundef readonly captures(none) %0, i64 n
 
 34:                                               ; preds = %33, %.thread29.thread
   %35 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !12
-  tail call void @PyErr_SetString(ptr noundef %35, ptr noundef nonnull @.str.60) #16
+  tail call void @PyErr_SetString(ptr noundef %35, ptr noundef nonnull @.str.60) #15
   br label %is_error.exit.thread
 
 36:                                               ; preds = %33, %.thread29.thread33
@@ -7779,12 +7779,12 @@ define internal fastcc ptr @math_2(ptr noundef readonly captures(none) %0, i64 n
 
 38:                                               ; preds = %36
   %39 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !12
-  tail call void @PyErr_SetString(ptr noundef %39, ptr noundef nonnull @.str.59) #16
+  tail call void @PyErr_SetString(ptr noundef %39, ptr noundef nonnull @.str.59) #15
   br label %is_error.exit.thread
 
 40:                                               ; preds = %33
   %41 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !12
-  %42 = tail call ptr @PyErr_SetFromErrno(ptr noundef %41) #16
+  %42 = tail call ptr @PyErr_SetFromErrno(ptr noundef %41) #15
   br label %is_error.exit.thread
 
 is_error.exit.sink.split:                         ; preds = %28, %24
@@ -7792,7 +7792,7 @@ is_error.exit.sink.split:                         ; preds = %28, %24
   br label %is_error.exit
 
 is_error.exit:                                    ; preds = %is_error.exit.sink.split, %33, %36
-  %43 = tail call ptr @PyFloat_FromDouble(double noundef %22) #16
+  %43 = tail call ptr @PyFloat_FromDouble(double noundef %22) #15
   br label %is_error.exit.thread
 
 is_error.exit.thread:                             ; preds = %40, %38, %34, %18, %11, %5, %is_error.exit
@@ -7800,12 +7800,12 @@ is_error.exit.thread:                             ; preds = %40, %38, %34, %18, 
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @atan2(double noundef, double noundef) #2
 
 declare i32 @_PyArg_CheckPositional(ptr noundef, i64 noundef, i64 noundef, i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @atanh(double noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
@@ -7832,10 +7832,10 @@ declare void @_Py_Dealloc(ptr noundef) local_unnamed_addr #1
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare double @copysign(double noundef, double noundef) #4
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @cos(double noundef) #2
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @cosh(double noundef) #2
 
 declare ptr @PySequence_Tuple(ptr noundef) local_unnamed_addr #1
@@ -7846,11 +7846,11 @@ declare ptr @PyErr_NoMemory() local_unnamed_addr #1
 
 declare double @PyLong_AsDouble(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: inlinehint nofree nounwind uwtable
+; Function Attrs: inlinehint nofree nounwind memory(argmem: readwrite, errnomem: write) uwtable
 define internal fastcc double @vector_norm(i64 noundef %0, ptr noundef nonnull captures(none) %1, double noundef %2, i32 noundef range(i32 0, 2) %3) unnamed_addr #7 {
   %5 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #16
-  %6 = tail call double @llvm.fabs.f64(double %2) #18
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5) #15
+  %6 = tail call double @llvm.fabs.f64(double %2) #17
   %7 = fcmp oeq double %6, 0x7FF0000000000000
   br i1 %7, label %57, label %8
 
@@ -7865,7 +7865,7 @@ define internal fastcc double @vector_norm(i64 noundef %0, ptr noundef nonnull c
   br i1 %or.cond, label %57, label %12
 
 12:                                               ; preds = %9
-  %13 = call double @frexp(double noundef %2, ptr noundef nonnull %5) #16
+  %13 = call double @frexp(double noundef %2, ptr noundef nonnull %5) #15
   %14 = load i32, ptr %5, align 4, !tbaa !14
   %15 = icmp slt i32 %14, -1023
   br i1 %15, label %.lr.ph79, label %.lr.ph.preheader
@@ -7888,7 +7888,7 @@ define internal fastcc double @vector_norm(i64 noundef %0, ptr noundef nonnull c
 
 .lr.ph.preheader:                                 ; preds = %12
   %23 = sub nsw i32 0, %14
-  %24 = tail call double @ldexp(double noundef 1.000000e+00, i32 noundef %23) #16, !tbaa !14
+  %24 = tail call double @ldexp(double noundef 1.000000e+00, i32 noundef %23) #15, !tbaa !14
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -7915,7 +7915,7 @@ define internal fastcc double @vector_norm(i64 noundef %0, ptr noundef nonnull c
   %37 = fadd double %31, -1.000000e+00
   %38 = fadd double %35, %34
   %39 = fadd double %38, %37
-  %40 = tail call double @sqrt(double noundef %39) #16, !tbaa !14
+  %40 = tail call double @sqrt(double noundef %39) #15, !tbaa !14
   %41 = fneg double %40
   %42 = fmul double %40, %41
   %43 = fneg double %42
@@ -7936,17 +7936,17 @@ define internal fastcc double @vector_norm(i64 noundef %0, ptr noundef nonnull c
 
 57:                                               ; preds = %9, %8, %4, %._crit_edge, %._crit_edge80
   %.0 = phi double [ %22, %._crit_edge80 ], [ %56, %._crit_edge ], [ %2, %4 ], [ 0x7FF8000000000000, %8 ], [ %2, %9 ]
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #16
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #15
   ret double %.0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write)
 declare double @frexp(double noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
-; Function Attrs: mustprogress nofree nounwind willreturn
-declare double @ldexp(double noundef, i32 noundef) local_unnamed_addr #9
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
+declare double @ldexp(double noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @sqrt(double noundef) #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -7954,19 +7954,19 @@ declare double @llvm.fma.f64(double, double, double) #5
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc ptr @math_1a(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef %2) unnamed_addr #0 {
-  %4 = tail call double @PyFloat_AsDouble(ptr noundef %0) #16
+  %4 = tail call double @PyFloat_AsDouble(ptr noundef %0) #15
   %5 = fcmp oeq double %4, -1.000000e+00
   br i1 %5, label %6, label %8
 
 6:                                                ; preds = %3
-  %7 = tail call ptr @PyErr_Occurred() #16
+  %7 = tail call ptr @PyErr_Occurred() #15
   %.not = icmp eq ptr %7, null
   br i1 %.not, label %8, label %30
 
 8:                                                ; preds = %6, %3
-  %9 = tail call ptr @__errno_location() #17
+  %9 = tail call ptr @__errno_location() #16
   store i32 0, ptr %9, align 4, !tbaa !14
-  %10 = tail call double %1(double noundef %4) #16, !callees !36
+  %10 = tail call double %1(double noundef %4) #15, !callees !36
   %11 = load i32, ptr %9, align 4, !tbaa !14
   %.not16 = icmp eq i32 %11, 0
   br i1 %.not16, label %is_error.exit, label %12
@@ -7983,7 +7983,7 @@ define internal fastcc ptr @math_1a(ptr noundef %0, ptr noundef readonly capture
 
 .thread:                                          ; preds = %13
   %14 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !12
-  tail call void @PyErr_SetString(ptr noundef %14, ptr noundef nonnull @.str.60) #16
+  tail call void @PyErr_SetString(ptr noundef %14, ptr noundef nonnull @.str.60) #15
   br label %30
 
 15:                                               ; preds = %12
@@ -7993,12 +7993,12 @@ define internal fastcc ptr @math_1a(ptr noundef %0, ptr noundef readonly capture
 
 18:                                               ; preds = %15
   %19 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !12
-  tail call void @PyErr_SetString(ptr noundef %19, ptr noundef nonnull @.str.59) #16
+  tail call void @PyErr_SetString(ptr noundef %19, ptr noundef nonnull @.str.59) #15
   br label %23
 
 20:                                               ; preds = %12
   %21 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !12
-  %22 = tail call ptr @PyErr_SetFromErrno(ptr noundef %21) #16
+  %22 = tail call ptr @PyErr_SetFromErrno(ptr noundef %21) #15
   br label %23
 
 23:                                               ; preds = %18, %20
@@ -8010,18 +8010,18 @@ define internal fastcc ptr @math_1a(ptr noundef %0, ptr noundef readonly capture
   br i1 %24, label %.critedge.thread, label %30
 
 .critedge.thread:                                 ; preds = %13, %.critedge
-  %25 = tail call ptr @PyOS_double_to_string(double noundef %4, i8 noundef signext 114, i32 noundef 0, i32 noundef 2, ptr noundef null) #16
+  %25 = tail call ptr @PyOS_double_to_string(double noundef %4, i8 noundef signext 114, i32 noundef 0, i32 noundef 2, ptr noundef null) #15
   %.not19 = icmp eq ptr %25, null
   br i1 %.not19, label %30, label %26
 
 26:                                               ; preds = %.critedge.thread
   %27 = load ptr, ptr @PyExc_ValueError, align 8, !tbaa !12
-  %28 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %27, ptr noundef nonnull %2, ptr noundef nonnull %25) #16
-  tail call void @PyMem_Free(ptr noundef nonnull %25) #16
+  %28 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %27, ptr noundef nonnull %2, ptr noundef nonnull %25) #15
+  tail call void @PyMem_Free(ptr noundef nonnull %25) #15
   br label %30
 
 is_error.exit:                                    ; preds = %15, %8
-  %29 = tail call ptr @PyFloat_FromDouble(double noundef %10) #16
+  %29 = tail call ptr @PyFloat_FromDouble(double noundef %10) #15
   br label %30
 
 30:                                               ; preds = %.thread, %23, %.critedge, %26, %.critedge.thread, %6, %is_error.exit
@@ -8029,19 +8029,19 @@ is_error.exit:                                    ; preds = %15, %8
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @erf(double noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind
-declare double @erfc(double noundef) local_unnamed_addr #10
+declare double @erfc(double noundef) local_unnamed_addr #9
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @exp(double noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @exp2(double noundef) #2
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @expm1(double noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
@@ -8080,7 +8080,7 @@ define internal fastcc ptr @factorial_partial_product(i64 noundef range(i64 1, 0
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader
   %.0.lcssa = phi i64 [ %0, %.preheader ], [ %10, %.lr.ph ]
-  %12 = tail call ptr @PyLong_FromUnsignedLong(i64 noundef %.0.lcssa) #16
+  %12 = tail call ptr @PyLong_FromUnsignedLong(i64 noundef %.0.lcssa) #15
   br label %Py_XDECREF.exit38
 
 13:                                               ; preds = %3
@@ -8099,7 +8099,7 @@ define internal fastcc ptr @factorial_partial_product(i64 noundef range(i64 1, 0
   br i1 %23, label %26, label %24
 
 24:                                               ; preds = %21
-  %25 = tail call ptr @PyNumber_Multiply(ptr noundef nonnull %19, ptr noundef nonnull %22) #16
+  %25 = tail call ptr @PyNumber_Multiply(ptr noundef nonnull %19, ptr noundef nonnull %22) #15
   br label %26
 
 26:                                               ; preds = %21, %24
@@ -8115,7 +8115,7 @@ define internal fastcc ptr @factorial_partial_product(i64 noundef range(i64 1, 0
   br i1 %30, label %31, label %Py_XDECREF.exit
 
 31:                                               ; preds = %28
-  tail call void @_Py_Dealloc(ptr noundef nonnull %19) #16
+  tail call void @_Py_Dealloc(ptr noundef nonnull %19) #15
   br label %Py_XDECREF.exit
 
 Py_XDECREF.exit:                                  ; preds = %26, %28, %31
@@ -8133,7 +8133,7 @@ Py_XDECREF.exit:                                  ; preds = %26, %28, %31
   br i1 %36, label %37, label %Py_XDECREF.exit38
 
 37:                                               ; preds = %34
-  tail call void @_Py_Dealloc(ptr noundef nonnull %22) #16
+  tail call void @_Py_Dealloc(ptr noundef nonnull %22) #15
   br label %Py_XDECREF.exit38
 
 Py_XDECREF.exit38:                                ; preds = %13, %37, %34, %32, %Py_XDECREF.exit, %._crit_edge
@@ -8149,7 +8149,7 @@ declare i64 @llvm.ctlz.i64(i64, i1 immarg) #5
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.floor.f64(double) #5
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @fmod(double noundef, double noundef) local_unnamed_addr #2
 
 declare ptr @Py_BuildValue(ptr noundef, ...) local_unnamed_addr #1
@@ -8160,8 +8160,8 @@ declare ptr @PyIter_Next(ptr noundef) local_unnamed_addr #1
 
 declare ptr @PyMem_Realloc(ptr noundef, i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: nofree nounwind memory(write) uwtable
-define internal double @m_tgamma(double noundef %0) #11 {
+; Function Attrs: nofree nounwind memory(write, inaccessiblemem: none) uwtable
+define internal double @m_tgamma(double noundef %0) #10 {
   %2 = tail call double @llvm.fabs.f64(double %0)
   %3 = fcmp ueq double %2, 0x7FF0000000000000
   br i1 %3, label %4, label %7
@@ -8171,7 +8171,7 @@ define internal double @m_tgamma(double noundef %0) #11 {
   br i1 %or.cond, label %96, label %5
 
 5:                                                ; preds = %4
-  %6 = tail call ptr @__errno_location() #17
+  %6 = tail call ptr @__errno_location() #16
   store i32 33, ptr %6, align 4, !tbaa !14
   br label %96
 
@@ -8180,7 +8180,7 @@ define internal double @m_tgamma(double noundef %0) #11 {
   br i1 %8, label %9, label %12
 
 9:                                                ; preds = %7
-  %10 = tail call ptr @__errno_location() #17
+  %10 = tail call ptr @__errno_location() #16
   store i32 33, ptr %10, align 4, !tbaa !14
   %11 = tail call double @llvm.copysign.f64(double 0x7FF0000000000000, double %0)
   br label %96
@@ -8195,7 +8195,7 @@ define internal double @m_tgamma(double noundef %0) #11 {
   br i1 %16, label %17, label %19
 
 17:                                               ; preds = %15
-  %18 = tail call ptr @__errno_location() #17
+  %18 = tail call ptr @__errno_location() #16
   store i32 33, ptr %18, align 4, !tbaa !14
   br label %96
 
@@ -8217,12 +8217,12 @@ define internal double @m_tgamma(double noundef %0) #11 {
 
 29:                                               ; preds = %27
   %30 = fdiv double 1.000000e+00, %0
-  %31 = tail call double @llvm.fabs.f64(double %30) #18
+  %31 = tail call double @llvm.fabs.f64(double %30) #17
   %32 = fcmp oeq double %31, 0x7FF0000000000000
   br i1 %32, label %33, label %96
 
 33:                                               ; preds = %29
-  %34 = tail call ptr @__errno_location() #17
+  %34 = tail call ptr @__errno_location() #16
   store i32 34, ptr %34, align 4, !tbaa !14
   br label %96
 
@@ -8240,7 +8240,7 @@ define internal double @m_tgamma(double noundef %0) #11 {
   br label %96
 
 42:                                               ; preds = %37
-  %43 = tail call ptr @__errno_location() #17
+  %43 = tail call ptr @__errno_location() #16
   store i32 34, ptr %43, align 4, !tbaa !14
   br label %96
 
@@ -8261,7 +8261,7 @@ define internal double @m_tgamma(double noundef %0) #11 {
   %55 = tail call fastcc double @m_sinpi(double noundef %2)
   %56 = fdiv double 0xC00921FB54442D18, %55
   %57 = fdiv double %56, %2
-  %58 = tail call double @exp(double noundef %45) #16, !tbaa !14
+  %58 = tail call double @exp(double noundef %45) #15, !tbaa !14
   %59 = fmul double %58, %57
   %60 = tail call fastcc double @lanczos_sum(double noundef %2)
   %61 = fdiv double %59, %60
@@ -8272,21 +8272,21 @@ define internal double @m_tgamma(double noundef %0) #11 {
 
 65:                                               ; preds = %54
   %66 = fadd double %2, -5.000000e-01
-  %67 = tail call double @pow(double noundef %45, double noundef %66) #16, !tbaa !14
+  %67 = tail call double @pow(double noundef %45, double noundef %66) #15, !tbaa !14
   %68 = fdiv double %63, %67
   br label %91
 
 69:                                               ; preds = %54
   %70 = fmul double %2, 5.000000e-01
   %71 = fadd double %70, -2.500000e-01
-  %72 = tail call double @pow(double noundef %45, double noundef %71) #16, !tbaa !14
+  %72 = tail call double @pow(double noundef %45, double noundef %71) #15, !tbaa !14
   %73 = fdiv double %63, %72
   %74 = fdiv double %73, %72
   br label %91
 
 75:                                               ; preds = %44
   %76 = tail call fastcc double @lanczos_sum(double noundef %2)
-  %77 = tail call double @exp(double noundef %45) #16, !tbaa !14
+  %77 = tail call double @exp(double noundef %45) #15, !tbaa !14
   %78 = fdiv double %76, %77
   %79 = tail call double @llvm.fmuladd.f64(double %52, double %78, double %78)
   %80 = fcmp olt double %2, 1.400000e+02
@@ -8294,26 +8294,26 @@ define internal double @m_tgamma(double noundef %0) #11 {
 
 81:                                               ; preds = %75
   %82 = fadd double %2, -5.000000e-01
-  %83 = tail call double @pow(double noundef %45, double noundef %82) #16, !tbaa !14
+  %83 = tail call double @pow(double noundef %45, double noundef %82) #15, !tbaa !14
   %84 = fmul double %79, %83
   br label %91
 
 85:                                               ; preds = %75
   %86 = fmul double %2, 5.000000e-01
   %87 = fadd double %86, -2.500000e-01
-  %88 = tail call double @pow(double noundef %45, double noundef %87) #16, !tbaa !14
+  %88 = tail call double @pow(double noundef %45, double noundef %87) #15, !tbaa !14
   %89 = fmul double %79, %88
   %90 = fmul double %88, %89
   br label %91
 
 91:                                               ; preds = %81, %85, %65, %69
   %.066 = phi double [ %68, %65 ], [ %74, %69 ], [ %84, %81 ], [ %90, %85 ]
-  %92 = tail call double @llvm.fabs.f64(double %.066) #18
+  %92 = tail call double @llvm.fabs.f64(double %.066) #17
   %93 = fcmp oeq double %92, 0x7FF0000000000000
   br i1 %93, label %94, label %96
 
 94:                                               ; preds = %91
-  %95 = tail call ptr @__errno_location() #17
+  %95 = tail call ptr @__errno_location() #16
   store i32 34, ptr %95, align 4, !tbaa !14
   br label %96
 
@@ -8325,10 +8325,10 @@ define internal double @m_tgamma(double noundef %0) #11 {
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.copysign.f64(double, double) #5
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define internal fastcc double @m_sinpi(double noundef %0) unnamed_addr #12 {
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write) uwtable
+define internal fastcc double @m_sinpi(double noundef %0) unnamed_addr #11 {
   %2 = tail call double @llvm.fabs.f64(double %0)
-  %3 = tail call double @fmod(double noundef %2, double noundef 2.000000e+00) #16, !tbaa !14
+  %3 = tail call double @fmod(double noundef %2, double noundef 2.000000e+00) #15, !tbaa !14
   %4 = fmul double %3, 2.000000e+00
   %5 = tail call double @llvm.round.f64(double %4)
   %6 = fptosi double %5 to i32
@@ -8342,32 +8342,32 @@ define internal fastcc double @m_sinpi(double noundef %0) unnamed_addr #12 {
 
 7:                                                ; preds = %1
   %8 = fmul double %3, 0x400921FB54442D18
-  %9 = tail call double @sin(double noundef %8) #16, !tbaa !14
+  %9 = tail call double @sin(double noundef %8) #15, !tbaa !14
   br label %28
 
 10:                                               ; preds = %1
   %11 = fadd double %3, -5.000000e-01
   %12 = fmul double %11, 0x400921FB54442D18
-  %13 = tail call double @cos(double noundef %12) #16, !tbaa !14
+  %13 = tail call double @cos(double noundef %12) #15, !tbaa !14
   br label %28
 
 14:                                               ; preds = %1
   %15 = fsub double 1.000000e+00, %3
   %16 = fmul double %15, 0x400921FB54442D18
-  %17 = tail call double @sin(double noundef %16) #16, !tbaa !14
+  %17 = tail call double @sin(double noundef %16) #15, !tbaa !14
   br label %28
 
 18:                                               ; preds = %1
   %19 = fadd double %3, -1.500000e+00
   %20 = fmul double %19, 0x400921FB54442D18
-  %21 = tail call double @cos(double noundef %20) #16, !tbaa !14
+  %21 = tail call double @cos(double noundef %20) #15, !tbaa !14
   %22 = fneg double %21
   br label %28
 
 23:                                               ; preds = %1
   %24 = fadd double %3, -2.000000e+00
   %25 = fmul double %24, 0x400921FB54442D18
-  %26 = tail call double @sin(double noundef %25) #16, !tbaa !14
+  %26 = tail call double @sin(double noundef %25) #15, !tbaa !14
   br label %28
 
 27:                                               ; preds = %1
@@ -8381,7 +8381,7 @@ define internal fastcc double @m_sinpi(double noundef %0) unnamed_addr #12 {
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define internal fastcc double @lanczos_sum(double noundef %0) unnamed_addr #13 {
+define internal fastcc double @lanczos_sum(double noundef %0) unnamed_addr #12 {
   %2 = fcmp olt double %0, 5.000000e+00
   br i1 %2, label %.preheader, label %.preheader25
 
@@ -8425,13 +8425,13 @@ define internal fastcc double @lanczos_sum(double noundef %0) unnamed_addr #13 {
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #5
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @pow(double noundef, double noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.round.f64(double) #5
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @sin(double noundef) #2
 
 declare ptr @_PyLong_GCD(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -8460,8 +8460,8 @@ declare i32 @PyObject_RichCompareBool(ptr noundef, ptr noundef, i32 noundef) loc
 
 declare ptr @PyNumber_Subtract(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: nofree nounwind memory(write) uwtable
-define internal double @m_lgamma(double noundef %0) #11 {
+; Function Attrs: nofree nounwind memory(write, inaccessiblemem: none) uwtable
+define internal double @m_lgamma(double noundef %0) #10 {
   %2 = tail call double @llvm.fabs.f64(double %0)
   %3 = fcmp ueq double %2, 0x7FF0000000000000
   br i1 %3, label %4, label %6
@@ -8483,7 +8483,7 @@ define internal double @m_lgamma(double noundef %0) #11 {
   br i1 %11, label %82, label %12
 
 12:                                               ; preds = %10
-  %13 = tail call ptr @__errno_location() #17
+  %13 = tail call ptr @__errno_location() #16
   store i32 33, ptr %13, align 4, !tbaa !14
   br label %82
 
@@ -8492,7 +8492,7 @@ define internal double @m_lgamma(double noundef %0) #11 {
   br i1 %15, label %16, label %19
 
 16:                                               ; preds = %14
-  %17 = tail call double @log(double noundef %2) #16, !tbaa !14
+  %17 = tail call double @log(double noundef %2) #15, !tbaa !14
   %18 = fneg double %17
   br label %82
 
@@ -8534,12 +8534,12 @@ lanczos_sum.exit:                                 ; preds = %.preheader25.i, %.p
   %.120.i = phi double [ %23, %.preheader.i ], [ %30, %.preheader25.i ]
   %.118.i = phi double [ %26, %.preheader.i ], [ %34, %.preheader25.i ]
   %35 = fdiv double %.120.i, %.118.i
-  %36 = tail call double @log(double noundef %35) #16, !tbaa !14
+  %36 = tail call double @log(double noundef %35) #15, !tbaa !14
   %37 = fadd double %36, 0xC0181945B9800000
   %38 = fadd double %2, -5.000000e-01
   %39 = fadd double %2, 0x40181945B9800000
   %40 = fadd double %39, -5.000000e-01
-  %41 = tail call double @log(double noundef %40) #16, !tbaa !14
+  %41 = tail call double @log(double noundef %40) #15, !tbaa !14
   %42 = fadd double %41, -1.000000e+00
   %43 = tail call double @llvm.fmuladd.f64(double %38, double %42, double %37)
   %44 = fcmp olt double %0, 0.000000e+00
@@ -8560,32 +8560,32 @@ lanczos_sum.exit:                                 ; preds = %.preheader25.i, %.p
 
 50:                                               ; preds = %45
   %51 = fmul double %46, 0x400921FB54442D18
-  %52 = tail call double @sin(double noundef %51) #16, !tbaa !14
+  %52 = tail call double @sin(double noundef %51) #15, !tbaa !14
   br label %m_sinpi.exit
 
 53:                                               ; preds = %45
   %54 = fadd double %46, -5.000000e-01
   %55 = fmul double %54, 0x400921FB54442D18
-  %56 = tail call double @cos(double noundef %55) #16, !tbaa !14
+  %56 = tail call double @cos(double noundef %55) #15, !tbaa !14
   br label %m_sinpi.exit
 
 57:                                               ; preds = %45
   %58 = fsub double 1.000000e+00, %46
   %59 = fmul double %58, 0x400921FB54442D18
-  %60 = tail call double @sin(double noundef %59) #16, !tbaa !14
+  %60 = tail call double @sin(double noundef %59) #15, !tbaa !14
   br label %m_sinpi.exit
 
 61:                                               ; preds = %45
   %62 = fadd double %46, -1.500000e+00
   %63 = fmul double %62, 0x400921FB54442D18
-  %64 = tail call double @cos(double noundef %63) #16, !tbaa !14
+  %64 = tail call double @cos(double noundef %63) #15, !tbaa !14
   %65 = fneg double %64
   br label %m_sinpi.exit
 
 66:                                               ; preds = %45
   %67 = fadd double %46, -2.000000e+00
   %68 = fmul double %67, 0x400921FB54442D18
-  %69 = tail call double @sin(double noundef %68) #16, !tbaa !14
+  %69 = tail call double @sin(double noundef %68) #15, !tbaa !14
   br label %m_sinpi.exit
 
 70:                                               ; preds = %45
@@ -8594,7 +8594,7 @@ lanczos_sum.exit:                                 ; preds = %.preheader25.i, %.p
 m_sinpi.exit:                                     ; preds = %50, %53, %57, %61, %66
   %.0.i = phi double [ %69, %66 ], [ %65, %61 ], [ %60, %57 ], [ %56, %53 ], [ %52, %50 ]
   %71 = tail call double @llvm.fabs.f64(double %.0.i)
-  %72 = tail call double @log(double noundef %71) #16, !tbaa !14
+  %72 = tail call double @log(double noundef %71) #15, !tbaa !14
   %73 = fsub double 0x3FF250D048E7A1BD, %72
   %74 = tail call double @llvm.log.f64(double %2), !tbaa !14
   %75 = fsub double %73, %74
@@ -8603,12 +8603,12 @@ m_sinpi.exit:                                     ; preds = %50, %53, %57, %61, 
 
 77:                                               ; preds = %m_sinpi.exit, %lanczos_sum.exit
   %.022 = phi double [ %76, %m_sinpi.exit ], [ %43, %lanczos_sum.exit ]
-  %78 = tail call double @llvm.fabs.f64(double %.022) #18
+  %78 = tail call double @llvm.fabs.f64(double %.022) #17
   %79 = fcmp oeq double %78, 0x7FF0000000000000
   br i1 %79, label %80, label %82
 
 80:                                               ; preds = %77
-  %81 = tail call ptr @__errno_location() #17
+  %81 = tail call ptr @__errno_location() #16
   store i32 34, ptr %81, align 4, !tbaa !14
   br label %82
 
@@ -8617,11 +8617,11 @@ m_sinpi.exit:                                     ; preds = %50, %53, %57, %61, 
   ret double %.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @log(double noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable
-define internal noundef double @m_log(double noundef %0) #14 {
+define internal noundef double @m_log(double noundef %0) #13 {
   %2 = tail call double @llvm.fabs.f64(double %0)
   %3 = fcmp ueq double %2, 0x7FF0000000000000
   br i1 %3, label %11, label %4
@@ -8635,7 +8635,7 @@ define internal noundef double @m_log(double noundef %0) #14 {
   br label %14
 
 8:                                                ; preds = %4
-  %9 = tail call ptr @__errno_location() #17
+  %9 = tail call ptr @__errno_location() #16
   store i32 33, ptr %9, align 4, !tbaa !14
   %10 = fcmp oeq double %0, 0.000000e+00
   %. = select i1 %10, double 0xFFF0000000000000, double 0x7FF8000000000000
@@ -8646,7 +8646,7 @@ define internal noundef double @m_log(double noundef %0) #14 {
   br i1 %or.cond, label %14, label %12
 
 12:                                               ; preds = %11
-  %13 = tail call ptr @__errno_location() #17
+  %13 = tail call ptr @__errno_location() #16
   store i32 33, ptr %13, align 4, !tbaa !14
   br label %14
 
@@ -8663,13 +8663,13 @@ declare void @PyErr_Clear() local_unnamed_addr #1
 
 declare double @_PyLong_Frexp(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define internal double @_Py_log1p(double noundef %0) #12 {
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write) uwtable
+define internal double @_Py_log1p(double noundef %0) #11 {
   %2 = fcmp oeq double %0, 0.000000e+00
   br i1 %2, label %5, label %3
 
 3:                                                ; preds = %1
-  %4 = tail call double @log1p(double noundef %0) #16, !tbaa !14
+  %4 = tail call double @log1p(double noundef %0) #15, !tbaa !14
   br label %5
 
 5:                                                ; preds = %1, %3
@@ -8677,11 +8677,11 @@ define internal double @_Py_log1p(double noundef %0) #12 {
   ret double %.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @log1p(double noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable
-define internal noundef double @m_log10(double noundef %0) #14 {
+define internal noundef double @m_log10(double noundef %0) #13 {
   %2 = tail call double @llvm.fabs.f64(double %0)
   %3 = fcmp ueq double %2, 0x7FF0000000000000
   br i1 %3, label %11, label %4
@@ -8695,7 +8695,7 @@ define internal noundef double @m_log10(double noundef %0) #14 {
   br label %14
 
 8:                                                ; preds = %4
-  %9 = tail call ptr @__errno_location() #17
+  %9 = tail call ptr @__errno_location() #16
   store i32 33, ptr %9, align 4, !tbaa !14
   %10 = fcmp oeq double %0, 0.000000e+00
   %. = select i1 %10, double 0xFFF0000000000000, double 0x7FF8000000000000
@@ -8706,7 +8706,7 @@ define internal noundef double @m_log10(double noundef %0) #14 {
   br i1 %or.cond, label %14, label %12
 
 12:                                               ; preds = %11
-  %13 = tail call ptr @__errno_location() #17
+  %13 = tail call ptr @__errno_location() #16
   store i32 33, ptr %13, align 4, !tbaa !14
   br label %14
 
@@ -8716,7 +8716,7 @@ define internal noundef double @m_log10(double noundef %0) #14 {
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable
-define internal noundef double @m_log2(double noundef %0) #14 {
+define internal noundef double @m_log2(double noundef %0) #13 {
   %2 = tail call double @llvm.fabs.f64(double %0)
   %3 = fcmp ueq double %2, 0x7FF0000000000000
   br i1 %3, label %4, label %7
@@ -8726,7 +8726,7 @@ define internal noundef double @m_log2(double noundef %0) #14 {
   br i1 %or.cond, label %14, label %5
 
 5:                                                ; preds = %4
-  %6 = tail call ptr @__errno_location() #17
+  %6 = tail call ptr @__errno_location() #16
   store i32 33, ptr %6, align 4, !tbaa !14
   br label %14
 
@@ -8740,7 +8740,7 @@ define internal noundef double @m_log2(double noundef %0) #14 {
 
 11:                                               ; preds = %7
   %12 = fcmp oeq double %0, 0.000000e+00
-  %13 = tail call ptr @__errno_location() #17
+  %13 = tail call ptr @__errno_location() #16
   store i32 33, ptr %13, align 4, !tbaa !14
   %. = select i1 %12, double 0xFFF0000000000000, double 0x7FF8000000000000
   br label %14
@@ -8753,8 +8753,8 @@ define internal noundef double @m_log2(double noundef %0) #14 {
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write)
 declare double @modf(double noundef, ptr noundef captures(none)) local_unnamed_addr #8
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define internal double @m_remainder(double noundef %0, double noundef %1) #12 {
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write) uwtable
+define internal double @m_remainder(double noundef %0, double noundef %1) #11 {
   %3 = tail call double @llvm.fabs.f64(double %0)
   %4 = fcmp ueq double %3, 0x7FF0000000000000
   %5 = tail call double @llvm.fabs.f64(double %1)
@@ -8783,7 +8783,7 @@ define internal double @m_remainder(double noundef %0, double noundef %1) #12 {
 17:                                               ; preds = %13
   %18 = fsub double %3, %10
   %19 = fmul double %18, 5.000000e-01
-  %20 = tail call double @fmod(double noundef %19, double noundef %5) #16, !tbaa !14
+  %20 = tail call double @fmod(double noundef %19, double noundef %5) #15, !tbaa !14
   %21 = tail call double @llvm.fmuladd.f64(double %20, double -2.000000e+00, double %10)
   br label %22
 
@@ -8811,13 +8811,13 @@ define internal double @m_remainder(double noundef %0, double noundef %1) #12 {
   ret double %.1
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @sinh(double noundef) #2
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @tan(double noundef) #2
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @tanh(double noundef) #2
 
 declare i64 @PyLong_AsLongLongAndOverflow(ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -8861,7 +8861,7 @@ define internal fastcc ptr @perm_comb_small(i64 noundef %0, i64 noundef %1, i32 
   %31 = sub nsw i64 %23, %30
   %32 = and i64 %31, 4294967295
   %33 = shl i64 %20, %32
-  %34 = tail call ptr @PyLong_FromUnsignedLongLong(i64 noundef %33) #16
+  %34 = tail call ptr @PyLong_FromUnsignedLongLong(i64 noundef %33) #15
   br label %Py_DECREF.exit96
 
 35:                                               ; preds = %7
@@ -8880,7 +8880,7 @@ define internal fastcc ptr @perm_comb_small(i64 noundef %0, i64 noundef %1, i32 
 
 ._crit_edge117:                                   ; preds = %.lr.ph116, %.preheader
   %.071.lcssa = phi i64 [ %0, %.preheader ], [ %45, %.lr.ph116 ]
-  %41 = tail call ptr @PyLong_FromUnsignedLongLong(i64 noundef %.071.lcssa) #16
+  %41 = tail call ptr @PyLong_FromUnsignedLongLong(i64 noundef %.071.lcssa) #15
   br label %Py_DECREF.exit96
 
 .lr.ph116:                                        ; preds = %.preheader, %.lr.ph116
@@ -8928,12 +8928,12 @@ define internal fastcc ptr @perm_comb_small(i64 noundef %0, i64 noundef %1, i32 
   %67 = sub nsw i64 %63, %66
   %68 = and i64 %67, 4294967295
   %69 = shl i64 %60, %68
-  %70 = tail call ptr @PyLong_FromUnsignedLongLong(i64 noundef %69) #16
+  %70 = tail call ptr @PyLong_FromUnsignedLongLong(i64 noundef %69) #15
   br label %Py_DECREF.exit96
 
 ._crit_edge:                                      ; preds = %.lr.ph, %.preheader109
   %.073.lcssa = phi i64 [ %0, %.preheader109 ], [ %73, %.lr.ph ]
-  %71 = tail call ptr @PyLong_FromUnsignedLongLong(i64 noundef %.073.lcssa) #16
+  %71 = tail call ptr @PyLong_FromUnsignedLongLong(i64 noundef %.073.lcssa) #15
   br label %Py_DECREF.exit96
 
 .lr.ph:                                           ; preds = %.preheader109, %.lr.ph
@@ -8960,7 +8960,7 @@ define internal fastcc ptr @perm_comb_small(i64 noundef %0, i64 noundef %1, i32 
   br i1 %82, label %111, label %83
 
 83:                                               ; preds = %78
-  %84 = tail call ptr @PyNumber_Multiply(ptr noundef nonnull %76, ptr noundef nonnull %81) #16
+  %84 = tail call ptr @PyNumber_Multiply(ptr noundef nonnull %76, ptr noundef nonnull %81) #15
   %85 = load i32, ptr %76, align 8, !tbaa !13
   %.not.i101 = icmp sgt i32 %85, -1
   br i1 %.not.i101, label %86, label %Py_DECREF.exit102
@@ -8972,7 +8972,7 @@ define internal fastcc ptr @perm_comb_small(i64 noundef %0, i64 noundef %1, i32 
   br i1 %88, label %89, label %Py_DECREF.exit102
 
 89:                                               ; preds = %86
-  tail call void @_Py_Dealloc(ptr noundef nonnull %76) #16
+  tail call void @_Py_Dealloc(ptr noundef nonnull %76) #15
   br label %Py_DECREF.exit102
 
 Py_DECREF.exit102:                                ; preds = %83, %86, %89
@@ -8987,7 +8987,7 @@ Py_DECREF.exit102:                                ; preds = %83, %86, %89
   br i1 %93, label %94, label %Py_DECREF.exit100
 
 94:                                               ; preds = %91
-  tail call void @_Py_Dealloc(ptr noundef nonnull %81) #16
+  tail call void @_Py_Dealloc(ptr noundef nonnull %81) #15
   br label %Py_DECREF.exit100
 
 Py_DECREF.exit100:                                ; preds = %Py_DECREF.exit102, %91, %94
@@ -9001,7 +9001,7 @@ Py_DECREF.exit100:                                ; preds = %Py_DECREF.exit102, 
   br i1 %98, label %111, label %99
 
 99:                                               ; preds = %96
-  %100 = tail call ptr @PyNumber_FloorDivide(ptr noundef nonnull %84, ptr noundef nonnull %97) #16
+  %100 = tail call ptr @PyNumber_FloorDivide(ptr noundef nonnull %84, ptr noundef nonnull %97) #15
   %101 = load i32, ptr %84, align 8, !tbaa !13
   %.not.i97 = icmp sgt i32 %101, -1
   br i1 %.not.i97, label %102, label %Py_DECREF.exit98
@@ -9013,7 +9013,7 @@ Py_DECREF.exit100:                                ; preds = %Py_DECREF.exit102, 
   br i1 %104, label %105, label %Py_DECREF.exit98
 
 105:                                              ; preds = %102
-  tail call void @_Py_Dealloc(ptr noundef nonnull %84) #16
+  tail call void @_Py_Dealloc(ptr noundef nonnull %84) #15
   br label %Py_DECREF.exit98
 
 Py_DECREF.exit98:                                 ; preds = %99, %102, %105
@@ -9028,7 +9028,7 @@ Py_DECREF.exit98:                                 ; preds = %99, %102, %105
   br i1 %109, label %110, label %Py_DECREF.exit96
 
 110:                                              ; preds = %107
-  tail call void @_Py_Dealloc(ptr noundef nonnull %97) #16
+  tail call void @_Py_Dealloc(ptr noundef nonnull %97) #15
   br label %Py_DECREF.exit96
 
 111:                                              ; preds = %96, %78
@@ -9044,7 +9044,7 @@ Py_DECREF.exit98:                                 ; preds = %99, %102, %105
   br i1 %115, label %116, label %Py_DECREF.exit96
 
 116:                                              ; preds = %113
-  tail call void @_Py_Dealloc(ptr noundef nonnull %.082) #16
+  tail call void @_Py_Dealloc(ptr noundef nonnull %.082) #15
   br label %Py_DECREF.exit96
 
 Py_DECREF.exit96:                                 ; preds = %116, %113, %111, %110, %107, %Py_DECREF.exit98, %.thread, %Py_DECREF.exit100, %._crit_edge, %54, %._crit_edge117, %11
@@ -9060,7 +9060,7 @@ define internal fastcc ptr @perm_comb(ptr noundef nonnull %0, i64 noundef %1, i3
   ]
 
 4:                                                ; preds = %3
-  %5 = tail call ptr @PyLong_FromLong(i64 noundef 1) #16
+  %5 = tail call ptr @PyLong_FromLong(i64 noundef 1) #15
   br label %_Py_NewRef.exit
 
 6:                                                ; preds = %3
@@ -9080,12 +9080,12 @@ define internal fastcc ptr @perm_comb(ptr noundef nonnull %0, i64 noundef %1, i3
   br i1 %14, label %_Py_NewRef.exit, label %15
 
 15:                                               ; preds = %11
-  %16 = tail call ptr @PyLong_FromUnsignedLongLong(i64 noundef %12) #16
+  %16 = tail call ptr @PyLong_FromUnsignedLongLong(i64 noundef %12) #15
   %17 = icmp eq ptr %16, null
   br i1 %17, label %64, label %18
 
 18:                                               ; preds = %15
-  %19 = tail call ptr @PyNumber_Subtract(ptr noundef nonnull %0, ptr noundef nonnull %16) #16
+  %19 = tail call ptr @PyNumber_Subtract(ptr noundef nonnull %0, ptr noundef nonnull %16) #15
   %20 = load i32, ptr %16, align 8, !tbaa !13
   %.not.i60 = icmp sgt i32 %20, -1
   br i1 %.not.i60, label %21, label %Py_DECREF.exit61
@@ -9097,7 +9097,7 @@ define internal fastcc ptr @perm_comb(ptr noundef nonnull %0, i64 noundef %1, i3
   br i1 %23, label %24, label %Py_DECREF.exit61
 
 24:                                               ; preds = %21
-  tail call void @_Py_Dealloc(ptr noundef nonnull %16) #16
+  tail call void @_Py_Dealloc(ptr noundef nonnull %16) #15
   br label %Py_DECREF.exit61
 
 Py_DECREF.exit61:                                 ; preds = %18, %21, %24
@@ -9118,7 +9118,7 @@ Py_DECREF.exit61:                                 ; preds = %18, %21, %24
   br i1 %32, label %33, label %Py_DECREF.exit59
 
 33:                                               ; preds = %30
-  tail call void @_Py_Dealloc(ptr noundef nonnull %19) #16
+  tail call void @_Py_Dealloc(ptr noundef nonnull %19) #15
   br label %Py_DECREF.exit59
 
 Py_DECREF.exit59:                                 ; preds = %26, %30, %33
@@ -9126,7 +9126,7 @@ Py_DECREF.exit59:                                 ; preds = %26, %30, %33
   br i1 %34, label %64, label %35
 
 35:                                               ; preds = %Py_DECREF.exit59
-  %36 = tail call ptr @PyNumber_Multiply(ptr noundef nonnull %13, ptr noundef nonnull %28) #16
+  %36 = tail call ptr @PyNumber_Multiply(ptr noundef nonnull %13, ptr noundef nonnull %28) #15
   %37 = load i32, ptr %13, align 8, !tbaa !13
   %.not.i56 = icmp sgt i32 %37, -1
   br i1 %.not.i56, label %38, label %Py_DECREF.exit57
@@ -9138,7 +9138,7 @@ Py_DECREF.exit59:                                 ; preds = %26, %30, %33
   br i1 %40, label %41, label %Py_DECREF.exit57
 
 41:                                               ; preds = %38
-  tail call void @_Py_Dealloc(ptr noundef nonnull %13) #16
+  tail call void @_Py_Dealloc(ptr noundef nonnull %13) #15
   br label %Py_DECREF.exit57
 
 Py_DECREF.exit57:                                 ; preds = %35, %38, %41
@@ -9153,7 +9153,7 @@ Py_DECREF.exit57:                                 ; preds = %35, %38, %41
   br i1 %45, label %46, label %Py_DECREF.exit55
 
 46:                                               ; preds = %43
-  tail call void @_Py_Dealloc(ptr noundef nonnull %28) #16
+  tail call void @_Py_Dealloc(ptr noundef nonnull %28) #15
   br label %Py_DECREF.exit55
 
 Py_DECREF.exit55:                                 ; preds = %Py_DECREF.exit57, %43, %46
@@ -9168,7 +9168,7 @@ Py_DECREF.exit55:                                 ; preds = %Py_DECREF.exit57, %
   br i1 %51, label %64, label %52
 
 52:                                               ; preds = %49
-  %53 = tail call ptr @PyNumber_FloorDivide(ptr noundef nonnull %36, ptr noundef nonnull %50) #16
+  %53 = tail call ptr @PyNumber_FloorDivide(ptr noundef nonnull %36, ptr noundef nonnull %50) #15
   %54 = load i32, ptr %36, align 8, !tbaa !13
   %.not.i52 = icmp sgt i32 %54, -1
   br i1 %.not.i52, label %55, label %Py_DECREF.exit53
@@ -9180,7 +9180,7 @@ Py_DECREF.exit55:                                 ; preds = %Py_DECREF.exit57, %
   br i1 %57, label %58, label %Py_DECREF.exit53
 
 58:                                               ; preds = %55
-  tail call void @_Py_Dealloc(ptr noundef nonnull %36) #16
+  tail call void @_Py_Dealloc(ptr noundef nonnull %36) #15
   br label %Py_DECREF.exit53
 
 Py_DECREF.exit53:                                 ; preds = %52, %55, %58
@@ -9195,7 +9195,7 @@ Py_DECREF.exit53:                                 ; preds = %52, %55, %58
   br i1 %62, label %63, label %_Py_NewRef.exit
 
 63:                                               ; preds = %60
-  tail call void @_Py_Dealloc(ptr noundef nonnull %50) #16
+  tail call void @_Py_Dealloc(ptr noundef nonnull %50) #15
   br label %_Py_NewRef.exit
 
 64:                                               ; preds = %49, %Py_DECREF.exit59, %Py_DECREF.exit61, %15
@@ -9211,7 +9211,7 @@ Py_DECREF.exit53:                                 ; preds = %52, %55, %58
   br i1 %68, label %69, label %_Py_NewRef.exit
 
 69:                                               ; preds = %66
-  tail call void @_Py_Dealloc(ptr noundef nonnull %.041) #16
+  tail call void @_Py_Dealloc(ptr noundef nonnull %.041) #15
   br label %_Py_NewRef.exit
 
 _Py_NewRef.exit:                                  ; preds = %69, %66, %64, %63, %60, %Py_DECREF.exit53, %9, %6, %11, %Py_DECREF.exit55, %4
@@ -9222,58 +9222,58 @@ _Py_NewRef.exit:                                  ; preds = %69, %66, %64, %63, 
 declare ptr @PyLong_FromUnsignedLongLong(i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind
-declare double @nextafter(double noundef, double noundef) local_unnamed_addr #10
+declare double @nextafter(double noundef, double noundef) local_unnamed_addr #9
 
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @math_exec(ptr noundef %0) #0 {
   %2 = getelementptr i8, ptr %0, i64 32
   %.val = load ptr, ptr %2, align 8, !tbaa !3
-  %3 = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.94) #16
+  %3 = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.94) #15
   store ptr %3, ptr %.val, align 8, !tbaa !20
   %4 = icmp eq ptr %3, null
   br i1 %4, label %32, label %5
 
 5:                                                ; preds = %1
-  %6 = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.95) #16
+  %6 = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.95) #15
   %7 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   store ptr %6, ptr %7, align 8, !tbaa !40
   %8 = icmp eq ptr %6, null
   br i1 %8, label %32, label %9
 
 9:                                                ; preds = %5
-  %10 = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.96) #16
+  %10 = tail call ptr @PyUnicode_InternFromString(ptr noundef nonnull @.str.96) #15
   %11 = getelementptr inbounds nuw i8, ptr %.val, i64 16
   store ptr %10, ptr %11, align 8, !tbaa !56
   %12 = icmp eq ptr %10, null
   br i1 %12, label %32, label %13
 
 13:                                               ; preds = %9
-  %14 = tail call ptr @PyFloat_FromDouble(double noundef 0x400921FB54442D18) #16
-  %15 = tail call i32 @PyModule_Add(ptr noundef nonnull %0, ptr noundef nonnull @.str.97, ptr noundef %14) #16
+  %14 = tail call ptr @PyFloat_FromDouble(double noundef 0x400921FB54442D18) #15
+  %15 = tail call i32 @PyModule_Add(ptr noundef nonnull %0, ptr noundef nonnull @.str.97, ptr noundef %14) #15
   %16 = icmp slt i32 %15, 0
   br i1 %16, label %32, label %17
 
 17:                                               ; preds = %13
-  %18 = tail call ptr @PyFloat_FromDouble(double noundef 0x4005BF0A8B145769) #16
-  %19 = tail call i32 @PyModule_Add(ptr noundef nonnull %0, ptr noundef nonnull @.str.98, ptr noundef %18) #16
+  %18 = tail call ptr @PyFloat_FromDouble(double noundef 0x4005BF0A8B145769) #15
+  %19 = tail call i32 @PyModule_Add(ptr noundef nonnull %0, ptr noundef nonnull @.str.98, ptr noundef %18) #15
   %20 = icmp slt i32 %19, 0
   br i1 %20, label %32, label %21
 
 21:                                               ; preds = %17
-  %22 = tail call ptr @PyFloat_FromDouble(double noundef 0x401921FB54442D18) #16
-  %23 = tail call i32 @PyModule_Add(ptr noundef nonnull %0, ptr noundef nonnull @.str.99, ptr noundef %22) #16
+  %22 = tail call ptr @PyFloat_FromDouble(double noundef 0x401921FB54442D18) #15
+  %23 = tail call i32 @PyModule_Add(ptr noundef nonnull %0, ptr noundef nonnull @.str.99, ptr noundef %22) #15
   %24 = icmp slt i32 %23, 0
   br i1 %24, label %32, label %25
 
 25:                                               ; preds = %21
-  %26 = tail call ptr @PyFloat_FromDouble(double noundef 0x7FF0000000000000) #16
-  %27 = tail call i32 @PyModule_Add(ptr noundef nonnull %0, ptr noundef nonnull @.str.100, ptr noundef %26) #16
+  %26 = tail call ptr @PyFloat_FromDouble(double noundef 0x7FF0000000000000) #15
+  %27 = tail call i32 @PyModule_Add(ptr noundef nonnull %0, ptr noundef nonnull @.str.100, ptr noundef %26) #15
   %28 = icmp slt i32 %27, 0
   br i1 %28, label %32, label %29
 
 29:                                               ; preds = %25
-  %30 = tail call ptr @PyFloat_FromDouble(double noundef 0x7FF8000000000000) #16
-  %31 = tail call i32 @PyModule_Add(ptr noundef nonnull %0, ptr noundef nonnull @.str.101, ptr noundef %30) #16
+  %30 = tail call ptr @PyFloat_FromDouble(double noundef 0x7FF8000000000000) #15
+  %31 = tail call i32 @PyModule_Add(ptr noundef nonnull %0, ptr noundef nonnull @.str.101, ptr noundef %30) #15
   %.lobit = ashr i32 %31, 31
   br label %32
 
@@ -9287,36 +9287,35 @@ declare ptr @PyUnicode_InternFromString(ptr noundef) local_unnamed_addr #1
 declare i32 @PyModule_Add(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.log.f64(double) #15
+declare double @llvm.log.f64(double) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.log10.f64(double) #15
+declare double @llvm.log10.f64(double) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.log2.f64(double) #15
+declare double @llvm.log2.f64(double) #14
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.smin.i64(i64, i64) #15
+declare i64 @llvm.smin.i64(i64, i64) #14
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nounwind willreturn memory(write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #6 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #7 = { inlinehint nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { inlinehint nofree nounwind memory(argmem: readwrite, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nofree nounwind memory(write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree nounwind willreturn memory(write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nofree norecurse nosync nounwind memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { mustprogress nofree nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #15 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #16 = { nounwind }
-attributes #17 = { nounwind willreturn memory(none) }
-attributes #18 = { memory(none) }
+attributes #9 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree nounwind memory(write, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree nounwind willreturn memory(errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { nofree norecurse nosync nounwind memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { mustprogress nofree nosync nounwind willreturn memory(write, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #15 = { nounwind }
+attributes #16 = { nounwind willreturn memory(none) }
+attributes #17 = { memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

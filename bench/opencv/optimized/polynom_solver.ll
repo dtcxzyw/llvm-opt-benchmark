@@ -17,7 +17,7 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 ; Function Attrs: nofree nounwind
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, errnomem: write) uwtable
 define hidden noundef range(i32 0, 3) i32 @_Z10solve_deg2dddRdS_(double noundef %0, double noundef %1, double noundef %2, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %3, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %4) local_unnamed_addr #3 {
   %6 = fmul double %0, 4.000000e+00
   %7 = fneg double %2
@@ -37,7 +37,7 @@ define hidden noundef range(i32 0, 3) i32 @_Z10solve_deg2dddRdS_(double noundef 
   br label %24
 
 17:                                               ; preds = %11
-  %18 = tail call double @sqrt(double noundef %9) #9, !tbaa !3
+  %18 = tail call double @sqrt(double noundef %9) #10, !tbaa !3
   %19 = fneg double %1
   %20 = fsub double %18, %1
   %21 = fmul double %12, %20
@@ -64,13 +64,13 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #5
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @sqrt(double noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, errnomem: write) uwtable
 define hidden noundef range(i32 0, 4) i32 @_Z10solve_deg3ddddRdS_S_(double noundef %0, double noundef %1, double noundef %2, double noundef %3, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %4, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %6) local_unnamed_addr #3 {
   %8 = fcmp oeq double %0, 0.000000e+00
   br i1 %8, label %9, label %36
@@ -109,7 +109,7 @@ define hidden noundef range(i32 0, 4) i32 @_Z10solve_deg3ddddRdS_S_(double nound
   br label %35
 
 28:                                               ; preds = %22
-  %29 = tail call double @sqrt(double noundef %20) #9, !tbaa !3
+  %29 = tail call double @sqrt(double noundef %20) #10, !tbaa !3
   %30 = fneg double %2
   %31 = fsub double %29, %2
   %32 = fmul double %23, %31
@@ -160,7 +160,7 @@ define hidden noundef range(i32 0, 4) i32 @_Z10solve_deg3ddddRdS_S_(double nound
 
 60:                                               ; preds = %56
   %61 = fmul double %50, 2.000000e+00
-  %62 = tail call noundef double @cbrt(double noundef %61) #10
+  %62 = tail call noundef double @cbrt(double noundef %61) #11
   %63 = fsub double %62, %54
   store double %63, ptr %4, align 8, !tbaa !7
   br label %_Z10solve_deg2dddRdS_.exit
@@ -171,25 +171,25 @@ define hidden noundef range(i32 0, 4) i32 @_Z10solve_deg3ddddRdS_S_(double nound
 
 66:                                               ; preds = %64
   %67 = fneg double %52
-  %68 = tail call double @sqrt(double noundef %67) #9, !tbaa !3
+  %68 = tail call double @sqrt(double noundef %67) #10, !tbaa !3
   %69 = fdiv double %50, %68
-  %70 = tail call double @acos(double noundef %69) #9, !tbaa !3
+  %70 = tail call double @acos(double noundef %69) #10, !tbaa !3
   %71 = fneg double %44
-  %72 = tail call double @sqrt(double noundef %71) #9, !tbaa !3
+  %72 = tail call double @sqrt(double noundef %71) #10, !tbaa !3
   %73 = fmul double %72, 2.000000e+00
   %74 = fdiv double %70, 3.000000e+00
-  %75 = tail call double @cos(double noundef %74) #9, !tbaa !3
+  %75 = tail call double @cos(double noundef %74) #10, !tbaa !3
   %76 = fneg double %54
   %77 = tail call double @llvm.fmuladd.f64(double %73, double %75, double %76)
   store double %77, ptr %4, align 8, !tbaa !7
   %78 = fadd double %70, 0x401921FB54442D18
   %79 = fdiv double %78, 3.000000e+00
-  %80 = tail call double @cos(double noundef %79) #9, !tbaa !3
+  %80 = tail call double @cos(double noundef %79) #10, !tbaa !3
   %81 = tail call double @llvm.fmuladd.f64(double %73, double %80, double %76)
   store double %81, ptr %5, align 8, !tbaa !7
   %82 = fadd double %70, 0x402921FB54442D18
   %83 = fdiv double %82, 3.000000e+00
-  %84 = tail call double @cos(double noundef %83) #9, !tbaa !3
+  %84 = tail call double @cos(double noundef %83) #10, !tbaa !3
   %85 = tail call double @llvm.fmuladd.f64(double %73, double %84, double %76)
   store double %85, ptr %6, align 8, !tbaa !7
   br label %_Z10solve_deg2dddRdS_.exit
@@ -200,9 +200,9 @@ define hidden noundef range(i32 0, 4) i32 @_Z10solve_deg3ddddRdS_S_(double nound
   br i1 %88, label %89, label %98
 
 89:                                               ; preds = %86
-  %90 = tail call double @sqrt(double noundef %53) #9, !tbaa !3
+  %90 = tail call double @sqrt(double noundef %53) #10, !tbaa !3
   %91 = fadd double %87, %90
-  %92 = tail call noundef double @cbrt(double noundef %91) #10
+  %92 = tail call noundef double @cbrt(double noundef %91) #11
   %93 = fcmp oge double %50, 0.000000e+00
   %94 = fneg double %92
   %95 = select i1 %93, double %92, double %94
@@ -221,17 +221,17 @@ _Z10solve_deg2dddRdS_.exit:                       ; preds = %35, %16, %58, %60, 
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @acos(double noundef) local_unnamed_addr #6
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @cos(double noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #5
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define hidden noundef range(i32 0, 5) i32 @_Z10solve_deg4dddddRdS_S_S_(double noundef %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %6, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %8) local_unnamed_addr #3 {
+; Function Attrs: mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: none) uwtable
+define hidden noundef range(i32 0, 5) i32 @_Z10solve_deg4dddddRdS_S_S_(double noundef %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %5, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %6, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %7, ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(8) %8) local_unnamed_addr #7 {
   %10 = alloca double, align 8
   %11 = alloca double, align 8
   %12 = alloca double, align 8
@@ -252,9 +252,9 @@ define hidden noundef range(i32 0, 5) i32 @_Z10solve_deg4dddddRdS_S_S_(double no
   %22 = fmul double %18, %18
   %23 = fmul double %18, %19
   %24 = fmul double %18, %22
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #9
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #10
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #10
   %25 = fneg double %19
   %26 = fmul double %21, -4.000000e+00
   %27 = tail call double @llvm.fmuladd.f64(double %20, double %18, double %26)
@@ -276,7 +276,7 @@ define hidden noundef range(i32 0, 5) i32 @_Z10solve_deg4dddddRdS_S_S_(double no
   br i1 %40, label %.thread104, label %41
 
 41:                                               ; preds = %36
-  %42 = tail call double @sqrt(double noundef %39) #9, !tbaa !3
+  %42 = tail call double @sqrt(double noundef %39) #10, !tbaa !3
   %43 = fcmp olt double %42, 0x3DA5FD7FE1796495
   br i1 %43, label %44, label %53
 
@@ -286,7 +286,7 @@ define hidden noundef range(i32 0, 5) i32 @_Z10solve_deg4dddddRdS_S_S_(double no
   br i1 %46, label %.thread104, label %47
 
 47:                                               ; preds = %44
-  %48 = tail call double @sqrt(double noundef %45) #9, !tbaa !3
+  %48 = tail call double @sqrt(double noundef %45) #10, !tbaa !3
   %49 = fmul double %19, -2.000000e+00
   %50 = tail call double @llvm.fmuladd.f64(double %22, double 7.500000e-01, double %49)
   %51 = tail call double @llvm.fmuladd.f64(double %48, double 2.000000e+00, double %50)
@@ -320,7 +320,7 @@ define hidden noundef range(i32 0, 5) i32 @_Z10solve_deg4dddddRdS_S_S_(double no
   br i1 %70, label %.thread104, label %.thread104.sink.split
 
 .thread:                                          ; preds = %65
-  %71 = tail call double @sqrt(double noundef %.195) #9, !tbaa !3
+  %71 = tail call double @sqrt(double noundef %.195) #10, !tbaa !3
   %72 = fmul double %71, 5.000000e-01
   %73 = fadd double %67, %72
   %74 = fsub double %73, %66
@@ -334,7 +334,7 @@ define hidden noundef range(i32 0, 5) i32 @_Z10solve_deg4dddddRdS_S_S_(double no
   %.sink112 = phi ptr [ %5, %69 ], [ %7, %.thread ]
   %.sink109 = phi ptr [ %6, %69 ], [ %8, %.thread ]
   %.1.ph = phi i32 [ 2, %69 ], [ 4, %.thread ]
-  %77 = tail call double @sqrt(double noundef %.197) #9, !tbaa !3
+  %77 = tail call double @sqrt(double noundef %.197) #10, !tbaa !3
   %78 = fmul double %77, 5.000000e-01
   %79 = fsub double %78, %67
   %80 = fsub double %79, %66
@@ -345,9 +345,9 @@ define hidden noundef range(i32 0, 5) i32 @_Z10solve_deg4dddddRdS_S_S_(double no
 
 .thread104:                                       ; preds = %.thread104.sink.split, %.thread, %44, %36, %69, %16
   %.1 = phi i32 [ 0, %16 ], [ 0, %36 ], [ 0, %69 ], [ 0, %44 ], [ 2, %.thread ], [ %.1.ph, %.thread104.sink.split ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #10
   br label %82
 
 82:                                               ; preds = %.thread104, %14
@@ -356,26 +356,27 @@ define hidden noundef range(i32 0, 5) i32 @_Z10solve_deg4dddddRdS_S_S_(double no
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare double @cbrt(double noundef) local_unnamed_addr #7
+declare double @cbrt(double noundef) local_unnamed_addr #8
 
 ; Function Attrs: uwtable
-define internal void @_GLOBAL__sub_I_polynom_solver.cpp() #8 section ".text.startup" {
+define internal void @_GLOBAL__sub_I_polynom_solver.cpp() #9 section ".text.startup" {
   tail call void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1) @_ZStL8__ioinit)
-  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #9
+  %1 = tail call i32 @__cxa_atexit(ptr nonnull @_ZNSt8ios_base4InitD1Ev, ptr nonnull @_ZStL8__ioinit, ptr nonnull @__dso_handle) #10
   ret void
 }
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree nounwind }
-attributes #3 = { mustprogress nofree nounwind willreturn memory(write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: write, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { mustprogress nofree nounwind willreturn memory(write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #8 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
-attributes #9 = { nounwind }
-attributes #10 = { nounwind willreturn memory(none) }
+attributes #6 = { mustprogress nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #9 = { uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+sse3,+x87" "tune-cpu"="generic" }
+attributes #10 = { nounwind }
+attributes #11 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

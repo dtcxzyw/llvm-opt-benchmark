@@ -105662,7 +105662,7 @@ define noundef nonnull align 8 ptr @"_ZN86_$LT$typst..foundations..calc..cos$u20
   ret ptr @"_ZN86_$LT$typst..foundations..calc..cos$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h0687c9f5d8bec7b6E.llvm.14728845296163125433"
 }
 
-; Function Attrs: mustprogress nofree nounwind nonlazybind willreturn memory(write, argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree nounwind nonlazybind willreturn memory(argmem: read, errnomem: write) uwtable
 define noundef double @_ZN5typst11foundations4calc3tan17hc12497c47e4d3122E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #60 {
   %2 = load i64, ptr %0, align 8, !range !99, !noundef !4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -105969,7 +105969,7 @@ define noundef nonnull align 8 ptr @"_ZN87_$LT$typst..foundations..calc..acos$u2
   ret ptr @"_ZN87_$LT$typst..foundations..calc..acos$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h56f80008d1ddfe2fE.llvm.14728845296163125433"
 }
 
-; Function Attrs: mustprogress nofree nounwind nonlazybind willreturn memory(write, argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree nounwind nonlazybind willreturn memory(argmem: read, errnomem: write) uwtable
 define noundef double @_ZN5typst11foundations4calc4atan17ha09492162eaeaf5cE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #60 {
   %2 = load i64, ptr %0, align 8, !range !221, !alias.scope !25177, !noundef !4
   %trunc.i = trunc nuw i64 %2 to i1
@@ -105989,7 +105989,7 @@ define noundef nonnull align 8 ptr @"_ZN87_$LT$typst..foundations..calc..atan$u2
   ret ptr @"_ZN87_$LT$typst..foundations..calc..atan$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17ha4f0f52042e7db46E.llvm.14728845296163125433"
 }
 
-; Function Attrs: mustprogress nofree nounwind nonlazybind willreturn memory(write, argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree nounwind nonlazybind willreturn memory(argmem: read, errnomem: write) uwtable
 define noundef double @_ZN5typst11foundations4calc5atan217hf9d1e3bd6de06912E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #60 {
   %3 = load i64, ptr %1, align 8, !range !221, !alias.scope !25180, !noundef !4
   %trunc.i = trunc nuw i64 %3 to i1
@@ -106016,7 +106016,7 @@ define noundef nonnull align 8 ptr @"_ZN88_$LT$typst..foundations..calc..atan2$u
   ret ptr @"_ZN88_$LT$typst..foundations..calc..atan2$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17hf8771d82d46b50d7E.llvm.14728845296163125433"
 }
 
-; Function Attrs: mustprogress nofree nounwind nonlazybind willreturn memory(write) uwtable
+; Function Attrs: mustprogress nofree nounwind nonlazybind willreturn memory(errnomem: write) uwtable
 define noundef double @_ZN5typst11foundations4calc4sinh17h866b4cbc1b957778E(double noundef %0) unnamed_addr #61 {
   %2 = tail call noundef double @sinh(double noundef %0)
   ret double %2
@@ -106027,7 +106027,7 @@ define noundef nonnull align 8 ptr @"_ZN87_$LT$typst..foundations..calc..sinh$u2
   ret ptr @"_ZN87_$LT$typst..foundations..calc..sinh$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h445455caebbf2d62E.llvm.14728845296163125433"
 }
 
-; Function Attrs: mustprogress nofree nounwind nonlazybind willreturn memory(write) uwtable
+; Function Attrs: mustprogress nofree nounwind nonlazybind willreturn memory(errnomem: write) uwtable
 define noundef double @_ZN5typst11foundations4calc4cosh17h2bbc76c3ad062c24E(double noundef %0) unnamed_addr #61 {
   %2 = tail call noundef double @cosh(double noundef %0)
   ret double %2
@@ -106038,7 +106038,7 @@ define noundef nonnull align 8 ptr @"_ZN87_$LT$typst..foundations..calc..cosh$u2
   ret ptr @"_ZN87_$LT$typst..foundations..calc..cosh$u20$as$u20$typst..foundations..func..NativeFunc$GT$4data4DATA17h4844e5cbda30ed83E.llvm.14728845296163125433"
 }
 
-; Function Attrs: mustprogress nofree nounwind nonlazybind willreturn memory(write) uwtable
+; Function Attrs: mustprogress nofree nounwind nonlazybind willreturn memory(errnomem: write) uwtable
 define noundef double @_ZN5typst11foundations4calc4tanh17hd19af2dbce567055E(double noundef %0) unnamed_addr #61 {
   %2 = tail call noundef double @tanh(double noundef %0)
   ret double %2
@@ -155766,28 +155766,28 @@ declare double @llvm.sin.f64(double) #68
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.cos.f64(double) #68
 
-; Function Attrs: mustprogress nofree nounwind nonlazybind willreturn memory(write) uwtable
+; Function Attrs: mustprogress nofree nounwind nonlazybind willreturn memory(errnomem: write) uwtable
 declare noundef double @tan(double noundef) unnamed_addr #61
 
-; Function Attrs: mustprogress nofree nounwind nonlazybind willreturn memory(write) uwtable
+; Function Attrs: mustprogress nofree nounwind nonlazybind willreturn memory(errnomem: write) uwtable
 declare noundef double @asin(double noundef) unnamed_addr #61
 
-; Function Attrs: mustprogress nofree nounwind nonlazybind willreturn memory(write) uwtable
+; Function Attrs: mustprogress nofree nounwind nonlazybind willreturn memory(errnomem: write) uwtable
 declare noundef double @acos(double noundef) unnamed_addr #61
 
-; Function Attrs: mustprogress nofree nounwind nonlazybind willreturn memory(write) uwtable
+; Function Attrs: mustprogress nofree nounwind nonlazybind willreturn memory(errnomem: write) uwtable
 declare noundef double @atan(double noundef) unnamed_addr #61
 
-; Function Attrs: mustprogress nofree nounwind nonlazybind willreturn memory(write) uwtable
+; Function Attrs: mustprogress nofree nounwind nonlazybind willreturn memory(errnomem: write) uwtable
 declare noundef double @atan2(double noundef, double noundef) unnamed_addr #61
 
-; Function Attrs: mustprogress nofree nounwind nonlazybind willreturn memory(write) uwtable
+; Function Attrs: mustprogress nofree nounwind nonlazybind willreturn memory(errnomem: write) uwtable
 declare noundef double @sinh(double noundef) unnamed_addr #61
 
-; Function Attrs: mustprogress nofree nounwind nonlazybind willreturn memory(write) uwtable
+; Function Attrs: mustprogress nofree nounwind nonlazybind willreturn memory(errnomem: write) uwtable
 declare noundef double @cosh(double noundef) unnamed_addr #61
 
-; Function Attrs: mustprogress nofree nounwind nonlazybind willreturn memory(write) uwtable
+; Function Attrs: mustprogress nofree nounwind nonlazybind willreturn memory(errnomem: write) uwtable
 declare noundef double @tanh(double noundef) unnamed_addr #61
 
 ; Function Attrs: nonlazybind uwtable
@@ -157047,7 +157047,7 @@ declare noundef zeroext i1 @"_ZN67_$LT$typst..foundations..ty..Type$u20$as$u20$c
 ; Function Attrs: nonlazybind uwtable
 declare noundef zeroext i1 @_ZN4core7unicode12unicode_data1n6lookup17h747a753d8c4c1834E(i32 noundef) unnamed_addr #7
 
-; Function Attrs: mustprogress nofree nounwind nonlazybind willreturn memory(write) uwtable
+; Function Attrs: mustprogress nofree nounwind nonlazybind willreturn memory(errnomem: write) uwtable
 declare noundef double @hypot(double noundef, double noundef) unnamed_addr #61
 
 ; Function Attrs: nonlazybind uwtable
@@ -157797,8 +157797,8 @@ attributes #56 = { inlinehint nofree norecurse nosync nounwind nonlazybind memor
 attributes #57 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #58 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #59 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #60 = { mustprogress nofree nounwind nonlazybind willreturn memory(write, argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #61 = { mustprogress nofree nounwind nonlazybind willreturn memory(write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #60 = { mustprogress nofree nounwind nonlazybind willreturn memory(argmem: read, errnomem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #61 = { mustprogress nofree nounwind nonlazybind willreturn memory(errnomem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #62 = { mustprogress nofree nounwind nonlazybind willreturn memory(argmem: read) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #63 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #64 = { cold noreturn nounwind nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

@@ -309,7 +309,7 @@ define hidden ptr @avifTransferCharacteristicsGetGammaToLinearFunction(i16 nound
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write) uwtable
 define internal float @avifToLinear709(float noundef %0) #5 {
   %2 = fcmp olt float %0, 0.000000e+00
   br i1 %2, label %13, label %3
@@ -363,7 +363,7 @@ define hidden ptr @avifTransferCharacteristicsGetLinearToGammaFunction(i16 nound
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write) uwtable
 define internal float @avifToGamma709(float noundef %0) #5 {
   %2 = fcmp olt float %0, 0.000000e+00
   br i1 %2, label %12, label %3
@@ -491,7 +491,7 @@ declare float @llvm.fmuladd.f32(float, float, float) #7
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fabs.f32(float) #7
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write) uwtable
 define internal float @avifToLinear470M(float noundef %0) #5 {
   %2 = fcmp olt float %0, 0.000000e+00
   %3 = fcmp ogt float %0, 1.000000e+00
@@ -501,7 +501,7 @@ define internal float @avifToLinear470M(float noundef %0) #5 {
   ret float %6
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write) uwtable
 define internal float @avifToGamma470M(float noundef %0) #5 {
   %2 = fcmp olt float %0, 0.000000e+00
   %3 = fcmp ogt float %0, 1.000000e+00
@@ -511,7 +511,7 @@ define internal float @avifToGamma470M(float noundef %0) #5 {
   ret float %6
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write) uwtable
 define internal float @avifToLinear470BG(float noundef %0) #5 {
   %2 = fcmp olt float %0, 0.000000e+00
   %3 = fcmp ogt float %0, 1.000000e+00
@@ -521,7 +521,7 @@ define internal float @avifToLinear470BG(float noundef %0) #5 {
   ret float %6
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write) uwtable
 define internal float @avifToGamma470BG(float noundef %0) #5 {
   %2 = fcmp olt float %0, 0.000000e+00
   %3 = fcmp ogt float %0, 1.000000e+00
@@ -531,7 +531,7 @@ define internal float @avifToGamma470BG(float noundef %0) #5 {
   ret float %6
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write) uwtable
 define internal float @avifToLinearSMPTE240(float noundef %0) #5 {
   %2 = fcmp olt float %0, 0.000000e+00
   br i1 %2, label %13, label %3
@@ -559,7 +559,7 @@ define internal float @avifToLinearSMPTE240(float noundef %0) #5 {
   ret float %.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write) uwtable
 define internal float @avifToGammaSMPTE240(float noundef %0) #5 {
   %2 = fcmp olt float %0, 0.000000e+00
   br i1 %2, label %12, label %3
@@ -595,7 +595,7 @@ define internal noundef float @avifToGammaLinear(float noundef %0) #3 {
   ret float %5
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write) uwtable
 define internal float @avifToLinearLog100(float noundef %0) #5 {
   %2 = fcmp ugt float %0, 0.000000e+00
   br i1 %2, label %3, label %9
@@ -631,7 +631,7 @@ define internal float @avifToGammaLog100(float noundef %0) #3 {
   ret float %10
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write) uwtable
 define internal float @avifToLinearLog100Sqrt10(float noundef %0) #5 {
   %2 = fcmp ugt float %0, 0.000000e+00
   br i1 %2, label %3, label %9
@@ -667,7 +667,7 @@ define internal float @avifToGammaLog100Sqrt10(float noundef %0) #3 {
   ret float %10
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write) uwtable
 define internal float @avifToLinearIEC61966(float noundef %0) #5 {
   %2 = fcmp olt float %0, 0xBFB4CC5500000000
   br i1 %2, label %3, label %7
@@ -697,7 +697,7 @@ define internal float @avifToLinearIEC61966(float noundef %0) #5 {
   ret float %.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write) uwtable
 define internal float @avifToGammaIEC61966(float noundef %0) #5 {
   %2 = fcmp olt float %0, 0xBF927CBD60000000
   br i1 %2, label %3, label %7
@@ -726,7 +726,7 @@ define internal float @avifToGammaIEC61966(float noundef %0) #5 {
   ret float %.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write) uwtable
 define internal float @avifToLinearBT1361(float noundef %0) #5 {
   %2 = fcmp olt float %0, -2.500000e-01
   br i1 %2, label %20, label %3
@@ -765,7 +765,7 @@ define internal float @avifToLinearBT1361(float noundef %0) #5 {
   ret float %.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write) uwtable
 define internal float @avifToGammaBT1361(float noundef %0) #5 {
   %2 = fcmp olt float %0, -2.500000e-01
   br i1 %2, label %18, label %3
@@ -802,7 +802,7 @@ define internal float @avifToGammaBT1361(float noundef %0) #5 {
   ret float %.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write) uwtable
 define internal float @avifToLinearSRGB(float noundef %0) #5 {
   %2 = fcmp olt float %0, 0.000000e+00
   br i1 %2, label %13, label %3
@@ -830,7 +830,7 @@ define internal float @avifToLinearSRGB(float noundef %0) #5 {
   ret float %.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write) uwtable
 define internal float @avifToGammaSRGB(float noundef %0) #5 {
   %2 = fcmp olt float %0, 0.000000e+00
   br i1 %2, label %12, label %3
@@ -857,7 +857,7 @@ define internal float @avifToGammaSRGB(float noundef %0) #5 {
   ret float %.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write) uwtable
 define internal float @avifToLinearPQ(float noundef %0) #5 {
   %2 = fcmp ogt float %0, 0.000000e+00
   br i1 %2, label %3, label %15
@@ -881,7 +881,7 @@ define internal float @avifToLinearPQ(float noundef %0) #5 {
   ret float %.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write) uwtable
 define internal float @avifToGammaPQ(float noundef %0) #5 {
   %2 = fcmp ogt float %0, 0.000000e+00
   br i1 %2, label %3, label %14
@@ -904,7 +904,7 @@ define internal float @avifToGammaPQ(float noundef %0) #5 {
   ret float %.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write) uwtable
 define internal float @avifToLinearSMPTE428(float noundef %0) #5 {
   %2 = fcmp ogt float %0, 0.000000e+00
   %3 = select i1 %2, float %0, float 0.000000e+00
@@ -913,7 +913,7 @@ define internal float @avifToLinearSMPTE428(float noundef %0) #5 {
   ret float %5
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write) uwtable
 define internal float @avifToGammaSMPTE428(float noundef %0) #5 {
   %2 = fcmp ogt float %0, 0.000000e+00
   %3 = select i1 %2, float %0, float 0.000000e+00
@@ -922,7 +922,7 @@ define internal float @avifToGammaSMPTE428(float noundef %0) #5 {
   ret float %5
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write) uwtable
 define internal float @avifToLinearHLG(float noundef %0) #5 {
   %2 = fcmp olt float %0, 0.000000e+00
   br i1 %2, label %18, label %3
@@ -956,7 +956,7 @@ define internal float @avifToLinearHLG(float noundef %0) #5 {
   ret float %.07
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write) uwtable
 define internal float @avifToGammaHLG(float noundef %0) #5 {
   %2 = fmul float %0, 2.030000e+02
   %3 = fdiv float %2, 1.000000e+03
@@ -988,16 +988,16 @@ define internal float @avifToGammaHLG(float noundef %0) #5 {
   ret float %.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare float @powf(float noundef, float noundef) local_unnamed_addr #8
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare float @expf(float noundef) local_unnamed_addr #8
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare float @sqrtf(float noundef) local_unnamed_addr #8
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare float @logf(float noundef) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -1008,10 +1008,10 @@ attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argm
 attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nofree norecurse nosync nounwind memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind willreturn memory(write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn memory(errnomem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nofree nounwind willreturn memory(errnomem: write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { nounwind }
 

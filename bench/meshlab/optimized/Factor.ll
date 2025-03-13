@@ -25,7 +25,7 @@ define noundef range(i32 0, 2) i32 @_Z6FactorddPA2_dd(double noundef %0, double 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #1
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, errnomem: write) uwtable
 define noundef range(i32 0, 3) i32 @_Z6FactordddPA2_dd(double noundef %0, double noundef %1, double noundef %2, ptr noundef writeonly captures(none) %3, double noundef %4) local_unnamed_addr #2 {
   %6 = tail call double @llvm.fabs.f64(double %0)
   %7 = fcmp ugt double %6, %4
@@ -56,7 +56,7 @@ define noundef range(i32 0, 3) i32 @_Z6FactordddPA2_dd(double noundef %0, double
 
 23:                                               ; preds = %15
   %24 = fneg double %19
-  %25 = tail call double @sqrt(double noundef %24) #12
+  %25 = tail call double @sqrt(double noundef %24) #14
   %26 = fdiv double %25, %20
   %27 = fneg double %21
   %28 = getelementptr inbounds nuw i8, ptr %3, i64 16
@@ -70,7 +70,7 @@ define noundef range(i32 0, 3) i32 @_Z6FactordddPA2_dd(double noundef %0, double
   br label %_Z6FactorddPA2_dd.exit
 
 32:                                               ; preds = %15
-  %33 = tail call double @sqrt(double noundef %19) #12
+  %33 = tail call double @sqrt(double noundef %19) #14
   %34 = fdiv double %33, %20
   %35 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %36 = getelementptr inbounds nuw i8, ptr %3, i64 24
@@ -92,10 +92,10 @@ _Z6FactorddPA2_dd.exit:                           ; preds = %11, %8, %23, %32
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #1
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @sqrt(double noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, errnomem: write) uwtable
 define noundef range(i32 0, 4) i32 @_Z6FactorddddPA2_dd(double noundef %0, double noundef %1, double noundef %2, double noundef %3, ptr noundef writeonly captures(none) %4, double noundef %5) local_unnamed_addr #2 {
   %7 = tail call double @llvm.fabs.f64(double %0)
   %8 = fcmp ugt double %7, %5
@@ -131,7 +131,7 @@ define noundef range(i32 0, 4) i32 @_Z6FactorddddPA2_dd(double noundef %0, doubl
 
 27:                                               ; preds = %19
   %28 = fneg double %23
-  %29 = tail call double @sqrt(double noundef %28) #12
+  %29 = tail call double @sqrt(double noundef %28) #14
   %30 = fdiv double %29, %24
   %31 = fneg double %25
   %32 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -145,7 +145,7 @@ define noundef range(i32 0, 4) i32 @_Z6FactorddddPA2_dd(double noundef %0, doubl
   br label %_Z6FactordddPA2_dd.exit
 
 36:                                               ; preds = %19
-  %37 = tail call double @sqrt(double noundef %23) #12
+  %37 = tail call double @sqrt(double noundef %23) #14
   %38 = fdiv double %37, %24
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %40 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -181,14 +181,14 @@ define noundef range(i32 0, 4) i32 @_Z6FactorddddPA2_dd(double noundef %0, doubl
   br i1 %63, label %64, label %86
 
 64:                                               ; preds = %45
-  %65 = tail call double @sqrt(double noundef %52) #12
+  %65 = tail call double @sqrt(double noundef %52) #14
   %66 = fmul double %52, %65
   %67 = fdiv double %59, %66
-  %68 = tail call double @acos(double noundef %67) #12
+  %68 = tail call double @acos(double noundef %67) #14
   %69 = fdiv double %68, 3.000000e+00
-  %70 = tail call double @cos(double noundef %69) #12
+  %70 = tail call double @cos(double noundef %69) #14
   %71 = fmul double %65, %70
-  %72 = tail call double @sin(double noundef %69) #12
+  %72 = tail call double @sin(double noundef %69) #14
   %73 = fmul double %65, %72
   %74 = fmul double %73, 0x3FFBB67AE8584CAA
   %75 = fmul double %74, 5.000000e-01
@@ -209,7 +209,7 @@ define noundef range(i32 0, 4) i32 @_Z6FactorddddPA2_dd(double noundef %0, doubl
 
 86:                                               ; preds = %45
   %87 = fsub double %60, %62
-  %88 = tail call double @sqrt(double noundef %87) #12
+  %88 = tail call double @sqrt(double noundef %87) #14
   %89 = fneg double %59
   %90 = fsub double %88, %59
   %91 = fcmp olt double %90, 0.000000e+00
@@ -217,12 +217,12 @@ define noundef range(i32 0, 4) i32 @_Z6FactorddddPA2_dd(double noundef %0, doubl
 
 92:                                               ; preds = %86
   %93 = fneg double %90
-  %94 = tail call double @pow(double noundef %93, double noundef 0x3FD5555555555555) #12
+  %94 = tail call double @pow(double noundef %93, double noundef 0x3FD5555555555555) #14
   %95 = fneg double %94
   br label %98
 
 96:                                               ; preds = %86
-  %97 = tail call double @pow(double noundef %90, double noundef 0x3FD5555555555555) #12
+  %97 = tail call double @pow(double noundef %90, double noundef 0x3FD5555555555555) #14
   br label %98
 
 98:                                               ; preds = %96, %92
@@ -233,12 +233,12 @@ define noundef range(i32 0, 4) i32 @_Z6FactorddddPA2_dd(double noundef %0, doubl
 
 101:                                              ; preds = %98
   %102 = fneg double %99
-  %103 = tail call double @pow(double noundef %102, double noundef 0x3FD5555555555555) #12
+  %103 = tail call double @pow(double noundef %102, double noundef 0x3FD5555555555555) #14
   %104 = fneg double %103
   br label %107
 
 105:                                              ; preds = %98
-  %106 = tail call double @pow(double noundef %99, double noundef 0x3FD5555555555555) #12
+  %106 = tail call double @pow(double noundef %99, double noundef 0x3FD5555555555555) #14
   br label %107
 
 107:                                              ; preds = %105, %101
@@ -279,20 +279,20 @@ _Z6FactordddPA2_dd.exit:                          ; preds = %36, %27, %15, %12, 
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @acos(double noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @cos(double noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @sin(double noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @pow(double noundef, double noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
-define noundef double @_Z7ArcTan2dd(double noundef %0, double noundef %1) local_unnamed_addr #2 {
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write) uwtable
+define noundef double @_Z7ArcTan2dd(double noundef %0, double noundef %1) local_unnamed_addr #4 {
   %3 = fcmp oeq double %0, 0.000000e+00
   %4 = fcmp oeq double %1, 0.000000e+00
   %or.cond = and i1 %3, %4
@@ -312,13 +312,13 @@ define noundef double @_Z7ArcTan2dd(double noundef %0, double noundef %1) local_
 
 10:                                               ; preds = %8
   %11 = fdiv double %0, %1
-  %12 = tail call double @atan(double noundef %11) #12
+  %12 = tail call double @atan(double noundef %11) #14
   br label %21
 
 13:                                               ; preds = %8
   %14 = fcmp ult double %0, 0.000000e+00
   %15 = fdiv double %0, %1
-  %16 = tail call double @atan(double noundef %15) #12
+  %16 = tail call double @atan(double noundef %15) #14
   br i1 %14, label %19, label %17
 
 17:                                               ; preds = %13
@@ -334,11 +334,11 @@ define noundef double @_Z7ArcTan2dd(double noundef %0, double noundef %1) local_
   ret double %.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @atan(double noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define noundef double @_Z5AnglePKd(ptr noundef readonly captures(none) %0) local_unnamed_addr #4 {
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read, errnomem: write) uwtable
+define noundef double @_Z5AnglePKd(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = load double, ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load double, ptr %3, align 8
@@ -367,13 +367,13 @@ define noundef double @_Z5AnglePKd(ptr noundef readonly captures(none) %0) local
 
 16:                                               ; preds = %14
   %17 = fdiv double %4, %2
-  %18 = tail call double @atan(double noundef %17) #12
+  %18 = tail call double @atan(double noundef %17) #14
   br label %_Z7ArcTan2dd.exit
 
 19:                                               ; preds = %14
   %20 = fcmp ult double %4, 0.000000e+00
   %21 = fdiv double %4, %2
-  %22 = tail call double @atan(double noundef %21) #12
+  %22 = tail call double @atan(double noundef %21) #14
   br i1 %20, label %25, label %23
 
 23:                                               ; preds = %19
@@ -389,15 +389,15 @@ _Z7ArcTan2dd.exit:                                ; preds = %25, %23, %16, %12, 
   ret double %.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define void @_Z4SqrtPKdPd(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1) local_unnamed_addr #4 {
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable
+define void @_Z4SqrtPKdPd(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 16)) %1) local_unnamed_addr #6 {
   %3 = load double, ptr %0, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load double, ptr %4, align 8
   %6 = fmul double %5, %5
   %7 = tail call double @llvm.fmuladd.f64(double %3, double %3, double %6)
   %sqrt = tail call double @llvm.sqrt.f64(double %7)
-  %8 = tail call double @sqrt(double noundef %sqrt) #12
+  %8 = tail call double @sqrt(double noundef %sqrt) #14
   %9 = load double, ptr %0, align 8
   %10 = load double, ptr %4, align 8
   %11 = fmul double %10, %10
@@ -425,13 +425,13 @@ define void @_Z4SqrtPKdPd(ptr noundef readonly captures(none) %0, ptr noundef wr
 
 22:                                               ; preds = %20
   %23 = fdiv double %10, %9
-  %24 = tail call double @atan(double noundef %23) #12
+  %24 = tail call double @atan(double noundef %23) #14
   br label %_Z5AnglePKd.exit
 
 25:                                               ; preds = %20
   %26 = fcmp ult double %10, 0.000000e+00
   %27 = fdiv double %10, %9
-  %28 = tail call double @atan(double noundef %27) #12
+  %28 = tail call double @atan(double noundef %27) #14
   br i1 %26, label %31, label %29
 
 29:                                               ; preds = %25
@@ -445,10 +445,10 @@ define void @_Z4SqrtPKdPd(ptr noundef readonly captures(none) %0, ptr noundef wr
 _Z5AnglePKd.exit:                                 ; preds = %2, %14, %18, %22, %29, %31
   %.0.i = phi double [ 0.000000e+00, %2 ], [ %24, %22 ], [ %30, %29 ], [ %32, %31 ], [ 0.000000e+00, %14 ], [ %..i.i, %18 ]
   %33 = fmul double %.0.i, 5.000000e-01
-  %34 = tail call double @cos(double noundef %33) #12
+  %34 = tail call double @cos(double noundef %33) #14
   %35 = fmul double %8, %34
   store double %35, ptr %1, align 8
-  %36 = tail call double @sin(double noundef %33) #12
+  %36 = tail call double @sin(double noundef %33) #14
   %37 = fmul double %8, %36
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store double %37, ptr %38, align 8
@@ -456,7 +456,7 @@ _Z5AnglePKd.exit:                                 ; preds = %2, %14, %18, %22, %
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_Z3AddPKdS0_Pd(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 16)) %2) local_unnamed_addr #5 {
+define void @_Z3AddPKdS0_Pd(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 16)) %2) local_unnamed_addr #7 {
   %4 = load double, ptr %0, align 8
   %5 = load double, ptr %1, align 8
   %6 = fadd double %4, %5
@@ -472,7 +472,7 @@ define void @_Z3AddPKdS0_Pd(ptr noundef readonly captures(none) %0, ptr noundef 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_Z8SubtractPKdS0_Pd(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 16)) %2) local_unnamed_addr #5 {
+define void @_Z8SubtractPKdS0_Pd(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 16)) %2) local_unnamed_addr #7 {
   %4 = load double, ptr %0, align 8
   %5 = load double, ptr %1, align 8
   %6 = fsub double %4, %5
@@ -488,7 +488,7 @@ define void @_Z8SubtractPKdS0_Pd(ptr noundef readonly captures(none) %0, ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_Z8MultiplyPKdS0_Pd(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 16)) %2) local_unnamed_addr #5 {
+define void @_Z8MultiplyPKdS0_Pd(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 16)) %2) local_unnamed_addr #7 {
   %4 = load double, ptr %0, align 8
   %5 = load double, ptr %1, align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -511,7 +511,7 @@ define void @_Z8MultiplyPKdS0_Pd(ptr noundef readonly captures(none) %0, ptr nou
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_Z6DividePKdS0_Pd(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 16)) %2) local_unnamed_addr #5 {
+define void @_Z6DividePKdS0_Pd(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) initializes((0, 16)) %2) local_unnamed_addr #7 {
   %4 = load double, ptr %1, align 8
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load double, ptr %5, align 8
@@ -536,8 +536,8 @@ define void @_Z6DividePKdS0_Pd(ptr noundef readonly captures(none) %0, ptr nound
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define noundef range(i32 0, 5) i32 @_Z6FactordddddPA2_dd(double noundef %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, ptr noundef captures(none) %5, double noundef %6) local_unnamed_addr #4 {
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable
+define noundef range(i32 0, 5) i32 @_Z6FactordddddPA2_dd(double noundef %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, ptr noundef captures(none) %5, double noundef %6) local_unnamed_addr #6 {
   %8 = tail call double @llvm.fabs.f64(double %0)
   %9 = fcmp olt double %8, %6
   br i1 %9, label %10, label %12
@@ -578,7 +578,7 @@ define noundef range(i32 0, 5) i32 @_Z6FactordddddPA2_dd(double noundef %0, doub
 36:                                               ; preds = %12
   %37 = fcmp ult double %32, 0.000000e+00
   %38 = fdiv double 0.000000e+00, %32
-  %39 = tail call double @atan(double noundef %38) #12
+  %39 = tail call double @atan(double noundef %38) #14
   br i1 %37, label %40, label %_Z4SqrtPKdPd.exit
 
 40:                                               ; preds = %36
@@ -588,9 +588,9 @@ define noundef range(i32 0, 5) i32 @_Z6FactordddddPA2_dd(double noundef %0, doub
 _Z4SqrtPKdPd.exit:                                ; preds = %36, %12, %40
   %.0.i.i = phi double [ 0.000000e+00, %12 ], [ %41, %40 ], [ %39, %36 ]
   %42 = fmul double %.0.i.i, 5.000000e-01
-  %43 = tail call double @cos(double noundef %42) #12
+  %43 = tail call double @cos(double noundef %42) #14
   %44 = fmul double %sqrt, %43
-  %45 = tail call double @sin(double noundef %42) #12
+  %45 = tail call double @sin(double noundef %42) #14
   %46 = fmul double %sqrt, %45
   %47 = tail call double @llvm.fabs.f64(double %44)
   %48 = fcmp ogt double %47, 0x3E7AD7F29ABCAF48
@@ -646,13 +646,13 @@ _Z4SqrtPKdPd.exit:                                ; preds = %36, %12, %40
 
 83:                                               ; preds = %81
   %84 = fdiv double %69, %68
-  %85 = tail call double @atan(double noundef %84) #12
+  %85 = tail call double @atan(double noundef %84) #14
   br label %_Z4SqrtPKdPd.exit68
 
 86:                                               ; preds = %81
   %87 = fcmp ult double %67, 0.000000e+00
   %88 = fdiv double %69, %68
-  %89 = tail call double @atan(double noundef %88) #12
+  %89 = tail call double @atan(double noundef %88) #14
   br i1 %87, label %92, label %90
 
 90:                                               ; preds = %86
@@ -666,9 +666,9 @@ _Z4SqrtPKdPd.exit:                                ; preds = %36, %12, %40
 _Z4SqrtPKdPd.exit68:                              ; preds = %49, %75, %79, %83, %90, %92
   %.0.i.i66 = phi double [ 0.000000e+00, %49 ], [ %85, %83 ], [ %91, %90 ], [ %93, %92 ], [ 0.000000e+00, %75 ], [ %..i.i.i67, %79 ]
   %94 = fmul double %.0.i.i66, 5.000000e-01
-  %95 = tail call double @cos(double noundef %94) #12
+  %95 = tail call double @cos(double noundef %94) #14
   %96 = fmul double %sqrt144, %95
-  %97 = tail call double @sin(double noundef %94) #12
+  %97 = tail call double @sin(double noundef %94) #14
   %98 = fmul double %sqrt144, %97
   %99 = fmul double %71, %71
   %100 = tail call double @llvm.fmuladd.f64(double %70, double %70, double %99)
@@ -697,13 +697,13 @@ _Z4SqrtPKdPd.exit68:                              ; preds = %49, %75, %79, %83, 
 
 110:                                              ; preds = %108
   %111 = fdiv double %71, %70
-  %112 = tail call double @atan(double noundef %111) #12
+  %112 = tail call double @atan(double noundef %111) #14
   br label %_Z4SqrtPKdPd.exit73
 
 113:                                              ; preds = %108
   %114 = fcmp ult double %71, 0.000000e+00
   %115 = fdiv double %71, %70
-  %116 = tail call double @atan(double noundef %115) #12
+  %116 = tail call double @atan(double noundef %115) #14
   br i1 %114, label %119, label %117
 
 117:                                              ; preds = %113
@@ -717,9 +717,9 @@ _Z4SqrtPKdPd.exit68:                              ; preds = %49, %75, %79, %83, 
 _Z4SqrtPKdPd.exit73:                              ; preds = %_Z4SqrtPKdPd.exit68, %102, %106, %110, %117, %119
   %.0.i.i71 = phi double [ 0.000000e+00, %_Z4SqrtPKdPd.exit68 ], [ %112, %110 ], [ %118, %117 ], [ %120, %119 ], [ 0.000000e+00, %102 ], [ %..i.i.i72, %106 ]
   %121 = fmul double %.0.i.i71, 5.000000e-01
-  %122 = tail call double @cos(double noundef %121) #12
+  %122 = tail call double @cos(double noundef %121) #14
   %123 = fmul double %sqrt145, %122
-  %124 = tail call double @sin(double noundef %121) #12
+  %124 = tail call double @sin(double noundef %121) #14
   %125 = fmul double %sqrt145, %124
   %126 = fmul double %44, 5.000000e-01
   br label %204
@@ -738,7 +738,7 @@ _Z4SqrtPKdPd.exit73:                              ; preds = %_Z4SqrtPKdPd.exit68
 133:                                              ; preds = %127
   %134 = fcmp ult double %129, 0.000000e+00
   %135 = fdiv double 0.000000e+00, %129
-  %136 = tail call double @atan(double noundef %135) #12
+  %136 = tail call double @atan(double noundef %135) #14
   br i1 %134, label %137, label %_Z4SqrtPKdPd.exit78
 
 137:                                              ; preds = %133
@@ -748,9 +748,9 @@ _Z4SqrtPKdPd.exit73:                              ; preds = %_Z4SqrtPKdPd.exit68
 _Z4SqrtPKdPd.exit78:                              ; preds = %133, %127, %137
   %.0.i.i76 = phi double [ 0.000000e+00, %127 ], [ %138, %137 ], [ %136, %133 ]
   %139 = fmul double %.0.i.i76, 5.000000e-01
-  %140 = tail call double @cos(double noundef %139) #12
+  %140 = tail call double @cos(double noundef %139) #14
   %141 = fmul double %sqrt146, %140
-  %142 = tail call double @sin(double noundef %139) #12
+  %142 = tail call double @sin(double noundef %139) #14
   %143 = fmul double %sqrt146, %142
   %144 = fmul double %14, -2.000000e+00
   %145 = tail call double @llvm.fmuladd.f64(double %28, double 7.500000e-01, double %144)
@@ -783,13 +783,13 @@ _Z4SqrtPKdPd.exit78:                              ; preds = %133, %127, %137
 
 159:                                              ; preds = %157
   %160 = fdiv double %147, %146
-  %161 = tail call double @atan(double noundef %160) #12
+  %161 = tail call double @atan(double noundef %160) #14
   br label %_Z4SqrtPKdPd.exit83
 
 162:                                              ; preds = %157
   %163 = fcmp ult double %147, 0.000000e+00
   %164 = fdiv double %147, %146
-  %165 = tail call double @atan(double noundef %164) #12
+  %165 = tail call double @atan(double noundef %164) #14
   br i1 %163, label %168, label %166
 
 166:                                              ; preds = %162
@@ -803,9 +803,9 @@ _Z4SqrtPKdPd.exit78:                              ; preds = %133, %127, %137
 _Z4SqrtPKdPd.exit83:                              ; preds = %_Z4SqrtPKdPd.exit78, %151, %155, %159, %166, %168
   %.0.i.i81 = phi double [ 0.000000e+00, %_Z4SqrtPKdPd.exit78 ], [ %161, %159 ], [ %167, %166 ], [ %169, %168 ], [ 0.000000e+00, %151 ], [ %..i.i.i82, %155 ]
   %170 = fmul double %.0.i.i81, 5.000000e-01
-  %171 = tail call double @cos(double noundef %170) #12
+  %171 = tail call double @cos(double noundef %170) #14
   %172 = fmul double %sqrt147, %171
-  %173 = tail call double @sin(double noundef %170) #12
+  %173 = tail call double @sin(double noundef %170) #14
   %174 = fmul double %sqrt147, %173
   %175 = tail call double @llvm.fmuladd.f64(double %141, double -2.000000e+00, double %145)
   %176 = fmul double %143, -2.000000e+00
@@ -836,13 +836,13 @@ _Z4SqrtPKdPd.exit83:                              ; preds = %_Z4SqrtPKdPd.exit78
 
 188:                                              ; preds = %186
   %189 = fdiv double %176, %175
-  %190 = tail call double @atan(double noundef %189) #12
+  %190 = tail call double @atan(double noundef %189) #14
   br label %_Z4SqrtPKdPd.exit88
 
 191:                                              ; preds = %186
   %192 = fcmp ult double %176, 0.000000e+00
   %193 = fdiv double %176, %175
-  %194 = tail call double @atan(double noundef %193) #12
+  %194 = tail call double @atan(double noundef %193) #14
   br i1 %192, label %197, label %195
 
 195:                                              ; preds = %191
@@ -856,9 +856,9 @@ _Z4SqrtPKdPd.exit83:                              ; preds = %_Z4SqrtPKdPd.exit78
 _Z4SqrtPKdPd.exit88:                              ; preds = %_Z4SqrtPKdPd.exit83, %180, %184, %188, %195, %197
   %.0.i.i86 = phi double [ 0.000000e+00, %_Z4SqrtPKdPd.exit83 ], [ %190, %188 ], [ %196, %195 ], [ %198, %197 ], [ 0.000000e+00, %180 ], [ %..i.i.i87, %184 ]
   %199 = fmul double %.0.i.i86, 5.000000e-01
-  %200 = tail call double @cos(double noundef %199) #12
+  %200 = tail call double @cos(double noundef %199) #14
   %201 = fmul double %sqrt148, %200
-  %202 = tail call double @sin(double noundef %199) #12
+  %202 = tail call double @sin(double noundef %199) #14
   %203 = fmul double %sqrt148, %202
   br label %204
 
@@ -909,20 +909,20 @@ _Z4SqrtPKdPd.exit88:                              ; preds = %_Z4SqrtPKdPd.exit83
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef range(i32 0, 2) i32 @_Z5SolvePKdS0_Pdi(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) local_unnamed_addr #6 {
+define noundef range(i32 0, 2) i32 @_Z5SolvePKdS0_Pdi(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef writeonly captures(none) %2, i32 noundef %3) local_unnamed_addr #8 {
   %5 = sext i32 %3 to i64
   %6 = icmp slt i32 %3, 0
   %7 = shl nsw i64 %5, 2
   %8 = select i1 %6, i64 -1, i64 %7
-  %9 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %8) #13
-  %10 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %8) #13
+  %9 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %8) #15
+  %10 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %8) #15
   %11 = mul nsw i32 %3, %3
   %12 = zext nneg i32 %11 to i64
   %13 = shl nuw nsw i64 %12, 3
-  %14 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %13) #13
+  %14 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %13) #15
   %15 = shl nsw i64 %5, 3
   %16 = select i1 %6, i64 -1, i64 %15
-  %17 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %16) #13
+  %17 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %16) #15
   %.not145 = icmp eq i32 %3, 0
   br i1 %.not145, label %._crit_edge144, label %.preheader121
 
@@ -1080,46 +1080,48 @@ define noundef range(i32 0, 2) i32 @_Z5SolvePKdS0_Pdi(ptr noundef readonly captu
 
 ._crit_edge144:                                   ; preds = %._crit_edge, %.lr.ph143, %4, %.preheader121
   %.0107 = phi i32 [ 1, %.preheader121 ], [ 1, %4 ], [ 1, %.lr.ph143 ], [ 0, %._crit_edge ]
-  tail call void @_ZdaPv(ptr noundef nonnull %9) #14
-  tail call void @_ZdaPv(ptr noundef nonnull %17) #14
-  tail call void @_ZdaPv(ptr noundef nonnull %14) #14
-  tail call void @_ZdaPv(ptr noundef nonnull %10) #14
+  tail call void @_ZdaPv(ptr noundef nonnull %9) #16
+  tail call void @_ZdaPv(ptr noundef nonnull %17) #16
+  tail call void @_ZdaPv(ptr noundef nonnull %14) #16
+  tail call void @_ZdaPv(ptr noundef nonnull %10) #16
   ret i32 %.0107
 }
 
 ; Function Attrs: nobuiltin allocsize(0)
-declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #7
+declare noundef nonnull ptr @_Znam(i64 noundef) local_unnamed_addr #9
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdaPv(ptr noundef) local_unnamed_addr #8
+declare void @_ZdaPv(ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.sqrt.f64(double) #9
+declare double @llvm.sqrt.f64(double) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #9
+declare i64 @llvm.umax.i64(i64, i64) #11
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #10
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #2 = { mustprogress nofree nounwind willreturn memory(write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { nounwind }
-attributes #13 = { builtin allocsize(0) }
-attributes #14 = { builtin nounwind }
+attributes #2 = { mustprogress nofree nounwind willreturn memory(argmem: write, errnomem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn memory(errnomem: write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind willreturn memory(errnomem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn memory(argmem: read, errnomem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nobuiltin allocsize(0) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #14 = { nounwind }
+attributes #15 = { builtin allocsize(0) }
+attributes #16 = { builtin nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4}
 

@@ -27,7 +27,7 @@ target triple = "x86_64-pc-linux-gnu"
 @C3coeff.coeff = internal unnamed_addr constant [45 x double] [double 3.000000e+00, double 1.280000e+02, double 2.000000e+00, double 5.000000e+00, double 1.280000e+02, double -1.000000e+00, double 3.000000e+00, double 3.000000e+00, double 6.400000e+01, double -1.000000e+00, double 0.000000e+00, double 1.000000e+00, double 8.000000e+00, double -1.000000e+00, double 1.000000e+00, double 4.000000e+00, double 5.000000e+00, double 2.560000e+02, double 1.000000e+00, double 3.000000e+00, double 1.280000e+02, double -3.000000e+00, double -2.000000e+00, double 3.000000e+00, double 6.400000e+01, double 1.000000e+00, double -3.000000e+00, double 2.000000e+00, double 3.200000e+01, double 7.000000e+00, double 5.120000e+02, double -1.000000e+01, double 9.000000e+00, double 3.840000e+02, double 5.000000e+00, double -9.000000e+00, double 5.000000e+00, double 1.920000e+02, double 7.000000e+00, double 5.120000e+02, double -1.400000e+01, double 7.000000e+00, double 5.120000e+02, double 2.100000e+01, double 2.560000e+03], align 16
 @C4coeff.coeff = internal unnamed_addr constant [77 x double] [double 9.700000e+01, double 1.501500e+04, double 1.088000e+03, double 1.560000e+02, double 4.504500e+04, double -2.240000e+02, double -4.784000e+03, double 1.573000e+03, double 4.504500e+04, double -1.065600e+04, double 1.414400e+04, double -4.576000e+03, double -8.580000e+02, double 4.504500e+04, double 6.400000e+01, double 6.240000e+02, double -4.576000e+03, double 6.864000e+03, double -3.003000e+03, double 1.501500e+04, double 1.000000e+02, double 2.080000e+02, double 5.720000e+02, double 3.432000e+03, double -1.201200e+04, double 3.003000e+04, double 4.504500e+04, double 1.000000e+00, double 9.009000e+03, double -2.944000e+03, double 4.680000e+02, double 1.351350e+05, double 5.792000e+03, double 1.040000e+03, double -1.287000e+03, double 1.351350e+05, double 5.952000e+03, double -1.164800e+04, double 9.152000e+03, double -2.574000e+03, double 1.351350e+05, double -6.400000e+01, double -6.240000e+02, double 4.576000e+03, double -6.864000e+03, double 3.003000e+03, double 1.351350e+05, double 8.000000e+00, double 1.072500e+04, double 1.856000e+03, double -9.360000e+02, double 2.252250e+05, double -8.448000e+03, double 4.992000e+03, double -1.144000e+03, double 2.252250e+05, double -1.440000e+03, double 4.160000e+03, double -4.576000e+03, double 1.716000e+03, double 2.252250e+05, double -1.360000e+02, double 6.306300e+04, double 1.024000e+03, double -2.080000e+02, double 1.051050e+05, double 3.584000e+03, double -3.328000e+03, double 1.144000e+03, double 3.153150e+05, double -1.280000e+02, double 1.351350e+05, double -2.560000e+03, double 8.320000e+02, double 4.054050e+05, double 1.280000e+02, double 9.909900e+04], align 16
 
-; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @geod_init(ptr noundef captures(none) initializes((0, 72)) %0, double noundef %1, double noundef %2) local_unnamed_addr #0 {
   %.b = load i1, ptr @init, align 4
   br i1 %.b, label %4, label %Init.exit
@@ -78,14 +78,14 @@ Init.exit:                                        ; preds = %3
   br i1 %22, label %23, label %26
 
 23:                                               ; preds = %21
-  %24 = tail call double @sqrt(double noundef %9) #12, !tbaa !15
-  %25 = tail call double @atanh(double noundef %24) #12, !tbaa !15
+  %24 = tail call double @sqrt(double noundef %9) #15, !tbaa !15
+  %25 = tail call double @atanh(double noundef %24) #15, !tbaa !15
   br label %30
 
 26:                                               ; preds = %21
   %27 = fneg double %9
-  %28 = tail call double @sqrt(double noundef %27) #12, !tbaa !15
-  %29 = tail call double @atan(double noundef %28) #12, !tbaa !15
+  %28 = tail call double @sqrt(double noundef %27) #15, !tbaa !15
+  %29 = tail call double @atan(double noundef %28) #15, !tbaa !15
   br label %30
 
 30:                                               ; preds = %26, %23
@@ -110,7 +110,7 @@ Init.exit:                                        ; preds = %3
   %45 = tail call double @llvm.minnum.f64(double %44, double 1.000000e+00)
   %46 = fmul double %42, %45
   %47 = fmul double %46, 5.000000e-01
-  %48 = tail call double @sqrt(double noundef %47) #12, !tbaa !15
+  %48 = tail call double @sqrt(double noundef %47) #15, !tbaa !15
   %49 = fdiv double %40, %48
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store double %49, ptr %50, align 8, !tbaa !18
@@ -294,13 +294,13 @@ C4coeff.exit:                                     ; preds = %117
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @atanh(double noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @sqrt(double noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @atan(double noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
@@ -315,12 +315,12 @@ declare double @llvm.maxnum.f64(double, double) #2
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.minnum.f64(double, double) #2
 
-; Function Attrs: nofree nounwind uwtable
+; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite, errnomem: readwrite) uwtable
 define void @geod_lineinit(ptr noundef %0, ptr noundef readonly captures(none) %1, double noundef %2, double noundef %3, double noundef %4, i32 noundef %5) local_unnamed_addr #3 {
   %7 = alloca i32, align 4
   %8 = alloca double, align 8
   %9 = alloca double, align 8
-  %10 = tail call double @remainder(double noundef %4, double noundef 3.600000e+02) #12, !tbaa !15
+  %10 = tail call double @remainder(double noundef %4, double noundef 3.600000e+02) #15, !tbaa !15
   %11 = tail call double @llvm.fabs.f64(double %10)
   %12 = fcmp oeq double %11, 1.800000e+02
   %13 = tail call double @llvm.copysign.f64(double 1.800000e+02, double %4)
@@ -352,13 +352,13 @@ AngRound.exit:                                    ; preds = %18, %20
   %22 = tail call double @llvm.copysign.f64(double %.0..0..0..0..0..0.4.i, double %14)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #15
   store i32 0, ptr %7, align 4, !tbaa !15
-  %23 = call double @remquo(double noundef %22, double noundef 9.000000e+01, ptr noundef nonnull %7) #12
+  %23 = call double @remquo(double noundef %22, double noundef 9.000000e+01, ptr noundef nonnull %7) #15
   %24 = load double, ptr @degree, align 8, !tbaa !3
   %25 = fmul double %23, %24
-  %26 = tail call double @sin(double noundef %25) #12, !tbaa !15
-  %27 = tail call double @cos(double noundef %25) #12, !tbaa !15
+  %26 = tail call double @sin(double noundef %25) #15, !tbaa !15
+  %27 = tail call double @cos(double noundef %25) #15, !tbaa !15
   %28 = load i32, ptr %7, align 4, !tbaa !15
   %29 = and i32 %28, 3
   switch i32 %29, label %default.unreachable [
@@ -391,7 +391,7 @@ sincosdx.exit:                                    ; preds = %AngRound.exit, %35,
   %39 = fcmp oeq double %.0, 0.000000e+00
   %40 = tail call double @llvm.copysign.f64(double %.0, double %14)
   %.1 = select i1 %39, double %40, double %.0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #15
   tail call fastcc void @geod_lineinit_int(ptr noundef %0, ptr noundef %1, double noundef %2, double noundef %3, double noundef %14, double noundef %.1, double noundef %38, i32 noundef %5)
   ret void
 }
@@ -399,7 +399,7 @@ sincosdx.exit:                                    ; preds = %AngRound.exit, %35,
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
 
-; Function Attrs: nofree nounwind uwtable
+; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite, errnomem: readwrite) uwtable
 define internal fastcc void @geod_lineinit_int(ptr noundef initializes((0, 56), (72, 96), (504, 508)) %0, ptr noundef readonly captures(none) %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6, i32 noundef %7) unnamed_addr #3 {
   %9 = alloca i32, align 4
   %10 = alloca double, align 8
@@ -468,13 +468,13 @@ AngRound.exit:                                    ; preds = %40, %42
   %44 = tail call double @llvm.copysign.f64(double %.0..0..0..0..0..0.4.i, double %32)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #15
   store i32 0, ptr %9, align 4, !tbaa !15
-  %45 = call double @remquo(double noundef %44, double noundef 9.000000e+01, ptr noundef nonnull %9) #12
+  %45 = call double @remquo(double noundef %44, double noundef 9.000000e+01, ptr noundef nonnull %9) #15
   %46 = load double, ptr @degree, align 8, !tbaa !3
   %47 = fmul double %45, %46
-  %48 = tail call double @sin(double noundef %47) #12, !tbaa !15
-  %49 = tail call double @cos(double noundef %47) #12, !tbaa !15
+  %48 = tail call double @sin(double noundef %47) #15, !tbaa !15
+  %49 = tail call double @cos(double noundef %47) #15, !tbaa !15
   %50 = load i32, ptr %9, align 4, !tbaa !15
   %51 = and i32 %50, 3
   switch i32 %51, label %default.unreachable [
@@ -507,10 +507,10 @@ sincosdx.exit:                                    ; preds = %AngRound.exit, %57,
   %61 = fcmp oeq double %.0, 0.000000e+00
   %62 = tail call double @llvm.copysign.f64(double %.0, double %32)
   %.1 = select i1 %61, double %62, double %.0
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #15
   %63 = load double, ptr %25, align 8, !tbaa !24
   %64 = fmul double %.1, %63
-  %65 = tail call double @hypot(double noundef %64, double noundef %60) #12, !tbaa !15
+  %65 = tail call double @hypot(double noundef %64, double noundef %60) #15, !tbaa !15
   %66 = fdiv double %64, %65
   %67 = fdiv double %60, %65
   %68 = load double, ptr @tiny, align 8, !tbaa !3
@@ -519,7 +519,7 @@ sincosdx.exit:                                    ; preds = %AngRound.exit, %57,
   %71 = load double, ptr %70, align 8, !tbaa !12
   %72 = fmul double %66, %66
   %73 = tail call double @llvm.fmuladd.f64(double %71, double %72, double 1.000000e+00)
-  %74 = tail call double @sqrt(double noundef %73) #12, !tbaa !15
+  %74 = tail call double @sqrt(double noundef %73) #15, !tbaa !15
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 136
   store double %74, ptr %75, align 8, !tbaa !31
   %76 = load double, ptr %35, align 8, !tbaa !29
@@ -528,7 +528,7 @@ sincosdx.exit:                                    ; preds = %AngRound.exit, %57,
   store double %77, ptr %78, align 8, !tbaa !32
   %79 = load double, ptr %36, align 8, !tbaa !30
   %80 = fmul double %66, %76
-  %81 = tail call double @hypot(double noundef %79, double noundef %80) #12, !tbaa !15
+  %81 = tail call double @hypot(double noundef %79, double noundef %80) #15, !tbaa !15
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store double %81, ptr %82, align 8, !tbaa !33
   %83 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -543,7 +543,7 @@ sincosdx.exit:                                    ; preds = %AngRound.exit, %57,
   %90 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store double %89, ptr %90, align 8, !tbaa !35
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  %92 = tail call double @hypot(double noundef %66, double noundef %89) #12, !tbaa !15
+  %92 = tail call double @hypot(double noundef %66, double noundef %89) #15, !tbaa !15
   %93 = fdiv double %66, %92
   store double %93, ptr %83, align 8, !tbaa !3
   %94 = fdiv double %89, %92
@@ -554,7 +554,7 @@ sincosdx.exit:                                    ; preds = %AngRound.exit, %57,
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store double %97, ptr %98, align 8, !tbaa !36
   %99 = fadd double %97, 1.000000e+00
-  %100 = tail call double @sqrt(double noundef %99) #12, !tbaa !15
+  %100 = tail call double @sqrt(double noundef %99) #15, !tbaa !15
   %101 = fadd double %100, 1.000000e+00
   %102 = tail call double @llvm.fmuladd.f64(double %101, double 2.000000e+00, double %97)
   %103 = fdiv double %97, %102
@@ -662,8 +662,8 @@ SinCosSeries.exit:                                ; preds = %144
   %158 = fmul double %157, %155
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 200
   store double %158, ptr %159, align 8, !tbaa !38
-  %160 = tail call double @sin(double noundef %158) #12, !tbaa !15
-  %161 = tail call double @cos(double noundef %158) #12, !tbaa !15
+  %160 = tail call double @sin(double noundef %158) #15, !tbaa !15
+  %161 = tail call double @cos(double noundef %158) #15, !tbaa !15
   %162 = fmul double %94, %160
   %163 = tail call double @llvm.fmuladd.f64(double %93, double %161, double %162)
   %164 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -1044,7 +1044,7 @@ SinCosSeries.exit196:                             ; preds = %338
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
 
 ; Function Attrs: nofree nounwind uwtable
-define void @geod_gendirectline(ptr noundef %0, ptr noundef readonly captures(none) %1, double noundef %2, double noundef %3, double noundef %4, i32 noundef %5, double noundef %6, i32 noundef %7) local_unnamed_addr #3 {
+define void @geod_gendirectline(ptr noundef %0, ptr noundef readonly captures(none) %1, double noundef %2, double noundef %3, double noundef %4, i32 noundef %5, double noundef %6, i32 noundef %7) local_unnamed_addr #5 {
   tail call void @geod_lineinit(ptr noundef %0, ptr noundef %1, double noundef %2, double noundef %3, double noundef %4, i32 noundef %7)
   %9 = and i32 %5, 1
   %.not.i = icmp eq i32 %9, 0
@@ -1071,7 +1071,7 @@ geod_gensetdistance.exit:                         ; preds = %10, %15
   ret void
 }
 
-; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @geod_gensetdistance(ptr noundef initializes((64, 72)) %0, i32 noundef %1, double noundef %2) local_unnamed_addr #0 {
   %4 = and i32 %1, 1
   %.not = icmp eq i32 %4, 0
@@ -1099,7 +1099,7 @@ define void @geod_gensetdistance(ptr noundef initializes((64, 72)) %0, i32 nound
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @geod_directline(ptr noundef %0, ptr noundef readonly captures(none) %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, i32 noundef %6) local_unnamed_addr #3 {
+define void @geod_directline(ptr noundef %0, ptr noundef readonly captures(none) %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, i32 noundef %6) local_unnamed_addr #5 {
   tail call void @geod_lineinit(ptr noundef %0, ptr noundef readonly %1, double noundef %2, double noundef %3, double noundef %4, i32 noundef %6)
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store double %5, ptr %8, align 8, !tbaa !47
@@ -1109,8 +1109,8 @@ define void @geod_directline(ptr noundef %0, ptr noundef readonly captures(none)
   ret void
 }
 
-; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define double @geod_genposition(ptr noundef readonly %0, i32 noundef %1, double noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8, ptr noundef writeonly captures(address_is_null) %9, ptr noundef writeonly captures(address_is_null) %10) local_unnamed_addr #0 {
+; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none, errnomem: readwrite) uwtable
+define double @geod_genposition(ptr noundef readonly %0, i32 noundef %1, double noundef %2, ptr noundef writeonly captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef writeonly captures(address_is_null) %8, ptr noundef writeonly captures(address_is_null) %9, ptr noundef writeonly captures(address_is_null) %10) local_unnamed_addr #6 {
   %12 = alloca i32, align 4
   %13 = icmp ne ptr %3, null
   %14 = select i1 %13, i32 128, i32 0
@@ -1154,13 +1154,13 @@ define double @geod_genposition(ptr noundef readonly %0, i32 noundef %1, double 
 42:                                               ; preds = %41
   %43 = load double, ptr @degree, align 8, !tbaa !3
   %44 = fmul double %2, %43
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #15
   store i32 0, ptr %12, align 4, !tbaa !15
-  %45 = call double @remquo(double noundef %2, double noundef 9.000000e+01, ptr noundef nonnull %12) #12
+  %45 = call double @remquo(double noundef %2, double noundef 9.000000e+01, ptr noundef nonnull %12) #15
   %46 = load double, ptr @degree, align 8, !tbaa !3
   %47 = fmul double %45, %46
-  %48 = tail call double @sin(double noundef %47) #12, !tbaa !15
-  %49 = tail call double @cos(double noundef %47) #12, !tbaa !15
+  %48 = tail call double @sin(double noundef %47) #15, !tbaa !15
+  %49 = tail call double @cos(double noundef %47) #15, !tbaa !15
   %50 = load i32, ptr %12, align 4, !tbaa !15
   %51 = and i32 %50, 3
   switch i32 %51, label %default.unreachable [
@@ -1193,7 +1193,7 @@ sincosdx.exit:                                    ; preds = %42, %57, %54, %52
   %61 = fcmp oeq double %.1338, 0.000000e+00
   %62 = tail call double @llvm.copysign.f64(double %.1338, double %2)
   %.2339 = select i1 %61, double %62, double %.1338
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #15
   br label %157
 
 63:                                               ; preds = %41
@@ -1204,8 +1204,8 @@ sincosdx.exit:                                    ; preds = %42, %57, %54, %52
   %68 = fadd double %67, 1.000000e+00
   %69 = fmul double %65, %68
   %70 = fdiv double %2, %69
-  %71 = tail call double @sin(double noundef %70) #12, !tbaa !15
-  %72 = tail call double @cos(double noundef %70) #12, !tbaa !15
+  %71 = tail call double @sin(double noundef %70) #15, !tbaa !15
+  %72 = tail call double @cos(double noundef %70) #15, !tbaa !15
   %73 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %74 = load double, ptr %73, align 8, !tbaa !39
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -1250,8 +1250,8 @@ SinCosSeries.exit:                                ; preds = %87
   %104 = load double, ptr %103, align 8, !tbaa !38
   %105 = fsub double %102, %104
   %106 = fsub double %70, %105
-  %107 = tail call double @sin(double noundef %106) #12, !tbaa !15
-  %108 = tail call double @cos(double noundef %106) #12, !tbaa !15
+  %107 = tail call double @sin(double noundef %106) #15, !tbaa !15
+  %108 = tail call double @cos(double noundef %106) #15, !tbaa !15
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %110 = load double, ptr %109, align 8, !tbaa !21
   %111 = tail call double @llvm.fabs.f64(double %110)
@@ -1307,11 +1307,11 @@ SinCosSeries.exit295:                             ; preds = %128
   %149 = load double, ptr %148, align 8, !tbaa !36
   %150 = fmul double %119, %119
   %151 = tail call double @llvm.fmuladd.f64(double %149, double %150, double 1.000000e+00)
-  %152 = tail call double @sqrt(double noundef %151) #12, !tbaa !15
+  %152 = tail call double @sqrt(double noundef %151) #15, !tbaa !15
   %153 = fdiv double %147, %152
   %154 = fsub double %106, %153
-  %155 = tail call double @sin(double noundef %154) #12, !tbaa !15
-  %156 = tail call double @cos(double noundef %154) #12, !tbaa !15
+  %155 = tail call double @sin(double noundef %154) #15, !tbaa !15
+  %156 = tail call double @cos(double noundef %154) #15, !tbaa !15
   br label %157
 
 157:                                              ; preds = %SinCosSeries.exit, %SinCosSeries.exit295, %sincosdx.exit
@@ -1332,7 +1332,7 @@ SinCosSeries.exit295:                             ; preds = %128
   %168 = load double, ptr %167, align 8, !tbaa !36
   %169 = fmul double %163, %163
   %170 = tail call double @llvm.fmuladd.f64(double %168, double %169, double 1.000000e+00)
-  %171 = tail call double @sqrt(double noundef %170) #12, !tbaa !15
+  %171 = tail call double @sqrt(double noundef %170) #15, !tbaa !15
   %172 = and i32 %36, 13312
   %.not282 = icmp eq i32 %172, 0
   br i1 %.not282, label %208, label %173
@@ -1399,7 +1399,7 @@ SinCosSeries.exit301:                             ; preds = %185
   %212 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %213 = load double, ptr %212, align 8, !tbaa !32
   %214 = fmul double %166, %210
-  %215 = tail call double @hypot(double noundef %213, double noundef %214) #12, !tbaa !15
+  %215 = tail call double @hypot(double noundef %213, double noundef %214) #15, !tbaa !15
   %216 = fcmp oeq double %215, 0.000000e+00
   %217 = load double, ptr @tiny, align 8
   %.0267 = select i1 %216, double %217, double %215
@@ -1436,18 +1436,18 @@ SinCosSeries.exit301:                             ; preds = %185
 
 235:                                              ; preds = %232
   %236 = tail call double @llvm.copysign.f64(double 1.000000e+00, double %213)
-  %237 = tail call double @atan2(double noundef %163, double noundef %.0266) #12, !tbaa !15
-  %238 = tail call double @atan2(double noundef %159, double noundef %161) #12, !tbaa !15
+  %237 = tail call double @atan2(double noundef %163, double noundef %.0266) #15, !tbaa !15
+  %238 = tail call double @atan2(double noundef %159, double noundef %161) #15, !tbaa !15
   %239 = fsub double %237, %238
   %240 = fsub double %.0261, %239
   %241 = fmul double %236, %233
-  %242 = tail call double @atan2(double noundef %241, double noundef %.0266) #12, !tbaa !15
+  %242 = tail call double @atan2(double noundef %241, double noundef %.0266) #15, !tbaa !15
   %243 = getelementptr inbounds nuw i8, ptr %0, i64 160
   %244 = load double, ptr %243, align 8, !tbaa !34
   %245 = fmul double %236, %244
   %246 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %247 = load double, ptr %246, align 8, !tbaa !35
-  %248 = tail call double @atan2(double noundef %245, double noundef %247) #12, !tbaa !15
+  %248 = tail call double @atan2(double noundef %245, double noundef %247) #15, !tbaa !15
   %249 = fsub double %242, %248
   %250 = fadd double %240, %249
   %251 = fmul double %236, %250
@@ -1463,7 +1463,7 @@ SinCosSeries.exit301:                             ; preds = %185
   %259 = tail call double @llvm.fmuladd.f64(double %233, double %254, double %258)
   %260 = fmul double %233, %256
   %261 = tail call double @llvm.fmuladd.f64(double %.0266, double %254, double %260)
-  %262 = tail call double @atan2(double noundef %259, double noundef %261) #12, !tbaa !15
+  %262 = tail call double @atan2(double noundef %259, double noundef %261) #15, !tbaa !15
   br label %263
 
 263:                                              ; preds = %252, %235
@@ -1517,18 +1517,18 @@ SinCosSeries.exit307:                             ; preds = %273
   br label %316
 
 299:                                              ; preds = %SinCosSeries.exit307
-  %300 = tail call double @remainder(double noundef %296, double noundef 3.600000e+02) #12, !tbaa !15
+  %300 = tail call double @remainder(double noundef %296, double noundef 3.600000e+02) #15, !tbaa !15
   %301 = tail call double @llvm.fabs.f64(double %300)
   %302 = fcmp oeq double %301, 1.800000e+02
   %303 = tail call double @llvm.copysign.f64(double 1.800000e+02, double %296)
   %304 = select i1 %302, double %303, double %300
-  %305 = tail call double @remainder(double noundef %294, double noundef 3.600000e+02) #12, !tbaa !15
+  %305 = tail call double @remainder(double noundef %294, double noundef 3.600000e+02) #15, !tbaa !15
   %306 = tail call double @llvm.fabs.f64(double %305)
   %307 = fcmp oeq double %306, 1.800000e+02
   %308 = tail call double @llvm.copysign.f64(double 1.800000e+02, double %294)
   %309 = select i1 %307, double %308, double %305
   %310 = fadd double %304, %309
-  %311 = tail call double @remainder(double noundef %310, double noundef 3.600000e+02) #12, !tbaa !15
+  %311 = tail call double @remainder(double noundef %310, double noundef 3.600000e+02) #15, !tbaa !15
   %312 = tail call double @llvm.fabs.f64(double %311)
   %313 = fcmp oeq double %312, 1.800000e+02
   %314 = tail call double @llvm.copysign.f64(double 1.800000e+02, double %310)
@@ -1556,7 +1556,7 @@ SinCosSeries.exit307:                             ; preds = %273
   %.lobit.i = lshr i64 %326, 63
   %327 = trunc nuw nsw i64 %.lobit.i to i32
   %.1.i = or disjoint i32 %.05.i, %327
-  %328 = tail call double @atan2(double noundef %.013.i, double noundef %.112.i) #12, !tbaa !15
+  %328 = tail call double @atan2(double noundef %.013.i, double noundef %.112.i) #15, !tbaa !15
   %329 = load double, ptr @degree, align 8, !tbaa !3
   %330 = fdiv double %328, %329
   switch i32 %.1.i, label %default.unreachable [
@@ -1597,7 +1597,7 @@ atan2dx.exit:                                     ; preds = %336, %334, %331, %3
   %.lobit.i312 = lshr i64 %344, 63
   %345 = trunc nuw nsw i64 %.lobit.i312 to i32
   %.1.i313 = or disjoint i32 %.05.i310, %345
-  %346 = tail call double @atan2(double noundef %.013.i308, double noundef %.112.i311) #12, !tbaa !15
+  %346 = tail call double @atan2(double noundef %.013.i308, double noundef %.112.i311) #15, !tbaa !15
   %347 = load double, ptr @degree, align 8, !tbaa !3
   %348 = fdiv double %346, %347
   switch i32 %.1.i313, label %default.unreachable [
@@ -1801,7 +1801,7 @@ SinCosSeries.exit328:                             ; preds = %433
   %.0 = phi double [ %458, %449 ], [ %477, %471 ]
   %479 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %480 = load double, ptr %479, align 8, !tbaa !23
-  %481 = tail call double @atan2(double noundef %.0249, double noundef %.0) #12, !tbaa !15
+  %481 = tail call double @atan2(double noundef %.0249, double noundef %.0) #15, !tbaa !15
   %482 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %483 = load double, ptr %482, align 8, !tbaa !45
   %484 = getelementptr inbounds nuw i8, ptr %0, i64 232
@@ -1892,22 +1892,22 @@ SinCosSeries.exit328:                             ; preds = %433
   ret double %.0250
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @sin(double noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @cos(double noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @hypot(double noundef, double noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.copysign.f64(double, double) #2
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @atan2(double noundef, double noundef) local_unnamed_addr #1
 
-; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @geod_setdistance(ptr noundef initializes((64, 72)) %0, double noundef %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store double %1, ptr %3, align 8, !tbaa !47
@@ -1917,16 +1917,16 @@ define void @geod_setdistance(ptr noundef initializes((64, 72)) %0, double nound
   ret void
 }
 
-; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define void @geod_position(ptr noundef %0, double noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = tail call double @geod_genposition(ptr noundef %0, i32 noundef 0, double noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
   ret void
 }
 
-; Function Attrs: nofree nounwind uwtable
+; Function Attrs: nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite, errnomem: readwrite) uwtable
 define double @geod_gendirect(ptr noundef readonly captures(none) %0, double noundef %1, double noundef %2, double noundef %3, i32 noundef %4, double noundef %5, ptr noundef captures(address_is_null) %6, ptr noundef captures(address_is_null) %7, ptr noundef captures(address_is_null) %8, ptr noundef captures(address_is_null) %9, ptr noundef captures(address_is_null) %10, ptr noundef captures(address_is_null) %11, ptr noundef captures(address_is_null) %12, ptr noundef captures(address_is_null) %13) local_unnamed_addr #3 {
   %15 = alloca %struct.geod_geodesicline, align 8
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %15) #12
+  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %15) #15
   %.not = icmp eq ptr %6, null
   %16 = select i1 %.not, i32 0, i32 128
   %.not23 = icmp eq ptr %7, null
@@ -1955,14 +1955,14 @@ define double @geod_gendirect(ptr noundef readonly captures(none) %0, double nou
   %34 = or i32 %33, %25
   call void @geod_lineinit(ptr noundef nonnull %15, ptr noundef %0, double noundef %1, double noundef %2, double noundef %3, i32 noundef %34)
   %35 = call double @geod_genposition(ptr noundef nonnull %15, i32 noundef %4, double noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11, ptr noundef %12, ptr noundef %13)
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %15) #12
+  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %15) #15
   ret double %35
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @geod_direct(ptr noundef readonly captures(none) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef captures(address_is_null) %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #3 {
+define void @geod_direct(ptr noundef readonly captures(none) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef captures(address_is_null) %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #5 {
   %9 = alloca %struct.geod_geodesicline, align 8
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %9) #12
+  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %9) #15
   %.not.i = icmp eq ptr %5, null
   %.not23.i = icmp eq ptr %6, null
   %10 = select i1 %.not23.i, i32 0, i32 264
@@ -1973,20 +1973,20 @@ define void @geod_direct(ptr noundef readonly captures(none) %0, double noundef 
   %14 = or disjoint i32 %13, %11
   call void @geod_lineinit(ptr noundef nonnull %9, ptr noundef readonly %0, double noundef %1, double noundef %2, double noundef %3, i32 noundef %14)
   %15 = call double @geod_genposition(ptr noundef nonnull %9, i32 noundef 0, double noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %9) #12
+  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %9) #15
   ret void
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define double @geod_geninverse(ptr noundef readonly captures(none) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef captures(address_is_null) %8, ptr noundef captures(address_is_null) %9, ptr noundef captures(address_is_null) %10, ptr noundef captures(address_is_null) %11) local_unnamed_addr #3 {
+define double @geod_geninverse(ptr noundef readonly captures(none) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7, ptr noundef captures(address_is_null) %8, ptr noundef captures(address_is_null) %9, ptr noundef captures(address_is_null) %10, ptr noundef captures(address_is_null) %11) local_unnamed_addr #5 {
   %13 = alloca double, align 8
   %14 = alloca double, align 8
   %15 = alloca double, align 8
   %16 = alloca double, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #15
   %17 = call fastcc double @geod_geninverse_int(ptr noundef %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, ptr noundef %5, ptr noundef %13, ptr noundef %14, ptr noundef nonnull %15, ptr noundef nonnull %16, ptr noundef %8, ptr noundef %9, ptr noundef %10, ptr noundef %11)
   %.not = icmp eq ptr %6, null
   br i1 %.not, label %36, label %18
@@ -2005,7 +2005,7 @@ define double @geod_geninverse(ptr noundef readonly captures(none) %0, double no
   %.lobit.i = lshr i64 %24, 63
   %25 = trunc nuw nsw i64 %.lobit.i to i32
   %.1.i = or disjoint i32 %.05.i, %25
-  %26 = call double @atan2(double noundef %.013.i, double noundef %.112.i) #12, !tbaa !15
+  %26 = call double @atan2(double noundef %.013.i, double noundef %.112.i) #15, !tbaa !15
   %27 = load double, ptr @degree, align 8, !tbaa !3
   %28 = fdiv double %26, %27
   switch i32 %.1.i, label %default.unreachable [
@@ -2054,7 +2054,7 @@ atan2dx.exit:                                     ; preds = %18, %29, %32, %34
   %.lobit.i21 = lshr i64 %43, 63
   %44 = trunc nuw nsw i64 %.lobit.i21 to i32
   %.1.i22 = or disjoint i32 %.05.i19, %44
-  %45 = call double @atan2(double noundef %.013.i17, double noundef %.112.i20) #12, !tbaa !15
+  %45 = call double @atan2(double noundef %.013.i17, double noundef %.112.i20) #15, !tbaa !15
   %46 = load double, ptr @degree, align 8, !tbaa !3
   %47 = fdiv double %45, %46
   switch i32 %.1.i22, label %default.unreachable [
@@ -2083,15 +2083,15 @@ atan2dx.exit25:                                   ; preds = %37, %48, %51, %53
   br label %55
 
 55:                                               ; preds = %atan2dx.exit25, %36
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #15
   ret double %17
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc double @geod_geninverse_int(ptr noundef readonly captures(none) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef nonnull writeonly captures(none) %6, ptr noundef nonnull writeonly captures(none) %7, ptr noundef writeonly captures(address_is_null) %8, ptr noundef writeonly captures(address_is_null) %9, ptr noundef writeonly captures(address_is_null) %10, ptr noundef writeonly captures(address_is_null) %11, ptr noundef writeonly captures(address_is_null) %12, ptr noundef writeonly captures(address_is_null) %13) unnamed_addr #3 {
+define internal fastcc double @geod_geninverse_int(ptr noundef readonly captures(none) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, ptr noundef writeonly captures(address_is_null) %5, ptr noundef nonnull writeonly captures(none) %6, ptr noundef nonnull writeonly captures(none) %7, ptr noundef writeonly captures(address_is_null) %8, ptr noundef writeonly captures(address_is_null) %9, ptr noundef writeonly captures(address_is_null) %10, ptr noundef writeonly captures(address_is_null) %11, ptr noundef writeonly captures(address_is_null) %12, ptr noundef writeonly captures(address_is_null) %13) unnamed_addr #5 {
   %15 = alloca double, align 8
   %16 = alloca double, align 8
   %17 = alloca double, align 8
@@ -2110,16 +2110,16 @@ define internal fastcc double @geod_geninverse_int(ptr noundef readonly captures
   %30 = alloca double, align 8
   %31 = alloca double, align 8
   %32 = alloca [7 x double], align 16
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27) #15
   store double 0.000000e+00, ptr %27, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28) #15
   store double 0.000000e+00, ptr %28, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30) #15
   store double 0.000000e+00, ptr %30, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31) #15
   store double 0.000000e+00, ptr %31, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %32) #12
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %32) #15
   %.not = icmp eq ptr %5, null
   %.not273 = icmp eq ptr %10, null
   %33 = icmp ne ptr %11, null
@@ -2137,9 +2137,9 @@ define internal fastcc double @geod_geninverse_int(ptr noundef readonly captures
   store double %43, ptr %29, align 8, !tbaa !3
   %44 = load double, ptr @degree, align 8, !tbaa !3
   %45 = fmul double %44, %41
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %26) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %26) #15
   store i32 0, ptr %26, align 4, !tbaa !15
-  %46 = call double @remquo(double noundef %41, double noundef 9.000000e+01, ptr noundef nonnull %26) #12
+  %46 = call double @remquo(double noundef %41, double noundef 9.000000e+01, ptr noundef nonnull %26) #15
   %47 = fadd double %43, %46
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24)
   %48 = call double @llvm.fabs.f64(double %47)
@@ -2170,8 +2170,8 @@ AngRound.exit.i:                                  ; preds = %53, %51
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24)
   %56 = load double, ptr @degree, align 8, !tbaa !3
   %57 = fmul double %55, %56
-  %58 = call double @sin(double noundef %57) #12, !tbaa !15
-  %59 = call double @cos(double noundef %57) #12, !tbaa !15
+  %58 = call double @sin(double noundef %57) #15, !tbaa !15
+  %59 = call double @cos(double noundef %57) #15, !tbaa !15
   %60 = load i32, ptr %26, align 4, !tbaa !15
   %61 = and i32 %60, 3
   switch i32 %61, label %default.unreachable [
@@ -2204,7 +2204,7 @@ sincosde.exit:                                    ; preds = %AngRound.exit.i, %6
   %71 = fcmp oeq double %.0477, 0.000000e+00
   %72 = call double @llvm.copysign.f64(double %.0477, double %41)
   %.1478 = select i1 %71, double %72, double %.0477
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %26) #15
   %73 = fsub double 1.800000e+02, %41
   %74 = fsub double %73, %43
   store double %74, ptr %29, align 8, !tbaa !3
@@ -2285,13 +2285,13 @@ AngRound.exit291:                                 ; preds = %93, %95
   %107 = sitofp i32 %106 to double
   %108 = fmul double %.0476, %107
   %109 = fmul double %.0485, %107
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %19) #15
   store i32 0, ptr %19, align 4, !tbaa !15
-  %110 = call double @remquo(double noundef %108, double noundef 9.000000e+01, ptr noundef nonnull %19) #12
+  %110 = call double @remquo(double noundef %108, double noundef 9.000000e+01, ptr noundef nonnull %19) #15
   %111 = load double, ptr @degree, align 8, !tbaa !3
   %112 = fmul double %110, %111
-  %113 = call double @sin(double noundef %112) #12, !tbaa !15
-  %114 = call double @cos(double noundef %112) #12, !tbaa !15
+  %113 = call double @sin(double noundef %112) #15, !tbaa !15
+  %114 = call double @cos(double noundef %112) #15, !tbaa !15
   %115 = load i32, ptr %19, align 4, !tbaa !15
   %116 = and i32 %115, 3
   switch i32 %116, label %default.unreachable [
@@ -2321,22 +2321,22 @@ sincosdx.exit:                                    ; preds = %AngRound.exit291, %
   %126 = fcmp oeq double %.0483, 0.000000e+00
   %127 = call double @llvm.copysign.f64(double %.0483, double %108)
   %.1484 = select i1 %126, double %127, double %.0483
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %19) #15
   %128 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %129 = load double, ptr %128, align 8, !tbaa !10
   %130 = fmul double %.1484, %129
-  %131 = call double @hypot(double noundef %130, double noundef %125) #12, !tbaa !15
+  %131 = call double @hypot(double noundef %130, double noundef %125) #15, !tbaa !15
   %132 = fdiv double %130, %131
   %133 = fdiv double %125, %131
   %134 = load double, ptr @tiny, align 8, !tbaa !3
   %135 = call double @llvm.maxnum.f64(double %134, double %133)
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #12
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %18) #15
   store i32 0, ptr %18, align 4, !tbaa !15
-  %136 = call double @remquo(double noundef %109, double noundef 9.000000e+01, ptr noundef nonnull %18) #12
+  %136 = call double @remquo(double noundef %109, double noundef 9.000000e+01, ptr noundef nonnull %18) #15
   %137 = load double, ptr @degree, align 8, !tbaa !3
   %138 = fmul double %136, %137
-  %139 = call double @sin(double noundef %138) #12, !tbaa !15
-  %140 = call double @cos(double noundef %138) #12, !tbaa !15
+  %139 = call double @sin(double noundef %138) #15, !tbaa !15
+  %140 = call double @cos(double noundef %138) #15, !tbaa !15
   %141 = load i32, ptr %18, align 4, !tbaa !15
   %142 = and i32 %141, 3
   switch i32 %142, label %default.unreachable [
@@ -2366,10 +2366,10 @@ sincosdx.exit293:                                 ; preds = %sincosdx.exit, %148
   %152 = fcmp oeq double %.1481, 0.000000e+00
   %153 = call double @llvm.copysign.f64(double %.1481, double %109)
   %.2482 = select i1 %152, double %153, double %.1481
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #12
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %18) #15
   %154 = load double, ptr %128, align 8, !tbaa !10
   %155 = fmul double %.2482, %154
-  %156 = call double @hypot(double noundef %155, double noundef %151) #12, !tbaa !15
+  %156 = call double @hypot(double noundef %155, double noundef %151) #15, !tbaa !15
   %157 = fdiv double %155, %156
   %158 = fdiv double %151, %156
   %159 = load double, ptr @tiny, align 8, !tbaa !3
@@ -2401,10 +2401,10 @@ sincosdx.exit293:                                 ; preds = %sincosdx.exit, %148
   %173 = load double, ptr %172, align 8, !tbaa !12
   %174 = fmul double %132, %132
   %175 = call double @llvm.fmuladd.f64(double %173, double %174, double 1.000000e+00)
-  %176 = call double @sqrt(double noundef %175) #12, !tbaa !15
+  %176 = call double @sqrt(double noundef %175) #15, !tbaa !15
   %177 = fmul double %.0480, %.0480
   %178 = call double @llvm.fmuladd.f64(double %173, double %177, double 1.000000e+00)
-  %179 = call double @sqrt(double noundef %178) #12, !tbaa !15
+  %179 = call double @sqrt(double noundef %178) #15, !tbaa !15
   %180 = fcmp oeq double %108, -9.000000e+01
   %181 = fcmp oeq double %.1478, 0.000000e+00
   %182 = select i1 %180, i1 true, i1 %181
@@ -2419,7 +2419,7 @@ sincosdx.exit293:                                 ; preds = %sincosdx.exit, %148
   %189 = fadd double %188, 0.000000e+00
   %190 = fmul double %132, %.0480
   %191 = call double @llvm.fmuladd.f64(double %184, double %.0479, double %190)
-  %192 = call double @atan2(double noundef %189, double noundef %191) #12, !tbaa !15
+  %192 = call double @atan2(double noundef %189, double noundef %191) #15, !tbaa !15
   %193 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %194 = load double, ptr %193, align 8, !tbaa !13
   %. = select i1 %35, ptr %27, ptr null
@@ -2481,12 +2481,12 @@ sincosdx.exit293:                                 ; preds = %sincosdx.exit, %148
   %227 = fdiv double %45, %154
   %228 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %229 = load double, ptr %228, align 8, !tbaa !14
-  %230 = call double @sin(double noundef %227) #12, !tbaa !15
+  %230 = call double @sin(double noundef %227) #15, !tbaa !15
   %231 = fmul double %229, %230
   br i1 %35, label %232, label %234
 
 232:                                              ; preds = %224
-  %233 = call double @cos(double noundef %227) #12, !tbaa !15
+  %233 = call double @cos(double noundef %227) #15, !tbaa !15
   store double %233, ptr %28, align 8, !tbaa !3
   store double %233, ptr %27, align 8, !tbaa !3
   br label %234
@@ -2524,11 +2524,11 @@ sincosdx.exit293:                                 ; preds = %sincosdx.exit, %148
   %254 = fadd double %251, %253
   %255 = fdiv double %251, %254
   %256 = call double @llvm.fmuladd.f64(double %173, double %255, double 1.000000e+00)
-  %257 = call double @sqrt(double noundef %256) #12, !tbaa !15
+  %257 = call double @sqrt(double noundef %256) #15, !tbaa !15
   %258 = fmul double %154, %257
   %259 = fdiv double %45, %258
-  %260 = call double @sin(double noundef %259) #12, !tbaa !15
-  %261 = call double @cos(double noundef %259) #12, !tbaa !15
+  %260 = call double @sin(double noundef %259) #15, !tbaa !15
+  %261 = call double @cos(double noundef %259) #15, !tbaa !15
   br label %262
 
 262:                                              ; preds = %249, %245, %.thread.i
@@ -2557,7 +2557,7 @@ sincosdx.exit293:                                 ; preds = %sincosdx.exit, %148
 
 277:                                              ; preds = %273, %269
   %278 = phi double [ %272, %269 ], [ %276, %273 ]
-  %279 = call double @hypot(double noundef %265, double noundef %278) #12, !tbaa !15
+  %279 = call double @hypot(double noundef %265, double noundef %278) #15, !tbaa !15
   %280 = fmul double %135, %.0479
   %281 = fmul double %280, %.0154.i
   %282 = call double @llvm.fmuladd.f64(double %132, double %.0480, double %281)
@@ -2578,10 +2578,10 @@ sincosdx.exit293:                                 ; preds = %sincosdx.exit, %148
   %293 = fneg double %.0480
   %294 = fmul double %135, %293
   %295 = call double @llvm.fmuladd.f64(double %294, double %292, double %239)
-  %296 = call double @hypot(double noundef %288, double noundef %295) #12, !tbaa !15
+  %296 = call double @hypot(double noundef %288, double noundef %295) #15, !tbaa !15
   %297 = fdiv double %288, %296
   %298 = fdiv double %295, %296
-  %299 = call double @atan2(double noundef %279, double noundef %282) #12, !tbaa !15
+  %299 = call double @atan2(double noundef %279, double noundef %282) #15, !tbaa !15
   br label %458
 
 300:                                              ; preds = %283, %277
@@ -2605,7 +2605,7 @@ sincosdx.exit293:                                 ; preds = %sincosdx.exit, %148
 313:                                              ; preds = %306
   %314 = fneg double %.1478
   %315 = fneg double %70
-  %316 = call double @atan2(double noundef %314, double noundef %315) #12, !tbaa !15
+  %316 = call double @atan2(double noundef %314, double noundef %315) #15, !tbaa !15
   %317 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %318 = load double, ptr %317, align 8, !tbaa !9
   %319 = fcmp ult double %318, 0.000000e+00
@@ -2614,7 +2614,7 @@ sincosdx.exit293:                                 ; preds = %sincosdx.exit, %148
 320:                                              ; preds = %313
   %321 = fmul double %174, %173
   %322 = fadd double %321, 1.000000e+00
-  %323 = call double @sqrt(double noundef %322) #12, !tbaa !15
+  %323 = call double @sqrt(double noundef %322) #15, !tbaa !15
   %324 = fadd double %323, 1.000000e+00
   %325 = call double @llvm.fmuladd.f64(double %324, double 2.000000e+00, double %321)
   %326 = fdiv double %321, %325
@@ -2645,9 +2645,9 @@ A3f.exit.i:                                       ; preds = %.lr.ph.i.i.i
 339:                                              ; preds = %313
   %340 = fneg double %240
   %341 = call double @llvm.fmuladd.f64(double %.0479, double %135, double %340)
-  %342 = call double @atan2(double noundef %263, double noundef %341) #12, !tbaa !15
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #12
+  %342 = call double @atan2(double noundef %263, double noundef %341) #15, !tbaa !15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #15
   %343 = fadd double %308, %342
   %344 = fneg double %135
   call fastcc void @Lengths(ptr noundef nonnull readonly %0, double noundef %302, double noundef %343, double noundef %132, double noundef %344, double noundef %176, double noundef %.0480, double noundef %.0479, double noundef %179, double noundef %135, double noundef %.0479, ptr noundef null, ptr noundef %16, ptr noundef nonnull %17, ptr noundef null, ptr noundef null, ptr noundef nonnull %32)
@@ -2665,8 +2665,8 @@ A3f.exit.i:                                       ; preds = %.lr.ph.i.i.i
   %356 = select i1 %351, double %352, double %355
   %357 = fdiv double %356, %135
   %358 = fdiv double %316, %357
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #15
   br label %359
 
 359:                                              ; preds = %339, %A3f.exit.i
@@ -2692,7 +2692,7 @@ A3f.exit.i:                                       ; preds = %.lr.ph.i.i.i
   %370 = call double @llvm.minnum.f64(double %369, double 1.000000e+00)
   %371 = fmul double %370, %370
   %372 = fsub double 1.000000e+00, %371
-  %373 = call double @sqrt(double noundef %372) #12, !tbaa !15
+  %373 = call double @sqrt(double noundef %372) #15, !tbaa !15
   %374 = fneg double %373
   br label %458
 
@@ -2702,7 +2702,7 @@ A3f.exit.i:                                       ; preds = %.lr.ph.i.i.i
   %378 = call double @llvm.maxnum.f64(double %377, double %.0155.i)
   %379 = fmul double %378, %378
   %380 = fsub double 1.000000e+00, %379
-  %381 = call double @sqrt(double noundef %380) #12, !tbaa !15
+  %381 = call double @sqrt(double noundef %380) #15, !tbaa !15
   br label %458
 
 382:                                              ; preds = %363, %359
@@ -2729,11 +2729,11 @@ A3f.exit.i:                                       ; preds = %.lr.ph.i.i.i
 398:                                              ; preds = %390
   %399 = fadd double %392, %394
   %400 = fcmp olt double %399, 0.000000e+00
-  %401 = call double @sqrt(double noundef %396) #12, !tbaa !15
+  %401 = call double @sqrt(double noundef %396) #15, !tbaa !15
   %402 = fneg double %401
   %403 = select i1 %400, double %402, double %401
   %404 = fadd double %399, %403
-  %405 = call double @cbrt(double noundef %404) #13
+  %405 = call double @cbrt(double noundef %404) #16
   %406 = fcmp une double %405, 0.000000e+00
   %407 = fdiv double %393, %405
   %408 = select i1 %406, double %407, double 0.000000e+00
@@ -2743,13 +2743,13 @@ A3f.exit.i:                                       ; preds = %.lr.ph.i.i.i
 
 411:                                              ; preds = %390
   %412 = fneg double %396
-  %413 = call double @sqrt(double noundef %412) #12, !tbaa !15
+  %413 = call double @sqrt(double noundef %412) #15, !tbaa !15
   %414 = fadd double %392, %394
   %415 = fneg double %414
-  %416 = call double @atan2(double noundef %413, double noundef %415) #12, !tbaa !15
+  %416 = call double @atan2(double noundef %413, double noundef %415) #15, !tbaa !15
   %417 = fmul double %387, 2.000000e+00
   %418 = fdiv double %416, 3.000000e+00
-  %419 = call double @cos(double noundef %418) #12, !tbaa !15
+  %419 = call double @cos(double noundef %418) #15, !tbaa !15
   %420 = call double @llvm.fmuladd.f64(double %417, double %419, double %387)
   br label %421
 
@@ -2768,7 +2768,7 @@ A3f.exit.i:                                       ; preds = %.lr.ph.i.i.i
   %431 = fdiv double %429, %430
   %432 = fmul double %431, %431
   %433 = fadd double %428, %432
-  %434 = call double @sqrt(double noundef %433) #12, !tbaa !15
+  %434 = call double @sqrt(double noundef %433) #15, !tbaa !15
   %435 = fadd double %434, %431
   %436 = fdiv double %428, %435
   br label %Astroid.exit.i
@@ -2794,8 +2794,8 @@ Astroid.exit.i:                                   ; preds = %421, %382
 447:                                              ; preds = %442, %437
   %448 = phi double [ %441, %437 ], [ %446, %442 ]
   %449 = fmul double %.0157.i, %448
-  %450 = call double @sin(double noundef %449) #12, !tbaa !15
-  %451 = call double @cos(double noundef %449) #12, !tbaa !15
+  %450 = call double @sin(double noundef %449) #15, !tbaa !15
+  %451 = call double @cos(double noundef %449) #15, !tbaa !15
   %452 = fmul double %.0479, %450
   %453 = fmul double %450, %450
   %454 = fmul double %237, %453
@@ -2814,7 +2814,7 @@ Astroid.exit.i:                                   ; preds = %421, %382
   br i1 %459, label %460, label %464
 
 460:                                              ; preds = %458
-  %461 = call double @hypot(double noundef %.0176.i, double noundef %.0175.i) #12, !tbaa !15
+  %461 = call double @hypot(double noundef %.0176.i, double noundef %.0175.i) #15, !tbaa !15
   %462 = fdiv double %.0176.i, %461
   %463 = fdiv double %.0175.i, %461
   br label %464
@@ -2864,12 +2864,12 @@ InverseStart.exit:                                ; preds = %464
   %495 = fmul double %.0448, %.0448
   %496 = fmul double %495, %492
   %497 = fdiv double %.0152.i, %.0448
-  %498 = call double @sin(double noundef %497) #12, !tbaa !15
+  %498 = call double @sin(double noundef %497) #15, !tbaa !15
   %499 = fmul double %496, %498
   br i1 %35, label %500, label %502
 
 500:                                              ; preds = %InverseStart.exit
-  %501 = call double @cos(double noundef %497) #12, !tbaa !15
+  %501 = call double @cos(double noundef %497) #15, !tbaa !15
   store double %501, ptr %28, align 8, !tbaa !3
   store double %501, ptr %27, align 8, !tbaa !3
   br label %502
@@ -2893,7 +2893,7 @@ InverseStart.exit:                                ; preds = %464
   %.b272 = load i1, ptr @maxit1, align 4
   %507 = icmp ult i32 %.0230, 20
   %508 = select i1 %.b272, i1 %507, i1 false
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #15
   store double 0.000000e+00, ptr %15, align 8, !tbaa !3
   %509 = fcmp oeq double %.3469, 0.000000e+00
   %or.cond.i294 = and i1 %217, %509
@@ -2902,10 +2902,10 @@ InverseStart.exit:                                ; preds = %464
   %.0.i295 = select i1 %or.cond.i294, double %511, double %.3469
   %512 = fmul double %135, %.3463
   %513 = fmul double %132, %.3463
-  %514 = call double @hypot(double noundef %.0.i295, double noundef %513) #12, !tbaa !15
+  %514 = call double @hypot(double noundef %.0.i295, double noundef %513) #15, !tbaa !15
   %515 = fmul double %132, %512
   %516 = fmul double %135, %.0.i295
-  %517 = call double @hypot(double noundef %132, double noundef %516) #12, !tbaa !15
+  %517 = call double @hypot(double noundef %132, double noundef %516) #15, !tbaa !15
   %518 = fdiv double %132, %517
   %519 = fdiv double %516, %517
   br i1 %or.cond574, label %._crit_edge.i, label %524
@@ -2913,7 +2913,7 @@ InverseStart.exit:                                ; preds = %464
 ._crit_edge.i:                                    ; preds = %506
   %520 = fmul double %516, %516
   %521 = fadd double %520, %.602
-  %522 = call double @sqrt(double noundef %521) #12, !tbaa !15
+  %522 = call double @sqrt(double noundef %521) #15, !tbaa !15
   %523 = fdiv double %522, %.0479
   br label %526
 
@@ -2925,7 +2925,7 @@ InverseStart.exit:                                ; preds = %464
   %527 = phi double [ %523, %._crit_edge.i ], [ %525, %524 ]
   %528 = fmul double %.0480, %512
   %529 = fmul double %.0479, %527
-  %530 = call double @hypot(double noundef %.0480, double noundef %529) #12, !tbaa !15
+  %530 = call double @hypot(double noundef %.0480, double noundef %529) #15, !tbaa !15
   %531 = fdiv double %.0480, %530
   %532 = fdiv double %529, %530
   %533 = fneg double %532
@@ -2935,7 +2935,7 @@ InverseStart.exit:                                ; preds = %464
   %537 = fadd double %536, 0.000000e+00
   %538 = fmul double %518, %531
   %539 = call double @llvm.fmuladd.f64(double %519, double %532, double %538)
-  %540 = call double @atan2(double noundef %537, double noundef %539) #12, !tbaa !15
+  %540 = call double @atan2(double noundef %537, double noundef %539) #15, !tbaa !15
   %541 = fneg double %529
   %542 = fmul double %515, %541
   %543 = call double @llvm.fmuladd.f64(double %516, double %528, double %542)
@@ -2947,11 +2947,11 @@ InverseStart.exit:                                ; preds = %464
   %549 = call double @llvm.fmuladd.f64(double %545, double %70, double %548)
   %550 = fmul double %.1478, %545
   %551 = call double @llvm.fmuladd.f64(double %547, double %70, double %550)
-  %552 = call double @atan2(double noundef %549, double noundef %551) #12, !tbaa !15
+  %552 = call double @atan2(double noundef %549, double noundef %551) #15, !tbaa !15
   %553 = fmul double %514, %514
   %554 = fmul double %173, %553
   %555 = fadd double %554, 1.000000e+00
-  %556 = call double @sqrt(double noundef %555) #12, !tbaa !15
+  %556 = call double @sqrt(double noundef %555) #15, !tbaa !15
   %557 = fadd double %556, 1.000000e+00
   %558 = call double @llvm.fmuladd.f64(double %557, double 2.000000e+00, double %554)
   %559 = fdiv double %554, %558
@@ -3088,7 +3088,7 @@ A3f.exit.i301:                                    ; preds = %.lr.ph.i.i114.i
 Lambda12.exit:                                    ; preds = %624, %A3f.exit.i301, %626
   %.0441 = phi double [ %629, %626 ], [ 0.000000e+00, %A3f.exit.i301 ], [ %486, %624 ]
   %630 = fadd double %552, %623
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #15
   %.not276 = icmp eq i32 %.0250, 0
   br i1 %.not276, label %631, label %702
 
@@ -3157,8 +3157,8 @@ Lambda12.exit:                                    ; preds = %624, %A3f.exit.i301
   br i1 %665, label %666, label %.thread507
 
 666:                                              ; preds = %661
-  %667 = call double @sin(double noundef %663) #12, !tbaa !15
-  %668 = call double @cos(double noundef %663) #12, !tbaa !15
+  %667 = call double @sin(double noundef %663) #15, !tbaa !15
+  %668 = call double @cos(double noundef %663) #15, !tbaa !15
   %669 = fmul double %.3469, %667
   %670 = call double @llvm.fmuladd.f64(double %.3463, double %668, double %669)
   %671 = fcmp ule double %670, 0.000000e+00
@@ -3168,7 +3168,7 @@ Lambda12.exit:                                    ; preds = %624, %A3f.exit.i301
   %673 = fneg double %667
   %674 = fmul double %.3463, %673
   %675 = call double @llvm.fmuladd.f64(double %.3469, double %668, double %674)
-  %676 = call double @hypot(double noundef %670, double noundef %675) #12, !tbaa !15
+  %676 = call double @hypot(double noundef %670, double noundef %675) #15, !tbaa !15
   %677 = fdiv double %670, %676
   %678 = fdiv double %675, %676
   %679 = fcmp ole double %632, %489
@@ -3180,7 +3180,7 @@ Lambda12.exit:                                    ; preds = %624, %A3f.exit.i301
   %682 = fmul double %681, 5.000000e-01
   %683 = fadd double %.2242, %.2236
   %684 = fmul double %683, 5.000000e-01
-  %685 = call double @hypot(double noundef %682, double noundef %684) #12, !tbaa !15
+  %685 = call double @hypot(double noundef %682, double noundef %684) #15, !tbaa !15
   %686 = fdiv double %682, %685
   %687 = fdiv double %684, %685
   %688 = fsub double %.2233, %686
@@ -3230,8 +3230,8 @@ Lambda12.exit:                                    ; preds = %624, %A3f.exit.i301
   br label %853
 
 .thread552:                                       ; preds = %702
-  %715 = call double @sin(double noundef %623) #12, !tbaa !15
-  %716 = call double @cos(double noundef %623) #12, !tbaa !15
+  %715 = call double @sin(double noundef %623) #15, !tbaa !15
+  %716 = call double @cos(double noundef %623) #15, !tbaa !15
   %717 = fneg double %715
   %718 = fmul double %70, %717
   %719 = call double @llvm.fmuladd.f64(double %.1478, double %716, double %718)
@@ -3278,7 +3278,7 @@ Lambda12.exit:                                    ; preds = %624, %A3f.exit.i301
   %.1461564 = phi double [ %.1461, %._crit_edge ], [ %.3463, %.thread552 ]
   %.1467563 = phi double [ %.1467, %._crit_edge ], [ %.3469, %.thread552 ]
   %731 = phi i1 [ %727, %._crit_edge ], [ true, %.thread552 ]
-  %732 = call double @hypot(double noundef %.1467563, double noundef %.pre-phi626) #12, !tbaa !15
+  %732 = call double @hypot(double noundef %.1467563, double noundef %.pre-phi626) #15, !tbaa !15
   %733 = fcmp une double %732, 0.000000e+00
   %734 = fcmp une double %.pre-phi, 0.000000e+00
   %or.cond11 = select i1 %733, i1 %734, i1 false
@@ -3290,7 +3290,7 @@ Lambda12.exit:                                    ; preds = %624, %A3f.exit.i301
   %738 = fmul double %732, %732
   %739 = fmul double %738, %173
   %740 = fadd double %739, 1.000000e+00
-  %741 = call double @sqrt(double noundef %740) #12, !tbaa !15
+  %741 = call double @sqrt(double noundef %740) #15, !tbaa !15
   %742 = fadd double %741, 1.000000e+00
   %743 = call double @llvm.fmuladd.f64(double %742, double 2.000000e+00, double %739)
   %744 = fdiv double %739, %743
@@ -3299,9 +3299,9 @@ Lambda12.exit:                                    ; preds = %624, %A3f.exit.i301
   %747 = fmul double %732, %746
   %748 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %749 = load double, ptr %748, align 8, !tbaa !11
-  %750 = call double @hypot(double noundef %132, double noundef %736) #12, !tbaa !15
+  %750 = call double @hypot(double noundef %132, double noundef %736) #15, !tbaa !15
   %751 = fdiv double %132, %750
-  %752 = call double @hypot(double noundef %.0480, double noundef %737) #12, !tbaa !15
+  %752 = call double @hypot(double noundef %.0480, double noundef %737) #15, !tbaa !15
   %753 = fdiv double %.0480, %752
   %754 = getelementptr inbounds nuw i8, ptr %0, i64 240
   br label %755
@@ -3418,8 +3418,8 @@ SinCosSeries.exit308:                             ; preds = %794
   br i1 %or.cond13, label %814, label %817
 
 814:                                              ; preds = %812
-  %815 = call double @sin(double noundef %.0219569) #12, !tbaa !15
-  %816 = call double @cos(double noundef %.0219569) #12, !tbaa !15
+  %815 = call double @sin(double noundef %.0219569) #15, !tbaa !15
+  %816 = call double @cos(double noundef %.0219569) #15, !tbaa !15
   br label %817
 
 817:                                              ; preds = %814, %812
@@ -3442,7 +3442,7 @@ SinCosSeries.exit308:                             ; preds = %794
   %828 = fmul double %823, %824
   %829 = call double @llvm.fmuladd.f64(double %132, double %.0480, double %828)
   %830 = fmul double %829, %822
-  %831 = call double @atan2(double noundef %827, double noundef %830) #12, !tbaa !15
+  %831 = call double @atan2(double noundef %827, double noundef %830) #15, !tbaa !15
   %832 = fmul double %831, 2.000000e+00
   br label %844
 
@@ -3459,7 +3459,7 @@ SinCosSeries.exit308:                             ; preds = %794
   %842 = fmul double %.1467563, %841
   %.0210 = select i1 %or.cond17, double %842, double %836
   %.0 = select i1 %or.cond17, double -1.000000e+00, double %838
-  %843 = call double @atan2(double noundef %.0210, double noundef %.0) #12, !tbaa !15
+  %843 = call double @atan2(double noundef %.0210, double noundef %.0) #15, !tbaa !15
   br label %844
 
 844:                                              ; preds = %833, %821
@@ -3566,21 +3566,21 @@ SinCosSeries.exit308:                             ; preds = %794
   br label %883
 
 883:                                              ; preds = %882, %881
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %32) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #12
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %32) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #15
   ret double %.2549
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @geod_inverseline(ptr noundef %0, ptr noundef readonly captures(none) %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, i32 noundef %6) local_unnamed_addr #3 {
+define void @geod_inverseline(ptr noundef %0, ptr noundef readonly captures(none) %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, i32 noundef %6) local_unnamed_addr #5 {
   %8 = alloca double, align 8
   %9 = alloca double, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #15
   %10 = call fastcc double @geod_geninverse_int(ptr noundef %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, ptr noundef null, ptr noundef %8, ptr noundef %9, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
   %11 = load double, ptr %8, align 8, !tbaa !3
   %12 = load double, ptr %9, align 8, !tbaa !3
@@ -3595,7 +3595,7 @@ define void @geod_inverseline(ptr noundef %0, ptr noundef readonly captures(none
   %.lobit.i = lshr i64 %16, 63
   %17 = trunc nuw nsw i64 %.lobit.i to i32
   %.1.i = or disjoint i32 %.05.i, %17
-  %18 = tail call double @atan2(double noundef %.013.i, double noundef %.112.i) #12, !tbaa !15
+  %18 = tail call double @atan2(double noundef %.013.i, double noundef %.112.i) #15, !tbaa !15
   %19 = load double, ptr @degree, align 8, !tbaa !3
   %20 = fdiv double %18, %19
   switch i32 %.1.i, label %default.unreachable [
@@ -3636,19 +3636,19 @@ atan2dx.exit:                                     ; preds = %7, %21, %24, %26
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 64
   store double %32, ptr %33, align 8, !tbaa !47
   %34 = tail call double @geod_genposition(ptr noundef %0, i32 noundef 1, double noundef %10, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %33, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #15
   ret void
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @geod_inverse(ptr noundef readonly captures(none) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef captures(address_is_null) %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #3 {
+define void @geod_inverse(ptr noundef readonly captures(none) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, ptr noundef captures(address_is_null) %5, ptr noundef captures(address_is_null) %6, ptr noundef captures(address_is_null) %7) local_unnamed_addr #5 {
   %9 = tail call double @geod_geninverse(ptr noundef %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, ptr noundef %5, ptr noundef %6, ptr noundef %7, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null)
   ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define void @geod_polygon_init(ptr noundef writeonly captures(none) initializes((0, 76)) %0, i32 noundef %1) local_unnamed_addr #5 {
+define void @geod_polygon_init(ptr noundef writeonly captures(none) initializes((0, 76)) %0, i32 noundef %1) local_unnamed_addr #7 {
   %3 = icmp ne i32 %1, 0
   %4 = zext i1 %3 to i32
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -3671,7 +3671,7 @@ define void @geod_polygon_init(ptr noundef writeonly captures(none) initializes(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define void @geod_polygon_clear(ptr noundef writeonly captures(none) initializes((0, 64), (68, 76)) %0) local_unnamed_addr #5 {
+define void @geod_polygon_clear(ptr noundef writeonly captures(none) initializes((0, 64), (68, 76)) %0) local_unnamed_addr #7 {
   %2 = load double, ptr @NaN, align 8, !tbaa !3
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store double %2, ptr %3, align 8, !tbaa !53
@@ -3690,7 +3690,7 @@ define void @geod_polygon_clear(ptr noundef writeonly captures(none) initializes
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @geod_polygon_addpoint(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, double noundef %2, double noundef %3) local_unnamed_addr #3 {
+define void @geod_polygon_addpoint(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, double noundef %2, double noundef %3) local_unnamed_addr #5 {
   %5 = alloca double, align 8
   %6 = alloca double, align 8
   %7 = alloca double, align 8
@@ -3713,8 +3713,8 @@ define void @geod_polygon_addpoint(ptr noundef readonly captures(none) %0, ptr n
   br label %61
 
 18:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #15
   store double 0.000000e+00, ptr %10, align 8, !tbaa !3
   %19 = load double, ptr %1, align 8, !tbaa !54
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3723,15 +3723,15 @@ define void @geod_polygon_addpoint(ptr noundef readonly captures(none) %0, ptr n
   %23 = load i32, ptr %22, align 8, !tbaa !51
   %.not = icmp eq i32 %23, 0
   %. = select i1 %.not, ptr %10, ptr null
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #15
   %24 = call fastcc double @geod_geninverse_int(ptr noundef readonly %0, double noundef %19, double noundef %21, double noundef %2, double noundef %3, ptr noundef nonnull %9, ptr noundef %5, ptr noundef %6, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %.)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #15
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %26 = load double, ptr %9, align 8, !tbaa !3
   call fastcc void @accadd(ptr noundef nonnull %25, double noundef %26)
@@ -3745,12 +3745,12 @@ define void @geod_polygon_addpoint(ptr noundef readonly captures(none) %0, ptr n
   call fastcc void @accadd(ptr noundef nonnull %29, double noundef %30)
   %31 = load double, ptr %20, align 8, !tbaa !53
   %32 = call fastcc double @AngDiff(double noundef %31, double noundef %3, ptr noundef null)
-  %33 = call double @remainder(double noundef %31, double noundef 3.600000e+02) #12, !tbaa !15
+  %33 = call double @remainder(double noundef %31, double noundef 3.600000e+02) #15, !tbaa !15
   %34 = call double @llvm.fabs.f64(double %33)
   %35 = fcmp oeq double %34, 1.800000e+02
   %36 = call double @llvm.copysign.f64(double 1.800000e+02, double %31)
   %37 = select i1 %35, double %36, double %33
-  %38 = call double @remainder(double noundef %3, double noundef 3.600000e+02) #12, !tbaa !15
+  %38 = call double @remainder(double noundef %3, double noundef 3.600000e+02) #15, !tbaa !15
   %39 = call double @llvm.fabs.f64(double %38)
   %40 = fcmp oeq double %39, 1.800000e+02
   %41 = call double @llvm.copysign.f64(double 1.800000e+02, double %3)
@@ -3790,8 +3790,8 @@ transit.exit:                                     ; preds = %44, %47, %50
 59:                                               ; preds = %transit.exit, %18
   store double %2, ptr %1, align 8, !tbaa !54
   store double %3, ptr %20, align 8, !tbaa !53
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #15
   %.pre = load i32, ptr %11, align 8, !tbaa !58
   %60 = add i32 %.pre, 1
   br label %61
@@ -3803,7 +3803,7 @@ transit.exit:                                     ; preds = %44, %47, %50
 }
 
 ; Function Attrs: nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define internal fastcc void @accadd(ptr noundef captures(none) %0, double noundef %1) unnamed_addr #6 {
+define internal fastcc void @accadd(ptr noundef captures(none) %0, double noundef %1) unnamed_addr #8 {
   %3 = alloca double, align 8
   %4 = alloca double, align 8
   %5 = alloca double, align 8
@@ -3910,7 +3910,7 @@ sumx.exit20:                                      ; preds = %29, %32
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @geod_polygon_addedge(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, double noundef %2, double noundef %3) local_unnamed_addr #3 {
+define void @geod_polygon_addedge(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, double noundef %2, double noundef %3) local_unnamed_addr #5 {
   %5 = alloca %struct.geod_geodesicline, align 8
   %6 = alloca double, align 8
   %7 = alloca double, align 8
@@ -3921,11 +3921,11 @@ define void @geod_polygon_addedge(ptr noundef readonly captures(none) %0, ptr no
   br i1 %.not, label %42, label %11
 
 11:                                               ; preds = %4
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #15
   store double 0.000000e+00, ptr %6, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #15
   store double 0.000000e+00, ptr %7, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #15
   store double 0.000000e+00, ptr %8, align 8, !tbaa !3
   %12 = load double, ptr %1, align 8, !tbaa !54
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -3934,11 +3934,11 @@ define void @geod_polygon_addedge(ptr noundef readonly captures(none) %0, ptr no
   %16 = load i32, ptr %15, align 8, !tbaa !51
   %.not16.not = icmp eq i32 %16, 0
   %. = select i1 %.not16.not, ptr %8, ptr null
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #12
+  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %5) #15
   %17 = select i1 %.not16.not, i32 18843, i32 2443
   call void @geod_lineinit(ptr noundef nonnull %5, ptr noundef readonly %0, double noundef %12, double noundef %14, double noundef %2, i32 noundef %17)
   %18 = call double @geod_genposition(ptr noundef nonnull %5, i32 noundef 32768, double noundef %3, ptr noundef nonnull %6, ptr noundef nonnull %7, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %.)
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #12
+  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %5) #15
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 48
   call fastcc void @accadd(ptr noundef nonnull %19, double noundef %3)
   %20 = load i32, ptr %15, align 8, !tbaa !51
@@ -3955,8 +3955,8 @@ define void @geod_polygon_addedge(ptr noundef readonly captures(none) %0, ptr no
   call fastcc void @accadd(ptr noundef nonnull %22, double noundef %23)
   %24 = load double, ptr %13, align 8, !tbaa !53
   %25 = load double, ptr %7, align 8, !tbaa !3
-  %26 = call double @remainder(double noundef %24, double noundef 7.200000e+02) #12, !tbaa !15
-  %27 = call double @remainder(double noundef %25, double noundef 7.200000e+02) #12, !tbaa !15
+  %26 = call double @remainder(double noundef %24, double noundef 7.200000e+02) #15, !tbaa !15
+  %27 = call double @remainder(double noundef %25, double noundef 7.200000e+02) #15, !tbaa !15
   %28 = fcmp ult double %27, 0.000000e+00
   %29 = fcmp uge double %27, 3.600000e+02
   %.not7.i = or i1 %28, %29
@@ -3980,9 +3980,9 @@ define void @geod_polygon_addedge(ptr noundef readonly captures(none) %0, ptr no
   %40 = load i32, ptr %9, align 8, !tbaa !58
   %41 = add i32 %40, 1
   store i32 %41, ptr %9, align 8, !tbaa !58
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
   br label %42
 
 42:                                               ; preds = %37, %4
@@ -3990,7 +3990,7 @@ define void @geod_polygon_addedge(ptr noundef readonly captures(none) %0, ptr no
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define i32 @geod_polygon_compute(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #3 {
+define i32 @geod_polygon_compute(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 noundef %3, ptr noundef writeonly captures(address_is_null) %4, ptr noundef writeonly captures(address_is_null) %5) local_unnamed_addr #5 {
   %7 = alloca double, align 8
   %8 = alloca double, align 8
   %9 = alloca double, align 8
@@ -4027,8 +4027,8 @@ define i32 @geod_polygon_compute(ptr noundef readonly captures(none) %0, ptr nou
   %40 = alloca double, align 8
   %41 = alloca double, align 8
   %42 = alloca double, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %41) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %42) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %41) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %42) #15
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %44 = load i32, ptr %43, align 8, !tbaa !58
   %45 = icmp ult i32 %44, 2
@@ -4078,15 +4078,15 @@ define i32 @geod_polygon_compute(ptr noundef readonly captures(none) %0, ptr nou
   %66 = load double, ptr %65, align 8, !tbaa !56
   %67 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %68 = load double, ptr %67, align 8, !tbaa !55
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %37) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %38) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %39) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %40) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %37) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %38) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %39) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %40) #15
   %69 = call fastcc double @geod_geninverse_int(ptr noundef readonly %0, double noundef %62, double noundef %64, double noundef %66, double noundef %68, ptr noundef nonnull %41, ptr noundef %37, ptr noundef %38, ptr noundef nonnull %39, ptr noundef nonnull %40, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %42)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %40) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %39) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %38) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %37) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %40) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %39) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %38) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %37) #15
   %.not34 = icmp eq ptr %5, null
   br i1 %.not34, label %95, label %70
 
@@ -4275,12 +4275,12 @@ sumx.exit20.i:                                    ; preds = %121, %118
   %133 = load double, ptr %63, align 8, !tbaa !53
   %134 = load double, ptr %67, align 8, !tbaa !55
   %135 = call fastcc double @AngDiff(double noundef %133, double noundef %134, ptr noundef null)
-  %136 = call double @remainder(double noundef %133, double noundef 3.600000e+02) #12, !tbaa !15
+  %136 = call double @remainder(double noundef %133, double noundef 3.600000e+02) #15, !tbaa !15
   %137 = call double @llvm.fabs.f64(double %136)
   %138 = fcmp oeq double %137, 1.800000e+02
   %139 = call double @llvm.copysign.f64(double 1.800000e+02, double %133)
   %140 = select i1 %138, double %139, double %136
-  %141 = call double @remainder(double noundef %134, double noundef 3.600000e+02) #12, !tbaa !15
+  %141 = call double @remainder(double noundef %134, double noundef 3.600000e+02) #15, !tbaa !15
   %142 = call double @llvm.fabs.f64(double %141)
   %143 = fcmp oeq double %142, 1.800000e+02
   %144 = call double @llvm.copysign.f64(double 1.800000e+02, double %134)
@@ -4312,7 +4312,7 @@ sumx.exit20.i:                                    ; preds = %121, %118
 transit.exit:                                     ; preds = %147, %150, %153
   %158 = phi i32 [ %157, %153 ], [ 1, %150 ], [ 1, %147 ]
   %159 = add i32 %158, %132
-  %160 = call double @remainder(double noundef %.sroa.0.0, double noundef %130) #12, !tbaa !15
+  %160 = call double @remainder(double noundef %.sroa.0.0, double noundef %130) #15, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   %161 = fadd double %.sroa.22.0, 0.000000e+00
   store volatile double %161, ptr %10, align 8, !tbaa !3
@@ -4613,13 +4613,13 @@ areareduceA.exit:                                 ; preds = %250, %sumx.exit20.i
 
 252:                                              ; preds = %sumx.exit20.i, %areareduceA.exit, %57, %58, %48, %53
   %.0 = load i32, ptr %43, align 8, !tbaa !58
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %41) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %41) #15
   ret i32 %.0
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define i32 @geod_polygon_testpoint(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, double noundef %2, double noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7) local_unnamed_addr #3 {
+define i32 @geod_polygon_testpoint(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, double noundef %2, double noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7) local_unnamed_addr #5 {
   %9 = alloca double, align 8
   %10 = alloca double, align 8
   %11 = alloca double, align 8
@@ -4676,8 +4676,8 @@ define i32 @geod_polygon_testpoint(ptr noundef readonly captures(none) %0, ptr n
   %.05575 = phi double [ %34, %33 ], [ %.156, %90 ]
   %.05774 = phi double [ %27, %33 ], [ %54, %90 ]
   %.not6178 = icmp eq i32 %.not6178.in, 0
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #15
   store double 0.000000e+00, ptr %14, align 8, !tbaa !3
   %41 = icmp eq i32 %.05377, 0
   br i1 %41, label %.thread71, label %44
@@ -4698,15 +4698,15 @@ define i32 @geod_polygon_testpoint(ptr noundef readonly captures(none) %0, ptr n
   %50 = phi double [ %3, %44 ], [ %43, %.thread71 ]
   %51 = phi double [ %46, %44 ], [ %3, %.thread71 ]
   %. = select i1 %.not6178, ptr %14, ptr null
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #15
   %52 = call fastcc double @geod_geninverse_int(ptr noundef readonly %0, double noundef %49, double noundef %50, double noundef %48, double noundef %51, ptr noundef nonnull %13, ptr noundef %9, ptr noundef %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef %.)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #15
   %53 = load double, ptr %13, align 8, !tbaa !3
   %54 = fadd double %.05774, %53
   %55 = load i32, ptr %28, align 8, !tbaa !51
@@ -4730,12 +4730,12 @@ define i32 @geod_polygon_testpoint(ptr noundef readonly captures(none) %0, ptr n
   %63 = phi double [ %3, %60 ], [ %59, %.thread72 ]
   %64 = phi double [ %61, %60 ], [ %3, %.thread72 ]
   %65 = call fastcc double @AngDiff(double noundef %63, double noundef %64, ptr noundef null)
-  %66 = call double @remainder(double noundef %63, double noundef 3.600000e+02) #12, !tbaa !15
+  %66 = call double @remainder(double noundef %63, double noundef 3.600000e+02) #15, !tbaa !15
   %67 = call double @llvm.fabs.f64(double %66)
   %68 = fcmp oeq double %67, 1.800000e+02
   %69 = call double @llvm.copysign.f64(double 1.800000e+02, double %63)
   %70 = select i1 %68, double %69, double %66
-  %71 = call double @remainder(double noundef %64, double noundef 3.600000e+02) #12, !tbaa !15
+  %71 = call double @remainder(double noundef %64, double noundef 3.600000e+02) #15, !tbaa !15
   %72 = call double @llvm.fabs.f64(double %71)
   %73 = fcmp oeq double %72, 1.800000e+02
   %74 = call double @llvm.copysign.f64(double 1.800000e+02, double %64)
@@ -4774,8 +4774,8 @@ transit.exit:                                     ; preds = %77, %80, %83
   %91 = phi i32 [ %55, %47 ], [ %.pre, %transit.exit ]
   %.156 = phi double [ %.05575, %47 ], [ %58, %transit.exit ]
   %.1 = phi i32 [ %.05476, %47 ], [ %89, %transit.exit ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #15
   %92 = add nuw nsw i32 %.05377, 1
   %93 = or i32 %91, %.05377
   %94 = icmp eq i32 %93, 0
@@ -4801,7 +4801,7 @@ transit.exit:                                     ; preds = %77, %80, %83
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %102 = load double, ptr %101, align 8, !tbaa !17
   %103 = fmul double %100, %102
-  %104 = call double @remainder(double noundef %.156, double noundef %103) #12, !tbaa !15
+  %104 = call double @remainder(double noundef %.156, double noundef %103) #15, !tbaa !15
   %105 = and i32 %.1, 1
   %.not.i = icmp eq i32 %105, 0
   br i1 %.not.i, label %112, label %106
@@ -4872,7 +4872,7 @@ areareduceB.exit:                                 ; preds = %117, %119, %122, %1
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define range(i32 2, 1) i32 @geod_polygon_testedge(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, double noundef %2, double noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7) local_unnamed_addr #3 {
+define range(i32 2, 1) i32 @geod_polygon_testedge(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, double noundef %2, double noundef %3, i32 noundef %4, i32 noundef %5, ptr noundef writeonly captures(address_is_null) %6, ptr noundef writeonly captures(address_is_null) %7) local_unnamed_addr #5 {
   %9 = alloca double, align 8
   %10 = alloca double, align 8
   %11 = alloca double, align 8
@@ -4932,26 +4932,26 @@ define range(i32 2, 1) i32 @geod_polygon_testedge(ptr noundef readonly captures(
   %42 = load double, ptr %41, align 8, !tbaa !3
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 68
   %44 = load i32, ptr %43, align 4, !tbaa !57
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #15
   store double 0.000000e+00, ptr %14, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #15
   store double 0.000000e+00, ptr %15, align 8, !tbaa !3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #15
   store double 0.000000e+00, ptr %17, align 8, !tbaa !3
   %45 = load double, ptr %1, align 8, !tbaa !54
   %46 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %47 = load double, ptr %46, align 8, !tbaa !53
-  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %13) #12
+  call void @llvm.lifetime.start.p0(i64 512, ptr nonnull %13) #15
   call void @geod_lineinit(ptr noundef nonnull %13, ptr noundef readonly %0, double noundef %45, double noundef %47, double noundef %2, i32 noundef 18843)
   %48 = call double @geod_genposition(ptr noundef nonnull %13, i32 noundef 32768, double noundef %3, ptr noundef nonnull %14, ptr noundef nonnull %15, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %17)
-  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %13) #12
+  call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %13) #15
   %49 = load double, ptr %17, align 8, !tbaa !3
   %50 = fadd double %42, %49
   %51 = load double, ptr %46, align 8, !tbaa !53
   %52 = load double, ptr %15, align 8, !tbaa !3
-  %53 = call double @remainder(double noundef %51, double noundef 7.200000e+02) #12, !tbaa !15
-  %54 = call double @remainder(double noundef %52, double noundef 7.200000e+02) #12, !tbaa !15
+  %53 = call double @remainder(double noundef %51, double noundef 7.200000e+02) #15, !tbaa !15
+  %54 = call double @remainder(double noundef %52, double noundef 7.200000e+02) #15, !tbaa !15
   %55 = fcmp ult double %54, 0.000000e+00
   %56 = fcmp uge double %54, 3.600000e+02
   %.not7.i = or i1 %55, %56
@@ -4965,26 +4965,26 @@ define range(i32 2, 1) i32 @geod_polygon_testedge(ptr noundef readonly captures(
   %62 = load double, ptr %61, align 8, !tbaa !56
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %64 = load double, ptr %63, align 8, !tbaa !55
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #12
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #15
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #15
   %65 = call fastcc double @geod_geninverse_int(ptr noundef readonly %0, double noundef %60, double noundef %52, double noundef %62, double noundef %64, ptr noundef nonnull %16, ptr noundef %9, ptr noundef %10, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef null, ptr noundef null, ptr noundef null, ptr noundef nonnull %17)
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #15
   %66 = load double, ptr %16, align 8, !tbaa !3
   %67 = load double, ptr %17, align 8, !tbaa !3
   %68 = fadd double %50, %67
   %69 = load double, ptr %63, align 8, !tbaa !55
   %70 = call fastcc double @AngDiff(double noundef %52, double noundef %69, ptr noundef null)
-  %71 = call double @remainder(double noundef %52, double noundef 3.600000e+02) #12, !tbaa !15
+  %71 = call double @remainder(double noundef %52, double noundef 3.600000e+02) #15, !tbaa !15
   %72 = call double @llvm.fabs.f64(double %71)
   %73 = fcmp oeq double %72, 1.800000e+02
   %74 = call double @llvm.copysign.f64(double 1.800000e+02, double %52)
   %75 = select i1 %73, double %74, double %71
-  %76 = call double @remainder(double noundef %69, double noundef 3.600000e+02) #12, !tbaa !15
+  %76 = call double @remainder(double noundef %69, double noundef 3.600000e+02) #15, !tbaa !15
   %77 = call double @llvm.fabs.f64(double %76)
   %78 = fcmp oeq double %77, 1.800000e+02
   %79 = call double @llvm.copysign.f64(double 1.800000e+02, double %69)
@@ -5018,10 +5018,10 @@ transit.exit:                                     ; preds = %82, %85, %88
   %94 = add i32 %44, %.neg.i
   %95 = add i32 %94, %57
   %96 = add i32 %95, %93
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #12
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #15
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #15
   %.not47 = icmp eq ptr %7, null
   br i1 %.not47, label %99, label %97
 
@@ -5040,7 +5040,7 @@ transit.exit:                                     ; preds = %82, %85, %88
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %104 = load double, ptr %103, align 8, !tbaa !17
   %105 = fmul double %102, %104
-  %106 = call double @remainder(double noundef %68, double noundef %105) #12, !tbaa !15
+  %106 = call double @remainder(double noundef %68, double noundef %105) #15, !tbaa !15
   %107 = and i32 %96, 1
   %.not.i = icmp eq i32 %107, 0
   br i1 %.not.i, label %114, label %108
@@ -5107,9 +5107,9 @@ areareduceB.exit:                                 ; preds = %119, %121, %124, %1
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define void @geod_polygonarea(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #3 {
+define void @geod_polygonarea(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef readonly captures(none) %2, i32 noundef %3, ptr noundef captures(address_is_null) %4, ptr noundef captures(address_is_null) %5) local_unnamed_addr #5 {
   %7 = alloca %struct.geod_polygon, align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7) #12
+  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %7) #15
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 64
   store i32 0, ptr %8, align 8, !tbaa !51
   %9 = load double, ptr @NaN, align 8, !tbaa !3
@@ -5146,18 +5146,18 @@ define void @geod_polygonarea(ptr noundef readonly captures(none) %0, ptr nounde
 
 ._crit_edge:                                      ; preds = %.lr.ph, %6
   %21 = call i32 @geod_polygon_compute(ptr noundef %0, ptr noundef nonnull %7, i32 noundef 0, i32 noundef 1, ptr noundef %4, ptr noundef %5)
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #12
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %7) #15
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @remainder(double noundef, double noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @remquo(double noundef, double noundef, ptr noundef captures(none)) local_unnamed_addr #1
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, errnomem: write)
+declare double @remquo(double noundef, double noundef, ptr noundef writeonly captures(none)) local_unnamed_addr #9
 
-; Function Attrs: nofree nounwind memory(write, inaccessiblemem: readwrite) uwtable
-define internal fastcc double @AngDiff(double noundef %0, double noundef %1, ptr noundef writeonly captures(address_is_null) %2) unnamed_addr #7 {
+; Function Attrs: nofree nounwind memory(argmem: write, inaccessiblemem: readwrite, errnomem: write) uwtable
+define internal fastcc double @AngDiff(double noundef %0, double noundef %1, ptr noundef writeonly captures(address_is_null) %2) unnamed_addr #10 {
   %4 = alloca double, align 8
   %5 = alloca double, align 8
   %6 = alloca double, align 8
@@ -5165,8 +5165,8 @@ define internal fastcc double @AngDiff(double noundef %0, double noundef %1, ptr
   %8 = alloca double, align 8
   %9 = alloca double, align 8
   %10 = fneg double %0
-  %11 = tail call double @remainder(double noundef %10, double noundef 3.600000e+02) #12, !tbaa !15
-  %12 = tail call double @remainder(double noundef %1, double noundef 3.600000e+02) #12, !tbaa !15
+  %11 = tail call double @remainder(double noundef %10, double noundef 3.600000e+02) #15, !tbaa !15
+  %12 = tail call double @remainder(double noundef %1, double noundef 3.600000e+02) #15, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
   %13 = fadd double %11, %12
   store volatile double %13, ptr %7, align 8, !tbaa !3
@@ -5206,7 +5206,7 @@ sumx.exit:                                        ; preds = %19, %22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  %24 = tail call double @remainder(double noundef %.0..0..0..0..0..0.9.i, double noundef 3.600000e+02) #12, !tbaa !15
+  %24 = tail call double @remainder(double noundef %.0..0..0..0..0..0.9.i, double noundef 3.600000e+02) #15, !tbaa !15
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   %25 = fadd double %23, %24
   store volatile double %25, ptr %4, align 8, !tbaa !3
@@ -5274,9 +5274,9 @@ sumx.exit25:                                      ; preds = %31, %34
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal fastcc void @Lengths(ptr noundef readonly captures(none) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6, double noundef %7, double noundef %8, double noundef %9, double noundef %10, ptr noundef writeonly captures(address_is_null) %11, ptr noundef nonnull writeonly captures(none) %12, ptr noundef writeonly captures(address_is_null) %13, ptr noundef writeonly captures(address_is_null) %14, ptr noundef writeonly captures(address_is_null) %15, ptr noundef nonnull captures(none) %16) unnamed_addr #8 {
+define internal fastcc void @Lengths(ptr noundef readonly captures(none) %0, double noundef %1, double noundef %2, double noundef %3, double noundef %4, double noundef %5, double noundef %6, double noundef %7, double noundef %8, double noundef %9, double noundef %10, ptr noundef writeonly captures(address_is_null) %11, ptr noundef nonnull writeonly captures(none) %12, ptr noundef writeonly captures(address_is_null) %13, ptr noundef writeonly captures(address_is_null) %14, ptr noundef writeonly captures(address_is_null) %15, ptr noundef nonnull captures(none) %16) unnamed_addr #11 {
   %18 = alloca [7 x double], align 16
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %18) #12
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %18) #15
   %19 = icmp ne ptr %14, null
   %20 = fmul double %1, %1
   br label %.lr.ph.i.i
@@ -5660,36 +5660,39 @@ SinCosSeries.exit169:                             ; preds = %186
   br label %241
 
 241:                                              ; preds = %233, %234, %206
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %18) #12
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %18) #15
   ret void
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare double @cbrt(double noundef) local_unnamed_addr #9
+declare double @cbrt(double noundef) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #10
+declare i32 @llvm.smin.i32(i32, i32) #13
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.sqrt.f64(double) #10
+declare double @llvm.sqrt.f64(double) #13
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
 
-attributes #0 = { nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nofree nounwind willreturn memory(write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #3 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: readwrite, errnomem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree nounwind memory(write, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { nounwind }
-attributes #13 = { nounwind willreturn memory(none) }
+attributes #5 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none, errnomem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: write, errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nofree nounwind memory(argmem: write, inaccessiblemem: readwrite, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #15 = { nounwind }
+attributes #16 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

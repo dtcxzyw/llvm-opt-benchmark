@@ -41,7 +41,7 @@ define hidden double @lj_vm_foldarith(double noundef %0, double noundef %1, i32 
   br label %30
 
 15:                                               ; preds = %3
-  %16 = tail call double @pow(double noundef %0, double noundef %1) #10, !tbaa !4
+  %16 = tail call double @pow(double noundef %0, double noundef %1) #9, !tbaa !4
   br label %30
 
 17:                                               ; preds = %3
@@ -54,7 +54,7 @@ define hidden double @lj_vm_foldarith(double noundef %0, double noundef %1, i32 
 
 21:                                               ; preds = %3
   %22 = fptosi double %1 to i32
-  %23 = tail call double @ldexp(double noundef %0, i32 noundef %22) #10, !tbaa !4
+  %23 = tail call double @ldexp(double noundef %0, i32 noundef %22) #9, !tbaa !4
   br label %30
 
 24:                                               ; preds = %3
@@ -75,22 +75,22 @@ define hidden double @lj_vm_foldarith(double noundef %0, double noundef %1, i32 
 ; Function Attrs: noinline nounwind uwtable
 define internal fastcc double @lj_vm_floormul(double noundef %0, double noundef %1) unnamed_addr #1 {
   %3 = fdiv double %0, %1
-  %4 = tail call double @lj_vm_floor(double noundef %3) #10
+  %4 = tail call double @lj_vm_floor(double noundef %3) #9
   %5 = fmul double %1, %4
   ret double %5
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @pow(double noundef, double noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fabs.f64(double) #3
 
-; Function Attrs: mustprogress nofree nounwind willreturn
-declare double @ldexp(double noundef, i32 noundef) local_unnamed_addr #4
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
+declare double @ldexp(double noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define hidden i32 @lj_vm_modi(i32 noundef %0, i32 noundef %1) local_unnamed_addr #5 {
+define hidden i32 @lj_vm_modi(i32 noundef %0, i32 noundef %1) local_unnamed_addr #4 {
   %3 = tail call i32 @llvm.abs.i32(i32 %0, i1 false)
   %4 = tail call i32 @llvm.abs.i32(i32 %1, i1 false)
   %5 = urem i32 %3, %4
@@ -119,27 +119,27 @@ define hidden double @lj_vm_foldfpm(double noundef %0, i32 noundef %1) local_unn
   ]
 
 3:                                                ; preds = %2
-  %4 = tail call double @lj_vm_floor(double noundef %0) #10
+  %4 = tail call double @lj_vm_floor(double noundef %0) #9
   br label %15
 
 5:                                                ; preds = %2
-  %6 = tail call double @lj_vm_ceil(double noundef %0) #10
+  %6 = tail call double @lj_vm_ceil(double noundef %0) #9
   br label %15
 
 7:                                                ; preds = %2
-  %8 = tail call double @lj_vm_trunc(double noundef %0) #10
+  %8 = tail call double @lj_vm_trunc(double noundef %0) #9
   br label %15
 
 9:                                                ; preds = %2
-  %10 = tail call double @sqrt(double noundef %0) #10, !tbaa !4
+  %10 = tail call double @sqrt(double noundef %0) #9, !tbaa !4
   br label %15
 
 11:                                               ; preds = %2
-  %12 = tail call double @log(double noundef %0) #10, !tbaa !4
+  %12 = tail call double @log(double noundef %0) #9, !tbaa !4
   br label %15
 
 13:                                               ; preds = %2
-  %14 = tail call double @log2(double noundef %0) #10, !tbaa !4
+  %14 = tail call double @log2(double noundef %0) #9, !tbaa !4
   br label %15
 
 15:                                               ; preds = %2, %13, %11, %9, %7, %5, %3
@@ -147,46 +147,45 @@ define hidden double @lj_vm_foldfpm(double noundef %0, i32 noundef %1) local_unn
   ret double %.0
 }
 
-declare hidden double @lj_vm_floor(double noundef) local_unnamed_addr #6
+declare hidden double @lj_vm_floor(double noundef) local_unnamed_addr #5
 
-declare hidden double @lj_vm_ceil(double noundef) local_unnamed_addr #6
+declare hidden double @lj_vm_ceil(double noundef) local_unnamed_addr #5
 
-declare hidden double @lj_vm_trunc(double noundef) local_unnamed_addr #6
+declare hidden double @lj_vm_trunc(double noundef) local_unnamed_addr #5
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @sqrt(double noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @log(double noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @log2(double noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define hidden i32 @lj_vm_errno() local_unnamed_addr #7 {
-  %1 = tail call ptr @__errno_location() #11
+define hidden i32 @lj_vm_errno() local_unnamed_addr #6 {
+  %1 = tail call ptr @__errno_location() #10
   %2 = load i32, ptr %1, align 4, !tbaa !4
   ret i32 %2
 }
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare ptr @__errno_location() local_unnamed_addr #8
+declare ptr @__errno_location() local_unnamed_addr #7
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.abs.i32(i32, i1 immarg) #9
+declare i32 @llvm.abs.i32(i32, i1 immarg) #8
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noinline nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nounwind willreturn memory(write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #4 = { mustprogress nofree nounwind willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nounwind }
-attributes #11 = { nounwind willreturn memory(none) }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { nounwind }
+attributes #10 = { nounwind willreturn memory(none) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

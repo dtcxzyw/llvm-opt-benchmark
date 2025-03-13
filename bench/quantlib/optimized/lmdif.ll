@@ -6,7 +6,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @_ZN8QuantLib7MINPACK6MACHEPE = local_unnamed_addr global double 1.200000e-16, align 8
 @_ZN8QuantLib7MINPACK5DWARFE = local_unnamed_addr global double 0x380B38FB9DAA78E4, align 8
 
-; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree nounwind memory(argmem: read, errnomem: write) uwtable
 define noundef double @_ZN8QuantLib7MINPACK5enormEiPd(i32 noundef %n, ptr noundef readonly captures(none) %x) local_unnamed_addr #0 {
 entry:
   %conv = sitofp i32 %n to double
@@ -92,7 +92,7 @@ if.then26:                                        ; preds = %for.end
   %div27 = fdiv double %s2.1, %x1max.1
   %div28 = fdiv double %div27, %x1max.1
   %add = fadd double %s1.1, %div28
-  %call = tail call double @sqrt(double noundef %add) #10, !tbaa !9
+  %call = tail call double @sqrt(double noundef %add) #11, !tbaa !9
   %mul29 = fmul double %x1max.1, %call
   br label %cleanup
 
@@ -119,13 +119,13 @@ if.else39:                                        ; preds = %if.then32
 
 if.end43:                                         ; preds = %if.else39, %if.then34
   %temp.0 = phi double [ %mul38, %if.then34 ], [ %mul42, %if.else39 ]
-  %call44 = tail call double @sqrt(double noundef %temp.0) #10, !tbaa !9
+  %call44 = tail call double @sqrt(double noundef %temp.0) #11, !tbaa !9
   br label %cleanup
 
 if.else45:                                        ; preds = %entry, %if.end30
   %s3.0.lcssa7481 = phi double [ %s3.1, %if.end30 ], [ 0.000000e+00, %entry ]
   %x3max.0.lcssa7580 = phi double [ %x3max.1, %if.end30 ], [ 0.000000e+00, %entry ]
-  %call46 = tail call double @sqrt(double noundef %s3.0.lcssa7481) #10, !tbaa !9
+  %call46 = tail call double @sqrt(double noundef %s3.0.lcssa7481) #11, !tbaa !9
   %mul47 = fmul double %x3max.0.lcssa7580, %call46
   br label %cleanup
 
@@ -143,7 +143,7 @@ declare double @llvm.fabs.f64(double) #2
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #2
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @sqrt(double noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -190,7 +190,7 @@ entry:
   %1 = load double, ptr @_ZN8QuantLib7MINPACK6MACHEPE, align 8, !tbaa !3
   %cmp.inv.i = fcmp oge double %epsfcn, %1
   %b.a.i = select i1 %cmp.inv.i, double %epsfcn, double %1
-  %call1 = tail call double @sqrt(double noundef %b.a.i) #10, !tbaa !9
+  %call1 = tail call double @sqrt(double noundef %b.a.i) #11, !tbaa !9
   %cmp25 = icmp sgt i32 %n, 0
   br i1 %cmp25, label %for.body.lr.ph, label %cleanup
 
@@ -294,7 +294,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %if
   br i1 %tobool.not.i.i, label %if.then.i, label %_ZNKSt8functionIFviiPdS0_PiEEclEiiS0_S0_S1_.exit
 
 if.then.i:                                        ; preds = %for.body, %for.body.us
-  call void @_ZSt25__throw_bad_function_callv() #11
+  call void @_ZSt25__throw_bad_function_callv() #12
   unreachable
 
 _ZNKSt8functionIFviiPdS0_PiEEclEiiS0_S0_S1_.exit: ; preds = %for.body
@@ -319,7 +319,7 @@ cleanup:                                          ; preds = %_ZNKSt8functionIFvi
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none, errnomem: readwrite) uwtable
 define void @_ZN8QuantLib7MINPACK5qrfacEiiPdiiPiiS1_S1_S1_(i32 noundef %m, i32 noundef %n, ptr noundef captures(none) %a, i32 %0, i32 noundef %pivot, ptr noundef captures(none) %ipvt, i32 %1, ptr noundef captures(none) %rdiag, ptr noundef writeonly captures(none) %acnorm, ptr noundef captures(none) %wa) local_unnamed_addr #6 {
 entry:
   %cmp306 = icmp sgt i32 %n, 0
@@ -415,7 +415,7 @@ if.end30.i.us:                                    ; preds = %for.end.i.us
   br i1 %cmp31.i.us, label %if.then32.i.us, label %if.else45.i.us
 
 if.else45.i.us:                                   ; preds = %if.end30.i.us
-  %call46.i.us = tail call double @sqrt(double noundef %s3.1.i.us) #10, !tbaa !9
+  %call46.i.us = tail call double @sqrt(double noundef %s3.1.i.us) #11, !tbaa !9
   %mul47.i.us = fmul double %x3max.1.i.us, %call46.i.us
   br label %_ZN8QuantLib7MINPACK5enormEiPd.exit.us
 
@@ -438,14 +438,14 @@ if.else39.i.us:                                   ; preds = %if.then32.i.us
 
 if.end43.i.us:                                    ; preds = %if.else39.i.us, %if.then34.i.us
   %temp.0.i.us = phi double [ %mul38.i.us, %if.then34.i.us ], [ %mul42.i.us, %if.else39.i.us ]
-  %call44.i.us = tail call double @sqrt(double noundef %temp.0.i.us) #10, !tbaa !9
+  %call44.i.us = tail call double @sqrt(double noundef %temp.0.i.us) #11, !tbaa !9
   br label %_ZN8QuantLib7MINPACK5enormEiPd.exit.us
 
 if.then26.i.us:                                   ; preds = %for.end.i.us
   %div27.i.us = fdiv double %s2.1.i.us, %x1max.1.i.us
   %div28.i.us = fdiv double %div27.i.us, %x1max.1.i.us
   %add.i.us = fadd double %s1.1.i.us, %div28.i.us
-  %call.i.us = tail call double @sqrt(double noundef %add.i.us) #10, !tbaa !9
+  %call.i.us = tail call double @sqrt(double noundef %add.i.us) #11, !tbaa !9
   %mul29.i.us = fmul double %x1max.1.i.us, %call.i.us
   br label %_ZN8QuantLib7MINPACK5enormEiPd.exit.us
 
@@ -670,7 +670,7 @@ if.then26.i214:                                   ; preds = %for.end.i198
   %div27.i215 = fdiv double %s2.1.i192, %x1max.1.i194
   %div28.i216 = fdiv double %div27.i215, %x1max.1.i194
   %add.i217 = fadd double %s1.1.i191, %div28.i216
-  %call.i218 = tail call double @sqrt(double noundef %add.i217) #10, !tbaa !9
+  %call.i218 = tail call double @sqrt(double noundef %add.i217) #11, !tbaa !9
   %mul29.i219 = fmul double %x1max.1.i194, %call.i218
   br label %_ZN8QuantLib7MINPACK5enormEiPd.exit233
 
@@ -697,11 +697,11 @@ if.else39.i211:                                   ; preds = %if.then32.i202
 
 if.end43.i208:                                    ; preds = %if.else39.i211, %if.then34.i204
   %temp.0.i209 = phi double [ %mul38.i207, %if.then34.i204 ], [ %mul42.i213, %if.else39.i211 ]
-  %call44.i210 = tail call double @sqrt(double noundef %temp.0.i209) #10, !tbaa !9
+  %call44.i210 = tail call double @sqrt(double noundef %temp.0.i209) #11, !tbaa !9
   br label %_ZN8QuantLib7MINPACK5enormEiPd.exit233
 
 if.else45.i166:                                   ; preds = %if.end30.i200
-  %call46.i169 = tail call double @sqrt(double noundef %s3.1.i193) #10, !tbaa !9
+  %call46.i169 = tail call double @sqrt(double noundef %s3.1.i193) #11, !tbaa !9
   %mul47.i170 = fmul double %x3max.1.i195, %call46.i169
   br label %_ZN8QuantLib7MINPACK5enormEiPd.exit233
 
@@ -903,7 +903,7 @@ if.then26.i286:                                   ; preds = %for.end.i270
   %div27.i287 = fdiv double %s2.1.i264, %x1max.1.i266
   %div28.i288 = fdiv double %div27.i287, %x1max.1.i266
   %add.i289 = fadd double %s1.1.i263, %div28.i288
-  %call.i290 = tail call double @sqrt(double noundef %add.i289) #10, !tbaa !9
+  %call.i290 = tail call double @sqrt(double noundef %add.i289) #11, !tbaa !9
   %mul29.i291 = fmul double %x1max.1.i266, %call.i290
   br label %_ZN8QuantLib7MINPACK5enormEiPd.exit305
 
@@ -930,13 +930,13 @@ if.else39.i283:                                   ; preds = %if.then32.i274
 
 if.end43.i280:                                    ; preds = %if.else39.i283, %if.then34.i276
   %temp.0.i281 = phi double [ %mul38.i279, %if.then34.i276 ], [ %mul42.i285, %if.else39.i283 ]
-  %call44.i282 = tail call double @sqrt(double noundef %temp.0.i281) #10, !tbaa !9
+  %call44.i282 = tail call double @sqrt(double noundef %temp.0.i281) #11, !tbaa !9
   br label %_ZN8QuantLib7MINPACK5enormEiPd.exit305
 
 if.else45.i238:                                   ; preds = %if.end30.i272, %if.then168
   %s3.0.lcssa7481.i239 = phi double [ %s3.1.i265, %if.end30.i272 ], [ 0.000000e+00, %if.then168 ]
   %x3max.0.lcssa7580.i240 = phi double [ %x3max.1.i267, %if.end30.i272 ], [ 0.000000e+00, %if.then168 ]
-  %call46.i241 = tail call double @sqrt(double noundef %s3.0.lcssa7481.i239) #10, !tbaa !9
+  %call46.i241 = tail call double @sqrt(double noundef %s3.0.lcssa7481.i239) #11, !tbaa !9
   %mul47.i242 = fmul double %x3max.0.lcssa7580.i240, %call46.i241
   br label %_ZN8QuantLib7MINPACK5enormEiPd.exit305
 
@@ -969,8 +969,8 @@ for.end193:                                       ; preds = %L100, %for.end
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable
-define void @_ZN8QuantLib7MINPACK6qrsolvEiPdiPKiPKdS5_S1_S1_S1_(i32 noundef %n, ptr noundef captures(none) %r, i32 noundef %ldr, ptr noundef readonly captures(none) %ipvt, ptr noundef readonly captures(none) %diag, ptr noundef readonly captures(none) %qtb, ptr noundef captures(none) %x, ptr noundef captures(none) %sdiag, ptr noundef captures(none) %wa) local_unnamed_addr #0 {
+; Function Attrs: mustprogress nofree nounwind memory(argmem: readwrite, errnomem: write) uwtable
+define void @_ZN8QuantLib7MINPACK6qrsolvEiPdiPKiPKdS5_S1_S1_S1_(i32 noundef %n, ptr noundef captures(none) %r, i32 noundef %ldr, ptr noundef readonly captures(none) %ipvt, ptr noundef readonly captures(none) %diag, ptr noundef readonly captures(none) %qtb, ptr noundef captures(none) %x, ptr noundef captures(none) %sdiag, ptr noundef captures(none) %wa) local_unnamed_addr #7 {
 entry:
   %cmp161 = icmp sgt i32 %n, 0
   br i1 %cmp161, label %for.cond1.preheader.lr.ph, label %for.end201
@@ -1083,7 +1083,7 @@ if.then54:                                        ; preds = %if.end47
   %div = fdiv double %19, %17
   %mul59 = fmul double %div, 2.500000e-01
   %22 = tail call double @llvm.fmuladd.f64(double %mul59, double %div, double 2.500000e-01)
-  %call = tail call double @sqrt(double noundef %22) #10, !tbaa !9
+  %call = tail call double @sqrt(double noundef %22) #11, !tbaa !9
   %div61 = fdiv double 5.000000e-01, %call
   %mul62 = fmul double %div, %div61
   br label %if.end73
@@ -1092,7 +1092,7 @@ if.else:                                          ; preds = %if.end47
   %div67 = fdiv double %17, %19
   %mul68 = fmul double %div67, 2.500000e-01
   %23 = tail call double @llvm.fmuladd.f64(double %mul68, double %div67, double 2.500000e-01)
-  %call70 = tail call double @sqrt(double noundef %23) #10, !tbaa !9
+  %call70 = tail call double @sqrt(double noundef %23) #11, !tbaa !9
   %div71 = fdiv double 5.000000e-01, %call70
   %mul72 = fmul double %div67, %div71
   br label %if.end73
@@ -1258,7 +1258,7 @@ for.end201:                                       ; preds = %for.body192, %entry
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none, errnomem: readwrite) uwtable
 define void @_ZN8QuantLib7MINPACK5lmparEiPdiPiPKdS1_dS1_S1_S1_S1_S1_(i32 noundef %n, ptr noundef captures(none) %r, i32 noundef %ldr, ptr noundef readonly captures(none) %ipvt, ptr noundef readonly captures(none) %diag, ptr noundef readonly captures(none) %qtb, double noundef %delta, ptr noundef captures(none) %par, ptr noundef captures(none) %x, ptr noundef captures(none) %sdiag, ptr noundef captures(none) %wa1, ptr noundef captures(none) %wa2) local_unnamed_addr #6 {
 entry:
   %cmp529 = icmp sgt i32 %n, 0
@@ -1473,7 +1473,7 @@ if.then26.i:                                      ; preds = %for.end.i
   %div27.i = fdiv double %s2.1.i, %x1max.1.i
   %div28.i = fdiv double %div27.i, %x1max.1.i
   %add.i = fadd double %s1.1.i, %div28.i
-  %call.i = tail call double @sqrt(double noundef %add.i) #10, !tbaa !9
+  %call.i = tail call double @sqrt(double noundef %add.i) #11, !tbaa !9
   %mul29.i = fmul double %x1max.1.i, %call.i
   br label %_ZN8QuantLib7MINPACK5enormEiPd.exit
 
@@ -1500,7 +1500,7 @@ if.else39.i:                                      ; preds = %if.then32.i
 
 if.end43.i:                                       ; preds = %if.else39.i, %if.then34.i
   %temp.0.i = phi double [ %mul38.i, %if.then34.i ], [ %mul42.i, %if.else39.i ]
-  %call44.i = tail call double @sqrt(double noundef %temp.0.i) #10, !tbaa !9
+  %call44.i = tail call double @sqrt(double noundef %temp.0.i) #11, !tbaa !9
   br label %_ZN8QuantLib7MINPACK5enormEiPd.exit
 
 if.else45.i:                                      ; preds = %for.end73, %if.end30.i
@@ -1508,7 +1508,7 @@ if.else45.i:                                      ; preds = %for.end73, %if.end3
   %nsing.0.lcssa684686688693 = phi i32 [ %nsing.1, %if.end30.i ], [ %n, %for.end73 ]
   %s3.0.lcssa7481.i = phi double [ %s3.1.i, %if.end30.i ], [ 0.000000e+00, %for.end73 ]
   %x3max.0.lcssa7580.i = phi double [ %x3max.1.i, %if.end30.i ], [ 0.000000e+00, %for.end73 ]
-  %call46.i = tail call double @sqrt(double noundef %s3.0.lcssa7481.i) #10, !tbaa !9
+  %call46.i = tail call double @sqrt(double noundef %s3.0.lcssa7481.i) #11, !tbaa !9
   %mul47.i = fmul double %x3max.0.lcssa7580.i, %call46.i
   br label %_ZN8QuantLib7MINPACK5enormEiPd.exit
 
@@ -1670,7 +1670,7 @@ if.then26.i284:                                   ; preds = %for.end.i268
   %div27.i285 = fdiv double %s2.1.i262, %x1max.1.i264
   %div28.i286 = fdiv double %div27.i285, %x1max.1.i264
   %add.i287 = fadd double %s1.1.i261, %div28.i286
-  %call.i288 = tail call double @sqrt(double noundef %add.i287) #10, !tbaa !9
+  %call.i288 = tail call double @sqrt(double noundef %add.i287) #11, !tbaa !9
   %mul29.i289 = fmul double %x1max.1.i264, %call.i288
   br label %_ZN8QuantLib7MINPACK5enormEiPd.exit303
 
@@ -1697,13 +1697,13 @@ if.else39.i281:                                   ; preds = %if.then32.i272
 
 if.end43.i278:                                    ; preds = %if.else39.i281, %if.then34.i274
   %temp.0.i279 = phi double [ %mul38.i277, %if.then34.i274 ], [ %mul42.i283, %if.else39.i281 ]
-  %call44.i280 = tail call double @sqrt(double noundef %temp.0.i279) #10, !tbaa !9
+  %call44.i280 = tail call double @sqrt(double noundef %temp.0.i279) #11, !tbaa !9
   br label %_ZN8QuantLib7MINPACK5enormEiPd.exit303
 
 if.else45.i236:                                   ; preds = %for.cond81.preheader, %if.end30.i270
   %s3.0.lcssa7481.i237 = phi double [ %s3.1.i263, %if.end30.i270 ], [ 0.000000e+00, %for.cond81.preheader ]
   %x3max.0.lcssa7580.i238 = phi double [ %x3max.1.i265, %if.end30.i270 ], [ 0.000000e+00, %for.cond81.preheader ]
-  %call46.i239 = tail call double @sqrt(double noundef %s3.0.lcssa7481.i237) #10, !tbaa !9
+  %call46.i239 = tail call double @sqrt(double noundef %s3.0.lcssa7481.i237) #11, !tbaa !9
   %mul47.i240 = fmul double %x3max.0.lcssa7580.i238, %call46.i239
   br label %_ZN8QuantLib7MINPACK5enormEiPd.exit303
 
@@ -1836,7 +1836,7 @@ if.then26.i355:                                   ; preds = %for.end.i339
   %div27.i356 = fdiv double %s2.1.i333, %x1max.1.i335
   %div28.i357 = fdiv double %div27.i356, %x1max.1.i335
   %add.i358 = fadd double %s1.1.i332, %div28.i357
-  %call.i359 = tail call double @sqrt(double noundef %add.i358) #10, !tbaa !9
+  %call.i359 = tail call double @sqrt(double noundef %add.i358) #11, !tbaa !9
   %mul29.i360 = fmul double %x1max.1.i335, %call.i359
   br label %_ZN8QuantLib7MINPACK5enormEiPd.exit374
 
@@ -1863,13 +1863,13 @@ if.else39.i352:                                   ; preds = %if.then32.i343
 
 if.end43.i349:                                    ; preds = %if.else39.i352, %if.then34.i345
   %temp.0.i350 = phi double [ %mul38.i348, %if.then34.i345 ], [ %mul42.i354, %if.else39.i352 ]
-  %call44.i351 = tail call double @sqrt(double noundef %temp.0.i350) #10, !tbaa !9
+  %call44.i351 = tail call double @sqrt(double noundef %temp.0.i350) #11, !tbaa !9
   br label %_ZN8QuantLib7MINPACK5enormEiPd.exit374
 
 if.else45.i307:                                   ; preds = %if.end134, %if.end30.i341
   %s3.0.lcssa7481.i308 = phi double [ %s3.1.i334, %if.end30.i341 ], [ 0.000000e+00, %if.end134 ]
   %x3max.0.lcssa7580.i309 = phi double [ %x3max.1.i336, %if.end30.i341 ], [ 0.000000e+00, %if.end134 ]
-  %call46.i310 = tail call double @sqrt(double noundef %s3.0.lcssa7481.i308) #10, !tbaa !9
+  %call46.i310 = tail call double @sqrt(double noundef %s3.0.lcssa7481.i308) #11, !tbaa !9
   %mul47.i311 = fmul double %x3max.0.lcssa7580.i309, %call46.i310
   br label %_ZN8QuantLib7MINPACK5enormEiPd.exit374
 
@@ -1922,7 +1922,7 @@ if.then176:                                       ; preds = %L150
 
 if.end179:                                        ; preds = %if.then176, %L150
   %70 = phi double [ %b.a.i380, %if.then176 ], [ %storemerge229, %L150 ]
-  %call180 = tail call double @sqrt(double noundef %70) #10, !tbaa !9
+  %call180 = tail call double @sqrt(double noundef %70) #11, !tbaa !9
   br i1 %cmp529, label %for.body183, label %for.end204
 
 for.body183:                                      ; preds = %if.end179, %for.body183
@@ -2031,7 +2031,7 @@ if.then26.i432:                                   ; preds = %for.end.i416
   %div27.i433 = fdiv double %s2.1.i410, %x1max.1.i412
   %div28.i434 = fdiv double %div27.i433, %x1max.1.i412
   %add.i435 = fadd double %s1.1.i409, %div28.i434
-  %call.i436 = tail call double @sqrt(double noundef %add.i435) #10, !tbaa !9
+  %call.i436 = tail call double @sqrt(double noundef %add.i435) #11, !tbaa !9
   %mul29.i437 = fmul double %x1max.1.i412, %call.i436
   br label %_ZN8QuantLib7MINPACK5enormEiPd.exit451
 
@@ -2058,13 +2058,13 @@ if.else39.i429:                                   ; preds = %if.then32.i420
 
 if.end43.i426:                                    ; preds = %if.else39.i429, %if.then34.i422
   %temp.0.i427 = phi double [ %mul38.i425, %if.then34.i422 ], [ %mul42.i431, %if.else39.i429 ]
-  %call44.i428 = tail call double @sqrt(double noundef %temp.0.i427) #10, !tbaa !9
+  %call44.i428 = tail call double @sqrt(double noundef %temp.0.i427) #11, !tbaa !9
   br label %_ZN8QuantLib7MINPACK5enormEiPd.exit451
 
 if.else45.i384:                                   ; preds = %for.end204, %if.end30.i418
   %s3.0.lcssa7481.i385 = phi double [ %s3.1.i411, %if.end30.i418 ], [ 0.000000e+00, %for.end204 ]
   %x3max.0.lcssa7580.i386 = phi double [ %x3max.1.i413, %if.end30.i418 ], [ 0.000000e+00, %for.end204 ]
-  %call46.i387 = tail call double @sqrt(double noundef %s3.0.lcssa7481.i385) #10, !tbaa !9
+  %call46.i387 = tail call double @sqrt(double noundef %s3.0.lcssa7481.i385) #11, !tbaa !9
   %mul47.i388 = fmul double %x3max.0.lcssa7580.i386, %call46.i387
   br label %_ZN8QuantLib7MINPACK5enormEiPd.exit451
 
@@ -2224,7 +2224,7 @@ if.then26.i503:                                   ; preds = %for.end.i487
   %div27.i504 = fdiv double %s2.1.i481, %x1max.1.i483
   %div28.i505 = fdiv double %div27.i504, %x1max.1.i483
   %add.i506 = fadd double %s1.1.i480, %div28.i505
-  %call.i507 = tail call double @sqrt(double noundef %add.i506) #10, !tbaa !9
+  %call.i507 = tail call double @sqrt(double noundef %add.i506) #11, !tbaa !9
   %mul29.i508 = fmul double %x1max.1.i483, %call.i507
   br label %_ZN8QuantLib7MINPACK5enormEiPd.exit522
 
@@ -2251,13 +2251,13 @@ if.else39.i500:                                   ; preds = %if.then32.i491
 
 if.end43.i497:                                    ; preds = %if.else39.i500, %if.then34.i493
   %temp.0.i498 = phi double [ %mul38.i496, %if.then34.i493 ], [ %mul42.i502, %if.else39.i500 ]
-  %call44.i499 = tail call double @sqrt(double noundef %temp.0.i498) #10, !tbaa !9
+  %call44.i499 = tail call double @sqrt(double noundef %temp.0.i498) #11, !tbaa !9
   br label %_ZN8QuantLib7MINPACK5enormEiPd.exit522
 
 if.else45.i455:                                   ; preds = %if.end217, %if.end30.i489
   %s3.0.lcssa7481.i456 = phi double [ %s3.1.i482, %if.end30.i489 ], [ 0.000000e+00, %if.end217 ]
   %x3max.0.lcssa7580.i457 = phi double [ %x3max.1.i484, %if.end30.i489 ], [ 0.000000e+00, %if.end217 ]
-  %call46.i458 = tail call double @sqrt(double noundef %s3.0.lcssa7481.i456) #10, !tbaa !9
+  %call46.i458 = tail call double @sqrt(double noundef %s3.0.lcssa7481.i456) #11, !tbaa !9
   %mul47.i459 = fmul double %x3max.0.lcssa7580.i457, %call46.i458
   br label %_ZN8QuantLib7MINPACK5enormEiPd.exit522
 
@@ -2318,8 +2318,8 @@ entry:
   %__args.addr8.i = alloca ptr, align 8
   %iflag = alloca i32, align 4
   %par = alloca double, align 8
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %iflag) #10
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %par) #10
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %iflag) #11
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %par) #11
   store i32 0, ptr %info, align 4, !tbaa !9
   store i32 0, ptr %iflag, align 4, !tbaa !9
   store i32 0, ptr %nfev, align 4, !tbaa !9
@@ -2380,7 +2380,7 @@ if.end20:                                         ; preds = %for.cond, %if.end
   br i1 %tobool.not.i.i, label %if.then.i, label %_ZNKSt8functionIFviiPdS0_PiEEclEiiS0_S0_S1_.exit
 
 if.then.i:                                        ; preds = %if.end20
-  call void @_ZSt25__throw_bad_function_callv() #11
+  call void @_ZSt25__throw_bad_function_callv() #12
   unreachable
 
 _ZNKSt8functionIFviiPdS0_PiEEclEiiS0_S0_S1_.exit: ; preds = %if.end20
@@ -2477,7 +2477,7 @@ if.then26.i:                                      ; preds = %for.end.i
   %div27.i = fdiv double %s2.1.i, %x1max.1.i
   %div28.i = fdiv double %div27.i, %x1max.1.i
   %add.i = fadd double %s1.1.i, %div28.i
-  %call.i = call double @sqrt(double noundef %add.i) #10, !tbaa !9
+  %call.i = call double @sqrt(double noundef %add.i) #11, !tbaa !9
   %mul29.i = fmul double %x1max.1.i, %call.i
   br label %_ZN8QuantLib7MINPACK5enormEiPd.exit
 
@@ -2504,11 +2504,11 @@ if.else39.i:                                      ; preds = %if.then32.i
 
 if.end43.i:                                       ; preds = %if.else39.i, %if.then34.i
   %temp.0.i = phi double [ %mul38.i, %if.then34.i ], [ %mul42.i, %if.else39.i ]
-  %call44.i = call double @sqrt(double noundef %temp.0.i) #10, !tbaa !9
+  %call44.i = call double @sqrt(double noundef %temp.0.i) #11, !tbaa !9
   br label %_ZN8QuantLib7MINPACK5enormEiPd.exit
 
 if.else45.i:                                      ; preds = %if.end30.i
-  %call46.i = call double @sqrt(double noundef %s3.1.i) #10, !tbaa !9
+  %call46.i = call double @sqrt(double noundef %s3.1.i) #11, !tbaa !9
   %mul47.i = fmul double %x3max.1.i, %call46.i
   br label %_ZN8QuantLib7MINPACK5enormEiPd.exit
 
@@ -2595,7 +2595,7 @@ if.then34:                                        ; preds = %if.then31
   br i1 %tobool.not.i.i335, label %if.then.i338, label %_ZNKSt8functionIFviiPdS0_PiEEclEiiS0_S0_S1_.exit339
 
 if.then.i338:                                     ; preds = %if.then34
-  call void @_ZSt25__throw_bad_function_callv() #11
+  call void @_ZSt25__throw_bad_function_callv() #12
   unreachable
 
 _ZNKSt8functionIFviiPdS0_PiEEclEiiS0_S0_S1_.exit339: ; preds = %if.then34
@@ -2720,7 +2720,7 @@ if.then26.i391:                                   ; preds = %for.end.i375
   %div27.i392 = fdiv double %s2.1.i369, %x1max.1.i371
   %div28.i393 = fdiv double %div27.i392, %x1max.1.i371
   %add.i394 = fadd double %s1.1.i368, %div28.i393
-  %call.i395 = call double @sqrt(double noundef %add.i394) #10, !tbaa !9
+  %call.i395 = call double @sqrt(double noundef %add.i394) #11, !tbaa !9
   %mul29.i396 = fmul double %x1max.1.i371, %call.i395
   br label %_ZN8QuantLib7MINPACK5enormEiPd.exit410
 
@@ -2747,11 +2747,11 @@ if.else39.i388:                                   ; preds = %if.then32.i379
 
 if.end43.i385:                                    ; preds = %if.else39.i388, %if.then34.i381
   %temp.0.i386 = phi double [ %mul38.i384, %if.then34.i381 ], [ %mul42.i390, %if.else39.i388 ]
-  %call44.i387 = call double @sqrt(double noundef %temp.0.i386) #10, !tbaa !9
+  %call44.i387 = call double @sqrt(double noundef %temp.0.i386) #11, !tbaa !9
   br label %_ZN8QuantLib7MINPACK5enormEiPd.exit410
 
 if.else45.i343:                                   ; preds = %if.end30.i377
-  %call46.i346 = call double @sqrt(double noundef %s3.1.i370) #10, !tbaa !9
+  %call46.i346 = call double @sqrt(double noundef %s3.1.i370) #11, !tbaa !9
   %mul47.i347 = fmul double %x3max.1.i372, %call46.i346
   br label %_ZN8QuantLib7MINPACK5enormEiPd.exit410
 
@@ -3017,7 +3017,7 @@ if.then26.i464:                                   ; preds = %for.end.i448
   %div27.i465 = fdiv double %s2.1.i442, %x1max.1.i444
   %div28.i466 = fdiv double %div27.i465, %x1max.1.i444
   %add.i467 = fadd double %s1.1.i441, %div28.i466
-  %call.i468 = call double @sqrt(double noundef %add.i467) #10, !tbaa !9
+  %call.i468 = call double @sqrt(double noundef %add.i467) #11, !tbaa !9
   %mul29.i469 = fmul double %x1max.1.i444, %call.i468
   br label %_ZN8QuantLib7MINPACK5enormEiPd.exit483
 
@@ -3044,11 +3044,11 @@ if.else39.i461:                                   ; preds = %if.then32.i452
 
 if.end43.i458:                                    ; preds = %if.else39.i461, %if.then34.i454
   %temp.0.i459 = phi double [ %mul38.i457, %if.then34.i454 ], [ %mul42.i463, %if.else39.i461 ]
-  %call44.i460 = call double @sqrt(double noundef %temp.0.i459) #10, !tbaa !9
+  %call44.i460 = call double @sqrt(double noundef %temp.0.i459) #11, !tbaa !9
   br label %_ZN8QuantLib7MINPACK5enormEiPd.exit483
 
 if.else45.i416:                                   ; preds = %if.end30.i450
-  %call46.i419 = call double @sqrt(double noundef %s3.1.i443) #10, !tbaa !9
+  %call46.i419 = call double @sqrt(double noundef %s3.1.i443) #11, !tbaa !9
   %mul47.i420 = fmul double %x3max.1.i445, %call46.i419
   br label %_ZN8QuantLib7MINPACK5enormEiPd.exit483
 
@@ -3074,7 +3074,7 @@ _ZN8QuantLib7MINPACK5enormEiPd.exit483:           ; preds = %if.then26.i464, %if
   br i1 %tobool.not.i.i492, label %if.then.i495, label %_ZNKSt8functionIFviiPdS0_PiEEclEiiS0_S0_S1_.exit496
 
 if.then.i495:                                     ; preds = %_ZN8QuantLib7MINPACK5enormEiPd.exit483
-  call void @_ZSt25__throw_bad_function_callv() #11
+  call void @_ZSt25__throw_bad_function_callv() #12
   unreachable
 
 _ZNKSt8functionIFviiPdS0_PiEEclEiiS0_S0_S1_.exit496: ; preds = %_ZN8QuantLib7MINPACK5enormEiPd.exit483
@@ -3166,7 +3166,7 @@ if.then26.i548:                                   ; preds = %for.end.i532
   %div27.i549 = fdiv double %s2.1.i526, %x1max.1.i528
   %div28.i550 = fdiv double %div27.i549, %x1max.1.i528
   %add.i551 = fadd double %s1.1.i525, %div28.i550
-  %call.i552 = call double @sqrt(double noundef %add.i551) #10, !tbaa !9
+  %call.i552 = call double @sqrt(double noundef %add.i551) #11, !tbaa !9
   %mul29.i553 = fmul double %x1max.1.i528, %call.i552
   br label %_ZN8QuantLib7MINPACK5enormEiPd.exit567
 
@@ -3193,11 +3193,11 @@ if.else39.i545:                                   ; preds = %if.then32.i536
 
 if.end43.i542:                                    ; preds = %if.else39.i545, %if.then34.i538
   %temp.0.i543 = phi double [ %mul38.i541, %if.then34.i538 ], [ %mul42.i547, %if.else39.i545 ]
-  %call44.i544 = call double @sqrt(double noundef %temp.0.i543) #10, !tbaa !9
+  %call44.i544 = call double @sqrt(double noundef %temp.0.i543) #11, !tbaa !9
   br label %_ZN8QuantLib7MINPACK5enormEiPd.exit567
 
 if.else45.i500:                                   ; preds = %if.end30.i534
-  %call46.i503 = call double @sqrt(double noundef %s3.1.i527) #10, !tbaa !9
+  %call46.i503 = call double @sqrt(double noundef %s3.1.i527) #11, !tbaa !9
   %mul47.i504 = fmul double %x3max.1.i529, %call46.i503
   br label %_ZN8QuantLib7MINPACK5enormEiPd.exit567
 
@@ -3319,7 +3319,7 @@ if.then26.i619:                                   ; preds = %for.end.i603
   %div27.i620 = fdiv double %s2.1.i597, %x1max.1.i599
   %div28.i621 = fdiv double %div27.i620, %x1max.1.i599
   %add.i622 = fadd double %s1.1.i596, %div28.i621
-  %call.i623 = call double @sqrt(double noundef %add.i622) #10, !tbaa !9
+  %call.i623 = call double @sqrt(double noundef %add.i622) #11, !tbaa !9
   %mul29.i624 = fmul double %x1max.1.i599, %call.i623
   br label %_ZN8QuantLib7MINPACK5enormEiPd.exit638
 
@@ -3346,11 +3346,11 @@ if.else39.i616:                                   ; preds = %if.then32.i607
 
 if.end43.i613:                                    ; preds = %if.else39.i616, %if.then34.i609
   %temp.0.i614 = phi double [ %mul38.i612, %if.then34.i609 ], [ %mul42.i618, %if.else39.i616 ]
-  %call44.i615 = call double @sqrt(double noundef %temp.0.i614) #10, !tbaa !9
+  %call44.i615 = call double @sqrt(double noundef %temp.0.i614) #11, !tbaa !9
   br label %_ZN8QuantLib7MINPACK5enormEiPd.exit638
 
 if.else45.i571:                                   ; preds = %if.end30.i605
-  %call46.i574 = call double @sqrt(double noundef %s3.1.i598) #10, !tbaa !9
+  %call46.i574 = call double @sqrt(double noundef %s3.1.i598) #11, !tbaa !9
   %mul47.i575 = fmul double %x3max.1.i600, %call46.i574
   br label %_ZN8QuantLib7MINPACK5enormEiPd.exit638
 
@@ -3358,7 +3358,7 @@ _ZN8QuantLib7MINPACK5enormEiPd.exit638:           ; preds = %if.then26.i619, %if
   %retval.0.i576 = phi double [ %mul29.i624, %if.then26.i619 ], [ %call44.i615, %if.end43.i613 ], [ %mul47.i575, %if.else45.i571 ]
   %div259 = fdiv double %retval.0.i576, %fnorm.1
   %93 = load double, ptr %par, align 8, !tbaa !3
-  %call260 = call double @sqrt(double noundef %93) #10, !tbaa !9
+  %call260 = call double @sqrt(double noundef %93) #11, !tbaa !9
   %mul261 = fmul double %retval.0.i421, %call260
   %div262 = fdiv double %mul261, %fnorm.1
   %mul264 = fmul double %div262, %div262
@@ -3515,7 +3515,7 @@ if.then26.i692:                                   ; preds = %for.end.i676
   %div27.i693 = fdiv double %s2.1.i670, %x1max.1.i672
   %div28.i694 = fdiv double %div27.i693, %x1max.1.i672
   %add.i695 = fadd double %s1.1.i669, %div28.i694
-  %call.i696 = call double @sqrt(double noundef %add.i695) #10, !tbaa !9
+  %call.i696 = call double @sqrt(double noundef %add.i695) #11, !tbaa !9
   %mul29.i697 = fmul double %x1max.1.i672, %call.i696
   br label %_ZN8QuantLib7MINPACK5enormEiPd.exit711
 
@@ -3542,11 +3542,11 @@ if.else39.i689:                                   ; preds = %if.then32.i680
 
 if.end43.i686:                                    ; preds = %if.else39.i689, %if.then34.i682
   %temp.0.i687 = phi double [ %mul38.i685, %if.then34.i682 ], [ %mul42.i691, %if.else39.i689 ]
-  %call44.i688 = call double @sqrt(double noundef %temp.0.i687) #10, !tbaa !9
+  %call44.i688 = call double @sqrt(double noundef %temp.0.i687) #11, !tbaa !9
   br label %_ZN8QuantLib7MINPACK5enormEiPd.exit711
 
 if.else45.i644:                                   ; preds = %if.end30.i678
-  %call46.i647 = call double @sqrt(double noundef %s3.1.i671) #10, !tbaa !9
+  %call46.i647 = call double @sqrt(double noundef %s3.1.i671) #11, !tbaa !9
   %mul47.i648 = fmul double %x3max.1.i673, %call46.i647
   br label %_ZN8QuantLib7MINPACK5enormEiPd.exit711
 
@@ -3660,7 +3660,7 @@ if.then385:                                       ; preds = %if.end383
   br i1 %tobool.not.i.i718, label %if.then.i721, label %_ZNKSt8functionIFviiPdS0_PiEEclEiiS0_S0_S1_.exit722
 
 if.then.i721:                                     ; preds = %if.then385
-  call void @_ZSt25__throw_bad_function_callv() #11
+  call void @_ZSt25__throw_bad_function_callv() #12
   unreachable
 
 _ZNKSt8functionIFviiPdS0_PiEEclEiiS0_S0_S1_.exit722: ; preds = %if.then385
@@ -3675,35 +3675,36 @@ _ZNKSt8functionIFviiPdS0_PiEEclEiiS0_S0_S1_.exit722: ; preds = %if.then385
   br label %if.end386
 
 if.end386:                                        ; preds = %_ZNKSt8functionIFviiPdS0_PiEEclEiiS0_S0_S1_.exit722, %if.end383
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %par) #10
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %iflag) #10
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %par) #11
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %iflag) #11
   ret void
 }
 
 ; Function Attrs: noreturn
-declare void @_ZSt25__throw_bad_function_callv() local_unnamed_addr #7
+declare void @_ZSt25__throw_bad_function_callv() local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #8
+declare i32 @llvm.smin.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.sqrt.f64(double) #8
+declare double @llvm.sqrt.f64(double) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
-attributes #0 = { mustprogress nofree nounwind memory(write, argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #0 = { mustprogress nofree nounwind memory(argmem: read, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #3 = { mustprogress nofree nounwind willreturn memory(write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { mustprogress nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { nounwind }
-attributes #11 = { noreturn }
+attributes #6 = { mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none, errnomem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind memory(argmem: readwrite, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { nounwind }
+attributes #12 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2}
 

@@ -179,7 +179,7 @@ declare void @_ZN17btTypedConstraintC2E21btTypedConstraintTypeR11btRigidBodyS2_(
 
 declare i32 @__gxx_personality_v0(...)
 
-; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN30btGeneric6DofSpring2Constraint19calculateTransformsEv(ptr noundef nonnull align 8 dereferenceable(1484) initializes((1260, 1388), (1452, 1468)) %0) local_unnamed_addr #2 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %3 = load ptr, ptr %2, align 8, !tbaa !46
@@ -437,7 +437,7 @@ define dso_local noundef float @_ZN30btGeneric6DofSpring2Constraint15btGetMatrix
   ret float %9
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable
 define dso_local noundef zeroext i1 @_ZN30btGeneric6DofSpring2Constraint16matrixToEulerXYZERK11btMatrix3x3R9btVector3(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(48) %0, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(16) initializes((0, 12)) %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load float, ptr %3, align 4, !tbaa !10
@@ -454,21 +454,21 @@ define dso_local noundef zeroext i1 @_ZN30btGeneric6DofSpring2Constraint16matrix
   %11 = fneg float %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %13 = load float, ptr %12, align 4, !tbaa !10
-  %14 = tail call noundef float @atan2f(float noundef %11, float noundef %13) #23, !tbaa !54
+  %14 = tail call noundef float @atan2f(float noundef %11, float noundef %13) #24, !tbaa !54
   store float %14, ptr %1, align 4, !tbaa !10
   %15 = load float, ptr %3, align 4, !tbaa !10
   %16 = fcmp olt float %15, -1.000000e+00
   %.0.i = select i1 %16, float -1.000000e+00, float %15
   %17 = fcmp ogt float %.0.i, 1.000000e+00
   %.1.i = select i1 %17, float 1.000000e+00, float %.0.i
-  %18 = tail call noundef float @asinf(float noundef %.1.i) #23, !tbaa !54
+  %18 = tail call noundef float @asinf(float noundef %.1.i) #24, !tbaa !54
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store float %18, ptr %19, align 4, !tbaa !10
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %21 = load float, ptr %20, align 4, !tbaa !10
   %22 = fneg float %21
   %23 = load float, ptr %0, align 4, !tbaa !10
-  %24 = tail call noundef float @atan2f(float noundef %22, float noundef %23) #23, !tbaa !54
+  %24 = tail call noundef float @atan2f(float noundef %22, float noundef %23) #24, !tbaa !54
   br label %40
 
 25:                                               ; preds = %6
@@ -476,7 +476,7 @@ define dso_local noundef zeroext i1 @_ZN30btGeneric6DofSpring2Constraint16matrix
   %27 = load float, ptr %26, align 4, !tbaa !10
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %29 = load float, ptr %28, align 4, !tbaa !10
-  %30 = tail call noundef float @atan2f(float noundef %27, float noundef %29) #23, !tbaa !54
+  %30 = tail call noundef float @atan2f(float noundef %27, float noundef %29) #24, !tbaa !54
   %31 = fneg float %30
   store float %31, ptr %1, align 4, !tbaa !10
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -488,7 +488,7 @@ define dso_local noundef zeroext i1 @_ZN30btGeneric6DofSpring2Constraint16matrix
   %35 = load float, ptr %34, align 4, !tbaa !10
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %37 = load float, ptr %36, align 4, !tbaa !10
-  %38 = tail call noundef float @atan2f(float noundef %35, float noundef %37) #23, !tbaa !54
+  %38 = tail call noundef float @atan2f(float noundef %35, float noundef %37) #24, !tbaa !54
   store float %38, ptr %1, align 4, !tbaa !10
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store float 0x3FF921FB60000000, ptr %39, align 4, !tbaa !10
@@ -502,7 +502,7 @@ define dso_local noundef zeroext i1 @_ZN30btGeneric6DofSpring2Constraint16matrix
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable
 define dso_local noundef zeroext i1 @_ZN30btGeneric6DofSpring2Constraint16matrixToEulerXZYERK11btMatrix3x3R9btVector3(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(48) %0, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(16) initializes((0, 12)) %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load float, ptr %3, align 4, !tbaa !10
@@ -518,12 +518,12 @@ define dso_local noundef zeroext i1 @_ZN30btGeneric6DofSpring2Constraint16matrix
   %10 = load float, ptr %9, align 4, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %12 = load float, ptr %11, align 4, !tbaa !10
-  %13 = tail call noundef float @atan2f(float noundef %10, float noundef %12) #23, !tbaa !54
+  %13 = tail call noundef float @atan2f(float noundef %10, float noundef %12) #24, !tbaa !54
   store float %13, ptr %1, align 4, !tbaa !10
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %15 = load float, ptr %14, align 4, !tbaa !10
   %16 = load float, ptr %0, align 4, !tbaa !10
-  %17 = tail call noundef float @atan2f(float noundef %15, float noundef %16) #23, !tbaa !54
+  %17 = tail call noundef float @atan2f(float noundef %15, float noundef %16) #24, !tbaa !54
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store float %17, ptr %18, align 4, !tbaa !10
   %19 = load float, ptr %3, align 4, !tbaa !10
@@ -532,7 +532,7 @@ define dso_local noundef zeroext i1 @_ZN30btGeneric6DofSpring2Constraint16matrix
   %.0.i = select i1 %21, float -1.000000e+00, float %20
   %22 = fcmp ogt float %.0.i, 1.000000e+00
   %.1.i = select i1 %22, float 1.000000e+00, float %.0.i
-  %23 = tail call noundef float @asinf(float noundef %.1.i) #23, !tbaa !54
+  %23 = tail call noundef float @asinf(float noundef %.1.i) #24, !tbaa !54
   br label %41
 
 24:                                               ; preds = %6
@@ -541,7 +541,7 @@ define dso_local noundef zeroext i1 @_ZN30btGeneric6DofSpring2Constraint16matrix
   %27 = fneg float %26
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %29 = load float, ptr %28, align 4, !tbaa !10
-  %30 = tail call noundef float @atan2f(float noundef %27, float noundef %29) #23, !tbaa !54
+  %30 = tail call noundef float @atan2f(float noundef %27, float noundef %29) #24, !tbaa !54
   %31 = fneg float %30
   store float %31, ptr %1, align 4, !tbaa !10
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 4
@@ -554,7 +554,7 @@ define dso_local noundef zeroext i1 @_ZN30btGeneric6DofSpring2Constraint16matrix
   %36 = fneg float %35
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %38 = load float, ptr %37, align 4, !tbaa !10
-  %39 = tail call noundef float @atan2f(float noundef %36, float noundef %38) #23, !tbaa !54
+  %39 = tail call noundef float @atan2f(float noundef %36, float noundef %38) #24, !tbaa !54
   store float %39, ptr %1, align 4, !tbaa !10
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store float 0.000000e+00, ptr %40, align 4, !tbaa !10
@@ -568,7 +568,7 @@ define dso_local noundef zeroext i1 @_ZN30btGeneric6DofSpring2Constraint16matrix
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable
 define dso_local noundef zeroext i1 @_ZN30btGeneric6DofSpring2Constraint16matrixToEulerYXZERK11btMatrix3x3R9btVector3(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(48) %0, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(16) initializes((0, 12)) %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 36
@@ -586,19 +586,19 @@ define dso_local noundef zeroext i1 @_ZN30btGeneric6DofSpring2Constraint16matrix
   %.0.i = select i1 %11, float -1.000000e+00, float %10
   %12 = fcmp ogt float %.0.i, 1.000000e+00
   %.1.i = select i1 %12, float 1.000000e+00, float %.0.i
-  %13 = tail call noundef float @asinf(float noundef %.1.i) #23, !tbaa !54
+  %13 = tail call noundef float @asinf(float noundef %.1.i) #24, !tbaa !54
   store float %13, ptr %1, align 4, !tbaa !10
   %14 = load float, ptr %3, align 4, !tbaa !10
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %16 = load float, ptr %15, align 4, !tbaa !10
-  %17 = tail call noundef float @atan2f(float noundef %14, float noundef %16) #23, !tbaa !54
+  %17 = tail call noundef float @atan2f(float noundef %14, float noundef %16) #24, !tbaa !54
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store float %17, ptr %18, align 4, !tbaa !10
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %20 = load float, ptr %19, align 4, !tbaa !10
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %22 = load float, ptr %21, align 4, !tbaa !10
-  %23 = tail call noundef float @atan2f(float noundef %20, float noundef %22) #23, !tbaa !54
+  %23 = tail call noundef float @atan2f(float noundef %20, float noundef %22) #24, !tbaa !54
   br label %39
 
 24:                                               ; preds = %7
@@ -607,7 +607,7 @@ define dso_local noundef zeroext i1 @_ZN30btGeneric6DofSpring2Constraint16matrix
   %26 = load float, ptr %25, align 4, !tbaa !10
   %27 = fneg float %26
   %28 = load float, ptr %0, align 4, !tbaa !10
-  %29 = tail call noundef float @atan2f(float noundef %27, float noundef %28) #23, !tbaa !54
+  %29 = tail call noundef float @atan2f(float noundef %27, float noundef %28) #24, !tbaa !54
   %30 = fneg float %29
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store float %30, ptr %31, align 4, !tbaa !10
@@ -619,7 +619,7 @@ define dso_local noundef zeroext i1 @_ZN30btGeneric6DofSpring2Constraint16matrix
   %34 = load float, ptr %33, align 4, !tbaa !10
   %35 = fneg float %34
   %36 = load float, ptr %0, align 4, !tbaa !10
-  %37 = tail call noundef float @atan2f(float noundef %35, float noundef %36) #23, !tbaa !54
+  %37 = tail call noundef float @atan2f(float noundef %35, float noundef %36) #24, !tbaa !54
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store float %37, ptr %38, align 4, !tbaa !10
   br label %39
@@ -632,7 +632,7 @@ define dso_local noundef zeroext i1 @_ZN30btGeneric6DofSpring2Constraint16matrix
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable
 define dso_local noundef zeroext i1 @_ZN30btGeneric6DofSpring2Constraint16matrixToEulerYZXERK11btMatrix3x3R9btVector3(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(48) %0, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(16) initializes((0, 12)) %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %4 = load float, ptr %3, align 4, !tbaa !10
@@ -649,13 +649,13 @@ define dso_local noundef zeroext i1 @_ZN30btGeneric6DofSpring2Constraint16matrix
   %11 = fneg float %10
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %13 = load float, ptr %12, align 4, !tbaa !10
-  %14 = tail call noundef float @atan2f(float noundef %11, float noundef %13) #23, !tbaa !54
+  %14 = tail call noundef float @atan2f(float noundef %11, float noundef %13) #24, !tbaa !54
   store float %14, ptr %1, align 4, !tbaa !10
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %16 = load float, ptr %15, align 4, !tbaa !10
   %17 = fneg float %16
   %18 = load float, ptr %0, align 4, !tbaa !10
-  %19 = tail call noundef float @atan2f(float noundef %17, float noundef %18) #23, !tbaa !54
+  %19 = tail call noundef float @atan2f(float noundef %17, float noundef %18) #24, !tbaa !54
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store float %19, ptr %20, align 4, !tbaa !10
   %21 = load float, ptr %3, align 4, !tbaa !10
@@ -663,7 +663,7 @@ define dso_local noundef zeroext i1 @_ZN30btGeneric6DofSpring2Constraint16matrix
   %.0.i = select i1 %22, float -1.000000e+00, float %21
   %23 = fcmp ogt float %.0.i, 1.000000e+00
   %.1.i = select i1 %23, float 1.000000e+00, float %.0.i
-  %24 = tail call noundef float @asinf(float noundef %.1.i) #23, !tbaa !54
+  %24 = tail call noundef float @asinf(float noundef %.1.i) #24, !tbaa !54
   br label %40
 
 25:                                               ; preds = %6
@@ -672,7 +672,7 @@ define dso_local noundef zeroext i1 @_ZN30btGeneric6DofSpring2Constraint16matrix
   %27 = load float, ptr %26, align 4, !tbaa !10
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %29 = load float, ptr %28, align 4, !tbaa !10
-  %30 = tail call noundef float @atan2f(float noundef %27, float noundef %29) #23, !tbaa !54
+  %30 = tail call noundef float @atan2f(float noundef %27, float noundef %29) #24, !tbaa !54
   %31 = fneg float %30
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store float %31, ptr %32, align 4, !tbaa !10
@@ -684,7 +684,7 @@ define dso_local noundef zeroext i1 @_ZN30btGeneric6DofSpring2Constraint16matrix
   %35 = load float, ptr %34, align 4, !tbaa !10
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %37 = load float, ptr %36, align 4, !tbaa !10
-  %38 = tail call noundef float @atan2f(float noundef %35, float noundef %37) #23, !tbaa !54
+  %38 = tail call noundef float @atan2f(float noundef %35, float noundef %37) #24, !tbaa !54
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store float %38, ptr %39, align 4, !tbaa !10
   br label %40
@@ -697,7 +697,7 @@ define dso_local noundef zeroext i1 @_ZN30btGeneric6DofSpring2Constraint16matrix
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable
 define dso_local noundef zeroext i1 @_ZN30btGeneric6DofSpring2Constraint16matrixToEulerZXYERK11btMatrix3x3R9btVector3(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(48) %0, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(16) initializes((0, 12)) %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -714,21 +714,21 @@ define dso_local noundef zeroext i1 @_ZN30btGeneric6DofSpring2Constraint16matrix
   %.0.i = select i1 %10, float -1.000000e+00, float %5
   %11 = fcmp ogt float %.0.i, 1.000000e+00
   %.1.i = select i1 %11, float 1.000000e+00, float %.0.i
-  %12 = tail call noundef float @asinf(float noundef %.1.i) #23, !tbaa !54
+  %12 = tail call noundef float @asinf(float noundef %.1.i) #24, !tbaa !54
   store float %12, ptr %1, align 4, !tbaa !10
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %14 = load float, ptr %13, align 4, !tbaa !10
   %15 = fneg float %14
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %17 = load float, ptr %16, align 4, !tbaa !10
-  %18 = tail call noundef float @atan2f(float noundef %15, float noundef %17) #23, !tbaa !54
+  %18 = tail call noundef float @atan2f(float noundef %15, float noundef %17) #24, !tbaa !54
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store float %18, ptr %19, align 4, !tbaa !10
   %20 = load float, ptr %3, align 4, !tbaa !10
   %21 = fneg float %20
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %23 = load float, ptr %22, align 4, !tbaa !10
-  %24 = tail call noundef float @atan2f(float noundef %21, float noundef %23) #23, !tbaa !54
+  %24 = tail call noundef float @atan2f(float noundef %21, float noundef %23) #24, !tbaa !54
   br label %38
 
 25:                                               ; preds = %7
@@ -738,7 +738,7 @@ define dso_local noundef zeroext i1 @_ZN30btGeneric6DofSpring2Constraint16matrix
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %28 = load float, ptr %27, align 4, !tbaa !10
   %29 = load float, ptr %0, align 4, !tbaa !10
-  %30 = tail call noundef float @atan2f(float noundef %28, float noundef %29) #23, !tbaa !54
+  %30 = tail call noundef float @atan2f(float noundef %28, float noundef %29) #24, !tbaa !54
   %31 = fneg float %30
   br label %38
 
@@ -749,7 +749,7 @@ define dso_local noundef zeroext i1 @_ZN30btGeneric6DofSpring2Constraint16matrix
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %35 = load float, ptr %34, align 4, !tbaa !10
   %36 = load float, ptr %0, align 4, !tbaa !10
-  %37 = tail call noundef float @atan2f(float noundef %35, float noundef %36) #23, !tbaa !54
+  %37 = tail call noundef float @atan2f(float noundef %35, float noundef %36) #24, !tbaa !54
   br label %38
 
 38:                                               ; preds = %32, %25, %9
@@ -760,7 +760,7 @@ define dso_local noundef zeroext i1 @_ZN30btGeneric6DofSpring2Constraint16matrix
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable
 define dso_local noundef zeroext i1 @_ZN30btGeneric6DofSpring2Constraint16matrixToEulerZYXERK11btMatrix3x3R9btVector3(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(48) %0, ptr noundef nonnull writeonly align 4 captures(none) dereferenceable(16) initializes((0, 12)) %1) local_unnamed_addr #6 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load float, ptr %3, align 4, !tbaa !10
@@ -776,7 +776,7 @@ define dso_local noundef zeroext i1 @_ZN30btGeneric6DofSpring2Constraint16matrix
   %10 = load float, ptr %9, align 4, !tbaa !10
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %12 = load float, ptr %11, align 4, !tbaa !10
-  %13 = tail call noundef float @atan2f(float noundef %10, float noundef %12) #23, !tbaa !54
+  %13 = tail call noundef float @atan2f(float noundef %10, float noundef %12) #24, !tbaa !54
   store float %13, ptr %1, align 4, !tbaa !10
   %14 = load float, ptr %3, align 4, !tbaa !10
   %15 = fneg float %14
@@ -784,13 +784,13 @@ define dso_local noundef zeroext i1 @_ZN30btGeneric6DofSpring2Constraint16matrix
   %.0.i = select i1 %16, float -1.000000e+00, float %15
   %17 = fcmp ogt float %.0.i, 1.000000e+00
   %.1.i = select i1 %17, float 1.000000e+00, float %.0.i
-  %18 = tail call noundef float @asinf(float noundef %.1.i) #23, !tbaa !54
+  %18 = tail call noundef float @asinf(float noundef %.1.i) #24, !tbaa !54
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store float %18, ptr %19, align 4, !tbaa !10
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %21 = load float, ptr %20, align 4, !tbaa !10
   %22 = load float, ptr %0, align 4, !tbaa !10
-  %23 = tail call noundef float @atan2f(float noundef %21, float noundef %22) #23, !tbaa !54
+  %23 = tail call noundef float @atan2f(float noundef %21, float noundef %22) #24, !tbaa !54
   br label %41
 
 24:                                               ; preds = %6
@@ -801,7 +801,7 @@ define dso_local noundef zeroext i1 @_ZN30btGeneric6DofSpring2Constraint16matrix
   %27 = load float, ptr %26, align 4, !tbaa !10
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %29 = load float, ptr %28, align 4, !tbaa !10
-  %30 = tail call noundef float @atan2f(float noundef %27, float noundef %29) #23, !tbaa !54
+  %30 = tail call noundef float @atan2f(float noundef %27, float noundef %29) #24, !tbaa !54
   %31 = fneg float %30
   br label %41
 
@@ -815,7 +815,7 @@ define dso_local noundef zeroext i1 @_ZN30btGeneric6DofSpring2Constraint16matrix
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %38 = load float, ptr %37, align 4, !tbaa !10
   %39 = fneg float %38
-  %40 = tail call noundef float @atan2f(float noundef %36, float noundef %39) #23, !tbaa !54
+  %40 = tail call noundef float @atan2f(float noundef %36, float noundef %39) #24, !tbaa !54
   br label %41
 
 41:                                               ; preds = %32, %24, %8
@@ -826,7 +826,7 @@ define dso_local noundef zeroext i1 @_ZN30btGeneric6DofSpring2Constraint16matrix
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable
 define dso_local void @_ZN30btGeneric6DofSpring2Constraint18calculateAngleInfoEv(ptr noundef nonnull align 8 dereferenceable(1484) %0) local_unnamed_addr #7 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1260
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 1276
@@ -971,21 +971,21 @@ define dso_local void @_ZN30btGeneric6DofSpring2Constraint18calculateAngleInfoEv
 
 109:                                              ; preds = %107
   %110 = fneg float %98
-  %111 = tail call noundef float @atan2f(float noundef %110, float noundef %101) #23, !tbaa !54
+  %111 = tail call noundef float @atan2f(float noundef %110, float noundef %101) #24, !tbaa !54
   store float %111, ptr %105, align 4, !tbaa !10
   %112 = fcmp olt float %95, -1.000000e+00
   %.0.i.i = select i1 %112, float -1.000000e+00, float %95
   %113 = fcmp ogt float %.0.i.i, 1.000000e+00
   %.1.i.i = select i1 %113, float 1.000000e+00, float %.0.i.i
-  %114 = tail call noundef float @asinf(float noundef %.1.i.i) #23, !tbaa !54
+  %114 = tail call noundef float @asinf(float noundef %.1.i.i) #24, !tbaa !54
   %115 = getelementptr inbounds nuw i8, ptr %0, i64 1392
   store float %114, ptr %115, align 8, !tbaa !10
   %116 = fneg float %86
-  %117 = tail call noundef float @atan2f(float noundef %116, float noundef %65) #23, !tbaa !54
+  %117 = tail call noundef float @atan2f(float noundef %116, float noundef %65) #24, !tbaa !54
   br label %.thread
 
 118:                                              ; preds = %107
-  %119 = tail call noundef float @atan2f(float noundef %74, float noundef %89) #23, !tbaa !54
+  %119 = tail call noundef float @atan2f(float noundef %74, float noundef %89) #24, !tbaa !54
   %120 = fneg float %119
   store float %120, ptr %105, align 4, !tbaa !10
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 1392
@@ -993,7 +993,7 @@ define dso_local void @_ZN30btGeneric6DofSpring2Constraint18calculateAngleInfoEv
   br label %.thread
 
 122:                                              ; preds = %104
-  %123 = tail call noundef float @atan2f(float noundef %74, float noundef %89) #23, !tbaa !54
+  %123 = tail call noundef float @atan2f(float noundef %74, float noundef %89) #24, !tbaa !54
   store float %123, ptr %105, align 4, !tbaa !10
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 1392
   store float 0x3FF921FB60000000, ptr %124, align 8, !tbaa !10
@@ -1049,9 +1049,9 @@ define dso_local void @_ZN30btGeneric6DofSpring2Constraint18calculateAngleInfoEv
   br i1 %155, label %156, label %164
 
 156:                                              ; preds = %154
-  %157 = tail call noundef float @atan2f(float noundef %92, float noundef %89) #23, !tbaa !54
+  %157 = tail call noundef float @atan2f(float noundef %92, float noundef %89) #24, !tbaa !54
   store float %157, ptr %152, align 4, !tbaa !10
-  %158 = tail call noundef float @atan2f(float noundef %95, float noundef %65) #23, !tbaa !54
+  %158 = tail call noundef float @atan2f(float noundef %95, float noundef %65) #24, !tbaa !54
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 1392
   store float %158, ptr %159, align 8, !tbaa !10
   %160 = fneg float %86
@@ -1059,12 +1059,12 @@ define dso_local void @_ZN30btGeneric6DofSpring2Constraint18calculateAngleInfoEv
   %.0.i.i37 = select i1 %161, float -1.000000e+00, float %160
   %162 = fcmp ogt float %.0.i.i37, 1.000000e+00
   %.1.i.i38 = select i1 %162, float 1.000000e+00, float %.0.i.i37
-  %163 = tail call noundef float @asinf(float noundef %.1.i.i38) #23, !tbaa !54
+  %163 = tail call noundef float @asinf(float noundef %.1.i.i38) #24, !tbaa !54
   br label %.thread349
 
 164:                                              ; preds = %154
   %165 = fneg float %83
-  %166 = tail call noundef float @atan2f(float noundef %165, float noundef %101) #23, !tbaa !54
+  %166 = tail call noundef float @atan2f(float noundef %165, float noundef %101) #24, !tbaa !54
   %167 = fneg float %166
   store float %167, ptr %152, align 4, !tbaa !10
   %168 = getelementptr inbounds nuw i8, ptr %0, i64 1392
@@ -1073,7 +1073,7 @@ define dso_local void @_ZN30btGeneric6DofSpring2Constraint18calculateAngleInfoEv
 
 169:                                              ; preds = %151
   %170 = fneg float %83
-  %171 = tail call noundef float @atan2f(float noundef %170, float noundef %101) #23, !tbaa !54
+  %171 = tail call noundef float @atan2f(float noundef %170, float noundef %101) #24, !tbaa !54
   store float %171, ptr %152, align 4, !tbaa !10
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 1392
   store float 0.000000e+00, ptr %172, align 8, !tbaa !10
@@ -1136,18 +1136,18 @@ define dso_local void @_ZN30btGeneric6DofSpring2Constraint18calculateAngleInfoEv
   %.0.i.i41 = select i1 %208, float -1.000000e+00, float %207
   %209 = fcmp ogt float %.0.i.i41, 1.000000e+00
   %.1.i.i42 = select i1 %209, float 1.000000e+00, float %.0.i.i41
-  %210 = tail call noundef float @asinf(float noundef %.1.i.i42) #23, !tbaa !54
+  %210 = tail call noundef float @asinf(float noundef %.1.i.i42) #24, !tbaa !54
   store float %210, ptr %202, align 4, !tbaa !10
-  %211 = tail call noundef float @atan2f(float noundef %95, float noundef %101) #23, !tbaa !54
+  %211 = tail call noundef float @atan2f(float noundef %95, float noundef %101) #24, !tbaa !54
   %212 = getelementptr inbounds nuw i8, ptr %0, i64 1392
   store float %211, ptr %212, align 8, !tbaa !10
-  %213 = tail call noundef float @atan2f(float noundef %74, float noundef %89) #23, !tbaa !54
+  %213 = tail call noundef float @atan2f(float noundef %74, float noundef %89) #24, !tbaa !54
   br label %.thread350
 
 214:                                              ; preds = %204
   store float 0x3FF921FB60000000, ptr %202, align 4, !tbaa !10
   %215 = fneg float %86
-  %216 = tail call noundef float @atan2f(float noundef %215, float noundef %65) #23, !tbaa !54
+  %216 = tail call noundef float @atan2f(float noundef %215, float noundef %65) #24, !tbaa !54
   %217 = fneg float %216
   %218 = getelementptr inbounds nuw i8, ptr %0, i64 1392
   store float %217, ptr %218, align 8, !tbaa !10
@@ -1156,7 +1156,7 @@ define dso_local void @_ZN30btGeneric6DofSpring2Constraint18calculateAngleInfoEv
 219:                                              ; preds = %201
   store float 0xBFF921FB60000000, ptr %202, align 4, !tbaa !10
   %220 = fneg float %86
-  %221 = tail call noundef float @atan2f(float noundef %220, float noundef %65) #23, !tbaa !54
+  %221 = tail call noundef float @atan2f(float noundef %220, float noundef %65) #24, !tbaa !54
   %222 = getelementptr inbounds nuw i8, ptr %0, i64 1392
   store float %221, ptr %222, align 8, !tbaa !10
   br label %.thread350
@@ -1212,22 +1212,22 @@ define dso_local void @_ZN30btGeneric6DofSpring2Constraint18calculateAngleInfoEv
 
 254:                                              ; preds = %252
   %255 = fneg float %98
-  %256 = tail call noundef float @atan2f(float noundef %255, float noundef %89) #23, !tbaa !54
+  %256 = tail call noundef float @atan2f(float noundef %255, float noundef %89) #24, !tbaa !54
   store float %256, ptr %250, align 4, !tbaa !10
   %257 = fneg float %83
-  %258 = tail call noundef float @atan2f(float noundef %257, float noundef %65) #23, !tbaa !54
+  %258 = tail call noundef float @atan2f(float noundef %257, float noundef %65) #24, !tbaa !54
   %259 = getelementptr inbounds nuw i8, ptr %0, i64 1392
   store float %258, ptr %259, align 8, !tbaa !10
   %260 = fcmp olt float %74, -1.000000e+00
   %.0.i.i45 = select i1 %260, float -1.000000e+00, float %74
   %261 = fcmp ogt float %.0.i.i45, 1.000000e+00
   %.1.i.i46 = select i1 %261, float 1.000000e+00, float %.0.i.i45
-  %262 = tail call noundef float @asinf(float noundef %.1.i.i46) #23, !tbaa !54
+  %262 = tail call noundef float @asinf(float noundef %.1.i.i46) #24, !tbaa !54
   br label %.thread351
 
 263:                                              ; preds = %252
   store float 0.000000e+00, ptr %250, align 4, !tbaa !10
-  %264 = tail call noundef float @atan2f(float noundef %92, float noundef %101) #23, !tbaa !54
+  %264 = tail call noundef float @atan2f(float noundef %92, float noundef %101) #24, !tbaa !54
   %265 = fneg float %264
   %266 = getelementptr inbounds nuw i8, ptr %0, i64 1392
   store float %265, ptr %266, align 8, !tbaa !10
@@ -1235,7 +1235,7 @@ define dso_local void @_ZN30btGeneric6DofSpring2Constraint18calculateAngleInfoEv
 
 267:                                              ; preds = %249
   store float 0.000000e+00, ptr %250, align 4, !tbaa !10
-  %268 = tail call noundef float @atan2f(float noundef %92, float noundef %101) #23, !tbaa !54
+  %268 = tail call noundef float @atan2f(float noundef %92, float noundef %101) #24, !tbaa !54
   %269 = getelementptr inbounds nuw i8, ptr %0, i64 1392
   store float %268, ptr %269, align 8, !tbaa !10
   br label %.thread351
@@ -1298,21 +1298,21 @@ define dso_local void @_ZN30btGeneric6DofSpring2Constraint18calculateAngleInfoEv
   %.0.i.i49 = select i1 %303, float -1.000000e+00, float %92
   %304 = fcmp ogt float %.0.i.i49, 1.000000e+00
   %.1.i.i50 = select i1 %304, float 1.000000e+00, float %.0.i.i49
-  %305 = tail call noundef float @asinf(float noundef %.1.i.i50) #23, !tbaa !54
+  %305 = tail call noundef float @asinf(float noundef %.1.i.i50) #24, !tbaa !54
   store float %305, ptr %298, align 4, !tbaa !10
   %306 = fneg float %83
-  %307 = tail call noundef float @atan2f(float noundef %306, float noundef %101) #23, !tbaa !54
+  %307 = tail call noundef float @atan2f(float noundef %306, float noundef %101) #24, !tbaa !54
   %308 = getelementptr inbounds nuw i8, ptr %0, i64 1392
   store float %307, ptr %308, align 8, !tbaa !10
   %309 = fneg float %86
-  %310 = tail call noundef float @atan2f(float noundef %309, float noundef %89) #23, !tbaa !54
+  %310 = tail call noundef float @atan2f(float noundef %309, float noundef %89) #24, !tbaa !54
   br label %.thread352
 
 311:                                              ; preds = %300
   store float 0xBFF921FB60000000, ptr %298, align 4, !tbaa !10
   %312 = getelementptr inbounds nuw i8, ptr %0, i64 1392
   store float 0.000000e+00, ptr %312, align 8, !tbaa !10
-  %313 = tail call noundef float @atan2f(float noundef %95, float noundef %65) #23, !tbaa !54
+  %313 = tail call noundef float @atan2f(float noundef %95, float noundef %65) #24, !tbaa !54
   %314 = fneg float %313
   br label %.thread352
 
@@ -1320,7 +1320,7 @@ define dso_local void @_ZN30btGeneric6DofSpring2Constraint18calculateAngleInfoEv
   store float 0x3FF921FB60000000, ptr %298, align 4, !tbaa !10
   %316 = getelementptr inbounds nuw i8, ptr %0, i64 1392
   store float 0.000000e+00, ptr %316, align 8, !tbaa !10
-  %317 = tail call noundef float @atan2f(float noundef %95, float noundef %65) #23, !tbaa !54
+  %317 = tail call noundef float @atan2f(float noundef %95, float noundef %65) #24, !tbaa !54
   br label %.thread352
 
 .thread352:                                       ; preds = %315, %311, %302
@@ -1387,24 +1387,24 @@ define dso_local void @_ZN30btGeneric6DofSpring2Constraint18calculateAngleInfoEv
   br i1 %353, label %354, label %362
 
 354:                                              ; preds = %352
-  %355 = tail call noundef float @atan2f(float noundef %92, float noundef %101) #23, !tbaa !54
+  %355 = tail call noundef float @atan2f(float noundef %92, float noundef %101) #24, !tbaa !54
   store float %355, ptr %350, align 4, !tbaa !10
   %356 = fneg float %83
   %357 = fcmp olt float %356, -1.000000e+00
   %.0.i.i53 = select i1 %357, float -1.000000e+00, float %356
   %358 = fcmp ogt float %.0.i.i53, 1.000000e+00
   %.1.i.i54 = select i1 %358, float 1.000000e+00, float %.0.i.i53
-  %359 = tail call noundef float @asinf(float noundef %.1.i.i54) #23, !tbaa !54
+  %359 = tail call noundef float @asinf(float noundef %.1.i.i54) #24, !tbaa !54
   %360 = getelementptr inbounds nuw i8, ptr %0, i64 1392
   store float %359, ptr %360, align 8, !tbaa !10
-  %361 = tail call noundef float @atan2f(float noundef %74, float noundef %65) #23, !tbaa !54
+  %361 = tail call noundef float @atan2f(float noundef %74, float noundef %65) #24, !tbaa !54
   br label %.thread353
 
 362:                                              ; preds = %352
   store float 0.000000e+00, ptr %350, align 4, !tbaa !10
   %363 = getelementptr inbounds nuw i8, ptr %0, i64 1392
   store float 0x3FF921FB60000000, ptr %363, align 8, !tbaa !10
-  %364 = tail call noundef float @atan2f(float noundef %86, float noundef %95) #23, !tbaa !54
+  %364 = tail call noundef float @atan2f(float noundef %86, float noundef %95) #24, !tbaa !54
   %365 = fneg float %364
   br label %.thread353
 
@@ -1414,7 +1414,7 @@ define dso_local void @_ZN30btGeneric6DofSpring2Constraint18calculateAngleInfoEv
   store float 0xBFF921FB60000000, ptr %367, align 8, !tbaa !10
   %368 = fneg float %86
   %369 = fneg float %95
-  %370 = tail call noundef float @atan2f(float noundef %368, float noundef %369) #23, !tbaa !54
+  %370 = tail call noundef float @atan2f(float noundef %368, float noundef %369) #24, !tbaa !54
   br label %.thread353
 
 .thread353:                                       ; preds = %366, %362, %354
@@ -1527,7 +1527,7 @@ define dso_local void @_ZN30btGeneric6DofSpring2Constraint18calculateAngleInfoEv
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #8
 
-; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none, errnomem: readwrite) uwtable
 define dso_local void @_ZN30btGeneric6DofSpring2Constraint19calculateTransformsERK11btTransformS2_(ptr noundef nonnull align 8 dereferenceable(1484) initializes((1260, 1388), (1452, 1468)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %2) local_unnamed_addr #9 align 2 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %5 = load float, ptr %4, align 8, !tbaa !10, !noalias !61
@@ -1991,7 +1991,7 @@ define linkonce_odr dso_local noundef float @_Z21btAdjustAngleToLimitsfff(float 
 
 7:                                                ; preds = %5
   %8 = fsub float %1, %0
-  %9 = tail call noundef float @fmodf(float noundef %8, float noundef 0x401921FB60000000) #23, !tbaa !54
+  %9 = tail call noundef float @fmodf(float noundef %8, float noundef 0x401921FB60000000) #24, !tbaa !54
   %10 = fcmp olt float %9, 0xC00921FB60000000
   br i1 %10, label %11, label %13
 
@@ -2011,7 +2011,7 @@ _Z16btNormalizeAnglef.exit:                       ; preds = %11, %13, %15
   %.0.i = phi float [ %12, %11 ], [ %16, %15 ], [ %9, %13 ]
   %17 = tail call noundef float @llvm.fabs.f32(float %.0.i)
   %18 = fsub float %2, %0
-  %19 = tail call noundef float @fmodf(float noundef %18, float noundef 0x401921FB60000000) #23, !tbaa !54
+  %19 = tail call noundef float @fmodf(float noundef %18, float noundef 0x401921FB60000000) #24, !tbaa !54
   %20 = fcmp olt float %19, 0xC00921FB60000000
   br i1 %20, label %21, label %23
 
@@ -2041,7 +2041,7 @@ _Z16btNormalizeAnglef.exit29:                     ; preds = %21, %23, %25
 
 33:                                               ; preds = %31
   %34 = fsub float %0, %2
-  %35 = tail call noundef float @fmodf(float noundef %34, float noundef 0x401921FB60000000) #23, !tbaa !54
+  %35 = tail call noundef float @fmodf(float noundef %34, float noundef 0x401921FB60000000) #24, !tbaa !54
   %36 = fcmp olt float %35, 0xC00921FB60000000
   br i1 %36, label %37, label %39
 
@@ -2061,7 +2061,7 @@ _Z16btNormalizeAnglef.exit31:                     ; preds = %37, %39, %41
   %.0.i30 = phi float [ %38, %37 ], [ %42, %41 ], [ %35, %39 ]
   %43 = tail call noundef float @llvm.fabs.f32(float %.0.i30)
   %44 = fsub float %0, %1
-  %45 = tail call noundef float @fmodf(float noundef %44, float noundef 0x401921FB60000000) #23, !tbaa !54
+  %45 = tail call noundef float @fmodf(float noundef %44, float noundef 0x401921FB60000000) #24, !tbaa !54
   %46 = fcmp olt float %45, 0xC00921FB60000000
   br i1 %46, label %47, label %49
 
@@ -2301,7 +2301,7 @@ define dso_local void @_ZN30btGeneric6DofSpring2Constraint8getInfo2EPN17btTypedC
 define dso_local noundef i32 @_ZN30btGeneric6DofSpring2Constraint16setAngularLimitsEPN17btTypedConstraint17btConstraintInfo2EiRK11btTransformS5_RK9btVector3S8_S8_S8_(ptr noundef nonnull align 8 dereferenceable(1484) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %4, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %5, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %6, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %7, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %8) local_unnamed_addr #3 align 2 {
   %10 = alloca [3 x i32], align 4
   %11 = alloca %class.btVector3, align 8
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %10) #23
+  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %10) #24
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %10, ptr noundef nonnull align 4 dereferenceable(12) @__const._ZN30btGeneric6DofSpring2Constraint16setAngularLimitsEPN17btTypedConstraint17btConstraintInfo2EiRK11btTransformS5_RK9btVector3S8_S8_S8_.cIdx, i64 12, i1 false)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 1256
   %13 = load i32, ptr %12, align 8, !tbaa !33
@@ -2335,7 +2335,7 @@ switch.lookup:                                    ; preds = %9
   br label %28
 
 27:                                               ; preds = %73
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %10) #23
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %10) #24
   ret i32 %.1
 
 28:                                               ; preds = %20, %73
@@ -2363,7 +2363,7 @@ switch.lookup:                                    ; preds = %9
   br i1 %42, label %43, label %73
 
 43:                                               ; preds = %39, %35, %28
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #23
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #24
   %44 = getelementptr inbounds [3 x %class.btVector3], ptr %22, i64 0, i64 %31
   %.sroa.0.0.copyload.i = load <2 x float>, ptr %44, align 4
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %44, i64 8
@@ -2422,7 +2422,7 @@ switch.lookup:                                    ; preds = %9
 70:                                               ; preds = %67, %65
   %71 = call noundef i32 @_ZN30btGeneric6DofSpring2Constraint21get_limit_motor_info2EP23btRotationalLimitMotor2RK11btTransformS4_RK9btVector3S7_S7_S7_PN17btTypedConstraint17btConstraintInfo2EiRS5_ii(ptr noundef nonnull align 8 dereferenceable(1484) %0, ptr noundef nonnull %32, ptr noundef nonnull align 4 dereferenceable(64) %3, ptr noundef nonnull align 4 dereferenceable(64) %4, ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef %1, i32 noundef %.038, ptr noundef nonnull align 4 dereferenceable(16) %11, i32 noundef 1, i32 noundef 0)
   %72 = add nsw i32 %71, %.038
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #23
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #24
   br label %73
 
 73:                                               ; preds = %70, %39
@@ -2436,7 +2436,7 @@ switch.lookup:                                    ; preds = %9
 define dso_local noundef i32 @_ZN30btGeneric6DofSpring2Constraint15setLinearLimitsEPN17btTypedConstraint17btConstraintInfo2EiRK11btTransformS5_RK9btVector3S8_S8_S8_(ptr noundef nonnull align 8 dereferenceable(1484) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %3, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(64) %4, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %5, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %6, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %7, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %8) local_unnamed_addr #3 align 2 {
   %10 = alloca %class.btRotationalLimitMotor2, align 4
   %11 = alloca %class.btVector3, align 8
-  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %10) #23
+  call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %10) #24
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 12
@@ -2495,7 +2495,7 @@ define dso_local noundef i32 @_ZN30btGeneric6DofSpring2Constraint15setLinearLimi
   br label %64
 
 63:                                               ; preds = %183
-  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %10) #23
+  call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %10) #24
   ret i32 %.1
 
 64:                                               ; preds = %9, %183
@@ -2574,7 +2574,7 @@ define dso_local noundef i32 @_ZN30btGeneric6DofSpring2Constraint15setLinearLimi
   %106 = getelementptr inbounds nuw float, ptr %50, i64 %indvars.iv
   %107 = load float, ptr %106, align 4, !tbaa !10
   store float %107, ptr %19, align 4, !tbaa !24
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #23
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #24
   %108 = getelementptr inbounds nuw float, ptr %51, i64 %indvars.iv
   %109 = getelementptr inbounds nuw float, ptr %52, i64 %indvars.iv
   %110 = getelementptr inbounds nuw float, ptr %53, i64 %indvars.iv
@@ -2720,7 +2720,7 @@ define dso_local noundef i32 @_ZN30btGeneric6DofSpring2Constraint15setLinearLimi
   %.069 = select i1 %159, i32 %180, i32 1
   %181 = call noundef i32 @_ZN30btGeneric6DofSpring2Constraint21get_limit_motor_info2EP23btRotationalLimitMotor2RK11btTransformS4_RK9btVector3S7_S7_S7_PN17btTypedConstraint17btConstraintInfo2EiRS5_ii(ptr noundef nonnull align 8 dereferenceable(1484) %0, ptr noundef nonnull %10, ptr noundef nonnull align 4 dereferenceable(64) %3, ptr noundef nonnull align 4 dereferenceable(64) %4, ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %6, ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %8, ptr noundef %1, i32 noundef %.093, ptr noundef nonnull align 4 dereferenceable(16) %11, i32 noundef 0, i32 noundef %.069)
   %182 = add nsw i32 %181, %.093
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #23
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %11) #24
   br label %183
 
 183:                                              ; preds = %._crit_edge96, %.thread86
@@ -3421,7 +3421,7 @@ define dso_local noundef range(i32 0, 6) i32 @_ZN30btGeneric6DofSpring2Constrain
 545:                                              ; preds = %539, %535, %541
   %.0358 = phi float [ %544, %541 ], [ %.0361, %535 ], [ %.0363, %539 ]
   %546 = fdiv float %300, %.0358
-  %547 = tail call noundef float @sqrtf(float noundef %546) #23, !tbaa !54
+  %547 = tail call noundef float @sqrtf(float noundef %546) #24, !tbaa !54
   %548 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %549 = load i8, ptr %548, align 4, !tbaa !30, !range !100, !noundef !101
   %550 = trunc nuw i8 %549 to i1
@@ -3643,7 +3643,7 @@ define dso_local void @_ZN30btGeneric6DofSpring2Constraint15calculateJacobiEP23b
   br i1 %.not49, label %39, label %112
 
 39:                                               ; preds = %9
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #23
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10) #24
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 1372
   %41 = getelementptr inbounds nuw i8, ptr %3, i64 48
   %42 = load float, ptr %40, align 4, !tbaa !10
@@ -3754,7 +3754,7 @@ define dso_local void @_ZN30btGeneric6DofSpring2Constraint15calculateJacobiEP23b
   br i1 %exitcond.not, label %111, label %107, !llvm.loop !119
 
 111:                                              ; preds = %107
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #23
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #24
   br label %112
 
 112:                                              ; preds = %111, %9
@@ -3957,8 +3957,8 @@ define dso_local noundef float @_ZNK30btGeneric6DofSpring2Constraint8getParamEii
   ret float %.0
 }
 
-; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
-define dso_local void @_ZN30btGeneric6DofSpring2Constraint7setAxisERK9btVector3S2_(ptr noundef nonnull align 8 dereferenceable(1484) initializes((72, 200), (1260, 1388), (1452, 1468)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %2) local_unnamed_addr #9 align 2 {
+; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
+define dso_local void @_ZN30btGeneric6DofSpring2Constraint7setAxisERK9btVector3S2_(ptr noundef nonnull align 8 dereferenceable(1484) initializes((72, 200), (1260, 1388), (1452, 1468)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %1, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %2) local_unnamed_addr #15 align 2 {
   %.sroa.0.0.copyload3.i = load <2 x float>, ptr %1, align 4
   %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.8.0.copyload.i = load <2 x float>, ptr %.sroa.8.0..sroa_idx.i, align 4, !tbaa !8
@@ -4217,7 +4217,7 @@ define dso_local void @_ZN30btGeneric6DofSpring2Constraint7setAxisERK9btVector3S
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN30btGeneric6DofSpring2Constraint9setBounceEif(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1484) %0, i32 noundef %1, float noundef %2) local_unnamed_addr #15 align 2 {
+define dso_local void @_ZN30btGeneric6DofSpring2Constraint9setBounceEif(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1484) %0, i32 noundef %1, float noundef %2) local_unnamed_addr #16 align 2 {
   %4 = icmp slt i32 %1, 3
   br i1 %4, label %5, label %9
 
@@ -4242,7 +4242,7 @@ define dso_local void @_ZN30btGeneric6DofSpring2Constraint9setBounceEif(ptr noun
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN30btGeneric6DofSpring2Constraint11enableMotorEib(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1484) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #15 align 2 {
+define dso_local void @_ZN30btGeneric6DofSpring2Constraint11enableMotorEib(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1484) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #16 align 2 {
   %4 = zext i1 %2 to i8
   %5 = icmp slt i32 %1, 3
   br i1 %5, label %6, label %10
@@ -4268,7 +4268,7 @@ define dso_local void @_ZN30btGeneric6DofSpring2Constraint11enableMotorEib(ptr n
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN30btGeneric6DofSpring2Constraint8setServoEib(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1484) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #15 align 2 {
+define dso_local void @_ZN30btGeneric6DofSpring2Constraint8setServoEib(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1484) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #16 align 2 {
   %4 = zext i1 %2 to i8
   %5 = icmp slt i32 %1, 3
   br i1 %5, label %6, label %10
@@ -4294,7 +4294,7 @@ define dso_local void @_ZN30btGeneric6DofSpring2Constraint8setServoEib(ptr nound
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN30btGeneric6DofSpring2Constraint17setTargetVelocityEif(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1484) %0, i32 noundef %1, float noundef %2) local_unnamed_addr #15 align 2 {
+define dso_local void @_ZN30btGeneric6DofSpring2Constraint17setTargetVelocityEif(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1484) %0, i32 noundef %1, float noundef %2) local_unnamed_addr #16 align 2 {
   %4 = icmp slt i32 %1, 3
   br i1 %4, label %5, label %9
 
@@ -4319,7 +4319,7 @@ define dso_local void @_ZN30btGeneric6DofSpring2Constraint17setTargetVelocityEif
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN30btGeneric6DofSpring2Constraint14setServoTargetEif(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1484) %0, i32 noundef %1, float noundef %2) local_unnamed_addr #15 align 2 {
+define dso_local void @_ZN30btGeneric6DofSpring2Constraint14setServoTargetEif(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1484) %0, i32 noundef %1, float noundef %2) local_unnamed_addr #16 align 2 {
   %4 = icmp slt i32 %1, 3
   br i1 %4, label %5, label %9
 
@@ -4364,7 +4364,7 @@ define dso_local void @_ZN30btGeneric6DofSpring2Constraint14setServoTargetEif(pt
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN30btGeneric6DofSpring2Constraint16setMaxMotorForceEif(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1484) %0, i32 noundef %1, float noundef %2) local_unnamed_addr #15 align 2 {
+define dso_local void @_ZN30btGeneric6DofSpring2Constraint16setMaxMotorForceEif(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1484) %0, i32 noundef %1, float noundef %2) local_unnamed_addr #16 align 2 {
   %4 = icmp slt i32 %1, 3
   br i1 %4, label %5, label %9
 
@@ -4389,7 +4389,7 @@ define dso_local void @_ZN30btGeneric6DofSpring2Constraint16setMaxMotorForceEif(
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN30btGeneric6DofSpring2Constraint12enableSpringEib(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1484) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #15 align 2 {
+define dso_local void @_ZN30btGeneric6DofSpring2Constraint12enableSpringEib(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1484) %0, i32 noundef %1, i1 noundef zeroext %2) local_unnamed_addr #16 align 2 {
   %4 = zext i1 %2 to i8
   %5 = icmp slt i32 %1, 3
   br i1 %5, label %6, label %10
@@ -4415,7 +4415,7 @@ define dso_local void @_ZN30btGeneric6DofSpring2Constraint12enableSpringEib(ptr 
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN30btGeneric6DofSpring2Constraint12setStiffnessEifb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1484) %0, i32 noundef %1, float noundef %2, i1 noundef zeroext %3) local_unnamed_addr #15 align 2 {
+define dso_local void @_ZN30btGeneric6DofSpring2Constraint12setStiffnessEifb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1484) %0, i32 noundef %1, float noundef %2, i1 noundef zeroext %3) local_unnamed_addr #16 align 2 {
   %5 = zext i1 %3 to i8
   %6 = icmp slt i32 %1, 3
   br i1 %6, label %7, label %13
@@ -4446,7 +4446,7 @@ define dso_local void @_ZN30btGeneric6DofSpring2Constraint12setStiffnessEifb(ptr
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN30btGeneric6DofSpring2Constraint10setDampingEifb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1484) %0, i32 noundef %1, float noundef %2, i1 noundef zeroext %3) local_unnamed_addr #15 align 2 {
+define dso_local void @_ZN30btGeneric6DofSpring2Constraint10setDampingEifb(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1484) %0, i32 noundef %1, float noundef %2, i1 noundef zeroext %3) local_unnamed_addr #16 align 2 {
   %5 = zext i1 %3 to i8
   %6 = icmp slt i32 %1, 3
   br i1 %6, label %7, label %13
@@ -4476,7 +4476,7 @@ define dso_local void @_ZN30btGeneric6DofSpring2Constraint10setDampingEifb(ptr n
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN30btGeneric6DofSpring2Constraint19setEquilibriumPointEv(ptr noundef nonnull align 8 dereferenceable(1484) initializes((1260, 1388), (1452, 1468)) %0) local_unnamed_addr #2 align 2 {
 .preheader:
   %1 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -4508,7 +4508,7 @@ define dso_local void @_ZN30btGeneric6DofSpring2Constraint19setEquilibriumPointE
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define dso_local void @_ZN30btGeneric6DofSpring2Constraint19setEquilibriumPointEi(ptr noundef nonnull align 8 dereferenceable(1484) initializes((1260, 1388), (1452, 1468)) %0, i32 noundef %1) local_unnamed_addr #2 align 2 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load ptr, ptr %3, align 8, !tbaa !46
@@ -4547,7 +4547,7 @@ define dso_local void @_ZN30btGeneric6DofSpring2Constraint19setEquilibriumPointE
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define dso_local void @_ZN30btGeneric6DofSpring2Constraint19setEquilibriumPointEif(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1484) %0, i32 noundef %1, float noundef %2) local_unnamed_addr #15 align 2 {
+define dso_local void @_ZN30btGeneric6DofSpring2Constraint19setEquilibriumPointEif(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(1484) %0, i32 noundef %1, float noundef %2) local_unnamed_addr #16 align 2 {
   %4 = icmp slt i32 %1, 3
   br i1 %4, label %5, label %9
 
@@ -4572,24 +4572,24 @@ define dso_local void @_ZN30btGeneric6DofSpring2Constraint19setEquilibriumPointE
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN17btTypedConstraint21setupSolverConstraintER20btAlignedObjectArrayI18btSolverConstraintEiif(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 1 %1, i32 noundef %2, i32 noundef %3, float noundef %4) unnamed_addr #16 comdat align 2 {
+define linkonce_odr dso_local void @_ZN17btTypedConstraint21setupSolverConstraintER20btAlignedObjectArrayI18btSolverConstraintEiif(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 1 %1, i32 noundef %2, i32 noundef %3, float noundef %4) unnamed_addr #17 comdat align 2 {
   ret void
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN17btTypedConstraint23solveConstraintObsoleteER12btSolverBodyS1_f(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(248) %1, ptr noundef nonnull align 8 dereferenceable(248) %2, float noundef %3) unnamed_addr #16 comdat align 2 {
+define linkonce_odr dso_local void @_ZN17btTypedConstraint23solveConstraintObsoleteER12btSolverBodyS1_f(ptr noundef nonnull align 8 dereferenceable(72) %0, ptr noundef nonnull align 8 dereferenceable(248) %1, ptr noundef nonnull align 8 dereferenceable(248) %2, float noundef %3) unnamed_addr #17 comdat align 2 {
   ret void
 }
 
 declare noundef ptr @_ZNK17btTypedConstraint9serializeEPvP12btSerializer(ptr noundef nonnull align 8 dereferenceable(72), ptr noundef, ptr noundef) unnamed_addr #1
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN17btTypedConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #16 comdat align 2 {
+define linkonce_odr dso_local void @_ZN17btTypedConstraintD2Ev(ptr noundef nonnull align 8 dereferenceable(72) %0) unnamed_addr #17 comdat align 2 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN30btGeneric6DofSpring2ConstraintD0Ev(ptr noundef nonnull align 8 dereferenceable(1484) %0) unnamed_addr #17 comdat align 2 personality ptr @__gxx_personality_v0 {
+define linkonce_odr dso_local void @_ZN30btGeneric6DofSpring2ConstraintD0Ev(ptr noundef nonnull align 8 dereferenceable(1484) %0) unnamed_addr #18 comdat align 2 personality ptr @__gxx_personality_v0 {
   invoke void @_Z21btAlignedFreeInternalPv(ptr noundef nonnull %0)
           to label %_ZN30btGeneric6DofSpring2ConstraintdlEPv.exit unwind label %2
 
@@ -4597,7 +4597,7 @@ define linkonce_odr dso_local void @_ZN30btGeneric6DofSpring2ConstraintD0Ev(ptr 
   %3 = landingpad { ptr, i32 }
           catch ptr null
   %4 = extractvalue { ptr, i32 } %3, 0
-  tail call void @__clang_call_terminate(ptr %4) #24
+  tail call void @__clang_call_terminate(ptr %4) #25
   unreachable
 
 _ZN30btGeneric6DofSpring2ConstraintdlEPv.exit:    ; preds = %1
@@ -4605,12 +4605,12 @@ _ZN30btGeneric6DofSpring2ConstraintdlEPv.exit:    ; preds = %1
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN30btGeneric6DofSpring2Constraint13buildJacobianEv(ptr noundef nonnull align 8 dereferenceable(1484) %0) unnamed_addr #16 comdat align 2 {
+define linkonce_odr dso_local void @_ZN30btGeneric6DofSpring2Constraint13buildJacobianEv(ptr noundef nonnull align 8 dereferenceable(1484) %0) unnamed_addr #17 comdat align 2 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr dso_local noundef i32 @_ZNK30btGeneric6DofSpring2Constraint28calculateSerializeBufferSizeEv(ptr noundef nonnull align 8 dereferenceable(1484) %0) unnamed_addr #17 comdat align 2 {
+define linkonce_odr dso_local noundef i32 @_ZNK30btGeneric6DofSpring2Constraint28calculateSerializeBufferSizeEv(ptr noundef nonnull align 8 dereferenceable(1484) %0) unnamed_addr #18 comdat align 2 {
   ret i32 656
 }
 
@@ -5103,20 +5103,20 @@ _ZNK9btVector39serializeER18btVector3FloatData.exit195: ; preds = %_ZNK9btVector
   ret ptr @.str
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare float @atan2f(float noundef, float noundef) local_unnamed_addr #18
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
+declare float @atan2f(float noundef, float noundef) local_unnamed_addr #19
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare float @asinf(float noundef) local_unnamed_addr #18
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
+declare float @asinf(float noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fabs.f32(float) #14
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare float @fmodf(float noundef, float noundef) local_unnamed_addr #18
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
+declare float @fmodf(float noundef, float noundef) local_unnamed_addr #19
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare float @sqrtf(float noundef) local_unnamed_addr #18
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
+declare float @sqrtf(float noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.floor.f32(float) #14
@@ -5124,48 +5124,49 @@ declare float @llvm.floor.f32(float) #14
 declare void @_Z21btAlignedFreeInternalPv(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: noinline noreturn nounwind uwtable
-define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #19 comdat {
-  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #23
-  tail call void @_ZSt9terminatev() #24
+define linkonce_odr hidden void @__clang_call_terminate(ptr noundef %0) local_unnamed_addr #20 comdat {
+  %2 = tail call ptr @__cxa_begin_catch(ptr %0) #24
+  tail call void @_ZSt9terminatev() #25
   unreachable
 }
 
 declare ptr @__cxa_begin_catch(ptr) local_unnamed_addr
 
 ; Function Attrs: cold nofree noreturn
-declare void @_ZSt9terminatev() local_unnamed_addr #20
+declare void @_ZSt9terminatev() local_unnamed_addr #21
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #21
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #22
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare float @llvm.sqrt.f32(float) #22
+declare float @llvm.sqrt.f32(float) #23
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { mustprogress nofree nounwind memory(readwrite, inaccessiblemem: write) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree nounwind memory(read, argmem: readwrite, inaccessiblemem: none, errnomem: readwrite) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { inlinehint mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #13 = { mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #15 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #17 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #18 = { mustprogress nofree nounwind willreturn memory(write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #19 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #20 = { cold nofree noreturn }
-attributes #21 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #22 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #23 = { nounwind }
-attributes #24 = { noreturn nounwind }
+attributes #15 = { mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #16 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #17 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #18 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #19 = { mustprogress nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #20 = { noinline noreturn nounwind uwtable "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #21 = { cold nofree noreturn }
+attributes #22 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #23 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #24 = { nounwind }
+attributes #25 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

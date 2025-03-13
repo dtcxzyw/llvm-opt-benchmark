@@ -560,7 +560,7 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #2
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef ptr @_ZL27init_helmert_six_parametersP8PJconsts(ptr noundef %0) unnamed_addr #0 {
-  %2 = tail call noalias dereferenceable_or_null(320) ptr @calloc(i64 noundef 1, i64 noundef 320) #9
+  %2 = tail call noalias dereferenceable_or_null(320) ptr @calloc(i64 noundef 1, i64 noundef 320) #10
   %3 = icmp eq ptr %2, null
   br i1 %3, label %4, label %6
 
@@ -697,17 +697,17 @@ define internal fastcc noundef ptr @_ZL27init_helmert_six_parametersP8PJconsts(p
 
 declare noundef ptr @_Z15pj_param_existsP8ARG_listPKc(ptr noundef, ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none, errnomem: readwrite) uwtable
 define internal { double, double } @_ZL15helmert_forward5PJ_LPP8PJconsts(double %0, double %1, ptr noundef readonly captures(none) %2) #3 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %5 = load ptr, ptr %4, align 8, !tbaa !47
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 192
   %7 = load double, ptr %6, align 8, !tbaa !73
-  %8 = tail call double @cos(double noundef %7) #10, !tbaa !83
+  %8 = tail call double @cos(double noundef %7) #11, !tbaa !83
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 168
   %10 = load double, ptr %9, align 8, !tbaa !72
   %11 = fmul double %8, %10
-  %12 = tail call double @sin(double noundef %7) #10, !tbaa !83
+  %12 = tail call double @sin(double noundef %7) #11, !tbaa !83
   %13 = fmul double %10, %12
   %14 = fmul double %1, %13
   %15 = tail call double @llvm.fmuladd.f64(double %11, double %0, double %14)
@@ -725,17 +725,17 @@ define internal { double, double } @_ZL15helmert_forward5PJ_LPP8PJconsts(double 
   ret { double, double } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none, errnomem: readwrite) uwtable
 define internal { double, double } @_ZL15helmert_reverse5PJ_XYP8PJconsts(double %0, double %1, ptr noundef readonly captures(none) %2) #3 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %5 = load ptr, ptr %4, align 8, !tbaa !47
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 192
   %7 = load double, ptr %6, align 8, !tbaa !73
-  %8 = tail call double @cos(double noundef %7) #10, !tbaa !83
+  %8 = tail call double @cos(double noundef %7) #11, !tbaa !83
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 168
   %10 = load double, ptr %9, align 8, !tbaa !72
   %11 = fdiv double %8, %10
-  %12 = tail call double @sin(double noundef %7) #10, !tbaa !83
+  %12 = tail call double @sin(double noundef %7) #11, !tbaa !83
   %13 = fdiv double %12, %10
   %14 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %15 = load double, ptr %14, align 8, !tbaa !50
@@ -782,10 +782,10 @@ define internal void @_ZL18helmert_forward_4dR8PJ_COORDP8PJconsts(ptr noundef no
   br label %18
 
 18:                                               ; preds = %17, %12
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #11
   call void @_ZL18helmert_forward_3d6PJ_LPZP8PJconsts(ptr dead_on_unwind nonnull writable sret(%struct.PJ_XYZ) align 8 %3, ptr noundef nonnull byval(%struct.PJ_LPZ) align 8 %0, ptr noundef nonnull %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !tbaa.struct !71
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #11
   ret void
 }
 
@@ -818,15 +818,15 @@ define internal void @_ZL18helmert_reverse_4dR8PJ_COORDP8PJconsts(ptr noundef no
   br label %18
 
 18:                                               ; preds = %17, %12
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #10
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #11
   call void @_ZL18helmert_reverse_3d6PJ_XYZP8PJconsts(ptr dead_on_unwind nonnull writable sret(%struct.PJ_LPZ) align 8 %3, ptr noundef nonnull byval(%struct.PJ_XYZ) align 8 %0, ptr noundef nonnull %1)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %3, i64 24, i1 false), !tbaa.struct !71
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #10
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #11
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define internal void @_ZL18helmert_forward_3d6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias writable writeonly sret(%struct.PJ_XYZ) align 8 captures(none) initializes((0, 24)) %0, ptr noundef readonly byval(%struct.PJ_LPZ) align 8 captures(none) %1, ptr noundef readonly captures(none) %2) #3 {
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, errnomem: readwrite) uwtable
+define internal void @_ZL18helmert_forward_3d6PJ_LPZP8PJconsts(ptr dead_on_unwind noalias writable writeonly sret(%struct.PJ_XYZ) align 8 captures(none) initializes((0, 24)) %0, ptr noundef readonly byval(%struct.PJ_LPZ) align 8 captures(none) %1, ptr noundef readonly captures(none) %2) #4 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %5 = load ptr, ptr %4, align 8, !tbaa !47
   %.sroa.013.0.copyload = load double, ptr %1, align 8, !tbaa !49
@@ -843,10 +843,10 @@ define internal void @_ZL18helmert_forward_3d6PJ_LPZP8PJconsts(ptr dead_on_unwin
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 192
   %10 = load double, ptr %9, align 8, !tbaa !73
-  %11 = tail call double @cos(double noundef %10) #10, !tbaa !83
+  %11 = tail call double @cos(double noundef %10) #11, !tbaa !83
   %12 = load double, ptr %.phi.trans.insert, align 8, !tbaa !72
   %13 = fmul double %11, %12
-  %14 = tail call double @sin(double noundef %10) #10, !tbaa !83
+  %14 = tail call double @sin(double noundef %10) #11, !tbaa !83
   %15 = fmul double %12, %14
   %16 = fmul double %.sroa.13.0.copyload, %15
   %17 = tail call double @llvm.fmuladd.f64(double %13, double %.sroa.013.0.copyload, double %16)
@@ -944,8 +944,8 @@ define internal void @_ZL18helmert_forward_3d6PJ_LPZP8PJconsts(ptr dead_on_unwin
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable
-define internal void @_ZL18helmert_reverse_3d6PJ_XYZP8PJconsts(ptr dead_on_unwind noalias writable writeonly sret(%struct.PJ_LPZ) align 8 captures(none) initializes((0, 24)) %0, ptr noundef readonly byval(%struct.PJ_XYZ) align 8 captures(none) %1, ptr noundef readonly captures(none) %2) #3 {
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, errnomem: readwrite) uwtable
+define internal void @_ZL18helmert_reverse_3d6PJ_XYZP8PJconsts(ptr dead_on_unwind noalias writable writeonly sret(%struct.PJ_LPZ) align 8 captures(none) initializes((0, 24)) %0, ptr noundef readonly byval(%struct.PJ_XYZ) align 8 captures(none) %1, ptr noundef readonly captures(none) %2) #4 {
   %4 = getelementptr inbounds nuw i8, ptr %2, i64 88
   %5 = load ptr, ptr %4, align 8, !tbaa !47
   %.sroa.013.0.copyload = load double, ptr %1, align 8, !tbaa !49
@@ -962,10 +962,10 @@ define internal void @_ZL18helmert_reverse_3d6PJ_XYZP8PJconsts(ptr dead_on_unwin
 8:                                                ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 192
   %10 = load double, ptr %9, align 8, !tbaa !73
-  %11 = tail call double @cos(double noundef %10) #10, !tbaa !83
+  %11 = tail call double @cos(double noundef %10) #11, !tbaa !83
   %12 = load double, ptr %.phi.trans.insert, align 8, !tbaa !72
   %13 = fdiv double %11, %12
-  %14 = tail call double @sin(double noundef %10) #10, !tbaa !83
+  %14 = tail call double @sin(double noundef %10) #11, !tbaa !83
   %15 = fdiv double %14, %12
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %17 = load double, ptr %16, align 8, !tbaa !50
@@ -1073,7 +1073,7 @@ declare void @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef, ptr noundef, ...) l
 declare noundef ptr @_Z21pj_default_destructorP8PJconstsi(ptr noundef, i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #4
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef ptr @_ZL15read_conventionP8PJconsts(ptr noundef %0) unnamed_addr #0 {
@@ -1094,12 +1094,12 @@ define internal fastcc noundef ptr @_ZL15read_conventionP8PJconsts(ptr noundef %
   br i1 %.not20, label %.thread.sink.split, label %11
 
 11:                                               ; preds = %6
-  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.sroa.0.0..sroa.0.0..cast, ptr noundef nonnull dereferenceable(16) @.str.62) #11
+  %12 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.sroa.0.0..sroa.0.0..cast, ptr noundef nonnull dereferenceable(16) @.str.62) #12
   %13 = icmp eq i32 %12, 0
   br i1 %13, label %17, label %14
 
 14:                                               ; preds = %11
-  %15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.sroa.0.0..sroa.0.0..cast, ptr noundef nonnull dereferenceable(17) @.str.63) #11
+  %15 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %.sroa.0.0..sroa.0.0..cast, ptr noundef nonnull dereferenceable(17) @.str.63) #12
   %16 = icmp eq i32 %15, 0
   br i1 %16, label %17, label %.thread.sink.split
 
@@ -1246,12 +1246,12 @@ define internal fastcc void @_ZL16build_rot_matrixP8PJconsts(ptr noundef %0) unn
   br i1 %.not, label %41, label %12
 
 12:                                               ; preds = %1
-  %13 = tail call double @cos(double noundef %5) #10, !tbaa !83
-  %14 = tail call double @sin(double noundef %5) #10, !tbaa !83
-  %15 = tail call double @cos(double noundef %7) #10, !tbaa !83
-  %16 = tail call double @sin(double noundef %7) #10, !tbaa !83
-  %17 = tail call double @cos(double noundef %9) #10, !tbaa !83
-  %18 = tail call double @sin(double noundef %9) #10, !tbaa !83
+  %13 = tail call double @cos(double noundef %5) #11, !tbaa !83
+  %14 = tail call double @sin(double noundef %5) #11, !tbaa !83
+  %15 = tail call double @cos(double noundef %7) #11, !tbaa !83
+  %16 = tail call double @sin(double noundef %7) #11, !tbaa !83
+  %17 = tail call double @cos(double noundef %9) #11, !tbaa !83
+  %18 = tail call double @sin(double noundef %9) #11, !tbaa !83
   %19 = fmul double %15, %17
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 216
   store double %19, ptr %20, align 8, !tbaa !49
@@ -1556,32 +1556,33 @@ define hidden noundef ptr @_Z40pj_projection_specific_setup_molobadekasP8PJconst
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
-declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #5
+declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #6
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @cos(double noundef) local_unnamed_addr #6
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
+declare double @cos(double noundef) local_unnamed_addr #7
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @sin(double noundef) local_unnamed_addr #6
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
+declare double @sin(double noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fmuladd.f64(double, double, double) #7
+declare double @llvm.fmuladd.f64(double, double, double) #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #8
+declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #3 = { mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind willreturn memory(write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #8 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { nounwind allocsize(0,1) }
-attributes #10 = { nounwind }
-attributes #11 = { nounwind willreturn memory(read) }
+attributes #3 = { mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none, errnomem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, errnomem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #6 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nounwind allocsize(0,1) }
+attributes #11 = { nounwind }
+attributes #12 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

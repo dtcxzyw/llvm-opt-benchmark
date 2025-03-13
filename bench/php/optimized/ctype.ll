@@ -384,8 +384,8 @@ define hidden void @zif_ctype_digit(ptr noundef %0, ptr noundef writeonly captur
   ret void
 }
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i32 @isdigit(i32 noundef) #2
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
+declare i32 @isdigit(i32 noundef) #4
 
 ; Function Attrs: nounwind uwtable
 define hidden void @zif_ctype_lower(ptr noundef %0, ptr noundef writeonly captures(none) %1) #0 {

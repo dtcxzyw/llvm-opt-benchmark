@@ -59,7 +59,7 @@ define double @tgamma(double noundef %0) local_unnamed_addr #0 {
   br i1 %.not56, label %37, label %29
 
 29:                                               ; preds = %28
-  %30 = tail call double @ldexp(double noundef 1.000000e+00, i32 noundef -126) #6
+  %30 = tail call double @ldexp(double noundef 1.000000e+00, i32 noundef -126) #5
   %31 = fdiv double %30, %0
   %32 = fptrunc double %31 to float
   store volatile float %32, ptr %2, align 4
@@ -122,7 +122,7 @@ s.exit:                                           ; preds = %.preheader25.i, %.p
   %.119.i = phi double [ %54, %.preheader.i ], [ %62, %.preheader25.i ]
   %63 = fdiv double %.121.i, %.119.i
   %64 = fneg double %41
-  %65 = tail call double @exp(double noundef %64) #6
+  %65 = tail call double @exp(double noundef %64) #5
   %66 = fmul double %63, %65
   %67 = fcmp olt double %0, 0.000000e+00
   br i1 %67, label %68, label %96
@@ -147,20 +147,20 @@ s.exit:                                           ; preds = %.preheader25.i, %.p
   ]
 
 81:                                               ; preds = %68
-  %82 = tail call double @__sin(double noundef %80, double noundef 0.000000e+00, i32 noundef 0) #6
+  %82 = tail call double @__sin(double noundef %80, double noundef 0.000000e+00, i32 noundef 0) #5
   br label %sinpi.exit
 
 83:                                               ; preds = %68
-  %84 = tail call double @__cos(double noundef %80, double noundef 0.000000e+00) #6
+  %84 = tail call double @__cos(double noundef %80, double noundef 0.000000e+00) #5
   br label %sinpi.exit
 
 85:                                               ; preds = %68
   %86 = fneg double %80
-  %87 = tail call double @__sin(double noundef %86, double noundef 0.000000e+00, i32 noundef 0) #6
+  %87 = tail call double @__sin(double noundef %86, double noundef 0.000000e+00, i32 noundef 0) #5
   br label %sinpi.exit
 
 88:                                               ; preds = %68
-  %89 = tail call double @__cos(double noundef %80, double noundef 0.000000e+00) #6
+  %89 = tail call double @__cos(double noundef %80, double noundef 0.000000e+00) #5
   %90 = fneg double %89
   br label %sinpi.exit
 
@@ -182,7 +182,7 @@ sinpi.exit:                                       ; preds = %81, %83, %85, %88
   %99 = fdiv double %98, %41
   %100 = fadd double %.048, %99
   %101 = fmul double %.049, 5.000000e-01
-  %102 = tail call double @pow(double noundef %41, double noundef %101) #6
+  %102 = tail call double @pow(double noundef %41, double noundef %101) #5
   %103 = fmul double %102, %100
   %104 = fmul double %102, %103
   br label %105
@@ -195,38 +195,37 @@ sinpi.exit:                                       ; preds = %81, %83, %85, %88
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.floor.f64(double) #1
 
-; Function Attrs: mustprogress nofree nounwind willreturn
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @ldexp(double noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @exp(double noundef) local_unnamed_addr #3
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
+declare double @exp(double noundef) local_unnamed_addr #2
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare double @pow(double noundef, double noundef) local_unnamed_addr #3
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
+declare double @pow(double noundef, double noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define double @gamma(double noundef %0) local_unnamed_addr #0 {
-  %2 = tail call double @tgamma(double noundef %0) #6
+  %2 = tail call double @tgamma(double noundef %0) #5
   ret double %2
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.fmuladd.f64(double, double, double) #1
 
-declare double @__sin(double noundef, double noundef, i32 noundef) local_unnamed_addr #4
+declare double @__sin(double noundef, double noundef, i32 noundef) local_unnamed_addr #3
 
-declare double @__cos(double noundef, double noundef) local_unnamed_addr #4
+declare double @__cos(double noundef, double noundef) local_unnamed_addr #3
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #5
+declare double @llvm.fabs.f64(double) #4
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #2 = { mustprogress nofree nounwind willreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn memory(write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #6 = { nounwind }
+attributes #2 = { mustprogress nofree nounwind willreturn memory(errnomem: write) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #5 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 

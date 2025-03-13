@@ -1336,7 +1336,7 @@ _ZN6statrs8function5gamma8ln_gamma17h21e3ca649f6326d4E.exit: ; preds = %"_ZN100_
   br label %110
 }
 
-; Function Attrs: nofree nounwind nonlazybind memory(write) uwtable
+; Function Attrs: nofree nounwind nonlazybind memory(errnomem: write) uwtable
 define noundef double @_ZN6statrs8function5gamma7digamma17h815040b9ca700213E(double noundef %0) unnamed_addr #8 personality ptr @rust_eh_personality {
   %or.cond = fcmp ueq double %0, 0xFFF0000000000000
   br i1 %or.cond, label %common.ret35, label %2
@@ -1441,7 +1441,7 @@ common.ret35:                                     ; preds = %4, %"_ZN47_$LT$f64$
   br label %common.ret35
 }
 
-; Function Attrs: nofree nounwind nonlazybind memory(write) uwtable
+; Function Attrs: nofree nounwind nonlazybind memory(errnomem: write) uwtable
 define noundef double @_ZN6statrs8function5gamma11inv_digamma17hd2a6888cff03db07E(double noundef %0) unnamed_addr #8 {
   %2 = fcmp uno double %0, 0.000000e+00
   br i1 %2, label %.loopexit, label %3
@@ -1763,7 +1763,7 @@ declare double @llvm.exp.f64(double) #11
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare double @llvm.floor.f64(double) #11
 
-; Function Attrs: mustprogress nofree nounwind nonlazybind willreturn memory(write) uwtable
+; Function Attrs: mustprogress nofree nounwind nonlazybind willreturn memory(errnomem: write) uwtable
 declare noundef double @tan(double noundef) unnamed_addr #13
 
 ; Function Attrs: nonlazybind uwtable
@@ -1825,12 +1825,12 @@ attributes #4 = { nofree norecurse nosync nounwind nonlazybind memory(argmem: re
 attributes #5 = { nofree norecurse nosync nounwind nonlazybind memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #6 = { nofree norecurse nosync nounwind nonlazybind memory(argmem: readwrite) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #7 = { nofree norecurse nosync nounwind nonlazybind memory(argmem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #8 = { nofree nounwind nonlazybind memory(write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #8 = { nofree nounwind nonlazybind memory(errnomem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #9 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #10 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #11 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #12 = { cold noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
-attributes #13 = { mustprogress nofree nounwind nonlazybind willreturn memory(write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
+attributes #13 = { mustprogress nofree nounwind nonlazybind willreturn memory(errnomem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #14 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #15 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }

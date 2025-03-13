@@ -17,7 +17,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable
 define noalias noundef ptr @EpdAlloc() local_unnamed_addr #0 {
-  %1 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #18
+  %1 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #19
   ret ptr %1
 }
 
@@ -57,7 +57,7 @@ define void @EpdFree(ptr noundef captures(address_is_null) %0) local_unnamed_add
   br i1 %.not, label %3, label %2
 
 2:                                                ; preds = %1
-  tail call void @free(ptr noundef nonnull %0) #19
+  tail call void @free(ptr noundef nonnull %0) #20
   br label %3
 
 3:                                                ; preds = %1, %2
@@ -98,8 +98,8 @@ define void @EpdGetString(ptr noundef readonly captures(none) %0, ptr noundef %1
   br label %51
 
 13:                                               ; preds = %8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #19
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #20
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #20
   %14 = and i64 %6, 9221120237041090559
   %or.cond7.i.i.i = icmp ne i64 %14, 9218868437227405312
   %15 = and i64 %6, -9221120237041090560
@@ -145,9 +145,9 @@ define void @EpdGetString(ptr noundef readonly captures(none) %0, ptr noundef %1
 EpdGetValueAndDecimalExponent.exit:               ; preds = %13, %17, %25, %30
   %.017 = phi double [ 0.000000e+00, %13 ], [ %29, %25 ], [ %.pre.i, %30 ], [ 0xFFF8000000000000, %17 ]
   %.0 = phi i32 [ 0, %13 ], [ 0, %25 ], [ %.pre9.i, %30 ], [ 0, %17 ]
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #19
-  %34 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) @.str.3, double noundef %.017) #19
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #20
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #20
+  %34 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) @.str.3, double noundef %.017) #20
   %strchr = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 101)
   %35 = icmp sgt i32 %.0, -1
   br i1 %35, label %36, label %43
@@ -158,11 +158,11 @@ EpdGetValueAndDecimalExponent.exit:               ; preds = %13, %17, %25, %30
   br i1 %37, label %39, label %41
 
 39:                                               ; preds = %36
-  %40 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %.0) #19
+  %40 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %.0) #20
   br label %51
 
 41:                                               ; preds = %36
-  %42 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %.0) #19
+  %42 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %38, ptr noundef nonnull dereferenceable(1) @.str.6, i32 noundef %.0) #20
   br label %51
 
 43:                                               ; preds = %EpdGetValueAndDecimalExponent.exit
@@ -172,11 +172,11 @@ EpdGetValueAndDecimalExponent.exit:               ; preds = %13, %17, %25, %30
   br i1 %45, label %47, label %49
 
 47:                                               ; preds = %43
-  %48 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %46, ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %44) #19
+  %48 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %46, ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %44) #20
   br label %51
 
 49:                                               ; preds = %43
-  %50 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %46, ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %44) #19
+  %50 = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %46, ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef %44) #20
   br label %51
 
 51:                                               ; preds = %41, %39, %49, %47, %11, %12, %7
@@ -209,8 +209,8 @@ define noundef range(i32 -1, 2) i32 @IsInfDouble(double noundef %0) local_unname
 define void @EpdGetValueAndDecimalExponent(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #6 {
   %4 = alloca %struct.EpDoubleStruct, align 8
   %5 = alloca %struct.EpDoubleStruct, align 8
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #19
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #19
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #20
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #20
   %6 = load i64, ptr %0, align 8
   %7 = and i64 %6, 9221120237041090559
   %or.cond7.i.i = icmp ne i64 %7, 9218868437227405312
@@ -272,8 +272,8 @@ define void @EpdGetValueAndDecimalExponent(ptr noundef readonly captures(none) %
   br label %31
 
 31:                                               ; preds = %.sink.split, %3
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #19
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #20
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #20
   ret void
 }
 
@@ -582,16 +582,16 @@ define void @EpdNormalizeDecimal(ptr noundef captures(none) %0) local_unnamed_ad
   br label %21
 
 10:                                               ; preds = %1
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #19
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #19
-  %11 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) @.str.9, double noundef %4) #19
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #20
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #20
+  %11 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) @.str.9, double noundef %4) #20
   %strchr.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %2, i32 69)
-  %12 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %strchr.i, ptr noundef nonnull @.str.11, ptr noundef nonnull %3) #19
+  %12 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %strchr.i, ptr noundef nonnull @.str.11, ptr noundef nonnull %3) #20
   %13 = load i32, ptr %3, align 4, !tbaa !11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #19
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #19
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #20
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #20
   %14 = sitofp i32 %13 to double
-  %15 = call double @pow(double noundef 1.000000e+01, double noundef %14) #19, !tbaa !11
+  %15 = call double @pow(double noundef 1.000000e+01, double noundef %14) #20, !tbaa !11
   %16 = load double, ptr %0, align 8, !tbaa !3
   %17 = fdiv double %16, %15
   store double %17, ptr %0, align 8, !tbaa !3
@@ -1001,7 +1001,7 @@ define void @EpdDivide3(ptr noundef readonly captures(none) %0, ptr noundef read
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable
 define void @EpdAdd(ptr noundef captures(none) %0, double noundef %1) local_unnamed_addr #11 {
   %3 = load i64, ptr %0, align 8
   %or.cond10.i.i.not = icmp eq i64 %3, -2251799813685248
@@ -1109,7 +1109,7 @@ EpdConvert.exit61:                                ; preds = %34, %35, %40
   br i1 %50, label %51, label %64
 
 51:                                               ; preds = %48
-  %ldexp41 = tail call double @ldexp(double 1.000000e+00, i32 %49) #19
+  %ldexp41 = tail call double @ldexp(double 1.000000e+00, i32 %49) #20
   %52 = fdiv double %.sroa.0.1, %ldexp41
   %53 = fadd double %52, %4
   %.pre = load i32, ptr %45, align 8, !tbaa !6
@@ -1125,7 +1125,7 @@ EpdConvert.exit61:                                ; preds = %34, %35, %40
   br i1 %58, label %59, label %64
 
 59:                                               ; preds = %56
-  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %57) #19
+  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %57) #20
   %60 = fdiv double %4, %ldexp
   %61 = fadd double %.sroa.0.1, %60
   br label %64
@@ -1157,10 +1157,10 @@ define void @EpdCopy(ptr noundef readonly captures(none) %0, ptr noundef writeon
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare double @pow(double noundef, double noundef) local_unnamed_addr #12
 
-; Function Attrs: mustprogress nofree nounwind willreturn uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable
 define void @EpdAdd2(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #11 {
   %3 = load i64, ptr %0, align 8
   %or.cond10.i.i.not = icmp eq i64 %3, -2251799813685248
@@ -1229,7 +1229,7 @@ define void @EpdAdd2(ptr noundef captures(none) %0, ptr noundef readonly capture
   br i1 %31, label %32, label %46
 
 32:                                               ; preds = %29
-  %ldexp51 = tail call double @ldexp(double 1.000000e+00, i32 %30) #19
+  %ldexp51 = tail call double @ldexp(double 1.000000e+00, i32 %30) #20
   %33 = fdiv double %7, %ldexp51
   %34 = fadd double %33, %4
   %.pre71 = load i32, ptr %24, align 8, !tbaa !6
@@ -1245,7 +1245,7 @@ define void @EpdAdd2(ptr noundef captures(none) %0, ptr noundef readonly capture
   br i1 %39, label %40, label %46
 
 40:                                               ; preds = %37
-  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %38) #19
+  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %38) #20
   %41 = fdiv double %4, %ldexp
   %42 = load double, ptr %1, align 8, !tbaa !3
   %43 = fadd double %41, %42
@@ -1268,7 +1268,7 @@ define void @EpdAdd2(ptr noundef captures(none) %0, ptr noundef readonly capture
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable
 define void @EpdAdd3(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) initializes((0, 12)) %2) local_unnamed_addr #11 {
   %4 = load i64, ptr %0, align 8
   %or.cond10.i.i.not = icmp eq i64 %4, -2251799813685248
@@ -1349,7 +1349,7 @@ define void @EpdAdd3(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br i1 %40, label %41, label %55
 
 41:                                               ; preds = %38
-  %ldexp55 = tail call double @ldexp(double 1.000000e+00, i32 %39) #19
+  %ldexp55 = tail call double @ldexp(double 1.000000e+00, i32 %39) #20
   %42 = fdiv double %8, %ldexp55
   %43 = fadd double %42, %5
   %.pre76 = load i32, ptr %33, align 8, !tbaa !6
@@ -1365,7 +1365,7 @@ define void @EpdAdd3(ptr noundef readonly captures(none) %0, ptr noundef readonl
   br i1 %48, label %49, label %55
 
 49:                                               ; preds = %46
-  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %47) #19
+  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %47) #20
   %50 = fdiv double %5, %ldexp
   %51 = load double, ptr %1, align 8, !tbaa !3
   %52 = fadd double %50, %51
@@ -1389,7 +1389,7 @@ define void @EpdAdd3(ptr noundef readonly captures(none) %0, ptr noundef readonl
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable
 define void @EpdSubtract(ptr noundef captures(none) %0, double noundef %1) local_unnamed_addr #11 {
   %3 = load i64, ptr %0, align 8
   %or.cond10.i.i.not = icmp eq i64 %3, -2251799813685248
@@ -1497,7 +1497,7 @@ EpdConvert.exit60:                                ; preds = %35, %36, %41
   br i1 %51, label %52, label %67
 
 52:                                               ; preds = %49
-  %ldexp41 = tail call double @ldexp(double 1.000000e+00, i32 %50) #19
+  %ldexp41 = tail call double @ldexp(double 1.000000e+00, i32 %50) #20
   %53 = fdiv double %.sroa.0.1, %ldexp41
   %54 = fsub double %4, %53
   %.pre = load i32, ptr %46, align 8, !tbaa !6
@@ -1513,7 +1513,7 @@ EpdConvert.exit60:                                ; preds = %35, %36, %41
   br i1 %59, label %60, label %63
 
 60:                                               ; preds = %57
-  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %58) #19
+  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %58) #20
   %61 = fdiv double %4, %ldexp
   %62 = fsub double %61, %.sroa.0.1
   br label %67
@@ -1538,7 +1538,7 @@ EpdConvert.exit60:                                ; preds = %35, %36, %41
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable
 define void @EpdSubtract2(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #11 {
   %3 = load i64, ptr %0, align 8
   %or.cond10.i.i.not = icmp eq i64 %3, -2251799813685248
@@ -1607,7 +1607,7 @@ define void @EpdSubtract2(ptr noundef captures(none) %0, ptr noundef readonly ca
   br i1 %32, label %33, label %49
 
 33:                                               ; preds = %30
-  %ldexp51 = tail call double @ldexp(double 1.000000e+00, i32 %31) #19
+  %ldexp51 = tail call double @ldexp(double 1.000000e+00, i32 %31) #20
   %34 = fdiv double %7, %ldexp51
   %35 = fsub double %4, %34
   %.pre70 = load i32, ptr %25, align 8, !tbaa !6
@@ -1623,7 +1623,7 @@ define void @EpdSubtract2(ptr noundef captures(none) %0, ptr noundef readonly ca
   br i1 %40, label %41, label %45
 
 41:                                               ; preds = %38
-  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %39) #19
+  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %39) #20
   %42 = fdiv double %4, %ldexp
   %43 = load double, ptr %1, align 8, !tbaa !3
   %44 = fsub double %42, %43
@@ -1650,7 +1650,7 @@ define void @EpdSubtract2(ptr noundef captures(none) %0, ptr noundef readonly ca
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable
 define void @EpdSubtract3(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #11 {
   %4 = load i64, ptr %0, align 8
   %or.cond10.i.i.not = icmp eq i64 %4, -2251799813685248
@@ -1723,7 +1723,7 @@ define void @EpdSubtract3(ptr noundef readonly captures(none) %0, ptr noundef re
   br i1 %37, label %38, label %54
 
 38:                                               ; preds = %35
-  %ldexp56 = tail call double @ldexp(double 1.000000e+00, i32 %36) #19
+  %ldexp56 = tail call double @ldexp(double 1.000000e+00, i32 %36) #20
   %39 = fdiv double %8, %ldexp56
   %40 = fsub double %5, %39
   %.pre76 = load i32, ptr %30, align 8, !tbaa !6
@@ -1739,7 +1739,7 @@ define void @EpdSubtract3(ptr noundef readonly captures(none) %0, ptr noundef re
   br i1 %45, label %46, label %50
 
 46:                                               ; preds = %43
-  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %44) #19
+  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %44) #20
   %47 = fdiv double %5, %ldexp
   %48 = load double, ptr %1, align 8, !tbaa !3
   %49 = fsub double %47, %48
@@ -1767,15 +1767,15 @@ define void @EpdSubtract3(ptr noundef readonly captures(none) %0, ptr noundef re
   ret void
 }
 
-; Function Attrs: nofree nounwind uwtable
-define void @EpdPow2(i32 noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #6 {
+; Function Attrs: nofree nounwind memory(argmem: write, errnomem: write) uwtable
+define void @EpdPow2(i32 noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #13 {
   %3 = alloca %struct.EpDoubleStruct, align 8
   %4 = alloca %struct.EpDoubleStruct, align 8
   %5 = icmp slt i32 %0, 1024
   br i1 %5, label %6, label %19
 
 6:                                                ; preds = %2
-  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %0) #19
+  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %0) #20
   store double %ldexp, ptr %1, align 8, !tbaa !3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 0, ptr %7, align 8, !tbaa !6
@@ -1803,8 +1803,8 @@ define void @EpdPow2(i32 noundef %0, ptr noundef writeonly captures(none) %1) lo
   br label %EpdConvert.exit
 
 19:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #19
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #19
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #20
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #20
   %20 = lshr i32 %0, 1
   %21 = sub nsw i32 %0, %20
   call void @EpdPow2(i32 noundef %20, ptr noundef nonnull %3)
@@ -1876,8 +1876,8 @@ define void @EpdPow2(i32 noundef %0, ptr noundef writeonly captures(none) %1) lo
   br label %EpdMultiply3.exit
 
 EpdMultiply3.exit:                                ; preds = %19, %24, %52, %47, %46, %30
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #20
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #20
   br label %EpdConvert.exit
 
 EpdConvert.exit:                                  ; preds = %15, %10, %6, %EpdMultiply3.exit
@@ -1896,7 +1896,7 @@ define void @EpdPow2Decimal(i32 noundef %0, ptr noundef captures(none) %1) local
   br i1 %9, label %10, label %25
 
 10:                                               ; preds = %2
-  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %0) #19
+  %ldexp = tail call double @ldexp(double 1.000000e+00, i32 %0) #20
   store double %ldexp, ptr %1, align 8, !tbaa !3
   %11 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 0, ptr %11, align 8, !tbaa !6
@@ -1909,16 +1909,16 @@ define void @EpdPow2Decimal(i32 noundef %0, ptr noundef captures(none) %1) local
   br i1 %or.cond.not.i.not.i, label %15, label %EpdNormalizeDecimal.exit
 
 15:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #19
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #19
-  %16 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.9, double noundef %ldexp) #19
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #20
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #20
+  %16 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %5, ptr noundef nonnull dereferenceable(1) @.str.9, double noundef %ldexp) #20
   %strchr.i.i = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %5, i32 69)
-  %17 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %strchr.i.i, ptr noundef nonnull @.str.11, ptr noundef nonnull %6) #19
+  %17 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %strchr.i.i, ptr noundef nonnull @.str.11, ptr noundef nonnull %6) #20
   %18 = load i32, ptr %6, align 4, !tbaa !11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #19
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #19
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #20
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #20
   %19 = sitofp i32 %18 to double
-  %20 = call double @pow(double noundef 1.000000e+01, double noundef %19) #19, !tbaa !11
+  %20 = call double @pow(double noundef 1.000000e+01, double noundef %19) #20, !tbaa !11
   %21 = load double, ptr %1, align 8, !tbaa !3
   %22 = fdiv double %21, %20
   store double %22, ptr %1, align 8, !tbaa !3
@@ -1928,8 +1928,8 @@ define void @EpdPow2Decimal(i32 noundef %0, ptr noundef captures(none) %1) local
   br label %EpdNormalizeDecimal.exit
 
 25:                                               ; preds = %2
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #19
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #19
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %7) #20
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #20
   %26 = lshr i32 %0, 1
   %27 = sub nsw i32 %0, %26
   call void @EpdPow2Decimal(i32 noundef %26, ptr noundef nonnull %7)
@@ -1985,16 +1985,16 @@ define void @EpdPow2Decimal(i32 noundef %0, ptr noundef captures(none) %1) local
   br label %EpdMultiply3Decimal.exit
 
 53:                                               ; preds = %41
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #19
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #19
-  %54 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.9, double noundef %42) #19
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #20
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #20
+  %54 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) @.str.9, double noundef %42) #20
   %strchr.i.i13 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %3, i32 69)
-  %55 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %strchr.i.i13, ptr noundef nonnull @.str.11, ptr noundef nonnull %4) #19
+  %55 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %strchr.i.i13, ptr noundef nonnull @.str.11, ptr noundef nonnull %4) #20
   %56 = load i32, ptr %4, align 4, !tbaa !11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #19
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #19
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #20
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #20
   %57 = sitofp i32 %56 to double
-  %58 = call double @pow(double noundef 1.000000e+01, double noundef %57) #19, !tbaa !11
+  %58 = call double @pow(double noundef 1.000000e+01, double noundef %57) #20, !tbaa !11
   %59 = load double, ptr %1, align 8, !tbaa !3
   %60 = fdiv double %59, %58
   store double %60, ptr %1, align 8, !tbaa !3
@@ -2004,8 +2004,8 @@ define void @EpdPow2Decimal(i32 noundef %0, ptr noundef captures(none) %1) local
   br label %EpdMultiply3Decimal.exit
 
 EpdMultiply3Decimal.exit:                         ; preds = %25, %30, %53, %52, %36
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #19
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #19
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #20
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %7) #20
   br label %EpdNormalizeDecimal.exit
 
 EpdNormalizeDecimal.exit:                         ; preds = %10, %15, %EpdMultiply3Decimal.exit
@@ -2037,14 +2037,14 @@ define range(i32 0, 2048) i32 @EpdGetExponent(double noundef %0) local_unnamed_a
 define i32 @EpdGetExponentDecimal(double noundef %0) local_unnamed_addr #6 {
   %2 = alloca [24 x i8], align 16
   %3 = alloca i32, align 4
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #19
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #19
-  %4 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) @.str.9, double noundef %0) #19
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #20
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #20
+  %4 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) @.str.9, double noundef %0) #20
   %strchr = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %2, i32 69)
-  %5 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %strchr, ptr noundef nonnull @.str.11, ptr noundef nonnull %3) #19
+  %5 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %strchr, ptr noundef nonnull @.str.11, ptr noundef nonnull %3) #20
   %6 = load i32, ptr %3, align 4, !tbaa !11
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #19
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #19
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #20
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #20
   ret i32 %6
 }
 
@@ -2072,19 +2072,19 @@ define range(i32 0, 2) i32 @EpdIsZero(ptr noundef readonly captures(none) %0) lo
 declare noundef i32 @__isoc99_sscanf(ptr noundef readonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #8
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr, i32) local_unnamed_addr #13
+declare ptr @strchr(ptr, i32) local_unnamed_addr #14
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #14
+declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #15
 
-; Function Attrs: nofree willreturn
-declare double @ldexp(double, i32) local_unnamed_addr #15
+; Function Attrs: nofree willreturn memory(errnomem: write)
+declare double @ldexp(double, i32) local_unnamed_addr #16
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare double @llvm.fabs.f64(double) #16
+declare double @llvm.fabs.f64(double) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #17
+declare void @llvm.assume(i1 noundef) #18
 
 attributes #0 = { mustprogress nofree nounwind willreturn memory(inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
@@ -2097,15 +2097,16 @@ attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #8 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #10 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree nounwind willreturn memory(write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #14 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #15 = { nofree willreturn }
-attributes #16 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #17 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #18 = { nounwind allocsize(0) }
-attributes #19 = { nounwind }
+attributes #11 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nofree nounwind memory(argmem: write, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #14 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #15 = { nocallback nofree nounwind willreturn memory(argmem: readwrite) }
+attributes #16 = { nofree willreturn memory(errnomem: write) }
+attributes #17 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #18 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #19 = { nounwind allocsize(0) }
+attributes #20 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 

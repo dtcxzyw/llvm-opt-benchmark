@@ -242,7 +242,7 @@ define dso_local void @_ZN24btInverseDynamicsBullet33mulERKNS_5mat33ERKNS_5mat3x
   %27 = load i32, ptr %4, align 4, !tbaa !19
   %28 = load i32, ptr %6, align 4, !tbaa !19
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.2, i32 noundef %27, i32 noundef %28)
-  tail call void @abort() #13
+  tail call void @abort() #14
   unreachable
 
 ._crit_edge:                                      ; preds = %31
@@ -335,7 +335,7 @@ define dso_local void @_ZN24btInverseDynamicsBullet33addERKNS_5mat3xES2_PS0_(ptr
   %22 = load i32, ptr %4, align 4, !tbaa !19
   %23 = load i32, ptr %6, align 4, !tbaa !19
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.3, i32 noundef %22, i32 noundef %23)
-  tail call void @abort() #13
+  tail call void @abort() #14
   unreachable
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %26
@@ -408,7 +408,7 @@ define dso_local void @_ZN24btInverseDynamicsBullet33subERKNS_5mat3xES2_PS0_(ptr
   %22 = load i32, ptr %4, align 4, !tbaa !19
   %23 = load i32, ptr %6, align 4, !tbaa !19
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.3, i32 noundef %22, i32 noundef %23)
-  tail call void @abort() #13
+  tail call void @abort() #14
   unreachable
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %26
@@ -446,11 +446,11 @@ define dso_local void @_ZN24btInverseDynamicsBullet33subERKNS_5mat3xES2_PS0_(ptr
   br i1 %exitcond.not, label %26, label %27, !llvm.loop !31
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable
 define dso_local void @_ZN24btInverseDynamicsBullet310transformXERKf(ptr dead_on_unwind noalias writable writeonly sret(%"class.btInverseDynamicsBullet3::mat33") align 4 captures(none) initializes((0, 12), (16, 28), (32, 44)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #9 {
   %3 = load float, ptr %1, align 4, !tbaa !4
-  %4 = tail call noundef float @cosf(float noundef %3) #14, !tbaa !32
-  %5 = tail call noundef float @sinf(float noundef %3) #14, !tbaa !32
+  %4 = tail call noundef float @cosf(float noundef %3) #15, !tbaa !32
+  %5 = tail call noundef float @sinf(float noundef %3) #15, !tbaa !32
   store float 1.000000e+00, ptr %0, align 4, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store float 0.000000e+00, ptr %6, align 4, !tbaa !4
@@ -472,11 +472,11 @@ define dso_local void @_ZN24btInverseDynamicsBullet310transformXERKf(ptr dead_on
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable
 define dso_local void @_ZN24btInverseDynamicsBullet310transformYERKf(ptr dead_on_unwind noalias writable writeonly sret(%"class.btInverseDynamicsBullet3::mat33") align 4 captures(none) initializes((0, 12), (16, 28), (32, 44)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #9 {
   %3 = load float, ptr %1, align 4, !tbaa !4
-  %4 = tail call noundef float @cosf(float noundef %3) #14, !tbaa !32
-  %5 = tail call noundef float @sinf(float noundef %3) #14, !tbaa !32
+  %4 = tail call noundef float @cosf(float noundef %3) #15, !tbaa !32
+  %5 = tail call noundef float @sinf(float noundef %3) #15, !tbaa !32
   store float %4, ptr %0, align 4, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store float 0.000000e+00, ptr %6, align 4, !tbaa !4
@@ -498,11 +498,11 @@ define dso_local void @_ZN24btInverseDynamicsBullet310transformYERKf(ptr dead_on
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable
 define dso_local void @_ZN24btInverseDynamicsBullet310transformZERKf(ptr dead_on_unwind noalias writable writeonly sret(%"class.btInverseDynamicsBullet3::mat33") align 4 captures(none) initializes((0, 12), (16, 28), (32, 44)) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1) local_unnamed_addr #9 {
   %3 = load float, ptr %1, align 4, !tbaa !4
-  %4 = tail call noundef float @cosf(float noundef %3) #14, !tbaa !32
-  %5 = tail call noundef float @sinf(float noundef %3) #14, !tbaa !32
+  %4 = tail call noundef float @cosf(float noundef %3) #15, !tbaa !32
+  %5 = tail call noundef float @sinf(float noundef %3) #15, !tbaa !32
   store float %4, ptr %0, align 4, !tbaa !4
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 4
   store float %5, ptr %6, align 4, !tbaa !4
@@ -554,12 +554,12 @@ define dso_local void @_ZN24btInverseDynamicsBullet313tildeOperatorERKNS_4vec3E(
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: write, errnomem: write) uwtable
 define dso_local void @_ZN24btInverseDynamicsBullet315getVecMatFromDHEffffPNS_4vec3EPNS_5mat33E(float noundef %0, float noundef %1, float noundef %2, float noundef %3, ptr noundef writeonly captures(none) initializes((0, 12)) %4, ptr noundef writeonly captures(none) initializes((0, 12), (16, 28), (32, 44)) %5) local_unnamed_addr #10 {
-  %7 = tail call noundef float @sinf(float noundef %3) #14, !tbaa !32
-  %8 = tail call noundef float @cosf(float noundef %3) #14, !tbaa !32
-  %9 = tail call noundef float @sinf(float noundef %0) #14, !tbaa !32
-  %10 = tail call noundef float @cosf(float noundef %0) #14, !tbaa !32
+  %7 = tail call noundef float @sinf(float noundef %3) #15, !tbaa !32
+  %8 = tail call noundef float @cosf(float noundef %3) #15, !tbaa !32
+  %9 = tail call noundef float @sinf(float noundef %0) #15, !tbaa !32
+  %10 = tail call noundef float @cosf(float noundef %0) #15, !tbaa !32
   store float %2, ptr %4, align 4, !tbaa !4
   %11 = fneg float %7
   %12 = fmul float %1, %11
@@ -593,11 +593,11 @@ define dso_local void @_ZN24btInverseDynamicsBullet315getVecMatFromDHEffffPNS_4v
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable
 define dso_local void @_ZN24btInverseDynamicsBullet324bodyTParentFromAxisAngleERKNS_4vec3ERKfPNS_5mat33E(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(16) %0, ptr noundef nonnull readonly align 4 captures(none) dereferenceable(4) %1, ptr noundef writeonly captures(none) initializes((0, 12), (16, 28), (32, 44)) %2) local_unnamed_addr #9 {
   %4 = load float, ptr %1, align 4, !tbaa !4
-  %5 = tail call noundef float @cosf(float noundef %4) #14, !tbaa !32
-  %6 = tail call noundef float @sinf(float noundef %4) #14, !tbaa !32
+  %5 = tail call noundef float @cosf(float noundef %4) #15, !tbaa !32
+  %6 = tail call noundef float @sinf(float noundef %4) #15, !tbaa !32
   %7 = fneg float %6
   %8 = fsub float 1.000000e+00, %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
@@ -1321,26 +1321,26 @@ define dso_local noundef zeroext i1 @_ZN24btInverseDynamicsBullet312isUnitVector
   ret i1 %12
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable
-define dso_local { <2 x float>, <2 x float> } @_ZN24btInverseDynamicsBullet313rpyFromMatrixERKNS_5mat33E(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(48) %0) local_unnamed_addr #9 {
+; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read, errnomem: write) uwtable
+define dso_local { <2 x float>, <2 x float> } @_ZN24btInverseDynamicsBullet313rpyFromMatrixERKNS_5mat33E(ptr noundef nonnull readonly align 4 captures(none) dereferenceable(48) %0) local_unnamed_addr #11 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load float, ptr %2, align 4, !tbaa !4
   %4 = fneg float %3
   %5 = load float, ptr %0, align 4, !tbaa !4
-  %6 = tail call noundef float @atan2f(float noundef %4, float noundef %5) #14, !tbaa !32
+  %6 = tail call noundef float @atan2f(float noundef %4, float noundef %5) #15, !tbaa !32
   %.sroa.4.8.vec.insert = insertelement <2 x float> <float poison, float undef>, float %6, i64 0
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load float, ptr %7, align 4, !tbaa !4
   %9 = fneg float %8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %11 = load float, ptr %10, align 4, !tbaa !4
-  %12 = tail call noundef float @atan2f(float noundef %9, float noundef %11) #14, !tbaa !32
+  %12 = tail call noundef float @atan2f(float noundef %9, float noundef %11) #15, !tbaa !32
   %.sroa.0.0.vec.insert = insertelement <2 x float> poison, float %12, i64 0
-  %13 = tail call noundef float @cosf(float noundef %6) #14, !tbaa !32
-  %14 = tail call noundef float @sinf(float noundef %12) #14, !tbaa !32
+  %13 = tail call noundef float @cosf(float noundef %6) #15, !tbaa !32
+  %14 = tail call noundef float @sinf(float noundef %12) #15, !tbaa !32
   %15 = fmul float %14, %4
   %16 = tail call float @llvm.fmuladd.f32(float %13, float %5, float %15)
-  %17 = tail call noundef float @atan2f(float noundef %8, float noundef %16) #14, !tbaa !32
+  %17 = tail call noundef float @atan2f(float noundef %8, float noundef %16) #15, !tbaa !32
   %.sroa.0.4.vec.insert = insertelement <2 x float> %.sroa.0.0.vec.insert, float %17, i64 1
   %.fca.0.insert = insertvalue { <2 x float>, <2 x float> } poison, <2 x float> %.sroa.0.4.vec.insert, 0
   %.fca.1.insert = insertvalue { <2 x float>, <2 x float> } %.fca.0.insert, <2 x float> %.sroa.4.8.vec.insert, 1
@@ -1350,17 +1350,17 @@ define dso_local { <2 x float>, <2 x float> } @_ZN24btInverseDynamicsBullet313rp
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.fabs.f32(float) #8
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare float @cosf(float noundef) local_unnamed_addr #11
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
+declare float @cosf(float noundef) local_unnamed_addr #12
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare float @sinf(float noundef) local_unnamed_addr #11
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
+declare float @sinf(float noundef) local_unnamed_addr #12
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(write)
-declare float @atan2f(float noundef, float noundef) local_unnamed_addr #11
+; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
+declare float @atan2f(float noundef, float noundef) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #13
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1371,12 +1371,13 @@ attributes #5 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping
 attributes #6 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { cold nofree noreturn nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { mustprogress nofree nounwind willreturn memory(write, argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree nounwind willreturn memory(write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { mustprogress nofree nounwind willreturn memory(write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #13 = { noreturn nounwind }
-attributes #14 = { nounwind }
+attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: readwrite, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { mustprogress nofree nounwind willreturn memory(argmem: write, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree nounwind willreturn memory(argmem: read, errnomem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { mustprogress nofree nounwind willreturn memory(errnomem: write) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #14 = { noreturn nounwind }
+attributes #15 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 

@@ -1508,8 +1508,8 @@ declare i32 @xstrcmp(ptr noundef, ptr noundef) local_unnamed_addr #4
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__ctype_b_loc() local_unnamed_addr #9
 
-; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
-declare i32 @isdigit(i32 noundef) local_unnamed_addr #9
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read)
+declare i32 @isdigit(i32 noundef) local_unnamed_addr #10
 
 declare i32 @xstrncmp(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #4
 
