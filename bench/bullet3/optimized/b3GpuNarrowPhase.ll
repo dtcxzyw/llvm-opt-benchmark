@@ -5313,7 +5313,7 @@ _ZN16b3GpuNarrowPhase18allocateCollidableEv.exit.thread: ; preds = %2
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 620
   %21 = load i32, ptr %20, align 4, !tbaa !334
   tail call void (ptr, ...) @b3OutputErrorMessageVarArgsInternal(ptr noundef nonnull @.str.2, i32 noundef %21)
-  br label %471
+  br label %472
 
 _ZN16b3GpuNarrowPhase18allocateCollidableEv.exit: ; preds = %2
   %22 = getelementptr inbounds nuw i8, ptr %13, i64 376
@@ -5322,7 +5322,7 @@ _ZN16b3GpuNarrowPhase18allocateCollidableEv.exit: ; preds = %2
   %23 = call noundef nonnull align 4 dereferenceable(16) ptr @_ZN20b3AlignedObjectArrayI12b3CollidableE6expandERKS0_(ptr noundef nonnull align 8 dereferenceable(25) %22, ptr noundef nonnull align 4 dereferenceable(16) %3)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #18
   %24 = icmp slt i32 %15, 0
-  br i1 %24, label %471, label %25
+  br i1 %24, label %472, label %25
 
 25:                                               ; preds = %_ZN16b3GpuNarrowPhase18allocateCollidableEv.exit
   %26 = load ptr, ptr %12, align 8, !tbaa !7
@@ -5879,7 +5879,7 @@ _ZN14b3QuantizedBvhnwEm.exit:                     ; preds = %223
 321:                                              ; preds = %._crit_edge210
   %322 = landingpad { ptr, i32 }
           cleanup
-  br label %470
+  br label %471
 
 323:                                              ; preds = %.lr.ph209, %403
   %indvars.iv230 = phi i64 [ 0, %.lr.ph209 ], [ %indvars.iv.next231, %403 ]
@@ -6102,7 +6102,7 @@ _ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE7reserveEi.exit: ; preds = %404, %_
 438:                                              ; preds = %431, %.noexc156, %_ZNK20b3AlignedObjectArrayI16b3BvhSubtreeInfoE4copyEiiPS0_.exit15.i, %_ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE8allocateEi.exit.i
   %439 = landingpad { ptr, i32 }
           cleanup
-  br label %470
+  br label %471
 
 440:                                              ; preds = %.lr.ph212, %445
   %indvars.iv235 = phi i64 [ 0, %.lr.ph212 ], [ %indvars.iv.next236, %445 ]
@@ -6121,7 +6121,7 @@ _ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE7reserveEi.exit: ; preds = %404, %_
 446:                                              ; preds = %440
   %447 = landingpad { ptr, i32 }
           cleanup
-  br label %470
+  br label %471
 
 ._crit_edge217:                                   ; preds = %459, %._crit_edge213
   %448 = load ptr, ptr @__clewFinish, align 8, !tbaa !218
@@ -6133,7 +6133,7 @@ _ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE7reserveEi.exit: ; preds = %404, %_
 452:                                              ; preds = %._crit_edge217
   %453 = landingpad { ptr, i32 }
           cleanup
-  br label %470
+  br label %471
 
 454:                                              ; preds = %.lr.ph216, %459
   %indvars.iv240 = phi i64 [ 0, %.lr.ph216 ], [ %indvars.iv.next241, %459 ]
@@ -6152,43 +6152,43 @@ _ZN20b3AlignedObjectArrayI16b3BvhSubtreeInfoE7reserveEi.exit: ; preds = %404, %_
 460:                                              ; preds = %454
   %461 = landingpad { ptr, i32 }
           cleanup
-  br label %470
+  br label %471
 
 462:                                              ; preds = %._crit_edge217
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #18
   %.not.i.i.i159 = icmp eq ptr %71, null
   br i1 %.not.i.i.i159, label %_ZN20b3AlignedObjectArrayI6b3AabbED2Ev.exit, label %463
 
-463:                                              ; preds = %462
-  %464 = load i8, ptr %45, align 8, !tbaa !368, !range !92, !noundef !93
-  %465 = trunc nuw i8 %464 to i1
-  br i1 %465, label %466, label %_ZN20b3AlignedObjectArrayI6b3AabbED2Ev.exit
+464:                                              ; preds = %462
+  %465 = load i8, ptr %45, align 8, !tbaa !368, !range !92, !noundef !93
+  %466 = trunc nuw i8 %465 to i1
+  br i1 %466, label %467, label %_ZN20b3AlignedObjectArrayI6b3AabbED2Ev.exit
 
-466:                                              ; preds = %463
+467:                                              ; preds = %464
   invoke void @_Z21b3AlignedFreeInternalPv(ptr noundef nonnull %71)
-          to label %_ZN20b3AlignedObjectArrayI6b3AabbED2Ev.exit unwind label %467
+          to label %_ZN20b3AlignedObjectArrayI6b3AabbED2Ev.exit unwind label %468
 
-467:                                              ; preds = %466
-  %468 = landingpad { ptr, i32 }
+468:                                              ; preds = %467
+  %469 = landingpad { ptr, i32 }
           catch ptr null
-  %469 = extractvalue { ptr, i32 } %468, 0
-  call void @__clang_call_terminate(ptr %469) #20
+  %470 = extractvalue { ptr, i32 } %469, 0
+  call void @__clang_call_terminate(ptr %470) #20
   unreachable
 
-_ZN20b3AlignedObjectArrayI6b3AabbED2Ev.exit:      ; preds = %462, %463, %466
+_ZN20b3AlignedObjectArrayI6b3AabbED2Ev.exit:      ; preds = %462, %464, %467
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #18
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #18
-  br label %471
+  br label %472
 
-470:                                              ; preds = %438, %446, %460, %452, %321
+471:                                              ; preds = %438, %446, %460, %452, %321
   %.pn127.pn = phi { ptr, i32 } [ %322, %321 ], [ %447, %446 ], [ %439, %438 ], [ %461, %460 ], [ %453, %452 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %9) #18
   br label %_ZN14b3QuantizedBvhdlEPv.exit
 
-_ZN14b3QuantizedBvhdlEPv.exit:                    ; preds = %244, %242, %470, %289, %249, %92, %90
-  %.pn134.pn.pn.pn = phi { ptr, i32 } [ %91, %90 ], [ %93, %92 ], [ %243, %242 ], [ %290, %289 ], [ %.pn127.pn, %470 ], [ %250, %249 ], [ %245, %244 ]
+_ZN14b3QuantizedBvhdlEPv.exit:                    ; preds = %244, %242, %471, %289, %249, %92, %90
+  %.pn134.pn.pn.pn = phi { ptr, i32 } [ %91, %90 ], [ %93, %92 ], [ %243, %242 ], [ %290, %289 ], [ %.pn127.pn, %471 ], [ %250, %249 ], [ %245, %244 ]
   call void @_ZN20b3AlignedObjectArrayI6b3AabbED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %7) #18
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #18
@@ -6196,7 +6196,7 @@ _ZN14b3QuantizedBvhdlEPv.exit:                    ; preds = %244, %242, %470, %2
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #18
   resume { ptr, i32 } %.pn134.pn.pn.pn
 
-471:                                              ; preds = %_ZN16b3GpuNarrowPhase18allocateCollidableEv.exit.thread, %_ZN16b3GpuNarrowPhase18allocateCollidableEv.exit, %_ZN20b3AlignedObjectArrayI6b3AabbED2Ev.exit
+472:                                              ; preds = %_ZN16b3GpuNarrowPhase18allocateCollidableEv.exit.thread, %_ZN16b3GpuNarrowPhase18allocateCollidableEv.exit, %_ZN20b3AlignedObjectArrayI6b3AabbED2Ev.exit
   %.0.i195 = phi i32 [ -1, %_ZN16b3GpuNarrowPhase18allocateCollidableEv.exit.thread ], [ %15, %_ZN16b3GpuNarrowPhase18allocateCollidableEv.exit ], [ %15, %_ZN20b3AlignedObjectArrayI6b3AabbED2Ev.exit ]
   ret i32 %.0.i195
 }

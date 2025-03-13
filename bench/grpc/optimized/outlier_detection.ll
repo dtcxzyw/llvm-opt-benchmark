@@ -11549,11 +11549,11 @@ define linkonce_odr { ptr, i8 } @_ZNSt8_Rb_treeIN9grpc_core18EndpointAddressSetE
           to label %.noexc7 unwind label %.loopexit.split-lp
 
 .noexc7:                                          ; preds = %16
-  %.pre = load ptr, ptr %4, align 8, !tbaa !421
+  %.pre28 = load ptr, ptr %4, align 8, !tbaa !421
   br i1 %18, label %select.unfold, label %33
 
 select.unfold:                                    ; preds = %.noexc7, %._crit_edge.thread.i
-  %19 = phi ptr [ %5, %._crit_edge.thread.i ], [ %.pre, %.noexc7 ]
+  %19 = phi ptr [ %5, %._crit_edge.thread.i ], [ %.pre28, %.noexc7 ]
   %.sroa.4.0.i.ph = phi ptr [ %.019.lcssa28.i, %._crit_edge.thread.i ], [ %.019.lcssa29.i, %.noexc7 ]
   %20 = load ptr, ptr %3, align 8, !tbaa !425
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -11591,12 +11591,12 @@ select.unfold:                                    ; preds = %.noexc7, %._crit_ed
   br label %41
 
 33:                                               ; preds = %.noexc7
-  %.not.i9 = icmp eq ptr %.pre, null
+  %.not.i9 = icmp eq ptr %.pre28, null
   br i1 %.not.i9, label %_ZNSt8_Rb_treeIN9grpc_core18EndpointAddressSetES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_Auto_nodeD2Ev.exit, label %34
 
 34:                                               ; preds = %33
-  %35 = getelementptr inbounds nuw i8, ptr %.pre, i64 32
-  %36 = getelementptr inbounds nuw i8, ptr %.pre, i64 48
+  %35 = getelementptr inbounds nuw i8, ptr %.pre28, i64 32
+  %36 = getelementptr inbounds nuw i8, ptr %.pre28, i64 48
   %37 = load ptr, ptr %36, align 8, !tbaa !37
   invoke void @_ZNSt8_Rb_treeI21grpc_resolved_addressS0_St9_IdentityIS0_EN9grpc_core23ResolvedAddressLessThanESaIS0_EE8_M_eraseEPSt13_Rb_tree_nodeIS0_E(ptr noundef nonnull align 8 dereferenceable(48) %35, ptr noundef %37)
           to label %_ZNSt8_Rb_treeIN9grpc_core18EndpointAddressSetES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS1_E.exit.i unwind label %38
@@ -11609,7 +11609,7 @@ select.unfold:                                    ; preds = %.noexc7, %._crit_ed
   unreachable
 
 _ZNSt8_Rb_treeIN9grpc_core18EndpointAddressSetES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS1_E.exit.i: ; preds = %34
-  tail call void @_ZdlPvm(ptr noundef nonnull %.pre, i64 noundef 80) #40
+  tail call void @_ZdlPvm(ptr noundef nonnull %.pre28, i64 noundef 80) #40
   br label %_ZNSt8_Rb_treeIN9grpc_core18EndpointAddressSetES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_Auto_nodeD2Ev.exit
 
 _ZNSt8_Rb_treeIN9grpc_core18EndpointAddressSetES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_Auto_nodeD2Ev.exit: ; preds = %.thread20, %33, %_ZNSt8_Rb_treeIN9grpc_core18EndpointAddressSetES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS1_E.exit.i

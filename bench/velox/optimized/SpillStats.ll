@@ -2497,15 +2497,15 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
           to label %_ZNK5folly12SynchronizedIN8facebook5velox6common10SpillStatsENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEE4copyEv.exit unwind label %terminate.lpad.i.i.i, !noalias !142
 
 terminate.lpad.i.i.i:                             ; preds = %for.body
-  %7 = landingpad { ptr, i32 }
+  %6 = landingpad { ptr, i32 }
           catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  call void @__clang_call_terminate(ptr %8) #30, !noalias !142
+  %7 = extractvalue { ptr, i32 } %6, 0
+  call void @__clang_call_terminate(ptr %7) #30, !noalias !142
   unreachable
 
 _ZNK5folly12SynchronizedIN8facebook5velox6common10SpillStatsENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEE4copyEv.exit: ; preds = %for.body
-  %9 = load i64, ptr %agg.result, align 8
-  %add.i = add i64 %9, %ref.tmp.sroa.0.0.copyload
+  %8 = load i64, ptr %agg.result, align 8
+  %add.i = add i64 %8, %ref.tmp.sroa.0.0.copyload
   store i64 %add.i, ptr %agg.result, align 8
   %add4.i = add i64 %add4.i8, %ref.tmp.sroa.2.0.copyload
   store i64 %add4.i, ptr %spilledInputBytes3.i, align 8

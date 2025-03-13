@@ -294,21 +294,21 @@ define ptr @H5FS__new(ptr noundef %0, i16 noundef zeroext %1, ptr noundef readon
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 408
   store ptr %22, ptr %23, align 8, !tbaa !44
   %24 = icmp eq ptr %22, null
-  br i1 %24, label %.thread58, label %.preheader
+  br i1 %24, label %.thread59, label %.preheader
 
 .preheader:                                       ; preds = %20
   %25 = getelementptr inbounds nuw i8, ptr %12, i64 384
   br label %29
 
-.thread58:                                        ; preds = %20
+.thread59:                                        ; preds = %20
   %26 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !11
   %27 = load i64, ptr @H5E_NOSPACE_g, align 8, !tbaa !11
   %28 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5FS__new, i32 noundef 604, i64 noundef %26, i64 noundef %27, ptr noundef nonnull @.str.21) #6
   br label %78
 
 29:                                               ; preds = %.preheader, %44
-  %.04757 = phi i64 [ 0, %.preheader ], [ %45, %44 ]
-  %30 = getelementptr inbounds nuw %struct.H5FS_section_class_t, ptr %22, i64 %.04757
+  %30 = phi i64 [ 0, %.preheader ], [ %45, %44 ]
+  %30 = getelementptr inbounds nuw %struct.H5FS_section_class_t, ptr %22, i64 %30
   %31 = getelementptr inbounds nuw ptr, ptr %2, i64 %.04757
   %32 = load ptr, ptr %31, align 8, !tbaa !49
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %30, ptr noundef nonnull align 8 dereferenceable(136) %32, i64 136, i1 false)
@@ -323,24 +323,24 @@ define ptr @H5FS__new(ptr noundef %0, i16 noundef zeroext %1, ptr noundef readon
   br i1 %37, label %73, label %38
 
 38:                                               ; preds = %35, %29
-  %39 = getelementptr inbounds nuw %struct.H5FS_section_class_t, ptr %22, i64 %.04757, i32 1
-  %40 = load i64, ptr %39, align 8, !tbaa !51
+  %39 = getelementptr inbounds nuw %struct.H5FS_section_class_t, ptr %22, i64 %30, i32 1
+  %.pre = load i64, ptr %39, align 8, !tbaa !51
   %41 = load i64, ptr %25, align 8, !tbaa !52
   %42 = icmp ugt i64 %40, %41
   br i1 %42, label %43, label %44
 
-43:                                               ; preds = %38
+43: ; preds = %38
   store i64 %40, ptr %25, align 8, !tbaa !52
   br label %44
 
-44:                                               ; preds = %38, %43
+44:; preds = %38, %43
   %45 = add nuw nsw i64 %.04757, 1
   %exitcond.not = icmp eq i64 %45, %21
   br i1 %exitcond.not, label %.loopexit, label %29, !llvm.loop !53
 
 .loopexit:                                        ; preds = %44, %18
-  %46 = getelementptr inbounds nuw i8, ptr %12, i64 344
-  store i64 -1, ptr %46, align 8, !tbaa !41
+  %48 = getelementptr inbounds nuw i8, ptr %12, i64 344
+  store i64 -1, ptr %48, align 8, !tbaa !41
   %47 = tail call zeroext i8 @H5F_sizeof_size(ptr noundef %0) #6
   %48 = zext i8 %47 to i64
   %49 = tail call zeroext i8 @H5F_sizeof_size(ptr noundef %0) #6
@@ -367,20 +367,20 @@ define ptr @H5FS__new(ptr noundef %0, i16 noundef zeroext %1, ptr noundef readon
   %70 = add nuw nsw i64 %69, %62
   %71 = getelementptr inbounds nuw i8, ptr %12, i64 352
   store i64 %70, ptr %71, align 8, !tbaa !40
-  %72 = getelementptr inbounds nuw i8, ptr %12, i64 312
-  store i64 -1, ptr %72, align 8, !tbaa !54
+  %73 = getelementptr inbounds nuw i8, ptr %12, i64 312
+  store i64 -1, ptr %73, align 8, !tbaa !54
   br label %.thread
 
-73:                                               ; preds = %35
-  %74 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !11
-  %75 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !11
-  %76 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5FS__new, i32 noundef 617, i64 noundef %74, i64 noundef %75, ptr noundef nonnull @.str.22) #6
+75:                                               ; preds = %35
+  %76 = load i64, ptr @H5E_RESOURCE_g, align 8, !tbaa !11
+  %77 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !11
+  %78 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.2, ptr noundef nonnull @__func__.H5FS__new, i32 noundef 617, i64 noundef %76, i64 noundef %77, ptr noundef nonnull @.str.22) #6
   %77 = tail call ptr @H5FL_seq_free(ptr noundef nonnull @H5_H5FS_section_class_t_seq_free_list, ptr noundef nonnull %22) #6
   store ptr %77, ptr %23, align 8, !tbaa !44
-  br label %78
+  br label %79
 
-78:                                               ; preds = %.thread58, %73
-  %79 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5FS_t_reg_free_list, ptr noundef nonnull %12) #6
+79:                                               ; preds = %.thread58, %75
+  %80 = tail call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5FS_t_reg_free_list, ptr noundef nonnull %12) #6
   br label %.thread
 
 .thread:                                          ; preds = %14, %.loopexit, %78, %4

@@ -193,7 +193,7 @@ define dso_local void @_ZN3tev10ThreadPool12startThreadsEm(ptr noundef nonnull a
 
 23:                                               ; preds = %.lr.ph, %"_ZNSt3__16vectorINS_6threadENS_9allocatorIS1_EEE12emplace_backIJZN3tev10ThreadPool12startThreadsEmE3$_0EEERS1_DpOT_.exit"
   %24 = phi ptr [ %10, %.lr.ph ], [ %.0.i, %"_ZNSt3__16vectorINS_6threadENS_9allocatorIS1_EEE12emplace_backIJZN3tev10ThreadPool12startThreadsEmE3$_0EEERS1_DpOT_.exit" ]
-  %.07 = phi i64 [ %15, %.lr.ph ], [ %69, %"_ZNSt3__16vectorINS_6threadENS_9allocatorIS1_EEE12emplace_backIJZN3tev10ThreadPool12startThreadsEmE3$_0EEERS1_DpOT_.exit" ]
+  %.07 = phi i64 [ %15, %.lr.ph ], [ %72, %"_ZNSt3__16vectorINS_6threadENS_9allocatorIS1_EEE12emplace_backIJZN3tev10ThreadPool12startThreadsEmE3$_0EEERS1_DpOT_.exit" ]
   store ptr %0, ptr %4, align 8
   store i64 %.07, ptr %17, align 8
   %25 = load ptr, ptr %18, align 8
@@ -204,8 +204,8 @@ define dso_local void @_ZN3tev10ThreadPool12startThreadsEm(ptr noundef nonnull a
   invoke fastcc void @"_ZNSt3__116allocator_traitsINS_9allocatorINS_6threadEEEE9constructB8ne190000IS2_JZN3tev10ThreadPool12startThreadsEmE3$_0EvTnNS_9enable_ifIXntsr15__has_constructIS3_PT_DpT0_EE5valueEiE4typeELi0EEEvRS3_SB_DpOSC_"(ptr noundef %24, ptr noundef nonnull readonly align 8 dereferenceable(16) %4)
           to label %"_ZNSt3__16vectorINS_6threadENS_9allocatorIS1_EEE22__construct_one_at_endB8ne190000IJZN3tev10ThreadPool12startThreadsEmE3$_0EEEvDpOT_.exit.i" unwind label %28
 
-common.resume.i:                                  ; preds = %67, %28
-  %common.resume.op.i = phi { ptr, i32 } [ %29, %28 ], [ %68, %67 ]
+common.resume.i:                                  ; preds = %70, %28
+  %common.resume.op.i = phi { ptr, i32 } [ %29, %28 ], [ %71, %70 ]
   resume { ptr, i32 } %common.resume.op.i
 
 28:                                               ; preds = %27
@@ -267,7 +267,7 @@ _ZNSt3__114__split_bufferINS_6threadERNS_9allocatorIS1_EEEC2EmmS4_.exit.i.i: ; p
   %50 = getelementptr inbounds %"class.std::__1::thread", ptr %storemerge.i.i.i, i64 %.0.i.i.i
   store ptr %50, ptr %19, align 8
   invoke fastcc void @"_ZNSt3__116allocator_traitsINS_9allocatorINS_6threadEEEE9constructB8ne190000IS2_JZN3tev10ThreadPool12startThreadsEmE3$_0EvTnNS_9enable_ifIXntsr15__has_constructIS3_PT_DpT0_EE5valueEiE4typeELi0EEEvRS3_SB_DpOSC_"(ptr noundef %49, ptr noundef nonnull readonly align 8 dereferenceable(16) %4)
-          to label %51 unwind label %67
+          to label %51 unwind label %70
 
 51:                                               ; preds = %_ZNSt3__114__split_bufferINS_6threadERNS_9allocatorIS1_EEEC2EmmS4_.exit.i.i
   %52 = getelementptr inbounds nuw i8, ptr %49, i64 8
@@ -283,21 +283,21 @@ _ZNSt3__114__split_bufferINS_6threadERNS_9allocatorIS1_EEEC2EmmS4_.exit.i.i: ; p
   br i1 %.not29.i.i.i.i, label %_ZNSt3__114__split_bufferINS_6threadERNS_9allocatorIS1_EEE5clearB8ne190000Ev.exit.i.i.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %51, %.lr.ph.i.i.i.i
-  %.031.i.i.i.i = phi ptr [ %62, %.lr.ph.i.i.i.i ], [ %54, %51 ]
-  %.02830.i.i.i.i = phi ptr [ %63, %.lr.ph.i.i.i.i ], [ %60, %51 ]
-  %61 = load i64, ptr %.031.i.i.i.i, align 8
-  store i64 %61, ptr %.02830.i.i.i.i, align 8
+  %.031.i.i.i.i = phi ptr [ %64, %.lr.ph.i.i.i.i ], [ %54, %51 ]
+  %.02830.i.i.i.i = phi ptr [ %65, %.lr.ph.i.i.i.i ], [ %60, %51 ]
+  %63 = load i64, ptr %.031.i.i.i.i, align 8
+  store i64 %63, ptr %.02830.i.i.i.i, align 8
   store i64 0, ptr %.031.i.i.i.i, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %.031.i.i.i.i, i64 8
-  %63 = getelementptr inbounds nuw i8, ptr %.02830.i.i.i.i, i64 8
-  %.not.i.i.i.i = icmp eq ptr %62, %53
+  %64 = getelementptr inbounds nuw i8, ptr %.031.i.i.i.i, i64 8
+  %65 = getelementptr inbounds nuw i8, ptr %.02830.i.i.i.i, i64 8
+  %.not.i.i.i.i = icmp eq ptr %64, %53
   br i1 %.not.i.i.i.i, label %.lr.ph.i.i.i.i.i, label %.lr.ph.i.i.i.i, !llvm.loop !5
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %.lr.ph.i.i.i.i, %.lr.ph.i.i.i.i.i
-  %.06.i.i.i.i.i = phi ptr [ %64, %.lr.ph.i.i.i.i.i ], [ %54, %.lr.ph.i.i.i.i ]
+  %.06.i.i.i.i.i = phi ptr [ %66, %.lr.ph.i.i.i.i.i ], [ %54, %.lr.ph.i.i.i.i ]
   tail call void @_ZNSt3__16threadD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %.06.i.i.i.i.i) #15
-  %64 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i, i64 8
-  %.not.i.i.i.i.i = icmp eq ptr %64, %53
+  %66 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i, i64 8
+  %.not.i.i.i.i.i = icmp eq ptr %66, %53
   br i1 %.not.i.i.i.i.i, label %_ZNSt3__114__split_bufferINS_6threadERNS_9allocatorIS1_EEE5clearB8ne190000Ev.exit.i.loopexit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !7
 
 _ZNSt3__114__split_bufferINS_6threadERNS_9allocatorIS1_EEE5clearB8ne190000Ev.exit.i.loopexit.i.i: ; preds = %.lr.ph.i.i.i.i.i
@@ -305,7 +305,7 @@ _ZNSt3__114__split_bufferINS_6threadERNS_9allocatorIS1_EEE5clearB8ne190000Ev.exi
   br label %_ZNSt3__114__split_bufferINS_6threadERNS_9allocatorIS1_EEE5clearB8ne190000Ev.exit.i.i.i
 
 _ZNSt3__114__split_bufferINS_6threadERNS_9allocatorIS1_EEE5clearB8ne190000Ev.exit.i.i.i: ; preds = %_ZNSt3__114__split_bufferINS_6threadERNS_9allocatorIS1_EEE5clearB8ne190000Ev.exit.i.loopexit.i.i, %51
-  %65 = phi ptr [ %.pre.i.i, %_ZNSt3__114__split_bufferINS_6threadERNS_9allocatorIS1_EEE5clearB8ne190000Ev.exit.i.loopexit.i.i ], [ %54, %51 ]
+  %67 = phi ptr [ %.pre.i.i, %_ZNSt3__114__split_bufferINS_6threadERNS_9allocatorIS1_EEE5clearB8ne190000Ev.exit.i.loopexit.i.i ], [ %54, %51 ]
   store ptr %60, ptr %8, align 8
   store ptr %52, ptr %9, align 8
   store ptr %50, ptr %18, align 8
@@ -316,8 +316,8 @@ _ZNSt3__114__split_bufferINS_6threadERNS_9allocatorIS1_EEE5clearB8ne190000Ev.exi
   tail call void @_ZdlPv(ptr noundef nonnull %65) #18
   br label %"_ZNSt3__16vectorINS_6threadENS_9allocatorIS1_EEE24__emplace_back_slow_pathIJZN3tev10ThreadPool12startThreadsEmE3$_0EEEPS1_DpOT_.exit.i"
 
-67:                                               ; preds = %_ZNSt3__114__split_bufferINS_6threadERNS_9allocatorIS1_EEEC2EmmS4_.exit.i.i
-  %68 = landingpad { ptr, i32 }
+70:                                               ; preds = %_ZNSt3__114__split_bufferINS_6threadERNS_9allocatorIS1_EEEC2EmmS4_.exit.i.i
+  %71 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt3__114__split_bufferINS_6threadERNS_9allocatorIS1_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #15
   br label %common.resume.i
@@ -329,10 +329,10 @@ _ZNSt3__114__split_bufferINS_6threadERNS_9allocatorIS1_EEE5clearB8ne190000Ev.exi
 "_ZNSt3__16vectorINS_6threadENS_9allocatorIS1_EEE12emplace_backIJZN3tev10ThreadPool12startThreadsEmE3$_0EEERS1_DpOT_.exit": ; preds = %"_ZNSt3__16vectorINS_6threadENS_9allocatorIS1_EEE22__construct_one_at_endB8ne190000IJZN3tev10ThreadPool12startThreadsEmE3$_0EEEvDpOT_.exit.i", %"_ZNSt3__16vectorINS_6threadENS_9allocatorIS1_EEE24__emplace_back_slow_pathIJZN3tev10ThreadPool12startThreadsEmE3$_0EEEPS1_DpOT_.exit.i"
   %.0.i = phi ptr [ %30, %"_ZNSt3__16vectorINS_6threadENS_9allocatorIS1_EEE22__construct_one_at_endB8ne190000IJZN3tev10ThreadPool12startThreadsEmE3$_0EEEvDpOT_.exit.i" ], [ %52, %"_ZNSt3__16vectorINS_6threadENS_9allocatorIS1_EEE24__emplace_back_slow_pathIJZN3tev10ThreadPool12startThreadsEmE3$_0EEEPS1_DpOT_.exit.i" ]
   store ptr %.0.i, ptr %9, align 8
-  %69 = add nuw i64 %.07, 1
-  %70 = load i64, ptr %5, align 8
-  %71 = icmp ult i64 %69, %70
-  br i1 %71, label %23, label %._crit_edge, !llvm.loop !8
+  %72 = add nuw i64 %.07, 1
+  %73 = load i64, ptr %5, align 8
+  %74 = icmp ult i64 %72, %73
+  br i1 %74, label %23, label %._crit_edge, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %"_ZNSt3__16vectorINS_6threadENS_9allocatorIS1_EEE12emplace_backIJZN3tev10ThreadPool12startThreadsEmE3$_0EEERS1_DpOT_.exit", %2
   ret void

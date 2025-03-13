@@ -7514,10 +7514,10 @@ _ZNK32pxrInternal_v0_24__pxrReserved__15TfWeakPtrFacadeINS_9TfWeakPtrENS_10PlugP
 1055:                                             ; preds = %1052, %1035, %.lr.ph.i44
   %1056 = getelementptr inbounds nuw i8, ptr %.sroa.04.055.i, i64 32
   %.not14.i = icmp eq ptr %1056, %966
-  br i1 %.not14.i, label %.loopexit.loopexit.i, label %.lr.ph.i44
+  br i1 %.not14.i, label %.loopexit.i41, label %.lr.ph.i44
 
-.loopexit.loopexit.i:                             ; preds = %1055
-  %.pre.i = load ptr, ptr %845, align 8
+.loopexit.i41:                                    ; preds = %1055
+  %1057 = load ptr, ptr %845, align 8
   br label %.loopexit.i41
 
 .loopexit.i41:                                    ; preds = %.loopexit.loopexit.i, %979, %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit.i43

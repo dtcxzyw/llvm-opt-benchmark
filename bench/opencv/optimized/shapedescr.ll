@@ -957,7 +957,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #8
 declare double @llvm.fabs.f64(double) #8
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN2cv10fitEllipseERKNS_11_InputArrayE(ptr dead_on_unwind noalias writable writeonly sret(%"class.cv::RotatedRect") align 4 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
+define void @_ZN2cv10fitEllipseERKNS_11_InputArrayE(ptr dead_on_unwind noalias writable sret(%"class.cv::RotatedRect") align 4 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(24) %1) local_unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.cv::utils::trace::details::Region", align 8
   %4 = alloca %"class.cv::Mat", align 8
   %5 = alloca %"class.cv::_InputArray", align 8
@@ -2540,8 +2540,8 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit:             ; preds = %.noexc272, %91
   store double 1.000000e+04, ptr %237, align 8, !tbaa !59
   %238 = fneg double %234
   %239 = fmul double %234, %238
-  %.idx382 = mul nuw nsw i64 %indvars.iv369, 40
-  %240 = getelementptr inbounds nuw i8, ptr %99, i64 %.idx382
+  %.idx384 = mul nuw nsw i64 %indvars.iv369, 40
+  %240 = getelementptr inbounds nuw i8, ptr %99, i64 %.idx384
   store double %239, ptr %240, align 8, !tbaa !59
   %241 = fneg double %236
   %242 = fmul double %236, %241
@@ -2791,8 +2791,8 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit:             ; preds = %.noexc272, %91
   store double 1.000000e+00, ptr %329, align 8, !tbaa !59
   %330 = fsub double %326, %.pre
   %331 = fmul double %330, %330
-  %.idx383 = mul nuw nsw i64 %indvars.iv375, 24
-  %332 = getelementptr inbounds nuw i8, ptr %99, i64 %.idx383
+  %.idx385 = mul nuw nsw i64 %indvars.iv375, 24
+  %332 = getelementptr inbounds nuw i8, ptr %99, i64 %.idx385
   store double %331, ptr %332, align 8, !tbaa !59
   %333 = fsub double %328, %.pre381
   %334 = fmul double %333, %333
@@ -3062,8 +3062,8 @@ _ZN2cv10AutoBufferIdLm136EEC2Em.exit:             ; preds = %.noexc272, %91
   %446 = load ptr, ptr %13, align 8, !tbaa !82
   %.not.i.i276 = icmp eq ptr %446, %94
   %447 = icmp eq ptr %446, null
-  %or.cond389 = or i1 %.not.i.i276, %447
-  br i1 %or.cond389, label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit, label %448
+  %or.cond391 = or i1 %.not.i.i276, %447
+  br i1 %or.cond391, label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit, label %448
 
 448:                                              ; preds = %445
   call void @_ZdaPv(ptr noundef nonnull %446) #20
@@ -3138,8 +3138,8 @@ _ZN2cv5utils5trace7details6RegionD2Ev.exit:       ; preds = %_ZN2cv10AutoBufferI
   %462 = load ptr, ptr %13, align 8, !tbaa !82
   %.not.i.i277 = icmp eq ptr %462, %94
   %463 = icmp eq ptr %462, null
-  %or.cond390 = or i1 %.not.i.i277, %463
-  br i1 %or.cond390, label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit278, label %464
+  %or.cond392 = or i1 %.not.i.i277, %463
+  br i1 %or.cond392, label %_ZN2cv10AutoBufferIdLm136EED2Ev.exit278, label %464
 
 464:                                              ; preds = %461
   call void @_ZdaPv(ptr noundef nonnull %462) #20

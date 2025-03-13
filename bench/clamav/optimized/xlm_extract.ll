@@ -1585,9 +1585,9 @@ read_office_art_record_header.exit:               ; preds = %13
 
 .thread:                                          ; preds = %16
   %29 = icmp eq i16 %21, -4089
-  br i1 %29, label %.thread105, label %71
+  br i1 %29, label %.thread106, label %71
 
-.thread105:                                       ; preds = %.thread
+.thread106:                                       ; preds = %.thread
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1147) #11
   br label %31
 
@@ -1596,14 +1596,14 @@ read_office_art_record_header.exit:               ; preds = %13
   %.not65 = icmp eq i16 %18, 2
   br i1 %.not65, label %32, label %31
 
-31:                                               ; preds = %.thread105, %30
+31:                                               ; preds = %.thread106, %30
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1148, i32 noundef %24) #11
   br label %32
 
 32:                                               ; preds = %31, %30
   %33 = add i64 %.04698, -8
   %34 = icmp ult i64 %33, 36
-  br i1 %34, label %.thread84.sink.split, label %35
+  br i1 %34, label %77, label %35
 
 35:                                               ; preds = %32
   %36 = getelementptr inbounds nuw i8, ptr %.04897, i64 41
@@ -1613,96 +1613,96 @@ read_office_art_record_header.exit:               ; preds = %13
   %40 = icmp ult i64 %39, %38
   br i1 %40, label %.thread84.sink.split, label %41
 
-41:                                               ; preds = %35
+41:; preds = %35
   call void @llvm.lifetime.start.p0(i64 10, ptr nonnull %5) #11
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %6) #11
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %6, i8 0, i64 256, i1 false)
   %.not66 = icmp eq i8 %37, 0
-  br i1 %.not66, label %46, label %42
+  br i1 %.not66, label %48, label %44
 
-42:                                               ; preds = %41
-  %43 = getelementptr inbounds nuw i8, ptr %.04897, i64 44
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr nonnull align 1 %43, i64 %38, i1 false)
-  %44 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 0, i64 %38
-  store i8 0, ptr %44, align 1, !tbaa !57
+44:                                               ; preds = %41
+  %45 = getelementptr inbounds nuw i8, ptr %.04897, i64 44
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr nonnull align 1 %45, i64 %38, i1 false)
+  %46 = getelementptr inbounds nuw [256 x i8], ptr %6, i64 0, i64 %38
+  store i8 0, ptr %46, align 1, !tbaa !57
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1151, ptr noundef nonnull %6) #11
   %.pre = load i8, ptr %36, align 1, !tbaa !55
-  %45 = zext i8 %.pre to i64
-  br label %46
+  %47 = zext i8 %.pre to i64
+  br label %48
 
-46:                                               ; preds = %42, %41
-  %47 = phi i64 [ %45, %42 ], [ 0, %41 ]
-  %48 = getelementptr inbounds nuw i8, ptr %.04897, i64 44
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 %47
-  %50 = sub i64 %39, %47
-  %51 = getelementptr inbounds nuw i8, ptr %.04897, i64 28
-  %52 = load i32, ptr %51, align 1, !tbaa !58
-  %53 = zext i32 %52 to i64
-  %54 = icmp ult i64 %50, %53
-  br i1 %54, label %55, label %57
+48:                                               ; preds = %44, %41
+  %49 = phi i64 [ %47, %44 ], [ 0, %41 ]
+  %50 = getelementptr inbounds nuw i8, ptr %.04897, i64 44
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 %49
+  %52 = sub i64 %39, %49
+  %53 = getelementptr inbounds nuw i8, ptr %.04897, i64 28
+  %54 = load i32, ptr %53, align 1, !tbaa !58
+  %55 = zext i32 %54 to i64
+  %56 = icmp ult i64 %52, %55
+  br i1 %56, label %57, label %59
 
-55:                                               ; preds = %46
+57:                                               ; preds = %48
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1152) #11
-  %56 = load i32, ptr %51, align 1, !tbaa !58
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1153, i32 noundef %56, i64 noundef %50) #11
-  br label %57
+  %58 = load i32, ptr %53, align 1, !tbaa !58
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1153, i32 noundef %58, i64 noundef %52) #11
+  br label %59
 
-57:                                               ; preds = %46, %55
-  %.042 = phi i64 [ %50, %55 ], [ %53, %46 ]
-  %58 = icmp samesign ult i64 %.042, 8
-  br i1 %58, label %.thread88, label %59
+59:                                               ; preds = %48, %57
+  %.042 = phi i64 [ %52, %57 ], [ %55, %48 ]
+  %60 = icmp samesign ult i64 %.042, 8
+  br i1 %60, label %.thread88, label %61
 
-.thread88:                                        ; preds = %57
+.thread88:                                        ; preds = %59
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1146) #11
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #11
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %5) #11
   br label %.loopexit
 
-59:                                               ; preds = %57
-  %60 = load i16, ptr %49, align 1, !tbaa !51
-  %61 = and i16 %60, 15
-  store i16 %61, ptr %5, align 2, !tbaa !10
-  %62 = lshr i16 %60, 4
-  store i16 %62, ptr %10, align 2, !tbaa !14
-  %63 = getelementptr inbounds nuw i8, ptr %49, i64 2
-  %64 = load i16, ptr %63, align 1, !tbaa !53
-  store i16 %64, ptr %11, align 2, !tbaa !13
-  %65 = getelementptr inbounds nuw i8, ptr %49, i64 4
-  %66 = load i32, ptr %65, align 1, !tbaa !54
-  store i32 %66, ptr %12, align 2, !tbaa !15
+61:                                               ; preds = %59
+  %62 = load i16, ptr %51, align 1, !tbaa !51
+  %63 = and i16 %62, 15
+  store i16 %63, ptr %5, align 2, !tbaa !10
+  %64 = lshr i16 %62, 4
+  store i16 %64, ptr %10, align 2, !tbaa !14
+  %65 = getelementptr inbounds nuw i8, ptr %51, i64 2
+  %66 = load i16, ptr %65, align 1, !tbaa !53
+  store i16 %66, ptr %11, align 2, !tbaa !13
+  %67 = getelementptr inbounds nuw i8, ptr %51, i64 4
+  %68 = load i32, ptr %67, align 1, !tbaa !54
+  store i32 %68, ptr %12, align 2, !tbaa !15
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1218) #11
-  %67 = zext nneg i16 %61 to i32
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1219, i32 noundef %67) #11
-  %68 = zext nneg i16 %62 to i32
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1220, i32 noundef %68) #11
-  %69 = zext i16 %64 to i32
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1221, i32 noundef %69) #11
-  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1222, i32 noundef %66) #11
-  %70 = call i32 @process_blip_record(ptr noundef nonnull %5, ptr noundef nonnull %49, i64 noundef %.042, ptr noundef %2)
-  %.fr = freeze i32 %70
+  %69 = zext nneg i16 %63 to i32
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1219, i32 noundef %69) #11
+  %70 = zext nneg i16 %64 to i32
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1220, i32 noundef %70) #11
+  %71 = zext i16 %66 to i32
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1221, i32 noundef %71) #11
+  call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1222, i32 noundef %68) #11
+  %72 = call i32 @process_blip_record(ptr noundef nonnull %5, ptr noundef nonnull %51, i64 noundef %.042, ptr noundef %2)
+  %.fr = freeze i32 %72
   %.not68 = icmp eq i32 %.fr, 0
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %6) #11
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %5) #11
   br i1 %.not68, label %.thread84, label %.loopexit
 
-71:                                               ; preds = %.thread, %27
+..thread84_crit_edge:                             ; preds = %.thread, %27
   %72 = add i16 %21, 4072
   %or.cond = icmp ult i16 %72, 256
   br i1 %or.cond, label %73, label %.thread84.sink.split
 
 73:                                               ; preds = %71
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull @.str.1154) #11
-  %74 = call i32 @process_blip_record(ptr noundef nonnull %4, ptr noundef nonnull %.04897, i64 noundef %.04698, ptr noundef %2)
-  %.not64 = icmp eq i32 %74, 0
+  %76 = call i32 @process_blip_record(ptr noundef nonnull %4, ptr noundef nonnull %.04897, i64 noundef %.04698, ptr noundef %2)
+  %.not64 = icmp eq i32 %76, 0
   br i1 %.not64, label %.thread84, label %.loopexit
 
-.thread84.sink.split:                             ; preds = %71, %35, %32
+77:                                               ; preds = %71, %35, %32
   %.str.1150.sink = phi ptr [ @.str.1149, %32 ], [ @.str.1150, %35 ], [ @.str.1155, %71 ]
   call void (ptr, ...) @cli_dbgmsg(ptr noundef nonnull %.str.1150.sink) #11
   br label %.thread84
 
 .thread84:                                        ; preds = %.thread84.sink.split, %59, %73
-  %.5 = phi i32 [ 0, %73 ], [ 0, %59 ], [ %.04499, %.thread84.sink.split ]
+  %78 = phi i32 [ 0, %73 ], [ 0, %59 ], [ %.04499, %.thread84.sink.split ]
   %75 = zext i32 %23 to i64
   %76 = add nuw nsw i64 %75, 8
   %77 = icmp ult i64 %.04698, %76
@@ -1712,8 +1712,8 @@ read_office_art_record_header.exit:               ; preds = %13
   %.not.not = icmp ugt i64 %.04698, %76
   br i1 %.not.not, label %13, label %.loopexit
 
-.loopexit:                                        ; preds = %.thread84, %73, %59, %3, %.thread88, %read_office_art_record_header.exit
-  %.043 = phi i32 [ %.04499, %read_office_art_record_header.exit ], [ %.04499, %.thread88 ], [ 0, %3 ], [ 0, %.thread84 ], [ %74, %73 ], [ %.fr, %59 ]
+.loopexit:                                        ; preds = %.thread84, %73, %61, %3, %.thread88, %read_office_art_record_header.exit
+  %.043 = phi i32 [ %.04499, %read_office_art_record_header.exit ], [ %.04499, %.thread88 ], [ 0, %3 ], [ 0, %.thread84 ], [ %76, %73 ], [ %.fr, %61 ]
   call void @llvm.lifetime.end.p0(i64 10, ptr nonnull %4) #11
   ret i32 %.043
 }

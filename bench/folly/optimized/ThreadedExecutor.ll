@@ -13071,12 +13071,12 @@ _ZN5folly3f146detail8F14ChunkISt4pairIKNSt6thread2idES4_EE25incrOutboundOverflow
   %or.cond154 = select i1 %185, i1 true, i1 %.not.i.i.i
   br i1 %or.cond154, label %_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyINSt6thread2idES6_vvvEEE10rehashImplEmmmmmEUlvE_Lb1EED2Ev.exit, label %187
 
-187:                                              ; preds = %184, %.thread
+187:; preds = %184, %.thread
   %188 = load ptr, ptr %9, align 8, !tbaa !510
   %.not.i.i.i.i = icmp eq ptr %188, null
   br i1 %.not.i.i.i.i, label %_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyINSt6thread2idES6_vvvEEE10rehashImplEmmmmmEUlvE_Lb1EED2Ev.exit, label %189
 
-189:                                              ; preds = %187
+189:; preds = %187
   %190 = load i64, ptr %11, align 8, !tbaa !48
   call void @_ZdlPvm(ptr noundef nonnull %188, i64 noundef %190) #27
   br label %_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyINSt6thread2idES6_vvvEEE10rehashImplEmmmmmEUlvE_Lb1EED2Ev.exit

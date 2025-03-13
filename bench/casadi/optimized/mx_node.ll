@@ -86101,7 +86101,7 @@ _ZSt4copyIPKdPdET0_T_S4_S3_.exit:                 ; preds = %17, %_ZNK6casadi6MX
 32:                                               ; preds = %.noexc30, %_ZNK6casadi6MXNode3depEx.exit29, %57, %64, %62, %_ZNK6casadi13GenericMatrixINS_2MXEE5size2Ev.exit, %46, %40, %39, %24, %_ZSt4copyIPKdPdET0_T_S4_S3_.exit
   %33 = landingpad { ptr, i32 }
           cleanup
-  br label %70
+  br label %71
 
 .lr.ph:                                           ; preds = %26, %35
   %.sroa.032.038 = phi ptr [ %36, %35 ], [ %28, %26 ]
@@ -86117,7 +86117,7 @@ _ZSt4copyIPKdPdET0_T_S4_S3_.exit:                 ; preds = %17, %_ZNK6casadi6MX
 37:                                               ; preds = %.lr.ph
   %38 = landingpad { ptr, i32 }
           cleanup
-  br label %70
+  br label %71
 
 39:                                               ; preds = %._crit_edge
   invoke void @_ZN6casadi6FStats3ticEv(ptr noundef nonnull align 8 dereferenceable(56) %31)
@@ -86193,18 +86193,18 @@ _ZNK6casadi13GenericMatrixINS_2MXEE5size2Ev.exit: ; preds = %.noexc30
   invoke void @_ZNK6casadi6Linsol7releaseEi(ptr noundef nonnull align 8 dereferenceable(8) %19, i32 noundef %43)
           to label %_ZN6casadi15scoped_checkoutINS_6LinsolEED2Ev.exit unwind label %67
 
-67:                                               ; preds = %66
-  %68 = landingpad { ptr, i32 }
+68:                                               ; preds = %66
+  %69 = landingpad { ptr, i32 }
           catch ptr null
-  %69 = extractvalue { ptr, i32 } %68, 0
-  tail call void @__clang_call_terminate(ptr %69) #36
+  %70 = extractvalue { ptr, i32 } %69, 0
+  tail call void @__clang_call_terminate(ptr %70) #36
   unreachable
 
 _ZN6casadi15scoped_checkoutINS_6LinsolEED2Ev.exit: ; preds = %65, %66
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #34
   ret i32 %.0
 
-70:                                               ; preds = %37, %32
+71:                                               ; preds = %37, %32
   %.pn = phi { ptr, i32 } [ %38, %37 ], [ %33, %32 ]
   call void @_ZN6casadi15scoped_checkoutINS_6LinsolEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #34
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #34
@@ -87257,7 +87257,7 @@ _ZSt4copyIPKdPdET0_T_S4_S3_.exit:                 ; preds = %17, %_ZNK6casadi6MX
 32:                                               ; preds = %.noexc30, %_ZNK6casadi6MXNode3depEx.exit29, %57, %64, %62, %_ZNK6casadi13GenericMatrixINS_2MXEE5size2Ev.exit, %46, %40, %39, %24, %_ZSt4copyIPKdPdET0_T_S4_S3_.exit
   %33 = landingpad { ptr, i32 }
           cleanup
-  br label %70
+  br label %71
 
 .lr.ph:                                           ; preds = %26, %35
   %.sroa.032.038 = phi ptr [ %36, %35 ], [ %28, %26 ]
@@ -87273,7 +87273,7 @@ _ZSt4copyIPKdPdET0_T_S4_S3_.exit:                 ; preds = %17, %_ZNK6casadi6MX
 37:                                               ; preds = %.lr.ph
   %38 = landingpad { ptr, i32 }
           cleanup
-  br label %70
+  br label %71
 
 39:                                               ; preds = %._crit_edge
   invoke void @_ZN6casadi6FStats3ticEv(ptr noundef nonnull align 8 dereferenceable(56) %31)
@@ -87349,18 +87349,18 @@ _ZNK6casadi13GenericMatrixINS_2MXEE5size2Ev.exit: ; preds = %.noexc30
   invoke void @_ZNK6casadi6Linsol7releaseEi(ptr noundef nonnull align 8 dereferenceable(8) %19, i32 noundef %43)
           to label %_ZN6casadi15scoped_checkoutINS_6LinsolEED2Ev.exit unwind label %67
 
-67:                                               ; preds = %66
-  %68 = landingpad { ptr, i32 }
+68:                                               ; preds = %66
+  %69 = landingpad { ptr, i32 }
           catch ptr null
-  %69 = extractvalue { ptr, i32 } %68, 0
-  tail call void @__clang_call_terminate(ptr %69) #36
+  %70 = extractvalue { ptr, i32 } %69, 0
+  tail call void @__clang_call_terminate(ptr %70) #36
   unreachable
 
 _ZN6casadi15scoped_checkoutINS_6LinsolEED2Ev.exit: ; preds = %65, %66
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #34
   ret i32 %.0
 
-70:                                               ; preds = %37, %32
+71:                                               ; preds = %37, %32
   %.pn = phi { ptr, i32 } [ %38, %37 ], [ %33, %32 ]
   call void @_ZN6casadi15scoped_checkoutINS_6LinsolEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #34
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #34

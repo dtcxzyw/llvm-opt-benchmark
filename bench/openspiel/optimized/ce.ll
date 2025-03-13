@@ -2750,13 +2750,13 @@ _ZNSt12_Vector_baseIN10open_spiel13TabularPolicyESaIS1_EEC2EmRKS2_.exit.i: ; pre
 
 .loopexit166:                                     ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt6vectorIN10open_spiel13TabularPolicyESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i
   %322 = phi ptr [ null, %_ZNSt6vectorIN10open_spiel13TabularPolicyESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %312, %.lr.ph.i.i.i.i.i ]
-  %323 = phi ptr [ null, %_ZNSt6vectorIN10open_spiel13TabularPolicyESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %321, %.lr.ph.i.i.i.i.i ]
-  store ptr %323, ptr %297, align 8
-  %324 = getelementptr inbounds nuw %"struct.std::pair.15", ptr %301, i64 %indvars.iv245, i32 1, i32 1, i32 0, i32 2
+  %.0.lcssa.i.i.i.i.i = phi ptr [ null, %_ZNSt6vectorIN10open_spiel13TabularPolicyESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i ], [ %321, %.lr.ph.i.i.i.i.i ]
+  store ptr %.0.lcssa.i.i.i.i.i, ptr %297, align 8
+  %323 = getelementptr inbounds nuw %"struct.std::pair.15", ptr %301, i64 %indvars.iv245, i32 1, i32 1, i32 0, i32 2
   br label %_ZN10open_spiel13TabularPolicy14SetStatePolicyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt4pairIldESaISB_EE.exit
 
 _ZN10open_spiel13TabularPolicy14SetStatePolicyERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorISt4pairIldESaISB_EE.exit: ; preds = %.noexc81, %.loopexit166
-  %.sroa.0145.0.in = phi ptr [ %324, %.loopexit166 ], [ %.sroa.0145.0, %.noexc81 ]
+  %.sroa.0145.0.in = phi ptr [ %323, %.loopexit166 ], [ %.sroa.0145.0, %.noexc81 ]
   %.sroa.0145.0 = load ptr, ptr %.sroa.0145.0.in, align 8
   %.not = icmp eq ptr %.sroa.0145.0, null
   br i1 %.not, label %.preheader, label %331

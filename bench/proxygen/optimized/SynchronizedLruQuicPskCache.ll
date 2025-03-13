@@ -473,7 +473,7 @@ invoke.cont:
 
 call.i.i.noexc:                                   ; preds = %invoke.cont
   %tobool.not.i.i7 = icmp eq ptr %call.i.i8, null
-  br i1 %tobool.not.i.i7, label %if.else, label %if.end.i.i
+  br i1 %tobool.not.i.i7, label %if.else.i.i.i.sink.split, label %if.end.i.i
 
 if.end.i.i:                                       ; preds = %call.i.i.noexc
   %m_header.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
@@ -502,7 +502,7 @@ invoke.cont6:                                     ; preds = %if.end.i.i, %if.the
   %add.ptr.i.i11 = getelementptr inbounds nuw i8, ptr %this, i64 8
   %m_header.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 88
   %cmp.i.i.i.i.not = icmp eq ptr %call.i.i8, %m_header.i.i.i
-  br i1 %cmp.i.i.i.i.not, label %if.else, label %invoke.cont13
+  br i1 %cmp.i.i.i.i.not, label %if.else.i.i.i.sink.split, label %invoke.cont13
 
 invoke.cont13:                                    ; preds = %invoke.cont6
   %call9 = tail call i64 @_ZNSt6chrono3_V212system_clock3nowEv() #25
@@ -688,7 +688,7 @@ invoke.cont84:                                    ; preds = %invoke.cont13
   %appParams.i.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 264
   %appParams4.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i8, i64 312
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1ERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %appParams.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %appParams4.i.i.i)
-          to label %_ZN5folly8OptionalIN4quic13QuicCachedPskEEC2ERKS2_.exit unwind label %lpad.i.i.i
+          to label %cleanup unwind label %lpad.i.i.i
 
 lpad.i.i.i:                                       ; preds = %.noexc.i
   %20 = landingpad { ptr, i32 }
@@ -706,29 +706,29 @@ lpad.body.i:                                      ; preds = %lpad.i28, %lpad.i.i
   tail call void @_ZN5folly8OptionalIN4quic13QuicCachedPskEE31StorageNonTriviallyDestructibleD2Ev(ptr noundef nonnull align 8 dereferenceable(304) %agg.result) #25
   br label %ehcleanup88
 
-_ZN5folly8OptionalIN4quic13QuicCachedPskEEC2ERKS2_.exit: ; preds = %.noexc.i
+cleanup:                                          ; preds = %.noexc.i
   store i8 1, ptr %hasValue.i.i27, align 8
   br label %if.else.i.i.i
 
-if.else:                                          ; preds = %call.i.i.noexc, %invoke.cont6
-  %hasValue.i.i30 = getelementptr inbounds nuw i8, ptr %agg.result, i64 296
-  store i8 0, ptr %hasValue.i.i30, align 8
+if.else.i.i.i.sink.split:                         ; preds = %call.i.i.noexc, %invoke.cont6
+  %hasValue.i.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 296
+  store i8 0, ptr %hasValue.i.i, align 8
   br label %if.else.i.i.i
 
-if.else.i.i.i:                                    ; preds = %_ZNSt8functionIFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEON4quic13QuicCachedPskEEED2Ev.exit, %if.else, %_ZN5folly8OptionalIN4quic13QuicCachedPskEEC2ERKS2_.exit
-  %22 = load ptr, ptr %cacheMap, align 8
-  %tobool2.not.i.i.i = icmp eq ptr %22, null
+if.else.i.i.i:                                    ; preds = %_ZNSt8functionIFvNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEON4quic13QuicCachedPskEEED2Ev.exit, %if.else.i.i.i.sink.split, %cleanup
+  %23 = load ptr, ptr %cacheMap, align 8
+  %tobool2.not.i.i.i = icmp eq ptr %23, null
   br i1 %tobool2.not.i.i.i, label %_ZN5folly9LockedPtrINS_12SynchronizedINS_16EvictingCacheMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4quic13QuicCachedPskENS_23HeterogeneousAccessHashIS8_vEENS_26HeterogeneousAccessEqualToIS8_vEEEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSL_22SynchronizedMutexLevelE1ELNSL_23SynchronizedMutexMethodE0EEEED2Ev.exit, label %if.then3.i.i.i
 
 if.then3.i.i.i:                                   ; preds = %if.else.i.i.i
-  invoke void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE6unlockEv(ptr noundef nonnull align 4 dereferenceable(4) %22)
+  invoke void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE6unlockEv(ptr noundef nonnull align 4 dereferenceable(4) %23)
           to label %_ZN5folly9LockedPtrINS_12SynchronizedINS_16EvictingCacheMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4quic13QuicCachedPskENS_23HeterogeneousAccessHashIS8_vEENS_26HeterogeneousAccessEqualToIS8_vEEEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSL_22SynchronizedMutexLevelE1ELNSL_23SynchronizedMutexMethodE0EEEED2Ev.exit unwind label %terminate.lpad.i.i31
 
 terminate.lpad.i.i31:                             ; preds = %if.then3.i.i.i
-  %23 = landingpad { ptr, i32 }
+  %24 = landingpad { ptr, i32 }
           catch ptr null
-  %24 = extractvalue { ptr, i32 } %23, 0
-  call void @__clang_call_terminate(ptr %24) #24
+  %25 = extractvalue { ptr, i32 } %24, 0
+  call void @__clang_call_terminate(ptr %25) #24
   unreachable
 
 _ZN5folly9LockedPtrINS_12SynchronizedINS_16EvictingCacheMapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN4quic13QuicCachedPskENS_23HeterogeneousAccessHashIS8_vEENS_26HeterogeneousAccessEqualToIS8_vEEEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSL_22SynchronizedMutexLevelE1ELNSL_23SynchronizedMutexMethodE0EEEED2Ev.exit: ; preds = %if.then3.i.i.i, %if.else.i.i.i

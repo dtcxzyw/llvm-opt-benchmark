@@ -19260,7 +19260,7 @@ _ZN6vectorIN11upolynomial7manager9drs_frameELb0EjE4backEv.exit.i: ; preds = %_ZN
   %.pre9.i = load ptr, ptr %14, align 8, !tbaa !187
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre9.i, i64 -4
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !27
-  %.pre160 = add i32 %.pre, -1
+  %.pre161 = add i32 %.pre, -1
   br label %_ZN11upolynomial7manager13pop_top_frameER7svectorI3mpzjERS1_INS0_9drs_frameEjE.exit
 
 .lr.ph.i:                                         ; preds = %_ZN6vectorIN11upolynomial7manager9drs_frameELb0EjE4backEv.exit.i, %.noexc57
@@ -19294,7 +19294,7 @@ _ZN6vectorI3mpzLb0EjE4backEv.exit.i:              ; preds = %173, %.lr.ph.i
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !190
 
 _ZN11upolynomial7manager13pop_top_frameER7svectorI3mpzjERS1_INS0_9drs_frameEjE.exit: ; preds = %_ZN6vectorIN11upolynomial7manager9drs_frameELb0EjE4backEv.exit.i, %._crit_edge.loopexit.i
-  %.pre-phi = phi i32 [ %166, %_ZN6vectorIN11upolynomial7manager9drs_frameELb0EjE4backEv.exit.i ], [ %.pre160, %._crit_edge.loopexit.i ]
+  %.pre-phi = phi i32 [ %166, %_ZN6vectorIN11upolynomial7manager9drs_frameELb0EjE4backEv.exit.i ], [ %.pre161, %._crit_edge.loopexit.i ]
   %185 = phi ptr [ %142, %_ZN6vectorIN11upolynomial7manager9drs_frameELb0EjE4backEv.exit.i ], [ %.pre9.i, %._crit_edge.loopexit.i ]
   %186 = getelementptr inbounds i8, ptr %185, i64 -4
   store i32 %.pre-phi, ptr %186, align 4, !tbaa !27

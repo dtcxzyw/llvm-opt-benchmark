@@ -6738,15 +6738,15 @@ dt_masks_dynbuf_add_2.exit655:                    ; preds = %546, %542, %540
   %559 = fmul reassoc nsz arcp contract afn float %.sroa.6124.0, 0.000000e+00
   %reass.add = fsub reassoc nsz arcp contract afn float %.pn513, %.pn797
   %reass.mul = fmul reassoc nsz arcp contract afn float %reass.add, 3.000000e+00
-  %560 = fadd reassoc nsz arcp contract afn float %553, %554
-  %561 = fadd reassoc nsz arcp contract afn float %560, %reass.mul
+  %564 = fadd reassoc nsz arcp contract afn float %553, %554
+  %565 = fadd reassoc nsz arcp contract afn float %564, %reass.mul
   %reass.add721 = fsub reassoc nsz arcp contract afn float %.pn515, %.pn799
   %reass.mul722 = fmul reassoc nsz arcp contract afn float %reass.add721, 3.000000e+00
-  %562 = fadd reassoc nsz arcp contract afn float %558, %559
-  %563 = fadd reassoc nsz arcp contract afn float %562, %reass.mul722
-  %564 = fcmp reassoc nsz arcp contract afn oeq float %561, 0.000000e+00
-  %565 = fcmp reassoc nsz arcp contract afn oeq float %563, 0.000000e+00
-  %or.cond.i656 = and i1 %564, %565
+  %566 = fadd reassoc nsz arcp contract afn float %558, %559
+  %567 = fadd reassoc nsz arcp contract afn float %566, %reass.mul722
+  %568 = fcmp reassoc nsz arcp contract afn oeq float %565, 0.000000e+00
+  %569 = fcmp reassoc nsz arcp contract afn oeq float %567, 0.000000e+00
+  %or.cond.i656 = and i1 %568, %569
   br i1 %or.cond.i656, label %_brush_border_get_XY.exit.thread, label %_brush_border_get_XY.exit
 
 _brush_border_get_XY.exit:                        ; preds = %551
@@ -6759,11 +6759,11 @@ _brush_border_get_XY.exit:                        ; preds = %551
   %572 = fadd reassoc nsz arcp contract afn float %571, %570
   %573 = call reassoc nsz arcp contract afn float @llvm.sqrt.f32(float %572)
   %574 = fdiv reassoc nsz arcp contract afn float 1.000000e+00, %573
-  %575 = fmul reassoc nsz arcp contract afn float %563, %.sroa.18136.0
+  %575 = fmul reassoc nsz arcp contract afn float %567, %.sroa.18136.0
   %576 = fmul reassoc nsz arcp contract afn float %575, %574
   %577 = fadd reassoc nsz arcp contract afn float %576, %557
   store float %577, ptr %26, align 8, !tbaa !93
-  %578 = fmul reassoc nsz arcp contract afn float %561, %.sroa.18136.0
+  %578 = fmul reassoc nsz arcp contract afn float %565, %.sroa.18136.0
   %579 = fmul reassoc nsz arcp contract afn float %578, %574
   %580 = fsub reassoc nsz arcp contract afn float %569, %579
   %581 = fcmp reassoc nsz arcp contract afn oeq float %577, 0xC7EFFFFFE0000000
@@ -6851,9 +6851,9 @@ dt_masks_dynbuf_add_2.exit655.thread:             ; preds = %dt_masks_dynbuf_add
   %phi.call476735 = load i64, ptr %211, align 8, !tbaa !92
   %.val574736 = load i64, ptr %208, align 8, !tbaa !92
   %630 = icmp ult i64 %phi.call476735, %.val574736
-  br i1 %630, label %.split474.lr.ph, label %.loopexit725
+  br i1 %630, label %.split474, label %.loopexit725
 
-.split474.lr.ph:                                  ; preds = %.split475
+.split474:                                        ; preds = %.split475
   %631 = load float, ptr %216, align 4, !tbaa !93
   br label %.split474
 

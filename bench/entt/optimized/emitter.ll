@@ -10321,7 +10321,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 _ZN7testing15AssertionResultD2Ev.exit:            ; preds = %_ZN7testing7MessageD2Ev.exit, %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3) #23
-  br label %182
+  br label %186
 
 51:                                               ; preds = %28
   %52 = landingpad { ptr, i32 }
@@ -10643,13 +10643,13 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 _ZSt8_DestroyIN4entt8internal14dense_map_nodeIjSt8functionIFvPvEEEEEvPT_.exit.i.i.i.i.i.i.i.i: ; preds = %167, %.lr.ph.i.i.i.i.i.i.i.i
   %173 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i.i.i, i64 48
   %.not.i.i.i.i.i.i.i.i = icmp eq ptr %173, %101
-  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN4entt8internal14dense_map_nodeIjSt8functionIFvPvEEEES7_EvT_S9_RSaIT0_E.exit.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !72
+  br i1 %.not.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIPN4entt8internal14dense_map_nodeIjSt8functionIFvPvEEEES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i.i.i.i.i, label %.lr.ph.i.i.i.i.i.i.i.i, !llvm.loop !72
 
-_ZSt8_DestroyIPN4entt8internal14dense_map_nodeIjSt8functionIFvPvEEEES7_EvT_S9_RSaIT0_E.exit.i.i.i.i.i: ; preds = %_ZSt8_DestroyIN4entt8internal14dense_map_nodeIjSt8functionIFvPvEEEEEvPT_.exit.i.i.i.i.i.i.i.i, %164
+_ZSt8_DestroyIPN4entt8internal14dense_map_nodeIjSt8functionIFvPvEEEES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i.i.i.i.i: ; preds = %_ZSt8_DestroyIN4entt8internal14dense_map_nodeIjSt8functionIFvPvEEEEEvPT_.exit.i.i.i.i.i.i.i.i, %164
   %.not.i.i.i.i.i.i.i = icmp eq ptr %99, null
-  br i1 %.not.i.i.i.i.i.i.i, label %_ZN4entt8internal23compressed_pair_elementISt6vectorINS0_14dense_map_nodeIjSt8functionIFvPvEEEESaIS8_EELm0EvED2Ev.exit.i.i.i, label %174
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZN4entt8internal23compressed_pair_elementISt6vectorINS0_14dense_map_nodeIjSt8functionIFvPvEEEESaIS8_EELm0EvED2Ev.exit.i.i.i, label %_ZSt8_DestroyIPN4entt8internal14dense_map_nodeIjSt8functionIFvPvEEEES7_EvT_S9_RSaIT0_E.exit.i.i.i.i.i
 
-174:                                              ; preds = %_ZSt8_DestroyIPN4entt8internal14dense_map_nodeIjSt8functionIFvPvEEEES7_EvT_S9_RSaIT0_E.exit.i.i.i.i.i
+_ZSt8_DestroyIPN4entt8internal14dense_map_nodeIjSt8functionIFvPvEEEES7_EvT_S9_RSaIT0_E.exit.i.i.i.i.i: ; preds = %_ZSt8_DestroyIPN4entt8internal14dense_map_nodeIjSt8functionIFvPvEEEES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i.i.i.i.i
   %175 = ptrtoint ptr %103 to i64
   %176 = ptrtoint ptr %99 to i64
   %177 = sub i64 %175, %176
@@ -10669,74 +10669,74 @@ _ZN4entt8internal23compressed_pair_elementISt6vectorINS0_14dense_map_nodeIjSt8fu
 
 _ZN4entt7emitterIN4test7emitterESaIvEED2Ev.exit:  ; preds = %_ZN4entt8internal23compressed_pair_elementISt6vectorINS0_14dense_map_nodeIjSt8functionIFvPvEEEESaIS8_EELm0EvED2Ev.exit.i.i.i, %178
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #23
-  br label %182
+  br label %186
 
-182:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit, %_ZN4entt7emitterIN4test7emitterESaIvEED2Ev.exit
+186:                                              ; preds = %_ZN7testing15AssertionResultD2Ev.exit, %_ZN4entt7emitterIN4test7emitterESaIvEED2Ev.exit
   store ptr getelementptr inbounds nuw inrange(-16, 16) (i8, ptr @_ZTVN4entt7emitterIN4test7emitterESaIvEEE, i64 16), ptr %2, align 8, !tbaa !4
-  %183 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %184 = load ptr, ptr %183, align 8, !tbaa !69
-  %185 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %186 = load ptr, ptr %185, align 8, !tbaa !70
-  %.not4.i.i.i.i.i.i.i.i119 = icmp eq ptr %184, %186
+  %187 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %188 = load ptr, ptr %187, align 8, !tbaa !69
+  %189 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %190 = load ptr, ptr %189, align 8, !tbaa !70
+  %.not4.i.i.i.i.i.i.i.i119 = icmp eq ptr %188, %190
   br i1 %.not4.i.i.i.i.i.i.i.i119, label %_ZSt8_DestroyIPN4entt8internal14dense_map_nodeIjSt8functionIFvPvEEEES7_EvT_S9_RSaIT0_E.exit.i.i.i.i.i127, label %.lr.ph.i.i.i.i.i.i.i.i120
 
-.lr.ph.i.i.i.i.i.i.i.i120:                        ; preds = %182, %_ZSt8_DestroyIN4entt8internal14dense_map_nodeIjSt8functionIFvPvEEEEEvPT_.exit.i.i.i.i.i.i.i.i123
-  %.05.i.i.i.i.i.i.i.i121 = phi ptr [ %195, %_ZSt8_DestroyIN4entt8internal14dense_map_nodeIjSt8functionIFvPvEEEEEvPT_.exit.i.i.i.i.i.i.i.i123 ], [ %184, %182 ]
-  %187 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i.i.i121, i64 32
-  %188 = load ptr, ptr %187, align 8, !tbaa !42
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i122 = icmp eq ptr %188, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i122, label %_ZSt8_DestroyIN4entt8internal14dense_map_nodeIjSt8functionIFvPvEEEEEvPT_.exit.i.i.i.i.i.i.i.i123, label %189
+.lr.ph.i.i.i.i.i.i.i.i120:                        ; preds = %186, %_ZSt8_DestroyIN4entt8internal14dense_map_nodeIjSt8functionIFvPvEEEEEvPT_.exit.i.i.i.i.i.i.i.i123
+  %.05.i.i.i.i.i.i.i.i121 = phi ptr [ %199, %_ZSt8_DestroyIN4entt8internal14dense_map_nodeIjSt8functionIFvPvEEEEEvPT_.exit.i.i.i.i.i.i.i.i123 ], [ %188, %186 ]
+  %191 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i.i.i121, i64 32
+  %192 = load ptr, ptr %191, align 8, !tbaa !42
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i122 = icmp eq ptr %192, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i122, label %_ZSt8_DestroyIN4entt8internal14dense_map_nodeIjSt8functionIFvPvEEEEEvPT_.exit.i.i.i.i.i.i.i.i123, label %193
 
-189:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i.i120
-  %190 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i.i.i121, i64 16
-  %191 = invoke noundef zeroext i1 %188(ptr noundef nonnull align 8 dereferenceable(32) %190, ptr noundef nonnull align 8 dereferenceable(32) %190, i32 noundef 3)
-          to label %_ZSt8_DestroyIN4entt8internal14dense_map_nodeIjSt8functionIFvPvEEEEEvPT_.exit.i.i.i.i.i.i.i.i123 unwind label %192
+193:                                              ; preds = %.lr.ph.i.i.i.i.i.i.i.i120
+  %194 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i.i.i121, i64 16
+  %195 = invoke noundef zeroext i1 %188(ptr noundef nonnull align 8 dereferenceable(32) %194, ptr noundef nonnull align 8 dereferenceable(32) %194, i32 noundef 3)
+          to label %_ZSt8_DestroyIN4entt8internal14dense_map_nodeIjSt8functionIFvPvEEEEEvPT_.exit.i.i.i.i.i.i.i.i123 unwind label %196
 
-192:                                              ; preds = %189
-  %193 = landingpad { ptr, i32 }
+196:                                              ; preds = %193
+  %197 = landingpad { ptr, i32 }
           catch ptr null
-  %194 = extractvalue { ptr, i32 } %193, 0
-  call void @__clang_call_terminate(ptr %194) #25
+  %198 = extractvalue { ptr, i32 } %197, 0
+  call void @__clang_call_terminate(ptr %198) #25
   unreachable
 
-_ZSt8_DestroyIN4entt8internal14dense_map_nodeIjSt8functionIFvPvEEEEEvPT_.exit.i.i.i.i.i.i.i.i123: ; preds = %189, %.lr.ph.i.i.i.i.i.i.i.i120
-  %195 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i.i.i121, i64 48
-  %.not.i.i.i.i.i.i.i.i124 = icmp eq ptr %195, %186
+_ZSt8_DestroyIN4entt8internal14dense_map_nodeIjSt8functionIFvPvEEEEEvPT_.exit.i.i.i.i.i.i.i.i123: ; preds = %193, %.lr.ph.i.i.i.i.i.i.i.i120
+  %199 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i.i.i121, i64 48
+  %.not.i.i.i.i.i.i.i.i124 = icmp eq ptr %199, %190
   br i1 %.not.i.i.i.i.i.i.i.i124, label %_ZSt8_DestroyIPN4entt8internal14dense_map_nodeIjSt8functionIFvPvEEEES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i.i.i.i.i125, label %.lr.ph.i.i.i.i.i.i.i.i120, !llvm.loop !72
 
 _ZSt8_DestroyIPN4entt8internal14dense_map_nodeIjSt8functionIFvPvEEEES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i.i.i.i.i125: ; preds = %_ZSt8_DestroyIN4entt8internal14dense_map_nodeIjSt8functionIFvPvEEEEEvPT_.exit.i.i.i.i.i.i.i.i123
-  %.pr.i.i.i.i.i126 = load ptr, ptr %183, align 8, !tbaa !69
+  %.pr.i.i.i.i.i126 = load ptr, ptr %187, align 8, !tbaa !69
   br label %_ZSt8_DestroyIPN4entt8internal14dense_map_nodeIjSt8functionIFvPvEEEES7_EvT_S9_RSaIT0_E.exit.i.i.i.i.i127
 
-_ZSt8_DestroyIPN4entt8internal14dense_map_nodeIjSt8functionIFvPvEEEES7_EvT_S9_RSaIT0_E.exit.i.i.i.i.i127: ; preds = %_ZSt8_DestroyIPN4entt8internal14dense_map_nodeIjSt8functionIFvPvEEEES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i.i.i.i.i125, %182
-  %196 = phi ptr [ %.pr.i.i.i.i.i126, %_ZSt8_DestroyIPN4entt8internal14dense_map_nodeIjSt8functionIFvPvEEEES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i.i.i.i.i125 ], [ %184, %182 ]
-  %.not.i.i.i.i.i.i.i128 = icmp eq ptr %196, null
-  br i1 %.not.i.i.i.i.i.i.i128, label %_ZN4entt8internal23compressed_pair_elementISt6vectorINS0_14dense_map_nodeIjSt8functionIFvPvEEEESaIS8_EELm0EvED2Ev.exit.i.i.i129, label %197
+_ZSt8_DestroyIPN4entt8internal14dense_map_nodeIjSt8functionIFvPvEEEES7_EvT_S9_RSaIT0_E.exit.i.i.i.i.i127: ; preds = %_ZSt8_DestroyIPN4entt8internal14dense_map_nodeIjSt8functionIFvPvEEEES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i.i.i.i.i125, %186
+  %200 = phi ptr [ %.pr.i.i.i.i.i126, %_ZSt8_DestroyIPN4entt8internal14dense_map_nodeIjSt8functionIFvPvEEEES7_EvT_S9_RSaIT0_E.exitthread-pre-split.i.i.i.i.i125 ], [ %188, %186 ]
+  %.not.i.i.i.i.i.i.i128 = icmp eq ptr %200, null
+  br i1 %.not.i.i.i.i.i.i.i128, label %_ZN4entt8internal23compressed_pair_elementISt6vectorINS0_14dense_map_nodeIjSt8functionIFvPvEEEESaIS8_EELm0EvED2Ev.exit.i.i.i129, label %201
 
-197:                                              ; preds = %_ZSt8_DestroyIPN4entt8internal14dense_map_nodeIjSt8functionIFvPvEEEES7_EvT_S9_RSaIT0_E.exit.i.i.i.i.i127
-  %198 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %199 = load ptr, ptr %198, align 8, !tbaa !71
-  %200 = ptrtoint ptr %199 to i64
-  %201 = ptrtoint ptr %196 to i64
-  %202 = sub i64 %200, %201
-  call void @_ZdlPvm(ptr noundef nonnull %196, i64 noundef %202) #24
+201:                                              ; preds = %_ZSt8_DestroyIPN4entt8internal14dense_map_nodeIjSt8functionIFvPvEEEES7_EvT_S9_RSaIT0_E.exit.i.i.i.i.i127
+  %202 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %203 = load ptr, ptr %202, align 8, !tbaa !71
+  %204 = ptrtoint ptr %203 to i64
+  %205 = ptrtoint ptr %200 to i64
+  %206 = sub i64 %204, %205
+  call void @_ZdlPvm(ptr noundef nonnull %200, i64 noundef %206) #24
   br label %_ZN4entt8internal23compressed_pair_elementISt6vectorINS0_14dense_map_nodeIjSt8functionIFvPvEEEESaIS8_EELm0EvED2Ev.exit.i.i.i129
 
-_ZN4entt8internal23compressed_pair_elementISt6vectorINS0_14dense_map_nodeIjSt8functionIFvPvEEEESaIS8_EELm0EvED2Ev.exit.i.i.i129: ; preds = %197, %_ZSt8_DestroyIPN4entt8internal14dense_map_nodeIjSt8functionIFvPvEEEES7_EvT_S9_RSaIT0_E.exit.i.i.i.i.i127
-  %203 = load ptr, ptr %12, align 8, !tbaa !37
-  %.not.i.i.i.i1.i.i.i130 = icmp eq ptr %203, null
-  br i1 %.not.i.i.i.i1.i.i.i130, label %_ZN4entt7emitterIN4test7emitterESaIvEED2Ev.exit131, label %204
+_ZN4entt8internal23compressed_pair_elementISt6vectorINS0_14dense_map_nodeIjSt8functionIFvPvEEEESaIS8_EELm0EvED2Ev.exit.i.i.i129: ; preds = %201, %_ZSt8_DestroyIPN4entt8internal14dense_map_nodeIjSt8functionIFvPvEEEES7_EvT_S9_RSaIT0_E.exit.i.i.i.i.i127
+  %207 = load ptr, ptr %12, align 8, !tbaa !37
+  %.not.i.i.i.i1.i.i.i130 = icmp eq ptr %207, null
+  br i1 %.not.i.i.i.i1.i.i.i130, label %_ZN4entt7emitterIN4test7emitterESaIvEED2Ev.exit131, label %208
 
-204:                                              ; preds = %_ZN4entt8internal23compressed_pair_elementISt6vectorINS0_14dense_map_nodeIjSt8functionIFvPvEEEESaIS8_EELm0EvED2Ev.exit.i.i.i129
-  %205 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %206 = load ptr, ptr %205, align 8, !tbaa !38
-  %207 = ptrtoint ptr %206 to i64
-  %208 = ptrtoint ptr %203 to i64
-  %209 = sub i64 %207, %208
-  call void @_ZdlPvm(ptr noundef nonnull %203, i64 noundef %209) #24
+208:                                              ; preds = %_ZN4entt8internal23compressed_pair_elementISt6vectorINS0_14dense_map_nodeIjSt8functionIFvPvEEEESaIS8_EELm0EvED2Ev.exit.i.i.i129
+  %209 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %210 = load ptr, ptr %209, align 8, !tbaa !38
+  %211 = ptrtoint ptr %210 to i64
+  %212 = ptrtoint ptr %207 to i64
+  %213 = sub i64 %211, %212
+  call void @_ZdlPvm(ptr noundef nonnull %207, i64 noundef %213) #24
   br label %_ZN4entt7emitterIN4test7emitterESaIvEED2Ev.exit131
 
-_ZN4entt7emitterIN4test7emitterESaIvEED2Ev.exit131: ; preds = %_ZN4entt8internal23compressed_pair_elementISt6vectorINS0_14dense_map_nodeIjSt8functionIFvPvEEEESaIS8_EELm0EvED2Ev.exit.i.i.i129, %204
+_ZN4entt7emitterIN4test7emitterESaIvEED2Ev.exit131: ; preds = %_ZN4entt8internal23compressed_pair_elementISt6vectorINS0_14dense_map_nodeIjSt8functionIFvPvEEEESaIS8_EELm0EvED2Ev.exit.i.i.i129, %208
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %2) #23
   ret void
 

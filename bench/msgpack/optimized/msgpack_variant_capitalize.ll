@@ -13653,12 +13653,12 @@ _ZNKSt4lessIN7msgpack2v14type13basic_variantINSt7__cxx1112basic_stringIcSt11char
 .loopexit8:                                       ; preds = %.loopexit8.loopexit, %3
   %21 = phi ptr [ %0, %3 ], [ %.pre, %.loopexit8.loopexit ]
   %.0.lcssa.i = phi ptr [ %11, %3 ], [ %.0710.i, %.loopexit8.loopexit ]
-  %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  %23 = icmp eq ptr %.0.lcssa.i, %22
-  br i1 %23, label %_ZNSt8_Rb_treeIN7msgpack2v14type13basic_variantINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIcS8_ENS2_3extEEESt4pairIKSD_SD_ESt10_Select1stISG_ESt4lessISD_ESaISG_EE10_Auto_nodeD2Ev.exit, label %24
+  %23 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  %24 = icmp eq ptr %.0.lcssa.i, %23
+  br i1 %24, label %_ZNSt8_Rb_treeIN7msgpack2v14type13basic_variantINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIcS8_ENS2_3extEEESt4pairIKSD_SD_ESt10_Select1stISG_ESt4lessISD_ESaISG_EE10_Auto_nodeD2Ev.exit, label %25
 
-24:                                               ; preds = %.loopexit8
-  %25 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i, i64 32
+25:                                               ; preds = %.loopexit8
+  %26 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i, i64 32
   %26 = load i32, ptr %9, align 8, !tbaa !272
   %.lobit.i7.i.i.i.i = ashr i32 %26, 31
   %.0.i8.i.i.i.i = xor i32 %.lobit.i7.i.i.i.i, %26
@@ -13666,43 +13666,43 @@ _ZNKSt4lessIN7msgpack2v14type13basic_variantINSt7__cxx1112basic_stringIcSt11char
   %.lobit.i5.i.i.i.i = ashr i32 %27, 31
   %.0.i6.i.i.i.i = xor i32 %.lobit.i5.i.i.i.i, %27
   %.not.i.i.i.i.i = icmp eq i32 %.0.i8.i.i.i.i, %.0.i6.i.i.i.i
-  br i1 %.not.i.i.i.i.i, label %30, label %28
+  br i1 %.not.i.i.i.i.i, label %32, label %30
 
-28:                                               ; preds = %24
-  %29 = icmp slt i32 %.0.i8.i.i.i.i, %.0.i6.i.i.i.i
+30:                                               ; preds = %25
+  %31 = icmp slt i32 %.0.i8.i.i.i.i, %.0.i6.i.i.i.i
   br label %_ZNSt8_Rb_treeIN7msgpack2v14type13basic_variantINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIcS8_ENS2_3extEEESt4pairIKSD_SD_ESt10_Select1stISG_ESt4lessISD_ESaISG_EE10_Auto_nodeD2Ev.exit
 
-30:                                               ; preds = %24
+32:                                               ; preds = %25
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #26
   store ptr %9, ptr %4, align 8, !tbaa !338
-  %31 = invoke noundef zeroext i1 @_ZNKR5boost7variantIN7msgpack2v14type5nil_tEJblmdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16basic_string_refIcS8_EESt6vectorIcS9_ENS3_7raw_refENS3_3extENS3_7ext_refENS_17recursive_wrapperISD_INS3_13basic_variantISA_SE_SG_EESaISK_EEEENSI_ISt3mapISK_SK_St4lessISK_ESaISt4pairIKSK_SK_EEEEENSI_ISt8multimapISK_SK_SQ_SU_EEEEE13apply_visitorINS_6detail7variant8comparerIS10_NS13_9less_compEEEEENT_11result_typeERS17_(ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef nonnull align 8 dereferenceable(8) %4)
+  %33 = invoke noundef zeroext i1 @_ZNKR5boost7variantIN7msgpack2v14type5nil_tEJblmdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_16basic_string_refIcS8_EESt6vectorIcS9_ENS3_7raw_refENS3_3extENS3_7ext_refENS_17recursive_wrapperISD_INS3_13basic_variantISA_SE_SG_EESaISK_EEEENSI_ISt3mapISK_SK_St4lessISK_ESaISt4pairIKSK_SK_EEEEENSI_ISt8multimapISK_SK_SQ_SU_EEEEE13apply_visitorINS_6detail7variant8comparerIS10_NS13_9less_compEEEEENT_11result_typeERS17_(ptr noundef nonnull align 8 dereferenceable(40) %25, ptr noundef nonnull align 8 dereferenceable(8) %4)
           to label %.noexc6 unwind label %.loopexit.split-lp
 
-.noexc6:                                          ; preds = %30
+.noexc6:                                          ; preds = %32
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #26
   br label %_ZNSt8_Rb_treeIN7msgpack2v14type13basic_variantINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIcS8_ENS2_3extEEESt4pairIKSD_SD_ESt10_Select1stISG_ESt4lessISD_ESaISG_EE10_Auto_nodeD2Ev.exit
 
-_ZNSt8_Rb_treeIN7msgpack2v14type13basic_variantINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIcS8_ENS2_3extEEESt4pairIKSD_SD_ESt10_Select1stISG_ESt4lessISD_ESaISG_EE10_Auto_nodeD2Ev.exit: ; preds = %.loopexit8, %28, %.noexc6
-  %32 = phi i1 [ true, %.loopexit8 ], [ %29, %28 ], [ %31, %.noexc6 ]
-  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %32, ptr noundef nonnull %8, ptr noundef nonnull %.0.lcssa.i, ptr noundef nonnull align 8 dereferenceable(32) %22) #26
-  %33 = getelementptr inbounds nuw i8, ptr %21, i64 40
-  %34 = load i64, ptr %33, align 8, !tbaa !326
-  %35 = add i64 %34, 1
-  store i64 %35, ptr %33, align 8, !tbaa !326
+_ZNSt8_Rb_treeIN7msgpack2v14type13basic_variantINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIcS8_ENS2_3extEEESt4pairIKSD_SD_ESt10_Select1stISG_ESt4lessISD_ESaISG_EE10_Auto_nodeD2Ev.exit: ; preds = %.loopexit8, %30, %.noexc6
+  %34 = phi i1 [ true, %.loopexit8 ], [ %31, %30 ], [ %33, %.noexc6 ]
+  call void @_ZSt29_Rb_tree_insert_and_rebalancebPSt18_Rb_tree_node_baseS0_RS_(i1 noundef zeroext %34, ptr noundef nonnull %8, ptr noundef nonnull %.0.lcssa.i, ptr noundef nonnull align 8 dereferenceable(32) %23) #26
+  %35 = getelementptr inbounds nuw i8, ptr %21, i64 40
+  %36 = load i64, ptr %35, align 8, !tbaa !326
+  %37 = add i64 %36, 1
+  store i64 %37, ptr %35, align 8, !tbaa !326
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #26
   ret ptr %8
 
 .loopexit:                                        ; preds = %_ZNKSt4lessIN7msgpack2v14type13basic_variantINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIcS8_ENS2_3extEEEEclERKSD_SG_.exit.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %36
+  br label %38
 
-.loopexit.split-lp:                               ; preds = %30
+.loopexit.split-lp:                               ; preds = %32
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %36
+  br label %38
 
-36:                                               ; preds = %.loopexit.split-lp, %.loopexit
+38:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt8_Rb_treeIN7msgpack2v14type13basic_variantINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIcS8_ENS2_3extEEESt4pairIKSD_SD_ESt10_Select1stISG_ESt4lessISD_ESaISG_EE10_Auto_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %6) #26
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6) #26

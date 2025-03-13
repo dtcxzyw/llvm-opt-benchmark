@@ -5617,8 +5617,8 @@ define void @_ZN14regex_automata4util9prefilter9Prefilter11from_choice17hd930be7
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #30, !noalias !629
   unreachable
 
-common.resume:                                    ; preds = %101, %96, %76, %81, %58, %42, %47
-  %common.resume.op = phi { ptr, i32 } [ %43, %47 ], [ %43, %42 ], [ %59, %58 ], [ %77, %81 ], [ %77, %76 ], [ %97, %96 ], [ %97, %101 ]
+common.resume:                                    ; preds = %100, %95, %76, %81, %58, %42, %47
+  %common.resume.op = phi { ptr, i32 } [ %43, %47 ], [ %43, %42 ], [ %59, %58 ], [ %77, %81 ], [ %77, %76 ], [ %96, %95 ], [ %96, %100 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN5alloc4sync12Arc$LT$T$GT$3new17hb7166bbb47654c6dE.exit": ; preds = %34
@@ -5731,39 +5731,39 @@ common.resume:                                    ; preds = %101, %96, %76, %81,
   br label %84
 
 84:                                               ; preds = %"_ZN5alloc4sync12Arc$LT$T$GT$3new17h0776aeaf0fcedb27E.exit", %"_ZN5alloc4sync12Arc$LT$T$GT$3new17h66cbd8166227b542E.exit", %"_ZN5alloc4sync12Arc$LT$T$GT$3new17hea7ed7b9e1a38eefE.exit", %"_ZN5alloc4sync12Arc$LT$T$GT$3new17hb7166bbb47654c6dE.exit", %"_ZN5alloc4sync12Arc$LT$T$GT$3new17ha8603057a2439b3eE.exit", %"_ZN5alloc4sync12Arc$LT$T$GT$3new17h40b16281cb1565d3E.exit", %"_ZN5alloc4sync12Arc$LT$T$GT$3new17hb716267f6ee1a7fcE.exit"
-  %85 = phi ptr [ @anon.8a1b429415f23bfa071ebb028a9ce5fa.155, %"_ZN5alloc4sync12Arc$LT$T$GT$3new17h0776aeaf0fcedb27E.exit" ], [ @anon.8a1b429415f23bfa071ebb028a9ce5fa.153, %"_ZN5alloc4sync12Arc$LT$T$GT$3new17h66cbd8166227b542E.exit" ], [ @anon.8a1b429415f23bfa071ebb028a9ce5fa.151, %"_ZN5alloc4sync12Arc$LT$T$GT$3new17hea7ed7b9e1a38eefE.exit" ], [ @anon.8a1b429415f23bfa071ebb028a9ce5fa.149, %"_ZN5alloc4sync12Arc$LT$T$GT$3new17hb7166bbb47654c6dE.exit" ], [ @anon.8a1b429415f23bfa071ebb028a9ce5fa.147, %"_ZN5alloc4sync12Arc$LT$T$GT$3new17ha8603057a2439b3eE.exit" ], [ @anon.8a1b429415f23bfa071ebb028a9ce5fa.145, %"_ZN5alloc4sync12Arc$LT$T$GT$3new17h40b16281cb1565d3E.exit" ], [ @anon.8a1b429415f23bfa071ebb028a9ce5fa.143, %"_ZN5alloc4sync12Arc$LT$T$GT$3new17hb716267f6ee1a7fcE.exit" ]
+  %.sroa.10.0 = phi ptr [ @anon.8a1b429415f23bfa071ebb028a9ce5fa.155, %"_ZN5alloc4sync12Arc$LT$T$GT$3new17h0776aeaf0fcedb27E.exit" ], [ @anon.8a1b429415f23bfa071ebb028a9ce5fa.153, %"_ZN5alloc4sync12Arc$LT$T$GT$3new17h66cbd8166227b542E.exit" ], [ @anon.8a1b429415f23bfa071ebb028a9ce5fa.151, %"_ZN5alloc4sync12Arc$LT$T$GT$3new17hea7ed7b9e1a38eefE.exit" ], [ @anon.8a1b429415f23bfa071ebb028a9ce5fa.149, %"_ZN5alloc4sync12Arc$LT$T$GT$3new17hb7166bbb47654c6dE.exit" ], [ @anon.8a1b429415f23bfa071ebb028a9ce5fa.147, %"_ZN5alloc4sync12Arc$LT$T$GT$3new17ha8603057a2439b3eE.exit" ], [ @anon.8a1b429415f23bfa071ebb028a9ce5fa.145, %"_ZN5alloc4sync12Arc$LT$T$GT$3new17h40b16281cb1565d3E.exit" ], [ @anon.8a1b429415f23bfa071ebb028a9ce5fa.143, %"_ZN5alloc4sync12Arc$LT$T$GT$3new17hb716267f6ee1a7fcE.exit" ]
   %.sroa.0.0 = phi ptr [ %73, %"_ZN5alloc4sync12Arc$LT$T$GT$3new17h0776aeaf0fcedb27E.exit" ], [ %64, %"_ZN5alloc4sync12Arc$LT$T$GT$3new17h66cbd8166227b542E.exit" ], [ %55, %"_ZN5alloc4sync12Arc$LT$T$GT$3new17hea7ed7b9e1a38eefE.exit" ], [ %39, %"_ZN5alloc4sync12Arc$LT$T$GT$3new17hb7166bbb47654c6dE.exit" ], [ %31, %"_ZN5alloc4sync12Arc$LT$T$GT$3new17ha8603057a2439b3eE.exit" ], [ %25, %"_ZN5alloc4sync12Arc$LT$T$GT$3new17h40b16281cb1565d3E.exit" ], [ %16, %"_ZN5alloc4sync12Arc$LT$T$GT$3new17hb716267f6ee1a7fcE.exit" ]
   store ptr %.sroa.0.0, ptr %6, align 8
-  %86 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %85, ptr %86, align 8
-  %87 = getelementptr inbounds nuw i8, ptr %85, i64 16
-  %88 = load i64, ptr %87, align 8, !range !681, !invariant.load !5
-  %89 = add i64 %88, -1
-  %90 = and i64 %89, -16
-  %91 = getelementptr i8, ptr %.sroa.0.0, i64 %90
-  %92 = getelementptr i8, ptr %91, i64 16
-  %93 = getelementptr inbounds nuw i8, ptr %85, i64 88
-  %94 = load ptr, ptr %93, align 8, !invariant.load !5, !nonnull !5
-  %95 = invoke noundef zeroext i1 %94(ptr noundef align 1 %92)
-          to label %102 unwind label %96
+  %85 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr %.sroa.10.0, ptr %85, align 8
+  %86 = getelementptr inbounds nuw i8, ptr %.sroa.10.0, i64 16
+  %87 = load i64, ptr %86, align 8, !range !681, !invariant.load !5
+  %88 = add i64 %87, -1
+  %89 = and i64 %88, -16
+  %90 = getelementptr i8, ptr %.sroa.0.0, i64 %89
+  %91 = getelementptr i8, ptr %90, i64 16
+  %92 = getelementptr inbounds nuw i8, ptr %.sroa.10.0, i64 88
+  %93 = load ptr, ptr %92, align 8, !invariant.load !5, !nonnull !5
+  %94 = invoke noundef zeroext i1 %94(ptr noundef align 1 %91)
+          to label %101 unwind label %95
 
-96:                                               ; preds = %84
-  %97 = landingpad { ptr, i32 }
+95:                                               ; preds = %84
+  %96 = landingpad { ptr, i32 }
           cleanup
   tail call void @llvm.experimental.noalias.scope.decl(metadata !682)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !685)
-  %98 = load ptr, ptr %6, align 8, !alias.scope !688, !nonnull !5, !noundef !5
-  %99 = atomicrmw sub ptr %98, i64 1 release, align 8, !noalias !688
-  %100 = icmp eq i64 %99, 1
-  br i1 %100, label %101, label %common.resume
+  %97 = load ptr, ptr %6, align 8, !alias.scope !688, !nonnull !5, !noundef !5
+  %98 = atomicrmw sub ptr %97, i64 1 release, align 8, !noalias !688
+  %99 = icmp eq i64 %98, 1
+  br i1 %99, label %100, label %common.resume
 
-101:                                              ; preds = %96
+100:                                              ; preds = %95
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17he00d74ff160796c7E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %6)
           to label %common.resume unwind label %105
 
-102:                                              ; preds = %84
-  %103 = load ptr, ptr %6, align 8, !nonnull !5, !noundef !5
+101:                                              ; preds = %84
+  %102 = load ptr, ptr %6, align 8, !nonnull !5, !noundef !5
   %104 = zext i1 %95 to i8
   store ptr %103, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -5773,7 +5773,7 @@ common.resume:                                    ; preds = %101, %96, %76, %81,
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   ret void
 
-105:                                              ; preds = %101
+105:                                              ; preds = %100
   %106 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #30

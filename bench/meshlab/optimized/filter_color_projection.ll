@@ -6325,11 +6325,11 @@ define void @_ZN3vcg8PullPushER6QImagej(ptr noundef nonnull align 8 dereferencea
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIP6QImageS0_EvT_S2_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %._crit_edge, %.lr.ph.i.i.i.i
-  %.05.i.i.i.i = phi ptr [ %53, %.lr.ph.i.i.i.i ], [ %44, %._crit_edge ]
-  %51 = load ptr, ptr %.05.i.i.i.i, align 8
-  %52 = load ptr, ptr %51, align 8
+  %.05.i.i.i.i = phi ptr [ %54, %.lr.ph.i.i.i.i ], [ %44, %._crit_edge ]
+  %52 = load ptr, ptr %.05.i.i.i.i, align 8
+  %53 = load ptr, ptr %52, align 8
   call void %52(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i) #33
-  %53 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 32
+  %54 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 32
   %.not.i.i.i.i = icmp eq ptr %.05.i.i.i.i, %.08.i.i.i.i.i
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIP6QImageS0_EvT_S2_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !69
 
@@ -6338,15 +6338,15 @@ _ZSt8_DestroyIP6QImageS0_EvT_S2_RSaIT0_E.exitthread-pre-split.i: ; preds = %.lr.
   br label %_ZSt8_DestroyIP6QImageS0_EvT_S2_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIP6QImageS0_EvT_S2_RSaIT0_E.exit.i:  ; preds = %_ZSt8_DestroyIP6QImageS0_EvT_S2_RSaIT0_E.exitthread-pre-split.i, %._crit_edge
-  %54 = phi ptr [ %.pr.i, %_ZSt8_DestroyIP6QImageS0_EvT_S2_RSaIT0_E.exitthread-pre-split.i ], [ %44, %._crit_edge ]
-  %.not.i.i.i = icmp eq ptr %54, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorI6QImageSaIS0_EED2Ev.exit, label %55
+  %55 = phi ptr [ %.pr.i, %_ZSt8_DestroyIP6QImageS0_EvT_S2_RSaIT0_E.exitthread-pre-split.i ], [ %44, %._crit_edge ]
+  %.not.i.i.i = icmp eq ptr %55, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorI6QImageSaIS0_EED2Ev.exit, label %56
 
-55:                                               ; preds = %_ZSt8_DestroyIP6QImageS0_EvT_S2_RSaIT0_E.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %54) #32
+56:                                               ; preds = %_ZSt8_DestroyIP6QImageS0_EvT_S2_RSaIT0_E.exit.i
+  call void @_ZdlPv(ptr noundef nonnull %55) #32
   br label %_ZNSt6vectorI6QImageSaIS0_EED2Ev.exit
 
-_ZNSt6vectorI6QImageSaIS0_EED2Ev.exit:            ; preds = %_ZSt8_DestroyIP6QImageS0_EvT_S2_RSaIT0_E.exit.i, %55
+_ZNSt6vectorI6QImageSaIS0_EED2Ev.exit:            ; preds = %_ZSt8_DestroyIP6QImageS0_EvT_S2_RSaIT0_E.exit.i, %56
   ret void
 }
 

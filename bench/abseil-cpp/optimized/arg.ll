@@ -5608,23 +5608,23 @@ _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits10PrintAsDecENS_6int128E.ex
   store ptr %118, ptr %112, align 8, !tbaa !19
   %124 = load ptr, ptr %121, align 8, !tbaa !20
   %125 = load ptr, ptr %4, align 8, !tbaa !21
-  call void %124(ptr noundef %125, i64 %.val30, ptr nonnull %.val)
+  call void %124(ptr noundef %126, i64 %.val30, ptr nonnull %.val)
   br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
-126:                                              ; preds = %107
+127:                                              ; preds = %107
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %113, ptr nonnull align 1 %.val, i64 %.val30, i1 false)
-  %127 = load ptr, ptr %112, align 8, !tbaa !19
-  %128 = getelementptr inbounds nuw i8, ptr %127, i64 %.val30
-  store ptr %128, ptr %112, align 8, !tbaa !19
+  %128 = load ptr, ptr %112, align 8, !tbaa !19
+  %129 = getelementptr inbounds nuw i8, ptr %128, i64 %.val30
+  store ptr %129, ptr %112, align 8, !tbaa !19
   br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
-129:                                              ; preds = %102
+130:                                              ; preds = %102
   %.sroa.01.0.copyload = load i64, ptr %6, align 8
   call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_123ConvertIntImplInnerSlowERKNS1_9IntDigitsENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(ptr nonnull %.val, i64 %.val30, i64 %.sroa.01.0.copyload, i32 %3, ptr noundef %4)
   br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
-_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %126, %117, %105, %12, %15, %129, %98
-  %.0 = phi i1 [ %100, %98 ], [ true, %129 ], [ %14, %12 ], [ true, %15 ], [ true, %105 ], [ true, %117 ], [ true, %126 ]
+_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %127, %117, %105, %12, %15, %130, %98
+  %.0 = phi i1 [ %100, %98 ], [ true, %130 ], [ %14, %12 ], [ true, %15 ], [ true, %105 ], [ true, %117 ], [ true, %127 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #12
   ret i1 %.0
 }
@@ -5908,20 +5908,20 @@ _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits10PrintAsDecENS_7uint128Eb.
   call void %123(ptr noundef %124, i64 %.val30, ptr nonnull %.val)
   br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
-125:                                              ; preds = %106
+126:                                              ; preds = %106
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %112, ptr nonnull align 1 %.val, i64 %.val30, i1 false)
-  %126 = load ptr, ptr %111, align 8, !tbaa !19
-  %127 = getelementptr inbounds nuw i8, ptr %126, i64 %.val30
-  store ptr %127, ptr %111, align 8, !tbaa !19
+  %127 = load ptr, ptr %111, align 8, !tbaa !19
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 %.val30
+  store ptr %128, ptr %111, align 8, !tbaa !19
   br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
-128:                                              ; preds = %101
+129:                                              ; preds = %101
   %.sroa.01.0.copyload = load i64, ptr %6, align 8
   call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_123ConvertIntImplInnerSlowERKNS1_9IntDigitsENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(ptr nonnull %.val, i64 %.val30, i64 %.sroa.01.0.copyload, i32 %3, ptr noundef %4)
   br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
-_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %125, %116, %104, %12, %15, %128, %95
-  %.0 = phi i1 [ %99, %95 ], [ true, %128 ], [ %14, %12 ], [ true, %15 ], [ true, %104 ], [ true, %116 ], [ true, %125 ]
+_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %126, %116, %104, %12, %15, %129, %95
+  %.0 = phi i1 [ %99, %95 ], [ true, %129 ], [ %14, %12 ], [ true, %15 ], [ true, %104 ], [ true, %116 ], [ true, %126 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #12
   ret i1 %.0
 }

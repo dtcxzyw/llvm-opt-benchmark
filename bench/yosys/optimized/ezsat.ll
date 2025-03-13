@@ -13250,7 +13250,7 @@ define noundef i32 @_ZN5ezSAT13vec_reduce_orERKSt6vectorIiSaIiEE(ptr noundef non
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5ezSAT7vec_addERKSt6vectorIiSaIiEES4_(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector.14") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(284) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5ezSAT7vec_addERKSt6vectorIiSaIiEES4_(ptr dead_on_unwind noalias writable sret(%"class.std::vector.14") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(284) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !90

@@ -1867,9 +1867,9 @@ for.body.i.i.i:                                   ; preds = %for.body.i.i.i, %if
   br i1 %tobool.not.i.i.i36, label %for.end.loopexit.i.i.i, label %for.body.i.i.i, !llvm.loop !7
 
 for.end.loopexit.i.i.i:                           ; preds = %for.body.i.i.i
-  %6 = shl nuw i32 %i.05.i.i.i, 1
-  %7 = zext i32 %6 to i64
-  invoke void @_ZN5eastl8Internal22quick_sort_impl_helperIPNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEElKS6_EEvT_S9_T0_(ptr noundef %5, ptr noundef nonnull %add.ptr.i.i.i, i64 noundef %7)
+  %7 = shl nuw i32 %i.05.i.i.i, 1
+  %8 = zext i32 %7 to i64
+  invoke void @_ZN5eastl8Internal22quick_sort_impl_helperIPNS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEElKS6_EEvT_S9_T0_(ptr noundef %5, ptr noundef nonnull %add.ptr.i.i.i, i64 noundef %8)
           to label %.noexc unwind label %lpad37.loopexit.split-lp
 
 .noexc:                                           ; preds = %for.end.loopexit.i.i.i
@@ -1897,18 +1897,18 @@ invoke.cont38:                                    ; preds = %.noexc38, %if.else.
 for.body.i.i:                                     ; preds = %invoke.cont38, %for.cond.backedge.i.i
   %current.012.i.i = phi ptr [ %current.0.i.i, %for.cond.backedge.i.i ], [ %current.09.i.i, %invoke.cont38 ]
   %first.addr.011.i.i = phi ptr [ %current.012.i.i, %for.cond.backedge.i.i ], [ %5, %invoke.cont38 ]
-  %8 = load i64, ptr %current.012.i.i, align 8
-  %9 = load i64, ptr %first.addr.011.i.i, align 8
-  %cmp.i.i.i.i = icmp ult i64 %8, %9
+  %9 = load i64, ptr %current.012.i.i, align 8
+  %10 = load i64, ptr %first.addr.011.i.i, align 8
+  %cmp.i.i.i.i = icmp ult i64 %9, %10
   br i1 %cmp.i.i.i.i, label %invoke.cont41, label %if.end7.i.i.i.i
 
 if.end7.i.i.i.i:                                  ; preds = %for.body.i.i
-  %cmp10.i.i.i.i = icmp ugt i64 %8, %9
+  %cmp10.i.i.i.i = icmp ugt i64 %9, %10
   br i1 %cmp10.i.i.i.i, label %for.cond.backedge.i.i, label %if.end12.i.i.i.i
 
 if.end12.i.i.i.i:                                 ; preds = %if.end7.i.i.i.i
-  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds [2 x ptr], ptr @__const._ZN5eastl8internal29variant_relational_comparison10call_indexINS_4lessIvEENS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEEJLm0ELm1EEEEbRKT0_SC_NS_16integer_sequenceImJXspT1_EEEE.visitors, i64 0, i64 %8
-  %10 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i, align 8
+  %arrayidx.i.i.i.i.i.i.i = getelementptr inbounds [2 x ptr], ptr @__const._ZN5eastl8internal29variant_relational_comparison10call_indexINS_4lessIvEENS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEEJLm0ELm1EEEEbRKT0_SC_NS_16integer_sequenceImJXspT1_EEEE.visitors, i64 0, i64 %9
+  %11 = load ptr, ptr %arrayidx.i.i.i.i.i.i.i, align 8
   %call1.i.i.i.i.i.i.i43 = invoke noundef zeroext i1 %10(ptr noundef nonnull align 8 dereferenceable(40) %current.012.i.i, ptr noundef nonnull align 8 dereferenceable(40) %first.addr.011.i.i)
           to label %call1.i.i.i.i.i.i.i.noexc unwind label %lpad37.loopexit
 
@@ -1926,16 +1926,16 @@ invoke.cont41:                                    ; preds = %for.cond.backedge.i
           to label %invoke.cont43 unwind label %lpad37.loopexit.split-lp
 
 invoke.cont43:                                    ; preds = %invoke.cont41
-  %11 = load ptr, ptr %v, align 8
-  %12 = load ptr, ptr %mpEnd.i.i.i, align 8
-  %cmp.not3.i.i.i = icmp eq ptr %11, %12
+  %12 = load ptr, ptr %v, align 8
+  %13 = load ptr, ptr %mpEnd.i.i.i, align 8
+  %cmp.not3.i.i.i = icmp eq ptr %12, %13
   br i1 %cmp.not3.i.i.i, label %invoke.cont.i, label %for.body.i.i.i45
 
 for.body.i.i.i45:                                 ; preds = %invoke.cont43, %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit.i.i.i
-  %first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit.i.i.i ], [ %11, %invoke.cont43 ]
+  %first.addr.04.i.i.i = phi ptr [ %incdec.ptr.i.i.i, %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit.i.i.i ], [ %12, %invoke.cont43 ]
   %mpHandler.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %first.addr.04.i.i.i, i64 32
-  %13 = load ptr, ptr %mpHandler.i.i.i.i.i.i, align 8
-  %tobool.not.i.i.i.i.i.i = icmp eq ptr %13, null
+  %14 = load ptr, ptr %mpHandler.i.i.i.i.i.i, align 8
+  %tobool.not.i.i.i.i.i.i = icmp eq ptr %14, null
   br i1 %tobool.not.i.i.i.i.i.i, label %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit.i.i.i, label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %for.body.i.i.i45
@@ -1944,15 +1944,15 @@ if.then.i.i.i.i.i.i:                              ; preds = %for.body.i.i.i45
           to label %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit.i.i.i unwind label %terminate.lpad.i.i.i.i.i
 
 terminate.lpad.i.i.i.i.i:                         ; preds = %if.then.i.i.i.i.i.i
-  %14 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           catch ptr null
-  %15 = extractvalue { ptr, i32 } %14, 0
-  call void @__clang_call_terminate(ptr %15) #16
+  %16 = extractvalue { ptr, i32 } %15, 0
+  call void @__clang_call_terminate(ptr %16) #16
   unreachable
 
 _ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit.i.i.i: ; preds = %if.then.i.i.i.i.i.i, %for.body.i.i.i45
   %incdec.ptr.i.i.i = getelementptr inbounds nuw i8, ptr %first.addr.04.i.i.i, i64 40
-  %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %12
+  %cmp.not.i.i.i = icmp eq ptr %incdec.ptr.i.i.i, %13
   br i1 %cmp.not.i.i.i, label %invoke.contthread-pre-split.i, label %for.body.i.i.i45, !llvm.loop !9
 
 invoke.contthread-pre-split.i:                    ; preds = %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit.i.i.i
@@ -1960,17 +1960,17 @@ invoke.contthread-pre-split.i:                    ; preds = %_ZN5eastl7variantIJ
   br label %invoke.cont.i
 
 invoke.cont.i:                                    ; preds = %invoke.contthread-pre-split.i, %invoke.cont43
-  %16 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %11, %invoke.cont43 ]
-  %tobool.not.i.i46 = icmp eq ptr %16, null
+  %17 = phi ptr [ %.pr.i, %invoke.contthread-pre-split.i ], [ %12, %invoke.cont43 ]
+  %tobool.not.i.i46 = icmp eq ptr %17, null
   br i1 %tobool.not.i.i46, label %_ZN5eastl6vectorINS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEES3_ED2Ev.exit, label %_ZN5eastl9allocator10deallocateEPvm.exit.i.i47
 
 _ZN5eastl9allocator10deallocateEPvm.exit.i.i47:   ; preds = %invoke.cont.i
-  call void @_ZdaPv(ptr noundef nonnull %16) #17
+  call void @_ZdaPv(ptr noundef nonnull %17) #17
   br label %_ZN5eastl6vectorINS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEES3_ED2Ev.exit
 
 _ZN5eastl6vectorINS_7variantIJiNS_12basic_stringIcNS_9allocatorEEEEEES3_ED2Ev.exit: ; preds = %invoke.cont.i, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i47
-  %17 = load i32, ptr %nErrorCount, align 4
-  ret i32 %17
+  %18 = load i32, ptr %nErrorCount, align 4
+  ret i32 %18
 
 lpad.body:                                        ; preds = %lpad.i.thread, %lpad.i, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i
   %lpad.phi.i57 = phi { ptr, i32 } [ %lpad.loopexit.split-lp5.i, %lpad.i.thread ], [ %lpad.loopexit4.i, %lpad.i ], [ %lpad.loopexit4.i, %_ZN5eastl9allocator10deallocateEPvm.exit.i.i ]
@@ -1980,8 +1980,8 @@ arraydestroy.body30:                              ; preds = %_ZN5eastl7variantIJ
   %arraydestroy.elementPast31 = phi ptr [ %add.ptr.i.i, %lpad.body ], [ %arraydestroy.element32, %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit54 ]
   %arraydestroy.element32 = getelementptr inbounds i8, ptr %arraydestroy.elementPast31, i64 -40
   %mpHandler.i.i.i49 = getelementptr inbounds i8, ptr %arraydestroy.elementPast31, i64 -8
-  %18 = load ptr, ptr %mpHandler.i.i.i49, align 8
-  %tobool.not.i.i.i50 = icmp eq ptr %18, null
+  %19 = load ptr, ptr %mpHandler.i.i.i49, align 8
+  %tobool.not.i.i.i50 = icmp eq ptr %19, null
   br i1 %tobool.not.i.i.i50, label %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit54, label %if.then.i.i.i51
 
 if.then.i.i.i51:                                  ; preds = %arraydestroy.body30
@@ -1990,10 +1990,10 @@ if.then.i.i.i51:                                  ; preds = %arraydestroy.body30
           to label %_ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit54 unwind label %terminate.lpad.i.i53
 
 terminate.lpad.i.i53:                             ; preds = %if.then.i.i.i51
-  %19 = landingpad { ptr, i32 }
+  %20 = landingpad { ptr, i32 }
           catch ptr null
-  %20 = extractvalue { ptr, i32 } %19, 0
-  call void @__clang_call_terminate(ptr %20) #16
+  %21 = extractvalue { ptr, i32 } %20, 0
+  call void @__clang_call_terminate(ptr %21) #16
   unreachable
 
 _ZN5eastl7variantIJiNS_12basic_stringIcNS_9allocatorEEEEED2Ev.exit54: ; preds = %arraydestroy.body30, %if.then.i.i.i51

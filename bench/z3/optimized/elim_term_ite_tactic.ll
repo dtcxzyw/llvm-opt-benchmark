@@ -6679,7 +6679,7 @@ _ZN3refI23generic_model_converterEaSEPS0_.exit:   ; preds = %74, %._crit_edge.i.
 77:                                               ; preds = %25
   %78 = landingpad { ptr, i32 }
           cleanup
-  br label %176
+  br label %177
 
 79:                                               ; preds = %131, %74, %56, %40, %32
   %80 = landingpad { ptr, i32 }
@@ -6694,7 +6694,7 @@ _ZN3refI23generic_model_converterEaSEPS0_.exit:   ; preds = %74, %._crit_edge.i.
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #18
   call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %9) #18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #18
-  br label %176
+  br label %177
 
 81:                                               ; preds = %_ZN3refI23generic_model_converterEaSEPS0_.exit, %52
   %82 = phi ptr [ %57, %_ZN3refI23generic_model_converterEaSEPS0_.exit ], [ %54, %52 ]
@@ -6908,15 +6908,15 @@ _ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %_ZN7obj_refI3app11a
 173:                                              ; preds = %172
   %174 = landingpad { ptr, i32 }
           catch ptr null
-  %175 = extractvalue { ptr, i32 } %174, 0
-  call void @__clang_call_terminate(ptr %175) #19
+  %176 = extractvalue { ptr, i32 } %174, 0
+  call void @__clang_call_terminate(ptr %176) #19
   unreachable
 
 _ZN7obj_refI4expr11ast_managerED2Ev.exit27:       ; preds = %_ZN7obj_refI4expr11ast_managerED2Ev.exit, %167, %172
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #18
   br label %_ZNK11ast_manager11is_term_iteEPK9func_decl.exit.thread
 
-176:                                              ; preds = %.body, %77
+177:                                              ; preds = %.body, %77
   %.pn = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %78, %77 ]
   call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %8) #18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #18

@@ -3146,10 +3146,10 @@ invoke.cont386:                                   ; preds = %_ZN5boost10shared_p
 
 for.cond393.preheader:                            ; preds = %invoke.cont386
   %_M_finish.i400 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %177 = load ptr, ptr %_M_finish.i400, align 8, !tbaa !96
-  %178 = load ptr, ptr %locations_, align 8, !tbaa !98
-  %cmp396606.not = icmp eq ptr %177, %178
-  br i1 %cmp396606.not, label %if.then.i.i403, label %for.body398.lr.ph
+  %176 = load ptr, ptr %_M_finish.i400, align 8, !tbaa !96
+  %177 = load ptr, ptr %locations_, align 8, !tbaa !98
+  %cmp396606.not = icmp eq ptr %176, %177
+  br i1 %cmp396606.not, label %for.cond.cleanup397, label %for.body398.lr.ph
 
 for.body398.lr.ph:                                ; preds = %for.cond393.preheader
   %dplus_ = getelementptr inbounds nuw i8, ptr %this, i64 32
@@ -3160,8 +3160,8 @@ for.body398.lr.ph:                                ; preds = %for.cond393.prehead
   %dminus_.i = getelementptr inbounds nuw i8, ptr %.pre, i64 56
   br label %for.body398
 
-if.then.i.i403:                                   ; preds = %invoke.cont405, %for.cond393.preheader
-  %use_count_.i.i.i404 = getelementptr inbounds nuw i8, ptr %175, i64 8
+for.cond.cleanup397:                              ; preds = %invoke.cont405, %for.cond393.preheader
+  %pn.i401 = getelementptr inbounds nuw i8, ptr %175, i64 8
   %179 = atomicrmw sub ptr %use_count_.i.i.i404, i32 1 acq_rel, align 4
   %cmp.i.i.i405 = icmp eq i32 %179, 1
   br i1 %cmp.i.i.i405, label %if.then.i.i.i406, label %_ZN5boost10shared_ptrIN8QuantLib11Fdm1dMesherEED2Ev.exit416
@@ -3193,7 +3193,7 @@ terminate.lpad.i.i409:                            ; preds = %if.then.i.i.i.i413,
   call void @__clang_call_terminate(ptr %184) #29
   unreachable
 
-_ZN5boost10shared_ptrIN8QuantLib11Fdm1dMesherEED2Ev.exit416: ; preds = %if.then.i.i403, %.noexc.i.i410, %if.then.i.i.i.i413
+_ZN5boost10shared_ptrIN8QuantLib11Fdm1dMesherEED2Ev.exit416: ; preds = %for.cond.cleanup397, %.noexc.i.i410, %if.then.i.i.i.i413
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %helper) #28
   %pn.i.i417 = getelementptr inbounds nuw i8, ptr %qTS, i64 8
   %185 = load ptr, ptr %pn.i.i417, align 8, !tbaa !31
@@ -3321,7 +3321,7 @@ invoke.cont405:                                   ; preds = %for.body398, %cond.
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %sub.ptr.div.i = ashr exact i64 %sub.ptr.sub.i, 3
   %cmp396 = icmp ult i64 %inc411, %sub.ptr.div.i
-  br i1 %cmp396, label %for.body398, label %if.then.i.i403, !llvm.loop !99
+  br i1 %cmp396, label %for.body398, label %for.cond.cleanup397, !llvm.loop !99
 
 lpad399:                                          ; preds = %cond.false.i452
   %208 = landingpad { ptr, i32 }

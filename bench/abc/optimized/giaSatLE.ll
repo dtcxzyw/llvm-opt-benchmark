@@ -1864,17 +1864,17 @@ Vec_WecStart.exit:                                ; preds = %Vec_BitStart.exit, 
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %40 = sext i32 %39 to i64
   %41 = icmp slt i64 %indvars.iv.next, %40
-  br i1 %41, label %29, label %._crit_edge, !llvm.loop !68
+  br i1 %41, label %29, label %._crit_edge.loopexit, !llvm.loop !68
 
-._crit_edge:                                      ; preds = %38, %Vec_WecStart.exit
+._crit_edge.loopexit:                             ; preds = %38, %Vec_WecStart.exit
   %.not.i20 = icmp eq ptr %16, null
   br i1 %.not.i20, label %Vec_BitFree.exit, label %42
 
-42:                                               ; preds = %._crit_edge
+43:                                               ; preds = %._crit_edge
   tail call void @free(ptr noundef nonnull %16) #22
   br label %Vec_BitFree.exit
 
-Vec_BitFree.exit:                                 ; preds = %._crit_edge, %42
+Vec_BitFree.exit:                                 ; preds = %._crit_edge, %43
   tail call void @free(ptr noundef nonnull %10) #22
   ret ptr %19
 }

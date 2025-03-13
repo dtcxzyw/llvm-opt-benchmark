@@ -400,26 +400,26 @@ call32.i.noexc.i:                                 ; preds = %call31.i.noexc.i
 for.inc.i.i:                                      ; preds = %call32.i.noexc.i, %for.body.i.i
   %9 = load ptr, ptr %__begin2.sroa.0.04.i.i, align 8
   %cmp.i.not.i.i = icmp eq ptr %9, null
-  br i1 %cmp.i.not.i.i, label %if.then.i.i.i.loopexit, label %for.body.i.i
+  br i1 %cmp.i.not.i.i, label %invoke.cont2.i, label %for.body.i.i
 
-if.then.i.i.i.loopexit:                           ; preds = %for.inc.i.i
+invoke.cont2.i:                                   ; preds = %for.inc.i.i
   %.pre = load ptr, ptr %ref.tmp.i, align 8
   br label %if.then.i.i.i
 
-if.then.i.i.i:                                    ; preds = %if.then.i.i.i.loopexit, %.noexc
-  %10 = phi ptr [ %.pre, %if.then.i.i.i.loopexit ], [ getelementptr inbounds nuw (i8, ptr @_ZZN8facebook5velox7process12_GLOBAL__N_18traceMapB5cxx11EvE14staticTraceMapB5cxx11, i64 56), %.noexc ]
-  invoke void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE13unlock_sharedEv(ptr noundef nonnull align 4 dereferenceable(4) %10)
+if.then.i.i.i:                                    ; preds = %invoke.cont2.i, %.noexc
+  %11 = phi ptr [ %.pre, %invoke.cont2.i ], [ getelementptr inbounds nuw (i8, ptr @_ZZN8facebook5velox7process12_GLOBAL__N_18traceMapB5cxx11EvE14staticTraceMapB5cxx11, i64 56), %.noexc ]
+  invoke void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE13unlock_sharedEv(ptr noundef nonnull align 4 dereferenceable(4) %11)
           to label %invoke.cont3 unwind label %terminate.lpad.i.i.i
 
 terminate.lpad.i.i.i:                             ; preds = %if.then.i.i.i
-  %11 = landingpad { ptr, i32 }
+  %12 = landingpad { ptr, i32 }
           catch ptr null
-  %12 = extractvalue { ptr, i32 } %11, 0
-  call void @__clang_call_terminate(ptr %12) #17
+  %13 = extractvalue { ptr, i32 } %12, 0
+  call void @__clang_call_terminate(ptr %13) #17
   unreachable
 
 lpad.i:                                           ; preds = %call32.i.noexc.i, %call31.i.noexc.i, %call30.i.noexc.i, %call28.i.noexc.i, %call27.i.noexc.i, %call23.i.noexc.i, %call22.i.noexc.i, %call20.i.noexc.i, %call19.i.noexc.i, %call16.i.noexc.i, %call15.i.noexc.i, %if.then.i.i
-  %13 = landingpad { ptr, i32 }
+  %14 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5folly9LockedPtrIKNS_12SynchronizedISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN8facebook5velox7process9TraceDataESt4hashIS8_ESt8equal_toIS8_ESaISt4pairIKS8_SC_EEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNSS_22SynchronizedMutexLevelE2ELNSS_23SynchronizedMutexMethodE0EEEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %ref.tmp.i) #16
   br label %lpad.body
@@ -434,12 +434,12 @@ invoke.cont4:                                     ; preds = %invoke.cont3
   ret void
 
 lpad:                                             ; preds = %_ZN8facebook5velox7process12_GLOBAL__N_18traceMapB5cxx11Ev.exit, %invoke.cont3
-  %14 = landingpad { ptr, i32 }
+  %15 = landingpad { ptr, i32 }
           cleanup
   br label %lpad.body
 
 lpad.body:                                        ; preds = %lpad.i, %lpad
-  %eh.lpad-body = phi { ptr, i32 } [ %14, %lpad ], [ %13, %lpad.i ]
+  %eh.lpad-body = phi { ptr, i32 } [ %15, %lpad ], [ %14, %lpad.i ]
   call void @_ZNSt7__cxx1118basic_stringstreamIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(128) %out) #16
   resume { ptr, i32 } %eh.lpad-body
 }

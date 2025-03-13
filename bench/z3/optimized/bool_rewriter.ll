@@ -7407,7 +7407,7 @@ _ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i171:        ; preds = %_ZN15ref_vector_cor
   br i1 %.not.i172, label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE13dec_range_refEPKPS0_S7_.exit.thread4.i180, label %.lr.ph.i.i173.preheader
 
 .lr.ph.i.i173.preheader:                          ; preds = %_ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i171
-  %.pre = load ptr, ptr %5, align 8, !tbaa !142
+  %.pre310 = load ptr, ptr %5, align 8, !tbaa !142
   br label %.lr.ph.i.i173
 
 .lr.ph.i.i173:                                    ; preds = %.lr.ph.i.i173.preheader, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7dec_refEPS0_.exit.i.i176
@@ -7425,7 +7425,7 @@ _ZNK6vectorIP4exprLb0EjE4sizeEv.exit.i171:        ; preds = %_ZN15ref_vector_cor
   br i1 %384, label %385, label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7dec_refEPS0_.exit.i.i176
 
 385:                                              ; preds = %380
-  invoke void @_ZN11ast_manager11delete_nodeEP3ast(ptr noundef nonnull align 8 dereferenceable(976) %.pre, ptr noundef nonnull %379)
+  invoke void @_ZN11ast_manager11delete_nodeEP3ast(ptr noundef nonnull align 8 dereferenceable(976) %.pre310, ptr noundef nonnull %379)
           to label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7dec_refEPS0_.exit.i.i176 unwind label %392
 
 _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7dec_refEPS0_.exit.i.i176: ; preds = %385, %380, %.lr.ph.i.i173

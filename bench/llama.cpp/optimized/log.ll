@@ -550,7 +550,7 @@ _ZNSt10lock_guardISt5mutexEC2ERS0_.exit:          ; preds = %4
   %42 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #24
-  br label %154
+  br label %156
 
 43:                                               ; preds = %34, %12
   call void @llvm.va_end.p0(ptr nonnull %5)
@@ -692,7 +692,7 @@ _ZN16common_log_entryaSEOS_.exit:                 ; preds = %81, %97
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %115
   %119 = phi ptr [ %106, %115 ], [ %.pre48, %._crit_edge.loopexit ]
   %120 = phi ptr [ %107, %115 ], [ %.pre, %._crit_edge.loopexit ]
-  %.lcssa = phi ptr [ %77, %115 ], [ %142, %._crit_edge.loopexit ]
+  %.lcssa40 = phi ptr [ %77, %115 ], [ %142, %._crit_edge.loopexit ]
   %121 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %122 = load ptr, ptr %121, align 8, !tbaa !43
   store ptr %.lcssa, ptr %13, align 8, !tbaa !39
@@ -740,7 +740,7 @@ _ZNSt6vectorI16common_log_entrySaIS0_EED2Ev.exit: ; preds = %_ZSt8_DestroyIP16co
 136:                                              ; preds = %_ZNSt6vectorI16common_log_entrySaIS0_EE17_S_check_init_lenEmRKS1_.exit.i, %75
   %137 = landingpad { ptr, i32 }
           cleanup
-  br label %149
+  br label %151
 
 .lr.ph:                                           ; preds = %115, %140
   %138 = phi ptr [ %142, %140 ], [ %77, %115 ]
@@ -758,18 +758,18 @@ _ZNSt6vectorI16common_log_entrySaIS0_EED2Ev.exit: ; preds = %_ZSt8_DestroyIP16co
   %146 = icmp ult i64 %141, %145
   br i1 %146, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !66
 
-147:                                              ; preds = %.lr.ph
+147:; preds = %.lr.ph
   %148 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt6vectorI16common_log_entrySaIS0_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #24
-  br label %149
+  br label %151
 
-149:                                              ; preds = %147, %136
+151:                                              ; preds = %147, %136
   %.pn = phi { ptr, i32 } [ %148, %147 ], [ %137, %136 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #24
   br label %154
 
-150:                                              ; preds = %_ZNSt6vectorI16common_log_entrySaIS0_EED2Ev.exit, %57
+154:                                              ; preds = %_ZNSt6vectorI16common_log_entrySaIS0_EED2Ev.exit, %57
   %151 = getelementptr inbounds nuw i8, ptr %0, i64 48
   call void @_ZNSt18condition_variable10notify_oneEv(ptr noundef nonnull align 8 dereferenceable(48) %151) #24
   br label %152
@@ -778,9 +778,9 @@ _ZNSt6vectorI16common_log_entrySaIS0_EED2Ev.exit: ; preds = %_ZSt8_DestroyIP16co
   %153 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #24
   ret void
 
-154:                                              ; preds = %149, %41
-  %.pn.pn = phi { ptr, i32 } [ %.pn, %149 ], [ %42, %41 ]
-  %155 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #24
+156:                                              ; preds = %151, %41
+  %.pn.pn = phi { ptr, i32 } [ %.pn, %151 ], [ %42, %41 ]
+  %157 = call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #24
   resume { ptr, i32 } %.pn.pn
 }
 

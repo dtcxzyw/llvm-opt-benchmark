@@ -13352,11 +13352,11 @@ define linkonce_odr { ptr, i8 } @_ZNSt8_Rb_treeIN3net12QuicServerIdESt4pairIKS1_
           to label %.noexc7 unwind label %.loopexit.split-lp
 
 .noexc7:                                          ; preds = %16
-  %.pre = load ptr, ptr %4, align 8, !tbaa !585
+  %.pre28 = load ptr, ptr %4, align 8, !tbaa !585
   br i1 %18, label %select.unfold, label %33
 
 select.unfold:                                    ; preds = %.noexc7, %._crit_edge.thread.i
-  %19 = phi ptr [ %5, %._crit_edge.thread.i ], [ %.pre, %.noexc7 ]
+  %19 = phi ptr [ %5, %._crit_edge.thread.i ], [ %.pre28, %.noexc7 ]
   %.sroa.4.0.i.ph = phi ptr [ %.019.lcssa28.i, %._crit_edge.thread.i ], [ %.019.lcssa29.i, %.noexc7 ]
   %20 = load ptr, ptr %3, align 8, !tbaa !589
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -13394,13 +13394,13 @@ select.unfold:                                    ; preds = %.noexc7, %._crit_ed
   br label %36
 
 33:                                               ; preds = %.noexc7
-  %.not.i9 = icmp eq ptr %.pre, null
+  %.not.i9 = icmp eq ptr %.pre28, null
   br i1 %.not.i9, label %_ZNSt8_Rb_treeIN3net12QuicServerIdESt4pairIKS1_PNS0_22QuicCryptoClientConfig11CachedStateEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE10_Auto_nodeD2Ev.exit, label %34
 
 34:                                               ; preds = %33
-  %35 = getelementptr inbounds nuw i8, ptr %.pre, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %.pre28, i64 32
   tail call void @_ZN3net12QuicServerIdD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %35) #25
-  tail call void @_ZdlPv(ptr noundef nonnull %.pre) #24
+  tail call void @_ZdlPv(ptr noundef nonnull %.pre28) #24
   br label %_ZNSt8_Rb_treeIN3net12QuicServerIdESt4pairIKS1_PNS0_22QuicCryptoClientConfig11CachedStateEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE10_Auto_nodeD2Ev.exit
 
 _ZNSt8_Rb_treeIN3net12QuicServerIdESt4pairIKS1_PNS0_22QuicCryptoClientConfig11CachedStateEESt10_Select1stIS7_ESt4lessIS1_ESaIS7_EE10_Auto_nodeD2Ev.exit: ; preds = %.thread20, %33, %34

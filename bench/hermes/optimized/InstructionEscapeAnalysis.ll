@@ -83,7 +83,7 @@ for.body.lr.ph:                                   ; preds = %_ZN4llvh12DenseMapB
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc58
-  %escapes.val12160 = phi i32 [ 0, %for.body.lr.ph ], [ %escapes.val12, %for.inc58 ]
+  %this.val.i.i155 = phi i32 [ 0, %for.body.lr.ph ], [ %escapes.val12, %for.inc58 ]
   %instructionIndex.0143 = phi i32 [ 0, %for.body.lr.ph ], [ %add, %for.inc58 ]
   %iter.sroa.0.0142 = phi ptr [ %range.coerce0, %for.body.lr.ph ], [ %43, %for.inc58 ]
   %call6 = call noundef i32 @_ZNK6hermes11Instruction14getNumOperandsEv(ptr noundef nonnull align 8 dereferenceable(132) %iter.sroa.0.0142) #12
@@ -91,7 +91,7 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp139.not, label %for.end, label %for.body8
 
 for.body8:                                        ; preds = %for.body, %for.inc
-  %escapes.val12158 = phi i32 [ %escapes.val12157, %for.inc ], [ %escapes.val12160, %for.body ]
+  %this.val.i.i = phi i32 [ %escapes.val12157, %for.inc ], [ %this.val.i.i155, %for.body ]
   %this.val.i.i = phi i32 [ %this.val.i.i153, %for.inc ], [ %escapes.val12160, %for.body ]
   %i.0140 = phi i32 [ %inc, %for.inc ], [ 0, %for.body ]
   %call9 = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %iter.sroa.0.0142, i32 noundef %i.0140) #12

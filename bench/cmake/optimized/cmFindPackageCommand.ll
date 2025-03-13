@@ -61443,11 +61443,11 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt8_Rb_treeIN12cmFindCommon9PathLa
           to label %.noexc8 unwind label %.loopexit.split-lp
 
 .noexc8:                                          ; preds = %17
-  %.pre = load ptr, ptr %5, align 8, !tbaa !2095
+  %.pre29 = load ptr, ptr %5, align 8, !tbaa !2095
   br i1 %19, label %select.unfold, label %34
 
 select.unfold:                                    ; preds = %.noexc8, %._crit_edge.thread.i
-  %20 = phi ptr [ %6, %._crit_edge.thread.i ], [ %.pre, %.noexc8 ]
+  %20 = phi ptr [ %6, %._crit_edge.thread.i ], [ %.pre29, %.noexc8 ]
   %.sroa.4.0.i.ph = phi ptr [ %.019.lcssa28.i, %._crit_edge.thread.i ], [ %.019.lcssa29.i, %.noexc8 ]
   %21 = load ptr, ptr %4, align 8, !tbaa !2099
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
@@ -61485,20 +61485,20 @@ select.unfold:                                    ; preds = %.noexc8, %._crit_ed
   br label %46
 
 34:                                               ; preds = %.noexc8
-  %.not.i10 = icmp eq ptr %.pre, null
+  %.not.i10 = icmp eq ptr %.pre29, null
   br i1 %.not.i10, label %_ZNSt8_Rb_treeIN12cmFindCommon9PathLabelESt4pairIKS1_12cmSearchPathESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE10_Auto_nodeD2Ev.exit, label %35
 
 35:                                               ; preds = %34
-  %36 = getelementptr inbounds nuw i8, ptr %.pre, i64 32
-  %37 = getelementptr inbounds nuw i8, ptr %.pre, i64 72
+  %36 = getelementptr inbounds nuw i8, ptr %.pre29, i64 32
+  %37 = getelementptr inbounds nuw i8, ptr %.pre29, i64 72
   tail call void @_ZN12cmSearchPathD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %37) #30
   %38 = load ptr, ptr %36, align 8, !tbaa !12
-  %39 = getelementptr inbounds nuw i8, ptr %.pre, i64 48
+  %39 = getelementptr inbounds nuw i8, ptr %.pre29, i64 48
   %40 = icmp eq ptr %38, %39
   br i1 %40, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i: ; preds = %35
-  %41 = getelementptr inbounds nuw i8, ptr %.pre, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %.pre29, i64 40
   %42 = load i64, ptr %41, align 8, !tbaa !15
   %43 = icmp ult i64 %42, 16
   tail call void @llvm.assume(i1 %43)
@@ -61511,7 +61511,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZNSt8_Rb_treeIN12cmFindCommon9PathLabelESt4pairIKS1_12cmSearchPathESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS5_E.exit.i
 
 _ZNSt8_Rb_treeIN12cmFindCommon9PathLabelESt4pairIKS1_12cmSearchPathESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS5_E.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %.pre, i64 noundef 104) #31
+  tail call void @_ZdlPvm(ptr noundef nonnull %.pre29, i64 noundef 104) #31
   br label %_ZNSt8_Rb_treeIN12cmFindCommon9PathLabelESt4pairIKS1_12cmSearchPathESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE10_Auto_nodeD2Ev.exit
 
 _ZNSt8_Rb_treeIN12cmFindCommon9PathLabelESt4pairIKS1_12cmSearchPathESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE10_Auto_nodeD2Ev.exit: ; preds = %.thread21, %34, %_ZNSt8_Rb_treeIN12cmFindCommon9PathLabelESt4pairIKS1_12cmSearchPathESt10_Select1stIS5_ESt4lessIS1_ESaIS5_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS5_E.exit.i

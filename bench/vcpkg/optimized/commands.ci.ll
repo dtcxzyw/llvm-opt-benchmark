@@ -18750,11 +18750,11 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt8_Rb_treeIN5vcpkg11PackageSpecES
           to label %.noexc7 unwind label %.loopexit.split-lp
 
 .noexc7:                                          ; preds = %16
-  %.pre = load ptr, ptr %4, align 8, !tbaa !548
+  %.pre28 = load ptr, ptr %4, align 8, !tbaa !548
   br i1 %18, label %select.unfold, label %33
 
 select.unfold:                                    ; preds = %.noexc7, %._crit_edge.thread.i
-  %19 = phi ptr [ %5, %._crit_edge.thread.i ], [ %.pre, %.noexc7 ]
+  %19 = phi ptr [ %5, %._crit_edge.thread.i ], [ %.pre28, %.noexc7 ]
   %.sroa.4.0.i.ph = phi ptr [ %.019.lcssa28.i, %._crit_edge.thread.i ], [ %.019.lcssa29.i, %.noexc7 ]
   %20 = load ptr, ptr %3, align 8, !tbaa !552
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
@@ -18792,18 +18792,18 @@ select.unfold:                                    ; preds = %.noexc7, %._crit_ed
   br label %44
 
 33:                                               ; preds = %.noexc7
-  %.not.i9 = icmp eq ptr %.pre, null
+  %.not.i9 = icmp eq ptr %.pre28, null
   br i1 %.not.i9, label %_ZNSt8_Rb_treeIN5vcpkg11PackageSpecES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_Auto_nodeD2Ev.exit, label %34
 
 34:                                               ; preds = %33
-  %35 = getelementptr inbounds nuw i8, ptr %.pre, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %.pre28, i64 32
   %36 = load ptr, ptr %35, align 8, !tbaa !24
-  %37 = getelementptr inbounds nuw i8, ptr %.pre, i64 48
+  %37 = getelementptr inbounds nuw i8, ptr %.pre28, i64 48
   %38 = icmp eq ptr %36, %37
   br i1 %38, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i: ; preds = %34
-  %39 = getelementptr inbounds nuw i8, ptr %.pre, i64 40
+  %39 = getelementptr inbounds nuw i8, ptr %.pre28, i64 40
   %40 = load i64, ptr %39, align 8, !tbaa !27
   %41 = icmp ult i64 %40, 16
   tail call void @llvm.assume(i1 %41)
@@ -18816,7 +18816,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZNSt8_Rb_treeIN5vcpkg11PackageSpecES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS1_E.exit.i
 
 _ZNSt8_Rb_treeIN5vcpkg11PackageSpecES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS1_E.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %.pre, i64 noundef 72) #26
+  tail call void @_ZdlPvm(ptr noundef nonnull %.pre28, i64 noundef 72) #26
   br label %_ZNSt8_Rb_treeIN5vcpkg11PackageSpecES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_Auto_nodeD2Ev.exit
 
 _ZNSt8_Rb_treeIN5vcpkg11PackageSpecES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_Auto_nodeD2Ev.exit: ; preds = %.thread20, %33, %_ZNSt8_Rb_treeIN5vcpkg11PackageSpecES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS1_E.exit.i
