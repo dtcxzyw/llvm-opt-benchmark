@@ -1670,36 +1670,30 @@ define internal fastcc void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F
   %.sroa.7.0.i.i.i37.i.i = phi i64 [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17hd0836c710d48db81E.exit52.i.i19.i.i" ], [ %spec.select.i.i.i35.i.i, %"_ZN4core6option15Option$LT$T$GT$6map_or17h0fa9fac89dab316aE.exit51.i.i.i.i.i.i32.i.i" ]
   %.sroa.4.0.i.i.i38.i.i = phi i1 [ true, %"_ZN4core6option15Option$LT$T$GT$6map_or17hd0836c710d48db81E.exit52.i.i19.i.i" ], [ %switch.i.i.i.i.i.i34.i.i, %"_ZN4core6option15Option$LT$T$GT$6map_or17h0fa9fac89dab316aE.exit51.i.i.i.i.i.i32.i.i" ]
   %or.cond.i.i = and i1 %or.cond.i.i22.not.not.i.i, %.sroa.4.0.i.i.i38.i.i
-  br i1 %or.cond.i.i, label %114, label %118
-
-114:                                              ; preds = %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hd3e6340a56e7446fE.exit39.i.i"
-  %115 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %spec.select44.i.i, i64 %.sroa.7.0.i.i.i37.i.i)
-  %116 = extractvalue { i64, i1 } %115, 1
-  %117 = add nuw i64 %.sroa.7.0.i.i.i37.i.i, %spec.select44.i.i
-  %not..i.i = xor i1 %116, true
-  %spec.select.i.i = zext i1 %not..i.i to i64
-  %spec.select12.i.i = select i1 %116, i64 undef, i64 %117
-  br label %118
-
-118:                                              ; preds = %114, %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hd3e6340a56e7446fE.exit39.i.i"
-  %.sroa.03.0.i.i = phi i64 [ 0, %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hd3e6340a56e7446fE.exit39.i.i" ], [ %spec.select.i.i, %114 ]
-  %.sroa.6.0.i.i = phi i64 [ undef, %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hd3e6340a56e7446fE.exit39.i.i" ], [ %spec.select12.i.i, %114 ]
+  %114 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %spec.select44.i.i, i64 %.sroa.7.0.i.i.i37.i.i)
+  %115 = extractvalue { i64, i1 } %114, 1
+  %116 = add nuw i64 %.sroa.7.0.i.i.i37.i.i, %spec.select44.i.i
+  %not..i.i = xor i1 %115, true
+  %spec.select12.i.i = select i1 %115, i64 undef, i64 %116
+  %narrow.i.i = select i1 %or.cond.i.i, i1 %not..i.i, i1 false
+  %.sroa.03.0.i.i = zext i1 %narrow.i.i to i64
+  %.sroa.6.0.i.i = select i1 %or.cond.i.i, i64 %spec.select12.i.i, i64 undef
   store i64 %.sroa.03.0.i.i, ptr %.sroa.6.i, align 8, !alias.scope !527, !noalias !534
   br label %"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hf9790bf83872f9fcE.exit"
 
-"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hf9790bf83872f9fcE.exit": ; preds = %10, %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hd3e6340a56e7446fE.exit.i.i", %"_ZN4core6option15Option$LT$T$GT$6map_or17hd0836c710d48db81E.exit52.i.i.i.i", %.thread.i.i.i.i, %118
-  %.sink48.i.sroa.phi.i = phi ptr [ %.sroa.11.i, %118 ], [ %.sroa.11.i, %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hd3e6340a56e7446fE.exit.i.i" ], [ %.sroa.11.i, %10 ], [ %.sroa.6.i, %.thread.i.i.i.i ], [ %.sroa.6.i, %"_ZN4core6option15Option$LT$T$GT$6map_or17hd0836c710d48db81E.exit52.i.i.i.i" ]
-  %.sroa.6.0.sink.i.i = phi i64 [ %.sroa.6.0.i.i, %118 ], [ %.sroa.7.0.i.i.i.i.i, %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hd3e6340a56e7446fE.exit.i.i" ], [ 0, %10 ], [ 1, %.thread.i.i.i.i ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17hd0836c710d48db81E.exit52.i.i.i.i" ]
+"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hf9790bf83872f9fcE.exit": ; preds = %10, %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hd3e6340a56e7446fE.exit.i.i", %"_ZN4core6option15Option$LT$T$GT$6map_or17hd0836c710d48db81E.exit52.i.i.i.i", %.thread.i.i.i.i, %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hd3e6340a56e7446fE.exit39.i.i"
+  %.sink48.i.sroa.phi.i = phi ptr [ %.sroa.11.i, %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hd3e6340a56e7446fE.exit39.i.i" ], [ %.sroa.11.i, %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hd3e6340a56e7446fE.exit.i.i" ], [ %.sroa.11.i, %10 ], [ %.sroa.6.i, %.thread.i.i.i.i ], [ %.sroa.6.i, %"_ZN4core6option15Option$LT$T$GT$6map_or17hd0836c710d48db81E.exit52.i.i.i.i" ]
+  %.sroa.6.0.sink.i.i = phi i64 [ %.sroa.6.0.i.i, %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hd3e6340a56e7446fE.exit39.i.i" ], [ %.sroa.7.0.i.i.i.i.i, %"_ZN108_$LT$core..iter..adapters..filter..Filter$LT$I$C$P$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hd3e6340a56e7446fE.exit.i.i" ], [ 0, %10 ], [ 1, %.thread.i.i.i.i ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17hd0836c710d48db81E.exit52.i.i.i.i" ]
   store i64 %.sroa.6.0.sink.i.i, ptr %.sink48.i.sroa.phi.i, align 8, !alias.scope !527, !noalias !534
   %.sroa.6.i.0..sroa.6.i.0..sroa.6.i.0..sroa.6.0..sroa.6.0..sroa.6.8..i = load i64, ptr %.sroa.6.i, align 8, !range !124, !noalias !653, !noundef !11
   %.sroa.11.i.0..sroa.11.i.0..sroa.11.i.0..sroa.11.0..sroa.11.0..sroa.11.16..i = load i64, ptr %.sroa.11.i, align 8, !noalias !653
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.6.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.11.i)
   store i64 0, ptr %0, align 8, !alias.scope !522, !noalias !525
-  %119 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.6.i.0..sroa.6.i.0..sroa.6.i.0..sroa.6.0..sroa.6.0..sroa.6.8..i, ptr %119, align 8, !alias.scope !522, !noalias !525
-  %120 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.11.i.0..sroa.11.i.0..sroa.11.i.0..sroa.11.0..sroa.11.0..sroa.11.16..i, ptr %120, align 8, !alias.scope !522, !noalias !525
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sroa.6.i.0..sroa.6.i.0..sroa.6.i.0..sroa.6.0..sroa.6.0..sroa.6.8..i, ptr %117, align 8, !alias.scope !522, !noalias !525
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.11.i.0..sroa.11.i.0..sroa.11.i.0..sroa.11.0..sroa.11.0..sroa.11.16..i, ptr %118, align 8, !alias.scope !522, !noalias !525
   ret void
 }
 
@@ -2168,30 +2162,24 @@ define internal fastcc void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F
   %.sroa.7.0.i.i38.i = phi i64 [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17h3b27e6fce597cbdeE.exit52.i.i20.i" ], [ %spec.select.i.i36.i, %"_ZN4core6option15Option$LT$T$GT$6map_or17h0fa9fac89dab316aE.exit51.i.i.i.i.i33.i" ]
   %.sroa.4.0.i.i39.i = phi i1 [ true, %"_ZN4core6option15Option$LT$T$GT$6map_or17h3b27e6fce597cbdeE.exit52.i.i20.i" ], [ %switch.i.i.i.i.i35.i, %"_ZN4core6option15Option$LT$T$GT$6map_or17h0fa9fac89dab316aE.exit51.i.i.i.i.i33.i" ]
   %or.cond.i = and i1 %or.cond.i.i23.not.not.i, %.sroa.4.0.i.i39.i
-  br i1 %or.cond.i, label %117, label %121
-
-117:                                              ; preds = %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h882dbc51b9bf8c40E.exit40.i"
-  %118 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %spec.select45.i, i64 %.sroa.7.0.i.i38.i)
-  %119 = extractvalue { i64, i1 } %118, 1
-  %120 = add nuw i64 %.sroa.7.0.i.i38.i, %spec.select45.i
-  %not..i = xor i1 %119, true
-  %spec.select.i = zext i1 %not..i to i64
-  %spec.select12.i = select i1 %119, i64 undef, i64 %120
-  br label %121
-
-121:                                              ; preds = %117, %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h882dbc51b9bf8c40E.exit40.i"
-  %.sroa.03.0.i = phi i64 [ 0, %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h882dbc51b9bf8c40E.exit40.i" ], [ %spec.select.i, %117 ]
-  %.sroa.6.0.i = phi i64 [ undef, %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h882dbc51b9bf8c40E.exit40.i" ], [ %spec.select12.i, %117 ]
+  %117 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %spec.select45.i, i64 %.sroa.7.0.i.i38.i)
+  %118 = extractvalue { i64, i1 } %117, 1
+  %119 = add nuw i64 %.sroa.7.0.i.i38.i, %spec.select45.i
+  %not..i = xor i1 %118, true
+  %spec.select12.i = select i1 %118, i64 undef, i64 %119
+  %narrow.i = select i1 %or.cond.i, i1 %not..i, i1 false
+  %.sroa.03.0.i = zext i1 %narrow.i to i64
+  %.sroa.6.0.i = select i1 %or.cond.i, i64 %spec.select12.i, i64 undef
   store i64 %87, ptr %0, align 8, !alias.scope !704, !noalias !707
-  %122 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.03.0.i, ptr %122, align 8, !alias.scope !704, !noalias !707
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sroa.03.0.i, ptr %120, align 8, !alias.scope !704, !noalias !707
   br label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h3c27153230fdfba7E.exit"
 
-"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h3c27153230fdfba7E.exit": ; preds = %10, %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h882dbc51b9bf8c40E.exit.i", %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h190dc3e19d2fc31aE.exit.i", %121
-  %.sink49.i = phi i64 [ 16, %121 ], [ 8, %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h190dc3e19d2fc31aE.exit.i" ], [ 16, %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h882dbc51b9bf8c40E.exit.i" ], [ 16, %10 ]
-  %.sroa.6.0.sink.i = phi i64 [ %.sroa.6.0.i, %121 ], [ %.sink.i.i.i, %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h190dc3e19d2fc31aE.exit.i" ], [ %.sroa.7.0.i.i.i, %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h882dbc51b9bf8c40E.exit.i" ], [ 0, %10 ]
-  %123 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink49.i
-  store i64 %.sroa.6.0.sink.i, ptr %123, align 8, !alias.scope !704, !noalias !707
+"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h3c27153230fdfba7E.exit": ; preds = %10, %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h882dbc51b9bf8c40E.exit.i", %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h190dc3e19d2fc31aE.exit.i", %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h882dbc51b9bf8c40E.exit40.i"
+  %.sink49.i = phi i64 [ 16, %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h882dbc51b9bf8c40E.exit40.i" ], [ 8, %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h190dc3e19d2fc31aE.exit.i" ], [ 16, %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h882dbc51b9bf8c40E.exit.i" ], [ 16, %10 ]
+  %.sroa.6.0.sink.i = phi i64 [ %.sroa.6.0.i, %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h882dbc51b9bf8c40E.exit40.i" ], [ %.sink.i.i.i, %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h190dc3e19d2fc31aE.exit.i" ], [ %.sroa.7.0.i.i.i, %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h882dbc51b9bf8c40E.exit.i" ], [ 0, %10 ]
+  %121 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink49.i
+  store i64 %.sroa.6.0.sink.i, ptr %121, align 8, !alias.scope !704, !noalias !707
   ret void
 }
 
@@ -11651,13 +11639,13 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 10:                                               ; preds = %2
   %11 = landingpad { ptr, i32 }
           cleanup
-  br label %71
+  br label %70
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 32
   %14 = load i64, ptr %13, align 8, !range !819, !noundef !11
   %15 = icmp eq i64 %14, 2
-  br i1 %15, label %16, label %"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h5e6f890074aba726E.exit24.thread31.i"
+  br i1 %15, label %16, label %"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h5e6f890074aba726E.exit24.i"
 
 16:                                               ; preds = %12
   store i64 0, ptr %0, align 8
@@ -11676,29 +11664,29 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   tail call void @"_ZN4core3ptr142drop_in_place$LT$$LP$settings..WorktreeId$C$core..option..Option$LT$std..path..PathBuf$GT$$C$project..prettier_store..PrettierInstance$RP$$GT$17h4f54ba15856bacf1E.llvm.8318809290061399519"(ptr noalias noundef nonnull align 8 dereferenceable(64) %22)
   br label %"_ZN4core3ptr823drop_in_place$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..filter_map..FilterMap$LT$core..iter..adapters..flatten..Flatten$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..Iter$LT$$RF$std..collections..hash..set..HashSet$LT$core..option..Option$LT$std..path..PathBuf$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$C$std..collections..hash..set..Iter$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$$C$project..prettier_store..PrettierStore..update_prettier_settings..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$project..prettier_store..PrettierStore..update_prettier_settings..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..option..IntoIter$LT$$LP$settings..WorktreeId$C$core..option..Option$LT$std..path..PathBuf$GT$$C$project..prettier_store..PrettierInstance$RP$$GT$$GT$$GT$17h0a68c2b0df1b79adE.exit"
 
-"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h5e6f890074aba726E.exit24.thread31.i": ; preds = %12
+"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h5e6f890074aba726E.exit24.i": ; preds = %12
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %7, ptr noundef nonnull align 8 dereferenceable(64) %8, i64 64, i1 false)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5)
   invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$15try_allocate_in17h1bc8ed4ca10c2753E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %5, i64 noundef 4, i1 noundef zeroext false)
           to label %25 unwind label %23
 
-"_ZN4core3ptr823drop_in_place$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..filter_map..FilterMap$LT$core..iter..adapters..flatten..Flatten$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..Iter$LT$$RF$std..collections..hash..set..HashSet$LT$core..option..Option$LT$std..path..PathBuf$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$C$std..collections..hash..set..Iter$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$$C$project..prettier_store..PrettierStore..update_prettier_settings..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$project..prettier_store..PrettierStore..update_prettier_settings..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..option..IntoIter$LT$$LP$settings..WorktreeId$C$core..option..Option$LT$std..path..PathBuf$GT$$C$project..prettier_store..PrettierInstance$RP$$GT$$GT$$GT$17h0a68c2b0df1b79adE.exit": ; preds = %21, %16, %67
+"_ZN4core3ptr823drop_in_place$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..filter_map..FilterMap$LT$core..iter..adapters..flatten..Flatten$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..Iter$LT$$RF$std..collections..hash..set..HashSet$LT$core..option..Option$LT$std..path..PathBuf$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$C$std..collections..hash..set..Iter$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$$C$project..prettier_store..PrettierStore..update_prettier_settings..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$project..prettier_store..PrettierStore..update_prettier_settings..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..option..IntoIter$LT$$LP$settings..WorktreeId$C$core..option..Option$LT$std..path..PathBuf$GT$$C$project..prettier_store..PrettierInstance$RP$$GT$$GT$$GT$17h0a68c2b0df1b79adE.exit": ; preds = %21, %16, %66
   ret void
 
-23:                                               ; preds = %63, %"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h5e6f890074aba726E.exit24.thread31.i"
+23:                                               ; preds = %62, %"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h5e6f890074aba726E.exit24.i"
   %24 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr142drop_in_place$LT$$LP$settings..WorktreeId$C$core..option..Option$LT$std..path..PathBuf$GT$$C$project..prettier_store..PrettierInstance$RP$$GT$17h4f54ba15856bacf1E"(ptr noalias noundef align 8 dereferenceable(64) %7) #48
-          to label %71 unwind label %68
+          to label %70 unwind label %67
 
-25:                                               ; preds = %"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h5e6f890074aba726E.exit24.thread31.i"
+25:                                               ; preds = %"_ZN115_$LT$core..iter..adapters..filter_map..FilterMap$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h5e6f890074aba726E.exit24.i"
   %26 = load i64, ptr %5, align 8, !range !124, !noundef !11
   %trunc = trunc nuw i64 %26 to i1
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %28 = load i64, ptr %27, align 8, !range !49, !noundef !11
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  br i1 %trunc, label %63, label %30
+  br i1 %trunc, label %62, label %30
 
 30:                                               ; preds = %25
   %31 = load ptr, ptr %29, align 8, !nonnull !11, !noundef !11
@@ -11721,12 +11709,12 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 176
   br label %34
 
-34:                                               ; preds = %51, %30
+34:                                               ; preds = %50, %30
   invoke fastcc void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hd3540b1cbc2b87e4E"(ptr noalias noundef align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 8 dereferenceable(208) %6)
           to label %41 unwind label %39
 
-35:                                               ; preds = %55, %39
-  %.pn.i.i = phi { ptr, i32 } [ %40, %39 ], [ %56, %55 ]
+35:                                               ; preds = %54, %39
+  %.pn.i.i = phi { ptr, i32 } [ %40, %39 ], [ %55, %54 ]
   %36 = load i64, ptr %33, align 8, !range !1105, !alias.scope !3634, !noalias !3639, !noundef !11
   %switch.not.i.i.i.i = icmp samesign ult i64 %36, 2
   br i1 %switch.not.i.i.i.i, label %37, label %.body
@@ -11734,7 +11722,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 37:                                               ; preds = %35
   %38 = getelementptr inbounds nuw i8, ptr %6, i64 144
   invoke void @"_ZN4core3ptr142drop_in_place$LT$$LP$settings..WorktreeId$C$core..option..Option$LT$std..path..PathBuf$GT$$C$project..prettier_store..PrettierInstance$RP$$GT$17h4f54ba15856bacf1E.llvm.8318809290061399519"(ptr noalias noundef nonnull align 8 dereferenceable(64) %38)
-          to label %.body unwind label %57
+          to label %.body unwind label %56
 
 39:                                               ; preds = %34
   %40 = landingpad { ptr, i32 }
@@ -11744,7 +11732,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 41:                                               ; preds = %34
   %42 = load i64, ptr %32, align 8, !range !819, !noalias !3640, !noundef !11
   %43 = icmp eq i64 %42, 2
-  br i1 %43, label %59, label %44
+  br i1 %43, label %58, label %44
 
 44:                                               ; preds = %41
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3), !noalias !3640
@@ -11752,93 +11740,93 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %45 = load i64, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !3639, !noalias !3641, !noundef !11
   %46 = load i64, ptr %9, align 8, !alias.scope !3639, !noalias !3641, !noundef !11
   %47 = icmp eq i64 %45, %46
-  br i1 %47, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h349030966011dd20E.exit.thread.i.i", label %51
+  br i1 %47, label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h349030966011dd20E.exit.i.i", label %50
 
-"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h349030966011dd20E.exit.thread.i.i": ; preds = %44
+"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h349030966011dd20E.exit.i.i": ; preds = %44
   %48 = load i64, ptr %33, align 8, !range !1105, !alias.scope !3642, !noalias !3645, !noundef !11
-  %49 = or disjoint i64 %48, -4
-  %or.cond.i.i = icmp samesign ult i64 %49, -2
-  %50 = select i1 %or.cond.i.i, i64 2, i64 1
-  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h5fdd984253fddd4eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %45, i64 noundef %50)
-          to label %51 unwind label %55
+  %.sink.i.shrunk.in.i.i = or disjoint i64 %48, -4
+  %.sink.i.shrunk.i.i = icmp samesign ult i64 %.sink.i.shrunk.in.i.i, -2
+  %49 = select i1 %.sink.i.shrunk.i.i, i64 2, i64 1
+  invoke void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$7reserve21do_reserve_and_handle17h5fdd984253fddd4eE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9, i64 noundef %45, i64 noundef %49)
+          to label %50 unwind label %54
 
-51:                                               ; preds = %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h349030966011dd20E.exit.thread.i.i", %44
-  %52 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !3639, !noalias !3641, !nonnull !11, !noundef !11
-  %53 = getelementptr inbounds { { i64, [2 x i64] }, i64, { { i64, [2 x i64] }, i64 } }, ptr %52, i64 %45
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %53, ptr noundef nonnull align 8 dereferenceable(64) %4, i64 64, i1 false)
-  %54 = add i64 %45, 1
-  store i64 %54, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !3639, !noalias !3641
+50:                                               ; preds = %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h349030966011dd20E.exit.i.i", %44
+  %51 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !3639, !noalias !3641, !nonnull !11, !noundef !11
+  %52 = getelementptr inbounds { { i64, [2 x i64] }, i64, { { i64, [2 x i64] }, i64 } }, ptr %51, i64 %45
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %52, ptr noundef nonnull align 8 dereferenceable(64) %4, i64 64, i1 false)
+  %53 = add i64 %45, 1
+  store i64 %53, ptr %.sroa.6.0..sroa_idx, align 8, !alias.scope !3639, !noalias !3641
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3), !noalias !3640
   br label %34
 
-55:                                               ; preds = %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h349030966011dd20E.exit.thread.i.i"
-  %56 = landingpad { ptr, i32 }
+54:                                               ; preds = %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h349030966011dd20E.exit.i.i"
+  %55 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr142drop_in_place$LT$$LP$settings..WorktreeId$C$core..option..Option$LT$std..path..PathBuf$GT$$C$project..prettier_store..PrettierInstance$RP$$GT$17h4f54ba15856bacf1E"(ptr noalias noundef align 8 dereferenceable(64) %3) #48
-          to label %35 unwind label %57
+          to label %35 unwind label %56
 
-57:                                               ; preds = %55, %37
-  %58 = landingpad { ptr, i32 }
+56:                                               ; preds = %54, %37
+  %57 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #49
   unreachable
 
-59:                                               ; preds = %41
-  %60 = load i64, ptr %33, align 8, !range !1105, !alias.scope !3647, !noalias !3639, !noundef !11
-  %switch.not.i.i6.i.i = icmp samesign ult i64 %60, 2
-  br i1 %switch.not.i.i6.i.i, label %61, label %67
+58:                                               ; preds = %41
+  %59 = load i64, ptr %33, align 8, !range !1105, !alias.scope !3647, !noalias !3639, !noundef !11
+  %switch.not.i.i6.i.i = icmp samesign ult i64 %59, 2
+  br i1 %switch.not.i.i6.i.i, label %60, label %66
 
-61:                                               ; preds = %59
-  %62 = getelementptr inbounds nuw i8, ptr %6, i64 144
-  invoke void @"_ZN4core3ptr142drop_in_place$LT$$LP$settings..WorktreeId$C$core..option..Option$LT$std..path..PathBuf$GT$$C$project..prettier_store..PrettierInstance$RP$$GT$17h4f54ba15856bacf1E.llvm.8318809290061399519"(ptr noalias noundef nonnull align 8 dereferenceable(64) %62)
-          to label %67 unwind label %65
+60:                                               ; preds = %58
+  %61 = getelementptr inbounds nuw i8, ptr %6, i64 144
+  invoke void @"_ZN4core3ptr142drop_in_place$LT$$LP$settings..WorktreeId$C$core..option..Option$LT$std..path..PathBuf$GT$$C$project..prettier_store..PrettierInstance$RP$$GT$17h4f54ba15856bacf1E.llvm.8318809290061399519"(ptr noalias noundef nonnull align 8 dereferenceable(64) %61)
+          to label %66 unwind label %64
 
-63:                                               ; preds = %25
-  %64 = load i64, ptr %29, align 8
-  invoke void @_ZN5alloc7raw_vec12handle_error17hc0e4a0ae60df49a1E(i64 noundef %28, i64 %64) #47
-          to label %70 unwind label %23
+62:                                               ; preds = %25
+  %63 = load i64, ptr %29, align 8
+  invoke void @_ZN5alloc7raw_vec12handle_error17hc0e4a0ae60df49a1E(i64 noundef %28, i64 %63) #47
+          to label %69 unwind label %23
 
-65:                                               ; preds = %61
-  %66 = landingpad { ptr, i32 }
+64:                                               ; preds = %60
+  %65 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-.body:                                            ; preds = %35, %37, %65
-  %eh.lpad-body = phi { ptr, i32 } [ %66, %65 ], [ %.pn.i.i, %37 ], [ %.pn.i.i, %35 ]
+.body:                                            ; preds = %35, %37, %64
+  %eh.lpad-body = phi { ptr, i32 } [ %65, %64 ], [ %.pn.i.i, %37 ], [ %.pn.i.i, %35 ]
   invoke void @"_ZN4core3ptr165drop_in_place$LT$alloc..vec..Vec$LT$$LP$settings..WorktreeId$C$core..option..Option$LT$std..path..PathBuf$GT$$C$project..prettier_store..PrettierInstance$RP$$GT$$GT$17h7171911c31b3602aE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %9) #48
-          to label %"_ZN4core3ptr823drop_in_place$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..filter_map..FilterMap$LT$core..iter..adapters..flatten..Flatten$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..Iter$LT$$RF$std..collections..hash..set..HashSet$LT$core..option..Option$LT$std..path..PathBuf$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$C$std..collections..hash..set..Iter$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$$C$project..prettier_store..PrettierStore..update_prettier_settings..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$project..prettier_store..PrettierStore..update_prettier_settings..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..option..IntoIter$LT$$LP$settings..WorktreeId$C$core..option..Option$LT$std..path..PathBuf$GT$$C$project..prettier_store..PrettierInstance$RP$$GT$$GT$$GT$17h0a68c2b0df1b79adE.exit7" unwind label %68
+          to label %"_ZN4core3ptr823drop_in_place$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..filter_map..FilterMap$LT$core..iter..adapters..flatten..Flatten$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..Iter$LT$$RF$std..collections..hash..set..HashSet$LT$core..option..Option$LT$std..path..PathBuf$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$C$std..collections..hash..set..Iter$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$$C$project..prettier_store..PrettierStore..update_prettier_settings..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$project..prettier_store..PrettierStore..update_prettier_settings..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..option..IntoIter$LT$$LP$settings..WorktreeId$C$core..option..Option$LT$std..path..PathBuf$GT$$C$project..prettier_store..PrettierInstance$RP$$GT$$GT$$GT$17h0a68c2b0df1b79adE.exit7" unwind label %67
 
-67:                                               ; preds = %59, %61
+66:                                               ; preds = %58, %60
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !3633
   call void @llvm.lifetime.end.p0(i64 208, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   br label %"_ZN4core3ptr823drop_in_place$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..filter_map..FilterMap$LT$core..iter..adapters..flatten..Flatten$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..Iter$LT$$RF$std..collections..hash..set..HashSet$LT$core..option..Option$LT$std..path..PathBuf$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$C$std..collections..hash..set..Iter$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$$C$project..prettier_store..PrettierStore..update_prettier_settings..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$project..prettier_store..PrettierStore..update_prettier_settings..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..option..IntoIter$LT$$LP$settings..WorktreeId$C$core..option..Option$LT$std..path..PathBuf$GT$$C$project..prettier_store..PrettierInstance$RP$$GT$$GT$$GT$17h0a68c2b0df1b79adE.exit"
 
-68:                                               ; preds = %74, %.body, %23
-  %69 = landingpad { ptr, i32 }
+67:                                               ; preds = %73, %.body, %23
+  %68 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #49
   unreachable
 
-70:                                               ; preds = %63
+69:                                               ; preds = %62
   unreachable
 
-"_ZN4core3ptr823drop_in_place$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..filter_map..FilterMap$LT$core..iter..adapters..flatten..Flatten$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..Iter$LT$$RF$std..collections..hash..set..HashSet$LT$core..option..Option$LT$std..path..PathBuf$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$C$std..collections..hash..set..Iter$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$$C$project..prettier_store..PrettierStore..update_prettier_settings..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$project..prettier_store..PrettierStore..update_prettier_settings..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..option..IntoIter$LT$$LP$settings..WorktreeId$C$core..option..Option$LT$std..path..PathBuf$GT$$C$project..prettier_store..PrettierInstance$RP$$GT$$GT$$GT$17h0a68c2b0df1b79adE.exit7": ; preds = %71, %74, %.body
-  %.pn10 = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %.pn.ph, %74 ], [ %.pn.ph, %71 ]
+"_ZN4core3ptr823drop_in_place$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..filter_map..FilterMap$LT$core..iter..adapters..flatten..Flatten$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..Iter$LT$$RF$std..collections..hash..set..HashSet$LT$core..option..Option$LT$std..path..PathBuf$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$C$std..collections..hash..set..Iter$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$$C$project..prettier_store..PrettierStore..update_prettier_settings..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$project..prettier_store..PrettierStore..update_prettier_settings..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..option..IntoIter$LT$$LP$settings..WorktreeId$C$core..option..Option$LT$std..path..PathBuf$GT$$C$project..prettier_store..PrettierInstance$RP$$GT$$GT$$GT$17h0a68c2b0df1b79adE.exit7": ; preds = %70, %73, %.body
+  %.pn10 = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %.pn.ph, %73 ], [ %.pn.ph, %70 ]
   resume { ptr, i32 } %.pn10
 
-71:                                               ; preds = %23, %10
+70:                                               ; preds = %23, %10
   %.pn.ph = phi { ptr, i32 } [ %11, %10 ], [ %24, %23 ]
-  %72 = getelementptr inbounds nuw i8, ptr %1, i64 176
-  %73 = load i64, ptr %72, align 8, !range !1105, !alias.scope !3652, !noundef !11
-  %switch.not.i.i5 = icmp samesign ult i64 %73, 2
-  br i1 %switch.not.i.i5, label %74, label %"_ZN4core3ptr823drop_in_place$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..filter_map..FilterMap$LT$core..iter..adapters..flatten..Flatten$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..Iter$LT$$RF$std..collections..hash..set..HashSet$LT$core..option..Option$LT$std..path..PathBuf$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$C$std..collections..hash..set..Iter$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$$C$project..prettier_store..PrettierStore..update_prettier_settings..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$project..prettier_store..PrettierStore..update_prettier_settings..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..option..IntoIter$LT$$LP$settings..WorktreeId$C$core..option..Option$LT$std..path..PathBuf$GT$$C$project..prettier_store..PrettierInstance$RP$$GT$$GT$$GT$17h0a68c2b0df1b79adE.exit7"
+  %71 = getelementptr inbounds nuw i8, ptr %1, i64 176
+  %72 = load i64, ptr %71, align 8, !range !1105, !alias.scope !3652, !noundef !11
+  %switch.not.i.i5 = icmp samesign ult i64 %72, 2
+  br i1 %switch.not.i.i5, label %73, label %"_ZN4core3ptr823drop_in_place$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..filter_map..FilterMap$LT$core..iter..adapters..flatten..Flatten$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..Iter$LT$$RF$std..collections..hash..set..HashSet$LT$core..option..Option$LT$std..path..PathBuf$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$C$std..collections..hash..set..Iter$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$$C$project..prettier_store..PrettierStore..update_prettier_settings..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$project..prettier_store..PrettierStore..update_prettier_settings..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..option..IntoIter$LT$$LP$settings..WorktreeId$C$core..option..Option$LT$std..path..PathBuf$GT$$C$project..prettier_store..PrettierInstance$RP$$GT$$GT$$GT$17h0a68c2b0df1b79adE.exit7"
 
-74:                                               ; preds = %71
-  %75 = getelementptr inbounds nuw i8, ptr %1, i64 144
-  invoke void @"_ZN4core3ptr142drop_in_place$LT$$LP$settings..WorktreeId$C$core..option..Option$LT$std..path..PathBuf$GT$$C$project..prettier_store..PrettierInstance$RP$$GT$17h4f54ba15856bacf1E.llvm.8318809290061399519"(ptr noalias noundef nonnull align 8 dereferenceable(64) %75)
-          to label %"_ZN4core3ptr823drop_in_place$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..filter_map..FilterMap$LT$core..iter..adapters..flatten..Flatten$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..Iter$LT$$RF$std..collections..hash..set..HashSet$LT$core..option..Option$LT$std..path..PathBuf$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$C$std..collections..hash..set..Iter$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$$C$project..prettier_store..PrettierStore..update_prettier_settings..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$project..prettier_store..PrettierStore..update_prettier_settings..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..option..IntoIter$LT$$LP$settings..WorktreeId$C$core..option..Option$LT$std..path..PathBuf$GT$$C$project..prettier_store..PrettierInstance$RP$$GT$$GT$$GT$17h0a68c2b0df1b79adE.exit7" unwind label %68
+73:                                               ; preds = %70
+  %74 = getelementptr inbounds nuw i8, ptr %1, i64 144
+  invoke void @"_ZN4core3ptr142drop_in_place$LT$$LP$settings..WorktreeId$C$core..option..Option$LT$std..path..PathBuf$GT$$C$project..prettier_store..PrettierInstance$RP$$GT$17h4f54ba15856bacf1E.llvm.8318809290061399519"(ptr noalias noundef nonnull align 8 dereferenceable(64) %74)
+          to label %"_ZN4core3ptr823drop_in_place$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..filter_map..FilterMap$LT$core..iter..adapters..flatten..Flatten$LT$core..iter..adapters..flatten..FlatMap$LT$core..option..Iter$LT$$RF$std..collections..hash..set..HashSet$LT$core..option..Option$LT$std..path..PathBuf$GT$$C$core..hash..BuildHasherDefault$LT$rustc_hash..FxHasher$GT$$GT$$GT$$C$std..collections..hash..set..Iter$LT$core..option..Option$LT$std..path..PathBuf$GT$$GT$$C$project..prettier_store..PrettierStore..update_prettier_settings..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$project..prettier_store..PrettierStore..update_prettier_settings..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..option..IntoIter$LT$$LP$settings..WorktreeId$C$core..option..Option$LT$std..path..PathBuf$GT$$C$project..prettier_store..PrettierInstance$RP$$GT$$GT$$GT$17h0a68c2b0df1b79adE.exit7" unwind label %67
 }
 
 ; Function Attrs: nonlazybind uwtable

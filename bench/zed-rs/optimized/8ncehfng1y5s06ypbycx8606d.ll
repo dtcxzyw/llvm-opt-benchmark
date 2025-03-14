@@ -17125,25 +17125,25 @@ define hidden void @"_ZN87_$LT$itertools..tee..Tee$LT$I$GT$$u20$as$u20$core..ite
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load i8, ptr %19, align 8, !range !426, !noundef !4
   %.not = icmp eq i8 %18, %20
-  br i1 %.not, label %22, label %21
+  br i1 %.not, label %21, label %28
 
-21:                                               ; preds = %8, %22
-  ret void
-
-22:                                               ; preds = %8
-  %23 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %24 = load i64, ptr %23, align 8, !noundef !4
-  %25 = tail call i64 @llvm.uadd.sat.i64(i64 %14, i64 %24)
-  %26 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %14, i64 %24)
-  %27 = extractvalue { i64, i1 } %26, 1
-  %28 = add nuw i64 %24, %14
-  %not. = xor i1 %27, true
+21:                                               ; preds = %8
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %23 = load i64, ptr %22, align 8, !noundef !4
+  %24 = tail call i64 @llvm.uadd.sat.i64(i64 %14, i64 %23)
+  %25 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %14, i64 %23)
+  %26 = extractvalue { i64, i1 } %25, 1
+  %27 = add nuw i64 %23, %14
+  %not. = xor i1 %26, true
   %spec.select = zext i1 %not. to i64
-  %spec.select10 = select i1 %27, i64 undef, i64 %28
-  store i64 %25, ptr %0, align 8
+  %spec.select10 = select i1 %26, i64 undef, i64 %27
+  store i64 %24, ptr %0, align 8
   store i64 %spec.select, ptr %15, align 8
   store i64 %spec.select10, ptr %16, align 8
-  br label %21
+  br label %28
+
+28:                                               ; preds = %8, %21
+  ret void
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

@@ -29841,9 +29841,9 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   store i64 %31, ptr %0, align 8, !alias.scope !7920, !noalias !7919
   br label %35
 
-35:                                               ; preds = %107, %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h2ead0cfdaa361c41E.exit", %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h061a2799d5fc1304E.exit", %10
-  %.sink53 = phi i64 [ 16, %107 ], [ 8, %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h2ead0cfdaa361c41E.exit" ], [ 8, %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h061a2799d5fc1304E.exit" ], [ 16, %10 ]
-  %.sroa.6.0.sink = phi i64 [ %.sroa.6.0, %107 ], [ %.sink.i.i20, %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h2ead0cfdaa361c41E.exit" ], [ %.sink.i.i, %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h061a2799d5fc1304E.exit" ], [ 0, %10 ]
+35:                                               ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h8d9976fb4bdb8cc4E.exit53.i.i37", %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h2ead0cfdaa361c41E.exit", %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h061a2799d5fc1304E.exit", %10
+  %.sink53 = phi i64 [ 16, %"_ZN4core6option15Option$LT$T$GT$6map_or17h8d9976fb4bdb8cc4E.exit53.i.i37" ], [ 8, %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h2ead0cfdaa361c41E.exit" ], [ 8, %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h061a2799d5fc1304E.exit" ], [ 16, %10 ]
+  %.sroa.6.0.sink = phi i64 [ %.sroa.6.0, %"_ZN4core6option15Option$LT$T$GT$6map_or17h8d9976fb4bdb8cc4E.exit53.i.i37" ], [ %.sink.i.i20, %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h2ead0cfdaa361c41E.exit" ], [ %.sink.i.i, %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h061a2799d5fc1304E.exit" ], [ 0, %10 ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink53
   store i64 %.sroa.6.0.sink, ptr %36, align 8
   ret void
@@ -29981,25 +29981,19 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %.val.i.i40 = load ptr, ptr %100, align 8, !alias.scope !7995, !noalias !8000
   %.not.i.i41 = icmp ne ptr %.val.i.i40, null
   %.sroa.062.0.not.i.i42 = select i1 %trunc.i.i39, i1 %.not.i.i41, i1 false
+  %spec.select51 = select i1 %.sroa.062.0.not.i.i42, i64 undef, i64 %99
   %101 = add nuw nsw i64 %99, %79
   %102 = select i1 %.sroa.062.0.not.i.i30, i1 true, i1 %.sroa.062.0.not.i.i42
-  br i1 %102, label %107, label %103
-
-103:                                              ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h8d9976fb4bdb8cc4E.exit53.i.i37"
-  %104 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %spec.select49, i64 %99)
-  %105 = extractvalue { i64, i1 } %104, 1
-  %106 = add nuw i64 %99, %spec.select49
-  %not. = xor i1 %105, true
-  %spec.select = zext i1 %not. to i64
-  %spec.select9 = select i1 %105, i64 undef, i64 %106
-  br label %107
-
-107:                                              ; preds = %103, %"_ZN4core6option15Option$LT$T$GT$6map_or17h8d9976fb4bdb8cc4E.exit53.i.i37"
-  %.sroa.03.0 = phi i64 [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17h8d9976fb4bdb8cc4E.exit53.i.i37" ], [ %spec.select, %103 ]
-  %.sroa.6.0 = phi i64 [ undef, %"_ZN4core6option15Option$LT$T$GT$6map_or17h8d9976fb4bdb8cc4E.exit53.i.i37" ], [ %spec.select9, %103 ]
+  %103 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %spec.select49, i64 %spec.select51)
+  %104 = extractvalue { i64, i1 } %103, 1
+  %105 = add nuw i64 %spec.select51, %spec.select49
+  %106 = select i1 %102, i1 true, i1 %104
+  %narrow = xor i1 %106, true
+  %.sroa.03.0 = zext i1 %narrow to i64
+  %.sroa.6.0 = select i1 %106, i64 undef, i64 %105
   store i64 %101, ptr %0, align 8
-  %108 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.03.0, ptr %108, align 8
+  %107 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sroa.03.0, ptr %107, align 8
   br label %35
 }
 
@@ -86198,25 +86192,25 @@ define hidden void @"_ZN87_$LT$itertools..tee..Tee$LT$I$GT$$u20$as$u20$core..ite
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %20 = load i8, ptr %19, align 8, !range !45, !noundef !9
   %.not = icmp eq i8 %18, %20
-  br i1 %.not, label %22, label %21
+  br i1 %.not, label %21, label %28
 
-21:                                               ; preds = %8, %22
-  ret void
-
-22:                                               ; preds = %8
-  %23 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %24 = load i64, ptr %23, align 8, !noundef !9
-  %25 = tail call i64 @llvm.uadd.sat.i64(i64 %14, i64 %24)
-  %26 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %14, i64 %24)
-  %27 = extractvalue { i64, i1 } %26, 1
-  %28 = add nuw i64 %24, %14
-  %not. = xor i1 %27, true
+21:                                               ; preds = %8
+  %22 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %23 = load i64, ptr %22, align 8, !noundef !9
+  %24 = tail call i64 @llvm.uadd.sat.i64(i64 %14, i64 %23)
+  %25 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %14, i64 %23)
+  %26 = extractvalue { i64, i1 } %25, 1
+  %27 = add nuw i64 %23, %14
+  %not. = xor i1 %26, true
   %spec.select = zext i1 %not. to i64
-  %spec.select10 = select i1 %27, i64 undef, i64 %28
-  store i64 %25, ptr %0, align 8
+  %spec.select10 = select i1 %26, i64 undef, i64 %27
+  store i64 %24, ptr %0, align 8
   store i64 %spec.select, ptr %15, align 8
   store i64 %spec.select10, ptr %16, align 8
-  br label %21
+  br label %28
+
+28:                                               ; preds = %8, %21
+  ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -86252,25 +86246,25 @@ define hidden void @"_ZN87_$LT$itertools..tee..Tee$LT$I$GT$$u20$as$u20$core..ite
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load i8, ptr %21, align 8, !range !45, !noundef !9
   %.not = icmp eq i8 %20, %22
-  br i1 %.not, label %24, label %23
+  br i1 %.not, label %23, label %30
 
-23:                                               ; preds = %8, %24
-  ret void
-
-24:                                               ; preds = %8
-  %25 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %26 = load i64, ptr %25, align 8, !noundef !9
-  %27 = tail call i64 @llvm.uadd.sat.i64(i64 %16, i64 %26)
-  %28 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %16, i64 %26)
-  %29 = extractvalue { i64, i1 } %28, 1
-  %30 = add nuw i64 %26, %16
-  %not. = xor i1 %29, true
+23:                                               ; preds = %8
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 48
+  %25 = load i64, ptr %24, align 8, !noundef !9
+  %26 = tail call i64 @llvm.uadd.sat.i64(i64 %16, i64 %25)
+  %27 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %16, i64 %25)
+  %28 = extractvalue { i64, i1 } %27, 1
+  %29 = add nuw i64 %25, %16
+  %not. = xor i1 %28, true
   %spec.select = zext i1 %not. to i64
-  %spec.select10 = select i1 %29, i64 undef, i64 %30
-  store i64 %27, ptr %0, align 8
+  %spec.select10 = select i1 %28, i64 undef, i64 %29
+  store i64 %26, ptr %0, align 8
   store i64 %spec.select, ptr %17, align 8
   store i64 %spec.select10, ptr %18, align 8
-  br label %23
+  br label %30
+
+30:                                               ; preds = %8, %23
+  ret void
 }
 
 ; Function Attrs: alwaysinline mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable

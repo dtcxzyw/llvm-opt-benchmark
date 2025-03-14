@@ -1597,7 +1597,7 @@ define void @_RNvXs3_NtCslyFhtC9DD08_9itertools18peeking_take_whileINtB5_16Peeki
   %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %14 = load ptr, ptr %13, align 8, !alias.scope !264, !noalias !267, !noundef !5
   %15 = icmp eq ptr %14, null
-  br i1 %15, label %24, label %16
+  br i1 %15, label %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters8peekableINtB4_8PeekableINtNtNtBa_5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token5TokenEENtNtNtB8_6traits8iterator8Iterator9size_hintB1z_.llvm.2038835765883349039.exit.i, label %16
 
 16:                                               ; preds = %12, %10
   %.sroa.0.0.i.i = phi i64 [ 0, %10 ], [ 1, %12 ]
@@ -1610,20 +1610,20 @@ define void @_RNvXs3_NtCslyFhtC9DD08_9itertools18peeking_take_whileINtB5_16Peeki
   %21 = sub nuw i64 %19, %20
   %22 = lshr exact i64 %21, 6
   %23 = add nuw nsw i64 %22, %.sroa.0.0.i.i
-  br label %24
+  br label %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters8peekableINtB4_8PeekableINtNtNtBa_5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token5TokenEENtNtNtB8_6traits8iterator8Iterator9size_hintB1z_.llvm.2038835765883349039.exit.i
 
-24:                                               ; preds = %16, %12
+_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters8peekableINtB4_8PeekableINtNtNtBa_5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token5TokenEENtNtNtB8_6traits8iterator8Iterator9size_hintB1z_.llvm.2038835765883349039.exit.i: ; preds = %16, %12
   %.sink13.i.i = phi i64 [ %23, %16 ], [ 0, %12 ]
-  %25 = add nuw nsw i64 %.sink13.i.i, %.sroa.0.0.i
+  %24 = add nuw nsw i64 %.sink13.i.i, %.sroa.0.0.i
   br label %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters8peekableINtB4_8PeekableIBR_INtNtNtBa_5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token5TokenEEENtNtNtB8_6traits8iterator8Iterator9size_hintB1D_.llvm.2038835765883349039.exit
 
-_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters8peekableINtB4_8PeekableIBR_INtNtNtBa_5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token5TokenEEENtNtNtB8_6traits8iterator8Iterator9size_hintB1D_.llvm.2038835765883349039.exit: ; preds = %6, %24
-  %.sink12.i = phi i64 [ %25, %24 ], [ 0, %6 ]
+_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters8peekableINtB4_8PeekableIBR_INtNtNtBa_5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token5TokenEEENtNtNtB8_6traits8iterator8Iterator9size_hintB1D_.llvm.2038835765883349039.exit: ; preds = %6, %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters8peekableINtB4_8PeekableINtNtNtBa_5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token5TokenEENtNtNtB8_6traits8iterator8Iterator9size_hintB1z_.llvm.2038835765883349039.exit.i
+  %.sink12.i = phi i64 [ %24, %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters8peekableINtB4_8PeekableINtNtNtBa_5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token5TokenEENtNtNtB8_6traits8iterator8Iterator9size_hintB1z_.llvm.2038835765883349039.exit.i ], [ 0, %6 ]
   store i64 0, ptr %0, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 1, ptr %26, align 8
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink12.i, ptr %27, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 1, ptr %25, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sink12.i, ptr %26, align 8
   ret void
 }
 
@@ -2497,7 +2497,7 @@ define hidden void @_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters8peekableINtB4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %7 = load ptr, ptr %6, align 8, !noundef !5
   %8 = icmp eq ptr %7, null
-  br i1 %8, label %23, label %9
+  br i1 %8, label %24, label %9
 
 9:                                                ; preds = %5, %2
   %.sroa.0.0 = phi i64 [ 0, %2 ], [ 1, %5 ]
@@ -2509,7 +2509,7 @@ define hidden void @_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters8peekableINtB4
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %13 = load ptr, ptr %12, align 8, !alias.scope !540, !noalias !543, !noundef !5
   %14 = icmp eq ptr %13, null
-  br i1 %14, label %26, label %15
+  br i1 %14, label %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters8peekableINtB4_8PeekableINtNtNtBa_5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token5TokenEENtNtNtB8_6traits8iterator8Iterator9size_hintB1z_.llvm.2038835765883349039.exit, label %15
 
 15:                                               ; preds = %11, %9
   %.sroa.0.0.i = phi i64 [ 0, %9 ], [ 1, %11 ]
@@ -2522,87 +2522,87 @@ define hidden void @_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters8peekableINtB4
   %20 = sub nuw i64 %18, %19
   %21 = lshr exact i64 %20, 6
   %22 = add nuw nsw i64 %21, %.sroa.0.0.i
-  br label %26
+  br label %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters8peekableINtB4_8PeekableINtNtNtBa_5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token5TokenEENtNtNtB8_6traits8iterator8Iterator9size_hintB1z_.llvm.2038835765883349039.exit
 
-23:                                               ; preds = %5, %26
-  %.sink12 = phi i64 [ %27, %26 ], [ 0, %5 ]
-  store i64 %.sink12, ptr %0, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 1, ptr %24, align 8
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink12, ptr %25, align 8
-  ret void
-
-26:                                               ; preds = %11, %15
+_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters8peekableINtB4_8PeekableINtNtNtBa_5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token5TokenEENtNtNtB8_6traits8iterator8Iterator9size_hintB1z_.llvm.2038835765883349039.exit: ; preds = %11, %15
   %.sink13.i = phi i64 [ %22, %15 ], [ 0, %11 ]
-  %27 = add nuw nsw i64 %.sink13.i, %.sroa.0.0
-  br label %23
+  %23 = add nuw nsw i64 %.sink13.i, %.sroa.0.0
+  br label %24
+
+24:                                               ; preds = %5, %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters8peekableINtB4_8PeekableINtNtNtBa_5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token5TokenEENtNtNtB8_6traits8iterator8Iterator9size_hintB1z_.llvm.2038835765883349039.exit
+  %.sink12 = phi i64 [ %23, %_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters8peekableINtB4_8PeekableINtNtNtBa_5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token5TokenEENtNtNtB8_6traits8iterator8Iterator9size_hintB1z_.llvm.2038835765883349039.exit ], [ 0, %5 ]
+  store i64 %.sink12, ptr %0, align 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 1, ptr %25, align 8
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sink12, ptr %26, align 8
+  ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters8peekableINtB4_8PeekableINtNtBa_6option8IntoIterRINtNtCseG2FYMysgNb_3wax5token5TokenuEEENtNtNtB8_6traits8iterator8Iterator9size_hintB1z_.llvm.2038835765883349039(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) initializes((0, 24)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 {
   %3 = load i64, ptr %1, align 8, !range !4, !noundef !5
   %trunc = trunc nuw i64 %3 to i1
-  br i1 %trunc, label %4, label %11
+  br i1 %trunc, label %4, label %8
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8, !noundef !5
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %8, label %11
+  br i1 %7, label %13, label %8
 
-8:                                                ; preds = %4, %11
-  %.sink12 = phi i64 [ %15, %11 ], [ 0, %4 ]
-  store i64 %.sink12, ptr %0, align 8
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 1, ptr %9, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink12, ptr %10, align 8
-  ret void
-
-11:                                               ; preds = %4, %2
+8:                                                ; preds = %4, %2
   %.sroa.0.0 = phi i64 [ 0, %2 ], [ 1, %4 ]
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.val = load ptr, ptr %12, align 8, !noundef !5
-  %13 = icmp ne ptr %.val, null
-  %14 = zext i1 %13 to i64
-  %15 = add nuw nsw i64 %.sroa.0.0, %14
-  br label %8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.val = load ptr, ptr %9, align 8, !noundef !5
+  %10 = icmp ne ptr %.val, null
+  %11 = zext i1 %10 to i64
+  %12 = add nuw nsw i64 %.sroa.0.0, %11
+  br label %13
+
+13:                                               ; preds = %4, %8
+  %.sink12 = phi i64 [ %12, %8 ], [ 0, %4 ]
+  store i64 %.sink12, ptr %0, align 8
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 1, ptr %14, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sink12, ptr %15, align 8
+  ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_RNvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters8peekableINtB4_8PeekableINtNtNtBa_5slice4iter4IterNtNtCseG2FYMysgNb_3wax5token5TokenEENtNtNtB8_6traits8iterator8Iterator9size_hintB1z_.llvm.2038835765883349039(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) initializes((0, 24)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %1) unnamed_addr #1 {
   %3 = load i64, ptr %1, align 8, !range !4, !noundef !5
   %trunc = trunc nuw i64 %3 to i1
-  br i1 %trunc, label %4, label %11
+  br i1 %trunc, label %4, label %8
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8, !noundef !5
   %7 = icmp eq ptr %6, null
-  br i1 %7, label %8, label %11
+  br i1 %7, label %16, label %8
 
-8:                                                ; preds = %4, %11
-  %.sink13 = phi i64 [ %18, %11 ], [ 0, %4 ]
-  store i64 %.sink13, ptr %0, align 8
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 1, ptr %9, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sink13, ptr %10, align 8
-  ret void
-
-11:                                               ; preds = %4, %2
+8:                                                ; preds = %4, %2
   %.sroa.0.0 = phi i64 [ 0, %2 ], [ 1, %4 ]
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.val = load ptr, ptr %12, align 8, !nonnull !5, !noundef !5
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.val10 = load ptr, ptr %13, align 8, !nonnull !5, !noundef !5
-  %14 = ptrtoint ptr %.val10 to i64
-  %15 = ptrtoint ptr %.val to i64
-  %16 = sub nuw i64 %14, %15
-  %17 = lshr exact i64 %16, 6
-  %18 = add nuw nsw i64 %17, %.sroa.0.0
-  br label %8
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.val = load ptr, ptr %9, align 8, !nonnull !5, !noundef !5
+  %10 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.val10 = load ptr, ptr %10, align 8, !nonnull !5, !noundef !5
+  %11 = ptrtoint ptr %.val10 to i64
+  %12 = ptrtoint ptr %.val to i64
+  %13 = sub nuw i64 %11, %12
+  %14 = lshr exact i64 %13, 6
+  %15 = add nuw nsw i64 %14, %.sroa.0.0
+  br label %16
+
+16:                                               ; preds = %4, %8
+  %.sink13 = phi i64 [ %15, %8 ], [ 0, %4 ]
+  store i64 %.sink13, ptr %0, align 8
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 1, ptr %17, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sink13, ptr %18, align 8
+  ret void
 }
 
 ; Function Attrs: nonlazybind uwtable

@@ -3434,43 +3434,43 @@ _ZN4core4iter6traits8iterator8Iterator4fold17h07f7345f14c8030eE.exit: ; preds = 
 define hidden void @"_ZN108_$LT$core..iter..adapters..peekable..Peekable$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h19eaf7b1cc700512E.llvm.65197033636736017"(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) initializes((0, 24)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #1 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %4 = load i32, ptr %3, align 8, !range !903, !noundef !15
-  switch i32 %4, label %5 [
-    i32 1114113, label %9
-    i32 1114112, label %6
+  switch i32 %4, label %16 [
+    i32 1114113, label %5
+    i32 1114112, label %17
   ]
 
-5:                                                ; preds = %2
-  br label %9
-
-6:                                                ; preds = %2, %9
-  %.sink = phi i64 [ %16, %9 ], [ 0, %2 ]
-  %spec.select.sink = phi i64 [ %spec.select, %9 ], [ 1, %2 ]
-  %spec.select6.sink = phi i64 [ %spec.select6, %9 ], [ 0, %2 ]
-  store i64 %.sink, ptr %0, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %spec.select.sink, ptr %7, align 8
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %spec.select6.sink, ptr %8, align 8
-  ret void
-
-9:                                                ; preds = %2, %5
-  %.sroa.0.0 = phi i64 [ 1, %5 ], [ 0, %2 ]
+5:                                                ; preds = %2, %16
+  %.sroa.0.0 = phi i64 [ 1, %16 ], [ 0, %2 ]
   %.val = load ptr, ptr %1, align 8, !alias.scope !911, !nonnull !15, !noundef !15
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.val7 = load ptr, ptr %10, align 8, !alias.scope !911, !nonnull !15, !noundef !15
-  %11 = ptrtoint ptr %.val7 to i64
-  %12 = ptrtoint ptr %.val to i64
-  %13 = sub nuw i64 %11, %12
-  %14 = add i64 %13, 3
-  %15 = lshr i64 %14, 2
-  %16 = add nuw nsw i64 %15, %.sroa.0.0
-  %17 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %13, i64 %.sroa.0.0)
-  %18 = extractvalue { i64, i1 } %17, 1
-  %19 = add nuw i64 %13, %.sroa.0.0
-  %not. = xor i1 %18, true
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.val7 = load ptr, ptr %6, align 8, !alias.scope !911, !nonnull !15, !noundef !15
+  %7 = ptrtoint ptr %.val7 to i64
+  %8 = ptrtoint ptr %.val to i64
+  %9 = sub nuw i64 %7, %8
+  %10 = add i64 %9, 3
+  %11 = lshr i64 %10, 2
+  %12 = add nuw nsw i64 %11, %.sroa.0.0
+  %13 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %9, i64 %.sroa.0.0)
+  %14 = extractvalue { i64, i1 } %13, 1
+  %15 = add nuw i64 %9, %.sroa.0.0
+  %not. = xor i1 %14, true
   %spec.select = zext i1 %not. to i64
-  %spec.select6 = select i1 %18, i64 undef, i64 %19
-  br label %6
+  %spec.select6 = select i1 %14, i64 undef, i64 %15
+  br label %17
+
+16:                                               ; preds = %2
+  br label %5
+
+17:                                               ; preds = %2, %5
+  %.sink = phi i64 [ %12, %5 ], [ 0, %2 ]
+  %spec.select.sink = phi i64 [ %spec.select, %5 ], [ 1, %2 ]
+  %spec.select6.sink = phi i64 [ %spec.select6, %5 ], [ 0, %2 ]
+  store i64 %.sink, ptr %0, align 8
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %spec.select.sink, ptr %18, align 8
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %spec.select6.sink, ptr %19, align 8
+  ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable

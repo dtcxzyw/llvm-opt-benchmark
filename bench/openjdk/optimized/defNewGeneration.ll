@@ -892,7 +892,7 @@ define hidden void @_ZN16DefNewGeneration16compute_new_sizeEv(ptr noundef nonnul
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %6 = load ptr, ptr %5, align 8
   %7 = icmp eq ptr %6, %4
-  br i1 %7, label %8, label %106
+  br i1 %7, label %8, label %104
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 688
@@ -901,160 +901,154 @@ define hidden void @_ZN16DefNewGeneration16compute_new_sizeEv(ptr noundef nonnul
   %12 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %13 = load ptr, ptr %12, align 8
   %14 = icmp eq ptr %13, %11
-  br i1 %14, label %15, label %106
+  br i1 %14, label %_ZNK16DefNewGeneration30calculate_thread_increase_sizeEi.exit, label %104
 
-15:                                               ; preds = %8
-  %16 = tail call noundef ptr @_ZN10SerialHeap4heapEv() #19
-  %17 = getelementptr inbounds nuw i8, ptr %16, i64 112
+_ZNK16DefNewGeneration30calculate_thread_increase_sizeEi.exit: ; preds = %8
+  %15 = tail call noundef ptr @_ZN10SerialHeap4heapEv() #19
+  %16 = getelementptr inbounds nuw i8, ptr %15, i64 112
+  %17 = load ptr, ptr %16, align 8
   %18 = load ptr, ptr %17, align 8
   %19 = load ptr, ptr %18, align 8
-  %20 = load ptr, ptr %19, align 8
-  %21 = tail call noundef i64 %20(ptr noundef nonnull align 8 dereferenceable(248) %18) #19
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %23 = tail call noundef i64 @_ZNK12VirtualSpace14committed_sizeEv(ptr noundef nonnull align 8 dereferenceable(112) %22) #19
-  %24 = load i64, ptr @NewSize, align 8
+  %20 = tail call noundef i64 %19(ptr noundef nonnull align 8 dereferenceable(248) %17) #19
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %22 = tail call noundef i64 @_ZNK12VirtualSpace14committed_sizeEv(ptr noundef nonnull align 8 dereferenceable(112) %21) #19
+  %23 = load i64, ptr @NewSize, align 8
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8
-  %25 = shl i64 %.sroa.2.0.copyload.i, 3
-  %26 = load i32, ptr @_ZN7Threads29_number_of_non_daemon_threadsE, align 4
-  %27 = icmp sgt i32 %26, 0
+  %24 = shl i64 %.sroa.2.0.copyload.i, 3
+  %25 = load i32, ptr @_ZN7Threads29_number_of_non_daemon_threadsE, align 4
+  %26 = icmp sgt i32 %25, 0
   %.pre = load i64, ptr @NewSizeThreadIncrease, align 8
-  br i1 %27, label %28, label %_ZNK16DefNewGeneration30calculate_thread_increase_sizeEi.exit
-
-28:                                               ; preds = %15
-  %29 = zext nneg i32 %26 to i64
-  %mul.i = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %29, i64 %.pre)
+  %27 = zext nneg i32 %25 to i64
+  %mul.i = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %27, i64 %.pre)
   %mul.ov.i = extractvalue { i64, i1 } %mul.i, 1
-  %30 = mul i64 %.pre, %29
-  %spec.select.i = select i1 %mul.ov.i, i64 0, i64 %30
-  br label %_ZNK16DefNewGeneration30calculate_thread_increase_sizeEi.exit
-
-_ZNK16DefNewGeneration30calculate_thread_increase_sizeEi.exit: ; preds = %15, %28
-  %.0.i = phi i64 [ 0, %15 ], [ %spec.select.i, %28 ]
-  %31 = load i64, ptr @NewRatio, align 8
-  %32 = udiv i64 %21, %31
-  %33 = icmp eq i64 %.pre, 0
-  %34 = icmp eq i64 %.0.i, 0
-  %or.cond.not21.i = or i1 %34, %33
-  %35 = xor i64 %.0.i, -1
-  %.not.i = icmp ugt i64 %32, %35
+  %28 = mul i64 %.pre, %27
+  %spec.select.i = select i1 %mul.ov.i, i64 0, i64 %28
+  %.0.i = select i1 %26, i64 %spec.select.i, i64 0
+  %29 = load i64, ptr @NewRatio, align 8
+  %30 = udiv i64 %20, %29
+  %31 = icmp eq i64 %.pre, 0
+  %32 = icmp eq i64 %.0.i, 0
+  %or.cond.not21.i = or i1 %32, %31
+  %33 = xor i64 %.0.i, -1
+  %.not.i = icmp ugt i64 %30, %33
   %or.cond18.i = or i1 %.not.i, %or.cond.not21.i
-  br i1 %or.cond18.i, label %_ZNK16DefNewGeneration26adjust_for_thread_increaseEmmmm.exit, label %36
+  br i1 %or.cond18.i, label %_ZNK16DefNewGeneration26adjust_for_thread_increaseEmmmm.exit, label %34
 
-36:                                               ; preds = %_ZNK16DefNewGeneration30calculate_thread_increase_sizeEi.exit
-  %37 = add i64 %32, %.0.i
-  %.not17.i = icmp ugt i64 %37, -131072
-  br i1 %.not17.i, label %_ZNK16DefNewGeneration26adjust_for_thread_increaseEmmmm.exit, label %38
+34:                                               ; preds = %_ZNK16DefNewGeneration30calculate_thread_increase_sizeEi.exit
+  %35 = add i64 %30, %.0.i
+  %.not17.i = icmp ugt i64 %35, -131072
+  br i1 %.not17.i, label %_ZNK16DefNewGeneration26adjust_for_thread_increaseEmmmm.exit, label %36
 
-38:                                               ; preds = %36
-  %39 = add nuw i64 %37, 65535
-  %40 = and i64 %39, -65536
+36:                                               ; preds = %34
+  %37 = add nuw i64 %35, 65535
+  %38 = and i64 %37, -65536
   br label %_ZNK16DefNewGeneration26adjust_for_thread_increaseEmmmm.exit
 
-_ZNK16DefNewGeneration26adjust_for_thread_increaseEmmmm.exit: ; preds = %_ZNK16DefNewGeneration30calculate_thread_increase_sizeEi.exit, %36, %38
-  %.0.i29 = phi i64 [ %40, %38 ], [ %23, %36 ], [ %23, %_ZNK16DefNewGeneration30calculate_thread_increase_sizeEi.exit ]
-  %41 = tail call noundef i64 @llvm.umax.i64(i64 %.0.i29, i64 %24)
-  %42 = tail call noundef i64 @llvm.umin.i64(i64 %41, i64 %25)
-  %43 = icmp ugt i64 %42, %23
-  br i1 %43, label %44, label %_ZN16DefNewGeneration6expandEm.exit
+_ZNK16DefNewGeneration26adjust_for_thread_increaseEmmmm.exit: ; preds = %_ZNK16DefNewGeneration30calculate_thread_increase_sizeEi.exit, %34, %36
+  %.0.i29 = phi i64 [ %38, %36 ], [ %22, %34 ], [ %22, %_ZNK16DefNewGeneration30calculate_thread_increase_sizeEi.exit ]
+  %39 = tail call noundef i64 @llvm.umax.i64(i64 %.0.i29, i64 %23)
+  %40 = tail call noundef i64 @llvm.umin.i64(i64 %39, i64 %24)
+  %41 = icmp ugt i64 %40, %22
+  br i1 %41, label %42, label %_ZN16DefNewGeneration6expandEm.exit
 
-44:                                               ; preds = %_ZNK16DefNewGeneration26adjust_for_thread_increaseEmmmm.exit
-  %45 = sub nuw i64 %42, %23
-  %46 = tail call noundef zeroext i1 @_ZN12VirtualSpace9expand_byEmb(ptr noundef nonnull align 8 dereferenceable(112) %22, i64 noundef %45, i1 noundef zeroext false) #19
-  %47 = load volatile i32, ptr @_ZN8GCLocker15_jni_lock_countE, align 4
-  %48 = icmp sgt i32 %47, 0
-  br i1 %48, label %49, label %_ZN16DefNewGeneration6expandEm.exit
+42:                                               ; preds = %_ZNK16DefNewGeneration26adjust_for_thread_increaseEmmmm.exit
+  %43 = sub nuw i64 %40, %22
+  %44 = tail call noundef zeroext i1 @_ZN12VirtualSpace9expand_byEmb(ptr noundef nonnull align 8 dereferenceable(112) %21, i64 noundef %43, i1 noundef zeroext false) #19
+  %45 = load volatile i32, ptr @_ZN8GCLocker15_jni_lock_countE, align 4
+  %46 = icmp sgt i32 %45, 0
+  br i1 %46, label %47, label %_ZN16DefNewGeneration6expandEm.exit
 
-49:                                               ; preds = %44
-  %50 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not.i30 = icmp eq ptr %50, null
-  br i1 %.not.i30, label %_ZN16DefNewGeneration6expandEm.exit, label %51
+47:                                               ; preds = %42
+  %48 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not.i30 = icmp eq ptr %48, null
+  br i1 %.not.i30, label %_ZN16DefNewGeneration6expandEm.exit, label %49
 
-51:                                               ; preds = %49
+49:                                               ; preds = %47
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_0ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.7)
   br label %_ZN16DefNewGeneration6expandEm.exit
 
-_ZN16DefNewGeneration6expandEm.exit:              ; preds = %51, %49, %44, %_ZNK16DefNewGeneration26adjust_for_thread_increaseEmmmm.exit
-  %.0 = phi i1 [ false, %_ZNK16DefNewGeneration26adjust_for_thread_increaseEmmmm.exit ], [ %46, %44 ], [ %46, %49 ], [ %46, %51 ]
-  %52 = icmp ult i64 %42, %23
-  br i1 %52, label %53, label %61
+_ZN16DefNewGeneration6expandEm.exit:              ; preds = %49, %47, %42, %_ZNK16DefNewGeneration26adjust_for_thread_increaseEmmmm.exit
+  %.0 = phi i1 [ false, %_ZNK16DefNewGeneration26adjust_for_thread_increaseEmmmm.exit ], [ %44, %42 ], [ %44, %47 ], [ %44, %49 ]
+  %50 = icmp ult i64 %40, %22
+  br i1 %50, label %51, label %59
 
-53:                                               ; preds = %_ZN16DefNewGeneration6expandEm.exit
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 672
-  %55 = load ptr, ptr %54, align 8
+51:                                               ; preds = %_ZN16DefNewGeneration6expandEm.exit
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 672
+  %53 = load ptr, ptr %52, align 8
+  %54 = load ptr, ptr %53, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %53, i64 16
   %56 = load ptr, ptr %55, align 8
-  %57 = getelementptr inbounds nuw i8, ptr %55, i64 16
-  %58 = load ptr, ptr %57, align 8
-  %59 = icmp eq ptr %58, %56
-  br i1 %59, label %.thread, label %61
+  %57 = icmp eq ptr %56, %54
+  br i1 %57, label %.thread, label %59
 
-.thread:                                          ; preds = %53
-  %60 = sub i64 %23, %42
-  tail call void @_ZN12VirtualSpace9shrink_byEm(ptr noundef nonnull align 8 dereferenceable(112) %22, i64 noundef %60) #19
-  br label %62
+.thread:                                          ; preds = %51
+  %58 = sub i64 %22, %40
+  tail call void @_ZN12VirtualSpace9shrink_byEm(ptr noundef nonnull align 8 dereferenceable(112) %21, i64 noundef %58) #19
+  br label %60
 
-61:                                               ; preds = %53, %_ZN16DefNewGeneration6expandEm.exit
-  br i1 %.0, label %62, label %106
+59:                                               ; preds = %51, %_ZN16DefNewGeneration6expandEm.exit
+  br i1 %.0, label %60, label %104
 
-62:                                               ; preds = %.thread, %61
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 672
-  %64 = load ptr, ptr %63, align 8
+60:                                               ; preds = %.thread, %59
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 672
+  %62 = load ptr, ptr %61, align 8
+  %63 = load ptr, ptr %62, align 8
+  %64 = getelementptr inbounds nuw i8, ptr %62, i64 16
   %65 = load ptr, ptr %64, align 8
-  %66 = getelementptr inbounds nuw i8, ptr %64, i64 16
-  %67 = load ptr, ptr %66, align 8
-  %68 = ptrtoint ptr %67 to i64
-  %69 = ptrtoint ptr %65 to i64
-  %70 = sub i64 %68, %69
-  tail call void @_ZN16DefNewGeneration24compute_space_boundariesEmbb(ptr noundef nonnull align 8 dereferenceable(744) %0, i64 noundef %70, i1 noundef zeroext true, i1 noundef zeroext false)
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %66 = ptrtoint ptr %65 to i64
+  %67 = ptrtoint ptr %63 to i64
+  %68 = sub i64 %66, %67
+  tail call void @_ZN16DefNewGeneration24compute_space_boundariesEmbb(ptr noundef nonnull align 8 dereferenceable(744) %0, i64 noundef %68, i1 noundef zeroext true, i1 noundef zeroext false)
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %70 = load ptr, ptr %69, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %74 = load ptr, ptr %73, align 8
-  %75 = ptrtoint ptr %74 to i64
-  %76 = ptrtoint ptr %72 to i64
-  %77 = sub i64 %75, %76
-  %78 = lshr i64 %77, 3
-  %79 = getelementptr inbounds nuw i8, ptr %16, i64 136
-  %80 = load ptr, ptr %79, align 8
-  tail call void @_ZN9CardTable21resize_covered_regionE9MemRegion(ptr noundef nonnull align 8 dereferenceable(88) %80, ptr %72, i64 %78) #19
-  %81 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_52ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
-  %.not = icmp eq ptr %81, null
-  br i1 %.not, label %102, label %82
+  %73 = ptrtoint ptr %72 to i64
+  %74 = ptrtoint ptr %70 to i64
+  %75 = sub i64 %73, %74
+  %76 = lshr i64 %75, 3
+  %77 = getelementptr inbounds nuw i8, ptr %15, i64 136
+  %78 = load ptr, ptr %77, align 8
+  tail call void @_ZN9CardTable21resize_covered_regionE9MemRegion(ptr noundef nonnull align 8 dereferenceable(88) %78, ptr %70, i64 %76) #19
+  %79 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_52ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 56), align 8
+  %.not = icmp eq ptr %79, null
+  br i1 %.not, label %100, label %80
 
-82:                                               ; preds = %62
-  %83 = lshr i64 %23, 10
-  %84 = tail call noundef i64 @_ZNK12VirtualSpace14committed_sizeEv(ptr noundef nonnull align 8 dereferenceable(112) %22) #19
-  %85 = lshr i64 %84, 10
-  %86 = load ptr, ptr %63, align 8
+80:                                               ; preds = %60
+  %81 = lshr i64 %22, 10
+  %82 = tail call noundef i64 @_ZNK12VirtualSpace14committed_sizeEv(ptr noundef nonnull align 8 dereferenceable(112) %21) #19
+  %83 = lshr i64 %82, 10
+  %84 = load ptr, ptr %61, align 8
+  %85 = load ptr, ptr %84, align 8
+  %86 = getelementptr inbounds nuw i8, ptr %84, i64 8
   %87 = load ptr, ptr %86, align 8
-  %88 = getelementptr inbounds nuw i8, ptr %86, i64 8
-  %89 = load ptr, ptr %88, align 8
-  %90 = ptrtoint ptr %89 to i64
-  %91 = ptrtoint ptr %87 to i64
-  %92 = sub i64 %90, %91
-  %93 = lshr i64 %92, 10
-  %94 = load ptr, ptr %2, align 8
+  %88 = ptrtoint ptr %87 to i64
+  %89 = ptrtoint ptr %85 to i64
+  %90 = sub i64 %88, %89
+  %91 = lshr i64 %90, 10
+  %92 = load ptr, ptr %2, align 8
+  %93 = load ptr, ptr %92, align 8
+  %94 = getelementptr inbounds nuw i8, ptr %92, i64 8
   %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds nuw i8, ptr %94, i64 8
-  %97 = load ptr, ptr %96, align 8
-  %98 = ptrtoint ptr %97 to i64
-  %99 = ptrtoint ptr %95 to i64
-  %100 = sub i64 %98, %99
-  %101 = lshr i64 %100, 10
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_52ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.8, i64 noundef %83, i64 noundef %85, i64 noundef %93, i64 noundef %101)
-  br label %102
+  %96 = ptrtoint ptr %95 to i64
+  %97 = ptrtoint ptr %93 to i64
+  %98 = sub i64 %96, %97
+  %99 = lshr i64 %98, 10
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_52ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE2EEEvPKcz(ptr noundef nonnull @.str.8, i64 noundef %81, i64 noundef %83, i64 noundef %91, i64 noundef %99)
+  br label %100
 
-102:                                              ; preds = %62, %82
-  %103 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_52ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
-  %.not33 = icmp eq ptr %103, null
-  br i1 %.not33, label %106, label %104
+100:                                              ; preds = %60, %80
+  %101 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_40ELS1_52ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
+  %.not33 = icmp eq ptr %101, null
+  br i1 %.not33, label %104, label %102
 
-104:                                              ; preds = %102
-  %105 = lshr i64 %.0.i, 10
-  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_52ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.9, i64 noundef %105, i32 noundef %26)
-  br label %106
+102:                                              ; preds = %100
+  %103 = lshr i64 %.0.i, 10
+  tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_40ELS1_52ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.9, i64 noundef %103, i32 noundef %25)
+  br label %104
 
-106:                                              ; preds = %104, %102, %1, %8, %61
+104:                                              ; preds = %102, %100, %1, %8, %59
   ret void
 }
 

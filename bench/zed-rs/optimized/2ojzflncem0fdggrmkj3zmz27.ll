@@ -34389,57 +34389,45 @@ define hidden void @_ZN3vim3Vim16push_count_digit17h943704460c7a9a81E(ptr noalia
   %15 = load i64, ptr %14, align 8
   %.sroa.013.0 = select i1 %trunc, i64 %15, i64 0
   %16 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.sroa.013.0, i64 10)
-  %17 = extractvalue { i64, i1 } %16, 1
-  br i1 %17, label %28, label %23
+  %17 = extractvalue { i64, i1 } %16, 0
+  %18 = extractvalue { i64, i1 } %16, 1
+  %19 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %17, i64 %1)
+  %20 = extractvalue { i64, i1 } %19, 1
+  %21 = add nuw i64 %17, %1
+  %22 = or i1 %18, %20
+  %.sroa.013.1 = select i1 %22, i64 %.sroa.013.0, i64 %21
+  store i64 1, ptr %12, align 8
+  store i64 %.sroa.013.1, ptr %14, align 8
+  br label %33
 
 "_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$vim..state..Operator$GT$$GT$17h36f6748ba006cd24E.llvm.16422900337870965792.exit28": ; preds = %3
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
-  %18 = load i64, ptr %0, align 8, !range !226, !noundef !5
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %trunc21 = trunc nuw i64 %18 to i1
-  %20 = load i64, ptr %19, align 8
-  %.sroa.015.0 = select i1 %trunc21, i64 %20, i64 0
-  %21 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.sroa.015.0, i64 10)
-  %22 = extractvalue { i64, i1 } %21, 1
-  br i1 %22, label %41, label %36
-
-23:                                               ; preds = %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$vim..state..Operator$GT$$GT$17h36f6748ba006cd24E.llvm.16422900337870965792.exit"
-  %24 = extractvalue { i64, i1 } %16, 0
-  %25 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %24, i64 %1)
-  %26 = extractvalue { i64, i1 } %25, 1
-  %27 = add nuw i64 %24, %1
-  %spec.select = select i1 %26, i64 %.sroa.013.0, i64 %27
-  br label %28
-
-28:                                               ; preds = %23, %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$vim..state..Operator$GT$$GT$17h36f6748ba006cd24E.llvm.16422900337870965792.exit"
-  %.sroa.013.1 = phi i64 [ %15, %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$vim..state..Operator$GT$$GT$17h36f6748ba006cd24E.llvm.16422900337870965792.exit" ], [ %spec.select, %23 ]
-  store i64 1, ptr %12, align 8
-  store i64 %.sroa.013.1, ptr %14, align 8
-  br label %29
-
-29:                                               ; preds = %41, %28
-  %30 = tail call noundef zeroext i1 @_ZN3vim3Vim13update_editor17he64d0102e4bb047bE(ptr noalias noundef nonnull align 8 dereferenceable(536) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
-  %31 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %32 = load ptr, ptr %31, align 8, !alias.scope !6646, !noalias !6649, !nonnull !5, !align !37, !noundef !5
-  %33 = load i32, ptr %32, align 8, !range !1844, !noundef !5
-  %34 = getelementptr inbounds nuw i8, ptr %32, i64 4
-  %35 = load i32, ptr %34, align 4, !noundef !5
-  tail call void @_ZN4gpui6window13WindowContext6notify17h7bbf49a79305f6e8E(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %33, i32 noundef %35)
-  ret void
-
-36:                                               ; preds = %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$vim..state..Operator$GT$$GT$17h36f6748ba006cd24E.llvm.16422900337870965792.exit28"
-  %37 = extractvalue { i64, i1 } %21, 0
-  %38 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %37, i64 %1)
-  %39 = extractvalue { i64, i1 } %38, 1
-  %40 = add nuw i64 %37, %1
-  %spec.select24 = select i1 %39, i64 %.sroa.015.0, i64 %40
-  br label %41
-
-41:                                               ; preds = %36, %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$vim..state..Operator$GT$$GT$17h36f6748ba006cd24E.llvm.16422900337870965792.exit28"
-  %.sroa.015.1 = phi i64 [ %20, %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$vim..state..Operator$GT$$GT$17h36f6748ba006cd24E.llvm.16422900337870965792.exit28" ], [ %spec.select24, %36 ]
+  %23 = load i64, ptr %0, align 8, !range !226, !noundef !5
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %trunc21 = trunc nuw i64 %23 to i1
+  %25 = load i64, ptr %24, align 8
+  %.sroa.015.0 = select i1 %trunc21, i64 %25, i64 0
+  %26 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %.sroa.015.0, i64 10)
+  %27 = extractvalue { i64, i1 } %26, 0
+  %28 = extractvalue { i64, i1 } %26, 1
+  %29 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %27, i64 %1)
+  %30 = extractvalue { i64, i1 } %29, 1
+  %31 = add nuw i64 %27, %1
+  %32 = or i1 %28, %30
+  %.sroa.015.1 = select i1 %32, i64 %.sroa.015.0, i64 %31
   store i64 1, ptr %0, align 8
-  store i64 %.sroa.015.1, ptr %19, align 8
-  br label %29
+  store i64 %.sroa.015.1, ptr %24, align 8
+  br label %33
+
+33:                                               ; preds = %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$vim..state..Operator$GT$$GT$17h36f6748ba006cd24E.llvm.16422900337870965792.exit28", %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$vim..state..Operator$GT$$GT$17h36f6748ba006cd24E.llvm.16422900337870965792.exit"
+  %34 = tail call noundef zeroext i1 @_ZN3vim3Vim13update_editor17he64d0102e4bb047bE(ptr noalias noundef nonnull align 8 dereferenceable(536) %0, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
+  %35 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %36 = load ptr, ptr %35, align 8, !alias.scope !6646, !noalias !6649, !nonnull !5, !align !37, !noundef !5
+  %37 = load i32, ptr %36, align 8, !range !1844, !noundef !5
+  %38 = getelementptr inbounds nuw i8, ptr %36, i64 4
+  %39 = load i32, ptr %38, align 4, !noundef !5
+  tail call void @_ZN4gpui6window13WindowContext6notify17h7bbf49a79305f6e8E(ptr noalias noundef nonnull align 8 dereferenceable(24) %2, i32 noundef %37, i32 noundef %39)
+  ret void
 }
 
 ; Function Attrs: nonlazybind uwtable

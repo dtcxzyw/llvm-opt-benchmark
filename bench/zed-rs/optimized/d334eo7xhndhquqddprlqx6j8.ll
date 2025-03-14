@@ -774,37 +774,32 @@ define internal void @"_ZN101_$LT$futures_util..stream..stream..map..Map$LT$St$C
   tail call void @llvm.experimental.noalias.scope.decl(metadata !114)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !117)
   %4 = load i64, ptr %1, align 8, !range !119, !alias.scope !117, !noalias !114, !noundef !7
+  %5 = icmp ne i64 %4, -9223372036854775807
+  %6 = zext i1 %5 to i64
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !120
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  %7 = getelementptr inbounds nuw i8, ptr %1, i64 80
   tail call void @llvm.experimental.noalias.scope.decl(metadata !121)
-  %6 = load ptr, ptr %5, align 8, !alias.scope !124, !noalias !127, !nonnull !7, !align !33, !noundef !7
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %8 = load ptr, ptr %7, align 8, !alias.scope !124, !noalias !127, !nonnull !7, !align !34, !noundef !7
-  %9 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %10 = load ptr, ptr %9, align 8, !invariant.load !7, !noalias !129, !nonnull !7
-  call void %10(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull align 1 %6), !noalias !130
-  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %12 = load i64, ptr %11, align 8, !range !131, !noalias !120, !noundef !7
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %14 = load i64, ptr %13, align 8, !noalias !120
+  %8 = load ptr, ptr %7, align 8, !alias.scope !124, !noalias !127, !nonnull !7, !align !33, !noundef !7
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  %10 = load ptr, ptr %9, align 8, !alias.scope !124, !noalias !127, !nonnull !7, !align !34, !noundef !7
+  %11 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  %12 = load ptr, ptr %11, align 8, !invariant.load !7, !noalias !129, !nonnull !7
+  call void %12(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %3, ptr noundef nonnull align 1 %8), !noalias !130
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %14 = load i64, ptr %13, align 8, !range !131, !noalias !120, !noundef !7
+  %15 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %16 = load i64, ptr %15, align 8, !noalias !120
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !120
-  %trunc.i = trunc nuw i64 %12 to i1
-  br i1 %trunc.i, label %15, label %"_ZN120_$LT$futures_util..stream..stream..filter_map..FilterMap$LT$St$C$Fut$C$F$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17hd70c02e58744c5d2E.exit"
-
-15:                                               ; preds = %2
-  %16 = icmp ne i64 %4, -9223372036854775807
-  %17 = zext i1 %16 to i64
-  %18 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %14, i64 %17)
-  %19 = extractvalue { i64, i1 } %18, 1
-  %20 = add nuw i64 %14, %17
-  %not..i = xor i1 %19, true
-  %spec.select.i = zext i1 %not..i to i64
-  %spec.select5.i = select i1 %19, i64 undef, i64 %20
-  br label %"_ZN120_$LT$futures_util..stream..stream..filter_map..FilterMap$LT$St$C$Fut$C$F$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17hd70c02e58744c5d2E.exit"
-
-"_ZN120_$LT$futures_util..stream..stream..filter_map..FilterMap$LT$St$C$Fut$C$F$GT$$u20$as$u20$futures_core..stream..Stream$GT$9size_hint17hd70c02e58744c5d2E.exit": ; preds = %2, %15
-  %.sroa.02.0.i = phi i64 [ 0, %2 ], [ %spec.select.i, %15 ]
-  %.sroa.43.0.i = phi i64 [ undef, %2 ], [ %spec.select5.i, %15 ]
+  %trunc.i = trunc nuw i64 %14 to i1
+  %switch.i = xor i1 %trunc.i, true
+  %17 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %16, i64 %6)
+  %18 = extractvalue { i64, i1 } %17, 1
+  %19 = add nuw i64 %16, %6
+  %not..i = xor i1 %18, true
+  %narrow.i = select i1 %trunc.i, i1 %not..i, i1 false
+  %.sroa.02.0.i = zext i1 %narrow.i to i64
+  %20 = select i1 %switch.i, i1 true, i1 %18
+  %.sroa.43.0.i = select i1 %20, i64 undef, i64 %19
   store i64 0, ptr %0, align 8, !alias.scope !114, !noalias !117
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.02.0.i, ptr %21, align 8, !alias.scope !114, !noalias !117

@@ -17222,15 +17222,15 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %26 = sub nuw i64 %.val16, %.val
   br label %27
 
-27:                                               ; preds = %7, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hcee0c3a46936b247E.exit29", %64, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hcee0c3a46936b247E.exit", %23
-  %.sink = phi i64 [ %45, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hcee0c3a46936b247E.exit" ], [ %26, %23 ], [ %63, %64 ], [ %63, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hcee0c3a46936b247E.exit29" ], [ 0, %7 ]
-  %.sroa.03.0.sink = phi i64 [ %switch.i, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hcee0c3a46936b247E.exit" ], [ 1, %23 ], [ %spec.select, %64 ], [ 0, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hcee0c3a46936b247E.exit29" ], [ 1, %7 ]
-  %.sroa.6.0.sink = phi i64 [ %44, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hcee0c3a46936b247E.exit" ], [ %26, %23 ], [ %spec.select15, %64 ], [ undef, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hcee0c3a46936b247E.exit29" ], [ 0, %7 ]
+27:                                               ; preds = %7, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hcee0c3a46936b247E.exit29", %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hcee0c3a46936b247E.exit", %23
+  %.sink = phi i64 [ %64, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hcee0c3a46936b247E.exit29" ], [ %45, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hcee0c3a46936b247E.exit" ], [ %26, %23 ], [ 0, %7 ]
+  %.sroa.03.0.sink = phi i64 [ %.sroa.03.0, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hcee0c3a46936b247E.exit29" ], [ %switch.i, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hcee0c3a46936b247E.exit" ], [ 1, %23 ], [ 1, %7 ]
+  %spec.select15.sink = phi i64 [ %spec.select15, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hcee0c3a46936b247E.exit29" ], [ %44, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hcee0c3a46936b247E.exit" ], [ %26, %23 ], [ 0, %7 ]
   store i64 %.sink, ptr %0, align 8
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.03.0.sink, ptr %28, align 8
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.6.0.sink, ptr %29, align 8
+  store i64 %spec.select15.sink, ptr %29, align 8
   ret void
 
 30:                                               ; preds = %8
@@ -17288,23 +17288,21 @@ define hidden void @"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$
   %56 = add nuw nsw i64 %.sroa.058.0.i.i.i24, %.sroa.0.0.i.i.i25
   %57 = getelementptr inbounds nuw i8, ptr %1, i64 1240
   %58 = load i64, ptr %57, align 8, !alias.scope !5394, !noalias !5397, !noundef !24
-  %59 = tail call i64 @llvm.usub.sat.i64(i64 %56, i64 %58)
-  %60 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.val17 = load i64, ptr %60, align 8, !noundef !24
-  %61 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %.val18 = load i64, ptr %61, align 8, !noundef !24
-  %62 = sub nuw i64 %.val18, %.val17
-  %63 = tail call i64 @llvm.uadd.sat.i64(i64 %59, i64 %62)
-  br i1 %switch.i23, label %64, label %27
-
-64:                                               ; preds = %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hcee0c3a46936b247E.exit29"
-  %65 = tail call i64 @llvm.usub.sat.i64(i64 %.sroa.6.0.i22, i64 %58)
-  %66 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %65, i64 %62)
-  %67 = extractvalue { i64, i1 } %66, 1
-  %68 = add nuw i64 %62, %65
-  %not. = xor i1 %67, true
-  %spec.select = zext i1 %not. to i64
-  %spec.select15 = select i1 %67, i64 undef, i64 %68
+  %59 = tail call i64 @llvm.usub.sat.i64(i64 %.sroa.6.0.i22, i64 %58)
+  %60 = tail call i64 @llvm.usub.sat.i64(i64 %56, i64 %58)
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.val17 = load i64, ptr %61, align 8, !noundef !24
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %.val18 = load i64, ptr %62, align 8, !noundef !24
+  %63 = sub nuw i64 %.val18, %.val17
+  %64 = tail call i64 @llvm.uadd.sat.i64(i64 %60, i64 %63)
+  %65 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %59, i64 %63)
+  %66 = extractvalue { i64, i1 } %65, 1
+  %67 = add nuw i64 %63, %59
+  %not. = xor i1 %66, true
+  %spec.select15 = select i1 %66, i64 undef, i64 %67
+  %narrow = select i1 %switch.i23, i1 %not., i1 false
+  %.sroa.03.0 = zext i1 %narrow to i64
   br label %27
 }
 
@@ -85072,7 +85070,7 @@ define hidden void @"_ZN89_$LT$alloc..string..String$u20$as$u20$core..iter..trai
   br label %"_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hfb999a27a51e79e5E.llvm.933925041898046037.exit"
 
 "_ZN106_$LT$core..iter..adapters..chain..Chain$LT$A$C$B$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hfb999a27a51e79e5E.llvm.933925041898046037.exit": ; preds = %10, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hcee0c3a46936b247E.exit29.i", %31
-  %.sink.i = phi i64 [ %34, %31 ], [ %38, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hcee0c3a46936b247E.exit29.i" ], [ %30, %10 ]
+  %.sink.i = phi i64 [ %38, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hcee0c3a46936b247E.exit29.i" ], [ %34, %31 ], [ %30, %10 ]
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %40 = load i64, ptr %39, align 8, !noundef !24
   %41 = load i64, ptr %0, align 8, !noundef !24

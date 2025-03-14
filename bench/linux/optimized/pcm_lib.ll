@@ -2586,15 +2586,16 @@ define internal noundef range(i32 -22, 2) i32 @snd_pcm_hw_rule_ratdens(ptr nound
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #20
   %15 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %16 = icmp eq i32 %12, 0
-  br i1 %16, label %.thread22.sink.split, label %17
+  br i1 %16, label %.thread19.sink.split, label %17
 
 17:                                               ; preds = %2
   %18 = load i32, ptr %11, align 4
-  %19 = icmp eq i32 %18, 0
+  %.fr32 = freeze i32 %18
+  %19 = icmp eq i32 %.fr32, 0
   %20 = zext i32 %12 to i64
-  br i1 %19, label %.thread.us, label %.split
+  br i1 %19, label %.split.us, label %.split
 
-.thread.us:                                       ; preds = %17, %37
+.split.us:                                        ; preds = %17, %37
   %21 = phi i64 [ %41, %37 ], [ 0, %17 ]
   %22 = phi i32 [ %40, %37 ], [ 0, %17 ]
   %23 = phi i32 [ %39, %37 ], [ 0, %17 ]
@@ -2610,13 +2611,13 @@ define internal noundef range(i32 -22, 2) i32 @snd_pcm_hw_rule_ratdens(ptr nound
   %31 = icmp eq i32 %24, 0
   br i1 %31, label %36, label %32
 
-32:                                               ; preds = %.thread.us
+32:                                               ; preds = %.split.us
   %33 = mul i32 %spec.select, %22
   %34 = mul i32 %27, %23
   %35 = icmp ult i32 %33, %34
   br i1 %35, label %36, label %37
 
-36:                                               ; preds = %32, %.thread.us
+36:                                               ; preds = %32, %.split.us
   br label %37
 
 37:                                               ; preds = %36, %32
@@ -2625,7 +2626,7 @@ define internal noundef range(i32 -22, 2) i32 @snd_pcm_hw_rule_ratdens(ptr nound
   %40 = phi i32 [ %27, %36 ], [ %22, %32 ]
   %41 = add nuw nsw i64 %21, 1
   %42 = icmp eq i64 %41, %20
-  br i1 %42, label %.split27.us, label %.thread.us, !llvm.loop !21
+  br i1 %42, label %.split24.us, label %.split.us, !llvm.loop !21
 
 .split:                                           ; preds = %17, %78
   %43 = phi i64 [ %82, %78 ], [ 0, %17 ]
@@ -2635,9 +2636,9 @@ define internal noundef range(i32 -22, 2) i32 @snd_pcm_hw_rule_ratdens(ptr nound
   %47 = getelementptr %struct.snd_ratden, ptr %14, i64 %43
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 12
   %49 = load i32, ptr %48, align 4
-  %50 = tail call { i32, i1 } @llvm.umul.with.overflow.i32(i32 %18, i32 %49)
+  %50 = tail call { i32, i1 } @llvm.umul.with.overflow.i32(i32 %.fr32, i32 %49)
   %51 = extractvalue { i32, i1 } %50, 1
-  %52 = mul i32 %49, %18
+  %52 = mul i32 %49, %.fr32
   %53 = select i1 %51, i32 -1, i32 %52
   %54 = getelementptr inbounds nuw i8, ptr %47, i64 4
   %55 = load i32, ptr %54, align 4
@@ -2681,40 +2682,41 @@ define internal noundef range(i32 -22, 2) i32 @snd_pcm_hw_rule_ratdens(ptr nound
   %81 = phi i32 [ %44, %.split ], [ %49, %77 ], [ %44, %73 ]
   %82 = add nuw nsw i64 %43, 1
   %83 = icmp eq i64 %82, %20
-  br i1 %83, label %.split27.us, label %.split, !llvm.loop !21
+  br i1 %83, label %.split24.us, label %.split, !llvm.loop !21
 
-.split27.us:                                      ; preds = %78, %37
+.split24.us:                                      ; preds = %78, %37
   %.us-phi = phi i32 [ %38, %37 ], [ %79, %78 ]
-  %.us-phi28 = phi i32 [ %40, %37 ], [ %81, %78 ]
-  %84 = icmp eq i32 %.us-phi28, 0
-  br i1 %84, label %.thread22.sink.split, label %85
+  %.us-phi25 = phi i32 [ %40, %37 ], [ %81, %78 ]
+  %84 = icmp eq i32 %.us-phi25, 0
+  br i1 %84, label %.thread19.sink.split, label %85
 
-85:                                               ; preds = %.split27.us
-  %86 = udiv i32 %.us-phi, %.us-phi28
+85:                                               ; preds = %.split24.us
+  %86 = udiv i32 %.us-phi, %.us-phi25
   store i32 %86, ptr %3, align 4
-  %87 = urem i32 %.us-phi, %.us-phi28
+  %87 = urem i32 %.us-phi, %.us-phi25
   %88 = icmp ne i32 %87, 0
   %89 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %90 = zext i1 %88 to i8
   %91 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %92 = load i32, ptr %91, align 4
-  %93 = icmp eq i32 %92, 0
-  br i1 %93, label %.split29.us, label %.split29
+  %.fr = freeze i32 %92
+  %93 = icmp eq i32 %.fr, 0
+  br i1 %93, label %.split26.us, label %.split26
 
-.split29.us:                                      ; preds = %85, %.split29.us
-  %94 = phi i64 [ %100, %.split29.us ], [ 0, %85 ]
-  %95 = phi i32 [ %spec.select52, %.split29.us ], [ 0, %85 ]
+.split26.us:                                      ; preds = %85, %.split26.us
+  %94 = phi i64 [ %100, %.split26.us ], [ 0, %85 ]
+  %95 = phi i32 [ %spec.select51, %.split26.us ], [ 0, %85 ]
   %96 = getelementptr %struct.snd_ratden, ptr %14, i64 %94
   %97 = getelementptr inbounds nuw i8, ptr %96, i64 12
   %98 = load i32, ptr %97, align 4
   %99 = load i32, ptr %96, align 4
-  %.not34 = icmp eq i32 %99, 0
-  %spec.select52 = select i1 %.not34, i32 %98, i32 %95
+  %.not33 = icmp eq i32 %99, 0
+  %spec.select51 = select i1 %.not33, i32 %98, i32 %95
   %100 = add nuw nsw i64 %94, 1
   %101 = icmp eq i64 %100, %20
-  br i1 %101, label %.split31.us, label %.split29.us, !llvm.loop !22
+  br i1 %101, label %.split28.us, label %.split26.us, !llvm.loop !22
 
-.split29:                                         ; preds = %85, %134
+.split26:                                         ; preds = %85, %134
   %102 = phi i64 [ %138, %134 ], [ 0, %85 ]
   %103 = phi i32 [ %137, %134 ], [ 0, %85 ]
   %104 = phi i32 [ %136, %134 ], [ 0, %85 ]
@@ -2722,15 +2724,15 @@ define internal noundef range(i32 -22, 2) i32 @snd_pcm_hw_rule_ratdens(ptr nound
   %106 = getelementptr %struct.snd_ratden, ptr %14, i64 %102
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 12
   %108 = load i32, ptr %107, align 4
-  %109 = tail call { i32, i1 } @llvm.umul.with.overflow.i32(i32 %92, i32 %108)
+  %109 = tail call { i32, i1 } @llvm.umul.with.overflow.i32(i32 %.fr, i32 %108)
   %110 = extractvalue { i32, i1 } %109, 1
-  %111 = mul i32 %108, %92
+  %111 = mul i32 %108, %.fr
   %112 = select i1 %110, i32 -1, i32 %111
   %113 = load i32, ptr %106, align 4
   %114 = icmp ult i32 %112, %113
   br i1 %114, label %134, label %115
 
-115:                                              ; preds = %.split29
+115:                                              ; preds = %.split26
   %116 = getelementptr inbounds nuw i8, ptr %106, i64 4
   %117 = load i32, ptr %116, align 4
   %118 = icmp ugt i32 %112, %117
@@ -2759,24 +2761,24 @@ define internal noundef range(i32 -22, 2) i32 @snd_pcm_hw_rule_ratdens(ptr nound
 133:                                              ; preds = %129, %125
   br label %134
 
-134:                                              ; preds = %133, %129, %.split29
-  %135 = phi i32 [ %105, %.split29 ], [ %126, %133 ], [ %105, %129 ]
-  %136 = phi i32 [ %104, %.split29 ], [ %127, %133 ], [ %104, %129 ]
-  %137 = phi i32 [ %103, %.split29 ], [ %108, %133 ], [ %103, %129 ]
+134:                                              ; preds = %133, %129, %.split26
+  %135 = phi i32 [ %105, %.split26 ], [ %126, %133 ], [ %105, %129 ]
+  %136 = phi i32 [ %104, %.split26 ], [ %127, %133 ], [ %104, %129 ]
+  %137 = phi i32 [ %103, %.split26 ], [ %108, %133 ], [ %103, %129 ]
   %138 = add nuw nsw i64 %102, 1
   %139 = icmp eq i64 %138, %20
-  br i1 %139, label %.split31.us, label %.split29, !llvm.loop !22
+  br i1 %139, label %.split28.us, label %.split26, !llvm.loop !22
 
-.split31.us:                                      ; preds = %134, %.split29.us
-  %.us-phi32 = phi i32 [ 0, %.split29.us ], [ %135, %134 ]
-  %.us-phi33 = phi i32 [ %spec.select52, %.split29.us ], [ %137, %134 ]
-  %140 = icmp eq i32 %.us-phi33, 0
-  br i1 %140, label %.thread22.sink.split, label %141
+.split28.us:                                      ; preds = %134, %.split26.us
+  %.us-phi29 = phi i32 [ 0, %.split26.us ], [ %135, %134 ]
+  %.us-phi30 = phi i32 [ %spec.select51, %.split26.us ], [ %137, %134 ]
+  %140 = icmp eq i32 %.us-phi30, 0
+  br i1 %140, label %.thread19.sink.split, label %141
 
-141:                                              ; preds = %.split31.us
+141:                                              ; preds = %.split28.us
   store i32 0, ptr %15, align 4, !annotation !6
-  %142 = urem i32 %.us-phi32, %.us-phi33
-  %143 = udiv i32 %.us-phi32, %.us-phi33
+  %142 = urem i32 %.us-phi29, %.us-phi30
+  %143 = udiv i32 %.us-phi29, %.us-phi30
   %144 = icmp ne i32 %142, 0
   %145 = zext i1 %144 to i32
   %146 = add i32 %143, %145
@@ -2788,7 +2790,7 @@ define internal noundef range(i32 -22, 2) i32 @snd_pcm_hw_rule_ratdens(ptr nound
   store i8 %150, ptr %89, align 4
   %151 = call i32 @snd_interval_refine(ptr noundef %11, ptr noundef nonnull %3)
   %152 = icmp slt i32 %151, 0
-  br i1 %152, label %.thread22, label %153
+  br i1 %152, label %.thread19, label %153
 
 153:                                              ; preds = %141
   %154 = load i32, ptr %11, align 4
@@ -2799,24 +2801,24 @@ define internal noundef range(i32 -22, 2) i32 @snd_pcm_hw_rule_ratdens(ptr nound
 157:                                              ; preds = %153
   %158 = add i32 %154, 1
   %159 = icmp eq i32 %158, %155
-  br i1 %159, label %160, label %.thread22
+  br i1 %159, label %160, label %.thread19
 
 160:                                              ; preds = %157
   %161 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %162 = load i8, ptr %161, align 4
   %163 = and i8 %162, 3
   %164 = icmp eq i8 %163, 0
-  br i1 %164, label %.thread22, label %168
+  br i1 %164, label %.thread19, label %168
 
-.thread22.sink.split:                             ; preds = %.split31.us, %.split27.us, %2
+.thread19.sink.split:                             ; preds = %.split28.us, %.split24.us, %2
   %165 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %166 = load i8, ptr %165, align 4
   %167 = or i8 %166, 8
   store i8 %167, ptr %165, align 4
-  br label %.thread22
+  br label %.thread19
 
-.thread22:                                        ; preds = %.thread22.sink.split, %141, %160, %157
-  %.ph = phi i32 [ %151, %157 ], [ %151, %160 ], [ %151, %141 ], [ -22, %.thread22.sink.split ]
+.thread19:                                        ; preds = %.thread19.sink.split, %141, %160, %157
+  %.ph = phi i32 [ %151, %157 ], [ %151, %160 ], [ %151, %141 ], [ -22, %.thread19.sink.split ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3) #20
   br label %174
 
@@ -2828,13 +2830,13 @@ define internal noundef range(i32 -22, 2) i32 @snd_pcm_hw_rule_ratdens(ptr nound
 
 171:                                              ; preds = %168
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 528
-  store i32 %.us-phi32, ptr %172, align 8
+  store i32 %.us-phi29, ptr %172, align 8
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 532
-  store i32 %.us-phi33, ptr %173, align 4
+  store i32 %.us-phi30, ptr %173, align 4
   br label %174
 
-174:                                              ; preds = %.thread22, %171, %168
-  %175 = phi i32 [ %.ph, %.thread22 ], [ %151, %171 ], [ %151, %168 ]
+174:                                              ; preds = %.thread19, %171, %168
+  %175 = phi i32 [ %.ph, %.thread19 ], [ %151, %171 ], [ %151, %168 ]
   ret i32 %175
 }
 

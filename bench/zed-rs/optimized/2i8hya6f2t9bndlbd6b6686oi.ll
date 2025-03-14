@@ -33780,23 +33780,21 @@ define hidden void @"_ZN8wasmtime7runtime9component4func5typed17WasmList$LT$T$GT
   %8 = alloca [32 x i8], align 8
   %9 = alloca [48 x i8], align 8
   %10 = alloca [48 x i8], align 8
-  %11 = icmp ugt i64 %2, 2305843009213693951
-  br i1 %11, label %.thread, label %12
+  %11 = shl i64 %2, 3
+  %12 = icmp ugt i64 %2, 2305843009213693951
+  %13 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %1, i64 %11)
+  %14 = extractvalue { i64, i1 } %13, 1
+  %.sroa.0.0.demorgan = or i1 %12, %14
+  br i1 %.sroa.0.0.demorgan, label %19, label %15
 
-12:                                               ; preds = %6
-  %13 = shl nuw i64 %2, 3
-  %14 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %1, i64 %13)
-  %15 = extractvalue { i64, i1 } %14, 1
-  br i1 %15, label %.thread, label %16
+15:                                               ; preds = %6
+  %16 = add nuw i64 %11, %1
+  %17 = tail call { ptr, i64 } @_ZN8wasmtime7runtime9component4func7options11LiftContext6memory17hf5c8985fc9f7a54bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %3)
+  %18 = extractvalue { ptr, i64 } %17, 1
+  %.not17.not = icmp ugt i64 %16, %18
+  br i1 %.not17.not, label %19, label %26
 
-16:                                               ; preds = %12
-  %17 = add nuw i64 %13, %1
-  %18 = tail call { ptr, i64 } @_ZN8wasmtime7runtime9component4func7options11LiftContext6memory17hf5c8985fc9f7a54bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %3)
-  %19 = extractvalue { ptr, i64 } %18, 1
-  %.not = icmp ugt i64 %17, %19
-  br i1 %.not, label %.thread, label %26
-
-.thread:                                          ; preds = %6, %12, %16
+19:                                               ; preds = %6, %15
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10)
   store ptr @anon.b7ff6e372baf4eb9433dd0bc31178b62.386, ptr %10, align 8
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -33814,7 +33812,7 @@ define hidden void @"_ZN8wasmtime7runtime9component4func5typed17WasmList$LT$T$GT
   store i32 23, ptr %0, align 8
   br label %58
 
-26:                                               ; preds = %16
+26:                                               ; preds = %15
   %27 = and i64 %1, 3
   %28 = icmp eq i64 %27, 0
   br i1 %28, label %29, label %36
@@ -33906,7 +33904,7 @@ define hidden void @"_ZN8wasmtime7runtime9component4func5typed17WasmList$LT$T$GT
 "_ZN4core3ptr95drop_in_place$LT$alloc..sync..Arc$LT$wasmtime_environ..component..types..ComponentTypes$GT$$GT$17h688571de0abc5800E.exit": ; preds = %50, %54
   resume { ptr, i32 } %51
 
-58:                                               ; preds = %49, %36, %.thread
+58:                                               ; preds = %49, %36, %19
   ret void
 }
 
@@ -33917,23 +33915,21 @@ define hidden void @"_ZN8wasmtime7runtime9component4func5typed17WasmList$LT$T$GT
   %9 = alloca [48 x i8], align 8
   %10 = alloca [48 x i8], align 8
   %11 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %2, i64 44)
-  %12 = extractvalue { i64, i1 } %11, 1
-  br i1 %12, label %.thread, label %13
+  %12 = extractvalue { i64, i1 } %11, 0
+  %13 = extractvalue { i64, i1 } %11, 1
+  %14 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %1, i64 %12)
+  %15 = extractvalue { i64, i1 } %14, 1
+  %.sroa.0.0.demorgan = or i1 %13, %15
+  br i1 %.sroa.0.0.demorgan, label %20, label %16
 
-13:                                               ; preds = %6
-  %14 = extractvalue { i64, i1 } %11, 0
-  %15 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %1, i64 %14)
-  %16 = extractvalue { i64, i1 } %15, 1
-  br i1 %16, label %.thread, label %17
+16:                                               ; preds = %6
+  %17 = add nuw i64 %12, %1
+  %18 = tail call { ptr, i64 } @_ZN8wasmtime7runtime9component4func7options11LiftContext6memory17hf5c8985fc9f7a54bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %3)
+  %19 = extractvalue { ptr, i64 } %18, 1
+  %.not17.not = icmp ugt i64 %17, %19
+  br i1 %.not17.not, label %20, label %27
 
-17:                                               ; preds = %13
-  %18 = add nuw i64 %14, %1
-  %19 = tail call { ptr, i64 } @_ZN8wasmtime7runtime9component4func7options11LiftContext6memory17hf5c8985fc9f7a54bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %3)
-  %20 = extractvalue { ptr, i64 } %19, 1
-  %.not = icmp ugt i64 %18, %20
-  br i1 %.not, label %.thread, label %27
-
-.thread:                                          ; preds = %6, %13, %17
+20:                                               ; preds = %6, %16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10)
   store ptr @anon.b7ff6e372baf4eb9433dd0bc31178b62.386, ptr %10, align 8
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -33951,7 +33947,7 @@ define hidden void @"_ZN8wasmtime7runtime9component4func5typed17WasmList$LT$T$GT
   store i32 23, ptr %0, align 8
   br label %59
 
-27:                                               ; preds = %17
+27:                                               ; preds = %16
   %28 = and i64 %1, 3
   %29 = icmp eq i64 %28, 0
   br i1 %29, label %30, label %37
@@ -34043,7 +34039,7 @@ define hidden void @"_ZN8wasmtime7runtime9component4func5typed17WasmList$LT$T$GT
 "_ZN4core3ptr95drop_in_place$LT$alloc..sync..Arc$LT$wasmtime_environ..component..types..ComponentTypes$GT$$GT$17h688571de0abc5800E.exit": ; preds = %51, %55
   resume { ptr, i32 } %52
 
-59:                                               ; preds = %50, %37, %.thread
+59:                                               ; preds = %50, %37, %20
   ret void
 }
 
@@ -34054,23 +34050,21 @@ define hidden void @"_ZN8wasmtime7runtime9component4func5typed17WasmList$LT$T$GT
   %9 = alloca [48 x i8], align 8
   %10 = alloca [48 x i8], align 8
   %11 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %2, i64 28)
-  %12 = extractvalue { i64, i1 } %11, 1
-  br i1 %12, label %.thread, label %13
+  %12 = extractvalue { i64, i1 } %11, 0
+  %13 = extractvalue { i64, i1 } %11, 1
+  %14 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %1, i64 %12)
+  %15 = extractvalue { i64, i1 } %14, 1
+  %.sroa.0.0.demorgan = or i1 %13, %15
+  br i1 %.sroa.0.0.demorgan, label %20, label %16
 
-13:                                               ; preds = %6
-  %14 = extractvalue { i64, i1 } %11, 0
-  %15 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %1, i64 %14)
-  %16 = extractvalue { i64, i1 } %15, 1
-  br i1 %16, label %.thread, label %17
+16:                                               ; preds = %6
+  %17 = add nuw i64 %12, %1
+  %18 = tail call { ptr, i64 } @_ZN8wasmtime7runtime9component4func7options11LiftContext6memory17hf5c8985fc9f7a54bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %3)
+  %19 = extractvalue { ptr, i64 } %18, 1
+  %.not17.not = icmp ugt i64 %17, %19
+  br i1 %.not17.not, label %20, label %27
 
-17:                                               ; preds = %13
-  %18 = add nuw i64 %14, %1
-  %19 = tail call { ptr, i64 } @_ZN8wasmtime7runtime9component4func7options11LiftContext6memory17hf5c8985fc9f7a54bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %3)
-  %20 = extractvalue { ptr, i64 } %19, 1
-  %.not = icmp ugt i64 %18, %20
-  br i1 %.not, label %.thread, label %27
-
-.thread:                                          ; preds = %6, %13, %17
+20:                                               ; preds = %6, %16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10)
   store ptr @anon.b7ff6e372baf4eb9433dd0bc31178b62.386, ptr %10, align 8
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -34088,7 +34082,7 @@ define hidden void @"_ZN8wasmtime7runtime9component4func5typed17WasmList$LT$T$GT
   store i32 23, ptr %0, align 8
   br label %59
 
-27:                                               ; preds = %17
+27:                                               ; preds = %16
   %28 = and i64 %1, 3
   %29 = icmp eq i64 %28, 0
   br i1 %29, label %30, label %37
@@ -34180,7 +34174,7 @@ define hidden void @"_ZN8wasmtime7runtime9component4func5typed17WasmList$LT$T$GT
 "_ZN4core3ptr95drop_in_place$LT$alloc..sync..Arc$LT$wasmtime_environ..component..types..ComponentTypes$GT$$GT$17h688571de0abc5800E.exit": ; preds = %51, %55
   resume { ptr, i32 } %52
 
-59:                                               ; preds = %50, %37, %.thread
+59:                                               ; preds = %50, %37, %20
   ret void
 }
 
@@ -34191,23 +34185,21 @@ define hidden void @"_ZN8wasmtime7runtime9component4func5typed17WasmList$LT$T$GT
   %9 = alloca [48 x i8], align 8
   %10 = alloca [48 x i8], align 8
   %11 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %2, i64 20)
-  %12 = extractvalue { i64, i1 } %11, 1
-  br i1 %12, label %.thread, label %13
+  %12 = extractvalue { i64, i1 } %11, 0
+  %13 = extractvalue { i64, i1 } %11, 1
+  %14 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %1, i64 %12)
+  %15 = extractvalue { i64, i1 } %14, 1
+  %.sroa.0.0.demorgan = or i1 %13, %15
+  br i1 %.sroa.0.0.demorgan, label %20, label %16
 
-13:                                               ; preds = %6
-  %14 = extractvalue { i64, i1 } %11, 0
-  %15 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %1, i64 %14)
-  %16 = extractvalue { i64, i1 } %15, 1
-  br i1 %16, label %.thread, label %17
+16:                                               ; preds = %6
+  %17 = add nuw i64 %12, %1
+  %18 = tail call { ptr, i64 } @_ZN8wasmtime7runtime9component4func7options11LiftContext6memory17hf5c8985fc9f7a54bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %3)
+  %19 = extractvalue { ptr, i64 } %18, 1
+  %.not17.not = icmp ugt i64 %17, %19
+  br i1 %.not17.not, label %20, label %27
 
-17:                                               ; preds = %13
-  %18 = add nuw i64 %14, %1
-  %19 = tail call { ptr, i64 } @_ZN8wasmtime7runtime9component4func7options11LiftContext6memory17hf5c8985fc9f7a54bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %3)
-  %20 = extractvalue { ptr, i64 } %19, 1
-  %.not = icmp ugt i64 %18, %20
-  br i1 %.not, label %.thread, label %27
-
-.thread:                                          ; preds = %6, %13, %17
+20:                                               ; preds = %6, %16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10)
   store ptr @anon.b7ff6e372baf4eb9433dd0bc31178b62.386, ptr %10, align 8
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -34225,7 +34217,7 @@ define hidden void @"_ZN8wasmtime7runtime9component4func5typed17WasmList$LT$T$GT
   store i32 23, ptr %0, align 8
   br label %59
 
-27:                                               ; preds = %17
+27:                                               ; preds = %16
   %28 = and i64 %1, 3
   %29 = icmp eq i64 %28, 0
   br i1 %29, label %30, label %37
@@ -34317,7 +34309,7 @@ define hidden void @"_ZN8wasmtime7runtime9component4func5typed17WasmList$LT$T$GT
 "_ZN4core3ptr95drop_in_place$LT$alloc..sync..Arc$LT$wasmtime_environ..component..types..ComponentTypes$GT$$GT$17h688571de0abc5800E.exit": ; preds = %51, %55
   resume { ptr, i32 } %52
 
-59:                                               ; preds = %50, %37, %.thread
+59:                                               ; preds = %50, %37, %20
   ret void
 }
 
@@ -34327,23 +34319,21 @@ define hidden void @"_ZN8wasmtime7runtime9component4func5typed17WasmList$LT$T$GT
   %8 = alloca [32 x i8], align 8
   %9 = alloca [48 x i8], align 8
   %10 = alloca [48 x i8], align 8
-  %11 = icmp ugt i64 %2, 1152921504606846975
-  br i1 %11, label %.thread, label %12
+  %11 = shl i64 %2, 4
+  %12 = icmp ugt i64 %2, 1152921504606846975
+  %13 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %1, i64 %11)
+  %14 = extractvalue { i64, i1 } %13, 1
+  %.sroa.0.0.demorgan = or i1 %12, %14
+  br i1 %.sroa.0.0.demorgan, label %19, label %15
 
-12:                                               ; preds = %6
-  %13 = shl nuw i64 %2, 4
-  %14 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %1, i64 %13)
-  %15 = extractvalue { i64, i1 } %14, 1
-  br i1 %15, label %.thread, label %16
+15:                                               ; preds = %6
+  %16 = add nuw i64 %11, %1
+  %17 = tail call { ptr, i64 } @_ZN8wasmtime7runtime9component4func7options11LiftContext6memory17hf5c8985fc9f7a54bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %3)
+  %18 = extractvalue { ptr, i64 } %17, 1
+  %.not17.not = icmp ugt i64 %16, %18
+  br i1 %.not17.not, label %19, label %26
 
-16:                                               ; preds = %12
-  %17 = add nuw i64 %13, %1
-  %18 = tail call { ptr, i64 } @_ZN8wasmtime7runtime9component4func7options11LiftContext6memory17hf5c8985fc9f7a54bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %3)
-  %19 = extractvalue { ptr, i64 } %18, 1
-  %.not = icmp ugt i64 %17, %19
-  br i1 %.not, label %.thread, label %26
-
-.thread:                                          ; preds = %6, %12, %16
+19:                                               ; preds = %6, %15
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10)
   store ptr @anon.b7ff6e372baf4eb9433dd0bc31178b62.386, ptr %10, align 8
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -34361,7 +34351,7 @@ define hidden void @"_ZN8wasmtime7runtime9component4func5typed17WasmList$LT$T$GT
   store i32 23, ptr %0, align 8
   br label %58
 
-26:                                               ; preds = %16
+26:                                               ; preds = %15
   %27 = and i64 %1, 3
   %28 = icmp eq i64 %27, 0
   br i1 %28, label %29, label %36
@@ -34453,7 +34443,7 @@ define hidden void @"_ZN8wasmtime7runtime9component4func5typed17WasmList$LT$T$GT
 "_ZN4core3ptr95drop_in_place$LT$alloc..sync..Arc$LT$wasmtime_environ..component..types..ComponentTypes$GT$$GT$17h688571de0abc5800E.exit": ; preds = %50, %54
   resume { ptr, i32 } %51
 
-58:                                               ; preds = %49, %36, %.thread
+58:                                               ; preds = %49, %36, %19
   ret void
 }
 
@@ -34464,23 +34454,21 @@ define hidden void @"_ZN8wasmtime7runtime9component4func5typed17WasmList$LT$T$GT
   %9 = alloca [48 x i8], align 8
   %10 = alloca [48 x i8], align 8
   %11 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %2, i64 28)
-  %12 = extractvalue { i64, i1 } %11, 1
-  br i1 %12, label %.thread, label %13
+  %12 = extractvalue { i64, i1 } %11, 0
+  %13 = extractvalue { i64, i1 } %11, 1
+  %14 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %1, i64 %12)
+  %15 = extractvalue { i64, i1 } %14, 1
+  %.sroa.0.0.demorgan = or i1 %13, %15
+  br i1 %.sroa.0.0.demorgan, label %20, label %16
 
-13:                                               ; preds = %6
-  %14 = extractvalue { i64, i1 } %11, 0
-  %15 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %1, i64 %14)
-  %16 = extractvalue { i64, i1 } %15, 1
-  br i1 %16, label %.thread, label %17
+16:                                               ; preds = %6
+  %17 = add nuw i64 %12, %1
+  %18 = tail call { ptr, i64 } @_ZN8wasmtime7runtime9component4func7options11LiftContext6memory17hf5c8985fc9f7a54bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %3)
+  %19 = extractvalue { ptr, i64 } %18, 1
+  %.not17.not = icmp ugt i64 %17, %19
+  br i1 %.not17.not, label %20, label %27
 
-17:                                               ; preds = %13
-  %18 = add nuw i64 %14, %1
-  %19 = tail call { ptr, i64 } @_ZN8wasmtime7runtime9component4func7options11LiftContext6memory17hf5c8985fc9f7a54bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %3)
-  %20 = extractvalue { ptr, i64 } %19, 1
-  %.not = icmp ugt i64 %18, %20
-  br i1 %.not, label %.thread, label %27
-
-.thread:                                          ; preds = %6, %13, %17
+20:                                               ; preds = %6, %16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10)
   store ptr @anon.b7ff6e372baf4eb9433dd0bc31178b62.386, ptr %10, align 8
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -34498,7 +34486,7 @@ define hidden void @"_ZN8wasmtime7runtime9component4func5typed17WasmList$LT$T$GT
   store i32 23, ptr %0, align 8
   br label %59
 
-27:                                               ; preds = %17
+27:                                               ; preds = %16
   %28 = and i64 %1, 3
   %29 = icmp eq i64 %28, 0
   br i1 %29, label %30, label %37
@@ -34590,7 +34578,7 @@ define hidden void @"_ZN8wasmtime7runtime9component4func5typed17WasmList$LT$T$GT
 "_ZN4core3ptr95drop_in_place$LT$alloc..sync..Arc$LT$wasmtime_environ..component..types..ComponentTypes$GT$$GT$17h688571de0abc5800E.exit": ; preds = %51, %55
   resume { ptr, i32 } %52
 
-59:                                               ; preds = %50, %37, %.thread
+59:                                               ; preds = %50, %37, %20
   ret void
 }
 
@@ -34600,23 +34588,21 @@ define hidden void @"_ZN8wasmtime7runtime9component4func5typed17WasmList$LT$T$GT
   %8 = alloca [32 x i8], align 8
   %9 = alloca [48 x i8], align 8
   %10 = alloca [48 x i8], align 8
-  %11 = icmp ugt i64 %2, 1152921504606846975
-  br i1 %11, label %.thread, label %12
+  %11 = shl i64 %2, 4
+  %12 = icmp ugt i64 %2, 1152921504606846975
+  %13 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %1, i64 %11)
+  %14 = extractvalue { i64, i1 } %13, 1
+  %.sroa.0.0.demorgan = or i1 %12, %14
+  br i1 %.sroa.0.0.demorgan, label %19, label %15
 
-12:                                               ; preds = %6
-  %13 = shl nuw i64 %2, 4
-  %14 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %1, i64 %13)
-  %15 = extractvalue { i64, i1 } %14, 1
-  br i1 %15, label %.thread, label %16
+15:                                               ; preds = %6
+  %16 = add nuw i64 %11, %1
+  %17 = tail call { ptr, i64 } @_ZN8wasmtime7runtime9component4func7options11LiftContext6memory17hf5c8985fc9f7a54bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %3)
+  %18 = extractvalue { ptr, i64 } %17, 1
+  %.not17.not = icmp ugt i64 %16, %18
+  br i1 %.not17.not, label %19, label %26
 
-16:                                               ; preds = %12
-  %17 = add nuw i64 %13, %1
-  %18 = tail call { ptr, i64 } @_ZN8wasmtime7runtime9component4func7options11LiftContext6memory17hf5c8985fc9f7a54bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %3)
-  %19 = extractvalue { ptr, i64 } %18, 1
-  %.not = icmp ugt i64 %17, %19
-  br i1 %.not, label %.thread, label %26
-
-.thread:                                          ; preds = %6, %12, %16
+19:                                               ; preds = %6, %15
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10)
   store ptr @anon.b7ff6e372baf4eb9433dd0bc31178b62.386, ptr %10, align 8
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -34634,7 +34620,7 @@ define hidden void @"_ZN8wasmtime7runtime9component4func5typed17WasmList$LT$T$GT
   store i32 23, ptr %0, align 8
   br label %58
 
-26:                                               ; preds = %16
+26:                                               ; preds = %15
   %27 = and i64 %1, 3
   %28 = icmp eq i64 %27, 0
   br i1 %28, label %29, label %36
@@ -34726,7 +34712,7 @@ define hidden void @"_ZN8wasmtime7runtime9component4func5typed17WasmList$LT$T$GT
 "_ZN4core3ptr95drop_in_place$LT$alloc..sync..Arc$LT$wasmtime_environ..component..types..ComponentTypes$GT$$GT$17h688571de0abc5800E.exit": ; preds = %50, %54
   resume { ptr, i32 } %51
 
-58:                                               ; preds = %49, %36, %.thread
+58:                                               ; preds = %49, %36, %19
   ret void
 }
 
@@ -34737,23 +34723,21 @@ define hidden void @"_ZN8wasmtime7runtime9component4func5typed17WasmList$LT$T$GT
   %9 = alloca [48 x i8], align 8
   %10 = alloca [48 x i8], align 8
   %11 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %2, i64 28)
-  %12 = extractvalue { i64, i1 } %11, 1
-  br i1 %12, label %.thread, label %13
+  %12 = extractvalue { i64, i1 } %11, 0
+  %13 = extractvalue { i64, i1 } %11, 1
+  %14 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %1, i64 %12)
+  %15 = extractvalue { i64, i1 } %14, 1
+  %.sroa.0.0.demorgan = or i1 %13, %15
+  br i1 %.sroa.0.0.demorgan, label %20, label %16
 
-13:                                               ; preds = %6
-  %14 = extractvalue { i64, i1 } %11, 0
-  %15 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %1, i64 %14)
-  %16 = extractvalue { i64, i1 } %15, 1
-  br i1 %16, label %.thread, label %17
+16:                                               ; preds = %6
+  %17 = add nuw i64 %12, %1
+  %18 = tail call { ptr, i64 } @_ZN8wasmtime7runtime9component4func7options11LiftContext6memory17hf5c8985fc9f7a54bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %3)
+  %19 = extractvalue { ptr, i64 } %18, 1
+  %.not17.not = icmp ugt i64 %17, %19
+  br i1 %.not17.not, label %20, label %27
 
-17:                                               ; preds = %13
-  %18 = add nuw i64 %14, %1
-  %19 = tail call { ptr, i64 } @_ZN8wasmtime7runtime9component4func7options11LiftContext6memory17hf5c8985fc9f7a54bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %3)
-  %20 = extractvalue { ptr, i64 } %19, 1
-  %.not = icmp ugt i64 %18, %20
-  br i1 %.not, label %.thread, label %27
-
-.thread:                                          ; preds = %6, %13, %17
+20:                                               ; preds = %6, %16
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10)
   store ptr @anon.b7ff6e372baf4eb9433dd0bc31178b62.386, ptr %10, align 8
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -34771,7 +34755,7 @@ define hidden void @"_ZN8wasmtime7runtime9component4func5typed17WasmList$LT$T$GT
   store i32 23, ptr %0, align 8
   br label %59
 
-27:                                               ; preds = %17
+27:                                               ; preds = %16
   %28 = and i64 %1, 3
   %29 = icmp eq i64 %28, 0
   br i1 %29, label %30, label %37
@@ -34863,7 +34847,7 @@ define hidden void @"_ZN8wasmtime7runtime9component4func5typed17WasmList$LT$T$GT
 "_ZN4core3ptr95drop_in_place$LT$alloc..sync..Arc$LT$wasmtime_environ..component..types..ComponentTypes$GT$$GT$17h688571de0abc5800E.exit": ; preds = %51, %55
   resume { ptr, i32 } %52
 
-59:                                               ; preds = %50, %37, %.thread
+59:                                               ; preds = %50, %37, %20
   ret void
 }
 
@@ -34873,23 +34857,21 @@ define hidden void @"_ZN8wasmtime7runtime9component4func5typed17WasmList$LT$T$GT
   %8 = alloca [32 x i8], align 8
   %9 = alloca [48 x i8], align 8
   %10 = alloca [48 x i8], align 8
-  %11 = icmp ugt i64 %2, 4611686018427387903
-  br i1 %11, label %.thread, label %12
+  %11 = shl i64 %2, 2
+  %12 = icmp ugt i64 %2, 4611686018427387903
+  %13 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %1, i64 %11)
+  %14 = extractvalue { i64, i1 } %13, 1
+  %.sroa.0.0.demorgan = or i1 %12, %14
+  br i1 %.sroa.0.0.demorgan, label %19, label %15
 
-12:                                               ; preds = %6
-  %13 = shl nuw i64 %2, 2
-  %14 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %1, i64 %13)
-  %15 = extractvalue { i64, i1 } %14, 1
-  br i1 %15, label %.thread, label %16
+15:                                               ; preds = %6
+  %16 = add nuw i64 %11, %1
+  %17 = tail call { ptr, i64 } @_ZN8wasmtime7runtime9component4func7options11LiftContext6memory17hf5c8985fc9f7a54bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %3)
+  %18 = extractvalue { ptr, i64 } %17, 1
+  %.not17.not = icmp ugt i64 %16, %18
+  br i1 %.not17.not, label %19, label %26
 
-16:                                               ; preds = %12
-  %17 = add nuw i64 %13, %1
-  %18 = tail call { ptr, i64 } @_ZN8wasmtime7runtime9component4func7options11LiftContext6memory17hf5c8985fc9f7a54bE(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %3)
-  %19 = extractvalue { ptr, i64 } %18, 1
-  %.not = icmp ugt i64 %17, %19
-  br i1 %.not, label %.thread, label %26
-
-.thread:                                          ; preds = %6, %12, %16
+19:                                               ; preds = %6, %15
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10)
   store ptr @anon.b7ff6e372baf4eb9433dd0bc31178b62.386, ptr %10, align 8
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 8
@@ -34907,7 +34889,7 @@ define hidden void @"_ZN8wasmtime7runtime9component4func5typed17WasmList$LT$T$GT
   store i32 23, ptr %0, align 8
   br label %58
 
-26:                                               ; preds = %16
+26:                                               ; preds = %15
   %27 = and i64 %1, 3
   %28 = icmp eq i64 %27, 0
   br i1 %28, label %29, label %36
@@ -34999,7 +34981,7 @@ define hidden void @"_ZN8wasmtime7runtime9component4func5typed17WasmList$LT$T$GT
 "_ZN4core3ptr95drop_in_place$LT$alloc..sync..Arc$LT$wasmtime_environ..component..types..ComponentTypes$GT$$GT$17h688571de0abc5800E.exit": ; preds = %50, %54
   resume { ptr, i32 } %51
 
-58:                                               ; preds = %49, %36, %.thread
+58:                                               ; preds = %49, %36, %19
   ret void
 }
 

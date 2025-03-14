@@ -2931,52 +2931,46 @@ define internal fastcc void @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F
   %.val.i.i38.i.i.i.i = load ptr, ptr %99, align 8, !alias.scope !1090, !noalias !1095
   %.not.i.i39.i.i.i.i = icmp ne ptr %.val.i.i38.i.i.i.i, null
   %.sroa.062.0.not.i.i40.i.i.i.i = select i1 %trunc.i.i37.i.i.i.i, i1 %.not.i.i39.i.i.i.i, i1 false
+  %spec.select49.i.i.i.i = select i1 %.sroa.062.0.not.i.i40.i.i.i.i, i64 undef, i64 %98
   %100 = add nuw nsw i64 %98, %78
   %101 = select i1 %.sroa.062.0.not.i.i28.i.i.i.i, i1 true, i1 %.sroa.062.0.not.i.i40.i.i.i.i
-  br i1 %101, label %106, label %102
-
-102:                                              ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h956db2f2e5875bc8E.exit53.i.i35.i.i.i.i"
-  %103 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %spec.select47.i.i.i.i, i64 %98)
-  %104 = extractvalue { i64, i1 } %103, 1
-  %105 = add nuw i64 %98, %spec.select47.i.i.i.i
-  %not..i.i.i.i = xor i1 %104, true
-  %spec.select.i.i.i.i = zext i1 %not..i.i.i.i to i64
-  %spec.select9.i.i.i.i = select i1 %104, i64 undef, i64 %105
-  br label %106
-
-106:                                              ; preds = %102, %"_ZN4core6option15Option$LT$T$GT$6map_or17h956db2f2e5875bc8E.exit53.i.i35.i.i.i.i"
-  %.sroa.03.0.i.i.i.i = phi i64 [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17h956db2f2e5875bc8E.exit53.i.i35.i.i.i.i" ], [ %spec.select.i.i.i.i, %102 ]
-  %.sroa.6.0.i.i.i.i = phi i64 [ undef, %"_ZN4core6option15Option$LT$T$GT$6map_or17h956db2f2e5875bc8E.exit53.i.i35.i.i.i.i" ], [ %spec.select9.i.i.i.i, %102 ]
+  %102 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %spec.select47.i.i.i.i, i64 %spec.select49.i.i.i.i)
+  %103 = extractvalue { i64, i1 } %102, 1
+  %104 = add nuw i64 %spec.select49.i.i.i.i, %spec.select47.i.i.i.i
+  %105 = select i1 %101, i1 true, i1 %103
+  %narrow.i.i.i.i = xor i1 %105, true
+  %.sroa.03.0.i.i.i.i = zext i1 %narrow.i.i.i.i to i64
+  %.sroa.6.0.i.i.i.i = select i1 %105, i64 undef, i64 %104
   store i64 %.sroa.03.0.i.i.i.i, ptr %.sroa.7.i.i.i, align 8, !alias.scope !1009, !noalias !1017
   br label %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h26d329f9afdab659E.exit.i.i"
 
-"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h26d329f9afdab659E.exit.i.i": ; preds = %106, %58, %"_ZN4core6option15Option$LT$T$GT$6map_or17h60da31b5bdb96452E.exit53.i.i.i.i.i.i", %36, %"_ZN4core6option15Option$LT$T$GT$6map_or17h956db2f2e5875bc8E.exit53.i.i.i.i.i.i", %14
-  %.sroa.0.0.i.i.i = phi i64 [ 0, %14 ], [ %100, %106 ], [ %34, %36 ], [ %34, %"_ZN4core6option15Option$LT$T$GT$6map_or17h956db2f2e5875bc8E.exit53.i.i.i.i.i.i" ], [ %56, %58 ], [ %56, %"_ZN4core6option15Option$LT$T$GT$6map_or17h60da31b5bdb96452E.exit53.i.i.i.i.i.i" ]
-  %.sink51.i.sroa.phi.i.i.i = phi ptr [ %.sroa.12.i.i.i, %14 ], [ %.sroa.12.i.i.i, %106 ], [ %.sroa.7.i.i.i, %36 ], [ %.sroa.7.i.i.i, %"_ZN4core6option15Option$LT$T$GT$6map_or17h956db2f2e5875bc8E.exit53.i.i.i.i.i.i" ], [ %.sroa.7.i.i.i, %58 ], [ %.sroa.7.i.i.i, %"_ZN4core6option15Option$LT$T$GT$6map_or17h60da31b5bdb96452E.exit53.i.i.i.i.i.i" ]
-  %.sroa.6.0.sink.i.i.i.i = phi i64 [ 0, %14 ], [ %.sroa.6.0.i.i.i.i, %106 ], [ 1, %36 ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17h956db2f2e5875bc8E.exit53.i.i.i.i.i.i" ], [ 1, %58 ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17h60da31b5bdb96452E.exit53.i.i.i.i.i.i" ]
+"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h26d329f9afdab659E.exit.i.i": ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h956db2f2e5875bc8E.exit53.i.i35.i.i.i.i", %58, %"_ZN4core6option15Option$LT$T$GT$6map_or17h60da31b5bdb96452E.exit53.i.i.i.i.i.i", %36, %"_ZN4core6option15Option$LT$T$GT$6map_or17h956db2f2e5875bc8E.exit53.i.i.i.i.i.i", %14
+  %.sroa.0.0.i.i.i = phi i64 [ 0, %14 ], [ %100, %"_ZN4core6option15Option$LT$T$GT$6map_or17h956db2f2e5875bc8E.exit53.i.i35.i.i.i.i" ], [ %34, %36 ], [ %34, %"_ZN4core6option15Option$LT$T$GT$6map_or17h956db2f2e5875bc8E.exit53.i.i.i.i.i.i" ], [ %56, %58 ], [ %56, %"_ZN4core6option15Option$LT$T$GT$6map_or17h60da31b5bdb96452E.exit53.i.i.i.i.i.i" ]
+  %.sink51.i.sroa.phi.i.i.i = phi ptr [ %.sroa.12.i.i.i, %14 ], [ %.sroa.12.i.i.i, %"_ZN4core6option15Option$LT$T$GT$6map_or17h956db2f2e5875bc8E.exit53.i.i35.i.i.i.i" ], [ %.sroa.7.i.i.i, %36 ], [ %.sroa.7.i.i.i, %"_ZN4core6option15Option$LT$T$GT$6map_or17h956db2f2e5875bc8E.exit53.i.i.i.i.i.i" ], [ %.sroa.7.i.i.i, %58 ], [ %.sroa.7.i.i.i, %"_ZN4core6option15Option$LT$T$GT$6map_or17h60da31b5bdb96452E.exit53.i.i.i.i.i.i" ]
+  %.sroa.6.0.sink.i.i.i.i = phi i64 [ 0, %14 ], [ %.sroa.6.0.i.i.i.i, %"_ZN4core6option15Option$LT$T$GT$6map_or17h956db2f2e5875bc8E.exit53.i.i35.i.i.i.i" ], [ 1, %36 ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17h956db2f2e5875bc8E.exit53.i.i.i.i.i.i" ], [ 1, %58 ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17h60da31b5bdb96452E.exit53.i.i.i.i.i.i" ]
   store i64 %.sroa.6.0.sink.i.i.i.i, ptr %.sink51.i.sroa.phi.i.i.i, align 8, !alias.scope !1009, !noalias !1017
   %.sroa.7.i.i.i.0..sroa.7.i.i.i.0..sroa.7.i.i.i.0..sroa.7.i.i.0..sroa.7.i.i.0..sroa.7.i.0..sroa.7.i.0..sroa.7.0..sroa.7.0..sroa.7.8..i.i.i = load i64, ptr %.sroa.7.i.i.i, align 8, !range !107, !noalias !1110, !noundef !11
   %.sroa.12.i.i.i.0..sroa.12.i.i.i.0..sroa.12.i.i.i.0..sroa.12.i.i.0..sroa.12.i.i.0..sroa.12.i.0..sroa.12.i.0..sroa.12.0..sroa.12.0..sroa.12.16..i.i.i = load i64, ptr %.sroa.12.i.i.i, align 8, !noalias !1110
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.7.i.i.i)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %.sroa.12.i.i.i)
-  %107 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %108 = load i64, ptr %107, align 8, !alias.scope !1111, !noalias !1112, !noundef !11
+  %106 = getelementptr inbounds nuw i8, ptr %1, i64 96
+  %107 = load i64, ptr %106, align 8, !alias.scope !1111, !noalias !1112, !noundef !11
   %trunc.i.i.i = trunc nuw i64 %.sroa.7.i.i.i.0..sroa.7.i.i.i.0..sroa.7.i.i.i.0..sroa.7.i.i.0..sroa.7.i.i.0..sroa.7.i.0..sroa.7.i.0..sroa.7.0..sroa.7.0..sroa.7.8..i.i.i to i1
-  %109 = tail call i64 @llvm.usub.sat.i64(i64 %.sroa.12.i.i.i.0..sroa.12.i.i.i.0..sroa.12.i.i.i.0..sroa.12.i.i.0..sroa.12.i.i.0..sroa.12.i.0..sroa.12.i.0..sroa.12.0..sroa.12.0..sroa.12.16..i.i.i, i64 %108)
-  %110 = tail call i64 @llvm.usub.sat.i64(i64 %.sroa.0.0.i.i.i, i64 %108)
-  %.sroa.0.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %110, i64 %4)
-  %111 = tail call i64 @llvm.umin.i64(i64 %109, i64 %4)
-  %.sroa.5.0.i.i = select i1 %trunc.i.i.i, i64 %111, i64 %4
+  %108 = tail call i64 @llvm.usub.sat.i64(i64 %.sroa.12.i.i.i.0..sroa.12.i.i.i.0..sroa.12.i.i.i.0..sroa.12.i.i.0..sroa.12.i.i.0..sroa.12.i.0..sroa.12.i.0..sroa.12.0..sroa.12.0..sroa.12.16..i.i.i, i64 %107)
+  %109 = tail call i64 @llvm.usub.sat.i64(i64 %.sroa.0.0.i.i.i, i64 %107)
+  %.sroa.0.0.sroa.speculated.i.i.i = tail call noundef i64 @llvm.umin.i64(i64 %109, i64 %4)
+  %110 = tail call i64 @llvm.umin.i64(i64 %108, i64 %4)
+  %.sroa.5.0.i.i = select i1 %trunc.i.i.i, i64 %110, i64 %4
   br label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h326982b7d6c8d051E.exit"
 
 "_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h326982b7d6c8d051E.exit": ; preds = %2, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h26d329f9afdab659E.exit.i.i"
   %.sroa.0.0.sroa.speculated.i.sink.i.i = phi i64 [ %.sroa.0.0.sroa.speculated.i.i.i, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h26d329f9afdab659E.exit.i.i" ], [ 0, %2 ]
   %.sroa.5.0.sink.i.i = phi i64 [ %.sroa.5.0.i.i, %"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h26d329f9afdab659E.exit.i.i" ], [ 0, %2 ]
   store i64 %.sroa.0.0.sroa.speculated.i.sink.i.i, ptr %0, align 8, !alias.scope !1005, !noalias !1004
-  %112 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 1, ptr %112, align 8, !alias.scope !1005, !noalias !1004
-  %113 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.5.0.sink.i.i, ptr %113, align 8, !alias.scope !1005, !noalias !1004
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 1, ptr %111, align 8, !alias.scope !1005, !noalias !1004
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.5.0.sink.i.i, ptr %112, align 8, !alias.scope !1005, !noalias !1004
   ret void
 }
 
