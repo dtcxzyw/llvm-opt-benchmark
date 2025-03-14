@@ -4690,6 +4690,7 @@ define internal fastcc i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
 
 24:                                               ; preds = %13
   %25 = call i64 @llvm.umax.i64(i64 %11, i64 %.sroa.03.0.i)
+  %.sroa.0.0.sroa.speculated.i = add nuw i64 %25, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !1273)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6), !noalias !1276
   %26 = icmp ult i64 %25, 7
@@ -4700,13 +4701,12 @@ define internal fastcc i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %28, label %38, label %31
 
 29:                                               ; preds = %24
-  %30 = icmp samesign ult i64 %25, 3
-  %..i.i = select i1 %30, i64 4, i64 8
+  %30 = and i64 %.sroa.0.0.sroa.speculated.i, 4
+  %..i.i = add nuw nsw i64 %30, 4
   br label %40
 
 31:                                               ; preds = %27
-  %.sroa.0.0.sroa.speculated.i = shl nuw i64 %25, 3
-  %32 = add nuw i64 %.sroa.0.0.sroa.speculated.i, 8
+  %32 = shl nuw i64 %.sroa.0.0.sroa.speculated.i, 3
   %33 = udiv i64 %32, 7
   %34 = add nsw i64 %33, -1
   %35 = call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %34, i1 true)
@@ -4965,7 +4965,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.67
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3), !noalias !1351
   call void @llvm.lifetime.end.p0(i64 72, ptr nonnull %5), !noalias !1312
   %.sroa.0.06.i = and i64 %59, %138
-  %139 = getelementptr inbounds i8, ptr %62, i64 %.sroa.0.06.i
+  %139 = getelementptr inbounds nuw i8, ptr %62, i64 %.sroa.0.06.i
   %.sroa.0.0.copyload.i57.i = load <16 x i8>, ptr %139, align 1, !noalias !1353
   %140 = icmp slt <16 x i8> %.sroa.0.0.copyload.i57.i, zeroinitializer
   %141 = bitcast <16 x i1> %140 to i16
@@ -4978,7 +4978,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.67
   %142 = add i64 %.sroa.7.09.i, 16
   %143 = add i64 %142, %.sroa.0.010.i
   %.sroa.0.0.i = and i64 %143, %59
-  %144 = getelementptr inbounds i8, ptr %62, i64 %.sroa.0.0.i
+  %144 = getelementptr inbounds nuw i8, ptr %62, i64 %.sroa.0.0.i
   %.sroa.0.0.copyload.i5.i = load <16 x i8>, ptr %144, align 1, !noalias !1353
   %145 = icmp slt <16 x i8> %.sroa.0.0.copyload.i5.i, zeroinitializer
   %146 = bitcast <16 x i1> %145 to i16
@@ -4990,9 +4990,9 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17h7682ca6e4bd1cee6E.llvm.67
   %.lcssa.i = phi i16 [ %141, %131 ], [ %146, %.lr.ph.i ]
   %147 = call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i, i1 true)
   %148 = zext nneg i16 %147 to i64
-  %149 = add i64 %.sroa.0.0.lcssa.i, %148
+  %149 = add nuw nsw i64 %.sroa.0.0.lcssa.i, %148
   %150 = and i64 %149, %59
-  %151 = getelementptr inbounds i8, ptr %62, i64 %150
+  %151 = getelementptr inbounds nuw i8, ptr %62, i64 %150
   %152 = load i8, ptr %151, align 1, !noundef !4
   %153 = icmp sgt i8 %152, -1
   br i1 %153, label %154, label %_ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.exit
@@ -5011,9 +5011,9 @@ _ZN9hashbrown3raw13RawTableInner16find_insert_slot17hd5499c650fb46ed7E.exit: ; p
   %.sroa.0.0.i12.i = phi i64 [ %160, %154 ], [ %150, %._crit_edge.i ]
   %161 = lshr i64 %138, 57
   %162 = trunc nuw nsw i64 %161 to i8
-  %163 = add i64 %.sroa.0.0.i12.i, -16
+  %163 = add nsw i64 %.sroa.0.0.i12.i, -16
   %164 = and i64 %163, %59
-  %165 = getelementptr inbounds i8, ptr %62, i64 %.sroa.0.0.i12.i
+  %165 = getelementptr inbounds nuw i8, ptr %62, i64 %.sroa.0.0.i12.i
   store i8 %162, ptr %165, align 1, !noalias !1290
   %gep = getelementptr i8, ptr %invariant.gep, i64 %164
   store i8 %162, ptr %gep, align 1, !noalias !1290
@@ -5083,8 +5083,8 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %27, label %29, label %31
 
 .thread:                                          ; preds = %23
-  %28 = icmp samesign ult i64 %.sroa.0.0.sroa.speculated.i, 4
-  %..i.i = select i1 %28, i64 4, i64 8
+  %28 = and i64 %.sroa.0.0.sroa.speculated.i, 4
+  %..i.i = add nuw nsw i64 %28, 4
   br label %39
 
 29:                                               ; preds = %26

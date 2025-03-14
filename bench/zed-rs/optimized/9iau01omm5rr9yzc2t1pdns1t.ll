@@ -128887,8 +128887,8 @@ define hidden void @"_ZN74_$LT$oo7..dbus..api..session..Session$u20$as$u20$serde
   %6 = load i64, ptr %5, align 8, !range !12, !noundef !5
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %8 = load ptr, ptr %7, align 8, !nonnull !5, !noundef !5
-  %switch = icmp samesign ult i64 %6, 2
-  %.sroa.0.0.idx = select i1 %switch, i64 0, i64 16
+  %9 = shl nuw nsw i64 %6, 3
+  %.sroa.0.0.idx = and i64 %9, 16
   %.sroa.0.0 = getelementptr inbounds nuw i8, ptr %8, i64 %.sroa.0.0.idx
   %.sroa.6.0.in = getelementptr inbounds nuw i8, ptr %4, i64 96
   %.sroa.6.0 = load i64, ptr %.sroa.6.0.in, align 8, !noundef !5
@@ -128903,8 +128903,8 @@ define hidden void @"_ZN74_$LT$oo7..dbus..api..session..Session$u20$as$u20$serde
   %6 = load i64, ptr %5, align 8, !range !12, !noundef !5
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %8 = load ptr, ptr %7, align 8, !nonnull !5, !noundef !5
-  %switch = icmp samesign ult i64 %6, 2
-  %.sroa.0.0.idx = select i1 %switch, i64 0, i64 16
+  %9 = shl nuw nsw i64 %6, 3
+  %.sroa.0.0.idx = and i64 %9, 16
   %.sroa.0.0 = getelementptr inbounds nuw i8, ptr %8, i64 %.sroa.0.0.idx
   %.sroa.6.0.in = getelementptr inbounds nuw i8, ptr %4, i64 96
   %.sroa.6.0 = load i64, ptr %.sroa.6.0.in, align 8, !noundef !5
@@ -128919,8 +128919,8 @@ define hidden void @"_ZN74_$LT$oo7..dbus..api..session..Session$u20$as$u20$serde
   %6 = load i64, ptr %5, align 8, !range !12, !noundef !5
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %8 = load ptr, ptr %7, align 8, !nonnull !5, !noundef !5
-  %switch = icmp samesign ult i64 %6, 2
-  %.sroa.0.0.idx = select i1 %switch, i64 0, i64 16
+  %9 = shl nuw nsw i64 %6, 3
+  %.sroa.0.0.idx = and i64 %9, 16
   %.sroa.0.0 = getelementptr inbounds nuw i8, ptr %8, i64 %.sroa.0.0.idx
   %.sroa.6.0.in = getelementptr inbounds nuw i8, ptr %4, i64 96
   %.sroa.6.0 = load i64, ptr %.sroa.6.0.in, align 8, !noundef !5
@@ -128935,8 +128935,8 @@ define hidden void @"_ZN74_$LT$oo7..dbus..api..session..Session$u20$as$u20$serde
   %6 = load i64, ptr %5, align 8, !range !12, !noundef !5
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 88
   %8 = load ptr, ptr %7, align 8, !nonnull !5, !noundef !5
-  %switch = icmp samesign ult i64 %6, 2
-  %.sroa.0.0.idx = select i1 %switch, i64 0, i64 16
+  %9 = shl nuw nsw i64 %6, 3
+  %.sroa.0.0.idx = and i64 %9, 16
   %.sroa.0.0 = getelementptr inbounds nuw i8, ptr %8, i64 %.sroa.0.0.idx
   %.sroa.6.0.in = getelementptr inbounds nuw i8, ptr %4, i64 96
   %.sroa.6.0 = load i64, ptr %.sroa.6.0.in, align 8, !noundef !5

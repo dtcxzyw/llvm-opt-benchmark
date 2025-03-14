@@ -8553,8 +8553,8 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17h01975bde94db1d03E
   br i1 %142, label %145, label %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$9shrink_to17haa69069d4004afd6E.exit"
 
 143:                                              ; preds = %138
-  %144 = icmp samesign ult i64 %128, 4
-  %..i.i = select i1 %144, i64 4, i64 8
+  %144 = and i64 %128, 4
+  %..i.i = add nuw nsw i64 %144, 4
   br label %153
 
 145:                                              ; preds = %140
@@ -8907,8 +8907,8 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17h099ecfce2009aaa8E
   br i1 %147, label %150, label %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$9shrink_to17hec8a92b1ad39a2bfE.exit"
 
 148:                                              ; preds = %143
-  %149 = icmp samesign ult i64 %133, 4
-  %..i.i = select i1 %149, i64 4, i64 8
+  %149 = and i64 %133, 4
+  %..i.i = add nuw nsw i64 %149, 4
   br label %158
 
 150:                                              ; preds = %145
@@ -9242,8 +9242,8 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17h11c63997e48c4b5fE
   br i1 %132, label %135, label %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$9shrink_to17h15b16aa87b14e47aE.exit"
 
 133:                                              ; preds = %128
-  %134 = icmp samesign ult i64 %118, 4
-  %..i.i = select i1 %134, i64 4, i64 8
+  %134 = and i64 %118, 4
+  %..i.i = add nuw nsw i64 %134, 4
   br label %143
 
 135:                                              ; preds = %130
@@ -9760,8 +9760,8 @@ _ZN4core4hash6Hasher9write_str17hb9b9909e76436acfE.exit.i.i.i: ; preds = %103, %
   br i1 %222, label %225, label %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$9shrink_to17h311ef2e90920c8f8E.exit"
 
 223:                                              ; preds = %218
-  %224 = icmp samesign ult i64 %208, 4
-  %..i.i = select i1 %224, i64 4, i64 8
+  %224 = and i64 %208, 4
+  %..i.i = add nuw nsw i64 %224, 4
   br label %233
 
 225:                                              ; preds = %220
@@ -10037,8 +10037,8 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17h31ee7d3462ac03deE
   br i1 %107, label %110, label %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$9shrink_to17h4182d2dd2a297118E.exit"
 
 108:                                              ; preds = %103
-  %109 = icmp samesign ult i64 %93, 4
-  %..i.i = select i1 %109, i64 4, i64 8
+  %109 = and i64 %93, 4
+  %..i.i = add nuw nsw i64 %109, 4
   br label %118
 
 110:                                              ; preds = %105
@@ -10302,8 +10302,8 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17h620171b1bd943c2aE
   br i1 %101, label %104, label %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$9shrink_to17h8494eab125b3127bE.exit"
 
 102:                                              ; preds = %97
-  %103 = icmp samesign ult i64 %87, 4
-  %..i.i = select i1 %103, i64 4, i64 8
+  %103 = and i64 %87, 4
+  %..i.i = add nuw nsw i64 %103, 4
   br label %112
 
 104:                                              ; preds = %99
@@ -10914,8 +10914,8 @@ _ZN4core4hash6Hasher9write_str17hb9b9909e76436acfE.exit.i.i: ; preds = %52, %51
   br i1 %309, label %312, label %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$9shrink_to17h6ba05cc1eeb42227E.exit"
 
 310:                                              ; preds = %305
-  %311 = icmp samesign ult i64 %295, 4
-  %..i.i = select i1 %311, i64 4, i64 8
+  %311 = and i64 %295, 4
+  %..i.i = add nuw nsw i64 %311, 4
   br label %320
 
 312:                                              ; preds = %307
@@ -11314,8 +11314,8 @@ default.unreachable:                              ; preds = %"_ZN3std4sync9once_
   br i1 %178, label %181, label %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$9shrink_to17hc3a53e5fe98eae37E.exit"
 
 179:                                              ; preds = %174
-  %180 = icmp samesign ult i64 %164, 4
-  %..i.i = select i1 %180, i64 4, i64 8
+  %180 = and i64 %164, 4
+  %..i.i = add nuw nsw i64 %180, 4
   br label %189
 
 181:                                              ; preds = %176
@@ -11724,8 +11724,8 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17h9c24f26c2a3e54d9E
   br i1 %172, label %175, label %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$9shrink_to17hecf479b407956497E.exit"
 
 173:                                              ; preds = %168
-  %174 = icmp samesign ult i64 %158, 4
-  %..i.i = select i1 %174, i64 4, i64 8
+  %174 = and i64 %158, 4
+  %..i.i = add nuw nsw i64 %174, 4
   br label %183
 
 175:                                              ; preds = %170
@@ -12136,8 +12136,8 @@ _ZN4core4hash4Hash10hash_slice17hbe76171c0fb0d00dE.exit.i.i: ; preds = %"_ZN73_$
   br i1 %175, label %178, label %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$9shrink_to17h447ba0e59f32fa20E.exit"
 
 176:                                              ; preds = %171
-  %177 = icmp samesign ult i64 %161, 4
-  %..i.i = select i1 %177, i64 4, i64 8
+  %177 = and i64 %161, 4
+  %..i.i = add nuw nsw i64 %177, 4
   br label %186
 
 178:                                              ; preds = %173
@@ -12527,8 +12527,8 @@ _ZN4core4hash4Hash10hash_slice17hc83ae525cae79afdE.exit.loopexit.i.i: ; preds = 
   br i1 %168, label %171, label %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$9shrink_to17hb40c9ab2cc5ac72eE.exit"
 
 169:                                              ; preds = %164
-  %170 = icmp samesign ult i64 %154, 4
-  %..i.i = select i1 %170, i64 4, i64 8
+  %170 = and i64 %154, 4
+  %..i.i = add nuw nsw i64 %170, 4
   br label %179
 
 171:                                              ; preds = %166
@@ -12824,8 +12824,8 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17ha0d35ccc9ab8945cE
   br i1 %117, label %120, label %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$9shrink_to17h02ea735534d0363bE.exit"
 
 118:                                              ; preds = %113
-  %119 = icmp samesign ult i64 %103, 4
-  %..i.i = select i1 %119, i64 4, i64 8
+  %119 = and i64 %103, 4
+  %..i.i = add nuw nsw i64 %119, 4
   br label %128
 
 120:                                              ; preds = %115
@@ -13506,8 +13506,8 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17hbe930a151ed39b40E
   br i1 %414, label %417, label %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$9shrink_to17h5c71a9248ab95243E.exit"
 
 415:                                              ; preds = %410
-  %416 = icmp samesign ult i64 %400, 4
-  %..i.i = select i1 %416, i64 4, i64 8
+  %416 = and i64 %400, 4
+  %..i.i = add nuw nsw i64 %416, 4
   br label %425
 
 417:                                              ; preds = %412
@@ -13872,8 +13872,8 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17hc46ea47a85ed6cd7E
   br i1 %150, label %153, label %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$9shrink_to17hbf41c34888477976E.exit"
 
 151:                                              ; preds = %146
-  %152 = icmp samesign ult i64 %136, 4
-  %..i.i = select i1 %152, i64 4, i64 8
+  %152 = and i64 %136, 4
+  %..i.i = add nuw nsw i64 %152, 4
   br label %161
 
 153:                                              ; preds = %148
@@ -14219,8 +14219,8 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17hfad3495fba22daefE
   br i1 %148, label %151, label %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$9shrink_to17h7724bdb842f1dda8E.exit"
 
 149:                                              ; preds = %144
-  %150 = icmp samesign ult i64 %134, 4
-  %..i.i = select i1 %150, i64 4, i64 8
+  %150 = and i64 %134, 4
+  %..i.i = add nuw nsw i64 %150, 4
   br label %159
 
 151:                                              ; preds = %146

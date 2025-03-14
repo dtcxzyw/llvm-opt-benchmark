@@ -48447,8 +48447,8 @@ define hidden void @_ZN9hashbrown3raw5inner13RawTableInner22fallible_with_capaci
   br i1 %15, label %18, label %26
 
 16:                                               ; preds = %11
-  %17 = icmp samesign ult i64 %4, 4
-  %..i = select i1 %17, i64 4, i64 8
+  %17 = and i64 %4, 4
+  %..i = add nuw nsw i64 %17, 4
   br label %32
 
 18:                                               ; preds = %13
@@ -94080,8 +94080,8 @@ define hidden void @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$9shrink_to17h
   br i1 %27, label %30, label %_ZN9hashbrown3raw5inner13RawTableInner16drop_inner_table17h86589285a45cd945E.exit
 
 28:                                               ; preds = %23
-  %29 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
-  %..i = select i1 %29, i64 4, i64 8
+  %29 = and i64 %.0.sroa.speculated.i, 4
+  %..i = add nuw nsw i64 %29, 4
   br label %38
 
 30:                                               ; preds = %25

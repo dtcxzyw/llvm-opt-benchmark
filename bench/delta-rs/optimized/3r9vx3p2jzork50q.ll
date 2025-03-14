@@ -584,8 +584,8 @@ define internal fastcc void @_ZN9hashbrown3raw5inner13RawTableInner14prepare_res
   br i1 %12, label %15, label %23
 
 13:                                               ; preds = %8
-  %14 = icmp samesign ult i64 %2, 4
-  %..i.i = select i1 %14, i64 4, i64 8
+  %14 = and i64 %2, 4
+  %..i.i = add nuw nsw i64 %14, 4
   br label %29
 
 15:                                               ; preds = %10

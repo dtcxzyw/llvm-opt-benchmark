@@ -8433,11 +8433,7 @@ _ZNK4llvm5APInt10intersectsERKS0_.exit14:         ; preds = %60
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
 define dso_local range(i16 0, 512) i16 @_ZN4llvm9KnownBits2neERKS0_S2_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #4 align 2 {
   %3 = tail call i16 @_ZN4llvm9KnownBits2eqERKS0_S2_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  %.not.inv = icmp samesign ult i16 %3, 256
-  %.sroa.2.0.insert.shift = select i1 %.not.inv, i16 0, i16 256
-  %4 = and i16 %3, 255
-  %5 = or disjoint i16 %.sroa.2.0.insert.shift, %4
-  %.sroa.02.0.insert.insert = xor i16 %5, 1
+  %.sroa.02.0.insert.insert = xor i16 %3, 1
   ret i16 %.sroa.02.0.insert.insert
 }
 
@@ -8653,11 +8649,7 @@ _ZN4llvm5APIntD2Ev.exit18:                        ; preds = %_ZN4llvm5APIntD2Ev.
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local range(i16 0, 512) i16 @_ZN4llvm9KnownBits3ugeERKS0_S2_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #0 align 2 {
   %3 = tail call i16 @_ZN4llvm9KnownBits3ugtERKS0_S2_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  %.not.inv = icmp samesign ult i16 %3, 256
-  %.sroa.2.0.insert.shift = select i1 %.not.inv, i16 0, i16 256
-  %4 = and i16 %3, 255
-  %5 = or disjoint i16 %.sroa.2.0.insert.shift, %4
-  %.sroa.02.0.insert.insert = xor i16 %5, 1
+  %.sroa.02.0.insert.insert = xor i16 %3, 1
   ret i16 %.sroa.02.0.insert.insert
 }
 
@@ -8670,11 +8662,7 @@ define dso_local range(i16 1, 258) i16 @_ZN4llvm9KnownBits3ultERKS0_S2_(ptr noun
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local range(i16 0, 512) i16 @_ZN4llvm9KnownBits3uleERKS0_S2_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #0 align 2 {
   %3 = tail call i16 @_ZN4llvm9KnownBits3ugtERKS0_S2_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  %.not.inv.i = icmp samesign ult i16 %3, 256
-  %.sroa.2.0.insert.shift.i = select i1 %.not.inv.i, i16 0, i16 256
-  %4 = and i16 %3, 255
-  %5 = or disjoint i16 %.sroa.2.0.insert.shift.i, %4
-  %.sroa.02.0.insert.insert.i = xor i16 %5, 1
+  %.sroa.02.0.insert.insert.i = xor i16 %3, 1
   ret i16 %.sroa.02.0.insert.insert.i
 }
 
@@ -8900,11 +8888,7 @@ _ZN4llvm5APIntD2Ev.exit10:                        ; preds = %_ZN4llvm5APIntD2Ev.
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local range(i16 0, 512) i16 @_ZN4llvm9KnownBits3sgeERKS0_S2_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #0 align 2 {
   %3 = tail call i16 @_ZN4llvm9KnownBits3sgtERKS0_S2_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %0)
-  %.not.inv = icmp samesign ult i16 %3, 256
-  %.sroa.2.0.insert.shift = select i1 %.not.inv, i16 0, i16 256
-  %4 = and i16 %3, 255
-  %5 = or disjoint i16 %.sroa.2.0.insert.shift, %4
-  %.sroa.02.0.insert.insert = xor i16 %5, 1
+  %.sroa.02.0.insert.insert = xor i16 %3, 1
   ret i16 %.sroa.02.0.insert.insert
 }
 
@@ -8917,11 +8901,7 @@ define dso_local range(i16 1, 258) i16 @_ZN4llvm9KnownBits3sltERKS0_S2_(ptr noun
 ; Function Attrs: mustprogress nounwind uwtable
 define dso_local range(i16 0, 512) i16 @_ZN4llvm9KnownBits3sleERKS0_S2_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #0 align 2 {
   %3 = tail call i16 @_ZN4llvm9KnownBits3sgtERKS0_S2_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull align 8 dereferenceable(32) %1)
-  %.not.inv.i = icmp samesign ult i16 %3, 256
-  %.sroa.2.0.insert.shift.i = select i1 %.not.inv.i, i16 0, i16 256
-  %4 = and i16 %3, 255
-  %5 = or disjoint i16 %.sroa.2.0.insert.shift.i, %4
-  %.sroa.02.0.insert.insert.i = xor i16 %5, 1
+  %.sroa.02.0.insert.insert.i = xor i16 %3, 1
   ret i16 %.sroa.02.0.insert.insert.i
 }
 

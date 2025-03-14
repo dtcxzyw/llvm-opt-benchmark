@@ -75930,8 +75930,7 @@ define internal fastcc void @"_ZN9hayagriva3csl16Context$LT$T$GT$25resolve_stand
 28:                                               ; preds = %23
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 176
   %30 = load i8, ptr %29, align 8, !range !499, !noundef !4
-  %switch.inv = icmp samesign ugt i8 %30, 1
-  %. = select i1 %switch.inv, i8 3, i8 1
+  %. = or i8 %30, 1
   store i8 %., ptr %29, align 8
   br label %72
 

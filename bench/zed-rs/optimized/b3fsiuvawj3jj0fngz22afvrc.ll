@@ -13273,8 +13273,8 @@ define hidden void @_ZN9hashbrown3raw5inner13RawTableInner22fallible_with_capaci
   br i1 %12, label %22, label %15
 
 13:                                               ; preds = %9
-  %14 = icmp samesign ult i64 %4, 4
-  %..i = select i1 %14, i64 4, i64 8
+  %14 = and i64 %4, 4
+  %..i = add nuw nsw i64 %14, 4
   br label %28
 
 15:                                               ; preds = %11
@@ -13487,6 +13487,7 @@ define internal fastcc i64 @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14res
 
 20:                                               ; preds = %9
   %21 = tail call i64 @llvm.umax.i64(i64 %7, i64 %.sroa.03.0.i)
+  %.sroa.0.0.sroa.speculated.i = add nuw i64 %21, 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1764)
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5), !noalias !1767
   %22 = icmp ult i64 %21, 7
@@ -13497,8 +13498,8 @@ define internal fastcc i64 @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14res
   br i1 %24, label %26, label %28
 
 .thread:                                          ; preds = %20
-  %25 = icmp samesign ult i64 %21, 3
-  %..i.i.i = select i1 %25, i64 4, i64 8
+  %25 = and i64 %.sroa.0.0.sroa.speculated.i, 4
+  %..i.i.i = add nuw nsw i64 %25, 4
   br label %36
 
 26:                                               ; preds = %23
@@ -13506,8 +13507,7 @@ define internal fastcc i64 @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14res
   br label %"_ZN9hashbrown3raw5inner22RawTableInner$LT$A$GT$14prepare_resize17hb06bcaecbbc5c9d6E.exit.thread"
 
 28:                                               ; preds = %23
-  %.sroa.0.0.sroa.speculated.i = shl nuw i64 %21, 3
-  %29 = add nuw i64 %.sroa.0.0.sroa.speculated.i, 8
+  %29 = shl nuw i64 %.sroa.0.0.sroa.speculated.i, 3
   %30 = udiv i64 %29, 7
   %31 = add nsw i64 %30, -1
   %32 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %31, i1 true)
@@ -13655,7 +13655,7 @@ _ZN4core10intrinsics10typed_swap17h1f0e01fd44cca44bE.exit: ; preds = %.preheader
   %88 = getelementptr inbounds [0 x { { i64, [11 x i64] }, { i64, i8, [7 x i8] }, i64 }], ptr %1, i64 0, i64 %.val4.i, i32 2
   %89 = load i64, ptr %88, align 8, !noalias !1786, !noundef !5
   %.sroa.02.05.i.i = and i64 %89, %52
-  %90 = getelementptr inbounds i8, ptr %53, i64 %.sroa.02.05.i.i
+  %90 = getelementptr inbounds nuw i8, ptr %53, i64 %.sroa.02.05.i.i
   %.sroa.0.0.copyload.i46.i.i = load <16 x i8>, ptr %90, align 1, !noalias !1790
   %91 = icmp slt <16 x i8> %.sroa.0.0.copyload.i46.i.i, zeroinitializer
   %92 = bitcast <16 x i1> %91 to i16
@@ -13668,7 +13668,7 @@ _ZN4core10intrinsics10typed_swap17h1f0e01fd44cca44bE.exit: ; preds = %.preheader
   %94 = add i64 %.sroa.9.07.i.i, 16
   %95 = add i64 %94, %.sroa.02.08.i.i
   %.sroa.02.0.i.i = and i64 %95, %52
-  %96 = getelementptr inbounds i8, ptr %53, i64 %.sroa.02.0.i.i
+  %96 = getelementptr inbounds nuw i8, ptr %53, i64 %.sroa.02.0.i.i
   %.sroa.0.0.copyload.i4.i.i = load <16 x i8>, ptr %96, align 1, !noalias !1790
   %97 = icmp slt <16 x i8> %.sroa.0.0.copyload.i4.i.i, zeroinitializer
   %98 = bitcast <16 x i1> %97 to i16
@@ -13680,9 +13680,9 @@ _ZN4core10intrinsics10typed_swap17h1f0e01fd44cca44bE.exit: ; preds = %.preheader
   %.lcssa.i.i = phi i16 [ %92, %87 ], [ %98, %.lr.ph.i.i ]
   %100 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i, i1 true)
   %101 = zext nneg i16 %100 to i64
-  %102 = add i64 %.sroa.02.0.lcssa.i.i, %101
+  %102 = add nuw nsw i64 %.sroa.02.0.lcssa.i.i, %101
   %103 = and i64 %102, %52
-  %104 = getelementptr inbounds i8, ptr %53, i64 %103
+  %104 = getelementptr inbounds nuw i8, ptr %53, i64 %103
   %105 = load i8, ptr %104, align 1, !noundef !5
   %106 = icmp sgt i8 %105, -1
   br i1 %106, label %107, label %113
@@ -13697,10 +13697,10 @@ _ZN4core10intrinsics10typed_swap17h1f0e01fd44cca44bE.exit: ; preds = %.preheader
 
 113:                                              ; preds = %107, %._crit_edge.i.i
   %.sroa.0.0.i.i7 = phi i64 [ %112, %107 ], [ %103, %._crit_edge.i.i ]
-  %114 = getelementptr inbounds i8, ptr %53, i64 %.sroa.0.0.i.i7
+  %114 = getelementptr inbounds nuw i8, ptr %53, i64 %.sroa.0.0.i.i7
   %115 = lshr i64 %89, 57
   %116 = trunc nuw nsw i64 %115 to i8
-  %117 = add i64 %.sroa.0.0.i.i7, -16
+  %117 = add nsw i64 %.sroa.0.0.i.i7, -16
   %118 = and i64 %117, %52
   store i8 %116, ptr %114, align 1
   %gep = getelementptr i8, ptr %invariant.gep, i64 %118
@@ -14001,8 +14001,8 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$14res
   br i1 %30, label %40, label %33
 
 31:                                               ; preds = %26
-  %32 = icmp samesign ult i64 %.sroa.0.0.sroa.speculated.i, 4
-  %..i.i = select i1 %32, i64 4, i64 8
+  %32 = and i64 %.sroa.0.0.sroa.speculated.i, 4
+  %..i.i = add nuw nsw i64 %32, 4
   br label %42
 
 33:                                               ; preds = %29
@@ -14517,8 +14517,8 @@ define hidden void @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$16with_capaci
   br i1 %7, label %17, label %10
 
 8:                                                ; preds = %4
-  %9 = icmp samesign ult i64 %1, 4
-  %..i.i = select i1 %9, i64 4, i64 8
+  %9 = and i64 %1, 4
+  %..i.i = add nuw nsw i64 %9, 4
   br label %21
 
 10:                                               ; preds = %6
@@ -15029,8 +15029,8 @@ define hidden void @"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$22fallible_wi
   br i1 %8, label %10, label %12
 
 .thread:                                          ; preds = %5
-  %9 = icmp samesign ult i64 %1, 4
-  %..i.i = select i1 %9, i64 4, i64 8
+  %9 = and i64 %1, 4
+  %..i.i = add nuw nsw i64 %9, 4
   br label %20
 
 10:                                               ; preds = %7

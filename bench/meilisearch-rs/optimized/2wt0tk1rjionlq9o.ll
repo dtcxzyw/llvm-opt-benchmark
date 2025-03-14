@@ -1549,8 +1549,8 @@ define hidden void @_ZN9hashbrown3raw5inner13RawTableInner22fallible_with_capaci
   br i1 %14, label %24, label %17
 
 15:                                               ; preds = %11
-  %16 = icmp samesign ult i64 %4, 4
-  %..i = select i1 %16, i64 4, i64 8
+  %16 = and i64 %4, 4
+  %..i = add nuw nsw i64 %16, 4
   br label %25
 
 17:                                               ; preds = %13

@@ -70299,25 +70299,25 @@ define hidden void @"_ZN10zbus_names11member_name1_87_$LT$impl$u20$serde..ser..S
   %5 = load i64, ptr %1, align 8, !range !4131, !alias.scope !16990, !noalias !16991, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !alias.scope !16990, !noalias !16991, !nonnull !4, !noundef !4
-  %switch.i.i.i.i = icmp samesign ult i64 %5, 2
-  %.sroa.0.0.idx.i.i.i.i = select i1 %switch.i.i.i.i, i64 0, i64 16
+  %8 = shl nuw nsw i64 %5, 3
+  %.sroa.0.0.idx.i.i.i.i = and i64 %8, 16
   %.sroa.0.0.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 %.sroa.0.0.idx.i.i.i.i
   %.sroa.4.0.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.4.0.i.i.i.i = load i64, ptr %.sroa.4.0.in.i.i.i.i, align 8, !alias.scope !16990, !noalias !16991, !noundef !4
   call void @"_ZN99_$LT$$RF$mut$u20$zvariant..gvariant..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17heb3b9dbd72b7dc91E"(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 8 dereferenceable(144) %2, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i), !noalias !16994
-  %8 = load i64, ptr %4, align 8, !range !16995, !noalias !16981, !noundef !4
-  %9 = icmp eq i64 %8, 14
-  br i1 %9, label %"_ZN99_$LT$$RF$mut$u20$zvariant..gvariant..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_newtype_struct17hef787234060ec8b1E.exit", label %10
+  %9 = load i64, ptr %4, align 8, !range !16995, !noalias !16981, !noundef !4
+  %10 = icmp eq i64 %9, 14
+  br i1 %10, label %"_ZN99_$LT$$RF$mut$u20$zvariant..gvariant..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_newtype_struct17hef787234060ec8b1E.exit", label %11
 
-10:                                               ; preds = %3
+11:                                               ; preds = %3
   %.sroa.7.0..sroa_idx2.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.29.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.29.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.7.0..sroa_idx2.i, i64 56, i1 false), !noalias !16996
   br label %"_ZN99_$LT$$RF$mut$u20$zvariant..gvariant..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_newtype_struct17hef787234060ec8b1E.exit"
 
-"_ZN99_$LT$$RF$mut$u20$zvariant..gvariant..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_newtype_struct17hef787234060ec8b1E.exit": ; preds = %3, %10
+"_ZN99_$LT$$RF$mut$u20$zvariant..gvariant..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_newtype_struct17hef787234060ec8b1E.exit": ; preds = %3, %11
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !16981
-  store i64 %8, ptr %0, align 8, !alias.scope !16970, !noalias !16996
+  store i64 %9, ptr %0, align 8, !alias.scope !16970, !noalias !16996
   ret void
 }
 
@@ -70333,25 +70333,25 @@ define hidden void @"_ZN10zbus_names11member_name1_87_$LT$impl$u20$serde..ser..S
   %5 = load i64, ptr %1, align 8, !range !4131, !alias.scope !17017, !noalias !17018, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !alias.scope !17017, !noalias !17018, !nonnull !4, !noundef !4
-  %switch.i.i.i.i = icmp samesign ult i64 %5, 2
-  %.sroa.0.0.idx.i.i.i.i = select i1 %switch.i.i.i.i, i64 0, i64 16
+  %8 = shl nuw nsw i64 %5, 3
+  %.sroa.0.0.idx.i.i.i.i = and i64 %8, 16
   %.sroa.0.0.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 %.sroa.0.0.idx.i.i.i.i
   %.sroa.4.0.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.4.0.i.i.i.i = load i64, ptr %.sroa.4.0.in.i.i.i.i, align 8, !alias.scope !17017, !noalias !17018, !noundef !4
   call void @"_ZN99_$LT$$RF$mut$u20$zvariant..gvariant..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17h587bc64ccd09cbbcE"(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 8 dereferenceable(144) %2, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i), !noalias !17021
-  %8 = load i64, ptr %4, align 8, !range !16995, !noalias !17008, !noundef !4
-  %9 = icmp eq i64 %8, 14
-  br i1 %9, label %"_ZN99_$LT$$RF$mut$u20$zvariant..gvariant..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_newtype_struct17h58c311b762ba9b26E.exit", label %10
+  %9 = load i64, ptr %4, align 8, !range !16995, !noalias !17008, !noundef !4
+  %10 = icmp eq i64 %9, 14
+  br i1 %10, label %"_ZN99_$LT$$RF$mut$u20$zvariant..gvariant..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_newtype_struct17h58c311b762ba9b26E.exit", label %11
 
-10:                                               ; preds = %3
+11:                                               ; preds = %3
   %.sroa.7.0..sroa_idx2.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.29.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.29.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.7.0..sroa_idx2.i, i64 56, i1 false), !noalias !17022
   br label %"_ZN99_$LT$$RF$mut$u20$zvariant..gvariant..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_newtype_struct17h58c311b762ba9b26E.exit"
 
-"_ZN99_$LT$$RF$mut$u20$zvariant..gvariant..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_newtype_struct17h58c311b762ba9b26E.exit": ; preds = %3, %10
+"_ZN99_$LT$$RF$mut$u20$zvariant..gvariant..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_newtype_struct17h58c311b762ba9b26E.exit": ; preds = %3, %11
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !17008
-  store i64 %8, ptr %0, align 8, !alias.scope !16997, !noalias !17022
+  store i64 %9, ptr %0, align 8, !alias.scope !16997, !noalias !17022
   ret void
 }
 
@@ -70367,25 +70367,25 @@ define hidden void @"_ZN10zbus_names11member_name1_87_$LT$impl$u20$serde..ser..S
   %5 = load i64, ptr %1, align 8, !range !4131, !alias.scope !17043, !noalias !17044, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !alias.scope !17043, !noalias !17044, !nonnull !4, !noundef !4
-  %switch.i.i.i.i = icmp samesign ult i64 %5, 2
-  %.sroa.0.0.idx.i.i.i.i = select i1 %switch.i.i.i.i, i64 0, i64 16
+  %8 = shl nuw nsw i64 %5, 3
+  %.sroa.0.0.idx.i.i.i.i = and i64 %8, 16
   %.sroa.0.0.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 %.sroa.0.0.idx.i.i.i.i
   %.sroa.4.0.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.4.0.i.i.i.i = load i64, ptr %.sroa.4.0.in.i.i.i.i, align 8, !alias.scope !17043, !noalias !17044, !noundef !4
   call void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17h7a1ad2a1eb23e792E"(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 8 dereferenceable(144) %2, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i), !noalias !17047
-  %8 = load i64, ptr %4, align 8, !range !16995, !noalias !17034, !noundef !4
-  %9 = icmp eq i64 %8, 14
-  br i1 %9, label %"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_newtype_struct17h8d09e8b0c4ddf33fE.exit", label %10
+  %9 = load i64, ptr %4, align 8, !range !16995, !noalias !17034, !noundef !4
+  %10 = icmp eq i64 %9, 14
+  br i1 %10, label %"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_newtype_struct17h8d09e8b0c4ddf33fE.exit", label %11
 
-10:                                               ; preds = %3
+11:                                               ; preds = %3
   %.sroa.7.0..sroa_idx2.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.29.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.29.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.7.0..sroa_idx2.i, i64 56, i1 false), !noalias !17048
   br label %"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_newtype_struct17h8d09e8b0c4ddf33fE.exit"
 
-"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_newtype_struct17h8d09e8b0c4ddf33fE.exit": ; preds = %3, %10
+"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_newtype_struct17h8d09e8b0c4ddf33fE.exit": ; preds = %3, %11
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !17034
-  store i64 %8, ptr %0, align 8, !alias.scope !17023, !noalias !17048
+  store i64 %9, ptr %0, align 8, !alias.scope !17023, !noalias !17048
   ret void
 }
 
@@ -70401,25 +70401,25 @@ define hidden void @"_ZN10zbus_names11member_name1_87_$LT$impl$u20$serde..ser..S
   %5 = load i64, ptr %1, align 8, !range !4131, !alias.scope !17069, !noalias !17070, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !alias.scope !17069, !noalias !17070, !nonnull !4, !noundef !4
-  %switch.i.i.i.i = icmp samesign ult i64 %5, 2
-  %.sroa.0.0.idx.i.i.i.i = select i1 %switch.i.i.i.i, i64 0, i64 16
+  %8 = shl nuw nsw i64 %5, 3
+  %.sroa.0.0.idx.i.i.i.i = and i64 %8, 16
   %.sroa.0.0.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 %.sroa.0.0.idx.i.i.i.i
   %.sroa.4.0.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.4.0.i.i.i.i = load i64, ptr %.sroa.4.0.in.i.i.i.i, align 8, !alias.scope !17069, !noalias !17070, !noundef !4
   call void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17h9b64c508c9f3ad50E"(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 8 dereferenceable(144) %2, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i), !noalias !17073
-  %8 = load i64, ptr %4, align 8, !range !16995, !noalias !17060, !noundef !4
-  %9 = icmp eq i64 %8, 14
-  br i1 %9, label %"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_newtype_struct17he6e7b9dae5e66f2bE.exit", label %10
+  %9 = load i64, ptr %4, align 8, !range !16995, !noalias !17060, !noundef !4
+  %10 = icmp eq i64 %9, 14
+  br i1 %10, label %"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_newtype_struct17he6e7b9dae5e66f2bE.exit", label %11
 
-10:                                               ; preds = %3
+11:                                               ; preds = %3
   %.sroa.7.0..sroa_idx2.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.29.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.29.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.7.0..sroa_idx2.i, i64 56, i1 false), !noalias !17074
   br label %"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_newtype_struct17he6e7b9dae5e66f2bE.exit"
 
-"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_newtype_struct17he6e7b9dae5e66f2bE.exit": ; preds = %3, %10
+"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_newtype_struct17he6e7b9dae5e66f2bE.exit": ; preds = %3, %11
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !17060
-  store i64 %8, ptr %0, align 8, !alias.scope !17049, !noalias !17074
+  store i64 %9, ptr %0, align 8, !alias.scope !17049, !noalias !17074
   ret void
 }
 
@@ -70437,25 +70437,25 @@ define hidden void @"_ZN10zbus_names11member_name1_92_$LT$impl$u20$serde..ser..S
   %5 = load i64, ptr %1, align 8, !range !4131, !alias.scope !17105, !noalias !17106, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !alias.scope !17105, !noalias !17106, !nonnull !4, !noundef !4
-  %switch.i.i.i.i.i.i = icmp samesign ult i64 %5, 2
-  %.sroa.0.0.idx.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i, i64 0, i64 16
+  %8 = shl nuw nsw i64 %5, 3
+  %.sroa.0.0.idx.i.i.i.i.i.i = and i64 %8, 16
   %.sroa.0.0.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 %.sroa.0.0.idx.i.i.i.i.i.i
   %.sroa.4.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.4.0.i.i.i.i.i.i = load i64, ptr %.sroa.4.0.in.i.i.i.i.i.i, align 8, !alias.scope !17105, !noalias !17106, !noundef !4
   call void @"_ZN99_$LT$$RF$mut$u20$zvariant..gvariant..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17heb3b9dbd72b7dc91E"(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 8 dereferenceable(144) %2, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i.i.i), !noalias !17109
-  %8 = load i64, ptr %4, align 8, !range !16995, !noalias !17092, !noundef !4
-  %9 = icmp eq i64 %8, 14
-  br i1 %9, label %"_ZN99_$LT$$RF$mut$u20$zvariant..gvariant..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_newtype_struct17h9e47abc8ac2d2026E.exit", label %10
+  %9 = load i64, ptr %4, align 8, !range !16995, !noalias !17092, !noundef !4
+  %10 = icmp eq i64 %9, 14
+  br i1 %10, label %"_ZN99_$LT$$RF$mut$u20$zvariant..gvariant..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_newtype_struct17h9e47abc8ac2d2026E.exit", label %11
 
-10:                                               ; preds = %3
+11:                                               ; preds = %3
   %.sroa.7.0..sroa_idx2.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.27.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.27.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.7.0..sroa_idx2.i.i.i, i64 56, i1 false), !noalias !17110
   br label %"_ZN99_$LT$$RF$mut$u20$zvariant..gvariant..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_newtype_struct17h9e47abc8ac2d2026E.exit"
 
-"_ZN99_$LT$$RF$mut$u20$zvariant..gvariant..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_newtype_struct17h9e47abc8ac2d2026E.exit": ; preds = %3, %10
+"_ZN99_$LT$$RF$mut$u20$zvariant..gvariant..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_newtype_struct17h9e47abc8ac2d2026E.exit": ; preds = %3, %11
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !17092
-  store i64 %8, ptr %0, align 8, !alias.scope !17075, !noalias !17110
+  store i64 %9, ptr %0, align 8, !alias.scope !17075, !noalias !17110
   ret void
 }
 
@@ -70473,25 +70473,25 @@ define hidden void @"_ZN10zbus_names11member_name1_92_$LT$impl$u20$serde..ser..S
   %5 = load i64, ptr %1, align 8, !range !4131, !alias.scope !17141, !noalias !17142, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !alias.scope !17141, !noalias !17142, !nonnull !4, !noundef !4
-  %switch.i.i.i.i.i.i = icmp samesign ult i64 %5, 2
-  %.sroa.0.0.idx.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i, i64 0, i64 16
+  %8 = shl nuw nsw i64 %5, 3
+  %.sroa.0.0.idx.i.i.i.i.i.i = and i64 %8, 16
   %.sroa.0.0.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 %.sroa.0.0.idx.i.i.i.i.i.i
   %.sroa.4.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.4.0.i.i.i.i.i.i = load i64, ptr %.sroa.4.0.in.i.i.i.i.i.i, align 8, !alias.scope !17141, !noalias !17142, !noundef !4
   call void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17h9b64c508c9f3ad50E"(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 8 dereferenceable(144) %2, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i.i.i), !noalias !17145
-  %8 = load i64, ptr %4, align 8, !range !16995, !noalias !17128, !noundef !4
-  %9 = icmp eq i64 %8, 14
-  br i1 %9, label %"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_newtype_struct17h862c332540376e25E.exit", label %10
+  %9 = load i64, ptr %4, align 8, !range !16995, !noalias !17128, !noundef !4
+  %10 = icmp eq i64 %9, 14
+  br i1 %10, label %"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_newtype_struct17h862c332540376e25E.exit", label %11
 
-10:                                               ; preds = %3
+11:                                               ; preds = %3
   %.sroa.7.0..sroa_idx2.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.27.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.27.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.7.0..sroa_idx2.i.i.i, i64 56, i1 false), !noalias !17146
   br label %"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_newtype_struct17h862c332540376e25E.exit"
 
-"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_newtype_struct17h862c332540376e25E.exit": ; preds = %3, %10
+"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_newtype_struct17h862c332540376e25E.exit": ; preds = %3, %11
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !17128
-  store i64 %8, ptr %0, align 8, !alias.scope !17111, !noalias !17146
+  store i64 %9, ptr %0, align 8, !alias.scope !17111, !noalias !17146
   ret void
 }
 
@@ -70509,25 +70509,25 @@ define hidden void @"_ZN10zbus_names11member_name1_92_$LT$impl$u20$serde..ser..S
   %5 = load i64, ptr %1, align 8, !range !4131, !alias.scope !17177, !noalias !17178, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !alias.scope !17177, !noalias !17178, !nonnull !4, !noundef !4
-  %switch.i.i.i.i.i.i = icmp samesign ult i64 %5, 2
-  %.sroa.0.0.idx.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i, i64 0, i64 16
+  %8 = shl nuw nsw i64 %5, 3
+  %.sroa.0.0.idx.i.i.i.i.i.i = and i64 %8, 16
   %.sroa.0.0.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 %.sroa.0.0.idx.i.i.i.i.i.i
   %.sroa.4.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.4.0.i.i.i.i.i.i = load i64, ptr %.sroa.4.0.in.i.i.i.i.i.i, align 8, !alias.scope !17177, !noalias !17178, !noundef !4
   call void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17h7a1ad2a1eb23e792E"(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 8 dereferenceable(144) %2, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i.i.i), !noalias !17181
-  %8 = load i64, ptr %4, align 8, !range !16995, !noalias !17164, !noundef !4
-  %9 = icmp eq i64 %8, 14
-  br i1 %9, label %"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_newtype_struct17hf4b083fdc2469626E.exit", label %10
+  %9 = load i64, ptr %4, align 8, !range !16995, !noalias !17164, !noundef !4
+  %10 = icmp eq i64 %9, 14
+  br i1 %10, label %"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_newtype_struct17hf4b083fdc2469626E.exit", label %11
 
-10:                                               ; preds = %3
+11:                                               ; preds = %3
   %.sroa.7.0..sroa_idx2.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.27.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.27.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.7.0..sroa_idx2.i.i.i, i64 56, i1 false), !noalias !17182
   br label %"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_newtype_struct17hf4b083fdc2469626E.exit"
 
-"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_newtype_struct17hf4b083fdc2469626E.exit": ; preds = %3, %10
+"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_newtype_struct17hf4b083fdc2469626E.exit": ; preds = %3, %11
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !17164
-  store i64 %8, ptr %0, align 8, !alias.scope !17147, !noalias !17182
+  store i64 %9, ptr %0, align 8, !alias.scope !17147, !noalias !17182
   ret void
 }
 
@@ -70545,25 +70545,25 @@ define hidden void @"_ZN10zbus_names11member_name1_92_$LT$impl$u20$serde..ser..S
   %5 = load i64, ptr %1, align 8, !range !4131, !alias.scope !17213, !noalias !17214, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !alias.scope !17213, !noalias !17214, !nonnull !4, !noundef !4
-  %switch.i.i.i.i.i.i = icmp samesign ult i64 %5, 2
-  %.sroa.0.0.idx.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i, i64 0, i64 16
+  %8 = shl nuw nsw i64 %5, 3
+  %.sroa.0.0.idx.i.i.i.i.i.i = and i64 %8, 16
   %.sroa.0.0.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 %.sroa.0.0.idx.i.i.i.i.i.i
   %.sroa.4.0.in.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.4.0.i.i.i.i.i.i = load i64, ptr %.sroa.4.0.in.i.i.i.i.i.i, align 8, !alias.scope !17213, !noalias !17214, !noundef !4
   call void @"_ZN99_$LT$$RF$mut$u20$zvariant..gvariant..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17h587bc64ccd09cbbcE"(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 8 dereferenceable(144) %2, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i.i.i), !noalias !17217
-  %8 = load i64, ptr %4, align 8, !range !16995, !noalias !17200, !noundef !4
-  %9 = icmp eq i64 %8, 14
-  br i1 %9, label %"_ZN99_$LT$$RF$mut$u20$zvariant..gvariant..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_newtype_struct17h22f69451aeef7475E.exit", label %10
+  %9 = load i64, ptr %4, align 8, !range !16995, !noalias !17200, !noundef !4
+  %10 = icmp eq i64 %9, 14
+  br i1 %10, label %"_ZN99_$LT$$RF$mut$u20$zvariant..gvariant..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_newtype_struct17h22f69451aeef7475E.exit", label %11
 
-10:                                               ; preds = %3
+11:                                               ; preds = %3
   %.sroa.7.0..sroa_idx2.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.27.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.27.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.7.0..sroa_idx2.i.i.i, i64 56, i1 false), !noalias !17218
   br label %"_ZN99_$LT$$RF$mut$u20$zvariant..gvariant..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_newtype_struct17h22f69451aeef7475E.exit"
 
-"_ZN99_$LT$$RF$mut$u20$zvariant..gvariant..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_newtype_struct17h22f69451aeef7475E.exit": ; preds = %3, %10
+"_ZN99_$LT$$RF$mut$u20$zvariant..gvariant..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_newtype_struct17h22f69451aeef7475E.exit": ; preds = %3, %11
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !17200
-  store i64 %8, ptr %0, align 8, !alias.scope !17183, !noalias !17218
+  store i64 %9, ptr %0, align 8, !alias.scope !17183, !noalias !17218
   ret void
 }
 
@@ -132368,25 +132368,25 @@ define hidden void @"_ZN5ashpd7desktop12handle_token1_93_$LT$impl$u20$serde..ser
   %5 = load i64, ptr %1, align 8, !range !4131, !alias.scope !29689, !noalias !29690, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !alias.scope !29689, !noalias !29690, !nonnull !4, !noundef !4
-  %switch.i.i.i.i.i.i.i.i = icmp samesign ult i64 %5, 2
-  %.sroa.0.0.idx.i.i.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i.i.i, i64 0, i64 16
+  %8 = shl nuw nsw i64 %5, 3
+  %.sroa.0.0.idx.i.i.i.i.i.i.i.i = and i64 %8, 16
   %.sroa.0.0.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 %.sroa.0.0.idx.i.i.i.i.i.i.i.i
   %.sroa.4.0.in.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.4.0.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.4.0.in.i.i.i.i.i.i.i.i, align 8, !alias.scope !29689, !noalias !29690, !noundef !4
   call void @"_ZN99_$LT$$RF$mut$u20$zvariant..gvariant..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17h587bc64ccd09cbbcE"(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 8 dereferenceable(144) %2, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i.i.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i.i.i.i.i), !noalias !29693
-  %8 = load i64, ptr %4, align 8, !range !16995, !noalias !29672, !noundef !4
-  %9 = icmp eq i64 %8, 14
-  br i1 %9, label %"_ZN99_$LT$$RF$mut$u20$zvariant..gvariant..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_newtype_struct17h7fafe381339c0897E.exit", label %10
+  %9 = load i64, ptr %4, align 8, !range !16995, !noalias !29672, !noundef !4
+  %10 = icmp eq i64 %9, 14
+  br i1 %10, label %"_ZN99_$LT$$RF$mut$u20$zvariant..gvariant..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_newtype_struct17h7fafe381339c0897E.exit", label %11
 
-10:                                               ; preds = %3
+11:                                               ; preds = %3
   %.sroa.7.0..sroa_idx2.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.27.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.27.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.7.0..sroa_idx2.i.i.i.i.i, i64 56, i1 false), !noalias !29694
   br label %"_ZN99_$LT$$RF$mut$u20$zvariant..gvariant..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_newtype_struct17h7fafe381339c0897E.exit"
 
-"_ZN99_$LT$$RF$mut$u20$zvariant..gvariant..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_newtype_struct17h7fafe381339c0897E.exit": ; preds = %3, %10
+"_ZN99_$LT$$RF$mut$u20$zvariant..gvariant..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_newtype_struct17h7fafe381339c0897E.exit": ; preds = %3, %11
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !29672
-  store i64 %8, ptr %0, align 8, !alias.scope !29649, !noalias !29694
+  store i64 %9, ptr %0, align 8, !alias.scope !29649, !noalias !29694
   ret void
 }
 
@@ -132406,25 +132406,25 @@ define hidden void @"_ZN5ashpd7desktop12handle_token1_93_$LT$impl$u20$serde..ser
   %5 = load i64, ptr %1, align 8, !range !4131, !alias.scope !29735, !noalias !29736, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !alias.scope !29735, !noalias !29736, !nonnull !4, !noundef !4
-  %switch.i.i.i.i.i.i.i.i = icmp samesign ult i64 %5, 2
-  %.sroa.0.0.idx.i.i.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i.i.i, i64 0, i64 16
+  %8 = shl nuw nsw i64 %5, 3
+  %.sroa.0.0.idx.i.i.i.i.i.i.i.i = and i64 %8, 16
   %.sroa.0.0.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 %.sroa.0.0.idx.i.i.i.i.i.i.i.i
   %.sroa.4.0.in.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.4.0.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.4.0.in.i.i.i.i.i.i.i.i, align 8, !alias.scope !29735, !noalias !29736, !noundef !4
   call void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17h7a1ad2a1eb23e792E"(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 8 dereferenceable(144) %2, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i.i.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i.i.i.i.i), !noalias !29739
-  %8 = load i64, ptr %4, align 8, !range !16995, !noalias !29718, !noundef !4
-  %9 = icmp eq i64 %8, 14
-  br i1 %9, label %"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_newtype_struct17had3e9d31a7e7628aE.exit", label %10
+  %9 = load i64, ptr %4, align 8, !range !16995, !noalias !29718, !noundef !4
+  %10 = icmp eq i64 %9, 14
+  br i1 %10, label %"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_newtype_struct17had3e9d31a7e7628aE.exit", label %11
 
-10:                                               ; preds = %3
+11:                                               ; preds = %3
   %.sroa.7.0..sroa_idx2.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.27.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.27.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.7.0..sroa_idx2.i.i.i.i.i, i64 56, i1 false), !noalias !29740
   br label %"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_newtype_struct17had3e9d31a7e7628aE.exit"
 
-"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_newtype_struct17had3e9d31a7e7628aE.exit": ; preds = %3, %10
+"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_newtype_struct17had3e9d31a7e7628aE.exit": ; preds = %3, %11
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !29718
-  store i64 %8, ptr %0, align 8, !alias.scope !29695, !noalias !29740
+  store i64 %9, ptr %0, align 8, !alias.scope !29695, !noalias !29740
   ret void
 }
 
@@ -132444,25 +132444,25 @@ define hidden void @"_ZN5ashpd7desktop12handle_token1_93_$LT$impl$u20$serde..ser
   %5 = load i64, ptr %1, align 8, !range !4131, !alias.scope !29781, !noalias !29782, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !alias.scope !29781, !noalias !29782, !nonnull !4, !noundef !4
-  %switch.i.i.i.i.i.i.i.i = icmp samesign ult i64 %5, 2
-  %.sroa.0.0.idx.i.i.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i.i.i, i64 0, i64 16
+  %8 = shl nuw nsw i64 %5, 3
+  %.sroa.0.0.idx.i.i.i.i.i.i.i.i = and i64 %8, 16
   %.sroa.0.0.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 %.sroa.0.0.idx.i.i.i.i.i.i.i.i
   %.sroa.4.0.in.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.4.0.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.4.0.in.i.i.i.i.i.i.i.i, align 8, !alias.scope !29781, !noalias !29782, !noundef !4
   call void @"_ZN99_$LT$$RF$mut$u20$zvariant..gvariant..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17heb3b9dbd72b7dc91E"(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 8 dereferenceable(144) %2, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i.i.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i.i.i.i.i), !noalias !29785
-  %8 = load i64, ptr %4, align 8, !range !16995, !noalias !29764, !noundef !4
-  %9 = icmp eq i64 %8, 14
-  br i1 %9, label %"_ZN99_$LT$$RF$mut$u20$zvariant..gvariant..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_newtype_struct17h8ac26743a9af9c9eE.exit", label %10
+  %9 = load i64, ptr %4, align 8, !range !16995, !noalias !29764, !noundef !4
+  %10 = icmp eq i64 %9, 14
+  br i1 %10, label %"_ZN99_$LT$$RF$mut$u20$zvariant..gvariant..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_newtype_struct17h8ac26743a9af9c9eE.exit", label %11
 
-10:                                               ; preds = %3
+11:                                               ; preds = %3
   %.sroa.7.0..sroa_idx2.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.27.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.27.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.7.0..sroa_idx2.i.i.i.i.i, i64 56, i1 false), !noalias !29786
   br label %"_ZN99_$LT$$RF$mut$u20$zvariant..gvariant..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_newtype_struct17h8ac26743a9af9c9eE.exit"
 
-"_ZN99_$LT$$RF$mut$u20$zvariant..gvariant..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_newtype_struct17h8ac26743a9af9c9eE.exit": ; preds = %3, %10
+"_ZN99_$LT$$RF$mut$u20$zvariant..gvariant..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_newtype_struct17h8ac26743a9af9c9eE.exit": ; preds = %3, %11
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !29764
-  store i64 %8, ptr %0, align 8, !alias.scope !29741, !noalias !29786
+  store i64 %9, ptr %0, align 8, !alias.scope !29741, !noalias !29786
   ret void
 }
 
@@ -132482,25 +132482,25 @@ define hidden void @"_ZN5ashpd7desktop12handle_token1_93_$LT$impl$u20$serde..ser
   %5 = load i64, ptr %1, align 8, !range !4131, !alias.scope !29827, !noalias !29828, !noundef !4
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !alias.scope !29827, !noalias !29828, !nonnull !4, !noundef !4
-  %switch.i.i.i.i.i.i.i.i = icmp samesign ult i64 %5, 2
-  %.sroa.0.0.idx.i.i.i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i.i.i, i64 0, i64 16
+  %8 = shl nuw nsw i64 %5, 3
+  %.sroa.0.0.idx.i.i.i.i.i.i.i.i = and i64 %8, 16
   %.sroa.0.0.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 %.sroa.0.0.idx.i.i.i.i.i.i.i.i
   %.sroa.4.0.in.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.4.0.i.i.i.i.i.i.i.i = load i64, ptr %.sroa.4.0.in.i.i.i.i.i.i.i.i, align 8, !alias.scope !29827, !noalias !29828, !noundef !4
   call void @"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$13serialize_str17h9b64c508c9f3ad50E"(ptr noalias noundef nonnull sret([64 x i8]) align 8 captures(none) dereferenceable(64) %4, ptr noalias noundef nonnull align 8 dereferenceable(144) %2, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i.i.i.i.i.i, i64 noundef %.sroa.4.0.i.i.i.i.i.i.i.i), !noalias !29831
-  %8 = load i64, ptr %4, align 8, !range !16995, !noalias !29810, !noundef !4
-  %9 = icmp eq i64 %8, 14
-  br i1 %9, label %"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_newtype_struct17h9c11decb0588493dE.exit", label %10
+  %9 = load i64, ptr %4, align 8, !range !16995, !noalias !29810, !noundef !4
+  %10 = icmp eq i64 %9, 14
+  br i1 %10, label %"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_newtype_struct17h9c11decb0588493dE.exit", label %11
 
-10:                                               ; preds = %3
+11:                                               ; preds = %3
   %.sroa.7.0..sroa_idx2.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   %.sroa.27.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %.sroa.27.0..sroa_idx.i, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.7.0..sroa_idx2.i.i.i.i.i, i64 56, i1 false), !noalias !29832
   br label %"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_newtype_struct17h9c11decb0588493dE.exit"
 
-"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_newtype_struct17h9c11decb0588493dE.exit": ; preds = %3, %10
+"_ZN95_$LT$$RF$mut$u20$zvariant..dbus..ser..Serializer$LT$W$GT$$u20$as$u20$serde..ser..Serializer$GT$24serialize_newtype_struct17h9c11decb0588493dE.exit": ; preds = %3, %11
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4), !noalias !29810
-  store i64 %8, ptr %0, align 8, !alias.scope !29787, !noalias !29832
+  store i64 %9, ptr %0, align 8, !alias.scope !29787, !noalias !29832
   ret void
 }
 

@@ -23536,8 +23536,8 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17h10320d50d2a1d606E
   br i1 %101, label %104, label %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$9shrink_to17he46f247c2d940085E.exit"
 
 102:                                              ; preds = %97
-  %103 = icmp samesign ult i64 %87, 4
-  %..i.i = select i1 %103, i64 4, i64 8
+  %103 = and i64 %87, 4
+  %..i.i = add nuw nsw i64 %103, 4
   br label %112
 
 104:                                              ; preds = %99
@@ -24148,8 +24148,8 @@ _ZN4core4hash6Hasher9write_str17h31a2eec31094484cE.llvm.15602210471604820194.exi
   br i1 %309, label %312, label %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$9shrink_to17h9929268a48b0ad0fE.exit"
 
 310:                                              ; preds = %305
-  %311 = icmp samesign ult i64 %295, 4
-  %..i.i = select i1 %311, i64 4, i64 8
+  %311 = and i64 %295, 4
+  %..i.i = add nuw nsw i64 %311, 4
   br label %320
 
 312:                                              ; preds = %307
@@ -24407,8 +24407,8 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17h806b14413e3e4fd7E
   br i1 %99, label %102, label %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$9shrink_to17h019e1b8948fb3aeaE.exit"
 
 100:                                              ; preds = %95
-  %101 = icmp samesign ult i64 %85, 4
-  %..i.i = select i1 %101, i64 4, i64 8
+  %101 = and i64 %85, 4
+  %..i.i = add nuw nsw i64 %101, 4
   br label %110
 
 102:                                              ; preds = %97
@@ -24700,8 +24700,8 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17had2ffb857f097f54E
   br i1 %113, label %116, label %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$9shrink_to17h9df340ee05247466E.exit"
 
 114:                                              ; preds = %109
-  %115 = icmp samesign ult i64 %99, 4
-  %..i.i = select i1 %115, i64 4, i64 8
+  %115 = and i64 %99, 4
+  %..i.i = add nuw nsw i64 %115, 4
   br label %124
 
 116:                                              ; preds = %111
@@ -25214,8 +25214,8 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17hc596f14a7ba9ac3dE
   br i1 %232, label %235, label %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$9shrink_to17hcc3a416e3300392dE.exit"
 
 233:                                              ; preds = %228
-  %234 = icmp samesign ult i64 %218, 4
-  %..i.i = select i1 %234, i64 4, i64 8
+  %234 = and i64 %218, 4
+  %..i.i = add nuw nsw i64 %234, 4
   br label %243
 
 235:                                              ; preds = %230
@@ -25511,8 +25511,8 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17hcd570acca69b5308E
   br i1 %114, label %117, label %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$9shrink_to17hf21cf785dbec23eaE.exit"
 
 115:                                              ; preds = %110
-  %116 = icmp samesign ult i64 %100, 4
-  %..i.i = select i1 %116, i64 4, i64 8
+  %116 = and i64 %100, 4
+  %..i.i = add nuw nsw i64 %116, 4
   br label %125
 
 117:                                              ; preds = %112
@@ -25820,8 +25820,8 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17hd111ed7655518e83E
   br i1 %115, label %118, label %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$9shrink_to17h20321dc94ab7a7f3E.exit"
 
 116:                                              ; preds = %111
-  %117 = icmp samesign ult i64 %101, 4
-  %..i.i = select i1 %117, i64 4, i64 8
+  %117 = and i64 %101, 4
+  %..i.i = add nuw nsw i64 %117, 4
   br label %126
 
 118:                                              ; preds = %113
@@ -26186,8 +26186,8 @@ define hidden void @"_ZN6intern17Interned$LT$T$GT$9drop_slow17he308a2a9a0ea91d0E
   br i1 %150, label %153, label %"_ZN9hashbrown3raw5inner21RawTable$LT$T$C$A$GT$9shrink_to17h1e316fb2ab413938E.exit"
 
 151:                                              ; preds = %146
-  %152 = icmp samesign ult i64 %136, 4
-  %..i.i = select i1 %152, i64 4, i64 8
+  %152 = and i64 %136, 4
+  %..i.i = add nuw nsw i64 %152, 4
   br label %161
 
 153:                                              ; preds = %148

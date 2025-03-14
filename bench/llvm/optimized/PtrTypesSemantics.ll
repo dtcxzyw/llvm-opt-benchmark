@@ -1450,8 +1450,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit._crit_edge: ; pre
 
 73:                                               ; preds = %71
   %74 = call range(i16 0, 258) i16 @_ZN5clang20isSmartPtrCompatibleEPKNS_13CXXRecordDeclEN4llvm9StringRefES4_(ptr noundef nonnull readonly %70, ptr nonnull @.str, i64 3, ptr nonnull @.str.1, i64 5)
-  %.not4.inv.i.inv = icmp samesign ult i16 %74, 256
-  %75 = select i1 %.not4.inv.i.inv, i16 0, i16 256
+  %75 = and i16 %74, 256
   %76 = and i16 %74, 255
   br label %_ZN5clang11isUncountedEPKNS_13CXXRecordDeclE.exit
 
@@ -1477,8 +1476,7 @@ define dso_local range(i16 0, 512) i16 @_ZN5clang11isUncountedEPKNS_13CXXRecordD
 
 4:                                                ; preds = %2
   %5 = tail call range(i16 0, 258) i16 @_ZN5clang20isSmartPtrCompatibleEPKNS_13CXXRecordDeclEN4llvm9StringRefES4_(ptr noundef nonnull readonly %0, ptr nonnull @.str, i64 3, ptr nonnull @.str.1, i64 5)
-  %.not4.inv = icmp samesign ult i16 %5, 256
-  %6 = select i1 %.not4.inv, i16 0, i16 256
+  %6 = and i16 %5, 256
   %7 = and i16 %5, 255
   br label %8
 
@@ -1975,25 +1973,21 @@ define dso_local range(i16 0, 512) i16 @_ZN5clang14isUncountedPtrENS_8QualTypeE(
 
 13:                                               ; preds = %11
   %14 = tail call noundef zeroext i1 @_ZN5clang12isRefCountedEPKNS_13CXXRecordDeclE(ptr noundef nonnull %12)
-  br i1 %14, label %20, label %15
+  br i1 %14, label %17, label %15
 
 15:                                               ; preds = %13
   %16 = tail call range(i16 0, 258) i16 @_ZN5clang20isSmartPtrCompatibleEPKNS_13CXXRecordDeclEN4llvm9StringRefES4_(ptr noundef nonnull readonly %12, ptr nonnull @.str, i64 3, ptr nonnull @.str.1, i64 5)
-  %.not4.inv.i = icmp samesign ult i16 %16, 256
-  %17 = select i1 %.not4.inv.i, i16 0, i16 256
-  %18 = and i16 %16, 255
-  %19 = or disjoint i16 %17, %18
-  br label %20
+  br label %17
 
-20:                                               ; preds = %15, %13
-  %.sroa.03.0.insert.insert.i = phi i16 [ 256, %13 ], [ %19, %15 ]
-  %.sroa.3.0.extract.shift = and i16 %.sroa.03.0.insert.insert.i, -256
-  %21 = and i16 %.sroa.03.0.insert.insert.i, 255
+17:                                               ; preds = %15, %13
+  %.sroa.03.0.insert.insert.i = phi i16 [ 256, %13 ], [ %16, %15 ]
+  %.sroa.3.0.extract.shift = and i16 %.sroa.03.0.insert.insert.i, 256
+  %18 = and i16 %.sroa.03.0.insert.insert.i, 255
   br label %.thread
 
-.thread:                                          ; preds = %1, %11, %20
-  %.sroa.08.1 = phi i16 [ %21, %20 ], [ 0, %11 ], [ 0, %1 ]
-  %.sroa.3.1 = phi i16 [ %.sroa.3.0.extract.shift, %20 ], [ 256, %11 ], [ 256, %1 ]
+.thread:                                          ; preds = %1, %11, %17
+  %.sroa.08.1 = phi i16 [ %18, %17 ], [ 0, %11 ], [ 0, %1 ]
+  %.sroa.3.1 = phi i16 [ %.sroa.3.0.extract.shift, %17 ], [ 256, %11 ], [ 256, %1 ]
   %.sroa.08.0.insert.insert = or disjoint i16 %.sroa.3.1, %.sroa.08.1
   ret i16 %.sroa.08.0.insert.insert
 }
@@ -2065,50 +2059,51 @@ define dso_local range(i16 0, 512) i16 @_ZN5clang11isUnsafePtrENS_8QualTypeE(i64
 
 13:                                               ; preds = %11
   %14 = tail call noundef zeroext i1 @_ZN5clang12isRefCountedEPKNS_13CXXRecordDeclE(ptr noundef nonnull %12)
-  br i1 %14, label %20, label %15
+  br i1 %14, label %.thread31, label %15
 
 15:                                               ; preds = %13
   %16 = tail call range(i16 0, 258) i16 @_ZN5clang20isSmartPtrCompatibleEPKNS_13CXXRecordDeclEN4llvm9StringRefES4_(ptr noundef nonnull readonly %12, ptr nonnull @.str, i64 3, ptr nonnull @.str.1, i64 5)
-  %.not4.inv.i = icmp samesign ult i16 %16, 256
-  %17 = select i1 %.not4.inv.i, i16 0, i16 256
-  %18 = and i16 %16, 255
-  %19 = or disjoint i16 %17, %18
-  br label %20
+  %17 = tail call noundef zeroext i1 @_ZN5clang12isCheckedPtrEPKNS_13CXXRecordDeclE(ptr noundef nonnull %12)
+  br i1 %17, label %_ZN5clang11isUncheckedEPKNS_13CXXRecordDeclE.exit.thread, label %_ZN5clang11isUncheckedEPKNS_13CXXRecordDeclE.exit
 
-20:                                               ; preds = %15, %13
-  %.sroa.03.0.insert.insert.i = phi i16 [ 256, %13 ], [ %19, %15 ]
-  %21 = tail call noundef zeroext i1 @_ZN5clang12isCheckedPtrEPKNS_13CXXRecordDeclE(ptr noundef nonnull %12)
-  br i1 %21, label %_ZN5clang11isUncheckedEPKNS_13CXXRecordDeclE.exit.thread, label %_ZN5clang11isUncheckedEPKNS_13CXXRecordDeclE.exit
+.thread31:                                        ; preds = %13
+  %18 = tail call noundef zeroext i1 @_ZN5clang12isCheckedPtrEPKNS_13CXXRecordDeclE(ptr noundef nonnull %12)
+  br i1 %18, label %.thread, label %_ZN5clang11isUncheckedEPKNS_13CXXRecordDeclE.exit.thread39
 
-_ZN5clang11isUncheckedEPKNS_13CXXRecordDeclE.exit: ; preds = %20
-  %22 = tail call range(i16 0, 258) i16 @_ZN5clang20isSmartPtrCompatibleEPKNS_13CXXRecordDeclEN4llvm9StringRefES4_(ptr noundef nonnull readonly %12, ptr nonnull @.str.2, i64 24, ptr nonnull @.str.3, i64 24)
-  %23 = and i16 %.sroa.03.0.insert.insert.i, 256
-  %.not = icmp eq i16 %23, 0
-  br i1 %.not, label %27, label %25
+_ZN5clang11isUncheckedEPKNS_13CXXRecordDeclE.exit.thread39: ; preds = %.thread31
+  %19 = tail call range(i16 0, 258) i16 @_ZN5clang20isSmartPtrCompatibleEPKNS_13CXXRecordDeclEN4llvm9StringRefES4_(ptr noundef nonnull readonly %12, ptr nonnull @.str.2, i64 24, ptr nonnull @.str.3, i64 24)
+  br label %21
 
-_ZN5clang11isUncheckedEPKNS_13CXXRecordDeclE.exit.thread: ; preds = %20
-  %24 = and i16 %.sroa.03.0.insert.insert.i, 256
-  %.not25 = icmp eq i16 %24, 0
-  br i1 %.not25, label %27, label %.thread
+_ZN5clang11isUncheckedEPKNS_13CXXRecordDeclE.exit: ; preds = %15
+  %20 = tail call range(i16 0, 258) i16 @_ZN5clang20isSmartPtrCompatibleEPKNS_13CXXRecordDeclEN4llvm9StringRefES4_(ptr noundef nonnull readonly %12, ptr nonnull @.str.2, i64 24, ptr nonnull @.str.3, i64 24)
+  %.not = icmp samesign ult i16 %16, 256
+  br i1 %.not, label %23, label %21
 
-25:                                               ; preds = %_ZN5clang11isUncheckedEPKNS_13CXXRecordDeclE.exit
-  %.not23 = icmp samesign ult i16 %22, 256
+_ZN5clang11isUncheckedEPKNS_13CXXRecordDeclE.exit.thread: ; preds = %15
+  %.not25 = icmp samesign ult i16 %16, 256
+  br i1 %.not25, label %23, label %.thread
+
+21:                                               ; preds = %_ZN5clang11isUncheckedEPKNS_13CXXRecordDeclE.exit.thread39, %_ZN5clang11isUncheckedEPKNS_13CXXRecordDeclE.exit
+  %.sroa.03.0.insert.insert.i3342 = phi i16 [ %16, %_ZN5clang11isUncheckedEPKNS_13CXXRecordDeclE.exit ], [ 256, %_ZN5clang11isUncheckedEPKNS_13CXXRecordDeclE.exit.thread39 ]
+  %.sroa.0.0.insert.insert.i26 = phi i16 [ %20, %_ZN5clang11isUncheckedEPKNS_13CXXRecordDeclE.exit ], [ %19, %_ZN5clang11isUncheckedEPKNS_13CXXRecordDeclE.exit.thread39 ]
+  %.not23 = icmp samesign ult i16 %.sroa.0.0.insert.insert.i26, 256
   br i1 %.not23, label %.thread19, label %.thread
 
-.thread:                                          ; preds = %_ZN5clang11isUncheckedEPKNS_13CXXRecordDeclE.exit.thread, %25
-  %.sroa.0.0.insert.insert.i2630 = phi i16 [ %22, %25 ], [ 256, %_ZN5clang11isUncheckedEPKNS_13CXXRecordDeclE.exit.thread ]
-  %26 = trunc i16 %.sroa.03.0.insert.insert.i to i1
-  %spec.select = select i1 %26, i16 1, i16 %.sroa.0.0.insert.insert.i2630
+.thread:                                          ; preds = %.thread31, %_ZN5clang11isUncheckedEPKNS_13CXXRecordDeclE.exit.thread, %21
+  %.sroa.03.0.insert.insert.i34 = phi i16 [ %.sroa.03.0.insert.insert.i3342, %21 ], [ %16, %_ZN5clang11isUncheckedEPKNS_13CXXRecordDeclE.exit.thread ], [ 256, %.thread31 ]
+  %.sroa.0.0.insert.insert.i2630 = phi i16 [ %.sroa.0.0.insert.insert.i26, %21 ], [ 256, %_ZN5clang11isUncheckedEPKNS_13CXXRecordDeclE.exit.thread ], [ 256, %.thread31 ]
+  %22 = trunc i16 %.sroa.03.0.insert.insert.i34 to i1
+  %spec.select = select i1 %22, i16 1, i16 %.sroa.0.0.insert.insert.i2630
   br label %.thread19
 
-27:                                               ; preds = %_ZN5clang11isUncheckedEPKNS_13CXXRecordDeclE.exit.thread, %_ZN5clang11isUncheckedEPKNS_13CXXRecordDeclE.exit
-  %.sroa.0.0.insert.insert.i27 = phi i16 [ 256, %_ZN5clang11isUncheckedEPKNS_13CXXRecordDeclE.exit.thread ], [ %22, %_ZN5clang11isUncheckedEPKNS_13CXXRecordDeclE.exit ]
+23:                                               ; preds = %_ZN5clang11isUncheckedEPKNS_13CXXRecordDeclE.exit.thread, %_ZN5clang11isUncheckedEPKNS_13CXXRecordDeclE.exit
+  %.sroa.0.0.insert.insert.i27 = phi i16 [ 256, %_ZN5clang11isUncheckedEPKNS_13CXXRecordDeclE.exit.thread ], [ %20, %_ZN5clang11isUncheckedEPKNS_13CXXRecordDeclE.exit ]
   %.sroa.518.0.extract.shift = and i16 %.sroa.0.0.insert.insert.i27, 256
   br label %.thread19
 
-.thread19:                                        ; preds = %1, %.thread, %25, %27, %11
-  %.sroa.017.2 = phi i16 [ 0, %11 ], [ %.sroa.03.0.insert.insert.i, %25 ], [ %.sroa.0.0.insert.insert.i27, %27 ], [ 0, %1 ], [ %spec.select, %.thread ]
-  %.sroa.518.2 = phi i16 [ 256, %11 ], [ 256, %25 ], [ %.sroa.518.0.extract.shift, %27 ], [ 256, %1 ], [ 256, %.thread ]
+.thread19:                                        ; preds = %1, %.thread, %21, %23, %11
+  %.sroa.017.2 = phi i16 [ 0, %11 ], [ %.sroa.03.0.insert.insert.i3342, %21 ], [ %.sroa.0.0.insert.insert.i27, %23 ], [ 0, %1 ], [ %spec.select, %.thread ]
+  %.sroa.518.2 = phi i16 [ 256, %11 ], [ 256, %21 ], [ %.sroa.518.0.extract.shift, %23 ], [ 256, %1 ], [ 256, %.thread ]
   %.sroa.017.0.insert.ext = and i16 %.sroa.017.2, 255
   %.sroa.017.0.insert.insert = or disjoint i16 %.sroa.518.2, %.sroa.017.0.insert.ext
   ret i16 %.sroa.017.0.insert.insert

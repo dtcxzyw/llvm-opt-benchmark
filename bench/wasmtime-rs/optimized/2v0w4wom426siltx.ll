@@ -707,8 +707,8 @@ define hidden { i64, i64 } @_ZN9hashbrown3raw19capacity_to_buckets17h2a3a4ae4f5f
   br i1 %5, label %8, label %16
 
 6:                                                ; preds = %1
-  %7 = icmp samesign ult i64 %0, 4
-  %. = select i1 %7, i64 4, i64 8
+  %7 = and i64 %0, 4
+  %. = add nuw nsw i64 %7, 4
   br label %16
 
 8:                                                ; preds = %3

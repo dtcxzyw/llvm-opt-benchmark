@@ -28134,12 +28134,12 @@ define hidden { i32, i32 } @_ZN3hir13as_assoc_item17hfdffe61602779536E(ptr nound
   %10 = extractvalue { ptr, ptr } %8, 1
   call void @"_ZN55_$LT$hir_def..ConstId$u20$as$u20$hir_expand..Lookup$GT$6lookup17h2334b33b3410f958E"(ptr noalias noundef nonnull sret({ { i32, [3 x i32] }, { { i32, i32 }, i32 } }) align 4 captures(none) dereferenceable(28) %4, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %5, ptr noundef nonnull align 1 %9, ptr noalias noundef readonly align 8 dereferenceable(24) %10)
   %11 = load i32, ptr %4, align 4, !range !5678, !noundef !23
-  %switch.inv = icmp samesign ugt i32 %11, 1
-  %spec.select3 = select i1 %switch.inv, i32 1, i32 3
+  %12 = and i32 %11, 2
+  %spec.select3 = xor i32 %12, 3
   call void @llvm.lifetime.end.p0(i64 28, ptr nonnull %4)
-  %12 = insertvalue { i32, i32 } poison, i32 %spec.select3, 0
-  %13 = insertvalue { i32, i32 } %12, i32 %2, 1
-  ret { i32, i32 } %13
+  %13 = insertvalue { i32, i32 } poison, i32 %spec.select3, 0
+  %14 = insertvalue { i32, i32 } %13, i32 %2, 1
+  ret { i32, i32 } %14
 }
 
 ; Function Attrs: nonlazybind uwtable

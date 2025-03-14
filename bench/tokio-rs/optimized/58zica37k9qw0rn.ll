@@ -4312,8 +4312,8 @@ define internal fastcc i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %27, label %30, label %38
 
 28:                                               ; preds = %22
-  %29 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
-  %..i.i.i = select i1 %29, i64 4, i64 8
+  %29 = and i64 %.0.sroa.speculated.i, 4
+  %..i.i.i = add nuw nsw i64 %29, 4
   br label %.thread.i.i.thread
 
 30:                                               ; preds = %25
@@ -4586,8 +4586,8 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %28, label %31, label %39
 
 29:                                               ; preds = %23
-  %30 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
-  %..i.i.i = select i1 %30, i64 4, i64 8
+  %30 = and i64 %.0.sroa.speculated.i, 4
+  %..i.i.i = add nuw nsw i64 %30, 4
   br label %.thread.i.i
 
 31:                                               ; preds = %26

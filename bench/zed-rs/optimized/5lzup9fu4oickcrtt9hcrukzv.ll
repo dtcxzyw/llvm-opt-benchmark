@@ -1109,8 +1109,8 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %25, label %27, label %29
 
 .thread.i:                                        ; preds = %21
-  %26 = icmp samesign ult i64 %.sroa.0.0.sroa.speculated.i, 4
-  %..i.i = select i1 %26, i64 4, i64 8
+  %26 = and i64 %.sroa.0.0.sroa.speculated.i, 4
+  %..i.i = add nuw nsw i64 %26, 4
   br label %37
 
 27:                                               ; preds = %24

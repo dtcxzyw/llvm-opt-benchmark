@@ -3801,7 +3801,7 @@ _ZNK8facebook4yoga5Style17computeGapForAxisENS0_13FlexDirectionEf.exit1011: ; pr
   %1307 = getelementptr inbounds nuw i8, ptr %21, i64 44
   %.mux.i = zext i1 %525 to i8
   %1308 = zext i1 %525 to i64
-  %1309 = select i1 %525, i8 0, i8 2
+  %1309 = and i8 %.0.i990, 2
   %1310 = fcmp uno float %580, 0.000000e+00
   %not.2492 = xor i1 %525, true
   %1311 = zext i1 %not.2492 to i64

@@ -7019,8 +7019,8 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %33, label %36, label %44
 
 34:                                               ; preds = %28
-  %35 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
-  %..i.i.i = select i1 %35, i64 4, i64 8
+  %35 = and i64 %.0.sroa.speculated.i, 4
+  %..i.i.i = add nuw nsw i64 %35, 4
   br label %.thread.i.i
 
 36:                                               ; preds = %31
@@ -7369,8 +7369,8 @@ define hidden { i64, i64 } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_r
   br i1 %28, label %31, label %39
 
 29:                                               ; preds = %23
-  %30 = icmp samesign ult i64 %.0.sroa.speculated.i, 4
-  %..i.i.i = select i1 %30, i64 4, i64 8
+  %30 = and i64 %.0.sroa.speculated.i, 4
+  %..i.i.i = add nuw nsw i64 %30, 4
   br label %.thread.i.i.thread
 
 31:                                               ; preds = %26
