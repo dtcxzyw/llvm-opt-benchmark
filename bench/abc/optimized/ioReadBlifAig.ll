@@ -2891,8 +2891,8 @@ define internal fastcc void @Io_BlifCollectTokens(ptr noundef captures(none) ini
   br label %6
 
 6:                                                ; preds = %.lr.ph, %.loopexit
-  %7 = phi i32 [ 0, %.lr.ph ], [ %41, %.loopexit ]
-  %.09 = phi ptr [ %1, %.lr.ph ], [ %42, %.loopexit ]
+  %7 = phi i32 [ 0, %.lr.ph ], [ %38, %.loopexit ]
+  %.09 = phi ptr [ %1, %.lr.ph ], [ %39, %.loopexit ]
   %8 = load i8, ptr %.09, align 1, !tbaa !30
   %9 = icmp eq i8 %8, 0
   br i1 %9, label %.loopexit, label %10
@@ -2959,21 +2959,17 @@ Vec_PtrPush.exit:                                 ; preds = %.Vec_PtrGrow.exit11
   %36 = sext i32 %34 to i64
   %37 = getelementptr inbounds ptr, ptr %33, i64 %36
   store ptr %.09, ptr %37, align 8, !tbaa !29
-  br label %38
+  %scevgep = getelementptr i8, ptr %.09, i64 1
+  %strlen = tail call i64 @strlen(ptr nonnull dereferenceable(1) %scevgep)
+  %scevgep10 = getelementptr i8, ptr %scevgep, i64 %strlen
+  br label %.loopexit
 
-38:                                               ; preds = %38, %Vec_PtrPush.exit
-  %.2 = phi ptr [ %.09, %Vec_PtrPush.exit ], [ %39, %38 ]
-  %39 = getelementptr inbounds nuw i8, ptr %.2, i64 1
-  %40 = load i8, ptr %39, align 1, !tbaa !30
-  %.not = icmp eq i8 %40, 0
-  br i1 %.not, label %.loopexit, label %38, !llvm.loop !93
-
-.loopexit:                                        ; preds = %38, %6
-  %41 = phi i32 [ %7, %6 ], [ %35, %38 ]
-  %.1 = phi ptr [ %.09, %6 ], [ %39, %38 ]
-  %42 = getelementptr inbounds nuw i8, ptr %.1, i64 1
-  %43 = icmp ult ptr %42, %2
-  br i1 %43, label %6, label %._crit_edge, !llvm.loop !94
+.loopexit:                                        ; preds = %Vec_PtrPush.exit, %6
+  %38 = phi i32 [ %7, %6 ], [ %35, %Vec_PtrPush.exit ]
+  %.1 = phi ptr [ %.09, %6 ], [ %scevgep10, %Vec_PtrPush.exit ]
+  %39 = getelementptr inbounds nuw i8, ptr %.1, i64 1
+  %40 = icmp ult ptr %39, %2
+  br i1 %40, label %6, label %._crit_edge, !llvm.loop !93
 
 ._crit_edge:                                      ; preds = %.loopexit, %3
   ret void
@@ -3180,7 +3176,7 @@ Vec_PtrFree.exit:                                 ; preds = %77
   store ptr %80, ptr %78, align 8, !tbaa !29
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.critedge, label %77, !llvm.loop !95
+  br i1 %exitcond.not, label %.critedge, label %77, !llvm.loop !94
 
 .critedge:                                        ; preds = %82, %65
   %83 = load ptr, ptr %71, align 8, !tbaa !50
@@ -3530,7 +3526,7 @@ Io_BlifGetLine.exit148.i:                         ; preds = %228, %.critedge.loo
 237:                                              ; preds = %234
   %238 = load ptr, ptr %158, align 8, !tbaa !60
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 256
-  %240 = load ptr, ptr %239, align 8, !tbaa !96
+  %240 = load ptr, ptr %239, align 8, !tbaa !95
   %.val103.i = load ptr, ptr %70, align 8, !tbaa !10
   %241 = getelementptr inbounds nuw ptr, ptr %.val103.i, i64 %indvars.iv.i66
   %242 = load ptr, ptr %241, align 8, !tbaa !29
@@ -3543,7 +3539,7 @@ Io_BlifGetLine.exit148.i:                         ; preds = %228, %.critedge.loo
 247:                                              ; preds = %234
   %248 = load ptr, ptr %158, align 8, !tbaa !60
   %249 = getelementptr inbounds nuw i8, ptr %248, i64 256
-  %250 = load ptr, ptr %249, align 8, !tbaa !96
+  %250 = load ptr, ptr %249, align 8, !tbaa !95
   %.val102.i = load ptr, ptr %70, align 8, !tbaa !10
   %251 = getelementptr inbounds nuw ptr, ptr %.val102.i, i64 %indvars.iv.i66
   %252 = load ptr, ptr %251, align 8, !tbaa !29
@@ -3590,12 +3586,12 @@ Io_BlifGetLine.exit158.i:                         ; preds = %265, %.critedge.loo
 269:                                              ; preds = %247, %237, %234
   %.184.i = phi ptr [ %246, %237 ], [ %253, %247 ], [ %.083.i, %234 ]
   %indvars.iv.next.i67 = add nuw nsw i64 %indvars.iv.i66, 1
-  br label %234, !llvm.loop !97
+  br label %234, !llvm.loop !96
 
 270:                                              ; preds = %234
   %271 = load ptr, ptr %158, align 8, !tbaa !60
   %272 = getelementptr inbounds nuw i8, ptr %271, i64 256
-  %273 = load ptr, ptr %272, align 8, !tbaa !96
+  %273 = load ptr, ptr %272, align 8, !tbaa !95
   %274 = tail call ptr @Abc_AigOr(ptr noundef %273, ptr noundef %.085188.i, ptr noundef %.083.i) #12
   %indvars.iv.next223.i = add nuw nsw i64 %indvars.iv222.i, 1
   %275 = load ptr, ptr %89, align 8, !tbaa !22
@@ -3604,7 +3600,7 @@ Io_BlifGetLine.exit158.i:                         ; preds = %265, %.critedge.loo
   %277 = sdiv i32 %.val97.i, 2
   %278 = sext i32 %277 to i64
   %279 = icmp slt i64 %indvars.iv.next223.i, %278
-  br i1 %279, label %167, label %._crit_edge.loopexit.i, !llvm.loop !98
+  br i1 %279, label %167, label %._crit_edge.loopexit.i, !llvm.loop !97
 
 ._crit_edge.loopexit.i:                           ; preds = %270
   %280 = icmp eq i32 %.1.i, 0
@@ -3773,7 +3769,6 @@ attributes #14 = { nounwind willreturn memory(read) }
 !92 = distinct !{!92, !32}
 !93 = distinct !{!93, !32}
 !94 = distinct !{!94, !32}
-!95 = distinct !{!95, !32}
-!96 = !{!62, !8, i64 256}
+!95 = !{!62, !8, i64 256}
+!96 = distinct !{!96, !32}
 !97 = distinct !{!97, !32}
-!98 = distinct !{!98, !32}

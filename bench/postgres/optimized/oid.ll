@@ -23,7 +23,7 @@ define dso_local range(i64 0, 4294967296) i64 @oidin(ptr noundef readonly captur
   %4 = inttoptr i64 %3 to ptr
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8
-  %7 = tail call i32 @uint32in_subr(ptr noundef %4, ptr noundef null, ptr noundef nonnull @.str, ptr noundef %6) #12
+  %7 = tail call i32 @uint32in_subr(ptr noundef %4, ptr noundef null, ptr noundef nonnull @.str, ptr noundef %6) #13
   %8 = zext i32 %7 to i64
   ret i64 %8
 }
@@ -41,8 +41,8 @@ define dso_local noundef i64 @oidout(ptr noundef readonly captures(none) %0) loc
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = trunc i64 %3 to i32
-  %5 = tail call ptr @palloc(i64 noundef 12) #12
-  %6 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %5, i64 noundef 12, ptr noundef nonnull @.str.1, i32 noundef %4) #12
+  %5 = tail call ptr @palloc(i64 noundef 12) #13
+  %6 = tail call i32 (ptr, i64, ptr, ...) @pg_snprintf(ptr noundef %5, i64 noundef 12, ptr noundef nonnull @.str.1, i32 noundef %4) #13
   %7 = ptrtoint ptr %5 to i64
   ret i64 %7
 }
@@ -56,7 +56,7 @@ define dso_local range(i64 0, 4294967296) i64 @oidrecv(ptr noundef readonly capt
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %3 = load i64, ptr %2, align 8
   %4 = inttoptr i64 %3 to ptr
-  %5 = tail call i32 @pq_getmsgint(ptr noundef %4, i32 noundef 4) #12
+  %5 = tail call i32 @pq_getmsgint(ptr noundef %4, i32 noundef 4) #13
   %6 = zext i32 %5 to i64
   ret i64 %6
 }
@@ -69,9 +69,9 @@ define dso_local i64 @oidsend(ptr noundef readonly captures(none) %0) local_unna
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = trunc i64 %4 to i32
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #12
-  call void @pq_begintypsend(ptr noundef nonnull %2) #12
-  call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef 4) #12
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2) #13
+  call void @pq_begintypsend(ptr noundef nonnull %2) #13
+  call void @enlargeStringInfo(ptr noundef nonnull %2, i32 noundef 4) #13
   call void @llvm.experimental.noalias.scope.decl(metadata !4)
   %6 = call i32 @llvm.bswap.i32(i32 %5)
   %7 = load ptr, ptr %2, align 8, !alias.scope !4
@@ -82,9 +82,9 @@ define dso_local i64 @oidsend(ptr noundef readonly captures(none) %0) local_unna
   store i32 %6, ptr %11, align 1, !noalias !4
   %12 = add i32 %9, 4
   store i32 %12, ptr %8, align 8, !alias.scope !4
-  %13 = call ptr @pq_endtypsend(ptr noundef nonnull %2) #12
+  %13 = call ptr @pq_endtypsend(ptr noundef nonnull %2) #13
   %14 = ptrtoint ptr %13 to i64
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2) #13
   ret i64 %14
 }
 
@@ -97,7 +97,7 @@ define dso_local ptr @buildoidvector(ptr noundef readonly captures(address_is_nu
   %3 = sext i32 %1 to i64
   %4 = shl nsw i64 %3, 2
   %5 = add nsw i64 %4, 24
-  %6 = tail call ptr @palloc0(i64 noundef %5) #12
+  %6 = tail call ptr @palloc0(i64 noundef %5) #13
   %7 = icmp sgt i32 %1, 0
   %8 = icmp ne ptr %0, null
   %or.cond = and i1 %8, %7
@@ -133,7 +133,7 @@ declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr no
 ; Function Attrs: nounwind uwtable
 define dso_local noundef i64 @oidvectorin(ptr noundef captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #13
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = inttoptr i64 %4 to ptr
@@ -141,13 +141,13 @@ define dso_local noundef i64 @oidvectorin(ptr noundef captures(none) %0) local_u
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %.fr = freeze ptr %7
-  %8 = tail call ptr @palloc0(i64 noundef 152) #12
+  %8 = tail call ptr @palloc0(i64 noundef 152) #13
   %9 = load i8, ptr %5, align 1
   %.not3541 = icmp eq i8 %9, 0
   br i1 %.not3541, label %._crit_edge, label %.lr.ph.lr.ph
 
 .lr.ph.lr.ph:                                     ; preds = %1
-  %10 = tail call ptr @__ctype_b_loc() #13
+  %10 = tail call ptr @__ctype_b_loc() #14
   %.not32 = icmp eq ptr %.fr, null
   %11 = getelementptr inbounds nuw i8, ptr %.fr, i64 4
   br i1 %.not32, label %.lr.ph.us, label %.lr.ph
@@ -187,7 +187,7 @@ define dso_local noundef i64 @oidvectorin(ptr noundef captures(none) %0) local_u
   %25 = sext i32 %24 to i64
   %26 = shl nsw i64 %25, 2
   %27 = add nsw i64 %26, 24
-  %28 = call ptr @repalloc(ptr noundef %.02642.us, i64 noundef %27) #12
+  %28 = call ptr @repalloc(ptr noundef %.02642.us, i64 noundef %27) #13
   %.pre64 = load ptr, ptr %2, align 8
   br label %29
 
@@ -195,7 +195,7 @@ define dso_local noundef i64 @oidvectorin(ptr noundef captures(none) %0) local_u
   %30 = phi ptr [ %.pre64, %23 ], [ %15, %.critedge.us ]
   %.127.us = phi ptr [ %28, %23 ], [ %.02642.us, %.critedge.us ]
   %.1.us = phi i32 [ %24, %23 ], [ %.02543.us, %.critedge.us ]
-  %31 = call i32 @uint32in_subr(ptr noundef %30, ptr noundef nonnull %2, ptr noundef nonnull @.str, ptr noundef null) #12
+  %31 = call i32 @uint32in_subr(ptr noundef %30, ptr noundef nonnull %2, ptr noundef nonnull @.str, ptr noundef null) #13
   %32 = getelementptr inbounds nuw i8, ptr %.127.us, i64 24
   %33 = sext i32 %.044.us to i64
   %34 = getelementptr inbounds [0 x i32], ptr %32, i64 0, i64 %33
@@ -241,7 +241,7 @@ define dso_local noundef i64 @oidvectorin(ptr noundef captures(none) %0) local_u
   %50 = sext i32 %49 to i64
   %51 = shl nsw i64 %50, 2
   %52 = add nsw i64 %51, 24
-  %53 = call ptr @repalloc(ptr noundef %.02642, i64 noundef %52) #12
+  %53 = call ptr @repalloc(ptr noundef %.02642, i64 noundef %52) #13
   %.pre62 = load ptr, ptr %2, align 8
   br label %54
 
@@ -249,7 +249,7 @@ define dso_local noundef i64 @oidvectorin(ptr noundef captures(none) %0) local_u
   %55 = phi ptr [ %.pre62, %48 ], [ %40, %.critedge ]
   %.127 = phi ptr [ %53, %48 ], [ %.02642, %.critedge ]
   %.1 = phi i32 [ %49, %48 ], [ %.02543, %.critedge ]
-  %56 = call i32 @uint32in_subr(ptr noundef %55, ptr noundef nonnull %2, ptr noundef nonnull @.str, ptr noundef nonnull %.fr) #12
+  %56 = call i32 @uint32in_subr(ptr noundef %55, ptr noundef nonnull %2, ptr noundef nonnull @.str, ptr noundef nonnull %.fr) #13
   %57 = getelementptr inbounds nuw i8, ptr %.127, i64 24
   %58 = sext i32 %.044 to i64
   %59 = getelementptr inbounds [0 x i32], ptr %57, i64 0, i64 %58
@@ -296,7 +296,7 @@ define dso_local noundef i64 @oidvectorin(ptr noundef captures(none) %0) local_u
 
 78:                                               ; preds = %._crit_edge, %65
   %.028 = phi i64 [ %77, %._crit_edge ], [ 0, %65 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #13
   ret i64 %.028
 }
 
@@ -315,7 +315,7 @@ define dso_local i64 @oidvectorout(ptr noundef readonly captures(none) %0) local
   %7 = mul i32 %6, 12
   %8 = or disjoint i32 %7, 1
   %9 = sext i32 %8 to i64
-  %10 = tail call ptr @palloc(i64 noundef %9) #12
+  %10 = tail call ptr @palloc(i64 noundef %9) #13
   %11 = icmp sgt i32 %6, 0
   br i1 %11, label %.lr.ph, label %._crit_edge
 
@@ -324,9 +324,9 @@ define dso_local i64 @oidvectorout(ptr noundef readonly captures(none) %0) local
   %wide.trip.count = zext nneg i32 %6 to i64
   br label %13
 
-13:                                               ; preds = %.lr.ph, %23
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %23 ]
-  %.01315 = phi ptr [ %10, %.lr.ph ], [ %21, %23 ]
+13:                                               ; preds = %.lr.ph, %16
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %16 ]
+  %.01315 = phi ptr [ %10, %.lr.ph ], [ %scevgep17, %16 ]
   %.not = icmp eq i64 %indvars.iv, 0
   br i1 %.not, label %16, label %14
 
@@ -339,26 +339,19 @@ define dso_local i64 @oidvectorout(ptr noundef readonly captures(none) %0) local
   %.1 = phi ptr [ %15, %14 ], [ %.01315, %13 ]
   %17 = getelementptr inbounds nuw [0 x i32], ptr %12, i64 0, i64 %indvars.iv
   %18 = load i32, ptr %17, align 4
-  %19 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.1, ptr noundef nonnull @.str.1, i32 noundef %18) #12
-  br label %20
-
-20:                                               ; preds = %20, %16
-  %.2 = phi ptr [ %.1, %16 ], [ %21, %20 ]
-  %21 = getelementptr inbounds nuw i8, ptr %.2, i64 1
-  %22 = load i8, ptr %21, align 1
-  %.not14 = icmp eq i8 %22, 0
-  br i1 %.not14, label %23, label %20, !llvm.loop !11
-
-23:                                               ; preds = %20
+  %19 = tail call i32 (ptr, ptr, ...) @pg_sprintf(ptr noundef %.1, ptr noundef nonnull @.str.1, i32 noundef %18) #13
+  %scevgep = getelementptr i8, ptr %.1, i64 1
+  %strlen = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %scevgep)
+  %scevgep17 = getelementptr i8, ptr %scevgep, i64 %strlen
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !11
 
-._crit_edge:                                      ; preds = %23, %1
-  %.013.lcssa = phi ptr [ %10, %1 ], [ %21, %23 ]
+._crit_edge:                                      ; preds = %16, %1
+  %.013.lcssa = phi ptr [ %10, %1 ], [ %scevgep17, %16 ]
   store i8 0, ptr %.013.lcssa, align 1
-  %24 = ptrtoint ptr %10 to i64
-  ret i64 %24
+  %20 = ptrtoint ptr %10 to i64
+  ret i64 %20
 }
 
 declare i32 @pg_sprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
@@ -366,7 +359,7 @@ declare i32 @pg_sprintf(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @oidvectorrecv(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = alloca %union.anon, align 8
-  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %2) #12
+  call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %2) #13
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %4 = load i64, ptr %3, align 8
   %5 = load ptr, ptr %0, align 8
@@ -387,7 +380,7 @@ define dso_local i64 @oidvectorrecv(ptr noundef readonly captures(none) %0) loca
   store i64 -1, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %2, i64 72
   store i8 0, ptr %13, align 8
-  %14 = call i64 @array_recv(ptr noundef nonnull %2) #12
+  %14 = call i64 @array_recv(ptr noundef nonnull %2) #13
   %15 = inttoptr i64 %14 to ptr
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 4
   %17 = load i32, ptr %16, align 4
@@ -413,15 +406,15 @@ define dso_local i64 @oidvectorrecv(ptr noundef readonly captures(none) %0) loca
   br i1 %.not24, label %31, label %27
 
 27:                                               ; preds = %24, %21, %18, %1
-  %28 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %28 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   call void @llvm.assume(i1 %28)
-  %29 = call i32 @errcode(i32 noundef 50462850) #12
-  %30 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2) #12
-  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 217, ptr noundef nonnull @__func__.oidvectorrecv) #12
+  %29 = call i32 @errcode(i32 noundef 50462850) #13
+  %30 = call i32 (ptr, ...) @errmsg(ptr noundef nonnull @.str.2) #13
+  call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 217, ptr noundef nonnull @__func__.oidvectorrecv) #13
   unreachable
 
 31:                                               ; preds = %24
-  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #12
+  call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %2) #13
   ret i64 %14
 }
 
@@ -438,7 +431,7 @@ declare void @errfinish(ptr noundef, i32 noundef, ptr noundef) local_unnamed_add
 
 ; Function Attrs: nounwind uwtable
 define dso_local i64 @oidvectorsend(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i64 @array_send(ptr noundef %0) #12
+  %2 = tail call i64 @array_send(ptr noundef %0) #13
   ret i64 %2
 }
 
@@ -460,15 +453,15 @@ define dso_local i32 @oidparse(ptr noundef readonly captures(none) %0) local_unn
 6:                                                ; preds = %1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8
-  %9 = tail call i32 @uint32in_subr(ptr noundef %8, ptr noundef null, ptr noundef nonnull @.str, ptr noundef null) #12
+  %9 = tail call i32 @uint32in_subr(ptr noundef %8, ptr noundef null, ptr noundef nonnull @.str, ptr noundef null) #13
   br label %14
 
 10:                                               ; preds = %1
-  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #14
+  %11 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #15
   tail call void @llvm.assume(i1 %11)
   %12 = load i32, ptr %0, align 4
-  %13 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %12) #12
-  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 251, ptr noundef nonnull @__func__.oidparse) #12
+  %13 = tail call i32 (ptr, ...) @errmsg_internal(ptr noundef nonnull @.str.4, i32 noundef %12) #13
+  tail call void @errfinish(ptr noundef nonnull @.str.3, i32 noundef 251, ptr noundef nonnull @__func__.oidparse) #13
   unreachable
 
 14:                                               ; preds = %6, %3
@@ -592,7 +585,7 @@ define dso_local range(i64 0, 4294967296) i64 @oidsmaller(ptr noundef readonly c
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @oidvectoreq(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i64 @btoidvectorcmp(ptr noundef %0) #12
+  %2 = tail call i64 @btoidvectorcmp(ptr noundef %0) #13
   %3 = and i64 %2, 4294967295
   %4 = icmp eq i64 %3, 0
   %5 = zext i1 %4 to i64
@@ -603,7 +596,7 @@ declare i64 @btoidvectorcmp(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @oidvectorne(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i64 @btoidvectorcmp(ptr noundef %0) #12
+  %2 = tail call i64 @btoidvectorcmp(ptr noundef %0) #13
   %3 = and i64 %2, 4294967295
   %4 = icmp ne i64 %3, 0
   %5 = zext i1 %4 to i64
@@ -612,7 +605,7 @@ define dso_local range(i64 0, 2) i64 @oidvectorne(ptr noundef %0) local_unnamed_
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @oidvectorlt(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i64 @btoidvectorcmp(ptr noundef %0) #12
+  %2 = tail call i64 @btoidvectorcmp(ptr noundef %0) #13
   %3 = lshr i64 %2, 31
   %.lobit = and i64 %3, 1
   ret i64 %.lobit
@@ -620,7 +613,7 @@ define dso_local range(i64 0, 2) i64 @oidvectorlt(ptr noundef %0) local_unnamed_
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @oidvectorle(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i64 @btoidvectorcmp(ptr noundef %0) #12
+  %2 = tail call i64 @btoidvectorcmp(ptr noundef %0) #13
   %3 = trunc i64 %2 to i32
   %4 = icmp slt i32 %3, 1
   %5 = zext i1 %4 to i64
@@ -629,7 +622,7 @@ define dso_local range(i64 0, 2) i64 @oidvectorle(ptr noundef %0) local_unnamed_
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @oidvectorge(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i64 @btoidvectorcmp(ptr noundef %0) #12
+  %2 = tail call i64 @btoidvectorcmp(ptr noundef %0) #13
   %3 = lshr i64 %2, 31
   %.lobit = and i64 %3, 1
   %4 = xor i64 %.lobit, 1
@@ -638,7 +631,7 @@ define dso_local range(i64 0, 2) i64 @oidvectorge(ptr noundef %0) local_unnamed_
 
 ; Function Attrs: nounwind uwtable
 define dso_local range(i64 0, 2) i64 @oidvectorgt(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i64 @btoidvectorcmp(ptr noundef %0) #12
+  %2 = tail call i64 @btoidvectorcmp(ptr noundef %0) #13
   %3 = trunc i64 %2 to i32
   %4 = icmp sgt i32 %3, 0
   %5 = zext i1 %4 to i64
@@ -665,8 +658,11 @@ declare i32 @llvm.umin.i32(i32, i32) #9
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #10
 
+; Function Attrs: nofree nounwind willreturn memory(argmem: read)
+declare i64 @strlen(ptr captures(none)) local_unnamed_addr #11
+
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #11
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
@@ -679,10 +675,11 @@ attributes #7 = { mustprogress nocallback nofree nosync nounwind speculatable wi
 attributes #8 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #10 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #11 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #12 = { nounwind }
-attributes #13 = { nounwind willreturn memory(none) }
-attributes #14 = { cold nounwind }
+attributes #11 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #13 = { nounwind }
+attributes #14 = { nounwind willreturn memory(none) }
+attributes #15 = { cold nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 
@@ -698,4 +695,3 @@ attributes #14 = { cold nounwind }
 !9 = !{i8 0, i8 2}
 !10 = !{}
 !11 = distinct !{!11, !8}
-!12 = distinct !{!12, !8}

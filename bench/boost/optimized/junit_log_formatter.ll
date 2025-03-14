@@ -322,31 +322,30 @@ declare noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost9unit_test19res
 
 ; Function Attrs: mustprogress uwtable
 define hidden void @_ZN5boost9unit_test6output13file_basenameENS0_13basic_cstringIKcEE(ptr dead_on_unwind noalias writable writeonly sret(%"class.boost::unit_test::basic_cstring") align 8 captures(none) initializes((0, 16)) %0, ptr noundef captures(none) %1) local_unnamed_addr #3 {
-_ZN5boost9unit_test13basic_cstringIKcEC2EPS2_.exit:
-  %2 = load ptr, ptr %1, align 8, !tbaa !3
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !8
-  %5 = tail call noundef ptr @_ZN5boost9unit_test5utils12find_last_ofIPKcS4_EET_S5_S5_T0_S6_(ptr noundef %2, ptr noundef %4, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 2))
-  %6 = load ptr, ptr %3, align 8, !tbaa !8
-  %.not = icmp eq ptr %5, %6
-  br i1 %.not, label %_ZN5boost9unit_test13basic_cstringIKcEC2EPS2_.exit._crit_edge, label %7
+  %3 = load ptr, ptr %1, align 8, !tbaa !3
+  %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %5 = load ptr, ptr %4, align 8, !tbaa !8
+  %6 = tail call noundef ptr @_ZN5boost9unit_test5utils12find_last_ofIPKcS4_EET_S5_S5_T0_S6_(ptr noundef %3, ptr noundef %5, ptr noundef nonnull @.str, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str, i64 2))
+  %7 = load ptr, ptr %4, align 8, !tbaa !8
+  %.not = icmp eq ptr %6, %7
+  br i1 %.not, label %._crit_edge, label %8
 
-_ZN5boost9unit_test13basic_cstringIKcEC2EPS2_.exit._crit_edge: ; preds = %_ZN5boost9unit_test13basic_cstringIKcEC2EPS2_.exit
+._crit_edge:                                      ; preds = %2
   %.pre = load ptr, ptr %1, align 8, !tbaa !3
-  br label %9
+  br label %10
 
-7:                                                ; preds = %_ZN5boost9unit_test13basic_cstringIKcEC2EPS2_.exit
-  %8 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  %.not.i = icmp ugt ptr %6, %8
-  %spec.store.select.i = select i1 %.not.i, ptr %8, ptr %6
+8:                                                ; preds = %2
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %.not.i = icmp ugt ptr %7, %9
+  %spec.store.select.i = select i1 %.not.i, ptr %9, ptr %7
   store ptr %spec.store.select.i, ptr %1, align 8
-  br label %9
+  br label %10
 
-9:                                                ; preds = %_ZN5boost9unit_test13basic_cstringIKcEC2EPS2_.exit._crit_edge, %7
-  %10 = phi ptr [ %.pre, %_ZN5boost9unit_test13basic_cstringIKcEC2EPS2_.exit._crit_edge ], [ %spec.store.select.i, %7 ]
-  store ptr %10, ptr %0, align 8, !tbaa !3
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %6, ptr %11, align 8, !tbaa !8
+10:                                               ; preds = %._crit_edge, %8
+  %11 = phi ptr [ %.pre, %._crit_edge ], [ %spec.store.select.i, %8 ]
+  store ptr %11, ptr %0, align 8, !tbaa !3
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %7, ptr %12, align 8, !tbaa !8
   ret void
 }
 

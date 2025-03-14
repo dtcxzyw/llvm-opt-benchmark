@@ -108,7 +108,7 @@ define dso_local range(i32 -6, 1) i32 @cm_zlib_deflateInit2_(ptr noundef %0, i32
 50:                                               ; preds = %48
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %52 = load ptr, ptr %51, align 8, !tbaa !15
-  %53 = tail call ptr %24(ptr noundef %52, i32 noundef 1, i32 noundef 5952) #10
+  %53 = tail call ptr %24(ptr noundef %52, i32 noundef 1, i32 noundef 5952) #11
   %54 = icmp eq ptr %53, null
   br i1 %54, label %124, label %55
 
@@ -148,7 +148,7 @@ define dso_local range(i32 -6, 1) i32 @cm_zlib_deflateInit2_(ptr noundef %0, i32
   store i32 %.zext, ptr %73, align 8, !tbaa !36
   %74 = load ptr, ptr %18, align 8, !tbaa !14
   %75 = load ptr, ptr %51, align 8, !tbaa !15
-  %76 = tail call ptr %74(ptr noundef %75, i32 noundef %61, i32 noundef 2) #10
+  %76 = tail call ptr %74(ptr noundef %75, i32 noundef %61, i32 noundef 2) #11
   %77 = getelementptr inbounds nuw i8, ptr %53, i64 96
   store ptr %76, ptr %77, align 8, !tbaa !37
   %78 = load i32, ptr %62, align 8, !tbaa !31
@@ -158,13 +158,13 @@ define dso_local range(i32 -6, 1) i32 @cm_zlib_deflateInit2_(ptr noundef %0, i32
   %81 = load ptr, ptr %18, align 8, !tbaa !14
   %82 = load ptr, ptr %51, align 8, !tbaa !15
   %83 = load i32, ptr %62, align 8, !tbaa !31
-  %84 = tail call ptr %81(ptr noundef %82, i32 noundef %83, i32 noundef 2) #10
+  %84 = tail call ptr %81(ptr noundef %82, i32 noundef %83, i32 noundef 2) #11
   %85 = getelementptr inbounds nuw i8, ptr %53, i64 112
   store ptr %84, ptr %85, align 8, !tbaa !38
   %86 = load ptr, ptr %18, align 8, !tbaa !14
   %87 = load ptr, ptr %51, align 8, !tbaa !15
   %88 = load i32, ptr %68, align 4, !tbaa !34
-  %89 = tail call ptr %86(ptr noundef %87, i32 noundef %88, i32 noundef 2) #10
+  %89 = tail call ptr %86(ptr noundef %87, i32 noundef %88, i32 noundef 2) #11
   %90 = getelementptr inbounds nuw i8, ptr %53, i64 120
   store ptr %89, ptr %90, align 8, !tbaa !39
   %91 = getelementptr inbounds nuw i8, ptr %53, i64 5944
@@ -174,7 +174,7 @@ define dso_local range(i32 -6, 1) i32 @cm_zlib_deflateInit2_(ptr noundef %0, i32
   store i32 %92, ptr %93, align 8, !tbaa !41
   %94 = load ptr, ptr %18, align 8, !tbaa !14
   %95 = load ptr, ptr %51, align 8, !tbaa !15
-  %96 = tail call ptr %94(ptr noundef %95, i32 noundef %92, i32 noundef 4) #10
+  %96 = tail call ptr %94(ptr noundef %95, i32 noundef %92, i32 noundef 4) #11
   %97 = getelementptr inbounds nuw i8, ptr %53, i64 16
   store ptr %96, ptr %97, align 8, !tbaa !42
   %98 = load i32, ptr %93, align 8, !tbaa !41
@@ -285,7 +285,7 @@ deflateStateCheck.exit:                           ; preds = %17, %17, %17, %17, 
 22:                                               ; preds = %deflateStateCheck.exit
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %24 = load ptr, ptr %23, align 8, !tbaa !15
-  tail call void %9(ptr noundef %24, ptr noundef nonnull %21) #10
+  tail call void %9(ptr noundef %24, ptr noundef nonnull %21) #11
   %.pre = load ptr, ptr %12, align 8, !tbaa !17
   %.pre36.pre38.pre40.pre = load ptr, ptr %8, align 8, !tbaa !16
   br label %25
@@ -301,7 +301,7 @@ deflateStateCheck.exit:                           ; preds = %17, %17, %17, %17, 
 29:                                               ; preds = %25
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %31 = load ptr, ptr %30, align 8, !tbaa !15
-  tail call void %.pre36.pre38.pre40(ptr noundef %31, ptr noundef nonnull %28) #10
+  tail call void %.pre36.pre38.pre40(ptr noundef %31, ptr noundef nonnull %28) #11
   %.pre33 = load ptr, ptr %12, align 8, !tbaa !17
   %.pre36.pre38.pre = load ptr, ptr %8, align 8, !tbaa !16
   br label %32
@@ -317,7 +317,7 @@ deflateStateCheck.exit:                           ; preds = %17, %17, %17, %17, 
 36:                                               ; preds = %32
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %38 = load ptr, ptr %37, align 8, !tbaa !15
-  tail call void %.pre36.pre38(ptr noundef %38, ptr noundef nonnull %35) #10
+  tail call void %.pre36.pre38(ptr noundef %38, ptr noundef nonnull %35) #11
   %.pre34 = load ptr, ptr %12, align 8, !tbaa !17
   %.pre36.pre = load ptr, ptr %8, align 8, !tbaa !16
   br label %39
@@ -333,7 +333,7 @@ deflateStateCheck.exit:                           ; preds = %17, %17, %17, %17, 
 43:                                               ; preds = %39
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %45 = load ptr, ptr %44, align 8, !tbaa !15
-  tail call void %.pre36(ptr noundef %45, ptr noundef nonnull %42) #10
+  tail call void %.pre36(ptr noundef %45, ptr noundef nonnull %42) #11
   %.pre35 = load ptr, ptr %8, align 8, !tbaa !16
   %.pre37 = load ptr, ptr %12, align 8, !tbaa !17
   br label %46
@@ -343,7 +343,7 @@ deflateStateCheck.exit:                           ; preds = %17, %17, %17, %17, 
   %48 = phi ptr [ %.pre35, %43 ], [ %.pre36, %39 ]
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %50 = load ptr, ptr %49, align 8, !tbaa !15
-  tail call void %48(ptr noundef %50, ptr noundef %47) #10
+  tail call void %48(ptr noundef %50, ptr noundef %47) #11
   store ptr null, ptr %12, align 8, !tbaa !17
   %51 = icmp eq i32 %19, 113
   %52 = select i1 %51, i32 -3, i32 0
@@ -504,7 +504,7 @@ deflateStateCheck.exit:                           ; preds = %19, %19, %19, %19, 
 .thread90.thread:                                 ; preds = %27
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %35 = load i64, ptr %34, align 8, !tbaa !69
-  %36 = tail call i64 @cm_zlib_adler32(i64 noundef %35, ptr noundef nonnull %1, i32 noundef %2) #10
+  %36 = tail call i64 @cm_zlib_adler32(i64 noundef %35, ptr noundef nonnull %1, i32 noundef %2) #11
   store i64 %36, ptr %34, align 8, !tbaa !69
   store i32 0, ptr %24, align 8, !tbaa !28
   %37 = getelementptr inbounds nuw i8, ptr %15, i64 80
@@ -789,14 +789,14 @@ slide_hash.exit:                                  ; preds = %62
 92:                                               ; preds = %84
   %93 = getelementptr inbounds nuw i8, ptr %72, i64 96
   %94 = load i64, ptr %93, align 8, !tbaa !69
-  %95 = tail call i64 @cm_zlib_adler32(i64 noundef %94, ptr noundef %82, i32 noundef %spec.select.i) #10
+  %95 = tail call i64 @cm_zlib_adler32(i64 noundef %94, ptr noundef %82, i32 noundef %spec.select.i) #11
   store i64 %95, ptr %93, align 8, !tbaa !69
   br label %100
 
 96:                                               ; preds = %84
   %97 = getelementptr inbounds nuw i8, ptr %72, i64 96
   %98 = load i64, ptr %97, align 8, !tbaa !69
-  %99 = tail call i64 @cm_zlib_crc32(i64 noundef %98, ptr noundef %82, i32 noundef %spec.select.i) #10
+  %99 = tail call i64 @cm_zlib_crc32(i64 noundef %98, ptr noundef %82, i32 noundef %spec.select.i) #11
   store i64 %99, ptr %97, align 8, !tbaa !69
   br label %100
 
@@ -1098,11 +1098,11 @@ deflateStateCheck.exit:                           ; preds = %17, %17, %17, %17, 
   br i1 %34, label %36, label %38
 
 36:                                               ; preds = %32
-  %37 = tail call i64 @cm_zlib_crc32(i64 noundef 0, ptr noundef null, i32 noundef 0) #10
+  %37 = tail call i64 @cm_zlib_crc32(i64 noundef 0, ptr noundef null, i32 noundef 0) #11
   br label %40
 
 38:                                               ; preds = %32
-  %39 = tail call i64 @cm_zlib_adler32(i64 noundef 0, ptr noundef null, i32 noundef 0) #10
+  %39 = tail call i64 @cm_zlib_adler32(i64 noundef 0, ptr noundef null, i32 noundef 0) #11
   br label %40
 
 40:                                               ; preds = %38, %36
@@ -1111,7 +1111,7 @@ deflateStateCheck.exit:                           ; preds = %17, %17, %17, %17, 
   store i64 %41, ptr %42, align 8, !tbaa !69
   %43 = getelementptr inbounds nuw i8, ptr %13, i64 76
   store i32 -2, ptr %43, align 4, !tbaa !85
-  tail call void @cm_zlib__tr_init(ptr noundef nonnull %13) #10
+  tail call void @cm_zlib__tr_init(ptr noundef nonnull %13) #11
   br label %deflateStateCheck.exit.thread
 
 deflateStateCheck.exit.thread:                    ; preds = %11, %15, %17, %1, %3, %7, %40
@@ -1325,7 +1325,7 @@ deflateStateCheck.exit:                           ; preds = %19, %19, %19, %19, 
   store i16 %39, ptr %30, align 8, !tbaa !87
   %40 = add nsw i32 %spec.select, %32
   store i32 %40, ptr %29, align 4, !tbaa !86
-  tail call void @cm_zlib__tr_flush_bits(ptr noundef nonnull %15) #10
+  tail call void @cm_zlib__tr_flush_bits(ptr noundef nonnull %15) #11
   %41 = ashr i32 %.024, %spec.select
   %42 = sub nsw i32 %.025, %spec.select
   %.not29 = icmp eq i32 %42, 0
@@ -1606,7 +1606,7 @@ deflateStateCheck.exit:                           ; preds = %18, %18, %18, %18, 
   br i1 %.not394, label %79, label %50
 
 50:                                               ; preds = %45
-  tail call void @cm_zlib__tr_flush_bits(ptr noundef nonnull %14) #10
+  tail call void @cm_zlib__tr_flush_bits(ptr noundef nonnull %14) #11
   %51 = load i64, ptr %48, align 8, !tbaa !83
   %52 = trunc i64 %51 to i32
   %53 = load i32, ptr %39, align 8, !tbaa !92
@@ -1803,7 +1803,7 @@ thread-pre-split:                                 ; preds = %98
   br label %164
 
 164:                                              ; preds = %137, %117
-  %165 = tail call i64 @cm_zlib_adler32(i64 noundef 0, ptr noundef null, i32 noundef 0) #10
+  %165 = tail call i64 @cm_zlib_adler32(i64 noundef 0, ptr noundef null, i32 noundef 0) #11
   %166 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i64 %165, ptr %166, align 8, !tbaa !69
   store i32 113, ptr %19, align 8, !tbaa !27
@@ -1826,7 +1826,7 @@ thread-pre-split:                                 ; preds = %98
   br i1 %169, label %170, label %348
 
 170:                                              ; preds = %.critedge
-  %171 = tail call i64 @cm_zlib_crc32(i64 noundef 0, ptr noundef null, i32 noundef 0) #10
+  %171 = tail call i64 @cm_zlib_crc32(i64 noundef 0, ptr noundef null, i32 noundef 0) #11
   %172 = getelementptr inbounds nuw i8, ptr %0, i64 96
   store i64 %171, ptr %172, align 8, !tbaa !69
   %173 = getelementptr inbounds nuw i8, ptr %14, i64 16
@@ -2069,7 +2069,7 @@ thread-pre-split:                                 ; preds = %98
   %343 = load ptr, ptr %173, align 8, !tbaa !42
   %344 = load i64, ptr %48, align 8, !tbaa !83
   %345 = trunc i64 %344 to i32
-  %346 = tail call i64 @cm_zlib_crc32(i64 noundef %342, ptr noundef %343, i32 noundef %345) #10
+  %346 = tail call i64 @cm_zlib_crc32(i64 noundef %342, ptr noundef %343, i32 noundef %345) #11
   store i64 %346, ptr %172, align 8, !tbaa !69
   br label %.thread451
 
@@ -2160,7 +2160,7 @@ thread-pre-split449:                              ; preds = %220
   %395 = getelementptr inbounds nuw i8, ptr %394, i64 %376
   %396 = sub nuw i64 %387, %376
   %397 = trunc i64 %396 to i32
-  %398 = tail call i64 @cm_zlib_crc32(i64 noundef %393, ptr noundef %395, i32 noundef %397) #10
+  %398 = tail call i64 @cm_zlib_crc32(i64 noundef %393, ptr noundef %395, i32 noundef %397) #11
   store i64 %398, ptr %368, align 8, !tbaa !69
   br label %399
 
@@ -2169,7 +2169,7 @@ thread-pre-split449:                              ; preds = %220
   %401 = add i64 %400, %386
   store i64 %401, ptr %359, align 8, !tbaa !103
   %402 = load ptr, ptr %13, align 8, !tbaa !17
-  tail call void @cm_zlib__tr_flush_bits(ptr noundef %402) #10
+  tail call void @cm_zlib__tr_flush_bits(ptr noundef %402) #11
   %403 = getelementptr inbounds nuw i8, ptr %402, i64 40
   %404 = load i64, ptr %403, align 8, !tbaa !83
   %405 = trunc i64 %404 to i32
@@ -2252,7 +2252,7 @@ flush_pending.exit439:                            ; preds = %399, %408, %424
   %444 = getelementptr inbounds nuw i8, ptr %443, i64 %.0375.lcssa
   %445 = sub nuw i64 %435, %.0375.lcssa
   %446 = trunc i64 %445 to i32
-  %447 = tail call i64 @cm_zlib_crc32(i64 noundef %442, ptr noundef %444, i32 noundef %446) #10
+  %447 = tail call i64 @cm_zlib_crc32(i64 noundef %442, ptr noundef %444, i32 noundef %446) #11
   store i64 %447, ptr %441, align 8, !tbaa !69
   br label %448
 
@@ -2303,13 +2303,13 @@ flush_pending.exit439:                            ; preds = %399, %408, %424
   %472 = getelementptr inbounds nuw i8, ptr %471, i64 %.0370
   %473 = sub nuw i64 %462, %.0370
   %474 = trunc i64 %473 to i32
-  %475 = tail call i64 @cm_zlib_crc32(i64 noundef %470, ptr noundef %472, i32 noundef %474) #10
+  %475 = tail call i64 @cm_zlib_crc32(i64 noundef %470, ptr noundef %472, i32 noundef %474) #11
   store i64 %475, ptr %457, align 8, !tbaa !69
   br label %476
 
 476:                                              ; preds = %469, %465
   %477 = load ptr, ptr %13, align 8, !tbaa !17
-  tail call void @cm_zlib__tr_flush_bits(ptr noundef %477) #10
+  tail call void @cm_zlib__tr_flush_bits(ptr noundef %477) #11
   %478 = getelementptr inbounds nuw i8, ptr %477, i64 40
   %479 = load i64, ptr %478, align 8, !tbaa !83
   %480 = trunc i64 %479 to i32
@@ -2398,7 +2398,7 @@ flush_pending.exit441._crit_edge:                 ; preds = %flush_pending.exit4
   %525 = getelementptr inbounds nuw i8, ptr %524, i64 %.1371
   %526 = sub nuw i64 %520, %.1371
   %527 = trunc i64 %526 to i32
-  %528 = tail call i64 @cm_zlib_crc32(i64 noundef %523, ptr noundef %525, i32 noundef %527) #10
+  %528 = tail call i64 @cm_zlib_crc32(i64 noundef %523, ptr noundef %525, i32 noundef %527) #11
   store i64 %528, ptr %457, align 8, !tbaa !69
   br label %529
 
@@ -2449,13 +2449,13 @@ flush_pending.exit441._crit_edge:                 ; preds = %flush_pending.exit4
   %553 = getelementptr inbounds nuw i8, ptr %552, i64 %.0367
   %554 = sub nuw i64 %543, %.0367
   %555 = trunc i64 %554 to i32
-  %556 = tail call i64 @cm_zlib_crc32(i64 noundef %551, ptr noundef %553, i32 noundef %555) #10
+  %556 = tail call i64 @cm_zlib_crc32(i64 noundef %551, ptr noundef %553, i32 noundef %555) #11
   store i64 %556, ptr %538, align 8, !tbaa !69
   br label %557
 
 557:                                              ; preds = %550, %546
   %558 = load ptr, ptr %13, align 8, !tbaa !17
-  tail call void @cm_zlib__tr_flush_bits(ptr noundef %558) #10
+  tail call void @cm_zlib__tr_flush_bits(ptr noundef %558) #11
   %559 = getelementptr inbounds nuw i8, ptr %558, i64 40
   %560 = load i64, ptr %559, align 8, !tbaa !83
   %561 = trunc i64 %560 to i32
@@ -2544,7 +2544,7 @@ flush_pending.exit443._crit_edge:                 ; preds = %flush_pending.exit4
   %606 = getelementptr inbounds nuw i8, ptr %605, i64 %.1368
   %607 = sub nuw i64 %601, %.1368
   %608 = trunc i64 %607 to i32
-  %609 = tail call i64 @cm_zlib_crc32(i64 noundef %604, ptr noundef %606, i32 noundef %608) #10
+  %609 = tail call i64 @cm_zlib_crc32(i64 noundef %604, ptr noundef %606, i32 noundef %608) #11
   store i64 %609, ptr %538, align 8, !tbaa !69
   br label %.thread464
 
@@ -2598,7 +2598,7 @@ flush_pending.exit443._crit_edge:                 ; preds = %flush_pending.exit4
   store i64 %638, ptr %48, align 8, !tbaa !83
   %639 = getelementptr inbounds nuw i8, ptr %636, i64 %637
   store i8 %635, ptr %639, align 1, !tbaa !4
-  %640 = tail call i64 @cm_zlib_crc32(i64 noundef 0, ptr noundef null, i32 noundef 0) #10
+  %640 = tail call i64 @cm_zlib_crc32(i64 noundef 0, ptr noundef null, i32 noundef 0) #11
   store i64 %640, ptr %626, align 8, !tbaa !69
   br label %641
 
@@ -2663,7 +2663,7 @@ flush_pending.exit443._crit_edge:                 ; preds = %flush_pending.exit4
   %663 = sext i32 %651 to i64
   %664 = getelementptr inbounds [10 x %struct.config_s], ptr @configuration_table, i64 0, i64 %663, i32 4
   %665 = load ptr, ptr %664, align 8, !tbaa !89
-  %666 = tail call i32 %665(ptr noundef nonnull %14, i32 noundef %1) #10
+  %666 = tail call i32 %665(ptr noundef nonnull %14, i32 noundef %1) #11
   br label %667
 
 667:                                              ; preds = %658, %662, %660, %653
@@ -2701,11 +2701,11 @@ flush_pending.exit443._crit_edge:                 ; preds = %flush_pending.exit4
   ]
 
 680:                                              ; preds = %679
-  tail call void @cm_zlib__tr_align(ptr noundef nonnull %14) #10
+  tail call void @cm_zlib__tr_align(ptr noundef nonnull %14) #11
   br label %699
 
 681:                                              ; preds = %679
-  tail call void @cm_zlib__tr_stored_block(ptr noundef nonnull %14, ptr noundef null, i64 noundef 0, i32 noundef 0) #10
+  tail call void @cm_zlib__tr_stored_block(ptr noundef nonnull %14, ptr noundef null, i64 noundef 0, i32 noundef 0) #11
   %682 = icmp eq i32 %1, 3
   br i1 %682, label %683, label %699
 
@@ -2993,7 +2993,7 @@ deflateStateCheck.exit.thread:                    ; preds = %15, %19, %21, %5, %
   ret i32 %.0
 }
 
-; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define dso_local i64 @cm_zlib_deflateBound(ptr noundef readonly captures(address) %0, i64 noundef %1) local_unnamed_addr #7 {
   %3 = lshr i64 %1, 3
   %4 = lshr i64 %1, 8
@@ -3052,13 +3052,13 @@ define dso_local i64 @cm_zlib_deflateBound(ptr noundef readonly captures(address
 35:                                               ; preds = %22, %18, %2, %32, %30, %26
   %36 = tail call i64 @llvm.umax.i64(i64 %9, i64 %16)
   %37 = add i64 %36, 6
-  br label %91
+  br label %89
 
 deflateStateCheck.exit:                           ; preds = %32, %32, %32, %32, %32, %32, %32, %32
   %38 = getelementptr inbounds nuw i8, ptr %28, i64 48
   %39 = load i32, ptr %38, align 8, !tbaa !28
-  switch i32 %39, label %70 [
-    i32 0, label %71
+  switch i32 %39, label %68 [
+    i32 0, label %69
     i32 1, label %40
     i32 2, label %44
   ]
@@ -3068,13 +3068,13 @@ deflateStateCheck.exit:                           ; preds = %32, %32, %32, %32, 
   %42 = load i32, ptr %41, align 4, !tbaa !61
   %.not56 = icmp eq i32 %42, 0
   %43 = select i1 %.not56, i64 6, i64 10
-  br label %71
+  br label %69
 
 44:                                               ; preds = %deflateStateCheck.exit
   %45 = getelementptr inbounds nuw i8, ptr %28, i64 56
   %46 = load ptr, ptr %45, align 8, !tbaa !29
   %.not49 = icmp eq ptr %46, null
-  br i1 %.not49, label %71, label %47
+  br i1 %.not49, label %69, label %47
 
 47:                                               ; preds = %44
   %48 = getelementptr inbounds nuw i8, ptr %46, i64 24
@@ -3095,86 +3095,80 @@ deflateStateCheck.exit:                           ; preds = %32, %32, %32, %32, 
   %57 = getelementptr inbounds nuw i8, ptr %46, i64 40
   %58 = load ptr, ptr %57, align 8, !tbaa !98
   %.not51 = icmp eq ptr %58, null
-  br i1 %.not51, label %.loopexit64, label %.preheader63
+  br i1 %.not51, label %.loopexit64, label %.preheader63.preheader
 
-.preheader63:                                     ; preds = %56, %.preheader63
-  %.3 = phi i64 [ %59, %.preheader63 ], [ %.144, %56 ]
-  %.0 = phi ptr [ %60, %.preheader63 ], [ %58, %56 ]
-  %59 = add i64 %.3, 1
-  %60 = getelementptr inbounds nuw i8, ptr %.0, i64 1
-  %61 = load i8, ptr %.0, align 1, !tbaa !4
-  %.not52 = icmp eq i8 %61, 0
-  br i1 %.not52, label %.loopexit64, label %.preheader63, !llvm.loop !107
+.preheader63.preheader:                           ; preds = %56
+  %strlen = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %58)
+  %59 = add i64 %strlen, %.144
+  %60 = add i64 %59, 1
+  br label %.loopexit64
 
-.loopexit64:                                      ; preds = %.preheader63, %56
-  %.2 = phi i64 [ %.144, %56 ], [ %59, %.preheader63 ]
-  %62 = getelementptr inbounds nuw i8, ptr %46, i64 56
-  %63 = load ptr, ptr %62, align 8, !tbaa !99
-  %.not53 = icmp eq ptr %63, null
-  br i1 %.not53, label %.loopexit, label %.preheader
+.loopexit64:                                      ; preds = %.preheader63.preheader, %56
+  %.2 = phi i64 [ %.144, %56 ], [ %60, %.preheader63.preheader ]
+  %61 = getelementptr inbounds nuw i8, ptr %46, i64 56
+  %62 = load ptr, ptr %61, align 8, !tbaa !99
+  %.not53 = icmp eq ptr %62, null
+  br i1 %.not53, label %.loopexit, label %.preheader.preheader
 
-.preheader:                                       ; preds = %.loopexit64, %.preheader
-  %.5 = phi i64 [ %64, %.preheader ], [ %.2, %.loopexit64 ]
-  %.1 = phi ptr [ %65, %.preheader ], [ %63, %.loopexit64 ]
-  %64 = add i64 %.5, 1
-  %65 = getelementptr inbounds nuw i8, ptr %.1, i64 1
-  %66 = load i8, ptr %.1, align 1, !tbaa !4
-  %.not54 = icmp eq i8 %66, 0
-  br i1 %.not54, label %.loopexit, label %.preheader, !llvm.loop !108
+.preheader.preheader:                             ; preds = %.loopexit64
+  %strlen67 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %62)
+  %63 = add i64 %strlen67, %.2
+  %64 = add i64 %63, 1
+  br label %.loopexit
 
-.loopexit:                                        ; preds = %.preheader, %.loopexit64
-  %.4 = phi i64 [ %.2, %.loopexit64 ], [ %64, %.preheader ]
-  %67 = getelementptr inbounds nuw i8, ptr %46, i64 68
-  %68 = load i32, ptr %67, align 4, !tbaa !96
-  %.not55 = icmp eq i32 %68, 0
-  %69 = add i64 %.4, 2
-  %spec.select = select i1 %.not55, i64 %.4, i64 %69
-  br label %71
+.loopexit:                                        ; preds = %.preheader.preheader, %.loopexit64
+  %.4 = phi i64 [ %.2, %.loopexit64 ], [ %64, %.preheader.preheader ]
+  %65 = getelementptr inbounds nuw i8, ptr %46, i64 68
+  %66 = load i32, ptr %65, align 4, !tbaa !96
+  %.not55 = icmp eq i32 %66, 0
+  %67 = add i64 %.4, 2
+  %spec.select = select i1 %.not55, i64 %.4, i64 %67
+  br label %69
 
-70:                                               ; preds = %deflateStateCheck.exit
-  br label %71
+68:                                               ; preds = %deflateStateCheck.exit
+  br label %69
 
-71:                                               ; preds = %deflateStateCheck.exit, %44, %.loopexit, %70, %40
-  %.043 = phi i64 [ 6, %70 ], [ %spec.select, %.loopexit ], [ 18, %44 ], [ %43, %40 ], [ 0, %deflateStateCheck.exit ]
-  %72 = getelementptr inbounds nuw i8, ptr %28, i64 84
-  %73 = load i32, ptr %72, align 4, !tbaa !30
-  %.not57 = icmp eq i32 %73, 15
-  %74 = getelementptr inbounds nuw i8, ptr %28, i64 136
-  %75 = load i32, ptr %74, align 8, !tbaa !33
-  %.not58 = icmp eq i32 %75, 15
+69:                                               ; preds = %deflateStateCheck.exit, %44, %.loopexit, %68, %40
+  %.043 = phi i64 [ 6, %68 ], [ %spec.select, %.loopexit ], [ 18, %44 ], [ %43, %40 ], [ 0, %deflateStateCheck.exit ]
+  %70 = getelementptr inbounds nuw i8, ptr %28, i64 84
+  %71 = load i32, ptr %70, align 4, !tbaa !30
+  %.not57 = icmp eq i32 %71, 15
+  %72 = getelementptr inbounds nuw i8, ptr %28, i64 136
+  %73 = load i32, ptr %72, align 8, !tbaa !33
+  %.not58 = icmp eq i32 %73, 15
   %or.cond = select i1 %.not57, i1 %.not58, i1 false
-  br i1 %or.cond, label %83, label %._crit_edge
+  br i1 %or.cond, label %81, label %._crit_edge
 
-._crit_edge:                                      ; preds = %71
-  %.not59 = icmp ugt i32 %73, %75
-  br i1 %.not59, label %79, label %76
+._crit_edge:                                      ; preds = %69
+  %.not59 = icmp ugt i32 %71, %73
+  br i1 %.not59, label %77, label %74
 
-76:                                               ; preds = %._crit_edge
-  %77 = getelementptr inbounds nuw i8, ptr %28, i64 196
-  %78 = load i32, ptr %77, align 4, !tbaa !47
-  %.not60 = icmp eq i32 %78, 0
-  br i1 %.not60, label %79, label %80
+74:                                               ; preds = %._crit_edge
+  %75 = getelementptr inbounds nuw i8, ptr %28, i64 196
+  %76 = load i32, ptr %75, align 4, !tbaa !47
+  %.not60 = icmp eq i32 %76, 0
+  br i1 %.not60, label %77, label %78
 
-79:                                               ; preds = %76, %._crit_edge
-  br label %80
+77:                                               ; preds = %74, %._crit_edge
+  br label %78
 
-80:                                               ; preds = %76, %79
-  %81 = phi i64 [ %16, %79 ], [ %9, %76 ]
-  %82 = add i64 %81, %.043
-  br label %91
+78:                                               ; preds = %74, %77
+  %79 = phi i64 [ %16, %77 ], [ %9, %74 ]
+  %80 = add i64 %79, %.043
+  br label %89
 
-83:                                               ; preds = %71
-  %84 = lshr i64 %1, 12
-  %85 = lshr i64 %1, 14
-  %86 = lshr i64 %1, 25
-  %87 = add i64 %13, %84
-  %88 = add i64 %87, %85
-  %89 = add i64 %88, %86
-  %90 = add i64 %89, %.043
-  br label %91
+81:                                               ; preds = %69
+  %82 = lshr i64 %1, 12
+  %83 = lshr i64 %1, 14
+  %84 = lshr i64 %1, 25
+  %85 = add i64 %13, %82
+  %86 = add i64 %85, %83
+  %87 = add i64 %86, %84
+  %88 = add i64 %87, %.043
+  br label %89
 
-91:                                               ; preds = %83, %80, %35
-  %.045 = phi i64 [ %37, %35 ], [ %82, %80 ], [ %90, %83 ]
+89:                                               ; preds = %81, %78, %35
+  %.045 = phi i64 [ %37, %35 ], [ %80, %78 ], [ %88, %81 ]
   ret i64 %.045
 }
 
@@ -3182,7 +3176,7 @@ deflateStateCheck.exit:                           ; preds = %32, %32, %32, %32, 
 define internal fastcc void @flush_pending(ptr noundef captures(none) %0) unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %3 = load ptr, ptr %2, align 8, !tbaa !17
-  tail call void @cm_zlib__tr_flush_bits(ptr noundef %3) #10
+  tail call void @cm_zlib__tr_flush_bits(ptr noundef %3) #11
   %4 = getelementptr inbounds nuw i8, ptr %3, i64 40
   %5 = load i64, ptr %4, align 8, !tbaa !83
   %6 = trunc i64 %5 to i32
@@ -3291,7 +3285,7 @@ define internal range(i32 0, 4) i32 @deflate_stored(ptr noundef %0, i32 noundef 
   %48 = icmp eq i32 %.1223, %42
   %narrow = and i1 %17, %48
   %49 = zext i1 %narrow to i32
-  tail call void @cm_zlib__tr_stored_block(ptr noundef nonnull %0, ptr noundef null, i64 noundef 0, i32 noundef %49) #10
+  tail call void @cm_zlib__tr_stored_block(ptr noundef nonnull %0, ptr noundef null, i64 noundef 0, i32 noundef %49) #11
   %50 = trunc i32 %.1223 to i8
   %51 = load ptr, ptr %19, align 8, !tbaa !42
   %52 = load i64, ptr %20, align 8, !tbaa !83
@@ -3322,7 +3316,7 @@ define internal range(i32 0, 4) i32 @deflate_stored(ptr noundef %0, i32 noundef 
   %73 = load ptr, ptr %0, align 8, !tbaa !18
   %74 = getelementptr inbounds nuw i8, ptr %73, i64 56
   %75 = load ptr, ptr %74, align 8, !tbaa !17
-  tail call void @cm_zlib__tr_flush_bits(ptr noundef %75) #10
+  tail call void @cm_zlib__tr_flush_bits(ptr noundef %75) #11
   %76 = getelementptr inbounds nuw i8, ptr %75, i64 40
   %77 = load i64, ptr %76, align 8, !tbaa !83
   %78 = trunc i64 %77 to i32
@@ -3430,14 +3424,14 @@ flush_pending.exit:                               ; preds = %47, %82, %100
 140:                                              ; preds = %132
   %141 = getelementptr inbounds nuw i8, ptr %126, i64 96
   %142 = load i64, ptr %141, align 8, !tbaa !69
-  %143 = tail call i64 @cm_zlib_adler32(i64 noundef %142, ptr noundef %128, i32 noundef %spec.select.i268) #10
+  %143 = tail call i64 @cm_zlib_adler32(i64 noundef %142, ptr noundef %128, i32 noundef %spec.select.i268) #11
   store i64 %143, ptr %141, align 8, !tbaa !69
   br label %148
 
 144:                                              ; preds = %132
   %145 = getelementptr inbounds nuw i8, ptr %126, i64 96
   %146 = load i64, ptr %145, align 8, !tbaa !69
-  %147 = tail call i64 @cm_zlib_crc32(i64 noundef %146, ptr noundef %128, i32 noundef %spec.select.i268) #10
+  %147 = tail call i64 @cm_zlib_crc32(i64 noundef %146, ptr noundef %128, i32 noundef %spec.select.i268) #11
   store i64 %147, ptr %145, align 8, !tbaa !69
   br label %148
 
@@ -3472,7 +3466,7 @@ read_buf.exit:                                    ; preds = %125, %148
   br label %165
 
 165:                                              ; preds = %124, %read_buf.exit
-  br i1 %narrow, label %._crit_edge, label %22, !llvm.loop !109
+  br i1 %narrow, label %._crit_edge, label %22, !llvm.loop !107
 
 ._crit_edge:                                      ; preds = %165
   %.pre282 = load ptr, ptr %0, align 8, !tbaa !18
@@ -3693,14 +3687,14 @@ split:                                            ; preds = %44, %22, %._crit_ed
 288:                                              ; preds = %277
   %289 = getelementptr inbounds nuw i8, ptr %274, i64 96
   %290 = load i64, ptr %289, align 8, !tbaa !69
-  %291 = tail call i64 @cm_zlib_adler32(i64 noundef %290, ptr noundef %280, i32 noundef %spec.select265) #10
+  %291 = tail call i64 @cm_zlib_adler32(i64 noundef %290, ptr noundef %280, i32 noundef %spec.select265) #11
   store i64 %291, ptr %289, align 8, !tbaa !69
   br label %read_buf.exit270
 
 292:                                              ; preds = %277
   %293 = getelementptr inbounds nuw i8, ptr %274, i64 96
   %294 = load i64, ptr %293, align 8, !tbaa !69
-  %295 = tail call i64 @cm_zlib_crc32(i64 noundef %294, ptr noundef %280, i32 noundef %spec.select265) #10
+  %295 = tail call i64 @cm_zlib_crc32(i64 noundef %294, ptr noundef %280, i32 noundef %spec.select265) #11
   store i64 %295, ptr %293, align 8, !tbaa !69
   br label %read_buf.exit270
 
@@ -3786,14 +3780,14 @@ read_buf.exit270:                                 ; preds = %277, %288, %292
   %344 = load ptr, ptr %21, align 8, !tbaa !37
   %345 = getelementptr inbounds i8, ptr %344, i64 %323
   %346 = zext nneg i32 %333 to i64
-  tail call void @cm_zlib__tr_stored_block(ptr noundef nonnull %0, ptr noundef %345, i64 noundef %346, i32 noundef %343) #10
+  tail call void @cm_zlib__tr_stored_block(ptr noundef nonnull %0, ptr noundef %345, i64 noundef %346, i32 noundef %343) #11
   %347 = load i64, ptr %16, align 8, !tbaa !62
   %348 = add nsw i64 %347, %346
   store i64 %348, ptr %16, align 8, !tbaa !62
   %349 = load ptr, ptr %0, align 8, !tbaa !18
   %350 = getelementptr inbounds nuw i8, ptr %349, i64 56
   %351 = load ptr, ptr %350, align 8, !tbaa !17
-  tail call void @cm_zlib__tr_flush_bits(ptr noundef %351) #10
+  tail call void @cm_zlib__tr_flush_bits(ptr noundef %351) #11
   %352 = getelementptr inbounds nuw i8, ptr %351, i64 40
   %353 = load i64, ptr %352, align 8, !tbaa !83
   %354 = trunc i64 %353 to i32
@@ -3881,23 +3875,23 @@ define internal fastcc range(i32 0, 4) i32 @deflate_huff(ptr noundef %0, i32 nou
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 %23
   %25 = load i8, ptr %24, align 1, !tbaa !4
   %26 = load ptr, ptr %7, align 8, !tbaa !45
-  %27 = load i32, ptr %8, align 4, !tbaa !110
+  %27 = load i32, ptr %8, align 4, !tbaa !108
   %28 = add i32 %27, 1
-  store i32 %28, ptr %8, align 4, !tbaa !110
+  store i32 %28, ptr %8, align 4, !tbaa !108
   %29 = zext i32 %27 to i64
   %30 = getelementptr inbounds nuw i8, ptr %26, i64 %29
   store i8 0, ptr %30, align 1, !tbaa !4
   %31 = load ptr, ptr %7, align 8, !tbaa !45
-  %32 = load i32, ptr %8, align 4, !tbaa !110
+  %32 = load i32, ptr %8, align 4, !tbaa !108
   %33 = add i32 %32, 1
-  store i32 %33, ptr %8, align 4, !tbaa !110
+  store i32 %33, ptr %8, align 4, !tbaa !108
   %34 = zext i32 %32 to i64
   %35 = getelementptr inbounds nuw i8, ptr %31, i64 %34
   store i8 0, ptr %35, align 1, !tbaa !4
   %36 = load ptr, ptr %7, align 8, !tbaa !45
-  %37 = load i32, ptr %8, align 4, !tbaa !110
+  %37 = load i32, ptr %8, align 4, !tbaa !108
   %38 = add i32 %37, 1
-  store i32 %38, ptr %8, align 4, !tbaa !110
+  store i32 %38, ptr %8, align 4, !tbaa !108
   %39 = zext i32 %37 to i64
   %40 = getelementptr inbounds nuw i8, ptr %36, i64 %39
   store i8 %25, ptr %40, align 1, !tbaa !4
@@ -3906,7 +3900,7 @@ define internal fastcc range(i32 0, 4) i32 @deflate_huff(ptr noundef %0, i32 nou
   %43 = load i16, ptr %42, align 4, !tbaa !4
   %44 = add i16 %43, 1
   store i16 %44, ptr %42, align 4, !tbaa !4
-  %45 = load i32, ptr %8, align 4, !tbaa !110
+  %45 = load i32, ptr %8, align 4, !tbaa !108
   %46 = load i32, ptr %10, align 8, !tbaa !46
   %47 = icmp eq i32 %45, %46
   %48 = load i32, ptr %3, align 4, !tbaa !63
@@ -3932,14 +3926,14 @@ define internal fastcc range(i32 0, 4) i32 @deflate_huff(ptr noundef %0, i32 nou
   %60 = phi ptr [ %58, %55 ], [ null, %52 ]
   %61 = zext i32 %51 to i64
   %62 = sub nsw i64 %61, %53
-  tail call void @cm_zlib__tr_flush_block(ptr noundef nonnull %0, ptr noundef %60, i64 noundef %62, i32 noundef 0) #10
+  tail call void @cm_zlib__tr_flush_block(ptr noundef nonnull %0, ptr noundef %60, i64 noundef %62, i32 noundef 0) #11
   %63 = load i32, ptr %6, align 4, !tbaa !61
   %64 = zext i32 %63 to i64
   store i64 %64, ptr %11, align 8, !tbaa !62
   %65 = load ptr, ptr %0, align 8, !tbaa !18
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 56
   %67 = load ptr, ptr %66, align 8, !tbaa !17
-  tail call void @cm_zlib__tr_flush_bits(ptr noundef %67) #10
+  tail call void @cm_zlib__tr_flush_bits(ptr noundef %67) #11
   %68 = getelementptr inbounds nuw i8, ptr %67, i64 40
   %69 = load i64, ptr %68, align 8, !tbaa !83
   %70 = trunc i64 %69 to i32
@@ -4013,14 +4007,14 @@ flush_pending.exit:                               ; preds = %59, %74, %92
   %111 = load i32, ptr %6, align 4, !tbaa !61
   %112 = zext i32 %111 to i64
   %113 = sub nsw i64 %112, %103
-  tail call void @cm_zlib__tr_flush_block(ptr noundef nonnull %0, ptr noundef %110, i64 noundef %113, i32 noundef 1) #10
+  tail call void @cm_zlib__tr_flush_block(ptr noundef nonnull %0, ptr noundef %110, i64 noundef %113, i32 noundef 1) #11
   %114 = load i32, ptr %6, align 4, !tbaa !61
   %115 = zext i32 %114 to i64
   store i64 %115, ptr %11, align 8, !tbaa !62
   %116 = load ptr, ptr %0, align 8, !tbaa !18
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 56
   %118 = load ptr, ptr %117, align 8, !tbaa !17
-  tail call void @cm_zlib__tr_flush_bits(ptr noundef %118) #10
+  tail call void @cm_zlib__tr_flush_bits(ptr noundef %118) #11
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 40
   %120 = load i64, ptr %119, align 8, !tbaa !83
   %121 = trunc i64 %120 to i32
@@ -4071,7 +4065,7 @@ flush_pending.exit59:                             ; preds = %109, %125, %143
   br label %.loopexit
 
 150:                                              ; preds = %99
-  %151 = load i32, ptr %8, align 4, !tbaa !110
+  %151 = load i32, ptr %8, align 4, !tbaa !108
   %.not = icmp eq i32 %151, 0
   br i1 %.not, label %200, label %152
 
@@ -4091,14 +4085,14 @@ flush_pending.exit59:                             ; preds = %109, %125, %143
   %161 = load i32, ptr %6, align 4, !tbaa !61
   %162 = zext i32 %161 to i64
   %163 = sub nsw i64 %162, %153
-  tail call void @cm_zlib__tr_flush_block(ptr noundef nonnull %0, ptr noundef %160, i64 noundef %163, i32 noundef 0) #10
+  tail call void @cm_zlib__tr_flush_block(ptr noundef nonnull %0, ptr noundef %160, i64 noundef %163, i32 noundef 0) #11
   %164 = load i32, ptr %6, align 4, !tbaa !61
   %165 = zext i32 %164 to i64
   store i64 %165, ptr %11, align 8, !tbaa !62
   %166 = load ptr, ptr %0, align 8, !tbaa !18
   %167 = getelementptr inbounds nuw i8, ptr %166, i64 56
   %168 = load ptr, ptr %167, align 8, !tbaa !17
-  tail call void @cm_zlib__tr_flush_bits(ptr noundef %168) #10
+  tail call void @cm_zlib__tr_flush_bits(ptr noundef %168) #11
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 40
   %170 = load i64, ptr %169, align 8, !tbaa !83
   %171 = trunc i64 %170 to i32
@@ -4280,7 +4274,7 @@ define internal fastcc range(i32 0, 4) i32 @deflate_rle(ptr noundef %0, i32 noun
   %74 = icmp eq i8 %32, %73
   %75 = icmp samesign ult i64 %.0120.idx, 250
   %or.cond133 = select i1 %74, i1 %75, i1 false
-  br i1 %or.cond133, label %44, label %thread-pre-split138.split.loop.exit, !llvm.loop !111
+  br i1 %or.cond133, label %44, label %thread-pre-split138.split.loop.exit, !llvm.loop !109
 
 thread-pre-split138.split.loop.exit:              ; preds = %72
   %.ptr.le = getelementptr inbounds nuw i8, ptr %30, i64 %.0120.add
@@ -4324,7 +4318,7 @@ thread-pre-split138:                              ; preds = %thread-pre-split138
   %spec.store.select = tail call i32 @llvm.umin.i32(i32 %85, i32 %26)
   store i32 %spec.store.select, ptr %4, align 8
   %86 = icmp ugt i32 %spec.store.select, 2
-  %.pre169 = load i32, ptr %9, align 4, !tbaa !110
+  %.pre169 = load i32, ptr %9, align 4, !tbaa !108
   br i1 %86, label %87, label %.thread140
 
 87:                                               ; preds = %thread-pre-split138
@@ -4332,21 +4326,21 @@ thread-pre-split138:                              ; preds = %thread-pre-split138
   %89 = add i8 %88, -3
   %90 = load ptr, ptr %8, align 8, !tbaa !45
   %91 = add i32 %.pre169, 1
-  store i32 %91, ptr %9, align 4, !tbaa !110
+  store i32 %91, ptr %9, align 4, !tbaa !108
   %92 = zext i32 %.pre169 to i64
   %93 = getelementptr inbounds nuw i8, ptr %90, i64 %92
   store i8 1, ptr %93, align 1, !tbaa !4
   %94 = load ptr, ptr %8, align 8, !tbaa !45
-  %95 = load i32, ptr %9, align 4, !tbaa !110
+  %95 = load i32, ptr %9, align 4, !tbaa !108
   %96 = add i32 %95, 1
-  store i32 %96, ptr %9, align 4, !tbaa !110
+  store i32 %96, ptr %9, align 4, !tbaa !108
   %97 = zext i32 %95 to i64
   %98 = getelementptr inbounds nuw i8, ptr %94, i64 %97
   store i8 0, ptr %98, align 1, !tbaa !4
   %99 = load ptr, ptr %8, align 8, !tbaa !45
-  %100 = load i32, ptr %9, align 4, !tbaa !110
+  %100 = load i32, ptr %9, align 4, !tbaa !108
   %101 = add i32 %100, 1
-  store i32 %101, ptr %9, align 4, !tbaa !110
+  store i32 %101, ptr %9, align 4, !tbaa !108
   %102 = zext i32 %100 to i64
   %103 = getelementptr inbounds nuw i8, ptr %99, i64 %102
   store i8 %89, ptr %103, align 1, !tbaa !4
@@ -4365,7 +4359,7 @@ thread-pre-split138:                              ; preds = %thread-pre-split138
   %115 = load i16, ptr %114, align 4, !tbaa !4
   %116 = add i16 %115, 1
   store i16 %116, ptr %114, align 4, !tbaa !4
-  %117 = load i32, ptr %9, align 4, !tbaa !110
+  %117 = load i32, ptr %9, align 4, !tbaa !108
   %118 = load i32, ptr %11, align 8, !tbaa !46
   %119 = icmp eq i32 %117, %118
   %120 = load i32, ptr %4, align 8, !tbaa !66
@@ -4383,7 +4377,7 @@ thread-pre-split138:                              ; preds = %thread-pre-split138
 
 .thread140.sink.split:                            ; preds = %27, %35, %39, %24, %22
   %.ph193 = phi i32 [ %.pre171, %22 ], [ %25, %24 ], [ %25, %39 ], [ %25, %35 ], [ %25, %27 ]
-  %.pre169172 = load i32, ptr %9, align 4, !tbaa !110
+  %.pre169172 = load i32, ptr %9, align 4, !tbaa !108
   br label %.thread140
 
 .thread140:                                       ; preds = %.thread140.sink.split, %thread-pre-split138
@@ -4395,21 +4389,21 @@ thread-pre-split138:                              ; preds = %thread-pre-split138
   %130 = load i8, ptr %129, align 1, !tbaa !4
   %131 = load ptr, ptr %8, align 8, !tbaa !45
   %132 = add i32 %125, 1
-  store i32 %132, ptr %9, align 4, !tbaa !110
+  store i32 %132, ptr %9, align 4, !tbaa !108
   %133 = zext i32 %125 to i64
   %134 = getelementptr inbounds nuw i8, ptr %131, i64 %133
   store i8 0, ptr %134, align 1, !tbaa !4
   %135 = load ptr, ptr %8, align 8, !tbaa !45
-  %136 = load i32, ptr %9, align 4, !tbaa !110
+  %136 = load i32, ptr %9, align 4, !tbaa !108
   %137 = add i32 %136, 1
-  store i32 %137, ptr %9, align 4, !tbaa !110
+  store i32 %137, ptr %9, align 4, !tbaa !108
   %138 = zext i32 %136 to i64
   %139 = getelementptr inbounds nuw i8, ptr %135, i64 %138
   store i8 0, ptr %139, align 1, !tbaa !4
   %140 = load ptr, ptr %8, align 8, !tbaa !45
-  %141 = load i32, ptr %9, align 4, !tbaa !110
+  %141 = load i32, ptr %9, align 4, !tbaa !108
   %142 = add i32 %141, 1
-  store i32 %142, ptr %9, align 4, !tbaa !110
+  store i32 %142, ptr %9, align 4, !tbaa !108
   %143 = zext i32 %141 to i64
   %144 = getelementptr inbounds nuw i8, ptr %140, i64 %143
   store i8 %130, ptr %144, align 1, !tbaa !4
@@ -4418,7 +4412,7 @@ thread-pre-split138:                              ; preds = %thread-pre-split138
   %147 = load i16, ptr %146, align 4, !tbaa !4
   %148 = add i16 %147, 1
   store i16 %148, ptr %146, align 4, !tbaa !4
-  %149 = load i32, ptr %9, align 4, !tbaa !110
+  %149 = load i32, ptr %9, align 4, !tbaa !108
   %150 = load i32, ptr %11, align 8, !tbaa !46
   %151 = icmp eq i32 %149, %150
   %152 = load i32, ptr %3, align 4, !tbaa !63
@@ -4445,14 +4439,14 @@ thread-pre-split138:                              ; preds = %thread-pre-split138
   %165 = phi ptr [ %163, %160 ], [ null, %156 ]
   %166 = zext i32 %157 to i64
   %167 = sub nsw i64 %166, %158
-  tail call void @cm_zlib__tr_flush_block(ptr noundef nonnull %0, ptr noundef %165, i64 noundef %167, i32 noundef 0) #10
+  tail call void @cm_zlib__tr_flush_block(ptr noundef nonnull %0, ptr noundef %165, i64 noundef %167, i32 noundef 0) #11
   %168 = load i32, ptr %6, align 4, !tbaa !61
   %169 = zext i32 %168 to i64
   store i64 %169, ptr %13, align 8, !tbaa !62
   %170 = load ptr, ptr %0, align 8, !tbaa !18
   %171 = getelementptr inbounds nuw i8, ptr %170, i64 56
   %172 = load ptr, ptr %171, align 8, !tbaa !17
-  tail call void @cm_zlib__tr_flush_bits(ptr noundef %172) #10
+  tail call void @cm_zlib__tr_flush_bits(ptr noundef %172) #11
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 40
   %174 = load i64, ptr %173, align 8, !tbaa !83
   %175 = trunc i64 %174 to i32
@@ -4523,14 +4517,14 @@ flush_pending.exit:                               ; preds = %164, %179, %197
   %216 = load i32, ptr %6, align 4, !tbaa !61
   %217 = zext i32 %216 to i64
   %218 = sub nsw i64 %217, %208
-  tail call void @cm_zlib__tr_flush_block(ptr noundef nonnull %0, ptr noundef %215, i64 noundef %218, i32 noundef 1) #10
+  tail call void @cm_zlib__tr_flush_block(ptr noundef nonnull %0, ptr noundef %215, i64 noundef %218, i32 noundef 1) #11
   %219 = load i32, ptr %6, align 4, !tbaa !61
   %220 = zext i32 %219 to i64
   store i64 %220, ptr %13, align 8, !tbaa !62
   %221 = load ptr, ptr %0, align 8, !tbaa !18
   %222 = getelementptr inbounds nuw i8, ptr %221, i64 56
   %223 = load ptr, ptr %222, align 8, !tbaa !17
-  tail call void @cm_zlib__tr_flush_bits(ptr noundef %223) #10
+  tail call void @cm_zlib__tr_flush_bits(ptr noundef %223) #11
   %224 = getelementptr inbounds nuw i8, ptr %223, i64 40
   %225 = load i64, ptr %224, align 8, !tbaa !83
   %226 = trunc i64 %225 to i32
@@ -4581,7 +4575,7 @@ flush_pending.exit135:                            ; preds = %214, %230, %248
   br label %.loopexit
 
 255:                                              ; preds = %204
-  %256 = load i32, ptr %9, align 4, !tbaa !110
+  %256 = load i32, ptr %9, align 4, !tbaa !108
   %.not132 = icmp eq i32 %256, 0
   br i1 %.not132, label %305, label %257
 
@@ -4601,14 +4595,14 @@ flush_pending.exit135:                            ; preds = %214, %230, %248
   %266 = load i32, ptr %6, align 4, !tbaa !61
   %267 = zext i32 %266 to i64
   %268 = sub nsw i64 %267, %258
-  tail call void @cm_zlib__tr_flush_block(ptr noundef nonnull %0, ptr noundef %265, i64 noundef %268, i32 noundef 0) #10
+  tail call void @cm_zlib__tr_flush_block(ptr noundef nonnull %0, ptr noundef %265, i64 noundef %268, i32 noundef 0) #11
   %269 = load i32, ptr %6, align 4, !tbaa !61
   %270 = zext i32 %269 to i64
   store i64 %270, ptr %13, align 8, !tbaa !62
   %271 = load ptr, ptr %0, align 8, !tbaa !18
   %272 = getelementptr inbounds nuw i8, ptr %271, i64 56
   %273 = load ptr, ptr %272, align 8, !tbaa !17
-  tail call void @cm_zlib__tr_flush_bits(ptr noundef %273) #10
+  tail call void @cm_zlib__tr_flush_bits(ptr noundef %273) #11
   %274 = getelementptr inbounds nuw i8, ptr %273, i64 40
   %275 = load i64, ptr %274, align 8, !tbaa !83
   %276 = trunc i64 %275 to i32
@@ -4721,7 +4715,7 @@ deflateStateCheck.exit:                           ; preds = %18, %18, %18, %18, 
   %24 = load ptr, ptr %23, align 8, !tbaa !14
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %26 = load ptr, ptr %25, align 8, !tbaa !15
-  %27 = tail call ptr %24(ptr noundef %26, i32 noundef 1, i32 noundef 5952) #10
+  %27 = tail call ptr %24(ptr noundef %26, i32 noundef 1, i32 noundef 5952) #11
   %28 = icmp eq ptr %27, null
   br i1 %28, label %deflateStateCheck.exit.thread, label %29
 
@@ -4734,27 +4728,27 @@ deflateStateCheck.exit:                           ; preds = %18, %18, %18, %18, 
   %32 = load ptr, ptr %25, align 8, !tbaa !15
   %33 = getelementptr inbounds nuw i8, ptr %27, i64 80
   %34 = load i32, ptr %33, align 8, !tbaa !31
-  %35 = tail call ptr %31(ptr noundef %32, i32 noundef %34, i32 noundef 2) #10
+  %35 = tail call ptr %31(ptr noundef %32, i32 noundef %34, i32 noundef 2) #11
   %36 = getelementptr inbounds nuw i8, ptr %27, i64 96
   store ptr %35, ptr %36, align 8, !tbaa !37
   %37 = load ptr, ptr %23, align 8, !tbaa !14
   %38 = load ptr, ptr %25, align 8, !tbaa !15
   %39 = load i32, ptr %33, align 8, !tbaa !31
-  %40 = tail call ptr %37(ptr noundef %38, i32 noundef %39, i32 noundef 2) #10
+  %40 = tail call ptr %37(ptr noundef %38, i32 noundef %39, i32 noundef 2) #11
   %41 = getelementptr inbounds nuw i8, ptr %27, i64 112
   store ptr %40, ptr %41, align 8, !tbaa !38
   %42 = load ptr, ptr %23, align 8, !tbaa !14
   %43 = load ptr, ptr %25, align 8, !tbaa !15
   %44 = getelementptr inbounds nuw i8, ptr %27, i64 132
   %45 = load i32, ptr %44, align 4, !tbaa !34
-  %46 = tail call ptr %42(ptr noundef %43, i32 noundef %45, i32 noundef 2) #10
+  %46 = tail call ptr %42(ptr noundef %43, i32 noundef %45, i32 noundef 2) #11
   %47 = getelementptr inbounds nuw i8, ptr %27, i64 120
   store ptr %46, ptr %47, align 8, !tbaa !39
   %48 = load ptr, ptr %23, align 8, !tbaa !14
   %49 = load ptr, ptr %25, align 8, !tbaa !15
   %50 = getelementptr inbounds nuw i8, ptr %27, i64 5896
   %51 = load i32, ptr %50, align 8, !tbaa !41
-  %52 = tail call ptr %48(ptr noundef %49, i32 noundef %51, i32 noundef 4) #10
+  %52 = tail call ptr %48(ptr noundef %49, i32 noundef %51, i32 noundef 4) #11
   %53 = getelementptr inbounds nuw i8, ptr %27, i64 16
   store ptr %52, ptr %53, align 8, !tbaa !42
   %54 = load ptr, ptr %36, align 8, !tbaa !37
@@ -4822,13 +4816,13 @@ deflateStateCheck.exit:                           ; preds = %18, %18, %18, %18, 
   store ptr %100, ptr %101, align 8, !tbaa !45
   %102 = getelementptr inbounds nuw i8, ptr %27, i64 212
   %103 = getelementptr inbounds nuw i8, ptr %27, i64 2904
-  store ptr %102, ptr %103, align 8, !tbaa !112
+  store ptr %102, ptr %103, align 8, !tbaa !110
   %104 = getelementptr inbounds nuw i8, ptr %27, i64 2504
   %105 = getelementptr inbounds nuw i8, ptr %27, i64 2928
-  store ptr %104, ptr %105, align 8, !tbaa !113
+  store ptr %104, ptr %105, align 8, !tbaa !111
   %106 = getelementptr inbounds nuw i8, ptr %27, i64 2748
   %107 = getelementptr inbounds nuw i8, ptr %27, i64 2952
-  store ptr %106, ptr %107, align 8, !tbaa !114
+  store ptr %106, ptr %107, align 8, !tbaa !112
   br label %deflateStateCheck.exit.thread
 
 deflateStateCheck.exit.thread:                    ; preds = %12, %16, %18, %2, %4, %8, %22, %deflateStateCheck.exit, %65, %63
@@ -4941,25 +4935,25 @@ define internal range(i32 0, 4) i32 @deflate_fast(ptr noundef %0, i32 noundef %1
   %71 = trunc i32 %70 to i16
   %72 = trunc i32 %70 to i8
   %73 = load ptr, ptr %15, align 8, !tbaa !45
-  %74 = load i32, ptr %16, align 4, !tbaa !110
+  %74 = load i32, ptr %16, align 4, !tbaa !108
   %75 = add i32 %74, 1
-  store i32 %75, ptr %16, align 4, !tbaa !110
+  store i32 %75, ptr %16, align 4, !tbaa !108
   %76 = zext i32 %74 to i64
   %77 = getelementptr inbounds nuw i8, ptr %73, i64 %76
   store i8 %72, ptr %77, align 1, !tbaa !4
   %78 = lshr i32 %70, 8
   %79 = trunc i32 %78 to i8
   %80 = load ptr, ptr %15, align 8, !tbaa !45
-  %81 = load i32, ptr %16, align 4, !tbaa !110
+  %81 = load i32, ptr %16, align 4, !tbaa !108
   %82 = add i32 %81, 1
-  store i32 %82, ptr %16, align 4, !tbaa !110
+  store i32 %82, ptr %16, align 4, !tbaa !108
   %83 = zext i32 %81 to i64
   %84 = getelementptr inbounds nuw i8, ptr %80, i64 %83
   store i8 %79, ptr %84, align 1, !tbaa !4
   %85 = load ptr, ptr %15, align 8, !tbaa !45
-  %86 = load i32, ptr %16, align 4, !tbaa !110
+  %86 = load i32, ptr %16, align 4, !tbaa !108
   %87 = add i32 %86, 1
-  store i32 %87, ptr %16, align 4, !tbaa !110
+  store i32 %87, ptr %16, align 4, !tbaa !108
   %88 = zext i32 %86 to i64
   %89 = getelementptr inbounds nuw i8, ptr %85, i64 %88
   store i8 %67, ptr %89, align 1, !tbaa !4
@@ -4985,7 +4979,7 @@ define internal range(i32 0, 4) i32 @deflate_fast(ptr noundef %0, i32 noundef %1
   %103 = load i16, ptr %102, align 4, !tbaa !4
   %104 = add i16 %103, 1
   store i16 %104, ptr %102, align 4, !tbaa !4
-  %105 = load i32, ptr %16, align 4, !tbaa !110
+  %105 = load i32, ptr %16, align 4, !tbaa !108
   %106 = load i32, ptr %18, align 8, !tbaa !46
   %107 = icmp eq i32 %105, %106
   %108 = load i32, ptr %14, align 8, !tbaa !66
@@ -5038,7 +5032,7 @@ define internal range(i32 0, 4) i32 @deflate_fast(ptr noundef %0, i32 noundef %1
   %141 = add i32 %122, -1
   store i32 %141, ptr %14, align 8, !tbaa !66
   %.not147 = icmp eq i32 %141, 0
-  br i1 %.not147, label %142, label %121, !llvm.loop !115
+  br i1 %.not147, label %142, label %121, !llvm.loop !113
 
 142:                                              ; preds = %121
   %143 = add i32 %124, 2
@@ -5079,23 +5073,23 @@ define internal range(i32 0, 4) i32 @deflate_fast(ptr noundef %0, i32 noundef %1
   %166 = getelementptr inbounds nuw i8, ptr %163, i64 %165
   %167 = load i8, ptr %166, align 1, !tbaa !4
   %168 = load ptr, ptr %15, align 8, !tbaa !45
-  %169 = load i32, ptr %16, align 4, !tbaa !110
+  %169 = load i32, ptr %16, align 4, !tbaa !108
   %170 = add i32 %169, 1
-  store i32 %170, ptr %16, align 4, !tbaa !110
+  store i32 %170, ptr %16, align 4, !tbaa !108
   %171 = zext i32 %169 to i64
   %172 = getelementptr inbounds nuw i8, ptr %168, i64 %171
   store i8 0, ptr %172, align 1, !tbaa !4
   %173 = load ptr, ptr %15, align 8, !tbaa !45
-  %174 = load i32, ptr %16, align 4, !tbaa !110
+  %174 = load i32, ptr %16, align 4, !tbaa !108
   %175 = add i32 %174, 1
-  store i32 %175, ptr %16, align 4, !tbaa !110
+  store i32 %175, ptr %16, align 4, !tbaa !108
   %176 = zext i32 %174 to i64
   %177 = getelementptr inbounds nuw i8, ptr %173, i64 %176
   store i8 0, ptr %177, align 1, !tbaa !4
   %178 = load ptr, ptr %15, align 8, !tbaa !45
-  %179 = load i32, ptr %16, align 4, !tbaa !110
+  %179 = load i32, ptr %16, align 4, !tbaa !108
   %180 = add i32 %179, 1
-  store i32 %180, ptr %16, align 4, !tbaa !110
+  store i32 %180, ptr %16, align 4, !tbaa !108
   %181 = zext i32 %179 to i64
   %182 = getelementptr inbounds nuw i8, ptr %178, i64 %181
   store i8 %167, ptr %182, align 1, !tbaa !4
@@ -5104,7 +5098,7 @@ define internal range(i32 0, 4) i32 @deflate_fast(ptr noundef %0, i32 noundef %1
   %185 = load i16, ptr %184, align 4, !tbaa !4
   %186 = add i16 %185, 1
   store i16 %186, ptr %184, align 4, !tbaa !4
-  %187 = load i32, ptr %16, align 4, !tbaa !110
+  %187 = load i32, ptr %16, align 4, !tbaa !108
   %188 = load i32, ptr %18, align 8, !tbaa !46
   %189 = icmp eq i32 %187, %188
   %190 = load i32, ptr %3, align 4, !tbaa !63
@@ -5131,14 +5125,14 @@ define internal range(i32 0, 4) i32 @deflate_fast(ptr noundef %0, i32 noundef %1
   %203 = phi ptr [ %201, %198 ], [ null, %194 ]
   %204 = zext i32 %195 to i64
   %205 = sub nsw i64 %204, %196
-  tail call void @cm_zlib__tr_flush_block(ptr noundef nonnull %0, ptr noundef %203, i64 noundef %205, i32 noundef 0) #10
+  tail call void @cm_zlib__tr_flush_block(ptr noundef nonnull %0, ptr noundef %203, i64 noundef %205, i32 noundef 0) #11
   %206 = load i32, ptr %8, align 4, !tbaa !61
   %207 = zext i32 %206 to i64
   store i64 %207, ptr %22, align 8, !tbaa !62
   %208 = load ptr, ptr %0, align 8, !tbaa !18
   %209 = getelementptr inbounds nuw i8, ptr %208, i64 56
   %210 = load ptr, ptr %209, align 8, !tbaa !17
-  tail call void @cm_zlib__tr_flush_bits(ptr noundef %210) #10
+  tail call void @cm_zlib__tr_flush_bits(ptr noundef %210) #11
   %211 = getelementptr inbounds nuw i8, ptr %210, i64 40
   %212 = load i64, ptr %211, align 8, !tbaa !83
   %213 = trunc i64 %212 to i32
@@ -5210,14 +5204,14 @@ flush_pending.exit:                               ; preds = %202, %217, %235
   %254 = phi ptr [ %252, %249 ], [ null, %246 ]
   %255 = zext i32 %243 to i64
   %256 = sub nsw i64 %255, %247
-  tail call void @cm_zlib__tr_flush_block(ptr noundef nonnull %0, ptr noundef %254, i64 noundef %256, i32 noundef 1) #10
+  tail call void @cm_zlib__tr_flush_block(ptr noundef nonnull %0, ptr noundef %254, i64 noundef %256, i32 noundef 1) #11
   %257 = load i32, ptr %8, align 4, !tbaa !61
   %258 = zext i32 %257 to i64
   store i64 %258, ptr %22, align 8, !tbaa !62
   %259 = load ptr, ptr %0, align 8, !tbaa !18
   %260 = getelementptr inbounds nuw i8, ptr %259, i64 56
   %261 = load ptr, ptr %260, align 8, !tbaa !17
-  tail call void @cm_zlib__tr_flush_bits(ptr noundef %261) #10
+  tail call void @cm_zlib__tr_flush_bits(ptr noundef %261) #11
   %262 = getelementptr inbounds nuw i8, ptr %261, i64 40
   %263 = load i64, ptr %262, align 8, !tbaa !83
   %264 = trunc i64 %263 to i32
@@ -5268,7 +5262,7 @@ flush_pending.exit151:                            ; preds = %253, %268, %286
   br label %.loopexit
 
 293:                                              ; preds = %242
-  %294 = load i32, ptr %16, align 4, !tbaa !110
+  %294 = load i32, ptr %16, align 4, !tbaa !108
   %.not148 = icmp eq i32 %294, 0
   br i1 %.not148, label %342, label %295
 
@@ -5287,14 +5281,14 @@ flush_pending.exit151:                            ; preds = %253, %268, %286
   %303 = phi ptr [ %301, %298 ], [ null, %295 ]
   %304 = zext i32 %243 to i64
   %305 = sub nsw i64 %304, %296
-  tail call void @cm_zlib__tr_flush_block(ptr noundef nonnull %0, ptr noundef %303, i64 noundef %305, i32 noundef 0) #10
+  tail call void @cm_zlib__tr_flush_block(ptr noundef nonnull %0, ptr noundef %303, i64 noundef %305, i32 noundef 0) #11
   %306 = load i32, ptr %8, align 4, !tbaa !61
   %307 = zext i32 %306 to i64
   store i64 %307, ptr %22, align 8, !tbaa !62
   %308 = load ptr, ptr %0, align 8, !tbaa !18
   %309 = getelementptr inbounds nuw i8, ptr %308, i64 56
   %310 = load ptr, ptr %309, align 8, !tbaa !17
-  tail call void @cm_zlib__tr_flush_bits(ptr noundef %310) #10
+  tail call void @cm_zlib__tr_flush_bits(ptr noundef %310) #11
   %311 = getelementptr inbounds nuw i8, ptr %310, i64 40
   %312 = load i64, ptr %311, align 8, !tbaa !83
   %313 = trunc i64 %312 to i32
@@ -5408,7 +5402,7 @@ define internal range(i32 0, 4) i32 @deflate_slow(ptr noundef %0, i32 noundef %1
 
 .thread196:                                       ; preds = %34
   store i32 %.pre201, ptr %6, align 8, !tbaa !65
-  store i32 %.pre203, ptr %8, align 4, !tbaa !116
+  store i32 %.pre203, ptr %8, align 4, !tbaa !114
   store i32 2, ptr %5, align 8, !tbaa !66
   br label %83
 
@@ -5443,7 +5437,7 @@ define internal range(i32 0, 4) i32 @deflate_slow(ptr noundef %0, i32 noundef %1
   %61 = trunc i32 %42 to i16
   store i16 %61, ptr %53, align 2, !tbaa !51
   store i32 %37, ptr %6, align 8, !tbaa !65
-  store i32 %36, ptr %8, align 4, !tbaa !116
+  store i32 %36, ptr %8, align 4, !tbaa !114
   store i32 2, ptr %5, align 8, !tbaa !66
   %.not = icmp eq i16 %54, 0
   br i1 %.not, label %83, label %62
@@ -5506,31 +5500,31 @@ thread-pre-split:                                 ; preds = %62, %65, %82, %77, 
   %91 = add i32 %90, %89
   %92 = trunc i32 %84 to i8
   %93 = add i8 %92, -3
-  %94 = load i32, ptr %8, align 4, !tbaa !116
+  %94 = load i32, ptr %8, align 4, !tbaa !114
   %95 = xor i32 %94, -1
   %96 = add i32 %88, %95
   %97 = trunc i32 %96 to i16
   %98 = trunc i32 %96 to i8
   %99 = load ptr, ptr %20, align 8, !tbaa !45
-  %100 = load i32, ptr %21, align 4, !tbaa !110
+  %100 = load i32, ptr %21, align 4, !tbaa !108
   %101 = add i32 %100, 1
-  store i32 %101, ptr %21, align 4, !tbaa !110
+  store i32 %101, ptr %21, align 4, !tbaa !108
   %102 = zext i32 %100 to i64
   %103 = getelementptr inbounds nuw i8, ptr %99, i64 %102
   store i8 %98, ptr %103, align 1, !tbaa !4
   %104 = lshr i32 %96, 8
   %105 = trunc i32 %104 to i8
   %106 = load ptr, ptr %20, align 8, !tbaa !45
-  %107 = load i32, ptr %21, align 4, !tbaa !110
+  %107 = load i32, ptr %21, align 4, !tbaa !108
   %108 = add i32 %107, 1
-  store i32 %108, ptr %21, align 4, !tbaa !110
+  store i32 %108, ptr %21, align 4, !tbaa !108
   %109 = zext i32 %107 to i64
   %110 = getelementptr inbounds nuw i8, ptr %106, i64 %109
   store i8 %105, ptr %110, align 1, !tbaa !4
   %111 = load ptr, ptr %20, align 8, !tbaa !45
-  %112 = load i32, ptr %21, align 4, !tbaa !110
+  %112 = load i32, ptr %21, align 4, !tbaa !108
   %113 = add i32 %112, 1
-  store i32 %113, ptr %21, align 4, !tbaa !110
+  store i32 %113, ptr %21, align 4, !tbaa !108
   %114 = zext i32 %112 to i64
   %115 = getelementptr inbounds nuw i8, ptr %111, i64 %114
   store i8 %93, ptr %115, align 1, !tbaa !4
@@ -5556,7 +5550,7 @@ thread-pre-split:                                 ; preds = %62, %65, %82, %77, 
   %129 = load i16, ptr %128, align 4, !tbaa !4
   %130 = add i16 %129, 1
   store i16 %130, ptr %128, align 4, !tbaa !4
-  %131 = load i32, ptr %21, align 4, !tbaa !110
+  %131 = load i32, ptr %21, align 4, !tbaa !108
   %132 = load i32, ptr %24, align 8, !tbaa !46
   %133 = load i32, ptr %6, align 8, !tbaa !65
   %134 = load i32, ptr %3, align 4, !tbaa !63
@@ -5608,7 +5602,7 @@ thread-pre-split:                                 ; preds = %62, %65, %82, %77, 
   %165 = add i32 %138, -1
   store i32 %165, ptr %6, align 8, !tbaa !65
   %.not187 = icmp eq i32 %165, 0
-  br i1 %.not187, label %166, label %137, !llvm.loop !117
+  br i1 %.not187, label %166, label %137, !llvm.loop !115
 
 166:                                              ; preds = %164
   %167 = icmp eq i32 %131, %132
@@ -5636,14 +5630,14 @@ thread-pre-split:                                 ; preds = %62, %65, %82, %77, 
   %177 = phi ptr [ %175, %172 ], [ null, %169 ]
   %178 = zext i32 %168 to i64
   %179 = sub nsw i64 %178, %170
-  tail call void @cm_zlib__tr_flush_block(ptr noundef nonnull %0, ptr noundef %177, i64 noundef %179, i32 noundef 0) #10
+  tail call void @cm_zlib__tr_flush_block(ptr noundef nonnull %0, ptr noundef %177, i64 noundef %179, i32 noundef 0) #11
   %180 = load i32, ptr %12, align 4, !tbaa !61
   %181 = zext i32 %180 to i64
   store i64 %181, ptr %26, align 8, !tbaa !62
   %182 = load ptr, ptr %0, align 8, !tbaa !18
   %183 = getelementptr inbounds nuw i8, ptr %182, i64 56
   %184 = load ptr, ptr %183, align 8, !tbaa !17
-  tail call void @cm_zlib__tr_flush_bits(ptr noundef %184) #10
+  tail call void @cm_zlib__tr_flush_bits(ptr noundef %184) #11
   %185 = getelementptr inbounds nuw i8, ptr %184, i64 40
   %186 = load i64, ptr %185, align 8, !tbaa !83
   %187 = trunc i64 %186 to i32
@@ -5705,23 +5699,23 @@ flush_pending.exit:                               ; preds = %176, %191, %209
   %223 = getelementptr inbounds nuw i8, ptr %219, i64 %222
   %224 = load i8, ptr %223, align 1, !tbaa !4
   %225 = load ptr, ptr %20, align 8, !tbaa !45
-  %226 = load i32, ptr %21, align 4, !tbaa !110
+  %226 = load i32, ptr %21, align 4, !tbaa !108
   %227 = add i32 %226, 1
-  store i32 %227, ptr %21, align 4, !tbaa !110
+  store i32 %227, ptr %21, align 4, !tbaa !108
   %228 = zext i32 %226 to i64
   %229 = getelementptr inbounds nuw i8, ptr %225, i64 %228
   store i8 0, ptr %229, align 1, !tbaa !4
   %230 = load ptr, ptr %20, align 8, !tbaa !45
-  %231 = load i32, ptr %21, align 4, !tbaa !110
+  %231 = load i32, ptr %21, align 4, !tbaa !108
   %232 = add i32 %231, 1
-  store i32 %232, ptr %21, align 4, !tbaa !110
+  store i32 %232, ptr %21, align 4, !tbaa !108
   %233 = zext i32 %231 to i64
   %234 = getelementptr inbounds nuw i8, ptr %230, i64 %233
   store i8 0, ptr %234, align 1, !tbaa !4
   %235 = load ptr, ptr %20, align 8, !tbaa !45
-  %236 = load i32, ptr %21, align 4, !tbaa !110
+  %236 = load i32, ptr %21, align 4, !tbaa !108
   %237 = add i32 %236, 1
-  store i32 %237, ptr %21, align 4, !tbaa !110
+  store i32 %237, ptr %21, align 4, !tbaa !108
   %238 = zext i32 %236 to i64
   %239 = getelementptr inbounds nuw i8, ptr %235, i64 %238
   store i8 %224, ptr %239, align 1, !tbaa !4
@@ -5730,7 +5724,7 @@ flush_pending.exit:                               ; preds = %176, %191, %209
   %242 = load i16, ptr %241, align 4, !tbaa !4
   %243 = add i16 %242, 1
   store i16 %243, ptr %241, align 4, !tbaa !4
-  %244 = load i32, ptr %21, align 4, !tbaa !110
+  %244 = load i32, ptr %21, align 4, !tbaa !108
   %245 = load i32, ptr %24, align 8, !tbaa !46
   %246 = icmp eq i32 %244, %245
   br i1 %246, label %247, label %flush_pending.exit191
@@ -5751,14 +5745,14 @@ flush_pending.exit:                               ; preds = %176, %191, %209
   %256 = load i32, ptr %12, align 4, !tbaa !61
   %257 = zext i32 %256 to i64
   %258 = sub nsw i64 %257, %248
-  tail call void @cm_zlib__tr_flush_block(ptr noundef nonnull %0, ptr noundef %255, i64 noundef %258, i32 noundef 0) #10
+  tail call void @cm_zlib__tr_flush_block(ptr noundef nonnull %0, ptr noundef %255, i64 noundef %258, i32 noundef 0) #11
   %259 = load i32, ptr %12, align 4, !tbaa !61
   %260 = zext i32 %259 to i64
   store i64 %260, ptr %26, align 8, !tbaa !62
   %261 = load ptr, ptr %0, align 8, !tbaa !18
   %262 = getelementptr inbounds nuw i8, ptr %261, i64 56
   %263 = load ptr, ptr %262, align 8, !tbaa !17
-  tail call void @cm_zlib__tr_flush_bits(ptr noundef %263) #10
+  tail call void @cm_zlib__tr_flush_bits(ptr noundef %263) #11
   %264 = getelementptr inbounds nuw i8, ptr %263, i64 40
   %265 = load i64, ptr %264, align 8, !tbaa !83
   %266 = trunc i64 %265 to i32
@@ -5836,23 +5830,23 @@ flush_pending.exit191:                            ; preds = %288, %270, %254, %2
   %311 = getelementptr inbounds nuw i8, ptr %307, i64 %310
   %312 = load i8, ptr %311, align 1, !tbaa !4
   %313 = load ptr, ptr %20, align 8, !tbaa !45
-  %314 = load i32, ptr %21, align 4, !tbaa !110
+  %314 = load i32, ptr %21, align 4, !tbaa !108
   %315 = add i32 %314, 1
-  store i32 %315, ptr %21, align 4, !tbaa !110
+  store i32 %315, ptr %21, align 4, !tbaa !108
   %316 = zext i32 %314 to i64
   %317 = getelementptr inbounds nuw i8, ptr %313, i64 %316
   store i8 0, ptr %317, align 1, !tbaa !4
   %318 = load ptr, ptr %20, align 8, !tbaa !45
-  %319 = load i32, ptr %21, align 4, !tbaa !110
+  %319 = load i32, ptr %21, align 4, !tbaa !108
   %320 = add i32 %319, 1
-  store i32 %320, ptr %21, align 4, !tbaa !110
+  store i32 %320, ptr %21, align 4, !tbaa !108
   %321 = zext i32 %319 to i64
   %322 = getelementptr inbounds nuw i8, ptr %318, i64 %321
   store i8 0, ptr %322, align 1, !tbaa !4
   %323 = load ptr, ptr %20, align 8, !tbaa !45
-  %324 = load i32, ptr %21, align 4, !tbaa !110
+  %324 = load i32, ptr %21, align 4, !tbaa !108
   %325 = add i32 %324, 1
-  store i32 %325, ptr %21, align 4, !tbaa !110
+  store i32 %325, ptr %21, align 4, !tbaa !108
   %326 = zext i32 %324 to i64
   %327 = getelementptr inbounds nuw i8, ptr %323, i64 %326
   store i8 %312, ptr %327, align 1, !tbaa !4
@@ -5887,14 +5881,14 @@ flush_pending.exit191:                            ; preds = %288, %270, %254, %2
   %344 = phi ptr [ %342, %339 ], [ null, %336 ]
   %345 = zext i32 %333 to i64
   %346 = sub nsw i64 %345, %337
-  tail call void @cm_zlib__tr_flush_block(ptr noundef nonnull %0, ptr noundef %344, i64 noundef %346, i32 noundef 1) #10
+  tail call void @cm_zlib__tr_flush_block(ptr noundef nonnull %0, ptr noundef %344, i64 noundef %346, i32 noundef 1) #11
   %347 = load i32, ptr %12, align 4, !tbaa !61
   %348 = zext i32 %347 to i64
   store i64 %348, ptr %26, align 8, !tbaa !62
   %349 = load ptr, ptr %0, align 8, !tbaa !18
   %350 = getelementptr inbounds nuw i8, ptr %349, i64 56
   %351 = load ptr, ptr %350, align 8, !tbaa !17
-  tail call void @cm_zlib__tr_flush_bits(ptr noundef %351) #10
+  tail call void @cm_zlib__tr_flush_bits(ptr noundef %351) #11
   %352 = getelementptr inbounds nuw i8, ptr %351, i64 40
   %353 = load i64, ptr %352, align 8, !tbaa !83
   %354 = trunc i64 %353 to i32
@@ -5945,7 +5939,7 @@ flush_pending.exit193:                            ; preds = %343, %358, %376
   br label %.loopexit
 
 383:                                              ; preds = %332
-  %384 = load i32, ptr %21, align 4, !tbaa !110
+  %384 = load i32, ptr %21, align 4, !tbaa !108
   %.not189 = icmp eq i32 %384, 0
   br i1 %.not189, label %432, label %385
 
@@ -5964,14 +5958,14 @@ flush_pending.exit193:                            ; preds = %343, %358, %376
   %393 = phi ptr [ %391, %388 ], [ null, %385 ]
   %394 = zext i32 %333 to i64
   %395 = sub nsw i64 %394, %386
-  tail call void @cm_zlib__tr_flush_block(ptr noundef nonnull %0, ptr noundef %393, i64 noundef %395, i32 noundef 0) #10
+  tail call void @cm_zlib__tr_flush_block(ptr noundef nonnull %0, ptr noundef %393, i64 noundef %395, i32 noundef 0) #11
   %396 = load i32, ptr %12, align 4, !tbaa !61
   %397 = zext i32 %396 to i64
   store i64 %397, ptr %26, align 8, !tbaa !62
   %398 = load ptr, ptr %0, align 8, !tbaa !18
   %399 = getelementptr inbounds nuw i8, ptr %398, i64 56
   %400 = load ptr, ptr %399, align 8, !tbaa !17
-  tail call void @cm_zlib__tr_flush_bits(ptr noundef %400) #10
+  tail call void @cm_zlib__tr_flush_bits(ptr noundef %400) #11
   %401 = getelementptr inbounds nuw i8, ptr %400, i64 40
   %402 = load i64, ptr %401, align 8, !tbaa !83
   %403 = trunc i64 %402 to i32
@@ -6174,7 +6168,7 @@ define internal fastcc i32 @longest_match(ptr noundef captures(none) %0, i32 nou
   %100 = icmp eq i8 %97, %99
   %101 = icmp samesign ult i64 %.2.idx, 250
   %or.cond = select i1 %100, i1 %101, i1 false
-  br i1 %or.cond, label %54, label %.critedge.split.loop.exit152, !llvm.loop !118
+  br i1 %or.cond, label %54, label %.critedge.split.loop.exit152, !llvm.loop !116
 
 .critedge.split.loop.exit:                        ; preds = %54
   %102 = getelementptr inbounds nuw i8, ptr %.2.ptr, i64 1
@@ -6246,7 +6240,7 @@ define internal fastcc i32 @longest_match(ptr noundef captures(none) %0, i32 nou
   %128 = add i32 %.185, -1
   %.not109 = icmp eq i32 %128, 0
   %or.cond111 = select i1 %127, i1 true, i1 %.not109
-  br i1 %or.cond111, label %.critedge2, label %36, !llvm.loop !119
+  br i1 %or.cond111, label %.critedge2, label %36, !llvm.loop !117
 
 .critedge2:                                       ; preds = %121, %112
   %.291 = phi i32 [ %.190, %121 ], [ %110, %112 ]
@@ -6271,6 +6265,9 @@ declare i32 @llvm.umin.i32(i32, i32) #9
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #9
 
+; Function Attrs: nofree nounwind willreturn memory(argmem: read)
+declare i64 @strlen(ptr captures(none)) local_unnamed_addr #10
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }
@@ -6278,10 +6275,11 @@ attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #4 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nofree nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #10 = { nounwind }
+attributes #10 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #11 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 
@@ -6393,15 +6391,13 @@ attributes #10 = { nounwind }
 !105 = distinct !{!105, !73}
 !106 = distinct !{!106, !73}
 !107 = distinct !{!107, !73}
-!108 = distinct !{!108, !73}
+!108 = !{!19, !11, i64 5900}
 !109 = distinct !{!109, !73}
-!110 = !{!19, !11, i64 5900}
-!111 = distinct !{!111, !73}
-!112 = !{!19, !24, i64 2904}
-!113 = !{!19, !24, i64 2928}
-!114 = !{!19, !24, i64 2952}
+!110 = !{!19, !24, i64 2904}
+!111 = !{!19, !24, i64 2928}
+!112 = !{!19, !24, i64 2952}
+!113 = distinct !{!113, !73}
+!114 = !{!19, !11, i64 164}
 !115 = distinct !{!115, !73}
-!116 = !{!19, !11, i64 164}
+!116 = distinct !{!116, !73}
 !117 = distinct !{!117, !73}
-!118 = distinct !{!118, !73}
-!119 = distinct !{!119, !73}

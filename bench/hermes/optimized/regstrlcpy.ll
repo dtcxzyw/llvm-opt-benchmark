@@ -3,11 +3,11 @@ source_filename = "bench/hermes/original/regstrlcpy.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
 define hidden range(i64 -9223372036854775808, 9223372036854775807) i64 @llvh_strlcpy(ptr noundef writeonly captures(none) %dst, ptr noundef %src, i64 noundef %siz) local_unnamed_addr #0 {
 entry:
   %cmp.not = icmp eq i64 %siz, 0
-  br i1 %cmp.not, label %while.cond14.preheader, label %while.cond
+  br i1 %cmp.not, label %if.end13, label %while.cond
 
 while.cond:                                       ; preds = %entry, %while.body
   %d.1 = phi ptr [ %incdec.ptr2, %while.body ], [ %dst, %entry ]
@@ -27,21 +27,17 @@ while.body:                                       ; preds = %while.cond
 
 if.then12:                                        ; preds = %while.cond
   store i8 0, ptr %d.1, align 1
-  br label %while.cond14.preheader
+  br label %if.end13
 
-while.cond14.preheader:                           ; preds = %entry, %if.then12
-  %s.3.ph = phi ptr [ %src, %entry ], [ %s.1, %if.then12 ]
-  br label %while.cond14
+if.end13:                                         ; preds = %entry, %if.then12
+  %s.0.ph15 = phi ptr [ %s.1, %if.then12 ], [ %src, %entry ]
+  %strlen = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %s.0.ph15)
+  %1 = getelementptr i8, ptr %s.0.ph15, i64 %strlen
+  %scevgep = getelementptr i8, ptr %1, i64 1
+  br label %if.end18
 
-while.cond14:                                     ; preds = %while.cond14.preheader, %while.cond14
-  %s.3 = phi ptr [ %incdec.ptr15, %while.cond14 ], [ %s.3.ph, %while.cond14.preheader ]
-  %incdec.ptr15 = getelementptr inbounds nuw i8, ptr %s.3, i64 1
-  %1 = load i8, ptr %s.3, align 1
-  %tobool.not = icmp eq i8 %1, 0
-  br i1 %tobool.not, label %if.end18, label %while.cond14, !llvm.loop !6
-
-if.end18:                                         ; preds = %while.body, %while.cond14
-  %s.2 = phi ptr [ %incdec.ptr15, %while.cond14 ], [ %incdec.ptr, %while.body ]
+if.end18:                                         ; preds = %while.body, %if.end13
+  %s.2 = phi ptr [ %scevgep, %if.end13 ], [ %incdec.ptr, %while.body ]
   %sub.ptr.lhs.cast = ptrtoint ptr %s.2 to i64
   %sub.ptr.rhs.cast = ptrtoint ptr %src to i64
   %2 = xor i64 %sub.ptr.rhs.cast, -1
@@ -49,7 +45,11 @@ if.end18:                                         ; preds = %while.body, %while.
   ret i64 %sub
 }
 
-attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+; Function Attrs: nofree nounwind willreturn memory(argmem: read)
+declare i64 @strlen(ptr captures(none)) local_unnamed_addr #1
+
+attributes #0 = { nofree nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree nounwind willreturn memory(argmem: read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 
@@ -59,4 +59,3 @@ attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwt
 !3 = !{i32 7, !"frame-pointer", i32 2}
 !4 = distinct !{!4, !5}
 !5 = !{!"llvm.loop.mustprogress"}
-!6 = distinct !{!6, !5}

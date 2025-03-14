@@ -6,7 +6,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local i64 @strlcpy(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq i64 %2, 0
-  br i1 %.not, label %.thread25.preheader, label %.preheader
+  br i1 %.not, label %.thread25, label %.preheader
 
 .preheader:                                       ; preds = %3, %5
   %.114 = phi ptr [ %6, %5 ], [ %1, %3 ]
@@ -26,29 +26,29 @@ define dso_local i64 @strlcpy(ptr noundef writeonly captures(none) %0, ptr nound
 
 10:                                               ; preds = %.preheader
   store i8 0, ptr %.112, align 1, !tbaa !7
-  br label %.thread25.preheader
-
-.thread25.preheader:                              ; preds = %3, %10
-  %.3.ph = phi ptr [ %1, %3 ], [ %.114, %10 ]
   br label %.thread25
 
-.thread25:                                        ; preds = %.thread25.preheader, %.thread25
-  %.3 = phi ptr [ %11, %.thread25 ], [ %.3.ph, %.thread25.preheader ]
-  %11 = getelementptr i8, ptr %.3, i64 1
-  %12 = load i8, ptr %.3, align 1, !tbaa !7
-  %.not20 = icmp eq i8 %12, 0
-  br i1 %.not20, label %.loopexit, label %.thread25, !llvm.loop !12
+.thread25:                                        ; preds = %3, %10
+  %.013.ph28 = phi ptr [ %.114, %10 ], [ %1, %3 ]
+  %strlen = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.013.ph28)
+  %11 = getelementptr i8, ptr %.013.ph28, i64 %strlen
+  %scevgep = getelementptr i8, ptr %11, i64 1
+  br label %.loopexit
 
 .loopexit:                                        ; preds = %5, %.thread25
-  %.2 = phi ptr [ %11, %.thread25 ], [ %6, %5 ]
-  %13 = ptrtoint ptr %.2 to i64
-  %14 = ptrtoint ptr %1 to i64
-  %15 = xor i64 %14, -1
-  %16 = add i64 %13, %15
-  ret i64 %16
+  %.2 = phi ptr [ %scevgep, %.thread25 ], [ %6, %5 ]
+  %12 = ptrtoint ptr %.2 to i64
+  %13 = ptrtoint ptr %1 to i64
+  %14 = xor i64 %13, -1
+  %15 = add i64 %12, %14
+  ret i64 %15
 }
 
+; Function Attrs: nofree nounwind willreturn memory(argmem: read)
+declare i64 @strlen(ptr captures(none)) local_unnamed_addr #1
+
 attributes #0 = { nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { nofree nounwind willreturn memory(argmem: read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6}
 
@@ -64,4 +64,3 @@ attributes #0 = { nofree norecurse nosync nounwind sspstrong memory(argmem: read
 !9 = !{!"Simple C/C++ TBAA"}
 !10 = distinct !{!10, !11}
 !11 = !{!"llvm.loop.mustprogress"}
-!12 = distinct !{!12, !11}
