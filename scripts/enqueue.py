@@ -1,12 +1,12 @@
 import os
 import subprocess
 from urllib.parse import urlparse
-from authorized_users import authorized_users
+from authorized_users import is_authorized_users
 
 patch_url = os.environ.get('PATCH_URL').strip().replace('@','')
 user = os.environ.get('USER')
 
-if user not in authorized_users:
+if not is_authorized_users(user):
     print(f'User {user} is not authorized to submit tasks.')
     exit(0)
 

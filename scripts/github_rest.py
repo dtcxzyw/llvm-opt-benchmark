@@ -2,10 +2,11 @@
 
 import os
 import subprocess
-from authorized_users import authorized_users
+from authorized_users import is_authorized_users
 
 actor = os.getenv('GH_ACTOR')
-if actor not in authorized_users:
+if not is_authorized_users(actor):
+    print(f'User {actor} is not authorized.')
     exit(0)
 number = os.getenv('GH_PR_NUMBER')
 
