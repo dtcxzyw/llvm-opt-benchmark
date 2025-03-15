@@ -14,20 +14,20 @@ target triple = "x86_64-pc-linux-gnu"
 define hidden ptr @cmsMLUalloc(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq i32 %1, 0
   %spec.store.select = select i1 %3, i32 2, i32 %1
-  %4 = tail call ptr @_cmsMallocZero(ptr noundef %0, i32 noundef 40) #14
+  %4 = tail call ptr @_cmsMallocZero(ptr noundef %0, i32 noundef 40) #13
   %5 = icmp eq ptr %4, null
   br i1 %5, label %14, label %6
 
 6:                                                ; preds = %2
   store ptr %0, ptr %4, align 8
-  %7 = tail call ptr @_cmsCalloc(ptr noundef %0, i32 noundef %spec.store.select, i32 noundef 12) #14
+  %7 = tail call ptr @_cmsCalloc(ptr noundef %0, i32 noundef %spec.store.select, i32 noundef 12) #13
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %7, ptr %8, align 8
   %9 = icmp eq ptr %7, null
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %6
-  tail call void @_cmsFree(ptr noundef %0, ptr noundef nonnull %4) #14
+  tail call void @_cmsFree(ptr noundef %0, ptr noundef nonnull %4) #13
   br label %14
 
 11:                                               ; preds = %6
@@ -51,7 +51,7 @@ declare void @_cmsFree(ptr noundef, ptr noundef) local_unnamed_addr #1
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @cmsMLUsetASCII(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(none) %3) local_unnamed_addr #0 {
   %5 = alloca i32, align 4
-  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #15
+  %6 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #14
   %7 = trunc i64 %6 to i32
   %8 = icmp eq ptr %1, null
   br i1 %8, label %strTo16.exit, label %9
@@ -97,7 +97,7 @@ strTo16.exit31:                                   ; preds = %strTo16.exit, %18
 
 31:                                               ; preds = %27
   %32 = load ptr, ptr %0, align 8
-  %33 = tail call ptr @_cmsCalloc(ptr noundef %32, i32 noundef %7, i32 noundef 4) #14
+  %33 = tail call ptr @_cmsCalloc(ptr noundef %32, i32 noundef %7, i32 noundef 4) #13
   %34 = icmp eq ptr %33, null
   br i1 %34, label %43, label %.preheader.preheader
 
@@ -120,7 +120,7 @@ strTo16.exit31:                                   ; preds = %strTo16.exit, %18
   %40 = shl i32 %7, 2
   %41 = tail call fastcc i32 @AddMLUBlock(ptr noundef %0, i32 noundef %40, ptr noundef %33, i16 noundef zeroext %.0.i, i16 noundef zeroext %.0.i30)
   %42 = load ptr, ptr %0, align 8
-  tail call void @_cmsFree(ptr noundef %42, ptr noundef nonnull %33) #14
+  tail call void @_cmsFree(ptr noundef %42, ptr noundef nonnull %33) #13
   br label %43
 
 43:                                               ; preds = %31, %strTo16.exit31, %39, %29
@@ -150,7 +150,7 @@ define internal fastcc range(i32 0, 2) i32 @AddMLUBlock(ptr noundef nonnull capt
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %15 = load ptr, ptr %14, align 8
   %16 = mul i32 %9, 24
-  %17 = tail call ptr @_cmsRealloc(ptr noundef %13, ptr noundef %15, i32 noundef %16) #14
+  %17 = tail call ptr @_cmsRealloc(ptr noundef %13, ptr noundef %15, i32 noundef %16) #13
   %18 = icmp eq ptr %17, null
   br i1 %18, label %GrowMLUtable.exit.thread, label %GrowMLUtable.exit
 
@@ -215,7 +215,7 @@ GrowMLUtable.exit:                                ; preds = %12
 45:                                               ; preds = %.lr.ph
   %46 = load ptr, ptr %0, align 8
   %47 = load ptr, ptr %40, align 8
-  %48 = tail call ptr @_cmsRealloc(ptr noundef %46, ptr noundef %47, i32 noundef %.013.i) #14
+  %48 = tail call ptr @_cmsRealloc(ptr noundef %46, ptr noundef %47, i32 noundef %.013.i) #13
   %49 = icmp eq ptr %48, null
   br i1 %49, label %GrowMLUtable.exit.thread, label %GrowMLUpool.exit
 
@@ -372,7 +372,7 @@ strTo16.exit24:                                   ; preds = %strTo16.exit, %16
 
 decodeUTF8.exit:                                  ; preds = %49
   %55 = load ptr, ptr %0, align 8
-  %56 = tail call ptr @_cmsCalloc(ptr noundef %55, i32 noundef %spec.select, i32 noundef 4) #14
+  %56 = tail call ptr @_cmsCalloc(ptr noundef %55, i32 noundef %spec.select, i32 noundef 4) #13
   %57 = icmp eq ptr %56, null
   br i1 %57, label %92, label %58
 
@@ -449,7 +449,7 @@ decodeUTF8.exit41:                                ; preds = %87, %58
   %89 = shl i32 %spec.select, 2
   %90 = tail call fastcc i32 @AddMLUBlock(ptr noundef %0, i32 noundef %89, ptr noundef %56, i16 noundef zeroext %.0.i, i16 noundef zeroext %.0.i23)
   %91 = load ptr, ptr %0, align 8
-  tail call void @_cmsFree(ptr noundef %91, ptr noundef nonnull %56) #14
+  tail call void @_cmsFree(ptr noundef %91, ptr noundef nonnull %56) #13
   br label %92
 
 92:                                               ; preds = %decodeUTF8.exit, %strTo16.exit24, %decodeUTF8.exit41, %28
@@ -458,7 +458,7 @@ decodeUTF8.exit41:                                ; preds = %87, %58
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden range(i32 0, 2) i32 @cmsMLUsetWide(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef readonly captures(address_is_null) %3) local_unnamed_addr #0 {
+define hidden range(i32 0, 2) i32 @cmsMLUsetWide(ptr noundef captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef %3) local_unnamed_addr #0 {
   %5 = icmp eq ptr %1, null
   br i1 %5, label %strTo16.exit, label %6
 
@@ -492,19 +492,28 @@ strTo16.exit14:                                   ; preds = %strTo16.exit, %15
   %23 = icmp eq ptr %0, null
   %24 = icmp eq ptr %3, null
   %or.cond = or i1 %23, %24
-  br i1 %or.cond, label %30, label %25
+  br i1 %or.cond, label %34, label %.preheader
 
-25:                                               ; preds = %strTo16.exit14
-  %wcslen.i = tail call i64 @wcslen(ptr nonnull readonly %3)
-  %26 = trunc i64 %wcslen.i to i32
-  %27 = shl i32 %26, 2
-  %28 = icmp eq i32 %27, 0
-  %spec.store.select = select i1 %28, i32 4, i32 %27
-  %29 = tail call fastcc i32 @AddMLUBlock(ptr noundef %0, i32 noundef %spec.store.select, ptr noundef %3, i16 noundef zeroext %.0.i, i16 noundef zeroext %.0.i13)
-  br label %30
+.preheader:                                       ; preds = %strTo16.exit14, %.preheader
+  %.0.i15 = phi ptr [ %26, %.preheader ], [ %3, %strTo16.exit14 ]
+  %25 = load i32, ptr %.0.i15, align 4
+  %.not.i = icmp eq i32 %25, 0
+  %26 = getelementptr inbounds nuw i8, ptr %.0.i15, i64 4
+  br i1 %.not.i, label %mywcslen.exit, label %.preheader, !llvm.loop !11
 
-30:                                               ; preds = %strTo16.exit14, %25
-  %.0 = phi i32 [ %29, %25 ], [ 0, %strTo16.exit14 ]
+mywcslen.exit:                                    ; preds = %.preheader
+  %27 = ptrtoint ptr %.0.i15 to i64
+  %28 = ptrtoint ptr %3 to i64
+  %29 = sub i64 %27, %28
+  %30 = trunc i64 %29 to i32
+  %31 = and i32 %30, -4
+  %32 = icmp eq i32 %31, 0
+  %spec.store.select = select i1 %32, i32 4, i32 %31
+  %33 = tail call fastcc i32 @AddMLUBlock(ptr noundef %0, i32 noundef %spec.store.select, ptr noundef %3, i16 noundef zeroext %.0.i, i16 noundef zeroext %.0.i13)
+  br label %34
+
+34:                                               ; preds = %strTo16.exit14, %mywcslen.exit
+  %.0 = phi i32 [ %33, %mywcslen.exit ], [ 0, %strTo16.exit14 ]
   ret i32 %.0
 }
 
@@ -519,20 +528,20 @@ define hidden ptr @cmsMLUdup(ptr noundef readonly captures(address_is_null) %0) 
   %6 = load i32, ptr %5, align 4
   %7 = icmp eq i32 %6, 0
   %spec.store.select.i = select i1 %7, i32 2, i32 %6
-  %8 = tail call ptr @_cmsMallocZero(ptr noundef %4, i32 noundef 40) #14
+  %8 = tail call ptr @_cmsMallocZero(ptr noundef %4, i32 noundef 40) #13
   %9 = icmp eq ptr %8, null
   br i1 %9, label %cmsMLUalloc.exit.thread, label %10
 
 10:                                               ; preds = %3
   store ptr %4, ptr %8, align 8
-  %11 = tail call ptr @_cmsCalloc(ptr noundef %4, i32 noundef %spec.store.select.i, i32 noundef 12) #14
+  %11 = tail call ptr @_cmsCalloc(ptr noundef %4, i32 noundef %spec.store.select.i, i32 noundef 12) #13
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %11, ptr %12, align 8
   %13 = icmp eq ptr %11, null
   br i1 %13, label %14, label %15
 
 14:                                               ; preds = %10
-  tail call void @_cmsFree(ptr noundef %4, ptr noundef nonnull %8) #14
+  tail call void @_cmsFree(ptr noundef %4, ptr noundef nonnull %8) #13
   br label %cmsMLUalloc.exit.thread
 
 15:                                               ; preds = %10
@@ -571,7 +580,7 @@ define hidden ptr @cmsMLUdup(ptr noundef readonly captures(address_is_null) %0) 
 
 34:                                               ; preds = %24
   %35 = load ptr, ptr %0, align 8
-  %36 = tail call ptr @_cmsMalloc(ptr noundef %35, i32 noundef %29) #14
+  %36 = tail call ptr @_cmsMalloc(ptr noundef %35, i32 noundef %29) #13
   %37 = getelementptr inbounds nuw i8, ptr %8, i64 32
   store ptr %36, ptr %37, align 8
   %38 = icmp eq ptr %36, null
@@ -601,7 +610,7 @@ define hidden ptr @cmsMLUdup(ptr noundef readonly captures(address_is_null) %0) 
 
 51:                                               ; preds = %49
   %52 = load ptr, ptr %8, align 8
-  tail call void @_cmsFree(ptr noundef %52, ptr noundef nonnull %50) #14
+  tail call void @_cmsFree(ptr noundef %52, ptr noundef nonnull %50) #13
   br label %53
 
 53:                                               ; preds = %51, %49
@@ -612,12 +621,12 @@ define hidden ptr @cmsMLUdup(ptr noundef readonly captures(address_is_null) %0) 
 
 56:                                               ; preds = %53
   %57 = load ptr, ptr %8, align 8
-  tail call void @_cmsFree(ptr noundef %57, ptr noundef nonnull %55) #14
+  tail call void @_cmsFree(ptr noundef %57, ptr noundef nonnull %55) #13
   br label %cmsMLUfree.exit
 
 cmsMLUfree.exit:                                  ; preds = %53, %56
   %58 = load ptr, ptr %8, align 8
-  tail call void @_cmsFree(ptr noundef %58, ptr noundef nonnull %8) #14
+  tail call void @_cmsFree(ptr noundef %58, ptr noundef nonnull %8) #13
   br label %cmsMLUalloc.exit.thread
 
 cmsMLUalloc.exit.thread:                          ; preds = %3, %14, %1, %cmsMLUfree.exit, %45
@@ -643,7 +652,7 @@ define hidden void @cmsMLUfree(ptr noundef %0) local_unnamed_addr #0 {
 
 5:                                                ; preds = %2
   %6 = load ptr, ptr %0, align 8
-  tail call void @_cmsFree(ptr noundef %6, ptr noundef nonnull %4) #14
+  tail call void @_cmsFree(ptr noundef %6, ptr noundef nonnull %4) #13
   br label %7
 
 7:                                                ; preds = %5, %2
@@ -654,12 +663,12 @@ define hidden void @cmsMLUfree(ptr noundef %0) local_unnamed_addr #0 {
 
 10:                                               ; preds = %7
   %11 = load ptr, ptr %0, align 8
-  tail call void @_cmsFree(ptr noundef %11, ptr noundef nonnull %9) #14
+  tail call void @_cmsFree(ptr noundef %11, ptr noundef nonnull %9) #13
   br label %12
 
 12:                                               ; preds = %10, %7
   %13 = load ptr, ptr %0, align 8
-  tail call void @_cmsFree(ptr noundef %13, ptr noundef nonnull %0) #14
+  tail call void @_cmsFree(ptr noundef %13, ptr noundef nonnull %0) #13
   br label %14
 
 14:                                               ; preds = %12, %1
@@ -748,7 +757,7 @@ strTo16.exit35:                                   ; preds = %strTo16.exit, %16
   %.2.fr.i = freeze i32 %.2.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %31, !llvm.loop !11
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %31, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %46
   %47 = icmp eq i32 %.2.fr.i, -1
@@ -814,7 +823,7 @@ _cmsMLUgetWide.exit:                              ; preds = %._crit_edge.thread.
   store i8 %spec.select48, ptr %73, align 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !12
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %67
   %.pre-phi = phi i64 [ 0, %67 ], [ %wide.trip.count, %.lr.ph ]
@@ -910,7 +919,7 @@ strTo16.exit27:                                   ; preds = %strTo16.exit, %16
   %.2.fr.i = freeze i32 %.2.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %31, !llvm.loop !11
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %31, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %46
   %47 = icmp eq i32 %.2.fr.i, -1
@@ -1121,7 +1130,7 @@ define internal fastcc i32 @encodeUTF8(ptr noundef writeonly captures(address) %
   %87 = icmp ne i32 %86, 0
   %88 = icmp samesign ult i32 %85, %2
   %89 = select i1 %87, i1 %88, i1 false
-  br i1 %89, label %10, label %._crit_edge, !llvm.loop !13
+  br i1 %89, label %10, label %._crit_edge, !llvm.loop !14
 
 ._crit_edge:                                      ; preds = %._crit_edge86, %4
   %.060.lcssa = phi i32 [ 0, %4 ], [ %.1, %._crit_edge86 ]
@@ -1210,7 +1219,7 @@ strTo16.exit19:                                   ; preds = %strTo16.exit, %16
   %.2.fr.i = freeze i32 %.2.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %31, !llvm.loop !11
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %31, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %46
   %47 = icmp eq i32 %.2.fr.i, -1
@@ -1349,7 +1358,7 @@ strTo16.exit11:                                   ; preds = %strTo16.exit, %16
   %.2.fr.i = freeze i32 %.2.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %31, !llvm.loop !11
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %31, !llvm.loop !12
 
 ._crit_edge.i:                                    ; preds = %41
   %42 = icmp eq i32 %.2.fr.i, -1
@@ -1471,7 +1480,7 @@ define hidden ptr @cmsAllocNamedColorList(ptr noundef %0, i32 noundef %1, i32 no
   br i1 %6, label %37, label %7
 
 7:                                                ; preds = %5
-  %8 = tail call ptr @_cmsMallocZero(ptr noundef %0, i32 noundef 96) #14
+  %8 = tail call ptr @_cmsMallocZero(ptr noundef %0, i32 noundef 96) #13
   %9 = icmp eq ptr %8, null
   br i1 %9, label %37, label %10
 
@@ -1497,13 +1506,13 @@ define hidden ptr @cmsAllocNamedColorList(ptr noundef %0, i32 noundef %1, i32 no
   br i1 %20, label %.thread, label %22
 
 .thread:                                          ; preds = %.lr.ph
-  tail call void @_cmsFree(ptr noundef %21, ptr noundef %16) #14
+  tail call void @_cmsFree(ptr noundef %21, ptr noundef %16) #13
   store ptr null, ptr %11, align 8
   br label %cmsFreeNamedColorList.exit
 
 22:                                               ; preds = %.lr.ph
   %narrow.i = mul nuw nsw i32 %.015.i, 294
-  %23 = tail call ptr @_cmsRealloc(ptr noundef %21, ptr noundef %16, i32 noundef %narrow.i) #14
+  %23 = tail call ptr @_cmsRealloc(ptr noundef %21, ptr noundef %16, i32 noundef %narrow.i) #13
   %24 = icmp eq ptr %23, null
   br i1 %24, label %26, label %GrowNamedColorList.exit
 
@@ -1511,7 +1520,7 @@ GrowNamedColorList.exit:                          ; preds = %22
   store ptr %23, ptr %11, align 8
   store i32 %.015.i, ptr %13, align 4
   %25 = icmp ult i32 %.015.i, %1
-  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !14
+  br i1 %25, label %.lr.ph, label %._crit_edge, !llvm.loop !15
 
 26:                                               ; preds = %22
   %.pr = load ptr, ptr %11, align 8
@@ -1520,19 +1529,19 @@ GrowNamedColorList.exit:                          ; preds = %22
 
 27:                                               ; preds = %26
   %28 = load ptr, ptr %12, align 8
-  tail call void @_cmsFree(ptr noundef %28, ptr noundef nonnull %.pr) #14
+  tail call void @_cmsFree(ptr noundef %28, ptr noundef nonnull %.pr) #13
   br label %cmsFreeNamedColorList.exit
 
 cmsFreeNamedColorList.exit:                       ; preds = %26, %27, %.thread
   %29 = load ptr, ptr %12, align 8
-  tail call void @_cmsFree(ptr noundef %29, ptr noundef nonnull %8) #14
+  tail call void @_cmsFree(ptr noundef %29, ptr noundef nonnull %8) #13
   br label %37
 
 ._crit_edge:                                      ; preds = %GrowNamedColorList.exit, %10
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 12
-  %31 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(1) %3, i64 noundef 32) #14
+  %31 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %30, ptr noundef nonnull dereferenceable(1) %3, i64 noundef 32) #13
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 45
-  %33 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(1) %4, i64 noundef 32) #14
+  %33 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %32, ptr noundef nonnull dereferenceable(1) %4, i64 noundef 32) #13
   %34 = getelementptr inbounds nuw i8, ptr %8, i64 77
   store i8 0, ptr %34, align 1
   %35 = getelementptr inbounds nuw i8, ptr %8, i64 44
@@ -1560,13 +1569,13 @@ define hidden void @cmsFreeNamedColorList(ptr noundef %0) local_unnamed_addr #0 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %8 = load ptr, ptr %7, align 8
-  tail call void @_cmsFree(ptr noundef %8, ptr noundef nonnull %5) #14
+  tail call void @_cmsFree(ptr noundef %8, ptr noundef nonnull %5) #13
   br label %9
 
 9:                                                ; preds = %6, %3
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %11 = load ptr, ptr %10, align 8
-  tail call void @_cmsFree(ptr noundef %11, ptr noundef nonnull %0) #14
+  tail call void @_cmsFree(ptr noundef %11, ptr noundef nonnull %0) #13
   br label %12
 
 12:                                               ; preds = %1, %9
@@ -1623,13 +1632,13 @@ define hidden ptr @cmsDupNamedColorList(ptr noundef readonly captures(address_is
   br i1 %25, label %.loopexit.thread, label %27
 
 .loopexit.thread:                                 ; preds = %20
-  tail call void @_cmsFree(ptr noundef %26, ptr noundef %21) #14
+  tail call void @_cmsFree(ptr noundef %26, ptr noundef %21) #13
   store ptr null, ptr %19, align 8
   br label %cmsFreeNamedColorList.exit
 
 27:                                               ; preds = %20
   %narrow.i = mul nuw nsw i32 %.015.i, 294
-  %28 = tail call ptr @_cmsRealloc(ptr noundef %26, ptr noundef %21, i32 noundef %narrow.i) #14
+  %28 = tail call ptr @_cmsRealloc(ptr noundef %26, ptr noundef %21, i32 noundef %narrow.i) #13
   %29 = icmp eq ptr %28, null
   br i1 %29, label %.loopexit, label %GrowNamedColorList.exit
 
@@ -1638,7 +1647,7 @@ GrowNamedColorList.exit:                          ; preds = %27
   store i32 %.015.i, ptr %13, align 4
   %30 = load i32, ptr %14, align 4
   %31 = icmp ult i32 %.015.i, %30
-  br i1 %31, label %20, label %._crit_edge, !llvm.loop !15
+  br i1 %31, label %20, label %._crit_edge, !llvm.loop !16
 
 .loopexit:                                        ; preds = %27
   %.pre38 = load ptr, ptr %19, align 8
@@ -1647,12 +1656,12 @@ GrowNamedColorList.exit:                          ; preds = %27
 
 32:                                               ; preds = %.loopexit
   %33 = load ptr, ptr %18, align 8
-  tail call void @_cmsFree(ptr noundef %33, ptr noundef nonnull %.pre38) #14
+  tail call void @_cmsFree(ptr noundef %33, ptr noundef nonnull %.pre38) #13
   br label %cmsFreeNamedColorList.exit
 
 cmsFreeNamedColorList.exit:                       ; preds = %.loopexit.thread, %.loopexit, %32
   %34 = load ptr, ptr %18, align 8
-  tail call void @_cmsFree(ptr noundef %34, ptr noundef nonnull %11) #14
+  tail call void @_cmsFree(ptr noundef %34, ptr noundef nonnull %11) #13
   br label %46
 
 ._crit_edge:                                      ; preds = %GrowNamedColorList.exit, %.preheader.._crit_edge_crit_edge
@@ -1704,13 +1713,13 @@ define hidden range(i32 0, 2) i32 @cmsAppendNamedColor(ptr noundef captures(addr
   br i1 %15, label %20, label %21
 
 20:                                               ; preds = %12
-  tail call void @_cmsFree(ptr noundef %17, ptr noundef %19) #14
+  tail call void @_cmsFree(ptr noundef %17, ptr noundef %19) #13
   store ptr null, ptr %18, align 8
   br label %GrowNamedColorList.exit.thread
 
 21:                                               ; preds = %12
   %narrow.i = mul nuw nsw i32 %.015.i, 294
-  %22 = tail call ptr @_cmsRealloc(ptr noundef %17, ptr noundef %19, i32 noundef %narrow.i) #14
+  %22 = tail call ptr @_cmsRealloc(ptr noundef %17, ptr noundef %19, i32 noundef %narrow.i) #13
   %23 = icmp eq ptr %22, null
   br i1 %23, label %GrowNamedColorList.exit.thread, label %GrowNamedColorList.exit
 
@@ -1741,7 +1750,7 @@ GrowNamedColorList.exit:                          ; preds = %21
   %33 = load i32, ptr %25, align 8
   %34 = zext i32 %33 to i64
   %35 = icmp samesign ult i64 %indvars.iv.next44, %34
-  br i1 %35, label %.lr.ph.split.us, label %.preheader, !llvm.loop !16
+  br i1 %35, label %.lr.ph.split.us, label %.preheader, !llvm.loop !17
 
 .preheader:                                       ; preds = %.lr.ph.split, %.lr.ph.split.us, %24
   %36 = icmp eq ptr %2, null
@@ -1757,7 +1766,7 @@ GrowNamedColorList.exit:                          ; preds = %21
   store i16 0, ptr %41, align 2
   %indvars.iv.next50 = add nuw nsw i64 %indvars.iv49, 1
   %exitcond52.not = icmp eq i64 %indvars.iv.next50, 3
-  br i1 %exitcond52.not, label %.split.us, label %.preheader.split.us, !llvm.loop !17
+  br i1 %exitcond52.not, label %.split.us, label %.preheader.split.us, !llvm.loop !18
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph.split ], [ 0, %.lr.ph ]
@@ -1772,7 +1781,7 @@ GrowNamedColorList.exit:                          ; preds = %21
   %48 = load i32, ptr %25, align 8
   %49 = zext i32 %48 to i64
   %50 = icmp samesign ult i64 %indvars.iv.next, %49
-  br i1 %50, label %.lr.ph.split, label %.preheader, !llvm.loop !16
+  br i1 %50, label %.lr.ph.split, label %.preheader, !llvm.loop !17
 
 .preheader.split:                                 ; preds = %.preheader, %.preheader.split
   %indvars.iv46 = phi i64 [ %indvars.iv.next47, %.preheader.split ], [ 0, %.preheader ]
@@ -1785,7 +1794,7 @@ GrowNamedColorList.exit:                          ; preds = %21
   store i16 %52, ptr %56, align 2
   %indvars.iv.next47 = add nuw nsw i64 %indvars.iv46, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next47, 3
-  br i1 %exitcond.not, label %.split.us, label %.preheader.split, !llvm.loop !17
+  br i1 %exitcond.not, label %.split.us, label %.preheader.split, !llvm.loop !18
 
 .split.us:                                        ; preds = %.preheader.split, %.preheader.split.us
   %.not35 = icmp eq ptr %1, null
@@ -1796,7 +1805,7 @@ GrowNamedColorList.exit:                          ; preds = %21
   br i1 %.not35, label %67, label %61
 
 61:                                               ; preds = %.split.us
-  %62 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %60, ptr noundef nonnull dereferenceable(1) %1, i64 noundef 255) #14
+  %62 = tail call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %60, ptr noundef nonnull dereferenceable(1) %1, i64 noundef 255) #13
   %63 = load ptr, ptr %37, align 8
   %64 = load i32, ptr %0, align 8
   %65 = zext i32 %64 to i64
@@ -1852,7 +1861,7 @@ cmsNamedColorCount.exit:                          ; preds = %7
   %13 = load ptr, ptr %12, align 8
   %14 = zext i32 %1 to i64
   %15 = getelementptr inbounds nuw %struct._cmsNAMEDCOLOR, ptr %13, i64 %14
-  %16 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %15) #14
+  %16 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %15) #13
   br label %17
 
 17:                                               ; preds = %11, %10
@@ -1861,7 +1870,7 @@ cmsNamedColorCount.exit:                          ; preds = %7
 
 18:                                               ; preds = %17
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %20 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %19) #14
+  %20 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %19) #13
   br label %21
 
 21:                                               ; preds = %18, %17
@@ -1870,7 +1879,7 @@ cmsNamedColorCount.exit:                          ; preds = %7
 
 22:                                               ; preds = %21
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 45
-  %24 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %23) #14
+  %24 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %23) #13
   br label %25
 
 25:                                               ; preds = %22, %21
@@ -1928,14 +1937,14 @@ cmsNamedColorCount.exit:                          ; preds = %2
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %10 ]
   %6 = load ptr, ptr %5, align 8
   %7 = getelementptr inbounds nuw %struct._cmsNAMEDCOLOR, ptr %6, i64 %indvars.iv
-  %8 = tail call i32 @cmsstrcasecmp(ptr noundef %1, ptr noundef %7) #14
+  %8 = tail call i32 @cmsstrcasecmp(ptr noundef %1, ptr noundef %7) #13
   %9 = icmp eq i32 %8, 0
   br i1 %9, label %.loopexit.loopexit.split.loop.exit15, label %10
 
 10:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !18
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !19
 
 .loopexit.loopexit.split.loop.exit15:             ; preds = %.lr.ph
   %11 = trunc nuw i64 %indvars.iv to i32
@@ -1964,7 +1973,7 @@ define hidden ptr @_cmsStageAllocNamedColor(ptr noundef captures(address_is_null
   %9 = phi ptr [ @EvalNamedColor, %5 ], [ @EvalNamedColorPCS, %2 ]
   %10 = phi i32 [ %7, %5 ], [ 3, %2 ]
   %11 = tail call ptr @cmsDupNamedColorList(ptr noundef nonnull %0)
-  %12 = tail call ptr @_cmsStageAllocPlaceholder(ptr noundef %4, i32 noundef 1852009504, i32 noundef 1, i32 noundef %10, ptr noundef nonnull %9, ptr noundef nonnull @DupNamedColorList, ptr noundef nonnull @FreeNamedColorList, ptr noundef %11) #14
+  %12 = tail call ptr @_cmsStageAllocPlaceholder(ptr noundef %4, i32 noundef 1852009504, i32 noundef 1, i32 noundef %10, ptr noundef nonnull %9, ptr noundef nonnull @DupNamedColorList, ptr noundef nonnull @FreeNamedColorList, ptr noundef %11) #13
   ret ptr %12
 }
 
@@ -2003,7 +2012,7 @@ _cmsQuickSaturateWord.exit:                       ; preds = %3, %11, %13
 21:                                               ; preds = %_cmsQuickSaturateWord.exit
   %22 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %23 = load ptr, ptr %22, align 8
-  tail call void (ptr, i32, ptr, ...) @cmsSignalError(ptr noundef %23, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef %19) #14
+  tail call void (ptr, i32, ptr, ...) @cmsSignalError(ptr noundef %23, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef %19) #13
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 4
   store float 0.000000e+00, ptr %24, align 4
   store float 0.000000e+00, ptr %1, align 4
@@ -2086,7 +2095,7 @@ _cmsQuickSaturateWord.exit:                       ; preds = %3, %11, %13
 25:                                               ; preds = %_cmsQuickSaturateWord.exit
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %27 = load ptr, ptr %26, align 8
-  tail call void (ptr, i32, ptr, ...) @cmsSignalError(ptr noundef %27, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef %19) #14
+  tail call void (ptr, i32, ptr, ...) @cmsSignalError(ptr noundef %27, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef %19) #13
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %29 = load i32, ptr %28, align 8
   %.not23 = icmp eq i32 %29, 0
@@ -2100,7 +2109,7 @@ _cmsQuickSaturateWord.exit:                       ; preds = %3, %11, %13
   %31 = load i32, ptr %28, align 8
   %32 = zext i32 %31 to i64
   %33 = icmp samesign ult i64 %indvars.iv.next, %32
-  br i1 %33, label %.lr.ph, label %.loopexit, !llvm.loop !19
+  br i1 %33, label %.lr.ph, label %.loopexit, !llvm.loop !20
 
 34:                                               ; preds = %.lr.ph22, %34
   %indvars.iv27 = phi i64 [ 0, %.lr.ph22 ], [ %indvars.iv.next28, %34 ]
@@ -2116,7 +2125,7 @@ _cmsQuickSaturateWord.exit:                       ; preds = %3, %11, %13
   %42 = load i32, ptr %21, align 8
   %43 = zext i32 %42 to i64
   %44 = icmp samesign ult i64 %indvars.iv.next28, %43
-  br i1 %44, label %34, label %.loopexit, !llvm.loop !20
+  br i1 %44, label %34, label %.loopexit, !llvm.loop !21
 
 .loopexit:                                        ; preds = %.lr.ph, %34, %25, %.preheader
   ret void
@@ -2146,13 +2155,13 @@ define internal void @FreeNamedColorList(ptr noundef readonly captures(none) %0)
 8:                                                ; preds = %5
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %10 = load ptr, ptr %9, align 8
-  tail call void @_cmsFree(ptr noundef %10, ptr noundef nonnull %7) #14
+  tail call void @_cmsFree(ptr noundef %10, ptr noundef nonnull %7) #13
   br label %11
 
 11:                                               ; preds = %8, %5
   %12 = getelementptr inbounds nuw i8, ptr %3, i64 88
   %13 = load ptr, ptr %12, align 8
-  tail call void @_cmsFree(ptr noundef %13, ptr noundef nonnull %3) #14
+  tail call void @_cmsFree(ptr noundef %13, ptr noundef nonnull %3) #13
   br label %cmsFreeNamedColorList.exit
 
 cmsFreeNamedColorList.exit:                       ; preds = %1, %11
@@ -2198,14 +2207,14 @@ define hidden ptr @cmsAllocProfileSequenceDescription(ptr noundef %0, i32 nounde
   br i1 %or.cond, label %.loopexit, label %4
 
 4:                                                ; preds = %2
-  %5 = tail call ptr @_cmsMallocZero(ptr noundef %0, i32 noundef 24) #14
+  %5 = tail call ptr @_cmsMallocZero(ptr noundef %0, i32 noundef 24) #13
   %6 = icmp eq ptr %5, null
   br i1 %6, label %.loopexit, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %0, ptr %8, align 8
-  %9 = tail call ptr @_cmsCalloc(ptr noundef %0, i32 noundef %1, i32 noundef 64) #14
+  %9 = tail call ptr @_cmsCalloc(ptr noundef %0, i32 noundef %1, i32 noundef 64) #13
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %9, ptr %10, align 8
   store i32 %1, ptr %5, align 8
@@ -2217,7 +2226,7 @@ define hidden ptr @cmsAllocProfileSequenceDescription(ptr noundef %0, i32 nounde
   br label %.lr.ph
 
 12:                                               ; preds = %7
-  tail call void @_cmsFree(ptr noundef %0, ptr noundef nonnull %5) #14
+  tail call void @_cmsFree(ptr noundef %0, ptr noundef nonnull %5) #13
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -2233,7 +2242,7 @@ define hidden ptr @cmsAllocProfileSequenceDescription(ptr noundef %0, i32 nounde
   store ptr null, ptr %18, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !21
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !22
 
 .loopexit:                                        ; preds = %.lr.ph, %4, %2, %12
   %.024 = phi ptr [ null, %12 ], [ null, %2 ], [ null, %4 ], [ %5, %.lr.ph ]
@@ -2272,7 +2281,7 @@ define hidden void @cmsFreeProfileSequenceDescription(ptr noundef %0) local_unna
 
 13:                                               ; preds = %10
   %14 = load ptr, ptr %9, align 8
-  tail call void @_cmsFree(ptr noundef %14, ptr noundef nonnull %12) #14
+  tail call void @_cmsFree(ptr noundef %14, ptr noundef nonnull %12) #13
   br label %15
 
 15:                                               ; preds = %13, %10
@@ -2283,12 +2292,12 @@ define hidden void @cmsFreeProfileSequenceDescription(ptr noundef %0) local_unna
 
 18:                                               ; preds = %15
   %19 = load ptr, ptr %9, align 8
-  tail call void @_cmsFree(ptr noundef %19, ptr noundef nonnull %17) #14
+  tail call void @_cmsFree(ptr noundef %19, ptr noundef nonnull %17) #13
   br label %cmsMLUfree.exit
 
 cmsMLUfree.exit:                                  ; preds = %15, %18
   %20 = load ptr, ptr %9, align 8
-  tail call void @_cmsFree(ptr noundef %20, ptr noundef nonnull %9) #14
+  tail call void @_cmsFree(ptr noundef %20, ptr noundef nonnull %9) #13
   %.pre = load ptr, ptr %4, align 8
   br label %21
 
@@ -2307,7 +2316,7 @@ cmsMLUfree.exit:                                  ; preds = %15, %18
 
 28:                                               ; preds = %25
   %29 = load ptr, ptr %24, align 8
-  tail call void @_cmsFree(ptr noundef %29, ptr noundef nonnull %27) #14
+  tail call void @_cmsFree(ptr noundef %29, ptr noundef nonnull %27) #13
   br label %30
 
 30:                                               ; preds = %28, %25
@@ -2318,12 +2327,12 @@ cmsMLUfree.exit:                                  ; preds = %15, %18
 
 33:                                               ; preds = %30
   %34 = load ptr, ptr %24, align 8
-  tail call void @_cmsFree(ptr noundef %34, ptr noundef nonnull %32) #14
+  tail call void @_cmsFree(ptr noundef %34, ptr noundef nonnull %32) #13
   br label %cmsMLUfree.exit30
 
 cmsMLUfree.exit30:                                ; preds = %30, %33
   %35 = load ptr, ptr %24, align 8
-  tail call void @_cmsFree(ptr noundef %35, ptr noundef nonnull %24) #14
+  tail call void @_cmsFree(ptr noundef %35, ptr noundef nonnull %24) #13
   %.pre38 = load ptr, ptr %4, align 8
   br label %36
 
@@ -2342,7 +2351,7 @@ cmsMLUfree.exit30:                                ; preds = %30, %33
 
 43:                                               ; preds = %40
   %44 = load ptr, ptr %39, align 8
-  tail call void @_cmsFree(ptr noundef %44, ptr noundef nonnull %42) #14
+  tail call void @_cmsFree(ptr noundef %44, ptr noundef nonnull %42) #13
   br label %45
 
 45:                                               ; preds = %43, %40
@@ -2353,12 +2362,12 @@ cmsMLUfree.exit30:                                ; preds = %30, %33
 
 48:                                               ; preds = %45
   %49 = load ptr, ptr %39, align 8
-  tail call void @_cmsFree(ptr noundef %49, ptr noundef nonnull %47) #14
+  tail call void @_cmsFree(ptr noundef %49, ptr noundef nonnull %47) #13
   br label %cmsMLUfree.exit34
 
 cmsMLUfree.exit34:                                ; preds = %45, %48
   %50 = load ptr, ptr %39, align 8
-  tail call void @_cmsFree(ptr noundef %50, ptr noundef nonnull %39) #14
+  tail call void @_cmsFree(ptr noundef %50, ptr noundef nonnull %39) #13
   br label %51
 
 51:                                               ; preds = %36, %cmsMLUfree.exit34
@@ -2366,7 +2375,7 @@ cmsMLUfree.exit34:                                ; preds = %45, %48
   %52 = load i32, ptr %0, align 8
   %53 = zext i32 %52 to i64
   %54 = icmp samesign ult i64 %indvars.iv.next, %53
-  br i1 %54, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !22
+  br i1 %54, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !23
 
 ._crit_edge.loopexit:                             ; preds = %51
   %.pre39 = load ptr, ptr %4, align 8
@@ -2376,13 +2385,13 @@ cmsMLUfree.exit34:                                ; preds = %45, %48
   %55 = phi ptr [ %.pre39, %._crit_edge.loopexit ], [ %5, %.preheader ]
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %57 = load ptr, ptr %56, align 8
-  tail call void @_cmsFree(ptr noundef %57, ptr noundef %55) #14
+  tail call void @_cmsFree(ptr noundef %57, ptr noundef %55) #13
   br label %58
 
 58:                                               ; preds = %._crit_edge, %3
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %60 = load ptr, ptr %59, align 8
-  tail call void @_cmsFree(ptr noundef %60, ptr noundef nonnull %0) #14
+  tail call void @_cmsFree(ptr noundef %60, ptr noundef nonnull %0) #13
   br label %61
 
 61:                                               ; preds = %1, %58
@@ -2397,14 +2406,14 @@ define hidden ptr @cmsDupProfileSequenceDescription(ptr noundef readonly capture
 3:                                                ; preds = %1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8
-  %6 = tail call ptr @_cmsMalloc(ptr noundef %5, i32 noundef 24) #14
+  %6 = tail call ptr @_cmsMalloc(ptr noundef %5, i32 noundef 24) #13
   %7 = icmp eq ptr %6, null
   br i1 %7, label %.loopexit, label %8
 
 8:                                                ; preds = %3
   %9 = load ptr, ptr %4, align 8
   %10 = load i32, ptr %0, align 8
-  %11 = tail call ptr @_cmsCalloc(ptr noundef %9, i32 noundef %10, i32 noundef 64) #14
+  %11 = tail call ptr @_cmsCalloc(ptr noundef %9, i32 noundef %10, i32 noundef 64) #13
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %11, ptr %12, align 8
   %13 = icmp eq ptr %11, null
@@ -2479,7 +2488,7 @@ define hidden ptr @cmsDupProfileSequenceDescription(ptr noundef readonly capture
   %62 = load i32, ptr %0, align 8
   %63 = zext i32 %62 to i64
   %64 = icmp samesign ult i64 %indvars.iv.next, %63
-  br i1 %64, label %19, label %.loopexit, !llvm.loop !23
+  br i1 %64, label %19, label %.loopexit, !llvm.loop !24
 
 65:                                               ; preds = %8
   tail call void @cmsFreeProfileSequenceDescription(ptr noundef nonnull %6)
@@ -2492,7 +2501,7 @@ define hidden ptr @cmsDupProfileSequenceDescription(ptr noundef readonly capture
 
 ; Function Attrs: nounwind uwtable
 define hidden ptr @cmsDictAlloc(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call ptr @_cmsMallocZero(ptr noundef %0, i32 noundef 16) #14
+  %2 = tail call ptr @_cmsMallocZero(ptr noundef %0, i32 noundef 16) #13
   %3 = icmp eq ptr %2, null
   br i1 %3, label %6, label %4
 
@@ -2530,7 +2539,7 @@ define hidden void @cmsDictFree(ptr noundef %0) local_unnamed_addr #0 {
 
 10:                                               ; preds = %7
   %11 = load ptr, ptr %6, align 8
-  tail call void @_cmsFree(ptr noundef %11, ptr noundef nonnull %9) #14
+  tail call void @_cmsFree(ptr noundef %11, ptr noundef nonnull %9) #13
   br label %12
 
 12:                                               ; preds = %10, %7
@@ -2541,12 +2550,12 @@ define hidden void @cmsDictFree(ptr noundef %0) local_unnamed_addr #0 {
 
 15:                                               ; preds = %12
   %16 = load ptr, ptr %6, align 8
-  tail call void @_cmsFree(ptr noundef %16, ptr noundef nonnull %14) #14
+  tail call void @_cmsFree(ptr noundef %16, ptr noundef nonnull %14) #13
   br label %cmsMLUfree.exit
 
 cmsMLUfree.exit:                                  ; preds = %12, %15
   %17 = load ptr, ptr %6, align 8
-  tail call void @_cmsFree(ptr noundef %17, ptr noundef nonnull %6) #14
+  tail call void @_cmsFree(ptr noundef %17, ptr noundef nonnull %6) #13
   br label %18
 
 18:                                               ; preds = %cmsMLUfree.exit, %4
@@ -2563,7 +2572,7 @@ cmsMLUfree.exit:                                  ; preds = %12, %15
 
 24:                                               ; preds = %21
   %25 = load ptr, ptr %20, align 8
-  tail call void @_cmsFree(ptr noundef %25, ptr noundef nonnull %23) #14
+  tail call void @_cmsFree(ptr noundef %25, ptr noundef nonnull %23) #13
   br label %26
 
 26:                                               ; preds = %24, %21
@@ -2574,12 +2583,12 @@ cmsMLUfree.exit:                                  ; preds = %12, %15
 
 29:                                               ; preds = %26
   %30 = load ptr, ptr %20, align 8
-  tail call void @_cmsFree(ptr noundef %30, ptr noundef nonnull %28) #14
+  tail call void @_cmsFree(ptr noundef %30, ptr noundef nonnull %28) #13
   br label %cmsMLUfree.exit30
 
 cmsMLUfree.exit30:                                ; preds = %26, %29
   %31 = load ptr, ptr %20, align 8
-  tail call void @_cmsFree(ptr noundef %31, ptr noundef nonnull %20) #14
+  tail call void @_cmsFree(ptr noundef %31, ptr noundef nonnull %20) #13
   br label %32
 
 32:                                               ; preds = %cmsMLUfree.exit30, %18
@@ -2590,7 +2599,7 @@ cmsMLUfree.exit30:                                ; preds = %26, %29
 
 35:                                               ; preds = %32
   %36 = load ptr, ptr %3, align 8
-  tail call void @_cmsFree(ptr noundef %36, ptr noundef nonnull %34) #14
+  tail call void @_cmsFree(ptr noundef %36, ptr noundef nonnull %34) #13
   br label %37
 
 37:                                               ; preds = %35, %32
@@ -2601,20 +2610,20 @@ cmsMLUfree.exit30:                                ; preds = %26, %29
 
 40:                                               ; preds = %37
   %41 = load ptr, ptr %3, align 8
-  tail call void @_cmsFree(ptr noundef %41, ptr noundef nonnull %39) #14
+  tail call void @_cmsFree(ptr noundef %41, ptr noundef nonnull %39) #13
   br label %42
 
 42:                                               ; preds = %40, %37
   %43 = load ptr, ptr %.032, align 8
   %44 = load ptr, ptr %3, align 8
-  tail call void @_cmsFree(ptr noundef %44, ptr noundef nonnull %.032) #14
+  tail call void @_cmsFree(ptr noundef %44, ptr noundef nonnull %.032) #13
   %.not = icmp eq ptr %43, null
-  br i1 %.not, label %._crit_edge, label %4, !llvm.loop !24
+  br i1 %.not, label %._crit_edge, label %4, !llvm.loop !25
 
 ._crit_edge:                                      ; preds = %42, %1
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %46 = load ptr, ptr %45, align 8
-  tail call void @_cmsFree(ptr noundef %46, ptr noundef nonnull %0) #14
+  tail call void @_cmsFree(ptr noundef %46, ptr noundef nonnull %0) #13
   ret void
 }
 
@@ -2622,9 +2631,9 @@ cmsMLUfree.exit30:                                ; preds = %26, %29
 define hidden range(i32 0, 2) i32 @cmsDictAddEntry(ptr noundef captures(none) %0, ptr noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef captures(address_is_null) %4) local_unnamed_addr #0 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
-  %8 = tail call ptr @_cmsMallocZero(ptr noundef %7, i32 noundef 40) #14
+  %8 = tail call ptr @_cmsMallocZero(ptr noundef %7, i32 noundef 40) #13
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %32, label %10
+  br i1 %9, label %40, label %10
 
 10:                                               ; preds = %5
   %11 = tail call ptr @cmsMLUdup(ptr noundef %3)
@@ -2633,45 +2642,63 @@ define hidden range(i32 0, 2) i32 @cmsDictAddEntry(ptr noundef captures(none) %0
   %13 = tail call ptr @cmsMLUdup(ptr noundef %4)
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %13, ptr %14, align 8
-  %15 = icmp eq ptr %1, null
-  br i1 %15, label %DupWcs.exit, label %16
+  %15 = load ptr, ptr %6, align 8
+  %16 = icmp eq ptr %1, null
+  br i1 %16, label %DupWcs.exit, label %.preheader.i
 
-16:                                               ; preds = %10
-  %17 = load ptr, ptr %6, align 8
-  %wcslen.i.i = tail call i64 @wcslen(ptr nonnull readonly %1)
-  %18 = trunc i64 %wcslen.i.i to i32
-  %19 = shl i32 %18, 2
-  %20 = add i32 %19, 4
-  %21 = tail call ptr @_cmsDupMem(ptr noundef %17, ptr noundef nonnull %1, i32 noundef %20) #14
+.preheader.i:                                     ; preds = %10, %.preheader.i
+  %.0.i.i = phi ptr [ %18, %.preheader.i ], [ %1, %10 ]
+  %17 = load i32, ptr %.0.i.i, align 4
+  %.not.i.i = icmp eq i32 %17, 0
+  %18 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 4
+  br i1 %.not.i.i, label %mywcslen.exit.i, label %.preheader.i, !llvm.loop !11
+
+mywcslen.exit.i:                                  ; preds = %.preheader.i
+  %19 = ptrtoint ptr %.0.i.i to i64
+  %20 = ptrtoint ptr %1 to i64
+  %21 = sub i64 %19, %20
+  %22 = trunc i64 %21 to i32
+  %23 = and i32 %22, -4
+  %24 = add i32 %23, 4
+  %25 = tail call ptr @_cmsDupMem(ptr noundef %15, ptr noundef nonnull %1, i32 noundef %24) #13
   br label %DupWcs.exit
 
-DupWcs.exit:                                      ; preds = %10, %16
-  %.0.i = phi ptr [ %21, %16 ], [ null, %10 ]
-  %22 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  store ptr %.0.i, ptr %22, align 8
-  %23 = icmp eq ptr %2, null
-  br i1 %23, label %DupWcs.exit20, label %24
+DupWcs.exit:                                      ; preds = %10, %mywcslen.exit.i
+  %.0.i = phi ptr [ %25, %mywcslen.exit.i ], [ null, %10 ]
+  %26 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  store ptr %.0.i, ptr %26, align 8
+  %27 = load ptr, ptr %6, align 8
+  %28 = icmp eq ptr %2, null
+  br i1 %28, label %DupWcs.exit23, label %.preheader.i18
 
-24:                                               ; preds = %DupWcs.exit
-  %25 = load ptr, ptr %6, align 8
-  %wcslen.i.i18 = tail call i64 @wcslen(ptr nonnull readonly %2)
-  %26 = trunc i64 %wcslen.i.i18 to i32
-  %27 = shl i32 %26, 2
-  %28 = add i32 %27, 4
-  %29 = tail call ptr @_cmsDupMem(ptr noundef %25, ptr noundef nonnull %2, i32 noundef %28) #14
-  br label %DupWcs.exit20
+.preheader.i18:                                   ; preds = %DupWcs.exit, %.preheader.i18
+  %.0.i.i19 = phi ptr [ %30, %.preheader.i18 ], [ %2, %DupWcs.exit ]
+  %29 = load i32, ptr %.0.i.i19, align 4
+  %.not.i.i20 = icmp eq i32 %29, 0
+  %30 = getelementptr inbounds nuw i8, ptr %.0.i.i19, i64 4
+  br i1 %.not.i.i20, label %mywcslen.exit.i21, label %.preheader.i18, !llvm.loop !11
 
-DupWcs.exit20:                                    ; preds = %DupWcs.exit, %24
-  %.0.i19 = phi ptr [ %29, %24 ], [ null, %DupWcs.exit ]
-  %30 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store ptr %.0.i19, ptr %30, align 8
-  %31 = load ptr, ptr %0, align 8
-  store ptr %31, ptr %8, align 8
+mywcslen.exit.i21:                                ; preds = %.preheader.i18
+  %31 = ptrtoint ptr %.0.i.i19 to i64
+  %32 = ptrtoint ptr %2 to i64
+  %33 = sub i64 %31, %32
+  %34 = trunc i64 %33 to i32
+  %35 = and i32 %34, -4
+  %36 = add i32 %35, 4
+  %37 = tail call ptr @_cmsDupMem(ptr noundef %27, ptr noundef nonnull %2, i32 noundef %36) #13
+  br label %DupWcs.exit23
+
+DupWcs.exit23:                                    ; preds = %DupWcs.exit, %mywcslen.exit.i21
+  %.0.i22 = phi ptr [ %37, %mywcslen.exit.i21 ], [ null, %DupWcs.exit ]
+  %38 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  store ptr %.0.i22, ptr %38, align 8
+  %39 = load ptr, ptr %0, align 8
+  store ptr %39, ptr %8, align 8
   store ptr %8, ptr %0, align 8
-  br label %32
+  br label %40
 
-32:                                               ; preds = %5, %DupWcs.exit20
-  %.0 = phi i32 [ 1, %DupWcs.exit20 ], [ 0, %5 ]
+40:                                               ; preds = %5, %DupWcs.exit23
+  %.0 = phi i32 [ 1, %DupWcs.exit23 ], [ 0, %5 ]
   ret i32 %.0
 }
 
@@ -2679,7 +2706,7 @@ DupWcs.exit20:                                    ; preds = %DupWcs.exit, %24
 define hidden ptr @cmsDictDup(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8
-  %4 = tail call ptr @_cmsMallocZero(ptr noundef %3, i32 noundef 16) #14
+  %4 = tail call ptr @_cmsMallocZero(ptr noundef %3, i32 noundef 16) #13
   %5 = icmp eq ptr %4, null
   br i1 %5, label %cmsDictAlloc.exit.thread, label %cmsDictAlloc.exit
 
@@ -2705,7 +2732,7 @@ cmsDictAlloc.exit:                                ; preds = %1
   %16 = load ptr, ptr %15, align 8
   %17 = tail call i32 @cmsDictAddEntry(ptr noundef nonnull %4, ptr noundef %10, ptr noundef %12, ptr noundef %14, ptr noundef %16)
   %.not16 = icmp eq i32 %17, 0
-  br i1 %.not16, label %18, label %7, !llvm.loop !25
+  br i1 %.not16, label %18, label %7, !llvm.loop !26
 
 18:                                               ; preds = %8
   tail call void @cmsDictFree(ptr noundef nonnull %4)
@@ -2753,9 +2780,6 @@ declare double @llvm.floor.f64(double) #12
 
 declare ptr @_cmsDupMem(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i64 @wcslen(ptr captures(none)) local_unnamed_addr #13
-
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nofree nounwind willreturn memory(argmem: read) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2769,9 +2793,8 @@ attributes #9 = { mustprogress nofree nounwind willreturn memory(argmem: readwri
 attributes #10 = { mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #11 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #12 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #13 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #14 = { nounwind }
-attributes #15 = { nounwind willreturn memory(read) }
+attributes #13 = { nounwind }
+attributes #14 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
@@ -2801,3 +2824,4 @@ attributes #15 = { nounwind willreturn memory(read) }
 !23 = distinct !{!23, !7}
 !24 = distinct !{!24, !7}
 !25 = distinct !{!25, !7}
+!26 = distinct !{!26, !7}

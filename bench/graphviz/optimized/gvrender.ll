@@ -45,7 +45,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind uwtable
 define range(i32 300, 1000) i32 @gvrender_select(ptr noundef captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr %0, align 8, !tbaa !3
-  %4 = tail call ptr @gvplugin_load(ptr noundef %3, i32 noundef 3, ptr noundef %1, ptr noundef null) #23
+  %4 = tail call ptr @gvplugin_load(ptr noundef %3, i32 noundef 3, ptr noundef %1, ptr noundef null) #22
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 184
   %6 = load ptr, ptr %5, align 8, !tbaa !30
   %.not = icmp eq ptr %6, null
@@ -151,7 +151,7 @@ define i32 @gvrender_features(ptr noundef readonly captures(none) %0) local_unna
 define range(i32 0, 2) i32 @gvrender_begin_job(ptr noundef %0) local_unnamed_addr #0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %3 = load ptr, ptr %2, align 8, !tbaa !47
-  %4 = tail call i32 @gvdevice_initialize(ptr noundef %0) #23
+  %4 = tail call i32 @gvdevice_initialize(ptr noundef %0) #22
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %5, label %9
 
@@ -165,7 +165,7 @@ define range(i32 0, 2) i32 @gvrender_begin_job(ptr noundef %0) local_unnamed_add
   br i1 %.not9, label %9, label %8
 
 8:                                                ; preds = %6
-  tail call void %7(ptr noundef nonnull %0) #23
+  tail call void %7(ptr noundef nonnull %0) #22
   br label %9
 
 9:                                                ; preds = %5, %8, %6, %1
@@ -189,14 +189,14 @@ define void @gvrender_end_job(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not8, label %8, label %7
 
 7:                                                ; preds = %4
-  tail call void %6(ptr noundef nonnull %0) #23
+  tail call void %6(ptr noundef nonnull %0) #22
   br label %8
 
 8:                                                ; preds = %4, %7, %1
   %9 = load ptr, ptr %0, align 8, !tbaa !3
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store ptr null, ptr %10, align 8, !tbaa !57
-  tail call void @gvdevice_finalize(ptr noundef nonnull %0) #23
+  tail call void @gvdevice_finalize(ptr noundef nonnull %0) #22
   ret void
 }
 
@@ -327,7 +327,7 @@ define void @gvrender_begin_graph(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not6, label %8, label %7
 
 7:                                                ; preds = %4
-  tail call void %6(ptr noundef nonnull %0) #23
+  tail call void %6(ptr noundef nonnull %0) #22
   br label %8
 
 8:                                                ; preds = %4, %7, %1
@@ -348,11 +348,11 @@ define void @gvrender_end_graph(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not7, label %8, label %7
 
 7:                                                ; preds = %4
-  tail call void %6(ptr noundef nonnull %0) #23
+  tail call void %6(ptr noundef nonnull %0) #22
   br label %8
 
 8:                                                ; preds = %4, %7, %1
-  tail call void @gvdevice_format(ptr noundef nonnull %0) #23
+  tail call void @gvdevice_format(ptr noundef nonnull %0) #22
   ret void
 }
 
@@ -372,7 +372,7 @@ define void @gvrender_begin_page(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not6, label %8, label %7
 
 7:                                                ; preds = %4
-  tail call void %6(ptr noundef nonnull %0) #23
+  tail call void %6(ptr noundef nonnull %0) #22
   br label %8
 
 8:                                                ; preds = %4, %7, %1
@@ -393,7 +393,7 @@ define void @gvrender_end_page(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not6, label %8, label %7
 
 7:                                                ; preds = %4
-  tail call void %6(ptr noundef nonnull %0) #23
+  tail call void %6(ptr noundef nonnull %0) #22
   br label %8
 
 8:                                                ; preds = %4, %7, %1
@@ -424,7 +424,7 @@ define void @gvrender_begin_layer(ptr noundef %0) local_unnamed_addr #0 {
   %15 = load ptr, ptr %14, align 8, !tbaa !87
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 284
   %17 = load i32, ptr %16, align 4, !tbaa !88
-  tail call void %6(ptr noundef nonnull %0, ptr noundef %15, i32 noundef %12, i32 noundef %17) #23
+  tail call void %6(ptr noundef nonnull %0, ptr noundef %15, i32 noundef %12, i32 noundef %17) #22
   br label %18
 
 18:                                               ; preds = %4, %7, %1
@@ -445,7 +445,7 @@ define void @gvrender_end_layer(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not6, label %8, label %7
 
 7:                                                ; preds = %4
-  tail call void %6(ptr noundef nonnull %0) #23
+  tail call void %6(ptr noundef nonnull %0) #22
   br label %8
 
 8:                                                ; preds = %4, %7, %1
@@ -466,7 +466,7 @@ define void @gvrender_begin_cluster(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not6, label %8, label %7
 
 7:                                                ; preds = %4
-  tail call void %6(ptr noundef nonnull %0) #23
+  tail call void %6(ptr noundef nonnull %0) #22
   br label %8
 
 8:                                                ; preds = %4, %7, %1
@@ -487,7 +487,7 @@ define void @gvrender_end_cluster(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not6, label %8, label %7
 
 7:                                                ; preds = %4
-  tail call void %6(ptr noundef nonnull %0) #23
+  tail call void %6(ptr noundef nonnull %0) #22
   br label %8
 
 8:                                                ; preds = %4, %7, %1
@@ -508,7 +508,7 @@ define void @gvrender_begin_nodes(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not6, label %8, label %7
 
 7:                                                ; preds = %4
-  tail call void %6(ptr noundef nonnull %0) #23
+  tail call void %6(ptr noundef nonnull %0) #22
   br label %8
 
 8:                                                ; preds = %4, %7, %1
@@ -529,7 +529,7 @@ define void @gvrender_end_nodes(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not6, label %8, label %7
 
 7:                                                ; preds = %4
-  tail call void %6(ptr noundef nonnull %0) #23
+  tail call void %6(ptr noundef nonnull %0) #22
   br label %8
 
 8:                                                ; preds = %4, %7, %1
@@ -550,7 +550,7 @@ define void @gvrender_begin_edges(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not6, label %8, label %7
 
 7:                                                ; preds = %4
-  tail call void %6(ptr noundef nonnull %0) #23
+  tail call void %6(ptr noundef nonnull %0) #22
   br label %8
 
 8:                                                ; preds = %4, %7, %1
@@ -571,7 +571,7 @@ define void @gvrender_end_edges(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not6, label %8, label %7
 
 7:                                                ; preds = %4
-  tail call void %6(ptr noundef nonnull %0) #23
+  tail call void %6(ptr noundef nonnull %0) #22
   br label %8
 
 8:                                                ; preds = %4, %7, %1
@@ -592,7 +592,7 @@ define void @gvrender_begin_node(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not6, label %8, label %7
 
 7:                                                ; preds = %4
-  tail call void %6(ptr noundef nonnull %0) #23
+  tail call void %6(ptr noundef nonnull %0) #22
   br label %8
 
 8:                                                ; preds = %4, %7, %1
@@ -613,7 +613,7 @@ define void @gvrender_end_node(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not6, label %8, label %7
 
 7:                                                ; preds = %4
-  tail call void %6(ptr noundef nonnull %0) #23
+  tail call void %6(ptr noundef nonnull %0) #22
   br label %8
 
 8:                                                ; preds = %4, %7, %1
@@ -634,7 +634,7 @@ define void @gvrender_begin_edge(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not6, label %8, label %7
 
 7:                                                ; preds = %4
-  tail call void %6(ptr noundef nonnull %0) #23
+  tail call void %6(ptr noundef nonnull %0) #22
   br label %8
 
 8:                                                ; preds = %4, %7, %1
@@ -655,7 +655,7 @@ define void @gvrender_end_edge(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not6, label %8, label %7
 
 7:                                                ; preds = %4
-  tail call void %6(ptr noundef nonnull %0) #23
+  tail call void %6(ptr noundef nonnull %0) #22
   br label %8
 
 8:                                                ; preds = %4, %7, %1
@@ -676,7 +676,7 @@ define void @gvrender_begin_anchor(ptr noundef %0, ptr noundef %1, ptr noundef %
   br i1 %.not10, label %12, label %11
 
 11:                                               ; preds = %8
-  tail call void %10(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #23
+  tail call void %10(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, ptr noundef %3, ptr noundef %4) #22
   br label %12
 
 12:                                               ; preds = %8, %11, %5
@@ -697,7 +697,7 @@ define void @gvrender_end_anchor(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not6, label %8, label %7
 
 7:                                                ; preds = %4
-  tail call void %6(ptr noundef nonnull %0) #23
+  tail call void %6(ptr noundef nonnull %0) #22
   br label %8
 
 8:                                                ; preds = %4, %7, %1
@@ -718,7 +718,7 @@ define void @gvrender_begin_label(ptr noundef %0, i32 noundef %1) local_unnamed_
   br i1 %.not6, label %9, label %8
 
 8:                                                ; preds = %5
-  tail call void %7(ptr noundef nonnull %0, i32 noundef %1) #23
+  tail call void %7(ptr noundef nonnull %0, i32 noundef %1) #22
   br label %9
 
 9:                                                ; preds = %5, %8, %2
@@ -739,7 +739,7 @@ define void @gvrender_end_label(ptr noundef %0) local_unnamed_addr #0 {
   br i1 %.not6, label %8, label %7
 
 7:                                                ; preds = %4
-  tail call void %6(ptr noundef nonnull %0) #23
+  tail call void %6(ptr noundef nonnull %0) #22
   br label %8
 
 8:                                                ; preds = %4, %7, %1
@@ -828,7 +828,7 @@ gvrender_ptf.exit:                                ; preds = %31, %36
   br i1 %.not22, label %46, label %45
 
 45:                                               ; preds = %42
-  tail call void %44(ptr noundef nonnull %0, double %.sroa.01.0, double %.sroa.5.0, ptr noundef nonnull %3) #23
+  tail call void %44(ptr noundef nonnull %0, double %.sroa.01.0, double %.sroa.5.0, ptr noundef nonnull %3) #22
   br label %46
 
 46:                                               ; preds = %41, %45, %42, %13, %8, %4
@@ -842,7 +842,7 @@ define void @gvrender_set_pencolor(ptr noundef %0, ptr noundef %1) local_unnamed
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8, !tbaa !107
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %8 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 58) #24
+  %8 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 58) #23
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %10, label %9
 
@@ -864,7 +864,7 @@ define void @gvrender_set_pencolor(ptr noundef %0, ptr noundef %1) local_unnamed
   br i1 %.not17, label %17, label %16
 
 16:                                               ; preds = %11
-  tail call void %15(ptr noundef nonnull %0, ptr noundef nonnull %7) #23
+  tail call void %15(ptr noundef nonnull %0, ptr noundef nonnull %7) #22
   br label %17
 
 17:                                               ; preds = %11, %16, %10
@@ -910,7 +910,7 @@ define internal fastcc void @gvrender_resolve_color(ptr noundef readonly capture
   %14 = shl i64 %13, 3
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 %14
   %16 = load ptr, ptr %15, align 8, !tbaa !87
-  %17 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %1, ptr noundef %16) #24
+  %17 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %1, ptr noundef %16) #23
   %18 = icmp slt i32 %17, 0
   br i1 %18, label %22, label %19
 
@@ -931,14 +931,14 @@ define internal fastcc void @gvrender_resolve_color(ptr noundef readonly capture
 bsearch.exit.thread:                              ; preds = %22, %8, %3
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %25 = load i32, ptr %24, align 4, !tbaa !118
-  %26 = tail call i32 @colorxlate(ptr noundef %1, ptr noundef nonnull %2, i32 noundef %25) #23
+  %26 = tail call i32 @colorxlate(ptr noundef %1, ptr noundef nonnull %2, i32 noundef %25) #22
   switch i32 %26, label %55 [
     i32 0, label %bsearch.exit
     i32 1, label %27
   ]
 
 27:                                               ; preds = %bsearch.exit.thread
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #23
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   call void (ptr, ptr, ...) @agxbprint(ptr noundef %4, ptr nonnull poison, ptr noundef %1)
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 31
@@ -1005,11 +1005,11 @@ agxbclear.exit.thread.i:                          ; preds = %agxbputc.exit.i, %2
 
 agxbuse.exit:                                     ; preds = %agxbclear.exit.thread.i, %46
   %49 = phi ptr [ %48, %46 ], [ %4, %agxbclear.exit.thread.i ]
-  %50 = call zeroext i1 @emit_once(ptr noundef %49) #23
+  %50 = call zeroext i1 @emit_once(ptr noundef %49) #22
   br i1 %50, label %51, label %52
 
 51:                                               ; preds = %agxbuse.exit
-  call void (ptr, ...) @agwarningf(ptr noundef nonnull @.str.12, ptr noundef %1) #23
+  call void (ptr, ...) @agwarningf(ptr noundef nonnull @.str.12, ptr noundef %1) #22
   br label %52
 
 52:                                               ; preds = %51, %agxbuse.exit
@@ -1019,15 +1019,15 @@ agxbuse.exit:                                     ; preds = %agxbclear.exit.thre
 
 54:                                               ; preds = %52
   %.val = load ptr, ptr %4, align 8
-  call void @free(ptr noundef %.val) #23
+  call void @free(ptr noundef %.val) #22
   br label %agxbfree.exit
 
 agxbfree.exit:                                    ; preds = %52, %54
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #23
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #22
   br label %bsearch.exit
 
 55:                                               ; preds = %bsearch.exit.thread
-  tail call void (ptr, ...) @agerrorf(ptr noundef nonnull @.str.13) #23
+  tail call void (ptr, ...) @agerrorf(ptr noundef nonnull @.str.13) #22
   br label %bsearch.exit
 
 bsearch.exit:                                     ; preds = %19, %bsearch.exit.thread, %55, %agxbfree.exit
@@ -1041,7 +1041,7 @@ define void @gvrender_set_fillcolor(ptr noundef %0, ptr noundef %1) local_unname
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = load ptr, ptr %5, align 8, !tbaa !107
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 72
-  %8 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 58) #24
+  %8 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %1, i32 noundef 58) #23
   %.not = icmp eq ptr %8, null
   br i1 %.not, label %10, label %9
 
@@ -1063,7 +1063,7 @@ define void @gvrender_set_fillcolor(ptr noundef %0, ptr noundef %1) local_unname
   br i1 %.not17, label %17, label %16
 
 16:                                               ; preds = %11
-  tail call void %15(ptr noundef nonnull %0, ptr noundef nonnull %7) #23
+  tail call void %15(ptr noundef nonnull %0, ptr noundef nonnull %7) #22
   br label %17
 
 17:                                               ; preds = %11, %16, %10
@@ -1097,7 +1097,7 @@ define void @gvrender_set_gradient_vals(ptr noundef %0, ptr noundef %1, i32 noun
   br i1 %.not14, label %16, label %15
 
 15:                                               ; preds = %10
-  tail call void %14(ptr noundef nonnull %0, ptr noundef nonnull %9) #23
+  tail call void %14(ptr noundef nonnull %0, ptr noundef nonnull %9) #22
   br label %16
 
 16:                                               ; preds = %10, %15, %4
@@ -1133,105 +1133,109 @@ define void @gvrender_set_style(ptr noundef readonly captures(none) %0, ptr noun
   %13 = getelementptr inbounds nuw i8, ptr %6, i64 168
   br label %14
 
-14:                                               ; preds = %.lr.ph, %56
-  %15 = phi ptr [ %10, %.lr.ph ], [ %57, %56 ]
-  %.pn = phi ptr [ %1, %.lr.ph ], [ %16, %56 ]
+14:                                               ; preds = %.lr.ph, %58
+  %15 = phi ptr [ %10, %.lr.ph ], [ %59, %58 ]
+  %.pn = phi ptr [ %1, %.lr.ph ], [ %16, %58 ]
   %16 = getelementptr inbounds nuw i8, ptr %.pn, i64 8
-  %17 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull dereferenceable(6) @.str) #24
+  %17 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull dereferenceable(6) @.str) #23
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %20
 
 19:                                               ; preds = %14
   store i32 3, ptr %13, align 8, !tbaa !108
-  br label %56
+  br label %58
 
 20:                                               ; preds = %14
-  %21 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull dereferenceable(7) @.str.1) #24
+  %21 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull dereferenceable(7) @.str.1) #23
   %22 = icmp eq i32 %21, 0
   br i1 %22, label %23, label %24
 
 23:                                               ; preds = %20
   store i32 1, ptr %13, align 8, !tbaa !108
-  br label %56
+  br label %58
 
 24:                                               ; preds = %20
-  %25 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull dereferenceable(7) @.str.2) #24
+  %25 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull dereferenceable(7) @.str.2) #23
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %27, label %28
 
 27:                                               ; preds = %24
   store i32 2, ptr %13, align 8, !tbaa !108
-  br label %56
+  br label %58
 
 28:                                               ; preds = %24
-  %29 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull dereferenceable(6) @.str.3) #24
+  %29 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull dereferenceable(6) @.str.3) #23
   %30 = icmp eq i32 %29, 0
   br i1 %30, label %34, label %31
 
 31:                                               ; preds = %28
-  %32 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull dereferenceable(10) @.str.4) #24
+  %32 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull dereferenceable(10) @.str.4) #23
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %34, label %35
 
 34:                                               ; preds = %31, %28
   store i32 0, ptr %13, align 8, !tbaa !108
-  br label %56
+  br label %58
 
 35:                                               ; preds = %31
-  %36 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull dereferenceable(5) @.str.5) #24
+  %36 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull dereferenceable(5) @.str.5) #23
   %37 = icmp eq i32 %36, 0
   br i1 %37, label %38, label %39
 
 38:                                               ; preds = %35
   store double 2.000000e+00, ptr %12, align 8, !tbaa !122
-  br label %56
+  br label %58
 
 39:                                               ; preds = %35
-  %40 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull dereferenceable(13) @.str.6) #24
+  %40 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull dereferenceable(13) @.str.6) #23
   %41 = icmp eq i32 %40, 0
-  br i1 %41, label %.preheader.preheader, label %44
+  br i1 %41, label %.preheader, label %46
 
-.preheader.preheader:                             ; preds = %39
-  %strlen = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %15)
-  %scevgep = getelementptr i8, ptr %15, i64 %strlen
-  %42 = getelementptr inbounds nuw i8, ptr %scevgep, i64 1
-  %43 = tail call double @strtod(ptr noundef nonnull captures(none) %42, ptr noundef null) #23
-  store double %43, ptr %12, align 8, !tbaa !122
-  br label %56
+.preheader:                                       ; preds = %39, %.preheader
+  %.0 = phi ptr [ %43, %.preheader ], [ %15, %39 ]
+  %42 = load i8, ptr %.0, align 1, !tbaa !106
+  %.not34 = icmp eq i8 %42, 0
+  %43 = getelementptr inbounds nuw i8, ptr %.0, i64 1
+  br i1 %.not34, label %44, label %.preheader, !llvm.loop !123
 
-44:                                               ; preds = %39
-  %45 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull dereferenceable(7) @.str.7) #24
-  %46 = icmp eq i32 %45, 0
-  br i1 %46, label %47, label %48
+44:                                               ; preds = %.preheader
+  %45 = tail call double @strtod(ptr noundef nonnull captures(none) %43, ptr noundef null) #22
+  store double %45, ptr %12, align 8, !tbaa !122
+  br label %58
 
-47:                                               ; preds = %44
-  store i32 1, ptr %11, align 4, !tbaa !123
-  br label %56
+46:                                               ; preds = %39
+  %47 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull dereferenceable(7) @.str.7) #23
+  %48 = icmp eq i32 %47, 0
+  br i1 %48, label %49, label %50
 
-48:                                               ; preds = %44
-  %49 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull dereferenceable(9) @.str.8) #24
-  %50 = icmp eq i32 %49, 0
-  br i1 %50, label %51, label %52
+49:                                               ; preds = %46
+  store i32 1, ptr %11, align 4, !tbaa !124
+  br label %58
 
-51:                                               ; preds = %48
-  store i32 0, ptr %11, align 4, !tbaa !123
-  br label %56
+50:                                               ; preds = %46
+  %51 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull dereferenceable(9) @.str.8) #23
+  %52 = icmp eq i32 %51, 0
+  br i1 %52, label %53, label %54
 
-52:                                               ; preds = %48
-  %53 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull dereferenceable(8) @.str.9) #24
-  %54 = icmp eq i32 %53, 0
-  br i1 %54, label %56, label %55
+53:                                               ; preds = %50
+  store i32 0, ptr %11, align 4, !tbaa !124
+  br label %58
 
-55:                                               ; preds = %52
-  tail call void (ptr, ...) @agwarningf(ptr noundef nonnull @.str.10, ptr noundef nonnull %15) #23
-  br label %56
+54:                                               ; preds = %50
+  %55 = tail call i32 @strcmp(ptr noundef nonnull readonly dereferenceable(1) %15, ptr noundef nonnull dereferenceable(8) @.str.9) #23
+  %56 = icmp eq i32 %55, 0
+  br i1 %56, label %58, label %57
 
-56:                                               ; preds = %23, %34, %.preheader.preheader, %51, %52, %55, %47, %38, %27, %19
-  %57 = load ptr, ptr %16, align 8, !tbaa !87
-  %.not = icmp eq ptr %57, null
-  br i1 %.not, label %.loopexit, label %14, !llvm.loop !124
+57:                                               ; preds = %54
+  tail call void (ptr, ...) @agwarningf(ptr noundef nonnull @.str.10, ptr noundef nonnull %15) #22
+  br label %58
 
-.loopexit:                                        ; preds = %56, %.preheader35, %2
+58:                                               ; preds = %23, %34, %44, %53, %54, %57, %49, %38, %27, %19
+  %59 = load ptr, ptr %16, align 8, !tbaa !87
+  %.not = icmp eq ptr %59, null
+  br i1 %.not, label %.loopexit, label %14, !llvm.loop !125
+
+.loopexit:                                        ; preds = %58, %.preheader35, %2
   ret void
 }
 
@@ -1247,7 +1251,7 @@ define void @gvrender_ellipse(ptr noundef %0, ptr noundef readonly captures(none
 
 7:                                                ; preds = %3
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 192
-  %9 = load ptr, ptr %8, align 8, !tbaa !125
+  %9 = load ptr, ptr %8, align 8, !tbaa !126
   %.not11 = icmp eq ptr %9, null
   br i1 %.not11, label %63, label %10
 
@@ -1260,7 +1264,7 @@ define void @gvrender_ellipse(ptr noundef %0, ptr noundef readonly captures(none
   br i1 %.not12, label %63, label %15
 
 15:                                               ; preds = %10
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #23
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #22
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %17 = load double, ptr %1, align 8
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -1276,7 +1280,7 @@ define void @gvrender_ellipse(ptr noundef %0, ptr noundef readonly captures(none
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store double %26, ptr %27, align 8
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %16, i64 16, i1 false), !tbaa.struct !126
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %28, ptr noundef nonnull align 8 dereferenceable(16) %16, i64 16, i1 false), !tbaa.struct !127
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %30 = load i32, ptr %29, align 8, !tbaa !46
   %31 = and i32 %30, 8192
@@ -1335,8 +1339,8 @@ define void @gvrender_ellipse(ptr noundef %0, ptr noundef readonly captures(none
   br i1 %exitcond44.not.i, label %gvrender_ptf_A.exit, label %.lr.ph40.i, !llvm.loop !79
 
 gvrender_ptf_A.exit:                              ; preds = %.lr.ph.i, %.lr.ph40.i, %15
-  call void %9(ptr noundef nonnull %0, ptr noundef nonnull %4, i32 noundef %2) #23
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #23
+  call void %9(ptr noundef nonnull %0, ptr noundef nonnull %4, i32 noundef %2) #22
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #22
   br label %63
 
 63:                                               ; preds = %7, %10, %gvrender_ptf_A.exit, %3
@@ -1354,7 +1358,7 @@ define void @gvrender_polygon(ptr noundef %0, ptr noundef %1, i64 noundef %2, i3
 
 8:                                                ; preds = %4
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 200
-  %10 = load ptr, ptr %9, align 8, !tbaa !127
+  %10 = load ptr, ptr %9, align 8, !tbaa !128
   %.not29 = icmp eq ptr %10, null
   br i1 %.not29, label %81, label %11
 
@@ -1374,9 +1378,9 @@ define void @gvrender_polygon(ptr noundef %0, ptr noundef %1, i64 noundef %2, i3
 18:                                               ; preds = %16
   %19 = and i32 %3, -5
   %20 = getelementptr inbounds nuw i8, ptr %13, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) %20, i64 40, i1 false), !tbaa.struct !128
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull align 8 dereferenceable(40) %20, i64 40, i1 false), !tbaa.struct !129
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 72
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %20, ptr noundef nonnull align 8 dereferenceable(40) %21, i64 40, i1 false), !tbaa.struct !128
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %20, ptr noundef nonnull align 8 dereferenceable(40) %21, i64 40, i1 false), !tbaa.struct !129
   br label %22
 
 22:                                               ; preds = %18, %16
@@ -1388,8 +1392,8 @@ define void @gvrender_polygon(ptr noundef %0, ptr noundef %1, i64 noundef %2, i3
   br i1 %.not32, label %28, label %26
 
 26:                                               ; preds = %22
-  %27 = load ptr, ptr %9, align 8, !tbaa !127
-  tail call void %27(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, i32 noundef %.0) #23
+  %27 = load ptr, ptr %9, align 8, !tbaa !128
+  tail call void %27(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, i32 noundef %.0) #22
   br label %77
 
 28:                                               ; preds = %22
@@ -1397,7 +1401,7 @@ define void @gvrender_polygon(ptr noundef %0, ptr noundef %1, i64 noundef %2, i3
   br i1 %.not.i, label %.thread.i, label %30
 
 .thread.i:                                        ; preds = %28
-  %29 = tail call noalias ptr @calloc(i64 noundef 0, i64 noundef 16) #25
+  %29 = tail call noalias ptr @calloc(i64 noundef 0, i64 noundef 16) #24
   br label %gv_calloc.exit
 
 30:                                               ; preds = %28
@@ -1405,21 +1409,21 @@ define void @gvrender_polygon(ptr noundef %0, ptr noundef %1, i64 noundef %2, i3
   br i1 %mul.ov.i, label %31, label %34
 
 31:                                               ; preds = %30
-  %32 = load ptr, ptr @stderr, align 8, !tbaa !130
-  %33 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %32, ptr noundef nonnull @.str.14, i64 noundef %2, i64 noundef 16) #26
-  tail call fastcc void @graphviz_exit() #27
+  %32 = load ptr, ptr @stderr, align 8, !tbaa !131
+  %33 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %32, ptr noundef nonnull @.str.14, i64 noundef %2, i64 noundef 16) #25
+  tail call fastcc void @graphviz_exit() #26
   unreachable
 
 34:                                               ; preds = %30
-  %35 = tail call noalias ptr @calloc(i64 noundef %2, i64 noundef 16) #25
+  %35 = tail call noalias ptr @calloc(i64 noundef %2, i64 noundef 16) #24
   %36 = icmp eq ptr %35, null
   br i1 %36, label %37, label %gv_calloc.exit
 
 37:                                               ; preds = %34
-  %38 = load ptr, ptr @stderr, align 8, !tbaa !130
+  %38 = load ptr, ptr @stderr, align 8, !tbaa !131
   %39 = shl nuw i64 %2, 4
-  %40 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %38, ptr noundef nonnull @.str.15, i64 noundef %39) #26
-  tail call fastcc void @graphviz_exit() #27
+  %40 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %38, ptr noundef nonnull @.str.15, i64 noundef %39) #25
+  tail call fastcc void @graphviz_exit() #26
   unreachable
 
 gv_calloc.exit:                                   ; preds = %.thread.i, %34
@@ -1485,9 +1489,9 @@ gv_calloc.exit:                                   ; preds = %.thread.i, %34
   br i1 %exitcond44.not.i, label %gvrender_ptf_A.exit, label %.lr.ph40.i, !llvm.loop !79
 
 gvrender_ptf_A.exit:                              ; preds = %.lr.ph.i, %.lr.ph40.i, %.preheader36.i, %.preheader.i
-  %76 = load ptr, ptr %9, align 8, !tbaa !127
-  tail call void %76(ptr noundef nonnull %0, ptr noundef %41, i64 noundef %2, i32 noundef %.0) #23
-  tail call void @free(ptr noundef %41) #23
+  %76 = load ptr, ptr %9, align 8, !tbaa !128
+  tail call void %76(ptr noundef nonnull %0, ptr noundef %41, i64 noundef %2, i32 noundef %.0) #22
+  tail call void @free(ptr noundef %41) #22
   br label %77
 
 77:                                               ; preds = %gvrender_ptf_A.exit, %26
@@ -1496,7 +1500,7 @@ gvrender_ptf_A.exit:                              ; preds = %.lr.ph.i, %.lr.ph40
 78:                                               ; preds = %77
   %79 = load ptr, ptr %12, align 8, !tbaa !107
   %80 = getelementptr inbounds nuw i8, ptr %79, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %80, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !tbaa.struct !128
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %80, ptr noundef nonnull align 8 dereferenceable(40) %5, i64 40, i1 false), !tbaa.struct !129
   br label %81
 
 81:                                               ; preds = %8, %11, %78, %77, %4
@@ -1510,11 +1514,11 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 ; Function Attrs: nounwind uwtable
 define void @gvrender_box(ptr noundef %0, ptr noundef readonly byval(%struct.boxf) align 8 captures(none) %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca [4 x %struct.pointf_s], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #23
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !126
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %4) #22
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %4, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false), !tbaa.struct !127
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !126
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %6, i64 16, i1 false), !tbaa.struct !127
   %7 = load double, ptr %4, align 16, !tbaa !76
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store double %7, ptr %8, align 16, !tbaa !76
@@ -1530,7 +1534,7 @@ define void @gvrender_box(ptr noundef %0, ptr noundef readonly byval(%struct.box
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 56
   store double %15, ptr %16, align 8, !tbaa !75
   call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %4, i64 noundef 4, i32 noundef %2)
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #23
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %4) #22
   ret void
 }
 
@@ -1543,7 +1547,7 @@ define void @gvrender_beziercurve(ptr noundef %0, ptr noundef %1, i64 noundef %2
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 208
-  %9 = load ptr, ptr %8, align 8, !tbaa !131
+  %9 = load ptr, ptr %8, align 8, !tbaa !132
   %.not21 = icmp eq ptr %9, null
   br i1 %.not21, label %68, label %10
 
@@ -1563,7 +1567,7 @@ define void @gvrender_beziercurve(ptr noundef %0, ptr noundef %1, i64 noundef %2
   br i1 %.not23, label %20, label %19
 
 19:                                               ; preds = %15
-  tail call void %9(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #23
+  tail call void %9(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, i32 noundef %3) #22
   br label %68
 
 20:                                               ; preds = %15
@@ -1571,7 +1575,7 @@ define void @gvrender_beziercurve(ptr noundef %0, ptr noundef %1, i64 noundef %2
   br i1 %.not.i, label %.thread.i, label %22
 
 .thread.i:                                        ; preds = %20
-  %21 = tail call noalias ptr @calloc(i64 noundef 0, i64 noundef 16) #25
+  %21 = tail call noalias ptr @calloc(i64 noundef 0, i64 noundef 16) #24
   br label %gv_calloc.exit
 
 22:                                               ; preds = %20
@@ -1579,21 +1583,21 @@ define void @gvrender_beziercurve(ptr noundef %0, ptr noundef %1, i64 noundef %2
   br i1 %mul.ov.i, label %23, label %26
 
 23:                                               ; preds = %22
-  %24 = load ptr, ptr @stderr, align 8, !tbaa !130
-  %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.14, i64 noundef %2, i64 noundef 16) #26
-  tail call fastcc void @graphviz_exit() #27
+  %24 = load ptr, ptr @stderr, align 8, !tbaa !131
+  %25 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %24, ptr noundef nonnull @.str.14, i64 noundef %2, i64 noundef 16) #25
+  tail call fastcc void @graphviz_exit() #26
   unreachable
 
 26:                                               ; preds = %22
-  %27 = tail call noalias ptr @calloc(i64 noundef %2, i64 noundef 16) #25
+  %27 = tail call noalias ptr @calloc(i64 noundef %2, i64 noundef 16) #24
   %28 = icmp eq ptr %27, null
   br i1 %28, label %29, label %gv_calloc.exit
 
 29:                                               ; preds = %26
-  %30 = load ptr, ptr @stderr, align 8, !tbaa !130
+  %30 = load ptr, ptr @stderr, align 8, !tbaa !131
   %31 = shl nuw i64 %2, 4
-  %32 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %30, ptr noundef nonnull @.str.15, i64 noundef %31) #26
-  tail call fastcc void @graphviz_exit() #27
+  %32 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %30, ptr noundef nonnull @.str.15, i64 noundef %31) #25
+  tail call fastcc void @graphviz_exit() #26
   unreachable
 
 gv_calloc.exit:                                   ; preds = %.thread.i, %26
@@ -1659,8 +1663,8 @@ gv_calloc.exit:                                   ; preds = %.thread.i, %26
   br i1 %exitcond44.not.i, label %gvrender_ptf_A.exit, label %.lr.ph40.i, !llvm.loop !79
 
 gvrender_ptf_A.exit:                              ; preds = %.lr.ph.i, %.lr.ph40.i, %.preheader36.i, %.preheader.i
-  tail call void %9(ptr noundef nonnull %0, ptr noundef %33, i64 noundef %2, i32 noundef %3) #23
-  tail call void @free(ptr noundef %33) #23
+  tail call void %9(ptr noundef nonnull %0, ptr noundef %33, i64 noundef %2, i32 noundef %3) #22
+  tail call void @free(ptr noundef %33) #22
   br label %68
 
 68:                                               ; preds = %7, %10, %gvrender_ptf_A.exit, %19, %4
@@ -1676,7 +1680,7 @@ define void @gvrender_polyline(ptr noundef %0, ptr noundef %1, i64 noundef %2) l
 
 6:                                                ; preds = %3
   %7 = getelementptr inbounds nuw i8, ptr %5, i64 216
-  %8 = load ptr, ptr %7, align 8, !tbaa !132
+  %8 = load ptr, ptr %7, align 8, !tbaa !133
   %.not19 = icmp eq ptr %8, null
   br i1 %.not19, label %67, label %9
 
@@ -1696,7 +1700,7 @@ define void @gvrender_polyline(ptr noundef %0, ptr noundef %1, i64 noundef %2) l
   br i1 %.not21, label %19, label %18
 
 18:                                               ; preds = %14
-  tail call void %8(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2) #23
+  tail call void %8(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2) #22
   br label %67
 
 19:                                               ; preds = %14
@@ -1704,7 +1708,7 @@ define void @gvrender_polyline(ptr noundef %0, ptr noundef %1, i64 noundef %2) l
   br i1 %.not.i, label %.thread.i, label %21
 
 .thread.i:                                        ; preds = %19
-  %20 = tail call noalias ptr @calloc(i64 noundef 0, i64 noundef 16) #25
+  %20 = tail call noalias ptr @calloc(i64 noundef 0, i64 noundef 16) #24
   br label %gv_calloc.exit
 
 21:                                               ; preds = %19
@@ -1712,21 +1716,21 @@ define void @gvrender_polyline(ptr noundef %0, ptr noundef %1, i64 noundef %2) l
   br i1 %mul.ov.i, label %22, label %25
 
 22:                                               ; preds = %21
-  %23 = load ptr, ptr @stderr, align 8, !tbaa !130
-  %24 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.14, i64 noundef %2, i64 noundef 16) #26
-  tail call fastcc void @graphviz_exit() #27
+  %23 = load ptr, ptr @stderr, align 8, !tbaa !131
+  %24 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %23, ptr noundef nonnull @.str.14, i64 noundef %2, i64 noundef 16) #25
+  tail call fastcc void @graphviz_exit() #26
   unreachable
 
 25:                                               ; preds = %21
-  %26 = tail call noalias ptr @calloc(i64 noundef %2, i64 noundef 16) #25
+  %26 = tail call noalias ptr @calloc(i64 noundef %2, i64 noundef 16) #24
   %27 = icmp eq ptr %26, null
   br i1 %27, label %28, label %gv_calloc.exit
 
 28:                                               ; preds = %25
-  %29 = load ptr, ptr @stderr, align 8, !tbaa !130
+  %29 = load ptr, ptr @stderr, align 8, !tbaa !131
   %30 = shl nuw i64 %2, 4
-  %31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.15, i64 noundef %30) #26
-  tail call fastcc void @graphviz_exit() #27
+  %31 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %29, ptr noundef nonnull @.str.15, i64 noundef %30) #25
+  tail call fastcc void @graphviz_exit() #26
   unreachable
 
 gv_calloc.exit:                                   ; preds = %.thread.i, %25
@@ -1792,8 +1796,8 @@ gv_calloc.exit:                                   ; preds = %.thread.i, %25
   br i1 %exitcond44.not.i, label %gvrender_ptf_A.exit, label %.lr.ph40.i, !llvm.loop !79
 
 gvrender_ptf_A.exit:                              ; preds = %.lr.ph.i, %.lr.ph40.i, %.preheader36.i, %.preheader.i
-  tail call void %8(ptr noundef nonnull %0, ptr noundef %32, i64 noundef %2) #23
-  tail call void @free(ptr noundef %32) #23
+  tail call void %8(ptr noundef nonnull %0, ptr noundef %32, i64 noundef %2) #22
+  tail call void @free(ptr noundef %32) #22
   br label %67
 
 67:                                               ; preds = %6, %9, %gvrender_ptf_A.exit, %18, %3
@@ -1816,12 +1820,12 @@ define void @gvrender_comment(ptr noundef %0, ptr noundef %1) local_unnamed_addr
 
 7:                                                ; preds = %5
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 224
-  %9 = load ptr, ptr %8, align 8, !tbaa !133
+  %9 = load ptr, ptr %8, align 8, !tbaa !134
   %.not12 = icmp eq ptr %9, null
   br i1 %.not12, label %11, label %10
 
 10:                                               ; preds = %7
-  tail call void %9(ptr noundef nonnull %0, ptr noundef nonnull %1) #23
+  tail call void %9(ptr noundef nonnull %0, ptr noundef nonnull %1) #22
   br label %11
 
 11:                                               ; preds = %10, %7, %2, %5
@@ -1833,13 +1837,13 @@ define void @gvrender_usershape(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %8 = alloca %struct.boxf, align 8
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %10 = load ptr, ptr %9, align 8, !tbaa !47
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #23
-  %11 = tail call ptr @gvusershape_find(ptr noundef %1) #23
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8) #22
+  %11 = tail call ptr @gvusershape_find(ptr noundef %1) #22
   %.not = icmp eq ptr %11, null
   br i1 %.not, label %12, label %21
 
 12:                                               ; preds = %7
-  %13 = tail call ptr @find_user_shape(ptr noundef %1) #23
+  %13 = tail call ptr @find_user_shape(ptr noundef %1) #22
   %14 = icmp ne ptr %13, null
   %15 = icmp ne ptr %10, null
   %or.cond4 = select i1 %14, i1 %15, i1 false
@@ -1847,13 +1851,13 @@ define void @gvrender_usershape(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %10, i64 232
-  %18 = load ptr, ptr %17, align 8, !tbaa !134
+  %18 = load ptr, ptr %17, align 8, !tbaa !135
   %.not96 = icmp eq ptr %18, null
   br i1 %.not96, label %175, label %19
 
 19:                                               ; preds = %16
   %20 = zext i1 %4 to i32
-  tail call void %18(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %20) #23
+  tail call void %18(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i32 noundef %20) #22
   br label %175
 
 21:                                               ; preds = %7
@@ -1861,7 +1865,7 @@ define void @gvrender_usershape(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   %23 = load double, ptr %22, align 8
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 568
   %25 = load double, ptr %24, align 8
-  %26 = tail call i64 @gvusershape_size_dpi(ptr noundef nonnull %11, double %23, double %25) #23
+  %26 = tail call i64 @gvusershape_size_dpi(ptr noundef nonnull %11, double %23, double %25) #22
   %.sroa.013.0.extract.trunc = trunc i64 %26 to i32
   %.sroa.5.0.extract.shift = lshr i64 %26, 32
   %.sroa.5.0.extract.trunc = trunc nuw i64 %.sroa.5.0.extract.shift to i32
@@ -1872,7 +1876,7 @@ define void @gvrender_usershape(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
 
 29:                                               ; preds = %21
   %30 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !126
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %30, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !127
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, ptr noundef nonnull align 8 dereferenceable(16) %2, i64 16, i1 false)
   %.promoted = load double, ptr %8, align 8
   %.promoted120 = load double, ptr %30, align 8
@@ -1881,21 +1885,21 @@ define void @gvrender_usershape(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
 
 ._crit_edge132:                                   ; preds = %29
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %.pre = load double, ptr %.phi.trans.insert, align 8, !tbaa !135
+  %.pre = load double, ptr %.phi.trans.insert, align 8, !tbaa !136
   %.phi.trans.insert133 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.pre134 = load double, ptr %.phi.trans.insert133, align 8, !tbaa !136
+  %.pre134 = load double, ptr %.phi.trans.insert133, align 8, !tbaa !137
   br label %34
 
 .lr.ph:                                           ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 8
   %33 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %.promoted124 = load double, ptr %32, align 8, !tbaa !136
-  %.promoted126 = load double, ptr %33, align 8, !tbaa !135
+  %.promoted124 = load double, ptr %32, align 8, !tbaa !137
+  %.promoted126 = load double, ptr %33, align 8, !tbaa !136
   br label %54
 
 ._crit_edge:                                      ; preds = %54
-  store double %64, ptr %32, align 8, !tbaa !136
-  store double %66, ptr %33, align 8, !tbaa !135
+  store double %64, ptr %32, align 8, !tbaa !137
+  store double %66, ptr %33, align 8, !tbaa !136
   br label %34
 
 34:                                               ; preds = %._crit_edge132, %._crit_edge
@@ -1918,22 +1922,22 @@ define void @gvrender_usershape(ptr noundef %0, ptr noundef %1, ptr noundef %2, 
   br i1 %46, label %get_imagescale.exit.thread, label %47
 
 47:                                               ; preds = %34
-  %48 = tail call i32 @strcasecmp(ptr noundef nonnull %5, ptr noundef nonnull @.str.16) #24
+  %48 = tail call i32 @strcasecmp(ptr noundef nonnull %5, ptr noundef nonnull @.str.16) #23
   %.not.i = icmp eq i32 %48, 0
   br i1 %.not.i, label %get_imagescale.exit.thread114, label %49
 
 49:                                               ; preds = %47
-  %50 = tail call i32 @strcasecmp(ptr noundef nonnull %5, ptr noundef nonnull @.str.17) #24
+  %50 = tail call i32 @strcasecmp(ptr noundef nonnull %5, ptr noundef nonnull @.str.17) #23
   %.not5.i = icmp eq i32 %50, 0
   br i1 %.not5.i, label %get_imagescale.exit.thread116, label %51
 
 51:                                               ; preds = %49
-  %52 = tail call i32 @strcasecmp(ptr noundef nonnull %5, ptr noundef nonnull @.str.18) #24
+  %52 = tail call i32 @strcasecmp(ptr noundef nonnull %5, ptr noundef nonnull @.str.18) #23
   %.not6.i = icmp eq i32 %52, 0
   br i1 %.not6.i, label %get_imagescale.exit.thread118, label %get_imagescale.exit
 
 get_imagescale.exit:                              ; preds = %51
-  %53 = tail call zeroext i1 @mapbool(ptr noundef nonnull %5) #23
+  %53 = tail call zeroext i1 @mapbool(ptr noundef nonnull %5) #22
   br i1 %53, label %68, label %get_imagescale.exit.thread
 
 54:                                               ; preds = %.lr.ph, %54
@@ -1952,7 +1956,7 @@ get_imagescale.exit:                              ; preds = %51
   %66 = tail call double @llvm.maxnum.f64(double %55, double %62)
   %67 = add nuw i64 %.084122, 1
   %exitcond.not = icmp eq i64 %67, %3
-  br i1 %exitcond.not, label %._crit_edge, label %54, !llvm.loop !137
+  br i1 %exitcond.not, label %._crit_edge, label %54, !llvm.loop !138
 
 68:                                               ; preds = %get_imagescale.exit
   %69 = fcmp olt double %43, %44
@@ -1989,47 +1993,47 @@ get_imagescale.exit.thread:                       ; preds = %get_imagescale.exit
   br i1 %81, label %get_imagepos.exit, label %82
 
 82:                                               ; preds = %get_imagescale.exit.thread
-  %83 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %6, ptr noundef nonnull @.str.19) #24
+  %83 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %6, ptr noundef nonnull @.str.19) #23
   %.not.i99 = icmp eq i32 %83, 0
   br i1 %.not.i99, label %get_imagepos.exit, label %84
 
 84:                                               ; preds = %82
-  %85 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %6, ptr noundef nonnull @.str.20) #24
+  %85 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %6, ptr noundef nonnull @.str.20) #23
   %.not10.i = icmp eq i32 %85, 0
   br i1 %.not10.i, label %get_imagepos.exit, label %86
 
 86:                                               ; preds = %84
-  %87 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %6, ptr noundef nonnull @.str.21) #24
+  %87 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %6, ptr noundef nonnull @.str.21) #23
   %.not11.i = icmp eq i32 %87, 0
   br i1 %.not11.i, label %get_imagepos.exit, label %88
 
 88:                                               ; preds = %86
-  %89 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %6, ptr noundef nonnull @.str.22) #24
+  %89 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %6, ptr noundef nonnull @.str.22) #23
   %.not12.i = icmp eq i32 %89, 0
   br i1 %.not12.i, label %get_imagepos.exit, label %90
 
 90:                                               ; preds = %88
-  %91 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %6, ptr noundef nonnull @.str.23) #24
+  %91 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %6, ptr noundef nonnull @.str.23) #23
   %.not13.i = icmp eq i32 %91, 0
   br i1 %.not13.i, label %get_imagepos.exit, label %92
 
 92:                                               ; preds = %90
-  %93 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %6, ptr noundef nonnull @.str.24) #24
+  %93 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %6, ptr noundef nonnull @.str.24) #23
   %.not14.i = icmp eq i32 %93, 0
   br i1 %.not14.i, label %get_imagepos.exit, label %94
 
 94:                                               ; preds = %92
-  %95 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %6, ptr noundef nonnull @.str.25) #24
+  %95 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %6, ptr noundef nonnull @.str.25) #23
   %.not15.i = icmp eq i32 %95, 0
   br i1 %.not15.i, label %get_imagepos.exit, label %96
 
 96:                                               ; preds = %94
-  %97 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %6, ptr noundef nonnull @.str.26) #24
+  %97 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %6, ptr noundef nonnull @.str.26) #23
   %.not16.i = icmp eq i32 %97, 0
   br i1 %.not16.i, label %get_imagepos.exit, label %98
 
 98:                                               ; preds = %96
-  %99 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %6, ptr noundef nonnull @.str.27) #24
+  %99 = tail call i32 @strcasecmp(ptr noundef nonnull readonly %6, ptr noundef nonnull @.str.27) #23
   %.not17.i = icmp eq i32 %99, 0
   %..i100 = select i1 %.not17.i, i32 8, i32 4
   br label %get_imagepos.exit
@@ -2056,7 +2060,7 @@ get_imagepos.exit:                                ; preds = %get_imagescale.exit
 104:                                              ; preds = %101, %101, %101
   %105 = fsub double %37, %.0
   %106 = fadd double %.lcssa, %105
-  store double %106, ptr %8, align 8, !tbaa !138
+  store double %106, ptr %8, align 8, !tbaa !139
   %107 = fadd double %.0, %106
   br label %.sink.split
 
@@ -2064,14 +2068,14 @@ get_imagepos.exit:                                ; preds = %get_imagescale.exit
   %109 = fsub double %37, %.0
   %110 = fmul double %109, 5.000000e-01
   %111 = fadd double %.lcssa, %110
-  store double %111, ptr %8, align 8, !tbaa !138
+  store double %111, ptr %8, align 8, !tbaa !139
   %112 = fsub double %.lcssa121, %110
   br label %.sink.split
 
 .sink.split:                                      ; preds = %108, %104, %102
   %.sink = phi double [ %103, %102 ], [ %107, %104 ], [ %112, %108 ]
   %.ph146 = phi double [ %.lcssa, %102 ], [ %106, %104 ], [ %111, %108 ]
-  store double %.sink, ptr %30, align 8, !tbaa !139
+  store double %.sink, ptr %30, align 8, !tbaa !140
   br label %113
 
 113:                                              ; preds = %.sink.split, %get_imagepos.exit
@@ -2092,23 +2096,23 @@ get_imagepos.exit:                                ; preds = %get_imagescale.exit
 
 118:                                              ; preds = %117, %117, %117
   %119 = fsub double %36, %.083
-  store double %119, ptr %39, align 8, !tbaa !136
+  store double %119, ptr %39, align 8, !tbaa !137
   br label %128
 
 120:                                              ; preds = %117, %117, %117
   %121 = fadd double %35, %.083
-  store double %121, ptr %39, align 8, !tbaa !136
+  store double %121, ptr %39, align 8, !tbaa !137
   %122 = fsub double %121, %.083
-  store double %122, ptr %38, align 8, !tbaa !135
+  store double %122, ptr %38, align 8, !tbaa !136
   br label %128
 
 123:                                              ; preds = %117
   %124 = fsub double %40, %.083
   %125 = fmul double %124, 5.000000e-01
   %126 = fadd double %35, %125
-  store double %126, ptr %39, align 8, !tbaa !136
+  store double %126, ptr %39, align 8, !tbaa !137
   %127 = fsub double %36, %125
-  store double %127, ptr %38, align 8, !tbaa !135
+  store double %127, ptr %38, align 8, !tbaa !136
   br label %128
 
 128:                                              ; preds = %118, %120, %123, %113
@@ -2183,8 +2187,8 @@ gvrender_ptf.exit112:                             ; preds = %146, %154
   br i1 %166, label %167, label %168
 
 167:                                              ; preds = %161
-  store double %164, ptr %8, align 8, !tbaa !138
-  store double %165, ptr %30, align 8, !tbaa !139
+  store double %164, ptr %8, align 8, !tbaa !139
+  store double %165, ptr %30, align 8, !tbaa !140
   br label %168
 
 168:                                              ; preds = %167, %161
@@ -2192,8 +2196,8 @@ gvrender_ptf.exit112:                             ; preds = %146, %154
   br i1 %169, label %170, label %171
 
 170:                                              ; preds = %168
-  store double %162, ptr %39, align 8, !tbaa !136
-  store double %163, ptr %38, align 8, !tbaa !135
+  store double %162, ptr %39, align 8, !tbaa !137
+  store double %163, ptr %38, align 8, !tbaa !136
   br label %171
 
 171:                                              ; preds = %170, %168
@@ -2203,11 +2207,11 @@ gvrender_ptf.exit112:                             ; preds = %146, %154
 172:                                              ; preds = %171
   %173 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %174 = load ptr, ptr %173, align 8, !tbaa !49
-  tail call void @gvloadimage(ptr noundef nonnull %0, ptr noundef nonnull %11, ptr noundef nonnull byval(%struct.boxf) align 8 %8, i1 noundef zeroext %4, ptr noundef %174) #23
+  tail call void @gvloadimage(ptr noundef nonnull %0, ptr noundef nonnull %11, ptr noundef nonnull byval(%struct.boxf) align 8 %8, i1 noundef zeroext %4, ptr noundef %174) #22
   br label %175
 
 175:                                              ; preds = %171, %172, %21, %12, %19, %16
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #23
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #22
   ret void
 }
 
@@ -2247,24 +2251,24 @@ define internal void @agxbprint(ptr noundef nonnull captures(none) %0, ptr readn
   %3 = alloca [1 x %struct.__va_list_tag], align 16
   %4 = alloca [32 x i8], align 16
   %5 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #23
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #22
   call void @llvm.va_start.p0(ptr nonnull %5)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #23
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #22
   call void @llvm.va_copy.p0(ptr nonnull %3, ptr nonnull %5)
-  %6 = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.11, ptr noundef nonnull %3) #23
+  %6 = call i32 @vsnprintf(ptr noundef null, i64 noundef 0, ptr noundef nonnull @.str.11, ptr noundef nonnull %3) #22
   call void @llvm.va_end.p0(ptr nonnull %3)
   %7 = icmp sgt i32 %6, -1
   br i1 %7, label %9, label %8
 
 8:                                                ; preds = %2
   call void @llvm.va_end.p0(ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #23
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #22
   br label %vagxbprint.exit
 
 9:                                                ; preds = %2
   %narrow.i = add nuw i32 %6, 1
   %10 = zext i32 %narrow.i to i64
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #23
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #22
   %11 = getelementptr i8, ptr %0, i64 31
   %.val.i.i = load i8, ptr %11, align 1, !tbaa !106
   %.not.i.i = icmp eq i8 %.val.i.i, -1
@@ -2301,13 +2305,13 @@ agxblen.exit.i:                                   ; preds = %13, %agxbsizeof.exi
   br label %26
 
 25:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #23
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   br label %agxbnext.exit.i
 
 26:                                               ; preds = %24, %agxblen.exit.i
   %.val.i.i.i = phi i8 [ %.val.i.i, %agxblen.exit.i ], [ %.val.i.i.pre.i, %24 ]
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #23
+  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %4) #22
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(32) %4, i8 0, i64 32, i1 false)
   %.not.i.i.i = icmp eq i8 %.val.i.i.i, -1
   br i1 %.not.i.i.i, label %30, label %27
@@ -2327,7 +2331,7 @@ agxblen.exit.i:                                   ; preds = %13, %agxbsizeof.exi
 agxbnext.exit.i:                                  ; preds = %30, %27, %25
   %.0369.i = phi i1 [ true, %25 ], [ false, %27 ], [ false, %30 ]
   %35 = phi ptr [ %4, %25 ], [ %29, %27 ], [ %34, %30 ]
-  %36 = call i32 @vsnprintf(ptr noundef %35, i64 noundef %10, ptr noundef nonnull @.str.11, ptr noundef nonnull %5) #23
+  %36 = call i32 @vsnprintf(ptr noundef %35, i64 noundef %10, ptr noundef nonnull @.str.11, ptr noundef nonnull %5) #22
   %37 = icmp sgt i32 %36, 0
   br i1 %37, label %38, label %52
 
@@ -2363,12 +2367,12 @@ agxbnext.exit46.i:                                ; preds = %39
   br label %52
 
 52:                                               ; preds = %47, %43, %agxbnext.exit.i
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #23
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #22
   br label %vagxbprint.exit
 
 vagxbprint.exit:                                  ; preds = %8, %52
   call void @llvm.va_end.p0(ptr nonnull %5)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #23
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #22
   ret void
 }
 
@@ -2412,18 +2416,18 @@ agxbsizeof.exit:                                  ; preds = %2
   br i1 %10, label %11, label %12
 
 11:                                               ; preds = %agxbsizeof.exit
-  tail call void @free(ptr noundef %9) #23
+  tail call void @free(ptr noundef %9) #22
   br label %gv_recalloc.exit
 
 12:                                               ; preds = %agxbsizeof.exit
-  %13 = tail call ptr @realloc(ptr noundef %9, i64 noundef %spec.select34) #28
+  %13 = tail call ptr @realloc(ptr noundef %9, i64 noundef %spec.select34) #27
   %14 = icmp eq ptr %13, null
   br i1 %14, label %15, label %18
 
 15:                                               ; preds = %12
-  %16 = load ptr, ptr @stderr, align 8, !tbaa !130
-  %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.15, i64 noundef %spec.select34) #26
-  tail call fastcc void @graphviz_exit() #27
+  %16 = load ptr, ptr @stderr, align 8, !tbaa !131
+  %17 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %16, ptr noundef nonnull @.str.15, i64 noundef %spec.select34) #25
+  tail call fastcc void @graphviz_exit() #26
   unreachable
 
 18:                                               ; preds = %12
@@ -2439,14 +2443,14 @@ agxbsizeof.exit:                                  ; preds = %2
 23:                                               ; preds = %2
   %24 = add nsw i64 %1, 31
   %spec.select = tail call i64 @llvm.umax.i64(i64 %24, i64 62)
-  %25 = tail call noalias ptr @calloc(i64 noundef %spec.select, i64 noundef 1) #25
+  %25 = tail call noalias ptr @calloc(i64 noundef %spec.select, i64 noundef 1) #24
   %26 = icmp eq ptr %25, null
   br i1 %26, label %27, label %gv_calloc.exit
 
 27:                                               ; preds = %23
-  %28 = load ptr, ptr @stderr, align 8, !tbaa !130
-  %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.15, i64 noundef %spec.select) #26
-  tail call fastcc void @graphviz_exit() #27
+  %28 = load ptr, ptr @stderr, align 8, !tbaa !131
+  %29 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %28, ptr noundef nonnull @.str.15, i64 noundef %spec.select) #25
+  tail call fastcc void @graphviz_exit() #26
   unreachable
 
 gv_calloc.exit:                                   ; preds = %23
@@ -2471,7 +2475,7 @@ declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly ca
 
 ; Function Attrs: cold inlinehint nofree noreturn nounwind uwtable
 define internal fastcc void @graphviz_exit() unnamed_addr #15 {
-  tail call void @exit(i32 noundef 1) #29
+  tail call void @exit(i32 noundef 1) #28
   unreachable
 }
 
@@ -2501,9 +2505,6 @@ declare zeroext i1 @mapbool(ptr noundef) local_unnamed_addr #2
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #21
 
-; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr captures(none)) local_unnamed_addr #22
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2526,14 +2527,13 @@ attributes #18 = { mustprogress nofree nounwind willreturn "no-trapping-math"="t
 attributes #19 = { mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #20 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #21 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #22 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #23 = { nounwind }
-attributes #24 = { nounwind willreturn memory(read) }
-attributes #25 = { nounwind allocsize(0,1) }
-attributes #26 = { cold nounwind }
-attributes #27 = { noreturn }
-attributes #28 = { nounwind allocsize(1) }
-attributes #29 = { cold noreturn nounwind }
+attributes #22 = { nounwind }
+attributes #23 = { nounwind willreturn memory(read) }
+attributes #24 = { nounwind allocsize(0,1) }
+attributes #25 = { cold nounwind }
+attributes #26 = { noreturn }
+attributes #27 = { nounwind allocsize(1) }
+attributes #28 = { cold noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 
@@ -2660,20 +2660,21 @@ attributes #29 = { cold noreturn nounwind }
 !120 = !{!109, !24, i64 160}
 !121 = !{!109, !52, i64 184}
 !122 = !{!109, !24, i64 176}
-!123 = !{!109, !13, i64 172}
-!124 = distinct !{!124, !78}
-!125 = !{!55, !6, i64 192}
-!126 = !{i64 0, i64 8, !70, i64 8, i64 8, !70}
-!127 = !{!55, !6, i64 200}
-!128 = !{i64 0, i64 32, !106, i64 32, i64 4, !129}
-!129 = !{!13, !13, i64 0}
-!130 = !{!14, !14, i64 0}
-!131 = !{!55, !6, i64 208}
-!132 = !{!55, !6, i64 216}
-!133 = !{!55, !6, i64 224}
-!134 = !{!55, !6, i64 232}
-!135 = !{!27, !24, i64 24}
-!136 = !{!27, !24, i64 8}
-!137 = distinct !{!137, !78}
-!138 = !{!27, !24, i64 0}
-!139 = !{!27, !24, i64 16}
+!123 = distinct !{!123, !78}
+!124 = !{!109, !13, i64 172}
+!125 = distinct !{!125, !78}
+!126 = !{!55, !6, i64 192}
+!127 = !{i64 0, i64 8, !70, i64 8, i64 8, !70}
+!128 = !{!55, !6, i64 200}
+!129 = !{i64 0, i64 32, !106, i64 32, i64 4, !130}
+!130 = !{!13, !13, i64 0}
+!131 = !{!14, !14, i64 0}
+!132 = !{!55, !6, i64 208}
+!133 = !{!55, !6, i64 216}
+!134 = !{!55, !6, i64 224}
+!135 = !{!55, !6, i64 232}
+!136 = !{!27, !24, i64 24}
+!137 = !{!27, !24, i64 8}
+!138 = distinct !{!138, !78}
+!139 = !{!27, !24, i64 0}
+!140 = !{!27, !24, i64 16}

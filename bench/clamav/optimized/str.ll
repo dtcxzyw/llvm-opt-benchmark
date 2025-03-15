@@ -1644,8 +1644,8 @@ define i64 @cli_ldbtokenize(ptr noundef %0, i8 noundef signext %1, i64 noundef %
   br i1 %.not85, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
-  %.not112 = icmp eq i8 %9, %1
-  br i1 %.not112, label %.split.us, label %.lr.ph63.split
+  %.not106 = icmp eq i8 %9, %1
+  br i1 %.not106, label %.split.us, label %.lr.ph63.split
 
 10:                                               ; preds = %.lr.ph63.split
   %.not86 = icmp eq i8 %13, %1
@@ -1665,10 +1665,10 @@ define i64 @cli_ldbtokenize(ptr noundef %0, i8 noundef signext %1, i64 noundef %
 
 .lr.ph83.preheader:                               ; preds = %.preheader
   %15 = shl i64 %7, 3
-  %scevgep111 = getelementptr i8, ptr %3, i64 %15
+  %scevgep = getelementptr i8, ptr %3, i64 %15
   %16 = sub nuw i64 %2, %7
   %17 = shl i64 %16, 3
-  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep111, i8 0, i64 %17, i1 false), !tbaa !13
+  tail call void @llvm.memset.p0.i64(ptr align 8 %scevgep, i8 0, i64 %17, i1 false), !tbaa !13
   br label %.loopexit
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %26

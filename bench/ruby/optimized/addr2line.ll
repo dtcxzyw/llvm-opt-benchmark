@@ -5392,13 +5392,13 @@ define internal fastcc void @fill_filename(i32 noundef %0, i8 noundef zeroext %1
   %9 = alloca ptr, align 8
   %10 = alloca i64, align 8
   %11 = icmp ugt i16 %2, 4
-  br i1 %11, label %13, label %.preheader54
+  br i1 %11, label %13, label %.preheader55
 
-.preheader54:                                     ; preds = %8
-  %.not62 = icmp slt i32 %0, 1
-  br i1 %.not62, label %.loopexit, label %.lr.ph
+.preheader55:                                     ; preds = %8
+  %.not65 = icmp slt i32 %0, 1
+  br i1 %.not65, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader54
+.lr.ph:                                           ; preds = %.preheader55
   %12 = getelementptr inbounds nuw i8, ptr %5, i64 8
   br label %21
 
@@ -5419,130 +5419,138 @@ define internal fastcc void @fill_filename(i32 noundef %0, i8 noundef zeroext %1
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #16
   br label %.loopexit
 
-21:                                               ; preds = %.lr.ph, %69
-  %.064 = phi i32 [ 1, %.lr.ph ], [ %70, %69 ]
-  %.05363 = phi ptr [ %4, %.lr.ph ], [ %.4, %69 ]
-  %22 = load i8, ptr %.05363, align 1, !tbaa !12
+21:                                               ; preds = %.lr.ph, %73
+  %.067 = phi i32 [ 1, %.lr.ph ], [ %74, %73 ]
+  %.05466 = phi ptr [ %4, %.lr.ph ], [ %.4, %73 ]
+  %22 = load i8, ptr %.05466, align 1, !tbaa !12
   %.not28 = icmp eq i8 %22, 0
-  br i1 %.not28, label %27, label %.preheader.preheader
+  br i1 %.not28, label %23, label %.preheader
 
-.preheader.preheader:                             ; preds = %21
-  %scevgep = getelementptr i8, ptr %.05363, i64 1
-  %strlen = tail call i64 @strlen(ptr nonnull dereferenceable(1) %scevgep)
-  %scevgep71 = getelementptr i8, ptr %.05363, i64 %strlen
-  %23 = getelementptr i8, ptr %scevgep71, i64 2
-  %24 = getelementptr i8, ptr %scevgep71, i64 3
-  %25 = load i8, ptr %23, align 1, !tbaa !12
-  %26 = icmp sgt i8 %25, -1
-  br i1 %26, label %uleb128.exit, label %.lr.ph.i
-
-27:                                               ; preds = %21
-  %28 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !47
-  %30 = ptrtoint ptr %4 to i64
-  %31 = ptrtoint ptr %29 to i64
-  %32 = sub i64 %30, %31
-  %33 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %7, i32 noundef 1, ptr noundef nonnull @.str.22, i32 noundef %0, ptr noundef nonnull @binary_filename, i64 noundef %32) #16
+23:                                               ; preds = %21
+  %24 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %25 = load ptr, ptr %24, align 8, !tbaa !47
+  %26 = ptrtoint ptr %4 to i64
+  %27 = ptrtoint ptr %25 to i64
+  %28 = sub i64 %26, %27
+  %29 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %7, i32 noundef 1, ptr noundef nonnull @.str.22, i32 noundef %0, ptr noundef nonnull @binary_filename, i64 noundef %28) #16
   br label %.loopexit
 
-.lr.ph.i:                                         ; preds = %.preheader.preheader, %.lr.ph.i
-  %34 = phi i8 [ %42, %.lr.ph.i ], [ %25, %.preheader.preheader ]
-  %35 = phi ptr [ %41, %.lr.ph.i ], [ %24, %.preheader.preheader ]
-  %.01021.i = phi i64 [ %.1.i, %.lr.ph.i ], [ 0, %.preheader.preheader ]
-  %.01120.i = phi i32 [ %40, %.lr.ph.i ], [ 0, %.preheader.preheader ]
-  %36 = and i8 %34, 127
-  %37 = zext nneg i8 %36 to i32
-  %38 = shl i32 %37, %.01120.i
-  %39 = sext i32 %38 to i64
-  %40 = add i32 %.01120.i, 7
-  %.1.i = add i64 %.01021.i, %39
-  %41 = getelementptr i8, ptr %35, i64 1
-  %42 = load i8, ptr %35, align 1, !tbaa !12
-  %43 = icmp sgt i8 %42, -1
-  br i1 %43, label %._crit_edge.loopexit.i, label %.lr.ph.i
+.preheader:                                       ; preds = %21, %.preheader
+  %.164 = phi ptr [ %30, %.preheader ], [ %.05466, %21 ]
+  %30 = getelementptr i8, ptr %.164, i64 1
+  %.pr = load i8, ptr %30, align 1, !tbaa !12
+  %.not29 = icmp eq i8 %.pr, 0
+  br i1 %.not29, label %31, label %.preheader, !llvm.loop !159
+
+31:                                               ; preds = %.preheader
+  %32 = getelementptr i8, ptr %.164, i64 2
+  %33 = getelementptr i8, ptr %.164, i64 3
+  %34 = load i8, ptr %32, align 1, !tbaa !12
+  %35 = icmp sgt i8 %34, -1
+  br i1 %35, label %uleb128.exit, label %.lr.ph.i
+
+.lr.ph.i:                                         ; preds = %31, %.lr.ph.i
+  %36 = phi i8 [ %44, %.lr.ph.i ], [ %34, %31 ]
+  %37 = phi ptr [ %43, %.lr.ph.i ], [ %33, %31 ]
+  %.01021.i = phi i64 [ %.1.i, %.lr.ph.i ], [ 0, %31 ]
+  %.01120.i = phi i32 [ %42, %.lr.ph.i ], [ 0, %31 ]
+  %38 = and i8 %36, 127
+  %39 = zext nneg i8 %38 to i32
+  %40 = shl i32 %39, %.01120.i
+  %41 = sext i32 %40 to i64
+  %42 = add i32 %.01120.i, 7
+  %.1.i = add i64 %.01021.i, %41
+  %43 = getelementptr i8, ptr %37, i64 1
+  %44 = load i8, ptr %37, align 1, !tbaa !12
+  %45 = icmp sgt i8 %44, -1
+  br i1 %45, label %._crit_edge.loopexit.i, label %.lr.ph.i
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
-  %44 = zext nneg i32 %40 to i64
+  %46 = zext nneg i32 %42 to i64
   br label %uleb128.exit
 
-uleb128.exit:                                     ; preds = %.preheader.preheader, %._crit_edge.loopexit.i
-  %.2 = phi ptr [ %24, %.preheader.preheader ], [ %41, %._crit_edge.loopexit.i ]
-  %.011.lcssa.i = phi i64 [ 0, %.preheader.preheader ], [ %44, %._crit_edge.loopexit.i ]
-  %.010.lcssa.i = phi i64 [ 0, %.preheader.preheader ], [ %.1.i, %._crit_edge.loopexit.i ]
-  %.lcssa.i = phi i8 [ %25, %.preheader.preheader ], [ %42, %._crit_edge.loopexit.i ]
-  %45 = zext nneg i8 %.lcssa.i to i64
-  %46 = shl i64 %45, %.011.lcssa.i
-  %.117.i = add i64 %46, %.010.lcssa.i
-  %47 = getelementptr i8, ptr %.2, i64 1
-  %48 = load i8, ptr %.2, align 1, !tbaa !12
-  %49 = icmp sgt i8 %48, -1
-  br i1 %49, label %uleb128.exit40, label %.lr.ph.i31
+uleb128.exit:                                     ; preds = %31, %._crit_edge.loopexit.i
+  %.2 = phi ptr [ %33, %31 ], [ %43, %._crit_edge.loopexit.i ]
+  %.011.lcssa.i = phi i64 [ 0, %31 ], [ %46, %._crit_edge.loopexit.i ]
+  %.010.lcssa.i = phi i64 [ 0, %31 ], [ %.1.i, %._crit_edge.loopexit.i ]
+  %.lcssa.i = phi i8 [ %34, %31 ], [ %44, %._crit_edge.loopexit.i ]
+  %47 = zext nneg i8 %.lcssa.i to i64
+  %48 = shl i64 %47, %.011.lcssa.i
+  %.117.i = add i64 %48, %.010.lcssa.i
+  %49 = getelementptr i8, ptr %.2, i64 1
+  %50 = load i8, ptr %.2, align 1, !tbaa !12
+  %51 = icmp sgt i8 %50, -1
+  br i1 %51, label %uleb128.exit40, label %.lr.ph.i31
 
 .lr.ph.i31:                                       ; preds = %uleb128.exit, %.lr.ph.i31
-  %50 = phi ptr [ %51, %.lr.ph.i31 ], [ %47, %uleb128.exit ]
-  %51 = getelementptr i8, ptr %50, i64 1
-  %52 = load i8, ptr %50, align 1, !tbaa !12
-  %53 = icmp sgt i8 %52, -1
-  br i1 %53, label %uleb128.exit40, label %.lr.ph.i31
+  %52 = phi ptr [ %53, %.lr.ph.i31 ], [ %49, %uleb128.exit ]
+  %53 = getelementptr i8, ptr %52, i64 1
+  %54 = load i8, ptr %52, align 1, !tbaa !12
+  %55 = icmp sgt i8 %54, -1
+  br i1 %55, label %uleb128.exit40, label %.lr.ph.i31
 
 uleb128.exit40:                                   ; preds = %.lr.ph.i31, %uleb128.exit
-  %.3 = phi ptr [ %47, %uleb128.exit ], [ %51, %.lr.ph.i31 ]
-  %54 = getelementptr i8, ptr %.3, i64 1
-  %55 = load i8, ptr %.3, align 1, !tbaa !12
-  %56 = icmp sgt i8 %55, -1
-  br i1 %56, label %uleb128.exit51, label %.lr.ph.i42
+  %.3 = phi ptr [ %49, %uleb128.exit ], [ %53, %.lr.ph.i31 ]
+  %56 = getelementptr i8, ptr %.3, i64 1
+  %57 = load i8, ptr %.3, align 1, !tbaa !12
+  %58 = icmp sgt i8 %57, -1
+  br i1 %58, label %uleb128.exit51, label %.lr.ph.i42
 
 .lr.ph.i42:                                       ; preds = %uleb128.exit40, %.lr.ph.i42
-  %57 = phi ptr [ %58, %.lr.ph.i42 ], [ %54, %uleb128.exit40 ]
-  %58 = getelementptr i8, ptr %57, i64 1
-  %59 = load i8, ptr %57, align 1, !tbaa !12
-  %60 = icmp sgt i8 %59, -1
-  br i1 %60, label %uleb128.exit51, label %.lr.ph.i42
+  %59 = phi ptr [ %60, %.lr.ph.i42 ], [ %56, %uleb128.exit40 ]
+  %60 = getelementptr i8, ptr %59, i64 1
+  %61 = load i8, ptr %59, align 1, !tbaa !12
+  %62 = icmp sgt i8 %61, -1
+  br i1 %62, label %uleb128.exit51, label %.lr.ph.i42
 
 uleb128.exit51:                                   ; preds = %.lr.ph.i42, %uleb128.exit40
-  %.4 = phi ptr [ %54, %uleb128.exit40 ], [ %58, %.lr.ph.i42 ]
-  %61 = icmp eq i32 %.064, %0
-  br i1 %61, label %62, label %69
+  %.4 = phi ptr [ %56, %uleb128.exit40 ], [ %60, %.lr.ph.i42 ]
+  %63 = icmp eq i32 %.067, %0
+  br i1 %63, label %64, label %73
 
-62:                                               ; preds = %uleb128.exit51
-  store ptr %.05363, ptr %12, align 8, !tbaa !37
+64:                                               ; preds = %uleb128.exit51
+  store ptr %.05466, ptr %12, align 8, !tbaa !37
   %.not.i = icmp eq i64 %.117.i, 0
   br i1 %.not.i, label %get_nth_dirname.exit, label %.preheader14.preheader.i
 
-.preheader14.preheader.i:                         ; preds = %62
-  %63 = add i64 %.117.i, -1
+.preheader14.preheader.i:                         ; preds = %64
+  %65 = add i64 %.117.i, -1
   br label %.preheader14.i
 
-.preheader14.i:                                   ; preds = %.preheader.preheader.i, %.preheader14.preheader.i
-  %.010.i = phi i64 [ %64, %.preheader.preheader.i ], [ %63, %.preheader14.preheader.i ]
-  %.09.i = phi ptr [ %65, %.preheader.preheader.i ], [ %3, %.preheader14.preheader.i ]
+.preheader14.i:                                   ; preds = %69, %.preheader14.preheader.i
+  %.010.i = phi i64 [ %66, %69 ], [ %65, %.preheader14.preheader.i ]
+  %.09.i = phi ptr [ %68, %69 ], [ %3, %.preheader14.preheader.i ]
+  %66 = add i64 %.010.i, -1
   %.not11.i = icmp eq i64 %.010.i, 0
-  br i1 %.not11.i, label %get_nth_dirname.exit, label %.preheader.preheader.i
+  br i1 %.not11.i, label %get_nth_dirname.exit, label %.preheader.i
 
-.preheader.preheader.i:                           ; preds = %.preheader14.i
-  %64 = add i64 %.010.i, -1
-  %strlen.i = tail call i64 @strlen(ptr nonnull dereferenceable(1) %.09.i)
-  %scevgep.i = getelementptr i8, ptr %.09.i, i64 %strlen.i
-  %65 = getelementptr i8, ptr %scevgep.i, i64 1
-  %66 = load i8, ptr %65, align 1, !tbaa !12
-  %.not13.i = icmp eq i8 %66, 0
-  br i1 %.not13.i, label %67, label %.preheader14.i, !llvm.loop !159
+.preheader.i:                                     ; preds = %.preheader14.i, %.preheader.i
+  %.1.i52 = phi ptr [ %68, %.preheader.i ], [ %.09.i, %.preheader14.i ]
+  %67 = load i8, ptr %.1.i52, align 1, !tbaa !12
+  %.not12.i = icmp eq i8 %67, 0
+  %68 = getelementptr i8, ptr %.1.i52, i64 1
+  br i1 %.not12.i, label %69, label %.preheader.i, !llvm.loop !160
 
-67:                                               ; preds = %.preheader.preheader.i
-  %68 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %7, i32 noundef 1, ptr noundef nonnull @.str.24, i64 noundef %64, ptr noundef nonnull @binary_filename) #16
+69:                                               ; preds = %.preheader.i
+  %70 = load i8, ptr %68, align 1, !tbaa !12
+  %.not13.i = icmp eq i8 %70, 0
+  br i1 %.not13.i, label %71, label %.preheader14.i, !llvm.loop !161
+
+71:                                               ; preds = %69
+  %72 = tail call i32 (ptr, i32, ptr, ...) @__fprintf_chk(ptr noundef %7, i32 noundef 1, ptr noundef nonnull @.str.24, i64 noundef %66, ptr noundef nonnull @binary_filename) #16
   br label %get_nth_dirname.exit
 
-get_nth_dirname.exit:                             ; preds = %.preheader14.i, %62, %67
-  %.0.i = phi ptr [ @.str.23, %67 ], [ @.str.23, %62 ], [ %.09.i, %.preheader14.i ]
+get_nth_dirname.exit:                             ; preds = %.preheader14.i, %64, %71
+  %.0.i = phi ptr [ @.str.23, %71 ], [ @.str.23, %64 ], [ %.09.i, %.preheader14.i ]
   store ptr %.0.i, ptr %5, align 8, !tbaa !36
-  br label %69
+  br label %73
 
-69:                                               ; preds = %uleb128.exit51, %get_nth_dirname.exit
-  %70 = add i32 %.064, 1
-  %.not = icmp sgt i32 %70, %0
-  br i1 %.not, label %.loopexit, label %21, !llvm.loop !160
+73:                                               ; preds = %uleb128.exit51, %get_nth_dirname.exit
+  %74 = add i32 %.067, 1
+  %.not = icmp sgt i32 %74, %0
+  br i1 %.not, label %.loopexit, label %21, !llvm.loop !162
 
-.loopexit:                                        ; preds = %69, %.preheader54, %13, %27
+.loopexit:                                        ; preds = %73, %.preheader55, %13, %23
   ret void
 }
 
@@ -5742,3 +5750,5 @@ attributes #19 = { nounwind allocsize(0) }
 !158 = !{!14, !15, i64 240}
 !159 = distinct !{!159, !30}
 !160 = distinct !{!160, !30}
+!161 = distinct !{!161, !30}
+!162 = distinct !{!162, !30}
