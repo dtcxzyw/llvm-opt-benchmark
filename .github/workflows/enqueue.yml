@@ -28,8 +28,10 @@ jobs:
         id: info
         run: |
           echo -e "> $PATCH_URL\n\n" > ${{ github.workspace }}/scripts/issue.md
+          echo $GITHUB_TOKEN | gh auth login --with-token
           python3 ${{ github.workspace }}/scripts/enqueue.py 2>&1 | tee -a ${{ github.workspace }}/scripts/issue.md
         env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PATCH_URL: ${{ github.event.comment.body }}
           USER: ${{ github.event.sender.login }}
 

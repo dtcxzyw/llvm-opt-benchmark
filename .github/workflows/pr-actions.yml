@@ -21,7 +21,9 @@ jobs:
           ref: main
 
       - name: PR action
-        run: python3 scripts/github_rest.py
+        run: |
+          echo $GITHUB_TOKEN | gh auth login --with-token
+          python3 scripts/github_rest.py
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_COMMAND: ${{ github.event.comment.body }}
