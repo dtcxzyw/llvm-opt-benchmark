@@ -23506,8 +23506,8 @@ _ZN7rocksdb17InstrumentedMutex6UnlockEv.exit:     ; preds = %204
 218:                                              ; preds = %214
   %219 = getelementptr inbounds nuw i8, ptr %217, i64 104
   %220 = load i8, ptr %219, align 8, !tbaa !503, !range !483, !noundef !484
-  %221 = trunc nuw i8 %220 to i1
-  %spec.select.idx.i = select i1 %221, i64 32, i64 0
+  %221 = shl nuw nsw i8 %220, 5
+  %spec.select.idx.i = zext nneg i8 %221 to i64
   %spec.select.i = getelementptr inbounds nuw i8, ptr %215, i64 %spec.select.idx.i
   br label %_ZNK7rocksdb13FileSystemPtr3getEv.exit
 
@@ -64816,8 +64816,8 @@ define void @_ZNK7rocksdb6DBImpl29GetDbIdentityFromIdentityFileERKNS_9IOOptionsE
 26:                                               ; preds = %9
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 104
   %28 = load i8, ptr %27, align 8, !tbaa !503, !range !483, !noundef !484
-  %29 = trunc nuw i8 %28 to i1
-  %spec.select.idx.i = select i1 %29, i64 32, i64 0
+  %29 = shl nuw nsw i8 %28, 5
+  %spec.select.idx.i = zext nneg i8 %29 to i64
   %spec.select.i = getelementptr inbounds nuw i8, ptr %23, i64 %spec.select.idx.i
   br label %_ZNK7rocksdb13FileSystemPtr3getEv.exit
 
@@ -81431,8 +81431,8 @@ define void @_ZN7rocksdb6DBImpl22VerifyFullFileChecksumERKNSt7__cxx1112basic_str
 30:                                               ; preds = %22
   %31 = getelementptr inbounds nuw i8, ptr %29, i64 104
   %32 = load i8, ptr %31, align 8, !tbaa !503, !range !483, !noundef !484
-  %33 = trunc nuw i8 %32 to i1
-  %spec.select.idx.i = select i1 %33, i64 32, i64 0
+  %33 = shl nuw nsw i8 %32, 5
+  %spec.select.idx.i = zext nneg i8 %33 to i64
   %spec.select.i = getelementptr inbounds nuw i8, ptr %27, i64 %spec.select.idx.i
   br label %_ZNK7rocksdb13FileSystemPtr3getEv.exit
 

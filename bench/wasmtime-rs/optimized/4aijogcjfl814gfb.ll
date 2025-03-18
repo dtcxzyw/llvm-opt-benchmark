@@ -17060,8 +17060,8 @@ common.ret:                                       ; preds = %376, %372, %135
 186:                                              ; preds = %174
   %187 = getelementptr inbounds nuw i8, ptr %178, i64 24
   %188 = load i8, ptr %187, align 8, !range !117, !noalias !2046, !noundef !11
-  %189 = trunc nuw i8 %188 to i1
-  %..i.i.i = select i1 %189, i8 0, i8 2
+  %189 = shl nuw nsw i8 %188, 1
+  %..i.i.i = xor i8 %189, 2
   br label %190
 
 190:                                              ; preds = %185, %201, %186, %183
@@ -17110,8 +17110,8 @@ common.ret:                                       ; preds = %376, %372, %135
 201:                                              ; preds = %174, %174
   %.0.i53 = getelementptr inbounds nuw i8, ptr %178, i64 24
   %202 = load i8, ptr %.0.i53, align 1, !range !117, !noalias !2046, !noundef !11
-  %203 = trunc nuw i8 %202 to i1
-  %..i.i65.i = select i1 %203, i8 0, i8 2
+  %203 = shl nuw nsw i8 %202, 1
+  %..i.i65.i = xor i8 %203, 2
   br label %190
 
 204:                                              ; preds = %185
@@ -19463,8 +19463,8 @@ common.ret:                                       ; preds = %431, %427, %136
 187:                                              ; preds = %176, %176, %176
   %.0.i52 = getelementptr inbounds nuw i8, ptr %180, i64 24
   %188 = load i8, ptr %.0.i52, align 1, !range !117, !noalias !2302, !noundef !11
-  %189 = trunc nuw i8 %188 to i1
-  %..i.i.i = select i1 %189, i8 0, i8 2
+  %189 = shl nuw nsw i8 %188, 1
+  %..i.i.i = xor i8 %189, 2
   br label %190
 
 190:                                              ; preds = %380, %187

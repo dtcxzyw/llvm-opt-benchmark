@@ -7677,7 +7677,7 @@ _ZN4llvm23SmallVectorTemplateBaseINS_7SDValueELb1EE9push_backES1_.exit: ; preds 
   %321 = trunc nuw i8 %320 to i1
   %322 = load ptr, ptr %89, align 8, !tbaa !714
   %323 = select i1 %321, i64 8, i64 4
-  %324 = select i1 %321, i8 3, i8 2
+  %324 = or disjoint i8 %320, 2
   %325 = call noundef i32 @_ZN4llvm16MachineFrameInfo17CreateStackObjectEmNS_5AlignEbPKNS_10AllocaInstEh(ptr noundef nonnull align 8 dereferenceable(696) %322, i64 noundef %323, i8 %324, i1 noundef zeroext false, ptr noundef null, i8 noundef zeroext 0) #24
   %326 = getelementptr inbounds nuw i8, ptr %312, i64 176
   %.sroa.0.0.insert.ext.i = zext i32 %325 to i64

@@ -22340,8 +22340,8 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4l
 
 _ZN4llvm23SmallVectorTemplateBaseINS_13LazyCallGraph4EdgeELb1EE9push_backES2_.exit: ; preds = %3, %9
   %13 = phi i32 [ %6, %3 ], [ %.pre.i, %9 ]
-  %14 = trunc nuw i8 %4 to i1
-  %15 = select i1 %14, i64 4, i64 0
+  %14 = shl nuw nsw i8 %4, 2
+  %15 = zext nneg i8 %14 to i64
   %16 = ptrtoint ptr %1 to i64
   %17 = or disjoint i64 %15, %16
   %18 = load ptr, ptr %0, align 8, !tbaa !17
@@ -25663,8 +25663,8 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4l
 
 _ZN4llvm23SmallVectorTemplateBaseINS_13LazyCallGraph4EdgeELb1EE9push_backES2_.exit: ; preds = %3, %9
   %13 = phi i32 [ %6, %3 ], [ %.pre.i, %9 ]
-  %14 = trunc nuw i8 %4 to i1
-  %15 = select i1 %14, i64 4, i64 0
+  %14 = shl nuw nsw i8 %4, 2
+  %15 = zext nneg i8 %14 to i64
   %16 = ptrtoint ptr %1 to i64
   %17 = or disjoint i64 %15, %16
   %18 = load ptr, ptr %0, align 8, !tbaa !17

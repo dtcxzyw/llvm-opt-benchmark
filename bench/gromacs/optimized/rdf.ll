@@ -2093,7 +2093,7 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_13Rdf19initAfterFirst
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 248
   %9 = load double, ptr %8, align 8, !tbaa !188
   %10 = fcmp ugt double %9, 0.000000e+00
-  br i1 %10, label %61, label %11
+  br i1 %10, label %62, label %11
 
 11:                                               ; preds = %3
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %5) #25
@@ -2136,7 +2136,7 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_13Rdf19initAfterFirst
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 261
   %40 = load i8, ptr %39, align 1, !tbaa !165, !range !154, !noundef !155
   %41 = trunc nuw i8 %40 to i1
-  br i1 %38, label %42, label %53
+  br i1 %38, label %42, label %54
 
 42:                                               ; preds = %11
   br i1 %41, label %43, label %47
@@ -2149,65 +2149,66 @@ define internal void @_ZN3gmx15analysismodules12_GLOBAL__N_13Rdf19initAfterFirst
   br label %47
 
 47:                                               ; preds = %43, %42
-  %48 = phi i32 [ 2, %43 ], [ 0, %42 ]
-  %49 = call noundef float @_Z11max_cutoff27PbcTypePA3_Kf(i32 noundef %48, ptr noundef nonnull %5)
-  %50 = fpext float %49 to double
-  %51 = fmul double %50, 0x3FEF5CFAACD9E83E
-  %52 = call double @sqrt(double noundef %51) #25, !tbaa !92
-  br label %60
-
-53:                                               ; preds = %11
-  %spec.select = select i1 %41, float 0.000000e+00, float %36
-  %54 = fcmp olt float %24, %spec.select
-  %55 = select i1 %54, float %spec.select, float %24
-  %56 = fcmp olt float %13, %55
-  %57 = select i1 %56, float %55, float %13
-  %58 = fmul float %57, 3.000000e+00
-  %59 = fpext float %58 to double
-  br label %60
-
-60:                                               ; preds = %53, %47
-  %storemerge = phi double [ %59, %53 ], [ %52, %47 ]
-  store double %storemerge, ptr %8, align 8, !tbaa !188
-  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %5) #25
+  %48 = shl nuw nsw i8 %40, 1
+  %49 = zext nneg i8 %48 to i32
+  %50 = call noundef float @_Z11max_cutoff27PbcTypePA3_Kf(i32 noundef %49, ptr noundef nonnull %5)
+  %51 = fpext float %50 to double
+  %52 = fmul double %51, 0x3FEF5CFAACD9E83E
+  %53 = call double @sqrt(double noundef %52) #25, !tbaa !92
   br label %61
 
-61:                                               ; preds = %60, %3
-  %62 = phi double [ %storemerge, %60 ], [ %9, %3 ]
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %64 = load double, ptr %63, align 8, !tbaa !159
-  %65 = fmul double %64, %64
-  %66 = fptrunc double %65 to float
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 264
-  store float %66, ptr %67, align 8, !tbaa !86
-  %68 = fmul double %62, %62
-  %69 = fptrunc double %68 to float
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 268
-  store float %69, ptr %70, align 4, !tbaa !87
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %72 = fptrunc double %62 to float
-  call void @_ZN3gmx20AnalysisNeighborhood9setCutoffEf(ptr noundef nonnull align 8 dereferenceable(8) %71, float noundef %72)
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %74 = load ptr, ptr %73, align 8, !tbaa !74
+54:                                               ; preds = %11
+  %spec.select = select i1 %41, float 0.000000e+00, float %36
+  %55 = fcmp olt float %24, %spec.select
+  %56 = select i1 %55, float %spec.select, float %24
+  %57 = fcmp olt float %13, %56
+  %58 = select i1 %57, float %56, float %13
+  %59 = fmul float %58, 3.000000e+00
+  %60 = fpext float %59 to double
+  br label %61
+
+61:                                               ; preds = %54, %47
+  %storemerge = phi double [ %60, %54 ], [ %53, %47 ]
+  store double %storemerge, ptr %8, align 8, !tbaa !188
+  call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %5) #25
+  br label %62
+
+62:                                               ; preds = %61, %3
+  %63 = phi double [ %storemerge, %61 ], [ %9, %3 ]
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  %65 = load double, ptr %64, align 8, !tbaa !159
+  %66 = fmul double %65, %65
+  %67 = fptrunc double %66 to float
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 264
+  store float %67, ptr %68, align 8, !tbaa !86
+  %69 = fmul double %63, %63
+  %70 = fptrunc double %69 to float
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 268
+  store float %70, ptr %71, align 4, !tbaa !87
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  %73 = fptrunc double %63 to float
+  call void @_ZN3gmx20AnalysisNeighborhood9setCutoffEf(ptr noundef nonnull align 8 dereferenceable(8) %72, float noundef %73)
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %75 = load ptr, ptr %74, align 8, !tbaa !74
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #25
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %7) #25
-  %75 = load double, ptr %8, align 8, !tbaa !188
-  %76 = fptrunc double %75 to float
+  %76 = load double, ptr %8, align 8, !tbaa !188
+  %77 = fptrunc double %76 to float
   call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %4) #25, !noalias !190
   call void @_ZN3gmx36AnalysisHistogramSettingsInitializerC1Ev(ptr noundef nonnull align 4 dereferenceable(19) %4), !noalias !190
   store float 0.000000e+00, ptr %4, align 4, !tbaa !193, !noalias !190
-  %77 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  store float %76, ptr %77, align 4, !tbaa !195, !noalias !190
+  %78 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  store float %77, ptr %78, align 4, !tbaa !195, !noalias !190
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(20) %7, ptr noundef nonnull align 4 dereferenceable(20) %4, i64 20, i1 false), !tbaa.struct !196
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %4) #25, !noalias !190
-  %78 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %79 = load double, ptr %78, align 8, !tbaa !85
-  %80 = fmul double %79, 5.000000e-01
-  %81 = fptrunc double %80 to float
-  %82 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  store float %81, ptr %82, align 4, !tbaa !198
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  %80 = load double, ptr %79, align 8, !tbaa !85
+  %81 = fmul double %80, 5.000000e-01
+  %82 = fptrunc double %81 to float
+  %83 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  store float %82, ptr %83, align 4, !tbaa !198
   call void @_ZN3gmx25AnalysisHistogramSettingsC1ERKNS_36AnalysisHistogramSettingsInitializerE(ptr noundef nonnull align 4 dereferenceable(21) %6, ptr noundef nonnull align 4 dereferenceable(19) %7)
-  call void @_ZN3gmx33AnalysisDataSimpleHistogramModule4initERKNS_25AnalysisHistogramSettingsE(ptr noundef nonnull align 8 dereferenceable(32) %74, ptr noundef nonnull align 4 dereferenceable(21) %6)
+  call void @_ZN3gmx33AnalysisDataSimpleHistogramModule4initERKNS_25AnalysisHistogramSettingsE(ptr noundef nonnull align 8 dereferenceable(32) %75, ptr noundef nonnull align 4 dereferenceable(21) %6)
   call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %7) #25
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #25
   ret void

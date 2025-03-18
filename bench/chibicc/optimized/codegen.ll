@@ -1944,8 +1944,8 @@ cmp_zero.exit.i:                                  ; preds = %147, %143, %140, %1
 150:                                              ; preds = %148
   %151 = getelementptr inbounds nuw i8, ptr %132, i64 12
   %152 = load i8, ptr %151, align 4, !tbaa !113, !range !25, !noundef !26
-  %153 = trunc nuw i8 %152 to i1
-  %154 = select i1 %153, i64 4, i64 0
+  %153 = shl nuw nsw i8 %152, 2
+  %154 = zext nneg i8 %153 to i64
   br label %getTypeId.exit.i
 
 155:                                              ; preds = %148
@@ -1993,8 +1993,8 @@ getTypeId.exit.i:                                 ; preds = %172, %171, %170, %1
 173:                                              ; preds = %getTypeId.exit.i
   %174 = getelementptr inbounds nuw i8, ptr %134, i64 12
   %175 = load i8, ptr %174, align 4, !tbaa !113, !range !25, !noundef !26
-  %176 = trunc nuw i8 %175 to i1
-  %177 = select i1 %176, i64 4, i64 0
+  %176 = shl nuw nsw i8 %175, 2
+  %177 = zext nneg i8 %176 to i64
   br label %getTypeId.exit10.i
 
 178:                                              ; preds = %getTypeId.exit.i

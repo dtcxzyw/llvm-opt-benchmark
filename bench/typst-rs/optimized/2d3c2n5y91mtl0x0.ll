@@ -50495,15 +50495,15 @@ common.resume:                                    ; preds = %80, %.body.thread.i
   br label %133
 
 133:                                              ; preds = %56, %"_ZN78_$LT$core..result..Result$LT$T$C$S$GT$$u20$as$u20$typst..diag..At$LT$T$GT$$GT$2at28_$u7b$$u7b$closure$u7d$$u7d$17h8da9e2e9c134df1dE.exit.i"
-  %spec.select.i = phi i64 [ 1, %56 ], [ 2, %"_ZN78_$LT$core..result..Result$LT$T$C$S$GT$$u20$as$u20$typst..diag..At$LT$T$GT$$GT$2at28_$u7b$$u7b$closure$u7d$$u7d$17h8da9e2e9c134df1dE.exit.i" ]
   %.sink3.i = phi ptr [ %57, %56 ], [ %131, %"_ZN78_$LT$core..result..Result$LT$T$C$S$GT$$u20$as$u20$typst..diag..At$LT$T$GT$$GT$2at28_$u7b$$u7b$closure$u7d$$u7d$17h8da9e2e9c134df1dE.exit.i" ]
   %.sink.i = phi i64 [ %59, %56 ], [ %132, %"_ZN78_$LT$core..result..Result$LT$T$C$S$GT$$u20$as$u20$typst..diag..At$LT$T$GT$$GT$2at28_$u7b$$u7b$closure$u7d$$u7d$17h8da9e2e9c134df1dE.exit.i" ]
+  %storemerge.i = phi i64 [ 1, %56 ], [ 2, %"_ZN78_$LT$core..result..Result$LT$T$C$S$GT$$u20$as$u20$typst..diag..At$LT$T$GT$$GT$2at28_$u7b$$u7b$closure$u7d$$u7d$17h8da9e2e9c134df1dE.exit.i" ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9)
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink3.i, ptr %134, align 8, !alias.scope !9631, !noalias !9634
   %135 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sink.i, ptr %135, align 8, !alias.scope !9631, !noalias !9634
-  store i64 %spec.select.i, ptr %0, align 8, !alias.scope !9631, !noalias !9634
+  store i64 %storemerge.i, ptr %0, align 8, !alias.scope !9631, !noalias !9634
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11)
   br label %24
 

@@ -5317,8 +5317,8 @@ define dso_local void @_ZNK4llvm29AppleAccelTableStaticTypeData4emitEPNS_10AsmPr
   tail call void @_ZNK4llvm10AsmPrinter9emitInt16Ei(ptr noundef nonnull align 8 dereferenceable(777) %1, i32 noundef %7) #20
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %9 = load i8, ptr %8, align 2, !tbaa !697, !range !185, !noundef !186
-  %10 = trunc nuw i8 %9 to i1
-  %11 = select i1 %10, i32 2, i32 0
+  %10 = shl nuw nsw i8 %9, 1
+  %11 = zext nneg i8 %10 to i32
   tail call void @_ZNK4llvm10AsmPrinter8emitInt8Ei(ptr noundef nonnull align 8 dereferenceable(777) %1, i32 noundef %11) #20
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %13 = load i32, ptr %12, align 4, !tbaa !698

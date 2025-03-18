@@ -1542,8 +1542,8 @@ define hidden noundef i64 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$G
 
 "_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h1ddd6adde7f60b9aE.exit.i": ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hf5d14cb0ab7c6bddE.llvm.587420211104578620.exit13.thread.i.i.i.i", %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hf5d14cb0ab7c6bddE.llvm.587420211104578620.exit.i.i.i.i"
   %.sroa.03.0.i.i.i.i = phi i64 [ %46, %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hf5d14cb0ab7c6bddE.llvm.587420211104578620.exit13.thread.i.i.i.i" ], [ 0, %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hf5d14cb0ab7c6bddE.llvm.587420211104578620.exit.i.i.i.i" ]
-  %47 = trunc nuw i8 %36 to i1
-  %spec.select.i.i.i.i = select i1 %47, i64 2, i64 0
+  %47 = shl nuw nsw i8 %36, 1
+  %spec.select.i.i.i.i = zext nneg i8 %47 to i64
   %48 = add i64 %.sroa.01.0.i.i.i.i, %.sroa.0.0.i.i.i.i
   %49 = add i64 %48, %spec.select.i.i.i.i
   %50 = add i64 %49, %.sroa.03.0.i.i.i.i
@@ -1967,8 +1967,8 @@ define hidden noundef i64 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$G
   %.sroa.02.0.i.i.i.i.i = phi i64 [ %35, %26 ], [ 0, %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hf5d14cb0ab7c6bddE.llvm.587420211104578620.exit.i.i.i.i" ]
   %36 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %37 = load i8, ptr %36, align 8, !range !167, !alias.scope !213, !noundef !14
-  %38 = trunc nuw i8 %37 to i1
-  %spec.select.i.i.i.i = select i1 %38, i64 2, i64 0
+  %38 = shl nuw nsw i8 %37, 1
+  %spec.select.i.i.i.i = zext nneg i8 %38 to i64
   %39 = add i64 %.sroa.02.0.i.i.i.i.i, %.sroa.0.0.i.i.i.i
   %40 = add i64 %39, %spec.select.i.i.i.i
   %41 = or i64 %40, 1
@@ -2173,8 +2173,8 @@ define hidden noundef i64 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$G
   %.sroa.02.0.i6.i.i.i.i = phi i64 [ %33, %32 ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17h75953e8cbff9ee40E.exit.i.i.i.i" ]
   %34 = getelementptr inbounds nuw i8, ptr %12, i64 104
   %35 = load i8, ptr %34, align 8, !range !167, !alias.scope !227, !noundef !14
-  %36 = trunc nuw i8 %35 to i1
-  %spec.select.i.i.i.i = select i1 %36, i64 2, i64 0
+  %36 = shl nuw nsw i8 %35, 1
+  %spec.select.i.i.i.i = zext nneg i8 %36 to i64
   %37 = add nuw nsw i64 %.sroa.02.0.i.i.i.i.i, %.sroa.0.0.i.i.i.i
   %38 = add nuw nsw i64 %37, %.sroa.02.0.i6.i.i.i.i
   %39 = add nuw nsw i64 %38, %spec.select.i.i.i.i
@@ -3030,12 +3030,12 @@ define hidden noundef i64 @"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$G
   %.sroa.0.0.i.i.i.i = phi i64 [ %22, %15 ], [ 0, %11 ]
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %24 = load i8, ptr %23, align 8, !range !167, !alias.scope !290, !noundef !14
-  %25 = trunc nuw i8 %24 to i1
-  %spec.select.i.i.i.i = select i1 %25, i64 2, i64 0
+  %25 = shl nuw nsw i8 %24, 1
+  %spec.select.i.i.i.i = zext nneg i8 %25 to i64
   %26 = getelementptr inbounds nuw i8, ptr %12, i64 9
   %27 = load i8, ptr %26, align 1, !range !167, !alias.scope !290, !noundef !14
-  %28 = trunc nuw i8 %27 to i1
-  %.sroa.02.0.i.i.i.i = select i1 %28, i64 2, i64 0
+  %28 = shl nuw nsw i8 %27, 1
+  %.sroa.02.0.i.i.i.i = zext nneg i8 %28 to i64
   %29 = add i64 %.sroa.07.0.i, 1
   %30 = add i64 %29, %.sroa.0.0.i.i.i.i
   %31 = add i64 %30, %spec.select.i.i.i.i
@@ -4868,8 +4868,8 @@ _ZN5prost8encoding7message20encoded_len_repeated17h16b109762a865fa5E.exit.i: ; p
   %.sroa.02.0.i6.i.i.i.i.i.i.i = phi i64 [ %60, %59 ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17h75953e8cbff9ee40E.exit.i.i.i.i.i.i.i" ]
   %61 = getelementptr inbounds nuw i8, ptr %39, i64 104
   %62 = load i8, ptr %61, align 8, !range !167, !alias.scope !648, !noalias !642, !noundef !14
-  %63 = trunc nuw i8 %62 to i1
-  %spec.select.i.i.i.i.i.i.i = select i1 %63, i64 2, i64 0
+  %63 = shl nuw nsw i8 %62, 1
+  %spec.select.i.i.i.i.i.i.i = zext nneg i8 %63 to i64
   %64 = add nuw nsw i64 %.sroa.02.0.i.i.i.i.i.i.i.i, %.sroa.0.0.i.i.i.i.i.i.i
   %65 = add nuw nsw i64 %64, %.sroa.02.0.i6.i.i.i.i.i.i.i
   %66 = add nuw nsw i64 %65, %spec.select.i.i.i.i.i.i.i
@@ -4932,8 +4932,8 @@ _ZN5prost8encoding7message20encoded_len_repeated17h6415587da353fd12E.exit.i: ; p
   %.sroa.02.0.i6.i.i.i.i.i = phi i64 [ %100, %99 ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17h75953e8cbff9ee40E.exit.i.i.i.i.i" ]
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %102 = load i8, ptr %101, align 8, !range !167, !alias.scope !658, !noundef !14
-  %103 = trunc nuw i8 %102 to i1
-  %spec.select.i.i.i.i.i = select i1 %103, i64 2, i64 0
+  %103 = shl nuw nsw i8 %102, 1
+  %spec.select.i.i.i.i.i = zext nneg i8 %103 to i64
   %104 = add nuw nsw i64 %.sroa.02.0.i.i.i.i.i.i, %.sroa.0.0.i.i.i.i.i
   %105 = add nuw nsw i64 %104, %.sroa.02.0.i6.i.i.i.i.i
   %106 = add nuw nsw i64 %105, %spec.select.i.i.i.i.i
@@ -4959,8 +4959,8 @@ _ZN5prost8encoding7message20encoded_len_repeated17h6415587da353fd12E.exit.i: ; p
 
 "_ZN63_$LT$proto..view..Editor$u20$as$u20$prost..message..Message$GT$11encoded_len17h42a9db3d5a23b8d1E.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h096ebfdca3713b6eE.exit.i", %117
   %.sroa.02.0.i13.i = phi i64 [ %118, %117 ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17h096ebfdca3713b6eE.exit.i" ]
-  %119 = trunc nuw i8 %3 to i1
-  %spec.select.i = select i1 %119, i64 2, i64 0
+  %119 = shl nuw nsw i8 %3, 1
+  %spec.select.i = zext nneg i8 %119 to i64
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %121 = load float, ptr %120, align 8, !alias.scope !642, !noundef !14
   %122 = fcmp une float %121, 0.000000e+00
@@ -8071,8 +8071,8 @@ _ZN5prost8encoding7message11encoded_len17hc15f3d45a4c5aec9E.exit.i.i.i: ; preds 
   %.sroa.02.0.i6.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %277, %276 ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17h75953e8cbff9ee40E.exit.i.i.i.i.i.i.i.i.i.i.i" ]
   %278 = getelementptr inbounds nuw i8, ptr %256, i64 104
   %279 = load i8, ptr %278, align 8, !range !167, !alias.scope !1121, !noalias !1120, !noundef !14
-  %280 = trunc nuw i8 %279 to i1
-  %spec.select.i.i.i.i.i.i.i.i.i.i.i = select i1 %280, i64 2, i64 0
+  %280 = shl nuw nsw i8 %279, 1
+  %spec.select.i.i.i.i.i.i.i.i.i.i.i = zext nneg i8 %280 to i64
   %281 = add nuw nsw i64 %.sroa.02.0.i.i.i.i.i.i.i.i.i.i.i.i, %.sroa.0.0.i.i.i.i.i.i.i.i22.i.i.i
   %282 = add nuw nsw i64 %281, %.sroa.02.0.i6.i.i.i.i.i.i.i.i.i.i.i
   %283 = add nuw nsw i64 %282, %spec.select.i.i.i.i.i.i.i.i.i.i.i
@@ -8111,8 +8111,8 @@ _ZN5prost8encoding7message20encoded_len_repeated17h6415587da353fd12E.exit.i.i.i.
 
 _ZN5prost8encoding7message11encoded_len17h4967f454dc5d6605E.exit.i.i.i: ; preds = %299, %_ZN5prost8encoding7message20encoded_len_repeated17h6415587da353fd12E.exit.i.i.i.i.i
   %.sroa.03.0.i.i.i.i.i = phi i64 [ %307, %299 ], [ 0, %_ZN5prost8encoding7message20encoded_len_repeated17h6415587da353fd12E.exit.i.i.i.i.i ]
-  %308 = trunc nuw i8 %295 to i1
-  %spec.select.i.i.i.i.i = select i1 %308, i64 2, i64 0
+  %308 = shl nuw nsw i8 %295, 1
+  %spec.select.i.i.i.i.i = zext nneg i8 %308 to i64
   %309 = add nuw nsw i64 %.sroa.01.0.i.i18.i.i.i, %.sroa.0.0.i.i17.i.i.i
   %310 = add i64 %309, %254
   %311 = add i64 %310, %.sroa.04.0.i.i.i.i.i23.i.i.i
@@ -11169,8 +11169,8 @@ define hidden noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
   %.sroa.02.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %180, %171 ], [ 0, %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hf5d14cb0ab7c6bddE.llvm.587420211104578620.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i" ]
   %181 = getelementptr inbounds nuw i8, ptr %157, i64 48
   %182 = load i8, ptr %181, align 8, !range !167, !alias.scope !1612, !noalias !1582, !noundef !14
-  %183 = trunc nuw i8 %182 to i1
-  %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %183, i64 2, i64 0
+  %183 = shl nuw nsw i8 %182, 1
+  %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i.i = zext nneg i8 %183 to i64
   %184 = add i64 %.sroa.02.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %185 = add i64 %184, %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %186 = or i64 %185, 1
@@ -12253,9 +12253,9 @@ _ZN5prost8encoding7message11encoded_len17he0ac2c7e5b20dd7eE.exit.i.i.i.i.i.i: ; 
 
 _ZN5prost8encoding7message11encoded_len17hbdc6c2471fa3570eE.exit.i.i.i.i.i.i: ; preds = %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5fb60a331cddddc6E.exit.i.i.i.i.i24.i.i.i.i.i.i", %"_ZN4core6option15Option$LT$T$GT$6map_or17h3d768198cc33ebc3E.exit.i.i.i.i.i.i.i.i"
   %.sroa.04.0.i.i.i.i.i26.i.i.i.i.i.i = phi i64 [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17h3d768198cc33ebc3E.exit.i.i.i.i.i.i.i.i" ], [ %401, %"_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5fb60a331cddddc6E.exit.i.i.i.i.i24.i.i.i.i.i.i" ]
-  %404 = trunc nuw i8 %347 to i1
-  %spec.select.i.i.i.i.i.i.i.i = select i1 %404, i64 2, i64 0
-  %405 = add i64 %spec.select.i.i.i.i.i.i.i.i, %.sroa.0.0.i.i.i.i.i.i.i.i
+  %404 = shl nuw nsw i8 %347, 1
+  %spec.select.i.i.i.i.i.i.i.i = zext nneg i8 %404 to i64
+  %405 = add i64 %.sroa.0.0.i.i.i.i.i.i.i.i, %spec.select.i.i.i.i.i.i.i.i
   %406 = add i64 %405, %.sroa.02.0.i.i.i15.i.i.i.i.i.i
   %407 = add i64 %406, %376
   %408 = add i64 %407, %.sroa.04.0.i.i.i.i.i26.i.i.i.i.i.i
@@ -13136,17 +13136,17 @@ define hidden noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
   %229 = add i64 %228, %.sroa.05.0.i.i.i
   %230 = add i64 %229, %.sroa.02.0.i35.i.i.i
   %231 = add i64 %230, %.sroa.07.0.i.i.i
-  %232 = trunc nuw i8 %206 to i1
-  %spec.select.i.i.i = select i1 %232, i64 2, i64 0
+  %232 = shl nuw nsw i8 %206, 1
+  %spec.select.i.i.i = zext nneg i8 %232 to i64
   %233 = add i64 %231, %spec.select.i.i.i
-  %234 = trunc nuw i8 %208 to i1
-  %.sroa.09.0.i.i.i = select i1 %234, i64 2, i64 0
+  %234 = shl nuw nsw i8 %208, 1
+  %.sroa.09.0.i.i.i = zext nneg i8 %234 to i64
   %235 = add i64 %233, %.sroa.09.0.i.i.i
-  %236 = trunc nuw i8 %210 to i1
-  %.sroa.010.0.i.i.i = select i1 %236, i64 2, i64 0
+  %236 = shl nuw nsw i8 %210, 1
+  %.sroa.010.0.i.i.i = zext nneg i8 %236 to i64
   %237 = add i64 %235, %.sroa.010.0.i.i.i
-  %238 = trunc nuw i8 %212 to i1
-  %.sroa.011.0.i.i.i = select i1 %238, i64 2, i64 0
+  %238 = shl nuw nsw i8 %212, 1
+  %.sroa.011.0.i.i.i = zext nneg i8 %238 to i64
   %239 = add i64 %237, %.sroa.011.0.i.i.i
   %240 = add i64 %239, %.sroa.02.0.i37.i.i.i
   %241 = or i64 %240, 1
@@ -13835,10 +13835,10 @@ _ZN5prost8encoding7message11encoded_len17hcfb5c7202c9e3f26E.exit.i.i.i.i.i.i.i.i
 
 "_ZN63_$LT$proto..TemplatePair$u20$as$u20$prost..message..Message$GT$11encoded_len28_$u7b$$u7b$closure$u7d$$u7d$17hcde2f1f570f530f1E.exit.i.i.i.i": ; preds = %"_ZN63_$LT$proto..TaskTemplate$u20$as$u20$prost..message..Message$GT$11encoded_len28_$u7b$$u7b$closure$u7d$$u7d$17h22801321b3e0a862E.exit.i.i.i.i.i.i.i.i", %218
   %.sroa.02.0.i33.i.i.i.i.i.i.i = phi i64 [ %282, %"_ZN63_$LT$proto..TaskTemplate$u20$as$u20$prost..message..Message$GT$11encoded_len28_$u7b$$u7b$closure$u7d$$u7d$17h22801321b3e0a862E.exit.i.i.i.i.i.i.i.i" ], [ 0, %218 ]
-  %283 = trunc nuw i8 %174 to i1
-  %spec.select.i.i.i.i.i.i.i = select i1 %283, i64 2, i64 0
-  %284 = trunc nuw i8 %176 to i1
-  %.sroa.04.0.i.i.i.i.i.i.i = select i1 %284, i64 2, i64 0
+  %283 = shl nuw nsw i8 %174, 1
+  %spec.select.i.i.i.i.i.i.i = zext nneg i8 %283 to i64
+  %284 = shl nuw nsw i8 %176, 1
+  %.sroa.04.0.i.i.i.i.i.i.i = zext nneg i8 %284 to i64
   %285 = add i64 %.sroa.01.0.i.i.i.i.i.i.i, %.sroa.0.0.i.i.i.i.i.i.i
   %286 = add i64 %285, %145
   %287 = add i64 %286, %.sroa.04.0.i.i.i.i.i.i.i.i
@@ -14735,8 +14735,8 @@ define hidden noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
   %.sroa.04.0.i.i.i = phi i64 [ %66, %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hf5d14cb0ab7c6bddE.llvm.587420211104578620.exit19.thread.i.i.i" ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17h12bc9e44800e08d2E.exit.i.i.i" ]
   %67 = getelementptr inbounds nuw i8, ptr %12, i64 80
   %68 = load i8, ptr %67, align 8, !range !167, !alias.scope !2155, !noundef !14
-  %69 = trunc nuw i8 %68 to i1
-  %spec.select.i.i.i = select i1 %69, i64 2, i64 0
+  %69 = shl nuw nsw i8 %68, 1
+  %spec.select.i.i.i = zext nneg i8 %69 to i64
   %70 = getelementptr inbounds nuw i8, ptr %12, i64 81
   %71 = load i8, ptr %70, align 1, !range !2175, !alias.scope !2155, !noundef !14
   %72 = icmp eq i8 %71, 2
@@ -15321,8 +15321,8 @@ define hidden noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
 
 "_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h1ddd6adde7f60b9aE.exit.i.i.i.i.i.i": ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hf5d14cb0ab7c6bddE.llvm.587420211104578620.exit13.thread.i.i.i.i.i.i.i.i.i", %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hf5d14cb0ab7c6bddE.llvm.587420211104578620.exit.i.i.i.i.i.i.i.i.i"
   %.sroa.03.0.i.i.i.i.i.i.i.i.i = phi i64 [ %64, %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hf5d14cb0ab7c6bddE.llvm.587420211104578620.exit13.thread.i.i.i.i.i.i.i.i.i" ], [ 0, %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hf5d14cb0ab7c6bddE.llvm.587420211104578620.exit.i.i.i.i.i.i.i.i.i" ]
-  %65 = trunc nuw i8 %54 to i1
-  %spec.select.i.i.i.i.i.i.i.i.i = select i1 %65, i64 2, i64 0
+  %65 = shl nuw nsw i8 %54, 1
+  %spec.select.i.i.i.i.i.i.i.i.i = zext nneg i8 %65 to i64
   %66 = add i64 %.sroa.01.0.i.i.i.i.i.i.i.i.i, %.sroa.0.0.i.i.i.i.i.i.i.i.i
   %67 = add i64 %66, %spec.select.i.i.i.i.i.i.i.i.i
   %68 = add i64 %67, %.sroa.03.0.i.i.i.i.i.i.i.i.i
@@ -15799,8 +15799,8 @@ define hidden noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
 
 "_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h1ddd6adde7f60b9aE.exit": ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hf5d14cb0ab7c6bddE.llvm.587420211104578620.exit.i.i.i", %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hf5d14cb0ab7c6bddE.llvm.587420211104578620.exit13.thread.i.i.i"
   %.sroa.03.0.i.i.i = phi i64 [ %46, %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hf5d14cb0ab7c6bddE.llvm.587420211104578620.exit13.thread.i.i.i" ], [ 0, %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hf5d14cb0ab7c6bddE.llvm.587420211104578620.exit.i.i.i" ]
-  %47 = trunc nuw i8 %36 to i1
-  %spec.select.i.i.i = select i1 %47, i64 2, i64 0
+  %47 = shl nuw nsw i8 %36, 1
+  %spec.select.i.i.i = zext nneg i8 %47 to i64
   %48 = add i64 %.sroa.01.0.i.i.i, %.sroa.0.0.i.i.i
   %49 = add i64 %48, %spec.select.i.i.i
   %50 = add i64 %49, %.sroa.03.0.i.i.i
@@ -16482,8 +16482,8 @@ define hidden noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
 
 _ZN5prost8encoding7message11encoded_len17he3c4261dfb11444fE.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hf5d14cb0ab7c6bddE.llvm.587420211104578620.exit.thread.i.i.i.i.i.i.i.i.i.i.i.i", %28
   %.sroa.01.0.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %38, %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hf5d14cb0ab7c6bddE.llvm.587420211104578620.exit.thread.i.i.i.i.i.i.i.i.i.i.i.i" ], [ 0, %28 ]
-  %39 = trunc nuw i8 %.val3.i.i.i.i.i.i.i.i.i.i to i1
-  %spec.select.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %39, i64 2, i64 0
+  %39 = shl nuw nsw i8 %.val3.i.i.i.i.i.i.i.i.i.i, 1
+  %spec.select.i.i.i.i.i.i.i.i.i.i.i.i = zext nneg i8 %39 to i64
   %40 = add i64 %.sroa.01.0.i.i.i.i.i.i.i.i.i.i.i.i, %spec.select.i.i.i.i.i.i.i.i.i.i.i.i
   br label %_ZN4core3ops8function6FnOnce9call_once17hf15f8cfabfb2f5d2E.exit.i.i.i.i.i.i.i.i
 
@@ -16831,24 +16831,24 @@ define hidden noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
 
 "_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h1be7735bc52eb3bfE.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17ha701b32b6dfe51e3E.exit.i.i.i", %95
   %.sroa.02.0.i27.i.i.i = phi i64 [ %103, %95 ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17ha701b32b6dfe51e3E.exit.i.i.i" ]
-  %104 = trunc nuw i8 %26 to i1
-  %spec.select.i.i.i = select i1 %104, i64 2, i64 0
-  %105 = add nuw nsw i64 %spec.select.i.i.i, %.sroa.0.0.i.i.i
+  %104 = shl nuw nsw i8 %26, 1
+  %spec.select.i.i.i = zext nneg i8 %104 to i64
+  %105 = add nuw nsw i64 %.sroa.0.0.i.i.i, %spec.select.i.i.i
   %106 = add i64 %105, %.sroa.02.0.i.i.i
   %107 = add i64 %106, %.sroa.03.0.i.i.i
   %108 = add i64 %107, %.sroa.02.0.i.i.i.i
-  %109 = trunc nuw i8 %74 to i1
-  %spec.select29.i.i.i = select i1 %109, i64 2, i64 0
+  %109 = shl nuw nsw i8 %74, 1
+  %spec.select29.i.i.i = zext nneg i8 %109 to i64
   %110 = add i64 %108, %spec.select29.i.i.i
-  %111 = trunc nuw i8 %76 to i1
-  %.sroa.06.0.i.i.i = select i1 %111, i64 2, i64 0
+  %111 = shl nuw nsw i8 %76, 1
+  %.sroa.06.0.i.i.i = zext nneg i8 %111 to i64
   %112 = add i64 %110, %.sroa.06.0.i.i.i
-  %113 = trunc nuw i8 %78 to i1
-  %.sroa.07.0.i.i.i = select i1 %113, i64 2, i64 0
+  %113 = shl nuw nsw i8 %78, 1
+  %.sroa.07.0.i.i.i = zext nneg i8 %113 to i64
   %114 = add i64 %112, %.sroa.07.0.i.i.i
   %115 = add i64 %114, %.sroa.02.0.i25.i.i.i
-  %116 = trunc nuw i8 %92 to i1
-  %spec.select30.i.i.i = select i1 %116, i64 2, i64 0
+  %116 = shl nuw nsw i8 %92, 1
+  %spec.select30.i.i.i = zext nneg i8 %116 to i64
   %117 = add i64 %115, %spec.select30.i.i.i
   %118 = add i64 %117, %.sroa.02.0.i27.i.i.i
   %119 = or i64 %118, 1
@@ -16972,8 +16972,8 @@ define hidden noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
 
 "_ZN4core4iter8adapters3map8map_fold28_$u7b$$u7b$closure$u7d$$u7d$17h1ddd6adde7f60b9aE.exit.i.i.i.i.i.i": ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hf5d14cb0ab7c6bddE.llvm.587420211104578620.exit13.thread.i.i.i.i.i.i.i.i.i", %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hf5d14cb0ab7c6bddE.llvm.587420211104578620.exit.i.i.i.i.i.i.i.i.i"
   %.sroa.03.0.i.i.i.i.i.i.i.i.i = phi i64 [ %64, %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hf5d14cb0ab7c6bddE.llvm.587420211104578620.exit13.thread.i.i.i.i.i.i.i.i.i" ], [ 0, %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hf5d14cb0ab7c6bddE.llvm.587420211104578620.exit.i.i.i.i.i.i.i.i.i" ]
-  %65 = trunc nuw i8 %54 to i1
-  %spec.select.i.i.i.i.i.i.i.i.i = select i1 %65, i64 2, i64 0
+  %65 = shl nuw nsw i8 %54, 1
+  %spec.select.i.i.i.i.i.i.i.i.i = zext nneg i8 %65 to i64
   %66 = add i64 %.sroa.01.0.i.i.i.i.i.i.i.i.i, %.sroa.0.0.i.i.i.i.i.i.i.i.i
   %67 = add i64 %66, %spec.select.i.i.i.i.i.i.i.i.i
   %68 = add i64 %67, %.sroa.03.0.i.i.i.i.i.i.i.i.i
@@ -18791,12 +18791,12 @@ define hidden noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
   %.sroa.0.0.i.i.i = phi i64 [ %22, %15 ], [ 0, %11 ]
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %24 = load i8, ptr %23, align 8, !range !167, !alias.scope !2717, !noundef !14
-  %25 = trunc nuw i8 %24 to i1
-  %spec.select.i.i.i = select i1 %25, i64 2, i64 0
+  %25 = shl nuw nsw i8 %24, 1
+  %spec.select.i.i.i = zext nneg i8 %25 to i64
   %26 = getelementptr inbounds nuw i8, ptr %12, i64 9
   %27 = load i8, ptr %26, align 1, !range !167, !alias.scope !2717, !noundef !14
-  %28 = trunc nuw i8 %27 to i1
-  %.sroa.02.0.i.i.i = select i1 %28, i64 2, i64 0
+  %28 = shl nuw nsw i8 %27, 1
+  %.sroa.02.0.i.i.i = zext nneg i8 %28 to i64
   %29 = add i64 %.sroa.07.0, 1
   %30 = add i64 %29, %.sroa.0.0.i.i.i
   %31 = add i64 %30, %spec.select.i.i.i
@@ -18868,8 +18868,8 @@ define hidden noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
   %.sroa.02.0.i.i.i.i = phi i64 [ %35, %26 ], [ 0, %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hf5d14cb0ab7c6bddE.llvm.587420211104578620.exit.i.i.i" ]
   %36 = getelementptr inbounds nuw i8, ptr %12, i64 48
   %37 = load i8, ptr %36, align 8, !range !167, !alias.scope !2735, !noundef !14
-  %38 = trunc nuw i8 %37 to i1
-  %spec.select.i.i.i = select i1 %38, i64 2, i64 0
+  %38 = shl nuw nsw i8 %37, 1
+  %spec.select.i.i.i = zext nneg i8 %38 to i64
   %39 = add i64 %.sroa.02.0.i.i.i.i, %.sroa.0.0.i.i.i
   %40 = add i64 %39, %spec.select.i.i.i
   %41 = or i64 %40, 1
@@ -19198,8 +19198,8 @@ _ZN4core3ops8function6FnOnce9call_once17h9654089c4920e19bE.exit.i.i.i.i.i.i.i.i:
 
 _ZN5prost8encoding7message11encoded_len17he3c4261dfb11444fE.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hf5d14cb0ab7c6bddE.llvm.587420211104578620.exit.thread.i.i.i.i.i.i.i.i.i.i.i.i", %131
   %.sroa.01.0.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %141, %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hf5d14cb0ab7c6bddE.llvm.587420211104578620.exit.thread.i.i.i.i.i.i.i.i.i.i.i.i" ], [ 0, %131 ]
-  %142 = trunc nuw i8 %.val3.i.i.i.i.i.i.i15.i.i.i to i1
-  %spec.select.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %142, i64 2, i64 0
+  %142 = shl nuw nsw i8 %.val3.i.i.i.i.i.i.i15.i.i.i, 1
+  %spec.select.i.i.i.i.i.i.i.i.i.i.i.i = zext nneg i8 %142 to i64
   %143 = add i64 %.sroa.01.0.i.i.i.i.i.i.i.i.i.i.i.i, %spec.select.i.i.i.i.i.i.i.i.i.i.i.i
   br label %_ZN4core3ops8function6FnOnce9call_once17hef3d70c0fc40d3e9E.exit.i.i.i.i.i.i.i.i
 
@@ -19325,11 +19325,11 @@ _ZN4core3ops8function6FnOnce9call_once17hef3d70c0fc40d3e9E.exit.i.i.i.i.i.i.i.i:
   %.sroa.02.0.i20.i.i.i = phi i64 [ %215, %"_ZN60_$LT$proto..InlayHint$u20$as$u20$prost..message..Message$GT$11encoded_len28_$u7b$$u7b$closure$u7d$$u7d$17h0d4cf43f1a852070E.exit.i.i.i.i" ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17h9cee8ecb1d3f3bc1E.exit.i.i.i" ]
   %216 = add i64 %.sroa.02.0.i9.i.i.i, %.sroa.02.0.i.i.i.i
   %217 = add i64 %216, %.sroa.02.0.i10.i.i.i
-  %218 = trunc nuw i8 %123 to i1
-  %spec.select.i.i.i = select i1 %218, i64 2, i64 0
+  %218 = shl nuw nsw i8 %123, 1
+  %spec.select.i.i.i = zext nneg i8 %218 to i64
   %219 = add i64 %217, %spec.select.i.i.i
-  %220 = trunc nuw i8 %125 to i1
-  %.sroa.04.0.i.i.i = select i1 %220, i64 2, i64 0
+  %220 = shl nuw nsw i8 %125, 1
+  %.sroa.04.0.i.i.i = zext nneg i8 %220 to i64
   %221 = add i64 %219, %.sroa.04.0.i.i.i
   %222 = add i64 %221, %.sroa.02.0.i13.i.i.i
   %223 = add i64 %222, %.sroa.02.0.i20.i.i.i
@@ -19575,8 +19575,8 @@ _ZN5prost8encoding7message11encoded_len17he81bcc0d01c09357E.exit.i.i.i.i.i.i: ; 
 
 _ZN5prost8encoding7message11encoded_len17he3c4261dfb11444fE.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hf5d14cb0ab7c6bddE.llvm.587420211104578620.exit.thread.i.i.i.i.i.i.i.i.i.i.i.i", %53
   %.sroa.01.0.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %63, %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hf5d14cb0ab7c6bddE.llvm.587420211104578620.exit.thread.i.i.i.i.i.i.i.i.i.i.i.i" ], [ 0, %53 ]
-  %64 = trunc nuw i8 %.val3.i.i.i.i.i.i.i.i.i.i to i1
-  %spec.select.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %64, i64 2, i64 0
+  %64 = shl nuw nsw i8 %.val3.i.i.i.i.i.i.i.i.i.i, 1
+  %spec.select.i.i.i.i.i.i.i.i.i.i.i.i = zext nneg i8 %64 to i64
   %65 = add i64 %.sroa.01.0.i.i.i.i.i.i.i.i.i.i.i.i, %spec.select.i.i.i.i.i.i.i.i.i.i.i.i
   br label %_ZN4core3ops8function6FnOnce9call_once17hc2654dbb5e3e70a9E.exit.i.i.i.i.i.i.i.i
 
@@ -19762,8 +19762,8 @@ define hidden noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
 
 _ZN5prost8encoding7message11encoded_len17he3c4261dfb11444fE.exit.i.i.i.i.i.i.i.i.i.i: ; preds = %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hf5d14cb0ab7c6bddE.llvm.587420211104578620.exit.thread.i.i.i.i.i.i.i.i.i.i.i.i", %28
   %.sroa.01.0.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %38, %"_ZN77_$LT$alloc..string..String$u20$as$u20$core..cmp..PartialEq$LT$$RF$str$GT$$GT$2ne17hf5d14cb0ab7c6bddE.llvm.587420211104578620.exit.thread.i.i.i.i.i.i.i.i.i.i.i.i" ], [ 0, %28 ]
-  %39 = trunc nuw i8 %.val3.i.i.i.i.i.i.i.i.i.i to i1
-  %spec.select.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %39, i64 2, i64 0
+  %39 = shl nuw nsw i8 %.val3.i.i.i.i.i.i.i.i.i.i, 1
+  %spec.select.i.i.i.i.i.i.i.i.i.i.i.i = zext nneg i8 %39 to i64
   %40 = add i64 %.sroa.01.0.i.i.i.i.i.i.i.i.i.i.i.i, %spec.select.i.i.i.i.i.i.i.i.i.i.i.i
   br label %_ZN4core3ops8function6FnOnce9call_once17hc2654dbb5e3e70a9E.exit.i.i.i.i.i.i.i.i
 
@@ -19961,8 +19961,8 @@ define hidden noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u2
   %.sroa.02.0.i6.i.i.i = phi i64 [ %33, %32 ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17h75953e8cbff9ee40E.exit.i.i.i" ]
   %34 = getelementptr inbounds nuw i8, ptr %12, i64 104
   %35 = load i8, ptr %34, align 8, !range !167, !alias.scope !2924, !noundef !14
-  %36 = trunc nuw i8 %35 to i1
-  %spec.select.i.i.i = select i1 %36, i64 2, i64 0
+  %36 = shl nuw nsw i8 %35, 1
+  %spec.select.i.i.i = zext nneg i8 %36 to i64
   %37 = add nuw nsw i64 %.sroa.02.0.i.i.i.i, %.sroa.0.0.i.i.i
   %38 = add nuw nsw i64 %37, %.sroa.02.0.i6.i.i.i
   %39 = add nuw nsw i64 %38, %spec.select.i.i.i

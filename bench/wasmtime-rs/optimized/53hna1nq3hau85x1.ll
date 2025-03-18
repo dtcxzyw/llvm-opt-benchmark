@@ -16895,8 +16895,7 @@ _ZN9regalloc27Operand10constraint17h239d5f8a8b8d6956E.exit.thread: ; preds = %67
   %793 = phi i32 [ %808, %804 ], [ %.pre3625, %818 ]
   %794 = phi i32 [ %530, %804 ], [ %.pre3624, %818 ]
   %795 = phi i8 [ %.sroa.51046.0.copyload1048, %804 ], [ %.pre3623, %818 ]
-  %trunc576 = trunc nuw i8 %795 to i1
-  %. = select i1 %trunc576, i8 3, i8 2
+  %. = or disjoint i8 %795, 2
   %796 = load i32, ptr %507, align 4, !noundef !14
   %.val670 = load i64, ptr %157, align 8, !noundef !14
   %797 = zext i32 %796 to i64
@@ -35923,17 +35922,17 @@ _ZN9regalloc27Operand10constraint17h239d5f8a8b8d6956E.exit229: ; preds = %141
 
 307:                                              ; preds = %267
   %308 = load i8, ptr %24, align 1, !range !651, !noundef !14
-  %309 = trunc nuw i8 %308 to i1
-  %..i = select i1 %309, i32 -2147483648, i32 0
+  %309 = zext nneg i8 %308 to i32
+  %..i = shl nuw i32 %309, 31
   %.04.i = select i1 %.3185265, i32 1073741824, i32 0
   %.05.i = select i1 %.3181267, i32 536870912, i32 0
   %.06.i = select i1 %.3270, i32 268435456, i32 0
-  %310 = getelementptr inbounds nuw [0 x { { { [6 x i64] }, i64 }, i32, i32, i32, i32 }], ptr %45, i64 0, i64 %269, i32 4
-  %311 = or disjoint i32 %.05.i, %.06.i
-  %312 = or disjoint i32 %311, %.0186
-  %313 = or disjoint i32 %312, %.04.i
-  %314 = or disjoint i32 %313, %..i
-  store i32 %314, ptr %310, align 4, !alias.scope !5830
+  %310 = or disjoint i32 %..i, %.0186
+  %311 = or disjoint i32 %310, %.04.i
+  %312 = or disjoint i32 %311, %.05.i
+  %313 = getelementptr inbounds nuw [0 x { { { [6 x i64] }, i64 }, i32, i32, i32, i32 }], ptr %45, i64 0, i64 %269, i32 4
+  %314 = or disjoint i32 %312, %.06.i
+  store i32 %314, ptr %313, align 4, !alias.scope !5830
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %24)
   ret void
 

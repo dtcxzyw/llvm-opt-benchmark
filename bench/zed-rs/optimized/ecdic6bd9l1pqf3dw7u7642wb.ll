@@ -28419,13 +28419,13 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h068e552cef3c7d19E.exit.thre
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %42 = load ptr, ptr %41, align 8, !alias.scope !5247, !nonnull !4, !noundef !4
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 288
-  br label %58
+  br label %57
 
 44:                                               ; preds = %37
   %45 = getelementptr inbounds nuw i8, ptr %38, i64 104
   %46 = load ptr, ptr %45, align 8, !noundef !4
   %47 = icmp eq ptr %46, null
-  br i1 %47, label %48, label %58
+  br i1 %47, label %48, label %57
 
 48:                                               ; preds = %44
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -28434,40 +28434,38 @@ _ZN4core7unicode12unicode_data11white_space6lookup17h068e552cef3c7d19E.exit.thre
   %52 = getelementptr inbounds nuw i8, ptr %38, i64 112
   %53 = load i8, ptr %52, align 8, !range !10, !noundef !4
   %54 = trunc nuw i8 %53 to i1
-  br i1 %54, label %_ZN8language13LanguageScope15word_characters17hf866ec29de1a7a4fE.exit, label %58
+  br i1 %54, label %_ZN8language13LanguageScope15word_characters17hf866ec29de1a7a4fE.exit, label %57
 
-_ZN8language13LanguageScope15word_characters17hf866ec29de1a7a4fE.exit: ; preds = %48, %58, %34
+_ZN8language13LanguageScope15word_characters17hf866ec29de1a7a4fE.exit: ; preds = %48, %57, %34
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 17
   %56 = load i8, ptr %55, align 1, !range !10, !noundef !4
-  %57 = trunc nuw i8 %56 to i1
-  %. = select i1 %57, i8 2, i8 1
+  %. = add nuw nsw i8 %56, 1
   br label %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$15is_alphanumeric17hda8b0579060f0c9cE.exit.thread"
 
-58:                                               ; preds = %40, %44, %48
+57:                                               ; preds = %40, %44, %48
   %.sroa.0.0.i9.ph = phi ptr [ %51, %48 ], [ %45, %44 ], [ %43, %40 ]
-  %59 = tail call fastcc noundef align 4 dereferenceable_or_null(4) ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hdc35ec35bd4873ddE"(ptr noalias noundef readonly align 8 dereferenceable(32) %.sroa.0.0.i9.ph, i32 %1)
-  %60 = icmp eq ptr %59, null
-  br i1 %60, label %_ZN8language13LanguageScope15word_characters17hf866ec29de1a7a4fE.exit, label %61
+  %58 = tail call fastcc noundef align 4 dereferenceable_or_null(4) ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$9get_inner17hdc35ec35bd4873ddE"(ptr noalias noundef readonly align 8 dereferenceable(32) %.sroa.0.0.i9.ph, i32 %1)
+  %59 = icmp eq ptr %58, null
+  br i1 %59, label %_ZN8language13LanguageScope15word_characters17hf866ec29de1a7a4fE.exit, label %60
 
-61:                                               ; preds = %58
-  %62 = icmp eq i32 %1, 45
-  br i1 %62, label %63, label %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$15is_alphanumeric17hda8b0579060f0c9cE.exit.thread"
+60:                                               ; preds = %57
+  %61 = icmp eq i32 %1, 45
+  br i1 %61, label %62, label %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$15is_alphanumeric17hda8b0579060f0c9cE.exit.thread"
 
-63:                                               ; preds = %61
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %65 = load i8, ptr %64, align 8, !range !10, !noundef !4
-  %66 = trunc nuw i8 %65 to i1
-  br i1 %66, label %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$15is_alphanumeric17hda8b0579060f0c9cE.exit.thread", label %67
+62:                                               ; preds = %60
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %64 = load i8, ptr %63, align 8, !range !10, !noundef !4
+  %65 = trunc nuw i8 %64 to i1
+  br i1 %65, label %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$15is_alphanumeric17hda8b0579060f0c9cE.exit.thread", label %66
 
-67:                                               ; preds = %63
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 17
-  %69 = load i8, ptr %68, align 1, !range !10, !noundef !4
-  %70 = trunc nuw i8 %69 to i1
-  %spec.select = select i1 %70, i8 2, i8 1
+66:                                               ; preds = %62
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 17
+  %68 = load i8, ptr %67, align 1, !range !10, !noundef !4
+  %spec.select = add nuw nsw i8 %68, 1
   br label %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$15is_alphanumeric17hda8b0579060f0c9cE.exit.thread"
 
-"_ZN4core4char7methods22_$LT$impl$u20$char$GT$15is_alphanumeric17hda8b0579060f0c9cE.exit.thread": ; preds = %.thread, %29, %_ZN4core7unicode12unicode_data11white_space6lookup17h068e552cef3c7d19E.exit.thread, %67, %2, %2, %2, %2, %2, %2, %63, %61, %_ZN8language13LanguageScope15word_characters17hf866ec29de1a7a4fE.exit, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$15is_alphanumeric17hda8b0579060f0c9cE.exit", %_ZN4core7unicode12unicode_data11white_space6lookup17h068e552cef3c7d19E.exit
-  %.sroa.0.1 = phi i8 [ 0, %2 ], [ 0, %_ZN4core7unicode12unicode_data11white_space6lookup17h068e552cef3c7d19E.exit ], [ 2, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$15is_alphanumeric17hda8b0579060f0c9cE.exit" ], [ %., %_ZN8language13LanguageScope15word_characters17hf866ec29de1a7a4fE.exit ], [ 2, %63 ], [ 2, %61 ], [ %spec.select, %67 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 2, %_ZN4core7unicode12unicode_data11white_space6lookup17h068e552cef3c7d19E.exit.thread ], [ 2, %29 ], [ 2, %.thread ]
+"_ZN4core4char7methods22_$LT$impl$u20$char$GT$15is_alphanumeric17hda8b0579060f0c9cE.exit.thread": ; preds = %.thread, %29, %_ZN4core7unicode12unicode_data11white_space6lookup17h068e552cef3c7d19E.exit.thread, %66, %2, %2, %2, %2, %2, %2, %62, %60, %_ZN8language13LanguageScope15word_characters17hf866ec29de1a7a4fE.exit, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$15is_alphanumeric17hda8b0579060f0c9cE.exit", %_ZN4core7unicode12unicode_data11white_space6lookup17h068e552cef3c7d19E.exit
+  %.sroa.0.1 = phi i8 [ 0, %2 ], [ 0, %_ZN4core7unicode12unicode_data11white_space6lookup17h068e552cef3c7d19E.exit ], [ 2, %"_ZN4core4char7methods22_$LT$impl$u20$char$GT$15is_alphanumeric17hda8b0579060f0c9cE.exit" ], [ %., %_ZN8language13LanguageScope15word_characters17hf866ec29de1a7a4fE.exit ], [ 2, %62 ], [ 2, %60 ], [ %spec.select, %66 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 0, %2 ], [ 2, %_ZN4core7unicode12unicode_data11white_space6lookup17h068e552cef3c7d19E.exit.thread ], [ 2, %29 ], [ 2, %.thread ]
   ret i8 %.sroa.0.1
 }
 

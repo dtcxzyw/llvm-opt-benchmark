@@ -33173,11 +33173,11 @@ _ZNK5clang22OMPExecutableDirective15getSingleClauseINS_14OMPFinalClauseEEEPKT_v.
 
 69:                                               ; preds = %64
   %70 = load i8, ptr %9, align 1, !tbaa !1193, !range !682, !noundef !683
-  %71 = trunc nuw i8 %70 to i1
   %.0.copyload.i.i.i = load i64, ptr %68, align 8
-  %72 = and i64 %.0.copyload.i.i.i, -5
-  %73 = select i1 %71, i64 4, i64 0
-  %74 = or disjoint i64 %72, %73
+  %71 = and i64 %.0.copyload.i.i.i, -5
+  %72 = shl nuw nsw i8 %70, 2
+  %73 = zext nneg i8 %72 to i64
+  %74 = or disjoint i64 %71, %73
   br label %80
 
 75:                                               ; preds = %64
@@ -39986,8 +39986,8 @@ _ZNK5clang22OMPExecutableDirective15getSingleClauseINS_15OMPUpdateClauseEEEPKT_v
   %131 = getelementptr inbounds nuw i8, ptr %125, i64 16
   %132 = getelementptr inbounds nuw i8, ptr %125, i64 12
   %133 = load i8, ptr %132, align 4, !tbaa !2800, !range !682, !noundef !683
-  %134 = trunc nuw i8 %133 to i1
-  %135 = select i1 %134, i64 2, i64 0
+  %134 = shl nuw nsw i8 %133, 1
+  %135 = zext nneg i8 %134 to i64
   %136 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %131, i64 %135
   %137 = load i32, ptr %136, align 4, !tbaa !2660
   %.sroa.0.0.copyload.i64 = load i32, ptr %125, align 4, !tbaa !635

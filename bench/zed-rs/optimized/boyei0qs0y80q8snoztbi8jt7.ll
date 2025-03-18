@@ -3200,26 +3200,17 @@ _ZN5prost8encoding10encode_key17hacdf2caeca094154E.llvm.11538535937534900153.exi
 
 _ZN5bytes3buf7buf_mut6BufMut6put_u817h449591d55c4de30eE.llvm.11538535937534900153.exit: ; preds = %_ZN5prost8encoding10encode_key17hacdf2caeca094154E.llvm.11538535937534900153.exit, %45
   %46 = phi i64 [ %.pre.i.i.i.i.i, %45 ], [ %33, %_ZN5prost8encoding10encode_key17hacdf2caeca094154E.llvm.11538535937534900153.exit ]
-  %47 = trunc nuw i8 %42 to i1
-  %48 = trunc nuw i8 %40 to i1
-  %49 = trunc nuw i8 %38 to i1
-  %50 = trunc nuw i8 %34 to i1
-  %51 = trunc nuw i8 %36 to i1
-  %.sroa.01.0.i = select i1 %51, i8 2, i8 0
-  %spec.select.i = select i1 %50, i8 2, i8 0
-  %52 = add nuw nsw i8 %.sroa.01.0.i, %spec.select.i
-  %.sroa.02.0.i = select i1 %49, i8 2, i8 0
-  %53 = add nuw nsw i8 %52, %.sroa.02.0.i
-  %.sroa.03.0.i = select i1 %48, i8 2, i8 0
-  %54 = add nuw nsw i8 %53, %.sroa.03.0.i
-  %.sroa.04.0.i = select i1 %47, i8 2, i8 0
-  %55 = add nuw nsw i8 %54, %.sroa.04.0.i
-  %56 = load ptr, ptr %29, align 8, !alias.scope !854, !noalias !865, !nonnull !4, !noundef !4
-  %57 = getelementptr inbounds i8, ptr %56, i64 %46
-  store i8 %55, ptr %57, align 1
-  %58 = load i64, ptr %.phi.trans.insert.i, align 8, !alias.scope !854, !noalias !865, !noundef !4
-  %59 = add i64 %58, 1
-  store i64 %59, ptr %.phi.trans.insert.i, align 8, !alias.scope !854, !noalias !865
+  %47 = add nuw nsw i8 %36, %34
+  %narrow6.i = add nuw nsw i8 %47, %38
+  %narrow57.i = add nuw nsw i8 %narrow6.i, %40
+  %narrow9.i = add nuw nsw i8 %narrow57.i, %42
+  %narrow8.i = shl nuw nsw i8 %narrow9.i, 1
+  %48 = load ptr, ptr %29, align 8, !alias.scope !854, !noalias !865, !nonnull !4, !noundef !4
+  %49 = getelementptr inbounds i8, ptr %48, i64 %46
+  store i8 %narrow8.i, ptr %49, align 1
+  %50 = load i64, ptr %.phi.trans.insert.i, align 8, !alias.scope !854, !noalias !865, !noundef !4
+  %51 = add i64 %50, 1
+  store i64 %51, ptr %.phi.trans.insert.i, align 8, !alias.scope !854, !noalias !865
   tail call void @"_ZN89_$LT$live_kit_server..proto..ParticipantPermission$u20$as$u20$prost..message..Message$GT$10encode_raw17h9983f8e06285c23dE"(ptr noalias noundef nonnull readonly align 1 dereferenceable(5) %1, ptr noalias noundef nonnull align 8 dereferenceable(24) %2)
   ret void
 }
@@ -4580,11 +4571,11 @@ _ZN4core3ops8function6FnOnce9call_once17h892c6be898aefc43E.exit.i: ; preds = %76
 "_ZN4core6option15Option$LT$T$GT$6map_or17h1692effaf99c6182E.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17hb1c85323ae5cfc46E.exit", %91, %101
   %.sroa.02.0.i21 = phi i64 [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17hb1c85323ae5cfc46E.exit" ], [ %103, %101 ], [ %100, %91 ]
   %104 = add i64 %.sroa.01.0, %.sroa.0.0
-  %105 = trunc nuw i8 %23 to i1
-  %spec.select = select i1 %105, i64 2, i64 0
+  %105 = shl nuw nsw i8 %23, 1
+  %spec.select = zext nneg i8 %105 to i64
   %106 = add i64 %104, %spec.select
-  %107 = trunc nuw i8 %25 to i1
-  %.sroa.03.0 = select i1 %107, i64 2, i64 0
+  %107 = shl nuw nsw i8 %25, 1
+  %.sroa.03.0 = zext nneg i8 %107 to i64
   %108 = add i64 %106, %.sroa.03.0
   %109 = add i64 %108, %.sroa.04.0
   %110 = add i64 %109, %.sroa.02.0.i
@@ -5953,29 +5944,21 @@ _ZN5prost8encoding7message11encoded_len17h17d6b6920bc7d835E.llvm.115385359375349
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef range(i64 0, 11) i64 @"_ZN89_$LT$live_kit_server..proto..ParticipantPermission$u20$as$u20$prost..message..Message$GT$11encoded_len17h1af6591c254a759bE.llvm.11538535937534900153"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(5) %0) unnamed_addr #2 {
   %2 = load i8, ptr %0, align 1, !range !850, !noundef !4
-  %3 = trunc nuw i8 %2 to i1
-  %spec.select = select i1 %3, i64 2, i64 0
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %5 = load i8, ptr %4, align 1, !range !850, !noundef !4
-  %6 = trunc nuw i8 %5 to i1
-  %.sroa.01.0 = select i1 %6, i64 2, i64 0
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %4 = load i8, ptr %3, align 1, !range !850, !noundef !4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %6 = load i8, ptr %5, align 1, !range !850, !noundef !4
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 3
   %8 = load i8, ptr %7, align 1, !range !850, !noundef !4
-  %9 = trunc nuw i8 %8 to i1
-  %.sroa.02.0 = select i1 %9, i64 2, i64 0
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 3
-  %11 = load i8, ptr %10, align 1, !range !850, !noundef !4
-  %12 = trunc nuw i8 %11 to i1
-  %.sroa.03.0 = select i1 %12, i64 2, i64 0
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %14 = load i8, ptr %13, align 1, !range !850, !noundef !4
-  %15 = trunc nuw i8 %14 to i1
-  %.sroa.04.0 = select i1 %15, i64 2, i64 0
-  %16 = add nuw nsw i64 %.sroa.01.0, %spec.select
-  %17 = add nuw nsw i64 %16, %.sroa.02.0
-  %18 = add nuw nsw i64 %17, %.sroa.03.0
-  %19 = add nuw nsw i64 %18, %.sroa.04.0
-  ret i64 %19
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %10 = load i8, ptr %9, align 1, !range !850, !noundef !4
+  %11 = add nuw nsw i8 %4, %2
+  %narrow6 = add nuw nsw i8 %11, %6
+  %narrow57 = add nuw nsw i8 %narrow6, %8
+  %narrow9 = add nuw nsw i8 %narrow57, %10
+  %narrow8 = shl nuw nsw i8 %narrow9, 1
+  %12 = zext nneg i8 %narrow8 to i64
+  ret i64 %12
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

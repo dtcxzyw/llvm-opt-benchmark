@@ -12937,9 +12937,9 @@ _ZN18wasmtime_cranelift5debug9transform17address_transform16AddressTransform9tra
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2), !noalias !2298
   call void @_ZN18wasmtime_cranelift5debug9transform17address_transform16AddressTransform13translate_raw17h19b80264ad53c01cE.llvm.12599983639457799574(ptr noalias noundef nonnull sret({ i64, [2 x i64] }) align 8 captures(none) dereferenceable(24) %2, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %0, i64 noundef %1), !noalias !2302
   %3 = load i64, ptr %2, align 8, !range !354, !noalias !2298, !noundef !9
-  %trunc.i = trunc nuw i64 %3 to i1
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !2298
-  ret i1 %trunc.i
+  %4 = icmp ne i64 %3, 0
+  ret i1 %4
 }
 
 ; Function Attrs: nonlazybind uwtable

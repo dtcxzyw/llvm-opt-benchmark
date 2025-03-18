@@ -31931,7 +31931,7 @@ _ZN4llvm4yaml2IO11mapOptionalINS_9StringRefEEEvPKcRT_.exit: ; preds = %562, %567
   %590 = load ptr, ptr %589, align 8
   call void %590(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(34) %487) #30
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %487) #30
-  br label %2997
+  br label %2996
 
 .loopexit:                                        ; preds = %561, %.thread, %.critedge, %_ZN4llvm4yaml2IO11mapOptionalINS_9StringRefEEEvPKcRT_.exit
   %591 = getelementptr inbounds nuw i8, ptr %485, i64 8
@@ -36904,121 +36904,120 @@ _ZN4llvm4yaml2IO11mapOptionalISt6vectorINSt7__cxx1112basic_stringIcSt11char_trai
 
 2945:                                             ; preds = %2944, %2939
   %2946 = load i8, ptr %1963, align 2, !tbaa !198
-  br i1 %601, label %2956, label %2947
+  br i1 %601, label %2955, label %2947
 
 2947:                                             ; preds = %2945
   %2948 = icmp eq i8 %2946, 1
-  br i1 %2948, label %2949, label %2964
+  br i1 %2948, label %2949, label %2963
 
 2949:                                             ; preds = %2947
   %2950 = load i8, ptr %488, align 1, !tbaa !186, !range !141, !noundef !142
   %2951 = trunc nuw i8 %2950 to i1
-  br i1 %2951, label %2952, label %2964
+  br i1 %2951, label %2952, label %2963
 
 2952:                                             ; preds = %2949
   %2953 = load i8, ptr %489, align 1, !tbaa !186, !range !141, !noundef !142
-  %2954 = trunc nuw i8 %2953 to i1
-  %2955 = select i1 %2954, i8 3, i8 2
+  %2954 = or disjoint i8 %2953, 2
   br label %.sink.split648
 
-2956:                                             ; preds = %2945
-  %2957 = icmp eq i8 %2946, 3
-  br i1 %2957, label %2958, label %2964
+2955:                                             ; preds = %2945
+  %2956 = icmp eq i8 %2946, 3
+  br i1 %2956, label %2957, label %2963
 
-2958:                                             ; preds = %2956
-  %2959 = load i8, ptr %488, align 1, !tbaa !186, !range !141, !noundef !142
-  %2960 = trunc nuw i8 %2959 to i1
-  br i1 %2960, label %2961, label %.sink.split648
+2957:                                             ; preds = %2955
+  %2958 = load i8, ptr %488, align 1, !tbaa !186, !range !141, !noundef !142
+  %2959 = trunc nuw i8 %2958 to i1
+  br i1 %2959, label %2960, label %.sink.split648
 
-2961:                                             ; preds = %2958
-  %2962 = load i8, ptr %489, align 1, !tbaa !186, !range !141, !noundef !142
-  %2963 = trunc nuw i8 %2962 to i1
-  br i1 %2963, label %2964, label %.sink.split648
+2960:                                             ; preds = %2957
+  %2961 = load i8, ptr %489, align 1, !tbaa !186, !range !141, !noundef !142
+  %2962 = trunc nuw i8 %2961 to i1
+  br i1 %2962, label %2963, label %.sink.split648
 
-.sink.split648:                                   ; preds = %2961, %2958, %2952
-  %.sink649 = phi i8 [ %2955, %2952 ], [ 1, %2958 ], [ 2, %2961 ]
+.sink.split648:                                   ; preds = %2960, %2957, %2952
+  %.sink649 = phi i8 [ %2954, %2952 ], [ 1, %2957 ], [ 2, %2960 ]
   store i8 %.sink649, ptr %1963, align 2, !tbaa !198
-  br label %2964
+  br label %2963
 
-2964:                                             ; preds = %.sink.split648, %2956, %2961, %2947, %2949
-  %2965 = load i8, ptr %1805, align 8, !tbaa !190
-  %2966 = icmp eq i8 %2965, 2
-  br i1 %2966, label %2967, label %2973
+2963:                                             ; preds = %.sink.split648, %2955, %2960, %2947, %2949
+  %2964 = load i8, ptr %1805, align 8, !tbaa !190
+  %2965 = icmp eq i8 %2964, 2
+  br i1 %2965, label %2966, label %2972
 
-2967:                                             ; preds = %2964
-  %2968 = load i8, ptr %492, align 1, !tbaa !186, !range !141, !noundef !142
-  %2969 = trunc nuw i8 %2968 to i1
-  %2970 = load i8, ptr %493, align 1, !tbaa !186, !range !141, !noundef !142
-  br i1 %2969, label %2971, label %.sink.split650
+2966:                                             ; preds = %2963
+  %2967 = load i8, ptr %492, align 1, !tbaa !186, !range !141, !noundef !142
+  %2968 = trunc nuw i8 %2967 to i1
+  %2969 = load i8, ptr %493, align 1, !tbaa !186, !range !141, !noundef !142
+  br i1 %2968, label %2970, label %.sink.split650
 
-2971:                                             ; preds = %2967
-  %2972 = trunc nuw i8 %2970 to i1
-  br i1 %2972, label %.sink.split650, label %2973
+2970:                                             ; preds = %2966
+  %2971 = trunc nuw i8 %2969 to i1
+  br i1 %2971, label %.sink.split650, label %2972
 
-.sink.split650:                                   ; preds = %2971, %2967
-  %.sink651 = phi i8 [ %2970, %2967 ], [ 3, %2971 ]
+.sink.split650:                                   ; preds = %2970, %2966
+  %.sink651 = phi i8 [ %2969, %2966 ], [ 3, %2970 ]
   store i8 %.sink651, ptr %1805, align 8, !tbaa !190
-  br label %2973
+  br label %2972
 
-2973:                                             ; preds = %.sink.split650, %2971, %2964
-  %2974 = load i8, ptr %2664, align 4, !tbaa !230
-  %.not448 = icmp eq i8 %2974, 1
-  br i1 %.not448, label %2996, label %2975
+2972:                                             ; preds = %.sink.split650, %2970, %2963
+  %2973 = load i8, ptr %2664, align 4, !tbaa !230
+  %.not448 = icmp eq i8 %2973, 1
+  br i1 %.not448, label %2995, label %2974
 
-2975:                                             ; preds = %2973
-  %2976 = load i8, ptr %497, align 1, !tbaa !186, !range !141, !noundef !142
-  %2977 = trunc nuw i8 %2976 to i1
-  br i1 %2977, label %2985, label %2978
+2974:                                             ; preds = %2972
+  %2975 = load i8, ptr %497, align 1, !tbaa !186, !range !141, !noundef !142
+  %2976 = trunc nuw i8 %2975 to i1
+  br i1 %2976, label %2984, label %2977
 
-2978:                                             ; preds = %2975
-  %2979 = load i8, ptr %494, align 1, !tbaa !186, !range !141, !noundef !142
-  %2980 = trunc nuw i8 %2979 to i1
+2977:                                             ; preds = %2974
+  %2978 = load i8, ptr %494, align 1, !tbaa !186, !range !141, !noundef !142
+  %2979 = trunc nuw i8 %2978 to i1
   %.pre643 = load i8, ptr %495, align 1, !tbaa !186, !range !141
-  br i1 %2980, label %._crit_edge, label %2981
+  br i1 %2979, label %._crit_edge, label %2980
 
-._crit_edge:                                      ; preds = %2978
+._crit_edge:                                      ; preds = %2977
   %.pre644 = load i8, ptr %496, align 1, !tbaa !186, !range !141
-  br label %2990
+  br label %2989
 
-2981:                                             ; preds = %2978
-  %2982 = trunc nuw i8 %.pre643 to i1
+2980:                                             ; preds = %2977
+  %2981 = trunc nuw i8 %.pre643 to i1
   %.pre645 = load i8, ptr %496, align 1, !tbaa !186, !range !141
-  br i1 %2982, label %2990, label %2983
+  br i1 %2981, label %2989, label %2982
 
-2983:                                             ; preds = %2981
-  %2984 = trunc nuw i8 %.pre645 to i1
-  br i1 %2984, label %2990, label %2996
+2982:                                             ; preds = %2980
+  %2983 = trunc nuw i8 %.pre645 to i1
+  br i1 %2983, label %2989, label %2995
 
-2985:                                             ; preds = %2975
+2984:                                             ; preds = %2974
   store i8 0, ptr %2704, align 1, !tbaa !1206
-  %2986 = getelementptr inbounds nuw i8, ptr %1, i64 774
-  store i8 1, ptr %2986, align 2, !tbaa !1207
-  %2987 = load i8, ptr %496, align 1, !tbaa !186, !range !141, !noundef !142
-  %2988 = getelementptr inbounds nuw i8, ptr %1, i64 775
-  store i8 %2987, ptr %2988, align 1, !tbaa !1208
-  %2989 = load i8, ptr %494, align 1, !tbaa !186, !range !141, !noundef !142
-  br label %2993
+  %2985 = getelementptr inbounds nuw i8, ptr %1, i64 774
+  store i8 1, ptr %2985, align 2, !tbaa !1207
+  %2986 = load i8, ptr %496, align 1, !tbaa !186, !range !141, !noundef !142
+  %2987 = getelementptr inbounds nuw i8, ptr %1, i64 775
+  store i8 %2986, ptr %2987, align 1, !tbaa !1208
+  %2988 = load i8, ptr %494, align 1, !tbaa !186, !range !141, !noundef !142
+  br label %2992
 
-2990:                                             ; preds = %._crit_edge, %2983, %2981
-  %2991 = phi i8 [ %.pre644, %._crit_edge ], [ 1, %2983 ], [ %.pre645, %2981 ]
+2989:                                             ; preds = %._crit_edge, %2982, %2980
+  %2990 = phi i8 [ %.pre644, %._crit_edge ], [ 1, %2982 ], [ %.pre645, %2980 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %2704, i8 0, i64 5, i1 false)
-  %2992 = getelementptr inbounds nuw i8, ptr %1, i64 774
-  store i8 %.pre643, ptr %2992, align 2, !tbaa !1207
-  br label %2993
+  %2991 = getelementptr inbounds nuw i8, ptr %1, i64 774
+  store i8 %.pre643, ptr %2991, align 2, !tbaa !1207
+  br label %2992
 
-2993:                                             ; preds = %2990, %2985
-  %.sink657 = phi i64 [ 775, %2990 ], [ 776, %2985 ]
-  %.sink655 = phi i8 [ %2991, %2990 ], [ %2989, %2985 ]
-  %.sink654 = phi i64 [ 776, %2990 ], [ 777, %2985 ]
-  %.sink652 = phi i8 [ %2979, %2990 ], [ 1, %2985 ]
-  %2994 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink657
-  store i8 %.sink655, ptr %2994, align 1, !tbaa !186
-  %2995 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink654
-  store i8 %.sink652, ptr %2995, align 1, !tbaa !186
+2992:                                             ; preds = %2989, %2984
+  %.sink657 = phi i64 [ 775, %2989 ], [ 776, %2984 ]
+  %.sink655 = phi i8 [ %2990, %2989 ], [ %2988, %2984 ]
+  %.sink654 = phi i64 [ 776, %2989 ], [ 777, %2984 ]
+  %.sink652 = phi i8 [ %2978, %2989 ], [ 1, %2984 ]
+  %2993 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink657
+  store i8 %.sink655, ptr %2993, align 1, !tbaa !186
+  %2994 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink654
+  store i8 %.sink652, ptr %2994, align 1, !tbaa !186
   store i8 1, ptr %2664, align 4, !tbaa !230
-  br label %2996
+  br label %2995
 
-2996:                                             ; preds = %2993, %2983, %2973
+2995:                                             ; preds = %2992, %2982, %2972
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %497) #30
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %496) #30
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %495) #30
@@ -37029,9 +37028,9 @@ _ZN4llvm4yaml2IO11mapOptionalISt6vectorINSt7__cxx1112basic_stringIcSt11char_trai
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %490) #30
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %489) #30
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %488) #30
-  br label %2997
+  br label %2996
 
-2997:                                             ; preds = %581, %2996
+2996:                                             ; preds = %581, %2995
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %485) #30
   ret void
 }

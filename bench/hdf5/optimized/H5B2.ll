@@ -937,8 +937,8 @@ thread-pre-split:                                 ; preds = %133
   %150 = load ptr, ptr %22, align 8, !tbaa !19
   %151 = load i64, ptr %6, align 8, !tbaa !54
   %152 = load i8, ptr %91, align 8, !tbaa !49, !range !7, !noundef !8
-  %153 = trunc nuw i8 %152 to i1
-  %154 = select i1 %153, i32 4, i32 0
+  %153 = shl nuw nsw i8 %152, 2
+  %154 = zext nneg i8 %153 to i32
   %155 = call i32 @H5AC_unprotect(ptr noundef %150, ptr noundef nonnull @H5AC_BT2_INT, i64 noundef %151, ptr noundef nonnull %97, i32 noundef %154) #7
   %156 = icmp slt i32 %155, 0
   br i1 %156, label %157, label %195
@@ -1394,8 +1394,8 @@ define range(i32 -1, 1) i32 @H5B2_index(ptr noundef readonly captures(none) %0, 
   %70 = load ptr, ptr %20, align 8, !tbaa !19
   %71 = load i64, ptr %6, align 8, !tbaa !54
   %72 = load i8, ptr %39, align 8, !tbaa !49, !range !7, !noundef !8
-  %73 = trunc nuw i8 %72 to i1
-  %74 = select i1 %73, i32 4, i32 0
+  %73 = shl nuw nsw i8 %72, 2
+  %74 = zext nneg i8 %73 to i32
   %75 = call i32 @H5AC_unprotect(ptr noundef %70, ptr noundef nonnull @H5AC_BT2_INT, i64 noundef %71, ptr noundef nonnull %44, i32 noundef %74) #7
   %76 = icmp slt i32 %75, 0
   br i1 %76, label %77, label %81
@@ -1492,8 +1492,8 @@ define range(i32 -1, 1) i32 @H5B2_index(ptr noundef readonly captures(none) %0, 
   %125 = load ptr, ptr %20, align 8, !tbaa !19
   %126 = load i64, ptr %6, align 8, !tbaa !54
   %127 = load i8, ptr %39, align 8, !tbaa !49, !range !7, !noundef !8
-  %128 = trunc nuw i8 %127 to i1
-  %129 = select i1 %128, i32 4, i32 0
+  %128 = shl nuw nsw i8 %127, 2
+  %129 = zext nneg i8 %128 to i32
   %130 = call i32 @H5AC_unprotect(ptr noundef %125, ptr noundef nonnull @H5AC_BT2_INT, i64 noundef %126, ptr noundef nonnull %44, i32 noundef %129) #7
   %131 = icmp slt i32 %130, 0
   br i1 %131, label %132, label %136
@@ -2226,8 +2226,8 @@ thread-pre-split:                                 ; preds = %79
   %96 = load ptr, ptr %24, align 8, !tbaa !19
   %97 = load i64, ptr %6, align 8, !tbaa !54
   %98 = load i8, ptr %37, align 8, !tbaa !49, !range !7, !noundef !8
-  %99 = trunc nuw i8 %98 to i1
-  %100 = select i1 %99, i32 4, i32 0
+  %99 = shl nuw nsw i8 %98, 2
+  %100 = zext nneg i8 %99 to i32
   %101 = call i32 @H5AC_unprotect(ptr noundef %96, ptr noundef nonnull @H5AC_BT2_INT, i64 noundef %97, ptr noundef nonnull %43, i32 noundef %100) #7
   %102 = icmp slt i32 %101, 0
   br i1 %102, label %103, label %143
@@ -2272,8 +2272,8 @@ thread-pre-split:                                 ; preds = %79
 
 130:                                              ; preds = %107
   %131 = load i8, ptr %10, align 1, !tbaa !3, !range !7, !noundef !8
-  %132 = trunc nuw i8 %131 to i1
-  %133 = select i1 %132, i32 2, i32 0
+  %132 = shl nuw nsw i8 %131, 1
+  %133 = zext nneg i8 %132 to i32
   %134 = load ptr, ptr %24, align 8, !tbaa !19
   %135 = load i64, ptr %6, align 8, !tbaa !54
   %136 = call i32 @H5AC_unprotect(ptr noundef %134, ptr noundef nonnull @H5AC_BT2_INT, i64 noundef %135, ptr noundef nonnull %43, i32 noundef %133) #7
@@ -2506,8 +2506,8 @@ thread-pre-split:                                 ; preds = %79
 
 267:                                              ; preds = %218, %._crit_edge221, %241
   %268 = load i8, ptr %11, align 1, !tbaa !3, !range !7, !noundef !8
-  %269 = trunc nuw i8 %268 to i1
-  %270 = select i1 %269, i32 2, i32 0
+  %269 = shl nuw nsw i8 %268, 1
+  %270 = zext nneg i8 %269 to i32
   %271 = load ptr, ptr %24, align 8, !tbaa !19
   %272 = load i64, ptr %6, align 8, !tbaa !54
   %273 = call i32 @H5AC_unprotect(ptr noundef %271, ptr noundef nonnull @H5AC_BT2_LEAF, i64 noundef %272, ptr noundef nonnull %147, i32 noundef %270) #7

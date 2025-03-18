@@ -540,8 +540,8 @@ _ZN4llvm11raw_ostreamlsEPKc.exit9:                ; preds = %202, %204
   %207 = call noundef nonnull align 8 dereferenceable(96) ptr @_ZN4llvm4outsEv() #20
   call void @_ZNK5clang7CodeGen14CGRecordLayout5printERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(113) %109, ptr noundef nonnull align 8 dereferenceable(48) %207)
   %.pre = load ptr, ptr %31, align 8, !tbaa !177
-  %.pre34 = load i32, ptr %135, align 8, !tbaa !178
-  %208 = zext i32 %.pre34 to i64
+  %.pre33 = load i32, ptr %135, align 8, !tbaa !178
+  %208 = zext i32 %.pre33 to i64
   %209 = shl nuw nsw i64 %208, 4
   br label %210
 

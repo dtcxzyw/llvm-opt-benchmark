@@ -14927,8 +14927,8 @@ _ZN4llvm23SmallVectorTemplateBaseINS_14MachineOperandELb1EE9push_backERKS1_.exit
   br i1 %116, label %117, label %121
 
 117:                                              ; preds = %106
-  %118 = trunc nuw i8 %.057 to i1
-  %119 = select i1 %118, i32 2, i32 0
+  %118 = zext nneg i8 %.057 to i32
+  %119 = shl nuw nsw i32 %118, 1
   %120 = call noundef ptr @_ZNK4llvm18TargetRegisterInfo23prependOffsetExpressionEPKNS_12DIExpressionEjRKNS_11StackOffsetE(ptr noundef nonnull align 8 dereferenceable(308) %112, ptr noundef %.02556, i32 noundef %119, ptr noundef nonnull align 8 dereferenceable(16) %42) #22
   br label %143
 

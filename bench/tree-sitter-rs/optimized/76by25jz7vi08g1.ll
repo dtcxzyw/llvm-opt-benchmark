@@ -48880,8 +48880,7 @@ define hidden void @_ZN15tree_sitter_cli8generate5rules4Rule6choice17h11dd7dedf4
 define noundef range(i8 2, 4) i8 @_ZN15tree_sitter_cli8generate5rules5Alias4kind17h22f6a772317664b3E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(32) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %3 = load i8, ptr %2, align 8, !range !6, !noundef !4
-  %4 = trunc nuw i8 %3 to i1
-  %. = select i1 %4, i8 3, i8 2
+  %. = or disjoint i8 %3, 2
   ret i8 %.
 }
 

@@ -12332,13 +12332,13 @@ define linkonce_odr dso_local noundef zeroext i8 @_ZN14DelayedVisitor12chooseSch
   %11 = load ptr, ptr %10, align 8, !tbaa !273
   %12 = tail call noundef ptr @_ZNK12AstNodeDType12skipRefIterpEbb(ptr noundef nonnull align 8 dereferenceable(162) %11, i1 noundef zeroext true, i1 noundef zeroext true)
   %.not.i = icmp eq ptr %12, null
-  br i1 %.not.i, label %38, label %13
+  br i1 %.not.i, label %37, label %13
 
 13:                                               ; preds = %9
   %14 = getelementptr inbounds nuw i8, ptr %12, i64 64
   %.sroa.0.0.copyload.i.i.i = load i16, ptr %14, align 8, !tbaa !214
   %15 = icmp eq i16 %.sroa.0.0.copyload.i.i.i, 77
-  br i1 %15, label %_ZN7AstNode11privateCastI19AstUnpackArrayDTypeKPK12AstNodeDTypeEEPKT_PKS_.exit, label %38
+  br i1 %15, label %_ZN7AstNode11privateCastI19AstUnpackArrayDTypeKPK12AstNodeDTypeEEPKT_PKS_.exit, label %37
 
 _ZN7AstNode11privateCastI19AstUnpackArrayDTypeKPK12AstNodeDTypeEEPKT_PKS_.exit: ; preds = %13
   %16 = load ptr, ptr %12, align 8, !tbaa !57
@@ -12352,7 +12352,7 @@ _ZN7AstNode11privateCastI19AstUnpackArrayDTypeKPK12AstNodeDTypeEEPKT_PKS_.exit: 
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 17
   %25 = load i8, ptr %24, align 1, !tbaa !217, !range !55, !noundef !56
   %26 = trunc nuw i8 %25 to i1
-  br i1 %26, label %27, label %33
+  br i1 %26, label %27, label %32
 
 27:                                               ; preds = %_ZN7AstNode11privateCastI19AstUnpackArrayDTypeKPK12AstNodeDTypeEEPKT_PKS_.exit
   %.not21 = icmp eq ptr %23, null
@@ -12379,31 +12379,30 @@ _ZN7AstNode11privateCastI19AstUnpackArrayDTypeKPK12AstNodeDTypeEEPKT_PKS_.exit: 
 _ZNK13AstBasicDType18isIntegralOrPackedEv.exit.thread: ; preds = %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28, %28
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %31 = load i8, ptr %30, align 8, !tbaa !215, !range !55, !noundef !56
-  %32 = trunc nuw i8 %31 to i1
-  %. = select i1 %32, i8 6, i8 5
+  %. = add nuw nsw i8 %31, 5
   br label %.thread
 
-33:                                               ; preds = %_ZN7AstNode11privateCastI19AstUnpackArrayDTypeKPK12AstNodeDTypeEEPKT_PKS_.exit
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  %35 = load i8, ptr %34, align 2, !tbaa !218, !range !55, !noundef !56
-  %36 = trunc nuw i8 %35 to i1
-  br i1 %36, label %.thread, label %37
+32:                                               ; preds = %_ZN7AstNode11privateCastI19AstUnpackArrayDTypeKPK12AstNodeDTypeEEPKT_PKS_.exit
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 18
+  %34 = load i8, ptr %33, align 2, !tbaa !218, !range !55, !noundef !56
+  %35 = trunc nuw i8 %34 to i1
+  br i1 %35, label %.thread, label %36
 
-37:                                               ; preds = %33
+36:                                               ; preds = %32
   %.not20 = icmp eq ptr %23, null
   %.22 = select i1 %.not20, i8 2, i8 3
   br label %.thread
 
-38:                                               ; preds = %13, %9
-  %39 = getelementptr inbounds nuw i8, ptr %1, i64 18
-  %40 = load i8, ptr %39, align 2, !range !55
-  %41 = trunc nuw i8 %40 to i1
-  %.23 = select i1 %41, i8 4, i8 2
+37:                                               ; preds = %13, %9
+  %38 = getelementptr inbounds nuw i8, ptr %1, i64 18
+  %39 = load i8, ptr %38, align 2, !range !55
+  %40 = trunc nuw i8 %39 to i1
+  %.23 = select i1 %40, i8 4, i8 2
   br label %.thread
 
-.thread:                                          ; preds = %28, %37, %33, %_ZNK13AstBasicDType18isIntegralOrPackedEv.exit.thread, %27, %38
-  %42 = phi i8 [ %.23, %38 ], [ %.22, %37 ], [ 4, %33 ], [ %., %_ZNK13AstBasicDType18isIntegralOrPackedEv.exit.thread ], [ 1, %27 ], [ 1, %28 ]
-  ret i8 %42
+.thread:                                          ; preds = %28, %36, %32, %_ZNK13AstBasicDType18isIntegralOrPackedEv.exit.thread, %27, %37
+  %41 = phi i8 [ %.23, %37 ], [ %.22, %36 ], [ 4, %32 ], [ %., %_ZNK13AstBasicDType18isIntegralOrPackedEv.exit.thread ], [ 1, %27 ], [ 1, %28 ]
+  ret i8 %41
 }
 
 ; Function Attrs: mustprogress uwtable

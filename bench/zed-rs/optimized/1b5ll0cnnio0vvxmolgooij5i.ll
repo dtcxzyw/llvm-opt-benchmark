@@ -52033,18 +52033,16 @@ define hidden void @"_ZN65_$LT$language..LanguageServerName$u20$as$u20$core..has
 ; Function Attrs: mustprogress nofree nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
 define hidden noundef range(i8 -1, 2) i8 @"_ZN65_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..cmp..Ord$GT$3cmp17h88c6df5462d84ccdE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %1) unnamed_addr #46 {
   %3 = load i64, ptr %0, align 8, !range !55, !noundef !9
-  %trunc = trunc nuw i64 %3 to i1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !nonnull !9
-  %.sroa.0.0.idx = select i1 %trunc, i64 16, i64 0
+  %.sroa.0.0.idx = shl nuw nsw i64 %3, 4
   %.sroa.0.0 = getelementptr inbounds nuw i8, ptr %5, i64 %.sroa.0.0.idx
   %.sroa.3.0.in = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.3.0 = load i64, ptr %.sroa.3.0.in, align 8, !noundef !9
   %6 = load i64, ptr %1, align 8, !range !55, !noundef !9
-  %trunc3 = trunc nuw i64 %6 to i1
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %8 = load ptr, ptr %7, align 8, !nonnull !9
-  %.sroa.01.0.idx = select i1 %trunc3, i64 16, i64 0
+  %.sroa.01.0.idx = shl nuw nsw i64 %6, 4
   %.sroa.01.0 = getelementptr inbounds nuw i8, ptr %8, i64 %.sroa.01.0.idx
   %.sroa.32.0.in = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.32.0 = load i64, ptr %.sroa.32.0.in, align 8, !noundef !9
@@ -53971,14 +53969,12 @@ define hidden noundef zeroext i1 @"_ZN71_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8, !nonnull !9
   %6 = load i64, ptr %1, align 8, !range !55, !noundef !9
-  %trunc3 = trunc nuw i64 %6 to i1
-  %.sroa.01.0.idx = select i1 %trunc3, i64 16, i64 0
+  %.sroa.01.0.idx = shl nuw nsw i64 %6, 4
   %.sroa.01.0 = getelementptr inbounds nuw i8, ptr %5, i64 %.sroa.01.0.idx
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !nonnull !9
   %9 = load i64, ptr %0, align 8, !range !55, !noundef !9
-  %trunc = trunc nuw i64 %9 to i1
-  %.sroa.0.0.idx = select i1 %trunc, i64 16, i64 0
+  %.sroa.0.0.idx = shl nuw nsw i64 %9, 4
   %.sroa.0.0 = getelementptr inbounds nuw i8, ptr %8, i64 %.sroa.0.0.idx
   %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.sroa.0.0, ptr nonnull readonly align 1 %.sroa.01.0, i64 %.sroa.3.0), !alias.scope !10463
   %10 = icmp eq i32 %bcmp.i.i, 0
@@ -54038,10 +54034,9 @@ define hidden void @"_ZN74_$LT$std..hash..random..RandomState$u20$as$u20$core..h
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden { ptr, i64 } @"_ZN74_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h5dd3f21408733271E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #19 {
   %2 = load i64, ptr %0, align 8, !range !55, !noundef !9
-  %trunc = trunc nuw i64 %2 to i1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !nonnull !9
-  %.sroa.0.0.idx = select i1 %trunc, i64 16, i64 0
+  %.sroa.0.0.idx = shl nuw nsw i64 %2, 4
   %.sroa.0.0 = getelementptr inbounds nuw i8, ptr %4, i64 %.sroa.0.0.idx
   %.sroa.3.0.in = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.3.0 = load i64, ptr %.sroa.3.0.in, align 8, !noundef !9

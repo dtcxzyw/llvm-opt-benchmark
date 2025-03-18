@@ -46924,8 +46924,8 @@ define dso_local void @_ZN5clang8SemaObjC24CheckObjCMethodOverridesEPNS_14ObjCMe
 
 ._crit_edge.loopexit:                             ; preds = %.critedge8
   %.pre = load ptr, ptr %14, align 8, !tbaa !724
-  %39 = trunc nuw i8 %.186 to i1
-  %40 = select i1 %39, i16 4096, i16 0
+  %39 = zext nneg i8 %.186 to i16
+  %40 = shl nuw nsw i16 %39, 12
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %12
@@ -46934,7 +46934,7 @@ define dso_local void @_ZN5clang8SemaObjC24CheckObjCMethodOverridesEPNS_14ObjCMe
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 59
   %43 = load i16, ptr %42, align 1
   %44 = and i16 %43, -4097
-  %45 = or disjoint i16 %44, %.085.lcssa
+  %45 = add nuw nsw i16 %44, %.085.lcssa
   store i16 %45, ptr %42, align 1
   %46 = getelementptr inbounds nuw i8, ptr %7, i64 48
   %47 = icmp eq ptr %41, %46

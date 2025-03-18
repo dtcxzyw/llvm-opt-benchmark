@@ -3448,8 +3448,8 @@ _ZN4llvm4json5Array9push_backEONS0_5ValueE.exit21: ; preds = %166, %169
   %180 = load ptr, ptr %179, align 8, !tbaa !153
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %182 = load i8, ptr %181, align 2, !tbaa !154, !range !15, !noundef !16
-  %183 = trunc nuw i8 %182 to i1
-  %184 = select i1 %183, i32 2, i32 0
+  %183 = shl nuw nsw i8 %182, 1
+  %184 = zext nneg i8 %183 to i32
   %185 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %185, ptr %4, align 8, !tbaa !101
   %186 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -5787,8 +5787,8 @@ _ZN4llvm4json5Array9push_backEONS0_5ValueE.exit:  ; preds = %232, %235
   %246 = load ptr, ptr %245, align 8, !tbaa !153
   %247 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %248 = load i8, ptr %247, align 2, !tbaa !154, !range !15, !noundef !16
-  %249 = trunc nuw i8 %248 to i1
-  %250 = select i1 %249, i32 2, i32 0
+  %249 = shl nuw nsw i8 %248, 1
+  %250 = zext nneg i8 %249 to i32
   %251 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %251, ptr %4, align 8, !tbaa !101
   %252 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -7096,8 +7096,8 @@ _ZN4llvm4json5Array9push_backEONS0_5ValueE.exit89: ; preds = %487, %490
   %501 = load ptr, ptr %500, align 8, !tbaa !153
   %502 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %503 = load i8, ptr %502, align 2, !tbaa !154, !range !15, !noundef !16
-  %504 = trunc nuw i8 %503 to i1
-  %505 = select i1 %504, i32 2, i32 0
+  %504 = shl nuw nsw i8 %503, 1
+  %505 = zext nneg i8 %504 to i32
   %506 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %506, ptr %8, align 8, !tbaa !101
   %507 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -7396,8 +7396,8 @@ _ZN4llvm4json5Array9push_backEONS0_5ValueE.exit7: ; preds = %78, %81
   %92 = load ptr, ptr %91, align 8, !tbaa !153
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %94 = load i8, ptr %93, align 2, !tbaa !154, !range !15, !noundef !16
-  %95 = trunc nuw i8 %94 to i1
-  %96 = select i1 %95, i32 2, i32 0
+  %95 = shl nuw nsw i8 %94, 1
+  %96 = zext nneg i8 %95 to i32
   %97 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %97, ptr %4, align 8, !tbaa !101
   %98 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -7600,8 +7600,8 @@ _ZN4llvm4json5Array9push_backEONS0_5ValueE.exit:  ; preds = %40, %43
   %54 = load ptr, ptr %53, align 8, !tbaa !153
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %56 = load i8, ptr %55, align 2, !tbaa !154, !range !15, !noundef !16
-  %57 = trunc nuw i8 %56 to i1
-  %58 = select i1 %57, i32 2, i32 0
+  %57 = shl nuw nsw i8 %56, 1
+  %58 = zext nneg i8 %57 to i32
   %59 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %59, ptr %4, align 8, !tbaa !101
   %60 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -7738,8 +7738,8 @@ define dso_local void @_ZN4llvm9symbolize11JSONPrinter7listEndEv(ptr noundef non
   %15 = load ptr, ptr %14, align 8, !tbaa !153
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %17 = load i8, ptr %16, align 2, !tbaa !154, !range !15, !noundef !16
-  %18 = trunc nuw i8 %17 to i1
-  %19 = select i1 %18, i32 2, i32 0
+  %18 = shl nuw nsw i8 %17, 1
+  %19 = zext nneg i8 %18 to i32
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 16
   store ptr %20, ptr %2, align 8, !tbaa !101
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 8

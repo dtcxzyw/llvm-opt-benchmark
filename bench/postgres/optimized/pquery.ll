@@ -138,8 +138,8 @@ list_length.exit:                                 ; preds = %1
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %7, i64 50
   %18 = load i8, ptr %17, align 2, !range !4, !noundef !5
-  %19 = trunc nuw i8 %18 to i1
-  %. = select i1 %19, i32 2, i32 0
+  %19 = shl nuw nsw i8 %18, 1
+  %. = zext nneg i8 %19 to i32
   br label %.thread90
 
 20:                                               ; preds = %13
@@ -166,8 +166,8 @@ list_length.exit:                                 ; preds = %1
 31:                                               ; preds = %28
   %32 = getelementptr inbounds nuw i8, ptr %7, i64 17
   %33 = load i8, ptr %32, align 1, !range !4, !noundef !5
-  %34 = trunc nuw i8 %33 to i1
-  %.77 = select i1 %34, i32 2, i32 0
+  %34 = shl nuw nsw i8 %33, 1
+  %.77 = zext nneg i8 %34 to i32
   br label %.thread90
 
 35:                                               ; preds = %28

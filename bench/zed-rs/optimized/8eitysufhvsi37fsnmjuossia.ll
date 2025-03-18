@@ -15836,28 +15836,28 @@ define internal fastcc void @"_ZN78_$LT$alacritty_terminal..term..Term$LT$T$GT$$
 28:                                               ; preds = %3, %18
   %29 = phi i16 [ %1, %3 ], [ %.pre, %18 ]
   %trunc = trunc nuw i16 %29 to i1
-  br i1 %trunc, label %102, label %30
+  br i1 %trunc, label %101, label %30
 
 30:                                               ; preds = %28
   %31 = load i16, ptr %14, align 2, !range !438, !noundef !4
   switch i16 %31, label %17 [
     i16 1, label %32
-    i16 3, label %101
+    i16 3, label %100
     i16 6, label %36
     i16 7, label %40
     i16 12, label %44
-    i16 25, label %56
-    i16 1000, label %60
-    i16 1002, label %64
-    i16 1003, label %68
-    i16 1004, label %72
-    i16 1005, label %76
-    i16 1006, label %80
-    i16 1007, label %84
-    i16 1042, label %88
-    i16 1049, label %92
-    i16 2004, label %96
-    i16 2026, label %100
+    i16 25, label %55
+    i16 1000, label %59
+    i16 1002, label %63
+    i16 1003, label %67
+    i16 1004, label %71
+    i16 1005, label %75
+    i16 1006, label %79
+    i16 1007, label %83
+    i16 1042, label %87
+    i16 1049, label %91
+    i16 2004, label %95
+    i16 2026, label %99
   ]
 
 32:                                               ; preds = %30
@@ -15866,7 +15866,7 @@ define internal fastcc void @"_ZN78_$LT$alacritty_terminal..term..Term$LT$T$GT$$
   %35 = and i32 %34, 2
   %.not32 = icmp eq i32 %35, 0
   %. = select i1 %.not32, i8 2, i8 1
-  br label %101
+  br label %100
 
 36:                                               ; preds = %30
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 1724
@@ -15874,7 +15874,7 @@ define internal fastcc void @"_ZN78_$LT$alacritty_terminal..term..Term$LT$T$GT$$
   %39 = and i32 %38, 512
   %.not31 = icmp eq i32 %39, 0
   %.36 = select i1 %.not31, i8 2, i8 1
-  br label %101
+  br label %100
 
 40:                                               ; preds = %30
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 1724
@@ -15882,7 +15882,7 @@ define internal fastcc void @"_ZN78_$LT$alacritty_terminal..term..Term$LT$T$GT$$
   %43 = and i32 %42, 128
   %.not30 = icmp eq i32 %43, 0
   %.37 = select i1 %.not30, i8 2, i8 1
-  br label %101
+  br label %100
 
 44:                                               ; preds = %30
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 1728
@@ -15902,127 +15902,126 @@ define internal fastcc void @"_ZN78_$LT$alacritty_terminal..term..Term$LT$T$GT$$
 
 "_ZN4core6option15Option$LT$T$GT$13get_or_insert17h4bd46c43816fa755E.exit": ; preds = %44, %48
   %54 = phi i8 [ %46, %44 ], [ %52, %48 ]
-  %55 = trunc nuw i8 %54 to i1
-  %.38 = select i1 %55, i8 1, i8 2
-  br label %101
+  %.38 = sub nuw nsw i8 2, %54
+  br label %100
 
-56:                                               ; preds = %30
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 1724
-  %58 = load i32, ptr %57, align 4, !noundef !4
-  %59 = and i32 %58, 1
-  %.not29 = icmp eq i32 %59, 0
+55:                                               ; preds = %30
+  %56 = getelementptr inbounds nuw i8, ptr %0, i64 1724
+  %57 = load i32, ptr %56, align 4, !noundef !4
+  %58 = and i32 %57, 1
+  %.not29 = icmp eq i32 %58, 0
   %.39 = select i1 %.not29, i8 2, i8 1
-  br label %101
+  br label %100
 
-60:                                               ; preds = %30
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 1724
-  %62 = load i32, ptr %61, align 4, !noundef !4
-  %63 = and i32 %62, 8
-  %.not28 = icmp eq i32 %63, 0
+59:                                               ; preds = %30
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 1724
+  %61 = load i32, ptr %60, align 4, !noundef !4
+  %62 = and i32 %61, 8
+  %.not28 = icmp eq i32 %62, 0
   %.40 = select i1 %.not28, i8 2, i8 1
-  br label %101
+  br label %100
 
-64:                                               ; preds = %30
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 1724
-  %66 = load i32, ptr %65, align 4, !noundef !4
-  %67 = and i32 %66, 8192
-  %.not27 = icmp eq i32 %67, 0
+63:                                               ; preds = %30
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 1724
+  %65 = load i32, ptr %64, align 4, !noundef !4
+  %66 = and i32 %65, 8192
+  %.not27 = icmp eq i32 %66, 0
   %.41 = select i1 %.not27, i8 2, i8 1
-  br label %101
+  br label %100
 
-68:                                               ; preds = %30
-  %69 = getelementptr inbounds nuw i8, ptr %0, i64 1724
-  %70 = load i32, ptr %69, align 4, !noundef !4
-  %71 = and i32 %70, 64
-  %.not26 = icmp eq i32 %71, 0
+67:                                               ; preds = %30
+  %68 = getelementptr inbounds nuw i8, ptr %0, i64 1724
+  %69 = load i32, ptr %68, align 4, !noundef !4
+  %70 = and i32 %69, 64
+  %.not26 = icmp eq i32 %70, 0
   %.42 = select i1 %.not26, i8 2, i8 1
-  br label %101
+  br label %100
 
-72:                                               ; preds = %30
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 1724
-  %74 = load i32, ptr %73, align 4, !noundef !4
-  %75 = and i32 %74, 2048
-  %.not25 = icmp eq i32 %75, 0
+71:                                               ; preds = %30
+  %72 = getelementptr inbounds nuw i8, ptr %0, i64 1724
+  %73 = load i32, ptr %72, align 4, !noundef !4
+  %74 = and i32 %73, 2048
+  %.not25 = icmp eq i32 %74, 0
   %.43 = select i1 %.not25, i8 2, i8 1
-  br label %101
+  br label %100
 
-76:                                               ; preds = %30
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 1724
-  %78 = load i32, ptr %77, align 4, !noundef !4
-  %79 = and i32 %78, 16384
-  %.not24 = icmp eq i32 %79, 0
+75:                                               ; preds = %30
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 1724
+  %77 = load i32, ptr %76, align 4, !noundef !4
+  %78 = and i32 %77, 16384
+  %.not24 = icmp eq i32 %78, 0
   %.44 = select i1 %.not24, i8 2, i8 1
-  br label %101
+  br label %100
 
-80:                                               ; preds = %30
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 1724
-  %82 = load i32, ptr %81, align 4, !noundef !4
-  %83 = and i32 %82, 32
-  %.not23 = icmp eq i32 %83, 0
+79:                                               ; preds = %30
+  %80 = getelementptr inbounds nuw i8, ptr %0, i64 1724
+  %81 = load i32, ptr %80, align 4, !noundef !4
+  %82 = and i32 %81, 32
+  %.not23 = icmp eq i32 %82, 0
   %.45 = select i1 %.not23, i8 2, i8 1
-  br label %101
+  br label %100
 
-84:                                               ; preds = %30
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 1724
-  %86 = load i32, ptr %85, align 4, !noundef !4
-  %87 = and i32 %86, 32768
-  %.not22 = icmp eq i32 %87, 0
+83:                                               ; preds = %30
+  %84 = getelementptr inbounds nuw i8, ptr %0, i64 1724
+  %85 = load i32, ptr %84, align 4, !noundef !4
+  %86 = and i32 %85, 32768
+  %.not22 = icmp eq i32 %86, 0
   %.46 = select i1 %.not22, i8 2, i8 1
-  br label %101
+  br label %100
 
-88:                                               ; preds = %30
-  %89 = getelementptr inbounds nuw i8, ptr %0, i64 1724
-  %90 = load i32, ptr %89, align 4, !noundef !4
-  %91 = and i32 %90, 131072
-  %.not21 = icmp eq i32 %91, 0
+87:                                               ; preds = %30
+  %88 = getelementptr inbounds nuw i8, ptr %0, i64 1724
+  %89 = load i32, ptr %88, align 4, !noundef !4
+  %90 = and i32 %89, 131072
+  %.not21 = icmp eq i32 %90, 0
   %.47 = select i1 %.not21, i8 2, i8 1
-  br label %101
+  br label %100
 
-92:                                               ; preds = %30
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 1724
-  %94 = load i32, ptr %93, align 4, !noundef !4
-  %95 = and i32 %94, 4096
-  %.not20 = icmp eq i32 %95, 0
+91:                                               ; preds = %30
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 1724
+  %93 = load i32, ptr %92, align 4, !noundef !4
+  %94 = and i32 %93, 4096
+  %.not20 = icmp eq i32 %94, 0
   %.48 = select i1 %.not20, i8 2, i8 1
-  br label %101
+  br label %100
 
-96:                                               ; preds = %30
-  %97 = getelementptr inbounds nuw i8, ptr %0, i64 1724
-  %98 = load i32, ptr %97, align 4, !noundef !4
-  %99 = and i32 %98, 16
-  %.not19 = icmp eq i32 %99, 0
+95:                                               ; preds = %30
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 1724
+  %97 = load i32, ptr %96, align 4, !noundef !4
+  %98 = and i32 %97, 16
+  %.not19 = icmp eq i32 %98, 0
   %.49 = select i1 %.not19, i8 2, i8 1
-  br label %101
+  br label %100
 
-100:                                              ; preds = %30
-  br label %101
+99:                                               ; preds = %30
+  br label %100
 
-101:                                              ; preds = %100, %32, %30, %36, %40, %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h4bd46c43816fa755E.exit", %56, %60, %64, %68, %72, %76, %80, %84, %88, %92, %96
-  %.sroa.04.0.ph = phi i8 [ %.49, %96 ], [ %.48, %92 ], [ %.47, %88 ], [ %.46, %84 ], [ %.45, %80 ], [ %.44, %76 ], [ %.43, %72 ], [ %.42, %68 ], [ %.41, %64 ], [ %.40, %60 ], [ %.39, %56 ], [ %.38, %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h4bd46c43816fa755E.exit" ], [ %.37, %40 ], [ %.36, %36 ], [ 0, %30 ], [ %., %32 ], [ 2, %100 ]
+100:                                              ; preds = %99, %32, %30, %36, %40, %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h4bd46c43816fa755E.exit", %55, %59, %63, %67, %71, %75, %79, %83, %87, %91, %95
+  %.sroa.04.0.ph = phi i8 [ %.49, %95 ], [ %.48, %91 ], [ %.47, %87 ], [ %.46, %83 ], [ %.45, %79 ], [ %.44, %75 ], [ %.43, %71 ], [ %.42, %67 ], [ %.41, %63 ], [ %.40, %59 ], [ %.39, %55 ], [ %.38, %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h4bd46c43816fa755E.exit" ], [ %.37, %40 ], [ %.36, %36 ], [ 0, %30 ], [ %., %32 ], [ 2, %99 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7)
-  br label %104
+  br label %103
 
-102:                                              ; preds = %28
+101:                                              ; preds = %28
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %7)
-  %103 = load i16, ptr %14, align 2, !noundef !4
-  br label %104
+  %102 = load i16, ptr %14, align 2, !noundef !4
+  br label %103
 
-104:                                              ; preds = %102, %101
-  %storemerge = phi i16 [ %31, %101 ], [ %103, %102 ]
-  %.sroa.04.053 = phi i8 [ %.sroa.04.0.ph, %101 ], [ 0, %102 ]
+103:                                              ; preds = %101, %100
+  %storemerge = phi i16 [ %31, %100 ], [ %102, %101 ]
+  %.sroa.04.053 = phi i8 [ %.sroa.04.0.ph, %100 ], [ 0, %101 ]
   store i16 %storemerge, ptr %7, align 2
-  %105 = getelementptr inbounds nuw i8, ptr %0, i64 640
+  %104 = getelementptr inbounds nuw i8, ptr %0, i64 640
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %6)
   store i8 %.sroa.04.053, ptr %6, align 1
   store ptr %7, ptr %8, align 8
   %.sroa.414.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$u16$GT$3fmt17he261f83d36475856E", ptr %.sroa.414.0..sroa_idx, align 8
-  %106 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %6, ptr %106, align 8
+  %105 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store ptr %6, ptr %105, align 8
   %.sroa.418.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr @"_ZN4core3fmt3num3imp51_$LT$impl$u20$core..fmt..Display$u20$for$u20$u8$GT$3fmt17haf36fcc7f3e0aea2E", ptr %.sroa.418.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %5), !noalias !1764
@@ -16035,24 +16034,24 @@ define internal fastcc void @"_ZN78_$LT$alacritty_terminal..term..Term$LT$T$GT$$
   store i64 2, ptr %.sroa.6.0..sroa_idx, align 8, !noalias !1771
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 32
   store ptr null, ptr %.sroa.7.0..sroa_idx, align 8, !noalias !1771
-  %107 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  call void @_ZN5alloc3fmt6format12format_inner17hfc591406982d9639E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %107, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5)
+  %106 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  call void @_ZN5alloc3fmt6format12format_inner17hfc591406982d9639E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %106, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %5)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %5), !noalias !1764
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %7)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   store i64 -9223372036854775802, ptr %9, align 8
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %4), !noalias !1772
-  call void @"_ZN15futures_channel4mpsc24UnboundedSender$LT$T$GT$10do_send_nb17h0fdd042590cdbdabE"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %105, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %9)
-  %108 = load i64, ptr %4, align 8, !range !322, !noalias !1772, !noundef !4
-  %109 = icmp eq i64 %108, -9223372036854775795
-  br i1 %109, label %"_ZN82_$LT$terminal..ZedListener$u20$as$u20$alacritty_terminal..event..EventListener$GT$10send_event17h2e2b519c81131122E.exit", label %"_ZN4core3ptr135drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$futures_channel..mpsc..TrySendError$LT$alacritty_terminal..event..Event$GT$$GT$$GT$17h26c89d34f1fc06eeE.llvm.11764167460322964251.exit.i"
+  call void @"_ZN15futures_channel4mpsc24UnboundedSender$LT$T$GT$10do_send_nb17h0fdd042590cdbdabE"(ptr noalias noundef nonnull sret([40 x i8]) align 8 captures(none) dereferenceable(40) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %104, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %9)
+  %107 = load i64, ptr %4, align 8, !range !322, !noalias !1772, !noundef !4
+  %108 = icmp eq i64 %107, -9223372036854775795
+  br i1 %108, label %"_ZN82_$LT$terminal..ZedListener$u20$as$u20$alacritty_terminal..event..EventListener$GT$10send_event17h2e2b519c81131122E.exit", label %"_ZN4core3ptr135drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$futures_channel..mpsc..TrySendError$LT$alacritty_terminal..event..Event$GT$$GT$$GT$17h26c89d34f1fc06eeE.llvm.11764167460322964251.exit.i"
 
-"_ZN4core3ptr135drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$futures_channel..mpsc..TrySendError$LT$alacritty_terminal..event..Event$GT$$GT$$GT$17h26c89d34f1fc06eeE.llvm.11764167460322964251.exit.i": ; preds = %104
+"_ZN4core3ptr135drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$futures_channel..mpsc..TrySendError$LT$alacritty_terminal..event..Event$GT$$GT$$GT$17h26c89d34f1fc06eeE.llvm.11764167460322964251.exit.i": ; preds = %103
   call void @"_ZN4core3ptr53drop_in_place$LT$alacritty_terminal..event..Event$GT$17h0c891a8ef001c34aE.llvm.7238318159812895458"(ptr noalias noundef nonnull align 8 dereferenceable(40) %4), !noalias !1776
   br label %"_ZN82_$LT$terminal..ZedListener$u20$as$u20$alacritty_terminal..event..EventListener$GT$10send_event17h2e2b519c81131122E.exit"
 
-"_ZN82_$LT$terminal..ZedListener$u20$as$u20$alacritty_terminal..event..EventListener$GT$10send_event17h2e2b519c81131122E.exit": ; preds = %104, %"_ZN4core3ptr135drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$futures_channel..mpsc..TrySendError$LT$alacritty_terminal..event..Event$GT$$GT$$GT$17h26c89d34f1fc06eeE.llvm.11764167460322964251.exit.i"
+"_ZN82_$LT$terminal..ZedListener$u20$as$u20$alacritty_terminal..event..EventListener$GT$10send_event17h2e2b519c81131122E.exit": ; preds = %103, %"_ZN4core3ptr135drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$futures_channel..mpsc..TrySendError$LT$alacritty_terminal..event..Event$GT$$GT$$GT$17h26c89d34f1fc06eeE.llvm.11764167460322964251.exit.i"
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4), !noalias !1772
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9)
   ret void

@@ -21283,7 +21283,7 @@ define internal void @_ZN7rocksdb12experimental12_GLOBAL__N_134BytewiseMinMaxSst
   %6 = load ptr, ptr %5, align 8
   %7 = tail call noundef i64 %6(ptr noundef nonnull align 8 dereferenceable(112) %0)
   %8 = icmp eq i64 %7, 0
-  br i1 %8, label %149, label %9
+  br i1 %8, label %148, label %9
 
 9:                                                ; preds = %2
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -21294,292 +21294,291 @@ define internal void @_ZN7rocksdb12experimental12_GLOBAL__N_134BytewiseMinMaxSst
   %14 = load ptr, ptr %13, align 8, !tbaa !999
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %16 = load i8, ptr %15, align 8, !tbaa !692, !range !45, !noundef !46
-  %17 = trunc nuw i8 %16 to i1
-  %18 = select i1 %17, i8 17, i8 16
-  %19 = load i64, ptr %10, align 8, !tbaa !16
-  %20 = add i64 %19, 1
-  %21 = load ptr, ptr %1, align 8, !tbaa !11
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %23 = icmp eq ptr %21, %22
-  br i1 %23, label %24, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i
+  %17 = or disjoint i8 %16, 16
+  %18 = load i64, ptr %10, align 8, !tbaa !16
+  %19 = add i64 %18, 1
+  %20 = load ptr, ptr %1, align 8, !tbaa !11
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %22 = icmp eq ptr %20, %21
+  br i1 %22, label %23, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i
 
-24:                                               ; preds = %9
-  %25 = icmp ult i64 %19, 16
-  tail call void @llvm.assume(i1 %25)
+23:                                               ; preds = %9
+  %24 = icmp ult i64 %18, 16
+  tail call void @llvm.assume(i1 %24)
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i: ; preds = %24, %9
-  %26 = load i64, ptr %22, align 8
-  %27 = select i1 %23, i64 15, i64 %26
-  %28 = icmp ugt i64 %20, %27
-  br i1 %28, label %29, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i: ; preds = %23, %9
+  %25 = load i64, ptr %21, align 8
+  %26 = select i1 %22, i64 15, i64 %25
+  %27 = icmp ugt i64 %19, %26
+  br i1 %27, label %28, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit
 
-29:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %19, i64 noundef 0, ptr noundef null, i64 noundef 1)
+28:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %18, i64 noundef 0, ptr noundef null, i64 noundef 1)
   %.pre.i = load ptr, ptr %1, align 8, !tbaa !11
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i, %29
-  %30 = phi ptr [ %.pre.i, %29 ], [ %21, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i ]
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 %19
-  store i8 %18, ptr %31, align 1, !tbaa !17
-  store i64 %20, ptr %10, align 8, !tbaa !16
-  %32 = load ptr, ptr %1, align 8, !tbaa !11
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 %20
-  store i8 0, ptr %33, align 1, !tbaa !17
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %35 = load i8, ptr %34, align 8, !tbaa !990, !range !45, !noundef !46
-  %36 = load i64, ptr %10, align 8, !tbaa !16
-  %37 = add i64 %36, 1
-  %38 = load ptr, ptr %1, align 8, !tbaa !11
-  %39 = icmp eq ptr %38, %22
-  br i1 %39, label %40, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i15
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i, %28
+  %29 = phi ptr [ %.pre.i, %28 ], [ %20, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i ]
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 %18
+  store i8 %17, ptr %30, align 1, !tbaa !17
+  store i64 %19, ptr %10, align 8, !tbaa !16
+  %31 = load ptr, ptr %1, align 8, !tbaa !11
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 %19
+  store i8 0, ptr %32, align 1, !tbaa !17
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %34 = load i8, ptr %33, align 8, !tbaa !990, !range !45, !noundef !46
+  %35 = load i64, ptr %10, align 8, !tbaa !16
+  %36 = add i64 %35, 1
+  %37 = load ptr, ptr %1, align 8, !tbaa !11
+  %38 = icmp eq ptr %37, %21
+  br i1 %38, label %39, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i15
 
-40:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit
-  %41 = icmp ult i64 %36, 16
-  tail call void @llvm.assume(i1 %41)
+39:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit
+  %40 = icmp ult i64 %35, 16
+  tail call void @llvm.assume(i1 %40)
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i15
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i15: ; preds = %40, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit
-  %42 = load i64, ptr %22, align 8
-  %43 = select i1 %39, i64 15, i64 %42
-  %44 = icmp ugt i64 %37, %43
-  br i1 %44, label %45, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit17
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i15: ; preds = %39, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit
+  %41 = load i64, ptr %21, align 8
+  %42 = select i1 %38, i64 15, i64 %41
+  %43 = icmp ugt i64 %36, %42
+  br i1 %43, label %44, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit17
 
-45:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i15
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %36, i64 noundef 0, ptr noundef null, i64 noundef 1)
+44:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i15
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %35, i64 noundef 0, ptr noundef null, i64 noundef 1)
   %.pre.i16 = load ptr, ptr %1, align 8, !tbaa !11
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit17
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit17: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i15, %45
-  %46 = phi ptr [ %.pre.i16, %45 ], [ %38, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i15 ]
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 %36
-  store i8 %35, ptr %47, align 1, !tbaa !17
-  store i64 %37, ptr %10, align 8, !tbaa !16
-  %48 = load ptr, ptr %1, align 8, !tbaa !11
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 %37
-  store i8 0, ptr %49, align 1, !tbaa !17
-  %50 = load ptr, ptr %13, align 8, !tbaa !999
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
-  %.val = load i16, ptr %51, align 2
-  %52 = getelementptr i8, ptr %50, i64 10
-  %.val14 = load i8, ptr %52, align 2
-  %53 = load i64, ptr %10, align 8, !tbaa !16
-  %54 = add i64 %53, 1
-  %55 = load ptr, ptr %1, align 8, !tbaa !11
-  %56 = icmp eq ptr %55, %22
-  switch i8 %.val14, label %110 [
-    i8 0, label %57
-    i8 1, label %64
-    i8 2, label %74
-    i8 3, label %89
-    i8 4, label %96
-    i8 5, label %103
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit17: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i15, %44
+  %45 = phi ptr [ %.pre.i16, %44 ], [ %37, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i15 ]
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 %35
+  store i8 %34, ptr %46, align 1, !tbaa !17
+  store i64 %36, ptr %10, align 8, !tbaa !16
+  %47 = load ptr, ptr %1, align 8, !tbaa !11
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 %36
+  store i8 0, ptr %48, align 1, !tbaa !17
+  %49 = load ptr, ptr %13, align 8, !tbaa !999
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  %.val = load i16, ptr %50, align 2
+  %51 = getelementptr i8, ptr %49, i64 10
+  %.val14 = load i8, ptr %51, align 2
+  %52 = load i64, ptr %10, align 8, !tbaa !16
+  %53 = add i64 %52, 1
+  %54 = load ptr, ptr %1, align 8, !tbaa !11
+  %55 = icmp eq ptr %54, %21
+  switch i8 %.val14, label %109 [
+    i8 0, label %56
+    i8 1, label %63
+    i8 2, label %73
+    i8 3, label %88
+    i8 4, label %95
+    i8 5, label %102
   ]
 
-57:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit17
-  br i1 %56, label %58, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i.i.i.i
+56:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit17
+  br i1 %55, label %57, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i.i.i.i
 
-58:                                               ; preds = %57
-  %59 = icmp ult i64 %53, 16
-  tail call void @llvm.assume(i1 %59)
+57:                                               ; preds = %56
+  %58 = icmp ult i64 %52, 16
+  tail call void @llvm.assume(i1 %58)
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i.i.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i.i.i.i: ; preds = %58, %57
-  %60 = load i64, ptr %22, align 8
-  %61 = select i1 %56, i64 15, i64 %60
-  %62 = icmp ugt i64 %54, %61
-  br i1 %62, label %63, label %_ZN7rocksdb12experimental12_GLOBAL__N_120SerializeFilterInputEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt7variantIJNS0_14SelectWholeKeyENS0_16SelectKeySegmentENS0_21SelectKeySegmentRangeENS0_21SelectLegacyKeyPrefixENS0_19SelectUserTimestampENS0_16SelectColumnNameEEE.exit
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i.i.i.i: ; preds = %57, %56
+  %59 = load i64, ptr %21, align 8
+  %60 = select i1 %55, i64 15, i64 %59
+  %61 = icmp ugt i64 %53, %60
+  br i1 %61, label %62, label %_ZN7rocksdb12experimental12_GLOBAL__N_120SerializeFilterInputEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt7variantIJNS0_14SelectWholeKeyENS0_16SelectKeySegmentENS0_21SelectKeySegmentRangeENS0_21SelectLegacyKeyPrefixENS0_19SelectUserTimestampENS0_16SelectColumnNameEEE.exit
 
-63:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i.i.i.i
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %53, i64 noundef 0, ptr noundef null, i64 noundef 1)
+62:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i.i.i.i
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %52, i64 noundef 0, ptr noundef null, i64 noundef 1)
   %.pre.i.i.i.i.i.i.i.i = load ptr, ptr %1, align 8, !tbaa !11
   br label %_ZN7rocksdb12experimental12_GLOBAL__N_120SerializeFilterInputEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt7variantIJNS0_14SelectWholeKeyENS0_16SelectKeySegmentENS0_21SelectKeySegmentRangeENS0_21SelectLegacyKeyPrefixENS0_19SelectUserTimestampENS0_16SelectColumnNameEEE.exit
 
-64:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit17
-  br i1 %56, label %65, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i21.i.i.i
+63:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit17
+  br i1 %55, label %64, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i21.i.i.i
 
-65:                                               ; preds = %64
-  %66 = icmp ult i64 %53, 16
-  tail call void @llvm.assume(i1 %66)
+64:                                               ; preds = %63
+  %65 = icmp ult i64 %52, 16
+  tail call void @llvm.assume(i1 %65)
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i21.i.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i21.i.i.i: ; preds = %65, %64
-  %67 = load i64, ptr %22, align 8
-  %68 = select i1 %56, i64 15, i64 %67
-  %69 = icmp ugt i64 %54, %68
-  br i1 %69, label %70, label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZN7rocksdb12experimental12_GLOBAL__N_120SerializeFilterInputEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt7variantIJNS6_14SelectWholeKeyENS6_16SelectKeySegmentENS6_21SelectKeySegmentRangeENS6_21SelectLegacyKeyPrefixENS6_19SelectUserTimestampENS6_16SelectColumnNameEEEE21FilterInputSerializerSO_EJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESQ_SO_.exit.i.i.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i21.i.i.i: ; preds = %64, %63
+  %66 = load i64, ptr %21, align 8
+  %67 = select i1 %55, i64 15, i64 %66
+  %68 = icmp ugt i64 %53, %67
+  br i1 %68, label %69, label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZN7rocksdb12experimental12_GLOBAL__N_120SerializeFilterInputEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt7variantIJNS6_14SelectWholeKeyENS6_16SelectKeySegmentENS6_21SelectKeySegmentRangeENS6_21SelectLegacyKeyPrefixENS6_19SelectUserTimestampENS6_16SelectColumnNameEEEE21FilterInputSerializerSO_EJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESQ_SO_.exit.i.i.i
 
-70:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i21.i.i.i
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %53, i64 noundef 0, ptr noundef null, i64 noundef 1)
+69:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i21.i.i.i
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %52, i64 noundef 0, ptr noundef null, i64 noundef 1)
   %.pre.i.i.i.i.i22.i.i.i = load ptr, ptr %1, align 8, !tbaa !11
   br label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZN7rocksdb12experimental12_GLOBAL__N_120SerializeFilterInputEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt7variantIJNS6_14SelectWholeKeyENS6_16SelectKeySegmentENS6_21SelectKeySegmentRangeENS6_21SelectLegacyKeyPrefixENS6_19SelectUserTimestampENS6_16SelectColumnNameEEEE21FilterInputSerializerSO_EJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESQ_SO_.exit.i.i.i
 
-_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZN7rocksdb12experimental12_GLOBAL__N_120SerializeFilterInputEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt7variantIJNS6_14SelectWholeKeyENS6_16SelectKeySegmentENS6_21SelectKeySegmentRangeENS6_21SelectLegacyKeyPrefixENS6_19SelectUserTimestampENS6_16SelectColumnNameEEEE21FilterInputSerializerSO_EJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESQ_SO_.exit.i.i.i: ; preds = %70, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i21.i.i.i
-  %71 = phi ptr [ %.pre.i.i.i.i.i22.i.i.i, %70 ], [ %55, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i21.i.i.i ]
-  %72 = trunc i16 %.val to i8
-  %73 = or i8 %72, 16
+_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZN7rocksdb12experimental12_GLOBAL__N_120SerializeFilterInputEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt7variantIJNS6_14SelectWholeKeyENS6_16SelectKeySegmentENS6_21SelectKeySegmentRangeENS6_21SelectLegacyKeyPrefixENS6_19SelectUserTimestampENS6_16SelectColumnNameEEEE21FilterInputSerializerSO_EJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESQ_SO_.exit.i.i.i: ; preds = %69, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i21.i.i.i
+  %70 = phi ptr [ %.pre.i.i.i.i.i22.i.i.i, %69 ], [ %54, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i21.i.i.i ]
+  %71 = trunc i16 %.val to i8
+  %72 = or i8 %71, 16
   br label %_ZN7rocksdb12experimental12_GLOBAL__N_120SerializeFilterInputEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt7variantIJNS0_14SelectWholeKeyENS0_16SelectKeySegmentENS0_21SelectKeySegmentRangeENS0_21SelectLegacyKeyPrefixENS0_19SelectUserTimestampENS0_16SelectColumnNameEEE.exit
 
-74:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit17
-  br i1 %56, label %75, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i23.i.i.i
+73:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit17
+  br i1 %55, label %74, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i23.i.i.i
 
-75:                                               ; preds = %74
-  %76 = icmp ult i64 %53, 16
-  tail call void @llvm.assume(i1 %76)
+74:                                               ; preds = %73
+  %75 = icmp ult i64 %52, 16
+  tail call void @llvm.assume(i1 %75)
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i23.i.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i23.i.i.i: ; preds = %75, %74
-  %77 = load i64, ptr %22, align 8
-  %78 = select i1 %56, i64 15, i64 %77
-  %79 = icmp ugt i64 %54, %78
-  br i1 %79, label %80, label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZN7rocksdb12experimental12_GLOBAL__N_120SerializeFilterInputEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt7variantIJNS6_14SelectWholeKeyENS6_16SelectKeySegmentENS6_21SelectKeySegmentRangeENS6_21SelectLegacyKeyPrefixENS6_19SelectUserTimestampENS6_16SelectColumnNameEEEE21FilterInputSerializerSO_EJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeESQ_SO_.exit.i.i.i
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i23.i.i.i: ; preds = %74, %73
+  %76 = load i64, ptr %21, align 8
+  %77 = select i1 %55, i64 15, i64 %76
+  %78 = icmp ugt i64 %53, %77
+  br i1 %78, label %79, label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZN7rocksdb12experimental12_GLOBAL__N_120SerializeFilterInputEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt7variantIJNS6_14SelectWholeKeyENS6_16SelectKeySegmentENS6_21SelectKeySegmentRangeENS6_21SelectLegacyKeyPrefixENS6_19SelectUserTimestampENS6_16SelectColumnNameEEEE21FilterInputSerializerSO_EJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeESQ_SO_.exit.i.i.i
 
-80:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i23.i.i.i
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %53, i64 noundef 0, ptr noundef null, i64 noundef 1)
+79:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i23.i.i.i
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %52, i64 noundef 0, ptr noundef null, i64 noundef 1)
   %.pre.i.i.i.i.i24.i.i.i = load ptr, ptr %1, align 8, !tbaa !11
   br label %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZN7rocksdb12experimental12_GLOBAL__N_120SerializeFilterInputEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt7variantIJNS6_14SelectWholeKeyENS6_16SelectKeySegmentENS6_21SelectKeySegmentRangeENS6_21SelectLegacyKeyPrefixENS6_19SelectUserTimestampENS6_16SelectColumnNameEEEE21FilterInputSerializerSO_EJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeESQ_SO_.exit.i.i.i
 
-_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZN7rocksdb12experimental12_GLOBAL__N_120SerializeFilterInputEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt7variantIJNS6_14SelectWholeKeyENS6_16SelectKeySegmentENS6_21SelectKeySegmentRangeENS6_21SelectLegacyKeyPrefixENS6_19SelectUserTimestampENS6_16SelectColumnNameEEEE21FilterInputSerializerSO_EJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeESQ_SO_.exit.i.i.i: ; preds = %80, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i23.i.i.i
-  %81 = phi ptr [ %.pre.i.i.i.i.i24.i.i.i, %80 ], [ %55, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i23.i.i.i ]
+_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZN7rocksdb12experimental12_GLOBAL__N_120SerializeFilterInputEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt7variantIJNS6_14SelectWholeKeyENS6_16SelectKeySegmentENS6_21SelectKeySegmentRangeENS6_21SelectLegacyKeyPrefixENS6_19SelectUserTimestampENS6_16SelectColumnNameEEEE21FilterInputSerializerSO_EJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeESQ_SO_.exit.i.i.i: ; preds = %79, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i23.i.i.i
+  %80 = phi ptr [ %.pre.i.i.i.i.i24.i.i.i, %79 ], [ %54, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i23.i.i.i ]
   %.sroa.2.0.extract.shift.i.i.i.i.i.i.i = lshr i16 %.val, 8
   %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i = zext nneg i16 %.sroa.2.0.extract.shift.i.i.i.i.i.i.i to i32
-  %82 = add nsw i32 %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i, -1
-  %83 = mul nsw i32 %82, %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i
-  %84 = sdiv i32 %83, 2
-  %85 = zext i16 %.val to i32
-  %86 = add nsw i32 %84, %85
-  %87 = trunc i32 %86 to i8
-  %88 = or i8 %87, 32
+  %81 = add nsw i32 %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i, -1
+  %82 = mul nsw i32 %81, %.sroa.2.0.extract.trunc.i.i.i.i.i.i.i
+  %83 = sdiv i32 %82, 2
+  %84 = zext i16 %.val to i32
+  %85 = add nsw i32 %83, %84
+  %86 = trunc i32 %85 to i8
+  %87 = or i8 %86, 32
   br label %_ZN7rocksdb12experimental12_GLOBAL__N_120SerializeFilterInputEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt7variantIJNS0_14SelectWholeKeyENS0_16SelectKeySegmentENS0_21SelectKeySegmentRangeENS0_21SelectLegacyKeyPrefixENS0_19SelectUserTimestampENS0_16SelectColumnNameEEE.exit
 
-89:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit17
-  br i1 %56, label %90, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i25.i.i.i
+88:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit17
+  br i1 %55, label %89, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i25.i.i.i
 
-90:                                               ; preds = %89
-  %91 = icmp ult i64 %53, 16
-  tail call void @llvm.assume(i1 %91)
+89:                                               ; preds = %88
+  %90 = icmp ult i64 %52, 16
+  tail call void @llvm.assume(i1 %90)
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i25.i.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i25.i.i.i: ; preds = %90, %89
-  %92 = load i64, ptr %22, align 8
-  %93 = select i1 %56, i64 15, i64 %92
-  %94 = icmp ugt i64 %54, %93
-  br i1 %94, label %95, label %_ZN7rocksdb12experimental12_GLOBAL__N_120SerializeFilterInputEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt7variantIJNS0_14SelectWholeKeyENS0_16SelectKeySegmentENS0_21SelectKeySegmentRangeENS0_21SelectLegacyKeyPrefixENS0_19SelectUserTimestampENS0_16SelectColumnNameEEE.exit
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i25.i.i.i: ; preds = %89, %88
+  %91 = load i64, ptr %21, align 8
+  %92 = select i1 %55, i64 15, i64 %91
+  %93 = icmp ugt i64 %53, %92
+  br i1 %93, label %94, label %_ZN7rocksdb12experimental12_GLOBAL__N_120SerializeFilterInputEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt7variantIJNS0_14SelectWholeKeyENS0_16SelectKeySegmentENS0_21SelectKeySegmentRangeENS0_21SelectLegacyKeyPrefixENS0_19SelectUserTimestampENS0_16SelectColumnNameEEE.exit
 
-95:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i25.i.i.i
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %53, i64 noundef 0, ptr noundef null, i64 noundef 1)
+94:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i25.i.i.i
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %52, i64 noundef 0, ptr noundef null, i64 noundef 1)
   %.pre.i.i.i.i.i26.i.i.i = load ptr, ptr %1, align 8, !tbaa !11
   br label %_ZN7rocksdb12experimental12_GLOBAL__N_120SerializeFilterInputEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt7variantIJNS0_14SelectWholeKeyENS0_16SelectKeySegmentENS0_21SelectKeySegmentRangeENS0_21SelectLegacyKeyPrefixENS0_19SelectUserTimestampENS0_16SelectColumnNameEEE.exit
 
-96:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit17
-  br i1 %56, label %97, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i27.i.i.i
+95:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit17
+  br i1 %55, label %96, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i27.i.i.i
 
-97:                                               ; preds = %96
-  %98 = icmp ult i64 %53, 16
-  tail call void @llvm.assume(i1 %98)
+96:                                               ; preds = %95
+  %97 = icmp ult i64 %52, 16
+  tail call void @llvm.assume(i1 %97)
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i27.i.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i27.i.i.i: ; preds = %97, %96
-  %99 = load i64, ptr %22, align 8
-  %100 = select i1 %56, i64 15, i64 %99
-  %101 = icmp ugt i64 %54, %100
-  br i1 %101, label %102, label %_ZN7rocksdb12experimental12_GLOBAL__N_120SerializeFilterInputEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt7variantIJNS0_14SelectWholeKeyENS0_16SelectKeySegmentENS0_21SelectKeySegmentRangeENS0_21SelectLegacyKeyPrefixENS0_19SelectUserTimestampENS0_16SelectColumnNameEEE.exit
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i27.i.i.i: ; preds = %96, %95
+  %98 = load i64, ptr %21, align 8
+  %99 = select i1 %55, i64 15, i64 %98
+  %100 = icmp ugt i64 %53, %99
+  br i1 %100, label %101, label %_ZN7rocksdb12experimental12_GLOBAL__N_120SerializeFilterInputEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt7variantIJNS0_14SelectWholeKeyENS0_16SelectKeySegmentENS0_21SelectKeySegmentRangeENS0_21SelectLegacyKeyPrefixENS0_19SelectUserTimestampENS0_16SelectColumnNameEEE.exit
 
-102:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i27.i.i.i
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %53, i64 noundef 0, ptr noundef null, i64 noundef 1)
+101:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i27.i.i.i
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %52, i64 noundef 0, ptr noundef null, i64 noundef 1)
   %.pre.i.i.i.i.i28.i.i.i = load ptr, ptr %1, align 8, !tbaa !11
   br label %_ZN7rocksdb12experimental12_GLOBAL__N_120SerializeFilterInputEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt7variantIJNS0_14SelectWholeKeyENS0_16SelectKeySegmentENS0_21SelectKeySegmentRangeENS0_21SelectLegacyKeyPrefixENS0_19SelectUserTimestampENS0_16SelectColumnNameEEE.exit
 
-103:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit17
-  br i1 %56, label %104, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i29.i.i.i
+102:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit17
+  br i1 %55, label %103, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i29.i.i.i
 
-104:                                              ; preds = %103
-  %105 = icmp ult i64 %53, 16
-  tail call void @llvm.assume(i1 %105)
+103:                                              ; preds = %102
+  %104 = icmp ult i64 %52, 16
+  tail call void @llvm.assume(i1 %104)
   br label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i29.i.i.i
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i29.i.i.i: ; preds = %104, %103
-  %106 = load i64, ptr %22, align 8
-  %107 = select i1 %56, i64 15, i64 %106
-  %108 = icmp ugt i64 %54, %107
-  br i1 %108, label %109, label %_ZN7rocksdb12experimental12_GLOBAL__N_120SerializeFilterInputEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt7variantIJNS0_14SelectWholeKeyENS0_16SelectKeySegmentENS0_21SelectKeySegmentRangeENS0_21SelectLegacyKeyPrefixENS0_19SelectUserTimestampENS0_16SelectColumnNameEEE.exit
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i29.i.i.i: ; preds = %103, %102
+  %105 = load i64, ptr %21, align 8
+  %106 = select i1 %55, i64 15, i64 %105
+  %107 = icmp ugt i64 %53, %106
+  br i1 %107, label %108, label %_ZN7rocksdb12experimental12_GLOBAL__N_120SerializeFilterInputEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt7variantIJNS0_14SelectWholeKeyENS0_16SelectKeySegmentENS0_21SelectKeySegmentRangeENS0_21SelectLegacyKeyPrefixENS0_19SelectUserTimestampENS0_16SelectColumnNameEEE.exit
 
-109:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i29.i.i.i
-  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %53, i64 noundef 0, ptr noundef null, i64 noundef 1)
+108:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i29.i.i.i
+  tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_mutateEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, i64 noundef %52, i64 noundef 0, ptr noundef null, i64 noundef 1)
   %.pre.i.i.i.i.i30.i.i.i = load ptr, ptr %1, align 8, !tbaa !11
   br label %_ZN7rocksdb12experimental12_GLOBAL__N_120SerializeFilterInputEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt7variantIJNS0_14SelectWholeKeyENS0_16SelectKeySegmentENS0_21SelectKeySegmentRangeENS0_21SelectLegacyKeyPrefixENS0_19SelectUserTimestampENS0_16SelectColumnNameEEE.exit
 
-110:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit17
+109:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit17
   unreachable
 
-_ZN7rocksdb12experimental12_GLOBAL__N_120SerializeFilterInputEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt7variantIJNS0_14SelectWholeKeyENS0_16SelectKeySegmentENS0_21SelectKeySegmentRangeENS0_21SelectLegacyKeyPrefixENS0_19SelectUserTimestampENS0_16SelectColumnNameEEE.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i.i.i.i, %63, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZN7rocksdb12experimental12_GLOBAL__N_120SerializeFilterInputEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt7variantIJNS6_14SelectWholeKeyENS6_16SelectKeySegmentENS6_21SelectKeySegmentRangeENS6_21SelectLegacyKeyPrefixENS6_19SelectUserTimestampENS6_16SelectColumnNameEEEE21FilterInputSerializerSO_EJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESQ_SO_.exit.i.i.i, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZN7rocksdb12experimental12_GLOBAL__N_120SerializeFilterInputEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt7variantIJNS6_14SelectWholeKeyENS6_16SelectKeySegmentENS6_21SelectKeySegmentRangeENS6_21SelectLegacyKeyPrefixENS6_19SelectUserTimestampENS6_16SelectColumnNameEEEE21FilterInputSerializerSO_EJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeESQ_SO_.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i25.i.i.i, %95, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i27.i.i.i, %102, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i29.i.i.i, %109
-  %.sink5.i.i.i = phi ptr [ %81, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZN7rocksdb12experimental12_GLOBAL__N_120SerializeFilterInputEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt7variantIJNS6_14SelectWholeKeyENS6_16SelectKeySegmentENS6_21SelectKeySegmentRangeENS6_21SelectLegacyKeyPrefixENS6_19SelectUserTimestampENS6_16SelectColumnNameEEEE21FilterInputSerializerSO_EJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeESQ_SO_.exit.i.i.i ], [ %71, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZN7rocksdb12experimental12_GLOBAL__N_120SerializeFilterInputEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt7variantIJNS6_14SelectWholeKeyENS6_16SelectKeySegmentENS6_21SelectKeySegmentRangeENS6_21SelectLegacyKeyPrefixENS6_19SelectUserTimestampENS6_16SelectColumnNameEEEE21FilterInputSerializerSO_EJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESQ_SO_.exit.i.i.i ], [ %.pre.i.i.i.i.i.i.i.i, %63 ], [ %55, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i.i.i.i ], [ %.pre.i.i.i.i.i26.i.i.i, %95 ], [ %55, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i25.i.i.i ], [ %.pre.i.i.i.i.i28.i.i.i, %102 ], [ %55, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i27.i.i.i ], [ %.pre.i.i.i.i.i30.i.i.i, %109 ], [ %55, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i29.i.i.i ]
-  %.sink.i.i.i = phi i8 [ %88, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZN7rocksdb12experimental12_GLOBAL__N_120SerializeFilterInputEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt7variantIJNS6_14SelectWholeKeyENS6_16SelectKeySegmentENS6_21SelectKeySegmentRangeENS6_21SelectLegacyKeyPrefixENS6_19SelectUserTimestampENS6_16SelectColumnNameEEEE21FilterInputSerializerSO_EJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeESQ_SO_.exit.i.i.i ], [ %73, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZN7rocksdb12experimental12_GLOBAL__N_120SerializeFilterInputEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt7variantIJNS6_14SelectWholeKeyENS6_16SelectKeySegmentENS6_21SelectKeySegmentRangeENS6_21SelectLegacyKeyPrefixENS6_19SelectUserTimestampENS6_16SelectColumnNameEEEE21FilterInputSerializerSO_EJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESQ_SO_.exit.i.i.i ], [ 0, %63 ], [ 0, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i.i.i.i ], [ 1, %95 ], [ 1, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i25.i.i.i ], [ 2, %102 ], [ 2, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i27.i.i.i ], [ 3, %109 ], [ 3, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i29.i.i.i ]
-  %111 = getelementptr inbounds nuw i8, ptr %.sink5.i.i.i, i64 %53
-  store i8 %.sink.i.i.i, ptr %111, align 1, !tbaa !17
-  store i64 %54, ptr %10, align 8, !tbaa !16
-  %112 = load ptr, ptr %1, align 8, !tbaa !11
-  %113 = getelementptr inbounds nuw i8, ptr %112, i64 %54
-  store i8 0, ptr %113, align 1, !tbaa !17
-  %114 = load ptr, ptr %13, align 8, !tbaa !999
-  %115 = getelementptr inbounds nuw i8, ptr %114, i64 24
-  %116 = load i8, ptr %115, align 8, !tbaa !692, !range !45, !noundef !46
-  %117 = trunc nuw i8 %116 to i1
-  %118 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %119 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %120 = select i1 %117, ptr %118, ptr %119
-  %121 = select i1 %117, ptr %119, ptr %118
-  %122 = getelementptr inbounds nuw i8, ptr %120, i64 8
-  %123 = load i64, ptr %122, align 8, !tbaa !16
-  %124 = trunc i64 %123 to i32
+_ZN7rocksdb12experimental12_GLOBAL__N_120SerializeFilterInputEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt7variantIJNS0_14SelectWholeKeyENS0_16SelectKeySegmentENS0_21SelectKeySegmentRangeENS0_21SelectLegacyKeyPrefixENS0_19SelectUserTimestampENS0_16SelectColumnNameEEE.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i.i.i.i, %62, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZN7rocksdb12experimental12_GLOBAL__N_120SerializeFilterInputEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt7variantIJNS6_14SelectWholeKeyENS6_16SelectKeySegmentENS6_21SelectKeySegmentRangeENS6_21SelectLegacyKeyPrefixENS6_19SelectUserTimestampENS6_16SelectColumnNameEEEE21FilterInputSerializerSO_EJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESQ_SO_.exit.i.i.i, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZN7rocksdb12experimental12_GLOBAL__N_120SerializeFilterInputEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt7variantIJNS6_14SelectWholeKeyENS6_16SelectKeySegmentENS6_21SelectKeySegmentRangeENS6_21SelectLegacyKeyPrefixENS6_19SelectUserTimestampENS6_16SelectColumnNameEEEE21FilterInputSerializerSO_EJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeESQ_SO_.exit.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i25.i.i.i, %94, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i27.i.i.i, %101, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i29.i.i.i, %108
+  %.sink5.i.i.i = phi ptr [ %80, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZN7rocksdb12experimental12_GLOBAL__N_120SerializeFilterInputEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt7variantIJNS6_14SelectWholeKeyENS6_16SelectKeySegmentENS6_21SelectKeySegmentRangeENS6_21SelectLegacyKeyPrefixENS6_19SelectUserTimestampENS6_16SelectColumnNameEEEE21FilterInputSerializerSO_EJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeESQ_SO_.exit.i.i.i ], [ %70, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZN7rocksdb12experimental12_GLOBAL__N_120SerializeFilterInputEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt7variantIJNS6_14SelectWholeKeyENS6_16SelectKeySegmentENS6_21SelectKeySegmentRangeENS6_21SelectLegacyKeyPrefixENS6_19SelectUserTimestampENS6_16SelectColumnNameEEEE21FilterInputSerializerSO_EJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESQ_SO_.exit.i.i.i ], [ %.pre.i.i.i.i.i.i.i.i, %62 ], [ %54, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i.i.i.i ], [ %.pre.i.i.i.i.i26.i.i.i, %94 ], [ %54, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i25.i.i.i ], [ %.pre.i.i.i.i.i28.i.i.i, %101 ], [ %54, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i27.i.i.i ], [ %.pre.i.i.i.i.i30.i.i.i, %108 ], [ %54, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i29.i.i.i ]
+  %.sink.i.i.i = phi i8 [ %87, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZN7rocksdb12experimental12_GLOBAL__N_120SerializeFilterInputEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt7variantIJNS6_14SelectWholeKeyENS6_16SelectKeySegmentENS6_21SelectKeySegmentRangeENS6_21SelectLegacyKeyPrefixENS6_19SelectUserTimestampENS6_16SelectColumnNameEEEE21FilterInputSerializerSO_EJEEESt16integer_sequenceImJLm2EEEE14__visit_invokeESQ_SO_.exit.i.i.i ], [ %72, %_ZNSt8__detail9__variant17__gen_vtable_implINS0_12_Multi_arrayIPFNS0_21__deduce_visit_resultIvEEOZN7rocksdb12experimental12_GLOBAL__N_120SerializeFilterInputEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt7variantIJNS6_14SelectWholeKeyENS6_16SelectKeySegmentENS6_21SelectKeySegmentRangeENS6_21SelectLegacyKeyPrefixENS6_19SelectUserTimestampENS6_16SelectColumnNameEEEE21FilterInputSerializerSO_EJEEESt16integer_sequenceImJLm1EEEE14__visit_invokeESQ_SO_.exit.i.i.i ], [ 0, %62 ], [ 0, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i.i.i.i ], [ 1, %94 ], [ 1, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i25.i.i.i ], [ 2, %101 ], [ 2, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i27.i.i.i ], [ 3, %108 ], [ 3, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit.i.i.i.i.i29.i.i.i ]
+  %110 = getelementptr inbounds nuw i8, ptr %.sink5.i.i.i, i64 %52
+  store i8 %.sink.i.i.i, ptr %110, align 1, !tbaa !17
+  store i64 %53, ptr %10, align 8, !tbaa !16
+  %111 = load ptr, ptr %1, align 8, !tbaa !11
+  %112 = getelementptr inbounds nuw i8, ptr %111, i64 %53
+  store i8 0, ptr %112, align 1, !tbaa !17
+  %113 = load ptr, ptr %13, align 8, !tbaa !999
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 24
+  %115 = load i8, ptr %114, align 8, !tbaa !692, !range !45, !noundef !46
+  %116 = trunc nuw i8 %115 to i1
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %119 = select i1 %116, ptr %117, ptr %118
+  %120 = select i1 %116, ptr %118, ptr %117
+  %121 = getelementptr inbounds nuw i8, ptr %119, i64 8
+  %122 = load i64, ptr %121, align 8, !tbaa !16
+  %123 = trunc i64 %122 to i32
   call void @llvm.lifetime.start.p0(i64 5, ptr nonnull %3) #34
-  %125 = call noundef ptr @_ZN7rocksdb14EncodeVarint32EPcj(ptr noundef nonnull %3, i32 noundef %124)
-  %126 = ptrtoint ptr %125 to i64
-  %127 = ptrtoint ptr %3 to i64
-  %128 = sub i64 %126, %127
-  %129 = load i64, ptr %10, align 8, !tbaa !16
-  %130 = sub i64 4611686018427387903, %129
-  %131 = icmp ult i64 %130, %128
-  br i1 %131, label %132, label %_ZN7rocksdb11PutVarint32EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit
+  %124 = call noundef ptr @_ZN7rocksdb14EncodeVarint32EPcj(ptr noundef nonnull %3, i32 noundef %123)
+  %125 = ptrtoint ptr %124 to i64
+  %126 = ptrtoint ptr %3 to i64
+  %127 = sub i64 %125, %126
+  %128 = load i64, ptr %10, align 8, !tbaa !16
+  %129 = sub i64 4611686018427387903, %128
+  %130 = icmp ult i64 %129, %127
+  br i1 %130, label %131, label %_ZN7rocksdb11PutVarint32EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit
 
-132:                                              ; preds = %_ZN7rocksdb12experimental12_GLOBAL__N_120SerializeFilterInputEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt7variantIJNS0_14SelectWholeKeyENS0_16SelectKeySegmentENS0_21SelectKeySegmentRangeENS0_21SelectLegacyKeyPrefixENS0_19SelectUserTimestampENS0_16SelectColumnNameEEE.exit
+131:                                              ; preds = %_ZN7rocksdb12experimental12_GLOBAL__N_120SerializeFilterInputEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt7variantIJNS0_14SelectWholeKeyENS0_16SelectKeySegmentENS0_21SelectKeySegmentRangeENS0_21SelectLegacyKeyPrefixENS0_19SelectUserTimestampENS0_16SelectColumnNameEEE.exit
   call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.64) #37
   unreachable
 
 _ZN7rocksdb11PutVarint32EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit: ; preds = %_ZN7rocksdb12experimental12_GLOBAL__N_120SerializeFilterInputEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt7variantIJNS0_14SelectWholeKeyENS0_16SelectKeySegmentENS0_21SelectKeySegmentRangeENS0_21SelectLegacyKeyPrefixENS0_19SelectUserTimestampENS0_16SelectColumnNameEEE.exit
-  %133 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %3, i64 noundef %128)
+  %132 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %3, i64 noundef %127)
   call void @llvm.lifetime.end.p0(i64 5, ptr nonnull %3) #34
-  %134 = load i64, ptr %122, align 8, !tbaa !16
-  %135 = load i64, ptr %10, align 8, !tbaa !16
-  %136 = sub i64 4611686018427387903, %135
-  %137 = icmp ult i64 %136, %134
-  br i1 %137, label %138, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit
+  %133 = load i64, ptr %121, align 8, !tbaa !16
+  %134 = load i64, ptr %10, align 8, !tbaa !16
+  %135 = sub i64 4611686018427387903, %134
+  %136 = icmp ult i64 %135, %133
+  br i1 %136, label %137, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit
 
-138:                                              ; preds = %_ZN7rocksdb11PutVarint32EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit
+137:                                              ; preds = %_ZN7rocksdb11PutVarint32EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit
   call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.64) #37
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit: ; preds = %_ZN7rocksdb11PutVarint32EPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEj.exit
-  %139 = load ptr, ptr %120, align 8, !tbaa !11
-  %140 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %139, i64 noundef %134)
-  %141 = getelementptr inbounds nuw i8, ptr %121, i64 8
-  %142 = load i64, ptr %141, align 8, !tbaa !16
-  %143 = load i64, ptr %10, align 8, !tbaa !16
-  %144 = sub i64 4611686018427387903, %143
-  %145 = icmp ult i64 %144, %142
-  br i1 %145, label %146, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit18
+  %138 = load ptr, ptr %119, align 8, !tbaa !11
+  %139 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %138, i64 noundef %133)
+  %140 = getelementptr inbounds nuw i8, ptr %120, i64 8
+  %141 = load i64, ptr %140, align 8, !tbaa !16
+  %142 = load i64, ptr %10, align 8, !tbaa !16
+  %143 = sub i64 4611686018427387903, %142
+  %144 = icmp ult i64 %143, %141
+  br i1 %144, label %145, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit18
 
-146:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit
+145:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit
   call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.64) #37
   unreachable
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit18: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit
-  %147 = load ptr, ptr %121, align 8, !tbaa !11
-  %148 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %147, i64 noundef %142)
-  br label %149
+  %146 = load ptr, ptr %120, align 8, !tbaa !11
+  %147 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef %146, i64 noundef %141)
+  br label %148
 
-149:                                              ; preds = %2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit18
+148:                                              ; preds = %2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit18
   ret void
 }
 

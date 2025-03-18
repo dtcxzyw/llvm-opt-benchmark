@@ -4544,8 +4544,8 @@ _ZN4Node8init_reqEjPS_.exit493:                   ; preds = %_ZN4Node8init_reqEj
 
 955:                                              ; preds = %.critedge395
   %956 = load i8, ptr @UseCompressedOops, align 1
-  %957 = trunc i8 %956 to i1
-  %958 = select i1 %957, i8 10, i8 11
+  %957 = and i8 %956, 1
+  %958 = xor i8 %957, 11
   br label %959
 
 959:                                              ; preds = %.critedge395, %955, %893

@@ -843,7 +843,7 @@ _ZN12_GLOBAL__N_112layoutBufferERN5clang7CodeGen13CGHLSLRuntime6BufferERKN4llvm1
   store ptr %148, ptr %92, align 8, !tbaa !551
   %152 = load i8, ptr %145, align 8, !tbaa !534, !range !535, !noundef !536
   %153 = trunc nuw i8 %152 to i1
-  %154 = select i1 %153, i8 2, i8 0
+  %154 = shl nuw nsw i8 %152, 1
   %155 = select i1 %153, i32 13, i32 15
   %156 = getelementptr inbounds nuw i8, ptr %.023, i64 20
   call void @_ZN5clang7CodeGen13CGHLSLRuntime27addBufferResourceAnnotationEPN4llvm14GlobalVariableENS2_4dxil13ResourceClassENS5_12ResourceKindEbNS5_11ElementTypeERNS1_16BufferResBindingE(ptr noundef nonnull align 8 dereferenceable(96) %0, ptr noundef nonnull %142, i8 noundef zeroext %154, i32 noundef %155, i1 noundef zeroext false, i32 noundef 0, ptr noundef nonnull align 4 dereferenceable(12) %156)

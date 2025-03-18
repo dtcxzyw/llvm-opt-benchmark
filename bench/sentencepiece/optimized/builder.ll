@@ -23913,9 +23913,9 @@ define linkonce_odr void @_ZN5Darts7Details11DawgBuilder6finishEv(ptr noundef no
   %10 = shl i32 %6, 2
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 9
   %12 = load i8, ptr %11, align 1, !tbaa !484, !range !103, !noundef !104
-  %13 = trunc nuw i8 %12 to i1
-  %14 = select i1 %13, i32 2, i32 0
-  %15 = or disjoint i32 %14, %10
+  %13 = shl nuw nsw i8 %12, 1
+  %14 = zext nneg i8 %13 to i32
+  %15 = or disjoint i32 %10, %14
   br label %_ZNK5Darts7Details8DawgNode4unitEv.exit
 
 _ZNK5Darts7Details8DawgNode4unitEv.exit:          ; preds = %7, %9
@@ -24468,9 +24468,9 @@ _ZN5Darts7Details11DawgBuilder11append_unitEv.exit: ; preds = %159, %.loopexit.i
   %183 = shl i32 %179, 2
   %184 = getelementptr inbounds nuw i8, ptr %175, i64 9
   %185 = load i8, ptr %184, align 1, !tbaa !484, !range !103, !noundef !104
-  %186 = trunc nuw i8 %185 to i1
-  %187 = select i1 %186, i32 2, i32 0
-  %188 = or disjoint i32 %187, %183
+  %186 = shl nuw nsw i8 %185, 1
+  %187 = zext nneg i8 %186 to i32
+  %188 = or disjoint i32 %183, %187
   br label %_ZNK5Darts7Details8DawgNode4unitEv.exit
 
 _ZNK5Darts7Details8DawgNode4unitEv.exit:          ; preds = %180, %182
@@ -24798,9 +24798,9 @@ define linkonce_odr noundef i32 @_ZNK5Darts7Details11DawgBuilder9find_nodeEjPj(p
   %15 = shl i32 %11, 2
   %16 = getelementptr inbounds nuw i8, ptr %7, i64 9
   %17 = load i8, ptr %16, align 1, !tbaa !484, !range !103, !noundef !104
-  %18 = trunc nuw i8 %17 to i1
-  %19 = select i1 %18, i32 2, i32 0
-  %20 = or disjoint i32 %19, %15
+  %18 = shl nuw nsw i8 %17, 1
+  %19 = zext nneg i8 %18 to i32
+  %20 = or disjoint i32 %15, %19
   br label %_ZNK5Darts7Details8DawgNode4unitEv.exit.i
 
 _ZNK5Darts7Details8DawgNode4unitEv.exit.i:        ; preds = %14, %12
@@ -24958,9 +24958,9 @@ _ZNK5Darts7Details11DawgBuilder9hash_nodeEj.exit: ; preds = %_ZNK5Darts7Details1
   %89 = shl i32 %85, 2
   %90 = getelementptr inbounds nuw i8, ptr %81, i64 9
   %91 = load i8, ptr %90, align 1, !tbaa !484, !range !103, !noundef !104
-  %92 = trunc nuw i8 %91 to i1
-  %93 = select i1 %92, i32 2, i32 0
-  %94 = or disjoint i32 %93, %89
+  %92 = shl nuw nsw i8 %91, 1
+  %93 = zext nneg i8 %92 to i32
+  %94 = or disjoint i32 %89, %93
   br label %_ZNK5Darts7Details8DawgNode4unitEv.exit.i15
 
 _ZNK5Darts7Details8DawgNode4unitEv.exit.i15:      ; preds = %88, %86

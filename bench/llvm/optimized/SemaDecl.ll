@@ -58567,10 +58567,10 @@ _ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_11SourceRangeEvEERKS1_OT_.exit64
   store i8 %464, ptr %22, align 1, !tbaa !819
   %465 = call noundef ptr @_ZN5clang4Sema20ActOnTypedefNameDeclEPNS_5ScopeEPNS_11DeclContextEPNS_15TypedefNameDeclERNS_12LookupResultERb(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef %1, ptr noundef %.040, ptr noundef nonnull %458, ptr noundef nonnull align 8 dereferenceable(168) %5, ptr noundef nonnull align 1 dereferenceable(1) %22)
   %466 = load i8, ptr %22, align 1, !tbaa !819, !range !792, !noundef !793
-  %467 = trunc nuw i8 %466 to i1
-  %468 = load i16, ptr %460, align 8
-  %469 = select i1 %467, i16 16, i16 0
-  %470 = and i16 %468, -17
+  %467 = load i16, ptr %460, align 8
+  %468 = shl nuw nsw i8 %466, 4
+  %469 = zext nneg i8 %468 to i16
+  %470 = and i16 %467, -17
   %471 = or disjoint i16 %470, %469
   store i16 %471, ptr %460, align 8
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %22) #30

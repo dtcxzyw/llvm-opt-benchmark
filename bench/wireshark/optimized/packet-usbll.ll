@@ -2579,8 +2579,8 @@ switch.lookup190:                                 ; preds = %872
   store i8 %884, ptr %885, align 2
   %886 = getelementptr inbounds nuw i8, ptr %882, i64 6
   %887 = load i8, ptr %886, align 2
-  %888 = trunc nuw i8 %874 to i1
-  %889 = select i1 %888, i8 0, i8 -128
+  %888 = xor i8 %874, -1
+  %889 = shl i8 %888, 7
   %890 = or i8 %887, %889
   %891 = getelementptr inbounds nuw i8, ptr %5, i64 3
   store i8 %890, ptr %891, align 1

@@ -55938,8 +55938,8 @@ define hidden noundef zeroext i1 @"_ZN81_$LT$workspace..notifications..Notificat
   %.mux = and i1 %14, %16
   br i1 %brmerge, label %"_ZN64_$LT$gpui..window..ElementId$u20$as$u20$core..cmp..PartialEq$GT$2eq17h122ac708f8cba0cdE.exit", label %17
 
-"_ZN64_$LT$gpui..window..ElementId$u20$as$u20$core..cmp..PartialEq$GT$2eq17h122ac708f8cba0cdE.exit": ; preds = %12, %83, %77, %71, %"_ZN71_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd65e5d78d8b20933E.exit15.i", %64, %57, %50, %40, %38, %31, %24, %17, %8, %2
-  %.sroa.0.0 = phi i1 [ false, %2 ], [ false, %8 ], [ %88, %83 ], [ %82, %77 ], [ %56, %50 ], [ %37, %31 ], [ %76, %71 ], [ false, %17 ], [ false, %24 ], [ false, %57 ], [ false, %"_ZN71_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd65e5d78d8b20933E.exit15.i" ], [ %49, %40 ], [ false, %38 ], [ false, %64 ], [ %.mux, %12 ]
+"_ZN64_$LT$gpui..window..ElementId$u20$as$u20$core..cmp..PartialEq$GT$2eq17h122ac708f8cba0cdE.exit": ; preds = %12, %83, %77, %71, %"_ZN71_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd65e5d78d8b20933E.exit13.i", %64, %57, %50, %40, %38, %31, %24, %17, %8, %2
+  %.sroa.0.0 = phi i1 [ false, %2 ], [ false, %8 ], [ %88, %83 ], [ %82, %77 ], [ %56, %50 ], [ %37, %31 ], [ %76, %71 ], [ false, %17 ], [ false, %24 ], [ false, %57 ], [ false, %"_ZN71_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd65e5d78d8b20933E.exit13.i" ], [ %49, %40 ], [ false, %38 ], [ false, %64 ], [ %.mux, %12 ]
   ret i1 %.sroa.0.0
 
 17:                                               ; preds = %12
@@ -56003,14 +56003,12 @@ default.unreachable:                              ; preds = %23
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %44 = load ptr, ptr %43, align 8, !alias.scope !12098, !noalias !12097, !nonnull !11
   %45 = load i64, ptr %41, align 8, !range !352, !alias.scope !12098, !noalias !12097, !noundef !11
-  %trunc3.i.i = trunc nuw i64 %45 to i1
-  %.sroa.01.0.idx.i.i = select i1 %trunc3.i.i, i64 16, i64 0
+  %.sroa.01.0.idx.i.i = shl nuw nsw i64 %45, 4
   %.sroa.01.0.i.i = getelementptr inbounds nuw i8, ptr %44, i64 %.sroa.01.0.idx.i.i
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %47 = load ptr, ptr %46, align 8, !alias.scope !12097, !noalias !12098, !nonnull !11
   %48 = load i64, ptr %42, align 8, !range !352, !alias.scope !12097, !noalias !12098, !noundef !11
-  %trunc.i.i = trunc nuw i64 %48 to i1
-  %.sroa.0.0.idx.i.i = select i1 %trunc.i.i, i64 16, i64 0
+  %.sroa.0.0.idx.i.i = shl nuw nsw i64 %48, 4
   %.sroa.0.0.i.i = getelementptr inbounds nuw i8, ptr %47, i64 %.sroa.0.0.idx.i.i
   %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.sroa.0.0.i.i, ptr nonnull readonly align 1 %.sroa.01.0.i.i, i64 %.sroa.3.0.i.i), !alias.scope !12099, !noalias !12106
   %49 = icmp eq i32 %bcmp.i.i.i.i, 0
@@ -56046,21 +56044,19 @@ default.unreachable:                              ; preds = %23
   %.sroa.32.0.in.i4.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.32.0.i5.i = load i64, ptr %.sroa.32.0.in.i4.i, align 8, !alias.scope !12113, !noalias !12112, !noundef !11
   %.not.i.i.i6.i = icmp eq i64 %.sroa.3.0.i3.i, %.sroa.32.0.i5.i
-  br i1 %.not.i.i.i6.i, label %"_ZN71_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd65e5d78d8b20933E.exit15.i", label %"_ZN64_$LT$gpui..window..ElementId$u20$as$u20$core..cmp..PartialEq$GT$2eq17h122ac708f8cba0cdE.exit"
+  br i1 %.not.i.i.i6.i, label %"_ZN71_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd65e5d78d8b20933E.exit13.i", label %"_ZN64_$LT$gpui..window..ElementId$u20$as$u20$core..cmp..PartialEq$GT$2eq17h122ac708f8cba0cdE.exit"
 
-"_ZN71_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd65e5d78d8b20933E.exit15.i": ; preds = %64
+"_ZN71_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd65e5d78d8b20933E.exit13.i": ; preds = %64
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %67 = load ptr, ptr %66, align 8, !alias.scope !12113, !noalias !12112, !nonnull !11
-  %trunc3.i8.i = trunc nuw i64 %15 to i1
-  %.sroa.01.0.idx.i9.i = select i1 %trunc3.i8.i, i64 16, i64 0
-  %.sroa.01.0.i10.i = getelementptr inbounds nuw i8, ptr %67, i64 %.sroa.01.0.idx.i9.i
+  %.sroa.01.0.idx.i8.i = shl nuw nsw i64 %15, 4
+  %.sroa.01.0.i9.i = getelementptr inbounds nuw i8, ptr %67, i64 %.sroa.01.0.idx.i8.i
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %69 = load ptr, ptr %68, align 8, !alias.scope !12112, !noalias !12113, !nonnull !11
-  %trunc.i11.i = trunc nuw i64 %13 to i1
-  %.sroa.0.0.idx.i12.i = select i1 %trunc.i11.i, i64 16, i64 0
-  %.sroa.0.0.i13.i = getelementptr inbounds nuw i8, ptr %69, i64 %.sroa.0.0.idx.i12.i
-  %bcmp.i.i.i14.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.sroa.0.0.i13.i, ptr nonnull readonly align 1 %.sroa.01.0.i10.i, i64 %.sroa.3.0.i3.i), !alias.scope !12114, !noalias !12121
-  %70 = icmp eq i32 %bcmp.i.i.i14.i, 0
+  %.sroa.0.0.idx.i10.i = shl nuw nsw i64 %13, 4
+  %.sroa.0.0.i11.i = getelementptr inbounds nuw i8, ptr %69, i64 %.sroa.0.0.idx.i10.i
+  %bcmp.i.i.i12.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.sroa.0.0.i11.i, ptr nonnull readonly align 1 %.sroa.01.0.i9.i, i64 %.sroa.3.0.i3.i), !alias.scope !12114, !noalias !12121
+  %70 = icmp eq i32 %bcmp.i.i.i12.i, 0
   br i1 %70, label %83, label %"_ZN64_$LT$gpui..window..ElementId$u20$as$u20$core..cmp..PartialEq$GT$2eq17h122ac708f8cba0cdE.exit"
 
 71:                                               ; preds = %24
@@ -56079,7 +56075,7 @@ default.unreachable:                              ; preds = %23
   %82 = icmp eq i32 %80, %81
   br label %"_ZN64_$LT$gpui..window..ElementId$u20$as$u20$core..cmp..PartialEq$GT$2eq17h122ac708f8cba0cdE.exit"
 
-83:                                               ; preds = %"_ZN71_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd65e5d78d8b20933E.exit15.i"
+83:                                               ; preds = %"_ZN71_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd65e5d78d8b20933E.exit13.i"
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %85 = load i64, ptr %84, align 8, !alias.scope !12087, !noalias !12090, !noundef !11
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 24

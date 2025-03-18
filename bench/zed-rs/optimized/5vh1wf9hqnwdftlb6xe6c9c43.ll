@@ -3623,52 +3623,53 @@ define void @"_ZN66_$LT$markdown..Markdown$u20$as$u20$gpui..window..FocusableVie
 define hidden void @_ZN8markdown9Selection8set_head17h5096f29439faa6c5E(ptr noalias noundef align 8 captures(none) dereferenceable(24) %0, i64 noundef %1) unnamed_addr #9 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %4 = load i8, ptr %3, align 8, !range !130, !alias.scope !503, !noundef !9
-  %5 = trunc nuw i8 %4 to i1
-  %.sroa.0.0.in.idx.i = select i1 %5, i64 8, i64 0
+  %5 = shl nuw nsw i8 %4, 3
+  %.sroa.0.0.in.idx.i = zext nneg i8 %5 to i64
   %.sroa.0.0.in.i = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.0.0.in.idx.i
   %.sroa.0.0.i = load i64, ptr %.sroa.0.0.in.i, align 8, !alias.scope !503, !noundef !9
   %6 = icmp ult i64 %1, %.sroa.0.0.i
-  br i1 %6, label %8, label %7
-
-7:                                                ; preds = %2
-  br i1 %5, label %11, label %9
+  %7 = trunc nuw i8 %4 to i1
+  br i1 %6, label %9, label %8
 
 8:                                                ; preds = %2
-  br i1 %5, label %18, label %15
+  br i1 %7, label %12, label %10
 
-9:                                                ; preds = %11, %7
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %1, ptr %10, align 8
-  br label %14
+9:                                                ; preds = %2
+  br i1 %7, label %19, label %16
 
-11:                                               ; preds = %7
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %13 = load i64, ptr %12, align 8, !noundef !9
-  store i64 %13, ptr %0, align 8
+10:                                               ; preds = %12, %8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %1, ptr %11, align 8
+  br label %15
+
+12:                                               ; preds = %8
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %14 = load i64, ptr %13, align 8, !noundef !9
+  store i64 %14, ptr %0, align 8
   store i8 0, ptr %3, align 8
-  br label %9
+  br label %10
 
-14:                                               ; preds = %18, %9
+15:                                               ; preds = %19, %10
   ret void
 
-15:                                               ; preds = %8
-  %16 = load i64, ptr %0, align 8, !noundef !9
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %16, ptr %17, align 8
+16:                                               ; preds = %9
+  %17 = load i64, ptr %0, align 8, !noundef !9
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %17, ptr %18, align 8
   store i8 1, ptr %3, align 8
-  br label %18
+  br label %19
 
-18:                                               ; preds = %15, %8
+19:                                               ; preds = %16, %9
   store i64 %1, ptr %0, align 8
-  br label %14
+  br label %15
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef i64 @_ZN8markdown9Selection4tail17he0e88c9f5ae0eb25E.llvm.5483158644543765426(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #7 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %3 = load i8, ptr %2, align 8, !range !130, !noundef !9
-  %4 = trunc nuw i8 %3 to i1
-  %.sroa.0.0.in.idx = select i1 %4, i64 8, i64 0
+  %4 = shl nuw nsw i8 %3, 3
+  %.sroa.0.0.in.idx = zext nneg i8 %4 to i64
   %.sroa.0.0.in = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.0.0.in.idx
   %.sroa.0.0 = load i64, ptr %.sroa.0.0.in, align 8, !noundef !9
   ret i64 %.sroa.0.0
@@ -8279,10 +8280,9 @@ _ZN8markdown22MarkdownElementBuilder14pop_text_style17hfa443ed97c1a5555E.exit445
 
 1791:                                             ; preds = %704
   %1792 = load i64, ptr %123, align 8, !range !21, !noundef !9
-  %trunc91 = trunc nuw i64 %1792 to i1
   %1793 = load ptr, ptr %.sroa.4496.0..sroa_idx, align 8, !nonnull !9
   %1794 = load i64, ptr %.sroa.5497.0..sroa_idx, align 8
-  %.sroa.027.0.idx = select i1 %trunc91, i64 16, i64 0
+  %.sroa.027.0.idx = shl nuw nsw i64 %1792, 4
   %.sroa.027.0 = getelementptr inbounds nuw i8, ptr %1793, i64 %.sroa.027.0.idx
   %.val125 = load i64, ptr %.sroa.0.0509764, align 8, !alias.scope !1087, !noundef !9
   %1795 = getelementptr i8, ptr %.sroa.0.0509764, i64 8
@@ -8407,10 +8407,9 @@ _ZN8markdown22MarkdownElementBuilder14pop_text_style17hfa443ed97c1a5555E.exit445
   store i64 %1840, ptr %.sroa.56.0..sroa_idx.i, align 8, !alias.scope !1202, !noalias !1207
   call void @llvm.lifetime.end.p0(i64 160, ptr nonnull %64)
   %1841 = load i64, ptr %123, align 8, !range !21, !noundef !9
-  %trunc90 = trunc nuw i64 %1841 to i1
   %1842 = load ptr, ptr %.sroa.4496.0..sroa_idx, align 8, !nonnull !9
   %1843 = load i64, ptr %.sroa.5497.0..sroa_idx, align 8
-  %.sroa.031.0.idx = select i1 %trunc90, i64 16, i64 0
+  %.sroa.031.0.idx = shl nuw nsw i64 %1841, 4
   %.sroa.031.0 = getelementptr inbounds nuw i8, ptr %1842, i64 %.sroa.031.0.idx
   %.val123 = load i64, ptr %.sroa.0.0509764, align 8, !alias.scope !1087, !noundef !9
   %1844 = getelementptr i8, ptr %.sroa.0.0509764, i64 8
@@ -8490,10 +8489,9 @@ _ZN8markdown22MarkdownElementBuilder14pop_text_style17hfa443ed97c1a5555E.exit458
 
 1879:                                             ; preds = %704
   %1880 = load i64, ptr %123, align 8, !range !21, !noundef !9
-  %trunc89 = trunc nuw i64 %1880 to i1
   %1881 = load ptr, ptr %.sroa.4496.0..sroa_idx, align 8, !nonnull !9
   %1882 = load i64, ptr %.sroa.5497.0..sroa_idx, align 8
-  %.sroa.035.0.idx = select i1 %trunc89, i64 16, i64 0
+  %.sroa.035.0.idx = shl nuw nsw i64 %1880, 4
   %.sroa.035.0 = getelementptr inbounds nuw i8, ptr %1881, i64 %.sroa.035.0.idx
   %.val121 = load i64, ptr %.sroa.0.0509764, align 8, !alias.scope !1087, !noundef !9
   %1883 = getelementptr i8, ptr %.sroa.0.0509764, i64 8
@@ -8544,10 +8542,9 @@ _ZN8markdown22MarkdownElementBuilder14pop_text_style17hfa443ed97c1a5555E.exit458
 
 1907:                                             ; preds = %704
   %1908 = load i64, ptr %123, align 8, !range !21, !noundef !9
-  %trunc = trunc nuw i64 %1908 to i1
   %1909 = load ptr, ptr %.sroa.4496.0..sroa_idx, align 8, !nonnull !9
   %1910 = load i64, ptr %.sroa.5497.0..sroa_idx, align 8
-  %.sroa.039.0.idx = select i1 %trunc, i64 16, i64 0
+  %.sroa.039.0.idx = shl nuw nsw i64 %1908, 4
   %.sroa.039.0 = getelementptr inbounds nuw i8, ptr %1909, i64 %.sroa.039.0.idx
   %.val = load i64, ptr %.sroa.0.0509764, align 8, !alias.scope !1087, !noundef !9
   %1911 = getelementptr i8, ptr %.sroa.0.0509764, i64 8

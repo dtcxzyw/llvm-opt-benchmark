@@ -2063,8 +2063,8 @@ _ZN12_GLOBAL__N_128StackFrameLayoutAnalysisPass13getTypeStringB5cxx11ENS0_8SlotT
   %782 = load i32, ptr %781, align 4, !tbaa !349
   %783 = getelementptr inbounds nuw i8, ptr %.sroa.01.051.i, i64 36
   %784 = load i8, ptr %783, align 4, !tbaa !352, !range !290, !noundef !291
-  %785 = trunc nuw i8 %784 to i1
-  %.sroa.2.0.insert.shift.i.i.i = select i1 %785, i64 4294967296, i64 0
+  %785 = zext nneg i8 %784 to i64
+  %.sroa.2.0.insert.shift.i.i.i = shl nuw nsw i64 %785, 32
   %.sroa.0.0.insert.ext.i.i.i = zext i32 %782 to i64
   %.sroa.0.0.insert.insert.i.i.i = or disjoint i64 %.sroa.2.0.insert.shift.i.i.i, %.sroa.0.0.insert.ext.i.i.i
   call void @_ZN4llvm30DiagnosticInfoOptimizationBase8ArgumentC1ENS_9StringRefENS_12ElementCountE(ptr noundef nonnull align 8 dereferenceable(80) %18, ptr nonnull @.str.20, i64 4, i64 %.sroa.0.0.insert.insert.i.i.i) #21

@@ -3120,8 +3120,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit297: ; preds = %_Z
 973:                                              ; preds = %.thread466
   %974 = getelementptr inbounds nuw i8, ptr %972, i64 104
   %975 = load i8, ptr %974, align 8, !tbaa !195, !range !64, !noundef !65
-  %976 = trunc nuw i8 %975 to i1
-  %spec.select.idx.i = select i1 %976, i64 32, i64 0
+  %976 = shl nuw nsw i8 %975, 5
+  %spec.select.idx.i = zext nneg i8 %976 to i64
   %spec.select.i = getelementptr inbounds nuw i8, ptr %776, i64 %spec.select.idx.i
   br label %_ZNK7rocksdb13FileSystemPtr3getEv.exit
 

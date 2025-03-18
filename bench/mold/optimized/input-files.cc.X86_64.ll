@@ -3189,14 +3189,14 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE6substrEmm.exit101: ; preds = %268
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %172, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %8) #16
   %272 = load i8, ptr %173, align 1, !tbaa !482, !range !319, !noundef !320
-  %273 = trunc nuw i8 %272 to i1
-  %274 = trunc i64 %265 to i32
-  %275 = select i1 %273, i16 4096, i16 0
+  %273 = trunc i64 %265 to i32
+  %274 = zext nneg i8 %272 to i16
+  %275 = shl nuw nsw i16 %274, 12
   store i64 %271, ptr %8, align 8, !tbaa !56
   store ptr %266, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !58
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(51) %174, i8 0, i64 24, i1 false)
   store ptr %266, ptr %175, align 8, !tbaa !339
-  store i32 %274, ptr %176, align 8, !tbaa !340
+  store i32 %273, ptr %176, align 8, !tbaa !340
   store i32 -1, ptr %177, align 4, !tbaa !337
   store i32 -1, ptr %178, align 8, !tbaa !483
   store i16 -1, ptr %179, align 4, !tbaa !484
@@ -3246,14 +3246,14 @@ _ZN4mold10get_symbolINS_6X86_64EEEPNS_6SymbolIT_EERNS_7ContextIS3_EESt17basic_st
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %186, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #16
   %288 = load i8, ptr %173, align 1, !tbaa !482, !range !319, !noundef !320
-  %289 = trunc nuw i8 %288 to i1
-  %290 = trunc i64 %.sroa.0143.0215 to i32
-  %291 = select i1 %289, i16 4096, i16 0
+  %289 = trunc i64 %.sroa.0143.0215 to i32
+  %290 = zext nneg i8 %288 to i16
+  %291 = shl nuw nsw i16 %290, 12
   store i64 %.sroa.0157.0218, ptr %6, align 8, !tbaa !56
   store ptr %236, ptr %.sroa.2.0..sroa_idx.i102, align 8, !tbaa !58
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(51) %187, i8 0, i64 24, i1 false)
   store ptr %236, ptr %188, align 8, !tbaa !339
-  store i32 %290, ptr %189, align 8, !tbaa !340
+  store i32 %289, ptr %189, align 8, !tbaa !340
   store i32 -1, ptr %190, align 4, !tbaa !337
   store i32 -1, ptr %191, align 8, !tbaa !483
   store i16 -1, ptr %192, align 4, !tbaa !484
@@ -3576,14 +3576,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit131: ; preds = %_Z
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %209, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4) #16
   %409 = load i8, ptr %173, align 1, !tbaa !482, !range !319, !noundef !320
-  %410 = trunc nuw i8 %409 to i1
-  %411 = trunc i64 %397 to i32
-  %412 = select i1 %410, i16 4096, i16 0
+  %410 = trunc i64 %397 to i32
+  %411 = zext nneg i8 %409 to i16
+  %412 = shl nuw nsw i16 %411, 12
   store i64 %347, ptr %4, align 8, !tbaa !56
   store ptr %338, ptr %.sroa.2.0..sroa_idx.i132, align 8, !tbaa !58
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(51) %210, i8 0, i64 24, i1 false)
   store ptr %388, ptr %211, align 8, !tbaa !339
-  store i32 %411, ptr %212, align 8, !tbaa !340
+  store i32 %410, ptr %212, align 8, !tbaa !340
   store i32 -1, ptr %213, align 4, !tbaa !337
   store i32 -1, ptr %214, align 8, !tbaa !483
   store i16 -1, ptr %215, align 4, !tbaa !484
@@ -3906,9 +3906,9 @@ _ZN3tbb6detail2d219concurrent_hash_mapISt17basic_string_viewIcSt11char_traitsIcE
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %6) #16
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 161
   %10 = load i8, ptr %9, align 1, !tbaa !482, !range !319, !noundef !320
-  %11 = trunc nuw i8 %10 to i1
-  %12 = trunc i64 %3 to i32
-  %13 = select i1 %11, i16 4096, i16 0
+  %11 = trunc i64 %3 to i32
+  %12 = zext nneg i8 %10 to i16
+  %13 = shl nuw nsw i16 %12, 12
   store i64 %1, ptr %6, align 8, !tbaa !56
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %6, i64 8
   store ptr %2, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !58
@@ -3917,7 +3917,7 @@ _ZN3tbb6detail2d219concurrent_hash_mapISt17basic_string_viewIcSt11char_traitsIcE
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(51) %14, i8 0, i64 24, i1 false)
   store ptr %4, ptr %15, align 8, !tbaa !339
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  store i32 %12, ptr %16, align 8, !tbaa !340
+  store i32 %11, ptr %16, align 8, !tbaa !340
   %17 = getelementptr inbounds nuw i8, ptr %6, i64 52
   store i32 -1, ptr %17, align 4, !tbaa !337
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 56
@@ -9078,14 +9078,14 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit.i: ; preds = %_ZNSt1
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %156, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7) #16
   %300 = load i8, ptr %141, align 1, !tbaa !482, !range !319, !noundef !320
-  %301 = trunc nuw i8 %300 to i1
-  %302 = trunc i64 %.sroa.speculated.i.i to i32
-  %303 = select i1 %301, i16 4096, i16 0
+  %301 = trunc i64 %.sroa.speculated.i.i to i32
+  %302 = zext nneg i8 %300 to i16
+  %303 = shl nuw nsw i16 %302, 12
   store i64 %194, ptr %7, align 8, !tbaa !56
   store ptr %193, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !58
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(51) %157, i8 0, i64 24, i1 false)
   store ptr %193, ptr %158, align 8, !tbaa !339
-  store i32 %302, ptr %159, align 8, !tbaa !340
+  store i32 %301, ptr %159, align 8, !tbaa !340
   store i32 -1, ptr %160, align 4, !tbaa !337
   store i32 -1, ptr %161, align 8, !tbaa !483
   store i16 -1, ptr %162, align 4, !tbaa !484
@@ -9456,14 +9456,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit84: ; preds = %_ZN
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %140, i8 0, i64 16, i1 false)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #16
   %433 = load i8, ptr %141, align 1, !tbaa !482, !range !319, !noundef !320
-  %434 = trunc nuw i8 %433 to i1
-  %435 = trunc i64 %194 to i32
-  %436 = select i1 %434, i16 4096, i16 0
+  %434 = trunc i64 %194 to i32
+  %435 = zext nneg i8 %433 to i16
+  %436 = shl nuw nsw i16 %435, 12
   store i64 %409, ptr %5, align 8, !tbaa !56
   store ptr %400, ptr %.sroa.2.0..sroa_idx.i85, align 8, !tbaa !58
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(51) %142, i8 0, i64 24, i1 false)
   store ptr %193, ptr %143, align 8, !tbaa !339
-  store i32 %435, ptr %144, align 8, !tbaa !340
+  store i32 %434, ptr %144, align 8, !tbaa !340
   store i32 -1, ptr %145, align 4, !tbaa !337
   store i32 -1, ptr %146, align 8, !tbaa !483
   store i16 -1, ptr %147, align 4, !tbaa !484
@@ -9984,9 +9984,9 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit: ; preds = %3, %_ZNS
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %5) #16
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 161
   %13 = load i8, ptr %12, align 1, !tbaa !482, !range !319, !noundef !320
-  %14 = trunc nuw i8 %13 to i1
-  %15 = trunc i64 %.sroa.speculated.i to i32
-  %16 = select i1 %14, i16 4096, i16 0
+  %14 = trunc i64 %.sroa.speculated.i to i32
+  %15 = zext nneg i8 %13 to i16
+  %16 = shl nuw nsw i16 %15, 12
   store i64 %1, ptr %5, align 8, !tbaa !56
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %2, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !58
@@ -9995,7 +9995,7 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findEcm.exit: ; preds = %3, %_ZNS
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(51) %17, i8 0, i64 24, i1 false)
   store ptr %2, ptr %18, align 8, !tbaa !339
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store i32 %15, ptr %19, align 8, !tbaa !340
+  store i32 %14, ptr %19, align 8, !tbaa !340
   %20 = getelementptr inbounds nuw i8, ptr %5, i64 52
   store i32 -1, ptr %20, align 4, !tbaa !337
   %21 = getelementptr inbounds nuw i8, ptr %5, i64 56

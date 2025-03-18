@@ -2901,13 +2901,12 @@ define hidden void @"_ZN12icu_provider8response20DataPayload$LT$M$GT$15try_map_p
 14:                                               ; preds = %9, %8
   call void @"_ZN4yoke4yoke17Yoke$LT$Y$C$C$GT$15try_map_project17h22518fff9f007750E"(ptr noalias noundef nonnull sret({ i64, [10 x i64] }) align 8 captures(none) dereferenceable(88) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 1 dereferenceable(1) %2)
   %15 = load i64, ptr %5, align 8, !range !11, !noundef !5
-  %trunc12 = trunc nuw i64 %15 to i1
   %16 = getelementptr inbounds nuw i8, ptr %5, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.sroa.6, ptr noundef nonnull align 8 dereferenceable(80) %16, i64 80, i1 false)
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %17, ptr noundef nonnull align 8 dereferenceable(80) %.sroa.6, i64 80, i1 false)
-  %. = select i1 %trunc12, i64 2, i64 0
+  %. = shl nuw nsw i64 %15, 1
   store i64 %., ptr %0, align 8
   ret void
 }

@@ -17210,8 +17210,8 @@ _ZNSt10unique_ptrIN7rocksdb10CompactionESt14default_deleteIS1_EE5resetEPS1_.exit
 181:                                              ; preds = %177
   %182 = getelementptr inbounds nuw i8, ptr %180, i64 104
   %183 = load i8, ptr %182, align 8, !tbaa !882, !range !72, !noundef !73
-  %184 = trunc nuw i8 %183 to i1
-  %spec.select.idx.i = select i1 %184, i64 32, i64 0
+  %184 = shl nuw nsw i8 %183, 5
+  %spec.select.idx.i = zext nneg i8 %184 to i64
   %spec.select.i = getelementptr inbounds nuw i8, ptr %178, i64 %spec.select.idx.i
   br label %_ZNK7rocksdb13FileSystemPtr3getEv.exit
 

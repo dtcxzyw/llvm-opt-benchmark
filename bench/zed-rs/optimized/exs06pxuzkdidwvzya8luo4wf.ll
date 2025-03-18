@@ -20112,12 +20112,11 @@ define hidden void @_ZN4gpui3app13async_context15AsyncAppContext6update17h7734a9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10), !noalias !5188
   store i64 0, ptr %10, align 8, !noalias !5188
   %77 = load i64, ptr %12, align 8, !range !602, !alias.scope !5189, !noalias !5194, !noundef !5
-  %trunc.i.i.i.i.i.i.i = trunc nuw i64 %77 to i1
   %78 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %79 = load ptr, ptr %78, align 8, !alias.scope !5189, !noalias !5194, !nonnull !5, !noundef !5
   %80 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %81 = load i64, ptr %80, align 8, !alias.scope !5189, !noalias !5194, !noundef !5
-  %.sink.idx.i.i.i.i.i.i.i = select i1 %trunc.i.i.i.i.i.i.i, i64 16, i64 0
+  %.sink.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %77, 4
   %.sink.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %79, i64 %.sink.idx.i.i.i.i.i.i.i
   invoke void @"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$5write17h5b780d2263fcefdeE.llvm.5851185471656548919"(ptr noalias noundef nonnull align 8 dereferenceable(8) %10, ptr noalias noundef nonnull readonly align 1 %.sink.i.i.i.i.i.i.i, i64 noundef %81)
           to label %.noexc.i.i unwind label %115, !noalias !5177
@@ -20173,8 +20172,7 @@ define hidden void @_ZN4gpui3app13async_context15AsyncAppContext6update17h7734a9
   %100 = getelementptr inbounds i8, ptr %98, i64 -216
   %101 = load ptr, ptr %100, align 8, !alias.scope !5227, !noalias !5228, !nonnull !5
   %102 = load i64, ptr %99, align 8, !range !602, !alias.scope !5227, !noalias !5228, !noundef !5
-  %trunc3.i.i.i.i.i.i.i.i.i = trunc nuw i64 %102 to i1
-  %.sroa.01.0.idx.i.i.i.i.i.i.i.i.i = select i1 %trunc3.i.i.i.i.i.i.i.i.i, i64 16, i64 0
+  %.sroa.01.0.idx.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %102, 4
   %.sroa.01.0.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %101, i64 %.sroa.01.0.idx.i.i.i.i.i.i.i.i.i
   %bcmp.i.i.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly align 1 %.sink.i.i.i.i.i.i.i, ptr nonnull readonly align 1 %.sroa.01.0.i.i.i.i.i.i.i.i.i, i64 %81), !alias.scope !5234, !noalias !5241
   %103 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i.i.i, 0
@@ -21035,12 +21033,11 @@ define hidden void @_ZN4gpui3app13async_context15AsyncAppContext6update17ha02ede
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10), !noalias !5542
   store i64 0, ptr %10, align 8, !noalias !5542
   %77 = load i64, ptr %12, align 8, !range !602, !alias.scope !5543, !noalias !5548, !noundef !5
-  %trunc.i.i.i.i.i.i.i = trunc nuw i64 %77 to i1
   %78 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %79 = load ptr, ptr %78, align 8, !alias.scope !5543, !noalias !5548, !nonnull !5, !noundef !5
   %80 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %81 = load i64, ptr %80, align 8, !alias.scope !5543, !noalias !5548, !noundef !5
-  %.sink.idx.i.i.i.i.i.i.i = select i1 %trunc.i.i.i.i.i.i.i, i64 16, i64 0
+  %.sink.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %77, 4
   %.sink.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %79, i64 %.sink.idx.i.i.i.i.i.i.i
   invoke void @"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$5write17h5b780d2263fcefdeE.llvm.5851185471656548919"(ptr noalias noundef nonnull align 8 dereferenceable(8) %10, ptr noalias noundef nonnull readonly align 1 %.sink.i.i.i.i.i.i.i, i64 noundef %81)
           to label %.noexc.i.i unwind label %115, !noalias !5531
@@ -21096,8 +21093,7 @@ define hidden void @_ZN4gpui3app13async_context15AsyncAppContext6update17ha02ede
   %100 = getelementptr inbounds i8, ptr %98, i64 -216
   %101 = load ptr, ptr %100, align 8, !alias.scope !5581, !noalias !5582, !nonnull !5
   %102 = load i64, ptr %99, align 8, !range !602, !alias.scope !5581, !noalias !5582, !noundef !5
-  %trunc3.i.i.i.i.i.i.i.i.i = trunc nuw i64 %102 to i1
-  %.sroa.01.0.idx.i.i.i.i.i.i.i.i.i = select i1 %trunc3.i.i.i.i.i.i.i.i.i, i64 16, i64 0
+  %.sroa.01.0.idx.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %102, 4
   %.sroa.01.0.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %101, i64 %.sroa.01.0.idx.i.i.i.i.i.i.i.i.i
   %bcmp.i.i.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly align 1 %.sink.i.i.i.i.i.i.i, ptr nonnull readonly align 1 %.sroa.01.0.i.i.i.i.i.i.i.i.i, i64 %81), !alias.scope !5588, !noalias !5595
   %103 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i.i.i, 0

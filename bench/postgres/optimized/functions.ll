@@ -1350,8 +1350,8 @@ postquel_sub_params.exit:                         ; preds = %.critedge178, %341,
 402:                                              ; preds = %398
   %403 = getelementptr inbounds nuw i8, ptr %.3137265, i64 13
   %404 = load i8, ptr %403, align 1, !range !6, !noundef !7
-  %405 = trunc nuw i8 %404 to i1
-  %..i = select i1 %405, i32 32, i32 0
+  %405 = shl nuw nsw i8 %404, 5
+  %..i = zext nneg i8 %405 to i32
   call void @ExecutorStart(ptr noundef nonnull %400, i32 noundef %..i) #11
   br label %postquel_start.exit
 

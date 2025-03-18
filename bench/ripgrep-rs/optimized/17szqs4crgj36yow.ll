@@ -18,7 +18,7 @@ define void @_ZN12grep_printer5jsont4Data10from_bytes17ha252ebe3512ee741E(ptr no
   %9 = load i64, ptr %8, align 8
   %.sink2 = select i1 %trunc, ptr %1, ptr %7
   %.sink1 = select i1 %trunc, i64 %2, i64 %9
-  %.sink = select i1 %trunc, i64 -9223372036854775807, i64 -9223372036854775808
+  %.sink = or disjoint i64 %5, -9223372036854775808
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink2, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -42,7 +42,7 @@ define void @_ZN12grep_printer5jsont4Data9from_path17hef5432ba15bbeed8E(ptr noal
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4)
   %.sink4 = select i1 %trunc, ptr %1, ptr %7
   %.sink3 = select i1 %trunc, i64 %2, i64 %9
-  %.sink = select i1 %trunc, i64 -9223372036854775807, i64 -9223372036854775808
+  %.sink = or disjoint i64 %5, -9223372036854775808
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sink4, ptr %10, align 8
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 16

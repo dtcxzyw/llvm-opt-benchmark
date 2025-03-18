@@ -32553,8 +32553,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i50
   %615 = select i1 %.not873, i16 4, i16 0
   %616 = and i16 %614, 24507
   %617 = select i1 %.not873, i16 8192, i16 0
-  %618 = trunc i16 %611 to i1
-  %619 = select i1 %618, i16 64, i16 0
+  %618 = shl i16 %611, 6
+  %619 = and i16 %618, 64
   %620 = shl i16 %611, 9
   %621 = and i16 %620, -32768
   %622 = or disjoint i16 %619, %616
@@ -32572,8 +32572,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i50
   %634 = or disjoint i8 %633, %631
   %635 = getelementptr inbounds nuw i8, ptr %1, i64 226
   %636 = load i8, ptr %635, align 2
-  %637 = trunc i8 %636 to i1
-  %638 = select i1 %637, i8 32, i8 0
+  %637 = shl i8 %636, 5
+  %638 = and i8 %637, 32
   %639 = or disjoint i8 %634, %638
   store i8 %639, ptr %626, align 1
   %640 = and i16 %611, 48

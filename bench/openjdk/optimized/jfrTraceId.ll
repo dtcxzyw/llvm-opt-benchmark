@@ -464,7 +464,7 @@ _ZN10JNIHandles7resolveEP8_jobject.exit:          ; preds = %2, %6, %10, %14
   %16 = load i32, ptr @_ZN15java_lang_Class13_klass_offsetE, align 4
   %17 = tail call noundef ptr @_ZNK7oopDesc14metadata_fieldEi(ptr noundef nonnull align 8 dereferenceable(16) %.0.i, i32 noundef %16) #8
   %.not = icmp eq ptr %17, null
-  br i1 %.not, label %36, label %18
+  br i1 %.not, label %37, label %18
 
 18:                                               ; preds = %_ZN10JNIHandles7resolveEP8_jobject.exit
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 168
@@ -473,24 +473,24 @@ _ZN10JNIHandles7resolveEP8_jobject.exit:          ; preds = %2, %6, %10, %14
 
 21:                                               ; preds = %18
   %22 = lshr i64 %20, 16
-  br label %44
+  br label %45
 
 23:                                               ; preds = %18
   %24 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
-  %25 = trunc i8 %24 to i1
-  %26 = select i1 %25, i64 2, i64 1
-  %.mask.i.i.i.i = and i8 %24, 1
-  %27 = zext nneg i8 %.mask.i.i.i.i to i64
-  %28 = shl nuw nsw i64 257, %27
+  %25 = and i8 %24, 1
+  %26 = add nuw nsw i8 %25, 1
+  %27 = zext nneg i8 %26 to i64
+  %28 = mul nuw nsw i64 %27, 257
   %29 = and i64 %28, %20
-  %.not.i.i = icmp eq i64 %29, %26
+  %.not.i.i = icmp eq i64 %29, %27
   br i1 %.not.i.i, label %_ZN10JfrTraceId4loadEPK5Klass.exit, label %30
 
 30:                                               ; preds = %23
   %31 = trunc i64 %20 to i8
-  %32 = select i1 %25, i8 10, i8 5
-  %33 = or i8 %32, %31
-  store i8 %33, ptr %19, align 1
+  %32 = trunc i8 %24 to i1
+  %33 = select i1 %32, i8 10, i8 5
+  %34 = or i8 %33, %31
+  store i8 %34, ptr %19, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !9
   tail call void @_ZN21JfrTraceIdLoadBarrier7enqueueEPK5Klass(ptr noundef nonnull %17) #8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !9
@@ -499,31 +499,31 @@ _ZN10JNIHandles7resolveEP8_jobject.exit:          ; preds = %2, %6, %10, %14
   br label %_ZN10JfrTraceId4loadEPK5Klass.exit
 
 _ZN10JfrTraceId4loadEPK5Klass.exit:               ; preds = %23, %30
-  %34 = phi i64 [ %.pre.i.i, %30 ], [ %20, %23 ]
-  %35 = lshr i64 %34, 16
-  br label %44
+  %35 = phi i64 [ %.pre.i.i, %30 ], [ %20, %23 ]
+  %36 = lshr i64 %35, 16
+  br label %45
 
-36:                                               ; preds = %_ZN10JNIHandles7resolveEP8_jobject.exit
-  %37 = tail call noundef ptr @_ZN15java_lang_Class19array_klass_acquireEP7oopDesc(ptr noundef nonnull %.0.i) #8
-  %38 = icmp eq ptr %37, null
-  br i1 %38, label %_ZL14load_primitiveP7oopDesc.exit, label %39
+37:                                               ; preds = %_ZN10JNIHandles7resolveEP8_jobject.exit
+  %38 = tail call noundef ptr @_ZN15java_lang_Class19array_klass_acquireEP7oopDesc(ptr noundef nonnull %.0.i) #8
+  %39 = icmp eq ptr %38, null
+  br i1 %39, label %_ZL14load_primitiveP7oopDesc.exit, label %40
 
-39:                                               ; preds = %36
-  %40 = getelementptr inbounds nuw i8, ptr %37, i64 168
-  %41 = load i64, ptr %40, align 8
-  %42 = lshr i64 %41, 16
-  %43 = add nuw nsw i64 %42, 1
+40:                                               ; preds = %37
+  %41 = getelementptr inbounds nuw i8, ptr %38, i64 168
+  %42 = load i64, ptr %41, align 8
+  %43 = lshr i64 %42, 16
+  %44 = add nuw nsw i64 %43, 1
   br label %_ZL14load_primitiveP7oopDesc.exit
 
-_ZL14load_primitiveP7oopDesc.exit:                ; preds = %36, %39
-  %.0.i6 = phi i64 [ %43, %39 ], [ 231, %36 ]
+_ZL14load_primitiveP7oopDesc.exit:                ; preds = %37, %40
+  %.0.i6 = phi i64 [ %44, %40 ], [ 231, %37 ]
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #8, !srcloc !9
   store volatile i8 1, ptr @_ZN15JfrTraceIdEpoch10_tag_stateE, align 1
-  br label %44
+  br label %45
 
-44:                                               ; preds = %21, %_ZN10JfrTraceId4loadEPK5Klass.exit, %_ZL14load_primitiveP7oopDesc.exit
-  %45 = phi i64 [ %.0.i6, %_ZL14load_primitiveP7oopDesc.exit ], [ %22, %21 ], [ %35, %_ZN10JfrTraceId4loadEPK5Klass.exit ]
-  ret i64 %45
+45:                                               ; preds = %21, %_ZN10JfrTraceId4loadEPK5Klass.exit, %_ZL14load_primitiveP7oopDesc.exit
+  %46 = phi i64 [ %.0.i6, %_ZL14load_primitiveP7oopDesc.exit ], [ %22, %21 ], [ %36, %_ZN10JfrTraceId4loadEPK5Klass.exit ]
+  ret i64 %46
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

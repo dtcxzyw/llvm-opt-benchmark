@@ -296,8 +296,8 @@ list_length.exit.thread:                          ; preds = %120, %list_length.e
   %134 = tail call ptr @GetActiveSnapshot() #8
   %135 = tail call ptr @CreateQueryDesc(ptr noundef %131, ptr noundef %133, ptr noundef %134, ptr noundef null, ptr noundef nonnull %15, ptr noundef %2, ptr noundef %3, i32 noundef 0) #8
   %136 = load i8, ptr %43, align 8, !range !4, !noundef !5
-  %137 = trunc nuw i8 %136 to i1
-  %spec.select.i = select i1 %137, i32 64, i32 0
+  %137 = shl nuw nsw i8 %136, 6
+  %spec.select.i = zext nneg i8 %137 to i32
   tail call void @ExecutorStart(ptr noundef %135, i32 noundef %spec.select.i) #8
   tail call void @ExecutorRun(ptr noundef %135, i32 noundef 1, i64 noundef 0) #8
   %.not86 = icmp eq ptr %4, null
@@ -458,8 +458,8 @@ declare void @ExecutorStart(ptr noundef, i32 noundef) local_unnamed_addr #3
 define dso_local range(i32 0, 65) i32 @GetIntoRelEFlags(ptr noundef readonly captures(none) %0) local_unnamed_addr #5 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %3 = load i8, ptr %2, align 8, !range !4, !noundef !5
-  %4 = trunc nuw i8 %3 to i1
-  %spec.select = select i1 %4, i32 64, i32 0
+  %4 = shl nuw nsw i8 %3, 6
+  %spec.select = zext nneg i8 %4 to i32
   ret i32 %spec.select
 }
 

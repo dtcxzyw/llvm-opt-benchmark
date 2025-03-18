@@ -131071,10 +131071,9 @@ define { i64, ptr } @"_ZN4gpui8elements4text86_$LT$impl$u20$gpui..element..Eleme
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN4gpui8elements4text86_$LT$impl$u20$gpui..element..Element$u20$for$u20$gpui..shared_string..SharedString$GT$8prepaint17h759c6d5713b5f51cE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(1032) %1, ptr noalias noundef align 4 captures(none) dereferenceable(16) %2, ptr noalias noundef align 8 dereferenceable(8) %3, ptr noalias noundef readnone align 8 captures(none) dereferenceable(16) %4) unnamed_addr #1 {
   %6 = load i64, ptr %0, align 8, !range !228, !alias.scope !29587, !noundef !16
-  %trunc.i = trunc nuw i64 %6 to i1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !alias.scope !29587, !nonnull !16
-  %.sroa.0.0.idx.i = select i1 %trunc.i, i64 16, i64 0
+  %.sroa.0.0.idx.i = shl nuw nsw i64 %6, 4
   %.sroa.0.0.i = getelementptr inbounds nuw i8, ptr %8, i64 %.sroa.0.0.idx.i
   %.sroa.3.0.in.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.3.0.i = load i64, ptr %.sroa.3.0.in.i, align 8, !alias.scope !29587, !noundef !16
@@ -131085,10 +131084,9 @@ define void @"_ZN4gpui8elements4text86_$LT$impl$u20$gpui..element..Element$u20$f
 ; Function Attrs: nonlazybind uwtable
 define void @"_ZN4gpui8elements4text86_$LT$impl$u20$gpui..element..Element$u20$for$u20$gpui..shared_string..SharedString$GT$5paint17h7c254959f7509a2bE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable_or_null(1032) %1, ptr noalias noundef readnone align 4 captures(none) dereferenceable(16) %2, ptr noalias noundef align 8 dereferenceable(8) %3, ptr noalias noundef nonnull readnone align 1 captures(none) %4, ptr noalias noundef align 8 dereferenceable(16) %5) unnamed_addr #1 {
   %7 = load i64, ptr %0, align 8, !range !228, !alias.scope !29590, !noundef !16
-  %trunc.i = trunc nuw i64 %7 to i1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !alias.scope !29590, !nonnull !16
-  %.sroa.0.0.idx.i = select i1 %trunc.i, i64 16, i64 0
+  %.sroa.0.0.idx.i = shl nuw nsw i64 %7, 4
   %.sroa.0.0.i = getelementptr inbounds nuw i8, ptr %9, i64 %.sroa.0.0.idx.i
   %.sroa.3.0.in.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.3.0.i = load i64, ptr %.sroa.3.0.in.i, align 8, !alias.scope !29590, !noundef !16
@@ -156924,10 +156922,9 @@ define void @"_ZN76_$LT$gpui..shared_string..SharedString$u20$as$u20$core..defau
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { ptr, i64 } @"_ZN85_$LT$gpui..shared_string..SharedString$u20$as$u20$core..convert..AsRef$LT$str$GT$$GT$6as_ref17h45adb032eb61c820E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #17 {
   %2 = load i64, ptr %0, align 8, !range !228, !noundef !16
-  %trunc = trunc nuw i64 %2 to i1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !nonnull !16
-  %.sroa.0.0.idx = select i1 %trunc, i64 16, i64 0
+  %.sroa.0.0.idx = shl nuw nsw i64 %2, 4
   %.sroa.0.0 = getelementptr inbounds nuw i8, ptr %4, i64 %.sroa.0.0.idx
   %.sroa.3.0.in = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.3.0 = load i64, ptr %.sroa.3.0.in, align 8, !noundef !16
@@ -156939,10 +156936,9 @@ define { ptr, i64 } @"_ZN85_$LT$gpui..shared_string..SharedString$u20$as$u20$cor
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define { ptr, i64 } @"_ZN85_$LT$gpui..shared_string..SharedString$u20$as$u20$core..borrow..Borrow$LT$str$GT$$GT$6borrow17h4800857d5a50b48cE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #17 {
   %2 = load i64, ptr %0, align 8, !range !228, !alias.scope !35052, !noundef !16
-  %trunc.i = trunc nuw i64 %2 to i1
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !alias.scope !35052, !nonnull !16
-  %.sroa.0.0.idx.i = select i1 %trunc.i, i64 16, i64 0
+  %.sroa.0.0.idx.i = shl nuw nsw i64 %2, 4
   %.sroa.0.0.i = getelementptr inbounds nuw i8, ptr %4, i64 %.sroa.0.0.idx.i
   %.sroa.3.0.in.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.3.0.i = load i64, ptr %.sroa.3.0.in.i, align 8, !alias.scope !35052, !noundef !16
@@ -156955,12 +156951,11 @@ define { ptr, i64 } @"_ZN85_$LT$gpui..shared_string..SharedString$u20$as$u20$cor
 define noundef zeroext i1 @"_ZN70_$LT$gpui..shared_string..SharedString$u20$as$u20$core..fmt..Debug$GT$3fmt17h9382330a104bd1dcE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef align 8 dereferenceable(64) %1) unnamed_addr #1 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !35055)
   %3 = load i64, ptr %0, align 8, !range !228, !alias.scope !35055, !noalias !35058, !noundef !16
-  %trunc.i = trunc nuw i64 %3 to i1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !alias.scope !35055, !noalias !35058, !nonnull !16, !noundef !16
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !alias.scope !35055, !noalias !35058, !noundef !16
-  %.sink.idx.i = select i1 %trunc.i, i64 16, i64 0
+  %.sink.idx.i = shl nuw nsw i64 %3, 4
   %.sink.i = getelementptr inbounds nuw i8, ptr %5, i64 %.sink.idx.i
   %8 = tail call noundef zeroext i1 @"_ZN40_$LT$str$u20$as$u20$core..fmt..Debug$GT$3fmt17h526e9ca528e9b943E"(ptr noalias noundef nonnull readonly align 1 %.sink.i, i64 noundef %7, ptr noalias noundef nonnull align 8 dereferenceable(64) %1), !noalias !35055
   ret i1 %8
@@ -156975,10 +156970,9 @@ _ZN4core3fmt9Formatter9write_fmt17h9d0d9fd40ea148b1E.llvm.14019313651612263248.e
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %5 = load i64, ptr %0, align 8, !range !228, !noundef !16
-  %trunc = trunc nuw i64 %5 to i1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !nonnull !16, !noundef !16
-  %.sink3.idx = select i1 %trunc, i64 16, i64 0
+  %.sink3.idx = shl nuw nsw i64 %5, 4
   %.sink3 = getelementptr inbounds nuw i8, ptr %7, i64 %.sink3.idx
   %.sink.in = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sink = load i64, ptr %.sink.in, align 8, !noundef !16
@@ -157025,8 +157019,7 @@ define noundef zeroext i1 @"_ZN103_$LT$gpui..shared_string..SharedString$u20$as$
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %9 = load ptr, ptr %8, align 8, !alias.scope !35066, !nonnull !16
   %10 = load i64, ptr %0, align 8, !range !228, !alias.scope !35066, !noundef !16
-  %trunc.i = trunc nuw i64 %10 to i1
-  %.sroa.0.0.idx.i = select i1 %trunc.i, i64 16, i64 0
+  %.sroa.0.0.idx.i = shl nuw nsw i64 %10, 4
   %.sroa.0.0.i = getelementptr inbounds nuw i8, ptr %9, i64 %.sroa.0.0.idx.i
   %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.sroa.0.0.i, ptr nonnull readonly align 1 %7, i64 %.sroa.3.0.i), !alias.scope !35069
   %11 = icmp eq i32 %bcmp.i, 0
@@ -157048,8 +157041,7 @@ define noundef zeroext i1 @"_ZN85_$LT$gpui..shared_string..SharedString$u20$as$u
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load ptr, ptr %5, align 8, !alias.scope !35073, !nonnull !16
   %7 = load i64, ptr %0, align 8, !range !228, !alias.scope !35073, !noundef !16
-  %trunc.i = trunc nuw i64 %7 to i1
-  %.sroa.0.0.idx.i = select i1 %trunc.i, i64 16, i64 0
+  %.sroa.0.0.idx.i = shl nuw nsw i64 %7, 4
   %.sroa.0.0.i = getelementptr inbounds nuw i8, ptr %6, i64 %.sroa.0.0.idx.i
   %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.sroa.0.0.i, ptr nonnull readonly align 1 %1, i64 %2), !alias.scope !35076
   %8 = icmp eq i32 %bcmp.i, 0
@@ -157074,8 +157066,7 @@ define noundef zeroext i1 @"_ZN89_$LT$gpui..shared_string..SharedString$u20$as$u
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !alias.scope !35080, !nonnull !16
   %9 = load i64, ptr %0, align 8, !range !228, !alias.scope !35080, !noundef !16
-  %trunc.i = trunc nuw i64 %9 to i1
-  %.sroa.0.0.idx.i = select i1 %trunc.i, i64 16, i64 0
+  %.sroa.0.0.idx.i = shl nuw nsw i64 %9, 4
   %.sroa.0.0.i = getelementptr inbounds nuw i8, ptr %8, i64 %.sroa.0.0.idx.i
   %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.sroa.0.0.i, ptr nonnull readonly align 1 %6, i64 %.sroa.3.0.i), !alias.scope !35083
   %10 = icmp eq i32 %bcmp.i, 0

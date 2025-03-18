@@ -7470,8 +7470,8 @@ _ZNSt12__shared_ptrIN7rocksdb10FileSystemELN9__gnu_cxx12_Lock_policyE2EED2Ev.exi
 360:                                              ; preds = %358
   %361 = getelementptr inbounds nuw i8, ptr %359, i64 104
   %362 = load i8, ptr %361, align 8, !tbaa !283, !range !91, !noundef !92
-  %363 = trunc nuw i8 %362 to i1
-  %spec.select.idx.i = select i1 %363, i64 32, i64 0
+  %363 = shl nuw nsw i8 %362, 5
+  %spec.select.idx.i = zext nneg i8 %363 to i64
   %spec.select.i = getelementptr inbounds nuw i8, ptr %77, i64 %spec.select.idx.i
   br label %_ZNK7rocksdb13FileSystemPtr3getEv.exit
 
@@ -7906,8 +7906,8 @@ _ZNKSt14default_deleteIN7rocksdb14FSWritableFileEEclEPS1_.exit.i: ; preds = %_ZN
 536:                                              ; preds = %534
   %537 = getelementptr inbounds nuw i8, ptr %535, i64 104
   %538 = load i8, ptr %537, align 8, !tbaa !283, !range !91, !noundef !92
-  %539 = trunc nuw i8 %538 to i1
-  %spec.select.idx.i112 = select i1 %539, i64 32, i64 0
+  %539 = shl nuw nsw i8 %538, 5
+  %spec.select.idx.i112 = zext nneg i8 %539 to i64
   %spec.select.i113 = getelementptr inbounds nuw i8, ptr %77, i64 %spec.select.idx.i112
   br label %_ZNK7rocksdb13FileSystemPtr3getEv.exit116
 
@@ -10537,8 +10537,8 @@ define void @_ZN7rocksdb6DBImpl7RecoverERKSt6vectorINS_22ColumnFamilyDescriptorE
 118:                                              ; preds = %113
   %119 = getelementptr inbounds nuw i8, ptr %117, i64 104
   %120 = load i8, ptr %119, align 8, !tbaa !283, !range !91, !noundef !92
-  %121 = trunc nuw i8 %120 to i1
-  %spec.select.idx.i = select i1 %121, i64 32, i64 0
+  %121 = shl nuw nsw i8 %120, 5
+  %spec.select.idx.i = zext nneg i8 %121 to i64
   %spec.select.i = getelementptr inbounds nuw i8, ptr %115, i64 %spec.select.idx.i
   br label %_ZNK7rocksdb13FileSystemPtr3getEv.exit
 
@@ -12699,8 +12699,8 @@ _ZN7rocksdb10RecordTickEPNS_10StatisticsEjm.exit570.thread: ; preds = %_ZN7rocks
 916:                                              ; preds = %912
   %917 = getelementptr inbounds nuw i8, ptr %915, i64 104
   %918 = load i8, ptr %917, align 8, !tbaa !283, !range !91, !noundef !92
-  %919 = trunc nuw i8 %918 to i1
-  %spec.select.idx.i572 = select i1 %919, i64 32, i64 0
+  %919 = shl nuw nsw i8 %918, 5
+  %spec.select.idx.i572 = zext nneg i8 %919 to i64
   %spec.select.i573 = getelementptr inbounds nuw i8, ptr %913, i64 %spec.select.idx.i572
   br label %_ZNK7rocksdb13FileSystemPtr3getEv.exit576
 
@@ -35491,8 +35491,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit57: ; preds = %_ZN
 229:                                              ; preds = %227
   %230 = getelementptr inbounds nuw i8, ptr %228, i64 104
   %231 = load i8, ptr %230, align 8, !tbaa !283, !range !91, !noundef !92
-  %232 = trunc nuw i8 %231 to i1
-  %spec.select.idx.i = select i1 %232, i64 32, i64 0
+  %232 = shl nuw nsw i8 %231, 5
+  %spec.select.idx.i = zext nneg i8 %232 to i64
   %spec.select.i = getelementptr inbounds nuw i8, ptr %29, i64 %spec.select.idx.i
   br label %_ZNK7rocksdb13FileSystemPtr3getEv.exit
 

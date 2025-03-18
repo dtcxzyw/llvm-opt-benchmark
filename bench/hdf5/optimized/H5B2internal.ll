@@ -1178,8 +1178,8 @@ define range(i32 -1, 1) i32 @H5B2__update_internal(ptr noundef %0, i16 noundef z
 
 61:                                               ; preds = %47
   %62 = load i8, ptr %14, align 1, !tbaa !3, !range !7, !noundef !8
-  %63 = trunc nuw i8 %62 to i1
-  %64 = select i1 %63, i32 2, i32 0
+  %63 = shl nuw nsw i8 %62, 1
+  %64 = zext nneg i8 %63 to i32
   store i32 %64, ptr %11, align 4, !tbaa !58
   store i32 1, ptr %4, align 4, !tbaa !58
   br label %65

@@ -78773,9 +78773,9 @@ _ZN6AstVar9addAttrspEP7AstNode.exit:              ; preds = %239, %240
   %247 = or disjoint i64 %246, %243
   %248 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %249 = load i8, ptr %248, align 4, !tbaa !226, !range !173, !noundef !174
-  %250 = trunc nuw i8 %249 to i1
-  %251 = select i1 %250, i64 2, i64 0
-  %252 = or disjoint i64 %251, %247
+  %250 = shl nuw nsw i8 %249, 1
+  %251 = zext nneg i8 %250 to i64
+  %252 = or disjoint i64 %247, %251
   store i64 %252, ptr %244, align 4
   %253 = getelementptr inbounds nuw i8, ptr %0, i64 114
   %254 = getelementptr inbounds nuw i8, ptr %238, i64 251

@@ -6605,8 +6605,8 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction16ExpandTypeToArgsENS_8
 27:                                               ; preds = %6
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 136
   %29 = load i8, ptr %28, align 8, !tbaa !1204, !range !51, !noundef !55
-  %30 = trunc nuw i8 %29 to i1
-  %spec.select.idx = select i1 %30, i64 8, i64 0
+  %30 = shl nuw nsw i8 %29, 3
+  %spec.select.idx = zext nneg i8 %30 to i64
   %spec.select = getelementptr inbounds nuw i8, ptr %2, i64 %spec.select.idx
   %31 = getelementptr i8, ptr %.val51, i64 24
   %.val52 = load i64, ptr %31, align 8, !tbaa !884
@@ -6654,8 +6654,8 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction16ExpandTypeToArgsENS_8
 40:                                               ; preds = %39
   %41 = getelementptr inbounds nuw i8, ptr %2, i64 136
   %42 = load i8, ptr %41, align 8, !tbaa !1204, !range !51, !noundef !55
-  %43 = trunc nuw i8 %42 to i1
-  %spec.select110.idx = select i1 %43, i64 8, i64 0
+  %43 = shl nuw nsw i8 %42, 3
+  %spec.select110.idx = zext nneg i8 %43 to i64
   %spec.select110 = getelementptr inbounds nuw i8, ptr %2, i64 %spec.select110.idx
   %44 = getelementptr inbounds nuw i8, ptr %.val51, i64 16
   %45 = load ptr, ptr %44, align 8, !tbaa !38

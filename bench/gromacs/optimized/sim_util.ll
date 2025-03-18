@@ -7627,8 +7627,8 @@ define internal fastcc void @_ZN3gmxL17postProcessForcesEPK9t_commreclP6t_nrnbP1
 26:                                               ; preds = %24
   %27 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %28 = load i8, ptr %27, align 1, !tbaa !147, !range !142, !noundef !143
-  %29 = trunc nuw i8 %28 to i1
-  %30 = select i1 %29, i32 2, i32 0
+  %29 = shl nuw nsw i8 %28, 1
+  %30 = zext nneg i8 %29 to i32
   call void @llvm.lifetime.start.p0(i64 36, ptr nonnull %16) #13
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(36) %16, i8 0, i64 36, i1 false)
   %31 = ptrtoint ptr %.8.val to i64

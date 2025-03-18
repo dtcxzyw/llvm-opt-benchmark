@@ -9768,8 +9768,8 @@ define weak_odr hidden noundef i32 @_ZN3smt23theory_dense_diff_logicINS_6mi_extE
   %3 = tail call noundef zeroext i1 @_ZN3smt6theory10assume_eqsI13int_hashtableINS_23theory_dense_diff_logicINS_6mi_extEE14var_value_hashENS5_12var_value_eqEEEEbRT_(ptr noundef nonnull align 8 dereferenceable(53) %0, ptr noundef nonnull align 8 dereferenceable(36) %2)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 344
   %5 = load i8, ptr %4, align 8, !range !50
-  %6 = trunc nuw i8 %5 to i1
-  %. = select i1 %6, i32 2, i32 0
+  %6 = shl nuw nsw i8 %5, 1
+  %. = zext nneg i8 %6 to i32
   %.0 = select i1 %3, i32 1, i32 %.
   ret i32 %.0
 }
@@ -28998,8 +28998,8 @@ define weak_odr hidden noundef i32 @_ZN3smt23theory_dense_diff_logicINS_5i_extEE
   %3 = tail call noundef zeroext i1 @_ZN3smt6theory10assume_eqsI13int_hashtableINS_23theory_dense_diff_logicINS_5i_extEE14var_value_hashENS5_12var_value_eqEEEEbRT_(ptr noundef nonnull align 8 dereferenceable(53) %0, ptr noundef nonnull align 8 dereferenceable(36) %2)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 280
   %5 = load i8, ptr %4, align 8, !range !50
-  %6 = trunc nuw i8 %5 to i1
-  %. = select i1 %6, i32 2, i32 0
+  %6 = shl nuw nsw i8 %5, 1
+  %. = zext nneg i8 %6 to i32
   %.0 = select i1 %3, i32 1, i32 %.
   ret i32 %.0
 }
@@ -42711,8 +42711,8 @@ define weak_odr hidden noundef i32 @_ZN3smt23theory_dense_diff_logicINS_7smi_ext
   %3 = tail call noundef zeroext i1 @_ZN3smt6theory10assume_eqsI13int_hashtableINS_23theory_dense_diff_logicINS_7smi_extEE14var_value_hashENS5_12var_value_eqEEEEbRT_(ptr noundef nonnull align 8 dereferenceable(53) %0, ptr noundef nonnull align 8 dereferenceable(36) %2)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %5 = load i8, ptr %4, align 8, !range !50
-  %6 = trunc nuw i8 %5 to i1
-  %. = select i1 %6, i32 2, i32 0
+  %6 = shl nuw nsw i8 %5, 1
+  %. = zext nneg i8 %6 to i32
   %.0 = select i1 %3, i32 1, i32 %.
   ret i32 %.0
 }
@@ -55135,8 +55135,8 @@ define weak_odr hidden noundef i32 @_ZN3smt23theory_dense_diff_logicINS_6si_extE
   %3 = tail call noundef zeroext i1 @_ZN3smt6theory10assume_eqsI13int_hashtableINS_23theory_dense_diff_logicINS_6si_extEE14var_value_hashENS5_12var_value_eqEEEEbRT_(ptr noundef nonnull align 8 dereferenceable(53) %0, ptr noundef nonnull align 8 dereferenceable(36) %2)
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %5 = load i8, ptr %4, align 8, !range !50
-  %6 = trunc nuw i8 %5 to i1
-  %. = select i1 %6, i32 2, i32 0
+  %6 = shl nuw nsw i8 %5, 1
+  %. = zext nneg i8 %6 to i32
   %.0 = select i1 %3, i32 1, i32 %.
   ret i32 %.0
 }

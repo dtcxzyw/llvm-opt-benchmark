@@ -41903,9 +41903,8 @@ define hidden void @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core.
 .noexc:                                           ; preds = %"_ZN69_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hff26f1a3016075b3E.exit.i.i.i"
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6), !noalias !8222
   %37 = load i64, ptr %27, align 8, !range !101, !noalias !8222, !noundef !4
-  %trunc.i.i.i = trunc nuw i64 %37 to i1
   %38 = load ptr, ptr %29, align 8, !noalias !8222, !nonnull !4, !noundef !4
-  %.sroa.0.0.idx.i.i.i = select i1 %trunc.i.i.i, i64 16, i64 0
+  %.sroa.0.0.idx.i.i.i = shl nuw nsw i64 %37, 4
   %.sroa.0.0.i.i.i = getelementptr inbounds nuw i8, ptr %38, i64 %.sroa.0.0.idx.i.i.i
   %.sroa.3.0.i.i.i = load i64, ptr %31, align 8, !noalias !8222, !noundef !4
   %39 = getelementptr inbounds i8, ptr %.sroa.0.0.i.i.i, i64 %.sroa.3.0.i.i.i

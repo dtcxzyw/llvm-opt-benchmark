@@ -6625,17 +6625,17 @@ define linkonce_odr dso_local void @_ZN16LatchDetectGraph10latchCheckEP7AstNodeb
   %38 = load ptr, ptr %14, align 8, !tbaa !252
   %39 = tail call noundef zeroext i1 @_ZN16LatchDetectGraph18latchCheckInternalEP22LatchDetectGraphVertex(ptr noundef nonnull align 8 dereferenceable(56) %0, ptr noundef %38)
   %spec.select.us = select i1 %39, i8 %.02276.us, i8 1
-  %40 = trunc nuw i8 %spec.select.us to i1
   store i32 0, ptr %37, align 8, !tbaa !14
-  %41 = load ptr, ptr %.sroa.055.075.us, align 8, !tbaa !250
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 152
-  %43 = load ptr, ptr %42, align 8, !tbaa !229
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 260
-  %45 = load i64, ptr %44, align 4
-  %46 = select i1 %40, i64 137438953472, i64 0
-  %47 = and i64 %45, -137438953473
+  %40 = load ptr, ptr %.sroa.055.075.us, align 8, !tbaa !250
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 152
+  %42 = load ptr, ptr %41, align 8, !tbaa !229
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 260
+  %44 = load i64, ptr %43, align 4
+  %45 = zext nneg i8 %spec.select.us to i64
+  %46 = shl nuw nsw i64 %45, 37
+  %47 = and i64 %44, -137438953473
   %48 = or disjoint i64 %47, %46
-  store i64 %48, ptr %44, align 4
+  store i64 %48, ptr %43, align 4
   %49 = getelementptr inbounds nuw i8, ptr %.sroa.055.075.us, i64 8
   %.not58.us = icmp eq ptr %49, %13
   br i1 %.not58.us, label %._crit_edge.thread, label %.lr.ph.split.us

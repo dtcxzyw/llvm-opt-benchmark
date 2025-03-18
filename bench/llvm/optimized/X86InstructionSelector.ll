@@ -260,16 +260,16 @@ _ZNK4llvm12X86Subtarget10canUseCMOVEv.exit156.i.i: ; preds = %_ZNK4llvm12X86Subt
   %.ph7.i = phi i64 [ %42, %_ZNK4llvm12X86Subtarget10canUseCMOVEv.exit156.thread81.i.i ], [ %spec.select87.i.i, %_ZNK4llvm12X86Subtarget10canUseCMOVEv.exit156.i.i ]
   %45 = getelementptr inbounds nuw i8, ptr %1, i64 409
   %46 = load i8, ptr %45, align 1, !tbaa !162, !range !154, !noalias !18, !noundef !155
-  %47 = trunc nuw i8 %46 to i1
-  %spec.select88.i8.i = select i1 %47, i64 8796093022208, i64 0
+  %47 = zext nneg i8 %46 to i64
+  %spec.select88.i8.i = shl nuw nsw i64 %47, 43
   br label %78
 
 48:                                               ; preds = %27
   %49 = or disjoint i64 %spec.select87.i.i, 536870912
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 409
   %51 = load i8, ptr %50, align 1, !tbaa !162, !range !154, !noalias !18, !noundef !155
-  %52 = trunc nuw i8 %51 to i1
-  %spec.select88.i.i = select i1 %52, i64 8796093022208, i64 0
+  %52 = zext nneg i8 %51 to i64
+  %spec.select88.i.i = shl nuw nsw i64 %52, 43
   br i1 %38, label %53, label %78
 
 53:                                               ; preds = %48
@@ -313,8 +313,8 @@ _ZNK4llvm12X86Subtarget10canUseCMOVEv.exit156.i.i: ; preds = %_ZNK4llvm12X86Subt
   %73 = load i8, ptr %72, align 1, !tbaa !163, !range !154, !noalias !18, !noundef !155
   %74 = zext nneg i8 %73 to i64
   %75 = shl nuw nsw i64 %74, 15
-  %76 = or disjoint i64 %75, %spec.select88.i.i
-  %spec.select89.i.i = or disjoint i64 %76, 17592186044416
+  %76 = or disjoint i64 %spec.select88.i.i, 17592186044416
+  %spec.select89.i.i = or disjoint i64 %75, %76
   %.not71.i.i = icmp eq i32 %37, 7
   br i1 %.not71.i.i, label %84, label %.thread33.i.i
 

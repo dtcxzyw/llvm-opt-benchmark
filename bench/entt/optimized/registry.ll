@@ -239236,10 +239236,10 @@ define internal fastcc void @"_ZSt5applyIRZN18Registry_View_Test8TestBodyEvE3$_0
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3) #26
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load i8, ptr %6, align 8, !tbaa !2390, !range !44, !noundef !45
-  %8 = trunc nuw i8 %7 to i1
-  %9 = load ptr, ptr %0, align 8
-  %.idx.i.i.i.i = select i1 %8, i64 8, i64 0
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 %.idx.i.i.i.i
+  %8 = load ptr, ptr %0, align 8
+  %9 = shl nuw nsw i8 %7, 3
+  %.idx.i.i.i.i = zext nneg i8 %9 to i64
+  %10 = getelementptr inbounds nuw i8, ptr %8, i64 %.idx.i.i.i.i
   %11 = load i32, ptr %10, align 4, !tbaa !61, !noalias !2393
   %12 = icmp eq i32 %.16.val, %11
   br i1 %12, label %13, label %14

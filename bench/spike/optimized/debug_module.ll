@@ -83,11 +83,11 @@ define void @_ZN14debug_module_tC2EP7simif_tRK21debug_module_config_t(ptr nounde
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 20
   %7 = load i8, ptr %6, align 4, !tbaa !12, !range !14, !noundef !15
-  %8 = trunc nuw i8 %7 to i1
-  %9 = select i1 %8, i32 4, i32 0
+  %8 = shl nuw nsw i8 %7, 2
+  %9 = zext nneg i8 %8 to i32
   %10 = load i32, ptr %2, align 4, !tbaa !16
   %11 = shl i32 %10, 2
-  %12 = add i32 %9, %11
+  %12 = add i32 %11, %9
   store i32 %12, ptr %5, align 8, !tbaa !17
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %14 = sub i32 896, %12

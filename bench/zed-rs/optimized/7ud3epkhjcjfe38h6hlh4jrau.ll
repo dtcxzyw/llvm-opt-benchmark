@@ -45436,10 +45436,9 @@ define hidden void @"_ZN45_$LT$T$u20$as$u20$alloc..string..ToString$GT$9to_strin
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !7817
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !7817
   %15 = load i64, ptr %1, align 8, !range !145, !alias.scope !7814, !noalias !7819, !noundef !22
-  %trunc.i = trunc nuw i64 %15 to i1
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %17 = load ptr, ptr %16, align 8, !alias.scope !7814, !noalias !7819, !nonnull !22, !noundef !22
-  %.sink3.idx.i = select i1 %trunc.i, i64 16, i64 0
+  %.sink3.idx.i = shl nuw nsw i64 %15, 4
   %.sink3.i = getelementptr inbounds nuw i8, ptr %17, i64 %.sink3.idx.i
   %.sink.in.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sink.i = load i64, ptr %.sink.in.i, align 8, !alias.scope !7814, !noalias !7819, !noundef !22
@@ -126289,8 +126288,7 @@ define internal noundef range(i8 8, 10) i8 @"_ZN94_$LT$image..codecs..openexr..O
   %5 = load i8, ptr %4, align 1, !range !637, !noundef !22
   %6 = icmp eq i8 %3, 2
   %spec.select = select i1 %6, i8 %5, i8 %3
-  %7 = trunc nuw i8 %spec.select to i1
-  %.sroa.0.0 = select i1 %7, i8 9, i8 8
+  %.sroa.0.0 = or disjoint i8 %spec.select, 8
   ret i8 %.sroa.0.0
 }
 
@@ -126298,11 +126296,10 @@ define internal noundef range(i8 8, 10) i8 @"_ZN94_$LT$image..codecs..openexr..O
 define internal { i8, i8 } @"_ZN94_$LT$image..codecs..openexr..OpenExrDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$19original_color_type17h7a38814a93e4de69E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(4208) %0) unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4201
   %3 = load i8, ptr %2, align 1, !range !637, !noundef !22
-  %4 = trunc nuw i8 %3 to i1
-  %. = select i1 %4, i8 24, i8 23
-  %5 = insertvalue { i8, i8 } poison, i8 %., 0
-  %6 = insertvalue { i8, i8 } %5, i8 undef, 1
-  ret { i8, i8 } %6
+  %. = add nuw nsw i8 %3, 23
+  %4 = insertvalue { i8, i8 } poison, i8 %., 0
+  %5 = insertvalue { i8, i8 } %4, i8 undef, 1
+  ret { i8, i8 } %5
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -126317,8 +126314,7 @@ define internal noundef range(i8 0, 4) i8 @"_ZN95_$LT$image..codecs..bmp..decode
   %4 = trunc nuw i8 %3 to i1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 109
   %6 = load i8, ptr %5, align 1, !range !637
-  %7 = trunc nuw i8 %6 to i1
-  %. = select i1 %7, i8 3, i8 2
+  %. = or disjoint i8 %6, 2
   %.sroa.0.0 = select i1 %4, i8 0, i8 %.
   ret i8 %.sroa.0.0
 }
@@ -126360,23 +126356,22 @@ define internal noundef range(i8 0, 10) i8 @"_ZN95_$LT$image..codecs..ico..decod
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 106
   %6 = load i8, ptr %5, align 2, !range !637, !noundef !22
   %7 = trunc nuw i8 %6 to i1
-  br i1 %7, label %17, label %13
+  br i1 %7, label %16, label %13
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !22, !noundef !22
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 720
   %12 = load i8, ptr %11, align 8, !range !3067, !noundef !22
-  br label %17
+  br label %16
 
 13:                                               ; preds = %4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 109
   %15 = load i8, ptr %14, align 1, !range !637, !noundef !22
-  %16 = trunc nuw i8 %15 to i1
-  %. = select i1 %16, i8 3, i8 2
-  br label %17
+  %. = or disjoint i8 %15, 2
+  br label %16
 
-17:                                               ; preds = %4, %13, %8
+16:                                               ; preds = %4, %13, %8
   %.sroa.0.0 = phi i8 [ %12, %8 ], [ %., %13 ], [ 0, %4 ]
   ret i8 %.sroa.0.0
 }
@@ -127728,8 +127723,7 @@ define internal void @"_ZN97_$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$R$
 define internal noundef range(i8 2, 4) i8 @"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h3bb5febf4c57a3b3E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(168) %0) unnamed_addr #9 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 163
   %3 = load i8, ptr %2, align 1, !range !637, !noundef !22
-  %4 = trunc nuw i8 %3 to i1
-  %. = select i1 %4, i8 3, i8 2
+  %. = or disjoint i8 %3, 2
   ret i8 %.
 }
 
@@ -131268,8 +131262,7 @@ select.unfold:                                    ; preds = %._crit_edge.i.i, %3
   store ptr %47, ptr %.sroa.4.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 %49, ptr %.sroa.5.0..sroa_idx, align 8
-  %trunc = trunc nuw i64 %54 to i1
-  %.sroa.07.0.idx = select i1 %trunc, i64 16, i64 0
+  %.sroa.07.0.idx = shl nuw nsw i64 %54, 4
   %.sroa.07.0 = getelementptr inbounds nuw i8, ptr %47, i64 %.sroa.07.0.idx
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4)
   store i64 -9223372036854775803, ptr %4, align 8
@@ -131422,8 +131415,7 @@ define hidden void @_ZN4gpui6action14ActionRegistry12build_action17hc32c3466732b
   %44 = getelementptr inbounds i8, ptr %42, i64 -24
   %45 = load ptr, ptr %44, align 8, !alias.scope !27989, !noalias !27994, !nonnull !22
   %46 = load i64, ptr %43, align 8, !range !145, !alias.scope !27989, !noalias !27994, !noundef !22
-  %trunc.i.i.i.i.i.i.i = trunc nuw i64 %46 to i1
-  %.sroa.0.0.idx.i.i.i.i.i.i.i = select i1 %trunc.i.i.i.i.i.i.i, i64 16, i64 0
+  %.sroa.0.0.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %46, 4
   %.sroa.0.0.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %45, i64 %.sroa.0.0.idx.i.i.i.i.i.i.i
   %bcmp.i.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly align 1 %2, ptr nonnull readonly align 1 %.sroa.0.0.i.i.i.i.i.i.i, i64 %3), !alias.scope !27998, !noalias !28005
   %47 = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
@@ -132459,10 +132451,9 @@ define void @_ZN4gpui8platform8app_menu4Menu5owned17hc3ad8fefecc3cab6E(ptr dead_
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !28180
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !28180
   %20 = load i64, ptr %1, align 8, !range !145, !alias.scope !28182, !noalias !28183, !noundef !22
-  %trunc.i.i = trunc nuw i64 %20 to i1
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %22 = load ptr, ptr %21, align 8, !alias.scope !28182, !noalias !28183, !nonnull !22, !noundef !22
-  %.sink3.idx.i.i = select i1 %trunc.i.i, i64 16, i64 0
+  %.sink3.idx.i.i = shl nuw nsw i64 %20, 4
   %.sink3.i.i = getelementptr inbounds nuw i8, ptr %22, i64 %.sink3.idx.i.i
   %.sink.in.i.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sink.i.i = load i64, ptr %.sink.in.i.i, align 8, !alias.scope !28182, !noalias !28183, !noundef !22

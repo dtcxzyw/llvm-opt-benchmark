@@ -11675,11 +11675,11 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4l
 
 _ZN4llvm23SmallVectorTemplateBaseINS_14PointerIntPairIPN5clang6ModuleELj1EbNS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES6_EEEELb1EE9push_backES9_.exit: ; preds = %3, %10
   %14 = phi i32 [ %7, %3 ], [ %.pre.i, %10 ]
-  %15 = trunc nuw i8 %5 to i1
-  %16 = select i1 %15, i64 4, i64 0
+  %15 = shl nuw nsw i8 %5, 2
+  %16 = zext nneg i8 %15 to i64
   %17 = ptrtoint ptr %4 to i64
   %18 = and i64 %17, -5
-  %19 = or disjoint i64 %16, %18
+  %19 = or disjoint i64 %18, %16
   %20 = load ptr, ptr %0, align 8, !tbaa !1209
   %21 = zext i32 %14 to i64
   %22 = getelementptr inbounds nuw %"class.llvm::PointerIntPair.1523", ptr %20, i64 %21

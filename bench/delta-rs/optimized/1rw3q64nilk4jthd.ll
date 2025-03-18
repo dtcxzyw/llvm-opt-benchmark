@@ -54850,11 +54850,10 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11265)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11268)
   %18 = load i64, ptr %5, align 8, !range !361, !alias.scope !11268, !noalias !11270, !noundef !7
-  %trunc.i.i = trunc nuw i64 %18 to i1
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %20 = load ptr, ptr %19, align 8, !alias.scope !11268, !noalias !11270
   %.sink1.i.i = ptrtoint ptr %20 to i64
-  %.sink.i.i = select i1 %trunc.i.i, i64 2, i64 1
+  %.sink.i.i = add nuw nsw i64 %18, 1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sink1.i.i, ptr %21, align 8, !alias.scope !11271, !noalias !11272
   store i64 %.sink.i.i, ptr %0, align 8, !alias.scope !11271, !noalias !11272
@@ -56208,11 +56207,10 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11816)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11819)
   %18 = load i64, ptr %5, align 8, !range !361, !alias.scope !11819, !noalias !11821, !noundef !7
-  %trunc.i.i = trunc nuw i64 %18 to i1
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %20 = load ptr, ptr %19, align 8, !alias.scope !11819, !noalias !11821
   %.sink1.i.i = ptrtoint ptr %20 to i64
-  %.sink.i.i = select i1 %trunc.i.i, i64 2, i64 1
+  %.sink.i.i = add nuw nsw i64 %18, 1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sink1.i.i, ptr %21, align 8, !alias.scope !11822, !noalias !11823
   store i64 %.sink.i.i, ptr %0, align 8, !alias.scope !11822, !noalias !11823

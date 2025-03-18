@@ -713,8 +713,8 @@ _msg_thr_create.exit:                             ; preds = %.lr.ph.split.i, %.l
   %325 = getelementptr inbounds nuw i8, ptr %7, i64 308
   %326 = getelementptr inbounds nuw i8, ptr %1, i64 124
   %327 = load i8, ptr %326, align 4, !range !8, !noundef !9
-  %328 = trunc nuw i8 %327 to i1
-  %spec.store.select = select i1 %328, i32 2, i32 0
+  %328 = shl nuw nsw i8 %327, 1
+  %spec.store.select = zext nneg i8 %328 to i32
   store i32 %spec.store.select, ptr %325, align 4
   %329 = getelementptr inbounds nuw i8, ptr %1, i64 264
   %330 = load i16, ptr %329, align 8
@@ -1713,8 +1713,8 @@ _lookup_cwd.exit:                                 ; preds = %102, %104
   %165 = getelementptr inbounds nuw i8, ptr %6, i64 308
   %166 = getelementptr inbounds nuw i8, ptr %2, i64 124
   %167 = load i8, ptr %166, align 4, !range !8, !noundef !9
-  %168 = trunc nuw i8 %167 to i1
-  %spec.store.select = select i1 %168, i32 2, i32 0
+  %168 = shl nuw nsw i8 %167, 1
+  %spec.store.select = zext nneg i8 %168 to i32
   store i32 %spec.store.select, ptr %165, align 4
   %169 = getelementptr inbounds nuw i8, ptr %2, i64 264
   %170 = load i16, ptr %169, align 8

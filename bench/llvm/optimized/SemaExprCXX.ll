@@ -57954,7 +57954,7 @@ define dso_local noundef ptr @_ZN5clang4Sema22BuildNestedRequirementEPNS_4ExprE(
 .critedge:                                        ; preds = %36, %33
   call void @llvm.lifetime.end.p0(i64 120, ptr nonnull %6) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #27
-  br i1 %29, label %81, label %37
+  br i1 %29, label %80, label %37
 
 37:                                               ; preds = %.critedge.thread, %.critedge
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 248
@@ -57993,53 +57993,52 @@ _ZnwmRKN5clang10ASTContextEm.exit:                ; preds = %54, %57
   %.0.i.i.i.i = phi ptr [ %56, %54 ], [ %58, %57 ]
   %60 = load i24, ptr %1, align 8
   %61 = load i8, ptr %11, align 8, !tbaa !1774, !range !691, !noundef !692
-  %62 = trunc nuw i8 %61 to i1
-  %63 = lshr i24 %60, 15
-  %64 = trunc i24 %63 to i8
-  %65 = and i8 %64, 1
+  %62 = lshr i24 %60, 15
+  %63 = trunc i24 %62 to i8
+  %64 = and i8 %63, 1
   store i32 3, ptr %.0.i.i.i.i, align 4, !tbaa !2479
-  %66 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 4
-  %67 = load i8, ptr %66, align 4
-  %68 = and i8 %67, -8
-  %69 = lshr i24 %60, 13
-  %70 = trunc i24 %69 to i8
-  %71 = and i8 %70, 2
-  %72 = select i1 %62, i8 4, i8 0
-  %73 = or disjoint i8 %71, %65
-  %74 = or disjoint i8 %73, %72
-  %75 = or disjoint i8 %74, %68
-  store i8 %75, ptr %66, align 4
-  %76 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
-  store ptr %1, ptr %76, align 8, !tbaa !2490
-  %77 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
-  %78 = call noundef ptr @_ZN5clang25ASTConstraintSatisfaction6CreateERKNS_10ASTContextERKNS_22ConstraintSatisfactionE(ptr noundef nonnull align 8 dereferenceable(23216) %59, ptr noundef nonnull align 8 dereferenceable(184) %4) #27
-  store ptr %78, ptr %77, align 8, !tbaa !2492
-  %79 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
-  store i8 0, ptr %79, align 8, !tbaa !2493
-  %80 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %80, i8 0, i64 16, i1 false)
-  br label %81
+  %65 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 4
+  %66 = load i8, ptr %65, align 4
+  %67 = and i8 %66, -8
+  %68 = lshr i24 %60, 13
+  %69 = trunc i24 %68 to i8
+  %70 = and i8 %69, 2
+  %71 = shl nuw nsw i8 %61, 2
+  %72 = or disjoint i8 %70, %64
+  %73 = or disjoint i8 %72, %71
+  %74 = or disjoint i8 %73, %67
+  store i8 %74, ptr %65, align 4
+  %75 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
+  store ptr %1, ptr %75, align 8, !tbaa !2490
+  %76 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
+  %77 = call noundef ptr @_ZN5clang25ASTConstraintSatisfaction6CreateERKNS_10ASTContextERKNS_22ConstraintSatisfactionE(ptr noundef nonnull align 8 dereferenceable(23216) %59, ptr noundef nonnull align 8 dereferenceable(184) %4) #27
+  store ptr %77, ptr %76, align 8, !tbaa !2492
+  %78 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 24
+  store i8 0, ptr %78, align 8, !tbaa !2493
+  %79 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %79, i8 0, i64 16, i1 false)
+  br label %80
 
-81:                                               ; preds = %.critedge, %_ZnwmRKN5clang10ASTContextEm.exit
+80:                                               ; preds = %.critedge, %_ZnwmRKN5clang10ASTContextEm.exit
   %.0 = phi ptr [ %.0.i.i.i.i, %_ZnwmRKN5clang10ASTContextEm.exit ], [ null, %.critedge ]
-  %82 = load ptr, ptr %13, align 8, !tbaa !715
-  %83 = icmp eq ptr %82, %14
-  br i1 %83, label %_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang4ExprEPSt4pairINS2_14SourceLocationENS_9StringRefEEEEELj4EED2Ev.exit.i, label %84
+  %81 = load ptr, ptr %13, align 8, !tbaa !715
+  %82 = icmp eq ptr %81, %14
+  br i1 %82, label %_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang4ExprEPSt4pairINS2_14SourceLocationENS_9StringRefEEEEELj4EED2Ev.exit.i, label %83
 
-84:                                               ; preds = %81
-  call void @free(ptr noundef %82) #27
+83:                                               ; preds = %80
+  call void @free(ptr noundef %81) #27
   br label %_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang4ExprEPSt4pairINS2_14SourceLocationENS_9StringRefEEEEELj4EED2Ev.exit.i
 
-_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang4ExprEPSt4pairINS2_14SourceLocationENS_9StringRefEEEEELj4EED2Ev.exit.i: ; preds = %84, %81
-  %85 = load ptr, ptr %7, align 8, !tbaa !715
-  %86 = icmp eq ptr %85, %8
-  br i1 %86, label %_ZN5clang22ConstraintSatisfactionD2Ev.exit, label %87
+_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang4ExprEPSt4pairINS2_14SourceLocationENS_9StringRefEEEEELj4EED2Ev.exit.i: ; preds = %83, %80
+  %84 = load ptr, ptr %7, align 8, !tbaa !715
+  %85 = icmp eq ptr %84, %8
+  br i1 %85, label %_ZN5clang22ConstraintSatisfactionD2Ev.exit, label %86
 
-87:                                               ; preds = %_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang4ExprEPSt4pairINS2_14SourceLocationENS_9StringRefEEEEELj4EED2Ev.exit.i
-  call void @free(ptr noundef %85) #27
+86:                                               ; preds = %_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang4ExprEPSt4pairINS2_14SourceLocationENS_9StringRefEEEEELj4EED2Ev.exit.i
+  call void @free(ptr noundef %84) #27
   br label %_ZN5clang22ConstraintSatisfactionD2Ev.exit
 
-_ZN5clang22ConstraintSatisfactionD2Ev.exit:       ; preds = %_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang4ExprEPSt4pairINS2_14SourceLocationENS_9StringRefEEEEELj4EED2Ev.exit.i, %87
+_ZN5clang22ConstraintSatisfactionD2Ev.exit:       ; preds = %_ZN4llvm11SmallVectorINS_12PointerUnionIJPN5clang4ExprEPSt4pairINS2_14SourceLocationENS_9StringRefEEEEELj4EED2Ev.exit.i, %86
   call void @llvm.lifetime.end.p0(i64 184, ptr nonnull %4) #27
   ret ptr %.0
 }
@@ -58083,14 +58082,14 @@ _ZnwmRKN5clang10ASTContextEm.exit:                ; preds = %21, %24
   %27 = tail call noundef ptr @_ZN5clang25ASTConstraintSatisfaction7RebuildERKNS_10ASTContextERKS0_(ptr noundef nonnull align 8 dereferenceable(23216) %26, ptr noundef nonnull align 8 dereferenceable(16) %3) #27
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %29 = load i8, ptr %28, align 8
-  %30 = trunc i8 %29 to i1
   store i32 3, ptr %.0.i.i.i.i, align 4, !tbaa !2479
-  %31 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 4
-  %32 = load i8, ptr %31, align 4
-  %33 = and i8 %32, -8
-  %34 = select i1 %30, i8 4, i8 0
-  %35 = or disjoint i8 %33, %34
-  store i8 %35, ptr %31, align 4
+  %30 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 4
+  %31 = load i8, ptr %30, align 4
+  %32 = and i8 %31, -8
+  %33 = shl i8 %29, 2
+  %34 = and i8 %33, 4
+  %35 = or disjoint i8 %32, %34
+  store i8 %35, ptr %30, align 4
   %36 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 8
   store ptr null, ptr %36, align 8, !tbaa !2490
   %37 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 16
@@ -77741,14 +77740,14 @@ _ZN5clang13TreeTransformIN12_GLOBAL__N_114TransformTyposEE24RebuildNestedRequire
   %239 = call noundef ptr @_ZN5clang25ASTConstraintSatisfaction7RebuildERKNS_10ASTContextERKS0_(ptr noundef nonnull align 8 dereferenceable(23216) %238, ptr noundef nonnull align 8 dereferenceable(16) %216) #27
   %240 = getelementptr inbounds nuw i8, ptr %239, i64 8
   %241 = load i8, ptr %240, align 8
-  %242 = trunc i8 %241 to i1
   store i32 3, ptr %.0.i.i.i.i.i.i.i, align 4, !tbaa !2479
-  %243 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 4
-  %244 = load i8, ptr %243, align 4
-  %245 = and i8 %244, -8
-  %246 = select i1 %242, i8 4, i8 0
-  %247 = or disjoint i8 %245, %246
-  store i8 %247, ptr %243, align 4
+  %242 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 4
+  %243 = load i8, ptr %242, align 4
+  %244 = and i8 %243, -8
+  %245 = shl i8 %241, 2
+  %246 = and i8 %245, 4
+  %247 = or disjoint i8 %244, %246
+  store i8 %247, ptr %242, align 4
   %248 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 8
   store ptr null, ptr %248, align 8, !tbaa !2490
   %249 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 16
@@ -140872,14 +140871,14 @@ _ZN5clang13TreeTransformIZNS_4Sema25CorrectDelayedTyposInExprEPNS_4ExprEPNS_7Var
   %239 = call noundef ptr @_ZN5clang25ASTConstraintSatisfaction7RebuildERKNS_10ASTContextERKS0_(ptr noundef nonnull align 8 dereferenceable(23216) %238, ptr noundef nonnull align 8 dereferenceable(16) %216) #27
   %240 = getelementptr inbounds nuw i8, ptr %239, i64 8
   %241 = load i8, ptr %240, align 8
-  %242 = trunc i8 %241 to i1
   store i32 3, ptr %.0.i.i.i.i.i.i.i, align 4, !tbaa !2479
-  %243 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 4
-  %244 = load i8, ptr %243, align 4
-  %245 = and i8 %244, -8
-  %246 = select i1 %242, i8 4, i8 0
-  %247 = or disjoint i8 %245, %246
-  store i8 %247, ptr %243, align 4
+  %242 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 4
+  %243 = load i8, ptr %242, align 4
+  %244 = and i8 %243, -8
+  %245 = shl i8 %241, 2
+  %246 = and i8 %245, 4
+  %247 = or disjoint i8 %244, %246
+  store i8 %247, ptr %242, align 4
   %248 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 8
   store ptr null, ptr %248, align 8, !tbaa !2490
   %249 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i.i, i64 16

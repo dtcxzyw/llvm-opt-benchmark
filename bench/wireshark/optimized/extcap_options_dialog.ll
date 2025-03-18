@@ -400,8 +400,8 @@ _ZN7QStringD2Ev.exit29:                           ; preds = %_ZN7QStringD2Ev.exi
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 24
   %56 = load ptr, ptr %55, align 8
   %57 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prefs, i64 498), align 2, !range !6, !noundef !7
-  %58 = trunc nuw i8 %57 to i1
-  %59 = select i1 %58, i32 2, i32 0
+  %58 = shl nuw nsw i8 %57, 1
+  %59 = zext nneg i8 %58 to i32
   invoke void @_ZN9QCheckBox13setCheckStateEN2Qt10CheckStateE(ptr noundef align 8 dereferenceable_or_null(40) %56, i32 noundef %59)
           to label %60 unwind label %87
 

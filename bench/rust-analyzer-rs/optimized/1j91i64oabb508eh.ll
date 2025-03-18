@@ -4177,11 +4177,10 @@ define hidden void @"_ZN10serde_json5value2de78_$LT$impl$u20$serde..de..Deserial
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1226)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1229)
   %8 = load i64, ptr %3, align 8, !range !214, !alias.scope !1229, !noalias !1231, !noundef !12
-  %trunc.i.i = trunc nuw i64 %8 to i1
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = load ptr, ptr %9, align 8, !alias.scope !1229, !noalias !1231
   %.sink1.i.i = ptrtoint ptr %10 to i64
-  %.sink.i.i = select i1 %trunc.i.i, i64 2, i64 1
+  %.sink.i.i = add nuw nsw i64 %8, 1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sink1.i.i, ptr %11, align 8, !alias.scope !1232, !noalias !1233
   store i64 %.sink.i.i, ptr %0, align 8, !alias.scope !1232, !noalias !1233
@@ -24727,11 +24726,10 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17hdd5aa1f053caf977
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17hdf7e43f3360ca9ecE.llvm.15439407322995335751"(ptr noalias noundef writeonly sret({ i64, [1 x i64] }) align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #1 {
   %3 = load i64, ptr %1, align 8, !range !214, !noundef !12
-  %trunc = trunc nuw i64 %3 to i1
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %.sink1 = ptrtoint ptr %5 to i64
-  %.sink = select i1 %trunc, i64 2, i64 1
+  %.sink = add nuw nsw i64 %3, 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sink1, ptr %6, align 8
   store i64 %.sink, ptr %0, align 8
@@ -31871,11 +31869,10 @@ define hidden void @"_ZN5serde2de5impls82_$LT$impl$u20$serde..de..Deserialize$u2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7946)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7949)
   %8 = load i64, ptr %3, align 8, !range !214, !alias.scope !7949, !noalias !7951, !noundef !12
-  %trunc.i.i.i = trunc nuw i64 %8 to i1
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %10 = load ptr, ptr %9, align 8, !alias.scope !7949, !noalias !7951
   %.sink1.i.i.i = ptrtoint ptr %10 to i64
-  %.sink.i.i.i = select i1 %trunc.i.i.i, i64 2, i64 1
+  %.sink.i.i.i = add nuw nsw i64 %8, 1
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sink1.i.i.i, ptr %11, align 8, !alias.scope !7952, !noalias !7953
   store i64 %.sink.i.i.i, ptr %0, align 8, !alias.scope !7952, !noalias !7953
@@ -45194,11 +45191,10 @@ define hidden void @"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11789)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11792)
   %4 = load i64, ptr %3, align 8, !range !214, !alias.scope !11792, !noalias !11789, !noundef !12
-  %trunc.i = trunc nuw i64 %4 to i1
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load ptr, ptr %5, align 8, !alias.scope !11792, !noalias !11789
   %.sink1.i = ptrtoint ptr %6 to i64
-  %.sink.i = select i1 %trunc.i, i64 2, i64 1
+  %.sink.i = add nuw nsw i64 %4, 1
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sink1.i, ptr %7, align 8, !alias.scope !11789, !noalias !11792
   store i64 %.sink.i, ptr %0, align 8, !alias.scope !11789, !noalias !11792

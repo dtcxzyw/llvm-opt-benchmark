@@ -15452,10 +15452,9 @@ define hidden void @_ZN14theme_selector21ThemeSelectorDelegate3new17he398f7fc4e4
   %.sroa.6.24.copyload = load i64, ptr %.sroa.6.24..sroa_idx, align 8
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 16
   %73 = load i64, ptr %72, align 8, !range !217, !noundef !4
-  %trunc = trunc nuw i64 %73 to i1
   %74 = getelementptr inbounds nuw i8, ptr %70, i64 24
   %75 = load ptr, ptr %74, align 8, !nonnull !4, !noundef !4
-  %.sroa.0.0.idx = select i1 %trunc, i64 16, i64 0
+  %.sroa.0.0.idx = shl nuw nsw i64 %73, 4
   %.sroa.0.0 = getelementptr inbounds nuw i8, ptr %75, i64 %.sroa.0.0.idx
   %.sroa.3.0.in = getelementptr inbounds nuw i8, ptr %70, i64 32
   %.sroa.3.0 = load i64, ptr %.sroa.3.0.in, align 8, !noundef !4

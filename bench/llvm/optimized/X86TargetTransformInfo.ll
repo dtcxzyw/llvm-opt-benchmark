@@ -451,8 +451,8 @@ define dso_local noundef range(i32 0, 3) i32 @_ZN4llvm10X86TTIImpl16getPopcntSup
   %4 = load ptr, ptr %3, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 425
   %6 = load i8, ptr %5, align 1, !tbaa !16, !range !149, !noundef !150
-  %7 = trunc nuw i8 %6 to i1
-  %8 = select i1 %7, i32 2, i32 0
+  %7 = shl nuw nsw i8 %6, 1
+  %8 = zext nneg i8 %7 to i32
   ret i32 %8
 }
 

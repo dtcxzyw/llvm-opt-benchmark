@@ -4073,8 +4073,7 @@ common.resume:                                    ; preds = %.body54, %186, %.bo
   %123 = getelementptr inbounds [0 x { i64, [9 x i64] }], ptr %122, i64 0, i64 %116
   %124 = load i64, ptr %123, align 8, !range !126, !noundef !4
   %.025 = getelementptr inbounds nuw i8, ptr %123, i64 32
-  %trunc33 = trunc nuw i64 %124 to i1
-  %. = select i1 %trunc33, i64 1, i64 2
+  %. = sub nuw nsw i64 2, %124
   call void @llvm.experimental.noalias.scope.decl(metadata !663)
   call void @llvm.experimental.noalias.scope.decl(metadata !666)
   %.sroa.5.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %14, i64 8

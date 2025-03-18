@@ -777,8 +777,8 @@ define range(i32 -1, 1) i32 @H5B2__get_node_info_test(ptr noundef readonly captu
   %76 = load ptr, ptr %18, align 8, !tbaa !48
   %77 = load i64, ptr %4, align 8, !tbaa !60
   %78 = load i8, ptr %20, align 8, !tbaa !51, !range !7, !noundef !8
-  %79 = trunc nuw i8 %78 to i1
-  %80 = select i1 %79, i32 4, i32 0
+  %79 = shl nuw nsw i8 %78, 2
+  %80 = zext nneg i8 %79 to i32
   %81 = call i32 @H5AC_unprotect(ptr noundef %76, ptr noundef nonnull @H5AC_BT2_INT, i64 noundef %77, ptr noundef nonnull %36, i32 noundef %80) #8
   %82 = icmp slt i32 %81, 0
   br i1 %82, label %83, label %99

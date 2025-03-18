@@ -2328,7 +2328,7 @@ _ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.outer.back
 declare i64 @_ZNK4llvm19MachineRegisterInfo21getMaxLaneMaskForVRegENS_8RegisterE(ptr noundef nonnull align 8 dereferenceable(504), i32) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nounwind uwtable
-define dso_local range(i64 0, 72620543991349248) i64 @_ZN4llvm22AnalyzePhysRegInBundleERKNS_12MachineInstrENS_8RegisterEPKNS_18TargetRegisterInfoE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(70) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 {
+define dso_local range(i64 0, 72341268037894144) i64 @_ZN4llvm22AnalyzePhysRegInBundleERKNS_12MachineInstrENS_8RegisterEPKNS_18TargetRegisterInfoE(ptr noundef nonnull readonly align 8 captures(address) dereferenceable(70) %0, i32 %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 44
   %5 = load i32, ptr %4, align 4, !noalias !316
   %6 = and i32 %5, 4
@@ -2648,8 +2648,8 @@ _ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.outer.back
   br i1 %140, label %143, label %141
 
 141:                                              ; preds = %139
-  %142 = trunc nuw i8 %.sroa.4.0 to i1
-  %spec.select27 = select i1 %142, i64 281474976710656, i64 0
+  %142 = zext nneg i8 %.sroa.4.0 to i64
+  %spec.select27 = shl nuw nsw i64 %142, 48
   br label %143
 
 143:                                              ; preds = %141, %137, %139, %_ZNK4llvm20iterator_facade_baseINS_27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEESt20forward_iterator_tagS3_lPS3_RS3_EneERKS4_.exit
@@ -2657,7 +2657,7 @@ _ZN4llvm27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEppEv.exit.outer.back
   %.sroa.10.0 = phi i64 [ 0, %_ZNK4llvm20iterator_facade_baseINS_27MIBundleOperandIteratorBaseIKNS_14MachineOperandEEESt20forward_iterator_tagS3_lPS3_RS3_EneERKS4_.exit ], [ 1099511627776, %139 ], [ 1099511627776, %137 ], [ 0, %141 ]
   %.sroa.12.0.insert.ext = zext nneg i8 %.sroa.12.0 to i64
   %.sroa.12.0.insert.shift = shl nuw nsw i64 %.sroa.12.0.insert.ext, 56
-  %.sroa.11.0.insert.insert = or disjoint i64 %.sroa.11.0, %.sroa.12.0.insert.shift
+  %.sroa.11.0.insert.insert = add nuw nsw i64 %.sroa.11.0, %.sroa.12.0.insert.shift
   %.sroa.10.0.insert.insert = or disjoint i64 %.sroa.11.0.insert.insert, %.sroa.10.0
   %.sroa.9.0.insert.ext = zext nneg i8 %.sroa.9.0 to i64
   %.sroa.9.0.insert.shift = shl nuw nsw i64 %.sroa.9.0.insert.ext, 32

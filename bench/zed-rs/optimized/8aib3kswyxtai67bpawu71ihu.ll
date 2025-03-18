@@ -7180,14 +7180,12 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$
   %11 = getelementptr inbounds i8, ptr %8, i64 -16
   %12 = load ptr, ptr %11, align 8, !alias.scope !2830, !noalias !2831, !nonnull !11
   %13 = load i64, ptr %10, align 8, !range !121, !alias.scope !2830, !noalias !2831, !noundef !11
-  %trunc3.i.i.i.i.i.i = trunc nuw i64 %13 to i1
-  %.sroa.01.0.idx.i.i.i.i.i.i = select i1 %trunc3.i.i.i.i.i.i, i64 16, i64 0
+  %.sroa.01.0.idx.i.i.i.i.i.i = shl nuw nsw i64 %13, 4
   %.sroa.01.0.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 %.sroa.01.0.idx.i.i.i.i.i.i
   %14 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 8
   %15 = load ptr, ptr %14, align 8, !alias.scope !2828, !noalias !2829, !nonnull !11
   %16 = load i64, ptr %.val.i.i, align 8, !range !121, !alias.scope !2828, !noalias !2829, !noundef !11
-  %trunc.i.i.i.i.i.i = trunc nuw i64 %16 to i1
-  %.sroa.0.0.idx.i.i.i.i.i.i = select i1 %trunc.i.i.i.i.i.i, i64 16, i64 0
+  %.sroa.0.0.idx.i.i.i.i.i.i = shl nuw nsw i64 %16, 4
   %.sroa.0.0.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 %.sroa.0.0.idx.i.i.i.i.i.i
   %bcmp.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.sroa.0.0.i.i.i.i.i.i, ptr nonnull readonly align 1 %.sroa.01.0.i.i.i.i.i.i, i64 %.sroa.3.0.i.i.i.i.i.i), !alias.scope !2832, !noalias !2839
   %17 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i, 0
@@ -9774,14 +9772,12 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17
   %19 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %20 = load ptr, ptr %19, align 8, !alias.scope !3475, !noalias !3478, !nonnull !11
   %21 = load i64, ptr %16, align 8, !range !121, !alias.scope !3475, !noalias !3478, !noundef !11
-  %trunc3.i.i.i = trunc nuw i64 %21 to i1
-  %.sroa.01.0.idx.i.i.i = select i1 %trunc3.i.i.i, i64 16, i64 0
+  %.sroa.01.0.idx.i.i.i = shl nuw nsw i64 %21, 4
   %.sroa.01.0.i.i.i = getelementptr inbounds nuw i8, ptr %20, i64 %.sroa.01.0.idx.i.i.i
   %22 = getelementptr inbounds nuw i8, ptr %14, i64 24
   %23 = load ptr, ptr %22, align 8, !alias.scope !3472, !noalias !3477, !nonnull !11
   %24 = load i64, ptr %18, align 8, !range !121, !alias.scope !3472, !noalias !3477, !noundef !11
-  %trunc.i.i.i = trunc nuw i64 %24 to i1
-  %.sroa.0.0.idx.i.i.i = select i1 %trunc.i.i.i, i64 16, i64 0
+  %.sroa.0.0.idx.i.i.i = shl nuw nsw i64 %24, 4
   %.sroa.0.0.i.i.i = getelementptr inbounds nuw i8, ptr %23, i64 %.sroa.0.0.idx.i.i.i
   %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.sroa.0.0.i.i.i, ptr nonnull readonly align 1 %.sroa.01.0.i.i.i, i64 %.sroa.3.0.i.i.i), !alias.scope !3479, !noalias !3486
   %.not2 = icmp eq i32 %bcmp.i.i.i.i.i, 0
@@ -10333,14 +10329,12 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 16
   %17 = load ptr, ptr %11, align 8, !alias.scope !3630, !noalias !3633, !nonnull !11
   %18 = load i64, ptr %10, align 8, !range !121, !alias.scope !3630, !noalias !3633, !noundef !11
-  %trunc3.i.i.i = trunc nuw i64 %18 to i1
-  %.sroa.01.0.idx.i.i.i = select i1 %trunc3.i.i.i, i64 16, i64 0
+  %.sroa.01.0.idx.i.i.i = shl nuw nsw i64 %18, 4
   %.sroa.01.0.i.i.i = getelementptr inbounds nuw i8, ptr %17, i64 %.sroa.01.0.idx.i.i.i
   %19 = getelementptr inbounds nuw i8, ptr %15, i64 24
   %20 = load ptr, ptr %19, align 8, !alias.scope !3638, !noalias !3639, !nonnull !11
   %21 = load i64, ptr %16, align 8, !range !121, !alias.scope !3638, !noalias !3639, !noundef !11
-  %trunc.i.i.i = trunc nuw i64 %21 to i1
-  %.sroa.0.0.idx.i.i.i = select i1 %trunc.i.i.i, i64 16, i64 0
+  %.sroa.0.0.idx.i.i.i = shl nuw nsw i64 %21, 4
   %.sroa.0.0.i.i.i = getelementptr inbounds nuw i8, ptr %20, i64 %.sroa.0.0.idx.i.i.i
   %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.sroa.0.0.i.i.i, ptr nonnull readonly align 1 %.sroa.01.0.i.i.i, i64 %.sroa.32.0.i.i.i), !alias.scope !3640, !noalias !3647
   %.not2 = icmp eq i32 %bcmp.i.i.i.i.i, 0
@@ -11178,14 +11172,12 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17h8a06bde15542c
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load ptr, ptr %9, align 8, !alias.scope !3970, !noalias !3973, !nonnull !11
   %16 = load i64, ptr %8, align 8, !range !121, !alias.scope !3970, !noalias !3973, !noundef !11
-  %trunc3.i.i.i.i = trunc nuw i64 %16 to i1
-  %.sroa.01.0.idx.i.i.i.i = select i1 %trunc3.i.i.i.i, i64 16, i64 0
+  %.sroa.01.0.idx.i.i.i.i = shl nuw nsw i64 %16, 4
   %.sroa.01.0.i.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 %.sroa.01.0.idx.i.i.i.i
   %17 = getelementptr inbounds nuw i8, ptr %13, i64 24
   %18 = load ptr, ptr %17, align 8, !alias.scope !3979, !noalias !3980, !nonnull !11
   %19 = load i64, ptr %14, align 8, !range !121, !alias.scope !3979, !noalias !3980, !noundef !11
-  %trunc.i.i.i.i = trunc nuw i64 %19 to i1
-  %.sroa.0.0.idx.i.i.i.i = select i1 %trunc.i.i.i.i, i64 16, i64 0
+  %.sroa.0.0.idx.i.i.i.i = shl nuw nsw i64 %19, 4
   %.sroa.0.0.i.i.i.i = getelementptr inbounds nuw i8, ptr %18, i64 %.sroa.0.0.idx.i.i.i.i
   %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.sroa.0.0.i.i.i.i, ptr nonnull readonly align 1 %.sroa.01.0.i.i.i.i, i64 %.sroa.32.0.i.i.i.i), !alias.scope !3981, !noalias !3988
   %.not2.i = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
@@ -11249,18 +11241,16 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17h8a06bde15542c
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 8
   %38 = load ptr, ptr %37, align 8, !alias.scope !4014, !noalias !4017, !nonnull !11
   %39 = load i64, ptr %34, align 8, !range !121, !alias.scope !4014, !noalias !4017, !noundef !11
-  %trunc3.i.i.i.i11 = trunc nuw i64 %39 to i1
-  %.sroa.01.0.idx.i.i.i.i12 = select i1 %trunc3.i.i.i.i11, i64 16, i64 0
-  %.sroa.01.0.i.i.i.i13 = getelementptr inbounds nuw i8, ptr %38, i64 %.sroa.01.0.idx.i.i.i.i12
+  %.sroa.01.0.idx.i.i.i.i11 = shl nuw nsw i64 %39, 4
+  %.sroa.01.0.i.i.i.i12 = getelementptr inbounds nuw i8, ptr %38, i64 %.sroa.01.0.idx.i.i.i.i11
   %40 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %41 = load ptr, ptr %40, align 8, !alias.scope !4011, !noalias !4016, !nonnull !11
   %42 = load i64, ptr %36, align 8, !range !121, !alias.scope !4011, !noalias !4016, !noundef !11
-  %trunc.i.i.i.i14 = trunc nuw i64 %42 to i1
-  %.sroa.0.0.idx.i.i.i.i15 = select i1 %trunc.i.i.i.i14, i64 16, i64 0
-  %.sroa.0.0.i.i.i.i16 = getelementptr inbounds nuw i8, ptr %41, i64 %.sroa.0.0.idx.i.i.i.i15
-  %bcmp.i.i.i.i.i.i17 = tail call i32 @bcmp(ptr nonnull readonly align 1 %.sroa.0.0.i.i.i.i16, ptr nonnull readonly align 1 %.sroa.01.0.i.i.i.i13, i64 %.sroa.3.0.i.i.i.i4), !alias.scope !4018, !noalias !4025
-  %.not2.i18 = icmp eq i32 %bcmp.i.i.i.i.i.i17, 0
-  br i1 %.not2.i18, label %43, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6retain28_$u7b$$u7b$closure$u7d$$u7d$17h730f72d93b023a48E.llvm.2989133700921788752.exit.thread.i8"
+  %.sroa.0.0.idx.i.i.i.i13 = shl nuw nsw i64 %42, 4
+  %.sroa.0.0.i.i.i.i14 = getelementptr inbounds nuw i8, ptr %41, i64 %.sroa.0.0.idx.i.i.i.i13
+  %bcmp.i.i.i.i.i.i15 = tail call i32 @bcmp(ptr nonnull readonly align 1 %.sroa.0.0.i.i.i.i14, ptr nonnull readonly align 1 %.sroa.01.0.i.i.i.i12, i64 %.sroa.3.0.i.i.i.i4), !alias.scope !4018, !noalias !4025
+  %.not2.i16 = icmp eq i32 %bcmp.i.i.i.i.i.i15, 0
+  br i1 %.not2.i16, label %43, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6retain28_$u7b$$u7b$closure$u7d$$u7d$17h730f72d93b023a48E.llvm.2989133700921788752.exit.thread.i8"
 
 43:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6retain28_$u7b$$u7b$closure$u7d$$u7d$17h730f72d93b023a48E.llvm.2989133700921788752.exit.i10"
   %44 = add i64 %30, 1
@@ -11288,37 +11278,37 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut17h8a06bde15542c
   br label %.backedge.i
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h25af0e57ab834827E.llvm.2989133700921788752.exit._crit_edge": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6retain28_$u7b$$u7b$closure$u7d$$u7d$17h730f72d93b023a48E.llvm.2989133700921788752.exit.thread.i", %.backedge.i, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h933f0c9ea2d06d63E.llvm.2989133700921788752.exit"
-  %.sroa.16.461 = phi i64 [ %.sroa.16.1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h933f0c9ea2d06d63E.llvm.2989133700921788752.exit" ], [ %.sroa.16.3, %.backedge.i ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6retain28_$u7b$$u7b$closure$u7d$$u7d$17h730f72d93b023a48E.llvm.2989133700921788752.exit.thread.i" ]
-  %.pre-phi = sub i64 %4, %.sroa.16.461
+  %.sroa.16.459 = phi i64 [ %.sroa.16.1, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$10retain_mut12process_loop17h933f0c9ea2d06d63E.llvm.2989133700921788752.exit" ], [ %.sroa.16.3, %.backedge.i ], [ 0, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6retain28_$u7b$$u7b$closure$u7d$$u7d$17h730f72d93b023a48E.llvm.2989133700921788752.exit.thread.i" ]
+  %.pre-phi = sub i64 %4, %.sroa.16.459
   store i64 %.pre-phi, ptr %3, align 8, !noalias !4031
   ret void
 
-._crit_edge.i.i22:                                ; preds = %54, %56
+._crit_edge.i.i20:                                ; preds = %54, %56
   %52 = phi { ptr, i32 } [ %57, %56 ], [ %55, %54 ]
-  %.sroa.16.040 = phi i64 [ %.sroa.16.039, %56 ], [ 0, %54 ]
-  %53 = sub i64 %4, %.sroa.16.040
+  %.sroa.16.038 = phi i64 [ %.sroa.16.037, %56 ], [ 0, %54 ]
+  %53 = sub i64 %4, %.sroa.16.038
   store i64 %53, ptr %3, align 8, !noalias !4036
   resume { ptr, i32 } %52
 
 54:                                               ; preds = %48
   %55 = landingpad { ptr, i32 }
           cleanup
-  %.not.i.i20 = icmp eq i64 %45, 0
-  br i1 %.not.i.i20, label %._crit_edge.i.i22, label %56
+  %.not.i.i18 = icmp eq i64 %45, 0
+  br i1 %.not.i.i18, label %._crit_edge.i.i20, label %56
 
 56:                                               ; preds = %.thread, %54
   %57 = phi { ptr, i32 } [ %26, %.thread ], [ %55, %54 ]
-  %.sroa.16.039 = phi i64 [ 1, %.thread ], [ %45, %54 ]
-  %.sroa.7.038 = phi i64 [ %21, %.thread ], [ %44, %54 ]
+  %.sroa.16.037 = phi i64 [ 1, %.thread ], [ %45, %54 ]
+  %.sroa.7.036 = phi i64 [ %21, %.thread ], [ %44, %54 ]
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %59 = load ptr, ptr %58, align 8, !noalias !4036, !nonnull !11, !noundef !11
-  %60 = getelementptr inbounds ptr, ptr %59, i64 %.sroa.7.038
-  %61 = sub i64 %.sroa.7.038, %.sroa.16.039
+  %60 = getelementptr inbounds ptr, ptr %59, i64 %.sroa.7.036
+  %61 = sub i64 %.sroa.7.036, %.sroa.16.037
   %62 = getelementptr inbounds ptr, ptr %59, i64 %61
-  %63 = sub i64 %4, %.sroa.7.038
+  %63 = sub i64 %4, %.sroa.7.036
   %64 = shl i64 %63, 3
   tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %62, ptr nonnull align 8 %60, i64 %64, i1 false), !noalias !4036
-  br label %._crit_edge.i.i22
+  br label %._crit_edge.i.i20
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -14070,14 +14060,12 @@ define hidden noundef zeroext i1 @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$6retain28_$u7b
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %10 = load ptr, ptr %9, align 8, !alias.scope !4655, !noalias !4658, !nonnull !11
   %11 = load i64, ptr %6, align 8, !range !121, !alias.scope !4655, !noalias !4658, !noundef !11
-  %trunc3.i.i = trunc nuw i64 %11 to i1
-  %.sroa.01.0.idx.i.i = select i1 %trunc3.i.i, i64 16, i64 0
+  %.sroa.01.0.idx.i.i = shl nuw nsw i64 %11, 4
   %.sroa.01.0.i.i = getelementptr inbounds nuw i8, ptr %10, i64 %.sroa.01.0.idx.i.i
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %13 = load ptr, ptr %12, align 8, !alias.scope !4652, !noalias !4657, !nonnull !11
   %14 = load i64, ptr %8, align 8, !range !121, !alias.scope !4652, !noalias !4657, !noundef !11
-  %trunc.i.i = trunc nuw i64 %14 to i1
-  %.sroa.0.0.idx.i.i = select i1 %trunc.i.i, i64 16, i64 0
+  %.sroa.0.0.idx.i.i = shl nuw nsw i64 %14, 4
   %.sroa.0.0.i.i = getelementptr inbounds nuw i8, ptr %13, i64 %.sroa.0.0.idx.i.i
   %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.sroa.0.0.i.i, ptr nonnull readonly align 1 %.sroa.01.0.i.i, i64 %.sroa.3.0.i.i), !alias.scope !4659, !noalias !4666
   %15 = icmp ne i32 %bcmp.i.i.i.i, 0
@@ -23546,12 +23534,11 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$G
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6914)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !6917)
   %5 = load i64, ptr %1, align 8, !range !121, !alias.scope !6919, !noalias !6920, !noundef !11
-  %trunc.i.i.i.i = trunc nuw i64 %5 to i1
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !alias.scope !6919, !noalias !6920, !nonnull !11, !noundef !11
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i64, ptr %8, align 8, !alias.scope !6919, !noalias !6920, !noundef !11
-  %.sink.idx.i.i.i.i = select i1 %trunc.i.i.i.i, i64 16, i64 0
+  %.sink.idx.i.i.i.i = shl nuw nsw i64 %5, 4
   %.sink.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 %.sink.idx.i.i.i.i
   invoke void @"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$5write17h5b780d2263fcefdeE.llvm.18293271457274314417"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3, ptr noalias noundef nonnull readonly align 1 %.sink.i.i.i.i, i64 noundef %9)
           to label %10 unwind label %51
@@ -27782,8 +27769,7 @@ define hidden { i64, ptr } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_f
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %18 = load ptr, ptr %17, align 8, !nonnull !11
   %19 = load i64, ptr %2, align 8, !range !121
-  %trunc.i.i.i.i.i = trunc nuw i64 %19 to i1
-  %.sroa.0.0.idx.i.i.i.i.i = select i1 %trunc.i.i.i.i.i, i64 16, i64 0
+  %.sroa.0.0.idx.i.i.i.i.i = shl nuw nsw i64 %19, 4
   %.sroa.0.0.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %18, i64 %.sroa.0.0.idx.i.i.i.i.i
   br label %20
 
@@ -27822,8 +27808,7 @@ define hidden { i64, ptr } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_f
   %32 = getelementptr inbounds i8, ptr %30, i64 -16
   %33 = load ptr, ptr %32, align 8, !alias.scope !8426, !noalias !8427, !nonnull !11
   %34 = load i64, ptr %31, align 8, !range !121, !alias.scope !8426, !noalias !8427, !noundef !11
-  %trunc3.i.i.i.i.i = trunc nuw i64 %34 to i1
-  %.sroa.01.0.idx.i.i.i.i.i = select i1 %trunc3.i.i.i.i.i, i64 16, i64 0
+  %.sroa.01.0.idx.i.i.i.i.i = shl nuw nsw i64 %34, 4
   %.sroa.01.0.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %33, i64 %.sroa.01.0.idx.i.i.i.i.i
   %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.sroa.0.0.i.i.i.i.i, ptr nonnull readonly align 1 %.sroa.01.0.i.i.i.i.i, i64 %.sroa.3.0.i.i.i.i.i), !alias.scope !8433, !noalias !8440
   %35 = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
@@ -28260,14 +28245,12 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24fin
   %11 = getelementptr inbounds i8, ptr %8, i64 -16
   %12 = load ptr, ptr %11, align 8, !alias.scope !8564, !noalias !8563, !nonnull !11
   %13 = load i64, ptr %10, align 8, !range !121, !alias.scope !8564, !noalias !8563, !noundef !11
-  %trunc3.i.i.i.i = trunc nuw i64 %13 to i1
-  %.sroa.01.0.idx.i.i.i.i = select i1 %trunc3.i.i.i.i, i64 16, i64 0
+  %.sroa.01.0.idx.i.i.i.i = shl nuw nsw i64 %13, 4
   %.sroa.01.0.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 %.sroa.01.0.idx.i.i.i.i
   %14 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %15 = load ptr, ptr %14, align 8, !alias.scope !8563, !noalias !8564, !nonnull !11
   %16 = load i64, ptr %.val, align 8, !range !121, !alias.scope !8563, !noalias !8564, !noundef !11
-  %trunc.i.i.i.i = trunc nuw i64 %16 to i1
-  %.sroa.0.0.idx.i.i.i.i = select i1 %trunc.i.i.i.i, i64 16, i64 0
+  %.sroa.0.0.idx.i.i.i.i = shl nuw nsw i64 %16, 4
   %.sroa.0.0.i.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 %.sroa.0.0.idx.i.i.i.i
   %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.sroa.0.0.i.i.i.i, ptr nonnull readonly align 1 %.sroa.01.0.i.i.i.i, i64 %.sroa.3.0.i.i.i.i), !alias.scope !8565, !noalias !8572
   %17 = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
@@ -29255,14 +29238,12 @@ define hidden noundef zeroext i1 @"_ZN8language17language_registry16LanguageRegi
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %9 = load ptr, ptr %8, align 8, !alias.scope !8750, !noalias !8747, !nonnull !11
   %10 = load i64, ptr %5, align 8, !range !121, !alias.scope !8750, !noalias !8747, !noundef !11
-  %trunc3.i = trunc nuw i64 %10 to i1
-  %.sroa.01.0.idx.i = select i1 %trunc3.i, i64 16, i64 0
+  %.sroa.01.0.idx.i = shl nuw nsw i64 %10, 4
   %.sroa.01.0.i = getelementptr inbounds nuw i8, ptr %9, i64 %.sroa.01.0.idx.i
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %12 = load ptr, ptr %11, align 8, !alias.scope !8747, !noalias !8750, !nonnull !11
   %13 = load i64, ptr %7, align 8, !range !121, !alias.scope !8747, !noalias !8750, !noundef !11
-  %trunc.i = trunc nuw i64 %13 to i1
-  %.sroa.0.0.idx.i = select i1 %trunc.i, i64 16, i64 0
+  %.sroa.0.0.idx.i = shl nuw nsw i64 %13, 4
   %.sroa.0.0.i = getelementptr inbounds nuw i8, ptr %12, i64 %.sroa.0.0.idx.i
   %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.sroa.0.0.i, ptr nonnull readonly align 1 %.sroa.01.0.i, i64 %.sroa.3.0.i), !alias.scope !8752, !noalias !8759
   %14 = icmp ne i32 %bcmp.i.i.i, 0

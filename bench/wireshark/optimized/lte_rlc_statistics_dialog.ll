@@ -628,8 +628,8 @@ _ZN7QStringD2Ev.exit178:                          ; preds = %164, %_ZN17QArrayDa
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %20) #23
   %170 = load ptr, ptr %165, align 8
   %171 = load i8, ptr getelementptr inbounds nuw (i8, ptr @recent, i64 192), align 8, !range !9, !noundef !10
-  %172 = trunc nuw i8 %171 to i1
-  %173 = select i1 %172, i32 2, i32 0
+  %172 = shl nuw nsw i8 %171, 1
+  %173 = zext nneg i8 %172 to i32
   invoke void @_ZN9QCheckBox13setCheckStateEN2Qt10CheckStateE(ptr noundef align 8 dereferenceable_or_null(40) %170, i32 noundef %173)
           to label %174 unwind label %357
 

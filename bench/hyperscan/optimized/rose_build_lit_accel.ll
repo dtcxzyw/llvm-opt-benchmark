@@ -449,7 +449,7 @@ _ZN3ue29verify_u8IjEEhT_.exit.i:                  ; preds = %166
   store i8 %172, ptr %173, align 1
   %174 = and i8 %.sroa.025.1.i, -33
   %175 = and i8 %.sroa.7.1.i, -33
-  %.sink = select i1 %40, i8 4, i8 3
+  %.sink = add i8 %.sroa.1731.1.i, 3
   %.sroa.025.1.i.lcssa.sink = select i1 %40, i8 %174, i8 %.sroa.025.1.i
   %.sroa.7.1.lcssa.sink.i = select i1 %40, i8 %175, i8 %.sroa.7.1.i
   store i8 %.sink, ptr %2, align 16
@@ -754,7 +754,7 @@ _ZZN3ue2L9findSVermERKSt6vectorIPKNS_11AccelStringESaIS3_EEP8AccelAuxENK9candida
 282:                                              ; preds = %._crit_edge.i110
   %283 = trunc nuw i8 %.sroa.11.1.i to i1
   %284 = and i8 %.sroa.019.1.i, -33
-  %spec.select152.i = select i1 %283, i8 2, i8 1
+  %spec.select152.i = add i8 %.sroa.11.1.i, 1
   %spec.select153.i = select i1 %283, i8 %284, i8 %.sroa.019.1.i
   store i8 %spec.select152.i, ptr %2, align 16
   %285 = getelementptr inbounds nuw i8, ptr %2, i64 2

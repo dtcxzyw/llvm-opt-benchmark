@@ -630,8 +630,8 @@ define noundef range(i32 0, 4) i32 @_ZN8ScanTree8FindProcEP8FindData(ptr noundef
   %157 = or i32 %156, 1
   store i32 %157, ptr %155, align 8, !tbaa !48
   %158 = load i8, ptr %5, align 1, !tbaa !45, !range !37, !noundef !38
-  %159 = trunc nuw i8 %158 to i1
-  %160 = select i1 %159, i32 2, i32 0
+  %159 = shl nuw nsw i8 %158, 1
+  %160 = zext nneg i8 %159 to i32
   br label %165
 
 161:                                              ; preds = %150, %146, %142

@@ -14731,67 +14731,63 @@ malloc_init_narenas.exit:                         ; preds = %130, %134
   store i32 0, ptr @duckdb_je_malloc_init_state, align 4, !tbaa !3
   %156 = load i8, ptr @duckdb_je_opt_junk_alloc, align 1, !tbaa !50, !range !55, !noundef !56
   %157 = load i8, ptr @duckdb_je_opt_junk_free, align 1, !tbaa !50, !range !55, !noundef !56
-  %158 = trunc nuw i8 %157 to i1
-  %159 = select i1 %158, i8 2, i8 0
-  %160 = or disjoint i8 %159, %156
-  %161 = load i8, ptr @duckdb_je_opt_zero, align 1, !tbaa !50, !range !55, !noundef !56
-  %162 = trunc nuw i8 %161 to i1
-  %163 = select i1 %162, i8 4, i8 0
-  %164 = or disjoint i8 %160, %163
-  %165 = load i8, ptr @duckdb_je_opt_utrace, align 1, !tbaa !50, !range !55, !noundef !56
-  %166 = trunc nuw i8 %165 to i1
-  %167 = select i1 %166, i8 8, i8 0
-  %168 = or disjoint i8 %164, %167
-  %169 = load i8, ptr @duckdb_je_opt_xmalloc, align 1, !tbaa !50, !range !55, !noundef !56
-  %170 = trunc nuw i8 %169 to i1
-  %171 = select i1 %170, i8 16, i8 0
-  %172 = load i8, ptr @malloc_slow_flags, align 1, !tbaa !10
-  %173 = or i8 %168, %172
-  %174 = or i8 %173, %171
-  store i8 %174, ptr @malloc_slow_flags, align 1, !tbaa !10
-  %175 = icmp ne i8 %174, 0
-  %176 = zext i1 %175 to i8
-  store i8 %176, ptr @duckdb_je_malloc_slow, align 1, !tbaa !50
-  %177 = load i8, ptr %84, align 1, !tbaa !10
-  %178 = add i8 %177, -1
-  store i8 %178, ptr %84, align 1, !tbaa !10
-  %179 = icmp eq i8 %178, 0
-  br i1 %179, label %180, label %post_reentrancy.exit
+  %158 = shl nuw nsw i8 %157, 1
+  %159 = or disjoint i8 %158, %156
+  %160 = load i8, ptr @duckdb_je_opt_zero, align 1, !tbaa !50, !range !55, !noundef !56
+  %161 = shl nuw nsw i8 %160, 2
+  %162 = or disjoint i8 %159, %161
+  %163 = load i8, ptr @duckdb_je_opt_utrace, align 1, !tbaa !50, !range !55, !noundef !56
+  %164 = shl nuw nsw i8 %163, 3
+  %165 = or disjoint i8 %162, %164
+  %166 = load i8, ptr @duckdb_je_opt_xmalloc, align 1, !tbaa !50, !range !55, !noundef !56
+  %167 = shl nuw nsw i8 %166, 4
+  %168 = or disjoint i8 %165, %167
+  %169 = load i8, ptr @malloc_slow_flags, align 1, !tbaa !10
+  %170 = or i8 %168, %169
+  store i8 %170, ptr @malloc_slow_flags, align 1, !tbaa !10
+  %171 = icmp ne i8 %170, 0
+  %172 = zext i1 %171 to i8
+  store i8 %172, ptr @duckdb_je_malloc_slow, align 1, !tbaa !50
+  %173 = load i8, ptr %84, align 1, !tbaa !10
+  %174 = add i8 %173, -1
+  store i8 %174, ptr %84, align 1, !tbaa !10
+  %175 = icmp eq i8 %174, 0
+  br i1 %175, label %176, label %post_reentrancy.exit
 
-180:                                              ; preds = %155
+176:                                              ; preds = %155
   tail call void @duckdb_je_tsd_slow_update(ptr noundef nonnull %44) #21
   br label %post_reentrancy.exit
 
-post_reentrancy.exit:                             ; preds = %155, %180
+post_reentrancy.exit:                             ; preds = %155, %176
   store atomic i8 0, ptr getelementptr inbounds nuw (i8, ptr @init_lock, i64 64) monotonic, align 8
-  %181 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @init_lock, i64 72)) #21
+  %177 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @init_lock, i64 72)) #21
   tail call void @duckdb_je_malloc_tsd_boot1() #21
-  %182 = tail call nonnull align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @duckdb_je_tsd_tls)
-  %183 = getelementptr inbounds nuw i8, ptr %182, i64 824
-  %184 = load i8, ptr %183, align 8, !tbaa !10
-  %.not.i = icmp eq i8 %184, 0
-  br i1 %.not.i, label %tsd_fetch_impl.exit, label %185, !prof !9
+  %178 = tail call nonnull align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @duckdb_je_tsd_tls)
+  %179 = getelementptr inbounds nuw i8, ptr %178, i64 824
+  %180 = load i8, ptr %179, align 8, !tbaa !10
+  %.not.i = icmp eq i8 %180, 0
+  br i1 %.not.i, label %tsd_fetch_impl.exit, label %181, !prof !9
 
-185:                                              ; preds = %post_reentrancy.exit
-  %186 = tail call ptr @duckdb_je_tsd_fetch_slow(ptr noundef nonnull %182, i1 noundef zeroext false) #21
+181:                                              ; preds = %post_reentrancy.exit
+  %182 = tail call ptr @duckdb_je_tsd_fetch_slow(ptr noundef nonnull %178, i1 noundef zeroext false) #21
   br label %tsd_fetch_impl.exit
 
-tsd_fetch_impl.exit:                              ; preds = %post_reentrancy.exit, %185
-  %.0.i = phi ptr [ %186, %185 ], [ %182, %post_reentrancy.exit ]
-  %187 = load i8, ptr @duckdb_je_opt_background_thread, align 1, !tbaa !50, !range !55, !noundef !56
-  %188 = trunc nuw i8 %187 to i1
-  br i1 %188, label %189, label %191
+tsd_fetch_impl.exit:                              ; preds = %post_reentrancy.exit, %181
+  %.0.i = phi ptr [ %182, %181 ], [ %178, %post_reentrancy.exit ]
+  %183 = load i8, ptr @duckdb_je_opt_background_thread, align 1, !tbaa !50, !range !55, !noundef !56
+  %184 = trunc nuw i8 %183 to i1
+  br i1 %184, label %185, label %187
 
-189:                                              ; preds = %tsd_fetch_impl.exit
+185:                                              ; preds = %tsd_fetch_impl.exit
   tail call void @duckdb_je_background_thread_ctl_init(ptr noundef %.0.i) #21
-  %190 = tail call zeroext i1 @duckdb_je_background_thread_create(ptr noundef %.0.i, i32 noundef 0) #21
-  br i1 %190, label %malloc_init_hard_cleanup.exit, label %191
+  %186 = tail call zeroext i1 @duckdb_je_background_thread_create(ptr noundef %.0.i, i32 noundef 0) #21
+  br i1 %186, label %malloc_init_hard_cleanup.exit, label %187
 
-191:                                              ; preds = %189, %tsd_fetch_impl.exit
+187:                                              ; preds = %185, %tsd_fetch_impl.exit
   br label %malloc_init_hard_cleanup.exit
 
-malloc_init_hard_cleanup.exit:                    ; preds = %67, %154, %149, %144, %139, %189, %malloc_init_hard_recursible.exit, %42, %191, %40, %.loopexit
-  %.0 = phi i1 [ true, %40 ], [ false, %191 ], [ false, %.loopexit ], [ true, %42 ], [ true, %malloc_init_hard_recursible.exit ], [ true, %189 ], [ true, %139 ], [ true, %144 ], [ true, %149 ], [ true, %154 ], [ true, %67 ]
+malloc_init_hard_cleanup.exit:                    ; preds = %67, %154, %149, %144, %139, %185, %malloc_init_hard_recursible.exit, %42, %187, %40, %.loopexit
+  %.0 = phi i1 [ true, %40 ], [ false, %187 ], [ false, %.loopexit ], [ true, %42 ], [ true, %malloc_init_hard_recursible.exit ], [ true, %185 ], [ true, %139 ], [ true, %144 ], [ true, %149 ], [ true, %154 ], [ true, %67 ]
   ret i1 %.0
 }
 

@@ -40530,10 +40530,9 @@ _ZN4core3ops8function6FnOnce9call_once17hfc717b8f1dcef179E.exit.i.i.i: ; preds =
   call void @llvm.experimental.noalias.scope.decl(metadata !10141)
   call void @llvm.experimental.noalias.scope.decl(metadata !10144)
   %191 = load i64, ptr %27, align 8, !range !1956, !alias.scope !10146, !noalias !10147, !noundef !5
-  %trunc.i.i.i.i.i = trunc nuw i64 %191 to i1
   %192 = load ptr, ptr %.sroa.4.0..sroa_idx, align 8, !alias.scope !10146, !noalias !10147, !nonnull !5, !noundef !5
   %193 = load i64, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !10146, !noalias !10147, !noundef !5
-  %.sink.idx.i.i.i.i.i = select i1 %trunc.i.i.i.i.i, i64 16, i64 0
+  %.sink.idx.i.i.i.i.i = shl nuw nsw i64 %191, 4
   %.sink.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %192, i64 %.sink.idx.i.i.i.i.i
   invoke void @"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$5write17h5b780d2263fcefdeE.llvm.5851185471656548919"(ptr noalias noundef nonnull align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 1 %.sink.i.i.i.i.i, i64 noundef %193)
           to label %194 unwind label %257, !noalias !10128
@@ -40602,8 +40601,7 @@ _ZN4core3ops8function6FnOnce9call_once17hfc717b8f1dcef179E.exit.i.i.i: ; preds =
   %218 = getelementptr inbounds i8, ptr %216, i64 -24
   %219 = load ptr, ptr %218, align 8, !alias.scope !10182, !noalias !10183, !nonnull !5
   %220 = load i64, ptr %217, align 8, !range !1956, !alias.scope !10182, !noalias !10183, !noundef !5
-  %trunc3.i.i.i.i.i.i.i = trunc nuw i64 %220 to i1
-  %.sroa.01.0.idx.i.i.i.i.i.i.i = select i1 %trunc3.i.i.i.i.i.i.i, i64 16, i64 0
+  %.sroa.01.0.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %220, 4
   %.sroa.01.0.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %219, i64 %.sroa.01.0.idx.i.i.i.i.i.i.i
   %bcmp.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly align 1 %.sink.i.i.i.i.i, ptr nonnull readonly align 1 %.sroa.01.0.i.i.i.i.i.i.i, i64 %193), !alias.scope !10189, !noalias !10196
   %221 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i, 0
@@ -70288,12 +70286,11 @@ _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h7e41988e435530d5E.llv
   call void @llvm.experimental.noalias.scope.decl(metadata !15660), !noalias !15639
   call void @llvm.experimental.noalias.scope.decl(metadata !15663), !noalias !15639
   %83 = load i64, ptr %82, align 8, !range !1956, !alias.scope !15665, !noalias !15666, !noundef !5
-  %trunc.i.i.i.i.i.i = trunc nuw i64 %83 to i1
   %84 = getelementptr inbounds i8, ptr %81, i64 -24
   %85 = load ptr, ptr %84, align 8, !alias.scope !15665, !noalias !15666, !nonnull !5, !noundef !5
   %86 = getelementptr inbounds i8, ptr %81, i64 -16
   %87 = load i64, ptr %86, align 8, !alias.scope !15665, !noalias !15666, !noundef !5
-  %.sink.idx.i.i.i.i.i.i = select i1 %trunc.i.i.i.i.i.i, i64 16, i64 0
+  %.sink.idx.i.i.i.i.i.i = shl nuw nsw i64 %83, 4
   %.sink.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %85, i64 %.sink.idx.i.i.i.i.i.i
   invoke void @"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$5write17h5b780d2263fcefdeE.llvm.5851185471656548919"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3, ptr noalias noundef nonnull readonly align 1 %.sink.i.i.i.i.i.i, i64 noundef %87)
           to label %108 unwind label %63
@@ -70812,12 +70809,11 @@ define internal noundef i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_
   tail call void @llvm.experimental.noalias.scope.decl(metadata !15998)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !16001)
   %9 = load i64, ptr %8, align 8, !range !1956, !alias.scope !16003, !noalias !16004, !noundef !5
-  %trunc.i.i.i.i.i = trunc nuw i64 %9 to i1
   %10 = getelementptr inbounds i8, ptr %7, i64 -24
   %11 = load ptr, ptr %10, align 8, !alias.scope !16003, !noalias !16004, !nonnull !5, !noundef !5
   %12 = getelementptr inbounds i8, ptr %7, i64 -16
   %13 = load i64, ptr %12, align 8, !alias.scope !16003, !noalias !16004, !noundef !5
-  %.sink.idx.i.i.i.i.i = select i1 %trunc.i.i.i.i.i, i64 16, i64 0
+  %.sink.idx.i.i.i.i.i = shl nuw nsw i64 %9, 4
   %.sink.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %11, i64 %.sink.idx.i.i.i.i.i
   call void @"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$5write17h5b780d2263fcefdeE.llvm.5851185471656548919"(ptr noalias noundef nonnull align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 1 %.sink.i.i.i.i.i, i64 noundef %13), !noalias !16006
   %14 = load i64, ptr %4, align 8, !alias.scope !16007, !noalias !16006, !noundef !5

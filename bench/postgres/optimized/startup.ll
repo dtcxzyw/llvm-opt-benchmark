@@ -1783,8 +1783,8 @@ define internal noundef zeroext i1 @on_error_rollback_hook(ptr noundef %0) #0 {
 
 .thread:                                          ; preds = %6
   %8 = load i8, ptr %2, align 1, !range !6, !noundef !7
-  %9 = trunc nuw i8 %8 to i1
-  %10 = select i1 %9, i32 2, i32 0
+  %9 = shl nuw nsw i8 %8, 1
+  %10 = zext nneg i8 %9 to i32
   store i32 %10, ptr getelementptr inbounds nuw (i8, ptr @pset, i64 428), align 4
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #15
   br label %12

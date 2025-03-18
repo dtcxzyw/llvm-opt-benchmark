@@ -137,8 +137,8 @@ _Z5uiMsgIJRA2048_wS1_EEv14UIMESSAGE_CODEDpOT_.exit: ; preds = %47
   call void @_Z14NextVolumeNamePwjb(ptr noundef nonnull %13, i32 noundef 2048, i1 noundef zeroext %76)
   %77 = getelementptr inbounds nuw i8, ptr %16, i64 57501
   %78 = load i8, ptr %77, align 1, !tbaa !77, !range !58, !noundef !59
-  %79 = trunc nuw i8 %78 to i1
-  %80 = select i1 %79, i32 4, i32 0
+  %79 = shl nuw nsw i8 %78, 2
+  %80 = zext nneg i8 %79 to i32
   %81 = load ptr, ptr %0, align 8, !tbaa !72
   %82 = getelementptr inbounds nuw i8, ptr %81, i64 16
   %83 = load ptr, ptr %82, align 8

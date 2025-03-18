@@ -14275,8 +14275,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapINS_9StringRefENS_3lto3LTO16GlobalResolutionE
 214:                                              ; preds = %212, %207
   %215 = getelementptr inbounds nuw i8, ptr %.sroa.097.0129, i64 50
   %216 = load i8, ptr %215, align 2, !tbaa !1082, !range !48, !noundef !49
-  %217 = trunc nuw i8 %216 to i1
-  %218 = select i1 %217, i32 128, i32 0
+  %217 = shl nuw i8 %216, 7
+  %218 = zext i8 %217 to i32
   %219 = and i32 %.pre133, -193
   %220 = or disjoint i32 %219, %218
   store i32 %220, ptr %201, align 8

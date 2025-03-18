@@ -178,8 +178,8 @@ define dso_local void @_ZN5clang16TemplateArgument16initFromIntegralERKNS_10ASTC
   store i64 %16, ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %18 = load i8, ptr %17, align 4, !tbaa !9, !range !12, !noundef !13
-  %19 = trunc nuw i8 %18 to i1
-  %20 = select i1 %19, i64 -9223372036854775808, i64 0
+  %19 = zext nneg i8 %18 to i64
+  %20 = shl nuw i64 %19, 63
   %21 = and i64 %16, 9223372034707292164
   %22 = or disjoint i64 %21, %20
   store i64 %22, ptr %0, align 8
@@ -317,8 +317,8 @@ define dso_local void @_ZN5clang16TemplateArgumentC2ERKNS_10ASTContextERKN4llvm6
   store i64 %16, ptr %0, align 8
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 12
   %18 = load i8, ptr %17, align 4, !tbaa !9, !range !12, !noundef !13
-  %19 = trunc nuw i8 %18 to i1
-  %20 = select i1 %19, i64 -9223372036854775808, i64 0
+  %19 = zext nneg i8 %18 to i64
+  %20 = shl nuw i64 %19, 63
   %21 = and i64 %16, 9223372034707292164
   %22 = or disjoint i64 %21, %20
   store i64 %22, ptr %0, align 8
@@ -452,8 +452,8 @@ _ZNK5clang4Type27isIntegralOrEnumerationTypeEv.exit: ; preds = %5
   store i64 %47, ptr %0, align 8
   %48 = getelementptr inbounds nuw i8, ptr %3, i64 20
   %49 = load i8, ptr %48, align 4, !tbaa !9, !range !12, !noundef !13
-  %50 = trunc nuw i8 %49 to i1
-  %51 = select i1 %50, i64 -9223372036854775808, i64 0
+  %50 = zext nneg i8 %49 to i64
+  %51 = shl nuw i64 %50, 63
   %52 = and i64 %47, 9223372034707292164
   %53 = or disjoint i64 %52, %51
   store i64 %53, ptr %0, align 8

@@ -101557,7 +101557,7 @@ define void @"_ZN162_$LT$ockam_api..nodes..models..transport..response..Transpor
 .body:                                            ; preds = %21, %16, %.body7
   %.pn.pn.pn = phi { ptr, i32 } [ %.pn.pn, %.body7 ], [ %17, %16 ], [ %22, %21 ]
   invoke void @"_ZN4core3ptr73drop_in_place$LT$ockam_transport_tcp..registry..common..TcpSenderInfo$GT$17h39c7eb124ee47422E"(ptr noalias noundef nonnull align 8 dereferenceable(128) %1) #44
-          to label %69 unwind label %67
+          to label %68 unwind label %66
 
 16:                                               ; preds = %18, %2
   %17 = landingpad { ptr, i32 }
@@ -101619,7 +101619,7 @@ define void @"_ZN162_$LT$ockam_api..nodes..models..transport..response..Transpor
 .body7:                                           ; preds = %34, %31, %.body11
   %.pn.pn = phi { ptr, i32 } [ %.pn, %.body11 ], [ %32, %31 ], [ %35, %34 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h12b044a875b1461bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %14) #44
-          to label %.body unwind label %67
+          to label %.body unwind label %66
 
 31:                                               ; preds = %29
   %32 = landingpad { ptr, i32 }
@@ -101674,7 +101674,7 @@ define void @"_ZN162_$LT$ockam_api..nodes..models..transport..response..Transpor
 .body11:                                          ; preds = %47, %44, %57
   %.pn = phi { ptr, i32 } [ %58, %57 ], [ %45, %44 ], [ %48, %47 ]
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h12b044a875b1461bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %12) #44
-          to label %.body7 unwind label %67
+          to label %.body7 unwind label %66
 
 44:                                               ; preds = %42
   %45 = landingpad { ptr, i32 }
@@ -101730,7 +101730,7 @@ define void @"_ZN162_$LT$ockam_api..nodes..models..transport..response..Transpor
   %58 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h12b044a875b1461bE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %11) #44
-          to label %.body11 unwind label %67
+          to label %.body11 unwind label %66
 
 59:                                               ; preds = %55
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10)
@@ -101738,21 +101738,20 @@ define void @"_ZN162_$LT$ockam_api..nodes..models..transport..response..Transpor
           to label %60 unwind label %57
 
 60:                                               ; preds = %59
-  %61 = trunc nuw i8 %19 to i1
-  %..i = select i1 %61, i8 1, i8 2
+  %..i = sub nuw nsw i8 2, %19
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, ptr noundef nonnull align 8 dereferenceable(24) %10, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10)
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  store i8 0, ptr %62, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %0, i64 97
-  store i8 %..i, ptr %63, align 1
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  store i8 0, ptr %61, align 8
+  %62 = getelementptr inbounds nuw i8, ptr %0, i64 97
+  store i8 %..i, ptr %62, align 1
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %14, i64 24, i1 false)
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %64, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false)
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %65, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %66, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false)
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %63, ptr noundef nonnull align 8 dereferenceable(24) %12, i64 24, i1 false)
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %64, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 24, i1 false)
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %65, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %.sroa.0)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %12)
@@ -101761,13 +101760,13 @@ define void @"_ZN162_$LT$ockam_api..nodes..models..transport..response..Transpor
   call void @"_ZN4core3ptr73drop_in_place$LT$ockam_transport_tcp..registry..common..TcpSenderInfo$GT$17h39c7eb124ee47422E"(ptr noalias noundef nonnull align 8 dereferenceable(128) %1)
   ret void
 
-67:                                               ; preds = %57, %.body11, %.body7, %.body
-  %68 = landingpad { ptr, i32 }
+66:                                               ; preds = %57, %.body11, %.body7, %.body
+  %67 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hceade526831b1e89E() #45
   unreachable
 
-69:                                               ; preds = %.body
+68:                                               ; preds = %.body
   resume { ptr, i32 } %.pn.pn.pn
 }
 

@@ -3008,19 +3008,19 @@ _ZN7AstFuncC2EP8FileLineRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP7
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPvm(ptr noundef nonnull %20, i64 noundef 184) #26
-  br label %70
+  br label %69
 
 52:                                               ; preds = %30
   %53 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPvm(ptr noundef nonnull %31, i64 noundef 280) #26
-  br label %70
+  br label %69
 
 54:                                               ; preds = %_ZN13AstBasicDTypeC2EP8FileLine14VBasicDTypeKwdRK8VSigning.exit
   %55 = landingpad { ptr, i32 }
           cleanup
   tail call void @_ZdlPvm(ptr noundef nonnull %27, i64 noundef 280) #26
-  br label %70
+  br label %69
 
 56:                                               ; preds = %_ZN6AstVar9directionERK10VDirection.exit
   %57 = landingpad { ptr, i32 }
@@ -3030,7 +3030,7 @@ _ZN7AstFuncC2EP8FileLineRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP7
 .body:                                            ; preds = %43, %56
   %eh.lpad-body = phi { ptr, i32 } [ %57, %56 ], [ %44, %43 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %40, i64 noundef 240) #26
-  br label %70
+  br label %69
 
 _ZN7AstNode6dtypepEP12AstNodeDType.exit:          ; preds = %48, %45, %_ZN7AstFuncC2EP8FileLineRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEP7AstNodeSB_.exit
   %58 = getelementptr inbounds nuw i8, ptr %40, i64 224
@@ -3042,22 +3042,21 @@ _ZN7AstNode6dtypepEP12AstNodeDType.exit:          ; preds = %48, %45, %_ZN7AstFu
 61:                                               ; preds = %_ZN7AstNode6dtypepEP12AstNodeDType.exit
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 258
   %63 = load i8, ptr %62, align 2, !tbaa !143, !range !55, !noundef !56
-  %64 = trunc nuw i8 %63 to i1
-  %spec.select = select i1 %64, i8 8, i8 0
+  %spec.select = shl nuw nsw i8 %63, 3
   br label %.thread65
 
 .thread65:                                        ; preds = %_ZN7AstNode6dtypepEP12AstNodeDType.exit, %61
-  %65 = phi i8 [ %spec.select, %61 ], [ 0, %_ZN7AstNode6dtypepEP12AstNodeDType.exit ]
-  %66 = getelementptr inbounds nuw i8, ptr %40, i64 226
-  %67 = load i8, ptr %66, align 2
-  %68 = and i8 %67, -9
-  %69 = or disjoint i8 %68, %65
-  store i8 %69, ptr %66, align 2
+  %64 = phi i8 [ %spec.select, %61 ], [ 0, %_ZN7AstNode6dtypepEP12AstNodeDType.exit ]
+  %65 = getelementptr inbounds nuw i8, ptr %40, i64 226
+  %66 = load i8, ptr %65, align 2
+  %67 = and i8 %66, -9
+  %68 = or disjoint i8 %67, %64
+  store i8 %68, ptr %65, align 2
   tail call void @_ZN7AstNode7addOp2pEPS_(ptr noundef nonnull align 8 dereferenceable(272) %1, ptr noundef nonnull %40)
   tail call void @_ZN10VMemberMap6insertEPK7AstNodePS0_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull %1, ptr noundef nonnull %40)
   br label %_ZN7AstNode9privateAsI7AstFuncPS_EEPT_S2_.exit
 
-70:                                               ; preds = %.body, %52, %54, %51
+69:                                               ; preds = %.body, %52, %54, %51
   %.pn.pn = phi { ptr, i32 } [ %lpad.thr_comm, %51 ], [ %eh.lpad-body, %.body ], [ %53, %52 ], [ %55, %54 ]
   resume { ptr, i32 } %.pn.pn
 

@@ -104569,17 +104569,17 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %15
   store i8 0, ptr %3, align 1, !tbaa !553
   call void @_ZN8nlohmann16json_abi_v3_11_36detail9from_jsonINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEEEvRKT_RNSG_9boolean_tE(ptr noundef nonnull align 8 dereferenceable(16) %29, ptr noundef nonnull align 1 dereferenceable(1) %3)
   %30 = load i8, ptr %3, align 1, !tbaa !553, !range !109, !noundef !110
-  %31 = trunc nuw i8 %30 to i1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #29
-  %32 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE2atEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef 2)
+  %31 = call noundef nonnull align 8 dereferenceable(16) ptr @_ZNK8nlohmann16json_abi_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES3_IhSaIhEEvE2atEm(ptr noundef nonnull align 8 dereferenceable(16) %0, i64 noundef 2)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #29
   store i8 0, ptr %2, align 1, !tbaa !553
-  call void @_ZN8nlohmann16json_abi_v3_11_36detail9from_jsonINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEEEvRKT_RNSG_9boolean_tE(ptr noundef nonnull align 8 dereferenceable(16) %32, ptr noundef nonnull align 1 dereferenceable(1) %2)
-  %33 = load i8, ptr %2, align 1, !tbaa !553, !range !109, !noundef !110
-  %34 = trunc nuw i8 %33 to i1
+  call void @_ZN8nlohmann16json_abi_v3_11_36detail9from_jsonINS0_10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS0_14adl_serializerES5_IhSaIhEEvEEEEvRKT_RNSG_9boolean_tE(ptr noundef nonnull align 8 dereferenceable(16) %31, ptr noundef nonnull align 1 dereferenceable(1) %2)
+  %32 = load i8, ptr %2, align 1, !tbaa !553, !range !109, !noundef !110
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #29
-  %.sroa.3.0.insert.shift.i = select i1 %34, i24 65536, i24 0
-  %.sroa.2.0.insert.shift.i = select i1 %31, i24 256, i24 0
+  %33 = zext nneg i8 %32 to i24
+  %.sroa.3.0.insert.shift.i = shl nuw nsw i24 %33, 16
+  %34 = zext nneg i8 %30 to i24
+  %.sroa.2.0.insert.shift.i = shl nuw nsw i24 %34, 8
   %.sroa.0.0.insert.ext.i = zext nneg i8 %28 to i24
   %.sroa.2.0.insert.insert.i = or disjoint i24 %.sroa.2.0.insert.shift.i, %.sroa.0.0.insert.ext.i
   %.sroa.0.0.insert.insert.i = or disjoint i24 %.sroa.2.0.insert.insert.i, %.sroa.3.0.insert.shift.i

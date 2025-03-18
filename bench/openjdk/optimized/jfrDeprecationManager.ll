@@ -111,35 +111,35 @@ define hidden void @_ZN17JfrDeprecatedEdgeC2EPK6MethodPS0_ihP10JavaThread(ptr no
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds nuw i8, ptr %19, i64 24
   %21 = load ptr, ptr %20, align 8
-  br i1 %.b2.i, label %22, label %44
+  br i1 %.b2.i, label %22, label %45
 
 22:                                               ; preds = %6
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 54
   %24 = load i16, ptr %23, align 2
   %25 = zext i16 %24 to i64
   %26 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
-  %27 = trunc i8 %26 to i1
-  %28 = select i1 %27, i64 2, i64 1
-  %.mask.i.i.i.i.i.i = and i8 %26, 1
-  %29 = zext nneg i8 %.mask.i.i.i.i.i.i to i64
-  %30 = shl nuw nsw i64 257, %29
+  %27 = and i8 %26, 1
+  %28 = add nuw nsw i8 %27, 1
+  %29 = zext nneg i8 %28 to i64
+  %30 = mul nuw nsw i64 %29, 257
   %31 = and i64 %30, %25
-  %.not.i.i.i.i = icmp eq i64 %31, %28
+  %.not.i.i.i.i = icmp eq i64 %31, %29
   br i1 %.not.i.i.i.i, label %_ZN10JfrTraceId4loadEPK6Method.exit.i, label %32
 
 32:                                               ; preds = %22
-  %33 = select i1 %27, i8 10, i8 5
-  %34 = getelementptr inbounds nuw i8, ptr %21, i64 168
-  %35 = load i8, ptr %34, align 1
-  %36 = or i8 %35, %33
-  store i8 %36, ptr %34, align 1
+  %33 = trunc i8 %26 to i1
+  %34 = select i1 %33, i8 10, i8 5
+  %35 = getelementptr inbounds nuw i8, ptr %21, i64 168
+  %36 = load i8, ptr %35, align 1
+  %37 = or i8 %36, %34
+  store i8 %37, ptr %35, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
-  %37 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
-  %38 = trunc i8 %37 to i1
-  %39 = select i1 %38, i8 2, i8 1
-  %40 = load i8, ptr %23, align 1
-  %41 = or i8 %39, %40
-  store i8 %41, ptr %23, align 1
+  %38 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
+  %39 = and i8 %38, 1
+  %40 = add nuw nsw i8 %39, 1
+  %41 = load i8, ptr %23, align 1
+  %42 = or i8 %40, %41
+  store i8 %42, ptr %23, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   tail call void @_ZN21JfrTraceIdLoadBarrier7enqueueEPK5Klass(ptr noundef %21) #11
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
@@ -148,144 +148,144 @@ define hidden void @_ZN17JfrDeprecatedEdgeC2EPK6MethodPS0_ihP10JavaThread(ptr no
   br label %_ZN10JfrTraceId4loadEPK6Method.exit.i
 
 _ZN10JfrTraceId4loadEPK6Method.exit.i:            ; preds = %32, %22
-  %42 = phi ptr [ %17, %22 ], [ %.pre.i.i.i, %32 ]
-  %43 = getelementptr inbounds nuw i8, ptr %21, i64 168
+  %43 = phi ptr [ %17, %22 ], [ %.pre.i.i.i, %32 ]
+  %44 = getelementptr inbounds nuw i8, ptr %21, i64 168
   br label %_ZL12load_traceidPK6Method.exit
 
-44:                                               ; preds = %6
-  %45 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
-  %46 = trunc i8 %45 to i1
-  %47 = select i1 %46, i8 10, i8 5
-  %48 = getelementptr inbounds nuw i8, ptr %21, i64 168
-  %49 = load i8, ptr %48, align 1
-  %50 = or i8 %47, %49
-  store i8 %50, ptr %48, align 1
+45:                                               ; preds = %6
+  %46 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
+  %47 = trunc i8 %46 to i1
+  %48 = select i1 %47, i8 10, i8 5
+  %49 = getelementptr inbounds nuw i8, ptr %21, i64 168
+  %50 = load i8, ptr %49, align 1
+  %51 = or i8 %48, %50
+  store i8 %51, ptr %49, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
-  %51 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
-  %52 = trunc i8 %51 to i1
-  %53 = select i1 %52, i8 2, i8 1
-  %54 = getelementptr inbounds nuw i8, ptr %1, i64 54
-  %55 = load i8, ptr %54, align 1
-  %56 = or i8 %53, %55
-  store i8 %56, ptr %54, align 1
+  %52 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
+  %53 = and i8 %52, 1
+  %54 = add nuw nsw i8 %53, 1
+  %55 = getelementptr inbounds nuw i8, ptr %1, i64 54
+  %56 = load i8, ptr %55, align 1
+  %57 = or i8 %54, %56
+  store i8 %57, ptr %55, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
-  %57 = load ptr, ptr %10, align 8
+  %58 = load ptr, ptr %10, align 8
   br label %_ZL12load_traceidPK6Method.exit
 
-_ZL12load_traceidPK6Method.exit:                  ; preds = %_ZN10JfrTraceId4loadEPK6Method.exit.i, %44
-  %.sink6.i = phi ptr [ %57, %44 ], [ %42, %_ZN10JfrTraceId4loadEPK6Method.exit.i ]
-  %.sink.in.in.i = phi ptr [ %48, %44 ], [ %43, %_ZN10JfrTraceId4loadEPK6Method.exit.i ]
+_ZL12load_traceidPK6Method.exit:                  ; preds = %_ZN10JfrTraceId4loadEPK6Method.exit.i, %45
+  %.sink6.i = phi ptr [ %58, %45 ], [ %43, %_ZN10JfrTraceId4loadEPK6Method.exit.i ]
+  %.sink.in.in.i = phi ptr [ %49, %45 ], [ %44, %_ZN10JfrTraceId4loadEPK6Method.exit.i ]
   %.sink.in.i = load i64, ptr %.sink.in.in.i, align 8
   %.sink.i = and i64 %.sink.in.i, -8064
-  %58 = getelementptr inbounds nuw i8, ptr %.sink6.i, i64 50
-  %59 = load i16, ptr %58, align 2
-  %60 = zext i16 %59 to i64
-  %61 = or i64 %.sink.i, %60
-  store i64 %61, ptr %16, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %63 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  %66 = load ptr, ptr %65, align 8
-  %67 = getelementptr inbounds nuw i8, ptr %66, i64 24
-  %68 = load ptr, ptr %67, align 8
-  store ptr %68, ptr %62, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %.sink6.i, i64 50
+  %60 = load i16, ptr %59, align 2
+  %61 = zext i16 %60 to i64
+  %62 = or i64 %.sink.i, %61
+  store i64 %62, ptr %16, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %64 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %65 = load ptr, ptr %64, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
+  %67 = load ptr, ptr %66, align 8
+  %68 = getelementptr inbounds nuw i8, ptr %67, i64 24
+  %69 = load ptr, ptr %68, align 8
+  store ptr %69, ptr %63, align 8
   %.b2.i9 = load i1, ptr @_ZL16_enqueue_klasses, align 1
-  %69 = load ptr, ptr %63, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 24
-  %73 = load ptr, ptr %72, align 8
-  br i1 %.b2.i9, label %74, label %96
+  %70 = load ptr, ptr %64, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
+  %72 = load ptr, ptr %71, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 24
+  %74 = load ptr, ptr %73, align 8
+  br i1 %.b2.i9, label %75, label %98
 
-74:                                               ; preds = %_ZL12load_traceidPK6Method.exit
-  %75 = getelementptr inbounds nuw i8, ptr %2, i64 54
-  %76 = load i16, ptr %75, align 2
-  %77 = zext i16 %76 to i64
-  %78 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
-  %79 = trunc i8 %78 to i1
-  %80 = select i1 %79, i64 2, i64 1
-  %.mask.i.i.i.i.i.i14 = and i8 %78, 1
-  %81 = zext nneg i8 %.mask.i.i.i.i.i.i14 to i64
-  %82 = shl nuw nsw i64 257, %81
-  %83 = and i64 %82, %77
-  %.not.i.i.i.i15 = icmp eq i64 %83, %80
-  br i1 %.not.i.i.i.i15, label %_ZN10JfrTraceId4loadEPK6Method.exit.i17, label %84
+75:                                               ; preds = %_ZL12load_traceidPK6Method.exit
+  %76 = getelementptr inbounds nuw i8, ptr %2, i64 54
+  %77 = load i16, ptr %76, align 2
+  %78 = zext i16 %77 to i64
+  %79 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
+  %80 = and i8 %79, 1
+  %81 = add nuw nsw i8 %80, 1
+  %82 = zext nneg i8 %81 to i64
+  %83 = mul nuw nsw i64 %82, 257
+  %84 = and i64 %83, %78
+  %.not.i.i.i.i14 = icmp eq i64 %84, %82
+  br i1 %.not.i.i.i.i14, label %_ZN10JfrTraceId4loadEPK6Method.exit.i16, label %85
 
-84:                                               ; preds = %74
-  %85 = select i1 %79, i8 10, i8 5
-  %86 = getelementptr inbounds nuw i8, ptr %73, i64 168
-  %87 = load i8, ptr %86, align 1
-  %88 = or i8 %87, %85
-  store i8 %88, ptr %86, align 1
+85:                                               ; preds = %75
+  %86 = trunc i8 %79 to i1
+  %87 = select i1 %86, i8 10, i8 5
+  %88 = getelementptr inbounds nuw i8, ptr %74, i64 168
+  %89 = load i8, ptr %88, align 1
+  %90 = or i8 %89, %87
+  store i8 %90, ptr %88, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
-  %89 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
-  %90 = trunc i8 %89 to i1
-  %91 = select i1 %90, i8 2, i8 1
-  %92 = load i8, ptr %75, align 1
-  %93 = or i8 %91, %92
-  store i8 %93, ptr %75, align 1
+  %91 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
+  %92 = and i8 %91, 1
+  %93 = add nuw nsw i8 %92, 1
+  %94 = load i8, ptr %76, align 1
+  %95 = or i8 %93, %94
+  store i8 %95, ptr %76, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
-  tail call void @_ZN21JfrTraceIdLoadBarrier7enqueueEPK5Klass(ptr noundef %73) #11
+  tail call void @_ZN21JfrTraceIdLoadBarrier7enqueueEPK5Klass(ptr noundef %74) #11
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   store volatile i8 1, ptr @_ZN15JfrTraceIdEpoch10_tag_stateE, align 1
-  %.pre.i.i.i16 = load ptr, ptr %63, align 8
-  br label %_ZN10JfrTraceId4loadEPK6Method.exit.i17
+  %.pre.i.i.i15 = load ptr, ptr %64, align 8
+  br label %_ZN10JfrTraceId4loadEPK6Method.exit.i16
 
-_ZN10JfrTraceId4loadEPK6Method.exit.i17:          ; preds = %84, %74
-  %94 = phi ptr [ %69, %74 ], [ %.pre.i.i.i16, %84 ]
-  %95 = getelementptr inbounds nuw i8, ptr %73, i64 168
-  br label %_ZL12load_traceidPK6Method.exit18
+_ZN10JfrTraceId4loadEPK6Method.exit.i16:          ; preds = %85, %75
+  %96 = phi ptr [ %70, %75 ], [ %.pre.i.i.i15, %85 ]
+  %97 = getelementptr inbounds nuw i8, ptr %74, i64 168
+  br label %_ZL12load_traceidPK6Method.exit17
 
-96:                                               ; preds = %_ZL12load_traceidPK6Method.exit
-  %97 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
-  %98 = trunc i8 %97 to i1
-  %99 = select i1 %98, i8 10, i8 5
-  %100 = getelementptr inbounds nuw i8, ptr %73, i64 168
-  %101 = load i8, ptr %100, align 1
-  %102 = or i8 %99, %101
-  store i8 %102, ptr %100, align 1
+98:                                               ; preds = %_ZL12load_traceidPK6Method.exit
+  %99 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
+  %100 = trunc i8 %99 to i1
+  %101 = select i1 %100, i8 10, i8 5
+  %102 = getelementptr inbounds nuw i8, ptr %74, i64 168
+  %103 = load i8, ptr %102, align 1
+  %104 = or i8 %101, %103
+  store i8 %104, ptr %102, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
-  %103 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
-  %104 = trunc i8 %103 to i1
-  %105 = select i1 %104, i8 2, i8 1
-  %106 = getelementptr inbounds nuw i8, ptr %2, i64 54
-  %107 = load i8, ptr %106, align 1
-  %108 = or i8 %105, %107
-  store i8 %108, ptr %106, align 1
+  %105 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
+  %106 = and i8 %105, 1
+  %107 = add nuw nsw i8 %106, 1
+  %108 = getelementptr inbounds nuw i8, ptr %2, i64 54
+  %109 = load i8, ptr %108, align 1
+  %110 = or i8 %107, %109
+  store i8 %110, ptr %108, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
-  %109 = load ptr, ptr %63, align 8
-  br label %_ZL12load_traceidPK6Method.exit18
+  %111 = load ptr, ptr %64, align 8
+  br label %_ZL12load_traceidPK6Method.exit17
 
-_ZL12load_traceidPK6Method.exit18:                ; preds = %_ZN10JfrTraceId4loadEPK6Method.exit.i17, %96
-  %.sink6.i10 = phi ptr [ %109, %96 ], [ %94, %_ZN10JfrTraceId4loadEPK6Method.exit.i17 ]
-  %.sink.in.in.i11 = phi ptr [ %100, %96 ], [ %95, %_ZN10JfrTraceId4loadEPK6Method.exit.i17 ]
-  %110 = getelementptr inbounds nuw i8, ptr %0, i64 56
+_ZL12load_traceidPK6Method.exit17:                ; preds = %_ZN10JfrTraceId4loadEPK6Method.exit.i16, %98
+  %.sink6.i10 = phi ptr [ %111, %98 ], [ %96, %_ZN10JfrTraceId4loadEPK6Method.exit.i16 ]
+  %.sink.in.in.i11 = phi ptr [ %102, %98 ], [ %97, %_ZN10JfrTraceId4loadEPK6Method.exit.i16 ]
+  %112 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %.sink.in.i12 = load i64, ptr %.sink.in.in.i11, align 8
   %.sink.i13 = and i64 %.sink.in.i12, -8064
-  %111 = getelementptr inbounds nuw i8, ptr %.sink6.i10, i64 50
-  %112 = load i16, ptr %111, align 2
-  %113 = zext i16 %112 to i64
-  %114 = or i64 %.sink.i13, %113
-  store i64 %114, ptr %110, align 8
-  %115 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %116 = tail call noundef i64 @_ZN23JfrStackTraceRepository7next_idEv() #11
-  store i64 %116, ptr %115, align 8
-  %117 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i32 %3, ptr %117, align 8
-  %118 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  %119 = tail call noundef i32 @_ZNK6Method20line_number_from_bciEi(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef %3) #11
-  store i32 %119, ptr %118, align 4
-  %120 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i8 %4, ptr %120, align 8
-  %121 = getelementptr inbounds nuw i8, ptr %0, i64 81
-  %122 = load ptr, ptr %10, align 8
-  %123 = getelementptr inbounds nuw i8, ptr %122, i64 28
-  %124 = load i32, ptr %123, align 4
-  %125 = lshr i32 %124, 20
-  %126 = trunc i32 %125 to i8
-  %127 = and i8 %126, 1
-  store i8 %127, ptr %121, align 1
+  %113 = getelementptr inbounds nuw i8, ptr %.sink6.i10, i64 50
+  %114 = load i16, ptr %113, align 2
+  %115 = zext i16 %114 to i64
+  %116 = or i64 %.sink.i13, %115
+  store i64 %116, ptr %112, align 8
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %118 = tail call noundef i64 @_ZN23JfrStackTraceRepository7next_idEv() #11
+  store i64 %118, ptr %117, align 8
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i32 %3, ptr %119, align 8
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  %121 = tail call noundef i32 @_ZNK6Method20line_number_from_bciEi(ptr noundef nonnull align 8 dereferenceable(88) %2, i32 noundef %3) #11
+  store i32 %121, ptr %120, align 4
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store i8 %4, ptr %122, align 8
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 81
+  %124 = load ptr, ptr %10, align 8
+  %125 = getelementptr inbounds nuw i8, ptr %124, i64 28
+  %126 = load i32, ptr %125, align 4
+  %127 = lshr i32 %126, 20
+  %128 = trunc i32 %127 to i8
+  %129 = and i8 %128, 1
+  store i8 %129, ptr %123, align 1
   ret void
 }
 
@@ -1128,88 +1128,92 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN20PendingListProcessor7process
 12:                                               ; preds = %2
   %13 = tail call noundef ptr @_ZN15JfrMethodLookup6lookupEPK13InstanceKlassm(ptr noundef %7, i64 noundef %9) #11
   %14 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
-  %15 = trunc i8 %14 to i1
-  %16 = select i1 %15, i16 2049, i16 2050
-  %17 = getelementptr inbounds nuw i8, ptr %13, i64 54
-  %18 = load i16, ptr %17, align 2
-  %19 = and i16 %16, %18
-  %.not.i.i.i.i = icmp eq i16 %19, 0
-  br i1 %.not.i.i.i.i, label %20, label %_ZN10JfrTraceId25load_leakp_previous_epochEPK5KlassPK6Method.exit.i.i
+  %15 = and i8 %14, 1
+  %16 = sub nuw nsw i8 2, %15
+  %17 = zext nneg i8 %16 to i16
+  %18 = or disjoint i16 %17, 2048
+  %19 = getelementptr inbounds nuw i8, ptr %13, i64 54
+  %20 = load i16, ptr %19, align 2
+  %21 = and i16 %18, %20
+  %.not.i.i.i.i = icmp eq i16 %21, 0
+  br i1 %.not.i.i.i.i, label %22, label %_ZN10JfrTraceId25load_leakp_previous_epochEPK5KlassPK6Method.exit.i.i
 
-20:                                               ; preds = %12
-  %21 = lshr i16 %18, 8
-  %22 = trunc nuw i16 %21 to i8
-  %23 = getelementptr inbounds nuw i8, ptr %13, i64 55
-  %24 = or i8 %22, 8
-  store i8 %24, ptr %23, align 1
+22:                                               ; preds = %12
+  %23 = lshr i16 %20, 8
+  %24 = trunc nuw i16 %23 to i8
+  %25 = getelementptr inbounds nuw i8, ptr %13, i64 55
+  %26 = or i8 %24, 8
+  store i8 %26, ptr %25, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   br label %_ZN10JfrTraceId25load_leakp_previous_epochEPK5KlassPK6Method.exit.i.i
 
-_ZN10JfrTraceId25load_leakp_previous_epochEPK5KlassPK6Method.exit.i.i: ; preds = %20, %12
-  %25 = getelementptr inbounds nuw i8, ptr %7, i64 169
-  %26 = load i8, ptr %25, align 1
-  %27 = or i8 %26, 4
-  store i8 %27, ptr %25, align 1
+_ZN10JfrTraceId25load_leakp_previous_epochEPK5KlassPK6Method.exit.i.i: ; preds = %22, %12
+  %27 = getelementptr inbounds nuw i8, ptr %7, i64 169
+  %28 = load i8, ptr %27, align 1
+  %29 = or i8 %28, 4
+  store i8 %29, ptr %27, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
-  %28 = getelementptr inbounds nuw i8, ptr %13, i64 55
-  %29 = load i8, ptr %28, align 1
-  %30 = or i8 %29, 4
-  store i8 %30, ptr %28, align 1
+  %30 = getelementptr inbounds nuw i8, ptr %13, i64 55
+  %31 = load i8, ptr %30, align 1
+  %32 = or i8 %31, 4
+  store i8 %32, ptr %30, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   br label %_ZL16add_to_leakp_setPK13InstanceKlassm.exit.i
 
 _ZL16add_to_leakp_setPK13InstanceKlassm.exit.i:   ; preds = %_ZN10JfrTraceId25load_leakp_previous_epochEPK5KlassPK6Method.exit.i.i, %2
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %32 = load ptr, ptr %31, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 56
-  %34 = load i64, ptr %33, align 8
-  %35 = tail call noundef i64 @_ZN15JfrMethodLookup8klass_idEm(i64 noundef %34) #11
-  %36 = tail call noundef zeroext i1 @_ZN17JfrKlassUnloading11is_unloadedEmb(i64 noundef %35, i1 noundef zeroext true) #11
-  br i1 %36, label %_ZL16add_to_leakp_setPK17JfrDeprecatedEdge.exit, label %37
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %34 = load ptr, ptr %33, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %1, i64 56
+  %36 = load i64, ptr %35, align 8
+  %37 = tail call noundef i64 @_ZN15JfrMethodLookup8klass_idEm(i64 noundef %36) #11
+  %38 = tail call noundef zeroext i1 @_ZN17JfrKlassUnloading11is_unloadedEmb(i64 noundef %37, i1 noundef zeroext true) #11
+  br i1 %38, label %_ZL16add_to_leakp_setPK17JfrDeprecatedEdge.exit, label %39
 
-37:                                               ; preds = %_ZL16add_to_leakp_setPK13InstanceKlassm.exit.i
-  %38 = tail call noundef ptr @_ZN15JfrMethodLookup6lookupEPK13InstanceKlassm(ptr noundef %32, i64 noundef %34) #11
-  %39 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
-  %40 = trunc i8 %39 to i1
-  %41 = select i1 %40, i16 2049, i16 2050
-  %42 = getelementptr inbounds nuw i8, ptr %38, i64 54
-  %43 = load i16, ptr %42, align 2
-  %44 = and i16 %41, %43
-  %.not.i.i.i4.i = icmp eq i16 %44, 0
-  br i1 %.not.i.i.i4.i, label %45, label %_ZN10JfrTraceId25load_leakp_previous_epochEPK5KlassPK6Method.exit.i5.i
+39:                                               ; preds = %_ZL16add_to_leakp_setPK13InstanceKlassm.exit.i
+  %40 = tail call noundef ptr @_ZN15JfrMethodLookup6lookupEPK13InstanceKlassm(ptr noundef %34, i64 noundef %36) #11
+  %41 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
+  %42 = and i8 %41, 1
+  %43 = sub nuw nsw i8 2, %42
+  %44 = zext nneg i8 %43 to i16
+  %45 = or disjoint i16 %44, 2048
+  %46 = getelementptr inbounds nuw i8, ptr %40, i64 54
+  %47 = load i16, ptr %46, align 2
+  %48 = and i16 %45, %47
+  %.not.i.i.i4.i = icmp eq i16 %48, 0
+  br i1 %.not.i.i.i4.i, label %49, label %_ZN10JfrTraceId25load_leakp_previous_epochEPK5KlassPK6Method.exit.i5.i
 
-45:                                               ; preds = %37
-  %46 = lshr i16 %43, 8
-  %47 = trunc nuw i16 %46 to i8
-  %48 = getelementptr inbounds nuw i8, ptr %38, i64 55
-  %49 = or i8 %47, 8
-  store i8 %49, ptr %48, align 1
+49:                                               ; preds = %39
+  %50 = lshr i16 %47, 8
+  %51 = trunc nuw i16 %50 to i8
+  %52 = getelementptr inbounds nuw i8, ptr %40, i64 55
+  %53 = or i8 %51, 8
+  store i8 %53, ptr %52, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   br label %_ZN10JfrTraceId25load_leakp_previous_epochEPK5KlassPK6Method.exit.i5.i
 
-_ZN10JfrTraceId25load_leakp_previous_epochEPK5KlassPK6Method.exit.i5.i: ; preds = %45, %37
-  %50 = getelementptr inbounds nuw i8, ptr %32, i64 169
-  %51 = load i8, ptr %50, align 1
-  %52 = or i8 %51, 4
-  store i8 %52, ptr %50, align 1
+_ZN10JfrTraceId25load_leakp_previous_epochEPK5KlassPK6Method.exit.i5.i: ; preds = %49, %39
+  %54 = getelementptr inbounds nuw i8, ptr %34, i64 169
+  %55 = load i8, ptr %54, align 1
+  %56 = or i8 %55, 4
+  store i8 %56, ptr %54, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
-  %53 = getelementptr inbounds nuw i8, ptr %38, i64 55
-  %54 = load i8, ptr %53, align 1
-  %55 = or i8 %54, 4
-  store i8 %55, ptr %53, align 1
+  %57 = getelementptr inbounds nuw i8, ptr %40, i64 55
+  %58 = load i8, ptr %57, align 1
+  %59 = or i8 %58, 4
+  store i8 %59, ptr %57, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !6
   br label %_ZL16add_to_leakp_setPK17JfrDeprecatedEdge.exit
 
 _ZL16add_to_leakp_setPK17JfrDeprecatedEdge.exit:  ; preds = %_ZL16add_to_leakp_setPK13InstanceKlassm.exit.i, %_ZN10JfrTraceId25load_leakp_previous_epochEPK5KlassPK6Method.exit.i5.i
-  %56 = load volatile ptr, ptr @_ZL13_pending_head, align 8
-  %.not.i = icmp eq ptr %56, null
-  br i1 %.not.i, label %57, label %58
+  %60 = load volatile ptr, ptr @_ZL13_pending_head, align 8
+  %.not.i = icmp eq ptr %60, null
+  br i1 %.not.i, label %61, label %62
 
-57:                                               ; preds = %_ZL16add_to_leakp_setPK17JfrDeprecatedEdge.exit
+61:                                               ; preds = %_ZL16add_to_leakp_setPK17JfrDeprecatedEdge.exit
   store volatile ptr %1, ptr @_ZL13_pending_head, align 8
-  br label %58
+  br label %62
 
-58:                                               ; preds = %57, %_ZL16add_to_leakp_setPK17JfrDeprecatedEdge.exit
+62:                                               ; preds = %61, %_ZL16add_to_leakp_setPK17JfrDeprecatedEdge.exit
   store ptr %1, ptr @_ZL13_pending_tail, align 8
   ret i1 true
 }

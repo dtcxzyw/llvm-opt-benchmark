@@ -392,8 +392,8 @@ _ZNK10duckdb_re211StringPiececvNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 68
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 21
   %56 = load i8, ptr %55, align 1, !tbaa !14, !range !52, !noundef !53
-  %57 = trunc nuw i8 %56 to i1
-  %58 = select i1 %57, i32 536870912, i32 0
+  %57 = zext nneg i8 %56 to i32
+  %58 = shl nuw nsw i32 %57, 29
   store i32 %58, ptr %54, align 4
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %60 = getelementptr inbounds nuw i8, ptr %0, i64 80

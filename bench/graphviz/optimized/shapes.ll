@@ -5887,8 +5887,8 @@ gv_alloc.exit201:                                 ; preds = %111
   %.5161 = phi ptr [ %.3159.ptr, %132 ], [ %.3159.ptr, %130 ], [ %spec.select198, %134 ]
   store i8 0, ptr %.5161, align 1, !tbaa !81
   %138 = load i8, ptr %48, align 2, !tbaa !155, !range !77, !noundef !78
-  %139 = trunc nuw i8 %138 to i1
-  %140 = select i1 %139, i32 2, i32 0
+  %139 = shl nuw nsw i8 %138, 1
+  %140 = zext nneg i8 %139 to i32
   %141 = load double, ptr %49, align 8, !tbaa !159
   %142 = load ptr, ptr %50, align 8, !tbaa !160
   %143 = load ptr, ptr %51, align 8, !tbaa !161

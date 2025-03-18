@@ -6058,8 +6058,8 @@ build_cg_bitmap.exit:                             ; preds = %171, %.sink.split.i
 183:                                              ; preds = %build_cg_bitmap.exit
   %184 = getelementptr inbounds nuw i8, ptr %14, i64 248
   %185 = load i8, ptr %184, align 8, !range !11, !noundef !12
-  %186 = trunc nuw i8 %185 to i1
-  %spec.select.i = select i1 %186, i32 32768, i32 0
+  %186 = zext nneg i8 %185 to i32
+  %spec.select.i = shl nuw nsw i32 %186, 15
   br label %_set_requeued_job_pending_completing.exit
 
 _set_requeued_job_pending_completing.exit:        ; preds = %build_cg_bitmap.exit, %183
@@ -45066,8 +45066,8 @@ define internal fastcc i32 @_job_requeue_op(i32 noundef %0, ptr noundef nonnull 
 128:                                              ; preds = %125
   %129 = getelementptr inbounds nuw i8, ptr %1, i64 248
   %130 = load i8, ptr %129, align 8, !range !11, !noundef !12
-  %131 = trunc nuw i8 %130 to i1
-  %spec.select.i = select i1 %131, i32 32768, i32 0
+  %131 = zext nneg i8 %130 to i32
+  %spec.select.i = shl nuw nsw i32 %131, 15
   br label %_set_requeued_job_pending_completing.exit
 
 _set_requeued_job_pending_completing.exit:        ; preds = %125, %128

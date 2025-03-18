@@ -4196,8 +4196,8 @@ _ZN7QStringD2Ev.exit38:                           ; preds = %110, %_ZN17QArrayDa
 115:                                              ; preds = %112
   %116 = getelementptr inbounds nuw i8, ptr %5, i64 69
   %117 = load i8, ptr %116, align 1, !range !11, !noundef !12
-  %118 = trunc nuw i8 %117 to i1
-  %119 = select i1 %118, i32 2, i32 0
+  %118 = shl nuw nsw i8 %117, 1
+  %119 = zext nneg i8 %118 to i32
   br label %.invoke55
 
 .invoke55:                                        ; preds = %92, %115

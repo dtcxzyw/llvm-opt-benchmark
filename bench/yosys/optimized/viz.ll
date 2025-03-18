@@ -37846,7 +37846,7 @@ define internal void @_ZNSt17_Function_handlerIFvPN12_GLOBAL__N_19GraphNodeEibEZ
 .lr.ph.i.i.i:                                     ; preds = %4
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %18 = load ptr, ptr %17, align 8, !tbaa !586
-  %19 = select i1 %9, i8 2, i8 1
+  %19 = add nuw nsw i8 %.val5, 1
   %20 = getelementptr inbounds nuw i8, ptr %18, i64 164
   %sext.i.i.i = shl i64 %15, 28
   %21 = ashr i64 %sext.i.i.i, 32

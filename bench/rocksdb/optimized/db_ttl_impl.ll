@@ -10155,8 +10155,8 @@ define linkonce_odr noundef i32 @_ZNK7rocksdb16CompactionFilter8FilterV2EiRKNS_5
   %12 = load ptr, ptr %11, align 8
   %13 = call noundef zeroext i1 %12(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef %5, ptr noundef nonnull %8)
   %14 = load i8, ptr %8, align 1, !range !232
-  %15 = trunc nuw i8 %14 to i1
-  %16 = select i1 %15, i32 2, i32 0
+  %15 = shl nuw nsw i8 %14, 1
+  %16 = zext nneg i8 %15 to i32
   %.0 = select i1 %13, i32 1, i32 %16
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %8) #27
   br label %23

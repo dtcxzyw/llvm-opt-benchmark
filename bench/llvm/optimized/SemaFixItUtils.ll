@@ -1733,8 +1733,8 @@ _ZNK5clang12Preprocessor10MacroState21getActiveModuleMacrosERS0_PKNS_14Identifie
 _ZNK5clang12Preprocessor10MacroState11isAmbiguousERS0_PKNS_14IdentifierInfoE.exit: ; preds = %_ZNK5clang12Preprocessor10MacroState21getActiveModuleMacrosERS0_PKNS_14IdentifierInfoE.exit
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 20
   %42 = load i8, ptr %41, align 4, !tbaa !1282, !range !703, !noundef !704
-  %43 = trunc nuw i8 %42 to i1
-  %spec.select = select i1 %43, i64 4, i64 0
+  %43 = shl nuw nsw i8 %42, 2
+  %spec.select = zext nneg i8 %43 to i64
   br label %_ZNK5clang12Preprocessor10MacroState11isAmbiguousERS0_PKNS_14IdentifierInfoE.exit.thread
 
 _ZNK5clang12Preprocessor10MacroState11isAmbiguousERS0_PKNS_14IdentifierInfoE.exit.thread: ; preds = %_ZNK5clang12Preprocessor10MacroState21getActiveModuleMacrosERS0_PKNS_14IdentifierInfoE.exit, %_ZNK5clang12Preprocessor10MacroState11isAmbiguousERS0_PKNS_14IdentifierInfoE.exit

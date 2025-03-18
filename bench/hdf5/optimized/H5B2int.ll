@@ -3373,8 +3373,8 @@ define i32 @H5B2__iterate_node(ptr noundef %0, i16 noundef zeroext %1, ptr nound
   %75 = load i64, ptr %2, align 8, !tbaa !44
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 392
   %77 = load i8, ptr %76, align 8, !tbaa !43, !range !7, !noundef !8
-  %78 = trunc nuw i8 %77 to i1
-  %79 = select i1 %78, i32 4, i32 0
+  %78 = shl nuw nsw i8 %77, 2
+  %79 = zext nneg i8 %78 to i32
   %80 = tail call i32 @H5AC_unprotect(ptr noundef %74, ptr noundef nonnull %.179, i64 noundef %75, ptr noundef nonnull %.295, i32 noundef %79) #5
   %81 = icmp slt i32 %80, 0
   br i1 %81, label %82, label %86

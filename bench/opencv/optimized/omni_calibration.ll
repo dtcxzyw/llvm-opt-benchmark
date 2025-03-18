@@ -677,25 +677,25 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit210: ; preds = %_Z
 
 244:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit210
   %245 = load i8, ptr %76, align 1, !tbaa !20, !range !22, !noundef !23
-  %246 = trunc nuw i8 %245 to i1
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %76) #20
-  %247 = load ptr, ptr %93, align 8, !tbaa !12
-  %248 = icmp eq ptr %247, %241
-  br i1 %248, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i217, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i216
+  %246 = load ptr, ptr %93, align 8, !tbaa !12
+  %247 = icmp eq ptr %246, %241
+  br i1 %247, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i217, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i216
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i217: ; preds = %244
-  %249 = load i64, ptr %242, align 8, !tbaa !15
-  %250 = icmp ult i64 %249, 16
-  call void @llvm.assume(i1 %250)
+  %248 = load i64, ptr %242, align 8, !tbaa !15
+  %249 = icmp ult i64 %248, 16
+  call void @llvm.assume(i1 %249)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit218
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i216: ; preds = %244
-  call void @_ZdlPv(ptr noundef %247) #21
+  call void @_ZdlPv(ptr noundef %246) #21
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit218
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit218: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i217, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i216
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %93) #20
-  %spec.select = select i1 %246, i32 2, i32 0
+  %250 = shl nuw nsw i8 %245, 1
+  %spec.select = zext nneg i8 %250 to i32
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %94) #20
   %251 = getelementptr inbounds nuw i8, ptr %94, i64 16
   store ptr %251, ptr %94, align 8, !tbaa !4
@@ -2420,7 +2420,8 @@ _ZN2cvlsIiEERNS_11FileStorageES2_RKT_.exit.i:     ; preds = %813, %.noexc115.i, 
   br i1 %.not.i321, label %._crit_edge.i.i.i119.i, label %824
 
 824:                                              ; preds = %_ZN2cvlsIiEERNS_11FileStorageES2_RKT_.exit.i
-  %825 = select i1 %246, ptr @.str.26, ptr @.str.25
+  %.not57.i = icmp eq i8 %245, 0
+  %825 = select i1 %.not57.i, ptr @.str.25, ptr @.str.26
   %.not64.i.not.not = icmp eq i8 %287, 0
   %826 = select i1 %.not64.i.not.not, ptr @.str.25, ptr @.str.33
   %827 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %44, ptr noundef nonnull dereferenceable(1) @.str.23, ptr noundef nonnull @.str.25, ptr noundef nonnull %825, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.25, ptr noundef nonnull @.str.25, ptr noundef nonnull %826) #20

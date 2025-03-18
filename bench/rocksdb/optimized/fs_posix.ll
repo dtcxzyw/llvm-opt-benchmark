@@ -2030,8 +2030,8 @@ _ZNKSt14default_deleteIN7rocksdb16FSSequentialFileEEclEPS1_.exit.i.i: ; preds = 
 _ZNSt10unique_ptrIN7rocksdb16FSSequentialFileESt14default_deleteIS1_EE5resetEPS1_.exit: ; preds = %6, %_ZNKSt14default_deleteIN7rocksdb16FSSequentialFileEEclEPS1_.exit.i.i
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 5
   %18 = load i8, ptr %17, align 1, !tbaa !119, !range !122, !noundef !123
-  %19 = trunc nuw i8 %18 to i1
-  %spec.select85 = select i1 %19, i32 524288, i32 0
+  %19 = zext nneg i8 %18 to i32
+  %spec.select85 = shl nuw nsw i32 %19, 19
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %21 = load i8, ptr %20, align 2, !tbaa !124, !range !122, !noundef !123
   %22 = trunc nuw i8 %21 to i1
@@ -2517,8 +2517,8 @@ _ZNSt10unique_ptrIN7rocksdb18FSRandomAccessFileESt14default_deleteIS1_EE5resetEP
   store i32 0, ptr %22, align 2, !alias.scope !158
   %24 = getelementptr inbounds nuw i8, ptr %3, i64 5
   %25 = load i8, ptr %24, align 1, !tbaa !119, !range !122, !noundef !123
-  %26 = trunc nuw i8 %25 to i1
-  %spec.select105 = select i1 %26, i32 524288, i32 0
+  %26 = zext nneg i8 %25 to i32
+  %spec.select105 = shl nuw nsw i32 %26, 19
   %27 = getelementptr inbounds nuw i8, ptr %3, i64 2
   %28 = load i8, ptr %27, align 2, !tbaa !124, !range !122, !noundef !123
   %29 = trunc nuw i8 %28 to i1

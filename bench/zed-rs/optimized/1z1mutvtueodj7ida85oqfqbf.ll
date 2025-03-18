@@ -6852,11 +6852,10 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
   %27 = icmp eq i64 %26, 2
   %.sroa.gep.val = load i64, ptr %.sroa.gep, align 8
   %28 = select i1 %27, i64 %.sroa.gep.val, i64 %26
-  %trunc.i.i.i = trunc nuw i64 %28 to i1
   %.sroa.gep.sroa.gep10.val = load ptr, ptr %.sroa.gep.sroa.gep10, align 8
   %.sroa.gep.val13.cast = inttoptr i64 %.sroa.gep.val to ptr
   %29 = select i1 %27, ptr %.sroa.gep.sroa.gep10.val, ptr %.sroa.gep.val13.cast
-  %.sroa.0.0.idx.i.i.i = select i1 %trunc.i.i.i, i64 16, i64 0
+  %.sroa.0.0.idx.i.i.i = shl nuw nsw i64 %28, 4
   %.sroa.0.0.i.i.i = getelementptr inbounds nuw i8, ptr %29, i64 %.sroa.0.0.idx.i.i.i
   %.sroa.gep.sroa.gep.val = load i64, ptr %.sroa.gep.sroa.gep, align 8
   %.sroa.gep9.sroa.gep.val.cast = ptrtoint ptr %.sroa.gep.sroa.gep10.val to i64
@@ -7890,10 +7889,9 @@ define hidden { ptr, ptr } @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A
 
 .noexc.i:                                         ; preds = %27
   %38 = load i64, ptr %7, align 8, !range !15, !noalias !2245, !noundef !5
-  %trunc.i.i = trunc nuw i64 %38 to i1
   %39 = load ptr, ptr %18, align 8, !noalias !2245, !nonnull !5
   %40 = load i64, ptr %19, align 8, !noalias !2245
-  %.sroa.0.0.idx.i.i = select i1 %trunc.i.i, i64 16, i64 0
+  %.sroa.0.0.idx.i.i = shl nuw nsw i64 %38, 4
   %.sroa.0.0.i.i = getelementptr inbounds nuw i8, ptr %39, i64 %.sroa.0.0.idx.i.i
   invoke void @"_ZN5alloc3str21_$LT$impl$u20$str$GT$12to_lowercase17h29d2099271a39b45E"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i, i64 noundef %40)
           to label %50 unwind label %48, !noalias !2245

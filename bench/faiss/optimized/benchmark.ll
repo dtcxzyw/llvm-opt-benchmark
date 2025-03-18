@@ -2297,8 +2297,8 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit52: ; preds = %_ZStl
 92:                                               ; preds = %90
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #32
   %93 = load i8, ptr @_ZN9benchmark32FLAGS_benchmark_counters_tabularE, align 1, !tbaa !134, !range !86, !noundef !87
-  %94 = trunc nuw i8 %93 to i1
-  %95 = select i1 %94, i32 2, i32 0
+  %94 = shl nuw nsw i8 %93, 1
+  %95 = zext nneg i8 %94 to i32
   invoke fastcc void @_ZN9benchmark8internal12_GLOBAL__N_114CreateReporterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS_15ConsoleReporter13OutputOptionsE(ptr dead_on_unwind noalias writable align 8 %22, ptr noundef nonnull align 8 dereferenceable(32) @_ZN9benchmark26FLAGS_benchmark_out_formatB5cxx11E, i32 noundef %95)
           to label %_ZNSt10unique_ptrIN9benchmark17BenchmarkReporterESt14default_deleteIS1_EED2Ev.exit unwind label %97
 

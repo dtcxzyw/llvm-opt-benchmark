@@ -1636,9 +1636,9 @@ _ZN18ForeignLambdaTerms15addConstantDhdlE34FreeEnergyPerturbationCouplingTyped.e
 .lr.ph:                                           ; preds = %_ZN18ForeignLambdaTerms15addConstantDhdlE34FreeEnergyPerturbationCouplingTyped.exit
   %33 = getelementptr inbounds nuw i8, ptr %6, i64 264
   %34 = load i8, ptr %33, align 8, !tbaa !82, !range !36, !noundef !37
-  %35 = trunc nuw i8 %34 to i1
+  %35 = shl nuw nsw i8 %34, 2
   %36 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %37 = select i1 %35, i64 4, i64 0
+  %37 = zext nneg i8 %35 to i64
   %38 = getelementptr inbounds nuw [7 x %"class.std::vector"], ptr %36, i64 0, i64 %37
   %39 = load ptr, ptr %38, align 8, !tbaa !23
   %40 = getelementptr inbounds nuw float, ptr %4, i64 %37
@@ -1742,9 +1742,9 @@ _ZN18ForeignLambdaTerms15addConstantDhdlE34FreeEnergyPerturbationCouplingTyped.e
 
 .lr.ph.i:                                         ; preds = %_ZN18ForeignLambdaTerms15addConstantDhdlE34FreeEnergyPerturbationCouplingTyped.exit.i
   %40 = load i8, ptr %5, align 8, !tbaa !82, !range !36, !noundef !37
-  %41 = trunc nuw i8 %40 to i1
+  %41 = shl nuw nsw i8 %40, 2
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %43 = select i1 %41, i64 4, i64 0
+  %43 = zext nneg i8 %41 to i64
   %44 = getelementptr inbounds nuw [7 x %"class.std::vector"], ptr %42, i64 0, i64 %43
   %45 = load ptr, ptr %44, align 8, !tbaa !23
   %46 = getelementptr inbounds nuw float, ptr %1, i64 %43

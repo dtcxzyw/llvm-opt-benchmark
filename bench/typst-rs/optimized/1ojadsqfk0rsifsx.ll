@@ -210,12 +210,12 @@ define internal fastcc void @_ZN10ttf_parser6tables4glyf12outline_impl17hcff694a
 
 .lr.ph:                                           ; preds = %.preheader
   %27 = load i64, ptr %1, align 8, !range !11
-  %trunc.i = trunc nuw i64 %27 to i1
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %29 = load i64, ptr %28, align 8
-  %.0.in.v.i = select i1 %trunc.i, i64 2, i64 1
+  %.0.in.v.i = add nuw nsw i64 %27, 1
   %.0.in.i = lshr i64 %29, %.0.in.v.i
   %.0.i = trunc i64 %.0.in.i to i16
+  %trunc.i = trunc nuw i64 %27 to i1
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val40.i = load ptr, ptr %30, align 8
   %31 = lshr i64 %29, 1
@@ -4367,16 +4367,16 @@ _ZN5typst4util7hash12817h55317b6f3ebfc646E.exit.i: ; preds = %.noexc32.i
 
 554:                                              ; preds = %552
   %555 = add nuw i16 %395, 1
-  %trunc.i.i.i.i.i = trunc nuw i64 %535 to i1
   %556 = getelementptr inbounds nuw i8, ptr %532, i64 16
   %557 = load i64, ptr %556, align 8, !alias.scope !855, !noalias !856
-  %.0.in.v.i.i.i.i.i = select i1 %trunc.i.i.i.i.i, i64 2, i64 1
+  %.0.in.v.i.i.i.i.i = add nuw nsw i64 %535, 1
   %.0.in.i.i.i.i.i = lshr i64 %557, %.0.in.v.i.i.i.i.i
   %.0.i.i.i.i.i = trunc i64 %.0.in.i.i.i.i.i to i16
   %.not.i.i.i.i.i = icmp ult i16 %555, %.0.i.i.i.i.i
   br i1 %.not.i.i.i.i.i, label %558, label %select.unfold.i.i.i
 
 558:                                              ; preds = %554
+  %trunc.i.i.i.i.i = trunc nuw i64 %535 to i1
   %559 = getelementptr inbounds nuw i8, ptr %532, i64 8
   %.val40.i.i.i.i.i = load ptr, ptr %559, align 8, !alias.scope !855, !noalias !856
   br i1 %trunc.i.i.i.i.i, label %570, label %560

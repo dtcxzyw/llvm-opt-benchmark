@@ -20711,10 +20711,9 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !6771
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !6771
   %45 = load i64, ptr %44, align 8, !range !1876, !alias.scope !6773, !noalias !6774, !noundef !14
-  %trunc.i.i.i.i.i.i.i.i.i = trunc nuw i64 %45 to i1
   %46 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %47 = load ptr, ptr %46, align 8, !alias.scope !6773, !noalias !6774, !nonnull !14, !noundef !14
-  %.sink3.idx.i.i.i.i.i.i.i.i.i = select i1 %trunc.i.i.i.i.i.i.i.i.i, i64 16, i64 0
+  %.sink3.idx.i.i.i.i.i.i.i.i.i = shl nuw nsw i64 %45, 4
   %.sink3.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %47, i64 %.sink3.idx.i.i.i.i.i.i.i.i.i
   %.sink.in.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %44, i64 16
   %.sink.i.i.i.i.i.i.i.i.i = load i64, ptr %.sink.in.i.i.i.i.i.i.i.i.i, align 8, !alias.scope !6773, !noalias !6774, !noundef !14
@@ -68285,10 +68284,9 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$14extend_trusted17hb2a774f47
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %6), !noalias !20784
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5), !noalias !20784
   %40 = load i64, ptr %39, align 8, !range !1876, !alias.scope !20786, !noalias !20787, !noundef !14
-  %trunc.i.i.i.i.i.i.i = trunc nuw i64 %40 to i1
   %41 = getelementptr inbounds nuw i8, ptr %39, i64 8
   %42 = load ptr, ptr %41, align 8, !alias.scope !20786, !noalias !20787, !nonnull !14, !noundef !14
-  %.sink3.idx.i.i.i.i.i.i.i = select i1 %trunc.i.i.i.i.i.i.i, i64 16, i64 0
+  %.sink3.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %40, 4
   %.sink3.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %42, i64 %.sink3.idx.i.i.i.i.i.i.i
   %.sink.in.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %39, i64 16
   %.sink.i.i.i.i.i.i.i = load i64, ptr %.sink.in.i.i.i.i.i.i.i, align 8, !alias.scope !20786, !noalias !20787, !noundef !14

@@ -2686,8 +2686,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit309: ; preds = %_Z
 834:                                              ; preds = %831
   %835 = getelementptr inbounds nuw i8, ptr %833, i64 104
   %836 = load i8, ptr %835, align 8, !tbaa !400, !range !59, !noundef !60
-  %837 = trunc nuw i8 %836 to i1
-  %spec.select.idx.i = select i1 %837, i64 32, i64 0
+  %837 = shl nuw nsw i8 %836, 5
+  %spec.select.idx.i = zext nneg i8 %837 to i64
   %spec.select.i = getelementptr inbounds nuw i8, ptr %429, i64 %spec.select.idx.i
   br label %_ZNK7rocksdb13FileSystemPtr3getEv.exit
 
@@ -3423,8 +3423,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit360: ; preds = %_Z
 1159:                                             ; preds = %1156
   %1160 = getelementptr inbounds nuw i8, ptr %1158, i64 104
   %1161 = load i8, ptr %1160, align 8, !tbaa !400, !range !59, !noundef !60
-  %1162 = trunc nuw i8 %1161 to i1
-  %spec.select.idx.i362 = select i1 %1162, i64 32, i64 0
+  %1162 = shl nuw nsw i8 %1161, 5
+  %spec.select.idx.i362 = zext nneg i8 %1162 to i64
   %spec.select.i363 = getelementptr inbounds nuw i8, ptr %1120, i64 %spec.select.idx.i362
   br label %_ZNK7rocksdb13FileSystemPtr3getEv.exit366
 
@@ -13926,8 +13926,8 @@ define void @_ZN7rocksdb27ExternalSstFileIngestionJob31GenerateChecksumForIngest
 50:                                               ; preds = %26
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 104
   %52 = load i8, ptr %51, align 8, !tbaa !400, !range !59, !noundef !60
-  %53 = trunc nuw i8 %52 to i1
-  %spec.select.idx.i = select i1 %53, i64 32, i64 0
+  %53 = shl nuw nsw i8 %52, 5
+  %spec.select.idx.i = zext nneg i8 %53 to i64
   %spec.select.i = getelementptr inbounds nuw i8, ptr %47, i64 %spec.select.idx.i
   br label %_ZNK7rocksdb13FileSystemPtr3getEv.exit
 

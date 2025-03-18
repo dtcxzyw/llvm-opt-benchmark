@@ -99,8 +99,8 @@ define hidden void @_ZN14RuntimeService4initEv() local_unnamed_addr #0 align 2 {
   %25 = getelementptr inbounds nuw i8, ptr %2, i64 64
   store i8 0, ptr %25, align 16
   %26 = load i8, ptr @DisableAttachMechanism, align 1
-  %27 = trunc i8 %26 to i1
-  %28 = select i1 %27, i8 48, i8 49
+  %27 = and i8 %26, 1
+  %28 = xor i8 %27, 49
   store i8 %28, ptr %2, align 16
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 1
   store i8 49, ptr %29, align 1

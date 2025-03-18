@@ -4515,13 +4515,13 @@ define linkonce_odr dso_local void @_ZN18LinkResolveVisitor5visitEP9AstPragma(pt
 
 11:                                               ; preds = %4
   %12 = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1013), align 1, !tbaa !214, !range !61, !noundef !62
-  %13 = trunc nuw i8 %12 to i1
-  %14 = getelementptr inbounds nuw i8, ptr %6, i64 255
-  %15 = load i16, ptr %14, align 1
-  %16 = select i1 %13, i16 64, i16 0
-  %17 = and i16 %15, -65
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 255
+  %14 = load i16, ptr %13, align 1
+  %15 = shl nuw nsw i8 %12, 6
+  %16 = zext nneg i8 %15 to i16
+  %17 = and i16 %14, -65
   %18 = or disjoint i16 %17, %16
-  store i16 %18, ptr %14, align 1
+  store i16 %18, ptr %13, align 1
   %19 = tail call noundef ptr @_ZN7AstNode12unlinkFrBackEP10VNRelinker(ptr noundef nonnull align 8 dereferenceable(160) %1, ptr noundef null)
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 16

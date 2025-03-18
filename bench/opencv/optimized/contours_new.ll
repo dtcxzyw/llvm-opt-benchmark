@@ -701,8 +701,8 @@ define hidden noundef nonnull align 8 dereferenceable(104) ptr @_ZN15ContourScan
   %59 = getelementptr inbounds nuw i8, ptr %54, i64 %58
   %60 = load i64, ptr %29, align 8
   %61 = load i8, ptr %23, align 8, !tbaa !77, !range !78, !noundef !79
-  %62 = trunc nuw i8 %61 to i1
-  %63 = select i1 %62, i8 0, i8 4
+  %62 = shl nuw nsw i8 %61, 2
+  %63 = xor i8 %62, 4
   %64 = trunc i64 %48 to i32
   %.val66.i = load i32, ptr %59, align 4, !tbaa !17
   br label %65
@@ -1331,8 +1331,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_117icvFetchContourExIaEEvRN2cv3MatE
   %.sroa.12118.0.extract.shift = lshr i64 %24, 32
   %25 = getelementptr inbounds nuw i8, ptr %3, i64 72
   %26 = load i8, ptr %25, align 8, !tbaa !77, !range !78, !noundef !79
-  %27 = trunc nuw i8 %26 to i1
-  %28 = select i1 %27, i8 0, i8 4
+  %27 = shl nuw nsw i8 %26, 2
+  %28 = xor i8 %27, 4
   %29 = trunc i64 %6 to i32
   br label %30
 
@@ -2013,33 +2013,33 @@ define hidden noundef i32 @_ZN15ContourScanner_24findFirstBoundingContourERKN2cv
   %41 = load i64, ptr %40, align 8
   %42 = getelementptr inbounds nuw i8, ptr %39, i64 96
   %43 = load i8, ptr %42, align 8, !tbaa !61, !range !78, !noundef !79
-  %44 = trunc nuw i8 %43 to i1
-  %45 = load i32, ptr %12, align 4, !tbaa !36
-  %46 = icmp eq i32 %45, 4
-  %47 = load ptr, ptr %13, align 8, !tbaa !74
-  %48 = load ptr, ptr %15, align 8, !tbaa !75
-  %49 = load i64, ptr %48, align 8, !tbaa !76
-  %50 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %51 = load i64, ptr %50, align 8, !tbaa !76
-  %52 = tail call noundef i64 @_ZNK2cv3Mat5step1Ei(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef 0)
-  %53 = load ptr, ptr %13, align 8, !tbaa !74
-  %54 = ashr i64 %41, 32
-  %55 = load ptr, ptr %15, align 8, !tbaa !75
-  %56 = load i64, ptr %55, align 8, !tbaa !76
-  %57 = mul i64 %56, %54
-  %58 = getelementptr inbounds nuw i8, ptr %53, i64 %57
+  %44 = load i32, ptr %12, align 4, !tbaa !36
+  %45 = icmp eq i32 %44, 4
+  %46 = load ptr, ptr %13, align 8, !tbaa !74
+  %47 = load ptr, ptr %15, align 8, !tbaa !75
+  %48 = load i64, ptr %47, align 8, !tbaa !76
+  %49 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  %50 = load i64, ptr %49, align 8, !tbaa !76
+  %51 = tail call noundef i64 @_ZNK2cv3Mat5step1Ei(ptr noundef nonnull align 8 dereferenceable(96) %0, i32 noundef 0)
+  %52 = load ptr, ptr %13, align 8, !tbaa !74
+  %53 = ashr i64 %41, 32
+  %54 = load ptr, ptr %15, align 8, !tbaa !75
+  %55 = load i64, ptr %54, align 8, !tbaa !76
+  %56 = mul i64 %55, %53
+  %57 = getelementptr inbounds nuw i8, ptr %52, i64 %56
   %sext72 = shl i64 %41, 32
-  %59 = ashr exact i64 %sext72, 32
-  %60 = getelementptr inbounds nuw i8, ptr %55, i64 8
-  %61 = load i64, ptr %60, align 8, !tbaa !76
-  %62 = mul i64 %61, %59
-  %63 = getelementptr inbounds nuw i8, ptr %58, i64 %62
-  %64 = select i1 %44, i8 0, i8 4
-  %65 = trunc i64 %52 to i32
-  br i1 %46, label %66, label %.preheader
+  %58 = ashr exact i64 %sext72, 32
+  %59 = getelementptr inbounds nuw i8, ptr %54, i64 8
+  %60 = load i64, ptr %59, align 8, !tbaa !76
+  %61 = mul i64 %60, %58
+  %62 = getelementptr inbounds nuw i8, ptr %57, i64 %61
+  %63 = shl nuw nsw i8 %43, 2
+  %64 = xor i8 %63, 4
+  %65 = trunc i64 %51 to i32
+  br i1 %45, label %66, label %.preheader
 
 66:                                               ; preds = %37
-  %.val75.i = load i32, ptr %63, align 4, !tbaa !17
+  %.val75.i = load i32, ptr %62, align 4, !tbaa !17
   br label %67
 
 67:                                               ; preds = %67, %66
@@ -2054,7 +2054,7 @@ define hidden noundef i32 @_ZN15ContourScanner_24findFirstBoundingContourERKN2cv
   %72 = mul nsw i32 %.sroa.4.0.copyload.i.i, %65
   %73 = add nsw i32 %72, %.sroa.0.0.copyload.i.i
   %74 = sext i32 %73 to i64
-  %75 = getelementptr inbounds i32, ptr %63, i64 %74
+  %75 = getelementptr inbounds i32, ptr %62, i64 %74
   %.val.i = load i32, ptr %75, align 4, !tbaa !17
   %76 = xor i32 %.val.i, %.val75.i
   %77 = and i32 %76, 1073741823
@@ -2064,10 +2064,10 @@ define hidden noundef i32 @_ZN15ContourScanner_24findFirstBoundingContourERKN2cv
   br i1 %.not71.i, label %80, label %67, !llvm.loop !125
 
 80:                                               ; preds = %67
-  %81 = getelementptr inbounds i32, ptr %63, i64 %74
-  %82 = mul i64 %49, %14
-  %83 = mul i64 %51, %16
-  %84 = getelementptr inbounds nuw i8, ptr %47, i64 %82
+  %81 = getelementptr inbounds i32, ptr %62, i64 %74
+  %82 = mul i64 %48, %14
+  %83 = mul i64 %50, %16
+  %84 = getelementptr inbounds nuw i8, ptr %46, i64 %82
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 %83
   br i1 %79, label %_ZN12_GLOBAL__N_115icvTraceContourIiEEbRN2cv3MatERKNS1_6Point_IiEES7_b.exit, label %.preheader1.i
 
@@ -2076,7 +2076,7 @@ define hidden noundef i32 @_ZN15ContourScanner_24findFirstBoundingContourERKN2cv
   br label %87
 
 87:                                               ; preds = %121, %.preheader1.i
-  %.067.i = phi ptr [ %102, %121 ], [ %63, %.preheader1.i ]
+  %.067.i = phi ptr [ %102, %121 ], [ %62, %.preheader1.i ]
   %.164.i = phi i8 [ %123, %121 ], [ %69, %.preheader1.i ]
   br label %88
 
@@ -2137,7 +2137,7 @@ define hidden noundef i32 @_ZN15ContourScanner_24findFirstBoundingContourERKN2cv
   br i1 %118, label %.thread66, label %.preheader.i, !llvm.loop !127
 
 .critedge.i:                                      ; preds = %.preheader.i, %101
-  %119 = icmp eq ptr %102, %63
+  %119 = icmp eq ptr %102, %62
   %120 = icmp eq ptr %.067.i, %81
   %or.cond.i = and i1 %120, %119
   br i1 %or.cond.i, label %_ZN12_GLOBAL__N_115icvTraceContourIiEEbRN2cv3MatERKNS1_6Point_IiEES7_b.exit.thread59, label %121
@@ -2148,7 +2148,7 @@ define hidden noundef i32 @_ZN15ContourScanner_24findFirstBoundingContourERKN2cv
   br label %87, !llvm.loop !128
 
 _ZN12_GLOBAL__N_115icvTraceContourIiEEbRN2cv3MatERKNS1_6Point_IiEES7_b.exit: ; preds = %80
-  %124 = icmp eq ptr %63, %85
+  %124 = icmp eq ptr %62, %85
   br i1 %124, label %.thread66, label %_ZN12_GLOBAL__N_115icvTraceContourIiEEbRN2cv3MatERKNS1_6Point_IiEES7_b.exit.thread59
 
 .preheader:                                       ; preds = %37, %.preheader
@@ -2163,7 +2163,7 @@ _ZN12_GLOBAL__N_115icvTraceContourIiEEbRN2cv3MatERKNS1_6Point_IiEES7_b.exit: ; p
   %129 = mul nsw i32 %.sroa.4.0.copyload.i.i36, %65
   %130 = add nsw i32 %129, %.sroa.0.0.copyload.i.i34
   %131 = sext i32 %130 to i64
-  %132 = getelementptr inbounds i8, ptr %63, i64 %131
+  %132 = getelementptr inbounds i8, ptr %62, i64 %131
   %.val.i37 = load i8, ptr %132, align 1, !tbaa !69
   %133 = icmp ne i8 %.val.i37, 0
   %134 = icmp eq i8 %126, %64
@@ -2171,16 +2171,16 @@ _ZN12_GLOBAL__N_115icvTraceContourIiEEbRN2cv3MatERKNS1_6Point_IiEES7_b.exit: ; p
   br i1 %.not71.i38, label %135, label %.preheader, !llvm.loop !129
 
 135:                                              ; preds = %.preheader
-  %136 = getelementptr inbounds i8, ptr %63, i64 %131
-  %137 = mul i64 %49, %14
-  %138 = mul i64 %51, %16
-  %139 = getelementptr inbounds nuw i8, ptr %47, i64 %137
+  %136 = getelementptr inbounds i8, ptr %62, i64 %131
+  %137 = mul i64 %48, %14
+  %138 = mul i64 %50, %16
+  %139 = getelementptr inbounds nuw i8, ptr %46, i64 %137
   %140 = getelementptr inbounds nuw i8, ptr %139, i64 %138
   br i1 %134, label %_ZN12_GLOBAL__N_115icvTraceContourIaEEbRN2cv3MatERKNS1_6Point_IiEES7_b.exit, label %.preheader5.i
 
 .preheader5.i:                                    ; preds = %135, %171
   %.16417.i = phi i8 [ %173, %171 ], [ %126, %135 ]
-  %.06716.i = phi ptr [ %153, %171 ], [ %63, %135 ]
+  %.06716.i = phi ptr [ %153, %171 ], [ %62, %135 ]
   br label %141
 
 141:                                              ; preds = %141, %.preheader5.i
@@ -2237,7 +2237,7 @@ _ZN12_GLOBAL__N_115icvTraceContourIiEEbRN2cv3MatERKNS1_6Point_IiEES7_b.exit: ; p
   br i1 %168, label %.thread66, label %.preheader.i48, !llvm.loop !131
 
 .critedge.i44:                                    ; preds = %.preheader.i48, %152
-  %169 = icmp eq ptr %153, %63
+  %169 = icmp eq ptr %153, %62
   %170 = icmp eq ptr %.06716.i, %136
   %or.cond.i45 = and i1 %170, %169
   br i1 %or.cond.i45, label %_ZN12_GLOBAL__N_115icvTraceContourIiEEbRN2cv3MatERKNS1_6Point_IiEES7_b.exit.thread59, label %171
@@ -2248,7 +2248,7 @@ _ZN12_GLOBAL__N_115icvTraceContourIiEEbRN2cv3MatERKNS1_6Point_IiEES7_b.exit: ; p
   br label %.preheader5.i
 
 _ZN12_GLOBAL__N_115icvTraceContourIaEEbRN2cv3MatERKNS1_6Point_IiEES7_b.exit: ; preds = %135
-  %174 = icmp eq ptr %63, %140
+  %174 = icmp eq ptr %62, %140
   br i1 %174, label %.thread66, label %_ZN12_GLOBAL__N_115icvTraceContourIiEEbRN2cv3MatERKNS1_6Point_IiEES7_b.exit.thread59
 
 _ZN12_GLOBAL__N_115icvTraceContourIiEEbRN2cv3MatERKNS1_6Point_IiEES7_b.exit.thread59: ; preds = %.critedge.i44, %.critedge.i, %17, %28, %36, %_ZN12_GLOBAL__N_115icvTraceContourIiEEbRN2cv3MatERKNS1_6Point_IiEES7_b.exit, %_ZN12_GLOBAL__N_115icvTraceContourIaEEbRN2cv3MatERKNS1_6Point_IiEES7_b.exit

@@ -4299,10 +4299,9 @@ define void @"_ZN104_$LT$ui..components..label..highlighted_label..HighlightedLa
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %24)
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 824
   %34 = load i64, ptr %33, align 8, !range !122, !noundef !4
-  %trunc = trunc nuw i64 %34 to i1
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 832
   %36 = load ptr, ptr %35, align 8, !nonnull !4
-  %.sroa.0.0.idx = select i1 %trunc, i64 16, i64 0
+  %.sroa.0.0.idx = shl nuw nsw i64 %34, 4
   %.sroa.0.0 = getelementptr inbounds nuw i8, ptr %36, i64 %.sroa.0.0.idx
   %.sroa.3.0.in = getelementptr inbounds nuw i8, ptr %1, i64 840
   %.sroa.3.0 = load i64, ptr %.sroa.3.0.in, align 8, !noundef !4

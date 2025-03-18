@@ -5110,8 +5110,8 @@ _ZN12_GLOBAL__N_115VirtRegRewriter7rewriteEv.exit: ; preds = %_ZN4llvm11SmallVec
 define internal range(i64 0, 9) i64 @_ZNK12_GLOBAL__N_115VirtRegRewriter16getSetPropertiesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(153) %0) unnamed_addr #15 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %3 = load i8, ptr %2, align 8, !tbaa !253, !range !278, !noundef !279
-  %4 = trunc nuw i8 %3 to i1
-  %spec.select = select i1 %4, i64 8, i64 0
+  %4 = shl nuw nsw i8 %3, 3
+  %spec.select = zext nneg i8 %4 to i64
   ret i64 %spec.select
 }
 

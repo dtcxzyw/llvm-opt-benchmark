@@ -2311,8 +2311,8 @@ _ZN5arrow6StatusD2Ev.exit:
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %7)
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 72
   %10 = load i8, ptr %9, align 8, !tbaa !164, !range !119, !noundef !120
-  %11 = trunc nuw i8 %10 to i1
-  %12 = select i1 %11, i64 2, i64 0
+  %11 = shl nuw nsw i8 %10, 1
+  %12 = zext nneg i8 %11 to i64
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 320
   store i64 %12, ptr %13, align 8, !tbaa !48
   %14 = getelementptr inbounds nuw i8, ptr %2, i64 56

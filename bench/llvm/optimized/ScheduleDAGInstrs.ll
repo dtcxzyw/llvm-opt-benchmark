@@ -12524,8 +12524,8 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4l
 
 _ZN4llvm23SmallVectorTemplateBaseINS_16UnderlyingObjectELb1EE9push_backES1_.exit: ; preds = %3, %10
   %14 = phi i32 [ %7, %3 ], [ %.pre.i, %10 ]
-  %15 = trunc nuw i8 %5 to i1
-  %16 = select i1 %15, i64 2, i64 0
+  %15 = shl nuw nsw i8 %5, 1
+  %16 = zext nneg i8 %15 to i64
   %17 = ptrtoint ptr %4 to i64
   %18 = and i64 %17, -7
   %19 = or disjoint i64 %18, %16

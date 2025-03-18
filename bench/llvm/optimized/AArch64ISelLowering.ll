@@ -5703,8 +5703,8 @@ _ZNK4llvm3MVT14is128BitVectorEv.exit:             ; preds = %1407
   %gep2708 = getelementptr inbounds nuw i8, ptr %invariant.gep2707, i64 %.idx2399
   store i8 0, ptr %gep2708, align 1, !tbaa !228
   %1414 = load i8, ptr %1406, align 8, !tbaa !273, !range !54, !noundef !55
-  %1415 = trunc nuw i8 %1414 to i1
-  %1416 = select i1 %1415, i8 0, i8 2
+  %1415 = shl nuw nsw i8 %1414, 1
+  %1416 = xor i8 %1415, 2
   %gep2710 = getelementptr inbounds nuw i8, ptr %invariant.gep2709, i64 %.idx2399
   store i8 %1416, ptr %gep2710, align 8, !tbaa !228
   br label %_ZNK4llvm3MVT13is64BitVectorEv.exit.thread.preheader
@@ -38581,7 +38581,7 @@ _ZNK4llvm3EVT21getVectorElementCountEv.exit:      ; preds = %11, %20
   %23 = phi i16 [ %13, %11 ], [ %9, %20 ]
   %.sroa.0.0.in.i = phi i64 [ %.sroa.0.0.insert.insert.i.i.i, %11 ], [ %21, %20 ]
   %24 = lshr i64 %.sroa.0.0.in.i, 1
-  %25 = and i64 %.sroa.0.0.in.i, 4294967296
+  %25 = and i64 %.sroa.0.0.in.i, 1095216660480
   %.sroa.0.0.insert.ext.i.i = and i64 %24, 2147483647
   %.sroa.0.0.insert.insert.i.i = or disjoint i64 %.sroa.0.0.insert.ext.i.i, %25
   %.sroa.0.0.extract.trunc.i.i = trunc nuw nsw i64 %.sroa.0.0.insert.ext.i.i to i32

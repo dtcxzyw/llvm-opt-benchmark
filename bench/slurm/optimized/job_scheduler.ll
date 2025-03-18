@@ -7180,10 +7180,10 @@ define internal fastcc range(i32 0, 2030) i32 @_feature_string2list(ptr noundef 
   br label %9
 
 9:                                                ; preds = %.thread229, %._crit_edge
-  %10 = phi ptr [ %7, %._crit_edge ], [ %154, %.thread229 ]
+  %10 = phi ptr [ %7, %._crit_edge ], [ %153, %.thread229 ]
   %.0190 = phi i32 [ 0, %._crit_edge ], [ %.1191242, %.thread229 ]
   %.0186 = phi i32 [ 0, %._crit_edge ], [ %.1187243, %.thread229 ]
-  %.0183 = phi i32 [ 0, %._crit_edge ], [ %155, %.thread229 ]
+  %.0183 = phi i32 [ 0, %._crit_edge ], [ %154, %.thread229 ]
   %.0180 = phi i32 [ 0, %._crit_edge ], [ %.1181245, %.thread229 ]
   %.0177 = phi i32 [ 0, %._crit_edge ], [ %.1178246, %.thread229 ]
   %.0173 = phi ptr [ null, %._crit_edge ], [ %.1174247, %.thread229 ]
@@ -7193,15 +7193,15 @@ define internal fastcc range(i32 0, 2030) i32 @_feature_string2list(ptr noundef 
   %11 = sext i32 %.0183 to i64
   %12 = getelementptr inbounds i8, ptr %10, i64 %11
   %13 = load i8, ptr %12, align 1
-  switch i8 %13, label %144 [
+  switch i8 %13, label %143 [
     i8 42, label %14
     i8 38, label %33
     i8 124, label %65
-    i8 91, label %95
-    i8 93, label %108
-    i8 40, label %115
-    i8 41, label %121
-    i8 0, label %127
+    i8 91, label %94
+    i8 93, label %107
+    i8 40, label %114
+    i8 41, label %120
+    i8 0, label %126
   ]
 
 14:                                               ; preds = %9
@@ -7333,217 +7333,216 @@ define internal fastcc range(i32 0, 2030) i32 @_feature_string2list(ptr noundef 
 85:                                               ; preds = %69
   %86 = load i8, ptr %3, align 1, !range !11, !noundef !12
   %87 = trunc nuw i8 %86 to i1
-  br i1 %87, label %88, label %92
+  br i1 %87, label %88, label %91
 
 88:                                               ; preds = %85, %69
   %.not207 = icmp ne i32 %.0190, 0
   %brmerge = select i1 %.not207, i1 true, i1 %70
-  br i1 %brmerge, label %92, label %89
+  br i1 %brmerge, label %91, label %89
 
 89:                                               ; preds = %88
   %90 = load i8, ptr %3, align 1, !range !11, !noundef !12
-  %91 = trunc nuw i8 %90 to i1
-  %spec.select487 = select i1 %91, i8 2, i8 0
-  br label %92
+  %spec.select487 = shl nuw nsw i8 %90, 1
+  br label %91
 
-92:                                               ; preds = %89, %88, %85
+91:                                               ; preds = %89, %88, %85
   %.sink = phi i8 [ 0, %85 ], [ 2, %88 ], [ %spec.select487, %89 ]
-  %93 = getelementptr inbounds nuw i8, ptr %72, i64 14
-  store i8 %.sink, ptr %93, align 2
-  %94 = load ptr, ptr %2, align 8
-  tail call void @list_append(ptr noundef %94, ptr noundef nonnull %72) #16
+  %92 = getelementptr inbounds nuw i8, ptr %72, i64 14
+  store i8 %.sink, ptr %92, align 2
+  %93 = load ptr, ptr %2, align 8
+  tail call void @list_append(ptr noundef %93, ptr noundef nonnull %72) #16
   br label %.thread229
 
-95:                                               ; preds = %9
+94:                                               ; preds = %9
   store i8 0, ptr %12, align 1
-  %96 = icmp ne ptr %.0173, null
-  %97 = icmp ne i32 %.0190, 0
-  %or.cond5 = select i1 %96, i1 true, i1 %97
-  %98 = icmp ne i32 %.0180, 0
-  %or.cond7 = select i1 %or.cond5, i1 true, i1 %98
-  br i1 %or.cond7, label %99, label %102
+  %95 = icmp ne ptr %.0173, null
+  %96 = icmp ne i32 %.0190, 0
+  %or.cond5 = select i1 %95, i1 true, i1 %96
+  %97 = icmp ne i32 %.0180, 0
+  %or.cond7 = select i1 %or.cond5, i1 true, i1 %97
+  br i1 %or.cond7, label %98, label %101
 
-99:                                               ; preds = %95
-  %100 = tail call i32 @get_log_level() #16
-  %101 = icmp sgt i32 %100, 3
-  br i1 %101, label %.thread272.sink.split, label %.thread272
+98:                                               ; preds = %94
+  %99 = tail call i32 @get_log_level() #16
+  %100 = icmp sgt i32 %99, 3
+  br i1 %100, label %.thread272.sink.split, label %.thread272
 
-102:                                              ; preds = %95
-  %103 = add nsw i32 %.0177, 1
-  %104 = icmp sgt i32 %.0177, 0
-  br i1 %104, label %105, label %.thread229
+101:                                              ; preds = %94
+  %102 = add nsw i32 %.0177, 1
+  %103 = icmp sgt i32 %.0177, 0
+  br i1 %103, label %104, label %.thread229
 
-105:                                              ; preds = %102
-  %106 = tail call i32 @get_log_level() #16
-  %107 = icmp sgt i32 %106, 3
-  br i1 %107, label %.thread272.sink.split, label %.thread272
+104:                                              ; preds = %101
+  %105 = tail call i32 @get_log_level() #16
+  %106 = icmp sgt i32 %105, 3
+  br i1 %106, label %.thread272.sink.split, label %.thread272
 
-108:                                              ; preds = %9
+107:                                              ; preds = %9
   store i8 0, ptr %12, align 1
-  %109 = icmp eq ptr %.0173, null
-  %110 = icmp eq i32 %.0190, 0
-  %or.cond9 = select i1 %109, i1 true, i1 %110
-  %111 = icmp ne i32 %.0180, 0
-  %or.cond11 = select i1 %or.cond9, i1 true, i1 %111
-  br i1 %or.cond11, label %112, label %.thread229
+  %108 = icmp eq ptr %.0173, null
+  %109 = icmp eq i32 %.0190, 0
+  %or.cond9 = select i1 %108, i1 true, i1 %109
+  %110 = icmp ne i32 %.0180, 0
+  %or.cond11 = select i1 %or.cond9, i1 true, i1 %110
+  br i1 %or.cond11, label %111, label %.thread229
 
-112:                                              ; preds = %108
-  %113 = tail call i32 @get_log_level() #16
-  %114 = icmp sgt i32 %113, 3
-  br i1 %114, label %.thread272.sink.split, label %.thread272
+111:                                              ; preds = %107
+  %112 = tail call i32 @get_log_level() #16
+  %113 = icmp sgt i32 %112, 3
+  br i1 %113, label %.thread272.sink.split, label %.thread272
 
-115:                                              ; preds = %9
+114:                                              ; preds = %9
   store i8 0, ptr %12, align 1
-  %116 = icmp ne ptr %.0173, null
-  %117 = icmp ne i32 %.0180, 0
-  %or.cond13 = select i1 %116, i1 true, i1 %117
-  br i1 %or.cond13, label %118, label %.thread229
+  %115 = icmp ne ptr %.0173, null
+  %116 = icmp ne i32 %.0180, 0
+  %or.cond13 = select i1 %115, i1 true, i1 %116
+  br i1 %or.cond13, label %117, label %.thread229
 
-118:                                              ; preds = %115
-  %119 = tail call i32 @get_log_level() #16
-  %120 = icmp sgt i32 %119, 3
-  br i1 %120, label %.thread272.sink.split, label %.thread272
+117:                                              ; preds = %114
+  %118 = tail call i32 @get_log_level() #16
+  %119 = icmp sgt i32 %118, 3
+  br i1 %119, label %.thread272.sink.split, label %.thread272
 
-121:                                              ; preds = %9
+120:                                              ; preds = %9
   store i8 0, ptr %12, align 1
-  %122 = icmp eq ptr %.0173, null
-  %123 = icmp eq i32 %.0180, 0
-  %or.cond15 = select i1 %122, i1 true, i1 %123
-  br i1 %or.cond15, label %124, label %.thread229
+  %121 = icmp eq ptr %.0173, null
+  %122 = icmp eq i32 %.0180, 0
+  %or.cond15 = select i1 %121, i1 true, i1 %122
+  br i1 %or.cond15, label %123, label %.thread229
 
-124:                                              ; preds = %121
-  %125 = tail call i32 @get_log_level() #16
-  %126 = icmp sgt i32 %125, 3
-  br i1 %126, label %.thread272.sink.split, label %.thread272
+123:                                              ; preds = %120
+  %124 = tail call i32 @get_log_level() #16
+  %125 = icmp sgt i32 %124, 3
+  br i1 %125, label %.thread272.sink.split, label %.thread272
 
-127:                                              ; preds = %9
+126:                                              ; preds = %9
   %.not205 = icmp eq ptr %.0173, null
-  br i1 %.not205, label %.thread253, label %128
+  br i1 %.not205, label %.thread253, label %127
 
-128:                                              ; preds = %127
-  %129 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 40, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.5, i32 noundef 5136, ptr noundef nonnull @__func__._feature_string2list) #16
-  %130 = trunc nuw nsw i32 %.0190 to i16
-  %131 = getelementptr inbounds nuw i8, ptr %129, i64 8
-  store i16 %130, ptr %131, align 8
-  %132 = tail call ptr @xstrdup(ptr noundef nonnull %.0173) #16
-  store ptr %132, ptr %129, align 8
-  %133 = tail call zeroext i1 @node_features_g_changeable_feature(ptr noundef nonnull %.0173) #16
-  %134 = getelementptr inbounds nuw i8, ptr %129, i64 10
-  %135 = zext i1 %133 to i8
-  store i8 %135, ptr %134, align 2
-  %136 = trunc i32 %.0186 to i16
-  %137 = getelementptr inbounds nuw i8, ptr %129, i64 12
-  store i16 %136, ptr %137, align 4
-  %138 = trunc nuw nsw i32 %.0180 to i16
-  %139 = getelementptr inbounds nuw i8, ptr %129, i64 32
-  store i16 %138, ptr %139, align 8
-  %140 = getelementptr inbounds nuw i8, ptr %129, i64 14
-  store i8 4, ptr %140, align 2
-  %141 = load ptr, ptr %2, align 8
-  tail call void @list_append(ptr noundef %141, ptr noundef nonnull %129) #16
-  %142 = load i8, ptr %134, align 2, !range !11, !noundef !12
-  %143 = or i8 %142, %.0169
+127:                                              ; preds = %126
+  %128 = tail call ptr @slurm_xcalloc(i64 noundef 1, i64 noundef 40, i1 noundef zeroext true, i1 noundef zeroext false, ptr noundef nonnull @.str.5, i32 noundef 5136, ptr noundef nonnull @__func__._feature_string2list) #16
+  %129 = trunc nuw nsw i32 %.0190 to i16
+  %130 = getelementptr inbounds nuw i8, ptr %128, i64 8
+  store i16 %129, ptr %130, align 8
+  %131 = tail call ptr @xstrdup(ptr noundef nonnull %.0173) #16
+  store ptr %131, ptr %128, align 8
+  %132 = tail call zeroext i1 @node_features_g_changeable_feature(ptr noundef nonnull %.0173) #16
+  %133 = getelementptr inbounds nuw i8, ptr %128, i64 10
+  %134 = zext i1 %132 to i8
+  store i8 %134, ptr %133, align 2
+  %135 = trunc i32 %.0186 to i16
+  %136 = getelementptr inbounds nuw i8, ptr %128, i64 12
+  store i16 %135, ptr %136, align 4
+  %137 = trunc nuw nsw i32 %.0180 to i16
+  %138 = getelementptr inbounds nuw i8, ptr %128, i64 32
+  store i16 %137, ptr %138, align 8
+  %139 = getelementptr inbounds nuw i8, ptr %128, i64 14
+  store i8 4, ptr %139, align 2
+  %140 = load ptr, ptr %2, align 8
+  tail call void @list_append(ptr noundef %140, ptr noundef nonnull %128) #16
+  %141 = load i8, ptr %133, align 2, !range !11, !noundef !12
+  %142 = or i8 %141, %.0169
   br label %.thread253
 
-144:                                              ; preds = %9
-  %145 = icmp eq ptr %.0173, null
-  br i1 %145, label %.thread229, label %146
+143:                                              ; preds = %9
+  %144 = icmp eq ptr %.0173, null
+  br i1 %144, label %.thread229, label %145
 
-146:                                              ; preds = %144
+145:                                              ; preds = %143
   %.not204 = icmp eq i32 %.0183, 0
-  br i1 %.not204, label %.thread229, label %147
+  br i1 %.not204, label %.thread229, label %146
 
-147:                                              ; preds = %146
-  %148 = getelementptr i8, ptr %12, i64 -1
-  %149 = load i8, ptr %148, align 1
-  %150 = icmp eq i8 %149, 0
-  br i1 %150, label %151, label %.thread229
+146:                                              ; preds = %145
+  %147 = getelementptr i8, ptr %12, i64 -1
+  %148 = load i8, ptr %147, align 1
+  %149 = icmp eq i8 %148, 0
+  br i1 %149, label %150, label %.thread229
 
-151:                                              ; preds = %147
-  %152 = tail call i32 @get_log_level() #16
-  %153 = icmp sgt i32 %152, 3
-  br i1 %153, label %.thread272.sink.split, label %.thread272
+150:                                              ; preds = %146
+  %151 = tail call i32 @get_log_level() #16
+  %152 = icmp sgt i32 %151, 3
+  br i1 %152, label %.thread272.sink.split, label %.thread272
 
-.thread229:                                       ; preds = %92, %26, %147, %146, %102, %63, %108, %115, %121, %144
-  %154 = phi ptr [ %10, %92 ], [ %10, %144 ], [ %10, %121 ], [ %10, %115 ], [ %10, %108 ], [ %10, %146 ], [ %10, %147 ], [ %10, %102 ], [ %10, %63 ], [ %15, %26 ]
-  %.2250 = phi i1 [ %.0163, %92 ], [ %.0163, %144 ], [ %.0163, %121 ], [ %.0163, %115 ], [ %.0163, %108 ], [ %.0163, %146 ], [ %.0163, %147 ], [ %.0163, %102 ], [ %.0163, %63 ], [ %spec.select, %26 ]
-  %.1166249 = phi i8 [ 1, %92 ], [ %.0165, %144 ], [ %.0165, %121 ], [ %.0165, %115 ], [ %.0165, %108 ], [ %.0165, %146 ], [ %.0165, %147 ], [ %.0165, %102 ], [ %.0165, %63 ], [ %.0165, %26 ]
-  %.1170248 = phi i8 [ %84, %92 ], [ %.0169, %144 ], [ %.0169, %121 ], [ %.0169, %115 ], [ %.0169, %108 ], [ %.0169, %146 ], [ %.0169, %147 ], [ %.0169, %102 ], [ %53, %63 ], [ %.0169, %26 ]
-  %.1174247 = phi ptr [ null, %92 ], [ %12, %144 ], [ %.0173, %121 ], [ null, %115 ], [ %.0173, %108 ], [ %.0173, %146 ], [ %.0173, %147 ], [ null, %102 ], [ null, %63 ], [ %.0173, %26 ]
-  %.1178246 = phi i32 [ %.0177, %92 ], [ %.0177, %144 ], [ %.0177, %121 ], [ %.0177, %115 ], [ %.0177, %108 ], [ %.0177, %146 ], [ %.0177, %147 ], [ %103, %102 ], [ %.0177, %63 ], [ %.0177, %26 ]
-  %.1181245 = phi i32 [ %.0180, %92 ], [ %.0180, %144 ], [ 0, %121 ], [ 1, %115 ], [ 0, %108 ], [ %.0180, %146 ], [ %.0180, %147 ], [ 0, %102 ], [ %.0180, %63 ], [ 0, %26 ]
-  %.1184244 = phi i32 [ %.0183, %92 ], [ %.0183, %144 ], [ %.0183, %121 ], [ %.0183, %115 ], [ %.0183, %108 ], [ 0, %146 ], [ %.0183, %147 ], [ %.0183, %102 ], [ %.0183, %63 ], [ %32, %26 ]
-  %.1187243 = phi i32 [ 0, %92 ], [ %.0186, %144 ], [ %.0186, %121 ], [ %.0186, %115 ], [ %.0186, %108 ], [ %.0186, %146 ], [ %.0186, %147 ], [ %.0186, %102 ], [ 0, %63 ], [ %19, %26 ]
-  %.1191242 = phi i32 [ %.0190, %92 ], [ %.0190, %144 ], [ %.0190, %121 ], [ %.0190, %115 ], [ 0, %108 ], [ %.0190, %146 ], [ %.0190, %147 ], [ 1, %102 ], [ %.0190, %63 ], [ %.0190, %26 ]
-  %155 = add nsw i32 %.1184244, 1
+.thread229:                                       ; preds = %91, %26, %146, %145, %101, %63, %107, %114, %120, %143
+  %153 = phi ptr [ %10, %91 ], [ %10, %143 ], [ %10, %120 ], [ %10, %114 ], [ %10, %107 ], [ %10, %145 ], [ %10, %146 ], [ %10, %101 ], [ %10, %63 ], [ %15, %26 ]
+  %.2250 = phi i1 [ %.0163, %91 ], [ %.0163, %143 ], [ %.0163, %120 ], [ %.0163, %114 ], [ %.0163, %107 ], [ %.0163, %145 ], [ %.0163, %146 ], [ %.0163, %101 ], [ %.0163, %63 ], [ %spec.select, %26 ]
+  %.1166249 = phi i8 [ 1, %91 ], [ %.0165, %143 ], [ %.0165, %120 ], [ %.0165, %114 ], [ %.0165, %107 ], [ %.0165, %145 ], [ %.0165, %146 ], [ %.0165, %101 ], [ %.0165, %63 ], [ %.0165, %26 ]
+  %.1170248 = phi i8 [ %84, %91 ], [ %.0169, %143 ], [ %.0169, %120 ], [ %.0169, %114 ], [ %.0169, %107 ], [ %.0169, %145 ], [ %.0169, %146 ], [ %.0169, %101 ], [ %53, %63 ], [ %.0169, %26 ]
+  %.1174247 = phi ptr [ null, %91 ], [ %12, %143 ], [ %.0173, %120 ], [ null, %114 ], [ %.0173, %107 ], [ %.0173, %145 ], [ %.0173, %146 ], [ null, %101 ], [ null, %63 ], [ %.0173, %26 ]
+  %.1178246 = phi i32 [ %.0177, %91 ], [ %.0177, %143 ], [ %.0177, %120 ], [ %.0177, %114 ], [ %.0177, %107 ], [ %.0177, %145 ], [ %.0177, %146 ], [ %102, %101 ], [ %.0177, %63 ], [ %.0177, %26 ]
+  %.1181245 = phi i32 [ %.0180, %91 ], [ %.0180, %143 ], [ 0, %120 ], [ 1, %114 ], [ 0, %107 ], [ %.0180, %145 ], [ %.0180, %146 ], [ 0, %101 ], [ %.0180, %63 ], [ 0, %26 ]
+  %.1184244 = phi i32 [ %.0183, %91 ], [ %.0183, %143 ], [ %.0183, %120 ], [ %.0183, %114 ], [ %.0183, %107 ], [ 0, %145 ], [ %.0183, %146 ], [ %.0183, %101 ], [ %.0183, %63 ], [ %32, %26 ]
+  %.1187243 = phi i32 [ 0, %91 ], [ %.0186, %143 ], [ %.0186, %120 ], [ %.0186, %114 ], [ %.0186, %107 ], [ %.0186, %145 ], [ %.0186, %146 ], [ %.0186, %101 ], [ 0, %63 ], [ %19, %26 ]
+  %.1191242 = phi i32 [ %.0190, %91 ], [ %.0190, %143 ], [ %.0190, %120 ], [ %.0190, %114 ], [ 0, %107 ], [ %.0190, %145 ], [ %.0190, %146 ], [ 1, %101 ], [ %.0190, %63 ], [ %.0190, %26 ]
+  %154 = add nsw i32 %.1184244, 1
   br label %9, !llvm.loop !25
 
-.thread253:                                       ; preds = %127, %128
-  %.1170268 = phi i8 [ %.0169, %127 ], [ %143, %128 ]
+.thread253:                                       ; preds = %126, %127
+  %.1170268 = phi i8 [ %.0169, %126 ], [ %142, %127 ]
   %.not212 = icmp eq i32 %.0190, 0
-  br i1 %.not212, label %159, label %156
+  br i1 %.not212, label %158, label %155
 
-156:                                              ; preds = %.thread253
-  %157 = tail call i32 @get_log_level() #16
-  %158 = icmp sgt i32 %157, 3
-  br i1 %158, label %.thread272.sink.split, label %.thread272
+155:                                              ; preds = %.thread253
+  %156 = tail call i32 @get_log_level() #16
+  %157 = icmp sgt i32 %156, 3
+  br i1 %157, label %.thread272.sink.split, label %.thread272
 
-159:                                              ; preds = %.thread253
+158:                                              ; preds = %.thread253
   %.not213 = icmp eq i32 %.0180, 0
-  br i1 %.not213, label %163, label %160
+  br i1 %.not213, label %162, label %159
 
-160:                                              ; preds = %159
-  %161 = tail call i32 @get_log_level() #16
-  %162 = icmp sgt i32 %161, 3
-  br i1 %162, label %.thread272.sink.split, label %.thread272
+159:                                              ; preds = %158
+  %160 = tail call i32 @get_log_level() #16
+  %161 = icmp sgt i32 %160, 3
+  br i1 %161, label %.thread272.sink.split, label %.thread272
 
-163:                                              ; preds = %159
-  br i1 %.0163, label %164, label %171
+162:                                              ; preds = %158
+  br i1 %.0163, label %163, label %170
 
-164:                                              ; preds = %163
-  %165 = load ptr, ptr %2, align 8
-  %166 = tail call i32 @list_count(ptr noundef %165) #16
-  %167 = icmp sgt i32 %166, 1
-  br i1 %167, label %168, label %171
+163:                                              ; preds = %162
+  %164 = load ptr, ptr %2, align 8
+  %165 = tail call i32 @list_count(ptr noundef %164) #16
+  %166 = icmp sgt i32 %165, 1
+  br i1 %166, label %167, label %170
 
-168:                                              ; preds = %164
-  %169 = tail call i32 @get_log_level() #16
-  %170 = icmp sgt i32 %169, 3
-  br i1 %170, label %.thread272.sink.split, label %.thread272
+167:                                              ; preds = %163
+  %168 = tail call i32 @get_log_level() #16
+  %169 = icmp sgt i32 %168, 3
+  br i1 %169, label %.thread272.sink.split, label %.thread272
 
-171:                                              ; preds = %163, %164
-  %172 = trunc i8 %.1170268 to i1
-  %173 = and i8 %.0165, 1
-  %174 = select i1 %172, i8 %173, i8 0
-  store i8 %174, ptr %3, align 1
-  br label %181
+170:                                              ; preds = %162, %163
+  %171 = trunc i8 %.1170268 to i1
+  %172 = and i8 %.0165, 1
+  %173 = select i1 %171, i8 %172, i8 0
+  store i8 %173, ptr %3, align 1
+  br label %180
 
-.thread272.sink.split:                            ; preds = %168, %160, %156, %151, %124, %118, %112, %105, %99, %66, %35, %23
-  %.str.125.sink = phi ptr [ @.str.123, %23 ], [ @.str.124, %35 ], [ @.str.125, %66 ], [ @.str.126, %99 ], [ @.str.127, %105 ], [ @.str.126, %112 ], [ @.str.128, %118 ], [ @.str.128, %124 ], [ @.str.129, %151 ], [ @.str.130, %156 ], [ @.str.131, %160 ], [ @.str.132, %168 ]
+.thread272.sink.split:                            ; preds = %167, %159, %155, %150, %123, %117, %111, %104, %98, %66, %35, %23
+  %.str.125.sink = phi ptr [ @.str.123, %23 ], [ @.str.124, %35 ], [ @.str.125, %66 ], [ @.str.126, %98 ], [ @.str.127, %104 ], [ @.str.126, %111 ], [ @.str.128, %117 ], [ @.str.128, %123 ], [ @.str.129, %150 ], [ @.str.130, %155 ], [ @.str.131, %159 ], [ @.str.132, %167 ]
   tail call void (i32, ptr, ...) @log_var(i32 noundef 4, ptr noundef nonnull %.str.125.sink, ptr noundef %1, ptr noundef nonnull %0) #16
   br label %.thread272
 
-.thread272:                                       ; preds = %.thread272.sink.split, %66, %151, %124, %118, %112, %105, %99, %35, %23, %168, %160, %156
-  %175 = load ptr, ptr %2, align 8
-  %.not215 = icmp eq ptr %175, null
-  br i1 %.not215, label %177, label %176
+.thread272:                                       ; preds = %.thread272.sink.split, %66, %150, %123, %117, %111, %104, %98, %35, %23, %167, %159, %155
+  %174 = load ptr, ptr %2, align 8
+  %.not215 = icmp eq ptr %174, null
+  br i1 %.not215, label %176, label %175
 
-176:                                              ; preds = %.thread272
-  tail call void @list_destroy(ptr noundef nonnull %175) #16
-  br label %177
+175:                                              ; preds = %.thread272
+  tail call void @list_destroy(ptr noundef nonnull %174) #16
+  br label %176
 
-177:                                              ; preds = %176, %.thread272
+176:                                              ; preds = %175, %.thread272
   store ptr null, ptr %2, align 8
-  %178 = tail call i32 @get_log_level() #16
-  %179 = icmp sgt i32 %178, 2
-  br i1 %179, label %180, label %181
+  %177 = tail call i32 @get_log_level() #16
+  %178 = icmp sgt i32 %177, 2
+  br i1 %178, label %179, label %180
 
-180:                                              ; preds = %177
+179:                                              ; preds = %176
   tail call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.133, ptr noundef %1, ptr noundef nonnull %0) #16
-  br label %181
+  br label %180
 
-181:                                              ; preds = %171, %180, %177
-  %.4197276 = phi i32 [ 2029, %177 ], [ 2029, %180 ], [ 0, %171 ]
+180:                                              ; preds = %170, %179, %176
+  %.4197276 = phi i32 [ 2029, %176 ], [ 2029, %179 ], [ 0, %170 ]
   call void @slurm_xfree(ptr noundef nonnull %5) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #16
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #16

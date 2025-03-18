@@ -86,11 +86,11 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %._crit_edge.i.i
 34:                                               ; preds = %.critedge, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #5
   %35 = load i8, ptr %9, align 8, !tbaa !23, !range !12, !noundef !16
-  %36 = trunc nuw i8 %35 to i1
-  %37 = ptrtoint ptr %.sroa.09.017 to i64
-  %38 = and i64 %37, -5
-  %39 = select i1 %36, i64 4, i64 0
-  %40 = or disjoint i64 %39, %38
+  %36 = ptrtoint ptr %.sroa.09.017 to i64
+  %37 = and i64 %36, -5
+  %38 = shl nuw nsw i8 %35, 2
+  %39 = zext nneg i8 %38 to i64
+  %40 = or disjoint i64 %37, %39
   store i64 %40, ptr %3, align 8
   %41 = load i32, ptr %13, align 8, !tbaa !37
   store i32 %41, ptr %12, align 8, !tbaa !37

@@ -23599,8 +23599,8 @@ define hidden noundef zeroext i1 @"_ZN64_$LT$gpui..window..ElementId$u20$as$u20$
     i64 5, label %51
   ]
 
-"_ZN71_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h24aa4bd9d22fc19cE.exit": ; preds = %51, %27, %25, %"_ZN71_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h24aa4bd9d22fc19cE.exit15", %44, %11, %2, %70, %64, %58, %37, %18
-  %.sroa.0.0.shrunk = phi i1 [ %75, %70 ], [ %69, %64 ], [ %43, %37 ], [ %24, %18 ], [ %63, %58 ], [ false, %2 ], [ false, %11 ], [ false, %44 ], [ false, %"_ZN71_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h24aa4bd9d22fc19cE.exit15" ], [ %36, %27 ], [ false, %25 ], [ false, %51 ]
+"_ZN71_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h24aa4bd9d22fc19cE.exit": ; preds = %51, %27, %25, %"_ZN71_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h24aa4bd9d22fc19cE.exit13", %44, %11, %2, %70, %64, %58, %37, %18
+  %.sroa.0.0.shrunk = phi i1 [ %75, %70 ], [ %69, %64 ], [ %43, %37 ], [ %24, %18 ], [ %63, %58 ], [ false, %2 ], [ false, %11 ], [ false, %44 ], [ false, %"_ZN71_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h24aa4bd9d22fc19cE.exit13" ], [ %36, %27 ], [ false, %25 ], [ false, %51 ]
   ret i1 %.sroa.0.0.shrunk
 
 default.unreachable:                              ; preds = %10
@@ -23644,14 +23644,12 @@ default.unreachable:                              ; preds = %10
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %31 = load ptr, ptr %30, align 8, !alias.scope !5244, !noalias !5241, !nonnull !9
   %32 = load i64, ptr %28, align 8, !range !171, !alias.scope !5244, !noalias !5241, !noundef !9
-  %trunc3.i = trunc nuw i64 %32 to i1
-  %.sroa.01.0.idx.i = select i1 %trunc3.i, i64 16, i64 0
+  %.sroa.01.0.idx.i = shl nuw nsw i64 %32, 4
   %.sroa.01.0.i = getelementptr inbounds nuw i8, ptr %31, i64 %.sroa.01.0.idx.i
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %34 = load ptr, ptr %33, align 8, !alias.scope !5241, !noalias !5244, !nonnull !9
   %35 = load i64, ptr %29, align 8, !range !171, !alias.scope !5241, !noalias !5244, !noundef !9
-  %trunc.i = trunc nuw i64 %35 to i1
-  %.sroa.0.0.idx.i = select i1 %trunc.i, i64 16, i64 0
+  %.sroa.0.0.idx.i = shl nuw nsw i64 %35, 4
   %.sroa.0.0.i = getelementptr inbounds nuw i8, ptr %34, i64 %.sroa.0.0.idx.i
   %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.sroa.0.0.i, ptr nonnull readonly align 1 %.sroa.01.0.i, i64 %.sroa.3.0.i), !alias.scope !5246, !noalias !5253
   %36 = icmp eq i32 %bcmp.i.i.i, 0
@@ -23687,21 +23685,19 @@ default.unreachable:                              ; preds = %10
   %.sroa.32.0.in.i4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.32.0.i5 = load i64, ptr %.sroa.32.0.in.i4, align 8, !alias.scope !5257, !noalias !5254, !noundef !9
   %.not.i.i.i6 = icmp eq i64 %.sroa.3.0.i3, %.sroa.32.0.i5
-  br i1 %.not.i.i.i6, label %"_ZN71_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h24aa4bd9d22fc19cE.exit15", label %"_ZN71_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h24aa4bd9d22fc19cE.exit"
+  br i1 %.not.i.i.i6, label %"_ZN71_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h24aa4bd9d22fc19cE.exit13", label %"_ZN71_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h24aa4bd9d22fc19cE.exit"
 
-"_ZN71_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h24aa4bd9d22fc19cE.exit15": ; preds = %51
+"_ZN71_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h24aa4bd9d22fc19cE.exit13": ; preds = %51
   %53 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %54 = load ptr, ptr %53, align 8, !alias.scope !5257, !noalias !5254, !nonnull !9
-  %trunc3.i8 = trunc nuw i64 %6 to i1
-  %.sroa.01.0.idx.i9 = select i1 %trunc3.i8, i64 16, i64 0
-  %.sroa.01.0.i10 = getelementptr inbounds nuw i8, ptr %54, i64 %.sroa.01.0.idx.i9
+  %.sroa.01.0.idx.i8 = shl nuw nsw i64 %6, 4
+  %.sroa.01.0.i9 = getelementptr inbounds nuw i8, ptr %54, i64 %.sroa.01.0.idx.i8
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %56 = load ptr, ptr %55, align 8, !alias.scope !5254, !noalias !5257, !nonnull !9
-  %trunc.i11 = trunc nuw i64 %3 to i1
-  %.sroa.0.0.idx.i12 = select i1 %trunc.i11, i64 16, i64 0
-  %.sroa.0.0.i13 = getelementptr inbounds nuw i8, ptr %56, i64 %.sroa.0.0.idx.i12
-  %bcmp.i.i.i14 = tail call i32 @bcmp(ptr nonnull readonly align 1 %.sroa.0.0.i13, ptr nonnull readonly align 1 %.sroa.01.0.i10, i64 %.sroa.3.0.i3), !alias.scope !5259, !noalias !5266
-  %57 = icmp eq i32 %bcmp.i.i.i14, 0
+  %.sroa.0.0.idx.i10 = shl nuw nsw i64 %3, 4
+  %.sroa.0.0.i11 = getelementptr inbounds nuw i8, ptr %56, i64 %.sroa.0.0.idx.i10
+  %bcmp.i.i.i12 = tail call i32 @bcmp(ptr nonnull readonly align 1 %.sroa.0.0.i11, ptr nonnull readonly align 1 %.sroa.01.0.i9, i64 %.sroa.3.0.i3), !alias.scope !5259, !noalias !5266
+  %57 = icmp eq i32 %bcmp.i.i.i12, 0
   br i1 %57, label %70, label %"_ZN71_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h24aa4bd9d22fc19cE.exit"
 
 58:                                               ; preds = %11
@@ -23720,7 +23716,7 @@ default.unreachable:                              ; preds = %10
   %69 = icmp eq i32 %67, %68
   br label %"_ZN71_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h24aa4bd9d22fc19cE.exit"
 
-70:                                               ; preds = %"_ZN71_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h24aa4bd9d22fc19cE.exit15"
+70:                                               ; preds = %"_ZN71_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h24aa4bd9d22fc19cE.exit13"
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %72 = load i64, ptr %71, align 8, !noundef !9
   %73 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -50857,21 +50853,19 @@ default.unreachable:                              ; preds = %64
   %.sroa.32.0.in.i4.i.i = getelementptr inbounds nuw i8, ptr %56, i64 16
   %.sroa.32.0.i5.i.i = load i64, ptr %.sroa.32.0.in.i4.i.i, align 8, !alias.scope !10249, !noalias !10250, !noundef !9
   %.not.i.i.i6.i.i = icmp eq i64 %.sroa.3.0.i3.i.i, %.sroa.32.0.i5.i.i
-  br i1 %.not.i.i.i6.i.i, label %"_ZN71_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h24aa4bd9d22fc19cE.exit15.i.i", label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h956d1f59cf788aaeE.exit.thread.i"
+  br i1 %.not.i.i.i6.i.i, label %"_ZN71_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h24aa4bd9d22fc19cE.exit13.i.i", label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h956d1f59cf788aaeE.exit.thread.i"
 
-"_ZN71_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h24aa4bd9d22fc19cE.exit15.i.i": ; preds = %95
+"_ZN71_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h24aa4bd9d22fc19cE.exit13.i.i": ; preds = %95
   %97 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %98 = load ptr, ptr %97, align 8, !alias.scope !10249, !noalias !10250, !nonnull !9
-  %trunc3.i8.i.i = trunc nuw i64 %60 to i1
-  %.sroa.01.0.idx.i9.i.i = select i1 %trunc3.i8.i.i, i64 16, i64 0
-  %.sroa.01.0.i10.i.i = getelementptr inbounds nuw i8, ptr %98, i64 %.sroa.01.0.idx.i9.i.i
+  %.sroa.01.0.idx.i8.i.i = shl nuw nsw i64 %60, 4
+  %.sroa.01.0.i9.i.i = getelementptr inbounds nuw i8, ptr %98, i64 %.sroa.01.0.idx.i8.i.i
   %99 = getelementptr inbounds nuw i8, ptr %55, i64 8
   %100 = load ptr, ptr %99, align 8, !alias.scope !10247, !noalias !10248, !nonnull !9
-  %trunc.i11.i.i = trunc nuw i64 %57 to i1
-  %.sroa.0.0.idx.i12.i.i = select i1 %trunc.i11.i.i, i64 16, i64 0
-  %.sroa.0.0.i13.i.i = getelementptr inbounds nuw i8, ptr %100, i64 %.sroa.0.0.idx.i12.i.i
-  %bcmp.i.i.i14.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.sroa.0.0.i13.i.i, ptr nonnull readonly align 1 %.sroa.01.0.i10.i.i, i64 %.sroa.3.0.i3.i.i), !alias.scope !10251, !noalias !10258
-  %101 = icmp eq i32 %bcmp.i.i.i14.i.i, 0
+  %.sroa.0.0.idx.i10.i.i = shl nuw nsw i64 %57, 4
+  %.sroa.0.0.i11.i.i = getelementptr inbounds nuw i8, ptr %100, i64 %.sroa.0.0.idx.i10.i.i
+  %bcmp.i.i.i12.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.sroa.0.0.i11.i.i, ptr nonnull readonly align 1 %.sroa.01.0.i9.i.i, i64 %.sroa.3.0.i3.i.i), !alias.scope !10251, !noalias !10258
+  %101 = icmp eq i32 %bcmp.i.i.i12.i.i, 0
   br i1 %101, label %114, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h956d1f59cf788aaeE.exit.thread.i"
 
 102:                                              ; preds = %65
@@ -50890,7 +50884,7 @@ default.unreachable:                              ; preds = %64
   %113 = icmp eq i32 %111, %112
   br i1 %113, label %.preheader.split.i.i.i.i.i.i.i.backedge.i, label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h956d1f59cf788aaeE.exit.thread.i"
 
-114:                                              ; preds = %"_ZN71_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h24aa4bd9d22fc19cE.exit15.i.i"
+114:                                              ; preds = %"_ZN71_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h24aa4bd9d22fc19cE.exit13.i.i"
   %115 = getelementptr inbounds nuw i8, ptr %55, i64 24
   %116 = load i64, ptr %115, align 8, !alias.scope !10225, !noalias !10230, !noundef !9
   %117 = getelementptr inbounds nuw i8, ptr %56, i64 24
@@ -50904,14 +50898,12 @@ default.unreachable:                              ; preds = %64
   %122 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %123 = load ptr, ptr %122, align 8, !alias.scope !10240, !noalias !10241, !nonnull !9
   %124 = load i64, ptr %120, align 8, !range !171, !alias.scope !10240, !noalias !10241, !noundef !9
-  %trunc3.i.i.i = trunc nuw i64 %124 to i1
-  %.sroa.01.0.idx.i.i.i = select i1 %trunc3.i.i.i, i64 16, i64 0
+  %.sroa.01.0.idx.i.i.i = shl nuw nsw i64 %124, 4
   %.sroa.01.0.i.i.i = getelementptr inbounds nuw i8, ptr %123, i64 %.sroa.01.0.idx.i.i.i
   %125 = getelementptr inbounds nuw i8, ptr %55, i64 16
   %126 = load ptr, ptr %125, align 8, !alias.scope !10238, !noalias !10239, !nonnull !9
   %127 = load i64, ptr %121, align 8, !range !171, !alias.scope !10238, !noalias !10239, !noundef !9
-  %trunc.i.i.i = trunc nuw i64 %127 to i1
-  %.sroa.0.0.idx.i.i.i = select i1 %trunc.i.i.i, i64 16, i64 0
+  %.sroa.0.0.idx.i.i.i = shl nuw nsw i64 %127, 4
   %.sroa.0.0.i.i7.i = getelementptr inbounds nuw i8, ptr %126, i64 %.sroa.0.0.idx.i.i.i
   %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.sroa.0.0.i.i7.i, ptr nonnull readonly align 1 %.sroa.01.0.i.i.i, i64 %.sroa.3.0.i.i6.i), !alias.scope !10259, !noalias !10266
   %128 = icmp eq i32 %bcmp.i.i.i.i.i, 0
@@ -50937,7 +50929,7 @@ default.unreachable:                              ; preds = %64
   %switch.not.i.i = icmp eq i64 %.sroa.01.0.i.i, 0
   br i1 %switch.not.i.i, label %138, label %145
 
-"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h956d1f59cf788aaeE.exit.thread.i": ; preds = %"_ZN64_$LT$gpui..window..ElementId$u20$as$u20$core..cmp..PartialEq$GT$2eq17h122ac708f8cba0cdE.llvm.1869813223630113674.exit.i", %114, %108, %102, %"_ZN71_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h24aa4bd9d22fc19cE.exit15.i.i", %95, %88, %81, %79, %72, %65, %.lr.ph.i, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h956d1f59cf788aaeE.exit.i", %"_ZN71_$LT$gpui..element..GlobalElementId$u20$as$u20$core..cmp..PartialEq$GT$2eq17h271c2cebb5893184E.llvm.17837390128320733353.exit.i.i.i.i.i", %.noexc9
+"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h956d1f59cf788aaeE.exit.thread.i": ; preds = %"_ZN64_$LT$gpui..window..ElementId$u20$as$u20$core..cmp..PartialEq$GT$2eq17h122ac708f8cba0cdE.llvm.1869813223630113674.exit.i", %114, %108, %102, %"_ZN71_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17h24aa4bd9d22fc19cE.exit13.i.i", %95, %88, %81, %79, %72, %65, %.lr.ph.i, %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_find_insert_slot28_$u7b$$u7b$closure$u7d$$u7d$17h956d1f59cf788aaeE.exit.i", %"_ZN71_$LT$gpui..element..GlobalElementId$u20$as$u20$core..cmp..PartialEq$GT$2eq17h271c2cebb5893184E.llvm.17837390128320733353.exit.i.i.i.i.i", %.noexc9
   %135 = add i16 %.sroa.03.043.i.i, -1
   %136 = and i16 %135, %.sroa.03.043.i.i
   %137 = icmp eq i16 %136, 0

@@ -11114,11 +11114,11 @@ define dso_local noundef zeroext i1 @_ZNK4llvm16AArch64InstrInfo29getMemOperands
 14:                                               ; preds = %11
   %.sroa.0.0.copyload = load i64, ptr %9, align 8
   %.sroa.2.0.copyload = load i8, ptr %12, align 8
-  %15 = trunc nuw i8 %.sroa.2.0.copyload to i1
-  %16 = icmp ugt i64 %.sroa.0.0.copyload, 4611686018427387899
-  %17 = select i1 %15, i64 4611686018427387904, i64 0
+  %15 = icmp ugt i64 %.sroa.0.0.copyload, 4611686018427387899
+  %16 = zext i8 %.sroa.2.0.copyload to i64
+  %17 = shl i64 %16, 62
   %18 = or i64 %17, %.sroa.0.0.copyload
-  %19 = select i1 %16, i64 -4611686018427387906, i64 %18
+  %19 = select i1 %15, i64 -4611686018427387906, i64 %18
   store i64 %19, ptr %5, align 8, !tbaa !72
   %20 = load ptr, ptr %8, align 8, !tbaa !553
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 8

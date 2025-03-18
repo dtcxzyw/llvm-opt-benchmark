@@ -4804,14 +4804,12 @@ define hidden noundef zeroext i1 @"_ZN71_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8, !nonnull !11
   %6 = load i64, ptr %1, align 8, !range !140, !noundef !11
-  %trunc3 = trunc nuw i64 %6 to i1
-  %.sroa.01.0.idx = select i1 %trunc3, i64 16, i64 0
+  %.sroa.01.0.idx = shl nuw nsw i64 %6, 4
   %.sroa.01.0 = getelementptr inbounds nuw i8, ptr %5, i64 %.sroa.01.0.idx
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !nonnull !11
   %9 = load i64, ptr %0, align 8, !range !140, !noundef !11
-  %trunc = trunc nuw i64 %9 to i1
-  %.sroa.0.0.idx = select i1 %trunc, i64 16, i64 0
+  %.sroa.0.0.idx = shl nuw nsw i64 %9, 4
   %.sroa.0.0 = getelementptr inbounds nuw i8, ptr %8, i64 %.sroa.0.0.idx
   %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.sroa.0.0, ptr nonnull readonly align 1 %.sroa.01.0, i64 %.sroa.3.0), !alias.scope !1170
   %10 = icmp eq i32 %bcmp.i.i, 0

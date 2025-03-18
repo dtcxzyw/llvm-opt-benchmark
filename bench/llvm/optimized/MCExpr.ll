@@ -1369,15 +1369,15 @@ _ZnwmRN4llvm9MCContextEm.exit:                    ; preds = %4
 define dso_local void @_ZN4llvm15MCSymbolRefExprC2EPKNS_8MCSymbolENS0_11VariantKindEPKNS_9MCAsmInfoENS_5SMLocE(ptr noundef nonnull align 8 captures(none) dereferenceable(24) initializes((0, 1), (8, 24)) %0, ptr noundef %1, i16 noundef zeroext %2, ptr noundef readonly captures(none) %3, ptr %4) unnamed_addr #5 align 2 {
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 18
   %7 = load i8, ptr %6, align 2, !tbaa !95, !range !32, !noundef !33
-  %8 = trunc nuw i8 %7 to i1
-  %9 = zext i16 %2 to i32
-  %10 = select i1 %8, i32 65536, i32 0
-  %11 = or disjoint i32 %10, %9
+  %8 = zext i16 %2 to i32
+  %9 = zext nneg i8 %7 to i32
+  %10 = shl nuw nsw i32 %9, 16
+  %11 = or disjoint i32 %10, %8
   store i8 2, ptr %0, align 8, !tbaa !3
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %13 = load i32, ptr %12, align 1
   %14 = and i32 %13, -16777216
-  %15 = or disjoint i32 %11, %14
+  %15 = or disjoint i32 %14, %11
   store i32 %15, ptr %12, align 1
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %4, ptr %16, align 8, !tbaa !94

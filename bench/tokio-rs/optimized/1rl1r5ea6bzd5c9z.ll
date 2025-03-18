@@ -4634,8 +4634,8 @@ _ZN3std9panicking11panic_count13count_is_zero17h66cf19443d869469E.llvm.554296154
   br label %.thread
 
 36:                                               ; preds = %29
-  %trunc.i = trunc i8 %30 to i1
-  br i1 %trunc.i, label %.thread48, label %42
+  %.not57 = icmp eq i8 %30, 1
+  br i1 %.not57, label %.thread48, label %42
 
 .thread48:                                        ; preds = %36
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %4)

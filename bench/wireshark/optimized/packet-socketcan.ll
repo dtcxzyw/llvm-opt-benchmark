@@ -498,8 +498,8 @@ define internal i32 @dissect_socketcan_classic(ptr noundef %0, ptr noundef %1, p
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal i32 @dissect_socketcan_bigendian(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr readnone captures(none) %3) #0 {
   %5 = load i8, ptr @byte_swap, align 1, !range !6, !noundef !7
-  %6 = trunc nuw i8 %5 to i1
-  %7 = select i1 %6, i32 -2147483648, i32 0
+  %6 = zext nneg i8 %5 to i32
+  %7 = shl nuw i32 %6, 31
   %8 = tail call fastcc i32 @dissect_socketcan_common(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef %7, i32 noundef 3)
   ret i32 %8
 }

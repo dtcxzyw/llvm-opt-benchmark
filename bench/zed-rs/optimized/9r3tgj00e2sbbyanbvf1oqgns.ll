@@ -83062,8 +83062,7 @@ define noundef range(i8 2, 4) i8 @_ZN9workspace10pane_group14SplitDirection8vert
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
   %6 = getelementptr inbounds nuw i8, ptr %5, i64 73
   %7 = load i8, ptr %6, align 1, !range !72, !noundef !4
-  %trunc = trunc nuw i8 %7 to i1
-  %. = select i1 %trunc, i8 3, i8 2
+  %. = or disjoint i8 %7, 2
   ret i8 %.
 }
 

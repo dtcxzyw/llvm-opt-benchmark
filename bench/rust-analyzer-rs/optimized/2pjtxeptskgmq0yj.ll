@@ -22466,9 +22466,9 @@ _ZN4core3str7pattern13simd_contains17hd88dd90e038df932E.exit.i.i.i.i.i: ; preds 
           to label %"_ZN4core4iter6traits8iterator8Iterator3any5check28_$u7b$$u7b$closure$u7d$$u7d$17haedd76088eaf168eE.exit.i" unwind label %238
 
 233:                                              ; preds = %223
-  %234 = trunc nuw i8 %.030.i.i.i.i.i to i1
+  %234 = and i8 %.030.i.i.i.i.i, 1
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13), !noalias !5343
-  %235 = xor i1 %234, true
+  %235 = icmp eq i8 %234, 0
   br label %226
 
 236:                                              ; preds = %91

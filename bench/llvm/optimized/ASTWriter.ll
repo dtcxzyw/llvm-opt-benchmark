@@ -144067,8 +144067,8 @@ _ZN5clang15ASTRecordWriter9push_backEm.exit.i:    ; preds = %13, %2
   tail call void @_ZN5clang9ASTWriter17AddSourceLocationENS_14SourceLocationERN4llvm15SmallVectorImplImEEPNS_22SourceLocationSequenceE(ptr noundef nonnull align 8 dereferenceable(3532) %35, i32 %.sroa.0.0.copyload.i7.i, ptr noundef nonnull align 8 dereferenceable(16) %37, ptr noundef null)
   %38 = load ptr, ptr %0, align 8, !tbaa !5132
   %39 = load i8, ptr %4, align 4, !tbaa !5367, !range !304, !noundef !305
-  %40 = trunc nuw i8 %39 to i1
-  %41 = select i1 %40, i64 2, i64 0
+  %40 = shl nuw nsw i8 %39, 1
+  %41 = zext nneg i8 %40 to i64
   %42 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %27, i64 %41
   %43 = load i32, ptr %42, align 4, !tbaa !5369
   %44 = getelementptr inbounds nuw i8, ptr %38, i64 16

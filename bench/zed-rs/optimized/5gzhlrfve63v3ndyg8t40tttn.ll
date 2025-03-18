@@ -95802,10 +95802,9 @@ _ZN6editor21selections_collection20SelectionsCollection11change_with17h8ff338ad2
   %320 = load i64, ptr %310, align 8, !noundef !22
   %321 = add i64 %320, %.sroa.038.0415
   %322 = load i64, ptr %38, align 8, !range !248, !noundef !22
-  %trunc = trunc nuw i64 %322 to i1
   %323 = load ptr, ptr %.sroa.7.0..sroa_idx465, align 8, !nonnull !22
   %324 = load i64, ptr %191, align 8
-  %.sroa.034.0.idx = select i1 %trunc, i64 16, i64 0
+  %.sroa.034.0.idx = shl nuw nsw i64 %322, 4
   %.sroa.034.0 = getelementptr inbounds nuw i8, ptr %323, i64 %.sroa.034.0.idx
   %.not.i136 = icmp ugt i64 %.sroa.038.0415, %321
   br i1 %.not.i136, label %350, label %325

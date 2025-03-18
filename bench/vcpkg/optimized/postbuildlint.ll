@@ -14218,8 +14218,8 @@ _ZNKSt13unordered_mapIN5vcpkg11BuildPolicyEbSt4hashIS1_ESt8equal_toIS1_ESaISt4pa
   %.sroa.06.1.i.i.i.i1288 = phi ptr [ %5012, %5011 ], [ %.sroa.06.0.i.i.i.i1290, %4996 ], [ %5018, %5016 ]
   %5029 = getelementptr inbounds nuw i8, ptr %.sroa.06.1.i.i.i.i1288, i64 12
   %5030 = load i8, ptr %5029, align 4, !tbaa !46, !range !49, !noundef !50
-  %5031 = trunc nuw i8 %5030 to i1
-  %5032 = select i1 %5031, i16 256, i16 0
+  %5031 = zext nneg i8 %5030 to i16
+  %5032 = shl nuw nsw i16 %5031, 8
   br label %_ZNK5vcpkg13BuildPolicies10is_enabledENS_11BuildPolicyE.exit1292
 
 _ZNK5vcpkg13BuildPolicies10is_enabledENS_11BuildPolicyE.exit1292: ; preds = %5019, %.lr.ph.i.i.i.i.i.i1282, %4995, %_ZNKSt13unordered_mapIN5vcpkg11BuildPolicyEbSt4hashIS1_ESt8equal_toIS1_ESaISt4pairIKS1_bEEE4findERS7_.exit.i.i1287, %5000

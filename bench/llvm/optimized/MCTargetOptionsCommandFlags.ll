@@ -2789,20 +2789,20 @@ define dso_local void @_ZN4llvm2mc28InitMCTargetOptionsFromFlagsEv(ptr dead_on_u
   %10 = or disjoint i16 %9, %7
   store i16 %10, ptr %0, align 8
   %11 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm2mc28RegisterMCTargetOptionsFlagsC1EvE27IncrementalLinkerCompatible, i64 120), align 8, !tbaa !3, !range !12, !noundef !13
-  %12 = trunc nuw i8 %11 to i1
-  %13 = select i1 %12, i16 128, i16 0
+  %12 = shl nuw i8 %11, 7
+  %13 = zext i8 %12 to i16
   %14 = and i16 %10, -129
-  %15 = or disjoint i16 %13, %14
+  %15 = or disjoint i16 %14, %13
   store i16 %15, ptr %0, align 8
   %16 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm2mc28RegisterMCTargetOptionsFlagsC1EvE5FDPIC, i64 120), align 8, !tbaa !3, !range !12, !noundef !13
-  %17 = trunc nuw i8 %16 to i1
-  %18 = select i1 %17, i16 256, i16 0
+  %17 = zext nneg i8 %16 to i16
+  %18 = shl nuw nsw i16 %17, 8
   %19 = and i16 %15, -257
   %20 = or disjoint i16 %18, %19
   store i16 %20, ptr %0, align 8
   %21 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm2mc28RegisterMCTargetOptionsFlagsC1EvE7Dwarf64, i64 120), align 8, !tbaa !3, !range !12, !noundef !13
-  %22 = trunc nuw i8 %21 to i1
-  %23 = select i1 %22, i16 8192, i16 0
+  %22 = zext nneg i8 %21 to i16
+  %23 = shl nuw nsw i16 %22, 13
   %24 = and i16 %20, -8193
   %25 = or disjoint i16 %23, %24
   store i16 %25, ptr %0, align 8
@@ -2810,8 +2810,8 @@ define dso_local void @_ZN4llvm2mc28InitMCTargetOptionsFromFlagsEv(ptr dead_on_u
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 20
   store i32 %26, ptr %27, align 4, !tbaa !106
   %28 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm2mc28RegisterMCTargetOptionsFlagsC1EvE10ShowMCInst, i64 120), align 8, !tbaa !3, !range !12, !noundef !13
-  %29 = trunc nuw i8 %28 to i1
-  %30 = select i1 %29, i16 1024, i16 0
+  %29 = zext nneg i8 %28 to i16
+  %30 = shl nuw nsw i16 %29, 10
   %31 = and i16 %25, -1025
   %32 = or disjoint i16 %30, %31
   store i16 %32, ptr %0, align 8
@@ -2961,35 +2961,35 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %4) #15
   %86 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm2mc28RegisterMCTargetOptionsFlagsC1EvE13FatalWarnings, i64 120), align 8, !tbaa !3, !range !12, !noundef !13
-  %87 = trunc nuw i8 %86 to i1
-  %88 = load i16, ptr %0, align 8
-  %89 = select i1 %87, i16 4, i16 0
-  %90 = and i16 %88, -5
+  %87 = load i16, ptr %0, align 8
+  %88 = shl nuw nsw i8 %86, 2
+  %89 = zext nneg i8 %88 to i16
+  %90 = and i16 %87, -5
   %91 = or disjoint i16 %90, %89
   store i16 %91, ptr %0, align 8
   %92 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm2mc28RegisterMCTargetOptionsFlagsC1EvE6NoWarn, i64 120), align 8, !tbaa !3, !range !12, !noundef !13
-  %93 = trunc nuw i8 %92 to i1
-  %94 = select i1 %93, i16 8, i16 0
+  %93 = shl nuw nsw i8 %92, 3
+  %94 = zext nneg i8 %93 to i16
   %95 = and i16 %91, -9
-  %96 = or disjoint i16 %94, %95
+  %96 = or disjoint i16 %95, %94
   store i16 %96, ptr %0, align 8
   %97 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm2mc28RegisterMCTargetOptionsFlagsC1EvE16NoDeprecatedWarn, i64 120), align 8, !tbaa !3, !range !12, !noundef !13
-  %98 = trunc nuw i8 %97 to i1
-  %99 = select i1 %98, i16 16, i16 0
+  %98 = shl nuw nsw i8 %97, 4
+  %99 = zext nneg i8 %98 to i16
   %100 = and i16 %96, -17
-  %101 = or disjoint i16 %99, %100
+  %101 = or disjoint i16 %100, %99
   store i16 %101, ptr %0, align 8
   %102 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm2mc28RegisterMCTargetOptionsFlagsC1EvE11NoTypeCheck, i64 120), align 8, !tbaa !3, !range !12, !noundef !13
-  %103 = trunc nuw i8 %102 to i1
-  %104 = select i1 %103, i16 32, i16 0
+  %103 = shl nuw nsw i8 %102, 5
+  %104 = zext nneg i8 %103 to i16
   %105 = and i16 %101, -33
-  %106 = or disjoint i16 %104, %105
+  %106 = or disjoint i16 %105, %104
   store i16 %106, ptr %0, align 8
   %107 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm2mc28RegisterMCTargetOptionsFlagsC1EvE14SaveTempLabels, i64 120), align 8, !tbaa !3, !range !12, !noundef !13
-  %108 = trunc nuw i8 %107 to i1
-  %109 = select i1 %108, i16 64, i16 0
+  %108 = shl nuw nsw i8 %107, 6
+  %109 = zext nneg i8 %108 to i16
   %110 = and i16 %106, -65
-  %111 = or disjoint i16 %109, %110
+  %111 = or disjoint i16 %110, %109
   store i16 %111, ptr %0, align 8
   %112 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm2mc28RegisterMCTargetOptionsFlagsC1EvE4Crel, i64 120), align 8, !tbaa !3, !range !12, !noundef !13
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 2

@@ -6623,12 +6623,11 @@ define hidden noundef zeroext i1 @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$G
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1355)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !1358)
   %4 = load i64, ptr %3, align 8, !range !1250, !alias.scope !1361, !noalias !1362, !noundef !5
-  %trunc.i.i = trunc nuw i64 %4 to i1
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %6 = load ptr, ptr %5, align 8, !alias.scope !1361, !noalias !1362, !nonnull !5, !noundef !5
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %8 = load i64, ptr %7, align 8, !alias.scope !1361, !noalias !1362, !noundef !5
-  %.sink.idx.i.i = select i1 %trunc.i.i, i64 16, i64 0
+  %.sink.idx.i.i = shl nuw nsw i64 %4, 4
   %.sink.i.i = getelementptr inbounds nuw i8, ptr %6, i64 %.sink.idx.i.i
   %9 = tail call noundef zeroext i1 @"_ZN40_$LT$str$u20$as$u20$core..fmt..Debug$GT$3fmt17h526e9ca528e9b943E"(ptr noalias noundef nonnull readonly align 1 %.sink.i.i, i64 noundef %8, ptr noalias noundef nonnull align 8 dereferenceable(64) %1), !noalias !1361
   ret i1 %9
@@ -6645,10 +6644,9 @@ define hidden noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !1368
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !1368
   %7 = load i64, ptr %6, align 8, !range !1250, !alias.scope !1365, !noalias !1370, !noundef !5
-  %trunc.i = trunc nuw i64 %7 to i1
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load ptr, ptr %8, align 8, !alias.scope !1365, !noalias !1370, !nonnull !5, !noundef !5
-  %.sink3.idx.i = select i1 %trunc.i, i64 16, i64 0
+  %.sink3.idx.i = shl nuw nsw i64 %7, 4
   %.sink3.i = getelementptr inbounds nuw i8, ptr %9, i64 %.sink3.idx.i
   %.sink.in.i = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.sink.i = load i64, ptr %.sink.in.i, align 8, !alias.scope !1365, !noalias !1370, !noundef !5
@@ -7272,14 +7270,12 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$
   %11 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 8
   %12 = load ptr, ptr %11, align 8, !alias.scope !1854, !noalias !1855, !nonnull !5
   %13 = load i64, ptr %.val.i.i, align 8, !range !1250, !alias.scope !1854, !noalias !1855, !noundef !5
-  %trunc3.i.i.i.i.i = trunc nuw i64 %13 to i1
-  %.sroa.01.0.idx.i.i.i.i.i = select i1 %trunc3.i.i.i.i.i, i64 16, i64 0
+  %.sroa.01.0.idx.i.i.i.i.i = shl nuw nsw i64 %13, 4
   %.sroa.01.0.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 %.sroa.01.0.idx.i.i.i.i.i
   %14 = getelementptr inbounds i8, ptr %8, i64 -40
   %15 = load ptr, ptr %14, align 8, !alias.scope !1852, !noalias !1853, !nonnull !5
   %16 = load i64, ptr %10, align 8, !range !1250, !alias.scope !1852, !noalias !1853, !noundef !5
-  %trunc.i.i.i.i.i = trunc nuw i64 %16 to i1
-  %.sroa.0.0.idx.i.i.i.i.i = select i1 %trunc.i.i.i.i.i, i64 16, i64 0
+  %.sroa.0.0.idx.i.i.i.i.i = shl nuw nsw i64 %16, 4
   %.sroa.0.0.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 %.sroa.0.0.idx.i.i.i.i.i
   %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.sroa.0.0.i.i.i.i.i, ptr nonnull readonly align 1 %.sroa.01.0.i.i.i.i.i, i64 %.sroa.3.0.i.i.i.i.i), !alias.scope !1856, !noalias !1863
   %17 = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
@@ -7356,14 +7352,12 @@ define hidden noundef zeroext i1 @"_ZN4core3ops8function6FnOnce40call_once$u7b$$
   %11 = getelementptr inbounds i8, ptr %8, i64 -24
   %12 = load ptr, ptr %11, align 8, !alias.scope !1944, !noalias !1945, !nonnull !5
   %13 = load i64, ptr %10, align 8, !range !1250, !alias.scope !1944, !noalias !1945, !noundef !5
-  %trunc3.i.i.i.i.i.i = trunc nuw i64 %13 to i1
-  %.sroa.01.0.idx.i.i.i.i.i.i = select i1 %trunc3.i.i.i.i.i.i, i64 16, i64 0
+  %.sroa.01.0.idx.i.i.i.i.i.i = shl nuw nsw i64 %13, 4
   %.sroa.01.0.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 %.sroa.01.0.idx.i.i.i.i.i.i
   %14 = getelementptr inbounds nuw i8, ptr %.val.i.i, i64 8
   %15 = load ptr, ptr %14, align 8, !alias.scope !1942, !noalias !1943, !nonnull !5
   %16 = load i64, ptr %.val.i.i, align 8, !range !1250, !alias.scope !1942, !noalias !1943, !noundef !5
-  %trunc.i.i.i.i.i.i = trunc nuw i64 %16 to i1
-  %.sroa.0.0.idx.i.i.i.i.i.i = select i1 %trunc.i.i.i.i.i.i, i64 16, i64 0
+  %.sroa.0.0.idx.i.i.i.i.i.i = shl nuw nsw i64 %16, 4
   %.sroa.0.0.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 %.sroa.0.0.idx.i.i.i.i.i.i
   %bcmp.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.sroa.0.0.i.i.i.i.i.i, ptr nonnull readonly align 1 %.sroa.01.0.i.i.i.i.i.i, i64 %.sroa.3.0.i.i.i.i.i.i), !alias.scope !1946, !noalias !1953
   %17 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i, 0
@@ -17297,14 +17291,12 @@ define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8, !alias.scope !6472, !noalias !6471, !nonnull !5
   %6 = load i64, ptr %1, align 8, !range !1250, !alias.scope !6472, !noalias !6471, !noundef !5
-  %trunc3.i.i = trunc nuw i64 %6 to i1
-  %.sroa.01.0.idx.i.i = select i1 %trunc3.i.i, i64 16, i64 0
+  %.sroa.01.0.idx.i.i = shl nuw nsw i64 %6, 4
   %.sroa.01.0.i.i = getelementptr inbounds nuw i8, ptr %5, i64 %.sroa.01.0.idx.i.i
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !alias.scope !6471, !noalias !6472, !nonnull !5
   %9 = load i64, ptr %0, align 8, !range !1250, !alias.scope !6471, !noalias !6472, !noundef !5
-  %trunc.i.i = trunc nuw i64 %9 to i1
-  %.sroa.0.0.idx.i.i = select i1 %trunc.i.i, i64 16, i64 0
+  %.sroa.0.0.idx.i.i = shl nuw nsw i64 %9, 4
   %.sroa.0.0.i.i = getelementptr inbounds nuw i8, ptr %8, i64 %.sroa.0.0.idx.i.i
   %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.sroa.0.0.i.i, ptr nonnull readonly align 1 %.sroa.01.0.i.i, i64 %.sroa.3.0.i.i), !alias.scope !6473, !noalias !6480
   %10 = icmp eq i32 %bcmp.i.i.i.i, 0
@@ -31885,12 +31877,11 @@ define hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..H
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8967)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !8970)
   %6 = load i64, ptr %2, align 8, !range !1250, !alias.scope !8972, !noalias !8973, !noundef !5
-  %trunc.i.i.i.i = trunc nuw i64 %6 to i1
   %7 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %8 = load ptr, ptr %7, align 8, !alias.scope !8972, !noalias !8973, !nonnull !5, !noundef !5
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %10 = load i64, ptr %9, align 8, !alias.scope !8972, !noalias !8973, !noundef !5
-  %.sink.idx.i.i.i.i = select i1 %trunc.i.i.i.i, i64 16, i64 0
+  %.sink.idx.i.i.i.i = shl nuw nsw i64 %6, 4
   %.sink.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 %.sink.idx.i.i.i.i
   invoke void @"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$5write17h5b780d2263fcefdeE.llvm.9792776892897051010"(ptr noalias noundef nonnull align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 1 %.sink.i.i.i.i, i64 noundef %10)
           to label %18 unwind label %11
@@ -31960,8 +31951,7 @@ define hidden void @"_ZN9hashbrown11rustc_entry62_$LT$impl$u20$hashbrown..map..H
   %38 = getelementptr inbounds i8, ptr %36, i64 -40
   %39 = load ptr, ptr %38, align 8, !alias.scope !9009, !noalias !9010, !nonnull !5
   %40 = load i64, ptr %37, align 8, !range !1250, !alias.scope !9009, !noalias !9010, !noundef !5
-  %trunc.i.i.i.i.i = trunc nuw i64 %40 to i1
-  %.sroa.0.0.idx.i.i.i.i.i = select i1 %trunc.i.i.i.i.i, i64 16, i64 0
+  %.sroa.0.0.idx.i.i.i.i.i = shl nuw nsw i64 %40, 4
   %.sroa.0.0.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %39, i64 %.sroa.0.0.idx.i.i.i.i.i
   %bcmp.i.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly align 1 %.sroa.0.0.i.i.i.i.i, ptr nonnull readonly align 1 %.sink.i.i.i.i, i64 %10), !alias.scope !9015, !noalias !9022
   %41 = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
@@ -38671,12 +38661,11 @@ define hidden noundef ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6inse
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11426)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !11429)
   %5 = load i64, ptr %1, align 8, !range !1250, !alias.scope !11431, !noalias !11432, !noundef !5
-  %trunc.i.i.i.i = trunc nuw i64 %5 to i1
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %7 = load ptr, ptr %6, align 8, !alias.scope !11431, !noalias !11432, !nonnull !5, !noundef !5
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %9 = load i64, ptr %8, align 8, !alias.scope !11431, !noalias !11432, !noundef !5
-  %.sink.idx.i.i.i.i = select i1 %trunc.i.i.i.i, i64 16, i64 0
+  %.sink.idx.i.i.i.i = shl nuw nsw i64 %5, 4
   %.sink.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 %.sink.idx.i.i.i.i
   invoke void @"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$5write17h5b780d2263fcefdeE.llvm.9792776892897051010"(ptr noalias noundef nonnull align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 1 %.sink.i.i.i.i, i64 noundef %9)
           to label %10 unwind label %53
@@ -41842,12 +41831,11 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hc5
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12495)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !12498)
   %8 = load i64, ptr %2, align 8, !range !1250, !alias.scope !12500, !noalias !12501, !noundef !5
-  %trunc.i.i.i.i = trunc nuw i64 %8 to i1
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load ptr, ptr %9, align 8, !alias.scope !12500, !noalias !12501, !nonnull !5, !noundef !5
   %11 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %12 = load i64, ptr %11, align 8, !alias.scope !12500, !noalias !12501, !noundef !5
-  %.sink.idx.i.i.i.i = select i1 %trunc.i.i.i.i, i64 16, i64 0
+  %.sink.idx.i.i.i.i = shl nuw nsw i64 %8, 4
   %.sink.i.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 %.sink.idx.i.i.i.i
   invoke void @"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$5write17h5b780d2263fcefdeE.llvm.9792776892897051010"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 1 %.sink.i.i.i.i, i64 noundef %12)
           to label %13 unwind label %99
@@ -41875,12 +41863,11 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hc5
   %.sroa.3.0.i.i.i.i.i.i.pre = load i64, ptr %11, align 8, !alias.scope !12508, !noalias !12516
   %.pre = load ptr, ptr %9, align 8, !alias.scope !12508, !noalias !12516
   %.pre14 = load i64, ptr %2, align 8, !range !1250, !alias.scope !12508, !noalias !12516
-  %.pre16 = trunc nuw i64 %.pre14 to i1
-  %.pre17 = select i1 %.pre16, i64 16, i64 0
+  %.pre16 = shl nuw nsw i64 %.pre14, 4
   br label %"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h6601587f2bc04b4eE.exit.i"
 
 "_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$7reserve17h6601587f2bc04b4eE.exit.i": ; preds = %.noexc, %13
-  %.sroa.0.0.idx.i.i.i.i.i.i.pre-phi = phi i64 [ %.pre17, %.noexc ], [ %.sink.idx.i.i.i.i, %13 ]
+  %.sroa.0.0.idx.i.i.i.i.i.i.pre-phi = phi i64 [ %.pre16, %.noexc ], [ %.sink.idx.i.i.i.i, %13 ]
   %22 = phi ptr [ %.pre, %.noexc ], [ %10, %13 ]
   %.sroa.3.0.i.i.i.i.i.i = phi i64 [ %.sroa.3.0.i.i.i.i.i.i.pre, %.noexc ], [ %12, %13 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !12517)
@@ -41929,8 +41916,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17hc5
   %40 = getelementptr inbounds i8, ptr %38, i64 -56
   %41 = load ptr, ptr %40, align 8, !alias.scope !12539, !noalias !12540, !nonnull !5
   %42 = load i64, ptr %39, align 8, !range !1250, !alias.scope !12539, !noalias !12540, !noundef !5
-  %trunc3.i.i.i.i.i.i = trunc nuw i64 %42 to i1
-  %.sroa.01.0.idx.i.i.i.i.i.i = select i1 %trunc3.i.i.i.i.i.i, i64 16, i64 0
+  %.sroa.01.0.idx.i.i.i.i.i.i = shl nuw nsw i64 %42, 4
   %.sroa.01.0.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %41, i64 %.sroa.01.0.idx.i.i.i.i.i.i
   %bcmp.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly align 1 %.sroa.0.0.i.i.i.i.i.i, ptr nonnull readonly align 1 %.sroa.01.0.i.i.i.i.i.i, i64 %.sroa.3.0.i.i.i.i.i.i), !alias.scope !12546, !noalias !12553
   %43 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i, 0
@@ -62210,12 +62196,11 @@ _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h0df45fe7b9d816bbE.llv
   call void @llvm.experimental.noalias.scope.decl(metadata !17772), !noalias !17751
   call void @llvm.experimental.noalias.scope.decl(metadata !17775), !noalias !17751
   %83 = load i64, ptr %82, align 8, !range !1250, !alias.scope !17777, !noalias !17778, !noundef !5
-  %trunc.i.i.i.i.i.i = trunc nuw i64 %83 to i1
   %84 = getelementptr inbounds i8, ptr %81, i64 -56
   %85 = load ptr, ptr %84, align 8, !alias.scope !17777, !noalias !17778, !nonnull !5, !noundef !5
   %86 = getelementptr inbounds i8, ptr %81, i64 -48
   %87 = load i64, ptr %86, align 8, !alias.scope !17777, !noalias !17778, !noundef !5
-  %.sink.idx.i.i.i.i.i.i = select i1 %trunc.i.i.i.i.i.i, i64 16, i64 0
+  %.sink.idx.i.i.i.i.i.i = shl nuw nsw i64 %83, 4
   %.sink.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %85, i64 %.sink.idx.i.i.i.i.i.i
   invoke void @"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$5write17h5b780d2263fcefdeE.llvm.9792776892897051010"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3, ptr noalias noundef nonnull readonly align 1 %.sink.i.i.i.i.i.i, i64 noundef %87)
           to label %108 unwind label %63
@@ -70237,12 +70222,11 @@ _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h0df45fe7b9d816bbE.llv
   call void @llvm.experimental.noalias.scope.decl(metadata !19498), !noalias !19477
   call void @llvm.experimental.noalias.scope.decl(metadata !19501), !noalias !19477
   %86 = load i64, ptr %85, align 8, !range !1250, !alias.scope !19503, !noalias !19504, !noundef !5
-  %trunc.i.i.i.i.i.i = trunc nuw i64 %86 to i1
   %87 = getelementptr inbounds i8, ptr %84, i64 -24
   %88 = load ptr, ptr %87, align 8, !alias.scope !19503, !noalias !19504, !nonnull !5, !noundef !5
   %89 = getelementptr inbounds i8, ptr %84, i64 -16
   %90 = load i64, ptr %89, align 8, !alias.scope !19503, !noalias !19504, !noundef !5
-  %.sink.idx.i.i.i.i.i.i = select i1 %trunc.i.i.i.i.i.i, i64 16, i64 0
+  %.sink.idx.i.i.i.i.i.i = shl nuw nsw i64 %86, 4
   %.sink.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %88, i64 %.sink.idx.i.i.i.i.i.i
   invoke void @"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$5write17h5b780d2263fcefdeE.llvm.9792776892897051010"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 1 %.sink.i.i.i.i.i.i, i64 noundef %90)
           to label %111 unwind label %66
@@ -76736,12 +76720,11 @@ _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17h0df45fe7b9d816bbE.llv
   call void @llvm.experimental.noalias.scope.decl(metadata !20969), !noalias !20948
   call void @llvm.experimental.noalias.scope.decl(metadata !20972), !noalias !20948
   %89 = load i64, ptr %88, align 8, !range !1250, !alias.scope !20974, !noalias !20975, !noundef !5
-  %trunc.i.i.i.i.i.i = trunc nuw i64 %89 to i1
   %90 = getelementptr inbounds i8, ptr %87, i64 -40
   %91 = load ptr, ptr %90, align 8, !alias.scope !20974, !noalias !20975, !nonnull !5, !noundef !5
   %92 = getelementptr inbounds i8, ptr %87, i64 -32
   %93 = load i64, ptr %92, align 8, !alias.scope !20974, !noalias !20975, !noundef !5
-  %.sink.idx.i.i.i.i.i.i = select i1 %trunc.i.i.i.i.i.i, i64 16, i64 0
+  %.sink.idx.i.i.i.i.i.i = shl nuw nsw i64 %89, 4
   %.sink.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %91, i64 %.sink.idx.i.i.i.i.i.i
   invoke void @"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$5write17h5b780d2263fcefdeE.llvm.9792776892897051010"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5, ptr noalias noundef nonnull readonly align 1 %.sink.i.i.i.i.i.i, i64 noundef %93)
           to label %114 unwind label %69
@@ -80990,12 +80973,11 @@ define internal noundef i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21943)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !21946)
   %9 = load i64, ptr %8, align 8, !range !1250, !alias.scope !21948, !noalias !21949, !noundef !5
-  %trunc.i.i.i.i.i = trunc nuw i64 %9 to i1
   %10 = getelementptr inbounds i8, ptr %7, i64 -40
   %11 = load ptr, ptr %10, align 8, !alias.scope !21948, !noalias !21949, !nonnull !5, !noundef !5
   %12 = getelementptr inbounds i8, ptr %7, i64 -32
   %13 = load i64, ptr %12, align 8, !alias.scope !21948, !noalias !21949, !noundef !5
-  %.sink.idx.i.i.i.i.i = select i1 %trunc.i.i.i.i.i, i64 16, i64 0
+  %.sink.idx.i.i.i.i.i = shl nuw nsw i64 %9, 4
   %.sink.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %11, i64 %.sink.idx.i.i.i.i.i
   call void @"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$5write17h5b780d2263fcefdeE.llvm.9792776892897051010"(ptr noalias noundef nonnull align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 1 %.sink.i.i.i.i.i, i64 noundef %13), !noalias !21951
   %14 = load i64, ptr %4, align 8, !alias.scope !21952, !noalias !21951, !noundef !5
@@ -82688,12 +82670,11 @@ define internal noundef i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22986)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !22989)
   %9 = load i64, ptr %8, align 8, !range !1250, !alias.scope !22991, !noalias !22992, !noundef !5
-  %trunc.i.i.i.i.i = trunc nuw i64 %9 to i1
   %10 = getelementptr inbounds i8, ptr %7, i64 -56
   %11 = load ptr, ptr %10, align 8, !alias.scope !22991, !noalias !22992, !nonnull !5, !noundef !5
   %12 = getelementptr inbounds i8, ptr %7, i64 -48
   %13 = load i64, ptr %12, align 8, !alias.scope !22991, !noalias !22992, !noundef !5
-  %.sink.idx.i.i.i.i.i = select i1 %trunc.i.i.i.i.i, i64 16, i64 0
+  %.sink.idx.i.i.i.i.i = shl nuw nsw i64 %9, 4
   %.sink.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %11, i64 %.sink.idx.i.i.i.i.i
   call void @"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$5write17h5b780d2263fcefdeE.llvm.9792776892897051010"(ptr noalias noundef nonnull align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 1 %.sink.i.i.i.i.i, i64 noundef %13), !noalias !22994
   %14 = load i64, ptr %4, align 8, !alias.scope !22995, !noalias !22994, !noundef !5
@@ -82946,12 +82927,11 @@ define internal noundef i64 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$14reserve_
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23125)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !23128)
   %9 = load i64, ptr %8, align 8, !range !1250, !alias.scope !23130, !noalias !23131, !noundef !5
-  %trunc.i.i.i.i.i = trunc nuw i64 %9 to i1
   %10 = getelementptr inbounds i8, ptr %7, i64 -24
   %11 = load ptr, ptr %10, align 8, !alias.scope !23130, !noalias !23131, !nonnull !5, !noundef !5
   %12 = getelementptr inbounds i8, ptr %7, i64 -16
   %13 = load i64, ptr %12, align 8, !alias.scope !23130, !noalias !23131, !noundef !5
-  %.sink.idx.i.i.i.i.i = select i1 %trunc.i.i.i.i.i, i64 16, i64 0
+  %.sink.idx.i.i.i.i.i = shl nuw nsw i64 %9, 4
   %.sink.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %11, i64 %.sink.idx.i.i.i.i.i
   call void @"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$5write17h5b780d2263fcefdeE.llvm.9792776892897051010"(ptr noalias noundef nonnull align 8 dereferenceable(8) %4, ptr noalias noundef nonnull readonly align 1 %.sink.i.i.i.i.i, i64 noundef %13), !noalias !23133
   %14 = load i64, ptr %4, align 8, !alias.scope !23134, !noalias !23133, !noundef !5
@@ -84988,8 +84968,7 @@ define hidden { i64, ptr } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_f
   %17 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %18 = load ptr, ptr %17, align 8, !nonnull !5
   %19 = load i64, ptr %2, align 8, !range !1250
-  %trunc.i.i.i.i.i = trunc nuw i64 %19 to i1
-  %.sroa.0.0.idx.i.i.i.i.i = select i1 %trunc.i.i.i.i.i, i64 16, i64 0
+  %.sroa.0.0.idx.i.i.i.i.i = shl nuw nsw i64 %19, 4
   %.sroa.0.0.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %18, i64 %.sroa.0.0.idx.i.i.i.i.i
   br label %20
 
@@ -85028,8 +85007,7 @@ define hidden { i64, ptr } @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24find_or_f
   %32 = getelementptr inbounds i8, ptr %30, i64 -24
   %33 = load ptr, ptr %32, align 8, !alias.scope !23582, !noalias !23583, !nonnull !5
   %34 = load i64, ptr %31, align 8, !range !1250, !alias.scope !23582, !noalias !23583, !noundef !5
-  %trunc3.i.i.i.i.i = trunc nuw i64 %34 to i1
-  %.sroa.01.0.idx.i.i.i.i.i = select i1 %trunc3.i.i.i.i.i, i64 16, i64 0
+  %.sroa.01.0.idx.i.i.i.i.i = shl nuw nsw i64 %34, 4
   %.sroa.01.0.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %33, i64 %.sroa.01.0.idx.i.i.i.i.i
   %bcmp.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.sroa.0.0.i.i.i.i.i, ptr nonnull readonly align 1 %.sroa.01.0.i.i.i.i.i, i64 %.sroa.3.0.i.i.i.i.i), !alias.scope !23589, !noalias !23596
   %35 = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0
@@ -86362,14 +86340,12 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$24fin
   %11 = getelementptr inbounds i8, ptr %8, i64 -24
   %12 = load ptr, ptr %11, align 8, !alias.scope !24054, !noalias !24053, !nonnull !5
   %13 = load i64, ptr %10, align 8, !range !1250, !alias.scope !24054, !noalias !24053, !noundef !5
-  %trunc3.i.i.i.i = trunc nuw i64 %13 to i1
-  %.sroa.01.0.idx.i.i.i.i = select i1 %trunc3.i.i.i.i, i64 16, i64 0
+  %.sroa.01.0.idx.i.i.i.i = shl nuw nsw i64 %13, 4
   %.sroa.01.0.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 %.sroa.01.0.idx.i.i.i.i
   %14 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %15 = load ptr, ptr %14, align 8, !alias.scope !24053, !noalias !24054, !nonnull !5
   %16 = load i64, ptr %.val, align 8, !range !1250, !alias.scope !24053, !noalias !24054, !noundef !5
-  %trunc.i.i.i.i = trunc nuw i64 %16 to i1
-  %.sroa.0.0.idx.i.i.i.i = select i1 %trunc.i.i.i.i, i64 16, i64 0
+  %.sroa.0.0.idx.i.i.i.i = shl nuw nsw i64 %16, 4
   %.sroa.0.0.i.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 %.sroa.0.0.idx.i.i.i.i
   %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.sroa.0.0.i.i.i.i, ptr nonnull readonly align 1 %.sroa.01.0.i.i.i.i, i64 %.sroa.3.0.i.i.i.i), !alias.scope !24055, !noalias !24062
   %17 = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
@@ -87632,8 +87608,7 @@ define hidden noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17hbf1c
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !5
   %11 = load i64, ptr %2, align 8, !range !1250
-  %trunc3.i.i.i.i = trunc nuw i64 %11 to i1
-  %.sroa.01.0.idx.i.i.i.i = select i1 %trunc3.i.i.i.i, i64 16, i64 0
+  %.sroa.01.0.idx.i.i.i.i = shl nuw nsw i64 %11, 4
   %.sroa.01.0.i.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 %.sroa.01.0.idx.i.i.i.i
   br label %12
 
@@ -87669,8 +87644,7 @@ define hidden noundef ptr @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find17hbf1c
   %24 = getelementptr inbounds i8, ptr %22, i64 -40
   %25 = load ptr, ptr %24, align 8, !alias.scope !24502, !noalias !24503, !nonnull !5
   %26 = load i64, ptr %23, align 8, !range !1250, !alias.scope !24502, !noalias !24503, !noundef !5
-  %trunc.i.i.i.i = trunc nuw i64 %26 to i1
-  %.sroa.0.0.idx.i.i.i.i = select i1 %trunc.i.i.i.i, i64 16, i64 0
+  %.sroa.0.0.idx.i.i.i.i = shl nuw nsw i64 %26, 4
   %.sroa.0.0.i.i.i.i = getelementptr inbounds nuw i8, ptr %25, i64 %.sroa.0.0.idx.i.i.i.i
   %bcmp.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.sroa.0.0.i.i.i.i, ptr nonnull readonly align 1 %.sroa.01.0.i.i.i.i, i64 %.sroa.32.0.i.i.i.i), !alias.scope !24508, !noalias !24515
   %27 = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
@@ -88354,14 +88328,12 @@ define hidden noundef zeroext i1 @"_ZN9hashbrown3raw21RawTable$LT$T$C$A$GT$4find
   %11 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %12 = load ptr, ptr %11, align 8, !alias.scope !24734, !noalias !24733, !nonnull !5
   %13 = load i64, ptr %.val, align 8, !range !1250, !alias.scope !24734, !noalias !24733, !noundef !5
-  %trunc3.i.i.i = trunc nuw i64 %13 to i1
-  %.sroa.01.0.idx.i.i.i = select i1 %trunc3.i.i.i, i64 16, i64 0
+  %.sroa.01.0.idx.i.i.i = shl nuw nsw i64 %13, 4
   %.sroa.01.0.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 %.sroa.01.0.idx.i.i.i
   %14 = getelementptr inbounds i8, ptr %8, i64 -40
   %15 = load ptr, ptr %14, align 8, !alias.scope !24733, !noalias !24734, !nonnull !5
   %16 = load i64, ptr %10, align 8, !range !1250, !alias.scope !24733, !noalias !24734, !noundef !5
-  %trunc.i.i.i = trunc nuw i64 %16 to i1
-  %.sroa.0.0.idx.i.i.i = select i1 %trunc.i.i.i, i64 16, i64 0
+  %.sroa.0.0.idx.i.i.i = shl nuw nsw i64 %16, 4
   %.sroa.0.0.i.i.i = getelementptr inbounds nuw i8, ptr %15, i64 %.sroa.0.0.idx.i.i.i
   %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.sroa.0.0.i.i.i, ptr nonnull readonly align 1 %.sroa.01.0.i.i.i, i64 %.sroa.3.0.i.i.i), !alias.scope !24735, !noalias !24742
   %17 = icmp eq i32 %bcmp.i.i.i.i.i, 0
@@ -137658,14 +137630,12 @@ define hidden noundef zeroext i1 @"_ZN74_$LT$gpui..shared_string..SharedString$u
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8, !alias.scope !36817, !noalias !36814, !nonnull !5
   %6 = load i64, ptr %1, align 8, !range !1250, !alias.scope !36817, !noalias !36814, !noundef !5
-  %trunc3.i = trunc nuw i64 %6 to i1
-  %.sroa.01.0.idx.i = select i1 %trunc3.i, i64 16, i64 0
+  %.sroa.01.0.idx.i = shl nuw nsw i64 %6, 4
   %.sroa.01.0.i = getelementptr inbounds nuw i8, ptr %5, i64 %.sroa.01.0.idx.i
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !alias.scope !36814, !noalias !36817, !nonnull !5
   %9 = load i64, ptr %0, align 8, !range !1250, !alias.scope !36814, !noalias !36817, !noundef !5
-  %trunc.i = trunc nuw i64 %9 to i1
-  %.sroa.0.0.idx.i = select i1 %trunc.i, i64 16, i64 0
+  %.sroa.0.0.idx.i = shl nuw nsw i64 %9, 4
   %.sroa.0.0.i = getelementptr inbounds nuw i8, ptr %8, i64 %.sroa.0.0.idx.i
   %bcmp.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.sroa.0.0.i, ptr nonnull readonly align 1 %.sroa.01.0.i, i64 %.sroa.3.0.i), !alias.scope !36819, !noalias !36826
   %10 = icmp eq i32 %bcmp.i.i.i, 0

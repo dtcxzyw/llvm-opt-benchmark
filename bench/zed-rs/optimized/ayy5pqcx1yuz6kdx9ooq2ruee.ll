@@ -32482,10 +32482,9 @@ define internal void @"_ZN102_$LT$extensions_ui..components..feature_upsell..Fea
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %10)
   %82 = call noundef align 8 dereferenceable(1176) ptr @"_ZN71_$LT$gpui..window..WindowContext$u20$as$u20$core..ops..deref..Deref$GT$5deref17hc63f9d594dbf0052E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2)
   %83 = load i64, ptr %0, align 8, !range !483, !noundef !37
-  %trunc = trunc nuw i64 %83 to i1
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %85 = load ptr, ptr %84, align 8, !nonnull !37
-  %.sroa.0.0.idx = select i1 %trunc, i64 16, i64 0
+  %.sroa.0.0.idx = shl nuw nsw i64 %83, 4
   %.sroa.0.0 = getelementptr inbounds nuw i8, ptr %85, i64 %.sroa.0.0.idx
   %.sroa.3.0.in = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.3.0 = load i64, ptr %.sroa.3.0.in, align 8, !noundef !37

@@ -30890,69 +30890,67 @@ declare void @__cxa_rethrow() local_unnamed_addr
 define noundef nonnull align 8 dereferenceable(16) ptr @_ZN5boost4jsonrsERSiRKNS0_13parse_optionsE(ptr noundef nonnull returned align 8 dereferenceable(16) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(14) %1) local_unnamed_addr #5 {
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 9
   %4 = load i8, ptr %3, align 1, !tbaa !609, !range !181, !noundef !182
-  %5 = zext nneg i8 %4 to i64
-  %6 = getelementptr inbounds nuw i8, ptr %1, i64 10
-  %7 = load i8, ptr %6, align 2, !tbaa !610, !range !181, !noundef !182
-  %8 = trunc nuw i8 %7 to i1
-  %9 = select i1 %8, i64 2, i64 0
-  %10 = or disjoint i64 %9, %5
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 11
-  %12 = load i8, ptr %11, align 1, !tbaa !611, !range !181, !noundef !182
-  %13 = trunc nuw i8 %12 to i1
-  %14 = select i1 %13, i64 4, i64 0
-  %15 = or disjoint i64 %10, %14
-  %16 = load ptr, ptr %0, align 8, !tbaa !19
-  %17 = getelementptr i8, ptr %16, i64 -24
-  %18 = load i64, ptr %17, align 8
-  %19 = getelementptr inbounds i8, ptr %0, i64 %18
-  %20 = load i32, ptr @_ZN5boost4json12_GLOBAL__N_118parse_flags_xallocE, align 4, !tbaa !114
-  %21 = getelementptr inbounds nuw i8, ptr %19, i64 192
-  %22 = load i32, ptr %21, align 8, !tbaa !346
-  %23 = icmp ult i32 %20, %22
-  br i1 %23, label %24, label %29
+  %5 = getelementptr inbounds nuw i8, ptr %1, i64 10
+  %6 = load i8, ptr %5, align 2, !tbaa !610, !range !181, !noundef !182
+  %7 = shl nuw nsw i8 %6, 1
+  %8 = or disjoint i8 %7, %4
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 11
+  %10 = load i8, ptr %9, align 1, !tbaa !611, !range !181, !noundef !182
+  %11 = shl nuw nsw i8 %10, 2
+  %12 = or disjoint i8 %8, %11
+  %13 = zext nneg i8 %12 to i64
+  %14 = load ptr, ptr %0, align 8, !tbaa !19
+  %15 = getelementptr i8, ptr %14, i64 -24
+  %16 = load i64, ptr %15, align 8
+  %17 = getelementptr inbounds i8, ptr %0, i64 %16
+  %18 = load i32, ptr @_ZN5boost4json12_GLOBAL__N_118parse_flags_xallocE, align 4, !tbaa !114
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 192
+  %20 = load i32, ptr %19, align 8, !tbaa !346
+  %21 = icmp ult i32 %18, %20
+  br i1 %21, label %22, label %27
 
-24:                                               ; preds = %2
-  %25 = getelementptr inbounds nuw i8, ptr %19, i64 200
-  %26 = load ptr, ptr %25, align 8, !tbaa !347
-  %27 = sext i32 %20 to i64
-  %28 = getelementptr inbounds %"struct.std::ios_base::_Words", ptr %26, i64 %27
+22:                                               ; preds = %2
+  %23 = getelementptr inbounds nuw i8, ptr %17, i64 200
+  %24 = load ptr, ptr %23, align 8, !tbaa !347
+  %25 = sext i32 %18 to i64
+  %26 = getelementptr inbounds %"struct.std::ios_base::_Words", ptr %24, i64 %25
   br label %_ZNSt8ios_base5iwordEi.exit
 
-29:                                               ; preds = %2
-  %30 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt8ios_base13_M_grow_wordsEib(ptr noundef nonnull align 8 dereferenceable(216) %19, i32 noundef %20, i1 noundef zeroext true)
+27:                                               ; preds = %2
+  %28 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt8ios_base13_M_grow_wordsEib(ptr noundef nonnull align 8 dereferenceable(216) %17, i32 noundef %18, i1 noundef zeroext true)
   %.pre = load ptr, ptr %0, align 8, !tbaa !19
   br label %_ZNSt8ios_base5iwordEi.exit
 
-_ZNSt8ios_base5iwordEi.exit:                      ; preds = %24, %29
-  %31 = phi ptr [ %16, %24 ], [ %.pre, %29 ]
-  %32 = phi ptr [ %28, %24 ], [ %30, %29 ]
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  store i64 %15, ptr %33, align 8, !tbaa !11
-  %34 = load i64, ptr %1, align 8, !tbaa !612
-  %35 = getelementptr i8, ptr %31, i64 -24
-  %36 = load i64, ptr %35, align 8
-  %37 = getelementptr inbounds i8, ptr %0, i64 %36
-  %38 = load i32, ptr @_ZN5boost4json12_GLOBAL__N_118parse_depth_xallocE, align 4, !tbaa !114
-  %39 = getelementptr inbounds nuw i8, ptr %37, i64 192
-  %40 = load i32, ptr %39, align 8, !tbaa !346
-  %41 = icmp ult i32 %38, %40
-  br i1 %41, label %42, label %47
+_ZNSt8ios_base5iwordEi.exit:                      ; preds = %22, %27
+  %29 = phi ptr [ %14, %22 ], [ %.pre, %27 ]
+  %30 = phi ptr [ %26, %22 ], [ %28, %27 ]
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 8
+  store i64 %13, ptr %31, align 8, !tbaa !11
+  %32 = load i64, ptr %1, align 8, !tbaa !612
+  %33 = getelementptr i8, ptr %29, i64 -24
+  %34 = load i64, ptr %33, align 8
+  %35 = getelementptr inbounds i8, ptr %0, i64 %34
+  %36 = load i32, ptr @_ZN5boost4json12_GLOBAL__N_118parse_depth_xallocE, align 4, !tbaa !114
+  %37 = getelementptr inbounds nuw i8, ptr %35, i64 192
+  %38 = load i32, ptr %37, align 8, !tbaa !346
+  %39 = icmp ult i32 %36, %38
+  br i1 %39, label %40, label %45
 
-42:                                               ; preds = %_ZNSt8ios_base5iwordEi.exit
-  %43 = getelementptr inbounds nuw i8, ptr %37, i64 200
-  %44 = load ptr, ptr %43, align 8, !tbaa !347
-  %45 = sext i32 %38 to i64
-  %46 = getelementptr inbounds %"struct.std::ios_base::_Words", ptr %44, i64 %45
+40:                                               ; preds = %_ZNSt8ios_base5iwordEi.exit
+  %41 = getelementptr inbounds nuw i8, ptr %35, i64 200
+  %42 = load ptr, ptr %41, align 8, !tbaa !347
+  %43 = sext i32 %36 to i64
+  %44 = getelementptr inbounds %"struct.std::ios_base::_Words", ptr %42, i64 %43
   br label %_ZNSt8ios_base5iwordEi.exit5
 
-47:                                               ; preds = %_ZNSt8ios_base5iwordEi.exit
-  %48 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt8ios_base13_M_grow_wordsEib(ptr noundef nonnull align 8 dereferenceable(216) %37, i32 noundef %38, i1 noundef zeroext true)
+45:                                               ; preds = %_ZNSt8ios_base5iwordEi.exit
+  %46 = tail call noundef nonnull align 8 dereferenceable(16) ptr @_ZNSt8ios_base13_M_grow_wordsEib(ptr noundef nonnull align 8 dereferenceable(216) %35, i32 noundef %36, i1 noundef zeroext true)
   br label %_ZNSt8ios_base5iwordEi.exit5
 
-_ZNSt8ios_base5iwordEi.exit5:                     ; preds = %42, %47
-  %49 = phi ptr [ %46, %42 ], [ %48, %47 ]
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  store i64 %34, ptr %50, align 8, !tbaa !11
+_ZNSt8ios_base5iwordEi.exit5:                     ; preds = %40, %45
+  %47 = phi ptr [ %44, %40 ], [ %46, %45 ]
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  store i64 %32, ptr %48, align 8, !tbaa !11
   ret ptr %0
 }
 

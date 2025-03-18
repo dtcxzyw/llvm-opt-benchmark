@@ -2565,9 +2565,10 @@ default.unreachable241:                           ; preds = %2
 
 _ZN5prost8encoding7message11encoded_len17h26643517c3663f15E.exit.i.i.i.i: ; preds = %552, %548
   %.sroa.0.0.i.i162.i.i.i.i = phi i64 [ %559, %552 ], [ 0, %548 ]
-  %560 = trunc nuw i8 %.val51.i.i.i.i to i1
-  %561 = select i1 %560, i64 5, i64 3
-  %562 = add nuw nsw i64 %.sroa.0.0.i.i162.i.i.i.i, %561
+  %560 = zext i8 %.val51.i.i.i.i to i64
+  %spec.select.i.i.i.i.i.i = shl nuw nsw i64 %560, 1
+  %561 = add nuw nsw i64 %spec.select.i.i.i.i.i.i, 3
+  %562 = add nuw nsw i64 %561, %.sroa.0.0.i.i162.i.i.i.i
   br label %1065
 
 563:                                              ; preds = %70
@@ -7259,8 +7260,8 @@ _ZN4core3ops8function6FnOnce9call_once17h9654089c4920e19bE.exit.i.i.i.i.i.i: ; p
 
 _ZN5prost8encoding7message11encoded_len17he3c4261dfb11444fE.exit.i.i.i.i.i.i.i.i: ; preds = %123, %120
   %.sroa.01.0.i.i.i.i.i.i.i.i.i.i = phi i64 [ %131, %123 ], [ 0, %120 ]
-  %132 = trunc nuw i8 %.val3.i.i.i.i.i.i.i15.i to i1
-  %spec.select.i.i.i.i.i.i.i.i.i.i = select i1 %132, i64 2, i64 0
+  %132 = shl nuw nsw i8 %.val3.i.i.i.i.i.i.i15.i, 1
+  %spec.select.i.i.i.i.i.i.i.i.i.i = zext nneg i8 %132 to i64
   %133 = add i64 %.sroa.01.0.i.i.i.i.i.i.i.i.i.i, %spec.select.i.i.i.i.i.i.i.i.i.i
   br label %_ZN4core3ops8function6FnOnce9call_once17hef3d70c0fc40d3e9E.exit.i.i.i.i.i.i
 
@@ -7386,11 +7387,11 @@ _ZN4core3ops8function6FnOnce9call_once17hef3d70c0fc40d3e9E.exit.i.i.i.i.i.i: ; p
   %.sroa.02.0.i20.i = phi i64 [ %207, %"_ZN60_$LT$proto..InlayHint$u20$as$u20$prost..message..Message$GT$11encoded_len28_$u7b$$u7b$closure$u7d$$u7d$17h0d4cf43f1a852070E.exit.i.i" ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17h9cee8ecb1d3f3bc1E.exit.i" ]
   %208 = add i64 %.sroa.02.0.i9.i, %.sroa.02.0.i.i
   %209 = add i64 %208, %.sroa.02.0.i10.i
-  %210 = trunc nuw i8 %112 to i1
-  %spec.select.i = select i1 %210, i64 2, i64 0
+  %210 = shl nuw nsw i8 %112, 1
+  %spec.select.i = zext nneg i8 %210 to i64
   %211 = add i64 %209, %spec.select.i
-  %212 = trunc nuw i8 %114 to i1
-  %.sroa.04.0.i = select i1 %212, i64 2, i64 0
+  %212 = shl nuw nsw i8 %114, 1
+  %.sroa.04.0.i = zext nneg i8 %212 to i64
   %213 = add i64 %211, %.sroa.04.0.i
   %214 = add i64 %213, %.sroa.02.0.i13.i
   %215 = add i64 %214, %.sroa.02.0.i20.i
@@ -7666,17 +7667,17 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h09
 
 "_ZN71_$LT$proto..FindSearchCandidates$u20$as$u20$prost..message..Message$GT$11encoded_len28_$u7b$$u7b$closure$u7d$$u7d$17h9f2290103d3f3706E.exit.i.i": ; preds = %46, %44
   %.sroa.05.0.i.i.i.i.i = phi i64 [ %54, %46 ], [ 0, %44 ]
-  %55 = trunc nuw i8 %33 to i1
-  %.sroa.03.0.i.i.i.i.i = select i1 %55, i64 2, i64 0
-  %56 = trunc nuw i8 %31 to i1
-  %.sroa.02.0.i.i.i.i.i = select i1 %56, i64 2, i64 0
-  %57 = trunc nuw i8 %29 to i1
-  %spec.select.i.i.i.i.i = select i1 %57, i64 2, i64 0
+  %55 = shl nuw nsw i8 %33, 1
+  %.sroa.03.0.i.i.i.i.i = zext nneg i8 %55 to i64
+  %56 = shl nuw nsw i8 %31, 1
+  %.sroa.02.0.i.i.i.i.i = zext nneg i8 %56 to i64
+  %57 = shl nuw nsw i8 %29, 1
+  %spec.select.i.i.i.i.i = zext nneg i8 %57 to i64
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 75
   %59 = load i8, ptr %58, align 1, !range !43, !alias.scope !1742, !noundef !5
-  %60 = trunc nuw i8 %59 to i1
-  %spec.select20.i.i.i.i.i = select i1 %60, i64 2, i64 0
-  %61 = add i64 %spec.select.i.i.i.i.i, %.sroa.0.0.i.i.i.i.i
+  %60 = shl nuw nsw i8 %59, 1
+  %spec.select20.i.i.i.i.i = zext nneg i8 %60 to i64
+  %61 = add i64 %.sroa.0.0.i.i.i.i.i, %spec.select.i.i.i.i.i
   %62 = add i64 %61, %.sroa.02.0.i.i.i.i.i
   %63 = add i64 %62, %.sroa.03.0.i.i.i.i.i
   %64 = add i64 %63, %.sroa.04.0.i.i.i.i.i
@@ -8885,9 +8886,9 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h22
 
 "_ZN89_$LT$proto..ResolveCompletionDocumentationResponse$u20$as$u20$prost..message..Message$GT$11encoded_len17h5ba553edad305a3fE.exit": ; preds = %156, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6678751068002da9E.exit.thread.i"
   %.sroa.05.0.i = phi i64 [ %166, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h6678751068002da9E.exit.thread.i" ], [ 0, %156 ]
-  %167 = trunc nuw i8 %14 to i1
-  %spec.select.i = select i1 %167, i64 2, i64 0
-  %168 = add i64 %spec.select.i, %.sroa.0.0.i
+  %167 = shl nuw nsw i8 %14, 1
+  %spec.select.i = zext nneg i8 %167 to i64
+  %168 = add i64 %.sroa.0.0.i, %spec.select.i
   %169 = add i64 %168, %.sroa.02.0.i.i
   %170 = add i64 %169, %.sroa.02.0.i23.i
   %171 = add i64 %170, %.sroa.04.0.i
@@ -9239,8 +9240,8 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h28
   %.sroa.04.0.i.i.i.i.i = phi i64 [ %58, %50 ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17h12bc9e44800e08d2E.exit.i.i.i.i.i" ]
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %60 = load i8, ptr %59, align 8, !range !43, !alias.scope !1912, !noundef !5
-  %61 = trunc nuw i8 %60 to i1
-  %spec.select.i.i.i.i.i = select i1 %61, i64 2, i64 0
+  %61 = shl nuw nsw i8 %60, 1
+  %spec.select.i.i.i.i.i = zext nneg i8 %61 to i64
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 81
   %63 = load i8, ptr %62, align 1, !range !39, !alias.scope !1912, !noundef !5
   %64 = icmp eq i8 %63, 2
@@ -9607,8 +9608,8 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h2a
   %.sroa.02.0.i = phi i64 [ %35, %27 ], [ 0, %25 ]
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %37 = load i8, ptr %36, align 8, !range !43, !alias.scope !1962, !noundef !5
-  %38 = trunc nuw i8 %37 to i1
-  %spec.select.i = select i1 %38, i64 2, i64 0
+  %38 = shl nuw nsw i8 %37, 1
+  %spec.select.i = zext nneg i8 %38 to i64
   %39 = add nuw nsw i64 %.sroa.01.0.i, %.sroa.0.0.i
   %40 = add i64 %39, %.sroa.02.0.i
   %41 = add i64 %40, %spec.select.i
@@ -10155,8 +10156,8 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h2f
   %.sroa.02.0.i14.i.i.i.i.i.i.i.i.i.i = phi i64 [ %116, %"_ZN55_$LT$proto..File$u20$as$u20$prost..message..Message$GT$11encoded_len28_$u7b$$u7b$closure$u7d$$u7d$17h769e51d7f5a6550aE.exit.i.i.i.i.i.i.i.i.i.i.i" ], [ 0, %91 ]
   %117 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %118 = load i8, ptr %117, align 8, !range !43, !alias.scope !2009, !noundef !5
-  %119 = trunc nuw i8 %118 to i1
-  %spec.select.i.i.i.i.i.i.i.i.i.i = select i1 %119, i64 2, i64 0
+  %119 = shl nuw nsw i8 %118, 1
+  %spec.select.i.i.i.i.i.i.i.i.i.i = zext nneg i8 %119 to i64
   %120 = add nuw nsw i64 %.sroa.02.0.i.i.i.i.i.i.i.i.i.i.i, %.sroa.0.0.i.i.i.i.i.i.i.i.i.i
   %121 = add i64 %120, %.sroa.02.0.i.i.i.i.i.i.i.i.i.i
   %122 = add i64 %121, %.sroa.02.0.i14.i.i.i.i.i.i.i.i.i.i
@@ -10317,8 +10318,8 @@ _ZN5prost8encoding7message11encoded_len17h8167714ba61b7579E.exit.i.i.i.i: ; pred
   %222 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h6fa7007578a87c78E.llvm.587420211104578620"(ptr noundef nonnull readonly align 8 %218, ptr noundef nonnull readonly %221, i64 noundef 0), !noalias !2036
   %223 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %224 = load i8, ptr %223, align 8, !range !43, !alias.scope !2036, !noundef !5
-  %225 = trunc nuw i8 %224 to i1
-  %spec.select.i.i.i.i.i.i = select i1 %225, i64 2, i64 0
+  %225 = shl nuw nsw i8 %224, 1
+  %spec.select.i.i.i.i.i.i = zext nneg i8 %225 to i64
   %226 = add i64 %220, %.sroa.0.0.i.i1.i.i.i.i
   %227 = add i64 %226, %222
   %228 = add i64 %227, %spec.select.i.i.i.i.i.i
@@ -10653,22 +10654,22 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h38
 
 "_ZN64_$LT$proto..MultiLspQuery$u20$as$u20$prost..message..Message$GT$11encoded_len17h304eeb13e0090743E.exit": ; preds = %25, %41, %44, %46
   %.sroa.02.0.i.i = phi i64 [ 0, %25 ], [ %48, %46 ], [ %45, %44 ], [ %43, %41 ]
-  %trunc.i = trunc nuw i8 %33 to i1
-  %spec.select.i.i = select i1 %trunc.i, i64 2, i64 0
-  %49 = add nuw nsw i64 %.sroa.01.0.i, %.sroa.0.0.i
-  %50 = add i64 %49, %29
-  %51 = add i64 %50, %31
-  %52 = add i64 %51, %spec.select.i.i
-  %53 = add i64 %52, %.sroa.02.0.i.i
-  %54 = or i64 %53, 1
-  %55 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %54, i1 true)
-  %56 = xor i64 %55, 63
-  %57 = mul nuw nsw i64 %56, 9
-  %58 = add nuw nsw i64 %57, 73
-  %59 = lshr i64 %58, 6
-  %60 = add i64 %53, 2
-  %61 = add i64 %60, %59
-  ret i64 %61
+  %49 = shl nuw nsw i8 %33, 1
+  %spec.select.i.i = zext nneg i8 %49 to i64
+  %50 = add nuw nsw i64 %.sroa.01.0.i, %.sroa.0.0.i
+  %51 = add i64 %50, %29
+  %52 = add i64 %51, %31
+  %53 = add i64 %52, %spec.select.i.i
+  %54 = add i64 %53, %.sroa.02.0.i.i
+  %55 = or i64 %54, 1
+  %56 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %55, i1 true)
+  %57 = xor i64 %56, 63
+  %58 = mul nuw nsw i64 %57, 9
+  %59 = add nuw nsw i64 %58, 73
+  %60 = lshr i64 %59, 6
+  %61 = add i64 %54, 2
+  %62 = add i64 %61, %60
+  ret i64 %62
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -11116,24 +11117,24 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h3d
 
 "_ZN71_$LT$proto..ProjectEntryResponse$u20$as$u20$prost..message..Message$GT$11encoded_len28_$u7b$$u7b$closure$u7d$$u7d$17h95244e434858c6efE.exit.i.i": ; preds = %87, %"_ZN4core6option15Option$LT$T$GT$6map_or17ha701b32b6dfe51e3E.exit.i.i.i.i.i"
   %.sroa.02.0.i28.i.i.i.i.i = phi i64 [ %95, %87 ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17ha701b32b6dfe51e3E.exit.i.i.i.i.i" ]
-  %96 = trunc nuw i8 %18 to i1
-  %spec.select.i.i.i.i.i = select i1 %96, i64 2, i64 0
-  %97 = add nuw nsw i64 %spec.select.i.i.i.i.i, %.sroa.0.0.i.i.i.i.i
+  %96 = shl nuw nsw i8 %18, 1
+  %spec.select.i.i.i.i.i = zext nneg i8 %96 to i64
+  %97 = add nuw nsw i64 %.sroa.0.0.i.i.i.i.i, %spec.select.i.i.i.i.i
   %98 = add i64 %97, %.sroa.02.0.i.i.i.i.i
   %99 = add i64 %98, %.sroa.03.0.i.i.i.i.i
   %100 = add i64 %99, %.sroa.02.0.i.i.i.i.i.i
-  %101 = trunc nuw i8 %66 to i1
-  %spec.select29.i.i.i.i.i = select i1 %101, i64 2, i64 0
+  %101 = shl nuw nsw i8 %66, 1
+  %spec.select29.i.i.i.i.i = zext nneg i8 %101 to i64
   %102 = add i64 %100, %spec.select29.i.i.i.i.i
-  %103 = trunc nuw i8 %68 to i1
-  %.sroa.06.0.i.i.i.i.i = select i1 %103, i64 2, i64 0
+  %103 = shl nuw nsw i8 %68, 1
+  %.sroa.06.0.i.i.i.i.i = zext nneg i8 %103 to i64
   %104 = add i64 %102, %.sroa.06.0.i.i.i.i.i
-  %105 = trunc nuw i8 %70 to i1
-  %.sroa.07.0.i.i.i.i.i = select i1 %105, i64 2, i64 0
+  %105 = shl nuw nsw i8 %70, 1
+  %.sroa.07.0.i.i.i.i.i = zext nneg i8 %105 to i64
   %106 = add i64 %104, %.sroa.07.0.i.i.i.i.i
   %107 = add i64 %106, %.sroa.02.0.i26.i.i.i.i.i
-  %108 = trunc nuw i8 %84 to i1
-  %spec.select30.i.i.i.i.i = select i1 %108, i64 2, i64 0
+  %108 = shl nuw nsw i8 %84, 1
+  %spec.select30.i.i.i.i.i = zext nneg i8 %108 to i64
   %109 = add i64 %107, %spec.select30.i.i.i.i.i
   %110 = add i64 %109, %.sroa.02.0.i28.i.i.i.i.i
   %111 = or i64 %110, 1
@@ -11395,8 +11396,8 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h3d
 
 "_ZN72_$LT$proto..PrepareRenameResponse$u20$as$u20$prost..message..Message$GT$11encoded_len17hacab62bc1bacc50dE.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17hc4d45d5ab5cfb0f3E.exit.i", %"_ZN72_$LT$proto..PrepareRenameResponse$u20$as$u20$prost..message..Message$GT$11encoded_len28_$u7b$$u7b$closure$u7d$$u7d$17hf10ed20c304c4212E.exit.i.i"
   %.sroa.02.0.i12.i = phi i64 [ %134, %"_ZN72_$LT$proto..PrepareRenameResponse$u20$as$u20$prost..message..Message$GT$11encoded_len28_$u7b$$u7b$closure$u7d$$u7d$17hf10ed20c304c4212E.exit.i.i" ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17hc4d45d5ab5cfb0f3E.exit.i" ]
-  %135 = trunc nuw i8 %3 to i1
-  %spec.select.i = select i1 %135, i64 2, i64 0
+  %135 = shl nuw nsw i8 %3, 1
+  %spec.select.i = zext nneg i8 %135 to i64
   %136 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %137 = load ptr, ptr %136, align 8, !alias.scope !2118, !nonnull !5, !noundef !5
   %138 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -13570,15 +13571,15 @@ _ZN5prost8encoding7message11encoded_len17he0ac2c7e5b20dd7eE.exit.i.i.i.i.i.i.i.i
 
 _ZN5prost8encoding7message11encoded_len17hbdc6c2471fa3570eE.exit.i.i.i.i.i.i.i.i: ; preds = %"_ZN83_$LT$proto..context_operation..UpdateSummary$u20$as$u20$prost..message..Message$GT$11encoded_len28_$u7b$$u7b$closure$u7d$$u7d$17h023e96a6d60915d0E.exit.i.i.i.i.i.i.i.i.i.i.i", %311
   %.sroa.02.0.i.i.i4.i.i.i.i.i.i.i.i = phi i64 [ %338, %"_ZN83_$LT$proto..context_operation..UpdateSummary$u20$as$u20$prost..message..Message$GT$11encoded_len28_$u7b$$u7b$closure$u7d$$u7d$17h023e96a6d60915d0E.exit.i.i.i.i.i.i.i.i.i.i.i" ], [ 0, %311 ]
-  %339 = trunc nuw i8 %313 to i1
-  %spec.select.i.i.i.i.i.i.i.i.i.i = select i1 %339, i64 2, i64 0
+  %339 = shl nuw nsw i8 %313, 1
+  %spec.select.i.i.i.i.i.i.i.i.i.i = zext nneg i8 %339 to i64
   %340 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %341 = load ptr, ptr %340, align 8, !alias.scope !2415, !nonnull !5, !noundef !5
   %342 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %343 = load i64, ptr %342, align 8, !alias.scope !2415, !noundef !5
   %344 = getelementptr inbounds { i32, i32 }, ptr %341, i64 %343
   %345 = tail call noundef i64 @"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17hf4736c2e28d85450E.llvm.587420211104578620"(ptr noundef nonnull readonly align 4 %341, ptr noundef nonnull readonly %344, i64 noundef 0), !noalias !2419
-  %346 = add i64 %spec.select.i.i.i.i.i.i.i.i.i.i, %.sroa.0.0.i.i.i.i.i.i.i.i.i.i
+  %346 = add i64 %.sroa.0.0.i.i.i.i.i.i.i.i.i.i, %spec.select.i.i.i.i.i.i.i.i.i.i
   %347 = add i64 %346, %.sroa.02.0.i.i.i4.i.i.i.i.i.i.i.i
   %348 = add i64 %347, %343
   %349 = add i64 %348, %345
@@ -14122,8 +14123,8 @@ _ZN5prost8encoding7message11encoded_len17hc15f3d45a4c5aec9E.exit.i.i.i.i.i.i.i.i
 
 _ZN5prost8encoding7message11encoded_len17h4967f454dc5d6605E.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i: ; preds = %674, %662
   %.sroa.03.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %682, %674 ], [ 0, %662 ]
-  %683 = trunc nuw i8 %670 to i1
-  %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %683, i64 2, i64 0
+  %683 = shl nuw nsw i8 %670, 1
+  %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = zext nneg i8 %683 to i64
   %684 = add nuw nsw i64 %.sroa.01.0.i.i6.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %.sroa.0.0.i.i5.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %685 = add i64 %684, %666
   %686 = add i64 %685, %668
@@ -14607,8 +14608,8 @@ define internal fastcc noundef range(i64 3, 28) i64 @_ZN5prost8encoding7message1
   %.sroa.01.0.i = phi i64 [ %23, %16 ], [ 0, %12 ]
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %25 = load i8, ptr %24, align 8, !range !43, !alias.scope !2585, !noundef !5
-  %26 = trunc nuw i8 %25 to i1
-  %spec.select.i = select i1 %26, i64 2, i64 0
+  %26 = shl nuw nsw i8 %25, 1
+  %spec.select.i = zext nneg i8 %26 to i64
   %27 = add nuw nsw i64 %.sroa.0.0.i, %.sroa.01.0.i
   %28 = add nuw nsw i64 %27, %spec.select.i
   ret i64 %28
@@ -15362,8 +15363,8 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h76
   %8 = add i64 %7, %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load i8, ptr %9, align 8, !range !43, !alias.scope !2650, !noundef !5
-  %11 = trunc nuw i8 %10 to i1
-  %spec.select.i = select i1 %11, i64 2, i64 0
+  %11 = shl nuw nsw i8 %10, 1
+  %spec.select.i = zext nneg i8 %11 to i64
   %12 = add i64 %8, %spec.select.i
   %13 = or i64 %12, 1
   %14 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %13, i1 true)
@@ -16197,8 +16198,8 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h86
   %.sroa.02.0.i.i = phi i64 [ %29, %21 ], [ 0, %13 ]
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %31 = load i8, ptr %30, align 8, !range !43, !alias.scope !2706, !noundef !5
-  %32 = trunc nuw i8 %31 to i1
-  %spec.select.i = select i1 %32, i64 2, i64 0
+  %32 = shl nuw nsw i8 %31, 1
+  %spec.select.i = zext nneg i8 %32 to i64
   %33 = add i64 %17, %.sroa.0.0.i
   %34 = add i64 %33, %19
   %35 = add i64 %34, %.sroa.02.0.i.i
@@ -17450,9 +17451,9 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17h98
 
 "_ZN77_$LT$proto..GetPrivateUserInfoResponse$u20$as$u20$prost..message..Message$GT$11encoded_len17h6ba493445b4e5c37E.exit": ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h7b28eaeac3a0126bE.exit.i", %32
   %.sroa.02.0.i.i = phi i64 [ %40, %32 ], [ 0, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold17h7b28eaeac3a0126bE.exit.i" ]
-  %41 = trunc nuw i8 %14 to i1
-  %spec.select.i = select i1 %41, i64 2, i64 0
-  %42 = add i64 %spec.select.i, %.sroa.0.0.i
+  %41 = shl nuw nsw i8 %14, 1
+  %spec.select.i = zext nneg i8 %41 to i64
+  %42 = add i64 %.sroa.0.0.i, %spec.select.i
   %43 = add i64 %42, %18
   %44 = add i64 %43, %.sroa.04.0.i.i
   %45 = add i64 %44, %.sroa.02.0.i.i
@@ -19176,8 +19177,8 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hb5
   %.sroa.04.0.i.i.i.i.i = phi i64 [ %58, %50 ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17h12bc9e44800e08d2E.exit.i.i.i.i.i" ]
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %60 = load i8, ptr %59, align 8, !range !43, !alias.scope !2989, !noundef !5
-  %61 = trunc nuw i8 %60 to i1
-  %spec.select.i.i.i.i.i = select i1 %61, i64 2, i64 0
+  %61 = shl nuw nsw i8 %60, 1
+  %spec.select.i.i.i.i.i = zext nneg i8 %61 to i64
   %62 = getelementptr inbounds nuw i8, ptr %0, i64 81
   %63 = load i8, ptr %62, align 1, !range !39, !alias.scope !2989, !noundef !5
   %64 = icmp eq i8 %63, 2
@@ -19408,8 +19409,8 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hb8
   %.sroa.02.0.i6.i.i.i.i.i = phi i64 [ %52, %51 ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17h75953e8cbff9ee40E.exit.i.i.i.i.i" ]
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %54 = load i8, ptr %53, align 8, !range !43, !alias.scope !3016, !noundef !5
-  %55 = trunc nuw i8 %54 to i1
-  %spec.select.i.i.i.i.i = select i1 %55, i64 2, i64 0
+  %55 = shl nuw nsw i8 %54, 1
+  %spec.select.i.i.i.i.i = zext nneg i8 %55 to i64
   %56 = add nuw nsw i64 %.sroa.02.0.i.i.i.i.i.i, %.sroa.0.0.i.i.i.i.i
   %57 = add nuw nsw i64 %56, %.sroa.02.0.i6.i.i.i.i.i
   %58 = add nuw nsw i64 %57, %spec.select.i.i.i.i.i
@@ -19435,8 +19436,8 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hb8
 
 "_ZN63_$LT$proto..view..Editor$u20$as$u20$prost..message..Message$GT$11encoded_len17h42a9db3d5a23b8d1E.exit": ; preds = %"_ZN4core6option15Option$LT$T$GT$6map_or17h096ebfdca3713b6eE.exit.i", %69
   %.sroa.02.0.i9.i = phi i64 [ %70, %69 ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17h096ebfdca3713b6eE.exit.i" ]
-  %71 = trunc nuw i8 %3 to i1
-  %spec.select.i = select i1 %71, i64 2, i64 0
+  %71 = shl nuw nsw i8 %3, 1
+  %spec.select.i = zext nneg i8 %71 to i64
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 232
   %73 = load float, ptr %72, align 8, !alias.scope !3010, !noundef !5
   %74 = fcmp une float %73, 0.000000e+00
@@ -19477,8 +19478,8 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hbb
   %8 = add i64 %7, %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load i8, ptr %9, align 8, !range !43, !alias.scope !3025, !noundef !5
-  %11 = trunc nuw i8 %10 to i1
-  %spec.select.i = select i1 %11, i64 2, i64 0
+  %11 = shl nuw nsw i8 %10, 1
+  %spec.select.i = zext nneg i8 %11 to i64
   %12 = add i64 %8, %spec.select.i
   %13 = or i64 %12, 1
   %14 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %13, i1 true)
@@ -19667,8 +19668,8 @@ _ZN5prost8encoding6uint6418encoded_len_packed17h71361faeb888b55aE.exit27.i: ; pr
 
 "_ZN65_$LT$proto..UpdateWorktree$u20$as$u20$prost..message..Message$GT$11encoded_len17h599362a79f48012eE.exit": ; preds = %106, %110
   %.sroa.05.0.i = phi i64 [ %118, %110 ], [ 0, %106 ]
-  %119 = trunc nuw i8 %108 to i1
-  %spec.select.i = select i1 %119, i64 2, i64 0
+  %119 = shl nuw nsw i8 %108, 1
+  %spec.select.i = zext nneg i8 %119 to i64
   %120 = add nuw nsw i64 %.sroa.01.0.i, %.sroa.0.0.i
   %121 = add i64 %120, %.sroa.02.0.i
   %122 = add i64 %121, %40
@@ -20567,8 +20568,8 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hc4
   %.sroa.01.0.i.i.i.i7.i = phi i64 [ %95, %87 ], [ 0, %85 ]
   %96 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %97 = load i8, ptr %96, align 8, !range !43, !alias.scope !3122, !noundef !5
-  %98 = trunc nuw i8 %97 to i1
-  %spec.select.i.i.i.i.i = select i1 %98, i64 2, i64 0
+  %98 = shl nuw nsw i8 %97, 1
+  %spec.select.i.i.i.i.i = zext nneg i8 %98 to i64
   %99 = add i64 %.sroa.01.0.i.i.i.i7.i, %.sroa.0.0.i.i.i.i6.i
   %100 = add i64 %99, %spec.select.i.i.i.i.i
   %101 = or i64 %100, 1
@@ -21175,8 +21176,8 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hcc
   %.sroa.02.0.i14.i.i.i.i.i = phi i64 [ %85, %"_ZN55_$LT$proto..File$u20$as$u20$prost..message..Message$GT$11encoded_len28_$u7b$$u7b$closure$u7d$$u7d$17h769e51d7f5a6550aE.exit.i.i.i.i.i.i" ], [ 0, %60 ]
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %87 = load i8, ptr %86, align 8, !range !43, !alias.scope !3191, !noundef !5
-  %88 = trunc nuw i8 %87 to i1
-  %spec.select.i.i.i.i.i = select i1 %88, i64 2, i64 0
+  %88 = shl nuw nsw i8 %87, 1
+  %spec.select.i.i.i.i.i = zext nneg i8 %88 to i64
   %89 = add nuw nsw i64 %.sroa.02.0.i.i.i.i.i.i, %.sroa.0.0.i.i.i.i.i
   %90 = add i64 %89, %.sroa.02.0.i.i.i.i.i
   %91 = add i64 %90, %.sroa.02.0.i14.i.i.i.i.i
@@ -22191,8 +22192,8 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hda
   %8 = add i64 %7, %5
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %10 = load i8, ptr %9, align 8, !range !43, !alias.scope !3294, !noundef !5
-  %11 = trunc nuw i8 %10 to i1
-  %spec.select.i = select i1 %11, i64 2, i64 0
+  %11 = shl nuw nsw i8 %10, 1
+  %spec.select.i = zext nneg i8 %11 to i64
   %12 = add i64 %8, %spec.select.i
   %13 = or i64 %12, 1
   %14 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %13, i1 true)
@@ -24001,8 +24002,8 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hfa
   %.sroa.01.0.i.i.i.i4.i = phi i64 [ %84, %76 ], [ 0, %74 ]
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %86 = load i8, ptr %85, align 8, !range !43, !alias.scope !3469, !noundef !5
-  %87 = trunc nuw i8 %86 to i1
-  %spec.select.i.i.i.i.i = select i1 %87, i64 2, i64 0
+  %87 = shl nuw nsw i8 %86, 1
+  %spec.select.i.i.i.i.i = zext nneg i8 %87 to i64
   %88 = add i64 %.sroa.01.0.i.i.i.i4.i, %.sroa.0.0.i.i.i.i3.i
   %89 = add i64 %88, %spec.select.i.i.i.i.i
   %90 = or i64 %89, 1
@@ -24078,8 +24079,8 @@ define internal fastcc noundef i64 @_ZN5prost8encoding7message11encoded_len17hfc
 
 "_ZN74_$LT$proto..CheckFileExistsResponse$u20$as$u20$prost..message..Message$GT$11encoded_len17hd01640c08741d6a7E.exit": ; preds = %0, %1
   %.sroa.01.0.i = phi i64 [ %9, %1 ], [ 0, %0 ]
-  %10 = trunc nuw i8 %.24.val to i1
-  %spec.select.i = select i1 %10, i64 2, i64 0
+  %10 = shl nuw nsw i8 %.24.val, 1
+  %spec.select.i = zext nneg i8 %10 to i64
   %11 = add i64 %.sroa.01.0.i, %spec.select.i
   %12 = or i64 %11, 1
   %13 = tail call range(i64 0, 64) i64 @llvm.ctlz.i64(i64 %12, i1 true)
@@ -24525,8 +24526,8 @@ _ZN5prost8encoding6uint6418encoded_len_packed17h71361faeb888b55aE.exit.i.i.i.i.i
   %.sroa.02.0.i6.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = phi i64 [ %240, %239 ], [ 0, %"_ZN4core6option15Option$LT$T$GT$6map_or17h75953e8cbff9ee40E.exit.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i" ]
   %241 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %242 = load i8, ptr %241, align 8, !range !43, !alias.scope !3555, !noundef !5
-  %243 = trunc nuw i8 %242 to i1
-  %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = select i1 %243, i64 2, i64 0
+  %243 = shl nuw nsw i8 %242, 1
+  %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i = zext nneg i8 %243 to i64
   %244 = add nuw nsw i64 %.sroa.02.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i, %.sroa.0.0.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %245 = add nuw nsw i64 %244, %.sroa.02.0.i6.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i
   %246 = add nuw nsw i64 %245, %spec.select.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i

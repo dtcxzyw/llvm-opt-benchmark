@@ -832,8 +832,7 @@ define noundef ptr @_ZN6assets6Assets10load_fonts17h654d4edfc3742184E(ptr noalia
 
 "_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$9ends_with17ha2dca80bf44f1d30E.exit": ; preds = %28
   %43 = load ptr, ptr %.sroa.8.0..sroa_idx, align 8, !nonnull !5
-  %trunc = trunc nuw i64 %.sroa.049.0.copyload50 to i1
-  %.sroa.08.0.idx = select i1 %trunc, i64 16, i64 0
+  %.sroa.08.0.idx = shl i64 %.sroa.049.0.copyload50, 4
   %.sroa.08.0 = getelementptr inbounds nuw i8, ptr %43, i64 %.sroa.08.0.idx
   %44 = getelementptr i8, ptr %.sroa.08.0, i64 %29
   %45 = getelementptr i8, ptr %44, i64 -4
@@ -877,10 +876,9 @@ define noundef ptr @_ZN6assets6Assets10load_fonts17h654d4edfc3742184E(ptr noalia
   %64 = getelementptr i8, ptr %57, i64 %63
   %65 = getelementptr i8, ptr %64, i64 16
   %66 = load i64, ptr %7, align 8, !range !31, !noundef !5
-  %trunc33 = trunc nuw i64 %66 to i1
   %67 = load ptr, ptr %.sroa.8.0..sroa_idx, align 8, !nonnull !5
   %68 = load i64, ptr %24, align 8
-  %.sroa.017.0.idx = select i1 %trunc33, i64 16, i64 0
+  %.sroa.017.0.idx = shl nuw nsw i64 %66, 4
   %.sroa.017.0 = getelementptr inbounds nuw i8, ptr %67, i64 %.sroa.017.0.idx
   %69 = getelementptr inbounds nuw i8, ptr %59, i64 24
   %70 = load ptr, ptr %69, align 8, !invariant.load !5, !nonnull !5

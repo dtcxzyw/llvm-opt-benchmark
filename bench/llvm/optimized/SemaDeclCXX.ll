@@ -59557,13 +59557,13 @@ _ZNK5clang12FunctionDecl14isUserProvidedEv.exit29: ; preds = %93
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %111 = load ptr, ptr %110, align 8, !tbaa !1955
   %112 = load i8, ptr %111, align 1, !tbaa !1211, !range !36, !noundef !37
-  %113 = trunc nuw i8 %112 to i1
-  %114 = getelementptr inbounds nuw i8, ptr %1, i64 82
-  %115 = load i32, ptr %114, align 2
-  %116 = select i1 %113, i32 256, i32 0
-  %117 = and i32 %115, -257
+  %113 = getelementptr inbounds nuw i8, ptr %1, i64 82
+  %114 = load i32, ptr %113, align 2
+  %115 = zext nneg i8 %112 to i32
+  %116 = shl nuw nsw i32 %115, 8
+  %117 = and i32 %114, -257
   %118 = or disjoint i32 %117, %116
-  store i32 %118, ptr %114, align 2
+  store i32 %118, ptr %113, align 2
   %119 = load ptr, ptr %41, align 8, !tbaa !1954
   %120 = load ptr, ptr %119, align 8, !tbaa !1580
   tail call void @_ZN5clang13CXXRecordDecl22setTrivialForCallFlagsEPNS_13CXXMethodDeclE(ptr noundef nonnull align 8 dereferenceable(144) %120, ptr noundef nonnull %1) #28
@@ -113332,8 +113332,8 @@ _ZNK4llvm12DenseMapBaseINS_8DenseMapIPN5clang13CXXRecordDeclEPNS2_26ConstructorU
   %135 = load ptr, ptr %130, align 8, !tbaa !2532
   %136 = getelementptr inbounds nuw i8, ptr %135, i64 96
   %137 = load i8, ptr %136, align 8
-  %138 = trunc i8 %137 to i1
-  %139 = select i1 %138, i8 2, i8 0
+  %138 = shl i8 %137, 1
+  %139 = and i8 %138, 2
   br label %_ZNK5clang4Sema24InheritedConstructorInfo22findConstructorForBaseEPNS_13CXXRecordDeclEPNS_18CXXConstructorDeclE.exit
 
 _ZNK5clang4Sema24InheritedConstructorInfo22findConstructorForBaseEPNS_13CXXRecordDeclEPNS_18CXXConstructorDeclE.exit: ; preds = %129, %132

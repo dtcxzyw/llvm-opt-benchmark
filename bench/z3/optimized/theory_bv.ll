@@ -24326,8 +24326,8 @@ declare void @_ZN3smt6theory12pop_scope_ehEj(ptr noundef nonnull align 8 derefer
 define hidden noundef range(i32 0, 3) i32 @_ZN3smt9theory_bv14final_check_ehEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1048) %0) unnamed_addr #14 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1016
   %3 = load i8, ptr %2, align 8, !tbaa !754, !range !590, !noundef !591
-  %4 = trunc nuw i8 %3 to i1
-  %. = select i1 %4, i32 2, i32 0
+  %4 = shl nuw nsw i8 %3, 1
+  %. = zext nneg i8 %4 to i32
   ret i32 %.
 }
 

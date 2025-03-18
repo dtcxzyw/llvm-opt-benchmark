@@ -5857,23 +5857,23 @@ _ZN5XPage11mark_objectEmbRb.exit:                 ; preds = %16, %_ZNK5XPage22ob
 57:                                               ; preds = %54
   %58 = xor i64 %.020.i.i.i, -1
   %59 = lshr i64 %58, %49
-  %60 = trunc i64 %59 to i1
-  %61 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
-  %62 = load ptr, ptr %61, align 8
-  %63 = getelementptr inbounds nuw i8, ptr %62, i64 48
-  %64 = lshr i64 %1, 21
-  %65 = getelementptr inbounds nuw i8, ptr %0, i64 200
-  %66 = load i64, ptr %65, align 8
-  %67 = and i64 %66, %64
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %69 = getelementptr inbounds nuw [16 x %class.XMarkStripe], ptr %68, i64 0, i64 %67
-  %70 = shl i64 %1, 5
-  %71 = select i1 %60, i64 8, i64 0
-  %72 = or disjoint i64 %71, %70
+  %60 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+  %61 = load ptr, ptr %60, align 8
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 48
+  %63 = lshr i64 %1, 21
+  %64 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %65 = load i64, ptr %64, align 8
+  %66 = and i64 %65, %63
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 256
+  %68 = getelementptr inbounds nuw [16 x %class.XMarkStripe], ptr %67, i64 0, i64 %66
+  %69 = shl i64 %1, 5
+  %70 = shl i64 %59, 3
+  %71 = and i64 %70, 8
+  %72 = or disjoint i64 %71, %69
   %73 = or disjoint i64 %72, 4
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %75 = getelementptr inbounds nuw i8, ptr %62, i64 56
-  %76 = getelementptr inbounds nuw [16 x ptr], ptr %75, i64 0, i64 %67
+  %75 = getelementptr inbounds nuw i8, ptr %61, i64 56
+  %76 = getelementptr inbounds nuw [16 x ptr], ptr %75, i64 0, i64 %66
   %77 = load ptr, ptr %76, align 8
   %.not.i = icmp eq ptr %77, null
   br i1 %.not.i, label %_ZN6XStackI15XMarkStackEntryLm254EE4pushES0_.exit.i, label %78
@@ -5892,7 +5892,7 @@ _ZN6XStackI15XMarkStackEntryLm254EE4pushES0_.exit.thread.i: ; preds = %78
   br label %_ZN8XLiveMap3setEmbRb.exit
 
 _ZN6XStackI15XMarkStackEntryLm254EE4pushES0_.exit.i: ; preds = %78, %57
-  %83 = tail call noundef zeroext i1 @_ZN22XMarkThreadLocalStacks9push_slowEP19XMarkStackAllocatorP11XMarkStripePP6XStackI15XMarkStackEntryLm254EES5_b(ptr noundef nonnull align 8 dereferenceable(136) %63, ptr noundef nonnull %74, ptr noundef nonnull %69, ptr noundef nonnull %76, i64 %73, i1 noundef zeroext false) #9
+  %83 = tail call noundef zeroext i1 @_ZN22XMarkThreadLocalStacks9push_slowEP19XMarkStackAllocatorP11XMarkStripePP6XStackI15XMarkStackEntryLm254EES5_b(ptr noundef nonnull align 8 dereferenceable(136) %62, ptr noundef nonnull %74, ptr noundef nonnull %68, ptr noundef nonnull %76, i64 %73, i1 noundef zeroext false) #9
   br label %_ZN8XLiveMap3setEmbRb.exit
 
 _ZN8XLiveMap3setEmbRb.exit:                       ; preds = %52, %_ZN6XStackI15XMarkStackEntryLm254EE4pushES0_.exit.i, %_ZN6XStackI15XMarkStackEntryLm254EE4pushES0_.exit.thread.i, %2

@@ -53173,7 +53173,7 @@ define void @"_ZN117_$LT$worktree..Entry$u20$as$u20$core..convert..TryFrom$LT$$L
   %35 = load i64, ptr %6, align 8, !noundef !4
   %36 = getelementptr inbounds nuw i8, ptr %32, i64 16
   %37 = invoke fastcc noundef i64 @_ZN8worktree17char_bag_for_path17h16301b8e40a2f757E(i64 noundef %35, ptr noalias noundef nonnull readonly align 1 %36, i64 noundef %33)
-          to label %38 unwind label %58
+          to label %38 unwind label %57
 
 38:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
@@ -53206,7 +53206,7 @@ define void @"_ZN117_$LT$worktree..Entry$u20$as$u20$core..convert..TryFrom$LT$$L
 48:                                               ; preds = %45
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hce9133c355075ec9E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
-          to label %.noexc20 unwind label %56
+          to label %.noexc20 unwind label %55
 
 49:                                               ; preds = %40
   %50 = landingpad { ptr, i32 }
@@ -53231,8 +53231,7 @@ _ZN8worktree21git_status_from_proto17h2203a405242c35b8E.exit: ; preds = %switch.
   %.sroa.01.0.i = phi i8 [ 3, %42 ], [ %switch.idx.cast, %switch.lookup ]
   %trunc = trunc nuw i64 %28 to i1
   %.18 = select i1 %trunc, i64 %30, i64 0
-  %55 = trunc nuw i8 %11 to i1
-  %. = select i1 %55, i8 2, i8 3
+  %. = xor i8 %11, 3
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   store i64 %.sroa.03.0, ptr %0, align 8
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -53268,27 +53267,27 @@ _ZN8worktree21git_status_from_proto17h2203a405242c35b8E.exit: ; preds = %switch.
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   ret void
 
-56:                                               ; preds = %62, %48
-  %57 = landingpad { ptr, i32 }
+55:                                               ; preds = %61, %48
+  %56 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #37
   unreachable
 
-.noexc20:                                         ; preds = %58, %62, %48, %45
-  %.pn.pn26 = phi { ptr, i32 } [ %.pn, %45 ], [ %.pn, %48 ], [ %59, %62 ], [ %59, %58 ]
+.noexc20:                                         ; preds = %57, %61, %48, %45
+  %.pn.pn26 = phi { ptr, i32 } [ %.pn, %45 ], [ %.pn, %48 ], [ %58, %61 ], [ %58, %57 ]
   resume { ptr, i32 } %.pn.pn26
 
-58:                                               ; preds = %2
-  %59 = landingpad { ptr, i32 }
+57:                                               ; preds = %2
+  %58 = landingpad { ptr, i32 }
           cleanup
-  %60 = atomicrmw sub ptr %32, i64 1 release, align 8, !noalias !10089
-  %61 = icmp eq i64 %60, 1
-  br i1 %61, label %62, label %.noexc20
+  %59 = atomicrmw sub ptr %32, i64 1 release, align 8, !noalias !10089
+  %60 = icmp eq i64 %59, 1
+  br i1 %60, label %61, label %.noexc20
 
-62:                                               ; preds = %58
+61:                                               ; preds = %57
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17hce9133c355075ec9E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %5)
-          to label %.noexc20 unwind label %56
+          to label %.noexc20 unwind label %55
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

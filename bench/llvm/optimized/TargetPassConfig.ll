@@ -6031,13 +6031,13 @@ define dso_local void @_ZN4llvm16TargetPassConfigC2ERNS_13TargetMachineERNS_6leg
 
 29:                                               ; preds = %3
   %30 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZL10EnableIPRA, i64 120), align 8, !tbaa !34, !range !48, !noundef !49
-  %31 = trunc nuw i8 %30 to i1
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 876
-  %33 = load i32, ptr %32, align 4
-  %34 = select i1 %31, i32 2097152, i32 0
-  %35 = and i32 %33, -2097153
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 876
+  %32 = load i32, ptr %31, align 4
+  %33 = zext nneg i8 %30 to i32
+  %34 = shl nuw nsw i32 %33, 21
+  %35 = and i32 %32, -2097153
   %36 = or disjoint i32 %35, %34
-  store i32 %36, ptr %32, align 4
+  store i32 %36, ptr %31, align 4
   br label %48
 
 37:                                               ; preds = %3

@@ -1547,8 +1547,8 @@ proto_item_set_generated.exit:                    ; preds = %70, %80, %83
   %117 = getelementptr inbounds nuw i8, ptr %6, i64 18
   %118 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %119 = load i8, ptr %118, align 4, !range !6, !noundef !7
-  %120 = trunc nuw i8 %119 to i1
-  %spec.store.select.i86 = select i1 %120, i16 256, i16 0
+  %120 = zext nneg i8 %119 to i16
+  %spec.store.select.i86 = shl nuw nsw i16 %120, 8
   store i16 %spec.store.select.i86, ptr %117, align 2
   %121 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i32 0, ptr %121, align 4
@@ -1864,8 +1864,8 @@ pw_cell_size.exit:                                ; preds = %90, %91, %92
   %122 = getelementptr inbounds nuw i8, ptr %6, i64 18
   %123 = getelementptr inbounds nuw i8, ptr %5, i64 72
   %124 = load i8, ptr %123, align 4, !range !6, !noundef !7
-  %125 = trunc nuw i8 %124 to i1
-  %spec.store.select.i108 = select i1 %125, i16 256, i16 0
+  %125 = zext nneg i8 %124 to i16
+  %spec.store.select.i108 = shl nuw nsw i16 %125, 8
   store i16 %spec.store.select.i108, ptr %122, align 2
   %126 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store i32 0, ptr %126, align 4
@@ -2637,8 +2637,8 @@ prepare_pseudo_header_atm.exit:                   ; preds = %51
   store i16 %59, ptr %18, align 2
   store i16 0, ptr %19, align 2
   %60 = load i8, ptr %21, align 4, !range !6, !noundef !7
-  %61 = trunc nuw i8 %60 to i1
-  %spec.store.select.i = select i1 %61, i16 256, i16 0
+  %61 = zext nneg i8 %60 to i16
+  %spec.store.select.i = shl nuw nsw i16 %61, 8
   store i16 %spec.store.select.i, ptr %20, align 2
   store i32 0, ptr %22, align 4
   %62 = load ptr, ptr @dh_atm_oam_cell, align 8

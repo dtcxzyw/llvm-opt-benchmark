@@ -36,7 +36,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.CompositeFunctor.61 = type { ptr, ptr }
 %class.JfrArtifactCallbackHost.62 = type { %class.JfrArtifactClosure, ptr, ptr }
 %class.JfrArtifactClosure = type { ptr }
-%class.KlassToFieldEnvelope.43 = type { ptr }
 %class.JfrTypeWriterHost.34 = type <{ %class.JfrPredicatedTypeWriterImplHost.35, ptr, %struct.JfrCheckpointContext, i64, i32, i8, [3 x i8] }>
 %class.JfrPredicatedTypeWriterImplHost.35 = type <{ %class.JfrTypeWriterImplHost.36, %class.SerializePredicate.37, [7 x i8] }>
 %class.JfrTypeWriterImplHost.36 = type { ptr }
@@ -135,8 +134,6 @@ $_ZN16CompositeFunctorIPK12PackageEntry17JfrTypeWriterHostI31JfrPredicatedTypeWr
 $_ZN23JfrArtifactCallbackHostIPK12PackageEntry16CompositeFunctorIS2_S3_IS2_17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIS2_13LeakPredicateIS2_EXadL_Z21write__package__leakpP19JfrCheckpointWriterPKvEEELj202EES4_IS5_IS2_18SerializePredicateIS2_EXadL_Z14write__packageS9_SB_EEELj202EEE13ClearArtifactIS2_EEE11do_artifactESB_ = comdat any
 
 $_ZN16CompositeFunctorIPK12PackageEntry17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIS2_13LeakPredicateIS2_EXadL_Z21write__package__leakpP19JfrCheckpointWriterPKvEEELj202EES3_IS4_IS2_18SerializePredicateIS2_EXadL_Z14write__packageS8_SA_EEELj202EEEclERKS2_ = comdat any
-
-$_ZNK14JfrArtifactSet15iterate_klassesI20KlassToFieldEnvelopeI19ModuleFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS7_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEEEEvRT_ = comdat any
 
 $_ZN23JfrArtifactCallbackHostIPK11ModuleEntry16CompositeFunctorIS2_17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIS2_18SerializePredicateIS2_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EE13ClearArtifactIS2_EEE11do_artifactESB_ = comdat any
 
@@ -272,7 +269,7 @@ _ZL7get_cldPK5Klass.exit:                         ; preds = %_ZNK5Klass20is_non_
   %20 = lshr i64 %.val.i, 16
   tail call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeImEEvT_(ptr noundef nonnull align 8 dereferenceable(41) %0, i64 noundef %20)
   %.not.i = icmp eq ptr %18, null
-  br i1 %.not.i, label %_ZL11mark_symbolPK5Klassb.exit.i, label %21
+  br i1 %.not.i, label %_ZL11get_packagePK5Klass.exit.i.i, label %21
 
 21:                                               ; preds = %_ZL7get_cldPK5Klass.exit
   br i1 %2, label %22, label %31
@@ -302,248 +299,313 @@ _ZL7get_cldPK5Klass.exit:                         ; preds = %_ZNK5Klass20is_non_
   %36 = trunc nuw i8 %35 to i1
   %37 = select i1 %34, i1 true, i1 %36
   %38 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
-  %39 = trunc i8 %38 to i1
-  %40 = xor i1 %37, %39
-  %.sink.i.i.i.i.i = select i1 %40, i64 2049, i64 2050
-  %41 = and i64 %.sink.i.i.i.i.i, %.val.i.i.i
-  %.not.i.i.i.i = icmp eq i64 %41, 0
-  br i1 %.not.i.i.i.i, label %42, label %_ZL6cld_idPK15ClassLoaderDatab.exit.i
+  %39 = and i8 %38, 1
+  %40 = sub nuw nsw i8 2, %39
+  %41 = add nuw nsw i8 %39, 1
+  %.sink.i.i.i.i.i = select i1 %37, i8 %41, i8 %40
+  %42 = zext nneg i8 %.sink.i.i.i.i.i to i64
+  %43 = or disjoint i64 %42, 2048
+  %44 = and i64 %43, %.val.i.i.i
+  %.not.i.i.i.i = icmp eq i64 %44, 0
+  br i1 %.not.i.i.i.i, label %45, label %_ZL6cld_idPK15ClassLoaderDatab.exit.i
 
-42:                                               ; preds = %31
-  %43 = lshr i64 %.val.i.i.i, 8
-  %44 = trunc i64 %43 to i8
-  %45 = getelementptr inbounds nuw i8, ptr %18, i64 153
-  %46 = or i8 %44, 8
-  store i8 %46, ptr %45, align 1
+45:                                               ; preds = %31
+  %46 = lshr i64 %.val.i.i.i, 8
+  %47 = trunc i64 %46 to i8
+  %48 = getelementptr inbounds nuw i8, ptr %18, i64 153
+  %49 = or i8 %47, 8
+  store i8 %49, ptr %48, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
   %.val5.pre.i.i.i = load i64, ptr %32, align 8
   br label %_ZL6cld_idPK15ClassLoaderDatab.exit.i
 
-_ZL6cld_idPK15ClassLoaderDatab.exit.i:            ; preds = %42, %31
-  %.val5.i.i.i = phi i64 [ %.val5.pre.i.i.i, %42 ], [ %.val.i.i.i, %31 ]
-  %47 = lshr i64 %.val5.i.i.i, 16
-  br label %_ZL11mark_symbolPK5Klassb.exit.i
+_ZL6cld_idPK15ClassLoaderDatab.exit.i:            ; preds = %45, %31
+  %.val5.i.i.i = phi i64 [ %.val5.pre.i.i.i, %45 ], [ %.val.i.i.i, %31 ]
+  %50 = lshr i64 %.val5.i.i.i, 16
+  br label %_ZL11get_packagePK5Klass.exit.i.i
 
-_ZL11mark_symbolPK5Klassb.exit.i:                 ; preds = %_ZL6cld_idPK15ClassLoaderDatab.exit.i, %_ZL7get_cldPK5Klass.exit
-  %48 = phi i64 [ %47, %_ZL6cld_idPK15ClassLoaderDatab.exit.i ], [ 0, %_ZL7get_cldPK5Klass.exit ]
-  tail call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeImEEvT_(ptr noundef nonnull align 8 dereferenceable(41) %0, i64 noundef %48)
-  %49 = load ptr, ptr @_ZL10_artifacts, align 8
-  %50 = tail call noundef i64 @_ZN14JfrArtifactSet4markEPK5Klassb(ptr noundef nonnull align 8 dereferenceable(41) %49, ptr noundef nonnull %1, i1 noundef zeroext %2) #9
-  tail call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeImEEvT_(ptr noundef nonnull align 8 dereferenceable(41) %0, i64 noundef %50)
-  %51 = tail call fastcc noundef i64 @_ZL10package_idPK5Klassb(ptr noundef nonnull %1, i1 noundef zeroext %2)
+_ZL11get_packagePK5Klass.exit.i.i:                ; preds = %_ZL6cld_idPK15ClassLoaderDatab.exit.i, %_ZL7get_cldPK5Klass.exit
+  %51 = phi i64 [ %50, %_ZL6cld_idPK15ClassLoaderDatab.exit.i ], [ 0, %_ZL7get_cldPK5Klass.exit ]
   tail call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeImEEvT_(ptr noundef nonnull align 8 dereferenceable(41) %0, i64 noundef %51)
-  %52 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %53 = load i32, ptr %52, align 8
-  tail call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeIiEEvT_(ptr noundef nonnull align 8 dereferenceable(41) %0, i32 noundef %53)
-  %54 = getelementptr inbounds nuw i8, ptr %1, i64 164
-  %.sroa.0.0.copyload.i.i.i22 = load i32, ptr %54, align 4
-  %55 = lshr i32 %.sroa.0.0.copyload.i.i.i22, 26
-  %56 = trunc nuw nsw i32 %55 to i8
-  %57 = and i8 %56, 1
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %59 = load ptr, ptr %58, align 8
-  %.not.i.i.i18.i = icmp eq ptr %59, null
-  br i1 %.not.i.i.i18.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeIbEEvT_.exit.i, label %60
+  %52 = load ptr, ptr @_ZL10_artifacts, align 8
+  %53 = tail call noundef i64 @_ZN14JfrArtifactSet4markEPK5Klassb(ptr noundef nonnull align 8 dereferenceable(41) %52, ptr noundef nonnull %1, i1 noundef zeroext %2) #9
+  tail call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeImEEvT_(ptr noundef nonnull align 8 dereferenceable(41) %0, i64 noundef %53)
+  %54 = load ptr, ptr %1, align 8
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 144
+  %56 = load ptr, ptr %55, align 8
+  %57 = tail call noundef ptr %56(ptr noundef nonnull align 8 dereferenceable(196) %1) #9
+  %58 = icmp eq ptr %57, null
+  br i1 %58, label %_ZL10package_idPK5Klassb.exit.i, label %59
 
-60:                                               ; preds = %_ZL11mark_symbolPK5Klassb.exit.i
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %62 = load ptr, ptr %61, align 8
-  %63 = ptrtoint ptr %59 to i64
-  %64 = ptrtoint ptr %62 to i64
-  %65 = sub i64 %63, %64
-  %66 = icmp ult i64 %65, 2
-  br i1 %66, label %67, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i.i
+59:                                               ; preds = %_ZL11get_packagePK5Klass.exit.i.i
+  %60 = tail call fastcc noundef i64 @_ZL9module_idPK12PackageEntryb(ptr noundef nonnull %57, i1 noundef zeroext %2)
+  br i1 %2, label %61, label %70
 
-67:                                               ; preds = %60
-  %68 = load ptr, ptr %0, align 8
-  %69 = ptrtoint ptr %68 to i64
-  %70 = sub i64 %64, %69
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 24
+61:                                               ; preds = %59
+  %62 = getelementptr inbounds nuw i8, ptr %57, i64 32
+  %63 = load i64, ptr %62, align 8
+  %64 = and i64 %63, 1024
+  %.not.i7.i.i = icmp eq i64 %64, 0
+  br i1 %.not.i7.i.i, label %65, label %70
+
+65:                                               ; preds = %61
+  %66 = lshr i64 %63, 8
+  %67 = trunc i64 %66 to i8
+  %68 = getelementptr inbounds nuw i8, ptr %57, i64 33
+  %69 = or disjoint i8 %67, 4
+  store i8 %69, ptr %68, align 1
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
+  br label %70
+
+70:                                               ; preds = %65, %61, %59
+  %71 = getelementptr i8, ptr %57, i64 32
+  %.val.i.i19.i = load i64, ptr %71, align 8
+  %72 = load i8, ptr @_ZL11_flushpoint, align 1
+  %73 = trunc nuw i8 %72 to i1
+  %74 = load i8, ptr @_ZL13_class_unload, align 1
+  %75 = trunc nuw i8 %74 to i1
+  %76 = select i1 %73, i1 true, i1 %75
+  %77 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
+  %78 = and i8 %77, 1
+  %79 = sub nuw nsw i8 2, %78
+  %80 = add nuw nsw i8 %78, 1
+  %.sink.i.i.i.i20.i = select i1 %76, i8 %80, i8 %79
+  %81 = zext nneg i8 %.sink.i.i.i.i20.i to i64
+  %82 = or disjoint i64 %81, 2048
+  %83 = and i64 %82, %.val.i.i19.i
+  %.not.i.i.i21.i = icmp eq i64 %83, 0
+  br i1 %.not.i.i.i21.i, label %84, label %_ZL12artifact_tagI12PackageEntryEmPKT_b.exit.i.i
+
+84:                                               ; preds = %70
+  %85 = lshr i64 %.val.i.i19.i, 8
+  %86 = trunc i64 %85 to i8
+  %87 = getelementptr inbounds nuw i8, ptr %57, i64 33
+  %88 = or i8 %86, 8
+  store i8 %88, ptr %87, align 1
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
+  %.val5.pre.i.i23.i = load i64, ptr %71, align 8
+  br label %_ZL12artifact_tagI12PackageEntryEmPKT_b.exit.i.i
+
+_ZL12artifact_tagI12PackageEntryEmPKT_b.exit.i.i: ; preds = %84, %70
+  %.val5.i.i22.i = phi i64 [ %.val5.pre.i.i23.i, %84 ], [ %.val.i.i19.i, %70 ]
+  %89 = lshr i64 %.val5.i.i22.i, 16
+  br label %_ZL10package_idPK5Klassb.exit.i
+
+_ZL10package_idPK5Klassb.exit.i:                  ; preds = %_ZL12artifact_tagI12PackageEntryEmPKT_b.exit.i.i, %_ZL11get_packagePK5Klass.exit.i.i
+  %.0.i.i = phi i64 [ %89, %_ZL12artifact_tagI12PackageEntryEmPKT_b.exit.i.i ], [ 0, %_ZL11get_packagePK5Klass.exit.i.i ]
+  tail call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeImEEvT_(ptr noundef nonnull align 8 dereferenceable(41) %0, i64 noundef %.0.i.i)
+  %90 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %91 = load i32, ptr %90, align 8
+  tail call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeIiEEvT_(ptr noundef nonnull align 8 dereferenceable(41) %0, i32 noundef %91)
+  %92 = getelementptr inbounds nuw i8, ptr %1, i64 164
+  %.sroa.0.0.copyload.i.i.i22 = load i32, ptr %92, align 4
+  %93 = lshr i32 %.sroa.0.0.copyload.i.i.i22, 26
+  %94 = trunc nuw nsw i32 %93 to i8
+  %95 = and i8 %94, 1
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %97 = load ptr, ptr %96, align 8
+  %.not.i.i.i24.i = icmp eq ptr %97, null
+  br i1 %.not.i.i.i24.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeIbEEvT_.exit.i, label %98
+
+98:                                               ; preds = %_ZL10package_idPK5Klassb.exit.i
+  %99 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %100 = load ptr, ptr %99, align 8
+  %101 = ptrtoint ptr %97 to i64
+  %102 = ptrtoint ptr %100 to i64
+  %103 = sub i64 %101, %102
+  %104 = icmp ult i64 %103, 2
+  br i1 %104, label %105, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i.i
+
+105:                                              ; preds = %98
+  %106 = load ptr, ptr %0, align 8
+  %107 = ptrtoint ptr %106 to i64
+  %108 = sub i64 %102, %107
+  %109 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %72 = load ptr, ptr %71, align 8
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %74 = load ptr, ptr %73, align 8
-  call void @_ZN18JfrCheckpointFlushC1EP9JfrBuffermmP6Thread(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %72, i64 noundef %70, i64 noundef 2, ptr noundef %74) #9
-  %75 = load ptr, ptr %5, align 8
-  store ptr %75, ptr %71, align 8
-  %.not5.i.i.i.i = icmp eq ptr %75, null
+  %110 = load ptr, ptr %109, align 8
+  %111 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %112 = load ptr, ptr %111, align 8
+  call void @_ZN18JfrCheckpointFlushC1EP9JfrBuffermmP6Thread(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %110, i64 noundef %108, i64 noundef 2, ptr noundef %112) #9
+  %113 = load ptr, ptr %5, align 8
+  store ptr %113, ptr %109, align 8
+  %.not5.i.i.i.i = icmp eq ptr %113, null
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   br i1 %.not5.i.i.i.i, label %.sink.split.i.i.i.i, label %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i
 
-_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i: ; preds = %67
-  %76 = getelementptr inbounds nuw i8, ptr %75, i64 16
-  %77 = load ptr, ptr %76, align 8
-  store ptr %77, ptr %0, align 8
-  store ptr %77, ptr %61, align 8
-  %78 = getelementptr inbounds nuw i8, ptr %75, i64 40
-  %79 = load i16, ptr %78, align 8
-  %80 = zext i16 %79 to i64
-  %81 = getelementptr inbounds nuw i8, ptr %75, i64 %80
-  %82 = getelementptr inbounds nuw i8, ptr %75, i64 32
-  %83 = load i64, ptr %82, align 8
-  %84 = getelementptr inbounds i8, ptr %81, i64 %83
-  %85 = getelementptr inbounds i8, ptr %77, i64 %70
-  store ptr %85, ptr %61, align 8
+_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i: ; preds = %105
+  %114 = getelementptr inbounds nuw i8, ptr %113, i64 16
+  %115 = load ptr, ptr %114, align 8
+  store ptr %115, ptr %0, align 8
+  store ptr %115, ptr %99, align 8
+  %116 = getelementptr inbounds nuw i8, ptr %113, i64 40
+  %117 = load i16, ptr %116, align 8
+  %118 = zext i16 %117 to i64
+  %119 = getelementptr inbounds nuw i8, ptr %113, i64 %118
+  %120 = getelementptr inbounds nuw i8, ptr %113, i64 32
+  %121 = load i64, ptr %120, align 8
+  %122 = getelementptr inbounds i8, ptr %119, i64 %121
+  %123 = getelementptr inbounds i8, ptr %115, i64 %108
+  store ptr %123, ptr %99, align 8
   br label %.sink.split.i.i.i.i
 
-.sink.split.i.i.i.i:                              ; preds = %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i, %67
-  %.sink.i.i.i.i = phi ptr [ %84, %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i ], [ null, %67 ]
-  %.0.ph.i.i.i.i = phi ptr [ %85, %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i ], [ null, %67 ]
-  store ptr %.sink.i.i.i.i, ptr %58, align 8
+.sink.split.i.i.i.i:                              ; preds = %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i, %105
+  %.sink.i.i.i.i = phi ptr [ %122, %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i ], [ null, %105 ]
+  %.0.ph.i.i.i.i = phi ptr [ %123, %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i ], [ null, %105 ]
+  store ptr %.sink.i.i.i.i, ptr %96, align 8
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i.i
 
-_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i.i: ; preds = %.sink.split.i.i.i.i, %60
-  %.0.i.i.i.i = phi ptr [ %62, %60 ], [ %.0.ph.i.i.i.i, %.sink.split.i.i.i.i ]
-  %.not.i.i19.i = icmp eq ptr %.0.i.i.i.i, null
-  br i1 %.not.i.i19.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeIbEEvT_.exit.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeIbEEPhPKT_mSD_.exit.i.i.i
+_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i.i: ; preds = %.sink.split.i.i.i.i, %98
+  %.0.i.i.i.i = phi ptr [ %100, %98 ], [ %.0.ph.i.i.i.i, %.sink.split.i.i.i.i ]
+  %.not.i.i25.i = icmp eq ptr %.0.i.i.i.i, null
+  br i1 %.not.i.i25.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeIbEEvT_.exit.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeIbEEPhPKT_mSD_.exit.i.i.i
 
 _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeIbEEPhPKT_mSD_.exit.i.i.i: ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i.i
-  store i8 %57, ptr %.0.i.i.i.i, align 1
-  %86 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 1
-  store ptr %86, ptr %61, align 8
+  store i8 %95, ptr %.0.i.i.i.i, align 1
+  %124 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 1
+  store ptr %124, ptr %99, align 8
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeIbEEvT_.exit.i
 
-_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeIbEEvT_.exit.i: ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeIbEEPhPKT_mSD_.exit.i.i.i, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i.i, %_ZL11mark_symbolPK5Klassb.exit.i
-  br i1 %2, label %87, label %96
+_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeIbEEvT_.exit.i: ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeIbEEPhPKT_mSD_.exit.i.i.i, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i.i, %_ZL10package_idPK5Klassb.exit.i
+  br i1 %2, label %125, label %134
 
-87:                                               ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeIbEEvT_.exit.i
-  %88 = getelementptr inbounds nuw i8, ptr %1, i64 169
-  br label %89
+125:                                              ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeIbEEvT_.exit.i
+  %126 = getelementptr inbounds nuw i8, ptr %1, i64 169
+  br label %127
 
-89:                                               ; preds = %93, %87
-  %90 = load volatile i8, ptr %88, align 1
-  %91 = and i8 %90, -5
-  %92 = icmp eq i8 %90, %91
-  br i1 %92, label %_ZL14do_write_klassP19JfrCheckpointWriterPK15ClassLoaderDataPK5Klassb.exit, label %93
+127:                                              ; preds = %131, %125
+  %128 = load volatile i8, ptr %126, align 1
+  %129 = and i8 %128, -5
+  %130 = icmp eq i8 %128, %129
+  br i1 %130, label %_ZL14do_write_klassP19JfrCheckpointWriterPK15ClassLoaderDataPK5Klassb.exit, label %131
 
-93:                                               ; preds = %89
-  %94 = call noundef i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %91, i8 %90, ptr nonnull %88) #9, !srcloc !7
-  %95 = icmp eq i8 %94, %90
-  br i1 %95, label %_ZL14do_write_klassP19JfrCheckpointWriterPK15ClassLoaderDataPK5Klassb.exit, label %89, !llvm.loop !8
+131:                                              ; preds = %127
+  %132 = call noundef i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %129, i8 %128, ptr nonnull %126) #9, !srcloc !7
+  %133 = icmp eq i8 %132, %128
+  br i1 %133, label %_ZL14do_write_klassP19JfrCheckpointWriterPK15ClassLoaderDataPK5Klassb.exit, label %127, !llvm.loop !8
 
-96:                                               ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeIbEEvT_.exit.i
-  %97 = load i8, ptr @_ZL11_flushpoint, align 1
-  %98 = trunc nuw i8 %97 to i1
-  %99 = load i8, ptr @_ZL13_class_unload, align 1
-  %100 = trunc nuw i8 %99 to i1
-  %101 = select i1 %98, i1 true, i1 %100
-  br i1 %101, label %102, label %_ZL14set_serializedI5KlassEvPKT_.exit.i
+134:                                              ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeIbEEvT_.exit.i
+  %135 = load i8, ptr @_ZL11_flushpoint, align 1
+  %136 = trunc nuw i8 %135 to i1
+  %137 = load i8, ptr @_ZL13_class_unload, align 1
+  %138 = trunc nuw i8 %137 to i1
+  %139 = select i1 %136, i1 true, i1 %138
+  br i1 %139, label %140, label %_ZL14set_serializedI5KlassEvPKT_.exit.i
 
-102:                                              ; preds = %96
-  %103 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
-  %104 = trunc i8 %103 to i1
-  %105 = select i1 %104, i8 -3, i8 -2
-  %106 = getelementptr inbounds nuw i8, ptr %1, i64 169
-  br label %107
+140:                                              ; preds = %134
+  %141 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
+  %142 = and i8 %141, 1
+  %143 = sub nuw nsw i8 -2, %142
+  %144 = getelementptr inbounds nuw i8, ptr %1, i64 169
+  br label %145
 
-107:                                              ; preds = %111, %102
-  %108 = load volatile i8, ptr %106, align 1
-  %109 = and i8 %108, %105
-  %110 = icmp eq i8 %108, %109
-  br i1 %110, label %_ZL14set_serializedI5KlassEvPKT_.exit.i, label %111
+145:                                              ; preds = %149, %140
+  %146 = load volatile i8, ptr %144, align 1
+  %147 = and i8 %146, %143
+  %148 = icmp eq i8 %146, %147
+  br i1 %148, label %_ZL14set_serializedI5KlassEvPKT_.exit.i, label %149
 
-111:                                              ; preds = %107
-  %112 = call noundef i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %109, i8 %108, ptr nonnull %106) #9, !srcloc !7
-  %113 = icmp eq i8 %112, %108
-  br i1 %113, label %_ZL14set_serializedI5KlassEvPKT_.exit.i, label %107, !llvm.loop !8
+149:                                              ; preds = %145
+  %150 = call noundef i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %147, i8 %146, ptr nonnull %144) #9, !srcloc !7
+  %151 = icmp eq i8 %150, %146
+  br i1 %151, label %_ZL14set_serializedI5KlassEvPKT_.exit.i, label %145, !llvm.loop !8
 
-_ZL14set_serializedI5KlassEvPKT_.exit.i:          ; preds = %111, %107, %96
-  %114 = getelementptr inbounds nuw i8, ptr %1, i64 169
-  %115 = load i8, ptr %114, align 1
-  %116 = or i8 %115, 16
-  store i8 %116, ptr %114, align 1
+_ZL14set_serializedI5KlassEvPKT_.exit.i:          ; preds = %149, %145, %134
+  %152 = getelementptr inbounds nuw i8, ptr %1, i64 169
+  %153 = load i8, ptr %152, align 1
+  %154 = or i8 %153, 16
+  store i8 %154, ptr %152, align 1
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
   br label %_ZL14do_write_klassP19JfrCheckpointWriterPK15ClassLoaderDataPK5Klassb.exit
 
-_ZL14do_write_klassP19JfrCheckpointWriterPK15ClassLoaderDataPK5Klassb.exit: ; preds = %89, %93, %_ZL14set_serializedI5KlassEvPKT_.exit.i
-  %117 = load i32, ptr %3, align 4
-  %118 = add nsw i32 %117, 1
-  store i32 %118, ptr %3, align 4
-  br i1 %.not.i, label %_ZL11get_packagePK5Klass.exit.i, label %119
+_ZL14do_write_klassP19JfrCheckpointWriterPK15ClassLoaderDataPK5Klassb.exit: ; preds = %127, %131, %_ZL14set_serializedI5KlassEvPKT_.exit.i
+  %155 = load i32, ptr %3, align 4
+  %156 = add nsw i32 %155, 1
+  store i32 %156, ptr %3, align 4
+  br i1 %.not.i, label %_ZL11get_packagePK5Klass.exit.i, label %157
 
-119:                                              ; preds = %_ZL14do_write_klassP19JfrCheckpointWriterPK15ClassLoaderDataPK5Klassb.exit
-  %120 = call fastcc noundef ptr @_ZL13get_cld_klassPK15ClassLoaderDatab(ptr noundef nonnull %18, i1 noundef zeroext %2)
-  %.not.i23 = icmp eq ptr %120, null
-  br i1 %.not.i23, label %_ZL11get_packagePK5Klass.exit.i, label %121
+157:                                              ; preds = %_ZL14do_write_klassP19JfrCheckpointWriterPK15ClassLoaderDataPK5Klassb.exit
+  %158 = call fastcc noundef ptr @_ZL13get_cld_klassPK15ClassLoaderDatab(ptr noundef nonnull %18, i1 noundef zeroext %2)
+  %.not.i23 = icmp eq ptr %158, null
+  br i1 %.not.i23, label %_ZL11get_packagePK5Klass.exit.i, label %159
 
-121:                                              ; preds = %119
-  br i1 %2, label %122, label %126
+159:                                              ; preds = %157
+  br i1 %2, label %160, label %164
 
-122:                                              ; preds = %121
-  %123 = getelementptr inbounds nuw i8, ptr %120, i64 168
-  %124 = load i64, ptr %123, align 8
-  %125 = and i64 %124, 1024
-  %.not = icmp eq i64 %125, 0
+160:                                              ; preds = %159
+  %161 = getelementptr inbounds nuw i8, ptr %158, i64 168
+  %162 = load i64, ptr %161, align 8
+  %163 = and i64 %162, 1024
+  %.not = icmp eq i64 %163, 0
   br i1 %.not, label %_ZL11get_packagePK5Klass.exit.i, label %_ZL22should_write_cld_klassPK5Klassb.exit.thread
 
-126:                                              ; preds = %121
-  %127 = load i8, ptr @_ZL13_class_unload, align 1
-  %128 = trunc nuw i8 %127 to i1
-  br i1 %128, label %_ZL22should_write_cld_klassPK5Klassb.exit.thread, label %_ZL22should_write_cld_klassPK5Klassb.exit
+164:                                              ; preds = %159
+  %165 = load i8, ptr @_ZL13_class_unload, align 1
+  %166 = trunc nuw i8 %165 to i1
+  br i1 %166, label %_ZL22should_write_cld_klassPK5Klassb.exit.thread, label %_ZL22should_write_cld_klassPK5Klassb.exit
 
-_ZL22should_write_cld_klassPK5Klassb.exit:        ; preds = %126
-  %129 = getelementptr inbounds nuw i8, ptr %120, i64 168
-  %130 = load i64, ptr %129, align 8
-  %131 = and i64 %130, 4096
-  %.not3.i = icmp eq i64 %131, 0
+_ZL22should_write_cld_klassPK5Klassb.exit:        ; preds = %164
+  %167 = getelementptr inbounds nuw i8, ptr %158, i64 168
+  %168 = load i64, ptr %167, align 8
+  %169 = and i64 %168, 4096
+  %.not3.i = icmp eq i64 %169, 0
   br i1 %.not3.i, label %_ZL22should_write_cld_klassPK5Klassb.exit.thread, label %_ZL11get_packagePK5Klass.exit.i
 
-_ZL22should_write_cld_klassPK5Klassb.exit.thread: ; preds = %126, %122, %_ZL22should_write_cld_klassPK5Klassb.exit
-  call fastcc void @_ZL11write_klassP19JfrCheckpointWriterPK5KlassbRi(ptr noundef nonnull %0, ptr noundef nonnull %120, i1 noundef zeroext %2, ptr noundef nonnull align 4 dereferenceable(4) %3)
+_ZL22should_write_cld_klassPK5Klassb.exit.thread: ; preds = %164, %160, %_ZL22should_write_cld_klassPK5Klassb.exit
+  call fastcc void @_ZL11write_klassP19JfrCheckpointWriterPK5KlassbRi(ptr noundef nonnull %0, ptr noundef nonnull %158, i1 noundef zeroext %2, ptr noundef nonnull align 4 dereferenceable(4) %3)
   br label %_ZL11get_packagePK5Klass.exit.i
 
-_ZL11get_packagePK5Klass.exit.i:                  ; preds = %119, %_ZL14do_write_klassP19JfrCheckpointWriterPK15ClassLoaderDataPK5Klassb.exit, %_ZL22should_write_cld_klassPK5Klassb.exit.thread, %_ZL22should_write_cld_klassPK5Klassb.exit, %122
-  %132 = load ptr, ptr %1, align 8
-  %133 = getelementptr inbounds nuw i8, ptr %132, i64 144
-  %134 = load ptr, ptr %133, align 8
-  %135 = call noundef ptr %134(ptr noundef nonnull align 8 dereferenceable(196) %1) #9
-  %.not.i1.i = icmp eq ptr %135, null
+_ZL11get_packagePK5Klass.exit.i:                  ; preds = %157, %_ZL14do_write_klassP19JfrCheckpointWriterPK15ClassLoaderDataPK5Klassb.exit, %_ZL22should_write_cld_klassPK5Klassb.exit.thread, %_ZL22should_write_cld_klassPK5Klassb.exit, %160
+  %170 = load ptr, ptr %1, align 8
+  %171 = getelementptr inbounds nuw i8, ptr %170, i64 144
+  %172 = load ptr, ptr %171, align 8
+  %173 = call noundef ptr %172(ptr noundef nonnull align 8 dereferenceable(196) %1) #9
+  %.not.i1.i = icmp eq ptr %173, null
   br i1 %.not.i1.i, label %_ZL20get_module_cld_klassPK5Klassb.exit, label %_ZL10get_modulePK12PackageEntry.exit.i
 
 _ZL10get_modulePK12PackageEntry.exit.i:           ; preds = %_ZL11get_packagePK5Klass.exit.i
-  %136 = getelementptr inbounds nuw i8, ptr %135, i64 8
-  %137 = load ptr, ptr %136, align 8
-  %.not.i2.i = icmp eq ptr %137, null
-  br i1 %.not.i2.i, label %_ZL20get_module_cld_klassPK5Klassb.exit, label %138
+  %174 = getelementptr inbounds nuw i8, ptr %173, i64 8
+  %175 = load ptr, ptr %174, align 8
+  %.not.i2.i = icmp eq ptr %175, null
+  br i1 %.not.i2.i, label %_ZL20get_module_cld_klassPK5Klassb.exit, label %176
 
-138:                                              ; preds = %_ZL10get_modulePK12PackageEntry.exit.i
-  %139 = getelementptr inbounds nuw i8, ptr %137, i64 24
-  %140 = load ptr, ptr %139, align 8
+176:                                              ; preds = %_ZL10get_modulePK12PackageEntry.exit.i
+  %177 = getelementptr inbounds nuw i8, ptr %175, i64 24
+  %178 = load ptr, ptr %177, align 8
   br label %_ZL20get_module_cld_klassPK5Klassb.exit
 
-_ZL20get_module_cld_klassPK5Klassb.exit:          ; preds = %_ZL11get_packagePK5Klass.exit.i, %_ZL10get_modulePK12PackageEntry.exit.i, %138
-  %141 = phi ptr [ %140, %138 ], [ null, %_ZL10get_modulePK12PackageEntry.exit.i ], [ null, %_ZL11get_packagePK5Klass.exit.i ]
-  %142 = call fastcc noundef ptr @_ZL13get_cld_klassPK15ClassLoaderDatab(ptr noundef %141, i1 noundef zeroext %2)
-  %.not.i25 = icmp eq ptr %142, null
-  br i1 %.not.i25, label %_ZL22should_write_cld_klassPK5Klassb.exit27.thread29, label %143
+_ZL20get_module_cld_klassPK5Klassb.exit:          ; preds = %_ZL11get_packagePK5Klass.exit.i, %_ZL10get_modulePK12PackageEntry.exit.i, %176
+  %179 = phi ptr [ %178, %176 ], [ null, %_ZL10get_modulePK12PackageEntry.exit.i ], [ null, %_ZL11get_packagePK5Klass.exit.i ]
+  %180 = call fastcc noundef ptr @_ZL13get_cld_klassPK15ClassLoaderDatab(ptr noundef %179, i1 noundef zeroext %2)
+  %.not.i25 = icmp eq ptr %180, null
+  br i1 %.not.i25, label %_ZL22should_write_cld_klassPK5Klassb.exit27.thread29, label %181
 
-143:                                              ; preds = %_ZL20get_module_cld_klassPK5Klassb.exit
-  br i1 %2, label %144, label %148
+181:                                              ; preds = %_ZL20get_module_cld_klassPK5Klassb.exit
+  br i1 %2, label %182, label %186
 
-144:                                              ; preds = %143
-  %145 = getelementptr inbounds nuw i8, ptr %142, i64 168
-  %146 = load i64, ptr %145, align 8
-  %147 = and i64 %146, 1024
-  %.not30 = icmp eq i64 %147, 0
+182:                                              ; preds = %181
+  %183 = getelementptr inbounds nuw i8, ptr %180, i64 168
+  %184 = load i64, ptr %183, align 8
+  %185 = and i64 %184, 1024
+  %.not30 = icmp eq i64 %185, 0
   br i1 %.not30, label %_ZL22should_write_cld_klassPK5Klassb.exit27.thread29, label %_ZL22should_write_cld_klassPK5Klassb.exit27.thread
 
-148:                                              ; preds = %143
-  %149 = load i8, ptr @_ZL13_class_unload, align 1
-  %150 = trunc nuw i8 %149 to i1
-  br i1 %150, label %_ZL22should_write_cld_klassPK5Klassb.exit27.thread, label %_ZL22should_write_cld_klassPK5Klassb.exit27
+186:                                              ; preds = %181
+  %187 = load i8, ptr @_ZL13_class_unload, align 1
+  %188 = trunc nuw i8 %187 to i1
+  br i1 %188, label %_ZL22should_write_cld_klassPK5Klassb.exit27.thread, label %_ZL22should_write_cld_klassPK5Klassb.exit27
 
-_ZL22should_write_cld_klassPK5Klassb.exit27:      ; preds = %148
-  %151 = getelementptr inbounds nuw i8, ptr %142, i64 168
-  %152 = load i64, ptr %151, align 8
-  %153 = and i64 %152, 4096
-  %.not3.i26 = icmp eq i64 %153, 0
+_ZL22should_write_cld_klassPK5Klassb.exit27:      ; preds = %186
+  %189 = getelementptr inbounds nuw i8, ptr %180, i64 168
+  %190 = load i64, ptr %189, align 8
+  %191 = and i64 %190, 4096
+  %.not3.i26 = icmp eq i64 %191, 0
   br i1 %.not3.i26, label %_ZL22should_write_cld_klassPK5Klassb.exit27.thread, label %_ZL22should_write_cld_klassPK5Klassb.exit27.thread29
 
-_ZL22should_write_cld_klassPK5Klassb.exit27.thread: ; preds = %148, %144, %_ZL22should_write_cld_klassPK5Klassb.exit27
-  call fastcc void @_ZL11write_klassP19JfrCheckpointWriterPK5KlassbRi(ptr noundef nonnull %0, ptr noundef nonnull %142, i1 noundef zeroext %2, ptr noundef nonnull align 4 dereferenceable(4) %3)
+_ZL22should_write_cld_klassPK5Klassb.exit27.thread: ; preds = %186, %182, %_ZL22should_write_cld_klassPK5Klassb.exit27
+  call fastcc void @_ZL11write_klassP19JfrCheckpointWriterPK5KlassbRi(ptr noundef nonnull %0, ptr noundef nonnull %180, i1 noundef zeroext %2, ptr noundef nonnull align 4 dereferenceable(4) %3)
   br label %_ZL22should_write_cld_klassPK5Klassb.exit27.thread29
 
-_ZL22should_write_cld_klassPK5Klassb.exit27.thread29: ; preds = %_ZL20get_module_cld_klassPK5Klassb.exit, %144, %_ZL22should_write_cld_klassPK5Klassb.exit27.thread, %_ZL22should_write_cld_klassPK5Klassb.exit27
+_ZL22should_write_cld_klassPK5Klassb.exit27.thread29: ; preds = %_ZL20get_module_cld_klassPK5Klassb.exit, %182, %_ZL22should_write_cld_klassPK5Klassb.exit27.thread, %_ZL22should_write_cld_klassPK5Klassb.exit27
   ret void
 }
 
@@ -567,8 +629,8 @@ define hidden noundef i32 @_Z14write__packageP19JfrCheckpointWriterPKv(ptr nound
 
 8:                                                ; preds = %2
   %9 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
-  %10 = trunc i8 %9 to i1
-  %11 = select i1 %10, i8 -3, i8 -2
+  %10 = and i8 %9, 1
+  %11 = sub nuw nsw i8 -2, %10
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 33
   br label %13
 
@@ -594,7 +656,7 @@ _ZL14set_serializedI12PackageEntryEvPKT_.exit:    ; preds = %13, %17, %2
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc void @_ZL13write_packageP19JfrCheckpointWriterPK12PackageEntryb(ptr noundef nonnull %0, ptr noundef readonly captures(none) %1, i1 noundef zeroext %2) unnamed_addr #0 {
+define internal fastcc void @_ZL13write_packageP19JfrCheckpointWriterPK12PackageEntryb(ptr noundef nonnull %0, ptr noundef captures(address_is_null) %1, i1 noundef zeroext %2) unnamed_addr #0 {
   %4 = alloca %class.JfrCheckpointFlush, align 8
   %5 = getelementptr i8, ptr %1, i64 32
   %.val = load i64, ptr %5, align 8
@@ -602,208 +664,103 @@ define internal fastcc void @_ZL13write_packageP19JfrCheckpointWriterPK12Package
   tail call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeImEEvT_(ptr noundef nonnull align 8 dereferenceable(41) %0, i64 noundef %6)
   %7 = load ptr, ptr %1, align 8
   %.not.i = icmp eq ptr %7, null
-  br i1 %.not.i, label %_ZL10get_modulePK12PackageEntry.exit.i, label %8
+  br i1 %.not.i, label %_ZL11mark_symbolP6Symbolb.exit, label %8
 
 8:                                                ; preds = %3
   %9 = load ptr, ptr @_ZL10_artifacts, align 8
   %10 = tail call noundef i64 @_ZN14JfrArtifactSet4markEPK6Symbolb(ptr noundef nonnull align 8 dereferenceable(41) %9, ptr noundef nonnull %7, i1 noundef zeroext %2) #9
-  br label %_ZL10get_modulePK12PackageEntry.exit.i
+  br label %_ZL11mark_symbolP6Symbolb.exit
 
-_ZL10get_modulePK12PackageEntry.exit.i:           ; preds = %8, %3
+_ZL11mark_symbolP6Symbolb.exit:                   ; preds = %3, %8
   %11 = phi i64 [ %10, %8 ], [ 0, %3 ]
   tail call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeImEEvT_(ptr noundef nonnull align 8 dereferenceable(41) %0, i64 noundef %11)
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %13 = load ptr, ptr %12, align 8
-  %14 = icmp eq ptr %13, null
-  br i1 %14, label %_ZL9module_idPK12PackageEntryb.exit, label %_ZL7get_cldPK11ModuleEntry.exit.i
+  %12 = tail call fastcc noundef i64 @_ZL9module_idPK12PackageEntryb(ptr noundef nonnull %1, i1 noundef zeroext %2)
+  tail call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeImEEvT_(ptr noundef nonnull align 8 dereferenceable(41) %0, i64 noundef %12)
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 63
+  %16 = load i8, ptr %15, align 1
+  %17 = trunc i8 %16 to i1
+  br i1 %17, label %_ZNK12PackageEntry11is_exportedEv.exit, label %18
 
-_ZL7get_cldPK11ModuleEntry.exit.i:                ; preds = %_ZL10get_modulePK12PackageEntry.exit.i
-  %15 = getelementptr inbounds nuw i8, ptr %13, i64 24
-  %16 = load ptr, ptr %15, align 8
-  %.not.i9 = icmp eq ptr %16, null
-  br i1 %.not.i9, label %_ZL6cld_idPK15ClassLoaderDatab.exit.i, label %17
-
-17:                                               ; preds = %_ZL7get_cldPK11ModuleEntry.exit.i
-  br i1 %2, label %18, label %27
-
-18:                                               ; preds = %17
-  %19 = getelementptr inbounds nuw i8, ptr %16, i64 152
-  %20 = load i64, ptr %19, align 8
-  %21 = and i64 %20, 1024
-  %.not.i.i.i = icmp eq i64 %21, 0
-  br i1 %.not.i.i.i, label %22, label %27
+18:                                               ; preds = %_ZL11mark_symbolP6Symbolb.exit
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %20 = load i32, ptr %19, align 8
+  %21 = and i32 %20, 3
+  %.not.i9 = icmp eq i32 %21, 0
+  br i1 %.not.i9, label %22, label %_ZNK12PackageEntry11is_exportedEv.exit
 
 22:                                               ; preds = %18
-  %23 = lshr i64 %20, 8
-  %24 = trunc i64 %23 to i8
-  %25 = getelementptr inbounds nuw i8, ptr %16, i64 153
-  %26 = or disjoint i8 %24, 4
-  store i8 %26, ptr %25, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
-  br label %27
-
-27:                                               ; preds = %22, %18, %17
-  %28 = getelementptr i8, ptr %16, i64 152
-  %.val.i.i.i = load i64, ptr %28, align 8
-  %29 = load i8, ptr @_ZL11_flushpoint, align 1
-  %30 = trunc nuw i8 %29 to i1
-  %31 = load i8, ptr @_ZL13_class_unload, align 1
-  %32 = trunc nuw i8 %31 to i1
-  %33 = select i1 %30, i1 true, i1 %32
-  %34 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
-  %35 = trunc i8 %34 to i1
-  %36 = xor i1 %33, %35
-  %.sink.i.i.i.i.i = select i1 %36, i64 2049, i64 2050
-  %37 = and i64 %.sink.i.i.i.i.i, %.val.i.i.i
-  %.not.i.i.i.i = icmp eq i64 %37, 0
-  br i1 %.not.i.i.i.i, label %38, label %_ZL6cld_idPK15ClassLoaderDatab.exit.i
-
-38:                                               ; preds = %27
-  %39 = lshr i64 %.val.i.i.i, 8
-  %40 = trunc i64 %39 to i8
-  %41 = getelementptr inbounds nuw i8, ptr %16, i64 153
-  %42 = or i8 %40, 8
-  store i8 %42, ptr %41, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
-  br label %_ZL6cld_idPK15ClassLoaderDatab.exit.i
-
-_ZL6cld_idPK15ClassLoaderDatab.exit.i:            ; preds = %38, %27, %_ZL7get_cldPK11ModuleEntry.exit.i
-  br i1 %2, label %43, label %52
-
-43:                                               ; preds = %_ZL6cld_idPK15ClassLoaderDatab.exit.i
-  %44 = getelementptr inbounds nuw i8, ptr %13, i64 72
-  %45 = load i64, ptr %44, align 8
-  %46 = and i64 %45, 1024
-  %.not.i12.i = icmp eq i64 %46, 0
-  br i1 %.not.i12.i, label %47, label %52
-
-47:                                               ; preds = %43
-  %48 = lshr i64 %45, 8
-  %49 = trunc i64 %48 to i8
-  %50 = getelementptr inbounds nuw i8, ptr %13, i64 73
-  %51 = or disjoint i8 %49, 4
-  store i8 %51, ptr %50, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
-  br label %52
-
-52:                                               ; preds = %47, %43, %_ZL6cld_idPK15ClassLoaderDatab.exit.i
-  %53 = getelementptr i8, ptr %13, i64 72
-  %.val.i.i = load i64, ptr %53, align 8
-  %54 = load i8, ptr @_ZL11_flushpoint, align 1
-  %55 = trunc nuw i8 %54 to i1
-  %56 = load i8, ptr @_ZL13_class_unload, align 1
-  %57 = trunc nuw i8 %56 to i1
-  %58 = select i1 %55, i1 true, i1 %57
-  %59 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
-  %60 = trunc i8 %59 to i1
-  %61 = xor i1 %58, %60
-  %.sink.i.i.i.i = select i1 %61, i64 2049, i64 2050
-  %62 = and i64 %.sink.i.i.i.i, %.val.i.i
-  %.not.i.i11.i = icmp eq i64 %62, 0
-  br i1 %.not.i.i11.i, label %63, label %_ZL12artifact_tagI11ModuleEntryEmPKT_b.exit.i
-
-63:                                               ; preds = %52
-  %64 = lshr i64 %.val.i.i, 8
-  %65 = trunc i64 %64 to i8
-  %66 = getelementptr inbounds nuw i8, ptr %13, i64 73
-  %67 = or i8 %65, 8
-  store i8 %67, ptr %66, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
-  %.val5.pre.i.i = load i64, ptr %53, align 8
-  br label %_ZL12artifact_tagI11ModuleEntryEmPKT_b.exit.i
-
-_ZL12artifact_tagI11ModuleEntryEmPKT_b.exit.i:    ; preds = %63, %52
-  %.val5.i.i = phi i64 [ %.val5.pre.i.i, %63 ], [ %.val.i.i, %52 ]
-  %68 = lshr i64 %.val5.i.i, 16
-  br label %_ZL9module_idPK12PackageEntryb.exit
-
-_ZL9module_idPK12PackageEntryb.exit:              ; preds = %_ZL10get_modulePK12PackageEntry.exit.i, %_ZL12artifact_tagI11ModuleEntryEmPKT_b.exit.i
-  %.0.i = phi i64 [ %68, %_ZL12artifact_tagI11ModuleEntryEmPKT_b.exit.i ], [ 0, %_ZL10get_modulePK12PackageEntry.exit.i ]
-  tail call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeImEEvT_(ptr noundef nonnull align 8 dereferenceable(41) %0, i64 noundef %.0.i)
-  %69 = load ptr, ptr %12, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 63
-  %71 = load i8, ptr %70, align 1
-  %72 = trunc i8 %71 to i1
-  br i1 %72, label %_ZNK12PackageEntry11is_exportedEv.exit, label %73
-
-73:                                               ; preds = %_ZL9module_idPK12PackageEntryb.exit
-  %74 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %75 = load i32, ptr %74, align 8
-  %76 = and i32 %75, 3
-  %.not.i10 = icmp eq i32 %76, 0
-  br i1 %.not.i10, label %77, label %_ZNK12PackageEntry11is_exportedEv.exit
-
-77:                                               ; preds = %73
-  %78 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %79 = load ptr, ptr %78, align 8
-  %80 = icmp ne ptr %79, null
-  %81 = zext i1 %80 to i8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %24 = load ptr, ptr %23, align 8
+  %25 = icmp ne ptr %24, null
+  %26 = zext i1 %25 to i8
   br label %_ZNK12PackageEntry11is_exportedEv.exit
 
-_ZNK12PackageEntry11is_exportedEv.exit:           ; preds = %_ZL9module_idPK12PackageEntryb.exit, %73, %77
-  %82 = phi i8 [ 1, %73 ], [ 1, %_ZL9module_idPK12PackageEntryb.exit ], [ %81, %77 ]
-  %83 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %84 = load ptr, ptr %83, align 8
-  %.not.i.i.i.i11 = icmp eq ptr %84, null
-  br i1 %.not.i.i.i.i11, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeEb.exit, label %85
+_ZNK12PackageEntry11is_exportedEv.exit:           ; preds = %_ZL11mark_symbolP6Symbolb.exit, %18, %22
+  %27 = phi i8 [ 1, %18 ], [ 1, %_ZL11mark_symbolP6Symbolb.exit ], [ %26, %22 ]
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %29 = load ptr, ptr %28, align 8
+  %.not.i.i.i.i = icmp eq ptr %29, null
+  br i1 %.not.i.i.i.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeEb.exit, label %30
 
-85:                                               ; preds = %_ZNK12PackageEntry11is_exportedEv.exit
-  %86 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %87 = load ptr, ptr %86, align 8
-  %88 = icmp eq ptr %84, %87
-  br i1 %88, label %89, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i.i
+30:                                               ; preds = %_ZNK12PackageEntry11is_exportedEv.exit
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %32 = load ptr, ptr %31, align 8
+  %33 = icmp eq ptr %29, %32
+  br i1 %33, label %34, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i.i
 
-89:                                               ; preds = %85
-  %90 = ptrtoint ptr %84 to i64
-  %91 = load ptr, ptr %0, align 8
-  %92 = ptrtoint ptr %91 to i64
-  %93 = sub i64 %90, %92
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 24
+34:                                               ; preds = %30
+  %35 = ptrtoint ptr %29 to i64
+  %36 = load ptr, ptr %0, align 8
+  %37 = ptrtoint ptr %36 to i64
+  %38 = sub i64 %35, %37
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %95 = load ptr, ptr %94, align 8
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %97 = load ptr, ptr %96, align 8
-  call void @_ZN18JfrCheckpointFlushC1EP9JfrBuffermmP6Thread(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %95, i64 noundef %93, i64 noundef 1, ptr noundef %97) #9
-  %98 = load ptr, ptr %4, align 8
-  store ptr %98, ptr %94, align 8
-  %.not5.i.i.i.i = icmp eq ptr %98, null
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %42 = load ptr, ptr %41, align 8
+  call void @_ZN18JfrCheckpointFlushC1EP9JfrBuffermmP6Thread(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %40, i64 noundef %38, i64 noundef 1, ptr noundef %42) #9
+  %43 = load ptr, ptr %4, align 8
+  store ptr %43, ptr %39, align 8
+  %.not5.i.i.i.i = icmp eq ptr %43, null
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br i1 %.not5.i.i.i.i, label %.sink.split.i.i.i.i, label %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i
 
-_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i: ; preds = %89
-  %99 = getelementptr inbounds nuw i8, ptr %98, i64 16
-  %100 = load ptr, ptr %99, align 8
-  store ptr %100, ptr %0, align 8
-  store ptr %100, ptr %86, align 8
-  %101 = getelementptr inbounds nuw i8, ptr %98, i64 40
-  %102 = load i16, ptr %101, align 8
-  %103 = zext i16 %102 to i64
-  %104 = getelementptr inbounds nuw i8, ptr %98, i64 %103
-  %105 = getelementptr inbounds nuw i8, ptr %98, i64 32
-  %106 = load i64, ptr %105, align 8
-  %107 = getelementptr inbounds i8, ptr %104, i64 %106
-  %108 = getelementptr inbounds i8, ptr %100, i64 %93
-  store ptr %108, ptr %86, align 8
+_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i: ; preds = %34
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 16
+  %45 = load ptr, ptr %44, align 8
+  store ptr %45, ptr %0, align 8
+  store ptr %45, ptr %31, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %43, i64 40
+  %47 = load i16, ptr %46, align 8
+  %48 = zext i16 %47 to i64
+  %49 = getelementptr inbounds nuw i8, ptr %43, i64 %48
+  %50 = getelementptr inbounds nuw i8, ptr %43, i64 32
+  %51 = load i64, ptr %50, align 8
+  %52 = getelementptr inbounds i8, ptr %49, i64 %51
+  %53 = getelementptr inbounds i8, ptr %45, i64 %38
+  store ptr %53, ptr %31, align 8
   br label %.sink.split.i.i.i.i
 
-.sink.split.i.i.i.i:                              ; preds = %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i, %89
-  %.sink.i.i.i.i13 = phi ptr [ %107, %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i ], [ null, %89 ]
-  %.0.ph.i.i.i.i = phi ptr [ %108, %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i ], [ null, %89 ]
-  store ptr %.sink.i.i.i.i13, ptr %83, align 8
+.sink.split.i.i.i.i:                              ; preds = %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i, %34
+  %.sink.i.i.i.i = phi ptr [ %52, %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i ], [ null, %34 ]
+  %.0.ph.i.i.i.i = phi ptr [ %53, %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i ], [ null, %34 ]
+  store ptr %.sink.i.i.i.i, ptr %28, align 8
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i.i
 
-_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i.i: ; preds = %.sink.split.i.i.i.i, %85
-  %.0.i.i.i.i = phi ptr [ %87, %85 ], [ %.0.ph.i.i.i.i, %.sink.split.i.i.i.i ]
-  %.not.i.i.i12 = icmp eq ptr %.0.i.i.i.i, null
-  br i1 %.not.i.i.i12, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeEb.exit, label %109
+_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i.i: ; preds = %.sink.split.i.i.i.i, %30
+  %.0.i.i.i.i = phi ptr [ %32, %30 ], [ %.0.ph.i.i.i.i, %.sink.split.i.i.i.i ]
+  %.not.i.i.i = icmp eq ptr %.0.i.i.i.i, null
+  br i1 %.not.i.i.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeEb.exit, label %54
 
-109:                                              ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i.i
-  store i8 %82, ptr %.0.i.i.i.i, align 1
-  %110 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 1
-  store ptr %110, ptr %86, align 8
+54:                                               ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i.i
+  store i8 %27, ptr %.0.i.i.i.i, align 1
+  %55 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 1
+  store ptr %55, ptr %31, align 8
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeEb.exit
 
-_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeEb.exit: ; preds = %_ZNK12PackageEntry11is_exportedEv.exit, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i.i, %109
+_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeEb.exit: ; preds = %_ZNK12PackageEntry11is_exportedEv.exit, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i.i, %54
   ret void
 }
 
@@ -839,8 +796,8 @@ define hidden noundef i32 @_Z13write__moduleP19JfrCheckpointWriterPKv(ptr nounde
 
 8:                                                ; preds = %2
   %9 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
-  %10 = trunc i8 %9 to i1
-  %11 = select i1 %10, i8 -3, i8 -2
+  %10 = and i8 %9, 1
+  %11 = sub nuw nsw i8 -2, %10
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 73
   br label %13
 
@@ -939,27 +896,30 @@ _ZL11mark_symbolP6Symbolb.exit16:                 ; preds = %_ZL11mark_symbolP6S
   %40 = trunc nuw i8 %39 to i1
   %41 = select i1 %38, i1 true, i1 %40
   %42 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
-  %43 = trunc i8 %42 to i1
-  %44 = xor i1 %41, %43
-  %.sink.i.i.i.i = select i1 %44, i64 2049, i64 2050
-  %45 = and i64 %.sink.i.i.i.i, %.val.i.i
-  %.not.i.i.i = icmp eq i64 %45, 0
-  br i1 %.not.i.i.i, label %46, label %_ZL6cld_idPK15ClassLoaderDatab.exit
+  %43 = and i8 %42, 1
+  %44 = sub nuw nsw i8 2, %43
+  %45 = add nuw nsw i8 %43, 1
+  %.sink.i.i.i.i = select i1 %41, i8 %45, i8 %44
+  %46 = zext nneg i8 %.sink.i.i.i.i to i64
+  %47 = or disjoint i64 %46, 2048
+  %48 = and i64 %47, %.val.i.i
+  %.not.i.i.i = icmp eq i64 %48, 0
+  br i1 %.not.i.i.i, label %49, label %_ZL6cld_idPK15ClassLoaderDatab.exit
 
-46:                                               ; preds = %35
-  %47 = lshr i64 %.val.i.i, 8
-  %48 = trunc i64 %47 to i8
-  %49 = getelementptr inbounds nuw i8, ptr %25, i64 153
-  %50 = or i8 %48, 8
-  store i8 %50, ptr %49, align 1
+49:                                               ; preds = %35
+  %50 = lshr i64 %.val.i.i, 8
+  %51 = trunc i64 %50 to i8
+  %52 = getelementptr inbounds nuw i8, ptr %25, i64 153
+  %53 = or i8 %51, 8
+  store i8 %53, ptr %52, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
   %.val5.pre.i.i = load i64, ptr %36, align 8
   br label %_ZL6cld_idPK15ClassLoaderDatab.exit
 
-_ZL6cld_idPK15ClassLoaderDatab.exit:              ; preds = %35, %46
-  %.val5.i.i = phi i64 [ %.val5.pre.i.i, %46 ], [ %.val.i.i, %35 ]
-  %51 = lshr i64 %.val5.i.i, 16
-  tail call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeImEEvT_(ptr noundef nonnull align 8 dereferenceable(41) %0, i64 noundef %51)
+_ZL6cld_idPK15ClassLoaderDatab.exit:              ; preds = %35, %49
+  %.val5.i.i = phi i64 [ %.val5.pre.i.i, %49 ], [ %.val.i.i, %35 ]
+  %54 = lshr i64 %.val5.i.i, 16
+  tail call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeImEEvT_(ptr noundef nonnull align 8 dereferenceable(41) %0, i64 noundef %54)
   ret void
 }
 
@@ -995,8 +955,8 @@ define hidden noundef i32 @_Z10write__cldP19JfrCheckpointWriterPKv(ptr noundef %
 
 8:                                                ; preds = %2
   %9 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
-  %10 = trunc i8 %9 to i1
-  %11 = select i1 %10, i8 -3, i8 -2
+  %10 = and i8 %9, 1
+  %11 = sub nuw nsw i8 -2, %10
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 153
   br label %13
 
@@ -1183,8 +1143,8 @@ define hidden noundef i32 @_Z13write__methodP19JfrCheckpointWriterPKv(ptr nounde
 
 8:                                                ; preds = %2
   %9 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
-  %10 = trunc i8 %9 to i1
-  %11 = select i1 %10, i8 -3, i8 -2
+  %10 = and i8 %9, 1
+  %11 = sub nuw nsw i8 -2, %10
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 55
   br label %13
 
@@ -1383,1447 +1343,1623 @@ define hidden noundef i64 @_ZN10JfrTypeSet9serializeEP19JfrCheckpointWriterS1_bb
   %15 = alloca %class.ClearArtifact.60, align 1
   %16 = alloca %class.CompositeFunctor.61, align 8
   %17 = alloca %class.JfrArtifactCallbackHost.62, align 8
-  %18 = alloca %class.KlassToFieldEnvelope.43, align 8
-  %19 = alloca %class.JfrCheckpointFlush, align 8
-  %20 = alloca %class.JfrTypeWriterHost.34, align 8
-  %21 = alloca %class.ClearArtifact.40, align 1
-  %22 = alloca %class.CompositeFunctor.41, align 8
-  %23 = alloca %class.JfrArtifactCallbackHost.42, align 8
-  %24 = alloca %class.KlassToFieldEnvelope, align 8
-  %25 = alloca %class.JfrCheckpointFlush, align 8
-  %26 = alloca %class.JfrTypeWriterHost.16, align 8
-  %27 = alloca %class.ClearArtifact, align 1
-  %28 = alloca %class.CompositeFunctor.22, align 8
-  %29 = alloca %class.JfrArtifactCallbackHost.23, align 8
+  %18 = alloca %class.JfrCheckpointFlush, align 8
+  %19 = alloca %class.JfrTypeWriterHost.34, align 8
+  %20 = alloca %class.ClearArtifact.40, align 1
+  %21 = alloca %class.CompositeFunctor.41, align 8
+  %22 = alloca %class.JfrArtifactCallbackHost.42, align 8
+  %23 = alloca %class.KlassToFieldEnvelope, align 8
+  %24 = alloca %class.JfrCheckpointFlush, align 8
+  %25 = alloca %class.JfrTypeWriterHost.16, align 8
+  %26 = alloca %class.ClearArtifact, align 1
+  %27 = alloca %class.CompositeFunctor.22, align 8
+  %28 = alloca %class.JfrArtifactCallbackHost.23, align 8
+  %29 = alloca %class.JfrCheckpointFlush, align 8
   %30 = alloca %class.JfrCheckpointFlush, align 8
-  %31 = alloca %class.JfrCheckpointFlush, align 8
-  %32 = alloca %class.KlassArtifactRegistrator, align 8
-  %33 = alloca %class.JfrTypeWriterHost, align 8
-  %34 = alloca %class.CompositeFunctor, align 8
-  %35 = alloca %class.JfrArtifactCallbackHost, align 8
-  %36 = alloca %class.JfrTypeWriterHost.8, align 8
-  %37 = alloca %class.CompositeFunctor.13, align 8
-  %38 = alloca %class.CompositeFunctor.14, align 8
-  %39 = alloca %class.JfrArtifactCallbackHost.15, align 8
-  %40 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
-  %41 = load ptr, ptr %40, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 800
-  %43 = load ptr, ptr %42, align 8
-  %44 = getelementptr inbounds nuw i8, ptr %43, i64 24
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %43, i64 32
-  %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %43, i64 40
-  %49 = load ptr, ptr %48, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %51 = load i64, ptr %50, align 8
-  %52 = zext i1 %2 to i8
-  %53 = zext i1 %3 to i8
+  %31 = alloca %class.KlassArtifactRegistrator, align 8
+  %32 = alloca %class.JfrTypeWriterHost, align 8
+  %33 = alloca %class.CompositeFunctor, align 8
+  %34 = alloca %class.JfrArtifactCallbackHost, align 8
+  %35 = alloca %class.JfrTypeWriterHost.8, align 8
+  %36 = alloca %class.CompositeFunctor.13, align 8
+  %37 = alloca %class.CompositeFunctor.14, align 8
+  %38 = alloca %class.JfrArtifactCallbackHost.15, align 8
+  %39 = tail call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN6Thread12_thr_currentE)
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 800
+  %42 = load ptr, ptr %41, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 24
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %42, i64 32
+  %46 = load ptr, ptr %45, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %42, i64 40
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %50 = load i64, ptr %49, align 8
+  %51 = zext i1 %2 to i8
+  %52 = zext i1 %3 to i8
   store ptr %0, ptr @_ZL7_writer, align 8
   store ptr %1, ptr @_ZL13_leakp_writer, align 8
-  store i8 %52, ptr @_ZL13_class_unload, align 1
-  store i8 %53, ptr @_ZL11_flushpoint, align 1
-  %54 = load ptr, ptr @_ZL10_artifacts, align 8
-  %55 = icmp eq ptr %54, null
-  br i1 %55, label %56, label %61
+  store i8 %51, ptr @_ZL13_class_unload, align 1
+  store i8 %52, ptr @_ZL11_flushpoint, align 1
+  %53 = load ptr, ptr @_ZL10_artifacts, align 8
+  %54 = icmp eq ptr %53, null
+  br i1 %54, label %55, label %60
 
-56:                                               ; preds = %4
-  %57 = tail call noundef ptr @_ZN11JfrCHeapObjnwEm(i64 noundef 48) #9
-  %58 = icmp eq ptr %57, null
-  br i1 %58, label %60, label %59
+55:                                               ; preds = %4
+  %56 = tail call noundef ptr @_ZN11JfrCHeapObjnwEm(i64 noundef 48) #9
+  %57 = icmp eq ptr %56, null
+  br i1 %57, label %59, label %58
 
-59:                                               ; preds = %56
-  tail call void @_ZN14JfrArtifactSetC1Eb(ptr noundef nonnull align 8 dereferenceable(41) %57, i1 noundef zeroext %2) #9
-  br label %60
+58:                                               ; preds = %55
+  tail call void @_ZN14JfrArtifactSetC1Eb(ptr noundef nonnull align 8 dereferenceable(41) %56, i1 noundef zeroext %2) #9
+  br label %59
 
-60:                                               ; preds = %59, %56
-  store ptr %57, ptr @_ZL10_artifacts, align 8
-  br label %62
+59:                                               ; preds = %58, %55
+  store ptr %56, ptr @_ZL10_artifacts, align 8
+  br label %61
 
-61:                                               ; preds = %4
-  tail call void @_ZN14JfrArtifactSet10initializeEb(ptr noundef nonnull align 8 dereferenceable(41) %54, i1 noundef zeroext %2) #9
-  br label %62
+60:                                               ; preds = %4
+  tail call void @_ZN14JfrArtifactSet10initializeEb(ptr noundef nonnull align 8 dereferenceable(41) %53, i1 noundef zeroext %2) #9
+  br label %61
 
-62:                                               ; preds = %61, %60
-  %63 = load i8, ptr @_ZL13_class_unload, align 1
-  %64 = trunc nuw i8 %63 to i1
-  br i1 %64, label %_ZL5setupP19JfrCheckpointWriterS0_bb.exit, label %65
+61:                                               ; preds = %60, %59
+  %62 = load i8, ptr @_ZL13_class_unload, align 1
+  %63 = trunc nuw i8 %62 to i1
+  br i1 %63, label %_ZL5setupP19JfrCheckpointWriterS0_bb.exit, label %64
 
-65:                                               ; preds = %62
-  %66 = load i8, ptr @_ZL11_flushpoint, align 1
-  %67 = trunc nuw i8 %66 to i1
-  %68 = xor i1 %67, true
-  tail call void @_ZN17JfrKlassUnloading4sortEb(i1 noundef zeroext %68) #9
+64:                                               ; preds = %61
+  %65 = load i8, ptr @_ZL11_flushpoint, align 1
+  %66 = trunc nuw i8 %65 to i1
+  %67 = xor i1 %66, true
+  tail call void @_ZN17JfrKlassUnloading4sortEb(i1 noundef zeroext %67) #9
   %.pre = load i8, ptr @_ZL13_class_unload, align 1
-  %69 = and i8 %.pre, 1
+  %68 = and i8 %.pre, 1
   br label %_ZL5setupP19JfrCheckpointWriterS0_bb.exit
 
-_ZL5setupP19JfrCheckpointWriterS0_bb.exit:        ; preds = %62, %65
-  %70 = phi i8 [ 1, %62 ], [ %69, %65 ]
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %32)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %33)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %34)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %35)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %36)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %37)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %38)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %39)
-  %71 = load ptr, ptr @_ZL10_artifacts, align 8
-  store ptr %71, ptr %32, align 8
-  %72 = load ptr, ptr @_ZL7_writer, align 8
-  store ptr %72, ptr %33, align 8
-  %73 = getelementptr inbounds nuw i8, ptr %33, i64 8
-  store i8 %70, ptr %73, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %33, i64 16
-  store ptr %72, ptr %74, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %33, i64 24
-  %76 = tail call { i64, i32 } @_ZNK19JfrCheckpointWriter7contextEv(ptr noundef nonnull align 8 dereferenceable(73) %72) #9
-  %77 = extractvalue { i64, i32 } %76, 0
-  store i64 %77, ptr %75, align 8
-  %78 = getelementptr inbounds nuw i8, ptr %33, i64 32
-  %79 = extractvalue { i64, i32 } %76, 1
-  store i32 %79, ptr %78, align 8
-  %80 = getelementptr inbounds nuw i8, ptr %33, i64 48
-  store i32 0, ptr %80, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %33, i64 52
-  store i8 0, ptr %81, align 4
-  tail call void @_ZN19JfrCheckpointWriter10write_typeE9JfrTypeId(ptr noundef nonnull align 8 dereferenceable(73) %72, i32 noundef 181) #9
-  %82 = getelementptr inbounds nuw i8, ptr %72, i64 16
-  %83 = load ptr, ptr %82, align 8
-  %.not.i.i.i.i = icmp eq ptr %83, null
-  br i1 %.not.i.i.i.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.thread.i.i.i, label %84
-
-84:                                               ; preds = %_ZL5setupP19JfrCheckpointWriterS0_bb.exit
-  %85 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  %86 = load ptr, ptr %85, align 8
-  %87 = ptrtoint ptr %83 to i64
-  %88 = ptrtoint ptr %86 to i64
-  %89 = sub i64 %87, %88
-  %90 = icmp ult i64 %89, 4
-  br i1 %90, label %91, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i.i
-
-91:                                               ; preds = %84
-  %92 = load ptr, ptr %72, align 8
-  %93 = ptrtoint ptr %92 to i64
-  %94 = sub i64 %88, %93
-  %95 = getelementptr inbounds nuw i8, ptr %72, i64 24
+_ZL5setupP19JfrCheckpointWriterS0_bb.exit:        ; preds = %61, %64
+  %69 = phi i8 [ 1, %61 ], [ %68, %64 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31)
-  %96 = load ptr, ptr %95, align 8
-  %97 = getelementptr inbounds nuw i8, ptr %72, i64 32
-  %98 = load ptr, ptr %97, align 8
-  call void @_ZN18JfrCheckpointFlushC1EP9JfrBuffermmP6Thread(ptr noundef nonnull align 8 dereferenceable(8) %31, ptr noundef %96, i64 noundef %94, i64 noundef 4, ptr noundef %98) #9
-  %99 = load ptr, ptr %31, align 8
-  store ptr %99, ptr %95, align 8
-  %.not5.i.i.i.i = icmp eq ptr %99, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31)
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %32)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %33)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %34)
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %35)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %36)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %37)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %38)
+  %70 = load ptr, ptr @_ZL10_artifacts, align 8
+  store ptr %70, ptr %31, align 8
+  %71 = load ptr, ptr @_ZL7_writer, align 8
+  store ptr %71, ptr %32, align 8
+  %72 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  store i8 %69, ptr %72, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %32, i64 16
+  store ptr %71, ptr %73, align 8
+  %74 = getelementptr inbounds nuw i8, ptr %32, i64 24
+  %75 = tail call { i64, i32 } @_ZNK19JfrCheckpointWriter7contextEv(ptr noundef nonnull align 8 dereferenceable(73) %71) #9
+  %76 = extractvalue { i64, i32 } %75, 0
+  store i64 %76, ptr %74, align 8
+  %77 = getelementptr inbounds nuw i8, ptr %32, i64 32
+  %78 = extractvalue { i64, i32 } %75, 1
+  store i32 %78, ptr %77, align 8
+  %79 = getelementptr inbounds nuw i8, ptr %32, i64 48
+  store i32 0, ptr %79, align 8
+  %80 = getelementptr inbounds nuw i8, ptr %32, i64 52
+  store i8 0, ptr %80, align 4
+  tail call void @_ZN19JfrCheckpointWriter10write_typeE9JfrTypeId(ptr noundef nonnull align 8 dereferenceable(73) %71, i32 noundef 181) #9
+  %81 = getelementptr inbounds nuw i8, ptr %71, i64 16
+  %82 = load ptr, ptr %81, align 8
+  %.not.i.i.i.i = icmp eq ptr %82, null
+  br i1 %.not.i.i.i.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.thread.i.i.i, label %83
+
+83:                                               ; preds = %_ZL5setupP19JfrCheckpointWriterS0_bb.exit
+  %84 = getelementptr inbounds nuw i8, ptr %71, i64 8
+  %85 = load ptr, ptr %84, align 8
+  %86 = ptrtoint ptr %82 to i64
+  %87 = ptrtoint ptr %85 to i64
+  %88 = sub i64 %86, %87
+  %89 = icmp ult i64 %88, 4
+  br i1 %89, label %90, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i.i
+
+90:                                               ; preds = %83
+  %91 = load ptr, ptr %71, align 8
+  %92 = ptrtoint ptr %91 to i64
+  %93 = sub i64 %87, %92
+  %94 = getelementptr inbounds nuw i8, ptr %71, i64 24
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30)
+  %95 = load ptr, ptr %94, align 8
+  %96 = getelementptr inbounds nuw i8, ptr %71, i64 32
+  %97 = load ptr, ptr %96, align 8
+  call void @_ZN18JfrCheckpointFlushC1EP9JfrBuffermmP6Thread(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef %95, i64 noundef %93, i64 noundef 4, ptr noundef %97) #9
+  %98 = load ptr, ptr %30, align 8
+  store ptr %98, ptr %94, align 8
+  %.not5.i.i.i.i = icmp eq ptr %98, null
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30)
   br i1 %.not5.i.i.i.i, label %.sink.split.i.i.i.i, label %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i
 
-_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i: ; preds = %91
-  %100 = getelementptr inbounds nuw i8, ptr %99, i64 16
-  %101 = load ptr, ptr %100, align 8
-  store ptr %101, ptr %72, align 8
-  store ptr %101, ptr %85, align 8
-  %102 = getelementptr inbounds nuw i8, ptr %99, i64 40
-  %103 = load i16, ptr %102, align 8
-  %104 = zext i16 %103 to i64
-  %105 = getelementptr inbounds nuw i8, ptr %99, i64 %104
-  %106 = getelementptr inbounds nuw i8, ptr %99, i64 32
-  %107 = load i64, ptr %106, align 8
-  %108 = getelementptr inbounds i8, ptr %105, i64 %107
-  %109 = getelementptr inbounds i8, ptr %101, i64 %94
-  store ptr %109, ptr %85, align 8
+_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i: ; preds = %90
+  %99 = getelementptr inbounds nuw i8, ptr %98, i64 16
+  %100 = load ptr, ptr %99, align 8
+  store ptr %100, ptr %71, align 8
+  store ptr %100, ptr %84, align 8
+  %101 = getelementptr inbounds nuw i8, ptr %98, i64 40
+  %102 = load i16, ptr %101, align 8
+  %103 = zext i16 %102 to i64
+  %104 = getelementptr inbounds nuw i8, ptr %98, i64 %103
+  %105 = getelementptr inbounds nuw i8, ptr %98, i64 32
+  %106 = load i64, ptr %105, align 8
+  %107 = getelementptr inbounds i8, ptr %104, i64 %106
+  %108 = getelementptr inbounds i8, ptr %100, i64 %93
+  store ptr %108, ptr %84, align 8
   br label %.sink.split.i.i.i.i
 
-.sink.split.i.i.i.i:                              ; preds = %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i, %91
-  %.sink.i.i.i.i = phi ptr [ %108, %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i ], [ null, %91 ]
-  %.0.ph.i.i.i.i = phi ptr [ %109, %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i ], [ null, %91 ]
-  store ptr %.sink.i.i.i.i, ptr %82, align 8
+.sink.split.i.i.i.i:                              ; preds = %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i, %90
+  %.sink.i.i.i.i = phi ptr [ %107, %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i ], [ null, %90 ]
+  %.0.ph.i.i.i.i = phi ptr [ %108, %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i ], [ null, %90 ]
+  store ptr %.sink.i.i.i.i, ptr %81, align 8
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i.i
 
-_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i.i: ; preds = %.sink.split.i.i.i.i, %84
-  %.0.i.i.i.i = phi ptr [ %86, %84 ], [ %.0.ph.i.i.i.i, %.sink.split.i.i.i.i ]
+_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i.i: ; preds = %.sink.split.i.i.i.i, %83
+  %.0.i.i.i.i = phi ptr [ %85, %83 ], [ %.0.ph.i.i.i.i, %.sink.split.i.i.i.i ]
   %.not.i.i.i = icmp eq ptr %.0.i.i.i.i, null
-  br i1 %.not.i.i.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.thread.i.i.i, label %110
+  br i1 %.not.i.i.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.thread.i.i.i, label %109
 
-110:                                              ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i.i
-  %111 = load ptr, ptr %85, align 8
-  %112 = load ptr, ptr %72, align 8
+109:                                              ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i.i
+  %110 = load ptr, ptr %84, align 8
+  %111 = load ptr, ptr %71, align 8
+  %112 = ptrtoint ptr %110 to i64
   %113 = ptrtoint ptr %111 to i64
-  %114 = ptrtoint ptr %112 to i64
-  %115 = sub i64 %113, %114
-  %116 = getelementptr inbounds nuw i8, ptr %111, i64 4
-  store ptr %116, ptr %85, align 8
+  %114 = sub i64 %112, %113
+  %115 = getelementptr inbounds nuw i8, ptr %110, i64 4
+  store ptr %115, ptr %84, align 8
   br label %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK5Klass18SerializePredicateIS3_EXadL_Z12write__klassP19JfrCheckpointWriterPKvEEELj181EEC2ES7_bb.exit.i
 
 _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.thread.i.i.i: ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i.i, %_ZL5setupP19JfrCheckpointWriterS0_bb.exit
-  store ptr null, ptr %82, align 8
+  store ptr null, ptr %81, align 8
   br label %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK5Klass18SerializePredicateIS3_EXadL_Z12write__klassP19JfrCheckpointWriterPKvEEELj181EEC2ES7_bb.exit.i
 
-_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK5Klass18SerializePredicateIS3_EXadL_Z12write__klassP19JfrCheckpointWriterPKvEEELj181EEC2ES7_bb.exit.i: ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.thread.i.i.i, %110
-  %.0.i.i.i = phi i64 [ %115, %110 ], [ 0, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.thread.i.i.i ]
-  %117 = getelementptr inbounds nuw i8, ptr %33, i64 40
-  store i64 %.0.i.i.i, ptr %117, align 8
-  store ptr %33, ptr %34, align 8
-  %118 = getelementptr inbounds nuw i8, ptr %34, i64 8
-  store ptr %32, ptr %118, align 8
-  %119 = load ptr, ptr @_ZL13_leakp_writer, align 8
-  %120 = icmp eq ptr %119, null
-  br i1 %120, label %121, label %125
+_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK5Klass18SerializePredicateIS3_EXadL_Z12write__klassP19JfrCheckpointWriterPKvEEELj181EEC2ES7_bb.exit.i: ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.thread.i.i.i, %109
+  %.0.i.i.i = phi i64 [ %114, %109 ], [ 0, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.thread.i.i.i ]
+  %116 = getelementptr inbounds nuw i8, ptr %32, i64 40
+  store i64 %.0.i.i.i, ptr %116, align 8
+  store ptr %32, ptr %33, align 8
+  %117 = getelementptr inbounds nuw i8, ptr %33, i64 8
+  store ptr %31, ptr %117, align 8
+  %118 = load ptr, ptr @_ZL13_leakp_writer, align 8
+  %119 = icmp eq ptr %118, null
+  br i1 %119, label %120, label %124
 
-121:                                              ; preds = %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK5Klass18SerializePredicateIS3_EXadL_Z12write__klassP19JfrCheckpointWriterPKvEEELj181EEC2ES7_bb.exit.i
-  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV23JfrArtifactCallbackHostIPK5Klass16CompositeFunctorIS2_17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIS2_18SerializePredicateIS2_EXadL_Z12write__klassP19JfrCheckpointWriterPKvEEELj181EE24KlassArtifactRegistratorEE, i64 16), ptr %35, align 8
-  %122 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  store ptr @_ZL19_subsystem_callback, ptr %122, align 8
-  %123 = getelementptr inbounds nuw i8, ptr %35, i64 16
-  store ptr %34, ptr %123, align 8
-  store ptr %35, ptr @_ZL19_subsystem_callback, align 8
+120:                                              ; preds = %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK5Klass18SerializePredicateIS3_EXadL_Z12write__klassP19JfrCheckpointWriterPKvEEELj181EEC2ES7_bb.exit.i
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV23JfrArtifactCallbackHostIPK5Klass16CompositeFunctorIS2_17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIS2_18SerializePredicateIS2_EXadL_Z12write__klassP19JfrCheckpointWriterPKvEEELj181EE24KlassArtifactRegistratorEE, i64 16), ptr %34, align 8
+  %121 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  store ptr @_ZL19_subsystem_callback, ptr %121, align 8
+  %122 = getelementptr inbounds nuw i8, ptr %34, i64 16
+  store ptr %33, ptr %122, align 8
+  store ptr %34, ptr @_ZL19_subsystem_callback, align 8
   call fastcc void @_ZL10do_klassesv()
-  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV23JfrArtifactCallbackHostIPK5Klass16CompositeFunctorIS2_17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIS2_18SerializePredicateIS2_EXadL_Z12write__klassP19JfrCheckpointWriterPKvEEELj181EE24KlassArtifactRegistratorEE, i64 16), ptr %35, align 8
-  %124 = load ptr, ptr %122, align 8
-  store ptr null, ptr %124, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV23JfrArtifactCallbackHostIPK5Klass16CompositeFunctorIS2_17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIS2_18SerializePredicateIS2_EXadL_Z12write__klassP19JfrCheckpointWriterPKvEEELj181EE24KlassArtifactRegistratorEE, i64 16), ptr %34, align 8
+  %123 = load ptr, ptr %121, align 8
+  store ptr null, ptr %123, align 8
   br label %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK5Klass13LeakPredicateIS3_EXadL_Z19write__klass__leakpP19JfrCheckpointWriterPKvEEELj181EED2Ev.exit.i
 
-125:                                              ; preds = %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK5Klass18SerializePredicateIS3_EXadL_Z12write__klassP19JfrCheckpointWriterPKvEEELj181EEC2ES7_bb.exit.i
-  store ptr %119, ptr %36, align 8
-  %126 = getelementptr inbounds nuw i8, ptr %36, i64 16
-  store ptr %119, ptr %126, align 8
-  %127 = getelementptr inbounds nuw i8, ptr %36, i64 24
-  %128 = call { i64, i32 } @_ZNK19JfrCheckpointWriter7contextEv(ptr noundef nonnull align 8 dereferenceable(73) %119) #9
-  %129 = extractvalue { i64, i32 } %128, 0
-  store i64 %129, ptr %127, align 8
-  %130 = getelementptr inbounds nuw i8, ptr %36, i64 32
-  %131 = extractvalue { i64, i32 } %128, 1
-  store i32 %131, ptr %130, align 8
-  %132 = getelementptr inbounds nuw i8, ptr %36, i64 48
-  store i32 0, ptr %132, align 8
-  %133 = getelementptr inbounds nuw i8, ptr %36, i64 52
-  store i8 0, ptr %133, align 4
-  call void @_ZN19JfrCheckpointWriter10write_typeE9JfrTypeId(ptr noundef nonnull align 8 dereferenceable(73) %119, i32 noundef 181) #9
-  %134 = getelementptr inbounds nuw i8, ptr %119, i64 16
-  %135 = load ptr, ptr %134, align 8
-  %.not.i.i.i1.i = icmp eq ptr %135, null
-  br i1 %.not.i.i.i1.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.thread.i.i6.i, label %136
+124:                                              ; preds = %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK5Klass18SerializePredicateIS3_EXadL_Z12write__klassP19JfrCheckpointWriterPKvEEELj181EEC2ES7_bb.exit.i
+  store ptr %118, ptr %35, align 8
+  %125 = getelementptr inbounds nuw i8, ptr %35, i64 16
+  store ptr %118, ptr %125, align 8
+  %126 = getelementptr inbounds nuw i8, ptr %35, i64 24
+  %127 = call { i64, i32 } @_ZNK19JfrCheckpointWriter7contextEv(ptr noundef nonnull align 8 dereferenceable(73) %118) #9
+  %128 = extractvalue { i64, i32 } %127, 0
+  store i64 %128, ptr %126, align 8
+  %129 = getelementptr inbounds nuw i8, ptr %35, i64 32
+  %130 = extractvalue { i64, i32 } %127, 1
+  store i32 %130, ptr %129, align 8
+  %131 = getelementptr inbounds nuw i8, ptr %35, i64 48
+  store i32 0, ptr %131, align 8
+  %132 = getelementptr inbounds nuw i8, ptr %35, i64 52
+  store i8 0, ptr %132, align 4
+  call void @_ZN19JfrCheckpointWriter10write_typeE9JfrTypeId(ptr noundef nonnull align 8 dereferenceable(73) %118, i32 noundef 181) #9
+  %133 = getelementptr inbounds nuw i8, ptr %118, i64 16
+  %134 = load ptr, ptr %133, align 8
+  %.not.i.i.i1.i = icmp eq ptr %134, null
+  br i1 %.not.i.i.i1.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.thread.i.i6.i, label %135
 
-136:                                              ; preds = %125
-  %137 = getelementptr inbounds nuw i8, ptr %119, i64 8
-  %138 = load ptr, ptr %137, align 8
-  %139 = ptrtoint ptr %135 to i64
-  %140 = ptrtoint ptr %138 to i64
-  %141 = sub i64 %139, %140
-  %142 = icmp ult i64 %141, 4
-  br i1 %142, label %143, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i2.i
+135:                                              ; preds = %124
+  %136 = getelementptr inbounds nuw i8, ptr %118, i64 8
+  %137 = load ptr, ptr %136, align 8
+  %138 = ptrtoint ptr %134 to i64
+  %139 = ptrtoint ptr %137 to i64
+  %140 = sub i64 %138, %139
+  %141 = icmp ult i64 %140, 4
+  br i1 %141, label %142, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i2.i
 
-143:                                              ; preds = %136
-  %144 = load ptr, ptr %119, align 8
-  %145 = ptrtoint ptr %144 to i64
-  %146 = sub i64 %140, %145
-  %147 = getelementptr inbounds nuw i8, ptr %119, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30)
-  %148 = load ptr, ptr %147, align 8
-  %149 = getelementptr inbounds nuw i8, ptr %119, i64 32
-  %150 = load ptr, ptr %149, align 8
-  call void @_ZN18JfrCheckpointFlushC1EP9JfrBuffermmP6Thread(ptr noundef nonnull align 8 dereferenceable(8) %30, ptr noundef %148, i64 noundef %146, i64 noundef 4, ptr noundef %150) #9
-  %151 = load ptr, ptr %30, align 8
-  store ptr %151, ptr %147, align 8
-  %.not5.i.i.i7.i = icmp eq ptr %151, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30)
+142:                                              ; preds = %135
+  %143 = load ptr, ptr %118, align 8
+  %144 = ptrtoint ptr %143 to i64
+  %145 = sub i64 %139, %144
+  %146 = getelementptr inbounds nuw i8, ptr %118, i64 24
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29)
+  %147 = load ptr, ptr %146, align 8
+  %148 = getelementptr inbounds nuw i8, ptr %118, i64 32
+  %149 = load ptr, ptr %148, align 8
+  call void @_ZN18JfrCheckpointFlushC1EP9JfrBuffermmP6Thread(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef %147, i64 noundef %145, i64 noundef 4, ptr noundef %149) #9
+  %150 = load ptr, ptr %29, align 8
+  store ptr %150, ptr %146, align 8
+  %.not5.i.i.i7.i = icmp eq ptr %150, null
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29)
   br i1 %.not5.i.i.i7.i, label %.sink.split.i.i.i9.i, label %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i8.i
 
-_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i8.i: ; preds = %143
-  %152 = getelementptr inbounds nuw i8, ptr %151, i64 16
-  %153 = load ptr, ptr %152, align 8
-  store ptr %153, ptr %119, align 8
-  store ptr %153, ptr %137, align 8
-  %154 = getelementptr inbounds nuw i8, ptr %151, i64 40
-  %155 = load i16, ptr %154, align 8
-  %156 = zext i16 %155 to i64
-  %157 = getelementptr inbounds nuw i8, ptr %151, i64 %156
-  %158 = getelementptr inbounds nuw i8, ptr %151, i64 32
-  %159 = load i64, ptr %158, align 8
-  %160 = getelementptr inbounds i8, ptr %157, i64 %159
-  %161 = getelementptr inbounds i8, ptr %153, i64 %146
-  store ptr %161, ptr %137, align 8
+_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i8.i: ; preds = %142
+  %151 = getelementptr inbounds nuw i8, ptr %150, i64 16
+  %152 = load ptr, ptr %151, align 8
+  store ptr %152, ptr %118, align 8
+  store ptr %152, ptr %136, align 8
+  %153 = getelementptr inbounds nuw i8, ptr %150, i64 40
+  %154 = load i16, ptr %153, align 8
+  %155 = zext i16 %154 to i64
+  %156 = getelementptr inbounds nuw i8, ptr %150, i64 %155
+  %157 = getelementptr inbounds nuw i8, ptr %150, i64 32
+  %158 = load i64, ptr %157, align 8
+  %159 = getelementptr inbounds i8, ptr %156, i64 %158
+  %160 = getelementptr inbounds i8, ptr %152, i64 %145
+  store ptr %160, ptr %136, align 8
   br label %.sink.split.i.i.i9.i
 
-.sink.split.i.i.i9.i:                             ; preds = %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i8.i, %143
-  %.sink.i.i.i10.i = phi ptr [ %160, %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i8.i ], [ null, %143 ]
-  %.0.ph.i.i.i11.i = phi ptr [ %161, %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i8.i ], [ null, %143 ]
-  store ptr %.sink.i.i.i10.i, ptr %134, align 8
+.sink.split.i.i.i9.i:                             ; preds = %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i8.i, %142
+  %.sink.i.i.i10.i = phi ptr [ %159, %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i8.i ], [ null, %142 ]
+  %.0.ph.i.i.i11.i = phi ptr [ %160, %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i8.i ], [ null, %142 ]
+  store ptr %.sink.i.i.i10.i, ptr %133, align 8
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i2.i
 
-_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i2.i: ; preds = %.sink.split.i.i.i9.i, %136
-  %.0.i.i.i3.i = phi ptr [ %138, %136 ], [ %.0.ph.i.i.i11.i, %.sink.split.i.i.i9.i ]
+_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i2.i: ; preds = %.sink.split.i.i.i9.i, %135
+  %.0.i.i.i3.i = phi ptr [ %137, %135 ], [ %.0.ph.i.i.i11.i, %.sink.split.i.i.i9.i ]
   %.not.i.i4.i = icmp eq ptr %.0.i.i.i3.i, null
-  br i1 %.not.i.i4.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.thread.i.i6.i, label %162
+  br i1 %.not.i.i4.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.thread.i.i6.i, label %161
 
-162:                                              ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i2.i
-  %163 = load ptr, ptr %137, align 8
-  %164 = load ptr, ptr %119, align 8
+161:                                              ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i2.i
+  %162 = load ptr, ptr %136, align 8
+  %163 = load ptr, ptr %118, align 8
+  %164 = ptrtoint ptr %162 to i64
   %165 = ptrtoint ptr %163 to i64
-  %166 = ptrtoint ptr %164 to i64
-  %167 = sub i64 %165, %166
-  %168 = getelementptr inbounds nuw i8, ptr %163, i64 4
-  store ptr %168, ptr %137, align 8
+  %166 = sub i64 %164, %165
+  %167 = getelementptr inbounds nuw i8, ptr %162, i64 4
+  store ptr %167, ptr %136, align 8
   br label %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK5Klass13LeakPredicateIS3_EXadL_Z19write__klass__leakpP19JfrCheckpointWriterPKvEEELj181EEC2ES7_bb.exit.i
 
-_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.thread.i.i6.i: ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i2.i, %125
-  store ptr null, ptr %134, align 8
+_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.thread.i.i6.i: ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i2.i, %124
+  store ptr null, ptr %133, align 8
   br label %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK5Klass13LeakPredicateIS3_EXadL_Z19write__klass__leakpP19JfrCheckpointWriterPKvEEELj181EEC2ES7_bb.exit.i
 
-_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK5Klass13LeakPredicateIS3_EXadL_Z19write__klass__leakpP19JfrCheckpointWriterPKvEEELj181EEC2ES7_bb.exit.i: ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.thread.i.i6.i, %162
-  %.0.i.i5.i = phi i64 [ %167, %162 ], [ 0, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.thread.i.i6.i ]
-  %169 = getelementptr inbounds nuw i8, ptr %36, i64 40
-  store i64 %.0.i.i5.i, ptr %169, align 8
+_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK5Klass13LeakPredicateIS3_EXadL_Z19write__klass__leakpP19JfrCheckpointWriterPKvEEELj181EEC2ES7_bb.exit.i: ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.thread.i.i6.i, %161
+  %.0.i.i5.i = phi i64 [ %166, %161 ], [ 0, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.thread.i.i6.i ]
+  %168 = getelementptr inbounds nuw i8, ptr %35, i64 40
+  store i64 %.0.i.i5.i, ptr %168, align 8
+  store ptr %35, ptr %36, align 8
+  %169 = getelementptr inbounds nuw i8, ptr %36, i64 8
+  store ptr %32, ptr %169, align 8
   store ptr %36, ptr %37, align 8
   %170 = getelementptr inbounds nuw i8, ptr %37, i64 8
-  store ptr %33, ptr %170, align 8
-  store ptr %37, ptr %38, align 8
+  store ptr %31, ptr %170, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV23JfrArtifactCallbackHostIPK5Klass16CompositeFunctorIS2_S3_IS2_17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIS2_13LeakPredicateIS2_EXadL_Z19write__klass__leakpP19JfrCheckpointWriterPKvEEELj181EES4_IS5_IS2_18SerializePredicateIS2_EXadL_Z12write__klassS9_SB_EEELj181EEE24KlassArtifactRegistratorEE, i64 16), ptr %38, align 8
   %171 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  store ptr %32, ptr %171, align 8
-  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV23JfrArtifactCallbackHostIPK5Klass16CompositeFunctorIS2_S3_IS2_17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIS2_13LeakPredicateIS2_EXadL_Z19write__klass__leakpP19JfrCheckpointWriterPKvEEELj181EES4_IS5_IS2_18SerializePredicateIS2_EXadL_Z12write__klassS9_SB_EEELj181EEE24KlassArtifactRegistratorEE, i64 16), ptr %39, align 8
-  %172 = getelementptr inbounds nuw i8, ptr %39, i64 8
-  store ptr @_ZL19_subsystem_callback, ptr %172, align 8
-  %173 = getelementptr inbounds nuw i8, ptr %39, i64 16
-  store ptr %38, ptr %173, align 8
-  store ptr %39, ptr @_ZL19_subsystem_callback, align 8
+  store ptr @_ZL19_subsystem_callback, ptr %171, align 8
+  %172 = getelementptr inbounds nuw i8, ptr %38, i64 16
+  store ptr %37, ptr %172, align 8
+  store ptr %38, ptr @_ZL19_subsystem_callback, align 8
   call fastcc void @_ZL10do_klassesv()
-  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV23JfrArtifactCallbackHostIPK5Klass16CompositeFunctorIS2_S3_IS2_17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIS2_13LeakPredicateIS2_EXadL_Z19write__klass__leakpP19JfrCheckpointWriterPKvEEELj181EES4_IS5_IS2_18SerializePredicateIS2_EXadL_Z12write__klassS9_SB_EEELj181EEE24KlassArtifactRegistratorEE, i64 16), ptr %39, align 8
-  %174 = load ptr, ptr %172, align 8
-  store ptr null, ptr %174, align 8
-  %175 = load i32, ptr %132, align 8
-  %176 = icmp eq i32 %175, 0
-  br i1 %176, label %177, label %179
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV23JfrArtifactCallbackHostIPK5Klass16CompositeFunctorIS2_S3_IS2_17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIS2_13LeakPredicateIS2_EXadL_Z19write__klass__leakpP19JfrCheckpointWriterPKvEEELj181EES4_IS5_IS2_18SerializePredicateIS2_EXadL_Z12write__klassS9_SB_EEELj181EEE24KlassArtifactRegistratorEE, i64 16), ptr %38, align 8
+  %173 = load ptr, ptr %171, align 8
+  store ptr null, ptr %173, align 8
+  %174 = load i32, ptr %131, align 8
+  %175 = icmp eq i32 %174, 0
+  br i1 %175, label %176, label %178
 
-177:                                              ; preds = %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK5Klass13LeakPredicateIS3_EXadL_Z19write__klass__leakpP19JfrCheckpointWriterPKvEEELj181EEC2ES7_bb.exit.i
-  %178 = load ptr, ptr %126, align 8
-  %.sroa.0.0.copyload.i.i = load i64, ptr %127, align 8
-  %.sroa.2.0.copyload.i.i = load i32, ptr %130, align 8
-  call void @_ZN19JfrCheckpointWriter11set_contextE20JfrCheckpointContext(ptr noundef nonnull align 8 dereferenceable(73) %178, i64 %.sroa.0.0.copyload.i.i, i32 %.sroa.2.0.copyload.i.i) #9
+176:                                              ; preds = %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK5Klass13LeakPredicateIS3_EXadL_Z19write__klass__leakpP19JfrCheckpointWriterPKvEEELj181EEC2ES7_bb.exit.i
+  %177 = load ptr, ptr %125, align 8
+  %.sroa.0.0.copyload.i.i = load i64, ptr %126, align 8
+  %.sroa.2.0.copyload.i.i = load i32, ptr %129, align 8
+  call void @_ZN19JfrCheckpointWriter11set_contextE20JfrCheckpointContext(ptr noundef nonnull align 8 dereferenceable(73) %177, i64 %.sroa.0.0.copyload.i.i, i32 %.sroa.2.0.copyload.i.i) #9
   br label %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK5Klass13LeakPredicateIS3_EXadL_Z19write__klass__leakpP19JfrCheckpointWriterPKvEEELj181EED2Ev.exit.i
 
-179:                                              ; preds = %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK5Klass13LeakPredicateIS3_EXadL_Z19write__klass__leakpP19JfrCheckpointWriterPKvEEELj181EEC2ES7_bb.exit.i
-  %180 = load i8, ptr %133, align 4
-  %181 = trunc i8 %180 to i1
-  br i1 %181, label %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK5Klass13LeakPredicateIS3_EXadL_Z19write__klass__leakpP19JfrCheckpointWriterPKvEEELj181EED2Ev.exit.i, label %182
+178:                                              ; preds = %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK5Klass13LeakPredicateIS3_EXadL_Z19write__klass__leakpP19JfrCheckpointWriterPKvEEELj181EEC2ES7_bb.exit.i
+  %179 = load i8, ptr %132, align 4
+  %180 = trunc i8 %179 to i1
+  br i1 %180, label %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK5Klass13LeakPredicateIS3_EXadL_Z19write__klass__leakpP19JfrCheckpointWriterPKvEEELj181EED2Ev.exit.i, label %181
 
-182:                                              ; preds = %179
-  %183 = load ptr, ptr %126, align 8
-  %184 = load i64, ptr %169, align 8
-  call void @_ZN19JfrCheckpointWriter11write_countEjl(ptr noundef nonnull align 8 dereferenceable(73) %183, i32 noundef %175, i64 noundef %184) #9
+181:                                              ; preds = %178
+  %182 = load ptr, ptr %125, align 8
+  %183 = load i64, ptr %168, align 8
+  call void @_ZN19JfrCheckpointWriter11write_countEjl(ptr noundef nonnull align 8 dereferenceable(73) %182, i32 noundef %174, i64 noundef %183) #9
   br label %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK5Klass13LeakPredicateIS3_EXadL_Z19write__klass__leakpP19JfrCheckpointWriterPKvEEELj181EED2Ev.exit.i
 
-_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK5Klass13LeakPredicateIS3_EXadL_Z19write__klass__leakpP19JfrCheckpointWriterPKvEEELj181EED2Ev.exit.i: ; preds = %182, %179, %177, %121
+_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK5Klass13LeakPredicateIS3_EXadL_Z19write__klass__leakpP19JfrCheckpointWriterPKvEEELj181EED2Ev.exit.i: ; preds = %181, %178, %176, %120
   %.b.i.i = load i1, ptr @_ZL17_initial_type_set, align 1
-  %185 = load i8, ptr @_ZL13_class_unload, align 1
-  %186 = trunc nuw i8 %185 to i1
-  %187 = select i1 %.b.i.i, i1 true, i1 %186
-  %.pre.i = load i32, ptr %80, align 8
-  br i1 %187, label %190, label %188
+  %184 = load i8, ptr @_ZL13_class_unload, align 1
+  %185 = trunc nuw i8 %184 to i1
+  %186 = select i1 %.b.i.i, i1 true, i1 %185
+  %.pre.i = load i32, ptr %79, align 8
+  br i1 %186, label %189, label %187
 
-188:                                              ; preds = %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK5Klass13LeakPredicateIS3_EXadL_Z19write__klass__leakpP19JfrCheckpointWriterPKvEEELj181EED2Ev.exit.i
-  %189 = add nsw i32 %.pre.i, 9
-  store i32 %189, ptr %80, align 8
-  br label %190
+187:                                              ; preds = %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK5Klass13LeakPredicateIS3_EXadL_Z19write__klass__leakpP19JfrCheckpointWriterPKvEEELj181EED2Ev.exit.i
+  %188 = add nsw i32 %.pre.i, 9
+  store i32 %188, ptr %79, align 8
+  br label %189
 
-190:                                              ; preds = %188, %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK5Klass13LeakPredicateIS3_EXadL_Z19write__klass__leakpP19JfrCheckpointWriterPKvEEELj181EED2Ev.exit.i
-  %191 = phi i32 [ %189, %188 ], [ %.pre.i, %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK5Klass13LeakPredicateIS3_EXadL_Z19write__klass__leakpP19JfrCheckpointWriterPKvEEELj181EED2Ev.exit.i ]
-  %192 = load ptr, ptr @_ZL10_artifacts, align 8
-  %193 = sext i32 %191 to i64
-  %194 = getelementptr inbounds nuw i8, ptr %192, i64 32
-  %195 = load i64, ptr %194, align 8
-  %196 = add i64 %195, %193
-  store i64 %196, ptr %194, align 8
-  %197 = load i32, ptr %80, align 8
-  %198 = icmp eq i32 %197, 0
-  br i1 %198, label %199, label %201
+189:                                              ; preds = %187, %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK5Klass13LeakPredicateIS3_EXadL_Z19write__klass__leakpP19JfrCheckpointWriterPKvEEELj181EED2Ev.exit.i
+  %190 = phi i32 [ %188, %187 ], [ %.pre.i, %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK5Klass13LeakPredicateIS3_EXadL_Z19write__klass__leakpP19JfrCheckpointWriterPKvEEELj181EED2Ev.exit.i ]
+  %191 = load ptr, ptr @_ZL10_artifacts, align 8
+  %192 = sext i32 %190 to i64
+  %193 = getelementptr inbounds nuw i8, ptr %191, i64 32
+  %194 = load i64, ptr %193, align 8
+  %195 = add i64 %194, %192
+  store i64 %195, ptr %193, align 8
+  %196 = load i32, ptr %79, align 8
+  %197 = icmp eq i32 %196, 0
+  br i1 %197, label %198, label %200
 
-199:                                              ; preds = %190
-  %200 = load ptr, ptr %74, align 8
-  %.sroa.0.0.copyload.i12.i = load i64, ptr %75, align 8
-  %.sroa.2.0.copyload.i14.i = load i32, ptr %78, align 8
-  call void @_ZN19JfrCheckpointWriter11set_contextE20JfrCheckpointContext(ptr noundef nonnull align 8 dereferenceable(73) %200, i64 %.sroa.0.0.copyload.i12.i, i32 %.sroa.2.0.copyload.i14.i) #9
+198:                                              ; preds = %189
+  %199 = load ptr, ptr %73, align 8
+  %.sroa.0.0.copyload.i12.i = load i64, ptr %74, align 8
+  %.sroa.2.0.copyload.i14.i = load i32, ptr %77, align 8
+  call void @_ZN19JfrCheckpointWriter11set_contextE20JfrCheckpointContext(ptr noundef nonnull align 8 dereferenceable(73) %199, i64 %.sroa.0.0.copyload.i12.i, i32 %.sroa.2.0.copyload.i14.i) #9
   br label %_ZL13write_klassesv.exit
 
-201:                                              ; preds = %190
-  %202 = load i8, ptr %81, align 4
-  %203 = trunc i8 %202 to i1
-  br i1 %203, label %_ZL13write_klassesv.exit, label %204
+200:                                              ; preds = %189
+  %201 = load i8, ptr %80, align 4
+  %202 = trunc i8 %201 to i1
+  br i1 %202, label %_ZL13write_klassesv.exit, label %203
 
-204:                                              ; preds = %201
-  %205 = load ptr, ptr %74, align 8
-  %206 = load i64, ptr %117, align 8
-  call void @_ZN19JfrCheckpointWriter11write_countEjl(ptr noundef nonnull align 8 dereferenceable(73) %205, i32 noundef %197, i64 noundef %206) #9
+203:                                              ; preds = %200
+  %204 = load ptr, ptr %73, align 8
+  %205 = load i64, ptr %116, align 8
+  call void @_ZN19JfrCheckpointWriter11write_countEjl(ptr noundef nonnull align 8 dereferenceable(73) %204, i32 noundef %196, i64 noundef %205) #9
   br label %_ZL13write_klassesv.exit
 
-_ZL13write_klassesv.exit:                         ; preds = %199, %201, %204
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %33)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %34)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %35)
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %36)
+_ZL13write_klassesv.exit:                         ; preds = %198, %200, %203
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31)
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %32)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %33)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %34)
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %35)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %36)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %37)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %38)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %39)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %26)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %27)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %28)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %29)
-  %207 = load ptr, ptr @_ZL7_writer, align 8
-  %208 = load i8, ptr @_ZL13_class_unload, align 1
-  store ptr %207, ptr %26, align 8
-  %209 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %210 = and i8 %208, 1
-  store i8 %210, ptr %209, align 8
-  %211 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  store ptr %207, ptr %211, align 8
-  %212 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  %213 = call { i64, i32 } @_ZNK19JfrCheckpointWriter7contextEv(ptr noundef nonnull align 8 dereferenceable(73) %207) #9
-  %214 = extractvalue { i64, i32 } %213, 0
-  store i64 %214, ptr %212, align 8
-  %215 = getelementptr inbounds nuw i8, ptr %26, i64 32
-  %216 = extractvalue { i64, i32 } %213, 1
-  store i32 %216, ptr %215, align 8
-  %217 = getelementptr inbounds nuw i8, ptr %26, i64 48
-  store i32 0, ptr %217, align 8
-  %218 = getelementptr inbounds nuw i8, ptr %26, i64 52
-  store i8 0, ptr %218, align 4
-  call void @_ZN19JfrCheckpointWriter10write_typeE9JfrTypeId(ptr noundef nonnull align 8 dereferenceable(73) %207, i32 noundef 202) #9
-  %219 = getelementptr inbounds nuw i8, ptr %207, i64 16
-  %220 = load ptr, ptr %219, align 8
-  %.not.i.i.i.i3 = icmp eq ptr %220, null
-  br i1 %.not.i.i.i.i3, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.thread.i.i.i10, label %221
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %38)
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %25)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %26)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %27)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %28)
+  %206 = load ptr, ptr @_ZL7_writer, align 8
+  %207 = load i8, ptr @_ZL13_class_unload, align 1
+  store ptr %206, ptr %25, align 8
+  %208 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %209 = and i8 %207, 1
+  store i8 %209, ptr %208, align 8
+  %210 = getelementptr inbounds nuw i8, ptr %25, i64 16
+  store ptr %206, ptr %210, align 8
+  %211 = getelementptr inbounds nuw i8, ptr %25, i64 24
+  %212 = call { i64, i32 } @_ZNK19JfrCheckpointWriter7contextEv(ptr noundef nonnull align 8 dereferenceable(73) %206) #9
+  %213 = extractvalue { i64, i32 } %212, 0
+  store i64 %213, ptr %211, align 8
+  %214 = getelementptr inbounds nuw i8, ptr %25, i64 32
+  %215 = extractvalue { i64, i32 } %212, 1
+  store i32 %215, ptr %214, align 8
+  %216 = getelementptr inbounds nuw i8, ptr %25, i64 48
+  store i32 0, ptr %216, align 8
+  %217 = getelementptr inbounds nuw i8, ptr %25, i64 52
+  store i8 0, ptr %217, align 4
+  call void @_ZN19JfrCheckpointWriter10write_typeE9JfrTypeId(ptr noundef nonnull align 8 dereferenceable(73) %206, i32 noundef 202) #9
+  %218 = getelementptr inbounds nuw i8, ptr %206, i64 16
+  %219 = load ptr, ptr %218, align 8
+  %.not.i.i.i.i3 = icmp eq ptr %219, null
+  br i1 %.not.i.i.i.i3, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.thread.i.i.i10, label %220
 
-221:                                              ; preds = %_ZL13write_klassesv.exit
-  %222 = getelementptr inbounds nuw i8, ptr %207, i64 8
-  %223 = load ptr, ptr %222, align 8
-  %224 = ptrtoint ptr %220 to i64
-  %225 = ptrtoint ptr %223 to i64
-  %226 = sub i64 %224, %225
-  %227 = icmp ult i64 %226, 4
-  br i1 %227, label %228, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i.i4
+220:                                              ; preds = %_ZL13write_klassesv.exit
+  %221 = getelementptr inbounds nuw i8, ptr %206, i64 8
+  %222 = load ptr, ptr %221, align 8
+  %223 = ptrtoint ptr %219 to i64
+  %224 = ptrtoint ptr %222 to i64
+  %225 = sub i64 %223, %224
+  %226 = icmp ult i64 %225, 4
+  br i1 %226, label %227, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i.i4
 
-228:                                              ; preds = %221
-  %229 = load ptr, ptr %207, align 8
-  %230 = ptrtoint ptr %229 to i64
-  %231 = sub i64 %225, %230
-  %232 = getelementptr inbounds nuw i8, ptr %207, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25)
-  %233 = load ptr, ptr %232, align 8
-  %234 = getelementptr inbounds nuw i8, ptr %207, i64 32
-  %235 = load ptr, ptr %234, align 8
-  call void @_ZN18JfrCheckpointFlushC1EP9JfrBuffermmP6Thread(ptr noundef nonnull align 8 dereferenceable(8) %25, ptr noundef %233, i64 noundef %231, i64 noundef 4, ptr noundef %235) #9
-  %236 = load ptr, ptr %25, align 8
-  store ptr %236, ptr %232, align 8
-  %.not5.i.i.i.i11 = icmp eq ptr %236, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25)
+227:                                              ; preds = %220
+  %228 = load ptr, ptr %206, align 8
+  %229 = ptrtoint ptr %228 to i64
+  %230 = sub i64 %224, %229
+  %231 = getelementptr inbounds nuw i8, ptr %206, i64 24
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24)
+  %232 = load ptr, ptr %231, align 8
+  %233 = getelementptr inbounds nuw i8, ptr %206, i64 32
+  %234 = load ptr, ptr %233, align 8
+  call void @_ZN18JfrCheckpointFlushC1EP9JfrBuffermmP6Thread(ptr noundef nonnull align 8 dereferenceable(8) %24, ptr noundef %232, i64 noundef %230, i64 noundef 4, ptr noundef %234) #9
+  %235 = load ptr, ptr %24, align 8
+  store ptr %235, ptr %231, align 8
+  %.not5.i.i.i.i11 = icmp eq ptr %235, null
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24)
   br i1 %.not5.i.i.i.i11, label %.sink.split.i.i.i.i13, label %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i12
 
-_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i12: ; preds = %228
-  %237 = getelementptr inbounds nuw i8, ptr %236, i64 16
-  %238 = load ptr, ptr %237, align 8
-  store ptr %238, ptr %207, align 8
-  store ptr %238, ptr %222, align 8
-  %239 = getelementptr inbounds nuw i8, ptr %236, i64 40
-  %240 = load i16, ptr %239, align 8
-  %241 = zext i16 %240 to i64
-  %242 = getelementptr inbounds nuw i8, ptr %236, i64 %241
-  %243 = getelementptr inbounds nuw i8, ptr %236, i64 32
-  %244 = load i64, ptr %243, align 8
-  %245 = getelementptr inbounds i8, ptr %242, i64 %244
-  %246 = getelementptr inbounds i8, ptr %238, i64 %231
-  store ptr %246, ptr %222, align 8
+_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i12: ; preds = %227
+  %236 = getelementptr inbounds nuw i8, ptr %235, i64 16
+  %237 = load ptr, ptr %236, align 8
+  store ptr %237, ptr %206, align 8
+  store ptr %237, ptr %221, align 8
+  %238 = getelementptr inbounds nuw i8, ptr %235, i64 40
+  %239 = load i16, ptr %238, align 8
+  %240 = zext i16 %239 to i64
+  %241 = getelementptr inbounds nuw i8, ptr %235, i64 %240
+  %242 = getelementptr inbounds nuw i8, ptr %235, i64 32
+  %243 = load i64, ptr %242, align 8
+  %244 = getelementptr inbounds i8, ptr %241, i64 %243
+  %245 = getelementptr inbounds i8, ptr %237, i64 %230
+  store ptr %245, ptr %221, align 8
   br label %.sink.split.i.i.i.i13
 
-.sink.split.i.i.i.i13:                            ; preds = %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i12, %228
-  %.sink.i.i.i.i14 = phi ptr [ %245, %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i12 ], [ null, %228 ]
-  %.0.ph.i.i.i.i15 = phi ptr [ %246, %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i12 ], [ null, %228 ]
-  store ptr %.sink.i.i.i.i14, ptr %219, align 8
+.sink.split.i.i.i.i13:                            ; preds = %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i12, %227
+  %.sink.i.i.i.i14 = phi ptr [ %244, %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i12 ], [ null, %227 ]
+  %.0.ph.i.i.i.i15 = phi ptr [ %245, %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i12 ], [ null, %227 ]
+  store ptr %.sink.i.i.i.i14, ptr %218, align 8
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i.i4
 
-_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i.i4: ; preds = %.sink.split.i.i.i.i13, %221
-  %.0.i.i.i.i5 = phi ptr [ %223, %221 ], [ %.0.ph.i.i.i.i15, %.sink.split.i.i.i.i13 ]
+_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i.i4: ; preds = %.sink.split.i.i.i.i13, %220
+  %.0.i.i.i.i5 = phi ptr [ %222, %220 ], [ %.0.ph.i.i.i.i15, %.sink.split.i.i.i.i13 ]
   %.not.i.i.i6 = icmp eq ptr %.0.i.i.i.i5, null
-  br i1 %.not.i.i.i6, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.thread.i.i.i10, label %247
+  br i1 %.not.i.i.i6, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.thread.i.i.i10, label %246
 
-247:                                              ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i.i4
-  %248 = load ptr, ptr %222, align 8
-  %249 = load ptr, ptr %207, align 8
+246:                                              ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i.i4
+  %247 = load ptr, ptr %221, align 8
+  %248 = load ptr, ptr %206, align 8
+  %249 = ptrtoint ptr %247 to i64
   %250 = ptrtoint ptr %248 to i64
-  %251 = ptrtoint ptr %249 to i64
-  %252 = sub i64 %250, %251
-  %253 = getelementptr inbounds nuw i8, ptr %248, i64 4
-  store ptr %253, ptr %222, align 8
+  %251 = sub i64 %249, %250
+  %252 = getelementptr inbounds nuw i8, ptr %247, i64 4
+  store ptr %252, ptr %221, align 8
   br label %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK12PackageEntry18SerializePredicateIS3_EXadL_Z14write__packageP19JfrCheckpointWriterPKvEEELj202EEC2ES7_bb.exit.i
 
 _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.thread.i.i.i10: ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i.i4, %_ZL13write_klassesv.exit
-  store ptr null, ptr %219, align 8
+  store ptr null, ptr %218, align 8
   br label %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK12PackageEntry18SerializePredicateIS3_EXadL_Z14write__packageP19JfrCheckpointWriterPKvEEELj202EEC2ES7_bb.exit.i
 
-_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK12PackageEntry18SerializePredicateIS3_EXadL_Z14write__packageP19JfrCheckpointWriterPKvEEELj202EEC2ES7_bb.exit.i: ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.thread.i.i.i10, %247
-  %.0.i.i.i7 = phi i64 [ %252, %247 ], [ 0, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.thread.i.i.i10 ]
-  %254 = getelementptr inbounds nuw i8, ptr %26, i64 40
-  store i64 %.0.i.i.i7, ptr %254, align 8
-  %255 = load i8, ptr @_ZL11_flushpoint, align 1
-  %256 = trunc nuw i8 %255 to i1
-  %257 = load i8, ptr @_ZL13_class_unload, align 1
-  %258 = trunc nuw i8 %257 to i1
-  %259 = select i1 %256, i1 true, i1 %258
-  br i1 %259, label %260, label %268
+_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK12PackageEntry18SerializePredicateIS3_EXadL_Z14write__packageP19JfrCheckpointWriterPKvEEELj202EEC2ES7_bb.exit.i: ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.thread.i.i.i10, %246
+  %.0.i.i.i7 = phi i64 [ %251, %246 ], [ 0, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.thread.i.i.i10 ]
+  %253 = getelementptr inbounds nuw i8, ptr %25, i64 40
+  store i64 %.0.i.i.i7, ptr %253, align 8
+  %254 = load i8, ptr @_ZL11_flushpoint, align 1
+  %255 = trunc nuw i8 %254 to i1
+  %256 = load i8, ptr @_ZL13_class_unload, align 1
+  %257 = trunc nuw i8 %256 to i1
+  %258 = select i1 %255, i1 true, i1 %257
+  br i1 %258, label %259, label %267
 
-260:                                              ; preds = %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK12PackageEntry18SerializePredicateIS3_EXadL_Z14write__packageP19JfrCheckpointWriterPKvEEELj202EEC2ES7_bb.exit.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24)
-  store ptr %26, ptr %24, align 8
+259:                                              ; preds = %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK12PackageEntry18SerializePredicateIS3_EXadL_Z14write__packageP19JfrCheckpointWriterPKvEEELj202EEC2ES7_bb.exit.i
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23)
+  store ptr %25, ptr %23, align 8
+  %260 = load ptr, ptr @_ZL10_artifacts, align 8
+  call void @_ZNK14JfrArtifactSet15iterate_klassesI20KlassToFieldEnvelopeI20PackageFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK12PackageEntry18SerializePredicateIS7_EXadL_Z14write__packageP19JfrCheckpointWriterPKvEEELj202EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(41) %260, ptr noundef nonnull align 8 dereferenceable(8) %23)
   %261 = load ptr, ptr @_ZL10_artifacts, align 8
-  call void @_ZNK14JfrArtifactSet15iterate_klassesI20KlassToFieldEnvelopeI20PackageFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK12PackageEntry18SerializePredicateIS7_EXadL_Z14write__packageP19JfrCheckpointWriterPKvEEELj202EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(41) %261, ptr noundef nonnull align 8 dereferenceable(8) %24)
-  %262 = load ptr, ptr @_ZL10_artifacts, align 8
-  %263 = load i32, ptr %217, align 8
-  %264 = sext i32 %263 to i64
-  %265 = getelementptr inbounds nuw i8, ptr %262, i64 32
-  %266 = load i64, ptr %265, align 8
-  %267 = add i64 %266, %264
-  store i64 %267, ptr %265, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24)
-  br label %283
+  %262 = load i32, ptr %216, align 8
+  %263 = sext i32 %262 to i64
+  %264 = getelementptr inbounds nuw i8, ptr %261, i64 32
+  %265 = load i64, ptr %264, align 8
+  %266 = add i64 %265, %263
+  store i64 %266, ptr %264, align 8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23)
+  br label %282
 
-268:                                              ; preds = %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK12PackageEntry18SerializePredicateIS3_EXadL_Z14write__packageP19JfrCheckpointWriterPKvEEELj202EEC2ES7_bb.exit.i
-  %269 = load ptr, ptr @_ZL13_leakp_writer, align 8
-  %270 = icmp eq ptr %269, null
-  br i1 %270, label %271, label %282
+267:                                              ; preds = %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK12PackageEntry18SerializePredicateIS3_EXadL_Z14write__packageP19JfrCheckpointWriterPKvEEELj202EEC2ES7_bb.exit.i
+  %268 = load ptr, ptr @_ZL13_leakp_writer, align 8
+  %269 = icmp eq ptr %268, null
+  br i1 %269, label %270, label %281
 
-271:                                              ; preds = %268
-  store ptr %26, ptr %28, align 8
+270:                                              ; preds = %267
+  store ptr %25, ptr %27, align 8
+  %271 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  store ptr %26, ptr %271, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV23JfrArtifactCallbackHostIPK12PackageEntry16CompositeFunctorIS2_17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIS2_18SerializePredicateIS2_EXadL_Z14write__packageP19JfrCheckpointWriterPKvEEELj202EE13ClearArtifactIS2_EEE, i64 16), ptr %28, align 8
   %272 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  store ptr %27, ptr %272, align 8
-  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV23JfrArtifactCallbackHostIPK12PackageEntry16CompositeFunctorIS2_17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIS2_18SerializePredicateIS2_EXadL_Z14write__packageP19JfrCheckpointWriterPKvEEELj202EE13ClearArtifactIS2_EEE, i64 16), ptr %29, align 8
-  %273 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  store ptr @_ZL19_subsystem_callback, ptr %273, align 8
-  %274 = getelementptr inbounds nuw i8, ptr %29, i64 16
-  store ptr %28, ptr %274, align 8
-  store ptr %29, ptr @_ZL19_subsystem_callback, align 8
+  store ptr @_ZL19_subsystem_callback, ptr %272, align 8
+  %273 = getelementptr inbounds nuw i8, ptr %28, i64 16
+  store ptr %27, ptr %273, align 8
+  store ptr %28, ptr @_ZL19_subsystem_callback, align 8
   call void @_ZN20ClassLoaderDataGraph11packages_doEPFvP12PackageEntryE(ptr noundef nonnull @_ZL10do_packageP12PackageEntry) #9
-  %275 = load ptr, ptr @_ZL10_artifacts, align 8
-  %276 = load i32, ptr %217, align 8
-  %277 = sext i32 %276 to i64
-  %278 = getelementptr inbounds nuw i8, ptr %275, i64 32
-  %279 = load i64, ptr %278, align 8
-  %280 = add i64 %279, %277
-  store i64 %280, ptr %278, align 8
-  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV23JfrArtifactCallbackHostIPK12PackageEntry16CompositeFunctorIS2_17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIS2_18SerializePredicateIS2_EXadL_Z14write__packageP19JfrCheckpointWriterPKvEEELj202EE13ClearArtifactIS2_EEE, i64 16), ptr %29, align 8
-  %281 = load ptr, ptr %273, align 8
-  store ptr null, ptr %281, align 8
-  br label %283
+  %274 = load ptr, ptr @_ZL10_artifacts, align 8
+  %275 = load i32, ptr %216, align 8
+  %276 = sext i32 %275 to i64
+  %277 = getelementptr inbounds nuw i8, ptr %274, i64 32
+  %278 = load i64, ptr %277, align 8
+  %279 = add i64 %278, %276
+  store i64 %279, ptr %277, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV23JfrArtifactCallbackHostIPK12PackageEntry16CompositeFunctorIS2_17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIS2_18SerializePredicateIS2_EXadL_Z14write__packageP19JfrCheckpointWriterPKvEEELj202EE13ClearArtifactIS2_EEE, i64 16), ptr %28, align 8
+  %280 = load ptr, ptr %272, align 8
+  store ptr null, ptr %280, align 8
+  br label %282
 
-282:                                              ; preds = %268
-  call fastcc void @_ZL25write_packages_with_leakpR17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK12PackageEntry18SerializePredicateIS3_EXadL_Z14write__packageP19JfrCheckpointWriterPKvEEELj202EE(ptr noundef nonnull align 8 dereferenceable(53) %26)
-  br label %283
+281:                                              ; preds = %267
+  call fastcc void @_ZL25write_packages_with_leakpR17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK12PackageEntry18SerializePredicateIS3_EXadL_Z14write__packageP19JfrCheckpointWriterPKvEEELj202EE(ptr noundef nonnull align 8 dereferenceable(53) %25)
+  br label %282
 
-283:                                              ; preds = %282, %271, %260
-  %284 = load i32, ptr %217, align 8
-  %285 = icmp eq i32 %284, 0
-  br i1 %285, label %286, label %288
+282:                                              ; preds = %281, %270, %259
+  %283 = load i32, ptr %216, align 8
+  %284 = icmp eq i32 %283, 0
+  br i1 %284, label %285, label %287
 
-286:                                              ; preds = %283
-  %287 = load ptr, ptr %211, align 8
-  %.sroa.0.0.copyload.i.i8 = load i64, ptr %212, align 8
-  %.sroa.2.0.copyload.i.i9 = load i32, ptr %215, align 8
-  call void @_ZN19JfrCheckpointWriter11set_contextE20JfrCheckpointContext(ptr noundef nonnull align 8 dereferenceable(73) %287, i64 %.sroa.0.0.copyload.i.i8, i32 %.sroa.2.0.copyload.i.i9) #9
+285:                                              ; preds = %282
+  %286 = load ptr, ptr %210, align 8
+  %.sroa.0.0.copyload.i.i8 = load i64, ptr %211, align 8
+  %.sroa.2.0.copyload.i.i9 = load i32, ptr %214, align 8
+  call void @_ZN19JfrCheckpointWriter11set_contextE20JfrCheckpointContext(ptr noundef nonnull align 8 dereferenceable(73) %286, i64 %.sroa.0.0.copyload.i.i8, i32 %.sroa.2.0.copyload.i.i9) #9
   br label %_ZL14write_packagesv.exit
 
-288:                                              ; preds = %283
-  %289 = load i8, ptr %218, align 4
-  %290 = trunc i8 %289 to i1
-  br i1 %290, label %_ZL14write_packagesv.exit, label %291
+287:                                              ; preds = %282
+  %288 = load i8, ptr %217, align 4
+  %289 = trunc i8 %288 to i1
+  br i1 %289, label %_ZL14write_packagesv.exit, label %290
 
-291:                                              ; preds = %288
-  %292 = load ptr, ptr %211, align 8
-  %293 = load i64, ptr %254, align 8
-  call void @_ZN19JfrCheckpointWriter11write_countEjl(ptr noundef nonnull align 8 dereferenceable(73) %292, i32 noundef %284, i64 noundef %293) #9
+290:                                              ; preds = %287
+  %291 = load ptr, ptr %210, align 8
+  %292 = load i64, ptr %253, align 8
+  call void @_ZN19JfrCheckpointWriter11write_countEjl(ptr noundef nonnull align 8 dereferenceable(73) %291, i32 noundef %283, i64 noundef %292) #9
   br label %_ZL14write_packagesv.exit
 
-_ZL14write_packagesv.exit:                        ; preds = %286, %288, %291
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %26)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %27)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %28)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %29)
-  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %20)
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %21)
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %22)
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %23)
-  %294 = load ptr, ptr @_ZL7_writer, align 8
-  %295 = load i8, ptr @_ZL13_class_unload, align 1
-  store ptr %294, ptr %20, align 8
-  %296 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  %297 = and i8 %295, 1
-  store i8 %297, ptr %296, align 8
-  %298 = getelementptr inbounds nuw i8, ptr %20, i64 16
-  store ptr %294, ptr %298, align 8
-  %299 = getelementptr inbounds nuw i8, ptr %20, i64 24
-  %300 = call { i64, i32 } @_ZNK19JfrCheckpointWriter7contextEv(ptr noundef nonnull align 8 dereferenceable(73) %294) #9
-  %301 = extractvalue { i64, i32 } %300, 0
-  store i64 %301, ptr %299, align 8
-  %302 = getelementptr inbounds nuw i8, ptr %20, i64 32
-  %303 = extractvalue { i64, i32 } %300, 1
-  store i32 %303, ptr %302, align 8
-  %304 = getelementptr inbounds nuw i8, ptr %20, i64 48
-  store i32 0, ptr %304, align 8
-  %305 = getelementptr inbounds nuw i8, ptr %20, i64 52
-  store i8 0, ptr %305, align 4
-  call void @_ZN19JfrCheckpointWriter10write_typeE9JfrTypeId(ptr noundef nonnull align 8 dereferenceable(73) %294, i32 noundef 201) #9
-  %306 = getelementptr inbounds nuw i8, ptr %294, i64 16
-  %307 = load ptr, ptr %306, align 8
-  %.not.i.i.i.i16 = icmp eq ptr %307, null
-  br i1 %.not.i.i.i.i16, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.thread.i.i.i23, label %308
+_ZL14write_packagesv.exit:                        ; preds = %285, %287, %290
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %25)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %26)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %27)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %28)
+  call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %19)
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %20)
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %21)
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %22)
+  %293 = load ptr, ptr @_ZL7_writer, align 8
+  %294 = load i8, ptr @_ZL13_class_unload, align 1
+  store ptr %293, ptr %19, align 8
+  %295 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %296 = and i8 %294, 1
+  store i8 %296, ptr %295, align 8
+  %297 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  store ptr %293, ptr %297, align 8
+  %298 = getelementptr inbounds nuw i8, ptr %19, i64 24
+  %299 = call { i64, i32 } @_ZNK19JfrCheckpointWriter7contextEv(ptr noundef nonnull align 8 dereferenceable(73) %293) #9
+  %300 = extractvalue { i64, i32 } %299, 0
+  store i64 %300, ptr %298, align 8
+  %301 = getelementptr inbounds nuw i8, ptr %19, i64 32
+  %302 = extractvalue { i64, i32 } %299, 1
+  store i32 %302, ptr %301, align 8
+  %303 = getelementptr inbounds nuw i8, ptr %19, i64 48
+  store i32 0, ptr %303, align 8
+  %304 = getelementptr inbounds nuw i8, ptr %19, i64 52
+  store i8 0, ptr %304, align 4
+  call void @_ZN19JfrCheckpointWriter10write_typeE9JfrTypeId(ptr noundef nonnull align 8 dereferenceable(73) %293, i32 noundef 201) #9
+  %305 = getelementptr inbounds nuw i8, ptr %293, i64 16
+  %306 = load ptr, ptr %305, align 8
+  %.not.i.i.i.i16 = icmp eq ptr %306, null
+  br i1 %.not.i.i.i.i16, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.thread.i.i.i24, label %307
 
-308:                                              ; preds = %_ZL14write_packagesv.exit
-  %309 = getelementptr inbounds nuw i8, ptr %294, i64 8
-  %310 = load ptr, ptr %309, align 8
-  %311 = ptrtoint ptr %307 to i64
-  %312 = ptrtoint ptr %310 to i64
-  %313 = sub i64 %311, %312
-  %314 = icmp ult i64 %313, 4
-  br i1 %314, label %315, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i.i17
+307:                                              ; preds = %_ZL14write_packagesv.exit
+  %308 = getelementptr inbounds nuw i8, ptr %293, i64 8
+  %309 = load ptr, ptr %308, align 8
+  %310 = ptrtoint ptr %306 to i64
+  %311 = ptrtoint ptr %309 to i64
+  %312 = sub i64 %310, %311
+  %313 = icmp ult i64 %312, 4
+  br i1 %313, label %314, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i.i17
 
-315:                                              ; preds = %308
-  %316 = load ptr, ptr %294, align 8
-  %317 = ptrtoint ptr %316 to i64
-  %318 = sub i64 %312, %317
-  %319 = getelementptr inbounds nuw i8, ptr %294, i64 24
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19)
-  %320 = load ptr, ptr %319, align 8
-  %321 = getelementptr inbounds nuw i8, ptr %294, i64 32
-  %322 = load ptr, ptr %321, align 8
-  call void @_ZN18JfrCheckpointFlushC1EP9JfrBuffermmP6Thread(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef %320, i64 noundef %318, i64 noundef 4, ptr noundef %322) #9
-  %323 = load ptr, ptr %19, align 8
-  store ptr %323, ptr %319, align 8
-  %.not5.i.i.i.i24 = icmp eq ptr %323, null
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19)
-  br i1 %.not5.i.i.i.i24, label %.sink.split.i.i.i.i26, label %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i25
+314:                                              ; preds = %307
+  %315 = load ptr, ptr %293, align 8
+  %316 = ptrtoint ptr %315 to i64
+  %317 = sub i64 %311, %316
+  %318 = getelementptr inbounds nuw i8, ptr %293, i64 24
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
+  %319 = load ptr, ptr %318, align 8
+  %320 = getelementptr inbounds nuw i8, ptr %293, i64 32
+  %321 = load ptr, ptr %320, align 8
+  call void @_ZN18JfrCheckpointFlushC1EP9JfrBuffermmP6Thread(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef %319, i64 noundef %317, i64 noundef 4, ptr noundef %321) #9
+  %322 = load ptr, ptr %18, align 8
+  store ptr %322, ptr %318, align 8
+  %.not5.i.i.i.i25 = icmp eq ptr %322, null
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
+  br i1 %.not5.i.i.i.i25, label %.sink.split.i.i.i.i27, label %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i26
 
-_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i25: ; preds = %315
-  %324 = getelementptr inbounds nuw i8, ptr %323, i64 16
-  %325 = load ptr, ptr %324, align 8
-  store ptr %325, ptr %294, align 8
-  store ptr %325, ptr %309, align 8
-  %326 = getelementptr inbounds nuw i8, ptr %323, i64 40
-  %327 = load i16, ptr %326, align 8
-  %328 = zext i16 %327 to i64
-  %329 = getelementptr inbounds nuw i8, ptr %323, i64 %328
-  %330 = getelementptr inbounds nuw i8, ptr %323, i64 32
-  %331 = load i64, ptr %330, align 8
-  %332 = getelementptr inbounds i8, ptr %329, i64 %331
-  %333 = getelementptr inbounds i8, ptr %325, i64 %318
-  store ptr %333, ptr %309, align 8
-  br label %.sink.split.i.i.i.i26
+_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i26: ; preds = %314
+  %323 = getelementptr inbounds nuw i8, ptr %322, i64 16
+  %324 = load ptr, ptr %323, align 8
+  store ptr %324, ptr %293, align 8
+  store ptr %324, ptr %308, align 8
+  %325 = getelementptr inbounds nuw i8, ptr %322, i64 40
+  %326 = load i16, ptr %325, align 8
+  %327 = zext i16 %326 to i64
+  %328 = getelementptr inbounds nuw i8, ptr %322, i64 %327
+  %329 = getelementptr inbounds nuw i8, ptr %322, i64 32
+  %330 = load i64, ptr %329, align 8
+  %331 = getelementptr inbounds i8, ptr %328, i64 %330
+  %332 = getelementptr inbounds i8, ptr %324, i64 %317
+  store ptr %332, ptr %308, align 8
+  br label %.sink.split.i.i.i.i27
 
-.sink.split.i.i.i.i26:                            ; preds = %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i25, %315
-  %.sink.i.i.i.i27 = phi ptr [ %332, %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i25 ], [ null, %315 ]
-  %.0.ph.i.i.i.i28 = phi ptr [ %333, %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i25 ], [ null, %315 ]
-  store ptr %.sink.i.i.i.i27, ptr %306, align 8
+.sink.split.i.i.i.i27:                            ; preds = %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i26, %314
+  %.sink.i.i.i.i28 = phi ptr [ %331, %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i26 ], [ null, %314 ]
+  %.0.ph.i.i.i.i29 = phi ptr [ %332, %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i26 ], [ null, %314 ]
+  store ptr %.sink.i.i.i.i28, ptr %305, align 8
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i.i17
 
-_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i.i17: ; preds = %.sink.split.i.i.i.i26, %308
-  %.0.i.i.i.i18 = phi ptr [ %310, %308 ], [ %.0.ph.i.i.i.i28, %.sink.split.i.i.i.i26 ]
+_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i.i17: ; preds = %.sink.split.i.i.i.i27, %307
+  %.0.i.i.i.i18 = phi ptr [ %309, %307 ], [ %.0.ph.i.i.i.i29, %.sink.split.i.i.i.i27 ]
   %.not.i.i.i19 = icmp eq ptr %.0.i.i.i.i18, null
-  br i1 %.not.i.i.i19, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.thread.i.i.i23, label %334
+  br i1 %.not.i.i.i19, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.thread.i.i.i24, label %333
 
-334:                                              ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i.i17
-  %335 = load ptr, ptr %309, align 8
-  %336 = load ptr, ptr %294, align 8
+333:                                              ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i.i17
+  %334 = load ptr, ptr %308, align 8
+  %335 = load ptr, ptr %293, align 8
+  %336 = ptrtoint ptr %334 to i64
   %337 = ptrtoint ptr %335 to i64
-  %338 = ptrtoint ptr %336 to i64
-  %339 = sub i64 %337, %338
-  %340 = getelementptr inbounds nuw i8, ptr %335, i64 4
-  store ptr %340, ptr %309, align 8
+  %338 = sub i64 %336, %337
+  %339 = getelementptr inbounds nuw i8, ptr %334, i64 4
+  store ptr %339, ptr %308, align 8
   br label %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS3_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEC2ES7_bb.exit.i
 
-_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.thread.i.i.i23: ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i.i17, %_ZL14write_packagesv.exit
-  store ptr null, ptr %306, align 8
+_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.thread.i.i.i24: ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i.i17, %_ZL14write_packagesv.exit
+  store ptr null, ptr %305, align 8
   br label %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS3_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEC2ES7_bb.exit.i
 
-_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS3_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEC2ES7_bb.exit.i: ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.thread.i.i.i23, %334
-  %.0.i.i.i20 = phi i64 [ %339, %334 ], [ 0, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.thread.i.i.i23 ]
-  %341 = getelementptr inbounds nuw i8, ptr %20, i64 40
-  store i64 %.0.i.i.i20, ptr %341, align 8
-  %342 = load i8, ptr @_ZL11_flushpoint, align 1
-  %343 = trunc nuw i8 %342 to i1
-  %344 = load i8, ptr @_ZL13_class_unload, align 1
-  %345 = trunc nuw i8 %344 to i1
-  %346 = select i1 %343, i1 true, i1 %345
-  br i1 %346, label %347, label %355
+_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS3_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEC2ES7_bb.exit.i: ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.thread.i.i.i24, %333
+  %.0.i.i.i20 = phi i64 [ %338, %333 ], [ 0, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.thread.i.i.i24 ]
+  %340 = getelementptr inbounds nuw i8, ptr %19, i64 40
+  store i64 %.0.i.i.i20, ptr %340, align 8
+  %341 = load i8, ptr @_ZL11_flushpoint, align 1
+  %342 = trunc nuw i8 %341 to i1
+  %343 = load i8, ptr @_ZL13_class_unload, align 1
+  %344 = trunc nuw i8 %343 to i1
+  %345 = select i1 %342, i1 true, i1 %344
+  br i1 %345, label %346, label %447
 
-347:                                              ; preds = %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS3_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEC2ES7_bb.exit.i
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18)
-  store ptr %20, ptr %18, align 8
-  %348 = load ptr, ptr @_ZL10_artifacts, align 8
-  call void @_ZNK14JfrArtifactSet15iterate_klassesI20KlassToFieldEnvelopeI19ModuleFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS7_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(41) %348, ptr noundef nonnull align 8 dereferenceable(8) %18)
-  %349 = load ptr, ptr @_ZL10_artifacts, align 8
-  %350 = load i32, ptr %304, align 8
-  %351 = sext i32 %350 to i64
-  %352 = getelementptr inbounds nuw i8, ptr %349, i64 32
-  %353 = load i64, ptr %352, align 8
-  %354 = add i64 %353, %351
-  store i64 %354, ptr %352, align 8
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18)
-  br label %370
+346:                                              ; preds = %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS3_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEC2ES7_bb.exit.i
+  %347 = load ptr, ptr @_ZL10_artifacts, align 8
+  %348 = getelementptr inbounds nuw i8, ptr %347, i64 8
+  %349 = load ptr, ptr %348, align 8
+  %350 = load i32, ptr %349, align 4
+  %.not7.i2.i.i = icmp sgt i32 %350, 0
+  br i1 %.not7.i2.i.i, label %.lr.ph.i3.i.i, label %_ZNK14JfrArtifactSet7iterateI20KlassToFieldEnvelopeI19ModuleFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS7_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEEEEbRT_P13GrowableArrayIPK5KlassE.exit15.i.i
 
-355:                                              ; preds = %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS3_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEC2ES7_bb.exit.i
-  %356 = load ptr, ptr @_ZL13_leakp_writer, align 8
-  %357 = icmp eq ptr %356, null
-  br i1 %357, label %358, label %369
+.lr.ph.i3.i.i:                                    ; preds = %346
+  %351 = getelementptr inbounds nuw i8, ptr %349, i64 8
+  %352 = trunc i8 %294 to i1
+  br label %353
 
-358:                                              ; preds = %355
-  store ptr %20, ptr %22, align 8
-  %359 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  store ptr %21, ptr %359, align 8
-  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV23JfrArtifactCallbackHostIPK11ModuleEntry16CompositeFunctorIS2_17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIS2_18SerializePredicateIS2_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EE13ClearArtifactIS2_EEE, i64 16), ptr %23, align 8
-  %360 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  store ptr @_ZL19_subsystem_callback, ptr %360, align 8
-  %361 = getelementptr inbounds nuw i8, ptr %23, i64 16
-  store ptr %22, ptr %361, align 8
-  store ptr %23, ptr @_ZL19_subsystem_callback, align 8
+353:                                              ; preds = %_ZN20KlassToFieldEnvelopeI19ModuleFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS5_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEEclEPK5Klass.exit.i10.i.i, %.lr.ph.i3.i.i
+  %354 = phi i32 [ 0, %.lr.ph.i3.i.i ], [ %391, %_ZN20KlassToFieldEnvelopeI19ModuleFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS5_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEEclEPK5Klass.exit.i10.i.i ]
+  %indvars.iv.i4.i.i = phi i64 [ 0, %.lr.ph.i3.i.i ], [ %indvars.iv.next.i11.i.i, %_ZN20KlassToFieldEnvelopeI19ModuleFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS5_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEEclEPK5Klass.exit.i10.i.i ]
+  %355 = load ptr, ptr %351, align 8
+  %356 = getelementptr inbounds nuw ptr, ptr %355, i64 %indvars.iv.i4.i.i
+  %357 = load ptr, ptr %356, align 8
+  %358 = load ptr, ptr %357, align 8
+  %359 = getelementptr inbounds nuw i8, ptr %358, i64 144
+  %360 = load ptr, ptr %359, align 8
+  %361 = call noundef ptr %360(ptr noundef nonnull align 8 dereferenceable(196) %357) #9
+  %362 = icmp eq ptr %361, null
+  br i1 %362, label %_ZN20KlassToFieldEnvelopeI19ModuleFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS5_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEEclEPK5Klass.exit.i10.i.i, label %_ZN19ModuleFieldSelector6selectEPK5Klass.exit.i.i5.i.i
+
+_ZN19ModuleFieldSelector6selectEPK5Klass.exit.i.i5.i.i: ; preds = %353
+  %363 = getelementptr inbounds nuw i8, ptr %361, i64 8
+  %364 = load ptr, ptr %363, align 8
+  %.not.i.i6.i.i = icmp eq ptr %364, null
+  br i1 %.not.i.i6.i.i, label %_ZN20KlassToFieldEnvelopeI19ModuleFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS5_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEEclEPK5Klass.exit.i10.i.i, label %365
+
+365:                                              ; preds = %_ZN19ModuleFieldSelector6selectEPK5Klass.exit.i.i5.i.i
+  br i1 %352, label %_ZN18SerializePredicateIPK11ModuleEntryEclERKS2_.exit.thread.i.i.i.i13.i.i, label %_ZN18SerializePredicateIPK11ModuleEntryEclERKS2_.exit.i.i.i.i7.i.i
+
+_ZN18SerializePredicateIPK11ModuleEntryEclERKS2_.exit.i.i.i.i7.i.i: ; preds = %365
+  %366 = getelementptr inbounds nuw i8, ptr %364, i64 72
+  %367 = load i64, ptr %366, align 8
+  %368 = and i64 %367, 4096
+  %.not.i.i.i.i.i8.i.i = icmp eq i64 %368, 0
+  br i1 %.not.i.i.i.i.i8.i.i, label %_ZN18SerializePredicateIPK11ModuleEntryEclERKS2_.exit.thread.i.i.i.i13.i.i, label %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS3_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEclERKS3_.exit.i.i9.i.i
+
+_ZN18SerializePredicateIPK11ModuleEntryEclERKS2_.exit.thread.i.i.i.i13.i.i: ; preds = %_ZN18SerializePredicateIPK11ModuleEntryEclERKS2_.exit.i.i.i.i7.i.i, %365
+  %369 = load i8, ptr @_ZL11_flushpoint, align 1
+  %370 = trunc nuw i8 %369 to i1
+  %371 = load i8, ptr @_ZL13_class_unload, align 1
+  %372 = trunc nuw i8 %371 to i1
+  %373 = select i1 %370, i1 true, i1 %372
+  br i1 %373, label %374, label %_ZN21JfrTypeWriterImplHostIPK11ModuleEntryXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEEclERKS2_.exit.i.i.i.i14.i.i
+
+374:                                              ; preds = %_ZN18SerializePredicateIPK11ModuleEntryEclERKS2_.exit.thread.i.i.i.i13.i.i
+  %375 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
+  %376 = and i8 %375, 1
+  %377 = sub nuw nsw i8 -2, %376
+  %378 = getelementptr inbounds nuw i8, ptr %364, i64 73
+  br label %379
+
+379:                                              ; preds = %383, %374
+  %380 = load volatile i8, ptr %378, align 1
+  %381 = and i8 %380, %377
+  %382 = icmp eq i8 %380, %381
+  br i1 %382, label %_ZN21JfrTypeWriterImplHostIPK11ModuleEntryXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEEclERKS2_.exit.i.i.i.i14.i.i, label %383
+
+383:                                              ; preds = %379
+  %384 = call noundef i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %381, i8 %380, ptr nonnull %378) #9, !srcloc !7
+  %385 = icmp eq i8 %384, %380
+  br i1 %385, label %_ZN21JfrTypeWriterImplHostIPK11ModuleEntryXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEEclERKS2_.exit.i.i.i.i14.i.i, label %379, !llvm.loop !8
+
+_ZN21JfrTypeWriterImplHostIPK11ModuleEntryXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEEclERKS2_.exit.i.i.i.i14.i.i: ; preds = %383, %379, %_ZN18SerializePredicateIPK11ModuleEntryEclERKS2_.exit.thread.i.i.i.i13.i.i
+  %386 = getelementptr inbounds nuw i8, ptr %364, i64 73
+  %387 = load i8, ptr %386, align 1
+  %388 = or i8 %387, 16
+  store i8 %388, ptr %386, align 1
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
+  call fastcc void @_ZL12write_moduleP19JfrCheckpointWriterPK11ModuleEntryb(ptr noundef %293, ptr noundef nonnull %364, i1 noundef zeroext false)
+  br label %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS3_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEclERKS3_.exit.i.i9.i.i
+
+_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS3_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEclERKS3_.exit.i.i9.i.i: ; preds = %_ZN21JfrTypeWriterImplHostIPK11ModuleEntryXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEEclERKS2_.exit.i.i.i.i14.i.i, %_ZN18SerializePredicateIPK11ModuleEntryEclERKS2_.exit.i.i.i.i7.i.i
+  %389 = phi i32 [ 1, %_ZN21JfrTypeWriterImplHostIPK11ModuleEntryXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEEclERKS2_.exit.i.i.i.i14.i.i ], [ 0, %_ZN18SerializePredicateIPK11ModuleEntryEclERKS2_.exit.i.i.i.i7.i.i ]
+  %390 = add nsw i32 %389, %354
+  store i32 %390, ptr %303, align 8
+  br label %_ZN20KlassToFieldEnvelopeI19ModuleFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS5_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEEclEPK5Klass.exit.i10.i.i
+
+_ZN20KlassToFieldEnvelopeI19ModuleFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS5_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEEclEPK5Klass.exit.i10.i.i: ; preds = %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS3_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEclERKS3_.exit.i.i9.i.i, %_ZN19ModuleFieldSelector6selectEPK5Klass.exit.i.i5.i.i, %353
+  %391 = phi i32 [ %390, %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS3_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEclERKS3_.exit.i.i9.i.i ], [ %354, %_ZN19ModuleFieldSelector6selectEPK5Klass.exit.i.i5.i.i ], [ %354, %353 ]
+  %indvars.iv.next.i11.i.i = add nuw nsw i64 %indvars.iv.i4.i.i, 1
+  %392 = load i32, ptr %349, align 4
+  %393 = sext i32 %392 to i64
+  %.not.i12.i.i = icmp slt i64 %indvars.iv.next.i11.i.i, %393
+  br i1 %.not.i12.i.i, label %353, label %_ZNK14JfrArtifactSet7iterateI20KlassToFieldEnvelopeI19ModuleFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS7_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEEEEbRT_P13GrowableArrayIPK5KlassE.exit15.i.i, !llvm.loop !10
+
+_ZNK14JfrArtifactSet7iterateI20KlassToFieldEnvelopeI19ModuleFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS7_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEEEEbRT_P13GrowableArrayIPK5KlassE.exit15.i.i: ; preds = %_ZN20KlassToFieldEnvelopeI19ModuleFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS5_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEEclEPK5Klass.exit.i10.i.i, %346
+  %394 = phi i32 [ 0, %346 ], [ %391, %_ZN20KlassToFieldEnvelopeI19ModuleFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS5_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEEclEPK5Klass.exit.i10.i.i ]
+  %395 = getelementptr inbounds nuw i8, ptr %347, i64 16
+  %396 = load ptr, ptr %395, align 8
+  %397 = load i32, ptr %396, align 4
+  %.not7.i.i.i = icmp sgt i32 %397, 0
+  br i1 %.not7.i.i.i, label %.lr.ph.i.i.i, label %_ZL10do_modulesR17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS3_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EE.exit.i
+
+.lr.ph.i.i.i:                                     ; preds = %_ZNK14JfrArtifactSet7iterateI20KlassToFieldEnvelopeI19ModuleFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS7_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEEEEbRT_P13GrowableArrayIPK5KlassE.exit15.i.i
+  %398 = getelementptr inbounds nuw i8, ptr %396, i64 8
+  %399 = trunc i8 %294 to i1
+  br label %400
+
+400:                                              ; preds = %_ZN20KlassToFieldEnvelopeI19ModuleFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS5_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEEclEPK5Klass.exit.i.i.i, %.lr.ph.i.i.i
+  %401 = phi i32 [ %394, %.lr.ph.i.i.i ], [ %438, %_ZN20KlassToFieldEnvelopeI19ModuleFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS5_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEEclEPK5Klass.exit.i.i.i ]
+  %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %_ZN20KlassToFieldEnvelopeI19ModuleFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS5_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEEclEPK5Klass.exit.i.i.i ]
+  %402 = load ptr, ptr %398, align 8
+  %403 = getelementptr inbounds nuw ptr, ptr %402, i64 %indvars.iv.i.i.i
+  %404 = load ptr, ptr %403, align 8
+  %405 = load ptr, ptr %404, align 8
+  %406 = getelementptr inbounds nuw i8, ptr %405, i64 144
+  %407 = load ptr, ptr %406, align 8
+  %408 = call noundef ptr %407(ptr noundef nonnull align 8 dereferenceable(196) %404) #9
+  %409 = icmp eq ptr %408, null
+  br i1 %409, label %_ZN20KlassToFieldEnvelopeI19ModuleFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS5_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEEclEPK5Klass.exit.i.i.i, label %_ZN19ModuleFieldSelector6selectEPK5Klass.exit.i.i.i.i
+
+_ZN19ModuleFieldSelector6selectEPK5Klass.exit.i.i.i.i: ; preds = %400
+  %410 = getelementptr inbounds nuw i8, ptr %408, i64 8
+  %411 = load ptr, ptr %410, align 8
+  %.not.i.i.i1.i23 = icmp eq ptr %411, null
+  br i1 %.not.i.i.i1.i23, label %_ZN20KlassToFieldEnvelopeI19ModuleFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS5_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEEclEPK5Klass.exit.i.i.i, label %412
+
+412:                                              ; preds = %_ZN19ModuleFieldSelector6selectEPK5Klass.exit.i.i.i.i
+  br i1 %399, label %_ZN18SerializePredicateIPK11ModuleEntryEclERKS2_.exit.thread.i.i.i.i.i.i, label %_ZN18SerializePredicateIPK11ModuleEntryEclERKS2_.exit.i.i.i.i.i.i
+
+_ZN18SerializePredicateIPK11ModuleEntryEclERKS2_.exit.i.i.i.i.i.i: ; preds = %412
+  %413 = getelementptr inbounds nuw i8, ptr %411, i64 72
+  %414 = load i64, ptr %413, align 8
+  %415 = and i64 %414, 4096
+  %.not.i.i.i.i.i.i.i = icmp eq i64 %415, 0
+  br i1 %.not.i.i.i.i.i.i.i, label %_ZN18SerializePredicateIPK11ModuleEntryEclERKS2_.exit.thread.i.i.i.i.i.i, label %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS3_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEclERKS3_.exit.i.i.i.i
+
+_ZN18SerializePredicateIPK11ModuleEntryEclERKS2_.exit.thread.i.i.i.i.i.i: ; preds = %_ZN18SerializePredicateIPK11ModuleEntryEclERKS2_.exit.i.i.i.i.i.i, %412
+  %416 = load i8, ptr @_ZL11_flushpoint, align 1
+  %417 = trunc nuw i8 %416 to i1
+  %418 = load i8, ptr @_ZL13_class_unload, align 1
+  %419 = trunc nuw i8 %418 to i1
+  %420 = select i1 %417, i1 true, i1 %419
+  br i1 %420, label %421, label %_ZN21JfrTypeWriterImplHostIPK11ModuleEntryXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEEclERKS2_.exit.i.i.i.i.i.i
+
+421:                                              ; preds = %_ZN18SerializePredicateIPK11ModuleEntryEclERKS2_.exit.thread.i.i.i.i.i.i
+  %422 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
+  %423 = and i8 %422, 1
+  %424 = sub nuw nsw i8 -2, %423
+  %425 = getelementptr inbounds nuw i8, ptr %411, i64 73
+  br label %426
+
+426:                                              ; preds = %430, %421
+  %427 = load volatile i8, ptr %425, align 1
+  %428 = and i8 %427, %424
+  %429 = icmp eq i8 %427, %428
+  br i1 %429, label %_ZN21JfrTypeWriterImplHostIPK11ModuleEntryXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEEclERKS2_.exit.i.i.i.i.i.i, label %430
+
+430:                                              ; preds = %426
+  %431 = call noundef i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %428, i8 %427, ptr nonnull %425) #9, !srcloc !7
+  %432 = icmp eq i8 %431, %427
+  br i1 %432, label %_ZN21JfrTypeWriterImplHostIPK11ModuleEntryXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEEclERKS2_.exit.i.i.i.i.i.i, label %426, !llvm.loop !8
+
+_ZN21JfrTypeWriterImplHostIPK11ModuleEntryXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEEclERKS2_.exit.i.i.i.i.i.i: ; preds = %430, %426, %_ZN18SerializePredicateIPK11ModuleEntryEclERKS2_.exit.thread.i.i.i.i.i.i
+  %433 = getelementptr inbounds nuw i8, ptr %411, i64 73
+  %434 = load i8, ptr %433, align 1
+  %435 = or i8 %434, 16
+  store i8 %435, ptr %433, align 1
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
+  call fastcc void @_ZL12write_moduleP19JfrCheckpointWriterPK11ModuleEntryb(ptr noundef %293, ptr noundef nonnull %411, i1 noundef zeroext false)
+  br label %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS3_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEclERKS3_.exit.i.i.i.i
+
+_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS3_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEclERKS3_.exit.i.i.i.i: ; preds = %_ZN21JfrTypeWriterImplHostIPK11ModuleEntryXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEEclERKS2_.exit.i.i.i.i.i.i, %_ZN18SerializePredicateIPK11ModuleEntryEclERKS2_.exit.i.i.i.i.i.i
+  %436 = phi i32 [ 1, %_ZN21JfrTypeWriterImplHostIPK11ModuleEntryXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEEclERKS2_.exit.i.i.i.i.i.i ], [ 0, %_ZN18SerializePredicateIPK11ModuleEntryEclERKS2_.exit.i.i.i.i.i.i ]
+  %437 = add nsw i32 %436, %401
+  store i32 %437, ptr %303, align 8
+  br label %_ZN20KlassToFieldEnvelopeI19ModuleFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS5_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEEclEPK5Klass.exit.i.i.i
+
+_ZN20KlassToFieldEnvelopeI19ModuleFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS5_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEEclEPK5Klass.exit.i.i.i: ; preds = %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS3_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEclERKS3_.exit.i.i.i.i, %_ZN19ModuleFieldSelector6selectEPK5Klass.exit.i.i.i.i, %400
+  %438 = phi i32 [ %437, %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS3_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEclERKS3_.exit.i.i.i.i ], [ %401, %_ZN19ModuleFieldSelector6selectEPK5Klass.exit.i.i.i.i ], [ %401, %400 ]
+  %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
+  %439 = load i32, ptr %396, align 4
+  %440 = sext i32 %439 to i64
+  %.not.i.i2.i = icmp slt i64 %indvars.iv.next.i.i.i, %440
+  br i1 %.not.i.i2.i, label %400, label %_ZL10do_modulesR17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS3_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EE.exit.i, !llvm.loop !10
+
+_ZL10do_modulesR17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS3_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EE.exit.i: ; preds = %_ZN20KlassToFieldEnvelopeI19ModuleFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS5_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEEclEPK5Klass.exit.i.i.i, %_ZNK14JfrArtifactSet7iterateI20KlassToFieldEnvelopeI19ModuleFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS7_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEEEEbRT_P13GrowableArrayIPK5KlassE.exit15.i.i
+  %441 = phi i32 [ %394, %_ZNK14JfrArtifactSet7iterateI20KlassToFieldEnvelopeI19ModuleFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS7_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEEEEbRT_P13GrowableArrayIPK5KlassE.exit15.i.i ], [ %438, %_ZN20KlassToFieldEnvelopeI19ModuleFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS5_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEEclEPK5Klass.exit.i.i.i ]
+  %442 = load ptr, ptr @_ZL10_artifacts, align 8
+  %443 = sext i32 %441 to i64
+  %444 = getelementptr inbounds nuw i8, ptr %442, i64 32
+  %445 = load i64, ptr %444, align 8
+  %446 = add i64 %445, %443
+  store i64 %446, ptr %444, align 8
+  br label %462
+
+447:                                              ; preds = %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS3_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEC2ES7_bb.exit.i
+  %448 = load ptr, ptr @_ZL13_leakp_writer, align 8
+  %449 = icmp eq ptr %448, null
+  br i1 %449, label %450, label %461
+
+450:                                              ; preds = %447
+  store ptr %19, ptr %21, align 8
+  %451 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  store ptr %20, ptr %451, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV23JfrArtifactCallbackHostIPK11ModuleEntry16CompositeFunctorIS2_17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIS2_18SerializePredicateIS2_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EE13ClearArtifactIS2_EEE, i64 16), ptr %22, align 8
+  %452 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  store ptr @_ZL19_subsystem_callback, ptr %452, align 8
+  %453 = getelementptr inbounds nuw i8, ptr %22, i64 16
+  store ptr %21, ptr %453, align 8
+  store ptr %22, ptr @_ZL19_subsystem_callback, align 8
   call void @_ZN20ClassLoaderDataGraph10modules_doEPFvP11ModuleEntryE(ptr noundef nonnull @_ZL9do_moduleP11ModuleEntry) #9
-  %362 = load ptr, ptr @_ZL10_artifacts, align 8
-  %363 = load i32, ptr %304, align 8
-  %364 = sext i32 %363 to i64
-  %365 = getelementptr inbounds nuw i8, ptr %362, i64 32
-  %366 = load i64, ptr %365, align 8
-  %367 = add i64 %366, %364
-  store i64 %367, ptr %365, align 8
-  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV23JfrArtifactCallbackHostIPK11ModuleEntry16CompositeFunctorIS2_17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIS2_18SerializePredicateIS2_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EE13ClearArtifactIS2_EEE, i64 16), ptr %23, align 8
-  %368 = load ptr, ptr %360, align 8
-  store ptr null, ptr %368, align 8
-  br label %370
+  %454 = load ptr, ptr @_ZL10_artifacts, align 8
+  %455 = load i32, ptr %303, align 8
+  %456 = sext i32 %455 to i64
+  %457 = getelementptr inbounds nuw i8, ptr %454, i64 32
+  %458 = load i64, ptr %457, align 8
+  %459 = add i64 %458, %456
+  store i64 %459, ptr %457, align 8
+  store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV23JfrArtifactCallbackHostIPK11ModuleEntry16CompositeFunctorIS2_17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIS2_18SerializePredicateIS2_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EE13ClearArtifactIS2_EEE, i64 16), ptr %22, align 8
+  %460 = load ptr, ptr %452, align 8
+  store ptr null, ptr %460, align 8
+  br label %462
 
-369:                                              ; preds = %355
-  call fastcc void @_ZL24write_modules_with_leakpR17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS3_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EE(ptr noundef nonnull align 8 dereferenceable(53) %20)
-  br label %370
+461:                                              ; preds = %447
+  call fastcc void @_ZL24write_modules_with_leakpR17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS3_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EE(ptr noundef nonnull align 8 dereferenceable(53) %19)
+  br label %462
 
-370:                                              ; preds = %369, %358, %347
-  %371 = load i32, ptr %304, align 8
-  %372 = icmp eq i32 %371, 0
-  br i1 %372, label %373, label %375
+462:                                              ; preds = %461, %450, %_ZL10do_modulesR17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS3_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EE.exit.i
+  %463 = load i32, ptr %303, align 8
+  %464 = icmp eq i32 %463, 0
+  br i1 %464, label %465, label %467
 
-373:                                              ; preds = %370
-  %374 = load ptr, ptr %298, align 8
-  %.sroa.0.0.copyload.i.i21 = load i64, ptr %299, align 8
-  %.sroa.2.0.copyload.i.i22 = load i32, ptr %302, align 8
-  call void @_ZN19JfrCheckpointWriter11set_contextE20JfrCheckpointContext(ptr noundef nonnull align 8 dereferenceable(73) %374, i64 %.sroa.0.0.copyload.i.i21, i32 %.sroa.2.0.copyload.i.i22) #9
+465:                                              ; preds = %462
+  %466 = load ptr, ptr %297, align 8
+  %.sroa.0.0.copyload.i.i21 = load i64, ptr %298, align 8
+  %.sroa.2.0.copyload.i.i22 = load i32, ptr %301, align 8
+  call void @_ZN19JfrCheckpointWriter11set_contextE20JfrCheckpointContext(ptr noundef nonnull align 8 dereferenceable(73) %466, i64 %.sroa.0.0.copyload.i.i21, i32 %.sroa.2.0.copyload.i.i22) #9
   br label %_ZL13write_modulesv.exit
 
-375:                                              ; preds = %370
-  %376 = load i8, ptr %305, align 4
-  %377 = trunc i8 %376 to i1
-  br i1 %377, label %_ZL13write_modulesv.exit, label %378
+467:                                              ; preds = %462
+  %468 = load i8, ptr %304, align 4
+  %469 = trunc i8 %468 to i1
+  br i1 %469, label %_ZL13write_modulesv.exit, label %470
 
-378:                                              ; preds = %375
-  %379 = load ptr, ptr %298, align 8
-  %380 = load i64, ptr %341, align 8
-  call void @_ZN19JfrCheckpointWriter11write_countEjl(ptr noundef nonnull align 8 dereferenceable(73) %379, i32 noundef %371, i64 noundef %380) #9
+470:                                              ; preds = %467
+  %471 = load ptr, ptr %297, align 8
+  %472 = load i64, ptr %340, align 8
+  call void @_ZN19JfrCheckpointWriter11write_countEjl(ptr noundef nonnull align 8 dereferenceable(73) %471, i32 noundef %463, i64 noundef %472) #9
   br label %_ZL13write_modulesv.exit
 
-_ZL13write_modulesv.exit:                         ; preds = %373, %375, %378
-  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %20)
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %21)
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %23)
+_ZL13write_modulesv.exit:                         ; preds = %465, %467, %470
+  call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %19)
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %20)
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21)
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %22)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %14)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %15)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %17)
-  %381 = load ptr, ptr @_ZL7_writer, align 8
-  %382 = load i8, ptr @_ZL13_class_unload, align 1
-  store ptr %381, ptr %14, align 8
-  %383 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %384 = and i8 %382, 1
-  store i8 %384, ptr %383, align 8
-  %385 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store ptr %381, ptr %385, align 8
-  %386 = getelementptr inbounds nuw i8, ptr %14, i64 24
-  %387 = call { i64, i32 } @_ZNK19JfrCheckpointWriter7contextEv(ptr noundef nonnull align 8 dereferenceable(73) %381) #9
-  %388 = extractvalue { i64, i32 } %387, 0
-  store i64 %388, ptr %386, align 8
-  %389 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  %390 = extractvalue { i64, i32 } %387, 1
-  store i32 %390, ptr %389, align 8
-  %391 = getelementptr inbounds nuw i8, ptr %14, i64 48
-  store i32 0, ptr %391, align 8
-  %392 = getelementptr inbounds nuw i8, ptr %14, i64 52
-  store i8 0, ptr %392, align 4
-  call void @_ZN19JfrCheckpointWriter10write_typeE9JfrTypeId(ptr noundef nonnull align 8 dereferenceable(73) %381, i32 noundef 182) #9
-  %393 = getelementptr inbounds nuw i8, ptr %381, i64 16
-  %394 = load ptr, ptr %393, align 8
-  %.not.i.i.i.i29 = icmp eq ptr %394, null
-  br i1 %.not.i.i.i.i29, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.thread.i.i.i37, label %395
+  %473 = load ptr, ptr @_ZL7_writer, align 8
+  %474 = load i8, ptr @_ZL13_class_unload, align 1
+  store ptr %473, ptr %14, align 8
+  %475 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %476 = and i8 %474, 1
+  store i8 %476, ptr %475, align 8
+  %477 = getelementptr inbounds nuw i8, ptr %14, i64 16
+  store ptr %473, ptr %477, align 8
+  %478 = getelementptr inbounds nuw i8, ptr %14, i64 24
+  %479 = call { i64, i32 } @_ZNK19JfrCheckpointWriter7contextEv(ptr noundef nonnull align 8 dereferenceable(73) %473) #9
+  %480 = extractvalue { i64, i32 } %479, 0
+  store i64 %480, ptr %478, align 8
+  %481 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  %482 = extractvalue { i64, i32 } %479, 1
+  store i32 %482, ptr %481, align 8
+  %483 = getelementptr inbounds nuw i8, ptr %14, i64 48
+  store i32 0, ptr %483, align 8
+  %484 = getelementptr inbounds nuw i8, ptr %14, i64 52
+  store i8 0, ptr %484, align 4
+  call void @_ZN19JfrCheckpointWriter10write_typeE9JfrTypeId(ptr noundef nonnull align 8 dereferenceable(73) %473, i32 noundef 182) #9
+  %485 = getelementptr inbounds nuw i8, ptr %473, i64 16
+  %486 = load ptr, ptr %485, align 8
+  %.not.i.i.i.i30 = icmp eq ptr %486, null
+  br i1 %.not.i.i.i.i30, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.thread.i.i.i38, label %487
 
-395:                                              ; preds = %_ZL13write_modulesv.exit
-  %396 = getelementptr inbounds nuw i8, ptr %381, i64 8
-  %397 = load ptr, ptr %396, align 8
-  %398 = ptrtoint ptr %394 to i64
-  %399 = ptrtoint ptr %397 to i64
-  %400 = sub i64 %398, %399
-  %401 = icmp ult i64 %400, 4
-  br i1 %401, label %402, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i.i30
+487:                                              ; preds = %_ZL13write_modulesv.exit
+  %488 = getelementptr inbounds nuw i8, ptr %473, i64 8
+  %489 = load ptr, ptr %488, align 8
+  %490 = ptrtoint ptr %486 to i64
+  %491 = ptrtoint ptr %489 to i64
+  %492 = sub i64 %490, %491
+  %493 = icmp ult i64 %492, 4
+  br i1 %493, label %494, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i.i31
 
-402:                                              ; preds = %395
-  %403 = load ptr, ptr %381, align 8
-  %404 = ptrtoint ptr %403 to i64
-  %405 = sub i64 %399, %404
-  %406 = getelementptr inbounds nuw i8, ptr %381, i64 24
+494:                                              ; preds = %487
+  %495 = load ptr, ptr %473, align 8
+  %496 = ptrtoint ptr %495 to i64
+  %497 = sub i64 %491, %496
+  %498 = getelementptr inbounds nuw i8, ptr %473, i64 24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13)
-  %407 = load ptr, ptr %406, align 8
-  %408 = getelementptr inbounds nuw i8, ptr %381, i64 32
-  %409 = load ptr, ptr %408, align 8
-  call void @_ZN18JfrCheckpointFlushC1EP9JfrBuffermmP6Thread(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %407, i64 noundef %405, i64 noundef 4, ptr noundef %409) #9
-  %410 = load ptr, ptr %13, align 8
-  store ptr %410, ptr %406, align 8
-  %.not5.i.i.i.i38 = icmp eq ptr %410, null
+  %499 = load ptr, ptr %498, align 8
+  %500 = getelementptr inbounds nuw i8, ptr %473, i64 32
+  %501 = load ptr, ptr %500, align 8
+  call void @_ZN18JfrCheckpointFlushC1EP9JfrBuffermmP6Thread(ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef %499, i64 noundef %497, i64 noundef 4, ptr noundef %501) #9
+  %502 = load ptr, ptr %13, align 8
+  store ptr %502, ptr %498, align 8
+  %.not5.i.i.i.i39 = icmp eq ptr %502, null
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13)
-  br i1 %.not5.i.i.i.i38, label %.sink.split.i.i.i.i40, label %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i39
+  br i1 %.not5.i.i.i.i39, label %.sink.split.i.i.i.i41, label %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i40
 
-_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i39: ; preds = %402
-  %411 = getelementptr inbounds nuw i8, ptr %410, i64 16
-  %412 = load ptr, ptr %411, align 8
-  store ptr %412, ptr %381, align 8
-  store ptr %412, ptr %396, align 8
-  %413 = getelementptr inbounds nuw i8, ptr %410, i64 40
-  %414 = load i16, ptr %413, align 8
-  %415 = zext i16 %414 to i64
-  %416 = getelementptr inbounds nuw i8, ptr %410, i64 %415
-  %417 = getelementptr inbounds nuw i8, ptr %410, i64 32
-  %418 = load i64, ptr %417, align 8
-  %419 = getelementptr inbounds i8, ptr %416, i64 %418
-  %420 = getelementptr inbounds i8, ptr %412, i64 %405
-  store ptr %420, ptr %396, align 8
-  br label %.sink.split.i.i.i.i40
+_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i40: ; preds = %494
+  %503 = getelementptr inbounds nuw i8, ptr %502, i64 16
+  %504 = load ptr, ptr %503, align 8
+  store ptr %504, ptr %473, align 8
+  store ptr %504, ptr %488, align 8
+  %505 = getelementptr inbounds nuw i8, ptr %502, i64 40
+  %506 = load i16, ptr %505, align 8
+  %507 = zext i16 %506 to i64
+  %508 = getelementptr inbounds nuw i8, ptr %502, i64 %507
+  %509 = getelementptr inbounds nuw i8, ptr %502, i64 32
+  %510 = load i64, ptr %509, align 8
+  %511 = getelementptr inbounds i8, ptr %508, i64 %510
+  %512 = getelementptr inbounds i8, ptr %504, i64 %497
+  store ptr %512, ptr %488, align 8
+  br label %.sink.split.i.i.i.i41
 
-.sink.split.i.i.i.i40:                            ; preds = %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i39, %402
-  %.sink.i.i.i.i41 = phi ptr [ %419, %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i39 ], [ null, %402 ]
-  %.0.ph.i.i.i.i42 = phi ptr [ %420, %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i39 ], [ null, %402 ]
-  store ptr %.sink.i.i.i.i41, ptr %393, align 8
-  br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i.i30
+.sink.split.i.i.i.i41:                            ; preds = %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i40, %494
+  %.sink.i.i.i.i42 = phi ptr [ %511, %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i40 ], [ null, %494 ]
+  %.0.ph.i.i.i.i43 = phi ptr [ %512, %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i40 ], [ null, %494 ]
+  store ptr %.sink.i.i.i.i42, ptr %485, align 8
+  br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i.i31
 
-_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i.i30: ; preds = %.sink.split.i.i.i.i40, %395
-  %.0.i.i.i.i31 = phi ptr [ %397, %395 ], [ %.0.ph.i.i.i.i42, %.sink.split.i.i.i.i40 ]
-  %.not.i.i.i32 = icmp eq ptr %.0.i.i.i.i31, null
-  br i1 %.not.i.i.i32, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.thread.i.i.i37, label %421
+_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i.i31: ; preds = %.sink.split.i.i.i.i41, %487
+  %.0.i.i.i.i32 = phi ptr [ %489, %487 ], [ %.0.ph.i.i.i.i43, %.sink.split.i.i.i.i41 ]
+  %.not.i.i.i33 = icmp eq ptr %.0.i.i.i.i32, null
+  br i1 %.not.i.i.i33, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.thread.i.i.i38, label %513
 
-421:                                              ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i.i30
-  %422 = load ptr, ptr %396, align 8
-  %423 = load ptr, ptr %381, align 8
-  %424 = ptrtoint ptr %422 to i64
-  %425 = ptrtoint ptr %423 to i64
-  %426 = sub i64 %424, %425
-  %427 = getelementptr inbounds nuw i8, ptr %422, i64 4
-  store ptr %427, ptr %396, align 8
+513:                                              ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i.i31
+  %514 = load ptr, ptr %488, align 8
+  %515 = load ptr, ptr %473, align 8
+  %516 = ptrtoint ptr %514 to i64
+  %517 = ptrtoint ptr %515 to i64
+  %518 = sub i64 %516, %517
+  %519 = getelementptr inbounds nuw i8, ptr %514, i64 4
+  store ptr %519, ptr %488, align 8
   br label %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK15ClassLoaderData18SerializePredicateIS3_EXadL_Z10write__cldP19JfrCheckpointWriterPKvEEELj182EEC2ES7_bb.exit.i
 
-_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.thread.i.i.i37: ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i.i30, %_ZL13write_modulesv.exit
-  store ptr null, ptr %393, align 8
+_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.thread.i.i.i38: ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i.i31, %_ZL13write_modulesv.exit
+  store ptr null, ptr %485, align 8
   br label %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK15ClassLoaderData18SerializePredicateIS3_EXadL_Z10write__cldP19JfrCheckpointWriterPKvEEELj182EEC2ES7_bb.exit.i
 
-_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK15ClassLoaderData18SerializePredicateIS3_EXadL_Z10write__cldP19JfrCheckpointWriterPKvEEELj182EEC2ES7_bb.exit.i: ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.thread.i.i.i37, %421
-  %.0.i.i.i33 = phi i64 [ %426, %421 ], [ 0, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.thread.i.i.i37 ]
-  %428 = getelementptr inbounds nuw i8, ptr %14, i64 40
-  store i64 %.0.i.i.i33, ptr %428, align 8
-  %429 = load i8, ptr @_ZL11_flushpoint, align 1
-  %430 = trunc nuw i8 %429 to i1
-  %431 = load i8, ptr @_ZL13_class_unload, align 1
-  %432 = trunc nuw i8 %431 to i1
-  %433 = select i1 %430, i1 true, i1 %432
-  br i1 %433, label %434, label %467
+_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK15ClassLoaderData18SerializePredicateIS3_EXadL_Z10write__cldP19JfrCheckpointWriterPKvEEELj182EEC2ES7_bb.exit.i: ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.thread.i.i.i38, %513
+  %.0.i.i.i34 = phi i64 [ %518, %513 ], [ 0, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.thread.i.i.i38 ]
+  %520 = getelementptr inbounds nuw i8, ptr %14, i64 40
+  store i64 %.0.i.i.i34, ptr %520, align 8
+  %521 = load i8, ptr @_ZL11_flushpoint, align 1
+  %522 = trunc nuw i8 %521 to i1
+  %523 = load i8, ptr @_ZL13_class_unload, align 1
+  %524 = trunc nuw i8 %523 to i1
+  %525 = select i1 %522, i1 true, i1 %524
+  br i1 %525, label %526, label %559
 
-434:                                              ; preds = %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK15ClassLoaderData18SerializePredicateIS3_EXadL_Z10write__cldP19JfrCheckpointWriterPKvEEELj182EEC2ES7_bb.exit.i
+526:                                              ; preds = %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK15ClassLoaderData18SerializePredicateIS3_EXadL_Z10write__cldP19JfrCheckpointWriterPKvEEELj182EEC2ES7_bb.exit.i
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %12)
   store ptr %14, ptr %10, align 8
   store ptr %14, ptr %11, align 8
   store ptr %10, ptr %12, align 8
-  %435 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  store ptr %11, ptr %435, align 8
-  %436 = load ptr, ptr @_ZL10_artifacts, align 8
-  %437 = getelementptr inbounds nuw i8, ptr %436, i64 8
-  %438 = load ptr, ptr %437, align 8
-  %439 = load i32, ptr %438, align 4
-  %440 = icmp slt i32 %439, 1
-  br i1 %440, label %.loopexit.i.i.i, label %.lr.ph.i.i.i.i
+  %527 = getelementptr inbounds nuw i8, ptr %12, i64 8
+  store ptr %11, ptr %527, align 8
+  %528 = load ptr, ptr @_ZL10_artifacts, align 8
+  %529 = getelementptr inbounds nuw i8, ptr %528, i64 8
+  %530 = load ptr, ptr %529, align 8
+  %531 = load i32, ptr %530, align 4
+  %532 = icmp slt i32 %531, 1
+  br i1 %532, label %.loopexit.i.i.i, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %434
-  %441 = getelementptr inbounds nuw i8, ptr %438, i64 8
-  br label %445
+.lr.ph.i.i.i.i:                                   ; preds = %526
+  %533 = getelementptr inbounds nuw i8, ptr %530, i64 8
+  br label %537
 
-442:                                              ; preds = %445
+534:                                              ; preds = %537
   %indvars.iv.next.i.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i.i, 1
-  %443 = load i32, ptr %438, align 4
-  %444 = sext i32 %443 to i64
-  %.not.i.i.i1.i36 = icmp slt i64 %indvars.iv.next.i.i.i.i, %444
-  br i1 %.not.i.i.i1.i36, label %445, label %.loopexit.i.i.i, !llvm.loop !10
+  %535 = load i32, ptr %530, align 4
+  %536 = sext i32 %535 to i64
+  %.not.i.i.i1.i37 = icmp slt i64 %indvars.iv.next.i.i.i.i, %536
+  br i1 %.not.i.i.i1.i37, label %537, label %.loopexit.i.i.i, !llvm.loop !11
 
-445:                                              ; preds = %442, %.lr.ph.i.i.i.i
-  %indvars.iv.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %442 ]
-  %446 = load ptr, ptr %441, align 8
-  %447 = getelementptr inbounds nuw ptr, ptr %446, i64 %indvars.iv.i.i.i.i
-  %448 = call noundef zeroext i1 @_ZN16CompositeFunctorIPK5Klass20KlassToFieldEnvelopeI21KlassCldFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK15ClassLoaderData18SerializePredicateIS9_EXadL_Z10write__cldP19JfrCheckpointWriterPKvEEELj182EEES3_I22ModuleCldFieldSelectorSH_EEclERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(8) %447)
-  br i1 %448, label %442, label %_ZL7do_cldsR17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK15ClassLoaderData18SerializePredicateIS3_EXadL_Z10write__cldP19JfrCheckpointWriterPKvEEELj182EE.exit.i
+537:                                              ; preds = %534, %.lr.ph.i.i.i.i
+  %indvars.iv.i.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i.i ], [ %indvars.iv.next.i.i.i.i, %534 ]
+  %538 = load ptr, ptr %533, align 8
+  %539 = getelementptr inbounds nuw ptr, ptr %538, i64 %indvars.iv.i.i.i.i
+  %540 = call noundef zeroext i1 @_ZN16CompositeFunctorIPK5Klass20KlassToFieldEnvelopeI21KlassCldFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK15ClassLoaderData18SerializePredicateIS9_EXadL_Z10write__cldP19JfrCheckpointWriterPKvEEELj182EEES3_I22ModuleCldFieldSelectorSH_EEclERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(8) %539)
+  br i1 %540, label %534, label %_ZL7do_cldsR17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK15ClassLoaderData18SerializePredicateIS3_EXadL_Z10write__cldP19JfrCheckpointWriterPKvEEELj182EE.exit.i
 
-.loopexit.i.i.i:                                  ; preds = %442, %434
-  %449 = getelementptr inbounds nuw i8, ptr %436, i64 16
-  %450 = load ptr, ptr %449, align 8
-  %451 = load i32, ptr %450, align 4
-  %452 = icmp slt i32 %451, 1
-  br i1 %452, label %_ZL7do_cldsR17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK15ClassLoaderData18SerializePredicateIS3_EXadL_Z10write__cldP19JfrCheckpointWriterPKvEEELj182EE.exit.i, label %.lr.ph.i3.i.i.i
+.loopexit.i.i.i:                                  ; preds = %534, %526
+  %541 = getelementptr inbounds nuw i8, ptr %528, i64 16
+  %542 = load ptr, ptr %541, align 8
+  %543 = load i32, ptr %542, align 4
+  %544 = icmp slt i32 %543, 1
+  br i1 %544, label %_ZL7do_cldsR17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK15ClassLoaderData18SerializePredicateIS3_EXadL_Z10write__cldP19JfrCheckpointWriterPKvEEELj182EE.exit.i, label %.lr.ph.i3.i.i.i
 
 .lr.ph.i3.i.i.i:                                  ; preds = %.loopexit.i.i.i
-  %453 = getelementptr inbounds nuw i8, ptr %450, i64 8
-  br label %457
+  %545 = getelementptr inbounds nuw i8, ptr %542, i64 8
+  br label %549
 
-454:                                              ; preds = %457
+546:                                              ; preds = %549
   %indvars.iv.next.i6.i.i.i = add nuw nsw i64 %indvars.iv.i4.i.i.i, 1
-  %455 = load i32, ptr %450, align 4
-  %456 = sext i32 %455 to i64
-  %.not.i7.i.i.i = icmp slt i64 %indvars.iv.next.i6.i.i.i, %456
-  br i1 %.not.i7.i.i.i, label %457, label %_ZL7do_cldsR17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK15ClassLoaderData18SerializePredicateIS3_EXadL_Z10write__cldP19JfrCheckpointWriterPKvEEELj182EE.exit.i, !llvm.loop !10
+  %547 = load i32, ptr %542, align 4
+  %548 = sext i32 %547 to i64
+  %.not.i7.i.i.i = icmp slt i64 %indvars.iv.next.i6.i.i.i, %548
+  br i1 %.not.i7.i.i.i, label %549, label %_ZL7do_cldsR17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK15ClassLoaderData18SerializePredicateIS3_EXadL_Z10write__cldP19JfrCheckpointWriterPKvEEELj182EE.exit.i, !llvm.loop !11
 
-457:                                              ; preds = %454, %.lr.ph.i3.i.i.i
-  %indvars.iv.i4.i.i.i = phi i64 [ 0, %.lr.ph.i3.i.i.i ], [ %indvars.iv.next.i6.i.i.i, %454 ]
-  %458 = load ptr, ptr %453, align 8
-  %459 = getelementptr inbounds nuw ptr, ptr %458, i64 %indvars.iv.i4.i.i.i
-  %460 = call noundef zeroext i1 @_ZN16CompositeFunctorIPK5Klass20KlassToFieldEnvelopeI21KlassCldFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK15ClassLoaderData18SerializePredicateIS9_EXadL_Z10write__cldP19JfrCheckpointWriterPKvEEELj182EEES3_I22ModuleCldFieldSelectorSH_EEclERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(8) %459)
-  br i1 %460, label %454, label %_ZL7do_cldsR17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK15ClassLoaderData18SerializePredicateIS3_EXadL_Z10write__cldP19JfrCheckpointWriterPKvEEELj182EE.exit.i
+549:                                              ; preds = %546, %.lr.ph.i3.i.i.i
+  %indvars.iv.i4.i.i.i = phi i64 [ 0, %.lr.ph.i3.i.i.i ], [ %indvars.iv.next.i6.i.i.i, %546 ]
+  %550 = load ptr, ptr %545, align 8
+  %551 = getelementptr inbounds nuw ptr, ptr %550, i64 %indvars.iv.i4.i.i.i
+  %552 = call noundef zeroext i1 @_ZN16CompositeFunctorIPK5Klass20KlassToFieldEnvelopeI21KlassCldFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK15ClassLoaderData18SerializePredicateIS9_EXadL_Z10write__cldP19JfrCheckpointWriterPKvEEELj182EEES3_I22ModuleCldFieldSelectorSH_EEclERKS2_(ptr noundef nonnull align 8 dereferenceable(16) %12, ptr noundef nonnull align 8 dereferenceable(8) %551)
+  br i1 %552, label %546, label %_ZL7do_cldsR17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK15ClassLoaderData18SerializePredicateIS3_EXadL_Z10write__cldP19JfrCheckpointWriterPKvEEELj182EE.exit.i
 
-_ZL7do_cldsR17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK15ClassLoaderData18SerializePredicateIS3_EXadL_Z10write__cldP19JfrCheckpointWriterPKvEEELj182EE.exit.i: ; preds = %445, %457, %454, %.loopexit.i.i.i
-  %461 = load ptr, ptr @_ZL10_artifacts, align 8
-  %462 = load i32, ptr %391, align 8
-  %463 = sext i32 %462 to i64
-  %464 = getelementptr inbounds nuw i8, ptr %461, i64 32
-  %465 = load i64, ptr %464, align 8
-  %466 = add i64 %465, %463
-  store i64 %466, ptr %464, align 8
+_ZL7do_cldsR17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK15ClassLoaderData18SerializePredicateIS3_EXadL_Z10write__cldP19JfrCheckpointWriterPKvEEELj182EE.exit.i: ; preds = %537, %549, %546, %.loopexit.i.i.i
+  %553 = load ptr, ptr @_ZL10_artifacts, align 8
+  %554 = load i32, ptr %483, align 8
+  %555 = sext i32 %554 to i64
+  %556 = getelementptr inbounds nuw i8, ptr %553, i64 32
+  %557 = load i64, ptr %556, align 8
+  %558 = add i64 %557, %555
+  store i64 %558, ptr %556, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %12)
-  br label %482
+  br label %574
 
-467:                                              ; preds = %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK15ClassLoaderData18SerializePredicateIS3_EXadL_Z10write__cldP19JfrCheckpointWriterPKvEEELj182EEC2ES7_bb.exit.i
-  %468 = load ptr, ptr @_ZL13_leakp_writer, align 8
-  %469 = icmp eq ptr %468, null
-  br i1 %469, label %470, label %481
+559:                                              ; preds = %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK15ClassLoaderData18SerializePredicateIS3_EXadL_Z10write__cldP19JfrCheckpointWriterPKvEEELj182EEC2ES7_bb.exit.i
+  %560 = load ptr, ptr @_ZL13_leakp_writer, align 8
+  %561 = icmp eq ptr %560, null
+  br i1 %561, label %562, label %573
 
-470:                                              ; preds = %467
+562:                                              ; preds = %559
   store ptr %14, ptr %16, align 8
-  %471 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  store ptr %15, ptr %471, align 8
+  %563 = getelementptr inbounds nuw i8, ptr %16, i64 8
+  store ptr %15, ptr %563, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV23JfrArtifactCallbackHostIPK15ClassLoaderData16CompositeFunctorIS2_17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIS2_18SerializePredicateIS2_EXadL_Z10write__cldP19JfrCheckpointWriterPKvEEELj182EE13ClearArtifactIS2_EEE, i64 16), ptr %17, align 8
-  %472 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  store ptr @_ZL19_subsystem_callback, ptr %472, align 8
-  %473 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  store ptr %16, ptr %473, align 8
+  %564 = getelementptr inbounds nuw i8, ptr %17, i64 8
+  store ptr @_ZL19_subsystem_callback, ptr %564, align 8
+  %565 = getelementptr inbounds nuw i8, ptr %17, i64 16
+  store ptr %16, ptr %565, align 8
   store ptr %17, ptr @_ZL19_subsystem_callback, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9)
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV11CLDCallback, i64 16), ptr %9, align 8
   call void @_ZN20ClassLoaderDataGraph13loaded_cld_doEP10CLDClosure(ptr noundef nonnull %9) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9)
-  %474 = load ptr, ptr @_ZL10_artifacts, align 8
-  %475 = load i32, ptr %391, align 8
-  %476 = sext i32 %475 to i64
-  %477 = getelementptr inbounds nuw i8, ptr %474, i64 32
-  %478 = load i64, ptr %477, align 8
-  %479 = add i64 %478, %476
-  store i64 %479, ptr %477, align 8
+  %566 = load ptr, ptr @_ZL10_artifacts, align 8
+  %567 = load i32, ptr %483, align 8
+  %568 = sext i32 %567 to i64
+  %569 = getelementptr inbounds nuw i8, ptr %566, i64 32
+  %570 = load i64, ptr %569, align 8
+  %571 = add i64 %570, %568
+  store i64 %571, ptr %569, align 8
   store ptr getelementptr inbounds nuw inrange(-16, 8) (i8, ptr @_ZTV23JfrArtifactCallbackHostIPK15ClassLoaderData16CompositeFunctorIS2_17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIS2_18SerializePredicateIS2_EXadL_Z10write__cldP19JfrCheckpointWriterPKvEEELj182EE13ClearArtifactIS2_EEE, i64 16), ptr %17, align 8
-  %480 = load ptr, ptr %472, align 8
-  store ptr null, ptr %480, align 8
-  br label %482
+  %572 = load ptr, ptr %564, align 8
+  store ptr null, ptr %572, align 8
+  br label %574
 
-481:                                              ; preds = %467
+573:                                              ; preds = %559
   call fastcc void @_ZL21write_clds_with_leakpR17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK15ClassLoaderData18SerializePredicateIS3_EXadL_Z10write__cldP19JfrCheckpointWriterPKvEEELj182EE(ptr noundef nonnull align 8 dereferenceable(53) %14)
-  br label %482
+  br label %574
 
-482:                                              ; preds = %481, %470, %_ZL7do_cldsR17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK15ClassLoaderData18SerializePredicateIS3_EXadL_Z10write__cldP19JfrCheckpointWriterPKvEEELj182EE.exit.i
-  %483 = load i32, ptr %391, align 8
-  %484 = icmp eq i32 %483, 0
-  br i1 %484, label %485, label %487
+574:                                              ; preds = %573, %562, %_ZL7do_cldsR17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK15ClassLoaderData18SerializePredicateIS3_EXadL_Z10write__cldP19JfrCheckpointWriterPKvEEELj182EE.exit.i
+  %575 = load i32, ptr %483, align 8
+  %576 = icmp eq i32 %575, 0
+  br i1 %576, label %577, label %579
 
-485:                                              ; preds = %482
-  %486 = load ptr, ptr %385, align 8
-  %.sroa.0.0.copyload.i.i34 = load i64, ptr %386, align 8
-  %.sroa.2.0.copyload.i.i35 = load i32, ptr %389, align 8
-  call void @_ZN19JfrCheckpointWriter11set_contextE20JfrCheckpointContext(ptr noundef nonnull align 8 dereferenceable(73) %486, i64 %.sroa.0.0.copyload.i.i34, i32 %.sroa.2.0.copyload.i.i35) #9
+577:                                              ; preds = %574
+  %578 = load ptr, ptr %477, align 8
+  %.sroa.0.0.copyload.i.i35 = load i64, ptr %478, align 8
+  %.sroa.2.0.copyload.i.i36 = load i32, ptr %481, align 8
+  call void @_ZN19JfrCheckpointWriter11set_contextE20JfrCheckpointContext(ptr noundef nonnull align 8 dereferenceable(73) %578, i64 %.sroa.0.0.copyload.i.i35, i32 %.sroa.2.0.copyload.i.i36) #9
   br label %_ZL10write_cldsv.exit
 
-487:                                              ; preds = %482
-  %488 = load i8, ptr %392, align 4
-  %489 = trunc i8 %488 to i1
-  br i1 %489, label %_ZL10write_cldsv.exit, label %490
+579:                                              ; preds = %574
+  %580 = load i8, ptr %484, align 4
+  %581 = trunc i8 %580 to i1
+  br i1 %581, label %_ZL10write_cldsv.exit, label %582
 
-490:                                              ; preds = %487
-  %491 = load ptr, ptr %385, align 8
-  %492 = load i64, ptr %428, align 8
-  call void @_ZN19JfrCheckpointWriter11write_countEjl(ptr noundef nonnull align 8 dereferenceable(73) %491, i32 noundef %483, i64 noundef %492) #9
+582:                                              ; preds = %579
+  %583 = load ptr, ptr %477, align 8
+  %584 = load i64, ptr %520, align 8
+  call void @_ZN19JfrCheckpointWriter11write_countEjl(ptr noundef nonnull align 8 dereferenceable(73) %583, i32 noundef %575, i64 noundef %584) #9
   br label %_ZL10write_cldsv.exit
 
-_ZL10write_cldsv.exit:                            ; preds = %485, %487, %490
+_ZL10write_cldsv.exit:                            ; preds = %577, %579, %582
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %14)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %16)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %17)
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %8)
-  %493 = load ptr, ptr @_ZL7_writer, align 8
-  %494 = load i8, ptr @_ZL13_class_unload, align 1
-  store ptr %493, ptr %8, align 8
-  %495 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %496 = and i8 %494, 1
-  store i8 %496, ptr %495, align 8
-  %497 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store ptr %493, ptr %497, align 8
-  %498 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %499 = call { i64, i32 } @_ZNK19JfrCheckpointWriter7contextEv(ptr noundef nonnull align 8 dereferenceable(73) %493) #9
-  %500 = extractvalue { i64, i32 } %499, 0
-  store i64 %500, ptr %498, align 8
-  %501 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  %502 = extractvalue { i64, i32 } %499, 1
-  store i32 %502, ptr %501, align 8
-  %503 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  store i32 0, ptr %503, align 8
-  %504 = getelementptr inbounds nuw i8, ptr %8, i64 52
-  store i8 0, ptr %504, align 4
-  call void @_ZN19JfrCheckpointWriter10write_typeE9JfrTypeId(ptr noundef nonnull align 8 dereferenceable(73) %493, i32 noundef 183) #9
-  %505 = getelementptr inbounds nuw i8, ptr %493, i64 16
-  %506 = load ptr, ptr %505, align 8
-  %.not.i.i.i.i43 = icmp eq ptr %506, null
-  br i1 %.not.i.i.i.i43, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.thread.i.i.i48, label %507
+  %585 = load ptr, ptr @_ZL7_writer, align 8
+  %586 = load i8, ptr @_ZL13_class_unload, align 1
+  store ptr %585, ptr %8, align 8
+  %587 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %588 = and i8 %586, 1
+  store i8 %588, ptr %587, align 8
+  %589 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  store ptr %585, ptr %589, align 8
+  %590 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %591 = call { i64, i32 } @_ZNK19JfrCheckpointWriter7contextEv(ptr noundef nonnull align 8 dereferenceable(73) %585) #9
+  %592 = extractvalue { i64, i32 } %591, 0
+  store i64 %592, ptr %590, align 8
+  %593 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %594 = extractvalue { i64, i32 } %591, 1
+  store i32 %594, ptr %593, align 8
+  %595 = getelementptr inbounds nuw i8, ptr %8, i64 48
+  store i32 0, ptr %595, align 8
+  %596 = getelementptr inbounds nuw i8, ptr %8, i64 52
+  store i8 0, ptr %596, align 4
+  call void @_ZN19JfrCheckpointWriter10write_typeE9JfrTypeId(ptr noundef nonnull align 8 dereferenceable(73) %585, i32 noundef 183) #9
+  %597 = getelementptr inbounds nuw i8, ptr %585, i64 16
+  %598 = load ptr, ptr %597, align 8
+  %.not.i.i.i.i44 = icmp eq ptr %598, null
+  br i1 %.not.i.i.i.i44, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.thread.i.i.i54, label %599
 
-507:                                              ; preds = %_ZL10write_cldsv.exit
-  %508 = getelementptr inbounds nuw i8, ptr %493, i64 8
-  %509 = load ptr, ptr %508, align 8
-  %510 = ptrtoint ptr %506 to i64
-  %511 = ptrtoint ptr %509 to i64
-  %512 = sub i64 %510, %511
-  %513 = icmp ult i64 %512, 4
-  br i1 %513, label %514, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i.i44
+599:                                              ; preds = %_ZL10write_cldsv.exit
+  %600 = getelementptr inbounds nuw i8, ptr %585, i64 8
+  %601 = load ptr, ptr %600, align 8
+  %602 = ptrtoint ptr %598 to i64
+  %603 = ptrtoint ptr %601 to i64
+  %604 = sub i64 %602, %603
+  %605 = icmp ult i64 %604, 4
+  br i1 %605, label %606, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i.i45
 
-514:                                              ; preds = %507
-  %515 = load ptr, ptr %493, align 8
-  %516 = ptrtoint ptr %515 to i64
-  %517 = sub i64 %511, %516
-  %518 = getelementptr inbounds nuw i8, ptr %493, i64 24
+606:                                              ; preds = %599
+  %607 = load ptr, ptr %585, align 8
+  %608 = ptrtoint ptr %607 to i64
+  %609 = sub i64 %603, %608
+  %610 = getelementptr inbounds nuw i8, ptr %585, i64 24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
-  %519 = load ptr, ptr %518, align 8
-  %520 = getelementptr inbounds nuw i8, ptr %493, i64 32
-  %521 = load ptr, ptr %520, align 8
-  call void @_ZN18JfrCheckpointFlushC1EP9JfrBuffermmP6Thread(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %519, i64 noundef %517, i64 noundef 4, ptr noundef %521) #9
-  %522 = load ptr, ptr %7, align 8
-  store ptr %522, ptr %518, align 8
-  %.not5.i.i.i.i49 = icmp eq ptr %522, null
+  %611 = load ptr, ptr %610, align 8
+  %612 = getelementptr inbounds nuw i8, ptr %585, i64 32
+  %613 = load ptr, ptr %612, align 8
+  call void @_ZN18JfrCheckpointFlushC1EP9JfrBuffermmP6Thread(ptr noundef nonnull align 8 dereferenceable(8) %7, ptr noundef %611, i64 noundef %609, i64 noundef 4, ptr noundef %613) #9
+  %614 = load ptr, ptr %7, align 8
+  store ptr %614, ptr %610, align 8
+  %.not5.i.i.i.i55 = icmp eq ptr %614, null
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  br i1 %.not5.i.i.i.i49, label %.sink.split.i.i.i.i51, label %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i50
+  br i1 %.not5.i.i.i.i55, label %.sink.split.i.i.i.i57, label %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i56
 
-_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i50: ; preds = %514
-  %523 = getelementptr inbounds nuw i8, ptr %522, i64 16
-  %524 = load ptr, ptr %523, align 8
-  store ptr %524, ptr %493, align 8
-  store ptr %524, ptr %508, align 8
-  %525 = getelementptr inbounds nuw i8, ptr %522, i64 40
-  %526 = load i16, ptr %525, align 8
-  %527 = zext i16 %526 to i64
-  %528 = getelementptr inbounds nuw i8, ptr %522, i64 %527
-  %529 = getelementptr inbounds nuw i8, ptr %522, i64 32
-  %530 = load i64, ptr %529, align 8
-  %531 = getelementptr inbounds i8, ptr %528, i64 %530
-  %532 = getelementptr inbounds i8, ptr %524, i64 %517
-  store ptr %532, ptr %508, align 8
-  br label %.sink.split.i.i.i.i51
+_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i56: ; preds = %606
+  %615 = getelementptr inbounds nuw i8, ptr %614, i64 16
+  %616 = load ptr, ptr %615, align 8
+  store ptr %616, ptr %585, align 8
+  store ptr %616, ptr %600, align 8
+  %617 = getelementptr inbounds nuw i8, ptr %614, i64 40
+  %618 = load i16, ptr %617, align 8
+  %619 = zext i16 %618 to i64
+  %620 = getelementptr inbounds nuw i8, ptr %614, i64 %619
+  %621 = getelementptr inbounds nuw i8, ptr %614, i64 32
+  %622 = load i64, ptr %621, align 8
+  %623 = getelementptr inbounds i8, ptr %620, i64 %622
+  %624 = getelementptr inbounds i8, ptr %616, i64 %609
+  store ptr %624, ptr %600, align 8
+  br label %.sink.split.i.i.i.i57
 
-.sink.split.i.i.i.i51:                            ; preds = %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i50, %514
-  %.sink.i.i.i.i52 = phi ptr [ %531, %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i50 ], [ null, %514 ]
-  %.0.ph.i.i.i.i53 = phi ptr [ %532, %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i50 ], [ null, %514 ]
-  store ptr %.sink.i.i.i.i52, ptr %505, align 8
-  br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i.i44
+.sink.split.i.i.i.i57:                            ; preds = %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i56, %606
+  %.sink.i.i.i.i58 = phi ptr [ %623, %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i56 ], [ null, %606 ]
+  %.0.ph.i.i.i.i59 = phi ptr [ %624, %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i56 ], [ null, %606 ]
+  store ptr %.sink.i.i.i.i58, ptr %597, align 8
+  br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i.i45
 
-_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i.i44: ; preds = %.sink.split.i.i.i.i51, %507
-  %.0.i.i.i.i45 = phi ptr [ %509, %507 ], [ %.0.ph.i.i.i.i53, %.sink.split.i.i.i.i51 ]
-  %.not.i.i1.i = icmp eq ptr %.0.i.i.i.i45, null
-  br i1 %.not.i.i1.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.thread.i.i.i48, label %533
+_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i.i45: ; preds = %.sink.split.i.i.i.i57, %599
+  %.0.i.i.i.i46 = phi ptr [ %601, %599 ], [ %.0.ph.i.i.i.i59, %.sink.split.i.i.i.i57 ]
+  %.not.i.i1.i = icmp eq ptr %.0.i.i.i.i46, null
+  br i1 %.not.i.i1.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.thread.i.i.i54, label %625
 
-533:                                              ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i.i44
-  %534 = load ptr, ptr %508, align 8
-  %535 = load ptr, ptr %493, align 8
-  %536 = ptrtoint ptr %534 to i64
-  %537 = ptrtoint ptr %535 to i64
-  %538 = sub i64 %536, %537
-  %539 = getelementptr inbounds nuw i8, ptr %534, i64 4
-  store ptr %539, ptr %508, align 8
+625:                                              ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i.i45
+  %626 = load ptr, ptr %600, align 8
+  %627 = load ptr, ptr %585, align 8
+  %628 = ptrtoint ptr %626 to i64
+  %629 = ptrtoint ptr %627 to i64
+  %630 = sub i64 %628, %629
+  %631 = getelementptr inbounds nuw i8, ptr %626, i64 4
+  store ptr %631, ptr %600, align 8
   br label %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK6Method18SerializePredicateIS3_EXadL_Z13write__methodP19JfrCheckpointWriterPKvEEELj183EEC2ES7_bb.exit.i
 
-_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.thread.i.i.i48: ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i.i44, %_ZL10write_cldsv.exit
-  store ptr null, ptr %505, align 8
+_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.thread.i.i.i54: ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i.i45, %_ZL10write_cldsv.exit
+  store ptr null, ptr %597, align 8
   br label %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK6Method18SerializePredicateIS3_EXadL_Z13write__methodP19JfrCheckpointWriterPKvEEELj183EEC2ES7_bb.exit.i
 
-_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK6Method18SerializePredicateIS3_EXadL_Z13write__methodP19JfrCheckpointWriterPKvEEELj183EEC2ES7_bb.exit.i: ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.thread.i.i.i48, %533
-  %.0.i.i.i46 = phi i64 [ %538, %533 ], [ 0, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.thread.i.i.i48 ]
-  %540 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  store i64 %.0.i.i.i46, ptr %540, align 8
-  %541 = load i8, ptr @_ZL13_class_unload, align 1
-  %542 = getelementptr inbounds nuw i8, ptr %8, i64 57
-  %543 = load i8, ptr @_ZL11_flushpoint, align 1
-  %544 = trunc nuw i8 %543 to i1
-  %545 = and i8 %541, 1
-  %546 = select i1 %544, i8 1, i8 %545
-  store i8 %546, ptr %542, align 1
-  %547 = getelementptr inbounds nuw i8, ptr %8, i64 58
-  store i8 %546, ptr %547, align 2
-  %548 = getelementptr inbounds nuw i8, ptr %8, i64 59
-  store i8 %546, ptr %548, align 1
-  %549 = load ptr, ptr @_ZL13_leakp_writer, align 8
-  %550 = icmp eq ptr %549, null
-  br i1 %550, label %551, label %585
+_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK6Method18SerializePredicateIS3_EXadL_Z13write__methodP19JfrCheckpointWriterPKvEEELj183EEC2ES7_bb.exit.i: ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.thread.i.i.i54, %625
+  %.0.i.i.i47 = phi i64 [ %630, %625 ], [ 0, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.thread.i.i.i54 ]
+  %632 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  store i64 %.0.i.i.i47, ptr %632, align 8
+  %633 = load i8, ptr @_ZL13_class_unload, align 1
+  %634 = getelementptr inbounds nuw i8, ptr %8, i64 57
+  %635 = load i8, ptr @_ZL11_flushpoint, align 1
+  %636 = trunc nuw i8 %635 to i1
+  %637 = and i8 %633, 1
+  %638 = select i1 %636, i8 1, i8 %637
+  store i8 %638, ptr %634, align 1
+  %639 = getelementptr inbounds nuw i8, ptr %8, i64 58
+  store i8 %638, ptr %639, align 2
+  %640 = getelementptr inbounds nuw i8, ptr %8, i64 59
+  store i8 %638, ptr %640, align 1
+  %641 = load ptr, ptr @_ZL13_leakp_writer, align 8
+  %642 = icmp eq ptr %641, null
+  br i1 %642, label %643, label %677
 
-551:                                              ; preds = %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK6Method18SerializePredicateIS3_EXadL_Z13write__methodP19JfrCheckpointWriterPKvEEELj183EEC2ES7_bb.exit.i
-  %552 = load ptr, ptr @_ZL10_artifacts, align 8
-  %553 = getelementptr inbounds nuw i8, ptr %552, i64 8
-  %554 = load ptr, ptr %553, align 8
-  %555 = load i32, ptr %554, align 4
-  %556 = icmp slt i32 %555, 1
-  br i1 %556, label %.loopexit.i.i, label %.lr.ph.i.i.i
+643:                                              ; preds = %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK6Method18SerializePredicateIS3_EXadL_Z13write__methodP19JfrCheckpointWriterPKvEEELj183EEC2ES7_bb.exit.i
+  %644 = load ptr, ptr @_ZL10_artifacts, align 8
+  %645 = getelementptr inbounds nuw i8, ptr %644, i64 8
+  %646 = load ptr, ptr %645, align 8
+  %647 = load i32, ptr %646, align 4
+  %648 = icmp slt i32 %647, 1
+  br i1 %648, label %.loopexit.i.i, label %.lr.ph.i.i.i48
 
-.lr.ph.i.i.i:                                     ; preds = %551
-  %557 = getelementptr inbounds nuw i8, ptr %554, i64 8
-  br label %561
+.lr.ph.i.i.i48:                                   ; preds = %643
+  %649 = getelementptr inbounds nuw i8, ptr %646, i64 8
+  br label %653
 
-558:                                              ; preds = %561
-  %indvars.iv.next.i.i.i = add nuw nsw i64 %indvars.iv.i.i.i, 1
-  %559 = load i32, ptr %554, align 4
-  %560 = sext i32 %559 to i64
-  %.not.i.i.i47 = icmp slt i64 %indvars.iv.next.i.i.i, %560
-  br i1 %.not.i.i.i47, label %561, label %.loopexit.i.i, !llvm.loop !11
+650:                                              ; preds = %653
+  %indvars.iv.next.i.i.i50 = add nuw nsw i64 %indvars.iv.i.i.i49, 1
+  %651 = load i32, ptr %646, align 4
+  %652 = sext i32 %651 to i64
+  %.not.i.i.i51 = icmp slt i64 %indvars.iv.next.i.i.i50, %652
+  br i1 %.not.i.i.i51, label %653, label %.loopexit.i.i, !llvm.loop !12
 
-561:                                              ; preds = %558, %.lr.ph.i.i.i
-  %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %558 ]
-  %562 = load ptr, ptr %557, align 8
-  %563 = getelementptr inbounds nuw ptr, ptr %562, i64 %indvars.iv.i.i.i
-  %564 = load ptr, ptr %563, align 8
-  %565 = call noundef zeroext i1 @_ZN18MethodIteratorHostI17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK6Method18SerializePredicateIS4_EXadL_Z13write__methodP19JfrCheckpointWriterPKvEEELj183EE7WrapperIPK5Klass9EmptyStubELb0EEclESG_(ptr noundef nonnull align 8 dereferenceable(60) %8, ptr noundef %564)
-  br i1 %565, label %558, label %_ZNK14JfrArtifactSet15iterate_klassesI18MethodIteratorHostI17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK6Method18SerializePredicateIS6_EXadL_Z13write__methodP19JfrCheckpointWriterPKvEEELj183EE7WrapperIPK5Klass9EmptyStubELb0EEEEvRT_.exit.i
+653:                                              ; preds = %650, %.lr.ph.i.i.i48
+  %indvars.iv.i.i.i49 = phi i64 [ 0, %.lr.ph.i.i.i48 ], [ %indvars.iv.next.i.i.i50, %650 ]
+  %654 = load ptr, ptr %649, align 8
+  %655 = getelementptr inbounds nuw ptr, ptr %654, i64 %indvars.iv.i.i.i49
+  %656 = load ptr, ptr %655, align 8
+  %657 = call noundef zeroext i1 @_ZN18MethodIteratorHostI17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK6Method18SerializePredicateIS4_EXadL_Z13write__methodP19JfrCheckpointWriterPKvEEELj183EE7WrapperIPK5Klass9EmptyStubELb0EEclESG_(ptr noundef nonnull align 8 dereferenceable(60) %8, ptr noundef %656)
+  br i1 %657, label %650, label %_ZNK14JfrArtifactSet15iterate_klassesI18MethodIteratorHostI17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK6Method18SerializePredicateIS6_EXadL_Z13write__methodP19JfrCheckpointWriterPKvEEELj183EE7WrapperIPK5Klass9EmptyStubELb0EEEEvRT_.exit.i
 
-.loopexit.i.i:                                    ; preds = %558, %551
-  %566 = getelementptr inbounds nuw i8, ptr %552, i64 16
-  %567 = load ptr, ptr %566, align 8
-  %568 = load i32, ptr %567, align 4
-  %569 = icmp slt i32 %568, 1
-  br i1 %569, label %_ZNK14JfrArtifactSet15iterate_klassesI18MethodIteratorHostI17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK6Method18SerializePredicateIS6_EXadL_Z13write__methodP19JfrCheckpointWriterPKvEEELj183EE7WrapperIPK5Klass9EmptyStubELb0EEEEvRT_.exit.i, label %.lr.ph.i3.i.i
+.loopexit.i.i:                                    ; preds = %650, %643
+  %658 = getelementptr inbounds nuw i8, ptr %644, i64 16
+  %659 = load ptr, ptr %658, align 8
+  %660 = load i32, ptr %659, align 4
+  %661 = icmp slt i32 %660, 1
+  br i1 %661, label %_ZNK14JfrArtifactSet15iterate_klassesI18MethodIteratorHostI17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK6Method18SerializePredicateIS6_EXadL_Z13write__methodP19JfrCheckpointWriterPKvEEELj183EE7WrapperIPK5Klass9EmptyStubELb0EEEEvRT_.exit.i, label %.lr.ph.i3.i.i52
 
-.lr.ph.i3.i.i:                                    ; preds = %.loopexit.i.i
-  %570 = getelementptr inbounds nuw i8, ptr %567, i64 8
-  br label %574
+.lr.ph.i3.i.i52:                                  ; preds = %.loopexit.i.i
+  %662 = getelementptr inbounds nuw i8, ptr %659, i64 8
+  br label %666
 
-571:                                              ; preds = %574
-  %indvars.iv.next.i6.i.i = add nuw nsw i64 %indvars.iv.i4.i.i, 1
-  %572 = load i32, ptr %567, align 4
-  %573 = sext i32 %572 to i64
-  %.not.i7.i.i = icmp slt i64 %indvars.iv.next.i6.i.i, %573
-  br i1 %.not.i7.i.i, label %574, label %_ZNK14JfrArtifactSet15iterate_klassesI18MethodIteratorHostI17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK6Method18SerializePredicateIS6_EXadL_Z13write__methodP19JfrCheckpointWriterPKvEEELj183EE7WrapperIPK5Klass9EmptyStubELb0EEEEvRT_.exit.i, !llvm.loop !11
+663:                                              ; preds = %666
+  %indvars.iv.next.i6.i.i = add nuw nsw i64 %indvars.iv.i4.i.i53, 1
+  %664 = load i32, ptr %659, align 4
+  %665 = sext i32 %664 to i64
+  %.not.i7.i.i = icmp slt i64 %indvars.iv.next.i6.i.i, %665
+  br i1 %.not.i7.i.i, label %666, label %_ZNK14JfrArtifactSet15iterate_klassesI18MethodIteratorHostI17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK6Method18SerializePredicateIS6_EXadL_Z13write__methodP19JfrCheckpointWriterPKvEEELj183EE7WrapperIPK5Klass9EmptyStubELb0EEEEvRT_.exit.i, !llvm.loop !12
 
-574:                                              ; preds = %571, %.lr.ph.i3.i.i
-  %indvars.iv.i4.i.i = phi i64 [ 0, %.lr.ph.i3.i.i ], [ %indvars.iv.next.i6.i.i, %571 ]
-  %575 = load ptr, ptr %570, align 8
-  %576 = getelementptr inbounds nuw ptr, ptr %575, i64 %indvars.iv.i4.i.i
-  %577 = load ptr, ptr %576, align 8
-  %578 = call noundef zeroext i1 @_ZN18MethodIteratorHostI17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK6Method18SerializePredicateIS4_EXadL_Z13write__methodP19JfrCheckpointWriterPKvEEELj183EE7WrapperIPK5Klass9EmptyStubELb0EEclESG_(ptr noundef nonnull align 8 dereferenceable(60) %8, ptr noundef %577)
-  br i1 %578, label %571, label %_ZNK14JfrArtifactSet15iterate_klassesI18MethodIteratorHostI17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK6Method18SerializePredicateIS6_EXadL_Z13write__methodP19JfrCheckpointWriterPKvEEELj183EE7WrapperIPK5Klass9EmptyStubELb0EEEEvRT_.exit.i
+666:                                              ; preds = %663, %.lr.ph.i3.i.i52
+  %indvars.iv.i4.i.i53 = phi i64 [ 0, %.lr.ph.i3.i.i52 ], [ %indvars.iv.next.i6.i.i, %663 ]
+  %667 = load ptr, ptr %662, align 8
+  %668 = getelementptr inbounds nuw ptr, ptr %667, i64 %indvars.iv.i4.i.i53
+  %669 = load ptr, ptr %668, align 8
+  %670 = call noundef zeroext i1 @_ZN18MethodIteratorHostI17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK6Method18SerializePredicateIS4_EXadL_Z13write__methodP19JfrCheckpointWriterPKvEEELj183EE7WrapperIPK5Klass9EmptyStubELb0EEclESG_(ptr noundef nonnull align 8 dereferenceable(60) %8, ptr noundef %669)
+  br i1 %670, label %663, label %_ZNK14JfrArtifactSet15iterate_klassesI18MethodIteratorHostI17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK6Method18SerializePredicateIS6_EXadL_Z13write__methodP19JfrCheckpointWriterPKvEEELj183EE7WrapperIPK5Klass9EmptyStubELb0EEEEvRT_.exit.i
 
-_ZNK14JfrArtifactSet15iterate_klassesI18MethodIteratorHostI17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK6Method18SerializePredicateIS6_EXadL_Z13write__methodP19JfrCheckpointWriterPKvEEELj183EE7WrapperIPK5Klass9EmptyStubELb0EEEEvRT_.exit.i: ; preds = %561, %574, %571, %.loopexit.i.i
-  %579 = load ptr, ptr @_ZL10_artifacts, align 8
-  %580 = load i32, ptr %503, align 8
-  %581 = sext i32 %580 to i64
-  %582 = getelementptr inbounds nuw i8, ptr %579, i64 32
-  %583 = load i64, ptr %582, align 8
-  %584 = add i64 %583, %581
-  store i64 %584, ptr %582, align 8
-  br label %586
+_ZNK14JfrArtifactSet15iterate_klassesI18MethodIteratorHostI17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK6Method18SerializePredicateIS6_EXadL_Z13write__methodP19JfrCheckpointWriterPKvEEELj183EE7WrapperIPK5Klass9EmptyStubELb0EEEEvRT_.exit.i: ; preds = %653, %666, %663, %.loopexit.i.i
+  %671 = load ptr, ptr @_ZL10_artifacts, align 8
+  %672 = load i32, ptr %595, align 8
+  %673 = sext i32 %672 to i64
+  %674 = getelementptr inbounds nuw i8, ptr %671, i64 32
+  %675 = load i64, ptr %674, align 8
+  %676 = add i64 %675, %673
+  store i64 %676, ptr %674, align 8
+  br label %678
 
-585:                                              ; preds = %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK6Method18SerializePredicateIS3_EXadL_Z13write__methodP19JfrCheckpointWriterPKvEEELj183EEC2ES7_bb.exit.i
+677:                                              ; preds = %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK6Method18SerializePredicateIS3_EXadL_Z13write__methodP19JfrCheckpointWriterPKvEEELj183EEC2ES7_bb.exit.i
   call fastcc void @_ZL24write_methods_with_leakpR18MethodIteratorHostI17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK6Method18SerializePredicateIS4_EXadL_Z13write__methodP19JfrCheckpointWriterPKvEEELj183EE7WrapperIPK5Klass9EmptyStubELb0EE(ptr noundef nonnull align 8 dereferenceable(60) %8)
-  br label %586
+  br label %678
 
-586:                                              ; preds = %585, %_ZNK14JfrArtifactSet15iterate_klassesI18MethodIteratorHostI17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK6Method18SerializePredicateIS6_EXadL_Z13write__methodP19JfrCheckpointWriterPKvEEELj183EE7WrapperIPK5Klass9EmptyStubELb0EEEEvRT_.exit.i
-  %587 = load i32, ptr %503, align 8
-  %588 = icmp eq i32 %587, 0
-  br i1 %588, label %589, label %591
+678:                                              ; preds = %677, %_ZNK14JfrArtifactSet15iterate_klassesI18MethodIteratorHostI17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK6Method18SerializePredicateIS6_EXadL_Z13write__methodP19JfrCheckpointWriterPKvEEELj183EE7WrapperIPK5Klass9EmptyStubELb0EEEEvRT_.exit.i
+  %679 = load i32, ptr %595, align 8
+  %680 = icmp eq i32 %679, 0
+  br i1 %680, label %681, label %683
 
-589:                                              ; preds = %586
-  %590 = load ptr, ptr %497, align 8
-  %.sroa.0.0.copyload.i.i.i = load i64, ptr %498, align 8
-  %.sroa.2.0.copyload.i.i.i = load i32, ptr %501, align 8
-  call void @_ZN19JfrCheckpointWriter11set_contextE20JfrCheckpointContext(ptr noundef nonnull align 8 dereferenceable(73) %590, i64 %.sroa.0.0.copyload.i.i.i, i32 %.sroa.2.0.copyload.i.i.i) #9
+681:                                              ; preds = %678
+  %682 = load ptr, ptr %589, align 8
+  %.sroa.0.0.copyload.i.i.i = load i64, ptr %590, align 8
+  %.sroa.2.0.copyload.i.i.i = load i32, ptr %593, align 8
+  call void @_ZN19JfrCheckpointWriter11set_contextE20JfrCheckpointContext(ptr noundef nonnull align 8 dereferenceable(73) %682, i64 %.sroa.0.0.copyload.i.i.i, i32 %.sroa.2.0.copyload.i.i.i) #9
   br label %_ZL13write_methodsv.exit
 
-591:                                              ; preds = %586
-  %592 = load i8, ptr %504, align 4
-  %593 = trunc i8 %592 to i1
-  br i1 %593, label %_ZL13write_methodsv.exit, label %594
+683:                                              ; preds = %678
+  %684 = load i8, ptr %596, align 4
+  %685 = trunc i8 %684 to i1
+  br i1 %685, label %_ZL13write_methodsv.exit, label %686
 
-594:                                              ; preds = %591
-  %595 = load ptr, ptr %497, align 8
-  %596 = load i64, ptr %540, align 8
-  call void @_ZN19JfrCheckpointWriter11write_countEjl(ptr noundef nonnull align 8 dereferenceable(73) %595, i32 noundef %587, i64 noundef %596) #9
+686:                                              ; preds = %683
+  %687 = load ptr, ptr %589, align 8
+  %688 = load i64, ptr %632, align 8
+  call void @_ZN19JfrCheckpointWriter11write_countEjl(ptr noundef nonnull align 8 dereferenceable(73) %687, i32 noundef %679, i64 noundef %688) #9
   br label %_ZL13write_methodsv.exit
 
-_ZL13write_methodsv.exit:                         ; preds = %589, %591, %594
+_ZL13write_methodsv.exit:                         ; preds = %681, %683, %686
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %6)
-  %597 = load ptr, ptr @_ZL13_leakp_writer, align 8
-  %.not.i = icmp eq ptr %597, null
-  br i1 %.not.i, label %599, label %598
+  %689 = load ptr, ptr @_ZL13_leakp_writer, align 8
+  %.not.i = icmp eq ptr %689, null
+  br i1 %.not.i, label %691, label %690
 
-598:                                              ; preds = %_ZL13write_methodsv.exit
+690:                                              ; preds = %_ZL13write_methodsv.exit
   call fastcc void @_ZL24write_symbols_with_leakpv()
   br label %_ZL13write_symbolsv.exit
 
-599:                                              ; preds = %_ZL13write_methodsv.exit
-  %600 = load ptr, ptr @_ZL7_writer, align 8
-  %601 = load i8, ptr @_ZL13_class_unload, align 1
-  store ptr %600, ptr %6, align 8
-  %602 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %603 = and i8 %601, 1
-  store i8 %603, ptr %602, align 8
-  %604 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %600, ptr %604, align 8
-  %605 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %606 = call { i64, i32 } @_ZNK19JfrCheckpointWriter7contextEv(ptr noundef nonnull align 8 dereferenceable(73) %600) #9
-  %607 = extractvalue { i64, i32 } %606, 0
-  store i64 %607, ptr %605, align 8
-  %608 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %609 = extractvalue { i64, i32 } %606, 1
-  store i32 %609, ptr %608, align 8
-  %610 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  store i32 0, ptr %610, align 8
-  %611 = getelementptr inbounds nuw i8, ptr %6, i64 52
-  store i8 0, ptr %611, align 4
-  call void @_ZN19JfrCheckpointWriter10write_typeE9JfrTypeId(ptr noundef nonnull align 8 dereferenceable(73) %600, i32 noundef 184) #9
-  %612 = getelementptr inbounds nuw i8, ptr %600, i64 16
-  %613 = load ptr, ptr %612, align 8
-  %.not.i.i.i.i54 = icmp eq ptr %613, null
-  br i1 %.not.i.i.i.i54, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.thread.i.i.i60, label %614
+691:                                              ; preds = %_ZL13write_methodsv.exit
+  %692 = load ptr, ptr @_ZL7_writer, align 8
+  %693 = load i8, ptr @_ZL13_class_unload, align 1
+  store ptr %692, ptr %6, align 8
+  %694 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %695 = and i8 %693, 1
+  store i8 %695, ptr %694, align 8
+  %696 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store ptr %692, ptr %696, align 8
+  %697 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %698 = call { i64, i32 } @_ZNK19JfrCheckpointWriter7contextEv(ptr noundef nonnull align 8 dereferenceable(73) %692) #9
+  %699 = extractvalue { i64, i32 } %698, 0
+  store i64 %699, ptr %697, align 8
+  %700 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  %701 = extractvalue { i64, i32 } %698, 1
+  store i32 %701, ptr %700, align 8
+  %702 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  store i32 0, ptr %702, align 8
+  %703 = getelementptr inbounds nuw i8, ptr %6, i64 52
+  store i8 0, ptr %703, align 4
+  call void @_ZN19JfrCheckpointWriter10write_typeE9JfrTypeId(ptr noundef nonnull align 8 dereferenceable(73) %692, i32 noundef 184) #9
+  %704 = getelementptr inbounds nuw i8, ptr %692, i64 16
+  %705 = load ptr, ptr %704, align 8
+  %.not.i.i.i.i60 = icmp eq ptr %705, null
+  br i1 %.not.i.i.i.i60, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.thread.i.i.i66, label %706
 
-614:                                              ; preds = %599
-  %615 = getelementptr inbounds nuw i8, ptr %600, i64 8
-  %616 = load ptr, ptr %615, align 8
-  %617 = ptrtoint ptr %613 to i64
-  %618 = ptrtoint ptr %616 to i64
-  %619 = sub i64 %617, %618
-  %620 = icmp ult i64 %619, 4
-  br i1 %620, label %621, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i.i55
+706:                                              ; preds = %691
+  %707 = getelementptr inbounds nuw i8, ptr %692, i64 8
+  %708 = load ptr, ptr %707, align 8
+  %709 = ptrtoint ptr %705 to i64
+  %710 = ptrtoint ptr %708 to i64
+  %711 = sub i64 %709, %710
+  %712 = icmp ult i64 %711, 4
+  br i1 %712, label %713, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i.i61
 
-621:                                              ; preds = %614
-  %622 = load ptr, ptr %600, align 8
-  %623 = ptrtoint ptr %622 to i64
-  %624 = sub i64 %618, %623
-  %625 = getelementptr inbounds nuw i8, ptr %600, i64 24
+713:                                              ; preds = %706
+  %714 = load ptr, ptr %692, align 8
+  %715 = ptrtoint ptr %714 to i64
+  %716 = sub i64 %710, %715
+  %717 = getelementptr inbounds nuw i8, ptr %692, i64 24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
-  %626 = load ptr, ptr %625, align 8
-  %627 = getelementptr inbounds nuw i8, ptr %600, i64 32
-  %628 = load ptr, ptr %627, align 8
-  call void @_ZN18JfrCheckpointFlushC1EP9JfrBuffermmP6Thread(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %626, i64 noundef %624, i64 noundef 4, ptr noundef %628) #9
-  %629 = load ptr, ptr %5, align 8
-  store ptr %629, ptr %625, align 8
-  %.not5.i.i.i.i61 = icmp eq ptr %629, null
+  %718 = load ptr, ptr %717, align 8
+  %719 = getelementptr inbounds nuw i8, ptr %692, i64 32
+  %720 = load ptr, ptr %719, align 8
+  call void @_ZN18JfrCheckpointFlushC1EP9JfrBuffermmP6Thread(ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef %718, i64 noundef %716, i64 noundef 4, ptr noundef %720) #9
+  %721 = load ptr, ptr %5, align 8
+  store ptr %721, ptr %717, align 8
+  %.not5.i.i.i.i67 = icmp eq ptr %721, null
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
-  br i1 %.not5.i.i.i.i61, label %.sink.split.i.i.i.i63, label %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i62
+  br i1 %.not5.i.i.i.i67, label %.sink.split.i.i.i.i69, label %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i68
 
-_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i62: ; preds = %621
-  %630 = getelementptr inbounds nuw i8, ptr %629, i64 16
-  %631 = load ptr, ptr %630, align 8
-  store ptr %631, ptr %600, align 8
-  store ptr %631, ptr %615, align 8
-  %632 = getelementptr inbounds nuw i8, ptr %629, i64 40
-  %633 = load i16, ptr %632, align 8
-  %634 = zext i16 %633 to i64
-  %635 = getelementptr inbounds nuw i8, ptr %629, i64 %634
-  %636 = getelementptr inbounds nuw i8, ptr %629, i64 32
-  %637 = load i64, ptr %636, align 8
-  %638 = getelementptr inbounds i8, ptr %635, i64 %637
-  %639 = getelementptr inbounds i8, ptr %631, i64 %624
-  store ptr %639, ptr %615, align 8
-  br label %.sink.split.i.i.i.i63
+_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i68: ; preds = %713
+  %722 = getelementptr inbounds nuw i8, ptr %721, i64 16
+  %723 = load ptr, ptr %722, align 8
+  store ptr %723, ptr %692, align 8
+  store ptr %723, ptr %707, align 8
+  %724 = getelementptr inbounds nuw i8, ptr %721, i64 40
+  %725 = load i16, ptr %724, align 8
+  %726 = zext i16 %725 to i64
+  %727 = getelementptr inbounds nuw i8, ptr %721, i64 %726
+  %728 = getelementptr inbounds nuw i8, ptr %721, i64 32
+  %729 = load i64, ptr %728, align 8
+  %730 = getelementptr inbounds i8, ptr %727, i64 %729
+  %731 = getelementptr inbounds i8, ptr %723, i64 %716
+  store ptr %731, ptr %707, align 8
+  br label %.sink.split.i.i.i.i69
 
-.sink.split.i.i.i.i63:                            ; preds = %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i62, %621
-  %.sink.i.i.i.i64 = phi ptr [ %638, %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i62 ], [ null, %621 ]
-  %.0.ph.i.i.i.i65 = phi ptr [ %639, %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i62 ], [ null, %621 ]
-  store ptr %.sink.i.i.i.i64, ptr %612, align 8
-  br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i.i55
+.sink.split.i.i.i.i69:                            ; preds = %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i68, %713
+  %.sink.i.i.i.i70 = phi ptr [ %730, %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i68 ], [ null, %713 ]
+  %.0.ph.i.i.i.i71 = phi ptr [ %731, %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i68 ], [ null, %713 ]
+  store ptr %.sink.i.i.i.i70, ptr %704, align 8
+  br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i.i61
 
-_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i.i55: ; preds = %.sink.split.i.i.i.i63, %614
-  %.0.i.i.i.i56 = phi ptr [ %616, %614 ], [ %.0.ph.i.i.i.i65, %.sink.split.i.i.i.i63 ]
-  %.not.i.i.i57 = icmp eq ptr %.0.i.i.i.i56, null
-  br i1 %.not.i.i.i57, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.thread.i.i.i60, label %640
+_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i.i61: ; preds = %.sink.split.i.i.i.i69, %706
+  %.0.i.i.i.i62 = phi ptr [ %708, %706 ], [ %.0.ph.i.i.i.i71, %.sink.split.i.i.i.i69 ]
+  %.not.i.i.i63 = icmp eq ptr %.0.i.i.i.i62, null
+  br i1 %.not.i.i.i63, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.thread.i.i.i66, label %732
 
-640:                                              ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i.i55
-  %641 = load ptr, ptr %615, align 8
-  %642 = load ptr, ptr %600, align 8
-  %643 = ptrtoint ptr %641 to i64
-  %644 = ptrtoint ptr %642 to i64
-  %645 = sub i64 %643, %644
-  %646 = getelementptr inbounds nuw i8, ptr %641, i64 4
-  store ptr %646, ptr %615, align 8
+732:                                              ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i.i61
+  %733 = load ptr, ptr %707, align 8
+  %734 = load ptr, ptr %692, align 8
+  %735 = ptrtoint ptr %733 to i64
+  %736 = ptrtoint ptr %734 to i64
+  %737 = sub i64 %735, %736
+  %738 = getelementptr inbounds nuw i8, ptr %733, i64 4
+  store ptr %738, ptr %707, align 8
   br label %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPK6SymbolmE15SymbolPredicateIS7_Lb0EEXadL_ZL13write__symbolP19JfrCheckpointWriterPKvEEELj184EEC2ESB_bb.exit.i
 
-_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.thread.i.i.i60: ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i.i55, %599
-  store ptr null, ptr %612, align 8
+_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.thread.i.i.i66: ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i.i61, %691
+  store ptr null, ptr %704, align 8
   br label %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPK6SymbolmE15SymbolPredicateIS7_Lb0EEXadL_ZL13write__symbolP19JfrCheckpointWriterPKvEEELj184EEC2ESB_bb.exit.i
 
-_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPK6SymbolmE15SymbolPredicateIS7_Lb0EEXadL_ZL13write__symbolP19JfrCheckpointWriterPKvEEELj184EEC2ESB_bb.exit.i: ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.thread.i.i.i60, %640
-  %.0.i.i.i58 = phi i64 [ %645, %640 ], [ 0, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.thread.i.i.i60 ]
-  %647 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store i64 %.0.i.i.i58, ptr %647, align 8
-  %648 = load ptr, ptr @_ZL10_artifacts, align 8
-  %.val2.i = load ptr, ptr %648, align 8
-  %649 = getelementptr i8, ptr %.val2.i, i64 16
-  %.val2.val.i = load ptr, ptr %649, align 8
+_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPK6SymbolmE15SymbolPredicateIS7_Lb0EEXadL_ZL13write__symbolP19JfrCheckpointWriterPKvEEELj184EEC2ESB_bb.exit.i: ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.thread.i.i.i66, %732
+  %.0.i.i.i64 = phi i64 [ %737, %732 ], [ 0, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.thread.i.i.i66 ]
+  %739 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  store i64 %.0.i.i.i64, ptr %739, align 8
+  %740 = load ptr, ptr @_ZL10_artifacts, align 8
+  %.val2.i = load ptr, ptr %740, align 8
+  %741 = getelementptr i8, ptr %.val2.i, i64 16
+  %.val2.val.i = load ptr, ptr %741, align 8
   %.not1.i.i.i.i = icmp eq ptr %.val2.val.i, null
-  br i1 %.not1.i.i.i.i, label %_ZN14JfrArtifactSet15iterate_symbolsI17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPK6SymbolmE15SymbolPredicateIS9_Lb0EEXadL_ZL13write__symbolP19JfrCheckpointWriterPKvEEELj184EEEEvRT_.exit.i, label %.lr.ph.i.i.i.i59
+  br i1 %.not1.i.i.i.i, label %_ZN14JfrArtifactSet15iterate_symbolsI17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPK6SymbolmE15SymbolPredicateIS9_Lb0EEXadL_ZL13write__symbolP19JfrCheckpointWriterPKvEEELj184EEEEvRT_.exit.i, label %.lr.ph.i.i.i.i65
 
-.lr.ph.i.i.i.i59:                                 ; preds = %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPK6SymbolmE15SymbolPredicateIS7_Lb0EEXadL_ZL13write__symbolP19JfrCheckpointWriterPKvEEELj184EEC2ESB_bb.exit.i, %.lr.ph.i.i.i.i59
-  %storemerge2.i.i.i.i = phi ptr [ %651, %.lr.ph.i.i.i.i59 ], [ %.val2.val.i, %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPK6SymbolmE15SymbolPredicateIS7_Lb0EEXadL_ZL13write__symbolP19JfrCheckpointWriterPKvEEELj184EEC2ESB_bb.exit.i ]
-  %650 = getelementptr inbounds nuw i8, ptr %storemerge2.i.i.i.i, i64 32
-  %651 = load ptr, ptr %650, align 8
+.lr.ph.i.i.i.i65:                                 ; preds = %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPK6SymbolmE15SymbolPredicateIS7_Lb0EEXadL_ZL13write__symbolP19JfrCheckpointWriterPKvEEELj184EEC2ESB_bb.exit.i, %.lr.ph.i.i.i.i65
+  %storemerge2.i.i.i.i = phi ptr [ %743, %.lr.ph.i.i.i.i65 ], [ %.val2.val.i, %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPK6SymbolmE15SymbolPredicateIS7_Lb0EEXadL_ZL13write__symbolP19JfrCheckpointWriterPKvEEELj184EEC2ESB_bb.exit.i ]
+  %742 = getelementptr inbounds nuw i8, ptr %storemerge2.i.i.i.i, i64 32
+  %743 = load ptr, ptr %742, align 8
   call fastcc void @_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPK6SymbolmE15SymbolPredicateIS7_Lb0EEXadL_ZL13write__symbolP19JfrCheckpointWriterPKvEEELj184EEclERKS7_(ptr noundef nonnull align 8 dereferenceable(53) %6, ptr nonnull %storemerge2.i.i.i.i)
-  %.not.i.i.i4.i = icmp eq ptr %651, null
-  br i1 %.not.i.i.i4.i, label %_ZN14JfrArtifactSet15iterate_symbolsI17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPK6SymbolmE15SymbolPredicateIS9_Lb0EEXadL_ZL13write__symbolP19JfrCheckpointWriterPKvEEELj184EEEEvRT_.exit.i, label %.lr.ph.i.i.i.i59, !llvm.loop !12
+  %.not.i.i.i4.i = icmp eq ptr %743, null
+  br i1 %.not.i.i.i4.i, label %_ZN14JfrArtifactSet15iterate_symbolsI17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPK6SymbolmE15SymbolPredicateIS9_Lb0EEXadL_ZL13write__symbolP19JfrCheckpointWriterPKvEEELj184EEEEvRT_.exit.i, label %.lr.ph.i.i.i.i65, !llvm.loop !13
 
-_ZN14JfrArtifactSet15iterate_symbolsI17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPK6SymbolmE15SymbolPredicateIS9_Lb0EEXadL_ZL13write__symbolP19JfrCheckpointWriterPKvEEELj184EEEEvRT_.exit.i: ; preds = %.lr.ph.i.i.i.i59, %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPK6SymbolmE15SymbolPredicateIS7_Lb0EEXadL_ZL13write__symbolP19JfrCheckpointWriterPKvEEELj184EEC2ESB_bb.exit.i
-  %652 = load ptr, ptr @_ZL7_writer, align 8
-  %653 = load i8, ptr @_ZL13_class_unload, align 1
-  %654 = call { i64, i32 } @_ZNK19JfrCheckpointWriter7contextEv(ptr noundef nonnull align 8 dereferenceable(73) %652) #9
-  %655 = extractvalue { i64, i32 } %654, 0
-  %656 = extractvalue { i64, i32 } %654, 1
-  %657 = load ptr, ptr @_ZL10_artifacts, align 8
-  %.val3.i = load ptr, ptr %657, align 8
-  %658 = getelementptr i8, ptr %.val3.i, i64 24
-  %.val3.val.i = load ptr, ptr %658, align 8
+_ZN14JfrArtifactSet15iterate_symbolsI17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPK6SymbolmE15SymbolPredicateIS9_Lb0EEXadL_ZL13write__symbolP19JfrCheckpointWriterPKvEEELj184EEEEvRT_.exit.i: ; preds = %.lr.ph.i.i.i.i65, %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPK6SymbolmE15SymbolPredicateIS7_Lb0EEXadL_ZL13write__symbolP19JfrCheckpointWriterPKvEEELj184EEC2ESB_bb.exit.i
+  %744 = load ptr, ptr @_ZL7_writer, align 8
+  %745 = load i8, ptr @_ZL13_class_unload, align 1
+  %746 = call { i64, i32 } @_ZNK19JfrCheckpointWriter7contextEv(ptr noundef nonnull align 8 dereferenceable(73) %744) #9
+  %747 = extractvalue { i64, i32 } %746, 0
+  %748 = extractvalue { i64, i32 } %746, 1
+  %749 = load ptr, ptr @_ZL10_artifacts, align 8
+  %.val3.i = load ptr, ptr %749, align 8
+  %750 = getelementptr i8, ptr %.val3.i, i64 24
+  %.val3.val.i = load ptr, ptr %750, align 8
   %.not1.i.i.i5.i = icmp eq ptr %.val3.val.i, null
   br i1 %.not1.i.i.i5.i, label %_ZN14JfrArtifactSet15iterate_stringsI17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPKcmE15SymbolPredicateIS8_Lb0EEXadL_ZL13write__stringP19JfrCheckpointWriterPKvEEELj184EEEEvRT_.exit.i, label %.lr.ph.i.i.i6.preheader.i
 
 .lr.ph.i.i.i6.preheader.i:                        ; preds = %_ZN14JfrArtifactSet15iterate_symbolsI17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPK6SymbolmE15SymbolPredicateIS9_Lb0EEXadL_ZL13write__symbolP19JfrCheckpointWriterPKvEEELj184EEEEvRT_.exit.i
-  %659 = trunc nuw i8 %653 to i1
-  br i1 %659, label %.lr.ph.i.i.i6.us.i, label %.lr.ph.i.i.i6.i
+  %751 = trunc nuw i8 %745 to i1
+  br i1 %751, label %.lr.ph.i.i.i6.us.i, label %.lr.ph.i.i.i6.i
 
 .lr.ph.i.i.i6.us.i:                               ; preds = %.lr.ph.i.i.i6.preheader.i, %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPKcmE15SymbolPredicateIS6_Lb0EEXadL_ZL13write__stringP19JfrCheckpointWriterPKvEEELj184EEclERKS6_.exit.i.i.i.us.i
-  %.sroa.12.0.us.i = phi i32 [ %672, %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPKcmE15SymbolPredicateIS6_Lb0EEXadL_ZL13write__stringP19JfrCheckpointWriterPKvEEELj184EEclERKS6_.exit.i.i.i.us.i ], [ 0, %.lr.ph.i.i.i6.preheader.i ]
-  %storemerge2.i.i.i7.us.i = phi ptr [ %661, %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPKcmE15SymbolPredicateIS6_Lb0EEXadL_ZL13write__stringP19JfrCheckpointWriterPKvEEELj184EEclERKS6_.exit.i.i.i.us.i ], [ %.val3.val.i, %.lr.ph.i.i.i6.preheader.i ]
-  %660 = getelementptr inbounds nuw i8, ptr %storemerge2.i.i.i7.us.i, i64 32
-  %661 = load ptr, ptr %660, align 8
-  %662 = getelementptr inbounds nuw i8, ptr %storemerge2.i.i.i7.us.i, i64 41
-  %663 = load i8, ptr %662, align 1
-  %664 = trunc i8 %663 to i1
-  br i1 %664, label %665, label %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPKcmE15SymbolPredicateIS6_Lb0EEXadL_ZL13write__stringP19JfrCheckpointWriterPKvEEELj184EEclERKS6_.exit.i.i.i.us.i
+  %.sroa.12.0.us.i = phi i32 [ %764, %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPKcmE15SymbolPredicateIS6_Lb0EEXadL_ZL13write__stringP19JfrCheckpointWriterPKvEEELj184EEclERKS6_.exit.i.i.i.us.i ], [ 0, %.lr.ph.i.i.i6.preheader.i ]
+  %storemerge2.i.i.i7.us.i = phi ptr [ %753, %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPKcmE15SymbolPredicateIS6_Lb0EEXadL_ZL13write__stringP19JfrCheckpointWriterPKvEEELj184EEclERKS6_.exit.i.i.i.us.i ], [ %.val3.val.i, %.lr.ph.i.i.i6.preheader.i ]
+  %752 = getelementptr inbounds nuw i8, ptr %storemerge2.i.i.i7.us.i, i64 32
+  %753 = load ptr, ptr %752, align 8
+  %754 = getelementptr inbounds nuw i8, ptr %storemerge2.i.i.i7.us.i, i64 41
+  %755 = load i8, ptr %754, align 1
+  %756 = trunc i8 %755 to i1
+  br i1 %756, label %757, label %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPKcmE15SymbolPredicateIS6_Lb0EEXadL_ZL13write__stringP19JfrCheckpointWriterPKvEEELj184EEclERKS6_.exit.i.i.i.us.i
 
-665:                                              ; preds = %.lr.ph.i.i.i6.us.i
-  %666 = getelementptr inbounds nuw i8, ptr %storemerge2.i.i.i7.us.i, i64 40
-  store i8 1, ptr %666, align 8
-  %667 = getelementptr inbounds nuw i8, ptr %storemerge2.i.i.i7.us.i, i64 24
-  %668 = load i64, ptr %667, align 8
-  call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeImEEvT_(ptr noundef nonnull align 8 dereferenceable(41) %652, i64 noundef %668)
-  %669 = getelementptr inbounds nuw i8, ptr %storemerge2.i.i.i7.us.i, i64 8
-  %670 = load ptr, ptr %669, align 8
-  call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE10write_utf8EPKc(ptr noundef nonnull align 8 dereferenceable(41) %652, ptr noundef %670)
+757:                                              ; preds = %.lr.ph.i.i.i6.us.i
+  %758 = getelementptr inbounds nuw i8, ptr %storemerge2.i.i.i7.us.i, i64 40
+  store i8 1, ptr %758, align 8
+  %759 = getelementptr inbounds nuw i8, ptr %storemerge2.i.i.i7.us.i, i64 24
+  %760 = load i64, ptr %759, align 8
+  call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeImEEvT_(ptr noundef nonnull align 8 dereferenceable(41) %744, i64 noundef %760)
+  %761 = getelementptr inbounds nuw i8, ptr %storemerge2.i.i.i7.us.i, i64 8
+  %762 = load ptr, ptr %761, align 8
+  call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE10write_utf8EPKc(ptr noundef nonnull align 8 dereferenceable(41) %744, ptr noundef %762)
   br label %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPKcmE15SymbolPredicateIS6_Lb0EEXadL_ZL13write__stringP19JfrCheckpointWriterPKvEEELj184EEclERKS6_.exit.i.i.i.us.i
 
-_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPKcmE15SymbolPredicateIS6_Lb0EEXadL_ZL13write__stringP19JfrCheckpointWriterPKvEEELj184EEclERKS6_.exit.i.i.i.us.i: ; preds = %665, %.lr.ph.i.i.i6.us.i
-  %671 = phi i32 [ 1, %665 ], [ 0, %.lr.ph.i.i.i6.us.i ]
-  %672 = add nuw nsw i32 %671, %.sroa.12.0.us.i
-  %.not.i.i.i8.us.i = icmp eq ptr %661, null
-  br i1 %.not.i.i.i8.us.i, label %_ZN14JfrArtifactSet15iterate_stringsI17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPKcmE15SymbolPredicateIS8_Lb0EEXadL_ZL13write__stringP19JfrCheckpointWriterPKvEEELj184EEEEvRT_.exit.i, label %.lr.ph.i.i.i6.us.i, !llvm.loop !13
+_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPKcmE15SymbolPredicateIS6_Lb0EEXadL_ZL13write__stringP19JfrCheckpointWriterPKvEEELj184EEclERKS6_.exit.i.i.i.us.i: ; preds = %757, %.lr.ph.i.i.i6.us.i
+  %763 = phi i32 [ 1, %757 ], [ 0, %.lr.ph.i.i.i6.us.i ]
+  %764 = add nuw nsw i32 %763, %.sroa.12.0.us.i
+  %.not.i.i.i8.us.i = icmp eq ptr %753, null
+  br i1 %.not.i.i.i8.us.i, label %_ZN14JfrArtifactSet15iterate_stringsI17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPKcmE15SymbolPredicateIS8_Lb0EEXadL_ZL13write__stringP19JfrCheckpointWriterPKvEEELj184EEEEvRT_.exit.i, label %.lr.ph.i.i.i6.us.i, !llvm.loop !14
 
 .lr.ph.i.i.i6.i:                                  ; preds = %.lr.ph.i.i.i6.preheader.i, %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPKcmE15SymbolPredicateIS6_Lb0EEXadL_ZL13write__stringP19JfrCheckpointWriterPKvEEELj184EEclERKS6_.exit.i.i.i.i
-  %.sroa.12.0.i = phi i32 [ %684, %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPKcmE15SymbolPredicateIS6_Lb0EEXadL_ZL13write__stringP19JfrCheckpointWriterPKvEEELj184EEclERKS6_.exit.i.i.i.i ], [ 0, %.lr.ph.i.i.i6.preheader.i ]
-  %storemerge2.i.i.i7.i = phi ptr [ %674, %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPKcmE15SymbolPredicateIS6_Lb0EEXadL_ZL13write__stringP19JfrCheckpointWriterPKvEEELj184EEclERKS6_.exit.i.i.i.i ], [ %.val3.val.i, %.lr.ph.i.i.i6.preheader.i ]
-  %673 = getelementptr inbounds nuw i8, ptr %storemerge2.i.i.i7.i, i64 32
-  %674 = load ptr, ptr %673, align 8
-  %675 = getelementptr inbounds nuw i8, ptr %storemerge2.i.i.i7.i, i64 40
-  %676 = load i8, ptr %675, align 8
-  %677 = trunc i8 %676 to i1
-  br i1 %677, label %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPKcmE15SymbolPredicateIS6_Lb0EEXadL_ZL13write__stringP19JfrCheckpointWriterPKvEEELj184EEclERKS6_.exit.i.i.i.i, label %678
+  %.sroa.12.0.i = phi i32 [ %776, %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPKcmE15SymbolPredicateIS6_Lb0EEXadL_ZL13write__stringP19JfrCheckpointWriterPKvEEELj184EEclERKS6_.exit.i.i.i.i ], [ 0, %.lr.ph.i.i.i6.preheader.i ]
+  %storemerge2.i.i.i7.i = phi ptr [ %766, %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPKcmE15SymbolPredicateIS6_Lb0EEXadL_ZL13write__stringP19JfrCheckpointWriterPKvEEELj184EEclERKS6_.exit.i.i.i.i ], [ %.val3.val.i, %.lr.ph.i.i.i6.preheader.i ]
+  %765 = getelementptr inbounds nuw i8, ptr %storemerge2.i.i.i7.i, i64 32
+  %766 = load ptr, ptr %765, align 8
+  %767 = getelementptr inbounds nuw i8, ptr %storemerge2.i.i.i7.i, i64 40
+  %768 = load i8, ptr %767, align 8
+  %769 = trunc i8 %768 to i1
+  br i1 %769, label %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPKcmE15SymbolPredicateIS6_Lb0EEXadL_ZL13write__stringP19JfrCheckpointWriterPKvEEELj184EEclERKS6_.exit.i.i.i.i, label %770
 
-678:                                              ; preds = %.lr.ph.i.i.i6.i
-  store i8 1, ptr %675, align 8
-  %679 = getelementptr inbounds nuw i8, ptr %storemerge2.i.i.i7.i, i64 24
-  %680 = load i64, ptr %679, align 8
-  call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeImEEvT_(ptr noundef nonnull align 8 dereferenceable(41) %652, i64 noundef %680)
-  %681 = getelementptr inbounds nuw i8, ptr %storemerge2.i.i.i7.i, i64 8
-  %682 = load ptr, ptr %681, align 8
-  call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE10write_utf8EPKc(ptr noundef nonnull align 8 dereferenceable(41) %652, ptr noundef %682)
+770:                                              ; preds = %.lr.ph.i.i.i6.i
+  store i8 1, ptr %767, align 8
+  %771 = getelementptr inbounds nuw i8, ptr %storemerge2.i.i.i7.i, i64 24
+  %772 = load i64, ptr %771, align 8
+  call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeImEEvT_(ptr noundef nonnull align 8 dereferenceable(41) %744, i64 noundef %772)
+  %773 = getelementptr inbounds nuw i8, ptr %storemerge2.i.i.i7.i, i64 8
+  %774 = load ptr, ptr %773, align 8
+  call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE10write_utf8EPKc(ptr noundef nonnull align 8 dereferenceable(41) %744, ptr noundef %774)
   br label %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPKcmE15SymbolPredicateIS6_Lb0EEXadL_ZL13write__stringP19JfrCheckpointWriterPKvEEELj184EEclERKS6_.exit.i.i.i.i
 
-_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPKcmE15SymbolPredicateIS6_Lb0EEXadL_ZL13write__stringP19JfrCheckpointWriterPKvEEELj184EEclERKS6_.exit.i.i.i.i: ; preds = %678, %.lr.ph.i.i.i6.i
-  %683 = phi i32 [ 1, %678 ], [ 0, %.lr.ph.i.i.i6.i ]
-  %684 = add nuw nsw i32 %683, %.sroa.12.0.i
-  %.not.i.i.i8.i = icmp eq ptr %674, null
-  br i1 %.not.i.i.i8.i, label %_ZN14JfrArtifactSet15iterate_stringsI17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPKcmE15SymbolPredicateIS8_Lb0EEXadL_ZL13write__stringP19JfrCheckpointWriterPKvEEELj184EEEEvRT_.exit.i, label %.lr.ph.i.i.i6.i, !llvm.loop !13
+_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPKcmE15SymbolPredicateIS6_Lb0EEXadL_ZL13write__stringP19JfrCheckpointWriterPKvEEELj184EEclERKS6_.exit.i.i.i.i: ; preds = %770, %.lr.ph.i.i.i6.i
+  %775 = phi i32 [ 1, %770 ], [ 0, %.lr.ph.i.i.i6.i ]
+  %776 = add nuw nsw i32 %775, %.sroa.12.0.i
+  %.not.i.i.i8.i = icmp eq ptr %766, null
+  br i1 %.not.i.i.i8.i, label %_ZN14JfrArtifactSet15iterate_stringsI17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPKcmE15SymbolPredicateIS8_Lb0EEXadL_ZL13write__stringP19JfrCheckpointWriterPKvEEELj184EEEEvRT_.exit.i, label %.lr.ph.i.i.i6.i, !llvm.loop !14
 
 _ZN14JfrArtifactSet15iterate_stringsI17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPKcmE15SymbolPredicateIS8_Lb0EEXadL_ZL13write__stringP19JfrCheckpointWriterPKvEEELj184EEEEvRT_.exit.i: ; preds = %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPKcmE15SymbolPredicateIS6_Lb0EEXadL_ZL13write__stringP19JfrCheckpointWriterPKvEEELj184EEclERKS6_.exit.i.i.i.i, %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPKcmE15SymbolPredicateIS6_Lb0EEXadL_ZL13write__stringP19JfrCheckpointWriterPKvEEELj184EEclERKS6_.exit.i.i.i.us.i, %_ZN14JfrArtifactSet15iterate_symbolsI17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPK6SymbolmE15SymbolPredicateIS9_Lb0EEXadL_ZL13write__symbolP19JfrCheckpointWriterPKvEEELj184EEEEvRT_.exit.i
-  %.sroa.12.1.i = phi i32 [ 0, %_ZN14JfrArtifactSet15iterate_symbolsI17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPK6SymbolmE15SymbolPredicateIS9_Lb0EEXadL_ZL13write__symbolP19JfrCheckpointWriterPKvEEELj184EEEEvRT_.exit.i ], [ %672, %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPKcmE15SymbolPredicateIS6_Lb0EEXadL_ZL13write__stringP19JfrCheckpointWriterPKvEEELj184EEclERKS6_.exit.i.i.i.us.i ], [ %684, %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPKcmE15SymbolPredicateIS6_Lb0EEXadL_ZL13write__stringP19JfrCheckpointWriterPKvEEELj184EEclERKS6_.exit.i.i.i.i ]
-  %685 = load i32, ptr %610, align 8
-  %686 = add nsw i32 %685, %.sroa.12.1.i
-  %687 = load ptr, ptr @_ZL10_artifacts, align 8
-  %688 = sext i32 %686 to i64
-  %689 = getelementptr inbounds nuw i8, ptr %687, i64 32
-  %690 = load i64, ptr %689, align 8
-  %691 = add i64 %690, %688
-  store i64 %691, ptr %689, align 8
-  %692 = icmp eq i32 %.sroa.12.1.i, 0
-  br i1 %692, label %693, label %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPKcmE15SymbolPredicateIS6_Lb0EEXadL_ZL13write__stringP19JfrCheckpointWriterPKvEEELj184EED2Ev.exit.i
+  %.sroa.12.1.i = phi i32 [ 0, %_ZN14JfrArtifactSet15iterate_symbolsI17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPK6SymbolmE15SymbolPredicateIS9_Lb0EEXadL_ZL13write__symbolP19JfrCheckpointWriterPKvEEELj184EEEEvRT_.exit.i ], [ %764, %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPKcmE15SymbolPredicateIS6_Lb0EEXadL_ZL13write__stringP19JfrCheckpointWriterPKvEEELj184EEclERKS6_.exit.i.i.i.us.i ], [ %776, %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPKcmE15SymbolPredicateIS6_Lb0EEXadL_ZL13write__stringP19JfrCheckpointWriterPKvEEELj184EEclERKS6_.exit.i.i.i.i ]
+  %777 = load i32, ptr %702, align 8
+  %778 = add nsw i32 %777, %.sroa.12.1.i
+  %779 = load ptr, ptr @_ZL10_artifacts, align 8
+  %780 = sext i32 %778 to i64
+  %781 = getelementptr inbounds nuw i8, ptr %779, i64 32
+  %782 = load i64, ptr %781, align 8
+  %783 = add i64 %782, %780
+  store i64 %783, ptr %781, align 8
+  %784 = icmp eq i32 %.sroa.12.1.i, 0
+  br i1 %784, label %785, label %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPKcmE15SymbolPredicateIS6_Lb0EEXadL_ZL13write__stringP19JfrCheckpointWriterPKvEEELj184EED2Ev.exit.i
 
-693:                                              ; preds = %_ZN14JfrArtifactSet15iterate_stringsI17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPKcmE15SymbolPredicateIS8_Lb0EEXadL_ZL13write__stringP19JfrCheckpointWriterPKvEEELj184EEEEvRT_.exit.i
-  call void @_ZN19JfrCheckpointWriter11set_contextE20JfrCheckpointContext(ptr noundef nonnull align 8 dereferenceable(73) %652, i64 %655, i32 %656) #9
+785:                                              ; preds = %_ZN14JfrArtifactSet15iterate_stringsI17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPKcmE15SymbolPredicateIS8_Lb0EEXadL_ZL13write__stringP19JfrCheckpointWriterPKvEEELj184EEEEvRT_.exit.i
+  call void @_ZN19JfrCheckpointWriter11set_contextE20JfrCheckpointContext(ptr noundef nonnull align 8 dereferenceable(73) %744, i64 %747, i32 %748) #9
   br label %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPKcmE15SymbolPredicateIS6_Lb0EEXadL_ZL13write__stringP19JfrCheckpointWriterPKvEEELj184EED2Ev.exit.i
 
-_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPKcmE15SymbolPredicateIS6_Lb0EEXadL_ZL13write__stringP19JfrCheckpointWriterPKvEEELj184EED2Ev.exit.i: ; preds = %693, %_ZN14JfrArtifactSet15iterate_stringsI17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPKcmE15SymbolPredicateIS8_Lb0EEXadL_ZL13write__stringP19JfrCheckpointWriterPKvEEELj184EEEEvRT_.exit.i
-  %694 = icmp eq i32 %686, 0
-  br i1 %694, label %695, label %697
+_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPKcmE15SymbolPredicateIS6_Lb0EEXadL_ZL13write__stringP19JfrCheckpointWriterPKvEEELj184EED2Ev.exit.i: ; preds = %785, %_ZN14JfrArtifactSet15iterate_stringsI17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPKcmE15SymbolPredicateIS8_Lb0EEXadL_ZL13write__stringP19JfrCheckpointWriterPKvEEELj184EEEEvRT_.exit.i
+  %786 = icmp eq i32 %778, 0
+  br i1 %786, label %787, label %789
 
-695:                                              ; preds = %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPKcmE15SymbolPredicateIS6_Lb0EEXadL_ZL13write__stringP19JfrCheckpointWriterPKvEEELj184EED2Ev.exit.i
-  %696 = load ptr, ptr %604, align 8
-  %.sroa.0.0.copyload.i9.i = load i64, ptr %605, align 8
-  %.sroa.2.0.copyload.i11.i = load i32, ptr %608, align 8
-  call void @_ZN19JfrCheckpointWriter11set_contextE20JfrCheckpointContext(ptr noundef nonnull align 8 dereferenceable(73) %696, i64 %.sroa.0.0.copyload.i9.i, i32 %.sroa.2.0.copyload.i11.i) #9
+787:                                              ; preds = %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPKcmE15SymbolPredicateIS6_Lb0EEXadL_ZL13write__stringP19JfrCheckpointWriterPKvEEELj184EED2Ev.exit.i
+  %788 = load ptr, ptr %696, align 8
+  %.sroa.0.0.copyload.i9.i = load i64, ptr %697, align 8
+  %.sroa.2.0.copyload.i11.i = load i32, ptr %700, align 8
+  call void @_ZN19JfrCheckpointWriter11set_contextE20JfrCheckpointContext(ptr noundef nonnull align 8 dereferenceable(73) %788, i64 %.sroa.0.0.copyload.i9.i, i32 %.sroa.2.0.copyload.i11.i) #9
   br label %_ZL13write_symbolsv.exit
 
-697:                                              ; preds = %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPKcmE15SymbolPredicateIS6_Lb0EEXadL_ZL13write__stringP19JfrCheckpointWriterPKvEEELj184EED2Ev.exit.i
-  %698 = load i8, ptr %611, align 4
-  %699 = trunc i8 %698 to i1
-  br i1 %699, label %_ZL13write_symbolsv.exit, label %700
+789:                                              ; preds = %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK9ListEntryIPKcmE15SymbolPredicateIS6_Lb0EEXadL_ZL13write__stringP19JfrCheckpointWriterPKvEEELj184EED2Ev.exit.i
+  %790 = load i8, ptr %703, align 4
+  %791 = trunc i8 %790 to i1
+  br i1 %791, label %_ZL13write_symbolsv.exit, label %792
 
-700:                                              ; preds = %697
-  %701 = load ptr, ptr %604, align 8
-  %702 = load i64, ptr %647, align 8
-  call void @_ZN19JfrCheckpointWriter11write_countEjl(ptr noundef nonnull align 8 dereferenceable(73) %701, i32 noundef %686, i64 noundef %702) #9
+792:                                              ; preds = %789
+  %793 = load ptr, ptr %696, align 8
+  %794 = load i64, ptr %739, align 8
+  call void @_ZN19JfrCheckpointWriter11write_countEjl(ptr noundef nonnull align 8 dereferenceable(73) %793, i32 noundef %778, i64 noundef %794) #9
   br label %_ZL13write_symbolsv.exit
 
-_ZL13write_symbolsv.exit:                         ; preds = %598, %695, %697, %700
+_ZL13write_symbolsv.exit:                         ; preds = %690, %787, %789, %792
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
-  %703 = call fastcc noundef i64 @_ZL8teardownv()
-  %704 = load ptr, ptr %45, align 8
-  %.not.i.i.i.i66 = icmp eq ptr %704, null
-  br i1 %.not.i.i.i.i66, label %706, label %705
+  %795 = call fastcc noundef i64 @_ZL8teardownv()
+  %796 = load ptr, ptr %44, align 8
+  %.not.i.i.i.i72 = icmp eq ptr %796, null
+  br i1 %.not.i.i.i.i72, label %798, label %797
 
-705:                                              ; preds = %_ZL13write_symbolsv.exit
-  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %43, i64 noundef %51) #9
-  call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %45) #9
-  br label %706
+797:                                              ; preds = %_ZL13write_symbolsv.exit
+  call void @_ZN5Arena17set_size_in_bytesEm(ptr noundef nonnull align 8 dereferenceable(48) %42, i64 noundef %50) #9
+  call void @_ZN5Chunk9next_chopEPS_(ptr noundef nonnull %44) #9
+  br label %798
 
-706:                                              ; preds = %705, %_ZL13write_symbolsv.exit
-  %707 = load ptr, ptr %46, align 8
-  %.not8.i.i.i.i = icmp eq ptr %707, %47
-  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %708
+798:                                              ; preds = %797, %_ZL13write_symbolsv.exit
+  %799 = load ptr, ptr %45, align 8
+  %.not8.i.i.i.i = icmp eq ptr %799, %46
+  br i1 %.not8.i.i.i.i, label %_ZN12ResourceMarkD2Ev.exit, label %800
 
-708:                                              ; preds = %706
-  store ptr %45, ptr %44, align 8
-  store ptr %47, ptr %46, align 8
-  store ptr %49, ptr %48, align 8
+800:                                              ; preds = %798
+  store ptr %44, ptr %43, align 8
+  store ptr %46, ptr %45, align 8
+  store ptr %48, ptr %47, align 8
   br label %_ZN12ResourceMarkD2Ev.exit
 
-_ZN12ResourceMarkD2Ev.exit:                       ; preds = %706, %708
-  ret i64 %703
+_ZN12ResourceMarkD2Ev.exit:                       ; preds = %798, %800
+  ret i64 %795
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -2862,7 +2998,7 @@ define internal fastcc noundef i64 @_ZL8teardownv() unnamed_addr #0 {
   %20 = load i32, ptr %15, align 4
   %21 = sext i32 %20 to i64
   %.not.i.i.i = icmp slt i64 %indvars.iv.next.i.i.i, %21
-  br i1 %.not.i.i.i, label %22, label %.loopexit.i.i, !llvm.loop !14
+  br i1 %.not.i.i.i, label %22, label %.loopexit.i.i, !llvm.loop !15
 
 22:                                               ; preds = %19, %.lr.ph.i.i.i
   %indvars.iv.i.i.i = phi i64 [ 0, %.lr.ph.i.i.i ], [ %indvars.iv.next.i.i.i, %19 ]
@@ -2888,7 +3024,7 @@ define internal fastcc noundef i64 @_ZL8teardownv() unnamed_addr #0 {
   %33 = load i32, ptr %28, align 4
   %34 = sext i32 %33 to i64
   %.not.i7.i.i = icmp slt i64 %indvars.iv.next.i6.i.i, %34
-  br i1 %.not.i7.i.i, label %35, label %_ZL25clear_klasses_and_methodsv.exit, !llvm.loop !14
+  br i1 %.not.i7.i.i, label %35, label %_ZL25clear_klasses_and_methodsv.exit, !llvm.loop !15
 
 35:                                               ; preds = %32, %.lr.ph.i3.i.i
   %indvars.iv.i4.i.i = phi i64 [ 0, %.lr.ph.i3.i.i ], [ %indvars.iv.next.i6.i.i, %32 ]
@@ -3929,20 +4065,20 @@ _ZL14should_enqueuePK5Klass.exit:                 ; preds = %_ZNK5Klass20is_non_
   %32 = getelementptr inbounds nuw i8, ptr %6, i64 168
   %33 = load i64, ptr %32, align 8
   %34 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
-  %35 = trunc i8 %34 to i1
-  %36 = select i1 %35, i64 2, i64 1
-  %.mask.i.i.i.i = and i8 %34, 1
-  %37 = zext nneg i8 %.mask.i.i.i.i to i64
-  %38 = shl nuw nsw i64 257, %37
+  %35 = and i8 %34, 1
+  %36 = add nuw nsw i8 %35, 1
+  %37 = zext nneg i8 %36 to i64
+  %38 = mul nuw nsw i64 %37, 257
   %39 = and i64 %38, %33
-  %.not.i.i = icmp eq i64 %39, %36
+  %.not.i.i = icmp eq i64 %39, %37
   br i1 %.not.i.i, label %_ZN10JfrTraceId4loadEPK5Klass.exit, label %40
 
 40:                                               ; preds = %31
   %41 = trunc i64 %33 to i8
-  %42 = select i1 %35, i8 10, i8 5
-  %43 = or i8 %42, %41
-  store i8 %43, ptr %32, align 1
+  %42 = trunc i8 %34 to i1
+  %43 = select i1 %42, i8 10, i8 5
+  %44 = or i8 %43, %41
+  store i8 %44, ptr %32, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
   tail call void @_ZN21JfrTraceIdLoadBarrier7enqueueEPK5Klass(ptr noundef nonnull %6) #9
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
@@ -3950,53 +4086,56 @@ _ZL14should_enqueuePK5Klass.exit:                 ; preds = %_ZNK5Klass20is_non_
   br label %_ZN10JfrTraceId4loadEPK5Klass.exit
 
 _ZL14should_enqueuePK5Klass.exit.thread:          ; preds = %_ZNK5Klass20is_non_strong_hiddenEv.exit.i.i, %_ZL7get_cldPK5Klass.exit.i, %9, %_ZL14should_enqueuePK5Klass.exit
-  br i1 %1, label %44, label %53
+  br i1 %1, label %45, label %54
 
-44:                                               ; preds = %_ZL14should_enqueuePK5Klass.exit.thread
-  %45 = getelementptr inbounds nuw i8, ptr %6, i64 168
-  %46 = load i64, ptr %45, align 8
-  %47 = and i64 %46, 1024
-  %.not.i13 = icmp eq i64 %47, 0
-  br i1 %.not.i13, label %48, label %53
+45:                                               ; preds = %_ZL14should_enqueuePK5Klass.exit.thread
+  %46 = getelementptr inbounds nuw i8, ptr %6, i64 168
+  %47 = load i64, ptr %46, align 8
+  %48 = and i64 %47, 1024
+  %.not.i13 = icmp eq i64 %48, 0
+  br i1 %.not.i13, label %49, label %54
 
-48:                                               ; preds = %44
-  %49 = lshr i64 %46, 8
-  %50 = trunc i64 %49 to i8
-  %51 = getelementptr inbounds nuw i8, ptr %6, i64 169
-  %52 = or disjoint i8 %50, 4
-  store i8 %52, ptr %51, align 1
+49:                                               ; preds = %45
+  %50 = lshr i64 %47, 8
+  %51 = trunc i64 %50 to i8
+  %52 = getelementptr inbounds nuw i8, ptr %6, i64 169
+  %53 = or disjoint i8 %51, 4
+  store i8 %53, ptr %52, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
   %.pre = load i8, ptr @_ZL11_flushpoint, align 1
   %.pre15 = load i8, ptr @_ZL13_class_unload, align 1
   %.pre16 = trunc nuw i8 %.pre to i1
   %.pre17 = trunc nuw i8 %.pre15 to i1
-  br label %53
+  br label %54
 
-53:                                               ; preds = %48, %44, %_ZL14should_enqueuePK5Klass.exit.thread
-  %.pre-phi18 = phi i1 [ %.pre17, %48 ], [ %11, %44 ], [ %11, %_ZL14should_enqueuePK5Klass.exit.thread ]
-  %.pre-phi = phi i1 [ %.pre16, %48 ], [ %13, %44 ], [ %13, %_ZL14should_enqueuePK5Klass.exit.thread ]
-  %54 = getelementptr i8, ptr %6, i64 168
-  %.val5.i = load i64, ptr %54, align 8
-  %55 = select i1 %.pre-phi, i1 true, i1 %.pre-phi18
-  %56 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
-  %57 = trunc i8 %56 to i1
-  %58 = xor i1 %55, %57
-  %.sink.i.i.i = select i1 %58, i64 2049, i64 2050
-  %59 = and i64 %.sink.i.i.i, %.val5.i
-  %.not.i.i12 = icmp eq i64 %59, 0
-  br i1 %.not.i.i12, label %60, label %_ZN10JfrTraceId4loadEPK5Klass.exit
+54:                                               ; preds = %49, %45, %_ZL14should_enqueuePK5Klass.exit.thread
+  %.pre-phi18 = phi i1 [ %.pre17, %49 ], [ %11, %45 ], [ %11, %_ZL14should_enqueuePK5Klass.exit.thread ]
+  %.pre-phi = phi i1 [ %.pre16, %49 ], [ %13, %45 ], [ %13, %_ZL14should_enqueuePK5Klass.exit.thread ]
+  %55 = getelementptr i8, ptr %6, i64 168
+  %.val5.i = load i64, ptr %55, align 8
+  %56 = select i1 %.pre-phi, i1 true, i1 %.pre-phi18
+  %57 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
+  %58 = and i8 %57, 1
+  %59 = sub nuw nsw i8 2, %58
+  %60 = add nuw nsw i8 %58, 1
+  %.sink.i.i.i = select i1 %56, i8 %60, i8 %59
+  %61 = zext nneg i8 %.sink.i.i.i to i64
+  %62 = or disjoint i64 %61, 2048
+  %63 = and i64 %62, %.val5.i
+  %.not.i.i12 = icmp eq i64 %63, 0
+  br i1 %.not.i.i12, label %64, label %_ZN10JfrTraceId4loadEPK5Klass.exit
 
-60:                                               ; preds = %53
-  %61 = lshr i64 %.val5.i, 8
-  %62 = trunc i64 %61 to i8
-  %63 = getelementptr inbounds nuw i8, ptr %6, i64 169
-  %64 = or i8 %62, 8
-  store i8 %64, ptr %63, align 1
+64:                                               ; preds = %54
+  %65 = lshr i64 %.val5.i, 8
+  %66 = trunc i64 %65 to i8
+  %67 = getelementptr inbounds nuw i8, ptr %6, i64 169
+  %68 = or i8 %66, 8
+  store i8 %68, ptr %67, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
   br label %_ZN10JfrTraceId4loadEPK5Klass.exit
 
-_ZN10JfrTraceId4loadEPK5Klass.exit:               ; preds = %4, %60, %53, %40, %31, %_ZL19should_do_cld_klassPK5Klassb.exit, %2
-  %.0 = phi ptr [ null, %2 ], [ null, %_ZL19should_do_cld_klassPK5Klassb.exit ], [ %6, %31 ], [ %6, %40 ], [ %6, %53 ], [ %6, %60 ], [ null, %4 ]
+_ZN10JfrTraceId4loadEPK5Klass.exit:               ; preds = %4, %64, %54, %40, %31, %_ZL19should_do_cld_klassPK5Klassb.exit, %2
+  %.0 = phi ptr [ null, %2 ], [ null, %_ZL19should_do_cld_klassPK5Klassb.exit ], [ %6, %31 ], [ %6, %40 ], [ %6, %54 ], [ %6, %64 ], [ null, %4 ]
   ret ptr %.0
 }
 
@@ -4211,174 +4350,6 @@ _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderIm
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define internal fastcc noundef range(i64 0, 281474976710656) i64 @_ZL10package_idPK5Klassb(ptr noundef %0, i1 noundef zeroext %1) unnamed_addr #0 {
-  %.not.i = icmp eq ptr %0, null
-  br i1 %.not.i, label %_ZL11get_packagePK5Klass.exit.thread, label %_ZL11get_packagePK5Klass.exit
-
-_ZL11get_packagePK5Klass.exit:                    ; preds = %2
-  %3 = load ptr, ptr %0, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 144
-  %5 = load ptr, ptr %4, align 8
-  %6 = tail call noundef ptr %5(ptr noundef nonnull align 8 dereferenceable(196) %0) #9
-  %7 = icmp eq ptr %6, null
-  br i1 %7, label %_ZL11get_packagePK5Klass.exit.thread, label %_ZL10get_modulePK12PackageEntry.exit.i
-
-_ZL10get_modulePK12PackageEntry.exit.i:           ; preds = %_ZL11get_packagePK5Klass.exit
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %9 = load ptr, ptr %8, align 8
-  %10 = icmp eq ptr %9, null
-  br i1 %10, label %_ZL9module_idPK12PackageEntryb.exit, label %_ZL7get_cldPK11ModuleEntry.exit.i
-
-_ZL7get_cldPK11ModuleEntry.exit.i:                ; preds = %_ZL10get_modulePK12PackageEntry.exit.i
-  %11 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %12 = load ptr, ptr %11, align 8
-  %.not.i7 = icmp eq ptr %12, null
-  br i1 %.not.i7, label %_ZL6cld_idPK15ClassLoaderDatab.exit.i, label %13
-
-13:                                               ; preds = %_ZL7get_cldPK11ModuleEntry.exit.i
-  br i1 %1, label %14, label %23
-
-14:                                               ; preds = %13
-  %15 = getelementptr inbounds nuw i8, ptr %12, i64 152
-  %16 = load i64, ptr %15, align 8
-  %17 = and i64 %16, 1024
-  %.not.i.i.i = icmp eq i64 %17, 0
-  br i1 %.not.i.i.i, label %18, label %23
-
-18:                                               ; preds = %14
-  %19 = lshr i64 %16, 8
-  %20 = trunc i64 %19 to i8
-  %21 = getelementptr inbounds nuw i8, ptr %12, i64 153
-  %22 = or disjoint i8 %20, 4
-  store i8 %22, ptr %21, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
-  br label %23
-
-23:                                               ; preds = %18, %14, %13
-  %24 = getelementptr i8, ptr %12, i64 152
-  %.val.i.i.i = load i64, ptr %24, align 8
-  %25 = load i8, ptr @_ZL11_flushpoint, align 1
-  %26 = trunc nuw i8 %25 to i1
-  %27 = load i8, ptr @_ZL13_class_unload, align 1
-  %28 = trunc nuw i8 %27 to i1
-  %29 = select i1 %26, i1 true, i1 %28
-  %30 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
-  %31 = trunc i8 %30 to i1
-  %32 = xor i1 %29, %31
-  %.sink.i.i.i.i.i = select i1 %32, i64 2049, i64 2050
-  %33 = and i64 %.sink.i.i.i.i.i, %.val.i.i.i
-  %.not.i.i.i.i = icmp eq i64 %33, 0
-  br i1 %.not.i.i.i.i, label %34, label %_ZL6cld_idPK15ClassLoaderDatab.exit.i
-
-34:                                               ; preds = %23
-  %35 = lshr i64 %.val.i.i.i, 8
-  %36 = trunc i64 %35 to i8
-  %37 = getelementptr inbounds nuw i8, ptr %12, i64 153
-  %38 = or i8 %36, 8
-  store i8 %38, ptr %37, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
-  br label %_ZL6cld_idPK15ClassLoaderDatab.exit.i
-
-_ZL6cld_idPK15ClassLoaderDatab.exit.i:            ; preds = %34, %23, %_ZL7get_cldPK11ModuleEntry.exit.i
-  br i1 %1, label %39, label %48
-
-39:                                               ; preds = %_ZL6cld_idPK15ClassLoaderDatab.exit.i
-  %40 = getelementptr inbounds nuw i8, ptr %9, i64 72
-  %41 = load i64, ptr %40, align 8
-  %42 = and i64 %41, 1024
-  %.not.i12.i = icmp eq i64 %42, 0
-  br i1 %.not.i12.i, label %43, label %48
-
-43:                                               ; preds = %39
-  %44 = lshr i64 %41, 8
-  %45 = trunc i64 %44 to i8
-  %46 = getelementptr inbounds nuw i8, ptr %9, i64 73
-  %47 = or disjoint i8 %45, 4
-  store i8 %47, ptr %46, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
-  br label %48
-
-48:                                               ; preds = %43, %39, %_ZL6cld_idPK15ClassLoaderDatab.exit.i
-  %49 = getelementptr i8, ptr %9, i64 72
-  %.val.i.i = load i64, ptr %49, align 8
-  %50 = load i8, ptr @_ZL11_flushpoint, align 1
-  %51 = trunc nuw i8 %50 to i1
-  %52 = load i8, ptr @_ZL13_class_unload, align 1
-  %53 = trunc nuw i8 %52 to i1
-  %54 = select i1 %51, i1 true, i1 %53
-  %55 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
-  %56 = trunc i8 %55 to i1
-  %57 = xor i1 %54, %56
-  %.sink.i.i.i.i = select i1 %57, i64 2049, i64 2050
-  %58 = and i64 %.sink.i.i.i.i, %.val.i.i
-  %.not.i.i11.i = icmp eq i64 %58, 0
-  br i1 %.not.i.i11.i, label %59, label %_ZL9module_idPK12PackageEntryb.exit
-
-59:                                               ; preds = %48
-  %60 = lshr i64 %.val.i.i, 8
-  %61 = trunc i64 %60 to i8
-  %62 = getelementptr inbounds nuw i8, ptr %9, i64 73
-  %63 = or i8 %61, 8
-  store i8 %63, ptr %62, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
-  br label %_ZL9module_idPK12PackageEntryb.exit
-
-_ZL9module_idPK12PackageEntryb.exit:              ; preds = %48, %59, %_ZL10get_modulePK12PackageEntry.exit.i
-  br i1 %1, label %64, label %73
-
-64:                                               ; preds = %_ZL9module_idPK12PackageEntryb.exit
-  %65 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  %66 = load i64, ptr %65, align 8
-  %67 = and i64 %66, 1024
-  %.not.i9 = icmp eq i64 %67, 0
-  br i1 %.not.i9, label %68, label %73
-
-68:                                               ; preds = %64
-  %69 = lshr i64 %66, 8
-  %70 = trunc i64 %69 to i8
-  %71 = getelementptr inbounds nuw i8, ptr %6, i64 33
-  %72 = or disjoint i8 %70, 4
-  store i8 %72, ptr %71, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
-  br label %73
-
-73:                                               ; preds = %68, %64, %_ZL9module_idPK12PackageEntryb.exit
-  %74 = getelementptr i8, ptr %6, i64 32
-  %.val.i = load i64, ptr %74, align 8
-  %75 = load i8, ptr @_ZL11_flushpoint, align 1
-  %76 = trunc nuw i8 %75 to i1
-  %77 = load i8, ptr @_ZL13_class_unload, align 1
-  %78 = trunc nuw i8 %77 to i1
-  %79 = select i1 %76, i1 true, i1 %78
-  %80 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
-  %81 = trunc i8 %80 to i1
-  %82 = xor i1 %79, %81
-  %.sink.i.i.i = select i1 %82, i64 2049, i64 2050
-  %83 = and i64 %.sink.i.i.i, %.val.i
-  %.not.i.i8 = icmp eq i64 %83, 0
-  br i1 %.not.i.i8, label %84, label %_ZL12artifact_tagI12PackageEntryEmPKT_b.exit
-
-84:                                               ; preds = %73
-  %85 = lshr i64 %.val.i, 8
-  %86 = trunc i64 %85 to i8
-  %87 = getelementptr inbounds nuw i8, ptr %6, i64 33
-  %88 = or i8 %86, 8
-  store i8 %88, ptr %87, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
-  %.val5.pre.i = load i64, ptr %74, align 8
-  br label %_ZL12artifact_tagI12PackageEntryEmPKT_b.exit
-
-_ZL12artifact_tagI12PackageEntryEmPKT_b.exit:     ; preds = %73, %84
-  %.val5.i = phi i64 [ %.val5.pre.i, %84 ], [ %.val.i, %73 ]
-  %89 = lshr i64 %.val5.i, 16
-  br label %_ZL11get_packagePK5Klass.exit.thread
-
-_ZL11get_packagePK5Klass.exit.thread:             ; preds = %2, %_ZL11get_packagePK5Klass.exit, %_ZL12artifact_tagI12PackageEntryEmPKT_b.exit
-  %.0 = phi i64 [ %89, %_ZL12artifact_tagI12PackageEntryEmPKT_b.exit ], [ 0, %_ZL11get_packagePK5Klass.exit ], [ 0, %2 ]
-  ret i64 %.0
-}
-
-; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeIiEEvT_(ptr noundef nonnull align 8 dereferenceable(41) %0, i32 noundef %1) local_unnamed_addr #0 comdat align 2 {
   %3 = alloca %class.JfrCheckpointFlush, align 8
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -4535,6 +4506,128 @@ declare void @_ZN18JfrCheckpointFlushC1EP9JfrBuffermmP6Thread(ptr noundef nonnul
 declare i64 @llvm.bswap.i64(i64) #4
 
 declare noundef i64 @_ZN14JfrArtifactSet4markEPK5Klassb(ptr noundef nonnull align 8 dereferenceable(41), ptr noundef, i1 noundef zeroext) local_unnamed_addr #2
+
+; Function Attrs: mustprogress nounwind uwtable
+define internal fastcc noundef range(i64 0, 281474976710656) i64 @_ZL9module_idPK12PackageEntryb(ptr noundef readonly captures(address_is_null) %0, i1 noundef zeroext %1) unnamed_addr #0 {
+  %.not.i = icmp eq ptr %0, null
+  br i1 %.not.i, label %_ZL10get_modulePK12PackageEntry.exit.thread, label %_ZL10get_modulePK12PackageEntry.exit
+
+_ZL10get_modulePK12PackageEntry.exit:             ; preds = %2
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %4 = load ptr, ptr %3, align 8
+  %5 = icmp eq ptr %4, null
+  br i1 %5, label %_ZL10get_modulePK12PackageEntry.exit.thread, label %_ZL7get_cldPK11ModuleEntry.exit
+
+_ZL7get_cldPK11ModuleEntry.exit:                  ; preds = %_ZL10get_modulePK12PackageEntry.exit
+  %6 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %7 = load ptr, ptr %6, align 8
+  %.not = icmp eq ptr %7, null
+  br i1 %.not, label %_ZL6cld_idPK15ClassLoaderDatab.exit, label %8
+
+8:                                                ; preds = %_ZL7get_cldPK11ModuleEntry.exit
+  br i1 %1, label %9, label %18
+
+9:                                                ; preds = %8
+  %10 = getelementptr inbounds nuw i8, ptr %7, i64 152
+  %11 = load i64, ptr %10, align 8
+  %12 = and i64 %11, 1024
+  %.not.i.i = icmp eq i64 %12, 0
+  br i1 %.not.i.i, label %13, label %18
+
+13:                                               ; preds = %9
+  %14 = lshr i64 %11, 8
+  %15 = trunc i64 %14 to i8
+  %16 = getelementptr inbounds nuw i8, ptr %7, i64 153
+  %17 = or disjoint i8 %15, 4
+  store i8 %17, ptr %16, align 1
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
+  br label %18
+
+18:                                               ; preds = %13, %9, %8
+  %19 = getelementptr i8, ptr %7, i64 152
+  %.val.i.i = load i64, ptr %19, align 8
+  %20 = load i8, ptr @_ZL11_flushpoint, align 1
+  %21 = trunc nuw i8 %20 to i1
+  %22 = load i8, ptr @_ZL13_class_unload, align 1
+  %23 = trunc nuw i8 %22 to i1
+  %24 = select i1 %21, i1 true, i1 %23
+  %25 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
+  %26 = and i8 %25, 1
+  %27 = sub nuw nsw i8 2, %26
+  %28 = add nuw nsw i8 %26, 1
+  %.sink.i.i.i.i = select i1 %24, i8 %28, i8 %27
+  %29 = zext nneg i8 %.sink.i.i.i.i to i64
+  %30 = or disjoint i64 %29, 2048
+  %31 = and i64 %30, %.val.i.i
+  %.not.i.i.i = icmp eq i64 %31, 0
+  br i1 %.not.i.i.i, label %32, label %_ZL6cld_idPK15ClassLoaderDatab.exit
+
+32:                                               ; preds = %18
+  %33 = lshr i64 %.val.i.i, 8
+  %34 = trunc i64 %33 to i8
+  %35 = getelementptr inbounds nuw i8, ptr %7, i64 153
+  %36 = or i8 %34, 8
+  store i8 %36, ptr %35, align 1
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
+  br label %_ZL6cld_idPK15ClassLoaderDatab.exit
+
+_ZL6cld_idPK15ClassLoaderDatab.exit:              ; preds = %32, %18, %_ZL7get_cldPK11ModuleEntry.exit
+  br i1 %1, label %37, label %46
+
+37:                                               ; preds = %_ZL6cld_idPK15ClassLoaderDatab.exit
+  %38 = getelementptr inbounds nuw i8, ptr %4, i64 72
+  %39 = load i64, ptr %38, align 8
+  %40 = and i64 %39, 1024
+  %.not.i12 = icmp eq i64 %40, 0
+  br i1 %.not.i12, label %41, label %46
+
+41:                                               ; preds = %37
+  %42 = lshr i64 %39, 8
+  %43 = trunc i64 %42 to i8
+  %44 = getelementptr inbounds nuw i8, ptr %4, i64 73
+  %45 = or disjoint i8 %43, 4
+  store i8 %45, ptr %44, align 1
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
+  br label %46
+
+46:                                               ; preds = %41, %37, %_ZL6cld_idPK15ClassLoaderDatab.exit
+  %47 = getelementptr i8, ptr %4, i64 72
+  %.val.i = load i64, ptr %47, align 8
+  %48 = load i8, ptr @_ZL11_flushpoint, align 1
+  %49 = trunc nuw i8 %48 to i1
+  %50 = load i8, ptr @_ZL13_class_unload, align 1
+  %51 = trunc nuw i8 %50 to i1
+  %52 = select i1 %49, i1 true, i1 %51
+  %53 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
+  %54 = and i8 %53, 1
+  %55 = sub nuw nsw i8 2, %54
+  %56 = add nuw nsw i8 %54, 1
+  %.sink.i.i.i = select i1 %52, i8 %56, i8 %55
+  %57 = zext nneg i8 %.sink.i.i.i to i64
+  %58 = or disjoint i64 %57, 2048
+  %59 = and i64 %58, %.val.i
+  %.not.i.i11 = icmp eq i64 %59, 0
+  br i1 %.not.i.i11, label %60, label %_ZL12artifact_tagI11ModuleEntryEmPKT_b.exit
+
+60:                                               ; preds = %46
+  %61 = lshr i64 %.val.i, 8
+  %62 = trunc i64 %61 to i8
+  %63 = getelementptr inbounds nuw i8, ptr %4, i64 73
+  %64 = or i8 %62, 8
+  store i8 %64, ptr %63, align 1
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
+  %.val5.pre.i = load i64, ptr %47, align 8
+  br label %_ZL12artifact_tagI11ModuleEntryEmPKT_b.exit
+
+_ZL12artifact_tagI11ModuleEntryEmPKT_b.exit:      ; preds = %46, %60
+  %.val5.i = phi i64 [ %.val5.pre.i, %60 ], [ %.val.i, %46 ]
+  %65 = lshr i64 %.val5.i, 16
+  br label %_ZL10get_modulePK12PackageEntry.exit.thread
+
+_ZL10get_modulePK12PackageEntry.exit.thread:      ; preds = %2, %_ZL10get_modulePK12PackageEntry.exit, %_ZL12artifact_tagI11ModuleEntryEmPKT_b.exit
+  %.0 = phi i64 [ %65, %_ZL12artifact_tagI11ModuleEntryEmPKT_b.exit ], [ 0, %_ZL10get_modulePK12PackageEntry.exit ], [ 0, %2 ]
+  ret i64 %.0
+}
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.bswap.i32(i32) #4
@@ -4877,270 +4970,393 @@ _ZL7get_cldPK5Klass.exit:                         ; preds = %20, %_ZNK5Klass20is
   %31 = trunc nuw i8 %30 to i1
   %32 = select i1 %29, i1 true, i1 %31
   %33 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
-  %34 = trunc i8 %33 to i1
-  %35 = xor i1 %32, %34
-  %.sink.i.i.i.i = select i1 %35, i64 2049, i64 2050
-  %36 = and i64 %.sink.i.i.i.i, %.val.i.i
-  %.not.i.i.i = icmp eq i64 %36, 0
-  br i1 %.not.i.i.i, label %37, label %_ZL6cld_idPK15ClassLoaderDatab.exit
+  %34 = and i8 %33, 1
+  %35 = sub nuw nsw i8 2, %34
+  %36 = add nuw nsw i8 %34, 1
+  %.sink.i.i.i.i = select i1 %32, i8 %36, i8 %35
+  %37 = zext nneg i8 %.sink.i.i.i.i to i64
+  %38 = or disjoint i64 %37, 2048
+  %39 = and i64 %38, %.val.i.i
+  %.not.i.i.i = icmp eq i64 %39, 0
+  br i1 %.not.i.i.i, label %40, label %_ZL6cld_idPK15ClassLoaderDatab.exit
 
-37:                                               ; preds = %_ZL7get_cldPK5Klass.exit
-  %38 = lshr i64 %.val.i.i, 8
-  %39 = trunc i64 %38 to i8
-  %40 = getelementptr inbounds nuw i8, ptr %26, i64 153
-  %41 = or i8 %39, 8
-  store i8 %41, ptr %40, align 1
+40:                                               ; preds = %_ZL7get_cldPK5Klass.exit
+  %41 = lshr i64 %.val.i.i, 8
+  %42 = trunc i64 %41 to i8
+  %43 = getelementptr inbounds nuw i8, ptr %26, i64 153
+  %44 = or i8 %42, 8
+  store i8 %44, ptr %43, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
   %.val5.pre.i.i = load i64, ptr %27, align 8
   br label %_ZL6cld_idPK15ClassLoaderDatab.exit
 
-_ZL6cld_idPK15ClassLoaderDatab.exit:              ; preds = %_ZL7get_cldPK5Klass.exit, %37
-  %.val5.i.i = phi i64 [ %.val5.pre.i.i, %37 ], [ %.val.i.i, %_ZL7get_cldPK5Klass.exit ]
-  %42 = lshr i64 %.val5.i.i, 16
-  tail call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeImEEvT_(ptr noundef nonnull align 8 dereferenceable(41) %0, i64 noundef %42)
-  br i1 %7, label %43, label %52
+_ZL6cld_idPK15ClassLoaderDatab.exit:              ; preds = %_ZL7get_cldPK5Klass.exit, %40
+  %.val5.i.i = phi i64 [ %.val5.pre.i.i, %40 ], [ %.val.i.i, %_ZL7get_cldPK5Klass.exit ]
+  %45 = lshr i64 %.val5.i.i, 16
+  tail call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeImEEvT_(ptr noundef nonnull align 8 dereferenceable(41) %0, i64 noundef %45)
+  br i1 %7, label %46, label %55
 
-43:                                               ; preds = %_ZL6cld_idPK15ClassLoaderDatab.exit
-  %44 = load atomic i8, ptr @_ZGVZL16primitive_symbolPK5KlassE15void_class_name acquire, align 8
-  %45 = icmp eq i8 %44, 0
-  br i1 %45, label %46, label %50, !prof !15
+46:                                               ; preds = %_ZL6cld_idPK15ClassLoaderDatab.exit
+  %47 = load atomic i8, ptr @_ZGVZL16primitive_symbolPK5KlassE15void_class_name acquire, align 8
+  %48 = icmp eq i8 %47, 0
+  br i1 %48, label %49, label %53, !prof !16
 
-46:                                               ; preds = %43
-  %47 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZL16primitive_symbolPK5KlassE15void_class_name) #9
-  %.not.i = icmp eq i32 %47, 0
-  br i1 %.not.i, label %50, label %48
+49:                                               ; preds = %46
+  %50 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZL16primitive_symbolPK5KlassE15void_class_name) #9
+  %.not.i = icmp eq i32 %50, 0
+  br i1 %.not.i, label %53, label %51
 
-48:                                               ; preds = %46
+51:                                               ; preds = %49
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6)
-  %49 = call noundef ptr @_ZN11SymbolTable11lookup_onlyEPKciRj(ptr noundef nonnull @.str, i32 noundef 4, ptr noundef nonnull align 4 dereferenceable(4) %6) #9
+  %52 = call noundef ptr @_ZN11SymbolTable11lookup_onlyEPKciRj(ptr noundef nonnull @.str, i32 noundef 4, ptr noundef nonnull align 4 dereferenceable(4) %6) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6)
-  store ptr %49, ptr @_ZZL16primitive_symbolPK5KlassE15void_class_name, align 8
+  store ptr %52, ptr @_ZZL16primitive_symbolPK5KlassE15void_class_name, align 8
   call void @__cxa_guard_release(ptr nonnull @_ZGVZL16primitive_symbolPK5KlassE15void_class_name) #9
-  br label %50
+  br label %53
 
-50:                                               ; preds = %48, %46, %43
-  %51 = load ptr, ptr @_ZZL16primitive_symbolPK5KlassE15void_class_name, align 8
+53:                                               ; preds = %51, %49, %46
+  %54 = load ptr, ptr @_ZZL16primitive_symbolPK5KlassE15void_class_name, align 8
   br label %_ZL16primitive_symbolPK5Klass.exit
 
-52:                                               ; preds = %_ZL6cld_idPK15ClassLoaderDatab.exit
-  %53 = getelementptr i8, ptr %1, i64 24
-  %.val.i = load ptr, ptr %53, align 8
-  %54 = getelementptr i8, ptr %.val.i, i64 7
-  %.val.val.i = load i8, ptr %54, align 1
-  switch i8 %.val.val.i, label %62 [
+55:                                               ; preds = %_ZL6cld_idPK15ClassLoaderDatab.exit
+  %56 = getelementptr i8, ptr %1, i64 24
+  %.val.i = load ptr, ptr %56, align 8
+  %57 = getelementptr i8, ptr %.val.i, i64 7
+  %.val.val.i = load i8, ptr %57, align 1
+  switch i8 %.val.val.i, label %65 [
     i8 90, label %_ZL14primitive_namePK5Klass.exit.i
-    i8 66, label %55
-    i8 67, label %56
-    i8 83, label %57
-    i8 73, label %58
-    i8 74, label %59
-    i8 70, label %60
-    i8 68, label %61
+    i8 66, label %58
+    i8 67, label %59
+    i8 83, label %60
+    i8 73, label %61
+    i8 74, label %62
+    i8 70, label %63
+    i8 68, label %64
   ]
 
-55:                                               ; preds = %52
+58:                                               ; preds = %55
   br label %_ZL14primitive_namePK5Klass.exit.i
 
-56:                                               ; preds = %52
+59:                                               ; preds = %55
   br label %_ZL14primitive_namePK5Klass.exit.i
 
-57:                                               ; preds = %52
+60:                                               ; preds = %55
   br label %_ZL14primitive_namePK5Klass.exit.i
 
-58:                                               ; preds = %52
+61:                                               ; preds = %55
   br label %_ZL14primitive_namePK5Klass.exit.i
 
-59:                                               ; preds = %52
+62:                                               ; preds = %55
   br label %_ZL14primitive_namePK5Klass.exit.i
 
-60:                                               ; preds = %52
+63:                                               ; preds = %55
   br label %_ZL14primitive_namePK5Klass.exit.i
 
-61:                                               ; preds = %52
+64:                                               ; preds = %55
   br label %_ZL14primitive_namePK5Klass.exit.i
 
-62:                                               ; preds = %52
+65:                                               ; preds = %55
   unreachable
 
-_ZL14primitive_namePK5Klass.exit.i:               ; preds = %61, %60, %59, %58, %57, %56, %55, %52
-  %.0.i.i = phi ptr [ @.str.15, %61 ], [ @.str.14, %60 ], [ @.str.13, %59 ], [ @.str.12, %58 ], [ @.str.11, %57 ], [ @.str.10, %56 ], [ @.str.9, %55 ], [ @.str.8, %52 ]
-  %63 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i.i) #10
-  %64 = trunc i64 %63 to i32
+_ZL14primitive_namePK5Klass.exit.i:               ; preds = %64, %63, %62, %61, %60, %59, %58, %55
+  %.0.i.i = phi ptr [ @.str.15, %64 ], [ @.str.14, %63 ], [ @.str.13, %62 ], [ @.str.12, %61 ], [ @.str.11, %60 ], [ @.str.10, %59 ], [ @.str.9, %58 ], [ @.str.8, %55 ]
+  %66 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.0.i.i) #10
+  %67 = trunc i64 %66 to i32
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %5)
-  %65 = call noundef ptr @_ZN11SymbolTable11lookup_onlyEPKciRj(ptr noundef nonnull %.0.i.i, i32 noundef %64, ptr noundef nonnull align 4 dereferenceable(4) %5) #9
+  %68 = call noundef ptr @_ZN11SymbolTable11lookup_onlyEPKciRj(ptr noundef nonnull %.0.i.i, i32 noundef %67, ptr noundef nonnull align 4 dereferenceable(4) %5) #9
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5)
   br label %_ZL16primitive_symbolPK5Klass.exit
 
-_ZL16primitive_symbolPK5Klass.exit:               ; preds = %50, %_ZL14primitive_namePK5Klass.exit.i
-  %.0.i9 = phi ptr [ %51, %50 ], [ %65, %_ZL14primitive_namePK5Klass.exit.i ]
+_ZL16primitive_symbolPK5Klass.exit:               ; preds = %53, %_ZL14primitive_namePK5Klass.exit.i
+  %.0.i9 = phi ptr [ %54, %53 ], [ %68, %_ZL14primitive_namePK5Klass.exit.i ]
   %.not.i10 = icmp eq ptr %.0.i9, null
-  br i1 %.not.i10, label %_ZL11mark_symbolP6Symbolb.exit, label %66
+  br i1 %.not.i10, label %_ZL11mark_symbolP6Symbolb.exit, label %69
 
-66:                                               ; preds = %_ZL16primitive_symbolPK5Klass.exit
-  %67 = load ptr, ptr @_ZL10_artifacts, align 8
-  %68 = call noundef i64 @_ZN14JfrArtifactSet4markEPK6Symbolb(ptr noundef nonnull align 8 dereferenceable(41) %67, ptr noundef nonnull %.0.i9, i1 noundef zeroext false) #9
+69:                                               ; preds = %_ZL16primitive_symbolPK5Klass.exit
+  %70 = load ptr, ptr @_ZL10_artifacts, align 8
+  %71 = call noundef i64 @_ZN14JfrArtifactSet4markEPK6Symbolb(ptr noundef nonnull align 8 dereferenceable(41) %70, ptr noundef nonnull %.0.i9, i1 noundef zeroext false) #9
   br label %_ZL11mark_symbolP6Symbolb.exit
 
-_ZL11mark_symbolP6Symbolb.exit:                   ; preds = %_ZL16primitive_symbolPK5Klass.exit, %66
-  %69 = phi i64 [ %68, %66 ], [ 0, %_ZL16primitive_symbolPK5Klass.exit ]
-  call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeImEEvT_(ptr noundef nonnull align 8 dereferenceable(41) %0, i64 noundef %69)
-  %70 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8Universe17_typeArrayKlassesE, i64 32), align 16
-  %71 = call fastcc noundef i64 @_ZL10package_idPK5Klassb(ptr noundef %70, i1 noundef zeroext false)
-  call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeImEEvT_(ptr noundef nonnull align 8 dereferenceable(41) %0, i64 noundef %71)
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %73 = load ptr, ptr %72, align 8
-  %.not.i.i.i11 = icmp eq ptr %73, null
-  br i1 %.not.i.i.i11, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeIbEEvT_.exit, label %74
+_ZL11mark_symbolP6Symbolb.exit:                   ; preds = %_ZL16primitive_symbolPK5Klass.exit, %69
+  %72 = phi i64 [ %71, %69 ], [ 0, %_ZL16primitive_symbolPK5Klass.exit ]
+  call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeImEEvT_(ptr noundef nonnull align 8 dereferenceable(41) %0, i64 noundef %72)
+  %73 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN8Universe17_typeArrayKlassesE, i64 32), align 16
+  %.not.i.i11 = icmp eq ptr %73, null
+  br i1 %.not.i.i11, label %_ZL10package_idPK5Klassb.exit, label %_ZL11get_packagePK5Klass.exit.i
 
-74:                                               ; preds = %_ZL11mark_symbolP6Symbolb.exit
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
+_ZL11get_packagePK5Klass.exit.i:                  ; preds = %_ZL11mark_symbolP6Symbolb.exit
+  %74 = load ptr, ptr %73, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 144
   %76 = load ptr, ptr %75, align 8
-  %77 = ptrtoint ptr %73 to i64
-  %78 = ptrtoint ptr %76 to i64
-  %79 = sub i64 %77, %78
-  %80 = icmp ult i64 %79, 5
-  br i1 %80, label %81, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i
+  %77 = call noundef ptr %76(ptr noundef nonnull align 8 dereferenceable(196) %73) #9
+  %78 = icmp eq ptr %77, null
+  br i1 %78, label %_ZL10package_idPK5Klassb.exit, label %_ZL10get_modulePK12PackageEntry.exit.i
 
-81:                                               ; preds = %74
-  %82 = load ptr, ptr %0, align 8
-  %83 = ptrtoint ptr %82 to i64
-  %84 = sub i64 %78, %83
-  %85 = getelementptr inbounds nuw i8, ptr %0, i64 24
+_ZL10get_modulePK12PackageEntry.exit.i:           ; preds = %_ZL11get_packagePK5Klass.exit.i
+  %79 = getelementptr inbounds nuw i8, ptr %77, i64 8
+  %80 = load ptr, ptr %79, align 8
+  %81 = icmp eq ptr %80, null
+  %.pre43 = load i8, ptr @_ZL11_flushpoint, align 1
+  %.pre45 = load i8, ptr @_ZL13_class_unload, align 1
+  %.pre47 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
+  br i1 %81, label %_ZL9module_idPK12PackageEntryb.exit, label %_ZL7get_cldPK11ModuleEntry.exit.i
+
+_ZL7get_cldPK11ModuleEntry.exit.i:                ; preds = %_ZL10get_modulePK12PackageEntry.exit.i
+  %82 = getelementptr inbounds nuw i8, ptr %80, i64 24
+  %83 = load ptr, ptr %82, align 8
+  %.not.i30 = icmp eq ptr %83, null
+  br i1 %.not.i30, label %_ZL6cld_idPK15ClassLoaderDatab.exit.i, label %84
+
+84:                                               ; preds = %_ZL7get_cldPK11ModuleEntry.exit.i
+  %85 = getelementptr i8, ptr %83, i64 152
+  %.val.i.i.i = load i64, ptr %85, align 8
+  %86 = trunc nuw i8 %.pre43 to i1
+  %87 = trunc nuw i8 %.pre45 to i1
+  %88 = select i1 %86, i1 true, i1 %87
+  %89 = and i8 %.pre47, 1
+  %90 = sub nuw nsw i8 2, %89
+  %91 = add nuw nsw i8 %89, 1
+  %.sink.i.i.i.i.i = select i1 %88, i8 %91, i8 %90
+  %92 = zext nneg i8 %.sink.i.i.i.i.i to i64
+  %93 = or disjoint i64 %92, 2048
+  %94 = and i64 %93, %.val.i.i.i
+  %.not.i.i.i.i = icmp eq i64 %94, 0
+  br i1 %.not.i.i.i.i, label %95, label %_ZL6cld_idPK15ClassLoaderDatab.exit.i
+
+95:                                               ; preds = %84
+  %96 = lshr i64 %.val.i.i.i, 8
+  %97 = trunc i64 %96 to i8
+  %98 = getelementptr inbounds nuw i8, ptr %83, i64 153
+  %99 = or i8 %97, 8
+  store i8 %99, ptr %98, align 1
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
+  %.pre = load i8, ptr @_ZL11_flushpoint, align 1
+  %.pre38 = load i8, ptr @_ZL13_class_unload, align 1
+  %.pre40 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
+  br label %_ZL6cld_idPK15ClassLoaderDatab.exit.i
+
+_ZL6cld_idPK15ClassLoaderDatab.exit.i:            ; preds = %95, %84, %_ZL7get_cldPK11ModuleEntry.exit.i
+  %100 = phi i8 [ %.pre40, %95 ], [ %.pre47, %84 ], [ %.pre47, %_ZL7get_cldPK11ModuleEntry.exit.i ]
+  %101 = phi i8 [ %.pre38, %95 ], [ %.pre45, %84 ], [ %.pre45, %_ZL7get_cldPK11ModuleEntry.exit.i ]
+  %102 = phi i8 [ %.pre, %95 ], [ %.pre43, %84 ], [ %.pre43, %_ZL7get_cldPK11ModuleEntry.exit.i ]
+  %103 = getelementptr i8, ptr %80, i64 72
+  %.val.i.i31 = load i64, ptr %103, align 8
+  %104 = trunc nuw i8 %102 to i1
+  %105 = trunc nuw i8 %101 to i1
+  %106 = select i1 %104, i1 true, i1 %105
+  %107 = and i8 %100, 1
+  %108 = sub nuw nsw i8 2, %107
+  %109 = add nuw nsw i8 %107, 1
+  %.sink.i.i.i.i32 = select i1 %106, i8 %109, i8 %108
+  %110 = zext nneg i8 %.sink.i.i.i.i32 to i64
+  %111 = or disjoint i64 %110, 2048
+  %112 = and i64 %111, %.val.i.i31
+  %.not.i.i11.i = icmp eq i64 %112, 0
+  br i1 %.not.i.i11.i, label %113, label %_ZL9module_idPK12PackageEntryb.exit
+
+113:                                              ; preds = %_ZL6cld_idPK15ClassLoaderDatab.exit.i
+  %114 = lshr i64 %.val.i.i31, 8
+  %115 = trunc i64 %114 to i8
+  %116 = getelementptr inbounds nuw i8, ptr %80, i64 73
+  %117 = or i8 %115, 8
+  store i8 %117, ptr %116, align 1
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
+  %.pre42 = load i8, ptr @_ZL11_flushpoint, align 1
+  %.pre44 = load i8, ptr @_ZL13_class_unload, align 1
+  %.pre46 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
+  br label %_ZL9module_idPK12PackageEntryb.exit
+
+_ZL9module_idPK12PackageEntryb.exit:              ; preds = %_ZL6cld_idPK15ClassLoaderDatab.exit.i, %113, %_ZL10get_modulePK12PackageEntry.exit.i
+  %118 = phi i8 [ %100, %_ZL6cld_idPK15ClassLoaderDatab.exit.i ], [ %.pre46, %113 ], [ %.pre47, %_ZL10get_modulePK12PackageEntry.exit.i ]
+  %119 = phi i8 [ %101, %_ZL6cld_idPK15ClassLoaderDatab.exit.i ], [ %.pre44, %113 ], [ %.pre45, %_ZL10get_modulePK12PackageEntry.exit.i ]
+  %120 = phi i8 [ %102, %_ZL6cld_idPK15ClassLoaderDatab.exit.i ], [ %.pre42, %113 ], [ %.pre43, %_ZL10get_modulePK12PackageEntry.exit.i ]
+  %121 = getelementptr i8, ptr %77, i64 32
+  %.val.i.i12 = load i64, ptr %121, align 8
+  %122 = trunc nuw i8 %120 to i1
+  %123 = trunc nuw i8 %119 to i1
+  %124 = select i1 %122, i1 true, i1 %123
+  %125 = and i8 %118, 1
+  %126 = sub nuw nsw i8 2, %125
+  %127 = add nuw nsw i8 %125, 1
+  %.sink.i.i.i.i13 = select i1 %124, i8 %127, i8 %126
+  %128 = zext nneg i8 %.sink.i.i.i.i13 to i64
+  %129 = or disjoint i64 %128, 2048
+  %130 = and i64 %129, %.val.i.i12
+  %.not.i.i.i14 = icmp eq i64 %130, 0
+  br i1 %.not.i.i.i14, label %131, label %_ZL12artifact_tagI12PackageEntryEmPKT_b.exit.i
+
+131:                                              ; preds = %_ZL9module_idPK12PackageEntryb.exit
+  %132 = lshr i64 %.val.i.i12, 8
+  %133 = trunc i64 %132 to i8
+  %134 = getelementptr inbounds nuw i8, ptr %77, i64 33
+  %135 = or i8 %133, 8
+  store i8 %135, ptr %134, align 1
+  call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
+  %.val5.pre.i.i17 = load i64, ptr %121, align 8
+  br label %_ZL12artifact_tagI12PackageEntryEmPKT_b.exit.i
+
+_ZL12artifact_tagI12PackageEntryEmPKT_b.exit.i:   ; preds = %131, %_ZL9module_idPK12PackageEntryb.exit
+  %.val5.i.i15 = phi i64 [ %.val5.pre.i.i17, %131 ], [ %.val.i.i12, %_ZL9module_idPK12PackageEntryb.exit ]
+  %136 = lshr i64 %.val5.i.i15, 16
+  br label %_ZL10package_idPK5Klassb.exit
+
+_ZL10package_idPK5Klassb.exit:                    ; preds = %_ZL11mark_symbolP6Symbolb.exit, %_ZL11get_packagePK5Klass.exit.i, %_ZL12artifact_tagI12PackageEntryEmPKT_b.exit.i
+  %.0.i16 = phi i64 [ %136, %_ZL12artifact_tagI12PackageEntryEmPKT_b.exit.i ], [ 0, %_ZL11get_packagePK5Klass.exit.i ], [ 0, %_ZL11mark_symbolP6Symbolb.exit ]
+  call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeImEEvT_(ptr noundef nonnull align 8 dereferenceable(41) %0, i64 noundef %.0.i16)
+  %137 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %138 = load ptr, ptr %137, align 8
+  %.not.i.i.i18 = icmp eq ptr %138, null
+  br i1 %.not.i.i.i18, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeIbEEvT_.exit, label %139
+
+139:                                              ; preds = %_ZL10package_idPK5Klassb.exit
+  %140 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %141 = load ptr, ptr %140, align 8
+  %142 = ptrtoint ptr %138 to i64
+  %143 = ptrtoint ptr %141 to i64
+  %144 = sub i64 %142, %143
+  %145 = icmp ult i64 %144, 5
+  br i1 %145, label %146, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i
+
+146:                                              ; preds = %139
+  %147 = load ptr, ptr %0, align 8
+  %148 = ptrtoint ptr %147 to i64
+  %149 = sub i64 %143, %148
+  %150 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
-  %86 = load ptr, ptr %85, align 8
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %88 = load ptr, ptr %87, align 8
-  call void @_ZN18JfrCheckpointFlushC1EP9JfrBuffermmP6Thread(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %86, i64 noundef %84, i64 noundef 5, ptr noundef %88) #9
-  %89 = load ptr, ptr %4, align 8
-  store ptr %89, ptr %85, align 8
-  %.not5.i.i.i = icmp eq ptr %89, null
+  %151 = load ptr, ptr %150, align 8
+  %152 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %153 = load ptr, ptr %152, align 8
+  call void @_ZN18JfrCheckpointFlushC1EP9JfrBuffermmP6Thread(ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef %151, i64 noundef %149, i64 noundef 5, ptr noundef %153) #9
+  %154 = load ptr, ptr %4, align 8
+  store ptr %154, ptr %150, align 8
+  %.not5.i.i.i = icmp eq ptr %154, null
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   br i1 %.not5.i.i.i, label %.sink.split.i.i.i, label %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i
 
-_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i: ; preds = %81
-  %90 = getelementptr inbounds nuw i8, ptr %89, i64 16
-  %91 = load ptr, ptr %90, align 8
-  store ptr %91, ptr %0, align 8
-  store ptr %91, ptr %75, align 8
-  %92 = getelementptr inbounds nuw i8, ptr %89, i64 40
-  %93 = load i16, ptr %92, align 8
-  %94 = zext i16 %93 to i64
-  %95 = getelementptr inbounds nuw i8, ptr %89, i64 %94
-  %96 = getelementptr inbounds nuw i8, ptr %89, i64 32
-  %97 = load i64, ptr %96, align 8
-  %98 = getelementptr inbounds i8, ptr %95, i64 %97
-  %99 = getelementptr inbounds i8, ptr %91, i64 %84
-  store ptr %99, ptr %75, align 8
+_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i: ; preds = %146
+  %155 = getelementptr inbounds nuw i8, ptr %154, i64 16
+  %156 = load ptr, ptr %155, align 8
+  store ptr %156, ptr %0, align 8
+  store ptr %156, ptr %140, align 8
+  %157 = getelementptr inbounds nuw i8, ptr %154, i64 40
+  %158 = load i16, ptr %157, align 8
+  %159 = zext i16 %158 to i64
+  %160 = getelementptr inbounds nuw i8, ptr %154, i64 %159
+  %161 = getelementptr inbounds nuw i8, ptr %154, i64 32
+  %162 = load i64, ptr %161, align 8
+  %163 = getelementptr inbounds i8, ptr %160, i64 %162
+  %164 = getelementptr inbounds i8, ptr %156, i64 %149
+  store ptr %164, ptr %140, align 8
   br label %.sink.split.i.i.i
 
-.sink.split.i.i.i:                                ; preds = %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i, %81
-  %.sink.i.i.i = phi ptr [ %98, %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i ], [ null, %81 ]
-  %.0.ph.i.i.i = phi ptr [ %99, %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i ], [ null, %81 ]
-  store ptr %.sink.i.i.i, ptr %72, align 8
+.sink.split.i.i.i:                                ; preds = %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i, %146
+  %.sink.i.i.i = phi ptr [ %163, %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i ], [ null, %146 ]
+  %.0.ph.i.i.i = phi ptr [ %164, %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i ], [ null, %146 ]
+  store ptr %.sink.i.i.i, ptr %137, align 8
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i
 
-_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i: ; preds = %.sink.split.i.i.i, %74
-  %.pr24 = phi ptr [ %73, %74 ], [ %.sink.i.i.i, %.sink.split.i.i.i ]
-  %.0.i.i.i = phi ptr [ %76, %74 ], [ %.0.ph.i.i.i, %.sink.split.i.i.i ]
-  %.not.i.i12 = icmp eq ptr %.0.i.i.i, null
-  br i1 %.not.i.i12, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeIjEEvT_.exit, label %100
+_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i: ; preds = %.sink.split.i.i.i, %139
+  %.pr49 = phi ptr [ %138, %139 ], [ %.sink.i.i.i, %.sink.split.i.i.i ]
+  %.0.i.i.i = phi ptr [ %141, %139 ], [ %.0.ph.i.i.i, %.sink.split.i.i.i ]
+  %.not.i.i19 = icmp eq ptr %.0.i.i.i, null
+  br i1 %.not.i.i19, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeIjEEvT_.exit, label %165
 
-100:                                              ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i
-  %101 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %102 = load i8, ptr %101, align 8
-  %103 = trunc i8 %102 to i1
-  br i1 %103, label %104, label %106
+165:                                              ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i
+  %166 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %167 = load i8, ptr %166, align 8
+  %168 = trunc i8 %167 to i1
+  br i1 %168, label %169, label %171
 
-104:                                              ; preds = %100
+169:                                              ; preds = %165
   store i8 -111, ptr %.0.i.i.i, align 1
-  %105 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 1
-  store i8 8, ptr %105, align 1
+  %170 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 1
+  store i8 8, ptr %170, align 1
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeIjEEPhPKT_mSD_.exit.i
 
-106:                                              ; preds = %100
-  %107 = ptrtoint ptr %.0.i.i.i to i64
-  %108 = and i64 %107, 3
-  %109 = icmp eq i64 %108, 0
-  br i1 %109, label %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.i.i.i, label %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.thread.i.i.i
+171:                                              ; preds = %165
+  %172 = ptrtoint ptr %.0.i.i.i to i64
+  %173 = and i64 %172, 3
+  %174 = icmp eq i64 %173, 0
+  br i1 %174, label %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.i.i.i, label %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.thread.i.i.i
 
-_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.i.i.i: ; preds = %106
+_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.i.i.i: ; preds = %171
   store i32 285474816, ptr %.0.i.i.i, align 4
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeIjEEPhPKT_mSD_.exit.i
 
-_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.thread.i.i.i: ; preds = %106
+_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.thread.i.i.i: ; preds = %171
   store i32 285474816, ptr %.0.i.i.i, align 1
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeIjEEPhPKT_mSD_.exit.i
 
-_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeIjEEPhPKT_mSD_.exit.i: ; preds = %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.thread.i.i.i, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.i.i.i, %104
-  %.011.i.i.pn.i.i = phi i64 [ 4, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.i.i.i ], [ 4, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.thread.i.i.i ], [ 2, %104 ]
-  %110 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 %.011.i.i.pn.i.i
-  store ptr %110, ptr %75, align 8
-  %.pr.pre = load ptr, ptr %72, align 8
+_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeIjEEPhPKT_mSD_.exit.i: ; preds = %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.thread.i.i.i, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.i.i.i, %169
+  %.011.i.i.pn.i.i = phi i64 [ 4, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.i.i.i ], [ 4, %_ZN20BigEndianEncoderImpl6encodeIjEEmT_Ph.exit.i.thread.i.i.i ], [ 2, %169 ]
+  %175 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 %.011.i.i.pn.i.i
+  store ptr %175, ptr %140, align 8
+  %.pr.pre = load ptr, ptr %137, align 8
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeIjEEvT_.exit
 
 _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeIjEEvT_.exit: ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeIjEEPhPKT_mSD_.exit.i
-  %.pr = phi ptr [ %.pr24, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i ], [ %.pr.pre, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeIjEEPhPKT_mSD_.exit.i ]
-  %.not.i.i.i13 = icmp eq ptr %.pr, null
-  br i1 %.not.i.i.i13, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeIbEEvT_.exit, label %111
+  %.pr = phi ptr [ %.pr49, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i ], [ %.pr.pre, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeIjEEPhPKT_mSD_.exit.i ]
+  %.not.i.i.i20 = icmp eq ptr %.pr, null
+  br i1 %.not.i.i.i20, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeIbEEvT_.exit, label %176
 
-111:                                              ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeIjEEvT_.exit
-  %112 = load ptr, ptr %75, align 8
-  %113 = ptrtoint ptr %.pr to i64
-  %114 = ptrtoint ptr %112 to i64
-  %115 = sub i64 %113, %114
-  %116 = icmp ult i64 %115, 2
-  br i1 %116, label %117, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i14
+176:                                              ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeIjEEvT_.exit
+  %177 = load ptr, ptr %140, align 8
+  %178 = ptrtoint ptr %.pr to i64
+  %179 = ptrtoint ptr %177 to i64
+  %180 = sub i64 %178, %179
+  %181 = icmp ult i64 %180, 2
+  br i1 %181, label %182, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i21
 
-117:                                              ; preds = %111
-  %118 = load ptr, ptr %0, align 8
-  %119 = ptrtoint ptr %118 to i64
-  %120 = sub i64 %114, %119
-  %121 = getelementptr inbounds nuw i8, ptr %0, i64 24
+182:                                              ; preds = %176
+  %183 = load ptr, ptr %0, align 8
+  %184 = ptrtoint ptr %183 to i64
+  %185 = sub i64 %179, %184
+  %186 = getelementptr inbounds nuw i8, ptr %0, i64 24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %122 = load ptr, ptr %121, align 8
-  %123 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %124 = load ptr, ptr %123, align 8
-  call void @_ZN18JfrCheckpointFlushC1EP9JfrBuffermmP6Thread(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %122, i64 noundef %120, i64 noundef 2, ptr noundef %124) #9
-  %125 = load ptr, ptr %3, align 8
-  store ptr %125, ptr %121, align 8
-  %.not5.i.i.i17 = icmp eq ptr %125, null
+  %187 = load ptr, ptr %186, align 8
+  %188 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %189 = load ptr, ptr %188, align 8
+  call void @_ZN18JfrCheckpointFlushC1EP9JfrBuffermmP6Thread(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %187, i64 noundef %185, i64 noundef 2, ptr noundef %189) #9
+  %190 = load ptr, ptr %3, align 8
+  store ptr %190, ptr %186, align 8
+  %.not5.i.i.i24 = icmp eq ptr %190, null
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
-  br i1 %.not5.i.i.i17, label %.sink.split.i.i.i19, label %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i18
+  br i1 %.not5.i.i.i24, label %.sink.split.i.i.i26, label %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i25
 
-_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i18: ; preds = %117
-  %126 = getelementptr inbounds nuw i8, ptr %125, i64 16
-  %127 = load ptr, ptr %126, align 8
-  store ptr %127, ptr %0, align 8
-  store ptr %127, ptr %75, align 8
-  %128 = getelementptr inbounds nuw i8, ptr %125, i64 40
-  %129 = load i16, ptr %128, align 8
-  %130 = zext i16 %129 to i64
-  %131 = getelementptr inbounds nuw i8, ptr %125, i64 %130
-  %132 = getelementptr inbounds nuw i8, ptr %125, i64 32
-  %133 = load i64, ptr %132, align 8
-  %134 = getelementptr inbounds i8, ptr %131, i64 %133
-  %135 = getelementptr inbounds i8, ptr %127, i64 %120
-  store ptr %135, ptr %75, align 8
-  br label %.sink.split.i.i.i19
+_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i25: ; preds = %182
+  %191 = getelementptr inbounds nuw i8, ptr %190, i64 16
+  %192 = load ptr, ptr %191, align 8
+  store ptr %192, ptr %0, align 8
+  store ptr %192, ptr %140, align 8
+  %193 = getelementptr inbounds nuw i8, ptr %190, i64 40
+  %194 = load i16, ptr %193, align 8
+  %195 = zext i16 %194 to i64
+  %196 = getelementptr inbounds nuw i8, ptr %190, i64 %195
+  %197 = getelementptr inbounds nuw i8, ptr %190, i64 32
+  %198 = load i64, ptr %197, align 8
+  %199 = getelementptr inbounds i8, ptr %196, i64 %198
+  %200 = getelementptr inbounds i8, ptr %192, i64 %185
+  store ptr %200, ptr %140, align 8
+  br label %.sink.split.i.i.i26
 
-.sink.split.i.i.i19:                              ; preds = %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i18, %117
-  %.sink.i.i.i20 = phi ptr [ %134, %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i18 ], [ null, %117 ]
-  %.0.ph.i.i.i21 = phi ptr [ %135, %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i18 ], [ null, %117 ]
-  store ptr %.sink.i.i.i20, ptr %72, align 8
-  br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i14
+.sink.split.i.i.i26:                              ; preds = %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i25, %182
+  %.sink.i.i.i27 = phi ptr [ %199, %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i25 ], [ null, %182 ]
+  %.0.ph.i.i.i28 = phi ptr [ %200, %_ZN11StorageHostI7AdapterI18JfrCheckpointFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i25 ], [ null, %182 ]
+  store ptr %.sink.i.i.i27, ptr %137, align 8
+  br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i21
 
-_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i14: ; preds = %.sink.split.i.i.i19, %111
-  %.0.i.i.i15 = phi ptr [ %112, %111 ], [ %.0.ph.i.i.i21, %.sink.split.i.i.i19 ]
-  %.not.i.i16 = icmp eq ptr %.0.i.i.i15, null
-  br i1 %.not.i.i16, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeIbEEvT_.exit, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeIbEEPhPKT_mSD_.exit.i.i
+_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i21: ; preds = %.sink.split.i.i.i26, %176
+  %.0.i.i.i22 = phi ptr [ %177, %176 ], [ %.0.ph.i.i.i28, %.sink.split.i.i.i26 ]
+  %.not.i.i23 = icmp eq ptr %.0.i.i.i22, null
+  br i1 %.not.i.i23, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeIbEEvT_.exit, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeIbEEPhPKT_mSD_.exit.i.i
 
-_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeIbEEPhPKT_mSD_.exit.i.i: ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i14
-  store i8 0, ptr %.0.i.i.i15, align 1
-  %136 = getelementptr inbounds nuw i8, ptr %.0.i.i.i15, i64 1
-  store ptr %136, ptr %75, align 8
+_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeIbEEPhPKT_mSD_.exit.i.i: ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i21
+  store i8 0, ptr %.0.i.i.i22, align 1
+  %201 = getelementptr inbounds nuw i8, ptr %.0.i.i.i22, i64 1
+  store ptr %201, ptr %140, align 8
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeIbEEvT_.exit
 
-_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeIbEEvT_.exit: ; preds = %_ZL11mark_symbolP6Symbolb.exit, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeIjEEvT_.exit, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i14, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeIbEEPhPKT_mSD_.exit.i.i
+_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeIbEEvT_.exit: ; preds = %_ZL10package_idPK5Klassb.exit, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeIjEEvT_.exit, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE11ensure_sizeEm.exit.i.i21, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E30AcquireReleaseMemoryWriterHostI7AdapterI18JfrCheckpointFlushE8StackObjEE5writeIbEEPhPKT_mSD_.exit.i.i
   ret void
 }
 
@@ -5421,8 +5637,8 @@ _ZN18SerializePredicateIPK12PackageEntryEclERKS2_.exit.thread.i.i.i.i: ; preds =
 
 29:                                               ; preds = %_ZN18SerializePredicateIPK12PackageEntryEclERKS2_.exit.thread.i.i.i.i
   %30 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
-  %31 = trunc i8 %30 to i1
-  %32 = select i1 %31, i8 -3, i8 -2
+  %31 = and i8 %30, 1
+  %32 = sub nuw nsw i8 -2, %31
   %33 = getelementptr inbounds nuw i8, ptr %14, i64 33
   br label %34
 
@@ -5459,7 +5675,7 @@ _ZN20KlassToFieldEnvelopeI20PackageFieldSelector17JfrTypeWriterHostI31JfrPredica
   %48 = load i32, ptr %4, align 4
   %49 = sext i32 %48 to i64
   %.not.i = icmp slt i64 %indvars.iv.next.i, %49
-  br i1 %.not.i, label %7, label %_ZNK14JfrArtifactSet7iterateI20KlassToFieldEnvelopeI20PackageFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK12PackageEntry18SerializePredicateIS7_EXadL_Z14write__packageP19JfrCheckpointWriterPKvEEELj202EEEEEbRT_P13GrowableArrayIPK5KlassE.exit, !llvm.loop !16
+  br i1 %.not.i, label %7, label %_ZNK14JfrArtifactSet7iterateI20KlassToFieldEnvelopeI20PackageFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK12PackageEntry18SerializePredicateIS7_EXadL_Z14write__packageP19JfrCheckpointWriterPKvEEELj202EEEEEbRT_P13GrowableArrayIPK5KlassE.exit, !llvm.loop !17
 
 _ZNK14JfrArtifactSet7iterateI20KlassToFieldEnvelopeI20PackageFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK12PackageEntry18SerializePredicateIS7_EXadL_Z14write__packageP19JfrCheckpointWriterPKvEEELj202EEEEEbRT_P13GrowableArrayIPK5KlassE.exit: ; preds = %_ZN20KlassToFieldEnvelopeI20PackageFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK12PackageEntry18SerializePredicateIS5_EXadL_Z14write__packageP19JfrCheckpointWriterPKvEEELj202EEEclEPK5Klass.exit.i, %2
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -5509,8 +5725,8 @@ _ZN18SerializePredicateIPK12PackageEntryEclERKS2_.exit.thread.i.i.i.i13: ; preds
 
 76:                                               ; preds = %_ZN18SerializePredicateIPK12PackageEntryEclERKS2_.exit.thread.i.i.i.i13
   %77 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
-  %78 = trunc i8 %77 to i1
-  %79 = select i1 %78, i8 -3, i8 -2
+  %78 = and i8 %77, 1
+  %79 = sub nuw nsw i8 -2, %78
   %80 = getelementptr inbounds nuw i8, ptr %61, i64 33
   br label %81
 
@@ -5547,7 +5763,7 @@ _ZN20KlassToFieldEnvelopeI20PackageFieldSelector17JfrTypeWriterHostI31JfrPredica
   %95 = load i32, ptr %51, align 4
   %96 = sext i32 %95 to i64
   %.not.i12 = icmp slt i64 %indvars.iv.next.i11, %96
-  br i1 %.not.i12, label %54, label %_ZNK14JfrArtifactSet7iterateI20KlassToFieldEnvelopeI20PackageFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK12PackageEntry18SerializePredicateIS7_EXadL_Z14write__packageP19JfrCheckpointWriterPKvEEELj202EEEEEbRT_P13GrowableArrayIPK5KlassE.exit15, !llvm.loop !16
+  br i1 %.not.i12, label %54, label %_ZNK14JfrArtifactSet7iterateI20KlassToFieldEnvelopeI20PackageFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK12PackageEntry18SerializePredicateIS7_EXadL_Z14write__packageP19JfrCheckpointWriterPKvEEELj202EEEEEbRT_P13GrowableArrayIPK5KlassE.exit15, !llvm.loop !17
 
 _ZNK14JfrArtifactSet7iterateI20KlassToFieldEnvelopeI20PackageFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK12PackageEntry18SerializePredicateIS7_EXadL_Z14write__packageP19JfrCheckpointWriterPKvEEELj202EEEEEbRT_P13GrowableArrayIPK5KlassE.exit15: ; preds = %_ZN20KlassToFieldEnvelopeI20PackageFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK12PackageEntry18SerializePredicateIS5_EXadL_Z14write__packageP19JfrCheckpointWriterPKvEEELj202EEEclEPK5Klass.exit.i10, %_ZNK14JfrArtifactSet7iterateI20KlassToFieldEnvelopeI20PackageFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK12PackageEntry18SerializePredicateIS7_EXadL_Z14write__packageP19JfrCheckpointWriterPKvEEELj202EEEEEbRT_P13GrowableArrayIPK5KlassE.exit
   ret void
@@ -5590,8 +5806,8 @@ _ZN18SerializePredicateIPK12PackageEntryEclERKS2_.exit.thread.i.i: ; preds = %_Z
 
 16:                                               ; preds = %_ZN18SerializePredicateIPK12PackageEntryEclERKS2_.exit.thread.i.i
   %17 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
-  %18 = trunc i8 %17 to i1
-  %19 = select i1 %18, i8 -3, i8 -2
+  %18 = and i8 %17, 1
+  %19 = sub nuw nsw i8 -2, %18
   %20 = getelementptr inbounds nuw i8, ptr %.pre.i.i, i64 33
   br label %21
 
@@ -5638,8 +5854,8 @@ _ZN21JfrTypeWriterImplHostIPK12PackageEntryXadL_Z14write__packageP19JfrCheckpoin
 
 _ZN14JfrTraceIdBits15meta_mask_storeI12PackageEntryEEvhPKT_.exit.i: ; preds = %42, %38
   %45 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
-  %46 = trunc i8 %45 to i1
-  %47 = select i1 %46, i8 1, i8 2
+  %46 = and i8 %45, 1
+  %47 = sub nuw nsw i8 2, %46
   %48 = load ptr, ptr %1, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 33
   %50 = load i8, ptr %49, align 1
@@ -5648,23 +5864,26 @@ _ZN14JfrTraceIdBits15meta_mask_storeI12PackageEntryEEvhPKT_.exit.i: ; preds = %4
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
   %52 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
   %53 = trunc i8 %52 to i1
-  %54 = select i1 %53, i8 -6, i8 -11
-  %55 = load ptr, ptr %1, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 32
-  br label %57
+  %54 = and i8 %52, 1
+  %55 = select i1 %53, i8 -5, i8 -9
+  %56 = add nuw nsw i8 %54, -3
+  %57 = and i8 %55, %56
+  %58 = load ptr, ptr %1, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 32
+  br label %60
 
-57:                                               ; preds = %61, %_ZN14JfrTraceIdBits15meta_mask_storeI12PackageEntryEEvhPKT_.exit.i
-  %58 = load volatile i8, ptr %56, align 1
-  %59 = and i8 %58, %54
-  %60 = icmp eq i8 %58, %59
-  br i1 %60, label %_ZN13ClearArtifactIPK12PackageEntryEclERKS2_.exit, label %61
+60:                                               ; preds = %64, %_ZN14JfrTraceIdBits15meta_mask_storeI12PackageEntryEEvhPKT_.exit.i
+  %61 = load volatile i8, ptr %59, align 1
+  %62 = and i8 %57, %61
+  %63 = icmp eq i8 %61, %62
+  br i1 %63, label %_ZN13ClearArtifactIPK12PackageEntryEclERKS2_.exit, label %64
 
-61:                                               ; preds = %57
-  %62 = tail call noundef i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %59, i8 %58, ptr nonnull %56) #9, !srcloc !7
-  %63 = icmp eq i8 %62, %58
-  br i1 %63, label %_ZN13ClearArtifactIPK12PackageEntryEclERKS2_.exit, label %57, !llvm.loop !8
+64:                                               ; preds = %60
+  %65 = tail call noundef i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %62, i8 %61, ptr nonnull %59) #9, !srcloc !7
+  %66 = icmp eq i8 %65, %61
+  br i1 %66, label %_ZN13ClearArtifactIPK12PackageEntryEclERKS2_.exit, label %60, !llvm.loop !8
 
-_ZN13ClearArtifactIPK12PackageEntryEclERKS2_.exit: ; preds = %61, %57
+_ZN13ClearArtifactIPK12PackageEntryEclERKS2_.exit: ; preds = %64, %60
   ret i1 true
 }
 
@@ -5680,21 +5899,24 @@ define internal void @_ZL10do_packageP12PackageEntry(ptr noundef %0) #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %8 = load i64, ptr %7, align 8
   %9 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
-  %10 = trunc i8 %9 to i1
-  %11 = xor i1 %6, %10
-  %.sink.i.i = select i1 %11, i64 2049, i64 2050
-  %12 = and i64 %.sink.i.i, %8
-  %.not.i = icmp eq i64 %12, 0
-  br i1 %.not.i, label %_ZL11do_artifactI12PackageEntryEvPKT_.exit, label %13
+  %10 = and i8 %9, 1
+  %11 = sub nuw nsw i8 2, %10
+  %12 = add nuw nsw i8 %10, 1
+  %.sink.i.i = select i1 %6, i8 %12, i8 %11
+  %13 = zext nneg i8 %.sink.i.i to i64
+  %14 = or disjoint i64 %13, 2048
+  %15 = and i64 %14, %8
+  %.not.i = icmp eq i64 %15, 0
+  br i1 %.not.i, label %_ZL11do_artifactI12PackageEntryEvPKT_.exit, label %16
 
-13:                                               ; preds = %1
-  %14 = load ptr, ptr @_ZL19_subsystem_callback, align 8
-  %15 = load ptr, ptr %14, align 8
-  %16 = load ptr, ptr %15, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull %0) #9
+16:                                               ; preds = %1
+  %17 = load ptr, ptr @_ZL19_subsystem_callback, align 8
+  %18 = load ptr, ptr %17, align 8
+  %19 = load ptr, ptr %18, align 8
+  tail call void %19(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull %0) #9
   br label %_ZL11do_artifactI12PackageEntryEvPKT_.exit
 
-_ZL11do_artifactI12PackageEntryEvPKT_.exit:       ; preds = %1, %13
+_ZL11do_artifactI12PackageEntryEvPKT_.exit:       ; preds = %1, %16
   ret void
 }
 
@@ -5726,8 +5948,8 @@ define linkonce_odr hidden void @_ZN23JfrArtifactCallbackHostIPK12PackageEntry16
 
 _ZN14JfrTraceIdBits15meta_mask_storeI12PackageEntryEEvhPKT_.exit.i.i: ; preds = %15, %11
   %18 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
-  %19 = trunc i8 %18 to i1
-  %20 = select i1 %19, i8 1, i8 2
+  %19 = and i8 %18, 1
+  %20 = sub nuw nsw i8 2, %19
   %21 = load ptr, ptr %3, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 33
   %23 = load i8, ptr %22, align 1
@@ -5736,23 +5958,26 @@ _ZN14JfrTraceIdBits15meta_mask_storeI12PackageEntryEEvhPKT_.exit.i.i: ; preds = 
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
   %25 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
   %26 = trunc i8 %25 to i1
-  %27 = select i1 %26, i8 -6, i8 -11
-  %28 = load ptr, ptr %3, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 32
-  br label %30
+  %27 = and i8 %25, 1
+  %28 = select i1 %26, i8 -5, i8 -9
+  %29 = add nuw nsw i8 %27, -3
+  %30 = and i8 %28, %29
+  %31 = load ptr, ptr %3, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 32
+  br label %33
 
-30:                                               ; preds = %34, %_ZN14JfrTraceIdBits15meta_mask_storeI12PackageEntryEEvhPKT_.exit.i.i
-  %31 = load volatile i8, ptr %29, align 1
-  %32 = and i8 %31, %27
-  %33 = icmp eq i8 %31, %32
-  br i1 %33, label %_ZN16CompositeFunctorIPK12PackageEntryS_IS2_17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIS2_13LeakPredicateIS2_EXadL_Z21write__package__leakpP19JfrCheckpointWriterPKvEEELj202EES3_IS4_IS2_18SerializePredicateIS2_EXadL_Z14write__packageS8_SA_EEELj202EEE13ClearArtifactIS2_EEclERKS2_.exit, label %34
+33:                                               ; preds = %37, %_ZN14JfrTraceIdBits15meta_mask_storeI12PackageEntryEEvhPKT_.exit.i.i
+  %34 = load volatile i8, ptr %32, align 1
+  %35 = and i8 %30, %34
+  %36 = icmp eq i8 %34, %35
+  br i1 %36, label %_ZN16CompositeFunctorIPK12PackageEntryS_IS2_17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIS2_13LeakPredicateIS2_EXadL_Z21write__package__leakpP19JfrCheckpointWriterPKvEEELj202EES3_IS4_IS2_18SerializePredicateIS2_EXadL_Z14write__packageS8_SA_EEELj202EEE13ClearArtifactIS2_EEclERKS2_.exit, label %37
 
-34:                                               ; preds = %30
-  %35 = call noundef i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %32, i8 %31, ptr nonnull %29) #9, !srcloc !7
-  %36 = icmp eq i8 %35, %31
-  br i1 %36, label %_ZN16CompositeFunctorIPK12PackageEntryS_IS2_17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIS2_13LeakPredicateIS2_EXadL_Z21write__package__leakpP19JfrCheckpointWriterPKvEEELj202EES3_IS4_IS2_18SerializePredicateIS2_EXadL_Z14write__packageS8_SA_EEELj202EEE13ClearArtifactIS2_EEclERKS2_.exit, label %30, !llvm.loop !8
+37:                                               ; preds = %33
+  %38 = call noundef i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %35, i8 %34, ptr nonnull %32) #9, !srcloc !7
+  %39 = icmp eq i8 %38, %34
+  br i1 %39, label %_ZN16CompositeFunctorIPK12PackageEntryS_IS2_17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIS2_13LeakPredicateIS2_EXadL_Z21write__package__leakpP19JfrCheckpointWriterPKvEEELj202EES3_IS4_IS2_18SerializePredicateIS2_EXadL_Z14write__packageS8_SA_EEELj202EEE13ClearArtifactIS2_EEclERKS2_.exit, label %33, !llvm.loop !8
 
-_ZN16CompositeFunctorIPK12PackageEntryS_IS2_17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIS2_13LeakPredicateIS2_EXadL_Z21write__package__leakpP19JfrCheckpointWriterPKvEEELj202EES3_IS4_IS2_18SerializePredicateIS2_EXadL_Z14write__packageS8_SA_EEELj202EEE13ClearArtifactIS2_EEclERKS2_.exit: ; preds = %30, %34, %2
+_ZN16CompositeFunctorIPK12PackageEntryS_IS2_17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIS2_13LeakPredicateIS2_EXadL_Z21write__package__leakpP19JfrCheckpointWriterPKvEEELj202EES3_IS4_IS2_18SerializePredicateIS2_EXadL_Z14write__packageS8_SA_EEELj202EEE13ClearArtifactIS2_EEclERKS2_.exit: ; preds = %33, %37, %2
   ret void
 }
 
@@ -5818,8 +6043,8 @@ _ZN18SerializePredicateIPK12PackageEntryEclERKS2_.exit.thread.i.i: ; preds = %_Z
 
 37:                                               ; preds = %_ZN18SerializePredicateIPK12PackageEntryEclERKS2_.exit.thread.i.i
   %38 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
-  %39 = trunc i8 %38 to i1
-  %40 = select i1 %39, i8 -3, i8 -2
+  %39 = and i8 %38, 1
+  %40 = sub nuw nsw i8 -2, %39
   %41 = getelementptr inbounds nuw i8, ptr %.pre.i.i, i64 33
   br label %42
 
@@ -6002,199 +6227,6 @@ _ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry13LeakPr
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZNK14JfrArtifactSet15iterate_klassesI20KlassToFieldEnvelopeI19ModuleFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS7_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEEEEvRT_(ptr noundef nonnull align 8 dereferenceable(41) %0, ptr noundef nonnull align 8 dereferenceable(8) %1) local_unnamed_addr #0 comdat align 2 {
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %4 = load ptr, ptr %3, align 8
-  %5 = load i32, ptr %4, align 4
-  %.not7.i = icmp sgt i32 %5, 0
-  br i1 %.not7.i, label %.lr.ph.i, label %_ZNK14JfrArtifactSet7iterateI20KlassToFieldEnvelopeI19ModuleFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS7_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEEEEbRT_P13GrowableArrayIPK5KlassE.exit
-
-.lr.ph.i:                                         ; preds = %2
-  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  br label %7
-
-7:                                                ; preds = %_ZN20KlassToFieldEnvelopeI19ModuleFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS5_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEEclEPK5Klass.exit.i, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %_ZN20KlassToFieldEnvelopeI19ModuleFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS5_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEEclEPK5Klass.exit.i ]
-  %8 = load ptr, ptr %6, align 8
-  %9 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv.i
-  %10 = load ptr, ptr %9, align 8
-  %11 = load ptr, ptr %10, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 144
-  %13 = load ptr, ptr %12, align 8
-  %14 = tail call noundef ptr %13(ptr noundef nonnull align 8 dereferenceable(196) %10) #9
-  %15 = icmp eq ptr %14, null
-  br i1 %15, label %_ZN20KlassToFieldEnvelopeI19ModuleFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS5_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEEclEPK5Klass.exit.i, label %_ZN19ModuleFieldSelector6selectEPK5Klass.exit.i.i
-
-_ZN19ModuleFieldSelector6selectEPK5Klass.exit.i.i: ; preds = %7
-  %16 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %17 = load ptr, ptr %16, align 8
-  %.not.i.i = icmp eq ptr %17, null
-  br i1 %.not.i.i, label %_ZN20KlassToFieldEnvelopeI19ModuleFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS5_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEEclEPK5Klass.exit.i, label %18
-
-18:                                               ; preds = %_ZN19ModuleFieldSelector6selectEPK5Klass.exit.i.i
-  %19 = load ptr, ptr %1, align 8
-  %20 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %21 = load i8, ptr %20, align 1
-  %22 = trunc i8 %21 to i1
-  br i1 %22, label %_ZN18SerializePredicateIPK11ModuleEntryEclERKS2_.exit.thread.i.i.i.i, label %_ZN18SerializePredicateIPK11ModuleEntryEclERKS2_.exit.i.i.i.i
-
-_ZN18SerializePredicateIPK11ModuleEntryEclERKS2_.exit.i.i.i.i: ; preds = %18
-  %23 = getelementptr inbounds nuw i8, ptr %17, i64 72
-  %24 = load i64, ptr %23, align 8
-  %25 = and i64 %24, 4096
-  %.not.i.i.i.i.i = icmp eq i64 %25, 0
-  br i1 %.not.i.i.i.i.i, label %_ZN18SerializePredicateIPK11ModuleEntryEclERKS2_.exit.thread.i.i.i.i, label %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS3_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEclERKS3_.exit.i.i
-
-_ZN18SerializePredicateIPK11ModuleEntryEclERKS2_.exit.thread.i.i.i.i: ; preds = %_ZN18SerializePredicateIPK11ModuleEntryEclERKS2_.exit.i.i.i.i, %18
-  %26 = load ptr, ptr %19, align 8
-  %27 = load i8, ptr @_ZL11_flushpoint, align 1
-  %28 = trunc nuw i8 %27 to i1
-  %29 = load i8, ptr @_ZL13_class_unload, align 1
-  %30 = trunc nuw i8 %29 to i1
-  %31 = select i1 %28, i1 true, i1 %30
-  br i1 %31, label %32, label %_ZN21JfrTypeWriterImplHostIPK11ModuleEntryXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEEclERKS2_.exit.i.i.i.i
-
-32:                                               ; preds = %_ZN18SerializePredicateIPK11ModuleEntryEclERKS2_.exit.thread.i.i.i.i
-  %33 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
-  %34 = trunc i8 %33 to i1
-  %35 = select i1 %34, i8 -3, i8 -2
-  %36 = getelementptr inbounds nuw i8, ptr %17, i64 73
-  br label %37
-
-37:                                               ; preds = %41, %32
-  %38 = load volatile i8, ptr %36, align 1
-  %39 = and i8 %38, %35
-  %40 = icmp eq i8 %38, %39
-  br i1 %40, label %_ZN21JfrTypeWriterImplHostIPK11ModuleEntryXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEEclERKS2_.exit.i.i.i.i, label %41
-
-41:                                               ; preds = %37
-  %42 = tail call noundef i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %39, i8 %38, ptr nonnull %36) #9, !srcloc !7
-  %43 = icmp eq i8 %42, %38
-  br i1 %43, label %_ZN21JfrTypeWriterImplHostIPK11ModuleEntryXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEEclERKS2_.exit.i.i.i.i, label %37, !llvm.loop !8
-
-_ZN21JfrTypeWriterImplHostIPK11ModuleEntryXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEEclERKS2_.exit.i.i.i.i: ; preds = %41, %37, %_ZN18SerializePredicateIPK11ModuleEntryEclERKS2_.exit.thread.i.i.i.i
-  %44 = getelementptr inbounds nuw i8, ptr %17, i64 73
-  %45 = load i8, ptr %44, align 1
-  %46 = or i8 %45, 16
-  store i8 %46, ptr %44, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
-  tail call fastcc void @_ZL12write_moduleP19JfrCheckpointWriterPK11ModuleEntryb(ptr noundef %26, ptr noundef nonnull %17, i1 noundef zeroext false)
-  br label %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS3_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEclERKS3_.exit.i.i
-
-_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS3_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEclERKS3_.exit.i.i: ; preds = %_ZN21JfrTypeWriterImplHostIPK11ModuleEntryXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEEclERKS2_.exit.i.i.i.i, %_ZN18SerializePredicateIPK11ModuleEntryEclERKS2_.exit.i.i.i.i
-  %47 = phi i32 [ 1, %_ZN21JfrTypeWriterImplHostIPK11ModuleEntryXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEEclERKS2_.exit.i.i.i.i ], [ 0, %_ZN18SerializePredicateIPK11ModuleEntryEclERKS2_.exit.i.i.i.i ]
-  %48 = getelementptr inbounds nuw i8, ptr %19, i64 48
-  %49 = load i32, ptr %48, align 8
-  %50 = add nsw i32 %49, %47
-  store i32 %50, ptr %48, align 8
-  br label %_ZN20KlassToFieldEnvelopeI19ModuleFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS5_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEEclEPK5Klass.exit.i
-
-_ZN20KlassToFieldEnvelopeI19ModuleFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS5_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEEclEPK5Klass.exit.i: ; preds = %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS3_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEclERKS3_.exit.i.i, %_ZN19ModuleFieldSelector6selectEPK5Klass.exit.i.i, %7
-  %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %51 = load i32, ptr %4, align 4
-  %52 = sext i32 %51 to i64
-  %.not.i = icmp slt i64 %indvars.iv.next.i, %52
-  br i1 %.not.i, label %7, label %_ZNK14JfrArtifactSet7iterateI20KlassToFieldEnvelopeI19ModuleFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS7_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEEEEbRT_P13GrowableArrayIPK5KlassE.exit, !llvm.loop !17
-
-_ZNK14JfrArtifactSet7iterateI20KlassToFieldEnvelopeI19ModuleFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS7_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEEEEbRT_P13GrowableArrayIPK5KlassE.exit: ; preds = %_ZN20KlassToFieldEnvelopeI19ModuleFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS5_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEEclEPK5Klass.exit.i, %2
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %54 = load ptr, ptr %53, align 8
-  %55 = load i32, ptr %54, align 4
-  %.not7.i3 = icmp sgt i32 %55, 0
-  br i1 %.not7.i3, label %.lr.ph.i4, label %_ZNK14JfrArtifactSet7iterateI20KlassToFieldEnvelopeI19ModuleFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS7_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEEEEbRT_P13GrowableArrayIPK5KlassE.exit16
-
-.lr.ph.i4:                                        ; preds = %_ZNK14JfrArtifactSet7iterateI20KlassToFieldEnvelopeI19ModuleFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS7_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEEEEbRT_P13GrowableArrayIPK5KlassE.exit
-  %56 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  br label %57
-
-57:                                               ; preds = %_ZN20KlassToFieldEnvelopeI19ModuleFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS5_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEEclEPK5Klass.exit.i11, %.lr.ph.i4
-  %indvars.iv.i5 = phi i64 [ 0, %.lr.ph.i4 ], [ %indvars.iv.next.i12, %_ZN20KlassToFieldEnvelopeI19ModuleFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS5_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEEclEPK5Klass.exit.i11 ]
-  %58 = load ptr, ptr %56, align 8
-  %59 = getelementptr inbounds nuw ptr, ptr %58, i64 %indvars.iv.i5
-  %60 = load ptr, ptr %59, align 8
-  %61 = load ptr, ptr %60, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 144
-  %63 = load ptr, ptr %62, align 8
-  %64 = tail call noundef ptr %63(ptr noundef nonnull align 8 dereferenceable(196) %60) #9
-  %65 = icmp eq ptr %64, null
-  br i1 %65, label %_ZN20KlassToFieldEnvelopeI19ModuleFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS5_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEEclEPK5Klass.exit.i11, label %_ZN19ModuleFieldSelector6selectEPK5Klass.exit.i.i6
-
-_ZN19ModuleFieldSelector6selectEPK5Klass.exit.i.i6: ; preds = %57
-  %66 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  %67 = load ptr, ptr %66, align 8
-  %.not.i.i7 = icmp eq ptr %67, null
-  br i1 %.not.i.i7, label %_ZN20KlassToFieldEnvelopeI19ModuleFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS5_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEEclEPK5Klass.exit.i11, label %68
-
-68:                                               ; preds = %_ZN19ModuleFieldSelector6selectEPK5Klass.exit.i.i6
-  %69 = load ptr, ptr %1, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  %71 = load i8, ptr %70, align 1
-  %72 = trunc i8 %71 to i1
-  br i1 %72, label %_ZN18SerializePredicateIPK11ModuleEntryEclERKS2_.exit.thread.i.i.i.i14, label %_ZN18SerializePredicateIPK11ModuleEntryEclERKS2_.exit.i.i.i.i8
-
-_ZN18SerializePredicateIPK11ModuleEntryEclERKS2_.exit.i.i.i.i8: ; preds = %68
-  %73 = getelementptr inbounds nuw i8, ptr %67, i64 72
-  %74 = load i64, ptr %73, align 8
-  %75 = and i64 %74, 4096
-  %.not.i.i.i.i.i9 = icmp eq i64 %75, 0
-  br i1 %.not.i.i.i.i.i9, label %_ZN18SerializePredicateIPK11ModuleEntryEclERKS2_.exit.thread.i.i.i.i14, label %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS3_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEclERKS3_.exit.i.i10
-
-_ZN18SerializePredicateIPK11ModuleEntryEclERKS2_.exit.thread.i.i.i.i14: ; preds = %_ZN18SerializePredicateIPK11ModuleEntryEclERKS2_.exit.i.i.i.i8, %68
-  %76 = load ptr, ptr %69, align 8
-  %77 = load i8, ptr @_ZL11_flushpoint, align 1
-  %78 = trunc nuw i8 %77 to i1
-  %79 = load i8, ptr @_ZL13_class_unload, align 1
-  %80 = trunc nuw i8 %79 to i1
-  %81 = select i1 %78, i1 true, i1 %80
-  br i1 %81, label %82, label %_ZN21JfrTypeWriterImplHostIPK11ModuleEntryXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEEclERKS2_.exit.i.i.i.i15
-
-82:                                               ; preds = %_ZN18SerializePredicateIPK11ModuleEntryEclERKS2_.exit.thread.i.i.i.i14
-  %83 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
-  %84 = trunc i8 %83 to i1
-  %85 = select i1 %84, i8 -3, i8 -2
-  %86 = getelementptr inbounds nuw i8, ptr %67, i64 73
-  br label %87
-
-87:                                               ; preds = %91, %82
-  %88 = load volatile i8, ptr %86, align 1
-  %89 = and i8 %88, %85
-  %90 = icmp eq i8 %88, %89
-  br i1 %90, label %_ZN21JfrTypeWriterImplHostIPK11ModuleEntryXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEEclERKS2_.exit.i.i.i.i15, label %91
-
-91:                                               ; preds = %87
-  %92 = tail call noundef i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %89, i8 %88, ptr nonnull %86) #9, !srcloc !7
-  %93 = icmp eq i8 %92, %88
-  br i1 %93, label %_ZN21JfrTypeWriterImplHostIPK11ModuleEntryXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEEclERKS2_.exit.i.i.i.i15, label %87, !llvm.loop !8
-
-_ZN21JfrTypeWriterImplHostIPK11ModuleEntryXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEEclERKS2_.exit.i.i.i.i15: ; preds = %91, %87, %_ZN18SerializePredicateIPK11ModuleEntryEclERKS2_.exit.thread.i.i.i.i14
-  %94 = getelementptr inbounds nuw i8, ptr %67, i64 73
-  %95 = load i8, ptr %94, align 1
-  %96 = or i8 %95, 16
-  store i8 %96, ptr %94, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
-  tail call fastcc void @_ZL12write_moduleP19JfrCheckpointWriterPK11ModuleEntryb(ptr noundef %76, ptr noundef nonnull %67, i1 noundef zeroext false)
-  br label %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS3_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEclERKS3_.exit.i.i10
-
-_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS3_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEclERKS3_.exit.i.i10: ; preds = %_ZN21JfrTypeWriterImplHostIPK11ModuleEntryXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEEclERKS2_.exit.i.i.i.i15, %_ZN18SerializePredicateIPK11ModuleEntryEclERKS2_.exit.i.i.i.i8
-  %97 = phi i32 [ 1, %_ZN21JfrTypeWriterImplHostIPK11ModuleEntryXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEEclERKS2_.exit.i.i.i.i15 ], [ 0, %_ZN18SerializePredicateIPK11ModuleEntryEclERKS2_.exit.i.i.i.i8 ]
-  %98 = getelementptr inbounds nuw i8, ptr %69, i64 48
-  %99 = load i32, ptr %98, align 8
-  %100 = add nsw i32 %99, %97
-  store i32 %100, ptr %98, align 8
-  br label %_ZN20KlassToFieldEnvelopeI19ModuleFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS5_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEEclEPK5Klass.exit.i11
-
-_ZN20KlassToFieldEnvelopeI19ModuleFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS5_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEEclEPK5Klass.exit.i11: ; preds = %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS3_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEclERKS3_.exit.i.i10, %_ZN19ModuleFieldSelector6selectEPK5Klass.exit.i.i6, %57
-  %indvars.iv.next.i12 = add nuw nsw i64 %indvars.iv.i5, 1
-  %101 = load i32, ptr %54, align 4
-  %102 = sext i32 %101 to i64
-  %.not.i13 = icmp slt i64 %indvars.iv.next.i12, %102
-  br i1 %.not.i13, label %57, label %_ZNK14JfrArtifactSet7iterateI20KlassToFieldEnvelopeI19ModuleFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS7_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEEEEbRT_P13GrowableArrayIPK5KlassE.exit16, !llvm.loop !17
-
-_ZNK14JfrArtifactSet7iterateI20KlassToFieldEnvelopeI19ModuleFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS7_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEEEEbRT_P13GrowableArrayIPK5KlassE.exit16: ; preds = %_ZN20KlassToFieldEnvelopeI19ModuleFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS5_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEEclEPK5Klass.exit.i11, %_ZNK14JfrArtifactSet7iterateI20KlassToFieldEnvelopeI19ModuleFieldSelector17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK11ModuleEntry18SerializePredicateIS7_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EEEEEbRT_P13GrowableArrayIPK5KlassE.exit
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN23JfrArtifactCallbackHostIPK11ModuleEntry16CompositeFunctorIS2_17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIS2_18SerializePredicateIS2_EXadL_Z13write__moduleP19JfrCheckpointWriterPKvEEELj201EE13ClearArtifactIS2_EEE11do_artifactESB_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef %1) unnamed_addr #0 comdat align 2 {
   %3 = alloca ptr, align 8
   store ptr %1, ptr %3, align 8
@@ -6231,8 +6263,8 @@ _ZN18SerializePredicateIPK11ModuleEntryEclERKS2_.exit.thread.i.i: ; preds = %_ZN
 
 16:                                               ; preds = %_ZN18SerializePredicateIPK11ModuleEntryEclERKS2_.exit.thread.i.i
   %17 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
-  %18 = trunc i8 %17 to i1
-  %19 = select i1 %18, i8 -3, i8 -2
+  %18 = and i8 %17, 1
+  %19 = sub nuw nsw i8 -2, %18
   %20 = getelementptr inbounds nuw i8, ptr %.pre.i.i, i64 73
   br label %21
 
@@ -6279,8 +6311,8 @@ _ZN21JfrTypeWriterImplHostIPK11ModuleEntryXadL_Z13write__moduleP19JfrCheckpointW
 
 _ZN14JfrTraceIdBits15meta_mask_storeI11ModuleEntryEEvhPKT_.exit.i: ; preds = %42, %38
   %45 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
-  %46 = trunc i8 %45 to i1
-  %47 = select i1 %46, i8 1, i8 2
+  %46 = and i8 %45, 1
+  %47 = sub nuw nsw i8 2, %46
   %48 = load ptr, ptr %1, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 73
   %50 = load i8, ptr %49, align 1
@@ -6289,23 +6321,26 @@ _ZN14JfrTraceIdBits15meta_mask_storeI11ModuleEntryEEvhPKT_.exit.i: ; preds = %42
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
   %52 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
   %53 = trunc i8 %52 to i1
-  %54 = select i1 %53, i8 -6, i8 -11
-  %55 = load ptr, ptr %1, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 72
-  br label %57
+  %54 = and i8 %52, 1
+  %55 = select i1 %53, i8 -5, i8 -9
+  %56 = add nuw nsw i8 %54, -3
+  %57 = and i8 %55, %56
+  %58 = load ptr, ptr %1, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 72
+  br label %60
 
-57:                                               ; preds = %61, %_ZN14JfrTraceIdBits15meta_mask_storeI11ModuleEntryEEvhPKT_.exit.i
-  %58 = load volatile i8, ptr %56, align 1
-  %59 = and i8 %58, %54
-  %60 = icmp eq i8 %58, %59
-  br i1 %60, label %_ZN13ClearArtifactIPK11ModuleEntryEclERKS2_.exit, label %61
+60:                                               ; preds = %64, %_ZN14JfrTraceIdBits15meta_mask_storeI11ModuleEntryEEvhPKT_.exit.i
+  %61 = load volatile i8, ptr %59, align 1
+  %62 = and i8 %57, %61
+  %63 = icmp eq i8 %61, %62
+  br i1 %63, label %_ZN13ClearArtifactIPK11ModuleEntryEclERKS2_.exit, label %64
 
-61:                                               ; preds = %57
-  %62 = tail call noundef i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %59, i8 %58, ptr nonnull %56) #9, !srcloc !7
-  %63 = icmp eq i8 %62, %58
-  br i1 %63, label %_ZN13ClearArtifactIPK11ModuleEntryEclERKS2_.exit, label %57, !llvm.loop !8
+64:                                               ; preds = %60
+  %65 = tail call noundef i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %62, i8 %61, ptr nonnull %59) #9, !srcloc !7
+  %66 = icmp eq i8 %65, %61
+  br i1 %66, label %_ZN13ClearArtifactIPK11ModuleEntryEclERKS2_.exit, label %60, !llvm.loop !8
 
-_ZN13ClearArtifactIPK11ModuleEntryEclERKS2_.exit: ; preds = %61, %57
+_ZN13ClearArtifactIPK11ModuleEntryEclERKS2_.exit: ; preds = %64, %60
   ret i1 true
 }
 
@@ -6321,21 +6356,24 @@ define internal void @_ZL9do_moduleP11ModuleEntry(ptr noundef %0) #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %8 = load i64, ptr %7, align 8
   %9 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
-  %10 = trunc i8 %9 to i1
-  %11 = xor i1 %6, %10
-  %.sink.i.i = select i1 %11, i64 2049, i64 2050
-  %12 = and i64 %.sink.i.i, %8
-  %.not.i = icmp eq i64 %12, 0
-  br i1 %.not.i, label %_ZL11do_artifactI11ModuleEntryEvPKT_.exit, label %13
+  %10 = and i8 %9, 1
+  %11 = sub nuw nsw i8 2, %10
+  %12 = add nuw nsw i8 %10, 1
+  %.sink.i.i = select i1 %6, i8 %12, i8 %11
+  %13 = zext nneg i8 %.sink.i.i to i64
+  %14 = or disjoint i64 %13, 2048
+  %15 = and i64 %14, %8
+  %.not.i = icmp eq i64 %15, 0
+  br i1 %.not.i, label %_ZL11do_artifactI11ModuleEntryEvPKT_.exit, label %16
 
-13:                                               ; preds = %1
-  %14 = load ptr, ptr @_ZL19_subsystem_callback, align 8
-  %15 = load ptr, ptr %14, align 8
-  %16 = load ptr, ptr %15, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull %0) #9
+16:                                               ; preds = %1
+  %17 = load ptr, ptr @_ZL19_subsystem_callback, align 8
+  %18 = load ptr, ptr %17, align 8
+  %19 = load ptr, ptr %18, align 8
+  tail call void %19(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull %0) #9
   br label %_ZL11do_artifactI11ModuleEntryEvPKT_.exit
 
-_ZL11do_artifactI11ModuleEntryEvPKT_.exit:        ; preds = %1, %13
+_ZL11do_artifactI11ModuleEntryEvPKT_.exit:        ; preds = %1, %16
   ret void
 }
 
@@ -6367,8 +6405,8 @@ define linkonce_odr hidden void @_ZN23JfrArtifactCallbackHostIPK11ModuleEntry16C
 
 _ZN14JfrTraceIdBits15meta_mask_storeI11ModuleEntryEEvhPKT_.exit.i.i: ; preds = %15, %11
   %18 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
-  %19 = trunc i8 %18 to i1
-  %20 = select i1 %19, i8 1, i8 2
+  %19 = and i8 %18, 1
+  %20 = sub nuw nsw i8 2, %19
   %21 = load ptr, ptr %3, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 73
   %23 = load i8, ptr %22, align 1
@@ -6377,23 +6415,26 @@ _ZN14JfrTraceIdBits15meta_mask_storeI11ModuleEntryEEvhPKT_.exit.i.i: ; preds = %
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
   %25 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
   %26 = trunc i8 %25 to i1
-  %27 = select i1 %26, i8 -6, i8 -11
-  %28 = load ptr, ptr %3, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 72
-  br label %30
+  %27 = and i8 %25, 1
+  %28 = select i1 %26, i8 -5, i8 -9
+  %29 = add nuw nsw i8 %27, -3
+  %30 = and i8 %28, %29
+  %31 = load ptr, ptr %3, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 72
+  br label %33
 
-30:                                               ; preds = %34, %_ZN14JfrTraceIdBits15meta_mask_storeI11ModuleEntryEEvhPKT_.exit.i.i
-  %31 = load volatile i8, ptr %29, align 1
-  %32 = and i8 %31, %27
-  %33 = icmp eq i8 %31, %32
-  br i1 %33, label %_ZN16CompositeFunctorIPK11ModuleEntryS_IS2_17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIS2_13LeakPredicateIS2_EXadL_Z20write__module__leakpP19JfrCheckpointWriterPKvEEELj201EES3_IS4_IS2_18SerializePredicateIS2_EXadL_Z13write__moduleS8_SA_EEELj201EEE13ClearArtifactIS2_EEclERKS2_.exit, label %34
+33:                                               ; preds = %37, %_ZN14JfrTraceIdBits15meta_mask_storeI11ModuleEntryEEvhPKT_.exit.i.i
+  %34 = load volatile i8, ptr %32, align 1
+  %35 = and i8 %30, %34
+  %36 = icmp eq i8 %34, %35
+  br i1 %36, label %_ZN16CompositeFunctorIPK11ModuleEntryS_IS2_17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIS2_13LeakPredicateIS2_EXadL_Z20write__module__leakpP19JfrCheckpointWriterPKvEEELj201EES3_IS4_IS2_18SerializePredicateIS2_EXadL_Z13write__moduleS8_SA_EEELj201EEE13ClearArtifactIS2_EEclERKS2_.exit, label %37
 
-34:                                               ; preds = %30
-  %35 = call noundef i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %32, i8 %31, ptr nonnull %29) #9, !srcloc !7
-  %36 = icmp eq i8 %35, %31
-  br i1 %36, label %_ZN16CompositeFunctorIPK11ModuleEntryS_IS2_17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIS2_13LeakPredicateIS2_EXadL_Z20write__module__leakpP19JfrCheckpointWriterPKvEEELj201EES3_IS4_IS2_18SerializePredicateIS2_EXadL_Z13write__moduleS8_SA_EEELj201EEE13ClearArtifactIS2_EEclERKS2_.exit, label %30, !llvm.loop !8
+37:                                               ; preds = %33
+  %38 = call noundef i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %35, i8 %34, ptr nonnull %32) #9, !srcloc !7
+  %39 = icmp eq i8 %38, %34
+  br i1 %39, label %_ZN16CompositeFunctorIPK11ModuleEntryS_IS2_17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIS2_13LeakPredicateIS2_EXadL_Z20write__module__leakpP19JfrCheckpointWriterPKvEEELj201EES3_IS4_IS2_18SerializePredicateIS2_EXadL_Z13write__moduleS8_SA_EEELj201EEE13ClearArtifactIS2_EEclERKS2_.exit, label %33, !llvm.loop !8
 
-_ZN16CompositeFunctorIPK11ModuleEntryS_IS2_17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIS2_13LeakPredicateIS2_EXadL_Z20write__module__leakpP19JfrCheckpointWriterPKvEEELj201EES3_IS4_IS2_18SerializePredicateIS2_EXadL_Z13write__moduleS8_SA_EEELj201EEE13ClearArtifactIS2_EEclERKS2_.exit: ; preds = %30, %34, %2
+_ZN16CompositeFunctorIPK11ModuleEntryS_IS2_17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIS2_13LeakPredicateIS2_EXadL_Z20write__module__leakpP19JfrCheckpointWriterPKvEEELj201EES3_IS4_IS2_18SerializePredicateIS2_EXadL_Z13write__moduleS8_SA_EEELj201EEE13ClearArtifactIS2_EEclERKS2_.exit: ; preds = %33, %37, %2
   ret void
 }
 
@@ -6459,8 +6500,8 @@ _ZN18SerializePredicateIPK11ModuleEntryEclERKS2_.exit.thread.i.i: ; preds = %_ZN
 
 37:                                               ; preds = %_ZN18SerializePredicateIPK11ModuleEntryEclERKS2_.exit.thread.i.i
   %38 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
-  %39 = trunc i8 %38 to i1
-  %40 = select i1 %39, i8 -3, i8 -2
+  %39 = and i8 %38, 1
+  %40 = sub nuw nsw i8 -2, %39
   %41 = getelementptr inbounds nuw i8, ptr %.pre.i.i, i64 73
   br label %42
 
@@ -6705,8 +6746,8 @@ _ZN18SerializePredicateIPK15ClassLoaderDataEclERKS2_.exit.thread.i.i.i: ; preds 
 
 30:                                               ; preds = %_ZN18SerializePredicateIPK15ClassLoaderDataEclERKS2_.exit.thread.i.i.i
   %31 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
-  %32 = trunc i8 %31 to i1
-  %33 = select i1 %32, i8 -3, i8 -2
+  %32 = and i8 %31, 1
+  %33 = sub nuw nsw i8 -2, %32
   %34 = getelementptr inbounds nuw i8, ptr %.pre.i.i.i, i64 153
   br label %35
 
@@ -6787,8 +6828,8 @@ _ZN18SerializePredicateIPK15ClassLoaderDataEclERKS2_.exit.thread.i.i.i7: ; preds
 
 76:                                               ; preds = %_ZN18SerializePredicateIPK15ClassLoaderDataEclERKS2_.exit.thread.i.i.i7
   %77 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
-  %78 = trunc i8 %77 to i1
-  %79 = select i1 %78, i8 -3, i8 -2
+  %78 = and i8 %77, 1
+  %79 = sub nuw nsw i8 -2, %78
   %80 = getelementptr inbounds nuw i8, ptr %61, i64 153
   br label %81
 
@@ -6861,8 +6902,8 @@ _ZN18SerializePredicateIPK15ClassLoaderDataEclERKS2_.exit.thread.i.i: ; preds = 
 
 16:                                               ; preds = %_ZN18SerializePredicateIPK15ClassLoaderDataEclERKS2_.exit.thread.i.i
   %17 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
-  %18 = trunc i8 %17 to i1
-  %19 = select i1 %18, i8 -3, i8 -2
+  %18 = and i8 %17, 1
+  %19 = sub nuw nsw i8 -2, %18
   %20 = getelementptr inbounds nuw i8, ptr %.pre.i.i, i64 153
   br label %21
 
@@ -6909,8 +6950,8 @@ _ZN21JfrTypeWriterImplHostIPK15ClassLoaderDataXadL_Z10write__cldP19JfrCheckpoint
 
 _ZN14JfrTraceIdBits15meta_mask_storeI15ClassLoaderDataEEvhPKT_.exit.i: ; preds = %42, %38
   %45 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
-  %46 = trunc i8 %45 to i1
-  %47 = select i1 %46, i8 1, i8 2
+  %46 = and i8 %45, 1
+  %47 = sub nuw nsw i8 2, %46
   %48 = load ptr, ptr %1, align 8
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 153
   %50 = load i8, ptr %49, align 1
@@ -6919,23 +6960,26 @@ _ZN14JfrTraceIdBits15meta_mask_storeI15ClassLoaderDataEEvhPKT_.exit.i: ; preds =
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
   %52 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
   %53 = trunc i8 %52 to i1
-  %54 = select i1 %53, i8 -6, i8 -11
-  %55 = load ptr, ptr %1, align 8
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 152
-  br label %57
+  %54 = and i8 %52, 1
+  %55 = select i1 %53, i8 -5, i8 -9
+  %56 = add nuw nsw i8 %54, -3
+  %57 = and i8 %55, %56
+  %58 = load ptr, ptr %1, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 152
+  br label %60
 
-57:                                               ; preds = %61, %_ZN14JfrTraceIdBits15meta_mask_storeI15ClassLoaderDataEEvhPKT_.exit.i
-  %58 = load volatile i8, ptr %56, align 1
-  %59 = and i8 %58, %54
-  %60 = icmp eq i8 %58, %59
-  br i1 %60, label %_ZN13ClearArtifactIPK15ClassLoaderDataEclERKS2_.exit, label %61
+60:                                               ; preds = %64, %_ZN14JfrTraceIdBits15meta_mask_storeI15ClassLoaderDataEEvhPKT_.exit.i
+  %61 = load volatile i8, ptr %59, align 1
+  %62 = and i8 %57, %61
+  %63 = icmp eq i8 %61, %62
+  br i1 %63, label %_ZN13ClearArtifactIPK15ClassLoaderDataEclERKS2_.exit, label %64
 
-61:                                               ; preds = %57
-  %62 = tail call noundef i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %59, i8 %58, ptr nonnull %56) #9, !srcloc !7
-  %63 = icmp eq i8 %62, %58
-  br i1 %63, label %_ZN13ClearArtifactIPK15ClassLoaderDataEclERKS2_.exit, label %57, !llvm.loop !8
+64:                                               ; preds = %60
+  %65 = tail call noundef i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %62, i8 %61, ptr nonnull %59) #9, !srcloc !7
+  %66 = icmp eq i8 %65, %61
+  br i1 %66, label %_ZN13ClearArtifactIPK15ClassLoaderDataEclERKS2_.exit, label %60, !llvm.loop !8
 
-_ZN13ClearArtifactIPK15ClassLoaderDataEclERKS2_.exit: ; preds = %61, %57
+_ZN13ClearArtifactIPK15ClassLoaderDataEclERKS2_.exit: ; preds = %64, %60
   ret i1 true
 }
 
@@ -6957,21 +7001,24 @@ define linkonce_odr hidden void @_ZN11CLDCallback6do_cldEP15ClassLoaderData(ptr 
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %13 = load i64, ptr %12, align 8
   %14 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
-  %15 = trunc i8 %14 to i1
-  %16 = xor i1 %11, %15
-  %.sink.i.i = select i1 %16, i64 2049, i64 2050
-  %17 = and i64 %.sink.i.i, %13
-  %.not.i = icmp eq i64 %17, 0
-  br i1 %.not.i, label %_ZL11do_artifactI15ClassLoaderDataEvPKT_.exit, label %18
+  %15 = and i8 %14, 1
+  %16 = sub nuw nsw i8 2, %15
+  %17 = add nuw nsw i8 %15, 1
+  %.sink.i.i = select i1 %11, i8 %17, i8 %16
+  %18 = zext nneg i8 %.sink.i.i to i64
+  %19 = or disjoint i64 %18, 2048
+  %20 = and i64 %19, %13
+  %.not.i = icmp eq i64 %20, 0
+  br i1 %.not.i, label %_ZL11do_artifactI15ClassLoaderDataEvPKT_.exit, label %21
 
-18:                                               ; preds = %6
-  %19 = load ptr, ptr @_ZL19_subsystem_callback, align 8
-  %20 = load ptr, ptr %19, align 8
-  %21 = load ptr, ptr %20, align 8
-  tail call void %21(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull %1) #9
+21:                                               ; preds = %6
+  %22 = load ptr, ptr @_ZL19_subsystem_callback, align 8
+  %23 = load ptr, ptr %22, align 8
+  %24 = load ptr, ptr %23, align 8
+  tail call void %24(ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull %1) #9
   br label %_ZL11do_artifactI15ClassLoaderDataEvPKT_.exit
 
-_ZL11do_artifactI15ClassLoaderDataEvPKT_.exit:    ; preds = %18, %6, %2
+_ZL11do_artifactI15ClassLoaderDataEvPKT_.exit:    ; preds = %21, %6, %2
   ret void
 }
 
@@ -7003,8 +7050,8 @@ define linkonce_odr hidden void @_ZN23JfrArtifactCallbackHostIPK15ClassLoaderDat
 
 _ZN14JfrTraceIdBits15meta_mask_storeI15ClassLoaderDataEEvhPKT_.exit.i.i: ; preds = %15, %11
   %18 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
-  %19 = trunc i8 %18 to i1
-  %20 = select i1 %19, i8 1, i8 2
+  %19 = and i8 %18, 1
+  %20 = sub nuw nsw i8 2, %19
   %21 = load ptr, ptr %3, align 8
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 153
   %23 = load i8, ptr %22, align 1
@@ -7013,23 +7060,26 @@ _ZN14JfrTraceIdBits15meta_mask_storeI15ClassLoaderDataEEvhPKT_.exit.i.i: ; preds
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
   %25 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
   %26 = trunc i8 %25 to i1
-  %27 = select i1 %26, i8 -6, i8 -11
-  %28 = load ptr, ptr %3, align 8
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 152
-  br label %30
+  %27 = and i8 %25, 1
+  %28 = select i1 %26, i8 -5, i8 -9
+  %29 = add nuw nsw i8 %27, -3
+  %30 = and i8 %28, %29
+  %31 = load ptr, ptr %3, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 152
+  br label %33
 
-30:                                               ; preds = %34, %_ZN14JfrTraceIdBits15meta_mask_storeI15ClassLoaderDataEEvhPKT_.exit.i.i
-  %31 = load volatile i8, ptr %29, align 1
-  %32 = and i8 %31, %27
-  %33 = icmp eq i8 %31, %32
-  br i1 %33, label %_ZN16CompositeFunctorIPK15ClassLoaderDataS_IS2_17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIS2_13LeakPredicateIS2_EXadL_Z17write__cld__leakpP19JfrCheckpointWriterPKvEEELj182EES3_IS4_IS2_18SerializePredicateIS2_EXadL_Z10write__cldS8_SA_EEELj182EEE13ClearArtifactIS2_EEclERKS2_.exit, label %34
+33:                                               ; preds = %37, %_ZN14JfrTraceIdBits15meta_mask_storeI15ClassLoaderDataEEvhPKT_.exit.i.i
+  %34 = load volatile i8, ptr %32, align 1
+  %35 = and i8 %30, %34
+  %36 = icmp eq i8 %34, %35
+  br i1 %36, label %_ZN16CompositeFunctorIPK15ClassLoaderDataS_IS2_17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIS2_13LeakPredicateIS2_EXadL_Z17write__cld__leakpP19JfrCheckpointWriterPKvEEELj182EES3_IS4_IS2_18SerializePredicateIS2_EXadL_Z10write__cldS8_SA_EEELj182EEE13ClearArtifactIS2_EEclERKS2_.exit, label %37
 
-34:                                               ; preds = %30
-  %35 = call noundef i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %32, i8 %31, ptr nonnull %29) #9, !srcloc !7
-  %36 = icmp eq i8 %35, %31
-  br i1 %36, label %_ZN16CompositeFunctorIPK15ClassLoaderDataS_IS2_17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIS2_13LeakPredicateIS2_EXadL_Z17write__cld__leakpP19JfrCheckpointWriterPKvEEELj182EES3_IS4_IS2_18SerializePredicateIS2_EXadL_Z10write__cldS8_SA_EEELj182EEE13ClearArtifactIS2_EEclERKS2_.exit, label %30, !llvm.loop !8
+37:                                               ; preds = %33
+  %38 = call noundef i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %35, i8 %34, ptr nonnull %32) #9, !srcloc !7
+  %39 = icmp eq i8 %38, %34
+  br i1 %39, label %_ZN16CompositeFunctorIPK15ClassLoaderDataS_IS2_17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIS2_13LeakPredicateIS2_EXadL_Z17write__cld__leakpP19JfrCheckpointWriterPKvEEELj182EES3_IS4_IS2_18SerializePredicateIS2_EXadL_Z10write__cldS8_SA_EEELj182EEE13ClearArtifactIS2_EEclERKS2_.exit, label %33, !llvm.loop !8
 
-_ZN16CompositeFunctorIPK15ClassLoaderDataS_IS2_17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIS2_13LeakPredicateIS2_EXadL_Z17write__cld__leakpP19JfrCheckpointWriterPKvEEELj182EES3_IS4_IS2_18SerializePredicateIS2_EXadL_Z10write__cldS8_SA_EEELj182EEE13ClearArtifactIS2_EEclERKS2_.exit: ; preds = %30, %34, %2
+_ZN16CompositeFunctorIPK15ClassLoaderDataS_IS2_17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIS2_13LeakPredicateIS2_EXadL_Z17write__cld__leakpP19JfrCheckpointWriterPKvEEELj182EES3_IS4_IS2_18SerializePredicateIS2_EXadL_Z10write__cldS8_SA_EEELj182EEE13ClearArtifactIS2_EEclERKS2_.exit: ; preds = %33, %37, %2
   ret void
 }
 
@@ -7095,8 +7145,8 @@ _ZN18SerializePredicateIPK15ClassLoaderDataEclERKS2_.exit.thread.i.i: ; preds = 
 
 37:                                               ; preds = %_ZN18SerializePredicateIPK15ClassLoaderDataEclERKS2_.exit.thread.i.i
   %38 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
-  %39 = trunc i8 %38 to i1
-  %40 = select i1 %39, i8 -3, i8 -2
+  %39 = and i8 %38, 1
+  %40 = sub nuw nsw i8 -2, %39
   %41 = getelementptr inbounds nuw i8, ptr %.pre.i.i, i64 153
   br label %42
 
@@ -7352,7 +7402,7 @@ _ZN19MethodUsedPredicateclEPK5Klass.exit:         ; preds = %2
 
 17:                                               ; preds = %.lr.ph19, %._crit_edge
   %.pre22 = phi i8 [ %10, %.lr.ph19 ], [ %.pre2225, %._crit_edge ]
-  %.0818 = phi ptr [ %1, %.lr.ph19 ], [ %66, %._crit_edge ]
+  %.0818 = phi ptr [ %1, %.lr.ph19 ], [ %69, %._crit_edge ]
   %18 = getelementptr inbounds nuw i8, ptr %.0818, i64 400
   %19 = load ptr, ptr %18, align 8
   %20 = load i32, ptr %19, align 8
@@ -7363,95 +7413,98 @@ _ZN19MethodUsedPredicateclEPK5Klass.exit:         ; preds = %2
   %wide.trip.count = zext nneg i32 %20 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %63
-  %.pre2226 = phi i8 [ %.pre22, %.lr.ph.preheader ], [ %.pre2227, %63 ]
-  %22 = phi i8 [ %.pre22, %.lr.ph.preheader ], [ %64, %63 ]
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %63 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %66
+  %.pre2226 = phi i8 [ %.pre22, %.lr.ph.preheader ], [ %.pre2227, %66 ]
+  %22 = phi i8 [ %.pre22, %.lr.ph.preheader ], [ %67, %66 ]
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %66 ]
   %23 = load ptr, ptr %18, align 8
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %25 = getelementptr inbounds nuw ptr, ptr %24, i64 %indvars.iv
   %26 = load ptr, ptr %25, align 8
   %27 = load i8, ptr %14, align 1
-  %28 = getelementptr inbounds nuw i8, ptr %26, i64 54
-  %29 = load i16, ptr %28, align 2
-  %30 = xor i8 %22, %27
-  %31 = trunc i8 %30 to i1
-  %.sink.i9 = select i1 %31, i16 2049, i16 2050
-  %32 = and i16 %.sink.i9, %29
-  %.0.i10.not = icmp eq i16 %32, 0
-  %33 = lshr i16 %29, 8
-  %34 = trunc nuw i16 %33 to i8
-  br i1 %.0.i10.not, label %63, label %35
+  %28 = trunc i8 %27 to i1
+  %29 = and i8 %22, 1
+  %30 = getelementptr inbounds nuw i8, ptr %26, i64 54
+  %31 = load i16, ptr %30, align 2
+  %32 = sub nuw nsw i8 2, %29
+  %33 = add nuw nsw i8 %29, 1
+  %.sink.i9 = select i1 %28, i8 %33, i8 %32
+  %34 = zext nneg i8 %.sink.i9 to i16
+  %35 = or disjoint i16 %34, 2048
+  %36 = and i16 %35, %31
+  %.0.i10.not = icmp eq i16 %36, 0
+  %37 = lshr i16 %31, 8
+  %38 = trunc nuw i16 %37 to i8
+  br i1 %.0.i10.not, label %66, label %39
 
-35:                                               ; preds = %.lr.ph
-  %36 = load i8, ptr %15, align 8
-  %37 = trunc i8 %36 to i1
-  %38 = and i16 %29, 4096
-  %.not.i.i.i = icmp eq i16 %38, 0
-  %or.cond = or i1 %.not.i.i.i, %37
+39:                                               ; preds = %.lr.ph
+  %40 = load i8, ptr %15, align 8
+  %41 = trunc i8 %40 to i1
+  %42 = and i16 %31, 4096
+  %.not.i.i.i = icmp eq i16 %42, 0
+  %or.cond = or i1 %.not.i.i.i, %41
   br i1 %or.cond, label %_ZN18SerializePredicateIPK6MethodEclES2_.exit.thread.i.i, label %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK6Method18SerializePredicateIS3_EXadL_Z13write__methodP19JfrCheckpointWriterPKvEEELj183EEclERKS3_.exit
 
-_ZN18SerializePredicateIPK6MethodEclES2_.exit.thread.i.i: ; preds = %35
-  %39 = load ptr, ptr %0, align 8
-  %40 = load i8, ptr @_ZL11_flushpoint, align 1
-  %41 = trunc nuw i8 %40 to i1
-  %42 = load i8, ptr @_ZL13_class_unload, align 1
-  %43 = trunc nuw i8 %42 to i1
-  %44 = select i1 %41, i1 true, i1 %43
-  br i1 %44, label %45, label %_ZN21JfrTypeWriterImplHostIPK6MethodXadL_Z13write__methodP19JfrCheckpointWriterPKvEEEclERKS2_.exit.i.i
+_ZN18SerializePredicateIPK6MethodEclES2_.exit.thread.i.i: ; preds = %39
+  %43 = load ptr, ptr %0, align 8
+  %44 = load i8, ptr @_ZL11_flushpoint, align 1
+  %45 = trunc nuw i8 %44 to i1
+  %46 = load i8, ptr @_ZL13_class_unload, align 1
+  %47 = trunc nuw i8 %46 to i1
+  %48 = select i1 %45, i1 true, i1 %47
+  br i1 %48, label %49, label %_ZN21JfrTypeWriterImplHostIPK6MethodXadL_Z13write__methodP19JfrCheckpointWriterPKvEEEclERKS2_.exit.i.i
 
-45:                                               ; preds = %_ZN18SerializePredicateIPK6MethodEclES2_.exit.thread.i.i
-  %46 = trunc i8 %22 to i1
-  %47 = select i1 %46, i8 -3, i8 -2
-  %48 = getelementptr inbounds nuw i8, ptr %26, i64 55
-  br label %49
+49:                                               ; preds = %_ZN18SerializePredicateIPK6MethodEclES2_.exit.thread.i.i
+  %50 = sub nuw nsw i8 -2, %29
+  %51 = getelementptr inbounds nuw i8, ptr %26, i64 55
+  br label %52
 
-49:                                               ; preds = %53, %45
-  %50 = load volatile i8, ptr %48, align 1
-  %51 = and i8 %50, %47
-  %52 = icmp eq i8 %50, %51
-  br i1 %52, label %_ZN21JfrTypeWriterImplHostIPK6MethodXadL_Z13write__methodP19JfrCheckpointWriterPKvEEEclERKS2_.exit.i.i, label %53
+52:                                               ; preds = %56, %49
+  %53 = load volatile i8, ptr %51, align 1
+  %54 = and i8 %53, %50
+  %55 = icmp eq i8 %53, %54
+  br i1 %55, label %_ZN21JfrTypeWriterImplHostIPK6MethodXadL_Z13write__methodP19JfrCheckpointWriterPKvEEEclERKS2_.exit.i.i, label %56
 
-53:                                               ; preds = %49
-  %54 = tail call noundef i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %51, i8 %50, ptr nonnull %48) #9, !srcloc !7
-  %55 = icmp eq i8 %54, %50
-  br i1 %55, label %._ZN21JfrTypeWriterImplHostIPK6MethodXadL_Z13write__methodP19JfrCheckpointWriterPKvEEEclERKS2_.exit.i.i.loopexit_crit_edge, label %49, !llvm.loop !8
+56:                                               ; preds = %52
+  %57 = tail call noundef i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %54, i8 %53, ptr nonnull %51) #9, !srcloc !7
+  %58 = icmp eq i8 %57, %53
+  br i1 %58, label %._ZN21JfrTypeWriterImplHostIPK6MethodXadL_Z13write__methodP19JfrCheckpointWriterPKvEEEclERKS2_.exit.i.i.loopexit_crit_edge, label %52, !llvm.loop !8
 
-._ZN21JfrTypeWriterImplHostIPK6MethodXadL_Z13write__methodP19JfrCheckpointWriterPKvEEEclERKS2_.exit.i.i.loopexit_crit_edge: ; preds = %53
-  %.pre23.pre = load i8, ptr %48, align 1
+._ZN21JfrTypeWriterImplHostIPK6MethodXadL_Z13write__methodP19JfrCheckpointWriterPKvEEEclERKS2_.exit.i.i.loopexit_crit_edge: ; preds = %56
+  %.pre23.pre = load i8, ptr %51, align 1
   br label %_ZN21JfrTypeWriterImplHostIPK6MethodXadL_Z13write__methodP19JfrCheckpointWriterPKvEEEclERKS2_.exit.i.i
 
-_ZN21JfrTypeWriterImplHostIPK6MethodXadL_Z13write__methodP19JfrCheckpointWriterPKvEEEclERKS2_.exit.i.i: ; preds = %49, %._ZN21JfrTypeWriterImplHostIPK6MethodXadL_Z13write__methodP19JfrCheckpointWriterPKvEEEclERKS2_.exit.i.i.loopexit_crit_edge, %_ZN18SerializePredicateIPK6MethodEclES2_.exit.thread.i.i
-  %56 = phi i8 [ %34, %_ZN18SerializePredicateIPK6MethodEclES2_.exit.thread.i.i ], [ %.pre23.pre, %._ZN21JfrTypeWriterImplHostIPK6MethodXadL_Z13write__methodP19JfrCheckpointWriterPKvEEEclERKS2_.exit.i.i.loopexit_crit_edge ], [ %50, %49 ]
-  %57 = getelementptr inbounds nuw i8, ptr %26, i64 55
-  %58 = or i8 %56, 16
-  store i8 %58, ptr %57, align 1
+_ZN21JfrTypeWriterImplHostIPK6MethodXadL_Z13write__methodP19JfrCheckpointWriterPKvEEEclERKS2_.exit.i.i: ; preds = %52, %._ZN21JfrTypeWriterImplHostIPK6MethodXadL_Z13write__methodP19JfrCheckpointWriterPKvEEEclERKS2_.exit.i.i.loopexit_crit_edge, %_ZN18SerializePredicateIPK6MethodEclES2_.exit.thread.i.i
+  %59 = phi i8 [ %38, %_ZN18SerializePredicateIPK6MethodEclES2_.exit.thread.i.i ], [ %.pre23.pre, %._ZN21JfrTypeWriterImplHostIPK6MethodXadL_Z13write__methodP19JfrCheckpointWriterPKvEEEclERKS2_.exit.i.i.loopexit_crit_edge ], [ %53, %52 ]
+  %60 = getelementptr inbounds nuw i8, ptr %26, i64 55
+  %61 = or i8 %59, 16
+  store i8 %61, ptr %60, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
-  tail call fastcc void @_ZL12write_methodP19JfrCheckpointWriterPK6Methodb(ptr noundef %39, ptr noundef nonnull %26, i1 noundef zeroext false)
+  tail call fastcc void @_ZL12write_methodP19JfrCheckpointWriterPK6Methodb(ptr noundef %43, ptr noundef nonnull %26, i1 noundef zeroext false)
   %.pre = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
   br label %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK6Method18SerializePredicateIS3_EXadL_Z13write__methodP19JfrCheckpointWriterPKvEEELj183EEclERKS3_.exit
 
-_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK6Method18SerializePredicateIS3_EXadL_Z13write__methodP19JfrCheckpointWriterPKvEEELj183EEclERKS3_.exit: ; preds = %35, %_ZN21JfrTypeWriterImplHostIPK6MethodXadL_Z13write__methodP19JfrCheckpointWriterPKvEEEclERKS2_.exit.i.i
-  %.pre2228 = phi i8 [ %.pre, %_ZN21JfrTypeWriterImplHostIPK6MethodXadL_Z13write__methodP19JfrCheckpointWriterPKvEEEclERKS2_.exit.i.i ], [ %.pre2226, %35 ]
-  %59 = phi i8 [ %.pre, %_ZN21JfrTypeWriterImplHostIPK6MethodXadL_Z13write__methodP19JfrCheckpointWriterPKvEEEclERKS2_.exit.i.i ], [ %22, %35 ]
-  %60 = phi i32 [ 1, %_ZN21JfrTypeWriterImplHostIPK6MethodXadL_Z13write__methodP19JfrCheckpointWriterPKvEEEclERKS2_.exit.i.i ], [ 0, %35 ]
-  %61 = load i32, ptr %16, align 8
-  %62 = add nsw i32 %61, %60
-  store i32 %62, ptr %16, align 8
-  br label %63
+_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK6Method18SerializePredicateIS3_EXadL_Z13write__methodP19JfrCheckpointWriterPKvEEELj183EEclERKS3_.exit: ; preds = %39, %_ZN21JfrTypeWriterImplHostIPK6MethodXadL_Z13write__methodP19JfrCheckpointWriterPKvEEEclERKS2_.exit.i.i
+  %.pre2228 = phi i8 [ %.pre, %_ZN21JfrTypeWriterImplHostIPK6MethodXadL_Z13write__methodP19JfrCheckpointWriterPKvEEEclERKS2_.exit.i.i ], [ %.pre2226, %39 ]
+  %62 = phi i8 [ %.pre, %_ZN21JfrTypeWriterImplHostIPK6MethodXadL_Z13write__methodP19JfrCheckpointWriterPKvEEEclERKS2_.exit.i.i ], [ %22, %39 ]
+  %63 = phi i32 [ 1, %_ZN21JfrTypeWriterImplHostIPK6MethodXadL_Z13write__methodP19JfrCheckpointWriterPKvEEEclERKS2_.exit.i.i ], [ 0, %39 ]
+  %64 = load i32, ptr %16, align 8
+  %65 = add nsw i32 %64, %63
+  store i32 %65, ptr %16, align 8
+  br label %66
 
-63:                                               ; preds = %.lr.ph, %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK6Method18SerializePredicateIS3_EXadL_Z13write__methodP19JfrCheckpointWriterPKvEEELj183EEclERKS3_.exit
+66:                                               ; preds = %.lr.ph, %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK6Method18SerializePredicateIS3_EXadL_Z13write__methodP19JfrCheckpointWriterPKvEEELj183EEclERKS3_.exit
   %.pre2227 = phi i8 [ %.pre2226, %.lr.ph ], [ %.pre2228, %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK6Method18SerializePredicateIS3_EXadL_Z13write__methodP19JfrCheckpointWriterPKvEEELj183EEclERKS3_.exit ]
-  %64 = phi i8 [ %22, %.lr.ph ], [ %59, %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK6Method18SerializePredicateIS3_EXadL_Z13write__methodP19JfrCheckpointWriterPKvEEELj183EEclERKS3_.exit ]
+  %67 = phi i8 [ %22, %.lr.ph ], [ %62, %_ZN17JfrTypeWriterHostI31JfrPredicatedTypeWriterImplHostIPK6Method18SerializePredicateIS3_EXadL_Z13write__methodP19JfrCheckpointWriterPKvEEELj183EEclERKS3_.exit ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !19
 
-._crit_edge:                                      ; preds = %63, %17
-  %.pre2225 = phi i8 [ %.pre22, %17 ], [ %.pre2227, %63 ]
-  %65 = getelementptr inbounds nuw i8, ptr %.0818, i64 376
-  %66 = load ptr, ptr %65, align 8
-  %.not = icmp eq ptr %66, null
+._crit_edge:                                      ; preds = %66, %17
+  %.pre2225 = phi i8 [ %.pre22, %17 ], [ %.pre2227, %66 ]
+  %68 = getelementptr inbounds nuw i8, ptr %.0818, i64 376
+  %69 = load ptr, ptr %68, align 8
+  %.not = icmp eq ptr %69, null
   br i1 %.not, label %_ZN19MethodUsedPredicateclEPK5Klass.exit.thread, label %17, !llvm.loop !20
 
 _ZN19MethodUsedPredicateclEPK5Klass.exit.thread:  ; preds = %._crit_edge, %_ZN19MethodUsedPredicateclEPK5Klass.exit, %2
@@ -8288,7 +8341,7 @@ _ZN19MethodUsedPredicateclEPK5Klass.exit:         ; preds = %2
   br label %14
 
 14:                                               ; preds = %.lr.ph24, %._crit_edge
-  %.0823 = phi ptr [ %1, %.lr.ph24 ], [ %52, %._crit_edge ]
+  %.0823 = phi ptr [ %1, %.lr.ph24 ], [ %56, %._crit_edge ]
   %15 = getelementptr inbounds nuw i8, ptr %.0823, i64 400
   %16 = load ptr, ptr %15, align 8
   %17 = load i32, ptr %16, align 8
@@ -8306,54 +8359,58 @@ _ZN19MethodUsedPredicateclEPK5Klass.exit:         ; preds = %2
   %21 = getelementptr inbounds nuw ptr, ptr %20, i64 %indvars.iv
   %22 = load ptr, ptr %21, align 8
   %23 = load i8, ptr %13, align 1
-  %24 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
-  %25 = getelementptr inbounds nuw i8, ptr %22, i64 54
-  %26 = load i16, ptr %25, align 2
-  %27 = xor i8 %24, %23
-  %28 = trunc i8 %27 to i1
-  %.sink.i9 = select i1 %28, i16 2049, i16 2050
-  %29 = and i16 %.sink.i9, %26
-  %.0.i10.not = icmp eq i16 %29, 0
-  br i1 %.0.i10.not, label %_ZN7WrapperIPK6Method13ClearArtifactEclERKS2_.exit, label %30
+  %24 = trunc i8 %23 to i1
+  %25 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
+  %26 = and i8 %25, 1
+  %27 = getelementptr inbounds nuw i8, ptr %22, i64 54
+  %28 = load i16, ptr %27, align 2
+  %29 = sub nuw nsw i8 2, %26
+  %30 = add nuw nsw i8 %26, 1
+  %.sink.i9 = select i1 %24, i8 %30, i8 %29
+  %31 = zext nneg i8 %.sink.i9 to i16
+  %32 = or disjoint i16 %31, 2048
+  %33 = and i16 %32, %28
+  %.0.i10.not = icmp eq i16 %33, 0
+  br i1 %.0.i10.not, label %_ZN7WrapperIPK6Method13ClearArtifactEclERKS2_.exit, label %34
 
-30:                                               ; preds = %.lr.ph
-  %31 = getelementptr inbounds nuw i8, ptr %22, i64 55
-  br label %32
+34:                                               ; preds = %.lr.ph
+  %35 = getelementptr inbounds nuw i8, ptr %22, i64 55
+  br label %36
 
-32:                                               ; preds = %36, %30
-  %33 = load volatile i8, ptr %31, align 1
-  %34 = and i8 %33, -29
-  %35 = icmp eq i8 %33, %34
-  br i1 %35, label %_ZN14JfrTraceIdBits15meta_mask_storeI6MethodEEvhPKT_.exit.i.i, label %36
+36:                                               ; preds = %40, %34
+  %37 = load volatile i8, ptr %35, align 1
+  %38 = and i8 %37, -29
+  %39 = icmp eq i8 %37, %38
+  br i1 %39, label %_ZN14JfrTraceIdBits15meta_mask_storeI6MethodEEvhPKT_.exit.i.i, label %40
 
-36:                                               ; preds = %32
-  %37 = tail call noundef i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %34, i8 %33, ptr nonnull %31) #9, !srcloc !7
-  %38 = icmp eq i8 %37, %33
-  br i1 %38, label %._ZN14JfrTraceIdBits15meta_mask_storeI6MethodEEvhPKT_.exit_crit_edge.i.i, label %32, !llvm.loop !8
+40:                                               ; preds = %36
+  %41 = tail call noundef i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %38, i8 %37, ptr nonnull %35) #9, !srcloc !7
+  %42 = icmp eq i8 %41, %37
+  br i1 %42, label %._ZN14JfrTraceIdBits15meta_mask_storeI6MethodEEvhPKT_.exit_crit_edge.i.i, label %36, !llvm.loop !8
 
-._ZN14JfrTraceIdBits15meta_mask_storeI6MethodEEvhPKT_.exit_crit_edge.i.i: ; preds = %36
-  %.pre.i.i = load i8, ptr %31, align 1
+._ZN14JfrTraceIdBits15meta_mask_storeI6MethodEEvhPKT_.exit_crit_edge.i.i: ; preds = %40
+  %.pre.i.i = load i8, ptr %35, align 1
   br label %_ZN14JfrTraceIdBits15meta_mask_storeI6MethodEEvhPKT_.exit.i.i
 
-_ZN14JfrTraceIdBits15meta_mask_storeI6MethodEEvhPKT_.exit.i.i: ; preds = %32, %._ZN14JfrTraceIdBits15meta_mask_storeI6MethodEEvhPKT_.exit_crit_edge.i.i
-  %39 = phi i8 [ %.pre.i.i, %._ZN14JfrTraceIdBits15meta_mask_storeI6MethodEEvhPKT_.exit_crit_edge.i.i ], [ %33, %32 ]
-  %40 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
-  %41 = trunc i8 %40 to i1
-  %42 = select i1 %41, i8 1, i8 2
-  %43 = or i8 %42, %39
-  store i8 %43, ptr %31, align 1
-  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
+_ZN14JfrTraceIdBits15meta_mask_storeI6MethodEEvhPKT_.exit.i.i: ; preds = %36, %._ZN14JfrTraceIdBits15meta_mask_storeI6MethodEEvhPKT_.exit_crit_edge.i.i
+  %43 = phi i8 [ %.pre.i.i, %._ZN14JfrTraceIdBits15meta_mask_storeI6MethodEEvhPKT_.exit_crit_edge.i.i ], [ %37, %36 ]
   %44 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
-  %45 = trunc i8 %44 to i1
-  %46 = select i1 %45, i8 1, i8 2
+  %45 = and i8 %44, 1
+  %46 = sub nuw nsw i8 2, %45
+  %47 = or i8 %46, %43
+  store i8 %47, ptr %35, align 1
+  tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
+  %48 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
+  %49 = and i8 %48, 1
+  %50 = sub nuw nsw i8 2, %49
   br label %.split.i.i.i.i.i
 
 .split.i.i.i.i.i:                                 ; preds = %.split.i.i.i.i.i, %_ZN14JfrTraceIdBits15meta_mask_storeI6MethodEEvhPKT_.exit.i.i
-  %47 = load volatile i8, ptr %25, align 1
-  %48 = xor i8 %47, %46
-  %49 = tail call noundef i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %48, i8 %47, ptr nonnull %25) #9, !srcloc !7
-  %50 = icmp eq i8 %49, %47
-  br i1 %50, label %_ZN7WrapperIPK6Method13ClearArtifactEclERKS2_.exit, label %.split.i.i.i.i.i, !llvm.loop !25
+  %51 = load volatile i8, ptr %27, align 1
+  %52 = xor i8 %51, %50
+  %53 = tail call noundef i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %52, i8 %51, ptr nonnull %27) #9, !srcloc !7
+  %54 = icmp eq i8 %53, %51
+  br i1 %54, label %_ZN7WrapperIPK6Method13ClearArtifactEclERKS2_.exit, label %.split.i.i.i.i.i, !llvm.loop !25
 
 _ZN7WrapperIPK6Method13ClearArtifactEclERKS2_.exit: ; preds = %.split.i.i.i.i.i, %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -8361,9 +8418,9 @@ _ZN7WrapperIPK6Method13ClearArtifactEclERKS2_.exit: ; preds = %.split.i.i.i.i.i,
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !26
 
 ._crit_edge:                                      ; preds = %_ZN7WrapperIPK6Method13ClearArtifactEclERKS2_.exit, %14
-  %51 = getelementptr inbounds nuw i8, ptr %.0823, i64 376
-  %52 = load ptr, ptr %51, align 8
-  %.not = icmp eq ptr %52, null
+  %55 = getelementptr inbounds nuw i8, ptr %.0823, i64 376
+  %56 = load ptr, ptr %55, align 8
+  %.not = icmp eq ptr %56, null
   br i1 %.not, label %_ZN19MethodUsedPredicateclEPK5Klass.exit.thread.loopexit, label %14, !llvm.loop !27
 
 _ZN19MethodUsedPredicateclEPK5Klass.exit.thread.loopexit: ; preds = %._crit_edge
@@ -8371,62 +8428,69 @@ _ZN19MethodUsedPredicateclEPK5Klass.exit.thread.loopexit: ; preds = %._crit_edge
   br label %_ZN19MethodUsedPredicateclEPK5Klass.exit.thread
 
 _ZN19MethodUsedPredicateclEPK5Klass.exit.thread:  ; preds = %_ZN19MethodUsedPredicateclEPK5Klass.exit.thread.loopexit, %2, %_ZN19MethodUsedPredicateclEPK5Klass.exit
-  %53 = phi i8 [ %.pre, %_ZN19MethodUsedPredicateclEPK5Klass.exit.thread.loopexit ], [ %.pre27, %2 ], [ %.pre27, %_ZN19MethodUsedPredicateclEPK5Klass.exit ]
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 2
-  %55 = load i8, ptr %54, align 1
-  %56 = getelementptr inbounds nuw i8, ptr %1, i64 168
-  %57 = load i64, ptr %56, align 8
-  %58 = xor i8 %53, %55
-  %59 = trunc i8 %58 to i1
-  %.sink.i11 = select i1 %59, i64 2049, i64 2050
-  %60 = and i64 %.sink.i11, %57
-  %.not19 = icmp eq i64 %60, 0
-  br i1 %.not19, label %_ZN7WrapperIPK5Klass13ClearArtifactEclERKS2_.exit, label %61
+  %57 = phi i8 [ %.pre, %_ZN19MethodUsedPredicateclEPK5Klass.exit.thread.loopexit ], [ %.pre27, %2 ], [ %.pre27, %_ZN19MethodUsedPredicateclEPK5Klass.exit ]
+  %58 = getelementptr inbounds nuw i8, ptr %0, i64 2
+  %59 = load i8, ptr %58, align 1
+  %60 = trunc i8 %59 to i1
+  %61 = getelementptr inbounds nuw i8, ptr %1, i64 168
+  %62 = load i64, ptr %61, align 8
+  %63 = and i8 %57, 1
+  %64 = sub nuw nsw i8 2, %63
+  %65 = add nuw nsw i8 %63, 1
+  %.sink.i11 = select i1 %60, i8 %65, i8 %64
+  %66 = zext nneg i8 %.sink.i11 to i64
+  %67 = or disjoint i64 %66, 2048
+  %68 = and i64 %67, %62
+  %.not19 = icmp eq i64 %68, 0
+  br i1 %.not19, label %_ZN7WrapperIPK5Klass13ClearArtifactEclERKS2_.exit, label %69
 
-61:                                               ; preds = %_ZN19MethodUsedPredicateclEPK5Klass.exit.thread
-  %62 = getelementptr inbounds nuw i8, ptr %1, i64 169
-  br label %63
+69:                                               ; preds = %_ZN19MethodUsedPredicateclEPK5Klass.exit.thread
+  %70 = getelementptr inbounds nuw i8, ptr %1, i64 169
+  br label %71
 
-63:                                               ; preds = %67, %61
-  %64 = load volatile i8, ptr %62, align 1
-  %65 = and i8 %64, -29
-  %66 = icmp eq i8 %64, %65
-  br i1 %66, label %_ZN14JfrTraceIdBits15meta_mask_storeI5KlassEEvhPKT_.exit.i.i, label %67
+71:                                               ; preds = %75, %69
+  %72 = load volatile i8, ptr %70, align 1
+  %73 = and i8 %72, -29
+  %74 = icmp eq i8 %72, %73
+  br i1 %74, label %_ZN14JfrTraceIdBits15meta_mask_storeI5KlassEEvhPKT_.exit.i.i, label %75
 
-67:                                               ; preds = %63
-  %68 = tail call noundef i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %65, i8 %64, ptr nonnull %62) #9, !srcloc !7
-  %69 = icmp eq i8 %68, %64
-  br i1 %69, label %._ZN14JfrTraceIdBits15meta_mask_storeI5KlassEEvhPKT_.exit.i.i_crit_edge, label %63, !llvm.loop !8
+75:                                               ; preds = %71
+  %76 = tail call noundef i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %73, i8 %72, ptr nonnull %70) #9, !srcloc !7
+  %77 = icmp eq i8 %76, %72
+  br i1 %77, label %._ZN14JfrTraceIdBits15meta_mask_storeI5KlassEEvhPKT_.exit.i.i_crit_edge, label %71, !llvm.loop !8
 
-._ZN14JfrTraceIdBits15meta_mask_storeI5KlassEEvhPKT_.exit.i.i_crit_edge: ; preds = %67
-  %.pre28 = load i8, ptr %62, align 1
+._ZN14JfrTraceIdBits15meta_mask_storeI5KlassEEvhPKT_.exit.i.i_crit_edge: ; preds = %75
+  %.pre28 = load i8, ptr %70, align 1
   br label %_ZN14JfrTraceIdBits15meta_mask_storeI5KlassEEvhPKT_.exit.i.i
 
-_ZN14JfrTraceIdBits15meta_mask_storeI5KlassEEvhPKT_.exit.i.i: ; preds = %63, %._ZN14JfrTraceIdBits15meta_mask_storeI5KlassEEvhPKT_.exit.i.i_crit_edge
-  %70 = phi i8 [ %.pre28, %._ZN14JfrTraceIdBits15meta_mask_storeI5KlassEEvhPKT_.exit.i.i_crit_edge ], [ %64, %63 ]
-  %71 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
-  %72 = trunc i8 %71 to i1
-  %73 = select i1 %72, i8 1, i8 2
-  %74 = or i8 %73, %70
-  store i8 %74, ptr %62, align 1
+_ZN14JfrTraceIdBits15meta_mask_storeI5KlassEEvhPKT_.exit.i.i: ; preds = %71, %._ZN14JfrTraceIdBits15meta_mask_storeI5KlassEEvhPKT_.exit.i.i_crit_edge
+  %78 = phi i8 [ %.pre28, %._ZN14JfrTraceIdBits15meta_mask_storeI5KlassEEvhPKT_.exit.i.i_crit_edge ], [ %72, %71 ]
+  %79 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
+  %80 = and i8 %79, 1
+  %81 = sub nuw nsw i8 2, %80
+  %82 = or i8 %81, %78
+  store i8 %82, ptr %70, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !6
-  %75 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
-  %76 = trunc i8 %75 to i1
-  %77 = select i1 %76, i8 -6, i8 -11
-  br label %78
+  %83 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
+  %84 = trunc i8 %83 to i1
+  %85 = and i8 %83, 1
+  %86 = select i1 %84, i8 -5, i8 -9
+  %87 = add nuw nsw i8 %85, -3
+  %88 = and i8 %86, %87
+  br label %89
 
-78:                                               ; preds = %82, %_ZN14JfrTraceIdBits15meta_mask_storeI5KlassEEvhPKT_.exit.i.i
-  %79 = load volatile i8, ptr %56, align 1
-  %80 = and i8 %79, %77
-  %81 = icmp eq i8 %79, %80
-  br i1 %81, label %_ZN7WrapperIPK5Klass13ClearArtifactEclERKS2_.exit, label %82
+89:                                               ; preds = %93, %_ZN14JfrTraceIdBits15meta_mask_storeI5KlassEEvhPKT_.exit.i.i
+  %90 = load volatile i8, ptr %61, align 1
+  %91 = and i8 %88, %90
+  %92 = icmp eq i8 %90, %91
+  br i1 %92, label %_ZN7WrapperIPK5Klass13ClearArtifactEclERKS2_.exit, label %93
 
-82:                                               ; preds = %78
-  %83 = tail call noundef i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %80, i8 %79, ptr nonnull %56) #9, !srcloc !7
-  %84 = icmp eq i8 %83, %79
-  br i1 %84, label %_ZN7WrapperIPK5Klass13ClearArtifactEclERKS2_.exit, label %78, !llvm.loop !8
+93:                                               ; preds = %89
+  %94 = tail call noundef i8 asm sideeffect "lock cmpxchgb $1,($3)", "={ax},q,{ax},r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i8 %91, i8 %90, ptr nonnull %61) #9, !srcloc !7
+  %95 = icmp eq i8 %94, %90
+  br i1 %95, label %_ZN7WrapperIPK5Klass13ClearArtifactEclERKS2_.exit, label %89, !llvm.loop !8
 
-_ZN7WrapperIPK5Klass13ClearArtifactEclERKS2_.exit: ; preds = %82, %78, %_ZN19MethodUsedPredicateclEPK5Klass.exit.thread
+_ZN7WrapperIPK5Klass13ClearArtifactEclERKS2_.exit: ; preds = %93, %89, %_ZN19MethodUsedPredicateclEPK5Klass.exit.thread
   ret i1 true
 }
 
@@ -8446,21 +8510,24 @@ define internal void @_ZL17do_klass_on_clearP5Klass(ptr noundef %0) #0 {
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %8 = load i64, ptr %7, align 8
   %9 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
-  %10 = trunc i8 %9 to i1
-  %11 = xor i1 %6, %10
-  %.sink.i.i = select i1 %11, i64 2049, i64 2050
-  %12 = and i64 %.sink.i.i, %8
-  %.not.i = icmp eq i64 %12, 0
-  br i1 %.not.i, label %_ZL11do_artifactI5KlassEvPKT_.exit, label %13
+  %10 = and i8 %9, 1
+  %11 = sub nuw nsw i8 2, %10
+  %12 = add nuw nsw i8 %10, 1
+  %.sink.i.i = select i1 %6, i8 %12, i8 %11
+  %13 = zext nneg i8 %.sink.i.i to i64
+  %14 = or disjoint i64 %13, 2048
+  %15 = and i64 %14, %8
+  %.not.i = icmp eq i64 %15, 0
+  br i1 %.not.i, label %_ZL11do_artifactI5KlassEvPKT_.exit, label %16
 
-13:                                               ; preds = %1
-  %14 = load ptr, ptr @_ZL19_subsystem_callback, align 8
-  %15 = load ptr, ptr %14, align 8
-  %16 = load ptr, ptr %15, align 8
-  tail call void %16(ptr noundef nonnull align 8 dereferenceable(8) %14, ptr noundef nonnull %0) #9
+16:                                               ; preds = %1
+  %17 = load ptr, ptr @_ZL19_subsystem_callback, align 8
+  %18 = load ptr, ptr %17, align 8
+  %19 = load ptr, ptr %18, align 8
+  tail call void %19(ptr noundef nonnull align 8 dereferenceable(8) %17, ptr noundef nonnull %0) #9
   br label %_ZL11do_artifactI5KlassEvPKT_.exit
 
-_ZL11do_artifactI5KlassEvPKT_.exit:               ; preds = %1, %13
+_ZL11do_artifactI5KlassEvPKT_.exit:               ; preds = %1, %16
   ret void
 }
 
@@ -8501,8 +8568,8 @@ attributes #10 = { nounwind willreturn memory(read) }
 !12 = distinct !{!12, !9}
 !13 = distinct !{!13, !9}
 !14 = distinct !{!14, !9}
-!15 = !{!"branch_weights", i32 1, i32 1048575}
-!16 = distinct !{!16, !9}
+!15 = distinct !{!15, !9}
+!16 = !{!"branch_weights", i32 1, i32 1048575}
 !17 = distinct !{!17, !9}
 !18 = distinct !{!18, !9}
 !19 = distinct !{!19, !9}

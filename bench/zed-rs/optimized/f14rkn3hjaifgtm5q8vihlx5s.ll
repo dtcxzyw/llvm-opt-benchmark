@@ -116184,8 +116184,7 @@ define hidden { i64, i64 } @"_ZN7project9lsp_store8LspStore30language_server_ids
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3), !noalias !29448
   %26 = mul i64 %6, 5871781006564002453
   store i64 %26, ptr %3, align 8, !alias.scope !29451, !noalias !29460
-  %trunc.i.i.i.i.i.i = trunc nuw i64 %storemerge.i to i1
-  %.sink.idx.i.i.i.i.i.i = select i1 %trunc.i.i.i.i.i.i, i64 16, i64 0
+  %.sink.idx.i.i.i.i.i.i = shl nuw nsw i64 %storemerge.i, 4
   %.sink.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %11, i64 %.sink.idx.i.i.i.i.i.i
   invoke void @"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$5write17h5b780d2263fcefdeE.llvm.10723454985916948783"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3, ptr noalias noundef nonnull readonly align 1 %.sink.i.i.i.i.i.i, i64 noundef %13)
           to label %.noexc unwind label %.loopexit.split-lp

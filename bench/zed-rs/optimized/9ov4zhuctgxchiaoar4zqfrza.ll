@@ -34704,8 +34704,7 @@ define internal noundef range(i8 8, 10) i8 @"_ZN94_$LT$image..codecs..openexr..O
   %5 = load i8, ptr %4, align 1, !range !115, !noundef !5
   %6 = icmp eq i8 %3, 2
   %spec.select = select i1 %6, i8 %5, i8 %3
-  %7 = trunc nuw i8 %spec.select to i1
-  %.sroa.0.0 = select i1 %7, i8 9, i8 8
+  %.sroa.0.0 = or disjoint i8 %spec.select, 8
   ret i8 %.sroa.0.0
 }
 
@@ -34713,11 +34712,10 @@ define internal noundef range(i8 8, 10) i8 @"_ZN94_$LT$image..codecs..openexr..O
 define internal { i8, i8 } @"_ZN94_$LT$image..codecs..openexr..OpenExrDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$19original_color_type17hd52aadfe809bd1f0E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(4208) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 4201
   %3 = load i8, ptr %2, align 1, !range !115, !noundef !5
-  %4 = trunc nuw i8 %3 to i1
-  %. = select i1 %4, i8 24, i8 23
-  %5 = insertvalue { i8, i8 } poison, i8 %., 0
-  %6 = insertvalue { i8, i8 } %5, i8 undef, 1
-  ret { i8, i8 } %6
+  %. = add nuw nsw i8 %3, 23
+  %4 = insertvalue { i8, i8 } poison, i8 %., 0
+  %5 = insertvalue { i8, i8 } %4, i8 undef, 1
+  ret { i8, i8 } %5
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -34861,8 +34859,7 @@ define internal noundef range(i8 0, 4) i8 @"_ZN95_$LT$image..codecs..bmp..decode
   %4 = trunc nuw i8 %3 to i1
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 109
   %6 = load i8, ptr %5, align 1, !range !115
-  %7 = trunc nuw i8 %6 to i1
-  %. = select i1 %7, i8 3, i8 2
+  %. = or disjoint i8 %6, 2
   %.sroa.0.0 = select i1 %4, i8 0, i8 %.
   ret i8 %.sroa.0.0
 }
@@ -34904,23 +34901,22 @@ define internal noundef range(i8 0, 10) i8 @"_ZN95_$LT$image..codecs..ico..decod
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 106
   %6 = load i8, ptr %5, align 2, !range !115, !noundef !5
   %7 = trunc nuw i8 %6 to i1
-  br i1 %7, label %17, label %13
+  br i1 %7, label %16, label %13
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %10 = load ptr, ptr %9, align 8, !nonnull !5, !noundef !5
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 720
   %12 = load i8, ptr %11, align 8, !range !4652, !noundef !5
-  br label %17
+  br label %16
 
 13:                                               ; preds = %4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 109
   %15 = load i8, ptr %14, align 1, !range !115, !noundef !5
-  %16 = trunc nuw i8 %15 to i1
-  %. = select i1 %16, i8 3, i8 2
-  br label %17
+  %. = or disjoint i8 %15, 2
+  br label %16
 
-17:                                               ; preds = %4, %13, %8
+16:                                               ; preds = %4, %13, %8
   %.sroa.0.0 = phi i8 [ %12, %8 ], [ %., %13 ], [ 0, %4 ]
   ret i8 %.sroa.0.0
 }
@@ -35239,8 +35235,7 @@ define internal void @"_ZN97_$LT$image..codecs..jpeg..decoder..JpegDecoder$LT$R$
 define internal noundef range(i8 2, 4) i8 @"_ZN97_$LT$image..codecs..webp..decoder..WebPDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$10color_type17h6c248dbd9ff2cc22E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(168) %0) unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 163
   %3 = load i8, ptr %2, align 1, !range !115, !noundef !5
-  %4 = trunc nuw i8 %3 to i1
-  %. = select i1 %4, i8 3, i8 2
+  %. = or disjoint i8 %3, 2
   ret i8 %.
 }
 

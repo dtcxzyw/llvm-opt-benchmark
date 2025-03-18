@@ -138,12 +138,12 @@ define internal fastcc void @_ZN10ttf_parser6tables4glyf12outline_impl17hcff694a
 
 .lr.ph:                                           ; preds = %.preheader
   %27 = load i64, ptr %1, align 8, !range !11
-  %trunc.i = trunc nuw i64 %27 to i1
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %29 = load i64, ptr %28, align 8
-  %.0.in.v.i = select i1 %trunc.i, i64 2, i64 1
+  %.0.in.v.i = add nuw nsw i64 %27, 1
   %.0.in.i = lshr i64 %29, %.0.in.v.i
   %.0.i = trunc i64 %.0.in.i to i16
+  %trunc.i = trunc nuw i64 %27 to i1
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val40.i = load ptr, ptr %30, align 8
   %31 = lshr i64 %29, 1
@@ -6886,16 +6886,16 @@ _ZN11parking_lot10raw_rwlock9RawRwLock20try_lock_shared_fast17hac4a5582ff04f5a0E
 
 213:                                              ; preds = %204
   %214 = add nuw i16 %.val1.i, 1
-  %trunc.i.i.i.i.i = trunc nuw i64 %195 to i1
   %215 = getelementptr inbounds nuw i8, ptr %186, i64 16
   %216 = load i64, ptr %215, align 8, !alias.scope !1480, !noalias !1481
-  %.0.in.v.i.i.i.i.i = select i1 %trunc.i.i.i.i.i, i64 2, i64 1
+  %.0.in.v.i.i.i.i.i = add nuw nsw i64 %195, 1
   %.0.in.i.i.i.i.i = lshr i64 %216, %.0.in.v.i.i.i.i.i
   %.0.i.i.i.i.i50 = trunc i64 %.0.in.i.i.i.i.i to i16
   %.not.i.i.i.i.i51 = icmp ult i16 %214, %.0.i.i.i.i.i50
   br i1 %.not.i.i.i.i.i51, label %217, label %_ZN10ttf_parser6tables4glyf5Table7outline17h4ce9d5e6ee9deaa8E.exit.i.i
 
 217:                                              ; preds = %213
+  %trunc.i.i.i.i.i = trunc nuw i64 %195 to i1
   %218 = getelementptr inbounds nuw i8, ptr %186, i64 8
   %.val40.i.i.i.i.i = load ptr, ptr %218, align 8, !alias.scope !1480, !noalias !1481
   br i1 %trunc.i.i.i.i.i, label %229, label %219

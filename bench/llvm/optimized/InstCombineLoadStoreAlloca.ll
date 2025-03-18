@@ -1191,11 +1191,11 @@ _ZN4llvm15SmallVectorImplINS_14PointerIntPairIPNS_5ValueELj1EbNS_21PointerLikeTy
   %386 = load ptr, ptr %6, align 8, !tbaa !25
   %387 = getelementptr inbounds nuw %"class.llvm::PointerIntPair", ptr %386, i64 %385
   %388 = load i8, ptr %8, align 1, !tbaa !175, !range !54, !noundef !55
-  %389 = trunc nuw i8 %388 to i1
-  %390 = ptrtoint ptr %355 to i64
-  %391 = and i64 %390, -5
-  %392 = select i1 %389, i64 4, i64 0
-  %393 = or disjoint i64 %392, %391
+  %389 = ptrtoint ptr %355 to i64
+  %390 = and i64 %389, -5
+  %391 = shl nuw nsw i8 %388, 2
+  %392 = zext nneg i8 %391 to i64
+  %393 = or disjoint i64 %390, %392
   store i64 %393, ptr %387, align 8
   %394 = load i32, ptr %307, align 8, !tbaa !26
   %395 = add i32 %394, 1
@@ -1239,11 +1239,11 @@ _ZN4llvm15SmallVectorImplINS_14PointerIntPairIPNS_5ValueELj1EbNS_21PointerLikeTy
   %412 = load ptr, ptr %6, align 8, !tbaa !25
   %413 = getelementptr inbounds nuw %"class.llvm::PointerIntPair", ptr %412, i64 %411
   %414 = load ptr, ptr %9, align 8, !tbaa !123
-  %415 = trunc nuw i8 %405 to i1
-  %416 = ptrtoint ptr %414 to i64
-  %417 = and i64 %416, -5
-  %418 = select i1 %415, i64 4, i64 0
-  %419 = or disjoint i64 %417, %418
+  %415 = ptrtoint ptr %414 to i64
+  %416 = and i64 %415, -5
+  %417 = shl nuw nsw i8 %405, 2
+  %418 = zext nneg i8 %417 to i64
+  %419 = or disjoint i64 %416, %418
   store i64 %419, ptr %413, align 8
   %420 = load i32, ptr %307, align 8, !tbaa !26
   %421 = add i32 %420, 1
@@ -8644,11 +8644,11 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4l
 
 _ZN4llvm23SmallVectorTemplateBaseINS_14PointerIntPairIPNS_5ValueELj1EbNS_21PointerLikeTypeTraitsIS3_EENS_18PointerIntPairInfoIS3_Lj1ES5_EEEELb1EE9push_backES8_.exit: ; preds = %3, %10
   %14 = phi i32 [ %7, %3 ], [ %.pre.i, %10 ]
-  %15 = trunc nuw i8 %5 to i1
-  %16 = select i1 %15, i64 4, i64 0
+  %15 = shl nuw nsw i8 %5, 2
+  %16 = zext nneg i8 %15 to i64
   %17 = ptrtoint ptr %4 to i64
   %18 = and i64 %17, -5
-  %19 = or disjoint i64 %16, %18
+  %19 = or disjoint i64 %18, %16
   %20 = load ptr, ptr %0, align 8, !tbaa !25
   %21 = zext i32 %14 to i64
   %22 = getelementptr inbounds nuw %"class.llvm::PointerIntPair", ptr %20, i64 %21
@@ -8684,11 +8684,11 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN4l
 
 _ZN4llvm23SmallVectorTemplateBaseINS_14PointerIntPairIPNS_5ValueELj1EbNS_21PointerLikeTypeTraitsIS3_EENS_18PointerIntPairInfoIS3_Lj1ES5_EEEELb1EE9push_backES8_.exit: ; preds = %3, %10
   %14 = phi i32 [ %7, %3 ], [ %.pre.i, %10 ]
-  %15 = trunc nuw i8 %5 to i1
-  %16 = select i1 %15, i64 4, i64 0
+  %15 = shl nuw nsw i8 %5, 2
+  %16 = zext nneg i8 %15 to i64
   %17 = ptrtoint ptr %4 to i64
   %18 = and i64 %17, -5
-  %19 = or disjoint i64 %16, %18
+  %19 = or disjoint i64 %18, %16
   %20 = load ptr, ptr %0, align 8, !tbaa !25
   %21 = zext i32 %14 to i64
   %22 = getelementptr inbounds nuw %"class.llvm::PointerIntPair", ptr %20, i64 %21

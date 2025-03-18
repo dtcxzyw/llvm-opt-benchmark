@@ -1927,8 +1927,8 @@ _ZN7QStringD2Ev.exit17:                           ; preds = %43, %_ZN17QArrayDat
   br i1 %53, label %54, label %60
 
 54:                                               ; preds = %51
-  %55 = trunc nuw i8 %30 to i1
-  %56 = select i1 %55, i32 2, i32 0
+  %55 = shl nuw nsw i8 %30, 1
+  %56 = zext nneg i8 %55 to i32
   br label %.invoke
 
 .invoke:                                          ; preds = %31, %_ZN19TrafficTypesRowDataC2ERKS_.exit, %54

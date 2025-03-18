@@ -372,10 +372,9 @@ define void @"_ZN81_$LT$ui..components..label..label..Label$u20$as$u20$gpui..ele
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %7)
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 824
   %15 = load i64, ptr %14, align 8, !range !32, !noundef !13
-  %trunc = trunc nuw i64 %15 to i1
   %16 = getelementptr inbounds nuw i8, ptr %1, i64 832
   %17 = load ptr, ptr %16, align 8, !nonnull !13
-  %.sroa.0.0.idx = select i1 %trunc, i64 16, i64 0
+  %.sroa.0.0.idx = shl nuw nsw i64 %15, 4
   %.sroa.0.0 = getelementptr inbounds nuw i8, ptr %17, i64 %.sroa.0.0.idx
   %.sroa.3.0.in = getelementptr inbounds nuw i8, ptr %1, i64 840
   %.sroa.3.0 = load i64, ptr %.sroa.3.0.in, align 8, !noundef !13

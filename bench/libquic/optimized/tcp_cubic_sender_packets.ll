@@ -530,8 +530,8 @@ declare void @_ZN3net18TcpCubicSenderBase21OnConnectionMigrationEv(ptr noundef n
 define noundef range(i32 0, 3) i32 @_ZNK3net21TcpCubicSenderPackets24GetCongestionControlTypeEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(304) %0) unnamed_addr #8 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %3 = load i8, ptr %2, align 8, !tbaa !47, !range !33, !noundef !34
-  %4 = trunc nuw i8 %3 to i1
-  %5 = select i1 %4, i32 2, i32 0
+  %4 = shl nuw nsw i8 %3, 1
+  %5 = zext nneg i8 %4 to i32
   ret i32 %5
 }
 

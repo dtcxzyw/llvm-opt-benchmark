@@ -2745,16 +2745,16 @@ define dso_local void @_Z22DefineFixedPointMacrosRKN5clang10TargetInfoERNS_12Mac
 34:                                               ; preds = %9
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %36 = load i8, ptr %35, align 8, !tbaa !51, !range !60, !noundef !61
-  %37 = trunc nuw i8 %36 to i1
-  %38 = and i32 %6, 65535
+  %37 = and i32 %6, 65535
   %.neg.i = mul i32 %7, 536805376
-  %39 = and i32 %.neg.i, 536805376
-  %40 = or disjoint i32 %39, %38
-  %spec.select = select i1 %37, i32 -2147483648, i32 0
+  %38 = and i32 %.neg.i, 536805376
+  %39 = or disjoint i32 %38, %37
+  %40 = zext nneg i8 %36 to i32
+  %spec.select = shl nuw i32 %40, 31
   br label %_ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.i
 
 _ZN4llvm15SmallVectorImplIcE7reserveEm.exit.i.i.i: ; preds = %34, %.thread
-  %41 = phi i32 [ %33, %.thread ], [ %40, %34 ]
+  %41 = phi i32 [ %33, %.thread ], [ %39, %34 ]
   %42 = phi i32 [ 0, %.thread ], [ %spec.select, %34 ]
   %43 = or disjoint i32 %42, %41
   store i32 %43, ptr %10, align 4

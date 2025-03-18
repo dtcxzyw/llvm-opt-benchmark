@@ -4447,7 +4447,7 @@ define linkonce_odr dso_local void @_ZN14V3ConfigModule5applyEP13AstNodeModule(p
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 376
   %4 = load i8, ptr %3, align 8, !tbaa !52, !range !17, !noundef !18
   %5 = trunc nuw i8 %4 to i1
-  br i1 %5, label %6, label %18
+  br i1 %5, label %6, label %17
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 377
@@ -4456,74 +4456,73 @@ define linkonce_odr dso_local void @_ZN14V3ConfigModule5applyEP13AstNodeModule(p
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %11 = load ptr, ptr %10, align 8, !tbaa !156
   invoke void @_ZN7AstNodeC2E6VNTypeP8FileLine(ptr noundef nonnull align 8 dereferenceable(160) %9, i16 35, ptr noundef %11)
-          to label %12 unwind label %16
+          to label %12 unwind label %15
 
 12:                                               ; preds = %6
-  %13 = trunc nuw i8 %8 to i1
-  %14 = select i1 %13, i8 4, i8 5
+  %13 = xor i8 %8, 5
   store ptr getelementptr inbounds nuw inrange(-16, 296) (i8, ptr @_ZTV9AstPragma, i64 16), ptr %9, align 8, !tbaa !213
-  %15 = getelementptr inbounds nuw i8, ptr %9, i64 152
-  store i8 %14, ptr %15, align 8, !tbaa !93
+  %14 = getelementptr inbounds nuw i8, ptr %9, i64 152
+  store i8 %13, ptr %14, align 8, !tbaa !93
   tail call void @_ZN7AstNode7addOp2pEPS_(ptr noundef nonnull align 8 dereferenceable(257) %1, ptr noundef nonnull %9)
-  br label %18
+  br label %17
 
-16:                                               ; preds = %6
-  %17 = landingpad { ptr, i32 }
+15:                                               ; preds = %6
+  %16 = landingpad { ptr, i32 }
           cleanup
-  br label %39
+  br label %38
 
-18:                                               ; preds = %12, %2
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 352
-  %20 = load ptr, ptr %19, align 8, !tbaa !35
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 336
-  %.not21 = icmp eq ptr %20, %21
+17:                                               ; preds = %12, %2
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 352
+  %19 = load ptr, ptr %18, align 8, !tbaa !35
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 336
+  %.not21 = icmp eq ptr %19, %20
   br i1 %.not21, label %._crit_edge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %18
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 255
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  br label %24
+.lr.ph:                                           ; preds = %17
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 255
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 88
+  br label %23
 
-._crit_edge:                                      ; preds = %34, %18
+._crit_edge:                                      ; preds = %33, %17
   ret void
 
-24:                                               ; preds = %.lr.ph, %34
-  %.sroa.017.022 = phi ptr [ %20, %.lr.ph ], [ %36, %34 ]
-  %25 = getelementptr inbounds nuw i8, ptr %.sroa.017.022, i64 32
-  %26 = load i8, ptr %25, align 1, !tbaa !89
-  %27 = icmp eq i8 %26, 3
-  br i1 %27, label %28, label %31
+23:                                               ; preds = %.lr.ph, %33
+  %.sroa.017.022 = phi ptr [ %19, %.lr.ph ], [ %35, %33 ]
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.017.022, i64 32
+  %25 = load i8, ptr %24, align 1, !tbaa !89
+  %26 = icmp eq i8 %25, 3
+  br i1 %26, label %27, label %30
 
-28:                                               ; preds = %24
-  %29 = load i16, ptr %22, align 1
-  %30 = or i16 %29, 128
-  store i16 %30, ptr %22, align 1
-  br label %31
+27:                                               ; preds = %23
+  %28 = load i16, ptr %21, align 1
+  %29 = or i16 %28, 128
+  store i16 %29, ptr %21, align 1
+  br label %30
 
-31:                                               ; preds = %28, %24
-  %32 = tail call noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #25
-  %33 = load ptr, ptr %23, align 8, !tbaa !156
-  %.sroa.0.0.copyload = load i8, ptr %25, align 1, !tbaa !93
-  invoke void @_ZN7AstNodeC2E6VNTypeP8FileLine(ptr noundef nonnull align 8 dereferenceable(160) %32, i16 35, ptr noundef %33)
-          to label %34 unwind label %37
+30:                                               ; preds = %27, %23
+  %31 = tail call noalias noundef nonnull dereferenceable(160) ptr @_Znwm(i64 noundef 160) #25
+  %32 = load ptr, ptr %22, align 8, !tbaa !156
+  %.sroa.0.0.copyload = load i8, ptr %24, align 1, !tbaa !93
+  invoke void @_ZN7AstNodeC2E6VNTypeP8FileLine(ptr noundef nonnull align 8 dereferenceable(160) %31, i16 35, ptr noundef %32)
+          to label %33 unwind label %36
 
-34:                                               ; preds = %31
-  store ptr getelementptr inbounds nuw inrange(-16, 296) (i8, ptr @_ZTV9AstPragma, i64 16), ptr %32, align 8, !tbaa !213
-  %35 = getelementptr inbounds nuw i8, ptr %32, i64 152
-  store i8 %.sroa.0.0.copyload, ptr %35, align 8, !tbaa !93
-  tail call void @_ZN7AstNode7addOp2pEPS_(ptr noundef nonnull align 8 dereferenceable(257) %1, ptr noundef nonnull %32)
-  %36 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.017.022) #28
-  %.not = icmp eq ptr %36, %21
-  br i1 %.not, label %._crit_edge, label %24
+33:                                               ; preds = %30
+  store ptr getelementptr inbounds nuw inrange(-16, 296) (i8, ptr @_ZTV9AstPragma, i64 16), ptr %31, align 8, !tbaa !213
+  %34 = getelementptr inbounds nuw i8, ptr %31, i64 152
+  store i8 %.sroa.0.0.copyload, ptr %34, align 8, !tbaa !93
+  tail call void @_ZN7AstNode7addOp2pEPS_(ptr noundef nonnull align 8 dereferenceable(257) %1, ptr noundef nonnull %31)
+  %35 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPKSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.017.022) #28
+  %.not = icmp eq ptr %35, %20
+  br i1 %.not, label %._crit_edge, label %23
 
-37:                                               ; preds = %31
-  %38 = landingpad { ptr, i32 }
+36:                                               ; preds = %30
+  %37 = landingpad { ptr, i32 }
           cleanup
-  br label %39
+  br label %38
 
-39:                                               ; preds = %37, %16
-  %.lcssa.sink = phi ptr [ %32, %37 ], [ %9, %16 ]
-  %.pn = phi { ptr, i32 } [ %38, %37 ], [ %17, %16 ]
+38:                                               ; preds = %36, %15
+  %.lcssa.sink = phi ptr [ %31, %36 ], [ %9, %15 ]
+  %.pn = phi { ptr, i32 } [ %37, %36 ], [ %16, %15 ]
   tail call void @_ZdlPvm(ptr noundef nonnull %.lcssa.sink, i64 noundef 160) #26
   resume { ptr, i32 } %.pn
 }
@@ -4946,13 +4945,13 @@ _ZN7AstNode9privateIsI7AstFuncP12AstNodeFTaskEEbPKS_.exit: ; preds = %25, %.thre
 28:                                               ; preds = %_ZN7AstNode9privateIsI7AstFuncP12AstNodeFTaskEEbPKS_.exit
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %30 = load i8, ptr %29, align 8, !tbaa !131, !range !17, !noundef !18
-  %31 = trunc nuw i8 %30 to i1
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 224
-  %33 = load i16, ptr %32, align 8
-  %34 = select i1 %31, i16 2, i16 0
-  %35 = and i16 %33, -3
+  %31 = getelementptr inbounds nuw i8, ptr %1, i64 224
+  %32 = load i16, ptr %31, align 8
+  %33 = shl nuw nsw i8 %30, 1
+  %34 = zext nneg i8 %33 to i16
+  %35 = and i16 %32, -3
   %36 = or disjoint i16 %35, %34
-  store i16 %36, ptr %32, align 8
+  store i16 %36, ptr %31, align 8
   br label %_ZN7AstNode9privateIsI7AstFuncP12AstNodeFTaskEEbPKS_.exit.thread
 
 _ZN7AstNode9privateIsI7AstFuncP12AstNodeFTaskEEbPKS_.exit.thread: ; preds = %25, %28, %_ZN7AstNode9privateIsI7AstFuncP12AstNodeFTaskEEbPKS_.exit

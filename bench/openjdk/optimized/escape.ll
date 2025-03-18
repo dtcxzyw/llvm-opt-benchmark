@@ -17818,8 +17818,8 @@ _ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE6appendERKi.exit: ; preds = 
 
 77:                                               ; preds = %_ZN26GrowableArrayWithAllocatorIi13GrowableArrayIiEE6appendERKi.exit
   %78 = load i8, ptr @UseCompressedOops, align 1
-  %79 = trunc i8 %78 to i1
-  %80 = select i1 %79, i8 16, i8 15
+  %79 = and i8 %78, 1
+  %80 = add nuw nsw i8 %79, 15
   %81 = sext i32 %30 to i64
   %82 = zext nneg i8 %80 to i64
   %83 = getelementptr inbounds nuw [20 x i32], ptr @_type2aelembytes, i64 0, i64 %82

@@ -5259,12 +5259,12 @@ define weak_odr i24 @_ZN5folly6detail9digits_toIcEENS_8ExpectedIT_NS_14Conversio
   br label %7
 
 7:                                                ; preds = %6, %5
-  %.sroa.065.0 = phi i1 [ false, %5 ], [ true, %6 ]
+  %.sroa.065.0 = phi i8 [ 0, %5 ], [ 1, %6 ]
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1
   br label %9
 
 9:                                                ; preds = %7, %2
-  %.sroa.065.1.ph = phi i1 [ %.sroa.065.0, %7 ], [ false, %2 ]
+  %.sroa.065.1.ph = phi i8 [ %.sroa.065.0, %7 ], [ 0, %2 ]
   %.372.ph = phi ptr [ %8, %7 ], [ %0, %2 ]
   %10 = ptrtoint ptr %1 to i64
   %11 = ptrtoint ptr %.372.ph to i64
@@ -5332,7 +5332,7 @@ sub_2:                                            ; preds = %sub_1
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %.thread, %.tail
-  %40 = select i1 %.sroa.065.1.ph, i8 8, i8 7
+  %40 = add nuw nsw i8 %.sroa.065.1.ph, 7
   br label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIcLb1EE4initERPKc.exit
 
 41:                                               ; preds = %.tail
@@ -5462,25 +5462,26 @@ sub_2:                                            ; preds = %sub_1
 
 133:                                              ; preds = %.thread83, %103, %78, %131
   %.343 = phi i8 [ %.040.lcssa, %131 ], [ %120, %103 ], [ %102, %78 ], [ %130, %.thread83 ]
-  br i1 %.sroa.065.1.ph, label %134, label %137
+  %134 = trunc nuw i8 %.sroa.065.1.ph to i1
+  br i1 %134, label %135, label %138
 
-134:                                              ; preds = %133
-  %135 = sub i8 0, %.343
-  %136 = icmp sgt i8 %135, 0
-  br i1 %136, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIcLb1EE4initERPKc.exit, label %139, !prof !17
+135:                                              ; preds = %133
+  %136 = sub i8 0, %.343
+  %137 = icmp sgt i8 %136, 0
+  br i1 %137, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIcLb1EE4initERPKc.exit, label %140, !prof !17
 
-137:                                              ; preds = %133
-  %138 = icmp slt i8 %.343, 0
-  br i1 %138, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIcLb1EE4initERPKc.exit, label %139, !prof !17
+138:                                              ; preds = %133
+  %139 = icmp slt i8 %.343, 0
+  br i1 %139, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIcLb1EE4initERPKc.exit, label %140, !prof !17
 
-139:                                              ; preds = %137, %134
-  %.0.i57 = phi i8 [ %135, %134 ], [ %.343, %137 ]
+140:                                              ; preds = %138, %135
+  %.0.i57 = phi i8 [ %136, %135 ], [ %.343, %138 ]
   br label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIcLb1EE4initERPKc.exit
 
-_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIcLb1EE4initERPKc.exit: ; preds = %.preheader, %.lr.ph, %134, %137, %139, %121, %103, %78, %131, %5, %39
-  %.sroa.071.0 = phi i8 [ 2, %39 ], [ 2, %5 ], [ 2, %131 ], [ 2, %78 ], [ 2, %103 ], [ 2, %121 ], [ 1, %139 ], [ 2, %134 ], [ 2, %137 ], [ 2, %.lr.ph ], [ 1, %.preheader ]
-  %.sroa.7.0 = phi i8 [ %40, %39 ], [ 6, %5 ], [ 2, %131 ], [ 5, %78 ], [ 5, %103 ], [ 5, %121 ], [ 0, %139 ], [ 8, %134 ], [ 7, %137 ], [ 5, %.lr.ph ], [ 0, %.preheader ]
-  %.sroa.12.0 = phi i8 [ 0, %39 ], [ 0, %5 ], [ 0, %131 ], [ 0, %78 ], [ 0, %103 ], [ 0, %121 ], [ %.0.i57, %139 ], [ 0, %134 ], [ 0, %137 ], [ 0, %.lr.ph ], [ 0, %.preheader ]
+_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIcLb1EE4initERPKc.exit: ; preds = %.preheader, %.lr.ph, %135, %138, %140, %121, %103, %78, %131, %5, %39
+  %.sroa.071.0 = phi i8 [ 2, %39 ], [ 2, %5 ], [ 2, %131 ], [ 2, %78 ], [ 2, %103 ], [ 2, %121 ], [ 1, %140 ], [ 2, %135 ], [ 2, %138 ], [ 2, %.lr.ph ], [ 1, %.preheader ]
+  %.sroa.7.0 = phi i8 [ %40, %39 ], [ 6, %5 ], [ 2, %131 ], [ 5, %78 ], [ 5, %103 ], [ 5, %121 ], [ 0, %140 ], [ 8, %135 ], [ 7, %138 ], [ 5, %.lr.ph ], [ 0, %.preheader ]
+  %.sroa.12.0 = phi i8 [ 0, %39 ], [ 0, %5 ], [ 0, %131 ], [ 0, %78 ], [ 0, %103 ], [ 0, %121 ], [ %.0.i57, %140 ], [ 0, %135 ], [ 0, %138 ], [ 0, %.lr.ph ], [ 0, %.preheader ]
   %.sroa.12.0.insert.ext = zext i8 %.sroa.12.0 to i24
   %.sroa.12.0.insert.shift = shl nuw i24 %.sroa.12.0.insert.ext, 16
   %.sroa.7.0.insert.ext = zext nneg i8 %.sroa.7.0 to i24
@@ -5512,12 +5513,12 @@ define weak_odr i24 @_ZN5folly6detail9digits_toIaEENS_8ExpectedIT_NS_14Conversio
   br label %7
 
 7:                                                ; preds = %6, %5
-  %.sroa.065.0 = phi i1 [ false, %5 ], [ true, %6 ]
+  %.sroa.065.0 = phi i8 [ 0, %5 ], [ 1, %6 ]
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1
   br label %9
 
 9:                                                ; preds = %7, %2
-  %.sroa.065.1.ph = phi i1 [ %.sroa.065.0, %7 ], [ false, %2 ]
+  %.sroa.065.1.ph = phi i8 [ %.sroa.065.0, %7 ], [ 0, %2 ]
   %.372.ph = phi ptr [ %8, %7 ], [ %0, %2 ]
   %10 = ptrtoint ptr %1 to i64
   %11 = ptrtoint ptr %.372.ph to i64
@@ -5585,7 +5586,7 @@ sub_2:                                            ; preds = %sub_1
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %.thread, %.tail
-  %40 = select i1 %.sroa.065.1.ph, i8 8, i8 7
+  %40 = add nuw nsw i8 %.sroa.065.1.ph, 7
   br label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIaLb1EE4initERPKc.exit
 
 41:                                               ; preds = %.tail
@@ -5715,25 +5716,26 @@ sub_2:                                            ; preds = %sub_1
 
 133:                                              ; preds = %.thread83, %103, %78, %131
   %.343 = phi i8 [ %.040.lcssa, %131 ], [ %120, %103 ], [ %102, %78 ], [ %130, %.thread83 ]
-  br i1 %.sroa.065.1.ph, label %134, label %137
+  %134 = trunc nuw i8 %.sroa.065.1.ph to i1
+  br i1 %134, label %135, label %138
 
-134:                                              ; preds = %133
-  %135 = sub i8 0, %.343
-  %136 = icmp sgt i8 %135, 0
-  br i1 %136, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIaLb1EE4initERPKc.exit, label %139, !prof !17
+135:                                              ; preds = %133
+  %136 = sub i8 0, %.343
+  %137 = icmp sgt i8 %136, 0
+  br i1 %137, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIaLb1EE4initERPKc.exit, label %140, !prof !17
 
-137:                                              ; preds = %133
-  %138 = icmp slt i8 %.343, 0
-  br i1 %138, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIaLb1EE4initERPKc.exit, label %139, !prof !17
+138:                                              ; preds = %133
+  %139 = icmp slt i8 %.343, 0
+  br i1 %139, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIaLb1EE4initERPKc.exit, label %140, !prof !17
 
-139:                                              ; preds = %137, %134
-  %.0.i57 = phi i8 [ %135, %134 ], [ %.343, %137 ]
+140:                                              ; preds = %138, %135
+  %.0.i57 = phi i8 [ %136, %135 ], [ %.343, %138 ]
   br label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIaLb1EE4initERPKc.exit
 
-_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIaLb1EE4initERPKc.exit: ; preds = %.preheader, %.lr.ph, %134, %137, %139, %121, %103, %78, %131, %5, %39
-  %.sroa.071.0 = phi i8 [ 2, %39 ], [ 2, %5 ], [ 2, %131 ], [ 2, %78 ], [ 2, %103 ], [ 2, %121 ], [ 1, %139 ], [ 2, %134 ], [ 2, %137 ], [ 2, %.lr.ph ], [ 1, %.preheader ]
-  %.sroa.7.0 = phi i8 [ %40, %39 ], [ 6, %5 ], [ 2, %131 ], [ 5, %78 ], [ 5, %103 ], [ 5, %121 ], [ 0, %139 ], [ 8, %134 ], [ 7, %137 ], [ 5, %.lr.ph ], [ 0, %.preheader ]
-  %.sroa.12.0 = phi i8 [ 0, %39 ], [ 0, %5 ], [ 0, %131 ], [ 0, %78 ], [ 0, %103 ], [ 0, %121 ], [ %.0.i57, %139 ], [ 0, %134 ], [ 0, %137 ], [ 0, %.lr.ph ], [ 0, %.preheader ]
+_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIaLb1EE4initERPKc.exit: ; preds = %.preheader, %.lr.ph, %135, %138, %140, %121, %103, %78, %131, %5, %39
+  %.sroa.071.0 = phi i8 [ 2, %39 ], [ 2, %5 ], [ 2, %131 ], [ 2, %78 ], [ 2, %103 ], [ 2, %121 ], [ 1, %140 ], [ 2, %135 ], [ 2, %138 ], [ 2, %.lr.ph ], [ 1, %.preheader ]
+  %.sroa.7.0 = phi i8 [ %40, %39 ], [ 6, %5 ], [ 2, %131 ], [ 5, %78 ], [ 5, %103 ], [ 5, %121 ], [ 0, %140 ], [ 8, %135 ], [ 7, %138 ], [ 5, %.lr.ph ], [ 0, %.preheader ]
+  %.sroa.12.0 = phi i8 [ 0, %39 ], [ 0, %5 ], [ 0, %131 ], [ 0, %78 ], [ 0, %103 ], [ 0, %121 ], [ %.0.i57, %140 ], [ 0, %135 ], [ 0, %138 ], [ 0, %.lr.ph ], [ 0, %.preheader ]
   %.sroa.12.0.insert.ext = zext i8 %.sroa.12.0 to i24
   %.sroa.12.0.insert.shift = shl nuw i24 %.sroa.12.0.insert.ext, 16
   %.sroa.7.0.insert.ext = zext nneg i8 %.sroa.7.0 to i24
@@ -5972,12 +5974,12 @@ define weak_odr i32 @_ZN5folly6detail9digits_toIsEENS_8ExpectedIT_NS_14Conversio
   br label %7
 
 7:                                                ; preds = %6, %5
-  %.sroa.064.0 = phi i1 [ false, %5 ], [ true, %6 ]
+  %.sroa.064.0 = phi i8 [ 0, %5 ], [ 1, %6 ]
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1
   br label %9
 
 9:                                                ; preds = %7, %2
-  %.sroa.064.1.ph = phi i1 [ %.sroa.064.0, %7 ], [ false, %2 ]
+  %.sroa.064.1.ph = phi i8 [ %.sroa.064.0, %7 ], [ 0, %2 ]
   %.371.ph = phi ptr [ %8, %7 ], [ %0, %2 ]
   %10 = ptrtoint ptr %1 to i64
   %11 = ptrtoint ptr %.371.ph to i64
@@ -6028,7 +6030,7 @@ define weak_odr i32 @_ZN5folly6detail9digits_toIsEENS_8ExpectedIT_NS_14Conversio
   br label %31
 
 29:                                               ; preds = %.thread, %26
-  %30 = select i1 %.sroa.064.1.ph, i32 2048, i32 1792
+  %30 = add nuw nsw i8 %.sroa.064.1.ph, 7
   br label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIsLb1EE4initERPKc.exit
 
 31:                                               ; preds = %._crit_edge101, %22, %9
@@ -6157,36 +6159,40 @@ define weak_odr i32 @_ZN5folly6detail9digits_toIsEENS_8ExpectedIT_NS_14Conversio
 
 122:                                              ; preds = %.thread82, %93, %68, %120
   %.342 = phi i16 [ %.039.lcssa, %120 ], [ %110, %93 ], [ %92, %68 ], [ %119, %.thread82 ]
-  br i1 %.sroa.064.1.ph, label %123, label %126
+  %123 = trunc nuw i8 %.sroa.064.1.ph to i1
+  br i1 %123, label %124, label %127
 
-123:                                              ; preds = %122
-  %124 = sub i16 0, %.342
-  %125 = icmp sgt i16 %124, 0
-  br i1 %125, label %131, label %128, !prof !17
+124:                                              ; preds = %122
+  %125 = sub i16 0, %.342
+  %126 = icmp sgt i16 %125, 0
+  br i1 %126, label %132, label %129, !prof !17
 
-126:                                              ; preds = %122
-  %127 = icmp slt i16 %.342, 0
-  br i1 %127, label %131, label %128, !prof !17
+127:                                              ; preds = %122
+  %128 = icmp slt i16 %.342, 0
+  br i1 %128, label %132, label %129, !prof !17
 
-128:                                              ; preds = %126, %123
-  %.0.i56 = phi i16 [ %124, %123 ], [ %.342, %126 ]
-  %129 = zext i16 %.0.i56 to i32
-  %130 = shl nuw i32 %129, 16
-  br label %131
+129:                                              ; preds = %127, %124
+  %.0.i56 = phi i16 [ %125, %124 ], [ %.342, %127 ]
+  %130 = zext i16 %.0.i56 to i32
+  %131 = shl nuw i32 %130, 16
+  br label %132
 
-131:                                              ; preds = %128, %126, %123
-  %.sroa.04.0.i = phi i32 [ 1, %128 ], [ 2, %123 ], [ 2, %126 ]
-  %.sroa.4.0.insert.insert.i = phi i32 [ %130, %128 ], [ 2048, %123 ], [ 1792, %126 ]
+132:                                              ; preds = %129, %127, %124
+  %.sroa.04.0.i = phi i32 [ 1, %129 ], [ 2, %124 ], [ 2, %127 ]
+  %.sroa.4.0.insert.insert.i = phi i32 [ %131, %129 ], [ 2048, %124 ], [ 1792, %127 ]
+  %.sroa.7.0.extract.shift = lshr exact i32 %.sroa.4.0.insert.insert.i, 8
+  %.sroa.7.0.extract.trunc = trunc i32 %.sroa.7.0.extract.shift to i8
   %.sroa.12.0.extract.shift = and i32 %.sroa.4.0.insert.insert.i, -65536
-  %132 = and i32 %.sroa.4.0.insert.insert.i, 3840
   br label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIsLb1EE4initERPKc.exit
 
-_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIsLb1EE4initERPKc.exit: ; preds = %.preheader, %.lr.ph, %111, %93, %68, %120, %5, %29, %131
-  %.sroa.070.0 = phi i32 [ 2, %29 ], [ %.sroa.04.0.i, %131 ], [ 2, %5 ], [ 2, %120 ], [ 2, %68 ], [ 2, %93 ], [ 2, %111 ], [ 2, %.lr.ph ], [ 1, %.preheader ]
-  %.sroa.7.0 = phi i32 [ %30, %29 ], [ %132, %131 ], [ 1536, %5 ], [ 512, %120 ], [ 1280, %68 ], [ 1280, %93 ], [ 1280, %111 ], [ 1280, %.lr.ph ], [ 0, %.preheader ]
-  %.sroa.12.0 = phi i32 [ 0, %29 ], [ %.sroa.12.0.extract.shift, %131 ], [ 0, %5 ], [ 0, %120 ], [ 0, %68 ], [ 0, %93 ], [ 0, %111 ], [ 0, %.lr.ph ], [ 0, %.preheader ]
-  %.sroa.7.0.insert.insert = or i32 %.sroa.7.0, %.sroa.070.0
-  %.sroa.070.0.insert.insert = or i32 %.sroa.7.0.insert.insert, %.sroa.12.0
+_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIsLb1EE4initERPKc.exit: ; preds = %.preheader, %.lr.ph, %111, %93, %68, %120, %5, %29, %132
+  %.sroa.070.0 = phi i32 [ 2, %29 ], [ %.sroa.04.0.i, %132 ], [ 2, %5 ], [ 2, %120 ], [ 2, %68 ], [ 2, %93 ], [ 2, %111 ], [ 2, %.lr.ph ], [ 1, %.preheader ]
+  %.sroa.7.0 = phi i8 [ %30, %29 ], [ %.sroa.7.0.extract.trunc, %132 ], [ 6, %5 ], [ 2, %120 ], [ 5, %68 ], [ 5, %93 ], [ 5, %111 ], [ 5, %.lr.ph ], [ 0, %.preheader ]
+  %.sroa.12.0 = phi i32 [ 0, %29 ], [ %.sroa.12.0.extract.shift, %132 ], [ 0, %5 ], [ 0, %120 ], [ 0, %68 ], [ 0, %93 ], [ 0, %111 ], [ 0, %.lr.ph ], [ 0, %.preheader ]
+  %.sroa.7.0.insert.ext = zext i8 %.sroa.7.0 to i32
+  %.sroa.7.0.insert.shift = shl nuw nsw i32 %.sroa.7.0.insert.ext, 8
+  %.sroa.7.0.insert.insert = or disjoint i32 %.sroa.7.0.insert.shift, %.sroa.12.0
+  %.sroa.070.0.insert.insert = or i32 %.sroa.7.0.insert.insert, %.sroa.070.0
   ret i32 %.sroa.070.0.insert.insert
 }
 
@@ -6395,12 +6401,12 @@ define weak_odr i64 @_ZN5folly6detail9digits_toIiEENS_8ExpectedIT_NS_14Conversio
   br label %7
 
 7:                                                ; preds = %6, %5
-  %.sroa.064.0 = phi i1 [ false, %5 ], [ true, %6 ]
+  %.sroa.064.0 = phi i8 [ 0, %5 ], [ 1, %6 ]
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1
   br label %9
 
 9:                                                ; preds = %7, %2
-  %.sroa.064.1.ph = phi i1 [ %.sroa.064.0, %7 ], [ false, %2 ]
+  %.sroa.064.1.ph = phi i8 [ %.sroa.064.0, %7 ], [ 0, %2 ]
   %.372.ph = phi ptr [ %8, %7 ], [ %0, %2 ]
   %10 = ptrtoint ptr %1 to i64
   %11 = ptrtoint ptr %.372.ph to i64
@@ -6451,7 +6457,7 @@ define weak_odr i64 @_ZN5folly6detail9digits_toIiEENS_8ExpectedIT_NS_14Conversio
   br label %31
 
 29:                                               ; preds = %.thread, %26
-  %30 = select i1 %.sroa.064.1.ph, i64 2048, i64 1792
+  %30 = add nuw nsw i8 %.sroa.064.1.ph, 7
   br label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIiLb1EE4initERPKc.exit
 
 31:                                               ; preds = %._crit_edge102, %22, %9
@@ -6576,36 +6582,40 @@ define weak_odr i64 @_ZN5folly6detail9digits_toIiEENS_8ExpectedIT_NS_14Conversio
 
 118:                                              ; preds = %.thread83, %90, %67, %116
   %.342 = phi i32 [ %.039.lcssa, %116 ], [ %105, %90 ], [ %89, %67 ], [ %115, %.thread83 ]
-  br i1 %.sroa.064.1.ph, label %119, label %122
+  %119 = trunc nuw i8 %.sroa.064.1.ph to i1
+  br i1 %119, label %120, label %123
 
-119:                                              ; preds = %118
-  %120 = sub i32 0, %.342
-  %121 = icmp sgt i32 %120, 0
-  br i1 %121, label %127, label %124, !prof !17
+120:                                              ; preds = %118
+  %121 = sub i32 0, %.342
+  %122 = icmp sgt i32 %121, 0
+  br i1 %122, label %128, label %125, !prof !17
 
-122:                                              ; preds = %118
-  %123 = icmp slt i32 %.342, 0
-  br i1 %123, label %127, label %124, !prof !17
+123:                                              ; preds = %118
+  %124 = icmp slt i32 %.342, 0
+  br i1 %124, label %128, label %125, !prof !17
 
-124:                                              ; preds = %122, %119
-  %.0.i56 = phi i32 [ %120, %119 ], [ %.342, %122 ]
-  %125 = zext i32 %.0.i56 to i64
-  %126 = shl nuw i64 %125, 32
-  br label %127
+125:                                              ; preds = %123, %120
+  %.0.i56 = phi i32 [ %121, %120 ], [ %.342, %123 ]
+  %126 = zext i32 %.0.i56 to i64
+  %127 = shl nuw i64 %126, 32
+  br label %128
 
-127:                                              ; preds = %124, %122, %119
-  %.sroa.04.0.i = phi i64 [ 1, %124 ], [ 2, %119 ], [ 2, %122 ]
-  %.sroa.4.0.insert.insert.i = phi i64 [ %126, %124 ], [ 2048, %119 ], [ 1792, %122 ]
+128:                                              ; preds = %125, %123, %120
+  %.sroa.04.0.i = phi i64 [ 1, %125 ], [ 2, %120 ], [ 2, %123 ]
+  %.sroa.4.0.insert.insert.i = phi i64 [ %127, %125 ], [ 2048, %120 ], [ 1792, %123 ]
+  %.sroa.7.0.extract.shift = lshr exact i64 %.sroa.4.0.insert.insert.i, 8
+  %.sroa.7.0.extract.trunc = trunc i64 %.sroa.7.0.extract.shift to i8
   %.sroa.1271.0.extract.shift = and i64 %.sroa.4.0.insert.insert.i, -4294967296
-  %128 = and i64 %.sroa.4.0.insert.insert.i, 3840
   br label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIiLb1EE4initERPKc.exit
 
-_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIiLb1EE4initERPKc.exit: ; preds = %.preheader, %.lr.ph, %106, %90, %67, %116, %5, %29, %127
-  %.sroa.070.0 = phi i64 [ 2, %29 ], [ %.sroa.04.0.i, %127 ], [ 2, %5 ], [ 2, %116 ], [ 2, %67 ], [ 2, %90 ], [ 2, %106 ], [ 2, %.lr.ph ], [ 1, %.preheader ]
-  %.sroa.7.0 = phi i64 [ %30, %29 ], [ %128, %127 ], [ 1536, %5 ], [ 512, %116 ], [ 1280, %67 ], [ 1280, %90 ], [ 1280, %106 ], [ 1280, %.lr.ph ], [ 0, %.preheader ]
-  %.sroa.1271.0 = phi i64 [ 0, %29 ], [ %.sroa.1271.0.extract.shift, %127 ], [ 0, %5 ], [ 0, %116 ], [ 0, %67 ], [ 0, %90 ], [ 0, %106 ], [ 0, %.lr.ph ], [ 0, %.preheader ]
-  %.sroa.7.0.insert.insert = or i64 %.sroa.7.0, %.sroa.070.0
-  %.sroa.070.0.insert.insert = or i64 %.sroa.7.0.insert.insert, %.sroa.1271.0
+_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIiLb1EE4initERPKc.exit: ; preds = %.preheader, %.lr.ph, %106, %90, %67, %116, %5, %29, %128
+  %.sroa.070.0 = phi i64 [ 2, %29 ], [ %.sroa.04.0.i, %128 ], [ 2, %5 ], [ 2, %116 ], [ 2, %67 ], [ 2, %90 ], [ 2, %106 ], [ 2, %.lr.ph ], [ 1, %.preheader ]
+  %.sroa.7.0 = phi i8 [ %30, %29 ], [ %.sroa.7.0.extract.trunc, %128 ], [ 6, %5 ], [ 2, %116 ], [ 5, %67 ], [ 5, %90 ], [ 5, %106 ], [ 5, %.lr.ph ], [ 0, %.preheader ]
+  %.sroa.1271.0 = phi i64 [ 0, %29 ], [ %.sroa.1271.0.extract.shift, %128 ], [ 0, %5 ], [ 0, %116 ], [ 0, %67 ], [ 0, %90 ], [ 0, %106 ], [ 0, %.lr.ph ], [ 0, %.preheader ]
+  %.sroa.7.0.insert.ext = zext i8 %.sroa.7.0 to i64
+  %.sroa.7.0.insert.shift = shl nuw nsw i64 %.sroa.7.0.insert.ext, 8
+  %.sroa.7.0.insert.insert = or disjoint i64 %.sroa.7.0.insert.shift, %.sroa.1271.0
+  %.sroa.070.0.insert.insert = or i64 %.sroa.7.0.insert.insert, %.sroa.070.0
   ret i64 %.sroa.070.0.insert.insert
 }
 
@@ -6810,18 +6820,18 @@ define weak_odr { i64, i64 } @_ZN5folly6detail9digits_toIlEENS_8ExpectedIT_NS_14
   br label %7
 
 7:                                                ; preds = %6, %5
-  %.sroa.064.0 = phi i1 [ false, %5 ], [ true, %6 ]
+  %.sroa.064.0 = phi i8 [ 0, %5 ], [ 1, %6 ]
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1
   br label %9
 
 9:                                                ; preds = %7, %2
-  %.sroa.064.1.ph = phi i1 [ %.sroa.064.0, %7 ], [ false, %2 ]
+  %.sroa.064.1.ph = phi i8 [ %.sroa.064.0, %7 ], [ 0, %2 ]
   %.376.ph = phi ptr [ %8, %7 ], [ %0, %2 ]
   %10 = ptrtoint ptr %1 to i64
   %11 = ptrtoint ptr %.376.ph to i64
   %12 = sub i64 %10, %11
   %13 = icmp ugt i64 %12, 19
-  br i1 %13, label %14, label %31
+  br i1 %13, label %14, label %33
 
 14:                                               ; preds = %9
   %15 = icmp ult ptr %.376.ph, %1
@@ -6847,7 +6857,7 @@ define weak_odr { i64, i64 } @_ZN5folly6detail9digits_toIlEENS_8ExpectedIT_NS_14
   %23 = ptrtoint ptr %storemerge to i64
   %24 = sub i64 %10, %23
   %25 = icmp ugt i64 %24, 19
-  br i1 %25, label %.thread, label %31
+  br i1 %25, label %.thread, label %33
 
 .thread:                                          ; preds = %14, %16, %22
   %.13886 = phi i64 [ %24, %22 ], [ %12, %16 ], [ %12, %14 ]
@@ -6863,156 +6873,159 @@ define weak_odr { i64, i64 } @_ZN5folly6detail9digits_toIlEENS_8ExpectedIT_NS_14
 ._crit_edge106:                                   ; preds = %26
   %.pre = ptrtoint ptr %.185 to i64
   %.pre107 = sub i64 %10, %.pre
-  br label %31
+  br label %33
 
 29:                                               ; preds = %.thread, %26
-  %30 = select i1 %.sroa.064.1.ph, i64 2048, i64 1792
+  %30 = add nuw nsw i8 %.sroa.064.1.ph, 7
+  %31 = zext nneg i8 %30 to i64
+  %32 = shl nuw nsw i64 %31, 8
   br label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIlLb1EE4initERPKc.exit
 
-31:                                               ; preds = %._crit_edge106, %22, %9
+33:                                               ; preds = %._crit_edge106, %22, %9
   %.pre-phi108 = phi i64 [ %.pre107, %._crit_edge106 ], [ %24, %22 ], [ %12, %9 ]
   %.0 = phi ptr [ %.185, %._crit_edge106 ], [ %storemerge, %22 ], [ %.376.ph, %9 ]
   %.037 = phi i64 [ 20, %._crit_edge106 ], [ 20, %22 ], [ %12, %9 ]
-  %32 = icmp sgt i64 %.pre-phi108, 3
-  br i1 %32, label %.lr.ph, label %._crit_edge
+  %34 = icmp sgt i64 %.pre-phi108, 3
+  br i1 %34, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %31, %60
-  %.03998 = phi i64 [ %63, %60 ], [ 0, %31 ]
-  %.297 = phi ptr [ %64, %60 ], [ %.0, %31 ]
-  %33 = load i8, ptr %.297, align 1, !tbaa !14
-  %34 = sext i8 %33 to i64
-  %35 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_19shift1000E.const, i64 0, i64 %34
-  %36 = load i16, ptr %35, align 2, !tbaa !89
-  %37 = zext i16 %36 to i32
-  %38 = getelementptr inbounds nuw i8, ptr %.297, i64 1
-  %39 = load i8, ptr %38, align 1, !tbaa !14
-  %40 = sext i8 %39 to i64
-  %41 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_18shift100E.const, i64 0, i64 %40
-  %42 = load i16, ptr %41, align 2, !tbaa !89
-  %43 = zext i16 %42 to i32
-  %44 = getelementptr inbounds nuw i8, ptr %.297, i64 2
-  %45 = load i8, ptr %44, align 1, !tbaa !14
-  %46 = sext i8 %45 to i64
-  %47 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_17shift10E.const, i64 0, i64 %46
-  %48 = load i16, ptr %47, align 2, !tbaa !89
-  %49 = zext i16 %48 to i32
-  %50 = getelementptr inbounds nuw i8, ptr %.297, i64 3
-  %51 = load i8, ptr %50, align 1, !tbaa !14
-  %52 = sext i8 %51 to i64
-  %53 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 0, i64 %52
-  %54 = load i16, ptr %53, align 2, !tbaa !89
-  %55 = zext i16 %54 to i32
-  %56 = add nuw nsw i32 %43, %37
-  %57 = add nuw nsw i32 %56, %49
-  %58 = add nuw nsw i32 %57, %55
-  %59 = icmp samesign ugt i32 %58, 9999
-  br i1 %59, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIlLb1EE4initERPKc.exit, label %60
+.lr.ph:                                           ; preds = %33, %62
+  %.03998 = phi i64 [ %65, %62 ], [ 0, %33 ]
+  %.297 = phi ptr [ %66, %62 ], [ %.0, %33 ]
+  %35 = load i8, ptr %.297, align 1, !tbaa !14
+  %36 = sext i8 %35 to i64
+  %37 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_19shift1000E.const, i64 0, i64 %36
+  %38 = load i16, ptr %37, align 2, !tbaa !89
+  %39 = zext i16 %38 to i32
+  %40 = getelementptr inbounds nuw i8, ptr %.297, i64 1
+  %41 = load i8, ptr %40, align 1, !tbaa !14
+  %42 = sext i8 %41 to i64
+  %43 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_18shift100E.const, i64 0, i64 %42
+  %44 = load i16, ptr %43, align 2, !tbaa !89
+  %45 = zext i16 %44 to i32
+  %46 = getelementptr inbounds nuw i8, ptr %.297, i64 2
+  %47 = load i8, ptr %46, align 1, !tbaa !14
+  %48 = sext i8 %47 to i64
+  %49 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_17shift10E.const, i64 0, i64 %48
+  %50 = load i16, ptr %49, align 2, !tbaa !89
+  %51 = zext i16 %50 to i32
+  %52 = getelementptr inbounds nuw i8, ptr %.297, i64 3
+  %53 = load i8, ptr %52, align 1, !tbaa !14
+  %54 = sext i8 %53 to i64
+  %55 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 0, i64 %54
+  %56 = load i16, ptr %55, align 2, !tbaa !89
+  %57 = zext i16 %56 to i32
+  %58 = add nuw nsw i32 %45, %39
+  %59 = add nuw nsw i32 %58, %51
+  %60 = add nuw nsw i32 %59, %57
+  %61 = icmp samesign ugt i32 %60, 9999
+  br i1 %61, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIlLb1EE4initERPKc.exit, label %62
 
-60:                                               ; preds = %.lr.ph
-  %61 = mul i64 %.03998, 10000
-  %62 = zext nneg i32 %58 to i64
-  %63 = add i64 %61, %62
-  %64 = getelementptr inbounds nuw i8, ptr %.297, i64 4
-  %65 = ptrtoint ptr %64 to i64
-  %66 = sub i64 %10, %65
-  %67 = icmp sgt i64 %66, 3
-  br i1 %67, label %.lr.ph, label %._crit_edge, !llvm.loop !104
+62:                                               ; preds = %.lr.ph
+  %63 = mul i64 %.03998, 10000
+  %64 = zext nneg i32 %60 to i64
+  %65 = add i64 %63, %64
+  %66 = getelementptr inbounds nuw i8, ptr %.297, i64 4
+  %67 = ptrtoint ptr %66 to i64
+  %68 = sub i64 %10, %67
+  %69 = icmp sgt i64 %68, 3
+  br i1 %69, label %.lr.ph, label %._crit_edge, !llvm.loop !104
 
-._crit_edge:                                      ; preds = %60, %31
-  %.2.lcssa = phi ptr [ %.0, %31 ], [ %64, %60 ]
-  %.039.lcssa = phi i64 [ 0, %31 ], [ %63, %60 ]
-  %.lcssa = phi i64 [ %.pre-phi108, %31 ], [ %66, %60 ]
-  switch i64 %.lcssa, label %119 [
-    i64 3, label %68
-    i64 2, label %92
-    i64 1, label %109
+._crit_edge:                                      ; preds = %62, %33
+  %.2.lcssa = phi ptr [ %.0, %33 ], [ %66, %62 ]
+  %.039.lcssa = phi i64 [ 0, %33 ], [ %65, %62 ]
+  %.lcssa = phi i64 [ %.pre-phi108, %33 ], [ %68, %62 ]
+  switch i64 %.lcssa, label %121 [
+    i64 3, label %70
+    i64 2, label %94
+    i64 1, label %111
   ]
 
-68:                                               ; preds = %._crit_edge
-  %69 = load i8, ptr %.2.lcssa, align 1, !tbaa !14
-  %70 = sext i8 %69 to i64
-  %71 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_18shift100E.const, i64 0, i64 %70
-  %72 = load i16, ptr %71, align 2, !tbaa !89
-  %73 = zext i16 %72 to i32
-  %74 = getelementptr inbounds nuw i8, ptr %.2.lcssa, i64 1
-  %75 = load i8, ptr %74, align 1, !tbaa !14
-  %76 = sext i8 %75 to i64
-  %77 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_17shift10E.const, i64 0, i64 %76
-  %78 = load i16, ptr %77, align 2, !tbaa !89
-  %79 = zext i16 %78 to i32
-  %80 = getelementptr inbounds nuw i8, ptr %.2.lcssa, i64 2
-  %81 = load i8, ptr %80, align 1, !tbaa !14
-  %82 = sext i8 %81 to i64
-  %83 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 0, i64 %82
-  %84 = load i16, ptr %83, align 2, !tbaa !89
-  %85 = zext i16 %84 to i32
-  %86 = add nuw nsw i32 %79, %73
-  %87 = add nuw nsw i32 %86, %85
-  %88 = icmp samesign ugt i32 %87, 9999
-  %89 = mul i64 %.039.lcssa, 1000
-  %90 = zext nneg i32 %87 to i64
-  %91 = add i64 %89, %90
-  br i1 %88, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIlLb1EE4initERPKc.exit, label %121
+70:                                               ; preds = %._crit_edge
+  %71 = load i8, ptr %.2.lcssa, align 1, !tbaa !14
+  %72 = sext i8 %71 to i64
+  %73 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_18shift100E.const, i64 0, i64 %72
+  %74 = load i16, ptr %73, align 2, !tbaa !89
+  %75 = zext i16 %74 to i32
+  %76 = getelementptr inbounds nuw i8, ptr %.2.lcssa, i64 1
+  %77 = load i8, ptr %76, align 1, !tbaa !14
+  %78 = sext i8 %77 to i64
+  %79 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_17shift10E.const, i64 0, i64 %78
+  %80 = load i16, ptr %79, align 2, !tbaa !89
+  %81 = zext i16 %80 to i32
+  %82 = getelementptr inbounds nuw i8, ptr %.2.lcssa, i64 2
+  %83 = load i8, ptr %82, align 1, !tbaa !14
+  %84 = sext i8 %83 to i64
+  %85 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 0, i64 %84
+  %86 = load i16, ptr %85, align 2, !tbaa !89
+  %87 = zext i16 %86 to i32
+  %88 = add nuw nsw i32 %81, %75
+  %89 = add nuw nsw i32 %88, %87
+  %90 = icmp samesign ugt i32 %89, 9999
+  %91 = mul i64 %.039.lcssa, 1000
+  %92 = zext nneg i32 %89 to i64
+  %93 = add i64 %91, %92
+  br i1 %90, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIlLb1EE4initERPKc.exit, label %123
 
-92:                                               ; preds = %._crit_edge
-  %93 = load i8, ptr %.2.lcssa, align 1, !tbaa !14
-  %94 = sext i8 %93 to i64
-  %95 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_17shift10E.const, i64 0, i64 %94
-  %96 = load i16, ptr %95, align 2, !tbaa !89
-  %97 = zext i16 %96 to i32
-  %98 = getelementptr inbounds nuw i8, ptr %.2.lcssa, i64 1
-  %99 = load i8, ptr %98, align 1, !tbaa !14
-  %100 = sext i8 %99 to i64
-  %101 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 0, i64 %100
-  %102 = load i16, ptr %101, align 2, !tbaa !89
-  %103 = zext i16 %102 to i32
-  %104 = add nuw nsw i32 %103, %97
-  %105 = icmp samesign ugt i32 %104, 9999
-  %106 = mul i64 %.039.lcssa, 100
-  %107 = zext nneg i32 %104 to i64
-  %108 = add i64 %106, %107
-  br i1 %105, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIlLb1EE4initERPKc.exit, label %121
+94:                                               ; preds = %._crit_edge
+  %95 = load i8, ptr %.2.lcssa, align 1, !tbaa !14
+  %96 = sext i8 %95 to i64
+  %97 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_17shift10E.const, i64 0, i64 %96
+  %98 = load i16, ptr %97, align 2, !tbaa !89
+  %99 = zext i16 %98 to i32
+  %100 = getelementptr inbounds nuw i8, ptr %.2.lcssa, i64 1
+  %101 = load i8, ptr %100, align 1, !tbaa !14
+  %102 = sext i8 %101 to i64
+  %103 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 0, i64 %102
+  %104 = load i16, ptr %103, align 2, !tbaa !89
+  %105 = zext i16 %104 to i32
+  %106 = add nuw nsw i32 %105, %99
+  %107 = icmp samesign ugt i32 %106, 9999
+  %108 = mul i64 %.039.lcssa, 100
+  %109 = zext nneg i32 %106 to i64
+  %110 = add i64 %108, %109
+  br i1 %107, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIlLb1EE4initERPKc.exit, label %123
 
-109:                                              ; preds = %._crit_edge
-  %110 = load i8, ptr %.2.lcssa, align 1, !tbaa !14
-  %111 = sext i8 %110 to i64
-  %112 = add nsw i64 %111, -58
-  %113 = icmp ult i64 %112, -10
-  br i1 %113, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIlLb1EE4initERPKc.exit, label %.thread87
+111:                                              ; preds = %._crit_edge
+  %112 = load i8, ptr %.2.lcssa, align 1, !tbaa !14
+  %113 = sext i8 %112 to i64
+  %114 = add nsw i64 %113, -58
+  %115 = icmp ult i64 %114, -10
+  br i1 %115, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIlLb1EE4initERPKc.exit, label %.thread87
 
-.thread87:                                        ; preds = %109
-  %114 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 0, i64 %111
-  %115 = load i16, ptr %114, align 2, !tbaa !89
-  %116 = mul i64 %.039.lcssa, 10
-  %117 = zext i16 %115 to i64
-  %118 = add i64 %116, %117
-  br label %121
+.thread87:                                        ; preds = %111
+  %116 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 0, i64 %113
+  %117 = load i16, ptr %116, align 2, !tbaa !89
+  %118 = mul i64 %.039.lcssa, 10
+  %119 = zext i16 %117 to i64
+  %120 = add i64 %118, %119
+  br label %123
 
-119:                                              ; preds = %._crit_edge
-  %120 = icmp eq i64 %.037, 0
-  br i1 %120, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIlLb1EE4initERPKc.exit, label %121
+121:                                              ; preds = %._crit_edge
+  %122 = icmp eq i64 %.037, 0
+  br i1 %122, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIlLb1EE4initERPKc.exit, label %123
 
-121:                                              ; preds = %.thread87, %92, %68, %119
-  %.342 = phi i64 [ %.039.lcssa, %119 ], [ %108, %92 ], [ %91, %68 ], [ %118, %.thread87 ]
-  br i1 %.sroa.064.1.ph, label %122, label %125
+123:                                              ; preds = %.thread87, %94, %70, %121
+  %.342 = phi i64 [ %.039.lcssa, %121 ], [ %110, %94 ], [ %93, %70 ], [ %120, %.thread87 ]
+  %124 = trunc nuw i8 %.sroa.064.1.ph to i1
+  br i1 %124, label %125, label %128
 
-122:                                              ; preds = %121
-  %123 = sub i64 0, %.342
-  %124 = icmp sgt i64 %123, 0
-  br i1 %124, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIlLb1EE4initERPKc.exit, label %127, !prof !17
+125:                                              ; preds = %123
+  %126 = sub i64 0, %.342
+  %127 = icmp sgt i64 %126, 0
+  br i1 %127, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIlLb1EE4initERPKc.exit, label %130, !prof !17
 
-125:                                              ; preds = %121
-  %126 = icmp slt i64 %.342, 0
-  br i1 %126, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIlLb1EE4initERPKc.exit, label %127, !prof !17
+128:                                              ; preds = %123
+  %129 = icmp slt i64 %.342, 0
+  br i1 %129, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIlLb1EE4initERPKc.exit, label %130, !prof !17
 
-127:                                              ; preds = %125, %122
-  %.0.i56 = phi i64 [ %123, %122 ], [ %.342, %125 ]
+130:                                              ; preds = %128, %125
+  %.0.i56 = phi i64 [ %126, %125 ], [ %.342, %128 ]
   br label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIlLb1EE4initERPKc.exit
 
-_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIlLb1EE4initERPKc.exit: ; preds = %.preheader, %.lr.ph, %122, %125, %127, %109, %92, %68, %119, %5, %29
-  %.sroa.070.0 = phi i64 [ 2, %29 ], [ 2, %5 ], [ 2, %119 ], [ 2, %68 ], [ 2, %92 ], [ 2, %109 ], [ 1, %127 ], [ 2, %122 ], [ 2, %125 ], [ 2, %.lr.ph ], [ 1, %.preheader ]
-  %.sroa.7.0 = phi i64 [ %30, %29 ], [ 1536, %5 ], [ 512, %119 ], [ 1280, %68 ], [ 1280, %92 ], [ 1280, %109 ], [ 0, %127 ], [ 2048, %122 ], [ 1792, %125 ], [ 1280, %.lr.ph ], [ 0, %.preheader ]
-  %.sroa.12.sroa.2.0 = phi i64 [ 0, %29 ], [ 0, %5 ], [ 0, %119 ], [ 0, %68 ], [ 0, %92 ], [ 0, %109 ], [ %.0.i56, %127 ], [ 0, %122 ], [ 0, %125 ], [ 0, %.lr.ph ], [ 0, %.preheader ]
+_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIlLb1EE4initERPKc.exit: ; preds = %.preheader, %.lr.ph, %125, %128, %130, %111, %94, %70, %121, %5, %29
+  %.sroa.070.0 = phi i64 [ 2, %29 ], [ 2, %5 ], [ 2, %121 ], [ 2, %70 ], [ 2, %94 ], [ 2, %111 ], [ 1, %130 ], [ 2, %125 ], [ 2, %128 ], [ 2, %.lr.ph ], [ 1, %.preheader ]
+  %.sroa.7.0 = phi i64 [ %32, %29 ], [ 1536, %5 ], [ 512, %121 ], [ 1280, %70 ], [ 1280, %94 ], [ 1280, %111 ], [ 0, %130 ], [ 2048, %125 ], [ 1792, %128 ], [ 1280, %.lr.ph ], [ 0, %.preheader ]
+  %.sroa.12.sroa.2.0 = phi i64 [ 0, %29 ], [ 0, %5 ], [ 0, %121 ], [ 0, %70 ], [ 0, %94 ], [ 0, %111 ], [ %.0.i56, %130 ], [ 0, %125 ], [ 0, %128 ], [ 0, %.lr.ph ], [ 0, %.preheader ]
   %.sroa.070.0.insert.insert = or disjoint i64 %.sroa.7.0, %.sroa.070.0
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.070.0.insert.insert, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.12.sroa.2.0, 1
@@ -7224,18 +7237,18 @@ define weak_odr { i64, i64 } @_ZN5folly6detail9digits_toIxEENS_8ExpectedIT_NS_14
   br label %7
 
 7:                                                ; preds = %6, %5
-  %.sroa.064.0 = phi i1 [ false, %5 ], [ true, %6 ]
+  %.sroa.064.0 = phi i8 [ 0, %5 ], [ 1, %6 ]
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 1
   br label %9
 
 9:                                                ; preds = %7, %2
-  %.sroa.064.1.ph = phi i1 [ %.sroa.064.0, %7 ], [ false, %2 ]
+  %.sroa.064.1.ph = phi i8 [ %.sroa.064.0, %7 ], [ 0, %2 ]
   %.376.ph = phi ptr [ %8, %7 ], [ %0, %2 ]
   %10 = ptrtoint ptr %1 to i64
   %11 = ptrtoint ptr %.376.ph to i64
   %12 = sub i64 %10, %11
   %13 = icmp ugt i64 %12, 19
-  br i1 %13, label %14, label %31
+  br i1 %13, label %14, label %33
 
 14:                                               ; preds = %9
   %15 = icmp ult ptr %.376.ph, %1
@@ -7261,7 +7274,7 @@ define weak_odr { i64, i64 } @_ZN5folly6detail9digits_toIxEENS_8ExpectedIT_NS_14
   %23 = ptrtoint ptr %storemerge to i64
   %24 = sub i64 %10, %23
   %25 = icmp ugt i64 %24, 19
-  br i1 %25, label %.thread, label %31
+  br i1 %25, label %.thread, label %33
 
 .thread:                                          ; preds = %14, %16, %22
   %.13886 = phi i64 [ %24, %22 ], [ %12, %16 ], [ %12, %14 ]
@@ -7277,156 +7290,159 @@ define weak_odr { i64, i64 } @_ZN5folly6detail9digits_toIxEENS_8ExpectedIT_NS_14
 ._crit_edge106:                                   ; preds = %26
   %.pre = ptrtoint ptr %.185 to i64
   %.pre107 = sub i64 %10, %.pre
-  br label %31
+  br label %33
 
 29:                                               ; preds = %.thread, %26
-  %30 = select i1 %.sroa.064.1.ph, i64 2048, i64 1792
+  %30 = add nuw nsw i8 %.sroa.064.1.ph, 7
+  %31 = zext nneg i8 %30 to i64
+  %32 = shl nuw nsw i64 %31, 8
   br label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIxLb1EE4initERPKc.exit
 
-31:                                               ; preds = %._crit_edge106, %22, %9
+33:                                               ; preds = %._crit_edge106, %22, %9
   %.pre-phi108 = phi i64 [ %.pre107, %._crit_edge106 ], [ %24, %22 ], [ %12, %9 ]
   %.0 = phi ptr [ %.185, %._crit_edge106 ], [ %storemerge, %22 ], [ %.376.ph, %9 ]
   %.037 = phi i64 [ 20, %._crit_edge106 ], [ 20, %22 ], [ %12, %9 ]
-  %32 = icmp sgt i64 %.pre-phi108, 3
-  br i1 %32, label %.lr.ph, label %._crit_edge
+  %34 = icmp sgt i64 %.pre-phi108, 3
+  br i1 %34, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %31, %60
-  %.03998 = phi i64 [ %63, %60 ], [ 0, %31 ]
-  %.297 = phi ptr [ %64, %60 ], [ %.0, %31 ]
-  %33 = load i8, ptr %.297, align 1, !tbaa !14
-  %34 = sext i8 %33 to i64
-  %35 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_19shift1000E.const, i64 0, i64 %34
-  %36 = load i16, ptr %35, align 2, !tbaa !89
-  %37 = zext i16 %36 to i32
-  %38 = getelementptr inbounds nuw i8, ptr %.297, i64 1
-  %39 = load i8, ptr %38, align 1, !tbaa !14
-  %40 = sext i8 %39 to i64
-  %41 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_18shift100E.const, i64 0, i64 %40
-  %42 = load i16, ptr %41, align 2, !tbaa !89
-  %43 = zext i16 %42 to i32
-  %44 = getelementptr inbounds nuw i8, ptr %.297, i64 2
-  %45 = load i8, ptr %44, align 1, !tbaa !14
-  %46 = sext i8 %45 to i64
-  %47 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_17shift10E.const, i64 0, i64 %46
-  %48 = load i16, ptr %47, align 2, !tbaa !89
-  %49 = zext i16 %48 to i32
-  %50 = getelementptr inbounds nuw i8, ptr %.297, i64 3
-  %51 = load i8, ptr %50, align 1, !tbaa !14
-  %52 = sext i8 %51 to i64
-  %53 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 0, i64 %52
-  %54 = load i16, ptr %53, align 2, !tbaa !89
-  %55 = zext i16 %54 to i32
-  %56 = add nuw nsw i32 %43, %37
-  %57 = add nuw nsw i32 %56, %49
-  %58 = add nuw nsw i32 %57, %55
-  %59 = icmp samesign ugt i32 %58, 9999
-  br i1 %59, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIxLb1EE4initERPKc.exit, label %60
+.lr.ph:                                           ; preds = %33, %62
+  %.03998 = phi i64 [ %65, %62 ], [ 0, %33 ]
+  %.297 = phi ptr [ %66, %62 ], [ %.0, %33 ]
+  %35 = load i8, ptr %.297, align 1, !tbaa !14
+  %36 = sext i8 %35 to i64
+  %37 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_19shift1000E.const, i64 0, i64 %36
+  %38 = load i16, ptr %37, align 2, !tbaa !89
+  %39 = zext i16 %38 to i32
+  %40 = getelementptr inbounds nuw i8, ptr %.297, i64 1
+  %41 = load i8, ptr %40, align 1, !tbaa !14
+  %42 = sext i8 %41 to i64
+  %43 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_18shift100E.const, i64 0, i64 %42
+  %44 = load i16, ptr %43, align 2, !tbaa !89
+  %45 = zext i16 %44 to i32
+  %46 = getelementptr inbounds nuw i8, ptr %.297, i64 2
+  %47 = load i8, ptr %46, align 1, !tbaa !14
+  %48 = sext i8 %47 to i64
+  %49 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_17shift10E.const, i64 0, i64 %48
+  %50 = load i16, ptr %49, align 2, !tbaa !89
+  %51 = zext i16 %50 to i32
+  %52 = getelementptr inbounds nuw i8, ptr %.297, i64 3
+  %53 = load i8, ptr %52, align 1, !tbaa !14
+  %54 = sext i8 %53 to i64
+  %55 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 0, i64 %54
+  %56 = load i16, ptr %55, align 2, !tbaa !89
+  %57 = zext i16 %56 to i32
+  %58 = add nuw nsw i32 %45, %39
+  %59 = add nuw nsw i32 %58, %51
+  %60 = add nuw nsw i32 %59, %57
+  %61 = icmp samesign ugt i32 %60, 9999
+  br i1 %61, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIxLb1EE4initERPKc.exit, label %62
 
-60:                                               ; preds = %.lr.ph
-  %61 = mul i64 %.03998, 10000
-  %62 = zext nneg i32 %58 to i64
-  %63 = add i64 %61, %62
-  %64 = getelementptr inbounds nuw i8, ptr %.297, i64 4
-  %65 = ptrtoint ptr %64 to i64
-  %66 = sub i64 %10, %65
-  %67 = icmp sgt i64 %66, 3
-  br i1 %67, label %.lr.ph, label %._crit_edge, !llvm.loop !108
+62:                                               ; preds = %.lr.ph
+  %63 = mul i64 %.03998, 10000
+  %64 = zext nneg i32 %60 to i64
+  %65 = add i64 %63, %64
+  %66 = getelementptr inbounds nuw i8, ptr %.297, i64 4
+  %67 = ptrtoint ptr %66 to i64
+  %68 = sub i64 %10, %67
+  %69 = icmp sgt i64 %68, 3
+  br i1 %69, label %.lr.ph, label %._crit_edge, !llvm.loop !108
 
-._crit_edge:                                      ; preds = %60, %31
-  %.2.lcssa = phi ptr [ %.0, %31 ], [ %64, %60 ]
-  %.039.lcssa = phi i64 [ 0, %31 ], [ %63, %60 ]
-  %.lcssa = phi i64 [ %.pre-phi108, %31 ], [ %66, %60 ]
-  switch i64 %.lcssa, label %119 [
-    i64 3, label %68
-    i64 2, label %92
-    i64 1, label %109
+._crit_edge:                                      ; preds = %62, %33
+  %.2.lcssa = phi ptr [ %.0, %33 ], [ %66, %62 ]
+  %.039.lcssa = phi i64 [ 0, %33 ], [ %65, %62 ]
+  %.lcssa = phi i64 [ %.pre-phi108, %33 ], [ %68, %62 ]
+  switch i64 %.lcssa, label %121 [
+    i64 3, label %70
+    i64 2, label %94
+    i64 1, label %111
   ]
 
-68:                                               ; preds = %._crit_edge
-  %69 = load i8, ptr %.2.lcssa, align 1, !tbaa !14
-  %70 = sext i8 %69 to i64
-  %71 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_18shift100E.const, i64 0, i64 %70
-  %72 = load i16, ptr %71, align 2, !tbaa !89
-  %73 = zext i16 %72 to i32
-  %74 = getelementptr inbounds nuw i8, ptr %.2.lcssa, i64 1
-  %75 = load i8, ptr %74, align 1, !tbaa !14
-  %76 = sext i8 %75 to i64
-  %77 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_17shift10E.const, i64 0, i64 %76
-  %78 = load i16, ptr %77, align 2, !tbaa !89
-  %79 = zext i16 %78 to i32
-  %80 = getelementptr inbounds nuw i8, ptr %.2.lcssa, i64 2
-  %81 = load i8, ptr %80, align 1, !tbaa !14
-  %82 = sext i8 %81 to i64
-  %83 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 0, i64 %82
-  %84 = load i16, ptr %83, align 2, !tbaa !89
-  %85 = zext i16 %84 to i32
-  %86 = add nuw nsw i32 %79, %73
-  %87 = add nuw nsw i32 %86, %85
-  %88 = icmp samesign ugt i32 %87, 9999
-  %89 = mul i64 %.039.lcssa, 1000
-  %90 = zext nneg i32 %87 to i64
-  %91 = add i64 %89, %90
-  br i1 %88, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIxLb1EE4initERPKc.exit, label %121
+70:                                               ; preds = %._crit_edge
+  %71 = load i8, ptr %.2.lcssa, align 1, !tbaa !14
+  %72 = sext i8 %71 to i64
+  %73 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_18shift100E.const, i64 0, i64 %72
+  %74 = load i16, ptr %73, align 2, !tbaa !89
+  %75 = zext i16 %74 to i32
+  %76 = getelementptr inbounds nuw i8, ptr %.2.lcssa, i64 1
+  %77 = load i8, ptr %76, align 1, !tbaa !14
+  %78 = sext i8 %77 to i64
+  %79 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_17shift10E.const, i64 0, i64 %78
+  %80 = load i16, ptr %79, align 2, !tbaa !89
+  %81 = zext i16 %80 to i32
+  %82 = getelementptr inbounds nuw i8, ptr %.2.lcssa, i64 2
+  %83 = load i8, ptr %82, align 1, !tbaa !14
+  %84 = sext i8 %83 to i64
+  %85 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 0, i64 %84
+  %86 = load i16, ptr %85, align 2, !tbaa !89
+  %87 = zext i16 %86 to i32
+  %88 = add nuw nsw i32 %81, %75
+  %89 = add nuw nsw i32 %88, %87
+  %90 = icmp samesign ugt i32 %89, 9999
+  %91 = mul i64 %.039.lcssa, 1000
+  %92 = zext nneg i32 %89 to i64
+  %93 = add i64 %91, %92
+  br i1 %90, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIxLb1EE4initERPKc.exit, label %123
 
-92:                                               ; preds = %._crit_edge
-  %93 = load i8, ptr %.2.lcssa, align 1, !tbaa !14
-  %94 = sext i8 %93 to i64
-  %95 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_17shift10E.const, i64 0, i64 %94
-  %96 = load i16, ptr %95, align 2, !tbaa !89
-  %97 = zext i16 %96 to i32
-  %98 = getelementptr inbounds nuw i8, ptr %.2.lcssa, i64 1
-  %99 = load i8, ptr %98, align 1, !tbaa !14
-  %100 = sext i8 %99 to i64
-  %101 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 0, i64 %100
-  %102 = load i16, ptr %101, align 2, !tbaa !89
-  %103 = zext i16 %102 to i32
-  %104 = add nuw nsw i32 %103, %97
-  %105 = icmp samesign ugt i32 %104, 9999
-  %106 = mul i64 %.039.lcssa, 100
-  %107 = zext nneg i32 %104 to i64
-  %108 = add i64 %106, %107
-  br i1 %105, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIxLb1EE4initERPKc.exit, label %121
+94:                                               ; preds = %._crit_edge
+  %95 = load i8, ptr %.2.lcssa, align 1, !tbaa !14
+  %96 = sext i8 %95 to i64
+  %97 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_17shift10E.const, i64 0, i64 %96
+  %98 = load i16, ptr %97, align 2, !tbaa !89
+  %99 = zext i16 %98 to i32
+  %100 = getelementptr inbounds nuw i8, ptr %.2.lcssa, i64 1
+  %101 = load i8, ptr %100, align 1, !tbaa !14
+  %102 = sext i8 %101 to i64
+  %103 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 0, i64 %102
+  %104 = load i16, ptr %103, align 2, !tbaa !89
+  %105 = zext i16 %104 to i32
+  %106 = add nuw nsw i32 %105, %99
+  %107 = icmp samesign ugt i32 %106, 9999
+  %108 = mul i64 %.039.lcssa, 100
+  %109 = zext nneg i32 %106 to i64
+  %110 = add i64 %108, %109
+  br i1 %107, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIxLb1EE4initERPKc.exit, label %123
 
-109:                                              ; preds = %._crit_edge
-  %110 = load i8, ptr %.2.lcssa, align 1, !tbaa !14
-  %111 = sext i8 %110 to i64
-  %112 = add nsw i64 %111, -58
-  %113 = icmp ult i64 %112, -10
-  br i1 %113, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIxLb1EE4initERPKc.exit, label %.thread87
+111:                                              ; preds = %._crit_edge
+  %112 = load i8, ptr %.2.lcssa, align 1, !tbaa !14
+  %113 = sext i8 %112 to i64
+  %114 = add nsw i64 %113, -58
+  %115 = icmp ult i64 %114, -10
+  br i1 %115, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIxLb1EE4initERPKc.exit, label %.thread87
 
-.thread87:                                        ; preds = %109
-  %114 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 0, i64 %111
-  %115 = load i16, ptr %114, align 2, !tbaa !89
-  %116 = mul i64 %.039.lcssa, 10
-  %117 = zext i16 %115 to i64
-  %118 = add i64 %116, %117
-  br label %121
+.thread87:                                        ; preds = %111
+  %116 = getelementptr inbounds nuw [256 x i16], ptr @_ZN5folly6detail12_GLOBAL__N_16shift1E.const, i64 0, i64 %113
+  %117 = load i16, ptr %116, align 2, !tbaa !89
+  %118 = mul i64 %.039.lcssa, 10
+  %119 = zext i16 %117 to i64
+  %120 = add i64 %118, %119
+  br label %123
 
-119:                                              ; preds = %._crit_edge
-  %120 = icmp eq i64 %.037, 0
-  br i1 %120, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIxLb1EE4initERPKc.exit, label %121
+121:                                              ; preds = %._crit_edge
+  %122 = icmp eq i64 %.037, 0
+  br i1 %122, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIxLb1EE4initERPKc.exit, label %123
 
-121:                                              ; preds = %.thread87, %92, %68, %119
-  %.342 = phi i64 [ %.039.lcssa, %119 ], [ %108, %92 ], [ %91, %68 ], [ %118, %.thread87 ]
-  br i1 %.sroa.064.1.ph, label %122, label %125
+123:                                              ; preds = %.thread87, %94, %70, %121
+  %.342 = phi i64 [ %.039.lcssa, %121 ], [ %110, %94 ], [ %93, %70 ], [ %120, %.thread87 ]
+  %124 = trunc nuw i8 %.sroa.064.1.ph to i1
+  br i1 %124, label %125, label %128
 
-122:                                              ; preds = %121
-  %123 = sub i64 0, %.342
-  %124 = icmp sgt i64 %123, 0
-  br i1 %124, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIxLb1EE4initERPKc.exit, label %127, !prof !17
+125:                                              ; preds = %123
+  %126 = sub i64 0, %.342
+  %127 = icmp sgt i64 %126, 0
+  br i1 %127, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIxLb1EE4initERPKc.exit, label %130, !prof !17
 
-125:                                              ; preds = %121
-  %126 = icmp slt i64 %.342, 0
-  br i1 %126, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIxLb1EE4initERPKc.exit, label %127, !prof !17
+128:                                              ; preds = %123
+  %129 = icmp slt i64 %.342, 0
+  br i1 %129, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIxLb1EE4initERPKc.exit, label %130, !prof !17
 
-127:                                              ; preds = %125, %122
-  %.0.i56 = phi i64 [ %123, %122 ], [ %.342, %125 ]
+130:                                              ; preds = %128, %125
+  %.0.i56 = phi i64 [ %126, %125 ], [ %.342, %128 ]
   br label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIxLb1EE4initERPKc.exit
 
-_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIxLb1EE4initERPKc.exit: ; preds = %.preheader, %.lr.ph, %122, %125, %127, %109, %92, %68, %119, %5, %29
-  %.sroa.070.0 = phi i64 [ 2, %29 ], [ 2, %5 ], [ 2, %119 ], [ 2, %68 ], [ 2, %92 ], [ 2, %109 ], [ 1, %127 ], [ 2, %122 ], [ 2, %125 ], [ 2, %.lr.ph ], [ 1, %.preheader ]
-  %.sroa.7.0 = phi i64 [ %30, %29 ], [ 1536, %5 ], [ 512, %119 ], [ 1280, %68 ], [ 1280, %92 ], [ 1280, %109 ], [ 0, %127 ], [ 2048, %122 ], [ 1792, %125 ], [ 1280, %.lr.ph ], [ 0, %.preheader ]
-  %.sroa.12.sroa.2.0 = phi i64 [ 0, %29 ], [ 0, %5 ], [ 0, %119 ], [ 0, %68 ], [ 0, %92 ], [ 0, %109 ], [ %.0.i56, %127 ], [ 0, %122 ], [ 0, %125 ], [ 0, %.lr.ph ], [ 0, %.preheader ]
+_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIxLb1EE4initERPKc.exit: ; preds = %.preheader, %.lr.ph, %125, %128, %130, %111, %94, %70, %121, %5, %29
+  %.sroa.070.0 = phi i64 [ 2, %29 ], [ 2, %5 ], [ 2, %121 ], [ 2, %70 ], [ 2, %94 ], [ 2, %111 ], [ 1, %130 ], [ 2, %125 ], [ 2, %128 ], [ 2, %.lr.ph ], [ 1, %.preheader ]
+  %.sroa.7.0 = phi i64 [ %32, %29 ], [ 1536, %5 ], [ 512, %121 ], [ 1280, %70 ], [ 1280, %94 ], [ 1280, %111 ], [ 0, %130 ], [ 2048, %125 ], [ 1792, %128 ], [ 1280, %.lr.ph ], [ 0, %.preheader ]
+  %.sroa.12.sroa.2.0 = phi i64 [ 0, %29 ], [ 0, %5 ], [ 0, %121 ], [ 0, %70 ], [ 0, %94 ], [ 0, %111 ], [ %.0.i56, %130 ], [ 0, %125 ], [ 0, %128 ], [ 0, %.lr.ph ], [ 0, %.preheader ]
   %.sroa.070.0.insert.insert = or disjoint i64 %.sroa.7.0, %.sroa.070.0
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.070.0.insert.insert, 0
   %.fca.1.insert = insertvalue { i64, i64 } %.fca.0.insert, i64 %.sroa.12.sroa.2.0, 1
@@ -7662,12 +7678,12 @@ define weak_odr i24 @_ZN5folly6detail15str_to_integralIcEENS_8ExpectedIT_NS_14Co
   br label %13
 
 13:                                               ; preds = %12, %11
-  %.sroa.035.0 = phi i1 [ false, %11 ], [ true, %12 ]
+  %.sroa.035.0 = phi i8 [ 0, %11 ], [ 1, %12 ]
   %14 = getelementptr inbounds nuw i8, ptr %.054, i64 1
   br label %15
 
 15:                                               ; preds = %13, %9
-  %.sroa.035.1.ph = phi i1 [ %.sroa.035.0, %13 ], [ false, %9 ]
+  %.sroa.035.1.ph = phi i8 [ %.sroa.035.0, %13 ], [ 0, %9 ]
   %.1.ph = phi ptr [ %14, %13 ], [ %.054, %9 ]
   %.not15 = icmp ult ptr %.1.ph, %4
   br i1 %.not15, label %16, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIcLb1EE4initERPKc.exit, !prof !114
@@ -7716,7 +7732,7 @@ _ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit: ; preds = %.lr.ph
 
 32:                                               ; preds = %_ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit
   invoke void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessIvEEJEEEvDpT0_() #11
-          to label %.noexc unwind label %51
+          to label %.noexc unwind label %52
 
 .noexc:                                           ; preds = %32
   unreachable
@@ -7725,50 +7741,51 @@ _ZNR5folly8ExpectedIhNS_14ConversionCodeEE5errorEv.exit: ; preds = %_ZN5folly6de
   %.sroa.7.0.extract.shift = lshr i24 %31, 8
   %.sroa.7.0.extract.trunc = trunc i24 %.sroa.7.0.extract.shift to i8
   %33 = icmp eq i8 %.sroa.7.0.extract.trunc, 7
-  %34 = select i1 %.sroa.035.1.ph, i8 8, i8 7
+  %34 = add nuw nsw i8 %.sroa.035.1.ph, 7
   %spec.select = select i1 %33, i8 %34, i8 %.sroa.7.0.extract.trunc
   br label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIcLb1EE4initERPKc.exit
 
 _ZNR5folly8ExpectedIhNS_14ConversionCodeEE5valueEv.exit: ; preds = %_ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit
-  br i1 %.sroa.035.1.ph, label %35, label %38
+  %35 = trunc nuw i8 %.sroa.035.1.ph to i1
+  br i1 %35, label %36, label %39
 
-35:                                               ; preds = %_ZNR5folly8ExpectedIhNS_14ConversionCodeEE5valueEv.exit
-  %36 = sub i8 0, %.sroa.10.0.extract.trunc
-  %37 = icmp sgt i8 %36, 0
-  br i1 %37, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIcLb1EE4initERPKc.exit, label %40, !prof !17
+36:                                               ; preds = %_ZNR5folly8ExpectedIhNS_14ConversionCodeEE5valueEv.exit
+  %37 = sub i8 0, %.sroa.10.0.extract.trunc
+  %38 = icmp sgt i8 %37, 0
+  br i1 %38, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIcLb1EE4initERPKc.exit, label %41, !prof !17
 
-38:                                               ; preds = %_ZNR5folly8ExpectedIhNS_14ConversionCodeEE5valueEv.exit
-  %39 = icmp slt i24 %31, 0
-  br i1 %39, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIcLb1EE4initERPKc.exit, label %40, !prof !17
+39:                                               ; preds = %_ZNR5folly8ExpectedIhNS_14ConversionCodeEE5valueEv.exit
+  %40 = icmp slt i24 %31, 0
+  br i1 %40, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIcLb1EE4initERPKc.exit, label %41, !prof !17
 
-40:                                               ; preds = %38, %35
-  %.0.i21 = phi i8 [ %36, %35 ], [ %.sroa.10.0.extract.trunc, %38 ]
-  %41 = load ptr, ptr %0, align 8, !tbaa !7
-  %42 = ptrtoint ptr %.06.lcssa.i to i64
-  %43 = ptrtoint ptr %41 to i64
-  %44 = sub i64 %42, %43
-  %45 = load ptr, ptr %3, align 8, !tbaa !13
-  %46 = ptrtoint ptr %45 to i64
-  %47 = sub i64 %46, %43
-  %48 = icmp ugt i64 %44, %47
-  br i1 %48, label %49, label %_ZN5folly5RangeIPKcE7advanceEm.exit, !prof !17
+41:                                               ; preds = %39, %36
+  %.0.i21 = phi i8 [ %37, %36 ], [ %.sroa.10.0.extract.trunc, %39 ]
+  %42 = load ptr, ptr %0, align 8, !tbaa !7
+  %43 = ptrtoint ptr %.06.lcssa.i to i64
+  %44 = ptrtoint ptr %42 to i64
+  %45 = sub i64 %43, %44
+  %46 = load ptr, ptr %3, align 8, !tbaa !13
+  %47 = ptrtoint ptr %46 to i64
+  %48 = sub i64 %47, %44
+  %49 = icmp ugt i64 %45, %48
+  br i1 %49, label %50, label %_ZN5folly5RangeIPKcE7advanceEm.exit, !prof !17
 
-49:                                               ; preds = %40
+50:                                               ; preds = %41
   invoke void @_ZN5folly6detail16throw_exception_ISt12out_of_rangeJPKcEEEvDpT0_(ptr noundef nonnull @.str.2) #11
-          to label %.noexc22 unwind label %51
+          to label %.noexc22 unwind label %52
 
-.noexc22:                                         ; preds = %49
+.noexc22:                                         ; preds = %50
   unreachable
 
-_ZN5folly5RangeIPKcE7advanceEm.exit:              ; preds = %40
-  %50 = getelementptr inbounds nuw i8, ptr %41, i64 %44
-  store ptr %50, ptr %0, align 8, !tbaa !7
+_ZN5folly5RangeIPKcE7advanceEm.exit:              ; preds = %41
+  %51 = getelementptr inbounds nuw i8, ptr %42, i64 %45
+  store ptr %51, ptr %0, align 8, !tbaa !7
   br label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIcLb1EE4initERPKc.exit
 
-_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIcLb1EE4initERPKc.exit: ; preds = %7, %38, %35, %1, %_ZNR5folly8ExpectedIhNS_14ConversionCodeEE5errorEv.exit, %11, %15, %16, %_ZN5folly5RangeIPKcE7advanceEm.exit
-  %.sroa.044.0 = phi i8 [ 2, %11 ], [ 2, %15 ], [ 2, %16 ], [ 1, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ 2, %_ZNR5folly8ExpectedIhNS_14ConversionCodeEE5errorEv.exit ], [ 2, %1 ], [ 2, %35 ], [ 2, %38 ], [ 2, %7 ]
-  %.sroa.8.0 = phi i8 [ 6, %11 ], [ 2, %15 ], [ 5, %16 ], [ 0, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ %spec.select, %_ZNR5folly8ExpectedIhNS_14ConversionCodeEE5errorEv.exit ], [ 1, %1 ], [ 8, %35 ], [ 7, %38 ], [ 1, %7 ]
-  %.sroa.13.0 = phi i8 [ 0, %11 ], [ 0, %15 ], [ 0, %16 ], [ %.0.i21, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ 0, %_ZNR5folly8ExpectedIhNS_14ConversionCodeEE5errorEv.exit ], [ 0, %1 ], [ 0, %35 ], [ 0, %38 ], [ 0, %7 ]
+_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIcLb1EE4initERPKc.exit: ; preds = %7, %39, %36, %1, %_ZNR5folly8ExpectedIhNS_14ConversionCodeEE5errorEv.exit, %11, %15, %16, %_ZN5folly5RangeIPKcE7advanceEm.exit
+  %.sroa.044.0 = phi i8 [ 2, %11 ], [ 2, %15 ], [ 2, %16 ], [ 1, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ 2, %_ZNR5folly8ExpectedIhNS_14ConversionCodeEE5errorEv.exit ], [ 2, %1 ], [ 2, %36 ], [ 2, %39 ], [ 2, %7 ]
+  %.sroa.8.0 = phi i8 [ 6, %11 ], [ 2, %15 ], [ 5, %16 ], [ 0, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ %spec.select, %_ZNR5folly8ExpectedIhNS_14ConversionCodeEE5errorEv.exit ], [ 1, %1 ], [ 8, %36 ], [ 7, %39 ], [ 1, %7 ]
+  %.sroa.13.0 = phi i8 [ 0, %11 ], [ 0, %15 ], [ 0, %16 ], [ %.0.i21, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ 0, %_ZNR5folly8ExpectedIhNS_14ConversionCodeEE5errorEv.exit ], [ 0, %1 ], [ 0, %36 ], [ 0, %39 ], [ 0, %7 ]
   %.sroa.13.0.insert.ext = zext i8 %.sroa.13.0 to i24
   %.sroa.13.0.insert.shift = shl nuw i24 %.sroa.13.0.insert.ext, 16
   %.sroa.8.0.insert.ext = zext i8 %.sroa.8.0 to i24
@@ -7778,11 +7795,11 @@ _ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIcLb1EE4initERPKc.exit: ; pred
   %.sroa.044.0.insert.insert = or disjoint i24 %.sroa.8.0.insert.insert, %.sroa.044.0.insert.ext
   ret i24 %.sroa.044.0.insert.insert
 
-51:                                               ; preds = %49, %32
-  %52 = landingpad { ptr, i32 }
+52:                                               ; preds = %50, %32
+  %53 = landingpad { ptr, i32 }
           catch ptr null
-  %53 = extractvalue { ptr, i32 } %52, 0
-  tail call void @__clang_call_terminate(ptr %53) #21
+  %54 = extractvalue { ptr, i32 } %53, 0
+  tail call void @__clang_call_terminate(ptr %54) #21
   unreachable
 }
 
@@ -7873,12 +7890,12 @@ define weak_odr i24 @_ZN5folly6detail15str_to_integralIaEENS_8ExpectedIT_NS_14Co
   br label %13
 
 13:                                               ; preds = %12, %11
-  %.sroa.035.0 = phi i1 [ false, %11 ], [ true, %12 ]
+  %.sroa.035.0 = phi i8 [ 0, %11 ], [ 1, %12 ]
   %14 = getelementptr inbounds nuw i8, ptr %.054, i64 1
   br label %15
 
 15:                                               ; preds = %13, %9
-  %.sroa.035.1.ph = phi i1 [ %.sroa.035.0, %13 ], [ false, %9 ]
+  %.sroa.035.1.ph = phi i8 [ %.sroa.035.0, %13 ], [ 0, %9 ]
   %.1.ph = phi ptr [ %14, %13 ], [ %.054, %9 ]
   %.not15 = icmp ult ptr %.1.ph, %4
   br i1 %.not15, label %16, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIaLb1EE4initERPKc.exit, !prof !114
@@ -7927,7 +7944,7 @@ _ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit: ; preds = %.lr.ph
 
 32:                                               ; preds = %_ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit
   invoke void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessIvEEJEEEvDpT0_() #11
-          to label %.noexc unwind label %51
+          to label %.noexc unwind label %52
 
 .noexc:                                           ; preds = %32
   unreachable
@@ -7936,50 +7953,51 @@ _ZNR5folly8ExpectedIhNS_14ConversionCodeEE5errorEv.exit: ; preds = %_ZN5folly6de
   %.sroa.7.0.extract.shift = lshr i24 %31, 8
   %.sroa.7.0.extract.trunc = trunc i24 %.sroa.7.0.extract.shift to i8
   %33 = icmp eq i8 %.sroa.7.0.extract.trunc, 7
-  %34 = select i1 %.sroa.035.1.ph, i8 8, i8 7
+  %34 = add nuw nsw i8 %.sroa.035.1.ph, 7
   %spec.select = select i1 %33, i8 %34, i8 %.sroa.7.0.extract.trunc
   br label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIaLb1EE4initERPKc.exit
 
 _ZNR5folly8ExpectedIhNS_14ConversionCodeEE5valueEv.exit: ; preds = %_ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit
-  br i1 %.sroa.035.1.ph, label %35, label %38
+  %35 = trunc nuw i8 %.sroa.035.1.ph to i1
+  br i1 %35, label %36, label %39
 
-35:                                               ; preds = %_ZNR5folly8ExpectedIhNS_14ConversionCodeEE5valueEv.exit
-  %36 = sub i8 0, %.sroa.10.0.extract.trunc
-  %37 = icmp sgt i8 %36, 0
-  br i1 %37, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIaLb1EE4initERPKc.exit, label %40, !prof !17
+36:                                               ; preds = %_ZNR5folly8ExpectedIhNS_14ConversionCodeEE5valueEv.exit
+  %37 = sub i8 0, %.sroa.10.0.extract.trunc
+  %38 = icmp sgt i8 %37, 0
+  br i1 %38, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIaLb1EE4initERPKc.exit, label %41, !prof !17
 
-38:                                               ; preds = %_ZNR5folly8ExpectedIhNS_14ConversionCodeEE5valueEv.exit
-  %39 = icmp slt i24 %31, 0
-  br i1 %39, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIaLb1EE4initERPKc.exit, label %40, !prof !17
+39:                                               ; preds = %_ZNR5folly8ExpectedIhNS_14ConversionCodeEE5valueEv.exit
+  %40 = icmp slt i24 %31, 0
+  br i1 %40, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIaLb1EE4initERPKc.exit, label %41, !prof !17
 
-40:                                               ; preds = %38, %35
-  %.0.i21 = phi i8 [ %36, %35 ], [ %.sroa.10.0.extract.trunc, %38 ]
-  %41 = load ptr, ptr %0, align 8, !tbaa !7
-  %42 = ptrtoint ptr %.06.lcssa.i to i64
-  %43 = ptrtoint ptr %41 to i64
-  %44 = sub i64 %42, %43
-  %45 = load ptr, ptr %3, align 8, !tbaa !13
-  %46 = ptrtoint ptr %45 to i64
-  %47 = sub i64 %46, %43
-  %48 = icmp ugt i64 %44, %47
-  br i1 %48, label %49, label %_ZN5folly5RangeIPKcE7advanceEm.exit, !prof !17
+41:                                               ; preds = %39, %36
+  %.0.i21 = phi i8 [ %37, %36 ], [ %.sroa.10.0.extract.trunc, %39 ]
+  %42 = load ptr, ptr %0, align 8, !tbaa !7
+  %43 = ptrtoint ptr %.06.lcssa.i to i64
+  %44 = ptrtoint ptr %42 to i64
+  %45 = sub i64 %43, %44
+  %46 = load ptr, ptr %3, align 8, !tbaa !13
+  %47 = ptrtoint ptr %46 to i64
+  %48 = sub i64 %47, %44
+  %49 = icmp ugt i64 %45, %48
+  br i1 %49, label %50, label %_ZN5folly5RangeIPKcE7advanceEm.exit, !prof !17
 
-49:                                               ; preds = %40
+50:                                               ; preds = %41
   invoke void @_ZN5folly6detail16throw_exception_ISt12out_of_rangeJPKcEEEvDpT0_(ptr noundef nonnull @.str.2) #11
-          to label %.noexc22 unwind label %51
+          to label %.noexc22 unwind label %52
 
-.noexc22:                                         ; preds = %49
+.noexc22:                                         ; preds = %50
   unreachable
 
-_ZN5folly5RangeIPKcE7advanceEm.exit:              ; preds = %40
-  %50 = getelementptr inbounds nuw i8, ptr %41, i64 %44
-  store ptr %50, ptr %0, align 8, !tbaa !7
+_ZN5folly5RangeIPKcE7advanceEm.exit:              ; preds = %41
+  %51 = getelementptr inbounds nuw i8, ptr %42, i64 %45
+  store ptr %51, ptr %0, align 8, !tbaa !7
   br label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIaLb1EE4initERPKc.exit
 
-_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIaLb1EE4initERPKc.exit: ; preds = %7, %38, %35, %1, %_ZNR5folly8ExpectedIhNS_14ConversionCodeEE5errorEv.exit, %11, %15, %16, %_ZN5folly5RangeIPKcE7advanceEm.exit
-  %.sroa.044.0 = phi i8 [ 2, %11 ], [ 2, %15 ], [ 2, %16 ], [ 1, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ 2, %_ZNR5folly8ExpectedIhNS_14ConversionCodeEE5errorEv.exit ], [ 2, %1 ], [ 2, %35 ], [ 2, %38 ], [ 2, %7 ]
-  %.sroa.8.0 = phi i8 [ 6, %11 ], [ 2, %15 ], [ 5, %16 ], [ 0, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ %spec.select, %_ZNR5folly8ExpectedIhNS_14ConversionCodeEE5errorEv.exit ], [ 1, %1 ], [ 8, %35 ], [ 7, %38 ], [ 1, %7 ]
-  %.sroa.13.0 = phi i8 [ 0, %11 ], [ 0, %15 ], [ 0, %16 ], [ %.0.i21, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ 0, %_ZNR5folly8ExpectedIhNS_14ConversionCodeEE5errorEv.exit ], [ 0, %1 ], [ 0, %35 ], [ 0, %38 ], [ 0, %7 ]
+_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIaLb1EE4initERPKc.exit: ; preds = %7, %39, %36, %1, %_ZNR5folly8ExpectedIhNS_14ConversionCodeEE5errorEv.exit, %11, %15, %16, %_ZN5folly5RangeIPKcE7advanceEm.exit
+  %.sroa.044.0 = phi i8 [ 2, %11 ], [ 2, %15 ], [ 2, %16 ], [ 1, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ 2, %_ZNR5folly8ExpectedIhNS_14ConversionCodeEE5errorEv.exit ], [ 2, %1 ], [ 2, %36 ], [ 2, %39 ], [ 2, %7 ]
+  %.sroa.8.0 = phi i8 [ 6, %11 ], [ 2, %15 ], [ 5, %16 ], [ 0, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ %spec.select, %_ZNR5folly8ExpectedIhNS_14ConversionCodeEE5errorEv.exit ], [ 1, %1 ], [ 8, %36 ], [ 7, %39 ], [ 1, %7 ]
+  %.sroa.13.0 = phi i8 [ 0, %11 ], [ 0, %15 ], [ 0, %16 ], [ %.0.i21, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ 0, %_ZNR5folly8ExpectedIhNS_14ConversionCodeEE5errorEv.exit ], [ 0, %1 ], [ 0, %36 ], [ 0, %39 ], [ 0, %7 ]
   %.sroa.13.0.insert.ext = zext i8 %.sroa.13.0 to i24
   %.sroa.13.0.insert.shift = shl nuw i24 %.sroa.13.0.insert.ext, 16
   %.sroa.8.0.insert.ext = zext i8 %.sroa.8.0 to i24
@@ -7989,11 +8007,11 @@ _ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIaLb1EE4initERPKc.exit: ; pred
   %.sroa.044.0.insert.insert = or disjoint i24 %.sroa.8.0.insert.insert, %.sroa.044.0.insert.ext
   ret i24 %.sroa.044.0.insert.insert
 
-51:                                               ; preds = %49, %32
-  %52 = landingpad { ptr, i32 }
+52:                                               ; preds = %50, %32
+  %53 = landingpad { ptr, i32 }
           catch ptr null
-  %53 = extractvalue { ptr, i32 } %52, 0
-  tail call void @__clang_call_terminate(ptr %53) #21
+  %54 = extractvalue { ptr, i32 } %53, 0
+  tail call void @__clang_call_terminate(ptr %54) #21
   unreachable
 }
 
@@ -8162,12 +8180,12 @@ define weak_odr i32 @_ZN5folly6detail15str_to_integralIsEENS_8ExpectedIT_NS_14Co
   br label %13
 
 13:                                               ; preds = %12, %11
-  %.sroa.035.0 = phi i1 [ false, %11 ], [ true, %12 ]
+  %.sroa.035.0 = phi i8 [ 0, %11 ], [ 1, %12 ]
   %14 = getelementptr inbounds nuw i8, ptr %.055, i64 1
   br label %15
 
 15:                                               ; preds = %13, %9
-  %.sroa.035.1.ph = phi i1 [ %.sroa.035.0, %13 ], [ false, %9 ]
+  %.sroa.035.1.ph = phi i8 [ %.sroa.035.0, %13 ], [ 0, %9 ]
   %.1.ph = phi ptr [ %14, %13 ], [ %.055, %9 ]
   %.not15 = icmp ult ptr %.1.ph, %4
   br i1 %.not15, label %16, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIsLb1EE4initERPKc.exit, !prof !114
@@ -8216,71 +8234,71 @@ _ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit: ; preds = %.lr.ph
 
 32:                                               ; preds = %_ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit
   invoke void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessIvEEJEEEvDpT0_() #11
-          to label %.noexc unwind label %55
+          to label %.noexc unwind label %56
 
 .noexc:                                           ; preds = %32
   unreachable
 
 _ZNR5folly8ExpectedItNS_14ConversionCodeEE5errorEv.exit: ; preds = %_ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit
-  %33 = and i32 %31, 65280
-  %34 = icmp eq i32 %33, 1792
-  %35 = select i1 %.sroa.035.1.ph, i32 2048, i32 1792
-  %spec.select = select i1 %34, i32 %35, i32 %31
+  %.sroa.7.0.extract.shift = lshr i32 %31, 8
+  %.sroa.7.0.extract.trunc = trunc i32 %.sroa.7.0.extract.shift to i8
+  %33 = icmp eq i8 %.sroa.7.0.extract.trunc, 7
+  %34 = add nuw nsw i8 %.sroa.035.1.ph, 7
+  %spec.select = select i1 %33, i8 %34, i8 %.sroa.7.0.extract.trunc
+  %35 = zext i8 %spec.select to i32
+  %36 = shl nuw nsw i32 %35, 8
   br label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIsLb1EE4initERPKc.exit
 
 _ZNR5folly8ExpectedItNS_14ConversionCodeEE5valueEv.exit: ; preds = %_ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit
-  br i1 %.sroa.035.1.ph, label %36, label %39
+  %37 = trunc nuw i8 %.sroa.035.1.ph to i1
+  br i1 %37, label %38, label %41
 
-36:                                               ; preds = %_ZNR5folly8ExpectedItNS_14ConversionCodeEE5valueEv.exit
-  %37 = sub i16 0, %.sroa.10.0.extract.trunc
-  %38 = icmp sgt i16 %37, 0
-  br i1 %38, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIsLb1EE4initERPKc.exit, label %41, !prof !17
+38:                                               ; preds = %_ZNR5folly8ExpectedItNS_14ConversionCodeEE5valueEv.exit
+  %39 = sub i16 0, %.sroa.10.0.extract.trunc
+  %40 = icmp sgt i16 %39, 0
+  br i1 %40, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIsLb1EE4initERPKc.exit, label %43, !prof !17
 
-39:                                               ; preds = %_ZNR5folly8ExpectedItNS_14ConversionCodeEE5valueEv.exit
-  %40 = icmp slt i32 %31, 0
-  br i1 %40, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIsLb1EE4initERPKc.exit, label %41, !prof !17
+41:                                               ; preds = %_ZNR5folly8ExpectedItNS_14ConversionCodeEE5valueEv.exit
+  %42 = icmp slt i32 %31, 0
+  br i1 %42, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIsLb1EE4initERPKc.exit, label %43, !prof !17
 
-41:                                               ; preds = %39, %36
-  %.0.i21 = phi i16 [ %37, %36 ], [ %.sroa.10.0.extract.trunc, %39 ]
-  %42 = load ptr, ptr %0, align 8, !tbaa !7
-  %43 = ptrtoint ptr %.06.lcssa.i to i64
-  %44 = ptrtoint ptr %42 to i64
-  %45 = sub i64 %43, %44
-  %46 = load ptr, ptr %3, align 8, !tbaa !13
-  %47 = ptrtoint ptr %46 to i64
-  %48 = sub i64 %47, %44
-  %49 = icmp ugt i64 %45, %48
-  br i1 %49, label %50, label %_ZN5folly5RangeIPKcE7advanceEm.exit, !prof !17
+43:                                               ; preds = %41, %38
+  %.0.i21 = phi i16 [ %39, %38 ], [ %.sroa.10.0.extract.trunc, %41 ]
+  %44 = load ptr, ptr %0, align 8, !tbaa !7
+  %45 = ptrtoint ptr %.06.lcssa.i to i64
+  %46 = ptrtoint ptr %44 to i64
+  %47 = sub i64 %45, %46
+  %48 = load ptr, ptr %3, align 8, !tbaa !13
+  %49 = ptrtoint ptr %48 to i64
+  %50 = sub i64 %49, %46
+  %51 = icmp ugt i64 %47, %50
+  br i1 %51, label %52, label %_ZN5folly5RangeIPKcE7advanceEm.exit, !prof !17
 
-50:                                               ; preds = %41
+52:                                               ; preds = %43
   invoke void @_ZN5folly6detail16throw_exception_ISt12out_of_rangeJPKcEEEvDpT0_(ptr noundef nonnull @.str.2) #11
-          to label %.noexc22 unwind label %55
+          to label %.noexc22 unwind label %56
 
-.noexc22:                                         ; preds = %50
+.noexc22:                                         ; preds = %52
   unreachable
 
-_ZN5folly5RangeIPKcE7advanceEm.exit:              ; preds = %41
-  %51 = zext i16 %.0.i21 to i32
-  %52 = shl nuw i32 %51, 16
-  %53 = getelementptr inbounds nuw i8, ptr %42, i64 %45
-  store ptr %53, ptr %0, align 8, !tbaa !7
-  %54 = shl nuw i32 %51, 16
+_ZN5folly5RangeIPKcE7advanceEm.exit:              ; preds = %43
+  %53 = zext i16 %.0.i21 to i32
+  %54 = getelementptr inbounds nuw i8, ptr %44, i64 %47
+  store ptr %54, ptr %0, align 8, !tbaa !7
+  %55 = shl nuw i32 %53, 16
   br label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIsLb1EE4initERPKc.exit
 
-_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIsLb1EE4initERPKc.exit: ; preds = %7, %39, %36, %1, %_ZNR5folly8ExpectedItNS_14ConversionCodeEE5errorEv.exit, %11, %15, %16, %_ZN5folly5RangeIPKcE7advanceEm.exit
-  %.sroa.044.0 = phi i32 [ 2, %11 ], [ 2, %15 ], [ 2, %16 ], [ 1, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ 2, %_ZNR5folly8ExpectedItNS_14ConversionCodeEE5errorEv.exit ], [ 2, %1 ], [ 2, %36 ], [ 2, %39 ], [ 2, %7 ]
-  %.sroa.8.0 = phi i32 [ 1536, %11 ], [ 512, %15 ], [ 1280, %16 ], [ %52, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ %spec.select, %_ZNR5folly8ExpectedItNS_14ConversionCodeEE5errorEv.exit ], [ 256, %1 ], [ 2048, %36 ], [ 1792, %39 ], [ 256, %7 ]
-  %.sroa.13.0 = phi i32 [ 0, %11 ], [ 0, %15 ], [ 0, %16 ], [ %54, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ 0, %_ZNR5folly8ExpectedItNS_14ConversionCodeEE5errorEv.exit ], [ 0, %1 ], [ 0, %36 ], [ 0, %39 ], [ 0, %7 ]
-  %.sroa.8.0.insert.shift = and i32 %.sroa.8.0, 65280
-  %.sroa.8.0.insert.insert = or disjoint i32 %.sroa.13.0, %.sroa.8.0.insert.shift
+_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIsLb1EE4initERPKc.exit: ; preds = %7, %41, %38, %1, %_ZNR5folly8ExpectedItNS_14ConversionCodeEE5errorEv.exit, %11, %15, %16, %_ZN5folly5RangeIPKcE7advanceEm.exit
+  %.sroa.044.0 = phi i32 [ 2, %11 ], [ 2, %15 ], [ 2, %16 ], [ 1, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ 2, %_ZNR5folly8ExpectedItNS_14ConversionCodeEE5errorEv.exit ], [ 2, %1 ], [ 2, %38 ], [ 2, %41 ], [ 2, %7 ]
+  %.sroa.8.0.insert.insert = phi i32 [ 1536, %11 ], [ 512, %15 ], [ 1280, %16 ], [ %55, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ %36, %_ZNR5folly8ExpectedItNS_14ConversionCodeEE5errorEv.exit ], [ 256, %1 ], [ 2048, %38 ], [ 1792, %41 ], [ 256, %7 ]
   %.sroa.044.0.insert.insert = or disjoint i32 %.sroa.8.0.insert.insert, %.sroa.044.0
   ret i32 %.sroa.044.0.insert.insert
 
-55:                                               ; preds = %50, %32
-  %56 = landingpad { ptr, i32 }
+56:                                               ; preds = %52, %32
+  %57 = landingpad { ptr, i32 }
           catch ptr null
-  %57 = extractvalue { ptr, i32 } %56, 0
-  tail call void @__clang_call_terminate(ptr %57) #21
+  %58 = extractvalue { ptr, i32 } %57, 0
+  tail call void @__clang_call_terminate(ptr %58) #21
   unreachable
 }
 
@@ -8442,12 +8460,12 @@ define weak_odr i64 @_ZN5folly6detail15str_to_integralIiEENS_8ExpectedIT_NS_14Co
   br label %13
 
 13:                                               ; preds = %12, %11
-  %.sroa.036.0 = phi i1 [ false, %11 ], [ true, %12 ]
+  %.sroa.036.0 = phi i8 [ 0, %11 ], [ 1, %12 ]
   %14 = getelementptr inbounds nuw i8, ptr %.057, i64 1
   br label %15
 
 15:                                               ; preds = %13, %9
-  %.sroa.036.1.ph = phi i1 [ %.sroa.036.0, %13 ], [ false, %9 ]
+  %.sroa.036.1.ph = phi i8 [ %.sroa.036.0, %13 ], [ 0, %9 ]
   %.1.ph = phi ptr [ %14, %13 ], [ %.057, %9 ]
   %.not15 = icmp ult ptr %.1.ph, %4
   br i1 %.not15, label %16, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIiLb1EE4initERPKc.exit, !prof !114
@@ -8496,71 +8514,71 @@ _ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit: ; preds = %.lr.ph
 
 32:                                               ; preds = %_ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit
   invoke void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessIvEEJEEEvDpT0_() #11
-          to label %.noexc unwind label %55
+          to label %.noexc unwind label %56
 
 .noexc:                                           ; preds = %32
   unreachable
 
 _ZNR5folly8ExpectedIjNS_14ConversionCodeEE5errorEv.exit: ; preds = %_ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit
-  %33 = and i64 %31, 65280
-  %34 = icmp eq i64 %33, 1792
-  %35 = select i1 %.sroa.036.1.ph, i64 2048, i64 1792
-  %spec.select = select i1 %34, i64 %35, i64 %31
+  %.sroa.7.0.extract.shift = lshr i64 %31, 8
+  %.sroa.7.0.extract.trunc = trunc i64 %.sroa.7.0.extract.shift to i8
+  %33 = icmp eq i8 %.sroa.7.0.extract.trunc, 7
+  %34 = add nuw nsw i8 %.sroa.036.1.ph, 7
+  %spec.select = select i1 %33, i8 %34, i8 %.sroa.7.0.extract.trunc
+  %35 = zext i8 %spec.select to i64
+  %36 = shl nuw nsw i64 %35, 8
   br label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIiLb1EE4initERPKc.exit
 
 _ZNR5folly8ExpectedIjNS_14ConversionCodeEE5valueEv.exit: ; preds = %_ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit
-  br i1 %.sroa.036.1.ph, label %36, label %39
+  %37 = trunc nuw i8 %.sroa.036.1.ph to i1
+  br i1 %37, label %38, label %41
 
-36:                                               ; preds = %_ZNR5folly8ExpectedIjNS_14ConversionCodeEE5valueEv.exit
-  %37 = sub i32 0, %.sroa.1029.0.extract.trunc
-  %38 = icmp sgt i32 %37, 0
-  br i1 %38, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIiLb1EE4initERPKc.exit, label %41, !prof !17
+38:                                               ; preds = %_ZNR5folly8ExpectedIjNS_14ConversionCodeEE5valueEv.exit
+  %39 = sub i32 0, %.sroa.1029.0.extract.trunc
+  %40 = icmp sgt i32 %39, 0
+  br i1 %40, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIiLb1EE4initERPKc.exit, label %43, !prof !17
 
-39:                                               ; preds = %_ZNR5folly8ExpectedIjNS_14ConversionCodeEE5valueEv.exit
-  %40 = icmp slt i64 %31, 0
-  br i1 %40, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIiLb1EE4initERPKc.exit, label %41, !prof !17
+41:                                               ; preds = %_ZNR5folly8ExpectedIjNS_14ConversionCodeEE5valueEv.exit
+  %42 = icmp slt i64 %31, 0
+  br i1 %42, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIiLb1EE4initERPKc.exit, label %43, !prof !17
 
-41:                                               ; preds = %39, %36
-  %.0.i21 = phi i32 [ %37, %36 ], [ %.sroa.1029.0.extract.trunc, %39 ]
-  %42 = load ptr, ptr %0, align 8, !tbaa !7
-  %43 = ptrtoint ptr %.06.lcssa.i to i64
-  %44 = ptrtoint ptr %42 to i64
-  %45 = sub i64 %43, %44
-  %46 = load ptr, ptr %3, align 8, !tbaa !13
-  %47 = ptrtoint ptr %46 to i64
-  %48 = sub i64 %47, %44
-  %49 = icmp ugt i64 %45, %48
-  br i1 %49, label %50, label %_ZN5folly5RangeIPKcE7advanceEm.exit, !prof !17
+43:                                               ; preds = %41, %38
+  %.0.i21 = phi i32 [ %39, %38 ], [ %.sroa.1029.0.extract.trunc, %41 ]
+  %44 = load ptr, ptr %0, align 8, !tbaa !7
+  %45 = ptrtoint ptr %.06.lcssa.i to i64
+  %46 = ptrtoint ptr %44 to i64
+  %47 = sub i64 %45, %46
+  %48 = load ptr, ptr %3, align 8, !tbaa !13
+  %49 = ptrtoint ptr %48 to i64
+  %50 = sub i64 %49, %46
+  %51 = icmp ugt i64 %47, %50
+  br i1 %51, label %52, label %_ZN5folly5RangeIPKcE7advanceEm.exit, !prof !17
 
-50:                                               ; preds = %41
+52:                                               ; preds = %43
   invoke void @_ZN5folly6detail16throw_exception_ISt12out_of_rangeJPKcEEEvDpT0_(ptr noundef nonnull @.str.2) #11
-          to label %.noexc22 unwind label %55
+          to label %.noexc22 unwind label %56
 
-.noexc22:                                         ; preds = %50
+.noexc22:                                         ; preds = %52
   unreachable
 
-_ZN5folly5RangeIPKcE7advanceEm.exit:              ; preds = %41
-  %51 = zext i32 %.0.i21 to i64
-  %52 = shl nuw i64 %51, 32
-  %53 = getelementptr inbounds nuw i8, ptr %42, i64 %45
-  store ptr %53, ptr %0, align 8, !tbaa !7
-  %54 = shl nuw i64 %51, 32
+_ZN5folly5RangeIPKcE7advanceEm.exit:              ; preds = %43
+  %53 = zext i32 %.0.i21 to i64
+  %54 = getelementptr inbounds nuw i8, ptr %44, i64 %47
+  store ptr %54, ptr %0, align 8, !tbaa !7
+  %55 = shl nuw i64 %53, 32
   br label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIiLb1EE4initERPKc.exit
 
-_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIiLb1EE4initERPKc.exit: ; preds = %7, %39, %36, %1, %_ZNR5folly8ExpectedIjNS_14ConversionCodeEE5errorEv.exit, %11, %15, %16, %_ZN5folly5RangeIPKcE7advanceEm.exit
-  %.sroa.045.0 = phi i64 [ 2, %11 ], [ 2, %15 ], [ 2, %16 ], [ 1, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ 2, %_ZNR5folly8ExpectedIjNS_14ConversionCodeEE5errorEv.exit ], [ 2, %1 ], [ 2, %36 ], [ 2, %39 ], [ 2, %7 ]
-  %.sroa.8.0 = phi i64 [ 1536, %11 ], [ 512, %15 ], [ 1280, %16 ], [ %52, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ %spec.select, %_ZNR5folly8ExpectedIjNS_14ConversionCodeEE5errorEv.exit ], [ 256, %1 ], [ 2048, %36 ], [ 1792, %39 ], [ 256, %7 ]
-  %.sroa.1347.0 = phi i64 [ 0, %11 ], [ 0, %15 ], [ 0, %16 ], [ %54, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ 0, %_ZNR5folly8ExpectedIjNS_14ConversionCodeEE5errorEv.exit ], [ 0, %1 ], [ 0, %36 ], [ 0, %39 ], [ 0, %7 ]
-  %.sroa.8.0.insert.shift = and i64 %.sroa.8.0, 65280
-  %.sroa.8.0.insert.insert = or disjoint i64 %.sroa.1347.0, %.sroa.8.0.insert.shift
+_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIiLb1EE4initERPKc.exit: ; preds = %7, %41, %38, %1, %_ZNR5folly8ExpectedIjNS_14ConversionCodeEE5errorEv.exit, %11, %15, %16, %_ZN5folly5RangeIPKcE7advanceEm.exit
+  %.sroa.045.0 = phi i64 [ 2, %11 ], [ 2, %15 ], [ 2, %16 ], [ 1, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ 2, %_ZNR5folly8ExpectedIjNS_14ConversionCodeEE5errorEv.exit ], [ 2, %1 ], [ 2, %38 ], [ 2, %41 ], [ 2, %7 ]
+  %.sroa.8.0.insert.insert = phi i64 [ 1536, %11 ], [ 512, %15 ], [ 1280, %16 ], [ %55, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ %36, %_ZNR5folly8ExpectedIjNS_14ConversionCodeEE5errorEv.exit ], [ 256, %1 ], [ 2048, %38 ], [ 1792, %41 ], [ 256, %7 ]
   %.sroa.045.0.insert.insert = or disjoint i64 %.sroa.8.0.insert.insert, %.sroa.045.0
   ret i64 %.sroa.045.0.insert.insert
 
-55:                                               ; preds = %50, %32
-  %56 = landingpad { ptr, i32 }
+56:                                               ; preds = %52, %32
+  %57 = landingpad { ptr, i32 }
           catch ptr null
-  %57 = extractvalue { ptr, i32 } %56, 0
-  tail call void @__clang_call_terminate(ptr %57) #21
+  %58 = extractvalue { ptr, i32 } %57, 0
+  tail call void @__clang_call_terminate(ptr %58) #21
   unreachable
 }
 
@@ -8722,12 +8740,12 @@ define weak_odr { i64, i64 } @_ZN5folly6detail15str_to_integralIlEENS_8ExpectedI
   br label %13
 
 13:                                               ; preds = %12, %11
-  %.sroa.042.0 = phi i1 [ false, %11 ], [ true, %12 ]
+  %.sroa.042.0 = phi i8 [ 0, %11 ], [ 1, %12 ]
   %14 = getelementptr inbounds nuw i8, ptr %.066, i64 1
   br label %15
 
 15:                                               ; preds = %13, %9
-  %.sroa.042.1.ph = phi i1 [ %.sroa.042.0, %13 ], [ false, %9 ]
+  %.sroa.042.1.ph = phi i8 [ %.sroa.042.0, %13 ], [ 0, %9 ]
   %.1.ph = phi ptr [ %14, %13 ], [ %.066, %9 ]
   %.not15 = icmp ult ptr %.1.ph, %4
   br i1 %.not15, label %16, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIlLb1EE4initERPKc.exit, !prof !114
@@ -8782,15 +8800,18 @@ _ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit: ; preds = %.lr.ph
   unreachable
 
 _ZNR5folly8ExpectedImNS_14ConversionCodeEE5errorEv.exit: ; preds = %_ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit
-  %35 = and i64 %32, 65280
-  %36 = icmp eq i64 %35, 1792
-  %37 = select i1 %.sroa.042.1.ph, i64 2048, i64 1792
-  %38 = and i64 %32, 65280
-  %39 = select i1 %36, i64 %37, i64 %38
+  %.sroa.023.1.extract.shift = lshr i64 %32, 8
+  %.sroa.023.1.extract.trunc = trunc i64 %.sroa.023.1.extract.shift to i8
+  %35 = icmp eq i8 %.sroa.023.1.extract.trunc, 7
+  %36 = add nuw nsw i8 %.sroa.042.1.ph, 7
+  %spec.select = select i1 %35, i8 %36, i8 %.sroa.023.1.extract.trunc
+  %37 = zext i8 %spec.select to i64
+  %38 = shl nuw nsw i64 %37, 8
   br label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIlLb1EE4initERPKc.exit
 
 _ZNR5folly8ExpectedImNS_14ConversionCodeEE5valueEv.exit: ; preds = %_ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit
-  br i1 %.sroa.042.1.ph, label %40, label %43
+  %39 = trunc nuw i8 %.sroa.042.1.ph to i1
+  br i1 %39, label %40, label %43
 
 40:                                               ; preds = %_ZNR5folly8ExpectedImNS_14ConversionCodeEE5valueEv.exit
   %41 = sub i64 0, %33
@@ -8827,7 +8848,7 @@ _ZN5folly5RangeIPKcE7advanceEm.exit:              ; preds = %45
 
 _ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIlLb1EE4initERPKc.exit: ; preds = %7, %43, %40, %1, %_ZNR5folly8ExpectedImNS_14ConversionCodeEE5errorEv.exit, %11, %15, %16, %_ZN5folly5RangeIPKcE7advanceEm.exit
   %.sroa.051.0 = phi i64 [ 2, %11 ], [ 2, %15 ], [ 2, %16 ], [ 1, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ 2, %_ZNR5folly8ExpectedImNS_14ConversionCodeEE5errorEv.exit ], [ 2, %1 ], [ 2, %40 ], [ 2, %43 ], [ 2, %7 ]
-  %.sroa.8.0 = phi i64 [ 1536, %11 ], [ 512, %15 ], [ 1280, %16 ], [ 0, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ %39, %_ZNR5folly8ExpectedImNS_14ConversionCodeEE5errorEv.exit ], [ 256, %1 ], [ 2048, %40 ], [ 1792, %43 ], [ 256, %7 ]
+  %.sroa.8.0 = phi i64 [ 1536, %11 ], [ 512, %15 ], [ 1280, %16 ], [ 0, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ %38, %_ZNR5folly8ExpectedImNS_14ConversionCodeEE5errorEv.exit ], [ 256, %1 ], [ 2048, %40 ], [ 1792, %43 ], [ 256, %7 ]
   %.sroa.13.sroa.2.0 = phi i64 [ 0, %11 ], [ 0, %15 ], [ 0, %16 ], [ %.0.i21, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ 0, %_ZNR5folly8ExpectedImNS_14ConversionCodeEE5errorEv.exit ], [ 0, %1 ], [ 0, %40 ], [ 0, %43 ], [ 0, %7 ]
   %.sroa.051.0.insert.insert = or disjoint i64 %.sroa.8.0, %.sroa.051.0
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.051.0.insert.insert, 0
@@ -9002,12 +9023,12 @@ define weak_odr { i64, i64 } @_ZN5folly6detail15str_to_integralIxEENS_8ExpectedI
   br label %13
 
 13:                                               ; preds = %12, %11
-  %.sroa.042.0 = phi i1 [ false, %11 ], [ true, %12 ]
+  %.sroa.042.0 = phi i8 [ 0, %11 ], [ 1, %12 ]
   %14 = getelementptr inbounds nuw i8, ptr %.066, i64 1
   br label %15
 
 15:                                               ; preds = %13, %9
-  %.sroa.042.1.ph = phi i1 [ %.sroa.042.0, %13 ], [ false, %9 ]
+  %.sroa.042.1.ph = phi i8 [ %.sroa.042.0, %13 ], [ 0, %9 ]
   %.1.ph = phi ptr [ %14, %13 ], [ %.066, %9 ]
   %.not15 = icmp ult ptr %.1.ph, %4
   br i1 %.not15, label %16, label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIxLb1EE4initERPKc.exit, !prof !114
@@ -9062,15 +9083,18 @@ _ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit: ; preds = %.lr.ph
   unreachable
 
 _ZNR5folly8ExpectedIyNS_14ConversionCodeEE5errorEv.exit: ; preds = %_ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit
-  %35 = and i64 %32, 65280
-  %36 = icmp eq i64 %35, 1792
-  %37 = select i1 %.sroa.042.1.ph, i64 2048, i64 1792
-  %38 = and i64 %32, 65280
-  %39 = select i1 %36, i64 %37, i64 %38
+  %.sroa.023.1.extract.shift = lshr i64 %32, 8
+  %.sroa.023.1.extract.trunc = trunc i64 %.sroa.023.1.extract.shift to i8
+  %35 = icmp eq i8 %.sroa.023.1.extract.trunc, 7
+  %36 = add nuw nsw i8 %.sroa.042.1.ph, 7
+  %spec.select = select i1 %35, i8 %36, i8 %.sroa.023.1.extract.trunc
+  %37 = zext i8 %spec.select to i64
+  %38 = shl nuw nsw i64 %37, 8
   br label %_ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIxLb1EE4initERPKc.exit
 
 _ZNR5folly8ExpectedIyNS_14ConversionCodeEE5valueEv.exit: ; preds = %_ZN5folly6detail12_GLOBAL__N_117findFirstNonDigitEPKcS3_.exit
-  br i1 %.sroa.042.1.ph, label %40, label %43
+  %39 = trunc nuw i8 %.sroa.042.1.ph to i1
+  br i1 %39, label %40, label %43
 
 40:                                               ; preds = %_ZNR5folly8ExpectedIyNS_14ConversionCodeEE5valueEv.exit
   %41 = sub i64 0, %33
@@ -9107,7 +9131,7 @@ _ZN5folly5RangeIPKcE7advanceEm.exit:              ; preds = %45
 
 _ZN5folly6detail12_GLOBAL__N_118SignedValueHandlerIxLb1EE4initERPKc.exit: ; preds = %7, %43, %40, %1, %_ZNR5folly8ExpectedIyNS_14ConversionCodeEE5errorEv.exit, %11, %15, %16, %_ZN5folly5RangeIPKcE7advanceEm.exit
   %.sroa.051.0 = phi i64 [ 2, %11 ], [ 2, %15 ], [ 2, %16 ], [ 1, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ 2, %_ZNR5folly8ExpectedIyNS_14ConversionCodeEE5errorEv.exit ], [ 2, %1 ], [ 2, %40 ], [ 2, %43 ], [ 2, %7 ]
-  %.sroa.8.0 = phi i64 [ 1536, %11 ], [ 512, %15 ], [ 1280, %16 ], [ 0, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ %39, %_ZNR5folly8ExpectedIyNS_14ConversionCodeEE5errorEv.exit ], [ 256, %1 ], [ 2048, %40 ], [ 1792, %43 ], [ 256, %7 ]
+  %.sroa.8.0 = phi i64 [ 1536, %11 ], [ 512, %15 ], [ 1280, %16 ], [ 0, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ %38, %_ZNR5folly8ExpectedIyNS_14ConversionCodeEE5errorEv.exit ], [ 256, %1 ], [ 2048, %40 ], [ 1792, %43 ], [ 256, %7 ]
   %.sroa.13.sroa.2.0 = phi i64 [ 0, %11 ], [ 0, %15 ], [ 0, %16 ], [ %.0.i21, %_ZN5folly5RangeIPKcE7advanceEm.exit ], [ 0, %_ZNR5folly8ExpectedIyNS_14ConversionCodeEE5errorEv.exit ], [ 0, %1 ], [ 0, %40 ], [ 0, %43 ], [ 0, %7 ]
   %.sroa.051.0.insert.insert = or disjoint i64 %.sroa.8.0, %.sroa.051.0
   %.fca.0.insert = insertvalue { i64, i64 } poison, i64 %.sroa.051.0.insert.insert, 0

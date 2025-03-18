@@ -23602,15 +23602,14 @@ define hidden void @"_ZN86_$LT$ockam_core..api..RequestHeader$u20$as$u20$minicbo
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3898)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3901)
   %55 = load i8, ptr %54, align 1, !range !361, !alias.scope !3898, !noalias !3903, !noundef !4
-  %56 = trunc nuw i8 %55 to i1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3905)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5), !noalias !3908
-  %..i.i = select i1 %56, i8 -11, i8 -12
+  %..i.i = or disjoint i8 %55, -12
   store i8 %..i.i, ptr %5, align 1, !noalias !3908
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3910)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3913)
-  %57 = load ptr, ptr %2, align 8, !alias.scope !3916, !noalias !3917, !nonnull !4, !align !86, !noundef !4
-  call void @"_ZN76_$LT$alloc..vec..Vec$LT$u8$GT$$u20$as$u20$minicbor..encode..write..Write$GT$9write_all17h5d106f95af0a7d71E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %57, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef 1), !noalias !3921
+  %56 = load ptr, ptr %2, align 8, !alias.scope !3916, !noalias !3917, !nonnull !4, !align !86, !noundef !4
+  call void @"_ZN76_$LT$alloc..vec..Vec$LT$u8$GT$$u20$as$u20$minicbor..encode..write..Write$GT$9write_all17h5d106f95af0a7d71E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %56, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef 1), !noalias !3921
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5), !noalias !3908
   store ptr null, ptr %0, align 8
   br label %51

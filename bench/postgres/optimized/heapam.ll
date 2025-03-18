@@ -4884,15 +4884,15 @@ HeapTupleHeaderGetUpdateXid.exit:                 ; preds = %.thread180, %HeapTu
   %241 = load ptr, ptr %61, align 8
   %242 = load i32, ptr %9, align 4
   %243 = load i8, ptr %15, align 1, !range !6, !noundef !7
-  %244 = trunc nuw i8 %243 to i1
-  %245 = getelementptr inbounds nuw i8, ptr %241, i64 8
-  store i32 %242, ptr %245, align 4
-  %246 = getelementptr inbounds nuw i8, ptr %241, i64 20
-  %247 = load i16, ptr %246, align 4
-  %248 = and i16 %247, -33
-  %masksel.i = select i1 %244, i16 32, i16 0
-  %.sink.i = or disjoint i16 %248, %masksel.i
-  store i16 %.sink.i, ptr %246, align 4
+  %244 = getelementptr inbounds nuw i8, ptr %241, i64 8
+  store i32 %242, ptr %244, align 4
+  %245 = getelementptr inbounds nuw i8, ptr %241, i64 20
+  %246 = load i16, ptr %245, align 4
+  %247 = and i16 %246, -33
+  %248 = shl nuw nsw i8 %243, 5
+  %masksel.i = zext nneg i8 %248 to i16
+  %.sink.i = or disjoint i16 %247, %masksel.i
+  store i16 %.sink.i, ptr %245, align 4
   %249 = load ptr, ptr %61, align 8
   %250 = getelementptr inbounds nuw i8, ptr %249, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %250, ptr noundef nonnull align 4 dereferenceable(6) %64, i64 6, i1 false)
@@ -6916,15 +6916,15 @@ GetMultiXactIdHintBits.exit:                      ; preds = %333, %350, %351, %3
   %438 = load ptr, ptr %95, align 8
   %439 = load i32, ptr %21, align 4
   %440 = load i8, ptr %26, align 1, !range !6, !noundef !7
-  %441 = trunc nuw i8 %440 to i1
-  %442 = getelementptr inbounds nuw i8, ptr %438, i64 8
-  store i32 %439, ptr %442, align 4
-  %443 = getelementptr inbounds nuw i8, ptr %438, i64 20
-  %444 = load i16, ptr %443, align 4
-  %445 = and i16 %444, -33
-  %masksel.i = select i1 %441, i16 32, i16 0
-  %.sink.i = or disjoint i16 %445, %masksel.i
-  store i16 %.sink.i, ptr %443, align 4
+  %441 = getelementptr inbounds nuw i8, ptr %438, i64 8
+  store i32 %439, ptr %441, align 4
+  %442 = getelementptr inbounds nuw i8, ptr %438, i64 20
+  %443 = load i16, ptr %442, align 4
+  %444 = and i16 %443, -33
+  %445 = shl nuw nsw i8 %440, 5
+  %masksel.i = zext nneg i8 %445 to i16
+  %.sink.i = or disjoint i16 %444, %masksel.i
+  store i16 %.sink.i, ptr %442, align 4
   %446 = load ptr, ptr %95, align 8
   %447 = getelementptr inbounds nuw i8, ptr %446, i64 12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(6) %447, ptr noundef nonnull align 4 dereferenceable(6) %98, i64 6, i1 false)
@@ -7196,15 +7196,15 @@ GetMultiXactIdHintBits.exit:                      ; preds = %333, %350, %351, %3
   %589 = load ptr, ptr %95, align 8
   %590 = load i32, ptr %21, align 4
   %591 = load i8, ptr %26, align 1, !range !6, !noundef !7
-  %592 = trunc nuw i8 %591 to i1
-  %593 = getelementptr inbounds nuw i8, ptr %589, i64 8
-  store i32 %590, ptr %593, align 4
-  %594 = getelementptr inbounds nuw i8, ptr %589, i64 20
-  %595 = load i16, ptr %594, align 4
-  %596 = and i16 %595, -33
-  %masksel.i368 = select i1 %592, i16 32, i16 0
-  %.sink.i369 = or disjoint i16 %596, %masksel.i368
-  store i16 %.sink.i369, ptr %594, align 4
+  %592 = getelementptr inbounds nuw i8, ptr %589, i64 8
+  store i32 %590, ptr %592, align 4
+  %593 = getelementptr inbounds nuw i8, ptr %589, i64 20
+  %594 = load i16, ptr %593, align 4
+  %595 = and i16 %594, -33
+  %596 = shl nuw nsw i8 %591, 5
+  %masksel.i368 = zext nneg i8 %596 to i16
+  %.sink.i369 = or disjoint i16 %595, %masksel.i368
+  store i16 %.sink.i369, ptr %593, align 4
   %597 = load ptr, ptr %95, align 8
   %598 = getelementptr inbounds nuw i8, ptr %597, i64 12
   %599 = getelementptr inbounds nuw i8, ptr %.1282, i64 4

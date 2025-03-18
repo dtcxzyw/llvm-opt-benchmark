@@ -605,8 +605,8 @@ _ZN6google8protobuf8internal15ThreadSafeArena4InitEv.exit: ; preds = %_ZNK6googl
 65:                                               ; preds = %_ZN6google8protobuf8internal15ThreadSafeArena4InitEv.exit
   %66 = getelementptr inbounds nuw i8, ptr %19, i64 8
   %67 = load i8, ptr %66, align 8, !tbaa !47, !range !50, !noundef !51
-  %68 = trunc nuw i8 %67 to i1
-  %spec.select = select i1 %68, i64 2, i64 0
+  %68 = shl nuw nsw i8 %67, 1
+  %spec.select = zext nneg i8 %68 to i64
   br label %.thread
 
 .thread:                                          ; preds = %_ZN6google8protobuf8internal15ThreadSafeArena4InitEv.exit, %65

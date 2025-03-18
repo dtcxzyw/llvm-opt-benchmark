@@ -8523,8 +8523,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit1454:                ; preds = %3153, %3155
   %indvars.iv5826 = phi i64 [ %indvars.iv.next5827, %3169 ], [ 0, %.preheader1663 ]
   %3165 = getelementptr inbounds nuw [16 x [4 x i8]], ptr %17, i64 0, i64 %indvars.iv5838, i64 %indvars.iv5826
   %3166 = load i8, ptr %3165, align 1, !tbaa !32, !range !34, !noundef !35
-  %3167 = trunc nuw i8 %3166 to i1
-  %3168 = select i1 %3167, i32 49, i32 48
+  %3167 = or disjoint i8 %3166, 48
+  %3168 = zext nneg i8 %3167 to i32
   invoke void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.28, i32 noundef %3168)
           to label %3169 unwind label %3170
 
@@ -8542,8 +8542,8 @@ _ZNSt6vectorIiSaIiEED2Ev.exit1454:                ; preds = %3153, %3155
   %indvars.iv5830 = phi i64 [ %indvars.iv.next5831, %3176 ], [ 0, %3162 ]
   %3172 = getelementptr inbounds nuw [16 x [4 x i8]], ptr %138, i64 0, i64 %indvars.iv5838, i64 %indvars.iv5830
   %3173 = load i8, ptr %3172, align 1, !tbaa !32, !range !34, !noundef !35
-  %3174 = trunc nuw i8 %3173 to i1
-  %3175 = select i1 %3174, i32 49, i32 48
+  %3174 = or disjoint i8 %3173, 48
+  %3175 = zext nneg i8 %3174 to i32
   invoke void (ptr, ...) @_ZN5Yosys3logEPKcz(ptr noundef nonnull @.str.28, i32 noundef %3175)
           to label %3176 unwind label %3177
 

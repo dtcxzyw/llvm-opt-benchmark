@@ -8113,8 +8113,8 @@ common.ret:                                       ; preds = %194, %142, %21
 60:                                               ; preds = %48
   %61 = getelementptr inbounds nuw i8, ptr %52, i64 24
   %62 = load i8, ptr %61, align 8, !range !27, !noundef !4
-  %63 = trunc nuw i8 %62 to i1
-  %..i.i = select i1 %63, i8 0, i8 2
+  %63 = shl nuw nsw i8 %62, 1
+  %..i.i = xor i8 %63, 2
   br label %64
 
 64:                                               ; preds = %59, %57, %75, %60
@@ -8163,8 +8163,8 @@ common.ret:                                       ; preds = %194, %142, %21
 75:                                               ; preds = %48, %48
   %.0 = getelementptr inbounds nuw i8, ptr %52, i64 24
   %76 = load i8, ptr %.0, align 1, !range !27, !noundef !4
-  %77 = trunc nuw i8 %76 to i1
-  %..i.i65 = select i1 %77, i8 0, i8 2
+  %77 = shl nuw nsw i8 %76, 1
+  %..i.i65 = xor i8 %77, 2
   br label %64
 
 78:                                               ; preds = %59
@@ -8844,8 +8844,8 @@ common.ret:                                       ; preds = %189, %132, %23
 61:                                               ; preds = %50, %50, %50
   %.0 = getelementptr inbounds nuw i8, ptr %54, i64 24
   %62 = load i8, ptr %.0, align 1, !range !27, !noundef !4
-  %63 = trunc nuw i8 %62 to i1
-  %..i.i = select i1 %63, i8 0, i8 2
+  %63 = shl nuw nsw i8 %62, 1
+  %..i.i = xor i8 %63, 2
   br label %64
 
 64:                                               ; preds = %253, %61

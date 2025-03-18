@@ -27289,8 +27289,8 @@ _ZL23computeCachedPropertiesPKN5clang4TypeE.exit: ; preds = %_ZL23computeCachedP
   %136 = shl nuw nsw i16 %135, 6
   %137 = and i16 %133, -993
   %138 = or disjoint i16 %137, %136
-  %139 = trunc i16 %.sroa.25.1 to i1
-  %140 = select i1 %139, i16 512, i16 0
+  %139 = shl i16 %.sroa.25.1, 9
+  %140 = and i16 %139, 512
   %141 = or disjoint i16 %138, %140
   %142 = or disjoint i16 %141, 32
   br label %common.ret.sink.split

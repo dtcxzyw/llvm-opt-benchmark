@@ -133,8 +133,8 @@ define i64 @pqsecure_raw_write(ptr noundef captures(none) %0, ptr noundef %1, i6
 10:                                               ; preds = %3
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 812
   %12 = load i8, ptr %11, align 4, !range !3, !noundef !4
-  %13 = trunc nuw i8 %12 to i1
-  %spec.select = select i1 %13, i32 16384, i32 0
+  %13 = zext nneg i8 %12 to i32
+  %spec.select = shl nuw nsw i32 %13, 14
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 129
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 811
   %16 = getelementptr inbounds nuw i8, ptr %6, i64 128

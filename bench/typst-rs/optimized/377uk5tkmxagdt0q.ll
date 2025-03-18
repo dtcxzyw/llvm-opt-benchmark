@@ -10599,15 +10599,13 @@ define hidden void @_ZN9typst_pdf4page15construct_pages17h774fe3afdaafe80cE(ptr 
 
 57:                                               ; preds = %54
   %58 = load i8, ptr %45, align 1, !range !269, !noalias !2079, !noundef !16
-  %trunc20.i = trunc nuw i8 %58 to i1
   %59 = icmp ugt i64 %39, 26
-  %.40.i = select i1 %trunc20.i, i8 4, i8 3
+  %.40.i = add nuw nsw i8 %58, 3
   br i1 %59, label %.thread.i, label %.thread37.i
 
 60:                                               ; preds = %54
   %61 = load i8, ptr %45, align 1, !range !269, !noalias !2079, !noundef !16
-  %trunc.i = trunc nuw i8 %61 to i1
-  %..i = select i1 %trunc.i, i8 2, i8 1
+  %..i = add nuw nsw i8 %61, 1
   br label %.thread37.i
 
 .thread37.i:                                      ; preds = %60, %57, %54

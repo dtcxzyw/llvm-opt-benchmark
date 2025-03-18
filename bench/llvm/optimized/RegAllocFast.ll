@@ -795,10 +795,10 @@ _ZN4llvm17PreservedAnalyses11preserveSetINS_11CFGAnalysesEEEvv.exit: ; preds = %
   call fastcc void @_ZN12_GLOBAL__N_116RegAllocFastImplD2Ev(ptr noundef nonnull align 8 dereferenceable(1257) %5) #25
   call void @llvm.lifetime.end.p0(i64 1264, ptr nonnull %5) #25
   %110 = load i8, ptr %19, align 8, !tbaa !71, !range !46, !noundef !47
-  %111 = trunc nuw i8 %110 to i1
-  %spec.select.i.i = select i1 %111, i64 8, i64 0
+  %111 = shl nuw nsw i8 %110, 3
+  %spec.select.i.i = zext nneg i8 %111 to i64
   %112 = load i64, ptr %7, align 8, !tbaa !67
-  %113 = or i64 %spec.select.i.i, %112
+  %113 = or i64 %112, %spec.select.i.i
   store i64 %113, ptr %7, align 8, !tbaa !67
   ret void
 }
@@ -16551,8 +16551,8 @@ define internal noundef i64 @_ZNK12_GLOBAL__N_112RegAllocFast21getRequiredProper
 define internal range(i64 0, 9) i64 @_ZNK12_GLOBAL__N_112RegAllocFast16getSetPropertiesEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(1320) %0) unnamed_addr #19 align 2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1312
   %3 = load i8, ptr %2, align 8, !tbaa !878, !range !46, !noundef !47
-  %4 = trunc nuw i8 %3 to i1
-  %spec.select = select i1 %4, i64 8, i64 0
+  %4 = shl nuw nsw i8 %3, 3
+  %spec.select = zext nneg i8 %4 to i64
   ret i64 %spec.select
 }
 

@@ -147542,8 +147542,8 @@ _ZNK5clang4Type25isSaturatedFixedPointTypeEv.exit: ; preds = %_ZNK5clang10ASTCon
   %118 = load ptr, ptr %117, align 8, !tbaa !652
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 56
   %120 = load i8, ptr %119, align 8, !tbaa !1990, !range !411, !noundef !412
-  %121 = trunc nuw i8 %120 to i1
-  %122 = select i1 %121, i32 -2147483648, i32 0
+  %121 = zext nneg i8 %120 to i32
+  %122 = shl nuw i32 %121, 31
   br label %123
 
 123:                                              ; preds = %116, %_ZNK5clang4Type25isSaturatedFixedPointTypeEv.exit

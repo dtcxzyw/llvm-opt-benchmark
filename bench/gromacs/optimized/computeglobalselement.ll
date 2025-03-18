@@ -1092,8 +1092,8 @@ _Z11do_per_stepll.exit44:                         ; preds = %50
   %62 = load ptr, ptr %61, align 8, !tbaa !245
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 181
   %64 = load i8, ptr %63, align 1, !tbaa !179, !range !63, !noundef !64
-  %65 = trunc nuw i8 %64 to i1
-  %66 = select i1 %65, i32 128, i32 0
+  %65 = shl nuw i8 %64, 7
+  %66 = zext i8 %65 to i32
   br label %67
 
 67:                                               ; preds = %60, %57
@@ -1104,8 +1104,8 @@ _Z11do_per_stepll.exit44:                         ; preds = %50
   %72 = select i1 %70, i32 64, i32 0
   %73 = select i1 %19, i32 2824, i32 2816
   %74 = or disjoint i32 %73, %71
-  %75 = or disjoint i32 %74, %68
-  %76 = or disjoint i32 %75, %72
+  %75 = or i32 %74, %68
+  %76 = or i32 %75, %72
   %77 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %78 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %79 = getelementptr inbounds nuw i8, ptr %5, i64 8

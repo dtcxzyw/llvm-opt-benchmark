@@ -9706,13 +9706,13 @@ _get_core_resrcs.exit.i:                          ; preds = %136, %91, %73
   %205 = load ptr, ptr %10, align 8
   store ptr %205, ptr %202, align 8
   %206 = load i8, ptr %4, align 1, !range !11, !noundef !12
-  %207 = trunc nuw i8 %206 to i1
-  %208 = getelementptr inbounds nuw i8, ptr %39, i64 64
-  %209 = load i32, ptr %208, align 8
-  %210 = and i32 %209, -3
-  %masksel176.i = select i1 %207, i32 2, i32 0
-  %.sink175.i = or disjoint i32 %210, %masksel176.i
-  store i32 %.sink175.i, ptr %208, align 8
+  %207 = getelementptr inbounds nuw i8, ptr %39, i64 64
+  %208 = load i32, ptr %207, align 8
+  %209 = and i32 %208, -3
+  %210 = shl nuw nsw i8 %206, 1
+  %masksel176.i = zext nneg i8 %210 to i32
+  %.sink175.i = or disjoint i32 %209, %masksel176.i
+  store i32 %.sink175.i, ptr %207, align 8
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #19
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #19
   br label %215

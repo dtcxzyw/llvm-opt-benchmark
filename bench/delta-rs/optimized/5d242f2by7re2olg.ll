@@ -25124,11 +25124,10 @@ define hidden void @"_ZN93_$LT$$RF$mut$u20$serde_json..de..Deserializer$LT$R$GT$
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3674)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3677)
   %18 = load i64, ptr %5, align 8, !range !112, !alias.scope !3677, !noalias !3679, !noundef !5
-  %trunc.i.i = trunc nuw i64 %18 to i1
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %20 = load ptr, ptr %19, align 8, !alias.scope !3677, !noalias !3679
   %.sink1.i.i = ptrtoint ptr %20 to i64
-  %.sink.i.i = select i1 %trunc.i.i, i64 2, i64 1
+  %.sink.i.i = add nuw nsw i64 %18, 1
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sink1.i.i, ptr %21, align 8, !alias.scope !3680, !noalias !3681
   store i64 %.sink.i.i, ptr %0, align 8, !alias.scope !3680, !noalias !3681

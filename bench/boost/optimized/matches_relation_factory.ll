@@ -76311,8 +76311,8 @@ _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit162: ; preds = %_Z
 296:                                              ; preds = %289, %286
   %297 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %298 = load i8, ptr %297, align 4, !tbaa !537, !range !229, !noundef !230
-  %299 = trunc nuw i8 %298 to i1
-  %.idx167 = select i1 %299, i64 4, i64 0
+  %299 = shl nuw nsw i8 %298, 2
+  %.idx167 = zext nneg i8 %299 to i64
   %300 = getelementptr inbounds nuw i8, ptr %.0100, i64 %.idx167
   br label %301
 
@@ -98044,8 +98044,8 @@ _ZNSt7__cxx1112basic_stringIwSt11char_traitsIwESaIwEED2Ev.exit162: ; preds = %_Z
 296:                                              ; preds = %289, %286
   %297 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %298 = load i8, ptr %297, align 4, !tbaa !537, !range !229, !noundef !230
-  %299 = trunc nuw i8 %298 to i1
-  %.idx167 = select i1 %299, i64 4, i64 0
+  %299 = shl nuw nsw i8 %298, 2
+  %.idx167 = zext nneg i8 %299 to i64
   %300 = getelementptr inbounds nuw i8, ptr %.0100, i64 %.idx167
   br label %301
 

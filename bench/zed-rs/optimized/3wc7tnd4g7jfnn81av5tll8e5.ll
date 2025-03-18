@@ -61358,14 +61358,12 @@ define internal fastcc noundef zeroext i1 @"_ZN98_$LT$alloc..collections..btree.
   %36 = getelementptr inbounds nuw i8, ptr %31, i64 8
   %37 = load ptr, ptr %36, align 8, !alias.scope !13500, !noalias !13501, !nonnull !4
   %38 = load i64, ptr %31, align 8, !range !139, !alias.scope !13500, !noalias !13501, !noundef !4
-  %trunc3.i.i.i.i.i = trunc nuw i64 %38 to i1
-  %.sroa.01.0.idx.i.i.i.i.i = select i1 %trunc3.i.i.i.i.i, i64 16, i64 0
+  %.sroa.01.0.idx.i.i.i.i.i = shl nuw nsw i64 %38, 4
   %.sroa.01.0.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %37, i64 %.sroa.01.0.idx.i.i.i.i.i
   %39 = getelementptr inbounds nuw i8, ptr %27, i64 8
   %40 = load ptr, ptr %39, align 8, !alias.scope !13494, !noalias !13495, !nonnull !4
   %41 = load i64, ptr %27, align 8, !range !139, !alias.scope !13494, !noalias !13495, !noundef !4
-  %trunc.i.i.i.i.i = trunc nuw i64 %41 to i1
-  %.sroa.0.0.idx.i.i.i.i.i = select i1 %trunc.i.i.i.i.i, i64 16, i64 0
+  %.sroa.0.0.idx.i.i.i.i.i = shl nuw nsw i64 %41, 4
   %.sroa.0.0.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %40, i64 %.sroa.0.0.idx.i.i.i.i.i
   %bcmp.i.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly align 1 %.sroa.0.0.i.i.i.i.i, ptr nonnull readonly align 1 %.sroa.01.0.i.i.i.i.i, i64 %.sroa.3.0.i.i.i.i.i), !alias.scope !13502, !noalias !13509
   %42 = icmp eq i32 %bcmp.i.i.i.i.i.i.i, 0

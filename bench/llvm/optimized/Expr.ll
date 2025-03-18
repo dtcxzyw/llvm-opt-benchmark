@@ -3214,8 +3214,8 @@ define dso_local void @_ZN5clang12ConstantExpr14MoveIntoResultERNS_7APValueERKNS
   store i16 %29, ptr %24, align 4
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %31 = load i8, ptr %30, align 4, !tbaa !168, !range !42, !noundef !43
-  %32 = trunc nuw i8 %31 to i1
-  %33 = select i1 %32, i32 33554432, i32 0
+  %32 = zext nneg i8 %31 to i32
+  %33 = shl nuw nsw i32 %32, 25
   %34 = and i32 %9, -33554433
   %35 = or disjoint i32 %33, %34
   store i32 %35, ptr %0, align 8

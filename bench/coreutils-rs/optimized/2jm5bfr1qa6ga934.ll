@@ -1318,7 +1318,7 @@ define hidden void @_ZN5uu_cp8platform5linux13copy_on_write17hd6060b4e46a5cbc0E(
   br label %83
 
 81:                                               ; preds = %77
-  %spec.select20.i = select i1 %71, i8 4, i8 3
+  %spec.select20.i = add nuw nsw i8 %66, 3
   %82 = select i1 %71, i1 %69, i1 false
   br label %83
 

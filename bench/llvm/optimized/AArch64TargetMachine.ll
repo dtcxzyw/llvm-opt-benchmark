@@ -10372,8 +10372,8 @@ define linkonce_odr hidden noundef i32 @_ZNK4llvm19TargetTransformInfo5ModelINS_
   %6 = load ptr, ptr %5, align 8, !tbaa !494
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 403
   %8 = load i8, ptr %7, align 1, !tbaa !879, !range !50, !noundef !51
-  %9 = trunc nuw i8 %8 to i1
-  %..i = select i1 %9, i32 32, i32 0
+  %9 = shl nuw nsw i8 %8, 5
+  %..i = zext nneg i8 %9 to i32
   br label %_ZNK4llvm14AArch64TTIImpl20getNumberOfRegistersEj.exit
 
 _ZNK4llvm14AArch64TTIImpl20getNumberOfRegistersEj.exit: ; preds = %2, %4

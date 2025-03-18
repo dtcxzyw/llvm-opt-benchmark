@@ -4528,13 +4528,13 @@ define internal fastcc void @_ZN7Imf_3_412_GLOBAL__N_111TileProcess10run_decodeE
   %71 = add nsw i32 %70, %66
   %72 = getelementptr inbounds nuw i8, ptr %0, i64 5
   %73 = load i8, ptr %72, align 1, !tbaa !158, !range !78, !noundef !79
-  %74 = trunc nuw i8 %73 to i1
-  %75 = getelementptr inbounds nuw i8, ptr %0, i64 90
-  %76 = load i16, ptr %75, align 2, !tbaa !216
-  %77 = and i16 %76, -5
-  %masksel = select i1 %74, i16 4, i16 0
-  %.sink = or disjoint i16 %77, %masksel
-  store i16 %.sink, ptr %75, align 2, !tbaa !216
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 90
+  %75 = load i16, ptr %74, align 2, !tbaa !216
+  %76 = and i16 %75, -5
+  %77 = shl nuw nsw i8 %73, 2
+  %masksel = zext nneg i8 %77 to i16
+  %.sink = or disjoint i16 %76, %masksel
+  store i16 %.sink, ptr %74, align 2, !tbaa !216
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 168
   store i32 0, ptr %78, align 8, !tbaa !225
   %79 = getelementptr inbounds nuw i8, ptr %0, i64 172

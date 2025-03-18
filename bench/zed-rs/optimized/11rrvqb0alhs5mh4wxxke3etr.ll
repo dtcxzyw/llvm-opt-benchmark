@@ -14472,8 +14472,8 @@ define noundef range(i8 0, 3) i8 @"_ZN77_$LT$ui..selectable..Selection$u20$as$u2
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noundef range(i8 0, 3) i8 @"_ZN105_$LT$ui..selectable..Selection$u20$as$u20$core..convert..From$LT$core..option..Option$LT$bool$GT$$GT$$GT$4from17h97e1b378b12d3822E"(i8 noundef %0) unnamed_addr #3 {
-  %2 = trunc i8 %0 to i1
-  %. = select i1 %2, i8 2, i8 0
+  %2 = shl i8 %0, 1
+  %. = and i8 %2, 2
   ret i8 %.
 }
 

@@ -3454,8 +3454,8 @@ define noundef zeroext i1 @_ZN13mstatus_csr_t14unlogged_writeEm(ptr noundef nonn
   %22 = and i64 %21, 131072
   %23 = shl i64 %.sink.i.i, 4
   %24 = and i64 %23, 4194304
-  %25 = trunc nuw i8 %11 to i1
-  %26 = select i1 %25, i64 1048576, i64 0
+  %25 = zext nneg i8 %11 to i64
+  %26 = shl nuw nsw i64 %25, 20
   %27 = shl nuw nsw i64 %18, 31
   %28 = shl nuw nsw i64 %18, 32
   %29 = shl i64 %.sink.i, 7

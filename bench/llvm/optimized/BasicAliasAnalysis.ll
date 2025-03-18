@@ -3946,14 +3946,14 @@ _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZN4llvmeqENS_9Stri
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %13) #24
   %205 = getelementptr inbounds nuw i8, ptr %5, i64 496
   %206 = load i8, ptr %205, align 8, !tbaa !226, !range !50, !noundef !51
-  %207 = trunc nuw i8 %206 to i1
-  %208 = ptrtoint ptr %21 to i64
-  %209 = and i64 %208, -5
-  %210 = select i1 %207, i64 4, i64 0
-  %211 = or disjoint i64 %210, %209
+  %207 = ptrtoint ptr %21 to i64
+  %208 = and i64 %207, -5
+  %209 = shl nuw nsw i8 %206, 2
+  %210 = zext nneg i8 %209 to i64
+  %211 = or disjoint i64 %208, %210
   %212 = ptrtoint ptr %22 to i64
   %213 = and i64 %212, -5
-  %214 = or disjoint i64 %210, %213
+  %214 = or disjoint i64 %213, %210
   store i64 %211, ptr %13, align 8, !tbaa !113
   %.sroa.4154.0..sroa_idx = getelementptr inbounds nuw i8, ptr %13, i64 8
   store i64 %spec.select, ptr %.sroa.4154.0..sroa_idx, align 8, !tbaa !225

@@ -2311,48 +2311,47 @@ define void @_ZN7rocksdb13CompactionJob23ReportStartedCompactionEPNS_10Compactio
   tail call void @_ZN7rocksdb16ThreadStatusUtil26SetThreadOperationPropertyEim(i32 noundef 1, i64 noundef %16)
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 4626
   %18 = load i8, ptr %17, align 2, !tbaa !393, !range !352, !noundef !353
-  %19 = zext nneg i8 %18 to i64
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 4401
-  %21 = load i8, ptr %20, align 1, !tbaa !394, !range !352, !noundef !353
-  %22 = trunc nuw i8 %21 to i1
-  %23 = select i1 %22, i64 2, i64 0
-  %24 = or disjoint i64 %23, %19
-  tail call void @_ZN7rocksdb16ThreadStatusUtil26SetThreadOperationPropertyEim(i32 noundef 2, i64 noundef %24)
-  %25 = tail call noundef i64 @_ZNK7rocksdb10Compaction23CalculateTotalInputSizeEv(ptr noundef nonnull align 16 dereferenceable(4916) %1)
-  tail call void @_ZN7rocksdb16ThreadStatusUtil26SetThreadOperationPropertyEim(i32 noundef 3, i64 noundef %25)
+  %19 = getelementptr inbounds nuw i8, ptr %1, i64 4401
+  %20 = load i8, ptr %19, align 1, !tbaa !394, !range !352, !noundef !353
+  %21 = shl nuw nsw i8 %20, 1
+  %22 = or disjoint i8 %21, %18
+  %23 = zext nneg i8 %22 to i64
+  tail call void @_ZN7rocksdb16ThreadStatusUtil26SetThreadOperationPropertyEim(i32 noundef 2, i64 noundef %23)
+  %24 = tail call noundef i64 @_ZNK7rocksdb10Compaction23CalculateTotalInputSizeEv(ptr noundef nonnull align 16 dereferenceable(4916) %1)
+  tail call void @_ZN7rocksdb16ThreadStatusUtil26SetThreadOperationPropertyEim(i32 noundef 3, i64 noundef %24)
   %.not.i = icmp eq ptr @_ZTHN7rocksdb15iostats_contextE, null
-  br i1 %.not.i, label %_ZTWN7rocksdb15iostats_contextE.exit.thread, label %28
+  br i1 %.not.i, label %_ZTWN7rocksdb15iostats_contextE.exit.thread, label %27
 
 _ZTWN7rocksdb15iostats_contextE.exit.thread:      ; preds = %2
-  %26 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb15iostats_contextE)
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  store i64 0, ptr %27, align 8, !tbaa !395
+  %25 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb15iostats_contextE)
+  %26 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  store i64 0, ptr %26, align 8, !tbaa !395
   br label %_ZTWN7rocksdb15iostats_contextE.exit7
 
-28:                                               ; preds = %2
+27:                                               ; preds = %2
   tail call void @_ZTHN7rocksdb15iostats_contextE()
-  %29 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb15iostats_contextE)
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  store i64 0, ptr %30, align 8, !tbaa !395
+  %28 = tail call noundef align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN7rocksdb15iostats_contextE)
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 8
+  store i64 0, ptr %29, align 8, !tbaa !395
   tail call void @_ZTHN7rocksdb15iostats_contextE()
   br label %_ZTWN7rocksdb15iostats_contextE.exit7
 
-_ZTWN7rocksdb15iostats_contextE.exit7:            ; preds = %_ZTWN7rocksdb15iostats_contextE.exit.thread, %28
-  %31 = phi ptr [ %26, %_ZTWN7rocksdb15iostats_contextE.exit.thread ], [ %29, %28 ]
-  %32 = getelementptr inbounds nuw i8, ptr %31, i64 16
-  store i64 0, ptr %32, align 8, !tbaa !398
+_ZTWN7rocksdb15iostats_contextE.exit7:            ; preds = %_ZTWN7rocksdb15iostats_contextE.exit.thread, %27
+  %30 = phi ptr [ %25, %_ZTWN7rocksdb15iostats_contextE.exit.thread ], [ %28, %27 ]
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 16
+  store i64 0, ptr %31, align 8, !tbaa !398
   tail call void @_ZN7rocksdb16ThreadStatusUtil26SetThreadOperationPropertyEim(i32 noundef 5, i64 noundef 0)
   tail call void @_ZN7rocksdb16ThreadStatusUtil26SetThreadOperationPropertyEim(i32 noundef 4, i64 noundef 0)
   tail call void @_ZN7rocksdb16ThreadStatusUtil18SetThreadOperationENS_12ThreadStatus13OperationTypeE(i32 noundef 1)
-  %33 = load i8, ptr %17, align 2, !tbaa !393, !range !352, !noundef !353
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 656
-  %35 = load ptr, ptr %34, align 8, !tbaa !315
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 97
-  store i8 %33, ptr %36, align 1, !tbaa !399
-  %37 = getelementptr inbounds nuw i8, ptr %1, i64 4625
-  %38 = load i8, ptr %37, align 1, !tbaa !401, !range !352, !noundef !353
-  %39 = getelementptr inbounds nuw i8, ptr %35, i64 96
-  store i8 %38, ptr %39, align 8, !tbaa !402
+  %32 = load i8, ptr %17, align 2, !tbaa !393, !range !352, !noundef !353
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 656
+  %34 = load ptr, ptr %33, align 8, !tbaa !315
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 97
+  store i8 %32, ptr %35, align 1, !tbaa !399
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 4625
+  %37 = load i8, ptr %36, align 1, !tbaa !401, !range !352, !noundef !353
+  %38 = getelementptr inbounds nuw i8, ptr %34, i64 96
+  store i8 %37, ptr %38, align 8, !tbaa !402
   ret void
 }
 
@@ -11174,8 +11173,8 @@ _ZTWN7rocksdb15iostats_contextE.exit281:          ; preds = %_ZTWN7rocksdb15iost
 569:                                              ; preds = %564
   %570 = getelementptr inbounds nuw i8, ptr %568, i64 104
   %571 = load i8, ptr %570, align 8, !tbaa !344, !range !352, !noundef !353
-  %572 = trunc nuw i8 %571 to i1
-  %spec.select.idx.i = select i1 %572, i64 32, i64 0
+  %572 = shl nuw nsw i8 %571, 5
+  %spec.select.idx.i = zext nneg i8 %572 to i64
   %spec.select.i = getelementptr inbounds nuw i8, ptr %566, i64 %spec.select.idx.i
   br label %_ZNK7rocksdb13FileSystemPtr3getEv.exit
 
@@ -23601,8 +23600,8 @@ define void @_ZN7rocksdb13CompactionJob24OpenCompactionOutputFileEPNS_18Subcompa
 99:                                               ; preds = %94
   %100 = getelementptr inbounds nuw i8, ptr %98, i64 104
   %101 = load i8, ptr %100, align 8, !tbaa !344, !range !352, !noundef !353
-  %102 = trunc nuw i8 %101 to i1
-  %spec.select.idx.i = select i1 %102, i64 32, i64 0
+  %102 = shl nuw nsw i8 %101, 5
+  %spec.select.idx.i = zext nneg i8 %102 to i64
   %spec.select.i = getelementptr inbounds nuw i8, ptr %96, i64 %spec.select.idx.i
   br label %_ZNK7rocksdb13FileSystemPtr3getEv.exit
 

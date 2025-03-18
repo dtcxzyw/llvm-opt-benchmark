@@ -800,10 +800,10 @@ write_rte.exit:                                   ; preds = %25, %proto_item_set
 
 257:                                              ; preds = %253
   %258 = load i8, ptr %203, align 8, !range !6, !noundef !7
-  %259 = trunc nuw i8 %258 to i1
-  %260 = load i32, ptr @preferences, align 8
-  %or.cond125.v.i = select i1 %259, i32 2, i32 0
-  %or.cond125.not.i = icmp eq i32 %260, %or.cond125.v.i
+  %259 = load i32, ptr @preferences, align 8
+  %260 = shl nuw nsw i8 %258, 1
+  %or.cond125.v.i = zext nneg i8 %260 to i32
+  %or.cond125.not.i = icmp eq i32 %259, %or.cond125.v.i
   br i1 %or.cond125.not.i, label %.loopexit.sink.split.i, label %261
 
 261:                                              ; preds = %257, %253

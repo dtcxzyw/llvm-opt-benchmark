@@ -7568,8 +7568,8 @@ define dso_local void @_ZN20cmComputeLinkDepends15FollowLinkEntryENS_8BFSEntryE(
   %5 = alloca %"class.std::optional.719", align 8
   %6 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %7 = load i8, ptr %6, align 8, !tbaa !631, !range !422, !noundef !423
-  %8 = trunc nuw i8 %7 to i1
-  %spec.select.idx = select i1 %8, i64 8, i64 0
+  %8 = shl nuw nsw i8 %7, 3
+  %spec.select.idx = zext nneg i8 %8 to i64
   %spec.select = getelementptr inbounds nuw i8, ptr %1, i64 %spec.select.idx
   %9 = load i64, ptr %spec.select, align 8, !tbaa !342
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 184

@@ -83690,8 +83690,8 @@ define hidden noundef i64 @_ZN5image5image12ImageDecoder11total_bytes17h9d3201c1
   %.val4 = load i8, ptr %19, align 1, !range !2527, !noundef !9
   %20 = icmp eq i8 %.val, 2
   %spec.select.i = select i1 %20, i8 %.val4, i8 %.val
-  %switch.not = icmp eq i8 %spec.select.i, 0
-  %. = select i1 %switch.not, i64 12, i64 16
+  %switch = icmp eq i8 %spec.select.i, 1
+  %. = select i1 %switch, i64 16, i64 12
   %21 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %17, i64 %.)
   %22 = extractvalue { i64, i1 } %21, 0
   %23 = extractvalue { i64, i1 } %21, 1

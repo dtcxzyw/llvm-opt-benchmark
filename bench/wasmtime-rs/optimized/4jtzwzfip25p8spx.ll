@@ -27366,8 +27366,8 @@ define hidden void @_ZN16wasmtime_environ4fact10trampoline6Source11payload_src17
   %13 = load ptr, ptr %12, align 8, !nonnull !10, !align !35, !noundef !10
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load i8, ptr %14, align 4, !range !36, !noundef !10
-  %16 = trunc nuw i8 %15 to i1
-  %.sink20.in.idx = select i1 %16, i64 4, i64 0
+  %16 = shl nuw nsw i8 %15, 2
+  %.sink20.in.idx = zext nneg i8 %16 to i64
   %.sink20.in = getelementptr inbounds nuw i8, ptr %3, i64 %.sink20.in.idx
   %.sink20 = load i32, ptr %.sink20.in, align 4, !noundef !10
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -27478,8 +27478,8 @@ define hidden void @_ZN16wasmtime_environ4fact10trampoline11Destination11payload
   %13 = load ptr, ptr %12, align 8, !nonnull !10, !align !35, !noundef !10
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %15 = load i8, ptr %14, align 4, !range !36, !noundef !10
-  %16 = trunc nuw i8 %15 to i1
-  %.sink17.in.idx = select i1 %16, i64 4, i64 0
+  %16 = shl nuw nsw i8 %15, 2
+  %.sink17.in.idx = zext nneg i8 %16 to i64
   %.sink17.in = getelementptr inbounds nuw i8, ptr %3, i64 %.sink17.in.idx
   %.sink17 = load i32, ptr %.sink17.in, align 4, !noundef !10
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 16

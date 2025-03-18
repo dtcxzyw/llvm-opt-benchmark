@@ -4149,8 +4149,8 @@ define internal fastcc noundef i32 @dissect_tcap_param(ptr noundef %0, ptr nound
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %13
 
-13:                                               ; preds = %.lr.ph, %68
-  %.065 = phi i32 [ %3, %.lr.ph ], [ %.1, %68 ]
+13:                                               ; preds = %.lr.ph, %69
+  %.065 = phi i32 [ %3, %.lr.ph ], [ %.1, %69 ]
   %14 = call i32 @get_ber_identifier(ptr noundef %2, i32 noundef %.065, ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull %7)
   %15 = call i32 @get_ber_length(ptr noundef %2, i32 noundef %14, ptr noundef nonnull %8, ptr noundef nonnull %9)
   %16 = sub i32 %14, %.065
@@ -4161,7 +4161,7 @@ define internal fastcc noundef i32 @dissect_tcap_param(ptr noundef %0, ptr nound
   %21 = sub i32 %15, %.065
   %22 = add i32 %21, %20
   %23 = load i32, ptr @ett_param, align 4
-  br i1 %19, label %24, label %54
+  br i1 %19, label %24, label %55
 
 24:                                               ; preds = %13
   %25 = call ptr @proto_tree_add_subtree(ptr noundef %1, ptr noundef %2, i32 noundef %.065, i32 noundef %22, i32 noundef %23, ptr noundef null, ptr noundef nonnull @.str.274)
@@ -4177,63 +4177,63 @@ define internal fastcc noundef i32 @dissect_tcap_param(ptr noundef %0, ptr nound
   %35 = call ptr @proto_tree_add_uint(ptr noundef %25, i32 noundef %33, ptr noundef %2, i32 noundef %14, i32 noundef %17, i32 noundef %34)
   %36 = load i32, ptr %8, align 4
   %37 = load i8, ptr %9, align 1, !range !6, !noundef !7
-  %38 = trunc nuw i8 %37 to i1
-  %.neg = select i1 %38, i32 -2, i32 0
-  %39 = add i32 %.neg, %36
-  %.not63 = icmp eq i32 %39, 0
-  br i1 %.not63, label %45, label %40
+  %38 = shl nuw nsw i8 %37, 1
+  %39 = zext nneg i8 %38 to i32
+  %.not63 = icmp eq i32 %36, %39
+  br i1 %.not63, label %46, label %40
 
 40:                                               ; preds = %24
-  %41 = call ptr @tvb_new_subset_length(ptr noundef %2, i32 noundef %15, i32 noundef %39)
-  %42 = load ptr, ptr %12, align 8
-  call void @increment_dissection_depth(ptr noundef %42)
-  %43 = call fastcc i32 @dissect_tcap_param(ptr noundef %0, ptr noundef %25, ptr noundef %41, i32 noundef 0)
-  %44 = load ptr, ptr %12, align 8
-  call void @decrement_dissection_depth(ptr noundef %44)
+  %41 = sub i32 %36, %39
+  %42 = call ptr @tvb_new_subset_length(ptr noundef %2, i32 noundef %15, i32 noundef %41)
+  %43 = load ptr, ptr %12, align 8
+  call void @increment_dissection_depth(ptr noundef %43)
+  %44 = call fastcc i32 @dissect_tcap_param(ptr noundef %0, ptr noundef %25, ptr noundef %42, i32 noundef 0)
+  %45 = load ptr, ptr %12, align 8
+  call void @decrement_dissection_depth(ptr noundef %45)
   %.pre = load i8, ptr %9, align 1, !range !6
-  br label %45
+  br label %46
 
-45:                                               ; preds = %40, %24
-  %46 = phi i8 [ %.pre, %40 ], [ %37, %24 ]
-  %47 = trunc nuw i8 %46 to i1
-  br i1 %47, label %48, label %68
+46:                                               ; preds = %40, %24
+  %47 = phi i8 [ %.pre, %40 ], [ %37, %24 ]
+  %48 = trunc nuw i8 %47 to i1
+  br i1 %48, label %49, label %69
 
-48:                                               ; preds = %45
-  %49 = load i32, ptr @hf_tcap_constructor_eoc, align 4
-  %50 = load i32, ptr %8, align 4
-  %51 = add i32 %15, -2
-  %52 = add i32 %51, %50
-  %53 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %49, ptr noundef %2, i32 noundef %52, i32 noundef 2, i32 noundef 0)
-  br label %68
+49:                                               ; preds = %46
+  %50 = load i32, ptr @hf_tcap_constructor_eoc, align 4
+  %51 = load i32, ptr %8, align 4
+  %52 = add i32 %15, -2
+  %53 = add i32 %52, %51
+  %54 = call ptr @proto_tree_add_item(ptr noundef %25, i32 noundef %50, ptr noundef %2, i32 noundef %53, i32 noundef 2, i32 noundef 0)
+  br label %69
 
-54:                                               ; preds = %13
-  %55 = load i32, ptr %7, align 4
-  %56 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %2, i32 noundef %.065, i32 noundef %22, i32 noundef %23, ptr noundef null, ptr noundef nonnull @.str.276, i32 noundef %55)
-  %57 = load i32, ptr @hf_tcap_tag, align 4
-  %58 = load i32, ptr %7, align 4
-  %59 = call ptr @proto_tree_add_uint(ptr noundef %56, i32 noundef %57, ptr noundef %2, i32 noundef %.065, i32 noundef %16, i32 noundef %58)
-  %60 = load i32, ptr @hf_tcap_length, align 4
-  %61 = load i32, ptr %8, align 4
-  %62 = call ptr @proto_tree_add_uint(ptr noundef %56, i32 noundef %60, ptr noundef %2, i32 noundef %14, i32 noundef %17, i32 noundef %61)
-  %63 = load i32, ptr %8, align 4
-  %.not = icmp eq i32 %63, 0
-  br i1 %.not, label %68, label %64
+55:                                               ; preds = %13
+  %56 = load i32, ptr %7, align 4
+  %57 = call ptr (ptr, ptr, i32, i32, i32, ptr, ptr, ...) @proto_tree_add_subtree_format(ptr noundef %1, ptr noundef %2, i32 noundef %.065, i32 noundef %22, i32 noundef %23, ptr noundef null, ptr noundef nonnull @.str.276, i32 noundef %56)
+  %58 = load i32, ptr @hf_tcap_tag, align 4
+  %59 = load i32, ptr %7, align 4
+  %60 = call ptr @proto_tree_add_uint(ptr noundef %57, i32 noundef %58, ptr noundef %2, i32 noundef %.065, i32 noundef %16, i32 noundef %59)
+  %61 = load i32, ptr @hf_tcap_length, align 4
+  %62 = load i32, ptr %8, align 4
+  %63 = call ptr @proto_tree_add_uint(ptr noundef %57, i32 noundef %61, ptr noundef %2, i32 noundef %14, i32 noundef %17, i32 noundef %62)
+  %64 = load i32, ptr %8, align 4
+  %.not = icmp eq i32 %64, 0
+  br i1 %.not, label %69, label %65
 
-64:                                               ; preds = %54
-  %65 = call ptr @tvb_new_subset_length(ptr noundef %2, i32 noundef %15, i32 noundef %63)
-  %66 = load i32, ptr @hf_tcap_data, align 4
-  %67 = call i32 @dissect_ber_octet_string(i1 noundef zeroext true, ptr noundef %0, ptr noundef %1, ptr noundef %65, i32 noundef 0, i32 noundef %66, ptr noundef null)
-  br label %68
+65:                                               ; preds = %55
+  %66 = call ptr @tvb_new_subset_length(ptr noundef %2, i32 noundef %15, i32 noundef %64)
+  %67 = load i32, ptr @hf_tcap_data, align 4
+  %68 = call i32 @dissect_ber_octet_string(i1 noundef zeroext true, ptr noundef %0, ptr noundef %1, ptr noundef %66, i32 noundef 0, i32 noundef %67, ptr noundef null)
+  br label %69
 
-68:                                               ; preds = %54, %64, %45, %48
+69:                                               ; preds = %55, %65, %46, %49
   %.pn = load i32, ptr %8, align 4
   %.1 = add i32 %.pn, %15
-  %69 = call i32 @tvb_reported_length_remaining(ptr noundef %2, i32 noundef %.1)
-  %70 = icmp sgt i32 %69, 0
-  br i1 %70, label %13, label %._crit_edge, !llvm.loop !8
+  %70 = call i32 @tvb_reported_length_remaining(ptr noundef %2, i32 noundef %.1)
+  %71 = icmp sgt i32 %70, 0
+  br i1 %71, label %13, label %._crit_edge, !llvm.loop !8
 
-._crit_edge:                                      ; preds = %68, %4
-  %.0.lcssa = phi i32 [ %3, %4 ], [ %.1, %68 ]
+._crit_edge:                                      ; preds = %69, %4
+  %.0.lcssa = phi i32 [ %3, %4 ], [ %.1, %69 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %9) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #14
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #14

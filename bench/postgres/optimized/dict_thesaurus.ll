@@ -394,109 +394,109 @@ newLexeme.exit109.i:                              ; preds = %121, %119, %._crit_
   %174 = add i32 %.0146.i, 1
   %175 = trunc i32 %.0146.i to i16
   %176 = trunc i32 %.075145.i to i16
-  %177 = trunc nuw i8 %.285141.i to i1
-  %178 = icmp eq i16 %175, 0
-  br i1 %178, label %179, label %thread-pre-split
+  %177 = icmp eq i16 %175, 0
+  br i1 %177, label %178, label %thread-pre-split
 
-179:                                              ; preds = %173
+178:                                              ; preds = %173
   store i32 0, ptr @addWrd.ntres, align 4
   store i32 0, ptr @addWrd.nres, align 4
-  %180 = load i32, ptr %13, align 8
-  %.not.i45 = icmp ult i32 %.086154.i, %180
-  br i1 %.not.i45, label %191, label %181
+  %179 = load i32, ptr %13, align 8
+  %.not.i45 = icmp ult i32 %.086154.i, %179
+  br i1 %.not.i45, label %190, label %180
 
-181:                                              ; preds = %179
-  %182 = icmp eq i32 %180, 0
-  br i1 %182, label %183, label %185
+180:                                              ; preds = %178
+  %181 = icmp eq i32 %179, 0
+  br i1 %181, label %182, label %184
 
-183:                                              ; preds = %181
+182:                                              ; preds = %180
   store i32 16, ptr %13, align 8
-  %184 = call ptr @palloc(i64 noundef 256) #10
+  %183 = call ptr @palloc(i64 noundef 256) #10
   br label %.sink.split.i
 
-185:                                              ; preds = %181
-  %186 = shl i32 %180, 1
-  store i32 %186, ptr %13, align 8
-  %187 = load ptr, ptr %14, align 8
-  %188 = sext i32 %186 to i64
-  %189 = shl nsw i64 %188, 4
-  %190 = call ptr @repalloc(ptr noundef %187, i64 noundef %189) #10
+184:                                              ; preds = %180
+  %185 = shl i32 %179, 1
+  store i32 %185, ptr %13, align 8
+  %186 = load ptr, ptr %14, align 8
+  %187 = sext i32 %185 to i64
+  %188 = shl nsw i64 %187, 4
+  %189 = call ptr @repalloc(ptr noundef %186, i64 noundef %188) #10
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %185, %183
-  %.sink.i = phi ptr [ %190, %185 ], [ %184, %183 ]
+.sink.split.i:                                    ; preds = %184, %182
+  %.sink.i = phi ptr [ %189, %184 ], [ %183, %182 ]
   store ptr %.sink.i, ptr %14, align 8
   br label %thread-pre-split
 
 thread-pre-split:                                 ; preds = %173, %.sink.split.i
   %.pr = load i32, ptr @addWrd.ntres, align 4
-  br label %191
+  br label %190
 
-191:                                              ; preds = %thread-pre-split, %179
-  %192 = phi i32 [ %.pr, %thread-pre-split ], [ 0, %179 ]
-  %193 = load ptr, ptr %14, align 8
-  %194 = getelementptr inbounds nuw %struct.TheSubstitute, ptr %193, i64 %55
-  %195 = add i16 %176, -1
-  store i16 %195, ptr %194, align 8
-  %196 = load i32, ptr @addWrd.nres, align 4
-  %197 = add i32 %196, 1
-  %.not34.i = icmp slt i32 %197, %192
-  br i1 %.not34.i, label %addWrd.exit, label %198
+190:                                              ; preds = %thread-pre-split, %178
+  %191 = phi i32 [ %.pr, %thread-pre-split ], [ 0, %178 ]
+  %192 = load ptr, ptr %14, align 8
+  %193 = getelementptr inbounds nuw %struct.TheSubstitute, ptr %192, i64 %55
+  %194 = add i16 %176, -1
+  store i16 %194, ptr %193, align 8
+  %195 = load i32, ptr @addWrd.nres, align 4
+  %196 = add i32 %195, 1
+  %.not34.i = icmp slt i32 %196, %191
+  br i1 %.not34.i, label %addWrd.exit, label %197
 
-198:                                              ; preds = %191
-  %199 = icmp eq i32 %192, 0
-  %200 = getelementptr inbounds nuw i8, ptr %194, i64 8
-  br i1 %199, label %201, label %203
+197:                                              ; preds = %190
+  %198 = icmp eq i32 %191, 0
+  %199 = getelementptr inbounds nuw i8, ptr %193, i64 8
+  br i1 %198, label %200, label %202
 
-201:                                              ; preds = %198
+200:                                              ; preds = %197
   store i32 2, ptr @addWrd.ntres, align 4
-  %202 = call ptr @palloc(i64 noundef 32) #10
+  %201 = call ptr @palloc(i64 noundef 32) #10
   br label %.sink.split35.i
 
-203:                                              ; preds = %198
-  %204 = shl i32 %192, 1
-  store i32 %204, ptr @addWrd.ntres, align 4
-  %205 = load ptr, ptr %200, align 8
-  %206 = sext i32 %204 to i64
-  %207 = shl nsw i64 %206, 4
-  %208 = call ptr @repalloc(ptr noundef %205, i64 noundef %207) #10
+202:                                              ; preds = %197
+  %203 = shl i32 %191, 1
+  store i32 %203, ptr @addWrd.ntres, align 4
+  %204 = load ptr, ptr %199, align 8
+  %205 = sext i32 %203 to i64
+  %206 = shl nsw i64 %205, 4
+  %207 = call ptr @repalloc(ptr noundef %204, i64 noundef %206) #10
   br label %.sink.split35.i
 
-.sink.split35.i:                                  ; preds = %203, %201
-  %.sink36.i = phi ptr [ %202, %201 ], [ %208, %203 ]
-  store ptr %.sink36.i, ptr %200, align 8
+.sink.split35.i:                                  ; preds = %202, %200
+  %.sink36.i = phi ptr [ %201, %200 ], [ %207, %202 ]
+  store ptr %.sink36.i, ptr %199, align 8
   br label %addWrd.exit
 
-addWrd.exit:                                      ; preds = %191, %.sink.split35.i
-  %209 = ptrtoint ptr %.182142.i to i64
-  %210 = ptrtoint ptr %.077144.i to i64
-  %211 = sub i64 %209, %210
-  %212 = add i64 %211, 1
-  %213 = call ptr @palloc(i64 noundef %212) #10
-  %214 = getelementptr inbounds nuw i8, ptr %194, i64 8
-  %215 = load ptr, ptr %214, align 8
-  %216 = load i32, ptr @addWrd.nres, align 4
-  %217 = sext i32 %216 to i64
-  %218 = getelementptr inbounds %struct.TSLexeme, ptr %215, i64 %217, i32 2
-  store ptr %213, ptr %218, align 8
-  %219 = load ptr, ptr %214, align 8
-  %220 = getelementptr inbounds %struct.TSLexeme, ptr %219, i64 %217, i32 2
-  %221 = load ptr, ptr %220, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %221, ptr align 1 %.077144.i, i64 %211, i1 false)
-  %222 = load ptr, ptr %214, align 8
-  %223 = getelementptr inbounds %struct.TSLexeme, ptr %222, i64 %217, i32 2
-  %224 = load ptr, ptr %223, align 8
-  %225 = getelementptr inbounds i8, ptr %224, i64 %211
-  store i8 0, ptr %225, align 1
-  %226 = load ptr, ptr %214, align 8
-  %227 = getelementptr inbounds %struct.TSLexeme, ptr %226, i64 %217
-  store i16 %175, ptr %227, align 8
-  %..i = select i1 %177, i16 4096, i16 0
-  %228 = load ptr, ptr %214, align 8
-  %229 = getelementptr inbounds %struct.TSLexeme, ptr %228, i64 %217, i32 1
+addWrd.exit:                                      ; preds = %190, %.sink.split35.i
+  %208 = ptrtoint ptr %.182142.i to i64
+  %209 = ptrtoint ptr %.077144.i to i64
+  %210 = sub i64 %208, %209
+  %211 = add i64 %210, 1
+  %212 = call ptr @palloc(i64 noundef %211) #10
+  %213 = getelementptr inbounds nuw i8, ptr %193, i64 8
+  %214 = load ptr, ptr %213, align 8
+  %215 = load i32, ptr @addWrd.nres, align 4
+  %216 = sext i32 %215 to i64
+  %217 = getelementptr inbounds %struct.TSLexeme, ptr %214, i64 %216, i32 2
+  store ptr %212, ptr %217, align 8
+  %218 = load ptr, ptr %213, align 8
+  %219 = getelementptr inbounds %struct.TSLexeme, ptr %218, i64 %216, i32 2
+  %220 = load ptr, ptr %219, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %220, ptr align 1 %.077144.i, i64 %210, i1 false)
+  %221 = load ptr, ptr %213, align 8
+  %222 = getelementptr inbounds %struct.TSLexeme, ptr %221, i64 %216, i32 2
+  %223 = load ptr, ptr %222, align 8
+  %224 = getelementptr inbounds i8, ptr %223, i64 %210
+  store i8 0, ptr %224, align 1
+  %225 = load ptr, ptr %213, align 8
+  %226 = getelementptr inbounds %struct.TSLexeme, ptr %225, i64 %216
+  store i16 %175, ptr %226, align 8
+  %227 = zext nneg i8 %.285141.i to i16
+  %..i = shl nuw nsw i16 %227, 12
+  %228 = load ptr, ptr %213, align 8
+  %229 = getelementptr inbounds %struct.TSLexeme, ptr %228, i64 %216, i32 1
   store i16 %..i, ptr %229, align 2
-  %230 = load ptr, ptr %214, align 8
-  %231 = add i32 %216, 1
+  %230 = load ptr, ptr %213, align 8
+  %231 = add i32 %215, 1
   store i32 %231, ptr @addWrd.nres, align 4
   %232 = sext i32 %231 to i64
   %233 = getelementptr inbounds %struct.TSLexeme, ptr %230, i64 %232, i32 2

@@ -18254,8 +18254,8 @@ define hidden { i64, i64 } @_ZN15rustfmt_nightly5lists17struct_lit_tactic17h7869
   store i8 1, ptr %18, align 2
   %19 = getelementptr inbounds nuw i8, ptr %17, i64 653
   %20 = load i8, ptr %19, align 1, !range !13, !noundef !10
-  %21 = trunc nuw i8 %20 to i1
-  %. = select i1 %21, i64 2, i64 0
+  %21 = shl nuw nsw i8 %20, 1
+  %. = zext nneg i8 %21 to i64
   br label %22
 
 22:                                               ; preds = %6, %16

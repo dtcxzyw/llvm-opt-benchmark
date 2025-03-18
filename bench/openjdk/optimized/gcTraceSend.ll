@@ -8265,20 +8265,20 @@ define linkonce_odr hidden void @_ZN27EventPromoteObjectInNewPLAB9writeDataI15Ev
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 168
   %11 = load i64, ptr %10, align 8
   %12 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
-  %13 = trunc i8 %12 to i1
-  %14 = select i1 %13, i64 2, i64 1
-  %.mask.i.i.i.i.i.i = and i8 %12, 1
-  %15 = zext nneg i8 %.mask.i.i.i.i.i.i to i64
-  %16 = shl nuw nsw i64 257, %15
+  %13 = and i8 %12, 1
+  %14 = add nuw nsw i8 %13, 1
+  %15 = zext nneg i8 %14 to i64
+  %16 = mul nuw nsw i64 %15, 257
   %17 = and i64 %16, %11
-  %.not.i.i.i.i = icmp eq i64 %17, %14
+  %.not.i.i.i.i = icmp eq i64 %17, %15
   br i1 %.not.i.i.i.i, label %_ZN10JfrTraceId4loadEPK5Klass.exit.i.i, label %18
 
 18:                                               ; preds = %9
   %19 = trunc i64 %11 to i8
-  %20 = select i1 %13, i8 10, i8 5
-  %21 = or i8 %20, %19
-  store i8 %21, ptr %10, align 1
+  %20 = trunc i8 %12 to i1
+  %21 = select i1 %20, i8 10, i8 5
+  %22 = or i8 %21, %19
+  store i8 %22, ptr %10, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !42
   tail call void @_ZN21JfrTraceIdLoadBarrier7enqueueEPK5Klass(ptr noundef nonnull %7) #11
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !42
@@ -8287,87 +8287,87 @@ define linkonce_odr hidden void @_ZN27EventPromoteObjectInNewPLAB9writeDataI15Ev
   br label %_ZN10JfrTraceId4loadEPK5Klass.exit.i.i
 
 _ZN10JfrTraceId4loadEPK5Klass.exit.i.i:           ; preds = %18, %9
-  %22 = phi i64 [ %.pre.i.i.i.i, %18 ], [ %11, %9 ]
-  %23 = lshr i64 %22, 16
+  %23 = phi i64 [ %.pre.i.i.i.i, %18 ], [ %11, %9 ]
+  %24 = lshr i64 %23, 16
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeEPK5Klass.exit
 
 _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeEPK5Klass.exit: ; preds = %2, %_ZN10JfrTraceId4loadEPK5Klass.exit.i.i
-  %24 = phi i64 [ %23, %_ZN10JfrTraceId4loadEPK5Klass.exit.i.i ], [ 0, %2 ]
-  tail call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeImEEvT_(ptr noundef nonnull align 8 dereferenceable(41) %1, i64 noundef %24)
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %26 = load i64, ptr %25, align 8
-  tail call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeImEEvT_(ptr noundef nonnull align 8 dereferenceable(41) %1, i64 noundef %26)
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %28 = load i32, ptr %27, align 8
-  tail call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIjEEvT_(ptr noundef nonnull align 8 dereferenceable(41) %1, i32 noundef %28)
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %30 = load i8, ptr %29, align 4
-  %31 = and i8 %30, 1
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %33 = load ptr, ptr %32, align 8
-  %.not.i.i.i.i7 = icmp eq ptr %33, null
-  br i1 %.not.i.i.i.i7, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeEb.exit, label %34
+  %25 = phi i64 [ %24, %_ZN10JfrTraceId4loadEPK5Klass.exit.i.i ], [ 0, %2 ]
+  tail call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeImEEvT_(ptr noundef nonnull align 8 dereferenceable(41) %1, i64 noundef %25)
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %27 = load i64, ptr %26, align 8
+  tail call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeImEEvT_(ptr noundef nonnull align 8 dereferenceable(41) %1, i64 noundef %27)
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %29 = load i32, ptr %28, align 8
+  tail call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIjEEvT_(ptr noundef nonnull align 8 dereferenceable(41) %1, i32 noundef %29)
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %31 = load i8, ptr %30, align 4
+  %32 = and i8 %31, 1
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %34 = load ptr, ptr %33, align 8
+  %.not.i.i.i.i7 = icmp eq ptr %34, null
+  br i1 %.not.i.i.i.i7, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeEb.exit, label %35
 
-34:                                               ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeEPK5Klass.exit
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %36 = load ptr, ptr %35, align 8
-  %37 = icmp eq ptr %33, %36
-  br i1 %37, label %38, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE11ensure_sizeEm.exit.i.i.i
+35:                                               ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeEPK5Klass.exit
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %37 = load ptr, ptr %36, align 8
+  %38 = icmp eq ptr %34, %37
+  br i1 %38, label %39, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE11ensure_sizeEm.exit.i.i.i
 
-38:                                               ; preds = %34
-  %39 = ptrtoint ptr %33 to i64
-  %40 = load ptr, ptr %1, align 8
-  %41 = ptrtoint ptr %40 to i64
-  %42 = sub i64 %39, %41
-  %43 = getelementptr inbounds nuw i8, ptr %1, i64 24
+39:                                               ; preds = %35
+  %40 = ptrtoint ptr %34 to i64
+  %41 = load ptr, ptr %1, align 8
+  %42 = ptrtoint ptr %41 to i64
+  %43 = sub i64 %40, %42
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %46 = load ptr, ptr %45, align 8
-  call void @_ZN8JfrFlushC1EP9JfrBuffermmP6Thread(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %44, i64 noundef %42, i64 noundef 1, ptr noundef %46) #11
-  %47 = load ptr, ptr %3, align 8
-  store ptr %47, ptr %43, align 8
-  %.not5.i.i.i.i = icmp eq ptr %47, null
+  %45 = load ptr, ptr %44, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %47 = load ptr, ptr %46, align 8
+  call void @_ZN8JfrFlushC1EP9JfrBuffermmP6Thread(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %45, i64 noundef %43, i64 noundef 1, ptr noundef %47) #11
+  %48 = load ptr, ptr %3, align 8
+  store ptr %48, ptr %44, align 8
+  %.not5.i.i.i.i = icmp eq ptr %48, null
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br i1 %.not5.i.i.i.i, label %.sink.split.i.i.i.i, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i
 
-_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i: ; preds = %38
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  %49 = load ptr, ptr %48, align 8
-  store ptr %49, ptr %1, align 8
-  store ptr %49, ptr %35, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %47, i64 40
-  %51 = load i16, ptr %50, align 8
-  %52 = zext i16 %51 to i64
-  %53 = getelementptr inbounds nuw i8, ptr %47, i64 %52
-  %54 = getelementptr inbounds nuw i8, ptr %47, i64 32
-  %55 = load i64, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %53, i64 %55
-  %57 = getelementptr inbounds i8, ptr %49, i64 %42
-  store ptr %57, ptr %35, align 8
+_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i: ; preds = %39
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
+  %50 = load ptr, ptr %49, align 8
+  store ptr %50, ptr %1, align 8
+  store ptr %50, ptr %36, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %48, i64 40
+  %52 = load i16, ptr %51, align 8
+  %53 = zext i16 %52 to i64
+  %54 = getelementptr inbounds nuw i8, ptr %48, i64 %53
+  %55 = getelementptr inbounds nuw i8, ptr %48, i64 32
+  %56 = load i64, ptr %55, align 8
+  %57 = getelementptr inbounds i8, ptr %54, i64 %56
+  %58 = getelementptr inbounds i8, ptr %50, i64 %43
+  store ptr %58, ptr %36, align 8
   br label %.sink.split.i.i.i.i
 
-.sink.split.i.i.i.i:                              ; preds = %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i, %38
-  %.sink.i.i.i.i = phi ptr [ %56, %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i ], [ null, %38 ]
-  %.0.ph.i.i.i.i = phi ptr [ %57, %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i ], [ null, %38 ]
-  store ptr %.sink.i.i.i.i, ptr %32, align 8
+.sink.split.i.i.i.i:                              ; preds = %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i, %39
+  %.sink.i.i.i.i = phi ptr [ %57, %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i ], [ null, %39 ]
+  %.0.ph.i.i.i.i = phi ptr [ %58, %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i ], [ null, %39 ]
+  store ptr %.sink.i.i.i.i, ptr %33, align 8
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE11ensure_sizeEm.exit.i.i.i
 
-_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE11ensure_sizeEm.exit.i.i.i: ; preds = %.sink.split.i.i.i.i, %34
-  %.0.i.i.i.i = phi ptr [ %36, %34 ], [ %.0.ph.i.i.i.i, %.sink.split.i.i.i.i ]
+_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE11ensure_sizeEm.exit.i.i.i: ; preds = %.sink.split.i.i.i.i, %35
+  %.0.i.i.i.i = phi ptr [ %37, %35 ], [ %.0.ph.i.i.i.i, %.sink.split.i.i.i.i ]
   %.not.i.i.i = icmp eq ptr %.0.i.i.i.i, null
-  br i1 %.not.i.i.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeEb.exit, label %58
+  br i1 %.not.i.i.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeEb.exit, label %59
 
-58:                                               ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE11ensure_sizeEm.exit.i.i.i
-  store i8 %31, ptr %.0.i.i.i.i, align 1
-  %59 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 1
-  store ptr %59, ptr %35, align 8
+59:                                               ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE11ensure_sizeEm.exit.i.i.i
+  store i8 %32, ptr %.0.i.i.i.i, align 1
+  %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 1
+  store ptr %60, ptr %36, align 8
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeEb.exit
 
-_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeEb.exit: ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeEPK5Klass.exit, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE11ensure_sizeEm.exit.i.i.i, %58
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %61 = load i64, ptr %60, align 8
-  call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeImEEvT_(ptr noundef nonnull align 8 dereferenceable(41) %1, i64 noundef %61)
+_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeEb.exit: ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeEPK5Klass.exit, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE11ensure_sizeEm.exit.i.i.i, %59
+  %61 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %62 = load i64, ptr %61, align 8
+  call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeImEEvT_(ptr noundef nonnull align 8 dereferenceable(41) %1, i64 noundef %62)
   ret void
 }
 
@@ -8533,20 +8533,20 @@ define linkonce_odr hidden void @_ZN29EventPromoteObjectOutsidePLAB9writeDataI15
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 168
   %11 = load i64, ptr %10, align 8
   %12 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
-  %13 = trunc i8 %12 to i1
-  %14 = select i1 %13, i64 2, i64 1
-  %.mask.i.i.i.i.i.i = and i8 %12, 1
-  %15 = zext nneg i8 %.mask.i.i.i.i.i.i to i64
-  %16 = shl nuw nsw i64 257, %15
+  %13 = and i8 %12, 1
+  %14 = add nuw nsw i8 %13, 1
+  %15 = zext nneg i8 %14 to i64
+  %16 = mul nuw nsw i64 %15, 257
   %17 = and i64 %16, %11
-  %.not.i.i.i.i = icmp eq i64 %17, %14
+  %.not.i.i.i.i = icmp eq i64 %17, %15
   br i1 %.not.i.i.i.i, label %_ZN10JfrTraceId4loadEPK5Klass.exit.i.i, label %18
 
 18:                                               ; preds = %9
   %19 = trunc i64 %11 to i8
-  %20 = select i1 %13, i8 10, i8 5
-  %21 = or i8 %20, %19
-  store i8 %21, ptr %10, align 1
+  %20 = trunc i8 %12 to i1
+  %21 = select i1 %20, i8 10, i8 5
+  %22 = or i8 %21, %19
+  store i8 %22, ptr %10, align 1
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !42
   tail call void @_ZN21JfrTraceIdLoadBarrier7enqueueEPK5Klass(ptr noundef nonnull %7) #11
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #11, !srcloc !42
@@ -8555,84 +8555,84 @@ define linkonce_odr hidden void @_ZN29EventPromoteObjectOutsidePLAB9writeDataI15
   br label %_ZN10JfrTraceId4loadEPK5Klass.exit.i.i
 
 _ZN10JfrTraceId4loadEPK5Klass.exit.i.i:           ; preds = %18, %9
-  %22 = phi i64 [ %.pre.i.i.i.i, %18 ], [ %11, %9 ]
-  %23 = lshr i64 %22, 16
+  %23 = phi i64 [ %.pre.i.i.i.i, %18 ], [ %11, %9 ]
+  %24 = lshr i64 %23, 16
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeEPK5Klass.exit
 
 _ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeEPK5Klass.exit: ; preds = %2, %_ZN10JfrTraceId4loadEPK5Klass.exit.i.i
-  %24 = phi i64 [ %23, %_ZN10JfrTraceId4loadEPK5Klass.exit.i.i ], [ 0, %2 ]
-  tail call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeImEEvT_(ptr noundef nonnull align 8 dereferenceable(41) %1, i64 noundef %24)
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %26 = load i64, ptr %25, align 8
-  tail call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeImEEvT_(ptr noundef nonnull align 8 dereferenceable(41) %1, i64 noundef %26)
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %28 = load i32, ptr %27, align 8
-  tail call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIjEEvT_(ptr noundef nonnull align 8 dereferenceable(41) %1, i32 noundef %28)
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  %30 = load i8, ptr %29, align 4
-  %31 = and i8 %30, 1
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %33 = load ptr, ptr %32, align 8
-  %.not.i.i.i.i6 = icmp eq ptr %33, null
-  br i1 %.not.i.i.i.i6, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeEb.exit, label %34
+  %25 = phi i64 [ %24, %_ZN10JfrTraceId4loadEPK5Klass.exit.i.i ], [ 0, %2 ]
+  tail call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeImEEvT_(ptr noundef nonnull align 8 dereferenceable(41) %1, i64 noundef %25)
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %27 = load i64, ptr %26, align 8
+  tail call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeImEEvT_(ptr noundef nonnull align 8 dereferenceable(41) %1, i64 noundef %27)
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %29 = load i32, ptr %28, align 8
+  tail call void @_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeIjEEvT_(ptr noundef nonnull align 8 dereferenceable(41) %1, i32 noundef %29)
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  %31 = load i8, ptr %30, align 4
+  %32 = and i8 %31, 1
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %34 = load ptr, ptr %33, align 8
+  %.not.i.i.i.i6 = icmp eq ptr %34, null
+  br i1 %.not.i.i.i.i6, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeEb.exit, label %35
 
-34:                                               ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeEPK5Klass.exit
-  %35 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %36 = load ptr, ptr %35, align 8
-  %37 = icmp eq ptr %33, %36
-  br i1 %37, label %38, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE11ensure_sizeEm.exit.i.i.i
+35:                                               ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeEPK5Klass.exit
+  %36 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %37 = load ptr, ptr %36, align 8
+  %38 = icmp eq ptr %34, %37
+  br i1 %38, label %39, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE11ensure_sizeEm.exit.i.i.i
 
-38:                                               ; preds = %34
-  %39 = ptrtoint ptr %33 to i64
-  %40 = load ptr, ptr %1, align 8
-  %41 = ptrtoint ptr %40 to i64
-  %42 = sub i64 %39, %41
-  %43 = getelementptr inbounds nuw i8, ptr %1, i64 24
+39:                                               ; preds = %35
+  %40 = ptrtoint ptr %34 to i64
+  %41 = load ptr, ptr %1, align 8
+  %42 = ptrtoint ptr %41 to i64
+  %43 = sub i64 %40, %42
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 24
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3)
-  %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %46 = load ptr, ptr %45, align 8
-  call void @_ZN8JfrFlushC1EP9JfrBuffermmP6Thread(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %44, i64 noundef %42, i64 noundef 1, ptr noundef %46) #11
-  %47 = load ptr, ptr %3, align 8
-  store ptr %47, ptr %43, align 8
-  %.not5.i.i.i.i = icmp eq ptr %47, null
+  %45 = load ptr, ptr %44, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %47 = load ptr, ptr %46, align 8
+  call void @_ZN8JfrFlushC1EP9JfrBuffermmP6Thread(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %45, i64 noundef %43, i64 noundef 1, ptr noundef %47) #11
+  %48 = load ptr, ptr %3, align 8
+  store ptr %48, ptr %44, align 8
+  %.not5.i.i.i.i = icmp eq ptr %48, null
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   br i1 %.not5.i.i.i.i, label %.sink.split.i.i.i.i, label %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i
 
-_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i: ; preds = %38
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  %49 = load ptr, ptr %48, align 8
-  store ptr %49, ptr %1, align 8
-  store ptr %49, ptr %35, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %47, i64 40
-  %51 = load i16, ptr %50, align 8
-  %52 = zext i16 %51 to i64
-  %53 = getelementptr inbounds nuw i8, ptr %47, i64 %52
-  %54 = getelementptr inbounds nuw i8, ptr %47, i64 32
-  %55 = load i64, ptr %54, align 8
-  %56 = getelementptr inbounds i8, ptr %53, i64 %55
-  %57 = getelementptr inbounds i8, ptr %49, i64 %42
-  store ptr %57, ptr %35, align 8
+_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i: ; preds = %39
+  %49 = getelementptr inbounds nuw i8, ptr %48, i64 16
+  %50 = load ptr, ptr %49, align 8
+  store ptr %50, ptr %1, align 8
+  store ptr %50, ptr %36, align 8
+  %51 = getelementptr inbounds nuw i8, ptr %48, i64 40
+  %52 = load i16, ptr %51, align 8
+  %53 = zext i16 %52 to i64
+  %54 = getelementptr inbounds nuw i8, ptr %48, i64 %53
+  %55 = getelementptr inbounds nuw i8, ptr %48, i64 32
+  %56 = load i64, ptr %55, align 8
+  %57 = getelementptr inbounds i8, ptr %54, i64 %56
+  %58 = getelementptr inbounds i8, ptr %50, i64 %43
+  store ptr %58, ptr %36, align 8
   br label %.sink.split.i.i.i.i
 
-.sink.split.i.i.i.i:                              ; preds = %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i, %38
-  %.sink.i.i.i.i = phi ptr [ %56, %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i ], [ null, %38 ]
-  %.0.ph.i.i.i.i = phi ptr [ %57, %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i ], [ null, %38 ]
-  store ptr %.sink.i.i.i.i, ptr %32, align 8
+.sink.split.i.i.i.i:                              ; preds = %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i, %39
+  %.sink.i.i.i.i = phi ptr [ %57, %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i ], [ null, %39 ]
+  %.0.ph.i.i.i.i = phi ptr [ %58, %_ZN11StorageHostI7AdapterI8JfrFlushE8StackObjE11accommodateEmm.exit.thread.i.i.i.i ], [ null, %39 ]
+  store ptr %.sink.i.i.i.i, ptr %33, align 8
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE11ensure_sizeEm.exit.i.i.i
 
-_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE11ensure_sizeEm.exit.i.i.i: ; preds = %.sink.split.i.i.i.i, %34
-  %.0.i.i.i.i = phi ptr [ %36, %34 ], [ %.0.ph.i.i.i.i, %.sink.split.i.i.i.i ]
+_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE11ensure_sizeEm.exit.i.i.i: ; preds = %.sink.split.i.i.i.i, %35
+  %.0.i.i.i.i = phi ptr [ %37, %35 ], [ %.0.ph.i.i.i.i, %.sink.split.i.i.i.i ]
   %.not.i.i.i = icmp eq ptr %.0.i.i.i.i, null
-  br i1 %.not.i.i.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeEb.exit, label %58
+  br i1 %.not.i.i.i, label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeEb.exit, label %59
 
-58:                                               ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE11ensure_sizeEm.exit.i.i.i
-  store i8 %31, ptr %.0.i.i.i.i, align 1
-  %59 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 1
-  store ptr %59, ptr %35, align 8
+59:                                               ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE11ensure_sizeEm.exit.i.i.i
+  store i8 %32, ptr %.0.i.i.i.i, align 1
+  %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i, i64 1
+  store ptr %60, ptr %36, align 8
   br label %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeEb.exit
 
-_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeEb.exit: ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeEPK5Klass.exit, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE11ensure_sizeEm.exit.i.i.i, %58
+_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeEb.exit: ; preds = %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE5writeEPK5Klass.exit, %_ZN10WriterHostI11EncoderHostI20BigEndianEncoderImplS1_ES0_I20Varint128EncoderImplS1_E16MemoryWriterHostI7AdapterI8JfrFlushE8StackObj21ExclusiveAccessAssertEE11ensure_sizeEm.exit.i.i.i, %59
   ret void
 }
 

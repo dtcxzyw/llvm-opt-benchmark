@@ -274,7 +274,7 @@ define internal noundef i32 @H5O__ainfo_encode(ptr noundef %0, i1 zeroext %1, i6
   %10 = trunc nuw i8 %9 to i1
   %11 = xor i1 %10, true
   %12 = select i1 %8, i1 true, i1 %11
-  br i1 %12, label %13, label %43, !prof !9
+  br i1 %12, label %13, label %42, !prof !9
 
 13:                                               ; preds = %5
   %14 = getelementptr inbounds nuw i8, ptr %3, i64 1
@@ -282,48 +282,47 @@ define internal noundef i32 @H5O__ainfo_encode(ptr noundef %0, i1 zeroext %1, i6
   %15 = load i8, ptr %4, align 8, !tbaa !16, !range !7, !noundef !8
   %16 = getelementptr inbounds nuw i8, ptr %4, i64 1
   %17 = load i8, ptr %16, align 1, !tbaa !19, !range !7, !noundef !8
-  %18 = trunc nuw i8 %17 to i1
-  %19 = select i1 %18, i8 2, i8 0
-  %20 = or disjoint i8 %19, %15
-  %21 = getelementptr inbounds nuw i8, ptr %3, i64 2
-  store ptr %21, ptr %6, align 8, !tbaa !12
-  store i8 %20, ptr %14, align 1, !tbaa !15
-  %22 = load i8, ptr %4, align 8, !tbaa !16, !range !7, !noundef !8
-  %23 = trunc nuw i8 %22 to i1
-  br i1 %23, label %24, label %33
+  %18 = shl nuw nsw i8 %17, 1
+  %19 = or disjoint i8 %18, %15
+  %20 = getelementptr inbounds nuw i8, ptr %3, i64 2
+  store ptr %20, ptr %6, align 8, !tbaa !12
+  store i8 %19, ptr %14, align 1, !tbaa !15
+  %21 = load i8, ptr %4, align 8, !tbaa !16, !range !7, !noundef !8
+  %22 = trunc nuw i8 %21 to i1
+  br i1 %22, label %23, label %32
 
-24:                                               ; preds = %13
-  %25 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %26 = load i32, ptr %25, align 4, !tbaa !21
-  %27 = trunc i32 %26 to i8
-  store i8 %27, ptr %21, align 1, !tbaa !15
-  %28 = getelementptr inbounds nuw i8, ptr %3, i64 3
-  %29 = load i32, ptr %25, align 4, !tbaa !21
-  %30 = lshr i32 %29, 8
-  %31 = trunc i32 %30 to i8
-  store i8 %31, ptr %28, align 1, !tbaa !15
-  %32 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  store ptr %32, ptr %6, align 8, !tbaa !12
-  br label %33
+23:                                               ; preds = %13
+  %24 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %25 = load i32, ptr %24, align 4, !tbaa !21
+  %26 = trunc i32 %25 to i8
+  store i8 %26, ptr %20, align 1, !tbaa !15
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 3
+  %28 = load i32, ptr %24, align 4, !tbaa !21
+  %29 = lshr i32 %28, 8
+  %30 = trunc i32 %29 to i8
+  store i8 %30, ptr %27, align 1, !tbaa !15
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  store ptr %31, ptr %6, align 8, !tbaa !12
+  br label %32
 
-33:                                               ; preds = %24, %13
-  %34 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %35 = load i64, ptr %34, align 8, !tbaa !23
-  call void @H5F_addr_encode(ptr noundef %0, ptr noundef nonnull %6, i64 noundef %35) #7
-  %36 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %37 = load i64, ptr %36, align 8, !tbaa !24
-  call void @H5F_addr_encode(ptr noundef %0, ptr noundef nonnull %6, i64 noundef %37) #7
-  %38 = load i8, ptr %16, align 1, !tbaa !19, !range !7, !noundef !8
-  %39 = trunc nuw i8 %38 to i1
-  br i1 %39, label %40, label %43
+32:                                               ; preds = %23, %13
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %34 = load i64, ptr %33, align 8, !tbaa !23
+  call void @H5F_addr_encode(ptr noundef %0, ptr noundef nonnull %6, i64 noundef %34) #7
+  %35 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %36 = load i64, ptr %35, align 8, !tbaa !24
+  call void @H5F_addr_encode(ptr noundef %0, ptr noundef nonnull %6, i64 noundef %36) #7
+  %37 = load i8, ptr %16, align 1, !tbaa !19, !range !7, !noundef !8
+  %38 = trunc nuw i8 %37 to i1
+  br i1 %38, label %39, label %42
 
-40:                                               ; preds = %33
-  %41 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %42 = load i64, ptr %41, align 8, !tbaa !22
-  call void @H5F_addr_encode(ptr noundef %0, ptr noundef nonnull %6, i64 noundef %42) #7
-  br label %43
+39:                                               ; preds = %32
+  %40 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %41 = load i64, ptr %40, align 8, !tbaa !22
+  call void @H5F_addr_encode(ptr noundef %0, ptr noundef nonnull %6, i64 noundef %41) #7
+  br label %42
 
-43:                                               ; preds = %40, %33, %5
+42:                                               ; preds = %39, %32, %5
   ret i32 0
 }
 
@@ -374,8 +373,9 @@ define internal range(i64 0, 770) i64 @H5O__ainfo_size(ptr noundef %0, i1 zeroex
 
 10:                                               ; preds = %3
   %11 = load i8, ptr %2, align 8, !tbaa !16, !range !7, !noundef !8
-  %12 = trunc nuw i8 %11 to i1
-  %13 = select i1 %12, i64 4, i64 2
+  %12 = shl nuw nsw i8 %11, 1
+  %narrow = add nuw nsw i8 %12, 2
+  %13 = zext nneg i8 %narrow to i64
   %14 = tail call zeroext i8 @H5F_sizeof_addr(ptr noundef %0) #7
   %15 = zext i8 %14 to i64
   %16 = add nuw nsw i64 %13, %15

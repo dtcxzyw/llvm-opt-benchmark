@@ -99115,13 +99115,11 @@ common.resume:                                    ; preds = %57, %61, %13, %82, 
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17hb849d4c7938d36a1E.exit": ; preds = %74
   %85 = load ptr, ptr %.sroa.7.0..sroa_idx14, align 8, !alias.scope !20434, !noalias !20433, !nonnull !4
-  %trunc3.i.i.i = trunc nuw i64 %.sroa.0.0.copyload to i1
-  %.sroa.01.0.idx.i.i.i = select i1 %trunc3.i.i.i, i64 16, i64 0
+  %.sroa.01.0.idx.i.i.i = shl nuw nsw i64 %.sroa.0.0.copyload, 4
   %.sroa.01.0.i.i.i = getelementptr inbounds nuw i8, ptr %85, i64 %.sroa.01.0.idx.i.i.i
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %87 = load ptr, ptr %86, align 8, !alias.scope !20433, !noalias !20434, !nonnull !4
-  %trunc.i.i.i = trunc nuw i64 %72 to i1
-  %.sroa.0.0.idx.i.i.i = select i1 %trunc.i.i.i, i64 16, i64 0
+  %.sroa.0.0.idx.i.i.i = shl nuw nsw i64 %72, 4
   %.sroa.0.0.i.i.i = getelementptr inbounds nuw i8, ptr %87, i64 %.sroa.0.0.idx.i.i.i
   %bcmp.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly align 1 %.sroa.0.0.i.i.i, ptr nonnull readonly align 1 %.sroa.01.0.i.i.i, i64 %.sroa.3.0.i.i.i), !alias.scope !20452, !noalias !20459
   %.not = icmp eq i32 %bcmp.i.i.i.i.i, 0
@@ -134238,12 +134236,11 @@ define hidden void @_ZN9assistant15assistant_panel17ConfigurationView20render_pr
   call void @llvm.experimental.noalias.scope.decl(metadata !28245)
   call void @llvm.experimental.noalias.scope.decl(metadata !28248)
   %143 = load i64, ptr %80, align 8, !range !302, !alias.scope !28250, !noalias !28251, !noundef !4
-  %trunc.i.i.i.i.i = trunc nuw i64 %143 to i1
   %144 = getelementptr inbounds nuw i8, ptr %80, i64 8
   %145 = load ptr, ptr %144, align 8, !alias.scope !28250, !noalias !28251, !nonnull !4, !noundef !4
   %146 = getelementptr inbounds nuw i8, ptr %80, i64 16
   %147 = load i64, ptr %146, align 8, !alias.scope !28250, !noalias !28251, !noundef !4
-  %.sink.idx.i.i.i.i.i = select i1 %trunc.i.i.i.i.i, i64 16, i64 0
+  %.sink.idx.i.i.i.i.i = shl nuw nsw i64 %143, 4
   %.sink.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %145, i64 %.sink.idx.i.i.i.i.i
   invoke void @"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$5write17h5b780d2263fcefdeE.llvm.5997636334944773990"(ptr noalias noundef nonnull align 8 dereferenceable(8) %54, ptr noalias noundef nonnull readonly align 1 %.sink.i.i.i.i.i, i64 noundef %147)
           to label %.noexc34 unwind label %179
@@ -134298,8 +134295,7 @@ define hidden void @_ZN9assistant15assistant_panel17ConfigurationView20render_pr
   %167 = getelementptr inbounds i8, ptr %165, i64 -624
   %168 = load ptr, ptr %167, align 8, !alias.scope !28281, !noalias !28282, !nonnull !4
   %169 = load i64, ptr %166, align 8, !range !302, !alias.scope !28281, !noalias !28282, !noundef !4
-  %trunc3.i.i.i.i.i.i.i = trunc nuw i64 %169 to i1
-  %.sroa.01.0.idx.i.i.i.i.i.i.i = select i1 %trunc3.i.i.i.i.i.i.i, i64 16, i64 0
+  %.sroa.01.0.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %169, 4
   %.sroa.01.0.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %168, i64 %.sroa.01.0.idx.i.i.i.i.i.i.i
   %bcmp.i.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly align 1 %.sink.i.i.i.i.i, ptr nonnull readonly align 1 %.sroa.01.0.i.i.i.i.i.i.i, i64 %147), !alias.scope !28288, !noalias !28295
   %170 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i, 0
@@ -171178,10 +171174,9 @@ define { ptr, i64 } @"_ZN102_$LT$assistant..slash_command_picker..SlashCommandEn
   %.sroa.01.0.idx = select i1 %3, i64 8, i64 0
   %.sroa.01.0 = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.01.0.idx
   %4 = load i64, ptr %.sroa.01.0, align 8, !range !302, !noundef !4
-  %trunc = trunc nuw i64 %4 to i1
   %5 = getelementptr inbounds nuw i8, ptr %.sroa.01.0, i64 8
   %6 = load ptr, ptr %5, align 8, !nonnull !4, !noundef !4
-  %.sroa.0.0.idx = select i1 %trunc, i64 16, i64 0
+  %.sroa.0.0.idx = shl nuw nsw i64 %4, 4
   %.sroa.0.0 = getelementptr inbounds nuw i8, ptr %6, i64 %.sroa.0.0.idx
   %.sroa.3.0.in = getelementptr inbounds nuw i8, ptr %.sroa.01.0, i64 16
   %.sroa.3.0 = load i64, ptr %.sroa.3.0.in, align 8, !noundef !4
@@ -171828,10 +171823,9 @@ define void @"_ZN96_$LT$assistant..slash_command_picker..SlashCommandDelegate$u2
   br i1 %.not201, label %143, label %151
 
 143:                                              ; preds = %139
-  %trunc = trunc nuw i64 %141 to i1
   %144 = getelementptr inbounds nuw i8, ptr %92, i64 56
   %145 = load ptr, ptr %144, align 8, !nonnull !4, !noundef !4
-  %.sroa.06.0.idx = select i1 %trunc, i64 16, i64 0
+  %.sroa.06.0.idx = shl nuw nsw i64 %141, 4
   %.sroa.06.0 = getelementptr inbounds nuw i8, ptr %145, i64 %.sroa.06.0.idx
   %.sroa.3.0.in = getelementptr inbounds nuw i8, ptr %92, i64 64
   %.sroa.3.0 = load i64, ptr %.sroa.3.0.in, align 8, !noundef !4

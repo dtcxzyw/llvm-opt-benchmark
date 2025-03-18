@@ -8192,10 +8192,9 @@ define hidden noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4), !noalias !501
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3), !noalias !501
   %7 = load i64, ptr %6, align 8, !range !113, !alias.scope !503, !noalias !506, !noundef !5
-  %trunc.i.i = trunc nuw i64 %7 to i1
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %9 = load ptr, ptr %8, align 8, !alias.scope !503, !noalias !506, !nonnull !5
-  %.sroa.0.0.idx.i.i = select i1 %trunc.i.i, i64 16, i64 0
+  %.sroa.0.0.idx.i.i = shl nuw nsw i64 %7, 4
   %.sroa.0.0.i.i = getelementptr inbounds nuw i8, ptr %9, i64 %.sroa.0.0.idx.i.i
   %.sroa.3.0.in.i.i = getelementptr inbounds nuw i8, ptr %6, i64 16
   %.sroa.3.0.i.i = load i64, ptr %.sroa.3.0.in.i.i, align 8, !alias.scope !503, !noalias !506, !noundef !5
@@ -193354,10 +193353,9 @@ define void @_ZN4gpui12svg_renderer11SvgRenderer6render17h04d4075a6a0ad739E(ptr 
   %25 = getelementptr i8, ptr %18, i64 %24
   %26 = getelementptr i8, ptr %25, i64 16
   %27 = load i64, ptr %2, align 8, !range !113, !noundef !5
-  %trunc = trunc nuw i64 %27 to i1
   %28 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %29 = load ptr, ptr %28, align 8, !nonnull !5
-  %.sroa.07.0.idx = select i1 %trunc, i64 16, i64 0
+  %.sroa.07.0.idx = shl nuw nsw i64 %27, 4
   %.sroa.07.0 = getelementptr inbounds nuw i8, ptr %29, i64 %.sroa.07.0.idx
   %.sroa.3.0.in = getelementptr inbounds nuw i8, ptr %2, i64 16
   %.sroa.3.0 = load i64, ptr %.sroa.3.0.in, align 8, !noundef !5

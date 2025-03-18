@@ -233,13 +233,13 @@ define dso_local noundef nonnull ptr @_ZN4llvm30createRISCVInstructionSelectorER
   %26 = load i8, ptr %25, align 1, !tbaa !191, !range !189, !noundef !190
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 435
   %28 = load i8, ptr %27, align 1, !tbaa !192, !range !189, !noundef !190
-  %29 = trunc nuw i8 %28 to i1
-  %.sroa.0.0.i.i = select i1 %29, i64 -9223372036854775808, i64 0
+  %29 = zext nneg i8 %28 to i64
+  %.sroa.0.0.i.i = shl nuw i64 %29, 63
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 426
   %31 = load i8, ptr %30, align 2, !tbaa !193, !range !189, !noundef !190
   %32 = trunc nuw i8 %31 to i1
   %.sroa.0.2.v.i.i = select i1 %32, i64 4, i64 2
-  %.sroa.0.2.i.i = or disjoint i64 %.sroa.0.0.i.i, %.sroa.0.2.v.i.i
+  %.sroa.0.2.i.i = or disjoint i64 %.sroa.0.2.v.i.i, %.sroa.0.0.i.i
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 446
   %34 = load i8, ptr %33, align 2, !tbaa !194, !range !189, !noundef !190
   %35 = zext nneg i8 %34 to i64

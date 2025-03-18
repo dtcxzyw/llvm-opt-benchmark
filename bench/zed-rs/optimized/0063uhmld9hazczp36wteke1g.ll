@@ -247,6 +247,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @"_ZN3std4hash6random11RandomState3new4KEYS29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17hac9b420e96285c2eE" = external thread_local local_unnamed_addr global { { { i64, [2 x i64] } } }
 @__rust_no_alloc_shim_is_unstable = external global i8
 @switch.table._ZN4tiff7decoder3ifd5Entry3val17hae895a2851d0ad43E = private unnamed_addr constant [16 x i64] [i64 1, i64 1, i64 2, i64 4, i64 8, i64 1, i64 1, i64 2, i64 4, i64 8, i64 4, i64 8, i64 4, i64 8, i64 8, i64 8], align 8
+@"switch.table._ZN95_$LT$image..codecs..bmp..decoder..BmpDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$16read_image_boxed17h8b5f4a5d2d176e93E" = private unnamed_addr constant [4 x i64] [i64 1, i64 poison, i64 3, i64 4], align 8
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden noundef range(i8 1, 4) i8 @"_ZN100_$LT$core..iter..adapters..take..Take$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17hd302e9303cf7be53E.llvm.3233214882447289910"(ptr noalias noundef align 8 dereferenceable(480) %0, ptr noalias noundef align 8 captures(none) dereferenceable(16) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
@@ -25848,13 +25849,15 @@ switch.lookup:
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 109
   %.val6 = load i8, ptr %4, align 1
   %5 = trunc nuw i8 %.val5 to i1
-  %6 = trunc nuw i8 %.val6 to i1
-  %7 = select i1 %6, i64 4, i64 3
-  %switch.offset = select i1 %5, i64 1, i64 %7
+  %..i = or i8 %.val6, 2
+  %6 = sext i8 %..i to i64
+  %7 = select i1 %5, i64 0, i64 %6
+  %switch.gep = getelementptr inbounds [4 x i64], ptr @"switch.table._ZN95_$LT$image..codecs..bmp..decoder..BmpDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$16read_image_boxed17h8b5f4a5d2d176e93E", i64 0, i64 %7
+  %switch.load = load i64, ptr %switch.gep, align 8
   %8 = zext i32 %.val to i64
   %9 = zext i32 %.val4 to i64
   %10 = mul nuw i64 %9, %8
-  %11 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %10, i64 %switch.offset)
+  %11 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %10, i64 %switch.load)
   %12 = extractvalue { i64, i1 } %11, 0
   %13 = extractvalue { i64, i1 } %11, 1
   %spec.select = select i1 %13, i64 -1, i64 %12
@@ -25874,12 +25877,15 @@ switch.lookup:
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 109
   %.val2 = load i8, ptr %2, align 1
   %3 = trunc nuw i8 %.val to i1
-  %4 = trunc nuw i8 %.val2 to i1
-  %5 = select i1 %4, i8 16, i8 15
-  %switch.offset = select i1 %3, i8 13, i8 %5
-  %6 = insertvalue { i8, i8 } poison, i8 %switch.offset, 0
-  %7 = insertvalue { i8, i8 } %6, i8 undef, 1
-  ret { i8, i8 } %7
+  %..i = or i8 %.val2, 2
+  %4 = zext i8 %..i to i32
+  %5 = shl nuw nsw i32 %4, 3
+  %6 = lshr i32 269418509, %5
+  %7 = trunc i32 %6 to i8
+  %switch.masked = select i1 %3, i8 13, i8 %7
+  %8 = insertvalue { i8, i8 } poison, i8 %switch.masked, 0
+  %9 = insertvalue { i8, i8 } %8, i8 undef, 1
+  ret { i8, i8 } %9
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -27023,7 +27029,7 @@ switch.early.test.i:                              ; preds = %202
   br label %230
 
 229:                                              ; preds = %214
-  %.159.i = select i1 %179, i8 4, i8 3
+  %.159.i = add nuw nsw i8 %178, 3
   br label %230
 
 230:                                              ; preds = %243, %229, %228, %227, %219, %217, %215, %214, %214, %214, %214
@@ -40129,13 +40135,15 @@ switch.lookup:
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 109
   %.val6.i.i = load i8, ptr %12, align 1, !alias.scope !13424, !noalias !13427
   %13 = trunc nuw i8 %.val5.i.i to i1
-  %14 = trunc nuw i8 %.val6.i.i to i1
-  %15 = select i1 %14, i64 4, i64 3
-  %switch.offset = select i1 %13, i64 1, i64 %15
+  %..i.i.i = or i8 %.val6.i.i, 2
+  %14 = sext i8 %..i.i.i to i64
+  %15 = select i1 %13, i64 0, i64 %14
+  %switch.gep = getelementptr inbounds [4 x i64], ptr @"switch.table._ZN95_$LT$image..codecs..bmp..decoder..BmpDecoder$LT$R$GT$$u20$as$u20$image..image..ImageDecoder$GT$16read_image_boxed17h8b5f4a5d2d176e93E", i64 0, i64 %15
+  %switch.load = load i64, ptr %switch.gep, align 8
   %16 = zext i32 %.val.i.i to i64
   %17 = zext i32 %.val4.i.i to i64
   %18 = mul nuw i64 %17, %16
-  %19 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %18, i64 %switch.offset)
+  %19 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %18, i64 %switch.load)
   %20 = extractvalue { i64, i1 } %19, 0
   %21 = extractvalue { i64, i1 } %19, 1
   %spec.select.i.i = select i1 %21, i64 -1, i64 %20

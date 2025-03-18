@@ -1381,105 +1381,104 @@ _ZNK5clang13DiagnosticIDs23isDefaultMappingAsErrorEj.exit: ; preds = %63, %74
 89:                                               ; preds = %86
   %90 = getelementptr inbounds nuw i8, ptr %3, i64 5
   %91 = load i8, ptr %90, align 1, !tbaa !127, !range !128, !noundef !129
-  %92 = trunc nuw i8 %91 to i1
-  %spec.select = select i1 %92, i8 4, i8 5
+  %spec.select = xor i8 %91, 5
   br label %.thread127
 
 .thread127:                                       ; preds = %89, %.critedge.thread154, %.thread123, %86
   %.5 = phi i8 [ %.4, %86 ], [ 4, %.thread123 ], [ 3, %.critedge.thread154 ], [ %spec.select, %89 ]
-  %93 = load ptr, ptr %6, align 8, !tbaa !82
-  %.not168 = icmp eq ptr %93, null
-  br i1 %.not168, label %.critedge3, label %94
+  %92 = load ptr, ptr %6, align 8, !tbaa !82
+  %.not168 = icmp eq ptr %92, null
+  br i1 %.not168, label %.critedge3, label %93
 
-94:                                               ; preds = %.thread127
-  br i1 %5, label %95, label %105
+93:                                               ; preds = %.thread127
+  br i1 %5, label %94, label %104
 
-95:                                               ; preds = %94
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %97 = load ptr, ptr %96, align 8, !tbaa !3
-  %98 = add i32 %1, -8820
-  %99 = zext i32 %98 to i64
-  %100 = load ptr, ptr %97, align 8, !tbaa !8
-  %101 = getelementptr inbounds nuw %"class.clang::DiagnosticIDs::CustomDiagDesc", ptr %100, i64 %99
-  %102 = load i16, ptr %101, align 8
-  %103 = and i16 %102, 64
-  %104 = icmp ne i16 %103, 0
-  br label %112
+94:                                               ; preds = %93
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %96 = load ptr, ptr %95, align 8, !tbaa !3
+  %97 = add i32 %1, -8820
+  %98 = zext i32 %97 to i64
+  %99 = load ptr, ptr %96, align 8, !tbaa !8
+  %100 = getelementptr inbounds nuw %"class.clang::DiagnosticIDs::CustomDiagDesc", ptr %99, i64 %98
+  %101 = load i16, ptr %100, align 8
+  %102 = and i16 %101, 64
+  %103 = icmp ne i16 %102, 0
+  br label %111
 
-105:                                              ; preds = %94
-  %106 = tail call fastcc noundef ptr @_ZL11GetDiagInfoj(i32 noundef %1)
-  %.not54 = icmp eq ptr %106, null
-  br i1 %.not54, label %.thread130, label %107
+104:                                              ; preds = %93
+  %105 = tail call fastcc noundef ptr @_ZL11GetDiagInfoj(i32 noundef %1)
+  %.not54 = icmp eq ptr %105, null
+  br i1 %.not54, label %.thread130, label %106
 
-107:                                              ; preds = %105
-  %108 = getelementptr inbounds nuw i8, ptr %106, i64 2
-  %109 = load i32, ptr %108, align 2
-  %110 = and i32 %109, 32768
-  %111 = icmp ne i32 %110, 0
-  br label %112
+106:                                              ; preds = %104
+  %107 = getelementptr inbounds nuw i8, ptr %105, i64 2
+  %108 = load i32, ptr %107, align 2
+  %109 = and i32 %108, 32768
+  %110 = icmp ne i32 %109, 0
+  br label %111
 
-112:                                              ; preds = %107, %95
-  %113 = phi i1 [ %104, %95 ], [ %111, %107 ]
-  %114 = and i8 %19, 16
-  %.not55 = icmp eq i8 %114, 0
-  %brmerge59 = select i1 %.not55, i1 true, i1 %113
-  %115 = icmp eq i32 %2, 0
-  %or.cond161.not = select i1 %brmerge59, i1 true, i1 %115
-  br i1 %or.cond161.not, label %.thread130, label %116
+111:                                              ; preds = %106, %94
+  %112 = phi i1 [ %103, %94 ], [ %110, %106 ]
+  %113 = and i8 %19, 16
+  %.not55 = icmp eq i8 %113, 0
+  %brmerge59 = select i1 %.not55, i1 true, i1 %112
+  %114 = icmp eq i32 %2, 0
+  %or.cond161.not = select i1 %brmerge59, i1 true, i1 %114
+  br i1 %or.cond161.not, label %.thread130, label %115
 
-116:                                              ; preds = %112
-  %117 = icmp sgt i32 %2, -1
-  br i1 %117, label %_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit, label %_ZNK5clang13SourceManager15getExpansionLocENS_14SourceLocationE.exit
+115:                                              ; preds = %111
+  %116 = icmp sgt i32 %2, -1
+  br i1 %116, label %_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit, label %_ZNK5clang13SourceManager15getExpansionLocENS_14SourceLocationE.exit
 
-_ZNK5clang13SourceManager15getExpansionLocENS_14SourceLocationE.exit: ; preds = %116
-  %118 = tail call i32 @_ZNK5clang13SourceManager23getExpansionLocSlowCaseENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %93, i32 %2) #27
-  %119 = icmp eq i32 %118, 0
-  br i1 %119, label %.thread130, label %_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit
+_ZNK5clang13SourceManager15getExpansionLocENS_14SourceLocationE.exit: ; preds = %115
+  %117 = tail call i32 @_ZNK5clang13SourceManager23getExpansionLocSlowCaseENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %92, i32 %2) #27
+  %118 = icmp eq i32 %117, 0
+  br i1 %118, label %.thread130, label %_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit
 
-_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit: ; preds = %116, %_ZNK5clang13SourceManager15getExpansionLocENS_14SourceLocationE.exit
-  %.sroa.01.0.i134 = phi i32 [ %118, %_ZNK5clang13SourceManager15getExpansionLocENS_14SourceLocationE.exit ], [ %2, %116 ]
-  %120 = tail call noundef i32 @_ZNK5clang13SourceManager21getFileCharacteristicENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %93, i32 %.sroa.01.0.i134) #27
-  switch i32 %120, label %.critedge3 [
+_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit: ; preds = %115, %_ZNK5clang13SourceManager15getExpansionLocENS_14SourceLocationE.exit
+  %.sroa.01.0.i134 = phi i32 [ %117, %_ZNK5clang13SourceManager15getExpansionLocENS_14SourceLocationE.exit ], [ %2, %115 ]
+  %119 = tail call noundef i32 @_ZNK5clang13SourceManager21getFileCharacteristicENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %92, i32 %.sroa.01.0.i134) #27
+  switch i32 %119, label %.critedge3 [
     i32 3, label %.thread130
     i32 0, label %.thread130
   ]
 
-.thread130:                                       ; preds = %_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit, %_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit, %_ZNK5clang13SourceManager15getExpansionLocENS_14SourceLocationE.exit, %105, %112
-  %121 = tail call fastcc noundef ptr @_ZL11GetDiagInfoj(i32 noundef %1)
-  %.not56 = icmp eq ptr %121, null
-  br i1 %.not56, label %.thread136, label %122
+.thread130:                                       ; preds = %_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit, %_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit, %_ZNK5clang13SourceManager15getExpansionLocENS_14SourceLocationE.exit, %104, %111
+  %120 = tail call fastcc noundef ptr @_ZL11GetDiagInfoj(i32 noundef %1)
+  %.not56 = icmp eq ptr %120, null
+  br i1 %.not56, label %.thread136, label %121
 
-122:                                              ; preds = %.thread130
-  %123 = getelementptr inbounds nuw i8, ptr %121, i64 2
-  %124 = load i32, ptr %123, align 2
-  %125 = and i32 %124, 65536
-  %126 = icmp eq i32 %125, 0
-  %127 = load i8, ptr %18, align 8
-  %128 = and i8 %127, 16
-  %.not57 = icmp ne i8 %128, 0
-  %brmerge60.not171 = select i1 %.not57, i1 %126, i1 false
-  %129 = icmp ne i32 %2, 0
-  %or.cond162 = select i1 %brmerge60.not171, i1 %129, i1 false
-  br i1 %or.cond162, label %130, label %.thread136
+121:                                              ; preds = %.thread130
+  %122 = getelementptr inbounds nuw i8, ptr %120, i64 2
+  %123 = load i32, ptr %122, align 2
+  %124 = and i32 %123, 65536
+  %125 = icmp eq i32 %124, 0
+  %126 = load i8, ptr %18, align 8
+  %127 = and i8 %126, 16
+  %.not57 = icmp ne i8 %127, 0
+  %brmerge60.not171 = select i1 %.not57, i1 %125, i1 false
+  %128 = icmp ne i32 %2, 0
+  %or.cond162 = select i1 %brmerge60.not171, i1 %128, i1 false
+  br i1 %or.cond162, label %129, label %.thread136
 
-130:                                              ; preds = %122
-  %131 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager15isInSystemMacroENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %93, i32 %2)
-  br i1 %131, label %.critedge3, label %.thread136
+129:                                              ; preds = %121
+  %130 = tail call noundef zeroext i1 @_ZNK5clang13SourceManager15isInSystemMacroENS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(696) %92, i32 %2)
+  br i1 %130, label %.critedge3, label %.thread136
 
-.thread136:                                       ; preds = %.thread130, %122, %130
-  %132 = and i8 %.sroa.065.0.extract.trunc, 16
-  %.not172 = icmp eq i8 %132, 0
-  br i1 %.not172, label %133, label %135
+.thread136:                                       ; preds = %.thread130, %121, %129
+  %131 = and i8 %.sroa.065.0.extract.trunc, 16
+  %.not172 = icmp eq i8 %131, 0
+  br i1 %.not172, label %132, label %134
 
-133:                                              ; preds = %.thread136
-  %134 = tail call noundef zeroext i1 @_ZNK5clang17DiagnosticsEngine22isSuppressedViaMappingEjNS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(15248) %3, i32 noundef %1, i32 %2) #27
-  br i1 %134, label %.critedge3, label %135
+132:                                              ; preds = %.thread136
+  %133 = tail call noundef zeroext i1 @_ZNK5clang17DiagnosticsEngine22isSuppressedViaMappingEjNS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(15248) %3, i32 noundef %1, i32 %2) #27
+  br i1 %133, label %.critedge3, label %134
 
-135:                                              ; preds = %133, %.thread136
+134:                                              ; preds = %132, %.thread136
   br label %.critedge3
 
-.critedge3:                                       ; preds = %.thread190, %_ZNK5clang13DiagnosticIDs15isExtensionDiagEjRb.exit, %_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit, %.thread127, %58, %133, %130, %135, %_ZNK5clang13DiagnosticIDs23isDefaultMappingAsErrorEj.exit, %43
-  %.0 = phi i8 [ 1, %43 ], [ 1, %_ZNK5clang13DiagnosticIDs23isDefaultMappingAsErrorEj.exit ], [ 1, %_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit ], [ %.5, %135 ], [ 1, %130 ], [ 1, %133 ], [ 1, %58 ], [ %.5, %.thread127 ], [ 1, %_ZNK5clang13DiagnosticIDs15isExtensionDiagEjRb.exit ], [ 1, %.thread190 ]
+.critedge3:                                       ; preds = %.thread190, %_ZNK5clang13DiagnosticIDs15isExtensionDiagEjRb.exit, %_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit, %.thread127, %58, %132, %129, %134, %_ZNK5clang13DiagnosticIDs23isDefaultMappingAsErrorEj.exit, %43
+  %.0 = phi i8 [ 1, %43 ], [ 1, %_ZNK5clang13DiagnosticIDs23isDefaultMappingAsErrorEj.exit ], [ 1, %_ZNK5clang13SourceManager16isInSystemHeaderENS_14SourceLocationE.exit ], [ %.5, %134 ], [ 1, %129 ], [ 1, %132 ], [ 1, %58 ], [ %.5, %.thread127 ], [ 1, %_ZNK5clang13DiagnosticIDs15isExtensionDiagEjRb.exit ], [ 1, %.thread190 ]
   ret i8 %.0
 }
 

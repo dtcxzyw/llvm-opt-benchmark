@@ -1067,7 +1067,7 @@ define dso_local noundef range(i32 0, 3) i32 @_ZNK4llvm9ValueInfo16getELFVisibil
   br i1 %.not2324, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %1, %13
-  %.01126 = phi i1 [ %spec.select, %13 ], [ false, %1 ]
+  %.01126 = phi i8 [ %spec.select, %13 ], [ 0, %1 ]
   %.sroa.016.025 = phi ptr [ %15, %13 ], [ %5, %1 ]
   %8 = load ptr, ptr %.sroa.016.025, align 8, !tbaa !99
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 12
@@ -1079,19 +1079,20 @@ define dso_local noundef range(i32 0, 3) i32 @_ZNK4llvm9ValueInfo16getELFVisibil
 
 13:                                               ; preds = %.lr.ph
   %14 = icmp eq i16 %12, 2
-  %spec.select = select i1 %14, i1 true, i1 %.01126
+  %spec.select = select i1 %14, i8 1, i8 %.01126
   %15 = getelementptr inbounds nuw i8, ptr %.sroa.016.025, i64 8
   %.not23 = icmp eq ptr %15, %7
   br i1 %.not23, label %.thread.loopexit, label %.lr.ph
 
 .thread.loopexit:                                 ; preds = %.lr.ph, %13
-  %.011.lcssa.ph = phi i1 [ %.01126, %.lr.ph ], [ %spec.select, %13 ]
-  %16 = select i1 %.011.lcssa.ph, i32 2, i32 0
-  %17 = select i1 %.not.not, i32 1, i32 %16
+  %.011.lcssa.ph = phi i8 [ %.01126, %.lr.ph ], [ %spec.select, %13 ]
+  %16 = shl nuw nsw i8 %.011.lcssa.ph, 1
+  %17 = zext nneg i8 %16 to i32
+  %18 = select i1 %.not.not, i32 1, i32 %17
   br label %.thread
 
 .thread:                                          ; preds = %.thread.loopexit, %1
-  %.not23.lcssa = phi i32 [ 0, %1 ], [ %17, %.thread.loopexit ]
+  %.not23.lcssa = phi i32 [ 0, %1 ], [ %18, %.thread.loopexit ]
   ret i32 %.not23.lcssa
 }
 

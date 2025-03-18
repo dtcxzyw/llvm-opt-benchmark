@@ -33474,8 +33474,8 @@ _RNvMNtCsdF516cSs19B_10rustc_span13span_encodingNtB2_4Span14data_untracked.llvm.
   store i8 1, ptr %238, align 2, !noalias !5807
   %239 = getelementptr inbounds nuw i8, ptr %237, i64 653
   %240 = load i8, ptr %239, align 1, !range !40, !noalias !5807, !noundef !10
-  %241 = trunc nuw i8 %240 to i1
-  %..i = select i1 %241, i64 2, i64 0
+  %241 = shl nuw nsw i8 %240, 1
+  %..i = zext nneg i8 %241 to i64
   br label %242
 
 242:                                              ; preds = %236, %228

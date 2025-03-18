@@ -26781,10 +26781,9 @@ define hidden void @_ZN3vim5state10VimGlobals15write_registers17h05ba66cc590487d
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %20), !noalias !5222
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %21), !noalias !5222
   %470 = load i64, ptr %1, align 8, !range !226, !noundef !5
-  %trunc22 = trunc nuw i64 %470 to i1
   %471 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %472 = load ptr, ptr %471, align 8, !nonnull !5
-  %.sroa.04.0.idx = select i1 %trunc22, i64 16, i64 0
+  %.sroa.04.0.idx = shl nuw nsw i64 %470, 4
   %.sroa.04.0 = getelementptr inbounds nuw i8, ptr %472, i64 %.sroa.04.0.idx
   %.sroa.3.0.in = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.3.0 = load i64, ptr %.sroa.3.0.in, align 8, !noundef !5
@@ -27533,9 +27532,8 @@ define hidden void @_ZN3vim5state10VimGlobals15write_registers17h05ba66cc590487d
 
 732:                                              ; preds = %"_ZN4core3ptr69drop_in_place$LT$core..option..Option$LT$vim..state..Register$GT$$GT$17h1fbc08994ba47bfaE.exit189"
   %733 = load i64, ptr %1, align 8, !range !226, !noundef !5
-  %trunc23 = trunc nuw i64 %733 to i1
   %734 = load ptr, ptr %626, align 8, !nonnull !5
-  %.sroa.06.0.idx = select i1 %trunc23, i64 16, i64 0
+  %.sroa.06.0.idx = shl nuw nsw i64 %733, 4
   %.sroa.06.0 = getelementptr inbounds nuw i8, ptr %734, i64 %.sroa.06.0.idx
   %.sroa.37.0 = load i64, ptr %628, align 8, !noundef !5
   %735 = icmp ult i64 %.sroa.37.0, 16

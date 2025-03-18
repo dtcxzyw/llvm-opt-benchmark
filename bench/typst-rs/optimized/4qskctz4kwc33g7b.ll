@@ -124050,7 +124050,7 @@ define void @"_ZN5typst5model12bibliography151_$LT$impl$u20$typst..foundations..
   %trunc.i = trunc nuw i64 %.sroa.0207.0 to i1
   %.sroa.5233.sroa.0.0 = select i1 %trunc.i, double undef, double %.sroa.6209.0
   %.sroa.5233.sroa.4.0 = select i1 %trunc.i, double undef, double %.sroa.7210.0
-  %storemerge.i = select i1 %trunc.i, i64 2, i64 1
+  %storemerge.i = add i64 %.sroa.0207.0, 1
   call void @llvm.experimental.noalias.scope.decl(metadata !28390)
   call void @llvm.experimental.noalias.scope.decl(metadata !28393)
   call void @llvm.experimental.noalias.scope.decl(metadata !28395)
@@ -126812,7 +126812,7 @@ _ZN5typst11foundations6styles10StyleChain3get17hfacfd343ec90d3c5E.exit.i: ; pred
   %trunc.i175 = trunc nuw i64 %.sroa.0250.0 to i1
   %.sroa.5249.sroa.0.0 = select i1 %trunc.i175, double undef, double %.sroa.8.0
   %.sroa.5249.sroa.4.0 = select i1 %trunc.i175, double undef, double %.sroa.11.0260
-  %storemerge.i = select i1 %trunc.i175, i64 2, i64 1
+  %storemerge.i = add i64 %.sroa.0250.0, 1
   store i64 %storemerge.i, ptr %35, align 8
   %.sroa.4248.0..sroa_idx = getelementptr inbounds nuw i8, ptr %35, i64 8
   store i64 %.sroa.4251.0, ptr %.sroa.4248.0..sroa_idx, align 8
@@ -131295,7 +131295,7 @@ _ZN5typst11foundations6styles10StyleChain3get17hfacfd343ec90d3c5E.exit.i: ; pred
   %trunc.i99 = trunc nuw i64 %.sroa.0149.0 to i1
   %.sroa.5148.sroa.0.0 = select i1 %trunc.i99, double undef, double %.sroa.8.0
   %.sroa.5148.sroa.4.0 = select i1 %trunc.i99, double undef, double %.sroa.11.0
-  %storemerge.i = select i1 %trunc.i99, i64 2, i64 1
+  %storemerge.i = add i64 %.sroa.0149.0, 1
   store i64 %storemerge.i, ptr %27, align 8
   %.sroa.4147.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 8
   store i64 %.sroa.4150.0, ptr %.sroa.4147.0..sroa_idx, align 8

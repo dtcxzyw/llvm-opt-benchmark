@@ -12898,8 +12898,7 @@ _ZN7rocksdb6StatusaSEOS0_.exit.thread:            ; preds = %106, %_ZNKSt14defau
 
 119:                                              ; preds = %_ZN7rocksdb6StatusaSEOS0_.exit.thread
   %120 = load i8, ptr %7, align 1, !tbaa !200, !range !170, !noundef !171
-  %121 = trunc nuw i8 %120 to i1
-  %not. = xor i1 %121, true
+  %121 = icmp eq i8 %120, 0
   br label %126
 
 122:                                              ; preds = %91
@@ -12915,7 +12914,7 @@ _ZN7rocksdb6StatusaSEOS0_.exit.thread:            ; preds = %106, %_ZNKSt14defau
   br i1 %.not.i66, label %.body, label %136
 
 126:                                              ; preds = %119, %_ZN7rocksdb6StatusaSEOS0_.exit.thread
-  %.150 = phi i1 [ false, %_ZN7rocksdb6StatusaSEOS0_.exit.thread ], [ %not., %119 ]
+  %.150 = phi i1 [ false, %_ZN7rocksdb6StatusaSEOS0_.exit.thread ], [ %121, %119 ]
   %.not.i65 = icmp eq ptr %103, null
   br i1 %.not.i65, label %_ZNSt10unique_ptrIN7rocksdb20InternalIteratorBaseINS0_5SliceEEENS0_9DestroyerIS3_EEED2Ev.exit, label %127
 
@@ -39443,8 +39442,8 @@ _ZN7rocksdb6StatusD2Ev.exit549:                   ; preds = %1080, %_ZN7rocksdb6
 1107:                                             ; preds = %1105
   %1108 = getelementptr inbounds nuw i8, ptr %1106, i64 104
   %1109 = load i8, ptr %1108, align 8, !tbaa !1607, !range !170, !noundef !171
-  %1110 = trunc nuw i8 %1109 to i1
-  %spec.select.idx.i = select i1 %1110, i64 32, i64 0
+  %1110 = shl nuw nsw i8 %1109, 5
+  %spec.select.idx.i = zext nneg i8 %1110 to i64
   %spec.select.i = getelementptr inbounds nuw i8, ptr %936, i64 %spec.select.idx.i
   br label %_ZNK7rocksdb13FileSystemPtr3getEv.exit
 
@@ -40774,8 +40773,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit704: ; preds = %_Z
 1595:                                             ; preds = %1593
   %1596 = getelementptr inbounds nuw i8, ptr %1594, i64 104
   %1597 = load i8, ptr %1596, align 8, !tbaa !1607, !range !170, !noundef !171
-  %1598 = trunc nuw i8 %1597 to i1
-  %spec.select.idx.i706 = select i1 %1598, i64 32, i64 0
+  %1598 = shl nuw nsw i8 %1597, 5
+  %spec.select.idx.i706 = zext nneg i8 %1598 to i64
   %spec.select.i707 = getelementptr inbounds nuw i8, ptr %936, i64 %spec.select.idx.i706
   br label %_ZNK7rocksdb13FileSystemPtr3getEv.exit710
 
@@ -48672,8 +48671,8 @@ define void @_ZN7rocksdb10VersionSet7RecoverERKSt6vectorINS_22ColumnFamilyDescri
 31:                                               ; preds = %8
   %32 = getelementptr inbounds nuw i8, ptr %30, i64 104
   %33 = load i8, ptr %32, align 8, !tbaa !1607, !range !170, !noundef !171
-  %34 = trunc nuw i8 %33 to i1
-  %spec.select.idx.i = select i1 %34, i64 32, i64 0
+  %34 = shl nuw nsw i8 %33, 5
+  %spec.select.idx.i = zext nneg i8 %34 to i64
   %spec.select.i = getelementptr inbounds nuw i8, ptr %28, i64 %spec.select.idx.i
   br label %_ZNK7rocksdb13FileSystemPtr3getEv.exit
 
@@ -65972,8 +65971,8 @@ define void @_ZN7rocksdb18ReactiveVersionSet19MaybeSwitchManifestEPNS_3log6Reade
 32:                                               ; preds = %4
   %33 = getelementptr inbounds nuw i8, ptr %31, i64 104
   %34 = load i8, ptr %33, align 8, !tbaa !1607, !range !170, !noundef !171
-  %35 = trunc nuw i8 %34 to i1
-  %spec.select.idx.i = select i1 %35, i64 32, i64 0
+  %35 = shl nuw nsw i8 %34, 5
+  %spec.select.idx.i = zext nneg i8 %35 to i64
   %spec.select.i = getelementptr inbounds nuw i8, ptr %29, i64 %spec.select.idx.i
   br label %_ZNK7rocksdb13FileSystemPtr3getEv.exit
 

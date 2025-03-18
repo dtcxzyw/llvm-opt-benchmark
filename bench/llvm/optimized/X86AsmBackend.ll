@@ -2309,8 +2309,8 @@ _ZL25mayHaveInterruptDelaySlotj.exit.i.i33:       ; preds = %.loopexit.i.i32
 
 _ZNK12_GLOBAL__N_113X86AsmBackend10canPadInstERKN4llvm6MCInstERNS1_16MCObjectStreamerE.exit.i: ; preds = %208
   %216 = load i8, ptr %22, align 8, !tbaa !171, !range !52, !noundef !53
-  %217 = trunc nuw i8 %216 to i1
-  %spec.select.i = select i1 %217, i8 0, i8 8
+  %217 = shl nuw nsw i8 %216, 3
+  %spec.select.i = xor i8 %217, 8
   br label %.thread.i
 
 .thread.i:                                        ; preds = %192, %_ZNK12_GLOBAL__N_113X86AsmBackend10canPadInstERKN4llvm6MCInstERNS1_16MCObjectStreamerE.exit.i, %208, %_ZL25mayHaveInterruptDelaySlotj.exit.i.i33, %.loopexit.i.i32, %.loopexit.i.i32, %.loopexit.i.i32, %.loopexit.i.i32, %.loopexit.i.i32, %.loopexit.i.i32, %.loopexit.i.i32

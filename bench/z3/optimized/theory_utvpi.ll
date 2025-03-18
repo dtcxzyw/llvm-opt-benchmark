@@ -12480,8 +12480,8 @@ _ZN3smt12theory_utvpiINS_7idl_extEE10has_sharedEv.exit: ; preds = %.lr.ph.i
 _ZN3smt12theory_utvpiINS_7idl_extEE10has_sharedEv.exit.thread: ; preds = %19, %13, %_ZNK3smt6theory12get_num_varsEv.exit.i, %_ZN3smt12theory_utvpiINS_7idl_extEE10has_sharedEv.exit
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 1466
   %39 = load i8, ptr %38, align 2, !tbaa !293, !range !12, !noundef !13
-  %40 = trunc nuw i8 %39 to i1
-  %. = select i1 %40, i32 2, i32 0
+  %40 = shl nuw nsw i8 %39, 1
+  %. = zext nneg i8 %40 to i32
   br label %41
 
 41:                                               ; preds = %_ZN3smt12theory_utvpiINS_7idl_extEE10has_sharedEv.exit.thread, %_ZN3smt12theory_utvpiINS_7idl_extEE10has_sharedEv.exit, %11, %7
@@ -31111,8 +31111,8 @@ _ZN3smt12theory_utvpiINS_7rdl_extEE10has_sharedEv.exit: ; preds = %.lr.ph.i
 _ZN3smt12theory_utvpiINS_7rdl_extEE10has_sharedEv.exit.thread: ; preds = %19, %13, %_ZNK3smt6theory12get_num_varsEv.exit.i, %_ZN3smt12theory_utvpiINS_7rdl_extEE10has_sharedEv.exit
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 1474
   %39 = load i8, ptr %38, align 2, !tbaa !1185, !range !12, !noundef !13
-  %40 = trunc nuw i8 %39 to i1
-  %. = select i1 %40, i32 2, i32 0
+  %40 = shl nuw nsw i8 %39, 1
+  %. = zext nneg i8 %40 to i32
   br label %41
 
 41:                                               ; preds = %_ZN3smt12theory_utvpiINS_7rdl_extEE10has_sharedEv.exit.thread, %_ZN3smt12theory_utvpiINS_7rdl_extEE10has_sharedEv.exit, %11, %7

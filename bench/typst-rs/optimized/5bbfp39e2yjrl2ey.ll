@@ -227,8 +227,7 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   %49 = getelementptr inbounds nuw i8, ptr %44, i64 8
   %50 = load ptr, ptr %49, align 8, !alias.scope !93, !noalias !92, !nonnull !4
   %51 = load i64, ptr %44, align 8, !range !98, !alias.scope !93, !noalias !92, !noundef !4
-  %trunc.i.i.i.i.i = trunc nuw i64 %51 to i1
-  %.sroa.0.0.idx.i.i.i.i.i = select i1 %trunc.i.i.i.i.i, i64 16, i64 0
+  %.sroa.0.0.idx.i.i.i.i.i = shl nuw nsw i64 %51, 4
   %.sroa.0.0.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %50, i64 %.sroa.0.0.idx.i.i.i.i.i
   %bcmp.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.sroa.0.0.i.i.i.i.i, ptr nonnull readonly align 1 %.fr39, i64 %14), !alias.scope !99, !noalias !88
   %52 = icmp eq i32 %bcmp.i.i.i.i, 0

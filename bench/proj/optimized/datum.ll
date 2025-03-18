@@ -7505,8 +7505,8 @@ _ZNK5osgeo4proj5datum9Ellipsoid25computedInverseFlatteningEv.exit: ; preds = %34
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %5) #33
   %43 = getelementptr inbounds nuw i8, ptr %35, i64 56
   %44 = load i8, ptr %43, align 8, !tbaa !142, !range !13, !noalias !168, !noundef !14
-  %45 = trunc nuw i8 %44 to i1
-  %.idx = select i1 %45, i64 64, i64 0
+  %45 = shl nuw nsw i8 %44, 6
+  %.idx = zext nneg i8 %45 to i64
   %46 = getelementptr inbounds nuw i8, ptr %35, i64 %.idx
   invoke void @_ZN5osgeo4proj6common6LengthC1ERKS2_(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %46)
           to label %_ZNK5osgeo4proj5datum9Ellipsoid20computeSemiMinorAxisEv.exit unwind label %48

@@ -2060,7 +2060,7 @@ _ZN5uu_dd9parseargs6Parser4read17h4273c84f79c6e53bE.exit: ; preds = %463, %4
 
 512:                                              ; preds = %510
   %not..i = xor i1 %478, true
-  %.72.i = select i1 %478, i8 2, i8 3
+  %.72.i = xor i8 %477, 3
   br label %514
 
 513:                                              ; preds = %510
@@ -2121,8 +2121,8 @@ default.unreachable.i.i:                          ; preds = %524
   br label %_ZN5uu_dd9parseargs10get_ctable17hecf9b0a7df56bc7dE.exit.i
 
 switch.lookup:                                    ; preds = %522
-  %528 = zext nneg i8 %.0.i to i64
-  %switch.gep = getelementptr inbounds nuw [3 x ptr], ptr @switch.table._ZN5uu_dd9parseargs6Parser5parse17he48aabd7178d284dE, i64 0, i64 %528
+  %528 = sext i8 %.0.i to i64
+  %switch.gep = getelementptr inbounds [3 x ptr], ptr @switch.table._ZN5uu_dd9parseargs6Parser5parse17he48aabd7178d284dE, i64 0, i64 %528
   %switch.load = load ptr, ptr %switch.gep, align 8
   br label %_ZN5uu_dd9parseargs10get_ctable17hecf9b0a7df56bc7dE.exit.i
 
@@ -2156,7 +2156,7 @@ _ZN5uu_dd9parseargs10get_ctable17hecf9b0a7df56bc7dE.exit.i: ; preds = %switch.lo
 
 538:                                              ; preds = %536
   %.77.i = select i1 %490, i64 1, i64 2
-  %539 = select i1 %490, i8 32, i8 0
+  %539 = shl nuw nsw i8 %489, 5
   br label %541
 
 540:                                              ; preds = %536

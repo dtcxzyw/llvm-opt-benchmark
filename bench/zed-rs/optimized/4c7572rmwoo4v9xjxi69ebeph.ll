@@ -22550,10 +22550,9 @@ default.unreachable.i:                            ; preds = %"_ZN110_$LT$core..i
 ; Function Attrs: nofree nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17h1b6d3684002c4877E"(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull %1, i64 noundef %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %3) unnamed_addr #21 personality ptr @rust_eh_personality {
   %5 = load i64, ptr %3, align 8, !range !75, !alias.scope !3529
-  %trunc.i.i.i = trunc nuw i64 %5 to i1
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load ptr, ptr %6, align 8, !alias.scope !3529, !nonnull !12
-  %.sroa.0.0.idx.i.i.i = select i1 %trunc.i.i.i, i64 16, i64 0
+  %.sroa.0.0.idx.i.i.i = shl nuw nsw i64 %5, 4
   %.sroa.0.0.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 %.sroa.0.0.idx.i.i.i
   %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.sroa.3.0.i.i.i = load i64, ptr %.sroa.3.0.in.i.i.i, align 8, !alias.scope !3529
@@ -22585,10 +22584,9 @@ default.unreachable.i:                            ; preds = %16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3532)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3535)
   %19 = load i64, ptr %.sroa.01.0.i, align 8, !range !75, !alias.scope !3538, !noalias !3539, !noundef !12
-  %trunc3.i.i.i = trunc nuw i64 %19 to i1
   %20 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i, i64 8
   %21 = load ptr, ptr %20, align 8, !alias.scope !3538, !noalias !3539, !nonnull !12
-  %.sroa.01.0.idx.i.i.i = select i1 %trunc3.i.i.i, i64 16, i64 0
+  %.sroa.01.0.idx.i.i.i = shl nuw nsw i64 %19, 4
   %.sroa.01.0.i.i.i = getelementptr inbounds nuw i8, ptr %21, i64 %.sroa.01.0.idx.i.i.i
   %.sroa.32.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i, i64 16
   %.sroa.32.0.i.i.i = load i64, ptr %.sroa.32.0.in.i.i.i, align 8, !alias.scope !3538, !noalias !3539, !noundef !12
@@ -22636,10 +22634,9 @@ default.unreachable.i:                            ; preds = %16
 ; Function Attrs: nofree nounwind nonlazybind memory(read, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden void @"_ZN5alloc11collections5btree6search142_$LT$impl$u20$alloc..collections..btree..node..NodeRef$LT$BorrowType$C$K$C$V$C$alloc..collections..btree..node..marker..LeafOrInternal$GT$$GT$11search_tree17h252fc5216e013e18E"(ptr dead_on_unwind noalias noundef writable writeonly sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noundef nonnull %1, i64 noundef %2, ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %3) unnamed_addr #21 personality ptr @rust_eh_personality {
   %5 = load i64, ptr %3, align 8, !range !75, !alias.scope !3550
-  %trunc.i.i.i = trunc nuw i64 %5 to i1
   %6 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %7 = load ptr, ptr %6, align 8, !alias.scope !3550, !nonnull !12
-  %.sroa.0.0.idx.i.i.i = select i1 %trunc.i.i.i, i64 16, i64 0
+  %.sroa.0.0.idx.i.i.i = shl nuw nsw i64 %5, 4
   %.sroa.0.0.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 %.sroa.0.0.idx.i.i.i
   %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 16
   %.sroa.3.0.i.i.i = load i64, ptr %.sroa.3.0.in.i.i.i, align 8, !alias.scope !3550
@@ -22671,10 +22668,9 @@ default.unreachable.i:                            ; preds = %16
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3553)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3556)
   %19 = load i64, ptr %.sroa.01.0.i, align 8, !range !75, !alias.scope !3559, !noalias !3560, !noundef !12
-  %trunc3.i.i.i = trunc nuw i64 %19 to i1
   %20 = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i, i64 8
   %21 = load ptr, ptr %20, align 8, !alias.scope !3559, !noalias !3560, !nonnull !12
-  %.sroa.01.0.idx.i.i.i = select i1 %trunc3.i.i.i, i64 16, i64 0
+  %.sroa.01.0.idx.i.i.i = shl nuw nsw i64 %19, 4
   %.sroa.01.0.i.i.i = getelementptr inbounds nuw i8, ptr %21, i64 %.sroa.01.0.idx.i.i.i
   %.sroa.32.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %.sroa.01.0.i, i64 16
   %.sroa.32.0.i.i.i = load i64, ptr %.sroa.32.0.in.i.i.i, align 8, !alias.scope !3559, !noalias !3560, !noundef !12

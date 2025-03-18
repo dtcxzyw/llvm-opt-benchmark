@@ -38784,7 +38784,8 @@ define hidden noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fol
   br label %"_ZN11ide_assists8handlers16extract_function9make_call28_$u7b$$u7b$closure$u7d$$u7d$17h6535d11d2b32da8aE.exit.i"
 
 _ZN11ide_assists8handlers16extract_function5Param4kind17h4c0a60a6cf946b48E.llvm.14339125420948612040.exit.i.i.i: ; preds = %27
-  br i1 %26, label %36, label %34
+  %switch.not.i.i.i = icmp eq i8 %25, 0
+  br i1 %switch.not.i.i.i, label %34, label %36
 
 34:                                               ; preds = %_ZN11ide_assists8handlers16extract_function5Param4kind17h4c0a60a6cf946b48E.llvm.14339125420948612040.exit.i.i.i
   %35 = call { i64, ptr } @_ZN6syntax3ast4make8expr_ref17h5efd536a6e9bceccE(i64 noundef %19, ptr noundef %20, i1 noundef zeroext false), !noalias !12505

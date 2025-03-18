@@ -4841,11 +4841,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 33:                                               ; preds = %15
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 401
   %35 = load i8, ptr %34, align 1, !tbaa !60, !range !66, !noundef !67
-  %36 = trunc nuw i8 %35 to i1
-  %37 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  %38 = load ptr, ptr %37, align 8, !tbaa !126
-  %spec.select.idx = select i1 %36, i64 4, i64 0
-  %spec.select = getelementptr inbounds nuw i8, ptr %38, i64 %spec.select.idx
+  %36 = getelementptr inbounds nuw i8, ptr %18, i64 24
+  %37 = load ptr, ptr %36, align 8, !tbaa !126
+  %38 = shl nuw nsw i8 %35, 2
+  %spec.select.idx = zext nneg i8 %38 to i64
+  %spec.select = getelementptr inbounds nuw i8, ptr %37, i64 %spec.select.idx
   br label %39
 
 39:                                               ; preds = %33, %11

@@ -1173,12 +1173,12 @@ _ZNK4llvm7CCState19getFirstUnallocatedENS_8ArrayRefItEE.exit: ; preds = %474, %4
   %.2279.ph689 = phi i32 [ %3, %544 ], [ %.2279.ph688, %.thread ]
   %.sroa.0510.2.ph687 = phi i16 [ %2, %544 ], [ %.sroa.0510.2.ph686, %.thread ]
   %552 = lshr exact i32 %43, 3
-  %553 = select i1 %42, i8 3, i8 2
+  %553 = or disjoint i8 %41, 2
   br label %594
 
 554:                                              ; preds = %.critedge27
   %555 = lshr exact i32 %43, 3
-  %556 = select i1 %42, i8 3, i8 2
+  %556 = or disjoint i8 %41, 2
   %557 = add i16 %1, -17
   %spec.select.i426 = icmp ult i16 %557, 174
   %or.cond652 = icmp ult i16 %557, 206

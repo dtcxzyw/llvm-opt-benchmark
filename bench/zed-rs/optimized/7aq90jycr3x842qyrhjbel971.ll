@@ -32902,8 +32902,7 @@ define noundef range(i8 0, 3) i8 @"_ZN70_$LT$outline_panel..OutlinePanel$u20$as$
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3)
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 9
   %8 = load i8, ptr %7, align 1, !range !252, !noundef !4
-  %trunc = trunc nuw i8 %8 to i1
-  %. = select i1 %trunc, i8 2, i8 0
+  %. = shl nuw nsw i8 %8, 1
   ret i8 %.
 }
 
@@ -35229,9 +35228,9 @@ _ZN4gpui7element7Element8into_any17h9add81aa4d7b0367E.exit.i.i.i: ; preds = %663
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %65), !noalias !7099
   %697 = getelementptr inbounds nuw i8, ptr %695, i64 9
   %698 = load i8, ptr %697, align 1, !range !252, !noundef !4
-  %trunc.i = trunc nuw i8 %698 to i1
-  %anon.ee1179cdcd7a6a8830c398d65159c9d6.104.anon.ee1179cdcd7a6a8830c398d65159c9d6.102 = select i1 %trunc.i, ptr @anon.ee1179cdcd7a6a8830c398d65159c9d6.104, ptr @anon.ee1179cdcd7a6a8830c398d65159c9d6.102
-  invoke void @_ZN4gpui6window13WindowContext18keystroke_text_for17hba089c2f71ff9ac6E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %150, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2, ptr noundef nonnull align 1 inttoptr (i64 1 to ptr), ptr noalias noundef readonly align 8 dereferenceable(56) %anon.ee1179cdcd7a6a8830c398d65159c9d6.104.anon.ee1179cdcd7a6a8830c398d65159c9d6.102)
+  %switch = icmp eq i8 %698, 0
+  %anon.ee1179cdcd7a6a8830c398d65159c9d6.102.anon.ee1179cdcd7a6a8830c398d65159c9d6.104 = select i1 %switch, ptr @anon.ee1179cdcd7a6a8830c398d65159c9d6.102, ptr @anon.ee1179cdcd7a6a8830c398d65159c9d6.104
+  invoke void @_ZN4gpui6window13WindowContext18keystroke_text_for17hba089c2f71ff9ac6E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %150, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %2, ptr noundef nonnull align 1 inttoptr (i64 1 to ptr), ptr noalias noundef readonly align 8 dereferenceable(56) %anon.ee1179cdcd7a6a8830c398d65159c9d6.102.anon.ee1179cdcd7a6a8830c398d65159c9d6.104)
           to label %699 unwind label %.thread444
 
 699:                                              ; preds = %.invoke

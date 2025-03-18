@@ -68932,14 +68932,12 @@ define hidden noundef zeroext i1 @"_ZN71_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8, !nonnull !4
   %6 = load i64, ptr %1, align 8, !range !860, !noundef !4
-  %trunc3 = trunc nuw i64 %6 to i1
-  %.sroa.01.0.idx = select i1 %trunc3, i64 16, i64 0
+  %.sroa.01.0.idx = shl nuw nsw i64 %6, 4
   %.sroa.01.0 = getelementptr inbounds nuw i8, ptr %5, i64 %.sroa.01.0.idx
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !nonnull !4
   %9 = load i64, ptr %0, align 8, !range !860, !noundef !4
-  %trunc = trunc nuw i64 %9 to i1
-  %.sroa.0.0.idx = select i1 %trunc, i64 16, i64 0
+  %.sroa.0.0.idx = shl nuw nsw i64 %9, 4
   %.sroa.0.0 = getelementptr inbounds nuw i8, ptr %8, i64 %.sroa.0.0.idx
   %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.sroa.0.0, ptr nonnull readonly align 1 %.sroa.01.0, i64 %.sroa.3.0), !alias.scope !19644
   %10 = icmp eq i32 %bcmp.i.i, 0
@@ -80323,8 +80321,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %23 = load ptr, ptr %22, align 8, !alias.scope !22889, !noalias !22903, !nonnull !4
   %24 = load i64, ptr %7, align 8, !range !860, !alias.scope !22889, !noalias !22903
-  %trunc.i.i.i.i.i.i.i = trunc nuw i64 %24 to i1
-  %.sroa.0.0.idx.i.i.i.i.i.i.i = select i1 %trunc.i.i.i.i.i.i.i, i64 16, i64 0
+  %.sroa.0.0.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %24, 4
   %.sroa.0.0.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %23, i64 %.sroa.0.0.idx.i.i.i.i.i.i.i
   br label %25
 
@@ -80370,8 +80367,7 @@ define hidden { i64, i64 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6ins
   %41 = getelementptr inbounds i8, ptr %35, i64 -24
   %42 = load ptr, ptr %41, align 8, !alias.scope !22932, !noalias !22933, !nonnull !4
   %43 = load i64, ptr %40, align 8, !range !860, !alias.scope !22932, !noalias !22933, !noundef !4
-  %trunc3.i.i.i.i.i.i.i = trunc nuw i64 %43 to i1
-  %.sroa.01.0.idx.i.i.i.i.i.i.i = select i1 %trunc3.i.i.i.i.i.i.i, i64 16, i64 0
+  %.sroa.01.0.idx.i.i.i.i.i.i.i = shl nuw nsw i64 %43, 4
   %.sroa.01.0.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %42, i64 %.sroa.01.0.idx.i.i.i.i.i.i.i
   %bcmp.i.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.sroa.0.0.i.i.i.i.i.i.i, ptr nonnull readonly align 1 %.sroa.01.0.i.i.i.i.i.i.i, i64 %.sroa.3.0.i.i.i.i.i.i.i), !alias.scope !22936, !noalias !22943
   %44 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i.i, 0
@@ -82734,8 +82730,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h52
   %21 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %22 = load ptr, ptr %21, align 8, !alias.scope !23721, !noalias !23735, !nonnull !4
   %23 = load i64, ptr %2, align 8, !range !860, !alias.scope !23721, !noalias !23735
-  %trunc.i.i.i.i.i.i = trunc nuw i64 %23 to i1
-  %.sroa.0.0.idx.i.i.i.i.i.i = select i1 %trunc.i.i.i.i.i.i, i64 16, i64 0
+  %.sroa.0.0.idx.i.i.i.i.i.i = shl nuw nsw i64 %23, 4
   %.sroa.0.0.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %22, i64 %.sroa.0.0.idx.i.i.i.i.i.i
   br label %24
 
@@ -82774,8 +82769,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h52
   %36 = getelementptr inbounds i8, ptr %34, i64 -216
   %37 = load ptr, ptr %36, align 8, !alias.scope !23752, !noalias !23753, !nonnull !4
   %38 = load i64, ptr %35, align 8, !range !860, !alias.scope !23752, !noalias !23753, !noundef !4
-  %trunc3.i.i.i.i.i.i = trunc nuw i64 %38 to i1
-  %.sroa.01.0.idx.i.i.i.i.i.i = select i1 %trunc3.i.i.i.i.i.i, i64 16, i64 0
+  %.sroa.01.0.idx.i.i.i.i.i.i = shl nuw nsw i64 %38, 4
   %.sroa.01.0.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %37, i64 %.sroa.01.0.idx.i.i.i.i.i.i
   %bcmp.i.i.i.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.sroa.0.0.i.i.i.i.i.i, ptr nonnull readonly align 1 %.sroa.01.0.i.i.i.i.i.i, i64 %.sroa.3.0.i.i.i.i.i.i), !alias.scope !23759, !noalias !23766
   %39 = icmp eq i32 %bcmp.i.i.i.i.i.i.i.i, 0

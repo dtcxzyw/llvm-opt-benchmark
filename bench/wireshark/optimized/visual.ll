@@ -787,8 +787,8 @@ define internal noundef zeroext i1 @visual_dump(ptr noundef %0, ptr noundef read
 
 67:                                               ; preds = %.thread59, %65
   %68 = load i8, ptr %8, align 8, !range !6, !noundef !7
-  %69 = trunc nuw i8 %68 to i1
-  %70 = select i1 %69, i32 64, i32 0
+  %69 = shl nuw nsw i8 %68, 6
+  %70 = zext nneg i8 %69 to i32
   br label %.thread
 
 71:                                               ; preds = %.thread60, %65, %65

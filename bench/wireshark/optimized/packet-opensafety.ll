@@ -4616,8 +4616,8 @@ proto_item_set_generated.exit194.i:               ; preds = %1607, %1604, %1603
   %1636 = load ptr, ptr %1409, align 8
   %1637 = getelementptr inbounds nuw i8, ptr %1636, i64 17
   %1638 = load i8, ptr %1637, align 1, !range !6, !noundef !7
-  %1639 = trunc nuw i8 %1638 to i1
-  %1640 = select i1 %1639, i64 128, i64 0
+  %1639 = shl nuw i8 %1638, 7
+  %1640 = zext i8 %1639 to i64
   %1641 = tail call ptr @proto_tree_add_boolean(ptr noundef %1631, i32 noundef %1632, ptr noundef %1, i32 noundef %1635, i32 noundef 1, i64 noundef %1640)
   %1642 = load i32, ptr @hf_oss_spdo_feature_flag_40bit_used, align 4
   %1643 = load i16, ptr %1358, align 4
@@ -4626,8 +4626,8 @@ proto_item_set_generated.exit194.i:               ; preds = %1607, %1604, %1603
   %1646 = load ptr, ptr %1409, align 8
   %1647 = getelementptr inbounds nuw i8, ptr %1646, i64 16
   %1648 = load i8, ptr %1647, align 8, !range !6, !noundef !7
-  %1649 = trunc nuw i8 %1648 to i1
-  %1650 = select i1 %1649, i64 64, i64 0
+  %1649 = shl nuw nsw i8 %1648, 6
+  %1650 = zext nneg i8 %1649 to i64
   %1651 = tail call ptr @proto_tree_add_boolean(ptr noundef %1631, i32 noundef %1642, ptr noundef %1, i32 noundef %1645, i32 noundef 1, i64 noundef %1650)
   br label %1652
 

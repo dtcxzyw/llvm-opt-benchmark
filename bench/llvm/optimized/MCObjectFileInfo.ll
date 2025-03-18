@@ -956,8 +956,8 @@ define dso_local void @_ZN4llvm16MCObjectFileInfo23initELFMCObjectFileInfoERKNS_
 133:                                              ; preds = %3
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 904
   %135 = load i8, ptr %134, align 8, !tbaa !97, !range !31, !noundef !98
-  %136 = trunc nuw i8 %135 to i1
-  %137 = select i1 %136, i32 16, i32 0
+  %136 = shl nuw nsw i8 %135, 4
+  %137 = zext nneg i8 %136 to i32
   br label %140
 
 138:                                              ; preds = %3

@@ -84243,1182 +84243,1179 @@ _ZN5o3dgc12BinaryStream12WriteFloat32EfNS_15O3DGCStreamTypeE.exit: ; preds = %_Z
   %88 = load i8, ptr %87, align 4, !range !9, !noundef !10
   %89 = getelementptr inbounds nuw i8, ptr %2, i64 79997
   %90 = load i8, ptr %89, align 1, !range !9, !noundef !10
-  %91 = trunc nuw i8 %90 to i1
-  %92 = select i1 %91, i8 2, i8 0
-  %93 = or disjoint i8 %92, %88
-  %94 = getelementptr inbounds nuw i8, ptr %2, i64 79998
-  %95 = load i8, ptr %94, align 2, !range !9, !noundef !10
-  %96 = trunc nuw i8 %95 to i1
-  %97 = select i1 %96, i8 4, i8 0
-  %98 = or disjoint i8 %93, %97
-  %99 = getelementptr inbounds nuw i8, ptr %2, i64 79999
-  %100 = load i8, ptr %99, align 1, !range !9, !noundef !10
-  %101 = trunc nuw i8 %100 to i1
-  %102 = select i1 %101, i8 8, i8 0
-  %103 = or disjoint i8 %98, %102
+  %91 = shl nuw nsw i8 %90, 1
+  %92 = or disjoint i8 %91, %88
+  %93 = getelementptr inbounds nuw i8, ptr %2, i64 79998
+  %94 = load i8, ptr %93, align 2, !range !9, !noundef !10
+  %95 = shl nuw nsw i8 %94, 2
+  %96 = or disjoint i8 %92, %95
+  %97 = getelementptr inbounds nuw i8, ptr %2, i64 79999
+  %98 = load i8, ptr %97, align 1, !range !9, !noundef !10
+  %99 = shl nuw nsw i8 %98, 3
+  %100 = or disjoint i8 %96, %99
+  %101 = load i32, ptr %7, align 8
+  tail call void @_ZN5o3dgc12BinaryStream10WriteUCharEhNS_15O3DGCStreamTypeE(ptr noundef nonnull align 8 dereferenceable(28) %3, i8 noundef zeroext %100, i32 noundef %101)
+  %102 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %103 = load i64, ptr %102, align 8
   %104 = load i32, ptr %7, align 8
-  tail call void @_ZN5o3dgc12BinaryStream10WriteUCharEhNS_15O3DGCStreamTypeE(ptr noundef nonnull align 8 dereferenceable(28) %3, i8 noundef zeroext %103, i32 noundef %104)
-  %105 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %106 = load i64, ptr %105, align 8
-  %107 = load i32, ptr %7, align 8
-  %108 = icmp eq i32 %107, 1
-  br i1 %108, label %109, label %131
+  %105 = icmp eq i32 %104, 1
+  br i1 %105, label %106, label %128
 
-109:                                              ; preds = %_ZN5o3dgc12BinaryStream12WriteFloat32EfNS_15O3DGCStreamTypeE.exit
-  %110 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  br label %111
+106:                                              ; preds = %_ZN5o3dgc12BinaryStream12WriteFloat32EfNS_15O3DGCStreamTypeE.exit
+  %107 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  br label %108
 
-111:                                              ; preds = %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i128, %109
-  %.06.i.i124 = phi i64 [ 0, %109 ], [ %130, %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i128 ]
-  %.045.i.i125 = phi i64 [ %106, %109 ], [ %129, %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i128 ]
-  %112 = trunc i64 %.045.i.i125 to i8
-  %113 = and i8 %112, 127
-  %114 = load i64, ptr %33, align 8
-  %115 = load i64, ptr %110, align 8
-  %116 = icmp eq i64 %114, %115
-  br i1 %116, label %117, label %._crit_edge.i.i.i126
+108:                                              ; preds = %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i128, %106
+  %.06.i.i124 = phi i64 [ 0, %106 ], [ %127, %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i128 ]
+  %.045.i.i125 = phi i64 [ %103, %106 ], [ %126, %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i128 ]
+  %109 = trunc i64 %.045.i.i125 to i8
+  %110 = and i8 %109, 127
+  %111 = load i64, ptr %33, align 8
+  %112 = load i64, ptr %107, align 8
+  %113 = icmp eq i64 %111, %112
+  br i1 %113, label %114, label %._crit_edge.i.i.i126
 
-._crit_edge.i.i.i126:                             ; preds = %111
+._crit_edge.i.i.i126:                             ; preds = %108
   %.pre.i.i.i127 = load ptr, ptr %3, align 8
   br label %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i128
 
-117:                                              ; preds = %111
-  %118 = shl i64 %114, 1
-  %spec.select.i.i.i130 = tail call i64 @llvm.umax.i64(i64 %118, i64 32)
-  store i64 %spec.select.i.i.i130, ptr %110, align 8
-  %119 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %spec.select.i.i.i130) #35
-  %.not.i.i.i131 = icmp eq i64 %114, 0
-  br i1 %.not.i.i.i131, label %124, label %120
+114:                                              ; preds = %108
+  %115 = shl i64 %111, 1
+  %spec.select.i.i.i130 = tail call i64 @llvm.umax.i64(i64 %115, i64 32)
+  store i64 %spec.select.i.i.i130, ptr %107, align 8
+  %116 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %spec.select.i.i.i130) #35
+  %.not.i.i.i131 = icmp eq i64 %111, 0
+  br i1 %.not.i.i.i131, label %121, label %117
+
+117:                                              ; preds = %114
+  %118 = load ptr, ptr %3, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %116, ptr align 1 %118, i64 %111, i1 false)
+  %119 = icmp eq ptr %118, null
+  br i1 %119, label %121, label %120
 
 120:                                              ; preds = %117
-  %121 = load ptr, ptr %3, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %119, ptr align 1 %121, i64 %114, i1 false)
-  %122 = icmp eq ptr %121, null
-  br i1 %122, label %124, label %123
-
-123:                                              ; preds = %120
-  tail call void @_ZdaPv(ptr noundef nonnull %121) #33
+  tail call void @_ZdaPv(ptr noundef nonnull %118) #33
   %.pre6.pre.i.i.i132 = load i64, ptr %33, align 8
-  br label %124
+  br label %121
 
-124:                                              ; preds = %123, %120, %117
-  %.pre6.i.i.i133 = phi i64 [ %114, %120 ], [ %.pre6.pre.i.i.i132, %123 ], [ 0, %117 ]
-  store ptr %119, ptr %3, align 8
+121:                                              ; preds = %120, %117, %114
+  %.pre6.i.i.i133 = phi i64 [ %111, %117 ], [ %.pre6.pre.i.i.i132, %120 ], [ 0, %114 ]
+  store ptr %116, ptr %3, align 8
   br label %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i128
 
-_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i128:     ; preds = %124, %._crit_edge.i.i.i126
-  %125 = phi i64 [ %114, %._crit_edge.i.i.i126 ], [ %.pre6.i.i.i133, %124 ]
-  %126 = phi ptr [ %.pre.i.i.i127, %._crit_edge.i.i.i126 ], [ %119, %124 ]
-  %127 = add i64 %125, 1
-  store i64 %127, ptr %33, align 8
-  %128 = getelementptr inbounds nuw i8, ptr %126, i64 %125
-  store i8 %113, ptr %128, align 1
-  %129 = lshr i64 %.045.i.i125, 7
-  %130 = add nuw nsw i64 %.06.i.i124, 1
-  %exitcond.not.i.i129 = icmp eq i64 %130, 5
-  br i1 %exitcond.not.i.i129, label %_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit134, label %111, !llvm.loop !889
+_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i128:     ; preds = %121, %._crit_edge.i.i.i126
+  %122 = phi i64 [ %111, %._crit_edge.i.i.i126 ], [ %.pre6.i.i.i133, %121 ]
+  %123 = phi ptr [ %.pre.i.i.i127, %._crit_edge.i.i.i126 ], [ %116, %121 ]
+  %124 = add i64 %122, 1
+  store i64 %124, ptr %33, align 8
+  %125 = getelementptr inbounds nuw i8, ptr %123, i64 %122
+  store i8 %110, ptr %125, align 1
+  %126 = lshr i64 %.045.i.i125, 7
+  %127 = add nuw nsw i64 %.06.i.i124, 1
+  %exitcond.not.i.i129 = icmp eq i64 %127, 5
+  br i1 %exitcond.not.i.i129, label %_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit134, label %108, !llvm.loop !889
 
-131:                                              ; preds = %_ZN5o3dgc12BinaryStream12WriteFloat32EfNS_15O3DGCStreamTypeE.exit
-  tail call void @_ZN5o3dgc12BinaryStream14WriteUInt32BinEm(ptr noundef nonnull align 8 dereferenceable(28) %3, i64 noundef %106)
+128:                                              ; preds = %_ZN5o3dgc12BinaryStream12WriteFloat32EfNS_15O3DGCStreamTypeE.exit
+  tail call void @_ZN5o3dgc12BinaryStream14WriteUInt32BinEm(ptr noundef nonnull align 8 dereferenceable(28) %3, i64 noundef %103)
   br label %_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit134
 
-_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit134: ; preds = %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i128, %131
-  %132 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %133 = load i64, ptr %132, align 8
-  %134 = load i32, ptr %7, align 8
-  %135 = icmp eq i32 %134, 1
-  br i1 %135, label %136, label %158
+_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit134: ; preds = %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i128, %128
+  %129 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %130 = load i64, ptr %129, align 8
+  %131 = load i32, ptr %7, align 8
+  %132 = icmp eq i32 %131, 1
+  br i1 %132, label %133, label %155
 
-136:                                              ; preds = %_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit134
-  %137 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  br label %138
+133:                                              ; preds = %_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit134
+  %134 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  br label %135
 
-138:                                              ; preds = %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i139, %136
-  %.06.i.i135 = phi i64 [ 0, %136 ], [ %157, %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i139 ]
-  %.045.i.i136 = phi i64 [ %133, %136 ], [ %156, %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i139 ]
-  %139 = trunc i64 %.045.i.i136 to i8
-  %140 = and i8 %139, 127
-  %141 = load i64, ptr %33, align 8
-  %142 = load i64, ptr %137, align 8
-  %143 = icmp eq i64 %141, %142
-  br i1 %143, label %144, label %._crit_edge.i.i.i137
+135:                                              ; preds = %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i139, %133
+  %.06.i.i135 = phi i64 [ 0, %133 ], [ %154, %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i139 ]
+  %.045.i.i136 = phi i64 [ %130, %133 ], [ %153, %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i139 ]
+  %136 = trunc i64 %.045.i.i136 to i8
+  %137 = and i8 %136, 127
+  %138 = load i64, ptr %33, align 8
+  %139 = load i64, ptr %134, align 8
+  %140 = icmp eq i64 %138, %139
+  br i1 %140, label %141, label %._crit_edge.i.i.i137
 
-._crit_edge.i.i.i137:                             ; preds = %138
+._crit_edge.i.i.i137:                             ; preds = %135
   %.pre.i.i.i138 = load ptr, ptr %3, align 8
   br label %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i139
 
-144:                                              ; preds = %138
-  %145 = shl i64 %141, 1
-  %spec.select.i.i.i141 = tail call i64 @llvm.umax.i64(i64 %145, i64 32)
-  store i64 %spec.select.i.i.i141, ptr %137, align 8
-  %146 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %spec.select.i.i.i141) #35
-  %.not.i.i.i142 = icmp eq i64 %141, 0
-  br i1 %.not.i.i.i142, label %151, label %147
+141:                                              ; preds = %135
+  %142 = shl i64 %138, 1
+  %spec.select.i.i.i141 = tail call i64 @llvm.umax.i64(i64 %142, i64 32)
+  store i64 %spec.select.i.i.i141, ptr %134, align 8
+  %143 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %spec.select.i.i.i141) #35
+  %.not.i.i.i142 = icmp eq i64 %138, 0
+  br i1 %.not.i.i.i142, label %148, label %144
+
+144:                                              ; preds = %141
+  %145 = load ptr, ptr %3, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %143, ptr align 1 %145, i64 %138, i1 false)
+  %146 = icmp eq ptr %145, null
+  br i1 %146, label %148, label %147
 
 147:                                              ; preds = %144
-  %148 = load ptr, ptr %3, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %146, ptr align 1 %148, i64 %141, i1 false)
-  %149 = icmp eq ptr %148, null
-  br i1 %149, label %151, label %150
-
-150:                                              ; preds = %147
-  tail call void @_ZdaPv(ptr noundef nonnull %148) #33
+  tail call void @_ZdaPv(ptr noundef nonnull %145) #33
   %.pre6.pre.i.i.i143 = load i64, ptr %33, align 8
-  br label %151
+  br label %148
 
-151:                                              ; preds = %150, %147, %144
-  %.pre6.i.i.i144 = phi i64 [ %141, %147 ], [ %.pre6.pre.i.i.i143, %150 ], [ 0, %144 ]
-  store ptr %146, ptr %3, align 8
+148:                                              ; preds = %147, %144, %141
+  %.pre6.i.i.i144 = phi i64 [ %138, %144 ], [ %.pre6.pre.i.i.i143, %147 ], [ 0, %141 ]
+  store ptr %143, ptr %3, align 8
   br label %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i139
 
-_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i139:     ; preds = %151, %._crit_edge.i.i.i137
-  %152 = phi i64 [ %141, %._crit_edge.i.i.i137 ], [ %.pre6.i.i.i144, %151 ]
-  %153 = phi ptr [ %.pre.i.i.i138, %._crit_edge.i.i.i137 ], [ %146, %151 ]
-  %154 = add i64 %152, 1
-  store i64 %154, ptr %33, align 8
-  %155 = getelementptr inbounds nuw i8, ptr %153, i64 %152
-  store i8 %140, ptr %155, align 1
-  %156 = lshr i64 %.045.i.i136, 7
-  %157 = add nuw nsw i64 %.06.i.i135, 1
-  %exitcond.not.i.i140 = icmp eq i64 %157, 5
-  br i1 %exitcond.not.i.i140, label %_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit145, label %138, !llvm.loop !889
+_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i139:     ; preds = %148, %._crit_edge.i.i.i137
+  %149 = phi i64 [ %138, %._crit_edge.i.i.i137 ], [ %.pre6.i.i.i144, %148 ]
+  %150 = phi ptr [ %.pre.i.i.i138, %._crit_edge.i.i.i137 ], [ %143, %148 ]
+  %151 = add i64 %149, 1
+  store i64 %151, ptr %33, align 8
+  %152 = getelementptr inbounds nuw i8, ptr %150, i64 %149
+  store i8 %137, ptr %152, align 1
+  %153 = lshr i64 %.045.i.i136, 7
+  %154 = add nuw nsw i64 %.06.i.i135, 1
+  %exitcond.not.i.i140 = icmp eq i64 %154, 5
+  br i1 %exitcond.not.i.i140, label %_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit145, label %135, !llvm.loop !889
 
-158:                                              ; preds = %_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit134
-  tail call void @_ZN5o3dgc12BinaryStream14WriteUInt32BinEm(ptr noundef nonnull align 8 dereferenceable(28) %3, i64 noundef %133)
+155:                                              ; preds = %_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit134
+  tail call void @_ZN5o3dgc12BinaryStream14WriteUInt32BinEm(ptr noundef nonnull align 8 dereferenceable(28) %3, i64 noundef %130)
   br label %_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit145
 
-_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit145: ; preds = %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i139, %158
-  %159 = getelementptr inbounds nuw i8, ptr %2, i64 104
-  %160 = load i64, ptr %159, align 8
-  %161 = load i32, ptr %7, align 8
-  %162 = icmp eq i32 %161, 1
-  br i1 %162, label %163, label %185
+_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit145: ; preds = %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i139, %155
+  %156 = getelementptr inbounds nuw i8, ptr %2, i64 104
+  %157 = load i64, ptr %156, align 8
+  %158 = load i32, ptr %7, align 8
+  %159 = icmp eq i32 %158, 1
+  br i1 %159, label %160, label %182
 
-163:                                              ; preds = %_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit145
-  %164 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  br label %165
+160:                                              ; preds = %_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit145
+  %161 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  br label %162
 
-165:                                              ; preds = %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i150, %163
-  %.06.i.i146 = phi i64 [ 0, %163 ], [ %184, %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i150 ]
-  %.045.i.i147 = phi i64 [ %160, %163 ], [ %183, %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i150 ]
-  %166 = trunc i64 %.045.i.i147 to i8
-  %167 = and i8 %166, 127
-  %168 = load i64, ptr %33, align 8
-  %169 = load i64, ptr %164, align 8
-  %170 = icmp eq i64 %168, %169
-  br i1 %170, label %171, label %._crit_edge.i.i.i148
+162:                                              ; preds = %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i150, %160
+  %.06.i.i146 = phi i64 [ 0, %160 ], [ %181, %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i150 ]
+  %.045.i.i147 = phi i64 [ %157, %160 ], [ %180, %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i150 ]
+  %163 = trunc i64 %.045.i.i147 to i8
+  %164 = and i8 %163, 127
+  %165 = load i64, ptr %33, align 8
+  %166 = load i64, ptr %161, align 8
+  %167 = icmp eq i64 %165, %166
+  br i1 %167, label %168, label %._crit_edge.i.i.i148
 
-._crit_edge.i.i.i148:                             ; preds = %165
+._crit_edge.i.i.i148:                             ; preds = %162
   %.pre.i.i.i149 = load ptr, ptr %3, align 8
   br label %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i150
 
-171:                                              ; preds = %165
-  %172 = shl i64 %168, 1
-  %spec.select.i.i.i152 = tail call i64 @llvm.umax.i64(i64 %172, i64 32)
-  store i64 %spec.select.i.i.i152, ptr %164, align 8
-  %173 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %spec.select.i.i.i152) #35
-  %.not.i.i.i153 = icmp eq i64 %168, 0
-  br i1 %.not.i.i.i153, label %178, label %174
+168:                                              ; preds = %162
+  %169 = shl i64 %165, 1
+  %spec.select.i.i.i152 = tail call i64 @llvm.umax.i64(i64 %169, i64 32)
+  store i64 %spec.select.i.i.i152, ptr %161, align 8
+  %170 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %spec.select.i.i.i152) #35
+  %.not.i.i.i153 = icmp eq i64 %165, 0
+  br i1 %.not.i.i.i153, label %175, label %171
+
+171:                                              ; preds = %168
+  %172 = load ptr, ptr %3, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %170, ptr align 1 %172, i64 %165, i1 false)
+  %173 = icmp eq ptr %172, null
+  br i1 %173, label %175, label %174
 
 174:                                              ; preds = %171
-  %175 = load ptr, ptr %3, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %173, ptr align 1 %175, i64 %168, i1 false)
-  %176 = icmp eq ptr %175, null
-  br i1 %176, label %178, label %177
-
-177:                                              ; preds = %174
-  tail call void @_ZdaPv(ptr noundef nonnull %175) #33
+  tail call void @_ZdaPv(ptr noundef nonnull %172) #33
   %.pre6.pre.i.i.i154 = load i64, ptr %33, align 8
-  br label %178
+  br label %175
 
-178:                                              ; preds = %177, %174, %171
-  %.pre6.i.i.i155 = phi i64 [ %168, %174 ], [ %.pre6.pre.i.i.i154, %177 ], [ 0, %171 ]
-  store ptr %173, ptr %3, align 8
+175:                                              ; preds = %174, %171, %168
+  %.pre6.i.i.i155 = phi i64 [ %165, %171 ], [ %.pre6.pre.i.i.i154, %174 ], [ 0, %168 ]
+  store ptr %170, ptr %3, align 8
   br label %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i150
 
-_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i150:     ; preds = %178, %._crit_edge.i.i.i148
-  %179 = phi i64 [ %168, %._crit_edge.i.i.i148 ], [ %.pre6.i.i.i155, %178 ]
-  %180 = phi ptr [ %.pre.i.i.i149, %._crit_edge.i.i.i148 ], [ %173, %178 ]
-  %181 = add i64 %179, 1
-  store i64 %181, ptr %33, align 8
-  %182 = getelementptr inbounds nuw i8, ptr %180, i64 %179
-  store i8 %167, ptr %182, align 1
-  %183 = lshr i64 %.045.i.i147, 7
-  %184 = add nuw nsw i64 %.06.i.i146, 1
-  %exitcond.not.i.i151 = icmp eq i64 %184, 5
-  br i1 %exitcond.not.i.i151, label %_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit156, label %165, !llvm.loop !889
+_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i150:     ; preds = %175, %._crit_edge.i.i.i148
+  %176 = phi i64 [ %165, %._crit_edge.i.i.i148 ], [ %.pre6.i.i.i155, %175 ]
+  %177 = phi ptr [ %.pre.i.i.i149, %._crit_edge.i.i.i148 ], [ %170, %175 ]
+  %178 = add i64 %176, 1
+  store i64 %178, ptr %33, align 8
+  %179 = getelementptr inbounds nuw i8, ptr %177, i64 %176
+  store i8 %164, ptr %179, align 1
+  %180 = lshr i64 %.045.i.i147, 7
+  %181 = add nuw nsw i64 %.06.i.i146, 1
+  %exitcond.not.i.i151 = icmp eq i64 %181, 5
+  br i1 %exitcond.not.i.i151, label %_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit156, label %162, !llvm.loop !889
 
-185:                                              ; preds = %_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit145
-  tail call void @_ZN5o3dgc12BinaryStream14WriteUInt32BinEm(ptr noundef nonnull align 8 dereferenceable(28) %3, i64 noundef %160)
+182:                                              ; preds = %_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit145
+  tail call void @_ZN5o3dgc12BinaryStream14WriteUInt32BinEm(ptr noundef nonnull align 8 dereferenceable(28) %3, i64 noundef %157)
   br label %_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit156
 
-_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit156: ; preds = %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i150, %185
-  %186 = getelementptr inbounds nuw i8, ptr %2, i64 112
-  %187 = load i64, ptr %186, align 8
-  %188 = load i32, ptr %7, align 8
-  %189 = icmp eq i32 %188, 1
-  br i1 %189, label %190, label %212
+_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit156: ; preds = %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i150, %182
+  %183 = getelementptr inbounds nuw i8, ptr %2, i64 112
+  %184 = load i64, ptr %183, align 8
+  %185 = load i32, ptr %7, align 8
+  %186 = icmp eq i32 %185, 1
+  br i1 %186, label %187, label %209
 
-190:                                              ; preds = %_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit156
-  %191 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  br label %192
+187:                                              ; preds = %_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit156
+  %188 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  br label %189
 
-192:                                              ; preds = %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i161, %190
-  %.06.i.i157 = phi i64 [ 0, %190 ], [ %211, %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i161 ]
-  %.045.i.i158 = phi i64 [ %187, %190 ], [ %210, %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i161 ]
-  %193 = trunc i64 %.045.i.i158 to i8
-  %194 = and i8 %193, 127
-  %195 = load i64, ptr %33, align 8
-  %196 = load i64, ptr %191, align 8
-  %197 = icmp eq i64 %195, %196
-  br i1 %197, label %198, label %._crit_edge.i.i.i159
+189:                                              ; preds = %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i161, %187
+  %.06.i.i157 = phi i64 [ 0, %187 ], [ %208, %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i161 ]
+  %.045.i.i158 = phi i64 [ %184, %187 ], [ %207, %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i161 ]
+  %190 = trunc i64 %.045.i.i158 to i8
+  %191 = and i8 %190, 127
+  %192 = load i64, ptr %33, align 8
+  %193 = load i64, ptr %188, align 8
+  %194 = icmp eq i64 %192, %193
+  br i1 %194, label %195, label %._crit_edge.i.i.i159
 
-._crit_edge.i.i.i159:                             ; preds = %192
+._crit_edge.i.i.i159:                             ; preds = %189
   %.pre.i.i.i160 = load ptr, ptr %3, align 8
   br label %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i161
 
-198:                                              ; preds = %192
-  %199 = shl i64 %195, 1
-  %spec.select.i.i.i163 = tail call i64 @llvm.umax.i64(i64 %199, i64 32)
-  store i64 %spec.select.i.i.i163, ptr %191, align 8
-  %200 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %spec.select.i.i.i163) #35
-  %.not.i.i.i164 = icmp eq i64 %195, 0
-  br i1 %.not.i.i.i164, label %205, label %201
+195:                                              ; preds = %189
+  %196 = shl i64 %192, 1
+  %spec.select.i.i.i163 = tail call i64 @llvm.umax.i64(i64 %196, i64 32)
+  store i64 %spec.select.i.i.i163, ptr %188, align 8
+  %197 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %spec.select.i.i.i163) #35
+  %.not.i.i.i164 = icmp eq i64 %192, 0
+  br i1 %.not.i.i.i164, label %202, label %198
+
+198:                                              ; preds = %195
+  %199 = load ptr, ptr %3, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %197, ptr align 1 %199, i64 %192, i1 false)
+  %200 = icmp eq ptr %199, null
+  br i1 %200, label %202, label %201
 
 201:                                              ; preds = %198
-  %202 = load ptr, ptr %3, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %200, ptr align 1 %202, i64 %195, i1 false)
-  %203 = icmp eq ptr %202, null
-  br i1 %203, label %205, label %204
-
-204:                                              ; preds = %201
-  tail call void @_ZdaPv(ptr noundef nonnull %202) #33
+  tail call void @_ZdaPv(ptr noundef nonnull %199) #33
   %.pre6.pre.i.i.i165 = load i64, ptr %33, align 8
-  br label %205
+  br label %202
 
-205:                                              ; preds = %204, %201, %198
-  %.pre6.i.i.i166 = phi i64 [ %195, %201 ], [ %.pre6.pre.i.i.i165, %204 ], [ 0, %198 ]
-  store ptr %200, ptr %3, align 8
+202:                                              ; preds = %201, %198, %195
+  %.pre6.i.i.i166 = phi i64 [ %192, %198 ], [ %.pre6.pre.i.i.i165, %201 ], [ 0, %195 ]
+  store ptr %197, ptr %3, align 8
   br label %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i161
 
-_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i161:     ; preds = %205, %._crit_edge.i.i.i159
-  %206 = phi i64 [ %195, %._crit_edge.i.i.i159 ], [ %.pre6.i.i.i166, %205 ]
-  %207 = phi ptr [ %.pre.i.i.i160, %._crit_edge.i.i.i159 ], [ %200, %205 ]
-  %208 = add i64 %206, 1
-  store i64 %208, ptr %33, align 8
-  %209 = getelementptr inbounds nuw i8, ptr %207, i64 %206
-  store i8 %194, ptr %209, align 1
-  %210 = lshr i64 %.045.i.i158, 7
-  %211 = add nuw nsw i64 %.06.i.i157, 1
-  %exitcond.not.i.i162 = icmp eq i64 %211, 5
-  br i1 %exitcond.not.i.i162, label %_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit167, label %192, !llvm.loop !889
+_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i161:     ; preds = %202, %._crit_edge.i.i.i159
+  %203 = phi i64 [ %192, %._crit_edge.i.i.i159 ], [ %.pre6.i.i.i166, %202 ]
+  %204 = phi ptr [ %.pre.i.i.i160, %._crit_edge.i.i.i159 ], [ %197, %202 ]
+  %205 = add i64 %203, 1
+  store i64 %205, ptr %33, align 8
+  %206 = getelementptr inbounds nuw i8, ptr %204, i64 %203
+  store i8 %191, ptr %206, align 1
+  %207 = lshr i64 %.045.i.i158, 7
+  %208 = add nuw nsw i64 %.06.i.i157, 1
+  %exitcond.not.i.i162 = icmp eq i64 %208, 5
+  br i1 %exitcond.not.i.i162, label %_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit167, label %189, !llvm.loop !889
 
-212:                                              ; preds = %_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit156
-  tail call void @_ZN5o3dgc12BinaryStream14WriteUInt32BinEm(ptr noundef nonnull align 8 dereferenceable(28) %3, i64 noundef %187)
+209:                                              ; preds = %_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit156
+  tail call void @_ZN5o3dgc12BinaryStream14WriteUInt32BinEm(ptr noundef nonnull align 8 dereferenceable(28) %3, i64 noundef %184)
   br label %_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit167
 
-_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit167: ; preds = %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i161, %212
-  %213 = load i64, ptr %105, align 8
-  %.not = icmp eq i64 %213, 0
-  br i1 %.not, label %304, label %214
+_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit167: ; preds = %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i161, %209
+  %210 = load i64, ptr %102, align 8
+  %.not = icmp eq i64 %210, 0
+  br i1 %.not, label %301, label %211
 
-214:                                              ; preds = %_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit167
-  %215 = load i64, ptr %2, align 8
-  %216 = load i32, ptr %7, align 8
-  %217 = icmp eq i32 %216, 1
-  br i1 %217, label %218, label %240
+211:                                              ; preds = %_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit167
+  %212 = load i64, ptr %2, align 8
+  %213 = load i32, ptr %7, align 8
+  %214 = icmp eq i32 %213, 1
+  br i1 %214, label %215, label %237
 
-218:                                              ; preds = %214
-  %219 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  br label %220
+215:                                              ; preds = %211
+  %216 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  br label %217
 
-220:                                              ; preds = %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i172, %218
-  %.06.i.i168 = phi i64 [ 0, %218 ], [ %239, %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i172 ]
-  %.045.i.i169 = phi i64 [ %215, %218 ], [ %238, %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i172 ]
-  %221 = trunc i64 %.045.i.i169 to i8
-  %222 = and i8 %221, 127
-  %223 = load i64, ptr %33, align 8
-  %224 = load i64, ptr %219, align 8
-  %225 = icmp eq i64 %223, %224
-  br i1 %225, label %226, label %._crit_edge.i.i.i170
+217:                                              ; preds = %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i172, %215
+  %.06.i.i168 = phi i64 [ 0, %215 ], [ %236, %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i172 ]
+  %.045.i.i169 = phi i64 [ %212, %215 ], [ %235, %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i172 ]
+  %218 = trunc i64 %.045.i.i169 to i8
+  %219 = and i8 %218, 127
+  %220 = load i64, ptr %33, align 8
+  %221 = load i64, ptr %216, align 8
+  %222 = icmp eq i64 %220, %221
+  br i1 %222, label %223, label %._crit_edge.i.i.i170
 
-._crit_edge.i.i.i170:                             ; preds = %220
+._crit_edge.i.i.i170:                             ; preds = %217
   %.pre.i.i.i171 = load ptr, ptr %3, align 8
   br label %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i172
 
-226:                                              ; preds = %220
-  %227 = shl i64 %223, 1
-  %spec.select.i.i.i174 = tail call i64 @llvm.umax.i64(i64 %227, i64 32)
-  store i64 %spec.select.i.i.i174, ptr %219, align 8
-  %228 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %spec.select.i.i.i174) #35
-  %.not.i.i.i175 = icmp eq i64 %223, 0
-  br i1 %.not.i.i.i175, label %233, label %229
+223:                                              ; preds = %217
+  %224 = shl i64 %220, 1
+  %spec.select.i.i.i174 = tail call i64 @llvm.umax.i64(i64 %224, i64 32)
+  store i64 %spec.select.i.i.i174, ptr %216, align 8
+  %225 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %spec.select.i.i.i174) #35
+  %.not.i.i.i175 = icmp eq i64 %220, 0
+  br i1 %.not.i.i.i175, label %230, label %226
+
+226:                                              ; preds = %223
+  %227 = load ptr, ptr %3, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %225, ptr align 1 %227, i64 %220, i1 false)
+  %228 = icmp eq ptr %227, null
+  br i1 %228, label %230, label %229
 
 229:                                              ; preds = %226
-  %230 = load ptr, ptr %3, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %228, ptr align 1 %230, i64 %223, i1 false)
-  %231 = icmp eq ptr %230, null
-  br i1 %231, label %233, label %232
-
-232:                                              ; preds = %229
-  tail call void @_ZdaPv(ptr noundef nonnull %230) #33
+  tail call void @_ZdaPv(ptr noundef nonnull %227) #33
   %.pre6.pre.i.i.i176 = load i64, ptr %33, align 8
-  br label %233
+  br label %230
 
-233:                                              ; preds = %232, %229, %226
-  %.pre6.i.i.i177 = phi i64 [ %223, %229 ], [ %.pre6.pre.i.i.i176, %232 ], [ 0, %226 ]
-  store ptr %228, ptr %3, align 8
+230:                                              ; preds = %229, %226, %223
+  %.pre6.i.i.i177 = phi i64 [ %220, %226 ], [ %.pre6.pre.i.i.i176, %229 ], [ 0, %223 ]
+  store ptr %225, ptr %3, align 8
   br label %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i172
 
-_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i172:     ; preds = %233, %._crit_edge.i.i.i170
-  %234 = phi i64 [ %223, %._crit_edge.i.i.i170 ], [ %.pre6.i.i.i177, %233 ]
-  %235 = phi ptr [ %.pre.i.i.i171, %._crit_edge.i.i.i170 ], [ %228, %233 ]
-  %236 = add i64 %234, 1
-  store i64 %236, ptr %33, align 8
-  %237 = getelementptr inbounds nuw i8, ptr %235, i64 %234
-  store i8 %222, ptr %237, align 1
-  %238 = lshr i64 %.045.i.i169, 7
-  %239 = add nuw nsw i64 %.06.i.i168, 1
-  %exitcond.not.i.i173 = icmp eq i64 %239, 5
-  br i1 %exitcond.not.i.i173, label %_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit178, label %220, !llvm.loop !889
+_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i172:     ; preds = %230, %._crit_edge.i.i.i170
+  %231 = phi i64 [ %220, %._crit_edge.i.i.i170 ], [ %.pre6.i.i.i177, %230 ]
+  %232 = phi ptr [ %.pre.i.i.i171, %._crit_edge.i.i.i170 ], [ %225, %230 ]
+  %233 = add i64 %231, 1
+  store i64 %233, ptr %33, align 8
+  %234 = getelementptr inbounds nuw i8, ptr %232, i64 %231
+  store i8 %219, ptr %234, align 1
+  %235 = lshr i64 %.045.i.i169, 7
+  %236 = add nuw nsw i64 %.06.i.i168, 1
+  %exitcond.not.i.i173 = icmp eq i64 %236, 5
+  br i1 %exitcond.not.i.i173, label %_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit178, label %217, !llvm.loop !889
 
-240:                                              ; preds = %214
-  tail call void @_ZN5o3dgc12BinaryStream14WriteUInt32BinEm(ptr noundef nonnull align 8 dereferenceable(28) %3, i64 noundef %215)
+237:                                              ; preds = %211
+  tail call void @_ZN5o3dgc12BinaryStream14WriteUInt32BinEm(ptr noundef nonnull align 8 dereferenceable(28) %3, i64 noundef %212)
   br label %_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit178
 
-_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit178: ; preds = %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i172, %240
-  %241 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %242 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %243 = getelementptr inbounds nuw i8, ptr %2, i64 52
-  br label %249
+_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit178: ; preds = %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i172, %237
+  %238 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %239 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %240 = getelementptr inbounds nuw i8, ptr %2, i64 52
+  br label %246
 
-244:                                              ; preds = %_ZN5o3dgc12BinaryStream12WriteFloat32EfNS_15O3DGCStreamTypeE.exit200
-  %245 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %246 = load i64, ptr %245, align 8
-  %247 = trunc i64 %246 to i8
-  %248 = load i32, ptr %7, align 8
-  tail call void @_ZN5o3dgc12BinaryStream10WriteUCharEhNS_15O3DGCStreamTypeE(ptr noundef nonnull align 8 dereferenceable(28) %3, i8 noundef zeroext %247, i32 noundef %248)
-  br label %304
+241:                                              ; preds = %_ZN5o3dgc12BinaryStream12WriteFloat32EfNS_15O3DGCStreamTypeE.exit200
+  %242 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %243 = load i64, ptr %242, align 8
+  %244 = trunc i64 %243 to i8
+  %245 = load i32, ptr %7, align 8
+  tail call void @_ZN5o3dgc12BinaryStream10WriteUCharEhNS_15O3DGCStreamTypeE(ptr noundef nonnull align 8 dereferenceable(28) %3, i8 noundef zeroext %244, i32 noundef %245)
+  br label %301
 
-249:                                              ; preds = %_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit178, %_ZN5o3dgc12BinaryStream12WriteFloat32EfNS_15O3DGCStreamTypeE.exit200
+246:                                              ; preds = %_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit178, %_ZN5o3dgc12BinaryStream12WriteFloat32EfNS_15O3DGCStreamTypeE.exit200
   %indvars.iv = phi i64 [ 0, %_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit178 ], [ %indvars.iv.next, %_ZN5o3dgc12BinaryStream12WriteFloat32EfNS_15O3DGCStreamTypeE.exit200 ]
-  %250 = getelementptr inbounds nuw [3 x float], ptr %241, i64 0, i64 %indvars.iv
-  %251 = load float, ptr %250, align 4
-  %252 = load i32, ptr %7, align 8
-  %253 = icmp eq i32 %252, 1
-  br i1 %253, label %254, label %276
+  %247 = getelementptr inbounds nuw [3 x float], ptr %238, i64 0, i64 %indvars.iv
+  %248 = load float, ptr %247, align 4
+  %249 = load i32, ptr %7, align 8
+  %250 = icmp eq i32 %249, 1
+  br i1 %250, label %251, label %273
 
-254:                                              ; preds = %249
-  %255 = bitcast float %251 to i32
-  br label %256
+251:                                              ; preds = %246
+  %252 = bitcast float %248 to i32
+  br label %253
 
-256:                                              ; preds = %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i.i183, %254
-  %.06.i.i.i179 = phi i64 [ 0, %254 ], [ %275, %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i.i183 ]
-  %.045.i.i.i180 = phi i32 [ %255, %254 ], [ %274, %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i.i183 ]
-  %257 = trunc i32 %.045.i.i.i180 to i8
-  %258 = and i8 %257, 127
-  %259 = load i64, ptr %33, align 8
-  %260 = load i64, ptr %242, align 8
-  %261 = icmp eq i64 %259, %260
-  br i1 %261, label %262, label %._crit_edge.i.i.i.i181
+253:                                              ; preds = %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i.i183, %251
+  %.06.i.i.i179 = phi i64 [ 0, %251 ], [ %272, %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i.i183 ]
+  %.045.i.i.i180 = phi i32 [ %252, %251 ], [ %271, %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i.i183 ]
+  %254 = trunc i32 %.045.i.i.i180 to i8
+  %255 = and i8 %254, 127
+  %256 = load i64, ptr %33, align 8
+  %257 = load i64, ptr %239, align 8
+  %258 = icmp eq i64 %256, %257
+  br i1 %258, label %259, label %._crit_edge.i.i.i.i181
 
-._crit_edge.i.i.i.i181:                           ; preds = %256
+._crit_edge.i.i.i.i181:                           ; preds = %253
   %.pre.i.i.i.i182 = load ptr, ptr %3, align 8
   br label %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i.i183
 
-262:                                              ; preds = %256
-  %263 = shl i64 %259, 1
-  %spec.select.i.i.i.i185 = tail call i64 @llvm.umax.i64(i64 %263, i64 32)
-  store i64 %spec.select.i.i.i.i185, ptr %242, align 8
-  %264 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %spec.select.i.i.i.i185) #35
-  %.not.i.i.i.i186 = icmp eq i64 %259, 0
-  br i1 %.not.i.i.i.i186, label %269, label %265
+259:                                              ; preds = %253
+  %260 = shl i64 %256, 1
+  %spec.select.i.i.i.i185 = tail call i64 @llvm.umax.i64(i64 %260, i64 32)
+  store i64 %spec.select.i.i.i.i185, ptr %239, align 8
+  %261 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %spec.select.i.i.i.i185) #35
+  %.not.i.i.i.i186 = icmp eq i64 %256, 0
+  br i1 %.not.i.i.i.i186, label %266, label %262
+
+262:                                              ; preds = %259
+  %263 = load ptr, ptr %3, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %261, ptr align 1 %263, i64 %256, i1 false)
+  %264 = icmp eq ptr %263, null
+  br i1 %264, label %266, label %265
 
 265:                                              ; preds = %262
-  %266 = load ptr, ptr %3, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %264, ptr align 1 %266, i64 %259, i1 false)
-  %267 = icmp eq ptr %266, null
-  br i1 %267, label %269, label %268
-
-268:                                              ; preds = %265
-  tail call void @_ZdaPv(ptr noundef nonnull %266) #33
+  tail call void @_ZdaPv(ptr noundef nonnull %263) #33
   %.pre6.pre.i.i.i.i187 = load i64, ptr %33, align 8
-  br label %269
+  br label %266
 
-269:                                              ; preds = %268, %265, %262
-  %.pre6.i.i.i.i188 = phi i64 [ %259, %265 ], [ %.pre6.pre.i.i.i.i187, %268 ], [ 0, %262 ]
-  store ptr %264, ptr %3, align 8
+266:                                              ; preds = %265, %262, %259
+  %.pre6.i.i.i.i188 = phi i64 [ %256, %262 ], [ %.pre6.pre.i.i.i.i187, %265 ], [ 0, %259 ]
+  store ptr %261, ptr %3, align 8
   br label %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i.i183
 
-_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i.i183:   ; preds = %269, %._crit_edge.i.i.i.i181
-  %270 = phi i64 [ %259, %._crit_edge.i.i.i.i181 ], [ %.pre6.i.i.i.i188, %269 ]
-  %271 = phi ptr [ %.pre.i.i.i.i182, %._crit_edge.i.i.i.i181 ], [ %264, %269 ]
-  %272 = add i64 %270, 1
-  store i64 %272, ptr %33, align 8
-  %273 = getelementptr inbounds nuw i8, ptr %271, i64 %270
-  store i8 %258, ptr %273, align 1
-  %274 = lshr i32 %.045.i.i.i180, 7
-  %275 = add nuw nsw i64 %.06.i.i.i179, 1
-  %exitcond.not.i.i.i184 = icmp eq i64 %275, 5
-  br i1 %exitcond.not.i.i.i184, label %_ZN5o3dgc12BinaryStream12WriteFloat32EfNS_15O3DGCStreamTypeE.exit189, label %256, !llvm.loop !889
+_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i.i183:   ; preds = %266, %._crit_edge.i.i.i.i181
+  %267 = phi i64 [ %256, %._crit_edge.i.i.i.i181 ], [ %.pre6.i.i.i.i188, %266 ]
+  %268 = phi ptr [ %.pre.i.i.i.i182, %._crit_edge.i.i.i.i181 ], [ %261, %266 ]
+  %269 = add i64 %267, 1
+  store i64 %269, ptr %33, align 8
+  %270 = getelementptr inbounds nuw i8, ptr %268, i64 %267
+  store i8 %255, ptr %270, align 1
+  %271 = lshr i32 %.045.i.i.i180, 7
+  %272 = add nuw nsw i64 %.06.i.i.i179, 1
+  %exitcond.not.i.i.i184 = icmp eq i64 %272, 5
+  br i1 %exitcond.not.i.i.i184, label %_ZN5o3dgc12BinaryStream12WriteFloat32EfNS_15O3DGCStreamTypeE.exit189, label %253, !llvm.loop !889
 
-276:                                              ; preds = %249
-  tail call void @_ZN5o3dgc12BinaryStream15WriteFloat32BinEf(ptr noundef nonnull align 8 dereferenceable(28) %3, float noundef %251)
+273:                                              ; preds = %246
+  tail call void @_ZN5o3dgc12BinaryStream15WriteFloat32BinEf(ptr noundef nonnull align 8 dereferenceable(28) %3, float noundef %248)
   br label %_ZN5o3dgc12BinaryStream12WriteFloat32EfNS_15O3DGCStreamTypeE.exit189
 
-_ZN5o3dgc12BinaryStream12WriteFloat32EfNS_15O3DGCStreamTypeE.exit189: ; preds = %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i.i183, %276
-  %277 = getelementptr inbounds nuw [3 x float], ptr %243, i64 0, i64 %indvars.iv
-  %278 = load float, ptr %277, align 4
-  %279 = load i32, ptr %7, align 8
-  %280 = icmp eq i32 %279, 1
-  br i1 %280, label %281, label %303
+_ZN5o3dgc12BinaryStream12WriteFloat32EfNS_15O3DGCStreamTypeE.exit189: ; preds = %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i.i183, %273
+  %274 = getelementptr inbounds nuw [3 x float], ptr %240, i64 0, i64 %indvars.iv
+  %275 = load float, ptr %274, align 4
+  %276 = load i32, ptr %7, align 8
+  %277 = icmp eq i32 %276, 1
+  br i1 %277, label %278, label %300
 
-281:                                              ; preds = %_ZN5o3dgc12BinaryStream12WriteFloat32EfNS_15O3DGCStreamTypeE.exit189
-  %282 = bitcast float %278 to i32
-  br label %283
+278:                                              ; preds = %_ZN5o3dgc12BinaryStream12WriteFloat32EfNS_15O3DGCStreamTypeE.exit189
+  %279 = bitcast float %275 to i32
+  br label %280
 
-283:                                              ; preds = %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i.i194, %281
-  %.06.i.i.i190 = phi i64 [ 0, %281 ], [ %302, %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i.i194 ]
-  %.045.i.i.i191 = phi i32 [ %282, %281 ], [ %301, %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i.i194 ]
-  %284 = trunc i32 %.045.i.i.i191 to i8
-  %285 = and i8 %284, 127
-  %286 = load i64, ptr %33, align 8
-  %287 = load i64, ptr %242, align 8
-  %288 = icmp eq i64 %286, %287
-  br i1 %288, label %289, label %._crit_edge.i.i.i.i192
+280:                                              ; preds = %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i.i194, %278
+  %.06.i.i.i190 = phi i64 [ 0, %278 ], [ %299, %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i.i194 ]
+  %.045.i.i.i191 = phi i32 [ %279, %278 ], [ %298, %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i.i194 ]
+  %281 = trunc i32 %.045.i.i.i191 to i8
+  %282 = and i8 %281, 127
+  %283 = load i64, ptr %33, align 8
+  %284 = load i64, ptr %239, align 8
+  %285 = icmp eq i64 %283, %284
+  br i1 %285, label %286, label %._crit_edge.i.i.i.i192
 
-._crit_edge.i.i.i.i192:                           ; preds = %283
+._crit_edge.i.i.i.i192:                           ; preds = %280
   %.pre.i.i.i.i193 = load ptr, ptr %3, align 8
   br label %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i.i194
 
-289:                                              ; preds = %283
-  %290 = shl i64 %286, 1
-  %spec.select.i.i.i.i196 = tail call i64 @llvm.umax.i64(i64 %290, i64 32)
-  store i64 %spec.select.i.i.i.i196, ptr %242, align 8
-  %291 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %spec.select.i.i.i.i196) #35
-  %.not.i.i.i.i197 = icmp eq i64 %286, 0
-  br i1 %.not.i.i.i.i197, label %296, label %292
+286:                                              ; preds = %280
+  %287 = shl i64 %283, 1
+  %spec.select.i.i.i.i196 = tail call i64 @llvm.umax.i64(i64 %287, i64 32)
+  store i64 %spec.select.i.i.i.i196, ptr %239, align 8
+  %288 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %spec.select.i.i.i.i196) #35
+  %.not.i.i.i.i197 = icmp eq i64 %283, 0
+  br i1 %.not.i.i.i.i197, label %293, label %289
+
+289:                                              ; preds = %286
+  %290 = load ptr, ptr %3, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %288, ptr align 1 %290, i64 %283, i1 false)
+  %291 = icmp eq ptr %290, null
+  br i1 %291, label %293, label %292
 
 292:                                              ; preds = %289
-  %293 = load ptr, ptr %3, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %291, ptr align 1 %293, i64 %286, i1 false)
-  %294 = icmp eq ptr %293, null
-  br i1 %294, label %296, label %295
-
-295:                                              ; preds = %292
-  tail call void @_ZdaPv(ptr noundef nonnull %293) #33
+  tail call void @_ZdaPv(ptr noundef nonnull %290) #33
   %.pre6.pre.i.i.i.i198 = load i64, ptr %33, align 8
-  br label %296
+  br label %293
 
-296:                                              ; preds = %295, %292, %289
-  %.pre6.i.i.i.i199 = phi i64 [ %286, %292 ], [ %.pre6.pre.i.i.i.i198, %295 ], [ 0, %289 ]
-  store ptr %291, ptr %3, align 8
+293:                                              ; preds = %292, %289, %286
+  %.pre6.i.i.i.i199 = phi i64 [ %283, %289 ], [ %.pre6.pre.i.i.i.i198, %292 ], [ 0, %286 ]
+  store ptr %288, ptr %3, align 8
   br label %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i.i194
 
-_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i.i194:   ; preds = %296, %._crit_edge.i.i.i.i192
-  %297 = phi i64 [ %286, %._crit_edge.i.i.i.i192 ], [ %.pre6.i.i.i.i199, %296 ]
-  %298 = phi ptr [ %.pre.i.i.i.i193, %._crit_edge.i.i.i.i192 ], [ %291, %296 ]
-  %299 = add i64 %297, 1
-  store i64 %299, ptr %33, align 8
-  %300 = getelementptr inbounds nuw i8, ptr %298, i64 %297
-  store i8 %285, ptr %300, align 1
-  %301 = lshr i32 %.045.i.i.i191, 7
-  %302 = add nuw nsw i64 %.06.i.i.i190, 1
-  %exitcond.not.i.i.i195 = icmp eq i64 %302, 5
-  br i1 %exitcond.not.i.i.i195, label %_ZN5o3dgc12BinaryStream12WriteFloat32EfNS_15O3DGCStreamTypeE.exit200, label %283, !llvm.loop !889
+_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i.i194:   ; preds = %293, %._crit_edge.i.i.i.i192
+  %294 = phi i64 [ %283, %._crit_edge.i.i.i.i192 ], [ %.pre6.i.i.i.i199, %293 ]
+  %295 = phi ptr [ %.pre.i.i.i.i193, %._crit_edge.i.i.i.i192 ], [ %288, %293 ]
+  %296 = add i64 %294, 1
+  store i64 %296, ptr %33, align 8
+  %297 = getelementptr inbounds nuw i8, ptr %295, i64 %294
+  store i8 %282, ptr %297, align 1
+  %298 = lshr i32 %.045.i.i.i191, 7
+  %299 = add nuw nsw i64 %.06.i.i.i190, 1
+  %exitcond.not.i.i.i195 = icmp eq i64 %299, 5
+  br i1 %exitcond.not.i.i.i195, label %_ZN5o3dgc12BinaryStream12WriteFloat32EfNS_15O3DGCStreamTypeE.exit200, label %280, !llvm.loop !889
 
-303:                                              ; preds = %_ZN5o3dgc12BinaryStream12WriteFloat32EfNS_15O3DGCStreamTypeE.exit189
-  tail call void @_ZN5o3dgc12BinaryStream15WriteFloat32BinEf(ptr noundef nonnull align 8 dereferenceable(28) %3, float noundef %278)
+300:                                              ; preds = %_ZN5o3dgc12BinaryStream12WriteFloat32EfNS_15O3DGCStreamTypeE.exit189
+  tail call void @_ZN5o3dgc12BinaryStream15WriteFloat32BinEf(ptr noundef nonnull align 8 dereferenceable(28) %3, float noundef %275)
   br label %_ZN5o3dgc12BinaryStream12WriteFloat32EfNS_15O3DGCStreamTypeE.exit200
 
-_ZN5o3dgc12BinaryStream12WriteFloat32EfNS_15O3DGCStreamTypeE.exit200: ; preds = %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i.i194, %303
+_ZN5o3dgc12BinaryStream12WriteFloat32EfNS_15O3DGCStreamTypeE.exit200: ; preds = %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i.i194, %300
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 3
-  br i1 %exitcond.not, label %244, label %249, !llvm.loop !890
+  br i1 %exitcond.not, label %241, label %246, !llvm.loop !890
 
-304:                                              ; preds = %244, %_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit167
-  %305 = load i64, ptr %132, align 8
-  %.not110 = icmp eq i64 %305, 0
-  br i1 %.not110, label %393, label %306
+301:                                              ; preds = %241, %_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit167
+  %302 = load i64, ptr %129, align 8
+  %.not110 = icmp eq i64 %302, 0
+  br i1 %.not110, label %390, label %303
 
-306:                                              ; preds = %304
-  %307 = load i32, ptr %7, align 8
-  %308 = icmp eq i32 %307, 1
-  br i1 %308, label %309, label %328
+303:                                              ; preds = %301
+  %304 = load i32, ptr %7, align 8
+  %305 = icmp eq i32 %304, 1
+  br i1 %305, label %306, label %325
 
-309:                                              ; preds = %306
-  %310 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  br label %311
+306:                                              ; preds = %303
+  %307 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  br label %308
 
-311:                                              ; preds = %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i205, %309
-  %.06.i.i201 = phi i64 [ 0, %309 ], [ %327, %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i205 ]
-  %312 = load i64, ptr %33, align 8
-  %313 = load i64, ptr %310, align 8
-  %314 = icmp eq i64 %312, %313
-  br i1 %314, label %315, label %._crit_edge.i.i.i203
+308:                                              ; preds = %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i205, %306
+  %.06.i.i201 = phi i64 [ 0, %306 ], [ %324, %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i205 ]
+  %309 = load i64, ptr %33, align 8
+  %310 = load i64, ptr %307, align 8
+  %311 = icmp eq i64 %309, %310
+  br i1 %311, label %312, label %._crit_edge.i.i.i203
 
-._crit_edge.i.i.i203:                             ; preds = %311
+._crit_edge.i.i.i203:                             ; preds = %308
   %.pre.i.i.i204 = load ptr, ptr %3, align 8
   br label %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i205
 
-315:                                              ; preds = %311
-  %316 = shl i64 %312, 1
-  %spec.select.i.i.i207 = tail call i64 @llvm.umax.i64(i64 %316, i64 32)
-  store i64 %spec.select.i.i.i207, ptr %310, align 8
-  %317 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %spec.select.i.i.i207) #35
-  %.not.i.i.i208 = icmp eq i64 %312, 0
-  br i1 %.not.i.i.i208, label %322, label %318
+312:                                              ; preds = %308
+  %313 = shl i64 %309, 1
+  %spec.select.i.i.i207 = tail call i64 @llvm.umax.i64(i64 %313, i64 32)
+  store i64 %spec.select.i.i.i207, ptr %307, align 8
+  %314 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %spec.select.i.i.i207) #35
+  %.not.i.i.i208 = icmp eq i64 %309, 0
+  br i1 %.not.i.i.i208, label %319, label %315
+
+315:                                              ; preds = %312
+  %316 = load ptr, ptr %3, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %314, ptr align 1 %316, i64 %309, i1 false)
+  %317 = icmp eq ptr %316, null
+  br i1 %317, label %319, label %318
 
 318:                                              ; preds = %315
-  %319 = load ptr, ptr %3, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %317, ptr align 1 %319, i64 %312, i1 false)
-  %320 = icmp eq ptr %319, null
-  br i1 %320, label %322, label %321
-
-321:                                              ; preds = %318
-  tail call void @_ZdaPv(ptr noundef nonnull %319) #33
+  tail call void @_ZdaPv(ptr noundef nonnull %316) #33
   %.pre6.pre.i.i.i209 = load i64, ptr %33, align 8
-  br label %322
+  br label %319
 
-322:                                              ; preds = %321, %318, %315
-  %.pre6.i.i.i210 = phi i64 [ %312, %318 ], [ %.pre6.pre.i.i.i209, %321 ], [ 0, %315 ]
-  store ptr %317, ptr %3, align 8
+319:                                              ; preds = %318, %315, %312
+  %.pre6.i.i.i210 = phi i64 [ %309, %315 ], [ %.pre6.pre.i.i.i209, %318 ], [ 0, %312 ]
+  store ptr %314, ptr %3, align 8
   br label %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i205
 
-_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i205:     ; preds = %322, %._crit_edge.i.i.i203
-  %323 = phi i64 [ %312, %._crit_edge.i.i.i203 ], [ %.pre6.i.i.i210, %322 ]
-  %324 = phi ptr [ %.pre.i.i.i204, %._crit_edge.i.i.i203 ], [ %317, %322 ]
-  %325 = add i64 %323, 1
-  store i64 %325, ptr %33, align 8
-  %326 = getelementptr inbounds nuw i8, ptr %324, i64 %323
-  store i8 0, ptr %326, align 1
-  %327 = add nuw nsw i64 %.06.i.i201, 1
-  %exitcond.not.i.i206 = icmp eq i64 %327, 5
-  br i1 %exitcond.not.i.i206, label %_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit211, label %311, !llvm.loop !889
+_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i205:     ; preds = %319, %._crit_edge.i.i.i203
+  %320 = phi i64 [ %309, %._crit_edge.i.i.i203 ], [ %.pre6.i.i.i210, %319 ]
+  %321 = phi ptr [ %.pre.i.i.i204, %._crit_edge.i.i.i203 ], [ %314, %319 ]
+  %322 = add i64 %320, 1
+  store i64 %322, ptr %33, align 8
+  %323 = getelementptr inbounds nuw i8, ptr %321, i64 %320
+  store i8 0, ptr %323, align 1
+  %324 = add nuw nsw i64 %.06.i.i201, 1
+  %exitcond.not.i.i206 = icmp eq i64 %324, 5
+  br i1 %exitcond.not.i.i206, label %_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit211, label %308, !llvm.loop !889
 
-328:                                              ; preds = %306
+325:                                              ; preds = %303
   tail call void @_ZN5o3dgc12BinaryStream14WriteUInt32BinEm(ptr noundef nonnull align 8 dereferenceable(28) %3, i64 noundef 0)
   br label %_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit211
 
-_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit211: ; preds = %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i205, %328
-  %329 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  %330 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %331 = getelementptr inbounds nuw i8, ptr %2, i64 76
-  br label %338
+_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit211: ; preds = %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i205, %325
+  %326 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  %327 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %328 = getelementptr inbounds nuw i8, ptr %2, i64 76
+  br label %335
 
-332:                                              ; preds = %_ZN5o3dgc12BinaryStream12WriteFloat32EfNS_15O3DGCStreamTypeE.exit233
-  %333 = load i32, ptr %7, align 8
-  tail call void @_ZN5o3dgc12BinaryStream10WriteUCharEhNS_15O3DGCStreamTypeE(ptr noundef nonnull align 8 dereferenceable(28) %3, i8 noundef zeroext 1, i32 noundef %333)
-  %334 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %335 = load i64, ptr %334, align 8
-  %336 = trunc i64 %335 to i8
-  %337 = load i32, ptr %7, align 8
-  tail call void @_ZN5o3dgc12BinaryStream10WriteUCharEhNS_15O3DGCStreamTypeE(ptr noundef nonnull align 8 dereferenceable(28) %3, i8 noundef zeroext %336, i32 noundef %337)
-  br label %393
+329:                                              ; preds = %_ZN5o3dgc12BinaryStream12WriteFloat32EfNS_15O3DGCStreamTypeE.exit233
+  %330 = load i32, ptr %7, align 8
+  tail call void @_ZN5o3dgc12BinaryStream10WriteUCharEhNS_15O3DGCStreamTypeE(ptr noundef nonnull align 8 dereferenceable(28) %3, i8 noundef zeroext 1, i32 noundef %330)
+  %331 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %332 = load i64, ptr %331, align 8
+  %333 = trunc i64 %332 to i8
+  %334 = load i32, ptr %7, align 8
+  tail call void @_ZN5o3dgc12BinaryStream10WriteUCharEhNS_15O3DGCStreamTypeE(ptr noundef nonnull align 8 dereferenceable(28) %3, i8 noundef zeroext %333, i32 noundef %334)
+  br label %390
 
-338:                                              ; preds = %_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit211, %_ZN5o3dgc12BinaryStream12WriteFloat32EfNS_15O3DGCStreamTypeE.exit233
+335:                                              ; preds = %_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit211, %_ZN5o3dgc12BinaryStream12WriteFloat32EfNS_15O3DGCStreamTypeE.exit233
   %indvars.iv317 = phi i64 [ 0, %_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit211 ], [ %indvars.iv.next318, %_ZN5o3dgc12BinaryStream12WriteFloat32EfNS_15O3DGCStreamTypeE.exit233 ]
-  %339 = getelementptr inbounds nuw [3 x float], ptr %329, i64 0, i64 %indvars.iv317
-  %340 = load float, ptr %339, align 4
-  %341 = load i32, ptr %7, align 8
-  %342 = icmp eq i32 %341, 1
-  br i1 %342, label %343, label %365
+  %336 = getelementptr inbounds nuw [3 x float], ptr %326, i64 0, i64 %indvars.iv317
+  %337 = load float, ptr %336, align 4
+  %338 = load i32, ptr %7, align 8
+  %339 = icmp eq i32 %338, 1
+  br i1 %339, label %340, label %362
 
-343:                                              ; preds = %338
-  %344 = bitcast float %340 to i32
-  br label %345
+340:                                              ; preds = %335
+  %341 = bitcast float %337 to i32
+  br label %342
 
-345:                                              ; preds = %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i.i216, %343
-  %.06.i.i.i212 = phi i64 [ 0, %343 ], [ %364, %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i.i216 ]
-  %.045.i.i.i213 = phi i32 [ %344, %343 ], [ %363, %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i.i216 ]
-  %346 = trunc i32 %.045.i.i.i213 to i8
-  %347 = and i8 %346, 127
-  %348 = load i64, ptr %33, align 8
-  %349 = load i64, ptr %330, align 8
-  %350 = icmp eq i64 %348, %349
-  br i1 %350, label %351, label %._crit_edge.i.i.i.i214
+342:                                              ; preds = %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i.i216, %340
+  %.06.i.i.i212 = phi i64 [ 0, %340 ], [ %361, %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i.i216 ]
+  %.045.i.i.i213 = phi i32 [ %341, %340 ], [ %360, %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i.i216 ]
+  %343 = trunc i32 %.045.i.i.i213 to i8
+  %344 = and i8 %343, 127
+  %345 = load i64, ptr %33, align 8
+  %346 = load i64, ptr %327, align 8
+  %347 = icmp eq i64 %345, %346
+  br i1 %347, label %348, label %._crit_edge.i.i.i.i214
 
-._crit_edge.i.i.i.i214:                           ; preds = %345
+._crit_edge.i.i.i.i214:                           ; preds = %342
   %.pre.i.i.i.i215 = load ptr, ptr %3, align 8
   br label %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i.i216
 
-351:                                              ; preds = %345
-  %352 = shl i64 %348, 1
-  %spec.select.i.i.i.i218 = tail call i64 @llvm.umax.i64(i64 %352, i64 32)
-  store i64 %spec.select.i.i.i.i218, ptr %330, align 8
-  %353 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %spec.select.i.i.i.i218) #35
-  %.not.i.i.i.i219 = icmp eq i64 %348, 0
-  br i1 %.not.i.i.i.i219, label %358, label %354
+348:                                              ; preds = %342
+  %349 = shl i64 %345, 1
+  %spec.select.i.i.i.i218 = tail call i64 @llvm.umax.i64(i64 %349, i64 32)
+  store i64 %spec.select.i.i.i.i218, ptr %327, align 8
+  %350 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %spec.select.i.i.i.i218) #35
+  %.not.i.i.i.i219 = icmp eq i64 %345, 0
+  br i1 %.not.i.i.i.i219, label %355, label %351
+
+351:                                              ; preds = %348
+  %352 = load ptr, ptr %3, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %350, ptr align 1 %352, i64 %345, i1 false)
+  %353 = icmp eq ptr %352, null
+  br i1 %353, label %355, label %354
 
 354:                                              ; preds = %351
-  %355 = load ptr, ptr %3, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %353, ptr align 1 %355, i64 %348, i1 false)
-  %356 = icmp eq ptr %355, null
-  br i1 %356, label %358, label %357
-
-357:                                              ; preds = %354
-  tail call void @_ZdaPv(ptr noundef nonnull %355) #33
+  tail call void @_ZdaPv(ptr noundef nonnull %352) #33
   %.pre6.pre.i.i.i.i220 = load i64, ptr %33, align 8
-  br label %358
+  br label %355
 
-358:                                              ; preds = %357, %354, %351
-  %.pre6.i.i.i.i221 = phi i64 [ %348, %354 ], [ %.pre6.pre.i.i.i.i220, %357 ], [ 0, %351 ]
-  store ptr %353, ptr %3, align 8
+355:                                              ; preds = %354, %351, %348
+  %.pre6.i.i.i.i221 = phi i64 [ %345, %351 ], [ %.pre6.pre.i.i.i.i220, %354 ], [ 0, %348 ]
+  store ptr %350, ptr %3, align 8
   br label %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i.i216
 
-_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i.i216:   ; preds = %358, %._crit_edge.i.i.i.i214
-  %359 = phi i64 [ %348, %._crit_edge.i.i.i.i214 ], [ %.pre6.i.i.i.i221, %358 ]
-  %360 = phi ptr [ %.pre.i.i.i.i215, %._crit_edge.i.i.i.i214 ], [ %353, %358 ]
-  %361 = add i64 %359, 1
-  store i64 %361, ptr %33, align 8
-  %362 = getelementptr inbounds nuw i8, ptr %360, i64 %359
-  store i8 %347, ptr %362, align 1
-  %363 = lshr i32 %.045.i.i.i213, 7
-  %364 = add nuw nsw i64 %.06.i.i.i212, 1
-  %exitcond.not.i.i.i217 = icmp eq i64 %364, 5
-  br i1 %exitcond.not.i.i.i217, label %_ZN5o3dgc12BinaryStream12WriteFloat32EfNS_15O3DGCStreamTypeE.exit222, label %345, !llvm.loop !889
+_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i.i216:   ; preds = %355, %._crit_edge.i.i.i.i214
+  %356 = phi i64 [ %345, %._crit_edge.i.i.i.i214 ], [ %.pre6.i.i.i.i221, %355 ]
+  %357 = phi ptr [ %.pre.i.i.i.i215, %._crit_edge.i.i.i.i214 ], [ %350, %355 ]
+  %358 = add i64 %356, 1
+  store i64 %358, ptr %33, align 8
+  %359 = getelementptr inbounds nuw i8, ptr %357, i64 %356
+  store i8 %344, ptr %359, align 1
+  %360 = lshr i32 %.045.i.i.i213, 7
+  %361 = add nuw nsw i64 %.06.i.i.i212, 1
+  %exitcond.not.i.i.i217 = icmp eq i64 %361, 5
+  br i1 %exitcond.not.i.i.i217, label %_ZN5o3dgc12BinaryStream12WriteFloat32EfNS_15O3DGCStreamTypeE.exit222, label %342, !llvm.loop !889
 
-365:                                              ; preds = %338
-  tail call void @_ZN5o3dgc12BinaryStream15WriteFloat32BinEf(ptr noundef nonnull align 8 dereferenceable(28) %3, float noundef %340)
+362:                                              ; preds = %335
+  tail call void @_ZN5o3dgc12BinaryStream15WriteFloat32BinEf(ptr noundef nonnull align 8 dereferenceable(28) %3, float noundef %337)
   br label %_ZN5o3dgc12BinaryStream12WriteFloat32EfNS_15O3DGCStreamTypeE.exit222
 
-_ZN5o3dgc12BinaryStream12WriteFloat32EfNS_15O3DGCStreamTypeE.exit222: ; preds = %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i.i216, %365
-  %366 = getelementptr inbounds nuw [3 x float], ptr %331, i64 0, i64 %indvars.iv317
-  %367 = load float, ptr %366, align 4
-  %368 = load i32, ptr %7, align 8
-  %369 = icmp eq i32 %368, 1
-  br i1 %369, label %370, label %392
+_ZN5o3dgc12BinaryStream12WriteFloat32EfNS_15O3DGCStreamTypeE.exit222: ; preds = %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i.i216, %362
+  %363 = getelementptr inbounds nuw [3 x float], ptr %328, i64 0, i64 %indvars.iv317
+  %364 = load float, ptr %363, align 4
+  %365 = load i32, ptr %7, align 8
+  %366 = icmp eq i32 %365, 1
+  br i1 %366, label %367, label %389
 
-370:                                              ; preds = %_ZN5o3dgc12BinaryStream12WriteFloat32EfNS_15O3DGCStreamTypeE.exit222
-  %371 = bitcast float %367 to i32
-  br label %372
+367:                                              ; preds = %_ZN5o3dgc12BinaryStream12WriteFloat32EfNS_15O3DGCStreamTypeE.exit222
+  %368 = bitcast float %364 to i32
+  br label %369
 
-372:                                              ; preds = %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i.i227, %370
-  %.06.i.i.i223 = phi i64 [ 0, %370 ], [ %391, %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i.i227 ]
-  %.045.i.i.i224 = phi i32 [ %371, %370 ], [ %390, %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i.i227 ]
-  %373 = trunc i32 %.045.i.i.i224 to i8
-  %374 = and i8 %373, 127
-  %375 = load i64, ptr %33, align 8
-  %376 = load i64, ptr %330, align 8
-  %377 = icmp eq i64 %375, %376
-  br i1 %377, label %378, label %._crit_edge.i.i.i.i225
+369:                                              ; preds = %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i.i227, %367
+  %.06.i.i.i223 = phi i64 [ 0, %367 ], [ %388, %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i.i227 ]
+  %.045.i.i.i224 = phi i32 [ %368, %367 ], [ %387, %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i.i227 ]
+  %370 = trunc i32 %.045.i.i.i224 to i8
+  %371 = and i8 %370, 127
+  %372 = load i64, ptr %33, align 8
+  %373 = load i64, ptr %327, align 8
+  %374 = icmp eq i64 %372, %373
+  br i1 %374, label %375, label %._crit_edge.i.i.i.i225
 
-._crit_edge.i.i.i.i225:                           ; preds = %372
+._crit_edge.i.i.i.i225:                           ; preds = %369
   %.pre.i.i.i.i226 = load ptr, ptr %3, align 8
   br label %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i.i227
 
-378:                                              ; preds = %372
-  %379 = shl i64 %375, 1
-  %spec.select.i.i.i.i229 = tail call i64 @llvm.umax.i64(i64 %379, i64 32)
-  store i64 %spec.select.i.i.i.i229, ptr %330, align 8
-  %380 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %spec.select.i.i.i.i229) #35
-  %.not.i.i.i.i230 = icmp eq i64 %375, 0
-  br i1 %.not.i.i.i.i230, label %385, label %381
+375:                                              ; preds = %369
+  %376 = shl i64 %372, 1
+  %spec.select.i.i.i.i229 = tail call i64 @llvm.umax.i64(i64 %376, i64 32)
+  store i64 %spec.select.i.i.i.i229, ptr %327, align 8
+  %377 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %spec.select.i.i.i.i229) #35
+  %.not.i.i.i.i230 = icmp eq i64 %372, 0
+  br i1 %.not.i.i.i.i230, label %382, label %378
+
+378:                                              ; preds = %375
+  %379 = load ptr, ptr %3, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %377, ptr align 1 %379, i64 %372, i1 false)
+  %380 = icmp eq ptr %379, null
+  br i1 %380, label %382, label %381
 
 381:                                              ; preds = %378
-  %382 = load ptr, ptr %3, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %380, ptr align 1 %382, i64 %375, i1 false)
-  %383 = icmp eq ptr %382, null
-  br i1 %383, label %385, label %384
-
-384:                                              ; preds = %381
-  tail call void @_ZdaPv(ptr noundef nonnull %382) #33
+  tail call void @_ZdaPv(ptr noundef nonnull %379) #33
   %.pre6.pre.i.i.i.i231 = load i64, ptr %33, align 8
-  br label %385
+  br label %382
 
-385:                                              ; preds = %384, %381, %378
-  %.pre6.i.i.i.i232 = phi i64 [ %375, %381 ], [ %.pre6.pre.i.i.i.i231, %384 ], [ 0, %378 ]
-  store ptr %380, ptr %3, align 8
+382:                                              ; preds = %381, %378, %375
+  %.pre6.i.i.i.i232 = phi i64 [ %372, %378 ], [ %.pre6.pre.i.i.i.i231, %381 ], [ 0, %375 ]
+  store ptr %377, ptr %3, align 8
   br label %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i.i227
 
-_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i.i227:   ; preds = %385, %._crit_edge.i.i.i.i225
-  %386 = phi i64 [ %375, %._crit_edge.i.i.i.i225 ], [ %.pre6.i.i.i.i232, %385 ]
-  %387 = phi ptr [ %.pre.i.i.i.i226, %._crit_edge.i.i.i.i225 ], [ %380, %385 ]
-  %388 = add i64 %386, 1
-  store i64 %388, ptr %33, align 8
-  %389 = getelementptr inbounds nuw i8, ptr %387, i64 %386
-  store i8 %374, ptr %389, align 1
-  %390 = lshr i32 %.045.i.i.i224, 7
-  %391 = add nuw nsw i64 %.06.i.i.i223, 1
-  %exitcond.not.i.i.i228 = icmp eq i64 %391, 5
-  br i1 %exitcond.not.i.i.i228, label %_ZN5o3dgc12BinaryStream12WriteFloat32EfNS_15O3DGCStreamTypeE.exit233, label %372, !llvm.loop !889
+_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i.i227:   ; preds = %382, %._crit_edge.i.i.i.i225
+  %383 = phi i64 [ %372, %._crit_edge.i.i.i.i225 ], [ %.pre6.i.i.i.i232, %382 ]
+  %384 = phi ptr [ %.pre.i.i.i.i226, %._crit_edge.i.i.i.i225 ], [ %377, %382 ]
+  %385 = add i64 %383, 1
+  store i64 %385, ptr %33, align 8
+  %386 = getelementptr inbounds nuw i8, ptr %384, i64 %383
+  store i8 %371, ptr %386, align 1
+  %387 = lshr i32 %.045.i.i.i224, 7
+  %388 = add nuw nsw i64 %.06.i.i.i223, 1
+  %exitcond.not.i.i.i228 = icmp eq i64 %388, 5
+  br i1 %exitcond.not.i.i.i228, label %_ZN5o3dgc12BinaryStream12WriteFloat32EfNS_15O3DGCStreamTypeE.exit233, label %369, !llvm.loop !889
 
-392:                                              ; preds = %_ZN5o3dgc12BinaryStream12WriteFloat32EfNS_15O3DGCStreamTypeE.exit222
-  tail call void @_ZN5o3dgc12BinaryStream15WriteFloat32BinEf(ptr noundef nonnull align 8 dereferenceable(28) %3, float noundef %367)
+389:                                              ; preds = %_ZN5o3dgc12BinaryStream12WriteFloat32EfNS_15O3DGCStreamTypeE.exit222
+  tail call void @_ZN5o3dgc12BinaryStream15WriteFloat32BinEf(ptr noundef nonnull align 8 dereferenceable(28) %3, float noundef %364)
   br label %_ZN5o3dgc12BinaryStream12WriteFloat32EfNS_15O3DGCStreamTypeE.exit233
 
-_ZN5o3dgc12BinaryStream12WriteFloat32EfNS_15O3DGCStreamTypeE.exit233: ; preds = %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i.i227, %392
+_ZN5o3dgc12BinaryStream12WriteFloat32EfNS_15O3DGCStreamTypeE.exit233: ; preds = %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i.i227, %389
   %indvars.iv.next318 = add nuw nsw i64 %indvars.iv317, 1
   %exitcond320.not = icmp eq i64 %indvars.iv.next318, 3
-  br i1 %exitcond320.not, label %332, label %338, !llvm.loop !891
+  br i1 %exitcond320.not, label %329, label %335, !llvm.loop !891
 
-393:                                              ; preds = %332, %304
-  %394 = load i64, ptr %159, align 8
-  %.not309 = icmp eq i64 %394, 0
+390:                                              ; preds = %329, %301
+  %391 = load i64, ptr %156, align 8
+  %.not309 = icmp eq i64 %391, 0
   br i1 %.not309, label %.preheader, label %.lr.ph305
 
-.lr.ph305:                                        ; preds = %393
-  %395 = getelementptr inbounds nuw i8, ptr %2, i64 2168
-  %396 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %397 = getelementptr inbounds nuw i8, ptr %2, i64 6264
-  %398 = getelementptr inbounds nuw i8, ptr %2, i64 10360
-  %399 = getelementptr inbounds nuw i8, ptr %2, i64 43128
-  %400 = getelementptr inbounds nuw i8, ptr %2, i64 120
-  %401 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  br label %407
+.lr.ph305:                                        ; preds = %390
+  %392 = getelementptr inbounds nuw i8, ptr %2, i64 2168
+  %393 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %394 = getelementptr inbounds nuw i8, ptr %2, i64 6264
+  %395 = getelementptr inbounds nuw i8, ptr %2, i64 10360
+  %396 = getelementptr inbounds nuw i8, ptr %2, i64 43128
+  %397 = getelementptr inbounds nuw i8, ptr %2, i64 120
+  %398 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  br label %404
 
-.preheader:                                       ; preds = %524, %393
-  %402 = load i64, ptr %186, align 8
-  %.not311 = icmp eq i64 %402, 0
+.preheader:                                       ; preds = %521, %390
+  %399 = load i64, ptr %183, align 8
+  %.not311 = icmp eq i64 %399, 0
   br i1 %.not311, label %._crit_edge308, label %.lr.ph307
 
 .lr.ph307:                                        ; preds = %.preheader
-  %403 = getelementptr inbounds nuw i8, ptr %2, i64 4216
-  %404 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %405 = getelementptr inbounds nuw i8, ptr %2, i64 8312
-  %406 = getelementptr inbounds nuw i8, ptr %2, i64 1144
-  br label %528
+  %400 = getelementptr inbounds nuw i8, ptr %2, i64 4216
+  %401 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %402 = getelementptr inbounds nuw i8, ptr %2, i64 8312
+  %403 = getelementptr inbounds nuw i8, ptr %2, i64 1144
+  br label %525
 
-407:                                              ; preds = %.lr.ph305, %524
-  %.0108303 = phi i64 [ 0, %.lr.ph305 ], [ %525, %524 ]
-  %408 = getelementptr inbounds nuw [256 x i64], ptr %395, i64 0, i64 %.0108303
-  %409 = load i64, ptr %408, align 8
-  %410 = load i32, ptr %7, align 8
-  %411 = icmp eq i32 %410, 1
-  br i1 %411, label %.preheader315, label %431
+404:                                              ; preds = %.lr.ph305, %521
+  %.0108303 = phi i64 [ 0, %.lr.ph305 ], [ %522, %521 ]
+  %405 = getelementptr inbounds nuw [256 x i64], ptr %392, i64 0, i64 %.0108303
+  %406 = load i64, ptr %405, align 8
+  %407 = load i32, ptr %7, align 8
+  %408 = icmp eq i32 %407, 1
+  br i1 %408, label %.preheader315, label %428
 
-.preheader315:                                    ; preds = %407, %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i238
-  %.06.i.i234 = phi i64 [ %430, %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i238 ], [ 0, %407 ]
-  %.045.i.i235 = phi i64 [ %429, %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i238 ], [ %409, %407 ]
-  %412 = trunc i64 %.045.i.i235 to i8
-  %413 = and i8 %412, 127
-  %414 = load i64, ptr %33, align 8
-  %415 = load i64, ptr %396, align 8
-  %416 = icmp eq i64 %414, %415
-  br i1 %416, label %417, label %._crit_edge.i.i.i236
+.preheader315:                                    ; preds = %404, %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i238
+  %.06.i.i234 = phi i64 [ %427, %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i238 ], [ 0, %404 ]
+  %.045.i.i235 = phi i64 [ %426, %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i238 ], [ %406, %404 ]
+  %409 = trunc i64 %.045.i.i235 to i8
+  %410 = and i8 %409, 127
+  %411 = load i64, ptr %33, align 8
+  %412 = load i64, ptr %393, align 8
+  %413 = icmp eq i64 %411, %412
+  br i1 %413, label %414, label %._crit_edge.i.i.i236
 
 ._crit_edge.i.i.i236:                             ; preds = %.preheader315
   %.pre.i.i.i237 = load ptr, ptr %3, align 8
   br label %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i238
 
-417:                                              ; preds = %.preheader315
-  %418 = shl i64 %414, 1
-  %spec.select.i.i.i240 = tail call i64 @llvm.umax.i64(i64 %418, i64 32)
-  store i64 %spec.select.i.i.i240, ptr %396, align 8
-  %419 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %spec.select.i.i.i240) #35
-  %.not.i.i.i241 = icmp eq i64 %414, 0
-  br i1 %.not.i.i.i241, label %424, label %420
+414:                                              ; preds = %.preheader315
+  %415 = shl i64 %411, 1
+  %spec.select.i.i.i240 = tail call i64 @llvm.umax.i64(i64 %415, i64 32)
+  store i64 %spec.select.i.i.i240, ptr %393, align 8
+  %416 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %spec.select.i.i.i240) #35
+  %.not.i.i.i241 = icmp eq i64 %411, 0
+  br i1 %.not.i.i.i241, label %421, label %417
+
+417:                                              ; preds = %414
+  %418 = load ptr, ptr %3, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %416, ptr align 1 %418, i64 %411, i1 false)
+  %419 = icmp eq ptr %418, null
+  br i1 %419, label %421, label %420
 
 420:                                              ; preds = %417
-  %421 = load ptr, ptr %3, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %419, ptr align 1 %421, i64 %414, i1 false)
-  %422 = icmp eq ptr %421, null
-  br i1 %422, label %424, label %423
-
-423:                                              ; preds = %420
-  tail call void @_ZdaPv(ptr noundef nonnull %421) #33
+  tail call void @_ZdaPv(ptr noundef nonnull %418) #33
   %.pre6.pre.i.i.i242 = load i64, ptr %33, align 8
-  br label %424
+  br label %421
 
-424:                                              ; preds = %423, %420, %417
-  %.pre6.i.i.i243 = phi i64 [ %414, %420 ], [ %.pre6.pre.i.i.i242, %423 ], [ 0, %417 ]
-  store ptr %419, ptr %3, align 8
+421:                                              ; preds = %420, %417, %414
+  %.pre6.i.i.i243 = phi i64 [ %411, %417 ], [ %.pre6.pre.i.i.i242, %420 ], [ 0, %414 ]
+  store ptr %416, ptr %3, align 8
   br label %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i238
 
-_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i238:     ; preds = %424, %._crit_edge.i.i.i236
-  %425 = phi i64 [ %414, %._crit_edge.i.i.i236 ], [ %.pre6.i.i.i243, %424 ]
-  %426 = phi ptr [ %.pre.i.i.i237, %._crit_edge.i.i.i236 ], [ %419, %424 ]
-  %427 = add i64 %425, 1
-  store i64 %427, ptr %33, align 8
-  %428 = getelementptr inbounds nuw i8, ptr %426, i64 %425
-  store i8 %413, ptr %428, align 1
-  %429 = lshr i64 %.045.i.i235, 7
-  %430 = add nuw nsw i64 %.06.i.i234, 1
-  %exitcond.not.i.i239 = icmp eq i64 %430, 5
+_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i238:     ; preds = %421, %._crit_edge.i.i.i236
+  %422 = phi i64 [ %411, %._crit_edge.i.i.i236 ], [ %.pre6.i.i.i243, %421 ]
+  %423 = phi ptr [ %.pre.i.i.i237, %._crit_edge.i.i.i236 ], [ %416, %421 ]
+  %424 = add i64 %422, 1
+  store i64 %424, ptr %33, align 8
+  %425 = getelementptr inbounds nuw i8, ptr %423, i64 %422
+  store i8 %410, ptr %425, align 1
+  %426 = lshr i64 %.045.i.i235, 7
+  %427 = add nuw nsw i64 %.06.i.i234, 1
+  %exitcond.not.i.i239 = icmp eq i64 %427, 5
   br i1 %exitcond.not.i.i239, label %_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit244, label %.preheader315, !llvm.loop !889
 
-431:                                              ; preds = %407
-  tail call void @_ZN5o3dgc12BinaryStream14WriteUInt32BinEm(ptr noundef nonnull align 8 dereferenceable(28) %3, i64 noundef %409)
+428:                                              ; preds = %404
+  tail call void @_ZN5o3dgc12BinaryStream14WriteUInt32BinEm(ptr noundef nonnull align 8 dereferenceable(28) %3, i64 noundef %406)
   br label %_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit244
 
-_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit244: ; preds = %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i238, %431
-  %432 = load i64, ptr %408, align 8
-  %.not112 = icmp eq i64 %432, 0
-  br i1 %.not112, label %524, label %433
+_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit244: ; preds = %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i238, %428
+  %429 = load i64, ptr %405, align 8
+  %.not112 = icmp eq i64 %429, 0
+  br i1 %.not112, label %521, label %430
 
-433:                                              ; preds = %_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit244
-  %434 = load i32, ptr %7, align 8
-  %435 = icmp eq i32 %434, 1
-  br i1 %435, label %.preheader314, label %452
+430:                                              ; preds = %_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit244
+  %431 = load i32, ptr %7, align 8
+  %432 = icmp eq i32 %431, 1
+  br i1 %432, label %.preheader314, label %449
 
-.preheader314:                                    ; preds = %433, %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i249
-  %.06.i.i245 = phi i64 [ %451, %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i249 ], [ 0, %433 ]
-  %436 = load i64, ptr %33, align 8
-  %437 = load i64, ptr %396, align 8
-  %438 = icmp eq i64 %436, %437
-  br i1 %438, label %439, label %._crit_edge.i.i.i247
+.preheader314:                                    ; preds = %430, %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i249
+  %.06.i.i245 = phi i64 [ %448, %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i249 ], [ 0, %430 ]
+  %433 = load i64, ptr %33, align 8
+  %434 = load i64, ptr %393, align 8
+  %435 = icmp eq i64 %433, %434
+  br i1 %435, label %436, label %._crit_edge.i.i.i247
 
 ._crit_edge.i.i.i247:                             ; preds = %.preheader314
   %.pre.i.i.i248 = load ptr, ptr %3, align 8
   br label %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i249
 
-439:                                              ; preds = %.preheader314
-  %440 = shl i64 %436, 1
-  %spec.select.i.i.i251 = tail call i64 @llvm.umax.i64(i64 %440, i64 32)
-  store i64 %spec.select.i.i.i251, ptr %396, align 8
-  %441 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %spec.select.i.i.i251) #35
-  %.not.i.i.i252 = icmp eq i64 %436, 0
-  br i1 %.not.i.i.i252, label %446, label %442
+436:                                              ; preds = %.preheader314
+  %437 = shl i64 %433, 1
+  %spec.select.i.i.i251 = tail call i64 @llvm.umax.i64(i64 %437, i64 32)
+  store i64 %spec.select.i.i.i251, ptr %393, align 8
+  %438 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %spec.select.i.i.i251) #35
+  %.not.i.i.i252 = icmp eq i64 %433, 0
+  br i1 %.not.i.i.i252, label %443, label %439
+
+439:                                              ; preds = %436
+  %440 = load ptr, ptr %3, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %438, ptr align 1 %440, i64 %433, i1 false)
+  %441 = icmp eq ptr %440, null
+  br i1 %441, label %443, label %442
 
 442:                                              ; preds = %439
-  %443 = load ptr, ptr %3, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %441, ptr align 1 %443, i64 %436, i1 false)
-  %444 = icmp eq ptr %443, null
-  br i1 %444, label %446, label %445
-
-445:                                              ; preds = %442
-  tail call void @_ZdaPv(ptr noundef nonnull %443) #33
+  tail call void @_ZdaPv(ptr noundef nonnull %440) #33
   %.pre6.pre.i.i.i253 = load i64, ptr %33, align 8
-  br label %446
+  br label %443
 
-446:                                              ; preds = %445, %442, %439
-  %.pre6.i.i.i254 = phi i64 [ %436, %442 ], [ %.pre6.pre.i.i.i253, %445 ], [ 0, %439 ]
-  store ptr %441, ptr %3, align 8
+443:                                              ; preds = %442, %439, %436
+  %.pre6.i.i.i254 = phi i64 [ %433, %439 ], [ %.pre6.pre.i.i.i253, %442 ], [ 0, %436 ]
+  store ptr %438, ptr %3, align 8
   br label %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i249
 
-_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i249:     ; preds = %446, %._crit_edge.i.i.i247
-  %447 = phi i64 [ %436, %._crit_edge.i.i.i247 ], [ %.pre6.i.i.i254, %446 ]
-  %448 = phi ptr [ %.pre.i.i.i248, %._crit_edge.i.i.i247 ], [ %441, %446 ]
-  %449 = add i64 %447, 1
-  store i64 %449, ptr %33, align 8
-  %450 = getelementptr inbounds nuw i8, ptr %448, i64 %447
-  store i8 0, ptr %450, align 1
-  %451 = add nuw nsw i64 %.06.i.i245, 1
-  %exitcond.not.i.i250 = icmp eq i64 %451, 5
+_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i249:     ; preds = %443, %._crit_edge.i.i.i247
+  %444 = phi i64 [ %433, %._crit_edge.i.i.i247 ], [ %.pre6.i.i.i254, %443 ]
+  %445 = phi ptr [ %.pre.i.i.i248, %._crit_edge.i.i.i247 ], [ %438, %443 ]
+  %446 = add i64 %444, 1
+  store i64 %446, ptr %33, align 8
+  %447 = getelementptr inbounds nuw i8, ptr %445, i64 %444
+  store i8 0, ptr %447, align 1
+  %448 = add nuw nsw i64 %.06.i.i245, 1
+  %exitcond.not.i.i250 = icmp eq i64 %448, 5
   br i1 %exitcond.not.i.i250, label %_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit255, label %.preheader314, !llvm.loop !889
 
-452:                                              ; preds = %433
+449:                                              ; preds = %430
   tail call void @_ZN5o3dgc12BinaryStream14WriteUInt32BinEm(ptr noundef nonnull align 8 dereferenceable(28) %3, i64 noundef 0)
   br label %_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit255
 
-_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit255: ; preds = %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i249, %452
-  %453 = getelementptr inbounds nuw [256 x i64], ptr %397, i64 0, i64 %.0108303
-  %454 = load i64, ptr %453, align 8
-  %455 = trunc i64 %454 to i8
-  %456 = load i32, ptr %7, align 8
-  tail call void @_ZN5o3dgc12BinaryStream10WriteUCharEhNS_15O3DGCStreamTypeE(ptr noundef nonnull align 8 dereferenceable(28) %3, i8 noundef zeroext %455, i32 noundef %456)
-  %457 = and i64 %454, 255
-  %.not310 = icmp eq i64 %457, 0
+_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit255: ; preds = %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i249, %449
+  %450 = getelementptr inbounds nuw [256 x i64], ptr %394, i64 0, i64 %.0108303
+  %451 = load i64, ptr %450, align 8
+  %452 = trunc i64 %451 to i8
+  %453 = load i32, ptr %7, align 8
+  tail call void @_ZN5o3dgc12BinaryStream10WriteUCharEhNS_15O3DGCStreamTypeE(ptr noundef nonnull align 8 dereferenceable(28) %3, i8 noundef zeroext %452, i32 noundef %453)
+  %454 = and i64 %451, 255
+  %.not310 = icmp eq i64 %454, 0
   br i1 %.not310, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit255
-  %458 = shl i64 %.0108303, 5
-  %wide.trip.count = and i64 %454, 255
-  br label %468
+  %455 = shl i64 %.0108303, 5
+  %wide.trip.count = and i64 %451, 255
+  br label %465
 
 ._crit_edge:                                      ; preds = %_ZN5o3dgc12BinaryStream12WriteFloat32EfNS_15O3DGCStreamTypeE.exit277, %_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit255
-  %459 = load i32, ptr %7, align 8
-  tail call void @_ZN5o3dgc12BinaryStream10WriteUCharEhNS_15O3DGCStreamTypeE(ptr noundef nonnull align 8 dereferenceable(28) %3, i8 noundef zeroext 1, i32 noundef %459)
-  %460 = getelementptr inbounds nuw [256 x i32], ptr %400, i64 0, i64 %.0108303
-  %461 = load i32, ptr %460, align 4
-  %462 = trunc i32 %461 to i8
-  %463 = load i32, ptr %7, align 8
-  tail call void @_ZN5o3dgc12BinaryStream10WriteUCharEhNS_15O3DGCStreamTypeE(ptr noundef nonnull align 8 dereferenceable(28) %3, i8 noundef zeroext %462, i32 noundef %463)
-  %464 = getelementptr inbounds nuw [256 x i64], ptr %401, i64 0, i64 %.0108303
-  %465 = load i64, ptr %464, align 8
-  %466 = trunc i64 %465 to i8
-  %467 = load i32, ptr %7, align 8
-  tail call void @_ZN5o3dgc12BinaryStream10WriteUCharEhNS_15O3DGCStreamTypeE(ptr noundef nonnull align 8 dereferenceable(28) %3, i8 noundef zeroext %466, i32 noundef %467)
-  br label %524
+  %456 = load i32, ptr %7, align 8
+  tail call void @_ZN5o3dgc12BinaryStream10WriteUCharEhNS_15O3DGCStreamTypeE(ptr noundef nonnull align 8 dereferenceable(28) %3, i8 noundef zeroext 1, i32 noundef %456)
+  %457 = getelementptr inbounds nuw [256 x i32], ptr %397, i64 0, i64 %.0108303
+  %458 = load i32, ptr %457, align 4
+  %459 = trunc i32 %458 to i8
+  %460 = load i32, ptr %7, align 8
+  tail call void @_ZN5o3dgc12BinaryStream10WriteUCharEhNS_15O3DGCStreamTypeE(ptr noundef nonnull align 8 dereferenceable(28) %3, i8 noundef zeroext %459, i32 noundef %460)
+  %461 = getelementptr inbounds nuw [256 x i64], ptr %398, i64 0, i64 %.0108303
+  %462 = load i64, ptr %461, align 8
+  %463 = trunc i64 %462 to i8
+  %464 = load i32, ptr %7, align 8
+  tail call void @_ZN5o3dgc12BinaryStream10WriteUCharEhNS_15O3DGCStreamTypeE(ptr noundef nonnull align 8 dereferenceable(28) %3, i8 noundef zeroext %463, i32 noundef %464)
+  br label %521
 
-468:                                              ; preds = %.lr.ph, %_ZN5o3dgc12BinaryStream12WriteFloat32EfNS_15O3DGCStreamTypeE.exit277
+465:                                              ; preds = %.lr.ph, %_ZN5o3dgc12BinaryStream12WriteFloat32EfNS_15O3DGCStreamTypeE.exit277
   %indvars.iv321 = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next322, %_ZN5o3dgc12BinaryStream12WriteFloat32EfNS_15O3DGCStreamTypeE.exit277 ]
-  %469 = add i64 %458, %indvars.iv321
-  %470 = getelementptr inbounds nuw [8192 x float], ptr %398, i64 0, i64 %469
-  %471 = load float, ptr %470, align 4
-  %472 = load i32, ptr %7, align 8
-  %473 = icmp eq i32 %472, 1
-  br i1 %473, label %474, label %496
+  %466 = add i64 %455, %indvars.iv321
+  %467 = getelementptr inbounds nuw [8192 x float], ptr %395, i64 0, i64 %466
+  %468 = load float, ptr %467, align 4
+  %469 = load i32, ptr %7, align 8
+  %470 = icmp eq i32 %469, 1
+  br i1 %470, label %471, label %493
 
-474:                                              ; preds = %468
-  %475 = bitcast float %471 to i32
-  br label %476
+471:                                              ; preds = %465
+  %472 = bitcast float %468 to i32
+  br label %473
 
-476:                                              ; preds = %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i.i260, %474
-  %.06.i.i.i256 = phi i64 [ 0, %474 ], [ %495, %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i.i260 ]
-  %.045.i.i.i257 = phi i32 [ %475, %474 ], [ %494, %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i.i260 ]
-  %477 = trunc i32 %.045.i.i.i257 to i8
-  %478 = and i8 %477, 127
-  %479 = load i64, ptr %33, align 8
-  %480 = load i64, ptr %396, align 8
-  %481 = icmp eq i64 %479, %480
-  br i1 %481, label %482, label %._crit_edge.i.i.i.i258
+473:                                              ; preds = %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i.i260, %471
+  %.06.i.i.i256 = phi i64 [ 0, %471 ], [ %492, %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i.i260 ]
+  %.045.i.i.i257 = phi i32 [ %472, %471 ], [ %491, %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i.i260 ]
+  %474 = trunc i32 %.045.i.i.i257 to i8
+  %475 = and i8 %474, 127
+  %476 = load i64, ptr %33, align 8
+  %477 = load i64, ptr %393, align 8
+  %478 = icmp eq i64 %476, %477
+  br i1 %478, label %479, label %._crit_edge.i.i.i.i258
 
-._crit_edge.i.i.i.i258:                           ; preds = %476
+._crit_edge.i.i.i.i258:                           ; preds = %473
   %.pre.i.i.i.i259 = load ptr, ptr %3, align 8
   br label %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i.i260
 
-482:                                              ; preds = %476
-  %483 = shl i64 %479, 1
-  %spec.select.i.i.i.i262 = tail call i64 @llvm.umax.i64(i64 %483, i64 32)
-  store i64 %spec.select.i.i.i.i262, ptr %396, align 8
-  %484 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %spec.select.i.i.i.i262) #35
-  %.not.i.i.i.i263 = icmp eq i64 %479, 0
-  br i1 %.not.i.i.i.i263, label %489, label %485
+479:                                              ; preds = %473
+  %480 = shl i64 %476, 1
+  %spec.select.i.i.i.i262 = tail call i64 @llvm.umax.i64(i64 %480, i64 32)
+  store i64 %spec.select.i.i.i.i262, ptr %393, align 8
+  %481 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %spec.select.i.i.i.i262) #35
+  %.not.i.i.i.i263 = icmp eq i64 %476, 0
+  br i1 %.not.i.i.i.i263, label %486, label %482
+
+482:                                              ; preds = %479
+  %483 = load ptr, ptr %3, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %481, ptr align 1 %483, i64 %476, i1 false)
+  %484 = icmp eq ptr %483, null
+  br i1 %484, label %486, label %485
 
 485:                                              ; preds = %482
-  %486 = load ptr, ptr %3, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %484, ptr align 1 %486, i64 %479, i1 false)
-  %487 = icmp eq ptr %486, null
-  br i1 %487, label %489, label %488
-
-488:                                              ; preds = %485
-  tail call void @_ZdaPv(ptr noundef nonnull %486) #33
+  tail call void @_ZdaPv(ptr noundef nonnull %483) #33
   %.pre6.pre.i.i.i.i264 = load i64, ptr %33, align 8
-  br label %489
+  br label %486
 
-489:                                              ; preds = %488, %485, %482
-  %.pre6.i.i.i.i265 = phi i64 [ %479, %485 ], [ %.pre6.pre.i.i.i.i264, %488 ], [ 0, %482 ]
-  store ptr %484, ptr %3, align 8
+486:                                              ; preds = %485, %482, %479
+  %.pre6.i.i.i.i265 = phi i64 [ %476, %482 ], [ %.pre6.pre.i.i.i.i264, %485 ], [ 0, %479 ]
+  store ptr %481, ptr %3, align 8
   br label %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i.i260
 
-_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i.i260:   ; preds = %489, %._crit_edge.i.i.i.i258
-  %490 = phi i64 [ %479, %._crit_edge.i.i.i.i258 ], [ %.pre6.i.i.i.i265, %489 ]
-  %491 = phi ptr [ %.pre.i.i.i.i259, %._crit_edge.i.i.i.i258 ], [ %484, %489 ]
-  %492 = add i64 %490, 1
-  store i64 %492, ptr %33, align 8
-  %493 = getelementptr inbounds nuw i8, ptr %491, i64 %490
-  store i8 %478, ptr %493, align 1
-  %494 = lshr i32 %.045.i.i.i257, 7
-  %495 = add nuw nsw i64 %.06.i.i.i256, 1
-  %exitcond.not.i.i.i261 = icmp eq i64 %495, 5
-  br i1 %exitcond.not.i.i.i261, label %_ZN5o3dgc12BinaryStream12WriteFloat32EfNS_15O3DGCStreamTypeE.exit266, label %476, !llvm.loop !889
+_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i.i260:   ; preds = %486, %._crit_edge.i.i.i.i258
+  %487 = phi i64 [ %476, %._crit_edge.i.i.i.i258 ], [ %.pre6.i.i.i.i265, %486 ]
+  %488 = phi ptr [ %.pre.i.i.i.i259, %._crit_edge.i.i.i.i258 ], [ %481, %486 ]
+  %489 = add i64 %487, 1
+  store i64 %489, ptr %33, align 8
+  %490 = getelementptr inbounds nuw i8, ptr %488, i64 %487
+  store i8 %475, ptr %490, align 1
+  %491 = lshr i32 %.045.i.i.i257, 7
+  %492 = add nuw nsw i64 %.06.i.i.i256, 1
+  %exitcond.not.i.i.i261 = icmp eq i64 %492, 5
+  br i1 %exitcond.not.i.i.i261, label %_ZN5o3dgc12BinaryStream12WriteFloat32EfNS_15O3DGCStreamTypeE.exit266, label %473, !llvm.loop !889
 
-496:                                              ; preds = %468
-  tail call void @_ZN5o3dgc12BinaryStream15WriteFloat32BinEf(ptr noundef nonnull align 8 dereferenceable(28) %3, float noundef %471)
+493:                                              ; preds = %465
+  tail call void @_ZN5o3dgc12BinaryStream15WriteFloat32BinEf(ptr noundef nonnull align 8 dereferenceable(28) %3, float noundef %468)
   br label %_ZN5o3dgc12BinaryStream12WriteFloat32EfNS_15O3DGCStreamTypeE.exit266
 
-_ZN5o3dgc12BinaryStream12WriteFloat32EfNS_15O3DGCStreamTypeE.exit266: ; preds = %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i.i260, %496
-  %497 = getelementptr inbounds nuw [8192 x float], ptr %399, i64 0, i64 %469
-  %498 = load float, ptr %497, align 4
-  %499 = load i32, ptr %7, align 8
-  %500 = icmp eq i32 %499, 1
-  br i1 %500, label %501, label %523
+_ZN5o3dgc12BinaryStream12WriteFloat32EfNS_15O3DGCStreamTypeE.exit266: ; preds = %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i.i260, %493
+  %494 = getelementptr inbounds nuw [8192 x float], ptr %396, i64 0, i64 %466
+  %495 = load float, ptr %494, align 4
+  %496 = load i32, ptr %7, align 8
+  %497 = icmp eq i32 %496, 1
+  br i1 %497, label %498, label %520
 
-501:                                              ; preds = %_ZN5o3dgc12BinaryStream12WriteFloat32EfNS_15O3DGCStreamTypeE.exit266
-  %502 = bitcast float %498 to i32
-  br label %503
+498:                                              ; preds = %_ZN5o3dgc12BinaryStream12WriteFloat32EfNS_15O3DGCStreamTypeE.exit266
+  %499 = bitcast float %495 to i32
+  br label %500
 
-503:                                              ; preds = %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i.i271, %501
-  %.06.i.i.i267 = phi i64 [ 0, %501 ], [ %522, %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i.i271 ]
-  %.045.i.i.i268 = phi i32 [ %502, %501 ], [ %521, %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i.i271 ]
-  %504 = trunc i32 %.045.i.i.i268 to i8
-  %505 = and i8 %504, 127
-  %506 = load i64, ptr %33, align 8
-  %507 = load i64, ptr %396, align 8
-  %508 = icmp eq i64 %506, %507
-  br i1 %508, label %509, label %._crit_edge.i.i.i.i269
+500:                                              ; preds = %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i.i271, %498
+  %.06.i.i.i267 = phi i64 [ 0, %498 ], [ %519, %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i.i271 ]
+  %.045.i.i.i268 = phi i32 [ %499, %498 ], [ %518, %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i.i271 ]
+  %501 = trunc i32 %.045.i.i.i268 to i8
+  %502 = and i8 %501, 127
+  %503 = load i64, ptr %33, align 8
+  %504 = load i64, ptr %393, align 8
+  %505 = icmp eq i64 %503, %504
+  br i1 %505, label %506, label %._crit_edge.i.i.i.i269
 
-._crit_edge.i.i.i.i269:                           ; preds = %503
+._crit_edge.i.i.i.i269:                           ; preds = %500
   %.pre.i.i.i.i270 = load ptr, ptr %3, align 8
   br label %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i.i271
 
-509:                                              ; preds = %503
-  %510 = shl i64 %506, 1
-  %spec.select.i.i.i.i273 = tail call i64 @llvm.umax.i64(i64 %510, i64 32)
-  store i64 %spec.select.i.i.i.i273, ptr %396, align 8
-  %511 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %spec.select.i.i.i.i273) #35
-  %.not.i.i.i.i274 = icmp eq i64 %506, 0
-  br i1 %.not.i.i.i.i274, label %516, label %512
+506:                                              ; preds = %500
+  %507 = shl i64 %503, 1
+  %spec.select.i.i.i.i273 = tail call i64 @llvm.umax.i64(i64 %507, i64 32)
+  store i64 %spec.select.i.i.i.i273, ptr %393, align 8
+  %508 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %spec.select.i.i.i.i273) #35
+  %.not.i.i.i.i274 = icmp eq i64 %503, 0
+  br i1 %.not.i.i.i.i274, label %513, label %509
+
+509:                                              ; preds = %506
+  %510 = load ptr, ptr %3, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %508, ptr align 1 %510, i64 %503, i1 false)
+  %511 = icmp eq ptr %510, null
+  br i1 %511, label %513, label %512
 
 512:                                              ; preds = %509
-  %513 = load ptr, ptr %3, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %511, ptr align 1 %513, i64 %506, i1 false)
-  %514 = icmp eq ptr %513, null
-  br i1 %514, label %516, label %515
-
-515:                                              ; preds = %512
-  tail call void @_ZdaPv(ptr noundef nonnull %513) #33
+  tail call void @_ZdaPv(ptr noundef nonnull %510) #33
   %.pre6.pre.i.i.i.i275 = load i64, ptr %33, align 8
-  br label %516
+  br label %513
 
-516:                                              ; preds = %515, %512, %509
-  %.pre6.i.i.i.i276 = phi i64 [ %506, %512 ], [ %.pre6.pre.i.i.i.i275, %515 ], [ 0, %509 ]
-  store ptr %511, ptr %3, align 8
+513:                                              ; preds = %512, %509, %506
+  %.pre6.i.i.i.i276 = phi i64 [ %503, %509 ], [ %.pre6.pre.i.i.i.i275, %512 ], [ 0, %506 ]
+  store ptr %508, ptr %3, align 8
   br label %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i.i271
 
-_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i.i271:   ; preds = %516, %._crit_edge.i.i.i.i269
-  %517 = phi i64 [ %506, %._crit_edge.i.i.i.i269 ], [ %.pre6.i.i.i.i276, %516 ]
-  %518 = phi ptr [ %.pre.i.i.i.i270, %._crit_edge.i.i.i.i269 ], [ %511, %516 ]
-  %519 = add i64 %517, 1
-  store i64 %519, ptr %33, align 8
-  %520 = getelementptr inbounds nuw i8, ptr %518, i64 %517
-  store i8 %505, ptr %520, align 1
-  %521 = lshr i32 %.045.i.i.i268, 7
-  %522 = add nuw nsw i64 %.06.i.i.i267, 1
-  %exitcond.not.i.i.i272 = icmp eq i64 %522, 5
-  br i1 %exitcond.not.i.i.i272, label %_ZN5o3dgc12BinaryStream12WriteFloat32EfNS_15O3DGCStreamTypeE.exit277, label %503, !llvm.loop !889
+_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i.i271:   ; preds = %513, %._crit_edge.i.i.i.i269
+  %514 = phi i64 [ %503, %._crit_edge.i.i.i.i269 ], [ %.pre6.i.i.i.i276, %513 ]
+  %515 = phi ptr [ %.pre.i.i.i.i270, %._crit_edge.i.i.i.i269 ], [ %508, %513 ]
+  %516 = add i64 %514, 1
+  store i64 %516, ptr %33, align 8
+  %517 = getelementptr inbounds nuw i8, ptr %515, i64 %514
+  store i8 %502, ptr %517, align 1
+  %518 = lshr i32 %.045.i.i.i268, 7
+  %519 = add nuw nsw i64 %.06.i.i.i267, 1
+  %exitcond.not.i.i.i272 = icmp eq i64 %519, 5
+  br i1 %exitcond.not.i.i.i272, label %_ZN5o3dgc12BinaryStream12WriteFloat32EfNS_15O3DGCStreamTypeE.exit277, label %500, !llvm.loop !889
 
-523:                                              ; preds = %_ZN5o3dgc12BinaryStream12WriteFloat32EfNS_15O3DGCStreamTypeE.exit266
-  tail call void @_ZN5o3dgc12BinaryStream15WriteFloat32BinEf(ptr noundef nonnull align 8 dereferenceable(28) %3, float noundef %498)
+520:                                              ; preds = %_ZN5o3dgc12BinaryStream12WriteFloat32EfNS_15O3DGCStreamTypeE.exit266
+  tail call void @_ZN5o3dgc12BinaryStream15WriteFloat32BinEf(ptr noundef nonnull align 8 dereferenceable(28) %3, float noundef %495)
   br label %_ZN5o3dgc12BinaryStream12WriteFloat32EfNS_15O3DGCStreamTypeE.exit277
 
-_ZN5o3dgc12BinaryStream12WriteFloat32EfNS_15O3DGCStreamTypeE.exit277: ; preds = %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i.i271, %523
+_ZN5o3dgc12BinaryStream12WriteFloat32EfNS_15O3DGCStreamTypeE.exit277: ; preds = %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i.i271, %520
   %indvars.iv.next322 = add nuw nsw i64 %indvars.iv321, 1
   %exitcond324.not = icmp eq i64 %indvars.iv.next322, %wide.trip.count
-  br i1 %exitcond324.not, label %._crit_edge, label %468, !llvm.loop !892
+  br i1 %exitcond324.not, label %._crit_edge, label %465, !llvm.loop !892
 
-524:                                              ; preds = %_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit244, %._crit_edge
-  %525 = add nuw i64 %.0108303, 1
-  %526 = load i64, ptr %159, align 8
-  %527 = icmp ult i64 %525, %526
-  br i1 %527, label %407, label %.preheader, !llvm.loop !893
+521:                                              ; preds = %_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit244, %._crit_edge
+  %522 = add nuw i64 %.0108303, 1
+  %523 = load i64, ptr %156, align 8
+  %524 = icmp ult i64 %522, %523
+  br i1 %524, label %404, label %.preheader, !llvm.loop !893
 
-._crit_edge308:                                   ; preds = %583, %.preheader
+._crit_edge308:                                   ; preds = %580, %.preheader
   ret i32 0
 
-528:                                              ; preds = %.lr.ph307, %583
-  %.0306 = phi i64 [ 0, %.lr.ph307 ], [ %584, %583 ]
-  %529 = getelementptr inbounds nuw [256 x i64], ptr %403, i64 0, i64 %.0306
-  %530 = load i64, ptr %529, align 8
-  %531 = load i32, ptr %7, align 8
-  %532 = icmp eq i32 %531, 1
-  br i1 %532, label %.preheader313, label %552
+525:                                              ; preds = %.lr.ph307, %580
+  %.0306 = phi i64 [ 0, %.lr.ph307 ], [ %581, %580 ]
+  %526 = getelementptr inbounds nuw [256 x i64], ptr %400, i64 0, i64 %.0306
+  %527 = load i64, ptr %526, align 8
+  %528 = load i32, ptr %7, align 8
+  %529 = icmp eq i32 %528, 1
+  br i1 %529, label %.preheader313, label %549
 
-.preheader313:                                    ; preds = %528, %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i282
-  %.06.i.i278 = phi i64 [ %551, %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i282 ], [ 0, %528 ]
-  %.045.i.i279 = phi i64 [ %550, %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i282 ], [ %530, %528 ]
-  %533 = trunc i64 %.045.i.i279 to i8
-  %534 = and i8 %533, 127
-  %535 = load i64, ptr %33, align 8
-  %536 = load i64, ptr %404, align 8
-  %537 = icmp eq i64 %535, %536
-  br i1 %537, label %538, label %._crit_edge.i.i.i280
+.preheader313:                                    ; preds = %525, %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i282
+  %.06.i.i278 = phi i64 [ %548, %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i282 ], [ 0, %525 ]
+  %.045.i.i279 = phi i64 [ %547, %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i282 ], [ %527, %525 ]
+  %530 = trunc i64 %.045.i.i279 to i8
+  %531 = and i8 %530, 127
+  %532 = load i64, ptr %33, align 8
+  %533 = load i64, ptr %401, align 8
+  %534 = icmp eq i64 %532, %533
+  br i1 %534, label %535, label %._crit_edge.i.i.i280
 
 ._crit_edge.i.i.i280:                             ; preds = %.preheader313
   %.pre.i.i.i281 = load ptr, ptr %3, align 8
   br label %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i282
 
-538:                                              ; preds = %.preheader313
-  %539 = shl i64 %535, 1
-  %spec.select.i.i.i284 = tail call i64 @llvm.umax.i64(i64 %539, i64 32)
-  store i64 %spec.select.i.i.i284, ptr %404, align 8
-  %540 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %spec.select.i.i.i284) #35
-  %.not.i.i.i285 = icmp eq i64 %535, 0
-  br i1 %.not.i.i.i285, label %545, label %541
+535:                                              ; preds = %.preheader313
+  %536 = shl i64 %532, 1
+  %spec.select.i.i.i284 = tail call i64 @llvm.umax.i64(i64 %536, i64 32)
+  store i64 %spec.select.i.i.i284, ptr %401, align 8
+  %537 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %spec.select.i.i.i284) #35
+  %.not.i.i.i285 = icmp eq i64 %532, 0
+  br i1 %.not.i.i.i285, label %542, label %538
+
+538:                                              ; preds = %535
+  %539 = load ptr, ptr %3, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %537, ptr align 1 %539, i64 %532, i1 false)
+  %540 = icmp eq ptr %539, null
+  br i1 %540, label %542, label %541
 
 541:                                              ; preds = %538
-  %542 = load ptr, ptr %3, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %540, ptr align 1 %542, i64 %535, i1 false)
-  %543 = icmp eq ptr %542, null
-  br i1 %543, label %545, label %544
-
-544:                                              ; preds = %541
-  tail call void @_ZdaPv(ptr noundef nonnull %542) #33
+  tail call void @_ZdaPv(ptr noundef nonnull %539) #33
   %.pre6.pre.i.i.i286 = load i64, ptr %33, align 8
-  br label %545
+  br label %542
 
-545:                                              ; preds = %544, %541, %538
-  %.pre6.i.i.i287 = phi i64 [ %535, %541 ], [ %.pre6.pre.i.i.i286, %544 ], [ 0, %538 ]
-  store ptr %540, ptr %3, align 8
+542:                                              ; preds = %541, %538, %535
+  %.pre6.i.i.i287 = phi i64 [ %532, %538 ], [ %.pre6.pre.i.i.i286, %541 ], [ 0, %535 ]
+  store ptr %537, ptr %3, align 8
   br label %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i282
 
-_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i282:     ; preds = %545, %._crit_edge.i.i.i280
-  %546 = phi i64 [ %535, %._crit_edge.i.i.i280 ], [ %.pre6.i.i.i287, %545 ]
-  %547 = phi ptr [ %.pre.i.i.i281, %._crit_edge.i.i.i280 ], [ %540, %545 ]
-  %548 = add i64 %546, 1
-  store i64 %548, ptr %33, align 8
-  %549 = getelementptr inbounds nuw i8, ptr %547, i64 %546
-  store i8 %534, ptr %549, align 1
-  %550 = lshr i64 %.045.i.i279, 7
-  %551 = add nuw nsw i64 %.06.i.i278, 1
-  %exitcond.not.i.i283 = icmp eq i64 %551, 5
+_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i282:     ; preds = %542, %._crit_edge.i.i.i280
+  %543 = phi i64 [ %532, %._crit_edge.i.i.i280 ], [ %.pre6.i.i.i287, %542 ]
+  %544 = phi ptr [ %.pre.i.i.i281, %._crit_edge.i.i.i280 ], [ %537, %542 ]
+  %545 = add i64 %543, 1
+  store i64 %545, ptr %33, align 8
+  %546 = getelementptr inbounds nuw i8, ptr %544, i64 %543
+  store i8 %531, ptr %546, align 1
+  %547 = lshr i64 %.045.i.i279, 7
+  %548 = add nuw nsw i64 %.06.i.i278, 1
+  %exitcond.not.i.i283 = icmp eq i64 %548, 5
   br i1 %exitcond.not.i.i283, label %_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit288, label %.preheader313, !llvm.loop !889
 
-552:                                              ; preds = %528
-  tail call void @_ZN5o3dgc12BinaryStream14WriteUInt32BinEm(ptr noundef nonnull align 8 dereferenceable(28) %3, i64 noundef %530)
+549:                                              ; preds = %525
+  tail call void @_ZN5o3dgc12BinaryStream14WriteUInt32BinEm(ptr noundef nonnull align 8 dereferenceable(28) %3, i64 noundef %527)
   br label %_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit288
 
-_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit288: ; preds = %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i282, %552
-  %553 = load i64, ptr %529, align 8
-  %.not111 = icmp eq i64 %553, 0
-  br i1 %.not111, label %583, label %554
+_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit288: ; preds = %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i282, %549
+  %550 = load i64, ptr %526, align 8
+  %.not111 = icmp eq i64 %550, 0
+  br i1 %.not111, label %580, label %551
 
-554:                                              ; preds = %_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit288
-  %555 = load i32, ptr %7, align 8
-  %556 = icmp eq i32 %555, 1
-  br i1 %556, label %.preheader312, label %573
+551:                                              ; preds = %_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit288
+  %552 = load i32, ptr %7, align 8
+  %553 = icmp eq i32 %552, 1
+  br i1 %553, label %.preheader312, label %570
 
-.preheader312:                                    ; preds = %554, %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i293
-  %.06.i.i289 = phi i64 [ %572, %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i293 ], [ 0, %554 ]
-  %557 = load i64, ptr %33, align 8
-  %558 = load i64, ptr %404, align 8
-  %559 = icmp eq i64 %557, %558
-  br i1 %559, label %560, label %._crit_edge.i.i.i291
+.preheader312:                                    ; preds = %551, %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i293
+  %.06.i.i289 = phi i64 [ %569, %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i293 ], [ 0, %551 ]
+  %554 = load i64, ptr %33, align 8
+  %555 = load i64, ptr %401, align 8
+  %556 = icmp eq i64 %554, %555
+  br i1 %556, label %557, label %._crit_edge.i.i.i291
 
 ._crit_edge.i.i.i291:                             ; preds = %.preheader312
   %.pre.i.i.i292 = load ptr, ptr %3, align 8
   br label %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i293
 
-560:                                              ; preds = %.preheader312
-  %561 = shl i64 %557, 1
-  %spec.select.i.i.i295 = tail call i64 @llvm.umax.i64(i64 %561, i64 32)
-  store i64 %spec.select.i.i.i295, ptr %404, align 8
-  %562 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %spec.select.i.i.i295) #35
-  %.not.i.i.i296 = icmp eq i64 %557, 0
-  br i1 %.not.i.i.i296, label %567, label %563
+557:                                              ; preds = %.preheader312
+  %558 = shl i64 %554, 1
+  %spec.select.i.i.i295 = tail call i64 @llvm.umax.i64(i64 %558, i64 32)
+  store i64 %spec.select.i.i.i295, ptr %401, align 8
+  %559 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %spec.select.i.i.i295) #35
+  %.not.i.i.i296 = icmp eq i64 %554, 0
+  br i1 %.not.i.i.i296, label %564, label %560
+
+560:                                              ; preds = %557
+  %561 = load ptr, ptr %3, align 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %559, ptr align 1 %561, i64 %554, i1 false)
+  %562 = icmp eq ptr %561, null
+  br i1 %562, label %564, label %563
 
 563:                                              ; preds = %560
-  %564 = load ptr, ptr %3, align 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %562, ptr align 1 %564, i64 %557, i1 false)
-  %565 = icmp eq ptr %564, null
-  br i1 %565, label %567, label %566
-
-566:                                              ; preds = %563
-  tail call void @_ZdaPv(ptr noundef nonnull %564) #33
+  tail call void @_ZdaPv(ptr noundef nonnull %561) #33
   %.pre6.pre.i.i.i297 = load i64, ptr %33, align 8
-  br label %567
+  br label %564
 
-567:                                              ; preds = %566, %563, %560
-  %.pre6.i.i.i298 = phi i64 [ %557, %563 ], [ %.pre6.pre.i.i.i297, %566 ], [ 0, %560 ]
-  store ptr %562, ptr %3, align 8
+564:                                              ; preds = %563, %560, %557
+  %.pre6.i.i.i298 = phi i64 [ %554, %560 ], [ %.pre6.pre.i.i.i297, %563 ], [ 0, %557 ]
+  store ptr %559, ptr %3, align 8
   br label %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i293
 
-_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i293:     ; preds = %567, %._crit_edge.i.i.i291
-  %568 = phi i64 [ %557, %._crit_edge.i.i.i291 ], [ %.pre6.i.i.i298, %567 ]
-  %569 = phi ptr [ %.pre.i.i.i292, %._crit_edge.i.i.i291 ], [ %562, %567 ]
-  %570 = add i64 %568, 1
-  store i64 %570, ptr %33, align 8
-  %571 = getelementptr inbounds nuw i8, ptr %569, i64 %568
-  store i8 0, ptr %571, align 1
-  %572 = add nuw nsw i64 %.06.i.i289, 1
-  %exitcond.not.i.i294 = icmp eq i64 %572, 5
+_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i293:     ; preds = %564, %._crit_edge.i.i.i291
+  %565 = phi i64 [ %554, %._crit_edge.i.i.i291 ], [ %.pre6.i.i.i298, %564 ]
+  %566 = phi ptr [ %.pre.i.i.i292, %._crit_edge.i.i.i291 ], [ %559, %564 ]
+  %567 = add i64 %565, 1
+  store i64 %567, ptr %33, align 8
+  %568 = getelementptr inbounds nuw i8, ptr %566, i64 %565
+  store i8 0, ptr %568, align 1
+  %569 = add nuw nsw i64 %.06.i.i289, 1
+  %exitcond.not.i.i294 = icmp eq i64 %569, 5
   br i1 %exitcond.not.i.i294, label %_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit299, label %.preheader312, !llvm.loop !889
 
-573:                                              ; preds = %554
+570:                                              ; preds = %551
   tail call void @_ZN5o3dgc12BinaryStream14WriteUInt32BinEm(ptr noundef nonnull align 8 dereferenceable(28) %3, i64 noundef 0)
   br label %_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit299
 
-_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit299: ; preds = %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i293, %573
-  %574 = getelementptr inbounds nuw [256 x i64], ptr %405, i64 0, i64 %.0306
-  %575 = load i64, ptr %574, align 8
-  %576 = trunc i64 %575 to i8
-  %577 = load i32, ptr %7, align 8
-  tail call void @_ZN5o3dgc12BinaryStream10WriteUCharEhNS_15O3DGCStreamTypeE(ptr noundef nonnull align 8 dereferenceable(28) %3, i8 noundef zeroext %576, i32 noundef %577)
-  %578 = load i32, ptr %7, align 8
-  tail call void @_ZN5o3dgc12BinaryStream10WriteUCharEhNS_15O3DGCStreamTypeE(ptr noundef nonnull align 8 dereferenceable(28) %3, i8 noundef zeroext 1, i32 noundef %578)
-  %579 = getelementptr inbounds nuw [256 x i32], ptr %406, i64 0, i64 %.0306
-  %580 = load i32, ptr %579, align 4
-  %581 = trunc i32 %580 to i8
-  %582 = load i32, ptr %7, align 8
-  tail call void @_ZN5o3dgc12BinaryStream10WriteUCharEhNS_15O3DGCStreamTypeE(ptr noundef nonnull align 8 dereferenceable(28) %3, i8 noundef zeroext %581, i32 noundef %582)
-  br label %583
+_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit299: ; preds = %_ZN5o3dgc6VectorIhE8PushBackERKh.exit.i.i293, %570
+  %571 = getelementptr inbounds nuw [256 x i64], ptr %402, i64 0, i64 %.0306
+  %572 = load i64, ptr %571, align 8
+  %573 = trunc i64 %572 to i8
+  %574 = load i32, ptr %7, align 8
+  tail call void @_ZN5o3dgc12BinaryStream10WriteUCharEhNS_15O3DGCStreamTypeE(ptr noundef nonnull align 8 dereferenceable(28) %3, i8 noundef zeroext %573, i32 noundef %574)
+  %575 = load i32, ptr %7, align 8
+  tail call void @_ZN5o3dgc12BinaryStream10WriteUCharEhNS_15O3DGCStreamTypeE(ptr noundef nonnull align 8 dereferenceable(28) %3, i8 noundef zeroext 1, i32 noundef %575)
+  %576 = getelementptr inbounds nuw [256 x i32], ptr %403, i64 0, i64 %.0306
+  %577 = load i32, ptr %576, align 4
+  %578 = trunc i32 %577 to i8
+  %579 = load i32, ptr %7, align 8
+  tail call void @_ZN5o3dgc12BinaryStream10WriteUCharEhNS_15O3DGCStreamTypeE(ptr noundef nonnull align 8 dereferenceable(28) %3, i8 noundef zeroext %578, i32 noundef %579)
+  br label %580
 
-583:                                              ; preds = %_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit288, %_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit299
-  %584 = add nuw i64 %.0306, 1
-  %585 = load i64, ptr %186, align 8
-  %586 = icmp ult i64 %584, %585
-  br i1 %586, label %528, label %._crit_edge308, !llvm.loop !894
+580:                                              ; preds = %_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit288, %_ZN5o3dgc12BinaryStream11WriteUInt32EmNS_15O3DGCStreamTypeE.exit299
+  %581 = add nuw i64 %.0306, 1
+  %582 = load i64, ptr %183, align 8
+  %583 = icmp ult i64 %581, %582
+  br i1 %583, label %525, label %._crit_edge308, !llvm.loop !894
 }
 
 ; Function Attrs: mustprogress uwtable

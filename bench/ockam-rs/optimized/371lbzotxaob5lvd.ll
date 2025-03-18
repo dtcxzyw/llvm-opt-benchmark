@@ -97141,15 +97141,14 @@ define hidden void @"_ZN58_$LT$bool$u20$as$u20$minicbor..decode..Decode$LT$C$GT$
 define hidden void @"_ZN58_$LT$bool$u20$as$u20$minicbor..encode..Encode$LT$C$GT$$GT$6encode17h10f5ddd1f4b3ff2fE"(ptr noalias noundef writeonly sret({ ptr, [4 x i64] }) align 8 captures(none) dereferenceable(40) initializes((0, 8)) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %2, ptr noalias noundef nonnull readnone align 1 captures(none) %3) unnamed_addr #6 {
   %5 = alloca [1 x i8], align 1
   %6 = load i8, ptr %1, align 1, !range !257, !noundef !4
-  %7 = trunc nuw i8 %6 to i1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14520)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5), !noalias !14523
-  %..i = select i1 %7, i8 -11, i8 -12
+  %..i = or disjoint i8 %6, -12
   store i8 %..i, ptr %5, align 1, !noalias !14523
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14525)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !14528)
-  %8 = load ptr, ptr %2, align 8, !alias.scope !14531, !noalias !14532, !nonnull !4, !align !5, !noundef !4
-  call void @"_ZN76_$LT$alloc..vec..Vec$LT$u8$GT$$u20$as$u20$minicbor..encode..write..Write$GT$9write_all17h5d106f95af0a7d71E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef 1), !noalias !14536
+  %7 = load ptr, ptr %2, align 8, !alias.scope !14531, !noalias !14532, !nonnull !4, !align !5, !noundef !4
+  call void @"_ZN76_$LT$alloc..vec..Vec$LT$u8$GT$$u20$as$u20$minicbor..encode..write..Write$GT$9write_all17h5d106f95af0a7d71E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef 1), !noalias !14536
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5), !noalias !14523
   store ptr null, ptr %0, align 8
   ret void

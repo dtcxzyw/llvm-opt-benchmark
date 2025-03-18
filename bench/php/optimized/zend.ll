@@ -2719,8 +2719,8 @@ zend_string_copy.exit128:                         ; preds = %zend_string_copy.ex
 
 65:                                               ; preds = %61
   %66 = load i8, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 724), align 4, !tbaa !164, !range !150, !noundef !43
-  %67 = trunc nuw i8 %66 to i1
-  %68 = select i1 %67, i32 2, i32 0
+  %67 = shl nuw nsw i8 %66, 1
+  %68 = zext nneg i8 %67 to i32
   tail call void @zend_fetch_debug_backtrace(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @executor_globals, i64 432), i32 noundef 0, i32 noundef %68, i32 noundef 0) #33
   br label %69
 

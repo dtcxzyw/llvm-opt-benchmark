@@ -268,8 +268,8 @@ preparePresortedCols.exit:                        ; preds = %84, %49
   %118 = load i32, ptr @work_mem, align 4
   %119 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %120 = load i8, ptr %119, align 8, !range !5, !noundef !6
-  %121 = trunc nuw i8 %120 to i1
-  %122 = select i1 %121, i32 2, i32 0
+  %121 = shl nuw nsw i8 %120, 1
+  %122 = zext nneg i8 %121 to i32
   %123 = tail call ptr @tuplesort_begin_heap(ptr noundef %44, i32 noundef %109, ptr noundef %111, ptr noundef %113, ptr noundef %115, ptr noundef %117, i32 noundef %118, ptr noundef null, i32 noundef %122) #8
   store ptr %123, ptr %15, align 8
   br label %125
@@ -1222,8 +1222,8 @@ define internal fastcc void @switchToPresortedPrefixMode(ptr noundef captures(no
   %35 = load i32, ptr @work_mem, align 4
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %37 = load i8, ptr %36, align 8, !range !5, !noundef !6
-  %38 = trunc nuw i8 %37 to i1
-  %39 = select i1 %38, i32 2, i32 0
+  %38 = shl nuw nsw i8 %37, 1
+  %39 = zext nneg i8 %38 to i32
   %40 = tail call ptr @tuplesort_begin_heap(ptr noundef %12, i32 noundef %21, ptr noundef %25, ptr noundef %28, ptr noundef %31, ptr noundef %34, i32 noundef %35, ptr noundef null, i32 noundef %39) #8
   store ptr %40, ptr %13, align 8
   br label %42

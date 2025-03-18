@@ -22016,14 +22016,12 @@ define hidden noundef zeroext i1 @"_ZN71_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8, !nonnull !5
   %6 = load i64, ptr %1, align 8, !range !88, !noundef !5
-  %trunc3 = trunc nuw i64 %6 to i1
-  %.sroa.01.0.idx = select i1 %trunc3, i64 16, i64 0
+  %.sroa.01.0.idx = shl nuw nsw i64 %6, 4
   %.sroa.01.0 = getelementptr inbounds nuw i8, ptr %5, i64 %.sroa.01.0.idx
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %8 = load ptr, ptr %7, align 8, !nonnull !5
   %9 = load i64, ptr %0, align 8, !range !88, !noundef !5
-  %trunc = trunc nuw i64 %9 to i1
-  %.sroa.0.0.idx = select i1 %trunc, i64 16, i64 0
+  %.sroa.0.0.idx = shl nuw nsw i64 %9, 4
   %.sroa.0.0 = getelementptr inbounds nuw i8, ptr %8, i64 %.sroa.0.0.idx
   %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.sroa.0.0, ptr nonnull readonly align 1 %.sroa.01.0, i64 %.sroa.3.0), !alias.scope !6708
   %10 = icmp eq i32 %bcmp.i.i, 0
@@ -43912,9 +43910,8 @@ define hidden void @"_ZN9collab_ui12collab_panel11CollabPanel14update_entries28_
   call void @"_ZN4gpui13shared_string112_$LT$impl$u20$core..convert..From$LT$gpui..shared_string..SharedString$GT$$u20$for$u20$alloc..string..String$GT$4from17h34ce3ca09b4611fdE"(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %7, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %6)
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6)
   %22 = load i64, ptr %12, align 8, !range !88, !noundef !5
-  %trunc = trunc nuw i64 %22 to i1
   %23 = load ptr, ptr %14, align 8, !nonnull !5, !noundef !5
-  %.sroa.0.0.idx = select i1 %trunc, i64 16, i64 0
+  %.sroa.0.0.idx = shl nuw nsw i64 %22, 4
   %.sroa.0.0 = getelementptr inbounds nuw i8, ptr %23, i64 %.sroa.0.0.idx
   %.sroa.3.0 = load i64, ptr %16, align 8, !noundef !5
   %24 = getelementptr inbounds i8, ptr %.sroa.0.0, i64 %.sroa.3.0

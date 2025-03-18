@@ -1111,8 +1111,8 @@ parseCreateReplSlotOptions.exit.i:                ; preds = %273, %.lr.ph.i.i, %
   %282 = load ptr, ptr %281, align 8
   %283 = getelementptr inbounds nuw i8, ptr %194, i64 32
   %284 = load i8, ptr %283, align 8, !range !11, !noundef !12
-  %285 = trunc nuw i8 %284 to i1
-  %286 = select i1 %285, i32 2, i32 0
+  %285 = shl nuw nsw i8 %284, 1
+  %286 = zext nneg i8 %285 to i32
   call void @ReplicationSlotCreate(ptr noundef %282, i1 noundef zeroext false, i32 noundef %286, i1 noundef zeroext false, i1 noundef zeroext false, i1 noundef zeroext false) #17
   br i1 %.247.i, label %287, label %349
 

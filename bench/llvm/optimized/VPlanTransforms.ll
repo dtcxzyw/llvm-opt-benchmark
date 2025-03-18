@@ -9349,7 +9349,7 @@ _ZN4llvm17VPlanPatternMatch5matchINS_12VPRecipeBaseENS0_12Recipe_matchISt5tupleI
   %48 = load ptr, ptr %47, align 8, !tbaa !554
   %49 = tail call noundef ptr @_ZN4llvm7vputils21getSCEVExprForVPValueEPNS_7VPValueERNS_15ScalarEvolutionE(ptr noundef %48, ptr noundef nonnull align 8 dereferenceable(1344) %46) #20
   %50 = mul i32 %2, %.sroa.0105.0.extract.trunc
-  %51 = and i64 %1, 4294967296
+  %51 = and i64 %1, 1095216660480
   %.sroa.0.0.insert.ext.i.i = zext i32 %50 to i64
   %.sroa.0.0.insert.insert.i.i = or disjoint i64 %51, %.sroa.0.0.insert.ext.i.i
   %52 = tail call noundef ptr @_ZNK4llvm4SCEV7getTypeEv(ptr noundef nonnull align 8 dereferenceable(30) %49) #20
@@ -9425,8 +9425,8 @@ _ZN4llvm6all_ofINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_
 _ZN4llvm6all_ofINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_12VPRecipeBaseELb0ELb0EvLb0EvEELb0ELb0EEEEENS_6detail17IsaCheckPredicateIJNS_22VPCanonicalIVPHIRecipeENS_31VPFirstOrderRecurrencePHIRecipeEEEEEEbOT_T0_.exit.thread: ; preds = %89, %_ZN4llvm6all_ofINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_12VPRecipeBaseELb0ELb0EvLb0EvEELb0ELb0EEEEENS_6detail17IsaCheckPredicateIJNS_22VPCanonicalIVPHIRecipeENS_31VPFirstOrderRecurrencePHIRecipeEEEEEEbOT_T0_.exit
   %93 = load ptr, ptr %84, align 8, !tbaa !46
   %94 = tail call ptr @_ZN4llvm12VPBasicBlock14getFirstNonPhiEv(ptr noundef nonnull align 8 dereferenceable(128) %59) #20
-  %.not114123 = icmp eq ptr %93, %94
-  br i1 %.not114123, label %._crit_edge, label %.lr.ph
+  %.not114122 = icmp eq ptr %93, %94
+  br i1 %.not114122, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZN4llvm17VPHeaderPHIRecipe13getStartValueEv.exit, %_ZN4llvm6all_ofINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_12VPRecipeBaseELb0ELb0EvLb0EvEELb0ELb0EEEEENS_6detail17IsaCheckPredicateIJNS_22VPCanonicalIVPHIRecipeENS_31VPFirstOrderRecurrencePHIRecipeEEEEEEbOT_T0_.exit.thread
   %95 = getelementptr inbounds nuw i8, ptr %14, i64 64
@@ -9582,18 +9582,18 @@ _ZNK4llvm14iterator_rangeINS_11df_iteratorINS_30VPBlockShallowTraversalWrapperIP
   br label %175
 
 .lr.ph:                                           ; preds = %_ZN4llvm6all_ofINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_12VPRecipeBaseELb0ELb0EvLb0EvEELb0ELb0EEEEENS_6detail17IsaCheckPredicateIJNS_22VPCanonicalIVPHIRecipeENS_31VPFirstOrderRecurrencePHIRecipeEEEEEEbOT_T0_.exit.thread, %_ZN4llvm17VPHeaderPHIRecipe13getStartValueEv.exit
-  %.sroa.090.0124 = phi ptr [ %163, %_ZN4llvm17VPHeaderPHIRecipe13getStartValueEv.exit ], [ %93, %_ZN4llvm6all_ofINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_12VPRecipeBaseELb0ELb0EvLb0EvEELb0ELb0EEEEENS_6detail17IsaCheckPredicateIJNS_22VPCanonicalIVPHIRecipeENS_31VPFirstOrderRecurrencePHIRecipeEEEEEEbOT_T0_.exit.thread ]
-  %162 = getelementptr inbounds nuw i8, ptr %.sroa.090.0124, i64 8
+  %.sroa.090.0123 = phi ptr [ %163, %_ZN4llvm17VPHeaderPHIRecipe13getStartValueEv.exit ], [ %93, %_ZN4llvm6all_ofINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_12VPRecipeBaseELb0ELb0EvLb0EvEELb0ELb0EEEEENS_6detail17IsaCheckPredicateIJNS_22VPCanonicalIVPHIRecipeENS_31VPFirstOrderRecurrencePHIRecipeEEEEEEbOT_T0_.exit.thread ]
+  %162 = getelementptr inbounds nuw i8, ptr %.sroa.090.0123, i64 8
   %163 = load ptr, ptr %162, align 8, !tbaa !46
-  %164 = getelementptr inbounds i8, ptr %.sroa.090.0124, i64 -24
-  %165 = getelementptr inbounds nuw i8, ptr %.sroa.090.0124, i64 72
-  %166 = getelementptr inbounds nuw i8, ptr %.sroa.090.0124, i64 32
+  %164 = getelementptr inbounds i8, ptr %.sroa.090.0123, i64 -24
+  %165 = getelementptr inbounds nuw i8, ptr %.sroa.090.0123, i64 72
+  %166 = getelementptr inbounds nuw i8, ptr %.sroa.090.0123, i64 32
   %167 = load i32, ptr %166, align 8, !tbaa !14
   %168 = icmp eq i32 %167, 0
   br i1 %168, label %_ZN4llvm17VPHeaderPHIRecipe13getStartValueEv.exit, label %169
 
 169:                                              ; preds = %.lr.ph
-  %170 = getelementptr inbounds nuw i8, ptr %.sroa.090.0124, i64 24
+  %170 = getelementptr inbounds nuw i8, ptr %.sroa.090.0123, i64 24
   %171 = load ptr, ptr %170, align 8, !tbaa !11
   %172 = load ptr, ptr %171, align 8, !tbaa !49
   br label %_ZN4llvm17VPHeaderPHIRecipe13getStartValueEv.exit
@@ -9606,7 +9606,7 @@ _ZN4llvm17VPHeaderPHIRecipe13getStartValueEv.exit: ; preds = %.lr.ph, %169
   br i1 %.not114, label %._crit_edge, label %.lr.ph
 
 175:                                              ; preds = %.loopexit, %_ZNK4llvm14iterator_rangeINS_11df_iteratorINS_30VPBlockShallowTraversalWrapperIPNS_11VPBlockBaseEEENS_23df_iterator_default_setIS4_Lj8EEELb0ENS_11GraphTraitsIS5_EEEEE3endEv.exit
-  %176 = phi ptr [ %.pre132, %.loopexit ], [ %158, %_ZNK4llvm14iterator_rangeINS_11df_iteratorINS_30VPBlockShallowTraversalWrapperIPNS_11VPBlockBaseEEENS_23df_iterator_default_setIS4_Lj8EEELb0ENS_11GraphTraitsIS5_EEEEE3endEv.exit ]
+  %176 = phi ptr [ %.pre131, %.loopexit ], [ %158, %_ZNK4llvm14iterator_rangeINS_11df_iteratorINS_30VPBlockShallowTraversalWrapperIPNS_11VPBlockBaseEEENS_23df_iterator_default_setIS4_Lj8EEELb0ENS_11GraphTraitsIS5_EEEEE3endEv.exit ]
   %177 = phi ptr [ %.pre, %.loopexit ], [ %.0.lcssa.i.i.i.i.i.i.i69, %_ZNK4llvm14iterator_rangeINS_11df_iteratorINS_30VPBlockShallowTraversalWrapperIPNS_11VPBlockBaseEEENS_23df_iterator_default_setIS4_Lj8EEELb0ENS_11GraphTraitsIS5_EEEEE3endEv.exit ]
   %178 = load ptr, ptr %160, align 8, !tbaa !562
   %179 = load ptr, ptr %113, align 8, !tbaa !523
@@ -9874,7 +9874,7 @@ _ZN4llvm12VPBlockUtils13connectBlocksEPNS_11VPBlockBaseES2_jj.exit82: ; preds = 
   store ptr null, ptr %319, align 8, !tbaa !45
   call void @_ZN4llvm11df_iteratorINS_30VPBlockShallowTraversalWrapperIPNS_11VPBlockBaseEEENS_23df_iterator_default_setIS3_Lj8EEELb0ENS_11GraphTraitsIS4_EEE6toNextEv(ptr noundef nonnull align 8 dereferenceable(112) %9)
   %.pre = load ptr, ptr %161, align 8, !tbaa !562
-  %.pre132 = load ptr, ptr %137, align 8, !tbaa !523
+  %.pre131 = load ptr, ptr %137, align 8, !tbaa !523
   br label %175
 
 320:                                              ; preds = %_ZN4llvm6all_ofINS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsINS_12VPRecipeBaseELb0ELb0EvLb0EvEELb0ELb0EEEEENS_6detail17IsaCheckPredicateIJNS_22VPCanonicalIVPHIRecipeENS_31VPFirstOrderRecurrencePHIRecipeEEEEEEbOT_T0_.exit

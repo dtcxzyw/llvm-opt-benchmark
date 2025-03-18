@@ -9166,8 +9166,8 @@ _ZNKSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPN6Assimp7Collada
   %365 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 64
   %366 = load ptr, ptr %365, align 8
   %367 = load i8, ptr %24, align 4, !range !9, !noundef !10
-  %368 = trunc nuw i8 %367 to i1
-  %.idx = select i1 %368, i64 32, i64 0
+  %368 = shl nuw nsw i8 %367, 5
+  %.idx = zext nneg i8 %368 to i64
   %369 = getelementptr inbounds nuw i8, ptr %366, i64 %.idx
   %370 = invoke noundef ptr @_ZN6Assimp13ColladaLoader8findMeshERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(380) %0, ptr noundef nonnull align 8 dereferenceable(32) %369)
           to label %371 unwind label %.loopexit661

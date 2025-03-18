@@ -235,8 +235,8 @@ define { i32, ptr } @_ZN5folly10symbolizer7ElfFile11openNoThrowEPKcRKNS1_7Option
 
 11:                                               ; preds = %9
   %12 = load i8, ptr %2, align 1, !tbaa !26, !range !29, !noundef !30
-  %13 = trunc nuw i8 %12 to i1
-  %14 = select i1 %13, i32 2, i32 0
+  %13 = shl nuw nsw i8 %12, 1
+  %14 = zext nneg i8 %13 to i32
   %15 = invoke i32 (ptr, i32, ...) @open(ptr noundef %1, i32 noundef %14)
           to label %16 unwind label %75
 

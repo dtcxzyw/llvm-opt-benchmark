@@ -12339,7 +12339,7 @@ common.resume:                                    ; preds = %200, %"_ZN4core3ptr
   %160 = getelementptr inbounds nuw i8, ptr %.sroa.0116.0147, i64 8
   %161 = load ptr, ptr %160, align 8, !alias.scope !1666, !nonnull !7, !align !81
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 80
-  %.sroa.3.0.i = select i1 %trunc.i99, i64 2, i64 1
+  %.sroa.3.0.i = add nuw nsw i64 %159, 1
   %.sroa.0.0.i = select i1 %trunc.i99, ptr @anon.b829d69e4dfa1ad4f2781c144a746ff0.58.llvm.15934541666227088301, ptr %162
   store ptr %.sroa.0.0.i, ptr %13, align 8
   store i64 %.sroa.3.0.i, ptr %.fca.1.gep, align 8
@@ -12929,7 +12929,7 @@ common.resume:                                    ; preds = %200, %"_ZN4core3ptr
   %160 = getelementptr inbounds nuw i8, ptr %.sroa.0116.0147, i64 8
   %161 = load ptr, ptr %160, align 8, !alias.scope !1791, !nonnull !7, !align !81
   %162 = getelementptr inbounds nuw i8, ptr %161, i64 80
-  %.sroa.3.0.i = select i1 %trunc.i99, i64 2, i64 1
+  %.sroa.3.0.i = add nuw nsw i64 %159, 1
   %.sroa.0.0.i = select i1 %trunc.i99, ptr @anon.b829d69e4dfa1ad4f2781c144a746ff0.58.llvm.15934541666227088301, ptr %162
   store ptr %.sroa.0.0.i, ptr %13, align 8
   store i64 %.sroa.3.0.i, ptr %.fca.1.gep, align 8
@@ -13395,7 +13395,7 @@ define { ptr, i64 } @_ZN6rustls6suites20SupportedCipherSuite23key_exchange_algor
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !nonnull !7, !align !81
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  %.sroa.3.0 = select i1 %trunc, i64 2, i64 1
+  %.sroa.3.0 = add nuw nsw i64 %2, 1
   %.sroa.0.0 = select i1 %trunc, ptr @anon.b829d69e4dfa1ad4f2781c144a746ff0.58.llvm.15934541666227088301, ptr %5
   %6 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0, 0
   %7 = insertvalue { ptr, i64 } %6, i64 %.sroa.3.0, 1

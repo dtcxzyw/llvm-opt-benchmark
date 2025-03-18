@@ -1548,13 +1548,13 @@ define dso_local noundef zeroext i1 @_ZN4llvm22SelectionDAGISelLegacy20runOnMach
   store i32 %43, ptr %48, align 8, !tbaa !275
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 12
   %50 = load i8, ptr %49, align 4, !tbaa !380, !range !48, !noundef !49
-  %51 = trunc nuw i8 %50 to i1
-  %52 = getelementptr inbounds nuw i8, ptr %47, i64 864
-  %53 = load i16, ptr %52, align 8
-  %54 = select i1 %51, i16 2048, i16 0
-  %55 = and i16 %53, -2049
+  %51 = getelementptr inbounds nuw i8, ptr %47, i64 864
+  %52 = load i16, ptr %51, align 8
+  %53 = zext nneg i8 %50 to i16
+  %54 = shl nuw nsw i16 %53, 11
+  %55 = and i16 %52, -2049
   %56 = or disjoint i16 %55, %54
-  store i16 %56, ptr %52, align 8
+  store i16 %56, ptr %51, align 8
   br label %_ZN4llvm15OptLevelChangerD2Ev.exit
 
 _ZN4llvm15OptLevelChangerD2Ev.exit:               ; preds = %30, %45
@@ -2867,13 +2867,13 @@ define dso_local void @_ZN4llvm20SelectionDAGISelPass3runERNS_15MachineFunctionE
   store i32 %55, ptr %60, align 8, !tbaa !275
   %61 = getelementptr inbounds nuw i8, ptr %5, i64 12
   %62 = load i8, ptr %61, align 4, !tbaa !380, !range !48, !noundef !49
-  %63 = trunc nuw i8 %62 to i1
-  %64 = getelementptr inbounds nuw i8, ptr %59, i64 864
-  %65 = load i16, ptr %64, align 8
-  %66 = select i1 %63, i16 2048, i16 0
-  %67 = and i16 %65, -2049
+  %63 = getelementptr inbounds nuw i8, ptr %59, i64 864
+  %64 = load i16, ptr %63, align 8
+  %65 = zext nneg i8 %62 to i16
+  %66 = shl nuw nsw i16 %65, 11
+  %67 = and i16 %64, -2049
   %68 = or disjoint i16 %67, %66
-  store i16 %68, ptr %64, align 8
+  store i16 %68, ptr %63, align 8
   br label %_ZN4llvm15OptLevelChangerD2Ev.exit
 
 _ZN4llvm15OptLevelChangerD2Ev.exit:               ; preds = %43, %57

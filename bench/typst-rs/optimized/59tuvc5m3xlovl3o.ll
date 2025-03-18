@@ -1559,16 +1559,16 @@ define hidden void @_ZN10ttf_parser4Face13outline_glyph17h92106d384096df99E.llvm
 
 34:                                               ; preds = %25
   %35 = add nuw i16 %2, 1
-  %trunc.i.i.i = trunc nuw i64 %13 to i1
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %37 = load i64, ptr %36, align 8, !alias.scope !125, !noalias !126
-  %.0.in.v.i.i.i = select i1 %trunc.i.i.i, i64 2, i64 1
+  %.0.in.v.i.i.i = add nuw nsw i64 %13, 1
   %.0.in.i.i.i = lshr i64 %37, %.0.in.v.i.i.i
   %.0.i.i.i = trunc i64 %.0.in.i.i.i to i16
   %.not.i.i.i = icmp ult i16 %35, %.0.i.i.i
   br i1 %.not.i.i.i, label %38, label %select.unfold.i
 
 38:                                               ; preds = %34
+  %trunc.i.i.i = trunc nuw i64 %13 to i1
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val40.i.i.i = load ptr, ptr %39, align 8, !alias.scope !125, !noalias !126
   br i1 %trunc.i.i.i, label %50, label %40
@@ -2982,12 +2982,12 @@ define internal fastcc void @_ZN10ttf_parser6tables4glyf12outline_impl17hcff694a
 
 .lr.ph:                                           ; preds = %.preheader
   %27 = load i64, ptr %1, align 8, !range !416
-  %trunc.i = trunc nuw i64 %27 to i1
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %29 = load i64, ptr %28, align 8
-  %.0.in.v.i = select i1 %trunc.i, i64 2, i64 1
+  %.0.in.v.i = add nuw nsw i64 %27, 1
   %.0.in.i = lshr i64 %29, %.0.in.v.i
   %.0.i = trunc i64 %.0.in.i to i16
+  %trunc.i = trunc nuw i64 %27 to i1
   %30 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val40.i = load ptr, ptr %30, align 8
   %31 = lshr i64 %29, 1

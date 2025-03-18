@@ -15400,8 +15400,7 @@ _ZN3exr4meta9attribute4Text15write_i32_sized17he0526279b8546ddeE.exit.i.i: ; pre
   %440 = load i8, ptr %439, align 8, !range !342, !alias.scope !3270, !noalias !3271, !noundef !4
   %441 = getelementptr inbounds nuw i8, ptr %3, i64 25
   %442 = load i8, ptr %441, align 1, !range !369, !alias.scope !3270, !noalias !3271, !noundef !4
-  %trunc.i.i = trunc nuw i8 %442 to i1
-  %spec.select.i.i = select i1 %trunc.i.i, i8 16, i8 0
+  %spec.select.i.i = shl nuw nsw i8 %442, 4
   %443 = or disjoint i8 %spec.select.i.i, %440
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %.sroa.542.i.i)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %47), !noalias !3296

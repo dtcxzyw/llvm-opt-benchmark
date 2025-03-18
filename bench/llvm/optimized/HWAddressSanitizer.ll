@@ -18691,8 +18691,8 @@ define internal fastcc void @_ZN12_GLOBAL__N_118HWAddressSanitizer25instrumentMe
   %43 = shl nuw nsw i32 %42, 25
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 173
   %45 = load i8, ptr %44, align 1, !tbaa !257, !range !51, !noundef !52
-  %46 = trunc nuw i8 %45 to i1
-  %47 = select i1 %46, i32 16777216, i32 0
+  %46 = zext nneg i8 %45 to i32
+  %47 = shl nuw nsw i32 %46, 24
   %48 = or disjoint i32 %47, %43
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 161
   %50 = load i8, ptr %49, align 1, !tbaa !258, !range !51, !noundef !52

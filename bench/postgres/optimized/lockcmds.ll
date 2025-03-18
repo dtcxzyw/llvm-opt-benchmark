@@ -42,8 +42,8 @@ define dso_local void @LockTableCommand(ptr noundef %0) local_unnamed_addr #0 {
   %14 = load i8, ptr %13, align 8, !range !4, !noundef !5
   %15 = load i32, ptr %6, align 8
   %16 = load i8, ptr %7, align 4, !range !4, !noundef !5
-  %17 = trunc nuw i8 %16 to i1
-  %18 = select i1 %17, i32 2, i32 0
+  %17 = shl nuw nsw i8 %16, 1
+  %18 = zext nneg i8 %17 to i32
   %19 = tail call i32 @RangeVarGetRelidExtended(ptr noundef %12, i32 noundef %15, i32 noundef %18, ptr noundef nonnull @RangeVarCallbackForLockTable, ptr noundef nonnull %6) #5
   %20 = tail call signext i8 @get_rel_relkind(i32 noundef %19) #5
   %21 = icmp eq i8 %20, 118

@@ -1355,8 +1355,8 @@ define hidden noundef zeroext i1 @_ZN13JfrStackTrace12record_asyncEP10JavaThread
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %27
 
-27:                                               ; preds = %.lr.ph, %130
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %130 ]
+27:                                               ; preds = %.lr.ph, %131
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %131 ]
   %28 = load i32, ptr %14, align 4
   %29 = zext i32 %28 to i64
   %.not = icmp samesign ult i64 %indvars.iv, %29
@@ -1397,28 +1397,28 @@ define hidden noundef zeroext i1 @_ZN13JfrStackTrace12record_asyncEP10JavaThread
   %54 = load i16, ptr %53, align 2
   %55 = zext i16 %54 to i64
   %56 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
-  %57 = trunc i8 %56 to i1
-  %58 = select i1 %57, i64 2, i64 1
-  %.mask.i.i.i.i.i = and i8 %56, 1
-  %59 = zext nneg i8 %.mask.i.i.i.i.i to i64
-  %60 = shl nuw nsw i64 257, %59
+  %57 = and i8 %56, 1
+  %58 = add nuw nsw i8 %57, 1
+  %59 = zext nneg i8 %58 to i64
+  %60 = mul nuw nsw i64 %59, 257
   %61 = and i64 %60, %55
-  %.not.i.i.i = icmp eq i64 %61, %58
+  %.not.i.i.i = icmp eq i64 %61, %59
   br i1 %.not.i.i.i, label %_ZN10JfrTraceId4loadEPK6Method.exit, label %62
 
 62:                                               ; preds = %46
-  %63 = select i1 %57, i8 10, i8 5
-  %64 = getelementptr inbounds nuw i8, ptr %52, i64 168
-  %65 = load i8, ptr %64, align 1
-  %66 = or i8 %65, %63
-  store i8 %66, ptr %64, align 1
+  %63 = trunc i8 %56 to i1
+  %64 = select i1 %63, i8 10, i8 5
+  %65 = getelementptr inbounds nuw i8, ptr %52, i64 168
+  %66 = load i8, ptr %65, align 1
+  %67 = or i8 %66, %64
+  store i8 %67, ptr %65, align 1
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !18
-  %67 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
-  %68 = trunc i8 %67 to i1
-  %69 = select i1 %68, i8 2, i8 1
-  %70 = load i8, ptr %53, align 1
-  %71 = or i8 %69, %70
-  store i8 %71, ptr %53, align 1
+  %68 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
+  %69 = and i8 %68, 1
+  %70 = add nuw nsw i8 %69, 1
+  %71 = load i8, ptr %53, align 1
+  %72 = or i8 %70, %71
+  store i8 %72, ptr %53, align 1
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !18
   call void @_ZN21JfrTraceIdLoadBarrier7enqueueEPK5Klass(ptr noundef %52) #15
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !18
@@ -1427,164 +1427,164 @@ define hidden noundef zeroext i1 @_ZN13JfrStackTrace12record_asyncEP10JavaThread
   br label %_ZN10JfrTraceId4loadEPK6Method.exit
 
 _ZN10JfrTraceId4loadEPK6Method.exit:              ; preds = %46, %62
-  %72 = phi ptr [ %48, %46 ], [ %.pre.i.i, %62 ]
-  %73 = getelementptr inbounds nuw i8, ptr %52, i64 168
-  %74 = load i64, ptr %73, align 8
-  %75 = and i64 %74, -8064
-  %76 = getelementptr inbounds nuw i8, ptr %72, i64 50
-  %77 = load i16, ptr %76, align 2
-  %78 = zext i16 %77 to i64
-  %79 = or i64 %75, %78
-  %80 = load ptr, ptr @_ZN19AbstractInterpreter5_codeE, align 8
-  %.not.i.i.i26 = icmp eq ptr %80, null
-  br i1 %.not.i.i.i26, label %_ZNK18vframeStreamCommon20is_interpreted_frameEv.exit, label %81
+  %73 = phi ptr [ %48, %46 ], [ %.pre.i.i, %62 ]
+  %74 = getelementptr inbounds nuw i8, ptr %52, i64 168
+  %75 = load i64, ptr %74, align 8
+  %76 = and i64 %75, -8064
+  %77 = getelementptr inbounds nuw i8, ptr %73, i64 50
+  %78 = load i16, ptr %77, align 2
+  %79 = zext i16 %78 to i64
+  %80 = or i64 %76, %79
+  %81 = load ptr, ptr @_ZN19AbstractInterpreter5_codeE, align 8
+  %.not.i.i.i26 = icmp eq ptr %81, null
+  br i1 %.not.i.i.i26, label %_ZNK18vframeStreamCommon20is_interpreted_frameEv.exit, label %82
 
-81:                                               ; preds = %_ZN10JfrTraceId4loadEPK6Method.exit
-  %82 = load ptr, ptr %19, align 8
-  %83 = getelementptr inbounds nuw i8, ptr %80, i64 8
-  %84 = load ptr, ptr %83, align 8
-  %.not.i.i.i.i = icmp ugt ptr %84, %82
-  %85 = getelementptr inbounds nuw i8, ptr %80, i64 20
-  %86 = load i32, ptr %85, align 4
-  %87 = sext i32 %86 to i64
-  %88 = getelementptr inbounds i8, ptr %84, i64 %87
-  %89 = icmp uge ptr %82, %88
-  %.not32 = select i1 %.not.i.i.i.i, i1 true, i1 %89
-  %90 = zext i1 %.not32 to i8
+82:                                               ; preds = %_ZN10JfrTraceId4loadEPK6Method.exit
+  %83 = load ptr, ptr %19, align 8
+  %84 = getelementptr inbounds nuw i8, ptr %81, i64 8
+  %85 = load ptr, ptr %84, align 8
+  %.not.i.i.i.i = icmp ugt ptr %85, %83
+  %86 = getelementptr inbounds nuw i8, ptr %81, i64 20
+  %87 = load i32, ptr %86, align 4
+  %88 = sext i32 %87 to i64
+  %89 = getelementptr inbounds i8, ptr %85, i64 %88
+  %90 = icmp uge ptr %83, %89
+  %.not32 = select i1 %.not.i.i.i.i, i1 true, i1 %90
+  %91 = zext i1 %.not32 to i8
   br label %_ZNK18vframeStreamCommon20is_interpreted_frameEv.exit
 
-_ZNK18vframeStreamCommon20is_interpreted_frameEv.exit: ; preds = %_ZN10JfrTraceId4loadEPK6Method.exit, %81
-  %not. = phi i8 [ 1, %_ZN10JfrTraceId4loadEPK6Method.exit ], [ %90, %81 ]
-  %91 = getelementptr inbounds nuw i8, ptr %33, i64 40
-  %.sroa.0.0.copyload.i.i = load i32, ptr %91, align 8
-  %92 = and i32 %.sroa.0.0.copyload.i.i, 256
-  %.not30 = icmp eq i32 %92, 0
-  %93 = load i32, ptr %20, align 8
+_ZNK18vframeStreamCommon20is_interpreted_frameEv.exit: ; preds = %_ZN10JfrTraceId4loadEPK6Method.exit, %82
+  %not. = phi i8 [ 1, %_ZN10JfrTraceId4loadEPK6Method.exit ], [ %91, %82 ]
+  %92 = getelementptr inbounds nuw i8, ptr %33, i64 40
+  %.sroa.0.0.copyload.i.i = load i32, ptr %92, align 8
+  %93 = and i32 %.sroa.0.0.copyload.i.i, 256
+  %.not30 = icmp eq i32 %93, 0
+  %94 = load i32, ptr %20, align 8
   %.024 = select i1 %.not30, i8 %not., i8 3
-  %.023 = select i1 %.not30, i32 %93, i32 0
-  %94 = load i8, ptr %21, align 4
-  %95 = trunc i8 %94 to i1
-  br i1 %95, label %96, label %104
+  %.023 = select i1 %.not30, i32 %94, i32 0
+  %95 = load i8, ptr %21, align 4
+  %96 = trunc i8 %95 to i1
+  br i1 %96, label %97, label %105
 
-96:                                               ; preds = %_ZNK18vframeStreamCommon20is_interpreted_frameEv.exit
-  %97 = load i32, ptr %23, align 8
-  %98 = shl i32 %97, 16
-  %99 = sext i32 %98 to i64
-  %100 = load i32, ptr %22, align 8
-  %101 = sext i32 %100 to i64
-  %102 = add nsw i64 %99, %101
-  %103 = inttoptr i64 %102 to ptr
+97:                                               ; preds = %_ZNK18vframeStreamCommon20is_interpreted_frameEv.exit
+  %98 = load i32, ptr %23, align 8
+  %99 = shl i32 %98, 16
+  %100 = sext i32 %99 to i64
+  %101 = load i32, ptr %22, align 8
+  %102 = sext i32 %101 to i64
+  %103 = add nsw i64 %100, %102
+  %104 = inttoptr i64 %103 to ptr
   br label %_ZNK18vframeStreamCommon8frame_idEv.exit
 
-104:                                              ; preds = %_ZNK18vframeStreamCommon20is_interpreted_frameEv.exit
-  %105 = load ptr, ptr %22, align 8
+105:                                              ; preds = %_ZNK18vframeStreamCommon20is_interpreted_frameEv.exit
+  %106 = load ptr, ptr %22, align 8
   br label %_ZNK18vframeStreamCommon8frame_idEv.exit
 
-_ZNK18vframeStreamCommon8frame_idEv.exit:         ; preds = %96, %104
-  %.0.i = phi ptr [ %103, %96 ], [ %105, %104 ]
-  %106 = load i32, ptr %11, align 8
-  %107 = icmp eq i32 %106, 1
-  br i1 %107, label %108, label %_ZN18vframeStreamCommon31fill_in_compiled_inlined_senderEv.exit.i
+_ZNK18vframeStreamCommon8frame_idEv.exit:         ; preds = %97, %105
+  %.0.i = phi ptr [ %104, %97 ], [ %106, %105 ]
+  %107 = load i32, ptr %11, align 8
+  %108 = icmp eq i32 %107, 1
+  br i1 %108, label %109, label %_ZN18vframeStreamCommon31fill_in_compiled_inlined_senderEv.exit.i
 
-108:                                              ; preds = %_ZNK18vframeStreamCommon8frame_idEv.exit
-  %109 = load i32, ptr %24, align 8
-  %.not.i = icmp eq i32 %109, 0
+109:                                              ; preds = %_ZNK18vframeStreamCommon8frame_idEv.exit
+  %110 = load i32, ptr %24, align 8
+  %.not.i = icmp eq i32 %110, 0
   br i1 %.not.i, label %_ZN18vframeStreamCommon31fill_in_compiled_inlined_senderEv.exit.i, label %_ZN18vframeStreamCommon31fill_in_compiled_inlined_senderEv.exit.thread.i
 
-_ZN18vframeStreamCommon31fill_in_compiled_inlined_senderEv.exit.thread.i: ; preds = %108
-  call void @_ZN18vframeStreamCommon24fill_from_compiled_frameEi(ptr noundef nonnull align 8 dereferenceable(5121) %5, i32 noundef %109)
-  %110 = load i32, ptr %25, align 4
-  %111 = add nsw i32 %110, 1
-  store i32 %111, ptr %25, align 4
+_ZN18vframeStreamCommon31fill_in_compiled_inlined_senderEv.exit.thread.i: ; preds = %109
+  call void @_ZN18vframeStreamCommon24fill_from_compiled_frameEi(ptr noundef nonnull align 8 dereferenceable(5121) %5, i32 noundef %110)
+  %111 = load i32, ptr %25, align 4
+  %112 = add nsw i32 %111, 1
+  store i32 %112, ptr %25, align 4
   br label %_ZN15JfrVframeStream11next_vframeEv.exit
 
-_ZN18vframeStreamCommon31fill_in_compiled_inlined_senderEv.exit.i: ; preds = %108, %_ZNK18vframeStreamCommon8frame_idEv.exit
+_ZN18vframeStreamCommon31fill_in_compiled_inlined_senderEv.exit.i: ; preds = %109, %_ZNK18vframeStreamCommon8frame_idEv.exit
   call void @_ZN15JfrVframeStream10next_frameEv(ptr noundef nonnull align 8 dereferenceable(5121) %5)
   br label %_ZN15JfrVframeStream11next_vframeEv.exit
 
 _ZN15JfrVframeStream11next_vframeEv.exit:         ; preds = %_ZN18vframeStreamCommon31fill_in_compiled_inlined_senderEv.exit.thread.i, %_ZN18vframeStreamCommon31fill_in_compiled_inlined_senderEv.exit.i
-  %112 = icmp eq i8 %.024, 1
-  br i1 %112, label %113, label %130
+  %113 = icmp eq i8 %.024, 1
+  br i1 %113, label %114, label %131
 
-113:                                              ; preds = %_ZN15JfrVframeStream11next_vframeEv.exit
-  %114 = load i32, ptr %11, align 8
-  %115 = icmp eq i32 %114, 2
-  br i1 %115, label %130, label %116
+114:                                              ; preds = %_ZN15JfrVframeStream11next_vframeEv.exit
+  %115 = load i32, ptr %11, align 8
+  %116 = icmp eq i32 %115, 2
+  br i1 %116, label %131, label %117
 
-116:                                              ; preds = %113
-  %117 = load i8, ptr %21, align 4
-  %118 = trunc i8 %117 to i1
-  br i1 %118, label %119, label %127
+117:                                              ; preds = %114
+  %118 = load i8, ptr %21, align 4
+  %119 = trunc i8 %118 to i1
+  br i1 %119, label %120, label %128
 
-119:                                              ; preds = %116
-  %120 = load i32, ptr %23, align 8
-  %121 = shl i32 %120, 16
-  %122 = sext i32 %121 to i64
-  %123 = load i32, ptr %22, align 8
-  %124 = sext i32 %123 to i64
-  %125 = add nsw i64 %122, %124
-  %126 = inttoptr i64 %125 to ptr
+120:                                              ; preds = %117
+  %121 = load i32, ptr %23, align 8
+  %122 = shl i32 %121, 16
+  %123 = sext i32 %122 to i64
+  %124 = load i32, ptr %22, align 8
+  %125 = sext i32 %124 to i64
+  %126 = add nsw i64 %123, %125
+  %127 = inttoptr i64 %126 to ptr
   br label %_ZNK18vframeStreamCommon8frame_idEv.exit28
 
-127:                                              ; preds = %116
-  %128 = load ptr, ptr %22, align 8
+128:                                              ; preds = %117
+  %129 = load ptr, ptr %22, align 8
   br label %_ZNK18vframeStreamCommon8frame_idEv.exit28
 
-_ZNK18vframeStreamCommon8frame_idEv.exit28:       ; preds = %119, %127
-  %.0.i27 = phi ptr [ %126, %119 ], [ %128, %127 ]
-  %129 = icmp eq ptr %.0.i, %.0.i27
-  %spec.select = select i1 %129, i8 2, i8 1
-  br label %130
+_ZNK18vframeStreamCommon8frame_idEv.exit28:       ; preds = %120, %128
+  %.0.i27 = phi ptr [ %127, %120 ], [ %129, %128 ]
+  %130 = icmp eq ptr %.0.i, %.0.i27
+  %spec.select = select i1 %130, i8 2, i8 1
+  br label %131
 
-130:                                              ; preds = %_ZNK18vframeStreamCommon8frame_idEv.exit28, %113, %_ZN15JfrVframeStream11next_vframeEv.exit
-  %.1 = phi i8 [ 1, %113 ], [ %.024, %_ZN15JfrVframeStream11next_vframeEv.exit ], [ %spec.select, %_ZNK18vframeStreamCommon8frame_idEv.exit28 ]
-  %131 = load i64, ptr %10, align 8
-  %132 = mul i64 %131, 31
-  %133 = add i64 %132, %79
-  %134 = mul i64 %133, 31
-  %135 = sext i32 %.023 to i64
-  %136 = add i64 %134, %135
-  %137 = mul i64 %136, 31
-  %138 = zext nneg i8 %.1 to i64
-  %139 = add i64 %137, %138
-  store i64 %139, ptr %10, align 8
-  %140 = call noundef i32 @_ZNK6Method20line_number_from_bciEi(ptr noundef nonnull align 8 dereferenceable(88) %33, i32 noundef %.023) #15
-  %141 = load ptr, ptr %47, align 8
-  %142 = getelementptr inbounds nuw i8, ptr %141, i64 8
-  %143 = load ptr, ptr %142, align 8
-  %144 = getelementptr inbounds nuw i8, ptr %143, i64 24
-  %145 = load ptr, ptr %144, align 8
-  %146 = load ptr, ptr %26, align 8
-  %147 = getelementptr inbounds nuw %class.JfrStackFrame, ptr %146, i64 %indvars.iv
-  store ptr %145, ptr %147, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %147, i64 8
-  store i64 %79, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %147, i64 16
-  store i32 %140, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %147, i64 20
+131:                                              ; preds = %_ZNK18vframeStreamCommon8frame_idEv.exit28, %114, %_ZN15JfrVframeStream11next_vframeEv.exit
+  %.1 = phi i8 [ 1, %114 ], [ %.024, %_ZN15JfrVframeStream11next_vframeEv.exit ], [ %spec.select, %_ZNK18vframeStreamCommon8frame_idEv.exit28 ]
+  %132 = load i64, ptr %10, align 8
+  %133 = mul i64 %132, 31
+  %134 = add i64 %133, %80
+  %135 = mul i64 %134, 31
+  %136 = sext i32 %.023 to i64
+  %137 = add i64 %135, %136
+  %138 = mul i64 %137, 31
+  %139 = zext nneg i8 %.1 to i64
+  %140 = add i64 %138, %139
+  store i64 %140, ptr %10, align 8
+  %141 = call noundef i32 @_ZNK6Method20line_number_from_bciEi(ptr noundef nonnull align 8 dereferenceable(88) %33, i32 noundef %.023) #15
+  %142 = load ptr, ptr %47, align 8
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 8
+  %144 = load ptr, ptr %143, align 8
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 24
+  %146 = load ptr, ptr %145, align 8
+  %147 = load ptr, ptr %26, align 8
+  %148 = getelementptr inbounds nuw %class.JfrStackFrame, ptr %147, i64 %indvars.iv
+  store ptr %146, ptr %148, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %148, i64 8
+  store i64 %80, ptr %.sroa.2.0..sroa_idx, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %148, i64 16
+  store i32 %141, ptr %.sroa.3.0..sroa_idx, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %148, i64 20
   store i32 %.023, ptr %.sroa.4.0..sroa_idx, align 4
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %147, i64 24
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %148, i64 24
   store i8 %.1, ptr %.sroa.5.0..sroa_idx, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %148 = load i32, ptr %11, align 8
-  %149 = icmp eq i32 %148, 2
-  br i1 %149, label %.loopexit.loopexit, label %27, !llvm.loop !19
+  %149 = load i32, ptr %11, align 8
+  %150 = icmp eq i32 %149, 2
+  br i1 %150, label %.loopexit.loopexit, label %27, !llvm.loop !19
 
-.loopexit.loopexit:                               ; preds = %130
-  %150 = trunc nuw i64 %indvars.iv.next to i32
+.loopexit.loopexit:                               ; preds = %131
+  %151 = trunc nuw i64 %indvars.iv.next to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit, %3, %30
-  %.02536 = phi i32 [ %31, %30 ], [ 0, %3 ], [ %150, %.loopexit.loopexit ]
-  %151 = getelementptr inbounds nuw i8, ptr %0, i64 42
-  store i8 1, ptr %151, align 2
-  %152 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %.02536, ptr %152, align 8
-  %153 = icmp ne i32 %.02536, 0
+  %.02536 = phi i32 [ %31, %30 ], [ 0, %3 ], [ %151, %.loopexit.loopexit ]
+  %152 = getelementptr inbounds nuw i8, ptr %0, i64 42
+  store i8 1, ptr %152, align 2
+  %153 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i32 %.02536, ptr %153, align 8
+  %154 = icmp ne i32 %.02536, 0
   br label %.loopexit33
 
 .loopexit33:                                      ; preds = %32, %35, %.loopexit
-  %.0 = phi i1 [ %153, %.loopexit ], [ false, %35 ], [ false, %32 ]
+  %.0 = phi i1 [ %154, %.loopexit ], [ false, %35 ], [ false, %32 ]
   call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %4) #15
   ret i1 %.0
 }
@@ -1735,28 +1735,28 @@ _ZN15JfrVframeStream11next_vframeEv.exit32:       ; preds = %_ZN18vframeStreamCo
   %59 = load i16, ptr %58, align 2
   %60 = zext i16 %59 to i64
   %61 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
-  %62 = trunc i8 %61 to i1
-  %63 = select i1 %62, i64 2, i64 1
-  %.mask.i.i.i.i.i = and i8 %61, 1
-  %64 = zext nneg i8 %.mask.i.i.i.i.i to i64
-  %65 = shl nuw nsw i64 257, %64
+  %62 = and i8 %61, 1
+  %63 = add nuw nsw i8 %62, 1
+  %64 = zext nneg i8 %63 to i64
+  %65 = mul nuw nsw i64 %64, 257
   %66 = and i64 %65, %60
-  %.not.i.i.i = icmp eq i64 %66, %63
+  %.not.i.i.i = icmp eq i64 %66, %64
   br i1 %.not.i.i.i, label %_ZN10JfrTraceId4loadEPK6Method.exit, label %67
 
 67:                                               ; preds = %.split54
-  %68 = select i1 %62, i8 10, i8 5
-  %69 = getelementptr inbounds nuw i8, ptr %57, i64 168
-  %70 = load i8, ptr %69, align 1
-  %71 = or i8 %70, %68
-  store i8 %71, ptr %69, align 1
+  %68 = trunc i8 %61 to i1
+  %69 = select i1 %68, i8 10, i8 5
+  %70 = getelementptr inbounds nuw i8, ptr %57, i64 168
+  %71 = load i8, ptr %70, align 1
+  %72 = or i8 %71, %69
+  store i8 %72, ptr %70, align 1
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !18
-  %72 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
-  %73 = trunc i8 %72 to i1
-  %74 = select i1 %73, i8 2, i8 1
-  %75 = load i8, ptr %58, align 1
-  %76 = or i8 %74, %75
-  store i8 %76, ptr %58, align 1
+  %73 = load i8, ptr @_ZN15JfrTraceIdEpoch12_epoch_stateE, align 1
+  %74 = and i8 %73, 1
+  %75 = add nuw nsw i8 %74, 1
+  %76 = load i8, ptr %58, align 1
+  %77 = or i8 %75, %76
+  store i8 %77, ptr %58, align 1
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !18
   call void @_ZN21JfrTraceIdLoadBarrier7enqueueEPK5Klass(ptr noundef %57) #15
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !18
@@ -1765,163 +1765,163 @@ _ZN15JfrVframeStream11next_vframeEv.exit32:       ; preds = %_ZN18vframeStreamCo
   br label %_ZN10JfrTraceId4loadEPK6Method.exit
 
 _ZN10JfrTraceId4loadEPK6Method.exit:              ; preds = %.split54, %67
-  %77 = phi ptr [ %53, %.split54 ], [ %.pre.i.i, %67 ]
-  %78 = getelementptr inbounds nuw i8, ptr %57, i64 168
-  %79 = load i64, ptr %78, align 8
-  %80 = and i64 %79, -8064
-  %81 = getelementptr inbounds nuw i8, ptr %77, i64 50
-  %82 = load i16, ptr %81, align 2
-  %83 = zext i16 %82 to i64
-  %84 = or i64 %80, %83
-  %85 = load ptr, ptr @_ZN19AbstractInterpreter5_codeE, align 8
-  %.not.i.i.i33 = icmp eq ptr %85, null
-  br i1 %.not.i.i.i33, label %_ZNK18vframeStreamCommon20is_interpreted_frameEv.exit, label %86
+  %78 = phi ptr [ %53, %.split54 ], [ %.pre.i.i, %67 ]
+  %79 = getelementptr inbounds nuw i8, ptr %57, i64 168
+  %80 = load i64, ptr %79, align 8
+  %81 = and i64 %80, -8064
+  %82 = getelementptr inbounds nuw i8, ptr %78, i64 50
+  %83 = load i16, ptr %82, align 2
+  %84 = zext i16 %83 to i64
+  %85 = or i64 %81, %84
+  %86 = load ptr, ptr @_ZN19AbstractInterpreter5_codeE, align 8
+  %.not.i.i.i33 = icmp eq ptr %86, null
+  br i1 %.not.i.i.i33, label %_ZNK18vframeStreamCommon20is_interpreted_frameEv.exit, label %87
 
-86:                                               ; preds = %_ZN10JfrTraceId4loadEPK6Method.exit
-  %87 = load ptr, ptr %29, align 8
-  %88 = getelementptr inbounds nuw i8, ptr %85, i64 8
-  %89 = load ptr, ptr %88, align 8
-  %.not.i.i.i.i = icmp ugt ptr %89, %87
-  %90 = getelementptr inbounds nuw i8, ptr %85, i64 20
-  %91 = load i32, ptr %90, align 4
-  %92 = sext i32 %91 to i64
-  %93 = getelementptr inbounds i8, ptr %89, i64 %92
-  %94 = icmp uge ptr %87, %93
-  %.not43 = select i1 %.not.i.i.i.i, i1 true, i1 %94
-  %95 = zext i1 %.not43 to i8
+87:                                               ; preds = %_ZN10JfrTraceId4loadEPK6Method.exit
+  %88 = load ptr, ptr %29, align 8
+  %89 = getelementptr inbounds nuw i8, ptr %86, i64 8
+  %90 = load ptr, ptr %89, align 8
+  %.not.i.i.i.i = icmp ugt ptr %90, %88
+  %91 = getelementptr inbounds nuw i8, ptr %86, i64 20
+  %92 = load i32, ptr %91, align 4
+  %93 = sext i32 %92 to i64
+  %94 = getelementptr inbounds i8, ptr %90, i64 %93
+  %95 = icmp uge ptr %88, %94
+  %.not43 = select i1 %.not.i.i.i.i, i1 true, i1 %95
+  %96 = zext i1 %.not43 to i8
   br label %_ZNK18vframeStreamCommon20is_interpreted_frameEv.exit
 
-_ZNK18vframeStreamCommon20is_interpreted_frameEv.exit: ; preds = %_ZN10JfrTraceId4loadEPK6Method.exit, %86
-  %not. = phi i8 [ 1, %_ZN10JfrTraceId4loadEPK6Method.exit ], [ %95, %86 ]
-  %96 = getelementptr inbounds nuw i8, ptr %.us-phi55, i64 40
-  %.sroa.0.0.copyload.i.i = load i32, ptr %96, align 8
-  %97 = and i32 %.sroa.0.0.copyload.i.i, 256
-  %.not41 = icmp eq i32 %97, 0
-  %98 = load i32, ptr %30, align 8
+_ZNK18vframeStreamCommon20is_interpreted_frameEv.exit: ; preds = %_ZN10JfrTraceId4loadEPK6Method.exit, %87
+  %not. = phi i8 [ 1, %_ZN10JfrTraceId4loadEPK6Method.exit ], [ %96, %87 ]
+  %97 = getelementptr inbounds nuw i8, ptr %.us-phi55, i64 40
+  %.sroa.0.0.copyload.i.i = load i32, ptr %97, align 8
+  %98 = and i32 %.sroa.0.0.copyload.i.i, 256
+  %.not41 = icmp eq i32 %98, 0
+  %99 = load i32, ptr %30, align 8
   %.025 = select i1 %.not41, i8 %not., i8 3
-  %.024 = select i1 %.not41, i32 %98, i32 0
-  %99 = load i8, ptr %31, align 4
-  %100 = trunc i8 %99 to i1
-  br i1 %100, label %101, label %109
+  %.024 = select i1 %.not41, i32 %99, i32 0
+  %100 = load i8, ptr %31, align 4
+  %101 = trunc i8 %100 to i1
+  br i1 %101, label %102, label %110
 
-101:                                              ; preds = %_ZNK18vframeStreamCommon20is_interpreted_frameEv.exit
-  %102 = load i32, ptr %33, align 8
-  %103 = shl i32 %102, 16
-  %104 = sext i32 %103 to i64
-  %105 = load i32, ptr %32, align 8
-  %106 = sext i32 %105 to i64
-  %107 = add nsw i64 %104, %106
-  %108 = inttoptr i64 %107 to ptr
+102:                                              ; preds = %_ZNK18vframeStreamCommon20is_interpreted_frameEv.exit
+  %103 = load i32, ptr %33, align 8
+  %104 = shl i32 %103, 16
+  %105 = sext i32 %104 to i64
+  %106 = load i32, ptr %32, align 8
+  %107 = sext i32 %106 to i64
+  %108 = add nsw i64 %105, %107
+  %109 = inttoptr i64 %108 to ptr
   br label %_ZNK18vframeStreamCommon8frame_idEv.exit
 
-109:                                              ; preds = %_ZNK18vframeStreamCommon20is_interpreted_frameEv.exit
-  %110 = load ptr, ptr %32, align 8
+110:                                              ; preds = %_ZNK18vframeStreamCommon20is_interpreted_frameEv.exit
+  %111 = load ptr, ptr %32, align 8
   br label %_ZNK18vframeStreamCommon8frame_idEv.exit
 
-_ZNK18vframeStreamCommon8frame_idEv.exit:         ; preds = %101, %109
-  %.0.i = phi ptr [ %108, %101 ], [ %110, %109 ]
-  %111 = load i32, ptr %22, align 8
-  %112 = icmp eq i32 %111, 1
-  br i1 %112, label %113, label %_ZN18vframeStreamCommon31fill_in_compiled_inlined_senderEv.exit.i34
+_ZNK18vframeStreamCommon8frame_idEv.exit:         ; preds = %102, %110
+  %.0.i = phi ptr [ %109, %102 ], [ %111, %110 ]
+  %112 = load i32, ptr %22, align 8
+  %113 = icmp eq i32 %112, 1
+  br i1 %113, label %114, label %_ZN18vframeStreamCommon31fill_in_compiled_inlined_senderEv.exit.i34
 
-113:                                              ; preds = %_ZNK18vframeStreamCommon8frame_idEv.exit
-  %114 = load i32, ptr %27, align 8
-  %.not.i35 = icmp eq i32 %114, 0
+114:                                              ; preds = %_ZNK18vframeStreamCommon8frame_idEv.exit
+  %115 = load i32, ptr %27, align 8
+  %.not.i35 = icmp eq i32 %115, 0
   br i1 %.not.i35, label %_ZN18vframeStreamCommon31fill_in_compiled_inlined_senderEv.exit.i34, label %_ZN18vframeStreamCommon31fill_in_compiled_inlined_senderEv.exit.thread.i36
 
-_ZN18vframeStreamCommon31fill_in_compiled_inlined_senderEv.exit.thread.i36: ; preds = %113
-  call void @_ZN18vframeStreamCommon24fill_from_compiled_frameEi(ptr noundef nonnull align 8 dereferenceable(5121) %7, i32 noundef %114)
-  %115 = load i32, ptr %28, align 4
-  %116 = add nsw i32 %115, 1
-  store i32 %116, ptr %28, align 4
+_ZN18vframeStreamCommon31fill_in_compiled_inlined_senderEv.exit.thread.i36: ; preds = %114
+  call void @_ZN18vframeStreamCommon24fill_from_compiled_frameEi(ptr noundef nonnull align 8 dereferenceable(5121) %7, i32 noundef %115)
+  %116 = load i32, ptr %28, align 4
+  %117 = add nsw i32 %116, 1
+  store i32 %117, ptr %28, align 4
   br label %_ZN15JfrVframeStream11next_vframeEv.exit37
 
-_ZN18vframeStreamCommon31fill_in_compiled_inlined_senderEv.exit.i34: ; preds = %113, %_ZNK18vframeStreamCommon8frame_idEv.exit
+_ZN18vframeStreamCommon31fill_in_compiled_inlined_senderEv.exit.i34: ; preds = %114, %_ZNK18vframeStreamCommon8frame_idEv.exit
   call void @_ZN15JfrVframeStream10next_frameEv(ptr noundef nonnull align 8 dereferenceable(5121) %7)
   br label %_ZN15JfrVframeStream11next_vframeEv.exit37
 
 _ZN15JfrVframeStream11next_vframeEv.exit37:       ; preds = %_ZN18vframeStreamCommon31fill_in_compiled_inlined_senderEv.exit.thread.i36, %_ZN18vframeStreamCommon31fill_in_compiled_inlined_senderEv.exit.i34
-  %117 = icmp eq i8 %.025, 1
-  br i1 %117, label %118, label %.outer
+  %118 = icmp eq i8 %.025, 1
+  br i1 %118, label %119, label %.outer
 
-118:                                              ; preds = %_ZN15JfrVframeStream11next_vframeEv.exit37
-  %119 = load i32, ptr %22, align 8
-  %120 = icmp eq i32 %119, 2
-  br i1 %120, label %.outer, label %121
+119:                                              ; preds = %_ZN15JfrVframeStream11next_vframeEv.exit37
+  %120 = load i32, ptr %22, align 8
+  %121 = icmp eq i32 %120, 2
+  br i1 %121, label %.outer, label %122
 
-121:                                              ; preds = %118
-  %122 = load i8, ptr %31, align 4
-  %123 = trunc i8 %122 to i1
-  br i1 %123, label %124, label %132
+122:                                              ; preds = %119
+  %123 = load i8, ptr %31, align 4
+  %124 = trunc i8 %123 to i1
+  br i1 %124, label %125, label %133
 
-124:                                              ; preds = %121
-  %125 = load i32, ptr %33, align 8
-  %126 = shl i32 %125, 16
-  %127 = sext i32 %126 to i64
-  %128 = load i32, ptr %32, align 8
-  %129 = sext i32 %128 to i64
-  %130 = add nsw i64 %127, %129
-  %131 = inttoptr i64 %130 to ptr
+125:                                              ; preds = %122
+  %126 = load i32, ptr %33, align 8
+  %127 = shl i32 %126, 16
+  %128 = sext i32 %127 to i64
+  %129 = load i32, ptr %32, align 8
+  %130 = sext i32 %129 to i64
+  %131 = add nsw i64 %128, %130
+  %132 = inttoptr i64 %131 to ptr
   br label %_ZNK18vframeStreamCommon8frame_idEv.exit39
 
-132:                                              ; preds = %121
-  %133 = load ptr, ptr %32, align 8
+133:                                              ; preds = %122
+  %134 = load ptr, ptr %32, align 8
   br label %_ZNK18vframeStreamCommon8frame_idEv.exit39
 
-_ZNK18vframeStreamCommon8frame_idEv.exit39:       ; preds = %124, %132
-  %.0.i38 = phi ptr [ %131, %124 ], [ %133, %132 ]
-  %134 = icmp eq ptr %.0.i, %.0.i38
-  %spec.select = select i1 %134, i8 2, i8 1
+_ZNK18vframeStreamCommon8frame_idEv.exit39:       ; preds = %125, %133
+  %.0.i38 = phi ptr [ %132, %125 ], [ %134, %133 ]
+  %135 = icmp eq ptr %.0.i, %.0.i38
+  %spec.select = select i1 %135, i8 2, i8 1
   br label %.outer
 
-.outer:                                           ; preds = %_ZNK18vframeStreamCommon8frame_idEv.exit39, %118, %_ZN15JfrVframeStream11next_vframeEv.exit37
-  %.1 = phi i8 [ 1, %118 ], [ %.025, %_ZN15JfrVframeStream11next_vframeEv.exit37 ], [ %spec.select, %_ZNK18vframeStreamCommon8frame_idEv.exit39 ]
-  %135 = load i64, ptr %21, align 8
-  %136 = mul i64 %135, 31
-  %137 = add i64 %136, %84
-  %138 = mul i64 %137, 31
-  %139 = sext i32 %.024 to i64
-  %140 = add i64 %138, %139
-  %141 = mul i64 %140, 31
-  %142 = zext nneg i8 %.1 to i64
-  %143 = add i64 %141, %142
-  store i64 %143, ptr %21, align 8
-  %144 = load ptr, ptr %52, align 8
-  %145 = getelementptr inbounds nuw i8, ptr %144, i64 8
-  %146 = load ptr, ptr %145, align 8
-  %147 = getelementptr inbounds nuw i8, ptr %146, i64 24
-  %148 = load ptr, ptr %147, align 8
-  %149 = load ptr, ptr %34, align 8
-  %150 = getelementptr inbounds nuw %class.JfrStackFrame, ptr %149, i64 %indvars.iv
-  store ptr %148, ptr %150, align 8
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %150, i64 8
-  store i64 %84, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %150, i64 16
+.outer:                                           ; preds = %_ZNK18vframeStreamCommon8frame_idEv.exit39, %119, %_ZN15JfrVframeStream11next_vframeEv.exit37
+  %.1 = phi i8 [ 1, %119 ], [ %.025, %_ZN15JfrVframeStream11next_vframeEv.exit37 ], [ %spec.select, %_ZNK18vframeStreamCommon8frame_idEv.exit39 ]
+  %136 = load i64, ptr %21, align 8
+  %137 = mul i64 %136, 31
+  %138 = add i64 %137, %85
+  %139 = mul i64 %138, 31
+  %140 = sext i32 %.024 to i64
+  %141 = add i64 %139, %140
+  %142 = mul i64 %141, 31
+  %143 = zext nneg i8 %.1 to i64
+  %144 = add i64 %142, %143
+  store i64 %144, ptr %21, align 8
+  %145 = load ptr, ptr %52, align 8
+  %146 = getelementptr inbounds nuw i8, ptr %145, i64 8
+  %147 = load ptr, ptr %146, align 8
+  %148 = getelementptr inbounds nuw i8, ptr %147, i64 24
+  %149 = load ptr, ptr %148, align 8
+  %150 = load ptr, ptr %34, align 8
+  %151 = getelementptr inbounds nuw %class.JfrStackFrame, ptr %150, i64 %indvars.iv
+  store ptr %149, ptr %151, align 8
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %151, i64 8
+  store i64 %85, ptr %.sroa.2.0..sroa_idx, align 8
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %151, i64 16
   store i32 0, ptr %.sroa.3.0..sroa_idx, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %150, i64 20
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %151, i64 20
   store i32 %.024, ptr %.sroa.4.0..sroa_idx, align 4
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %150, i64 24
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %151, i64 24
   store i8 %.1, ptr %.sroa.5.0..sroa_idx, align 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %151 = load i32, ptr %22, align 8
-  %152 = icmp eq i32 %151, 2
-  br i1 %152, label %.loopexit.loopexit60, label %.lr.ph51, !llvm.loop !21
+  %152 = load i32, ptr %22, align 8
+  %153 = icmp eq i32 %152, 2
+  br i1 %153, label %.loopexit.loopexit60, label %.lr.ph51, !llvm.loop !21
 
 .loopexit.loopexit:                               ; preds = %_ZN15JfrVframeStream11next_vframeEv.exit32
-  %153 = trunc nuw i64 %indvars.iv to i32
+  %154 = trunc nuw i64 %indvars.iv to i32
   br label %.loopexit
 
 .loopexit.loopexit60:                             ; preds = %.outer
-  %154 = trunc nuw i64 %indvars.iv.next to i32
+  %155 = trunc nuw i64 %indvars.iv.next to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %.loopexit.loopexit60, %.loopexit.loopexit, %._crit_edge, %.split.us
-  %.0.ph48 = phi i32 [ %.0.ph5765, %.split.us ], [ 0, %._crit_edge ], [ %153, %.loopexit.loopexit ], [ %154, %.loopexit.loopexit60 ]
-  %155 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i32 %.0.ph48, ptr %155, align 8
-  %156 = icmp ne i32 %.0.ph48, 0
+  %.0.ph48 = phi i32 [ %.0.ph5765, %.split.us ], [ 0, %._crit_edge ], [ %154, %.loopexit.loopexit ], [ %155, %.loopexit.loopexit60 ]
+  %156 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i32 %.0.ph48, ptr %156, align 8
+  %157 = icmp ne i32 %.0.ph48, 0
   call void @_ZN10HandleMarkD1Ev(ptr noundef nonnull align 8 dereferenceable(56) %6) #15
-  ret i1 %156
+  ret i1 %157
 }
 
 declare noundef ptr @_ZN22JfrStackFilterRegistry6lookupEl(i64 noundef) local_unnamed_addr #3

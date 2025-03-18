@@ -2311,7 +2311,7 @@ common.resume:                                    ; preds = %common.resume.sink.
   br label %.preheader201.backedge
 
 .preheader201.backedge:                           ; preds = %181, %299, %303, %"_ZN4core3ptr103drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$brotli_decompressor..huffman..HuffmanCode$GT$$GT$17h7dd417ad1e2024e8E.exit166", %365, %.loopexit199, %398, %450, %468, %488, %_ZN19brotli_decompressor6decode30DetectTrivialLiteralBlockTypes17h1d70d2ec0fe0075bE.exit, %597
-  %.be = phi i8 [ 23, %597 ], [ 22, %_ZN19brotli_decompressor6decode30DetectTrivialLiteralBlockTypes17h1d70d2ec0fe0075bE.exit ], [ 20, %488 ], [ 19, %468 ], [ 18, %450 ], [ 24, %398 ], [ 21, %.loopexit199 ], [ 6, %365 ], [ 4, %181 ], [ 3, %"_ZN4core3ptr103drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$brotli_decompressor..huffman..HuffmanCode$GT$$GT$17h7dd417ad1e2024e8E.exit166" ], [ 2, %303 ], [ %.136, %299 ]
+  %.be = phi i8 [ 23, %597 ], [ 22, %_ZN19brotli_decompressor6decode30DetectTrivialLiteralBlockTypes17h1d70d2ec0fe0075bE.exit ], [ 20, %488 ], [ 19, %468 ], [ 18, %450 ], [ 24, %398 ], [ 21, %.loopexit199 ], [ 6, %365 ], [ 4, %181 ], [ 3, %"_ZN4core3ptr103drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$brotli_decompressor..huffman..HuffmanCode$GT$$GT$17h7dd417ad1e2024e8E.exit166" ], [ 2, %303 ], [ %.neg, %299 ]
   %.be1127 = phi i64 [ %148, %597 ], [ %148, %_ZN19brotli_decompressor6decode30DetectTrivialLiteralBlockTypes17h1d70d2ec0fe0075bE.exit ], [ %148, %488 ], [ %148, %468 ], [ %148, %450 ], [ %399, %398 ], [ %148, %.loopexit199 ], [ %148, %365 ], [ %148, %181 ], [ %148, %"_ZN4core3ptr103drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$brotli_decompressor..huffman..HuffmanCode$GT$$GT$17h7dd417ad1e2024e8E.exit166" ], [ %148, %303 ], [ %148, %299 ]
   %.be1128 = phi i64 [ %149, %597 ], [ %149, %_ZN19brotli_decompressor6decode30DetectTrivialLiteralBlockTypes17h1d70d2ec0fe0075bE.exit ], [ %149, %488 ], [ %149, %468 ], [ %149, %450 ], [ %400, %398 ], [ %149, %.loopexit199 ], [ %149, %365 ], [ %149, %181 ], [ %149, %"_ZN4core3ptr103drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$brotli_decompressor..huffman..HuffmanCode$GT$$GT$17h7dd417ad1e2024e8E.exit166" ], [ %149, %303 ], [ %149, %299 ]
   %.be1129 = phi i64 [ %150, %597 ], [ %150, %_ZN19brotli_decompressor6decode30DetectTrivialLiteralBlockTypes17h1d70d2ec0fe0075bE.exit ], [ %150, %488 ], [ %150, %468 ], [ %150, %450 ], [ %401, %398 ], [ %150, %.loopexit199 ], [ %150, %365 ], [ %150, %181 ], [ %150, %"_ZN4core3ptr103drop_in_place$LT$alloc_stdlib..heap_alloc..WrapBox$LT$brotli_decompressor..huffman..HuffmanCode$GT$$GT$17h7dd417ad1e2024e8E.exit166" ], [ %150, %303 ], [ %150, %299 ]
@@ -2554,8 +2554,8 @@ _ZN19brotli_decompressor6decode16ReadContextModes17h7f2e4e8dcebfed80E.exit: ; pr
   br label %299
 
 299:                                              ; preds = %270, %295, %296, %297, %286
-  %.136 = phi i8 [ 2, %270 ], [ 1, %295 ], [ 2, %296 ], [ 2, %297 ], [ 2, %286 ]
-  store i8 %.136, ptr %67, align 2
+  %.neg = phi i8 [ 2, %270 ], [ 1, %295 ], [ 2, %296 ], [ 2, %297 ], [ 2, %286 ]
+  store i8 %.neg, ptr %67, align 2
   br label %.preheader201.backedge
 
 300:                                              ; preds = %156

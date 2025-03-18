@@ -36164,18 +36164,18 @@ _ZNSt8optionalIjEaSIRmEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remo
 _ZNSt8optionalIN4llvm13DIDerivedType11PtrAuthDataEE7emplaceIJjRbjS5_S5_EEENSt9enable_ifIX18is_constructible_vIS2_DpT_EERS2_E4typeEDpOS7_.exit: ; preds = %_ZNSt8optionalIjEaSIRmEENSt9enable_ifIX7__and_vISt6__not_ISt7is_sameIS0_NSt9remove_cvINSt16remove_referenceIT_E4typeEE4typeEEES4_ISt6__and_IJSt9is_scalarIjES5_IjNSt5decayIS8_E4typeEEEEESt16is_constructibleIjJS8_EESt13is_assignableIRjS8_EEERS0_E4typeEOS8_.exit
   %289 = load i64, ptr %39, align 8, !tbaa !1100
   %290 = load i8, ptr %38, align 1, !tbaa !47, !range !48, !noundef !49
-  %291 = trunc nuw i8 %290 to i1
-  %292 = load i8, ptr %40, align 1, !tbaa !47, !range !48, !noundef !49
-  %293 = trunc nuw i8 %292 to i1
-  %294 = load i8, ptr %41, align 1, !tbaa !47, !range !48, !noundef !49
-  %295 = trunc nuw i8 %294 to i1
-  %296 = select i1 %291, i64 16, i64 0
-  %297 = shl i64 %289, 5
-  %298 = or disjoint i64 %296, %297
-  %299 = select i1 %293, i64 2097152, i64 0
-  %300 = select i1 %295, i64 4194304, i64 0
-  %301 = or i64 %298, %299
-  %302 = or i64 %301, %300
+  %291 = load i8, ptr %40, align 1, !tbaa !47, !range !48, !noundef !49
+  %292 = load i8, ptr %41, align 1, !tbaa !47, !range !48, !noundef !49
+  %293 = shl nuw nsw i8 %290, 4
+  %294 = zext nneg i8 %293 to i64
+  %295 = shl i64 %289, 5
+  %296 = zext nneg i8 %291 to i64
+  %297 = shl nuw nsw i64 %296, 21
+  %298 = zext nneg i8 %292 to i64
+  %299 = shl nuw nsw i64 %298, 22
+  %300 = or disjoint i64 %295, %294
+  %301 = or i64 %300, %297
+  %302 = or i64 %301, %299
   %303 = or i64 %302, %288
   %304 = and i64 %303, 4294967295
   %305 = or disjoint i64 %304, 4294967296
@@ -54869,8 +54869,8 @@ _ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread: ; preds = %92, 
   store i16 %117, ptr %111, align 2, !tbaa !613
   store ptr %107, ptr %1, align 8, !tbaa !382
   %118 = load i8, ptr %12, align 1, !tbaa !47, !range !48, !noundef !49
-  %119 = trunc nuw i8 %118 to i1
-  %120 = select i1 %119, i32 2, i32 0
+  %119 = shl nuw nsw i8 %118, 1
+  %120 = zext nneg i8 %119 to i32
   br label %121
 
 121:                                              ; preds = %106, %_ZNK4llvm4Type7isSizedEPNS_15SmallPtrSetImplIPS0_EE.exit.thread23
@@ -55074,6 +55074,7 @@ _ZN4llvm8LLParser21parseScopeAndOrderingEbRhRNS_14AtomicOrderingE.exit: ; preds 
   br i1 %73, label %_ZN4llvm8LLParser21parseScopeAndOrderingEbRhRNS_14AtomicOrderingE.exit.thread, label %64, !llvm.loop !919
 
 _ZN4llvm8LLParser23parseOptionalCommaAlignERNS_10MaybeAlignERb.exit: ; preds = %64, %66
+  %.020 = phi i32 [ 0, %64 ], [ 2, %66 ]
   %74 = load ptr, ptr %10, align 8, !tbaa !473
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
   %76 = load ptr, ptr %75, align 8, !tbaa !607
@@ -55172,7 +55173,7 @@ _ZN4llvm8LLParser23parseOptionalCommaAlignERNS_10MaybeAlignERb.exit: ; preds = %
   store i8 3, ptr %111, align 8, !tbaa !153
   call void @_ZN4llvm7LLLexer5ErrorENS_5SMLocERKNS_5TwineENS0_13ErrorPriorityE(ptr noundef nonnull align 8 dereferenceable(161) %22, ptr %35, ptr noundef nonnull align 8 dereferenceable(34) %18, i32 noundef 1) #25
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %18) #25
-  br label %122
+  br label %121
 
 113:                                              ; preds = %108
   %114 = getelementptr inbounds nuw i8, ptr %0, i64 344
@@ -55192,21 +55193,20 @@ _ZN4llvm8LLParser23parseOptionalCommaAlignERNS_10MaybeAlignERb.exit: ; preds = %
   call void @_ZN4llvm8LoadInstC1EPNS_4TypeEPNS_5ValueERKNS_5TwineEbNS_5AlignENS_14AtomicOrderingEhNS_14InsertPositionE(ptr noundef nonnull align 8 dereferenceable(73) %118, ptr noundef nonnull %82, ptr noundef nonnull %74, ptr noundef nonnull align 8 dereferenceable(34) %19, i1 noundef zeroext %30, i8 %.sroa.0.0.copyload, i32 noundef %.021, i8 noundef zeroext %120, ptr noundef nonnull byval(%"class.llvm::InsertPosition") align 8 %20) #25
   store ptr %118, ptr %1, align 8, !tbaa !382
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %19) #25
-  %121 = select i1 %.not.i.i, i32 2, i32 0
-  br label %122
+  br label %121
 
-122:                                              ; preds = %.thread, %110
-  %.1 = phi i32 [ %121, %.thread ], [ 1, %110 ]
-  %123 = load i8, ptr %105, align 4, !tbaa !32, !range !48, !noundef !49
-  %124 = trunc nuw i8 %123 to i1
-  br i1 %124, label %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit, label %125
+121:                                              ; preds = %.thread, %110
+  %.1 = phi i32 [ %.020, %.thread ], [ 1, %110 ]
+  %122 = load i8, ptr %105, align 4, !tbaa !32, !range !48, !noundef !49
+  %123 = trunc nuw i8 %122 to i1
+  br i1 %123, label %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit, label %124
 
-125:                                              ; preds = %122
-  %126 = load ptr, ptr %17, align 8, !tbaa !28
-  call void @free(ptr noundef %126) #25
+124:                                              ; preds = %121
+  %125 = load ptr, ptr %17, align 8, !tbaa !28
+  call void @free(ptr noundef %125) #25
   br label %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit
 
-_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit:           ; preds = %122, %125
+_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit:           ; preds = %121, %124
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %17) #25
   br label %_ZN4llvm8LLParser21parseScopeAndOrderingEbRhRNS_14AtomicOrderingE.exit.thread
 
@@ -55402,6 +55402,7 @@ _ZN4llvm8LLParser21parseScopeAndOrderingEbRhRNS_14AtomicOrderingE.exit: ; preds 
   br i1 %76, label %_ZN4llvm8LLParser21parseScopeAndOrderingEbRhRNS_14AtomicOrderingE.exit.thread, label %67, !llvm.loop !919
 
 _ZN4llvm8LLParser23parseOptionalCommaAlignERNS_10MaybeAlignERb.exit: ; preds = %67, %69
+  %.024 = phi i32 [ 0, %67 ], [ 2, %69 ]
   %77 = load ptr, ptr %12, align 8, !tbaa !473
   %78 = getelementptr inbounds nuw i8, ptr %77, i64 8
   %79 = load ptr, ptr %78, align 8, !tbaa !607
@@ -55513,7 +55514,7 @@ _ZN4llvm8LLParser23parseOptionalCommaAlignERNS_10MaybeAlignERb.exit: ; preds = %
   store i8 3, ptr %119, align 8, !tbaa !153
   call void @_ZN4llvm7LLLexer5ErrorENS_5SMLocERKNS_5TwineENS0_13ErrorPriorityE(ptr noundef nonnull align 8 dereferenceable(161) %23, ptr %36, ptr noundef nonnull align 8 dereferenceable(34) %20, i32 noundef 1) #25
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %20) #25
-  br label %130
+  br label %129
 
 121:                                              ; preds = %116
   %122 = getelementptr inbounds nuw i8, ptr %0, i64 344
@@ -55530,21 +55531,20 @@ _ZN4llvm8LLParser23parseOptionalCommaAlignERNS_10MaybeAlignERb.exit: ; preds = %
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %21, i8 0, i64 16, i1 false)
   call void @_ZN4llvm9StoreInstC1EPNS_5ValueES2_bNS_5AlignENS_14AtomicOrderingEhNS_14InsertPositionE(ptr noundef nonnull align 8 dereferenceable(73) %127, ptr noundef nonnull %88, ptr noundef nonnull %77, i1 noundef zeroext %31, i8 %.sroa.0.0.copyload, i32 noundef %.023, i8 noundef zeroext %128, ptr noundef nonnull byval(%"class.llvm::InsertPosition") align 8 %21) #25
   store ptr %127, ptr %1, align 8, !tbaa !382
-  %129 = select i1 %.not.i.i, i32 2, i32 0
-  br label %130
+  br label %129
 
-130:                                              ; preds = %.thread, %118
-  %.1 = phi i32 [ %129, %.thread ], [ 1, %118 ]
-  %131 = load i8, ptr %113, align 4, !tbaa !32, !range !48, !noundef !49
-  %132 = trunc nuw i8 %131 to i1
-  br i1 %132, label %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit, label %133
+129:                                              ; preds = %.thread, %118
+  %.1 = phi i32 [ %.024, %.thread ], [ 1, %118 ]
+  %130 = load i8, ptr %113, align 4, !tbaa !32, !range !48, !noundef !49
+  %131 = trunc nuw i8 %130 to i1
+  br i1 %131, label %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit, label %132
 
-133:                                              ; preds = %130
-  %134 = load ptr, ptr %19, align 8, !tbaa !28
-  call void @free(ptr noundef %134) #25
+132:                                              ; preds = %129
+  %133 = load ptr, ptr %19, align 8, !tbaa !28
+  call void @free(ptr noundef %133) #25
   br label %_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit
 
-_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit:           ; preds = %130, %133
+_ZN4llvm19SmallPtrSetImplBaseD2Ev.exit:           ; preds = %129, %132
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %19) #25
   br label %_ZN4llvm8LLParser21parseScopeAndOrderingEbRhRNS_14AtomicOrderingE.exit.thread
 
@@ -55917,8 +55917,8 @@ _ZN4llvm17AtomicCmpXchgInst22isValidFailureOrderingENS_14AtomicOrderingE.exit: ;
   store i16 %149, ptr %143, align 2, !tbaa !613
   store ptr %139, ptr %1, align 8, !tbaa !382
   %150 = load i8, ptr %16, align 1, !tbaa !47, !range !48, !noundef !49
-  %151 = trunc nuw i8 %150 to i1
-  %152 = select i1 %151, i32 2, i32 0
+  %151 = shl nuw nsw i8 %150, 1
+  %152 = zext nneg i8 %151 to i32
   br label %_ZN4llvm8LLParser21parseScopeAndOrderingEbRhRNS_14AtomicOrderingE.exit.thread
 
 _ZN4llvm8LLParser21parseScopeAndOrderingEbRhRNS_14AtomicOrderingE.exit.thread: ; preds = %74, %70, %_ZN4llvm8LLParser17parseTypeAndValueERPNS_5ValueERNS_5SMLocERNS0_16PerFunctionStateE.exit23.thread, %_ZN4llvm8LLParser10parseTokenENS_5lltok4KindEPKc.exit22.thread, %_ZN4llvm8LLParser17parseTypeAndValueERPNS_5ValueERNS_5SMLocERNS0_16PerFunctionStateE.exit20.thread, %_ZN4llvm8LLParser10parseTokenENS_5lltok4KindEPKc.exit.thread, %_ZN4llvm8LLParser17parseTypeAndValueERPNS_5ValueERNS_5SMLocERNS0_16PerFunctionStateE.exit.thread, %_ZN4llvm8LLParser17parseTypeAndValueERPNS_5ValueERNS_5SMLocERNS0_16PerFunctionStateE.exit, %_ZN4llvm8LLParser17parseTypeAndValueERPNS_5ValueERNS_5SMLocERNS0_16PerFunctionStateE.exit20, %_ZN4llvm8LLParser17parseTypeAndValueERPNS_5ValueERNS_5SMLocERNS0_16PerFunctionStateE.exit23, %83, %87, %126, %123, %117, %107, %_ZN4llvm17AtomicCmpXchgInst22isValidFailureOrderingENS_14AtomicOrderingE.exit, %90
@@ -56193,8 +56193,8 @@ _ZN4llvm8LLParser17parseTypeAndValueERPNS_5ValueERNS_5SMLocERNS0_16PerFunctionSt
   %.sink.i.i = phi i32 [ 7, %98 ], [ 6, %97 ], [ 5, %96 ], [ 4, %95 ], [ 2, %94 ], [ 1, %88 ]
   %101 = call noundef i32 @_ZN4llvm7LLLexer8LexTokenEv(ptr noundef nonnull align 8 dereferenceable(161) %39) #25
   store i32 %101, ptr %33, align 8, !tbaa !56
-  %.not.i.i56 = icmp eq i32 %101, 4
-  br i1 %.not.i.i56, label %.lr.ph, label %_ZN4llvm8LLParser23parseOptionalCommaAlignERNS_10MaybeAlignERb.exit
+  %.not.i.i54 = icmp eq i32 %101, 4
+  br i1 %.not.i.i54, label %.lr.ph, label %_ZN4llvm8LLParser23parseOptionalCommaAlignERNS_10MaybeAlignERb.exit
 
 thread-pre-split:                                 ; preds = %107
   %.pr = load i32, ptr %33, align 8, !tbaa !56
@@ -56226,7 +56226,7 @@ thread-pre-split:                                 ; preds = %107
   br i1 %108, label %_ZN4llvm8LLParser21parseScopeAndOrderingEbRhRNS_14AtomicOrderingE.exit.thread, label %thread-pre-split, !llvm.loop !919
 
 _ZN4llvm8LLParser23parseOptionalCommaAlignERNS_10MaybeAlignERb.exit: ; preds = %.lr.ph, %thread-pre-split, %99
-  %.not.i.i.lcssa = phi i32 [ 0, %99 ], [ 0, %thread-pre-split ], [ 2, %.lr.ph ]
+  %.047 = phi i32 [ 0, %99 ], [ 0, %thread-pre-split ], [ 2, %.lr.ph ]
   br i1 %100, label %109, label %113
 
 109:                                              ; preds = %_ZN4llvm8LLParser23parseOptionalCommaAlignERNS_10MaybeAlignERb.exit
@@ -56500,7 +56500,7 @@ _ZNK4llvm4Type17isFloatingPointTyEv.exit.thread:  ; preds = %_ZNK4llvm4Type13get
   br label %_ZN4llvm8LLParser21parseScopeAndOrderingEbRhRNS_14AtomicOrderingE.exit.thread
 
 _ZN4llvm8LLParser21parseScopeAndOrderingEbRhRNS_14AtomicOrderingE.exit.thread: ; preds = %107, %103, %90, %86, %_ZN4llvm8LLParser17parseTypeAndValueERPNS_5ValueERNS_5SMLocERNS0_16PerFunctionStateE.exit34.thread, %_ZN4llvm8LLParser10parseTokenENS_5lltok4KindEPKc.exit.thread, %_ZN4llvm8LLParser17parseTypeAndValueERPNS_5ValueERNS_5SMLocERNS0_16PerFunctionStateE.exit.thread, %195, %198, %_ZN4llvm8LLParser17parseTypeAndValueERPNS_5ValueERNS_5SMLocERNS0_16PerFunctionStateE.exit, %_ZN4llvm8LLParser17parseTypeAndValueERPNS_5ValueERNS_5SMLocERNS0_16PerFunctionStateE.exit34, %173, %161, %142, %129, %121, %109, %40
-  %.0 = phi i32 [ 1, %40 ], [ 1, %109 ], [ 1, %129 ], [ 1, %142 ], [ 1, %161 ], [ 1, %173 ], [ 1, %121 ], [ 1, %_ZN4llvm8LLParser17parseTypeAndValueERPNS_5ValueERNS_5SMLocERNS0_16PerFunctionStateE.exit34 ], [ 1, %_ZN4llvm8LLParser17parseTypeAndValueERPNS_5ValueERNS_5SMLocERNS0_16PerFunctionStateE.exit ], [ 1, %195 ], [ %.not.i.i.lcssa, %198 ], [ 1, %_ZN4llvm8LLParser17parseTypeAndValueERPNS_5ValueERNS_5SMLocERNS0_16PerFunctionStateE.exit.thread ], [ 1, %_ZN4llvm8LLParser10parseTokenENS_5lltok4KindEPKc.exit.thread ], [ 1, %_ZN4llvm8LLParser17parseTypeAndValueERPNS_5ValueERNS_5SMLocERNS0_16PerFunctionStateE.exit34.thread ], [ 1, %86 ], [ 1, %90 ], [ 1, %103 ], [ 1, %107 ]
+  %.0 = phi i32 [ 1, %40 ], [ 1, %109 ], [ 1, %129 ], [ 1, %142 ], [ 1, %161 ], [ 1, %173 ], [ 1, %121 ], [ 1, %_ZN4llvm8LLParser17parseTypeAndValueERPNS_5ValueERNS_5SMLocERNS0_16PerFunctionStateE.exit34 ], [ 1, %_ZN4llvm8LLParser17parseTypeAndValueERPNS_5ValueERNS_5SMLocERNS0_16PerFunctionStateE.exit ], [ 1, %195 ], [ %.047, %198 ], [ 1, %_ZN4llvm8LLParser17parseTypeAndValueERPNS_5ValueERNS_5SMLocERNS0_16PerFunctionStateE.exit.thread ], [ 1, %_ZN4llvm8LLParser10parseTokenENS_5lltok4KindEPKc.exit.thread ], [ 1, %_ZN4llvm8LLParser17parseTypeAndValueERPNS_5ValueERNS_5SMLocERNS0_16PerFunctionStateE.exit34.thread ], [ 1, %86 ], [ 1, %90 ], [ 1, %103 ], [ 1, %107 ]
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %14) #25
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %13) #25
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #25
@@ -57207,8 +57207,8 @@ _ZN4llvm16ExtractValueInst6CreateEPNS_5ValueENS_8ArrayRefIjEERKNS_5TwineENS_14In
   store ptr %50, ptr %1, align 8, !tbaa !382
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %11) #25
   %73 = load i8, ptr %8, align 1, !tbaa !47, !range !48, !noundef !49
-  %74 = trunc nuw i8 %73 to i1
-  %75 = select i1 %74, i32 2, i32 0
+  %74 = shl nuw nsw i8 %73, 1
+  %75 = zext nneg i8 %74 to i32
   br label %76
 
 76:                                               ; preds = %_ZN4llvm8LLParser17parseTypeAndValueERPNS_5ValueERNS_5SMLocERNS0_16PerFunctionStateE.exit.thread, %_ZN4llvm8LLParser17parseTypeAndValueERPNS_5ValueERNS_5SMLocERNS0_16PerFunctionStateE.exit, %22, %_ZN4llvm16ExtractValueInst6CreateEPNS_5ValueENS_8ArrayRefIjEERKNS_5TwineENS_14InsertPositionE.exit, %41, %32
@@ -57536,8 +57536,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit26: ; preds = %_ZN
   store ptr %130, ptr %1, align 8, !tbaa !382
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %22) #25
   %131 = load i8, ptr %12, align 1, !tbaa !47, !range !48, !noundef !49
-  %132 = trunc nuw i8 %131 to i1
-  %133 = select i1 %132, i32 2, i32 0
+  %132 = shl nuw nsw i8 %131, 1
+  %133 = zext nneg i8 %132 to i32
   br label %134
 
 134:                                              ; preds = %_ZN4llvm8LLParser17parseTypeAndValueERPNS_5ValueERNS_5SMLocERNS0_16PerFunctionStateE.exit11.thread, %_ZN4llvm8LLParser10parseTokenENS_5lltok4KindEPKc.exit.thread, %_ZN4llvm8LLParser17parseTypeAndValueERPNS_5ValueERNS_5SMLocERNS0_16PerFunctionStateE.exit.thread, %67, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit26, %125, %_ZN4llvm8LLParser17parseTypeAndValueERPNS_5ValueERNS_5SMLocERNS0_16PerFunctionStateE.exit, %_ZN4llvm8LLParser17parseTypeAndValueERPNS_5ValueERNS_5SMLocERNS0_16PerFunctionStateE.exit11, %49, %59

@@ -147,8 +147,8 @@ define dso_local noundef i32 @main(i32 noundef %0, ptr noundef %1) local_unnamed
 
 51:                                               ; preds = %45
   %52 = load i8, ptr @params, align 8, !range !8, !noundef !9
-  %53 = trunc nuw i8 %52 to i1
-  %spec.select = select i1 %53, i16 64, i16 0
+  %53 = shl nuw nsw i8 %52, 6
+  %spec.select = zext nneg i8 %53 to i16
   %54 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @params, i64 16), align 8
   %.not23 = icmp eq ptr %54, null
   br i1 %.not23, label %55, label %58

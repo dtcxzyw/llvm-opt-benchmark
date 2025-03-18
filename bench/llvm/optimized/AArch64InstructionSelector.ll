@@ -358,8 +358,8 @@ define dso_local noundef nonnull ptr @_ZN4llvm32createAArch64InstructionSelector
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 216
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 409
   %19 = load i8, ptr %18, align 1, !tbaa !76, !range !225, !noundef !226
-  %20 = trunc nuw i8 %19 to i1
-  %spec.select.i.i = select i1 %20, i64 64, i64 0
+  %20 = shl nuw nsw i8 %19, 6
+  %spec.select.i.i = zext nneg i8 %20 to i64
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 386
   %22 = load i8, ptr %21, align 2, !tbaa !227, !range !225, !noundef !226
   %23 = zext nneg i8 %22 to i64
@@ -372,8 +372,8 @@ define dso_local noundef nonnull ptr @_ZN4llvm32createAArch64InstructionSelector
   %.sroa.0.2.i.i = or disjoint i64 %.sroa.0.1.i.i, %28
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 421
   %30 = load i8, ptr %29, align 1, !tbaa !229, !range !225, !noundef !226
-  %31 = trunc nuw i8 %30 to i1
-  %.sroa.129.0.i.i = select i1 %31, i64 131072, i64 0
+  %31 = zext nneg i8 %30 to i64
+  %.sroa.129.0.i.i = shl nuw nsw i64 %31, 17
   %32 = getelementptr inbounds nuw i8, ptr %1, i64 368
   %33 = load i8, ptr %32, align 8, !tbaa !230, !range !225, !noundef !226
   %34 = shl nuw i8 %33, 7
@@ -545,7 +545,7 @@ _ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit127.thread182.i.i: ; preds = %
   %146 = load i8, ptr %145, align 1, !tbaa !250, !range !225, !noundef !226
   %147 = zext nneg i8 %146 to i64
   %148 = shl nuw nsw i64 %147, 22
-  %spec.select328.i.i = or disjoint i64 %148, %.sroa.129.3.i.i
+  %spec.select328.i.i = or i64 %148, %.sroa.129.3.i.i
   br label %_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit127.thread.i.i
 
 _ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit127.thread.i.i: ; preds = %_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit126.i.i.thread, %_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit127.thread182.i.i, %_ZNK4llvm16AArch64Subtarget14isSVEAvailableEv.exit125.thread.i.i, %.thread44.i

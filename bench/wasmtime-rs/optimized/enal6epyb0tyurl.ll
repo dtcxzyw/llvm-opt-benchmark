@@ -12170,14 +12170,14 @@ switch.lookup:                                    ; preds = %21
   %switch.cast = zext nneg i8 %25 to i16
   %switch.downshift = lshr i16 16144, %switch.cast
   %switch.masked = trunc i16 %switch.downshift to i1
-  %switch.cast49 = zext nneg i8 %25 to i16
-  %switch.downshift51 = lshr i16 12560, %switch.cast49
-  %switch.masked52 = trunc i16 %switch.downshift51 to i1
+  %switch.cast47 = zext nneg i8 %25 to i16
+  %switch.downshift49 = lshr i16 12560, %switch.cast47
+  %switch.masked50 = trunc i16 %switch.downshift49 to i1
   br label %"_ZN92_$LT$cpp_demangle..ast..FunctionArgSlice$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle28_$u7b$$u7b$closure$u7d$$u7d$17h2a54648407eaad86E.exit.i"
 
 "_ZN92_$LT$cpp_demangle..ast..FunctionArgSlice$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle28_$u7b$$u7b$closure$u7d$$u7d$17h2a54648407eaad86E.exit.i": ; preds = %switch.lookup, %21, %14
   %.sroa.5.0.i.i = phi i1 [ true, %14 ], [ false, %21 ], [ %switch.masked, %switch.lookup ]
-  %.sroa.0.0.i.i = phi i1 [ true, %14 ], [ false, %21 ], [ %switch.masked52, %switch.lookup ]
+  %.sroa.0.0.i.i = phi i1 [ true, %14 ], [ false, %21 ], [ %switch.masked50, %switch.lookup ]
   tail call void @llvm.assume(i1 %9)
   %.val.i.i = load ptr, ptr %.val, align 8, !nonnull !4, !align !171, !noundef !4
   %26 = load i8, ptr %.val.i.i, align 1, !range !117, !noundef !4
@@ -12187,9 +12187,9 @@ switch.lookup:                                    ; preds = %21
 28:                                               ; preds = %"_ZN92_$LT$cpp_demangle..ast..FunctionArgSlice$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle28_$u7b$$u7b$closure$u7d$$u7d$17h2a54648407eaad86E.exit.i"
   tail call void @llvm.assume(i1 %10)
   store i8 1, ptr %.val21, align 1
-  %.sroa.3.0.insert.shift.i = select i1 %.sroa.7.0.in29, i24 65536, i24 0
+  %.sroa.5.0.insert.shift.i.i37 = select i1 %.sroa.7.0.in29, i24 65536, i24 0
   %.sroa.22.0.insert.insert.i = select i1 %.sroa.02.0.in30, i24 257, i24 1
-  %.sroa.01.0.insert.insert.i = or disjoint i24 %.sroa.22.0.insert.insert.i, %.sroa.3.0.insert.shift.i
+  %.sroa.01.0.insert.insert.i = or disjoint i24 %.sroa.22.0.insert.insert.i, %.sroa.5.0.insert.shift.i.i37
   br label %29
 
 29:                                               ; preds = %._crit_edge, %28
@@ -28914,9 +28914,9 @@ switch.lookup:                                    ; preds = %21
 28:                                               ; preds = %"_ZN92_$LT$cpp_demangle..ast..FunctionArgSlice$u20$as$u20$cpp_demangle..ast..Demangle$LT$W$GT$$GT$8demangle28_$u7b$$u7b$closure$u7d$$u7d$17h2a54648407eaad86E.exit.i.i"
   tail call void @llvm.assume(i1 %10)
   store i8 1, ptr %.val21.i, align 1, !noalias !5246
-  %.sroa.3.0.insert.shift.i.i = select i1 %.sroa.7.0.in29.i, i24 65536, i24 0
+  %.sroa.5.0.insert.shift.i.i37.i = select i1 %.sroa.7.0.in29.i, i24 65536, i24 0
   %.sroa.22.0.insert.insert.i.i = select i1 %.sroa.02.0.in30.i, i24 257, i24 1
-  %.sroa.01.0.insert.insert.i.i = or disjoint i24 %.sroa.3.0.insert.shift.i.i, %.sroa.22.0.insert.insert.i.i
+  %.sroa.01.0.insert.insert.i.i = or disjoint i24 %.sroa.5.0.insert.shift.i.i37.i, %.sroa.22.0.insert.insert.i.i
   br label %_ZN4core4iter6traits12double_ended19DoubleEndedIterator9try_rfold17h96a8a672618284d3E.llvm.14223331465801898566.exit
 
 ._crit_edge.i:                                    ; preds = %11, %4

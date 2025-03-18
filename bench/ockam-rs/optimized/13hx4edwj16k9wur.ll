@@ -22013,15 +22013,14 @@ define hidden void @"_ZN57_$LT$u64$u20$as$u20$minicbor..encode..Encode$LT$C$GT$$
 define hidden void @"_ZN58_$LT$bool$u20$as$u20$minicbor..encode..Encode$LT$C$GT$$GT$6encode17h79dad6544a0d9e81E"(ptr noalias noundef writeonly sret({ ptr, [4 x i64] }) align 8 captures(none) dereferenceable(40) initializes((0, 8)) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1, ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %2, ptr noalias noundef nonnull readnone align 1 captures(none) %3) unnamed_addr #1 {
   %5 = alloca [1 x i8], align 1
   %6 = load i8, ptr %1, align 1, !range !1635, !noundef !11
-  %7 = trunc nuw i8 %6 to i1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3843)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5), !noalias !3846
-  %..i = select i1 %7, i8 -11, i8 -12
+  %..i = or disjoint i8 %6, -12
   store i8 %..i, ptr %5, align 1, !noalias !3846
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3848)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3851)
-  %8 = load ptr, ptr %2, align 8, !alias.scope !3854, !noalias !3855, !nonnull !11, !align !12, !noundef !11
-  call void @"_ZN76_$LT$alloc..vec..Vec$LT$u8$GT$$u20$as$u20$minicbor..encode..write..Write$GT$9write_all17h5d106f95af0a7d71E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %8, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef 1), !noalias !3859
+  %7 = load ptr, ptr %2, align 8, !alias.scope !3854, !noalias !3855, !nonnull !11, !align !12, !noundef !11
+  call void @"_ZN76_$LT$alloc..vec..Vec$LT$u8$GT$$u20$as$u20$minicbor..encode..write..Write$GT$9write_all17h5d106f95af0a7d71E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %7, ptr noalias noundef nonnull readonly align 1 %5, i64 noundef 1), !noalias !3859
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5), !noalias !3846
   store ptr null, ptr %0, align 8
   ret void

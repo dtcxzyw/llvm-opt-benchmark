@@ -9813,34 +9813,34 @@ define dso_local void @_ZN4llvm7codegen33InitTargetOptionsFromCodeGenFlagsERKNS_
   %44 = or disjoint i16 %43, %41
   store i16 %44, ptr %5, align 8
   %45 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm7codegen20RegisterCodeGenFlagsC1EvE18EnableNoInfsFPMath, i64 120), align 8, !tbaa !83, !range !88, !noundef !89
-  %46 = trunc nuw i8 %45 to i1
-  %47 = select i1 %46, i16 2, i16 0
+  %46 = shl nuw nsw i8 %45, 1
+  %47 = zext nneg i8 %46 to i16
   %48 = and i16 %44, -3
-  %49 = or disjoint i16 %47, %48
+  %49 = or disjoint i16 %48, %47
   store i16 %49, ptr %5, align 8
   %50 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm7codegen20RegisterCodeGenFlagsC1EvE18EnableNoNaNsFPMath, i64 120), align 8, !tbaa !83, !range !88, !noundef !89
-  %51 = trunc nuw i8 %50 to i1
-  %52 = select i1 %51, i16 4, i16 0
+  %51 = shl nuw nsw i8 %50, 2
+  %52 = zext nneg i8 %51 to i16
   %53 = and i16 %49, -5
-  %54 = or disjoint i16 %52, %53
+  %54 = or disjoint i16 %53, %52
   store i16 %54, ptr %5, align 8
   %55 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm7codegen20RegisterCodeGenFlagsC1EvE25EnableNoSignedZerosFPMath, i64 120), align 8, !tbaa !83, !range !88, !noundef !89
-  %56 = trunc nuw i8 %55 to i1
-  %57 = select i1 %56, i16 16, i16 0
+  %56 = shl nuw nsw i8 %55, 4
+  %57 = zext nneg i8 %56 to i16
   %58 = and i16 %54, -17
-  %59 = or disjoint i16 %57, %58
+  %59 = or disjoint i16 %58, %57
   store i16 %59, ptr %5, align 8
   %60 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm7codegen20RegisterCodeGenFlagsC1EvE22EnableApproxFuncFPMath, i64 120), align 8, !tbaa !83, !range !88, !noundef !89
-  %61 = trunc nuw i8 %60 to i1
-  %62 = select i1 %61, i16 32, i16 0
+  %61 = shl nuw nsw i8 %60, 5
+  %62 = zext nneg i8 %61 to i16
   %63 = and i16 %59, -33
-  %64 = or disjoint i16 %62, %63
+  %64 = or disjoint i16 %63, %62
   store i16 %64, ptr %5, align 8
   %65 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm7codegen20RegisterCodeGenFlagsC1EvE22EnableNoTrappingFPMath, i64 120), align 8, !tbaa !83, !range !88, !noundef !89
-  %66 = trunc nuw i8 %65 to i1
-  %67 = select i1 %66, i16 8, i16 0
+  %66 = shl nuw nsw i8 %65, 3
+  %67 = zext nneg i8 %66 to i16
   %68 = and i16 %64, -9
-  %69 = or disjoint i16 %67, %68
+  %69 = or disjoint i16 %68, %67
   store i16 %69, ptr %5, align 8
   %70 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm7codegen20RegisterCodeGenFlagsC1EvE14DenormalFPMath, i64 120), align 8, !tbaa !90
   %.sroa.2.0.insert.ext = zext i8 %70 to i16
@@ -9848,10 +9848,10 @@ define dso_local void @_ZN4llvm7codegen33InitTargetOptionsFromCodeGenFlagsERKNS_
   %.sroa.027.0.insert.insert = or disjoint i16 %.sroa.2.0.insert.shift, %.sroa.2.0.insert.ext
   store i16 %.sroa.027.0.insert.insert, ptr %30, align 8
   %71 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm7codegen20RegisterCodeGenFlagsC1EvE38EnableHonorSignDependentRoundingFPMath, i64 120), align 8, !tbaa !83, !range !88, !noundef !89
-  %72 = trunc nuw i8 %71 to i1
-  %73 = select i1 %72, i16 128, i16 0
+  %72 = shl nuw i8 %71, 7
+  %73 = zext i8 %72 to i16
   %74 = and i16 %69, -129
-  %75 = or disjoint i16 %73, %74
+  %75 = or disjoint i16 %74, %73
   store i16 %75, ptr %5, align 8
   %76 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm7codegen20RegisterCodeGenFlagsC1EvE16FloatABIForCalls, i64 120), align 8, !tbaa !96
   %.not = icmp eq i32 %76, 0
@@ -9863,26 +9863,26 @@ define dso_local void @_ZN4llvm7codegen33InitTargetOptionsFromCodeGenFlagsERKNS_
 
 _ZN4llvm7codegen23getExplicitDataSectionsEv.exit: ; preds = %77, %2
   %78 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm7codegen20RegisterCodeGenFlagsC1EvE27EnableAIXExtendedAltivecABI, i64 120), align 8, !tbaa !83, !range !88, !noundef !89
-  %79 = trunc nuw i8 %78 to i1
-  %80 = select i1 %79, i16 64, i16 0
+  %79 = shl nuw nsw i8 %78, 6
+  %80 = zext nneg i8 %79 to i16
   %81 = and i16 %75, -65
-  %82 = or disjoint i16 %80, %81
+  %82 = or disjoint i16 %81, %80
   store i16 %82, ptr %5, align 8
   %83 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm7codegen20RegisterCodeGenFlagsC1EvE19DontPlaceZerosInBSS, i64 120), align 8, !tbaa !83, !range !88, !noundef !89
-  %84 = trunc nuw i8 %83 to i1
-  %85 = select i1 %84, i16 256, i16 0
+  %84 = zext nneg i8 %83 to i16
+  %85 = shl nuw nsw i16 %84, 8
   %86 = and i16 %82, -257
   %87 = or disjoint i16 %85, %86
   store i16 %87, ptr %5, align 8
   %88 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm7codegen20RegisterCodeGenFlagsC1EvE27EnableGuaranteedTailCallOpt, i64 120), align 8, !tbaa !83, !range !88, !noundef !89
-  %89 = trunc nuw i8 %88 to i1
-  %90 = select i1 %89, i16 512, i16 0
+  %89 = zext nneg i8 %88 to i16
+  %90 = shl nuw nsw i16 %89, 9
   %91 = and i16 %87, -513
   %92 = or disjoint i16 %90, %91
   store i16 %92, ptr %5, align 8
   %93 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm7codegen20RegisterCodeGenFlagsC1EvE19StackSymbolOrdering, i64 120), align 8, !tbaa !83, !range !88, !noundef !89
-  %94 = trunc nuw i8 %93 to i1
-  %95 = select i1 %94, i16 1024, i16 0
+  %94 = zext nneg i8 %93 to i16
+  %95 = shl nuw nsw i16 %94, 10
   %96 = and i16 %92, -1025
   %97 = or disjoint i16 %95, %96
   store i16 %97, ptr %5, align 8
@@ -9894,10 +9894,10 @@ _ZN4llvm7codegen23getExplicitDataSectionsEv.exit: ; preds = %77, %2
   %103 = or disjoint i32 %102, %100
   store i32 %103, ptr %11, align 4
   %104 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm7codegen20RegisterCodeGenFlagsC1EvE19DisableIntegratedAS, i64 120), align 8, !tbaa !83, !range !88, !noundef !89
-  %105 = trunc nuw i8 %104 to i1
-  %106 = select i1 %105, i32 2, i32 0
+  %105 = shl nuw nsw i8 %104, 1
+  %106 = zext nneg i8 %105 to i32
   %107 = and i32 %103, -3
-  %108 = or disjoint i32 %106, %107
+  %108 = or disjoint i32 %107, %106
   store i32 %108, ptr %11, align 4
   %109 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm7codegen20RegisterCodeGenFlagsC1EvE12DataSections, i64 8), align 8, !tbaa !34
   %.not.i.not.not = icmp eq i16 %109, 0
@@ -9917,47 +9917,47 @@ _ZN4llvm7codegen23getExplicitDataSectionsEv.exit: ; preds = %77, %2
   %121 = or disjoint i32 %119, %120
   store i32 %121, ptr %11, align 4
   %122 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm7codegen20RegisterCodeGenFlagsC1EvE16FunctionSections, i64 120), align 8, !tbaa !83, !range !88, !noundef !89
-  %123 = trunc nuw i8 %122 to i1
-  %124 = select i1 %123, i32 4, i32 0
+  %123 = shl nuw nsw i8 %122, 2
+  %124 = zext nneg i8 %123 to i32
   %125 = and i32 %121, -5
   %126 = or disjoint i32 %125, %124
   store i32 %126, ptr %11, align 4
   %127 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm7codegen20RegisterCodeGenFlagsC1EvE21IgnoreXCOFFVisibility, i64 120), align 8, !tbaa !83, !range !88, !noundef !89
-  %128 = trunc nuw i8 %127 to i1
-  %129 = select i1 %128, i32 16, i32 0
+  %128 = shl nuw nsw i8 %127, 4
+  %129 = zext nneg i8 %128 to i32
   %130 = and i32 %126, -17
   %131 = or disjoint i32 %130, %129
   store i32 %131, ptr %11, align 4
   %132 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm7codegen20RegisterCodeGenFlagsC1EvE19XCOFFTracebackTable, i64 120), align 8, !tbaa !83, !range !88, !noundef !89
-  %133 = trunc nuw i8 %132 to i1
-  %134 = select i1 %133, i32 32, i32 0
+  %133 = shl nuw nsw i8 %132, 5
+  %134 = zext nneg i8 %133 to i32
   %135 = and i32 %131, -33
   %136 = or disjoint i32 %135, %134
   store i32 %136, ptr %11, align 4
   %137 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm7codegen20RegisterCodeGenFlagsC1EvE15EnableBBAddrMap, i64 120), align 8, !tbaa !83, !range !88, !noundef !89
-  %138 = trunc nuw i8 %137 to i1
-  %139 = select i1 %138, i32 268435456, i32 0
+  %138 = zext nneg i8 %137 to i32
+  %139 = shl nuw nsw i32 %138, 28
   %140 = and i32 %136, -268435457
   %141 = or disjoint i32 %139, %140
   store i32 %141, ptr %11, align 4
   %142 = tail call noundef i32 @_ZN4llvm7codegen17getBBSectionsModeERNS_13TargetOptionsE(ptr noundef nonnull align 8 dereferenceable(408) %0)
   store i32 %142, ptr %15, align 8, !tbaa !349
   %143 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm7codegen20RegisterCodeGenFlagsC1EvE18UniqueSectionNames, i64 120), align 8, !tbaa !83, !range !88, !noundef !89
-  %144 = trunc nuw i8 %143 to i1
-  %145 = load i32, ptr %11, align 4
-  %146 = select i1 %144, i32 64, i32 0
-  %147 = and i32 %145, -65
+  %144 = load i32, ptr %11, align 4
+  %145 = shl nuw nsw i8 %143, 6
+  %146 = zext nneg i8 %145 to i32
+  %147 = and i32 %144, -65
   %148 = or disjoint i32 %147, %146
   store i32 %148, ptr %11, align 4
   %149 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm7codegen20RegisterCodeGenFlagsC1EvE28UniqueBasicBlockSectionNames, i64 120), align 8, !tbaa !83, !range !88, !noundef !89
-  %150 = trunc nuw i8 %149 to i1
-  %151 = select i1 %150, i32 128, i32 0
+  %150 = shl nuw i8 %149, 7
+  %151 = zext i8 %150 to i32
   %152 = and i32 %148, -129
-  %153 = or disjoint i32 %151, %152
+  %153 = or disjoint i32 %152, %151
   store i32 %153, ptr %11, align 4
   %154 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm7codegen20RegisterCodeGenFlagsC1EvE21SeparateNamedSections, i64 120), align 8, !tbaa !83, !range !88, !noundef !89
-  %155 = trunc nuw i8 %154 to i1
-  %156 = select i1 %155, i32 256, i32 0
+  %155 = zext nneg i8 %154 to i32
+  %156 = shl nuw nsw i32 %155, 8
   %157 = and i32 %153, -257
   %158 = or disjoint i32 %156, %157
   store i32 %158, ptr %11, align 4
@@ -10008,125 +10008,125 @@ _ZN4llvm7codegen23getExplicitDataSectionsEv.exit: ; preds = %77, %2
 _ZNK4llvm6Triple21hasDefaultEmulatedTLSEv.exit:   ; preds = %169, %176, %180, %185
   %190 = phi i8 [ 1, %180 ], [ 1, %176 ], [ 1, %169 ], [ %189, %185 ]
   %.0.in.i11 = select i1 %.not.i5.not, i8 %190, i8 %165
-  %.0.i12 = trunc nuw i8 %.0.in.i11 to i1
   %191 = load i32, ptr %11, align 4
-  %192 = select i1 %.0.i12, i32 524288, i32 0
-  %193 = and i32 %191, -524289
-  %194 = or disjoint i32 %192, %193
-  store i32 %194, ptr %11, align 4
-  %195 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm7codegen20RegisterCodeGenFlagsC1EvE13EnableTLSDESC, i64 8), align 8, !tbaa !34
-  %196 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm7codegen20RegisterCodeGenFlagsC1EvE13EnableTLSDESC, i64 120), align 8, !range !88
-  %197 = load i32, ptr %115, align 8, !tbaa !369
-  %.off.i.i = add i32 %197, -3
+  %192 = zext nneg i8 %.0.in.i11 to i32
+  %193 = shl nuw nsw i32 %192, 19
+  %194 = and i32 %191, -524289
+  %195 = or disjoint i32 %193, %194
+  store i32 %195, ptr %11, align 4
+  %196 = load i16, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm7codegen20RegisterCodeGenFlagsC1EvE13EnableTLSDESC, i64 8), align 8, !tbaa !34
+  %197 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm7codegen20RegisterCodeGenFlagsC1EvE13EnableTLSDESC, i64 120), align 8, !range !88
+  %198 = load i32, ptr %115, align 8, !tbaa !369
+  %.off.i.i = add i32 %198, -3
   %switch.i.i = icmp ult i32 %.off.i.i, 3
-  br i1 %switch.i.i, label %_ZNK4llvm6Triple17hasDefaultTLSDESCEv.exit, label %198
+  br i1 %switch.i.i, label %_ZNK4llvm6Triple17hasDefaultTLSDESCEv.exit, label %199
 
-198:                                              ; preds = %_ZNK4llvm6Triple21hasDefaultEmulatedTLSEv.exit
-  %199 = load i32, ptr %166, align 8, !tbaa !367
-  %200 = icmp eq i32 %199, 17
-  %201 = icmp eq i32 %197, 28
-  %or.cond.i = and i1 %201, %200
-  br i1 %or.cond.i, label %_ZNK4llvm6Triple17hasDefaultTLSDESCEv.exit, label %202
+199:                                              ; preds = %_ZNK4llvm6Triple21hasDefaultEmulatedTLSEv.exit
+  %200 = load i32, ptr %166, align 8, !tbaa !367
+  %201 = icmp eq i32 %200, 17
+  %202 = icmp eq i32 %198, 28
+  %or.cond.i = and i1 %202, %201
+  br i1 %or.cond.i, label %_ZNK4llvm6Triple17hasDefaultTLSDESCEv.exit, label %203
 
-202:                                              ; preds = %198
-  %203 = getelementptr inbounds nuw i8, ptr %1, i64 44
-  %204 = load i32, ptr %203, align 4, !tbaa !368
-  %205 = icmp eq i32 %204, 4
-  %206 = zext i1 %205 to i8
+203:                                              ; preds = %199
+  %204 = getelementptr inbounds nuw i8, ptr %1, i64 44
+  %205 = load i32, ptr %204, align 4, !tbaa !368
+  %206 = icmp eq i32 %205, 4
+  %207 = zext i1 %206 to i8
   br label %_ZNK4llvm6Triple17hasDefaultTLSDESCEv.exit
 
-_ZNK4llvm6Triple17hasDefaultTLSDESCEv.exit:       ; preds = %_ZNK4llvm6Triple21hasDefaultEmulatedTLSEv.exit, %198, %202
-  %207 = phi i8 [ 1, %_ZNK4llvm6Triple21hasDefaultEmulatedTLSEv.exit ], [ %206, %202 ], [ 1, %198 ]
-  %.not.i13.not = icmp eq i16 %195, 0
-  %.0.in.i19 = select i1 %.not.i13.not, i8 %207, i8 %196
-  %.0.i20 = trunc nuw i8 %.0.in.i19 to i1
-  %208 = select i1 %.0.i20, i32 1048576, i32 0
-  %209 = and i32 %194, -1048577
-  %210 = or disjoint i32 %208, %209
-  store i32 %210, ptr %11, align 4
-  %211 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm7codegen20RegisterCodeGenFlagsC1EvE14ExceptionModel, i64 120), align 8, !tbaa !65
-  store i32 %211, ptr %34, align 4, !tbaa !358
-  %212 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm7codegen20RegisterCodeGenFlagsC1EvE22EnableStackSizeSection, i64 120), align 8, !tbaa !83, !range !88, !noundef !89
-  %213 = trunc nuw i8 %212 to i1
-  %214 = select i1 %213, i32 4194304, i32 0
-  %215 = and i32 %210, -4194305
-  %216 = or disjoint i32 %214, %215
-  store i32 %216, ptr %11, align 4
-  %217 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm7codegen20RegisterCodeGenFlagsC1EvE29EnableMachineFunctionSplitter, i64 120), align 8, !tbaa !83, !range !88, !noundef !89
-  %218 = trunc nuw i8 %217 to i1
-  %219 = select i1 %218, i32 16777216, i32 0
-  %220 = and i32 %216, -16777217
-  %221 = or disjoint i32 %219, %220
-  store i32 %221, ptr %11, align 4
-  %222 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm7codegen20RegisterCodeGenFlagsC1EvE28EnableStaticDataPartitioning, i64 120), align 8, !tbaa !83, !range !88, !noundef !89
-  %223 = trunc nuw i8 %222 to i1
-  %224 = select i1 %223, i32 33554432, i32 0
-  %225 = and i32 %221, -33554433
-  %226 = or disjoint i32 %224, %225
-  store i32 %226, ptr %11, align 4
-  %227 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm7codegen20RegisterCodeGenFlagsC1EvE13EnableAddrsig, i64 120), align 8, !tbaa !83, !range !88, !noundef !89
-  %228 = trunc nuw i8 %227 to i1
-  %229 = select i1 %228, i32 134217728, i32 0
-  %230 = and i32 %226, -134217729
-  %231 = or disjoint i32 %229, %230
-  store i32 %231, ptr %11, align 4
-  %232 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm7codegen20RegisterCodeGenFlagsC1EvE16EmitCallSiteInfo, i64 120), align 8, !tbaa !83, !range !88, !noundef !89
-  %233 = zext nneg i8 %232 to i16
-  %234 = load i16, ptr %17, align 8
-  %235 = and i16 %234, -2
-  %236 = or disjoint i16 %235, %233
-  store i16 %236, ptr %17, align 8
-  %237 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm7codegen20RegisterCodeGenFlagsC1EvE22EnableDebugEntryValues, i64 120), align 8, !tbaa !83, !range !88, !noundef !89
-  %238 = trunc nuw i8 %237 to i1
-  %239 = select i1 %238, i16 4, i16 0
-  %240 = and i16 %236, -5
-  %241 = or disjoint i16 %239, %240
-  store i16 %241, ptr %17, align 8
-  %242 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm7codegen20RegisterCodeGenFlagsC1EvE22ForceDwarfFrameSection, i64 120), align 8, !tbaa !83, !range !88, !noundef !89
-  %243 = trunc nuw i8 %242 to i1
-  %244 = select i1 %243, i16 16, i16 0
-  %245 = and i16 %241, -17
-  %246 = or disjoint i16 %244, %245
-  store i16 %246, ptr %17, align 8
-  %247 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm7codegen20RegisterCodeGenFlagsC1EvE17XRayFunctionIndex, i64 120), align 8, !tbaa !83, !range !88, !noundef !89
-  %248 = trunc nuw i8 %247 to i1
-  %249 = select i1 %248, i16 32, i16 0
-  %250 = and i16 %246, -33
-  %251 = or disjoint i16 %249, %250
-  store i16 %251, ptr %17, align 8
-  %252 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm7codegen20RegisterCodeGenFlagsC1EvE16DebugStrictDwarf, i64 120), align 8, !tbaa !83, !range !88, !noundef !89
-  %253 = trunc nuw i8 %252 to i1
-  %254 = select i1 %253, i16 64, i16 0
-  %255 = and i16 %251, -65
-  %256 = or disjoint i16 %254, %255
-  store i16 %256, ptr %17, align 8
-  %257 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm7codegen20RegisterCodeGenFlagsC1EvE10AlignLoops, i64 120), align 8, !tbaa !114
-  store i32 %257, ptr %24, align 8, !tbaa !350
-  %258 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm7codegen20RegisterCodeGenFlagsC1EvE13JMCInstrument, i64 120), align 8, !tbaa !83, !range !88, !noundef !89
-  %259 = trunc nuw i8 %258 to i1
-  %260 = select i1 %259, i16 512, i16 0
-  %261 = and i16 %256, -513
-  %262 = or disjoint i16 %260, %261
-  store i16 %262, ptr %17, align 8
-  %263 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm7codegen20RegisterCodeGenFlagsC1EvE21XCOFFReadOnlyPointers, i64 120), align 8, !tbaa !83, !range !88, !noundef !89
-  %264 = trunc nuw i8 %263 to i1
-  %265 = select i1 %264, i16 4096, i16 0
-  %266 = and i16 %262, -4097
-  %267 = or disjoint i16 %265, %266
-  store i16 %267, ptr %17, align 8
+_ZNK4llvm6Triple17hasDefaultTLSDESCEv.exit:       ; preds = %_ZNK4llvm6Triple21hasDefaultEmulatedTLSEv.exit, %199, %203
+  %208 = phi i8 [ 1, %_ZNK4llvm6Triple21hasDefaultEmulatedTLSEv.exit ], [ %207, %203 ], [ 1, %199 ]
+  %.not.i13.not = icmp eq i16 %196, 0
+  %.0.in.i19 = select i1 %.not.i13.not, i8 %208, i8 %197
+  %209 = zext nneg i8 %.0.in.i19 to i32
+  %210 = shl nuw nsw i32 %209, 20
+  %211 = and i32 %195, -1048577
+  %212 = or disjoint i32 %210, %211
+  store i32 %212, ptr %11, align 4
+  %213 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm7codegen20RegisterCodeGenFlagsC1EvE14ExceptionModel, i64 120), align 8, !tbaa !65
+  store i32 %213, ptr %34, align 4, !tbaa !358
+  %214 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm7codegen20RegisterCodeGenFlagsC1EvE22EnableStackSizeSection, i64 120), align 8, !tbaa !83, !range !88, !noundef !89
+  %215 = zext nneg i8 %214 to i32
+  %216 = shl nuw nsw i32 %215, 22
+  %217 = and i32 %212, -4194305
+  %218 = or disjoint i32 %216, %217
+  store i32 %218, ptr %11, align 4
+  %219 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm7codegen20RegisterCodeGenFlagsC1EvE29EnableMachineFunctionSplitter, i64 120), align 8, !tbaa !83, !range !88, !noundef !89
+  %220 = zext nneg i8 %219 to i32
+  %221 = shl nuw nsw i32 %220, 24
+  %222 = and i32 %218, -16777217
+  %223 = or disjoint i32 %221, %222
+  store i32 %223, ptr %11, align 4
+  %224 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm7codegen20RegisterCodeGenFlagsC1EvE28EnableStaticDataPartitioning, i64 120), align 8, !tbaa !83, !range !88, !noundef !89
+  %225 = zext nneg i8 %224 to i32
+  %226 = shl nuw nsw i32 %225, 25
+  %227 = and i32 %223, -33554433
+  %228 = or disjoint i32 %226, %227
+  store i32 %228, ptr %11, align 4
+  %229 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm7codegen20RegisterCodeGenFlagsC1EvE13EnableAddrsig, i64 120), align 8, !tbaa !83, !range !88, !noundef !89
+  %230 = zext nneg i8 %229 to i32
+  %231 = shl nuw nsw i32 %230, 27
+  %232 = and i32 %228, -134217729
+  %233 = or disjoint i32 %231, %232
+  store i32 %233, ptr %11, align 4
+  %234 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm7codegen20RegisterCodeGenFlagsC1EvE16EmitCallSiteInfo, i64 120), align 8, !tbaa !83, !range !88, !noundef !89
+  %235 = zext nneg i8 %234 to i16
+  %236 = load i16, ptr %17, align 8
+  %237 = and i16 %236, -2
+  %238 = or disjoint i16 %237, %235
+  store i16 %238, ptr %17, align 8
+  %239 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm7codegen20RegisterCodeGenFlagsC1EvE22EnableDebugEntryValues, i64 120), align 8, !tbaa !83, !range !88, !noundef !89
+  %240 = shl nuw nsw i8 %239, 2
+  %241 = zext nneg i8 %240 to i16
+  %242 = and i16 %238, -5
+  %243 = or disjoint i16 %242, %241
+  store i16 %243, ptr %17, align 8
+  %244 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm7codegen20RegisterCodeGenFlagsC1EvE22ForceDwarfFrameSection, i64 120), align 8, !tbaa !83, !range !88, !noundef !89
+  %245 = shl nuw nsw i8 %244, 4
+  %246 = zext nneg i8 %245 to i16
+  %247 = and i16 %243, -17
+  %248 = or disjoint i16 %247, %246
+  store i16 %248, ptr %17, align 8
+  %249 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm7codegen20RegisterCodeGenFlagsC1EvE17XRayFunctionIndex, i64 120), align 8, !tbaa !83, !range !88, !noundef !89
+  %250 = shl nuw nsw i8 %249, 5
+  %251 = zext nneg i8 %250 to i16
+  %252 = and i16 %248, -33
+  %253 = or disjoint i16 %252, %251
+  store i16 %253, ptr %17, align 8
+  %254 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm7codegen20RegisterCodeGenFlagsC1EvE16DebugStrictDwarf, i64 120), align 8, !tbaa !83, !range !88, !noundef !89
+  %255 = shl nuw nsw i8 %254, 6
+  %256 = zext nneg i8 %255 to i16
+  %257 = and i16 %253, -65
+  %258 = or disjoint i16 %257, %256
+  store i16 %258, ptr %17, align 8
+  %259 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm7codegen20RegisterCodeGenFlagsC1EvE10AlignLoops, i64 120), align 8, !tbaa !114
+  store i32 %259, ptr %24, align 8, !tbaa !350
+  %260 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm7codegen20RegisterCodeGenFlagsC1EvE13JMCInstrument, i64 120), align 8, !tbaa !83, !range !88, !noundef !89
+  %261 = zext nneg i8 %260 to i16
+  %262 = shl nuw nsw i16 %261, 9
+  %263 = and i16 %258, -513
+  %264 = or disjoint i16 %262, %263
+  store i16 %264, ptr %17, align 8
+  %265 = load i8, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm7codegen20RegisterCodeGenFlagsC1EvE21XCOFFReadOnlyPointers, i64 120), align 8, !tbaa !83, !range !88, !noundef !89
+  %266 = zext nneg i8 %265 to i16
+  %267 = shl nuw nsw i16 %266, 12
+  %268 = and i16 %264, -4097
+  %269 = or disjoint i16 %267, %268
+  store i16 %269, ptr %17, align 8
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %3) #20
   call void @_ZN4llvm2mc28InitMCTargetOptionsFromFlagsEv(ptr dead_on_unwind nonnull writable sret(%"class.llvm::MCTargetOptions") align 8 %3) #20
-  %268 = call noundef nonnull align 8 dereferenceable(249) ptr @_ZN4llvm15MCTargetOptionsaSEOS0_(ptr noundef nonnull align 8 dereferenceable(249) %35, ptr noundef nonnull align 8 dereferenceable(249) %3) #20
+  %270 = call noundef nonnull align 8 dereferenceable(249) ptr @_ZN4llvm15MCTargetOptionsaSEOS0_(ptr noundef nonnull align 8 dereferenceable(249) %35, ptr noundef nonnull align 8 dereferenceable(249) %3) #20
   call void @_ZN4llvm15MCTargetOptionsD2Ev(ptr noundef nonnull align 8 dereferenceable(249) %3) #20
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %3) #20
-  %269 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm7codegen20RegisterCodeGenFlagsC1EvE11ThreadModel, i64 120), align 8, !tbaa !48
-  store i32 %269, ptr %27, align 4, !tbaa !353
-  %270 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm7codegen20RegisterCodeGenFlagsC1EvE11EABIVersion, i64 120), align 8, !tbaa !119
-  store i32 %270, ptr %28, align 8, !tbaa !354
-  %271 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm7codegen20RegisterCodeGenFlagsC1EvE17DebuggerTuningOpt, i64 120), align 8, !tbaa !125
-  store i32 %271, ptr %29, align 4, !tbaa !355
-  %272 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm7codegen20RegisterCodeGenFlagsC1EvE22SwiftAsyncFramePointer, i64 120), align 8, !tbaa !108
-  store i32 %272, ptr %10, align 8, !tbaa !348
+  %271 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm7codegen20RegisterCodeGenFlagsC1EvE11ThreadModel, i64 120), align 8, !tbaa !48
+  store i32 %271, ptr %27, align 4, !tbaa !353
+  %272 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm7codegen20RegisterCodeGenFlagsC1EvE11EABIVersion, i64 120), align 8, !tbaa !119
+  store i32 %272, ptr %28, align 8, !tbaa !354
+  %273 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm7codegen20RegisterCodeGenFlagsC1EvE17DebuggerTuningOpt, i64 120), align 8, !tbaa !125
+  store i32 %273, ptr %29, align 4, !tbaa !355
+  %274 = load i32, ptr getelementptr inbounds nuw (i8, ptr @_ZZN4llvm7codegen20RegisterCodeGenFlagsC1EvE22SwiftAsyncFramePointer, i64 120), align 8, !tbaa !108
+  store i32 %274, ptr %10, align 8, !tbaa !348
   ret void
 }
 

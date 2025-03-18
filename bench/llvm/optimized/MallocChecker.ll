@@ -16721,8 +16721,8 @@ _ZNK12_GLOBAL__N_113MallocChecker17getCheckIfTrackedENS_16AllocationFamilyEb.exi
 
 110:                                              ; preds = %_ZNK12_GLOBAL__N_113MallocChecker17getCheckIfTrackedENS_16AllocationFamilyEb.exit.thread, %_ZNK12_GLOBAL__N_113MallocChecker17getCheckIfTrackedENS_16AllocationFamilyEb.exit.thread
   %111 = load i8, ptr %66, align 4, !tbaa !81, !range !77, !noundef !78
-  %112 = trunc nuw i8 %111 to i1
-  %113 = select i1 %112, i64 2, i64 0
+  %112 = shl nuw nsw i8 %111, 1
+  %113 = zext nneg i8 %112 to i64
   br label %_ZNK12_GLOBAL__N_113MallocChecker17getCheckIfTrackedENS_16AllocationFamilyEb.exit49
 
 114:                                              ; preds = %_ZNK12_GLOBAL__N_113MallocChecker17getCheckIfTrackedENS_16AllocationFamilyEb.exit.thread

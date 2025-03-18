@@ -39353,8 +39353,7 @@ define void @"_ZN90_$LT$workspace..pane_group..element..PaneAxisElement$u20$as$u
 .lr.ph78:                                         ; preds = %.lr.ph
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %18 = load i8, ptr %17, align 8, !range !35
-  %trunc = trunc nuw i8 %18 to i1
-  %. = select i1 %trunc, i8 14, i8 15
+  %. = xor i8 %18, 15
   %19 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 32
   %21 = getelementptr inbounds nuw i8, ptr %10, i64 48
@@ -39917,14 +39916,12 @@ default.unreachable:                              ; preds = %23
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %44 = load ptr, ptr %43, align 8, !alias.scope !9027, !noalias !9026, !nonnull !5
   %45 = load i64, ptr %41, align 8, !range !865, !alias.scope !9027, !noalias !9026, !noundef !5
-  %trunc3.i.i.i = trunc nuw i64 %45 to i1
-  %.sroa.01.0.idx.i.i.i = select i1 %trunc3.i.i.i, i64 16, i64 0
+  %.sroa.01.0.idx.i.i.i = shl nuw nsw i64 %45, 4
   %.sroa.01.0.i.i.i = getelementptr inbounds nuw i8, ptr %44, i64 %.sroa.01.0.idx.i.i.i
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %47 = load ptr, ptr %46, align 8, !alias.scope !9026, !noalias !9027, !nonnull !5
   %48 = load i64, ptr %42, align 8, !range !865, !alias.scope !9026, !noalias !9027, !noundef !5
-  %trunc.i.i.i = trunc nuw i64 %48 to i1
-  %.sroa.0.0.idx.i.i.i = select i1 %trunc.i.i.i, i64 16, i64 0
+  %.sroa.0.0.idx.i.i.i = shl nuw nsw i64 %48, 4
   %.sroa.0.0.i.i.i = getelementptr inbounds nuw i8, ptr %47, i64 %.sroa.0.0.idx.i.i.i
   %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.sroa.0.0.i.i.i, ptr nonnull readonly align 1 %.sroa.01.0.i.i.i, i64 %.sroa.3.0.i.i.i), !alias.scope !9028, !noalias !9035
   %49 = icmp eq i32 %bcmp.i.i.i.i.i, 0
@@ -39960,21 +39957,19 @@ default.unreachable:                              ; preds = %23
   %.sroa.32.0.in.i4.i.i = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.32.0.i5.i.i = load i64, ptr %.sroa.32.0.in.i4.i.i, align 8, !alias.scope !9042, !noalias !9041, !noundef !5
   %.not.i.i.i6.i.i = icmp eq i64 %.sroa.3.0.i3.i.i, %.sroa.32.0.i5.i.i
-  br i1 %.not.i.i.i6.i.i, label %"_ZN71_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd65e5d78d8b20933E.exit15.i.i", label %"_ZN81_$LT$workspace..notifications..NotificationId$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7f834ef2e57cf795E.exit.thread"
+  br i1 %.not.i.i.i6.i.i, label %"_ZN71_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd65e5d78d8b20933E.exit13.i.i", label %"_ZN81_$LT$workspace..notifications..NotificationId$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7f834ef2e57cf795E.exit.thread"
 
-"_ZN71_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd65e5d78d8b20933E.exit15.i.i": ; preds = %64
+"_ZN71_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd65e5d78d8b20933E.exit13.i.i": ; preds = %64
   %66 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %67 = load ptr, ptr %66, align 8, !alias.scope !9042, !noalias !9041, !nonnull !5
-  %trunc3.i8.i.i = trunc nuw i64 %15 to i1
-  %.sroa.01.0.idx.i9.i.i = select i1 %trunc3.i8.i.i, i64 16, i64 0
-  %.sroa.01.0.i10.i.i = getelementptr inbounds nuw i8, ptr %67, i64 %.sroa.01.0.idx.i9.i.i
+  %.sroa.01.0.idx.i8.i.i = shl nuw nsw i64 %15, 4
+  %.sroa.01.0.i9.i.i = getelementptr inbounds nuw i8, ptr %67, i64 %.sroa.01.0.idx.i8.i.i
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %69 = load ptr, ptr %68, align 8, !alias.scope !9041, !noalias !9042, !nonnull !5
-  %trunc.i11.i.i = trunc nuw i64 %13 to i1
-  %.sroa.0.0.idx.i12.i.i = select i1 %trunc.i11.i.i, i64 16, i64 0
-  %.sroa.0.0.i13.i.i = getelementptr inbounds nuw i8, ptr %69, i64 %.sroa.0.0.idx.i12.i.i
-  %bcmp.i.i.i14.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.sroa.0.0.i13.i.i, ptr nonnull readonly align 1 %.sroa.01.0.i10.i.i, i64 %.sroa.3.0.i3.i.i), !alias.scope !9043, !noalias !9050
-  %70 = icmp eq i32 %bcmp.i.i.i14.i.i, 0
+  %.sroa.0.0.idx.i10.i.i = shl nuw nsw i64 %13, 4
+  %.sroa.0.0.i11.i.i = getelementptr inbounds nuw i8, ptr %69, i64 %.sroa.0.0.idx.i10.i.i
+  %bcmp.i.i.i12.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.sroa.0.0.i11.i.i, ptr nonnull readonly align 1 %.sroa.01.0.i9.i.i, i64 %.sroa.3.0.i3.i.i), !alias.scope !9043, !noalias !9050
+  %70 = icmp eq i32 %bcmp.i.i.i12.i.i, 0
   br i1 %70, label %83, label %"_ZN81_$LT$workspace..notifications..NotificationId$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7f834ef2e57cf795E.exit.thread"
 
 71:                                               ; preds = %24
@@ -39993,7 +39988,7 @@ default.unreachable:                              ; preds = %23
   %82 = icmp eq i32 %80, %81
   br i1 %82, label %89, label %"_ZN81_$LT$workspace..notifications..NotificationId$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7f834ef2e57cf795E.exit.thread"
 
-83:                                               ; preds = %"_ZN71_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd65e5d78d8b20933E.exit15.i.i"
+83:                                               ; preds = %"_ZN71_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd65e5d78d8b20933E.exit13.i.i"
   %84 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %85 = load i64, ptr %84, align 8, !alias.scope !9019, !noalias !9020, !noundef !5
   %86 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -40034,8 +40029,8 @@ default.unreachable:                              ; preds = %23
   %98 = xor i1 %94, %97
   br label %"_ZN81_$LT$workspace..notifications..NotificationId$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7f834ef2e57cf795E.exit.thread"
 
-"_ZN81_$LT$workspace..notifications..NotificationId$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7f834ef2e57cf795E.exit.thread": ; preds = %89, %64, %38, %"_ZN71_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd65e5d78d8b20933E.exit15.i.i", %57, %24, %17, %8, %2, %40, %71, %31, %50, %77, %83, %"_ZN81_$LT$workspace..notifications..NotificationId$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7f834ef2e57cf795E.exit", %"_ZN103_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..cmp..PartialEq$LT$alloc..borrow..Cow$LT$C$GT$$GT$$GT$2eq17h7f75711bcf701629E.exit", %91
-  %.sroa.0.0 = phi i1 [ %98, %91 ], [ false, %"_ZN103_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..cmp..PartialEq$LT$alloc..borrow..Cow$LT$C$GT$$GT$$GT$2eq17h7f75711bcf701629E.exit" ], [ false, %"_ZN81_$LT$workspace..notifications..NotificationId$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7f834ef2e57cf795E.exit" ], [ false, %83 ], [ false, %77 ], [ false, %50 ], [ false, %31 ], [ false, %71 ], [ false, %40 ], [ false, %2 ], [ false, %8 ], [ false, %17 ], [ false, %24 ], [ false, %57 ], [ false, %"_ZN71_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd65e5d78d8b20933E.exit15.i.i" ], [ false, %38 ], [ false, %64 ], [ false, %89 ]
+"_ZN81_$LT$workspace..notifications..NotificationId$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7f834ef2e57cf795E.exit.thread": ; preds = %89, %64, %38, %"_ZN71_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd65e5d78d8b20933E.exit13.i.i", %57, %24, %17, %8, %2, %40, %71, %31, %50, %77, %83, %"_ZN81_$LT$workspace..notifications..NotificationId$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7f834ef2e57cf795E.exit", %"_ZN103_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..cmp..PartialEq$LT$alloc..borrow..Cow$LT$C$GT$$GT$$GT$2eq17h7f75711bcf701629E.exit", %91
+  %.sroa.0.0 = phi i1 [ %98, %91 ], [ false, %"_ZN103_$LT$alloc..borrow..Cow$LT$B$GT$$u20$as$u20$core..cmp..PartialEq$LT$alloc..borrow..Cow$LT$C$GT$$GT$$GT$2eq17h7f75711bcf701629E.exit" ], [ false, %"_ZN81_$LT$workspace..notifications..NotificationId$u20$as$u20$core..cmp..PartialEq$GT$2eq17h7f834ef2e57cf795E.exit" ], [ false, %83 ], [ false, %77 ], [ false, %50 ], [ false, %31 ], [ false, %71 ], [ false, %40 ], [ false, %2 ], [ false, %8 ], [ false, %17 ], [ false, %24 ], [ false, %57 ], [ false, %"_ZN71_$LT$util..arc_cow..ArcCow$LT$T$GT$$u20$as$u20$core..cmp..PartialEq$GT$2eq17hd65e5d78d8b20933E.exit13.i.i" ], [ false, %38 ], [ false, %64 ], [ false, %89 ]
   ret i1 %.sroa.0.0
 }
 

@@ -21682,8 +21682,8 @@ _ZN8ImVectorItE6resizeEi.exit:                    ; preds = %.loopexit1525, %738
   store i32 %756, ptr %759, align 4, !tbaa !409
   %760 = getelementptr inbounds nuw i8, ptr %36, i64 261
   %761 = load i8, ptr %760, align 1, !tbaa !430, !range !153, !noundef !154
-  %762 = trunc nuw i8 %761 to i1
-  %763 = select i1 %762, i32 4194304, i32 0
+  %762 = zext nneg i8 %761 to i32
+  %763 = shl nuw nsw i32 %762, 22
   %764 = getelementptr inbounds nuw i8, ptr %36, i64 262
   %765 = getelementptr inbounds nuw i8, ptr %36, i64 260
   %.in.in = select i1 %740, ptr %764, ptr %765
@@ -31954,11 +31954,11 @@ _ZN5ImGui9SeparatorEv.exit32:                     ; preds = %.thread, %66, %59
 
 .sink.split.i.i:                                  ; preds = %_ZN5ImGui9SeparatorEv.exit32
   %80 = load i8, ptr %3, align 1, !tbaa !209, !range !153, !noundef !154
-  %81 = trunc nuw i8 %80 to i1
-  %82 = load i32, ptr %74, align 4, !tbaa !177
-  %83 = and i32 %82, -65537
-  %masksel = select i1 %81, i32 65536, i32 0
-  %.sink.i.i = or disjoint i32 %83, %masksel
+  %81 = load i32, ptr %74, align 4, !tbaa !177
+  %82 = and i32 %81, -65537
+  %83 = zext nneg i8 %80 to i32
+  %masksel = shl nuw nsw i32 %83, 16
+  %.sink.i.i = or disjoint i32 %82, %masksel
   store i32 %.sink.i.i, ptr %74, align 4, !tbaa !177
   br label %_ZN5ImGui13CheckboxFlagsEPKcPii.exit
 

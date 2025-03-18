@@ -173553,8 +173553,7 @@ define noundef zeroext i1 @"_ZN4gpui13shared_string113_$LT$impl$u20$core..cmp..P
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %9 = load ptr, ptr %8, align 8, !alias.scope !48247, !nonnull !5
   %10 = load i64, ptr %1, align 8, !range !5970, !alias.scope !48247, !noundef !5
-  %trunc.i = trunc nuw i64 %10 to i1
-  %.sroa.0.0.idx.i = select i1 %trunc.i, i64 16, i64 0
+  %.sroa.0.0.idx.i = shl nuw nsw i64 %10, 4
   %.sroa.0.0.i = getelementptr inbounds nuw i8, ptr %9, i64 %.sroa.0.0.idx.i
   %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %7, ptr nonnull readonly align 1 %.sroa.0.0.i, i64 %.sroa.3.0.i), !alias.scope !48250
   %11 = icmp eq i32 %bcmp.i, 0
@@ -173569,10 +173568,9 @@ define noundef zeroext i1 @"_ZN4gpui13shared_string113_$LT$impl$u20$core..cmp..P
 define void @"_ZN4gpui13shared_string112_$LT$impl$u20$core..convert..From$LT$gpui..shared_string..SharedString$GT$$u20$for$u20$alloc..string..String$GT$4from17h34ce3ca09b4611fdE"(ptr dead_on_unwind noalias noundef writable writeonly sret([24 x i8]) align 8 captures(none) dereferenceable(24) %0, ptr noalias noundef align 8 captures(none) dereferenceable(24) %1) unnamed_addr #0 personality ptr @rust_eh_personality {
   %3 = alloca [24 x i8], align 8
   %4 = load i64, ptr %1, align 8, !range !5970, !noundef !5
-  %trunc = trunc nuw i64 %4 to i1
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load ptr, ptr %5, align 8, !nonnull !5
-  %.sroa.0.0.idx = select i1 %trunc, i64 16, i64 0
+  %.sroa.0.0.idx = shl nuw nsw i64 %4, 4
   %.sroa.0.0 = getelementptr inbounds nuw i8, ptr %6, i64 %.sroa.0.0.idx
   %.sroa.3.0.in = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.3.0 = load i64, ptr %.sroa.3.0.in, align 8, !noundef !5
@@ -173664,12 +173662,11 @@ define noundef zeroext i1 @"_ZN64_$LT$gpui..shared_uri..SharedUri$u20$as$u20$cor
   tail call void @llvm.experimental.noalias.scope.decl(metadata !48287)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !48290)
   %3 = load i64, ptr %0, align 8, !range !5970, !alias.scope !48293, !noalias !48294, !noundef !5
-  %trunc.i.i = trunc nuw i64 %3 to i1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %5 = load ptr, ptr %4, align 8, !alias.scope !48293, !noalias !48294, !nonnull !5, !noundef !5
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %7 = load i64, ptr %6, align 8, !alias.scope !48293, !noalias !48294, !noundef !5
-  %.sink.idx.i.i = select i1 %trunc.i.i, i64 16, i64 0
+  %.sink.idx.i.i = shl nuw nsw i64 %3, 4
   %.sink.i.i = getelementptr inbounds nuw i8, ptr %5, i64 %.sink.idx.i.i
   %8 = tail call noundef zeroext i1 @"_ZN40_$LT$str$u20$as$u20$core..fmt..Debug$GT$3fmt17h526e9ca528e9b943E"(ptr noalias noundef nonnull readonly align 1 %.sink.i.i, i64 noundef %7, ptr noalias noundef nonnull align 8 dereferenceable(64) %1), !noalias !48293
   ret i1 %8
@@ -173684,10 +173681,9 @@ _ZN4core3fmt9Formatter9write_fmt17h9d0d9fd40ea148b1E.llvm.1447634141393705755.ex
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %5 = load i64, ptr %0, align 8, !range !5970, !alias.scope !48297, !noundef !5
-  %trunc.i = trunc nuw i64 %5 to i1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !alias.scope !48297, !nonnull !5
-  %.sroa.0.0.idx.i = select i1 %trunc.i, i64 16, i64 0
+  %.sroa.0.0.idx.i = shl nuw nsw i64 %5, 4
   %.sroa.0.0.i = getelementptr inbounds nuw i8, ptr %7, i64 %.sroa.0.0.idx.i
   %.sroa.3.0.in.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.3.0.i = load i64, ptr %.sroa.3.0.in.i, align 8, !alias.scope !48297, !noundef !5

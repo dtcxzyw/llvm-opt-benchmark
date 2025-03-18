@@ -1156,9 +1156,10 @@ _ZNSt3mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEN7rocksdb28HybridR
 
 107:                                              ; preds = %99
   %108 = trunc nuw i8 %100 to i1
-  %.not45 = icmp eq i64 %101, 0
-  %spec.select = zext i1 %.not45 to i8
-  %.041 = select i1 %108, i8 %spec.select, i8 2
+  %.not45 = icmp ne i64 %101, 0
+  %or.cond51.not = select i1 %108, i1 %.not45, i1 false
+  %spec.select = sub nuw nsw i8 2, %100
+  %.041 = select i1 %or.cond51.not, i8 0, i8 %spec.select
   store i8 %.041, ptr %102, align 1, !tbaa !80
   %.pre89 = load i8, ptr %7, align 1, !tbaa !66, !range !43
   %109 = trunc nuw i8 %.pre89 to i1

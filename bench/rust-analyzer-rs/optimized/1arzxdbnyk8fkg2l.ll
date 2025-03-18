@@ -4310,11 +4310,10 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17hd78601dfb70922fb
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17hd9bdd19043c08359E.llvm.16283260474565314852"(ptr noalias noundef writeonly sret({ i64, [1 x i64] }) align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #2 {
   %3 = load i64, ptr %1, align 8, !range !428, !noundef !9
-  %trunc = trunc nuw i64 %3 to i1
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %.sink1 = ptrtoint ptr %5 to i64
-  %.sink = select i1 %trunc, i64 2, i64 1
+  %.sink = add nuw nsw i64 %3, 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sink1, ptr %6, align 8
   store i64 %.sink, ptr %0, align 8
@@ -11703,11 +11702,10 @@ define hidden void @"_ZN87_$LT$serde..de..value..SeqDeserializer$LT$I$C$E$GT$$u2
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3010)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3013)
   %20 = load i64, ptr %4, align 8, !range !428, !alias.scope !3013, !noalias !3010, !noundef !9
-  %trunc.i = trunc nuw i64 %20 to i1
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %22 = load ptr, ptr %21, align 8, !alias.scope !3013, !noalias !3010
   %.sink1.i = ptrtoint ptr %22 to i64
-  %.sink.i = select i1 %trunc.i, i64 2, i64 1
+  %.sink.i = add nuw nsw i64 %20, 1
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sink1.i, ptr %23, align 8, !alias.scope !3010, !noalias !3013
   store i64 %.sink.i, ptr %0, align 8, !alias.scope !3010, !noalias !3013

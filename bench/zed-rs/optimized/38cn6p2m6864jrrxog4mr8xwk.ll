@@ -38426,28 +38426,28 @@ define internal fastcc void @"_ZN78_$LT$alacritty_terminal..term..Term$LT$T$GT$$
 27:                                               ; preds = %3, %17
   %28 = phi i16 [ %1, %3 ], [ %.pre, %17 ]
   %trunc = trunc nuw i16 %28 to i1
-  br i1 %trunc, label %101, label %29
+  br i1 %trunc, label %100, label %29
 
 29:                                               ; preds = %27
   %30 = load i16, ptr %13, align 2, !range !2385, !noundef !4
   switch i16 %30, label %16 [
     i16 1, label %31
-    i16 3, label %100
+    i16 3, label %99
     i16 6, label %35
     i16 7, label %39
     i16 12, label %43
-    i16 25, label %55
-    i16 1000, label %59
-    i16 1002, label %63
-    i16 1003, label %67
-    i16 1004, label %71
-    i16 1005, label %75
-    i16 1006, label %79
-    i16 1007, label %83
-    i16 1042, label %87
-    i16 1049, label %91
-    i16 2004, label %95
-    i16 2026, label %99
+    i16 25, label %54
+    i16 1000, label %58
+    i16 1002, label %62
+    i16 1003, label %66
+    i16 1004, label %70
+    i16 1005, label %74
+    i16 1006, label %78
+    i16 1007, label %82
+    i16 1042, label %86
+    i16 1049, label %90
+    i16 2004, label %94
+    i16 2026, label %98
   ]
 
 31:                                               ; preds = %29
@@ -38456,7 +38456,7 @@ define internal fastcc void @"_ZN78_$LT$alacritty_terminal..term..Term$LT$T$GT$$
   %34 = and i32 %33, 2
   %.not32 = icmp eq i32 %34, 0
   %. = select i1 %.not32, i8 2, i8 1
-  br label %100
+  br label %99
 
 35:                                               ; preds = %29
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 1724
@@ -38464,7 +38464,7 @@ define internal fastcc void @"_ZN78_$LT$alacritty_terminal..term..Term$LT$T$GT$$
   %38 = and i32 %37, 512
   %.not31 = icmp eq i32 %38, 0
   %.36 = select i1 %.not31, i8 2, i8 1
-  br label %100
+  br label %99
 
 39:                                               ; preds = %29
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 1724
@@ -38472,7 +38472,7 @@ define internal fastcc void @"_ZN78_$LT$alacritty_terminal..term..Term$LT$T$GT$$
   %42 = and i32 %41, 128
   %.not30 = icmp eq i32 %42, 0
   %.37 = select i1 %.not30, i8 2, i8 1
-  br label %100
+  br label %99
 
 43:                                               ; preds = %29
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 1728
@@ -38492,127 +38492,126 @@ define internal fastcc void @"_ZN78_$LT$alacritty_terminal..term..Term$LT$T$GT$$
 
 "_ZN4core6option15Option$LT$T$GT$13get_or_insert17h9b2cb1635237ee2dE.exit": ; preds = %43, %47
   %53 = phi i8 [ %45, %43 ], [ %51, %47 ]
-  %54 = trunc nuw i8 %53 to i1
-  %.38 = select i1 %54, i8 1, i8 2
-  br label %100
+  %.38 = sub nuw nsw i8 2, %53
+  br label %99
 
-55:                                               ; preds = %29
-  %56 = getelementptr inbounds nuw i8, ptr %0, i64 1724
-  %57 = load i32, ptr %56, align 4, !noundef !4
-  %58 = and i32 %57, 1
-  %.not29 = icmp eq i32 %58, 0
+54:                                               ; preds = %29
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 1724
+  %56 = load i32, ptr %55, align 4, !noundef !4
+  %57 = and i32 %56, 1
+  %.not29 = icmp eq i32 %57, 0
   %.39 = select i1 %.not29, i8 2, i8 1
-  br label %100
+  br label %99
 
-59:                                               ; preds = %29
-  %60 = getelementptr inbounds nuw i8, ptr %0, i64 1724
-  %61 = load i32, ptr %60, align 4, !noundef !4
-  %62 = and i32 %61, 8
-  %.not28 = icmp eq i32 %62, 0
+58:                                               ; preds = %29
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 1724
+  %60 = load i32, ptr %59, align 4, !noundef !4
+  %61 = and i32 %60, 8
+  %.not28 = icmp eq i32 %61, 0
   %.40 = select i1 %.not28, i8 2, i8 1
-  br label %100
+  br label %99
 
-63:                                               ; preds = %29
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 1724
-  %65 = load i32, ptr %64, align 4, !noundef !4
-  %66 = and i32 %65, 8192
-  %.not27 = icmp eq i32 %66, 0
+62:                                               ; preds = %29
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 1724
+  %64 = load i32, ptr %63, align 4, !noundef !4
+  %65 = and i32 %64, 8192
+  %.not27 = icmp eq i32 %65, 0
   %.41 = select i1 %.not27, i8 2, i8 1
-  br label %100
+  br label %99
 
-67:                                               ; preds = %29
-  %68 = getelementptr inbounds nuw i8, ptr %0, i64 1724
-  %69 = load i32, ptr %68, align 4, !noundef !4
-  %70 = and i32 %69, 64
-  %.not26 = icmp eq i32 %70, 0
+66:                                               ; preds = %29
+  %67 = getelementptr inbounds nuw i8, ptr %0, i64 1724
+  %68 = load i32, ptr %67, align 4, !noundef !4
+  %69 = and i32 %68, 64
+  %.not26 = icmp eq i32 %69, 0
   %.42 = select i1 %.not26, i8 2, i8 1
-  br label %100
+  br label %99
 
-71:                                               ; preds = %29
-  %72 = getelementptr inbounds nuw i8, ptr %0, i64 1724
-  %73 = load i32, ptr %72, align 4, !noundef !4
-  %74 = and i32 %73, 2048
-  %.not25 = icmp eq i32 %74, 0
+70:                                               ; preds = %29
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 1724
+  %72 = load i32, ptr %71, align 4, !noundef !4
+  %73 = and i32 %72, 2048
+  %.not25 = icmp eq i32 %73, 0
   %.43 = select i1 %.not25, i8 2, i8 1
-  br label %100
+  br label %99
 
-75:                                               ; preds = %29
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 1724
-  %77 = load i32, ptr %76, align 4, !noundef !4
-  %78 = and i32 %77, 16384
-  %.not24 = icmp eq i32 %78, 0
+74:                                               ; preds = %29
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 1724
+  %76 = load i32, ptr %75, align 4, !noundef !4
+  %77 = and i32 %76, 16384
+  %.not24 = icmp eq i32 %77, 0
   %.44 = select i1 %.not24, i8 2, i8 1
-  br label %100
+  br label %99
 
-79:                                               ; preds = %29
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 1724
-  %81 = load i32, ptr %80, align 4, !noundef !4
-  %82 = and i32 %81, 32
-  %.not23 = icmp eq i32 %82, 0
+78:                                               ; preds = %29
+  %79 = getelementptr inbounds nuw i8, ptr %0, i64 1724
+  %80 = load i32, ptr %79, align 4, !noundef !4
+  %81 = and i32 %80, 32
+  %.not23 = icmp eq i32 %81, 0
   %.45 = select i1 %.not23, i8 2, i8 1
-  br label %100
+  br label %99
 
-83:                                               ; preds = %29
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 1724
-  %85 = load i32, ptr %84, align 4, !noundef !4
-  %86 = and i32 %85, 32768
-  %.not22 = icmp eq i32 %86, 0
+82:                                               ; preds = %29
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 1724
+  %84 = load i32, ptr %83, align 4, !noundef !4
+  %85 = and i32 %84, 32768
+  %.not22 = icmp eq i32 %85, 0
   %.46 = select i1 %.not22, i8 2, i8 1
-  br label %100
+  br label %99
 
-87:                                               ; preds = %29
-  %88 = getelementptr inbounds nuw i8, ptr %0, i64 1724
-  %89 = load i32, ptr %88, align 4, !noundef !4
-  %90 = and i32 %89, 131072
-  %.not21 = icmp eq i32 %90, 0
+86:                                               ; preds = %29
+  %87 = getelementptr inbounds nuw i8, ptr %0, i64 1724
+  %88 = load i32, ptr %87, align 4, !noundef !4
+  %89 = and i32 %88, 131072
+  %.not21 = icmp eq i32 %89, 0
   %.47 = select i1 %.not21, i8 2, i8 1
-  br label %100
+  br label %99
 
-91:                                               ; preds = %29
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 1724
-  %93 = load i32, ptr %92, align 4, !noundef !4
-  %94 = and i32 %93, 4096
-  %.not20 = icmp eq i32 %94, 0
+90:                                               ; preds = %29
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 1724
+  %92 = load i32, ptr %91, align 4, !noundef !4
+  %93 = and i32 %92, 4096
+  %.not20 = icmp eq i32 %93, 0
   %.48 = select i1 %.not20, i8 2, i8 1
-  br label %100
+  br label %99
 
-95:                                               ; preds = %29
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 1724
-  %97 = load i32, ptr %96, align 4, !noundef !4
-  %98 = and i32 %97, 16
-  %.not19 = icmp eq i32 %98, 0
+94:                                               ; preds = %29
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 1724
+  %96 = load i32, ptr %95, align 4, !noundef !4
+  %97 = and i32 %96, 16
+  %.not19 = icmp eq i32 %97, 0
   %.49 = select i1 %.not19, i8 2, i8 1
-  br label %100
+  br label %99
 
-99:                                               ; preds = %29
-  br label %100
+98:                                               ; preds = %29
+  br label %99
 
-100:                                              ; preds = %99, %31, %29, %35, %39, %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h9b2cb1635237ee2dE.exit", %55, %59, %63, %67, %71, %75, %79, %83, %87, %91, %95
-  %.sroa.04.0.ph = phi i8 [ %.49, %95 ], [ %.48, %91 ], [ %.47, %87 ], [ %.46, %83 ], [ %.45, %79 ], [ %.44, %75 ], [ %.43, %71 ], [ %.42, %67 ], [ %.41, %63 ], [ %.40, %59 ], [ %.39, %55 ], [ %.38, %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h9b2cb1635237ee2dE.exit" ], [ %.37, %39 ], [ %.36, %35 ], [ 0, %29 ], [ %., %31 ], [ 2, %99 ]
+99:                                               ; preds = %98, %31, %29, %35, %39, %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h9b2cb1635237ee2dE.exit", %54, %58, %62, %66, %70, %74, %78, %82, %86, %90, %94
+  %.sroa.04.0.ph = phi i8 [ %.49, %94 ], [ %.48, %90 ], [ %.47, %86 ], [ %.46, %82 ], [ %.45, %78 ], [ %.44, %74 ], [ %.43, %70 ], [ %.42, %66 ], [ %.41, %62 ], [ %.40, %58 ], [ %.39, %54 ], [ %.38, %"_ZN4core6option15Option$LT$T$GT$13get_or_insert17h9b2cb1635237ee2dE.exit" ], [ %.37, %39 ], [ %.36, %35 ], [ 0, %29 ], [ %., %31 ], [ 2, %98 ]
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6)
-  br label %103
+  br label %102
 
-101:                                              ; preds = %27
+100:                                              ; preds = %27
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %8)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %7)
   call void @llvm.lifetime.start.p0(i64 2, ptr nonnull %6)
-  %102 = load i16, ptr %13, align 2, !noundef !4
-  br label %103
+  %101 = load i16, ptr %13, align 2, !noundef !4
+  br label %102
 
-103:                                              ; preds = %101, %100
-  %storemerge = phi i16 [ %30, %100 ], [ %102, %101 ]
-  %.sroa.04.053 = phi i8 [ %.sroa.04.0.ph, %100 ], [ 0, %101 ]
+102:                                              ; preds = %100, %99
+  %storemerge = phi i16 [ %30, %99 ], [ %101, %100 ]
+  %.sroa.04.053 = phi i8 [ %.sroa.04.0.ph, %99 ], [ 0, %100 ]
   store i16 %storemerge, ptr %6, align 2
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 640
+  %103 = getelementptr inbounds nuw i8, ptr %0, i64 640
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5)
   store i8 %.sroa.04.053, ptr %5, align 1
   store ptr %6, ptr %7, align 8
   %.sroa.414.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @"_ZN4core3fmt3num3imp52_$LT$impl$u20$core..fmt..Display$u20$for$u20$u16$GT$3fmt17he261f83d36475856E", ptr %.sroa.414.0..sroa_idx, align 8
-  %105 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store ptr %5, ptr %105, align 8
+  %104 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  store ptr %5, ptr %104, align 8
   %.sroa.418.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 24
   store ptr @"_ZN4core3fmt3num3imp51_$LT$impl$u20$core..fmt..Display$u20$for$u20$u8$GT$3fmt17haf36fcc7f3e0aea2E", ptr %.sroa.418.0..sroa_idx, align 8
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4), !noalias !7069
@@ -38625,14 +38624,14 @@ define internal fastcc void @"_ZN78_$LT$alacritty_terminal..term..Term$LT$T$GT$$
   store i64 2, ptr %.sroa.6.0..sroa_idx, align 8, !noalias !7077
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 32
   store ptr null, ptr %.sroa.7.0..sroa_idx, align 8, !noalias !7077
-  %106 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  call void @_ZN5alloc3fmt6format12format_inner17hfc591406982d9639E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %106, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
+  %105 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  call void @_ZN5alloc3fmt6format12format_inner17hfc591406982d9639E(ptr noalias noundef nonnull sret([24 x i8]) align 8 captures(none) dereferenceable(24) %105, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4), !noalias !7069
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7)
   store i64 -9223372036854775802, ptr %8, align 8
-  call void @"_ZN82_$LT$terminal..ZedListener$u20$as$u20$alacritty_terminal..event..EventListener$GT$10send_event17h2e2b519c81131122E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %104, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %8)
+  call void @"_ZN82_$LT$terminal..ZedListener$u20$as$u20$alacritty_terminal..event..EventListener$GT$10send_event17h2e2b519c81131122E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %103, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %8)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8)
   ret void
 }

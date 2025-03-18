@@ -5442,8 +5442,8 @@ define internal noundef ptr @zend_default_exception_new(ptr noundef %0) #0 {
 
 6:                                                ; preds = %1
   %7 = load i8, ptr getelementptr inbounds nuw (i8, ptr @executor_globals, i64 724), align 4, !tbaa !110, !range !63, !noundef !64
-  %8 = trunc nuw i8 %7 to i1
-  %9 = select i1 %8, i32 2, i32 0
+  %8 = shl nuw nsw i8 %7, 1
+  %9 = zext nneg i8 %8 to i32
   call void @zend_fetch_debug_backtrace(ptr noundef nonnull %3, i32 noundef 0, i32 noundef %9, i32 noundef 0) #15
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 9
   %.pre = load i8, ptr %.phi.trans.insert, align 1, !tbaa !16

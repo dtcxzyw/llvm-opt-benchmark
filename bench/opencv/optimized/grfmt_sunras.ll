@@ -1423,9 +1423,9 @@ select.unfold195.backedge:                        ; preds = %247, %241
   %312 = load i32, ptr %295, align 8, !tbaa !88
   %313 = icmp eq i32 %312, 3
   %314 = load i8, ptr %296, align 1, !range !110
-  %315 = trunc nuw i8 %314 to i1
-  %316 = select i1 %313, i1 true, i1 %315
-  %317 = select i1 %316, i32 2, i32 0
+  %315 = shl nuw nsw i8 %314, 1
+  %316 = zext nneg i8 %315 to i32
+  %317 = select i1 %313, i32 2, i32 %316
   %.sroa.0171.0.insert.ext = zext i32 %311 to i64
   %.sroa.0171.0.insert.insert = or disjoint i64 %.sroa.0171.0.insert.ext, 4294967296
   invoke void @_ZN2cv24icvCvt_BGRA2BGR_8u_C4C3REPKhiPhiNS_5Size_IiEEi(ptr noundef nonnull %294, i32 noundef 0, ptr noundef %.12229, i32 noundef 0, i64 %.sroa.0171.0.insert.insert, i32 noundef %317)

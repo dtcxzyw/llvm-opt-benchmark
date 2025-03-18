@@ -198,109 +198,110 @@ define void @_ZN3gmx12ForceElement12scheduleTaskEldRKSt8functionIFvS1_IFvvEEEE(p
   %5 = alloca %"class.std::function", align 8
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %7 = load i8, ptr %6, align 8, !tbaa !4, !range !45, !noundef !46
-  %8 = trunc nuw i8 %7 to i1
-  %9 = select i1 %8, i32 211, i32 209
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %11 = load i8, ptr %10, align 8, !tbaa !47, !range !45, !noundef !46
-  %12 = trunc nuw i8 %11 to i1
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 121
-  %14 = load i8, ptr %13, align 1, !range !45
-  %15 = trunc nuw i8 %14 to i1
-  %16 = select i1 %12, i1 %15, i1 false
-  %17 = select i1 %16, i32 512, i32 0
-  %18 = or disjoint i32 %17, %9
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %20 = load i64, ptr %19, align 8, !tbaa !48
-  %21 = icmp eq i64 %20, %1
-  %22 = select i1 %21, i32 256, i32 0
-  %23 = or disjoint i32 %18, %22
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %25 = load i64, ptr %24, align 8, !tbaa !49
-  %26 = icmp eq i64 %25, %1
-  %27 = select i1 %26, i32 512, i32 0
-  %28 = or i32 %23, %27
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %30 = load i64, ptr %29, align 8, !tbaa !50
-  %31 = icmp eq i64 %30, %1
-  %32 = select i1 %31, i32 1024, i32 0
-  %33 = or disjoint i32 %28, %32
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %35 = load i64, ptr %34, align 8, !tbaa !51
-  %36 = icmp eq i64 %35, %1
-  %37 = select i1 %36, i32 4, i32 0
-  %38 = or disjoint i32 %33, %37
-  %39 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %40 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %41 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i64 0, ptr %41, align 8
-  %42 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #27
-  store ptr %0, ptr %42, align 16, !tbaa !52
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %42, i64 8
+  %8 = shl nuw nsw i8 %7, 1
+  %9 = or disjoint i8 %8, -47
+  %10 = zext i8 %9 to i32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %12 = load i8, ptr %11, align 8, !tbaa !47, !range !45, !noundef !46
+  %13 = trunc nuw i8 %12 to i1
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 121
+  %15 = load i8, ptr %14, align 1, !range !45
+  %16 = zext nneg i8 %15 to i32
+  %17 = shl nuw nsw i32 %16, 9
+  %18 = select i1 %13, i32 %17, i32 0
+  %19 = or disjoint i32 %18, %10
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %21 = load i64, ptr %20, align 8, !tbaa !48
+  %22 = icmp eq i64 %21, %1
+  %23 = select i1 %22, i32 256, i32 0
+  %24 = or disjoint i32 %19, %23
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %26 = load i64, ptr %25, align 8, !tbaa !49
+  %27 = icmp eq i64 %26, %1
+  %28 = select i1 %27, i32 512, i32 0
+  %29 = or i32 %24, %28
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  %31 = load i64, ptr %30, align 8, !tbaa !50
+  %32 = icmp eq i64 %31, %1
+  %33 = select i1 %32, i32 1024, i32 0
+  %34 = or i32 %29, %33
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %36 = load i64, ptr %35, align 8, !tbaa !51
+  %37 = icmp eq i64 %36, %1
+  %38 = select i1 %37, i32 4, i32 0
+  %39 = or i32 %34, %38
+  %40 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %41 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %42 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i64 0, ptr %42, align 8
+  %43 = tail call noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #27
+  store ptr %0, ptr %43, align 16, !tbaa !52
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 8
   store i64 %1, ptr %.sroa.5.0..sroa_idx, align 8, !tbaa !54
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %42, i64 16
+  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 16
   store double %2, ptr %.sroa.6.0..sroa_idx, align 16, !tbaa !55
-  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %42, i64 24
-  store i32 %38, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !57
-  store ptr %42, ptr %5, align 8, !tbaa !59
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN3gmx12ForceElement12scheduleTaskEldRKSt8functionIFvS3_IS0_EEEE3$_0E9_M_invokeERKSt9_Any_data", ptr %40, align 8, !tbaa !60
-  store ptr @"_ZNSt17_Function_handlerIFvvEZN3gmx12ForceElement12scheduleTaskEldRKSt8functionIFvS3_IS0_EEEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation", ptr %39, align 8, !tbaa !63
-  %43 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %44 = load ptr, ptr %43, align 8, !tbaa !63
-  %.not.i.i = icmp eq ptr %44, null
-  br i1 %.not.i.i, label %45, label %46
-
-45:                                               ; preds = %4
-  invoke void @_ZSt25__throw_bad_function_callv() #28
-          to label %.noexc unwind label %55
-
-.noexc:                                           ; preds = %45
-  unreachable
+  %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %43, i64 24
+  store i32 %39, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !57
+  store ptr %43, ptr %5, align 8, !tbaa !59
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN3gmx12ForceElement12scheduleTaskEldRKSt8functionIFvS3_IS0_EEEE3$_0E9_M_invokeERKSt9_Any_data", ptr %41, align 8, !tbaa !60
+  store ptr @"_ZNSt17_Function_handlerIFvvEZN3gmx12ForceElement12scheduleTaskEldRKSt8functionIFvS3_IS0_EEEE3$_0E10_M_managerERSt9_Any_dataRKSB_St18_Manager_operation", ptr %40, align 8, !tbaa !63
+  %44 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %45 = load ptr, ptr %44, align 8, !tbaa !63
+  %.not.i.i = icmp eq ptr %45, null
+  br i1 %.not.i.i, label %46, label %47
 
 46:                                               ; preds = %4
-  %47 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %48 = load ptr, ptr %47, align 8, !tbaa !64
-  invoke void %48(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %5)
-          to label %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit unwind label %55
+  invoke void @_ZSt25__throw_bad_function_callv() #28
+          to label %.noexc unwind label %56
 
-_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit:          ; preds = %46
-  %49 = load ptr, ptr %39, align 8, !tbaa !63
-  %.not.i = icmp eq ptr %49, null
-  br i1 %.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %50
-
-50:                                               ; preds = %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit
-  %51 = invoke noundef zeroext i1 %49(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
-          to label %_ZNSt14_Function_baseD2Ev.exit unwind label %52
-
-52:                                               ; preds = %50
-  %53 = landingpad { ptr, i32 }
-          catch ptr null
-  %54 = extractvalue { ptr, i32 } %53, 0
-  call void @__clang_call_terminate(ptr %54) #29
+.noexc:                                           ; preds = %46
   unreachable
 
-_ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit, %50
+47:                                               ; preds = %4
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %49 = load ptr, ptr %48, align 8, !tbaa !64
+  invoke void %49(ptr noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull align 8 dereferenceable(32) %5)
+          to label %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit unwind label %56
+
+_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit:          ; preds = %47
+  %50 = load ptr, ptr %40, align 8, !tbaa !63
+  %.not.i = icmp eq ptr %50, null
+  br i1 %.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %51
+
+51:                                               ; preds = %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit
+  %52 = invoke noundef zeroext i1 %50(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit unwind label %53
+
+53:                                               ; preds = %51
+  %54 = landingpad { ptr, i32 }
+          catch ptr null
+  %55 = extractvalue { ptr, i32 } %54, 0
+  call void @__clang_call_terminate(ptr %55) #29
+  unreachable
+
+_ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZNKSt8functionIFvS_IFvvEEEEclES1_.exit, %51
   ret void
 
-55:                                               ; preds = %46, %45
-  %56 = landingpad { ptr, i32 }
+56:                                               ; preds = %47, %46
+  %57 = landingpad { ptr, i32 }
           cleanup
-  %57 = load ptr, ptr %39, align 8, !tbaa !63
-  %.not.i11 = icmp eq ptr %57, null
-  br i1 %.not.i11, label %_ZNSt14_Function_baseD2Ev.exit12, label %58
+  %58 = load ptr, ptr %40, align 8, !tbaa !63
+  %.not.i11 = icmp eq ptr %58, null
+  br i1 %.not.i11, label %_ZNSt14_Function_baseD2Ev.exit12, label %59
 
-58:                                               ; preds = %55
-  %59 = invoke noundef zeroext i1 %57(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
-          to label %_ZNSt14_Function_baseD2Ev.exit12 unwind label %60
+59:                                               ; preds = %56
+  %60 = invoke noundef zeroext i1 %58(ptr noundef nonnull align 8 dereferenceable(32) %5, ptr noundef nonnull align 8 dereferenceable(32) %5, i32 noundef 3)
+          to label %_ZNSt14_Function_baseD2Ev.exit12 unwind label %61
 
-60:                                               ; preds = %58
-  %61 = landingpad { ptr, i32 }
+61:                                               ; preds = %59
+  %62 = landingpad { ptr, i32 }
           catch ptr null
-  %62 = extractvalue { ptr, i32 } %61, 0
-  call void @__clang_call_terminate(ptr %62) #29
+  %63 = extractvalue { ptr, i32 } %62, 0
+  call void @__clang_call_terminate(ptr %63) #29
   unreachable
 
-_ZNSt14_Function_baseD2Ev.exit12:                 ; preds = %55, %58
-  resume { ptr, i32 } %56
+_ZNSt14_Function_baseD2Ev.exit12:                 ; preds = %56, %59
+  resume { ptr, i32 } %57
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

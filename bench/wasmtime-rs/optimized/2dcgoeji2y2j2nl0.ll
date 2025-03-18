@@ -24559,11 +24559,10 @@ define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h713d92deb9c532c4
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN4core6result19Result$LT$T$C$E$GT$3map17h7858772856e91150E.llvm.7452288157325931747"(ptr noalias noundef writeonly sret({ i64, [1 x i64] }) align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #8 {
   %3 = load i64, ptr %1, align 8, !range !8, !noundef !4
-  %trunc = trunc nuw i64 %3 to i1
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %5 = load ptr, ptr %4, align 8
   %.sink1 = ptrtoint ptr %5 to i64
-  %.sink = select i1 %trunc, i64 2, i64 1
+  %.sink = add nuw nsw i64 %3, 1
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sink1, ptr %6, align 8
   store i64 %.sink, ptr %0, align 8
@@ -41328,8 +41327,8 @@ define hidden void @"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u
   tail call void @llvm.experimental.noalias.scope.decl(metadata !17642)
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %4 = load i64, ptr %3, align 8, !alias.scope !17645, !noalias !17646, !noundef !4
-  %5 = icmp ult i64 %4, 8
-  br i1 %5, label %10, label %6
+  %5 = icmp ugt i64 %4, 7
+  br i1 %5, label %6, label %10
 
 6:                                                ; preds = %2
   %7 = load ptr, ptr %1, align 8, !alias.scope !17645, !noalias !17646, !nonnull !4, !align !142, !noundef !4
@@ -41346,11 +41345,11 @@ define hidden void @"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u
   br label %"_ZN5serde2de5impls56_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$u64$GT$11deserialize17he88d108f19d841adE.llvm.7452288157325931747.exit"
 
 "_ZN5serde2de5impls56_$LT$impl$u20$serde..de..Deserialize$u20$for$u20$u64$GT$11deserialize17he88d108f19d841adE.llvm.7452288157325931747.exit": ; preds = %6, %10
-  %.sink.i = phi i64 [ 1, %6 ], [ 2, %10 ]
   %.sink.i.i = phi i64 [ %.sroa.0.0.copyload.i.i.i.i, %6 ], [ %12, %10 ]
+  %storemerge.i.i = phi i64 [ 1, %6 ], [ 2, %10 ]
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sink.i.i, ptr %13, align 8, !alias.scope !17663, !noalias !17666
-  store i64 %.sink.i, ptr %0, align 8, !alias.scope !17663, !noalias !17666
+  store i64 %storemerge.i.i, ptr %0, align 8, !alias.scope !17663, !noalias !17666
   ret void
 }
 
@@ -50859,8 +50858,8 @@ define hidden void @"_ZN94_$LT$$RF$mut$u20$bincode..de..Deserializer$LT$R$C$O$GT
   tail call void @llvm.experimental.noalias.scope.decl(metadata !25049)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !25052)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !25055)
-  %27 = icmp ult i64 %5, 9
-  br i1 %27, label %31, label %28
+  %27 = icmp ugt i64 %9, 7
+  br i1 %27, label %28, label %31
 
 28:                                               ; preds = %26
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 9
@@ -50876,14 +50875,14 @@ define hidden void @"_ZN94_$LT$$RF$mut$u20$bincode..de..Deserializer$LT$R$C$O$GT
   br label %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17hd7ea2358a56e4ecdE.llvm.7452288157325931747.exit"
 
 "_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17hd7ea2358a56e4ecdE.llvm.7452288157325931747.exit": ; preds = %28, %31
-  %.sink.i.i = phi i64 [ 1, %28 ], [ 2, %31 ]
   %.sink.i.i.i = phi i64 [ %.sroa.0.0.copyload.i.i.i.i.i, %28 ], [ %33, %31 ]
+  %storemerge.i.i.i = phi i64 [ 1, %28 ], [ 2, %31 ]
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sink.i.i.i, ptr %34, align 8, !alias.scope !25076, !noalias !25079
   br label %35
 
 35:                                               ; preds = %6, %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17hd7ea2358a56e4ecdE.llvm.7452288157325931747.exit", %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h2cce5f9f567a2787E.llvm.7452288157325931747.exit", %10
-  %.sink = phi i64 [ %.sink.i.i, %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17hd7ea2358a56e4ecdE.llvm.7452288157325931747.exit" ], [ 2, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h2cce5f9f567a2787E.llvm.7452288157325931747.exit" ], [ 2, %10 ], [ 0, %6 ]
+  %.sink = phi i64 [ %storemerge.i.i.i, %"_ZN79_$LT$serde..de..impls..OptionVisitor$LT$T$GT$$u20$as$u20$serde..de..Visitor$GT$10visit_some17hd7ea2358a56e4ecdE.llvm.7452288157325931747.exit" ], [ 2, %"_ZN5alloc5boxed12Box$LT$T$GT$3new17h2cce5f9f567a2787E.llvm.7452288157325931747.exit" ], [ 2, %10 ], [ 0, %6 ]
   store i64 %.sink, ptr %0, align 8
   ret void
 }

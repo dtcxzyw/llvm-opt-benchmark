@@ -1095,7 +1095,7 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   store i32 8, ptr %236, align 4, !tbaa !36
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %232) #27, !noalias !37
   invoke void @_ZN8nanobind4castIiEENS_6objectEOT_NS_9rv_policyE(ptr dead_on_unwind nonnull writable sret(%"class.nanobind::object") align 8 %232, ptr noundef nonnull align 4 dereferenceable(4) %236, i32 noundef 1) #28
-          to label %.noexc unwind label %1551
+          to label %.noexc unwind label %1547
 
 .noexc:                                           ; preds = %265
   store ptr @.str.4, ptr %235, align 8, !tbaa !40
@@ -1172,7 +1172,7 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   store ptr null, ptr %199, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %200) #27
   %295 = invoke noalias noundef nonnull dereferenceable(40) ptr @_Znwm(i64 noundef 40) #32
-          to label %.noexc12 unwind label %1551
+          to label %.noexc12 unwind label %1547
 
 .noexc12:                                         ; preds = %283
   %296 = getelementptr inbounds nuw i8, ptr %200, i64 56
@@ -1296,7 +1296,7 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
 
 337:                                              ; preds = %335
   invoke void @__cxa_throw(ptr nonnull %336, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #33
-          to label %1378 unwind label %351
+          to label %1375 unwind label %351
 
 338:                                              ; preds = %0
   %339 = landingpad { ptr, i32 }
@@ -1335,20 +1335,20 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
           catch ptr @_ZTISt9exception
   call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %240) #31
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %240) #27
-  br label %1377
+  br label %1374
 
 349:                                              ; preds = %335
   %350 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
   call void @__cxa_free_exception(ptr nonnull %336) #27
-  br label %1375
+  br label %1372
 
 351:                                              ; preds = %337
   %352 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  br label %1375
+  br label %1372
 
 353:                                              ; preds = %322
   %354 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %239) #31
@@ -2965,7 +2965,7 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %989 = getelementptr inbounds nuw i8, ptr %242, i64 16
   store ptr @.str.82, ptr %989, align 8, !tbaa !19, !alias.scope !87
   %990 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN8nanobind6detail8accessorINS0_8str_attrEEaSINS_6objectEEERS3_OT_(ptr noundef nonnull align 8 dereferenceable(24) %242, ptr noundef nonnull align 8 dereferenceable(8) %241) #28
-          to label %991 unwind label %1344
+          to label %991 unwind label %1341
 
 991:                                              ; preds = %353
   call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %242) #31
@@ -3009,7 +3009,7 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   %1005 = getelementptr inbounds nuw i8, ptr %244, i64 16
   store ptr @.str.84, ptr %1005, align 8, !tbaa !19, !alias.scope !90
   %1006 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN8nanobind6detail8accessorINS0_8str_attrEEaSINS_6objectEEERS3_OT_(ptr noundef nonnull align 8 dereferenceable(24) %244, ptr noundef nonnull align 8 dereferenceable(8) %243) #28
-          to label %1007 unwind label %1347
+          to label %1007 unwind label %1344
 
 1007:                                             ; preds = %991
   call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %244) #31
@@ -3454,7 +3454,7 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   store i32 3, ptr %246, align 4, !tbaa !36
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %230) #27, !noalias !120
   invoke void @_ZN8nanobind4castIiEENS_6objectEOT_NS_9rv_policyE(ptr dead_on_unwind nonnull writable sret(%"class.nanobind::object") align 8 %230, ptr noundef nonnull align 4 dereferenceable(4) %246, i32 noundef 1) #28
-          to label %1193 unwind label %1350
+          to label %1193 unwind label %1347
 
 1193:                                             ; preds = %1007
   %.sroa.5445.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %245, i64 8
@@ -3474,7 +3474,7 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   store i32 4, ptr %248, align 4, !tbaa !36
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %229) #27, !noalias !123
   invoke void @_ZN8nanobind4castIiEENS_6objectEOT_NS_9rv_policyE(ptr dead_on_unwind nonnull writable sret(%"class.nanobind::object") align 8 %229, ptr noundef nonnull align 4 dereferenceable(4) %248, i32 noundef 1) #28
-          to label %1197 unwind label %1352
+          to label %1197 unwind label %1349
 
 1197:                                             ; preds = %1193
   store ptr @.str.95, ptr %247, align 8, !tbaa !40
@@ -3495,7 +3495,7 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   store i32 5, ptr %250, align 4, !tbaa !36
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %228) #27, !noalias !126
   invoke void @_ZN8nanobind4castIiEENS_6objectEOT_NS_9rv_policyE(ptr dead_on_unwind nonnull writable sret(%"class.nanobind::object") align 8 %228, ptr noundef nonnull align 4 dereferenceable(4) %250, i32 noundef 1) #28
-          to label %1201 unwind label %1354
+          to label %1201 unwind label %1351
 
 1201:                                             ; preds = %1197
   store ptr @.str.103, ptr %249, align 8, !tbaa !40
@@ -3532,154 +3532,152 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   store ptr @.str.104, ptr %1212, align 8, !tbaa !69
   store i32 176, ptr %1205, align 8, !tbaa !70
   %1213 = load i8, ptr %.sroa.7447.0..sroa_idx.i, align 1, !tbaa !129, !range !131, !noundef !132
-  %1214 = trunc nuw i8 %1213 to i1
-  %spec.select.i.i15.i.i = select i1 %1214, i8 4, i8 0
-  %1215 = load i8, ptr %.sroa.6446.0..sroa_idx.i, align 8, !tbaa !133
-  %.not.i.i16.i.i = icmp ne i8 %1215, 0
-  %1216 = zext i1 %.not.i.i16.i.i to i8
-  %.1.i.i17.i.i = or disjoint i8 %spec.select.i.i15.i.i, %1216
-  %1217 = getelementptr inbounds nuw i8, ptr %36, i64 88
-  %1218 = getelementptr inbounds nuw i8, ptr %36, i64 120
-  store i8 %.1.i.i17.i.i, ptr %1218, align 8, !tbaa !71
-  %1219 = load ptr, ptr %245, align 8, !tbaa !134
-  store ptr %1219, ptr %1217, align 8, !tbaa !73
-  %1220 = load ptr, ptr %.sroa.5445.0..sroa_idx.i, align 8, !tbaa !135
-  %1221 = getelementptr inbounds nuw i8, ptr %36, i64 96
-  store ptr %1220, ptr %1221, align 8, !tbaa !74
-  %1222 = getelementptr inbounds nuw i8, ptr %36, i64 112
-  %1223 = load ptr, ptr %1194, align 8, !tbaa !44
-  store ptr %1223, ptr %1222, align 8, !tbaa !75
-  %1224 = load i8, ptr %.sroa.7442.0..sroa_idx.i, align 1, !tbaa !129, !range !131, !noundef !132
-  %1225 = trunc nuw i8 %1224 to i1
-  %spec.select.i.i11.i.i = select i1 %1225, i8 4, i8 0
-  %1226 = load i8, ptr %.sroa.6441.0..sroa_idx.i, align 8, !tbaa !133
-  %.not.i.i12.i.i = icmp ne i8 %1226, 0
-  %1227 = zext i1 %.not.i.i12.i.i to i8
-  %.1.i.i13.i.i = or disjoint i8 %spec.select.i.i11.i.i, %1227
-  %1228 = getelementptr inbounds nuw i8, ptr %36, i64 128
-  %1229 = getelementptr inbounds nuw i8, ptr %36, i64 160
-  store i8 %.1.i.i13.i.i, ptr %1229, align 8, !tbaa !71
-  %1230 = load ptr, ptr %247, align 8, !tbaa !134
-  store ptr %1230, ptr %1228, align 8, !tbaa !73
-  %1231 = load ptr, ptr %.sroa.5440.0..sroa_idx.i, align 8, !tbaa !135
-  %1232 = getelementptr inbounds nuw i8, ptr %36, i64 136
-  store ptr %1231, ptr %1232, align 8, !tbaa !74
-  %1233 = getelementptr inbounds nuw i8, ptr %36, i64 152
-  %1234 = load ptr, ptr %1198, align 8, !tbaa !44
-  store ptr %1234, ptr %1233, align 8, !tbaa !75
-  %1235 = getelementptr inbounds nuw i8, ptr %36, i64 168
-  %1236 = getelementptr inbounds nuw i8, ptr %36, i64 200
-  store i8 1, ptr %1236, align 8, !tbaa !71
-  store ptr @.str.103, ptr %1235, align 8, !tbaa !73
-  %1237 = getelementptr inbounds nuw i8, ptr %36, i64 176
-  store ptr null, ptr %1237, align 8, !tbaa !74
-  %1238 = getelementptr inbounds nuw i8, ptr %36, i64 192
-  %1239 = inttoptr i64 %1203 to ptr
-  store ptr %1239, ptr %1238, align 8, !tbaa !75
-  %1240 = getelementptr inbounds nuw i8, ptr %36, i64 208
-  %1241 = getelementptr inbounds nuw i8, ptr %36, i64 240
-  store i8 1, ptr %1241, align 8, !tbaa !71
-  store ptr @.str.97, ptr %1240, align 8, !tbaa !73
-  %1242 = getelementptr inbounds nuw i8, ptr %36, i64 216
-  store ptr null, ptr %1242, align 8, !tbaa !74
-  %1243 = getelementptr inbounds nuw i8, ptr %36, i64 232
-  store ptr null, ptr %1243, align 8, !tbaa !75
-  %1244 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %36) #31
+  %spec.select.i.i15.i.i = shl nuw nsw i8 %1213, 2
+  %1214 = load i8, ptr %.sroa.6446.0..sroa_idx.i, align 8, !tbaa !133
+  %.not.i.i16.i.i = icmp ne i8 %1214, 0
+  %1215 = zext i1 %.not.i.i16.i.i to i8
+  %.1.i.i17.i.i = or disjoint i8 %spec.select.i.i15.i.i, %1215
+  %1216 = getelementptr inbounds nuw i8, ptr %36, i64 88
+  %1217 = getelementptr inbounds nuw i8, ptr %36, i64 120
+  store i8 %.1.i.i17.i.i, ptr %1217, align 8, !tbaa !71
+  %1218 = load ptr, ptr %245, align 8, !tbaa !134
+  store ptr %1218, ptr %1216, align 8, !tbaa !73
+  %1219 = load ptr, ptr %.sroa.5445.0..sroa_idx.i, align 8, !tbaa !135
+  %1220 = getelementptr inbounds nuw i8, ptr %36, i64 96
+  store ptr %1219, ptr %1220, align 8, !tbaa !74
+  %1221 = getelementptr inbounds nuw i8, ptr %36, i64 112
+  %1222 = load ptr, ptr %1194, align 8, !tbaa !44
+  store ptr %1222, ptr %1221, align 8, !tbaa !75
+  %1223 = load i8, ptr %.sroa.7442.0..sroa_idx.i, align 1, !tbaa !129, !range !131, !noundef !132
+  %spec.select.i.i11.i.i = shl nuw nsw i8 %1223, 2
+  %1224 = load i8, ptr %.sroa.6441.0..sroa_idx.i, align 8, !tbaa !133
+  %.not.i.i12.i.i = icmp ne i8 %1224, 0
+  %1225 = zext i1 %.not.i.i12.i.i to i8
+  %.1.i.i13.i.i = or disjoint i8 %spec.select.i.i11.i.i, %1225
+  %1226 = getelementptr inbounds nuw i8, ptr %36, i64 128
+  %1227 = getelementptr inbounds nuw i8, ptr %36, i64 160
+  store i8 %.1.i.i13.i.i, ptr %1227, align 8, !tbaa !71
+  %1228 = load ptr, ptr %247, align 8, !tbaa !134
+  store ptr %1228, ptr %1226, align 8, !tbaa !73
+  %1229 = load ptr, ptr %.sroa.5440.0..sroa_idx.i, align 8, !tbaa !135
+  %1230 = getelementptr inbounds nuw i8, ptr %36, i64 136
+  store ptr %1229, ptr %1230, align 8, !tbaa !74
+  %1231 = getelementptr inbounds nuw i8, ptr %36, i64 152
+  %1232 = load ptr, ptr %1198, align 8, !tbaa !44
+  store ptr %1232, ptr %1231, align 8, !tbaa !75
+  %1233 = getelementptr inbounds nuw i8, ptr %36, i64 168
+  %1234 = getelementptr inbounds nuw i8, ptr %36, i64 200
+  store i8 1, ptr %1234, align 8, !tbaa !71
+  store ptr @.str.103, ptr %1233, align 8, !tbaa !73
+  %1235 = getelementptr inbounds nuw i8, ptr %36, i64 176
+  store ptr null, ptr %1235, align 8, !tbaa !74
+  %1236 = getelementptr inbounds nuw i8, ptr %36, i64 192
+  %1237 = inttoptr i64 %1203 to ptr
+  store ptr %1237, ptr %1236, align 8, !tbaa !75
+  %1238 = getelementptr inbounds nuw i8, ptr %36, i64 208
+  %1239 = getelementptr inbounds nuw i8, ptr %36, i64 240
+  store i8 1, ptr %1239, align 8, !tbaa !71
+  store ptr @.str.97, ptr %1238, align 8, !tbaa !73
+  %1240 = getelementptr inbounds nuw i8, ptr %36, i64 216
+  store ptr null, ptr %1240, align 8, !tbaa !74
+  %1241 = getelementptr inbounds nuw i8, ptr %36, i64 232
+  store ptr null, ptr %1241, align 8, !tbaa !75
+  %1242 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %36) #31
   call void @llvm.lifetime.end.p0(i64 248, ptr nonnull %36) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35) #27
-  %1245 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %1202) #31
+  %1243 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %1202) #31
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %250) #27
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %249) #27
-  %1246 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %1198) #31
+  %1244 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %1198) #31
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %248) #27
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %247) #27
-  %1247 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %1194) #31
+  %1245 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %1194) #31
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %246) #27
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %245) #27
   %.sroa.0.0.copyload.i354.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33) #27
   store ptr null, ptr %33, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %34) #27
-  %1248 = getelementptr inbounds nuw i8, ptr %34, i64 56
-  %1249 = getelementptr inbounds nuw i8, ptr %34, i64 32
-  store ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_functions_extRNS_7module_EE4$_86NS_5tupleEJiiEJLm0ELm1EEJNS_5scopeENS_4nameENS_3argENS_7kw_onlyES8_EEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENUlPvPSB_PhNS_9rv_policyEPNS0_12cleanup_listEE_8__invokeESP_SQ_SR_SS_SU_", ptr %1249, align 8, !tbaa !111
-  %1250 = getelementptr inbounds nuw i8, ptr %34, i64 40
-  store ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_functions_extRNS_7module_EE4$_86NS_5tupleEJiiEJLm0ELm1EEJNS_5scopeENS_4nameENS_3argENS_7kw_onlyES8_EEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_E5descr", ptr %1250, align 8, !tbaa !113
-  %1251 = getelementptr inbounds nuw i8, ptr %34, i64 48
-  store ptr %33, ptr %1251, align 8, !tbaa !114
-  %1252 = getelementptr inbounds nuw i8, ptr %34, i64 60
-  store i16 2, ptr %1252, align 4, !tbaa !115
-  %1253 = getelementptr inbounds nuw i8, ptr %34, i64 62
-  store i16 1, ptr %1253, align 2, !tbaa !116
-  %1254 = getelementptr inbounds nuw i8, ptr %34, i64 80
-  store ptr %.sroa.0.0.copyload.i354.i, ptr %1254, align 8, !tbaa !117
-  %1255 = getelementptr inbounds nuw i8, ptr %34, i64 64
-  store ptr @.str.105, ptr %1255, align 8, !tbaa !118
-  store i32 176, ptr %1248, align 8, !tbaa !119
-  %1256 = getelementptr inbounds nuw i8, ptr %34, i64 88
-  %1257 = getelementptr inbounds nuw i8, ptr %34, i64 120
-  store i8 1, ptr %1257, align 8, !tbaa !71
-  store ptr @.str.94, ptr %1256, align 8, !tbaa !73
-  %1258 = getelementptr inbounds nuw i8, ptr %34, i64 96
-  store ptr null, ptr %1258, align 8, !tbaa !74
-  %1259 = getelementptr inbounds nuw i8, ptr %34, i64 112
-  store ptr null, ptr %1259, align 8, !tbaa !75
-  %1260 = getelementptr inbounds nuw i8, ptr %34, i64 128
-  %1261 = getelementptr inbounds nuw i8, ptr %34, i64 160
-  store i8 1, ptr %1261, align 8, !tbaa !71
-  store ptr @.str.95, ptr %1260, align 8, !tbaa !73
-  %1262 = getelementptr inbounds nuw i8, ptr %34, i64 136
-  store ptr null, ptr %1262, align 8, !tbaa !74
-  %1263 = getelementptr inbounds nuw i8, ptr %34, i64 152
-  store ptr null, ptr %1263, align 8, !tbaa !75
-  %1264 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %34) #31
+  %1246 = getelementptr inbounds nuw i8, ptr %34, i64 56
+  %1247 = getelementptr inbounds nuw i8, ptr %34, i64 32
+  store ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_functions_extRNS_7module_EE4$_86NS_5tupleEJiiEJLm0ELm1EEJNS_5scopeENS_4nameENS_3argENS_7kw_onlyES8_EEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENUlPvPSB_PhNS_9rv_policyEPNS0_12cleanup_listEE_8__invokeESP_SQ_SR_SS_SU_", ptr %1247, align 8, !tbaa !111
+  %1248 = getelementptr inbounds nuw i8, ptr %34, i64 40
+  store ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_functions_extRNS_7module_EE4$_86NS_5tupleEJiiEJLm0ELm1EEJNS_5scopeENS_4nameENS_3argENS_7kw_onlyES8_EEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_E5descr", ptr %1248, align 8, !tbaa !113
+  %1249 = getelementptr inbounds nuw i8, ptr %34, i64 48
+  store ptr %33, ptr %1249, align 8, !tbaa !114
+  %1250 = getelementptr inbounds nuw i8, ptr %34, i64 60
+  store i16 2, ptr %1250, align 4, !tbaa !115
+  %1251 = getelementptr inbounds nuw i8, ptr %34, i64 62
+  store i16 1, ptr %1251, align 2, !tbaa !116
+  %1252 = getelementptr inbounds nuw i8, ptr %34, i64 80
+  store ptr %.sroa.0.0.copyload.i354.i, ptr %1252, align 8, !tbaa !117
+  %1253 = getelementptr inbounds nuw i8, ptr %34, i64 64
+  store ptr @.str.105, ptr %1253, align 8, !tbaa !118
+  store i32 176, ptr %1246, align 8, !tbaa !119
+  %1254 = getelementptr inbounds nuw i8, ptr %34, i64 88
+  %1255 = getelementptr inbounds nuw i8, ptr %34, i64 120
+  store i8 1, ptr %1255, align 8, !tbaa !71
+  store ptr @.str.94, ptr %1254, align 8, !tbaa !73
+  %1256 = getelementptr inbounds nuw i8, ptr %34, i64 96
+  store ptr null, ptr %1256, align 8, !tbaa !74
+  %1257 = getelementptr inbounds nuw i8, ptr %34, i64 112
+  store ptr null, ptr %1257, align 8, !tbaa !75
+  %1258 = getelementptr inbounds nuw i8, ptr %34, i64 128
+  %1259 = getelementptr inbounds nuw i8, ptr %34, i64 160
+  store i8 1, ptr %1259, align 8, !tbaa !71
+  store ptr @.str.95, ptr %1258, align 8, !tbaa !73
+  %1260 = getelementptr inbounds nuw i8, ptr %34, i64 136
+  store ptr null, ptr %1260, align 8, !tbaa !74
+  %1261 = getelementptr inbounds nuw i8, ptr %34, i64 152
+  store ptr null, ptr %1261, align 8, !tbaa !75
+  %1262 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %34) #31
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %34) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33) #27
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %251) #27
   %.sroa.0.0.copyload.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %223) #27
-  %1265 = getelementptr inbounds nuw i8, ptr %223, i64 4
+  %1263 = getelementptr inbounds nuw i8, ptr %223, i64 4
   store i32 4, ptr %223, align 8, !tbaa !136
-  %1266 = getelementptr inbounds nuw i8, ptr %223, i64 8
-  store ptr @.str.106, ptr %1266, align 8, !tbaa !139
-  %1267 = getelementptr inbounds nuw i8, ptr %223, i64 104
-  store ptr %.sroa.0.0.copyload.i, ptr %1267, align 8, !tbaa !140
-  %1268 = getelementptr inbounds nuw i8, ptr %223, i64 16
-  store ptr @_ZTIZL32nanobind_init_test_functions_extRN8nanobind7module_EE15kw_only_methods, ptr %1268, align 8, !tbaa !142
-  store i32 1796, ptr %1265, align 4
-  %1269 = call noundef ptr @_ZN8nanobind6detail11nb_type_newEPKNS0_14type_init_dataE(ptr noundef nonnull %223) #31
-  store ptr %1269, ptr %251, align 8, !tbaa !44
+  %1264 = getelementptr inbounds nuw i8, ptr %223, i64 8
+  store ptr @.str.106, ptr %1264, align 8, !tbaa !139
+  %1265 = getelementptr inbounds nuw i8, ptr %223, i64 104
+  store ptr %.sroa.0.0.copyload.i, ptr %1265, align 8, !tbaa !140
+  %1266 = getelementptr inbounds nuw i8, ptr %223, i64 16
+  store ptr @_ZTIZL32nanobind_init_test_functions_extRN8nanobind7module_EE15kw_only_methods, ptr %1266, align 8, !tbaa !142
+  store i32 1796, ptr %1263, align 4
+  %1267 = call noundef ptr @_ZN8nanobind6detail11nb_type_newEPKNS0_14type_init_dataE(ptr noundef nonnull %223) #31
+  store ptr %1267, ptr %251, align 8, !tbaa !44
   call void @llvm.lifetime.end.p0(i64 152, ptr nonnull %223) #27
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %217) #27
   store ptr @_ZTIZL32nanobind_init_test_functions_extRN8nanobind7module_EE15kw_only_methods, ptr %217, align 16, !tbaa !20
-  %1270 = getelementptr inbounds nuw i8, ptr %217, i64 8
-  store ptr null, ptr %1270, align 8, !tbaa !20
+  %1268 = getelementptr inbounds nuw i8, ptr %217, i64 8
+  store ptr null, ptr %1268, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(i64 128, ptr nonnull %218) #27
-  %1271 = getelementptr inbounds nuw i8, ptr %218, i64 56
-  %1272 = getelementptr inbounds nuw i8, ptr %218, i64 32
-  store ptr @_ZZN8nanobind6detail11func_createILb0ELb1EZNS_4initIJiEE7executeINS_6class_IZL32nanobind_init_test_functions_extRNS_7module_EE15kw_only_methodsJEEEJNS_7kw_onlyENS_3argEEEEvRT_DpRKT0_EUlNS_18pointer_and_handleIS8_EEiE_vJSJ_iEJLm0ELm1EEJNS_5scopeENS_4nameENS_9is_methodESA_SB_EEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENUlPvPSP_PhNS_9rv_policyEPNS0_12cleanup_listEE_8__invokeES13_S14_S15_S16_S18_, ptr %1272, align 8, !tbaa !76
-  %1273 = getelementptr inbounds nuw i8, ptr %218, i64 40
-  store ptr @_ZZN8nanobind6detail11func_createILb0ELb1EZNS_4initIJiEE7executeINS_6class_IZL32nanobind_init_test_functions_extRNS_7module_EE15kw_only_methodsJEEEJNS_7kw_onlyENS_3argEEEEvRT_DpRKT0_EUlNS_18pointer_and_handleIS8_EEiE_vJSJ_iEJLm0ELm1EEJNS_5scopeENS_4nameENS_9is_methodESA_SB_EEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_E5descr, ptr %1273, align 8, !tbaa !78
-  %1274 = getelementptr inbounds nuw i8, ptr %218, i64 48
-  store ptr %217, ptr %1274, align 8, !tbaa !79
-  %1275 = getelementptr inbounds nuw i8, ptr %218, i64 60
-  store i16 2, ptr %1275, align 4, !tbaa !80
-  %1276 = getelementptr inbounds nuw i8, ptr %218, i64 62
-  store i16 1, ptr %1276, align 2, !tbaa !81
-  %1277 = getelementptr inbounds nuw i8, ptr %218, i64 80
-  store ptr %1269, ptr %1277, align 8, !tbaa !82
-  %1278 = getelementptr inbounds nuw i8, ptr %218, i64 64
-  store ptr @.str.141, ptr %1278, align 8, !tbaa !83
-  store i32 1200, ptr %1271, align 8, !tbaa !84
-  %1279 = getelementptr inbounds nuw i8, ptr %218, i64 88
-  %1280 = getelementptr inbounds nuw i8, ptr %218, i64 120
-  store i8 1, ptr %1280, align 8, !tbaa !71
-  store ptr @.str.107, ptr %1279, align 8, !tbaa !73
-  %1281 = getelementptr inbounds nuw i8, ptr %218, i64 96
-  store ptr null, ptr %1281, align 8, !tbaa !74
-  %1282 = getelementptr inbounds nuw i8, ptr %218, i64 112
-  store ptr null, ptr %1282, align 8, !tbaa !75
-  %1283 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %218) #31
+  %1269 = getelementptr inbounds nuw i8, ptr %218, i64 56
+  %1270 = getelementptr inbounds nuw i8, ptr %218, i64 32
+  store ptr @_ZZN8nanobind6detail11func_createILb0ELb1EZNS_4initIJiEE7executeINS_6class_IZL32nanobind_init_test_functions_extRNS_7module_EE15kw_only_methodsJEEEJNS_7kw_onlyENS_3argEEEEvRT_DpRKT0_EUlNS_18pointer_and_handleIS8_EEiE_vJSJ_iEJLm0ELm1EEJNS_5scopeENS_4nameENS_9is_methodESA_SB_EEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENUlPvPSP_PhNS_9rv_policyEPNS0_12cleanup_listEE_8__invokeES13_S14_S15_S16_S18_, ptr %1270, align 8, !tbaa !76
+  %1271 = getelementptr inbounds nuw i8, ptr %218, i64 40
+  store ptr @_ZZN8nanobind6detail11func_createILb0ELb1EZNS_4initIJiEE7executeINS_6class_IZL32nanobind_init_test_functions_extRNS_7module_EE15kw_only_methodsJEEEJNS_7kw_onlyENS_3argEEEEvRT_DpRKT0_EUlNS_18pointer_and_handleIS8_EEiE_vJSJ_iEJLm0ELm1EEJNS_5scopeENS_4nameENS_9is_methodESA_SB_EEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_E5descr, ptr %1271, align 8, !tbaa !78
+  %1272 = getelementptr inbounds nuw i8, ptr %218, i64 48
+  store ptr %217, ptr %1272, align 8, !tbaa !79
+  %1273 = getelementptr inbounds nuw i8, ptr %218, i64 60
+  store i16 2, ptr %1273, align 4, !tbaa !80
+  %1274 = getelementptr inbounds nuw i8, ptr %218, i64 62
+  store i16 1, ptr %1274, align 2, !tbaa !81
+  %1275 = getelementptr inbounds nuw i8, ptr %218, i64 80
+  store ptr %1267, ptr %1275, align 8, !tbaa !82
+  %1276 = getelementptr inbounds nuw i8, ptr %218, i64 64
+  store ptr @.str.141, ptr %1276, align 8, !tbaa !83
+  store i32 1200, ptr %1269, align 8, !tbaa !84
+  %1277 = getelementptr inbounds nuw i8, ptr %218, i64 88
+  %1278 = getelementptr inbounds nuw i8, ptr %218, i64 120
+  store i8 1, ptr %1278, align 8, !tbaa !71
+  store ptr @.str.107, ptr %1277, align 8, !tbaa !73
+  %1279 = getelementptr inbounds nuw i8, ptr %218, i64 96
+  store ptr null, ptr %1279, align 8, !tbaa !74
+  %1280 = getelementptr inbounds nuw i8, ptr %218, i64 112
+  store ptr null, ptr %1280, align 8, !tbaa !75
+  %1281 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %218) #31
   call void @llvm.lifetime.end.p0(i64 128, ptr nonnull %218) #27
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %217) #27
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %213) #27
@@ -3687,76 +3685,76 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %215) #27
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %211) #27
   store ptr @_ZTIZL32nanobind_init_test_functions_extRN8nanobind7module_EE15kw_only_methods, ptr %211, align 16, !tbaa !20
-  %1284 = getelementptr inbounds nuw i8, ptr %211, i64 8
-  store ptr null, ptr %1284, align 8, !tbaa !20
+  %1282 = getelementptr inbounds nuw i8, ptr %211, i64 8
+  store ptr null, ptr %1282, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %212) #27
-  %1285 = getelementptr inbounds nuw i8, ptr %212, i64 56
+  %1283 = getelementptr inbounds nuw i8, ptr %212, i64 56
   store i64 0, ptr %212, align 8, !tbaa !41
-  %1286 = getelementptr inbounds nuw i8, ptr %212, i64 32
-  store ptr @_ZZN8nanobind6detail11func_createILb1ELb1EZNS_6class_IZL32nanobind_init_test_functions_extRNS_7module_EE15kw_only_methodsJEE6def_rwIS5_iJEEERS6_PKcMT_T0_DpRKT1_EUlRKS5_E_RKiJSJ_EJLm0EEJNS_9is_methodENS_9is_getterENS_9rv_policyEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENUlPvPSR_PhSP_PNS0_12cleanup_listEE_8__invokeES15_S16_S17_SP_S19_, ptr %1286, align 8, !tbaa !22
-  %1287 = getelementptr inbounds nuw i8, ptr %212, i64 40
-  store ptr @_ZZN8nanobind6detail11func_createILb1ELb1EZNS_6class_IZL32nanobind_init_test_functions_extRNS_7module_EE15kw_only_methodsJEE6def_rwIS5_iJEEERS6_PKcMT_T0_DpRKT1_EUlRKS5_E_RKiJSJ_EJLm0EEJNS_9is_methodENS_9is_getterENS_9rv_policyEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_E5descr, ptr %1287, align 8, !tbaa !28
-  %1288 = getelementptr inbounds nuw i8, ptr %212, i64 48
-  store ptr %211, ptr %1288, align 8, !tbaa !29
-  %1289 = getelementptr inbounds nuw i8, ptr %212, i64 60
-  store i16 1, ptr %1289, align 4, !tbaa !30
-  %1290 = getelementptr inbounds nuw i8, ptr %212, i64 62
-  store i16 1, ptr %1290, align 2, !tbaa !31
-  store i32 33798, ptr %1285, align 8, !tbaa !34
-  %1291 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %212) #31
+  %1284 = getelementptr inbounds nuw i8, ptr %212, i64 32
+  store ptr @_ZZN8nanobind6detail11func_createILb1ELb1EZNS_6class_IZL32nanobind_init_test_functions_extRNS_7module_EE15kw_only_methodsJEE6def_rwIS5_iJEEERS6_PKcMT_T0_DpRKT1_EUlRKS5_E_RKiJSJ_EJLm0EEJNS_9is_methodENS_9is_getterENS_9rv_policyEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENUlPvPSR_PhSP_PNS0_12cleanup_listEE_8__invokeES15_S16_S17_SP_S19_, ptr %1284, align 8, !tbaa !22
+  %1285 = getelementptr inbounds nuw i8, ptr %212, i64 40
+  store ptr @_ZZN8nanobind6detail11func_createILb1ELb1EZNS_6class_IZL32nanobind_init_test_functions_extRNS_7module_EE15kw_only_methodsJEE6def_rwIS5_iJEEERS6_PKcMT_T0_DpRKT1_EUlRKS5_E_RKiJSJ_EJLm0EEJNS_9is_methodENS_9is_getterENS_9rv_policyEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_E5descr, ptr %1285, align 8, !tbaa !28
+  %1286 = getelementptr inbounds nuw i8, ptr %212, i64 48
+  store ptr %211, ptr %1286, align 8, !tbaa !29
+  %1287 = getelementptr inbounds nuw i8, ptr %212, i64 60
+  store i16 1, ptr %1287, align 4, !tbaa !30
+  %1288 = getelementptr inbounds nuw i8, ptr %212, i64 62
+  store i16 1, ptr %1288, align 2, !tbaa !31
+  store i32 33798, ptr %1283, align 8, !tbaa !34
+  %1289 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %212) #31
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %212) #27
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %211) #27
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %32) #27
   store ptr null, ptr %32, align 8, !tbaa !44
-  store ptr %1291, ptr %213, align 8, !tbaa !44
+  store ptr %1289, ptr %213, align 8, !tbaa !44
   store ptr null, ptr %215, align 8, !tbaa !44
-  %1292 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %32) #31
+  %1290 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %32) #31
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32) #27
-  %1293 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %215) #31
+  %1291 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %215) #31
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %215) #27
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %216) #27
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %209) #27, !noalias !143
   store ptr @_ZTIZL32nanobind_init_test_functions_extRN8nanobind7module_EE15kw_only_methods, ptr %209, align 16, !tbaa !20, !noalias !143
-  %1294 = getelementptr inbounds nuw i8, ptr %209, i64 8
-  store ptr null, ptr %1294, align 8, !tbaa !20, !noalias !143
+  %1292 = getelementptr inbounds nuw i8, ptr %209, i64 8
+  store ptr null, ptr %1292, align 8, !tbaa !20, !noalias !143
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %210) #27, !noalias !143
-  %1295 = getelementptr inbounds nuw i8, ptr %210, i64 56
+  %1293 = getelementptr inbounds nuw i8, ptr %210, i64 56
   store i64 0, ptr %210, align 8, !tbaa !41, !noalias !143
-  %1296 = getelementptr inbounds nuw i8, ptr %210, i64 32
-  store ptr @_ZZN8nanobind6detail11func_createILb1ELb1EZNS_6class_IZL32nanobind_init_test_functions_extRNS_7module_EE15kw_only_methodsJEE6def_rwIS5_iJEEERS6_PKcMT_T0_DpRKT1_EUlRS5_OiE_vJSI_SJ_EJLm0ELm1EEJNS_9is_methodEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENUlPvPSN_PhNS_9rv_policyEPNS0_12cleanup_listEE_8__invokeES11_S12_S13_S14_S16_, ptr %1296, align 8, !tbaa !22, !noalias !143
-  %1297 = getelementptr inbounds nuw i8, ptr %210, i64 40
-  store ptr @_ZZN8nanobind6detail11func_createILb1ELb1EZNS_6class_IZL32nanobind_init_test_functions_extRNS_7module_EE15kw_only_methodsJEE6def_rwIS5_iJEEERS6_PKcMT_T0_DpRKT1_EUlRS5_OiE_vJSI_SJ_EJLm0ELm1EEJNS_9is_methodEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_E5descr, ptr %1297, align 8, !tbaa !28, !noalias !143
-  %1298 = getelementptr inbounds nuw i8, ptr %210, i64 48
-  store ptr %209, ptr %1298, align 8, !tbaa !29, !noalias !143
-  %1299 = getelementptr inbounds nuw i8, ptr %210, i64 60
-  store i16 2, ptr %1299, align 4, !tbaa !30, !noalias !143
-  %1300 = getelementptr inbounds nuw i8, ptr %210, i64 62
-  store i16 2, ptr %1300, align 2, !tbaa !31, !noalias !143
-  store i32 33792, ptr %1295, align 8, !tbaa !34, !noalias !143
-  %1301 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %210) #31, !noalias !143
+  %1294 = getelementptr inbounds nuw i8, ptr %210, i64 32
+  store ptr @_ZZN8nanobind6detail11func_createILb1ELb1EZNS_6class_IZL32nanobind_init_test_functions_extRNS_7module_EE15kw_only_methodsJEE6def_rwIS5_iJEEERS6_PKcMT_T0_DpRKT1_EUlRS5_OiE_vJSI_SJ_EJLm0ELm1EEJNS_9is_methodEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENUlPvPSN_PhNS_9rv_policyEPNS0_12cleanup_listEE_8__invokeES11_S12_S13_S14_S16_, ptr %1294, align 8, !tbaa !22, !noalias !143
+  %1295 = getelementptr inbounds nuw i8, ptr %210, i64 40
+  store ptr @_ZZN8nanobind6detail11func_createILb1ELb1EZNS_6class_IZL32nanobind_init_test_functions_extRNS_7module_EE15kw_only_methodsJEE6def_rwIS5_iJEEERS6_PKcMT_T0_DpRKT1_EUlRS5_OiE_vJSI_SJ_EJLm0ELm1EEJNS_9is_methodEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_E5descr, ptr %1295, align 8, !tbaa !28, !noalias !143
+  %1296 = getelementptr inbounds nuw i8, ptr %210, i64 48
+  store ptr %209, ptr %1296, align 8, !tbaa !29, !noalias !143
+  %1297 = getelementptr inbounds nuw i8, ptr %210, i64 60
+  store i16 2, ptr %1297, align 4, !tbaa !30, !noalias !143
+  %1298 = getelementptr inbounds nuw i8, ptr %210, i64 62
+  store i16 2, ptr %1298, align 2, !tbaa !31, !noalias !143
+  store i32 33792, ptr %1293, align 8, !tbaa !34, !noalias !143
+  %1299 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %210) #31, !noalias !143
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %210) #27, !noalias !143
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %209) #27, !noalias !143
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31) #27
   store ptr null, ptr %31, align 8, !tbaa !44
-  store ptr %1301, ptr %214, align 8, !tbaa !44
+  store ptr %1299, ptr %214, align 8, !tbaa !44
   store ptr null, ptr %216, align 8, !tbaa !44
-  %1302 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %31) #31
+  %1300 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %31) #31
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31) #27
-  %1303 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %216) #31
+  %1301 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %216) #31
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %216) #27
-  call void @_ZN8nanobind6detail16property_installEP7_objectPKcS2_S2_(ptr noundef %1269, ptr noundef nonnull @.str.107, ptr noundef %1291, ptr noundef %1301) #31
-  %1304 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %214) #31
+  call void @_ZN8nanobind6detail16property_installEP7_objectPKcS2_S2_(ptr noundef %1267, ptr noundef nonnull @.str.107, ptr noundef %1289, ptr noundef %1299) #31
+  %1302 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %214) #31
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %214) #27
-  %1305 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %213) #31
+  %1303 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %213) #31
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %213) #27
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %252) #27
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %253) #27
   store i32 1, ptr %253, align 4, !tbaa !36
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %227) #27, !noalias !146
   invoke void @_ZN8nanobind4castIiEENS_6objectEOT_NS_9rv_policyE(ptr dead_on_unwind nonnull writable sret(%"class.nanobind::object") align 8 %227, ptr noundef nonnull align 4 dereferenceable(4) %253, i32 noundef 1) #28
-          to label %1306 unwind label %1360
+          to label %1304 unwind label %1357
 
-1306:                                             ; preds = %1201
+1304:                                             ; preds = %1201
   store ptr @.str.94, ptr %252, align 8, !tbaa !40
   %.sroa.5405.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %252, i64 8
   store ptr null, ptr %.sroa.5405.0..sroa_idx.i, align 8, !tbaa !40
@@ -3764,20 +3762,20 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   store i8 1, ptr %.sroa.6406.0..sroa_idx.i, align 8, !tbaa !41
   %.sroa.7407.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %252, i64 17
   store i8 0, ptr %.sroa.7407.0..sroa_idx.i, align 1, !tbaa !42
-  %1307 = getelementptr inbounds nuw i8, ptr %252, i64 24
-  %1308 = load i64, ptr %227, align 8
-  store i64 %1308, ptr %1307, align 8
+  %1305 = getelementptr inbounds nuw i8, ptr %252, i64 24
+  %1306 = load i64, ptr %227, align 8
+  store i64 %1306, ptr %1305, align 8
   store ptr null, ptr %227, align 8, !tbaa !44
-  %1309 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %227) #31
+  %1307 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %227) #31
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %227) #27, !noalias !146
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %254) #27
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %255) #27
   store i32 2, ptr %255, align 4, !tbaa !36
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %226) #27, !noalias !149
   invoke void @_ZN8nanobind4castIiEENS_6objectEOT_NS_9rv_policyE(ptr dead_on_unwind nonnull writable sret(%"class.nanobind::object") align 8 %226, ptr noundef nonnull align 4 dereferenceable(4) %255, i32 noundef 1) #28
-          to label %1310 unwind label %1362
+          to label %1308 unwind label %1359
 
-1310:                                             ; preds = %1306
+1308:                                             ; preds = %1304
   store ptr @.str.95, ptr %254, align 8, !tbaa !40
   %.sroa.5400.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %254, i64 8
   store ptr null, ptr %.sroa.5400.0..sroa_idx.i, align 8, !tbaa !40
@@ -3785,62 +3783,61 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   store i8 1, ptr %.sroa.6401.0..sroa_idx.i, align 8, !tbaa !41
   %.sroa.7402.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %254, i64 17
   store i8 0, ptr %.sroa.7402.0..sroa_idx.i, align 1, !tbaa !42
-  %1311 = getelementptr inbounds nuw i8, ptr %254, i64 24
-  %1312 = load i64, ptr %226, align 8
-  store i64 %1312, ptr %1311, align 8
+  %1309 = getelementptr inbounds nuw i8, ptr %254, i64 24
+  %1310 = load i64, ptr %226, align 8
+  store i64 %1310, ptr %1309, align 8
   store ptr null, ptr %226, align 8, !tbaa !44
-  %1313 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %226) #31
+  %1311 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %226) #31
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %226) #27, !noalias !149
   %.sroa.0.0.copyload.i.i = load ptr, ptr %251, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %207) #27
   store ptr @_ZTIZL32nanobind_init_test_functions_extRN8nanobind7module_EE15kw_only_methods, ptr %207, align 16, !tbaa !20
-  %1314 = getelementptr inbounds nuw i8, ptr %207, i64 8
-  store ptr null, ptr %1314, align 8, !tbaa !20
+  %1312 = getelementptr inbounds nuw i8, ptr %207, i64 8
+  store ptr null, ptr %1312, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %208) #27
-  %1315 = getelementptr inbounds nuw i8, ptr %208, i64 56
-  %1316 = getelementptr inbounds nuw i8, ptr %208, i64 32
-  store ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_functions_extRNS_7module_EE4$_87NS_5tupleEJRZL32nanobind_init_test_functions_extS3_E15kw_only_methodsiiEJLm0ELm1ELm2EEJNS_5scopeENS_4nameENS_9is_methodENS_7kw_onlyENS_5arg_vESC_EEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENUlPvPSE_PhNS_9rv_policyEPNS0_12cleanup_listEE_8__invokeESS_ST_SU_SV_SX_", ptr %1316, align 8, !tbaa !111
-  %1317 = getelementptr inbounds nuw i8, ptr %208, i64 40
-  store ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_functions_extRNS_7module_EE4$_87NS_5tupleEJRZL32nanobind_init_test_functions_extS3_E15kw_only_methodsiiEJLm0ELm1ELm2EEJNS_5scopeENS_4nameENS_9is_methodENS_7kw_onlyENS_5arg_vESC_EEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_E5descr", ptr %1317, align 8, !tbaa !113
-  %1318 = getelementptr inbounds nuw i8, ptr %208, i64 48
-  store ptr %207, ptr %1318, align 8, !tbaa !114
-  %1319 = getelementptr inbounds nuw i8, ptr %208, i64 60
-  store i16 3, ptr %1319, align 4, !tbaa !115
-  %1320 = getelementptr inbounds nuw i8, ptr %208, i64 62
-  store i16 1, ptr %1320, align 2, !tbaa !116
-  %1321 = getelementptr inbounds nuw i8, ptr %208, i64 80
-  store ptr %.sroa.0.0.copyload.i.i, ptr %1321, align 8, !tbaa !117
-  %1322 = getelementptr inbounds nuw i8, ptr %208, i64 64
-  store ptr @.str.108, ptr %1322, align 8, !tbaa !118
-  store i32 1200, ptr %1315, align 8, !tbaa !119
-  %1323 = load i8, ptr %.sroa.7407.0..sroa_idx.i, align 1, !tbaa !129, !range !131, !noundef !132
-  %1324 = trunc nuw i8 %1323 to i1
-  %spec.select.i.i218.i = select i1 %1324, i8 4, i8 0
-  %1325 = load i8, ptr %.sroa.6406.0..sroa_idx.i, align 8, !tbaa !133
-  %.not.i.i219.i = icmp ne i8 %1325, 0
-  %1326 = zext i1 %.not.i.i219.i to i8
-  %.1.i.i220.i = or disjoint i8 %spec.select.i.i218.i, %1326
-  %1327 = getelementptr inbounds nuw i8, ptr %208, i64 88
-  %1328 = getelementptr inbounds nuw i8, ptr %208, i64 120
-  store i8 %.1.i.i220.i, ptr %1328, align 8, !tbaa !71
-  %1329 = load ptr, ptr %252, align 8, !tbaa !134
-  store ptr %1329, ptr %1327, align 8, !tbaa !73
-  %1330 = load ptr, ptr %.sroa.5405.0..sroa_idx.i, align 8, !tbaa !135
-  %1331 = getelementptr inbounds nuw i8, ptr %208, i64 96
-  store ptr %1330, ptr %1331, align 8, !tbaa !74
-  %1332 = getelementptr inbounds nuw i8, ptr %208, i64 112
-  %1333 = load ptr, ptr %1307, align 8, !tbaa !44
-  store ptr %1333, ptr %1332, align 8, !tbaa !75
-  %1334 = getelementptr inbounds nuw i8, ptr %208, i64 128
-  %1335 = getelementptr inbounds nuw i8, ptr %208, i64 160
-  store i8 1, ptr %1335, align 8, !tbaa !71
-  store ptr @.str.95, ptr %1334, align 8, !tbaa !73
-  %1336 = getelementptr inbounds nuw i8, ptr %208, i64 136
-  store ptr null, ptr %1336, align 8, !tbaa !74
-  %1337 = getelementptr inbounds nuw i8, ptr %208, i64 152
-  %1338 = inttoptr i64 %1312 to ptr
-  store ptr %1338, ptr %1337, align 8, !tbaa !75
-  %1339 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %208) #31
+  %1313 = getelementptr inbounds nuw i8, ptr %208, i64 56
+  %1314 = getelementptr inbounds nuw i8, ptr %208, i64 32
+  store ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_functions_extRNS_7module_EE4$_87NS_5tupleEJRZL32nanobind_init_test_functions_extS3_E15kw_only_methodsiiEJLm0ELm1ELm2EEJNS_5scopeENS_4nameENS_9is_methodENS_7kw_onlyENS_5arg_vESC_EEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENUlPvPSE_PhNS_9rv_policyEPNS0_12cleanup_listEE_8__invokeESS_ST_SU_SV_SX_", ptr %1314, align 8, !tbaa !111
+  %1315 = getelementptr inbounds nuw i8, ptr %208, i64 40
+  store ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_functions_extRNS_7module_EE4$_87NS_5tupleEJRZL32nanobind_init_test_functions_extS3_E15kw_only_methodsiiEJLm0ELm1ELm2EEJNS_5scopeENS_4nameENS_9is_methodENS_7kw_onlyENS_5arg_vESC_EEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_E5descr", ptr %1315, align 8, !tbaa !113
+  %1316 = getelementptr inbounds nuw i8, ptr %208, i64 48
+  store ptr %207, ptr %1316, align 8, !tbaa !114
+  %1317 = getelementptr inbounds nuw i8, ptr %208, i64 60
+  store i16 3, ptr %1317, align 4, !tbaa !115
+  %1318 = getelementptr inbounds nuw i8, ptr %208, i64 62
+  store i16 1, ptr %1318, align 2, !tbaa !116
+  %1319 = getelementptr inbounds nuw i8, ptr %208, i64 80
+  store ptr %.sroa.0.0.copyload.i.i, ptr %1319, align 8, !tbaa !117
+  %1320 = getelementptr inbounds nuw i8, ptr %208, i64 64
+  store ptr @.str.108, ptr %1320, align 8, !tbaa !118
+  store i32 1200, ptr %1313, align 8, !tbaa !119
+  %1321 = load i8, ptr %.sroa.7407.0..sroa_idx.i, align 1, !tbaa !129, !range !131, !noundef !132
+  %spec.select.i.i218.i = shl nuw nsw i8 %1321, 2
+  %1322 = load i8, ptr %.sroa.6406.0..sroa_idx.i, align 8, !tbaa !133
+  %.not.i.i219.i = icmp ne i8 %1322, 0
+  %1323 = zext i1 %.not.i.i219.i to i8
+  %.1.i.i220.i = or disjoint i8 %spec.select.i.i218.i, %1323
+  %1324 = getelementptr inbounds nuw i8, ptr %208, i64 88
+  %1325 = getelementptr inbounds nuw i8, ptr %208, i64 120
+  store i8 %.1.i.i220.i, ptr %1325, align 8, !tbaa !71
+  %1326 = load ptr, ptr %252, align 8, !tbaa !134
+  store ptr %1326, ptr %1324, align 8, !tbaa !73
+  %1327 = load ptr, ptr %.sroa.5405.0..sroa_idx.i, align 8, !tbaa !135
+  %1328 = getelementptr inbounds nuw i8, ptr %208, i64 96
+  store ptr %1327, ptr %1328, align 8, !tbaa !74
+  %1329 = getelementptr inbounds nuw i8, ptr %208, i64 112
+  %1330 = load ptr, ptr %1305, align 8, !tbaa !44
+  store ptr %1330, ptr %1329, align 8, !tbaa !75
+  %1331 = getelementptr inbounds nuw i8, ptr %208, i64 128
+  %1332 = getelementptr inbounds nuw i8, ptr %208, i64 160
+  store i8 1, ptr %1332, align 8, !tbaa !71
+  store ptr @.str.95, ptr %1331, align 8, !tbaa !73
+  %1333 = getelementptr inbounds nuw i8, ptr %208, i64 136
+  store ptr null, ptr %1333, align 8, !tbaa !74
+  %1334 = getelementptr inbounds nuw i8, ptr %208, i64 152
+  %1335 = inttoptr i64 %1310 to ptr
+  store ptr %1335, ptr %1334, align 8, !tbaa !75
+  %1336 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %208) #31
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %208) #27
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %207) #27
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %256) #27
@@ -3848,9 +3845,9 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   store i32 1, ptr %257, align 4, !tbaa !36
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %225) #27, !noalias !152
   invoke void @_ZN8nanobind4castIiEENS_6objectEOT_NS_9rv_policyE(ptr dead_on_unwind nonnull writable sret(%"class.nanobind::object") align 8 %225, ptr noundef nonnull align 4 dereferenceable(4) %257, i32 noundef 1) #28
-          to label %1340 unwind label %1364
+          to label %1337 unwind label %1361
 
-1340:                                             ; preds = %1310
+1337:                                             ; preds = %1308
   store ptr @.str.94, ptr %256, align 8, !tbaa !40
   %.sroa.5394.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %256, i64 8
   store ptr null, ptr %.sroa.5394.0..sroa_idx.i, align 8, !tbaa !40
@@ -3858,136 +3855,136 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   store i8 1, ptr %.sroa.6395.0..sroa_idx.i, align 8, !tbaa !41
   %.sroa.7396.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %256, i64 17
   store i8 0, ptr %.sroa.7396.0..sroa_idx.i, align 1, !tbaa !42
-  %1341 = getelementptr inbounds nuw i8, ptr %256, i64 24
-  %1342 = load i64, ptr %225, align 8
-  store i64 %1342, ptr %1341, align 8
+  %1338 = getelementptr inbounds nuw i8, ptr %256, i64 24
+  %1339 = load i64, ptr %225, align 8
+  store i64 %1339, ptr %1338, align 8
   store ptr null, ptr %225, align 8, !tbaa !44
-  %1343 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %225) #31
+  %1340 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %225) #31
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %225) #27, !noalias !152
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %258) #27
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %259) #27
   store i32 2, ptr %259, align 4, !tbaa !36
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %224) #27, !noalias !155
   invoke void @_ZN8nanobind4castIiEENS_6objectEOT_NS_9rv_policyE(ptr dead_on_unwind nonnull writable sret(%"class.nanobind::object") align 8 %224, ptr noundef nonnull align 4 dereferenceable(4) %259, i32 noundef 1) #28
-          to label %1379 unwind label %1366
+          to label %1376 unwind label %1363
 
-1344:                                             ; preds = %353
-  %1345 = landingpad { ptr, i32 }
+1341:                                             ; preds = %353
+  %1342 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
   call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %242) #31
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %242) #27
-  %1346 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %241) #31
+  %1343 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %241) #31
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %241) #27
-  br label %1375
+  br label %1372
 
-1347:                                             ; preds = %991
-  %1348 = landingpad { ptr, i32 }
+1344:                                             ; preds = %991
+  %1345 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
   call void @_ZN8nanobind6detail8accessorINS0_8str_attrEED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %244) #31
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %244) #27
-  %1349 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %243) #31
+  %1346 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %243) #31
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %243) #27
-  br label %1375
+  br label %1372
 
-1350:                                             ; preds = %1007
-  %1351 = landingpad { ptr, i32 }
+1347:                                             ; preds = %1007
+  %1348 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  br label %1359
+  br label %1356
 
-1352:                                             ; preds = %1193
-  %1353 = landingpad { ptr, i32 }
+1349:                                             ; preds = %1193
+  %1350 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  br label %1357
+  br label %1354
 
-1354:                                             ; preds = %1197
-  %1355 = landingpad { ptr, i32 }
+1351:                                             ; preds = %1197
+  %1352 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %250) #27
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %249) #27
-  %1356 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %1198) #31
-  br label %1357
+  %1353 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %1198) #31
+  br label %1354
 
-1357:                                             ; preds = %1354, %1352
-  %.pn175.pn.i = phi { ptr, i32 } [ %1355, %1354 ], [ %1353, %1352 ]
+1354:                                             ; preds = %1351, %1349
+  %.pn175.pn.i = phi { ptr, i32 } [ %1352, %1351 ], [ %1350, %1349 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %248) #27
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %247) #27
-  %1358 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %1194) #31
-  br label %1359
+  %1355 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %1194) #31
+  br label %1356
 
-1359:                                             ; preds = %1357, %1350
-  %.pn175.pn.pn.i = phi { ptr, i32 } [ %.pn175.pn.i, %1357 ], [ %1351, %1350 ]
+1356:                                             ; preds = %1354, %1347
+  %.pn175.pn.pn.i = phi { ptr, i32 } [ %.pn175.pn.i, %1354 ], [ %1348, %1347 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %246) #27
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %245) #27
-  br label %1375
+  br label %1372
 
-1360:                                             ; preds = %1201
-  %1361 = landingpad { ptr, i32 }
+1357:                                             ; preds = %1201
+  %1358 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  br label %1373
+  br label %1370
 
-1362:                                             ; preds = %1306
-  %1363 = landingpad { ptr, i32 }
+1359:                                             ; preds = %1304
+  %1360 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  br label %1371
+  br label %1368
 
-1364:                                             ; preds = %1310
-  %1365 = landingpad { ptr, i32 }
+1361:                                             ; preds = %1308
+  %1362 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
-  br label %1369
+  br label %1366
 
-1366:                                             ; preds = %1340
-  %1367 = landingpad { ptr, i32 }
+1363:                                             ; preds = %1337
+  %1364 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %259) #27
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %258) #27
-  %1368 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %1341) #31
-  br label %1369
+  %1365 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %1338) #31
+  br label %1366
 
-1369:                                             ; preds = %1366, %1364
-  %.pn181.pn.i = phi { ptr, i32 } [ %1367, %1366 ], [ %1365, %1364 ]
+1366:                                             ; preds = %1363, %1361
+  %.pn181.pn.i = phi { ptr, i32 } [ %1364, %1363 ], [ %1362, %1361 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %257) #27
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %256) #27
-  %1370 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %1311) #31
-  br label %1371
+  %1367 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %1309) #31
+  br label %1368
 
-1371:                                             ; preds = %1369, %1362
-  %.pn181.pn.pn.pn.i = phi { ptr, i32 } [ %.pn181.pn.i, %1369 ], [ %1363, %1362 ]
+1368:                                             ; preds = %1366, %1359
+  %.pn181.pn.pn.pn.i = phi { ptr, i32 } [ %.pn181.pn.i, %1366 ], [ %1360, %1359 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %255) #27
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %254) #27
-  %1372 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %1307) #31
-  br label %1373
+  %1369 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %1305) #31
+  br label %1370
 
-1373:                                             ; preds = %1371, %1360
-  %.pn181.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn181.pn.pn.pn.i, %1371 ], [ %1361, %1360 ]
+1370:                                             ; preds = %1368, %1357
+  %.pn181.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn181.pn.pn.pn.i, %1368 ], [ %1358, %1357 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %253) #27
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %252) #27
-  %1374 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %251) #31
+  %1371 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %251) #31
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %251) #27
-  br label %1375
+  br label %1372
 
-1375:                                             ; preds = %1373, %1359, %1347, %1344, %351, %349
-  %.pn189.i = phi { ptr, i32 } [ %352, %351 ], [ %350, %349 ], [ %.pn181.pn.pn.pn.pn.i, %1373 ], [ %.pn175.pn.pn.i, %1359 ], [ %1348, %1347 ], [ %1345, %1344 ]
-  %1376 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %239) #31
-  br label %1377
+1372:                                             ; preds = %1370, %1356, %1344, %1341, %351, %349
+  %.pn189.i = phi { ptr, i32 } [ %352, %351 ], [ %350, %349 ], [ %.pn181.pn.pn.pn.pn.i, %1370 ], [ %.pn175.pn.pn.i, %1356 ], [ %1345, %1344 ], [ %1342, %1341 ]
+  %1373 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %239) #31
+  br label %1374
 
-1377:                                             ; preds = %1375, %347
-  %.pn189.pn.i = phi { ptr, i32 } [ %.pn189.i, %1375 ], [ %348, %347 ]
+1374:                                             ; preds = %1372, %347
+  %.pn189.pn.i = phi { ptr, i32 } [ %.pn189.i, %1372 ], [ %348, %347 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %239) #27
   br label %.body
 
-1378:                                             ; preds = %337
+1375:                                             ; preds = %337
   unreachable
 
-1379:                                             ; preds = %1340
+1376:                                             ; preds = %1337
   store ptr @.str.95, ptr %258, align 8, !tbaa !40
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %258, i64 8
   store ptr null, ptr %.sroa.5.0..sroa_idx.i, align 8, !tbaa !40
@@ -3995,485 +3992,484 @@ define ptr @PyInit_test_functions_ext() local_unnamed_addr #4 personality ptr @_
   store i8 1, ptr %.sroa.6.0..sroa_idx.i, align 8, !tbaa !41
   %.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %258, i64 17
   store i8 0, ptr %.sroa.7.0..sroa_idx.i, align 1, !tbaa !42
-  %1380 = getelementptr inbounds nuw i8, ptr %258, i64 24
-  %1381 = load i64, ptr %224, align 8
-  store i64 %1381, ptr %1380, align 8
+  %1377 = getelementptr inbounds nuw i8, ptr %258, i64 24
+  %1378 = load i64, ptr %224, align 8
+  store i64 %1378, ptr %1377, align 8
   store ptr null, ptr %224, align 8, !tbaa !44
-  %1382 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %224) #31
+  %1379 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %224) #31
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %224) #27, !noalias !155
   %.sroa.0.0.copyload.i207.i = load ptr, ptr %251, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %205) #27
   store ptr @_ZTIZL32nanobind_init_test_functions_extRN8nanobind7module_EE15kw_only_methods, ptr %205, align 16, !tbaa !20
-  %1383 = getelementptr inbounds nuw i8, ptr %205, i64 8
-  store ptr null, ptr %1383, align 8, !tbaa !20
+  %1380 = getelementptr inbounds nuw i8, ptr %205, i64 8
+  store ptr null, ptr %1380, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(i64 168, ptr nonnull %206) #27
-  %1384 = getelementptr inbounds nuw i8, ptr %206, i64 56
-  %1385 = getelementptr inbounds nuw i8, ptr %206, i64 32
-  store ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_functions_extRNS_7module_EE4$_88NS_5tupleEJRZL32nanobind_init_test_functions_extS3_E15kw_only_methodsiiEJLm0ELm1ELm2EEJNS_5scopeENS_4nameENS_9is_methodENS_5arg_vENS_7kw_onlyESB_EEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENUlPvPSE_PhNS_9rv_policyEPNS0_12cleanup_listEE_8__invokeESS_ST_SU_SV_SX_", ptr %1385, align 8, !tbaa !111
-  %1386 = getelementptr inbounds nuw i8, ptr %206, i64 40
-  store ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_functions_extRNS_7module_EE4$_88NS_5tupleEJRZL32nanobind_init_test_functions_extS3_E15kw_only_methodsiiEJLm0ELm1ELm2EEJNS_5scopeENS_4nameENS_9is_methodENS_5arg_vENS_7kw_onlyESB_EEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_E5descr", ptr %1386, align 8, !tbaa !113
-  %1387 = getelementptr inbounds nuw i8, ptr %206, i64 48
-  store ptr %205, ptr %1387, align 8, !tbaa !114
-  %1388 = getelementptr inbounds nuw i8, ptr %206, i64 60
-  store i16 3, ptr %1388, align 4, !tbaa !115
-  %1389 = getelementptr inbounds nuw i8, ptr %206, i64 62
-  store i16 2, ptr %1389, align 2, !tbaa !116
-  %1390 = getelementptr inbounds nuw i8, ptr %206, i64 80
-  store ptr %.sroa.0.0.copyload.i207.i, ptr %1390, align 8, !tbaa !117
-  %1391 = getelementptr inbounds nuw i8, ptr %206, i64 64
-  store ptr @.str.109, ptr %1391, align 8, !tbaa !118
-  store i32 1200, ptr %1384, align 8, !tbaa !119
-  %1392 = load i8, ptr %.sroa.7396.0..sroa_idx.i, align 1, !tbaa !129, !range !131, !noundef !132
-  %1393 = trunc nuw i8 %1392 to i1
-  %spec.select.i.i222.i = select i1 %1393, i8 4, i8 0
-  %1394 = load i8, ptr %.sroa.6395.0..sroa_idx.i, align 8, !tbaa !133
-  %.not.i.i223.i = icmp ne i8 %1394, 0
-  %1395 = zext i1 %.not.i.i223.i to i8
-  %.1.i.i224.i = or disjoint i8 %spec.select.i.i222.i, %1395
-  %1396 = getelementptr inbounds nuw i8, ptr %206, i64 88
-  %1397 = getelementptr inbounds nuw i8, ptr %206, i64 120
-  store i8 %.1.i.i224.i, ptr %1397, align 8, !tbaa !71
-  %1398 = load ptr, ptr %256, align 8, !tbaa !134
-  store ptr %1398, ptr %1396, align 8, !tbaa !73
-  %1399 = load ptr, ptr %.sroa.5394.0..sroa_idx.i, align 8, !tbaa !135
-  %1400 = getelementptr inbounds nuw i8, ptr %206, i64 96
-  store ptr %1399, ptr %1400, align 8, !tbaa !74
-  %1401 = getelementptr inbounds nuw i8, ptr %206, i64 112
-  %1402 = load ptr, ptr %1341, align 8, !tbaa !44
-  store ptr %1402, ptr %1401, align 8, !tbaa !75
-  %1403 = getelementptr inbounds nuw i8, ptr %206, i64 128
-  %1404 = getelementptr inbounds nuw i8, ptr %206, i64 160
-  store i8 1, ptr %1404, align 8, !tbaa !71
-  store ptr @.str.95, ptr %1403, align 8, !tbaa !73
-  %1405 = getelementptr inbounds nuw i8, ptr %206, i64 136
-  store ptr null, ptr %1405, align 8, !tbaa !74
-  %1406 = getelementptr inbounds nuw i8, ptr %206, i64 152
-  %1407 = inttoptr i64 %1381 to ptr
-  store ptr %1407, ptr %1406, align 8, !tbaa !75
-  %1408 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %206) #31
+  %1381 = getelementptr inbounds nuw i8, ptr %206, i64 56
+  %1382 = getelementptr inbounds nuw i8, ptr %206, i64 32
+  store ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_functions_extRNS_7module_EE4$_88NS_5tupleEJRZL32nanobind_init_test_functions_extS3_E15kw_only_methodsiiEJLm0ELm1ELm2EEJNS_5scopeENS_4nameENS_9is_methodENS_5arg_vENS_7kw_onlyESB_EEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENUlPvPSE_PhNS_9rv_policyEPNS0_12cleanup_listEE_8__invokeESS_ST_SU_SV_SX_", ptr %1382, align 8, !tbaa !111
+  %1383 = getelementptr inbounds nuw i8, ptr %206, i64 40
+  store ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_functions_extRNS_7module_EE4$_88NS_5tupleEJRZL32nanobind_init_test_functions_extS3_E15kw_only_methodsiiEJLm0ELm1ELm2EEJNS_5scopeENS_4nameENS_9is_methodENS_5arg_vENS_7kw_onlyESB_EEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_E5descr", ptr %1383, align 8, !tbaa !113
+  %1384 = getelementptr inbounds nuw i8, ptr %206, i64 48
+  store ptr %205, ptr %1384, align 8, !tbaa !114
+  %1385 = getelementptr inbounds nuw i8, ptr %206, i64 60
+  store i16 3, ptr %1385, align 4, !tbaa !115
+  %1386 = getelementptr inbounds nuw i8, ptr %206, i64 62
+  store i16 2, ptr %1386, align 2, !tbaa !116
+  %1387 = getelementptr inbounds nuw i8, ptr %206, i64 80
+  store ptr %.sroa.0.0.copyload.i207.i, ptr %1387, align 8, !tbaa !117
+  %1388 = getelementptr inbounds nuw i8, ptr %206, i64 64
+  store ptr @.str.109, ptr %1388, align 8, !tbaa !118
+  store i32 1200, ptr %1381, align 8, !tbaa !119
+  %1389 = load i8, ptr %.sroa.7396.0..sroa_idx.i, align 1, !tbaa !129, !range !131, !noundef !132
+  %spec.select.i.i222.i = shl nuw nsw i8 %1389, 2
+  %1390 = load i8, ptr %.sroa.6395.0..sroa_idx.i, align 8, !tbaa !133
+  %.not.i.i223.i = icmp ne i8 %1390, 0
+  %1391 = zext i1 %.not.i.i223.i to i8
+  %.1.i.i224.i = or disjoint i8 %spec.select.i.i222.i, %1391
+  %1392 = getelementptr inbounds nuw i8, ptr %206, i64 88
+  %1393 = getelementptr inbounds nuw i8, ptr %206, i64 120
+  store i8 %.1.i.i224.i, ptr %1393, align 8, !tbaa !71
+  %1394 = load ptr, ptr %256, align 8, !tbaa !134
+  store ptr %1394, ptr %1392, align 8, !tbaa !73
+  %1395 = load ptr, ptr %.sroa.5394.0..sroa_idx.i, align 8, !tbaa !135
+  %1396 = getelementptr inbounds nuw i8, ptr %206, i64 96
+  store ptr %1395, ptr %1396, align 8, !tbaa !74
+  %1397 = getelementptr inbounds nuw i8, ptr %206, i64 112
+  %1398 = load ptr, ptr %1338, align 8, !tbaa !44
+  store ptr %1398, ptr %1397, align 8, !tbaa !75
+  %1399 = getelementptr inbounds nuw i8, ptr %206, i64 128
+  %1400 = getelementptr inbounds nuw i8, ptr %206, i64 160
+  store i8 1, ptr %1400, align 8, !tbaa !71
+  store ptr @.str.95, ptr %1399, align 8, !tbaa !73
+  %1401 = getelementptr inbounds nuw i8, ptr %206, i64 136
+  store ptr null, ptr %1401, align 8, !tbaa !74
+  %1402 = getelementptr inbounds nuw i8, ptr %206, i64 152
+  %1403 = inttoptr i64 %1378 to ptr
+  store ptr %1403, ptr %1402, align 8, !tbaa !75
+  %1404 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %206) #31
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %206) #27
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %205) #27
-  %1409 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %1380) #31
+  %1405 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %1377) #31
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %259) #27
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %258) #27
-  %1410 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %1341) #31
+  %1406 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %1338) #31
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %257) #27
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %256) #27
-  %1411 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %1311) #31
+  %1407 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %1309) #31
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %255) #27
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %254) #27
-  %1412 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %1307) #31
+  %1408 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %1305) #31
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %253) #27
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %252) #27
-  %1413 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %251) #31
+  %1409 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %251) #31
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %251) #27
   %.sroa.0.0.copyload.i361.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29) #27
   store ptr null, ptr %29, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %30) #27
-  %1414 = getelementptr inbounds nuw i8, ptr %30, i64 56
-  %1415 = getelementptr inbounds nuw i8, ptr %30, i64 32
-  store ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_functions_extRNS_7module_EE4$_89NS_3anyEJS5_EJLm0EEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENUlPvPS9_PhNS_9rv_policyEPNS0_12cleanup_listEE_8__invokeESN_SO_SP_SQ_SS_", ptr %1415, align 8, !tbaa !22
-  %1416 = getelementptr inbounds nuw i8, ptr %30, i64 40
-  store ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_functions_extRNS_7module_EE4$_89NS_3anyEJS5_EJLm0EEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_E5descr", ptr %1416, align 8, !tbaa !28
-  %1417 = getelementptr inbounds nuw i8, ptr %30, i64 48
-  store ptr %29, ptr %1417, align 8, !tbaa !29
-  %1418 = getelementptr inbounds nuw i8, ptr %30, i64 60
-  store i16 1, ptr %1418, align 4, !tbaa !30
-  %1419 = getelementptr inbounds nuw i8, ptr %30, i64 62
-  store i16 1, ptr %1419, align 2, !tbaa !31
-  %1420 = getelementptr inbounds nuw i8, ptr %30, i64 80
-  store ptr %.sroa.0.0.copyload.i361.i, ptr %1420, align 8, !tbaa !32
-  %1421 = getelementptr inbounds nuw i8, ptr %30, i64 64
-  store ptr @.str.110, ptr %1421, align 8, !tbaa !33
-  store i32 48, ptr %1414, align 8, !tbaa !34
-  %1422 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %30) #31
+  %1410 = getelementptr inbounds nuw i8, ptr %30, i64 56
+  %1411 = getelementptr inbounds nuw i8, ptr %30, i64 32
+  store ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_functions_extRNS_7module_EE4$_89NS_3anyEJS5_EJLm0EEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENUlPvPS9_PhNS_9rv_policyEPNS0_12cleanup_listEE_8__invokeESN_SO_SP_SQ_SS_", ptr %1411, align 8, !tbaa !22
+  %1412 = getelementptr inbounds nuw i8, ptr %30, i64 40
+  store ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_functions_extRNS_7module_EE4$_89NS_3anyEJS5_EJLm0EEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_E5descr", ptr %1412, align 8, !tbaa !28
+  %1413 = getelementptr inbounds nuw i8, ptr %30, i64 48
+  store ptr %29, ptr %1413, align 8, !tbaa !29
+  %1414 = getelementptr inbounds nuw i8, ptr %30, i64 60
+  store i16 1, ptr %1414, align 4, !tbaa !30
+  %1415 = getelementptr inbounds nuw i8, ptr %30, i64 62
+  store i16 1, ptr %1415, align 2, !tbaa !31
+  %1416 = getelementptr inbounds nuw i8, ptr %30, i64 80
+  store ptr %.sroa.0.0.copyload.i361.i, ptr %1416, align 8, !tbaa !32
+  %1417 = getelementptr inbounds nuw i8, ptr %30, i64 64
+  store ptr @.str.110, ptr %1417, align 8, !tbaa !33
+  store i32 48, ptr %1410, align 8, !tbaa !34
+  %1418 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %30) #31
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %30) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29) #27
   %.sroa.0.0.copyload.i362.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27) #27
   store ptr null, ptr %27, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %28) #27
-  %1423 = getelementptr inbounds nuw i8, ptr %28, i64 56
-  %1424 = getelementptr inbounds nuw i8, ptr %28, i64 32
-  store ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_functions_extRNS_7module_EE4$_90bJETpTnmJEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENUlPvPS8_PhNS_9rv_policyEPNS0_12cleanup_listEE_8__invokeESM_SN_SO_SP_SR_", ptr %1424, align 8, !tbaa !22
-  %1425 = getelementptr inbounds nuw i8, ptr %28, i64 40
-  store ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_functions_extRNS_7module_EE4$_90bJETpTnmJEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_E5descr", ptr %1425, align 8, !tbaa !28
-  %1426 = getelementptr inbounds nuw i8, ptr %28, i64 48
-  store ptr %27, ptr %1426, align 8, !tbaa !29
-  %1427 = getelementptr inbounds nuw i8, ptr %28, i64 60
-  store i16 0, ptr %1427, align 4, !tbaa !30
-  %1428 = getelementptr inbounds nuw i8, ptr %28, i64 62
-  store i16 0, ptr %1428, align 2, !tbaa !31
-  %1429 = getelementptr inbounds nuw i8, ptr %28, i64 80
-  store ptr %.sroa.0.0.copyload.i362.i, ptr %1429, align 8, !tbaa !32
-  %1430 = getelementptr inbounds nuw i8, ptr %28, i64 64
-  store ptr @.str.111, ptr %1430, align 8, !tbaa !33
-  store i32 48, ptr %1423, align 8, !tbaa !34
-  %1431 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %28) #31
+  %1419 = getelementptr inbounds nuw i8, ptr %28, i64 56
+  %1420 = getelementptr inbounds nuw i8, ptr %28, i64 32
+  store ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_functions_extRNS_7module_EE4$_90bJETpTnmJEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENUlPvPS8_PhNS_9rv_policyEPNS0_12cleanup_listEE_8__invokeESM_SN_SO_SP_SR_", ptr %1420, align 8, !tbaa !22
+  %1421 = getelementptr inbounds nuw i8, ptr %28, i64 40
+  store ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_functions_extRNS_7module_EE4$_90bJETpTnmJEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_E5descr", ptr %1421, align 8, !tbaa !28
+  %1422 = getelementptr inbounds nuw i8, ptr %28, i64 48
+  store ptr %27, ptr %1422, align 8, !tbaa !29
+  %1423 = getelementptr inbounds nuw i8, ptr %28, i64 60
+  store i16 0, ptr %1423, align 4, !tbaa !30
+  %1424 = getelementptr inbounds nuw i8, ptr %28, i64 62
+  store i16 0, ptr %1424, align 2, !tbaa !31
+  %1425 = getelementptr inbounds nuw i8, ptr %28, i64 80
+  store ptr %.sroa.0.0.copyload.i362.i, ptr %1425, align 8, !tbaa !32
+  %1426 = getelementptr inbounds nuw i8, ptr %28, i64 64
+  store ptr @.str.111, ptr %1426, align 8, !tbaa !33
+  store i32 48, ptr %1419, align 8, !tbaa !34
+  %1427 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %28) #31
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %28) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #27
   %.sroa.0.0.copyload.i363.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25) #27
   store ptr null, ptr %25, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %26) #27
-  %1432 = getelementptr inbounds nuw i8, ptr %26, i64 56
-  %1433 = getelementptr inbounds nuw i8, ptr %26, i64 32
-  store ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_functions_extRNS_7module_EE4$_91bJETpTnmJEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENUlPvPS8_PhNS_9rv_policyEPNS0_12cleanup_listEE_8__invokeESM_SN_SO_SP_SR_", ptr %1433, align 8, !tbaa !22
-  %1434 = getelementptr inbounds nuw i8, ptr %26, i64 40
-  store ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_functions_extRNS_7module_EE4$_91bJETpTnmJEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_E5descr", ptr %1434, align 8, !tbaa !28
-  %1435 = getelementptr inbounds nuw i8, ptr %26, i64 48
-  store ptr %25, ptr %1435, align 8, !tbaa !29
-  %1436 = getelementptr inbounds nuw i8, ptr %26, i64 60
-  store i16 0, ptr %1436, align 4, !tbaa !30
-  %1437 = getelementptr inbounds nuw i8, ptr %26, i64 62
-  store i16 0, ptr %1437, align 2, !tbaa !31
-  %1438 = getelementptr inbounds nuw i8, ptr %26, i64 80
-  store ptr %.sroa.0.0.copyload.i363.i, ptr %1438, align 8, !tbaa !32
-  %1439 = getelementptr inbounds nuw i8, ptr %26, i64 64
-  store ptr @.str.112, ptr %1439, align 8, !tbaa !33
-  store i32 48, ptr %1432, align 8, !tbaa !34
-  %1440 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %26) #31
+  %1428 = getelementptr inbounds nuw i8, ptr %26, i64 56
+  %1429 = getelementptr inbounds nuw i8, ptr %26, i64 32
+  store ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_functions_extRNS_7module_EE4$_91bJETpTnmJEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENUlPvPS8_PhNS_9rv_policyEPNS0_12cleanup_listEE_8__invokeESM_SN_SO_SP_SR_", ptr %1429, align 8, !tbaa !22
+  %1430 = getelementptr inbounds nuw i8, ptr %26, i64 40
+  store ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_functions_extRNS_7module_EE4$_91bJETpTnmJEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_E5descr", ptr %1430, align 8, !tbaa !28
+  %1431 = getelementptr inbounds nuw i8, ptr %26, i64 48
+  store ptr %25, ptr %1431, align 8, !tbaa !29
+  %1432 = getelementptr inbounds nuw i8, ptr %26, i64 60
+  store i16 0, ptr %1432, align 4, !tbaa !30
+  %1433 = getelementptr inbounds nuw i8, ptr %26, i64 62
+  store i16 0, ptr %1433, align 2, !tbaa !31
+  %1434 = getelementptr inbounds nuw i8, ptr %26, i64 80
+  store ptr %.sroa.0.0.copyload.i363.i, ptr %1434, align 8, !tbaa !32
+  %1435 = getelementptr inbounds nuw i8, ptr %26, i64 64
+  store ptr @.str.112, ptr %1435, align 8, !tbaa !33
+  store i32 48, ptr %1428, align 8, !tbaa !34
+  %1436 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %26) #31
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %26) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #27
   %.sroa.0.0.copyload.i364.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #27
   store ptr null, ptr %23, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %24) #27
-  %1441 = getelementptr inbounds nuw i8, ptr %24, i64 56
-  %1442 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  store ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_functions_extRNS_7module_EE4$_92bJETpTnmJEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENUlPvPS8_PhNS_9rv_policyEPNS0_12cleanup_listEE_8__invokeESM_SN_SO_SP_SR_", ptr %1442, align 8, !tbaa !22
-  %1443 = getelementptr inbounds nuw i8, ptr %24, i64 40
-  store ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_functions_extRNS_7module_EE4$_92bJETpTnmJEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_E5descr", ptr %1443, align 8, !tbaa !28
-  %1444 = getelementptr inbounds nuw i8, ptr %24, i64 48
-  store ptr %23, ptr %1444, align 8, !tbaa !29
-  %1445 = getelementptr inbounds nuw i8, ptr %24, i64 60
-  store i16 0, ptr %1445, align 4, !tbaa !30
-  %1446 = getelementptr inbounds nuw i8, ptr %24, i64 62
-  store i16 0, ptr %1446, align 2, !tbaa !31
-  %1447 = getelementptr inbounds nuw i8, ptr %24, i64 80
-  store ptr %.sroa.0.0.copyload.i364.i, ptr %1447, align 8, !tbaa !32
-  %1448 = getelementptr inbounds nuw i8, ptr %24, i64 64
-  store ptr @.str.113, ptr %1448, align 8, !tbaa !33
-  store i32 48, ptr %1441, align 8, !tbaa !34
-  %1449 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %24) #31
+  %1437 = getelementptr inbounds nuw i8, ptr %24, i64 56
+  %1438 = getelementptr inbounds nuw i8, ptr %24, i64 32
+  store ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_functions_extRNS_7module_EE4$_92bJETpTnmJEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENUlPvPS8_PhNS_9rv_policyEPNS0_12cleanup_listEE_8__invokeESM_SN_SO_SP_SR_", ptr %1438, align 8, !tbaa !22
+  %1439 = getelementptr inbounds nuw i8, ptr %24, i64 40
+  store ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_functions_extRNS_7module_EE4$_92bJETpTnmJEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_E5descr", ptr %1439, align 8, !tbaa !28
+  %1440 = getelementptr inbounds nuw i8, ptr %24, i64 48
+  store ptr %23, ptr %1440, align 8, !tbaa !29
+  %1441 = getelementptr inbounds nuw i8, ptr %24, i64 60
+  store i16 0, ptr %1441, align 4, !tbaa !30
+  %1442 = getelementptr inbounds nuw i8, ptr %24, i64 62
+  store i16 0, ptr %1442, align 2, !tbaa !31
+  %1443 = getelementptr inbounds nuw i8, ptr %24, i64 80
+  store ptr %.sroa.0.0.copyload.i364.i, ptr %1443, align 8, !tbaa !32
+  %1444 = getelementptr inbounds nuw i8, ptr %24, i64 64
+  store ptr @.str.113, ptr %1444, align 8, !tbaa !33
+  store i32 48, ptr %1437, align 8, !tbaa !34
+  %1445 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %24) #31
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %24) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #27
   %.sroa.0.0.copyload.i365.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #27
   store ptr null, ptr %21, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %22) #27
-  %1450 = getelementptr inbounds nuw i8, ptr %22, i64 56
-  %1451 = getelementptr inbounds nuw i8, ptr %22, i64 32
-  store ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_functions_extRNS_7module_EE4$_93lJNS_6handleEEJLm0EEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENUlPvPS9_PhNS_9rv_policyEPNS0_12cleanup_listEE_8__invokeESN_SO_SP_SQ_SS_", ptr %1451, align 8, !tbaa !22
-  %1452 = getelementptr inbounds nuw i8, ptr %22, i64 40
-  store ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_functions_extRNS_7module_EE4$_93lJNS_6handleEEJLm0EEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_E5descr", ptr %1452, align 8, !tbaa !28
-  %1453 = getelementptr inbounds nuw i8, ptr %22, i64 48
-  store ptr %21, ptr %1453, align 8, !tbaa !29
-  %1454 = getelementptr inbounds nuw i8, ptr %22, i64 60
-  store i16 1, ptr %1454, align 4, !tbaa !30
-  %1455 = getelementptr inbounds nuw i8, ptr %22, i64 62
-  store i16 1, ptr %1455, align 2, !tbaa !31
-  %1456 = getelementptr inbounds nuw i8, ptr %22, i64 80
-  store ptr %.sroa.0.0.copyload.i365.i, ptr %1456, align 8, !tbaa !32
-  %1457 = getelementptr inbounds nuw i8, ptr %22, i64 64
-  store ptr @.str.114, ptr %1457, align 8, !tbaa !33
-  store i32 48, ptr %1450, align 8, !tbaa !34
-  %1458 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %22) #31
+  %1446 = getelementptr inbounds nuw i8, ptr %22, i64 56
+  %1447 = getelementptr inbounds nuw i8, ptr %22, i64 32
+  store ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_functions_extRNS_7module_EE4$_93lJNS_6handleEEJLm0EEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENUlPvPS9_PhNS_9rv_policyEPNS0_12cleanup_listEE_8__invokeESN_SO_SP_SQ_SS_", ptr %1447, align 8, !tbaa !22
+  %1448 = getelementptr inbounds nuw i8, ptr %22, i64 40
+  store ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_functions_extRNS_7module_EE4$_93lJNS_6handleEEJLm0EEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_E5descr", ptr %1448, align 8, !tbaa !28
+  %1449 = getelementptr inbounds nuw i8, ptr %22, i64 48
+  store ptr %21, ptr %1449, align 8, !tbaa !29
+  %1450 = getelementptr inbounds nuw i8, ptr %22, i64 60
+  store i16 1, ptr %1450, align 4, !tbaa !30
+  %1451 = getelementptr inbounds nuw i8, ptr %22, i64 62
+  store i16 1, ptr %1451, align 2, !tbaa !31
+  %1452 = getelementptr inbounds nuw i8, ptr %22, i64 80
+  store ptr %.sroa.0.0.copyload.i365.i, ptr %1452, align 8, !tbaa !32
+  %1453 = getelementptr inbounds nuw i8, ptr %22, i64 64
+  store ptr @.str.114, ptr %1453, align 8, !tbaa !33
+  store i32 48, ptr %1446, align 8, !tbaa !34
+  %1454 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %22) #31
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %22) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #27
   %.sroa.0.0.copyload.i366.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #27
   store ptr null, ptr %19, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %20) #27
-  %1459 = getelementptr inbounds nuw i8, ptr %20, i64 56
-  %1460 = getelementptr inbounds nuw i8, ptr %20, i64 32
-  store ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_functions_extRNS_7module_EE4$_94bJNS_6handleES5_EJLm0ELm1EEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENUlPvPS9_PhNS_9rv_policyEPNS0_12cleanup_listEE_8__invokeESN_SO_SP_SQ_SS_", ptr %1460, align 8, !tbaa !22
-  %1461 = getelementptr inbounds nuw i8, ptr %20, i64 40
-  store ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_functions_extRNS_7module_EE4$_94bJNS_6handleES5_EJLm0ELm1EEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_E5descr", ptr %1461, align 8, !tbaa !28
-  %1462 = getelementptr inbounds nuw i8, ptr %20, i64 48
-  store ptr %19, ptr %1462, align 8, !tbaa !29
-  %1463 = getelementptr inbounds nuw i8, ptr %20, i64 60
-  store i16 2, ptr %1463, align 4, !tbaa !30
-  %1464 = getelementptr inbounds nuw i8, ptr %20, i64 62
-  store i16 2, ptr %1464, align 2, !tbaa !31
-  %1465 = getelementptr inbounds nuw i8, ptr %20, i64 80
-  store ptr %.sroa.0.0.copyload.i366.i, ptr %1465, align 8, !tbaa !32
-  %1466 = getelementptr inbounds nuw i8, ptr %20, i64 64
-  store ptr @.str.115, ptr %1466, align 8, !tbaa !33
-  store i32 48, ptr %1459, align 8, !tbaa !34
-  %1467 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %20) #31
+  %1455 = getelementptr inbounds nuw i8, ptr %20, i64 56
+  %1456 = getelementptr inbounds nuw i8, ptr %20, i64 32
+  store ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_functions_extRNS_7module_EE4$_94bJNS_6handleES5_EJLm0ELm1EEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENUlPvPS9_PhNS_9rv_policyEPNS0_12cleanup_listEE_8__invokeESN_SO_SP_SQ_SS_", ptr %1456, align 8, !tbaa !22
+  %1457 = getelementptr inbounds nuw i8, ptr %20, i64 40
+  store ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_functions_extRNS_7module_EE4$_94bJNS_6handleES5_EJLm0ELm1EEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_E5descr", ptr %1457, align 8, !tbaa !28
+  %1458 = getelementptr inbounds nuw i8, ptr %20, i64 48
+  store ptr %19, ptr %1458, align 8, !tbaa !29
+  %1459 = getelementptr inbounds nuw i8, ptr %20, i64 60
+  store i16 2, ptr %1459, align 4, !tbaa !30
+  %1460 = getelementptr inbounds nuw i8, ptr %20, i64 62
+  store i16 2, ptr %1460, align 2, !tbaa !31
+  %1461 = getelementptr inbounds nuw i8, ptr %20, i64 80
+  store ptr %.sroa.0.0.copyload.i366.i, ptr %1461, align 8, !tbaa !32
+  %1462 = getelementptr inbounds nuw i8, ptr %20, i64 64
+  store ptr @.str.115, ptr %1462, align 8, !tbaa !33
+  store i32 48, ptr %1455, align 8, !tbaa !34
+  %1463 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %20) #31
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %20) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #27
   %.sroa.0.0.copyload.i367.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #27
   store ptr null, ptr %17, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %18) #27
-  %1468 = getelementptr inbounds nuw i8, ptr %18, i64 56
-  %1469 = getelementptr inbounds nuw i8, ptr %18, i64 32
-  store ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_functions_extRNS_7module_EE4$_95NS_9bytearrayEJETpTnmJEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENUlPvPS9_PhNS_9rv_policyEPNS0_12cleanup_listEE_8__invokeESN_SO_SP_SQ_SS_", ptr %1469, align 8, !tbaa !22
-  %1470 = getelementptr inbounds nuw i8, ptr %18, i64 40
-  store ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_functions_extRNS_7module_EE4$_95NS_9bytearrayEJETpTnmJEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_E5descr", ptr %1470, align 8, !tbaa !28
-  %1471 = getelementptr inbounds nuw i8, ptr %18, i64 48
-  store ptr %17, ptr %1471, align 8, !tbaa !29
-  %1472 = getelementptr inbounds nuw i8, ptr %18, i64 60
-  store i16 0, ptr %1472, align 4, !tbaa !30
-  %1473 = getelementptr inbounds nuw i8, ptr %18, i64 62
-  store i16 0, ptr %1473, align 2, !tbaa !31
-  %1474 = getelementptr inbounds nuw i8, ptr %18, i64 80
-  store ptr %.sroa.0.0.copyload.i367.i, ptr %1474, align 8, !tbaa !32
-  %1475 = getelementptr inbounds nuw i8, ptr %18, i64 64
-  store ptr @.str.116, ptr %1475, align 8, !tbaa !33
-  store i32 48, ptr %1468, align 8, !tbaa !34
-  %1476 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %18) #31
+  %1464 = getelementptr inbounds nuw i8, ptr %18, i64 56
+  %1465 = getelementptr inbounds nuw i8, ptr %18, i64 32
+  store ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_functions_extRNS_7module_EE4$_95NS_9bytearrayEJETpTnmJEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENUlPvPS9_PhNS_9rv_policyEPNS0_12cleanup_listEE_8__invokeESN_SO_SP_SQ_SS_", ptr %1465, align 8, !tbaa !22
+  %1466 = getelementptr inbounds nuw i8, ptr %18, i64 40
+  store ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_functions_extRNS_7module_EE4$_95NS_9bytearrayEJETpTnmJEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_E5descr", ptr %1466, align 8, !tbaa !28
+  %1467 = getelementptr inbounds nuw i8, ptr %18, i64 48
+  store ptr %17, ptr %1467, align 8, !tbaa !29
+  %1468 = getelementptr inbounds nuw i8, ptr %18, i64 60
+  store i16 0, ptr %1468, align 4, !tbaa !30
+  %1469 = getelementptr inbounds nuw i8, ptr %18, i64 62
+  store i16 0, ptr %1469, align 2, !tbaa !31
+  %1470 = getelementptr inbounds nuw i8, ptr %18, i64 80
+  store ptr %.sroa.0.0.copyload.i367.i, ptr %1470, align 8, !tbaa !32
+  %1471 = getelementptr inbounds nuw i8, ptr %18, i64 64
+  store ptr @.str.116, ptr %1471, align 8, !tbaa !33
+  store i32 48, ptr %1464, align 8, !tbaa !34
+  %1472 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %18) #31
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %18) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #27
   %.sroa.0.0.copyload.i368.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #27
   store ptr null, ptr %15, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %16) #27
-  %1477 = getelementptr inbounds nuw i8, ptr %16, i64 56
-  %1478 = getelementptr inbounds nuw i8, ptr %16, i64 32
-  store ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_functions_extRNS_7module_EE4$_96NS_9bytearrayEJPKciEJLm0ELm1EEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENUlPvPSB_PhNS_9rv_policyEPNS0_12cleanup_listEE_8__invokeESP_SQ_SR_SS_SU_", ptr %1478, align 8, !tbaa !22
-  %1479 = getelementptr inbounds nuw i8, ptr %16, i64 40
-  store ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_functions_extRNS_7module_EE4$_96NS_9bytearrayEJPKciEJLm0ELm1EEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_E5descr", ptr %1479, align 8, !tbaa !28
-  %1480 = getelementptr inbounds nuw i8, ptr %16, i64 48
-  store ptr %15, ptr %1480, align 8, !tbaa !29
-  %1481 = getelementptr inbounds nuw i8, ptr %16, i64 60
-  store i16 2, ptr %1481, align 4, !tbaa !30
-  %1482 = getelementptr inbounds nuw i8, ptr %16, i64 62
-  store i16 2, ptr %1482, align 2, !tbaa !31
-  %1483 = getelementptr inbounds nuw i8, ptr %16, i64 80
-  store ptr %.sroa.0.0.copyload.i368.i, ptr %1483, align 8, !tbaa !32
-  %1484 = getelementptr inbounds nuw i8, ptr %16, i64 64
-  store ptr @.str.116, ptr %1484, align 8, !tbaa !33
-  store i32 48, ptr %1477, align 8, !tbaa !34
-  %1485 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %16) #31
+  %1473 = getelementptr inbounds nuw i8, ptr %16, i64 56
+  %1474 = getelementptr inbounds nuw i8, ptr %16, i64 32
+  store ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_functions_extRNS_7module_EE4$_96NS_9bytearrayEJPKciEJLm0ELm1EEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENUlPvPSB_PhNS_9rv_policyEPNS0_12cleanup_listEE_8__invokeESP_SQ_SR_SS_SU_", ptr %1474, align 8, !tbaa !22
+  %1475 = getelementptr inbounds nuw i8, ptr %16, i64 40
+  store ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_functions_extRNS_7module_EE4$_96NS_9bytearrayEJPKciEJLm0ELm1EEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_E5descr", ptr %1475, align 8, !tbaa !28
+  %1476 = getelementptr inbounds nuw i8, ptr %16, i64 48
+  store ptr %15, ptr %1476, align 8, !tbaa !29
+  %1477 = getelementptr inbounds nuw i8, ptr %16, i64 60
+  store i16 2, ptr %1477, align 4, !tbaa !30
+  %1478 = getelementptr inbounds nuw i8, ptr %16, i64 62
+  store i16 2, ptr %1478, align 2, !tbaa !31
+  %1479 = getelementptr inbounds nuw i8, ptr %16, i64 80
+  store ptr %.sroa.0.0.copyload.i368.i, ptr %1479, align 8, !tbaa !32
+  %1480 = getelementptr inbounds nuw i8, ptr %16, i64 64
+  store ptr @.str.116, ptr %1480, align 8, !tbaa !33
+  store i32 48, ptr %1473, align 8, !tbaa !34
+  %1481 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %16) #31
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %16) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #27
   %.sroa.0.0.copyload.i369.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #27
   store ptr null, ptr %13, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %14) #27
-  %1486 = getelementptr inbounds nuw i8, ptr %14, i64 56
-  %1487 = getelementptr inbounds nuw i8, ptr %14, i64 32
-  store ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_functions_extRNS_7module_EE4$_97NS_9bytearrayEJS5_EJLm0EEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENUlPvPS9_PhNS_9rv_policyEPNS0_12cleanup_listEE_8__invokeESN_SO_SP_SQ_SS_", ptr %1487, align 8, !tbaa !22
-  %1488 = getelementptr inbounds nuw i8, ptr %14, i64 40
-  store ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_functions_extRNS_7module_EE4$_97NS_9bytearrayEJS5_EJLm0EEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_E5descr", ptr %1488, align 8, !tbaa !28
-  %1489 = getelementptr inbounds nuw i8, ptr %14, i64 48
-  store ptr %13, ptr %1489, align 8, !tbaa !29
-  %1490 = getelementptr inbounds nuw i8, ptr %14, i64 60
-  store i16 1, ptr %1490, align 4, !tbaa !30
-  %1491 = getelementptr inbounds nuw i8, ptr %14, i64 62
-  store i16 1, ptr %1491, align 2, !tbaa !31
-  %1492 = getelementptr inbounds nuw i8, ptr %14, i64 80
-  store ptr %.sroa.0.0.copyload.i369.i, ptr %1492, align 8, !tbaa !32
-  %1493 = getelementptr inbounds nuw i8, ptr %14, i64 64
-  store ptr @.str.117, ptr %1493, align 8, !tbaa !33
-  store i32 48, ptr %1486, align 8, !tbaa !34
-  %1494 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %14) #31
+  %1482 = getelementptr inbounds nuw i8, ptr %14, i64 56
+  %1483 = getelementptr inbounds nuw i8, ptr %14, i64 32
+  store ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_functions_extRNS_7module_EE4$_97NS_9bytearrayEJS5_EJLm0EEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENUlPvPS9_PhNS_9rv_policyEPNS0_12cleanup_listEE_8__invokeESN_SO_SP_SQ_SS_", ptr %1483, align 8, !tbaa !22
+  %1484 = getelementptr inbounds nuw i8, ptr %14, i64 40
+  store ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_functions_extRNS_7module_EE4$_97NS_9bytearrayEJS5_EJLm0EEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_E5descr", ptr %1484, align 8, !tbaa !28
+  %1485 = getelementptr inbounds nuw i8, ptr %14, i64 48
+  store ptr %13, ptr %1485, align 8, !tbaa !29
+  %1486 = getelementptr inbounds nuw i8, ptr %14, i64 60
+  store i16 1, ptr %1486, align 4, !tbaa !30
+  %1487 = getelementptr inbounds nuw i8, ptr %14, i64 62
+  store i16 1, ptr %1487, align 2, !tbaa !31
+  %1488 = getelementptr inbounds nuw i8, ptr %14, i64 80
+  store ptr %.sroa.0.0.copyload.i369.i, ptr %1488, align 8, !tbaa !32
+  %1489 = getelementptr inbounds nuw i8, ptr %14, i64 64
+  store ptr @.str.117, ptr %1489, align 8, !tbaa !33
+  store i32 48, ptr %1482, align 8, !tbaa !34
+  %1490 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %14) #31
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %14) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #27
   %.sroa.0.0.copyload.i370.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #27
   store ptr null, ptr %11, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %12) #27
-  %1495 = getelementptr inbounds nuw i8, ptr %12, i64 56
-  %1496 = getelementptr inbounds nuw i8, ptr %12, i64 32
-  store ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_functions_extRNS_7module_EE4$_98PKcJNS_9bytearrayEEJLm0EEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENUlPvPSB_PhNS_9rv_policyEPNS0_12cleanup_listEE_8__invokeESP_SQ_SR_SS_SU_", ptr %1496, align 8, !tbaa !22
-  %1497 = getelementptr inbounds nuw i8, ptr %12, i64 40
-  store ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_functions_extRNS_7module_EE4$_98PKcJNS_9bytearrayEEJLm0EEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_E5descr", ptr %1497, align 8, !tbaa !28
-  %1498 = getelementptr inbounds nuw i8, ptr %12, i64 48
-  store ptr %11, ptr %1498, align 8, !tbaa !29
-  %1499 = getelementptr inbounds nuw i8, ptr %12, i64 60
-  store i16 1, ptr %1499, align 4, !tbaa !30
-  %1500 = getelementptr inbounds nuw i8, ptr %12, i64 62
-  store i16 1, ptr %1500, align 2, !tbaa !31
-  %1501 = getelementptr inbounds nuw i8, ptr %12, i64 80
-  store ptr %.sroa.0.0.copyload.i370.i, ptr %1501, align 8, !tbaa !32
-  %1502 = getelementptr inbounds nuw i8, ptr %12, i64 64
-  store ptr @.str.118, ptr %1502, align 8, !tbaa !33
-  store i32 48, ptr %1495, align 8, !tbaa !34
-  %1503 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %12) #31
+  %1491 = getelementptr inbounds nuw i8, ptr %12, i64 56
+  %1492 = getelementptr inbounds nuw i8, ptr %12, i64 32
+  store ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_functions_extRNS_7module_EE4$_98PKcJNS_9bytearrayEEJLm0EEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENUlPvPSB_PhNS_9rv_policyEPNS0_12cleanup_listEE_8__invokeESP_SQ_SR_SS_SU_", ptr %1492, align 8, !tbaa !22
+  %1493 = getelementptr inbounds nuw i8, ptr %12, i64 40
+  store ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_functions_extRNS_7module_EE4$_98PKcJNS_9bytearrayEEJLm0EEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_E5descr", ptr %1493, align 8, !tbaa !28
+  %1494 = getelementptr inbounds nuw i8, ptr %12, i64 48
+  store ptr %11, ptr %1494, align 8, !tbaa !29
+  %1495 = getelementptr inbounds nuw i8, ptr %12, i64 60
+  store i16 1, ptr %1495, align 4, !tbaa !30
+  %1496 = getelementptr inbounds nuw i8, ptr %12, i64 62
+  store i16 1, ptr %1496, align 2, !tbaa !31
+  %1497 = getelementptr inbounds nuw i8, ptr %12, i64 80
+  store ptr %.sroa.0.0.copyload.i370.i, ptr %1497, align 8, !tbaa !32
+  %1498 = getelementptr inbounds nuw i8, ptr %12, i64 64
+  store ptr @.str.118, ptr %1498, align 8, !tbaa !33
+  store i32 48, ptr %1491, align 8, !tbaa !34
+  %1499 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %12) #31
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %12) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #27
   %.sroa.0.0.copyload.i371.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #27
   store ptr null, ptr %9, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %10) #27
-  %1504 = getelementptr inbounds nuw i8, ptr %10, i64 56
-  %1505 = getelementptr inbounds nuw i8, ptr %10, i64 32
-  store ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_functions_extRNS_7module_EE4$_99mJNS_9bytearrayEEJLm0EEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENUlPvPS9_PhNS_9rv_policyEPNS0_12cleanup_listEE_8__invokeESN_SO_SP_SQ_SS_", ptr %1505, align 8, !tbaa !22
-  %1506 = getelementptr inbounds nuw i8, ptr %10, i64 40
-  store ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_functions_extRNS_7module_EE4$_99mJNS_9bytearrayEEJLm0EEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_E5descr", ptr %1506, align 8, !tbaa !28
-  %1507 = getelementptr inbounds nuw i8, ptr %10, i64 48
-  store ptr %9, ptr %1507, align 8, !tbaa !29
-  %1508 = getelementptr inbounds nuw i8, ptr %10, i64 60
-  store i16 1, ptr %1508, align 4, !tbaa !30
-  %1509 = getelementptr inbounds nuw i8, ptr %10, i64 62
-  store i16 1, ptr %1509, align 2, !tbaa !31
-  %1510 = getelementptr inbounds nuw i8, ptr %10, i64 80
-  store ptr %.sroa.0.0.copyload.i371.i, ptr %1510, align 8, !tbaa !32
-  %1511 = getelementptr inbounds nuw i8, ptr %10, i64 64
-  store ptr @.str.119, ptr %1511, align 8, !tbaa !33
-  store i32 48, ptr %1504, align 8, !tbaa !34
-  %1512 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %10) #31
+  %1500 = getelementptr inbounds nuw i8, ptr %10, i64 56
+  %1501 = getelementptr inbounds nuw i8, ptr %10, i64 32
+  store ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_functions_extRNS_7module_EE4$_99mJNS_9bytearrayEEJLm0EEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENUlPvPS9_PhNS_9rv_policyEPNS0_12cleanup_listEE_8__invokeESN_SO_SP_SQ_SS_", ptr %1501, align 8, !tbaa !22
+  %1502 = getelementptr inbounds nuw i8, ptr %10, i64 40
+  store ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_functions_extRNS_7module_EE4$_99mJNS_9bytearrayEEJLm0EEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_E5descr", ptr %1502, align 8, !tbaa !28
+  %1503 = getelementptr inbounds nuw i8, ptr %10, i64 48
+  store ptr %9, ptr %1503, align 8, !tbaa !29
+  %1504 = getelementptr inbounds nuw i8, ptr %10, i64 60
+  store i16 1, ptr %1504, align 4, !tbaa !30
+  %1505 = getelementptr inbounds nuw i8, ptr %10, i64 62
+  store i16 1, ptr %1505, align 2, !tbaa !31
+  %1506 = getelementptr inbounds nuw i8, ptr %10, i64 80
+  store ptr %.sroa.0.0.copyload.i371.i, ptr %1506, align 8, !tbaa !32
+  %1507 = getelementptr inbounds nuw i8, ptr %10, i64 64
+  store ptr @.str.119, ptr %1507, align 8, !tbaa !33
+  store i32 48, ptr %1500, align 8, !tbaa !34
+  %1508 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %10) #31
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %10) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #27
   %.sroa.0.0.copyload.i372.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #27
   store ptr null, ptr %7, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %8) #27
-  %1513 = getelementptr inbounds nuw i8, ptr %8, i64 56
-  %1514 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_functions_extRNS_7module_EE5$_100vJNS_9bytearrayEiEJLm0ELm1EEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENUlPvPS9_PhNS_9rv_policyEPNS0_12cleanup_listEE_8__invokeESN_SO_SP_SQ_SS_", ptr %1514, align 8, !tbaa !22
-  %1515 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  store ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_functions_extRNS_7module_EE5$_100vJNS_9bytearrayEiEJLm0ELm1EEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_E5descr", ptr %1515, align 8, !tbaa !28
-  %1516 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  store ptr %7, ptr %1516, align 8, !tbaa !29
-  %1517 = getelementptr inbounds nuw i8, ptr %8, i64 60
-  store i16 2, ptr %1517, align 4, !tbaa !30
-  %1518 = getelementptr inbounds nuw i8, ptr %8, i64 62
-  store i16 2, ptr %1518, align 2, !tbaa !31
-  %1519 = getelementptr inbounds nuw i8, ptr %8, i64 80
-  store ptr %.sroa.0.0.copyload.i372.i, ptr %1519, align 8, !tbaa !32
-  %1520 = getelementptr inbounds nuw i8, ptr %8, i64 64
-  store ptr @.str.120, ptr %1520, align 8, !tbaa !33
-  store i32 48, ptr %1513, align 8, !tbaa !34
-  %1521 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %8) #31
+  %1509 = getelementptr inbounds nuw i8, ptr %8, i64 56
+  %1510 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  store ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_functions_extRNS_7module_EE5$_100vJNS_9bytearrayEiEJLm0ELm1EEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENUlPvPS9_PhNS_9rv_policyEPNS0_12cleanup_listEE_8__invokeESN_SO_SP_SQ_SS_", ptr %1510, align 8, !tbaa !22
+  %1511 = getelementptr inbounds nuw i8, ptr %8, i64 40
+  store ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_functions_extRNS_7module_EE5$_100vJNS_9bytearrayEiEJLm0ELm1EEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_E5descr", ptr %1511, align 8, !tbaa !28
+  %1512 = getelementptr inbounds nuw i8, ptr %8, i64 48
+  store ptr %7, ptr %1512, align 8, !tbaa !29
+  %1513 = getelementptr inbounds nuw i8, ptr %8, i64 60
+  store i16 2, ptr %1513, align 4, !tbaa !30
+  %1514 = getelementptr inbounds nuw i8, ptr %8, i64 62
+  store i16 2, ptr %1514, align 2, !tbaa !31
+  %1515 = getelementptr inbounds nuw i8, ptr %8, i64 80
+  store ptr %.sroa.0.0.copyload.i372.i, ptr %1515, align 8, !tbaa !32
+  %1516 = getelementptr inbounds nuw i8, ptr %8, i64 64
+  store ptr @.str.120, ptr %1516, align 8, !tbaa !33
+  store i32 48, ptr %1509, align 8, !tbaa !34
+  %1517 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %8) #31
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %8) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #27
   %.sroa.0.0.copyload.i373.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #27
   store ptr null, ptr %5, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %6) #27
-  %1522 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  %1523 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_functions_extRNS_7module_EE5$_101PKcJS6_14numeric_stringEJLm0ELm1EEJNS_5scopeENS_4nameENS_11call_policyI14example_policyEEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENUlPvPSE_PhNS_9rv_policyEPNS0_12cleanup_listEE_8__invokeESS_ST_SU_SV_SX_", ptr %1523, align 8, !tbaa !22
-  %1524 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  store ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_functions_extRNS_7module_EE5$_101PKcJS6_14numeric_stringEJLm0ELm1EEJNS_5scopeENS_4nameENS_11call_policyI14example_policyEEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_E5descr", ptr %1524, align 8, !tbaa !28
-  %1525 = getelementptr inbounds nuw i8, ptr %6, i64 48
-  store ptr %5, ptr %1525, align 8, !tbaa !29
-  %1526 = getelementptr inbounds nuw i8, ptr %6, i64 60
-  store i16 2, ptr %1526, align 4, !tbaa !30
-  %1527 = getelementptr inbounds nuw i8, ptr %6, i64 62
-  store i16 2, ptr %1527, align 2, !tbaa !31
-  %1528 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  store ptr %.sroa.0.0.copyload.i373.i, ptr %1528, align 8, !tbaa !32
-  %1529 = getelementptr inbounds nuw i8, ptr %6, i64 64
-  store ptr @.str.121, ptr %1529, align 8, !tbaa !33
-  store i32 131120, ptr %1522, align 8, !tbaa !34
-  %1530 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %6) #31
+  %1518 = getelementptr inbounds nuw i8, ptr %6, i64 56
+  %1519 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  store ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_functions_extRNS_7module_EE5$_101PKcJS6_14numeric_stringEJLm0ELm1EEJNS_5scopeENS_4nameENS_11call_policyI14example_policyEEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENUlPvPSE_PhNS_9rv_policyEPNS0_12cleanup_listEE_8__invokeESS_ST_SU_SV_SX_", ptr %1519, align 8, !tbaa !22
+  %1520 = getelementptr inbounds nuw i8, ptr %6, i64 40
+  store ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_functions_extRNS_7module_EE5$_101PKcJS6_14numeric_stringEJLm0ELm1EEJNS_5scopeENS_4nameENS_11call_policyI14example_policyEEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_E5descr", ptr %1520, align 8, !tbaa !28
+  %1521 = getelementptr inbounds nuw i8, ptr %6, i64 48
+  store ptr %5, ptr %1521, align 8, !tbaa !29
+  %1522 = getelementptr inbounds nuw i8, ptr %6, i64 60
+  store i16 2, ptr %1522, align 4, !tbaa !30
+  %1523 = getelementptr inbounds nuw i8, ptr %6, i64 62
+  store i16 2, ptr %1523, align 2, !tbaa !31
+  %1524 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  store ptr %.sroa.0.0.copyload.i373.i, ptr %1524, align 8, !tbaa !32
+  %1525 = getelementptr inbounds nuw i8, ptr %6, i64 64
+  store ptr @.str.121, ptr %1525, align 8, !tbaa !33
+  store i32 131120, ptr %1518, align 8, !tbaa !34
+  %1526 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %6) #31
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %6) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #27
   %.sroa.0.0.copyload.i374.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %3) #27
   store ptr null, ptr %3, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %4) #27
-  %1531 = getelementptr inbounds nuw i8, ptr %4, i64 56
-  %1532 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_functions_extRNS_7module_EE5$_102St6vectorISt4pairINS_5tupleENS_6objectEESaIS9_EEJETpTnmJEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENUlPvPSF_PhNS_9rv_policyEPNS0_12cleanup_listEE_8__invokeEST_SU_SV_SW_SY_", ptr %1532, align 8, !tbaa !22
-  %1533 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  store ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_functions_extRNS_7module_EE5$_102St6vectorISt4pairINS_5tupleENS_6objectEESaIS9_EEJETpTnmJEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_E5descr", ptr %1533, align 8, !tbaa !28
-  %1534 = getelementptr inbounds nuw i8, ptr %4, i64 48
-  store ptr %3, ptr %1534, align 8, !tbaa !29
-  %1535 = getelementptr inbounds nuw i8, ptr %4, i64 60
-  store i16 0, ptr %1535, align 4, !tbaa !30
-  %1536 = getelementptr inbounds nuw i8, ptr %4, i64 62
-  store i16 0, ptr %1536, align 2, !tbaa !31
-  %1537 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  store ptr %.sroa.0.0.copyload.i374.i, ptr %1537, align 8, !tbaa !32
-  %1538 = getelementptr inbounds nuw i8, ptr %4, i64 64
-  store ptr @.str.122, ptr %1538, align 8, !tbaa !33
-  store i32 48, ptr %1531, align 8, !tbaa !34
-  %1539 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %4) #31
+  %1527 = getelementptr inbounds nuw i8, ptr %4, i64 56
+  %1528 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_functions_extRNS_7module_EE5$_102St6vectorISt4pairINS_5tupleENS_6objectEESaIS9_EEJETpTnmJEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENUlPvPSF_PhNS_9rv_policyEPNS0_12cleanup_listEE_8__invokeEST_SU_SV_SW_SY_", ptr %1528, align 8, !tbaa !22
+  %1529 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  store ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_functions_extRNS_7module_EE5$_102St6vectorISt4pairINS_5tupleENS_6objectEESaIS9_EEJETpTnmJEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_E5descr", ptr %1529, align 8, !tbaa !28
+  %1530 = getelementptr inbounds nuw i8, ptr %4, i64 48
+  store ptr %3, ptr %1530, align 8, !tbaa !29
+  %1531 = getelementptr inbounds nuw i8, ptr %4, i64 60
+  store i16 0, ptr %1531, align 4, !tbaa !30
+  %1532 = getelementptr inbounds nuw i8, ptr %4, i64 62
+  store i16 0, ptr %1532, align 2, !tbaa !31
+  %1533 = getelementptr inbounds nuw i8, ptr %4, i64 80
+  store ptr %.sroa.0.0.copyload.i374.i, ptr %1533, align 8, !tbaa !32
+  %1534 = getelementptr inbounds nuw i8, ptr %4, i64 64
+  store ptr @.str.122, ptr %1534, align 8, !tbaa !33
+  store i32 48, ptr %1527, align 8, !tbaa !34
+  %1535 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %4) #31
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %4) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #27
   %.sroa.0.0.copyload.i375.i = load ptr, ptr %260, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #27
   store ptr null, ptr %1, align 8, !tbaa !20
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %2) #27
-  %1540 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %1541 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  store ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_functions_extRNS_7module_EE5$_103PKcJETpTnmJEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENUlPvPSA_PhNS_9rv_policyEPNS0_12cleanup_listEE_8__invokeESO_SP_SQ_SR_ST_", ptr %1541, align 8, !tbaa !22
-  %1542 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  store ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_functions_extRNS_7module_EE5$_103PKcJETpTnmJEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_E5descr", ptr %1542, align 8, !tbaa !28
-  %1543 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  store ptr %1, ptr %1543, align 8, !tbaa !29
-  %1544 = getelementptr inbounds nuw i8, ptr %2, i64 60
-  store i16 0, ptr %1544, align 4, !tbaa !30
-  %1545 = getelementptr inbounds nuw i8, ptr %2, i64 62
-  store i16 0, ptr %1545, align 2, !tbaa !31
-  %1546 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  store ptr %.sroa.0.0.copyload.i375.i, ptr %1546, align 8, !tbaa !32
-  %1547 = getelementptr inbounds nuw i8, ptr %2, i64 64
-  store ptr @.str.123, ptr %1547, align 8, !tbaa !33
-  store i32 48, ptr %1540, align 8, !tbaa !34
-  %1548 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %2) #31
+  %1536 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %1537 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  store ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_functions_extRNS_7module_EE5$_103PKcJETpTnmJEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_ENUlPvPSA_PhNS_9rv_policyEPNS0_12cleanup_listEE_8__invokeESO_SP_SQ_SR_ST_", ptr %1537, align 8, !tbaa !22
+  %1538 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  store ptr @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_functions_extRNS_7module_EE5$_103PKcJETpTnmJEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_E5descr", ptr %1538, align 8, !tbaa !28
+  %1539 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  store ptr %1, ptr %1539, align 8, !tbaa !29
+  %1540 = getelementptr inbounds nuw i8, ptr %2, i64 60
+  store i16 0, ptr %1540, align 4, !tbaa !30
+  %1541 = getelementptr inbounds nuw i8, ptr %2, i64 62
+  store i16 0, ptr %1541, align 2, !tbaa !31
+  %1542 = getelementptr inbounds nuw i8, ptr %2, i64 80
+  store ptr %.sroa.0.0.copyload.i375.i, ptr %1542, align 8, !tbaa !32
+  %1543 = getelementptr inbounds nuw i8, ptr %2, i64 64
+  store ptr @.str.123, ptr %1543, align 8, !tbaa !33
+  store i32 48, ptr %1536, align 8, !tbaa !34
+  %1544 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %2) #31
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %2) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #27
-  %1549 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %239) #31
+  %1545 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %239) #31
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %239) #27
-  %1550 = load ptr, ptr %260, align 8, !tbaa !44
+  %1546 = load ptr, ptr %260, align 8, !tbaa !44
   store ptr null, ptr %260, align 8, !tbaa !44
-  br label %1567
+  br label %1563
 
-1551:                                             ; preds = %283, %265
-  %1552 = landingpad { ptr, i32 }
+1547:                                             ; preds = %283, %265
+  %1548 = landingpad { ptr, i32 }
           cleanup
           catch ptr @_ZTISt9exception
   br label %.body
 
-.body:                                            ; preds = %1551, %1377, %345, %338
-  %.pn = phi { ptr, i32 } [ %1552, %1551 ], [ %339, %338 ], [ %.pn189.pn.i, %1377 ], [ %.pn.i, %345 ]
+.body:                                            ; preds = %1547, %1374, %345, %338
+  %.pn = phi { ptr, i32 } [ %1548, %1547 ], [ %339, %338 ], [ %.pn189.pn.i, %1374 ], [ %.pn.i, %345 ]
   %.05 = extractvalue { ptr, i32 } %.pn, 1
-  %1553 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #27
-  %1554 = icmp eq i32 %.05, %1553
-  br i1 %1554, label %1555, label %1569
+  %1549 = call i32 @llvm.eh.typeid.for.p0(ptr nonnull @_ZTISt9exception) #27
+  %1550 = icmp eq i32 %.05, %1549
+  br i1 %1550, label %1551, label %1565
 
-1555:                                             ; preds = %.body
+1551:                                             ; preds = %.body
   %.06 = extractvalue { ptr, i32 } %.pn, 0
-  %1556 = call ptr @__cxa_begin_catch(ptr %.06) #27
-  %1557 = load ptr, ptr @PyExc_ImportError, align 8, !tbaa !158
-  %1558 = load ptr, ptr %1556, align 8, !tbaa !159
-  %1559 = getelementptr inbounds nuw i8, ptr %1558, i64 16
-  %1560 = load ptr, ptr %1559, align 8
-  %1561 = call noundef ptr %1560(ptr noundef nonnull align 8 dereferenceable(8) %1556) #31
-  invoke void @PyErr_SetString(ptr noundef %1557, ptr noundef %1561) #28
-          to label %1562 unwind label %1563
+  %1552 = call ptr @__cxa_begin_catch(ptr %.06) #27
+  %1553 = load ptr, ptr @PyExc_ImportError, align 8, !tbaa !158
+  %1554 = load ptr, ptr %1552, align 8, !tbaa !159
+  %1555 = getelementptr inbounds nuw i8, ptr %1554, i64 16
+  %1556 = load ptr, ptr %1555, align 8
+  %1557 = call noundef ptr %1556(ptr noundef nonnull align 8 dereferenceable(8) %1552) #31
+  invoke void @PyErr_SetString(ptr noundef %1553, ptr noundef %1557) #28
+          to label %1558 unwind label %1559
 
-1562:                                             ; preds = %1555
+1558:                                             ; preds = %1551
   invoke void @__cxa_end_catch()
-          to label %1567 unwind label %1565
+          to label %1563 unwind label %1561
 
-1563:                                             ; preds = %1555
-  %1564 = landingpad { ptr, i32 }
+1559:                                             ; preds = %1551
+  %1560 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %1569 unwind label %1571
+          to label %1565 unwind label %1567
 
-1565:                                             ; preds = %1562
-  %1566 = landingpad { ptr, i32 }
+1561:                                             ; preds = %1558
+  %1562 = landingpad { ptr, i32 }
           cleanup
-  br label %1569
+  br label %1565
 
-1567:                                             ; preds = %1562, %1379
-  %.0 = phi ptr [ %1550, %1379 ], [ null, %1562 ]
-  %1568 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %260) #31
+1563:                                             ; preds = %1558, %1376
+  %.0 = phi ptr [ %1546, %1376 ], [ null, %1558 ]
+  %1564 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %260) #31
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %260) #27
   ret ptr %.0
 
-1569:                                             ; preds = %1565, %1563, %.body
-  %.merged = phi { ptr, i32 } [ %.pn, %.body ], [ %1566, %1565 ], [ %1564, %1563 ]
-  %1570 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %260) #31
+1565:                                             ; preds = %1561, %1559, %.body
+  %.merged = phi { ptr, i32 } [ %.pn, %.body ], [ %1562, %1561 ], [ %1560, %1559 ]
+  %1566 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZNKR8nanobind6handle7dec_refEv(ptr noundef nonnull align 8 dereferenceable(8) %260) #31
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %260) #27
   resume { ptr, i32 } %.merged
 
-1571:                                             ; preds = %1563
-  %1572 = landingpad { ptr, i32 }
+1567:                                             ; preds = %1559
+  %1568 = landingpad { ptr, i32 }
           catch ptr null
-  %1573 = extractvalue { ptr, i32 } %1572, 0
-  call void @__clang_call_terminate(ptr %1573) #30
+  %1569 = extractvalue { ptr, i32 } %1568, 0
+  call void @__clang_call_terminate(ptr %1569) #30
   unreachable
 }
 
@@ -4624,49 +4620,47 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN8n
   store i32 176, ptr %9, align 8, !tbaa !119
   %17 = getelementptr inbounds nuw i8, ptr %3, i64 17
   %18 = load i8, ptr %17, align 1, !tbaa !129, !range !131, !noundef !132
-  %19 = trunc nuw i8 %18 to i1
-  %spec.select.i = select i1 %19, i8 4, i8 0
-  %20 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %21 = load i8, ptr %20, align 8, !tbaa !133
-  %.not.i = icmp ne i8 %21, 0
-  %22 = zext i1 %.not.i to i8
-  %.1.i = or disjoint i8 %spec.select.i, %22
-  %23 = getelementptr inbounds nuw i8, ptr %7, i64 88
-  %24 = getelementptr inbounds nuw i8, ptr %7, i64 120
-  store i8 %.1.i, ptr %24, align 8, !tbaa !71
-  %25 = load ptr, ptr %3, align 8, !tbaa !134
-  store ptr %25, ptr %23, align 8, !tbaa !73
-  %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %27 = load ptr, ptr %26, align 8, !tbaa !135
-  %28 = getelementptr inbounds nuw i8, ptr %7, i64 96
-  store ptr %27, ptr %28, align 8, !tbaa !74
-  %29 = getelementptr inbounds nuw i8, ptr %7, i64 112
-  %30 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %31 = load ptr, ptr %30, align 8, !tbaa !44
-  store ptr %31, ptr %29, align 8, !tbaa !75
-  %32 = getelementptr inbounds nuw i8, ptr %4, i64 17
-  %33 = load i8, ptr %32, align 1, !tbaa !129, !range !131, !noundef !132
-  %34 = trunc nuw i8 %33 to i1
-  %spec.select.i6 = select i1 %34, i8 4, i8 0
-  %35 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %36 = load i8, ptr %35, align 8, !tbaa !133
-  %.not.i7 = icmp ne i8 %36, 0
-  %37 = zext i1 %.not.i7 to i8
-  %.1.i8 = or disjoint i8 %spec.select.i6, %37
-  %38 = getelementptr inbounds nuw i8, ptr %7, i64 128
-  %39 = getelementptr inbounds nuw i8, ptr %7, i64 160
-  store i8 %.1.i8, ptr %39, align 8, !tbaa !71
-  %40 = load ptr, ptr %4, align 8, !tbaa !134
-  store ptr %40, ptr %38, align 8, !tbaa !73
-  %41 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %42 = load ptr, ptr %41, align 8, !tbaa !135
-  %43 = getelementptr inbounds nuw i8, ptr %7, i64 136
-  store ptr %42, ptr %43, align 8, !tbaa !74
-  %44 = getelementptr inbounds nuw i8, ptr %7, i64 152
-  %45 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %46 = load ptr, ptr %45, align 8, !tbaa !44
-  store ptr %46, ptr %44, align 8, !tbaa !75
-  %47 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %7) #31
+  %spec.select.i = shl nuw nsw i8 %18, 2
+  %19 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %20 = load i8, ptr %19, align 8, !tbaa !133
+  %.not.i = icmp ne i8 %20, 0
+  %21 = zext i1 %.not.i to i8
+  %.1.i = or disjoint i8 %spec.select.i, %21
+  %22 = getelementptr inbounds nuw i8, ptr %7, i64 88
+  %23 = getelementptr inbounds nuw i8, ptr %7, i64 120
+  store i8 %.1.i, ptr %23, align 8, !tbaa !71
+  %24 = load ptr, ptr %3, align 8, !tbaa !134
+  store ptr %24, ptr %22, align 8, !tbaa !73
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %26 = load ptr, ptr %25, align 8, !tbaa !135
+  %27 = getelementptr inbounds nuw i8, ptr %7, i64 96
+  store ptr %26, ptr %27, align 8, !tbaa !74
+  %28 = getelementptr inbounds nuw i8, ptr %7, i64 112
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %30 = load ptr, ptr %29, align 8, !tbaa !44
+  store ptr %30, ptr %28, align 8, !tbaa !75
+  %31 = getelementptr inbounds nuw i8, ptr %4, i64 17
+  %32 = load i8, ptr %31, align 1, !tbaa !129, !range !131, !noundef !132
+  %spec.select.i6 = shl nuw nsw i8 %32, 2
+  %33 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %34 = load i8, ptr %33, align 8, !tbaa !133
+  %.not.i7 = icmp ne i8 %34, 0
+  %35 = zext i1 %.not.i7 to i8
+  %.1.i8 = or disjoint i8 %spec.select.i6, %35
+  %36 = getelementptr inbounds nuw i8, ptr %7, i64 128
+  %37 = getelementptr inbounds nuw i8, ptr %7, i64 160
+  store i8 %.1.i8, ptr %37, align 8, !tbaa !71
+  %38 = load ptr, ptr %4, align 8, !tbaa !134
+  store ptr %38, ptr %36, align 8, !tbaa !73
+  %39 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %40 = load ptr, ptr %39, align 8, !tbaa !135
+  %41 = getelementptr inbounds nuw i8, ptr %7, i64 136
+  store ptr %40, ptr %41, align 8, !tbaa !74
+  %42 = getelementptr inbounds nuw i8, ptr %7, i64 152
+  %43 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %44 = load ptr, ptr %43, align 8, !tbaa !44
+  store ptr %44, ptr %42, align 8, !tbaa !75
+  %45 = call noundef ptr @_ZN8nanobind6detail11nb_func_newEPKv(ptr noundef nonnull %7) #31
   call void @llvm.lifetime.end.p0(i64 168, ptr nonnull %7) #27
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #27
   ret ptr %0

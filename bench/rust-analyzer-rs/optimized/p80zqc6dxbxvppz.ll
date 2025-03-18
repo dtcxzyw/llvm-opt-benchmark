@@ -64253,8 +64253,7 @@ define hidden { i64, ptr } @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..op
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef range(i8 2, 4) i8 @"_ZN4core3ops8function5impls80_$LT$impl$u20$core..ops..function..FnOnce$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$9call_once17h0db287a30cf47be7E"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #11 {
   %3 = load i8, ptr %1, align 8, !range !98, !alias.scope !12097, !noundef !26
-  %trunc.i = trunc nuw i8 %3 to i1
-  %..i = select i1 %trunc.i, i8 2, i8 3
+  %..i = xor i8 %3, 3
   ret i8 %..i
 }
 
@@ -77194,20 +77193,21 @@ define noundef nonnull ptr @"_ZN6hir_ty8chalk_db120_$LT$impl$u20$chalk_solve..Ru
 
 43:                                               ; preds = %.thread, %39
   %.sroa.6.047 = phi i8 [ 1, %.thread ], [ %.sroa.6.0, %39 ]
-  %44 = trunc i8 %.sroa.6.047 to i1
+  %44 = and i8 %.sroa.6.047, 1
+  %. = xor i8 %44, 3
   br label %47
 
 45:                                               ; preds = %39
   %46 = trunc i16 %.sroa.05.sroa.4.0.copyload to i1
   %switch.offset49 = add nsw i8 %.sroa.526.0.extract.trunc, 1
+  %.50 = select i1 %46, i8 2, i8 3
   br label %47
 
 47:                                               ; preds = %45, %43
-  %.sink = phi i1 [ %46, %45 ], [ %44, %43 ]
-  %.sroa.712.0 = phi i8 [ %switch.offset49, %45 ], [ 0, %43 ]
-  %.50 = select i1 %.sink, i8 2, i8 3
+  %.sroa.712.0 = phi i8 [ 0, %43 ], [ %switch.offset49, %45 ]
+  %.sroa.011.0 = phi i8 [ %., %43 ], [ %.50, %45 ]
   %48 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  store i8 %.50, ptr %48, align 1
+  store i8 %.sroa.011.0, ptr %48, align 1
   %49 = getelementptr inbounds nuw i8, ptr %6, i64 2
   store i8 %.sroa.712.0, ptr %49, align 2
   store i8 2, ptr %6, align 8
@@ -93968,8 +93968,7 @@ define hidden noundef nonnull ptr @"_ZN6hir_ty5infer6coerce23auto_deref_adjust_s
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
 define hidden noundef range(i8 2, 4) i8 @"_ZN6hir_ty5infer6coerce23auto_deref_adjust_steps28_$u7b$$u7b$closure$u7d$$u7d$17h57a03d3a411e4d7dE.llvm.2869318172927361419"(ptr noalias noundef nonnull readnone align 1 captures(none) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %1) unnamed_addr #8 {
   %3 = load i8, ptr %1, align 8, !range !98, !noundef !26
-  %trunc = trunc nuw i8 %3 to i1
-  %. = select i1 %trunc, i8 2, i8 3
+  %. = xor i8 %3, 3
   ret i8 %.
 }
 

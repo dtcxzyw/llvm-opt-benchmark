@@ -1169,8 +1169,8 @@ _ZN7QStringD2Ev.exit26:                           ; preds = %64, %_ZN17QArrayDat
 71:                                               ; preds = %70
   %72 = getelementptr inbounds nuw i8, ptr %20, i64 88
   %73 = load i8, ptr %72, align 8, !range !6, !noundef !7
-  %74 = trunc nuw i8 %73 to i1
-  %75 = select i1 %74, i32 2, i32 0
+  %74 = shl nuw nsw i8 %73, 1
+  %75 = zext nneg i8 %74 to i32
   tail call void @_ZN8QVariantC1Ei(ptr noundef align 8 dereferenceable_or_null(32) %0, i32 noundef %75)
   br label %82
 
