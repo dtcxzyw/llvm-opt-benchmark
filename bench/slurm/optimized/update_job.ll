@@ -717,7 +717,7 @@ define internal fastcc ptr @_next_job_id() unnamed_addr #0 {
 
 10:                                               ; preds = %8, %5
   %11 = load ptr, ptr @_next_job_id.next_job_id, align 8
-  br label %68
+  br label %69
 
 12:                                               ; preds = %3
   %13 = load ptr, ptr @_next_job_id.hl, align 8
@@ -788,7 +788,7 @@ define internal fastcc ptr @_next_job_id() unnamed_addr #0 {
   %39 = icmp ult ptr %38, %22
   %or.cond45 = or i1 %.not37, %39
   %or.cond46 = and i1 %.not39, %or.cond45
-  br i1 %or.cond46, label %40, label %57
+  br i1 %or.cond46, label %40, label %58
 
 40:                                               ; preds = %.loopexit
   %41 = tail call ptr @xstrdup(ptr noundef nonnull %20) #13
@@ -799,77 +799,79 @@ define internal fastcc ptr @_next_job_id() unnamed_addr #0 {
 
 43:                                               ; preds = %40
   store i8 0, ptr %42, align 1
+  %.pre = load ptr, ptr %1, align 8
   br label %44
 
 44:                                               ; preds = %43, %40
-  %45 = tail call ptr @hostlist_create(ptr noundef nonnull %41) #13
-  store ptr %45, ptr @_next_job_id.hl, align 8
-  %.not41 = icmp eq ptr %45, null
-  br i1 %.not41, label %46, label %48
+  %45 = phi ptr [ %.pre, %43 ], [ %41, %40 ]
+  %46 = tail call ptr @hostlist_create(ptr noundef %45) #13
+  store ptr %46, ptr @_next_job_id.hl, align 8
+  %.not41 = icmp eq ptr %46, null
+  br i1 %.not41, label %47, label %49
 
-46:                                               ; preds = %44
-  %47 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.147, ptr noundef nonnull %20) #13
+47:                                               ; preds = %44
+  %48 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.147, ptr noundef nonnull %20) #13
   call void @slurm_xfree(ptr noundef nonnull %1) #13
   br label %.thread
 
-48:                                               ; preds = %44
+49:                                               ; preds = %44
   call void @slurm_xfree(ptr noundef nonnull %1) #13
-  %49 = load ptr, ptr @_next_job_id.hl, align 8
-  %50 = call ptr @hostlist_shift(ptr noundef %49) #13
-  store ptr %50, ptr %1, align 8
-  %.not42 = icmp eq ptr %50, null
-  br i1 %.not42, label %51, label %54
+  %50 = load ptr, ptr @_next_job_id.hl, align 8
+  %51 = call ptr @hostlist_shift(ptr noundef %50) #13
+  store ptr %51, ptr %1, align 8
+  %.not42 = icmp eq ptr %51, null
+  br i1 %.not42, label %52, label %55
 
-51:                                               ; preds = %48
-  %52 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.147, ptr noundef nonnull %20) #13
-  %53 = load ptr, ptr @_next_job_id.hl, align 8
-  call void @hostlist_destroy(ptr noundef %53) #13
+52:                                               ; preds = %49
+  %53 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.147, ptr noundef nonnull %20) #13
+  %54 = load ptr, ptr @_next_job_id.hl, align 8
+  call void @hostlist_destroy(ptr noundef %54) #13
   br label %.thread
 
-54:                                               ; preds = %48
-  %55 = call ptr @xstrdup(ptr noundef nonnull %50) #13
-  store ptr %55, ptr @_next_job_id.next_job_id, align 8
-  %56 = load ptr, ptr %1, align 8
-  call void @free(ptr noundef %56) #13
-  br label %62
+55:                                               ; preds = %49
+  %56 = call ptr @xstrdup(ptr noundef nonnull %51) #13
+  store ptr %56, ptr @_next_job_id.next_job_id, align 8
+  %57 = load ptr, ptr %1, align 8
+  call void @free(ptr noundef %57) #13
+  br label %63
 
-57:                                               ; preds = %.loopexit
-  br i1 %.not37, label %60, label %58
+58:                                               ; preds = %.loopexit
+  br i1 %.not37, label %61, label %59
 
-58:                                               ; preds = %57
+59:                                               ; preds = %58
   store i8 0, ptr %22, align 1
-  %59 = tail call ptr @xstrdup(ptr noundef nonnull %20) #13
-  store ptr %59, ptr @_next_job_id.next_job_id, align 8
+  %60 = tail call ptr @xstrdup(ptr noundef nonnull %20) #13
+  store ptr %60, ptr @_next_job_id.next_job_id, align 8
   store i8 95, ptr %22, align 1
-  br label %62
+  br label %63
 
-60:                                               ; preds = %57
-  %61 = tail call ptr @xstrdup(ptr noundef nonnull %20) #13
-  store ptr %61, ptr @_next_job_id.next_job_id, align 8
-  br label %62
+61:                                               ; preds = %58
+  %62 = tail call ptr @xstrdup(ptr noundef nonnull %20) #13
+  store ptr %62, ptr @_next_job_id.next_job_id, align 8
+  br label %63
 
-62:                                               ; preds = %58, %60, %54
-  %63 = load ptr, ptr @_next_job_id.task_id_spec, align 8
-  %.not43 = icmp eq ptr %63, null
-  br i1 %.not43, label %66, label %64
+63:                                               ; preds = %59, %61, %55
+  %64 = load ptr, ptr @_next_job_id.task_id_spec, align 8
+  %.not43 = icmp eq ptr %64, null
+  br i1 %.not43, label %67, label %65
 
-64:                                               ; preds = %62
+65:                                               ; preds = %63
   call void @_xstrcat(ptr noundef nonnull @_next_job_id.next_job_id, ptr noundef nonnull @.str.145) #13
-  %65 = load ptr, ptr @_next_job_id.task_id_spec, align 8
-  call void @_xstrcat(ptr noundef nonnull @_next_job_id.next_job_id, ptr noundef %65) #13
-  br label %66
+  %66 = load ptr, ptr @_next_job_id.task_id_spec, align 8
+  call void @_xstrcat(ptr noundef nonnull @_next_job_id.next_job_id, ptr noundef %66) #13
+  br label %67
 
-66:                                               ; preds = %64, %62
-  %67 = load ptr, ptr @_next_job_id.next_job_id, align 8
-  br label %68
+67:                                               ; preds = %65, %63
+  %68 = load ptr, ptr @_next_job_id.next_job_id, align 8
+  br label %69
 
-.thread:                                          ; preds = %14, %19, %51, %46
+.thread:                                          ; preds = %14, %19, %52, %47
   call void @slurm_xfree(ptr noundef nonnull @local_job_str) #13
   store ptr null, ptr @_next_job_id.save_ptr, align 8
-  br label %68
+  br label %69
 
-68:                                               ; preds = %.thread, %66, %10
-  %.025 = phi ptr [ %11, %10 ], [ %67, %66 ], [ null, %.thread ]
+69:                                               ; preds = %.thread, %67, %10
+  %.025 = phi ptr [ %11, %10 ], [ %68, %67 ], [ null, %.thread ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #13
   ret ptr %.025
 }
@@ -3506,7 +3508,7 @@ thread-pre-split795:                              ; preds = %.lr.ph1066
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #5
+declare ptr @strchr(ptr noundef captures(ret: address, provenance), i32 noundef) local_unnamed_addr #5
 
 declare i32 @error(ptr noundef, ...) local_unnamed_addr #2
 

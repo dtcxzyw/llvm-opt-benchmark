@@ -146,86 +146,88 @@ define dso_local void @spt_init(i32 noundef %0, ptr noundef captures(none) %1) l
   tail call void @free(ptr noundef nonnull %38) #14
   br label %spt_copyenv.exit.thread
 
-.lr.ph.i:                                         ; preds = %.preheader.i, %52
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %52 ], [ 0, %.preheader.i ]
-  %43 = phi ptr [ %54, %52 ], [ %41, %.preheader.i ]
+.lr.ph.i:                                         ; preds = %.preheader.i, %54
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %54 ], [ 0, %.preheader.i ]
+  %43 = phi ptr [ %56, %54 ], [ %41, %.preheader.i ]
   %44 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %43, i32 noundef 61) #15
   %.not34.i = icmp eq ptr %44, null
-  br i1 %.not34.i, label %52, label %45
+  br i1 %.not34.i, label %54, label %45
 
 45:                                               ; preds = %.lr.ph.i
+  %46 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv.i
   store i8 0, ptr %44, align 1, !tbaa !19
-  %46 = getelementptr inbounds nuw i8, ptr %44, i64 1
-  %47 = tail call i32 @setenv(ptr noundef nonnull %43, ptr noundef nonnull %46, i32 noundef 1) #14
-  %.not35.i = icmp eq i32 %47, 0
-  br i1 %.not35.i, label %.thread.i, label %48
+  %47 = load ptr, ptr %46, align 8, !tbaa !10
+  %48 = getelementptr inbounds nuw i8, ptr %44, i64 1
+  %49 = tail call i32 @setenv(ptr noundef %47, ptr noundef nonnull %48, i32 noundef 1) #14
+  %.not35.i = icmp eq i32 %49, 0
+  br i1 %.not35.i, label %.thread.i, label %50
 
 .thread.i:                                        ; preds = %45
   store i8 61, ptr %44, align 1, !tbaa !19
-  br label %52
+  br label %54
 
-48:                                               ; preds = %45
-  %49 = tail call ptr @__errno_location() #17
-  %50 = load i32, ptr %49, align 4, !tbaa !20
+50:                                               ; preds = %45
+  %51 = tail call ptr @__errno_location() #17
+  %52 = load i32, ptr %51, align 4, !tbaa !20
   store i8 61, ptr %44, align 1, !tbaa !19
-  %.not36.i = icmp eq i32 %50, 0
-  br i1 %.not36.i, label %52, label %51
+  %.not36.i = icmp eq i32 %52, 0
+  br i1 %.not36.i, label %54, label %53
 
-51:                                               ; preds = %48
+53:                                               ; preds = %50
   store ptr %38, ptr @environ, align 8, !tbaa !5
   br label %spt_copyenv.exit.thread
 
-52:                                               ; preds = %48, %.thread.i, %.lr.ph.i
+54:                                               ; preds = %50, %.thread.i, %.lr.ph.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %53 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv.next.i
-  %54 = load ptr, ptr %53, align 8, !tbaa !10
-  %.not33.i = icmp eq ptr %54, null
+  %55 = getelementptr inbounds nuw ptr, ptr %38, i64 %indvars.iv.next.i
+  %56 = load ptr, ptr %55, align 8, !tbaa !10
+  %.not33.i = icmp eq ptr %56, null
   br i1 %.not33.i, label %.loopexit, label %.lr.ph.i, !llvm.loop !21
 
-.loopexit:                                        ; preds = %52, %.preheader.i
+.loopexit:                                        ; preds = %54, %.preheader.i
   tail call void @free(ptr noundef nonnull %38) #14
-  br label %55
+  br label %57
 
-55:                                               ; preds = %60, %.loopexit
-  %indvars.iv.i87 = phi i64 [ %indvars.iv.next.i89, %60 ], [ 1, %.loopexit ]
-  %56 = icmp slt i64 %indvars.iv.i87, %9
+57:                                               ; preds = %62, %.loopexit
+  %indvars.iv.i87 = phi i64 [ %indvars.iv.next.i89, %62 ], [ 1, %.loopexit ]
+  %58 = icmp slt i64 %indvars.iv.i87, %9
   %.phi.trans.insert.i = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv.i87
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !10
   %.not19.i = icmp eq ptr %.pre.i, null
-  br i1 %56, label %.critedge.i, label %57
+  br i1 %58, label %.critedge.i, label %59
 
-57:                                               ; preds = %55
+59:                                               ; preds = %57
   br i1 %.not19.i, label %spt_copyargs.exit.thread, label %.critedge.thread.i
 
-.critedge.i:                                      ; preds = %55
-  br i1 %.not19.i, label %60, label %.critedge.thread.i
+.critedge.i:                                      ; preds = %57
+  br i1 %.not19.i, label %62, label %.critedge.thread.i
 
-.critedge.thread.i:                               ; preds = %57, %.critedge.i
-  %58 = tail call noalias ptr @strdup(ptr noundef nonnull %.pre.i) #14
-  %.not20.i = icmp eq ptr %58, null
-  br i1 %.not20.i, label %spt_copyargs.exit, label %59
+.critedge.thread.i:                               ; preds = %59, %.critedge.i
+  %60 = tail call noalias ptr @strdup(ptr noundef nonnull %.pre.i) #14
+  %.not20.i = icmp eq ptr %60, null
+  br i1 %.not20.i, label %spt_copyargs.exit, label %61
 
-59:                                               ; preds = %.critedge.thread.i
-  store ptr %58, ptr %.phi.trans.insert.i, align 8, !tbaa !10
-  br label %60
+61:                                               ; preds = %.critedge.thread.i
+  store ptr %60, ptr %.phi.trans.insert.i, align 8, !tbaa !10
+  br label %62
 
-60:                                               ; preds = %59, %.critedge.i
+62:                                               ; preds = %61, %.critedge.i
   %indvars.iv.next.i89 = add nuw nsw i64 %indvars.iv.i87, 1
-  br label %55, !llvm.loop !22
+  br label %57, !llvm.loop !22
 
 spt_copyargs.exit:                                ; preds = %.critedge.thread.i
-  %61 = tail call ptr @__errno_location() #17
-  %62 = load i32, ptr %61, align 4, !tbaa !20
-  %.not78 = icmp eq i32 %62, 0
+  %63 = tail call ptr @__errno_location() #17
+  %64 = load i32, ptr %63, align 4, !tbaa !20
+  %.not78 = icmp eq i32 %64, 0
   br i1 %.not78, label %spt_copyargs.exit.thread, label %spt_copyenv.exit.thread
 
-spt_copyargs.exit.thread:                         ; preds = %57, %spt_copyargs.exit
+spt_copyargs.exit.thread:                         ; preds = %59, %spt_copyargs.exit
   store ptr %7, ptr @SPT.3, align 8, !tbaa !23
   store ptr %4, ptr @SPT.1, align 8, !tbaa !24
   store ptr %.2.lcssa, ptr @SPT.2, align 8, !tbaa !25
   br label %spt_copyenv.exit.thread
 
-spt_copyenv.exit.thread:                          ; preds = %37, %51, %42, %spt_copyargs.exit, %34, %31, %.critedge2._crit_edge, %2, %spt_copyargs.exit.thread
+spt_copyenv.exit.thread:                          ; preds = %37, %53, %42, %spt_copyargs.exit, %34, %31, %.critedge2._crit_edge, %2, %spt_copyargs.exit.thread
   ret void
 }
 
@@ -354,7 +356,7 @@ declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #11
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @strchr(ptr noundef captures(ret: address, provenance), i32 noundef) local_unnamed_addr #3
 
 ; Function Attrs: nounwind
 declare i32 @setenv(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #1

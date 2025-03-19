@@ -8211,75 +8211,77 @@ define internal fastcc range(i32 -1, 1) i32 @_set_work_dir() unnamed_addr #0 {
 
 14:                                               ; preds = %8
   store i8 0, ptr %10, align 1
+  %.pre = load ptr, ptr %1, align 8
   br label %15
 
 15:                                               ; preds = %14, %12
-  %16 = tail call i32 @access(ptr noundef nonnull %9, i32 noundef 2) #18
-  %.not8 = icmp eq i32 %16, 0
-  br i1 %.not8, label %17, label %20
+  %16 = phi ptr [ %.pre, %14 ], [ %9, %12 ]
+  %17 = tail call i32 @access(ptr noundef %16, i32 noundef 2) #18
+  %.not8 = icmp eq i32 %17, 0
+  br i1 %.not8, label %18, label %21
 
-17:                                               ; preds = %15
-  %18 = tail call i32 @chdir(ptr noundef nonnull %9) #18
-  %19 = icmp slt i32 %18, 0
-  br i1 %19, label %20, label %.thread13
+18:                                               ; preds = %15
+  %19 = tail call i32 @chdir(ptr noundef %16) #18
+  %20 = icmp slt i32 %19, 0
+  br i1 %20, label %21, label %.thread13
 
-.thread13:                                        ; preds = %17
+.thread13:                                        ; preds = %18
   call void @slurm_xfree(ptr noundef nonnull %1) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #18
   br label %.thread16
 
-20:                                               ; preds = %15, %17
-  %21 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.283, ptr noundef nonnull %9) #18
+21:                                               ; preds = %15, %18
+  %22 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.283, ptr noundef %16) #18
   call void @slurm_xfree(ptr noundef nonnull %1) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #18
-  %.pre = load ptr, ptr @conf, align 8
+  %.pre18 = load ptr, ptr @conf, align 8
   br label %.thread
 
-.thread:                                          ; preds = %0, %5, %20
-  %22 = phi ptr [ %2, %0 ], [ %2, %5 ], [ %.pre, %20 ]
-  %23 = getelementptr inbounds nuw i8, ptr %22, i64 4360
-  %24 = load ptr, ptr %23, align 8
-  %25 = call i32 @access(ptr noundef %24, i32 noundef 2) #18
-  %.not9 = icmp eq i32 %25, 0
-  br i1 %.not9, label %26, label %32
+.thread:                                          ; preds = %0, %5, %21
+  %23 = phi ptr [ %2, %0 ], [ %2, %5 ], [ %.pre18, %21 ]
+  %24 = getelementptr inbounds nuw i8, ptr %23, i64 4360
+  %25 = load ptr, ptr %24, align 8
+  %26 = call i32 @access(ptr noundef %25, i32 noundef 2) #18
+  %.not9 = icmp eq i32 %26, 0
+  br i1 %.not9, label %27, label %33
 
-26:                                               ; preds = %.thread
-  %27 = load ptr, ptr @conf, align 8
-  %28 = getelementptr inbounds nuw i8, ptr %27, i64 4360
-  %29 = load ptr, ptr %28, align 8
-  %30 = call i32 @chdir(ptr noundef %29) #18
-  %31 = icmp slt i32 %30, 0
-  br i1 %31, label %32, label %.thread16
+27:                                               ; preds = %.thread
+  %28 = load ptr, ptr @conf, align 8
+  %29 = getelementptr inbounds nuw i8, ptr %28, i64 4360
+  %30 = load ptr, ptr %29, align 8
+  %31 = call i32 @chdir(ptr noundef %30) #18
+  %32 = icmp slt i32 %31, 0
+  br i1 %32, label %33, label %.thread16
 
-32:                                               ; preds = %26, %.thread
-  %33 = load ptr, ptr @conf, align 8
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 4360
-  %35 = load ptr, ptr %34, align 8
-  %36 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.283, ptr noundef %35) #18
-  %37 = call i32 @access(ptr noundef nonnull @.str.284, i32 noundef 2) #18
-  %.not10 = icmp eq i32 %37, 0
-  br i1 %.not10, label %38, label %41
+33:                                               ; preds = %27, %.thread
+  %34 = load ptr, ptr @conf, align 8
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 4360
+  %36 = load ptr, ptr %35, align 8
+  %37 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.283, ptr noundef %36) #18
+  %38 = call i32 @access(ptr noundef nonnull @.str.284, i32 noundef 2) #18
+  %.not10 = icmp eq i32 %38, 0
+  br i1 %.not10, label %39, label %42
 
-38:                                               ; preds = %32
-  %39 = call i32 @chdir(ptr noundef nonnull @.str.284) #18
-  %40 = icmp slt i32 %39, 0
-  br i1 %40, label %41, label %43
+39:                                               ; preds = %33
+  %40 = call i32 @chdir(ptr noundef nonnull @.str.284) #18
+  %41 = icmp slt i32 %40, 0
+  br i1 %41, label %42, label %44
 
-41:                                               ; preds = %38, %32
-  %42 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.285) #18
+42:                                               ; preds = %39, %33
+  %43 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.285) #18
   br label %.thread16
 
-43:                                               ; preds = %38
-  %44 = call i32 @get_log_level() #18
-  %45 = icmp sgt i32 %44, 2
-  br i1 %45, label %46, label %.thread16
+44:                                               ; preds = %39
+  %45 = call i32 @get_log_level() #18
+  %46 = icmp sgt i32 %45, 2
+  br i1 %46, label %47, label %.thread16
 
-46:                                               ; preds = %43
+47:                                               ; preds = %44
   call void (i32, ptr, ...) @log_var(i32 noundef 3, ptr noundef nonnull @.str.286) #18
   br label %.thread16
 
-.thread16:                                        ; preds = %.thread13, %26, %43, %46, %41
-  %.0 = phi i32 [ -1, %41 ], [ 0, %46 ], [ 0, %43 ], [ 0, %26 ], [ 0, %.thread13 ]
+.thread16:                                        ; preds = %.thread13, %27, %44, %47, %42
+  %.0 = phi i32 [ -1, %42 ], [ 0, %47 ], [ 0, %44 ], [ 0, %27 ], [ 0, %.thread13 ]
   ret i32 %.0
 }
 
@@ -8549,7 +8551,7 @@ declare noundef i32 @rmdir(ptr noundef readonly captures(none)) local_unnamed_ad
 declare noundef i32 @closedir(ptr noundef captures(none)) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #15
+declare ptr @strrchr(ptr noundef captures(ret: address, provenance), i32 noundef) local_unnamed_addr #15
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @access(ptr noundef readonly captures(none), i32 noundef) local_unnamed_addr #7

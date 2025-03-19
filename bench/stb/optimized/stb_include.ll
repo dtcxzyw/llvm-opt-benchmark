@@ -400,7 +400,7 @@ define noalias noundef ptr @stb_include_append(ptr noundef captures(none) %0, pt
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @stb_include_string(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef %4) local_unnamed_addr #6 {
+define noalias noundef ptr @stb_include_string(ptr noundef %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(none) %2, ptr noundef readonly captures(address_is_null) %3, ptr noundef captures(none) %4) local_unnamed_addr #6 {
   %6 = alloca i64, align 8
   %7 = alloca [4096 x i8], align 16
   %8 = alloca ptr, align 8
@@ -608,13 +608,13 @@ stb_include_itoa.exit73:                          ; preds = %56
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #13
+declare ptr @strcpy(ptr noalias noundef returned writeonly captures(ret: address, provenance), ptr noalias noundef readonly captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none)) local_unnamed_addr #13
+declare ptr @strcat(ptr noalias noundef returned captures(ret: address, provenance), ptr noalias noundef readonly captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @stb_include_file(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(none) %2, ptr noundef %3) local_unnamed_addr #6 {
+define noalias noundef ptr @stb_include_file(ptr noundef captures(address_is_null) %0, ptr noundef captures(address_is_null) %1, ptr noundef readonly captures(none) %2, ptr noundef captures(none) %3) local_unnamed_addr #6 {
   %5 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #16
   %6 = call ptr @stb_include_load_file(ptr noundef %0, ptr noundef nonnull %5)
@@ -641,7 +641,7 @@ define noalias noundef ptr @stb_include_file(ptr noundef captures(address_is_nul
 }
 
 ; Function Attrs: nounwind uwtable
-define noalias noundef ptr @stb_include_strings(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(address_is_null) %4, ptr noundef %5) local_unnamed_addr #6 {
+define noalias noundef ptr @stb_include_strings(ptr noundef readonly captures(none) %0, i32 noundef %1, ptr noundef captures(address_is_null) %2, ptr noundef readonly captures(none) %3, ptr noundef captures(address_is_null) %4, ptr noundef captures(none) %5) local_unnamed_addr #6 {
   %7 = icmp sgt i32 %1, 0
   br i1 %7, label %.lr.ph.preheader, label %._crit_edge
 

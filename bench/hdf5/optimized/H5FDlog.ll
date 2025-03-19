@@ -629,162 +629,154 @@ define internal ptr @H5FD__log_open(ptr noundef %0, i32 noundef %1, i64 noundef 
 
 119:                                              ; preds = %102
   %120 = call noalias ptr @H5MM_strdup(ptr noundef nonnull %118) #19
-  %.pr = load i64, ptr %117, align 8, !tbaa !37
   br label %121
 
 121:                                              ; preds = %102, %119
-  %122 = phi i64 [ %115, %102 ], [ %.pr, %119 ]
   %storemerge = phi ptr [ null, %102 ], [ %120, %119 ]
   store ptr %storemerge, ptr %116, align 8, !tbaa !38
-  %123 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 16
-  %124 = load i64, ptr %123, align 8, !tbaa !19
-  %125 = getelementptr inbounds nuw i8, ptr %96, i64 1280
-  store i64 %124, ptr %125, align 8, !tbaa !39
-  %.not116 = icmp eq i64 %122, 0
-  br i1 %.not116, label %167, label %126
+  %122 = getelementptr inbounds nuw i8, ptr %spec.store.select, i64 16
+  %123 = load i64, ptr %122, align 8, !tbaa !19
+  %124 = getelementptr inbounds nuw i8, ptr %96, i64 1280
+  store i64 %123, ptr %124, align 8, !tbaa !39
+  %.not116 = icmp eq i64 %115, 0
+  br i1 %.not116, label %163, label %125
 
-126:                                              ; preds = %121
-  %127 = getelementptr inbounds nuw i8, ptr %96, i64 1248
-  store i64 %124, ptr %127, align 8, !tbaa !40
-  %128 = and i64 %122, 16
-  %.not117 = icmp eq i64 %128, 0
-  br i1 %.not117, label %132, label %129
+125:                                              ; preds = %121
+  %126 = getelementptr inbounds nuw i8, ptr %96, i64 1248
+  store i64 %123, ptr %126, align 8, !tbaa !40
+  %127 = and i64 %115, 16
+  %.not117 = icmp eq i64 %127, 0
+  br i1 %.not117, label %131, label %128
 
-129:                                              ; preds = %126
-  %130 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %124) #20
-  %131 = getelementptr inbounds nuw i8, ptr %96, i64 1160
-  store ptr %130, ptr %131, align 8, !tbaa !41
-  br label %132
+128:                                              ; preds = %125
+  %129 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %123) #20
+  %130 = getelementptr inbounds nuw i8, ptr %96, i64 1160
+  store ptr %129, ptr %130, align 8, !tbaa !41
+  br label %131
 
-132:                                              ; preds = %129, %126
-  %133 = and i64 %122, 32
-  %.not118 = icmp eq i64 %133, 0
-  br i1 %.not118, label %137, label %134
+131:                                              ; preds = %128, %125
+  %132 = and i64 %115, 32
+  %.not118 = icmp eq i64 %132, 0
+  br i1 %.not118, label %136, label %133
 
-134:                                              ; preds = %132
-  %135 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %124) #20
-  %136 = getelementptr inbounds nuw i8, ptr %96, i64 1168
-  store ptr %135, ptr %136, align 8, !tbaa !42
-  br label %137
+133:                                              ; preds = %131
+  %134 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %123) #20
+  %135 = getelementptr inbounds nuw i8, ptr %96, i64 1168
+  store ptr %134, ptr %135, align 8, !tbaa !42
+  br label %136
 
-137:                                              ; preds = %134, %132
-  %138 = and i64 %122, 64
-  %.not119 = icmp eq i64 %138, 0
-  br i1 %.not119, label %142, label %139
+136:                                              ; preds = %133, %131
+  %137 = and i64 %115, 64
+  %.not119 = icmp eq i64 %137, 0
+  br i1 %.not119, label %141, label %138
 
-139:                                              ; preds = %137
-  %140 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %124) #20
-  %141 = getelementptr inbounds nuw i8, ptr %96, i64 1176
-  store ptr %140, ptr %141, align 8, !tbaa !43
-  br label %142
+138:                                              ; preds = %136
+  %139 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %123) #20
+  %140 = getelementptr inbounds nuw i8, ptr %96, i64 1176
+  store ptr %139, ptr %140, align 8, !tbaa !43
+  br label %141
 
-142:                                              ; preds = %139, %137
-  %143 = load ptr, ptr %spec.store.select, align 8, !tbaa !13
-  %.not120 = icmp eq ptr %143, null
-  br i1 %.not120, label %146, label %144
+141:                                              ; preds = %138, %136
+  %142 = load ptr, ptr %spec.store.select, align 8, !tbaa !13
+  %.not120 = icmp eq ptr %142, null
+  br i1 %.not120, label %145, label %143
 
-144:                                              ; preds = %142
-  %145 = call noalias ptr @fopen64(ptr noundef nonnull %143, ptr noundef nonnull @.str.17)
-  %.pre144 = load i64, ptr %117, align 8, !tbaa !37
-  br label %148
+143:                                              ; preds = %141
+  %144 = call noalias ptr @fopen64(ptr noundef nonnull %142, ptr noundef nonnull @.str.17)
+  br label %147
 
-146:                                              ; preds = %142
-  %147 = load ptr, ptr @stderr, align 8, !tbaa !44
-  br label %148
+145:                                              ; preds = %141
+  %146 = load ptr, ptr @stderr, align 8, !tbaa !44
+  br label %147
 
-148:                                              ; preds = %146, %144
-  %149 = phi i64 [ %122, %146 ], [ %.pre144, %144 ]
-  %.sink = phi ptr [ %147, %146 ], [ %145, %144 ]
-  %150 = getelementptr inbounds nuw i8, ptr %96, i64 1256
-  store ptr %.sink, ptr %150, align 8, !tbaa !45
-  %151 = and i64 %149, 2048
-  %.not121 = icmp eq i64 %151, 0
-  br i1 %.not121, label %158, label %152
+147:                                              ; preds = %145, %143
+  %148 = phi ptr [ %146, %145 ], [ %144, %143 ]
+  %149 = getelementptr inbounds nuw i8, ptr %96, i64 1256
+  store ptr %148, ptr %149, align 8, !tbaa !45
+  %150 = and i64 %115, 2048
+  %.not121 = icmp eq i64 %150, 0
+  br i1 %.not121, label %156, label %151
 
-152:                                              ; preds = %148
+151:                                              ; preds = %147
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %8) #19
-  %153 = call i32 @H5_timer_get_times(ptr noundef nonnull byval(%struct.H5_timer_t) align 8 %5, ptr noundef nonnull %8) #19
-  %154 = load ptr, ptr %150, align 8, !tbaa !45
-  %155 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %156 = load double, ptr %155, align 8, !tbaa !46
-  %157 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %154, ptr noundef nonnull @.str.18, double noundef %156) #19
+  %152 = call i32 @H5_timer_get_times(ptr noundef nonnull byval(%struct.H5_timer_t) align 8 %5, ptr noundef nonnull %8) #19
+  %153 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %154 = load double, ptr %153, align 8, !tbaa !46
+  %155 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %148, ptr noundef nonnull @.str.18, double noundef %154) #19
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %8) #19
-  %.pre145 = load i64, ptr %117, align 8, !tbaa !37
-  br label %158
+  br label %156
 
-158:                                              ; preds = %152, %148
-  %159 = phi i64 [ %.pre145, %152 ], [ %149, %148 ]
-  %160 = and i64 %159, 4096
-  %.not122 = icmp eq i64 %160, 0
-  br i1 %.not122, label %167, label %161
+156:                                              ; preds = %151, %147
+  %157 = and i64 %115, 4096
+  %.not122 = icmp eq i64 %157, 0
+  br i1 %.not122, label %163, label %158
 
-161:                                              ; preds = %158
+158:                                              ; preds = %156
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %9) #19
-  %162 = call i32 @H5_timer_get_times(ptr noundef nonnull byval(%struct.H5_timer_t) align 8 %6, ptr noundef nonnull %9) #19
-  %163 = load ptr, ptr %150, align 8, !tbaa !45
-  %164 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %165 = load double, ptr %164, align 8, !tbaa !46
-  %166 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %163, ptr noundef nonnull @.str.19, double noundef %165) #19
+  %159 = call i32 @H5_timer_get_times(ptr noundef nonnull byval(%struct.H5_timer_t) align 8 %6, ptr noundef nonnull %9) #19
+  %160 = getelementptr inbounds nuw i8, ptr %9, i64 16
+  %161 = load double, ptr %160, align 8, !tbaa !46
+  %162 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %148, ptr noundef nonnull @.str.19, double noundef %161) #19
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %9) #19
-  br label %167
+  br label %163
 
-167:                                              ; preds = %158, %161, %121
-  %168 = load i32, ptr @H5FD_ignore_disabled_file_locks_p, align 4, !tbaa !21
-  %.not123 = icmp eq i32 %168, -1
-  br i1 %.not123, label %173, label %169
+163:                                              ; preds = %156, %158, %121
+  %164 = load i32, ptr @H5FD_ignore_disabled_file_locks_p, align 4, !tbaa !21
+  %.not123 = icmp eq i32 %164, -1
+  br i1 %.not123, label %169, label %165
 
-169:                                              ; preds = %167
-  %170 = icmp ne i32 %168, 0
-  %171 = getelementptr inbounds nuw i8, ptr %96, i64 104
-  %172 = zext i1 %170 to i8
-  store i8 %172, ptr %171, align 8, !tbaa !48
-  br label %181
+165:                                              ; preds = %163
+  %166 = icmp ne i32 %164, 0
+  %167 = getelementptr inbounds nuw i8, ptr %96, i64 104
+  %168 = zext i1 %166 to i8
+  store i8 %168, ptr %167, align 8, !tbaa !48
+  br label %177
 
-173:                                              ; preds = %167
-  %174 = getelementptr inbounds nuw i8, ptr %96, i64 104
-  %175 = call i32 @H5P_get(ptr noundef nonnull %46, ptr noundef nonnull @.str.20, ptr noundef nonnull %174) #19
-  %176 = icmp slt i32 %175, 0
-  br i1 %176, label %177, label %181
+169:                                              ; preds = %163
+  %170 = getelementptr inbounds nuw i8, ptr %96, i64 104
+  %171 = call i32 @H5P_get(ptr noundef nonnull %46, ptr noundef nonnull @.str.20, ptr noundef nonnull %170) #19
+  %172 = icmp slt i32 %171, 0
+  br i1 %172, label %173, label %177
 
-177:                                              ; preds = %173
-  %178 = load i64, ptr @H5E_VFL_g, align 8, !tbaa !10
-  %179 = load i64, ptr @H5E_CANTGET_g, align 8, !tbaa !10
-  %180 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__log_open, i32 noundef 570, i64 noundef %178, i64 noundef %179, ptr noundef nonnull @.str.21) #19
-  br label %195
+173:                                              ; preds = %169
+  %174 = load i64, ptr @H5E_VFL_g, align 8, !tbaa !10
+  %175 = load i64, ptr @H5E_CANTGET_g, align 8, !tbaa !10
+  %176 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__log_open, i32 noundef 570, i64 noundef %174, i64 noundef %175, ptr noundef nonnull @.str.21) #19
+  br label %191
 
-181:                                              ; preds = %173, %169
-  %182 = load i64, ptr @H5P_LST_FILE_ACCESS_ID_g, align 8, !tbaa !10
-  %.not124 = icmp eq i64 %182, %2
-  br i1 %.not124, label %.thread136, label %183
+177:                                              ; preds = %169, %165
+  %178 = load i64, ptr @H5P_LST_FILE_ACCESS_ID_g, align 8, !tbaa !10
+  %.not124 = icmp eq i64 %178, %2
+  br i1 %.not124, label %.thread136, label %179
 
-183:                                              ; preds = %181
-  %184 = call i32 @H5P_exist_plist(ptr noundef nonnull %46, ptr noundef nonnull @.str.22) #19
-  %185 = icmp sgt i32 %184, 0
+179:                                              ; preds = %177
+  %180 = call i32 @H5P_exist_plist(ptr noundef nonnull %46, ptr noundef nonnull @.str.22) #19
+  %181 = icmp sgt i32 %180, 0
+  br i1 %181, label %182, label %.thread136
+
+182:                                              ; preds = %179
+  %183 = getelementptr inbounds nuw i8, ptr %96, i64 1152
+  %184 = call i32 @H5P_get(ptr noundef nonnull %46, ptr noundef nonnull @.str.22, ptr noundef nonnull %183) #19
+  %185 = icmp slt i32 %184, 0
   br i1 %185, label %186, label %.thread136
 
-186:                                              ; preds = %183
-  %187 = getelementptr inbounds nuw i8, ptr %96, i64 1152
-  %188 = call i32 @H5P_get(ptr noundef nonnull %46, ptr noundef nonnull @.str.22, ptr noundef nonnull %187) #19
-  %189 = icmp slt i32 %188, 0
-  br i1 %189, label %190, label %.thread136
-
-190:                                              ; preds = %186
-  %191 = load i64, ptr @H5E_VFL_g, align 8, !tbaa !10
-  %192 = load i64, ptr @H5E_CANTGET_g, align 8, !tbaa !10
-  %193 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__log_open, i32 noundef 582, i64 noundef %191, i64 noundef %192, ptr noundef nonnull @.str.23) #19
-  br label %195
+186:                                              ; preds = %182
+  %187 = load i64, ptr @H5E_VFL_g, align 8, !tbaa !10
+  %188 = load i64, ptr @H5E_CANTGET_g, align 8, !tbaa !10
+  %189 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5FD__log_open, i32 noundef 582, i64 noundef %187, i64 noundef %188, ptr noundef nonnull @.str.23) #19
+  br label %191
 
 .thread140:                                       ; preds = %98, %83
-  %194 = call i32 @close(i32 noundef %61) #19
+  %190 = call i32 @close(i32 noundef %61) #19
   br label %.thread136
 
-195:                                              ; preds = %177, %190
-  %196 = call i32 @close(i32 noundef %61) #19
-  %197 = call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5FD_log_t_reg_free_list, ptr noundef nonnull %96) #19
+191:                                              ; preds = %173, %186
+  %192 = call i32 @close(i32 noundef %61) #19
+  %193 = call ptr @H5FL_reg_free(ptr noundef nonnull @H5_H5FD_log_t_reg_free_list, ptr noundef nonnull %96) #19
   br label %.thread136
 
-.thread136:                                       ; preds = %19, %63, %48, %30, %25, %.thread140, %183, %186, %181, %4, %195
-  %.092 = phi ptr [ null, %195 ], [ null, %4 ], [ %96, %183 ], [ %96, %186 ], [ %96, %181 ], [ null, %.thread140 ], [ null, %25 ], [ null, %30 ], [ null, %48 ], [ null, %63 ], [ null, %19 ]
+.thread136:                                       ; preds = %19, %63, %48, %30, %25, %.thread140, %179, %182, %177, %4, %191
+  %.092 = phi ptr [ null, %191 ], [ null, %4 ], [ %96, %179 ], [ %96, %182 ], [ %96, %177 ], [ null, %.thread140 ], [ null, %25 ], [ null, %30 ], [ null, %48 ], [ null, %63 ], [ null, %19 ]
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %7) #19
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %6) #19
   call void @llvm.lifetime.end.p0(i64 80, ptr nonnull %5) #19
@@ -2363,7 +2355,7 @@ declare noundef i32 @fstat64(i32 noundef, ptr noundef captures(none)) local_unna
 declare noalias ptr @H5FL_reg_calloc(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #16
+declare ptr @strncpy(ptr noalias noundef returned writeonly captures(ret: address, provenance), ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #16
 
 ; Function Attrs: nofree nounwind
 declare noalias noundef ptr @fopen64(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #15

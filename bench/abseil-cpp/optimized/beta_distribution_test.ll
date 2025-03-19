@@ -22796,7 +22796,7 @@ define linkonce_odr dso_local void @_ZN7testing8internal19GetPrefixUntilCommaB5c
 declare i32 @isspace(i32 noundef) local_unnamed_addr #29
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare noundef ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #20
+declare noundef ptr @strchr(ptr noundef captures(ret: address, provenance), i32 noundef) local_unnamed_addr #20
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_148BetaDistributionInterfaceTest_SerializeTest_TestIfEEED0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #12 align 2 {

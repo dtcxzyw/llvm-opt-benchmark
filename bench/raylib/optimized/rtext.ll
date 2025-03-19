@@ -1121,7 +1121,7 @@ GetLine.exit131.i:                                ; preds = %57, %.split.loop.ex
   %60 = getelementptr inbounds nuw i8, ptr %4, i64 %59
   store i8 0, ptr %60, align 1, !noalias !8
   %61 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.72) #43, !noalias !8
-  %62 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %61, ptr noundef nonnull @.str.73, ptr noundef nonnull %5, ptr noundef nonnull %11, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9) #41, !noalias !8
+  %62 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %61, ptr noundef nonnull @.str.73, ptr noundef nonnull %5, ptr noundef nonnull %11, ptr noundef nonnull %7, ptr noundef nonnull %8, ptr noundef nonnull %9) #41
   %63 = sext i32 %.0.lcssa.i129.i to i64
   %64 = getelementptr i8, ptr %52, i64 %63
   %65 = icmp slt i32 %62, 4
@@ -1184,7 +1184,7 @@ GetLine.exit137.i:                                ; preds = %75, %.split.loop.ex
   store i8 0, ptr %78, align 1, !noalias !8
   %79 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.75) #43, !noalias !8
   %80 = getelementptr inbounds nuw [8 x [129 x i8]], ptr %10, i64 0, i64 %indvars.iv.i
-  %81 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %79, ptr noundef nonnull @.str.76, ptr noundef nonnull %80) #41, !noalias !8
+  %81 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %79, ptr noundef nonnull @.str.76, ptr noundef nonnull %80) #41
   %82 = icmp slt i32 %81, 1
   br i1 %82, label %88, label %83
 
@@ -1225,7 +1225,7 @@ GetLine.exit143.i:                                ; preds = %92, %.split.loop.ex
   %95 = getelementptr inbounds nuw i8, ptr %4, i64 %94
   store i8 0, ptr %95, align 1, !noalias !8
   %96 = call ptr @strstr(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) @.str.77) #43, !noalias !8
-  %97 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %96, ptr noundef nonnull @.str.78, ptr noundef nonnull %6) #41, !noalias !8
+  %97 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %96, ptr noundef nonnull @.str.78, ptr noundef nonnull %6) #41
   %98 = sext i32 %.0.lcssa.i141.i to i64
   %99 = getelementptr i8, ptr %.0115.lcssa.i, i64 %98
   %100 = icmp slt i32 %97, 1
@@ -2261,7 +2261,7 @@ declare ptr @LoadImageColors(ptr noundef byval(%struct.Image) align 8) local_unn
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #15
+declare ptr @strncpy(ptr noalias noundef returned writeonly captures(ret: address, provenance), ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: read, inaccessiblemem: none) uwtable
 define noundef nonnull ptr @TextToLower(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #16 {
@@ -10320,7 +10320,7 @@ TextLength.exit:                                  ; preds = %.lr.ph.i, %3, %.pre
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef ptr @TextReplace(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #3 {
+define noalias noundef ptr @TextReplace(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1, ptr noundef readonly captures(address_is_null) %2) local_unnamed_addr #3 {
   %4 = icmp ne ptr %0, null
   %5 = icmp ne ptr %1, null
   %or.cond = and i1 %4, %5
@@ -10447,10 +10447,10 @@ TextLength.exit.thread:                           ; preds = %.preheader.i, %._cr
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #28
+declare ptr @strstr(ptr noundef captures(ret: address, provenance), ptr noundef captures(none)) local_unnamed_addr #28
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #15
+declare ptr @strcpy(ptr noalias noundef returned writeonly captures(ret: address, provenance), ptr noalias noundef readonly captures(none)) local_unnamed_addr #15
 
 ; Function Attrs: nofree nounwind uwtable
 define noalias noundef ptr @TextInsert(ptr noundef readonly captures(address_is_null) %0, ptr noundef readonly captures(address_is_null) %1, i32 noundef %2) local_unnamed_addr #3 {
@@ -10726,7 +10726,7 @@ define noundef nonnull ptr @TextSplit(ptr noundef readonly captures(address_is_n
 }
 
 ; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
-define void @TextAppend(ptr noundef %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #30 {
+define void @TextAppend(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2) local_unnamed_addr #30 {
 .preheader.i:
   %3 = load i32, ptr %2, align 4
   %4 = sext i32 %3 to i64

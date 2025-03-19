@@ -596,12 +596,12 @@ zend_string_release.exit:                         ; preds = %224, %223, %216, %2
 declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strpbrk(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #2
+declare ptr @strpbrk(ptr noundef captures(ret: address, provenance), ptr noundef captures(none)) local_unnamed_addr #2
 
 declare void @php_stream_wrapper_log_error(ptr noundef, i32 noundef, ptr noundef, ...) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @strchr(ptr noundef captures(ret: address, provenance), i32 noundef) local_unnamed_addr #2
 
 declare ptr @php_stream_context_get_option(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -1622,7 +1622,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #8
 declare void @llvm.assume(i1 noundef) #9
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -1, 1) i32 @php_stream_ftp_stream_close(ptr readnone captures(none) %0, ptr noundef %1) #0 {
+define internal range(i32 -1, 1) i32 @php_stream_ftp_stream_close(ptr readnone captures(none) %0, ptr noundef captures(address) %1) #0 {
   %3 = alloca [512 x i8], align 16
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %5 = load ptr, ptr %4, align 8, !tbaa !35
@@ -2712,7 +2712,7 @@ define internal range(i32 0, 2) i32 @php_stream_ftp_mkdir(ptr noundef %0, ptr no
 10:                                               ; preds = %5
   %11 = and i32 %3, 8
   %.not66 = icmp eq i32 %11, 0
-  br i1 %.not66, label %163, label %.sink.split
+  br i1 %.not66, label %164, label %.sink.split
 
 12:                                               ; preds = %5
   %13 = load ptr, ptr %6, align 8, !tbaa !4
@@ -2724,7 +2724,7 @@ define internal range(i32 0, 2) i32 @php_stream_ftp_mkdir(ptr noundef %0, ptr no
 17:                                               ; preds = %12
   %18 = and i32 %3, 8
   %.not75 = icmp eq i32 %18, 0
-  br i1 %.not75, label %163, label %.sink.split
+  br i1 %.not75, label %164, label %.sink.split
 
 19:                                               ; preds = %12
   %.not67 = icmp eq i32 %8, 0
@@ -3012,40 +3012,42 @@ get_ftp_result.exit103:                           ; preds = %144, %.backedge.i10
 .loopexit:                                        ; preds = %158, %157, %155, %get_ftp_result.exit94
   %.157 = phi i32 [ %153, %157 ], [ %153, %155 ], [ %120, %get_ftp_result.exit94 ], [ %.3, %158 ]
   call void @_efree(ptr noundef nonnull %54) #15
+  %.pre = load ptr, ptr %6, align 8, !tbaa !4
   br label %160
 
 160:                                              ; preds = %.loopexit, %get_ftp_result.exit
+  %161 = phi ptr [ %.pre, %.loopexit ], [ %13, %get_ftp_result.exit ]
   %.056 = phi i32 [ %.157, %.loopexit ], [ %50, %get_ftp_result.exit ]
-  call void @php_url_free(ptr noundef %13) #15
-  %161 = call i32 @_php_stream_free(ptr noundef nonnull %9, i32 noundef 3) #15
-  %162 = add i32 %.056, -200
-  %or.cond7 = icmp ult i32 %162, 100
+  call void @php_url_free(ptr noundef %161) #15
+  %162 = call i32 @_php_stream_free(ptr noundef nonnull %9, i32 noundef 3) #15
+  %163 = add i32 %.056, -200
+  %or.cond7 = icmp ult i32 %163, 100
   %. = zext i1 %or.cond7 to i32
-  br label %169
+  br label %170
 
 .sink.split:                                      ; preds = %17, %10
   %.str.47.sink = phi ptr [ @.str.46, %10 ], [ @.str.47, %17 ]
   call void (ptr, i32, ptr, ...) @php_error_docref(ptr noundef null, i32 noundef 2, ptr noundef nonnull %.str.47.sink, ptr noundef %1) #15
-  br label %163
+  br label %164
 
-163:                                              ; preds = %.sink.split, %17, %10
-  %164 = load ptr, ptr %6, align 8, !tbaa !4
-  %.not76 = icmp eq ptr %164, null
-  br i1 %.not76, label %166, label %165
+164:                                              ; preds = %.sink.split, %17, %10
+  %165 = load ptr, ptr %6, align 8, !tbaa !4
+  %.not76 = icmp eq ptr %165, null
+  br i1 %.not76, label %167, label %166
 
-165:                                              ; preds = %163
-  call void @php_url_free(ptr noundef nonnull %164) #15
-  br label %166
+166:                                              ; preds = %164
+  call void @php_url_free(ptr noundef nonnull %165) #15
+  br label %167
 
-166:                                              ; preds = %165, %163
-  br i1 %.not, label %169, label %167
+167:                                              ; preds = %166, %164
+  br i1 %.not, label %170, label %168
 
-167:                                              ; preds = %166
-  %168 = call i32 @_php_stream_free(ptr noundef nonnull %9, i32 noundef 3) #15
-  br label %169
+168:                                              ; preds = %167
+  %169 = call i32 @_php_stream_free(ptr noundef nonnull %9, i32 noundef 3) #15
+  br label %170
 
-169:                                              ; preds = %166, %167, %160
-  %.0 = phi i32 [ %., %160 ], [ 0, %167 ], [ 0, %166 ]
+170:                                              ; preds = %167, %168, %160
+  %.0 = phi i32 [ %., %160 ], [ 0, %168 ], [ 0, %167 ]
   call void @llvm.lifetime.end.p0(i64 512, ptr nonnull %7) #15
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #15
   ret i32 %.0
@@ -3316,7 +3318,7 @@ declare zeroext i1 @zend_string_equal_val(ptr noundef, ptr noundef) local_unname
 declare noalias ptr @_estrndup(ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #2
+declare ptr @strrchr(ptr noundef captures(ret: address, provenance), i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #13

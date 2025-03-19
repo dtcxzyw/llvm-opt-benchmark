@@ -170,7 +170,8 @@ opt_provider_path.exit:                           ; preds = %7, %9
 
 .critedge.i:                                      ; preds = %36, %.lr.ph.i, %25
   %38 = load ptr, ptr %28, align 8, !tbaa !16
-  %39 = load i8, ptr %26, align 1, !tbaa !11
+  %.promoted.i = load ptr, ptr %20, align 8, !tbaa !12
+  %39 = load i8, ptr %.promoted.i, align 1, !tbaa !11
   %40 = zext i8 %39 to i64
   %41 = getelementptr inbounds nuw i16, ptr %38, i64 %40
   %42 = load i16, ptr %41, align 2, !tbaa !18
@@ -179,7 +180,7 @@ opt_provider_path.exit:                           ; preds = %7, %9
   br i1 %.not1924.i, label %._crit_edge.i, label %.lr.ph25.i
 
 .lr.ph25.i:                                       ; preds = %.critedge.i, %.lr.ph25.i
-  %44 = phi ptr [ %45, %.lr.ph25.i ], [ %26, %.critedge.i ]
+  %44 = phi ptr [ %45, %.lr.ph25.i ], [ %.promoted.i, %.critedge.i ]
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 1
   store ptr %45, ptr %20, align 8, !tbaa !12
   %46 = load i8, ptr %45, align 1, !tbaa !11
@@ -203,6 +204,7 @@ opt_provider_path.exit:                           ; preds = %7, %9
   %55 = load i8, ptr %16, align 1, !tbaa !11
   %.not21.i = icmp eq i8 %55, 0
   %56 = select i1 %.not21.i, ptr null, ptr %16
+  %.pre.i = load ptr, ptr %52, align 8, !tbaa !23
   br label %58
 
 57:                                               ; preds = %._crit_edge.i
@@ -210,7 +212,7 @@ opt_provider_path.exit:                           ; preds = %7, %9
   br label %58
 
 58:                                               ; preds = %57, %53
-  %59 = phi ptr [ %16, %57 ], [ %54, %53 ]
+  %59 = phi ptr [ %16, %57 ], [ %.pre.i, %53 ]
   %.sink.i = phi ptr [ null, %57 ], [ %56, %53 ]
   store ptr %.sink.i, ptr %2, align 8, !tbaa !24
   %60 = load i8, ptr %59, align 1, !tbaa !11
@@ -294,7 +296,7 @@ declare i32 @OSSL_PROVIDER_set_default_search_path(ptr noundef, ptr noundef) loc
 declare noalias ptr @CRYPTO_strdup(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare ptr @strchr(ptr noundef captures(ret: address, provenance), i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
 declare ptr @__ctype_b_loc() local_unnamed_addr #5

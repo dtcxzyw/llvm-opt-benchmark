@@ -581,7 +581,7 @@ define dso_local void @appendStringLiteralConn(ptr noundef %0, ptr noundef %1, p
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #3
+declare ptr @strchr(ptr noundef captures(ret: address, provenance), i32 noundef) local_unnamed_addr #3
 
 declare i32 @PQserverVersion(ptr noundef) local_unnamed_addr #4
 
@@ -631,7 +631,7 @@ define dso_local void @appendStringLiteralDQ(ptr noundef %0, ptr noundef %1, ptr
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #3
+declare ptr @strstr(ptr noundef captures(ret: address, provenance), ptr noundef captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nounwind uwtable
 define dso_local void @appendByteaLiteral(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2, i1 noundef zeroext %3) local_unnamed_addr #0 {
@@ -1141,74 +1141,66 @@ define dso_local noundef zeroext i1 @appendReloptionsArray(ptr noundef %0, ptr n
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #11
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #11
   %8 = call zeroext i1 @parsePGArray(ptr noundef %1, ptr noundef nonnull %6, ptr noundef nonnull %7)
-  br i1 %8, label %.preheader, label %11
-
-.preheader:                                       ; preds = %5
   %9 = load i32, ptr %7, align 4
   %10 = icmp sgt i32 %9, 0
-  %.pre = load ptr, ptr %6, align 8
-  br i1 %10, label %.lr.ph, label %._crit_edge
+  %or.cond = select i1 %8, i1 %10, i1 false
+  br i1 %or.cond, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %.preheader
-  %wide.trip.count = zext nneg i32 %9 to i64
-  br label %13
+.lr.ph:                                           ; preds = %5, %28
+  %indvars.iv = phi i64 [ %indvars.iv.next, %28 ], [ 0, %5 ]
+  %11 = load ptr, ptr %6, align 8
+  %12 = getelementptr inbounds nuw ptr, ptr %11, i64 %indvars.iv
+  %13 = load ptr, ptr %12, align 8
+  %14 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %13, i32 noundef 61) #12
+  %.not = icmp eq ptr %14, null
+  br i1 %.not, label %17, label %15
 
-11:                                               ; preds = %5
-  %12 = load ptr, ptr %6, align 8
-  br label %._crit_edge
+15:                                               ; preds = %.lr.ph
+  store i8 0, ptr %14, align 1
+  %16 = getelementptr inbounds nuw i8, ptr %14, i64 1
+  br label %17
 
-13:                                               ; preds = %.lr.ph, %30
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %30 ]
-  %14 = getelementptr inbounds nuw ptr, ptr %.pre, i64 %indvars.iv
-  %15 = load ptr, ptr %14, align 8
-  %16 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %15, i32 noundef 61) #12
-  %.not = icmp eq ptr %16, null
-  br i1 %.not, label %19, label %17
+17:                                               ; preds = %.lr.ph, %15
+  %.0 = phi ptr [ %16, %15 ], [ @.str.13, %.lr.ph ]
+  %.not29 = icmp eq i64 %indvars.iv, 0
+  br i1 %.not29, label %19, label %18
 
-17:                                               ; preds = %13
-  store i8 0, ptr %16, align 1
-  %18 = getelementptr inbounds nuw i8, ptr %16, i64 1
+18:                                               ; preds = %17
+  tail call void @appendPQExpBufferStr(ptr noundef %0, ptr noundef nonnull @.str.14) #11
   br label %19
 
-19:                                               ; preds = %13, %17
-  %.0 = phi ptr [ %18, %17 ], [ @.str.13, %13 ]
-  %.not29 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not29, label %21, label %20
-
-20:                                               ; preds = %19
-  tail call void @appendPQExpBufferStr(ptr noundef %0, ptr noundef nonnull @.str.14) #11
-  br label %21
-
-21:                                               ; preds = %20, %19
+19:                                               ; preds = %18, %17
+  %20 = load i32, ptr @fmtIdEncoding, align 4
+  %.not.i.i = icmp eq i32 %20, -1
+  %..i.i = select i1 %.not.i.i, i32 6, i32 %20
+  %21 = tail call ptr @fmtIdEnc(ptr noundef nonnull %13, i32 noundef %..i.i)
+  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %0, ptr noundef nonnull @.str.15, ptr noundef %2, ptr noundef %21) #11
   %22 = load i32, ptr @fmtIdEncoding, align 4
-  %.not.i.i = icmp eq i32 %22, -1
-  %..i.i = select i1 %.not.i.i, i32 6, i32 %22
-  %23 = tail call ptr @fmtIdEnc(ptr noundef nonnull %15, i32 noundef %..i.i)
-  tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %0, ptr noundef nonnull @.str.15, ptr noundef %2, ptr noundef %23) #11
-  %24 = load i32, ptr @fmtIdEncoding, align 4
-  %.not.i.i25 = icmp eq i32 %24, -1
-  %..i.i26 = select i1 %.not.i.i25, i32 6, i32 %24
-  %25 = tail call ptr @fmtIdEnc(ptr noundef nonnull %.0, i32 noundef %..i.i26)
-  %26 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %25, ptr noundef nonnull dereferenceable(1) %.0) #12
-  %27 = icmp eq i32 %26, 0
-  br i1 %27, label %28, label %29
+  %.not.i.i25 = icmp eq i32 %22, -1
+  %..i.i26 = select i1 %.not.i.i25, i32 6, i32 %22
+  %23 = tail call ptr @fmtIdEnc(ptr noundef nonnull %.0, i32 noundef %..i.i26)
+  %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(1) %.0) #12
+  %25 = icmp eq i32 %24, 0
+  br i1 %25, label %26, label %27
 
-28:                                               ; preds = %21
+26:                                               ; preds = %19
   tail call void @appendPQExpBufferStr(ptr noundef %0, ptr noundef nonnull %.0) #11
-  br label %30
+  br label %28
 
-29:                                               ; preds = %21
+27:                                               ; preds = %19
   tail call void @appendStringLiteral(ptr noundef %0, ptr noundef nonnull %.0, i32 noundef %3, i1 noundef zeroext %4)
-  br label %30
+  br label %28
 
-30:                                               ; preds = %29, %28
+28:                                               ; preds = %27, %26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %13, !llvm.loop !21
+  %29 = load i32, ptr %7, align 4
+  %30 = sext i32 %29 to i64
+  %31 = icmp slt i64 %indvars.iv.next, %30
+  br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !21
 
-._crit_edge:                                      ; preds = %30, %.preheader, %11
-  %.pre.sink = phi ptr [ %12, %11 ], [ %.pre, %.preheader ], [ %.pre, %30 ]
-  tail call void @free(ptr noundef %.pre.sink) #11
+._crit_edge:                                      ; preds = %28, %5
+  %32 = load ptr, ptr %6, align 8
+  tail call void @free(ptr noundef %32) #11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #11
   ret i1 %8
@@ -1663,7 +1655,7 @@ declare i32 @PQmblenBounded(ptr noundef, i32 noundef) local_unnamed_addr #4
 declare void @resetPQExpBuffer(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare ptr @memchr(ptr, i32, i64) local_unnamed_addr #10
+declare ptr @memchr(ptr captures(ret: address, provenance), i32, i64) local_unnamed_addr #10
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

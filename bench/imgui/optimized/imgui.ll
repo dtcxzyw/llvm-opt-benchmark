@@ -3696,7 +3696,7 @@ define noundef range(i32 -255, 256) i32 @_Z10ImStrnicmpPKcS0_m(ptr noundef reado
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
-define void @_Z9ImStrncpyPcPKcm(ptr noundef %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #18 {
+define void @_Z9ImStrncpyPcPKcm(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #18 {
   switch i64 %2, label %4 [
     i64 0, label %10
     i64 1, label %7
@@ -3718,7 +3718,7 @@ define void @_Z9ImStrncpyPcPKcm(ptr noundef %0, ptr noundef readonly captures(no
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #19
+declare ptr @strncpy(ptr noalias noundef returned writeonly captures(ret: address, provenance), ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @_Z8ImStrdupPKc(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
@@ -4078,7 +4078,7 @@ define noundef ptr @_Z13ImStrchrRangePKcS0_c(ptr noundef %0, ptr noundef %1, i8 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare noundef ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #20
+declare noundef ptr @memchr(ptr noundef captures(ret: address, provenance), i32 noundef, i64 noundef) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
 define noundef i32 @_Z9ImStrlenWPKt(ptr noundef readonly captures(none) %0) local_unnamed_addr #17 {
@@ -17983,7 +17983,7 @@ _ZN13ImChunkStreamI19ImGuiWindowSettingsE5clearEv.exit: ; preds = %._crit_edge, 
 }
 
 ; Function Attrs: mustprogress uwtable
-define internal noundef ptr @_ZL30WindowSettingsHandler_ReadOpenP12ImGuiContextP20ImGuiSettingsHandlerPKc(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef %2) #0 {
+define internal noundef ptr @_ZL30WindowSettingsHandler_ReadOpenP12ImGuiContextP20ImGuiSettingsHandlerPKc(ptr readnone captures(none) %0, ptr readnone captures(none) %1, ptr noundef captures(address) %2) #0 {
   %4 = load i8, ptr %2, align 1, !tbaa !211
   %.not3343.i = icmp eq i8 %4, 0
   br i1 %.not3343.i, label %_Z9ImHashStrPKcmj.exit, label %.lr.ph.i
@@ -68587,7 +68587,7 @@ _ZN8ImVectorIcE9push_backERKc.exit:               ; preds = %_ZN8ImVectorIcE6res
 }
 
 ; Function Attrs: mustprogress uwtable
-define noundef nonnull ptr @_ZN5ImGui23CreateNewWindowSettingsEPKc(ptr noundef readonly %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
+define noundef nonnull ptr @_ZN5ImGui23CreateNewWindowSettingsEPKc(ptr noundef readonly captures(address) %0) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %2 = load ptr, ptr @GImGui, align 8, !tbaa !216
   %3 = getelementptr inbounds nuw i8, ptr %2, i64 141
   %4 = load i8, ptr %3, align 1, !tbaa !1342, !range !96, !noundef !97
@@ -68725,7 +68725,7 @@ _Z9ImHashStrPKcmj.exit:                           ; preds = %45, %62, %.preheade
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare noundef ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #20
+declare noundef ptr @strstr(ptr noundef captures(ret: address, provenance), ptr noundef captures(none)) local_unnamed_addr #20
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef ptr @_ZN5ImGui22FindWindowSettingsByIDEj(i32 noundef %0) local_unnamed_addr #31 {

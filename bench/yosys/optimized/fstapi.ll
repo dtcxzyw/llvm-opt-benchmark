@@ -578,7 +578,7 @@ declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #6
+declare ptr @strcpy(ptr noalias noundef returned writeonly captures(ret: address, provenance), ptr noalias noundef readonly captures(none)) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #7
@@ -15420,7 +15420,7 @@ define i32 @fstUtilityEscToBin(ptr noundef %0, ptr noundef %1, i32 noundef %2) l
 declare i32 @toupper(i32 noundef) local_unnamed_addr #33
 
 ; Function Attrs: mustprogress nofree nounwind uwtable
-define noalias noundef ptr @fstUtilityExtractEnumTableFromString(ptr noundef readonly %0) local_unnamed_addr #14 {
+define noalias noundef ptr @fstUtilityExtractEnumTableFromString(ptr noundef readonly captures(address) %0) local_unnamed_addr #14 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %2
 
@@ -15475,17 +15475,17 @@ define noalias noundef ptr @fstUtilityExtractEnumTableFromString(ptr noundef rea
   br label %.lr.ph68
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
-  %27 = phi ptr [ %19, %.lr.ph.preheader ], [ %34, %.lr.ph ]
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.065 = phi ptr [ %26, %.lr.ph.preheader ], [ %29, %.lr.ph ]
-  %28 = getelementptr inbounds nuw i8, ptr %.065, i64 1
-  %29 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %28, i32 noundef 32) #40
-  store i8 0, ptr %29, align 1, !tbaa !6
-  %30 = getelementptr inbounds nuw ptr, ptr %27, i64 %indvars.iv
-  store ptr %28, ptr %30, align 8, !tbaa !28
-  %31 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #40
+  %.065 = phi ptr [ %26, %.lr.ph.preheader ], [ %28, %.lr.ph ]
+  %27 = getelementptr inbounds nuw i8, ptr %.065, i64 1
+  %28 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %27, i32 noundef 32) #40
+  store i8 0, ptr %28, align 1, !tbaa !6
+  %29 = load ptr, ptr %20, align 8, !tbaa !253
+  %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv
+  store ptr %27, ptr %30, align 8, !tbaa !28
+  %31 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %27) #40
   %32 = trunc i64 %31 to i32
-  %33 = tail call i32 @fstUtilityEscToBin(ptr noundef null, ptr noundef nonnull %28, i32 noundef %32)
+  %33 = tail call i32 @fstUtilityEscToBin(ptr noundef null, ptr noundef nonnull %27, i32 noundef %32)
   %34 = load ptr, ptr %20, align 8, !tbaa !253
   %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8, !tbaa !28
@@ -15498,7 +15498,7 @@ define noalias noundef ptr @fstUtilityExtractEnumTableFromString(ptr noundef rea
 
 .lr.ph68:                                         ; preds = %.lr.ph68.preheader, %42
   %indvars.iv70 = phi i64 [ 0, %.lr.ph68.preheader ], [ %indvars.iv.next71, %42 ]
-  %.167 = phi ptr [ %29, %.lr.ph68.preheader ], [ %40, %42 ]
+  %.167 = phi ptr [ %28, %.lr.ph68.preheader ], [ %40, %42 ]
   %39 = getelementptr inbounds nuw i8, ptr %.167, i64 1
   %40 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %39, i32 noundef 32) #40
   %.not63 = icmp eq ptr %40, null
@@ -15531,7 +15531,7 @@ define noalias noundef ptr @fstUtilityExtractEnumTableFromString(ptr noundef rea
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare noundef ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare noundef ptr @strchr(ptr noundef captures(ret: address, provenance), i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nounwind willreturn uwtable
 define void @fstUtilityFreeEnumTable(ptr noundef captures(address_is_null) %0) local_unnamed_addr #25 {

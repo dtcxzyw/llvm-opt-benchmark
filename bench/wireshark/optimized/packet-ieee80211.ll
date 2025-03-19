@@ -24325,9 +24325,9 @@ define internal void @init_wepkeys() #2 {
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 40
   br label %16
 
-16:                                               ; preds = %105, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %105 ]
-  %17 = phi ptr [ %3, %.lr.ph.i ], [ %106, %105 ]
+16:                                               ; preds = %84, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %84 ]
+  %17 = phi ptr [ %3, %.lr.ph.i ], [ %85, %84 ]
   %18 = load i32, ptr @num_wepkeys_uat, align 4
   %19 = zext i32 %18 to i64
   %20 = icmp samesign ult i64 %indvars.iv.i, %19
@@ -24342,19 +24342,19 @@ define internal void @init_wepkeys() #2 {
   %26 = load i8, ptr %23, align 8
   %27 = call ptr @parse_key_string(ptr noundef %25, i8 noundef zeroext %26, ptr noundef null)
   %.not69.i = icmp eq ptr %27, null
-  br i1 %.not69.i, label %105, label %28
+  br i1 %.not69.i, label %84, label %28
 
 28:                                               ; preds = %22
   call void @llvm.lifetime.start.p0(i64 432, ptr nonnull %1) #24
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(432) %1, i8 0, i64 432, i1 false)
   %29 = getelementptr inbounds nuw i8, ptr %27, i64 20
   %30 = load i32, ptr %29, align 4
-  switch i32 %30, label %104 [
+  switch i32 %30, label %83 [
     i32 0, label %31
-    i32 3, label %42
-    i32 4, label %67
-    i32 6, label %78
-    i32 7, label %89
+    i32 3, label %38
+    i32 4, label %55
+    i32 6, label %63
+    i32 7, label %71
   ]
 
 31:                                               ; preds = %28
@@ -24364,122 +24364,101 @@ define internal void @init_wepkeys() #2 {
   %35 = load i32, ptr %34, align 8
   %36 = zext i32 %35 to i64
   %37 = call ptr @__memcpy_chk(ptr noundef nonnull %9, ptr noundef %33, i64 noundef range(i64 0, 4294967296) %36, i64 noundef 424) #24, !alias.scope !63
-  %38 = load ptr, ptr %27, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  %40 = load i32, ptr %39, align 8
-  %41 = zext i32 %40 to i64
-  store i64 %41, ptr %15, align 8
+  store i64 %36, ptr %15, align 8
   br label %.sink.split.i
 
-42:                                               ; preds = %28
+38:                                               ; preds = %28
   store i8 3, ptr %1, align 8
-  %43 = load ptr, ptr %27, align 8
-  %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %43, i64 8
-  %46 = load i32, ptr %45, align 8
-  %47 = zext i32 %46 to i64
-  %48 = call ptr @__memcpy_chk(ptr noundef nonnull %11, ptr noundef %44, i64 noundef range(i64 0, 4294967296) %47, i64 noundef 112) #24, !alias.scope !67
-  %49 = load ptr, ptr %27, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  %51 = load i32, ptr %50, align 8
-  %52 = zext i32 %51 to i64
-  store i64 %52, ptr %12, align 8
+  %39 = load ptr, ptr %27, align 8
+  %40 = load ptr, ptr %39, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %42 = load i32, ptr %41, align 8
+  %43 = zext i32 %42 to i64
+  %44 = call ptr @__memcpy_chk(ptr noundef nonnull %11, ptr noundef %40, i64 noundef range(i64 0, 4294967296) %43, i64 noundef 112) #24, !alias.scope !67
+  store i64 %43, ptr %12, align 8
   store i64 0, ptr %13, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %54 = load ptr, ptr %53, align 8
-  %.not70.i = icmp eq ptr %54, null
-  br i1 %.not70.i, label %.sink.split.i, label %55
+  %45 = getelementptr inbounds nuw i8, ptr %27, i64 8
+  %46 = load ptr, ptr %45, align 8
+  %.not70.i = icmp eq ptr %46, null
+  br i1 %.not70.i, label %.sink.split.i, label %47
 
-55:                                               ; preds = %42
-  %56 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  %57 = load i32, ptr %56, align 8
-  %58 = icmp ult i32 %57, 33
-  br i1 %58, label %59, label %.sink.split.i
+47:                                               ; preds = %38
+  %48 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  %49 = load i32, ptr %48, align 8
+  %50 = icmp ult i32 %49, 33
+  br i1 %50, label %51, label %.sink.split.i
 
-59:                                               ; preds = %55
-  %60 = load ptr, ptr %54, align 8
-  %61 = zext nneg i32 %57 to i64
-  %62 = call ptr @__memcpy_chk(ptr noundef nonnull %14, ptr noundef %60, i64 noundef range(i64 0, 4294967296) %61, i64 noundef 40) #24, !alias.scope !71
-  %63 = load ptr, ptr %53, align 8
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 8
-  %65 = load i32, ptr %64, align 8
-  %66 = zext i32 %65 to i64
-  store i64 %66, ptr %13, align 8
+51:                                               ; preds = %47
+  %52 = load ptr, ptr %46, align 8
+  %53 = zext nneg i32 %49 to i64
+  %54 = call ptr @__memcpy_chk(ptr noundef nonnull %14, ptr noundef %52, i64 noundef range(i64 0, 4294967296) %53, i64 noundef 40) #24, !alias.scope !71
+  store i64 %53, ptr %13, align 8
   br label %.sink.split.i
 
-67:                                               ; preds = %28
+55:                                               ; preds = %28
   store i8 4, ptr %1, align 8
-  %68 = load ptr, ptr %27, align 8
-  %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %68, i64 8
-  %71 = load i32, ptr %70, align 8
-  %72 = zext i32 %71 to i64
-  %73 = call ptr @__memcpy_chk(ptr noundef nonnull %9, ptr noundef %69, i64 noundef range(i64 0, 4294967296) %72, i64 noundef 424) #24, !alias.scope !75
-  %74 = load ptr, ptr %27, align 8
-  %75 = getelementptr inbounds nuw i8, ptr %74, i64 8
-  %76 = load i32, ptr %75, align 8
-  %77 = trunc i32 %76 to i8
-  store i8 %77, ptr %10, align 8
+  %56 = load ptr, ptr %27, align 8
+  %57 = load ptr, ptr %56, align 8
+  %58 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %59 = load i32, ptr %58, align 8
+  %60 = zext i32 %59 to i64
+  %61 = call ptr @__memcpy_chk(ptr noundef nonnull %9, ptr noundef %57, i64 noundef range(i64 0, 4294967296) %60, i64 noundef 424) #24, !alias.scope !75
+  %62 = trunc i32 %59 to i8
+  store i8 %62, ptr %10, align 8
   br label %.sink.split.i
 
-78:                                               ; preds = %28
+63:                                               ; preds = %28
   store i8 6, ptr %1, align 8
-  %79 = load ptr, ptr %27, align 8
-  %80 = load ptr, ptr %79, align 8
-  %81 = getelementptr inbounds nuw i8, ptr %79, i64 8
-  %82 = load i32, ptr %81, align 8
-  %83 = zext i32 %82 to i64
-  %84 = call ptr @__memcpy_chk(ptr noundef nonnull %7, ptr noundef %80, i64 noundef range(i64 0, 4294967296) %83, i64 noundef 280) #24, !alias.scope !79
-  %85 = load ptr, ptr %27, align 8
-  %86 = getelementptr inbounds nuw i8, ptr %85, i64 8
-  %87 = load i32, ptr %86, align 8
-  %88 = trunc i32 %87 to i8
-  store i8 %88, ptr %8, align 8
+  %64 = load ptr, ptr %27, align 8
+  %65 = load ptr, ptr %64, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %64, i64 8
+  %67 = load i32, ptr %66, align 8
+  %68 = zext i32 %67 to i64
+  %69 = call ptr @__memcpy_chk(ptr noundef nonnull %7, ptr noundef %65, i64 noundef range(i64 0, 4294967296) %68, i64 noundef 280) #24, !alias.scope !79
+  %70 = trunc i32 %67 to i8
+  store i8 %70, ptr %8, align 8
   br label %.sink.split.i
 
-89:                                               ; preds = %28
+71:                                               ; preds = %28
   store i8 7, ptr %1, align 8
-  %90 = load ptr, ptr %27, align 8
-  %91 = load ptr, ptr %90, align 8
-  %92 = getelementptr inbounds nuw i8, ptr %90, i64 8
-  %93 = load i32, ptr %92, align 8
-  %94 = zext i32 %93 to i64
-  %95 = call ptr @__memcpy_chk(ptr noundef nonnull %4, ptr noundef %91, i64 noundef range(i64 0, 4294967296) %94, i64 noundef 247) #24, !alias.scope !83
-  %96 = load ptr, ptr %27, align 8
-  %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
-  %98 = load i32, ptr %97, align 8
-  %99 = trunc i32 %98 to i8
-  store i8 %99, ptr %5, align 1
+  %72 = load ptr, ptr %27, align 8
+  %73 = load ptr, ptr %72, align 8
+  %74 = getelementptr inbounds nuw i8, ptr %72, i64 8
+  %75 = load i32, ptr %74, align 8
+  %76 = zext i32 %75 to i64
+  %77 = call ptr @__memcpy_chk(ptr noundef nonnull %4, ptr noundef %73, i64 noundef range(i64 0, 4294967296) %76, i64 noundef 247) #24, !alias.scope !83
+  %78 = trunc i32 %75 to i8
+  store i8 %78, ptr %5, align 1
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %89, %78, %67, %59, %55, %42, %31
-  %100 = load i64, ptr %2, align 8
-  %101 = getelementptr [256 x %struct._DOT11DECRYPT_KEY_ITEM], ptr %6, i64 0, i64 %100
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(432) %101, ptr noundef nonnull align 8 dereferenceable(432) %1, i64 432, i1 false)
-  %102 = load i64, ptr %2, align 8
-  %103 = add i64 %102, 1
-  store i64 %103, ptr %2, align 8
-  br label %104
+.sink.split.i:                                    ; preds = %71, %63, %55, %51, %47, %38, %31
+  %79 = load i64, ptr %2, align 8
+  %80 = getelementptr [256 x %struct._DOT11DECRYPT_KEY_ITEM], ptr %6, i64 0, i64 %79
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef align 8 dereferenceable(432) %80, ptr noundef nonnull align 8 dereferenceable(432) %1, i64 432, i1 false)
+  %81 = load i64, ptr %2, align 8
+  %82 = add i64 %81, 1
+  store i64 %82, ptr %2, align 8
+  br label %83
 
-104:                                              ; preds = %.sink.split.i, %28
+83:                                               ; preds = %.sink.split.i, %28
   call void @free_key_string(ptr noundef nonnull %27)
   call void @llvm.lifetime.end.p0(i64 432, ptr nonnull %1) #24
-  br label %105
+  br label %84
 
-105:                                              ; preds = %104, %22
+84:                                               ; preds = %83, %22
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
-  %106 = load ptr, ptr @uat_wep_key_records, align 8
-  %.not.i = icmp eq ptr %106, null
+  %85 = load ptr, ptr @uat_wep_key_records, align 8
+  %.not.i = icmp eq ptr %85, null
   br i1 %.not.i, label %.critedge.loopexit.i, label %16, !llvm.loop !87
 
-.critedge.loopexit.i:                             ; preds = %105, %16
+.critedge.loopexit.i:                             ; preds = %84, %16
   %.pre.i = load i64, ptr %2, align 8
   br label %set_dot11decrypt_keys.exit
 
 set_dot11decrypt_keys.exit:                       ; preds = %0, %.critedge.loopexit.i
-  %107 = phi i64 [ %.pre.i, %.critedge.loopexit.i ], [ 0, %0 ]
-  %108 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %109 = call i32 @Dot11DecryptSetKeys(ptr noundef nonnull @dot11decrypt_ctx, ptr noundef nonnull %108, i64 noundef %107)
+  %86 = phi i64 [ %.pre.i, %.critedge.loopexit.i ], [ 0, %0 ]
+  %87 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %88 = call i32 @Dot11DecryptSetKeys(ptr noundef nonnull @dot11decrypt_ctx, ptr noundef nonnull %87, i64 noundef %86)
   call void @g_free(ptr noundef %2)
   ret void
 }
@@ -46797,7 +46776,7 @@ declare zeroext i16 @tvb_get_uint16(ptr noundef, i32 noundef, i32 noundef) local
 declare i32 @crc32_ccitt_tvb_offset_seed(ptr noundef, i32 noundef, i32 noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid memory(argmem: readwrite)
-declare ptr @__memcpy_chk(ptr noalias noundef writeonly, ptr noalias noundef readonly captures(none), i64 noundef, i64 noundef) local_unnamed_addr #15
+declare ptr @__memcpy_chk(ptr noalias noundef writeonly captures(ret: address, provenance), ptr noalias noundef readonly captures(none), i64 noundef, i64 noundef) local_unnamed_addr #15
 
 ; Function Attrs: null_pointer_is_valid
 declare i32 @Dot11DecryptDecryptPacket(ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #0

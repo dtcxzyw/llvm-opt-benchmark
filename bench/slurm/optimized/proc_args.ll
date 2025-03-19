@@ -782,7 +782,7 @@ define dso_local ptr @base_name(ptr noundef %0) local_unnamed_addr #2 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #6
+declare ptr @strrchr(ptr noundef captures(ret: address, provenance), i32 noundef) local_unnamed_addr #6
 
 ; Function Attrs: mustprogress nofree nounwind willreturn uwtable
 define dso_local range(i64 -2, -9223372036854775808) i64 @str_to_mbytes(ptr noundef %0) local_unnamed_addr #7 {
@@ -1469,7 +1469,7 @@ define dso_local noundef zeroext i1 @verify_node_list(ptr noundef %0, i32 nounde
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #6
+declare ptr @strchr(ptr noundef captures(ret: address, provenance), i32 noundef) local_unnamed_addr #6
 
 declare ptr @slurm_read_hostfile(ptr noundef, i32 noundef) local_unnamed_addr #4
 
@@ -2841,7 +2841,7 @@ define dso_local range(i32 -1, 1) i32 @get_signal_opts(ptr noundef %0, ptr nound
   %5 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #20
   %6 = icmp eq ptr %0, null
-  br i1 %6, label %47, label %7
+  br i1 %6, label %49, label %7
 
 7:                                                ; preds = %4
   %8 = tail call i32 @xstrncasecmp(ptr noundef nonnull %0, ptr noundef nonnull @.str.83, i64 noundef 1) #20
@@ -2894,47 +2894,57 @@ define dso_local range(i32 -1, 1) i32 @get_signal_opts(ptr noundef %0, ptr nound
   %30 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %spec.select, i32 noundef 64) #21
   store ptr %30, ptr %5, align 8
   %.not34 = icmp eq ptr %30, null
-  br i1 %.not34, label %31, label %.thread
+  br i1 %.not34, label %.thread38, label %33
 
-31:                                               ; preds = %27
-  %32 = tail call i32 @sig_name2num(ptr noundef nonnull %spec.select)
-  %.mask39 = and i32 %32, 65535
-  %33 = icmp eq i32 %.mask39, 0
-  br i1 %33, label %47, label %36
+.thread38:                                        ; preds = %27
+  %31 = tail call i32 @sig_name2num(ptr noundef nonnull %spec.select)
+  %32 = trunc i32 %31 to i16
+  %.mask39 = and i32 %31, 65535
+  br label %36
 
-.thread:                                          ; preds = %27
+33:                                               ; preds = %27
   store i8 0, ptr %30, align 1
+  %.pre = load ptr, ptr %5, align 8
   %34 = tail call i32 @sig_name2num(ptr noundef nonnull %spec.select)
+  %35 = trunc i32 %34 to i16
   %.mask = and i32 %34, 65535
-  store i8 64, ptr %30, align 1
-  %35 = icmp eq i32 %.mask, 0
-  br i1 %35, label %47, label %38
+  %.not35 = icmp eq ptr %.pre, null
+  br i1 %.not35, label %36, label %.thread
 
-36:                                               ; preds = %31
-  %37 = trunc i32 %32 to i16
+36:                                               ; preds = %.thread38, %33
+  %.mask41 = phi i32 [ %.mask39, %.thread38 ], [ %.mask, %33 ]
+  %37 = phi i16 [ %32, %.thread38 ], [ %35, %33 ]
+  %38 = icmp eq i32 %.mask41, 0
+  br i1 %38, label %49, label %40
+
+.thread:                                          ; preds = %33
+  store i8 64, ptr %.pre, align 1
+  %39 = icmp eq i32 %.mask, 0
+  br i1 %39, label %49, label %41
+
+40:                                               ; preds = %36
   store i16 %37, ptr %1, align 2
   store i16 60, ptr %2, align 2
-  br label %47
+  br label %49
 
-38:                                               ; preds = %.thread
-  %39 = trunc i32 %34 to i16
-  store i16 %39, ptr %1, align 2
-  %40 = getelementptr inbounds nuw i8, ptr %30, i64 1
-  %41 = call i64 @strtol(ptr noundef nonnull %40, ptr noundef nonnull %5, i32 noundef 10) #20
-  %or.cond3 = icmp ugt i64 %41, 65535
-  br i1 %or.cond3, label %47, label %42
+41:                                               ; preds = %.thread
+  store i16 %35, ptr %1, align 2
+  %42 = getelementptr inbounds nuw i8, ptr %.pre, i64 1
+  %43 = call i64 @strtol(ptr noundef nonnull %42, ptr noundef nonnull %5, i32 noundef 10) #20
+  %or.cond3 = icmp ugt i64 %43, 65535
+  br i1 %or.cond3, label %49, label %44
 
-42:                                               ; preds = %38
-  %43 = trunc nuw i64 %41 to i16
-  store i16 %43, ptr %2, align 2
-  %44 = load ptr, ptr %5, align 8
-  %45 = load i8, ptr %44, align 1
-  %46 = icmp ne i8 %45, 0
-  %. = sext i1 %46 to i32
-  br label %47
+44:                                               ; preds = %41
+  %45 = trunc nuw i64 %43 to i16
+  store i16 %45, ptr %2, align 2
+  %46 = load ptr, ptr %5, align 8
+  %47 = load i8, ptr %46, align 1
+  %48 = icmp ne i8 %47, 0
+  %. = sext i1 %48 to i32
+  br label %49
 
-47:                                               ; preds = %.thread, %42, %38, %31, %4, %36
-  %.0 = phi i32 [ 0, %36 ], [ -1, %4 ], [ -1, %31 ], [ -1, %38 ], [ %., %42 ], [ -1, %.thread ]
+49:                                               ; preds = %.thread, %44, %41, %36, %4, %40
+  %.0 = phi i32 [ 0, %40 ], [ -1, %4 ], [ -1, %36 ], [ -1, %41 ], [ %., %44 ], [ -1, %.thread ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #20
   ret i32 %.0
 }

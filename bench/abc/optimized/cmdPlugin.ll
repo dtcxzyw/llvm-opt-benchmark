@@ -444,7 +444,7 @@ Vec_StrFree.exit:                                 ; preds = %63, %8, %5
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #2
+declare ptr @strstr(ptr noundef captures(ret: address, provenance), ptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
@@ -812,14 +812,14 @@ define ptr @Abc_ManReadAig(ptr noundef %0, ptr noundef readonly captures(none) %
   %3 = alloca i32, align 4
   %4 = tail call ptr @Abc_ManReadFile(ptr noundef %0)
   %5 = icmp eq ptr %4, null
-  br i1 %5, label %59, label %6
+  br i1 %5, label %60, label %6
 
 6:                                                ; preds = %2
   %7 = getelementptr i8, ptr %4, i64 8
   %.val = load ptr, ptr %7, align 8, !tbaa !33
   %8 = tail call ptr @strstr(ptr noundef nonnull dereferenceable(1) %.val, ptr noundef nonnull dereferenceable(1) %1) #14
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %Vec_StrFree.exit, label %9
+  br i1 %.not, label %.thread, label %9
 
 9:                                                ; preds = %6
   %10 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #14
@@ -866,7 +866,7 @@ define ptr @Abc_ManReadAig(ptr noundef %0, ptr noundef readonly captures(none) %
 .preheader.i:                                     ; preds = %21
   %24 = load i32, ptr %3, align 4, !tbaa !40
   %.not24.i = icmp eq i32 %24, 0
-  br i1 %.not24.i, label %textToBin.exit, label %.lr.ph.i
+  br i1 %.not24.i, label %.loopexit40, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i, %.lr.ph.i
   %.023.i = phi i32 [ %56, %.lr.ph.i ], [ 0, %.preheader.i ]
@@ -910,21 +910,28 @@ define ptr @Abc_ManReadAig(ptr noundef %0, ptr noundef readonly captures(none) %
   %55 = getelementptr inbounds nuw i8, ptr %.01721.i, i64 3
   %56 = add i32 %.023.i, 3
   %57 = icmp ult i32 %56, %24
-  br i1 %57, label %.lr.ph.i, label %textToBin.exit, !llvm.loop !62
+  br i1 %57, label %.lr.ph.i, label %.loopexit40, !llvm.loop !62
 
-textToBin.exit:                                   ; preds = %.lr.ph.i, %.preheader.i
+.loopexit40:                                      ; preds = %.lr.ph.i, %.preheader.i
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #17
   %58 = call ptr @Gia_AigerReadFromMemory(ptr noundef nonnull %.022, i32 noundef %24, i32 noundef 0, i32 noundef 0, i32 noundef 0) #17
+  %.pr31 = load ptr, ptr %7, align 8, !tbaa !33
+  %.not.i30 = icmp eq ptr %.pr31, null
+  br i1 %.not.i30, label %Vec_StrFree.exit, label %.thread
+
+.thread:                                          ; preds = %6, %.loopexit40
+  %.02438 = phi ptr [ %58, %.loopexit40 ], [ null, %6 ]
+  %59 = phi ptr [ %.pr31, %.loopexit40 ], [ %.val, %6 ]
+  call void @free(ptr noundef nonnull %59) #17
   br label %Vec_StrFree.exit
 
-Vec_StrFree.exit:                                 ; preds = %textToBin.exit, %6
-  %.024 = phi ptr [ %58, %textToBin.exit ], [ null, %6 ]
-  call void @free(ptr noundef nonnull %.val) #17
+Vec_StrFree.exit:                                 ; preds = %.loopexit40, %.thread
+  %.02439 = phi ptr [ %58, %.loopexit40 ], [ %.02438, %.thread ]
   call void @free(ptr noundef nonnull %4) #17
-  br label %59
+  br label %60
 
-59:                                               ; preds = %2, %Vec_StrFree.exit
-  %.023 = phi ptr [ %.024, %Vec_StrFree.exit ], [ null, %2 ]
+60:                                               ; preds = %2, %Vec_StrFree.exit
+  %.023 = phi ptr [ %.02439, %Vec_StrFree.exit ], [ null, %2 ]
   ret ptr %.023
 }
 

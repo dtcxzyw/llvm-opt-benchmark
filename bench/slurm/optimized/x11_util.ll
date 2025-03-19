@@ -121,7 +121,7 @@ define dso_local void @x11_get_display(ptr noundef writeonly captures(none) %0, 
 9:                                                ; preds = %2
   %10 = load i8, ptr %6, align 1
   %11 = icmp eq i8 %10, 58
-  br i1 %11, label %12, label %23
+  br i1 %11, label %12, label %24
 
 12:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(i64 144, ptr nonnull %4) #15
@@ -132,57 +132,60 @@ define dso_local void @x11_get_display(ptr noundef writeonly captures(none) %0, 
 
 14:                                               ; preds = %12
   store i8 0, ptr %13, align 1
+  %.pre = load ptr, ptr %3, align 8
   br label %15
 
 15:                                               ; preds = %14, %12
-  %16 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  tail call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %1, ptr noundef nonnull @.str.7, ptr noundef nonnull %16) #15
+  %16 = phi ptr [ %.pre, %14 ], [ %6, %12 ]
+  %17 = getelementptr inbounds nuw i8, ptr %16, i64 1
+  tail call void (ptr, ptr, ...) @_xstrfmtcat(ptr noundef nonnull %1, ptr noundef nonnull @.str.7, ptr noundef nonnull %17) #15
   call void @slurm_xfree(ptr noundef nonnull %3) #15
-  %17 = load ptr, ptr %1, align 8
-  %18 = call i32 @stat(ptr noundef %17, ptr noundef nonnull %4) #15
-  %.not22 = icmp eq i32 %18, 0
-  br i1 %.not22, label %22, label %19
+  %18 = load ptr, ptr %1, align 8
+  %19 = call i32 @stat(ptr noundef %18, ptr noundef nonnull %4) #15
+  %.not22 = icmp eq i32 %19, 0
+  br i1 %.not22, label %23, label %20
 
-19:                                               ; preds = %15
-  %20 = load ptr, ptr %1, align 8
-  %21 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.8, ptr noundef %20) #15
+20:                                               ; preds = %15
+  %21 = load ptr, ptr %1, align 8
+  %22 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.8, ptr noundef %21) #15
   call void @exit(i32 noundef -1) #16
   unreachable
 
-22:                                               ; preds = %15
+23:                                               ; preds = %15
   call void @llvm.lifetime.end.p0(i64 144, ptr nonnull %4) #15
-  br label %35
+  br label %37
 
-23:                                               ; preds = %9
-  %24 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %6, i32 noundef 58) #17
-  %.not19 = icmp eq ptr %24, null
-  br i1 %.not19, label %25, label %27
+24:                                               ; preds = %9
+  %25 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %6, i32 noundef 58) #17
+  %.not19 = icmp eq ptr %25, null
+  br i1 %.not19, label %26, label %28
 
-25:                                               ; preds = %23
-  %26 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.9) #15
+26:                                               ; preds = %24
+  %27 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.9) #15
   tail call void @exit(i32 noundef -1) #16
   unreachable
 
-27:                                               ; preds = %23
-  store i8 0, ptr %24, align 1
-  %28 = getelementptr inbounds nuw i8, ptr %24, i64 1
-  %29 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %28, i32 noundef 46) #17
-  %.not20 = icmp eq ptr %29, null
-  br i1 %.not20, label %31, label %30
+28:                                               ; preds = %24
+  store i8 0, ptr %25, align 1
+  %29 = getelementptr inbounds nuw i8, ptr %25, i64 1
+  %30 = tail call ptr @strchr(ptr noundef nonnull dereferenceable(1) %29, i32 noundef 46) #17
+  %.not20 = icmp eq ptr %30, null
+  br i1 %.not20, label %32, label %31
 
-30:                                               ; preds = %27
-  store i8 0, ptr %29, align 1
-  br label %31
+31:                                               ; preds = %28
+  store i8 0, ptr %30, align 1
+  br label %32
 
-31:                                               ; preds = %30, %27
-  %32 = tail call i64 @strtol(ptr noundef nonnull captures(none) %28, ptr noundef null, i32 noundef 10) #15
-  %33 = trunc i64 %32 to i16
-  %34 = add i16 %33, 6000
-  store i16 %34, ptr %0, align 2
-  store ptr %6, ptr %1, align 8
-  br label %35
+32:                                               ; preds = %31, %28
+  %33 = tail call i64 @strtol(ptr noundef nonnull captures(none) %29, ptr noundef null, i32 noundef 10) #15
+  %34 = trunc i64 %33 to i16
+  %35 = add i16 %34, 6000
+  store i16 %35, ptr %0, align 2
+  %36 = load ptr, ptr %3, align 8
+  store ptr %36, ptr %1, align 8
+  br label %37
 
-35:                                               ; preds = %31, %22
+37:                                               ; preds = %32, %23
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #15
   ret void
 }
@@ -198,7 +201,7 @@ declare i32 @error(ptr noundef, ...) local_unnamed_addr #2
 declare void @exit(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #6
+declare ptr @strchr(ptr noundef captures(ret: address, provenance), i32 noundef) local_unnamed_addr #6
 
 declare void @_xstrfmtcat(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 

@@ -1469,21 +1469,21 @@ define dso_local range(i32 0, 50) i32 @Curl_loadhostpairs(ptr noundef %0) local_
   %7 = and i32 %6, -262145
   store i32 %7, ptr %5, align 4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 4496
-  %.0132265 = load ptr, ptr %8, align 8, !tbaa !133
-  %.not266 = icmp eq ptr %.0132265, null
-  br i1 %.not266, label %._crit_edge270, label %.lr.ph269
+  %.0132263 = load ptr, ptr %8, align 8, !tbaa !133
+  %.not264 = icmp eq ptr %.0132263, null
+  br i1 %.not264, label %._crit_edge268, label %.lr.ph267
 
-.lr.ph269:                                        ; preds = %1
+.lr.ph267:                                        ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 224
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 2562
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 4712
   br label %13
 
-13:                                               ; preds = %.lr.ph269, %.thread222
-  %.0132267 = phi ptr [ %.0132265, %.lr.ph269 ], [ %.0132, %.thread222 ]
+13:                                               ; preds = %.lr.ph267, %.thread222
+  %.0132265 = phi ptr [ %.0132263, %.lr.ph267 ], [ %.0132, %.thread222 ]
   call void @llvm.lifetime.start.p0(i64 262, ptr nonnull %2) #11
-  %14 = load ptr, ptr %.0132267, align 8, !tbaa !134
+  %14 = load ptr, ptr %.0132265, align 8, !tbaa !134
   %.not179 = icmp eq ptr %14, null
   br i1 %.not179, label %.thread222, label %15
 
@@ -1524,7 +1524,7 @@ define dso_local range(i32 0, 50) i32 @Curl_loadhostpairs(ptr noundef %0) local_
   br i1 %33, label %34, label %.thread222
 
 34:                                               ; preds = %30, %28
-  %35 = load ptr, ptr %.0132267, align 8, !tbaa !134
+  %35 = load ptr, ptr %.0132265, align 8, !tbaa !134
   call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.9, ptr noundef %35) #11
   br label %.thread222
 
@@ -1532,7 +1532,7 @@ create_hostcache_id.exit:                         ; preds = %21
   %36 = ptrtoint ptr %19 to i64
   %37 = ptrtoint ptr %20 to i64
   %38 = sub i64 %37, %36
-  %39 = load ptr, ptr %.0132267, align 8, !tbaa !134
+  %39 = load ptr, ptr %.0132265, align 8, !tbaa !134
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 1
   %41 = trunc nuw nsw i64 %23 to i32
   %spec.select.i = call i64 @llvm.umin.i64(i64 %38, i64 255)
@@ -1597,10 +1597,10 @@ create_hostcache_id.exit:                         ; preds = %21
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %110
-  %.0148263 = phi ptr [ %.1149, %110 ], [ null, %.lr.ph.preheader ]
-  %.1152262 = phi ptr [ %.2153, %110 ], [ null, %.lr.ph.preheader ]
-  %.0143258261 = phi ptr [ %.0143, %110 ], [ %67, %.lr.ph.preheader ]
-  %73 = getelementptr inbounds nuw i8, ptr %.0143258261, i64 1
+  %.0148262 = phi ptr [ %.1149, %110 ], [ null, %.lr.ph.preheader ]
+  %.1152261 = phi ptr [ %.2153, %110 ], [ null, %.lr.ph.preheader ]
+  %.0143258260 = phi ptr [ %.0143, %110 ], [ %67, %.lr.ph.preheader ]
+  %73 = getelementptr inbounds nuw i8, ptr %.0143258260, i64 1
   %74 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %73, i32 noundef 44) #12
   %.not184 = icmp eq ptr %74, null
   br i1 %.not184, label %75, label %78
@@ -1612,22 +1612,23 @@ create_hostcache_id.exit:                         ; preds = %21
 
 78:                                               ; preds = %75, %.lr.ph
   %.0143 = phi ptr [ %74, %.lr.ph ], [ %77, %75 ]
+  store ptr %.0143, ptr %4, align 8, !tbaa !136
   %79 = load i8, ptr %73, align 1, !tbaa !4
   %80 = icmp eq i8 %79, 91
   br i1 %80, label %81, label %88
 
 81:                                               ; preds = %78
   %82 = icmp eq ptr %.0143, %73
-  br i1 %82, label %.thread231.loopexit, label %83
+  br i1 %82, label %.thread231, label %83
 
 83:                                               ; preds = %81
   %84 = getelementptr inbounds i8, ptr %.0143, i64 -1
   %85 = load i8, ptr %84, align 1, !tbaa !4
   %.not185 = icmp eq i8 %85, 93
-  br i1 %.not185, label %86, label %.thread231.loopexit
+  br i1 %.not185, label %86, label %.thread231
 
 86:                                               ; preds = %83
-  %87 = getelementptr inbounds nuw i8, ptr %.0143258261, i64 2
+  %87 = getelementptr inbounds nuw i8, ptr %.0143258260, i64 2
   br label %88
 
 88:                                               ; preds = %86, %78
@@ -1641,7 +1642,7 @@ create_hostcache_id.exit:                         ; preds = %21
 
 92:                                               ; preds = %88
   %93 = icmp ugt i64 %91, 63
-  br i1 %93, label %.thread231.loopexit, label %94
+  br i1 %93, label %.thread231, label %94
 
 94:                                               ; preds = %92
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %3, ptr nonnull align 1 %.0145, i64 %91, i1 false)
@@ -1652,7 +1653,6 @@ create_hostcache_id.exit:                         ; preds = %21
   br i1 %.not187, label %97, label %107
 
 97:                                               ; preds = %94
-  store ptr %.0143, ptr %4, align 8
   %98 = load i64, ptr %11, align 2
   %99 = and i64 %98, 134217728
   %.not189 = icmp eq i64 %99, 0
@@ -1674,33 +1674,28 @@ create_hostcache_id.exit:                         ; preds = %21
   br label %.thread231
 
 107:                                              ; preds = %94
-  %.not191 = icmp eq ptr %.0148263, null
+  %.not191 = icmp eq ptr %.0148262, null
   br i1 %.not191, label %110, label %108
 
 108:                                              ; preds = %107
-  %109 = getelementptr inbounds nuw i8, ptr %.0148263, i64 40
+  %109 = getelementptr inbounds nuw i8, ptr %.0148262, i64 40
   store ptr %96, ptr %109, align 8, !tbaa !109
   br label %110
 
 110:                                              ; preds = %108, %107, %88
-  %.2153 = phi ptr [ %.1152262, %88 ], [ %.1152262, %108 ], [ %96, %107 ]
-  %.1149 = phi ptr [ %.0148263, %88 ], [ %96, %108 ], [ %96, %107 ]
+  %.2153 = phi ptr [ %.1152261, %88 ], [ %.1152261, %108 ], [ %96, %107 ]
+  %.1149 = phi ptr [ %.0148262, %88 ], [ %96, %108 ], [ %96, %107 ]
   %111 = load i8, ptr %.0143, align 1, !tbaa !4
   %.not182 = icmp eq i8 %111, 0
   br i1 %.not182, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %110
-  store ptr %.0143, ptr %4, align 8
   %.not183 = icmp eq ptr %.2153, null
   br i1 %.not183, label %.thread231, label %113
 
-.thread231.loopexit:                              ; preds = %83, %81, %92
-  store ptr %.0143, ptr %4, align 8
-  br label %.thread231
-
-.thread231:                                       ; preds = %56, %69, %66, %59, %._crit_edge, %.thread231.loopexit, %97, %102, %106
-  %.0151237 = phi ptr [ %.1152262, %106 ], [ %.1152262, %102 ], [ %.1152262, %97 ], [ %.1152262, %.thread231.loopexit ], [ null, %._crit_edge ], [ null, %59 ], [ null, %66 ], [ null, %69 ], [ null, %56 ]
-  %112 = load ptr, ptr %.0132267, align 8, !tbaa !134
+.thread231:                                       ; preds = %56, %69, %66, %59, %._crit_edge, %92, %81, %83, %97, %102, %106
+  %.0151237 = phi ptr [ %.1152261, %106 ], [ %.1152261, %102 ], [ %.1152261, %97 ], [ %.1152261, %83 ], [ %.1152261, %81 ], [ %.1152261, %92 ], [ null, %._crit_edge ], [ null, %59 ], [ null, %66 ], [ null, %69 ], [ null, %56 ]
+  %112 = load ptr, ptr %.0132265, align 8, !tbaa !134
   call void (ptr, ptr, ...) @Curl_failf(ptr noundef %0, ptr noundef nonnull @.str.11, ptr noundef %112) #11
   br label %.loopexit
 
@@ -1861,22 +1856,22 @@ create_hostcache_id.exit216:                      ; preds = %113, %114
 
 .thread222:                                       ; preds = %.thread, %30, %34, %13, %.thread241, %54, %48
   call void @llvm.lifetime.end.p0(i64 262, ptr nonnull %2) #11
-  %183 = getelementptr inbounds nuw i8, ptr %.0132267, i64 8
+  %183 = getelementptr inbounds nuw i8, ptr %.0132265, i64 8
   %.0132 = load ptr, ptr %183, align 8, !tbaa !133
   %.not = icmp eq ptr %.0132, null
-  br i1 %.not, label %._crit_edge270, label %13, !llvm.loop !138
+  br i1 %.not, label %._crit_edge268, label %13, !llvm.loop !138
 
-._crit_edge270:                                   ; preds = %.thread222, %1
+._crit_edge268:                                   ; preds = %.thread222, %1
   store ptr null, ptr %8, align 8, !tbaa !139
   br label %184
 
-184:                                              ; preds = %.loopexit, %._crit_edge270
-  %.4 = phi i32 [ %.3, %.loopexit ], [ 0, %._crit_edge270 ]
+184:                                              ; preds = %.loopexit, %._crit_edge268
+  %.4 = phi i32 [ %.3, %.loopexit ], [ 0, %._crit_edge268 ]
   ret i32 %.4
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare ptr @strchr(ptr noundef captures(ret: address, provenance), i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn
 declare i64 @strtoul(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #6
@@ -1987,7 +1982,7 @@ declare i32 @curl_msnprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_un
 declare i32 @curl_strnequal(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #9
+declare ptr @strcpy(ptr noalias noundef returned writeonly captures(ret: address, provenance), ptr noalias noundef readonly captures(none)) local_unnamed_addr #9
 
 declare void @Curl_dyn_init(ptr noundef, i64 noundef) local_unnamed_addr #3
 

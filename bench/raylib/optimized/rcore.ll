@@ -39969,7 +39969,7 @@ define void @OpenURL(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #39
+declare ptr @strchr(ptr noundef captures(ret: address, provenance), i32 noundef) local_unnamed_addr #39
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #39
@@ -41407,7 +41407,7 @@ define internal void @JoystickCallback(i32 noundef %0, i32 noundef %1) #0 {
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #42
+declare ptr @strncpy(ptr noalias noundef returned writeonly captures(ret: address, provenance), ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #42
 
 declare ptr @glfwGetJoystickName(i32 noundef) local_unnamed_addr #3
 
@@ -45640,10 +45640,10 @@ define void @UnloadRandomSequence(ptr noundef captures(none) %0) local_unnamed_a
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #42
+declare ptr @strcpy(ptr noalias noundef returned writeonly captures(ret: address, provenance), ptr noalias noundef readonly captures(none)) local_unnamed_addr #42
 
 ; Function Attrs: nofree nounwind memory(read, inaccessiblemem: none) uwtable
-define ptr @GetFileName(ptr noundef readonly %0) local_unnamed_addr #46 {
+define ptr @GetFileName(ptr noundef readonly captures(address, ret: address, provenance) %0) local_unnamed_addr #46 {
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %strprbrk.exit, label %.preheader
 
@@ -45691,50 +45691,49 @@ define noundef zeroext i1 @IsFileExtension(ptr noundef %0, ptr noundef %1) local
   %6 = icmp eq ptr %5, %0
   %.not10 = icmp eq ptr %5, null
   %.not = or i1 %6, %.not10
-  br i1 %.not, label %23, label %7
+  br i1 %.not, label %22, label %7
 
 7:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #60
   store i32 0, ptr %3, align 4
   %8 = call ptr @TextSplit(ptr noundef %1, i8 noundef signext 59, ptr noundef nonnull %3) #60
   call void @llvm.lifetime.start.p0(i64 17, ptr nonnull %4) #60
-  %9 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i8 0, ptr %9, align 16
-  %10 = call ptr @TextToLower(ptr noundef nonnull %5) #60
-  %11 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %10, i64 noundef 16) #60
-  %12 = load i32, ptr %3, align 4
-  %13 = icmp sgt i32 %12, 0
-  br i1 %13, label %.lr.ph, label %._crit_edge
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(17) %4, i8 0, i64 17, i1 false)
+  %9 = call ptr @TextToLower(ptr noundef nonnull %5) #60
+  %10 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %9, i64 noundef 16) #60
+  %11 = load i32, ptr %3, align 4
+  %12 = icmp sgt i32 %11, 0
+  br i1 %12, label %.lr.ph, label %._crit_edge
 
-14:                                               ; preds = %.lr.ph
+13:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %15 = load i32, ptr %3, align 4
-  %16 = sext i32 %15 to i64
-  %17 = icmp slt i64 %indvars.iv.next, %16
-  br i1 %17, label %.lr.ph, label %._crit_edge
+  %14 = load i32, ptr %3, align 4
+  %15 = sext i32 %14 to i64
+  %16 = icmp slt i64 %indvars.iv.next, %15
+  br i1 %16, label %.lr.ph, label %._crit_edge
 
-.lr.ph:                                           ; preds = %7, %14
-  %indvars.iv = phi i64 [ %indvars.iv.next, %14 ], [ 0, %7 ]
-  %18 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
-  %19 = load ptr, ptr %18, align 8
-  %20 = call ptr @TextToLower(ptr noundef %19) #60
-  %21 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %20) #61
-  %22 = icmp eq i32 %21, 0
-  br i1 %22, label %._crit_edge, label %14
+.lr.ph:                                           ; preds = %7, %13
+  %indvars.iv = phi i64 [ %indvars.iv.next, %13 ], [ 0, %7 ]
+  %17 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %18 = load ptr, ptr %17, align 8
+  %19 = call ptr @TextToLower(ptr noundef %18) #60
+  %20 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %19) #61
+  %21 = icmp eq i32 %20, 0
+  br i1 %21, label %._crit_edge, label %13
 
-._crit_edge:                                      ; preds = %14, %.lr.ph, %7
-  %.lcssa = phi i1 [ false, %7 ], [ %22, %.lr.ph ], [ %22, %14 ]
+._crit_edge:                                      ; preds = %13, %.lr.ph, %7
+  %.lcssa = phi i1 [ false, %7 ], [ %21, %.lr.ph ], [ %21, %13 ]
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %4) #60
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #60
-  br label %23
+  br label %22
 
-23:                                               ; preds = %._crit_edge, %2
+22:                                               ; preds = %._crit_edge, %2
   %.08 = phi i1 [ %.lcssa, %._crit_edge ], [ false, %2 ]
   ret i1 %.08
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define ptr @GetFileExtension(ptr noundef readonly %0) local_unnamed_addr #48 {
+define ptr @GetFileExtension(ptr noundef readonly captures(address, ret: address, provenance) %0) local_unnamed_addr #48 {
   %2 = tail call ptr @strrchr(ptr noundef nonnull dereferenceable(1) %0, i32 noundef 46) #61
   %3 = icmp eq ptr %2, %0
   %.0 = select i1 %3, ptr null, ptr %2
@@ -45811,10 +45810,10 @@ declare noundef i64 @ftell(ptr noundef captures(none)) local_unnamed_addr #40
 declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #40
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #39
+declare ptr @strrchr(ptr noundef captures(ret: address, provenance), i32 noundef) local_unnamed_addr #39
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef nonnull ptr @GetFileNameWithoutExt(ptr noundef readonly %0) local_unnamed_addr #49 {
+define noundef nonnull ptr @GetFileNameWithoutExt(ptr noundef readonly captures(address) %0) local_unnamed_addr #49 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) @GetFileNameWithoutExt.fileName, i8 0, i64 256, i1 false)
   %.not = icmp eq ptr %0, null
   br i1 %.not, label %.loopexit, label %.preheader.i
@@ -45860,7 +45859,7 @@ GetFileName.exit:                                 ; preds = %.preheader.i
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define noundef nonnull ptr @GetDirectoryPath(ptr noundef readonly %0) local_unnamed_addr #49 {
+define noundef nonnull ptr @GetDirectoryPath(ptr noundef readonly captures(address) %0) local_unnamed_addr #49 {
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(4096) @GetDirectoryPath.dirPath, i8 0, i64 4096, i1 false)
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %3 = load i8, ptr %2, align 1
@@ -48355,7 +48354,7 @@ define i32 @GetTouchPointCount() local_unnamed_addr #11 {
 declare i32 @strncmp(ptr noundef captures(none), ptr noundef captures(none), i64 noundef) local_unnamed_addr #39
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #39
+declare ptr @strstr(ptr noundef captures(ret: address, provenance), ptr noundef captures(none)) local_unnamed_addr #39
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(none)
 declare <4 x i32> @llvm.x86.sse2.psrli.d(<4 x i32>, i32) #55
@@ -49209,7 +49208,7 @@ sdefl_gen_codes.exit:                             ; preds = %.preheader.i52
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strpbrk(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #39
+declare ptr @strpbrk(ptr noundef captures(ret: address, provenance), ptr noundef captures(none)) local_unnamed_addr #39
 
 ; Function Attrs: nounwind
 declare i32 @clock_gettime(i32 noundef, ptr noundef) local_unnamed_addr #43

@@ -519,7 +519,8 @@ define internal fastcc i32 @conn_state(ptr noundef %0, ptr noundef %1) unnamed_a
   br i1 %56, label %57, label %split_host_and_port.exit
 
 57:                                               ; preds = %54
-  call void @free(ptr noundef nonnull %50) #10
+  %.0..0..0.82 = load ptr, ptr %4, align 8, !tbaa !30
+  call void @free(ptr noundef %.0..0..0.82) #10
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %57, %52
@@ -730,7 +731,7 @@ declare void @BIO_set_flags(ptr noundef, i32 noundef) local_unnamed_addr #2
 declare i32 @bio_sock_error(i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #8
+declare ptr @strchr(ptr noundef captures(ret: address, provenance), i32 noundef) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #8

@@ -4238,7 +4238,7 @@ define internal fastcc noalias noundef ptr @read_macro_arg_one(ptr noundef nonnu
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define internal fastcc ptr @join_tokens(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1) unnamed_addr #11 {
+define internal fastcc noalias ptr @join_tokens(ptr noundef readonly captures(address) %0, ptr noundef readnone captures(address) %1) unnamed_addr #11 {
   %.not41 = icmp eq ptr %0, %1
   br i1 %.not41, label %.critedge.thread, label %.lr.ph
 
@@ -4281,14 +4281,14 @@ define internal fastcc ptr @join_tokens(ptr noundef readonly captures(address) %
   br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !140
 
 .lr.ph49:                                         ; preds = %.critedge, %31
-  %.048 = phi ptr [ %43, %31 ], [ %0, %.critedge ]
-  %.03247 = phi i32 [ %41, %31 ], [ 0, %.critedge ]
+  %.048 = phi ptr [ %42, %31 ], [ %0, %.critedge ]
+  %.03247 = phi i32 [ %40, %31 ], [ 0, %.critedge ]
   %18 = load i32, ptr %.048, align 16, !tbaa !58
   %.not38 = icmp eq i32 %18, 6
   br i1 %.not38, label %.critedge2.loopexit, label %22
 
 .critedge2.loopexit:                              ; preds = %31, %.lr.ph49
-  %.032.lcssa.ph = phi i32 [ %.03247, %.lr.ph49 ], [ %41, %31 ]
+  %.032.lcssa.ph = phi i32 [ %.03247, %.lr.ph49 ], [ %40, %31 ]
   %19 = sext i32 %.032.lcssa.ph to i64
   br label %.critedge2
 
@@ -4326,16 +4326,15 @@ define internal fastcc ptr @join_tokens(ptr noundef readonly captures(address) %
   %37 = load i32, ptr %36, align 8, !tbaa !88
   %38 = sext i32 %37 to i64
   %39 = tail call ptr @strncpy(ptr noundef %33, ptr noundef %35, i64 noundef %38) #14
-  %40 = load i32, ptr %36, align 8, !tbaa !88
-  %41 = add nsw i32 %40, %.1
-  %42 = getelementptr inbounds nuw i8, ptr %.048, i64 8
-  %43 = load ptr, ptr %42, align 8, !tbaa !60
-  %.not37 = icmp eq ptr %43, %1
+  %40 = add nsw i32 %37, %.1
+  %41 = getelementptr inbounds nuw i8, ptr %.048, i64 8
+  %42 = load ptr, ptr %41, align 8, !tbaa !60
+  %.not37 = icmp eq ptr %42, %1
   br i1 %.not37, label %.critedge2.loopexit, label %.lr.ph49, !llvm.loop !141
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #12
+declare ptr @strncpy(ptr noalias noundef returned writeonly captures(ret: address, provenance), ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #12
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) local_unnamed_addr #9

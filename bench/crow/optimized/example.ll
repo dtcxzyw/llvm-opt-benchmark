@@ -46206,7 +46206,7 @@ define linkonce_odr dso_local void @_ZNK4crow4json6rvalue8unescapeEv(ptr noundef
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare noundef ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #19
+declare noundef ptr @memchr(ptr noundef captures(ret: address, provenance), i32 noundef, i64 noundef) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local noundef nonnull align 8 dereferenceable(57) ptr @_ZNK4crow4json6rvalueixERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(57) %0, ptr noundef nonnull align 8 dereferenceable(32) %1) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
@@ -52472,7 +52472,6 @@ _ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.thread55: ; preds 
 
 62:                                               ; preds = %58
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %7) #37
-  call void @llvm.experimental.noalias.scope.decl(metadata !964)
   %.not2531.i.i.i = icmp ult i64 %.sroa.speculated.i, 4
   br i1 %.not2531.i.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.i, label %.lr.ph.i.i.i
 
@@ -52485,12 +52484,12 @@ _ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i:   ; preds = %72, %.lr.ph.i.i.i
   %.033.i.i.i = phi i64 [ %.sroa.speculated.i, %.lr.ph.i.i.i ], [ %75, %72 ]
   %.02132.i.i.i = phi ptr [ %.sroa.651.0, %.lr.ph.i.i.i ], [ %73, %72 ]
   %65 = add i64 %.033.i.i.i, -3
-  %66 = call ptr @memchr(ptr noundef %.02132.i.i.i, i32 noundef 13, i64 noundef %65) #37, !noalias !964
+  %66 = call ptr @memchr(ptr noundef %.02132.i.i.i, i32 noundef 13, i64 noundef %65) #37
   %.not26.i.i.i = icmp eq ptr %66, null
   br i1 %.not26.i.i.i, label %_ZNKSt17basic_string_viewIcSt11char_traitsIcEE4findES2_m.exit.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i33
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i33: ; preds = %_ZNSt11char_traitsIcE4findEPKcmRS1_.exit.i.i.i
-  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %66, ptr noundef nonnull dereferenceable(4) @.str.442, i64 4), !noalias !964
+  %bcmp.i.i.i = call i32 @bcmp(ptr noundef nonnull dereferenceable(4) %66, ptr noundef nonnull dereferenceable(4) @.str.442, i64 4)
   %67 = icmp eq i32 %bcmp.i.i.i, 0
   br i1 %67, label %68, label %72
 
@@ -65694,7 +65693,7 @@ thread-pre-split.thread:                          ; preds = %54, %47, %49, %thre
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare noundef ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #19
+declare noundef ptr @strchr(ptr noundef captures(ret: address, provenance), i32 noundef) local_unnamed_addr #19
 
 ; Function Attrs: nounwind
 declare i32 @inet_pton(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #1
@@ -84254,7 +84253,7 @@ declare ptr @if_indextoname(i32 noundef, ptr noundef) local_unnamed_addr #1
 declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #25
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none)) local_unnamed_addr #30
+declare ptr @strcat(ptr noalias noundef returned captures(ret: address, provenance), ptr noalias noundef readonly captures(none)) local_unnamed_addr #30
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr dso_local void @_ZN4asio6detail18signal_set_service10async_waitIZN4crow6ServerINS3_4CrowIJ17ExampleMiddlewareEEENS3_13SocketAdaptorEJS6_EE3runEvEUlRKSt10error_codeiE_NS_9execution12any_executorIJNSE_12context_as_tIRNS_17execution_contextEEENSE_6detail8blocking7never_tILi0EEENSE_11prefer_onlyINSL_10possibly_tILi0EEEEENSO_INSK_16outstanding_work9tracked_tILi0EEEEENSO_INSS_11untracked_tILi0EEEEENSO_INSK_12relationship6fork_tILi0EEEEENSO_INSZ_14continuation_tILi0EEEEEEEEEEvRNS1_19implementation_typeERT_RKT0_(ptr noundef nonnull align 8 dereferenceable(600) %0, ptr noundef nonnull align 8 dereferenceable(24) %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 8 dereferenceable(48) %3) local_unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {

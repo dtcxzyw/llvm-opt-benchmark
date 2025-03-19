@@ -5283,7 +5283,7 @@ define internal fastcc void @aeron_msg_fragment_add(ptr noundef %0, ptr noundef 
   %35 = load i8, ptr %34, align 4
   %36 = and i8 %35, 64
   %.not = icmp eq i8 %36, 0
-  br i1 %.not, label %98, label %37
+  br i1 %.not, label %96, label %37
 
 37:                                               ; preds = %28
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -5300,15 +5300,15 @@ define internal fastcc void @aeron_msg_fragment_add(ptr noundef %0, ptr noundef 
   %.not6467 = icmp eq ptr %46, null
   br i1 %.not6467, label %._crit_edge.thread, label %.lr.ph
 
-.lr.ph:                                           ; preds = %37, %68
-  %.072 = phi ptr [ %69, %68 ], [ %46, %37 ]
-  %.05371 = phi i1 [ %.1, %68 ], [ false, %37 ]
-  %.05470 = phi i32 [ %.155, %68 ], [ 0, %37 ]
-  %.05769 = phi i64 [ %.158, %68 ], [ 0, %37 ]
-  %.05968 = phi i64 [ %.160, %68 ], [ 0, %37 ]
+.lr.ph:                                           ; preds = %37, %66
+  %.072 = phi ptr [ %67, %66 ], [ %46, %37 ]
+  %.05371 = phi i1 [ %.1, %66 ], [ false, %37 ]
+  %.05470 = phi i32 [ %.155, %66 ], [ 0, %37 ]
+  %.05769 = phi i64 [ %.158, %66 ], [ 0, %37 ]
+  %.05968 = phi i64 [ %.160, %66 ], [ 0, %37 ]
   %47 = tail call ptr @wmem_list_frame_data(ptr noundef nonnull %.072)
   %.not66 = icmp eq ptr %47, null
-  br i1 %.not66, label %68, label %48
+  br i1 %.not66, label %66, label %48
 
 48:                                               ; preds = %.lr.ph
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 20
@@ -5332,82 +5332,80 @@ define internal fastcc void @aeron_msg_fragment_add(ptr noundef %0, ptr noundef 
   %61 = zext i32 %60 to i64
   %62 = tail call i64 @llvm.usub.sat.i64(i64 %43, i64 %.05968)
   %63 = tail call ptr @__memcpy_chk(ptr noundef %57, ptr noundef %58, i64 noundef range(i64 0, 4294967296) %61, i64 noundef %62) #14, !alias.scope !16
-  %64 = load i32, ptr %59, align 8
-  %65 = zext i32 %64 to i64
-  %66 = add i64 %.05968, %65
-  %67 = add i64 %.05769, %65
-  br label %68
+  %64 = add i64 %.05968, %61
+  %65 = add i64 %.05769, %61
+  br label %66
 
-68:                                               ; preds = %56, %.lr.ph
-  %.160 = phi i64 [ %66, %56 ], [ %.05968, %.lr.ph ]
-  %.158 = phi i64 [ %67, %56 ], [ %.05769, %.lr.ph ]
+66:                                               ; preds = %56, %.lr.ph
+  %.160 = phi i64 [ %64, %56 ], [ %.05968, %.lr.ph ]
+  %.158 = phi i64 [ %65, %56 ], [ %.05769, %.lr.ph ]
   %.155 = phi i32 [ %.256, %56 ], [ %.05470, %.lr.ph ]
   %.1 = phi i1 [ %.2, %56 ], [ %.05371, %.lr.ph ]
-  %69 = tail call ptr @wmem_list_frame_next(ptr noundef nonnull %.072)
-  %.not64 = icmp eq ptr %69, null
+  %67 = tail call ptr @wmem_list_frame_next(ptr noundef nonnull %.072)
+  %.not64 = icmp eq ptr %67, null
   br i1 %.not64, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
-._crit_edge:                                      ; preds = %68
-  %70 = load i32, ptr %6, align 8
-  %71 = zext i32 %70 to i64
-  %72 = icmp eq i64 %.158, %71
-  br i1 %72, label %76, label %75
+._crit_edge:                                      ; preds = %66
+  %68 = load i32, ptr %6, align 8
+  %69 = zext i32 %68 to i64
+  %70 = icmp eq i64 %.158, %69
+  br i1 %70, label %74, label %73
 
 ._crit_edge.thread:                               ; preds = %37
-  %73 = load i32, ptr %6, align 8
-  %74 = icmp eq i32 %73, 0
-  br i1 %74, label %.thread, label %75
+  %71 = load i32, ptr %6, align 8
+  %72 = icmp eq i32 %71, 0
+  br i1 %72, label %.thread, label %73
 
-75:                                               ; preds = %._crit_edge.thread, %._crit_edge
+73:                                               ; preds = %._crit_edge.thread, %._crit_edge
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.270, i32 noundef 1988, ptr noundef nonnull @.str.271) #16
   unreachable
 
-76:                                               ; preds = %._crit_edge
-  br i1 %.1, label %77, label %.thread
+74:                                               ; preds = %._crit_edge
+  br i1 %.1, label %75, label %.thread
 
-.thread:                                          ; preds = %._crit_edge.thread, %76
+.thread:                                          ; preds = %._crit_edge.thread, %74
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.270, i32 noundef 1989, ptr noundef nonnull @.str.272) #16
   unreachable
 
-77:                                               ; preds = %76
-  %78 = load i32, ptr %24, align 4
+75:                                               ; preds = %74
+  %76 = load i32, ptr %24, align 4
+  %77 = tail call ptr @wmem_packet_scope()
+  %78 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %77, i64 noundef 32) #13
   %79 = tail call ptr @wmem_packet_scope()
-  %80 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %79, i64 noundef 32) #13
-  %81 = tail call ptr @wmem_packet_scope()
-  %82 = tail call noalias dereferenceable_or_null(8) ptr @wmem_alloc(ptr noundef %81, i64 noundef 8) #13
-  store i32 %78, ptr %82, align 4
-  %83 = getelementptr i8, ptr %82, i64 4
-  store i32 %.155, ptr %83, align 4
-  store i32 2, ptr %80, align 8
-  %84 = getelementptr inbounds nuw i8, ptr %80, i64 8
-  store ptr %82, ptr %84, align 8
-  %85 = getelementptr i8, ptr %80, i64 16
-  store i32 0, ptr %85, align 8
-  %86 = getelementptr i8, ptr %80, i64 24
-  store ptr null, ptr %86, align 8
-  %87 = load ptr, ptr @aeron_frame_info_tree, align 8
-  %88 = tail call ptr @wmem_tree_lookup32_array(ptr noundef %87, ptr noundef %80)
-  %89 = load i32, ptr %6, align 8
-  %90 = tail call ptr @tvb_new_real_data(ptr noundef %44, i32 noundef %89, i32 noundef %89)
-  %91 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %90, ptr %91, align 8
-  %.not65 = icmp eq ptr %88, null
-  br i1 %.not65, label %92, label %93
+  %80 = tail call noalias dereferenceable_or_null(8) ptr @wmem_alloc(ptr noundef %79, i64 noundef 8) #13
+  store i32 %76, ptr %80, align 4
+  %81 = getelementptr i8, ptr %80, i64 4
+  store i32 %.155, ptr %81, align 4
+  store i32 2, ptr %78, align 8
+  %82 = getelementptr inbounds nuw i8, ptr %78, i64 8
+  store ptr %80, ptr %82, align 8
+  %83 = getelementptr i8, ptr %78, i64 16
+  store i32 0, ptr %83, align 8
+  %84 = getelementptr i8, ptr %78, i64 24
+  store ptr null, ptr %84, align 8
+  %85 = load ptr, ptr @aeron_frame_info_tree, align 8
+  %86 = tail call ptr @wmem_tree_lookup32_array(ptr noundef %85, ptr noundef %78)
+  %87 = load i32, ptr %6, align 8
+  %88 = tail call ptr @tvb_new_real_data(ptr noundef %44, i32 noundef %87, i32 noundef %87)
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %88, ptr %89, align 8
+  %.not65 = icmp eq ptr %86, null
+  br i1 %.not65, label %90, label %91
 
-92:                                               ; preds = %77
+90:                                               ; preds = %75
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.270, i32 noundef 1995, ptr noundef nonnull @.str.273) #16
   unreachable
 
-93:                                               ; preds = %77
-  %94 = getelementptr inbounds nuw i8, ptr %88, i64 72
-  %95 = load i32, ptr %94, align 8
-  %96 = or i32 %95, 4
-  store i32 %96, ptr %94, align 8
-  %97 = getelementptr inbounds nuw i8, ptr %88, i64 56
-  store ptr %0, ptr %97, align 8
-  br label %98
+91:                                               ; preds = %75
+  %92 = getelementptr inbounds nuw i8, ptr %86, i64 72
+  %93 = load i32, ptr %92, align 8
+  %94 = or i32 %93, 4
+  store i32 %94, ptr %92, align 8
+  %95 = getelementptr inbounds nuw i8, ptr %86, i64 56
+  store ptr %0, ptr %95, align 8
+  br label %96
 
-98:                                               ; preds = %93, %28
+96:                                               ; preds = %91, %28
   ret void
 }
 
@@ -5427,7 +5425,7 @@ declare void @proto_report_dissector_bug(ptr noundef, ...) local_unnamed_addr #9
 declare ptr @tvb_new_real_data(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid memory(argmem: readwrite)
-declare ptr @__memcpy_chk(ptr noalias noundef writeonly, ptr noalias noundef readonly captures(none), i64 noundef, i64 noundef) local_unnamed_addr #10
+declare ptr @__memcpy_chk(ptr noalias noundef writeonly captures(ret: address, provenance), ptr noalias noundef readonly captures(none), i64 noundef, i64 noundef) local_unnamed_addr #10
 
 ; Function Attrs: null_pointer_is_valid
 declare zeroext i1 @wmem_tree_foreach(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2

@@ -29,171 +29,170 @@ define dso_local i32 @tool_ssls_load(ptr noundef %0, ptr noundef %1, ptr noundef
   %9 = alloca i64, align 8
   %10 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #5
+  store ptr null, ptr %5, align 8, !tbaa !4
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %6) #5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #5
-  store ptr null, ptr %7, align 8, !tbaa !4
+  store ptr null, ptr %7, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %8) #5
-  store ptr null, ptr %8, align 8, !tbaa !4
+  store ptr null, ptr %8, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #5
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #5
   call void @curlx_dyn_init(ptr noundef nonnull %6, i64 noundef 65536) #5
   %11 = call noalias ptr @fopen(ptr noundef %3, ptr noundef nonnull @.str)
   %.not = icmp eq ptr %11, null
-  br i1 %.not, label %49, label %12
+  br i1 %.not, label %12, label %13
 
 12:                                               ; preds = %4
-  %13 = call fastcc i32 @tool_ssls_easy(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %5)
-  %.not68 = icmp eq i32 %13, 0
-  br i1 %.not68, label %.preheader, label %..loopexit80_crit_edge
-
-..loopexit80_crit_edge:                           ; preds = %12
-  %.pre = load ptr, ptr %5, align 8, !tbaa !9
+  call void (ptr, ptr, ...) @notef(ptr noundef %0, ptr noundef nonnull @.str.1, ptr noundef %3) #5
   br label %.loopexit80
 
-.preheader:                                       ; preds = %12
-  %14 = call i32 @curlx_get_line(ptr noundef nonnull %6, ptr noundef nonnull %11) #5
-  %.not698689 = icmp eq i32 %14, 0
-  %.pre95 = load ptr, ptr %5, align 8, !tbaa !9
+13:                                               ; preds = %4
+  %14 = call fastcc i32 @tool_ssls_easy(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %5)
+  %.not68 = icmp eq i32 %14, 0
+  br i1 %.not68, label %.preheader, label %.loopexit80
+
+.preheader:                                       ; preds = %13
+  %15 = call i32 @curlx_get_line(ptr noundef nonnull %6, ptr noundef nonnull %11) #5
+  %.not698689 = icmp eq i32 %15, 0
   br i1 %.not698689, label %.loopexit80, label %.lr.ph88
 
 .lr.ph88:                                         ; preds = %.preheader, %.lr.ph88.backedge
-  %.05587 = phi i32 [ %15, %.lr.ph88.backedge ], [ 0, %.preheader ]
-  %15 = add nuw nsw i32 %.05587, 1
-  %16 = load ptr, ptr %7, align 8, !tbaa !4
-  call void @curl_free(ptr noundef %16) #5
-  %17 = load ptr, ptr %8, align 8, !tbaa !4
+  %.05587 = phi i32 [ %16, %.lr.ph88.backedge ], [ 0, %.preheader ]
+  %16 = add nuw nsw i32 %.05587, 1
+  %17 = load ptr, ptr %7, align 8, !tbaa !8
   call void @curl_free(ptr noundef %17) #5
-  %18 = call ptr @curlx_dyn_ptr(ptr noundef nonnull %6) #5
-  br label %19
+  %18 = load ptr, ptr %8, align 8, !tbaa !8
+  call void @curl_free(ptr noundef %18) #5
+  %19 = call ptr @curlx_dyn_ptr(ptr noundef nonnull %6) #5
+  br label %20
 
-19:                                               ; preds = %.critedge2, %.lr.ph88
-  %.058 = phi ptr [ %18, %.lr.ph88 ], [ %21, %.critedge2 ]
-  %20 = load i8, ptr %.058, align 1, !tbaa !10
-  switch i8 %20, label %22 [
+20:                                               ; preds = %.critedge2, %.lr.ph88
+  %.058 = phi ptr [ %19, %.lr.ph88 ], [ %22, %.critedge2 ]
+  %21 = load i8, ptr %.058, align 1, !tbaa !10
+  switch i8 %21, label %23 [
     i8 9, label %.critedge2
     i8 32, label %.critedge2
     i8 35, label %.backedge
   ]
 
-.critedge2:                                       ; preds = %19, %19
-  %21 = getelementptr inbounds nuw i8, ptr %.058, i64 1
-  br label %19, !llvm.loop !11
+.critedge2:                                       ; preds = %20, %20
+  %22 = getelementptr inbounds nuw i8, ptr %.058, i64 1
+  br label %20, !llvm.loop !11
 
-22:                                               ; preds = %19
-  %23 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.058) #6
-  %24 = call ptr @memchr(ptr noundef nonnull %.058, i32 noundef 58, i64 noundef %23) #6
-  %.not71 = icmp eq ptr %24, null
-  br i1 %.not71, label %25, label %27
+23:                                               ; preds = %20
+  %24 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.058) #6
+  %25 = call ptr @memchr(ptr noundef nonnull %.058, i32 noundef 58, i64 noundef %24) #6
+  %.not71 = icmp eq ptr %25, null
+  br i1 %.not71, label %26, label %28
 
-25:                                               ; preds = %22
-  call void (ptr, ptr, ...) @warnf(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %15, ptr noundef %3) #5
+26:                                               ; preds = %23
+  call void (ptr, ptr, ...) @warnf(ptr noundef %0, ptr noundef nonnull @.str.2, i32 noundef %16, ptr noundef %3) #5
   br label %.backedge
 
-.backedge:                                        ; preds = %19, %25, %29, %38, %45
-  %26 = call i32 @curlx_get_line(ptr noundef nonnull %6, ptr noundef nonnull %11) #5
-  %.not69 = icmp eq i32 %26, 0
+.backedge:                                        ; preds = %20, %26, %30, %39, %47
+  %27 = call i32 @curlx_get_line(ptr noundef nonnull %6, ptr noundef nonnull %11) #5
+  %.not69 = icmp eq i32 %27, 0
   br i1 %.not69, label %.loopexit80, label %.lr.ph88.backedge
 
 .lr.ph88.backedge:                                ; preds = %.backedge, %.outer
   br label %.lr.ph88, !llvm.loop !13
 
-27:                                               ; preds = %22
-  store i8 0, ptr %24, align 1, !tbaa !10
-  %28 = call i32 @curlx_base64_decode(ptr noundef nonnull %.058, ptr noundef nonnull %7, ptr noundef nonnull %9) #5
-  %.not72 = icmp eq i32 %28, 0
-  br i1 %.not72, label %30, label %29
+28:                                               ; preds = %23
+  store i8 0, ptr %25, align 1, !tbaa !10
+  %29 = call i32 @curlx_base64_decode(ptr noundef nonnull %.058, ptr noundef nonnull %7, ptr noundef nonnull %9) #5
+  %.not72 = icmp eq i32 %29, 0
+  br i1 %.not72, label %31, label %30
 
-29:                                               ; preds = %27
-  call void (ptr, ptr, ...) @warnf(ptr noundef %0, ptr noundef nonnull @.str.3, i32 noundef %15) #5
+30:                                               ; preds = %28
+  call void (ptr, ptr, ...) @warnf(ptr noundef %0, ptr noundef nonnull @.str.3, i32 noundef %16) #5
   br label %.backedge
 
-30:                                               ; preds = %27
-  %.ptr74 = getelementptr inbounds nuw i8, ptr %24, i64 1
-  %31 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.ptr74) #6
-  %32 = icmp sgt i64 %31, 1
-  br i1 %32, label %.lr.ph, label %.critedge4
+31:                                               ; preds = %28
+  %.ptr74 = getelementptr inbounds nuw i8, ptr %25, i64 1
+  %32 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.ptr74) #6
+  %33 = icmp sgt i64 %32, 1
+  br i1 %33, label %.lr.ph, label %.critedge4
 
-.lr.ph:                                           ; preds = %30, %.critedge6
-  %.057.idx83 = phi i64 [ %.057.add, %.critedge6 ], [ %31, %30 ]
-  %.057.ptr84 = getelementptr inbounds nuw i8, ptr %24, i64 %.057.idx83
-  %33 = load i8, ptr %.057.ptr84, align 1, !tbaa !10
-  switch i8 %33, label %34 [
+.lr.ph:                                           ; preds = %31, %.critedge6
+  %.057.idx83 = phi i64 [ %.057.add, %.critedge6 ], [ %32, %31 ]
+  %.057.ptr84 = getelementptr inbounds nuw i8, ptr %25, i64 %.057.idx83
+  %34 = load i8, ptr %.057.ptr84, align 1, !tbaa !10
+  switch i8 %34, label %35 [
     i8 10, label %.critedge6
     i8 13, label %.critedge6
   ]
 
-34:                                               ; preds = %.lr.ph
-  %35 = load i8, ptr %.ptr74, align 1, !tbaa !10
-  switch i8 %35, label %.critedge4 [
+35:                                               ; preds = %.lr.ph
+  %36 = load i8, ptr %.ptr74, align 1, !tbaa !10
+  switch i8 %36, label %.critedge4 [
     i8 32, label %.critedge6
     i8 9, label %.critedge6
   ]
 
-.critedge6:                                       ; preds = %34, %34, %.lr.ph, %.lr.ph
+.critedge6:                                       ; preds = %35, %35, %.lr.ph, %.lr.ph
   store i8 0, ptr %.057.ptr84, align 1, !tbaa !10
   %.057.add = add nsw i64 %.057.idx83, -1
-  %36 = icmp sgt i64 %.057.idx83, 2
-  br i1 %36, label %.lr.ph, label %.critedge4, !llvm.loop !14
+  %37 = icmp sgt i64 %.057.idx83, 2
+  br i1 %37, label %.lr.ph, label %.critedge4, !llvm.loop !14
 
-.critedge4:                                       ; preds = %.critedge6, %34, %30
-  %37 = call i32 @curlx_base64_decode(ptr noundef nonnull %.ptr74, ptr noundef nonnull %8, ptr noundef nonnull %10) #5
-  %.not77 = icmp eq i32 %37, 0
-  br i1 %.not77, label %39, label %38
-
-38:                                               ; preds = %.critedge4
-  call void (ptr, ptr, ...) @warnf(ptr noundef %0, ptr noundef nonnull @.str.4, i32 noundef %15, ptr noundef nonnull %.ptr74) #5
-  br label %.backedge
+.critedge4:                                       ; preds = %.critedge6, %35, %31
+  %38 = call i32 @curlx_base64_decode(ptr noundef nonnull %.ptr74, ptr noundef nonnull %8, ptr noundef nonnull %10) #5
+  %.not77 = icmp eq i32 %38, 0
+  br i1 %.not77, label %40, label %39
 
 39:                                               ; preds = %.critedge4
-  %40 = load ptr, ptr %7, align 8, !tbaa !4
-  %41 = load i64, ptr %9, align 8, !tbaa !15
-  %42 = load ptr, ptr %8, align 8, !tbaa !4
-  %43 = load i64, ptr %10, align 8, !tbaa !15
-  %44 = call i32 @curl_easy_ssls_import(ptr noundef %.pre95, ptr noundef null, ptr noundef %40, i64 noundef %41, ptr noundef %42, i64 noundef %43) #5
-  %.not78 = icmp eq i32 %44, 0
-  br i1 %.not78, label %.outer, label %45
-
-45:                                               ; preds = %39
-  call void (ptr, ptr, ...) @warnf(ptr noundef %0, ptr noundef nonnull @.str.5, i32 noundef %15, i32 noundef %44) #5
+  call void (ptr, ptr, ...) @warnf(ptr noundef %0, ptr noundef nonnull @.str.4, i32 noundef %16, ptr noundef nonnull %.ptr74) #5
   br label %.backedge
 
-.outer:                                           ; preds = %39
-  %46 = call i32 @curlx_get_line(ptr noundef nonnull %6, ptr noundef nonnull %11) #5
-  %.not6986 = icmp eq i32 %46, 0
+40:                                               ; preds = %.critedge4
+  %41 = load ptr, ptr %5, align 8, !tbaa !4
+  %42 = load ptr, ptr %7, align 8, !tbaa !8
+  %43 = load i64, ptr %9, align 8, !tbaa !15
+  %44 = load ptr, ptr %8, align 8, !tbaa !8
+  %45 = load i64, ptr %10, align 8, !tbaa !15
+  %46 = call i32 @curl_easy_ssls_import(ptr noundef %41, ptr noundef null, ptr noundef %42, i64 noundef %43, ptr noundef %44, i64 noundef %45) #5
+  %.not78 = icmp eq i32 %46, 0
+  br i1 %.not78, label %.outer, label %47
+
+47:                                               ; preds = %40
+  call void (ptr, ptr, ...) @warnf(ptr noundef %0, ptr noundef nonnull @.str.5, i32 noundef %16, i32 noundef %46) #5
+  br label %.backedge
+
+.outer:                                           ; preds = %40
+  %48 = call i32 @curlx_get_line(ptr noundef nonnull %6, ptr noundef nonnull %11) #5
+  %.not6986 = icmp eq i32 %48, 0
   br i1 %.not6986, label %.loopexit80, label %.lr.ph88.backedge
 
-.loopexit80:                                      ; preds = %.outer, %.backedge, %..loopexit80_crit_edge, %.preheader
-  %47 = phi ptr [ %.pre, %..loopexit80_crit_edge ], [ %.pre95, %.preheader ], [ %.pre95, %.backedge ], [ %.pre95, %.outer ]
-  %.056 = phi i32 [ %13, %..loopexit80_crit_edge ], [ 0, %.preheader ], [ 0, %.backedge ], [ 0, %.outer ]
-  %.not79 = icmp eq ptr %47, null
-  br i1 %.not79, label %50, label %48
+.loopexit80:                                      ; preds = %.outer, %.backedge, %.preheader, %13, %12
+  %.056 = phi i32 [ %14, %13 ], [ 0, %12 ], [ 0, %.preheader ], [ 0, %.backedge ], [ 0, %.outer ]
+  %49 = load ptr, ptr %5, align 8, !tbaa !4
+  %.not79 = icmp eq ptr %49, null
+  br i1 %.not79, label %51, label %50
 
-48:                                               ; preds = %.loopexit80
-  call void @curl_easy_cleanup(ptr noundef nonnull %47) #5
-  br label %50
+50:                                               ; preds = %.loopexit80
+  call void @curl_easy_cleanup(ptr noundef nonnull %49) #5
+  br label %51
 
-49:                                               ; preds = %4
-  call void (ptr, ptr, ...) @notef(ptr noundef %0, ptr noundef nonnull @.str.1, ptr noundef %3) #5
-  br label %52
+51:                                               ; preds = %50, %.loopexit80
+  br i1 %.not, label %54, label %52
 
-50:                                               ; preds = %48, %.loopexit80
-  %51 = call i32 @fclose(ptr noundef nonnull %11)
-  br label %52
+52:                                               ; preds = %51
+  %53 = call i32 @fclose(ptr noundef nonnull %11)
+  br label %54
 
-52:                                               ; preds = %49, %50
-  %.05698101 = phi i32 [ %.056, %50 ], [ 0, %49 ]
+54:                                               ; preds = %52, %51
   call void @curlx_dyn_free(ptr noundef nonnull %6) #5
-  %53 = load ptr, ptr %7, align 8, !tbaa !4
-  call void @curl_free(ptr noundef %53) #5
-  %54 = load ptr, ptr %8, align 8, !tbaa !4
-  call void @curl_free(ptr noundef %54) #5
+  %55 = load ptr, ptr %7, align 8, !tbaa !8
+  call void @curl_free(ptr noundef %55) #5
+  %56 = load ptr, ptr %8, align 8, !tbaa !8
+  call void @curl_free(ptr noundef %56) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %8) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #5
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %6) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #5
-  ret i32 %.05698101
+  ret i32 %.056
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
@@ -209,7 +208,7 @@ declare void @notef(ptr noundef, ptr noundef, ...) local_unnamed_addr #2
 ; Function Attrs: nounwind uwtable
 define internal fastcc i32 @tool_ssls_easy(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef nonnull captures(none) initializes((0, 8)) %3) unnamed_addr #0 {
   %5 = tail call ptr @curl_easy_init() #5
-  store ptr %5, ptr %3, align 8, !tbaa !9
+  store ptr %5, ptr %3, align 8, !tbaa !4
   %.not = icmp eq ptr %5, null
   br i1 %.not, label %18, label %6
 
@@ -225,11 +224,11 @@ define internal fastcc i32 @tool_ssls_easy(ptr noundef %0, ptr noundef %1, ptr n
   br i1 %.not21, label %18, label %11
 
 11:                                               ; preds = %8
-  %12 = load ptr, ptr %3, align 8, !tbaa !9
+  %12 = load ptr, ptr %3, align 8, !tbaa !4
   %13 = tail call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %12, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.8, i32 noundef 20094, ptr noundef nonnull @tool_debug_cb) #5
-  %14 = load ptr, ptr %3, align 8, !tbaa !9
+  %14 = load ptr, ptr %3, align 8, !tbaa !4
   %15 = tail call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %14, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.9, i32 noundef 10095, ptr noundef %1) #5
-  %16 = load ptr, ptr %3, align 8, !tbaa !9
+  %16 = load ptr, ptr %3, align 8, !tbaa !4
   %17 = tail call i32 (ptr, i1, ptr, ptr, ptr, i32, ...) @tool_setopt(ptr noundef %16, i1 noundef zeroext false, ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull @.str.10, i32 noundef 41, i64 noundef 1) #5
   br label %18
 
@@ -245,7 +244,7 @@ declare void @curl_free(ptr noundef) local_unnamed_addr #2
 declare ptr @curlx_dyn_ptr(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @memchr(ptr noundef captures(ret: address, provenance), i32 noundef, i64 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #4
@@ -288,7 +287,7 @@ define dso_local i32 @tool_ssls_save(ptr noundef %0, ptr noundef %1, ptr noundef
 10:                                               ; preds = %4
   %11 = call fastcc i32 @tool_ssls_easy(ptr noundef %0, ptr noundef %1, ptr noundef %2, ptr noundef %6)
   %.not11 = icmp eq i32 %11, 0
-  %.pr.pre = load ptr, ptr %6, align 8, !tbaa !9
+  %.pr.pre = load ptr, ptr %6, align 8, !tbaa !4
   br i1 %.not11, label %12, label %thread-pre-split
 
 12:                                               ; preds = %10
@@ -327,7 +326,7 @@ define internal noundef i32 @tool_ssls_exp(ptr readnone captures(none) %0, ptr n
   %12 = alloca ptr, align 8
   %13 = alloca i64, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #5
-  store ptr null, ptr %12, align 8, !tbaa !4
+  store ptr null, ptr %12, align 8, !tbaa !8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #5
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %15 = load i32, ptr %14, align 8, !tbaa !28
@@ -347,7 +346,7 @@ define internal noundef i32 @tool_ssls_exp(ptr readnone captures(none) %0, ptr n
 
 22:                                               ; preds = %20
   %23 = load i64, ptr %13, align 8, !tbaa !15
-  %24 = load ptr, ptr %12, align 8, !tbaa !4
+  %24 = load ptr, ptr %12, align 8, !tbaa !8
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %26 = load ptr, ptr %25, align 8, !tbaa !29
   %27 = call i64 @fwrite(ptr noundef %24, i64 noundef 1, i64 noundef %23, ptr noundef %26)
@@ -361,7 +360,7 @@ define internal noundef i32 @tool_ssls_exp(ptr readnone captures(none) %0, ptr n
   br i1 %31, label %47, label %32
 
 32:                                               ; preds = %28
-  %33 = load ptr, ptr %12, align 8, !tbaa !4
+  %33 = load ptr, ptr %12, align 8, !tbaa !8
   call void @curl_free(ptr noundef %33) #5
   %34 = call i32 @curlx_base64_encode(ptr noundef %5, i64 noundef %6, ptr noundef nonnull %12, ptr noundef nonnull %13) #5
   %.not22 = icmp eq i32 %34, 0
@@ -369,7 +368,7 @@ define internal noundef i32 @tool_ssls_exp(ptr readnone captures(none) %0, ptr n
 
 35:                                               ; preds = %32
   %36 = load i64, ptr %13, align 8, !tbaa !15
-  %37 = load ptr, ptr %12, align 8, !tbaa !4
+  %37 = load ptr, ptr %12, align 8, !tbaa !8
   %38 = load ptr, ptr %25, align 8, !tbaa !29
   %39 = call i64 @fwrite(ptr noundef %37, i64 noundef 1, i64 noundef %36, ptr noundef %38)
   %.not23 = icmp eq i64 %36, %39
@@ -395,7 +394,7 @@ define internal noundef i32 @tool_ssls_exp(ptr readnone captures(none) %0, ptr n
 
 49:                                               ; preds = %44, %47
   %.028 = phi i32 [ %.0.ph, %47 ], [ 0, %44 ]
-  %50 = load ptr, ptr %12, align 8, !tbaa !4
+  %50 = load ptr, ptr %12, align 8, !tbaa !8
   call void @curl_free(ptr noundef %50) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #5
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #5
@@ -433,28 +432,28 @@ attributes #6 = { nounwind willreturn memory(read) }
 !2 = !{i32 7, !"PIE Level", i32 2}
 !3 = !{i32 7, !"uwtable", i32 2}
 !4 = !{!5, !5, i64 0}
-!5 = !{!"p1 omnipotent char", !6, i64 0}
-!6 = !{!"any pointer", !7, i64 0}
-!7 = !{!"omnipotent char", !8, i64 0}
-!8 = !{!"Simple C/C++ TBAA"}
-!9 = !{!6, !6, i64 0}
-!10 = !{!7, !7, i64 0}
+!5 = !{!"any pointer", !6, i64 0}
+!6 = !{!"omnipotent char", !7, i64 0}
+!7 = !{!"Simple C/C++ TBAA"}
+!8 = !{!9, !9, i64 0}
+!9 = !{!"p1 omnipotent char", !5, i64 0}
+!10 = !{!6, !6, i64 0}
 !11 = distinct !{!11, !12}
 !12 = !{!"llvm.loop.mustprogress"}
 !13 = distinct !{!13, !12}
 !14 = distinct !{!14, !12}
 !15 = !{!16, !16, i64 0}
-!16 = !{!"long", !7, i64 0}
+!16 = !{!"long", !6, i64 0}
 !17 = !{!18, !21, i64 28}
-!18 = !{!"GlobalConfig", !19, i64 0, !19, i64 1, !19, i64 2, !19, i64 3, !7, i64 4, !5, i64 8, !20, i64 16, !19, i64 24, !21, i64 28, !19, i64 32, !19, i64 33, !21, i64 36, !5, i64 40, !19, i64 48, !19, i64 49, !16, i64 56, !5, i64 64, !19, i64 72, !22, i64 74, !19, i64 76, !5, i64 80, !23, i64 88, !24, i64 96, !24, i64 104, !24, i64 112}
-!19 = !{!"_Bool", !7, i64 0}
-!20 = !{!"p1 _ZTS8_IO_FILE", !6, i64 0}
-!21 = !{!"int", !7, i64 0}
-!22 = !{!"short", !7, i64 0}
-!23 = !{!"p1 _ZTS8tool_var", !6, i64 0}
-!24 = !{!"p1 _ZTS15OperationConfig", !6, i64 0}
+!18 = !{!"GlobalConfig", !19, i64 0, !19, i64 1, !19, i64 2, !19, i64 3, !6, i64 4, !9, i64 8, !20, i64 16, !19, i64 24, !21, i64 28, !19, i64 32, !19, i64 33, !21, i64 36, !9, i64 40, !19, i64 48, !19, i64 49, !16, i64 56, !9, i64 64, !19, i64 72, !22, i64 74, !19, i64 76, !9, i64 80, !23, i64 88, !24, i64 96, !24, i64 104, !24, i64 112}
+!19 = !{!"_Bool", !6, i64 0}
+!20 = !{!"p1 _ZTS8_IO_FILE", !5, i64 0}
+!21 = !{!"int", !6, i64 0}
+!22 = !{!"short", !6, i64 0}
+!23 = !{!"p1 _ZTS8tool_var", !5, i64 0}
+!24 = !{!"p1 _ZTS15OperationConfig", !5, i64 0}
 !25 = !{!26, !27, i64 0}
 !26 = !{!"tool_ssls_ctx", !27, i64 0, !20, i64 8, !21, i64 16}
-!27 = !{!"p1 _ZTS12GlobalConfig", !6, i64 0}
+!27 = !{!"p1 _ZTS12GlobalConfig", !5, i64 0}
 !28 = !{!26, !21, i64 16}
 !29 = !{!26, !20, i64 8}

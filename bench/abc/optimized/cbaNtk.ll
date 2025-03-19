@@ -3582,6 +3582,7 @@ define void @Cba_NtkObjOrder(ptr noundef captures(none) %0, ptr noundef captures
   %spec.store.select.i = tail call i32 @llvm.umax.i32(i32 %.val33, i32 8)
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 4
   store i32 0, ptr %8, align 4, !tbaa !21
+  store i32 %spec.store.select.i, ptr %7, align 8, !tbaa !20
   %9 = zext nneg i32 %spec.store.select.i to i64
   %10 = shl nuw nsw i64 %9, 3
   %11 = tail call noalias ptr @malloc(i64 noundef %10) #26
@@ -3826,7 +3827,7 @@ Vec_PtrFreeFree.exit:                             ; preds = %115, %.critedge2
 declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #12
+declare ptr @strrchr(ptr noundef captures(ret: address, provenance), i32 noundef) local_unnamed_addr #12
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable
 define i32 @Cba_NtkCiFonNum(ptr noundef readonly captures(none) %0) local_unnamed_addr #13 {
@@ -17182,7 +17183,7 @@ Cba_NtkRangeSize.exit:                            ; preds = %9, %Cba_FonRange.ex
 declare noalias noundef ptr @realloc(ptr allocptr noundef captures(none), i64 noundef) local_unnamed_addr #16
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #12
+declare ptr @strchr(ptr noundef captures(ret: address, provenance), i32 noundef) local_unnamed_addr #12
 
 declare ptr @Abc_NamStr(ptr noundef, i32 noundef) local_unnamed_addr #3
 
@@ -17193,7 +17194,7 @@ declare double @llvm.fmuladd.f64(double, double, double) #17
 declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #19
+declare ptr @strcpy(ptr noalias noundef returned writeonly captures(ret: address, provenance), ptr noalias noundef readonly captures(none)) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #12

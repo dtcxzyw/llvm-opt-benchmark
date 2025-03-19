@@ -6295,14 +6295,14 @@ define internal fastcc i32 @show_one_reflog_ent(ptr noundef readonly captures(no
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #18
   store ptr %.16.val, ptr %7, align 8, !tbaa !18
   %.not = icmp eq i64 %.8.val, 0
-  br i1 %.not, label %84, label %8
+  br i1 %.not, label %86, label %8
 
 8:                                                ; preds = %3
   %9 = getelementptr i8, ptr %.16.val, i64 %.8.val
   %10 = getelementptr i8, ptr %9, i64 -1
   %11 = load i8, ptr %10, align 1, !tbaa !4
   %.not19 = icmp eq i8 %11, 10
-  br i1 %.not19, label %12, label %84
+  br i1 %.not19, label %12, label %86
 
 12:                                               ; preds = %8
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -6311,7 +6311,7 @@ define internal fastcc i32 @show_one_reflog_ent(ptr noundef readonly captures(no
   %16 = load ptr, ptr %15, align 8, !tbaa !116
   %17 = call i32 @parse_oid_hex_algop(ptr noundef nonnull %.16.val, ptr noundef nonnull %4, ptr noundef nonnull %7, ptr noundef %16) #18
   %.not20 = icmp eq i32 %17, 0
-  br i1 %.not20, label %18, label %84
+  br i1 %.not20, label %18, label %86
 
 18:                                               ; preds = %12
   %19 = load ptr, ptr %7, align 8, !tbaa !18
@@ -6319,7 +6319,7 @@ define internal fastcc i32 @show_one_reflog_ent(ptr noundef readonly captures(no
   store ptr %20, ptr %7, align 8, !tbaa !18
   %21 = load i8, ptr %19, align 1, !tbaa !4
   %.not21 = icmp eq i8 %21, 32
-  br i1 %.not21, label %22, label %84
+  br i1 %.not21, label %22, label %86
 
 22:                                               ; preds = %18
   %23 = load ptr, ptr %13, align 8, !tbaa !87
@@ -6327,7 +6327,7 @@ define internal fastcc i32 @show_one_reflog_ent(ptr noundef readonly captures(no
   %25 = load ptr, ptr %24, align 8, !tbaa !116
   %26 = call i32 @parse_oid_hex_algop(ptr noundef nonnull %20, ptr noundef nonnull %5, ptr noundef nonnull %7, ptr noundef %25) #18
   %.not22 = icmp eq i32 %26, 0
-  br i1 %.not22, label %27, label %84
+  br i1 %.not22, label %27, label %86
 
 27:                                               ; preds = %22
   %28 = load ptr, ptr %7, align 8, !tbaa !18
@@ -6335,18 +6335,18 @@ define internal fastcc i32 @show_one_reflog_ent(ptr noundef readonly captures(no
   store ptr %29, ptr %7, align 8, !tbaa !18
   %30 = load i8, ptr %28, align 1, !tbaa !4
   %.not23 = icmp eq i8 %30, 32
-  br i1 %.not23, label %31, label %84
+  br i1 %.not23, label %31, label %86
 
 31:                                               ; preds = %27
   %32 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %29, i32 noundef 62) #19
   %.not24 = icmp eq ptr %32, null
-  br i1 %.not24, label %84, label %33
+  br i1 %.not24, label %86, label %33
 
 33:                                               ; preds = %31
   %34 = getelementptr inbounds nuw i8, ptr %32, i64 1
   %35 = load i8, ptr %34, align 1, !tbaa !4
   %.not25 = icmp eq i8 %35, 32
-  br i1 %.not25, label %36, label %84
+  br i1 %.not25, label %36, label %86
 
 36:                                               ; preds = %33
   %37 = getelementptr inbounds nuw i8, ptr %32, i64 2
@@ -6355,17 +6355,17 @@ define internal fastcc i32 @show_one_reflog_ent(ptr noundef readonly captures(no
   %40 = load ptr, ptr %6, align 8
   %41 = icmp ne ptr %40, null
   %or.cond = select i1 %39, i1 %41, i1 false
-  br i1 %or.cond, label %42, label %84
+  br i1 %or.cond, label %42, label %86
 
 42:                                               ; preds = %36
   %43 = load i8, ptr %40, align 1, !tbaa !4
   %.not26 = icmp eq i8 %43, 32
-  br i1 %.not26, label %44, label %84
+  br i1 %.not26, label %44, label %86
 
 44:                                               ; preds = %42
   %45 = getelementptr inbounds nuw i8, ptr %40, i64 1
   %46 = load i8, ptr %45, align 1, !tbaa !4
-  switch i8 %46, label %84 [
+  switch i8 %46, label %86 [
     i8 43, label %47
     i8 45, label %47
   ]
@@ -6378,7 +6378,7 @@ define internal fastcc i32 @show_one_reflog_ent(ptr noundef readonly captures(no
   %52 = load i8, ptr %51, align 1, !tbaa !4
   %53 = and i8 %52, 2
   %.not29 = icmp eq i8 %53, 0
-  br i1 %.not29, label %84, label %54
+  br i1 %.not29, label %86, label %54
 
 54:                                               ; preds = %47
   %55 = getelementptr inbounds nuw i8, ptr %40, i64 3
@@ -6388,7 +6388,7 @@ define internal fastcc i32 @show_one_reflog_ent(ptr noundef readonly captures(no
   %59 = load i8, ptr %58, align 1, !tbaa !4
   %60 = and i8 %59, 2
   %.not30 = icmp eq i8 %60, 0
-  br i1 %.not30, label %84, label %61
+  br i1 %.not30, label %86, label %61
 
 61:                                               ; preds = %54
   %62 = getelementptr inbounds nuw i8, ptr %40, i64 4
@@ -6398,7 +6398,7 @@ define internal fastcc i32 @show_one_reflog_ent(ptr noundef readonly captures(no
   %66 = load i8, ptr %65, align 1, !tbaa !4
   %67 = and i8 %66, 2
   %.not31 = icmp eq i8 %67, 0
-  br i1 %.not31, label %84, label %68
+  br i1 %.not31, label %86, label %68
 
 68:                                               ; preds = %61
   %69 = getelementptr inbounds nuw i8, ptr %40, i64 5
@@ -6408,25 +6408,27 @@ define internal fastcc i32 @show_one_reflog_ent(ptr noundef readonly captures(no
   %73 = load i8, ptr %72, align 1, !tbaa !4
   %74 = and i8 %73, 2
   %.not32 = icmp eq i8 %74, 0
-  br i1 %.not32, label %84, label %75
+  br i1 %.not32, label %86, label %75
 
 75:                                               ; preds = %68
   store i8 0, ptr %34, align 1, !tbaa !4
-  %76 = call i64 @strtol(ptr noundef nonnull captures(none) %45, ptr noundef null, i32 noundef 10) #18
-  %77 = trunc i64 %76 to i32
-  %78 = load ptr, ptr %6, align 8, !tbaa !18
-  %79 = getelementptr inbounds nuw i8, ptr %78, i64 6
-  %80 = load i8, ptr %79, align 1, !tbaa !4
-  %.not33 = icmp eq i8 %80, 9
-  %81 = getelementptr inbounds nuw i8, ptr %78, i64 7
-  %storemerge = select i1 %.not33, ptr %81, ptr %79
+  %76 = load ptr, ptr %6, align 8, !tbaa !18
+  %77 = getelementptr inbounds nuw i8, ptr %76, i64 1
+  %78 = call i64 @strtol(ptr noundef nonnull captures(none) %77, ptr noundef null, i32 noundef 10) #18
+  %79 = trunc i64 %78 to i32
+  %80 = load ptr, ptr %6, align 8, !tbaa !18
+  %81 = getelementptr inbounds nuw i8, ptr %80, i64 6
+  %82 = load i8, ptr %81, align 1, !tbaa !4
+  %.not33 = icmp eq i8 %82, 9
+  %83 = getelementptr inbounds nuw i8, ptr %80, i64 7
+  %storemerge = select i1 %.not33, ptr %83, ptr %81
   store ptr %storemerge, ptr %6, align 8, !tbaa !18
-  %82 = load ptr, ptr %7, align 8, !tbaa !18
-  %83 = call i32 %1(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef %82, i64 noundef %38, i32 noundef %77, ptr noundef nonnull %storemerge, ptr noundef %2) #18
-  br label %84
+  %84 = load ptr, ptr %7, align 8, !tbaa !18
+  %85 = call i32 %1(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef %84, i64 noundef %38, i32 noundef %79, ptr noundef nonnull %storemerge, ptr noundef %2) #18
+  br label %86
 
-84:                                               ; preds = %3, %8, %12, %18, %22, %27, %31, %33, %36, %42, %47, %54, %61, %68, %44, %75
-  %.0 = phi i32 [ %83, %75 ], [ 0, %44 ], [ 0, %68 ], [ 0, %61 ], [ 0, %54 ], [ 0, %47 ], [ 0, %42 ], [ 0, %36 ], [ 0, %33 ], [ 0, %31 ], [ 0, %27 ], [ 0, %22 ], [ 0, %18 ], [ 0, %12 ], [ 0, %8 ], [ 0, %3 ]
+86:                                               ; preds = %3, %8, %12, %18, %22, %27, %31, %33, %36, %42, %47, %54, %61, %68, %44, %75
+  %.0 = phi i32 [ %85, %75 ], [ 0, %44 ], [ 0, %68 ], [ 0, %61 ], [ 0, %54 ], [ 0, %47 ], [ 0, %42 ], [ 0, %36 ], [ 0, %33 ], [ 0, %31 ], [ 0, %27 ], [ 0, %22 ], [ 0, %18 ], [ 0, %12 ], [ 0, %8 ], [ 0, %3 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #18
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #18
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %5) #18
@@ -6438,7 +6440,7 @@ define internal fastcc i32 @show_one_reflog_ent(ptr noundef readonly captures(no
 declare noundef i32 @fclose(ptr noundef captures(none)) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare ptr @strchr(ptr noundef captures(ret: address, provenance), i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind
 declare i64 @strtoumax(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #7

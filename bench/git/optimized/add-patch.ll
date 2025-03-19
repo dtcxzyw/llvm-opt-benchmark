@@ -3778,7 +3778,7 @@ declare i32 @xsnprintf(ptr noundef, i64 noundef, ptr noundef, ...) local_unnamed
 declare i32 @pipe_command(ptr noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef, ptr noundef, i64 noundef) local_unnamed_addr #3
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #4
+declare ptr @memchr(ptr noundef captures(ret: address, provenance), i32 noundef, i64 noundef) local_unnamed_addr #4
 
 declare i32 @starts_with(ptr noundef, ptr noundef) local_unnamed_addr #3
 
@@ -3950,6 +3950,7 @@ _.exit:                                           ; preds = %skip_prefix.exit, %
   br label %123
 
 70:                                               ; preds = %56
+  store ptr %scevgep92, ptr %5, align 8, !tbaa !60
   %71 = load ptr, ptr %7, align 8, !tbaa !81
   %72 = ptrtoint ptr %spec.select79 to i64
   %73 = ptrtoint ptr %71 to i64
@@ -3990,6 +3991,7 @@ _.exit:                                           ; preds = %skip_prefix.exit, %
   %97 = ptrtoint ptr %92 to i64
   %98 = sub i64 %96, %97
   %99 = tail call ptr @memmem(ptr noundef %92, i64 noundef %98, ptr noundef nonnull @.str.93, i64 noundef 4) #18
+  store ptr %99, ptr %5, align 8, !tbaa !60
   %.not58 = icmp eq ptr %99, null
   br i1 %.not58, label %111, label %100
 
@@ -3999,6 +4001,7 @@ _.exit:                                           ; preds = %skip_prefix.exit, %
   %reass.sub = sub i64 %96, %102
   %103 = add i64 %reass.sub, -4
   %104 = tail call ptr @memmem(ptr noundef nonnull %101, i64 noundef %103, ptr noundef nonnull @.str.95, i64 noundef 3) #18
+  store ptr %104, ptr %5, align 8, !tbaa !60
   %.not59 = icmp eq ptr %104, null
   br i1 %.not59, label %111, label %105
 
@@ -4295,7 +4298,7 @@ declare i32 @color_fprintf(ptr noundef, ptr noundef, ptr noundef, ...) local_unn
 declare ptr @strchrnul(ptr noundef, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare ptr @strchr(ptr noundef captures(ret: address, provenance), i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: nounwind uwtable
 define internal fastcc void @reassemble_patch(ptr noundef nonnull %0, ptr noundef readonly captures(none) %1, i32 noundef range(i32 0, 2) %2, ptr noundef nonnull %3) unnamed_addr #0 {

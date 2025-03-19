@@ -6410,7 +6410,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit692: ; preds = %_Z
   %744 = ptrtoint ptr %742 to i64
   %745 = sub i64 %743, %744
   %746 = sdiv exact i64 %745, 40
-  %.val = load ptr, ptr %11, align 8
   %.val508 = load ptr, ptr %270, align 8, !tbaa !232
   %.not.i694 = icmp eq ptr %.val508, null
   br i1 %.not.i694, label %750, label %747
@@ -6421,6 +6420,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit692: ; preds = %_Z
   br label %_ZNK13sentencepiece12_GLOBAL__N_116SentenceSelector10total_sizeEv.exit
 
 750:                                              ; preds = %740
+  %.val = load ptr, ptr %11, align 8
   %751 = getelementptr inbounds nuw i8, ptr %.val, i64 8
   %752 = load ptr, ptr %751, align 8, !tbaa !156
   %753 = load ptr, ptr %.val, align 8, !tbaa !153
@@ -6568,9 +6568,10 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit728: ; preds = %_ZNS
   br label %_ZNK13sentencepiece12_GLOBAL__N_116SentenceSelector10total_sizeEv.exit730
 
 811:                                              ; preds = %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit728
-  %812 = getelementptr inbounds nuw i8, ptr %.val, i64 8
+  %.val509 = load ptr, ptr %11, align 8
+  %812 = getelementptr inbounds nuw i8, ptr %.val509, i64 8
   %813 = load ptr, ptr %812, align 8, !tbaa !156
-  %814 = load ptr, ptr %.val, align 8, !tbaa !153
+  %814 = load ptr, ptr %.val509, align 8, !tbaa !153
   %815 = ptrtoint ptr %813 to i64
   %816 = ptrtoint ptr %814 to i64
   %817 = sub i64 %815, %816
@@ -17538,7 +17539,7 @@ _ZNSt6vectorISt17basic_string_viewIcSt11char_traitsIcEESaIS3_EED2Ev.exit: ; pred
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #17
+declare ptr @memchr(ptr noundef captures(ret: address, provenance), i32 noundef, i64 noundef) local_unnamed_addr #17
 
 ; Function Attrs: noreturn
 declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #15

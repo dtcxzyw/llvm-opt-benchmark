@@ -5790,7 +5790,7 @@ declare ptr @PyErr_NoMemory() local_unnamed_addr #2
 declare void @PyMem_Free(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare noundef ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #10
+declare noundef ptr @strrchr(ptr noundef captures(ret: address, provenance), i32 noundef) local_unnamed_addr #10
 
 declare ptr @PyObject_Repr(ptr noundef) local_unnamed_addr #2
 
@@ -5890,7 +5890,7 @@ declare i32 @PyType_IsSubtype(ptr noundef, ptr noundef) local_unnamed_addr #2
 declare ptr @PyUnicode_FromFormat(ptr noundef, ...) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare noundef ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #10
+declare noundef ptr @strstr(ptr noundef captures(ret: address, provenance), ptr noundef captures(none)) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly captures(none), i64, i1 immarg) #11

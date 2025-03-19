@@ -6492,7 +6492,7 @@ declare ptr @OSSL_HTTP_adapt_proxy(ptr noundef, ptr noundef, ptr noundef, i32 no
 declare i32 @OSSL_CMP_CTX_set1_serverPath(ptr noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #10
+declare ptr @strncat(ptr noalias noundef returned captures(ret: address, provenance), ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #10
 
 declare i32 @OBJ_sn2nid(ptr noundef) local_unnamed_addr #2
 
@@ -8372,27 +8372,28 @@ define internal fastcc range(i32 0, 2) i32 @handle_opt_geninfo(ptr noundef %0) u
 81:                                               ; preds = %77
   %82 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %78) #13
   %83 = getelementptr inbounds nuw i8, ptr %78, i64 %82
+  store ptr %83, ptr %2, align 8, !tbaa !4
   br label %86
 
 84:                                               ; preds = %77
   %85 = getelementptr inbounds nuw i8, ptr %79, i64 1
+  store ptr %85, ptr %2, align 8, !tbaa !4
   store i8 0, ptr %79, align 1, !tbaa !9
   br label %86
 
 86:                                               ; preds = %84, %81
-  %87 = phi ptr [ %83, %81 ], [ %85, %84 ]
-  store ptr %87, ptr %2, align 8, !tbaa !4
-  %88 = tail call ptr @ASN1_UTF8STRING_new() #12
-  %89 = icmp eq ptr %88, null
-  br i1 %89, label %119, label %90
+  %87 = tail call ptr @ASN1_UTF8STRING_new() #12
+  %88 = icmp eq ptr %87, null
+  br i1 %88, label %119, label %89
 
-90:                                               ; preds = %86
-  %91 = tail call i32 @ASN1_STRING_set(ptr noundef nonnull %88, ptr noundef nonnull %78, i32 noundef -1) #12
-  %.not65 = icmp eq i32 %91, 0
-  br i1 %.not65, label %119, label %92
+89:                                               ; preds = %86
+  %90 = tail call i32 @ASN1_STRING_set(ptr noundef nonnull %87, ptr noundef nonnull %78, i32 noundef -1) #12
+  %.not65 = icmp eq i32 %90, 0
+  br i1 %.not65, label %119, label %91
 
-92:                                               ; preds = %90
-  tail call void @ASN1_TYPE_set(ptr noundef nonnull %42, i32 noundef 12, ptr noundef nonnull %88) #12
+91:                                               ; preds = %89
+  %92 = load ptr, ptr %2, align 8, !tbaa !4
+  tail call void @ASN1_TYPE_set(ptr noundef nonnull %42, i32 noundef 12, ptr noundef nonnull %87) #12
   br label %99
 
 93:                                               ; preds = %74
@@ -8405,8 +8406,8 @@ define internal fastcc range(i32 0, 2) i32 @handle_opt_geninfo(ptr noundef %0) u
   %98 = tail call i32 (ptr, ptr, ...) @BIO_printf(ptr noundef %97, ptr noundef nonnull @.str.598, ptr noundef nonnull @__func__.handle_opt_geninfo, ptr noundef nonnull @.str.351, i32 noundef 2108, ptr noundef nonnull @.str.352, ptr noundef nonnull %24, ptr noundef nonnull @.str.353, ptr noundef nonnull @.str.353) #12
   br label %125
 
-99:                                               ; preds = %92, %73
-  %.3 = phi ptr [ %.2, %73 ], [ %87, %92 ]
+99:                                               ; preds = %91, %73
+  %.3 = phi ptr [ %.2, %73 ], [ %92, %91 ]
   %100 = tail call ptr @OSSL_CMP_ITAV_create(ptr noundef nonnull %25, ptr noundef nonnull %42) #12
   %101 = icmp eq ptr %100, null
   br i1 %101, label %102, label %108
@@ -8445,9 +8446,9 @@ define internal fastcc range(i32 0, 2) i32 @handle_opt_geninfo(ptr noundef %0) u
   %.not70 = icmp eq i8 %118, 0
   br i1 %.not70, label %.loopexit, label %5, !llvm.loop !79
 
-119:                                              ; preds = %86, %90, %68, %71, %41
-  %.150 = phi ptr [ null, %86 ], [ null, %90 ], [ null, %68 ], [ %69, %71 ], [ null, %41 ]
-  %.146 = phi ptr [ null, %86 ], [ %88, %90 ], [ null, %68 ], [ null, %71 ], [ null, %41 ]
+119:                                              ; preds = %86, %89, %68, %71, %41
+  %.150 = phi ptr [ null, %86 ], [ null, %89 ], [ null, %68 ], [ %69, %71 ], [ null, %41 ]
+  %.146 = phi ptr [ null, %86 ], [ %87, %89 ], [ null, %68 ], [ null, %71 ], [ null, %41 ]
   %120 = load i32, ptr @opt_verbosity, align 4, !tbaa !10
   %121 = icmp slt i32 %120, 3
   br i1 %121, label %125, label %122
@@ -8944,7 +8945,7 @@ declare i32 @ERR_set_mark() local_unnamed_addr #2
 declare ptr @a2i_GENERAL_NAME(ptr noundef, ptr noundef, ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare ptr @strchr(ptr noundef captures(ret: address, provenance), i32 noundef) local_unnamed_addr #4
 
 declare i32 @ERR_pop_to_mark() local_unnamed_addr #2
 

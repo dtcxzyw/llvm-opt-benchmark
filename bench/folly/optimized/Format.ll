@@ -2353,6 +2353,7 @@ define void @_ZN5folly9FormatArg8initSlowEv(ptr noundef nonnull align 8 derefere
   %13 = ptrtoint ptr %9 to i64
   %14 = sub i64 %12, %13
   %15 = tail call noundef ptr @memchr(ptr noundef %9, i32 noundef 58, i64 noundef %14) #30
+  store ptr %15, ptr %8, align 8, !tbaa !50
   %.not = icmp eq ptr %15, null
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %9, ptr %16, align 8, !tbaa !50
@@ -2719,7 +2720,7 @@ _ZN5folly2toIiEENSt9enable_ifIXntsr3std7is_sameINS_5RangeIPKcEET_EE5valueES6_E4t
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare noundef ptr @memchr(ptr noundef, i32 noundef, i64 noundef) local_unnamed_addr #14
+declare noundef ptr @memchr(ptr noundef captures(ret: address, provenance), i32 noundef, i64 noundef) local_unnamed_addr #14
 
 ; Function Attrs: inlinehint mustprogress uwtable
 define internal fastcc noundef i32 @"_ZZN5folly9FormatArg8initSlowEvENK3$_0clEv"(ptr captures(none) %.0.val, ptr readonly captures(none) %.8.val) unnamed_addr #24 align 2 {

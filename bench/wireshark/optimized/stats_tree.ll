@@ -2002,7 +2002,7 @@ stats_tree_manip_node_int.exit:                   ; preds = %25, %22
 }
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #4
+declare ptr @strchr(ptr noundef captures(ret: address, provenance), i32 noundef) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(argmem: read) uwtable
 define range(i32 0, 8) i32 @stats_tree_get_default_sort_col(ptr noundef readonly captures(none) %0) local_unnamed_addr #11 {
@@ -2986,16 +2986,12 @@ define void @stats_tree_format_node_as_str(ptr noundef readonly captures(none) %
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #22
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %11) #22
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %11, ptr noundef nonnull align 16 dereferenceable(16) @__const.stats_tree_format_node_as_str.fmt, i64 16, i1 false)
-  switch i32 %2, label %..loopexit_crit_edge [
+  switch i32 %2, label %.loopexit [
     i32 3, label %18
     i32 2, label %55
     i32 1, label %86
     i32 0, label %92
   ]
-
-..loopexit_crit_edge:                             ; preds = %8
-  %.pre = load ptr, ptr %17, align 8
-  br label %.loopexit
 
 18:                                               ; preds = %8
   %.not98 = icmp eq i32 %3, 0
@@ -3243,11 +3239,11 @@ clean_for_xml_tag.exit:                           ; preds = %.lr.ph.i, %stats_tr
   %102 = call ptr @g_string_append(ptr noundef %1, ptr noundef nonnull @.str.31)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %clean_for_xml_tag.exit, %..loopexit_crit_edge, %55, %._crit_edge120, %53, %._crit_edge, %._crit_edge113
-  %103 = phi ptr [ %.pre, %..loopexit_crit_edge ], [ %56, %55 ], [ %25, %._crit_edge120 ], [ %25, %53 ], [ %95, %._crit_edge ], [ %87, %._crit_edge113 ], [ %56, %clean_for_xml_tag.exit ]
-  %104 = add i32 %3, 1
-  %105 = call i32 @llvm.umin.i32(i32 %104, i32 32)
-  %106 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.52, ptr noundef %4, ptr noundef %103)
+.loopexit:                                        ; preds = %clean_for_xml_tag.exit, %55, %._crit_edge120, %53, %._crit_edge, %._crit_edge113, %8
+  %103 = add i32 %3, 1
+  %104 = call i32 @llvm.umin.i32(i32 %103, i32 32)
+  %105 = load ptr, ptr %17, align 8
+  %106 = call noalias ptr (ptr, ptr, ...) @wmem_strdup_printf(ptr noundef null, ptr noundef nonnull @.str.52, ptr noundef %4, ptr noundef %105)
   %107 = icmp sgt i32 %16, 0
   br i1 %107, label %.lr.ph123.preheader, label %._crit_edge124
 
@@ -3302,7 +3298,7 @@ clean_for_xml_tag.exit:                           ; preds = %.lr.ph.i, %stats_tr
   %121 = load ptr, ptr %113, align 8
   %122 = getelementptr ptr, ptr %121, i64 %indvars.iv155
   %123 = load ptr, ptr %122, align 8
-  call void @stats_tree_format_node_as_str(ptr noundef %123, ptr noundef %1, i32 noundef %2, i32 noundef %105, ptr noundef %106, i32 noundef %5, i32 noundef %6, i1 noundef zeroext %7)
+  call void @stats_tree_format_node_as_str(ptr noundef %123, ptr noundef %1, i32 noundef %2, i32 noundef %104, ptr noundef %106, i32 noundef %5, i32 noundef %6, i1 noundef zeroext %7)
   %indvars.iv.next156 = add nuw nsw i64 %indvars.iv155, 1
   %124 = load i32, ptr %118, align 8
   %125 = sext i32 %124 to i64
@@ -3376,10 +3372,10 @@ declare double @llvm.floor.f64(double) #15
 declare i64 @strtol(ptr noundef readonly, ptr noundef captures(none), i32 noundef) local_unnamed_addr #16
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid memory(argmem: readwrite)
-declare ptr @__memset_chk(ptr noundef writeonly, i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #17
+declare ptr @__memset_chk(ptr noundef writeonly captures(ret: address, provenance), i32 noundef, i64 noundef, i64 noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn memory(argmem: read)
-declare ptr @strpbrk(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #4
+declare ptr @strpbrk(ptr noundef captures(ret: address, provenance), ptr noundef captures(none)) local_unnamed_addr #4
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #18

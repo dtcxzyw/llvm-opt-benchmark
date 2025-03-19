@@ -12149,7 +12149,7 @@ define hidden noundef range(i32 -1, 1) i32 @_ZN6google16posix_strerror_rEiPcm(i3
 declare ptr @strerror_r(i32 noundef, ptr noundef, i64 noundef) local_unnamed_addr #17
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncat(ptr noalias noundef returned, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #32
+declare ptr @strncat(ptr noalias noundef returned captures(ret: address, provenance), ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #32
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZN6google15LogMessageFatalC2EPKci(ptr noundef nonnull align 8 dereferenceable(96) initializes((0, 8)) %0, ptr noundef %1, i32 noundef %2) unnamed_addr #0 align 2 {
@@ -16038,8 +16038,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit44: ; preds = 
           to label %63 unwind label %67
 
 63:                                               ; preds = %61
-  %64 = icmp eq i32 %62, -1
-  br i1 %64, label %351, label %69
+  %64 = icmp ne i32 %62, -1
+  br i1 %64, label %69, label %.thread128
 
 65:                                               ; preds = %59
   %66 = landingpad { ptr, i32 }
@@ -16478,8 +16478,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLERKS4_.exit64: ; preds = 
 
 ._crit_edge.i.i.i65:                              ; preds = %.noexc73, %226
   %232 = phi ptr [ %230, %.noexc73 ], [ %227, %226 ]
-  %cond128 = icmp eq i64 %222, 1
-  br i1 %cond128, label %233, label %235
+  %cond134 = icmp eq i64 %222, 1
+  br i1 %cond134, label %233, label %235
 
 233:                                              ; preds = %._crit_edge.i.i.i65
   %234 = load i8, ptr %228, align 1, !tbaa !51
@@ -16760,17 +16760,13 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %334 = load i64, ptr %135, align 8, !tbaa !48
   %335 = icmp ult i64 %334, 16
   call void @llvm.assume(i1 %335)
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit104
+  br label %351
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i102: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit101
   %336 = load i64, ptr %122, align 8, !tbaa !51
   %337 = add i64 %336, 1
   call void @_ZdlPvm(ptr noundef %332, i64 noundef %337) #51
-  br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit104
-
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit104: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i103, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i102
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #49
-  br label %_ZN6google24glog_internal_namespace_14FileDescriptorD2Ev.exit
+  br label %351
 
 338:                                              ; preds = %.body74, %224, %205
   %.pn32.pn = phi { ptr, i32 } [ %.pn32, %.body74 ], [ %225, %224 ], [ %206, %205 ]
@@ -16813,19 +16809,26 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit110: ; preds = %_Z
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #49
   br label %362
 
-351:                                              ; preds = %63
-  %352 = invoke i32 @close(i32 noundef %55)
+351:                                              ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i102, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i103
+  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #49
+  %.pr118.pre = load i32, ptr %8, align 4, !tbaa !268
+  %.not.i.i111 = icmp eq i32 %.pr118.pre, -1
+  br i1 %.not.i.i111, label %_ZN6google24glog_internal_namespace_14FileDescriptorD2Ev.exit, label %.thread128
+
+.thread128:                                       ; preds = %63, %351
+  %.pr118132 = phi i32 [ %.pr118.pre, %351 ], [ %55, %63 ]
+  %352 = invoke i32 @close(i32 noundef %.pr118132)
           to label %_ZN6google24glog_internal_namespace_14FileDescriptorD2Ev.exit unwind label %353
 
-353:                                              ; preds = %351
+353:                                              ; preds = %.thread128
   %354 = landingpad { ptr, i32 }
           catch ptr null
   %355 = extractvalue { ptr, i32 } %354, 0
   call void @__clang_call_terminate(ptr %355) #50
   unreachable
 
-_ZN6google24glog_internal_namespace_14FileDescriptorD2Ev.exit: ; preds = %79, %76, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit104, %81, %56, %351
-  %.0121 = phi i1 [ false, %351 ], [ false, %56 ], [ false, %79 ], [ false, %76 ], [ true, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit104 ], [ true, %81 ]
+_ZN6google24glog_internal_namespace_14FileDescriptorD2Ev.exit: ; preds = %79, %76, %81, %56, %351, %.thread128
+  %.0121 = phi i1 [ true, %351 ], [ %64, %.thread128 ], [ false, %56 ], [ false, %79 ], [ false, %76 ], [ true, %81 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #49
   %356 = load ptr, ptr %7, align 8, !tbaa !69
   %357 = icmp eq ptr %356, %16
@@ -18373,7 +18376,7 @@ declare noalias noundef ptr @fdopen(i32 noundef, ptr noundef readonly captures(n
 declare noundef i32 @unlink(ptr noundef readonly captures(none)) local_unnamed_addr #19
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare noundef ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #22
+declare noundef ptr @strrchr(ptr noundef captures(ret: address, provenance), i32 noundef) local_unnamed_addr #22
 
 ; Function Attrs: nounwind
 declare i32 @symlink(ptr noundef, ptr noundef) local_unnamed_addr #17
@@ -25950,7 +25953,7 @@ declare void @_ZSt16__throw_bad_castv() local_unnamed_addr #40
 declare void @__cxa_bad_cast() local_unnamed_addr
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #22
+declare ptr @strchr(ptr noundef captures(ret: address, provenance), i32 noundef) local_unnamed_addr #22
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr void @_ZNSt8__detail8_ScannerIcE17_M_eat_escape_awkEv(ptr noundef nonnull align 8 dereferenceable(248) %0) local_unnamed_addr #0 comdat align 2 personality ptr @__gxx_personality_v0 {

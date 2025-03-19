@@ -181,7 +181,7 @@ split_n_str.exit.i:                               ; preds = %.critedge.loopexit.
   call void (ptr, ...) @print_debug(ptr noundef nonnull @.str.19, ptr noundef nonnull %49) #16
   br label %.backedge.i
 
-.backedge.i:                                      ; preds = %.preheader.i.i, %68, %62, %59, %56, %48, %split_n_str.exit.i
+.backedge.i:                                      ; preds = %.preheader.i.i, %69, %63, %59, %56, %48, %split_n_str.exit.i
   %57 = call ptr @fgets(ptr noundef nonnull %5, i32 noundef 4096, ptr noundef nonnull %22)
   %.not.i.i = icmp eq ptr %57, null
   br i1 %.not.i.i, label %fgets_no_cr.exit.i, label %28, !llvm.loop !10
@@ -189,30 +189,32 @@ split_n_str.exit.i:                               ; preds = %.critedge.loopexit.
 58:                                               ; preds = %53
   call void (ptr, ...) @print_debug(ptr noundef nonnull @.str.20, ptr noundef nonnull %49) #16
   store i8 0, ptr %54, align 1
+  %.pre.i = load ptr, ptr %25, align 8
   br label %59
 
 59:                                               ; preds = %58, %52
-  %60 = call i32 @find_lib(ptr noundef nonnull %9, ptr noundef nonnull %49) #16
-  %61 = icmp eq i32 %60, 0
-  br i1 %61, label %62, label %.backedge.i
+  %60 = phi ptr [ %.pre.i, %58 ], [ %49, %52 ]
+  %61 = call i32 @find_lib(ptr noundef nonnull %9, ptr noundef %60) #16
+  %62 = icmp eq i32 %61, 0
+  br i1 %62, label %63, label %.backedge.i
 
-62:                                               ; preds = %59
-  %63 = load ptr, ptr %6, align 16
-  %64 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %63, ptr noundef nonnull @.str.21, ptr noundef nonnull %7) #16
-  %65 = load i64, ptr %7, align 8
-  %66 = call ptr @add_lib_info(ptr noundef nonnull %9, ptr noundef nonnull %49, i64 noundef %65) #16
-  %67 = icmp eq ptr %66, null
-  br i1 %67, label %.backedge.i, label %68
+63:                                               ; preds = %59
+  %64 = load ptr, ptr %6, align 16
+  %65 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef %64, ptr noundef nonnull @.str.21, ptr noundef nonnull %7) #16
+  %66 = load i64, ptr %7, align 8
+  %67 = call ptr @add_lib_info(ptr noundef nonnull %9, ptr noundef %60, i64 noundef %66) #16
+  %68 = icmp eq ptr %67, null
+  br i1 %68, label %.backedge.i, label %69
 
-68:                                               ; preds = %62
-  %69 = getelementptr inbounds nuw i8, ptr %66, i64 4424
-  %70 = load i32, ptr %69, align 8
-  %71 = call i32 @close(i32 noundef %70) #16
-  store i32 -1, ptr %69, align 8
+69:                                               ; preds = %63
+  %70 = getelementptr inbounds nuw i8, ptr %67, i64 4424
+  %71 = load i32, ptr %70, align 8
+  %72 = call i32 @close(i32 noundef %71) #16
+  store i32 -1, ptr %70, align 8
   br label %.backedge.i
 
 fgets_no_cr.exit.i:                               ; preds = %.backedge.i, %.preheader.i
-  %72 = call i32 @fclose(ptr noundef nonnull %22)
+  %73 = call i32 @fclose(ptr noundef nonnull %22)
   br label %read_lib_info.exit
 
 read_lib_info.exit:                               ; preds = %26, %fgets_no_cr.exit.i
@@ -220,77 +222,77 @@ read_lib_info.exit:                               ; preds = %26, %fgets_no_cr.ex
   call void @llvm.lifetime.end.p0(i64 4096, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7)
-  %73 = load i32, ptr %18, align 8
-  %74 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 4096, ptr noundef nonnull @.str.3, i32 noundef %73) #16
-  %75 = call ptr @opendir(ptr noundef nonnull %8)
-  %76 = call ptr @readdir64(ptr noundef %75) #16
-  %.not4659 = icmp eq ptr %76, null
+  %74 = load i32, ptr %18, align 8
+  %75 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %8, i64 noundef 4096, ptr noundef nonnull @.str.3, i32 noundef %74) #16
+  %76 = call ptr @opendir(ptr noundef nonnull %8)
+  %77 = call ptr @readdir64(ptr noundef %76) #16
+  %.not4659 = icmp eq ptr %77, null
   br i1 %.not4659, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %read_lib_info.exit, %.backedge
-  %77 = phi ptr [ %89, %.backedge ], [ %76, %read_lib_info.exit ]
-  %78 = getelementptr inbounds nuw i8, ptr %77, i64 19
-  %79 = load i8, ptr %78, align 1
-  %80 = icmp eq i8 %79, 46
-  br i1 %80, label %.backedge, label %81
+  %78 = phi ptr [ %90, %.backedge ], [ %77, %read_lib_info.exit ]
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 19
+  %80 = load i8, ptr %79, align 1
+  %81 = icmp eq i8 %80, 46
+  br i1 %81, label %.backedge, label %82
 
-81:                                               ; preds = %.lr.ph
-  %82 = call i32 @atoi(ptr noundef nonnull %78) #17
-  %83 = load i32, ptr %18, align 8
-  %84 = icmp eq i32 %82, %83
-  br i1 %84, label %.backedge, label %85
+82:                                               ; preds = %.lr.ph
+  %83 = call i32 @atoi(ptr noundef nonnull %79) #17
+  %84 = load i32, ptr %18, align 8
+  %85 = icmp eq i32 %83, %84
+  br i1 %85, label %.backedge, label %86
 
-85:                                               ; preds = %81
-  %86 = call fastcc i32 @process_doesnt_exist(i32 noundef %82)
-  %.not50 = icmp eq i32 %86, 0
-  br i1 %.not50, label %87, label %.backedge
+86:                                               ; preds = %82
+  %87 = call fastcc i32 @process_doesnt_exist(i32 noundef %83)
+  %.not50 = icmp eq i32 %87, 0
+  br i1 %.not50, label %88, label %.backedge
 
-87:                                               ; preds = %85
-  %88 = call ptr @add_thread_info(ptr noundef nonnull %9, i32 noundef %82) #16
+88:                                               ; preds = %86
+  %89 = call ptr @add_thread_info(ptr noundef nonnull %9, i32 noundef %83) #16
   br label %.backedge
 
-.backedge:                                        ; preds = %85, %87, %.lr.ph, %81
-  %89 = call ptr @readdir64(ptr noundef %75) #16
-  %.not46 = icmp eq ptr %89, null
+.backedge:                                        ; preds = %86, %88, %.lr.ph, %82
+  %90 = call ptr @readdir64(ptr noundef %76) #16
+  %.not46 = icmp eq ptr %90, null
   br i1 %.not46, label %._crit_edge, label %.lr.ph, !llvm.loop !11
 
 ._crit_edge:                                      ; preds = %.backedge, %read_lib_info.exit
-  %90 = call i32 @closedir(ptr noundef %75)
-  %91 = getelementptr inbounds nuw i8, ptr %9, i64 40
-  %92 = load ptr, ptr %91, align 8
-  %.not4760 = icmp eq ptr %92, null
+  %91 = call i32 @closedir(ptr noundef %76)
+  %92 = getelementptr inbounds nuw i8, ptr %9, i64 40
+  %93 = load ptr, ptr %92, align 8
+  %.not4760 = icmp eq ptr %93, null
   br i1 %.not4760, label %.loopexit, label %.lr.ph63
 
-.lr.ph63:                                         ; preds = %._crit_edge, %101
-  %.03961 = phi ptr [ %94, %101 ], [ %92, %._crit_edge ]
-  %93 = getelementptr inbounds nuw i8, ptr %.03961, i64 224
-  %94 = load ptr, ptr %93, align 8
-  %95 = load i32, ptr %18, align 8
-  %96 = load i32, ptr %.03961, align 8
-  %.not48 = icmp eq i32 %95, %96
-  br i1 %.not48, label %101, label %97
+.lr.ph63:                                         ; preds = %._crit_edge, %102
+  %.03961 = phi ptr [ %95, %102 ], [ %93, %._crit_edge ]
+  %94 = getelementptr inbounds nuw i8, ptr %.03961, i64 224
+  %95 = load ptr, ptr %94, align 8
+  %96 = load i32, ptr %18, align 8
+  %97 = load i32, ptr %.03961, align 8
+  %.not48 = icmp eq i32 %96, %97
+  br i1 %.not48, label %102, label %98
 
-97:                                               ; preds = %.lr.ph63
-  %98 = call fastcc i32 @ptrace_attach(i32 noundef %96, ptr noundef %1, i64 noundef %2)
-  switch i32 %98, label %100 [
-    i32 0, label %101
-    i32 2, label %99
+98:                                               ; preds = %.lr.ph63
+  %99 = call fastcc i32 @ptrace_attach(i32 noundef %97, ptr noundef %1, i64 noundef %2)
+  switch i32 %99, label %101 [
+    i32 0, label %102
+    i32 2, label %100
   ]
 
-99:                                               ; preds = %97
+100:                                              ; preds = %98
   call void @delete_thread_info(ptr noundef nonnull %9, ptr noundef nonnull %.03961) #16
-  br label %101
+  br label %102
 
-100:                                              ; preds = %97
+101:                                              ; preds = %98
   call void @Prelease(ptr noundef nonnull %9) #16
   br label %.loopexit
 
-101:                                              ; preds = %97, %99, %.lr.ph63
-  %.not47 = icmp eq ptr %94, null
+102:                                              ; preds = %98, %100, %.lr.ph63
+  %.not47 = icmp eq ptr %95, null
   br i1 %.not47, label %.loopexit, label %.lr.ph63, !llvm.loop !12
 
-.loopexit:                                        ; preds = %101, %._crit_edge, %100, %16, %11
-  %.0 = phi ptr [ null, %11 ], [ null, %16 ], [ null, %100 ], [ %9, %._crit_edge ], [ %9, %101 ]
+.loopexit:                                        ; preds = %102, %._crit_edge, %101, %16, %11
+  %.0 = phi ptr [ null, %11 ], [ null, %16 ], [ null, %101 ], [ %9, %._crit_edge ], [ %9, %102 ]
   ret ptr %.0
 }
 
@@ -700,7 +702,7 @@ define internal range(i32 0, 2) i32 @process_get_lwp_regs(ptr readnone captures(
 declare noalias noundef ptr @fopen64(ptr noundef readonly captures(none), ptr noundef readonly captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #9
+declare ptr @strstr(ptr noundef captures(ret: address, provenance), ptr noundef captures(none)) local_unnamed_addr #9
 
 declare i32 @find_lib(ptr noundef, ptr noundef) local_unnamed_addr #3
 

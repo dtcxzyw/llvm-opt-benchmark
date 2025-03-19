@@ -1803,7 +1803,7 @@ ures_findSubResource_77.exit:                     ; preds = %.lr.ph.i, %._crit_e
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare noundef ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #14
+declare noundef ptr @strchr(ptr noundef captures(ret: address, provenance), i32 noundef) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
 define noundef ptr @ures_open_77(ptr noundef %0, ptr noundef %1, ptr noundef %2) local_unnamed_addr #1 {
@@ -3858,14 +3858,10 @@ _ZL9initCacheP10UErrorCode.exit.i65:              ; preds = %136, %133
 
 181:                                              ; preds = %179
   %.not36.i = icmp eq i8 %180, 0
-  br i1 %.not36.i, label %193, label %._ZL10chopLocalePc.exit.thread_crit_edge.i
+  br i1 %.not36.i, label %193, label %_ZL10chopLocalePc.exit.thread.i
 
-._ZL10chopLocalePc.exit.thread_crit_edge.i:       ; preds = %181
-  %.pre.i69 = load ptr, ptr %6, align 8, !tbaa !74
-  br label %_ZL10chopLocalePc.exit.thread.i
-
-_ZL10chopLocalePc.exit.thread.i:                  ; preds = %._ZL10chopLocalePc.exit.thread_crit_edge.i, %177, %174
-  %182 = phi ptr [ %.pre.i69, %._ZL10chopLocalePc.exit.thread_crit_edge.i ], [ %149, %174 ], [ %149, %177 ]
+_ZL10chopLocalePc.exit.thread.i:                  ; preds = %181, %177, %174
+  %182 = load ptr, ptr %6, align 8, !tbaa !74
   %183 = load ptr, ptr %182, align 8, !tbaa !50
   %184 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %183, ptr noundef nonnull dereferenceable(5) @.str) #28
   %.not37.i = icmp eq i32 %184, 0
@@ -3973,9 +3969,9 @@ _ZL15entryOpenDirectPKcS0_P10UErrorCode.exit:     ; preds = %.thread49.i, %.thre
   %222 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %223 = load i32, ptr %222, align 4, !tbaa !30
   %224 = icmp eq i32 %223, 19700503
-  br i1 %224, label %225, label %.thread92
+  br i1 %224, label %225, label %.thread91
 
-.thread92:                                        ; preds = %221
+.thread91:                                        ; preds = %221
   call fastcc void @_ZL16ures_closeBundleP15UResourceBundlea(ptr noundef nonnull %0, i8 noundef signext 0)
   br label %.sink.split
 
@@ -3987,27 +3983,27 @@ _ZL15entryOpenDirectPKcS0_P10UErrorCode.exit:     ; preds = %.thread49.i, %.thre
   call fastcc void @_ZL16ures_closeBundleP15UResourceBundlea(ptr noundef nonnull %0, i8 noundef signext 0)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %0, i8 0, i64 136, i1 false)
   %spec.select = select i1 %.not, i32 19700503, i32 0
-  %spec.select98 = select i1 %.not, i32 19641227, i32 0
+  %spec.select97 = select i1 %.not, i32 19641227, i32 0
   br label %228
 
-.sink.split:                                      ; preds = %217, %.thread92
-  %.sink = phi ptr [ %0, %.thread92 ], [ %218, %217 ]
-  %.ph = phi i32 [ 0, %.thread92 ], [ 19700503, %217 ]
-  %.ph97 = phi i32 [ 0, %.thread92 ], [ 19641227, %217 ]
+.sink.split:                                      ; preds = %217, %.thread91
+  %.sink = phi ptr [ %0, %.thread91 ], [ %218, %217 ]
+  %.ph = phi i32 [ 0, %.thread91 ], [ 19700503, %217 ]
+  %.ph96 = phi i32 [ 0, %.thread91 ], [ 19641227, %217 ]
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(136) %.sink, i8 0, i64 136, i1 false)
   br label %228
 
 228:                                              ; preds = %225, %.sink.split
   %229 = phi i32 [ %.ph, %.sink.split ], [ %spec.select, %225 ]
-  %.0447890 = phi ptr [ %.sink, %.sink.split ], [ %0, %225 ]
-  %230 = phi i32 [ %.ph97, %.sink.split ], [ %spec.select98, %225 ]
-  %231 = getelementptr inbounds nuw i8, ptr %.0447890, i64 116
+  %.0447789 = phi ptr [ %.sink, %.sink.split ], [ %0, %225 ]
+  %230 = phi i32 [ %.ph96, %.sink.split ], [ %spec.select97, %225 ]
+  %231 = getelementptr inbounds nuw i8, ptr %.0447789, i64 116
   store i32 %229, ptr %231, align 4, !tbaa !30
-  %232 = getelementptr inbounds nuw i8, ptr %.0447890, i64 120
+  %232 = getelementptr inbounds nuw i8, ptr %.0447789, i64 120
   store i32 %230, ptr %232, align 8, !tbaa !31
-  %233 = getelementptr inbounds nuw i8, ptr %.0447890, i64 8
+  %233 = getelementptr inbounds nuw i8, ptr %.0447789, i64 8
   store ptr %.147.ph, ptr %233, align 8, !tbaa !15
-  %234 = getelementptr inbounds nuw i8, ptr %.0447890, i64 24
+  %234 = getelementptr inbounds nuw i8, ptr %.0447789, i64 24
   store ptr %.147.ph, ptr %234, align 8, !tbaa !39
   br i1 %.not53, label %239, label %235
 
@@ -4020,24 +4016,24 @@ _ZL15entryOpenDirectPKcS0_P10UErrorCode.exit:     ; preds = %.thread49.i, %.thre
 
 239:                                              ; preds = %235, %228
   %240 = phi i8 [ 0, %228 ], [ %238, %235 ]
-  %241 = getelementptr inbounds nuw i8, ptr %.0447890, i64 112
+  %241 = getelementptr inbounds nuw i8, ptr %.0447789, i64 112
   store i8 %240, ptr %241, align 8, !tbaa !70
-  %242 = getelementptr inbounds nuw i8, ptr %.0447890, i64 113
+  %242 = getelementptr inbounds nuw i8, ptr %.0447789, i64 113
   store i8 1, ptr %242, align 1, !tbaa !71
   %243 = getelementptr inbounds nuw i8, ptr %.147.ph, i64 40
   %244 = getelementptr inbounds nuw i8, ptr %.147.ph, i64 72
   %245 = load i32, ptr %244, align 8, !tbaa !72
-  %246 = getelementptr inbounds nuw i8, ptr %.0447890, i64 108
+  %246 = getelementptr inbounds nuw i8, ptr %.0447789, i64 108
   store i32 %245, ptr %246, align 4, !tbaa !34
   %247 = call i32 @res_countArrayItems_77(ptr noundef nonnull %243, i32 noundef %245)
-  %248 = getelementptr inbounds nuw i8, ptr %.0447890, i64 128
+  %248 = getelementptr inbounds nuw i8, ptr %.0447789, i64 128
   store i32 %247, ptr %248, align 8, !tbaa !36
-  %249 = getelementptr inbounds nuw i8, ptr %.0447890, i64 124
+  %249 = getelementptr inbounds nuw i8, ptr %.0447789, i64 124
   store i32 -1, ptr %249, align 4, !tbaa !37
   br label %_ZL15entryOpenDirectPKcS0_P10UErrorCode.exit.thread
 
 _ZL15entryOpenDirectPKcS0_P10UErrorCode.exit.thread: ; preds = %139, %_ZL9initCacheP10UErrorCode.exit.i65, %126, %214, %_ZL15entryOpenDirectPKcS0_P10UErrorCode.exit, %239, %220, %5
-  %.043 = phi ptr [ null, %5 ], [ null, %214 ], [ null, %126 ], [ null, %_ZL15entryOpenDirectPKcS0_P10UErrorCode.exit ], [ null, %220 ], [ %.0447890, %239 ], [ null, %_ZL9initCacheP10UErrorCode.exit.i65 ], [ null, %139 ]
+  %.043 = phi ptr [ null, %5 ], [ null, %214 ], [ null, %126 ], [ null, %_ZL15entryOpenDirectPKcS0_P10UErrorCode.exit ], [ null, %220 ], [ %.0447789, %239 ], [ null, %_ZL9initCacheP10UErrorCode.exit.i65 ], [ null, %139 ]
   ret ptr %.043
 }
 
@@ -4203,7 +4199,7 @@ define ptr @ures_getVersionNumberInternal_77(ptr noundef captures(address_is_nul
 declare void @u_UCharsToChars_77(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #18
+declare ptr @strcpy(ptr noalias noundef returned writeonly captures(ret: address, provenance), ptr noalias noundef readonly captures(none)) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress uwtable
 define ptr @ures_getVersionNumber_77(ptr noundef captures(address_is_null) %0) local_unnamed_addr #1 {
@@ -7407,7 +7403,7 @@ declare noundef signext i8 @_ZNK6icu_7713ResourceTable14getKeyAndValueEiRPKcRNS_
 declare noundef i32 @_ZNK6icu_7717ResourceDataValue7getTypeEv(ptr noundef nonnull align 8 dereferenceable(29)) unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #18
+declare ptr @strncpy(ptr noalias noundef returned writeonly captures(ret: address, provenance), ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #18
 
 ; Function Attrs: mustprogress uwtable
 define internal fastcc noundef ptr @_ZL17findFirstExistingPKcPcS0_12UResOpenTypePaS3_S3_P10UErrorCode(ptr noundef %0, ptr noundef nonnull %1, ptr noundef readonly captures(none) %2, i32 noundef range(i32 0, 2) %3, ptr noundef nonnull writeonly captures(none) %4, ptr noundef nonnull captures(none) initializes((0, 1)) %5, ptr noundef nonnull writeonly captures(none) %6, ptr noundef nonnull %7) unnamed_addr #1 personality ptr @__gxx_personality_v0 {
@@ -9000,7 +8996,7 @@ declare void @_Z21ulocimp_getSubtags_77St17basic_string_viewIcSt11char_traitsIcE
 declare void @_ZN6icu_7720CheckedArrayByteSinkD1Ev(ptr noundef nonnull align 8 dereferenceable(29)) unnamed_addr #15
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare noundef ptr @strrchr(ptr noundef, i32 noundef) local_unnamed_addr #14
+declare noundef ptr @strrchr(ptr noundef captures(ret: address, provenance), i32 noundef) local_unnamed_addr #14
 
 declare ptr @uhash_get_77(ptr noundef, ptr noundef) local_unnamed_addr #9
 
@@ -9044,7 +9040,7 @@ declare i32 @res_getResource_77(ptr noundef, ptr noundef) local_unnamed_addr #9
 declare ptr @uhash_put_77(ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #9
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare noundef ptr @strstr(ptr noundef, ptr noundef captures(none)) local_unnamed_addr #14
+declare noundef ptr @strstr(ptr noundef captures(ret: address, provenance), ptr noundef captures(none)) local_unnamed_addr #14
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZL21ures_loc_closeLocalesP12UEnumeration(ptr noundef %0) #1 {

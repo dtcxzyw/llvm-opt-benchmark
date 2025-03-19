@@ -132,7 +132,7 @@ define noundef i32 @tng_atom_residue_get(ptr noundef readnone captures(none) %0,
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @tng_atom_name_get(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @tng_atom_name_get(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %6 = load ptr, ptr %5, align 8, !tbaa !12
   %7 = add nsw i32 %3, -1
@@ -149,7 +149,7 @@ define range(i32 0, 2) i32 @tng_atom_name_get(ptr noundef readnone captures(none
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strncpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #2
+declare ptr @strncpy(ptr noalias noundef returned writeonly captures(ret: address, provenance), ptr noalias noundef readonly captures(none), i64 noundef) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
 declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #3
@@ -210,7 +210,7 @@ declare noundef i32 @fprintf(ptr noundef captures(none), ptr noundef readonly ca
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #5
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @tng_atom_type_get(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @tng_atom_type_get(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !16
   %7 = add nsw i32 %3, -1
@@ -535,7 +535,7 @@ define range(i32 0, 3) i32 @tng_molecule_existing_add(ptr noundef captures(none)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @tng_molecule_name_get(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @tng_molecule_name_get(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %6 = load ptr, ptr %5, align 8, !tbaa !37
   %7 = add nsw i32 %3, -1
@@ -1950,7 +1950,7 @@ define range(i32 0, 2) i32 @tng_molecule_atom_find(ptr noundef readnone captures
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @tng_chain_name_get(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @tng_chain_name_get(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !56
   %7 = add nsw i32 %3, -1
@@ -2130,7 +2130,7 @@ define range(i32 0, 3) i32 @tng_residue_name_set(ptr noundef readnone captures(n
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @tng_residue_name_get(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @tng_residue_name_get(ptr noundef readnone captures(none) %0, ptr noundef readonly captures(none) %1, ptr noundef captures(none) %2, i32 noundef %3) local_unnamed_addr #1 {
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %6 = load ptr, ptr %5, align 8, !tbaa !61
   %7 = add nsw i32 %3, -1
@@ -2251,7 +2251,7 @@ define noundef i32 @tng_molecule_free(ptr noundef readnone captures(none) %0, pt
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @tng_molecule_name_of_particle_nr_get(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #16 {
+define range(i32 0, 2) i32 @tng_molecule_name_of_particle_nr_get(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef captures(none) %2, i32 noundef %3) local_unnamed_addr #16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %6 = load i8, ptr %5, align 8, !tbaa !47
   %.not.i = icmp eq i8 %6, 0
@@ -2535,7 +2535,7 @@ define range(i32 0, 3) i32 @tng_molsystem_bonds_get(ptr noundef readonly capture
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @tng_chain_name_of_particle_nr_get(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #16 {
+define range(i32 0, 2) i32 @tng_chain_name_of_particle_nr_get(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef captures(none) %2, i32 noundef %3) local_unnamed_addr #16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %6 = load i8, ptr %5, align 8, !tbaa !47
   %.not.i = icmp eq i8 %6, 0
@@ -2612,7 +2612,7 @@ define range(i32 0, 2) i32 @tng_chain_name_of_particle_nr_get(ptr noundef readon
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @tng_residue_name_of_particle_nr_get(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #16 {
+define range(i32 0, 2) i32 @tng_residue_name_of_particle_nr_get(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef captures(none) %2, i32 noundef %3) local_unnamed_addr #16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %6 = load i8, ptr %5, align 8, !tbaa !47
   %.not.i = icmp eq i8 %6, 0
@@ -2815,7 +2815,7 @@ define range(i32 0, 2) i32 @tng_global_residue_id_of_particle_nr_get(ptr noundef
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @tng_atom_name_of_particle_nr_get(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #16 {
+define range(i32 0, 2) i32 @tng_atom_name_of_particle_nr_get(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef captures(none) %2, i32 noundef %3) local_unnamed_addr #16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %6 = load i8, ptr %5, align 8, !tbaa !47
   %.not.i = icmp eq i8 %6, 0
@@ -2878,7 +2878,7 @@ define range(i32 0, 2) i32 @tng_atom_name_of_particle_nr_get(ptr noundef readonl
 }
 
 ; Function Attrs: nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @tng_atom_type_of_particle_nr_get(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #16 {
+define range(i32 0, 2) i32 @tng_atom_type_of_particle_nr_get(ptr noundef readonly captures(none) %0, i64 noundef %1, ptr noundef captures(none) %2, i32 noundef %3) local_unnamed_addr #16 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %6 = load i8, ptr %5, align 8, !tbaa !47
   %.not.i = icmp eq i8 %6, 0
@@ -4718,10 +4718,10 @@ define range(i32 0, 3) i32 @tng_trajectory_init_from_src(ptr noundef readonly ca
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite)
-declare ptr @strcpy(ptr noalias noundef returned writeonly, ptr noalias noundef readonly captures(none)) local_unnamed_addr #2
+declare ptr @strcpy(ptr noalias noundef returned writeonly captures(ret: address, provenance), ptr noalias noundef readonly captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @tng_input_file_get(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @tng_input_file_get(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = load ptr, ptr %0, align 8, !tbaa !139
   %5 = add nsw i32 %2, -1
   %6 = sext i32 %5 to i64
@@ -4839,7 +4839,7 @@ define internal fastcc range(i32 0, 3) i32 @tng_input_file_init(ptr noundef capt
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @tng_output_file_get(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @tng_output_file_get(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %5 = load ptr, ptr %4, align 8, !tbaa !140
   %6 = add nsw i32 %2, -1
@@ -5276,7 +5276,7 @@ define range(i32 0, 2) i32 @tng_output_file_endianness_set(ptr noundef captures(
 declare noundef i64 @ftello64(ptr noundef captures(none)) local_unnamed_addr #8
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @tng_first_program_name_get(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @tng_first_program_name_get(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load ptr, ptr %4, align 8, !tbaa !141
   %6 = add nsw i32 %2, -1
@@ -5333,7 +5333,7 @@ define range(i32 0, 3) i32 @tng_first_program_name_set(ptr noundef captures(none
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @tng_last_program_name_get(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @tng_last_program_name_get(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8, !tbaa !142
   %6 = add nsw i32 %2, -1
@@ -5390,7 +5390,7 @@ define range(i32 0, 3) i32 @tng_last_program_name_set(ptr noundef captures(none)
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @tng_first_user_name_get(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @tng_first_user_name_get(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 96
   %5 = load ptr, ptr %4, align 8, !tbaa !143
   %6 = add nsw i32 %2, -1
@@ -5447,7 +5447,7 @@ define range(i32 0, 3) i32 @tng_first_user_name_set(ptr noundef captures(none) %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @tng_last_user_name_get(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @tng_last_user_name_get(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %5 = load ptr, ptr %4, align 8, !tbaa !144
   %6 = add nsw i32 %2, -1
@@ -5504,7 +5504,7 @@ define range(i32 0, 3) i32 @tng_last_user_name_set(ptr noundef captures(none) %0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @tng_first_computer_name_get(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @tng_first_computer_name_get(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %5 = load ptr, ptr %4, align 8, !tbaa !145
   %6 = add nsw i32 %2, -1
@@ -5561,7 +5561,7 @@ define range(i32 0, 3) i32 @tng_first_computer_name_set(ptr noundef captures(non
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @tng_last_computer_name_get(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @tng_last_computer_name_get(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 136
   %5 = load ptr, ptr %4, align 8, !tbaa !146
   %6 = add nsw i32 %2, -1
@@ -5618,7 +5618,7 @@ define range(i32 0, 3) i32 @tng_last_computer_name_set(ptr noundef captures(none
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @tng_first_signature_get(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @tng_first_signature_get(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %5 = load ptr, ptr %4, align 8, !tbaa !147
   %6 = add nsw i32 %2, -1
@@ -5675,7 +5675,7 @@ define range(i32 0, 3) i32 @tng_first_signature_set(ptr noundef captures(none) %
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @tng_last_signature_get(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @tng_last_signature_get(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 144
   %5 = load ptr, ptr %4, align 8, !tbaa !148
   %6 = add nsw i32 %2, -1
@@ -5732,7 +5732,7 @@ define range(i32 0, 3) i32 @tng_last_signature_set(ptr noundef captures(none) %0
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable
-define range(i32 0, 2) i32 @tng_forcefield_name_get(ptr noundef readonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #1 {
+define range(i32 0, 2) i32 @tng_forcefield_name_get(ptr noundef readonly captures(none) %0, ptr noundef captures(none) %1, i32 noundef %2) local_unnamed_addr #1 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %5 = load ptr, ptr %4, align 8, !tbaa !149
   %6 = add nsw i32 %2, -1
@@ -20337,7 +20337,7 @@ define range(i32 0, 3) i32 @tng_particle_data_block_add(ptr noundef captures(non
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 0, 3) i32 @tng_data_block_name_get(ptr noundef %0, i64 noundef %1, ptr noundef %2, i32 noundef %3) local_unnamed_addr #4 {
+define range(i32 0, 3) i32 @tng_data_block_name_get(ptr noundef %0, i64 noundef %1, ptr noundef captures(none) %2, i32 noundef %3) local_unnamed_addr #4 {
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 448
   %6 = load i32, ptr %5, align 8, !tbaa !123
   %7 = sext i32 %6 to i64

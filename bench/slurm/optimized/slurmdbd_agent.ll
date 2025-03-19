@@ -906,7 +906,7 @@ define dso_local void @slurmdbd_agent_config_setup() local_unnamed_addr #0 {
   %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1248), align 8
   %11 = tail call ptr @slurm_xstrcasestr(ptr noundef %10, ptr noundef nonnull @.str.10) #13
   %.not5 = icmp eq ptr %11, null
-  br i1 %.not5, label %23, label %12
+  br i1 %.not5, label %24, label %12
 
 12:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #13
@@ -919,33 +919,35 @@ define dso_local void @slurmdbd_agent_config_setup() local_unnamed_addr #0 {
 
 16:                                               ; preds = %12
   store i8 0, ptr %15, align 1
+  %.pre = load ptr, ptr %1, align 8
   br label %17
 
 17:                                               ; preds = %16, %12
-  %18 = tail call i32 @slurm_xstrcasecmp(ptr noundef nonnull %14, ptr noundef nonnull @.str.11) #13
-  %.not7 = icmp ne i32 %18, 0
-  br i1 %.not7, label %19, label %22
+  %18 = phi ptr [ %.pre, %16 ], [ %14, %12 ]
+  %19 = tail call i32 @slurm_xstrcasecmp(ptr noundef %18, ptr noundef nonnull @.str.11) #13
+  %.not7 = icmp ne i32 %19, 0
+  br i1 %.not7, label %20, label %23
 
-19:                                               ; preds = %17
-  %20 = tail call i32 @slurm_xstrcasecmp(ptr noundef nonnull %14, ptr noundef nonnull @.str.12) #13
-  %.not8 = icmp eq i32 %20, 0
-  br i1 %.not8, label %22, label %21
+20:                                               ; preds = %17
+  %21 = tail call i32 @slurm_xstrcasecmp(ptr noundef %18, ptr noundef nonnull @.str.12) #13
+  %.not8 = icmp eq i32 %21, 0
+  br i1 %.not8, label %23, label %22
 
-21:                                               ; preds = %19
-  tail call void (ptr, ...) @slurm_fatal(ptr noundef nonnull @.str.13, ptr noundef nonnull %14) #15
+22:                                               ; preds = %20
+  tail call void (ptr, ...) @slurm_fatal(ptr noundef nonnull @.str.13, ptr noundef %18) #15
   unreachable
 
-22:                                               ; preds = %19, %17
+23:                                               ; preds = %20, %17
   store i1 %.not7, ptr @max_dbd_msg_action, align 4
   call void @slurm_xfree(ptr noundef nonnull %1) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #13
-  br label %24
+  br label %25
 
-23:                                               ; preds = %9
+24:                                               ; preds = %9
   store i1 false, ptr @max_dbd_msg_action, align 4
-  br label %24
+  br label %25
 
-24:                                               ; preds = %23, %22
+25:                                               ; preds = %24, %23
   ret void
 }
 
@@ -954,7 +956,7 @@ declare ptr @slurm_xstrcasestr(ptr noundef, ptr noundef) local_unnamed_addr #1
 declare ptr @slurm_xstrdup(ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare ptr @strchr(ptr noundef, i32 noundef) local_unnamed_addr #7
+declare ptr @strchr(ptr noundef captures(ret: address, provenance), i32 noundef) local_unnamed_addr #7
 
 declare i32 @slurm_xstrcasecmp(ptr noundef, ptr noundef) local_unnamed_addr #1
 

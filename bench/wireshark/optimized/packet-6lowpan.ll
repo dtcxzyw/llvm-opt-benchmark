@@ -2178,7 +2178,7 @@ define internal noundef zeroext i1 @dissect_6lowpan_heur(ptr noundef %0, ptr nou
 declare void @dissector_add_uint(ptr noundef, i32 noundef, ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nofree nounwind null_pointer_is_valid memory(argmem: readwrite)
-declare ptr @__memcpy_chk(ptr noalias noundef writeonly, ptr noalias noundef readonly captures(none), i64 noundef, i64 noundef) local_unnamed_addr #6
+declare ptr @__memcpy_chk(ptr noalias noundef writeonly captures(ret: address, provenance), ptr noalias noundef readonly captures(none), i64 noundef, i64 noundef) local_unnamed_addr #6
 
 ; Function Attrs: null_pointer_is_valid
 declare void @wmem_free(ptr noundef, ptr noundef) local_unnamed_addr #2
@@ -4212,9 +4212,9 @@ define internal fastcc ptr @lowpan_reassemble_ipv6(ptr noundef %0, ptr noundef r
   br label %.lr.ph39
 
 .lr.ph39:                                         ; preds = %.lr.ph39.preheader, %.lr.ph39
-  %.137 = phi ptr [ %33, %.lr.ph39 ], [ %3, %.lr.ph39.preheader ]
-  %.02636 = phi ptr [ %32, %.lr.ph39 ], [ %20, %.lr.ph39.preheader ]
-  %21 = phi i64 [ %31, %.lr.ph39 ], [ 40, %.lr.ph39.preheader ]
+  %.137 = phi ptr [ %31, %.lr.ph39 ], [ %3, %.lr.ph39.preheader ]
+  %.02636 = phi ptr [ %30, %.lr.ph39 ], [ %20, %.lr.ph39.preheader ]
+  %21 = phi i64 [ %29, %.lr.ph39 ], [ 40, %.lr.ph39.preheader ]
   %22 = getelementptr i8, ptr %.137, i64 24
   %23 = getelementptr inbounds nuw i8, ptr %.137, i64 12
   %24 = load i32, ptr %23, align 4
@@ -4223,18 +4223,16 @@ define internal fastcc ptr @lowpan_reassemble_ipv6(ptr noundef %0, ptr noundef r
   %27 = icmp ne i64 %26, -1
   tail call void @llvm.assume(i1 %27)
   %28 = tail call ptr @__memcpy_chk(ptr noundef %.02636, ptr noundef %22, i64 noundef range(i64 0, 4294967296) %25, i64 noundef %26) #13, !alias.scope !59
-  %29 = load i32, ptr %23, align 4
-  %30 = zext i32 %29 to i64
-  %31 = add i64 %21, %30
-  %32 = getelementptr i8, ptr %.02636, i64 %30
-  %33 = load ptr, ptr %.137, align 8
-  %.not29 = icmp eq ptr %33, null
+  %29 = add i64 %21, %25
+  %30 = getelementptr i8, ptr %.02636, i64 %25
+  %31 = load ptr, ptr %.137, align 8
+  %.not29 = icmp eq ptr %31, null
   br i1 %.not29, label %._crit_edge40, label %.lr.ph39, !llvm.loop !63
 
 ._crit_edge40:                                    ; preds = %.lr.ph39, %._crit_edge
-  %34 = add i32 %.028.lcssa, 40
-  %35 = tail call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %17, i32 noundef %.027.lcssa, i32 noundef %34)
-  ret ptr %35
+  %32 = add i32 %.028.lcssa, 40
+  %33 = tail call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %17, i32 noundef %.027.lcssa, i32 noundef %32)
+  ret ptr %33
 }
 
 ; Function Attrs: null_pointer_is_valid
