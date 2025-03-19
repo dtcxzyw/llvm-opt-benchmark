@@ -19520,7 +19520,6 @@ _ZN4gpui3app10entity_map9EntityMap5lease17hd6e60c12fcbfb0bbE.exit: ; preds = %"_
   %88 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %87, ptr %88, align 8, !noalias !3573
   %89 = getelementptr inbounds nuw i8, ptr %12, i64 16
-  store i64 0, ptr %89, align 8, !noalias !3573
   %90 = getelementptr inbounds { { i64, [7 x i64] }, { i64, [35 x i64] }, i64 }, ptr %79, i64 %.sroa.5.0.copyload
   %91 = icmp eq i64 %84, 0
   br i1 %91, label %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h73cf932c6307e35cE.exit.i.i", label %.lr.ph.i.i.i

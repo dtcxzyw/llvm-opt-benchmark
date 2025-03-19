@@ -1072,42 +1072,41 @@ _ZSt10_ConstructINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEJRKS5_EEvPT
   store i64 ptrtoint (ptr @_ZNK12_GLOBAL__N_116SmartPtrModeling9handleGetERKN5clang4ento9CallEventERNS2_14CheckerContextE to i64), ptr %191, align 8, !tbaa !77
   %.repack5.i31.i.i = getelementptr inbounds nuw i8, ptr %6, i64 312
   store i64 0, ptr %.repack5.i31.i.i, align 8, !tbaa !77
-  %192 = getelementptr inbounds nuw i8, ptr %23, i64 48
-  store i64 0, ptr %192, align 8
-  %193 = call noalias noundef nonnull dereferenceable(320) ptr @_Znwm(i64 noundef 320) #20
-  store ptr %193, ptr %24, align 8, !tbaa !92
-  %194 = getelementptr inbounds nuw i8, ptr %193, i64 320
-  %195 = getelementptr inbounds nuw i8, ptr %23, i64 56
-  store ptr %194, ptr %195, align 8, !tbaa !95
+  %192 = call noalias noundef nonnull dereferenceable(320) ptr @_Znwm(i64 noundef 320) #20
+  store ptr %192, ptr %24, align 8, !tbaa !92
+  %193 = getelementptr inbounds nuw i8, ptr %192, i64 320
+  %194 = getelementptr inbounds nuw i8, ptr %23, i64 56
+  store ptr %193, ptr %194, align 8, !tbaa !95
   br label %.lr.ph.i.i.i.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i.i.i.i:                         ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.preheader.i.i.i.i.i
-  %.011.i.i.i.i.i.i.i.i.i = phi ptr [ %202, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %193, %.lr.ph.i.i.i.i.preheader.i.i.i.i.i ]
+  %.011.i.i.i.i.i.i.i.i.i = phi ptr [ %201, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ %192, %.lr.ph.i.i.i.i.preheader.i.i.i.i.i ]
   %.0810.i.i.i.i.i.i.i.idx.i.i = phi i64 [ %.0810.i.i.i.i.i.i.i.add.i.i, %.lr.ph.i.i.i.i.i.i.i.i.i ], [ 0, %.lr.ph.i.i.i.i.preheader.i.i.i.i.i ]
   %.0810.i.i.i.i.i.i.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %6, i64 %.0810.i.i.i.i.i.i.i.idx.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(80) %.011.i.i.i.i.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(80) %.0810.i.i.i.i.i.i.i.ptr.i.i, i64 16, i1 false)
-  %196 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i.i.i, i64 16
-  %197 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i.i.ptr.i.i, i64 16
-  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %196, ptr noundef nonnull align 8 dereferenceable(24) %197)
-  %198 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i.i.i, i64 40
-  %199 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i.i.ptr.i.i, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %198, ptr noundef nonnull align 8 dereferenceable(20) %199, i64 20, i1 false)
-  %200 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i.i.i, i64 64
-  %201 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i.i.ptr.i.i, i64 64
-  %.unpack.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %201, align 8, !tbaa !77
+  %195 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i.i.i, i64 16
+  %196 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i.i.ptr.i.i, i64 16
+  call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_(ptr noundef nonnull align 8 dereferenceable(24) %195, ptr noundef nonnull align 8 dereferenceable(24) %196)
+  %197 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i.i.i, i64 40
+  %198 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i.i.ptr.i.i, i64 40
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %197, ptr noundef nonnull align 8 dereferenceable(20) %198, i64 20, i1 false)
+  %199 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i.i.i, i64 64
+  %200 = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i.i.ptr.i.i, i64 64
+  %.unpack.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %200, align 8, !tbaa !77
   %.elt3.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.0810.i.i.i.i.i.i.i.ptr.i.i, i64 72
   %.unpack4.i.i.i.i.i.i.i.i.i.i.i = load i64, ptr %.elt3.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !77
-  store i64 %.unpack.i.i.i.i.i.i.i.i.i.i.i, ptr %200, align 8, !tbaa !77
+  store i64 %.unpack.i.i.i.i.i.i.i.i.i.i.i, ptr %199, align 8, !tbaa !77
   %.repack5.i.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i.i.i, i64 72
   store i64 %.unpack4.i.i.i.i.i.i.i.i.i.i.i, ptr %.repack5.i.i.i.i.i.i.i.i.i.i.i, align 8, !tbaa !77
   %.0810.i.i.i.i.i.i.i.add.i.i = add nuw nsw i64 %.0810.i.i.i.i.i.i.i.idx.i.i, 80
-  %202 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i.i.i, i64 80
+  %201 = getelementptr inbounds nuw i8, ptr %.011.i.i.i.i.i.i.i.i.i, i64 80
   %.not.i.i.i.i.i.i.i.i.i = icmp eq i64 %.0810.i.i.i.i.i.i.i.add.i.i, 320
   br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN5clang4ento18CallDescriptionMapIMN12_GLOBAL__N_116SmartPtrModelingEKFvRKNS0_9CallEventERNS0_14CheckerContextEEEC2EOSt16initializer_listISt4pairINS0_15CallDescriptionESA_EE.exit.i.i, label %.lr.ph.i.i.i.i.i.i.i.i.i, !llvm.loop !96
 
 _ZN5clang4ento18CallDescriptionMapIMN12_GLOBAL__N_116SmartPtrModelingEKFvRKNS0_9CallEventERNS0_14CheckerContextEEEC2EOSt16initializer_listISt4pairINS0_15CallDescriptionESA_EE.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i
+  %202 = getelementptr inbounds nuw i8, ptr %23, i64 48
   %203 = getelementptr inbounds nuw i8, ptr %6, i64 320
-  store ptr %202, ptr %192, align 8, !tbaa !97
+  store ptr %201, ptr %202, align 8, !tbaa !97
   br label %204
 
 204:                                              ; preds = %_ZNSt4pairIN5clang4ento15CallDescriptionEMN12_GLOBAL__N_116SmartPtrModelingEKFvRKNS1_9CallEventERNS1_14CheckerContextEEED2Ev.exit.i.i, %_ZN5clang4ento18CallDescriptionMapIMN12_GLOBAL__N_116SmartPtrModelingEKFvRKNS0_9CallEventERNS0_14CheckerContextEEEC2EOSt16initializer_listISt4pairINS0_15CallDescriptionESA_EE.exit.i.i

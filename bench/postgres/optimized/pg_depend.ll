@@ -827,7 +827,6 @@ define dso_local i64 @changeDependenciesOn(i32 noundef %0, i32 noundef %1, i32 n
   unreachable
 
 15:                                               ; preds = %3
-  store i32 %2, ptr %7, align 4
   %16 = tail call zeroext i1 @IsPinnedObject(i32 noundef %0, i32 noundef %2) #7
   %17 = zext i32 %0 to i64
   call void @ScanKeyInit(ptr noundef nonnull %4, i16 noundef signext 4, i16 noundef zeroext 3, i32 noundef 184, i64 noundef %17) #7

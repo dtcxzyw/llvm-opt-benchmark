@@ -36896,7 +36896,6 @@ _ZN7hir_def4path4Path8from_src17he8a91fcf1e7b430cE.exit: ; preds = %595
   %716 = extractvalue { i64, ptr } %714, 1
   store i64 %715, ptr %26, align 8, !noalias !9756
   store ptr %716, ptr %89, align 8, !noalias !9756
-  store i64 0, ptr %90, align 8, !noalias !9756
   %717 = getelementptr inbounds { { i8, [47 x i8] }, { { { { ptr, i64 } }, {} }, {} }, { { i8, [23 x i8] } }, ptr }, ptr %.val263, i64 %.val264
   %718 = icmp eq i64 %715, 0
   br i1 %718, label %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17hba61042e5b56e969E.exit.i", label %.lr.ph.i.i

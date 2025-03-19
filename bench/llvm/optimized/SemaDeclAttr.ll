@@ -100075,8 +100075,7 @@ _ZNK4llvm9StringRef12getAsIntegerIhEEbjRT_.exit:  ; preds = %244, %255, %257
 
 262:                                              ; preds = %259, %236
   %.sroa.0.0.copyload = load ptr, ptr %11, align 8, !tbaa !73
-  %.sroa.2.0.copyload = load i64, ptr %.sroa.13.0..sroa_idx, align 8, !tbaa !52
-  %263 = call noundef ptr @_ZN5clang4Sema13mergeUuidAttrEPNS_4DeclERKNS_19AttributeCommonInfoEN4llvm9StringRefEPNS_10MSGuidDeclE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload, ptr noundef %239)
+  %263 = call noundef ptr @_ZN5clang4Sema13mergeUuidAttrEPNS_4DeclERKNS_19AttributeCommonInfoEN4llvm9StringRefEPNS_10MSGuidDeclE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(32) %2, ptr %.sroa.0.0.copyload, i64 %.sroa.13.0.copyload, ptr noundef %239)
   %.not52 = icmp eq ptr %263, null
   br i1 %.not52, label %265, label %264
 

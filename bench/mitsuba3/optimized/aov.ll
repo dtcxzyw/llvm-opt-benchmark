@@ -16825,73 +16825,72 @@ _ZNSt3__114__split_bufferIN5drjit6TensorINS1_12DynamicArrayIfEEEERNS_9allocatorI
   %31 = getelementptr inbounds nuw %"struct.drjit::Tensor", ptr %storemerge.i, i64 %.0.i
   store ptr %31, ptr %20, align 8
   invoke void @_ZN5drjit6TensorINS_12DynamicArrayIfEEEC2ERKS3_(ptr noundef nonnull align 8 dereferenceable(48) %28, ptr noundef nonnull align 8 dereferenceable(48) %1)
-          to label %_ZNSt3__116allocator_traitsINS_9allocatorIN5drjit6TensorINS2_12DynamicArrayIfEEEEEEE9constructB8ne190000IS6_JRKS6_ETnNS_9enable_ifIXsr15__has_constructIS7_PT_DpT0_EE5valueEiE4typeELi0EEEvRS7_SE_DpOSF_.exit unwind label %54
+          to label %_ZNSt3__116allocator_traitsINS_9allocatorIN5drjit6TensorINS2_12DynamicArrayIfEEEEEEE9constructB8ne190000IS6_JRKS6_ETnNS_9enable_ifIXsr15__has_constructIS7_PT_DpT0_EE5valueEiE4typeELi0EEEvRS7_SE_DpOSF_.exit unwind label %53
 
 _ZNSt3__116allocator_traitsINS_9allocatorIN5drjit6TensorINS2_12DynamicArrayIfEEEEEEE9constructB8ne190000IS6_JRKS6_ETnNS_9enable_ifIXsr15__has_constructIS7_PT_DpT0_EE5valueEiE4typeELi0EEEvRS7_SE_DpOSF_.exit: ; preds = %_ZNSt3__114__split_bufferIN5drjit6TensorINS1_12DynamicArrayIfEEEERNS_9allocatorIS5_EEEC2EmmS8_.exit
-  %32 = load ptr, ptr %29, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 48
-  store ptr %33, ptr %29, align 8
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 48
+  store ptr %32, ptr %29, align 8
   invoke void @_ZNSt3__16vectorIN5drjit6TensorINS1_12DynamicArrayIfEEEENS_9allocatorIS5_EEE26__swap_out_circular_bufferERNS_14__split_bufferIS5_RS7_EE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(40) %3)
-          to label %34 unwind label %54
+          to label %33 unwind label %53
 
-34:                                               ; preds = %_ZNSt3__116allocator_traitsINS_9allocatorIN5drjit6TensorINS2_12DynamicArrayIfEEEEEEE9constructB8ne190000IS6_JRKS6_ETnNS_9enable_ifIXsr15__has_constructIS7_PT_DpT0_EE5valueEiE4typeELi0EEEvRS7_SE_DpOSF_.exit
-  %35 = load ptr, ptr %4, align 8
-  %36 = load ptr, ptr %30, align 8
-  %37 = load ptr, ptr %29, align 8
-  %.not2.i.i.i.i = icmp eq ptr %36, %37
+33:                                               ; preds = %_ZNSt3__116allocator_traitsINS_9allocatorIN5drjit6TensorINS2_12DynamicArrayIfEEEEEEE9constructB8ne190000IS6_JRKS6_ETnNS_9enable_ifIXsr15__has_constructIS7_PT_DpT0_EE5valueEiE4typeELi0EEEvRS7_SE_DpOSF_.exit
+  %34 = load ptr, ptr %4, align 8
+  %35 = load ptr, ptr %30, align 8
+  %36 = load ptr, ptr %29, align 8
+  %.not2.i.i.i.i = icmp eq ptr %35, %36
   br i1 %.not2.i.i.i.i, label %_ZNSt3__114__split_bufferIN5drjit6TensorINS1_12DynamicArrayIfEEEERNS_9allocatorIS5_EEE5clearB8ne190000Ev.exit.i, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %34, %_ZNSt3__116allocator_traitsINS_9allocatorIN5drjit6TensorINS2_12DynamicArrayIfEEEEEEE7destroyB8ne190000IS6_TnNS_9enable_ifIXsr13__has_destroyIS7_PT_EE5valueEiE4typeELi0EEEvRS7_SC_.exit.i.i.i.i
-  %38 = phi ptr [ %51, %_ZNSt3__116allocator_traitsINS_9allocatorIN5drjit6TensorINS2_12DynamicArrayIfEEEEEEE7destroyB8ne190000IS6_TnNS_9enable_ifIXsr13__has_destroyIS7_PT_EE5valueEiE4typeELi0EEEvRS7_SC_.exit.i.i.i.i ], [ %37, %34 ]
-  %39 = getelementptr inbounds i8, ptr %38, i64 -48
-  store ptr %39, ptr %29, align 8
-  %40 = getelementptr inbounds i8, ptr %38, i64 -24
-  %41 = load ptr, ptr %40, align 8
-  %42 = icmp eq ptr %41, null
-  br i1 %42, label %_ZN5drjit9dr_vectorImED2Ev.exit.i.i.i.i.i.i.i, label %43
+.lr.ph.i.i.i.i:                                   ; preds = %33, %_ZNSt3__116allocator_traitsINS_9allocatorIN5drjit6TensorINS2_12DynamicArrayIfEEEEEEE7destroyB8ne190000IS6_TnNS_9enable_ifIXsr13__has_destroyIS7_PT_EE5valueEiE4typeELi0EEEvRS7_SC_.exit.i.i.i.i
+  %37 = phi ptr [ %50, %_ZNSt3__116allocator_traitsINS_9allocatorIN5drjit6TensorINS2_12DynamicArrayIfEEEEEEE7destroyB8ne190000IS6_TnNS_9enable_ifIXsr13__has_destroyIS7_PT_EE5valueEiE4typeELi0EEEvRS7_SC_.exit.i.i.i.i ], [ %36, %33 ]
+  %38 = getelementptr inbounds i8, ptr %37, i64 -48
+  store ptr %38, ptr %29, align 8
+  %39 = getelementptr inbounds i8, ptr %37, i64 -24
+  %40 = load ptr, ptr %39, align 8
+  %41 = icmp eq ptr %40, null
+  br i1 %41, label %_ZN5drjit9dr_vectorImED2Ev.exit.i.i.i.i.i.i.i, label %42
 
-43:                                               ; preds = %.lr.ph.i.i.i.i
-  call void @_ZdaPv(ptr noundef nonnull %41) #31
+42:                                               ; preds = %.lr.ph.i.i.i.i
+  call void @_ZdaPv(ptr noundef nonnull %40) #31
   br label %_ZN5drjit9dr_vectorImED2Ev.exit.i.i.i.i.i.i.i
 
-_ZN5drjit9dr_vectorImED2Ev.exit.i.i.i.i.i.i.i:    ; preds = %43, %.lr.ph.i.i.i.i
-  store ptr null, ptr %40, align 8
-  %44 = getelementptr inbounds i8, ptr %38, i64 -32
-  %45 = load i8, ptr %44, align 8
-  %46 = trunc i8 %45 to i1
-  br i1 %46, label %47, label %_ZNSt3__116allocator_traitsINS_9allocatorIN5drjit6TensorINS2_12DynamicArrayIfEEEEEEE7destroyB8ne190000IS6_TnNS_9enable_ifIXsr13__has_destroyIS7_PT_EE5valueEiE4typeELi0EEEvRS7_SC_.exit.i.i.i.i
+_ZN5drjit9dr_vectorImED2Ev.exit.i.i.i.i.i.i.i:    ; preds = %42, %.lr.ph.i.i.i.i
+  store ptr null, ptr %39, align 8
+  %43 = getelementptr inbounds i8, ptr %37, i64 -32
+  %44 = load i8, ptr %43, align 8
+  %45 = trunc i8 %44 to i1
+  br i1 %45, label %46, label %_ZNSt3__116allocator_traitsINS_9allocatorIN5drjit6TensorINS2_12DynamicArrayIfEEEEEEE7destroyB8ne190000IS6_TnNS_9enable_ifIXsr13__has_destroyIS7_PT_EE5valueEiE4typeELi0EEEvRS7_SC_.exit.i.i.i.i
 
-47:                                               ; preds = %_ZN5drjit9dr_vectorImED2Ev.exit.i.i.i.i.i.i.i
-  %48 = load ptr, ptr %39, align 8
-  %49 = icmp eq ptr %48, null
-  br i1 %49, label %_ZNSt3__116allocator_traitsINS_9allocatorIN5drjit6TensorINS2_12DynamicArrayIfEEEEEEE7destroyB8ne190000IS6_TnNS_9enable_ifIXsr13__has_destroyIS7_PT_EE5valueEiE4typeELi0EEEvRS7_SC_.exit.i.i.i.i, label %50
+46:                                               ; preds = %_ZN5drjit9dr_vectorImED2Ev.exit.i.i.i.i.i.i.i
+  %47 = load ptr, ptr %38, align 8
+  %48 = icmp eq ptr %47, null
+  br i1 %48, label %_ZNSt3__116allocator_traitsINS_9allocatorIN5drjit6TensorINS2_12DynamicArrayIfEEEEEEE7destroyB8ne190000IS6_TnNS_9enable_ifIXsr13__has_destroyIS7_PT_EE5valueEiE4typeELi0EEEvRS7_SC_.exit.i.i.i.i, label %49
 
-50:                                               ; preds = %47
-  call void @_ZdaPv(ptr noundef nonnull %48) #31
+49:                                               ; preds = %46
+  call void @_ZdaPv(ptr noundef nonnull %47) #31
   br label %_ZNSt3__116allocator_traitsINS_9allocatorIN5drjit6TensorINS2_12DynamicArrayIfEEEEEEE7destroyB8ne190000IS6_TnNS_9enable_ifIXsr13__has_destroyIS7_PT_EE5valueEiE4typeELi0EEEvRS7_SC_.exit.i.i.i.i
 
-_ZNSt3__116allocator_traitsINS_9allocatorIN5drjit6TensorINS2_12DynamicArrayIfEEEEEEE7destroyB8ne190000IS6_TnNS_9enable_ifIXsr13__has_destroyIS7_PT_EE5valueEiE4typeELi0EEEvRS7_SC_.exit.i.i.i.i: ; preds = %50, %47, %_ZN5drjit9dr_vectorImED2Ev.exit.i.i.i.i.i.i.i
-  %51 = load ptr, ptr %29, align 8
-  %.not.i.i.i.i = icmp eq ptr %36, %51
+_ZNSt3__116allocator_traitsINS_9allocatorIN5drjit6TensorINS2_12DynamicArrayIfEEEEEEE7destroyB8ne190000IS6_TnNS_9enable_ifIXsr13__has_destroyIS7_PT_EE5valueEiE4typeELi0EEEvRS7_SC_.exit.i.i.i.i: ; preds = %49, %46, %_ZN5drjit9dr_vectorImED2Ev.exit.i.i.i.i.i.i.i
+  %50 = load ptr, ptr %29, align 8
+  %.not.i.i.i.i = icmp eq ptr %35, %50
   br i1 %.not.i.i.i.i, label %_ZNSt3__114__split_bufferIN5drjit6TensorINS1_12DynamicArrayIfEEEERNS_9allocatorIS5_EEE5clearB8ne190000Ev.exit.i, label %.lr.ph.i.i.i.i
 
-_ZNSt3__114__split_bufferIN5drjit6TensorINS1_12DynamicArrayIfEEEERNS_9allocatorIS5_EEE5clearB8ne190000Ev.exit.i: ; preds = %_ZNSt3__116allocator_traitsINS_9allocatorIN5drjit6TensorINS2_12DynamicArrayIfEEEEEEE7destroyB8ne190000IS6_TnNS_9enable_ifIXsr13__has_destroyIS7_PT_EE5valueEiE4typeELi0EEEvRS7_SC_.exit.i.i.i.i, %34
-  %52 = load ptr, ptr %3, align 8
-  %.not.i5 = icmp eq ptr %52, null
-  br i1 %.not.i5, label %_ZNSt3__114__split_bufferIN5drjit6TensorINS1_12DynamicArrayIfEEEERNS_9allocatorIS5_EEED2Ev.exit, label %53
+_ZNSt3__114__split_bufferIN5drjit6TensorINS1_12DynamicArrayIfEEEERNS_9allocatorIS5_EEE5clearB8ne190000Ev.exit.i: ; preds = %_ZNSt3__116allocator_traitsINS_9allocatorIN5drjit6TensorINS2_12DynamicArrayIfEEEEEEE7destroyB8ne190000IS6_TnNS_9enable_ifIXsr13__has_destroyIS7_PT_EE5valueEiE4typeELi0EEEvRS7_SC_.exit.i.i.i.i, %33
+  %51 = load ptr, ptr %3, align 8
+  %.not.i5 = icmp eq ptr %51, null
+  br i1 %.not.i5, label %_ZNSt3__114__split_bufferIN5drjit6TensorINS1_12DynamicArrayIfEEEERNS_9allocatorIS5_EEED2Ev.exit, label %52
 
-53:                                               ; preds = %_ZNSt3__114__split_bufferIN5drjit6TensorINS1_12DynamicArrayIfEEEERNS_9allocatorIS5_EEE5clearB8ne190000Ev.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %52) #31
+52:                                               ; preds = %_ZNSt3__114__split_bufferIN5drjit6TensorINS1_12DynamicArrayIfEEEERNS_9allocatorIS5_EEE5clearB8ne190000Ev.exit.i
+  call void @_ZdlPv(ptr noundef nonnull %51) #31
   br label %_ZNSt3__114__split_bufferIN5drjit6TensorINS1_12DynamicArrayIfEEEERNS_9allocatorIS5_EEED2Ev.exit
 
-_ZNSt3__114__split_bufferIN5drjit6TensorINS1_12DynamicArrayIfEEEERNS_9allocatorIS5_EEED2Ev.exit: ; preds = %_ZNSt3__114__split_bufferIN5drjit6TensorINS1_12DynamicArrayIfEEEERNS_9allocatorIS5_EEE5clearB8ne190000Ev.exit.i, %53
-  ret ptr %35
+_ZNSt3__114__split_bufferIN5drjit6TensorINS1_12DynamicArrayIfEEEERNS_9allocatorIS5_EEED2Ev.exit: ; preds = %_ZNSt3__114__split_bufferIN5drjit6TensorINS1_12DynamicArrayIfEEEERNS_9allocatorIS5_EEE5clearB8ne190000Ev.exit.i, %52
+  ret ptr %34
 
-54:                                               ; preds = %_ZNSt3__114__split_bufferIN5drjit6TensorINS1_12DynamicArrayIfEEEERNS_9allocatorIS5_EEEC2EmmS8_.exit, %_ZNSt3__116allocator_traitsINS_9allocatorIN5drjit6TensorINS2_12DynamicArrayIfEEEEEEE9constructB8ne190000IS6_JRKS6_ETnNS_9enable_ifIXsr15__has_constructIS7_PT_DpT0_EE5valueEiE4typeELi0EEEvRS7_SE_DpOSF_.exit
-  %55 = landingpad { ptr, i32 }
+53:                                               ; preds = %_ZNSt3__114__split_bufferIN5drjit6TensorINS1_12DynamicArrayIfEEEERNS_9allocatorIS5_EEEC2EmmS8_.exit, %_ZNSt3__116allocator_traitsINS_9allocatorIN5drjit6TensorINS2_12DynamicArrayIfEEEEEEE9constructB8ne190000IS6_JRKS6_ETnNS_9enable_ifIXsr15__has_constructIS7_PT_DpT0_EE5valueEiE4typeELi0EEEvRS7_SE_DpOSF_.exit
+  %54 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt3__114__split_bufferIN5drjit6TensorINS1_12DynamicArrayIfEEEERNS_9allocatorIS5_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #30
-  resume { ptr, i32 } %55
+  resume { ptr, i32 } %54
 }
 
 ; Function Attrs: mustprogress uwtable

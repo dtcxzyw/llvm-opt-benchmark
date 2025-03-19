@@ -16296,7 +16296,6 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %8, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 0, ptr %10, align 8
   %11 = getelementptr inbounds { { ptr, i32, i32, i8, [7 x i8] }, { i64, i64, i8, i8, [6 x i8] } }, ptr %1, i64 %2
   %12 = icmp eq i64 %7, 0
   br i1 %12, label %.thread, label %.lr.ph
@@ -16399,7 +16398,6 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr %10, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  store i64 0, ptr %12, align 8
   %13 = getelementptr inbounds { { i64, ptr }, i64 }, ptr %1, i64 %2
   %14 = icmp eq i64 %9, 0
   br i1 %14, label %.thread, label %.lr.ph
@@ -16446,7 +16444,6 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   %27 = extractvalue { i64, ptr } %25, 1
   store i64 %26, ptr %6, align 8, !noalias !3746
   store ptr %27, ptr %15, align 8, !noalias !3746
-  store i64 0, ptr %16, align 8, !noalias !3746
   %28 = getelementptr inbounds { i64, [3 x i64] }, ptr %.sroa.54.0.val, i64 %.sroa.54.0.val13
   %29 = icmp eq i64 %26, 0
   br i1 %29, label %.loopexit, label %.lr.ph.i.i
@@ -16989,7 +16986,6 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %11, ptr %12, align 8
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  store i64 0, ptr %13, align 8
   %14 = getelementptr inbounds { { i64, [3 x i64] }, { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, i8 }, i8, [7 x i8] }, ptr %1, i64 %2
   %15 = icmp eq i64 %10, 0
   br i1 %15, label %.thread, label %.lr.ph
@@ -19616,7 +19612,6 @@ define hidden void @"_ZN5alloc3vec16Vec$LT$T$C$A$GT$11extend_with17h3332a43d534f
   %32 = extractvalue { i64, ptr } %30, 1
   store i64 %31, ptr %5, align 8, !noalias !4425
   store ptr %32, ptr %22, align 8, !noalias !4425
-  store i64 0, ptr %23, align 8, !noalias !4425
   %33 = getelementptr inbounds { { ptr, i32, i32, i8, [7 x i8] }, { { i64, i64, i8, i8, [6 x i8] }, i8, [7 x i8] } }, ptr %.val15, i64 %.val16
   %34 = icmp eq i64 %31, 0
   br i1 %34, label %.loopexit, label %.lr.ph.i.i

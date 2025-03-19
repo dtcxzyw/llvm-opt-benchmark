@@ -10284,63 +10284,62 @@ _ZNSt3__114__split_bufferIN3tev10RawChannelERNS_9allocatorIS2_EEEC2EmmS5_.exit: 
   %35 = getelementptr inbounds nuw %"class.tev::RawChannel", ptr %storemerge.i, i64 %.0.i
   store ptr %35, ptr %24, align 8
   %36 = invoke noundef ptr @_ZNSt3__112construct_atB8ne190000IN3tev10RawChannelEJmRNS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEPKcRKN7Imf_2_57ChannelERN7nanogui5ArrayIiLm2EEEEPS2_EEPT_SM_DpOT0_(ptr noundef %32, ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(24) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 4 dereferenceable(13) %4, ptr noundef nonnull align 4 dereferenceable(8) %5)
-          to label %_ZNSt3__116allocator_traitsINS_9allocatorIN3tev10RawChannelEEEE9constructB8ne190000IS3_JmRNS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEEPKcRKN7Imf_2_57ChannelERN7nanogui5ArrayIiLm2EEEEvTnNS_9enable_ifIXntsr15__has_constructIS4_PT_DpT0_EE5valueEiE4typeELi0EEEvRS4_SP_DpOSQ_.exit unwind label %54
+          to label %_ZNSt3__116allocator_traitsINS_9allocatorIN3tev10RawChannelEEEE9constructB8ne190000IS3_JmRNS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEEPKcRKN7Imf_2_57ChannelERN7nanogui5ArrayIiLm2EEEEvTnNS_9enable_ifIXntsr15__has_constructIS4_PT_DpT0_EE5valueEiE4typeELi0EEEvRS4_SP_DpOSQ_.exit unwind label %53
 
 _ZNSt3__116allocator_traitsINS_9allocatorIN3tev10RawChannelEEEE9constructB8ne190000IS3_JmRNS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEEPKcRKN7Imf_2_57ChannelERN7nanogui5ArrayIiLm2EEEEvTnNS_9enable_ifIXntsr15__has_constructIS4_PT_DpT0_EE5valueEiE4typeELi0EEEvRS4_SP_DpOSQ_.exit: ; preds = %_ZNSt3__114__split_bufferIN3tev10RawChannelERNS_9allocatorIS2_EEEC2EmmS5_.exit
-  %37 = load ptr, ptr %33, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 104
-  store ptr %38, ptr %33, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %32, i64 104
+  store ptr %37, ptr %33, align 8
   invoke void @_ZNSt3__16vectorIN3tev10RawChannelENS_9allocatorIS2_EEE26__swap_out_circular_bufferERNS_14__split_bufferIS2_RS4_EE(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(40) %7)
-          to label %39 unwind label %54
+          to label %38 unwind label %53
 
-39:                                               ; preds = %_ZNSt3__116allocator_traitsINS_9allocatorIN3tev10RawChannelEEEE9constructB8ne190000IS3_JmRNS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEEPKcRKN7Imf_2_57ChannelERN7nanogui5ArrayIiLm2EEEEvTnNS_9enable_ifIXntsr15__has_constructIS4_PT_DpT0_EE5valueEiE4typeELi0EEEvRS4_SP_DpOSQ_.exit
-  %40 = load ptr, ptr %8, align 8
-  %41 = load ptr, ptr %34, align 8
-  %42 = load ptr, ptr %33, align 8
-  %.not2.i.i.i.i = icmp eq ptr %41, %42
+38:                                               ; preds = %_ZNSt3__116allocator_traitsINS_9allocatorIN3tev10RawChannelEEEE9constructB8ne190000IS3_JmRNS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEEPKcRKN7Imf_2_57ChannelERN7nanogui5ArrayIiLm2EEEEvTnNS_9enable_ifIXntsr15__has_constructIS4_PT_DpT0_EE5valueEiE4typeELi0EEEvRS4_SP_DpOSQ_.exit
+  %39 = load ptr, ptr %8, align 8
+  %40 = load ptr, ptr %34, align 8
+  %41 = load ptr, ptr %33, align 8
+  %.not2.i.i.i.i = icmp eq ptr %40, %41
   br i1 %.not2.i.i.i.i, label %_ZNSt3__114__split_bufferIN3tev10RawChannelERNS_9allocatorIS2_EEE5clearB8ne190000Ev.exit.i, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %39, %_ZNSt3__116allocator_traitsINS_9allocatorIN3tev10RawChannelEEEE7destroyB8ne190000IS3_vTnNS_9enable_ifIXntsr13__has_destroyIS4_PT_EE5valueEiE4typeELi0EEEvRS4_S9_.exit.i.i.i.i
-  %43 = phi ptr [ %51, %_ZNSt3__116allocator_traitsINS_9allocatorIN3tev10RawChannelEEEE7destroyB8ne190000IS3_vTnNS_9enable_ifIXntsr13__has_destroyIS4_PT_EE5valueEiE4typeELi0EEEvRS4_S9_.exit.i.i.i.i ], [ %42, %39 ]
-  %44 = getelementptr inbounds i8, ptr %43, i64 -104
-  store ptr %44, ptr %33, align 8
-  %45 = getelementptr inbounds i8, ptr %43, i64 -24
-  %46 = load ptr, ptr %45, align 8
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %46, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt3__116allocator_traitsINS_9allocatorIN3tev10RawChannelEEEE7destroyB8ne190000IS3_vTnNS_9enable_ifIXntsr13__has_destroyIS4_PT_EE5valueEiE4typeELi0EEEvRS4_S9_.exit.i.i.i.i, label %47
+.lr.ph.i.i.i.i:                                   ; preds = %38, %_ZNSt3__116allocator_traitsINS_9allocatorIN3tev10RawChannelEEEE7destroyB8ne190000IS3_vTnNS_9enable_ifIXntsr13__has_destroyIS4_PT_EE5valueEiE4typeELi0EEEvRS4_S9_.exit.i.i.i.i
+  %42 = phi ptr [ %50, %_ZNSt3__116allocator_traitsINS_9allocatorIN3tev10RawChannelEEEE7destroyB8ne190000IS3_vTnNS_9enable_ifIXntsr13__has_destroyIS4_PT_EE5valueEiE4typeELi0EEEvRS4_S9_.exit.i.i.i.i ], [ %41, %38 ]
+  %43 = getelementptr inbounds i8, ptr %42, i64 -104
+  store ptr %43, ptr %33, align 8
+  %44 = getelementptr inbounds i8, ptr %42, i64 -24
+  %45 = load ptr, ptr %44, align 8
+  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %45, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZNSt3__116allocator_traitsINS_9allocatorIN3tev10RawChannelEEEE7destroyB8ne190000IS3_vTnNS_9enable_ifIXntsr13__has_destroyIS4_PT_EE5valueEiE4typeELi0EEEvRS4_S9_.exit.i.i.i.i, label %46
 
-47:                                               ; preds = %.lr.ph.i.i.i.i
-  %48 = getelementptr inbounds i8, ptr %43, i64 -16
-  store ptr %46, ptr %48, align 8
-  call void @_ZdlPv(ptr noundef nonnull %46) #24
+46:                                               ; preds = %.lr.ph.i.i.i.i
+  %47 = getelementptr inbounds i8, ptr %42, i64 -16
+  store ptr %45, ptr %47, align 8
+  call void @_ZdlPv(ptr noundef nonnull %45) #24
   br label %_ZNSt3__116allocator_traitsINS_9allocatorIN3tev10RawChannelEEEE7destroyB8ne190000IS3_vTnNS_9enable_ifIXntsr13__has_destroyIS4_PT_EE5valueEiE4typeELi0EEEvRS4_S9_.exit.i.i.i.i
 
-_ZNSt3__116allocator_traitsINS_9allocatorIN3tev10RawChannelEEEE7destroyB8ne190000IS3_vTnNS_9enable_ifIXntsr13__has_destroyIS4_PT_EE5valueEiE4typeELi0EEEvRS4_S9_.exit.i.i.i.i: ; preds = %47, %.lr.ph.i.i.i.i
-  %49 = getelementptr inbounds i8, ptr %43, i64 -72
+_ZNSt3__116allocator_traitsINS_9allocatorIN3tev10RawChannelEEEE7destroyB8ne190000IS3_vTnNS_9enable_ifIXntsr13__has_destroyIS4_PT_EE5valueEiE4typeELi0EEEvRS4_S9_.exit.i.i.i.i: ; preds = %46, %.lr.ph.i.i.i.i
+  %48 = getelementptr inbounds i8, ptr %42, i64 -72
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %48) #23
+  %49 = getelementptr inbounds i8, ptr %42, i64 -96
   call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %49) #23
-  %50 = getelementptr inbounds i8, ptr %43, i64 -96
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(24) %50) #23
-  %51 = load ptr, ptr %33, align 8
-  %.not.i.i.i.i = icmp eq ptr %41, %51
+  %50 = load ptr, ptr %33, align 8
+  %.not.i.i.i.i = icmp eq ptr %40, %50
   br i1 %.not.i.i.i.i, label %_ZNSt3__114__split_bufferIN3tev10RawChannelERNS_9allocatorIS2_EEE5clearB8ne190000Ev.exit.i, label %.lr.ph.i.i.i.i
 
-_ZNSt3__114__split_bufferIN3tev10RawChannelERNS_9allocatorIS2_EEE5clearB8ne190000Ev.exit.i: ; preds = %_ZNSt3__116allocator_traitsINS_9allocatorIN3tev10RawChannelEEEE7destroyB8ne190000IS3_vTnNS_9enable_ifIXntsr13__has_destroyIS4_PT_EE5valueEiE4typeELi0EEEvRS4_S9_.exit.i.i.i.i, %39
-  %52 = load ptr, ptr %7, align 8
-  %.not.i9 = icmp eq ptr %52, null
-  br i1 %.not.i9, label %_ZNSt3__114__split_bufferIN3tev10RawChannelERNS_9allocatorIS2_EEED2Ev.exit, label %53
+_ZNSt3__114__split_bufferIN3tev10RawChannelERNS_9allocatorIS2_EEE5clearB8ne190000Ev.exit.i: ; preds = %_ZNSt3__116allocator_traitsINS_9allocatorIN3tev10RawChannelEEEE7destroyB8ne190000IS3_vTnNS_9enable_ifIXntsr13__has_destroyIS4_PT_EE5valueEiE4typeELi0EEEvRS4_S9_.exit.i.i.i.i, %38
+  %51 = load ptr, ptr %7, align 8
+  %.not.i9 = icmp eq ptr %51, null
+  br i1 %.not.i9, label %_ZNSt3__114__split_bufferIN3tev10RawChannelERNS_9allocatorIS2_EEED2Ev.exit, label %52
 
-53:                                               ; preds = %_ZNSt3__114__split_bufferIN3tev10RawChannelERNS_9allocatorIS2_EEE5clearB8ne190000Ev.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %52) #24
+52:                                               ; preds = %_ZNSt3__114__split_bufferIN3tev10RawChannelERNS_9allocatorIS2_EEE5clearB8ne190000Ev.exit.i
+  call void @_ZdlPv(ptr noundef nonnull %51) #24
   br label %_ZNSt3__114__split_bufferIN3tev10RawChannelERNS_9allocatorIS2_EEED2Ev.exit
 
-_ZNSt3__114__split_bufferIN3tev10RawChannelERNS_9allocatorIS2_EEED2Ev.exit: ; preds = %_ZNSt3__114__split_bufferIN3tev10RawChannelERNS_9allocatorIS2_EEE5clearB8ne190000Ev.exit.i, %53
-  ret ptr %40
+_ZNSt3__114__split_bufferIN3tev10RawChannelERNS_9allocatorIS2_EEED2Ev.exit: ; preds = %_ZNSt3__114__split_bufferIN3tev10RawChannelERNS_9allocatorIS2_EEE5clearB8ne190000Ev.exit.i, %52
+  ret ptr %39
 
-54:                                               ; preds = %_ZNSt3__114__split_bufferIN3tev10RawChannelERNS_9allocatorIS2_EEEC2EmmS5_.exit, %_ZNSt3__116allocator_traitsINS_9allocatorIN3tev10RawChannelEEEE9constructB8ne190000IS3_JmRNS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEEPKcRKN7Imf_2_57ChannelERN7nanogui5ArrayIiLm2EEEEvTnNS_9enable_ifIXntsr15__has_constructIS4_PT_DpT0_EE5valueEiE4typeELi0EEEvRS4_SP_DpOSQ_.exit
-  %55 = landingpad { ptr, i32 }
+53:                                               ; preds = %_ZNSt3__114__split_bufferIN3tev10RawChannelERNS_9allocatorIS2_EEEC2EmmS5_.exit, %_ZNSt3__116allocator_traitsINS_9allocatorIN3tev10RawChannelEEEE9constructB8ne190000IS3_JmRNS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEEPKcRKN7Imf_2_57ChannelERN7nanogui5ArrayIiLm2EEEEvTnNS_9enable_ifIXntsr15__has_constructIS4_PT_DpT0_EE5valueEiE4typeELi0EEEvRS4_SP_DpOSQ_.exit
+  %54 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt3__114__split_bufferIN3tev10RawChannelERNS_9allocatorIS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %7) #23
-  resume { ptr, i32 } %55
+  resume { ptr, i32 } %54
 }
 
 ; Function Attrs: mustprogress uwtable

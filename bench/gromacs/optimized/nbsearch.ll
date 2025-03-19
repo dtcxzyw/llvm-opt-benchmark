@@ -5640,46 +5640,46 @@ define internal fastcc void @_ZN3gmx8internal34AnalysisNeighborhoodPairSearchImp
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %20 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  %24 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %26 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 108
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 124
-  br label %31
+  %20 = load ptr, ptr %19, align 8
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %22 = load ptr, ptr %21, align 8
+  %23 = getelementptr inbounds nuw i8, ptr %22, i64 4
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 116
+  %28 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %30 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 108
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 124
+  br label %35
 
-31:                                               ; preds = %.lr.ph98, %_ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl16nextTestPositionEv.exit
-  %32 = load ptr, ptr %0, align 8, !tbaa !86
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 440
-  %34 = load i8, ptr %33, align 8, !tbaa !87, !range !88, !noundef !89
-  %35 = trunc nuw i8 %34 to i1
-  br i1 %35, label %36, label %203
+35:                                               ; preds = %.lr.ph98, %_ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl16nextTestPositionEv.exit
+  %36 = load ptr, ptr %0, align 8, !tbaa !86
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 440
+  %38 = load i8, ptr %37, align 8, !tbaa !87, !range !88, !noundef !89
+  %39 = trunc nuw i8 %38 to i1
+  br i1 %39, label %40, label %203
 
-36:                                               ; preds = %31
-  %37 = load i32, ptr %21, align 8, !tbaa !81
-  %38 = add nsw i32 %37, 1
-  %39 = load ptr, ptr %19, align 8
-  %40 = load ptr, ptr %1, align 8
-  %41 = load ptr, ptr %20, align 8
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 4
-  %43 = getelementptr inbounds nuw i8, ptr %41, i64 8
+40:                                               ; preds = %35
+  %41 = load i32, ptr %25, align 8, !tbaa !81
+  %42 = add nsw i32 %41, 1
+  %43 = load ptr, ptr %1, align 8
   br label %44
 
-44:                                               ; preds = %201, %36
-  %.034 = phi i32 [ %38, %36 ], [ %.135, %201 ]
+44:                                               ; preds = %201, %40
+  %.034 = phi i32 [ %42, %40 ], [ %.135, %201 ]
   %45 = load ptr, ptr %0, align 8, !tbaa !86
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %3) #37
-  %46 = load i32, ptr %22, align 8, !tbaa !39
+  %46 = load i32, ptr %26, align 8, !tbaa !39
   store i32 %46, ptr %3, align 4, !tbaa !39
-  %47 = load i32, ptr %23, align 4, !tbaa !39
-  store i32 %47, ptr %24, align 4, !tbaa !39
-  %48 = load i32, ptr %25, align 8, !tbaa !39
-  store i32 %48, ptr %26, align 4, !tbaa !39
+  %47 = load i32, ptr %27, align 4, !tbaa !39
+  store i32 %47, ptr %28, align 4, !tbaa !39
+  %48 = load i32, ptr %29, align 8, !tbaa !39
+  store i32 %48, ptr %30, align 4, !tbaa !39
   %49 = getelementptr inbounds nuw i8, ptr %45, i64 520
   %50 = getelementptr inbounds nuw i8, ptr %45, i64 442
   %51 = getelementptr inbounds nuw i8, ptr %45, i64 72
@@ -5777,9 +5777,9 @@ define internal fastcc void @_ZN3gmx8internal34AnalysisNeighborhoodPairSearchImp
 
 _ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl9shiftCellEPKiPf.exit: ; preds = %.loopexit.i
   %100 = load i32, ptr %3, align 4, !tbaa !39
-  %101 = load i32, ptr %24, align 4, !tbaa !39
+  %101 = load i32, ptr %28, align 4, !tbaa !39
   %102 = load i32, ptr %49, align 8, !tbaa !39
-  %103 = load i32, ptr %26, align 4, !tbaa !39
+  %103 = load i32, ptr %30, align 4, !tbaa !39
   %104 = getelementptr inbounds nuw i8, ptr %45, i64 524
   %105 = load i32, ptr %104, align 4, !tbaa !39
   %106 = mul i32 %105, %103
@@ -5787,9 +5787,9 @@ _ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl9shiftCellEPKiPf.exit: ; preds 
   %reass.mul.i.i = mul i32 %reass.add.i.i, %102
   %107 = add i32 %reass.mul.i.i, %100
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %3) #37
-  %108 = load i8, ptr %27, align 8, !tbaa !73, !range !88, !noundef !89
+  %108 = load i8, ptr %31, align 8, !tbaa !73, !range !88, !noundef !89
   %109 = trunc nuw i8 %108 to i1
-  %110 = load i32, ptr %28, align 4
+  %110 = load i32, ptr %32, align 4
   %111 = icmp sgt i32 %107, %110
   %or.cond = select i1 %109, i1 %111, i1 false
   br i1 %or.cond, label %201, label %112
@@ -5828,7 +5828,7 @@ _ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl9shiftCellEPKiPf.exit: ; preds 
   %indvars.iv111 = phi i64 [ %133, %.lr.ph96 ], [ %indvars.iv.next112, %_ZN3gmx12_GLOBAL__N_113MindistActionclEifPKf.exit ]
   %135 = getelementptr inbounds nuw i32, ptr %119, i64 %indvars.iv111
   %136 = load i32, ptr %135, align 4, !tbaa !39
-  %137 = load i32, ptr %28, align 4
+  %137 = load i32, ptr %32, align 4
   %138 = icmp ne i32 %107, %137
   %or.cond52 = select i1 %not., i1 true, i1 %138
   %139 = load i32, ptr %5, align 8
@@ -5923,16 +5923,16 @@ _ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl10isExcludedEi.exit: ; preds
   br i1 %196, label %_ZN3gmx12_GLOBAL__N_113MindistActionclEifPKf.exit, label %197
 
 197:                                              ; preds = %.loopexit
-  %198 = load float, ptr %39, align 4, !tbaa !77
+  %198 = load float, ptr %20, align 4, !tbaa !77
   %199 = fcmp olt float %194, %198
   br i1 %199, label %200, label %_ZN3gmx12_GLOBAL__N_113MindistActionclEifPKf.exit
 
 200:                                              ; preds = %197
-  store i32 %136, ptr %40, align 4, !tbaa !39
-  store float %194, ptr %39, align 4, !tbaa !77
-  store float %186, ptr %41, align 4, !tbaa !77
-  store float %187, ptr %42, align 4, !tbaa !77
-  store float %188, ptr %43, align 4, !tbaa !77
+  store i32 %136, ptr %43, align 4, !tbaa !39
+  store float %194, ptr %20, align 4, !tbaa !77
+  store float %186, ptr %22, align 4, !tbaa !77
+  store float %187, ptr %23, align 4, !tbaa !77
+  store float %188, ptr %24, align 4, !tbaa !77
   br label %_ZN3gmx12_GLOBAL__N_113MindistActionclEifPKf.exit
 
 _ZN3gmx12_GLOBAL__N_113MindistActionclEifPKf.exit: ; preds = %.loopexit, %197, %200, %_ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl10isExcludedEi.exit, %134
@@ -5946,13 +5946,13 @@ _ZN3gmx12_GLOBAL__N_113MindistActionclEifPKf.exit: ; preds = %.loopexit, %197, %
 
 201:                                              ; preds = %._crit_edge, %_ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl9shiftCellEPKiPf.exit
   %.135 = phi i32 [ 0, %._crit_edge ], [ %.034, %_ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl9shiftCellEPKiPf.exit ]
-  %202 = call noundef zeroext i1 @_ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl8nextCellEPKfPiS4_(ptr noundef nonnull align 8 dereferenceable(624) %45, ptr noundef nonnull %29, ptr noundef nonnull %22, ptr noundef nonnull %30)
+  %202 = call noundef zeroext i1 @_ZNK3gmx8internal30AnalysisNeighborhoodSearchImpl8nextCellEPKfPiS4_(ptr noundef nonnull align 8 dereferenceable(624) %45, ptr noundef nonnull %33, ptr noundef nonnull %26, ptr noundef nonnull %34)
   br i1 %202, label %44, label %.loopexit82, !llvm.loop !227
 
-203:                                              ; preds = %31
+203:                                              ; preds = %35
   %204 = load i32, ptr %10, align 8, !tbaa !80
   %.03393 = add nsw i32 %204, 1
-  %205 = getelementptr inbounds nuw i8, ptr %32, i64 16
+  %205 = getelementptr inbounds nuw i8, ptr %36, i64 16
   %206 = load i32, ptr %205, align 8, !tbaa !37
   %207 = icmp slt i32 %.03393, %206
   br i1 %207, label %.lr.ph, label %.loopexit82
@@ -5963,9 +5963,9 @@ _ZN3gmx12_GLOBAL__N_113MindistActionclEifPKf.exit: ; preds = %.loopexit, %197, %
   %210 = add nsw i64 %209, 1
   br label %211
 
-211:                                              ; preds = %.lr.ph, %293
-  %212 = phi ptr [ %32, %.lr.ph ], [ %294, %293 ]
-  %indvars.iv = phi i64 [ %210, %.lr.ph ], [ %indvars.iv.next, %293 ]
+211:                                              ; preds = %.lr.ph, %289
+  %212 = phi ptr [ %36, %.lr.ph ], [ %290, %289 ]
+  %indvars.iv = phi i64 [ %210, %.lr.ph ], [ %indvars.iv.next, %289 ]
   %.sroa.0.0.copyload.i.i.i59 = load ptr, ptr %11, align 8
   %213 = load ptr, ptr %12, align 8, !tbaa !181
   %214 = ptrtoint ptr %213 to i64
@@ -6025,7 +6025,7 @@ _ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl10isExcludedEi.exit68: ; pre
   %246 = trunc nsw i64 %indvars.iv.i63 to i32
   %247 = add nsw i32 %246, 1
   store i32 %247, ptr %13, align 4, !tbaa !182
-  br label %293
+  br label %289
 
 .loopexit81:                                      ; preds = %239, %241, %211
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #37
@@ -6077,58 +6077,54 @@ _ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl10isExcludedEi.exit68: ; pre
   br i1 %280, label %_ZN3gmx12_GLOBAL__N_113MindistActionclEifPKf.exit69, label %281
 
 281:                                              ; preds = %266
-  %282 = load ptr, ptr %19, align 8, !tbaa !228
-  %283 = load float, ptr %282, align 4, !tbaa !77
-  %284 = fcmp olt float %277, %283
-  br i1 %284, label %285, label %_ZN3gmx12_GLOBAL__N_113MindistActionclEifPKf.exit69
+  %282 = load float, ptr %20, align 4, !tbaa !77
+  %283 = fcmp olt float %277, %282
+  br i1 %283, label %284, label %_ZN3gmx12_GLOBAL__N_113MindistActionclEifPKf.exit69
 
-285:                                              ; preds = %281
-  %286 = trunc nsw i64 %indvars.iv to i32
-  store i32 %286, ptr %208, align 4, !tbaa !39
-  store float %277, ptr %282, align 4, !tbaa !77
-  %287 = load ptr, ptr %20, align 8, !tbaa !230
-  %288 = load float, ptr %4, align 4, !tbaa !77
-  store float %288, ptr %287, align 4, !tbaa !77
-  %289 = load float, ptr %17, align 4, !tbaa !77
-  %290 = getelementptr inbounds nuw i8, ptr %287, i64 4
-  store float %289, ptr %290, align 4, !tbaa !77
-  %291 = load float, ptr %18, align 4, !tbaa !77
-  %292 = getelementptr inbounds nuw i8, ptr %287, i64 8
-  store float %291, ptr %292, align 4, !tbaa !77
+284:                                              ; preds = %281
+  %285 = trunc nsw i64 %indvars.iv to i32
+  store i32 %285, ptr %208, align 4, !tbaa !39
+  store float %277, ptr %20, align 4, !tbaa !77
+  %286 = load float, ptr %4, align 4, !tbaa !77
+  store float %286, ptr %22, align 4, !tbaa !77
+  %287 = load float, ptr %17, align 4, !tbaa !77
+  store float %287, ptr %23, align 4, !tbaa !77
+  %288 = load float, ptr %18, align 4, !tbaa !77
+  store float %288, ptr %24, align 4, !tbaa !77
   br label %_ZN3gmx12_GLOBAL__N_113MindistActionclEifPKf.exit69
 
-_ZN3gmx12_GLOBAL__N_113MindistActionclEifPKf.exit69: ; preds = %285, %281, %266
+_ZN3gmx12_GLOBAL__N_113MindistActionclEifPKf.exit69: ; preds = %284, %281, %266
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %4) #37
-  br label %293
+  br label %289
 
-293:                                              ; preds = %_ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl10isExcludedEi.exit68, %_ZN3gmx12_GLOBAL__N_113MindistActionclEifPKf.exit69
-  %294 = phi ptr [ %212, %_ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl10isExcludedEi.exit68 ], [ %267, %_ZN3gmx12_GLOBAL__N_113MindistActionclEifPKf.exit69 ]
+289:                                              ; preds = %_ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl10isExcludedEi.exit68, %_ZN3gmx12_GLOBAL__N_113MindistActionclEifPKf.exit69
+  %290 = phi ptr [ %212, %_ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl10isExcludedEi.exit68 ], [ %267, %_ZN3gmx12_GLOBAL__N_113MindistActionclEifPKf.exit69 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
-  %295 = getelementptr inbounds nuw i8, ptr %294, i64 16
-  %296 = load i32, ptr %295, align 8, !tbaa !37
-  %297 = sext i32 %296 to i64
-  %298 = icmp slt i64 %indvars.iv.next, %297
-  br i1 %298, label %211, label %.loopexit82, !llvm.loop !231
+  %291 = getelementptr inbounds nuw i8, ptr %290, i64 16
+  %292 = load i32, ptr %291, align 8, !tbaa !37
+  %293 = sext i32 %292 to i64
+  %294 = icmp slt i64 %indvars.iv.next, %293
+  br i1 %294, label %211, label %.loopexit82, !llvm.loop !228
 
-.loopexit82:                                      ; preds = %293, %201, %203
-  %299 = load i32, ptr %5, align 8, !tbaa !78
-  %300 = load i32, ptr %6, align 4, !tbaa !180
-  %301 = icmp slt i32 %299, %300
-  br i1 %301, label %302, label %_ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl16nextTestPositionEv.exit
+.loopexit82:                                      ; preds = %289, %201, %203
+  %295 = load i32, ptr %5, align 8, !tbaa !78
+  %296 = load i32, ptr %6, align 4, !tbaa !180
+  %297 = icmp slt i32 %295, %296
+  br i1 %297, label %298, label %_ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl16nextTestPositionEv.exit
 
-302:                                              ; preds = %.loopexit82
-  %303 = add nsw i32 %299, 1
-  store i32 %303, ptr %5, align 8, !tbaa !78
-  call void @_ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl5resetEi(ptr noundef nonnull align 8 dereferenceable(140) %0, i32 noundef %303)
+298:                                              ; preds = %.loopexit82
+  %299 = add nsw i32 %295, 1
+  store i32 %299, ptr %5, align 8, !tbaa !78
+  call void @_ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl5resetEi(ptr noundef nonnull align 8 dereferenceable(140) %0, i32 noundef %299)
   %.pre114 = load i32, ptr %5, align 8, !tbaa !78
   %.pre115 = load i32, ptr %6, align 4, !tbaa !180
   br label %_ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl16nextTestPositionEv.exit
 
-_ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl16nextTestPositionEv.exit: ; preds = %.loopexit82, %302
-  %304 = phi i32 [ %300, %.loopexit82 ], [ %.pre115, %302 ]
-  %305 = phi i32 [ %299, %.loopexit82 ], [ %.pre114, %302 ]
-  %306 = icmp slt i32 %305, %304
-  br i1 %306, label %31, label %._crit_edge99, !llvm.loop !232
+_ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl16nextTestPositionEv.exit: ; preds = %.loopexit82, %298
+  %300 = phi i32 [ %296, %.loopexit82 ], [ %.pre115, %298 ]
+  %301 = phi i32 [ %295, %.loopexit82 ], [ %.pre114, %298 ]
+  %302 = icmp slt i32 %301, %300
+  br i1 %302, label %35, label %._crit_edge99, !llvm.loop !229
 
 ._crit_edge99:                                    ; preds = %_ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl16nextTestPositionEv.exit, %2
   ret void
@@ -6237,11 +6233,11 @@ _ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl11startSearchERKNS_29Analysi
   call fastcc void @_ZN3gmx8internal34AnalysisNeighborhoodPairSearchImpl10searchNextINS_12_GLOBAL__N_113MindistActionEEEbT_(ptr noundef nonnull align 8 dereferenceable(140) %4, ptr noundef nonnull byval(%"class.gmx::(anonymous namespace)::MindistAction") align 8 %8)
   %50 = load i32, ptr %6, align 4, !tbaa !39
   %51 = load float, ptr %5, align 4, !tbaa !77
-  store i32 %50, ptr %0, align 4, !tbaa !233
+  store i32 %50, ptr %0, align 4, !tbaa !230
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %52, align 4, !tbaa !235
+  store i32 0, ptr %52, align 4, !tbaa !232
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store float %51, ptr %53, align 4, !tbaa !236
+  store float %51, ptr %53, align 4, !tbaa !233
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %55 = load float, ptr %7, align 4, !tbaa !77
   store float %55, ptr %54, align 4, !tbaa !77
@@ -6885,12 +6881,9 @@ attributes #42 = { builtin allocsize(0) }
 !225 = !{!11, !11, i64 0}
 !226 = distinct !{!226, !54}
 !227 = distinct !{!227, !54}
-!228 = !{!229, !11, i64 8}
-!229 = !{!"_ZTSN3gmx12_GLOBAL__N_113MindistActionE", !13, i64 0, !11, i64 8, !11, i64 16}
-!230 = !{!229, !11, i64 16}
-!231 = distinct !{!231, !54}
-!232 = distinct !{!232, !54}
-!233 = !{!234, !10, i64 0}
-!234 = !{!"_ZTSN3gmx24AnalysisNeighborhoodPairE", !10, i64 0, !10, i64 4, !9, i64 8, !7, i64 12}
-!235 = !{!234, !10, i64 4}
-!236 = !{!234, !9, i64 8}
+!228 = distinct !{!228, !54}
+!229 = distinct !{!229, !54}
+!230 = !{!231, !10, i64 0}
+!231 = !{!"_ZTSN3gmx24AnalysisNeighborhoodPairE", !10, i64 0, !10, i64 4, !9, i64 8, !7, i64 12}
+!232 = !{!231, !10, i64 4}
+!233 = !{!231, !9, i64 8}

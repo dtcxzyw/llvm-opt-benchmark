@@ -19084,7 +19084,6 @@ _ZN8nlohmann24json_abi_diag_dp_v3_11_310basic_jsonISt3mapSt6vectorNSt7__cxx1112b
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
   %40 = load ptr, ptr %39, align 8, !tbaa !41, !noalias !274
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %40, ptr %41, align 8, !tbaa !41, !alias.scope !274
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 16
   %43 = load ptr, ptr %42, align 8, !tbaa !41
   %44 = load ptr, ptr %38, align 8, !tbaa !41

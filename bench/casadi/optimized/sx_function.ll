@@ -24034,8 +24034,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   call void @_ZdlPvm(ptr noundef %128, i64 noundef %133) #30
   br label %common.resume
 
-common.resume:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit325, %294, %488, %.body387, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit347, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  %common.resume.op = phi { ptr, i32 } [ %127, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %127, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i ], [ %.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit325 ], [ %.pn293.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit347 ], [ %.pn299.pn, %.body387 ], [ %.pn296.pn, %488 ], [ %295, %294 ]
+common.resume:                                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit325, %294, %487, %.body387, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit347, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
+  %common.resume.op = phi { ptr, i32 } [ %127, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i ], [ %127, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i ], [ %.pn.pn.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit325 ], [ %.pn293.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit347 ], [ %.pn299.pn, %.body387 ], [ %.pn296.pn, %487 ], [ %295, %294 ]
   resume { ptr, i32 } %common.resume.op
 
 _ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EERKS8_PKS5_.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i.i
@@ -24394,13 +24394,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit347: ; preds = %_Z
   %271 = getelementptr inbounds nuw i8, ptr %71, i64 16
   br label %272
 
-272:                                              ; preds = %.lr.ph593, %988
-  %.sroa.0548.0591 = phi ptr [ %257, %.lr.ph593 ], [ %.sroa.0548.1, %988 ]
-  %.sroa.0547.0590 = phi ptr [ %256, %.lr.ph593 ], [ %.sroa.0547.1, %988 ]
-  %.sroa.0546.0589 = phi ptr [ %255, %.lr.ph593 ], [ %.sroa.0546.1, %988 ]
-  %.sroa.0542.0588 = phi ptr [ %259, %.lr.ph593 ], [ %989, %988 ]
+272:                                              ; preds = %.lr.ph593, %987
+  %.sroa.0548.0591 = phi ptr [ %257, %.lr.ph593 ], [ %.sroa.0548.1, %987 ]
+  %.sroa.0547.0590 = phi ptr [ %256, %.lr.ph593 ], [ %.sroa.0547.1, %987 ]
+  %.sroa.0546.0589 = phi ptr [ %255, %.lr.ph593 ], [ %.sroa.0546.1, %987 ]
+  %.sroa.0542.0588 = phi ptr [ %259, %.lr.ph593 ], [ %988, %987 ]
   %273 = load i32, ptr %.sroa.0542.0588, align 8, !tbaa !107
-  switch i32 %273, label %489 [
+  switch i32 %273, label %488 [
     i32 45, label %274
     i32 46, label %296
     i32 44, label %312
@@ -24441,7 +24441,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit347: ; preds = %_Z
 293:                                              ; preds = %287
   call void @_ZN6casadi6SXElemD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %70) #29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %70) #29
-  br label %988
+  br label %987
 
 294:                                              ; preds = %287
   %295 = landingpad { ptr, i32 }
@@ -24457,7 +24457,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit347: ; preds = %_Z
   %300 = getelementptr inbounds ptr, ptr %2, i64 %299
   %301 = load ptr, ptr %300, align 8, !tbaa !102
   %.not = icmp eq ptr %301, null
-  br i1 %.not, label %988, label %302
+  br i1 %.not, label %987, label %302
 
 302:                                              ; preds = %296
   %303 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
@@ -24469,7 +24469,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit347: ; preds = %_Z
   %309 = sext i32 %308 to i64
   %310 = getelementptr inbounds %"class.casadi::SXElem", ptr %301, i64 %309
   %311 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %310, ptr noundef nonnull align 8 dereferenceable(8) %306)
-  br label %988
+  br label %987
 
 312:                                              ; preds = %272
   %313 = getelementptr inbounds nuw i8, ptr %.sroa.0547.0590, i64 8
@@ -24478,7 +24478,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit347: ; preds = %_Z
   %316 = sext i32 %315 to i64
   %317 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %316
   %318 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %317, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0547.0590)
-  br label %988
+  br label %987
 
 319:                                              ; preds = %272
   %320 = getelementptr inbounds nuw i8, ptr %.sroa.0546.0589, i64 8
@@ -24487,7 +24487,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit347: ; preds = %_Z
   %323 = sext i32 %322 to i64
   %324 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %323
   %325 = call noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %324, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0546.0589)
-  br label %988
+  br label %987
 
 326:                                              ; preds = %272
   %327 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
@@ -24540,7 +24540,7 @@ _ZNKSt6vectorIN6casadi10SXFunction13ExtendedAlgElESaIS2_EE2atEm.exit: ; preds = 
   %348 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %72) #29
-  br label %488
+  br label %487
 
 349:                                              ; preds = %.lr.ph, %370
   %.0273579 = phi i64 [ 0, %.lr.ph ], [ %372, %370 ]
@@ -24590,12 +24590,12 @@ _ZNKSt6vectorIN6casadi10SXFunction13ExtendedAlgElESaIS2_EE2atEm.exit: ; preds = 
 .loopexit:                                        ; preds = %357, %363, %368
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %487
+  br label %486
 
 .loopexit.split-lp:                               ; preds = %356
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %487
+  br label %486
 
 .critedge:                                        ; preds = %341, %._crit_edge
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %74) #29
@@ -24721,7 +24721,7 @@ _ZNSt6vectorIN6casadi6SXElemESaIS1_EED2Ev.exit:   ; preds = %_ZSt8_DestroyIPN6ca
 .body:                                            ; preds = %388, %409
   %eh.lpad-body = phi { ptr, i32 } [ %410, %409 ], [ %.pn.i, %388 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %74) #29
-  br label %487
+  br label %486
 
 ._crit_edge582:                                   ; preds = %419, %.preheader
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %75) #29
@@ -24749,7 +24749,7 @@ _ZNSt6vectorIN6casadi6SXElemESaIS1_EED2Ev.exit:   ; preds = %_ZSt8_DestroyIPN6ca
 423:                                              ; preds = %.lr.ph581
   %424 = landingpad { ptr, i32 }
           cleanup
-  br label %487
+  br label %486
 
 425:                                              ; preds = %._crit_edge582
   %426 = load ptr, ptr %73, align 8, !tbaa !68
@@ -24821,34 +24821,30 @@ _ZNSt6vectorIN6casadi6SXElemESaIS1_EED2Ev.exit366: ; preds = %_ZSt8_DestroyIPN6c
   %447 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %75) #29
-  br label %487
+  br label %486
 
 448:                                              ; preds = %_ZNSt6vectorIN6casadi6SXElemESaIS1_EED2Ev.exit366, %_ZNSt6vectorIN6casadi6SXElemESaIS1_EED2Ev.exit
-  %449 = phi ptr [ %430, %_ZNSt6vectorIN6casadi6SXElemESaIS1_EED2Ev.exit366 ], [ %393, %_ZNSt6vectorIN6casadi6SXElemESaIS1_EED2Ev.exit ]
+  %449 = phi ptr [ %431, %_ZNSt6vectorIN6casadi6SXElemESaIS1_EED2Ev.exit366 ], [ %394, %_ZNSt6vectorIN6casadi6SXElemESaIS1_EED2Ev.exit ]
+  %450 = phi ptr [ %430, %_ZNSt6vectorIN6casadi6SXElemESaIS1_EED2Ev.exit366 ], [ %393, %_ZNSt6vectorIN6casadi6SXElemESaIS1_EED2Ev.exit ]
   %.pr.i372 = phi ptr [ %429, %_ZNSt6vectorIN6casadi6SXElemESaIS1_EED2Ev.exit366 ], [ %392, %_ZNSt6vectorIN6casadi6SXElemESaIS1_EED2Ev.exit ]
-  %450 = getelementptr inbounds nuw i8, ptr %337, i64 112
-  %451 = load i64, ptr %450, align 8, !tbaa !19
-  %452 = icmp sgt i64 %451, 0
-  br i1 %452, label %.lr.ph585, label %._crit_edge586
+  %451 = getelementptr inbounds nuw i8, ptr %337, i64 112
+  %452 = load i64, ptr %451, align 8, !tbaa !19
+  %453 = icmp sgt i64 %452, 0
+  br i1 %453, label %.lr.ph585, label %._crit_edge586
 
 .lr.ph585:                                        ; preds = %448
-  %453 = getelementptr inbounds nuw i8, ptr %337, i64 32
-  br label %470
+  %454 = getelementptr inbounds nuw i8, ptr %337, i64 32
+  br label %469
 
-._crit_edge586.loopexit:                          ; preds = %483
-  %.pre621 = load ptr, ptr %264, align 8, !tbaa !71
-  br label %._crit_edge586
-
-._crit_edge586:                                   ; preds = %._crit_edge586.loopexit, %448
-  %454 = phi ptr [ %.pre621, %._crit_edge586.loopexit ], [ %449, %448 ]
-  %.not4.i.i.i.i367 = icmp eq ptr %.pr.i372, %454
+._crit_edge586:                                   ; preds = %482, %448
+  %.not4.i.i.i.i367 = icmp eq ptr %.pr.i372, %450
   br i1 %.not4.i.i.i.i367, label %_ZSt8_DestroyIPN6casadi6SXElemES1_EvT_S3_RSaIT0_E.exit.i373, label %.lr.ph.i.i.i.i368
 
 .lr.ph.i.i.i.i368:                                ; preds = %._crit_edge586, %.lr.ph.i.i.i.i368
   %.05.i.i.i.i369 = phi ptr [ %455, %.lr.ph.i.i.i.i368 ], [ %.pr.i372, %._crit_edge586 ]
   call void @_ZN6casadi6SXElemD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %.05.i.i.i.i369) #29
   %455 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i369, i64 8
-  %.not.i.i.i.i370 = icmp eq ptr %455, %454
+  %.not.i.i.i.i370 = icmp eq ptr %455, %450
   br i1 %.not.i.i.i.i370, label %_ZSt8_DestroyIPN6casadi6SXElemES1_EvT_S3_RSaIT0_E.exit.i373, label %.lr.ph.i.i.i.i368, !llvm.loop !72
 
 _ZSt8_DestroyIPN6casadi6SXElemES1_EvT_S3_RSaIT0_E.exit.i373: ; preds = %.lr.ph.i.i.i.i368, %._crit_edge586
@@ -24856,25 +24852,24 @@ _ZSt8_DestroyIPN6casadi6SXElemES1_EvT_S3_RSaIT0_E.exit.i373: ; preds = %.lr.ph.i
   br i1 %.not.i.i.i374, label %_ZNSt6vectorIN6casadi6SXElemESaIS1_EED2Ev.exit375, label %456
 
 456:                                              ; preds = %_ZSt8_DestroyIPN6casadi6SXElemES1_EvT_S3_RSaIT0_E.exit.i373
-  %457 = load ptr, ptr %265, align 8, !tbaa !73
-  %458 = ptrtoint ptr %457 to i64
-  %459 = ptrtoint ptr %.pr.i372 to i64
-  %460 = sub i64 %458, %459
-  call void @_ZdlPvm(ptr noundef nonnull %.pr.i372, i64 noundef %460) #30
+  %457 = ptrtoint ptr %449 to i64
+  %458 = ptrtoint ptr %.pr.i372 to i64
+  %459 = sub i64 %457, %458
+  call void @_ZdlPvm(ptr noundef nonnull %.pr.i372, i64 noundef %459) #30
   br label %_ZNSt6vectorIN6casadi6SXElemESaIS1_EED2Ev.exit375
 
 _ZNSt6vectorIN6casadi6SXElemESaIS1_EED2Ev.exit375: ; preds = %_ZSt8_DestroyIPN6casadi6SXElemES1_EvT_S3_RSaIT0_E.exit.i373, %456
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %73) #29
-  %461 = load ptr, ptr %71, align 8, !tbaa !68
-  %462 = load ptr, ptr %270, align 8, !tbaa !71
-  %.not4.i.i.i.i376 = icmp eq ptr %461, %462
+  %460 = load ptr, ptr %71, align 8, !tbaa !68
+  %461 = load ptr, ptr %270, align 8, !tbaa !71
+  %.not4.i.i.i.i376 = icmp eq ptr %460, %461
   br i1 %.not4.i.i.i.i376, label %_ZSt8_DestroyIPN6casadi6SXElemES1_EvT_S3_RSaIT0_E.exit.i382, label %.lr.ph.i.i.i.i377
 
 .lr.ph.i.i.i.i377:                                ; preds = %_ZNSt6vectorIN6casadi6SXElemESaIS1_EED2Ev.exit375, %.lr.ph.i.i.i.i377
-  %.05.i.i.i.i378 = phi ptr [ %463, %.lr.ph.i.i.i.i377 ], [ %461, %_ZNSt6vectorIN6casadi6SXElemESaIS1_EED2Ev.exit375 ]
+  %.05.i.i.i.i378 = phi ptr [ %462, %.lr.ph.i.i.i.i377 ], [ %460, %_ZNSt6vectorIN6casadi6SXElemESaIS1_EED2Ev.exit375 ]
   call void @_ZN6casadi6SXElemD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %.05.i.i.i.i378) #29
-  %463 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i378, i64 8
-  %.not.i.i.i.i379 = icmp eq ptr %463, %462
+  %462 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i378, i64 8
+  %.not.i.i.i.i379 = icmp eq ptr %462, %461
   br i1 %.not.i.i.i.i379, label %_ZSt8_DestroyIPN6casadi6SXElemES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i380, label %.lr.ph.i.i.i.i377, !llvm.loop !72
 
 _ZSt8_DestroyIPN6casadi6SXElemES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i380: ; preds = %.lr.ph.i.i.i.i377
@@ -24882,147 +24877,147 @@ _ZSt8_DestroyIPN6casadi6SXElemES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i380: ; p
   br label %_ZSt8_DestroyIPN6casadi6SXElemES1_EvT_S3_RSaIT0_E.exit.i382
 
 _ZSt8_DestroyIPN6casadi6SXElemES1_EvT_S3_RSaIT0_E.exit.i382: ; preds = %_ZSt8_DestroyIPN6casadi6SXElemES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i380, %_ZNSt6vectorIN6casadi6SXElemESaIS1_EED2Ev.exit375
-  %464 = phi ptr [ %.pr.i381, %_ZSt8_DestroyIPN6casadi6SXElemES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i380 ], [ %461, %_ZNSt6vectorIN6casadi6SXElemESaIS1_EED2Ev.exit375 ]
-  %.not.i.i.i383 = icmp eq ptr %464, null
-  br i1 %.not.i.i.i383, label %_ZNSt6vectorIN6casadi6SXElemESaIS1_EED2Ev.exit384, label %465
+  %463 = phi ptr [ %.pr.i381, %_ZSt8_DestroyIPN6casadi6SXElemES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i380 ], [ %460, %_ZNSt6vectorIN6casadi6SXElemESaIS1_EED2Ev.exit375 ]
+  %.not.i.i.i383 = icmp eq ptr %463, null
+  br i1 %.not.i.i.i383, label %_ZNSt6vectorIN6casadi6SXElemESaIS1_EED2Ev.exit384, label %464
 
-465:                                              ; preds = %_ZSt8_DestroyIPN6casadi6SXElemES1_EvT_S3_RSaIT0_E.exit.i382
-  %466 = load ptr, ptr %271, align 8, !tbaa !73
-  %467 = ptrtoint ptr %466 to i64
-  %468 = ptrtoint ptr %464 to i64
-  %469 = sub i64 %467, %468
-  call void @_ZdlPvm(ptr noundef nonnull %464, i64 noundef %469) #30
+464:                                              ; preds = %_ZSt8_DestroyIPN6casadi6SXElemES1_EvT_S3_RSaIT0_E.exit.i382
+  %465 = load ptr, ptr %271, align 8, !tbaa !73
+  %466 = ptrtoint ptr %465 to i64
+  %467 = ptrtoint ptr %463 to i64
+  %468 = sub i64 %466, %467
+  call void @_ZdlPvm(ptr noundef nonnull %463, i64 noundef %468) #30
   br label %_ZNSt6vectorIN6casadi6SXElemESaIS1_EED2Ev.exit384
 
-_ZNSt6vectorIN6casadi6SXElemESaIS1_EED2Ev.exit384: ; preds = %_ZSt8_DestroyIPN6casadi6SXElemES1_EvT_S3_RSaIT0_E.exit.i382, %465
+_ZNSt6vectorIN6casadi6SXElemESaIS1_EED2Ev.exit384: ; preds = %_ZSt8_DestroyIPN6casadi6SXElemES1_EvT_S3_RSaIT0_E.exit.i382, %464
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %71) #29
-  br label %988
+  br label %987
 
-470:                                              ; preds = %.lr.ph585, %483
-  %471 = phi i64 [ %451, %.lr.ph585 ], [ %484, %483 ]
-  %.0271583 = phi i64 [ 0, %.lr.ph585 ], [ %485, %483 ]
-  %472 = load ptr, ptr %453, align 8, !tbaa !21
-  %473 = getelementptr inbounds nuw i32, ptr %472, i64 %.0271583
-  %474 = load i32, ptr %473, align 4, !tbaa !22
-  %475 = icmp sgt i32 %474, -1
-  br i1 %475, label %476, label %483
+469:                                              ; preds = %.lr.ph585, %482
+  %470 = phi i64 [ %452, %.lr.ph585 ], [ %483, %482 ]
+  %.0271583 = phi i64 [ 0, %.lr.ph585 ], [ %484, %482 ]
+  %471 = load ptr, ptr %454, align 8, !tbaa !21
+  %472 = getelementptr inbounds nuw i32, ptr %471, i64 %.0271583
+  %473 = load i32, ptr %472, align 4, !tbaa !22
+  %474 = icmp sgt i32 %473, -1
+  br i1 %474, label %475, label %482
 
-476:                                              ; preds = %470
-  %477 = getelementptr inbounds nuw %"class.casadi::SXElem", ptr %.pr.i372, i64 %.0271583
-  %478 = zext nneg i32 %474 to i64
-  %479 = getelementptr inbounds nuw %"class.casadi::SXElem", ptr %4, i64 %478
-  %480 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %479, ptr noundef nonnull align 8 dereferenceable(8) %477)
-          to label %._crit_edge619 unwind label %481
+475:                                              ; preds = %469
+  %476 = getelementptr inbounds nuw %"class.casadi::SXElem", ptr %.pr.i372, i64 %.0271583
+  %477 = zext nneg i32 %473 to i64
+  %478 = getelementptr inbounds nuw %"class.casadi::SXElem", ptr %4, i64 %477
+  %479 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %478, ptr noundef nonnull align 8 dereferenceable(8) %476)
+          to label %._crit_edge619 unwind label %480
 
-._crit_edge619:                                   ; preds = %476
-  %.pre620 = load i64, ptr %450, align 8, !tbaa !19
-  br label %483
+._crit_edge619:                                   ; preds = %475
+  %.pre620 = load i64, ptr %451, align 8, !tbaa !19
+  br label %482
 
-481:                                              ; preds = %476
-  %482 = landingpad { ptr, i32 }
+480:                                              ; preds = %475
+  %481 = landingpad { ptr, i32 }
           cleanup
-  br label %487
+  br label %486
 
-483:                                              ; preds = %._crit_edge619, %470
-  %484 = phi i64 [ %.pre620, %._crit_edge619 ], [ %471, %470 ]
-  %485 = add nuw nsw i64 %.0271583, 1
-  %486 = icmp slt i64 %485, %484
-  br i1 %486, label %470, label %._crit_edge586.loopexit, !llvm.loop !570
+482:                                              ; preds = %._crit_edge619, %469
+  %483 = phi i64 [ %.pre620, %._crit_edge619 ], [ %470, %469 ]
+  %484 = add nuw nsw i64 %.0271583, 1
+  %485 = icmp slt i64 %484, %483
+  br i1 %485, label %469, label %._crit_edge586, !llvm.loop !570
 
-487:                                              ; preds = %.loopexit, %.loopexit.split-lp, %481, %446, %423, %.body
-  %.pn296 = phi { ptr, i32 } [ %482, %481 ], [ %eh.lpad-body, %.body ], [ %424, %423 ], [ %447, %446 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+486:                                              ; preds = %.loopexit, %.loopexit.split-lp, %480, %446, %423, %.body
+  %.pn296 = phi { ptr, i32 } [ %481, %480 ], [ %eh.lpad-body, %.body ], [ %424, %423 ], [ %447, %446 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt6vectorIN6casadi6SXElemESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %73) #29
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %73) #29
   call void @_ZNSt6vectorIN6casadi6SXElemESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %71) #29
-  br label %488
+  br label %487
 
-488:                                              ; preds = %487, %347
-  %.pn296.pn = phi { ptr, i32 } [ %.pn296, %487 ], [ %348, %347 ]
+487:                                              ; preds = %486, %347
+  %.pn296.pn = phi { ptr, i32 } [ %.pn296, %486 ], [ %348, %347 ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %71) #29
   br label %common.resume
 
-489:                                              ; preds = %272
+488:                                              ; preds = %272
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %76) #29
   call void @_ZN6casadi6SXElemC1Ev(ptr noundef nonnull align 8 dereferenceable(8) %76)
-  %490 = load i32, ptr %.sroa.0542.0588, align 8, !tbaa !107
-  switch i32 %490, label %_ZN6casadi17BinaryOperationSSILx0EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit [
+  %489 = load i32, ptr %.sroa.0542.0588, align 8, !tbaa !107
+  switch i32 %489, label %_ZN6casadi17BinaryOperationSSILx0EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit [
     i32 0, label %.invoke
-    i32 1, label %493
-    i32 2, label %505
-    i32 3, label %517
-    i32 4, label %529
-    i32 5, label %541
-    i32 6, label %549
-    i32 7, label %557
-    i32 8, label %565
-    i32 9, label %577
-    i32 10, label %589
-    i32 11, label %597
-    i32 12, label %605
-    i32 13, label %616
-    i32 14, label %624
-    i32 15, label %632
-    i32 16, label %640
-    i32 17, label %648
-    i32 18, label %656
-    i32 19, label %664
-    i32 20, label %676
-    i32 21, label %688
-    i32 22, label %700
-    i32 23, label %712
-    i32 24, label %720
-    i32 25, label %732
-    i32 32, label %744
-    i32 26, label %756
-    i32 27, label %764
-    i32 28, label %772
-    i32 97, label %784
-    i32 29, label %796
-    i32 30, label %804
-    i32 31, label %812
-    i32 33, label %824
-    i32 34, label %832
-    i32 35, label %844
-    i32 36, label %856
-    i32 37, label %867
-    i32 38, label %875
-    i32 39, label %883
-    i32 40, label %891
-    i32 41, label %899
-    i32 42, label %907
-    i32 43, label %915
-    i32 86, label %927
+    i32 1, label %492
+    i32 2, label %504
+    i32 3, label %516
+    i32 4, label %528
+    i32 5, label %540
+    i32 6, label %548
+    i32 7, label %556
+    i32 8, label %564
+    i32 9, label %576
+    i32 10, label %588
+    i32 11, label %596
+    i32 12, label %604
+    i32 13, label %615
+    i32 14, label %623
+    i32 15, label %631
+    i32 16, label %639
+    i32 17, label %647
+    i32 18, label %655
+    i32 19, label %663
+    i32 20, label %675
+    i32 21, label %687
+    i32 22, label %699
+    i32 23, label %711
+    i32 24, label %719
+    i32 25, label %731
+    i32 32, label %743
+    i32 26, label %755
+    i32 27, label %763
+    i32 28, label %771
+    i32 97, label %783
+    i32 29, label %795
+    i32 30, label %803
+    i32 31, label %811
+    i32 33, label %823
+    i32 34, label %831
+    i32 35, label %843
+    i32 36, label %855
+    i32 37, label %866
+    i32 38, label %874
+    i32 39, label %882
+    i32 40, label %890
+    i32 41, label %898
+    i32 42, label %906
+    i32 43, label %914
+    i32 86, label %926
     i32 88, label %.invoke
-    i32 87, label %940
-    i32 93, label %952
-    i32 94, label %960
-    i32 95, label %968
+    i32 87, label %939
+    i32 93, label %951
+    i32 94, label %959
+    i32 95, label %967
   ]
 
-491:                                              ; preds = %.invoke, %968, %960, %952, %940, %927, %915, %907, %899, %891, %883, %875, %867, %856, %844, %832, %824, %812, %804, %796, %784, %772, %764, %756, %744, %732, %720, %712, %700, %688, %676, %664, %656, %648, %640, %632, %624, %616, %605, %597, %589, %577, %565, %557, %549, %541, %529, %517, %505, %493
-  %492 = landingpad { ptr, i32 }
+490:                                              ; preds = %.invoke, %967, %959, %951, %939, %926, %914, %906, %898, %890, %882, %874, %866, %855, %843, %831, %823, %811, %803, %795, %783, %771, %763, %755, %743, %731, %719, %711, %699, %687, %675, %663, %655, %647, %639, %631, %623, %615, %604, %596, %588, %576, %564, %556, %548, %540, %528, %516, %504, %492
+  %491 = landingpad { ptr, i32 }
           cleanup
   br label %.body387
 
-493:                                              ; preds = %489
-  %494 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
-  %495 = load i32, ptr %494, align 8, !tbaa !51
-  %496 = sext i32 %495 to i64
-  %497 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %496
-  %498 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 12
-  %499 = load i32, ptr %498, align 4, !tbaa !51
-  %500 = sext i32 %499 to i64
-  %501 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %500
+492:                                              ; preds = %488
+  %493 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
+  %494 = load i32, ptr %493, align 8, !tbaa !51
+  %495 = sext i32 %494 to i64
+  %496 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %495
+  %497 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 12
+  %498 = load i32, ptr %497, align 4, !tbaa !51
+  %499 = sext i32 %498 to i64
+  %500 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %499
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %59) #29
-  invoke void @_ZN6casadi6SXElem6binaryExRKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %59, i64 noundef 1, ptr noundef nonnull align 8 dereferenceable(8) %497, ptr noundef nonnull align 8 dereferenceable(8) %501)
-          to label %.noexc386 unwind label %491
+  invoke void @_ZN6casadi6SXElem6binaryExRKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %59, i64 noundef 1, ptr noundef nonnull align 8 dereferenceable(8) %496, ptr noundef nonnull align 8 dereferenceable(8) %500)
+          to label %.noexc386 unwind label %490
 
-.noexc386:                                        ; preds = %493
-  %502 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %59)
-          to label %_ZN6casadi17BinaryOperationSSILx1EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %503
+.noexc386:                                        ; preds = %492
+  %501 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %59)
+          to label %_ZN6casadi17BinaryOperationSSILx1EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %502
 
-503:                                              ; preds = %.noexc386
-  %504 = landingpad { ptr, i32 }
+502:                                              ; preds = %.noexc386
+  %503 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6casadi6SXElemD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %59) #29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %59) #29
@@ -25033,25 +25028,25 @@ _ZN6casadi17BinaryOperationSSILx1EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit: ; preds
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %59) #29
   br label %_ZN6casadi17BinaryOperationSSILx0EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit
 
-505:                                              ; preds = %489
-  %506 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
-  %507 = load i32, ptr %506, align 8, !tbaa !51
-  %508 = sext i32 %507 to i64
-  %509 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %508
-  %510 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 12
-  %511 = load i32, ptr %510, align 4, !tbaa !51
-  %512 = sext i32 %511 to i64
-  %513 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %512
+504:                                              ; preds = %488
+  %505 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
+  %506 = load i32, ptr %505, align 8, !tbaa !51
+  %507 = sext i32 %506 to i64
+  %508 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %507
+  %509 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 12
+  %510 = load i32, ptr %509, align 4, !tbaa !51
+  %511 = sext i32 %510 to i64
+  %512 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %511
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %58) #29
-  invoke void @_ZN6casadi6SXElem6binaryExRKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %58, i64 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %509, ptr noundef nonnull align 8 dereferenceable(8) %513)
-          to label %.noexc389 unwind label %491
+  invoke void @_ZN6casadi6SXElem6binaryExRKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %58, i64 noundef 2, ptr noundef nonnull align 8 dereferenceable(8) %508, ptr noundef nonnull align 8 dereferenceable(8) %512)
+          to label %.noexc389 unwind label %490
 
-.noexc389:                                        ; preds = %505
-  %514 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %58)
-          to label %_ZN6casadi17BinaryOperationSSILx2EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %515
+.noexc389:                                        ; preds = %504
+  %513 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %58)
+          to label %_ZN6casadi17BinaryOperationSSILx2EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %514
 
-515:                                              ; preds = %.noexc389
-  %516 = landingpad { ptr, i32 }
+514:                                              ; preds = %.noexc389
+  %515 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6casadi6SXElemD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %58) #29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %58) #29
@@ -25062,25 +25057,25 @@ _ZN6casadi17BinaryOperationSSILx2EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit: ; preds
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %58) #29
   br label %_ZN6casadi17BinaryOperationSSILx0EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit
 
-517:                                              ; preds = %489
-  %518 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
-  %519 = load i32, ptr %518, align 8, !tbaa !51
-  %520 = sext i32 %519 to i64
-  %521 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %520
-  %522 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 12
-  %523 = load i32, ptr %522, align 4, !tbaa !51
-  %524 = sext i32 %523 to i64
-  %525 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %524
+516:                                              ; preds = %488
+  %517 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
+  %518 = load i32, ptr %517, align 8, !tbaa !51
+  %519 = sext i32 %518 to i64
+  %520 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %519
+  %521 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 12
+  %522 = load i32, ptr %521, align 4, !tbaa !51
+  %523 = sext i32 %522 to i64
+  %524 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %523
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %57) #29
-  invoke void @_ZN6casadi6SXElem6binaryExRKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %57, i64 noundef 3, ptr noundef nonnull align 8 dereferenceable(8) %521, ptr noundef nonnull align 8 dereferenceable(8) %525)
-          to label %.noexc392 unwind label %491
+  invoke void @_ZN6casadi6SXElem6binaryExRKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %57, i64 noundef 3, ptr noundef nonnull align 8 dereferenceable(8) %520, ptr noundef nonnull align 8 dereferenceable(8) %524)
+          to label %.noexc392 unwind label %490
 
-.noexc392:                                        ; preds = %517
-  %526 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %57)
-          to label %_ZN6casadi17BinaryOperationSSILx3EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %527
+.noexc392:                                        ; preds = %516
+  %525 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %57)
+          to label %_ZN6casadi17BinaryOperationSSILx3EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %526
 
-527:                                              ; preds = %.noexc392
-  %528 = landingpad { ptr, i32 }
+526:                                              ; preds = %.noexc392
+  %527 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6casadi6SXElemD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %57) #29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %57) #29
@@ -25091,25 +25086,25 @@ _ZN6casadi17BinaryOperationSSILx3EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit: ; preds
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %57) #29
   br label %_ZN6casadi17BinaryOperationSSILx0EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit
 
-529:                                              ; preds = %489
-  %530 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
-  %531 = load i32, ptr %530, align 8, !tbaa !51
-  %532 = sext i32 %531 to i64
-  %533 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %532
-  %534 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 12
-  %535 = load i32, ptr %534, align 4, !tbaa !51
-  %536 = sext i32 %535 to i64
-  %537 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %536
+528:                                              ; preds = %488
+  %529 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
+  %530 = load i32, ptr %529, align 8, !tbaa !51
+  %531 = sext i32 %530 to i64
+  %532 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %531
+  %533 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 12
+  %534 = load i32, ptr %533, align 4, !tbaa !51
+  %535 = sext i32 %534 to i64
+  %536 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %535
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %56) #29
-  invoke void @_ZN6casadi6SXElem6binaryExRKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %56, i64 noundef 4, ptr noundef nonnull align 8 dereferenceable(8) %533, ptr noundef nonnull align 8 dereferenceable(8) %537)
-          to label %.noexc395 unwind label %491
+  invoke void @_ZN6casadi6SXElem6binaryExRKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %56, i64 noundef 4, ptr noundef nonnull align 8 dereferenceable(8) %532, ptr noundef nonnull align 8 dereferenceable(8) %536)
+          to label %.noexc395 unwind label %490
 
-.noexc395:                                        ; preds = %529
-  %538 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %56)
-          to label %_ZN6casadi17BinaryOperationSSILx4EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %539
+.noexc395:                                        ; preds = %528
+  %537 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %56)
+          to label %_ZN6casadi17BinaryOperationSSILx4EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %538
 
-539:                                              ; preds = %.noexc395
-  %540 = landingpad { ptr, i32 }
+538:                                              ; preds = %.noexc395
+  %539 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6casadi6SXElemD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %56) #29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %56) #29
@@ -25120,21 +25115,21 @@ _ZN6casadi17BinaryOperationSSILx4EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit: ; preds
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %56) #29
   br label %_ZN6casadi17BinaryOperationSSILx0EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit
 
-541:                                              ; preds = %489
-  %542 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
-  %543 = load i32, ptr %542, align 8, !tbaa !51
-  %544 = sext i32 %543 to i64
-  %545 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %544
+540:                                              ; preds = %488
+  %541 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
+  %542 = load i32, ptr %541, align 8, !tbaa !51
+  %543 = sext i32 %542 to i64
+  %544 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %543
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %55) #29
-  invoke void @_ZNK6casadi6SXElemngEv(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %55, ptr noundef nonnull align 8 dereferenceable(8) %545)
-          to label %.noexc398 unwind label %491
+  invoke void @_ZNK6casadi6SXElemngEv(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %55, ptr noundef nonnull align 8 dereferenceable(8) %544)
+          to label %.noexc398 unwind label %490
 
-.noexc398:                                        ; preds = %541
-  %546 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %55)
-          to label %_ZN6casadi17BinaryOperationSSILx5EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %547
+.noexc398:                                        ; preds = %540
+  %545 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %55)
+          to label %_ZN6casadi17BinaryOperationSSILx5EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %546
 
-547:                                              ; preds = %.noexc398
-  %548 = landingpad { ptr, i32 }
+546:                                              ; preds = %.noexc398
+  %547 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6casadi6SXElemD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %55) #29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %55) #29
@@ -25145,21 +25140,21 @@ _ZN6casadi17BinaryOperationSSILx5EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit: ; preds
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %55) #29
   br label %_ZN6casadi17BinaryOperationSSILx0EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit
 
-549:                                              ; preds = %489
-  %550 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
-  %551 = load i32, ptr %550, align 8, !tbaa !51
-  %552 = sext i32 %551 to i64
-  %553 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %552
+548:                                              ; preds = %488
+  %549 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
+  %550 = load i32, ptr %549, align 8, !tbaa !51
+  %551 = sext i32 %550 to i64
+  %552 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %551
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %54) #29
-  invoke void @_ZN6casadi6SXElem5unaryExRKS0_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %54, i64 noundef 6, ptr noundef nonnull align 8 dereferenceable(8) %553)
-          to label %.noexc401 unwind label %491
+  invoke void @_ZN6casadi6SXElem5unaryExRKS0_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %54, i64 noundef 6, ptr noundef nonnull align 8 dereferenceable(8) %552)
+          to label %.noexc401 unwind label %490
 
-.noexc401:                                        ; preds = %549
-  %554 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %54)
-          to label %_ZN6casadi17BinaryOperationSSILx6EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %555
+.noexc401:                                        ; preds = %548
+  %553 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %54)
+          to label %_ZN6casadi17BinaryOperationSSILx6EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %554
 
-555:                                              ; preds = %.noexc401
-  %556 = landingpad { ptr, i32 }
+554:                                              ; preds = %.noexc401
+  %555 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6casadi6SXElemD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %54) #29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %54) #29
@@ -25170,21 +25165,21 @@ _ZN6casadi17BinaryOperationSSILx6EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit: ; preds
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %54) #29
   br label %_ZN6casadi17BinaryOperationSSILx0EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit
 
-557:                                              ; preds = %489
-  %558 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
-  %559 = load i32, ptr %558, align 8, !tbaa !51
-  %560 = sext i32 %559 to i64
-  %561 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %560
+556:                                              ; preds = %488
+  %557 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
+  %558 = load i32, ptr %557, align 8, !tbaa !51
+  %559 = sext i32 %558 to i64
+  %560 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %559
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %53) #29
-  invoke void @_ZN6casadi6SXElem5unaryExRKS0_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %53, i64 noundef 7, ptr noundef nonnull align 8 dereferenceable(8) %561)
-          to label %.noexc404 unwind label %491
+  invoke void @_ZN6casadi6SXElem5unaryExRKS0_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %53, i64 noundef 7, ptr noundef nonnull align 8 dereferenceable(8) %560)
+          to label %.noexc404 unwind label %490
 
-.noexc404:                                        ; preds = %557
-  %562 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %53)
-          to label %_ZN6casadi17BinaryOperationSSILx7EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %563
+.noexc404:                                        ; preds = %556
+  %561 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %53)
+          to label %_ZN6casadi17BinaryOperationSSILx7EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %562
 
-563:                                              ; preds = %.noexc404
-  %564 = landingpad { ptr, i32 }
+562:                                              ; preds = %.noexc404
+  %563 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6casadi6SXElemD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %53) #29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %53) #29
@@ -25195,25 +25190,25 @@ _ZN6casadi17BinaryOperationSSILx7EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit: ; preds
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %53) #29
   br label %_ZN6casadi17BinaryOperationSSILx0EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit
 
-565:                                              ; preds = %489
-  %566 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
-  %567 = load i32, ptr %566, align 8, !tbaa !51
-  %568 = sext i32 %567 to i64
-  %569 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %568
-  %570 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 12
-  %571 = load i32, ptr %570, align 4, !tbaa !51
-  %572 = sext i32 %571 to i64
-  %573 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %572
+564:                                              ; preds = %488
+  %565 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
+  %566 = load i32, ptr %565, align 8, !tbaa !51
+  %567 = sext i32 %566 to i64
+  %568 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %567
+  %569 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 12
+  %570 = load i32, ptr %569, align 4, !tbaa !51
+  %571 = sext i32 %570 to i64
+  %572 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %571
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %52) #29
-  invoke void @_ZN6casadi6SXElem6binaryExRKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %52, i64 noundef 8, ptr noundef nonnull align 8 dereferenceable(8) %569, ptr noundef nonnull align 8 dereferenceable(8) %573)
-          to label %.noexc407 unwind label %491
+  invoke void @_ZN6casadi6SXElem6binaryExRKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %52, i64 noundef 8, ptr noundef nonnull align 8 dereferenceable(8) %568, ptr noundef nonnull align 8 dereferenceable(8) %572)
+          to label %.noexc407 unwind label %490
 
-.noexc407:                                        ; preds = %565
-  %574 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %52)
-          to label %_ZN6casadi17BinaryOperationSSILx8EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %575
+.noexc407:                                        ; preds = %564
+  %573 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %52)
+          to label %_ZN6casadi17BinaryOperationSSILx8EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %574
 
-575:                                              ; preds = %.noexc407
-  %576 = landingpad { ptr, i32 }
+574:                                              ; preds = %.noexc407
+  %575 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6casadi6SXElemD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %52) #29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %52) #29
@@ -25224,25 +25219,25 @@ _ZN6casadi17BinaryOperationSSILx8EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit: ; preds
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %52) #29
   br label %_ZN6casadi17BinaryOperationSSILx0EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit
 
-577:                                              ; preds = %489
-  %578 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
-  %579 = load i32, ptr %578, align 8, !tbaa !51
-  %580 = sext i32 %579 to i64
-  %581 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %580
-  %582 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 12
-  %583 = load i32, ptr %582, align 4, !tbaa !51
-  %584 = sext i32 %583 to i64
-  %585 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %584
+576:                                              ; preds = %488
+  %577 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
+  %578 = load i32, ptr %577, align 8, !tbaa !51
+  %579 = sext i32 %578 to i64
+  %580 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %579
+  %581 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 12
+  %582 = load i32, ptr %581, align 4, !tbaa !51
+  %583 = sext i32 %582 to i64
+  %584 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %583
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %51) #29
-  invoke void @_ZN6casadi6SXElem6binaryExRKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %51, i64 noundef 8, ptr noundef nonnull align 8 dereferenceable(8) %581, ptr noundef nonnull align 8 dereferenceable(8) %585)
-          to label %.noexc410 unwind label %491
+  invoke void @_ZN6casadi6SXElem6binaryExRKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %51, i64 noundef 8, ptr noundef nonnull align 8 dereferenceable(8) %580, ptr noundef nonnull align 8 dereferenceable(8) %584)
+          to label %.noexc410 unwind label %490
 
-.noexc410:                                        ; preds = %577
-  %586 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %51)
-          to label %_ZN6casadi17BinaryOperationSSILx9EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %587
+.noexc410:                                        ; preds = %576
+  %585 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %51)
+          to label %_ZN6casadi17BinaryOperationSSILx9EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %586
 
-587:                                              ; preds = %.noexc410
-  %588 = landingpad { ptr, i32 }
+586:                                              ; preds = %.noexc410
+  %587 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6casadi6SXElemD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %51) #29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %51) #29
@@ -25253,21 +25248,21 @@ _ZN6casadi17BinaryOperationSSILx9EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit: ; preds
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %51) #29
   br label %_ZN6casadi17BinaryOperationSSILx0EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit
 
-589:                                              ; preds = %489
-  %590 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
-  %591 = load i32, ptr %590, align 8, !tbaa !51
-  %592 = sext i32 %591 to i64
-  %593 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %592
+588:                                              ; preds = %488
+  %589 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
+  %590 = load i32, ptr %589, align 8, !tbaa !51
+  %591 = sext i32 %590 to i64
+  %592 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %591
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %50) #29
-  invoke void @_ZN6casadi6SXElem5unaryExRKS0_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %50, i64 noundef 10, ptr noundef nonnull align 8 dereferenceable(8) %593)
-          to label %.noexc413 unwind label %491
+  invoke void @_ZN6casadi6SXElem5unaryExRKS0_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %50, i64 noundef 10, ptr noundef nonnull align 8 dereferenceable(8) %592)
+          to label %.noexc413 unwind label %490
 
-.noexc413:                                        ; preds = %589
-  %594 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %50)
-          to label %_ZN6casadi17BinaryOperationSSILx10EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %595
+.noexc413:                                        ; preds = %588
+  %593 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %50)
+          to label %_ZN6casadi17BinaryOperationSSILx10EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %594
 
-595:                                              ; preds = %.noexc413
-  %596 = landingpad { ptr, i32 }
+594:                                              ; preds = %.noexc413
+  %595 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6casadi6SXElemD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %50) #29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %50) #29
@@ -25278,21 +25273,21 @@ _ZN6casadi17BinaryOperationSSILx10EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit: ; pred
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %50) #29
   br label %_ZN6casadi17BinaryOperationSSILx0EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit
 
-597:                                              ; preds = %489
-  %598 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
-  %599 = load i32, ptr %598, align 8, !tbaa !51
-  %600 = sext i32 %599 to i64
-  %601 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %600
+596:                                              ; preds = %488
+  %597 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
+  %598 = load i32, ptr %597, align 8, !tbaa !51
+  %599 = sext i32 %598 to i64
+  %600 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %599
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %49) #29
-  invoke void @_ZN6casadi6SXElem5unaryExRKS0_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %49, i64 noundef 11, ptr noundef nonnull align 8 dereferenceable(8) %601)
-          to label %.noexc416 unwind label %491
+  invoke void @_ZN6casadi6SXElem5unaryExRKS0_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %49, i64 noundef 11, ptr noundef nonnull align 8 dereferenceable(8) %600)
+          to label %.noexc416 unwind label %490
 
-.noexc416:                                        ; preds = %597
-  %602 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %49)
-          to label %_ZN6casadi17BinaryOperationSSILx11EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %603
+.noexc416:                                        ; preds = %596
+  %601 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %49)
+          to label %_ZN6casadi17BinaryOperationSSILx11EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %602
 
-603:                                              ; preds = %.noexc416
-  %604 = landingpad { ptr, i32 }
+602:                                              ; preds = %.noexc416
+  %603 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6casadi6SXElemD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %49) #29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %49) #29
@@ -25303,37 +25298,37 @@ _ZN6casadi17BinaryOperationSSILx11EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit: ; pred
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %49) #29
   br label %_ZN6casadi17BinaryOperationSSILx0EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit
 
-605:                                              ; preds = %489
-  %606 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
-  %607 = load i32, ptr %606, align 8, !tbaa !51
+604:                                              ; preds = %488
+  %605 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
+  %606 = load i32, ptr %605, align 8, !tbaa !51
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %47) #29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %48) #29
   invoke void @_ZN6casadi6SXElemC1Ed(ptr noundef nonnull align 8 dereferenceable(8) %48, double noundef 2.000000e+00)
-          to label %.noexc419 unwind label %491
+          to label %.noexc419 unwind label %490
 
-.noexc419:                                        ; preds = %605
-  %608 = sext i32 %607 to i64
-  %609 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %608
-  invoke void @_ZN6casadi6SXElem6binaryExRKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %47, i64 noundef 3, ptr noundef nonnull align 8 dereferenceable(8) %48, ptr noundef nonnull align 8 dereferenceable(8) %609)
-          to label %_ZN6casadimlERKNS_6SXElemES2_.exit.i.i.i unwind label %611
+.noexc419:                                        ; preds = %604
+  %607 = sext i32 %606 to i64
+  %608 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %607
+  invoke void @_ZN6casadi6SXElem6binaryExRKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %47, i64 noundef 3, ptr noundef nonnull align 8 dereferenceable(8) %48, ptr noundef nonnull align 8 dereferenceable(8) %608)
+          to label %_ZN6casadimlERKNS_6SXElemES2_.exit.i.i.i unwind label %610
 
 _ZN6casadimlERKNS_6SXElemES2_.exit.i.i.i:         ; preds = %.noexc419
-  %610 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %47)
-          to label %_ZN6casadi17BinaryOperationSSILx12EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %613
+  %609 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %47)
+          to label %_ZN6casadi17BinaryOperationSSILx12EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %612
 
-611:                                              ; preds = %.noexc419
-  %612 = landingpad { ptr, i32 }
+610:                                              ; preds = %.noexc419
+  %611 = landingpad { ptr, i32 }
           cleanup
-  br label %615
+  br label %614
 
-613:                                              ; preds = %_ZN6casadimlERKNS_6SXElemES2_.exit.i.i.i
-  %614 = landingpad { ptr, i32 }
+612:                                              ; preds = %_ZN6casadimlERKNS_6SXElemES2_.exit.i.i.i
+  %613 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6casadi6SXElemD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %47) #29
-  br label %615
+  br label %614
 
-615:                                              ; preds = %613, %611
-  %.pn.i.i.i = phi { ptr, i32 } [ %614, %613 ], [ %612, %611 ]
+614:                                              ; preds = %612, %610
+  %.pn.i.i.i = phi { ptr, i32 } [ %613, %612 ], [ %611, %610 ]
   call void @_ZN6casadi6SXElemD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %48) #29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %48) #29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %47) #29
@@ -25346,21 +25341,21 @@ _ZN6casadi17BinaryOperationSSILx12EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit: ; pred
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %47) #29
   br label %_ZN6casadi17BinaryOperationSSILx0EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit
 
-616:                                              ; preds = %489
-  %617 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
-  %618 = load i32, ptr %617, align 8, !tbaa !51
-  %619 = sext i32 %618 to i64
-  %620 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %619
+615:                                              ; preds = %488
+  %616 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
+  %617 = load i32, ptr %616, align 8, !tbaa !51
+  %618 = sext i32 %617 to i64
+  %619 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %618
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %46) #29
-  invoke void @_ZN6casadi6SXElem5unaryExRKS0_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %46, i64 noundef 13, ptr noundef nonnull align 8 dereferenceable(8) %620)
-          to label %.noexc422 unwind label %491
+  invoke void @_ZN6casadi6SXElem5unaryExRKS0_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %46, i64 noundef 13, ptr noundef nonnull align 8 dereferenceable(8) %619)
+          to label %.noexc422 unwind label %490
 
-.noexc422:                                        ; preds = %616
-  %621 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %46)
-          to label %_ZN6casadi17BinaryOperationSSILx13EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %622
+.noexc422:                                        ; preds = %615
+  %620 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %46)
+          to label %_ZN6casadi17BinaryOperationSSILx13EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %621
 
-622:                                              ; preds = %.noexc422
-  %623 = landingpad { ptr, i32 }
+621:                                              ; preds = %.noexc422
+  %622 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6casadi6SXElemD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %46) #29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %46) #29
@@ -25371,21 +25366,21 @@ _ZN6casadi17BinaryOperationSSILx13EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit: ; pred
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %46) #29
   br label %_ZN6casadi17BinaryOperationSSILx0EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit
 
-624:                                              ; preds = %489
-  %625 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
-  %626 = load i32, ptr %625, align 8, !tbaa !51
-  %627 = sext i32 %626 to i64
-  %628 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %627
+623:                                              ; preds = %488
+  %624 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
+  %625 = load i32, ptr %624, align 8, !tbaa !51
+  %626 = sext i32 %625 to i64
+  %627 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %626
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %45) #29
-  invoke void @_ZN6casadi6SXElem5unaryExRKS0_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %45, i64 noundef 14, ptr noundef nonnull align 8 dereferenceable(8) %628)
-          to label %.noexc425 unwind label %491
+  invoke void @_ZN6casadi6SXElem5unaryExRKS0_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %45, i64 noundef 14, ptr noundef nonnull align 8 dereferenceable(8) %627)
+          to label %.noexc425 unwind label %490
 
-.noexc425:                                        ; preds = %624
-  %629 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %45)
-          to label %_ZN6casadi17BinaryOperationSSILx14EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %630
+.noexc425:                                        ; preds = %623
+  %628 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %45)
+          to label %_ZN6casadi17BinaryOperationSSILx14EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %629
 
-630:                                              ; preds = %.noexc425
-  %631 = landingpad { ptr, i32 }
+629:                                              ; preds = %.noexc425
+  %630 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6casadi6SXElemD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %45) #29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %45) #29
@@ -25396,21 +25391,21 @@ _ZN6casadi17BinaryOperationSSILx14EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit: ; pred
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %45) #29
   br label %_ZN6casadi17BinaryOperationSSILx0EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit
 
-632:                                              ; preds = %489
-  %633 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
-  %634 = load i32, ptr %633, align 8, !tbaa !51
-  %635 = sext i32 %634 to i64
-  %636 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %635
+631:                                              ; preds = %488
+  %632 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
+  %633 = load i32, ptr %632, align 8, !tbaa !51
+  %634 = sext i32 %633 to i64
+  %635 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %634
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %44) #29
-  invoke void @_ZN6casadi6SXElem5unaryExRKS0_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %44, i64 noundef 15, ptr noundef nonnull align 8 dereferenceable(8) %636)
-          to label %.noexc428 unwind label %491
+  invoke void @_ZN6casadi6SXElem5unaryExRKS0_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %44, i64 noundef 15, ptr noundef nonnull align 8 dereferenceable(8) %635)
+          to label %.noexc428 unwind label %490
 
-.noexc428:                                        ; preds = %632
-  %637 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %44)
-          to label %_ZN6casadi17BinaryOperationSSILx15EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %638
+.noexc428:                                        ; preds = %631
+  %636 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %44)
+          to label %_ZN6casadi17BinaryOperationSSILx15EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %637
 
-638:                                              ; preds = %.noexc428
-  %639 = landingpad { ptr, i32 }
+637:                                              ; preds = %.noexc428
+  %638 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6casadi6SXElemD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %44) #29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %44) #29
@@ -25421,21 +25416,21 @@ _ZN6casadi17BinaryOperationSSILx15EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit: ; pred
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %44) #29
   br label %_ZN6casadi17BinaryOperationSSILx0EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit
 
-640:                                              ; preds = %489
-  %641 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
-  %642 = load i32, ptr %641, align 8, !tbaa !51
-  %643 = sext i32 %642 to i64
-  %644 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %643
+639:                                              ; preds = %488
+  %640 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
+  %641 = load i32, ptr %640, align 8, !tbaa !51
+  %642 = sext i32 %641 to i64
+  %643 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %642
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %43) #29
-  invoke void @_ZN6casadi6SXElem5unaryExRKS0_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %43, i64 noundef 16, ptr noundef nonnull align 8 dereferenceable(8) %644)
-          to label %.noexc431 unwind label %491
+  invoke void @_ZN6casadi6SXElem5unaryExRKS0_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %43, i64 noundef 16, ptr noundef nonnull align 8 dereferenceable(8) %643)
+          to label %.noexc431 unwind label %490
 
-.noexc431:                                        ; preds = %640
-  %645 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %43)
-          to label %_ZN6casadi17BinaryOperationSSILx16EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %646
+.noexc431:                                        ; preds = %639
+  %644 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %43)
+          to label %_ZN6casadi17BinaryOperationSSILx16EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %645
 
-646:                                              ; preds = %.noexc431
-  %647 = landingpad { ptr, i32 }
+645:                                              ; preds = %.noexc431
+  %646 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6casadi6SXElemD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %43) #29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %43) #29
@@ -25446,21 +25441,21 @@ _ZN6casadi17BinaryOperationSSILx16EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit: ; pred
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %43) #29
   br label %_ZN6casadi17BinaryOperationSSILx0EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit
 
-648:                                              ; preds = %489
-  %649 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
-  %650 = load i32, ptr %649, align 8, !tbaa !51
-  %651 = sext i32 %650 to i64
-  %652 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %651
+647:                                              ; preds = %488
+  %648 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
+  %649 = load i32, ptr %648, align 8, !tbaa !51
+  %650 = sext i32 %649 to i64
+  %651 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %650
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %42) #29
-  invoke void @_ZN6casadi6SXElem5unaryExRKS0_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %42, i64 noundef 17, ptr noundef nonnull align 8 dereferenceable(8) %652)
-          to label %.noexc434 unwind label %491
+  invoke void @_ZN6casadi6SXElem5unaryExRKS0_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %42, i64 noundef 17, ptr noundef nonnull align 8 dereferenceable(8) %651)
+          to label %.noexc434 unwind label %490
 
-.noexc434:                                        ; preds = %648
-  %653 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %42)
-          to label %_ZN6casadi17BinaryOperationSSILx17EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %654
+.noexc434:                                        ; preds = %647
+  %652 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %42)
+          to label %_ZN6casadi17BinaryOperationSSILx17EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %653
 
-654:                                              ; preds = %.noexc434
-  %655 = landingpad { ptr, i32 }
+653:                                              ; preds = %.noexc434
+  %654 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6casadi6SXElemD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %42) #29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42) #29
@@ -25471,21 +25466,21 @@ _ZN6casadi17BinaryOperationSSILx17EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit: ; pred
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %42) #29
   br label %_ZN6casadi17BinaryOperationSSILx0EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit
 
-656:                                              ; preds = %489
-  %657 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
-  %658 = load i32, ptr %657, align 8, !tbaa !51
-  %659 = sext i32 %658 to i64
-  %660 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %659
+655:                                              ; preds = %488
+  %656 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
+  %657 = load i32, ptr %656, align 8, !tbaa !51
+  %658 = sext i32 %657 to i64
+  %659 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %658
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %41) #29
-  invoke void @_ZN6casadi6SXElem5unaryExRKS0_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %41, i64 noundef 18, ptr noundef nonnull align 8 dereferenceable(8) %660)
-          to label %.noexc437 unwind label %491
+  invoke void @_ZN6casadi6SXElem5unaryExRKS0_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %41, i64 noundef 18, ptr noundef nonnull align 8 dereferenceable(8) %659)
+          to label %.noexc437 unwind label %490
 
-.noexc437:                                        ; preds = %656
-  %661 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %41)
-          to label %_ZN6casadi17BinaryOperationSSILx18EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %662
+.noexc437:                                        ; preds = %655
+  %660 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %41)
+          to label %_ZN6casadi17BinaryOperationSSILx18EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %661
 
-662:                                              ; preds = %.noexc437
-  %663 = landingpad { ptr, i32 }
+661:                                              ; preds = %.noexc437
+  %662 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6casadi6SXElemD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %41) #29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %41) #29
@@ -25496,25 +25491,25 @@ _ZN6casadi17BinaryOperationSSILx18EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit: ; pred
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %41) #29
   br label %_ZN6casadi17BinaryOperationSSILx0EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit
 
-664:                                              ; preds = %489
-  %665 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
-  %666 = load i32, ptr %665, align 8, !tbaa !51
-  %667 = sext i32 %666 to i64
-  %668 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %667
-  %669 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 12
-  %670 = load i32, ptr %669, align 4, !tbaa !51
-  %671 = sext i32 %670 to i64
-  %672 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %671
+663:                                              ; preds = %488
+  %664 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
+  %665 = load i32, ptr %664, align 8, !tbaa !51
+  %666 = sext i32 %665 to i64
+  %667 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %666
+  %668 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 12
+  %669 = load i32, ptr %668, align 4, !tbaa !51
+  %670 = sext i32 %669 to i64
+  %671 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %670
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %40) #29
-  invoke void @_ZN6casadi6SXElem6binaryExRKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %40, i64 noundef 19, ptr noundef nonnull align 8 dereferenceable(8) %668, ptr noundef nonnull align 8 dereferenceable(8) %672)
-          to label %.noexc440 unwind label %491
+  invoke void @_ZN6casadi6SXElem6binaryExRKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %40, i64 noundef 19, ptr noundef nonnull align 8 dereferenceable(8) %667, ptr noundef nonnull align 8 dereferenceable(8) %671)
+          to label %.noexc440 unwind label %490
 
-.noexc440:                                        ; preds = %664
-  %673 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %40)
-          to label %_ZN6casadi17BinaryOperationSSILx19EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %674
+.noexc440:                                        ; preds = %663
+  %672 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %40)
+          to label %_ZN6casadi17BinaryOperationSSILx19EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %673
 
-674:                                              ; preds = %.noexc440
-  %675 = landingpad { ptr, i32 }
+673:                                              ; preds = %.noexc440
+  %674 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6casadi6SXElemD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %40) #29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %40) #29
@@ -25525,25 +25520,25 @@ _ZN6casadi17BinaryOperationSSILx19EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit: ; pred
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %40) #29
   br label %_ZN6casadi17BinaryOperationSSILx0EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit
 
-676:                                              ; preds = %489
-  %677 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
-  %678 = load i32, ptr %677, align 8, !tbaa !51
-  %679 = sext i32 %678 to i64
-  %680 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %679
-  %681 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 12
-  %682 = load i32, ptr %681, align 4, !tbaa !51
-  %683 = sext i32 %682 to i64
-  %684 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %683
+675:                                              ; preds = %488
+  %676 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
+  %677 = load i32, ptr %676, align 8, !tbaa !51
+  %678 = sext i32 %677 to i64
+  %679 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %678
+  %680 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 12
+  %681 = load i32, ptr %680, align 4, !tbaa !51
+  %682 = sext i32 %681 to i64
+  %683 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %682
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %39) #29
-  invoke void @_ZN6casadi6SXElem6binaryExRKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %39, i64 noundef 20, ptr noundef nonnull align 8 dereferenceable(8) %680, ptr noundef nonnull align 8 dereferenceable(8) %684)
-          to label %.noexc443 unwind label %491
+  invoke void @_ZN6casadi6SXElem6binaryExRKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %39, i64 noundef 20, ptr noundef nonnull align 8 dereferenceable(8) %679, ptr noundef nonnull align 8 dereferenceable(8) %683)
+          to label %.noexc443 unwind label %490
 
-.noexc443:                                        ; preds = %676
-  %685 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %39)
-          to label %_ZN6casadi17BinaryOperationSSILx20EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %686
+.noexc443:                                        ; preds = %675
+  %684 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %39)
+          to label %_ZN6casadi17BinaryOperationSSILx20EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %685
 
-686:                                              ; preds = %.noexc443
-  %687 = landingpad { ptr, i32 }
+685:                                              ; preds = %.noexc443
+  %686 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6casadi6SXElemD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %39) #29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %39) #29
@@ -25554,25 +25549,25 @@ _ZN6casadi17BinaryOperationSSILx20EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit: ; pred
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %39) #29
   br label %_ZN6casadi17BinaryOperationSSILx0EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit
 
-688:                                              ; preds = %489
-  %689 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
-  %690 = load i32, ptr %689, align 8, !tbaa !51
-  %691 = sext i32 %690 to i64
-  %692 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %691
-  %693 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 12
-  %694 = load i32, ptr %693, align 4, !tbaa !51
-  %695 = sext i32 %694 to i64
-  %696 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %695
+687:                                              ; preds = %488
+  %688 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
+  %689 = load i32, ptr %688, align 8, !tbaa !51
+  %690 = sext i32 %689 to i64
+  %691 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %690
+  %692 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 12
+  %693 = load i32, ptr %692, align 4, !tbaa !51
+  %694 = sext i32 %693 to i64
+  %695 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %694
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %38) #29
-  invoke void @_ZN6casadi6SXElem6binaryExRKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %38, i64 noundef 21, ptr noundef nonnull align 8 dereferenceable(8) %692, ptr noundef nonnull align 8 dereferenceable(8) %696)
-          to label %.noexc446 unwind label %491
+  invoke void @_ZN6casadi6SXElem6binaryExRKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %38, i64 noundef 21, ptr noundef nonnull align 8 dereferenceable(8) %691, ptr noundef nonnull align 8 dereferenceable(8) %695)
+          to label %.noexc446 unwind label %490
 
-.noexc446:                                        ; preds = %688
-  %697 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %38)
-          to label %_ZN6casadi17BinaryOperationSSILx21EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %698
+.noexc446:                                        ; preds = %687
+  %696 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %38)
+          to label %_ZN6casadi17BinaryOperationSSILx21EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %697
 
-698:                                              ; preds = %.noexc446
-  %699 = landingpad { ptr, i32 }
+697:                                              ; preds = %.noexc446
+  %698 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6casadi6SXElemD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %38) #29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %38) #29
@@ -25583,25 +25578,25 @@ _ZN6casadi17BinaryOperationSSILx21EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit: ; pred
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %38) #29
   br label %_ZN6casadi17BinaryOperationSSILx0EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit
 
-700:                                              ; preds = %489
-  %701 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
-  %702 = load i32, ptr %701, align 8, !tbaa !51
-  %703 = sext i32 %702 to i64
-  %704 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %703
-  %705 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 12
-  %706 = load i32, ptr %705, align 4, !tbaa !51
-  %707 = sext i32 %706 to i64
-  %708 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %707
+699:                                              ; preds = %488
+  %700 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
+  %701 = load i32, ptr %700, align 8, !tbaa !51
+  %702 = sext i32 %701 to i64
+  %703 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %702
+  %704 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 12
+  %705 = load i32, ptr %704, align 4, !tbaa !51
+  %706 = sext i32 %705 to i64
+  %707 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %706
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %37) #29
-  invoke void @_ZN6casadi6SXElem6binaryExRKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %37, i64 noundef 22, ptr noundef nonnull align 8 dereferenceable(8) %704, ptr noundef nonnull align 8 dereferenceable(8) %708)
-          to label %.noexc449 unwind label %491
+  invoke void @_ZN6casadi6SXElem6binaryExRKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %37, i64 noundef 22, ptr noundef nonnull align 8 dereferenceable(8) %703, ptr noundef nonnull align 8 dereferenceable(8) %707)
+          to label %.noexc449 unwind label %490
 
-.noexc449:                                        ; preds = %700
-  %709 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %37)
-          to label %_ZN6casadi17BinaryOperationSSILx22EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %710
+.noexc449:                                        ; preds = %699
+  %708 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %37)
+          to label %_ZN6casadi17BinaryOperationSSILx22EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %709
 
-710:                                              ; preds = %.noexc449
-  %711 = landingpad { ptr, i32 }
+709:                                              ; preds = %.noexc449
+  %710 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6casadi6SXElemD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %37) #29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %37) #29
@@ -25612,21 +25607,21 @@ _ZN6casadi17BinaryOperationSSILx22EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit: ; pred
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %37) #29
   br label %_ZN6casadi17BinaryOperationSSILx0EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit
 
-712:                                              ; preds = %489
-  %713 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
-  %714 = load i32, ptr %713, align 8, !tbaa !51
-  %715 = sext i32 %714 to i64
-  %716 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %715
+711:                                              ; preds = %488
+  %712 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
+  %713 = load i32, ptr %712, align 8, !tbaa !51
+  %714 = sext i32 %713 to i64
+  %715 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %714
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %36) #29
-  invoke void @_ZN6casadi6SXElem5unaryExRKS0_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %36, i64 noundef 23, ptr noundef nonnull align 8 dereferenceable(8) %716)
-          to label %.noexc452 unwind label %491
+  invoke void @_ZN6casadi6SXElem5unaryExRKS0_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %36, i64 noundef 23, ptr noundef nonnull align 8 dereferenceable(8) %715)
+          to label %.noexc452 unwind label %490
 
-.noexc452:                                        ; preds = %712
-  %717 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %36)
-          to label %_ZN6casadi17BinaryOperationSSILx23EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %718
+.noexc452:                                        ; preds = %711
+  %716 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %36)
+          to label %_ZN6casadi17BinaryOperationSSILx23EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %717
 
-718:                                              ; preds = %.noexc452
-  %719 = landingpad { ptr, i32 }
+717:                                              ; preds = %.noexc452
+  %718 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6casadi6SXElemD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %36) #29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36) #29
@@ -25637,25 +25632,25 @@ _ZN6casadi17BinaryOperationSSILx23EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit: ; pred
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %36) #29
   br label %_ZN6casadi17BinaryOperationSSILx0EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit
 
-720:                                              ; preds = %489
-  %721 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
-  %722 = load i32, ptr %721, align 8, !tbaa !51
-  %723 = sext i32 %722 to i64
-  %724 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %723
-  %725 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 12
-  %726 = load i32, ptr %725, align 4, !tbaa !51
-  %727 = sext i32 %726 to i64
-  %728 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %727
+719:                                              ; preds = %488
+  %720 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
+  %721 = load i32, ptr %720, align 8, !tbaa !51
+  %722 = sext i32 %721 to i64
+  %723 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %722
+  %724 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 12
+  %725 = load i32, ptr %724, align 4, !tbaa !51
+  %726 = sext i32 %725 to i64
+  %727 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %726
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %35) #29
-  invoke void @_ZN6casadi6SXElem6binaryExRKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %35, i64 noundef 24, ptr noundef nonnull align 8 dereferenceable(8) %724, ptr noundef nonnull align 8 dereferenceable(8) %728)
-          to label %.noexc455 unwind label %491
+  invoke void @_ZN6casadi6SXElem6binaryExRKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %35, i64 noundef 24, ptr noundef nonnull align 8 dereferenceable(8) %723, ptr noundef nonnull align 8 dereferenceable(8) %727)
+          to label %.noexc455 unwind label %490
 
-.noexc455:                                        ; preds = %720
-  %729 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %35)
-          to label %_ZN6casadi17BinaryOperationSSILx24EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %730
+.noexc455:                                        ; preds = %719
+  %728 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %35)
+          to label %_ZN6casadi17BinaryOperationSSILx24EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %729
 
-730:                                              ; preds = %.noexc455
-  %731 = landingpad { ptr, i32 }
+729:                                              ; preds = %.noexc455
+  %730 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6casadi6SXElemD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %35) #29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35) #29
@@ -25666,25 +25661,25 @@ _ZN6casadi17BinaryOperationSSILx24EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit: ; pred
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %35) #29
   br label %_ZN6casadi17BinaryOperationSSILx0EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit
 
-732:                                              ; preds = %489
-  %733 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
-  %734 = load i32, ptr %733, align 8, !tbaa !51
-  %735 = sext i32 %734 to i64
-  %736 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %735
-  %737 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 12
-  %738 = load i32, ptr %737, align 4, !tbaa !51
-  %739 = sext i32 %738 to i64
-  %740 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %739
+731:                                              ; preds = %488
+  %732 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
+  %733 = load i32, ptr %732, align 8, !tbaa !51
+  %734 = sext i32 %733 to i64
+  %735 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %734
+  %736 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 12
+  %737 = load i32, ptr %736, align 4, !tbaa !51
+  %738 = sext i32 %737 to i64
+  %739 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %738
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %34) #29
-  invoke void @_ZN6casadi6SXElem6binaryExRKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %34, i64 noundef 25, ptr noundef nonnull align 8 dereferenceable(8) %736, ptr noundef nonnull align 8 dereferenceable(8) %740)
-          to label %.noexc458 unwind label %491
+  invoke void @_ZN6casadi6SXElem6binaryExRKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %34, i64 noundef 25, ptr noundef nonnull align 8 dereferenceable(8) %735, ptr noundef nonnull align 8 dereferenceable(8) %739)
+          to label %.noexc458 unwind label %490
 
-.noexc458:                                        ; preds = %732
-  %741 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %34)
-          to label %_ZN6casadi17BinaryOperationSSILx25EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %742
+.noexc458:                                        ; preds = %731
+  %740 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %34)
+          to label %_ZN6casadi17BinaryOperationSSILx25EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %741
 
-742:                                              ; preds = %.noexc458
-  %743 = landingpad { ptr, i32 }
+741:                                              ; preds = %.noexc458
+  %742 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6casadi6SXElemD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %34) #29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34) #29
@@ -25695,25 +25690,25 @@ _ZN6casadi17BinaryOperationSSILx25EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit: ; pred
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %34) #29
   br label %_ZN6casadi17BinaryOperationSSILx0EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit
 
-744:                                              ; preds = %489
-  %745 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
-  %746 = load i32, ptr %745, align 8, !tbaa !51
-  %747 = sext i32 %746 to i64
-  %748 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %747
-  %749 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 12
-  %750 = load i32, ptr %749, align 4, !tbaa !51
-  %751 = sext i32 %750 to i64
-  %752 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %751
+743:                                              ; preds = %488
+  %744 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
+  %745 = load i32, ptr %744, align 8, !tbaa !51
+  %746 = sext i32 %745 to i64
+  %747 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %746
+  %748 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 12
+  %749 = load i32, ptr %748, align 4, !tbaa !51
+  %750 = sext i32 %749 to i64
+  %751 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %750
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %33) #29
-  invoke void @_ZN6casadi6SXElem6binaryExRKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %33, i64 noundef 32, ptr noundef nonnull align 8 dereferenceable(8) %748, ptr noundef nonnull align 8 dereferenceable(8) %752)
-          to label %.noexc461 unwind label %491
+  invoke void @_ZN6casadi6SXElem6binaryExRKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %33, i64 noundef 32, ptr noundef nonnull align 8 dereferenceable(8) %747, ptr noundef nonnull align 8 dereferenceable(8) %751)
+          to label %.noexc461 unwind label %490
 
-.noexc461:                                        ; preds = %744
-  %753 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %33)
-          to label %_ZN6casadi17BinaryOperationSSILx32EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %754
+.noexc461:                                        ; preds = %743
+  %752 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %33)
+          to label %_ZN6casadi17BinaryOperationSSILx32EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %753
 
-754:                                              ; preds = %.noexc461
-  %755 = landingpad { ptr, i32 }
+753:                                              ; preds = %.noexc461
+  %754 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6casadi6SXElemD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %33) #29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33) #29
@@ -25724,21 +25719,21 @@ _ZN6casadi17BinaryOperationSSILx32EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit: ; pred
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %33) #29
   br label %_ZN6casadi17BinaryOperationSSILx0EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit
 
-756:                                              ; preds = %489
-  %757 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
-  %758 = load i32, ptr %757, align 8, !tbaa !51
-  %759 = sext i32 %758 to i64
-  %760 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %759
+755:                                              ; preds = %488
+  %756 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
+  %757 = load i32, ptr %756, align 8, !tbaa !51
+  %758 = sext i32 %757 to i64
+  %759 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %758
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %32) #29
-  invoke void @_ZN6casadi6SXElem5unaryExRKS0_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %32, i64 noundef 26, ptr noundef nonnull align 8 dereferenceable(8) %760)
-          to label %.noexc464 unwind label %491
+  invoke void @_ZN6casadi6SXElem5unaryExRKS0_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %32, i64 noundef 26, ptr noundef nonnull align 8 dereferenceable(8) %759)
+          to label %.noexc464 unwind label %490
 
-.noexc464:                                        ; preds = %756
-  %761 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %32)
-          to label %_ZN6casadi17BinaryOperationSSILx26EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %762
+.noexc464:                                        ; preds = %755
+  %760 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %32)
+          to label %_ZN6casadi17BinaryOperationSSILx26EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %761
 
-762:                                              ; preds = %.noexc464
-  %763 = landingpad { ptr, i32 }
+761:                                              ; preds = %.noexc464
+  %762 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6casadi6SXElemD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %32) #29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32) #29
@@ -25749,21 +25744,21 @@ _ZN6casadi17BinaryOperationSSILx26EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit: ; pred
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %32) #29
   br label %_ZN6casadi17BinaryOperationSSILx0EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit
 
-764:                                              ; preds = %489
-  %765 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
-  %766 = load i32, ptr %765, align 8, !tbaa !51
-  %767 = sext i32 %766 to i64
-  %768 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %767
+763:                                              ; preds = %488
+  %764 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
+  %765 = load i32, ptr %764, align 8, !tbaa !51
+  %766 = sext i32 %765 to i64
+  %767 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %766
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %31) #29
-  invoke void @_ZN6casadi6SXElem5unaryExRKS0_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %31, i64 noundef 27, ptr noundef nonnull align 8 dereferenceable(8) %768)
-          to label %.noexc467 unwind label %491
+  invoke void @_ZN6casadi6SXElem5unaryExRKS0_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %31, i64 noundef 27, ptr noundef nonnull align 8 dereferenceable(8) %767)
+          to label %.noexc467 unwind label %490
 
-.noexc467:                                        ; preds = %764
-  %769 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %31)
-          to label %_ZN6casadi17BinaryOperationSSILx27EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %770
+.noexc467:                                        ; preds = %763
+  %768 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %31)
+          to label %_ZN6casadi17BinaryOperationSSILx27EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %769
 
-770:                                              ; preds = %.noexc467
-  %771 = landingpad { ptr, i32 }
+769:                                              ; preds = %.noexc467
+  %770 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6casadi6SXElemD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %31) #29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31) #29
@@ -25774,25 +25769,25 @@ _ZN6casadi17BinaryOperationSSILx27EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit: ; pred
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %31) #29
   br label %_ZN6casadi17BinaryOperationSSILx0EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit
 
-772:                                              ; preds = %489
-  %773 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
-  %774 = load i32, ptr %773, align 8, !tbaa !51
-  %775 = sext i32 %774 to i64
-  %776 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %775
-  %777 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 12
-  %778 = load i32, ptr %777, align 4, !tbaa !51
-  %779 = sext i32 %778 to i64
-  %780 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %779
+771:                                              ; preds = %488
+  %772 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
+  %773 = load i32, ptr %772, align 8, !tbaa !51
+  %774 = sext i32 %773 to i64
+  %775 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %774
+  %776 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 12
+  %777 = load i32, ptr %776, align 4, !tbaa !51
+  %778 = sext i32 %777 to i64
+  %779 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %778
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %30) #29
-  invoke void @_ZN6casadi6SXElem6binaryExRKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %30, i64 noundef 28, ptr noundef nonnull align 8 dereferenceable(8) %776, ptr noundef nonnull align 8 dereferenceable(8) %780)
-          to label %.noexc470 unwind label %491
+  invoke void @_ZN6casadi6SXElem6binaryExRKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %30, i64 noundef 28, ptr noundef nonnull align 8 dereferenceable(8) %775, ptr noundef nonnull align 8 dereferenceable(8) %779)
+          to label %.noexc470 unwind label %490
 
-.noexc470:                                        ; preds = %772
-  %781 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %30)
-          to label %_ZN6casadi17BinaryOperationSSILx28EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %782
+.noexc470:                                        ; preds = %771
+  %780 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %30)
+          to label %_ZN6casadi17BinaryOperationSSILx28EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %781
 
-782:                                              ; preds = %.noexc470
-  %783 = landingpad { ptr, i32 }
+781:                                              ; preds = %.noexc470
+  %782 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6casadi6SXElemD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %30) #29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30) #29
@@ -25803,25 +25798,25 @@ _ZN6casadi17BinaryOperationSSILx28EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit: ; pred
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %30) #29
   br label %_ZN6casadi17BinaryOperationSSILx0EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit
 
-784:                                              ; preds = %489
-  %785 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
-  %786 = load i32, ptr %785, align 8, !tbaa !51
-  %787 = sext i32 %786 to i64
-  %788 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %787
-  %789 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 12
-  %790 = load i32, ptr %789, align 4, !tbaa !51
-  %791 = sext i32 %790 to i64
-  %792 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %791
+783:                                              ; preds = %488
+  %784 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
+  %785 = load i32, ptr %784, align 8, !tbaa !51
+  %786 = sext i32 %785 to i64
+  %787 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %786
+  %788 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 12
+  %789 = load i32, ptr %788, align 4, !tbaa !51
+  %790 = sext i32 %789 to i64
+  %791 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %790
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %29) #29
-  invoke void @_ZN6casadi6SXElem6binaryExRKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %29, i64 noundef 97, ptr noundef nonnull align 8 dereferenceable(8) %788, ptr noundef nonnull align 8 dereferenceable(8) %792)
-          to label %.noexc473 unwind label %491
+  invoke void @_ZN6casadi6SXElem6binaryExRKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %29, i64 noundef 97, ptr noundef nonnull align 8 dereferenceable(8) %787, ptr noundef nonnull align 8 dereferenceable(8) %791)
+          to label %.noexc473 unwind label %490
 
-.noexc473:                                        ; preds = %784
-  %793 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %29)
-          to label %_ZN6casadi17BinaryOperationSSILx97EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %794
+.noexc473:                                        ; preds = %783
+  %792 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %29)
+          to label %_ZN6casadi17BinaryOperationSSILx97EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %793
 
-794:                                              ; preds = %.noexc473
-  %795 = landingpad { ptr, i32 }
+793:                                              ; preds = %.noexc473
+  %794 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6casadi6SXElemD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %29) #29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29) #29
@@ -25832,21 +25827,21 @@ _ZN6casadi17BinaryOperationSSILx97EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit: ; pred
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %29) #29
   br label %_ZN6casadi17BinaryOperationSSILx0EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit
 
-796:                                              ; preds = %489
-  %797 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
-  %798 = load i32, ptr %797, align 8, !tbaa !51
-  %799 = sext i32 %798 to i64
-  %800 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %799
+795:                                              ; preds = %488
+  %796 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
+  %797 = load i32, ptr %796, align 8, !tbaa !51
+  %798 = sext i32 %797 to i64
+  %799 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %798
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %28) #29
-  invoke void @_ZN6casadi6SXElem5unaryExRKS0_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %28, i64 noundef 29, ptr noundef nonnull align 8 dereferenceable(8) %800)
-          to label %.noexc476 unwind label %491
+  invoke void @_ZN6casadi6SXElem5unaryExRKS0_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %28, i64 noundef 29, ptr noundef nonnull align 8 dereferenceable(8) %799)
+          to label %.noexc476 unwind label %490
 
-.noexc476:                                        ; preds = %796
-  %801 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %28)
-          to label %_ZN6casadi17BinaryOperationSSILx29EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %802
+.noexc476:                                        ; preds = %795
+  %800 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %28)
+          to label %_ZN6casadi17BinaryOperationSSILx29EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %801
 
-802:                                              ; preds = %.noexc476
-  %803 = landingpad { ptr, i32 }
+801:                                              ; preds = %.noexc476
+  %802 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6casadi6SXElemD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %28) #29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #29
@@ -25857,21 +25852,21 @@ _ZN6casadi17BinaryOperationSSILx29EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit: ; pred
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %28) #29
   br label %_ZN6casadi17BinaryOperationSSILx0EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit
 
-804:                                              ; preds = %489
-  %805 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
-  %806 = load i32, ptr %805, align 8, !tbaa !51
-  %807 = sext i32 %806 to i64
-  %808 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %807
+803:                                              ; preds = %488
+  %804 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
+  %805 = load i32, ptr %804, align 8, !tbaa !51
+  %806 = sext i32 %805 to i64
+  %807 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %806
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %27) #29
-  invoke void @_ZN6casadi6SXElem5unaryExRKS0_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %27, i64 noundef 30, ptr noundef nonnull align 8 dereferenceable(8) %808)
-          to label %.noexc479 unwind label %491
+  invoke void @_ZN6casadi6SXElem5unaryExRKS0_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %27, i64 noundef 30, ptr noundef nonnull align 8 dereferenceable(8) %807)
+          to label %.noexc479 unwind label %490
 
-.noexc479:                                        ; preds = %804
-  %809 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %27)
-          to label %_ZN6casadi17BinaryOperationSSILx30EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %810
+.noexc479:                                        ; preds = %803
+  %808 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %27)
+          to label %_ZN6casadi17BinaryOperationSSILx30EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %809
 
-810:                                              ; preds = %.noexc479
-  %811 = landingpad { ptr, i32 }
+809:                                              ; preds = %.noexc479
+  %810 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6casadi6SXElemD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %27) #29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #29
@@ -25882,25 +25877,25 @@ _ZN6casadi17BinaryOperationSSILx30EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit: ; pred
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %27) #29
   br label %_ZN6casadi17BinaryOperationSSILx0EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit
 
-812:                                              ; preds = %489
-  %813 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
-  %814 = load i32, ptr %813, align 8, !tbaa !51
-  %815 = sext i32 %814 to i64
-  %816 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %815
-  %817 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 12
-  %818 = load i32, ptr %817, align 4, !tbaa !51
-  %819 = sext i32 %818 to i64
-  %820 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %819
+811:                                              ; preds = %488
+  %812 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
+  %813 = load i32, ptr %812, align 8, !tbaa !51
+  %814 = sext i32 %813 to i64
+  %815 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %814
+  %816 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 12
+  %817 = load i32, ptr %816, align 4, !tbaa !51
+  %818 = sext i32 %817 to i64
+  %819 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %818
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %26) #29
-  invoke void @_ZN6casadi6SXElem6binaryExRKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %26, i64 noundef 31, ptr noundef nonnull align 8 dereferenceable(8) %816, ptr noundef nonnull align 8 dereferenceable(8) %820)
-          to label %.noexc482 unwind label %491
+  invoke void @_ZN6casadi6SXElem6binaryExRKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %26, i64 noundef 31, ptr noundef nonnull align 8 dereferenceable(8) %815, ptr noundef nonnull align 8 dereferenceable(8) %819)
+          to label %.noexc482 unwind label %490
 
-.noexc482:                                        ; preds = %812
-  %821 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %26)
-          to label %_ZN6casadi17BinaryOperationSSILx31EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %822
+.noexc482:                                        ; preds = %811
+  %820 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %26)
+          to label %_ZN6casadi17BinaryOperationSSILx31EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %821
 
-822:                                              ; preds = %.noexc482
-  %823 = landingpad { ptr, i32 }
+821:                                              ; preds = %.noexc482
+  %822 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6casadi6SXElemD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %26) #29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #29
@@ -25911,21 +25906,21 @@ _ZN6casadi17BinaryOperationSSILx31EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit: ; pred
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %26) #29
   br label %_ZN6casadi17BinaryOperationSSILx0EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit
 
-824:                                              ; preds = %489
-  %825 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
-  %826 = load i32, ptr %825, align 8, !tbaa !51
-  %827 = sext i32 %826 to i64
-  %828 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %827
+823:                                              ; preds = %488
+  %824 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
+  %825 = load i32, ptr %824, align 8, !tbaa !51
+  %826 = sext i32 %825 to i64
+  %827 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %826
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %25) #29
-  invoke void @_ZN6casadi6SXElem5unaryExRKS0_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %25, i64 noundef 33, ptr noundef nonnull align 8 dereferenceable(8) %828)
-          to label %.noexc485 unwind label %491
+  invoke void @_ZN6casadi6SXElem5unaryExRKS0_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %25, i64 noundef 33, ptr noundef nonnull align 8 dereferenceable(8) %827)
+          to label %.noexc485 unwind label %490
 
-.noexc485:                                        ; preds = %824
-  %829 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %25)
-          to label %_ZN6casadi17BinaryOperationSSILx33EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %830
+.noexc485:                                        ; preds = %823
+  %828 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %25)
+          to label %_ZN6casadi17BinaryOperationSSILx33EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %829
 
-830:                                              ; preds = %.noexc485
-  %831 = landingpad { ptr, i32 }
+829:                                              ; preds = %.noexc485
+  %830 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6casadi6SXElemD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %25) #29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #29
@@ -25936,25 +25931,25 @@ _ZN6casadi17BinaryOperationSSILx33EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit: ; pred
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %25) #29
   br label %_ZN6casadi17BinaryOperationSSILx0EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit
 
-832:                                              ; preds = %489
-  %833 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
-  %834 = load i32, ptr %833, align 8, !tbaa !51
-  %835 = sext i32 %834 to i64
-  %836 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %835
-  %837 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 12
-  %838 = load i32, ptr %837, align 4, !tbaa !51
-  %839 = sext i32 %838 to i64
-  %840 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %839
+831:                                              ; preds = %488
+  %832 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
+  %833 = load i32, ptr %832, align 8, !tbaa !51
+  %834 = sext i32 %833 to i64
+  %835 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %834
+  %836 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 12
+  %837 = load i32, ptr %836, align 4, !tbaa !51
+  %838 = sext i32 %837 to i64
+  %839 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %838
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %24) #29
-  invoke void @_ZN6casadi6SXElem6binaryExRKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %24, i64 noundef 34, ptr noundef nonnull align 8 dereferenceable(8) %836, ptr noundef nonnull align 8 dereferenceable(8) %840)
-          to label %.noexc488 unwind label %491
+  invoke void @_ZN6casadi6SXElem6binaryExRKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %24, i64 noundef 34, ptr noundef nonnull align 8 dereferenceable(8) %835, ptr noundef nonnull align 8 dereferenceable(8) %839)
+          to label %.noexc488 unwind label %490
 
-.noexc488:                                        ; preds = %832
-  %841 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %24)
-          to label %_ZN6casadi17BinaryOperationSSILx34EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %842
+.noexc488:                                        ; preds = %831
+  %840 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %24)
+          to label %_ZN6casadi17BinaryOperationSSILx34EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %841
 
-842:                                              ; preds = %.noexc488
-  %843 = landingpad { ptr, i32 }
+841:                                              ; preds = %.noexc488
+  %842 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6casadi6SXElemD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %24) #29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #29
@@ -25965,25 +25960,25 @@ _ZN6casadi17BinaryOperationSSILx34EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit: ; pred
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %24) #29
   br label %_ZN6casadi17BinaryOperationSSILx0EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit
 
-844:                                              ; preds = %489
-  %845 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
-  %846 = load i32, ptr %845, align 8, !tbaa !51
-  %847 = sext i32 %846 to i64
-  %848 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %847
-  %849 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 12
-  %850 = load i32, ptr %849, align 4, !tbaa !51
-  %851 = sext i32 %850 to i64
-  %852 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %851
+843:                                              ; preds = %488
+  %844 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
+  %845 = load i32, ptr %844, align 8, !tbaa !51
+  %846 = sext i32 %845 to i64
+  %847 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %846
+  %848 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 12
+  %849 = load i32, ptr %848, align 4, !tbaa !51
+  %850 = sext i32 %849 to i64
+  %851 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %850
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %23) #29
-  invoke void @_ZN6casadi6SXElem6binaryExRKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %23, i64 noundef 35, ptr noundef nonnull align 8 dereferenceable(8) %848, ptr noundef nonnull align 8 dereferenceable(8) %852)
-          to label %.noexc491 unwind label %491
+  invoke void @_ZN6casadi6SXElem6binaryExRKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %23, i64 noundef 35, ptr noundef nonnull align 8 dereferenceable(8) %847, ptr noundef nonnull align 8 dereferenceable(8) %851)
+          to label %.noexc491 unwind label %490
 
-.noexc491:                                        ; preds = %844
-  %853 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %23)
-          to label %_ZN6casadi17BinaryOperationSSILx35EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %854
+.noexc491:                                        ; preds = %843
+  %852 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %23)
+          to label %_ZN6casadi17BinaryOperationSSILx35EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %853
 
-854:                                              ; preds = %.noexc491
-  %855 = landingpad { ptr, i32 }
+853:                                              ; preds = %.noexc491
+  %854 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6casadi6SXElemD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %23) #29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #29
@@ -25994,37 +25989,37 @@ _ZN6casadi17BinaryOperationSSILx35EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit: ; pred
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %23) #29
   br label %_ZN6casadi17BinaryOperationSSILx0EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit
 
-856:                                              ; preds = %489
-  %857 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
-  %858 = load i32, ptr %857, align 8, !tbaa !51
+855:                                              ; preds = %488
+  %856 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
+  %857 = load i32, ptr %856, align 8, !tbaa !51
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #29
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #29
   invoke void @_ZN6casadi6SXElemC1Ed(ptr noundef nonnull align 8 dereferenceable(8) %22, double noundef 1.000000e+00)
-          to label %.noexc495 unwind label %491
+          to label %.noexc495 unwind label %490
 
-.noexc495:                                        ; preds = %856
-  %859 = sext i32 %858 to i64
-  %860 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %859
-  invoke void @_ZN6casadi6SXElem6binaryExRKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %21, i64 noundef 4, ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 8 dereferenceable(8) %860)
-          to label %_ZN6casadidvERKNS_6SXElemES2_.exit.i.i.i unwind label %862
+.noexc495:                                        ; preds = %855
+  %858 = sext i32 %857 to i64
+  %859 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %858
+  invoke void @_ZN6casadi6SXElem6binaryExRKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %21, i64 noundef 4, ptr noundef nonnull align 8 dereferenceable(8) %22, ptr noundef nonnull align 8 dereferenceable(8) %859)
+          to label %_ZN6casadidvERKNS_6SXElemES2_.exit.i.i.i unwind label %861
 
 _ZN6casadidvERKNS_6SXElemES2_.exit.i.i.i:         ; preds = %.noexc495
-  %861 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %21)
-          to label %_ZN6casadi17BinaryOperationSSILx36EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %864
+  %860 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %21)
+          to label %_ZN6casadi17BinaryOperationSSILx36EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %863
 
-862:                                              ; preds = %.noexc495
-  %863 = landingpad { ptr, i32 }
+861:                                              ; preds = %.noexc495
+  %862 = landingpad { ptr, i32 }
           cleanup
-  br label %866
+  br label %865
 
-864:                                              ; preds = %_ZN6casadidvERKNS_6SXElemES2_.exit.i.i.i
-  %865 = landingpad { ptr, i32 }
+863:                                              ; preds = %_ZN6casadidvERKNS_6SXElemES2_.exit.i.i.i
+  %864 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6casadi6SXElemD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %21) #29
-  br label %866
+  br label %865
 
-866:                                              ; preds = %864, %862
-  %.pn.i.i.i494 = phi { ptr, i32 } [ %865, %864 ], [ %863, %862 ]
+865:                                              ; preds = %863, %861
+  %.pn.i.i.i494 = phi { ptr, i32 } [ %864, %863 ], [ %862, %861 ]
   call void @_ZN6casadi6SXElemD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %22) #29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #29
@@ -26037,21 +26032,21 @@ _ZN6casadi17BinaryOperationSSILx36EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit: ; pred
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #29
   br label %_ZN6casadi17BinaryOperationSSILx0EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit
 
-867:                                              ; preds = %489
-  %868 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
-  %869 = load i32, ptr %868, align 8, !tbaa !51
-  %870 = sext i32 %869 to i64
-  %871 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %870
+866:                                              ; preds = %488
+  %867 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
+  %868 = load i32, ptr %867, align 8, !tbaa !51
+  %869 = sext i32 %868 to i64
+  %870 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %869
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %20) #29
-  invoke void @_ZN6casadi6SXElem5unaryExRKS0_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %20, i64 noundef 37, ptr noundef nonnull align 8 dereferenceable(8) %871)
-          to label %.noexc498 unwind label %491
+  invoke void @_ZN6casadi6SXElem5unaryExRKS0_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %20, i64 noundef 37, ptr noundef nonnull align 8 dereferenceable(8) %870)
+          to label %.noexc498 unwind label %490
 
-.noexc498:                                        ; preds = %867
-  %872 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %20)
-          to label %_ZN6casadi17BinaryOperationSSILx37EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %873
+.noexc498:                                        ; preds = %866
+  %871 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %20)
+          to label %_ZN6casadi17BinaryOperationSSILx37EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %872
 
-873:                                              ; preds = %.noexc498
-  %874 = landingpad { ptr, i32 }
+872:                                              ; preds = %.noexc498
+  %873 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6casadi6SXElemD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %20) #29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #29
@@ -26062,21 +26057,21 @@ _ZN6casadi17BinaryOperationSSILx37EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit: ; pred
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %20) #29
   br label %_ZN6casadi17BinaryOperationSSILx0EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit
 
-875:                                              ; preds = %489
-  %876 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
-  %877 = load i32, ptr %876, align 8, !tbaa !51
-  %878 = sext i32 %877 to i64
-  %879 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %878
+874:                                              ; preds = %488
+  %875 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
+  %876 = load i32, ptr %875, align 8, !tbaa !51
+  %877 = sext i32 %876 to i64
+  %878 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %877
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %19) #29
-  invoke void @_ZN6casadi6SXElem5unaryExRKS0_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %19, i64 noundef 38, ptr noundef nonnull align 8 dereferenceable(8) %879)
-          to label %.noexc501 unwind label %491
+  invoke void @_ZN6casadi6SXElem5unaryExRKS0_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %19, i64 noundef 38, ptr noundef nonnull align 8 dereferenceable(8) %878)
+          to label %.noexc501 unwind label %490
 
-.noexc501:                                        ; preds = %875
-  %880 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %19)
-          to label %_ZN6casadi17BinaryOperationSSILx38EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %881
+.noexc501:                                        ; preds = %874
+  %879 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %19)
+          to label %_ZN6casadi17BinaryOperationSSILx38EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %880
 
-881:                                              ; preds = %.noexc501
-  %882 = landingpad { ptr, i32 }
+880:                                              ; preds = %.noexc501
+  %881 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6casadi6SXElemD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %19) #29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #29
@@ -26087,21 +26082,21 @@ _ZN6casadi17BinaryOperationSSILx38EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit: ; pred
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %19) #29
   br label %_ZN6casadi17BinaryOperationSSILx0EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit
 
-883:                                              ; preds = %489
-  %884 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
-  %885 = load i32, ptr %884, align 8, !tbaa !51
-  %886 = sext i32 %885 to i64
-  %887 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %886
+882:                                              ; preds = %488
+  %883 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
+  %884 = load i32, ptr %883, align 8, !tbaa !51
+  %885 = sext i32 %884 to i64
+  %886 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %885
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %18) #29
-  invoke void @_ZN6casadi6SXElem5unaryExRKS0_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %18, i64 noundef 39, ptr noundef nonnull align 8 dereferenceable(8) %887)
-          to label %.noexc504 unwind label %491
+  invoke void @_ZN6casadi6SXElem5unaryExRKS0_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %18, i64 noundef 39, ptr noundef nonnull align 8 dereferenceable(8) %886)
+          to label %.noexc504 unwind label %490
 
-.noexc504:                                        ; preds = %883
-  %888 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %18)
-          to label %_ZN6casadi17BinaryOperationSSILx39EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %889
+.noexc504:                                        ; preds = %882
+  %887 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %18)
+          to label %_ZN6casadi17BinaryOperationSSILx39EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %888
 
-889:                                              ; preds = %.noexc504
-  %890 = landingpad { ptr, i32 }
+888:                                              ; preds = %.noexc504
+  %889 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6casadi6SXElemD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %18) #29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #29
@@ -26112,21 +26107,21 @@ _ZN6casadi17BinaryOperationSSILx39EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit: ; pred
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %18) #29
   br label %_ZN6casadi17BinaryOperationSSILx0EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit
 
-891:                                              ; preds = %489
-  %892 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
-  %893 = load i32, ptr %892, align 8, !tbaa !51
-  %894 = sext i32 %893 to i64
-  %895 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %894
+890:                                              ; preds = %488
+  %891 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
+  %892 = load i32, ptr %891, align 8, !tbaa !51
+  %893 = sext i32 %892 to i64
+  %894 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %893
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %17) #29
-  invoke void @_ZN6casadi6SXElem5unaryExRKS0_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %17, i64 noundef 40, ptr noundef nonnull align 8 dereferenceable(8) %895)
-          to label %.noexc507 unwind label %491
+  invoke void @_ZN6casadi6SXElem5unaryExRKS0_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %17, i64 noundef 40, ptr noundef nonnull align 8 dereferenceable(8) %894)
+          to label %.noexc507 unwind label %490
 
-.noexc507:                                        ; preds = %891
-  %896 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %17)
-          to label %_ZN6casadi17BinaryOperationSSILx40EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %897
+.noexc507:                                        ; preds = %890
+  %895 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %17)
+          to label %_ZN6casadi17BinaryOperationSSILx40EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %896
 
-897:                                              ; preds = %.noexc507
-  %898 = landingpad { ptr, i32 }
+896:                                              ; preds = %.noexc507
+  %897 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6casadi6SXElemD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %17) #29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #29
@@ -26137,21 +26132,21 @@ _ZN6casadi17BinaryOperationSSILx40EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit: ; pred
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %17) #29
   br label %_ZN6casadi17BinaryOperationSSILx0EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit
 
-899:                                              ; preds = %489
-  %900 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
-  %901 = load i32, ptr %900, align 8, !tbaa !51
-  %902 = sext i32 %901 to i64
-  %903 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %902
+898:                                              ; preds = %488
+  %899 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
+  %900 = load i32, ptr %899, align 8, !tbaa !51
+  %901 = sext i32 %900 to i64
+  %902 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %901
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %16) #29
-  invoke void @_ZN6casadi6SXElem5unaryExRKS0_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %16, i64 noundef 41, ptr noundef nonnull align 8 dereferenceable(8) %903)
-          to label %.noexc510 unwind label %491
+  invoke void @_ZN6casadi6SXElem5unaryExRKS0_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %16, i64 noundef 41, ptr noundef nonnull align 8 dereferenceable(8) %902)
+          to label %.noexc510 unwind label %490
 
-.noexc510:                                        ; preds = %899
-  %904 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %16)
-          to label %_ZN6casadi17BinaryOperationSSILx41EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %905
+.noexc510:                                        ; preds = %898
+  %903 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %16)
+          to label %_ZN6casadi17BinaryOperationSSILx41EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %904
 
-905:                                              ; preds = %.noexc510
-  %906 = landingpad { ptr, i32 }
+904:                                              ; preds = %.noexc510
+  %905 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6casadi6SXElemD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %16) #29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #29
@@ -26162,21 +26157,21 @@ _ZN6casadi17BinaryOperationSSILx41EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit: ; pred
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16) #29
   br label %_ZN6casadi17BinaryOperationSSILx0EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit
 
-907:                                              ; preds = %489
-  %908 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
-  %909 = load i32, ptr %908, align 8, !tbaa !51
-  %910 = sext i32 %909 to i64
-  %911 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %910
+906:                                              ; preds = %488
+  %907 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
+  %908 = load i32, ptr %907, align 8, !tbaa !51
+  %909 = sext i32 %908 to i64
+  %910 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %909
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %15) #29
-  invoke void @_ZN6casadi6SXElem5unaryExRKS0_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %15, i64 noundef 42, ptr noundef nonnull align 8 dereferenceable(8) %911)
-          to label %.noexc513 unwind label %491
+  invoke void @_ZN6casadi6SXElem5unaryExRKS0_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %15, i64 noundef 42, ptr noundef nonnull align 8 dereferenceable(8) %910)
+          to label %.noexc513 unwind label %490
 
-.noexc513:                                        ; preds = %907
-  %912 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %15)
-          to label %_ZN6casadi17BinaryOperationSSILx42EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %913
+.noexc513:                                        ; preds = %906
+  %911 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %15)
+          to label %_ZN6casadi17BinaryOperationSSILx42EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %912
 
-913:                                              ; preds = %.noexc513
-  %914 = landingpad { ptr, i32 }
+912:                                              ; preds = %.noexc513
+  %913 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6casadi6SXElemD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %15) #29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #29
@@ -26187,25 +26182,25 @@ _ZN6casadi17BinaryOperationSSILx42EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit: ; pred
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %15) #29
   br label %_ZN6casadi17BinaryOperationSSILx0EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit
 
-915:                                              ; preds = %489
-  %916 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
-  %917 = load i32, ptr %916, align 8, !tbaa !51
-  %918 = sext i32 %917 to i64
-  %919 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %918
-  %920 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 12
-  %921 = load i32, ptr %920, align 4, !tbaa !51
-  %922 = sext i32 %921 to i64
-  %923 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %922
+914:                                              ; preds = %488
+  %915 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
+  %916 = load i32, ptr %915, align 8, !tbaa !51
+  %917 = sext i32 %916 to i64
+  %918 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %917
+  %919 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 12
+  %920 = load i32, ptr %919, align 4, !tbaa !51
+  %921 = sext i32 %920 to i64
+  %922 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %921
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %14) #29
-  invoke void @_ZN6casadi6SXElem6binaryExRKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %14, i64 noundef 43, ptr noundef nonnull align 8 dereferenceable(8) %919, ptr noundef nonnull align 8 dereferenceable(8) %923)
-          to label %.noexc516 unwind label %491
+  invoke void @_ZN6casadi6SXElem6binaryExRKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %14, i64 noundef 43, ptr noundef nonnull align 8 dereferenceable(8) %918, ptr noundef nonnull align 8 dereferenceable(8) %922)
+          to label %.noexc516 unwind label %490
 
-.noexc516:                                        ; preds = %915
-  %924 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %14)
-          to label %_ZN6casadi17BinaryOperationSSILx43EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %925
+.noexc516:                                        ; preds = %914
+  %923 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %14)
+          to label %_ZN6casadi17BinaryOperationSSILx43EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %924
 
-925:                                              ; preds = %.noexc516
-  %926 = landingpad { ptr, i32 }
+924:                                              ; preds = %.noexc516
+  %925 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6casadi6SXElemD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %14) #29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #29
@@ -26216,21 +26211,21 @@ _ZN6casadi17BinaryOperationSSILx43EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit: ; pred
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %14) #29
   br label %_ZN6casadi17BinaryOperationSSILx0EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit
 
-927:                                              ; preds = %489
-  %928 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
-  %929 = load i32, ptr %928, align 8, !tbaa !51
-  %930 = sext i32 %929 to i64
-  %931 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %930
+926:                                              ; preds = %488
+  %927 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
+  %928 = load i32, ptr %927, align 8, !tbaa !51
+  %929 = sext i32 %928 to i64
+  %930 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %929
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %13) #29
-  invoke void @_ZN6casadi6SXElem5unaryExRKS0_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %13, i64 noundef 86, ptr noundef nonnull align 8 dereferenceable(8) %931)
-          to label %.noexc519 unwind label %491
+  invoke void @_ZN6casadi6SXElem5unaryExRKS0_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %13, i64 noundef 86, ptr noundef nonnull align 8 dereferenceable(8) %930)
+          to label %.noexc519 unwind label %490
 
-.noexc519:                                        ; preds = %927
-  %932 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %13)
-          to label %_ZN6casadi17BinaryOperationSSILx86EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %933
+.noexc519:                                        ; preds = %926
+  %931 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %13)
+          to label %_ZN6casadi17BinaryOperationSSILx86EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %932
 
-933:                                              ; preds = %.noexc519
-  %934 = landingpad { ptr, i32 }
+932:                                              ; preds = %.noexc519
+  %933 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6casadi6SXElemD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %13) #29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #29
@@ -26241,33 +26236,33 @@ _ZN6casadi17BinaryOperationSSILx86EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit: ; pred
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %13) #29
   br label %_ZN6casadi17BinaryOperationSSILx0EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit
 
-.invoke:                                          ; preds = %489, %489
-  %935 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
-  %936 = load i32, ptr %935, align 8, !tbaa !51
-  %937 = sext i32 %936 to i64
-  %938 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %937
-  %939 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %938)
-          to label %_ZN6casadi17BinaryOperationSSILx0EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %491
+.invoke:                                          ; preds = %488, %488
+  %934 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
+  %935 = load i32, ptr %934, align 8, !tbaa !51
+  %936 = sext i32 %935 to i64
+  %937 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %936
+  %938 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %937)
+          to label %_ZN6casadi17BinaryOperationSSILx0EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %490
 
-940:                                              ; preds = %489
-  %941 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
-  %942 = load i32, ptr %941, align 8, !tbaa !51
-  %943 = sext i32 %942 to i64
-  %944 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %943
-  %945 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 12
-  %946 = load i32, ptr %945, align 4, !tbaa !51
-  %947 = sext i32 %946 to i64
-  %948 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %947
+939:                                              ; preds = %488
+  %940 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
+  %941 = load i32, ptr %940, align 8, !tbaa !51
+  %942 = sext i32 %941 to i64
+  %943 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %942
+  %944 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 12
+  %945 = load i32, ptr %944, align 4, !tbaa !51
+  %946 = sext i32 %945 to i64
+  %947 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %946
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #29
-  invoke void @_ZN6casadi6SXElem6binaryExRKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %12, i64 noundef 87, ptr noundef nonnull align 8 dereferenceable(8) %944, ptr noundef nonnull align 8 dereferenceable(8) %948)
-          to label %.noexc523 unwind label %491
+  invoke void @_ZN6casadi6SXElem6binaryExRKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %12, i64 noundef 87, ptr noundef nonnull align 8 dereferenceable(8) %943, ptr noundef nonnull align 8 dereferenceable(8) %947)
+          to label %.noexc523 unwind label %490
 
-.noexc523:                                        ; preds = %940
-  %949 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %12)
-          to label %_ZN6casadi17BinaryOperationSSILx87EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %950
+.noexc523:                                        ; preds = %939
+  %948 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %12)
+          to label %_ZN6casadi17BinaryOperationSSILx87EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %949
 
-950:                                              ; preds = %.noexc523
-  %951 = landingpad { ptr, i32 }
+949:                                              ; preds = %.noexc523
+  %950 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6casadi6SXElemD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %12) #29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #29
@@ -26278,21 +26273,21 @@ _ZN6casadi17BinaryOperationSSILx87EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit: ; pred
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #29
   br label %_ZN6casadi17BinaryOperationSSILx0EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit
 
-952:                                              ; preds = %489
-  %953 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
-  %954 = load i32, ptr %953, align 8, !tbaa !51
-  %955 = sext i32 %954 to i64
-  %956 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %955
+951:                                              ; preds = %488
+  %952 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
+  %953 = load i32, ptr %952, align 8, !tbaa !51
+  %954 = sext i32 %953 to i64
+  %955 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %954
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #29
-  invoke void @_ZN6casadi6SXElem5unaryExRKS0_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %11, i64 noundef 93, ptr noundef nonnull align 8 dereferenceable(8) %956)
-          to label %.noexc526 unwind label %491
+  invoke void @_ZN6casadi6SXElem5unaryExRKS0_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %11, i64 noundef 93, ptr noundef nonnull align 8 dereferenceable(8) %955)
+          to label %.noexc526 unwind label %490
 
-.noexc526:                                        ; preds = %952
-  %957 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %11)
-          to label %_ZN6casadi17BinaryOperationSSILx93EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %958
+.noexc526:                                        ; preds = %951
+  %956 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %11)
+          to label %_ZN6casadi17BinaryOperationSSILx93EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %957
 
-958:                                              ; preds = %.noexc526
-  %959 = landingpad { ptr, i32 }
+957:                                              ; preds = %.noexc526
+  %958 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6casadi6SXElemD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %11) #29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #29
@@ -26303,21 +26298,21 @@ _ZN6casadi17BinaryOperationSSILx93EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit: ; pred
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #29
   br label %_ZN6casadi17BinaryOperationSSILx0EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit
 
-960:                                              ; preds = %489
-  %961 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
-  %962 = load i32, ptr %961, align 8, !tbaa !51
-  %963 = sext i32 %962 to i64
-  %964 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %963
+959:                                              ; preds = %488
+  %960 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
+  %961 = load i32, ptr %960, align 8, !tbaa !51
+  %962 = sext i32 %961 to i64
+  %963 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %962
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #29
-  invoke void @_ZN6casadi6SXElem5unaryExRKS0_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %10, i64 noundef 94, ptr noundef nonnull align 8 dereferenceable(8) %964)
-          to label %.noexc529 unwind label %491
+  invoke void @_ZN6casadi6SXElem5unaryExRKS0_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %10, i64 noundef 94, ptr noundef nonnull align 8 dereferenceable(8) %963)
+          to label %.noexc529 unwind label %490
 
-.noexc529:                                        ; preds = %960
-  %965 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %10)
-          to label %_ZN6casadi17BinaryOperationSSILx94EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %966
+.noexc529:                                        ; preds = %959
+  %964 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %10)
+          to label %_ZN6casadi17BinaryOperationSSILx94EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %965
 
-966:                                              ; preds = %.noexc529
-  %967 = landingpad { ptr, i32 }
+965:                                              ; preds = %.noexc529
+  %966 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6casadi6SXElemD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %10) #29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #29
@@ -26328,25 +26323,25 @@ _ZN6casadi17BinaryOperationSSILx94EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit: ; pred
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #29
   br label %_ZN6casadi17BinaryOperationSSILx0EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit
 
-968:                                              ; preds = %489
-  %969 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
-  %970 = load i32, ptr %969, align 8, !tbaa !51
-  %971 = sext i32 %970 to i64
-  %972 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %971
-  %973 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 12
-  %974 = load i32, ptr %973, align 4, !tbaa !51
-  %975 = sext i32 %974 to i64
-  %976 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %975
+967:                                              ; preds = %488
+  %968 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 8
+  %969 = load i32, ptr %968, align 8, !tbaa !51
+  %970 = sext i32 %969 to i64
+  %971 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %970
+  %972 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 12
+  %973 = load i32, ptr %972, align 4, !tbaa !51
+  %974 = sext i32 %973 to i64
+  %975 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %974
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #29
-  invoke void @_ZN6casadi6SXElem6binaryExRKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %9, i64 noundef 95, ptr noundef nonnull align 8 dereferenceable(8) %972, ptr noundef nonnull align 8 dereferenceable(8) %976)
-          to label %.noexc532 unwind label %491
+  invoke void @_ZN6casadi6SXElem6binaryExRKS0_S2_(ptr dead_on_unwind nonnull writable sret(%"class.casadi::SXElem") align 8 %9, i64 noundef 95, ptr noundef nonnull align 8 dereferenceable(8) %971, ptr noundef nonnull align 8 dereferenceable(8) %975)
+          to label %.noexc532 unwind label %490
 
-.noexc532:                                        ; preds = %968
-  %977 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %9)
-          to label %_ZN6casadi17BinaryOperationSSILx95EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %978
+.noexc532:                                        ; preds = %967
+  %976 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %9)
+          to label %_ZN6casadi17BinaryOperationSSILx95EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit unwind label %977
 
-978:                                              ; preds = %.noexc532
-  %979 = landingpad { ptr, i32 }
+977:                                              ; preds = %.noexc532
+  %978 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN6casadi6SXElemD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %9) #29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #29
@@ -26357,50 +26352,50 @@ _ZN6casadi17BinaryOperationSSILx95EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit: ; pred
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #29
   br label %_ZN6casadi17BinaryOperationSSILx0EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit
 
-_ZN6casadi17BinaryOperationSSILx0EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit: ; preds = %.invoke, %_ZN6casadi17BinaryOperationSSILx95EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx94EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx93EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx87EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx86EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx43EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx42EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx41EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx40EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx39EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx38EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx37EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx36EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx35EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx34EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx33EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx31EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx30EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx29EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx97EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx28EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx27EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx26EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx32EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx25EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx24EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx23EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx22EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx21EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx20EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx19EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx18EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx17EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx16EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx15EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx14EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx13EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx12EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx11EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx10EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx9EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx8EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx7EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx6EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx5EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx4EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx3EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx2EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx1EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %489
-  %980 = getelementptr inbounds nuw i8, ptr %.sroa.0548.0591, i64 8
+_ZN6casadi17BinaryOperationSSILx0EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit: ; preds = %.invoke, %_ZN6casadi17BinaryOperationSSILx95EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx94EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx93EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx87EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx86EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx43EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx42EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx41EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx40EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx39EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx38EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx37EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx36EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx35EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx34EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx33EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx31EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx30EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx29EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx97EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx28EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx27EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx26EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx32EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx25EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx24EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx23EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx22EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx21EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx20EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx19EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx18EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx17EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx16EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx15EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx14EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx13EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx12EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx11EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx10EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx9EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx8EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx7EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx6EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx5EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx4EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx3EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx2EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %_ZN6casadi17BinaryOperationSSILx1EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit, %488
+  %979 = getelementptr inbounds nuw i8, ptr %.sroa.0548.0591, i64 8
   invoke void @_ZN6casadi6SXElem17assignIfDuplicateERKS0_x(ptr noundef nonnull align 8 dereferenceable(8) %76, ptr noundef nonnull align 8 dereferenceable(8) %.sroa.0548.0591, i64 noundef 2)
-          to label %981 unwind label %990
+          to label %980 unwind label %989
 
-981:                                              ; preds = %_ZN6casadi17BinaryOperationSSILx0EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit
-  %982 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 4
-  %983 = load i32, ptr %982, align 4, !tbaa !109
-  %984 = sext i32 %983 to i64
-  %985 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %984
-  %986 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %985, ptr noundef nonnull align 8 dereferenceable(8) %76)
-          to label %987 unwind label %992
+980:                                              ; preds = %_ZN6casadi17BinaryOperationSSILx0EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit
+  %981 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 4
+  %982 = load i32, ptr %981, align 4, !tbaa !109
+  %983 = sext i32 %982 to i64
+  %984 = getelementptr inbounds %"class.casadi::SXElem", ptr %4, i64 %983
+  %985 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN6casadi6SXElemaSERKS0_(ptr noundef nonnull align 8 dereferenceable(8) %984, ptr noundef nonnull align 8 dereferenceable(8) %76)
+          to label %986 unwind label %991
 
-987:                                              ; preds = %981
+986:                                              ; preds = %980
   call void @_ZN6casadi6SXElemD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %76) #29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %76) #29
-  br label %988
+  br label %987
 
-988:                                              ; preds = %296, %302, %987, %_ZNSt6vectorIN6casadi6SXElemESaIS1_EED2Ev.exit384, %319, %312, %293
-  %.sroa.0546.1 = phi ptr [ %.sroa.0546.0589, %987 ], [ %.sroa.0546.0589, %_ZNSt6vectorIN6casadi6SXElemESaIS1_EED2Ev.exit384 ], [ %320, %319 ], [ %.sroa.0546.0589, %312 ], [ %.sroa.0546.0589, %296 ], [ %.sroa.0546.0589, %302 ], [ %.sroa.0546.0589, %293 ]
-  %.sroa.0547.1 = phi ptr [ %.sroa.0547.0590, %987 ], [ %.sroa.0547.0590, %_ZNSt6vectorIN6casadi6SXElemESaIS1_EED2Ev.exit384 ], [ %.sroa.0547.0590, %319 ], [ %313, %312 ], [ %.sroa.0547.0590, %296 ], [ %.sroa.0547.0590, %302 ], [ %.sroa.0547.0590, %293 ]
-  %.sroa.0548.1 = phi ptr [ %980, %987 ], [ %338, %_ZNSt6vectorIN6casadi6SXElemESaIS1_EED2Ev.exit384 ], [ %.sroa.0548.0591, %319 ], [ %.sroa.0548.0591, %312 ], [ %.sroa.0548.0591, %296 ], [ %.sroa.0548.0591, %302 ], [ %.sroa.0548.0591, %293 ]
-  %989 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 16
-  %.not551 = icmp eq ptr %989, %261
+987:                                              ; preds = %296, %302, %986, %_ZNSt6vectorIN6casadi6SXElemESaIS1_EED2Ev.exit384, %319, %312, %293
+  %.sroa.0546.1 = phi ptr [ %.sroa.0546.0589, %986 ], [ %.sroa.0546.0589, %_ZNSt6vectorIN6casadi6SXElemESaIS1_EED2Ev.exit384 ], [ %320, %319 ], [ %.sroa.0546.0589, %312 ], [ %.sroa.0546.0589, %296 ], [ %.sroa.0546.0589, %302 ], [ %.sroa.0546.0589, %293 ]
+  %.sroa.0547.1 = phi ptr [ %.sroa.0547.0590, %986 ], [ %.sroa.0547.0590, %_ZNSt6vectorIN6casadi6SXElemESaIS1_EED2Ev.exit384 ], [ %.sroa.0547.0590, %319 ], [ %313, %312 ], [ %.sroa.0547.0590, %296 ], [ %.sroa.0547.0590, %302 ], [ %.sroa.0547.0590, %293 ]
+  %.sroa.0548.1 = phi ptr [ %979, %986 ], [ %338, %_ZNSt6vectorIN6casadi6SXElemESaIS1_EED2Ev.exit384 ], [ %.sroa.0548.0591, %319 ], [ %.sroa.0548.0591, %312 ], [ %.sroa.0548.0591, %296 ], [ %.sroa.0548.0591, %302 ], [ %.sroa.0548.0591, %293 ]
+  %988 = getelementptr inbounds nuw i8, ptr %.sroa.0542.0588, i64 16
+  %.not551 = icmp eq ptr %988, %261
   br i1 %.not551, label %.loopexit552, label %272
 
-990:                                              ; preds = %_ZN6casadi17BinaryOperationSSILx0EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit
-  %991 = landingpad { ptr, i32 }
+989:                                              ; preds = %_ZN6casadi17BinaryOperationSSILx0EE3fcnINS_6SXElemEEEvRKT_S6_RS4_x.exit
+  %990 = landingpad { ptr, i32 }
           cleanup
   br label %.body387
 
-992:                                              ; preds = %981
-  %993 = landingpad { ptr, i32 }
+991:                                              ; preds = %980
+  %992 = landingpad { ptr, i32 }
           cleanup
   br label %.body387
 
-.body387:                                         ; preds = %503, %527, %547, %563, %587, %603, %622, %638, %654, %674, %698, %718, %742, %762, %782, %802, %822, %842, %866, %881, %897, %913, %933, %958, %491, %978, %966, %950, %925, %905, %889, %873, %854, %830, %810, %794, %770, %754, %730, %710, %686, %662, %646, %630, %615, %595, %575, %555, %539, %515, %990, %992
-  %.pn299.pn = phi { ptr, i32 } [ %993, %992 ], [ %991, %990 ], [ %504, %503 ], [ %516, %515 ], [ %528, %527 ], [ %540, %539 ], [ %548, %547 ], [ %556, %555 ], [ %564, %563 ], [ %576, %575 ], [ %588, %587 ], [ %596, %595 ], [ %604, %603 ], [ %.pn.i.i.i, %615 ], [ %623, %622 ], [ %631, %630 ], [ %639, %638 ], [ %647, %646 ], [ %655, %654 ], [ %663, %662 ], [ %675, %674 ], [ %687, %686 ], [ %699, %698 ], [ %711, %710 ], [ %719, %718 ], [ %731, %730 ], [ %743, %742 ], [ %755, %754 ], [ %763, %762 ], [ %771, %770 ], [ %783, %782 ], [ %795, %794 ], [ %803, %802 ], [ %811, %810 ], [ %823, %822 ], [ %831, %830 ], [ %843, %842 ], [ %855, %854 ], [ %.pn.i.i.i494, %866 ], [ %874, %873 ], [ %882, %881 ], [ %890, %889 ], [ %898, %897 ], [ %906, %905 ], [ %914, %913 ], [ %926, %925 ], [ %934, %933 ], [ %951, %950 ], [ %959, %958 ], [ %967, %966 ], [ %492, %491 ], [ %979, %978 ]
+.body387:                                         ; preds = %502, %526, %546, %562, %586, %602, %621, %637, %653, %673, %697, %717, %741, %761, %781, %801, %821, %841, %865, %880, %896, %912, %932, %957, %490, %977, %965, %949, %924, %904, %888, %872, %853, %829, %809, %793, %769, %753, %729, %709, %685, %661, %645, %629, %614, %594, %574, %554, %538, %514, %989, %991
+  %.pn299.pn = phi { ptr, i32 } [ %992, %991 ], [ %990, %989 ], [ %503, %502 ], [ %515, %514 ], [ %527, %526 ], [ %539, %538 ], [ %547, %546 ], [ %555, %554 ], [ %563, %562 ], [ %575, %574 ], [ %587, %586 ], [ %595, %594 ], [ %603, %602 ], [ %.pn.i.i.i, %614 ], [ %622, %621 ], [ %630, %629 ], [ %638, %637 ], [ %646, %645 ], [ %654, %653 ], [ %662, %661 ], [ %674, %673 ], [ %686, %685 ], [ %698, %697 ], [ %710, %709 ], [ %718, %717 ], [ %730, %729 ], [ %742, %741 ], [ %754, %753 ], [ %762, %761 ], [ %770, %769 ], [ %782, %781 ], [ %794, %793 ], [ %802, %801 ], [ %810, %809 ], [ %822, %821 ], [ %830, %829 ], [ %842, %841 ], [ %854, %853 ], [ %.pn.i.i.i494, %865 ], [ %873, %872 ], [ %881, %880 ], [ %889, %888 ], [ %897, %896 ], [ %905, %904 ], [ %913, %912 ], [ %925, %924 ], [ %933, %932 ], [ %950, %949 ], [ %958, %957 ], [ %966, %965 ], [ %491, %490 ], [ %978, %977 ]
   call void @_ZN6casadi6SXElemD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %76) #29
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %76) #29
   br label %common.resume
 
-.loopexit552:                                     ; preds = %988, %254, %89
-  %.0 = phi i32 [ %90, %89 ], [ 0, %254 ], [ 0, %988 ]
+.loopexit552:                                     ; preds = %987, %254, %89
+  %.0 = phi i32 [ %90, %89 ], [ 0, %254 ], [ 0, %987 ]
   ret i32 %.0
 }
 
@@ -116318,12 +116313,8 @@ _ZNSt6vectorIxSaIxEED2Ev.exit.split:              ; preds = %.noexc19, %.lr.ph.s
 
 _ZNSt6vectorIxSaIxEED2Ev.exit:                    ; preds = %_ZNSt6vectorIxSaIxEED2Ev.exit.split.us, %_ZNSt6vectorIxSaIxEED2Ev.exit.split
   %.us-phi = phi { ptr, i32 } [ %53, %_ZNSt6vectorIxSaIxEED2Ev.exit.split ], [ %37, %_ZNSt6vectorIxSaIxEED2Ev.exit.split.us ]
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %55 = load ptr, ptr %54, align 8, !tbaa !768
-  %56 = ptrtoint ptr %55 to i64
-  %57 = ptrtoint ptr %14 to i64
-  %58 = sub i64 %56, %57
-  tail call void @_ZdlPvm(ptr noundef nonnull %14, i64 noundef %58) #30
+  %.idx = shl nuw nsw i64 %11, 3
+  tail call void @_ZdlPvm(ptr noundef nonnull %14, i64 noundef %.idx) #30
   resume { ptr, i32 } %.us-phi
 
 ._crit_edge:                                      ; preds = %_ZNK6casadi13GenericMatrixINS_6MatrixINS_6SXElemEEEE5size1Ev.exit, %_ZNK6casadi13GenericMatrixINS_6MatrixINS_6SXElemEEEE5size1Ev.exit.us, %20

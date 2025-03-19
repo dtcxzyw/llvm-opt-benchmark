@@ -94581,7 +94581,12 @@ _ZN4llvm8ExpectedIPN5clang4DeclEED2Ev.exit:       ; preds = %25, %_ZNSt10unique_
   %46 = getelementptr inbounds nuw i8, ptr %39, i64 %.idx
   %.promoted = load ptr, ptr %0, align 8
   %.not149 = icmp ult i32 %43, 131072
-  br i1 %.not149, label %.critedge, label %.lr.ph
+  br i1 %.not149, label %..critedge_crit_edge162, label %.lr.ph
+
+..critedge_crit_edge162:                          ; preds = %38
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.pre163 = load i8, ptr %.phi.trans.insert, align 8
+  br label %.critedge
 
 .lr.ph:                                           ; preds = %38
   %47 = getelementptr inbounds nuw i8, ptr %7, i64 8
@@ -94643,19 +94648,19 @@ _ZN4llvm8ExpectedIPN5clang4DeclEED2Ev.exit:       ; preds = %25, %_ZNSt10unique_
   %73 = zext i32 %68 to i64
   br label %.critedge
 
-.critedge:                                        ; preds = %..critedge_crit_edge, %38
-  %74 = phi i64 [ %73, %..critedge_crit_edge ], [ 0, %38 ]
-  %75 = phi ptr [ %.pre160, %..critedge_crit_edge ], [ %40, %38 ]
+.critedge:                                        ; preds = %..critedge_crit_edge162, %..critedge_crit_edge
+  %74 = phi i8 [ %.promoted151, %..critedge_crit_edge ], [ %.pre163, %..critedge_crit_edge162 ]
+  %75 = phi i64 [ %73, %..critedge_crit_edge ], [ 0, %..critedge_crit_edge162 ]
+  %76 = phi ptr [ %.pre160, %..critedge_crit_edge ], [ %40, %..critedge_crit_edge162 ]
   store ptr %.promoted, ptr %0, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %1, i64 280120
-  %77 = load ptr, ptr %76, align 8, !tbaa !151
-  %78 = getelementptr inbounds nuw %"class.clang::DeclAccessPair", ptr %75, i64 %74
-  %79 = call i64 @_ZNK5clang10ASTContext25getOverloadedTemplateNameENS_21UnresolvedSetIteratorES1_(ptr noundef nonnull align 8 dereferenceable(23216) %77, ptr %75, ptr %78) #25
-  %80 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %81 = load i8, ptr %80, align 8
-  %82 = and i8 %81, -2
-  store i8 %82, ptr %80, align 8
-  store i64 %79, ptr %0, align 8
+  %77 = getelementptr inbounds nuw i8, ptr %1, i64 280120
+  %78 = load ptr, ptr %77, align 8, !tbaa !151
+  %79 = getelementptr inbounds nuw %"class.clang::DeclAccessPair", ptr %76, i64 %75
+  %80 = call i64 @_ZNK5clang10ASTContext25getOverloadedTemplateNameENS_21UnresolvedSetIteratorES1_(ptr noundef nonnull align 8 dereferenceable(23216) %78, ptr %76, ptr %79) #25
+  %81 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %82 = and i8 %74, -2
+  store i8 %82, ptr %81, align 8
+  store i64 %80, ptr %0, align 8
   br label %83
 
 83:                                               ; preds = %69, %.critedge
@@ -94755,9 +94760,9 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i63: ;
   br label %131
 
 131:                                              ; preds = %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i63, %117
-  %.sink181 = phi i64 [ %127, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i63 ], [ %123, %117 ]
-  %storemerge146169 = inttoptr i64 %.sink181 to ptr
-  store ptr %storemerge146169, ptr %0, align 8
+  %.sink183 = phi i64 [ %127, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i63 ], [ %123, %117 ]
+  %storemerge146171 = inttoptr i64 %.sink183 to ptr
+  store ptr %storemerge146171, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10) #25
   br label %_ZN4llvm8ExpectedIPN5clang19NestedNameSpecifierEED2Ev.exit
 
@@ -94930,9 +94935,9 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i89: ;
   br label %229
 
 229:                                              ; preds = %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i89, %211
-  %.sink182 = phi i64 [ %225, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i89 ], [ %221, %211 ]
-  %storemerge145174 = inttoptr i64 %.sink182 to ptr
-  store ptr %storemerge145174, ptr %0, align 8
+  %.sink184 = phi i64 [ %225, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i89 ], [ %221, %211 ]
+  %storemerge145176 = inttoptr i64 %.sink184 to ptr
+  store ptr %storemerge145176, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %13) #25
   br label %_ZN4llvm8ExpectedIN5clang12TemplateNameEED2Ev.exit94
 
@@ -95010,8 +95015,8 @@ _ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i104: 
 
 _ZN4llvm8ExpectedIPN5clang4DeclEED2Ev.exit105:    ; preds = %251, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i104
   %.pre = phi i8 [ %.pre.pre, %251 ], [ %239, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i104 ]
-  %.sink183 = phi i64 [ %259, %251 ], [ %263, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i104 ]
-  %storemerge = inttoptr i64 %.sink183 to ptr
+  %.sink185 = phi i64 [ %259, %251 ], [ %263, %_ZNSt10unique_ptrIN4llvm13ErrorInfoBaseESt14default_deleteIS1_EED2Ev.exit.i104 ]
+  %storemerge = inttoptr i64 %.sink185 to ptr
   store ptr %storemerge, ptr %0, align 8
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %17) #25
   br label %267
@@ -96129,7 +96134,7 @@ _ZN4llvm8ExpectedIN5clang14SourceLocationEED2Ev.exit101: ; preds = %139, %138
   %150 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %151 = load i8, ptr %150, align 8
   %152 = trunc i8 %151 to i1
-  br i1 %152, label %_ZN4llvm8ExpectedIN5clang14SourceLocationEED2Ev.exit128.thread, label %153
+  br i1 %152, label %_ZN4llvm8ExpectedIN5clang14SourceLocationEED2Ev.exit128, label %153
 
 153:                                              ; preds = %149
   %.sroa.013.0.copyload = load i32, ptr %9, align 8, !tbaa !61
@@ -96155,7 +96160,7 @@ _ZNK5clang13SourceManager20getLocForStartOfFileENS_6FileIDE.exit: ; preds = %159
   %162 = getelementptr inbounds nuw i8, ptr %144, i64 8
   %163 = load ptr, ptr %162, align 8, !tbaa !10258
   %.not173 = icmp eq ptr %163, null
-  br i1 %.not173, label %.thread182, label %164
+  br i1 %.not173, label %.thread181, label %164
 
 164:                                              ; preds = %_ZNK5clang13SourceManager20getLocForStartOfFileENS_6FileIDE.exit
   %165 = getelementptr inbounds nuw i8, ptr %163, i64 16
@@ -96163,7 +96168,7 @@ _ZNK5clang13SourceManager20getLocForStartOfFileENS_6FileIDE.exit: ; preds = %159
   %166 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.copyload.i122, i64 8
   %167 = load ptr, ptr %166, align 8, !tbaa !10263
   %.not64 = icmp eq ptr %167, null
-  br i1 %.not64, label %.thread182, label %168
+  br i1 %.not64, label %.thread181, label %168
 
 168:                                              ; preds = %164
   %169 = getelementptr inbounds nuw i8, ptr %1, i64 280136
@@ -96187,9 +96192,9 @@ _ZNK5clang12FileEntryRef7getNameEv.exit:          ; preds = %171
   %177 = load i64, ptr %.05.i.i, align 8, !tbaa !759
   %178 = tail call ptr @_ZN5clang11FileManager18getOptionalFileRefEN4llvm9StringRefEbb(ptr noundef nonnull align 8 dereferenceable(808) %170, ptr nonnull %176, i64 %177, i1 noundef zeroext false, i1 noundef zeroext true)
   %.not174 = icmp eq ptr %178, null
-  br i1 %.not174, label %.thread182, label %184
+  br i1 %.not174, label %.thread181, label %184
 
-_ZN4llvm8ExpectedIN5clang14SourceLocationEED2Ev.exit128.thread: ; preds = %149
+_ZN4llvm8ExpectedIN5clang14SourceLocationEED2Ev.exit128: ; preds = %149
   %179 = load i64, ptr %9, align 8, !tbaa !77, !noalias !10267
   %180 = inttoptr i64 %179 to ptr
   store ptr null, ptr %9, align 8, !tbaa !77, !noalias !10267
@@ -96201,7 +96206,7 @@ _ZN4llvm8ExpectedIN5clang14SourceLocationEED2Ev.exit128.thread: ; preds = %149
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #25
   br label %223
 
-.thread182:                                       ; preds = %_ZNK5clang13SourceManager20getLocForStartOfFileENS_6FileIDE.exit, %_ZNK5clang12FileEntryRef7getNameEv.exit, %164
+.thread181:                                       ; preds = %_ZNK5clang13SourceManager20getLocForStartOfFileENS_6FileIDE.exit, %_ZNK5clang12FileEntryRef7getNameEv.exit, %164
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9) #25
   br label %.thread
 
@@ -96214,7 +96219,7 @@ _ZN4llvm8ExpectedIN5clang14SourceLocationEED2Ev.exit128.thread: ; preds = %149
   %188 = icmp eq i32 %187, 0
   br i1 %188, label %.thread, label %.critedge68
 
-.thread:                                          ; preds = %.thread182, %145, %141, %184
+.thread:                                          ; preds = %.thread181, %145, %141, %184
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %10) #25
   %189 = load ptr, ptr %38, align 8, !tbaa !904
   %190 = tail call noundef nonnull align 8 dereferenceable(15248) ptr @_ZNK5clang10ASTContext14getDiagnosticsEv(ptr noundef nonnull align 8 dereferenceable(23216) %189) #25
@@ -96305,7 +96310,7 @@ _ZNKSt14default_deleteIN4llvm12MemoryBufferEEclEPS1_.exit.i140: ; preds = %_ZNSt
   store i32 %.sroa.0158.0, ptr %0, align 8, !tbaa !61
   br label %223
 
-223:                                              ; preds = %_ZN4llvm8ExpectedIN5clang14SourceLocationEED2Ev.exit128.thread, %.critedge68, %.critedge66, %.critedge70, %_ZN4llvm8ExpectedIN5clang14SourceLocationEED2Ev.exit109, %213, %32
+223:                                              ; preds = %.critedge68, %.critedge66, %.critedge70, %_ZN4llvm8ExpectedIN5clang14SourceLocationEED2Ev.exit109, %_ZN4llvm8ExpectedIN5clang14SourceLocationEED2Ev.exit128, %213, %32
   ret void
 }
 

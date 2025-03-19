@@ -3436,13 +3436,13 @@ _ZNK17hb_sorted_array_tIKN3AAT11FeatureNameEE9sub_arrayEjPj.exit.i: ; preds = %_
   %40 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i, i64 12
   %41 = zext i32 %1 to i64
   %42 = getelementptr inbounds nuw %"struct.AAT::FeatureName", ptr %40, i64 %41
-  br label %_ZN9hb_iter_tI13hb_map_iter_tI17hb_sorted_array_tIKN3AAT11FeatureNameEEMS3_KF28hb_aat_layout_feature_type_tvEL24hb_function_sortedness_t0ELPv0EES6_EdeEv.exit.i.us.i.i
+  br label %_ZN9hb_iter_tI13hb_map_iter_tI17hb_sorted_array_tIKN3AAT11FeatureNameEEMS3_KF28hb_aat_layout_feature_type_tvEL24hb_function_sortedness_t0ELPv0EES6_EdeEv.exit.us.i.i.i
 
-_ZN9hb_iter_tI13hb_map_iter_tI17hb_sorted_array_tIKN3AAT11FeatureNameEEMS3_KF28hb_aat_layout_feature_type_tvEL24hb_function_sortedness_t0ELPv0EES6_EdeEv.exit.i.us.i.i: ; preds = %_ZNR9hb_iter_tI13hb_map_iter_tI17hb_sorted_array_tIKN3AAT11FeatureNameEEMS3_KF28hb_aat_layout_feature_type_tvEL24hb_function_sortedness_t0ELPv0EES6_EppEv.exit.i.us.i.i, %.lr.ph.i.i.i3
-  %.sroa.022.2.i = phi ptr [ %3, %.lr.ph.i.i.i3 ], [ %.sroa.022.3.i, %_ZNR9hb_iter_tI13hb_map_iter_tI17hb_sorted_array_tIKN3AAT11FeatureNameEEMS3_KF28hb_aat_layout_feature_type_tvEL24hb_function_sortedness_t0ELPv0EES6_EppEv.exit.i.us.i.i ]
-  %.sroa.7.2.i = phi i32 [ %.sroa.speculated.i.i.i, %.lr.ph.i.i.i3 ], [ %.sroa.7.3.i, %_ZNR9hb_iter_tI13hb_map_iter_tI17hb_sorted_array_tIKN3AAT11FeatureNameEEMS3_KF28hb_aat_layout_feature_type_tvEL24hb_function_sortedness_t0ELPv0EES6_EppEv.exit.i.us.i.i ]
-  %43 = phi i32 [ %.sroa.speculated.i.i.i, %.lr.ph.i.i.i3 ], [ %55, %_ZNR9hb_iter_tI13hb_map_iter_tI17hb_sorted_array_tIKN3AAT11FeatureNameEEMS3_KF28hb_aat_layout_feature_type_tvEL24hb_function_sortedness_t0ELPv0EES6_EppEv.exit.i.us.i.i ]
-  %44 = phi ptr [ %42, %.lr.ph.i.i.i3 ], [ %56, %_ZNR9hb_iter_tI13hb_map_iter_tI17hb_sorted_array_tIKN3AAT11FeatureNameEEMS3_KF28hb_aat_layout_feature_type_tvEL24hb_function_sortedness_t0ELPv0EES6_EppEv.exit.i.us.i.i ]
+_ZN9hb_iter_tI13hb_map_iter_tI17hb_sorted_array_tIKN3AAT11FeatureNameEEMS3_KF28hb_aat_layout_feature_type_tvEL24hb_function_sortedness_t0ELPv0EES6_EdeEv.exit.us.i.i.i: ; preds = %_ZNR9hb_iter_tI13hb_map_iter_tI17hb_sorted_array_tIKN3AAT11FeatureNameEEMS3_KF28hb_aat_layout_feature_type_tvEL24hb_function_sortedness_t0ELPv0EES6_EppEv.exit.us.i.i.i, %.lr.ph.i.i.i3
+  %.sroa.022.2.i = phi ptr [ %3, %.lr.ph.i.i.i3 ], [ %.sroa.022.3.i, %_ZNR9hb_iter_tI13hb_map_iter_tI17hb_sorted_array_tIKN3AAT11FeatureNameEEMS3_KF28hb_aat_layout_feature_type_tvEL24hb_function_sortedness_t0ELPv0EES6_EppEv.exit.us.i.i.i ]
+  %.sroa.7.2.i = phi i32 [ %.sroa.speculated.i.i.i, %.lr.ph.i.i.i3 ], [ %.sroa.7.3.i, %_ZNR9hb_iter_tI13hb_map_iter_tI17hb_sorted_array_tIKN3AAT11FeatureNameEEMS3_KF28hb_aat_layout_feature_type_tvEL24hb_function_sortedness_t0ELPv0EES6_EppEv.exit.us.i.i.i ]
+  %43 = phi i32 [ %.sroa.speculated.i.i.i, %.lr.ph.i.i.i3 ], [ %55, %_ZNR9hb_iter_tI13hb_map_iter_tI17hb_sorted_array_tIKN3AAT11FeatureNameEEMS3_KF28hb_aat_layout_feature_type_tvEL24hb_function_sortedness_t0ELPv0EES6_EppEv.exit.us.i.i.i ]
+  %44 = phi ptr [ %42, %.lr.ph.i.i.i3 ], [ %56, %_ZNR9hb_iter_tI13hb_map_iter_tI17hb_sorted_array_tIKN3AAT11FeatureNameEEMS3_KF28hb_aat_layout_feature_type_tvEL24hb_function_sortedness_t0ELPv0EES6_EppEv.exit.us.i.i.i ]
   %45 = load i8, ptr %44, align 1
   %46 = zext i8 %45 to i32
   %47 = shl nuw nsw i32 %46, 8
@@ -3450,28 +3450,28 @@ _ZN9hb_iter_tI13hb_map_iter_tI17hb_sorted_array_tIKN3AAT11FeatureNameEEMS3_KF28h
   %49 = load i8, ptr %48, align 1
   %50 = zext i8 %49 to i32
   %51 = or disjoint i32 %47, %50
-  %.not.i.i.i.i.us.i.i = icmp eq i32 %.sroa.7.2.i, 0
-  br i1 %.not.i.i.i.i.us.i.i, label %_ZN9hb_iter_tI10hb_array_tI28hb_aat_layout_feature_type_tERS1_EdeEv.exit.i.i.us.i.thread.i, label %52
+  %.not.i.i.i.us.i.i.i = icmp eq i32 %.sroa.7.2.i, 0
+  br i1 %.not.i.i.i.us.i.i.i, label %_ZN9hb_iter_tI10hb_array_tI28hb_aat_layout_feature_type_tERS1_EdeEv.exit.i.us.i.i.thread.i, label %52
 
-_ZN9hb_iter_tI10hb_array_tI28hb_aat_layout_feature_type_tERS1_EdeEv.exit.i.i.us.i.thread.i: ; preds = %_ZN9hb_iter_tI13hb_map_iter_tI17hb_sorted_array_tIKN3AAT11FeatureNameEEMS3_KF28hb_aat_layout_feature_type_tvEL24hb_function_sortedness_t0ELPv0EES6_EdeEv.exit.i.us.i.i
+_ZN9hb_iter_tI10hb_array_tI28hb_aat_layout_feature_type_tERS1_EdeEv.exit.i.us.i.i.thread.i: ; preds = %_ZN9hb_iter_tI13hb_map_iter_tI17hb_sorted_array_tIKN3AAT11FeatureNameEEMS3_KF28hb_aat_layout_feature_type_tvEL24hb_function_sortedness_t0ELPv0EES6_EdeEv.exit.us.i.i.i
   store i32 %51, ptr @_hb_CrapPool, align 16
-  br label %_ZNR9hb_iter_tI13hb_map_iter_tI17hb_sorted_array_tIKN3AAT11FeatureNameEEMS3_KF28hb_aat_layout_feature_type_tvEL24hb_function_sortedness_t0ELPv0EES6_EppEv.exit.i.us.i.i
+  br label %_ZNR9hb_iter_tI13hb_map_iter_tI17hb_sorted_array_tIKN3AAT11FeatureNameEEMS3_KF28hb_aat_layout_feature_type_tvEL24hb_function_sortedness_t0ELPv0EES6_EppEv.exit.us.i.i.i
 
-52:                                               ; preds = %_ZN9hb_iter_tI13hb_map_iter_tI17hb_sorted_array_tIKN3AAT11FeatureNameEEMS3_KF28hb_aat_layout_feature_type_tvEL24hb_function_sortedness_t0ELPv0EES6_EdeEv.exit.i.us.i.i
+52:                                               ; preds = %_ZN9hb_iter_tI13hb_map_iter_tI17hb_sorted_array_tIKN3AAT11FeatureNameEEMS3_KF28hb_aat_layout_feature_type_tvEL24hb_function_sortedness_t0ELPv0EES6_EdeEv.exit.us.i.i.i
   store i32 %51, ptr %.sroa.022.2.i, align 4
   %53 = add i32 %.sroa.7.2.i, -1
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.022.2.i, i64 4
-  br label %_ZNR9hb_iter_tI13hb_map_iter_tI17hb_sorted_array_tIKN3AAT11FeatureNameEEMS3_KF28hb_aat_layout_feature_type_tvEL24hb_function_sortedness_t0ELPv0EES6_EppEv.exit.i.us.i.i
+  br label %_ZNR9hb_iter_tI13hb_map_iter_tI17hb_sorted_array_tIKN3AAT11FeatureNameEEMS3_KF28hb_aat_layout_feature_type_tvEL24hb_function_sortedness_t0ELPv0EES6_EppEv.exit.us.i.i.i
 
-_ZNR9hb_iter_tI13hb_map_iter_tI17hb_sorted_array_tIKN3AAT11FeatureNameEEMS3_KF28hb_aat_layout_feature_type_tvEL24hb_function_sortedness_t0ELPv0EES6_EppEv.exit.i.us.i.i: ; preds = %52, %_ZN9hb_iter_tI10hb_array_tI28hb_aat_layout_feature_type_tERS1_EdeEv.exit.i.i.us.i.thread.i
-  %.sroa.022.3.i = phi ptr [ %54, %52 ], [ %.sroa.022.2.i, %_ZN9hb_iter_tI10hb_array_tI28hb_aat_layout_feature_type_tERS1_EdeEv.exit.i.i.us.i.thread.i ]
-  %.sroa.7.3.i = phi i32 [ %53, %52 ], [ 0, %_ZN9hb_iter_tI10hb_array_tI28hb_aat_layout_feature_type_tERS1_EdeEv.exit.i.i.us.i.thread.i ]
+_ZNR9hb_iter_tI13hb_map_iter_tI17hb_sorted_array_tIKN3AAT11FeatureNameEEMS3_KF28hb_aat_layout_feature_type_tvEL24hb_function_sortedness_t0ELPv0EES6_EppEv.exit.us.i.i.i: ; preds = %52, %_ZN9hb_iter_tI10hb_array_tI28hb_aat_layout_feature_type_tERS1_EdeEv.exit.i.us.i.i.thread.i
+  %.sroa.022.3.i = phi ptr [ %54, %52 ], [ %.sroa.022.2.i, %_ZN9hb_iter_tI10hb_array_tI28hb_aat_layout_feature_type_tERS1_EdeEv.exit.i.us.i.i.thread.i ]
+  %.sroa.7.3.i = phi i32 [ %53, %52 ], [ 0, %_ZN9hb_iter_tI10hb_array_tI28hb_aat_layout_feature_type_tERS1_EdeEv.exit.i.us.i.i.thread.i ]
   %55 = add i32 %43, -1
   %56 = getelementptr inbounds nuw i8, ptr %44, i64 12
-  %.not.i.us.i.i = icmp eq i32 %55, 0
-  br i1 %.not.i.us.i.i, label %_ZNK3AAT4feat17get_feature_typesEjPjP28hb_aat_layout_feature_type_t.exit, label %_ZN9hb_iter_tI13hb_map_iter_tI17hb_sorted_array_tIKN3AAT11FeatureNameEEMS3_KF28hb_aat_layout_feature_type_tvEL24hb_function_sortedness_t0ELPv0EES6_EdeEv.exit.i.us.i.i, !llvm.loop !25
+  %.not.us.i.i.i = icmp eq i32 %55, 0
+  br i1 %.not.us.i.i.i, label %_ZNK3AAT4feat17get_feature_typesEjPjP28hb_aat_layout_feature_type_t.exit, label %_ZN9hb_iter_tI13hb_map_iter_tI17hb_sorted_array_tIKN3AAT11FeatureNameEEMS3_KF28hb_aat_layout_feature_type_tvEL24hb_function_sortedness_t0ELPv0EES6_EdeEv.exit.us.i.i.i, !llvm.loop !25
 
-_ZNK3AAT4feat17get_feature_typesEjPjP28hb_aat_layout_feature_type_t.exit: ; preds = %_ZNR9hb_iter_tI13hb_map_iter_tI17hb_sorted_array_tIKN3AAT11FeatureNameEEMS3_KF28hb_aat_layout_feature_type_tvEL24hb_function_sortedness_t0ELPv0EES6_EppEv.exit.i.us.i.i, %_ZNK16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tEptEv.exit, %_ZNK17hb_sorted_array_tIKN3AAT11FeatureNameEE9sub_arrayEjPj.exit.i
+_ZNK3AAT4feat17get_feature_typesEjPjP28hb_aat_layout_feature_type_t.exit: ; preds = %_ZNR9hb_iter_tI13hb_map_iter_tI17hb_sorted_array_tIKN3AAT11FeatureNameEEMS3_KF28hb_aat_layout_feature_type_tvEL24hb_function_sortedness_t0ELPv0EES6_EppEv.exit.us.i.i.i, %_ZNK16hb_lazy_loader_tIN3AAT4featE22hb_table_lazy_loader_tIS1_Lj34ELb0EE9hb_face_tLj34E9hb_blob_tEptEv.exit, %_ZNK17hb_sorted_array_tIKN3AAT11FeatureNameEE9sub_arrayEjPj.exit.i
   %57 = getelementptr inbounds nuw i8, ptr %spec.select.i.i.i.i.i, i64 4
   %58 = load i8, ptr %57, align 1
   %59 = zext i8 %58 to i32

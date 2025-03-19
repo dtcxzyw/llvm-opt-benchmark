@@ -1438,118 +1438,115 @@ define internal fastcc noundef i32 @_ZN5boost8charconv6detail3ryuL22generic_to_c
   %44 = ptrtoint ptr %.056 to i64
   %45 = sub i64 %43, %44
   %46 = trunc i64 %45 to i32
-  %47 = load i32, ptr %5, align 16, !tbaa !13
-  %48 = icmp eq i32 %47, 0
-  br i1 %48, label %49, label %53
+  %47 = icmp eq i32 %6, 0
+  br i1 %47, label %48, label %51
 
-49:                                               ; preds = %42
-  %50 = load i8, ptr %29, align 4, !tbaa !20, !range !24, !noundef !25
-  %51 = zext nneg i8 %50 to i32
-  %52 = add nsw i32 %51, %46
+48:                                               ; preds = %42
+  %49 = zext nneg i8 %30 to i32
+  %50 = add nsw i32 %46, %49
   br label %_ZN5boost8charconv6detail3ryuL16copy_special_strEPclNS2_20floating_decimal_128E.exit
 
-53:                                               ; preds = %42
-  %54 = icmp sgt i32 %47, 0
-  br i1 %54, label %55, label %64
+51:                                               ; preds = %42
+  %52 = icmp sgt i32 %6, 0
+  br i1 %52, label %53, label %62
 
-55:                                               ; preds = %53
-  %56 = add nsw i32 %47, %46
-  %57 = sext i32 %56 to i64
-  %58 = icmp slt i64 %2, %57
-  br i1 %58, label %_ZN5boost8charconv6detail3ryuL16copy_special_strEPclNS2_20floating_decimal_128E.exit, label %59
+53:                                               ; preds = %51
+  %54 = add nsw i32 %6, %46
+  %55 = sext i32 %54 to i64
+  %56 = icmp slt i64 %2, %55
+  br i1 %56, label %_ZN5boost8charconv6detail3ryuL16copy_special_strEPclNS2_20floating_decimal_128E.exit, label %57
 
-59:                                               ; preds = %55
-  %60 = zext nneg i32 %47 to i64
-  tail call void @llvm.memset.p0.i64(ptr align 1 %38, i8 48, i64 %60, i1 false)
-  %61 = getelementptr inbounds nuw i8, ptr %38, i64 %60
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 1
-  store i8 46, ptr %61, align 1, !tbaa !23
-  %63 = add nsw i32 %3, 1
-  br label %104
+57:                                               ; preds = %53
+  %58 = zext nneg i32 %6 to i64
+  tail call void @llvm.memset.p0.i64(ptr align 1 %38, i8 48, i64 %58, i1 false)
+  %59 = getelementptr inbounds nuw i8, ptr %38, i64 %58
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 1
+  store i8 46, ptr %59, align 1, !tbaa !23
+  %61 = add nsw i32 %3, 1
+  br label %102
 
-64:                                               ; preds = %53
-  %65 = sub nsw i32 0, %47
-  %66 = icmp slt i32 %65, %46
-  br i1 %66, label %67, label %85
+62:                                               ; preds = %51
+  %63 = sub nsw i32 0, %6
+  %64 = icmp slt i32 %63, %46
+  br i1 %64, label %65, label %83
 
-67:                                               ; preds = %64
-  %68 = add nsw i32 %47, %46
-  %69 = add nsw i32 %68, 1
-  %70 = sext i32 %69 to i64
-  %71 = icmp slt i64 %2, %70
-  br i1 %71, label %_ZN5boost8charconv6detail3ryuL16copy_special_strEPclNS2_20floating_decimal_128E.exit, label %72
+65:                                               ; preds = %62
+  %66 = add nsw i32 %6, 1
+  %67 = add i32 %66, %46
+  %68 = sext i32 %67 to i64
+  %69 = icmp slt i64 %2, %68
+  br i1 %69, label %_ZN5boost8charconv6detail3ryuL16copy_special_strEPclNS2_20floating_decimal_128E.exit, label %70
 
-72:                                               ; preds = %67
-  %73 = and i64 %45, 4294967295
-  %74 = getelementptr inbounds nuw i8, ptr %.056, i64 %73
-  %75 = sext i32 %47 to i64
-  %76 = getelementptr inbounds i8, ptr %74, i64 %75
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 1
-  %78 = zext nneg i32 %65 to i64
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %77, ptr nonnull align 1 %76, i64 %78, i1 false)
-  store i8 46, ptr %76, align 1
-  %79 = add nuw nsw i32 %46, 1
-  %80 = add nsw i32 %47, %79
-  %81 = sub nsw i32 %3, %80
-  %82 = sext i32 %80 to i64
-  %83 = getelementptr i8, ptr %.056, i64 %82
-  %84 = getelementptr i8, ptr %83, i64 1
-  br label %104
+70:                                               ; preds = %65
+  %71 = and i64 %45, 4294967295
+  %72 = getelementptr inbounds nuw i8, ptr %.056, i64 %71
+  %73 = sext i32 %6 to i64
+  %74 = getelementptr inbounds i8, ptr %72, i64 %73
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 1
+  %76 = zext nneg i32 %63 to i64
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %75, ptr nonnull align 1 %74, i64 %76, i1 false)
+  store i8 46, ptr %74, align 1
+  %77 = add nuw nsw i32 %46, 1
+  %78 = add nsw i32 %77, %6
+  %79 = sub nsw i32 %3, %78
+  %80 = sext i32 %78 to i64
+  %81 = getelementptr i8, ptr %.056, i64 %80
+  %82 = getelementptr i8, ptr %81, i64 1
+  br label %102
 
-85:                                               ; preds = %64
-  %86 = sub i32 2, %47
-  %87 = zext nneg i32 %86 to i64
-  %88 = icmp slt i64 %2, %87
-  br i1 %88, label %_ZN5boost8charconv6detail3ryuL16copy_special_strEPclNS2_20floating_decimal_128E.exit, label %89
+83:                                               ; preds = %62
+  %84 = sub i32 2, %6
+  %85 = zext nneg i32 %84 to i64
+  %86 = icmp slt i64 %2, %85
+  br i1 %86, label %_ZN5boost8charconv6detail3ryuL16copy_special_strEPclNS2_20floating_decimal_128E.exit, label %87
 
-89:                                               ; preds = %85
-  %90 = sext i32 %47 to i64
-  %91 = sub nsw i64 0, %90
-  %92 = getelementptr inbounds nuw i8, ptr %.056, i64 %91
+87:                                               ; preds = %83
+  %88 = sext i32 %6 to i64
+  %89 = sub nsw i64 0, %88
+  %90 = getelementptr inbounds nuw i8, ptr %.056, i64 %89
   %sext = shl i64 %45, 32
-  %93 = ashr exact i64 %sext, 32
-  %94 = sub nsw i64 0, %93
-  %95 = getelementptr inbounds i8, ptr %92, i64 %94
-  %96 = getelementptr inbounds nuw i8, ptr %95, i64 2
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %96, ptr align 1 %.056, i64 %93, i1 false)
+  %91 = ashr exact i64 %sext, 32
+  %92 = sub nsw i64 0, %91
+  %93 = getelementptr inbounds i8, ptr %90, i64 %92
+  %94 = getelementptr inbounds nuw i8, ptr %93, i64 2
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 1 %94, ptr align 1 %.056, i64 %91, i1 false)
   store i16 11824, ptr %.056, align 1
-  %97 = getelementptr inbounds nuw i8, ptr %.056, i64 2
-  %98 = add i32 %47, %46
-  %99 = sub i32 0, %98
-  %100 = sext i32 %99 to i64
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %97, i8 48, i64 %100, i1 false)
-  %101 = add nsw i32 %47, %3
-  %102 = sext i32 %86 to i64
-  %103 = getelementptr inbounds i8, ptr %.056, i64 %102
-  br label %104
+  %95 = getelementptr inbounds nuw i8, ptr %.056, i64 2
+  %96 = add i32 %6, %46
+  %97 = sub i32 0, %96
+  %98 = sext i32 %97 to i64
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %95, i8 48, i64 %98, i1 false)
+  %99 = add nsw i32 %6, %3
+  %100 = sext i32 %84 to i64
+  %101 = getelementptr inbounds i8, ptr %.056, i64 %100
+  br label %102
 
-104:                                              ; preds = %59, %89, %72
-  %.058 = phi i32 [ %63, %59 ], [ %81, %72 ], [ %101, %89 ]
-  %.157 = phi ptr [ %62, %59 ], [ %84, %72 ], [ %103, %89 ]
-  %.0 = phi i32 [ %56, %59 ], [ %79, %72 ], [ %86, %89 ]
-  %105 = icmp sgt i32 %.058, 0
-  br i1 %105, label %106, label %112
+102:                                              ; preds = %57, %87, %70
+  %.058 = phi i32 [ %61, %57 ], [ %79, %70 ], [ %99, %87 ]
+  %.157 = phi ptr [ %60, %57 ], [ %82, %70 ], [ %101, %87 ]
+  %.0 = phi i32 [ %54, %57 ], [ %77, %70 ], [ %84, %87 ]
+  %103 = icmp sgt i32 %.058, 0
+  br i1 %103, label %104, label %110
 
-106:                                              ; preds = %104
-  %107 = add nsw i32 %.0, %.058
-  %108 = sext i32 %107 to i64
-  %109 = icmp slt i64 %2, %108
-  br i1 %109, label %_ZN5boost8charconv6detail3ryuL16copy_special_strEPclNS2_20floating_decimal_128E.exit, label %110
+104:                                              ; preds = %102
+  %105 = add nsw i32 %.0, %.058
+  %106 = sext i32 %105 to i64
+  %107 = icmp slt i64 %2, %106
+  br i1 %107, label %_ZN5boost8charconv6detail3ryuL16copy_special_strEPclNS2_20floating_decimal_128E.exit, label %108
 
-110:                                              ; preds = %106
-  %111 = zext nneg i32 %.058 to i64
-  tail call void @llvm.memset.p0.i64(ptr align 1 %.157, i8 48, i64 %111, i1 false)
-  br label %112
+108:                                              ; preds = %104
+  %109 = zext nneg i32 %.058 to i64
+  tail call void @llvm.memset.p0.i64(ptr align 1 %.157, i8 48, i64 %109, i1 false)
+  br label %110
 
-112:                                              ; preds = %110, %104
-  %.1 = phi i32 [ %107, %110 ], [ %.0, %104 ]
-  %113 = load i8, ptr %29, align 4, !tbaa !20, !range !24, !noundef !25
-  %114 = zext nneg i8 %113 to i32
-  %115 = add nsw i32 %.1, %114
+110:                                              ; preds = %108, %102
+  %.1 = phi i32 [ %105, %108 ], [ %.0, %102 ]
+  %111 = zext nneg i8 %30 to i32
+  %112 = add nsw i32 %.1, %111
   br label %_ZN5boost8charconv6detail3ryuL16copy_special_strEPclNS2_20floating_decimal_128E.exit
 
-_ZN5boost8charconv6detail3ryuL16copy_special_strEPclNS2_20floating_decimal_128E.exit: ; preds = %26, %24, %23, %21, %20, %18, %17, %15, %14, %12, %40, %106, %85, %67, %55, %112, %49
-  %.054 = phi i32 [ %41, %40 ], [ %52, %49 ], [ %115, %112 ], [ -75, %55 ], [ -34, %67 ], [ -75, %85 ], [ -34, %106 ], [ 10, %14 ], [ 9, %17 ], [ 9, %20 ], [ 3, %23 ], [ %27, %26 ], [ -1, %12 ], [ -1, %15 ], [ -1, %18 ], [ -1, %21 ], [ -1, %24 ]
+_ZN5boost8charconv6detail3ryuL16copy_special_strEPclNS2_20floating_decimal_128E.exit: ; preds = %26, %24, %23, %21, %20, %18, %17, %15, %14, %12, %40, %104, %83, %65, %53, %110, %48
+  %.054 = phi i32 [ %41, %40 ], [ %50, %48 ], [ %112, %110 ], [ -75, %53 ], [ -34, %65 ], [ -75, %83 ], [ -34, %104 ], [ 10, %14 ], [ 9, %17 ], [ 9, %20 ], [ 3, %23 ], [ %27, %26 ], [ -1, %12 ], [ -1, %15 ], [ -1, %18 ], [ -1, %21 ], [ -1, %24 ]
   ret i32 %.054
 }
 

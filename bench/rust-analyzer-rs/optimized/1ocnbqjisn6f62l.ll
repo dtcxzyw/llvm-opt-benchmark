@@ -52384,7 +52384,6 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   %54 = extractvalue { i64, ptr } %52, 1
   store i64 %53, ptr %14, align 8, !noalias !15930
   store ptr %54, ptr %24, align 8, !noalias !15930
-  store i64 0, ptr %25, align 8, !noalias !15930
   %55 = getelementptr inbounds { { i32, [1 x i32] }, { i8, [55 x i8] } }, ptr %.val.i, i64 %.val9.i
   %56 = icmp eq i64 %53, 0
   br i1 %56, label %"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clone..Clone$GT$5clone17h9dd62dee197c04a7E.exit.i", label %.lr.ph.i.i.i

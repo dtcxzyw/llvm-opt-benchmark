@@ -83,7 +83,7 @@ for.body.lr.ph:                                   ; preds = %_ZN4llvh12DenseMapB
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %for.inc58
-  %this.val.i.i155 = phi i32 [ 0, %for.body.lr.ph ], [ %escapes.val12, %for.inc58 ]
+  %escapes.val12160 = phi i32 [ 0, %for.body.lr.ph ], [ %escapes.val12, %for.inc58 ]
   %instructionIndex.0143 = phi i32 [ 0, %for.body.lr.ph ], [ %add, %for.inc58 ]
   %iter.sroa.0.0142 = phi ptr [ %range.coerce0, %for.body.lr.ph ], [ %43, %for.inc58 ]
   %call6 = call noundef i32 @_ZNK6hermes11Instruction14getNumOperandsEv(ptr noundef nonnull align 8 dereferenceable(132) %iter.sroa.0.0142) #12
@@ -91,7 +91,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   br i1 %cmp139.not, label %for.end, label %for.body8
 
 for.body8:                                        ; preds = %for.body, %for.inc
-  %this.val.i.i = phi i32 [ %this.val.i.i153, %for.inc ], [ %this.val.i.i155, %for.body ]
+  %escapes.val12158 = phi i32 [ %escapes.val12157, %for.inc ], [ %escapes.val12160, %for.body ]
+  %this.val.i.i = phi i32 [ %this.val.i.i153, %for.inc ], [ %escapes.val12160, %for.body ]
   %i.0140 = phi i32 [ %inc, %for.inc ], [ 0, %for.body ]
   %call9 = call noundef ptr @_ZNK6hermes11Instruction10getOperandEj(ptr noundef nonnull align 8 dereferenceable(132) %iter.sroa.0.0142, i32 noundef %i.0140) #12
   %7 = load i8, ptr %call9, align 8
@@ -168,12 +169,15 @@ if.then17:                                        ; preds = %if.then14
   br label %for.inc
 
 for.inc:                                          ; preds = %for.body8, %if.then14, %if.then17, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPKN6hermes11InstructionEZNS2_25InstructionEscapeAnalysis8addRangeENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsIS3_Lb0ELb0EvEELb0ELb0EEEEEE6EscapeNS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_SE_EEEES5_SE_SG_SJ_E4findES5_.exit
+  %escapes.val12157 = phi i32 [ %escapes.val12158, %for.body8 ], [ %escapes.val12158, %if.then14 ], [ %sub.i.i, %if.then17 ], [ %escapes.val12158, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPKN6hermes11InstructionEZNS2_25InstructionEscapeAnalysis8addRangeENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsIS3_Lb0ELb0EvEELb0ELb0EEEEEE6EscapeNS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_SE_EEEES5_SE_SG_SJ_E4findES5_.exit ]
   %this.val.i.i153 = phi i32 [ %this.val.i.i, %for.body8 ], [ %this.val.i.i, %if.then14 ], [ %sub.i.i, %if.then17 ], [ %this.val.i.i, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPKN6hermes11InstructionEZNS2_25InstructionEscapeAnalysis8addRangeENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsIS3_Lb0ELb0EvEELb0ELb0EEEEEE6EscapeNS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_SE_EEEES5_SE_SG_SJ_E4findES5_.exit ]
   %inc = add nuw i32 %i.0140, 1
   %exitcond.not = icmp eq i32 %inc, %call6
   br i1 %exitcond.not, label %for.end, label %for.body8, !llvm.loop !7
 
 for.end:                                          ; preds = %for.inc, %for.body
+  %escapes.val12159 = phi i32 [ %escapes.val12160, %for.body ], [ %escapes.val12157, %for.inc ]
+  %this.val14.i.i.i = phi i32 [ %escapes.val12160, %for.body ], [ %this.val.i.i153, %for.inc ]
   %add.ptr = getelementptr inbounds nuw i8, ptr %iter.sroa.0.0142, i64 16
   %call21 = call noundef i32 @_ZNK6hermes5Value11getNumUsersEv(ptr noundef nonnull align 8 dereferenceable(40) %add.ptr) #12
   %cmp22.not = icmp eq i32 %call21, 0
@@ -233,7 +237,6 @@ if.end13.i.i.i37:                                 ; preds = %if.end9.i.i.i33
 
 if.end.i44:                                       ; preds = %if.then12.i.i.i, %if.then23
   %cond.sink.i.i.i = phi ptr [ %cond.i.i.i, %if.then12.i.i.i ], [ null, %if.then23 ]
-  %this.val14.i.i.i = load i32, ptr %5, align 8, !noalias !8
   %add.i.i7.i = shl i32 %this.val14.i.i.i, 2
   %mul.i.i.i = add i32 %add.i.i7.i, 4
   %mul3.i.i.i = mul i32 %this.val6.i, 3
@@ -367,10 +370,11 @@ _ZN4llvh12DenseMapBaseINS_8DenseMapIPKN6hermes11InstructionEZNS2_25InstructionEs
   store ptr %iter.sroa.0.0142, ptr %TheBucket.addr.0.i.i.i, align 8, !noalias !8
   %second.i.i9.i = getelementptr inbounds nuw i8, ptr %TheBucket.addr.0.i.i.i, i64 8
   store i64 %ref.tmp24.sroa.0.0.insert.insert, ptr %second.i.i9.i, align 4, !noalias !8
+  %escapes.val12.pre = load i32, ptr %5, align 8
   br label %if.end26
 
 if.end26:                                         ; preds = %if.end13.i.i.i37, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPKN6hermes11InstructionEZNS2_25InstructionEscapeAnalysis8addRangeENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsIS3_Lb0ELb0EvEELb0ELb0EEEEEE6EscapeNS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_SE_EEEES5_SE_SG_SJ_E16InsertIntoBucketIRKS5_JSE_EEEPSJ_SP_OT_DpOT0_.exit.i, %if.end.i.i.i23, %for.end
-  %escapes.val12 = load i32, ptr %5, align 8
+  %escapes.val12 = phi i32 [ %escapes.val12.pre, %_ZN4llvh12DenseMapBaseINS_8DenseMapIPKN6hermes11InstructionEZNS2_25InstructionEscapeAnalysis8addRangeENS_14iterator_rangeINS_14ilist_iteratorINS_12ilist_detail12node_optionsIS3_Lb0ELb0EvEELb0ELb0EEEEEE6EscapeNS_12DenseMapInfoIS5_EENS_6detail12DenseMapPairIS5_SE_EEEES5_SE_SG_SJ_E16InsertIntoBucketIRKS5_JSE_EEEPSJ_SP_OT_DpOT0_.exit.i ], [ %escapes.val12159, %if.end.i.i.i23 ], [ %escapes.val12159, %for.end ], [ %escapes.val12159, %if.end13.i.i.i37 ]
   %cmp28 = icmp ult i32 %escapes.val12, 2
   %add = add i32 %instructionIndex.0143, 1
   br i1 %cmp28, label %if.then29, label %for.inc58

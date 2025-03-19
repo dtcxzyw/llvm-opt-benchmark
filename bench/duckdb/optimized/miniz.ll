@@ -9280,112 +9280,110 @@ _ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exi
   %.0118 = phi ptr [ %110, %109 ], [ %5, %112 ], [ %119, %113 ]
   br label %123
 
-123:                                              ; preds = %139, %122
-  %.0130 = phi i64 [ %86, %122 ], [ %.1131, %139 ]
-  %.1127 = phi i64 [ %.0126, %122 ], [ %.2128, %139 ]
-  %.0124 = phi i64 [ 0, %122 ], [ %148, %139 ]
-  %.0120 = phi i64 [ 0, %122 ], [ %146, %139 ]
-  %.1 = phi i64 [ %.0119, %122 ], [ %145, %139 ]
+123:                                              ; preds = %138, %122
+  %.0130 = phi i64 [ %86, %122 ], [ %.1131, %138 ]
+  %.1127 = phi i64 [ %.0126, %122 ], [ %.2128, %138 ]
+  %.0124 = phi i64 [ 0, %122 ], [ %147, %138 ]
+  %.0120 = phi i64 [ 0, %122 ], [ %145, %138 ]
+  %.1 = phi i64 [ %.0119, %122 ], [ %144, %138 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #25
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %12) #25
-  %124 = load i64, ptr %61, align 8, !tbaa !254
-  %125 = sub i64 %124, %.0124
-  store i64 %125, ptr %12, align 8, !tbaa !53
+  %124 = sub i64 %62, %.0124
+  store i64 %124, ptr %12, align 8, !tbaa !53
   %.not156 = icmp eq i64 %.1, 0
-  br i1 %.not156, label %126, label %139
+  br i1 %.not156, label %125, label %138
 
-126:                                              ; preds = %123
-  %127 = load ptr, ptr %14, align 8, !tbaa !204
-  %128 = getelementptr inbounds nuw i8, ptr %127, i64 128
-  %129 = load ptr, ptr %128, align 8, !tbaa !241
-  %.not157 = icmp eq ptr %129, null
-  br i1 %.not157, label %130, label %139
+125:                                              ; preds = %123
+  %126 = load ptr, ptr %14, align 8, !tbaa !204
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 128
+  %128 = load ptr, ptr %127, align 8, !tbaa !241
+  %.not157 = icmp eq ptr %128, null
+  br i1 %.not157, label %129, label %138
 
-130:                                              ; preds = %126
-  %131 = call i64 @llvm.umin.i64(i64 %.0123, i64 %.1127)
-  %132 = load ptr, ptr %23, align 8, !tbaa !217
-  %133 = load ptr, ptr %70, align 8, !tbaa !228
-  %134 = call noundef i64 %132(ptr noundef %133, i64 noundef %.0130, ptr noundef %.0118, i64 noundef %131)
-  %.not158 = icmp eq i64 %134, %131
-  br i1 %.not158, label %136, label %.thread199
+129:                                              ; preds = %125
+  %130 = call i64 @llvm.umin.i64(i64 %.0123, i64 %.1127)
+  %131 = load ptr, ptr %23, align 8, !tbaa !217
+  %132 = load ptr, ptr %70, align 8, !tbaa !228
+  %133 = call noundef i64 %131(ptr noundef %132, i64 noundef %.0130, ptr noundef %.0118, i64 noundef %130)
+  %.not158 = icmp eq i64 %133, %130
+  br i1 %.not158, label %135, label %.thread199
 
-.thread199:                                       ; preds = %130
-  %135 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 11, ptr %135, align 4, !tbaa !213
+.thread199:                                       ; preds = %129
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i32 11, ptr %134, align 4, !tbaa !213
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #25
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #25
   br label %.loopexit
 
-136:                                              ; preds = %130
-  %137 = add i64 %131, %.0130
-  %138 = sub i64 %.1127, %131
-  br label %139
+135:                                              ; preds = %129
+  %136 = add i64 %130, %.0130
+  %137 = sub i64 %.1127, %130
+  br label %138
 
-139:                                              ; preds = %123, %126, %136
-  %.1131 = phi i64 [ %.0130, %123 ], [ %.0130, %126 ], [ %137, %136 ]
-  %.2128 = phi i64 [ %.1127, %123 ], [ %.1127, %126 ], [ %138, %136 ]
-  %.1121 = phi i64 [ %.0120, %123 ], [ %.0120, %126 ], [ 0, %136 ]
-  %.2 = phi i64 [ %.1, %123 ], [ 0, %126 ], [ %131, %136 ]
+138:                                              ; preds = %123, %125, %135
+  %.1131 = phi i64 [ %.0130, %123 ], [ %.0130, %125 ], [ %136, %135 ]
+  %.2128 = phi i64 [ %.1127, %123 ], [ %.1127, %125 ], [ %137, %135 ]
+  %.1121 = phi i64 [ %.0120, %123 ], [ %.0120, %125 ], [ 0, %135 ]
+  %.2 = phi i64 [ %.1, %123 ], [ 0, %125 ], [ %130, %135 ]
   store i64 %.2, ptr %11, align 8, !tbaa !53
-  %140 = getelementptr inbounds nuw i8, ptr %.0118, i64 %.1121
-  %141 = getelementptr inbounds nuw i8, ptr %2, i64 %.0124
+  %139 = getelementptr inbounds nuw i8, ptr %.0118, i64 %.1121
+  %140 = getelementptr inbounds nuw i8, ptr %2, i64 %.0124
   %.not159 = icmp eq i64 %.2128, 0
-  %142 = select i1 %.not159, i32 4, i32 6
-  %143 = call noundef i32 @_ZN12duckdb_miniz16tinfl_decompressEPNS_22tinfl_decompressor_tagEPKhPmPhS5_S4_j(ptr noundef nonnull %10, ptr noundef %140, ptr noundef nonnull %11, ptr noundef %2, ptr noundef %141, ptr noundef nonnull %12, i32 noundef %142)
-  %144 = load i64, ptr %11, align 8, !tbaa !53
-  %145 = sub i64 %.2, %144
-  %146 = add i64 %144, %.1121
-  %147 = load i64, ptr %12, align 8, !tbaa !53
-  %148 = add i64 %147, %.0124
+  %141 = select i1 %.not159, i32 4, i32 6
+  %142 = call noundef i32 @_ZN12duckdb_miniz16tinfl_decompressEPNS_22tinfl_decompressor_tagEPKhPmPhS5_S4_j(ptr noundef nonnull %10, ptr noundef %139, ptr noundef nonnull %11, ptr noundef %2, ptr noundef %140, ptr noundef nonnull %12, i32 noundef %141)
+  %143 = load i64, ptr %11, align 8, !tbaa !53
+  %144 = sub i64 %.2, %143
+  %145 = add i64 %143, %.1121
+  %146 = load i64, ptr %12, align 8, !tbaa !53
+  %147 = add i64 %146, %.0124
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %12) #25
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #25
-  switch i32 %143, label %.loopexit [
+  switch i32 %142, label %.loopexit [
     i32 1, label %123
-    i32 0, label %149
+    i32 0, label %148
   ]
 
-149:                                              ; preds = %139
-  %150 = load i64, ptr %61, align 8, !tbaa !254
-  %.not160 = icmp eq i64 %148, %150
-  br i1 %.not160, label %152, label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit164
+148:                                              ; preds = %138
+  %.not160 = icmp eq i64 %147, %62
+  br i1 %.not160, label %150, label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit164
 
-_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit164: ; preds = %149
-  %151 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 13, ptr %151, align 4, !tbaa !213
+_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit164: ; preds = %148
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i32 13, ptr %149, align 4, !tbaa !213
   br label %.loopexit
 
-152:                                              ; preds = %149
-  %153 = call noundef i64 @_ZN12duckdb_miniz8mz_crc32EmPKhm(i64 noundef 0, ptr noundef %2, i64 noundef %148)
-  %154 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %155 = load i32, ptr %154, align 8, !tbaa !253
-  %156 = zext i32 %155 to i64
-  %.not161 = icmp eq i64 %153, %156
+150:                                              ; preds = %148
+  %151 = call noundef i64 @_ZN12duckdb_miniz8mz_crc32EmPKhm(i64 noundef 0, ptr noundef %2, i64 noundef %62)
+  %152 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %153 = load i32, ptr %152, align 8, !tbaa !253
+  %154 = zext i32 %153 to i64
+  %.not161 = icmp eq i64 %151, %154
   br i1 %.not161, label %.loopexit, label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit
 
-_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit: ; preds = %152
-  %157 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 14, ptr %157, align 4, !tbaa !213
+_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit: ; preds = %150
+  %155 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i32 14, ptr %155, align 4, !tbaa !213
   br label %.loopexit
 
-.loopexit:                                        ; preds = %139, %.thread199, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit164, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit, %152
-  %.1134 = phi i32 [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit164 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit ], [ 1, %152 ], [ 0, %.thread199 ], [ 0, %139 ]
-  %158 = load ptr, ptr %14, align 8, !tbaa !204
-  %159 = getelementptr inbounds nuw i8, ptr %158, i64 128
-  %160 = load ptr, ptr %159, align 8, !tbaa !241
-  %161 = icmp ne ptr %160, null
-  %or.cond19 = or i1 %21, %161
-  br i1 %or.cond19, label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit186, label %162
+.loopexit:                                        ; preds = %138, %.thread199, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit164, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit, %150
+  %.1134 = phi i32 [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit164 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit ], [ 1, %150 ], [ 0, %.thread199 ], [ 0, %138 ]
+  %156 = load ptr, ptr %14, align 8, !tbaa !204
+  %157 = getelementptr inbounds nuw i8, ptr %156, i64 128
+  %158 = load ptr, ptr %157, align 8, !tbaa !241
+  %159 = icmp ne ptr %158, null
+  %or.cond19 = or i1 %21, %159
+  br i1 %or.cond19, label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit186, label %160
 
-162:                                              ; preds = %.loopexit
-  %163 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %164 = load ptr, ptr %163, align 8, !tbaa !211
-  %165 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %166 = load ptr, ptr %165, align 8, !tbaa !214
-  call void %164(ptr noundef %166, ptr noundef %.0118)
+160:                                              ; preds = %.loopexit
+  %161 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %162 = load ptr, ptr %161, align 8, !tbaa !211
+  %163 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %164 = load ptr, ptr %163, align 8, !tbaa !214
+  call void %162(ptr noundef %164, ptr noundef %.0118)
   br label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit186
 
-_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit186: ; preds = %25, %7, %.loopexit, %162, %112, %98, %99, %40, %_ZN12duckdb_miniz23mz_zip_reader_file_statEPNS_14mz_zip_archiveEjPNS_24mz_zip_archive_file_statE.exit, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit168, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit170, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit172, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit174, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit176, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit178, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit180, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit182, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit184
-  %.0117 = phi i32 [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit184 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit182 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit180 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit178 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit176 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit174 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit168 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit172 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit170 ], [ 0, %_ZN12duckdb_miniz23mz_zip_reader_file_statEPNS_14mz_zip_archiveEjPNS_24mz_zip_archive_file_statE.exit ], [ 1, %40 ], [ 1, %99 ], [ 1, %98 ], [ 0, %112 ], [ %.1134, %162 ], [ %.1134, %.loopexit ], [ 0, %7 ], [ 0, %25 ]
+_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit186: ; preds = %25, %7, %.loopexit, %160, %112, %98, %99, %40, %_ZN12duckdb_miniz23mz_zip_reader_file_statEPNS_14mz_zip_archiveEjPNS_24mz_zip_archive_file_statE.exit, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit168, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit170, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit172, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit174, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit176, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit178, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit180, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit182, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit184
+  %.0117 = phi i32 [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit184 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit182 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit180 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit178 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit176 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit174 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit168 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit172 ], [ 0, %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit170 ], [ 0, %_ZN12duckdb_miniz23mz_zip_reader_file_statEPNS_14mz_zip_archiveEjPNS_24mz_zip_archive_file_statE.exit ], [ 1, %40 ], [ 1, %99 ], [ 1, %98 ], [ 0, %112 ], [ %.1134, %160 ], [ %.1134, %.loopexit ], [ 0, %7 ], [ 0, %25 ]
   call void @llvm.lifetime.end.p0(i64 11000, ptr nonnull %10) #25
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #25
   call void @llvm.lifetime.end.p0(i64 1104, ptr nonnull %8) #25
@@ -9885,7 +9883,7 @@ _ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exi
   %109 = add i64 %.0157304.us, %100
   %110 = sub i64 %.1163303.us, %100
   %.not200.us = icmp eq i64 %110, 0
-  br i1 %.not200.us, label %.thread262.loopexit, label %.lr.ph.split.us, !llvm.loop !255
+  br i1 %.not200.us, label %.thread262.loopexit, label %.lr.ph.split.us, !llvm.loop !254
 
 111:                                              ; preds = %96
   %112 = call noundef i64 %2(ptr noundef %3, i64 noundef 0, ptr noundef %.0152, i64 noundef %39)
@@ -9936,7 +9934,7 @@ _ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exi
   %127 = add i64 %.0157304, %117
   %128 = sub i64 %.1163303, %117
   %.not200 = icmp eq i64 %128, 0
-  br i1 %.not200, label %.thread262, label %.lr.ph.split, !llvm.loop !255
+  br i1 %.not200, label %.thread262, label %.lr.ph.split, !llvm.loop !254
 
 129:                                              ; preds = %94
   call void @llvm.lifetime.start.p0(i64 11000, ptr nonnull %8) #25
@@ -9951,96 +9949,96 @@ _ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exi
 
 .preheader:                                       ; preds = %129
   %136 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  br label %138
+  %137 = load i64, ptr %136, align 8
+  br label %139
 
 _ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit228: ; preds = %129
-  %137 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 16, ptr %137, align 4, !tbaa !213
+  %138 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i32 16, ptr %138, align 4, !tbaa !213
   br label %.thread280
 
-138:                                              ; preds = %.preheader, %172
+139:                                              ; preds = %.preheader, %172
   %.5180 = phi i32 [ %.6, %172 ], [ 0, %.preheader ]
-  %.0171 = phi i64 [ %160, %172 ], [ 0, %.preheader ]
-  %.1168 = phi i64 [ %159, %172 ], [ %.0167, %.preheader ]
+  %.0171 = phi i64 [ %161, %172 ], [ 0, %.preheader ]
+  %.1168 = phi i64 [ %160, %172 ], [ %.0167, %.preheader ]
   %.2164 = phi i64 [ %.3165, %172 ], [ %.0162, %.preheader ]
   %.3160 = phi i64 [ %.4161, %172 ], [ 0, %.preheader ]
   %.1154 = phi i64 [ %.2155, %172 ], [ %74, %.preheader ]
-  %139 = and i64 %.3160, 32767
-  %140 = getelementptr inbounds nuw i8, ptr %134, i64 %139
+  %140 = and i64 %.3160, 32767
+  %141 = getelementptr inbounds nuw i8, ptr %134, i64 %140
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #25
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %10) #25
-  %141 = sub nuw nsw i64 32768, %139
-  store i64 %141, ptr %10, align 8, !tbaa !53
+  %142 = sub nuw nsw i64 32768, %140
+  store i64 %142, ptr %10, align 8, !tbaa !53
   %.not206 = icmp eq i64 %.1168, 0
-  br i1 %.not206, label %142, label %154
+  br i1 %.not206, label %143, label %155
 
-142:                                              ; preds = %138
-  %143 = load ptr, ptr %12, align 8, !tbaa !204
-  %144 = getelementptr inbounds nuw i8, ptr %143, i64 128
-  %145 = load ptr, ptr %144, align 8, !tbaa !241
-  %.not207 = icmp eq ptr %145, null
-  br i1 %.not207, label %146, label %154
+143:                                              ; preds = %139
+  %144 = load ptr, ptr %12, align 8, !tbaa !204
+  %145 = getelementptr inbounds nuw i8, ptr %144, i64 128
+  %146 = load ptr, ptr %145, align 8, !tbaa !241
+  %.not207 = icmp eq ptr %146, null
+  br i1 %.not207, label %147, label %155
 
-146:                                              ; preds = %142
-  %147 = call i64 @llvm.umin.i64(i64 %.0174, i64 %.2164)
-  %148 = load ptr, ptr %17, align 8, !tbaa !217
-  %149 = load ptr, ptr %58, align 8, !tbaa !228
-  %150 = call noundef i64 %148(ptr noundef %149, i64 noundef %.1154, ptr noundef %.0152, i64 noundef %147)
-  %.not208 = icmp eq i64 %150, %147
-  br i1 %.not208, label %151, label %.thread250
+147:                                              ; preds = %143
+  %148 = call i64 @llvm.umin.i64(i64 %.0174, i64 %.2164)
+  %149 = load ptr, ptr %17, align 8, !tbaa !217
+  %150 = load ptr, ptr %58, align 8, !tbaa !228
+  %151 = call noundef i64 %149(ptr noundef %150, i64 noundef %.1154, ptr noundef %.0152, i64 noundef %148)
+  %.not208 = icmp eq i64 %151, %148
+  br i1 %.not208, label %152, label %.thread250
 
-151:                                              ; preds = %146
-  %152 = add i64 %.1154, %147
-  %153 = sub i64 %.2164, %147
-  br label %154
+152:                                              ; preds = %147
+  %153 = add i64 %.1154, %148
+  %154 = sub i64 %.2164, %148
+  br label %155
 
-154:                                              ; preds = %151, %142, %138
-  %.1172 = phi i64 [ %.0171, %138 ], [ %.0171, %142 ], [ 0, %151 ]
-  %.2169 = phi i64 [ %.1168, %138 ], [ 0, %142 ], [ %147, %151 ]
-  %.3165 = phi i64 [ %.2164, %138 ], [ %.2164, %142 ], [ %153, %151 ]
-  %.2155 = phi i64 [ %.1154, %138 ], [ %.1154, %142 ], [ %152, %151 ]
+155:                                              ; preds = %152, %143, %139
+  %.1172 = phi i64 [ %.0171, %139 ], [ %.0171, %143 ], [ 0, %152 ]
+  %.2169 = phi i64 [ %.1168, %139 ], [ 0, %143 ], [ %148, %152 ]
+  %.3165 = phi i64 [ %.2164, %139 ], [ %.2164, %143 ], [ %154, %152 ]
+  %.2155 = phi i64 [ %.1154, %139 ], [ %.1154, %143 ], [ %153, %152 ]
   store i64 %.2169, ptr %9, align 8, !tbaa !53
-  %155 = getelementptr inbounds nuw i8, ptr %.0152, i64 %.1172
+  %156 = getelementptr inbounds nuw i8, ptr %.0152, i64 %.1172
   %.not209 = icmp eq i64 %.3165, 0
-  %156 = select i1 %.not209, i32 0, i32 2
-  %157 = call noundef i32 @_ZN12duckdb_miniz16tinfl_decompressEPNS_22tinfl_decompressor_tagEPKhPmPhS5_S4_j(ptr noundef nonnull %8, ptr noundef %155, ptr noundef nonnull %9, ptr noundef nonnull %134, ptr noundef nonnull %140, ptr noundef nonnull %10, i32 noundef %156)
-  %158 = load i64, ptr %9, align 8, !tbaa !53
-  %159 = sub i64 %.2169, %158
-  %160 = add i64 %158, %.1172
-  %161 = load i64, ptr %10, align 8, !tbaa !53
-  %.not210 = icmp eq i64 %161, 0
-  br i1 %.not210, label %172, label %162
+  %157 = select i1 %.not209, i32 0, i32 2
+  %158 = call noundef i32 @_ZN12duckdb_miniz16tinfl_decompressEPNS_22tinfl_decompressor_tagEPKhPmPhS5_S4_j(ptr noundef nonnull %8, ptr noundef %156, ptr noundef nonnull %9, ptr noundef nonnull %134, ptr noundef nonnull %141, ptr noundef nonnull %10, i32 noundef %157)
+  %159 = load i64, ptr %9, align 8, !tbaa !53
+  %160 = sub i64 %.2169, %159
+  %161 = add i64 %159, %.1172
+  %162 = load i64, ptr %10, align 8, !tbaa !53
+  %.not210 = icmp eq i64 %162, 0
+  br i1 %.not210, label %172, label %163
 
-162:                                              ; preds = %154
-  %163 = call noundef i64 %2(ptr noundef %3, i64 noundef %.3160, ptr noundef nonnull %140, i64 noundef %161)
-  %.not211 = icmp eq i64 %163, %161
-  br i1 %.not211, label %164, label %.thread250
+163:                                              ; preds = %155
+  %164 = call noundef i64 %2(ptr noundef %3, i64 noundef %.3160, ptr noundef nonnull %141, i64 noundef %162)
+  %.not211 = icmp eq i64 %164, %162
+  br i1 %.not211, label %165, label %.thread250
 
-164:                                              ; preds = %162
-  %165 = zext i32 %.5180 to i64
-  %166 = call noundef i64 @_ZN12duckdb_miniz8mz_crc32EmPKhm(i64 noundef %165, ptr noundef nonnull %140, i64 noundef %161)
-  %167 = trunc nuw i64 %166 to i32
-  %168 = add i64 %161, %.3160
-  %169 = load i64, ptr %136, align 8, !tbaa !254
-  %170 = icmp ugt i64 %168, %169
+165:                                              ; preds = %163
+  %166 = zext i32 %.5180 to i64
+  %167 = call noundef i64 @_ZN12duckdb_miniz8mz_crc32EmPKhm(i64 noundef %166, ptr noundef nonnull %141, i64 noundef %162)
+  %168 = trunc nuw i64 %167 to i32
+  %169 = add i64 %162, %.3160
+  %170 = icmp ugt i64 %169, %137
   br i1 %170, label %.thread250, label %172
 
-.thread250:                                       ; preds = %164, %162, %146
-  %.sink = phi i32 [ 20, %146 ], [ 31, %162 ], [ 11, %164 ]
+.thread250:                                       ; preds = %165, %163, %147
+  %.sink = phi i32 [ 20, %147 ], [ 31, %163 ], [ 11, %165 ]
   %171 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %.sink, ptr %171, align 4, !tbaa !213
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #25
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #25
   br label %.thread280
 
-172:                                              ; preds = %154, %164
-  %.6 = phi i32 [ %167, %164 ], [ %.5180, %154 ]
-  %.4161 = phi i64 [ %168, %164 ], [ %.3160, %154 ]
+172:                                              ; preds = %155, %165
+  %.6 = phi i32 [ %168, %165 ], [ %.5180, %155 ]
+  %.4161 = phi i64 [ %169, %165 ], [ %.3160, %155 ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #25
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #25
-  %173 = add nsw i32 %157, -1
+  %173 = add nsw i32 %158, -1
   %174 = icmp ult i32 %173, 2
-  br i1 %174, label %138, label %175, !llvm.loop !256
+  br i1 %174, label %139, label %175, !llvm.loop !255
 
 .thread280:                                       ; preds = %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit228, %.thread250
   call void @llvm.lifetime.end.p0(i64 11000, ptr nonnull %8) #25
@@ -10048,7 +10046,7 @@ _ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exi
 
 175:                                              ; preds = %172
   call void @llvm.lifetime.end.p0(i64 11000, ptr nonnull %8) #25
-  %176 = icmp eq i32 %157, 0
+  %176 = icmp eq i32 %158, 0
   br i1 %176, label %.thread262, label %.thread274
 
 .thread262.loopexit:                              ; preds = %107
@@ -10066,7 +10064,7 @@ _ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exi
   %.1158268288 = phi i64 [ %39, %.thread262.thread ], [ %.1158268, %.thread262 ]
   %.0151270287 = phi ptr [ null, %.thread262.thread ], [ %.0151270, %.thread262 ]
   %179 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %180 = load i64, ptr %179, align 8, !tbaa !254
+  %180 = load i64, ptr %179, align 8, !tbaa !256
   %.not213 = icmp eq i64 %.1158268288, %180
   br i1 %.not213, label %182, label %_ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exit220
 
@@ -11712,7 +11710,7 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZN12duckdb_minizL25mz_zip_f
   %63 = shl nuw nsw i64 %62, 24
   %64 = or disjoint i64 %59, %63
   %65 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store i64 %64, ptr %65, align 8, !tbaa !254
+  store i64 %64, ptr %65, align 8, !tbaa !256
   %66 = getelementptr inbounds nuw i8, ptr %2, i64 36
   %67 = load i16, ptr %66, align 1
   %68 = getelementptr inbounds nuw i8, ptr %3, i64 48
@@ -12000,7 +11998,7 @@ _ZN12duckdb_minizL16mz_zip_set_errorEPNS_14mz_zip_archiveENS_12mz_zip_errorE.exi
   %233 = zext i32 %232 to i64
   %234 = shl nuw i64 %233, 32
   %235 = or disjoint i64 %234, %230
-  store i64 %235, ptr %65, align 8, !tbaa !254
+  store i64 %235, ptr %65, align 8, !tbaa !256
   %236 = getelementptr inbounds nuw i8, ptr %.0175, i64 12
   %237 = add nsw i32 %213, -8
   br label %238
@@ -19814,9 +19812,9 @@ attributes #28 = { nounwind willreturn memory(read) }
 !251 = !{!250, !117, i64 20}
 !252 = !{!250, !18, i64 56}
 !253 = !{!250, !11, i64 24}
-!254 = !{!250, !18, i64 40}
+!254 = distinct !{!254, !7}
 !255 = distinct !{!255, !7}
-!256 = distinct !{!256, !7}
+!256 = !{!250, !18, i64 40}
 !257 = !{!258, !117, i64 92}
 !258 = !{!"_ZTSN12duckdb_miniz32mz_zip_reader_extract_iter_stateE", !17, i64 0, !11, i64 8, !11, i64 12, !11, i64 16, !18, i64 24, !18, i64 32, !18, i64 40, !18, i64 48, !18, i64 56, !18, i64 64, !250, i64 72, !17, i64 1176, !17, i64 1184, !18, i64 1192, !68, i64 1200}
 !259 = !{!258, !117, i64 94}

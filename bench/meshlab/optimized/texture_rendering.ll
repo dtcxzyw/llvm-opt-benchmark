@@ -618,9 +618,9 @@ define void @_Z13RenderTextureR4MeshSt10shared_ptrI13TextureObjectERKSt6vectorI1
 33:                                               ; preds = %20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
   %34 = icmp sgt i32 %19, 0
-  br i1 %34, label %.lr.ph121, label %._crit_edge
+  br i1 %34, label %.lr.ph120, label %._crit_edge
 
-.lr.ph121:                                        ; preds = %33
+.lr.ph120:                                        ; preds = %33
   %35 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %36 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %37 = getelementptr inbounds nuw i8, ptr %8, i64 8
@@ -632,8 +632,8 @@ define void @_Z13RenderTextureR4MeshSt10shared_ptrI13TextureObjectERKSt6vectorI1
   %wide.trip.count = zext nneg i32 %19 to i64
   br label %43
 
-43:                                               ; preds = %.lr.ph121, %_ZNSt10shared_ptrI6QImageED2Ev.exit
-  %indvars.iv = phi i64 [ 0, %.lr.ph121 ], [ %indvars.iv.next, %_ZNSt10shared_ptrI6QImageED2Ev.exit ]
+43:                                               ; preds = %.lr.ph120, %_ZNSt10shared_ptrI6QImageED2Ev.exit
+  %indvars.iv = phi i64 [ 0, %.lr.ph120 ], [ %indvars.iv.next, %_ZNSt10shared_ptrI6QImageED2Ev.exit ]
   %44 = load ptr, ptr %16, align 8
   %45 = getelementptr inbounds nuw %"class.std::vector.65", ptr %44, i64 %indvars.iv
   %46 = load ptr, ptr %2, align 8
@@ -1407,12 +1407,12 @@ _ZNSt15__allocated_ptrISaISt23_Sp_counted_ptr_inplaceI6QImageSaIvELN9__gnu_cxx12
   br label %.body99.i
 
 .loopexit.split-lp.i.loopexit:                    ; preds = %348, %349, %350, %351, %352, %439, %440, %442, %443, %445, %447, %449, %450, %452, %454, %456, %458, %461, %594
-  %lpad.loopexit61 = landingpad { ptr, i32 }
+  %lpad.loopexit60 = landingpad { ptr, i32 }
           cleanup
   br label %.body99.i
 
 .loopexit.split-lp.i.loopexit.split-lp:           ; preds = %434
-  %lpad.loopexit.split-lp62 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp61 = landingpad { ptr, i32 }
           cleanup
   br label %.body99.i
 
@@ -1898,8 +1898,8 @@ _ZN3vcgL11PullPushMipER6QImageS1_j.exit.i:        ; preds = %.noexc118.i, %.noex
   br i1 %.not.i.i, label %.lr.ph.i.i._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader.i.i, %.lr.ph.i.i
-  %indvars.iv42.i.i119 = phi i64 [ %indvars.iv.next43.i.i, %.lr.ph.i.i ], [ %indvars.iv.i.i, %.lr.ph.preheader.i.i ]
-  %589 = getelementptr %class.QImage, ptr %462, i64 %indvars.iv42.i.i119
+  %indvars.iv42.i.i118 = phi i64 [ %indvars.iv.next43.i.i, %.lr.ph.i.i ], [ %indvars.iv.i.i, %.lr.ph.preheader.i.i ]
+  %589 = getelementptr %class.QImage, ptr %462, i64 %indvars.iv42.i.i118
   %590 = getelementptr i8, ptr %589, i64 -32
   invoke fastcc void @_ZN3vcgL12PullPushFillER6QImageS1_j(ptr noundef nonnull align 8 dereferenceable(32) %590, ptr noundef nonnull align 8 dereferenceable(32) %589, i32 noundef -2147418368)
           to label %.lr.ph.i.i unwind label %.loopexit.loopexit.i.i, !noalias !13
@@ -1909,7 +1909,7 @@ _ZN3vcgL11PullPushMipER6QImageS1_j.exit.i:        ; preds = %.noexc118.i, %.noex
           to label %.lr.ph.i.i.i.i.i.i unwind label %.loopexit.loopexit.split-lp.i.i, !noalias !13
 
 .lr.ph.i.i:                                       ; preds = %.lr.ph
-  %indvars.iv.next43.i.i = add nsw i64 %indvars.iv42.i.i119, -1
+  %indvars.iv.next43.i.i = add nsw i64 %indvars.iv42.i.i118, -1
   %.not35.i.i = icmp eq i64 %indvars.iv.next43.i.i, 0
   br i1 %.not35.i.i, label %.lr.ph.i.i._crit_edge, label %.lr.ph
 
@@ -1940,7 +1940,7 @@ _ZN3vcgL8PullPushER6QImagej.exit.i:               ; preds = %.lr.ph.i.i.i.i.i.i
   br label %633
 
 .body99.i:                                        ; preds = %.loopexit.split-lp.i.loopexit, %.loopexit.split-lp.i.loopexit.split-lp, %_ZNSt6vectorI6QImageSaIS0_EED2Ev.exit, %426, %.loopexit.i
-  %.pn.i = phi { ptr, i32 } [ %427, %426 ], [ %lpad.phi.i.i, %_ZNSt6vectorI6QImageSaIS0_EED2Ev.exit ], [ %lpad.loopexit175.i, %.loopexit.i ], [ %lpad.loopexit61, %.loopexit.split-lp.i.loopexit ], [ %lpad.loopexit.split-lp62, %.loopexit.split-lp.i.loopexit.split-lp ]
+  %.pn.i = phi { ptr, i32 } [ %427, %426 ], [ %lpad.phi.i.i, %_ZNSt6vectorI6QImageSaIS0_EED2Ev.exit ], [ %lpad.loopexit175.i, %.loopexit.i ], [ %lpad.loopexit60, %.loopexit.split-lp.i.loopexit ], [ %lpad.loopexit.split-lp61, %.loopexit.split-lp.i.loopexit.split-lp ]
   %597 = load ptr, ptr %39, align 8
   %.not.i.i.i45 = icmp eq ptr %597, null
   br i1 %.not.i.i.i45, label %.body.i, label %598

@@ -1743,8 +1743,8 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   call void @_ZdlPvm(ptr noundef %382, i64 noundef %389) #23
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i
 
-common.resume.i:                                  ; preds = %911, %785, %626, %624, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i159.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i
-  %common.resume.op.i = phi { ptr, i32 } [ %lpad.phi.i.i, %785 ], [ %912, %911 ], [ %.pn.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i ], [ %.pn.i157.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i159.i.i ], [ %625, %626 ], [ %625, %624 ]
+common.resume.i:                                  ; preds = %910, %785, %626, %624, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i159.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i
+  %common.resume.op.i = phi { ptr, i32 } [ %lpad.phi.i.i, %785 ], [ %911, %910 ], [ %.pn.i.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i ], [ %.pn.i157.i.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i159.i.i ], [ %625, %626 ], [ %625, %624 ]
   resume { ptr, i32 } %common.resume.op.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i
@@ -2186,8 +2186,8 @@ _ZNSt6vectorIiSaIiEEC2EmRKiRKS0_.exit.i.i:        ; preds = %.noexc32.i.i, %_ZNS
 ._crit_edge.i17.i:                                ; preds = %620
   %indvars.iv.next.i = add nsw i64 %indvars.iv.i, %607
   %609 = add nuw nsw i32 %.02546.i.i, 1
-  %exitcond91.not.i = icmp eq i32 %609, %598
-  br i1 %exitcond91.not.i, label %.loopexit.i.i, label %.lr.ph.i14.i, !llvm.loop !168
+  %exitcond90.not.i = icmp eq i32 %609, %598
+  br i1 %exitcond90.not.i, label %.loopexit.i.i, label %.lr.ph.i14.i, !llvm.loop !168
 
 610:                                              ; preds = %620, %.lr.ph.i14.i
   %indvars.iv.i15.i = phi i64 [ 0, %.lr.ph.i14.i ], [ %indvars.iv.next.i16.i, %620 ]
@@ -2256,12 +2256,12 @@ _ZL31sortFreeEnergyInteractionsAtEndRK10gmx_mtop_tP22InteractionDefinitions.exit
   br label %637
 
 637:                                              ; preds = %._crit_edge.i18.i, %.lr.ph57.i.i
-  %.promoted61.i = phi ptr [ null, %.lr.ph57.i.i ], [ %.promoted61103.i, %._crit_edge.i18.i ]
-  %.promoted57.i = phi ptr [ null, %.lr.ph57.i.i ], [ %.promoted57101.i, %._crit_edge.i18.i ]
-  %.promoted53.i = phi ptr [ null, %.lr.ph57.i.i ], [ %.promoted5399.i, %._crit_edge.i18.i ]
-  %.promoted51.i = phi ptr [ %627, %.lr.ph57.i.i ], [ %.promoted5197.i, %._crit_edge.i18.i ]
-  %.promoted49.i = phi ptr [ %628, %.lr.ph57.i.i ], [ %.promoted4995.i, %._crit_edge.i18.i ]
-  %.promoted.i = phi ptr [ %628, %.lr.ph57.i.i ], [ %.promoted93.i, %._crit_edge.i18.i ]
+  %.promoted60.i = phi ptr [ null, %.lr.ph57.i.i ], [ %.promoted60102.i, %._crit_edge.i18.i ]
+  %.promoted56.i = phi ptr [ null, %.lr.ph57.i.i ], [ %.promoted56100.i, %._crit_edge.i18.i ]
+  %.promoted52.i = phi ptr [ null, %.lr.ph57.i.i ], [ %.promoted5298.i, %._crit_edge.i18.i ]
+  %.promoted50.i = phi ptr [ %627, %.lr.ph57.i.i ], [ %.promoted5096.i, %._crit_edge.i18.i ]
+  %.promoted48.i = phi ptr [ %628, %.lr.ph57.i.i ], [ %.promoted4894.i, %._crit_edge.i18.i ]
+  %.promoted.i = phi ptr [ %628, %.lr.ph57.i.i ], [ %.promoted92.i, %._crit_edge.i18.i ]
   %.pre5960.i.i = phi ptr [ %628, %.lr.ph57.i.i ], [ %.pre5961.i.i, %._crit_edge.i18.i ]
   %638 = phi ptr [ %627, %.lr.ph57.i.i ], [ %653, %._crit_edge.i18.i ]
   %639 = phi ptr [ %627, %.lr.ph57.i.i ], [ %654, %._crit_edge.i18.i ]
@@ -2295,12 +2295,12 @@ _ZL31sortFreeEnergyInteractionsAtEndRK10gmx_mtop_tP22InteractionDefinitions.exit
   br label %._crit_edge.i18.i
 
 ._crit_edge.i18.i:                                ; preds = %._crit_edge.i18.loopexit.i, %637
-  %.promoted61103.i = phi ptr [ %.promoted61.i, %637 ], [ %753, %._crit_edge.i18.loopexit.i ]
-  %.promoted57101.i = phi ptr [ %.promoted57.i, %637 ], [ %754, %._crit_edge.i18.loopexit.i ]
-  %.promoted5399.i = phi ptr [ %.promoted53.i, %637 ], [ %755, %._crit_edge.i18.loopexit.i ]
-  %.promoted5197.i = phi ptr [ %.promoted51.i, %637 ], [ %700, %._crit_edge.i18.loopexit.i ]
-  %.promoted4995.i = phi ptr [ %.promoted49.i, %637 ], [ %701, %._crit_edge.i18.loopexit.i ]
-  %.promoted93.i = phi ptr [ %.promoted.i, %637 ], [ %702, %._crit_edge.i18.loopexit.i ]
+  %.promoted60102.i = phi ptr [ %.promoted60.i, %637 ], [ %753, %._crit_edge.i18.loopexit.i ]
+  %.promoted56100.i = phi ptr [ %.promoted56.i, %637 ], [ %754, %._crit_edge.i18.loopexit.i ]
+  %.promoted5298.i = phi ptr [ %.promoted52.i, %637 ], [ %755, %._crit_edge.i18.loopexit.i ]
+  %.promoted5096.i = phi ptr [ %.promoted50.i, %637 ], [ %700, %._crit_edge.i18.loopexit.i ]
+  %.promoted4894.i = phi ptr [ %.promoted48.i, %637 ], [ %701, %._crit_edge.i18.loopexit.i ]
+  %.promoted92.i = phi ptr [ %.promoted.i, %637 ], [ %702, %._crit_edge.i18.loopexit.i ]
   %.pre5961.i.i = phi ptr [ %.pre5960.i.i, %637 ], [ %.pre5963.i.i, %._crit_edge.i18.loopexit.i ]
   %653 = phi ptr [ %638, %637 ], [ %703, %._crit_edge.i18.loopexit.i ]
   %654 = phi ptr [ %639, %637 ], [ %703, %._crit_edge.i18.loopexit.i ]
@@ -2311,11 +2311,11 @@ _ZL31sortFreeEnergyInteractionsAtEndRK10gmx_mtop_tP22InteractionDefinitions.exit
   br i1 %.not.i19.i, label %_ZL20globalExclusionListsRK10gmx_mtop_t.exit.i, label %637
 
 657:                                              ; preds = %_ZN3gmx11ListOfListsIiE17appendListOfListsERKS1_i.exit.i.i, %.lr.ph.i20.i
-  %658 = phi ptr [ %.promoted61.i, %.lr.ph.i20.i ], [ %753, %_ZN3gmx11ListOfListsIiE17appendListOfListsERKS1_i.exit.i.i ]
-  %659 = phi ptr [ %.promoted57.i, %.lr.ph.i20.i ], [ %754, %_ZN3gmx11ListOfListsIiE17appendListOfListsERKS1_i.exit.i.i ]
-  %660 = phi ptr [ %.promoted53.i, %.lr.ph.i20.i ], [ %755, %_ZN3gmx11ListOfListsIiE17appendListOfListsERKS1_i.exit.i.i ]
-  %661 = phi ptr [ %.promoted51.i, %.lr.ph.i20.i ], [ %700, %_ZN3gmx11ListOfListsIiE17appendListOfListsERKS1_i.exit.i.i ]
-  %662 = phi ptr [ %.promoted49.i, %.lr.ph.i20.i ], [ %701, %_ZN3gmx11ListOfListsIiE17appendListOfListsERKS1_i.exit.i.i ]
+  %658 = phi ptr [ %.promoted60.i, %.lr.ph.i20.i ], [ %753, %_ZN3gmx11ListOfListsIiE17appendListOfListsERKS1_i.exit.i.i ]
+  %659 = phi ptr [ %.promoted56.i, %.lr.ph.i20.i ], [ %754, %_ZN3gmx11ListOfListsIiE17appendListOfListsERKS1_i.exit.i.i ]
+  %660 = phi ptr [ %.promoted52.i, %.lr.ph.i20.i ], [ %755, %_ZN3gmx11ListOfListsIiE17appendListOfListsERKS1_i.exit.i.i ]
+  %661 = phi ptr [ %.promoted50.i, %.lr.ph.i20.i ], [ %700, %_ZN3gmx11ListOfListsIiE17appendListOfListsERKS1_i.exit.i.i ]
+  %662 = phi ptr [ %.promoted48.i, %.lr.ph.i20.i ], [ %701, %_ZN3gmx11ListOfListsIiE17appendListOfListsERKS1_i.exit.i.i ]
   %663 = phi ptr [ %.promoted.i, %.lr.ph.i20.i ], [ %702, %_ZN3gmx11ListOfListsIiE17appendListOfListsERKS1_i.exit.i.i ]
   %.pre59.i.i = phi ptr [ %.pre5960.i.i, %.lr.ph.i20.i ], [ %.pre5963.i.i, %_ZN3gmx11ListOfListsIiE17appendListOfListsERKS1_i.exit.i.i ]
   %664 = phi ptr [ %638, %.lr.ph.i20.i ], [ %703, %_ZN3gmx11ListOfListsIiE17appendListOfListsERKS1_i.exit.i.i ]
@@ -2575,12 +2575,12 @@ _ZN3gmx11ListOfListsIiE17appendListOfListsERKS1_i.exit.i.i: ; preds = %.lr.ph30.
   br label %common.resume.i
 
 _ZL20globalExclusionListsRK10gmx_mtop_t.exit.i:   ; preds = %._crit_edge.i18.i, %_ZL31sortFreeEnergyInteractionsAtEndRK10gmx_mtop_tP22InteractionDefinitions.exit.i
-  %786 = phi ptr [ null, %_ZL31sortFreeEnergyInteractionsAtEndRK10gmx_mtop_tP22InteractionDefinitions.exit.i ], [ %.promoted61103.i, %._crit_edge.i18.i ]
-  %787 = phi ptr [ null, %_ZL31sortFreeEnergyInteractionsAtEndRK10gmx_mtop_tP22InteractionDefinitions.exit.i ], [ %.promoted5399.i, %._crit_edge.i18.i ]
-  %788 = phi ptr [ null, %_ZL31sortFreeEnergyInteractionsAtEndRK10gmx_mtop_tP22InteractionDefinitions.exit.i ], [ %.promoted57101.i, %._crit_edge.i18.i ]
-  %789 = phi ptr [ %628, %_ZL31sortFreeEnergyInteractionsAtEndRK10gmx_mtop_tP22InteractionDefinitions.exit.i ], [ %.promoted93.i, %._crit_edge.i18.i ]
-  %790 = phi ptr [ %628, %_ZL31sortFreeEnergyInteractionsAtEndRK10gmx_mtop_tP22InteractionDefinitions.exit.i ], [ %.promoted4995.i, %._crit_edge.i18.i ]
-  %791 = phi ptr [ %627, %_ZL31sortFreeEnergyInteractionsAtEndRK10gmx_mtop_tP22InteractionDefinitions.exit.i ], [ %.promoted5197.i, %._crit_edge.i18.i ]
+  %786 = phi ptr [ null, %_ZL31sortFreeEnergyInteractionsAtEndRK10gmx_mtop_tP22InteractionDefinitions.exit.i ], [ %.promoted60102.i, %._crit_edge.i18.i ]
+  %787 = phi ptr [ null, %_ZL31sortFreeEnergyInteractionsAtEndRK10gmx_mtop_tP22InteractionDefinitions.exit.i ], [ %.promoted5298.i, %._crit_edge.i18.i ]
+  %788 = phi ptr [ null, %_ZL31sortFreeEnergyInteractionsAtEndRK10gmx_mtop_tP22InteractionDefinitions.exit.i ], [ %.promoted56100.i, %._crit_edge.i18.i ]
+  %789 = phi ptr [ %628, %_ZL31sortFreeEnergyInteractionsAtEndRK10gmx_mtop_tP22InteractionDefinitions.exit.i ], [ %.promoted92.i, %._crit_edge.i18.i ]
+  %790 = phi ptr [ %628, %_ZL31sortFreeEnergyInteractionsAtEndRK10gmx_mtop_tP22InteractionDefinitions.exit.i ], [ %.promoted4894.i, %._crit_edge.i18.i ]
+  %791 = phi ptr [ %627, %_ZL31sortFreeEnergyInteractionsAtEndRK10gmx_mtop_tP22InteractionDefinitions.exit.i ], [ %.promoted5096.i, %._crit_edge.i18.i ]
   %792 = getelementptr inbounds nuw i8, ptr %1, i64 2760
   %793 = load ptr, ptr %792, align 8, !tbaa !92
   %794 = getelementptr inbounds nuw i8, ptr %1, i64 2768
@@ -2621,14 +2621,14 @@ _ZNSt6vectorIiSaIiEEaSEOS1_.exit.i.i:             ; preds = %797, %_ZL20globalEx
 _ZN3gmx11ListOfListsIiED2Ev.exit.i:               ; preds = %806, %_ZNSt6vectorIiSaIiEEaSEOS1_.exit.i.i
   %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %0, i64 712
   %.pre.i = load ptr, ptr %.phi.trans.insert.i, align 8, !tbaa !133
-  %.phi.trans.insert104.i = getelementptr inbounds nuw i8, ptr %0, i64 720
-  %.pre105.i = load ptr, ptr %.phi.trans.insert104.i, align 8, !tbaa !133
+  %.phi.trans.insert103.i = getelementptr inbounds nuw i8, ptr %0, i64 720
+  %.pre104.i = load ptr, ptr %.phi.trans.insert103.i, align 8, !tbaa !133
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %12) #20
-  %810 = icmp eq ptr %.pre.i, %.pre105.i
+  %810 = icmp eq ptr %.pre.i, %.pre104.i
   br i1 %810, label %_ZL13gen_local_topRK10gmx_mtop_tbbP14gmx_localtop_t.exit, label %811
 
 811:                                              ; preds = %_ZN3gmx11ListOfListsIiED2Ev.exit.i
-  %812 = ptrtoint ptr %.pre105.i to i64
+  %812 = ptrtoint ptr %.pre104.i to i64
   %813 = ptrtoint ptr %.pre.i to i64
   %814 = sub i64 %812, %813
   %815 = getelementptr i8, ptr %.pre.i, i64 %814
@@ -2658,13 +2658,13 @@ _ZN3gmx11ListOfListsIiED2Ev.exit.i:               ; preds = %806, %_ZNSt6vectorI
   %832 = load i32, ptr %4, align 8, !tbaa !179
   %833 = icmp sgt i32 %832, 0
   %.pre.pre.i.i = load ptr, ptr %828, align 8, !tbaa !182
-  br i1 %833, label %.lr.ph.i35.i, label %._crit_edge.i30.i
+  br i1 %833, label %.lr.ph.i34.i, label %._crit_edge.i30.i
 
-.preheader.i38.i:                                 ; preds = %.lr.ph.i35.i
+.preheader.i37.i:                                 ; preds = %.lr.ph.i34.i
   %834 = icmp sgt i32 %858, 0
   br i1 %834, label %.lr.ph64.i.i, label %._crit_edge.i30.i
 
-.lr.ph64.i.i:                                     ; preds = %.preheader.i38.i
+.lr.ph64.i.i:                                     ; preds = %.preheader.i37.i
   %835 = icmp sgt i64 %816, 0
   br i1 %835, label %.lr.ph61.us.i.i, label %.lr.ph64.split.i.i
 
@@ -2711,8 +2711,8 @@ _ZN3gmx11ListOfListsIiED2Ev.exit.i:               ; preds = %806, %_ZNSt6vectorI
   %852 = getelementptr i32, ptr %845, i64 %.04057.us.us.i.i
   store i32 %851, ptr %852, align 4, !tbaa !83
   %853 = add nuw nsw i64 %.04057.us.us.i.i, 1
-  %exitcond.not.i39.i = icmp eq i64 %853, %816
-  br i1 %exitcond.not.i39.i, label %..loopexit_crit_edge.us.us.loopexit.i.i, label %849, !llvm.loop !184
+  %exitcond.not.i38.i = icmp eq i64 %853, %816
+  br i1 %exitcond.not.i38.i, label %..loopexit_crit_edge.us.us.loopexit.i.i, label %849, !llvm.loop !184
 
 ._crit_edge.split.us.us.i.i:                      ; preds = %..loopexit_crit_edge.us.us.i.i
   %indvars.iv.next73.i.i = add nuw nsw i64 %indvars.iv72.i.i, 1
@@ -2721,17 +2721,17 @@ _ZN3gmx11ListOfListsIiED2Ev.exit.i:               ; preds = %806, %_ZNSt6vectorI
   %856 = icmp slt i64 %indvars.iv.next73.i.i, %855
   br i1 %856, label %.lr.ph61.us.i.i, label %._crit_edge.i30.i, !llvm.loop !185
 
-.lr.ph.i35.i:                                     ; preds = %811, %.lr.ph.i35.i
-  %indvars.iv.i36.i = phi i64 [ %indvars.iv.next.i37.i, %.lr.ph.i35.i ], [ 0, %811 ]
-  %857 = getelementptr inbounds nuw i32, ptr %.pre.pre.i.i, i64 %indvars.iv.i36.i
+.lr.ph.i34.i:                                     ; preds = %811, %.lr.ph.i34.i
+  %indvars.iv.i35.i = phi i64 [ %indvars.iv.next.i36.i, %.lr.ph.i34.i ], [ 0, %811 ]
+  %857 = getelementptr inbounds nuw i32, ptr %.pre.pre.i.i, i64 %indvars.iv.i35.i
   store i32 0, ptr %857, align 4, !tbaa !83
-  %indvars.iv.next.i37.i = add nuw nsw i64 %indvars.iv.i36.i, 1
+  %indvars.iv.next.i36.i = add nuw nsw i64 %indvars.iv.i35.i, 1
   %858 = load i32, ptr %4, align 8, !tbaa !179
   %859 = sext i32 %858 to i64
-  %860 = icmp slt i64 %indvars.iv.next.i37.i, %859
-  br i1 %860, label %.lr.ph.i35.i, label %.preheader.i38.i, !llvm.loop !186
+  %860 = icmp slt i64 %indvars.iv.next.i36.i, %859
+  br i1 %860, label %.lr.ph.i34.i, label %.preheader.i37.i, !llvm.loop !186
 
-._crit_edge.i30.i:                                ; preds = %.lr.ph64.split.i.i, %._crit_edge.split.us.us.i.i, %.preheader.i38.i, %811
+._crit_edge.i30.i:                                ; preds = %.lr.ph64.split.i.i, %._crit_edge.split.us.us.i.i, %.preheader.i37.i, %811
   %861 = getelementptr i8, ptr %815, i64 -4
   %862 = load i32, ptr %861, align 4, !tbaa !83
   %863 = sext i32 %862 to i64
@@ -2751,9 +2751,9 @@ _ZN3gmx11ListOfListsIiED2Ev.exit.i:               ; preds = %806, %_ZNSt6vectorI
   %874 = ashr exact i64 %873, 2
   %875 = add nsw i64 %874, -1
   %876 = icmp ugt i64 %875, 384307168202282325
-  br i1 %876, label %.noexc.i34.i, label %_ZNSt6vectorIN3gmx14ExclusionBlockESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i.i
+  br i1 %876, label %.noexc.i33.i, label %_ZNSt6vectorIN3gmx14ExclusionBlockESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i.i
 
-.noexc.i34.i:                                     ; preds = %._crit_edge.i30.i
+.noexc.i33.i:                                     ; preds = %._crit_edge.i30.i
   call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.11) #21
   unreachable
 
@@ -2783,35 +2783,33 @@ _ZNSt6vectorIN3gmx14ExclusionBlockESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i.i
 
 _ZNSt12_Vector_baseIN3gmx14ExclusionBlockESaIS1_EEC2EmRKS2_.exit.thread.i.i.i: ; preds = %.lr.ph.preheader.i.i.i.i.i.i.i, %_ZNSt6vectorIN3gmx14ExclusionBlockESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i.i
   %884 = phi ptr [ %878, %.lr.ph.preheader.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIN3gmx14ExclusionBlockESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i.i ]
-  %.sink.i.i32.i = phi ptr [ %879, %.lr.ph.preheader.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIN3gmx14ExclusionBlockESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i.i ]
-  %.0.lcssa.i.i.i.i.i.i.i = phi ptr [ %scevgep.i.i.i.i.i.i.i, %.lr.ph.preheader.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIN3gmx14ExclusionBlockESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i.i ]
-  %885 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %886 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store ptr %.sink.i.i32.i, ptr %886, align 8, !tbaa !190
-  store ptr %.0.lcssa.i.i.i.i.i.i.i, ptr %885, align 8, !tbaa !191
-  %887 = ptrtoint ptr %.0.lcssa.i.i.i.i.i.i.i to i64
-  %888 = ptrtoint ptr %884 to i64
-  %889 = sub i64 %887, %888
-  %890 = getelementptr inbounds nuw i8, ptr %884, i64 %889
-  invoke void @_ZN3gmx23blockaToExclusionBlocksEPK8t_blockaNS_8ArrayRefINS_14ExclusionBlockEEE(ptr noundef nonnull %4, ptr %884, ptr %890)
-          to label %891 unwind label %911
+  %885 = phi ptr [ %879, %.lr.ph.preheader.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIN3gmx14ExclusionBlockESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i.i ]
+  %886 = phi ptr [ %scevgep.i.i.i.i.i.i.i, %.lr.ph.preheader.i.i.i.i.i.i.i ], [ null, %_ZNSt6vectorIN3gmx14ExclusionBlockESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.i.i ]
+  %887 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %888 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  store ptr %885, ptr %888, align 8, !tbaa !190
+  store ptr %886, ptr %887, align 8, !tbaa !191
+  %889 = ptrtoint ptr %886 to i64
+  %890 = ptrtoint ptr %884 to i64
+  %891 = sub i64 %889, %890
+  %892 = getelementptr inbounds nuw i8, ptr %884, i64 %891
+  invoke void @_ZN3gmx23blockaToExclusionBlocksEPK8t_blockaNS_8ArrayRefINS_14ExclusionBlockEEE(ptr noundef nonnull %4, ptr %884, ptr %892)
+          to label %893 unwind label %910
 
-891:                                              ; preds = %_ZNSt12_Vector_baseIN3gmx14ExclusionBlockESaIS1_EEC2EmRKS2_.exit.thread.i.i.i
-  %892 = load ptr, ptr %5, align 8, !tbaa !187
-  %893 = load ptr, ptr %885, align 8, !tbaa !191
-  %894 = ptrtoint ptr %893 to i64
-  %895 = ptrtoint ptr %892 to i64
-  %896 = sub i64 %894, %895
-  %897 = getelementptr inbounds nuw i8, ptr %892, i64 %896
-  invoke void @_ZN3gmx15mergeExclusionsEPNS_11ListOfListsIiEENS_8ArrayRefINS_14ExclusionBlockEEE(ptr noundef nonnull %792, ptr %892, ptr %897)
-          to label %898 unwind label %911
+893:                                              ; preds = %_ZNSt12_Vector_baseIN3gmx14ExclusionBlockESaIS1_EEC2EmRKS2_.exit.thread.i.i.i
+  %894 = load ptr, ptr %5, align 8, !tbaa !187
+  %895 = ptrtoint ptr %894 to i64
+  %896 = sub i64 %889, %895
+  %897 = getelementptr inbounds nuw i8, ptr %894, i64 %896
+  invoke void @_ZN3gmx15mergeExclusionsEPNS_11ListOfListsIiEENS_8ArrayRefINS_14ExclusionBlockEEE(ptr noundef nonnull %792, ptr %894, ptr %897)
+          to label %898 unwind label %910
 
-898:                                              ; preds = %891
-  %.not4.i.i.i.i.i.i = icmp eq ptr %892, %893
+898:                                              ; preds = %893
+  %.not4.i.i.i.i.i.i = icmp eq ptr %894, %886
   br i1 %.not4.i.i.i.i.i.i, label %_ZSt8_DestroyIPN3gmx14ExclusionBlockES1_EvT_S3_RSaIT0_E.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %898, %_ZSt8_DestroyIN3gmx14ExclusionBlockEEvPT_.exit.i.i.i.i.i.i
-  %.05.i.i.i.i.i.i = phi ptr [ %906, %_ZSt8_DestroyIN3gmx14ExclusionBlockEEvPT_.exit.i.i.i.i.i.i ], [ %892, %898 ]
+  %.05.i.i.i.i.i.i = phi ptr [ %906, %_ZSt8_DestroyIN3gmx14ExclusionBlockEEvPT_.exit.i.i.i.i.i.i ], [ %894, %898 ]
   %899 = load ptr, ptr %.05.i.i.i.i.i.i, align 8, !tbaa !92
   %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %899, null
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %_ZSt8_DestroyIN3gmx14ExclusionBlockEEvPT_.exit.i.i.i.i.i.i, label %900
@@ -2827,22 +2825,21 @@ _ZNSt12_Vector_baseIN3gmx14ExclusionBlockESaIS1_EEC2EmRKS2_.exit.thread.i.i.i: ;
 
 _ZSt8_DestroyIN3gmx14ExclusionBlockEEvPT_.exit.i.i.i.i.i.i: ; preds = %900, %.lr.ph.i.i.i.i.i.i
   %906 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i, i64 24
-  %.not.i.i.i.i47.i.i = icmp eq ptr %906, %893
+  %.not.i.i.i.i47.i.i = icmp eq ptr %906, %886
   br i1 %.not.i.i.i.i47.i.i, label %_ZSt8_DestroyIPN3gmx14ExclusionBlockES1_EvT_S3_RSaIT0_E.exit.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !192
 
 _ZSt8_DestroyIPN3gmx14ExclusionBlockES1_EvT_S3_RSaIT0_E.exit.i.i.i: ; preds = %_ZSt8_DestroyIN3gmx14ExclusionBlockEEvPT_.exit.i.i.i.i.i.i, %898
-  %.not.i.i.i.i33.i = icmp eq ptr %892, null
-  br i1 %.not.i.i.i.i33.i, label %_ZL18addMimicExclusionsPN3gmx11ListOfListsIiEENS_8ArrayRefIKiEE.exit.i, label %907
+  %.not.i.i.i.i32.i = icmp eq ptr %894, null
+  br i1 %.not.i.i.i.i32.i, label %_ZL18addMimicExclusionsPN3gmx11ListOfListsIiEENS_8ArrayRefIKiEE.exit.i, label %907
 
 907:                                              ; preds = %_ZSt8_DestroyIPN3gmx14ExclusionBlockES1_EvT_S3_RSaIT0_E.exit.i.i.i
-  %908 = load ptr, ptr %886, align 8, !tbaa !190
-  %909 = ptrtoint ptr %908 to i64
-  %910 = sub i64 %909, %895
-  call void @_ZdlPvm(ptr noundef nonnull %892, i64 noundef %910) #23
+  %908 = ptrtoint ptr %885 to i64
+  %909 = sub i64 %908, %895
+  call void @_ZdlPvm(ptr noundef nonnull %894, i64 noundef %909) #23
   br label %_ZL18addMimicExclusionsPN3gmx11ListOfListsIiEENS_8ArrayRefIKiEE.exit.i
 
-911:                                              ; preds = %891, %_ZNSt12_Vector_baseIN3gmx14ExclusionBlockESaIS1_EEC2EmRKS2_.exit.thread.i.i.i
-  %912 = landingpad { ptr, i32 }
+910:                                              ; preds = %893, %_ZNSt12_Vector_baseIN3gmx14ExclusionBlockESaIS1_EEC2EmRKS2_.exit.thread.i.i.i
+  %911 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt6vectorIN3gmx14ExclusionBlockESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #20
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %5) #20

@@ -6237,15 +6237,10 @@ define hidden void @"_ZN97_$LT$futures_util..future..join_all..JoinAll$LT$F$GT$$
 
 "_ZN109_$LT$futures_util..stream..stream..collect..Collect$LT$St$C$C$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h2bd6d0539ba051bbE.exit": ; preds = %._crit_edge.i, %27
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8), !noalias !873
-  br label %53
+  br label %50
 
 ._crit_edge:                                      ; preds = %46
-  br i1 %.033.ph, label %._crit_edge..critedge_crit_edge, label %._crit_edge.thread
-
-._crit_edge..critedge_crit_edge:                  ; preds = %._crit_edge
-  %.pre = load ptr, ptr %14, align 8
-  %.pre38 = load i64, ptr %16, align 8
-  br label %.critedge
+  br i1 %.033.ph, label %.critedge, label %._crit_edge.thread
 
 31:                                               ; preds = %.outer, %46
   %.sroa.0.032 = phi ptr [ %32, %46 ], [ %.sroa.0.032.ph, %.outer ]
@@ -6280,8 +6275,8 @@ default.unreachable:                              ; preds = %31
   tail call void @_ZN4core9panicking5panic17h44790a89027c670fE(ptr noalias noundef nonnull readonly align 1 @anon.972a82340b04216d2ae9c135c478131e.3.llvm.7040996025249724499, i64 noundef 34, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.972a82340b04216d2ae9c135c478131e.5.llvm.7040996025249724499) #38, !noalias !900
   unreachable
 
-common.resume:                                    ; preds = %54, %43
-  %common.resume.op = phi { ptr, i32 } [ %44, %43 ], [ %55, %54 ]
+common.resume:                                    ; preds = %51, %43
+  %common.resume.op = phi { ptr, i32 } [ %44, %43 ], [ %52, %51 ]
   resume { ptr, i32 } %common.resume.op
 
 43:                                               ; preds = %45
@@ -6315,38 +6310,35 @@ common.resume:                                    ; preds = %54, %43
 
 ._crit_edge.thread:                               ; preds = %.thread, %._crit_edge
   store i64 -9223372036854775808, ptr %0, align 8
-  br label %53
+  br label %50
 
-.critedge:                                        ; preds = %._crit_edge..critedge_crit_edge, %13
-  %49 = phi i64 [ %.pre38, %._crit_edge..critedge_crit_edge ], [ 0, %13 ]
-  %50 = phi ptr [ %.pre, %._crit_edge..critedge_crit_edge ], [ %15, %13 ]
+.critedge:                                        ; preds = %13, %._crit_edge
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %10)
-  store ptr %50, ptr %10, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i64 %49, ptr %51, align 8
+  store ptr %15, ptr %10, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  store i64 %17, ptr %49, align 8
   store ptr inttoptr (i64 8 to ptr), ptr %14, align 8
   store i64 0, ptr %16, align 8
-  %52 = getelementptr inbounds { i64, [3 x i64] }, ptr %50, i64 %49
-  invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h550fff251153be94E.llvm.14633298028970551928"(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %9, ptr noundef nonnull %50, ptr noundef nonnull %52)
-          to label %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h3d9e95f005bdcb1eE.exit" unwind label %54
+  invoke void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter_nested..SpecFromIterNested$LT$T$C$I$GT$$GT$9from_iter17h550fff251153be94E.llvm.14633298028970551928"(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %9, ptr noundef nonnull %15, ptr noundef nonnull %18)
+          to label %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h3d9e95f005bdcb1eE.exit" unwind label %51
 
-53:                                               ; preds = %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h3d9e95f005bdcb1eE.exit", %._crit_edge.thread, %"_ZN109_$LT$futures_util..stream..stream..collect..Collect$LT$St$C$C$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h2bd6d0539ba051bbE.exit"
+50:                                               ; preds = %"_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h3d9e95f005bdcb1eE.exit", %._crit_edge.thread, %"_ZN109_$LT$futures_util..stream..stream..collect..Collect$LT$St$C$C$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h2bd6d0539ba051bbE.exit"
   ret void
 
-54:                                               ; preds = %.critedge
-  %55 = landingpad { ptr, i32 }
+51:                                               ; preds = %.critedge
+  %52 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr285drop_in_place$LT$alloc..boxed..Box$LT$$u5b$futures_util..future..maybe_done..MaybeDone$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..route..RouteService$C$$LP$$RP$$GT$$GT$$GT$$GT$$u5d$$GT$$GT$17hdf5f6757fbf99df4E.llvm.11632439649900387884"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
-          to label %common.resume unwind label %56
+          to label %common.resume unwind label %53
 
 "_ZN98_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..spec_from_iter..SpecFromIter$LT$T$C$I$GT$$GT$9from_iter17h3d9e95f005bdcb1eE.exit": ; preds = %.critedge
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(24) %9, i64 24, i1 false)
   call void @"_ZN4core3ptr285drop_in_place$LT$alloc..boxed..Box$LT$$u5b$futures_util..future..maybe_done..MaybeDone$LT$core..pin..Pin$LT$alloc..boxed..Box$LT$dyn$u20$core..future..future..Future$u2b$Output$u20$$u3d$$u20$core..result..Result$LT$actix_web..route..RouteService$C$$LP$$RP$$GT$$GT$$GT$$GT$$u5d$$GT$$GT$17hdf5f6757fbf99df4E.llvm.11632439649900387884"(ptr noalias noundef nonnull align 8 dereferenceable(16) %10)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  br label %53
+  br label %50
 
-56:                                               ; preds = %54
-  %57 = landingpad { ptr, i32 }
+53:                                               ; preds = %51
+  %54 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbacfddf1bcf21a1eE() #36
   unreachable

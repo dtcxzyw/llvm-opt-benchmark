@@ -11328,8 +11328,8 @@ define linkonce_odr dso_local void @_ZN4absl15random_internal18MockSingleOverloa
   invoke void @_ZN7testing8internal25UntypedFunctionMockerBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %11)
           to label %_ZSt11make_uniqueIN4absl13MockingBitGen18FunctionHolderImplIN7testing12MockFunctionIFddEEENS0_15random_internal13NoOpValidatorEdSt5tupleIJdEEEEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i.i unwind label %12, !noalias !179
 
-common.resume:                                    ; preds = %63, %12
-  %common.resume.op = phi { ptr, i32 } [ %13, %12 ], [ %64, %63 ]
+common.resume:                                    ; preds = %60, %12
+  %common.resume.op = phi { ptr, i32 } [ %13, %12 ], [ %61, %60 ]
   resume { ptr, i32 } %common.resume.op
 
 12:                                               ; preds = %9
@@ -11383,95 +11383,91 @@ _ZN7testing7MatcherIdEC2ERKS1_.exit:              ; preds = %_ZN4absl15random_in
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN7testing7MatcherIdEE, i64 16), ptr %6, align 8, !tbaa !16
   call void @llvm.experimental.noalias.scope.decl(metadata !182)
   invoke void @_ZN7testing8internal25UntypedFunctionMockerBase13RegisterOwnerEPKv(ptr noundef nonnull align 8 dereferenceable(72) %19, ptr noundef nonnull align 8 dereferenceable(72) %19)
-          to label %.noexc unwind label %63
+          to label %.noexc unwind label %60
 
 .noexc:                                           ; preds = %_ZN7testing7MatcherIdEC2ERKS1_.exit
-  %31 = load ptr, ptr %20, align 8, !tbaa !70, !noalias !182
-  %32 = load i64, ptr %23, align 8, !tbaa !14, !noalias !182
-  %33 = inttoptr i64 %32 to ptr
   store ptr null, ptr %20, align 8, !tbaa !70, !noalias !182
   call void @llvm.experimental.noalias.scope.decl(metadata !185)
   store ptr %19, ptr %0, align 8, !tbaa !188, !alias.scope !193
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %31, ptr %35, align 8, !tbaa !70, !alias.scope !193
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %32, ptr %36, align 8, !tbaa !14, !alias.scope !193
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %31, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN7testing8internal11MatcherBaseIdED2Ev.exit.sink.split.i, label %_ZNK7testing8internal11MatcherBaseIdE8IsSharedEv.exit.i.i.i.i.i.i.i.i
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %22, ptr %32, align 8, !tbaa !70, !alias.scope !193
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %25, ptr %33, align 8, !tbaa !14, !alias.scope !193
+  br i1 %.not.i.i.i, label %_ZN7testing8internal11MatcherBaseIdED2Ev.exit.sink.split.i, label %_ZNK7testing8internal11MatcherBaseIdE8IsSharedEv.exit.i.i.i.i.i.i.i.i
 
 _ZNK7testing8internal11MatcherBaseIdE8IsSharedEv.exit.i.i.i.i.i.i.i.i: ; preds = %.noexc
-  %37 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  %38 = load ptr, ptr %37, align 8, !tbaa !76, !noalias !193
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %38, null
+  %34 = getelementptr inbounds nuw i8, ptr %22, i64 24
+  %35 = load ptr, ptr %34, align 8, !tbaa !76, !noalias !193
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %35, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN7testing8internal11MatcherBaseIdED2Ev.exit.sink.split.i, label %_ZNK7testing8internal11MatcherBaseIdE8IsSharedEv.exit.i.i.i.i.i
 
 _ZNK7testing8internal11MatcherBaseIdE8IsSharedEv.exit.i.i.i.i.i: ; preds = %_ZNK7testing8internal11MatcherBaseIdE8IsSharedEv.exit.i.i.i.i.i.i.i.i
-  %39 = atomicrmw add ptr %33, i32 1 monotonic, align 4, !noalias !193
-  %.pr.i = load ptr, ptr %37, align 8, !tbaa !76, !noalias !193
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN7testing7MatcherIdEE, i64 16), ptr %34, align 8, !tbaa !16, !alias.scope !193
+  %36 = atomicrmw add ptr %26, i32 1 monotonic, align 4, !noalias !193
+  %.pr.i = load ptr, ptr %34, align 8, !tbaa !76, !noalias !193
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN7testing7MatcherIdEE, i64 16), ptr %31, align 8, !tbaa !16, !alias.scope !193
   %.not.i.i.i.i.i4 = icmp eq ptr %.pr.i, null
-  br i1 %.not.i.i.i.i.i4, label %_ZN7testing8internal12MockFunctionIFddEE10gmock_CallENS_7MatcherIdEE.exit, label %40
+  br i1 %.not.i.i.i.i.i4, label %_ZN7testing8internal12MockFunctionIFddEE10gmock_CallENS_7MatcherIdEE.exit, label %37
 
-40:                                               ; preds = %_ZNK7testing8internal11MatcherBaseIdE8IsSharedEv.exit.i.i.i.i.i
-  %41 = atomicrmw sub ptr %33, i32 1 acq_rel, align 4, !noalias !193
-  %42 = icmp eq i32 %41, 1
-  br i1 %42, label %43, label %_ZN7testing8internal12MockFunctionIFddEE10gmock_CallENS_7MatcherIdEE.exit
+37:                                               ; preds = %_ZNK7testing8internal11MatcherBaseIdE8IsSharedEv.exit.i.i.i.i.i
+  %38 = atomicrmw sub ptr %26, i32 1 acq_rel, align 4, !noalias !193
+  %39 = icmp eq i32 %38, 1
+  br i1 %39, label %40, label %_ZN7testing8internal12MockFunctionIFddEE10gmock_CallENS_7MatcherIdEE.exit
 
-43:                                               ; preds = %40
-  %44 = load ptr, ptr %37, align 8, !tbaa !76, !noalias !193
-  invoke void %44(ptr noundef %33)
-          to label %_ZN7testing8internal12MockFunctionIFddEE10gmock_CallENS_7MatcherIdEE.exit unwind label %45, !noalias !193
+40:                                               ; preds = %37
+  %41 = load ptr, ptr %34, align 8, !tbaa !76, !noalias !193
+  invoke void %41(ptr noundef %26)
+          to label %_ZN7testing8internal12MockFunctionIFddEE10gmock_CallENS_7MatcherIdEE.exit unwind label %42, !noalias !193
 
-45:                                               ; preds = %43
-  %46 = landingpad { ptr, i32 }
+42:                                               ; preds = %40
+  %43 = landingpad { ptr, i32 }
           catch ptr null
-  %47 = extractvalue { ptr, i32 } %46, 0
-  call void @__clang_call_terminate(ptr %47) #34, !noalias !193
+  %44 = extractvalue { ptr, i32 } %43, 0
+  call void @__clang_call_terminate(ptr %44) #34, !noalias !193
   unreachable
 
 _ZN7testing8internal11MatcherBaseIdED2Ev.exit.sink.split.i: ; preds = %_ZNK7testing8internal11MatcherBaseIdE8IsSharedEv.exit.i.i.i.i.i.i.i.i, %.noexc
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN7testing7MatcherIdEE, i64 16), ptr %34, align 8, !tbaa !16, !alias.scope !193
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN7testing7MatcherIdEE, i64 16), ptr %31, align 8, !tbaa !16, !alias.scope !193
   br label %_ZN7testing8internal12MockFunctionIFddEE10gmock_CallENS_7MatcherIdEE.exit
 
-_ZN7testing8internal12MockFunctionIFddEE10gmock_CallENS_7MatcherIdEE.exit: ; preds = %_ZN7testing8internal11MatcherBaseIdED2Ev.exit.sink.split.i, %43, %40, %_ZNK7testing8internal11MatcherBaseIdE8IsSharedEv.exit.i.i.i.i.i
+_ZN7testing8internal12MockFunctionIFddEE10gmock_CallENS_7MatcherIdEE.exit: ; preds = %_ZN7testing8internal11MatcherBaseIdED2Ev.exit.sink.split.i, %40, %37, %_ZNK7testing8internal11MatcherBaseIdE8IsSharedEv.exit.i.i.i.i.i
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN7testing8internal11MatcherBaseIdEE, i64 16), ptr %6, align 8, !tbaa !16
-  %48 = load ptr, ptr %20, align 8, !tbaa !70
-  %.not.i.i.i5 = icmp eq ptr %48, null
+  %45 = load ptr, ptr %20, align 8, !tbaa !70
+  %.not.i.i.i5 = icmp eq ptr %45, null
   br i1 %.not.i.i.i5, label %_ZN7testing8internal11MatcherBaseIdED2Ev.exit, label %_ZNK7testing8internal11MatcherBaseIdE8IsSharedEv.exit.i.i6
 
 _ZNK7testing8internal11MatcherBaseIdE8IsSharedEv.exit.i.i6: ; preds = %_ZN7testing8internal12MockFunctionIFddEE10gmock_CallENS_7MatcherIdEE.exit
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  %50 = load ptr, ptr %49, align 8, !tbaa !76
-  %.not.i.i7 = icmp eq ptr %50, null
-  br i1 %.not.i.i7, label %_ZN7testing8internal11MatcherBaseIdED2Ev.exit, label %51
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 24
+  %47 = load ptr, ptr %46, align 8, !tbaa !76
+  %.not.i.i7 = icmp eq ptr %47, null
+  br i1 %.not.i.i7, label %_ZN7testing8internal11MatcherBaseIdED2Ev.exit, label %48
 
-51:                                               ; preds = %_ZNK7testing8internal11MatcherBaseIdE8IsSharedEv.exit.i.i6
-  %52 = load ptr, ptr %23, align 8, !tbaa !14
-  %53 = atomicrmw sub ptr %52, i32 1 acq_rel, align 4
-  %54 = icmp eq i32 %53, 1
-  br i1 %54, label %55, label %_ZN7testing8internal11MatcherBaseIdED2Ev.exit
+48:                                               ; preds = %_ZNK7testing8internal11MatcherBaseIdE8IsSharedEv.exit.i.i6
+  %49 = load ptr, ptr %23, align 8, !tbaa !14
+  %50 = atomicrmw sub ptr %49, i32 1 acq_rel, align 4
+  %51 = icmp eq i32 %50, 1
+  br i1 %51, label %52, label %_ZN7testing8internal11MatcherBaseIdED2Ev.exit
 
-55:                                               ; preds = %51
-  %56 = load ptr, ptr %20, align 8, !tbaa !70
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 24
-  %58 = load ptr, ptr %57, align 8, !tbaa !76
-  %59 = load ptr, ptr %23, align 8, !tbaa !14
-  invoke void %58(ptr noundef %59)
-          to label %_ZN7testing8internal11MatcherBaseIdED2Ev.exit unwind label %60
+52:                                               ; preds = %48
+  %53 = load ptr, ptr %20, align 8, !tbaa !70
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 24
+  %55 = load ptr, ptr %54, align 8, !tbaa !76
+  %56 = load ptr, ptr %23, align 8, !tbaa !14
+  invoke void %55(ptr noundef %56)
+          to label %_ZN7testing8internal11MatcherBaseIdED2Ev.exit unwind label %57
 
-60:                                               ; preds = %55
-  %61 = landingpad { ptr, i32 }
+57:                                               ; preds = %52
+  %58 = landingpad { ptr, i32 }
           catch ptr null
-  %62 = extractvalue { ptr, i32 } %61, 0
-  call void @__clang_call_terminate(ptr %62) #34
+  %59 = extractvalue { ptr, i32 } %58, 0
+  call void @__clang_call_terminate(ptr %59) #34
   unreachable
 
-_ZN7testing8internal11MatcherBaseIdED2Ev.exit:    ; preds = %_ZN7testing8internal12MockFunctionIFddEE10gmock_CallENS_7MatcherIdEE.exit, %_ZNK7testing8internal11MatcherBaseIdE8IsSharedEv.exit.i.i6, %51, %55
+_ZN7testing8internal11MatcherBaseIdED2Ev.exit:    ; preds = %_ZN7testing8internal12MockFunctionIFddEE10gmock_CallENS_7MatcherIdEE.exit, %_ZNK7testing8internal11MatcherBaseIdE8IsSharedEv.exit.i.i6, %48, %52
   ret void
 
-63:                                               ; preds = %_ZN7testing7MatcherIdEC2ERKS1_.exit
-  %64 = landingpad { ptr, i32 }
+60:                                               ; preds = %_ZN7testing7MatcherIdEC2ERKS1_.exit
+  %61 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7testing8internal11MatcherBaseIdED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #33
   br label %common.resume
@@ -12216,8 +12212,8 @@ define linkonce_odr dso_local void @_ZN4absl15random_internal18MockSingleOverloa
   invoke void @_ZN7testing8internal25UntypedFunctionMockerBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %11)
           to label %_ZSt11make_uniqueIN4absl13MockingBitGen18FunctionHolderImplIN7testing12MockFunctionIFidEEENS0_15random_internal13NoOpValidatorEiSt5tupleIJdEEEEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i.i unwind label %12, !noalias !218
 
-common.resume:                                    ; preds = %63, %12
-  %common.resume.op = phi { ptr, i32 } [ %13, %12 ], [ %64, %63 ]
+common.resume:                                    ; preds = %60, %12
+  %common.resume.op = phi { ptr, i32 } [ %13, %12 ], [ %61, %60 ]
   resume { ptr, i32 } %common.resume.op
 
 12:                                               ; preds = %9
@@ -12271,95 +12267,91 @@ _ZN7testing7MatcherIdEC2ERKS1_.exit:              ; preds = %_ZN4absl15random_in
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN7testing7MatcherIdEE, i64 16), ptr %6, align 8, !tbaa !16
   call void @llvm.experimental.noalias.scope.decl(metadata !221)
   invoke void @_ZN7testing8internal25UntypedFunctionMockerBase13RegisterOwnerEPKv(ptr noundef nonnull align 8 dereferenceable(72) %19, ptr noundef nonnull align 8 dereferenceable(72) %19)
-          to label %.noexc unwind label %63
+          to label %.noexc unwind label %60
 
 .noexc:                                           ; preds = %_ZN7testing7MatcherIdEC2ERKS1_.exit
-  %31 = load ptr, ptr %20, align 8, !tbaa !70, !noalias !221
-  %32 = load i64, ptr %23, align 8, !tbaa !14, !noalias !221
-  %33 = inttoptr i64 %32 to ptr
   store ptr null, ptr %20, align 8, !tbaa !70, !noalias !221
   call void @llvm.experimental.noalias.scope.decl(metadata !224)
   store ptr %19, ptr %0, align 8, !tbaa !227, !alias.scope !230
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %31, ptr %35, align 8, !tbaa !70, !alias.scope !230
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %32, ptr %36, align 8, !tbaa !14, !alias.scope !230
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %31, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN7testing8internal11MatcherBaseIdED2Ev.exit.sink.split.i, label %_ZNK7testing8internal11MatcherBaseIdE8IsSharedEv.exit.i.i.i.i.i.i.i.i
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %22, ptr %32, align 8, !tbaa !70, !alias.scope !230
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %25, ptr %33, align 8, !tbaa !14, !alias.scope !230
+  br i1 %.not.i.i.i, label %_ZN7testing8internal11MatcherBaseIdED2Ev.exit.sink.split.i, label %_ZNK7testing8internal11MatcherBaseIdE8IsSharedEv.exit.i.i.i.i.i.i.i.i
 
 _ZNK7testing8internal11MatcherBaseIdE8IsSharedEv.exit.i.i.i.i.i.i.i.i: ; preds = %.noexc
-  %37 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  %38 = load ptr, ptr %37, align 8, !tbaa !76, !noalias !230
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %38, null
+  %34 = getelementptr inbounds nuw i8, ptr %22, i64 24
+  %35 = load ptr, ptr %34, align 8, !tbaa !76, !noalias !230
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %35, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN7testing8internal11MatcherBaseIdED2Ev.exit.sink.split.i, label %_ZNK7testing8internal11MatcherBaseIdE8IsSharedEv.exit.i.i.i.i.i
 
 _ZNK7testing8internal11MatcherBaseIdE8IsSharedEv.exit.i.i.i.i.i: ; preds = %_ZNK7testing8internal11MatcherBaseIdE8IsSharedEv.exit.i.i.i.i.i.i.i.i
-  %39 = atomicrmw add ptr %33, i32 1 monotonic, align 4, !noalias !230
-  %.pr.i = load ptr, ptr %37, align 8, !tbaa !76, !noalias !230
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN7testing7MatcherIdEE, i64 16), ptr %34, align 8, !tbaa !16, !alias.scope !230
+  %36 = atomicrmw add ptr %26, i32 1 monotonic, align 4, !noalias !230
+  %.pr.i = load ptr, ptr %34, align 8, !tbaa !76, !noalias !230
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN7testing7MatcherIdEE, i64 16), ptr %31, align 8, !tbaa !16, !alias.scope !230
   %.not.i.i.i.i.i4 = icmp eq ptr %.pr.i, null
-  br i1 %.not.i.i.i.i.i4, label %_ZN7testing8internal12MockFunctionIFidEE10gmock_CallENS_7MatcherIdEE.exit, label %40
+  br i1 %.not.i.i.i.i.i4, label %_ZN7testing8internal12MockFunctionIFidEE10gmock_CallENS_7MatcherIdEE.exit, label %37
 
-40:                                               ; preds = %_ZNK7testing8internal11MatcherBaseIdE8IsSharedEv.exit.i.i.i.i.i
-  %41 = atomicrmw sub ptr %33, i32 1 acq_rel, align 4, !noalias !230
-  %42 = icmp eq i32 %41, 1
-  br i1 %42, label %43, label %_ZN7testing8internal12MockFunctionIFidEE10gmock_CallENS_7MatcherIdEE.exit
+37:                                               ; preds = %_ZNK7testing8internal11MatcherBaseIdE8IsSharedEv.exit.i.i.i.i.i
+  %38 = atomicrmw sub ptr %26, i32 1 acq_rel, align 4, !noalias !230
+  %39 = icmp eq i32 %38, 1
+  br i1 %39, label %40, label %_ZN7testing8internal12MockFunctionIFidEE10gmock_CallENS_7MatcherIdEE.exit
 
-43:                                               ; preds = %40
-  %44 = load ptr, ptr %37, align 8, !tbaa !76, !noalias !230
-  invoke void %44(ptr noundef %33)
-          to label %_ZN7testing8internal12MockFunctionIFidEE10gmock_CallENS_7MatcherIdEE.exit unwind label %45, !noalias !230
+40:                                               ; preds = %37
+  %41 = load ptr, ptr %34, align 8, !tbaa !76, !noalias !230
+  invoke void %41(ptr noundef %26)
+          to label %_ZN7testing8internal12MockFunctionIFidEE10gmock_CallENS_7MatcherIdEE.exit unwind label %42, !noalias !230
 
-45:                                               ; preds = %43
-  %46 = landingpad { ptr, i32 }
+42:                                               ; preds = %40
+  %43 = landingpad { ptr, i32 }
           catch ptr null
-  %47 = extractvalue { ptr, i32 } %46, 0
-  call void @__clang_call_terminate(ptr %47) #34, !noalias !230
+  %44 = extractvalue { ptr, i32 } %43, 0
+  call void @__clang_call_terminate(ptr %44) #34, !noalias !230
   unreachable
 
 _ZN7testing8internal11MatcherBaseIdED2Ev.exit.sink.split.i: ; preds = %_ZNK7testing8internal11MatcherBaseIdE8IsSharedEv.exit.i.i.i.i.i.i.i.i, %.noexc
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN7testing7MatcherIdEE, i64 16), ptr %34, align 8, !tbaa !16, !alias.scope !230
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN7testing7MatcherIdEE, i64 16), ptr %31, align 8, !tbaa !16, !alias.scope !230
   br label %_ZN7testing8internal12MockFunctionIFidEE10gmock_CallENS_7MatcherIdEE.exit
 
-_ZN7testing8internal12MockFunctionIFidEE10gmock_CallENS_7MatcherIdEE.exit: ; preds = %_ZN7testing8internal11MatcherBaseIdED2Ev.exit.sink.split.i, %43, %40, %_ZNK7testing8internal11MatcherBaseIdE8IsSharedEv.exit.i.i.i.i.i
+_ZN7testing8internal12MockFunctionIFidEE10gmock_CallENS_7MatcherIdEE.exit: ; preds = %_ZN7testing8internal11MatcherBaseIdED2Ev.exit.sink.split.i, %40, %37, %_ZNK7testing8internal11MatcherBaseIdE8IsSharedEv.exit.i.i.i.i.i
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN7testing8internal11MatcherBaseIdEE, i64 16), ptr %6, align 8, !tbaa !16
-  %48 = load ptr, ptr %20, align 8, !tbaa !70
-  %.not.i.i.i5 = icmp eq ptr %48, null
+  %45 = load ptr, ptr %20, align 8, !tbaa !70
+  %.not.i.i.i5 = icmp eq ptr %45, null
   br i1 %.not.i.i.i5, label %_ZN7testing8internal11MatcherBaseIdED2Ev.exit, label %_ZNK7testing8internal11MatcherBaseIdE8IsSharedEv.exit.i.i6
 
 _ZNK7testing8internal11MatcherBaseIdE8IsSharedEv.exit.i.i6: ; preds = %_ZN7testing8internal12MockFunctionIFidEE10gmock_CallENS_7MatcherIdEE.exit
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  %50 = load ptr, ptr %49, align 8, !tbaa !76
-  %.not.i.i7 = icmp eq ptr %50, null
-  br i1 %.not.i.i7, label %_ZN7testing8internal11MatcherBaseIdED2Ev.exit, label %51
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 24
+  %47 = load ptr, ptr %46, align 8, !tbaa !76
+  %.not.i.i7 = icmp eq ptr %47, null
+  br i1 %.not.i.i7, label %_ZN7testing8internal11MatcherBaseIdED2Ev.exit, label %48
 
-51:                                               ; preds = %_ZNK7testing8internal11MatcherBaseIdE8IsSharedEv.exit.i.i6
-  %52 = load ptr, ptr %23, align 8, !tbaa !14
-  %53 = atomicrmw sub ptr %52, i32 1 acq_rel, align 4
-  %54 = icmp eq i32 %53, 1
-  br i1 %54, label %55, label %_ZN7testing8internal11MatcherBaseIdED2Ev.exit
+48:                                               ; preds = %_ZNK7testing8internal11MatcherBaseIdE8IsSharedEv.exit.i.i6
+  %49 = load ptr, ptr %23, align 8, !tbaa !14
+  %50 = atomicrmw sub ptr %49, i32 1 acq_rel, align 4
+  %51 = icmp eq i32 %50, 1
+  br i1 %51, label %52, label %_ZN7testing8internal11MatcherBaseIdED2Ev.exit
 
-55:                                               ; preds = %51
-  %56 = load ptr, ptr %20, align 8, !tbaa !70
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 24
-  %58 = load ptr, ptr %57, align 8, !tbaa !76
-  %59 = load ptr, ptr %23, align 8, !tbaa !14
-  invoke void %58(ptr noundef %59)
-          to label %_ZN7testing8internal11MatcherBaseIdED2Ev.exit unwind label %60
+52:                                               ; preds = %48
+  %53 = load ptr, ptr %20, align 8, !tbaa !70
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 24
+  %55 = load ptr, ptr %54, align 8, !tbaa !76
+  %56 = load ptr, ptr %23, align 8, !tbaa !14
+  invoke void %55(ptr noundef %56)
+          to label %_ZN7testing8internal11MatcherBaseIdED2Ev.exit unwind label %57
 
-60:                                               ; preds = %55
-  %61 = landingpad { ptr, i32 }
+57:                                               ; preds = %52
+  %58 = landingpad { ptr, i32 }
           catch ptr null
-  %62 = extractvalue { ptr, i32 } %61, 0
-  call void @__clang_call_terminate(ptr %62) #34
+  %59 = extractvalue { ptr, i32 } %58, 0
+  call void @__clang_call_terminate(ptr %59) #34
   unreachable
 
-_ZN7testing8internal11MatcherBaseIdED2Ev.exit:    ; preds = %_ZN7testing8internal12MockFunctionIFidEE10gmock_CallENS_7MatcherIdEE.exit, %_ZNK7testing8internal11MatcherBaseIdE8IsSharedEv.exit.i.i6, %51, %55
+_ZN7testing8internal11MatcherBaseIdED2Ev.exit:    ; preds = %_ZN7testing8internal12MockFunctionIFidEE10gmock_CallENS_7MatcherIdEE.exit, %_ZNK7testing8internal11MatcherBaseIdE8IsSharedEv.exit.i.i6, %48, %52
   ret void
 
-63:                                               ; preds = %_ZN7testing7MatcherIdEC2ERKS1_.exit
-  %64 = landingpad { ptr, i32 }
+60:                                               ; preds = %_ZN7testing7MatcherIdEC2ERKS1_.exit
+  %61 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7testing8internal11MatcherBaseIdED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #33
   br label %common.resume
@@ -13104,8 +13096,8 @@ define linkonce_odr dso_local void @_ZN4absl15random_internal18MockSingleOverloa
   invoke void @_ZN7testing8internal25UntypedFunctionMockerBaseC2Ev(ptr noundef nonnull align 8 dereferenceable(72) %11)
           to label %_ZSt11make_uniqueIN4absl13MockingBitGen18FunctionHolderImplIN7testing12MockFunctionIFbdEEENS0_15random_internal13NoOpValidatorEbSt5tupleIJdEEEEJEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit.i.i unwind label %12, !noalias !255
 
-common.resume:                                    ; preds = %63, %12
-  %common.resume.op = phi { ptr, i32 } [ %13, %12 ], [ %64, %63 ]
+common.resume:                                    ; preds = %60, %12
+  %common.resume.op = phi { ptr, i32 } [ %13, %12 ], [ %61, %60 ]
   resume { ptr, i32 } %common.resume.op
 
 12:                                               ; preds = %9
@@ -13159,95 +13151,91 @@ _ZN7testing7MatcherIdEC2ERKS1_.exit:              ; preds = %_ZN4absl15random_in
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN7testing7MatcherIdEE, i64 16), ptr %6, align 8, !tbaa !16
   call void @llvm.experimental.noalias.scope.decl(metadata !258)
   invoke void @_ZN7testing8internal25UntypedFunctionMockerBase13RegisterOwnerEPKv(ptr noundef nonnull align 8 dereferenceable(72) %19, ptr noundef nonnull align 8 dereferenceable(72) %19)
-          to label %.noexc unwind label %63
+          to label %.noexc unwind label %60
 
 .noexc:                                           ; preds = %_ZN7testing7MatcherIdEC2ERKS1_.exit
-  %31 = load ptr, ptr %20, align 8, !tbaa !70, !noalias !258
-  %32 = load i64, ptr %23, align 8, !tbaa !14, !noalias !258
-  %33 = inttoptr i64 %32 to ptr
   store ptr null, ptr %20, align 8, !tbaa !70, !noalias !258
   call void @llvm.experimental.noalias.scope.decl(metadata !261)
   store ptr %19, ptr %0, align 8, !tbaa !264, !alias.scope !267
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %31, ptr %35, align 8, !tbaa !70, !alias.scope !267
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %32, ptr %36, align 8, !tbaa !14, !alias.scope !267
-  %.not.i.i.i.i.i.i.i.i.i = icmp eq ptr %31, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i, label %_ZN7testing8internal11MatcherBaseIdED2Ev.exit.sink.split.i, label %_ZNK7testing8internal11MatcherBaseIdE8IsSharedEv.exit.i.i.i.i.i.i.i.i
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %22, ptr %32, align 8, !tbaa !70, !alias.scope !267
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %25, ptr %33, align 8, !tbaa !14, !alias.scope !267
+  br i1 %.not.i.i.i, label %_ZN7testing8internal11MatcherBaseIdED2Ev.exit.sink.split.i, label %_ZNK7testing8internal11MatcherBaseIdE8IsSharedEv.exit.i.i.i.i.i.i.i.i
 
 _ZNK7testing8internal11MatcherBaseIdE8IsSharedEv.exit.i.i.i.i.i.i.i.i: ; preds = %.noexc
-  %37 = getelementptr inbounds nuw i8, ptr %31, i64 24
-  %38 = load ptr, ptr %37, align 8, !tbaa !76, !noalias !267
-  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %38, null
+  %34 = getelementptr inbounds nuw i8, ptr %22, i64 24
+  %35 = load ptr, ptr %34, align 8, !tbaa !76, !noalias !267
+  %.not.i.i.i.i.i.i.i.i = icmp eq ptr %35, null
   br i1 %.not.i.i.i.i.i.i.i.i, label %_ZN7testing8internal11MatcherBaseIdED2Ev.exit.sink.split.i, label %_ZNK7testing8internal11MatcherBaseIdE8IsSharedEv.exit.i.i.i.i.i
 
 _ZNK7testing8internal11MatcherBaseIdE8IsSharedEv.exit.i.i.i.i.i: ; preds = %_ZNK7testing8internal11MatcherBaseIdE8IsSharedEv.exit.i.i.i.i.i.i.i.i
-  %39 = atomicrmw add ptr %33, i32 1 monotonic, align 4, !noalias !267
-  %.pr.i = load ptr, ptr %37, align 8, !tbaa !76, !noalias !267
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN7testing7MatcherIdEE, i64 16), ptr %34, align 8, !tbaa !16, !alias.scope !267
+  %36 = atomicrmw add ptr %26, i32 1 monotonic, align 4, !noalias !267
+  %.pr.i = load ptr, ptr %34, align 8, !tbaa !76, !noalias !267
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN7testing7MatcherIdEE, i64 16), ptr %31, align 8, !tbaa !16, !alias.scope !267
   %.not.i.i.i.i.i4 = icmp eq ptr %.pr.i, null
-  br i1 %.not.i.i.i.i.i4, label %_ZN7testing8internal12MockFunctionIFbdEE10gmock_CallENS_7MatcherIdEE.exit, label %40
+  br i1 %.not.i.i.i.i.i4, label %_ZN7testing8internal12MockFunctionIFbdEE10gmock_CallENS_7MatcherIdEE.exit, label %37
 
-40:                                               ; preds = %_ZNK7testing8internal11MatcherBaseIdE8IsSharedEv.exit.i.i.i.i.i
-  %41 = atomicrmw sub ptr %33, i32 1 acq_rel, align 4, !noalias !267
-  %42 = icmp eq i32 %41, 1
-  br i1 %42, label %43, label %_ZN7testing8internal12MockFunctionIFbdEE10gmock_CallENS_7MatcherIdEE.exit
+37:                                               ; preds = %_ZNK7testing8internal11MatcherBaseIdE8IsSharedEv.exit.i.i.i.i.i
+  %38 = atomicrmw sub ptr %26, i32 1 acq_rel, align 4, !noalias !267
+  %39 = icmp eq i32 %38, 1
+  br i1 %39, label %40, label %_ZN7testing8internal12MockFunctionIFbdEE10gmock_CallENS_7MatcherIdEE.exit
 
-43:                                               ; preds = %40
-  %44 = load ptr, ptr %37, align 8, !tbaa !76, !noalias !267
-  invoke void %44(ptr noundef %33)
-          to label %_ZN7testing8internal12MockFunctionIFbdEE10gmock_CallENS_7MatcherIdEE.exit unwind label %45, !noalias !267
+40:                                               ; preds = %37
+  %41 = load ptr, ptr %34, align 8, !tbaa !76, !noalias !267
+  invoke void %41(ptr noundef %26)
+          to label %_ZN7testing8internal12MockFunctionIFbdEE10gmock_CallENS_7MatcherIdEE.exit unwind label %42, !noalias !267
 
-45:                                               ; preds = %43
-  %46 = landingpad { ptr, i32 }
+42:                                               ; preds = %40
+  %43 = landingpad { ptr, i32 }
           catch ptr null
-  %47 = extractvalue { ptr, i32 } %46, 0
-  call void @__clang_call_terminate(ptr %47) #34, !noalias !267
+  %44 = extractvalue { ptr, i32 } %43, 0
+  call void @__clang_call_terminate(ptr %44) #34, !noalias !267
   unreachable
 
 _ZN7testing8internal11MatcherBaseIdED2Ev.exit.sink.split.i: ; preds = %_ZNK7testing8internal11MatcherBaseIdE8IsSharedEv.exit.i.i.i.i.i.i.i.i, %.noexc
-  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN7testing7MatcherIdEE, i64 16), ptr %34, align 8, !tbaa !16, !alias.scope !267
+  store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN7testing7MatcherIdEE, i64 16), ptr %31, align 8, !tbaa !16, !alias.scope !267
   br label %_ZN7testing8internal12MockFunctionIFbdEE10gmock_CallENS_7MatcherIdEE.exit
 
-_ZN7testing8internal12MockFunctionIFbdEE10gmock_CallENS_7MatcherIdEE.exit: ; preds = %_ZN7testing8internal11MatcherBaseIdED2Ev.exit.sink.split.i, %43, %40, %_ZNK7testing8internal11MatcherBaseIdE8IsSharedEv.exit.i.i.i.i.i
+_ZN7testing8internal12MockFunctionIFbdEE10gmock_CallENS_7MatcherIdEE.exit: ; preds = %_ZN7testing8internal11MatcherBaseIdED2Ev.exit.sink.split.i, %40, %37, %_ZNK7testing8internal11MatcherBaseIdE8IsSharedEv.exit.i.i.i.i.i
   store ptr getelementptr inbounds nuw inrange(-16, 32) (i8, ptr @_ZTVN7testing8internal11MatcherBaseIdEE, i64 16), ptr %6, align 8, !tbaa !16
-  %48 = load ptr, ptr %20, align 8, !tbaa !70
-  %.not.i.i.i5 = icmp eq ptr %48, null
+  %45 = load ptr, ptr %20, align 8, !tbaa !70
+  %.not.i.i.i5 = icmp eq ptr %45, null
   br i1 %.not.i.i.i5, label %_ZN7testing8internal11MatcherBaseIdED2Ev.exit, label %_ZNK7testing8internal11MatcherBaseIdE8IsSharedEv.exit.i.i6
 
 _ZNK7testing8internal11MatcherBaseIdE8IsSharedEv.exit.i.i6: ; preds = %_ZN7testing8internal12MockFunctionIFbdEE10gmock_CallENS_7MatcherIdEE.exit
-  %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  %50 = load ptr, ptr %49, align 8, !tbaa !76
-  %.not.i.i7 = icmp eq ptr %50, null
-  br i1 %.not.i.i7, label %_ZN7testing8internal11MatcherBaseIdED2Ev.exit, label %51
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 24
+  %47 = load ptr, ptr %46, align 8, !tbaa !76
+  %.not.i.i7 = icmp eq ptr %47, null
+  br i1 %.not.i.i7, label %_ZN7testing8internal11MatcherBaseIdED2Ev.exit, label %48
 
-51:                                               ; preds = %_ZNK7testing8internal11MatcherBaseIdE8IsSharedEv.exit.i.i6
-  %52 = load ptr, ptr %23, align 8, !tbaa !14
-  %53 = atomicrmw sub ptr %52, i32 1 acq_rel, align 4
-  %54 = icmp eq i32 %53, 1
-  br i1 %54, label %55, label %_ZN7testing8internal11MatcherBaseIdED2Ev.exit
+48:                                               ; preds = %_ZNK7testing8internal11MatcherBaseIdE8IsSharedEv.exit.i.i6
+  %49 = load ptr, ptr %23, align 8, !tbaa !14
+  %50 = atomicrmw sub ptr %49, i32 1 acq_rel, align 4
+  %51 = icmp eq i32 %50, 1
+  br i1 %51, label %52, label %_ZN7testing8internal11MatcherBaseIdED2Ev.exit
 
-55:                                               ; preds = %51
-  %56 = load ptr, ptr %20, align 8, !tbaa !70
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 24
-  %58 = load ptr, ptr %57, align 8, !tbaa !76
-  %59 = load ptr, ptr %23, align 8, !tbaa !14
-  invoke void %58(ptr noundef %59)
-          to label %_ZN7testing8internal11MatcherBaseIdED2Ev.exit unwind label %60
+52:                                               ; preds = %48
+  %53 = load ptr, ptr %20, align 8, !tbaa !70
+  %54 = getelementptr inbounds nuw i8, ptr %53, i64 24
+  %55 = load ptr, ptr %54, align 8, !tbaa !76
+  %56 = load ptr, ptr %23, align 8, !tbaa !14
+  invoke void %55(ptr noundef %56)
+          to label %_ZN7testing8internal11MatcherBaseIdED2Ev.exit unwind label %57
 
-60:                                               ; preds = %55
-  %61 = landingpad { ptr, i32 }
+57:                                               ; preds = %52
+  %58 = landingpad { ptr, i32 }
           catch ptr null
-  %62 = extractvalue { ptr, i32 } %61, 0
-  call void @__clang_call_terminate(ptr %62) #34
+  %59 = extractvalue { ptr, i32 } %58, 0
+  call void @__clang_call_terminate(ptr %59) #34
   unreachable
 
-_ZN7testing8internal11MatcherBaseIdED2Ev.exit:    ; preds = %_ZN7testing8internal12MockFunctionIFbdEE10gmock_CallENS_7MatcherIdEE.exit, %_ZNK7testing8internal11MatcherBaseIdE8IsSharedEv.exit.i.i6, %51, %55
+_ZN7testing8internal11MatcherBaseIdED2Ev.exit:    ; preds = %_ZN7testing8internal12MockFunctionIFbdEE10gmock_CallENS_7MatcherIdEE.exit, %_ZNK7testing8internal11MatcherBaseIdE8IsSharedEv.exit.i.i6, %48, %52
   ret void
 
-63:                                               ; preds = %_ZN7testing7MatcherIdEC2ERKS1_.exit
-  %64 = landingpad { ptr, i32 }
+60:                                               ; preds = %_ZN7testing7MatcherIdEC2ERKS1_.exit
+  %61 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN7testing8internal11MatcherBaseIdED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #33
   br label %common.resume

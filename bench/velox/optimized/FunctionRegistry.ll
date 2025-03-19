@@ -1204,26 +1204,21 @@ if.else.i.i:                                      ; preds = %for.body.i
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit.i: ; preds = %if.else.i.i, %.noexc2
   %__begin2.sroa.0.0.i = load ptr, ptr %__begin2.sroa.0.07.i, align 8
   %cmp.i.not.i = icmp eq ptr %__begin2.sroa.0.0.i, null
-  br i1 %cmp.i.not.i, label %invoke.cont2, label %for.body.i
+  br i1 %cmp.i.not.i, label %if.then.i.i4, label %for.body.i
 
-invoke.cont2:                                     ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit.i
-  %.pre = load i8, ptr %_M_owns.i2.i.i, align 8
-  %6 = trunc i8 %.pre to i1
-  br i1 %6, label %if.then.i.i4, label %_ZN5folly9LockedPtrIKNS_12SynchronizedISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_IN8facebook5velox4exec17FunctionSignatureESt10unique_ptrIKNSB_13FunctionEntryESt14default_deleteISF_EESt4hashISC_ESt8equal_toISC_ESaISt4pairIKSC_SI_EEESJ_IS8_ESL_IS8_ESaISN_IKS8_SR_EEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNS14_22SynchronizedMutexLevelE2ELNS14_23SynchronizedMutexMethodE0EEEED2Ev.exit
-
-if.then.i.i4:                                     ; preds = %.noexc, %invoke.cont2
-  %7 = load ptr, ptr %ref.tmp, align 8
-  invoke void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE13unlock_sharedEv(ptr noundef nonnull align 4 dereferenceable(4) %7)
+if.then.i.i4:                                     ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit.i, %.noexc
+  %6 = load ptr, ptr %ref.tmp, align 8
+  invoke void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE13unlock_sharedEv(ptr noundef nonnull align 4 dereferenceable(4) %6)
           to label %_ZN5folly9LockedPtrIKNS_12SynchronizedISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_IN8facebook5velox4exec17FunctionSignatureESt10unique_ptrIKNSB_13FunctionEntryESt14default_deleteISF_EESt4hashISC_ESt8equal_toISC_ESaISt4pairIKSC_SI_EEESJ_IS8_ESL_IS8_ESaISN_IKS8_SR_EEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNS14_22SynchronizedMutexLevelE2ELNS14_23SynchronizedMutexMethodE0EEEED2Ev.exit unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i4
-  %8 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
-  %9 = extractvalue { ptr, i32 } %8, 0
-  tail call void @__clang_call_terminate(ptr %9) #20
+  %8 = extractvalue { ptr, i32 } %7, 0
+  tail call void @__clang_call_terminate(ptr %8) #20
   unreachable
 
-_ZN5folly9LockedPtrIKNS_12SynchronizedISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_IN8facebook5velox4exec17FunctionSignatureESt10unique_ptrIKNSB_13FunctionEntryESt14default_deleteISF_EESt4hashISC_ESt8equal_toISC_ESaISt4pairIKSC_SI_EEESJ_IS8_ESL_IS8_ESaISN_IKS8_SR_EEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNS14_22SynchronizedMutexLevelE2ELNS14_23SynchronizedMutexMethodE0EEEED2Ev.exit: ; preds = %invoke.cont2, %if.then.i.i4
+_ZN5folly9LockedPtrIKNS_12SynchronizedISt13unordered_mapINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES2_IN8facebook5velox4exec17FunctionSignatureESt10unique_ptrIKNSB_13FunctionEntryESt14default_deleteISF_EESt4hashISC_ESt8equal_toISC_ESaISt4pairIKSC_SI_EEESJ_IS8_ESL_IS8_ESaISN_IKS8_SR_EEENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEEENS_6detail22SynchronizedLockPolicyILNS14_22SynchronizedMutexLevelE2ELNS14_23SynchronizedMutexMethodE0EEEED2Ev.exit: ; preds = %if.then.i.i4
   ret void
 
 lpad.loopexit:                                    ; preds = %if.then.i.i, %if.else.i.i

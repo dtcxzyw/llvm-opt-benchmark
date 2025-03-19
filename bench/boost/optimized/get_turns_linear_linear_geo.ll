@@ -149331,7 +149331,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost8geometry9partitionINS0_
   %18 = sub i64 %16, %17
   %19 = sdiv exact i64 %18, 120
   %20 = icmp ugt i64 %19, %7
-  br i1 %20, label %21, label %130
+  br i1 %20, label %21, label %132
 
 21:                                               ; preds = %8
   %22 = load ptr, ptr %1, align 8, !tbaa !173
@@ -149342,7 +149342,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost8geometry9partitionINS0_
   %27 = sub i64 %25, %26
   %28 = sdiv exact i64 %27, 120
   %29 = icmp ugt i64 %28, %7
-  br i1 %29, label %30, label %130
+  br i1 %29, label %30, label %132
 
 30:                                               ; preds = %21
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %10) #56
@@ -149366,85 +149366,87 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost8geometry9partitionINS0_
   br label %36
 
 36:                                               ; preds = %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EE9push_backERKSJ_.exit.i, %.lr.ph.i
-  %.sroa.05.011.i = phi ptr [ %13, %.lr.ph.i ], [ %64, %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EE9push_backERKSJ_.exit.i ]
-  %37 = getelementptr inbounds nuw i8, ptr %.sroa.05.011.i, i64 32
-  invoke void @_ZN5boost8geometry8strategy6expand6detail15box_on_spheroid5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEEEESE_EEvRT_RKT0_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %37)
+  %37 = phi ptr [ null, %.lr.ph.i ], [ %65, %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EE9push_backERKSJ_.exit.i ]
+  %.sroa.05.011.i = phi ptr [ %13, %.lr.ph.i ], [ %66, %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EE9push_backERKSJ_.exit.i ]
+  %38 = getelementptr inbounds nuw i8, ptr %.sroa.05.011.i, i64 32
+  invoke void @_ZN5boost8geometry8strategy6expand6detail15box_on_spheroid5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEEEESE_EEvRT_RKT0_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %38)
           to label %.noexc unwind label %.loopexit.split-lp.loopexit
 
 .noexc:                                           ; preds = %36
-  %38 = load ptr, ptr %34, align 8, !tbaa !2564
-  %39 = load ptr, ptr %35, align 8, !tbaa !2566
-  %.not.i.i = icmp eq ptr %38, %39
-  br i1 %.not.i.i, label %43, label %40
+  %39 = load ptr, ptr %35, align 8, !tbaa !2564
+  %.not.i.i = icmp eq ptr %37, %39
+  br i1 %.not.i.i, label %44, label %40
 
 40:                                               ; preds = %.noexc
   %41 = ptrtoint ptr %.sroa.05.011.i to i64
-  store i64 %41, ptr %38, align 8, !tbaa !173
-  %42 = getelementptr inbounds nuw i8, ptr %38, i64 8
-  store ptr %42, ptr %34, align 8, !tbaa !2564
+  store i64 %41, ptr %37, align 8, !tbaa !173
+  %42 = load ptr, ptr %34, align 8, !tbaa !2566
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
+  store ptr %43, ptr %34, align 8, !tbaa !2566
   br label %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EE9push_backERKSJ_.exit.i
 
-43:                                               ; preds = %.noexc
-  %44 = load ptr, ptr %10, align 8, !tbaa !2567
-  %45 = ptrtoint ptr %38 to i64
-  %46 = ptrtoint ptr %44 to i64
-  %47 = sub i64 %45, %46
-  %48 = icmp eq i64 %47, 9223372036854775800
-  br i1 %48, label %.invoke, label %_ZNKSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EE12_M_check_lenEmPKc.exit.i.i.i
+44:                                               ; preds = %.noexc
+  %45 = load ptr, ptr %10, align 8, !tbaa !2567
+  %46 = ptrtoint ptr %37 to i64
+  %47 = ptrtoint ptr %45 to i64
+  %48 = sub i64 %46, %47
+  %49 = icmp eq i64 %48, 9223372036854775800
+  br i1 %49, label %.invoke, label %_ZNKSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EE12_M_check_lenEmPKc.exit.i.i.i
 
-_ZNKSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %43
-  %49 = ashr exact i64 %47, 3
-  %.sroa.speculated.i.i.i.i = call i64 @llvm.umax.i64(i64 %49, i64 1)
-  %50 = add nsw i64 %.sroa.speculated.i.i.i.i, %49
-  %51 = icmp ult i64 %50, %49
-  %52 = call i64 @llvm.umin.i64(i64 %50, i64 1152921504606846975)
-  %53 = select i1 %51, i64 1152921504606846975, i64 %52
-  %.not.i.i.i.i = icmp ne i64 %53, 0
+_ZNKSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %44
+  %50 = ashr exact i64 %48, 3
+  %.sroa.speculated.i.i.i.i = call i64 @llvm.umax.i64(i64 %50, i64 1)
+  %51 = add nsw i64 %.sroa.speculated.i.i.i.i, %50
+  %52 = icmp ult i64 %51, %50
+  %53 = call i64 @llvm.umin.i64(i64 %51, i64 1152921504606846975)
+  %54 = select i1 %52, i64 1152921504606846975, i64 %53
+  %.not.i.i.i.i = icmp ne i64 %54, 0
   call void @llvm.assume(i1 %.not.i.i.i.i)
-  %54 = shl nuw nsw i64 %53, 3
-  %55 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %54) #59
+  %55 = shl nuw nsw i64 %54, 3
+  %56 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %55) #59
           to label %.noexc27 unwind label %.loopexit.split-lp.loopexit
 
 .noexc27:                                         ; preds = %_ZNKSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EE12_M_check_lenEmPKc.exit.i.i.i
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 %47
-  %57 = ptrtoint ptr %.sroa.05.011.i to i64
-  store i64 %57, ptr %56, align 8, !tbaa !173
-  %.not10.i.i.i.i.i.i = icmp eq ptr %44, %38
+  %57 = getelementptr inbounds nuw i8, ptr %56, i64 %48
+  %58 = ptrtoint ptr %.sroa.05.011.i to i64
+  store i64 %58, ptr %57, align 8, !tbaa !173
+  %.not10.i.i.i.i.i.i = icmp eq ptr %45, %37
   br i1 %.not10.i.i.i.i.i.i, label %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EE11_S_relocateEPSJ_SM_SM_RSK_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i.i:                               ; preds = %.noexc27, %.lr.ph.i.i.i.i.i.i
-  %.012.i.i.i.i.i.i = phi ptr [ %60, %.lr.ph.i.i.i.i.i.i ], [ %55, %.noexc27 ]
-  %.0911.i.i.i.i.i.i = phi ptr [ %59, %.lr.ph.i.i.i.i.i.i ], [ %44, %.noexc27 ]
+  %.012.i.i.i.i.i.i = phi ptr [ %61, %.lr.ph.i.i.i.i.i.i ], [ %56, %.noexc27 ]
+  %.0911.i.i.i.i.i.i = phi ptr [ %60, %.lr.ph.i.i.i.i.i.i ], [ %45, %.noexc27 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !2568)
   call void @llvm.experimental.noalias.scope.decl(metadata !2571)
-  %58 = load i64, ptr %.0911.i.i.i.i.i.i, align 8, !tbaa !173, !alias.scope !2571, !noalias !2568
-  store i64 %58, ptr %.012.i.i.i.i.i.i, align 8, !tbaa !173, !alias.scope !2568, !noalias !2571
-  %59 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i, i64 8
-  %60 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i, i64 8
-  %.not.i.i.i.i.i.i = icmp eq ptr %59, %38
+  %59 = load i64, ptr %.0911.i.i.i.i.i.i, align 8, !tbaa !173, !alias.scope !2571, !noalias !2568
+  store i64 %59, ptr %.012.i.i.i.i.i.i, align 8, !tbaa !173, !alias.scope !2568, !noalias !2571
+  %60 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i, i64 8
+  %61 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i, i64 8
+  %.not.i.i.i.i.i.i = icmp eq ptr %60, %37
   br i1 %.not.i.i.i.i.i.i, label %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EE11_S_relocateEPSJ_SM_SM_RSK_.exit22.i.i.i, label %.lr.ph.i.i.i.i.i.i, !llvm.loop !2573
 
 _ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EE11_S_relocateEPSJ_SM_SM_RSK_.exit22.i.i.i: ; preds = %.lr.ph.i.i.i.i.i.i, %.noexc27
-  %.0.lcssa.i.i.i.i.i.i = phi ptr [ %55, %.noexc27 ], [ %60, %.lr.ph.i.i.i.i.i.i ]
-  %61 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 8
-  %.not.i23.i.i.i = icmp eq ptr %44, null
-  br i1 %.not.i23.i.i.i, label %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EE17_M_realloc_insertIJRKSJ_EEEvNS1_IPSJ_SL_EEDpOT_.exit.i.i, label %62
+  %.0.lcssa.i.i.i.i.i.i = phi ptr [ %56, %.noexc27 ], [ %61, %.lr.ph.i.i.i.i.i.i ]
+  %62 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i, i64 8
+  %.not.i23.i.i.i = icmp eq ptr %45, null
+  br i1 %.not.i23.i.i.i, label %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EE17_M_realloc_insertIJRKSJ_EEEvNS1_IPSJ_SL_EEDpOT_.exit.i.i, label %63
 
-62:                                               ; preds = %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EE11_S_relocateEPSJ_SM_SM_RSK_.exit22.i.i.i
-  call void @_ZdlPvm(ptr noundef nonnull %44, i64 noundef %47) #58
+63:                                               ; preds = %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EE11_S_relocateEPSJ_SM_SM_RSK_.exit22.i.i.i
+  call void @_ZdlPvm(ptr noundef nonnull %45, i64 noundef %48) #58
   br label %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EE17_M_realloc_insertIJRKSJ_EEEvNS1_IPSJ_SL_EEDpOT_.exit.i.i
 
-_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EE17_M_realloc_insertIJRKSJ_EEEvNS1_IPSJ_SL_EEDpOT_.exit.i.i: ; preds = %62, %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EE11_S_relocateEPSJ_SM_SM_RSK_.exit22.i.i.i
-  store ptr %55, ptr %10, align 8, !tbaa !2567
-  store ptr %61, ptr %34, align 8, !tbaa !2564
-  %63 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.1107", ptr %55, i64 %53
-  store ptr %63, ptr %35, align 8, !tbaa !2566
+_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EE17_M_realloc_insertIJRKSJ_EEEvNS1_IPSJ_SL_EEDpOT_.exit.i.i: ; preds = %63, %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EE11_S_relocateEPSJ_SM_SM_RSK_.exit22.i.i.i
+  store ptr %56, ptr %10, align 8, !tbaa !2567
+  store ptr %62, ptr %34, align 8, !tbaa !2566
+  %64 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.1107", ptr %56, i64 %54
+  store ptr %64, ptr %35, align 8, !tbaa !2564
   br label %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EE9push_backERKSJ_.exit.i
 
 _ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EE9push_backERKSJ_.exit.i: ; preds = %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EE17_M_realloc_insertIJRKSJ_EEEvNS1_IPSJ_SL_EEDpOT_.exit.i.i, %40
-  %64 = getelementptr inbounds nuw i8, ptr %.sroa.05.011.i, i64 120
-  %65 = load ptr, ptr %14, align 8, !tbaa !173
-  %.not.i = icmp eq ptr %64, %65
+  %65 = phi ptr [ %62, %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EE17_M_realloc_insertIJRKSJ_EEEvNS1_IPSJ_SL_EEDpOT_.exit.i.i ], [ %43, %40 ]
+  %66 = getelementptr inbounds nuw i8, ptr %.sroa.05.011.i, i64 120
+  %67 = load ptr, ptr %14, align 8, !tbaa !173
+  %.not.i = icmp eq ptr %66, %67
   br i1 %.not.i, label %_ZN5boost8geometry9partitionINS0_5model3boxINS2_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEEEENS0_6detail9partition18include_all_policyESD_E15expand_to_rangeISD_NS0_8sectionsISA_Lm2EEESt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESI_ISM_SaISM_EEEESaISR_EENSB_7section15get_section_boxINS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEEEEEEvRKT0_RSA_RT1_RKT2_.exit.loopexit, label %36, !llvm.loop !2574
 
 _ZN5boost8geometry9partitionINS0_5model3boxINS2_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEEEENS0_6detail9partition18include_all_policyESD_E15expand_to_rangeISD_NS0_8sectionsISA_Lm2EEESt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESI_ISM_SaISM_EEEESaISR_EENSB_7section15get_section_boxINS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEEEEEEvRKT0_RSA_RT1_RKT2_.exit.loopexit: ; preds = %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EE9push_backERKSJ_.exit.i
@@ -149453,144 +149455,144 @@ _ZN5boost8geometry9partitionINS0_5model3boxINS2_5pointIdLm2ENS0_2cs10geographicI
   br label %_ZN5boost8geometry9partitionINS0_5model3boxINS2_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEEEENS0_6detail9partition18include_all_policyESD_E15expand_to_rangeISD_NS0_8sectionsISA_Lm2EEESt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESI_ISM_SaISM_EEEESaISR_EENSB_7section15get_section_boxINS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEEEEEEvRKT0_RSA_RT1_RKT2_.exit
 
 _ZN5boost8geometry9partitionINS0_5model3boxINS2_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEEEENS0_6detail9partition18include_all_policyESD_E15expand_to_rangeISD_NS0_8sectionsISA_Lm2EEESt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESI_ISM_SaISM_EEEESaISR_EENSB_7section15get_section_boxINS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEEEEEEvRKT0_RSA_RT1_RKT2_.exit: ; preds = %_ZN5boost8geometry9partitionINS0_5model3boxINS2_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEEEENS0_6detail9partition18include_all_policyESD_E15expand_to_rangeISD_NS0_8sectionsISA_Lm2EEESt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESI_ISM_SaISM_EEEESaISR_EENSB_7section15get_section_boxINS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEEEEEEvRKT0_RSA_RT1_RKT2_.exit.loopexit, %30
-  %66 = phi ptr [ %.pre85, %_ZN5boost8geometry9partitionINS0_5model3boxINS2_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEEEENS0_6detail9partition18include_all_policyESD_E15expand_to_rangeISD_NS0_8sectionsISA_Lm2EEESt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESI_ISM_SaISM_EEEESaISR_EENSB_7section15get_section_boxINS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEEEEEEvRKT0_RSA_RT1_RKT2_.exit.loopexit ], [ %24, %30 ]
-  %67 = phi ptr [ %.pre84, %_ZN5boost8geometry9partitionINS0_5model3boxINS2_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEEEENS0_6detail9partition18include_all_policyESD_E15expand_to_rangeISD_NS0_8sectionsISA_Lm2EEESt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESI_ISM_SaISM_EEEESaISR_EENSB_7section15get_section_boxINS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEEEEEEvRKT0_RSA_RT1_RKT2_.exit.loopexit ], [ %22, %30 ]
-  %.not10.i28 = icmp eq ptr %67, %66
+  %68 = phi ptr [ %.pre85, %_ZN5boost8geometry9partitionINS0_5model3boxINS2_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEEEENS0_6detail9partition18include_all_policyESD_E15expand_to_rangeISD_NS0_8sectionsISA_Lm2EEESt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESI_ISM_SaISM_EEEESaISR_EENSB_7section15get_section_boxINS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEEEEEEvRKT0_RSA_RT1_RKT2_.exit.loopexit ], [ %24, %30 ]
+  %69 = phi ptr [ %.pre84, %_ZN5boost8geometry9partitionINS0_5model3boxINS2_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEEEENS0_6detail9partition18include_all_policyESD_E15expand_to_rangeISD_NS0_8sectionsISA_Lm2EEESt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESI_ISM_SaISM_EEEESaISR_EENSB_7section15get_section_boxINS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEEEEEEvRKT0_RSA_RT1_RKT2_.exit.loopexit ], [ %22, %30 ]
+  %.not10.i28 = icmp eq ptr %69, %68
   br i1 %.not10.i28, label %_ZN5boost8geometry9partitionINS0_5model3boxINS2_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEEEENS0_6detail9partition18include_all_policyESD_E15expand_to_rangeISD_NS0_8sectionsISA_Lm2EEESt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESI_ISM_SaISM_EEEESaISR_EENSB_7section15get_section_boxINS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEEEEEEvRKT0_RSA_RT1_RKT2_.exit49, label %.lr.ph.i29
 
 .lr.ph.i29:                                       ; preds = %_ZN5boost8geometry9partitionINS0_5model3boxINS2_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEEEENS0_6detail9partition18include_all_policyESD_E15expand_to_rangeISD_NS0_8sectionsISA_Lm2EEESt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESI_ISM_SaISM_EEEESaISR_EENSB_7section15get_section_boxINS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEEEEEEvRKT0_RSA_RT1_RKT2_.exit
-  %68 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %69 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  br label %70
+  %70 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %71 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  br label %72
 
-70:                                               ; preds = %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EE9push_backERKSJ_.exit.i32, %.lr.ph.i29
-  %.sroa.05.011.i30 = phi ptr [ %67, %.lr.ph.i29 ], [ %98, %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EE9push_backERKSJ_.exit.i32 ]
-  %71 = getelementptr inbounds nuw i8, ptr %.sroa.05.011.i30, i64 32
-  invoke void @_ZN5boost8geometry8strategy6expand6detail15box_on_spheroid5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEEEESE_EEvRT_RKT0_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %71)
+72:                                               ; preds = %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EE9push_backERKSJ_.exit.i32, %.lr.ph.i29
+  %.sroa.05.011.i30 = phi ptr [ %69, %.lr.ph.i29 ], [ %100, %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EE9push_backERKSJ_.exit.i32 ]
+  %73 = getelementptr inbounds nuw i8, ptr %.sroa.05.011.i30, i64 32
+  invoke void @_ZN5boost8geometry8strategy6expand6detail15box_on_spheroid5applyINS0_5model3boxINS6_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEEEESE_EEvRT_RKT0_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(32) %73)
           to label %.noexc46 unwind label %.loopexit
 
-.noexc46:                                         ; preds = %70
-  %72 = load ptr, ptr %68, align 8, !tbaa !2564
-  %73 = load ptr, ptr %69, align 8, !tbaa !2566
-  %.not.i.i31 = icmp eq ptr %72, %73
-  br i1 %.not.i.i31, label %77, label %74
+.noexc46:                                         ; preds = %72
+  %74 = load ptr, ptr %70, align 8, !tbaa !2566
+  %75 = load ptr, ptr %71, align 8, !tbaa !2564
+  %.not.i.i31 = icmp eq ptr %74, %75
+  br i1 %.not.i.i31, label %79, label %76
 
-74:                                               ; preds = %.noexc46
-  %75 = ptrtoint ptr %.sroa.05.011.i30 to i64
-  store i64 %75, ptr %72, align 8, !tbaa !173
-  %76 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  store ptr %76, ptr %68, align 8, !tbaa !2564
+76:                                               ; preds = %.noexc46
+  %77 = ptrtoint ptr %.sroa.05.011.i30 to i64
+  store i64 %77, ptr %74, align 8, !tbaa !173
+  %78 = getelementptr inbounds nuw i8, ptr %74, i64 8
+  store ptr %78, ptr %70, align 8, !tbaa !2566
   br label %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EE9push_backERKSJ_.exit.i32
 
-77:                                               ; preds = %.noexc46
-  %78 = load ptr, ptr %11, align 8, !tbaa !2567
-  %79 = ptrtoint ptr %72 to i64
-  %80 = ptrtoint ptr %78 to i64
-  %81 = sub i64 %79, %80
-  %82 = icmp eq i64 %81, 9223372036854775800
-  br i1 %82, label %.invoke, label %_ZNKSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EE12_M_check_lenEmPKc.exit.i.i.i34
+79:                                               ; preds = %.noexc46
+  %80 = load ptr, ptr %11, align 8, !tbaa !2567
+  %81 = ptrtoint ptr %74 to i64
+  %82 = ptrtoint ptr %80 to i64
+  %83 = sub i64 %81, %82
+  %84 = icmp eq i64 %83, 9223372036854775800
+  br i1 %84, label %.invoke, label %_ZNKSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EE12_M_check_lenEmPKc.exit.i.i.i34
 
-.invoke:                                          ; preds = %43, %77
+.invoke:                                          ; preds = %44, %79
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.477) #55
           to label %.cont unwind label %.loopexit.split-lp.loopexit.split-lp
 
 .cont:                                            ; preds = %.invoke
   unreachable
 
-_ZNKSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EE12_M_check_lenEmPKc.exit.i.i.i34: ; preds = %77
-  %83 = ashr exact i64 %81, 3
-  %.sroa.speculated.i.i.i.i35 = call i64 @llvm.umax.i64(i64 %83, i64 1)
-  %84 = add nsw i64 %.sroa.speculated.i.i.i.i35, %83
-  %85 = icmp ult i64 %84, %83
-  %86 = call i64 @llvm.umin.i64(i64 %84, i64 1152921504606846975)
-  %87 = select i1 %85, i64 1152921504606846975, i64 %86
-  %.not.i.i.i.i36 = icmp ne i64 %87, 0
+_ZNKSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EE12_M_check_lenEmPKc.exit.i.i.i34: ; preds = %79
+  %85 = ashr exact i64 %83, 3
+  %.sroa.speculated.i.i.i.i35 = call i64 @llvm.umax.i64(i64 %85, i64 1)
+  %86 = add nsw i64 %.sroa.speculated.i.i.i.i35, %85
+  %87 = icmp ult i64 %86, %85
+  %88 = call i64 @llvm.umin.i64(i64 %86, i64 1152921504606846975)
+  %89 = select i1 %87, i64 1152921504606846975, i64 %88
+  %.not.i.i.i.i36 = icmp ne i64 %89, 0
   call void @llvm.assume(i1 %.not.i.i.i.i36)
-  %88 = shl nuw nsw i64 %87, 3
-  %89 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %88) #59
+  %90 = shl nuw nsw i64 %89, 3
+  %91 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %90) #59
           to label %.noexc48 unwind label %.loopexit
 
 .noexc48:                                         ; preds = %_ZNKSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EE12_M_check_lenEmPKc.exit.i.i.i34
-  %90 = getelementptr inbounds nuw i8, ptr %89, i64 %81
-  %91 = ptrtoint ptr %.sroa.05.011.i30 to i64
-  store i64 %91, ptr %90, align 8, !tbaa !173
-  %.not10.i.i.i.i.i.i37 = icmp eq ptr %78, %72
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 %83
+  %93 = ptrtoint ptr %.sroa.05.011.i30 to i64
+  store i64 %93, ptr %92, align 8, !tbaa !173
+  %.not10.i.i.i.i.i.i37 = icmp eq ptr %80, %74
   br i1 %.not10.i.i.i.i.i.i37, label %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EE11_S_relocateEPSJ_SM_SM_RSK_.exit22.i.i.i42, label %.lr.ph.i.i.i.i.i.i38
 
 .lr.ph.i.i.i.i.i.i38:                             ; preds = %.noexc48, %.lr.ph.i.i.i.i.i.i38
-  %.012.i.i.i.i.i.i39 = phi ptr [ %94, %.lr.ph.i.i.i.i.i.i38 ], [ %89, %.noexc48 ]
-  %.0911.i.i.i.i.i.i40 = phi ptr [ %93, %.lr.ph.i.i.i.i.i.i38 ], [ %78, %.noexc48 ]
+  %.012.i.i.i.i.i.i39 = phi ptr [ %96, %.lr.ph.i.i.i.i.i.i38 ], [ %91, %.noexc48 ]
+  %.0911.i.i.i.i.i.i40 = phi ptr [ %95, %.lr.ph.i.i.i.i.i.i38 ], [ %80, %.noexc48 ]
   call void @llvm.experimental.noalias.scope.decl(metadata !2575)
   call void @llvm.experimental.noalias.scope.decl(metadata !2578)
-  %92 = load i64, ptr %.0911.i.i.i.i.i.i40, align 8, !tbaa !173, !alias.scope !2578, !noalias !2575
-  store i64 %92, ptr %.012.i.i.i.i.i.i39, align 8, !tbaa !173, !alias.scope !2575, !noalias !2578
-  %93 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i40, i64 8
-  %94 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i39, i64 8
-  %.not.i.i.i.i.i.i41 = icmp eq ptr %93, %72
+  %94 = load i64, ptr %.0911.i.i.i.i.i.i40, align 8, !tbaa !173, !alias.scope !2578, !noalias !2575
+  store i64 %94, ptr %.012.i.i.i.i.i.i39, align 8, !tbaa !173, !alias.scope !2575, !noalias !2578
+  %95 = getelementptr inbounds nuw i8, ptr %.0911.i.i.i.i.i.i40, i64 8
+  %96 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i.i.i39, i64 8
+  %.not.i.i.i.i.i.i41 = icmp eq ptr %95, %74
   br i1 %.not.i.i.i.i.i.i41, label %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EE11_S_relocateEPSJ_SM_SM_RSK_.exit22.i.i.i42, label %.lr.ph.i.i.i.i.i.i38, !llvm.loop !2573
 
 _ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EE11_S_relocateEPSJ_SM_SM_RSK_.exit22.i.i.i42: ; preds = %.lr.ph.i.i.i.i.i.i38, %.noexc48
-  %.0.lcssa.i.i.i.i.i.i43 = phi ptr [ %89, %.noexc48 ], [ %94, %.lr.ph.i.i.i.i.i.i38 ]
-  %95 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i43, i64 8
-  %.not.i23.i.i.i44 = icmp eq ptr %78, null
-  br i1 %.not.i23.i.i.i44, label %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EE17_M_realloc_insertIJRKSJ_EEEvNS1_IPSJ_SL_EEDpOT_.exit.i.i45, label %96
+  %.0.lcssa.i.i.i.i.i.i43 = phi ptr [ %91, %.noexc48 ], [ %96, %.lr.ph.i.i.i.i.i.i38 ]
+  %97 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i.i.i.i.i.i43, i64 8
+  %.not.i23.i.i.i44 = icmp eq ptr %80, null
+  br i1 %.not.i23.i.i.i44, label %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EE17_M_realloc_insertIJRKSJ_EEEvNS1_IPSJ_SL_EEDpOT_.exit.i.i45, label %98
 
-96:                                               ; preds = %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EE11_S_relocateEPSJ_SM_SM_RSK_.exit22.i.i.i42
-  call void @_ZdlPvm(ptr noundef nonnull %78, i64 noundef %81) #58
+98:                                               ; preds = %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EE11_S_relocateEPSJ_SM_SM_RSK_.exit22.i.i.i42
+  call void @_ZdlPvm(ptr noundef nonnull %80, i64 noundef %83) #58
   br label %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EE17_M_realloc_insertIJRKSJ_EEEvNS1_IPSJ_SL_EEDpOT_.exit.i.i45
 
-_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EE17_M_realloc_insertIJRKSJ_EEEvNS1_IPSJ_SL_EEDpOT_.exit.i.i45: ; preds = %96, %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EE11_S_relocateEPSJ_SM_SM_RSK_.exit22.i.i.i42
-  store ptr %89, ptr %11, align 8, !tbaa !2567
-  store ptr %95, ptr %68, align 8, !tbaa !2564
-  %97 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.1107", ptr %89, i64 %87
-  store ptr %97, ptr %69, align 8, !tbaa !2566
+_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EE17_M_realloc_insertIJRKSJ_EEEvNS1_IPSJ_SL_EEDpOT_.exit.i.i45: ; preds = %98, %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EE11_S_relocateEPSJ_SM_SM_RSK_.exit22.i.i.i42
+  store ptr %91, ptr %11, align 8, !tbaa !2567
+  store ptr %97, ptr %70, align 8, !tbaa !2566
+  %99 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.1107", ptr %91, i64 %89
+  store ptr %99, ptr %71, align 8, !tbaa !2564
   br label %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EE9push_backERKSJ_.exit.i32
 
-_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EE9push_backERKSJ_.exit.i32: ; preds = %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EE17_M_realloc_insertIJRKSJ_EEEvNS1_IPSJ_SL_EEDpOT_.exit.i.i45, %74
-  %98 = getelementptr inbounds nuw i8, ptr %.sroa.05.011.i30, i64 120
-  %99 = load ptr, ptr %23, align 8, !tbaa !173
-  %.not.i33 = icmp eq ptr %98, %99
-  br i1 %.not.i33, label %_ZN5boost8geometry9partitionINS0_5model3boxINS2_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEEEENS0_6detail9partition18include_all_policyESD_E15expand_to_rangeISD_NS0_8sectionsISA_Lm2EEESt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESI_ISM_SaISM_EEEESaISR_EENSB_7section15get_section_boxINS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEEEEEEvRKT0_RSA_RT1_RKT2_.exit49, label %70, !llvm.loop !2574
+_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EE9push_backERKSJ_.exit.i32: ; preds = %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EE17_M_realloc_insertIJRKSJ_EEEvNS1_IPSJ_SL_EEDpOT_.exit.i.i45, %76
+  %100 = getelementptr inbounds nuw i8, ptr %.sroa.05.011.i30, i64 120
+  %101 = load ptr, ptr %23, align 8, !tbaa !173
+  %.not.i33 = icmp eq ptr %100, %101
+  br i1 %.not.i33, label %_ZN5boost8geometry9partitionINS0_5model3boxINS2_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEEEENS0_6detail9partition18include_all_policyESD_E15expand_to_rangeISD_NS0_8sectionsISA_Lm2EEESt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESI_ISM_SaISM_EEEESaISR_EENSB_7section15get_section_boxINS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEEEEEEvRKT0_RSA_RT1_RKT2_.exit49, label %72, !llvm.loop !2574
 
 _ZN5boost8geometry9partitionINS0_5model3boxINS2_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEEEENS0_6detail9partition18include_all_policyESD_E15expand_to_rangeISD_NS0_8sectionsISA_Lm2EEESt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESI_ISM_SaISM_EEEESaISR_EENSB_7section15get_section_boxINS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEEEEEEvRKT0_RSA_RT1_RKT2_.exit49: ; preds = %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EE9push_backERKSJ_.exit.i32, %_ZN5boost8geometry9partitionINS0_5model3boxINS2_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEEEENS0_6detail9partition18include_all_policyESD_E15expand_to_rangeISD_NS0_8sectionsISA_Lm2EEESt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESI_ISM_SaISM_EEEESaISR_EENSB_7section15get_section_boxINS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEEEEEEvRKT0_RSA_RT1_RKT2_.exit
-  %100 = invoke noundef zeroext i1 @_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEEEEE5applyISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISC_Lm2EEESF_ISJ_SaISJ_EEEESaISO_EESQ_NS1_9get_turns15section_visitorINS4_10linestringISB_SF_SaEENS4_16multi_linestringISU_SF_SaEELb0ELb0ENSR_18get_turn_info_typeISU_SW_NS1_7overlay18assign_null_policyENS0_14linestring_tagENS0_20multi_linestring_tagENS0_10linear_tagES12_EENS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEENS1_17no_rescale_policyESF_INSY_9turn_infoISB_NS0_13segment_ratioIdEENSY_21turn_operation_linearISB_S1G_EESt5arrayIS1I_Lm2EEEESaIS1L_EENSR_19no_interrupt_policyEEENS1_7section15get_section_boxIS1C_EENS1Q_20overlaps_section_boxIS1C_EES1S_S1U_NS2_15visit_no_policyEEEbRKSC_RKT_RKT0_mmRT1_RKT2_RKT3_RKT4_RKT5_RT6_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 noundef 0, i64 noundef %7, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 1 dereferenceable(1) %9)
-          to label %101 unwind label %.loopexit.split-lp.loopexit.split-lp
+  %102 = invoke noundef zeroext i1 @_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEEEEE5applyISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISC_Lm2EEESF_ISJ_SaISJ_EEEESaISO_EESQ_NS1_9get_turns15section_visitorINS4_10linestringISB_SF_SaEENS4_16multi_linestringISU_SF_SaEELb0ELb0ENSR_18get_turn_info_typeISU_SW_NS1_7overlay18assign_null_policyENS0_14linestring_tagENS0_20multi_linestring_tagENS0_10linear_tagES12_EENS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEENS1_17no_rescale_policyESF_INSY_9turn_infoISB_NS0_13segment_ratioIdEENSY_21turn_operation_linearISB_S1G_EESt5arrayIS1I_Lm2EEEESaIS1L_EENSR_19no_interrupt_policyEEENS1_7section15get_section_boxIS1C_EENS1Q_20overlaps_section_boxIS1C_EES1S_S1U_NS2_15visit_no_policyEEEbRKSC_RKT_RKT0_mmRT1_RKT2_RKT3_RKT4_RKT5_RT6_(ptr noundef nonnull align 8 dereferenceable(32) %12, ptr noundef nonnull align 8 dereferenceable(24) %10, ptr noundef nonnull align 8 dereferenceable(24) %11, i64 noundef 0, i64 noundef %7, ptr noundef nonnull align 8 dereferenceable(64) %2, ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 8 dereferenceable(8) %5, ptr noundef nonnull align 8 dereferenceable(8) %6, ptr noundef nonnull align 1 dereferenceable(1) %9)
+          to label %103 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-101:                                              ; preds = %_ZN5boost8geometry9partitionINS0_5model3boxINS2_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEEEENS0_6detail9partition18include_all_policyESD_E15expand_to_rangeISD_NS0_8sectionsISA_Lm2EEESt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESI_ISM_SaISM_EEEESaISR_EENSB_7section15get_section_boxINS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEEEEEEvRKT0_RSA_RT1_RKT2_.exit49
+103:                                              ; preds = %_ZN5boost8geometry9partitionINS0_5model3boxINS2_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEEEENS0_6detail9partition18include_all_policyESD_E15expand_to_rangeISD_NS0_8sectionsISA_Lm2EEESt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISA_Lm2EEESI_ISM_SaISM_EEEESaISR_EENSB_7section15get_section_boxINS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEEEEEEvRKT0_RSA_RT1_RKT2_.exit49
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #56
-  %102 = load ptr, ptr %11, align 8, !tbaa !2567
-  %.not.i.i.i = icmp eq ptr %102, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EED2Ev.exit, label %103
+  %104 = load ptr, ptr %11, align 8, !tbaa !2567
+  %.not.i.i.i = icmp eq ptr %104, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EED2Ev.exit, label %105
 
-103:                                              ; preds = %101
-  %104 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %105 = load ptr, ptr %104, align 8, !tbaa !2566
-  %106 = ptrtoint ptr %105 to i64
-  %107 = ptrtoint ptr %102 to i64
-  %108 = sub i64 %106, %107
-  call void @_ZdlPvm(ptr noundef nonnull %102, i64 noundef %108) #58
+105:                                              ; preds = %103
+  %106 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %107 = load ptr, ptr %106, align 8, !tbaa !2564
+  %108 = ptrtoint ptr %107 to i64
+  %109 = ptrtoint ptr %104 to i64
+  %110 = sub i64 %108, %109
+  call void @_ZdlPvm(ptr noundef nonnull %104, i64 noundef %110) #58
   br label %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EED2Ev.exit
 
-_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EED2Ev.exit: ; preds = %101, %103
+_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EED2Ev.exit: ; preds = %103, %105
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #56
-  %109 = load ptr, ptr %10, align 8, !tbaa !2567
-  %.not.i.i.i50 = icmp eq ptr %109, null
-  br i1 %.not.i.i.i50, label %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EED2Ev.exit51, label %110
+  %111 = load ptr, ptr %10, align 8, !tbaa !2567
+  %.not.i.i.i50 = icmp eq ptr %111, null
+  br i1 %.not.i.i.i50, label %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EED2Ev.exit51, label %112
 
-110:                                              ; preds = %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EED2Ev.exit
-  %111 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %112 = load ptr, ptr %111, align 8, !tbaa !2566
-  %113 = ptrtoint ptr %112 to i64
-  %114 = ptrtoint ptr %109 to i64
-  %115 = sub i64 %113, %114
-  call void @_ZdlPvm(ptr noundef nonnull %109, i64 noundef %115) #58
+112:                                              ; preds = %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EED2Ev.exit
+  %113 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %114 = load ptr, ptr %113, align 8, !tbaa !2564
+  %115 = ptrtoint ptr %114 to i64
+  %116 = ptrtoint ptr %111 to i64
+  %117 = sub i64 %115, %116
+  call void @_ZdlPvm(ptr noundef nonnull %111, i64 noundef %117) #58
   br label %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EED2Ev.exit51
 
-_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EED2Ev.exit51: ; preds = %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EED2Ev.exit, %110
+_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EED2Ev.exit51: ; preds = %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EED2Ev.exit, %112
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #56
   br label %.thread
 
-.loopexit:                                        ; preds = %70, %_ZNKSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EE12_M_check_lenEmPKc.exit.i.i.i34
+.loopexit:                                        ; preds = %72, %_ZNKSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EE12_M_check_lenEmPKc.exit.i.i.i34
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
@@ -149608,219 +149610,219 @@ _ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5mode
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit67, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp68, %.loopexit.split-lp.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %12) #56
-  %116 = load ptr, ptr %11, align 8, !tbaa !2567
-  %.not.i.i.i52 = icmp eq ptr %116, null
-  br i1 %.not.i.i.i52, label %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EED2Ev.exit53, label %117
+  %118 = load ptr, ptr %11, align 8, !tbaa !2567
+  %.not.i.i.i52 = icmp eq ptr %118, null
+  br i1 %.not.i.i.i52, label %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EED2Ev.exit53, label %119
 
-117:                                              ; preds = %.loopexit.split-lp
-  %118 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %119 = load ptr, ptr %118, align 8, !tbaa !2566
-  %120 = ptrtoint ptr %119 to i64
-  %121 = ptrtoint ptr %116 to i64
-  %122 = sub i64 %120, %121
-  call void @_ZdlPvm(ptr noundef nonnull %116, i64 noundef %122) #58
+119:                                              ; preds = %.loopexit.split-lp
+  %120 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %121 = load ptr, ptr %120, align 8, !tbaa !2564
+  %122 = ptrtoint ptr %121 to i64
+  %123 = ptrtoint ptr %118 to i64
+  %124 = sub i64 %122, %123
+  call void @_ZdlPvm(ptr noundef nonnull %118, i64 noundef %124) #58
   br label %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EED2Ev.exit53
 
-_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EED2Ev.exit53: ; preds = %.loopexit.split-lp, %117
+_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EED2Ev.exit53: ; preds = %.loopexit.split-lp, %119
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %11) #56
-  %123 = load ptr, ptr %10, align 8, !tbaa !2567
-  %.not.i.i.i54 = icmp eq ptr %123, null
-  br i1 %.not.i.i.i54, label %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EED2Ev.exit55, label %124
+  %125 = load ptr, ptr %10, align 8, !tbaa !2567
+  %.not.i.i.i54 = icmp eq ptr %125, null
+  br i1 %.not.i.i.i54, label %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EED2Ev.exit55, label %126
 
-124:                                              ; preds = %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EED2Ev.exit53
-  %125 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %126 = load ptr, ptr %125, align 8, !tbaa !2566
-  %127 = ptrtoint ptr %126 to i64
-  %128 = ptrtoint ptr %123 to i64
-  %129 = sub i64 %127, %128
-  call void @_ZdlPvm(ptr noundef nonnull %123, i64 noundef %129) #58
+126:                                              ; preds = %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EED2Ev.exit53
+  %127 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %128 = load ptr, ptr %127, align 8, !tbaa !2564
+  %129 = ptrtoint ptr %128 to i64
+  %130 = ptrtoint ptr %125 to i64
+  %131 = sub i64 %129, %130
+  call void @_ZdlPvm(ptr noundef nonnull %125, i64 noundef %131) #58
   br label %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EED2Ev.exit55
 
-_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EED2Ev.exit55: ; preds = %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EED2Ev.exit53, %124
+_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EED2Ev.exit55: ; preds = %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EED2Ev.exit53, %126
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %10) #56
   resume { ptr, i32 } %lpad.phi
 
-130:                                              ; preds = %21, %8
+132:                                              ; preds = %21, %8
   %.not75 = icmp eq ptr %13, %15
   br i1 %.not75, label %.thread, label %.lr.ph79
 
-.lr.ph79:                                         ; preds = %130
-  %131 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %132 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %133 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %134 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  %135 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  %136 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  %137 = getelementptr inbounds nuw i8, ptr %2, i64 48
-  %138 = getelementptr inbounds nuw i8, ptr %2, i64 56
-  %139 = load ptr, ptr %1, align 8, !tbaa !173
-  %140 = load ptr, ptr %131, align 8, !tbaa !173
-  %141 = icmp eq ptr %139, %140
-  br i1 %141, label %.thread, label %.lr.ph79.split
+.lr.ph79:                                         ; preds = %132
+  %133 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %134 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %135 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %136 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %137 = getelementptr inbounds nuw i8, ptr %2, i64 24
+  %138 = getelementptr inbounds nuw i8, ptr %2, i64 40
+  %139 = getelementptr inbounds nuw i8, ptr %2, i64 48
+  %140 = getelementptr inbounds nuw i8, ptr %2, i64 56
+  %141 = load ptr, ptr %1, align 8, !tbaa !173
+  %142 = load ptr, ptr %133, align 8, !tbaa !173
+  %143 = icmp eq ptr %141, %142
+  br i1 %143, label %.thread, label %.lr.ph79.split
 
 .lr.ph79.split:                                   ; preds = %.lr.ph79, %._crit_edge
-  %142 = phi ptr [ %228, %._crit_edge ], [ %15, %.lr.ph79 ]
-  %143 = phi ptr [ %229, %._crit_edge ], [ %140, %.lr.ph79 ]
-  %144 = phi ptr [ %230, %._crit_edge ], [ %140, %.lr.ph79 ]
-  %.sroa.060.076 = phi ptr [ %231, %._crit_edge ], [ %13, %.lr.ph79 ]
-  %145 = load ptr, ptr %1, align 8, !tbaa !173
-  %.not6673 = icmp eq ptr %145, %144
+  %144 = phi ptr [ %230, %._crit_edge ], [ %15, %.lr.ph79 ]
+  %145 = phi ptr [ %231, %._crit_edge ], [ %142, %.lr.ph79 ]
+  %146 = phi ptr [ %232, %._crit_edge ], [ %142, %.lr.ph79 ]
+  %.sroa.060.076 = phi ptr [ %233, %._crit_edge ], [ %13, %.lr.ph79 ]
+  %147 = load ptr, ptr %1, align 8, !tbaa !173
+  %.not6673 = icmp eq ptr %147, %146
   br i1 %.not6673, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph79.split
-  %146 = getelementptr inbounds nuw i8, ptr %.sroa.060.076, i64 32
-  %147 = getelementptr inbounds nuw i8, ptr %.sroa.060.076, i64 48
-  %148 = getelementptr inbounds nuw i8, ptr %.sroa.060.076, i64 56
-  %149 = getelementptr inbounds nuw i8, ptr %.sroa.060.076, i64 40
-  br label %150
+  %148 = getelementptr inbounds nuw i8, ptr %.sroa.060.076, i64 32
+  %149 = getelementptr inbounds nuw i8, ptr %.sroa.060.076, i64 48
+  %150 = getelementptr inbounds nuw i8, ptr %.sroa.060.076, i64 56
+  %151 = getelementptr inbounds nuw i8, ptr %.sroa.060.076, i64 40
+  br label %152
 
-150:                                              ; preds = %.lr.ph, %_ZN5boost8geometry6detail9get_turns15section_visitorINS0_5model10linestringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEESt6vectorSaEENS4_16multi_linestringISD_SC_SaEELb0ELb0ENS2_18get_turn_info_typeISD_SF_NS1_7overlay18assign_null_policyENS0_14linestring_tagENS0_20multi_linestring_tagENS0_10linear_tagESL_EENS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEENS1_17no_rescale_policyESC_INSH_9turn_infoISB_NS0_13segment_ratioIdEENSH_21turn_operation_linearISB_SZ_EESt5arrayIS11_Lm2EEEESaIS14_EENS2_19no_interrupt_policyEE5applyINS0_7sectionINS4_3boxISB_EELm2EEEEEbRKT_S1G_.exit.thread
-  %151 = phi ptr [ %143, %.lr.ph ], [ %226, %_ZN5boost8geometry6detail9get_turns15section_visitorINS0_5model10linestringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEESt6vectorSaEENS4_16multi_linestringISD_SC_SaEELb0ELb0ENS2_18get_turn_info_typeISD_SF_NS1_7overlay18assign_null_policyENS0_14linestring_tagENS0_20multi_linestring_tagENS0_10linear_tagESL_EENS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEENS1_17no_rescale_policyESC_INSH_9turn_infoISB_NS0_13segment_ratioIdEENSH_21turn_operation_linearISB_SZ_EESt5arrayIS11_Lm2EEEESaIS14_EENS2_19no_interrupt_policyEE5applyINS0_7sectionINS4_3boxISB_EELm2EEEEEbRKT_S1G_.exit.thread ]
-  %.sroa.056.074 = phi ptr [ %145, %.lr.ph ], [ %227, %_ZN5boost8geometry6detail9get_turns15section_visitorINS0_5model10linestringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEESt6vectorSaEENS4_16multi_linestringISD_SC_SaEELb0ELb0ENS2_18get_turn_info_typeISD_SF_NS1_7overlay18assign_null_policyENS0_14linestring_tagENS0_20multi_linestring_tagENS0_10linear_tagESL_EENS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEENS1_17no_rescale_policyESC_INSH_9turn_infoISB_NS0_13segment_ratioIdEENSH_21turn_operation_linearISB_SZ_EESt5arrayIS11_Lm2EEEESaIS14_EENS2_19no_interrupt_policyEE5applyINS0_7sectionINS4_3boxISB_EELm2EEEEEbRKT_S1G_.exit.thread ]
-  %152 = getelementptr inbounds nuw i8, ptr %.sroa.056.074, i64 32
-  %153 = load double, ptr %146, align 8, !tbaa !1473
-  %154 = load double, ptr %147, align 8, !tbaa !1473
-  %155 = load double, ptr %152, align 8, !tbaa !1473
-  %156 = getelementptr inbounds nuw i8, ptr %.sroa.056.074, i64 48
-  %157 = load double, ptr %156, align 8, !tbaa !1473
-  %158 = fsub double %154, %153
-  %159 = fsub double %157, %155
-  %160 = fcmp olt double %158, 0x401921FB54442D18
-  %161 = fcmp olt double %159, 0x401921FB54442D18
-  %or.cond31.i = select i1 %160, i1 %161, i1 false
-  br i1 %or.cond31.i, label %162, label %.critedge.i
+152:                                              ; preds = %.lr.ph, %_ZN5boost8geometry6detail9get_turns15section_visitorINS0_5model10linestringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEESt6vectorSaEENS4_16multi_linestringISD_SC_SaEELb0ELb0ENS2_18get_turn_info_typeISD_SF_NS1_7overlay18assign_null_policyENS0_14linestring_tagENS0_20multi_linestring_tagENS0_10linear_tagESL_EENS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEENS1_17no_rescale_policyESC_INSH_9turn_infoISB_NS0_13segment_ratioIdEENSH_21turn_operation_linearISB_SZ_EESt5arrayIS11_Lm2EEEESaIS14_EENS2_19no_interrupt_policyEE5applyINS0_7sectionINS4_3boxISB_EELm2EEEEEbRKT_S1G_.exit.thread
+  %153 = phi ptr [ %145, %.lr.ph ], [ %228, %_ZN5boost8geometry6detail9get_turns15section_visitorINS0_5model10linestringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEESt6vectorSaEENS4_16multi_linestringISD_SC_SaEELb0ELb0ENS2_18get_turn_info_typeISD_SF_NS1_7overlay18assign_null_policyENS0_14linestring_tagENS0_20multi_linestring_tagENS0_10linear_tagESL_EENS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEENS1_17no_rescale_policyESC_INSH_9turn_infoISB_NS0_13segment_ratioIdEENSH_21turn_operation_linearISB_SZ_EESt5arrayIS11_Lm2EEEESaIS14_EENS2_19no_interrupt_policyEE5applyINS0_7sectionINS4_3boxISB_EELm2EEEEEbRKT_S1G_.exit.thread ]
+  %.sroa.056.074 = phi ptr [ %147, %.lr.ph ], [ %229, %_ZN5boost8geometry6detail9get_turns15section_visitorINS0_5model10linestringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEESt6vectorSaEENS4_16multi_linestringISD_SC_SaEELb0ELb0ENS2_18get_turn_info_typeISD_SF_NS1_7overlay18assign_null_policyENS0_14linestring_tagENS0_20multi_linestring_tagENS0_10linear_tagESL_EENS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEENS1_17no_rescale_policyESC_INSH_9turn_infoISB_NS0_13segment_ratioIdEENSH_21turn_operation_linearISB_SZ_EESt5arrayIS11_Lm2EEEESaIS14_EENS2_19no_interrupt_policyEE5applyINS0_7sectionINS4_3boxISB_EELm2EEEEEbRKT_S1G_.exit.thread ]
+  %154 = getelementptr inbounds nuw i8, ptr %.sroa.056.074, i64 32
+  %155 = load double, ptr %148, align 8, !tbaa !1473
+  %156 = load double, ptr %149, align 8, !tbaa !1473
+  %157 = load double, ptr %154, align 8, !tbaa !1473
+  %158 = getelementptr inbounds nuw i8, ptr %.sroa.056.074, i64 48
+  %159 = load double, ptr %158, align 8, !tbaa !1473
+  %160 = fsub double %156, %155
+  %161 = fsub double %159, %157
+  %162 = fcmp olt double %160, 0x401921FB54442D18
+  %163 = fcmp olt double %161, 0x401921FB54442D18
+  %or.cond31.i = select i1 %162, i1 %163, i1 false
+  br i1 %or.cond31.i, label %164, label %.critedge.i
 
-162:                                              ; preds = %150
-  %163 = fsub double %155, %153
-  %164 = tail call noundef double @llvm.fabs.f64(double %163)
-  %165 = fcmp oeq double %164, 0x400921FB54442D18
-  br i1 %165, label %_ZN5boost8geometry4math27longitude_distance_unsignedINS0_6radianEdEET0_RKS4_S6_.exit.i, label %166
+164:                                              ; preds = %152
+  %165 = fsub double %157, %155
+  %166 = tail call noundef double @llvm.fabs.f64(double %165)
+  %167 = fcmp oeq double %166, 0x400921FB54442D18
+  br i1 %167, label %_ZN5boost8geometry4math27longitude_distance_unsignedINS0_6radianEdEET0_RKS4_S6_.exit.i, label %168
 
-166:                                              ; preds = %162
-  %167 = fcmp ueq double %164, 0x7FF0000000000000
-  br i1 %167, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread16.i.i.i.i.i, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i.i
+168:                                              ; preds = %164
+  %169 = fcmp ueq double %166, 0x7FF0000000000000
+  br i1 %169, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread16.i.i.i.i.i, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i.i
 
-_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i.i: ; preds = %166
-  %168 = fadd double %164, 0xC00921FB54442D18
-  %169 = tail call noundef double @llvm.fabs.f64(double %168)
-  %170 = fcmp olt double %164, 0x400921FB54442D18
-  %171 = select i1 %170, double 0x400921FB54442D18, double %164
-  %172 = fcmp olt double %171, 1.000000e+00
-  %.sroa.speculated.i.i.i.i.i.i.i.i = select i1 %172, double 1.000000e+00, double %171
-  %173 = fmul double %.sroa.speculated.i.i.i.i.i.i.i.i, 0x3CB0000000000000
-  %174 = fcmp ugt double %169, %173
-  br i1 %174, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread16.i.i.i.i.i, label %_ZN5boost8geometry4math27longitude_distance_unsignedINS0_6radianEdEET0_RKS4_S6_.exit.i
+_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i.i: ; preds = %168
+  %170 = fadd double %166, 0xC00921FB54442D18
+  %171 = tail call noundef double @llvm.fabs.f64(double %170)
+  %172 = fcmp olt double %166, 0x400921FB54442D18
+  %173 = select i1 %172, double 0x400921FB54442D18, double %166
+  %174 = fcmp olt double %173, 1.000000e+00
+  %.sroa.speculated.i.i.i.i.i.i.i.i = select i1 %174, double 1.000000e+00, double %173
+  %175 = fmul double %.sroa.speculated.i.i.i.i.i.i.i.i, 0x3CB0000000000000
+  %176 = fcmp ugt double %171, %175
+  br i1 %176, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread16.i.i.i.i.i, label %_ZN5boost8geometry4math27longitude_distance_unsignedINS0_6radianEdEET0_RKS4_S6_.exit.i
 
-_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread16.i.i.i.i.i: ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i.i, %166
-  %175 = fcmp ogt double %163, 0x400921FB54442D18
-  br i1 %175, label %176, label %191
+_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread16.i.i.i.i.i: ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i.i, %168
+  %177 = fcmp ogt double %165, 0x400921FB54442D18
+  br i1 %177, label %178, label %193
 
-176:                                              ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread16.i.i.i.i.i
-  %177 = fadd double %163, 0x400921FB54442D18
-  %178 = tail call noundef double @fmod(double noundef %177, double noundef 0x401921FB54442D18) #56, !tbaa !263
-  %179 = fadd double %178, 0xC00921FB54442D18
-  %180 = fcmp oeq double %179, 0xC00921FB54442D18
-  br i1 %180, label %_ZN5boost8geometry4math27longitude_distance_unsignedINS0_6radianEdEET0_RKS4_S6_.exit.i, label %181
+178:                                              ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread16.i.i.i.i.i
+  %179 = fadd double %165, 0x400921FB54442D18
+  %180 = tail call noundef double @fmod(double noundef %179, double noundef 0x401921FB54442D18) #56, !tbaa !263
+  %181 = fadd double %180, 0xC00921FB54442D18
+  %182 = fcmp oeq double %181, 0xC00921FB54442D18
+  br i1 %182, label %_ZN5boost8geometry4math27longitude_distance_unsignedINS0_6radianEdEET0_RKS4_S6_.exit.i, label %183
 
-181:                                              ; preds = %176
-  %182 = tail call double @llvm.fabs.f64(double %179)
-  %183 = fcmp ueq double %182, 0x7FF0000000000000
-  br i1 %183, label %_ZN5boost8geometry4math25longitude_distance_signedINS0_6radianEdEET0_RKS4_S6_.exit.i.i, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit12.i.i.i.i.i
+183:                                              ; preds = %178
+  %184 = tail call double @llvm.fabs.f64(double %181)
+  %185 = fcmp ueq double %184, 0x7FF0000000000000
+  br i1 %185, label %_ZN5boost8geometry4math25longitude_distance_signedINS0_6radianEdEET0_RKS4_S6_.exit.i.i, label %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit12.i.i.i.i.i
 
-_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit12.i.i.i.i.i: ; preds = %181
-  %184 = fadd double %179, 0x400921FB54442D18
-  %185 = tail call noundef double @llvm.fabs.f64(double %184)
-  %186 = fcmp olt double %182, 0x400921FB54442D18
-  %187 = select i1 %186, double 0x400921FB54442D18, double %182
-  %188 = fcmp olt double %187, 1.000000e+00
-  %.sroa.speculated.i.i.i10.i.i.i.i.i = select i1 %188, double 1.000000e+00, double %187
-  %189 = fmul double %.sroa.speculated.i.i.i10.i.i.i.i.i, 0x3CB0000000000000
-  %190 = fcmp ugt double %185, %189
-  br i1 %190, label %_ZN5boost8geometry4math25longitude_distance_signedINS0_6radianEdEET0_RKS4_S6_.exit.i.i, label %_ZN5boost8geometry4math27longitude_distance_unsignedINS0_6radianEdEET0_RKS4_S6_.exit.i
+_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit12.i.i.i.i.i: ; preds = %183
+  %186 = fadd double %181, 0x400921FB54442D18
+  %187 = tail call noundef double @llvm.fabs.f64(double %186)
+  %188 = fcmp olt double %184, 0x400921FB54442D18
+  %189 = select i1 %188, double 0x400921FB54442D18, double %184
+  %190 = fcmp olt double %189, 1.000000e+00
+  %.sroa.speculated.i.i.i10.i.i.i.i.i = select i1 %190, double 1.000000e+00, double %189
+  %191 = fmul double %.sroa.speculated.i.i.i10.i.i.i.i.i, 0x3CB0000000000000
+  %192 = fcmp ugt double %187, %191
+  br i1 %192, label %_ZN5boost8geometry4math25longitude_distance_signedINS0_6radianEdEET0_RKS4_S6_.exit.i.i, label %_ZN5boost8geometry4math27longitude_distance_unsignedINS0_6radianEdEET0_RKS4_S6_.exit.i
 
-191:                                              ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread16.i.i.i.i.i
-  %192 = fcmp olt double %163, 0xC00921FB54442D18
-  br i1 %192, label %193, label %_ZN5boost8geometry4math25longitude_distance_signedINS0_6radianEdEET0_RKS4_S6_.exit.i.i
+193:                                              ; preds = %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.thread16.i.i.i.i.i
+  %194 = fcmp olt double %165, 0xC00921FB54442D18
+  br i1 %194, label %195, label %_ZN5boost8geometry4math25longitude_distance_signedINS0_6radianEdEET0_RKS4_S6_.exit.i.i
 
-193:                                              ; preds = %191
-  %194 = fadd double %163, 0xC00921FB54442D18
-  %195 = tail call noundef double @fmod(double noundef %194, double noundef 0x401921FB54442D18) #56, !tbaa !263
-  %196 = fadd double %195, 0x400921FB54442D18
+195:                                              ; preds = %193
+  %196 = fadd double %165, 0xC00921FB54442D18
+  %197 = tail call noundef double @fmod(double noundef %196, double noundef 0x401921FB54442D18) #56, !tbaa !263
+  %198 = fadd double %197, 0x400921FB54442D18
   br label %_ZN5boost8geometry4math25longitude_distance_signedINS0_6radianEdEET0_RKS4_S6_.exit.i.i
 
-_ZN5boost8geometry4math25longitude_distance_signedINS0_6radianEdEET0_RKS4_S6_.exit.i.i: ; preds = %193, %191, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit12.i.i.i.i.i, %181
-  %.0.i.i.i = phi double [ %179, %181 ], [ %179, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit12.i.i.i.i.i ], [ %163, %191 ], [ %196, %193 ]
-  %197 = fcmp olt double %.0.i.i.i, 0.000000e+00
-  br i1 %197, label %198, label %_ZN5boost8geometry4math27longitude_distance_unsignedINS0_6radianEdEET0_RKS4_S6_.exit.i
+_ZN5boost8geometry4math25longitude_distance_signedINS0_6radianEdEET0_RKS4_S6_.exit.i.i: ; preds = %195, %193, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit12.i.i.i.i.i, %183
+  %.0.i.i.i = phi double [ %181, %183 ], [ %181, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit12.i.i.i.i.i ], [ %165, %193 ], [ %198, %195 ]
+  %199 = fcmp olt double %.0.i.i.i, 0.000000e+00
+  br i1 %199, label %200, label %_ZN5boost8geometry4math27longitude_distance_unsignedINS0_6radianEdEET0_RKS4_S6_.exit.i
 
-198:                                              ; preds = %_ZN5boost8geometry4math25longitude_distance_signedINS0_6radianEdEET0_RKS4_S6_.exit.i.i
-  %199 = fadd double %.0.i.i.i, 0x401921FB54442D18
+200:                                              ; preds = %_ZN5boost8geometry4math25longitude_distance_signedINS0_6radianEdEET0_RKS4_S6_.exit.i.i
+  %201 = fadd double %.0.i.i.i, 0x401921FB54442D18
   br label %_ZN5boost8geometry4math27longitude_distance_unsignedINS0_6radianEdEET0_RKS4_S6_.exit.i
 
-_ZN5boost8geometry4math27longitude_distance_unsignedINS0_6radianEdEET0_RKS4_S6_.exit.i: ; preds = %198, %_ZN5boost8geometry4math25longitude_distance_signedINS0_6radianEdEET0_RKS4_S6_.exit.i.i, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit12.i.i.i.i.i, %176, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i.i, %162
-  %.0.i.i = phi double [ %199, %198 ], [ %.0.i.i.i, %_ZN5boost8geometry4math25longitude_distance_signedINS0_6radianEdEET0_RKS4_S6_.exit.i.i ], [ 0x400921FB54442D18, %162 ], [ 0x400921FB54442D18, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i.i ], [ 0x400921FB54442D18, %176 ], [ 0x400921FB54442D18, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit12.i.i.i.i.i ]
-  %200 = fadd double %153, %.0.i.i
-  %201 = fadd double %200, 0xC01921FB54442D18
-  %202 = fadd double %159, %201
-  %203 = fsub double %202, %157
-  %204 = tail call noundef double @llvm.fabs.f64(double %203)
-  %205 = fcmp olt double %204, 0x400921FB54442D18
-  %.020.i = select i1 %205, double %157, double %202
-  %206 = fcmp ogt double %200, %154
-  %207 = fcmp olt double %.020.i, %153
-  %or.cond.i = select i1 %206, i1 %207, i1 false
+_ZN5boost8geometry4math27longitude_distance_unsignedINS0_6radianEdEET0_RKS4_S6_.exit.i: ; preds = %200, %_ZN5boost8geometry4math25longitude_distance_signedINS0_6radianEdEET0_RKS4_S6_.exit.i.i, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit12.i.i.i.i.i, %178, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i.i, %164
+  %.0.i.i = phi double [ %201, %200 ], [ %.0.i.i.i, %_ZN5boost8geometry4math25longitude_distance_signedINS0_6radianEdEET0_RKS4_S6_.exit.i.i ], [ 0x400921FB54442D18, %164 ], [ 0x400921FB54442D18, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit.i.i.i.i.i ], [ 0x400921FB54442D18, %178 ], [ 0x400921FB54442D18, %_ZN5boost8geometry4math6equalsIddEEbRKT_RKT0_.exit12.i.i.i.i.i ]
+  %202 = fadd double %155, %.0.i.i
+  %203 = fadd double %202, 0xC01921FB54442D18
+  %204 = fadd double %161, %203
+  %205 = fsub double %204, %159
+  %206 = tail call noundef double @llvm.fabs.f64(double %205)
+  %207 = fcmp olt double %206, 0x400921FB54442D18
+  %.020.i = select i1 %207, double %159, double %204
+  %208 = fcmp ogt double %202, %156
+  %209 = fcmp olt double %.020.i, %155
+  %or.cond.i = select i1 %208, i1 %209, i1 false
   br i1 %or.cond.i, label %_ZN5boost8geometry6detail9get_turns15section_visitorINS0_5model10linestringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEESt6vectorSaEENS4_16multi_linestringISD_SC_SaEELb0ELb0ENS2_18get_turn_info_typeISD_SF_NS1_7overlay18assign_null_policyENS0_14linestring_tagENS0_20multi_linestring_tagENS0_10linear_tagESL_EENS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEENS1_17no_rescale_policyESC_INSH_9turn_infoISB_NS0_13segment_ratioIdEENSH_21turn_operation_linearISB_SZ_EESt5arrayIS11_Lm2EEEESaIS14_EENS2_19no_interrupt_policyEE5applyINS0_7sectionINS4_3boxISB_EELm2EEEEEbRKT_S1G_.exit.thread, label %.critedge.i
 
-.critedge.i:                                      ; preds = %_ZN5boost8geometry4math27longitude_distance_unsignedINS0_6radianEdEET0_RKS4_S6_.exit.i, %150
-  %208 = load double, ptr %148, align 8, !tbaa !1473
-  %209 = getelementptr inbounds nuw i8, ptr %.sroa.056.074, i64 40
-  %210 = load double, ptr %209, align 8, !tbaa !1473
-  %211 = fcmp olt double %208, %210
-  br i1 %211, label %_ZN5boost8geometry6detail9get_turns15section_visitorINS0_5model10linestringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEESt6vectorSaEENS4_16multi_linestringISD_SC_SaEELb0ELb0ENS2_18get_turn_info_typeISD_SF_NS1_7overlay18assign_null_policyENS0_14linestring_tagENS0_20multi_linestring_tagENS0_10linear_tagESL_EENS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEENS1_17no_rescale_policyESC_INSH_9turn_infoISB_NS0_13segment_ratioIdEENSH_21turn_operation_linearISB_SZ_EESt5arrayIS11_Lm2EEEESaIS14_EENS2_19no_interrupt_policyEE5applyINS0_7sectionINS4_3boxISB_EELm2EEEEEbRKT_S1G_.exit.thread, label %212
+.critedge.i:                                      ; preds = %_ZN5boost8geometry4math27longitude_distance_unsignedINS0_6radianEdEET0_RKS4_S6_.exit.i, %152
+  %210 = load double, ptr %150, align 8, !tbaa !1473
+  %211 = getelementptr inbounds nuw i8, ptr %.sroa.056.074, i64 40
+  %212 = load double, ptr %211, align 8, !tbaa !1473
+  %213 = fcmp olt double %210, %212
+  br i1 %213, label %_ZN5boost8geometry6detail9get_turns15section_visitorINS0_5model10linestringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEESt6vectorSaEENS4_16multi_linestringISD_SC_SaEELb0ELb0ENS2_18get_turn_info_typeISD_SF_NS1_7overlay18assign_null_policyENS0_14linestring_tagENS0_20multi_linestring_tagENS0_10linear_tagESL_EENS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEENS1_17no_rescale_policyESC_INSH_9turn_infoISB_NS0_13segment_ratioIdEENSH_21turn_operation_linearISB_SZ_EESt5arrayIS11_Lm2EEEESaIS14_EENS2_19no_interrupt_policyEE5applyINS0_7sectionINS4_3boxISB_EELm2EEEEEbRKT_S1G_.exit.thread, label %214
 
-212:                                              ; preds = %.critedge.i
-  %213 = load double, ptr %149, align 8, !tbaa !1473
-  %214 = getelementptr inbounds nuw i8, ptr %.sroa.056.074, i64 56
-  %215 = load double, ptr %214, align 8, !tbaa !1473
-  %216 = fcmp ogt double %213, %215
-  br i1 %216, label %_ZN5boost8geometry6detail9get_turns15section_visitorINS0_5model10linestringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEESt6vectorSaEENS4_16multi_linestringISD_SC_SaEELb0ELb0ENS2_18get_turn_info_typeISD_SF_NS1_7overlay18assign_null_policyENS0_14linestring_tagENS0_20multi_linestring_tagENS0_10linear_tagESL_EENS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEENS1_17no_rescale_policyESC_INSH_9turn_infoISB_NS0_13segment_ratioIdEENSH_21turn_operation_linearISB_SZ_EESt5arrayIS11_Lm2EEEESaIS14_EENS2_19no_interrupt_policyEE5applyINS0_7sectionINS4_3boxISB_EELm2EEEEEbRKT_S1G_.exit.thread, label %_ZN5boost8geometry6detail9get_turns15section_visitorINS0_5model10linestringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEESt6vectorSaEENS4_16multi_linestringISD_SC_SaEELb0ELb0ENS2_18get_turn_info_typeISD_SF_NS1_7overlay18assign_null_policyENS0_14linestring_tagENS0_20multi_linestring_tagENS0_10linear_tagESL_EENS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEENS1_17no_rescale_policyESC_INSH_9turn_infoISB_NS0_13segment_ratioIdEENSH_21turn_operation_linearISB_SZ_EESt5arrayIS11_Lm2EEEESaIS14_EENS2_19no_interrupt_policyEE5applyINS0_7sectionINS4_3boxISB_EELm2EEEEEbRKT_S1G_.exit
+214:                                              ; preds = %.critedge.i
+  %215 = load double, ptr %151, align 8, !tbaa !1473
+  %216 = getelementptr inbounds nuw i8, ptr %.sroa.056.074, i64 56
+  %217 = load double, ptr %216, align 8, !tbaa !1473
+  %218 = fcmp ogt double %215, %217
+  br i1 %218, label %_ZN5boost8geometry6detail9get_turns15section_visitorINS0_5model10linestringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEESt6vectorSaEENS4_16multi_linestringISD_SC_SaEELb0ELb0ENS2_18get_turn_info_typeISD_SF_NS1_7overlay18assign_null_policyENS0_14linestring_tagENS0_20multi_linestring_tagENS0_10linear_tagESL_EENS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEENS1_17no_rescale_policyESC_INSH_9turn_infoISB_NS0_13segment_ratioIdEENSH_21turn_operation_linearISB_SZ_EESt5arrayIS11_Lm2EEEESaIS14_EENS2_19no_interrupt_policyEE5applyINS0_7sectionINS4_3boxISB_EELm2EEEEEbRKT_S1G_.exit.thread, label %_ZN5boost8geometry6detail9get_turns15section_visitorINS0_5model10linestringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEESt6vectorSaEENS4_16multi_linestringISD_SC_SaEELb0ELb0ENS2_18get_turn_info_typeISD_SF_NS1_7overlay18assign_null_policyENS0_14linestring_tagENS0_20multi_linestring_tagENS0_10linear_tagESL_EENS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEENS1_17no_rescale_policyESC_INSH_9turn_infoISB_NS0_13segment_ratioIdEENSH_21turn_operation_linearISB_SZ_EESt5arrayIS11_Lm2EEEESaIS14_EENS2_19no_interrupt_policyEE5applyINS0_7sectionINS4_3boxISB_EELm2EEEEEbRKT_S1G_.exit
 
-_ZN5boost8geometry6detail9get_turns15section_visitorINS0_5model10linestringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEESt6vectorSaEENS4_16multi_linestringISD_SC_SaEELb0ELb0ENS2_18get_turn_info_typeISD_SF_NS1_7overlay18assign_null_policyENS0_14linestring_tagENS0_20multi_linestring_tagENS0_10linear_tagESL_EENS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEENS1_17no_rescale_policyESC_INSH_9turn_infoISB_NS0_13segment_ratioIdEENSH_21turn_operation_linearISB_SZ_EESt5arrayIS11_Lm2EEEESaIS14_EENS2_19no_interrupt_policyEE5applyINS0_7sectionINS4_3boxISB_EELm2EEEEEbRKT_S1G_.exit: ; preds = %212
-  %217 = load i32, ptr %2, align 8, !tbaa !2473
-  %218 = load ptr, ptr %133, align 8, !tbaa !2580
-  %219 = load i32, ptr %134, align 8, !tbaa !2475
-  %220 = load ptr, ptr %135, align 8, !tbaa !2581
-  %221 = load ptr, ptr %132, align 8, !tbaa !2582
-  %222 = load ptr, ptr %136, align 8, !tbaa !2583
-  %223 = load ptr, ptr %137, align 8, !tbaa !2584
-  %224 = load ptr, ptr %138, align 8, !tbaa !2585
-  %225 = tail call noundef zeroext i1 @_ZN5boost8geometry6detail9get_turns21get_turns_in_sectionsINS0_5model10linestringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEESt6vectorSaEENS4_16multi_linestringISD_SC_SaEELb0ELb0ENS0_7sectionINS4_3boxISB_EELm2EEESJ_NS2_18get_turn_info_typeISD_SF_NS1_7overlay18assign_null_policyENS0_14linestring_tagENS0_20multi_linestring_tagENS0_10linear_tagESP_EEE5applyINS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEENS1_17no_rescale_policyESC_INSL_9turn_infoISB_NS0_13segment_ratioIdEENSL_21turn_operation_linearISB_S15_EESt5arrayIS17_Lm2EEEESaIS1A_EENS2_19no_interrupt_policyEEEbiRKSD_RKSJ_iRKSF_S1H_bbRKT_RKT0_RT1_RT2_(i32 noundef %217, ptr noundef nonnull align 8 dereferenceable(24) %218, ptr noundef nonnull align 8 dereferenceable(114) %.sroa.060.076, i32 noundef %219, ptr noundef nonnull align 8 dereferenceable(24) %220, ptr noundef nonnull align 8 dereferenceable(114) %.sroa.056.074, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(16) %221, ptr noundef nonnull align 1 dereferenceable(1) %222, ptr noundef nonnull align 8 dereferenceable(24) %223, ptr noundef nonnull align 1 dereferenceable(1) %224)
-  br i1 %225, label %_ZN5boost8geometry6detail9get_turns15section_visitorINS0_5model10linestringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEESt6vectorSaEENS4_16multi_linestringISD_SC_SaEELb0ELb0ENS2_18get_turn_info_typeISD_SF_NS1_7overlay18assign_null_policyENS0_14linestring_tagENS0_20multi_linestring_tagENS0_10linear_tagESL_EENS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEENS1_17no_rescale_policyESC_INSH_9turn_infoISB_NS0_13segment_ratioIdEENSH_21turn_operation_linearISB_SZ_EESt5arrayIS11_Lm2EEEESaIS14_EENS2_19no_interrupt_policyEE5applyINS0_7sectionINS4_3boxISB_EELm2EEEEEbRKT_S1G_.exit._ZN5boost8geometry6detail9get_turns15section_visitorINS0_5model10linestringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEESt6vectorSaEENS4_16multi_linestringISD_SC_SaEELb0ELb0ENS2_18get_turn_info_typeISD_SF_NS1_7overlay18assign_null_policyENS0_14linestring_tagENS0_20multi_linestring_tagENS0_10linear_tagESL_EENS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEENS1_17no_rescale_policyESC_INSH_9turn_infoISB_NS0_13segment_ratioIdEENSH_21turn_operation_linearISB_SZ_EESt5arrayIS11_Lm2EEEESaIS14_EENS2_19no_interrupt_policyEE5applyINS0_7sectionINS4_3boxISB_EELm2EEEEEbRKT_S1G_.exit.thread_crit_edge, label %.thread
+_ZN5boost8geometry6detail9get_turns15section_visitorINS0_5model10linestringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEESt6vectorSaEENS4_16multi_linestringISD_SC_SaEELb0ELb0ENS2_18get_turn_info_typeISD_SF_NS1_7overlay18assign_null_policyENS0_14linestring_tagENS0_20multi_linestring_tagENS0_10linear_tagESL_EENS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEENS1_17no_rescale_policyESC_INSH_9turn_infoISB_NS0_13segment_ratioIdEENSH_21turn_operation_linearISB_SZ_EESt5arrayIS11_Lm2EEEESaIS14_EENS2_19no_interrupt_policyEE5applyINS0_7sectionINS4_3boxISB_EELm2EEEEEbRKT_S1G_.exit: ; preds = %214
+  %219 = load i32, ptr %2, align 8, !tbaa !2473
+  %220 = load ptr, ptr %135, align 8, !tbaa !2580
+  %221 = load i32, ptr %136, align 8, !tbaa !2475
+  %222 = load ptr, ptr %137, align 8, !tbaa !2581
+  %223 = load ptr, ptr %134, align 8, !tbaa !2582
+  %224 = load ptr, ptr %138, align 8, !tbaa !2583
+  %225 = load ptr, ptr %139, align 8, !tbaa !2584
+  %226 = load ptr, ptr %140, align 8, !tbaa !2585
+  %227 = tail call noundef zeroext i1 @_ZN5boost8geometry6detail9get_turns21get_turns_in_sectionsINS0_5model10linestringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEESt6vectorSaEENS4_16multi_linestringISD_SC_SaEELb0ELb0ENS0_7sectionINS4_3boxISB_EELm2EEESJ_NS2_18get_turn_info_typeISD_SF_NS1_7overlay18assign_null_policyENS0_14linestring_tagENS0_20multi_linestring_tagENS0_10linear_tagESP_EEE5applyINS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEENS1_17no_rescale_policyESC_INSL_9turn_infoISB_NS0_13segment_ratioIdEENSL_21turn_operation_linearISB_S15_EESt5arrayIS17_Lm2EEEESaIS1A_EENS2_19no_interrupt_policyEEEbiRKSD_RKSJ_iRKSF_S1H_bbRKT_RKT0_RT1_RT2_(i32 noundef %219, ptr noundef nonnull align 8 dereferenceable(24) %220, ptr noundef nonnull align 8 dereferenceable(114) %.sroa.060.076, i32 noundef %221, ptr noundef nonnull align 8 dereferenceable(24) %222, ptr noundef nonnull align 8 dereferenceable(114) %.sroa.056.074, i1 noundef zeroext false, i1 noundef zeroext false, ptr noundef nonnull align 8 dereferenceable(16) %223, ptr noundef nonnull align 1 dereferenceable(1) %224, ptr noundef nonnull align 8 dereferenceable(24) %225, ptr noundef nonnull align 1 dereferenceable(1) %226)
+  br i1 %227, label %_ZN5boost8geometry6detail9get_turns15section_visitorINS0_5model10linestringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEESt6vectorSaEENS4_16multi_linestringISD_SC_SaEELb0ELb0ENS2_18get_turn_info_typeISD_SF_NS1_7overlay18assign_null_policyENS0_14linestring_tagENS0_20multi_linestring_tagENS0_10linear_tagESL_EENS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEENS1_17no_rescale_policyESC_INSH_9turn_infoISB_NS0_13segment_ratioIdEENSH_21turn_operation_linearISB_SZ_EESt5arrayIS11_Lm2EEEESaIS14_EENS2_19no_interrupt_policyEE5applyINS0_7sectionINS4_3boxISB_EELm2EEEEEbRKT_S1G_.exit._ZN5boost8geometry6detail9get_turns15section_visitorINS0_5model10linestringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEESt6vectorSaEENS4_16multi_linestringISD_SC_SaEELb0ELb0ENS2_18get_turn_info_typeISD_SF_NS1_7overlay18assign_null_policyENS0_14linestring_tagENS0_20multi_linestring_tagENS0_10linear_tagESL_EENS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEENS1_17no_rescale_policyESC_INSH_9turn_infoISB_NS0_13segment_ratioIdEENSH_21turn_operation_linearISB_SZ_EESt5arrayIS11_Lm2EEEESaIS14_EENS2_19no_interrupt_policyEE5applyINS0_7sectionINS4_3boxISB_EELm2EEEEEbRKT_S1G_.exit.thread_crit_edge, label %.thread
 
 _ZN5boost8geometry6detail9get_turns15section_visitorINS0_5model10linestringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEESt6vectorSaEENS4_16multi_linestringISD_SC_SaEELb0ELb0ENS2_18get_turn_info_typeISD_SF_NS1_7overlay18assign_null_policyENS0_14linestring_tagENS0_20multi_linestring_tagENS0_10linear_tagESL_EENS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEENS1_17no_rescale_policyESC_INSH_9turn_infoISB_NS0_13segment_ratioIdEENSH_21turn_operation_linearISB_SZ_EESt5arrayIS11_Lm2EEEESaIS14_EENS2_19no_interrupt_policyEE5applyINS0_7sectionINS4_3boxISB_EELm2EEEEEbRKT_S1G_.exit._ZN5boost8geometry6detail9get_turns15section_visitorINS0_5model10linestringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEESt6vectorSaEENS4_16multi_linestringISD_SC_SaEELb0ELb0ENS2_18get_turn_info_typeISD_SF_NS1_7overlay18assign_null_policyENS0_14linestring_tagENS0_20multi_linestring_tagENS0_10linear_tagESL_EENS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEENS1_17no_rescale_policyESC_INSH_9turn_infoISB_NS0_13segment_ratioIdEENSH_21turn_operation_linearISB_SZ_EESt5arrayIS11_Lm2EEEESaIS14_EENS2_19no_interrupt_policyEE5applyINS0_7sectionINS4_3boxISB_EELm2EEEEEbRKT_S1G_.exit.thread_crit_edge: ; preds = %_ZN5boost8geometry6detail9get_turns15section_visitorINS0_5model10linestringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEESt6vectorSaEENS4_16multi_linestringISD_SC_SaEELb0ELb0ENS2_18get_turn_info_typeISD_SF_NS1_7overlay18assign_null_policyENS0_14linestring_tagENS0_20multi_linestring_tagENS0_10linear_tagESL_EENS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEENS1_17no_rescale_policyESC_INSH_9turn_infoISB_NS0_13segment_ratioIdEENSH_21turn_operation_linearISB_SZ_EESt5arrayIS11_Lm2EEEESaIS14_EENS2_19no_interrupt_policyEE5applyINS0_7sectionINS4_3boxISB_EELm2EEEEEbRKT_S1G_.exit
-  %.pre = load ptr, ptr %131, align 8, !tbaa !173
+  %.pre = load ptr, ptr %133, align 8, !tbaa !173
   br label %_ZN5boost8geometry6detail9get_turns15section_visitorINS0_5model10linestringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEESt6vectorSaEENS4_16multi_linestringISD_SC_SaEELb0ELb0ENS2_18get_turn_info_typeISD_SF_NS1_7overlay18assign_null_policyENS0_14linestring_tagENS0_20multi_linestring_tagENS0_10linear_tagESL_EENS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEENS1_17no_rescale_policyESC_INSH_9turn_infoISB_NS0_13segment_ratioIdEENSH_21turn_operation_linearISB_SZ_EESt5arrayIS11_Lm2EEEESaIS14_EENS2_19no_interrupt_policyEE5applyINS0_7sectionINS4_3boxISB_EELm2EEEEEbRKT_S1G_.exit.thread
 
-_ZN5boost8geometry6detail9get_turns15section_visitorINS0_5model10linestringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEESt6vectorSaEENS4_16multi_linestringISD_SC_SaEELb0ELb0ENS2_18get_turn_info_typeISD_SF_NS1_7overlay18assign_null_policyENS0_14linestring_tagENS0_20multi_linestring_tagENS0_10linear_tagESL_EENS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEENS1_17no_rescale_policyESC_INSH_9turn_infoISB_NS0_13segment_ratioIdEENSH_21turn_operation_linearISB_SZ_EESt5arrayIS11_Lm2EEEESaIS14_EENS2_19no_interrupt_policyEE5applyINS0_7sectionINS4_3boxISB_EELm2EEEEEbRKT_S1G_.exit.thread: ; preds = %_ZN5boost8geometry6detail9get_turns15section_visitorINS0_5model10linestringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEESt6vectorSaEENS4_16multi_linestringISD_SC_SaEELb0ELb0ENS2_18get_turn_info_typeISD_SF_NS1_7overlay18assign_null_policyENS0_14linestring_tagENS0_20multi_linestring_tagENS0_10linear_tagESL_EENS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEENS1_17no_rescale_policyESC_INSH_9turn_infoISB_NS0_13segment_ratioIdEENSH_21turn_operation_linearISB_SZ_EESt5arrayIS11_Lm2EEEESaIS14_EENS2_19no_interrupt_policyEE5applyINS0_7sectionINS4_3boxISB_EELm2EEEEEbRKT_S1G_.exit._ZN5boost8geometry6detail9get_turns15section_visitorINS0_5model10linestringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEESt6vectorSaEENS4_16multi_linestringISD_SC_SaEELb0ELb0ENS2_18get_turn_info_typeISD_SF_NS1_7overlay18assign_null_policyENS0_14linestring_tagENS0_20multi_linestring_tagENS0_10linear_tagESL_EENS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEENS1_17no_rescale_policyESC_INSH_9turn_infoISB_NS0_13segment_ratioIdEENSH_21turn_operation_linearISB_SZ_EESt5arrayIS11_Lm2EEEESaIS14_EENS2_19no_interrupt_policyEE5applyINS0_7sectionINS4_3boxISB_EELm2EEEEEbRKT_S1G_.exit.thread_crit_edge, %_ZN5boost8geometry4math27longitude_distance_unsignedINS0_6radianEdEET0_RKS4_S6_.exit.i, %.critedge.i, %212
-  %226 = phi ptr [ %.pre, %_ZN5boost8geometry6detail9get_turns15section_visitorINS0_5model10linestringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEESt6vectorSaEENS4_16multi_linestringISD_SC_SaEELb0ELb0ENS2_18get_turn_info_typeISD_SF_NS1_7overlay18assign_null_policyENS0_14linestring_tagENS0_20multi_linestring_tagENS0_10linear_tagESL_EENS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEENS1_17no_rescale_policyESC_INSH_9turn_infoISB_NS0_13segment_ratioIdEENSH_21turn_operation_linearISB_SZ_EESt5arrayIS11_Lm2EEEESaIS14_EENS2_19no_interrupt_policyEE5applyINS0_7sectionINS4_3boxISB_EELm2EEEEEbRKT_S1G_.exit._ZN5boost8geometry6detail9get_turns15section_visitorINS0_5model10linestringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEESt6vectorSaEENS4_16multi_linestringISD_SC_SaEELb0ELb0ENS2_18get_turn_info_typeISD_SF_NS1_7overlay18assign_null_policyENS0_14linestring_tagENS0_20multi_linestring_tagENS0_10linear_tagESL_EENS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEENS1_17no_rescale_policyESC_INSH_9turn_infoISB_NS0_13segment_ratioIdEENSH_21turn_operation_linearISB_SZ_EESt5arrayIS11_Lm2EEEESaIS14_EENS2_19no_interrupt_policyEE5applyINS0_7sectionINS4_3boxISB_EELm2EEEEEbRKT_S1G_.exit.thread_crit_edge ], [ %151, %_ZN5boost8geometry4math27longitude_distance_unsignedINS0_6radianEdEET0_RKS4_S6_.exit.i ], [ %151, %.critedge.i ], [ %151, %212 ]
-  %227 = getelementptr inbounds nuw i8, ptr %.sroa.056.074, i64 120
-  %.not66 = icmp eq ptr %227, %226
-  br i1 %.not66, label %._crit_edge.loopexit, label %150, !llvm.loop !2586
+_ZN5boost8geometry6detail9get_turns15section_visitorINS0_5model10linestringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEESt6vectorSaEENS4_16multi_linestringISD_SC_SaEELb0ELb0ENS2_18get_turn_info_typeISD_SF_NS1_7overlay18assign_null_policyENS0_14linestring_tagENS0_20multi_linestring_tagENS0_10linear_tagESL_EENS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEENS1_17no_rescale_policyESC_INSH_9turn_infoISB_NS0_13segment_ratioIdEENSH_21turn_operation_linearISB_SZ_EESt5arrayIS11_Lm2EEEESaIS14_EENS2_19no_interrupt_policyEE5applyINS0_7sectionINS4_3boxISB_EELm2EEEEEbRKT_S1G_.exit.thread: ; preds = %_ZN5boost8geometry6detail9get_turns15section_visitorINS0_5model10linestringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEESt6vectorSaEENS4_16multi_linestringISD_SC_SaEELb0ELb0ENS2_18get_turn_info_typeISD_SF_NS1_7overlay18assign_null_policyENS0_14linestring_tagENS0_20multi_linestring_tagENS0_10linear_tagESL_EENS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEENS1_17no_rescale_policyESC_INSH_9turn_infoISB_NS0_13segment_ratioIdEENSH_21turn_operation_linearISB_SZ_EESt5arrayIS11_Lm2EEEESaIS14_EENS2_19no_interrupt_policyEE5applyINS0_7sectionINS4_3boxISB_EELm2EEEEEbRKT_S1G_.exit._ZN5boost8geometry6detail9get_turns15section_visitorINS0_5model10linestringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEESt6vectorSaEENS4_16multi_linestringISD_SC_SaEELb0ELb0ENS2_18get_turn_info_typeISD_SF_NS1_7overlay18assign_null_policyENS0_14linestring_tagENS0_20multi_linestring_tagENS0_10linear_tagESL_EENS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEENS1_17no_rescale_policyESC_INSH_9turn_infoISB_NS0_13segment_ratioIdEENSH_21turn_operation_linearISB_SZ_EESt5arrayIS11_Lm2EEEESaIS14_EENS2_19no_interrupt_policyEE5applyINS0_7sectionINS4_3boxISB_EELm2EEEEEbRKT_S1G_.exit.thread_crit_edge, %_ZN5boost8geometry4math27longitude_distance_unsignedINS0_6radianEdEET0_RKS4_S6_.exit.i, %.critedge.i, %214
+  %228 = phi ptr [ %.pre, %_ZN5boost8geometry6detail9get_turns15section_visitorINS0_5model10linestringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEESt6vectorSaEENS4_16multi_linestringISD_SC_SaEELb0ELb0ENS2_18get_turn_info_typeISD_SF_NS1_7overlay18assign_null_policyENS0_14linestring_tagENS0_20multi_linestring_tagENS0_10linear_tagESL_EENS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEENS1_17no_rescale_policyESC_INSH_9turn_infoISB_NS0_13segment_ratioIdEENSH_21turn_operation_linearISB_SZ_EESt5arrayIS11_Lm2EEEESaIS14_EENS2_19no_interrupt_policyEE5applyINS0_7sectionINS4_3boxISB_EELm2EEEEEbRKT_S1G_.exit._ZN5boost8geometry6detail9get_turns15section_visitorINS0_5model10linestringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEESt6vectorSaEENS4_16multi_linestringISD_SC_SaEELb0ELb0ENS2_18get_turn_info_typeISD_SF_NS1_7overlay18assign_null_policyENS0_14linestring_tagENS0_20multi_linestring_tagENS0_10linear_tagESL_EENS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEENS1_17no_rescale_policyESC_INSH_9turn_infoISB_NS0_13segment_ratioIdEENSH_21turn_operation_linearISB_SZ_EESt5arrayIS11_Lm2EEEESaIS14_EENS2_19no_interrupt_policyEE5applyINS0_7sectionINS4_3boxISB_EELm2EEEEEbRKT_S1G_.exit.thread_crit_edge ], [ %153, %_ZN5boost8geometry4math27longitude_distance_unsignedINS0_6radianEdEET0_RKS4_S6_.exit.i ], [ %153, %.critedge.i ], [ %153, %214 ]
+  %229 = getelementptr inbounds nuw i8, ptr %.sroa.056.074, i64 120
+  %.not66 = icmp eq ptr %229, %228
+  br i1 %.not66, label %._crit_edge.loopexit, label %152, !llvm.loop !2586
 
 ._crit_edge.loopexit:                             ; preds = %_ZN5boost8geometry6detail9get_turns15section_visitorINS0_5model10linestringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEESt6vectorSaEENS4_16multi_linestringISD_SC_SaEELb0ELb0ENS2_18get_turn_info_typeISD_SF_NS1_7overlay18assign_null_policyENS0_14linestring_tagENS0_20multi_linestring_tagENS0_10linear_tagESL_EENS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEENS1_17no_rescale_policyESC_INSH_9turn_infoISB_NS0_13segment_ratioIdEENSH_21turn_operation_linearISB_SZ_EESt5arrayIS11_Lm2EEEESaIS14_EENS2_19no_interrupt_policyEE5applyINS0_7sectionINS4_3boxISB_EELm2EEEEEbRKT_S1G_.exit.thread
   %.pre83 = load ptr, ptr %14, align 8, !tbaa !173
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph79.split
-  %228 = phi ptr [ %.pre83, %._crit_edge.loopexit ], [ %142, %.lr.ph79.split ]
-  %229 = phi ptr [ %226, %._crit_edge.loopexit ], [ %143, %.lr.ph79.split ]
-  %230 = phi ptr [ %226, %._crit_edge.loopexit ], [ %144, %.lr.ph79.split ]
-  %231 = getelementptr inbounds nuw i8, ptr %.sroa.060.076, i64 120
-  %.not = icmp eq ptr %231, %228
+  %230 = phi ptr [ %.pre83, %._crit_edge.loopexit ], [ %144, %.lr.ph79.split ]
+  %231 = phi ptr [ %228, %._crit_edge.loopexit ], [ %145, %.lr.ph79.split ]
+  %232 = phi ptr [ %228, %._crit_edge.loopexit ], [ %146, %.lr.ph79.split ]
+  %233 = getelementptr inbounds nuw i8, ptr %.sroa.060.076, i64 120
+  %.not = icmp eq ptr %233, %230
   br i1 %.not, label %.thread, label %.lr.ph79.split, !llvm.loop !2587
 
-.thread:                                          ; preds = %._crit_edge, %_ZN5boost8geometry6detail9get_turns15section_visitorINS0_5model10linestringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEESt6vectorSaEENS4_16multi_linestringISD_SC_SaEELb0ELb0ENS2_18get_turn_info_typeISD_SF_NS1_7overlay18assign_null_policyENS0_14linestring_tagENS0_20multi_linestring_tagENS0_10linear_tagESL_EENS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEENS1_17no_rescale_policyESC_INSH_9turn_infoISB_NS0_13segment_ratioIdEENSH_21turn_operation_linearISB_SZ_EESt5arrayIS11_Lm2EEEESaIS14_EENS2_19no_interrupt_policyEE5applyINS0_7sectionINS4_3boxISB_EELm2EEEEEbRKT_S1G_.exit, %.lr.ph79, %130, %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EED2Ev.exit51
-  %.023 = phi i1 [ %100, %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EED2Ev.exit51 ], [ true, %130 ], [ true, %.lr.ph79 ], [ false, %_ZN5boost8geometry6detail9get_turns15section_visitorINS0_5model10linestringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEESt6vectorSaEENS4_16multi_linestringISD_SC_SaEELb0ELb0ENS2_18get_turn_info_typeISD_SF_NS1_7overlay18assign_null_policyENS0_14linestring_tagENS0_20multi_linestring_tagENS0_10linear_tagESL_EENS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEENS1_17no_rescale_policyESC_INSH_9turn_infoISB_NS0_13segment_ratioIdEENSH_21turn_operation_linearISB_SZ_EESt5arrayIS11_Lm2EEEESaIS14_EENS2_19no_interrupt_policyEE5applyINS0_7sectionINS4_3boxISB_EELm2EEEEEbRKT_S1G_.exit ], [ true, %._crit_edge ]
+.thread:                                          ; preds = %._crit_edge, %_ZN5boost8geometry6detail9get_turns15section_visitorINS0_5model10linestringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEESt6vectorSaEENS4_16multi_linestringISD_SC_SaEELb0ELb0ENS2_18get_turn_info_typeISD_SF_NS1_7overlay18assign_null_policyENS0_14linestring_tagENS0_20multi_linestring_tagENS0_10linear_tagESL_EENS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEENS1_17no_rescale_policyESC_INSH_9turn_infoISB_NS0_13segment_ratioIdEENSH_21turn_operation_linearISB_SZ_EESt5arrayIS11_Lm2EEEESaIS14_EENS2_19no_interrupt_policyEE5applyINS0_7sectionINS4_3boxISB_EELm2EEEEEbRKT_S1G_.exit, %.lr.ph79, %132, %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EED2Ev.exit51
+  %.023 = phi i1 [ %102, %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EED2Ev.exit51 ], [ true, %132 ], [ true, %.lr.ph79 ], [ false, %_ZN5boost8geometry6detail9get_turns15section_visitorINS0_5model10linestringINS4_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEESt6vectorSaEENS4_16multi_linestringISD_SC_SaEELb0ELb0ENS2_18get_turn_info_typeISD_SF_NS1_7overlay18assign_null_policyENS0_14linestring_tagENS0_20multi_linestring_tagENS0_10linear_tagESL_EENS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEENS1_17no_rescale_policyESC_INSH_9turn_infoISB_NS0_13segment_ratioIdEENSH_21turn_operation_linearISB_SZ_EESt5arrayIS11_Lm2EEEESaIS14_EENS2_19no_interrupt_policyEE5applyINS0_7sectionINS4_3boxISB_EELm2EEEEEbRKT_S1G_.exit ], [ true, %._crit_edge ]
   ret i1 %.023
 }
 
@@ -149885,7 +149887,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost8geometry6detail9partiti
 
 _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionINS0_5model3boxINS8_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEEEELm2EEES4_ISH_SaISH_EEEESaISM_EESO_EEbRKT_RKT0_mm.exit: ; preds = %35
   %40 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %41 = load ptr, ptr %40, align 8, !tbaa !2564
+  %41 = load ptr, ptr %40, align 8, !tbaa !2566
   %42 = load ptr, ptr %19, align 8, !tbaa !2567
   %43 = ptrtoint ptr %41 to i64
   %44 = ptrtoint ptr %42 to i64
@@ -149981,7 +149983,7 @@ _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_
 
 68:                                               ; preds = %67, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEEEEE10next_levelISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISC_Lm2EEESF_ISJ_SaISJ_EEEESaISO_EESQ_NS1_9get_turns15section_visitorINS4_10linestringISB_SF_SaEENS4_16multi_linestringISU_SF_SaEELb0ELb0ENSR_18get_turn_info_typeISU_SW_NS1_7overlay18assign_null_policyENS0_14linestring_tagENS0_20multi_linestring_tagENS0_10linear_tagES12_EENS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEENS1_17no_rescale_policyESF_INSY_9turn_infoISB_NS0_13segment_ratioIdEENSY_21turn_operation_linearISB_S1G_EESt5arrayIS1I_Lm2EEEESaIS1L_EENSR_19no_interrupt_policyEEENS1_7section15get_section_boxIS1C_EENS1Q_20overlaps_section_boxIS1C_EES1S_S1U_NS2_15visit_no_policyEEEbRKSC_RKT_RKT0_mmRT1_RKT2_RKT3_RKT4_RKT5_RT6_.exit
   %69 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %70 = load ptr, ptr %69, align 8, !tbaa !2564
+  %70 = load ptr, ptr %69, align 8, !tbaa !2566
   %71 = load ptr, ptr %17, align 8, !tbaa !2567
   %72 = ptrtoint ptr %70 to i64
   %73 = ptrtoint ptr %71 to i64
@@ -149992,7 +149994,7 @@ _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_
 
 76:                                               ; preds = %68
   %77 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %78 = load ptr, ptr %77, align 8, !tbaa !2564
+  %78 = load ptr, ptr %77, align 8, !tbaa !2566
   %79 = load ptr, ptr %18, align 8, !tbaa !2567
   %80 = ptrtoint ptr %78 to i64
   %81 = ptrtoint ptr %79 to i64
@@ -150002,7 +150004,7 @@ _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_
   br i1 %.not.i.i102, label %_ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionINS0_5model3boxINS8_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEEEELm2EEES4_ISH_SaISH_EEEESaISM_EESO_SO_EEbRKT_RKT0_RKT1_mm.exit.thread, label %_ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionINS0_5model3boxINS8_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEEEELm2EEES4_ISH_SaISH_EEEESaISM_EESO_SO_EEbRKT_RKT0_RKT1_mm.exit
 
 _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionINS0_5model3boxINS8_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEEEELm2EEES4_ISH_SaISH_EEEESaISM_EESO_SO_EEbRKT_RKT0_RKT1_mm.exit: ; preds = %76
-  %84 = load ptr, ptr %32, align 8, !tbaa !2564
+  %84 = load ptr, ptr %32, align 8, !tbaa !2566
   %85 = load ptr, ptr %16, align 8, !tbaa !2567
   %86 = ptrtoint ptr %84 to i64
   %87 = ptrtoint ptr %85 to i64
@@ -150098,7 +150100,7 @@ _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_
 
 116:                                              ; preds = %111
   %117 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %118 = load ptr, ptr %117, align 8, !tbaa !2564
+  %118 = load ptr, ptr %117, align 8, !tbaa !2566
   %119 = load ptr, ptr %14, align 8, !tbaa !2567
   %120 = ptrtoint ptr %118 to i64
   %121 = ptrtoint ptr %119 to i64
@@ -150109,7 +150111,7 @@ _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_
 
 124:                                              ; preds = %116
   %125 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %126 = load ptr, ptr %125, align 8, !tbaa !2564
+  %126 = load ptr, ptr %125, align 8, !tbaa !2566
   %127 = load ptr, ptr %15, align 8, !tbaa !2567
   %128 = ptrtoint ptr %126 to i64
   %129 = ptrtoint ptr %127 to i64
@@ -150205,7 +150207,7 @@ _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_
 
 157:                                              ; preds = %.critedge98, %156, %111
   %158 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %159 = load ptr, ptr %158, align 8, !tbaa !2564
+  %159 = load ptr, ptr %158, align 8, !tbaa !2566
   %160 = load ptr, ptr %14, align 8, !tbaa !2567
   %161 = ptrtoint ptr %159 to i64
   %162 = ptrtoint ptr %160 to i64
@@ -150216,7 +150218,7 @@ _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_
 
 _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionINS0_5model3boxINS8_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEEEELm2EEES4_ISH_SaISH_EEEESaISM_EESO_EEbRKT_RKT0_mm.exit126: ; preds = %157
   %165 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %166 = load ptr, ptr %165, align 8, !tbaa !2564
+  %166 = load ptr, ptr %165, align 8, !tbaa !2566
   %167 = load ptr, ptr %17, align 8, !tbaa !2567
   %168 = ptrtoint ptr %166 to i64
   %169 = ptrtoint ptr %167 to i64
@@ -150244,7 +150246,7 @@ _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_
 
 180:                                              ; preds = %179, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm0ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEEEEE10next_levelISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISC_Lm2EEESF_ISJ_SaISJ_EEEESaISO_EESQ_NS1_9get_turns15section_visitorINS4_10linestringISB_SF_SaEENS4_16multi_linestringISU_SF_SaEELb0ELb0ENSR_18get_turn_info_typeISU_SW_NS1_7overlay18assign_null_policyENS0_14linestring_tagENS0_20multi_linestring_tagENS0_10linear_tagES12_EENS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEENS1_17no_rescale_policyESF_INSY_9turn_infoISB_NS0_13segment_ratioIdEENSY_21turn_operation_linearISB_S1G_EESt5arrayIS1I_Lm2EEEESaIS1L_EENSR_19no_interrupt_policyEEENS1_7section15get_section_boxIS1C_EENS1Q_20overlaps_section_boxIS1C_EES1S_S1U_NS2_15visit_no_policyEEEbRKSC_RKT_RKT0_mmRT1_RKT2_RKT3_RKT4_RKT5_RT6_.exit128
   %181 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %182 = load ptr, ptr %181, align 8, !tbaa !2564
+  %182 = load ptr, ptr %181, align 8, !tbaa !2566
   %183 = load ptr, ptr %15, align 8, !tbaa !2567
   %184 = ptrtoint ptr %182 to i64
   %185 = ptrtoint ptr %183 to i64
@@ -150255,7 +150257,7 @@ _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_
 
 _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionINS0_5model3boxINS8_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEEEELm2EEES4_ISH_SaISH_EEEESaISM_EESO_EEbRKT_RKT0_mm.exit130: ; preds = %180
   %188 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %189 = load ptr, ptr %188, align 8, !tbaa !2564
+  %189 = load ptr, ptr %188, align 8, !tbaa !2566
   %190 = load ptr, ptr %18, align 8, !tbaa !2567
   %191 = ptrtoint ptr %189 to i64
   %192 = ptrtoint ptr %190 to i64
@@ -150292,7 +150294,7 @@ _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_
 
 206:                                              ; preds = %204
   %207 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %208 = load ptr, ptr %207, align 8, !tbaa !2566
+  %208 = load ptr, ptr %207, align 8, !tbaa !2564
   %209 = ptrtoint ptr %208 to i64
   %210 = ptrtoint ptr %205 to i64
   %211 = sub i64 %209, %210
@@ -150307,7 +150309,7 @@ _ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5mode
 
 213:                                              ; preds = %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EED2Ev.exit
   %214 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %215 = load ptr, ptr %214, align 8, !tbaa !2566
+  %215 = load ptr, ptr %214, align 8, !tbaa !2564
   %216 = ptrtoint ptr %215 to i64
   %217 = ptrtoint ptr %212 to i64
   %218 = sub i64 %216, %217
@@ -150322,7 +150324,7 @@ _ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5mode
 
 220:                                              ; preds = %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EED2Ev.exit135
   %221 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %222 = load ptr, ptr %221, align 8, !tbaa !2566
+  %222 = load ptr, ptr %221, align 8, !tbaa !2564
   %223 = ptrtoint ptr %222 to i64
   %224 = ptrtoint ptr %219 to i64
   %225 = sub i64 %223, %224
@@ -150337,7 +150339,7 @@ _ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5mode
 
 227:                                              ; preds = %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EED2Ev.exit137
   %228 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %229 = load ptr, ptr %228, align 8, !tbaa !2566
+  %229 = load ptr, ptr %228, align 8, !tbaa !2564
   %230 = ptrtoint ptr %229 to i64
   %231 = ptrtoint ptr %226 to i64
   %232 = sub i64 %230, %231
@@ -150352,7 +150354,7 @@ _ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5mode
 
 234:                                              ; preds = %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EED2Ev.exit139
   %235 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %236 = load ptr, ptr %235, align 8, !tbaa !2566
+  %236 = load ptr, ptr %235, align 8, !tbaa !2564
   %237 = ptrtoint ptr %236 to i64
   %238 = ptrtoint ptr %233 to i64
   %239 = sub i64 %237, %238
@@ -150367,7 +150369,7 @@ _ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5mode
 
 241:                                              ; preds = %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EED2Ev.exit141
   %242 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %243 = load ptr, ptr %242, align 8, !tbaa !2566
+  %243 = load ptr, ptr %242, align 8, !tbaa !2564
   %244 = ptrtoint ptr %243 to i64
   %245 = ptrtoint ptr %240 to i64
   %246 = sub i64 %244, %245
@@ -150388,7 +150390,7 @@ _ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5mode
 
 249:                                              ; preds = %247
   %250 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %251 = load ptr, ptr %250, align 8, !tbaa !2566
+  %251 = load ptr, ptr %250, align 8, !tbaa !2564
   %252 = ptrtoint ptr %251 to i64
   %253 = ptrtoint ptr %248 to i64
   %254 = sub i64 %252, %253
@@ -150403,7 +150405,7 @@ _ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5mode
 
 256:                                              ; preds = %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EED2Ev.exit145
   %257 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %258 = load ptr, ptr %257, align 8, !tbaa !2566
+  %258 = load ptr, ptr %257, align 8, !tbaa !2564
   %259 = ptrtoint ptr %258 to i64
   %260 = ptrtoint ptr %255 to i64
   %261 = sub i64 %259, %260
@@ -150418,7 +150420,7 @@ _ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5mode
 
 263:                                              ; preds = %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EED2Ev.exit147
   %264 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %265 = load ptr, ptr %264, align 8, !tbaa !2566
+  %265 = load ptr, ptr %264, align 8, !tbaa !2564
   %266 = ptrtoint ptr %265 to i64
   %267 = ptrtoint ptr %262 to i64
   %268 = sub i64 %266, %267
@@ -150433,7 +150435,7 @@ _ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5mode
 
 270:                                              ; preds = %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EED2Ev.exit149
   %271 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %272 = load ptr, ptr %271, align 8, !tbaa !2566
+  %272 = load ptr, ptr %271, align 8, !tbaa !2564
   %273 = ptrtoint ptr %272 to i64
   %274 = ptrtoint ptr %269 to i64
   %275 = sub i64 %273, %274
@@ -150448,7 +150450,7 @@ _ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5mode
 
 277:                                              ; preds = %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EED2Ev.exit151
   %278 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %279 = load ptr, ptr %278, align 8, !tbaa !2566
+  %279 = load ptr, ptr %278, align 8, !tbaa !2564
   %280 = ptrtoint ptr %279 to i64
   %281 = ptrtoint ptr %276 to i64
   %282 = sub i64 %280, %281
@@ -150463,7 +150465,7 @@ _ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5mode
 
 284:                                              ; preds = %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EED2Ev.exit153
   %285 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %286 = load ptr, ptr %285, align 8, !tbaa !2566
+  %286 = load ptr, ptr %285, align 8, !tbaa !2564
   %287 = ptrtoint ptr %286 to i64
   %288 = ptrtoint ptr %283 to i64
   %289 = sub i64 %287, %288
@@ -150667,17 +150669,17 @@ define linkonce_odr hidden void @_ZN5boost8geometry6detail9partition19divide_int
   br i1 %brmerge, label %53, label %24
 
 24:                                               ; preds = %17
-  %25 = load ptr, ptr %11, align 8, !tbaa !2564
-  %26 = load ptr, ptr %12, align 8, !tbaa !2566
+  %25 = load ptr, ptr %11, align 8, !tbaa !2566
+  %26 = load ptr, ptr %12, align 8, !tbaa !2564
   %.not.i = icmp eq ptr %25, %26
   br i1 %.not.i, label %31, label %27
 
 27:                                               ; preds = %24
   %28 = load i64, ptr %.sroa.041.051, align 8, !tbaa !173
   store i64 %28, ptr %25, align 8, !tbaa !173
-  %29 = load ptr, ptr %11, align 8, !tbaa !2564
+  %29 = load ptr, ptr %11, align 8, !tbaa !2566
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  store ptr %30, ptr %11, align 8, !tbaa !2564
+  store ptr %30, ptr %11, align 8, !tbaa !2566
   br label %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EE9push_backERKSJ_.exit
 
 31:                                               ; preds = %24
@@ -150733,26 +150735,26 @@ _ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5mode
 
 _ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EE17_M_realloc_insertIJRKSJ_EEEvNS1_IPSJ_SL_EEDpOT_.exit.i: ; preds = %51, %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EE11_S_relocateEPSJ_SM_SM_RSK_.exit22.i.i
   store ptr %44, ptr %5, align 8, !tbaa !2567
-  store ptr %50, ptr %11, align 8, !tbaa !2564
+  store ptr %50, ptr %11, align 8, !tbaa !2566
   %52 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.1107", ptr %44, i64 %42
-  store ptr %52, ptr %12, align 8, !tbaa !2566
+  store ptr %52, ptr %12, align 8, !tbaa !2564
   br label %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EE9push_backERKSJ_.exit
 
 53:                                               ; preds = %17
   br i1 %20, label %83, label %54
 
 54:                                               ; preds = %53
-  %55 = load ptr, ptr %13, align 8, !tbaa !2564
-  %56 = load ptr, ptr %14, align 8, !tbaa !2566
+  %55 = load ptr, ptr %13, align 8, !tbaa !2566
+  %56 = load ptr, ptr %14, align 8, !tbaa !2564
   %.not.i13 = icmp eq ptr %55, %56
   br i1 %.not.i13, label %61, label %57
 
 57:                                               ; preds = %54
   %58 = load i64, ptr %.sroa.041.051, align 8, !tbaa !173
   store i64 %58, ptr %55, align 8, !tbaa !173
-  %59 = load ptr, ptr %13, align 8, !tbaa !2564
+  %59 = load ptr, ptr %13, align 8, !tbaa !2566
   %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
-  store ptr %60, ptr %13, align 8, !tbaa !2564
+  store ptr %60, ptr %13, align 8, !tbaa !2566
   br label %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EE9push_backERKSJ_.exit
 
 61:                                               ; preds = %54
@@ -150808,26 +150810,26 @@ _ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5mode
 
 _ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EE17_M_realloc_insertIJRKSJ_EEEvNS1_IPSJ_SL_EEDpOT_.exit.i25: ; preds = %81, %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EE11_S_relocateEPSJ_SM_SM_RSK_.exit22.i.i22
   store ptr %74, ptr %3, align 8, !tbaa !2567
-  store ptr %80, ptr %13, align 8, !tbaa !2564
+  store ptr %80, ptr %13, align 8, !tbaa !2566
   %82 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.1107", ptr %74, i64 %72
-  store ptr %82, ptr %14, align 8, !tbaa !2566
+  store ptr %82, ptr %14, align 8, !tbaa !2564
   br label %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EE9push_backERKSJ_.exit
 
 83:                                               ; preds = %53
   br i1 %23, label %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EE9push_backERKSJ_.exit, label %84
 
 84:                                               ; preds = %83
-  %85 = load ptr, ptr %15, align 8, !tbaa !2564
-  %86 = load ptr, ptr %16, align 8, !tbaa !2566
+  %85 = load ptr, ptr %15, align 8, !tbaa !2566
+  %86 = load ptr, ptr %16, align 8, !tbaa !2564
   %.not.i27 = icmp eq ptr %85, %86
   br i1 %.not.i27, label %91, label %87
 
 87:                                               ; preds = %84
   %88 = load i64, ptr %.sroa.041.051, align 8, !tbaa !173
   store i64 %88, ptr %85, align 8, !tbaa !173
-  %89 = load ptr, ptr %15, align 8, !tbaa !2564
+  %89 = load ptr, ptr %15, align 8, !tbaa !2566
   %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
-  store ptr %90, ptr %15, align 8, !tbaa !2564
+  store ptr %90, ptr %15, align 8, !tbaa !2566
   br label %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EE9push_backERKSJ_.exit
 
 91:                                               ; preds = %84
@@ -150883,9 +150885,9 @@ _ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5mode
 
 _ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EE17_M_realloc_insertIJRKSJ_EEEvNS1_IPSJ_SL_EEDpOT_.exit.i39: ; preds = %111, %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EE11_S_relocateEPSJ_SM_SM_RSK_.exit22.i.i36
   store ptr %104, ptr %4, align 8, !tbaa !2567
-  store ptr %110, ptr %15, align 8, !tbaa !2564
+  store ptr %110, ptr %15, align 8, !tbaa !2566
   %112 = getelementptr inbounds nuw %"class.__gnu_cxx::__normal_iterator.1107", ptr %104, i64 %102
-  store ptr %112, ptr %16, align 8, !tbaa !2566
+  store ptr %112, ptr %16, align 8, !tbaa !2564
   br label %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EE9push_backERKSJ_.exit
 
 _ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EE9push_backERKSJ_.exit: ; preds = %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EE17_M_realloc_insertIJRKSJ_EEEvNS1_IPSJ_SL_EEDpOT_.exit.i39, %87, %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EE17_M_realloc_insertIJRKSJ_EEEvNS1_IPSJ_SL_EEDpOT_.exit.i25, %57, %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EE17_M_realloc_insertIJRKSJ_EEEvNS1_IPSJ_SL_EEDpOT_.exit.i, %27, %83
@@ -151253,7 +151255,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZN5boost8geometry6detail9partiti
 
 _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionINS0_5model3boxINS8_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEEEELm2EEES4_ISH_SaISH_EEEESaISM_EESO_EEbRKT_RKT0_mm.exit: ; preds = %37
   %42 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %43 = load ptr, ptr %42, align 8, !tbaa !2564
+  %43 = load ptr, ptr %42, align 8, !tbaa !2566
   %44 = load ptr, ptr %19, align 8, !tbaa !2567
   %45 = ptrtoint ptr %43 to i64
   %46 = ptrtoint ptr %44 to i64
@@ -151349,7 +151351,7 @@ _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_
 
 70:                                               ; preds = %69, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEEEEE10next_levelISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISC_Lm2EEESF_ISJ_SaISJ_EEEESaISO_EESQ_NS1_9get_turns15section_visitorINS4_10linestringISB_SF_SaEENS4_16multi_linestringISU_SF_SaEELb0ELb0ENSR_18get_turn_info_typeISU_SW_NS1_7overlay18assign_null_policyENS0_14linestring_tagENS0_20multi_linestring_tagENS0_10linear_tagES12_EENS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEENS1_17no_rescale_policyESF_INSY_9turn_infoISB_NS0_13segment_ratioIdEENSY_21turn_operation_linearISB_S1G_EESt5arrayIS1I_Lm2EEEESaIS1L_EENSR_19no_interrupt_policyEEENS1_7section15get_section_boxIS1C_EENS1Q_20overlaps_section_boxIS1C_EES1S_S1U_NS2_15visit_no_policyEEEbRKSC_RKT_RKT0_mmRT1_RKT2_RKT3_RKT4_RKT5_RT6_.exit
   %71 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %72 = load ptr, ptr %71, align 8, !tbaa !2564
+  %72 = load ptr, ptr %71, align 8, !tbaa !2566
   %73 = load ptr, ptr %17, align 8, !tbaa !2567
   %74 = ptrtoint ptr %72 to i64
   %75 = ptrtoint ptr %73 to i64
@@ -151360,7 +151362,7 @@ _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_
 
 78:                                               ; preds = %70
   %79 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %80 = load ptr, ptr %79, align 8, !tbaa !2564
+  %80 = load ptr, ptr %79, align 8, !tbaa !2566
   %81 = load ptr, ptr %18, align 8, !tbaa !2567
   %82 = ptrtoint ptr %80 to i64
   %83 = ptrtoint ptr %81 to i64
@@ -151370,7 +151372,7 @@ _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_
   br i1 %.not.i.i102, label %_ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionINS0_5model3boxINS8_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEEEELm2EEES4_ISH_SaISH_EEEESaISM_EESO_SO_EEbRKT_RKT0_RKT1_mm.exit.thread, label %_ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionINS0_5model3boxINS8_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEEEELm2EEES4_ISH_SaISH_EEEESaISM_EESO_SO_EEbRKT_RKT0_RKT1_mm.exit
 
 _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionINS0_5model3boxINS8_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEEEELm2EEES4_ISH_SaISH_EEEESaISM_EESO_SO_EEbRKT_RKT0_RKT1_mm.exit: ; preds = %78
-  %86 = load ptr, ptr %34, align 8, !tbaa !2564
+  %86 = load ptr, ptr %34, align 8, !tbaa !2566
   %87 = load ptr, ptr %16, align 8, !tbaa !2567
   %88 = ptrtoint ptr %86 to i64
   %89 = ptrtoint ptr %87 to i64
@@ -151466,7 +151468,7 @@ _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_
 
 118:                                              ; preds = %113
   %119 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %120 = load ptr, ptr %119, align 8, !tbaa !2564
+  %120 = load ptr, ptr %119, align 8, !tbaa !2566
   %121 = load ptr, ptr %14, align 8, !tbaa !2567
   %122 = ptrtoint ptr %120 to i64
   %123 = ptrtoint ptr %121 to i64
@@ -151477,7 +151479,7 @@ _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_
 
 126:                                              ; preds = %118
   %127 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %128 = load ptr, ptr %127, align 8, !tbaa !2564
+  %128 = load ptr, ptr %127, align 8, !tbaa !2566
   %129 = load ptr, ptr %15, align 8, !tbaa !2567
   %130 = ptrtoint ptr %128 to i64
   %131 = ptrtoint ptr %129 to i64
@@ -151573,7 +151575,7 @@ _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_
 
 159:                                              ; preds = %.critedge98, %158, %113
   %160 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %161 = load ptr, ptr %160, align 8, !tbaa !2564
+  %161 = load ptr, ptr %160, align 8, !tbaa !2566
   %162 = load ptr, ptr %14, align 8, !tbaa !2567
   %163 = ptrtoint ptr %161 to i64
   %164 = ptrtoint ptr %162 to i64
@@ -151584,7 +151586,7 @@ _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_
 
 _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionINS0_5model3boxINS8_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEEEELm2EEES4_ISH_SaISH_EEEESaISM_EESO_EEbRKT_RKT0_mm.exit126: ; preds = %159
   %167 = getelementptr inbounds nuw i8, ptr %17, i64 8
-  %168 = load ptr, ptr %167, align 8, !tbaa !2564
+  %168 = load ptr, ptr %167, align 8, !tbaa !2566
   %169 = load ptr, ptr %17, align 8, !tbaa !2567
   %170 = ptrtoint ptr %168 to i64
   %171 = ptrtoint ptr %169 to i64
@@ -151612,7 +151614,7 @@ _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_
 
 182:                                              ; preds = %181, %_ZN5boost8geometry6detail9partition20partition_two_rangesILm1ENS0_5model3boxINS4_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEEEEE10next_levelISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionISC_Lm2EEESF_ISJ_SaISJ_EEEESaISO_EESQ_NS1_9get_turns15section_visitorINS4_10linestringISB_SF_SaEENS4_16multi_linestringISU_SF_SaEELb0ELb0ENSR_18get_turn_info_typeISU_SW_NS1_7overlay18assign_null_policyENS0_14linestring_tagENS0_20multi_linestring_tagENS0_10linear_tagES12_EENS0_10strategies6relate10geographicINS0_8strategy7andoyerENS0_3srs8spheroidIdEEvEENS1_17no_rescale_policyESF_INSY_9turn_infoISB_NS0_13segment_ratioIdEENSY_21turn_operation_linearISB_S1G_EESt5arrayIS1I_Lm2EEEESaIS1L_EENSR_19no_interrupt_policyEEENS1_7section15get_section_boxIS1C_EENS1Q_20overlaps_section_boxIS1C_EES1S_S1U_NS2_15visit_no_policyEEEbRKSC_RKT_RKT0_mmRT1_RKT2_RKT3_RKT4_RKT5_RT6_.exit128
   %183 = getelementptr inbounds nuw i8, ptr %15, i64 8
-  %184 = load ptr, ptr %183, align 8, !tbaa !2564
+  %184 = load ptr, ptr %183, align 8, !tbaa !2566
   %185 = load ptr, ptr %15, align 8, !tbaa !2567
   %186 = ptrtoint ptr %184 to i64
   %187 = ptrtoint ptr %185 to i64
@@ -151623,7 +151625,7 @@ _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_
 
 _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_iteratorIPKNS0_7sectionINS0_5model3boxINS8_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEEEELm2EEES4_ISH_SaISH_EEEESaISM_EESO_EEbRKT_RKT0_mm.exit130: ; preds = %182
   %190 = getelementptr inbounds nuw i8, ptr %18, i64 8
-  %191 = load ptr, ptr %190, align 8, !tbaa !2564
+  %191 = load ptr, ptr %190, align 8, !tbaa !2566
   %192 = load ptr, ptr %18, align 8, !tbaa !2567
   %193 = ptrtoint ptr %191 to i64
   %194 = ptrtoint ptr %192 to i64
@@ -151660,7 +151662,7 @@ _ZN5boost8geometry6detail9partition10recurse_okISt6vectorIN9__gnu_cxx17__normal_
 
 208:                                              ; preds = %206
   %209 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %210 = load ptr, ptr %209, align 8, !tbaa !2566
+  %210 = load ptr, ptr %209, align 8, !tbaa !2564
   %211 = ptrtoint ptr %210 to i64
   %212 = ptrtoint ptr %207 to i64
   %213 = sub i64 %211, %212
@@ -151675,7 +151677,7 @@ _ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5mode
 
 215:                                              ; preds = %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EED2Ev.exit
   %216 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %217 = load ptr, ptr %216, align 8, !tbaa !2566
+  %217 = load ptr, ptr %216, align 8, !tbaa !2564
   %218 = ptrtoint ptr %217 to i64
   %219 = ptrtoint ptr %214 to i64
   %220 = sub i64 %218, %219
@@ -151690,7 +151692,7 @@ _ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5mode
 
 222:                                              ; preds = %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EED2Ev.exit135
   %223 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %224 = load ptr, ptr %223, align 8, !tbaa !2566
+  %224 = load ptr, ptr %223, align 8, !tbaa !2564
   %225 = ptrtoint ptr %224 to i64
   %226 = ptrtoint ptr %221 to i64
   %227 = sub i64 %225, %226
@@ -151705,7 +151707,7 @@ _ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5mode
 
 229:                                              ; preds = %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EED2Ev.exit137
   %230 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %231 = load ptr, ptr %230, align 8, !tbaa !2566
+  %231 = load ptr, ptr %230, align 8, !tbaa !2564
   %232 = ptrtoint ptr %231 to i64
   %233 = ptrtoint ptr %228 to i64
   %234 = sub i64 %232, %233
@@ -151720,7 +151722,7 @@ _ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5mode
 
 236:                                              ; preds = %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EED2Ev.exit139
   %237 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %238 = load ptr, ptr %237, align 8, !tbaa !2566
+  %238 = load ptr, ptr %237, align 8, !tbaa !2564
   %239 = ptrtoint ptr %238 to i64
   %240 = ptrtoint ptr %235 to i64
   %241 = sub i64 %239, %240
@@ -151735,7 +151737,7 @@ _ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5mode
 
 243:                                              ; preds = %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EED2Ev.exit141
   %244 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %245 = load ptr, ptr %244, align 8, !tbaa !2566
+  %245 = load ptr, ptr %244, align 8, !tbaa !2564
   %246 = ptrtoint ptr %245 to i64
   %247 = ptrtoint ptr %242 to i64
   %248 = sub i64 %246, %247
@@ -151756,7 +151758,7 @@ _ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5mode
 
 251:                                              ; preds = %249
   %252 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %253 = load ptr, ptr %252, align 8, !tbaa !2566
+  %253 = load ptr, ptr %252, align 8, !tbaa !2564
   %254 = ptrtoint ptr %253 to i64
   %255 = ptrtoint ptr %250 to i64
   %256 = sub i64 %254, %255
@@ -151771,7 +151773,7 @@ _ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5mode
 
 258:                                              ; preds = %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EED2Ev.exit145
   %259 = getelementptr inbounds nuw i8, ptr %18, i64 16
-  %260 = load ptr, ptr %259, align 8, !tbaa !2566
+  %260 = load ptr, ptr %259, align 8, !tbaa !2564
   %261 = ptrtoint ptr %260 to i64
   %262 = ptrtoint ptr %257 to i64
   %263 = sub i64 %261, %262
@@ -151786,7 +151788,7 @@ _ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5mode
 
 265:                                              ; preds = %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EED2Ev.exit147
   %266 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  %267 = load ptr, ptr %266, align 8, !tbaa !2566
+  %267 = load ptr, ptr %266, align 8, !tbaa !2564
   %268 = ptrtoint ptr %267 to i64
   %269 = ptrtoint ptr %264 to i64
   %270 = sub i64 %268, %269
@@ -151801,7 +151803,7 @@ _ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5mode
 
 272:                                              ; preds = %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EED2Ev.exit149
   %273 = getelementptr inbounds nuw i8, ptr %16, i64 16
-  %274 = load ptr, ptr %273, align 8, !tbaa !2566
+  %274 = load ptr, ptr %273, align 8, !tbaa !2564
   %275 = ptrtoint ptr %274 to i64
   %276 = ptrtoint ptr %271 to i64
   %277 = sub i64 %275, %276
@@ -151816,7 +151818,7 @@ _ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5mode
 
 279:                                              ; preds = %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EED2Ev.exit151
   %280 = getelementptr inbounds nuw i8, ptr %15, i64 16
-  %281 = load ptr, ptr %280, align 8, !tbaa !2566
+  %281 = load ptr, ptr %280, align 8, !tbaa !2564
   %282 = ptrtoint ptr %281 to i64
   %283 = ptrtoint ptr %278 to i64
   %284 = sub i64 %282, %283
@@ -151831,7 +151833,7 @@ _ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5mode
 
 286:                                              ; preds = %_ZNSt6vectorIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEES_ISE_SaISE_EEEESaISJ_EED2Ev.exit153
   %287 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %288 = load ptr, ptr %287, align 8, !tbaa !2566
+  %288 = load ptr, ptr %287, align 8, !tbaa !2564
   %289 = ptrtoint ptr %288 to i64
   %290 = ptrtoint ptr %285 to i64
   %291 = sub i64 %289, %290
@@ -171998,149 +172000,149 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %19 = add i64 %.057.i.i.i.i.i, -1
   %20 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i = icmp eq i64 %19, 0
-  br i1 %.not.i.i.i.i.i, label %.loopexit32, label %.lr.ph.i.i.i.i.i, !llvm.loop !3182
+  br i1 %.not.i.i.i.i.i, label %.loopexit32.loopexit, label %.lr.ph.i.i.i.i.i, !llvm.loop !3182
 
-.loopexit32:                                      ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2EmRKS6_.exit.thread.i
-  %21 = phi ptr [ null, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2EmRKS6_.exit.thread.i ], [ %14, %.lr.ph.i.i.i.i.i ]
-  %22 = phi ptr [ null, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2EmRKS6_.exit.thread.i ], [ %20, %.lr.ph.i.i.i.i.i ]
-  %23 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %22, ptr %23, align 8, !tbaa !331
-  %24 = invoke ptr @_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry6detail7overlay9turn_infoINS3_5model5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEENS3_13segment_ratioIdEENS5_21turn_operation_linearISD_SF_EESt5arrayISH_Lm2EEEESt6vectorISK_SaISK_EEEENS1_IPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESN_ISW_SaISW_EEEEN13turns_printerISP_E9to_stringEET0_T_S15_S14_T1_(ptr %7, ptr %6, ptr %21)
-          to label %25 unwind label %.loopexit.split-lp
+.loopexit32.loopexit:                             ; preds = %.lr.ph.i.i.i.i.i
+  %21 = ptrtoint ptr %15 to i64
+  br label %.loopexit32
 
-25:                                               ; preds = %.loopexit32
-  %.not.i.i = icmp eq ptr %21, %22
-  br i1 %.not.i.i, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit, label %26
+.loopexit32:                                      ; preds = %.loopexit32.loopexit, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2EmRKS6_.exit.thread.i
+  %22 = phi i64 [ 0, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2EmRKS6_.exit.thread.i ], [ %21, %.loopexit32.loopexit ]
+  %23 = phi ptr [ null, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2EmRKS6_.exit.thread.i ], [ %14, %.loopexit32.loopexit ]
+  %24 = phi ptr [ null, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2EmRKS6_.exit.thread.i ], [ %20, %.loopexit32.loopexit ]
+  %25 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %24, ptr %25, align 8, !tbaa !331
+  %26 = invoke ptr @_ZSt9transformIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry6detail7overlay9turn_infoINS3_5model5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEENS3_13segment_ratioIdEENS5_21turn_operation_linearISD_SF_EESt5arrayISH_Lm2EEEESt6vectorISK_SaISK_EEEENS1_IPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESN_ISW_SaISW_EEEEN13turns_printerISP_E9to_stringEET0_T_S15_S14_T1_(ptr %7, ptr %6, ptr %23)
+          to label %27 unwind label %.loopexit.split-lp
 
-26:                                               ; preds = %25
-  %27 = ptrtoint ptr %22 to i64
-  %28 = ptrtoint ptr %21 to i64
-  %29 = sub i64 %27, %28
-  %30 = ashr exact i64 %29, 5
-  %31 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %30, i1 true)
-  %32 = shl nuw nsw i64 %31, 1
-  %33 = xor i64 %32, 126
-  invoke void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEElNS0_5__ops15_Iter_less_iterEEvT_SF_T0_T1_(ptr %21, ptr %22, i64 noundef %33)
+27:                                               ; preds = %.loopexit32
+  %.not.i.i = icmp eq ptr %23, %24
+  %.pre = ptrtoint ptr %24 to i64
+  br i1 %.not.i.i, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit, label %28
+
+28:                                               ; preds = %27
+  %29 = ptrtoint ptr %23 to i64
+  %30 = sub i64 %.pre, %29
+  %31 = ashr exact i64 %30, 5
+  %32 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %31, i1 true)
+  %33 = shl nuw nsw i64 %32, 1
+  %34 = xor i64 %33, 126
+  invoke void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEElNS0_5__ops15_Iter_less_iterEEvT_SF_T0_T1_(ptr %23, ptr %24, i64 noundef %34)
           to label %.noexc19 unwind label %.loopexit.split-lp
 
-.noexc19:                                         ; preds = %26
-  %34 = icmp sgt i64 %29, 512
-  br i1 %34, label %35, label %38
+.noexc19:                                         ; preds = %28
+  %35 = icmp sgt i64 %30, 512
+  br i1 %35, label %36, label %39
 
-35:                                               ; preds = %.noexc19
-  %36 = getelementptr inbounds nuw i8, ptr %21, i64 512
-  invoke void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_less_iterEEvT_SF_T0_(ptr %21, ptr nonnull %36)
+36:                                               ; preds = %.noexc19
+  %37 = getelementptr inbounds nuw i8, ptr %23, i64 512
+  invoke void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_less_iterEEvT_SF_T0_(ptr %23, ptr nonnull %37)
           to label %.noexc20 unwind label %.loopexit.split-lp
 
-.noexc20:                                         ; preds = %35
-  %.not4.i.i.i.i = icmp eq ptr %36, %22
+.noexc20:                                         ; preds = %36
+  %.not4.i.i.i.i = icmp eq ptr %37, %24
   br i1 %.not4.i.i.i.i, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.noexc20, %.noexc21
-  %.sroa.0.05.i.i.i.i = phi ptr [ %37, %.noexc21 ], [ %36, %.noexc20 ]
+  %.sroa.0.05.i.i.i.i = phi ptr [ %38, %.noexc21 ], [ %37, %.noexc20 ]
   invoke void @_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops14_Val_less_iterEEvT_T0_(ptr nonnull %.sroa.0.05.i.i.i.i)
           to label %.noexc21 unwind label %.loopexit
 
 .noexc21:                                         ; preds = %.lr.ph.i.i.i.i
-  %37 = getelementptr inbounds nuw i8, ptr %.sroa.0.05.i.i.i.i, i64 32
-  %.not.i.i.i.i18 = icmp eq ptr %37, %22
+  %38 = getelementptr inbounds nuw i8, ptr %.sroa.0.05.i.i.i.i, i64 32
+  %.not.i.i.i.i18 = icmp eq ptr %38, %24
   br i1 %.not.i.i.i.i18, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !3183
 
-38:                                               ; preds = %.noexc19
-  invoke void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_less_iterEEvT_SF_T0_(ptr %21, ptr %22)
+39:                                               ; preds = %.noexc19
+  invoke void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_less_iterEEvT_SF_T0_(ptr %23, ptr %24)
           to label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit unwind label %.loopexit.split-lp
 
-_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit: ; preds = %.noexc21, %.noexc20, %25, %38
-  %39 = load ptr, ptr %3, align 8, !tbaa !173
-  %40 = load ptr, ptr %23, align 8, !tbaa !173
+_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit: ; preds = %.noexc21, %27, %.noexc20, %39
+  %40 = load ptr, ptr %3, align 8, !tbaa !173
   %41 = ptrtoint ptr %40 to i64
-  %42 = ptrtoint ptr %39 to i64
-  %43 = sub i64 %41, %42
-  %44 = ashr exact i64 %43, 5
-  %45 = icmp sgt i64 %44, 0
-  br i1 %45, label %.lr.ph.i.i.i.i.i23, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESt16ostream_iteratorIS7_cS5_EET0_T_SG_SF_.exit
+  %42 = sub i64 %.pre, %41
+  %43 = ashr exact i64 %42, 5
+  %44 = icmp sgt i64 %43, 0
+  br i1 %44, label %.lr.ph.i.i.i.i.i23, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESt16ostream_iteratorIS7_cS5_EET0_T_SG_SF_.exit
 
 .lr.ph.i.i.i.i.i23:                               ; preds = %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit, %.noexc26
-  %.07.i.i.i.i.i = phi i64 [ %52, %.noexc26 ], [ %44, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit ]
-  %.056.i.i.i.i.i = phi ptr [ %51, %.noexc26 ], [ %39, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit ]
-  %46 = load ptr, ptr %.056.i.i.i.i.i, align 8, !tbaa !4, !noalias !3184
-  %47 = getelementptr inbounds nuw i8, ptr %.056.i.i.i.i.i, i64 8
-  %48 = load i64, ptr %47, align 8, !tbaa !11, !noalias !3184
-  %49 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %46, i64 noundef %48)
-          to label %.noexc25 unwind label %68
+  %.07.i.i.i.i.i = phi i64 [ %51, %.noexc26 ], [ %43, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit ]
+  %.056.i.i.i.i.i = phi ptr [ %50, %.noexc26 ], [ %40, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit ]
+  %45 = load ptr, ptr %.056.i.i.i.i.i, align 8, !tbaa !4, !noalias !3184
+  %46 = getelementptr inbounds nuw i8, ptr %.056.i.i.i.i.i, i64 8
+  %47 = load i64, ptr %46, align 8, !tbaa !11, !noalias !3184
+  %48 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %45, i64 noundef %47)
+          to label %.noexc25 unwind label %64
 
 .noexc25:                                         ; preds = %.lr.ph.i.i.i.i.i23
-  %50 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.80, i64 noundef 1)
-          to label %.noexc26 unwind label %68
+  %49 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.80, i64 noundef 1)
+          to label %.noexc26 unwind label %64
 
 .noexc26:                                         ; preds = %.noexc25
-  %51 = getelementptr inbounds nuw i8, ptr %.056.i.i.i.i.i, i64 32
-  %52 = add nsw i64 %.07.i.i.i.i.i, -1
-  %53 = icmp samesign ugt i64 %.07.i.i.i.i.i, 1
-  br i1 %53, label %.lr.ph.i.i.i.i.i23, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESt16ostream_iteratorIS7_cS5_EET0_T_SG_SF_.exit, !llvm.loop !3195
+  %50 = getelementptr inbounds nuw i8, ptr %.056.i.i.i.i.i, i64 32
+  %51 = add nsw i64 %.07.i.i.i.i.i, -1
+  %52 = icmp samesign ugt i64 %.07.i.i.i.i.i, 1
+  br i1 %52, label %.lr.ph.i.i.i.i.i23, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESt16ostream_iteratorIS7_cS5_EET0_T_SG_SF_.exit, !llvm.loop !3195
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESt16ostream_iteratorIS7_cS5_EET0_T_SG_SF_.exit: ; preds = %.noexc26, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit
-  %.not4.i.i.i.i27 = icmp eq ptr %39, %40
+  %.not4.i.i.i.i27 = icmp eq ptr %40, %24
   br i1 %.not4.i.i.i.i27, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i28
 
 .lr.ph.i.i.i.i28:                                 ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESt16ostream_iteratorIS7_cS5_EET0_T_SG_SF_.exit, %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i
-  %.05.i.i.i.i = phi ptr [ %62, %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i ], [ %39, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESt16ostream_iteratorIS7_cS5_EET0_T_SG_SF_.exit ]
-  %54 = load ptr, ptr %.05.i.i.i.i, align 8, !tbaa !4
-  %55 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 16
-  %56 = icmp eq ptr %54, %55
-  br i1 %56, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i
+  %.05.i.i.i.i = phi ptr [ %61, %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i ], [ %40, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESt16ostream_iteratorIS7_cS5_EET0_T_SG_SF_.exit ]
+  %53 = load ptr, ptr %.05.i.i.i.i, align 8, !tbaa !4
+  %54 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 16
+  %55 = icmp eq ptr %53, %54
+  br i1 %55, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i28
-  %57 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 8
-  %58 = load i64, ptr %57, align 8, !tbaa !11
-  %59 = icmp ult i64 %58, 16
-  tail call void @llvm.assume(i1 %59)
+  %56 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 8
+  %57 = load i64, ptr %56, align 8, !tbaa !11
+  %58 = icmp ult i64 %57, 16
+  tail call void @llvm.assume(i1 %58)
   br label %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i28
-  %60 = load i64, ptr %55, align 8, !tbaa !24
-  %61 = add i64 %60, 1
-  tail call void @_ZdlPvm(ptr noundef %54, i64 noundef %61) #58
+  %59 = load i64, ptr %54, align 8, !tbaa !24
+  %60 = add i64 %59, 1
+  tail call void @_ZdlPvm(ptr noundef %53, i64 noundef %60) #58
   br label %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i
-  %62 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 32
-  %.not.i.i.i.i29 = icmp eq ptr %62, %40
+  %61 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 32
+  %.not.i.i.i.i29 = icmp eq ptr %61, %24
   br i1 %.not.i.i.i.i29, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i28, !llvm.loop !574
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESt16ostream_iteratorIS7_cS5_EET0_T_SG_SF_.exit
-  %.not.i.i.i = icmp eq ptr %39, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %63
+  %.not.i.i.i = icmp eq ptr %40, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %62
 
-63:                                               ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i
-  %64 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %65 = load ptr, ptr %64, align 8, !tbaa !332
-  %66 = ptrtoint ptr %65 to i64
-  %67 = sub i64 %66, %42
-  tail call void @_ZdlPvm(ptr noundef nonnull %39, i64 noundef %67) #58
+62:                                               ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i
+  %63 = sub i64 %22, %41
+  tail call void @_ZdlPvm(ptr noundef nonnull %40, i64 noundef %63) #58
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
 
-_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, %63
+_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, %62
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #56
   ret ptr %0
 
 .loopexit:                                        ; preds = %.lr.ph.i.i.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %70
+  br label %66
 
-.loopexit.split-lp:                               ; preds = %.loopexit32, %26, %35, %38
+.loopexit.split-lp:                               ; preds = %.loopexit32, %28, %36, %39
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %70
+  br label %66
 
-68:                                               ; preds = %.noexc25, %.lr.ph.i.i.i.i.i23
-  %69 = landingpad { ptr, i32 }
+64:                                               ; preds = %.noexc25, %.lr.ph.i.i.i.i.i23
+  %65 = landingpad { ptr, i32 }
           cleanup
-  br label %70
+  br label %66
 
-70:                                               ; preds = %.loopexit, %.loopexit.split-lp, %68
-  %.pn = phi { ptr, i32 } [ %69, %68 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+66:                                               ; preds = %.loopexit, %.loopexit.split-lp, %64
+  %.pn = phi { ptr, i32 } [ %65, %64 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #56
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #56
   resume { ptr, i32 } %.pn
@@ -174163,143 +174165,143 @@ _ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE
   %18 = add i64 %.057.i.i.i.i.i, -1
   %19 = getelementptr inbounds nuw i8, ptr %.08.i.i.i.i.i, i64 32
   %.not.i.i.i.i.i = icmp eq i64 %18, 0
-  br i1 %.not.i.i.i.i.i, label %.loopexit38, label %.lr.ph.i.i.i.i.i, !llvm.loop !3182
+  br i1 %.not.i.i.i.i.i, label %.loopexit38.loopexit, label %.lr.ph.i.i.i.i.i, !llvm.loop !3182
 
-.loopexit38:                                      ; preds = %.lr.ph.i.i.i.i.i, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2EmRKS6_.exit.thread.i
-  %20 = phi ptr [ null, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2EmRKS6_.exit.thread.i ], [ %13, %.lr.ph.i.i.i.i.i ]
-  %21 = phi ptr [ null, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2EmRKS6_.exit.thread.i ], [ %19, %.lr.ph.i.i.i.i.i ]
-  %22 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %21, ptr %22, align 8, !tbaa !331
+.loopexit38.loopexit:                             ; preds = %.lr.ph.i.i.i.i.i
+  %20 = ptrtoint ptr %14 to i64
+  br label %.loopexit38
+
+.loopexit38:                                      ; preds = %.loopexit38.loopexit, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2EmRKS6_.exit.thread.i
+  %21 = phi i64 [ 0, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2EmRKS6_.exit.thread.i ], [ %20, %.loopexit38.loopexit ]
+  %22 = phi ptr [ null, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2EmRKS6_.exit.thread.i ], [ %13, %.loopexit38.loopexit ]
+  %23 = phi ptr [ null, %_ZNSt12_Vector_baseINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2EmRKS6_.exit.thread.i ], [ %19, %.loopexit38.loopexit ]
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %23, ptr %24, align 8, !tbaa !331
   %.not = icmp eq ptr %6, %7
   br i1 %.not, label %.loopexit37, label %.lr.ph.i.i.i.i.i18
 
 .lr.ph.i.i.i.i.i18:                               ; preds = %.loopexit38, %.noexc19
-  %.012.i.i.i.i.i = phi i64 [ %25, %.noexc19 ], [ %11, %.loopexit38 ]
-  %.0811.i.i.i.i.i = phi ptr [ %24, %.noexc19 ], [ %20, %.loopexit38 ]
-  %.0910.i.i.i.i.i = phi ptr [ %23, %.noexc19 ], [ %7, %.loopexit38 ]
+  %.012.i.i.i.i.i = phi i64 [ %27, %.noexc19 ], [ %11, %.loopexit38 ]
+  %.0811.i.i.i.i.i = phi ptr [ %26, %.noexc19 ], [ %22, %.loopexit38 ]
+  %.0910.i.i.i.i.i = phi ptr [ %25, %.noexc19 ], [ %7, %.loopexit38 ]
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32) %.0811.i.i.i.i.i, ptr noundef nonnull align 8 dereferenceable(32) %.0910.i.i.i.i.i)
           to label %.noexc19 unwind label %.loopexit.split-lp.loopexit
 
 .noexc19:                                         ; preds = %.lr.ph.i.i.i.i.i18
-  %23 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 32
-  %24 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 32
-  %25 = add nsw i64 %.012.i.i.i.i.i, -1
-  %26 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
-  br i1 %26, label %.lr.ph.i.i.i.i.i18, label %.loopexit37, !llvm.loop !3216
+  %25 = getelementptr inbounds nuw i8, ptr %.0910.i.i.i.i.i, i64 32
+  %26 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i, i64 32
+  %27 = add nsw i64 %.012.i.i.i.i.i, -1
+  %28 = icmp samesign ugt i64 %.012.i.i.i.i.i, 1
+  br i1 %28, label %.lr.ph.i.i.i.i.i18, label %.loopexit37, !llvm.loop !3216
 
 .loopexit37:                                      ; preds = %.noexc19, %.loopexit38
-  %.not.i.i = icmp eq ptr %20, %21
-  br i1 %.not.i.i, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit, label %27
+  %.not.i.i = icmp eq ptr %22, %23
+  %.pre = ptrtoint ptr %23 to i64
+  br i1 %.not.i.i, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit, label %29
 
-27:                                               ; preds = %.loopexit37
-  %28 = ptrtoint ptr %21 to i64
-  %29 = ptrtoint ptr %20 to i64
-  %30 = sub i64 %28, %29
-  %31 = ashr exact i64 %30, 5
-  %32 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %31, i1 true)
-  %33 = shl nuw nsw i64 %32, 1
-  %34 = xor i64 %33, 126
-  invoke void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEElNS0_5__ops15_Iter_less_iterEEvT_SF_T0_T1_(ptr %20, ptr %21, i64 noundef %34)
+29:                                               ; preds = %.loopexit37
+  %30 = ptrtoint ptr %22 to i64
+  %31 = sub i64 %.pre, %30
+  %32 = ashr exact i64 %31, 5
+  %33 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %32, i1 true)
+  %34 = shl nuw nsw i64 %33, 1
+  %35 = xor i64 %34, 126
+  invoke void @_ZSt16__introsort_loopIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEElNS0_5__ops15_Iter_less_iterEEvT_SF_T0_T1_(ptr %22, ptr %23, i64 noundef %35)
           to label %.noexc21 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-.noexc21:                                         ; preds = %27
-  %35 = icmp sgt i64 %30, 512
-  br i1 %35, label %36, label %39
+.noexc21:                                         ; preds = %29
+  %36 = icmp sgt i64 %31, 512
+  br i1 %36, label %37, label %40
 
-36:                                               ; preds = %.noexc21
-  %37 = getelementptr inbounds nuw i8, ptr %20, i64 512
-  invoke void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_less_iterEEvT_SF_T0_(ptr %20, ptr nonnull %37)
+37:                                               ; preds = %.noexc21
+  %38 = getelementptr inbounds nuw i8, ptr %22, i64 512
+  invoke void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_less_iterEEvT_SF_T0_(ptr %22, ptr nonnull %38)
           to label %.noexc22 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-.noexc22:                                         ; preds = %36
-  %.not4.i.i.i.i = icmp eq ptr %37, %21
+.noexc22:                                         ; preds = %37
+  %.not4.i.i.i.i = icmp eq ptr %38, %23
   br i1 %.not4.i.i.i.i, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %.noexc22, %.noexc23
-  %.sroa.0.05.i.i.i.i = phi ptr [ %38, %.noexc23 ], [ %37, %.noexc22 ]
+  %.sroa.0.05.i.i.i.i = phi ptr [ %39, %.noexc23 ], [ %38, %.noexc22 ]
   invoke void @_ZSt25__unguarded_linear_insertIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops14_Val_less_iterEEvT_T0_(ptr nonnull %.sroa.0.05.i.i.i.i)
           to label %.noexc23 unwind label %.loopexit
 
 .noexc23:                                         ; preds = %.lr.ph.i.i.i.i
-  %38 = getelementptr inbounds nuw i8, ptr %.sroa.0.05.i.i.i.i, i64 32
-  %.not.i.i.i.i20 = icmp eq ptr %38, %21
+  %39 = getelementptr inbounds nuw i8, ptr %.sroa.0.05.i.i.i.i, i64 32
+  %.not.i.i.i.i20 = icmp eq ptr %39, %23
   br i1 %.not.i.i.i.i20, label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit, label %.lr.ph.i.i.i.i, !llvm.loop !3183
 
-39:                                               ; preds = %.noexc21
-  invoke void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_less_iterEEvT_SF_T0_(ptr %20, ptr %21)
+40:                                               ; preds = %.noexc21
+  invoke void @_ZSt16__insertion_sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEENS0_5__ops15_Iter_less_iterEEvT_SF_T0_(ptr %22, ptr %23)
           to label %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit unwind label %.loopexit.split-lp.loopexit.split-lp
 
-_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit: ; preds = %.noexc23, %.noexc22, %.loopexit37, %39
-  %40 = load ptr, ptr %3, align 8, !tbaa !173
-  %41 = load ptr, ptr %22, align 8, !tbaa !173
+_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit: ; preds = %.noexc23, %.loopexit37, %.noexc22, %40
+  %41 = load ptr, ptr %3, align 8, !tbaa !173
   %42 = ptrtoint ptr %41 to i64
-  %43 = ptrtoint ptr %40 to i64
-  %44 = sub i64 %42, %43
-  %45 = ashr exact i64 %44, 5
-  %46 = icmp sgt i64 %45, 0
-  br i1 %46, label %.lr.ph.i.i.i.i.i25, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESt16ostream_iteratorIS7_cS5_EET0_T_SG_SF_.exit
+  %43 = sub i64 %.pre, %42
+  %44 = ashr exact i64 %43, 5
+  %45 = icmp sgt i64 %44, 0
+  br i1 %45, label %.lr.ph.i.i.i.i.i25, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESt16ostream_iteratorIS7_cS5_EET0_T_SG_SF_.exit
 
 .lr.ph.i.i.i.i.i25:                               ; preds = %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit, %.noexc28
-  %.07.i.i.i.i.i = phi i64 [ %53, %.noexc28 ], [ %45, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit ]
-  %.056.i.i.i.i.i = phi ptr [ %52, %.noexc28 ], [ %40, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit ]
-  %47 = load ptr, ptr %.056.i.i.i.i.i, align 8, !tbaa !4, !noalias !3217
-  %48 = getelementptr inbounds nuw i8, ptr %.056.i.i.i.i.i, i64 8
-  %49 = load i64, ptr %48, align 8, !tbaa !11, !noalias !3217
-  %50 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %47, i64 noundef %49)
-          to label %.noexc27 unwind label %69
+  %.07.i.i.i.i.i = phi i64 [ %52, %.noexc28 ], [ %44, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit ]
+  %.056.i.i.i.i.i = phi ptr [ %51, %.noexc28 ], [ %41, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit ]
+  %46 = load ptr, ptr %.056.i.i.i.i.i, align 8, !tbaa !4, !noalias !3217
+  %47 = getelementptr inbounds nuw i8, ptr %.056.i.i.i.i.i, i64 8
+  %48 = load i64, ptr %47, align 8, !tbaa !11, !noalias !3217
+  %49 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %46, i64 noundef %48)
+          to label %.noexc27 unwind label %65
 
 .noexc27:                                         ; preds = %.lr.ph.i.i.i.i.i25
-  %51 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.80, i64 noundef 1)
-          to label %.noexc28 unwind label %69
+  %50 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZSt16__ostream_insertIcSt11char_traitsIcEERSt13basic_ostreamIT_T0_ES6_PKS3_l(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.80, i64 noundef 1)
+          to label %.noexc28 unwind label %65
 
 .noexc28:                                         ; preds = %.noexc27
-  %52 = getelementptr inbounds nuw i8, ptr %.056.i.i.i.i.i, i64 32
-  %53 = add nsw i64 %.07.i.i.i.i.i, -1
-  %54 = icmp samesign ugt i64 %.07.i.i.i.i.i, 1
-  br i1 %54, label %.lr.ph.i.i.i.i.i25, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESt16ostream_iteratorIS7_cS5_EET0_T_SG_SF_.exit, !llvm.loop !3195
+  %51 = getelementptr inbounds nuw i8, ptr %.056.i.i.i.i.i, i64 32
+  %52 = add nsw i64 %.07.i.i.i.i.i, -1
+  %53 = icmp samesign ugt i64 %.07.i.i.i.i.i, 1
+  br i1 %53, label %.lr.ph.i.i.i.i.i25, label %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESt16ostream_iteratorIS7_cS5_EET0_T_SG_SF_.exit, !llvm.loop !3195
 
 _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESt16ostream_iteratorIS7_cS5_EET0_T_SG_SF_.exit: ; preds = %.noexc28, %_ZSt4sortIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEEEvT_SD_.exit
-  %.not4.i.i.i.i29 = icmp eq ptr %40, %41
+  %.not4.i.i.i.i29 = icmp eq ptr %41, %23
   br i1 %.not4.i.i.i.i29, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i30
 
 .lr.ph.i.i.i.i30:                                 ; preds = %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESt16ostream_iteratorIS7_cS5_EET0_T_SG_SF_.exit, %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i
-  %.05.i.i.i.i = phi ptr [ %63, %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i ], [ %40, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESt16ostream_iteratorIS7_cS5_EET0_T_SG_SF_.exit ]
-  %55 = load ptr, ptr %.05.i.i.i.i, align 8, !tbaa !4
-  %56 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 16
-  %57 = icmp eq ptr %55, %56
-  br i1 %57, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i
+  %.05.i.i.i.i = phi ptr [ %62, %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i ], [ %41, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESt16ostream_iteratorIS7_cS5_EET0_T_SG_SF_.exit ]
+  %54 = load ptr, ptr %.05.i.i.i.i, align 8, !tbaa !4
+  %55 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 16
+  %56 = icmp eq ptr %54, %55
+  br i1 %56, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i30
-  %58 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 8
-  %59 = load i64, ptr %58, align 8, !tbaa !11
-  %60 = icmp ult i64 %59, 16
-  tail call void @llvm.assume(i1 %60)
+  %57 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 8
+  %58 = load i64, ptr %57, align 8, !tbaa !11
+  %59 = icmp ult i64 %58, 16
+  tail call void @llvm.assume(i1 %59)
   br label %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i30
-  %61 = load i64, ptr %56, align 8, !tbaa !24
-  %62 = add i64 %61, 1
-  tail call void @_ZdlPvm(ptr noundef %55, i64 noundef %62) #58
+  %60 = load i64, ptr %55, align 8, !tbaa !24
+  %61 = add i64 %60, 1
+  tail call void @_ZdlPvm(ptr noundef %54, i64 noundef %61) #58
   br label %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i
-  %63 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 32
-  %.not.i.i.i.i31 = icmp eq ptr %63, %41
+  %62 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 32
+  %.not.i.i.i.i31 = icmp eq ptr %62, %23
   br i1 %.not.i.i.i.i31, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i30, !llvm.loop !574
 
 _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i: ; preds = %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i, %_ZSt4copyIN9__gnu_cxx17__normal_iteratorIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt6vectorIS7_SaIS7_EEEESt16ostream_iteratorIS7_cS5_EET0_T_SG_SF_.exit
-  %.not.i.i.i = icmp eq ptr %40, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %64
+  %.not.i.i.i = icmp eq ptr %41, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit, label %63
 
-64:                                               ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i
-  %65 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %66 = load ptr, ptr %65, align 8, !tbaa !332
-  %67 = ptrtoint ptr %66 to i64
-  %68 = sub i64 %67, %43
-  tail call void @_ZdlPvm(ptr noundef nonnull %40, i64 noundef %68) #58
+63:                                               ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i
+  %64 = sub i64 %21, %42
+  tail call void @_ZdlPvm(ptr noundef nonnull %41, i64 noundef %64) #58
   br label %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit
 
-_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, %64
+_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.exit: ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i, %63
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #56
   ret ptr %0
 
@@ -174313,18 +174315,18 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit.split-lp:             ; preds = %39, %36, %27
+.loopexit.split-lp.loopexit.split-lp:             ; preds = %40, %37, %29
   %lpad.loopexit.split-lp35 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
-69:                                               ; preds = %.noexc27, %.lr.ph.i.i.i.i.i25
-  %70 = landingpad { ptr, i32 }
+65:                                               ; preds = %.noexc27, %.lr.ph.i.i.i.i.i25
+  %66 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %69
-  %.pn = phi { ptr, i32 } [ %70, %69 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit34, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp35, %.loopexit.split-lp.loopexit.split-lp ]
+.loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %65
+  %.pn = phi { ptr, i32 } [ %66, %65 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit34, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp35, %.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %3) #56
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #56
   resume { ptr, i32 } %.pn
@@ -178244,9 +178246,9 @@ attributes #64 = { nounwind willreturn memory(read) }
 !2561 = !{!2562}
 !2562 = distinct !{!2562, !2563, !"_ZN5boost8geometry6detail18for_each_dimensionINS0_5model3boxINS3_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEEEEZNS1_6assign29assign_inverse_box_or_segment5applyISB_EEvRT_EUlSF_E_EET0_SI_: argument 0"}
 !2563 = distinct !{!2563, !"_ZN5boost8geometry6detail18for_each_dimensionINS0_5model3boxINS3_5pointIdLm2ENS0_2cs10geographicINS0_6radianEEEEEEEZNS1_6assign29assign_inverse_box_or_segment5applyISB_EEvRT_EUlSF_E_EET0_SI_"}
-!2564 = !{!2565, !7, i64 8}
+!2564 = !{!2565, !7, i64 16}
 !2565 = !{!"_ZTSNSt12_Vector_baseIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEESt6vectorISE_SaISE_EEEESaISK_EE17_Vector_impl_dataE", !7, i64 0, !7, i64 8, !7, i64 16}
-!2566 = !{!2565, !7, i64 16}
+!2566 = !{!2565, !7, i64 8}
 !2567 = !{!2565, !7, i64 0}
 !2568 = !{!2569}
 !2569 = distinct !{!2569, !2570, !"_ZSt19__relocate_object_aIN9__gnu_cxx17__normal_iteratorIPKN5boost8geometry7sectionINS3_5model3boxINS5_5pointIdLm2ENS3_2cs10geographicINS3_6radianEEEEEEELm2EEESt6vectorISE_SaISE_EEEESK_SaISK_EEvPT_PT0_RT1_: argument 0"}

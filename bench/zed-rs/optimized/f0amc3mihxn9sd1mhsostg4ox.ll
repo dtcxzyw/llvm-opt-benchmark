@@ -46985,7 +46985,6 @@ default.unreachable65:                            ; preds = %2
   br i1 %65, label %.thread60, label %66
 
 66:                                               ; preds = %63
-  store i8 1, ptr %.sroa.7.0..sroa_idx.i, align 1, !alias.scope !12589
   %67 = load i8, ptr %.sroa.6.0..sroa_idx.i, align 8, !range !187, !alias.scope !12589, !noundef !4
   %68 = trunc nuw i8 %67 to i1
   %.pre.i.i.i31 = load i64, ptr %6, align 8, !alias.scope !12589

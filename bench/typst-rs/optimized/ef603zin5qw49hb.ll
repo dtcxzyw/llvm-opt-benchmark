@@ -6427,7 +6427,6 @@ _ZN12typst_syntax4node10SyntaxNode8children17h0427b3d87fa80909E.exit13: ; preds 
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %5)
   call void @_ZN12typst_syntax4node10LinkedNode8children17h64f63f77cb76667dE(ptr noalias noundef nonnull sret({ ptr, { { ptr, ptr, {} }, i64 }, i64, i64 }) align 8 captures(none) dereferenceable(48) %5, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %1)
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %5, i64 48
-  store i64 0, ptr %.sroa.2.0..sroa_idx, align 8
   %67 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %68 = getelementptr inbounds nuw i8, ptr %5, i64 16
   %69 = load ptr, ptr %68, align 8, !alias.scope !1027, !noalias !1036, !nonnull !7, !noundef !7

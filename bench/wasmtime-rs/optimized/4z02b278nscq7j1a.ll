@@ -5000,7 +5000,6 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %14, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 0, ptr %18, align 8
   %19 = getelementptr inbounds nuw { { ptr, i64, i64, i64, i8, [7 x i8] }, { { { i64, ptr, {} }, i64 } } }, ptr %1, i64 %2
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %21 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -5171,7 +5170,6 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   %17 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %14, ptr %17, align 8
   %18 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 0, ptr %18, align 8
   %19 = getelementptr inbounds nuw { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } } }, ptr %1, i64 %2
   %20 = getelementptr inbounds nuw i8, ptr %4, i64 24
   br label %21

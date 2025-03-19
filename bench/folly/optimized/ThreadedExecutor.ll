@@ -13057,67 +13057,31 @@ _ZN5folly3f146detail8F14ChunkISt4pairIKNSt6thread2idES4_EE25incrOutboundOverflow
 
 .thread:                                          ; preds = %._crit_edge, %_ZN5folly3f146detail8F14TableINS1_20ValueContainerPolicyINSt6thread2idES4_vvvEEE16initializeChunksEPhmm.exit
   store i8 1, ptr %16, align 1, !tbaa !131
-  br label %186
+  %.old = load i64, ptr %10, align 8, !tbaa !48
+  %.not.i.i.i.old = icmp eq i64 %.old, 0
+  br i1 %.not.i.i.i.old, label %_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyINSt6thread2idES6_vvvEEE10rehashImplEmmmmmEUlvE_Lb1EED2Ev.exit, label %187
 
 184:                                              ; preds = %183, %171
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %18) #27
   %.pre = load i8, ptr %17, align 8, !tbaa !178, !range !159
   %185 = trunc nuw i8 %.pre to i1
   store i8 1, ptr %16, align 1, !tbaa !131
-  br i1 %185, label %_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyINSt6thread2idES6_vvvEEE10rehashImplEmmmmmEUlvE_Lb1EED2Ev.exit, label %186
+  %186 = load i64, ptr %10, align 8
+  %.not.i.i.i = icmp eq i64 %186, 0
+  %or.cond154 = select i1 %185, i1 true, i1 %.not.i.i.i
+  br i1 %or.cond154, label %_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyINSt6thread2idES6_vvvEEE10rehashImplEmmmmmEUlvE_Lb1EED2Ev.exit, label %187
 
-186:                                              ; preds = %.thread, %184
-  %187 = load ptr, ptr %43, align 8, !tbaa !524
-  %188 = load i8, ptr %187, align 1, !tbaa !131, !range !159, !noundef !160
-  %189 = trunc nuw i8 %188 to i1
-  br i1 %189, label %190, label %198, !prof !60
+187:                                              ; preds = %184, %.thread
+  %188 = load ptr, ptr %9, align 8, !tbaa !510
+  %.not.i.i.i.i = icmp eq ptr %188, null
+  br i1 %.not.i.i.i.i, label %_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyINSt6thread2idES6_vvvEEE10rehashImplEmmmmmEUlvE_Lb1EED2Ev.exit, label %189
 
-190:                                              ; preds = %186
-  %191 = load ptr, ptr %.sroa.498.0..sroa_idx, align 8, !tbaa !526
-  %192 = load i64, ptr %191, align 8, !tbaa !48
-  %.not.i.i.i = icmp eq i64 %192, 0
-  br i1 %.not.i.i.i, label %_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyINSt6thread2idES6_vvvEEE10rehashImplEmmmmmEUlvE_Lb1EED2Ev.exit, label %193
-
-193:                                              ; preds = %190
-  %194 = load ptr, ptr %.sroa.599.0..sroa_idx, align 8, !tbaa !527
-  %195 = load ptr, ptr %194, align 8, !tbaa !510
-  %196 = load ptr, ptr %.sroa.6100.0..sroa_idx, align 8, !tbaa !528
-  %197 = load i64, ptr %196, align 8, !tbaa !48
-  br label %215
-
-198:                                              ; preds = %186
-  %199 = load ptr, ptr %.sroa.9102.0..sroa_idx, align 8, !tbaa !529
-  %200 = load ptr, ptr %.sroa.7.0..sroa_idx, align 8, !tbaa !530
-  %201 = load ptr, ptr %200, align 8, !tbaa !175
-  %202 = load ptr, ptr %.sroa.8101.0..sroa_idx, align 8, !tbaa !531
-  %203 = load i64, ptr %202, align 8, !tbaa !48
-  %204 = load ptr, ptr %.sroa.599.0..sroa_idx, align 8, !tbaa !527
-  %205 = load ptr, ptr %204, align 8, !tbaa !510
-  store ptr %205, ptr %199, align 8, !tbaa !80
-  %206 = getelementptr inbounds nuw i8, ptr %199, i64 8
-  %207 = load ptr, ptr %.sroa.10103.0..sroa_idx, align 8, !tbaa !532
-  %208 = load i64, ptr %207, align 8, !tbaa !48
-  %209 = call range(i64 0, 65) i64 @llvm.cttz.i64(i64 %208, i1 true)
-  %210 = icmp eq i64 %208, 0
-  %211 = load i64, ptr %206, align 8, !tbaa !140
-  %212 = and i64 %211, -256
-  %213 = select i1 %210, i64 4294967295, i64 %209
-  %214 = or i64 %212, %213
-  store i64 %214, ptr %206, align 8, !tbaa !140
-  call void @_ZN5folly3f146detail12F14LinkCheckILNS1_17F14IntrinsicsModeE1EE5checkEv() #27
-  br label %215
-
-215:                                              ; preds = %198, %193
-  %.02.i.i.i = phi ptr [ %195, %193 ], [ %201, %198 ]
-  %.0.i.i.i = phi i64 [ %197, %193 ], [ %203, %198 ]
-  %.not.i.i.i.i = icmp eq ptr %.02.i.i.i, null
-  br i1 %.not.i.i.i.i, label %_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyINSt6thread2idES6_vvvEEE10rehashImplEmmmmmEUlvE_Lb1EED2Ev.exit, label %216
-
-216:                                              ; preds = %215
-  call void @_ZdlPvm(ptr noundef nonnull %.02.i.i.i, i64 noundef %.0.i.i.i) #27
+189:                                              ; preds = %187
+  %190 = load i64, ptr %11, align 8, !tbaa !48
+  call void @_ZdlPvm(ptr noundef nonnull %188, i64 noundef %190) #27
   br label %_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyINSt6thread2idES6_vvvEEE10rehashImplEmmmmmEUlvE_Lb1EED2Ev.exit
 
-_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyINSt6thread2idES6_vvvEEE10rehashImplEmmmmmEUlvE_Lb1EED2Ev.exit: ; preds = %184, %190, %215, %216
+_ZN5folly6detail14ScopeGuardImplIZNS_3f146detail8F14TableINS3_20ValueContainerPolicyINSt6thread2idES6_vvvEEE10rehashImplEmmmmmEUlvE_Lb1EED2Ev.exit: ; preds = %184, %.thread, %187, %189
   call void @llvm.lifetime.end.p0(i64 96, ptr nonnull %17) #27
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %16) #27
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %15) #27

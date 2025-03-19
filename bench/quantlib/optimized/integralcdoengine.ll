@@ -705,13 +705,12 @@ cond.false.i39:                                   ; preds = %dynamic_cast.end3.i
 
 invoke.cont:                                      ; preds = %cond.true.i, %if.then.i.i.i, %cond.false.i39
   %.pre.i40443 = phi ptr [ null, %cond.false.i39 ], [ %21, %if.then.i.i.i ], [ %21, %cond.true.i ]
+  %24 = phi ptr [ null, %cond.false.i39 ], [ %22, %if.then.i.i.i ], [ null, %cond.true.i ]
   %accrualStartDate_.i = getelementptr inbounds nuw i8, ptr %.pre.i40443, i64 40
   %call41 = invoke noundef double @_ZNK8QuantLib6Basket19expectedTrancheLossERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(272) %17, ptr noundef nonnull align 8 dereferenceable(8) %accrualStartDate_.i)
           to label %invoke.cont40 unwind label %lpad
 
 invoke.cont40:                                    ; preds = %invoke.cont
-  %pn.i = getelementptr inbounds nuw i8, ptr %ref.tmp, i64 8
-  %24 = load ptr, ptr %pn.i, align 8, !tbaa !37
   %cmp.not.i.i = icmp eq ptr %24, null
   br i1 %cmp.not.i.i, label %_ZN5boost10shared_ptrIN8QuantLib6CouponEED2Ev.exit, label %if.then.i.i
 
@@ -1685,6 +1684,7 @@ cond.false.i185:                                  ; preds = %dynamic_cast.end3.i
 
 invoke.cont180:                                   ; preds = %cond.true.i176, %if.then.i.i.i180, %cond.false.i185
   %.pre.i186460 = phi ptr [ null, %cond.false.i185 ], [ %133, %if.then.i.i.i180 ], [ %133, %cond.true.i176 ]
+  %136 = phi ptr [ null, %cond.false.i185 ], [ %134, %if.then.i.i.i180 ], [ null, %cond.true.i176 ]
   %accrualStartDate_.i189 = getelementptr inbounds nuw i8, ptr %.pre.i186460, i64 40
   %call.i190191 = invoke noundef double @_ZNK8QuantLib13TermStructure17timeFromReferenceERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(152) %129, ptr noundef nonnull align 8 dereferenceable(8) %accrualStartDate_.i189)
           to label %call.i190.noexc unwind label %lpad179
@@ -1696,8 +1696,6 @@ call.i190.noexc:                                  ; preds = %invoke.cont180
 invoke.cont184:                                   ; preds = %call.i190.noexc
   %mul186 = fmul double %mul171, %call2.i192
   store double %mul186, ptr %upfrontPremiumValue, align 8, !tbaa !132
-  %pn.i194 = getelementptr inbounds nuw i8, ptr %ref.tmp175, i64 8
-  %136 = load ptr, ptr %pn.i194, align 8, !tbaa !37
   %cmp.not.i.i195 = icmp eq ptr %136, null
   br i1 %cmp.not.i.i195, label %_ZN5boost10shared_ptrIN8QuantLib6CouponEED2Ev.exit209, label %if.then.i.i196
 

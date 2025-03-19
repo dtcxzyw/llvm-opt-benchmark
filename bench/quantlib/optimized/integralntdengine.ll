@@ -1371,6 +1371,7 @@ cond.false.i210:                                  ; preds = %dynamic_cast.end3.i
 
 invoke.cont295:                                   ; preds = %cond.true.i201, %if.then.i.i.i205, %cond.false.i210
   %.pre.i211412 = phi ptr [ null, %cond.false.i210 ], [ %121, %if.then.i.i.i205 ], [ %121, %cond.true.i201 ]
+  %124 = phi ptr [ null, %cond.false.i210 ], [ %122, %if.then.i.i.i205 ], [ null, %cond.true.i201 ]
   %accrualStartDate_.i214 = getelementptr inbounds nuw i8, ptr %.pre.i211412, i64 40
   %call.i216 = invoke noundef double @_ZNK8QuantLib13TermStructure17timeFromReferenceERKNS_4DateE(ptr noundef nonnull align 8 dereferenceable(152) %117, ptr noundef nonnull align 8 dereferenceable(8) %accrualStartDate_.i214)
           to label %call.i.noexc215 unwind label %lpad294
@@ -1382,8 +1383,6 @@ call.i.noexc215:                                  ; preds = %invoke.cont295
 invoke.cont299:                                   ; preds = %call.i.noexc215
   %mul301 = fmul double %mul286, %call2.i217
   store double %mul301, ptr %upfrontPremiumValue, align 8, !tbaa !68
-  %pn.i219 = getelementptr inbounds nuw i8, ptr %ref.tmp290, i64 8
-  %124 = load ptr, ptr %pn.i219, align 8, !tbaa !37
   %cmp.not.i.i220 = icmp eq ptr %124, null
   br i1 %cmp.not.i.i220, label %_ZN5boost10shared_ptrIN8QuantLib15FixedRateCouponEED2Ev.exit234, label %if.then.i.i221
 

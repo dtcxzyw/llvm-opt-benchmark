@@ -2331,18 +2331,18 @@ define internal void @_ZN12_GLOBAL__N_119PriorityInlineOrderINS_12SizePriorityEE
   br i1 %48, label %22, label %._crit_edge.loopexit.i.i.i.i.i.i, !llvm.loop !152
 
 ._crit_edge.loopexit.i.i.i.i.i.i:                 ; preds = %45
-  %.pre53.i.i.i.i.i.i = ptrtoint ptr %46 to i64
-  %.pre54.i.i.i.i.i.i = sub i64 %19, %.pre53.i.i.i.i.i.i
-  %49 = ashr exact i64 %.pre54.i.i.i.i.i.i, 3
+  %.pre54.i.i.i.i.i.i = ptrtoint ptr %46 to i64
+  %.pre55.i.i.i.i.i.i = sub i64 %19, %.pre54.i.i.i.i.i.i
+  %49 = ashr exact i64 %.pre55.i.i.i.i.i.i, 3
   br label %._crit_edge.i.i.i.i.i.i
 
 ._crit_edge.i.i.i.i.i.i:                          ; preds = %._crit_edge.loopexit.i.i.i.i.i.i, %3
-  %.pre-phi55.i.i.i.i.i.i = phi i64 [ %49, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %17, %3 ]
+  %.pre-phi56.i.i.i.i.i.i = phi i64 [ %49, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %17, %3 ]
   %.029.lcssa.i.i.i.i.i.i = phi ptr [ %46, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %.val.i, %3 ]
-  switch i64 %.pre-phi55.i.i.i.i.i.i, label %_ZN4llvm8erase_ifINS_11SmallVectorIPNS_8CallBaseELj16EEEZN12_GLOBAL__N_119PriorityInlineOrderINS5_12SizePriorityEE8erase_ifENS_12function_refIFbSt4pairIS3_iEEEEEUlS3_E_EEvRT_T0_.exit [
+  switch i64 %.pre-phi56.i.i.i.i.i.i, label %_ZN4llvm8erase_ifINS_11SmallVectorIPNS_8CallBaseELj16EEEZN12_GLOBAL__N_119PriorityInlineOrderINS5_12SizePriorityEE8erase_ifENS_12function_refIFbSt4pairIS3_iEEEEEUlS3_E_EEvRT_T0_.exit [
     i64 3, label %50
     i64 2, label %._crit_edge._crit_edge.i.i.i.i.i.i
-    i64 1, label %._crit_edge._crit_edge49.i.i.i.i.i.i
+    i64 1, label %._crit_edge._crit_edge51.i.i.i.i.i.i
   ]
 
 50:                                               ; preds = %._crit_edge.i.i.i.i.i.i
@@ -2376,9 +2376,9 @@ define internal void @_ZN12_GLOBAL__N_119PriorityInlineOrderINS_12SizePriorityEE
 
 63:                                               ; preds = %._crit_edge._crit_edge.i.i.i.i.i.i
   %64 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i.i, i64 8
-  br label %._crit_edge._crit_edge49.i.i.i.i.i.i
+  br label %._crit_edge._crit_edge51.i.i.i.i.i.i
 
-._crit_edge._crit_edge49.i.i.i.i.i.i:             ; preds = %63, %._crit_edge.i.i.i.i.i.i
+._crit_edge._crit_edge51.i.i.i.i.i.i:             ; preds = %63, %._crit_edge.i.i.i.i.i.i
   %.2.i.i.i.i.i.i = phi ptr [ %64, %63 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i.i, align 8, !tbaa !126
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
@@ -2403,8 +2403,8 @@ _ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_11
   %72 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i, i64 24
   br label %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12SizePriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i
 
-_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12SizePriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i: ; preds = %22, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12SizePriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12SizePriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit17, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12SizePriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit19, %._crit_edge._crit_edge49.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i, %50
-  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %50 ], [ %.1.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i, %._crit_edge._crit_edge49.i.i.i.i.i.i ], [ %70, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12SizePriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit ], [ %71, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12SizePriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit17 ], [ %72, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12SizePriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit19 ], [ %.02943.i.i.i.i.i.i, %22 ]
+_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12SizePriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i: ; preds = %22, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12SizePriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12SizePriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit17, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12SizePriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit19, %._crit_edge._crit_edge51.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i, %50
+  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %50 ], [ %.1.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i, %._crit_edge._crit_edge51.i.i.i.i.i.i ], [ %70, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12SizePriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit ], [ %71, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12SizePriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit17 ], [ %72, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12SizePriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit19 ], [ %.02943.i.i.i.i.i.i, %22 ]
   %73 = icmp eq ptr %.028.i.i.i.i.i.i, %18
   br i1 %73, label %_ZN4llvm8erase_ifINS_11SmallVectorIPNS_8CallBaseELj16EEEZN12_GLOBAL__N_119PriorityInlineOrderINS5_12SizePriorityEE8erase_ifENS_12function_refIFbSt4pairIS3_iEEEEEUlS3_E_EEvRT_T0_.exit, label %.preheader.i.i.i.i
 
@@ -2442,8 +2442,8 @@ _ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_11
   %.not.i.i.i.i = icmp eq ptr %.017.i.i.i.i, %18
   br i1 %.not.i.i.i.i, label %_ZN4llvm8erase_ifINS_11SmallVectorIPNS_8CallBaseELj16EEEZN12_GLOBAL__N_119PriorityInlineOrderINS5_12SizePriorityEE8erase_ifENS_12function_refIFbSt4pairIS3_iEEEEEUlS3_E_EEvRT_T0_.exit, label %75, !llvm.loop !153
 
-_ZN4llvm8erase_ifINS_11SmallVectorIPNS_8CallBaseELj16EEEZN12_GLOBAL__N_119PriorityInlineOrderINS5_12SizePriorityEE8erase_ifENS_12function_refIFbSt4pairIS3_iEEEEEUlS3_E_EEvRT_T0_.exit: ; preds = %83, %._crit_edge.i.i.i.i.i.i, %._crit_edge._crit_edge49.i.i.i.i.i.i, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12SizePriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i, %.preheader.i.i.i.i
-  %.016.i.i.i.i = phi ptr [ %18, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12SizePriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i ], [ %18, %._crit_edge.i.i.i.i.i.i ], [ %18, %._crit_edge._crit_edge49.i.i.i.i.i.i ], [ %.028.i.i.i.i.i.i, %.preheader.i.i.i.i ], [ %.1.i.i.i.i, %83 ]
+_ZN4llvm8erase_ifINS_11SmallVectorIPNS_8CallBaseELj16EEEZN12_GLOBAL__N_119PriorityInlineOrderINS5_12SizePriorityEE8erase_ifENS_12function_refIFbSt4pairIS3_iEEEEEUlS3_E_EEvRT_T0_.exit: ; preds = %83, %._crit_edge.i.i.i.i.i.i, %._crit_edge._crit_edge51.i.i.i.i.i.i, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12SizePriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i, %.preheader.i.i.i.i
+  %.016.i.i.i.i = phi ptr [ %18, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12SizePriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i ], [ %18, %._crit_edge.i.i.i.i.i.i ], [ %18, %._crit_edge._crit_edge51.i.i.i.i.i.i ], [ %.028.i.i.i.i.i.i, %.preheader.i.i.i.i ], [ %.1.i.i.i.i, %83 ]
   %84 = load ptr, ptr %15, align 8, !tbaa !25
   %85 = ptrtoint ptr %.016.i.i.i.i to i64
   %86 = ptrtoint ptr %84 to i64
@@ -4449,18 +4449,18 @@ define internal void @_ZN12_GLOBAL__N_119PriorityInlineOrderINS_12CostPriorityEE
   br i1 %48, label %22, label %._crit_edge.loopexit.i.i.i.i.i.i, !llvm.loop !200
 
 ._crit_edge.loopexit.i.i.i.i.i.i:                 ; preds = %45
-  %.pre53.i.i.i.i.i.i = ptrtoint ptr %46 to i64
-  %.pre54.i.i.i.i.i.i = sub i64 %19, %.pre53.i.i.i.i.i.i
-  %49 = ashr exact i64 %.pre54.i.i.i.i.i.i, 3
+  %.pre54.i.i.i.i.i.i = ptrtoint ptr %46 to i64
+  %.pre55.i.i.i.i.i.i = sub i64 %19, %.pre54.i.i.i.i.i.i
+  %49 = ashr exact i64 %.pre55.i.i.i.i.i.i, 3
   br label %._crit_edge.i.i.i.i.i.i
 
 ._crit_edge.i.i.i.i.i.i:                          ; preds = %._crit_edge.loopexit.i.i.i.i.i.i, %3
-  %.pre-phi55.i.i.i.i.i.i = phi i64 [ %49, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %17, %3 ]
+  %.pre-phi56.i.i.i.i.i.i = phi i64 [ %49, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %17, %3 ]
   %.029.lcssa.i.i.i.i.i.i = phi ptr [ %46, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %.val.i, %3 ]
-  switch i64 %.pre-phi55.i.i.i.i.i.i, label %_ZN4llvm8erase_ifINS_11SmallVectorIPNS_8CallBaseELj16EEEZN12_GLOBAL__N_119PriorityInlineOrderINS5_12CostPriorityEE8erase_ifENS_12function_refIFbSt4pairIS3_iEEEEEUlS3_E_EEvRT_T0_.exit [
+  switch i64 %.pre-phi56.i.i.i.i.i.i, label %_ZN4llvm8erase_ifINS_11SmallVectorIPNS_8CallBaseELj16EEEZN12_GLOBAL__N_119PriorityInlineOrderINS5_12CostPriorityEE8erase_ifENS_12function_refIFbSt4pairIS3_iEEEEEUlS3_E_EEvRT_T0_.exit [
     i64 3, label %50
     i64 2, label %._crit_edge._crit_edge.i.i.i.i.i.i
-    i64 1, label %._crit_edge._crit_edge49.i.i.i.i.i.i
+    i64 1, label %._crit_edge._crit_edge51.i.i.i.i.i.i
   ]
 
 50:                                               ; preds = %._crit_edge.i.i.i.i.i.i
@@ -4494,9 +4494,9 @@ define internal void @_ZN12_GLOBAL__N_119PriorityInlineOrderINS_12CostPriorityEE
 
 63:                                               ; preds = %._crit_edge._crit_edge.i.i.i.i.i.i
   %64 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i.i, i64 8
-  br label %._crit_edge._crit_edge49.i.i.i.i.i.i
+  br label %._crit_edge._crit_edge51.i.i.i.i.i.i
 
-._crit_edge._crit_edge49.i.i.i.i.i.i:             ; preds = %63, %._crit_edge.i.i.i.i.i.i
+._crit_edge._crit_edge51.i.i.i.i.i.i:             ; preds = %63, %._crit_edge.i.i.i.i.i.i
   %.2.i.i.i.i.i.i = phi ptr [ %64, %63 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i.i, align 8, !tbaa !126
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
@@ -4521,8 +4521,8 @@ _ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_11
   %72 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i, i64 24
   br label %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12CostPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i
 
-_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12CostPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i: ; preds = %22, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12CostPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12CostPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit17, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12CostPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit19, %._crit_edge._crit_edge49.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i, %50
-  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %50 ], [ %.1.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i, %._crit_edge._crit_edge49.i.i.i.i.i.i ], [ %70, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12CostPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit ], [ %71, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12CostPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit17 ], [ %72, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12CostPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit19 ], [ %.02943.i.i.i.i.i.i, %22 ]
+_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12CostPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i: ; preds = %22, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12CostPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12CostPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit17, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12CostPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit19, %._crit_edge._crit_edge51.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i, %50
+  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %50 ], [ %.1.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i, %._crit_edge._crit_edge51.i.i.i.i.i.i ], [ %70, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12CostPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit ], [ %71, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12CostPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit17 ], [ %72, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12CostPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit19 ], [ %.02943.i.i.i.i.i.i, %22 ]
   %73 = icmp eq ptr %.028.i.i.i.i.i.i, %18
   br i1 %73, label %_ZN4llvm8erase_ifINS_11SmallVectorIPNS_8CallBaseELj16EEEZN12_GLOBAL__N_119PriorityInlineOrderINS5_12CostPriorityEE8erase_ifENS_12function_refIFbSt4pairIS3_iEEEEEUlS3_E_EEvRT_T0_.exit, label %.preheader.i.i.i.i
 
@@ -4560,8 +4560,8 @@ _ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_11
   %.not.i.i.i.i = icmp eq ptr %.017.i.i.i.i, %18
   br i1 %.not.i.i.i.i, label %_ZN4llvm8erase_ifINS_11SmallVectorIPNS_8CallBaseELj16EEEZN12_GLOBAL__N_119PriorityInlineOrderINS5_12CostPriorityEE8erase_ifENS_12function_refIFbSt4pairIS3_iEEEEEUlS3_E_EEvRT_T0_.exit, label %75, !llvm.loop !201
 
-_ZN4llvm8erase_ifINS_11SmallVectorIPNS_8CallBaseELj16EEEZN12_GLOBAL__N_119PriorityInlineOrderINS5_12CostPriorityEE8erase_ifENS_12function_refIFbSt4pairIS3_iEEEEEUlS3_E_EEvRT_T0_.exit: ; preds = %83, %._crit_edge.i.i.i.i.i.i, %._crit_edge._crit_edge49.i.i.i.i.i.i, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12CostPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i, %.preheader.i.i.i.i
-  %.016.i.i.i.i = phi ptr [ %18, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12CostPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i ], [ %18, %._crit_edge.i.i.i.i.i.i ], [ %18, %._crit_edge._crit_edge49.i.i.i.i.i.i ], [ %.028.i.i.i.i.i.i, %.preheader.i.i.i.i ], [ %.1.i.i.i.i, %83 ]
+_ZN4llvm8erase_ifINS_11SmallVectorIPNS_8CallBaseELj16EEEZN12_GLOBAL__N_119PriorityInlineOrderINS5_12CostPriorityEE8erase_ifENS_12function_refIFbSt4pairIS3_iEEEEEUlS3_E_EEvRT_T0_.exit: ; preds = %83, %._crit_edge.i.i.i.i.i.i, %._crit_edge._crit_edge51.i.i.i.i.i.i, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12CostPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i, %.preheader.i.i.i.i
+  %.016.i.i.i.i = phi ptr [ %18, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_12CostPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i ], [ %18, %._crit_edge.i.i.i.i.i.i ], [ %18, %._crit_edge._crit_edge51.i.i.i.i.i.i ], [ %.028.i.i.i.i.i.i, %.preheader.i.i.i.i ], [ %.1.i.i.i.i, %83 ]
   %84 = load ptr, ptr %15, align 8, !tbaa !25
   %85 = ptrtoint ptr %.016.i.i.i.i to i64
   %86 = ptrtoint ptr %84 to i64
@@ -6541,18 +6541,18 @@ define internal void @_ZN12_GLOBAL__N_119PriorityInlineOrderINS_19CostBenefitPri
   br i1 %48, label %22, label %._crit_edge.loopexit.i.i.i.i.i.i, !llvm.loop !283
 
 ._crit_edge.loopexit.i.i.i.i.i.i:                 ; preds = %45
-  %.pre53.i.i.i.i.i.i = ptrtoint ptr %46 to i64
-  %.pre54.i.i.i.i.i.i = sub i64 %19, %.pre53.i.i.i.i.i.i
-  %49 = ashr exact i64 %.pre54.i.i.i.i.i.i, 3
+  %.pre54.i.i.i.i.i.i = ptrtoint ptr %46 to i64
+  %.pre55.i.i.i.i.i.i = sub i64 %19, %.pre54.i.i.i.i.i.i
+  %49 = ashr exact i64 %.pre55.i.i.i.i.i.i, 3
   br label %._crit_edge.i.i.i.i.i.i
 
 ._crit_edge.i.i.i.i.i.i:                          ; preds = %._crit_edge.loopexit.i.i.i.i.i.i, %3
-  %.pre-phi55.i.i.i.i.i.i = phi i64 [ %49, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %17, %3 ]
+  %.pre-phi56.i.i.i.i.i.i = phi i64 [ %49, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %17, %3 ]
   %.029.lcssa.i.i.i.i.i.i = phi ptr [ %46, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %.val.i, %3 ]
-  switch i64 %.pre-phi55.i.i.i.i.i.i, label %_ZN4llvm8erase_ifINS_11SmallVectorIPNS_8CallBaseELj16EEEZN12_GLOBAL__N_119PriorityInlineOrderINS5_19CostBenefitPriorityEE8erase_ifENS_12function_refIFbSt4pairIS3_iEEEEEUlS3_E_EEvRT_T0_.exit [
+  switch i64 %.pre-phi56.i.i.i.i.i.i, label %_ZN4llvm8erase_ifINS_11SmallVectorIPNS_8CallBaseELj16EEEZN12_GLOBAL__N_119PriorityInlineOrderINS5_19CostBenefitPriorityEE8erase_ifENS_12function_refIFbSt4pairIS3_iEEEEEUlS3_E_EEvRT_T0_.exit [
     i64 3, label %50
     i64 2, label %._crit_edge._crit_edge.i.i.i.i.i.i
-    i64 1, label %._crit_edge._crit_edge49.i.i.i.i.i.i
+    i64 1, label %._crit_edge._crit_edge51.i.i.i.i.i.i
   ]
 
 50:                                               ; preds = %._crit_edge.i.i.i.i.i.i
@@ -6586,9 +6586,9 @@ define internal void @_ZN12_GLOBAL__N_119PriorityInlineOrderINS_19CostBenefitPri
 
 63:                                               ; preds = %._crit_edge._crit_edge.i.i.i.i.i.i
   %64 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i.i, i64 8
-  br label %._crit_edge._crit_edge49.i.i.i.i.i.i
+  br label %._crit_edge._crit_edge51.i.i.i.i.i.i
 
-._crit_edge._crit_edge49.i.i.i.i.i.i:             ; preds = %63, %._crit_edge.i.i.i.i.i.i
+._crit_edge._crit_edge51.i.i.i.i.i.i:             ; preds = %63, %._crit_edge.i.i.i.i.i.i
   %.2.i.i.i.i.i.i = phi ptr [ %64, %63 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i.i, align 8, !tbaa !126
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
@@ -6613,8 +6613,8 @@ _ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_11
   %72 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i, i64 24
   br label %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_19CostBenefitPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i
 
-_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_19CostBenefitPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i: ; preds = %22, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_19CostBenefitPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_19CostBenefitPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit17, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_19CostBenefitPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit19, %._crit_edge._crit_edge49.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i, %50
-  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %50 ], [ %.1.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i, %._crit_edge._crit_edge49.i.i.i.i.i.i ], [ %70, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_19CostBenefitPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit ], [ %71, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_19CostBenefitPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit17 ], [ %72, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_19CostBenefitPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit19 ], [ %.02943.i.i.i.i.i.i, %22 ]
+_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_19CostBenefitPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i: ; preds = %22, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_19CostBenefitPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_19CostBenefitPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit17, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_19CostBenefitPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit19, %._crit_edge._crit_edge51.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i, %50
+  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %50 ], [ %.1.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i, %._crit_edge._crit_edge51.i.i.i.i.i.i ], [ %70, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_19CostBenefitPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit ], [ %71, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_19CostBenefitPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit17 ], [ %72, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_19CostBenefitPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit19 ], [ %.02943.i.i.i.i.i.i, %22 ]
   %73 = icmp eq ptr %.028.i.i.i.i.i.i, %18
   br i1 %73, label %_ZN4llvm8erase_ifINS_11SmallVectorIPNS_8CallBaseELj16EEEZN12_GLOBAL__N_119PriorityInlineOrderINS5_19CostBenefitPriorityEE8erase_ifENS_12function_refIFbSt4pairIS3_iEEEEEUlS3_E_EEvRT_T0_.exit, label %.preheader.i.i.i.i
 
@@ -6652,8 +6652,8 @@ _ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_11
   %.not.i.i.i.i = icmp eq ptr %.017.i.i.i.i, %18
   br i1 %.not.i.i.i.i, label %_ZN4llvm8erase_ifINS_11SmallVectorIPNS_8CallBaseELj16EEEZN12_GLOBAL__N_119PriorityInlineOrderINS5_19CostBenefitPriorityEE8erase_ifENS_12function_refIFbSt4pairIS3_iEEEEEUlS3_E_EEvRT_T0_.exit, label %75, !llvm.loop !284
 
-_ZN4llvm8erase_ifINS_11SmallVectorIPNS_8CallBaseELj16EEEZN12_GLOBAL__N_119PriorityInlineOrderINS5_19CostBenefitPriorityEE8erase_ifENS_12function_refIFbSt4pairIS3_iEEEEEUlS3_E_EEvRT_T0_.exit: ; preds = %83, %._crit_edge.i.i.i.i.i.i, %._crit_edge._crit_edge49.i.i.i.i.i.i, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_19CostBenefitPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i, %.preheader.i.i.i.i
-  %.016.i.i.i.i = phi ptr [ %18, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_19CostBenefitPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i ], [ %18, %._crit_edge.i.i.i.i.i.i ], [ %18, %._crit_edge._crit_edge49.i.i.i.i.i.i ], [ %.028.i.i.i.i.i.i, %.preheader.i.i.i.i ], [ %.1.i.i.i.i, %83 ]
+_ZN4llvm8erase_ifINS_11SmallVectorIPNS_8CallBaseELj16EEEZN12_GLOBAL__N_119PriorityInlineOrderINS5_19CostBenefitPriorityEE8erase_ifENS_12function_refIFbSt4pairIS3_iEEEEEUlS3_E_EEvRT_T0_.exit: ; preds = %83, %._crit_edge.i.i.i.i.i.i, %._crit_edge._crit_edge51.i.i.i.i.i.i, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_19CostBenefitPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i, %.preheader.i.i.i.i
+  %.016.i.i.i.i = phi ptr [ %18, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_19CostBenefitPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i ], [ %18, %._crit_edge.i.i.i.i.i.i ], [ %18, %._crit_edge._crit_edge51.i.i.i.i.i.i ], [ %.028.i.i.i.i.i.i, %.preheader.i.i.i.i ], [ %.1.i.i.i.i, %83 ]
   %84 = load ptr, ptr %15, align 8, !tbaa !25
   %85 = ptrtoint ptr %.016.i.i.i.i to i64
   %86 = ptrtoint ptr %84 to i64
@@ -8591,18 +8591,18 @@ define internal void @_ZN12_GLOBAL__N_119PriorityInlineOrderINS_10MLPriorityEE8e
   br i1 %48, label %22, label %._crit_edge.loopexit.i.i.i.i.i.i, !llvm.loop !310
 
 ._crit_edge.loopexit.i.i.i.i.i.i:                 ; preds = %45
-  %.pre53.i.i.i.i.i.i = ptrtoint ptr %46 to i64
-  %.pre54.i.i.i.i.i.i = sub i64 %19, %.pre53.i.i.i.i.i.i
-  %49 = ashr exact i64 %.pre54.i.i.i.i.i.i, 3
+  %.pre54.i.i.i.i.i.i = ptrtoint ptr %46 to i64
+  %.pre55.i.i.i.i.i.i = sub i64 %19, %.pre54.i.i.i.i.i.i
+  %49 = ashr exact i64 %.pre55.i.i.i.i.i.i, 3
   br label %._crit_edge.i.i.i.i.i.i
 
 ._crit_edge.i.i.i.i.i.i:                          ; preds = %._crit_edge.loopexit.i.i.i.i.i.i, %3
-  %.pre-phi55.i.i.i.i.i.i = phi i64 [ %49, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %17, %3 ]
+  %.pre-phi56.i.i.i.i.i.i = phi i64 [ %49, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %17, %3 ]
   %.029.lcssa.i.i.i.i.i.i = phi ptr [ %46, %._crit_edge.loopexit.i.i.i.i.i.i ], [ %.val.i, %3 ]
-  switch i64 %.pre-phi55.i.i.i.i.i.i, label %_ZN4llvm8erase_ifINS_11SmallVectorIPNS_8CallBaseELj16EEEZN12_GLOBAL__N_119PriorityInlineOrderINS5_10MLPriorityEE8erase_ifENS_12function_refIFbSt4pairIS3_iEEEEEUlS3_E_EEvRT_T0_.exit [
+  switch i64 %.pre-phi56.i.i.i.i.i.i, label %_ZN4llvm8erase_ifINS_11SmallVectorIPNS_8CallBaseELj16EEEZN12_GLOBAL__N_119PriorityInlineOrderINS5_10MLPriorityEE8erase_ifENS_12function_refIFbSt4pairIS3_iEEEEEUlS3_E_EEvRT_T0_.exit [
     i64 3, label %50
     i64 2, label %._crit_edge._crit_edge.i.i.i.i.i.i
-    i64 1, label %._crit_edge._crit_edge49.i.i.i.i.i.i
+    i64 1, label %._crit_edge._crit_edge51.i.i.i.i.i.i
   ]
 
 50:                                               ; preds = %._crit_edge.i.i.i.i.i.i
@@ -8636,9 +8636,9 @@ define internal void @_ZN12_GLOBAL__N_119PriorityInlineOrderINS_10MLPriorityEE8e
 
 63:                                               ; preds = %._crit_edge._crit_edge.i.i.i.i.i.i
   %64 = getelementptr inbounds nuw i8, ptr %.1.i.i.i.i.i.i, i64 8
-  br label %._crit_edge._crit_edge49.i.i.i.i.i.i
+  br label %._crit_edge._crit_edge51.i.i.i.i.i.i
 
-._crit_edge._crit_edge49.i.i.i.i.i.i:             ; preds = %63, %._crit_edge.i.i.i.i.i.i
+._crit_edge._crit_edge51.i.i.i.i.i.i:             ; preds = %63, %._crit_edge.i.i.i.i.i.i
   %.2.i.i.i.i.i.i = phi ptr [ %64, %63 ], [ %.029.lcssa.i.i.i.i.i.i, %._crit_edge.i.i.i.i.i.i ]
   %.2.val.i.i.i.i.i.i = load ptr, ptr %.2.i.i.i.i.i.i, align 8, !tbaa !126
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7)
@@ -8663,8 +8663,8 @@ _ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_11
   %72 = getelementptr inbounds nuw i8, ptr %.02943.i.i.i.i.i.i, i64 24
   br label %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_10MLPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i
 
-_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_10MLPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i: ; preds = %22, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_10MLPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_10MLPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit17, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_10MLPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit19, %._crit_edge._crit_edge49.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i, %50
-  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %50 ], [ %.1.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i, %._crit_edge._crit_edge49.i.i.i.i.i.i ], [ %70, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_10MLPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit ], [ %71, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_10MLPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit17 ], [ %72, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_10MLPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit19 ], [ %.02943.i.i.i.i.i.i, %22 ]
+_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_10MLPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i: ; preds = %22, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_10MLPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_10MLPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit17, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_10MLPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit19, %._crit_edge._crit_edge51.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i, %50
+  %.028.i.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i.i, %50 ], [ %.1.i.i.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i.i.i ], [ %.2.i.i.i.i.i.i, %._crit_edge._crit_edge51.i.i.i.i.i.i ], [ %70, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_10MLPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit ], [ %71, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_10MLPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit17 ], [ %72, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_10MLPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i.loopexit.split.loop.exit19 ], [ %.02943.i.i.i.i.i.i, %22 ]
   %73 = icmp eq ptr %.028.i.i.i.i.i.i, %18
   br i1 %73, label %_ZN4llvm8erase_ifINS_11SmallVectorIPNS_8CallBaseELj16EEEZN12_GLOBAL__N_119PriorityInlineOrderINS5_10MLPriorityEE8erase_ifENS_12function_refIFbSt4pairIS3_iEEEEEUlS3_E_EEvRT_T0_.exit, label %.preheader.i.i.i.i
 
@@ -8702,8 +8702,8 @@ _ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_11
   %.not.i.i.i.i = icmp eq ptr %.017.i.i.i.i, %18
   br i1 %.not.i.i.i.i, label %_ZN4llvm8erase_ifINS_11SmallVectorIPNS_8CallBaseELj16EEEZN12_GLOBAL__N_119PriorityInlineOrderINS5_10MLPriorityEE8erase_ifENS_12function_refIFbSt4pairIS3_iEEEEEUlS3_E_EEvRT_T0_.exit, label %75, !llvm.loop !311
 
-_ZN4llvm8erase_ifINS_11SmallVectorIPNS_8CallBaseELj16EEEZN12_GLOBAL__N_119PriorityInlineOrderINS5_10MLPriorityEE8erase_ifENS_12function_refIFbSt4pairIS3_iEEEEEUlS3_E_EEvRT_T0_.exit: ; preds = %83, %._crit_edge.i.i.i.i.i.i, %._crit_edge._crit_edge49.i.i.i.i.i.i, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_10MLPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i, %.preheader.i.i.i.i
-  %.016.i.i.i.i = phi ptr [ %18, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_10MLPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i ], [ %18, %._crit_edge.i.i.i.i.i.i ], [ %18, %._crit_edge._crit_edge49.i.i.i.i.i.i ], [ %.028.i.i.i.i.i.i, %.preheader.i.i.i.i ], [ %.1.i.i.i.i, %83 ]
+_ZN4llvm8erase_ifINS_11SmallVectorIPNS_8CallBaseELj16EEEZN12_GLOBAL__N_119PriorityInlineOrderINS5_10MLPriorityEE8erase_ifENS_12function_refIFbSt4pairIS3_iEEEEEUlS3_E_EEvRT_T0_.exit: ; preds = %83, %._crit_edge.i.i.i.i.i.i, %._crit_edge._crit_edge51.i.i.i.i.i.i, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_10MLPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i, %.preheader.i.i.i.i
+  %.016.i.i.i.i = phi ptr [ %18, %_ZSt9__find_ifIPPN4llvm8CallBaseEN9__gnu_cxx5__ops10_Iter_predIZN12_GLOBAL__N_119PriorityInlineOrderINS7_10MLPriorityEE8erase_ifENS0_12function_refIFbSt4pairIS2_iEEEEEUlS2_E_EEET_SI_SI_T0_.exit.i.i.i.i ], [ %18, %._crit_edge.i.i.i.i.i.i ], [ %18, %._crit_edge._crit_edge51.i.i.i.i.i.i ], [ %.028.i.i.i.i.i.i, %.preheader.i.i.i.i ], [ %.1.i.i.i.i, %83 ]
   %84 = load ptr, ptr %15, align 8, !tbaa !25
   %85 = ptrtoint ptr %.016.i.i.i.i to i64
   %86 = ptrtoint ptr %84 to i64

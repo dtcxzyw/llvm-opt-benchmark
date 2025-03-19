@@ -11019,17 +11019,15 @@ _ZNK17LIR_OpProfileCall28should_profile_receiver_typeEv.exit: ; preds = %70, %75
   %183 = load ptr, ptr %0, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %18, ptr noundef nonnull align 8 dereferenceable(64) %8, i64 21, i1 false)
   %184 = getelementptr inbounds nuw i8, ptr %18, i64 24
-  %185 = load ptr, ptr %37, align 8
-  %186 = getelementptr inbounds nuw i8, ptr %185, i64 16
-  %187 = load ptr, ptr %186, align 8
-  call void %187(ptr noundef nonnull align 8 dereferenceable(40) %37, ptr noundef nonnull align 8 dereferenceable(40) %184) #15
+  %185 = load ptr, ptr getelementptr inbounds nuw inrange(-32, 56) (i8, ptr @_ZTV10Relocation, i64 32), align 8
+  call void %185(ptr noundef nonnull align 8 dereferenceable(40) %37, ptr noundef nonnull align 8 dereferenceable(40) %184) #15
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %18, i64 21, i1 false)
-  %188 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  %189 = load ptr, ptr %184, align 8
-  %190 = getelementptr inbounds nuw i8, ptr %189, i64 16
-  %191 = load ptr, ptr %190, align 8
-  call void %191(ptr noundef nonnull align 8 dereferenceable(40) %184, ptr noundef nonnull align 8 dereferenceable(40) %188) #15
+  %186 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  %187 = load ptr, ptr %184, align 8
+  %188 = getelementptr inbounds nuw i8, ptr %187, i64 16
+  %189 = load ptr, ptr %188, align 8
+  call void %189(ptr noundef nonnull align 8 dereferenceable(40) %184, ptr noundef nonnull align 8 dereferenceable(40) %186) #15
   call void @_ZN9Assembler4addqE7Addressi(ptr noundef nonnull align 8 dereferenceable(40) %183, ptr noundef nonnull %3, i32 noundef 1) #15
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3)
   br label %.loopexit

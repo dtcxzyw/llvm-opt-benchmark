@@ -13250,7 +13250,7 @@ define noundef i32 @_ZN5ezSAT13vec_reduce_orERKSt6vectorIiSaIiEE(ptr noundef non
 }
 
 ; Function Attrs: mustprogress uwtable
-define void @_ZN5ezSAT7vec_addERKSt6vectorIiSaIiEES4_(ptr dead_on_unwind noalias writable sret(%"class.std::vector.14") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(284) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+define void @_ZN5ezSAT7vec_addERKSt6vectorIiSaIiEES4_(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector.14") align 8 captures(none) %0, ptr noundef nonnull align 8 dereferenceable(284) %1, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %2, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(24) %3) local_unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
   %5 = alloca i32, align 4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !90
@@ -13342,12 +13342,7 @@ _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %.lr.ph
   %42 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #30
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %44 = load ptr, ptr %43, align 8, !tbaa !70
-  %45 = ptrtoint ptr %44 to i64
-  %46 = ptrtoint ptr %14 to i64
-  %47 = sub i64 %45, %46
-  tail call void @_ZdlPvm(ptr noundef nonnull %14, i64 noundef %47) #31
+  tail call void @_ZdlPvm(ptr noundef nonnull %14, i64 noundef %11) #31
   resume { ptr, i32 } %42
 }
 
@@ -14832,12 +14827,10 @@ _ZN5ezSAT2_VD2Ev.exit21:                          ; preds = %_ZNKSt7__cxx1112bas
   br i1 %.not.i.i.i, label %_ZNSt6vectorIiSaIiEED2Ev.exit, label %70
 
 70:                                               ; preds = %_ZN5ezSAT2_VD2Ev.exit21
-  %71 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %72 = load ptr, ptr %71, align 8, !tbaa !70
-  %73 = ptrtoint ptr %72 to i64
-  %74 = ptrtoint ptr %69 to i64
-  %75 = sub i64 %73, %74
-  call void @_ZdlPvm(ptr noundef nonnull %69, i64 noundef %75) #31
+  %71 = ptrtoint ptr %17 to i64
+  %72 = ptrtoint ptr %69 to i64
+  %73 = sub i64 %71, %72
+  call void @_ZdlPvm(ptr noundef nonnull %69, i64 noundef %73) #31
   br label %_ZNSt6vectorIiSaIiEED2Ev.exit
 
 _ZNSt6vectorIiSaIiEED2Ev.exit:                    ; preds = %70, %_ZN5ezSAT2_VD2Ev.exit21

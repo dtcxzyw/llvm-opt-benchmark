@@ -996,10 +996,9 @@ for.body34:                                       ; preds = %for.body, %for.inc
   br i1 %cmp, label %for.inc, label %if.end
 
 if.end:                                           ; preds = %for.body34
-  %__sv.sroa.0.0.copyload.i = load i64, ptr %__begin3.sroa.0.0.ptr93, align 8
   %__sv.sroa.2.0.__svt.sroa_idx.i = getelementptr inbounds nuw i8, ptr %__begin3.sroa.0.0.ptr93, i64 8
   %__sv.sroa.2.0.copyload.i = load ptr, ptr %__sv.sroa.2.0.__svt.sroa_idx.i, align 8
-  %call3.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcmm(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i, ptr noundef %__sv.sroa.2.0.copyload.i, i64 noundef 0, i64 noundef %__sv.sroa.0.0.copyload.i) #23
+  %call3.i = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4findEPKcmm(ptr noundef nonnull align 8 dereferenceable(32) %_M_storage.i.i, ptr noundef %__sv.sroa.2.0.copyload.i, i64 noundef 0, i64 noundef %12) #23
   %cmp39 = icmp eq i64 %call3.i, 0
   br i1 %cmp39, label %land.lhs.true, label %for.inc
 

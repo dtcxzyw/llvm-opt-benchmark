@@ -28045,40 +28045,36 @@ _ZNSt3__114__split_bufferINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIc
   %31 = getelementptr inbounds nuw %"class.std::__1::basic_string", ptr %storemerge.i, i64 %.0.i
   store ptr %31, ptr %20, align 8
   invoke void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEC1ERKS5_(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %1)
-          to label %_ZNSt3__114__split_bufferINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEERNS4_IS6_EEE5clearB8ne190000Ev.exit.i unwind label %44
+          to label %_ZNSt3__114__split_bufferINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEERNS4_IS6_EEE5clearB8ne190000Ev.exit.i unwind label %40
 
 _ZNSt3__114__split_bufferINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEERNS4_IS6_EEE5clearB8ne190000Ev.exit.i: ; preds = %_ZNSt3__114__split_bufferINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEERNS4_IS6_EEEC2EmmS8_.exit
-  %32 = load ptr, ptr %29, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 24
-  %34 = load ptr, ptr %30, align 8
-  %35 = load ptr, ptr %5, align 8
-  %36 = load ptr, ptr %0, align 8
-  %37 = ptrtoint ptr %35 to i64
-  %38 = ptrtoint ptr %36 to i64
-  %39 = sub i64 %37, %38
-  %.neg.i = sdiv exact i64 %39, -24
-  %40 = getelementptr inbounds %"class.std::__1::basic_string", ptr %34, i64 %.neg.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 8 %40, ptr align 8 %36, i64 %39, i1 false)
-  %41 = load ptr, ptr %0, align 8
-  store ptr %40, ptr %0, align 8
-  store ptr %33, ptr %5, align 8
-  %42 = load ptr, ptr %20, align 8
-  store ptr %42, ptr %4, align 8
-  %.not.i5 = icmp eq ptr %41, null
-  br i1 %.not.i5, label %_ZNSt3__114__split_bufferINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEERNS4_IS6_EEED2Ev.exit, label %43
+  %32 = getelementptr inbounds nuw i8, ptr %28, i64 24
+  %33 = load ptr, ptr %5, align 8
+  %34 = load ptr, ptr %0, align 8
+  %35 = ptrtoint ptr %33 to i64
+  %36 = ptrtoint ptr %34 to i64
+  %37 = sub i64 %35, %36
+  %.neg.i = sdiv exact i64 %37, -24
+  %38 = getelementptr inbounds %"class.std::__1::basic_string", ptr %28, i64 %.neg.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %38, ptr align 8 %34, i64 %37, i1 false)
+  store ptr %38, ptr %0, align 8
+  store ptr %32, ptr %5, align 8
+  store ptr %31, ptr %4, align 8
+  %.not.i5 = icmp eq ptr %34, null
+  br i1 %.not.i5, label %_ZNSt3__114__split_bufferINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEERNS4_IS6_EEED2Ev.exit, label %39
 
-43:                                               ; preds = %_ZNSt3__114__split_bufferINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEERNS4_IS6_EEE5clearB8ne190000Ev.exit.i
-  tail call void @_ZdlPv(ptr noundef nonnull %41) #42
+39:                                               ; preds = %_ZNSt3__114__split_bufferINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEERNS4_IS6_EEE5clearB8ne190000Ev.exit.i
+  tail call void @_ZdlPv(ptr noundef nonnull %34) #42
   br label %_ZNSt3__114__split_bufferINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEERNS4_IS6_EEED2Ev.exit
 
-_ZNSt3__114__split_bufferINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEERNS4_IS6_EEED2Ev.exit: ; preds = %_ZNSt3__114__split_bufferINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEERNS4_IS6_EEE5clearB8ne190000Ev.exit.i, %43
-  ret ptr %33
+_ZNSt3__114__split_bufferINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEERNS4_IS6_EEED2Ev.exit: ; preds = %_ZNSt3__114__split_bufferINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEERNS4_IS6_EEE5clearB8ne190000Ev.exit.i, %39
+  ret ptr %32
 
-44:                                               ; preds = %_ZNSt3__114__split_bufferINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEERNS4_IS6_EEEC2EmmS8_.exit
-  %45 = landingpad { ptr, i32 }
+40:                                               ; preds = %_ZNSt3__114__split_bufferINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEERNS4_IS6_EEEC2EmmS8_.exit
+  %41 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt3__114__split_bufferINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEERNS4_IS6_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #41
-  resume { ptr, i32 } %45
+  resume { ptr, i32 } %41
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

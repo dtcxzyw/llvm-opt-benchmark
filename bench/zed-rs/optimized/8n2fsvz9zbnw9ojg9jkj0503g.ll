@@ -146107,10 +146107,10 @@ define void @"_ZN72_$LT$gpui..keymap..binding..KeyBinding$u20$as$u20$core..clone
   invoke void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..iter..traits..collect..Extend$LT$$LT$A$u20$as$u20$smallvec..Array$GT$..Item$GT$$GT$6extend17h7073dbfea8ce68d9E"(ptr noalias noundef nonnull align 8 dereferenceable(120) %3, ptr noundef nonnull %.sink12.i, ptr noundef nonnull %24)
           to label %30 unwind label %26, !noalias !41432
 
-.body:                                            ; preds = %40, %26
-  %.pn = phi { ptr, i32 } [ %27, %26 ], [ %41, %40 ]
+.body:                                            ; preds = %39, %26
+  %.pn = phi { ptr, i32 } [ %27, %26 ], [ %40, %39 ]
   invoke void @"_ZN4core3ptr74drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$gpui..action..Action$GT$$GT$17h072911a1702f842eE.llvm.9792776892897051010"(ptr noalias noundef nonnull align 8 dereferenceable(16) %6) #81
-          to label %45 unwind label %43
+          to label %44 unwind label %42
 
 26:                                               ; preds = %2
   %27 = landingpad { ptr, i32 }
@@ -146135,18 +146135,17 @@ define void @"_ZN72_$LT$gpui..keymap..binding..KeyBinding$u20$as$u20$core..clone
 33:                                               ; preds = %30
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %4)
   invoke void @"_ZN88_$LT$gpui..keymap..context..KeyBindingContextPredicate$u20$as$u20$core..clone..Clone$GT$5clone17hb6750418edce2ae4E.llvm.9792776892897051010"(ptr noalias noundef nonnull sret([56 x i8]) align 8 captures(none) dereferenceable(56) %4, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %1)
-          to label %42 unwind label %40
+          to label %41 unwind label %39
 
-34:                                               ; preds = %30, %42
-  %.sroa.0.0 = phi i64 [ %.sroa.0.0.copyload1, %42 ], [ 7, %30 ]
+34:                                               ; preds = %30, %41
+  %.sroa.0.0 = phi i64 [ %.sroa.0.0.copyload1, %41 ], [ 7, %30 ]
   %35 = load ptr, ptr %6, align 8, !nonnull !4, !align !963, !noundef !4
-  %36 = load ptr, ptr %16, align 8, !nonnull !4, !align !17, !noundef !4
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %35, ptr %37, align 8
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store ptr %36, ptr %38, align 8
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %39, ptr noundef nonnull align 8 dereferenceable(120) %5, i64 120, i1 false)
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  store ptr %35, ptr %36, align 8
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store ptr %15, ptr %37, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %38, ptr noundef nonnull align 8 dereferenceable(120) %5, i64 120, i1 false)
   store i64 %.sroa.0.0, ptr %0, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.5.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.5, i64 48, i1 false)
@@ -146155,26 +146154,26 @@ define void @"_ZN72_$LT$gpui..keymap..binding..KeyBinding$u20$as$u20$core..clone
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %6)
   ret void
 
-40:                                               ; preds = %33
-  %41 = landingpad { ptr, i32 }
+39:                                               ; preds = %33
+  %40 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN69_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h474221021633fb63E.llvm.10989238744551635161"(ptr noalias noundef nonnull align 8 dereferenceable(120) %5)
-          to label %.body unwind label %43
+          to label %.body unwind label %42
 
-42:                                               ; preds = %33
+41:                                               ; preds = %33
   %.sroa.0.0.copyload1 = load i64, ptr %4, align 8
   %.sroa.5.0..sroa_idx2 = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %.sroa.5, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.5.0..sroa_idx2, i64 48, i1 false)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %4)
   br label %34
 
-43:                                               ; preds = %40, %.body
-  %44 = landingpad { ptr, i32 }
+42:                                               ; preds = %39, %.body
+  %43 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hfa05ef7d5107e16aE() #82
   unreachable
 
-45:                                               ; preds = %.body
+44:                                               ; preds = %.body
   resume { ptr, i32 } %.pn
 }
 

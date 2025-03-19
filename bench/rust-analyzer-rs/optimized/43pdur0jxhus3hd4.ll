@@ -21067,7 +21067,7 @@ common.resume:                                    ; preds = %123, %.body.i, %139
   call void @llvm.assume(i1 %128)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.738)
   %.not20 = icmp eq ptr %122, null
-  br i1 %.not20, label %.thread143, label %129
+  br i1 %.not20, label %.thread141, label %129
 
 .noexc:                                           ; preds = %126
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.738)
@@ -21129,9 +21129,9 @@ common.resume:                                    ; preds = %123, %.body.i, %139
 
 "_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17he64071c558025123E.exit34": ; preds = %129, %131, %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hbce918ee1c0160faE.exit.i.i.i.i33"
   call void @__rust_dealloc(ptr noundef nonnull %122, i64 noundef 40, i64 noundef 8) #22, !noalias !5772
-  br label %.thread143
+  br label %.thread141
 
-.thread143:                                       ; preds = %.thread59, %"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17he64071c558025123E.exit34"
+.thread141:                                       ; preds = %.thread59, %"_ZN4core3ptr45drop_in_place$LT$serde_json..error..Error$GT$17he64071c558025123E.exit34"
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %.sroa.9)
   br label %145
 
@@ -21151,8 +21151,8 @@ common.resume:                                    ; preds = %123, %.body.i, %139
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.28.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.28, i64 16, i1 false)
   br label %148
 
-145:                                              ; preds = %.thread143, %.noexc, %.thread87
-  %.sroa.7.191 = phi ptr [ %45, %.thread87 ], [ %122, %.noexc ], [ %.sroa.6.0.copyload, %.thread143 ]
+145:                                              ; preds = %.thread141, %.noexc, %.thread87
+  %.sroa.7.191 = phi ptr [ %45, %.thread87 ], [ %122, %.noexc ], [ %.sroa.6.0.copyload, %.thread141 ]
   %146 = call noundef nonnull align 8 ptr @_ZN10serde_json5error5Error12fix_position17h50c32d85cb44510eE(ptr noalias noundef nonnull align 8 %.sroa.7.191, ptr noalias noundef nonnull readonly align 8 dereferenceable(56) %1)
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %146, ptr %147, align 8

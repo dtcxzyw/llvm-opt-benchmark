@@ -578,12 +578,10 @@ _ZN3net15SpdyHeaderBlock4findEN4base16BasicStringPieceINSt7__cxx1112basic_string
 
 70:                                               ; preds = %_ZN3net15SpdyHeaderBlock4findEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit.thread, %_ZN3net15SpdyHeaderBlock4findEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE.exit
   %.sroa.015.0.copyload = load ptr, ptr %9, align 8, !tbaa !89
-  %.sroa.216.0.copyload = load i64, ptr %15, align 8, !tbaa !74
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %10) #15
   %.sroa.013.0.copyload = load ptr, ptr %8, align 8, !tbaa !89
-  %.sroa.214.0.copyload = load i64, ptr %14, align 8, !tbaa !74
-  call void @_ZN3net15SpdyHeaderBlockixEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.net::SpdyHeaderBlock::StringPieceProxy") align 8 %10, ptr noundef nonnull align 8 dereferenceable(88) %27, ptr %.sroa.013.0.copyload, i64 %.sroa.214.0.copyload)
-  %71 = invoke noundef nonnull align 8 dereferenceable(41) ptr @_ZN3net15SpdyHeaderBlock16StringPieceProxyaSEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(41) %10, ptr %.sroa.015.0.copyload, i64 %.sroa.216.0.copyload)
+  call void @_ZN3net15SpdyHeaderBlockixEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr dead_on_unwind nonnull writable sret(%"class.net::SpdyHeaderBlock::StringPieceProxy") align 8 %10, ptr noundef nonnull align 8 dereferenceable(88) %27, ptr %.sroa.013.0.copyload, i64 %2)
+  %71 = invoke noundef nonnull align 8 dereferenceable(41) ptr @_ZN3net15SpdyHeaderBlock16StringPieceProxyaSEN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(41) %10, ptr %.sroa.015.0.copyload, i64 %4)
           to label %72 unwind label %73
 
 72:                                               ; preds = %70

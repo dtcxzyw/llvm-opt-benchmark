@@ -1649,7 +1649,7 @@ define linkonce_odr void @_ZNK7rocksdb14VersionBuilder3Rep6SaveToEPNS_18VersionS
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 6, i1 false)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #30
   invoke void @_ZNK7rocksdb14VersionBuilder3Rep16CheckConsistencyEPKNS_18VersionStorageInfoE(ptr dead_on_unwind nonnull writable sret(%"class.rocksdb::Status") align 8 %4, ptr noundef nonnull align 8 dereferenceable(627) %1, ptr noundef %2)
-          to label %7 unwind label %27
+          to label %7 unwind label %.thread
 
 7:                                                ; preds = %3
   %.not.i = icmp eq ptr %0, %4
@@ -1667,7 +1667,7 @@ _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_E
 
 _ZN7rocksdb6StatusD2Ev.exit.thread:               ; preds = %_ZN7rocksdb6StatusaSEOS0_.exit, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #30
-  br label %29
+  br label %28
 
 _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %7
   %8 = load i8, ptr %4, align 8, !tbaa !287
@@ -1703,19 +1703,20 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %7
   store ptr %25, ptr %6, align 8, !tbaa !225
   %26 = icmp eq i8 %8, 0
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #30
-  br i1 %26, label %29, label %66
+  br i1 %26, label %28, label %65
 
-27:                                               ; preds = %3
-  %28 = landingpad { ptr, i32 }
+.thread:                                          ; preds = %3
+  %27 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #30
-  br label %67
+  br label %_ZN7rocksdb6StatusD2Ev.exit21
 
-29:                                               ; preds = %_ZN7rocksdb6StatusD2Ev.exit.thread, %_ZN7rocksdb6StatusD2Ev.exit
+28:                                               ; preds = %_ZN7rocksdb6StatusD2Ev.exit.thread, %_ZN7rocksdb6StatusD2Ev.exit
+  %29 = phi ptr [ null, %_ZN7rocksdb6StatusD2Ev.exit.thread ], [ %25, %_ZN7rocksdb6StatusD2Ev.exit ]
   invoke void @_ZNK7rocksdb14VersionBuilder3Rep14SaveSSTFilesToEPNS_18VersionStorageInfoE(ptr noundef nonnull align 8 dereferenceable(627) %1, ptr noundef %2)
           to label %30 unwind label %.loopexit.split-lp
 
-30:                                               ; preds = %29
+30:                                               ; preds = %28
   invoke void @_ZNK7rocksdb14VersionBuilder3Rep15SaveBlobFilesToEPNS_18VersionStorageInfoE(ptr noundef nonnull align 8 dereferenceable(627) %1, ptr noundef %2)
           to label %31 unwind label %.loopexit.split-lp
 
@@ -1748,7 +1749,7 @@ _ZN7rocksdb6StatusD2Ev.exit:                      ; preds = %7
 _ZNK7rocksdb14VersionBuilder3Rep20SaveCompactCursorsToEPNS_18VersionStorageInfoE.exit: ; preds = %.noexc, %31
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #30
   invoke void @_ZNK7rocksdb14VersionBuilder3Rep16CheckConsistencyEPKNS_18VersionStorageInfoE(ptr dead_on_unwind nonnull writable sret(%"class.rocksdb::Status") align 8 %5, ptr noundef nonnull align 8 dereferenceable(627) %1, ptr noundef %2)
-          to label %41 unwind label %64
+          to label %41 unwind label %63
 
 41:                                               ; preds = %_ZNK7rocksdb14VersionBuilder3Rep20SaveCompactCursorsToEPNS_18VersionStorageInfoE.exit
   %.not.i12 = icmp eq ptr %0, %5
@@ -1786,61 +1787,60 @@ _ZNK7rocksdb14VersionBuilder3Rep20SaveCompactCursorsToEPNS_18VersionStorageInfoE
   %59 = getelementptr inbounds nuw i8, ptr %5, i64 8
   %60 = load ptr, ptr %59, align 8, !tbaa !225
   store ptr null, ptr %59, align 8, !tbaa !225
-  %61 = load ptr, ptr %6, align 8, !tbaa !225
   store ptr %60, ptr %6, align 8, !tbaa !225
-  %.not.i.i.i.i.i13 = icmp eq ptr %61, null
+  %.not.i.i.i.i.i13 = icmp eq ptr %29, null
   br i1 %.not.i.i.i.i.i13, label %_ZN7rocksdb6StatusaSEOS0_.exit15, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i.i14
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i.i14: ; preds = %42
-  call void @_ZdaPv(ptr noundef nonnull %61) #28
+  call void @_ZdaPv(ptr noundef nonnull %29) #28
   br label %_ZN7rocksdb6StatusaSEOS0_.exit15
 
 _ZN7rocksdb6StatusaSEOS0_.exit15:                 ; preds = %41, %42, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i.i.i.i14
-  %62 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %63 = load ptr, ptr %62, align 8, !tbaa !225
-  %.not.i.i16 = icmp eq ptr %63, null
+  %61 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %62 = load ptr, ptr %61, align 8, !tbaa !225
+  %.not.i.i16 = icmp eq ptr %62, null
   br i1 %.not.i.i16, label %_ZN7rocksdb6StatusD2Ev.exit18, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i17
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i17: ; preds = %_ZN7rocksdb6StatusaSEOS0_.exit15
-  call void @_ZdaPv(ptr noundef nonnull %63) #28
+  call void @_ZdaPv(ptr noundef nonnull %62) #28
   br label %_ZN7rocksdb6StatusD2Ev.exit18
 
 _ZN7rocksdb6StatusD2Ev.exit18:                    ; preds = %_ZN7rocksdb6StatusaSEOS0_.exit15, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i17
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #30
-  br label %66
+  br label %65
 
 .loopexit:                                        ; preds = %34
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %67
+  br label %66
 
-.loopexit.split-lp:                               ; preds = %29, %30
+.loopexit.split-lp:                               ; preds = %28, %30
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %67
+  br label %66
 
-64:                                               ; preds = %_ZNK7rocksdb14VersionBuilder3Rep20SaveCompactCursorsToEPNS_18VersionStorageInfoE.exit
-  %65 = landingpad { ptr, i32 }
+63:                                               ; preds = %_ZNK7rocksdb14VersionBuilder3Rep20SaveCompactCursorsToEPNS_18VersionStorageInfoE.exit
+  %64 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #30
-  br label %67
+  br label %66
 
-66:                                               ; preds = %_ZN7rocksdb6StatusD2Ev.exit18, %_ZN7rocksdb6StatusD2Ev.exit
+65:                                               ; preds = %_ZN7rocksdb6StatusD2Ev.exit18, %_ZN7rocksdb6StatusD2Ev.exit
   ret void
 
-67:                                               ; preds = %.loopexit, %.loopexit.split-lp, %64, %27
-  %.pn = phi { ptr, i32 } [ %65, %64 ], [ %28, %27 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %68 = load ptr, ptr %6, align 8, !tbaa !225
-  %.not.i.i19 = icmp eq ptr %68, null
+66:                                               ; preds = %.loopexit, %.loopexit.split-lp, %63
+  %.pn = phi { ptr, i32 } [ %64, %63 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
+  %.not.i.i19 = icmp eq ptr %29, null
   br i1 %.not.i.i19, label %_ZN7rocksdb6StatusD2Ev.exit21, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i20
 
-_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i20: ; preds = %67
-  call void @_ZdaPv(ptr noundef nonnull %68) #28
+_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i20: ; preds = %66
+  call void @_ZdaPv(ptr noundef nonnull %29) #28
   br label %_ZN7rocksdb6StatusD2Ev.exit21
 
-_ZN7rocksdb6StatusD2Ev.exit21:                    ; preds = %67, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i20
+_ZN7rocksdb6StatusD2Ev.exit21:                    ; preds = %.thread, %66, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i20
+  %.pn25 = phi { ptr, i32 } [ %27, %.thread ], [ %.pn, %66 ], [ %.pn, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i20 ]
   store ptr null, ptr %6, align 8, !tbaa !225
-  resume { ptr, i32 } %.pn
+  resume { ptr, i32 } %.pn25
 }
 
 ; Function Attrs: mustprogress uwtable

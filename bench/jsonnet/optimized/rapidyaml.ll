@@ -51449,7 +51449,7 @@ define linkonce_odr void @_ZNK2c43yml6Parser8_fmt_msgIRZNKS1_4_errIJEEEvNS_15bas
   %27 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %28 = load i64, ptr %27, align 8, !tbaa !56
   %.not = icmp eq i64 %28, 0
-  br i1 %.not, label %258, label %29
+  br i1 %.not, label %257, label %29
 
 29:                                               ; preds = %2
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 56
@@ -51797,28 +51797,27 @@ _ZN2c43yml12_GLOBAL__N_111_parse_dumpIZNKS0_6Parser4_errIJEEEvNS_15basic_substri
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %17) #39
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19) #39
-  %185 = load i64, ptr %27, align 8, !tbaa !56
-  %186 = icmp ult i64 %185, 80
-  br i1 %186, label %187, label %188
+  %185 = icmp ult i64 %28, 80
+  br i1 %185, label %186, label %187
 
-187:                                              ; preds = %_ZN2c43yml12_GLOBAL__N_111_parse_dumpIZNKS0_6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_EUlS7_E_JRmSE_EEEvT_S7_DpOT0_.exit
+186:                                              ; preds = %_ZN2c43yml12_GLOBAL__N_111_parse_dumpIZNKS0_6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_EUlS7_E_JRmSE_EEEvT_S7_DpOT0_.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false), !tbaa.struct !140
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20) #39
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
-  br label %192
+  br label %191
 
-188:                                              ; preds = %_ZN2c43yml12_GLOBAL__N_111_parse_dumpIZNKS0_6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_EUlS7_E_JRmSE_EEEvT_S7_DpOT0_.exit
-  %189 = load ptr, ptr %18, align 8, !tbaa !165
-  store ptr %189, ptr %19, align 8
-  %190 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  store i64 80, ptr %190, align 8
+187:                                              ; preds = %_ZN2c43yml12_GLOBAL__N_111_parse_dumpIZNKS0_6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_EUlS7_E_JRmSE_EEEvT_S7_DpOT0_.exit
+  %188 = load ptr, ptr %18, align 8, !tbaa !165
+  store ptr %188, ptr %19, align 8
+  %189 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  store i64 80, ptr %189, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20) #39
   store ptr @.str.211, ptr %20, align 8, !tbaa !165
-  %191 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  store i64 3, ptr %191, align 8, !tbaa !56
-  br label %192
+  %190 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  store i64 3, ptr %190, align 8, !tbaa !56
+  br label %191
 
-192:                                              ; preds = %188, %187
+191:                                              ; preds = %187, %186
   %.sroa.09.0.copyload = load ptr, ptr %1, align 8, !tbaa !296
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   store ptr %.sroa.09.0.copyload, ptr %11, align 8
@@ -51827,109 +51826,109 @@ _ZN2c43yml12_GLOBAL__N_111_parse_dumpIZNKS0_6Parser4_errIJEEEvNS_15basic_substri
   store ptr @.str.468, ptr %10, align 8, !tbaa !67, !noalias !487
   %.sroa.27.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 16, ptr %.sroa.27.0..sroa_idx.i.i, align 8, !tbaa !68, !noalias !487
-  %193 = call { i64, i64 } @_ZN2c46detail18format_dump_resumeIRZNKS_3yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_EUlS7_E_S7_JS7_mEEENS_11DumpResultsEmOT_SF_NS5_IcEES7_RKT0_DprRKT1_(i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %11, i64 0, i64 -1, ptr nonnull %12, i64 255, ptr noundef nonnull byval(%"struct.c4::basic_substring.0") align 8 %10, ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(8) %27)
+  %192 = call { i64, i64 } @_ZN2c46detail18format_dump_resumeIRZNKS_3yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_EUlS7_E_S7_JS7_mEEENS_11DumpResultsEmOT_SF_NS5_IcEES7_RKT0_DprRKT1_(i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %11, i64 0, i64 -1, ptr nonnull %12, i64 255, ptr noundef nonnull byval(%"struct.c4::basic_substring.0") align 8 %10, ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(8) %27)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  %194 = extractvalue { i64, i64 } %193, 0
-  %195 = icmp ugt i64 %194, 256
-  br i1 %195, label %196, label %_ZN2c43yml12_GLOBAL__N_111_parse_dumpIZNKS0_6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_EUlS7_E_JRS7_SE_RmEEEvT_S7_DpOT0_.exit, !prof !27
+  %193 = extractvalue { i64, i64 } %192, 0
+  %194 = icmp ugt i64 %193, 256
+  br i1 %194, label %195, label %_ZN2c43yml12_GLOBAL__N_111_parse_dumpIZNKS0_6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_EUlS7_E_JRS7_SE_RmEEEvT_S7_DpOT0_.exit, !prof !27
 
-196:                                              ; preds = %192
-  %197 = extractvalue { i64, i64 } %193, 1
+195:                                              ; preds = %191
+  %196 = extractvalue { i64, i64 } %192, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   store ptr @.str.468, ptr %9, align 8, !tbaa !67, !noalias !492
   %.sroa.4.0..sroa_idx.i43 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 16, ptr %.sroa.4.0..sroa_idx.i43, align 8, !tbaa !68, !noalias !492
-  %198 = call { i64, i64 } @_ZN2c46detail18format_dump_resumeIRZNKS_3yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_EUlS7_E_S7_JS7_mEEENS_11DumpResultsEmOT_SF_NS5_IcEES7_RKT0_DprRKT1_(i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %11, i64 %194, i64 %197, ptr nonnull %12, i64 255, ptr noundef nonnull byval(%"struct.c4::basic_substring.0") align 8 %9, ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(8) %27)
+  %197 = call { i64, i64 } @_ZN2c46detail18format_dump_resumeIRZNKS_3yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_EUlS7_E_S7_JS7_mEEENS_11DumpResultsEmOT_SF_NS5_IcEES7_RKT0_DprRKT1_(i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %11, i64 %193, i64 %196, ptr nonnull %12, i64 255, ptr noundef nonnull byval(%"struct.c4::basic_substring.0") align 8 %9, ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(8) %27)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  %199 = extractvalue { i64, i64 } %198, 0
-  %200 = icmp ugt i64 %199, 256
-  br i1 %200, label %201, label %_ZN2c43yml12_GLOBAL__N_111_parse_dumpIZNKS0_6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_EUlS7_E_JRS7_SE_RmEEEvT_S7_DpOT0_.exit, !prof !27
+  %198 = extractvalue { i64, i64 } %197, 0
+  %199 = icmp ugt i64 %198, 256
+  br i1 %199, label %200, label %_ZN2c43yml12_GLOBAL__N_111_parse_dumpIZNKS0_6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_EUlS7_E_JRS7_SE_RmEEEvT_S7_DpOT0_.exit, !prof !27
 
-201:                                              ; preds = %196
-  %202 = extractvalue { i64, i64 } %198, 1
+200:                                              ; preds = %195
+  %201 = extractvalue { i64, i64 } %197, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   store ptr @.str.468, ptr %8, align 8, !tbaa !67, !noalias !497
   %.sroa.437.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 16, ptr %.sroa.437.0..sroa_idx.i, align 8, !tbaa !68, !noalias !497
-  %203 = call { i64, i64 } @_ZN2c46detail18format_dump_resumeIRZNKS_3yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_EUlS7_E_S7_JS7_mEEENS_11DumpResultsEmOT_SF_NS5_IcEES7_RKT0_DprRKT1_(i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %11, i64 %199, i64 %202, ptr nonnull %12, i64 255, ptr noundef nonnull byval(%"struct.c4::basic_substring.0") align 8 %8, ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(8) %27)
+  %202 = call { i64, i64 } @_ZN2c46detail18format_dump_resumeIRZNKS_3yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_EUlS7_E_S7_JS7_mEEENS_11DumpResultsEmOT_SF_NS5_IcEES7_RKT0_DprRKT1_(i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %11, i64 %198, i64 %201, ptr nonnull %12, i64 255, ptr noundef nonnull byval(%"struct.c4::basic_substring.0") align 8 %8, ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(8) %27)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br label %_ZN2c43yml12_GLOBAL__N_111_parse_dumpIZNKS0_6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_EUlS7_E_JRS7_SE_RmEEEvT_S7_DpOT0_.exit
 
-_ZN2c43yml12_GLOBAL__N_111_parse_dumpIZNKS0_6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_EUlS7_E_JRS7_SE_RmEEEvT_S7_DpOT0_.exit: ; preds = %192, %196, %201
+_ZN2c43yml12_GLOBAL__N_111_parse_dumpIZNKS0_6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_EUlS7_E_JRS7_SE_RmEEEvT_S7_DpOT0_.exit: ; preds = %191, %195, %200
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %12) #39
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  %204 = getelementptr inbounds nuw i8, ptr %24, i64 120
-  %205 = load ptr, ptr %204, align 8, !tbaa !165
-  %206 = load ptr, ptr %25, align 8, !tbaa !165
+  %203 = getelementptr inbounds nuw i8, ptr %24, i64 120
+  %204 = load ptr, ptr %203, align 8, !tbaa !165
+  %205 = load ptr, ptr %25, align 8, !tbaa !165
+  %206 = ptrtoint ptr %204 to i64
   %207 = ptrtoint ptr %205 to i64
-  %208 = ptrtoint ptr %206 to i64
-  %209 = sub i64 %207, %208
-  %210 = getelementptr inbounds nuw i8, ptr %24, i64 128
-  %211 = load i64, ptr %210, align 8, !tbaa !502
-  %212 = add i64 %209, %.0
-  %.not92 = icmp eq i64 %212, 0
+  %208 = sub i64 %206, %207
+  %209 = getelementptr inbounds nuw i8, ptr %24, i64 128
+  %210 = load i64, ptr %209, align 8, !tbaa !502
+  %211 = add i64 %208, %.0
+  %.not92 = icmp eq i64 %211, 0
   br i1 %.not92, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_ENKUlS5_E_clES5_.exit48, %_ZN2c43yml12_GLOBAL__N_111_parse_dumpIZNKS0_6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_EUlS7_E_JRS7_SE_RmEEEvT_S7_DpOT0_.exit
-  %213 = load ptr, ptr %1, align 8, !tbaa !503
-  %214 = getelementptr inbounds nuw i8, ptr %213, i64 16
-  %215 = load i64, ptr %214, align 8, !tbaa !298
-  %216 = add i64 %215, 1
-  %217 = getelementptr inbounds nuw i8, ptr %213, i64 8
-  %218 = load i64, ptr %217, align 8, !tbaa !473
-  %.not.i.i = icmp ugt i64 %216, %218
-  br i1 %.not.i.i, label %_ZZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_ENKUlS5_E_clES5_.exit, label %219
+  %212 = load ptr, ptr %1, align 8, !tbaa !503
+  %213 = getelementptr inbounds nuw i8, ptr %212, i64 16
+  %214 = load i64, ptr %213, align 8, !tbaa !298
+  %215 = add i64 %214, 1
+  %216 = getelementptr inbounds nuw i8, ptr %212, i64 8
+  %217 = load i64, ptr %216, align 8, !tbaa !473
+  %.not.i.i = icmp ugt i64 %215, %217
+  br i1 %.not.i.i, label %_ZZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_ENKUlS5_E_clES5_.exit, label %218
 
-219:                                              ; preds = %._crit_edge
-  %220 = load ptr, ptr %213, align 8, !tbaa !474
-  %221 = getelementptr inbounds nuw i8, ptr %220, i64 %215
-  store i8 94, ptr %221, align 1
-  %.pre.i.i = load i64, ptr %214, align 8, !tbaa !298
+218:                                              ; preds = %._crit_edge
+  %219 = load ptr, ptr %212, align 8, !tbaa !474
+  %220 = getelementptr inbounds nuw i8, ptr %219, i64 %214
+  store i8 94, ptr %220, align 1
+  %.pre.i.i = load i64, ptr %213, align 8, !tbaa !298
   %.pre3.i.i = add i64 %.pre.i.i, 1
   br label %_ZZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_ENKUlS5_E_clES5_.exit
 
-_ZZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_ENKUlS5_E_clES5_.exit: ; preds = %._crit_edge, %219
-  %.pre-phi.i.i = phi i64 [ %.pre3.i.i, %219 ], [ %216, %._crit_edge ]
-  store i64 %.pre-phi.i.i, ptr %214, align 8, !tbaa !298
-  %222 = load i64, ptr %210, align 8, !tbaa !502
-  %spec.select = call i64 @llvm.umin.i64(i64 %222, i64 80)
-  %223 = icmp ugt i64 %222, 1
-  br i1 %223, label %.lr.ph90, label %._crit_edge91
+_ZZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_ENKUlS5_E_clES5_.exit: ; preds = %._crit_edge, %218
+  %.pre-phi.i.i = phi i64 [ %.pre3.i.i, %218 ], [ %215, %._crit_edge ]
+  store i64 %.pre-phi.i.i, ptr %213, align 8, !tbaa !298
+  %221 = load i64, ptr %209, align 8, !tbaa !502
+  %spec.select = call i64 @llvm.umin.i64(i64 %221, i64 80)
+  %222 = icmp ugt i64 %221, 1
+  br i1 %222, label %.lr.ph90, label %._crit_edge91
 
 .lr.ph:                                           ; preds = %_ZN2c43yml12_GLOBAL__N_111_parse_dumpIZNKS0_6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_EUlS7_E_JRS7_SE_RmEEEvT_S7_DpOT0_.exit, %_ZZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_ENKUlS5_E_clES5_.exit48
-  %.02888 = phi i64 [ %233, %_ZZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_ENKUlS5_E_clES5_.exit48 ], [ 0, %_ZN2c43yml12_GLOBAL__N_111_parse_dumpIZNKS0_6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_EUlS7_E_JRS7_SE_RmEEEvT_S7_DpOT0_.exit ]
-  %224 = load ptr, ptr %1, align 8, !tbaa !503
-  %225 = getelementptr inbounds nuw i8, ptr %224, i64 16
-  %226 = load i64, ptr %225, align 8, !tbaa !298
-  %227 = add i64 %226, 1
-  %228 = getelementptr inbounds nuw i8, ptr %224, i64 8
-  %229 = load i64, ptr %228, align 8, !tbaa !473
-  %.not.i.i44 = icmp ugt i64 %227, %229
-  br i1 %.not.i.i44, label %_ZZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_ENKUlS5_E_clES5_.exit48, label %230
+  %.02888 = phi i64 [ %232, %_ZZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_ENKUlS5_E_clES5_.exit48 ], [ 0, %_ZN2c43yml12_GLOBAL__N_111_parse_dumpIZNKS0_6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_EUlS7_E_JRS7_SE_RmEEEvT_S7_DpOT0_.exit ]
+  %223 = load ptr, ptr %1, align 8, !tbaa !503
+  %224 = getelementptr inbounds nuw i8, ptr %223, i64 16
+  %225 = load i64, ptr %224, align 8, !tbaa !298
+  %226 = add i64 %225, 1
+  %227 = getelementptr inbounds nuw i8, ptr %223, i64 8
+  %228 = load i64, ptr %227, align 8, !tbaa !473
+  %.not.i.i44 = icmp ugt i64 %226, %228
+  br i1 %.not.i.i44, label %_ZZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_ENKUlS5_E_clES5_.exit48, label %229
 
-230:                                              ; preds = %.lr.ph
-  %231 = load ptr, ptr %224, align 8, !tbaa !474
-  %232 = getelementptr inbounds nuw i8, ptr %231, i64 %226
-  store i8 32, ptr %232, align 1
-  %.pre.i.i45 = load i64, ptr %225, align 8, !tbaa !298
+229:                                              ; preds = %.lr.ph
+  %230 = load ptr, ptr %223, align 8, !tbaa !474
+  %231 = getelementptr inbounds nuw i8, ptr %230, i64 %225
+  store i8 32, ptr %231, align 1
+  %.pre.i.i45 = load i64, ptr %224, align 8, !tbaa !298
   %.pre3.i.i46 = add i64 %.pre.i.i45, 1
   br label %_ZZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_ENKUlS5_E_clES5_.exit48
 
-_ZZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_ENKUlS5_E_clES5_.exit48: ; preds = %.lr.ph, %230
-  %.pre-phi.i.i47 = phi i64 [ %.pre3.i.i46, %230 ], [ %227, %.lr.ph ]
-  store i64 %.pre-phi.i.i47, ptr %225, align 8, !tbaa !298
-  %233 = add nuw i64 %.02888, 1
-  %234 = icmp ult i64 %233, %212
-  br i1 %234, label %.lr.ph, label %._crit_edge, !llvm.loop !505
+_ZZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_ENKUlS5_E_clES5_.exit48: ; preds = %.lr.ph, %229
+  %.pre-phi.i.i47 = phi i64 [ %.pre3.i.i46, %229 ], [ %226, %.lr.ph ]
+  store i64 %.pre-phi.i.i47, ptr %224, align 8, !tbaa !298
+  %232 = add nuw i64 %.02888, 1
+  %233 = icmp ult i64 %232, %211
+  br i1 %233, label %.lr.ph, label %._crit_edge, !llvm.loop !505
 
 ._crit_edge91:                                    ; preds = %_ZZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_ENKUlS5_E_clES5_.exit56, %_ZZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_ENKUlS5_E_clES5_.exit
   %.sroa.0.0.copyload = load ptr, ptr %1, align 8, !tbaa !296
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #39
-  %235 = add i64 %209, 1
-  store i64 %235, ptr %21, align 8, !tbaa !68
+  %234 = add i64 %208, 1
+  store i64 %234, ptr %21, align 8, !tbaa !68
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #39
-  %236 = add i64 %235, %211
-  store i64 %236, ptr %22, align 8, !tbaa !68
+  %235 = add i64 %234, %210
+  store i64 %235, ptr %22, align 8, !tbaa !68
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr %.sroa.0.0.copyload, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #39
@@ -51937,93 +51936,93 @@ _ZZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_ENKUlS5_E_clES5_.e
   store ptr @.str.471, ptr %5, align 8, !tbaa !67, !noalias !506
   %.sroa.27.0..sroa_idx.i.i49 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 17, ptr %.sroa.27.0..sroa_idx.i.i49, align 8, !tbaa !68, !noalias !506
-  %237 = call { i64, i64 } @_ZN2c46detail18format_dump_resumeIRZNKS_3yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_EUlS7_E_S7_JmmEEENS_11DumpResultsEmOT_SF_NS5_IcEES7_RKT0_DprRKT1_(i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %6, i64 0, i64 -1, ptr nonnull %7, i64 255, ptr noundef nonnull byval(%"struct.c4::basic_substring.0") align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %22)
+  %236 = call { i64, i64 } @_ZN2c46detail18format_dump_resumeIRZNKS_3yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_EUlS7_E_S7_JmmEEENS_11DumpResultsEmOT_SF_NS5_IcEES7_RKT0_DprRKT1_(i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %6, i64 0, i64 -1, ptr nonnull %7, i64 255, ptr noundef nonnull byval(%"struct.c4::basic_substring.0") align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %22)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %238 = extractvalue { i64, i64 } %237, 0
-  %239 = icmp ugt i64 %238, 256
-  br i1 %239, label %240, label %_ZN2c43yml12_GLOBAL__N_111_parse_dumpIZNKS0_6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_EUlS7_E_JRS7_mmEEEvT_S7_DpOT0_.exit, !prof !27
+  %237 = extractvalue { i64, i64 } %236, 0
+  %238 = icmp ugt i64 %237, 256
+  br i1 %238, label %239, label %_ZN2c43yml12_GLOBAL__N_111_parse_dumpIZNKS0_6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_EUlS7_E_JRS7_mmEEEvT_S7_DpOT0_.exit, !prof !27
 
-240:                                              ; preds = %._crit_edge91
-  %241 = extractvalue { i64, i64 } %237, 1
+239:                                              ; preds = %._crit_edge91
+  %240 = extractvalue { i64, i64 } %236, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   store ptr @.str.471, ptr %4, align 8, !tbaa !67, !noalias !511
   %.sroa.4.0..sroa_idx.i50 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 17, ptr %.sroa.4.0..sroa_idx.i50, align 8, !tbaa !68, !noalias !511
-  %242 = call { i64, i64 } @_ZN2c46detail18format_dump_resumeIRZNKS_3yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_EUlS7_E_S7_JmmEEENS_11DumpResultsEmOT_SF_NS5_IcEES7_RKT0_DprRKT1_(i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %6, i64 %238, i64 %241, ptr nonnull %7, i64 255, ptr noundef nonnull byval(%"struct.c4::basic_substring.0") align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %22)
+  %241 = call { i64, i64 } @_ZN2c46detail18format_dump_resumeIRZNKS_3yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_EUlS7_E_S7_JmmEEENS_11DumpResultsEmOT_SF_NS5_IcEES7_RKT0_DprRKT1_(i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %6, i64 %237, i64 %240, ptr nonnull %7, i64 255, ptr noundef nonnull byval(%"struct.c4::basic_substring.0") align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %22)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %243 = extractvalue { i64, i64 } %242, 0
-  %244 = icmp ugt i64 %243, 256
-  br i1 %244, label %245, label %_ZN2c43yml12_GLOBAL__N_111_parse_dumpIZNKS0_6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_EUlS7_E_JRS7_mmEEEvT_S7_DpOT0_.exit, !prof !27
+  %242 = extractvalue { i64, i64 } %241, 0
+  %243 = icmp ugt i64 %242, 256
+  br i1 %243, label %244, label %_ZN2c43yml12_GLOBAL__N_111_parse_dumpIZNKS0_6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_EUlS7_E_JRS7_mmEEEvT_S7_DpOT0_.exit, !prof !27
 
-245:                                              ; preds = %240
-  %246 = extractvalue { i64, i64 } %242, 1
+244:                                              ; preds = %239
+  %245 = extractvalue { i64, i64 } %241, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   store ptr @.str.471, ptr %3, align 8, !tbaa !67, !noalias !516
   %.sroa.437.0..sroa_idx.i51 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 17, ptr %.sroa.437.0..sroa_idx.i51, align 8, !tbaa !68, !noalias !516
-  %247 = call { i64, i64 } @_ZN2c46detail18format_dump_resumeIRZNKS_3yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_EUlS7_E_S7_JmmEEENS_11DumpResultsEmOT_SF_NS5_IcEES7_RKT0_DprRKT1_(i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %6, i64 %243, i64 %246, ptr nonnull %7, i64 255, ptr noundef nonnull byval(%"struct.c4::basic_substring.0") align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %22)
+  %246 = call { i64, i64 } @_ZN2c46detail18format_dump_resumeIRZNKS_3yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_EUlS7_E_S7_JmmEEENS_11DumpResultsEmOT_SF_NS5_IcEES7_RKT0_DprRKT1_(i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %6, i64 %242, i64 %245, ptr nonnull %7, i64 255, ptr noundef nonnull byval(%"struct.c4::basic_substring.0") align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %22)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   br label %_ZN2c43yml12_GLOBAL__N_111_parse_dumpIZNKS0_6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_EUlS7_E_JRS7_mmEEEvT_S7_DpOT0_.exit
 
-_ZN2c43yml12_GLOBAL__N_111_parse_dumpIZNKS0_6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_EUlS7_E_JRS7_mmEEEvT_S7_DpOT0_.exit: ; preds = %._crit_edge91, %240, %245
+_ZN2c43yml12_GLOBAL__N_111_parse_dumpIZNKS0_6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_EUlS7_E_JRS7_mmEEEvT_S7_DpOT0_.exit: ; preds = %._crit_edge91, %239, %244
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #39
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #39
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #39
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #39
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #39
-  br label %268
+  br label %267
 
 .lr.ph90:                                         ; preds = %_ZZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_ENKUlS5_E_clES5_.exit, %_ZZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_ENKUlS5_E_clES5_.exit56
-  %.02989 = phi i64 [ %257, %_ZZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_ENKUlS5_E_clES5_.exit56 ], [ 1, %_ZZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_ENKUlS5_E_clES5_.exit ]
-  %248 = load ptr, ptr %1, align 8, !tbaa !503
-  %249 = getelementptr inbounds nuw i8, ptr %248, i64 16
-  %250 = load i64, ptr %249, align 8, !tbaa !298
-  %251 = add i64 %250, 1
-  %252 = getelementptr inbounds nuw i8, ptr %248, i64 8
-  %253 = load i64, ptr %252, align 8, !tbaa !473
-  %.not.i.i52 = icmp ugt i64 %251, %253
-  br i1 %.not.i.i52, label %_ZZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_ENKUlS5_E_clES5_.exit56, label %254
+  %.02989 = phi i64 [ %256, %_ZZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_ENKUlS5_E_clES5_.exit56 ], [ 1, %_ZZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_ENKUlS5_E_clES5_.exit ]
+  %247 = load ptr, ptr %1, align 8, !tbaa !503
+  %248 = getelementptr inbounds nuw i8, ptr %247, i64 16
+  %249 = load i64, ptr %248, align 8, !tbaa !298
+  %250 = add i64 %249, 1
+  %251 = getelementptr inbounds nuw i8, ptr %247, i64 8
+  %252 = load i64, ptr %251, align 8, !tbaa !473
+  %.not.i.i52 = icmp ugt i64 %250, %252
+  br i1 %.not.i.i52, label %_ZZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_ENKUlS5_E_clES5_.exit56, label %253
 
-254:                                              ; preds = %.lr.ph90
-  %255 = load ptr, ptr %248, align 8, !tbaa !474
-  %256 = getelementptr inbounds nuw i8, ptr %255, i64 %250
-  store i8 126, ptr %256, align 1
-  %.pre.i.i53 = load i64, ptr %249, align 8, !tbaa !298
+253:                                              ; preds = %.lr.ph90
+  %254 = load ptr, ptr %247, align 8, !tbaa !474
+  %255 = getelementptr inbounds nuw i8, ptr %254, i64 %249
+  store i8 126, ptr %255, align 1
+  %.pre.i.i53 = load i64, ptr %248, align 8, !tbaa !298
   %.pre3.i.i54 = add i64 %.pre.i.i53, 1
   br label %_ZZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_ENKUlS5_E_clES5_.exit56
 
-_ZZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_ENKUlS5_E_clES5_.exit56: ; preds = %.lr.ph90, %254
-  %.pre-phi.i.i55 = phi i64 [ %.pre3.i.i54, %254 ], [ %251, %.lr.ph90 ]
-  store i64 %.pre-phi.i.i55, ptr %249, align 8, !tbaa !298
-  %257 = add nuw nsw i64 %.02989, 1
-  %exitcond.not = icmp eq i64 %257, %spec.select
+_ZZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_ENKUlS5_E_clES5_.exit56: ; preds = %.lr.ph90, %253
+  %.pre-phi.i.i55 = phi i64 [ %.pre3.i.i54, %253 ], [ %250, %.lr.ph90 ]
+  store i64 %.pre-phi.i.i55, ptr %248, align 8, !tbaa !298
+  %256 = add nuw nsw i64 %.02989, 1
+  %exitcond.not = icmp eq i64 %256, %spec.select
   br i1 %exitcond.not, label %._crit_edge91, label %.lr.ph90, !llvm.loop !521
 
-258:                                              ; preds = %2
-  %259 = load ptr, ptr %1, align 8, !tbaa !503
-  %260 = getelementptr inbounds nuw i8, ptr %259, i64 16
-  %261 = load i64, ptr %260, align 8, !tbaa !298
-  %262 = add i64 %261, 1
-  %263 = getelementptr inbounds nuw i8, ptr %259, i64 8
-  %264 = load i64, ptr %263, align 8, !tbaa !473
-  %.not.i.i57 = icmp ugt i64 %262, %264
-  br i1 %.not.i.i57, label %_ZZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_ENKUlS5_E_clES5_.exit61, label %265
+257:                                              ; preds = %2
+  %258 = load ptr, ptr %1, align 8, !tbaa !503
+  %259 = getelementptr inbounds nuw i8, ptr %258, i64 16
+  %260 = load i64, ptr %259, align 8, !tbaa !298
+  %261 = add i64 %260, 1
+  %262 = getelementptr inbounds nuw i8, ptr %258, i64 8
+  %263 = load i64, ptr %262, align 8, !tbaa !473
+  %.not.i.i57 = icmp ugt i64 %261, %263
+  br i1 %.not.i.i57, label %_ZZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_ENKUlS5_E_clES5_.exit61, label %264
 
-265:                                              ; preds = %258
-  %266 = load ptr, ptr %259, align 8, !tbaa !474
-  %267 = getelementptr inbounds nuw i8, ptr %266, i64 %261
-  store i8 10, ptr %267, align 1
-  %.pre.i.i58 = load i64, ptr %260, align 8, !tbaa !298
+264:                                              ; preds = %257
+  %265 = load ptr, ptr %258, align 8, !tbaa !474
+  %266 = getelementptr inbounds nuw i8, ptr %265, i64 %260
+  store i8 10, ptr %266, align 1
+  %.pre.i.i58 = load i64, ptr %259, align 8, !tbaa !298
   %.pre3.i.i59 = add i64 %.pre.i.i58, 1
   br label %_ZZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_ENKUlS5_E_clES5_.exit61
 
-_ZZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_ENKUlS5_E_clES5_.exit61: ; preds = %258, %265
-  %.pre-phi.i.i60 = phi i64 [ %.pre3.i.i59, %265 ], [ %262, %258 ]
-  store i64 %.pre-phi.i.i60, ptr %260, align 8, !tbaa !298
-  br label %268
+_ZZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_ENKUlS5_E_clES5_.exit61: ; preds = %257, %264
+  %.pre-phi.i.i60 = phi i64 [ %.pre3.i.i59, %264 ], [ %261, %257 ]
+  store i64 %.pre-phi.i.i60, ptr %259, align 8, !tbaa !298
+  br label %267
 
-268:                                              ; preds = %_ZZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_ENKUlS5_E_clES5_.exit61, %_ZN2c43yml12_GLOBAL__N_111_parse_dumpIZNKS0_6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_EUlS7_E_JRS7_mmEEEvT_S7_DpOT0_.exit
+267:                                              ; preds = %_ZZNK2c43yml6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_ENKUlS5_E_clES5_.exit61, %_ZN2c43yml12_GLOBAL__N_111_parse_dumpIZNKS0_6Parser4_errIJEEEvNS_15basic_substringIKcEEDprRKT_EUlS7_E_JRS7_mmEEEvT_S7_DpOT0_.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #39
   ret void
 }
@@ -53018,7 +53017,7 @@ define linkonce_odr void @_ZNK2c43yml6Parser8_fmt_msgIRZNKS1_4_errIJNS_15basic_s
   %27 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %28 = load i64, ptr %27, align 8, !tbaa !56
   %.not = icmp eq i64 %28, 0
-  br i1 %.not, label %258, label %29
+  br i1 %.not, label %257, label %29
 
 29:                                               ; preds = %2
   %30 = getelementptr inbounds nuw i8, ptr %24, i64 56
@@ -53366,28 +53365,27 @@ _ZN2c43yml12_GLOBAL__N_111_parse_dumpIZNKS0_6Parser4_errIJNS_15basic_substringIK
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %17) #39
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %16)
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %19) #39
-  %185 = load i64, ptr %27, align 8, !tbaa !56
-  %186 = icmp ult i64 %185, 80
-  br i1 %186, label %187, label %188
+  %185 = icmp ult i64 %28, 80
+  br i1 %185, label %186, label %187
 
-187:                                              ; preds = %_ZN2c43yml12_GLOBAL__N_111_parse_dumpIZNKS0_6Parser4_errIJNS_15basic_substringIKcEEEEEvS7_DprRKT_EUlS7_E_JRmSE_EEEvT_S7_DpOT0_.exit
+186:                                              ; preds = %_ZN2c43yml12_GLOBAL__N_111_parse_dumpIZNKS0_6Parser4_errIJNS_15basic_substringIKcEEEEEvS7_DprRKT_EUlS7_E_JRmSE_EEEvT_S7_DpOT0_.exit
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %18, i64 16, i1 false), !tbaa.struct !140
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20) #39
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %20, i8 0, i64 16, i1 false)
-  br label %192
+  br label %191
 
-188:                                              ; preds = %_ZN2c43yml12_GLOBAL__N_111_parse_dumpIZNKS0_6Parser4_errIJNS_15basic_substringIKcEEEEEvS7_DprRKT_EUlS7_E_JRmSE_EEEvT_S7_DpOT0_.exit
-  %189 = load ptr, ptr %18, align 8, !tbaa !165
-  store ptr %189, ptr %19, align 8
-  %190 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  store i64 80, ptr %190, align 8
+187:                                              ; preds = %_ZN2c43yml12_GLOBAL__N_111_parse_dumpIZNKS0_6Parser4_errIJNS_15basic_substringIKcEEEEEvS7_DprRKT_EUlS7_E_JRmSE_EEEvT_S7_DpOT0_.exit
+  %188 = load ptr, ptr %18, align 8, !tbaa !165
+  store ptr %188, ptr %19, align 8
+  %189 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  store i64 80, ptr %189, align 8
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %20) #39
   store ptr @.str.211, ptr %20, align 8, !tbaa !165
-  %191 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  store i64 3, ptr %191, align 8, !tbaa !56
-  br label %192
+  %190 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  store i64 3, ptr %190, align 8, !tbaa !56
+  br label %191
 
-192:                                              ; preds = %188, %187
+191:                                              ; preds = %187, %186
   %.sroa.09.0.copyload = load ptr, ptr %1, align 8, !tbaa !296
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11)
   store ptr %.sroa.09.0.copyload, ptr %11, align 8
@@ -53396,109 +53394,109 @@ _ZN2c43yml12_GLOBAL__N_111_parse_dumpIZNKS0_6Parser4_errIJNS_15basic_substringIK
   store ptr @.str.468, ptr %10, align 8, !tbaa !67, !noalias !539
   %.sroa.27.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %10, i64 8
   store i64 16, ptr %.sroa.27.0..sroa_idx.i.i, align 8, !tbaa !68, !noalias !539
-  %193 = call { i64, i64 } @_ZN2c46detail18format_dump_resumeIRZNKS_3yml6Parser4_errIJNS_15basic_substringIKcEEEEEvS7_DprRKT_EUlS7_E_S7_JS7_mEEENS_11DumpResultsEmOT_SF_NS5_IcEES7_RKT0_DprRKT1_(i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %11, i64 0, i64 -1, ptr nonnull %12, i64 255, ptr noundef nonnull byval(%"struct.c4::basic_substring.0") align 8 %10, ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(8) %27)
+  %192 = call { i64, i64 } @_ZN2c46detail18format_dump_resumeIRZNKS_3yml6Parser4_errIJNS_15basic_substringIKcEEEEEvS7_DprRKT_EUlS7_E_S7_JS7_mEEENS_11DumpResultsEmOT_SF_NS5_IcEES7_RKT0_DprRKT1_(i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %11, i64 0, i64 -1, ptr nonnull %12, i64 255, ptr noundef nonnull byval(%"struct.c4::basic_substring.0") align 8 %10, ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(8) %27)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %10)
-  %194 = extractvalue { i64, i64 } %193, 0
-  %195 = icmp ugt i64 %194, 256
-  br i1 %195, label %196, label %_ZN2c43yml12_GLOBAL__N_111_parse_dumpIZNKS0_6Parser4_errIJNS_15basic_substringIKcEEEEEvS7_DprRKT_EUlS7_E_JRS7_SE_RmEEEvT_S7_DpOT0_.exit, !prof !27
+  %193 = extractvalue { i64, i64 } %192, 0
+  %194 = icmp ugt i64 %193, 256
+  br i1 %194, label %195, label %_ZN2c43yml12_GLOBAL__N_111_parse_dumpIZNKS0_6Parser4_errIJNS_15basic_substringIKcEEEEEvS7_DprRKT_EUlS7_E_JRS7_SE_RmEEEvT_S7_DpOT0_.exit, !prof !27
 
-196:                                              ; preds = %192
-  %197 = extractvalue { i64, i64 } %193, 1
+195:                                              ; preds = %191
+  %196 = extractvalue { i64, i64 } %192, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %9)
   store ptr @.str.468, ptr %9, align 8, !tbaa !67, !noalias !544
   %.sroa.4.0..sroa_idx.i43 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store i64 16, ptr %.sroa.4.0..sroa_idx.i43, align 8, !tbaa !68, !noalias !544
-  %198 = call { i64, i64 } @_ZN2c46detail18format_dump_resumeIRZNKS_3yml6Parser4_errIJNS_15basic_substringIKcEEEEEvS7_DprRKT_EUlS7_E_S7_JS7_mEEENS_11DumpResultsEmOT_SF_NS5_IcEES7_RKT0_DprRKT1_(i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %11, i64 %194, i64 %197, ptr nonnull %12, i64 255, ptr noundef nonnull byval(%"struct.c4::basic_substring.0") align 8 %9, ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(8) %27)
+  %197 = call { i64, i64 } @_ZN2c46detail18format_dump_resumeIRZNKS_3yml6Parser4_errIJNS_15basic_substringIKcEEEEEvS7_DprRKT_EUlS7_E_S7_JS7_mEEENS_11DumpResultsEmOT_SF_NS5_IcEES7_RKT0_DprRKT1_(i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %11, i64 %193, i64 %196, ptr nonnull %12, i64 255, ptr noundef nonnull byval(%"struct.c4::basic_substring.0") align 8 %9, ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(8) %27)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %9)
-  %199 = extractvalue { i64, i64 } %198, 0
-  %200 = icmp ugt i64 %199, 256
-  br i1 %200, label %201, label %_ZN2c43yml12_GLOBAL__N_111_parse_dumpIZNKS0_6Parser4_errIJNS_15basic_substringIKcEEEEEvS7_DprRKT_EUlS7_E_JRS7_SE_RmEEEvT_S7_DpOT0_.exit, !prof !27
+  %198 = extractvalue { i64, i64 } %197, 0
+  %199 = icmp ugt i64 %198, 256
+  br i1 %199, label %200, label %_ZN2c43yml12_GLOBAL__N_111_parse_dumpIZNKS0_6Parser4_errIJNS_15basic_substringIKcEEEEEvS7_DprRKT_EUlS7_E_JRS7_SE_RmEEEvT_S7_DpOT0_.exit, !prof !27
 
-201:                                              ; preds = %196
-  %202 = extractvalue { i64, i64 } %198, 1
+200:                                              ; preds = %195
+  %201 = extractvalue { i64, i64 } %197, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8)
   store ptr @.str.468, ptr %8, align 8, !tbaa !67, !noalias !549
   %.sroa.437.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 8
   store i64 16, ptr %.sroa.437.0..sroa_idx.i, align 8, !tbaa !68, !noalias !549
-  %203 = call { i64, i64 } @_ZN2c46detail18format_dump_resumeIRZNKS_3yml6Parser4_errIJNS_15basic_substringIKcEEEEEvS7_DprRKT_EUlS7_E_S7_JS7_mEEENS_11DumpResultsEmOT_SF_NS5_IcEES7_RKT0_DprRKT1_(i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %11, i64 %199, i64 %202, ptr nonnull %12, i64 255, ptr noundef nonnull byval(%"struct.c4::basic_substring.0") align 8 %8, ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(8) %27)
+  %202 = call { i64, i64 } @_ZN2c46detail18format_dump_resumeIRZNKS_3yml6Parser4_errIJNS_15basic_substringIKcEEEEEvS7_DprRKT_EUlS7_E_S7_JS7_mEEENS_11DumpResultsEmOT_SF_NS5_IcEES7_RKT0_DprRKT1_(i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %11, i64 %198, i64 %201, ptr nonnull %12, i64 255, ptr noundef nonnull byval(%"struct.c4::basic_substring.0") align 8 %8, ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(8) %27)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8)
   br label %_ZN2c43yml12_GLOBAL__N_111_parse_dumpIZNKS0_6Parser4_errIJNS_15basic_substringIKcEEEEEvS7_DprRKT_EUlS7_E_JRS7_SE_RmEEEvT_S7_DpOT0_.exit
 
-_ZN2c43yml12_GLOBAL__N_111_parse_dumpIZNKS0_6Parser4_errIJNS_15basic_substringIKcEEEEEvS7_DprRKT_EUlS7_E_JRS7_SE_RmEEEvT_S7_DpOT0_.exit: ; preds = %192, %196, %201
+_ZN2c43yml12_GLOBAL__N_111_parse_dumpIZNKS0_6Parser4_errIJNS_15basic_substringIKcEEEEEvS7_DprRKT_EUlS7_E_JRS7_SE_RmEEEvT_S7_DpOT0_.exit: ; preds = %191, %195, %200
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %12) #39
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11)
-  %204 = getelementptr inbounds nuw i8, ptr %24, i64 120
-  %205 = load ptr, ptr %204, align 8, !tbaa !165
-  %206 = load ptr, ptr %25, align 8, !tbaa !165
+  %203 = getelementptr inbounds nuw i8, ptr %24, i64 120
+  %204 = load ptr, ptr %203, align 8, !tbaa !165
+  %205 = load ptr, ptr %25, align 8, !tbaa !165
+  %206 = ptrtoint ptr %204 to i64
   %207 = ptrtoint ptr %205 to i64
-  %208 = ptrtoint ptr %206 to i64
-  %209 = sub i64 %207, %208
-  %210 = getelementptr inbounds nuw i8, ptr %24, i64 128
-  %211 = load i64, ptr %210, align 8, !tbaa !502
-  %212 = add i64 %209, %.0
-  %.not92 = icmp eq i64 %212, 0
+  %208 = sub i64 %206, %207
+  %209 = getelementptr inbounds nuw i8, ptr %24, i64 128
+  %210 = load i64, ptr %209, align 8, !tbaa !502
+  %211 = add i64 %208, %.0
+  %.not92 = icmp eq i64 %211, 0
   br i1 %.not92, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZZNK2c43yml6Parser4_errIJNS_15basic_substringIKcEEEEEvS5_DprRKT_ENKUlS5_E_clES5_.exit48, %_ZN2c43yml12_GLOBAL__N_111_parse_dumpIZNKS0_6Parser4_errIJNS_15basic_substringIKcEEEEEvS7_DprRKT_EUlS7_E_JRS7_SE_RmEEEvT_S7_DpOT0_.exit
-  %213 = load ptr, ptr %1, align 8, !tbaa !554
-  %214 = getelementptr inbounds nuw i8, ptr %213, i64 16
-  %215 = load i64, ptr %214, align 8, !tbaa !298
-  %216 = add i64 %215, 1
-  %217 = getelementptr inbounds nuw i8, ptr %213, i64 8
-  %218 = load i64, ptr %217, align 8, !tbaa !473
-  %.not.i.i = icmp ugt i64 %216, %218
-  br i1 %.not.i.i, label %_ZZNK2c43yml6Parser4_errIJNS_15basic_substringIKcEEEEEvS5_DprRKT_ENKUlS5_E_clES5_.exit, label %219
+  %212 = load ptr, ptr %1, align 8, !tbaa !554
+  %213 = getelementptr inbounds nuw i8, ptr %212, i64 16
+  %214 = load i64, ptr %213, align 8, !tbaa !298
+  %215 = add i64 %214, 1
+  %216 = getelementptr inbounds nuw i8, ptr %212, i64 8
+  %217 = load i64, ptr %216, align 8, !tbaa !473
+  %.not.i.i = icmp ugt i64 %215, %217
+  br i1 %.not.i.i, label %_ZZNK2c43yml6Parser4_errIJNS_15basic_substringIKcEEEEEvS5_DprRKT_ENKUlS5_E_clES5_.exit, label %218
 
-219:                                              ; preds = %._crit_edge
-  %220 = load ptr, ptr %213, align 8, !tbaa !474
-  %221 = getelementptr inbounds nuw i8, ptr %220, i64 %215
-  store i8 94, ptr %221, align 1
-  %.pre.i.i = load i64, ptr %214, align 8, !tbaa !298
+218:                                              ; preds = %._crit_edge
+  %219 = load ptr, ptr %212, align 8, !tbaa !474
+  %220 = getelementptr inbounds nuw i8, ptr %219, i64 %214
+  store i8 94, ptr %220, align 1
+  %.pre.i.i = load i64, ptr %213, align 8, !tbaa !298
   %.pre3.i.i = add i64 %.pre.i.i, 1
   br label %_ZZNK2c43yml6Parser4_errIJNS_15basic_substringIKcEEEEEvS5_DprRKT_ENKUlS5_E_clES5_.exit
 
-_ZZNK2c43yml6Parser4_errIJNS_15basic_substringIKcEEEEEvS5_DprRKT_ENKUlS5_E_clES5_.exit: ; preds = %._crit_edge, %219
-  %.pre-phi.i.i = phi i64 [ %.pre3.i.i, %219 ], [ %216, %._crit_edge ]
-  store i64 %.pre-phi.i.i, ptr %214, align 8, !tbaa !298
-  %222 = load i64, ptr %210, align 8, !tbaa !502
-  %spec.select = call i64 @llvm.umin.i64(i64 %222, i64 80)
-  %223 = icmp ugt i64 %222, 1
-  br i1 %223, label %.lr.ph90, label %._crit_edge91
+_ZZNK2c43yml6Parser4_errIJNS_15basic_substringIKcEEEEEvS5_DprRKT_ENKUlS5_E_clES5_.exit: ; preds = %._crit_edge, %218
+  %.pre-phi.i.i = phi i64 [ %.pre3.i.i, %218 ], [ %215, %._crit_edge ]
+  store i64 %.pre-phi.i.i, ptr %213, align 8, !tbaa !298
+  %221 = load i64, ptr %209, align 8, !tbaa !502
+  %spec.select = call i64 @llvm.umin.i64(i64 %221, i64 80)
+  %222 = icmp ugt i64 %221, 1
+  br i1 %222, label %.lr.ph90, label %._crit_edge91
 
 .lr.ph:                                           ; preds = %_ZN2c43yml12_GLOBAL__N_111_parse_dumpIZNKS0_6Parser4_errIJNS_15basic_substringIKcEEEEEvS7_DprRKT_EUlS7_E_JRS7_SE_RmEEEvT_S7_DpOT0_.exit, %_ZZNK2c43yml6Parser4_errIJNS_15basic_substringIKcEEEEEvS5_DprRKT_ENKUlS5_E_clES5_.exit48
-  %.02888 = phi i64 [ %233, %_ZZNK2c43yml6Parser4_errIJNS_15basic_substringIKcEEEEEvS5_DprRKT_ENKUlS5_E_clES5_.exit48 ], [ 0, %_ZN2c43yml12_GLOBAL__N_111_parse_dumpIZNKS0_6Parser4_errIJNS_15basic_substringIKcEEEEEvS7_DprRKT_EUlS7_E_JRS7_SE_RmEEEvT_S7_DpOT0_.exit ]
-  %224 = load ptr, ptr %1, align 8, !tbaa !554
-  %225 = getelementptr inbounds nuw i8, ptr %224, i64 16
-  %226 = load i64, ptr %225, align 8, !tbaa !298
-  %227 = add i64 %226, 1
-  %228 = getelementptr inbounds nuw i8, ptr %224, i64 8
-  %229 = load i64, ptr %228, align 8, !tbaa !473
-  %.not.i.i44 = icmp ugt i64 %227, %229
-  br i1 %.not.i.i44, label %_ZZNK2c43yml6Parser4_errIJNS_15basic_substringIKcEEEEEvS5_DprRKT_ENKUlS5_E_clES5_.exit48, label %230
+  %.02888 = phi i64 [ %232, %_ZZNK2c43yml6Parser4_errIJNS_15basic_substringIKcEEEEEvS5_DprRKT_ENKUlS5_E_clES5_.exit48 ], [ 0, %_ZN2c43yml12_GLOBAL__N_111_parse_dumpIZNKS0_6Parser4_errIJNS_15basic_substringIKcEEEEEvS7_DprRKT_EUlS7_E_JRS7_SE_RmEEEvT_S7_DpOT0_.exit ]
+  %223 = load ptr, ptr %1, align 8, !tbaa !554
+  %224 = getelementptr inbounds nuw i8, ptr %223, i64 16
+  %225 = load i64, ptr %224, align 8, !tbaa !298
+  %226 = add i64 %225, 1
+  %227 = getelementptr inbounds nuw i8, ptr %223, i64 8
+  %228 = load i64, ptr %227, align 8, !tbaa !473
+  %.not.i.i44 = icmp ugt i64 %226, %228
+  br i1 %.not.i.i44, label %_ZZNK2c43yml6Parser4_errIJNS_15basic_substringIKcEEEEEvS5_DprRKT_ENKUlS5_E_clES5_.exit48, label %229
 
-230:                                              ; preds = %.lr.ph
-  %231 = load ptr, ptr %224, align 8, !tbaa !474
-  %232 = getelementptr inbounds nuw i8, ptr %231, i64 %226
-  store i8 32, ptr %232, align 1
-  %.pre.i.i45 = load i64, ptr %225, align 8, !tbaa !298
+229:                                              ; preds = %.lr.ph
+  %230 = load ptr, ptr %223, align 8, !tbaa !474
+  %231 = getelementptr inbounds nuw i8, ptr %230, i64 %225
+  store i8 32, ptr %231, align 1
+  %.pre.i.i45 = load i64, ptr %224, align 8, !tbaa !298
   %.pre3.i.i46 = add i64 %.pre.i.i45, 1
   br label %_ZZNK2c43yml6Parser4_errIJNS_15basic_substringIKcEEEEEvS5_DprRKT_ENKUlS5_E_clES5_.exit48
 
-_ZZNK2c43yml6Parser4_errIJNS_15basic_substringIKcEEEEEvS5_DprRKT_ENKUlS5_E_clES5_.exit48: ; preds = %.lr.ph, %230
-  %.pre-phi.i.i47 = phi i64 [ %.pre3.i.i46, %230 ], [ %227, %.lr.ph ]
-  store i64 %.pre-phi.i.i47, ptr %225, align 8, !tbaa !298
-  %233 = add nuw i64 %.02888, 1
-  %234 = icmp ult i64 %233, %212
-  br i1 %234, label %.lr.ph, label %._crit_edge, !llvm.loop !556
+_ZZNK2c43yml6Parser4_errIJNS_15basic_substringIKcEEEEEvS5_DprRKT_ENKUlS5_E_clES5_.exit48: ; preds = %.lr.ph, %229
+  %.pre-phi.i.i47 = phi i64 [ %.pre3.i.i46, %229 ], [ %226, %.lr.ph ]
+  store i64 %.pre-phi.i.i47, ptr %224, align 8, !tbaa !298
+  %232 = add nuw i64 %.02888, 1
+  %233 = icmp ult i64 %232, %211
+  br i1 %233, label %.lr.ph, label %._crit_edge, !llvm.loop !556
 
 ._crit_edge91:                                    ; preds = %_ZZNK2c43yml6Parser4_errIJNS_15basic_substringIKcEEEEEvS5_DprRKT_ENKUlS5_E_clES5_.exit56, %_ZZNK2c43yml6Parser4_errIJNS_15basic_substringIKcEEEEEvS5_DprRKT_ENKUlS5_E_clES5_.exit
   %.sroa.0.0.copyload = load ptr, ptr %1, align 8, !tbaa !296
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %21) #39
-  %235 = add i64 %209, 1
-  store i64 %235, ptr %21, align 8, !tbaa !68
+  %234 = add i64 %208, 1
+  store i64 %234, ptr %21, align 8, !tbaa !68
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %22) #39
-  %236 = add i64 %235, %211
-  store i64 %236, ptr %22, align 8, !tbaa !68
+  %235 = add i64 %234, %210
+  store i64 %235, ptr %22, align 8, !tbaa !68
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
   store ptr %.sroa.0.0.copyload, ptr %6, align 8
   call void @llvm.lifetime.start.p0(i64 256, ptr nonnull %7) #39
@@ -53506,93 +53504,93 @@ _ZZNK2c43yml6Parser4_errIJNS_15basic_substringIKcEEEEEvS5_DprRKT_ENKUlS5_E_clES5
   store ptr @.str.471, ptr %5, align 8, !tbaa !67, !noalias !557
   %.sroa.27.0..sroa_idx.i.i49 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 17, ptr %.sroa.27.0..sroa_idx.i.i49, align 8, !tbaa !68, !noalias !557
-  %237 = call { i64, i64 } @_ZN2c46detail18format_dump_resumeIRZNKS_3yml6Parser4_errIJNS_15basic_substringIKcEEEEEvS7_DprRKT_EUlS7_E_S7_JmmEEENS_11DumpResultsEmOT_SF_NS5_IcEES7_RKT0_DprRKT1_(i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %6, i64 0, i64 -1, ptr nonnull %7, i64 255, ptr noundef nonnull byval(%"struct.c4::basic_substring.0") align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %22)
+  %236 = call { i64, i64 } @_ZN2c46detail18format_dump_resumeIRZNKS_3yml6Parser4_errIJNS_15basic_substringIKcEEEEEvS7_DprRKT_EUlS7_E_S7_JmmEEENS_11DumpResultsEmOT_SF_NS5_IcEES7_RKT0_DprRKT1_(i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %6, i64 0, i64 -1, ptr nonnull %7, i64 255, ptr noundef nonnull byval(%"struct.c4::basic_substring.0") align 8 %5, ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %22)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %238 = extractvalue { i64, i64 } %237, 0
-  %239 = icmp ugt i64 %238, 256
-  br i1 %239, label %240, label %_ZN2c43yml12_GLOBAL__N_111_parse_dumpIZNKS0_6Parser4_errIJNS_15basic_substringIKcEEEEEvS7_DprRKT_EUlS7_E_JRS7_mmEEEvT_S7_DpOT0_.exit, !prof !27
+  %237 = extractvalue { i64, i64 } %236, 0
+  %238 = icmp ugt i64 %237, 256
+  br i1 %238, label %239, label %_ZN2c43yml12_GLOBAL__N_111_parse_dumpIZNKS0_6Parser4_errIJNS_15basic_substringIKcEEEEEvS7_DprRKT_EUlS7_E_JRS7_mmEEEvT_S7_DpOT0_.exit, !prof !27
 
-240:                                              ; preds = %._crit_edge91
-  %241 = extractvalue { i64, i64 } %237, 1
+239:                                              ; preds = %._crit_edge91
+  %240 = extractvalue { i64, i64 } %236, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   store ptr @.str.471, ptr %4, align 8, !tbaa !67, !noalias !562
   %.sroa.4.0..sroa_idx.i50 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 17, ptr %.sroa.4.0..sroa_idx.i50, align 8, !tbaa !68, !noalias !562
-  %242 = call { i64, i64 } @_ZN2c46detail18format_dump_resumeIRZNKS_3yml6Parser4_errIJNS_15basic_substringIKcEEEEEvS7_DprRKT_EUlS7_E_S7_JmmEEENS_11DumpResultsEmOT_SF_NS5_IcEES7_RKT0_DprRKT1_(i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %6, i64 %238, i64 %241, ptr nonnull %7, i64 255, ptr noundef nonnull byval(%"struct.c4::basic_substring.0") align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %22)
+  %241 = call { i64, i64 } @_ZN2c46detail18format_dump_resumeIRZNKS_3yml6Parser4_errIJNS_15basic_substringIKcEEEEEvS7_DprRKT_EUlS7_E_S7_JmmEEENS_11DumpResultsEmOT_SF_NS5_IcEES7_RKT0_DprRKT1_(i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %6, i64 %237, i64 %240, ptr nonnull %7, i64 255, ptr noundef nonnull byval(%"struct.c4::basic_substring.0") align 8 %4, ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %22)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %243 = extractvalue { i64, i64 } %242, 0
-  %244 = icmp ugt i64 %243, 256
-  br i1 %244, label %245, label %_ZN2c43yml12_GLOBAL__N_111_parse_dumpIZNKS0_6Parser4_errIJNS_15basic_substringIKcEEEEEvS7_DprRKT_EUlS7_E_JRS7_mmEEEvT_S7_DpOT0_.exit, !prof !27
+  %242 = extractvalue { i64, i64 } %241, 0
+  %243 = icmp ugt i64 %242, 256
+  br i1 %243, label %244, label %_ZN2c43yml12_GLOBAL__N_111_parse_dumpIZNKS0_6Parser4_errIJNS_15basic_substringIKcEEEEEvS7_DprRKT_EUlS7_E_JRS7_mmEEEvT_S7_DpOT0_.exit, !prof !27
 
-245:                                              ; preds = %240
-  %246 = extractvalue { i64, i64 } %242, 1
+244:                                              ; preds = %239
+  %245 = extractvalue { i64, i64 } %241, 1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   store ptr @.str.471, ptr %3, align 8, !tbaa !67, !noalias !567
   %.sroa.437.0..sroa_idx.i51 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i64 17, ptr %.sroa.437.0..sroa_idx.i51, align 8, !tbaa !68, !noalias !567
-  %247 = call { i64, i64 } @_ZN2c46detail18format_dump_resumeIRZNKS_3yml6Parser4_errIJNS_15basic_substringIKcEEEEEvS7_DprRKT_EUlS7_E_S7_JmmEEENS_11DumpResultsEmOT_SF_NS5_IcEES7_RKT0_DprRKT1_(i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %6, i64 %243, i64 %246, ptr nonnull %7, i64 255, ptr noundef nonnull byval(%"struct.c4::basic_substring.0") align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %22)
+  %246 = call { i64, i64 } @_ZN2c46detail18format_dump_resumeIRZNKS_3yml6Parser4_errIJNS_15basic_substringIKcEEEEEvS7_DprRKT_EUlS7_E_S7_JmmEEENS_11DumpResultsEmOT_SF_NS5_IcEES7_RKT0_DprRKT1_(i64 noundef 0, ptr noundef nonnull align 8 dereferenceable(8) %6, i64 %242, i64 %245, ptr nonnull %7, i64 255, ptr noundef nonnull byval(%"struct.c4::basic_substring.0") align 8 %3, ptr noundef nonnull align 8 dereferenceable(16) %20, ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef nonnull align 8 dereferenceable(8) %22)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   br label %_ZN2c43yml12_GLOBAL__N_111_parse_dumpIZNKS0_6Parser4_errIJNS_15basic_substringIKcEEEEEvS7_DprRKT_EUlS7_E_JRS7_mmEEEvT_S7_DpOT0_.exit
 
-_ZN2c43yml12_GLOBAL__N_111_parse_dumpIZNKS0_6Parser4_errIJNS_15basic_substringIKcEEEEEvS7_DprRKT_EUlS7_E_JRS7_mmEEEvT_S7_DpOT0_.exit: ; preds = %._crit_edge91, %240, %245
+_ZN2c43yml12_GLOBAL__N_111_parse_dumpIZNKS0_6Parser4_errIJNS_15basic_substringIKcEEEEEvS7_DprRKT_EUlS7_E_JRS7_mmEEEvT_S7_DpOT0_.exit: ; preds = %._crit_edge91, %239, %244
   call void @llvm.lifetime.end.p0(i64 256, ptr nonnull %7) #39
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %22) #39
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %21) #39
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #39
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #39
-  br label %268
+  br label %267
 
 .lr.ph90:                                         ; preds = %_ZZNK2c43yml6Parser4_errIJNS_15basic_substringIKcEEEEEvS5_DprRKT_ENKUlS5_E_clES5_.exit, %_ZZNK2c43yml6Parser4_errIJNS_15basic_substringIKcEEEEEvS5_DprRKT_ENKUlS5_E_clES5_.exit56
-  %.02989 = phi i64 [ %257, %_ZZNK2c43yml6Parser4_errIJNS_15basic_substringIKcEEEEEvS5_DprRKT_ENKUlS5_E_clES5_.exit56 ], [ 1, %_ZZNK2c43yml6Parser4_errIJNS_15basic_substringIKcEEEEEvS5_DprRKT_ENKUlS5_E_clES5_.exit ]
-  %248 = load ptr, ptr %1, align 8, !tbaa !554
-  %249 = getelementptr inbounds nuw i8, ptr %248, i64 16
-  %250 = load i64, ptr %249, align 8, !tbaa !298
-  %251 = add i64 %250, 1
-  %252 = getelementptr inbounds nuw i8, ptr %248, i64 8
-  %253 = load i64, ptr %252, align 8, !tbaa !473
-  %.not.i.i52 = icmp ugt i64 %251, %253
-  br i1 %.not.i.i52, label %_ZZNK2c43yml6Parser4_errIJNS_15basic_substringIKcEEEEEvS5_DprRKT_ENKUlS5_E_clES5_.exit56, label %254
+  %.02989 = phi i64 [ %256, %_ZZNK2c43yml6Parser4_errIJNS_15basic_substringIKcEEEEEvS5_DprRKT_ENKUlS5_E_clES5_.exit56 ], [ 1, %_ZZNK2c43yml6Parser4_errIJNS_15basic_substringIKcEEEEEvS5_DprRKT_ENKUlS5_E_clES5_.exit ]
+  %247 = load ptr, ptr %1, align 8, !tbaa !554
+  %248 = getelementptr inbounds nuw i8, ptr %247, i64 16
+  %249 = load i64, ptr %248, align 8, !tbaa !298
+  %250 = add i64 %249, 1
+  %251 = getelementptr inbounds nuw i8, ptr %247, i64 8
+  %252 = load i64, ptr %251, align 8, !tbaa !473
+  %.not.i.i52 = icmp ugt i64 %250, %252
+  br i1 %.not.i.i52, label %_ZZNK2c43yml6Parser4_errIJNS_15basic_substringIKcEEEEEvS5_DprRKT_ENKUlS5_E_clES5_.exit56, label %253
 
-254:                                              ; preds = %.lr.ph90
-  %255 = load ptr, ptr %248, align 8, !tbaa !474
-  %256 = getelementptr inbounds nuw i8, ptr %255, i64 %250
-  store i8 126, ptr %256, align 1
-  %.pre.i.i53 = load i64, ptr %249, align 8, !tbaa !298
+253:                                              ; preds = %.lr.ph90
+  %254 = load ptr, ptr %247, align 8, !tbaa !474
+  %255 = getelementptr inbounds nuw i8, ptr %254, i64 %249
+  store i8 126, ptr %255, align 1
+  %.pre.i.i53 = load i64, ptr %248, align 8, !tbaa !298
   %.pre3.i.i54 = add i64 %.pre.i.i53, 1
   br label %_ZZNK2c43yml6Parser4_errIJNS_15basic_substringIKcEEEEEvS5_DprRKT_ENKUlS5_E_clES5_.exit56
 
-_ZZNK2c43yml6Parser4_errIJNS_15basic_substringIKcEEEEEvS5_DprRKT_ENKUlS5_E_clES5_.exit56: ; preds = %.lr.ph90, %254
-  %.pre-phi.i.i55 = phi i64 [ %.pre3.i.i54, %254 ], [ %251, %.lr.ph90 ]
-  store i64 %.pre-phi.i.i55, ptr %249, align 8, !tbaa !298
-  %257 = add nuw nsw i64 %.02989, 1
-  %exitcond.not = icmp eq i64 %257, %spec.select
+_ZZNK2c43yml6Parser4_errIJNS_15basic_substringIKcEEEEEvS5_DprRKT_ENKUlS5_E_clES5_.exit56: ; preds = %.lr.ph90, %253
+  %.pre-phi.i.i55 = phi i64 [ %.pre3.i.i54, %253 ], [ %250, %.lr.ph90 ]
+  store i64 %.pre-phi.i.i55, ptr %248, align 8, !tbaa !298
+  %256 = add nuw nsw i64 %.02989, 1
+  %exitcond.not = icmp eq i64 %256, %spec.select
   br i1 %exitcond.not, label %._crit_edge91, label %.lr.ph90, !llvm.loop !572
 
-258:                                              ; preds = %2
-  %259 = load ptr, ptr %1, align 8, !tbaa !554
-  %260 = getelementptr inbounds nuw i8, ptr %259, i64 16
-  %261 = load i64, ptr %260, align 8, !tbaa !298
-  %262 = add i64 %261, 1
-  %263 = getelementptr inbounds nuw i8, ptr %259, i64 8
-  %264 = load i64, ptr %263, align 8, !tbaa !473
-  %.not.i.i57 = icmp ugt i64 %262, %264
-  br i1 %.not.i.i57, label %_ZZNK2c43yml6Parser4_errIJNS_15basic_substringIKcEEEEEvS5_DprRKT_ENKUlS5_E_clES5_.exit61, label %265
+257:                                              ; preds = %2
+  %258 = load ptr, ptr %1, align 8, !tbaa !554
+  %259 = getelementptr inbounds nuw i8, ptr %258, i64 16
+  %260 = load i64, ptr %259, align 8, !tbaa !298
+  %261 = add i64 %260, 1
+  %262 = getelementptr inbounds nuw i8, ptr %258, i64 8
+  %263 = load i64, ptr %262, align 8, !tbaa !473
+  %.not.i.i57 = icmp ugt i64 %261, %263
+  br i1 %.not.i.i57, label %_ZZNK2c43yml6Parser4_errIJNS_15basic_substringIKcEEEEEvS5_DprRKT_ENKUlS5_E_clES5_.exit61, label %264
 
-265:                                              ; preds = %258
-  %266 = load ptr, ptr %259, align 8, !tbaa !474
-  %267 = getelementptr inbounds nuw i8, ptr %266, i64 %261
-  store i8 10, ptr %267, align 1
-  %.pre.i.i58 = load i64, ptr %260, align 8, !tbaa !298
+264:                                              ; preds = %257
+  %265 = load ptr, ptr %258, align 8, !tbaa !474
+  %266 = getelementptr inbounds nuw i8, ptr %265, i64 %260
+  store i8 10, ptr %266, align 1
+  %.pre.i.i58 = load i64, ptr %259, align 8, !tbaa !298
   %.pre3.i.i59 = add i64 %.pre.i.i58, 1
   br label %_ZZNK2c43yml6Parser4_errIJNS_15basic_substringIKcEEEEEvS5_DprRKT_ENKUlS5_E_clES5_.exit61
 
-_ZZNK2c43yml6Parser4_errIJNS_15basic_substringIKcEEEEEvS5_DprRKT_ENKUlS5_E_clES5_.exit61: ; preds = %258, %265
-  %.pre-phi.i.i60 = phi i64 [ %.pre3.i.i59, %265 ], [ %262, %258 ]
-  store i64 %.pre-phi.i.i60, ptr %260, align 8, !tbaa !298
-  br label %268
+_ZZNK2c43yml6Parser4_errIJNS_15basic_substringIKcEEEEEvS5_DprRKT_ENKUlS5_E_clES5_.exit61: ; preds = %257, %264
+  %.pre-phi.i.i60 = phi i64 [ %.pre3.i.i59, %264 ], [ %261, %257 ]
+  store i64 %.pre-phi.i.i60, ptr %259, align 8, !tbaa !298
+  br label %267
 
-268:                                              ; preds = %_ZZNK2c43yml6Parser4_errIJNS_15basic_substringIKcEEEEEvS5_DprRKT_ENKUlS5_E_clES5_.exit61, %_ZN2c43yml12_GLOBAL__N_111_parse_dumpIZNKS0_6Parser4_errIJNS_15basic_substringIKcEEEEEvS7_DprRKT_EUlS7_E_JRS7_mmEEEvT_S7_DpOT0_.exit
+267:                                              ; preds = %_ZZNK2c43yml6Parser4_errIJNS_15basic_substringIKcEEEEEvS5_DprRKT_ENKUlS5_E_clES5_.exit61, %_ZN2c43yml12_GLOBAL__N_111_parse_dumpIZNKS0_6Parser4_errIJNS_15basic_substringIKcEEEEEvS7_DprRKT_EUlS7_E_JRS7_mmEEEvT_S7_DpOT0_.exit
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %18) #39
   ret void
 }

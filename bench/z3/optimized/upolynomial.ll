@@ -19260,7 +19260,7 @@ _ZN6vectorIN11upolynomial7manager9drs_frameELb0EjE4backEv.exit.i: ; preds = %_ZN
   %.pre9.i = load ptr, ptr %14, align 8, !tbaa !187
   %.phi.trans.insert = getelementptr inbounds i8, ptr %.pre9.i, i64 -4
   %.pre = load i32, ptr %.phi.trans.insert, align 4, !tbaa !27
-  %.pre161 = add i32 %.pre, -1
+  %.pre160 = add i32 %.pre, -1
   br label %_ZN11upolynomial7manager13pop_top_frameER7svectorI3mpzjERS1_INS0_9drs_frameEjE.exit
 
 .lr.ph.i:                                         ; preds = %_ZN6vectorIN11upolynomial7manager9drs_frameELb0EjE4backEv.exit.i, %.noexc57
@@ -19294,7 +19294,7 @@ _ZN6vectorI3mpzLb0EjE4backEv.exit.i:              ; preds = %173, %.lr.ph.i
   br i1 %exitcond.not.i, label %._crit_edge.loopexit.i, label %.lr.ph.i, !llvm.loop !190
 
 _ZN11upolynomial7manager13pop_top_frameER7svectorI3mpzjERS1_INS0_9drs_frameEjE.exit: ; preds = %_ZN6vectorIN11upolynomial7manager9drs_frameELb0EjE4backEv.exit.i, %._crit_edge.loopexit.i
-  %.pre-phi = phi i32 [ %166, %_ZN6vectorIN11upolynomial7manager9drs_frameELb0EjE4backEv.exit.i ], [ %.pre161, %._crit_edge.loopexit.i ]
+  %.pre-phi = phi i32 [ %166, %_ZN6vectorIN11upolynomial7manager9drs_frameELb0EjE4backEv.exit.i ], [ %.pre160, %._crit_edge.loopexit.i ]
   %185 = phi ptr [ %142, %_ZN6vectorIN11upolynomial7manager9drs_frameELb0EjE4backEv.exit.i ], [ %.pre9.i, %._crit_edge.loopexit.i ]
   %186 = getelementptr inbounds i8, ptr %185, i64 -4
   store i32 %.pre-phi, ptr %186, align 4, !tbaa !27
@@ -19647,7 +19647,6 @@ _ZNK6vectorI3mpzLb0EjE4sizeEv.exit.i.i101:        ; preds = %_ZN22_scoped_numera
 
 .lr.ph.i.i103:                                    ; preds = %_ZNK6vectorI3mpzLb0EjE4sizeEv.exit.i.i101
   %wide.trip.count.i.i104 = zext i32 %307 to i64
-  %.pre160 = load ptr, ptr %63, align 8, !tbaa !117
   br label %308
 
 _ZN22_scoped_numeral_vectorI13mpzzp_managerE5resetEv.exit.thread3.i112: ; preds = %.noexc.i106
@@ -19657,7 +19656,7 @@ _ZN22_scoped_numeral_vectorI13mpzzp_managerE5resetEv.exit.thread3.i112: ; preds 
 308:                                              ; preds = %.noexc.i106, %.lr.ph.i.i103
   %indvars.iv.i.i105 = phi i64 [ 0, %.lr.ph.i.i103 ], [ %indvars.iv.next.i.i107, %.noexc.i106 ]
   %309 = getelementptr inbounds nuw %class.mpz, ptr %304, i64 %indvars.iv.i.i105
-  %310 = load ptr, ptr %.pre160, align 8, !tbaa !33
+  %310 = load ptr, ptr %62, align 8, !tbaa !33
   invoke void @_ZN11mpz_managerILb0EE3delEPS0_R3mpz(ptr noundef nonnull align 8 dereferenceable(600) %310, ptr noundef nonnull align 8 dereferenceable(16) %309)
           to label %.noexc.i106 unwind label %315
 

@@ -4685,31 +4685,31 @@ define internal fastcc void @pci_bus_distribute_available_resources(ptr noundef 
 
 229:                                              ; preds = %226
   %230 = getelementptr inbounds nuw i8, ptr %2, i64 24
-  br label %231
+  %231 = load i64, ptr %230, align 8
+  br label %232
 
-231:                                              ; preds = %.loopexit, %229
-  %232 = phi ptr [ %203, %229 ], [ %376, %.loopexit ]
-  %233 = phi i64 [ %171, %229 ], [ %375, %.loopexit ]
-  %234 = phi i64 [ %.0.allc2.0, %229 ], [ %374, %.loopexit ]
-  %235 = phi i64 [ %.0.allc.0, %229 ], [ %373, %.loopexit ]
-  %236 = getelementptr inbounds nuw i8, ptr %232, i64 1689
-  %237 = load i40, ptr %236, align 1
-  %238 = and i40 %237, 8388608
-  %239 = icmp eq i40 %238, 0
-  br i1 %239, label %240, label %.loopexit
+232:                                              ; preds = %.loopexit, %229
+  %233 = phi ptr [ %203, %229 ], [ %376, %.loopexit ]
+  %234 = phi i64 [ %171, %229 ], [ %375, %.loopexit ]
+  %235 = phi i64 [ %.0.allc2.0, %229 ], [ %374, %.loopexit ]
+  %236 = phi i64 [ %.0.allc.0, %229 ], [ %373, %.loopexit ]
+  %237 = getelementptr inbounds nuw i8, ptr %233, i64 1689
+  %238 = load i40, ptr %237, align 1
+  %239 = and i40 %238, 8388608
+  %240 = icmp eq i40 %239, 0
+  br i1 %240, label %241, label %.loopexit
 
-240:                                              ; preds = %231
-  %241 = getelementptr inbounds nuw i8, ptr %232, i64 920
-  %242 = getelementptr inbounds nuw i8, ptr %232, i64 68
-  %243 = load i64, ptr %230, align 8
+241:                                              ; preds = %232
+  %242 = getelementptr inbounds nuw i8, ptr %233, i64 920
+  %243 = getelementptr inbounds nuw i8, ptr %233, i64 68
   br label %244
 
-244:                                              ; preds = %367, %240
-  %245 = phi i64 [ %235, %240 ], [ %368, %367 ]
-  %246 = phi i64 [ %234, %240 ], [ %369, %367 ]
-  %247 = phi i64 [ %233, %240 ], [ %370, %367 ]
-  %248 = phi i64 [ 0, %240 ], [ %371, %367 ]
-  %249 = getelementptr [11 x %struct.resource], ptr %241, i64 0, i64 %248
+244:                                              ; preds = %367, %241
+  %245 = phi i64 [ %236, %241 ], [ %368, %367 ]
+  %246 = phi i64 [ %235, %241 ], [ %369, %367 ]
+  %247 = phi i64 [ %234, %241 ], [ %370, %367 ]
+  %248 = phi i64 [ 0, %241 ], [ %371, %367 ]
+  %249 = getelementptr [11 x %struct.resource], ptr %242, i64 0, i64 %248
   %250 = icmp eq ptr %249, null
   br i1 %250, label %.loopexit, label %251
 
@@ -4731,7 +4731,7 @@ define internal fastcc void @pci_bus_distribute_available_resources(ptr noundef 
   br i1 %260, label %367, label %261
 
 261:                                              ; preds = %255
-  %262 = load i32, ptr %242, align 4
+  %262 = load i32, ptr %243, align 4
   %263 = and i32 %262, -256
   %264 = icmp eq i32 %263, 395008
   br i1 %264, label %265, label %274
@@ -4782,7 +4782,7 @@ define internal fastcc void @pci_bus_distribute_available_resources(ptr noundef 
   br i1 %292, label %332, label %293
 
 293:                                              ; preds = %290
-  %294 = xor i64 %253, %243
+  %294 = xor i64 %253, %231
   %295 = and i64 %294, 1048576
   %296 = icmp eq i64 %295, 0
   br i1 %296, label %297, label %332
@@ -4796,7 +4796,7 @@ define internal fastcc void @pci_bus_distribute_available_resources(ptr noundef 
   br i1 %302, label %367, label %303
 
 303:                                              ; preds = %297
-  %304 = load i32, ptr %242, align 4
+  %304 = load i32, ptr %243, align 4
   %305 = and i32 %304, -256
   %306 = icmp eq i32 %305, 395008
   br i1 %306, label %307, label %316
@@ -4850,7 +4850,7 @@ define internal fastcc void @pci_bus_distribute_available_resources(ptr noundef 
   br i1 %337, label %367, label %338
 
 338:                                              ; preds = %332
-  %339 = load i32, ptr %242, align 4
+  %339 = load i32, ptr %243, align 4
   %340 = and i32 %339, -256
   %341 = icmp eq i32 %340, 395008
   br i1 %341, label %342, label %351
@@ -4903,13 +4903,13 @@ define internal fastcc void @pci_bus_distribute_available_resources(ptr noundef 
   %372 = icmp eq i64 %371, 11
   br i1 %372, label %.loopexit, label %244, !llvm.loop !69
 
-.loopexit:                                        ; preds = %367, %244, %231
-  %373 = phi i64 [ %235, %231 ], [ %245, %244 ], [ %368, %367 ]
-  %374 = phi i64 [ %234, %231 ], [ %246, %244 ], [ %369, %367 ]
-  %375 = phi i64 [ %233, %231 ], [ %247, %244 ], [ %370, %367 ]
-  %376 = load ptr, ptr %232, align 8
+.loopexit:                                        ; preds = %367, %244, %232
+  %373 = phi i64 [ %236, %232 ], [ %245, %244 ], [ %368, %367 ]
+  %374 = phi i64 [ %235, %232 ], [ %246, %244 ], [ %369, %367 ]
+  %375 = phi i64 [ %234, %232 ], [ %247, %244 ], [ %370, %367 ]
+  %376 = load ptr, ptr %233, align 8
   %377 = icmp eq ptr %376, %202
-  br i1 %377, label %378, label %231, !llvm.loop !70
+  br i1 %377, label %378, label %232, !llvm.loop !70
 
 378:                                              ; preds = %.loopexit
   store i64 %375, ptr %2, align 8

@@ -7095,7 +7095,7 @@ call.i.i.i.i.i.noexc:                             ; preds = %_ZNKSt8__detail15_H
 if.end3.i.i:                                      ; preds = %call.i.i.i.i.i.noexc, %for.cond.i.i
   %13 = load ptr, ptr %__p.0.i.i, align 8, !tbaa !156
   %tobool5.not.i.i = icmp eq ptr %13, null
-  br i1 %tobool5.not.i.i, label %if.end44.loopexit, label %lor.lhs.false.i.i
+  br i1 %tobool5.not.i.i, label %if.end44, label %lor.lhs.false.i.i
 
 lor.lhs.false.i.i:                                ; preds = %if.end3.i.i
   %14 = load i64, ptr %_M_bucket_count.i, align 8, !tbaa !158
@@ -7103,13 +7103,12 @@ lor.lhs.false.i.i:                                ; preds = %if.end3.i.i
   %15 = load i64, ptr %add.ptr.i.i.i.i, align 8, !tbaa !160
   %rem.i.i.i.i.i = urem i64 %15, %14
   %cmp.not.i.i = icmp eq i64 %rem.i.i.i.i.i, %rem.i.i.i
-  br i1 %cmp.not.i.i, label %for.cond.i.i, label %if.end44.loopexit, !llvm.loop !162
+  br i1 %cmp.not.i.i, label %for.cond.i.i, label %if.end44, !llvm.loop !162
 
 invoke.cont31:                                    ; preds = %call.i.i.i.i.i.noexc
   %16 = load ptr, ptr %__prev_p.0.i.i, align 8, !tbaa !156
   %tobool.not = icmp eq ptr %16, null
-  %.pre39 = load ptr, ptr %_M_node.i, align 8, !tbaa !209
-  br i1 %tobool.not, label %if.end44, label %cleanup62
+  br i1 %tobool.not, label %if.end44, label %if.then.i20
 
 lpad20:                                           ; preds = %if.end19
   %17 = landingpad { ptr, i32 }
@@ -7121,48 +7120,38 @@ lpad30:                                           ; preds = %_ZNKSt8__detail15_H
           cleanup
   br label %ehcleanup63
 
-if.end44.loopexit:                                ; preds = %lor.lhs.false.i.i, %if.end3.i.i
-  %.pre = load ptr, ptr %_M_node.i, align 8, !tbaa !209
-  br label %if.end44
-
-if.end44:                                         ; preds = %if.end44.loopexit, %if.then29, %invoke.cont31, %invoke.cont24
-  %19 = phi ptr [ %.pre, %if.end44.loopexit ], [ %call5.i.i.i.i, %if.then29 ], [ %.pre39, %invoke.cont31 ], [ %call5.i.i.i.i, %invoke.cont24 ]
-  %call48 = invoke ptr @_ZNSt10_HashtableIN8QuantLib15Gaussian1dModel13CachedSwapKeyESt4pairIKS2_N5boost10shared_ptrINS0_11VanillaSwapEEEESaIS9_ENSt8__detail10_Select1stESt8equal_toIS2_ENS1_19CachedSwapKeyHasherENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNSB_10_Hash_nodeIS9_Lb1EEEm(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %rem.i.i.i, i64 noundef %call2.i13, ptr noundef %19, i64 noundef 1)
+if.end44:                                         ; preds = %if.end3.i.i, %lor.lhs.false.i.i, %if.then29, %invoke.cont31, %invoke.cont24
+  %call48 = invoke ptr @_ZNSt10_HashtableIN8QuantLib15Gaussian1dModel13CachedSwapKeyESt4pairIKS2_N5boost10shared_ptrINS0_11VanillaSwapEEEESaIS9_ENSt8__detail10_Select1stESt8equal_toIS2_ENS1_19CachedSwapKeyHasherENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEE21_M_insert_unique_nodeEmmPNSB_10_Hash_nodeIS9_Lb1EEEm(ptr noundef nonnull align 8 dereferenceable(56) %this, i64 noundef %rem.i.i.i, i64 noundef %call2.i13, ptr noundef nonnull %call5.i.i.i.i, i64 noundef 1)
           to label %_ZNSt10_HashtableIN8QuantLib15Gaussian1dModel13CachedSwapKeyESt4pairIKS2_N5boost10shared_ptrINS0_11VanillaSwapEEEESaIS9_ENSt8__detail10_Select1stESt8equal_toIS2_ENS1_19CachedSwapKeyHasherENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %lpad46
 
 lpad46:                                           ; preds = %if.end44
-  %20 = landingpad { ptr, i32 }
+  %19 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup63
 
-cleanup62:                                        ; preds = %invoke.cont31
-  %tobool.not.i = icmp eq ptr %.pre39, null
-  br i1 %tobool.not.i, label %_ZNSt10_HashtableIN8QuantLib15Gaussian1dModel13CachedSwapKeyESt4pairIKS2_N5boost10shared_ptrINS0_11VanillaSwapEEEESaIS9_ENSt8__detail10_Select1stESt8equal_toIS2_ENS1_19CachedSwapKeyHasherENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit, label %if.then.i20
-
-if.then.i20:                                      ; preds = %invoke.cont, %cleanup62
-  %retval.sroa.0.0.ph45 = phi ptr [ %16, %cleanup62 ], [ %__it.sroa.0.0, %invoke.cont ]
-  %.pr44 = phi ptr [ %.pre39, %cleanup62 ], [ %call5.i.i.i.i, %invoke.cont ]
-  %21 = load ptr, ptr %__node, align 8, !tbaa !207
-  invoke void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN8QuantLib15Gaussian1dModel13CachedSwapKeyEN5boost10shared_ptrINS3_11VanillaSwapEEEELb1EEEEE18_M_deallocate_nodeEPSC_(ptr noundef nonnull align 1 dereferenceable(1) %21, ptr noundef nonnull %.pr44)
+if.then.i20:                                      ; preds = %invoke.cont, %invoke.cont31
+  %retval.sroa.0.0.ph = phi ptr [ %16, %invoke.cont31 ], [ %__it.sroa.0.0, %invoke.cont ]
+  %20 = load ptr, ptr %__node, align 8, !tbaa !207
+  invoke void @_ZNSt8__detail16_Hashtable_allocISaINS_10_Hash_nodeISt4pairIKN8QuantLib15Gaussian1dModel13CachedSwapKeyEN5boost10shared_ptrINS3_11VanillaSwapEEEELb1EEEEE18_M_deallocate_nodeEPSC_(ptr noundef nonnull align 1 dereferenceable(1) %20, ptr noundef nonnull %call5.i.i.i.i)
           to label %_ZNSt10_HashtableIN8QuantLib15Gaussian1dModel13CachedSwapKeyESt4pairIKS2_N5boost10shared_ptrINS0_11VanillaSwapEEEESaIS9_ENSt8__detail10_Select1stESt8equal_toIS2_ENS1_19CachedSwapKeyHasherENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %if.then.i20
-  %22 = landingpad { ptr, i32 }
+  %21 = landingpad { ptr, i32 }
           catch ptr null
-  %23 = extractvalue { ptr, i32 } %22, 0
-  tail call void @__clang_call_terminate(ptr %23) #30
+  %22 = extractvalue { ptr, i32 } %21, 0
+  tail call void @__clang_call_terminate(ptr %22) #30
   unreachable
 
-_ZNSt10_HashtableIN8QuantLib15Gaussian1dModel13CachedSwapKeyESt4pairIKS2_N5boost10shared_ptrINS0_11VanillaSwapEEEESaIS9_ENSt8__detail10_Select1stESt8equal_toIS2_ENS1_19CachedSwapKeyHasherENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit: ; preds = %if.end44, %cleanup62, %if.then.i20
-  %retval.sroa.4.029 = phi i8 [ 0, %cleanup62 ], [ 0, %if.then.i20 ], [ 1, %if.end44 ]
-  %retval.sroa.0.028 = phi ptr [ %16, %cleanup62 ], [ %retval.sroa.0.0.ph45, %if.then.i20 ], [ %call48, %if.end44 ]
+_ZNSt10_HashtableIN8QuantLib15Gaussian1dModel13CachedSwapKeyESt4pairIKS2_N5boost10shared_ptrINS0_11VanillaSwapEEEESaIS9_ENSt8__detail10_Select1stESt8equal_toIS2_ENS1_19CachedSwapKeyHasherENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev.exit: ; preds = %if.end44, %if.then.i20
+  %retval.sroa.4.029 = phi i8 [ 0, %if.then.i20 ], [ 1, %if.end44 ]
+  %retval.sroa.0.028 = phi ptr [ %retval.sroa.0.0.ph, %if.then.i20 ], [ %call48, %if.end44 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__node) #29
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %retval.sroa.0.028, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %retval.sroa.4.029, 1
   ret { ptr, i8 } %.fca.1.insert
 
 ehcleanup63:                                      ; preds = %lpad20, %lpad46, %lpad30, %lpad
-  %.pn.pn.pn = phi { ptr, i32 } [ %6, %lpad ], [ %17, %lpad20 ], [ %20, %lpad46 ], [ %18, %lpad30 ]
+  %.pn.pn.pn = phi { ptr, i32 } [ %6, %lpad ], [ %17, %lpad20 ], [ %19, %lpad46 ], [ %18, %lpad30 ]
   call void @_ZNSt10_HashtableIN8QuantLib15Gaussian1dModel13CachedSwapKeyESt4pairIKS2_N5boost10shared_ptrINS0_11VanillaSwapEEEESaIS9_ENSt8__detail10_Select1stESt8equal_toIS2_ENS1_19CachedSwapKeyHasherENSB_18_Mod_range_hashingENSB_20_Default_ranged_hashENSB_20_Prime_rehash_policyENSB_17_Hashtable_traitsILb1ELb0ELb1EEEE12_Scoped_nodeD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %__node) #29
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %__node) #29
   resume { ptr, i32 } %.pn.pn.pn

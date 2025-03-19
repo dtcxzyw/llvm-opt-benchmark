@@ -9750,7 +9750,6 @@ _ZN16wasmtime_environ9component9translate5adapt23PartitionAdapterModules7adapter
   %1386 = extractvalue { i64, ptr } %1383, 1
   store i64 %1385, ptr %24, align 8, !noalias !1632
   store ptr %1386, ptr %1306, align 8, !noalias !1632
-  store i64 0, ptr %1307, align 8, !noalias !1632
   %1387 = getelementptr inbounds { [4 x i64], i64, [4 x i64] }, ptr %1381, i64 %1382
   %1388 = icmp eq i64 %1385, 0
   br i1 %1388, label %.loopexit201.i, label %.lr.ph.i.i172

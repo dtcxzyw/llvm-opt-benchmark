@@ -2420,14 +2420,14 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__16UsdZipFileWrit
   %46 = getelementptr inbounds nuw i8, ptr %6, i64 2
   %47 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %48 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %49 = getelementptr inbounds nuw i8, ptr %5, i64 48
+  %49 = getelementptr inbounds nuw i8, ptr %5, i64 56
   br label %50
 
 50:                                               ; preds = %.lr.ph, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrepareExtraFieldPaddingERA68_ct.exit
   %.sroa.032.035 = phi ptr [ %.val22, %.lr.ph ], [ %105, %_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_125_PrepareExtraFieldPaddingERA68_ct.exit ]
   %51 = getelementptr inbounds nuw i8, ptr %.sroa.032.035, i64 40
   %52 = load i32, ptr %.sroa.032.035, align 4
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %49, i8 0, i64 24, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, i8 0, i64 16, i1 false)
   store i32 33639248, ptr %5, align 8
   store i16 0, ptr %22, align 4
   %53 = getelementptr inbounds nuw i8, ptr %.sroa.032.035, i64 8

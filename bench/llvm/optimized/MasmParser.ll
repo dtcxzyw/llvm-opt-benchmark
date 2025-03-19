@@ -18877,7 +18877,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_110MasmParser24parseD
   store i8 3, ptr %10, align 8, !tbaa !457
   %12 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8TokErrorERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %0, ptr noundef nonnull align 8 dereferenceable(34) %2, ptr null, ptr null) #26
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %2) #26
-  br label %279
+  br label %277
 
 13:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %3) #26
@@ -18888,7 +18888,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_110MasmParser24parseD
   store i8 3, ptr %14, align 8, !tbaa !457
   %16 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser8TokErrorERKNS_5TwineENS_7SMRangeE(ptr noundef nonnull align 8 dereferenceable(34) %0, ptr noundef nonnull align 8 dereferenceable(34) %3, ptr null, ptr null) #26
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %3) #26
-  br label %279
+  br label %277
 
 17:                                               ; preds = %1
   %18 = tail call noundef zeroext i1 @_ZN4llvm11MCAsmParser8parseEOLEv(ptr noundef nonnull align 8 dereferenceable(34) %0) #26
@@ -18903,7 +18903,7 @@ define internal fastcc noundef zeroext i1 @_ZN12_GLOBAL__N_110MasmParser24parseD
   store i8 3, ptr %20, align 8, !tbaa !457
   %22 = call noundef zeroext i1 @_ZN4llvm11MCAsmParser14addErrorSuffixERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(34) %0, ptr noundef nonnull align 8 dereferenceable(34) %4) #26
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %4) #26
-  br label %279
+  br label %277
 
 23:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(i64 88, ptr nonnull %5) #26
@@ -19467,73 +19467,71 @@ _ZN4llvm10drop_beginIRSt6vectorIN12_GLOBAL__N_19FieldInfoESaIS3_EEEEDaOT_m.exit:
   br i1 %.not, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %.lr.ph, %244, %.thread, %._crit_edge
-  %255 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %256 = getelementptr inbounds nuw i8, ptr %5, i64 76
-  %257 = load i32, ptr %256, align 4, !tbaa !319
-  %258 = icmp eq i32 %257, 0
-  br i1 %258, label %.loopexit._ZN4llvm9StringMapImNS_15MallocAllocatorEED2Ev.exit.i_crit_edge, label %259
+  %255 = phi ptr [ %.val58, %244 ], [ %.val57, %.thread ], [ %.val57, %._crit_edge ], [ %.val58, %.lr.ph ]
+  %256 = phi ptr [ %.val61, %244 ], [ %.val60, %.thread ], [ %.val60, %._crit_edge ], [ %.val61, %.lr.ph ]
+  %257 = getelementptr inbounds nuw i8, ptr %5, i64 64
+  %258 = getelementptr inbounds nuw i8, ptr %5, i64 76
+  %259 = load i32, ptr %258, align 4, !tbaa !319
+  %260 = icmp eq i32 %259, 0
+  br i1 %260, label %.loopexit._ZN4llvm9StringMapImNS_15MallocAllocatorEED2Ev.exit.i_crit_edge, label %261
 
 .loopexit._ZN4llvm9StringMapImNS_15MallocAllocatorEED2Ev.exit.i_crit_edge: ; preds = %.loopexit
-  %.pre115 = load ptr, ptr %255, align 8, !tbaa !321
+  %.pre115 = load ptr, ptr %257, align 8, !tbaa !321
   br label %_ZN4llvm9StringMapImNS_15MallocAllocatorEED2Ev.exit.i
 
-259:                                              ; preds = %.loopexit
-  %260 = getelementptr inbounds nuw i8, ptr %5, i64 72
-  %261 = load i32, ptr %260, align 8, !tbaa !320
-  %.not10.i.i = icmp eq i32 %261, 0
-  %.pre116 = load ptr, ptr %255, align 8, !tbaa !321
+261:                                              ; preds = %.loopexit
+  %262 = getelementptr inbounds nuw i8, ptr %5, i64 72
+  %263 = load i32, ptr %262, align 8, !tbaa !320
+  %.not10.i.i = icmp eq i32 %263, 0
+  %.pre116 = load ptr, ptr %257, align 8, !tbaa !321
   br i1 %.not10.i.i, label %_ZN4llvm9StringMapImNS_15MallocAllocatorEED2Ev.exit.i, label %.lr.ph.preheader.i.i
 
-.lr.ph.preheader.i.i:                             ; preds = %259
-  %262 = zext i32 %261 to i64
+.lr.ph.preheader.i.i:                             ; preds = %261
+  %264 = zext i32 %263 to i64
   br label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %268, %.lr.ph.preheader.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %268 ]
-  %263 = getelementptr inbounds nuw ptr, ptr %.pre116, i64 %indvars.iv.i.i
-  %264 = load ptr, ptr %263, align 8, !tbaa !322
-  %magicptr.i.i78 = ptrtoint ptr %264 to i64
-  switch i64 %magicptr.i.i78, label %265 [
-    i64 0, label %268
-    i64 -8, label %268
+.lr.ph.i.i:                                       ; preds = %270, %.lr.ph.preheader.i.i
+  %indvars.iv.i.i = phi i64 [ 0, %.lr.ph.preheader.i.i ], [ %indvars.iv.next.i.i, %270 ]
+  %265 = getelementptr inbounds nuw ptr, ptr %.pre116, i64 %indvars.iv.i.i
+  %266 = load ptr, ptr %265, align 8, !tbaa !322
+  %magicptr.i.i78 = ptrtoint ptr %266 to i64
+  switch i64 %magicptr.i.i78, label %267 [
+    i64 0, label %270
+    i64 -8, label %270
   ]
 
-265:                                              ; preds = %.lr.ph.i.i
-  %266 = load i64, ptr %264, align 8, !tbaa !324
-  %267 = add i64 %266, 17
-  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %264, i64 noundef %267, i64 noundef 8) #26
-  br label %268
+267:                                              ; preds = %.lr.ph.i.i
+  %268 = load i64, ptr %266, align 8, !tbaa !324
+  %269 = add i64 %268, 17
+  call void @_ZN4llvm17deallocate_bufferEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %266, i64 noundef %269, i64 noundef 8) #26
+  br label %270
 
-268:                                              ; preds = %265, %.lr.ph.i.i, %.lr.ph.i.i
+270:                                              ; preds = %267, %.lr.ph.i.i, %.lr.ph.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %262
+  %.not.i.i = icmp eq i64 %indvars.iv.next.i.i, %264
   br i1 %.not.i.i, label %_ZN4llvm9StringMapImNS_15MallocAllocatorEED2Ev.exit.i, label %.lr.ph.i.i, !llvm.loop !342
 
-_ZN4llvm9StringMapImNS_15MallocAllocatorEED2Ev.exit.i: ; preds = %268, %.loopexit._ZN4llvm9StringMapImNS_15MallocAllocatorEED2Ev.exit.i_crit_edge, %259
-  %269 = phi ptr [ %.pre115, %.loopexit._ZN4llvm9StringMapImNS_15MallocAllocatorEED2Ev.exit.i_crit_edge ], [ %.pre116, %259 ], [ %.pre116, %268 ]
-  call void @free(ptr noundef %269) #26
-  %270 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %271 = load ptr, ptr %270, align 8, !tbaa !343
-  %272 = getelementptr inbounds nuw i8, ptr %5, i64 48
-  %273 = load ptr, ptr %272, align 8, !tbaa !346
-  call fastcc void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN12_GLOBAL__N_19FieldInfoEEEvT_S5_(ptr noundef %271, ptr noundef %273) #29
-  %.not.i.i.i79 = icmp eq ptr %271, null
-  br i1 %.not.i.i.i79, label %_ZN12_GLOBAL__N_110StructInfoD2Ev.exit, label %274
+_ZN4llvm9StringMapImNS_15MallocAllocatorEED2Ev.exit.i: ; preds = %270, %.loopexit._ZN4llvm9StringMapImNS_15MallocAllocatorEED2Ev.exit.i_crit_edge, %261
+  %271 = phi ptr [ %.pre115, %.loopexit._ZN4llvm9StringMapImNS_15MallocAllocatorEED2Ev.exit.i_crit_edge ], [ %.pre116, %261 ], [ %.pre116, %270 ]
+  call void @free(ptr noundef %271) #26
+  call fastcc void @_ZNSt12_Destroy_auxILb0EE9__destroyIPN12_GLOBAL__N_19FieldInfoEEEvT_S5_(ptr noundef %256, ptr noundef %255) #29
+  %.not.i.i.i79 = icmp eq ptr %256, null
+  br i1 %.not.i.i.i79, label %_ZN12_GLOBAL__N_110StructInfoD2Ev.exit, label %272
 
-274:                                              ; preds = %_ZN4llvm9StringMapImNS_15MallocAllocatorEED2Ev.exit.i
-  %275 = getelementptr inbounds nuw i8, ptr %5, i64 56
-  %.val1.i.i = load ptr, ptr %275, align 8, !tbaa !347
-  %276 = ptrtoint ptr %.val1.i.i to i64
-  %277 = ptrtoint ptr %271 to i64
-  %278 = sub i64 %276, %277
-  call void @_ZdlPvm(ptr noundef nonnull %271, i64 noundef %278) #28
+272:                                              ; preds = %_ZN4llvm9StringMapImNS_15MallocAllocatorEED2Ev.exit.i
+  %273 = getelementptr inbounds nuw i8, ptr %5, i64 56
+  %.val1.i.i = load ptr, ptr %273, align 8, !tbaa !347
+  %274 = ptrtoint ptr %.val1.i.i to i64
+  %275 = ptrtoint ptr %256 to i64
+  %276 = sub i64 %274, %275
+  call void @_ZdlPvm(ptr noundef nonnull %256, i64 noundef %276) #28
   br label %_ZN12_GLOBAL__N_110StructInfoD2Ev.exit
 
-_ZN12_GLOBAL__N_110StructInfoD2Ev.exit:           ; preds = %_ZN4llvm9StringMapImNS_15MallocAllocatorEED2Ev.exit.i, %274
+_ZN12_GLOBAL__N_110StructInfoD2Ev.exit:           ; preds = %_ZN4llvm9StringMapImNS_15MallocAllocatorEED2Ev.exit.i, %272
   call void @llvm.lifetime.end.p0(i64 88, ptr nonnull %5) #26
-  br label %279
+  br label %277
 
-279:                                              ; preds = %_ZN12_GLOBAL__N_110StructInfoD2Ev.exit, %19, %13, %9
+277:                                              ; preds = %_ZN12_GLOBAL__N_110StructInfoD2Ev.exit, %19, %13, %9
   %.0 = phi i1 [ %12, %9 ], [ %16, %13 ], [ %22, %19 ], [ false, %_ZN12_GLOBAL__N_110StructInfoD2Ev.exit ]
   ret i1 %.0
 }

@@ -11525,27 +11525,25 @@ define void @_Z18associateParticlesP9MeshModelS0_RfS1_N3vcg6Point3IfEE(ptr nound
   %37 = getelementptr inbounds nuw i8, ptr %25, i64 8
   br label %38
 
-38:                                               ; preds = %.lr.ph, %45
-  %.sroa.035.041 = phi ptr [ %33, %.lr.ph ], [ %78, %45 ]
+38:                                               ; preds = %.lr.ph, %43
+  %.sroa.035.041 = phi ptr [ %33, %.lr.ph ], [ %78, %43 ]
   %39 = invoke noalias noundef nonnull dereferenceable(48) ptr @_Znwm(i64 noundef 48) #32
           to label %40 unwind label %.loopexit
 
 40:                                               ; preds = %38
-  %41 = getelementptr inbounds nuw i8, ptr %39, i64 20
-  store float 1.000000e+00, ptr %41, align 4
-  %42 = getelementptr inbounds nuw i8, ptr %39, i64 24
-  store float 0.000000e+00, ptr %42, align 8
   store ptr null, ptr %39, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %.sroa.035.041, i64 8
-  %44 = invoke noundef ptr @_ZN3vcg11GridClosestINS_13GridStaticPtrI6CFaceOfEENS_4face24PointDistanceBaseFunctorIfEENS_3tri9FaceTmarkI6CMeshOEEEENT_6ObjPtrERSB_T0_RT1_RKNSE_9QueryTypeERKNSB_10ScalarTypeERSK_RNSB_9CoordTypeE(ptr noundef nonnull align 8 dereferenceable(112) %7, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 4 dereferenceable(12) %43, ptr noundef nonnull align 4 dereferenceable(4) %15, ptr noundef nonnull align 4 dereferenceable(4) %14, ptr noundef nonnull align 4 dereferenceable(12) %8)
-          to label %45 unwind label %.loopexit
+  %41 = getelementptr inbounds nuw i8, ptr %.sroa.035.041, i64 8
+  %42 = invoke noundef ptr @_ZN3vcg11GridClosestINS_13GridStaticPtrI6CFaceOfEENS_4face24PointDistanceBaseFunctorIfEENS_3tri9FaceTmarkI6CMeshOEEEENT_6ObjPtrERSB_T0_RT1_RKNSE_9QueryTypeERKNSB_10ScalarTypeERSK_RNSB_9CoordTypeE(ptr noundef nonnull align 8 dereferenceable(112) %7, ptr noundef nonnull align 8 dereferenceable(8) %13, ptr noundef nonnull align 4 dereferenceable(12) %41, ptr noundef nonnull align 4 dereferenceable(4) %15, ptr noundef nonnull align 4 dereferenceable(4) %14, ptr noundef nonnull align 4 dereferenceable(12) %8)
+          to label %43 unwind label %.loopexit
 
-45:                                               ; preds = %40
-  store ptr %44, ptr %39, align 8
-  %46 = load ptr, ptr %44, align 8
+43:                                               ; preds = %40
+  %44 = getelementptr inbounds nuw i8, ptr %39, i64 24
+  %45 = getelementptr inbounds nuw i8, ptr %39, i64 20
+  store ptr %42, ptr %39, align 8
+  %46 = load ptr, ptr %42, align 8
   %47 = getelementptr inbounds nuw i8, ptr %46, i64 120
   %48 = load ptr, ptr %46, align 8
-  %49 = ptrtoint ptr %44 to i64
+  %49 = ptrtoint ptr %42 to i64
   %50 = ptrtoint ptr %48 to i64
   %51 = sub i64 %49, %50
   %52 = load ptr, ptr %47, align 8
@@ -11555,14 +11553,14 @@ define void @_Z18associateParticlesP9MeshModelS0_RfS1_N3vcg6Point3IfEE(ptr nound
   %56 = fadd float %55, 1.000000e+00
   store float %56, ptr %54, align 4
   %57 = load float, ptr %2, align 4
-  store float %57, ptr %41, align 4
+  store float %57, ptr %45, align 4
   %58 = load float, ptr %3, align 4
-  store float %58, ptr %42, align 8
-  %59 = getelementptr inbounds nuw i8, ptr %44, i64 36
+  store float %58, ptr %44, align 8
+  %59 = getelementptr inbounds nuw i8, ptr %42, i64 36
   %.sroa.020.0.copyload.i = load float, ptr %59, align 4
-  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %44, i64 40
+  %.sroa.3.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %42, i64 40
   %.sroa.3.0.copyload.i = load float, ptr %.sroa.3.0..sroa_idx.i, align 4
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %44, i64 44
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %42, i64 44
   %.sroa.5.0.copyload.i = load float, ptr %.sroa.5.0..sroa_idx.i, align 4
   %60 = fmul float %.sroa.024.4.vec.extract.i, %.sroa.3.0.copyload.i
   %61 = call float @llvm.fmuladd.f32(float %.sroa.020.0.copyload.i, float %.sroa.024.0.vec.extract.i, float %60)
@@ -11619,7 +11617,7 @@ define void @_Z18associateParticlesP9MeshModelS0_RfS1_N3vcg6Point3IfEE(ptr nound
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %10) #29
   br label %90
 
-._crit_edge:                                      ; preds = %45, %31
+._crit_edge:                                      ; preds = %43, %31
   %85 = getelementptr inbounds nuw i8, ptr %7, i64 88
   %86 = load ptr, ptr %85, align 8
   %.not.i.i.i.i = icmp eq ptr %86, null

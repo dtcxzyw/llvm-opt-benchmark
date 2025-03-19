@@ -1170,62 +1170,62 @@ define void @_ZN13TextureObject15GetTextureSizesEv(ptr dead_on_unwind noalias wr
   br label %8
 
 8:                                                ; preds = %.lr.ph, %_ZNSt6vectorI11TextureSizeSaIS0_EE9push_backEOS0_.exit
-  %9 = phi ptr [ %5, %.lr.ph ], [ %52, %_ZNSt6vectorI11TextureSizeSaIS0_EE9push_backEOS0_.exit ]
-  %10 = phi i64 [ 0, %.lr.ph ], [ %50, %_ZNSt6vectorI11TextureSizeSaIS0_EE9push_backEOS0_.exit ]
-  %.025 = phi i32 [ 0, %.lr.ph ], [ %49, %_ZNSt6vectorI11TextureSizeSaIS0_EE9push_backEOS0_.exit ]
-  %11 = phi ptr [ null, %.lr.ph ], [ %48, %_ZNSt6vectorI11TextureSizeSaIS0_EE9push_backEOS0_.exit ]
-  %12 = getelementptr inbounds nuw %struct.TextureImageInfo, ptr %9, i64 %10
-  %13 = invoke noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(32) %12)
+  %9 = phi ptr [ null, %.lr.ph ], [ %48, %_ZNSt6vectorI11TextureSizeSaIS0_EE9push_backEOS0_.exit ]
+  %10 = phi ptr [ %5, %.lr.ph ], [ %53, %_ZNSt6vectorI11TextureSizeSaIS0_EE9push_backEOS0_.exit ]
+  %11 = phi i64 [ 0, %.lr.ph ], [ %51, %_ZNSt6vectorI11TextureSizeSaIS0_EE9push_backEOS0_.exit ]
+  %.025 = phi i32 [ 0, %.lr.ph ], [ %50, %_ZNSt6vectorI11TextureSizeSaIS0_EE9push_backEOS0_.exit ]
+  %12 = phi ptr [ null, %.lr.ph ], [ %49, %_ZNSt6vectorI11TextureSizeSaIS0_EE9push_backEOS0_.exit ]
+  %13 = getelementptr inbounds nuw %struct.TextureImageInfo, ptr %10, i64 %11
+  %14 = invoke noundef i32 @_ZNK6QImage5widthEv(ptr noundef nonnull align 8 dereferenceable(32) %13)
           to label %_ZN13TextureObject12TextureWidthEm.exit unwind label %.loopexit
 
 _ZN13TextureObject12TextureWidthEm.exit:          ; preds = %8
-  %14 = load ptr, ptr %3, align 8
-  %15 = load ptr, ptr %1, align 8
-  %16 = ptrtoint ptr %14 to i64
+  %15 = load ptr, ptr %3, align 8
+  %16 = load ptr, ptr %1, align 8
   %17 = ptrtoint ptr %15 to i64
-  %18 = sub i64 %16, %17
-  %19 = ashr exact i64 %18, 5
-  %20 = icmp ugt i64 %19, %10
-  br i1 %20, label %22, label %21
+  %18 = ptrtoint ptr %16 to i64
+  %19 = sub i64 %17, %18
+  %20 = ashr exact i64 %19, 5
+  %21 = icmp ugt i64 %20, %11
+  br i1 %21, label %23, label %22
 
-21:                                               ; preds = %_ZN13TextureObject12TextureWidthEm.exit
-  store ptr %11, ptr %0, align 8
+22:                                               ; preds = %_ZN13TextureObject12TextureWidthEm.exit
+  store ptr %12, ptr %0, align 8
   invoke void @_Z11ensure_failPKcS0_j(ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.2, i32 noundef 114) #22
           to label %.noexc9 unwind label %.loopexit.split-lp
 
-.noexc9:                                          ; preds = %21
+.noexc9:                                          ; preds = %22
   unreachable
 
-22:                                               ; preds = %_ZN13TextureObject12TextureWidthEm.exit
-  %23 = getelementptr inbounds nuw %struct.TextureImageInfo, ptr %15, i64 %10
-  %24 = invoke noundef i32 @_ZNK6QImage6heightEv(ptr noundef nonnull align 8 dereferenceable(32) %23)
+23:                                               ; preds = %_ZN13TextureObject12TextureWidthEm.exit
+  %24 = getelementptr inbounds nuw %struct.TextureImageInfo, ptr %16, i64 %11
+  %25 = invoke noundef i32 @_ZNK6QImage6heightEv(ptr noundef nonnull align 8 dereferenceable(32) %24)
           to label %_ZN13TextureObject13TextureHeightEm.exit unwind label %.loopexit
 
-_ZN13TextureObject13TextureHeightEm.exit:         ; preds = %22
-  %25 = load ptr, ptr %6, align 8
+_ZN13TextureObject13TextureHeightEm.exit:         ; preds = %23
   %26 = load ptr, ptr %7, align 8
-  %.not.i.i = icmp eq ptr %25, %26
+  %.not.i.i = icmp eq ptr %9, %26
   br i1 %.not.i.i, label %29, label %27
 
 27:                                               ; preds = %_ZN13TextureObject13TextureHeightEm.exit
-  %.sroa.3.0.insert.ext = zext i32 %24 to i64
+  %.sroa.3.0.insert.ext = zext i32 %25 to i64
   %.sroa.3.0.insert.shift = shl nuw i64 %.sroa.3.0.insert.ext, 32
-  %.sroa.0.0.insert.ext = zext i32 %13 to i64
+  %.sroa.0.0.insert.ext = zext i32 %14 to i64
   %.sroa.0.0.insert.insert = or disjoint i64 %.sroa.3.0.insert.shift, %.sroa.0.0.insert.ext
-  store i64 %.sroa.0.0.insert.insert, ptr %25, align 4
-  %28 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  store i64 %.sroa.0.0.insert.insert, ptr %9, align 4
+  %28 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %28, ptr %6, align 8
   br label %_ZNSt6vectorI11TextureSizeSaIS0_EE9push_backEOS0_.exit
 
 29:                                               ; preds = %_ZN13TextureObject13TextureHeightEm.exit
-  %30 = ptrtoint ptr %25 to i64
-  %31 = ptrtoint ptr %11 to i64
+  %30 = ptrtoint ptr %9 to i64
+  %31 = ptrtoint ptr %12 to i64
   %32 = sub i64 %30, %31
   %33 = icmp eq i64 %32, 9223372036854775800
   br i1 %33, label %34, label %_ZNKSt6vectorI11TextureSizeSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i
 
 34:                                               ; preds = %29
-  store ptr %11, ptr %0, align 8
+  store ptr %12, ptr %0, align 8
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str) #22
           to label %.noexc11 unwind label %.loopexit.split-lp
 
@@ -1247,25 +1247,25 @@ _ZNKSt6vectorI11TextureSizeSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %29
 
 .noexc12:                                         ; preds = %_ZNKSt6vectorI11TextureSizeSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i
   %42 = getelementptr inbounds i8, ptr %41, i64 %32
-  %.sroa.3.0.insert.ext18 = zext i32 %24 to i64
+  %.sroa.3.0.insert.ext18 = zext i32 %25 to i64
   %.sroa.3.0.insert.shift19 = shl nuw i64 %.sroa.3.0.insert.ext18, 32
-  %.sroa.0.0.insert.ext14 = zext i32 %13 to i64
+  %.sroa.0.0.insert.ext14 = zext i32 %14 to i64
   %.sroa.0.0.insert.insert16 = or disjoint i64 %.sroa.3.0.insert.shift19, %.sroa.0.0.insert.ext14
   store i64 %.sroa.0.0.insert.insert16, ptr %42, align 4
   %43 = icmp sgt i64 %32, 0
   br i1 %43, label %44, label %_ZNSt6vectorI11TextureSizeSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i
 
 44:                                               ; preds = %.noexc12
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %41, ptr align 4 %11, i64 %32, i1 false)
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %41, ptr align 4 %12, i64 %32, i1 false)
   br label %_ZNSt6vectorI11TextureSizeSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i
 
 _ZNSt6vectorI11TextureSizeSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i: ; preds = %44, %.noexc12
   %45 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  %.not.i17.i.i.i = icmp eq ptr %11, null
+  %.not.i17.i.i.i = icmp eq ptr %12, null
   br i1 %.not.i17.i.i.i, label %_ZNSt6vectorI11TextureSizeSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i, label %46
 
 46:                                               ; preds = %_ZNSt6vectorI11TextureSizeSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i
-  tail call void @_ZdlPv(ptr noundef nonnull %11) #23
+  tail call void @_ZdlPv(ptr noundef nonnull %12) #23
   br label %_ZNSt6vectorI11TextureSizeSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i
 
 _ZNSt6vectorI11TextureSizeSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i: ; preds = %46, %_ZNSt6vectorI11TextureSizeSaIS0_EE11_S_relocateEPS0_S3_S3_RS1_.exit16.i.i.i
@@ -1275,43 +1275,44 @@ _ZNSt6vectorI11TextureSizeSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__nor
   br label %_ZNSt6vectorI11TextureSizeSaIS0_EE9push_backEOS0_.exit
 
 _ZNSt6vectorI11TextureSizeSaIS0_EE9push_backEOS0_.exit: ; preds = %_ZNSt6vectorI11TextureSizeSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i, %27
-  %48 = phi ptr [ %41, %_ZNSt6vectorI11TextureSizeSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i ], [ %11, %27 ]
-  %49 = add i32 %.025, 1
-  %50 = zext i32 %49 to i64
-  %51 = load ptr, ptr %3, align 8
-  %52 = load ptr, ptr %1, align 8
-  %53 = ptrtoint ptr %51 to i64
+  %48 = phi ptr [ %45, %_ZNSt6vectorI11TextureSizeSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i ], [ %28, %27 ]
+  %49 = phi ptr [ %41, %_ZNSt6vectorI11TextureSizeSaIS0_EE17_M_realloc_insertIJS0_EEEvN9__gnu_cxx17__normal_iteratorIPS0_S2_EEDpOT_.exit.i.i ], [ %12, %27 ]
+  %50 = add i32 %.025, 1
+  %51 = zext i32 %50 to i64
+  %52 = load ptr, ptr %3, align 8
+  %53 = load ptr, ptr %1, align 8
   %54 = ptrtoint ptr %52 to i64
-  %55 = sub i64 %53, %54
-  %56 = ashr exact i64 %55, 5
-  %57 = icmp ugt i64 %56, %50
-  br i1 %57, label %8, label %._crit_edge, !llvm.loop !23
+  %55 = ptrtoint ptr %53 to i64
+  %56 = sub i64 %54, %55
+  %57 = ashr exact i64 %56, 5
+  %58 = icmp ugt i64 %57, %51
+  br i1 %58, label %8, label %._crit_edge, !llvm.loop !23
 
-.loopexit:                                        ; preds = %8, %22, %_ZNKSt6vectorI11TextureSizeSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i
+.loopexit:                                        ; preds = %8, %23, %_ZNKSt6vectorI11TextureSizeSaIS0_EE12_M_check_lenEmPKc.exit.i.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  store ptr %11, ptr %0, align 8
-  br label %58
+  store ptr %12, ptr %0, align 8
+  br label %59
 
-.loopexit.split-lp:                               ; preds = %21, %34
+.loopexit.split-lp:                               ; preds = %22, %34
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %58
+  br label %59
 
-58:                                               ; preds = %.loopexit.split-lp, %.loopexit
+59:                                               ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %.not.i.i.i = icmp eq ptr %11, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorI11TextureSizeSaIS0_EED2Ev.exit, label %59
+  %.not.i.i.i = icmp eq ptr %12, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorI11TextureSizeSaIS0_EED2Ev.exit, label %60
 
-59:                                               ; preds = %58
-  tail call void @_ZdlPv(ptr noundef nonnull %11) #23
+60:                                               ; preds = %59
+  tail call void @_ZdlPv(ptr noundef nonnull %12) #23
   br label %_ZNSt6vectorI11TextureSizeSaIS0_EED2Ev.exit
 
-_ZNSt6vectorI11TextureSizeSaIS0_EED2Ev.exit:      ; preds = %58, %59
+_ZNSt6vectorI11TextureSizeSaIS0_EED2Ev.exit:      ; preds = %59, %60
   resume { ptr, i32 } %lpad.phi
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorI11TextureSizeSaIS0_EE9push_backEOS0_.exit, %2
-  %.lcssa = phi ptr [ null, %2 ], [ %48, %_ZNSt6vectorI11TextureSizeSaIS0_EE9push_backEOS0_.exit ]
+  %.lcssa = phi ptr [ null, %2 ], [ %49, %_ZNSt6vectorI11TextureSizeSaIS0_EE9push_backEOS0_.exit ]
   store ptr %.lcssa, ptr %0, align 8
   ret void
 }

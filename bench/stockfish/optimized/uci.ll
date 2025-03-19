@@ -2512,13 +2512,13 @@ define dso_local void @_ZN9Stockfish3UCI10trace_evalERNS_8PositionE(ptr noundef 
   br i1 %12, label %.lr.ph.i.i.i.i, label %_ZNSt11_Deque_baseIN9Stockfish9StateInfoESaIS1_EEC2ERKS2_m.exit.i, !llvm.loop !5
 
 _ZNSt11_Deque_baseIN9Stockfish9StateInfoESaIS1_EEC2ERKS2_m.exit.i: ; preds = %.lr.ph.i.i.i.i
-  %.ptr3.ptr = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %.pre.i.i.i = load ptr, ptr %.ptr3.ptr, align 8
+  %.ptr3.ptr.ptr = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %.pre.i.i.i = load ptr, ptr %.ptr3.ptr.ptr, align 8
   %.phi.trans.insert.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 32
   %.pre13.i.i.i = load ptr, ptr %.phi.trans.insert.i.i.i, align 8
   %13 = getelementptr inbounds nuw i8, ptr %8, i64 16
   %14 = getelementptr inbounds nuw i8, ptr %8, i64 40
-  store ptr %.ptr3.ptr, ptr %14, align 8
+  store ptr %.ptr3.ptr.ptr, ptr %14, align 8
   %15 = getelementptr inbounds nuw i8, ptr %8, i64 24
   store ptr %.pre.i.i.i, ptr %15, align 8
   %16 = getelementptr inbounds nuw i8, ptr %.pre.i.i.i, i64 11264
@@ -2562,24 +2562,18 @@ _ZNSt11_Deque_baseIN9Stockfish9StateInfoESaIS1_EEC2ERKS2_m.exit.i: ; preds = %.l
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %7) #21
   %37 = load ptr, ptr %8, align 8
   %.not.i.i.i.i = icmp eq ptr %37, null
-  br i1 %.not.i.i.i.i, label %_ZNSt10unique_ptrISt5dequeIN9Stockfish9StateInfoESaIS2_EESt14default_deleteIS4_EED2Ev.exit, label %38
+  br i1 %.not.i.i.i.i, label %_ZNSt10unique_ptrISt5dequeIN9Stockfish9StateInfoESaIS2_EESt14default_deleteIS4_EED2Ev.exit, label %.lr.ph.i.i.i.i.i
 
-38:                                               ; preds = %_ZNSt11_Deque_baseIN9Stockfish9StateInfoESaIS1_EEC2ERKS2_m.exit.i
-  %39 = load ptr, ptr %14, align 8
-  %40 = load ptr, ptr %19, align 8
-  %41 = getelementptr inbounds nuw i8, ptr %40, i64 8
-  %42 = icmp ult ptr %39, %41
-  br i1 %42, label %.lr.ph.i.i.i.i.i, label %_ZNSt11_Deque_baseIN9Stockfish9StateInfoESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i.i.i.i
+.lr.ph.i.i.i.i.i:                                 ; preds = %_ZNSt11_Deque_baseIN9Stockfish9StateInfoESaIS1_EEC2ERKS2_m.exit.i, %.lr.ph.i.i.i.i.i
+  %.06.i.i.i.i.i.idx = phi i64 [ %.06.i.i.i.i.i.add, %.lr.ph.i.i.i.i.i ], [ 24, %_ZNSt11_Deque_baseIN9Stockfish9StateInfoESaIS1_EEC2ERKS2_m.exit.i ]
+  %.06.i.i.i.i.i.ptr = getelementptr inbounds nuw i8, ptr %10, i64 %.06.i.i.i.i.i.idx
+  %38 = load ptr, ptr %.06.i.i.i.i.i.ptr, align 8
+  call void @_ZdlPvSt11align_val_t(ptr noundef %38, i64 noundef 64) #24
+  %.06.i.i.i.i.i.add = add nuw nsw i64 %.06.i.i.i.i.i.idx, 8
+  %39 = icmp samesign ult i64 %.06.i.i.i.i.i.idx, 32
+  br i1 %39, label %.lr.ph.i.i.i.i.i, label %_ZNSt11_Deque_baseIN9Stockfish9StateInfoESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i.i.i.i, !llvm.loop !15
 
-.lr.ph.i.i.i.i.i:                                 ; preds = %38, %.lr.ph.i.i.i.i.i
-  %.06.i.i.i.i.i = phi ptr [ %44, %.lr.ph.i.i.i.i.i ], [ %39, %38 ]
-  %43 = load ptr, ptr %.06.i.i.i.i.i, align 8
-  call void @_ZdlPvSt11align_val_t(ptr noundef %43, i64 noundef 64) #24
-  %44 = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i.i, i64 8
-  %45 = icmp ult ptr %.06.i.i.i.i.i, %40
-  br i1 %45, label %.lr.ph.i.i.i.i.i, label %_ZNSt11_Deque_baseIN9Stockfish9StateInfoESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i.i.i.i, !llvm.loop !15
-
-_ZNSt11_Deque_baseIN9Stockfish9StateInfoESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i, %38
+_ZNSt11_Deque_baseIN9Stockfish9StateInfoESaIS1_EE16_M_destroy_nodesEPPS1_S5_.exit.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i
   call void @_ZdlPv(ptr noundef nonnull %37) #24
   br label %_ZNSt10unique_ptrISt5dequeIN9Stockfish9StateInfoESaIS2_EESt14default_deleteIS4_EED2Ev.exit
 

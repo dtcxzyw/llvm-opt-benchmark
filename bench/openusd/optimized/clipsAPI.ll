@@ -20344,7 +20344,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12SdfAssetPathEEC2ERKS2_.exit.t
 
 39:                                               ; preds = %35
   invoke void %38(ptr noundef nonnull align 8 dereferenceable(16) %36)
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i unwind label %67
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i unwind label %66
 
 _ZN32pxrInternal_v0_24__pxrReserved__25Vt_ArrayForeignDataSource15_ArraysDetachedEv.exit.i.i: ; preds = %39, %35, %32, %._crit_edge.i.i, %20
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %18, i8 0, i64 16, i1 false)
@@ -20361,7 +20361,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12SdfAssetPathEEaSEOS2_.exit.th
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %43 = load ptr, ptr %42, align 8
   %.not27.i.i6 = icmp eq ptr %43, null
-  br i1 %.not27.i.i6, label %44, label %56
+  br i1 %.not27.i.i6, label %44, label %55
 
 44:                                               ; preds = %41
   %45 = getelementptr inbounds i8, ptr %7, i64 -16
@@ -20384,49 +20384,44 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12SdfAssetPathEEaSEOS2_.exit.th
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %.02430.i.i11) #19
   %53 = getelementptr inbounds nuw i8, ptr %.02430.i.i11, i64 64
   %.not28.i.i12 = icmp eq ptr %53, %51
-  br i1 %.not28.i.i12, label %._crit_edge.loopexit.i.i13, label %.lr.ph.i.i10, !llvm.loop !175
+  br i1 %.not28.i.i12, label %._crit_edge.i.i15, label %.lr.ph.i.i10, !llvm.loop !175
 
-._crit_edge.loopexit.i.i13:                       ; preds = %.lr.ph.i.i10
-  %.pre.i.i14 = load ptr, ptr %5, align 8
-  br label %._crit_edge.i.i15
-
-._crit_edge.i.i15:                                ; preds = %._crit_edge.loopexit.i.i13, %48
-  %54 = phi ptr [ %.pre.i.i14, %._crit_edge.loopexit.i.i13 ], [ %49, %48 ]
-  %55 = getelementptr inbounds i8, ptr %54, i64 -16
-  call void @_ZdlPv(ptr noundef nonnull %55) #19
+._crit_edge.i.i15:                                ; preds = %.lr.ph.i.i10, %48
+  %54 = getelementptr inbounds i8, ptr %49, i64 -16
+  call void @_ZdlPv(ptr noundef nonnull %54) #19
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12SdfAssetPathEED2Ev.exit
 
-56:                                               ; preds = %41
-  %57 = atomicrmw sub ptr %43, i64 1 release, align 8
-  %58 = icmp eq i64 %57, 1
-  br i1 %58, label %59, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12SdfAssetPathEED2Ev.exit
+55:                                               ; preds = %41
+  %56 = atomicrmw sub ptr %43, i64 1 release, align 8
+  %57 = icmp eq i64 %56, 1
+  br i1 %57, label %58, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12SdfAssetPathEED2Ev.exit
 
-59:                                               ; preds = %56
+58:                                               ; preds = %55
   fence acquire
-  %60 = load ptr, ptr %42, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  %62 = load ptr, ptr %61, align 8
-  %.not.i.i.i8 = icmp eq ptr %62, null
-  br i1 %.not.i.i.i8, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12SdfAssetPathEED2Ev.exit, label %63
+  %59 = load ptr, ptr %42, align 8
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
+  %61 = load ptr, ptr %60, align 8
+  %.not.i.i.i8 = icmp eq ptr %61, null
+  br i1 %.not.i.i.i8, label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12SdfAssetPathEED2Ev.exit, label %62
 
-63:                                               ; preds = %59
-  invoke void %62(ptr noundef nonnull align 8 dereferenceable(16) %60)
-          to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12SdfAssetPathEED2Ev.exit unwind label %64
+62:                                               ; preds = %58
+  invoke void %61(ptr noundef nonnull align 8 dereferenceable(16) %59)
+          to label %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12SdfAssetPathEED2Ev.exit unwind label %63
 
-64:                                               ; preds = %63
-  %65 = landingpad { ptr, i32 }
+63:                                               ; preds = %62
+  %64 = landingpad { ptr, i32 }
           catch ptr null
-  %66 = extractvalue { ptr, i32 } %65, 0
-  call void @__clang_call_terminate(ptr %66) #21
+  %65 = extractvalue { ptr, i32 } %64, 0
+  call void @__clang_call_terminate(ptr %65) #21
   unreachable
 
-67:                                               ; preds = %39
-  %68 = landingpad { ptr, i32 }
+66:                                               ; preds = %39
+  %67 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12SdfAssetPathEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #19
-  resume { ptr, i32 } %68
+  resume { ptr, i32 } %67
 
-_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12SdfAssetPathEED2Ev.exit: ; preds = %44, %._crit_edge.i.i15, %56, %59, %63, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12SdfAssetPathEEC2ERKS2_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12SdfAssetPathEEaSEOS2_.exit.thread, %2
+_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12SdfAssetPathEED2Ev.exit: ; preds = %44, %._crit_edge.i.i15, %55, %58, %62, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12SdfAssetPathEEC2ERKS2_.exit, %_ZN32pxrInternal_v0_24__pxrReserved__7VtArrayINS_12SdfAssetPathEEaSEOS2_.exit.thread, %2
   ret ptr %0
 }
 

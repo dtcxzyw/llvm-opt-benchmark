@@ -2062,28 +2062,22 @@ Vec_IntPush.exit.i:                               ; preds = %122, %Vec_IntGrow.e
   %139 = getelementptr i8, ptr %.val46, i64 4
   %.val46.val = load i32, ptr %139, align 4, !tbaa !52
   %140 = sub nsw i32 %.val46.val, %.val45
-  %141 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #21
-  %142 = add i32 %140, -1
-  %or.cond.i.i = icmp ult i32 %142, 15
+  %141 = add i32 %140, -1
+  %or.cond.i.i = icmp ult i32 %141, 15
   %spec.store.select.i.i = select i1 %or.cond.i.i, i32 16, i32 %140
-  %143 = getelementptr inbounds nuw i8, ptr %141, i64 4
-  store i32 %spec.store.select.i.i, ptr %141, align 8, !tbaa !53
   %.not.i.i = icmp eq i32 %spec.store.select.i.i, 0
-  br i1 %.not.i.i, label %Vec_IntAlloc.exit.i, label %144
+  br i1 %.not.i.i, label %Vec_IntAlloc.exit.i, label %142
 
-144:                                              ; preds = %136
-  %145 = sext i32 %spec.store.select.i.i to i64
-  %146 = shl nsw i64 %145, 2
-  %147 = tail call noalias ptr @malloc(i64 noundef %146) #21
+142:                                              ; preds = %136
+  %143 = sext i32 %spec.store.select.i.i to i64
+  %144 = shl nsw i64 %143, 2
+  %145 = tail call noalias ptr @malloc(i64 noundef %144) #21
   br label %Vec_IntAlloc.exit.i
 
-Vec_IntAlloc.exit.i:                              ; preds = %144, %136
-  %148 = phi ptr [ %147, %144 ], [ null, %136 ]
-  %149 = getelementptr inbounds nuw i8, ptr %141, i64 8
-  store ptr %148, ptr %149, align 8, !tbaa !14
-  store i32 %140, ptr %143, align 4, !tbaa !52
-  %150 = icmp sgt i32 %140, 0
-  br i1 %150, label %.lr.ph.preheader.i, label %Vec_IntStartNatural.exit
+Vec_IntAlloc.exit.i:                              ; preds = %142, %136
+  %146 = phi ptr [ %145, %142 ], [ null, %136 ]
+  %147 = icmp sgt i32 %140, 0
+  br i1 %147, label %.lr.ph.preheader.i, label %Vec_IntStartNatural.exit
 
 .lr.ph.preheader.i:                               ; preds = %Vec_IntAlloc.exit.i
   %wide.trip.count.i = zext nneg i32 %140 to i64
@@ -2091,91 +2085,86 @@ Vec_IntAlloc.exit.i:                              ; preds = %144, %136
 
 .lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.preheader.i ], [ %indvars.iv.next.i, %.lr.ph.i ]
-  %151 = getelementptr inbounds nuw i32, ptr %148, i64 %indvars.iv.i
-  %152 = trunc nuw nsw i64 %indvars.iv.i to i32
-  store i32 %152, ptr %151, align 4, !tbaa !44
+  %148 = getelementptr inbounds nuw i32, ptr %146, i64 %indvars.iv.i
+  %149 = trunc nuw nsw i64 %indvars.iv.i to i32
+  store i32 %149, ptr %148, align 4, !tbaa !44
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %Vec_IntStartNatural.exit, label %.lr.ph.i, !llvm.loop !119
 
 Vec_IntStartNatural.exit:                         ; preds = %.lr.ph.i, %Vec_IntAlloc.exit.i
-  %153 = add i32 %.val45, %10
-  %154 = sub i32 %.val46.val, %153
-  %155 = tail call ptr @Gia_ManDupCones(ptr noundef nonnull %0, ptr noundef %148, i32 noundef %154, i32 noundef 0) #19
+  %150 = add i32 %.val45, %10
+  %151 = sub i32 %.val46.val, %150
+  %152 = tail call ptr @Gia_ManDupCones(ptr noundef nonnull %0, ptr noundef %146, i32 noundef %151, i32 noundef 0) #19
   %.val = load i32, ptr %137, align 8, !tbaa !102
   %.val42 = load ptr, ptr %138, align 8, !tbaa !103
-  %156 = getelementptr i8, ptr %.val42, i64 4
-  %.val42.val = load i32, ptr %156, align 4, !tbaa !52
-  %157 = sub nsw i32 %.val42.val, %.val
+  %153 = getelementptr i8, ptr %.val42, i64 4
+  %.val42.val = load i32, ptr %153, align 4, !tbaa !52
+  %154 = sub nsw i32 %.val42.val, %.val
+  %155 = sext i32 %154 to i64
+  %156 = getelementptr inbounds i32, ptr %146, i64 %155
+  %157 = load i32, ptr %9, align 4, !tbaa !115
   %158 = sext i32 %157 to i64
-  %159 = getelementptr inbounds i32, ptr %148, i64 %158
-  %160 = load i32, ptr %9, align 4, !tbaa !115
-  %161 = sext i32 %160 to i64
-  %162 = sub nsw i64 0, %161
-  %163 = getelementptr inbounds i32, ptr %159, i64 %162
-  %164 = tail call ptr @Gia_ManDupCones(ptr noundef nonnull %0, ptr noundef %163, i32 noundef %160, i32 noundef 0) #19
-  %165 = load ptr, ptr %149, align 8, !tbaa !14
-  %.not.i58 = icmp eq ptr %165, null
-  br i1 %.not.i58, label %Vec_IntFree.exit, label %166
+  %159 = sub nsw i64 0, %158
+  %160 = getelementptr inbounds i32, ptr %156, i64 %159
+  %161 = tail call ptr @Gia_ManDupCones(ptr noundef nonnull %0, ptr noundef %160, i32 noundef %157, i32 noundef 0) #19
+  %.not.i58 = icmp eq ptr %146, null
+  br i1 %.not.i58, label %Gia_ManAppendCo.exit, label %162
 
-166:                                              ; preds = %Vec_IntStartNatural.exit
-  tail call void @free(ptr noundef nonnull %165) #19
-  br label %Vec_IntFree.exit
-
-Vec_IntFree.exit:                                 ; preds = %Vec_IntStartNatural.exit, %166
-  tail call void @free(ptr noundef nonnull %141) #19
+162:                                              ; preds = %Vec_IntStartNatural.exit
+  tail call void @free(ptr noundef nonnull %146) #19
   br label %Gia_ManAppendCo.exit
 
-Gia_ManAppendCo.exit:                             ; preds = %131, %Vec_IntPush.exit.i, %Vec_IntFree.exit
-  %.038 = phi ptr [ %164, %Vec_IntFree.exit ], [ %17, %Vec_IntPush.exit.i ], [ %17, %131 ]
-  %.0 = phi ptr [ %155, %Vec_IntFree.exit ], [ %13, %Vec_IntPush.exit.i ], [ %13, %131 ]
-  %167 = load i32, ptr %3, align 4, !tbaa !58
-  %.not39 = icmp eq i32 %167, 0
-  br i1 %.not39, label %171, label %168
+Gia_ManAppendCo.exit:                             ; preds = %162, %Vec_IntStartNatural.exit, %131, %Vec_IntPush.exit.i
+  %.038 = phi ptr [ %17, %Vec_IntPush.exit.i ], [ %17, %131 ], [ %161, %Vec_IntStartNatural.exit ], [ %161, %162 ]
+  %.0 = phi ptr [ %13, %Vec_IntPush.exit.i ], [ %13, %131 ], [ %152, %Vec_IntStartNatural.exit ], [ %152, %162 ]
+  %163 = load i32, ptr %3, align 4, !tbaa !58
+  %.not39 = icmp eq i32 %163, 0
+  br i1 %.not39, label %167, label %164
 
-168:                                              ; preds = %Gia_ManAppendCo.exit
-  %169 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.27)
+164:                                              ; preds = %Gia_ManAppendCo.exit
+  %165 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.27)
   tail call void @Gia_ManPrintStats(ptr noundef %.0, ptr noundef null) #19
-  %170 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.28)
+  %166 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.28)
   tail call void @Gia_ManPrintStats(ptr noundef %.038, ptr noundef null) #19
-  br label %171
+  br label %167
 
-171:                                              ; preds = %168, %Gia_ManAppendCo.exit
-  %172 = tail call ptr @Gia_ManDupLevelized(ptr noundef %.0) #19
+167:                                              ; preds = %164, %Gia_ManAppendCo.exit
+  %168 = tail call ptr @Gia_ManDupLevelized(ptr noundef %.0) #19
   tail call void @Gia_ManStop(ptr noundef %.0) #19
-  %173 = tail call ptr @Ssc_PerformSweepingInt(ptr noundef %172, ptr noundef %.038, ptr noundef nonnull %1)
-  %174 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %175 = load i32, ptr %174, align 4, !tbaa !114
-  %.not.i59 = icmp eq i32 %175, 0
-  br i1 %.not.i59, label %Ssc_PerformSweeping.exit, label %176
+  %169 = tail call ptr @Ssc_PerformSweepingInt(ptr noundef %168, ptr noundef %.038, ptr noundef nonnull %1)
+  %170 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %171 = load i32, ptr %170, align 4, !tbaa !114
+  %.not.i59 = icmp eq i32 %171, 0
+  br i1 %.not.i59, label %Ssc_PerformSweeping.exit, label %172
 
-176:                                              ; preds = %171
-  %177 = tail call i32 @Ssc_PerformVerification(ptr noundef %172, ptr noundef %173, ptr noundef %.038)
+172:                                              ; preds = %167
+  %173 = tail call i32 @Ssc_PerformVerification(ptr noundef %168, ptr noundef %169, ptr noundef %.038)
   br label %Ssc_PerformSweeping.exit
 
-Ssc_PerformSweeping.exit:                         ; preds = %171, %176
-  %178 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %179 = load i32, ptr %178, align 4, !tbaa !120
-  %.not40 = icmp eq i32 %179, 0
-  br i1 %.not40, label %186, label %180
+Ssc_PerformSweeping.exit:                         ; preds = %167, %172
+  %174 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %175 = load i32, ptr %174, align 4, !tbaa !120
+  %.not40 = icmp eq i32 %175, 0
+  br i1 %.not40, label %182, label %176
 
-180:                                              ; preds = %Ssc_PerformSweeping.exit
-  tail call void @Gia_ManDupAppendShare(ptr noundef %173, ptr noundef %.038) #19
-  %181 = getelementptr i8, ptr %.038, i64 16
-  %.038.val = load i32, ptr %181, align 8, !tbaa !102
-  %182 = getelementptr i8, ptr %.038, i64 72
-  %.038.val41 = load ptr, ptr %182, align 8, !tbaa !103
-  %183 = getelementptr i8, ptr %.038.val41, i64 4
-  %.038.val41.val = load i32, ptr %183, align 4, !tbaa !52
-  %184 = sub nsw i32 %.038.val41.val, %.038.val
-  %185 = getelementptr inbounds nuw i8, ptr %173, i64 172
-  store i32 %184, ptr %185, align 4, !tbaa !115
-  br label %186
+176:                                              ; preds = %Ssc_PerformSweeping.exit
+  tail call void @Gia_ManDupAppendShare(ptr noundef %169, ptr noundef %.038) #19
+  %177 = getelementptr i8, ptr %.038, i64 16
+  %.038.val = load i32, ptr %177, align 8, !tbaa !102
+  %178 = getelementptr i8, ptr %.038, i64 72
+  %.038.val41 = load ptr, ptr %178, align 8, !tbaa !103
+  %179 = getelementptr i8, ptr %.038.val41, i64 4
+  %.038.val41.val = load i32, ptr %179, align 4, !tbaa !52
+  %180 = sub nsw i32 %.038.val41.val, %.038.val
+  %181 = getelementptr inbounds nuw i8, ptr %169, i64 172
+  store i32 %180, ptr %181, align 4, !tbaa !115
+  br label %182
 
-186:                                              ; preds = %180, %Ssc_PerformSweeping.exit
-  tail call void @Gia_ManStop(ptr noundef %172) #19
+182:                                              ; preds = %176, %Ssc_PerformSweeping.exit
+  tail call void @Gia_ManStop(ptr noundef %168) #19
   tail call void @Gia_ManStop(ptr noundef %.038) #19
-  ret ptr %173
+  ret ptr %169
 }
 
 declare ptr @Gia_ManStart(i32 noundef) local_unnamed_addr #3

@@ -2895,11 +2895,11 @@ _ZN10open_spiel10algorithms12_GLOBAL__N_117OshiZumoGameTestsEv.exit: ; preds = %
   store ptr getelementptr inbounds nuw inrange(-16, 80) (i8, ptr @_ZTVN10open_spiel17FirstActionPolicyE, i64 16), ptr %38, align 8
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %41) #21
   %963 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %40)
-          to label %.noexc.i147 unwind label %1050
+          to label %.noexc.i147 unwind label %1049
 
 .noexc.i147:                                      ; preds = %_ZN10open_spiel10algorithms12_GLOBAL__N_117OshiZumoGameTestsEv.exit
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef %963, ptr noundef nonnull align 1 dereferenceable(1) %41)
-          to label %.noexc36.i unwind label %1050
+          to label %.noexc36.i unwind label %1049
 
 .noexc36.i:                                       ; preds = %.noexc.i147
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %40, ptr noundef nonnull @.str.37, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.37, i64 22))
@@ -2915,11 +2915,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i148:
   %966 = getelementptr inbounds nuw i8, ptr %40, i64 32
   call void @_ZNSaIcEC1Ev(ptr noundef nonnull align 1 dereferenceable(1) %42) #21
   %967 = invoke noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE13_M_local_dataEv(ptr noundef nonnull align 8 dereferenceable(32) %966)
-          to label %.noexc37.i unwind label %1052
+          to label %.noexc37.i unwind label %1051
 
 .noexc37.i:                                       ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i148
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderC1EPcRKS3_(ptr noundef nonnull align 8 dereferenceable(32) %966, ptr noundef %967, ptr noundef nonnull align 1 dereferenceable(1) %42)
-          to label %.noexc38.i unwind label %1052
+          to label %.noexc38.i unwind label %1051
 
 .noexc38.i:                                       ; preds = %.noexc37.i
   invoke void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_M_constructIPKcEEvT_S8_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(32) %966, ptr noundef nonnull @.str.46, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @.str.46, i64 46))
@@ -3017,441 +3017,440 @@ _ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvT_S7_.exit.
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %42) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %41) #21
   %995 = load ptr, ptr %39, align 8
-  %996 = load ptr, ptr %989, align 8
-  %.not130.i = icmp eq ptr %995, %996
-  br i1 %.not130.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i, label %.lr.ph.i
+  %.not130.i = icmp eq ptr %995, %974
+  br i1 %.not130.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %994
-  %997 = getelementptr inbounds nuw i8, ptr %44, i64 8
-  %998 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  %999 = getelementptr inbounds nuw i8, ptr %46, i64 8
-  %1000 = getelementptr inbounds nuw i8, ptr %50, i64 96
-  %1001 = getelementptr inbounds nuw i8, ptr %57, i64 96
-  %1002 = getelementptr inbounds nuw i8, ptr %57, i64 72
-  %1003 = getelementptr inbounds nuw i8, ptr %57, i64 88
-  %1004 = getelementptr inbounds nuw i8, ptr %57, i64 48
-  %1005 = getelementptr inbounds nuw i8, ptr %57, i64 64
-  %1006 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  %1007 = getelementptr inbounds nuw i8, ptr %57, i64 32
-  %1008 = getelementptr inbounds nuw i8, ptr %57, i64 40
-  %1009 = getelementptr inbounds nuw i8, ptr %57, i64 16
-  %1010 = getelementptr inbounds nuw i8, ptr %56, i64 8
-  %1011 = getelementptr inbounds nuw i8, ptr %56, i64 16
-  %1012 = getelementptr inbounds nuw i8, ptr %50, i64 72
-  %1013 = getelementptr inbounds nuw i8, ptr %50, i64 88
-  %1014 = getelementptr inbounds nuw i8, ptr %50, i64 48
-  %1015 = getelementptr inbounds nuw i8, ptr %50, i64 64
-  %1016 = getelementptr inbounds nuw i8, ptr %50, i64 24
-  %1017 = getelementptr inbounds nuw i8, ptr %50, i64 32
-  %1018 = getelementptr inbounds nuw i8, ptr %50, i64 40
-  %1019 = getelementptr inbounds nuw i8, ptr %50, i64 16
-  %1020 = getelementptr inbounds nuw i8, ptr %49, i64 8
-  %1021 = getelementptr inbounds nuw i8, ptr %49, i64 16
-  %1022 = getelementptr inbounds nuw i8, ptr %48, i64 8
-  %1023 = getelementptr inbounds nuw i8, ptr %47, i64 8
-  br label %1024
+  %996 = getelementptr inbounds nuw i8, ptr %44, i64 8
+  %997 = getelementptr inbounds nuw i8, ptr %45, i64 8
+  %998 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  %999 = getelementptr inbounds nuw i8, ptr %50, i64 96
+  %1000 = getelementptr inbounds nuw i8, ptr %57, i64 96
+  %1001 = getelementptr inbounds nuw i8, ptr %57, i64 72
+  %1002 = getelementptr inbounds nuw i8, ptr %57, i64 88
+  %1003 = getelementptr inbounds nuw i8, ptr %57, i64 48
+  %1004 = getelementptr inbounds nuw i8, ptr %57, i64 64
+  %1005 = getelementptr inbounds nuw i8, ptr %57, i64 24
+  %1006 = getelementptr inbounds nuw i8, ptr %57, i64 32
+  %1007 = getelementptr inbounds nuw i8, ptr %57, i64 40
+  %1008 = getelementptr inbounds nuw i8, ptr %57, i64 16
+  %1009 = getelementptr inbounds nuw i8, ptr %56, i64 8
+  %1010 = getelementptr inbounds nuw i8, ptr %56, i64 16
+  %1011 = getelementptr inbounds nuw i8, ptr %50, i64 72
+  %1012 = getelementptr inbounds nuw i8, ptr %50, i64 88
+  %1013 = getelementptr inbounds nuw i8, ptr %50, i64 48
+  %1014 = getelementptr inbounds nuw i8, ptr %50, i64 64
+  %1015 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %1016 = getelementptr inbounds nuw i8, ptr %50, i64 32
+  %1017 = getelementptr inbounds nuw i8, ptr %50, i64 40
+  %1018 = getelementptr inbounds nuw i8, ptr %50, i64 16
+  %1019 = getelementptr inbounds nuw i8, ptr %49, i64 8
+  %1020 = getelementptr inbounds nuw i8, ptr %49, i64 16
+  %1021 = getelementptr inbounds nuw i8, ptr %48, i64 8
+  %1022 = getelementptr inbounds nuw i8, ptr %47, i64 8
+  br label %1023
 
-1024:                                             ; preds = %_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit83.i, %.lr.ph.i
-  %.sroa.0117.0131.i = phi ptr [ %995, %.lr.ph.i ], [ %1347, %_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit83.i ]
+1023:                                             ; preds = %_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit83.i, %.lr.ph.i
+  %.sroa.0117.0131.i = phi ptr [ %995, %.lr.ph.i ], [ %1346, %_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit83.i ]
   store ptr @.str.47, ptr %44, align 8
-  store i64 34, ptr %997, align 8
-  %1025 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0117.0131.i) #21
-  %1026 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0117.0131.i) #21
-  store ptr %1025, ptr %45, align 8
-  %1027 = icmp sgt i64 %1026, -1
-  br i1 %1027, label %_ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit.i, label %1028
+  store i64 34, ptr %996, align 8
+  %1024 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4dataEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0117.0131.i) #21
+  %1025 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0117.0131.i) #21
+  store ptr %1024, ptr %45, align 8
+  %1026 = icmp sgt i64 %1025, -1
+  br i1 %1026, label %_ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit.i, label %1027
 
-1028:                                             ; preds = %1024
+1027:                                             ; preds = %1023
   call void @llvm.trap()
   unreachable
 
-_ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit.i: ; preds = %1024
-  store i64 %1026, ptr %998, align 8
+_ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit.i: ; preds = %1023
+  store i64 %1025, ptr %997, align 8
   store ptr @.str.20, ptr %46, align 8
-  store i64 1, ptr %999, align 8
+  store i64 1, ptr %998, align 8
   invoke void @_ZN4absl7debian26StrCatB5cxx11ERKNS0_8AlphaNumES3_S3_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %43, ptr noundef nonnull align 8 dereferenceable(48) %44, ptr noundef nonnull align 8 dereferenceable(48) %45, ptr noundef nonnull align 8 dereferenceable(48) %46)
-          to label %1029 unwind label %1059
+          to label %1028 unwind label %1058
 
-1029:                                             ; preds = %_ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit.i
+1028:                                             ; preds = %_ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit.i
   invoke void @_ZN10open_spiel8LoadGameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %47, ptr noundef nonnull align 8 dereferenceable(32) %43)
-          to label %1030 unwind label %1061
+          to label %1029 unwind label %1060
 
-1030:                                             ; preds = %1029
-  %1031 = load ptr, ptr %47, align 8
-  %1032 = invoke noundef double @_ZN10open_spiel10algorithms8NashConvERKNS_4GameERKNS_6PolicyEb(ptr noundef nonnull align 8 dereferenceable(280) %1031, ptr noundef nonnull align 8 dereferenceable(8) %37, i1 noundef zeroext true)
-          to label %1033 unwind label %1063
+1029:                                             ; preds = %1028
+  %1030 = load ptr, ptr %47, align 8
+  %1031 = invoke noundef double @_ZN10open_spiel10algorithms8NashConvERKNS_4GameERKNS_6PolicyEb(ptr noundef nonnull align 8 dereferenceable(280) %1030, ptr noundef nonnull align 8 dereferenceable(8) %37, i1 noundef zeroext true)
+          to label %1032 unwind label %1062
 
-1033:                                             ; preds = %1030
-  %1034 = load ptr, ptr %47, align 8
-  %1035 = invoke noundef double @_ZN10open_spiel10algorithms8NashConvERKNS_4GameERKNS_6PolicyEb(ptr noundef nonnull align 8 dereferenceable(280) %1034, ptr noundef nonnull align 8 dereferenceable(8) %38, i1 noundef zeroext true)
-          to label %1036 unwind label %1063
+1032:                                             ; preds = %1029
+  %1033 = load ptr, ptr %47, align 8
+  %1034 = invoke noundef double @_ZN10open_spiel10algorithms8NashConvERKNS_4GameERKNS_6PolicyEb(ptr noundef nonnull align 8 dereferenceable(280) %1033, ptr noundef nonnull align 8 dereferenceable(8) %38, i1 noundef zeroext true)
+          to label %1035 unwind label %1062
 
-1036:                                             ; preds = %1033
+1035:                                             ; preds = %1032
   invoke void @_ZN10open_spiel8LoadGameERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr dead_on_unwind nonnull writable sret(%"class.std::shared_ptr") align 8 %48, ptr noundef nonnull align 8 dereferenceable(32) %.sroa.0117.0131.i)
-          to label %1037 unwind label %1063
+          to label %1036 unwind label %1062
 
-1037:                                             ; preds = %1036
-  %1038 = load ptr, ptr %48, align 8
-  invoke void @_ZN10open_spiel10algorithms22TabularBestResponseMDPC1ERKNS_4GameERKNS_6PolicyE(ptr noundef nonnull align 8 dereferenceable(44) %49, ptr noundef nonnull align 8 dereferenceable(280) %1038, ptr noundef nonnull align 8 dereferenceable(8) %37)
-          to label %1039 unwind label %1065
+1036:                                             ; preds = %1035
+  %1037 = load ptr, ptr %48, align 8
+  invoke void @_ZN10open_spiel10algorithms22TabularBestResponseMDPC1ERKNS_4GameERKNS_6PolicyE(ptr noundef nonnull align 8 dereferenceable(44) %49, ptr noundef nonnull align 8 dereferenceable(280) %1037, ptr noundef nonnull align 8 dereferenceable(8) %37)
+          to label %1038 unwind label %1064
 
-1039:                                             ; preds = %1037
+1038:                                             ; preds = %1036
   invoke void @_ZN10open_spiel10algorithms22TabularBestResponseMDP8NashConvEv(ptr dead_on_unwind nonnull writable sret(%"struct.open_spiel::algorithms::TabularBestResponseMDPInfo") align 8 %50, ptr noundef nonnull align 8 dereferenceable(44) %49)
-          to label %1040 unwind label %1067
+          to label %1039 unwind label %1066
 
-1040:                                             ; preds = %1039
-  %1041 = load double, ptr %1000, align 8
-  %1042 = fptrunc double %1041 to float
-  store float %1042, ptr %51, align 4
-  %1043 = fptrunc double %1032 to float
-  store float %1043, ptr %52, align 4
+1039:                                             ; preds = %1038
+  %1040 = load double, ptr %999, align 8
+  %1041 = fptrunc double %1040 to float
+  store float %1041, ptr %51, align 4
+  %1042 = fptrunc double %1031 to float
+  store float %1042, ptr %52, align 4
   store float 0x3D71979980000000, ptr %53, align 4
-  %1044 = fsub float %1042, %1043
-  %1045 = call float @llvm.fabs.f32(float %1044)
-  %1046 = fcmp ugt float %1045, 0x3D71979980000000
-  br i1 %1046, label %1047, label %1071
+  %1043 = fsub float %1041, %1042
+  %1044 = call float @llvm.fabs.f32(float %1043)
+  %1045 = fcmp ugt float %1044, 0x3D71979980000000
+  br i1 %1045, label %1046, label %1070
 
-1047:                                             ; preds = %1040
+1046:                                             ; preds = %1039
   store i32 132, ptr %55, align 4
   invoke void @_ZN10open_spiel8internal11SpielStrCatIJRA154_KcRA2_S2_iS6_RA133_S2_RA41_S2_RfRA43_S2_SB_SA_SB_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %54, ptr noundef nonnull align 1 dereferenceable(154) @.str.1, ptr noundef nonnull align 1 dereferenceable(2) @.str.2, ptr noundef nonnull align 4 dereferenceable(4) %55, ptr noundef nonnull align 1 dereferenceable(2) @.str.3, ptr noundef nonnull align 1 dereferenceable(133) @.str.48, ptr noundef nonnull align 1 dereferenceable(41) @.str.9, ptr noundef nonnull align 4 dereferenceable(4) %51, ptr noundef nonnull align 1 dereferenceable(43) @.str.49, ptr noundef nonnull align 4 dereferenceable(4) %52, ptr noundef nonnull align 1 dereferenceable(41) @.str.11, ptr noundef nonnull align 4 dereferenceable(4) %53)
-          to label %1048 unwind label %.loopexit.split-lp.i197
+          to label %1047 unwind label %.loopexit.split-lp.i197
+
+1047:                                             ; preds = %1046
+  invoke void @_ZN10open_spiel15SpielFatalErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %54) #23
+          to label %1048 unwind label %1068
 
 1048:                                             ; preds = %1047
-  invoke void @_ZN10open_spiel15SpielFatalErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %54) #23
-          to label %1049 unwind label %1069
-
-1049:                                             ; preds = %1048
   unreachable
 
-1050:                                             ; preds = %.noexc.i147, %_ZN10open_spiel10algorithms12_GLOBAL__N_117OshiZumoGameTestsEv.exit
-  %1051 = landingpad { ptr, i32 }
+1049:                                             ; preds = %.noexc.i147, %_ZN10open_spiel10algorithms12_GLOBAL__N_117OshiZumoGameTestsEv.exit
+  %1050 = landingpad { ptr, i32 }
           cleanup
   br label %.body.thread.i
 
-1052:                                             ; preds = %.noexc37.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i148
-  %1053 = landingpad { ptr, i32 }
+1051:                                             ; preds = %.noexc37.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2IS3_EEPKcRKS3_.exit.i148
+  %1052 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i149
 
 .body42.i:                                        ; preds = %987, %.body90.thread.i
   %eh.lpad-body91140.i = phi { ptr, i32 } [ %986, %.body90.thread.i ], [ %981, %987 ]
-  br label %1054
+  br label %1053
 
-1054:                                             ; preds = %1054, %.body42.i
-  %1055 = phi ptr [ %970, %.body42.i ], [ %1056, %1054 ]
-  %1056 = getelementptr inbounds i8, ptr %1055, i64 -32
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1056) #21
-  %1057 = icmp eq ptr %1056, %40
-  br i1 %1057, label %.body.i149, label %1054
+1053:                                             ; preds = %1053, %.body42.i
+  %1054 = phi ptr [ %970, %.body42.i ], [ %1055, %1053 ]
+  %1055 = getelementptr inbounds i8, ptr %1054, i64 -32
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1055) #21
+  %1056 = icmp eq ptr %1055, %40
+  br i1 %1056, label %.body.i149, label %1053
 
-.body.thread.i:                                   ; preds = %1050, %964
-  %.pn.pn.ph.i = phi { ptr, i32 } [ %965, %964 ], [ %1051, %1050 ]
+.body.thread.i:                                   ; preds = %1049, %964
+  %.pn.pn.ph.i = phi { ptr, i32 } [ %965, %964 ], [ %1050, %1049 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %41) #21
   br label %common.resume
 
-.body.i149:                                       ; preds = %1054, %1052, %968
-  %1058 = phi i1 [ false, %968 ], [ false, %1052 ], [ true, %1054 ]
-  %.pn.i150 = phi { ptr, i32 } [ %969, %968 ], [ %1053, %1052 ], [ %eh.lpad-body91140.i, %1054 ]
+.body.i149:                                       ; preds = %1053, %1051, %968
+  %1057 = phi i1 [ false, %968 ], [ false, %1051 ], [ true, %1053 ]
+  %.pn.i150 = phi { ptr, i32 } [ %969, %968 ], [ %1052, %1051 ], [ %eh.lpad-body91140.i, %1053 ]
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %42) #21
   call void @_ZNSaIcED1Ev(ptr noundef nonnull align 1 dereferenceable(1) %41) #21
-  br i1 %1058, label %common.resume, label %.preheader.preheader.i
+  br i1 %1057, label %common.resume, label %.preheader.preheader.i
 
 .preheader.preheader.i:                           ; preds = %.body.i149
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %40) #21
   br label %common.resume
 
-1059:                                             ; preds = %_ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit.i
-  %1060 = landingpad { ptr, i32 }
+1058:                                             ; preds = %_ZN4absl7debian28AlphaNumC2ISaIcEEERKNSt7__cxx1112basic_stringIcSt11char_traitsIcET_EE.exit.i
+  %1059 = landingpad { ptr, i32 }
           cleanup
   br label %1361
 
-1061:                                             ; preds = %1029
-  %1062 = landingpad { ptr, i32 }
-          cleanup
-  br label %1354
-
-1063:                                             ; preds = %1036, %1033, %1030
-  %1064 = landingpad { ptr, i32 }
+1060:                                             ; preds = %1028
+  %1061 = landingpad { ptr, i32 }
           cleanup
   br label %1353
 
-1065:                                             ; preds = %1037
-  %1066 = landingpad { ptr, i32 }
+1062:                                             ; preds = %1035, %1032, %1029
+  %1063 = landingpad { ptr, i32 }
           cleanup
   br label %1352
 
-1067:                                             ; preds = %1039
-  %1068 = landingpad { ptr, i32 }
+1064:                                             ; preds = %1036
+  %1065 = landingpad { ptr, i32 }
           cleanup
   br label %1351
 
-.loopexit.i153:                                   ; preds = %1071
+1066:                                             ; preds = %1038
+  %1067 = landingpad { ptr, i32 }
+          cleanup
+  br label %1350
+
+.loopexit.i153:                                   ; preds = %1070
   %lpad.loopexit.i154 = landingpad { ptr, i32 }
-          cleanup
-  br label %1350
-
-.loopexit.split-lp.i197:                          ; preds = %1047
-  %lpad.loopexit.split-lp.i198 = landingpad { ptr, i32 }
-          cleanup
-  br label %1350
-
-1069:                                             ; preds = %1048
-  %1070 = landingpad { ptr, i32 }
-          cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %54) #21
-  br label %1350
-
-1071:                                             ; preds = %1040
-  %1072 = load ptr, ptr %48, align 8
-  invoke void @_ZN10open_spiel10algorithms22TabularBestResponseMDPC1ERKNS_4GameERKNS_6PolicyE(ptr noundef nonnull align 8 dereferenceable(44) %56, ptr noundef nonnull align 8 dereferenceable(280) %1072, ptr noundef nonnull align 8 dereferenceable(8) %38)
-          to label %1073 unwind label %.loopexit.i153
-
-1073:                                             ; preds = %1071
-  invoke void @_ZN10open_spiel10algorithms22TabularBestResponseMDP8NashConvEv(ptr dead_on_unwind nonnull writable sret(%"struct.open_spiel::algorithms::TabularBestResponseMDPInfo") align 8 %57, ptr noundef nonnull align 8 dereferenceable(44) %56)
-          to label %1074 unwind label %1084
-
-1074:                                             ; preds = %1073
-  %1075 = load double, ptr %1001, align 8
-  %1076 = fptrunc double %1075 to float
-  store float %1076, ptr %58, align 4
-  %1077 = fptrunc double %1035 to float
-  store float %1077, ptr %59, align 4
-  store float 0x3D71979980000000, ptr %60, align 4
-  %1078 = fsub float %1076, %1077
-  %1079 = call float @llvm.fabs.f32(float %1078)
-  %1080 = fcmp ugt float %1079, 0x3D71979980000000
-  br i1 %1080, label %1081, label %1090
-
-1081:                                             ; preds = %1074
-  store i32 137, ptr %62, align 4
-  invoke void @_ZN10open_spiel8internal11SpielStrCatIJRA154_KcRA2_S2_iS6_RA139_S2_RA42_S2_RfRA48_S2_SB_RA41_S2_SB_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %61, ptr noundef nonnull align 1 dereferenceable(154) @.str.1, ptr noundef nonnull align 1 dereferenceable(2) @.str.2, ptr noundef nonnull align 4 dereferenceable(4) %62, ptr noundef nonnull align 1 dereferenceable(2) @.str.3, ptr noundef nonnull align 1 dereferenceable(139) @.str.50, ptr noundef nonnull align 1 dereferenceable(42) @.str.13, ptr noundef nonnull align 4 dereferenceable(4) %58, ptr noundef nonnull align 1 dereferenceable(48) @.str.51, ptr noundef nonnull align 4 dereferenceable(4) %59, ptr noundef nonnull align 1 dereferenceable(41) @.str.11, ptr noundef nonnull align 4 dereferenceable(4) %60)
-          to label %1082 unwind label %1086
-
-1082:                                             ; preds = %1081
-  invoke void @_ZN10open_spiel15SpielFatalErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %61) #23
-          to label %1083 unwind label %1088
-
-1083:                                             ; preds = %1082
-  unreachable
-
-1084:                                             ; preds = %1073
-  %1085 = landingpad { ptr, i32 }
           cleanup
   br label %1349
 
-1086:                                             ; preds = %1081
-  %1087 = landingpad { ptr, i32 }
+.loopexit.split-lp.i197:                          ; preds = %1046
+  %lpad.loopexit.split-lp.i198 = landingpad { ptr, i32 }
+          cleanup
+  br label %1349
+
+1068:                                             ; preds = %1047
+  %1069 = landingpad { ptr, i32 }
+          cleanup
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %54) #21
+  br label %1349
+
+1070:                                             ; preds = %1039
+  %1071 = load ptr, ptr %48, align 8
+  invoke void @_ZN10open_spiel10algorithms22TabularBestResponseMDPC1ERKNS_4GameERKNS_6PolicyE(ptr noundef nonnull align 8 dereferenceable(44) %56, ptr noundef nonnull align 8 dereferenceable(280) %1071, ptr noundef nonnull align 8 dereferenceable(8) %38)
+          to label %1072 unwind label %.loopexit.i153
+
+1072:                                             ; preds = %1070
+  invoke void @_ZN10open_spiel10algorithms22TabularBestResponseMDP8NashConvEv(ptr dead_on_unwind nonnull writable sret(%"struct.open_spiel::algorithms::TabularBestResponseMDPInfo") align 8 %57, ptr noundef nonnull align 8 dereferenceable(44) %56)
+          to label %1073 unwind label %1083
+
+1073:                                             ; preds = %1072
+  %1074 = load double, ptr %1000, align 8
+  %1075 = fptrunc double %1074 to float
+  store float %1075, ptr %58, align 4
+  %1076 = fptrunc double %1034 to float
+  store float %1076, ptr %59, align 4
+  store float 0x3D71979980000000, ptr %60, align 4
+  %1077 = fsub float %1075, %1076
+  %1078 = call float @llvm.fabs.f32(float %1077)
+  %1079 = fcmp ugt float %1078, 0x3D71979980000000
+  br i1 %1079, label %1080, label %1089
+
+1080:                                             ; preds = %1073
+  store i32 137, ptr %62, align 4
+  invoke void @_ZN10open_spiel8internal11SpielStrCatIJRA154_KcRA2_S2_iS6_RA139_S2_RA42_S2_RfRA48_S2_SB_RA41_S2_SB_EEENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEDpOT_(ptr dead_on_unwind nonnull writable sret(%"class.std::__cxx11::basic_string") align 8 %61, ptr noundef nonnull align 1 dereferenceable(154) @.str.1, ptr noundef nonnull align 1 dereferenceable(2) @.str.2, ptr noundef nonnull align 4 dereferenceable(4) %62, ptr noundef nonnull align 1 dereferenceable(2) @.str.3, ptr noundef nonnull align 1 dereferenceable(139) @.str.50, ptr noundef nonnull align 1 dereferenceable(42) @.str.13, ptr noundef nonnull align 4 dereferenceable(4) %58, ptr noundef nonnull align 1 dereferenceable(48) @.str.51, ptr noundef nonnull align 4 dereferenceable(4) %59, ptr noundef nonnull align 1 dereferenceable(41) @.str.11, ptr noundef nonnull align 4 dereferenceable(4) %60)
+          to label %1081 unwind label %1085
+
+1081:                                             ; preds = %1080
+  invoke void @_ZN10open_spiel15SpielFatalErrorERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(32) %61) #23
+          to label %1082 unwind label %1087
+
+1082:                                             ; preds = %1081
+  unreachable
+
+1083:                                             ; preds = %1072
+  %1084 = landingpad { ptr, i32 }
           cleanup
   br label %1348
 
-1088:                                             ; preds = %1082
-  %1089 = landingpad { ptr, i32 }
+1085:                                             ; preds = %1080
+  %1086 = landingpad { ptr, i32 }
+          cleanup
+  br label %1347
+
+1087:                                             ; preds = %1081
+  %1088 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %61) #21
-  br label %1348
+  br label %1347
 
-1090:                                             ; preds = %1074
-  %1091 = load ptr, ptr %1002, align 8
-  %.not.i.i.i.i.i155 = icmp eq ptr %1091, null
-  br i1 %.not.i.i.i.i.i155, label %_ZNSt6vectorIdSaIdEED2Ev.exit.i.i156, label %1092
+1089:                                             ; preds = %1073
+  %1090 = load ptr, ptr %1001, align 8
+  %.not.i.i.i.i.i155 = icmp eq ptr %1090, null
+  br i1 %.not.i.i.i.i.i155, label %_ZNSt6vectorIdSaIdEED2Ev.exit.i.i156, label %1091
 
-1092:                                             ; preds = %1090
-  %1093 = load ptr, ptr %1003, align 8
-  %1094 = ptrtoint ptr %1093 to i64
-  %1095 = ptrtoint ptr %1091 to i64
-  %1096 = sub i64 %1094, %1095
-  call void @_ZdlPvm(ptr noundef nonnull %1091, i64 noundef %1096) #24
+1091:                                             ; preds = %1089
+  %1092 = load ptr, ptr %1002, align 8
+  %1093 = ptrtoint ptr %1092 to i64
+  %1094 = ptrtoint ptr %1090 to i64
+  %1095 = sub i64 %1093, %1094
+  call void @_ZdlPvm(ptr noundef nonnull %1090, i64 noundef %1095) #24
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit.i.i156
 
-_ZNSt6vectorIdSaIdEED2Ev.exit.i.i156:             ; preds = %1092, %1090
-  %1097 = load ptr, ptr %1004, align 8
-  %.not.i.i.i1.i.i157 = icmp eq ptr %1097, null
-  br i1 %.not.i.i.i1.i.i157, label %_ZNSt6vectorIdSaIdEED2Ev.exit2.i.i158, label %1098
+_ZNSt6vectorIdSaIdEED2Ev.exit.i.i156:             ; preds = %1091, %1089
+  %1096 = load ptr, ptr %1003, align 8
+  %.not.i.i.i1.i.i157 = icmp eq ptr %1096, null
+  br i1 %.not.i.i.i1.i.i157, label %_ZNSt6vectorIdSaIdEED2Ev.exit2.i.i158, label %1097
 
-1098:                                             ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit.i.i156
-  %1099 = load ptr, ptr %1005, align 8
-  %1100 = ptrtoint ptr %1099 to i64
-  %1101 = ptrtoint ptr %1097 to i64
-  %1102 = sub i64 %1100, %1101
-  call void @_ZdlPvm(ptr noundef nonnull %1097, i64 noundef %1102) #24
+1097:                                             ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit.i.i156
+  %1098 = load ptr, ptr %1004, align 8
+  %1099 = ptrtoint ptr %1098 to i64
+  %1100 = ptrtoint ptr %1096 to i64
+  %1101 = sub i64 %1099, %1100
+  call void @_ZdlPvm(ptr noundef nonnull %1096, i64 noundef %1101) #24
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit2.i.i158
 
-_ZNSt6vectorIdSaIdEED2Ev.exit2.i.i158:            ; preds = %1098, %_ZNSt6vectorIdSaIdEED2Ev.exit.i.i156
+_ZNSt6vectorIdSaIdEED2Ev.exit2.i.i158:            ; preds = %1097, %_ZNSt6vectorIdSaIdEED2Ev.exit.i.i156
+  %1102 = load ptr, ptr %1005, align 8
   %1103 = load ptr, ptr %1006, align 8
-  %1104 = load ptr, ptr %1007, align 8
-  %.not4.i.i.i.i.i.i159 = icmp eq ptr %1103, %1104
+  %.not4.i.i.i.i.i.i159 = icmp eq ptr %1102, %1103
   br i1 %.not4.i.i.i.i.i.i159, label %_ZSt8_DestroyIPN10open_spiel13TabularPolicyES1_EvT_S3_RSaIT0_E.exit.i.i.i165, label %.lr.ph.i.i.i.i.i.i160
 
 .lr.ph.i.i.i.i.i.i160:                            ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit2.i.i158, %.lr.ph.i.i.i.i.i.i160
-  %.05.i.i.i.i.i.i161 = phi ptr [ %1107, %.lr.ph.i.i.i.i.i.i160 ], [ %1103, %_ZNSt6vectorIdSaIdEED2Ev.exit2.i.i158 ]
-  %1105 = load ptr, ptr %.05.i.i.i.i.i.i161, align 8
-  %1106 = load ptr, ptr %1105, align 8
-  call void %1106(ptr noundef nonnull align 8 dereferenceable(64) %.05.i.i.i.i.i.i161) #21
-  %1107 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i161, i64 64
-  %.not.i.i.i.i.i.i162 = icmp eq ptr %1107, %1104
+  %.05.i.i.i.i.i.i161 = phi ptr [ %1106, %.lr.ph.i.i.i.i.i.i160 ], [ %1102, %_ZNSt6vectorIdSaIdEED2Ev.exit2.i.i158 ]
+  %1104 = load ptr, ptr %.05.i.i.i.i.i.i161, align 8
+  %1105 = load ptr, ptr %1104, align 8
+  call void %1105(ptr noundef nonnull align 8 dereferenceable(64) %.05.i.i.i.i.i.i161) #21
+  %1106 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i.i161, i64 64
+  %.not.i.i.i.i.i.i162 = icmp eq ptr %1106, %1103
   br i1 %.not.i.i.i.i.i.i162, label %_ZSt8_DestroyIPN10open_spiel13TabularPolicyES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i.i163, label %.lr.ph.i.i.i.i.i.i160, !llvm.loop !5
 
 _ZSt8_DestroyIPN10open_spiel13TabularPolicyES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i.i163: ; preds = %.lr.ph.i.i.i.i.i.i160
-  %.pr.i.i.i164 = load ptr, ptr %1006, align 8
+  %.pr.i.i.i164 = load ptr, ptr %1005, align 8
   br label %_ZSt8_DestroyIPN10open_spiel13TabularPolicyES1_EvT_S3_RSaIT0_E.exit.i.i.i165
 
 _ZSt8_DestroyIPN10open_spiel13TabularPolicyES1_EvT_S3_RSaIT0_E.exit.i.i.i165: ; preds = %_ZSt8_DestroyIPN10open_spiel13TabularPolicyES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i.i163, %_ZNSt6vectorIdSaIdEED2Ev.exit2.i.i158
-  %1108 = phi ptr [ %.pr.i.i.i164, %_ZSt8_DestroyIPN10open_spiel13TabularPolicyES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i.i163 ], [ %1103, %_ZNSt6vectorIdSaIdEED2Ev.exit2.i.i158 ]
-  %.not.i.i.i3.i.i166 = icmp eq ptr %1108, null
-  br i1 %.not.i.i.i3.i.i166, label %_ZNSt6vectorIN10open_spiel13TabularPolicyESaIS1_EED2Ev.exit.i.i167, label %1109
+  %1107 = phi ptr [ %.pr.i.i.i164, %_ZSt8_DestroyIPN10open_spiel13TabularPolicyES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i.i163 ], [ %1102, %_ZNSt6vectorIdSaIdEED2Ev.exit2.i.i158 ]
+  %.not.i.i.i3.i.i166 = icmp eq ptr %1107, null
+  br i1 %.not.i.i.i3.i.i166, label %_ZNSt6vectorIN10open_spiel13TabularPolicyESaIS1_EED2Ev.exit.i.i167, label %1108
 
-1109:                                             ; preds = %_ZSt8_DestroyIPN10open_spiel13TabularPolicyES1_EvT_S3_RSaIT0_E.exit.i.i.i165
-  %1110 = load ptr, ptr %1008, align 8
-  %1111 = ptrtoint ptr %1110 to i64
-  %1112 = ptrtoint ptr %1108 to i64
-  %1113 = sub i64 %1111, %1112
-  call void @_ZdlPvm(ptr noundef nonnull %1108, i64 noundef %1113) #24
+1108:                                             ; preds = %_ZSt8_DestroyIPN10open_spiel13TabularPolicyES1_EvT_S3_RSaIT0_E.exit.i.i.i165
+  %1109 = load ptr, ptr %1007, align 8
+  %1110 = ptrtoint ptr %1109 to i64
+  %1111 = ptrtoint ptr %1107 to i64
+  %1112 = sub i64 %1110, %1111
+  call void @_ZdlPvm(ptr noundef nonnull %1107, i64 noundef %1112) #24
   br label %_ZNSt6vectorIN10open_spiel13TabularPolicyESaIS1_EED2Ev.exit.i.i167
 
-_ZNSt6vectorIN10open_spiel13TabularPolicyESaIS1_EED2Ev.exit.i.i167: ; preds = %1109, %_ZSt8_DestroyIPN10open_spiel13TabularPolicyES1_EvT_S3_RSaIT0_E.exit.i.i.i165
-  %1114 = load ptr, ptr %57, align 8
-  %.not.i.i.i4.i.i168 = icmp eq ptr %1114, null
-  br i1 %.not.i.i.i4.i.i168, label %_ZN10open_spiel10algorithms26TabularBestResponseMDPInfoD2Ev.exit.i169, label %1115
+_ZNSt6vectorIN10open_spiel13TabularPolicyESaIS1_EED2Ev.exit.i.i167: ; preds = %1108, %_ZSt8_DestroyIPN10open_spiel13TabularPolicyES1_EvT_S3_RSaIT0_E.exit.i.i.i165
+  %1113 = load ptr, ptr %57, align 8
+  %.not.i.i.i4.i.i168 = icmp eq ptr %1113, null
+  br i1 %.not.i.i.i4.i.i168, label %_ZN10open_spiel10algorithms26TabularBestResponseMDPInfoD2Ev.exit.i169, label %1114
 
-1115:                                             ; preds = %_ZNSt6vectorIN10open_spiel13TabularPolicyESaIS1_EED2Ev.exit.i.i167
-  %1116 = load ptr, ptr %1009, align 8
-  %1117 = ptrtoint ptr %1116 to i64
-  %1118 = ptrtoint ptr %1114 to i64
-  %1119 = sub i64 %1117, %1118
-  call void @_ZdlPvm(ptr noundef nonnull %1114, i64 noundef %1119) #24
+1114:                                             ; preds = %_ZNSt6vectorIN10open_spiel13TabularPolicyESaIS1_EED2Ev.exit.i.i167
+  %1115 = load ptr, ptr %1008, align 8
+  %1116 = ptrtoint ptr %1115 to i64
+  %1117 = ptrtoint ptr %1113 to i64
+  %1118 = sub i64 %1116, %1117
+  call void @_ZdlPvm(ptr noundef nonnull %1113, i64 noundef %1118) #24
   br label %_ZN10open_spiel10algorithms26TabularBestResponseMDPInfoD2Ev.exit.i169
 
-_ZN10open_spiel10algorithms26TabularBestResponseMDPInfoD2Ev.exit.i169: ; preds = %1115, %_ZNSt6vectorIN10open_spiel13TabularPolicyESaIS1_EED2Ev.exit.i.i167
-  %1120 = load ptr, ptr %56, align 8
-  %1121 = load ptr, ptr %1010, align 8
-  %.not4.i.i.i.i.i45.i = icmp eq ptr %1120, %1121
+_ZN10open_spiel10algorithms26TabularBestResponseMDPInfoD2Ev.exit.i169: ; preds = %1114, %_ZNSt6vectorIN10open_spiel13TabularPolicyESaIS1_EED2Ev.exit.i.i167
+  %1119 = load ptr, ptr %56, align 8
+  %1120 = load ptr, ptr %1009, align 8
+  %.not4.i.i.i.i.i45.i = icmp eq ptr %1119, %1120
   br i1 %.not4.i.i.i.i.i45.i, label %_ZSt8_DestroyIPSt10unique_ptrIN10open_spiel10algorithms3MDPESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i.i.i177, label %.lr.ph.i.i.i.i.i46.i
 
 .lr.ph.i.i.i.i.i46.i:                             ; preds = %_ZN10open_spiel10algorithms26TabularBestResponseMDPInfoD2Ev.exit.i169, %_ZNSt10unique_ptrIN10open_spiel10algorithms3MDPESt14default_deleteIS2_EED2Ev.exit.i175
-  %.05.i.i.i.i.i47.i = phi ptr [ %1177, %_ZNSt10unique_ptrIN10open_spiel10algorithms3MDPESt14default_deleteIS2_EED2Ev.exit.i175 ], [ %1120, %_ZN10open_spiel10algorithms26TabularBestResponseMDPInfoD2Ev.exit.i169 ]
-  %1122 = load ptr, ptr %.05.i.i.i.i.i47.i, align 8
-  %.not.i.i170 = icmp eq ptr %1122, null
-  br i1 %.not.i.i170, label %_ZNSt10unique_ptrIN10open_spiel10algorithms3MDPESt14default_deleteIS2_EED2Ev.exit.i175, label %1123
+  %.05.i.i.i.i.i47.i = phi ptr [ %1176, %_ZNSt10unique_ptrIN10open_spiel10algorithms3MDPESt14default_deleteIS2_EED2Ev.exit.i175 ], [ %1119, %_ZN10open_spiel10algorithms26TabularBestResponseMDPInfoD2Ev.exit.i169 ]
+  %1121 = load ptr, ptr %.05.i.i.i.i.i47.i, align 8
+  %.not.i.i170 = icmp eq ptr %1121, null
+  br i1 %.not.i.i170, label %_ZNSt10unique_ptrIN10open_spiel10algorithms3MDPESt14default_deleteIS2_EED2Ev.exit.i175, label %1122
 
-1123:                                             ; preds = %.lr.ph.i.i.i.i.i46.i
-  %1124 = getelementptr inbounds nuw i8, ptr %1122, i64 24
-  %1125 = load i64, ptr %1124, align 8
-  %.not.i.i.i.i.i.i.i92.i = icmp eq i64 %1125, 0
+1122:                                             ; preds = %.lr.ph.i.i.i.i.i46.i
+  %1123 = getelementptr inbounds nuw i8, ptr %1121, i64 24
+  %1124 = load i64, ptr %1123, align 8
+  %.not.i.i.i.i.i.i.i92.i = icmp eq i64 %1124, 0
   br i1 %.not.i.i.i.i.i.i.i92.i, label %_ZNKSt14default_deleteIN10open_spiel10algorithms3MDPEEclEPS2_.exit.i.i174, label %.lr.ph.i.i.i.i.i.i.i93.i
 
-.lr.ph.i.i.i.i.i.i.i93.i:                         ; preds = %1123
-  %1126 = getelementptr inbounds nuw i8, ptr %1122, i64 8
-  br label %1127
+.lr.ph.i.i.i.i.i.i.i93.i:                         ; preds = %1122
+  %1125 = getelementptr inbounds nuw i8, ptr %1121, i64 8
+  br label %1126
 
-1127:                                             ; preds = %1169, %.lr.ph.i.i.i.i.i.i.i93.i
-  %1128 = phi i64 [ %1125, %.lr.ph.i.i.i.i.i.i.i93.i ], [ %1170, %1169 ]
-  %.07.i.i.i.i.i.i.i.i171 = phi i64 [ 0, %.lr.ph.i.i.i.i.i.i.i93.i ], [ %1171, %1169 ]
-  %1129 = load ptr, ptr %1122, align 8
-  %1130 = getelementptr inbounds i8, ptr %1129, i64 %.07.i.i.i.i.i.i.i.i171
-  %1131 = load i8, ptr %1130, align 1
-  %1132 = icmp sgt i8 %1131, -1
-  br i1 %1132, label %1133, label %1169
+1126:                                             ; preds = %1168, %.lr.ph.i.i.i.i.i.i.i93.i
+  %1127 = phi i64 [ %1124, %.lr.ph.i.i.i.i.i.i.i93.i ], [ %1169, %1168 ]
+  %.07.i.i.i.i.i.i.i.i171 = phi i64 [ 0, %.lr.ph.i.i.i.i.i.i.i93.i ], [ %1170, %1168 ]
+  %1128 = load ptr, ptr %1121, align 8
+  %1129 = getelementptr inbounds i8, ptr %1128, i64 %.07.i.i.i.i.i.i.i.i171
+  %1130 = load i8, ptr %1129, align 1
+  %1131 = icmp sgt i8 %1130, -1
+  br i1 %1131, label %1132, label %1168
 
-1133:                                             ; preds = %1127
-  %1134 = load ptr, ptr %1126, align 8
-  %1135 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %1134, i64 %.07.i.i.i.i.i.i.i.i171
-  %1136 = getelementptr inbounds nuw i8, ptr %1135, i64 32
-  %1137 = load ptr, ptr %1136, align 8
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i185 = icmp eq ptr %1137, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i185, label %_ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN10open_spiel10algorithms7MDPNodeESt14default_deleteISD_EEEEvE7destroyISaISt4pairIKS9_SG_EEEEvPT_PNS1_13map_slot_typeIS9_SG_EE.exit.i.i.i.i.i.i.i.i192, label %1138
+1132:                                             ; preds = %1126
+  %1133 = load ptr, ptr %1125, align 8
+  %1134 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %1133, i64 %.07.i.i.i.i.i.i.i.i171
+  %1135 = getelementptr inbounds nuw i8, ptr %1134, i64 32
+  %1136 = load ptr, ptr %1135, align 8
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i185 = icmp eq ptr %1136, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i185, label %_ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN10open_spiel10algorithms7MDPNodeESt14default_deleteISD_EEEEvE7destroyISaISt4pairIKS9_SG_EEEEvPT_PNS1_13map_slot_typeIS9_SG_EE.exit.i.i.i.i.i.i.i.i192, label %1137
 
-1138:                                             ; preds = %1133
-  %1139 = getelementptr inbounds nuw i8, ptr %1137, i64 64
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1139) #21
-  %1140 = getelementptr inbounds nuw i8, ptr %1137, i64 16
-  %1141 = getelementptr inbounds nuw i8, ptr %1137, i64 40
-  %1142 = load i64, ptr %1141, align 8
-  %.not.i.i.i.i.i.i105.i = icmp eq i64 %1142, 0
+1137:                                             ; preds = %1132
+  %1138 = getelementptr inbounds nuw i8, ptr %1136, i64 64
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1138) #21
+  %1139 = getelementptr inbounds nuw i8, ptr %1136, i64 16
+  %1140 = getelementptr inbounds nuw i8, ptr %1136, i64 40
+  %1141 = load i64, ptr %1140, align 8
+  %.not.i.i.i.i.i.i105.i = icmp eq i64 %1141, 0
   br i1 %.not.i.i.i.i.i.i105.i, label %_ZNKSt14default_deleteIN10open_spiel10algorithms7MDPNodeEEclEPS2_.exit.i191, label %.lr.ph.i.i.i.i.i.i.i186
 
-.lr.ph.i.i.i.i.i.i.i186:                          ; preds = %1138
-  %1143 = getelementptr inbounds nuw i8, ptr %1137, i64 24
-  br label %1144
+.lr.ph.i.i.i.i.i.i.i186:                          ; preds = %1137
+  %1142 = getelementptr inbounds nuw i8, ptr %1136, i64 24
+  br label %1143
 
-1144:                                             ; preds = %_ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicyIlNS0_13flat_hash_mapIPN10open_spiel10algorithms7MDPNodeEdNS1_6HashEqIS8_vE4HashENSA_2EqESaISt4pairIKS8_dEEEEEEvE7destroyISaISD_IKlSH_EEEEvPT_PNS1_13map_slot_typeIlSH_EE.exit.i.i.i.i.i.i.i188, %.lr.ph.i.i.i.i.i.i.i186
-  %1145 = phi i64 [ %1142, %.lr.ph.i.i.i.i.i.i.i186 ], [ %1162, %_ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicyIlNS0_13flat_hash_mapIPN10open_spiel10algorithms7MDPNodeEdNS1_6HashEqIS8_vE4HashENSA_2EqESaISt4pairIKS8_dEEEEEEvE7destroyISaISD_IKlSH_EEEEvPT_PNS1_13map_slot_typeIlSH_EE.exit.i.i.i.i.i.i.i188 ]
-  %.07.i.i.i.i.i.i.i187 = phi i64 [ 0, %.lr.ph.i.i.i.i.i.i.i186 ], [ %1163, %_ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicyIlNS0_13flat_hash_mapIPN10open_spiel10algorithms7MDPNodeEdNS1_6HashEqIS8_vE4HashENSA_2EqESaISt4pairIKS8_dEEEEEEvE7destroyISaISD_IKlSH_EEEEvPT_PNS1_13map_slot_typeIlSH_EE.exit.i.i.i.i.i.i.i188 ]
-  %1146 = load ptr, ptr %1140, align 8
-  %1147 = getelementptr inbounds i8, ptr %1146, i64 %.07.i.i.i.i.i.i.i187
-  %1148 = load i8, ptr %1147, align 1
-  %1149 = icmp sgt i8 %1148, -1
-  br i1 %1149, label %1150, label %_ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicyIlNS0_13flat_hash_mapIPN10open_spiel10algorithms7MDPNodeEdNS1_6HashEqIS8_vE4HashENSA_2EqESaISt4pairIKS8_dEEEEEEvE7destroyISaISD_IKlSH_EEEEvPT_PNS1_13map_slot_typeIlSH_EE.exit.i.i.i.i.i.i.i188
+1143:                                             ; preds = %_ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicyIlNS0_13flat_hash_mapIPN10open_spiel10algorithms7MDPNodeEdNS1_6HashEqIS8_vE4HashENSA_2EqESaISt4pairIKS8_dEEEEEEvE7destroyISaISD_IKlSH_EEEEvPT_PNS1_13map_slot_typeIlSH_EE.exit.i.i.i.i.i.i.i188, %.lr.ph.i.i.i.i.i.i.i186
+  %1144 = phi i64 [ %1141, %.lr.ph.i.i.i.i.i.i.i186 ], [ %1161, %_ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicyIlNS0_13flat_hash_mapIPN10open_spiel10algorithms7MDPNodeEdNS1_6HashEqIS8_vE4HashENSA_2EqESaISt4pairIKS8_dEEEEEEvE7destroyISaISD_IKlSH_EEEEvPT_PNS1_13map_slot_typeIlSH_EE.exit.i.i.i.i.i.i.i188 ]
+  %.07.i.i.i.i.i.i.i187 = phi i64 [ 0, %.lr.ph.i.i.i.i.i.i.i186 ], [ %1162, %_ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicyIlNS0_13flat_hash_mapIPN10open_spiel10algorithms7MDPNodeEdNS1_6HashEqIS8_vE4HashENSA_2EqESaISt4pairIKS8_dEEEEEEvE7destroyISaISD_IKlSH_EEEEvPT_PNS1_13map_slot_typeIlSH_EE.exit.i.i.i.i.i.i.i188 ]
+  %1145 = load ptr, ptr %1139, align 8
+  %1146 = getelementptr inbounds i8, ptr %1145, i64 %.07.i.i.i.i.i.i.i187
+  %1147 = load i8, ptr %1146, align 1
+  %1148 = icmp sgt i8 %1147, -1
+  br i1 %1148, label %1149, label %_ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicyIlNS0_13flat_hash_mapIPN10open_spiel10algorithms7MDPNodeEdNS1_6HashEqIS8_vE4HashENSA_2EqESaISt4pairIKS8_dEEEEEEvE7destroyISaISD_IKlSH_EEEEvPT_PNS1_13map_slot_typeIlSH_EE.exit.i.i.i.i.i.i.i188
 
-1150:                                             ; preds = %1144
-  %1151 = load ptr, ptr %1143, align 8
-  %1152 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type.106", ptr %1151, i64 %.07.i.i.i.i.i.i.i187
-  %1153 = getelementptr inbounds nuw i8, ptr %1152, i64 32
-  %1154 = load i64, ptr %1153, align 8
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i194 = icmp eq i64 %1154, 0
+1149:                                             ; preds = %1143
+  %1150 = load ptr, ptr %1142, align 8
+  %1151 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type.106", ptr %1150, i64 %.07.i.i.i.i.i.i.i187
+  %1152 = getelementptr inbounds nuw i8, ptr %1151, i64 32
+  %1153 = load i64, ptr %1152, align 8
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i194 = icmp eq i64 %1153, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i194, label %_ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicyIlNS0_13flat_hash_mapIPN10open_spiel10algorithms7MDPNodeEdNS1_6HashEqIS8_vE4HashENSA_2EqESaISt4pairIKS8_dEEEEEEvE7destroyISaISD_IKlSH_EEEEvPT_PNS1_13map_slot_typeIlSH_EE.exit.i.i.i.i.i.i.i188, label %.preheader.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i195
 
-.preheader.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i195: ; preds = %1150
-  %1155 = getelementptr inbounds nuw i8, ptr %1152, i64 8
-  %1156 = getelementptr inbounds nuw i8, ptr %1152, i64 16
-  %1157 = load ptr, ptr %1155, align 8
-  %1158 = add i64 %1154, 24
-  %1159 = shl i64 %1154, 4
-  %1160 = add i64 %1158, %1159
-  %1161 = and i64 %1160, -8
-  call void @_ZdlPvm(ptr noundef %1157, i64 noundef %1161) #24
-  store ptr @_ZZN4absl7debian218container_internal10EmptyGroupEvE11empty_group, ptr %1155, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1156, i8 0, i64 32, i1 false)
-  %.pre.i.i.i.i.i.i.i196 = load i64, ptr %1141, align 8
+.preheader.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i195: ; preds = %1149
+  %1154 = getelementptr inbounds nuw i8, ptr %1151, i64 8
+  %1155 = getelementptr inbounds nuw i8, ptr %1151, i64 16
+  %1156 = load ptr, ptr %1154, align 8
+  %1157 = add i64 %1153, 24
+  %1158 = shl i64 %1153, 4
+  %1159 = add i64 %1157, %1158
+  %1160 = and i64 %1159, -8
+  call void @_ZdlPvm(ptr noundef %1156, i64 noundef %1160) #24
+  store ptr @_ZZN4absl7debian218container_internal10EmptyGroupEvE11empty_group, ptr %1154, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1155, i8 0, i64 32, i1 false)
+  %.pre.i.i.i.i.i.i.i196 = load i64, ptr %1140, align 8
   br label %_ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicyIlNS0_13flat_hash_mapIPN10open_spiel10algorithms7MDPNodeEdNS1_6HashEqIS8_vE4HashENSA_2EqESaISt4pairIKS8_dEEEEEEvE7destroyISaISD_IKlSH_EEEEvPT_PNS1_13map_slot_typeIlSH_EE.exit.i.i.i.i.i.i.i188
 
-_ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicyIlNS0_13flat_hash_mapIPN10open_spiel10algorithms7MDPNodeEdNS1_6HashEqIS8_vE4HashENSA_2EqESaISt4pairIKS8_dEEEEEEvE7destroyISaISD_IKlSH_EEEEvPT_PNS1_13map_slot_typeIlSH_EE.exit.i.i.i.i.i.i.i188: ; preds = %.preheader.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i195, %1150, %1144
-  %1162 = phi i64 [ %.pre.i.i.i.i.i.i.i196, %.preheader.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i195 ], [ %1145, %1150 ], [ %1145, %1144 ]
-  %1163 = add i64 %.07.i.i.i.i.i.i.i187, 1
-  %.not5.i.i.i.i.i.i.i189 = icmp eq i64 %1163, %1162
-  br i1 %.not5.i.i.i.i.i.i.i189, label %._crit_edge.i.i.i.i.i.i.i190, label %1144, !llvm.loop !8
+_ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicyIlNS0_13flat_hash_mapIPN10open_spiel10algorithms7MDPNodeEdNS1_6HashEqIS8_vE4HashENSA_2EqESaISt4pairIKS8_dEEEEEEvE7destroyISaISD_IKlSH_EEEEvPT_PNS1_13map_slot_typeIlSH_EE.exit.i.i.i.i.i.i.i188: ; preds = %.preheader.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i195, %1149, %1143
+  %1161 = phi i64 [ %.pre.i.i.i.i.i.i.i196, %.preheader.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i195 ], [ %1144, %1149 ], [ %1144, %1143 ]
+  %1162 = add i64 %.07.i.i.i.i.i.i.i187, 1
+  %.not5.i.i.i.i.i.i.i189 = icmp eq i64 %1162, %1161
+  br i1 %.not5.i.i.i.i.i.i.i189, label %._crit_edge.i.i.i.i.i.i.i190, label %1143, !llvm.loop !8
 
 ._crit_edge.i.i.i.i.i.i.i190:                     ; preds = %_ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicyIlNS0_13flat_hash_mapIPN10open_spiel10algorithms7MDPNodeEdNS1_6HashEqIS8_vE4HashENSA_2EqESaISt4pairIKS8_dEEEEEEvE7destroyISaISD_IKlSH_EEEEvPT_PNS1_13map_slot_typeIlSH_EE.exit.i.i.i.i.i.i.i188
-  %1164 = load ptr, ptr %1140, align 8
-  %1165 = add i64 %1162, 24
-  %1166 = mul i64 %1162, 48
-  %1167 = add i64 %1165, %1166
-  %1168 = and i64 %1167, -8
-  call void @_ZdlPvm(ptr noundef %1164, i64 noundef %1168) #24
+  %1163 = load ptr, ptr %1139, align 8
+  %1164 = add i64 %1161, 24
+  %1165 = mul i64 %1161, 48
+  %1166 = add i64 %1164, %1165
+  %1167 = and i64 %1166, -8
+  call void @_ZdlPvm(ptr noundef %1163, i64 noundef %1167) #24
   br label %_ZNKSt14default_deleteIN10open_spiel10algorithms7MDPNodeEEclEPS2_.exit.i191
 
-_ZNKSt14default_deleteIN10open_spiel10algorithms7MDPNodeEEclEPS2_.exit.i191: ; preds = %._crit_edge.i.i.i.i.i.i.i190, %1138
-  call void @_ZdlPvm(ptr noundef nonnull %1137, i64 noundef 96) #24
+_ZNKSt14default_deleteIN10open_spiel10algorithms7MDPNodeEEclEPS2_.exit.i191: ; preds = %._crit_edge.i.i.i.i.i.i.i190, %1137
+  call void @_ZdlPvm(ptr noundef nonnull %1136, i64 noundef 96) #24
   br label %_ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN10open_spiel10algorithms7MDPNodeESt14default_deleteISD_EEEEvE7destroyISaISt4pairIKS9_SG_EEEEvPT_PNS1_13map_slot_typeIS9_SG_EE.exit.i.i.i.i.i.i.i.i192
 
-_ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN10open_spiel10algorithms7MDPNodeESt14default_deleteISD_EEEEvE7destroyISaISt4pairIKS9_SG_EEEEvPT_PNS1_13map_slot_typeIS9_SG_EE.exit.i.i.i.i.i.i.i.i192: ; preds = %_ZNKSt14default_deleteIN10open_spiel10algorithms7MDPNodeEEclEPS2_.exit.i191, %1133
-  store ptr null, ptr %1136, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %1135) #21
-  %.pre.i.i.i.i.i.i.i.i193 = load i64, ptr %1124, align 8
-  br label %1169
+_ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN10open_spiel10algorithms7MDPNodeESt14default_deleteISD_EEEEvE7destroyISaISt4pairIKS9_SG_EEEEvPT_PNS1_13map_slot_typeIS9_SG_EE.exit.i.i.i.i.i.i.i.i192: ; preds = %_ZNKSt14default_deleteIN10open_spiel10algorithms7MDPNodeEEclEPS2_.exit.i191, %1132
+  store ptr null, ptr %1135, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %1134) #21
+  %.pre.i.i.i.i.i.i.i.i193 = load i64, ptr %1123, align 8
+  br label %1168
 
-1169:                                             ; preds = %_ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN10open_spiel10algorithms7MDPNodeESt14default_deleteISD_EEEEvE7destroyISaISt4pairIKS9_SG_EEEEvPT_PNS1_13map_slot_typeIS9_SG_EE.exit.i.i.i.i.i.i.i.i192, %1127
-  %1170 = phi i64 [ %1128, %1127 ], [ %.pre.i.i.i.i.i.i.i.i193, %_ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN10open_spiel10algorithms7MDPNodeESt14default_deleteISD_EEEEvE7destroyISaISt4pairIKS9_SG_EEEEvPT_PNS1_13map_slot_typeIS9_SG_EE.exit.i.i.i.i.i.i.i.i192 ]
-  %1171 = add i64 %.07.i.i.i.i.i.i.i.i171, 1
-  %.not5.i.i.i.i.i.i.i.i172 = icmp eq i64 %1171, %1170
-  br i1 %.not5.i.i.i.i.i.i.i.i172, label %._crit_edge.i.i.i.i.i.i.i.i173, label %1127, !llvm.loop !9
+1168:                                             ; preds = %_ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN10open_spiel10algorithms7MDPNodeESt14default_deleteISD_EEEEvE7destroyISaISt4pairIKS9_SG_EEEEvPT_PNS1_13map_slot_typeIS9_SG_EE.exit.i.i.i.i.i.i.i.i192, %1126
+  %1169 = phi i64 [ %1127, %1126 ], [ %.pre.i.i.i.i.i.i.i.i193, %_ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN10open_spiel10algorithms7MDPNodeESt14default_deleteISD_EEEEvE7destroyISaISt4pairIKS9_SG_EEEEvPT_PNS1_13map_slot_typeIS9_SG_EE.exit.i.i.i.i.i.i.i.i192 ]
+  %1170 = add i64 %.07.i.i.i.i.i.i.i.i171, 1
+  %.not5.i.i.i.i.i.i.i.i172 = icmp eq i64 %1170, %1169
+  br i1 %.not5.i.i.i.i.i.i.i.i172, label %._crit_edge.i.i.i.i.i.i.i.i173, label %1126, !llvm.loop !9
 
-._crit_edge.i.i.i.i.i.i.i.i173:                   ; preds = %1169
-  %1172 = load ptr, ptr %1122, align 8
-  %1173 = add i64 %1170, 24
-  %1174 = mul i64 %1170, 40
-  %1175 = add i64 %1173, %1174
-  %1176 = and i64 %1175, -8
-  call void @_ZdlPvm(ptr noundef %1172, i64 noundef %1176) #24
+._crit_edge.i.i.i.i.i.i.i.i173:                   ; preds = %1168
+  %1171 = load ptr, ptr %1121, align 8
+  %1172 = add i64 %1169, 24
+  %1173 = mul i64 %1169, 40
+  %1174 = add i64 %1172, %1173
+  %1175 = and i64 %1174, -8
+  call void @_ZdlPvm(ptr noundef %1171, i64 noundef %1175) #24
   br label %_ZNKSt14default_deleteIN10open_spiel10algorithms3MDPEEclEPS2_.exit.i.i174
 
-_ZNKSt14default_deleteIN10open_spiel10algorithms3MDPEEclEPS2_.exit.i.i174: ; preds = %._crit_edge.i.i.i.i.i.i.i.i173, %1123
-  call void @_ZdlPvm(ptr noundef nonnull %1122, i64 noundef 56) #24
+_ZNKSt14default_deleteIN10open_spiel10algorithms3MDPEEclEPS2_.exit.i.i174: ; preds = %._crit_edge.i.i.i.i.i.i.i.i173, %1122
+  call void @_ZdlPvm(ptr noundef nonnull %1121, i64 noundef 56) #24
   br label %_ZNSt10unique_ptrIN10open_spiel10algorithms3MDPESt14default_deleteIS2_EED2Ev.exit.i175
 
 _ZNSt10unique_ptrIN10open_spiel10algorithms3MDPESt14default_deleteIS2_EED2Ev.exit.i175: ; preds = %_ZNKSt14default_deleteIN10open_spiel10algorithms3MDPEEclEPS2_.exit.i.i174, %.lr.ph.i.i.i.i.i46.i
   store ptr null, ptr %.05.i.i.i.i.i47.i, align 8
-  %1177 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i47.i, i64 8
-  %.not.i.i.i.i.i48.i = icmp eq ptr %1177, %1121
+  %1176 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i47.i, i64 8
+  %.not.i.i.i.i.i48.i = icmp eq ptr %1176, %1120
   br i1 %.not.i.i.i.i.i48.i, label %_ZSt8_DestroyIPSt10unique_ptrIN10open_spiel10algorithms3MDPESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exitthread-pre-split.i.i.i176, label %.lr.ph.i.i.i.i.i46.i, !llvm.loop !7
 
 _ZSt8_DestroyIPSt10unique_ptrIN10open_spiel10algorithms3MDPESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exitthread-pre-split.i.i.i176: ; preds = %_ZNSt10unique_ptrIN10open_spiel10algorithms3MDPESt14default_deleteIS2_EED2Ev.exit.i175
@@ -3459,220 +3458,220 @@ _ZSt8_DestroyIPSt10unique_ptrIN10open_spiel10algorithms3MDPESt14default_deleteIS
   br label %_ZSt8_DestroyIPSt10unique_ptrIN10open_spiel10algorithms3MDPESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i.i.i177
 
 _ZSt8_DestroyIPSt10unique_ptrIN10open_spiel10algorithms3MDPESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i.i.i177: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN10open_spiel10algorithms3MDPESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exitthread-pre-split.i.i.i176, %_ZN10open_spiel10algorithms26TabularBestResponseMDPInfoD2Ev.exit.i169
-  %1178 = phi ptr [ %.pr.i.i49.i, %_ZSt8_DestroyIPSt10unique_ptrIN10open_spiel10algorithms3MDPESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exitthread-pre-split.i.i.i176 ], [ %1120, %_ZN10open_spiel10algorithms26TabularBestResponseMDPInfoD2Ev.exit.i169 ]
-  %.not.i.i.i.i50.i = icmp eq ptr %1178, null
-  br i1 %.not.i.i.i.i50.i, label %_ZN10open_spiel10algorithms22TabularBestResponseMDPD2Ev.exit.i178, label %1179
+  %1177 = phi ptr [ %.pr.i.i49.i, %_ZSt8_DestroyIPSt10unique_ptrIN10open_spiel10algorithms3MDPESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exitthread-pre-split.i.i.i176 ], [ %1119, %_ZN10open_spiel10algorithms26TabularBestResponseMDPInfoD2Ev.exit.i169 ]
+  %.not.i.i.i.i50.i = icmp eq ptr %1177, null
+  br i1 %.not.i.i.i.i50.i, label %_ZN10open_spiel10algorithms22TabularBestResponseMDPD2Ev.exit.i178, label %1178
 
-1179:                                             ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN10open_spiel10algorithms3MDPESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i.i.i177
-  %1180 = load ptr, ptr %1011, align 8
-  %1181 = ptrtoint ptr %1180 to i64
-  %1182 = ptrtoint ptr %1178 to i64
-  %1183 = sub i64 %1181, %1182
-  call void @_ZdlPvm(ptr noundef nonnull %1178, i64 noundef %1183) #24
+1178:                                             ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN10open_spiel10algorithms3MDPESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i.i.i177
+  %1179 = load ptr, ptr %1010, align 8
+  %1180 = ptrtoint ptr %1179 to i64
+  %1181 = ptrtoint ptr %1177 to i64
+  %1182 = sub i64 %1180, %1181
+  call void @_ZdlPvm(ptr noundef nonnull %1177, i64 noundef %1182) #24
   br label %_ZN10open_spiel10algorithms22TabularBestResponseMDPD2Ev.exit.i178
 
-_ZN10open_spiel10algorithms22TabularBestResponseMDPD2Ev.exit.i178: ; preds = %1179, %_ZSt8_DestroyIPSt10unique_ptrIN10open_spiel10algorithms3MDPESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i.i.i177
-  %1184 = load ptr, ptr %1012, align 8
-  %.not.i.i.i.i51.i = icmp eq ptr %1184, null
-  br i1 %.not.i.i.i.i51.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit.i52.i, label %1185
+_ZN10open_spiel10algorithms22TabularBestResponseMDPD2Ev.exit.i178: ; preds = %1178, %_ZSt8_DestroyIPSt10unique_ptrIN10open_spiel10algorithms3MDPESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i.i.i177
+  %1183 = load ptr, ptr %1011, align 8
+  %.not.i.i.i.i51.i = icmp eq ptr %1183, null
+  br i1 %.not.i.i.i.i51.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit.i52.i, label %1184
 
-1185:                                             ; preds = %_ZN10open_spiel10algorithms22TabularBestResponseMDPD2Ev.exit.i178
-  %1186 = load ptr, ptr %1013, align 8
-  %1187 = ptrtoint ptr %1186 to i64
-  %1188 = ptrtoint ptr %1184 to i64
-  %1189 = sub i64 %1187, %1188
-  call void @_ZdlPvm(ptr noundef nonnull %1184, i64 noundef %1189) #24
+1184:                                             ; preds = %_ZN10open_spiel10algorithms22TabularBestResponseMDPD2Ev.exit.i178
+  %1185 = load ptr, ptr %1012, align 8
+  %1186 = ptrtoint ptr %1185 to i64
+  %1187 = ptrtoint ptr %1183 to i64
+  %1188 = sub i64 %1186, %1187
+  call void @_ZdlPvm(ptr noundef nonnull %1183, i64 noundef %1188) #24
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit.i52.i
 
-_ZNSt6vectorIdSaIdEED2Ev.exit.i52.i:              ; preds = %1185, %_ZN10open_spiel10algorithms22TabularBestResponseMDPD2Ev.exit.i178
-  %1190 = load ptr, ptr %1014, align 8
-  %.not.i.i.i1.i53.i = icmp eq ptr %1190, null
-  br i1 %.not.i.i.i1.i53.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit2.i54.i, label %1191
+_ZNSt6vectorIdSaIdEED2Ev.exit.i52.i:              ; preds = %1184, %_ZN10open_spiel10algorithms22TabularBestResponseMDPD2Ev.exit.i178
+  %1189 = load ptr, ptr %1013, align 8
+  %.not.i.i.i1.i53.i = icmp eq ptr %1189, null
+  br i1 %.not.i.i.i1.i53.i, label %_ZNSt6vectorIdSaIdEED2Ev.exit2.i54.i, label %1190
 
-1191:                                             ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit.i52.i
-  %1192 = load ptr, ptr %1015, align 8
-  %1193 = ptrtoint ptr %1192 to i64
-  %1194 = ptrtoint ptr %1190 to i64
-  %1195 = sub i64 %1193, %1194
-  call void @_ZdlPvm(ptr noundef nonnull %1190, i64 noundef %1195) #24
+1190:                                             ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit.i52.i
+  %1191 = load ptr, ptr %1014, align 8
+  %1192 = ptrtoint ptr %1191 to i64
+  %1193 = ptrtoint ptr %1189 to i64
+  %1194 = sub i64 %1192, %1193
+  call void @_ZdlPvm(ptr noundef nonnull %1189, i64 noundef %1194) #24
   br label %_ZNSt6vectorIdSaIdEED2Ev.exit2.i54.i
 
-_ZNSt6vectorIdSaIdEED2Ev.exit2.i54.i:             ; preds = %1191, %_ZNSt6vectorIdSaIdEED2Ev.exit.i52.i
+_ZNSt6vectorIdSaIdEED2Ev.exit2.i54.i:             ; preds = %1190, %_ZNSt6vectorIdSaIdEED2Ev.exit.i52.i
+  %1195 = load ptr, ptr %1015, align 8
   %1196 = load ptr, ptr %1016, align 8
-  %1197 = load ptr, ptr %1017, align 8
-  %.not4.i.i.i.i.i55.i = icmp eq ptr %1196, %1197
+  %.not4.i.i.i.i.i55.i = icmp eq ptr %1195, %1196
   br i1 %.not4.i.i.i.i.i55.i, label %_ZSt8_DestroyIPN10open_spiel13TabularPolicyES1_EvT_S3_RSaIT0_E.exit.i.i61.i, label %.lr.ph.i.i.i.i.i56.i
 
 .lr.ph.i.i.i.i.i56.i:                             ; preds = %_ZNSt6vectorIdSaIdEED2Ev.exit2.i54.i, %.lr.ph.i.i.i.i.i56.i
-  %.05.i.i.i.i.i57.i = phi ptr [ %1200, %.lr.ph.i.i.i.i.i56.i ], [ %1196, %_ZNSt6vectorIdSaIdEED2Ev.exit2.i54.i ]
-  %1198 = load ptr, ptr %.05.i.i.i.i.i57.i, align 8
-  %1199 = load ptr, ptr %1198, align 8
-  call void %1199(ptr noundef nonnull align 8 dereferenceable(64) %.05.i.i.i.i.i57.i) #21
-  %1200 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i57.i, i64 64
-  %.not.i.i.i.i.i58.i = icmp eq ptr %1200, %1197
+  %.05.i.i.i.i.i57.i = phi ptr [ %1199, %.lr.ph.i.i.i.i.i56.i ], [ %1195, %_ZNSt6vectorIdSaIdEED2Ev.exit2.i54.i ]
+  %1197 = load ptr, ptr %.05.i.i.i.i.i57.i, align 8
+  %1198 = load ptr, ptr %1197, align 8
+  call void %1198(ptr noundef nonnull align 8 dereferenceable(64) %.05.i.i.i.i.i57.i) #21
+  %1199 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i57.i, i64 64
+  %.not.i.i.i.i.i58.i = icmp eq ptr %1199, %1196
   br i1 %.not.i.i.i.i.i58.i, label %_ZSt8_DestroyIPN10open_spiel13TabularPolicyES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i59.i, label %.lr.ph.i.i.i.i.i56.i, !llvm.loop !5
 
 _ZSt8_DestroyIPN10open_spiel13TabularPolicyES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i59.i: ; preds = %.lr.ph.i.i.i.i.i56.i
-  %.pr.i.i60.i = load ptr, ptr %1016, align 8
+  %.pr.i.i60.i = load ptr, ptr %1015, align 8
   br label %_ZSt8_DestroyIPN10open_spiel13TabularPolicyES1_EvT_S3_RSaIT0_E.exit.i.i61.i
 
 _ZSt8_DestroyIPN10open_spiel13TabularPolicyES1_EvT_S3_RSaIT0_E.exit.i.i61.i: ; preds = %_ZSt8_DestroyIPN10open_spiel13TabularPolicyES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i59.i, %_ZNSt6vectorIdSaIdEED2Ev.exit2.i54.i
-  %1201 = phi ptr [ %.pr.i.i60.i, %_ZSt8_DestroyIPN10open_spiel13TabularPolicyES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i59.i ], [ %1196, %_ZNSt6vectorIdSaIdEED2Ev.exit2.i54.i ]
-  %.not.i.i.i3.i62.i = icmp eq ptr %1201, null
-  br i1 %.not.i.i.i3.i62.i, label %_ZNSt6vectorIN10open_spiel13TabularPolicyESaIS1_EED2Ev.exit.i63.i, label %1202
+  %1200 = phi ptr [ %.pr.i.i60.i, %_ZSt8_DestroyIPN10open_spiel13TabularPolicyES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i59.i ], [ %1195, %_ZNSt6vectorIdSaIdEED2Ev.exit2.i54.i ]
+  %.not.i.i.i3.i62.i = icmp eq ptr %1200, null
+  br i1 %.not.i.i.i3.i62.i, label %_ZNSt6vectorIN10open_spiel13TabularPolicyESaIS1_EED2Ev.exit.i63.i, label %1201
 
-1202:                                             ; preds = %_ZSt8_DestroyIPN10open_spiel13TabularPolicyES1_EvT_S3_RSaIT0_E.exit.i.i61.i
-  %1203 = load ptr, ptr %1018, align 8
-  %1204 = ptrtoint ptr %1203 to i64
-  %1205 = ptrtoint ptr %1201 to i64
-  %1206 = sub i64 %1204, %1205
-  call void @_ZdlPvm(ptr noundef nonnull %1201, i64 noundef %1206) #24
+1201:                                             ; preds = %_ZSt8_DestroyIPN10open_spiel13TabularPolicyES1_EvT_S3_RSaIT0_E.exit.i.i61.i
+  %1202 = load ptr, ptr %1017, align 8
+  %1203 = ptrtoint ptr %1202 to i64
+  %1204 = ptrtoint ptr %1200 to i64
+  %1205 = sub i64 %1203, %1204
+  call void @_ZdlPvm(ptr noundef nonnull %1200, i64 noundef %1205) #24
   br label %_ZNSt6vectorIN10open_spiel13TabularPolicyESaIS1_EED2Ev.exit.i63.i
 
-_ZNSt6vectorIN10open_spiel13TabularPolicyESaIS1_EED2Ev.exit.i63.i: ; preds = %1202, %_ZSt8_DestroyIPN10open_spiel13TabularPolicyES1_EvT_S3_RSaIT0_E.exit.i.i61.i
-  %1207 = load ptr, ptr %50, align 8
-  %.not.i.i.i4.i64.i = icmp eq ptr %1207, null
-  br i1 %.not.i.i.i4.i64.i, label %_ZN10open_spiel10algorithms26TabularBestResponseMDPInfoD2Ev.exit65.i, label %1208
+_ZNSt6vectorIN10open_spiel13TabularPolicyESaIS1_EED2Ev.exit.i63.i: ; preds = %1201, %_ZSt8_DestroyIPN10open_spiel13TabularPolicyES1_EvT_S3_RSaIT0_E.exit.i.i61.i
+  %1206 = load ptr, ptr %50, align 8
+  %.not.i.i.i4.i64.i = icmp eq ptr %1206, null
+  br i1 %.not.i.i.i4.i64.i, label %_ZN10open_spiel10algorithms26TabularBestResponseMDPInfoD2Ev.exit65.i, label %1207
 
-1208:                                             ; preds = %_ZNSt6vectorIN10open_spiel13TabularPolicyESaIS1_EED2Ev.exit.i63.i
-  %1209 = load ptr, ptr %1019, align 8
-  %1210 = ptrtoint ptr %1209 to i64
-  %1211 = ptrtoint ptr %1207 to i64
-  %1212 = sub i64 %1210, %1211
-  call void @_ZdlPvm(ptr noundef nonnull %1207, i64 noundef %1212) #24
+1207:                                             ; preds = %_ZNSt6vectorIN10open_spiel13TabularPolicyESaIS1_EED2Ev.exit.i63.i
+  %1208 = load ptr, ptr %1018, align 8
+  %1209 = ptrtoint ptr %1208 to i64
+  %1210 = ptrtoint ptr %1206 to i64
+  %1211 = sub i64 %1209, %1210
+  call void @_ZdlPvm(ptr noundef nonnull %1206, i64 noundef %1211) #24
   br label %_ZN10open_spiel10algorithms26TabularBestResponseMDPInfoD2Ev.exit65.i
 
-_ZN10open_spiel10algorithms26TabularBestResponseMDPInfoD2Ev.exit65.i: ; preds = %1208, %_ZNSt6vectorIN10open_spiel13TabularPolicyESaIS1_EED2Ev.exit.i63.i
-  %1213 = load ptr, ptr %49, align 8
-  %1214 = load ptr, ptr %1020, align 8
-  %.not4.i.i.i.i.i66.i = icmp eq ptr %1213, %1214
+_ZN10open_spiel10algorithms26TabularBestResponseMDPInfoD2Ev.exit65.i: ; preds = %1207, %_ZNSt6vectorIN10open_spiel13TabularPolicyESaIS1_EED2Ev.exit.i63.i
+  %1212 = load ptr, ptr %49, align 8
+  %1213 = load ptr, ptr %1019, align 8
+  %.not4.i.i.i.i.i66.i = icmp eq ptr %1212, %1213
   br i1 %.not4.i.i.i.i.i66.i, label %_ZSt8_DestroyIPSt10unique_ptrIN10open_spiel10algorithms3MDPESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i.i72.i, label %.lr.ph.i.i.i.i.i67.i
 
 .lr.ph.i.i.i.i.i67.i:                             ; preds = %_ZN10open_spiel10algorithms26TabularBestResponseMDPInfoD2Ev.exit65.i, %_ZNSt10unique_ptrIN10open_spiel10algorithms3MDPESt14default_deleteIS2_EED2Ev.exit104.i
-  %.05.i.i.i.i.i68.i = phi ptr [ %1270, %_ZNSt10unique_ptrIN10open_spiel10algorithms3MDPESt14default_deleteIS2_EED2Ev.exit104.i ], [ %1213, %_ZN10open_spiel10algorithms26TabularBestResponseMDPInfoD2Ev.exit65.i ]
-  %1215 = load ptr, ptr %.05.i.i.i.i.i68.i, align 8
-  %.not.i94.i = icmp eq ptr %1215, null
-  br i1 %.not.i94.i, label %_ZNSt10unique_ptrIN10open_spiel10algorithms3MDPESt14default_deleteIS2_EED2Ev.exit104.i, label %1216
+  %.05.i.i.i.i.i68.i = phi ptr [ %1269, %_ZNSt10unique_ptrIN10open_spiel10algorithms3MDPESt14default_deleteIS2_EED2Ev.exit104.i ], [ %1212, %_ZN10open_spiel10algorithms26TabularBestResponseMDPInfoD2Ev.exit65.i ]
+  %1214 = load ptr, ptr %.05.i.i.i.i.i68.i, align 8
+  %.not.i94.i = icmp eq ptr %1214, null
+  br i1 %.not.i94.i, label %_ZNSt10unique_ptrIN10open_spiel10algorithms3MDPESt14default_deleteIS2_EED2Ev.exit104.i, label %1215
 
-1216:                                             ; preds = %.lr.ph.i.i.i.i.i67.i
-  %1217 = getelementptr inbounds nuw i8, ptr %1215, i64 24
-  %1218 = load i64, ptr %1217, align 8
-  %.not.i.i.i.i.i.i.i95.i = icmp eq i64 %1218, 0
+1215:                                             ; preds = %.lr.ph.i.i.i.i.i67.i
+  %1216 = getelementptr inbounds nuw i8, ptr %1214, i64 24
+  %1217 = load i64, ptr %1216, align 8
+  %.not.i.i.i.i.i.i.i95.i = icmp eq i64 %1217, 0
   br i1 %.not.i.i.i.i.i.i.i95.i, label %_ZNKSt14default_deleteIN10open_spiel10algorithms3MDPEEclEPS2_.exit.i100.i, label %.lr.ph.i.i.i.i.i.i.i96.i
 
-.lr.ph.i.i.i.i.i.i.i96.i:                         ; preds = %1216
-  %1219 = getelementptr inbounds nuw i8, ptr %1215, i64 8
-  br label %1220
+.lr.ph.i.i.i.i.i.i.i96.i:                         ; preds = %1215
+  %1218 = getelementptr inbounds nuw i8, ptr %1214, i64 8
+  br label %1219
 
-1220:                                             ; preds = %1262, %.lr.ph.i.i.i.i.i.i.i96.i
-  %1221 = phi i64 [ %1218, %.lr.ph.i.i.i.i.i.i.i96.i ], [ %1263, %1262 ]
-  %.07.i.i.i.i.i.i.i97.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i.i.i96.i ], [ %1264, %1262 ]
-  %1222 = load ptr, ptr %1215, align 8
-  %1223 = getelementptr inbounds i8, ptr %1222, i64 %.07.i.i.i.i.i.i.i97.i
-  %1224 = load i8, ptr %1223, align 1
-  %1225 = icmp sgt i8 %1224, -1
-  br i1 %1225, label %1226, label %1262
+1219:                                             ; preds = %1261, %.lr.ph.i.i.i.i.i.i.i96.i
+  %1220 = phi i64 [ %1217, %.lr.ph.i.i.i.i.i.i.i96.i ], [ %1262, %1261 ]
+  %.07.i.i.i.i.i.i.i97.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i.i.i96.i ], [ %1263, %1261 ]
+  %1221 = load ptr, ptr %1214, align 8
+  %1222 = getelementptr inbounds i8, ptr %1221, i64 %.07.i.i.i.i.i.i.i97.i
+  %1223 = load i8, ptr %1222, align 1
+  %1224 = icmp sgt i8 %1223, -1
+  br i1 %1224, label %1225, label %1261
 
-1226:                                             ; preds = %1220
-  %1227 = load ptr, ptr %1219, align 8
-  %1228 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %1227, i64 %.07.i.i.i.i.i.i.i97.i
-  %1229 = getelementptr inbounds nuw i8, ptr %1228, i64 32
-  %1230 = load ptr, ptr %1229, align 8
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i101.i = icmp eq ptr %1230, null
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i101.i, label %_ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN10open_spiel10algorithms7MDPNodeESt14default_deleteISD_EEEEvE7destroyISaISt4pairIKS9_SG_EEEEvPT_PNS1_13map_slot_typeIS9_SG_EE.exit.i.i.i.i.i.i.i102.i, label %1231
+1225:                                             ; preds = %1219
+  %1226 = load ptr, ptr %1218, align 8
+  %1227 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type", ptr %1226, i64 %.07.i.i.i.i.i.i.i97.i
+  %1228 = getelementptr inbounds nuw i8, ptr %1227, i64 32
+  %1229 = load ptr, ptr %1228, align 8
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i101.i = icmp eq ptr %1229, null
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i101.i, label %_ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN10open_spiel10algorithms7MDPNodeESt14default_deleteISD_EEEEvE7destroyISaISt4pairIKS9_SG_EEEEvPT_PNS1_13map_slot_typeIS9_SG_EE.exit.i.i.i.i.i.i.i102.i, label %1230
 
-1231:                                             ; preds = %1226
-  %1232 = getelementptr inbounds nuw i8, ptr %1230, i64 64
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1232) #21
-  %1233 = getelementptr inbounds nuw i8, ptr %1230, i64 16
-  %1234 = getelementptr inbounds nuw i8, ptr %1230, i64 40
-  %1235 = load i64, ptr %1234, align 8
-  %.not.i.i.i.i.i.i106.i = icmp eq i64 %1235, 0
+1230:                                             ; preds = %1225
+  %1231 = getelementptr inbounds nuw i8, ptr %1229, i64 64
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1231) #21
+  %1232 = getelementptr inbounds nuw i8, ptr %1229, i64 16
+  %1233 = getelementptr inbounds nuw i8, ptr %1229, i64 40
+  %1234 = load i64, ptr %1233, align 8
+  %.not.i.i.i.i.i.i106.i = icmp eq i64 %1234, 0
   br i1 %.not.i.i.i.i.i.i106.i, label %_ZNKSt14default_deleteIN10open_spiel10algorithms7MDPNodeEEclEPS2_.exit116.i, label %.lr.ph.i.i.i.i.i.i107.i
 
-.lr.ph.i.i.i.i.i.i107.i:                          ; preds = %1231
-  %1236 = getelementptr inbounds nuw i8, ptr %1230, i64 24
-  br label %1237
+.lr.ph.i.i.i.i.i.i107.i:                          ; preds = %1230
+  %1235 = getelementptr inbounds nuw i8, ptr %1229, i64 24
+  br label %1236
 
-1237:                                             ; preds = %_ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicyIlNS0_13flat_hash_mapIPN10open_spiel10algorithms7MDPNodeEdNS1_6HashEqIS8_vE4HashENSA_2EqESaISt4pairIKS8_dEEEEEEvE7destroyISaISD_IKlSH_EEEEvPT_PNS1_13map_slot_typeIlSH_EE.exit.i.i.i.i.i.i109.i, %.lr.ph.i.i.i.i.i.i107.i
-  %1238 = phi i64 [ %1235, %.lr.ph.i.i.i.i.i.i107.i ], [ %1255, %_ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicyIlNS0_13flat_hash_mapIPN10open_spiel10algorithms7MDPNodeEdNS1_6HashEqIS8_vE4HashENSA_2EqESaISt4pairIKS8_dEEEEEEvE7destroyISaISD_IKlSH_EEEEvPT_PNS1_13map_slot_typeIlSH_EE.exit.i.i.i.i.i.i109.i ]
-  %.07.i.i.i.i.i.i108.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i.i107.i ], [ %1256, %_ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicyIlNS0_13flat_hash_mapIPN10open_spiel10algorithms7MDPNodeEdNS1_6HashEqIS8_vE4HashENSA_2EqESaISt4pairIKS8_dEEEEEEvE7destroyISaISD_IKlSH_EEEEvPT_PNS1_13map_slot_typeIlSH_EE.exit.i.i.i.i.i.i109.i ]
-  %1239 = load ptr, ptr %1233, align 8
-  %1240 = getelementptr inbounds i8, ptr %1239, i64 %.07.i.i.i.i.i.i108.i
-  %1241 = load i8, ptr %1240, align 1
-  %1242 = icmp sgt i8 %1241, -1
-  br i1 %1242, label %1243, label %_ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicyIlNS0_13flat_hash_mapIPN10open_spiel10algorithms7MDPNodeEdNS1_6HashEqIS8_vE4HashENSA_2EqESaISt4pairIKS8_dEEEEEEvE7destroyISaISD_IKlSH_EEEEvPT_PNS1_13map_slot_typeIlSH_EE.exit.i.i.i.i.i.i109.i
+1236:                                             ; preds = %_ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicyIlNS0_13flat_hash_mapIPN10open_spiel10algorithms7MDPNodeEdNS1_6HashEqIS8_vE4HashENSA_2EqESaISt4pairIKS8_dEEEEEEvE7destroyISaISD_IKlSH_EEEEvPT_PNS1_13map_slot_typeIlSH_EE.exit.i.i.i.i.i.i109.i, %.lr.ph.i.i.i.i.i.i107.i
+  %1237 = phi i64 [ %1234, %.lr.ph.i.i.i.i.i.i107.i ], [ %1254, %_ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicyIlNS0_13flat_hash_mapIPN10open_spiel10algorithms7MDPNodeEdNS1_6HashEqIS8_vE4HashENSA_2EqESaISt4pairIKS8_dEEEEEEvE7destroyISaISD_IKlSH_EEEEvPT_PNS1_13map_slot_typeIlSH_EE.exit.i.i.i.i.i.i109.i ]
+  %.07.i.i.i.i.i.i108.i = phi i64 [ 0, %.lr.ph.i.i.i.i.i.i107.i ], [ %1255, %_ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicyIlNS0_13flat_hash_mapIPN10open_spiel10algorithms7MDPNodeEdNS1_6HashEqIS8_vE4HashENSA_2EqESaISt4pairIKS8_dEEEEEEvE7destroyISaISD_IKlSH_EEEEvPT_PNS1_13map_slot_typeIlSH_EE.exit.i.i.i.i.i.i109.i ]
+  %1238 = load ptr, ptr %1232, align 8
+  %1239 = getelementptr inbounds i8, ptr %1238, i64 %.07.i.i.i.i.i.i108.i
+  %1240 = load i8, ptr %1239, align 1
+  %1241 = icmp sgt i8 %1240, -1
+  br i1 %1241, label %1242, label %_ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicyIlNS0_13flat_hash_mapIPN10open_spiel10algorithms7MDPNodeEdNS1_6HashEqIS8_vE4HashENSA_2EqESaISt4pairIKS8_dEEEEEEvE7destroyISaISD_IKlSH_EEEEvPT_PNS1_13map_slot_typeIlSH_EE.exit.i.i.i.i.i.i109.i
 
-1243:                                             ; preds = %1237
-  %1244 = load ptr, ptr %1236, align 8
-  %1245 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type.106", ptr %1244, i64 %.07.i.i.i.i.i.i108.i
-  %1246 = getelementptr inbounds nuw i8, ptr %1245, i64 32
-  %1247 = load i64, ptr %1246, align 8
-  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i113.i = icmp eq i64 %1247, 0
+1242:                                             ; preds = %1236
+  %1243 = load ptr, ptr %1235, align 8
+  %1244 = getelementptr inbounds %"union.absl::debian2::container_internal::map_slot_type.106", ptr %1243, i64 %.07.i.i.i.i.i.i108.i
+  %1245 = getelementptr inbounds nuw i8, ptr %1244, i64 32
+  %1246 = load i64, ptr %1245, align 8
+  %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i113.i = icmp eq i64 %1246, 0
   br i1 %.not.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i113.i, label %_ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicyIlNS0_13flat_hash_mapIPN10open_spiel10algorithms7MDPNodeEdNS1_6HashEqIS8_vE4HashENSA_2EqESaISt4pairIKS8_dEEEEEEvE7destroyISaISD_IKlSH_EEEEvPT_PNS1_13map_slot_typeIlSH_EE.exit.i.i.i.i.i.i109.i, label %.preheader.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i114.i
 
-.preheader.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i114.i: ; preds = %1243
-  %1248 = getelementptr inbounds nuw i8, ptr %1245, i64 8
-  %1249 = getelementptr inbounds nuw i8, ptr %1245, i64 16
-  %1250 = load ptr, ptr %1248, align 8
-  %1251 = add i64 %1247, 24
-  %1252 = shl i64 %1247, 4
-  %1253 = add i64 %1251, %1252
-  %1254 = and i64 %1253, -8
-  call void @_ZdlPvm(ptr noundef %1250, i64 noundef %1254) #24
-  store ptr @_ZZN4absl7debian218container_internal10EmptyGroupEvE11empty_group, ptr %1248, align 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1249, i8 0, i64 32, i1 false)
-  %.pre.i.i.i.i.i.i115.i = load i64, ptr %1234, align 8
+.preheader.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i114.i: ; preds = %1242
+  %1247 = getelementptr inbounds nuw i8, ptr %1244, i64 8
+  %1248 = getelementptr inbounds nuw i8, ptr %1244, i64 16
+  %1249 = load ptr, ptr %1247, align 8
+  %1250 = add i64 %1246, 24
+  %1251 = shl i64 %1246, 4
+  %1252 = add i64 %1250, %1251
+  %1253 = and i64 %1252, -8
+  call void @_ZdlPvm(ptr noundef %1249, i64 noundef %1253) #24
+  store ptr @_ZZN4absl7debian218container_internal10EmptyGroupEvE11empty_group, ptr %1247, align 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1248, i8 0, i64 32, i1 false)
+  %.pre.i.i.i.i.i.i115.i = load i64, ptr %1233, align 8
   br label %_ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicyIlNS0_13flat_hash_mapIPN10open_spiel10algorithms7MDPNodeEdNS1_6HashEqIS8_vE4HashENSA_2EqESaISt4pairIKS8_dEEEEEEvE7destroyISaISD_IKlSH_EEEEvPT_PNS1_13map_slot_typeIlSH_EE.exit.i.i.i.i.i.i109.i
 
-_ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicyIlNS0_13flat_hash_mapIPN10open_spiel10algorithms7MDPNodeEdNS1_6HashEqIS8_vE4HashENSA_2EqESaISt4pairIKS8_dEEEEEEvE7destroyISaISD_IKlSH_EEEEvPT_PNS1_13map_slot_typeIlSH_EE.exit.i.i.i.i.i.i109.i: ; preds = %.preheader.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i114.i, %1243, %1237
-  %1255 = phi i64 [ %.pre.i.i.i.i.i.i115.i, %.preheader.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i114.i ], [ %1238, %1243 ], [ %1238, %1237 ]
-  %1256 = add i64 %.07.i.i.i.i.i.i108.i, 1
-  %.not5.i.i.i.i.i.i110.i = icmp eq i64 %1256, %1255
-  br i1 %.not5.i.i.i.i.i.i110.i, label %._crit_edge.i.i.i.i.i.i111.i, label %1237, !llvm.loop !8
+_ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicyIlNS0_13flat_hash_mapIPN10open_spiel10algorithms7MDPNodeEdNS1_6HashEqIS8_vE4HashENSA_2EqESaISt4pairIKS8_dEEEEEEvE7destroyISaISD_IKlSH_EEEEvPT_PNS1_13map_slot_typeIlSH_EE.exit.i.i.i.i.i.i109.i: ; preds = %.preheader.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i114.i, %1242, %1236
+  %1254 = phi i64 [ %.pre.i.i.i.i.i.i115.i, %.preheader.preheader.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i.i114.i ], [ %1237, %1242 ], [ %1237, %1236 ]
+  %1255 = add i64 %.07.i.i.i.i.i.i108.i, 1
+  %.not5.i.i.i.i.i.i110.i = icmp eq i64 %1255, %1254
+  br i1 %.not5.i.i.i.i.i.i110.i, label %._crit_edge.i.i.i.i.i.i111.i, label %1236, !llvm.loop !8
 
 ._crit_edge.i.i.i.i.i.i111.i:                     ; preds = %_ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicyIlNS0_13flat_hash_mapIPN10open_spiel10algorithms7MDPNodeEdNS1_6HashEqIS8_vE4HashENSA_2EqESaISt4pairIKS8_dEEEEEEvE7destroyISaISD_IKlSH_EEEEvPT_PNS1_13map_slot_typeIlSH_EE.exit.i.i.i.i.i.i109.i
-  %1257 = load ptr, ptr %1233, align 8
-  %1258 = add i64 %1255, 24
-  %1259 = mul i64 %1255, 48
-  %1260 = add i64 %1258, %1259
-  %1261 = and i64 %1260, -8
-  call void @_ZdlPvm(ptr noundef %1257, i64 noundef %1261) #24
+  %1256 = load ptr, ptr %1232, align 8
+  %1257 = add i64 %1254, 24
+  %1258 = mul i64 %1254, 48
+  %1259 = add i64 %1257, %1258
+  %1260 = and i64 %1259, -8
+  call void @_ZdlPvm(ptr noundef %1256, i64 noundef %1260) #24
   br label %_ZNKSt14default_deleteIN10open_spiel10algorithms7MDPNodeEEclEPS2_.exit116.i
 
-_ZNKSt14default_deleteIN10open_spiel10algorithms7MDPNodeEEclEPS2_.exit116.i: ; preds = %._crit_edge.i.i.i.i.i.i111.i, %1231
-  call void @_ZdlPvm(ptr noundef nonnull %1230, i64 noundef 96) #24
+_ZNKSt14default_deleteIN10open_spiel10algorithms7MDPNodeEEclEPS2_.exit116.i: ; preds = %._crit_edge.i.i.i.i.i.i111.i, %1230
+  call void @_ZdlPvm(ptr noundef nonnull %1229, i64 noundef 96) #24
   br label %_ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN10open_spiel10algorithms7MDPNodeESt14default_deleteISD_EEEEvE7destroyISaISt4pairIKS9_SG_EEEEvPT_PNS1_13map_slot_typeIS9_SG_EE.exit.i.i.i.i.i.i.i102.i
 
-_ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN10open_spiel10algorithms7MDPNodeESt14default_deleteISD_EEEEvE7destroyISaISt4pairIKS9_SG_EEEEvPT_PNS1_13map_slot_typeIS9_SG_EE.exit.i.i.i.i.i.i.i102.i: ; preds = %_ZNKSt14default_deleteIN10open_spiel10algorithms7MDPNodeEEclEPS2_.exit116.i, %1226
-  store ptr null, ptr %1229, align 8
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %1228) #21
-  %.pre.i.i.i.i.i.i.i103.i = load i64, ptr %1217, align 8
-  br label %1262
+_ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN10open_spiel10algorithms7MDPNodeESt14default_deleteISD_EEEEvE7destroyISaISt4pairIKS9_SG_EEEEvPT_PNS1_13map_slot_typeIS9_SG_EE.exit.i.i.i.i.i.i.i102.i: ; preds = %_ZNKSt14default_deleteIN10open_spiel10algorithms7MDPNodeEEclEPS2_.exit116.i, %1225
+  store ptr null, ptr %1228, align 8
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %1227) #21
+  %.pre.i.i.i.i.i.i.i103.i = load i64, ptr %1216, align 8
+  br label %1261
 
-1262:                                             ; preds = %_ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN10open_spiel10algorithms7MDPNodeESt14default_deleteISD_EEEEvE7destroyISaISt4pairIKS9_SG_EEEEvPT_PNS1_13map_slot_typeIS9_SG_EE.exit.i.i.i.i.i.i.i102.i, %1220
-  %1263 = phi i64 [ %1221, %1220 ], [ %.pre.i.i.i.i.i.i.i103.i, %_ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN10open_spiel10algorithms7MDPNodeESt14default_deleteISD_EEEEvE7destroyISaISt4pairIKS9_SG_EEEEvPT_PNS1_13map_slot_typeIS9_SG_EE.exit.i.i.i.i.i.i.i102.i ]
-  %1264 = add i64 %.07.i.i.i.i.i.i.i97.i, 1
-  %.not5.i.i.i.i.i.i.i98.i = icmp eq i64 %1264, %1263
-  br i1 %.not5.i.i.i.i.i.i.i98.i, label %._crit_edge.i.i.i.i.i.i.i99.i, label %1220, !llvm.loop !9
+1261:                                             ; preds = %_ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN10open_spiel10algorithms7MDPNodeESt14default_deleteISD_EEEEvE7destroyISaISt4pairIKS9_SG_EEEEvPT_PNS1_13map_slot_typeIS9_SG_EE.exit.i.i.i.i.i.i.i102.i, %1219
+  %1262 = phi i64 [ %1220, %1219 ], [ %.pre.i.i.i.i.i.i.i103.i, %_ZN4absl7debian218container_internal18hash_policy_traitsINS1_17FlatHashMapPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt10unique_ptrIN10open_spiel10algorithms7MDPNodeESt14default_deleteISD_EEEEvE7destroyISaISt4pairIKS9_SG_EEEEvPT_PNS1_13map_slot_typeIS9_SG_EE.exit.i.i.i.i.i.i.i102.i ]
+  %1263 = add i64 %.07.i.i.i.i.i.i.i97.i, 1
+  %.not5.i.i.i.i.i.i.i98.i = icmp eq i64 %1263, %1262
+  br i1 %.not5.i.i.i.i.i.i.i98.i, label %._crit_edge.i.i.i.i.i.i.i99.i, label %1219, !llvm.loop !9
 
-._crit_edge.i.i.i.i.i.i.i99.i:                    ; preds = %1262
-  %1265 = load ptr, ptr %1215, align 8
-  %1266 = add i64 %1263, 24
-  %1267 = mul i64 %1263, 40
-  %1268 = add i64 %1266, %1267
-  %1269 = and i64 %1268, -8
-  call void @_ZdlPvm(ptr noundef %1265, i64 noundef %1269) #24
+._crit_edge.i.i.i.i.i.i.i99.i:                    ; preds = %1261
+  %1264 = load ptr, ptr %1214, align 8
+  %1265 = add i64 %1262, 24
+  %1266 = mul i64 %1262, 40
+  %1267 = add i64 %1265, %1266
+  %1268 = and i64 %1267, -8
+  call void @_ZdlPvm(ptr noundef %1264, i64 noundef %1268) #24
   br label %_ZNKSt14default_deleteIN10open_spiel10algorithms3MDPEEclEPS2_.exit.i100.i
 
-_ZNKSt14default_deleteIN10open_spiel10algorithms3MDPEEclEPS2_.exit.i100.i: ; preds = %._crit_edge.i.i.i.i.i.i.i99.i, %1216
-  call void @_ZdlPvm(ptr noundef nonnull %1215, i64 noundef 56) #24
+_ZNKSt14default_deleteIN10open_spiel10algorithms3MDPEEclEPS2_.exit.i100.i: ; preds = %._crit_edge.i.i.i.i.i.i.i99.i, %1215
+  call void @_ZdlPvm(ptr noundef nonnull %1214, i64 noundef 56) #24
   br label %_ZNSt10unique_ptrIN10open_spiel10algorithms3MDPESt14default_deleteIS2_EED2Ev.exit104.i
 
 _ZNSt10unique_ptrIN10open_spiel10algorithms3MDPESt14default_deleteIS2_EED2Ev.exit104.i: ; preds = %_ZNKSt14default_deleteIN10open_spiel10algorithms3MDPEEclEPS2_.exit.i100.i, %.lr.ph.i.i.i.i.i67.i
   store ptr null, ptr %.05.i.i.i.i.i68.i, align 8
-  %1270 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i68.i, i64 8
-  %.not.i.i.i.i.i69.i = icmp eq ptr %1270, %1214
+  %1269 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i68.i, i64 8
+  %.not.i.i.i.i.i69.i = icmp eq ptr %1269, %1213
   br i1 %.not.i.i.i.i.i69.i, label %_ZSt8_DestroyIPSt10unique_ptrIN10open_spiel10algorithms3MDPESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exitthread-pre-split.i.i70.i, label %.lr.ph.i.i.i.i.i67.i, !llvm.loop !7
 
 _ZSt8_DestroyIPSt10unique_ptrIN10open_spiel10algorithms3MDPESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exitthread-pre-split.i.i70.i: ; preds = %_ZNSt10unique_ptrIN10open_spiel10algorithms3MDPESt14default_deleteIS2_EED2Ev.exit104.i
@@ -3680,233 +3679,237 @@ _ZSt8_DestroyIPSt10unique_ptrIN10open_spiel10algorithms3MDPESt14default_deleteIS
   br label %_ZSt8_DestroyIPSt10unique_ptrIN10open_spiel10algorithms3MDPESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i.i72.i
 
 _ZSt8_DestroyIPSt10unique_ptrIN10open_spiel10algorithms3MDPESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i.i72.i: ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN10open_spiel10algorithms3MDPESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exitthread-pre-split.i.i70.i, %_ZN10open_spiel10algorithms26TabularBestResponseMDPInfoD2Ev.exit65.i
-  %1271 = phi ptr [ %.pr.i.i71.i, %_ZSt8_DestroyIPSt10unique_ptrIN10open_spiel10algorithms3MDPESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exitthread-pre-split.i.i70.i ], [ %1213, %_ZN10open_spiel10algorithms26TabularBestResponseMDPInfoD2Ev.exit65.i ]
-  %.not.i.i.i.i73.i = icmp eq ptr %1271, null
-  br i1 %.not.i.i.i.i73.i, label %_ZN10open_spiel10algorithms22TabularBestResponseMDPD2Ev.exit74.i, label %1272
+  %1270 = phi ptr [ %.pr.i.i71.i, %_ZSt8_DestroyIPSt10unique_ptrIN10open_spiel10algorithms3MDPESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exitthread-pre-split.i.i70.i ], [ %1212, %_ZN10open_spiel10algorithms26TabularBestResponseMDPInfoD2Ev.exit65.i ]
+  %.not.i.i.i.i73.i = icmp eq ptr %1270, null
+  br i1 %.not.i.i.i.i73.i, label %_ZN10open_spiel10algorithms22TabularBestResponseMDPD2Ev.exit74.i, label %1271
 
-1272:                                             ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN10open_spiel10algorithms3MDPESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i.i72.i
-  %1273 = load ptr, ptr %1021, align 8
-  %1274 = ptrtoint ptr %1273 to i64
-  %1275 = ptrtoint ptr %1271 to i64
-  %1276 = sub i64 %1274, %1275
-  call void @_ZdlPvm(ptr noundef nonnull %1271, i64 noundef %1276) #24
+1271:                                             ; preds = %_ZSt8_DestroyIPSt10unique_ptrIN10open_spiel10algorithms3MDPESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i.i72.i
+  %1272 = load ptr, ptr %1020, align 8
+  %1273 = ptrtoint ptr %1272 to i64
+  %1274 = ptrtoint ptr %1270 to i64
+  %1275 = sub i64 %1273, %1274
+  call void @_ZdlPvm(ptr noundef nonnull %1270, i64 noundef %1275) #24
   br label %_ZN10open_spiel10algorithms22TabularBestResponseMDPD2Ev.exit74.i
 
-_ZN10open_spiel10algorithms22TabularBestResponseMDPD2Ev.exit74.i: ; preds = %1272, %_ZSt8_DestroyIPSt10unique_ptrIN10open_spiel10algorithms3MDPESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i.i72.i
-  %1277 = load ptr, ptr %1022, align 8
-  %.not.i.i.i75.i = icmp eq ptr %1277, null
-  br i1 %.not.i.i.i75.i, label %_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit.i180, label %1278
+_ZN10open_spiel10algorithms22TabularBestResponseMDPD2Ev.exit74.i: ; preds = %1271, %_ZSt8_DestroyIPSt10unique_ptrIN10open_spiel10algorithms3MDPESt14default_deleteIS3_EES6_EvT_S8_RSaIT0_E.exit.i.i72.i
+  %1276 = load ptr, ptr %1021, align 8
+  %.not.i.i.i75.i = icmp eq ptr %1276, null
+  br i1 %.not.i.i.i75.i, label %_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit.i180, label %1277
 
-1278:                                             ; preds = %_ZN10open_spiel10algorithms22TabularBestResponseMDPD2Ev.exit74.i
-  %1279 = getelementptr inbounds nuw i8, ptr %1277, i64 8
-  %1280 = load atomic i64, ptr %1279 acquire, align 8
-  %1281 = icmp eq i64 %1280, 4294967297
-  %1282 = trunc i64 %1280 to i32
-  br i1 %1281, label %1283, label %1288
+1277:                                             ; preds = %_ZN10open_spiel10algorithms22TabularBestResponseMDPD2Ev.exit74.i
+  %1278 = getelementptr inbounds nuw i8, ptr %1276, i64 8
+  %1279 = load atomic i64, ptr %1278 acquire, align 8
+  %1280 = icmp eq i64 %1279, 4294967297
+  %1281 = trunc i64 %1279 to i32
+  br i1 %1280, label %1282, label %1287
 
-1283:                                             ; preds = %1278
-  store i32 0, ptr %1279, align 8
-  %1284 = getelementptr inbounds nuw i8, ptr %1277, i64 12
-  store i32 0, ptr %1284, align 4
-  %1285 = load ptr, ptr %1277, align 8
-  %1286 = getelementptr inbounds nuw i8, ptr %1285, i64 16
-  %1287 = load ptr, ptr %1286, align 8
-  call void %1287(ptr noundef nonnull align 8 dereferenceable(16) %1277) #21
+1282:                                             ; preds = %1277
+  store i32 0, ptr %1278, align 8
+  %1283 = getelementptr inbounds nuw i8, ptr %1276, i64 12
+  store i32 0, ptr %1283, align 4
+  %1284 = load ptr, ptr %1276, align 8
+  %1285 = getelementptr inbounds nuw i8, ptr %1284, i64 16
+  %1286 = load ptr, ptr %1285, align 8
+  call void %1286(ptr noundef nonnull align 8 dereferenceable(16) %1276) #21
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i184
 
-1288:                                             ; preds = %1278
-  %1289 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i76.i = icmp eq i8 %1289, 0
-  br i1 %.not.i.i.i.i76.i, label %1292, label %1290
+1287:                                             ; preds = %1277
+  %1288 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i76.i = icmp eq i8 %1288, 0
+  br i1 %.not.i.i.i.i76.i, label %1291, label %1289
 
-1290:                                             ; preds = %1288
-  %1291 = add nsw i32 %1282, -1
-  store i32 %1291, ptr %1279, align 4
-  br label %1294
+1289:                                             ; preds = %1287
+  %1290 = add nsw i32 %1281, -1
+  store i32 %1290, ptr %1278, align 4
+  br label %1293
 
-1292:                                             ; preds = %1288
-  %1293 = atomicrmw volatile add ptr %1279, i32 -1 acq_rel, align 4
-  br label %1294
+1291:                                             ; preds = %1287
+  %1292 = atomicrmw volatile add ptr %1278, i32 -1 acq_rel, align 4
+  br label %1293
 
-1294:                                             ; preds = %1292, %1290
-  %.0.i.i.i.i.i179 = phi i32 [ %1282, %1290 ], [ %1293, %1292 ]
-  %1295 = icmp eq i32 %.0.i.i.i.i.i179, 1
-  br i1 %1295, label %1296, label %_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit.i180
+1293:                                             ; preds = %1291, %1289
+  %.0.i.i.i.i.i179 = phi i32 [ %1281, %1289 ], [ %1292, %1291 ]
+  %1294 = icmp eq i32 %.0.i.i.i.i.i179, 1
+  br i1 %1294, label %1295, label %_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit.i180
 
-1296:                                             ; preds = %1294
-  %1297 = load ptr, ptr %1277, align 8
-  %1298 = getelementptr inbounds nuw i8, ptr %1297, i64 16
-  %1299 = load ptr, ptr %1298, align 8
-  call void %1299(ptr noundef nonnull align 8 dereferenceable(16) %1277) #21
-  %1300 = getelementptr inbounds nuw i8, ptr %1277, i64 12
-  %1301 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i.i182 = icmp eq i8 %1301, 0
-  br i1 %.not.i.i.i.i.i.i.i182, label %1305, label %1302
+1295:                                             ; preds = %1293
+  %1296 = load ptr, ptr %1276, align 8
+  %1297 = getelementptr inbounds nuw i8, ptr %1296, i64 16
+  %1298 = load ptr, ptr %1297, align 8
+  call void %1298(ptr noundef nonnull align 8 dereferenceable(16) %1276) #21
+  %1299 = getelementptr inbounds nuw i8, ptr %1276, i64 12
+  %1300 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i.i182 = icmp eq i8 %1300, 0
+  br i1 %.not.i.i.i.i.i.i.i182, label %1304, label %1301
 
-1302:                                             ; preds = %1296
-  %1303 = load i32, ptr %1300, align 4
-  %1304 = add nsw i32 %1303, -1
-  store i32 %1304, ptr %1300, align 4
-  br label %1307
+1301:                                             ; preds = %1295
+  %1302 = load i32, ptr %1299, align 4
+  %1303 = add nsw i32 %1302, -1
+  store i32 %1303, ptr %1299, align 4
+  br label %1306
 
-1305:                                             ; preds = %1296
-  %1306 = atomicrmw volatile add ptr %1300, i32 -1 acq_rel, align 4
-  br label %1307
+1304:                                             ; preds = %1295
+  %1305 = atomicrmw volatile add ptr %1299, i32 -1 acq_rel, align 4
+  br label %1306
 
-1307:                                             ; preds = %1305, %1302
-  %.0.i.i.i.i.i.i.i183 = phi i32 [ %1303, %1302 ], [ %1306, %1305 ]
-  %1308 = icmp eq i32 %.0.i.i.i.i.i.i.i183, 1
-  br i1 %1308, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i184, label %_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit.i180
+1306:                                             ; preds = %1304, %1301
+  %.0.i.i.i.i.i.i.i183 = phi i32 [ %1302, %1301 ], [ %1305, %1304 ]
+  %1307 = icmp eq i32 %.0.i.i.i.i.i.i.i183, 1
+  br i1 %1307, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i184, label %_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit.i180
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i184: ; preds = %1307, %1283
-  %1309 = load ptr, ptr %1277, align 8
-  %1310 = getelementptr inbounds nuw i8, ptr %1309, i64 24
-  %1311 = load ptr, ptr %1310, align 8
-  call void %1311(ptr noundef nonnull align 8 dereferenceable(16) %1277) #21
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i184: ; preds = %1306, %1282
+  %1308 = load ptr, ptr %1276, align 8
+  %1309 = getelementptr inbounds nuw i8, ptr %1308, i64 24
+  %1310 = load ptr, ptr %1309, align 8
+  call void %1310(ptr noundef nonnull align 8 dereferenceable(16) %1276) #21
   br label %_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit.i180
 
-_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit.i180: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i184, %1307, %1294, %_ZN10open_spiel10algorithms22TabularBestResponseMDPD2Ev.exit74.i
-  %1312 = load ptr, ptr %1023, align 8
-  %.not.i.i.i77.i = icmp eq ptr %1312, null
-  br i1 %.not.i.i.i77.i, label %_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit83.i, label %1313
+_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit.i180: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i.i184, %1306, %1293, %_ZN10open_spiel10algorithms22TabularBestResponseMDPD2Ev.exit74.i
+  %1311 = load ptr, ptr %1022, align 8
+  %.not.i.i.i77.i = icmp eq ptr %1311, null
+  br i1 %.not.i.i.i77.i, label %_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit83.i, label %1312
 
-1313:                                             ; preds = %_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit.i180
-  %1314 = getelementptr inbounds nuw i8, ptr %1312, i64 8
-  %1315 = load atomic i64, ptr %1314 acquire, align 8
-  %1316 = icmp eq i64 %1315, 4294967297
-  %1317 = trunc i64 %1315 to i32
-  br i1 %1316, label %1318, label %1323
+1312:                                             ; preds = %_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit.i180
+  %1313 = getelementptr inbounds nuw i8, ptr %1311, i64 8
+  %1314 = load atomic i64, ptr %1313 acquire, align 8
+  %1315 = icmp eq i64 %1314, 4294967297
+  %1316 = trunc i64 %1314 to i32
+  br i1 %1315, label %1317, label %1322
 
-1318:                                             ; preds = %1313
-  store i32 0, ptr %1314, align 8
-  %1319 = getelementptr inbounds nuw i8, ptr %1312, i64 12
-  store i32 0, ptr %1319, align 4
-  %1320 = load ptr, ptr %1312, align 8
-  %1321 = getelementptr inbounds nuw i8, ptr %1320, i64 16
-  %1322 = load ptr, ptr %1321, align 8
-  call void %1322(ptr noundef nonnull align 8 dereferenceable(16) %1312) #21
+1317:                                             ; preds = %1312
+  store i32 0, ptr %1313, align 8
+  %1318 = getelementptr inbounds nuw i8, ptr %1311, i64 12
+  store i32 0, ptr %1318, align 4
+  %1319 = load ptr, ptr %1311, align 8
+  %1320 = getelementptr inbounds nuw i8, ptr %1319, i64 16
+  %1321 = load ptr, ptr %1320, align 8
+  call void %1321(ptr noundef nonnull align 8 dereferenceable(16) %1311) #21
   br label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i82.i
 
-1323:                                             ; preds = %1313
-  %1324 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i78.i = icmp eq i8 %1324, 0
-  br i1 %.not.i.i.i.i78.i, label %1327, label %1325
+1322:                                             ; preds = %1312
+  %1323 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i78.i = icmp eq i8 %1323, 0
+  br i1 %.not.i.i.i.i78.i, label %1326, label %1324
 
-1325:                                             ; preds = %1323
-  %1326 = add nsw i32 %1317, -1
-  store i32 %1326, ptr %1314, align 4
-  br label %1329
+1324:                                             ; preds = %1322
+  %1325 = add nsw i32 %1316, -1
+  store i32 %1325, ptr %1313, align 4
+  br label %1328
 
-1327:                                             ; preds = %1323
-  %1328 = atomicrmw volatile add ptr %1314, i32 -1 acq_rel, align 4
-  br label %1329
+1326:                                             ; preds = %1322
+  %1327 = atomicrmw volatile add ptr %1313, i32 -1 acq_rel, align 4
+  br label %1328
 
-1329:                                             ; preds = %1327, %1325
-  %.0.i.i.i.i79.i = phi i32 [ %1317, %1325 ], [ %1328, %1327 ]
-  %1330 = icmp eq i32 %.0.i.i.i.i79.i, 1
-  br i1 %1330, label %1331, label %_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit83.i
+1328:                                             ; preds = %1326, %1324
+  %.0.i.i.i.i79.i = phi i32 [ %1316, %1324 ], [ %1327, %1326 ]
+  %1329 = icmp eq i32 %.0.i.i.i.i79.i, 1
+  br i1 %1329, label %1330, label %_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit83.i
 
-1331:                                             ; preds = %1329
-  %1332 = load ptr, ptr %1312, align 8
-  %1333 = getelementptr inbounds nuw i8, ptr %1332, i64 16
-  %1334 = load ptr, ptr %1333, align 8
-  call void %1334(ptr noundef nonnull align 8 dereferenceable(16) %1312) #21
-  %1335 = getelementptr inbounds nuw i8, ptr %1312, i64 12
-  %1336 = load i8, ptr @__libc_single_threaded, align 1
-  %.not.i.i.i.i.i.i80.i = icmp eq i8 %1336, 0
-  br i1 %.not.i.i.i.i.i.i80.i, label %1340, label %1337
+1330:                                             ; preds = %1328
+  %1331 = load ptr, ptr %1311, align 8
+  %1332 = getelementptr inbounds nuw i8, ptr %1331, i64 16
+  %1333 = load ptr, ptr %1332, align 8
+  call void %1333(ptr noundef nonnull align 8 dereferenceable(16) %1311) #21
+  %1334 = getelementptr inbounds nuw i8, ptr %1311, i64 12
+  %1335 = load i8, ptr @__libc_single_threaded, align 1
+  %.not.i.i.i.i.i.i80.i = icmp eq i8 %1335, 0
+  br i1 %.not.i.i.i.i.i.i80.i, label %1339, label %1336
 
-1337:                                             ; preds = %1331
-  %1338 = load i32, ptr %1335, align 4
-  %1339 = add nsw i32 %1338, -1
-  store i32 %1339, ptr %1335, align 4
-  br label %1342
+1336:                                             ; preds = %1330
+  %1337 = load i32, ptr %1334, align 4
+  %1338 = add nsw i32 %1337, -1
+  store i32 %1338, ptr %1334, align 4
+  br label %1341
 
-1340:                                             ; preds = %1331
-  %1341 = atomicrmw volatile add ptr %1335, i32 -1 acq_rel, align 4
-  br label %1342
+1339:                                             ; preds = %1330
+  %1340 = atomicrmw volatile add ptr %1334, i32 -1 acq_rel, align 4
+  br label %1341
 
-1342:                                             ; preds = %1340, %1337
-  %.0.i.i.i.i.i.i81.i = phi i32 [ %1338, %1337 ], [ %1341, %1340 ]
-  %1343 = icmp eq i32 %.0.i.i.i.i.i.i81.i, 1
-  br i1 %1343, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i82.i, label %_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit83.i
+1341:                                             ; preds = %1339, %1336
+  %.0.i.i.i.i.i.i81.i = phi i32 [ %1337, %1336 ], [ %1340, %1339 ]
+  %1342 = icmp eq i32 %.0.i.i.i.i.i.i81.i, 1
+  br i1 %1342, label %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i82.i, label %_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit83.i
 
-_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i82.i: ; preds = %1342, %1318
-  %1344 = load ptr, ptr %1312, align 8
-  %1345 = getelementptr inbounds nuw i8, ptr %1344, i64 24
-  %1346 = load ptr, ptr %1345, align 8
-  call void %1346(ptr noundef nonnull align 8 dereferenceable(16) %1312) #21
+_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i82.i: ; preds = %1341, %1317
+  %1343 = load ptr, ptr %1311, align 8
+  %1344 = getelementptr inbounds nuw i8, ptr %1343, i64 24
+  %1345 = load ptr, ptr %1344, align 8
+  call void %1345(ptr noundef nonnull align 8 dereferenceable(16) %1311) #21
   br label %_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit83.i
 
-_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit83.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i82.i, %1342, %1329, %_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit.i180
+_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit83.i: ; preds = %_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv.exit.sink.split.i.i.i.i82.i, %1341, %1328, %_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit.i180
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %43) #21
-  %1347 = getelementptr inbounds nuw i8, ptr %.sroa.0117.0131.i, i64 32
-  %.not.i181 = icmp eq ptr %1347, %996
-  br i1 %.not.i181, label %._crit_edge.i, label %1024
+  %1346 = getelementptr inbounds nuw i8, ptr %.sroa.0117.0131.i, i64 32
+  %.not.i181 = icmp eq ptr %.sroa.0117.0131.i, %.016.i.i.i.i.i.i
+  br i1 %.not.i181, label %._crit_edge.loopexit.i, label %1023
 
-1348:                                             ; preds = %1088, %1086
-  %.pn26.i = phi { ptr, i32 } [ %1089, %1088 ], [ %1087, %1086 ]
+1347:                                             ; preds = %1087, %1085
+  %.pn26.i = phi { ptr, i32 } [ %1088, %1087 ], [ %1086, %1085 ]
   call void @_ZN10open_spiel10algorithms26TabularBestResponseMDPInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %57) #21
+  br label %1348
+
+1348:                                             ; preds = %1347, %1083
+  %.pn26.pn.i = phi { ptr, i32 } [ %.pn26.i, %1347 ], [ %1084, %1083 ]
+  call void @_ZN10open_spiel10algorithms22TabularBestResponseMDPD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %56) #21
   br label %1349
 
-1349:                                             ; preds = %1348, %1084
-  %.pn26.pn.i = phi { ptr, i32 } [ %.pn26.i, %1348 ], [ %1085, %1084 ]
-  call void @_ZN10open_spiel10algorithms22TabularBestResponseMDPD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %56) #21
+1349:                                             ; preds = %1348, %1068, %.loopexit.split-lp.i197, %.loopexit.i153
+  %.pn26.pn.pn.i = phi { ptr, i32 } [ %.pn26.pn.i, %1348 ], [ %1069, %1068 ], [ %lpad.loopexit.i154, %.loopexit.i153 ], [ %lpad.loopexit.split-lp.i198, %.loopexit.split-lp.i197 ]
+  call void @_ZN10open_spiel10algorithms26TabularBestResponseMDPInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %50) #21
   br label %1350
 
-1350:                                             ; preds = %1349, %1069, %.loopexit.split-lp.i197, %.loopexit.i153
-  %.pn26.pn.pn.i = phi { ptr, i32 } [ %.pn26.pn.i, %1349 ], [ %1070, %1069 ], [ %lpad.loopexit.i154, %.loopexit.i153 ], [ %lpad.loopexit.split-lp.i198, %.loopexit.split-lp.i197 ]
-  call void @_ZN10open_spiel10algorithms26TabularBestResponseMDPInfoD2Ev(ptr noundef nonnull align 8 dereferenceable(112) %50) #21
+1350:                                             ; preds = %1349, %1066
+  %.pn26.pn.pn.pn.i = phi { ptr, i32 } [ %.pn26.pn.pn.i, %1349 ], [ %1067, %1066 ]
+  call void @_ZN10open_spiel10algorithms22TabularBestResponseMDPD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %49) #21
   br label %1351
 
-1351:                                             ; preds = %1350, %1067
-  %.pn26.pn.pn.pn.i = phi { ptr, i32 } [ %.pn26.pn.pn.i, %1350 ], [ %1068, %1067 ]
-  call void @_ZN10open_spiel10algorithms22TabularBestResponseMDPD2Ev(ptr noundef nonnull align 8 dereferenceable(44) %49) #21
+1351:                                             ; preds = %1350, %1064
+  %.pn26.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn26.pn.pn.pn.i, %1350 ], [ %1065, %1064 ]
+  call void @_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %48) #21
   br label %1352
 
-1352:                                             ; preds = %1351, %1065
-  %.pn26.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn26.pn.pn.pn.i, %1351 ], [ %1066, %1065 ]
-  call void @_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %48) #21
+1352:                                             ; preds = %1351, %1062
+  %.pn26.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn26.pn.pn.pn.pn.i, %1351 ], [ %1063, %1062 ]
+  call void @_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %47) #21
   br label %1353
 
-1353:                                             ; preds = %1352, %1063
-  %.pn26.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn26.pn.pn.pn.pn.i, %1352 ], [ %1064, %1063 ]
-  call void @_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %47) #21
-  br label %1354
-
-1354:                                             ; preds = %1353, %1061
-  %.pn26.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn26.pn.pn.pn.pn.pn.i, %1353 ], [ %1062, %1061 ]
+1353:                                             ; preds = %1352, %1060
+  %.pn26.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn26.pn.pn.pn.pn.pn.i, %1352 ], [ %1061, %1060 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %43) #21
   br label %1361
 
-._crit_edge.i:                                    ; preds = %_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit83.i
+._crit_edge.loopexit.i:                           ; preds = %_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit83.i
   %.pre.i = load ptr, ptr %39, align 8
   %.pre137.i = load ptr, ptr %989, align 8
-  %.not4.i.i.i.i.i = icmp eq ptr %.pre.i, %.pre137.i
+  br label %._crit_edge.i
+
+._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %994
+  %1354 = phi ptr [ %.pre137.i, %._crit_edge.loopexit.i ], [ %974, %994 ]
+  %.pr.i.i = phi ptr [ %.pre.i, %._crit_edge.loopexit.i ], [ %995, %994 ]
+  %.not4.i.i.i.i.i = icmp eq ptr %.pr.i.i, %1354
   br i1 %.not4.i.i.i.i.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %._crit_edge.i, %.lr.ph.i.i.i.i.i
-  %.05.i.i.i.i.i = phi ptr [ %1355, %.lr.ph.i.i.i.i.i ], [ %.pre.i, %._crit_edge.i ]
+  %.05.i.i.i.i.i = phi ptr [ %1355, %.lr.ph.i.i.i.i.i ], [ %.pr.i.i, %._crit_edge.i ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i.i) #21
   %1355 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 32
-  %.not.i.i.i.i84.i = icmp eq ptr %1355, %.pre137.i
+  %.not.i.i.i.i84.i = icmp eq ptr %1355, %1354
   br i1 %.not.i.i.i.i84.i, label %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !11
 
-_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i, %._crit_edge.i, %994
-  %.pr.i143.i = phi ptr [ %.pre.i, %._crit_edge.i ], [ %995, %994 ], [ %.pre.i, %.lr.ph.i.i.i.i.i ]
-  %.not.i.i.i85.i = icmp eq ptr %.pr.i143.i, null
+_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i: ; preds = %.lr.ph.i.i.i.i.i, %._crit_edge.i
+  %.not.i.i.i85.i = icmp eq ptr %.pr.i.i, null
   br i1 %.not.i.i.i85.i, label %_ZN10open_spiel10algorithms12_GLOBAL__N_118GoofspielGameTestsEv.exit, label %1356
 
 1356:                                             ; preds = %_ZSt8_DestroyIPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EvT_S7_RSaIT0_E.exit.i.i
   %1357 = load ptr, ptr %973, align 8
   %1358 = ptrtoint ptr %1357 to i64
-  %1359 = ptrtoint ptr %.pr.i143.i to i64
+  %1359 = ptrtoint ptr %.pr.i.i to i64
   %1360 = sub i64 %1358, %1359
-  call void @_ZdlPvm(ptr noundef nonnull %.pr.i143.i, i64 noundef %1360) #24
+  call void @_ZdlPvm(ptr noundef nonnull %.pr.i.i, i64 noundef %1360) #24
   br label %_ZN10open_spiel10algorithms12_GLOBAL__N_118GoofspielGameTestsEv.exit
 
-1361:                                             ; preds = %1354, %1059
-  %.pn26.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn26.pn.pn.pn.pn.pn.pn.i, %1354 ], [ %1060, %1059 ]
+1361:                                             ; preds = %1353, %1058
+  %.pn26.pn.pn.pn.pn.pn.pn.pn.i = phi { ptr, i32 } [ %.pn26.pn.pn.pn.pn.pn.pn.i, %1353 ], [ %1059, %1058 ]
   call void @_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %39) #21
   br label %common.resume
 

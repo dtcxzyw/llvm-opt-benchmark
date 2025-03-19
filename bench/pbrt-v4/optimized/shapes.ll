@@ -13225,34 +13225,33 @@ _ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectIN4pbrt13BilinearPa
 66:                                               ; preds = %58
   %67 = landingpad { ptr, i32 }
           cleanup
-  br label %80
+  br label %79
 
 .lr.ph:                                           ; preds = %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectIN4pbrt13BilinearPatchEEEPT_m.exit, %70
   %indvars.iv = phi i64 [ %indvars.iv.next, %70 ], [ 0, %_ZN4pstd3pmr21polymorphic_allocatorISt4byteE15allocate_objectIN4pbrt13BilinearPatchEEEPT_m.exit ]
   %68 = getelementptr inbounds nuw %"class.pbrt::BilinearPatch", ptr %64, i64 %indvars.iv
   %69 = trunc nuw nsw i64 %indvars.iv to i32
   invoke void @_ZN4pbrt13BilinearPatchC2EPKNS_17BilinearPatchMeshEii(ptr noundef nonnull align 4 dereferenceable(12) %68, ptr noundef nonnull %1, i32 noundef %14, i32 noundef %69)
-          to label %70 unwind label %78
+          to label %70 unwind label %77
 
 70:                                               ; preds = %.lr.ph
   %71 = ptrtoint ptr %68 to i64
   %72 = or i64 %71, 720575940379279360
-  %73 = load ptr, ptr %49, align 8, !tbaa !118
-  %74 = getelementptr inbounds nuw %"class.pbrt::Shape", ptr %73, i64 %indvars.iv
-  store i64 %72, ptr %74, align 8, !tbaa !119
+  %73 = getelementptr inbounds nuw %"class.pbrt::Shape", ptr %56, i64 %indvars.iv
+  store i64 %72, ptr %73, align 8, !tbaa !119
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %75 = load i32, ptr %45, align 4, !tbaa !357
-  %76 = sext i32 %75 to i64
-  %77 = icmp slt i64 %indvars.iv.next, %76
-  br i1 %77, label %.lr.ph, label %._crit_edge, !llvm.loop !359
+  %74 = load i32, ptr %45, align 4, !tbaa !357
+  %75 = sext i32 %74 to i64
+  %76 = icmp slt i64 %indvars.iv.next, %75
+  br i1 %76, label %.lr.ph, label %._crit_edge, !llvm.loop !359
 
-78:                                               ; preds = %.lr.ph
-  %79 = landingpad { ptr, i32 }
+77:                                               ; preds = %.lr.ph
+  %78 = landingpad { ptr, i32 }
           cleanup
-  br label %80
+  br label %79
 
-80:                                               ; preds = %78, %66
-  %.pn.pn = phi { ptr, i32 } [ %67, %66 ], [ %79, %78 ]
+79:                                               ; preds = %77, %66
+  %.pn.pn = phi { ptr, i32 } [ %67, %66 ], [ %78, %77 ]
   tail call void @_ZN4pstd6vectorIN4pbrt5ShapeENS_3pmr21polymorphic_allocatorIS2_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #31
   resume { ptr, i32 } %.pn.pn
 }

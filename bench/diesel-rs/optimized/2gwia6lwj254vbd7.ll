@@ -1530,7 +1530,6 @@ define hidden void @"_ZN6diesel10connection15statement_cache36StatementCache$LT$
   %48 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store ptr %47, ptr %48, align 8, !noalias !240
   %49 = getelementptr inbounds nuw i8, ptr %22, i64 16
-  store i64 0, ptr %49, align 8, !noalias !240
   %50 = getelementptr inbounds { { i32, [3 x i32] } }, ptr %7, i64 %8
   %51 = icmp eq i64 %46, 0
   br i1 %51, label %.loopexit.i, label %.lr.ph.i.i

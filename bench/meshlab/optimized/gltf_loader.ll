@@ -52289,16 +52289,16 @@ _ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_
   br label %_ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEE4findIRPKcEENS_6detail9iter_implIKSC_EEOT_.exit
 
 _ZNK8nlohmann10basic_jsonISt3mapSt6vectorNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEblmdSaNS_14adl_serializerES2_IhSaIhEEE4findIRPKcEENS_6detail9iter_implIKSC_EEOT_.exit: ; preds = %11, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N8nlohmann10basic_jsonISt3mapSt6vectorS5_blmdSaNS8_14adl_serializerESB_IhSaIhEEEEESt10_Select1stISG_ESt4lessIvESaISG_EE17_M_lower_bound_trIPKcvEESt23_Rb_tree_const_iteratorISG_ERKT_.exit.i.i.i.i, %19, %3, %6
-  %.sroa.5.0 = phi ptr [ %10, %6 ], [ null, %3 ], [ null, %19 ], [ null, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N8nlohmann10basic_jsonISt3mapSt6vectorS5_blmdSaNS8_14adl_serializerESB_IhSaIhEEEEESt10_Select1stISG_ESt4lessIvESaISG_EE17_M_lower_bound_trIPKcvEESt23_Rb_tree_const_iteratorISG_ERKT_.exit.i.i.i.i ], [ null, %11 ]
-  %.sroa.6.0 = phi i64 [ -9223372036854775808, %6 ], [ 1, %3 ], [ -9223372036854775808, %19 ], [ -9223372036854775808, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N8nlohmann10basic_jsonISt3mapSt6vectorS5_blmdSaNS8_14adl_serializerESB_IhSaIhEEEEESt10_Select1stISG_ESt4lessIvESaISG_EE17_M_lower_bound_trIPKcvEESt23_Rb_tree_const_iteratorISG_ERKT_.exit.i.i.i.i ], [ -9223372036854775808, %11 ]
+  %.sroa.4.0 = phi ptr [ %10, %6 ], [ null, %3 ], [ null, %19 ], [ null, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N8nlohmann10basic_jsonISt3mapSt6vectorS5_blmdSaNS8_14adl_serializerESB_IhSaIhEEEEESt10_Select1stISG_ESt4lessIvESaISG_EE17_M_lower_bound_trIPKcvEESt23_Rb_tree_const_iteratorISG_ERKT_.exit.i.i.i.i ], [ null, %11 ]
+  %.sroa.5.0 = phi i64 [ -9223372036854775808, %6 ], [ 1, %3 ], [ -9223372036854775808, %19 ], [ -9223372036854775808, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N8nlohmann10basic_jsonISt3mapSt6vectorS5_blmdSaNS8_14adl_serializerESB_IhSaIhEEEEESt10_Select1stISG_ESt4lessIvESaISG_EE17_M_lower_bound_trIPKcvEESt23_Rb_tree_const_iteratorISG_ERKT_.exit.i.i.i.i ], [ -9223372036854775808, %11 ]
   %.sroa.2.0 = phi ptr [ null, %6 ], [ null, %3 ], [ %spec.select.i.i.i.i, %19 ], [ %.1.i.i.i.i.i, %_ZNKSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_N8nlohmann10basic_jsonISt3mapSt6vectorS5_blmdSaNS8_14adl_serializerESB_IhSaIhEEEEESt10_Select1stISG_ESt4lessIvESaISG_EE17_M_lower_bound_trIPKcvEESt23_Rb_tree_const_iteratorISG_ERKT_.exit.i.i.i.i ], [ %14, %11 ]
   store ptr %0, ptr %2, align 8
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr %.sroa.2.0, ptr %.sroa.2.0..sroa_idx, align 8
-  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store ptr %.sroa.5.0, ptr %.sroa.5.0..sroa_idx, align 8
-  %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 24
-  store i64 %.sroa.6.0, ptr %.sroa.6.0..sroa_idx, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 16
+  store ptr %.sroa.4.0, ptr %.sroa.4.0..sroa_idx, align 8
+  %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %2, i64 24
+  store i64 %.sroa.5.0, ptr %.sroa.5.0..sroa_idx, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !509)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !512)
   store ptr %0, ptr %4, align 8, !alias.scope !515

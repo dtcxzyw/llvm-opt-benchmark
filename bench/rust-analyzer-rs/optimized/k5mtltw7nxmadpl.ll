@@ -49008,7 +49008,6 @@ _ZN13rust_analyzer4caps28completion_item_edit_resolve17h0ca06ba5eda3b019E.exit: 
   %113 = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %112, ptr %113, align 8, !noalias !8744
   %114 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  store i64 0, ptr %114, align 8, !noalias !8744
   %115 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { { ptr, i64 } }, {} }, {} }, { { { { ptr, i64 } }, {} }, {} }, { { { { ptr, i64 } }, {} }, {} }, { ptr, [1 x i64] }, i8, [7 x i8] }, ptr %107, i64 %109
   %116 = icmp eq i64 %111, 0
   br i1 %116, label %.loopexit, label %.lr.ph.i

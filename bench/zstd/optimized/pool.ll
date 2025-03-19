@@ -28,6 +28,7 @@ define noundef ptr @POOL_create_advanced(i64 noundef %0, i64 noundef %1, ptr nou
 4:                                                ; preds = %3
   %.val = load ptr, ptr %2, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 16
+  %.val54 = load ptr, ptr %5, align 8
   %.not.i = icmp eq ptr %.val, null
   br i1 %.not.i, label %ZSTD_customCalloc.exit, label %7
 
@@ -37,7 +38,6 @@ ZSTD_customCalloc.exit:                           ; preds = %4
   br i1 %.not48, label %50, label %13
 
 7:                                                ; preds = %4
-  %.val54 = load ptr, ptr %5, align 8
   %8 = tail call ptr %.val(ptr noundef %.val54, i64 noundef 240) #9
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(240) %8, i8 0, i64 240, i1 false)
   %9 = add i64 %1, 1
@@ -91,8 +91,7 @@ ZSTD_customCalloc.exit61:                         ; preds = %7, %13
   br i1 %.not.i62, label %35, label %33
 
 33:                                               ; preds = %.critedge
-  %.val58 = load ptr, ptr %5, align 8
-  %34 = tail call ptr %.val57(ptr noundef %.val58, i64 noundef %32) #9
+  %34 = tail call ptr %.val57(ptr noundef %.val54, i64 noundef %32) #9
   tail call void @llvm.memset.p0.i64(ptr align 1 %34, i8 0, i64 %32, i1 false)
   br label %ZSTD_customCalloc.exit64
 

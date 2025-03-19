@@ -2427,6 +2427,7 @@ _ZN8facebook5velox6common12_GLOBAL__N_113allSpillStatsEv.exit: ; preds = %entry,
   br i1 %cmp.i.not6, label %for.end, label %for.body.lr.ph
 
 for.body.lr.ph:                                   ; preds = %_ZN8facebook5velox6common12_GLOBAL__N_113allSpillStatsEv.exit
+  %spilledFiles.i.promoted = load i64, ptr %spilledFiles.i, align 8
   %spilledInputBytes3.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 8
   %spilledBytes5.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 16
   %spilledRows7.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 24
@@ -2438,10 +2439,33 @@ for.body.lr.ph:                                   ; preds = %_ZN8facebook5velox6
   %spillFlushTimeUs21.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 80
   %spillWriteTimeUs23.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 88
   %spillMaxLevelExceededCount25.i = getelementptr inbounds nuw i8, ptr %agg.result, i64 96
+  %spilledInputBytes3.i.promoted = load i64, ptr %spilledInputBytes3.i, align 8
+  %spilledBytes5.i.promoted = load i64, ptr %spilledBytes5.i, align 8
+  %spilledRows7.i.promoted = load i64, ptr %spilledRows7.i, align 8
+  %spilledPartitions9.i.promoted = load i32, ptr %spilledPartitions9.i, align 8
+  %spillFillTimeUs13.i.promoted = load i64, ptr %spillFillTimeUs13.i, align 8
+  %spillSortTimeUs15.i.promoted = load i64, ptr %spillSortTimeUs15.i, align 8
+  %spillSerializationTimeUs17.i.promoted = load i64, ptr %spillSerializationTimeUs17.i, align 8
+  %spillDiskWrites19.i.promoted = load i64, ptr %spillDiskWrites19.i, align 8
+  %spillFlushTimeUs21.i.promoted = load i64, ptr %spillFlushTimeUs21.i, align 8
+  %spillWriteTimeUs23.i.promoted = load i64, ptr %spillWriteTimeUs23.i, align 8
+  %spillMaxLevelExceededCount25.i.promoted = load i64, ptr %spillMaxLevelExceededCount25.i, align 8
   br label %for.body
 
 for.body:                                         ; preds = %for.body.lr.ph, %_ZNK5folly12SynchronizedIN8facebook5velox6common10SpillStatsENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEE4copyEv.exit
+  %add26.i18 = phi i64 [ %spillMaxLevelExceededCount25.i.promoted, %for.body.lr.ph ], [ %add26.i, %_ZNK5folly12SynchronizedIN8facebook5velox6common10SpillStatsENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEE4copyEv.exit ]
+  %add24.i17 = phi i64 [ %spillWriteTimeUs23.i.promoted, %for.body.lr.ph ], [ %add24.i, %_ZNK5folly12SynchronizedIN8facebook5velox6common10SpillStatsENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEE4copyEv.exit ]
+  %add22.i16 = phi i64 [ %spillFlushTimeUs21.i.promoted, %for.body.lr.ph ], [ %add22.i, %_ZNK5folly12SynchronizedIN8facebook5velox6common10SpillStatsENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEE4copyEv.exit ]
+  %add20.i15 = phi i64 [ %spillDiskWrites19.i.promoted, %for.body.lr.ph ], [ %add20.i, %_ZNK5folly12SynchronizedIN8facebook5velox6common10SpillStatsENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEE4copyEv.exit ]
+  %add18.i14 = phi i64 [ %spillSerializationTimeUs17.i.promoted, %for.body.lr.ph ], [ %add18.i, %_ZNK5folly12SynchronizedIN8facebook5velox6common10SpillStatsENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEE4copyEv.exit ]
+  %add16.i13 = phi i64 [ %spillSortTimeUs15.i.promoted, %for.body.lr.ph ], [ %add16.i, %_ZNK5folly12SynchronizedIN8facebook5velox6common10SpillStatsENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEE4copyEv.exit ]
+  %add14.i12 = phi i64 [ %spillFillTimeUs13.i.promoted, %for.body.lr.ph ], [ %add14.i, %_ZNK5folly12SynchronizedIN8facebook5velox6common10SpillStatsENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEE4copyEv.exit ]
+  %add10.i11 = phi i32 [ %spilledPartitions9.i.promoted, %for.body.lr.ph ], [ %add10.i, %_ZNK5folly12SynchronizedIN8facebook5velox6common10SpillStatsENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEE4copyEv.exit ]
+  %add8.i10 = phi i64 [ %spilledRows7.i.promoted, %for.body.lr.ph ], [ %add8.i, %_ZNK5folly12SynchronizedIN8facebook5velox6common10SpillStatsENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEE4copyEv.exit ]
+  %add6.i9 = phi i64 [ %spilledBytes5.i.promoted, %for.body.lr.ph ], [ %add6.i, %_ZNK5folly12SynchronizedIN8facebook5velox6common10SpillStatsENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEE4copyEv.exit ]
+  %add4.i8 = phi i64 [ %spilledInputBytes3.i.promoted, %for.body.lr.ph ], [ %add4.i, %_ZNK5folly12SynchronizedIN8facebook5velox6common10SpillStatsENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEE4copyEv.exit ]
   %__begin2.sroa.0.07 = phi ptr [ %4, %for.body.lr.ph ], [ %incdec.ptr.i, %_ZNK5folly12SynchronizedIN8facebook5velox6common10SpillStatsENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEE4copyEv.exit ]
+  %6 = phi i64 [ %spilledFiles.i.promoted, %for.body.lr.ph ], [ %add12.i, %_ZNK5folly12SynchronizedIN8facebook5velox6common10SpillStatsENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEE4copyEv.exit ]
   %mutex_.i.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.07, i64 104
   call void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE11lock_sharedEv(ptr noundef nonnull align 4 dereferenceable(4) %mutex_.i.i), !noalias !142
   %ref.tmp.sroa.0.0.copyload = load i64, ptr %__begin2.sroa.0.07, align 8
@@ -2473,51 +2497,39 @@ for.body:                                         ; preds = %for.body.lr.ph, %_Z
           to label %_ZNK5folly12SynchronizedIN8facebook5velox6common10SpillStatsENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEE4copyEv.exit unwind label %terminate.lpad.i.i.i, !noalias !142
 
 terminate.lpad.i.i.i:                             ; preds = %for.body
-  %6 = landingpad { ptr, i32 }
+  %7 = landingpad { ptr, i32 }
           catch ptr null
-  %7 = extractvalue { ptr, i32 } %6, 0
-  call void @__clang_call_terminate(ptr %7) #30, !noalias !142
+  %8 = extractvalue { ptr, i32 } %7, 0
+  call void @__clang_call_terminate(ptr %8) #30, !noalias !142
   unreachable
 
 _ZNK5folly12SynchronizedIN8facebook5velox6common10SpillStatsENS_15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEEEE4copyEv.exit: ; preds = %for.body
-  %8 = load i64, ptr %agg.result, align 8
-  %add.i = add i64 %8, %ref.tmp.sroa.0.0.copyload
+  %9 = load i64, ptr %agg.result, align 8
+  %add.i = add i64 %9, %ref.tmp.sroa.0.0.copyload
   store i64 %add.i, ptr %agg.result, align 8
-  %9 = load i64, ptr %spilledInputBytes3.i, align 8
-  %add4.i = add i64 %9, %ref.tmp.sroa.2.0.copyload
+  %add4.i = add i64 %add4.i8, %ref.tmp.sroa.2.0.copyload
   store i64 %add4.i, ptr %spilledInputBytes3.i, align 8
-  %10 = load i64, ptr %spilledBytes5.i, align 8
-  %add6.i = add i64 %10, %ref.tmp.sroa.3.0.copyload
+  %add6.i = add i64 %add6.i9, %ref.tmp.sroa.3.0.copyload
   store i64 %add6.i, ptr %spilledBytes5.i, align 8
-  %11 = load i64, ptr %spilledRows7.i, align 8
-  %add8.i = add i64 %11, %ref.tmp.sroa.4.0.copyload
+  %add8.i = add i64 %add8.i10, %ref.tmp.sroa.4.0.copyload
   store i64 %add8.i, ptr %spilledRows7.i, align 8
-  %12 = load i32, ptr %spilledPartitions9.i, align 8
-  %add10.i = add i32 %12, %ref.tmp.sroa.5.0.copyload
+  %add10.i = add i32 %add10.i11, %ref.tmp.sroa.5.0.copyload
   store i32 %add10.i, ptr %spilledPartitions9.i, align 8
-  %13 = load i64, ptr %spilledFiles.i, align 8
-  %add12.i = add i64 %13, %ref.tmp.sroa.63.0.copyload
+  %add12.i = add i64 %6, %ref.tmp.sroa.63.0.copyload
   store i64 %add12.i, ptr %spilledFiles.i, align 8
-  %14 = load i64, ptr %spillFillTimeUs13.i, align 8
-  %add14.i = add i64 %14, %ref.tmp.sroa.7.0.copyload
+  %add14.i = add i64 %add14.i12, %ref.tmp.sroa.7.0.copyload
   store i64 %add14.i, ptr %spillFillTimeUs13.i, align 8
-  %15 = load i64, ptr %spillSortTimeUs15.i, align 8
-  %add16.i = add i64 %15, %ref.tmp.sroa.8.0.copyload
+  %add16.i = add i64 %add16.i13, %ref.tmp.sroa.8.0.copyload
   store i64 %add16.i, ptr %spillSortTimeUs15.i, align 8
-  %16 = load i64, ptr %spillSerializationTimeUs17.i, align 8
-  %add18.i = add i64 %16, %ref.tmp.sroa.9.0.copyload
+  %add18.i = add i64 %add18.i14, %ref.tmp.sroa.9.0.copyload
   store i64 %add18.i, ptr %spillSerializationTimeUs17.i, align 8
-  %17 = load i64, ptr %spillDiskWrites19.i, align 8
-  %add20.i = add i64 %17, %ref.tmp.sroa.10.0.copyload
+  %add20.i = add i64 %add20.i15, %ref.tmp.sroa.10.0.copyload
   store i64 %add20.i, ptr %spillDiskWrites19.i, align 8
-  %18 = load i64, ptr %spillFlushTimeUs21.i, align 8
-  %add22.i = add i64 %18, %ref.tmp.sroa.11.0.copyload
+  %add22.i = add i64 %add22.i16, %ref.tmp.sroa.11.0.copyload
   store i64 %add22.i, ptr %spillFlushTimeUs21.i, align 8
-  %19 = load i64, ptr %spillWriteTimeUs23.i, align 8
-  %add24.i = add i64 %19, %ref.tmp.sroa.12.0.copyload
+  %add24.i = add i64 %add24.i17, %ref.tmp.sroa.12.0.copyload
   store i64 %add24.i, ptr %spillWriteTimeUs23.i, align 8
-  %20 = load i64, ptr %spillMaxLevelExceededCount25.i, align 8
-  %add26.i = add i64 %20, %ref.tmp.sroa.13.0.copyload
+  %add26.i = add i64 %add26.i18, %ref.tmp.sroa.13.0.copyload
   store i64 %add26.i, ptr %spillMaxLevelExceededCount25.i, align 8
   %incdec.ptr.i = getelementptr inbounds nuw i8, ptr %__begin2.sroa.0.07, i64 112
   %cmp.i.not = icmp eq ptr %incdec.ptr.i, %5

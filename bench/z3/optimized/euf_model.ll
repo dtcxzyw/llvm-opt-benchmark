@@ -3571,7 +3571,7 @@ define linkonce_odr hidden void @_ZN3euf6solver9user_sort3addEPNS_5enodeEP4sort(
 15:                                               ; preds = %43, %17, %3
   %16 = landingpad { ptr, i32 }
           cleanup
-  br label %135
+  br label %134
 
 17:                                               ; preds = %12
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -3760,7 +3760,7 @@ _ZN17scoped_ptr_vectorI10ref_vectorI4expr11ast_managerEE9push_backEPS3_.exit: ; 
 100:                                              ; preds = %116, %93, %78, %.loopexit
   %101 = landingpad { ptr, i32 }
           cleanup
-  br label %135
+  br label %134
 
 102:                                              ; preds = %_ZNK7obj_mapI4sortP10ref_vectorI4expr11ast_managerEE4findEPS0_RS5_.exit, %_ZN17scoped_ptr_vectorI10ref_vectorI4expr11ast_managerEE9push_backEPS3_.exit
   %.0 = phi ptr [ %76, %_ZNK7obj_mapI4sortP10ref_vectorI4expr11ast_managerEE4findEPS0_RS5_.exit ], [ %77, %_ZN17scoped_ptr_vectorI10ref_vectorI4expr11ast_managerEE9push_backEPS3_.exit ]
@@ -3812,30 +3812,29 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.
   br i1 %.not.i.i, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit, label %125
 
 125:                                              ; preds = %117
-  %126 = load ptr, ptr %10, align 8, !tbaa !614
-  %127 = getelementptr inbounds nuw i8, ptr %118, i64 8
-  %128 = load i32, ptr %127, align 4, !tbaa !404
-  %129 = add i32 %128, -1
-  store i32 %129, ptr %127, align 4, !tbaa !404
-  %130 = icmp eq i32 %129, 0
-  br i1 %130, label %131, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit
+  %126 = getelementptr inbounds nuw i8, ptr %118, i64 8
+  %127 = load i32, ptr %126, align 4, !tbaa !404
+  %128 = add i32 %127, -1
+  store i32 %128, ptr %126, align 4, !tbaa !404
+  %129 = icmp eq i32 %128, 0
+  br i1 %129, label %130, label %_ZN7obj_refI4expr11ast_managerED2Ev.exit
 
-131:                                              ; preds = %125
-  invoke void @_ZN11ast_manager11delete_nodeEP3ast(ptr noundef nonnull align 8 dereferenceable(976) %126, ptr noundef nonnull %118)
-          to label %_ZN7obj_refI4expr11ast_managerED2Ev.exit unwind label %132
+130:                                              ; preds = %125
+  invoke void @_ZN11ast_manager11delete_nodeEP3ast(ptr noundef nonnull align 8 dereferenceable(976) %9, ptr noundef nonnull %118)
+          to label %_ZN7obj_refI4expr11ast_managerED2Ev.exit unwind label %131
 
-132:                                              ; preds = %131
-  %133 = landingpad { ptr, i32 }
+131:                                              ; preds = %130
+  %132 = landingpad { ptr, i32 }
           catch ptr null
-  %134 = extractvalue { ptr, i32 } %133, 0
-  call void @__clang_call_terminate(ptr %134) #24
+  %133 = extractvalue { ptr, i32 } %132, 0
+  call void @__clang_call_terminate(ptr %133) #24
   unreachable
 
-_ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %117, %125, %131
+_ZN7obj_refI4expr11ast_managerED2Ev.exit:         ; preds = %117, %125, %130
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #23
   ret void
 
-135:                                              ; preds = %100, %15
+134:                                              ; preds = %100, %15
   %.pn = phi { ptr, i32 } [ %101, %100 ], [ %16, %15 ]
   call void @_ZN7obj_refI4expr11ast_managerED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #23
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #23

@@ -3599,17 +3599,16 @@ define void @_ZN3vcg8PullPushER6QImagej(ptr noundef nonnull align 8 dereferencea
   br i1 %50, label %.lr.ph, label %._crit_edge, !llvm.loop !16
 
 ._crit_edge:                                      ; preds = %49, %48
-  %51 = load ptr, ptr %5, align 8
-  %.not4.i.i.i.i = icmp eq ptr %44, %51
+  %.not4.i.i.i.i = icmp eq ptr %44, %9
   br i1 %.not4.i.i.i.i, label %_ZSt8_DestroyIP6QImageS0_EvT_S2_RSaIT0_E.exit.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %._crit_edge, %.lr.ph.i.i.i.i
-  %.05.i.i.i.i = phi ptr [ %54, %.lr.ph.i.i.i.i ], [ %44, %._crit_edge ]
-  %52 = load ptr, ptr %.05.i.i.i.i, align 8
-  %53 = load ptr, ptr %52, align 8
-  call void %53(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i) #35
-  %54 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 32
-  %.not.i.i.i.i = icmp eq ptr %54, %51
+  %.05.i.i.i.i = phi ptr [ %53, %.lr.ph.i.i.i.i ], [ %44, %._crit_edge ]
+  %51 = load ptr, ptr %.05.i.i.i.i, align 8
+  %52 = load ptr, ptr %51, align 8
+  call void %52(ptr noundef nonnull align 8 dereferenceable(32) %.05.i.i.i.i) #35
+  %53 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i, i64 32
+  %.not.i.i.i.i = icmp eq ptr %.05.i.i.i.i, %.08.i.i.i.i.i
   br i1 %.not.i.i.i.i, label %_ZSt8_DestroyIP6QImageS0_EvT_S2_RSaIT0_E.exitthread-pre-split.i, label %.lr.ph.i.i.i.i, !llvm.loop !17
 
 _ZSt8_DestroyIP6QImageS0_EvT_S2_RSaIT0_E.exitthread-pre-split.i: ; preds = %.lr.ph.i.i.i.i
@@ -3617,15 +3616,15 @@ _ZSt8_DestroyIP6QImageS0_EvT_S2_RSaIT0_E.exitthread-pre-split.i: ; preds = %.lr.
   br label %_ZSt8_DestroyIP6QImageS0_EvT_S2_RSaIT0_E.exit.i
 
 _ZSt8_DestroyIP6QImageS0_EvT_S2_RSaIT0_E.exit.i:  ; preds = %_ZSt8_DestroyIP6QImageS0_EvT_S2_RSaIT0_E.exitthread-pre-split.i, %._crit_edge
-  %55 = phi ptr [ %.pr.i, %_ZSt8_DestroyIP6QImageS0_EvT_S2_RSaIT0_E.exitthread-pre-split.i ], [ %44, %._crit_edge ]
-  %.not.i.i.i = icmp eq ptr %55, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorI6QImageSaIS0_EED2Ev.exit, label %56
+  %54 = phi ptr [ %.pr.i, %_ZSt8_DestroyIP6QImageS0_EvT_S2_RSaIT0_E.exitthread-pre-split.i ], [ %44, %._crit_edge ]
+  %.not.i.i.i = icmp eq ptr %54, null
+  br i1 %.not.i.i.i, label %_ZNSt6vectorI6QImageSaIS0_EED2Ev.exit, label %55
 
-56:                                               ; preds = %_ZSt8_DestroyIP6QImageS0_EvT_S2_RSaIT0_E.exit.i
-  call void @_ZdlPv(ptr noundef nonnull %55) #34
+55:                                               ; preds = %_ZSt8_DestroyIP6QImageS0_EvT_S2_RSaIT0_E.exit.i
+  call void @_ZdlPv(ptr noundef nonnull %54) #34
   br label %_ZNSt6vectorI6QImageSaIS0_EED2Ev.exit
 
-_ZNSt6vectorI6QImageSaIS0_EED2Ev.exit:            ; preds = %_ZSt8_DestroyIP6QImageS0_EvT_S2_RSaIT0_E.exit.i, %56
+_ZNSt6vectorI6QImageSaIS0_EED2Ev.exit:            ; preds = %_ZSt8_DestroyIP6QImageS0_EvT_S2_RSaIT0_E.exit.i, %55
   ret void
 }
 

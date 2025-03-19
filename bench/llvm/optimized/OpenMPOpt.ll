@@ -459,9 +459,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.anon.659 = type { ptr }
 %class.anon.660 = type { ptr }
 %"class.llvm::detail::DenseSetPair.667" = type { ptr }
-%"class.std::function.715" = type { %"class.std::_Function_base", ptr }
-%"class.std::function.718" = type { %"class.std::_Function_base", ptr }
-%"class.std::function.721" = type { %"class.std::_Function_base", ptr }
 %"struct.std::pair.835" = type <{ %"class.llvm::DenseMapIterator.832", i8, [7 x i8] }>
 %"class.llvm::DenseMapIterator.832" = type { ptr, ptr }
 %"class.llvm::Argument" = type <{ %"class.llvm::Value", ptr, i32, [4 x i8] }>
@@ -29170,175 +29167,127 @@ _ZSt10_ConstructIN4llvm30DiagnosticInfoOptimizationBase8ArgumentEJRKS2_EEvPT_DpO
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr hidden void @_ZN4llvm16InformationCacheC2ERKNS_6ModuleERNS_14AnalysisGetterERNS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EEEPNS_9SetVectorIPNS_8FunctionENS_11SmallVectorISC_Lj0EEENS_8DenseSetISC_NS_12DenseMapInfoISC_vEEEELj0EEEb(ptr noundef nonnull align 8 dereferenceable(360) %0, ptr noundef nonnull align 8 dereferenceable(841) %1, ptr noundef nonnull align 8 dereferenceable(17) %2, ptr noundef nonnull align 8 dereferenceable(96) %3, ptr noundef %4, i1 noundef zeroext %5) unnamed_addr #0 comdat align 2 {
   %7 = alloca %"class.llvm::Twine", align 8
-  %8 = alloca %"class.std::function.715", align 8
-  %9 = alloca %"class.std::function.718", align 8
-  %10 = alloca %"class.std::function.721", align 8
   store ptr %4, ptr %0, align 8, !tbaa !1336
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %11, i8 0, i64 20, i1 false)
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store ptr %13, ptr %12, align 8, !tbaa !32
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 0, ptr %14, align 8, !tbaa !33
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 6, ptr %15, align 4, !tbaa !34
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %17 = getelementptr inbounds nuw i8, ptr %1, i64 288
-  store ptr %17, ptr %16, align 8, !tbaa !1337
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  store ptr %3, ptr %18, align 8, !tbaa !1338
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %20, i8 0, i64 20, i1 false)
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 168
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %19, i8 0, i64 28, i1 false)
-  store ptr %22, ptr %21, align 8, !tbaa !32
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %23, i8 0, i64 28, i1 false)
-  store ptr %2, ptr %24, align 8, !tbaa !1339
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  store ptr %26, ptr %25, align 8, !tbaa !35
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  store i32 8, ptr %27, align 8, !tbaa !36
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 228
-  store i32 0, ptr %28, align 4, !tbaa !37
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  store i32 0, ptr %29, align 8, !tbaa !38
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 236
-  store i8 1, ptr %30, align 4, !tbaa !39
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 304
+  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %8, i8 0, i64 20, i1 false)
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  store ptr %10, ptr %9, align 8, !tbaa !32
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i32 0, ptr %11, align 8, !tbaa !33
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  store i32 6, ptr %12, align 4, !tbaa !34
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 96
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 288
+  store ptr %14, ptr %13, align 8, !tbaa !1337
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  store ptr %3, ptr %15, align 8, !tbaa !1338
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 112
+  %17 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %17, i8 0, i64 20, i1 false)
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 168
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %16, i8 0, i64 28, i1 false)
+  store ptr %19, ptr %18, align 8, !tbaa !32
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %20, i8 0, i64 28, i1 false)
+  store ptr %2, ptr %21, align 8, !tbaa !1339
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  store ptr %23, ptr %22, align 8, !tbaa !35
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  store i32 8, ptr %24, align 8, !tbaa !36
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 228
+  store i32 0, ptr %25, align 4, !tbaa !37
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 232
+  store i32 0, ptr %26, align 8, !tbaa !38
+  %27 = getelementptr inbounds nuw i8, ptr %0, i64 236
+  store i8 1, ptr %27, align 4, !tbaa !39
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 304
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %7) #29
-  %32 = getelementptr inbounds nuw i8, ptr %1, i64 232
-  %33 = getelementptr inbounds nuw i8, ptr %7, i64 32
-  store i8 4, ptr %33, align 8, !tbaa !513
-  %34 = getelementptr inbounds nuw i8, ptr %7, i64 33
-  store i8 1, ptr %34, align 1, !tbaa !516
-  store ptr %32, ptr %7, align 8, !tbaa !13
-  call void @_ZN4llvm6TripleC1ERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(56) %31, ptr noundef nonnull align 8 dereferenceable(34) %7) #29
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 232
+  %30 = getelementptr inbounds nuw i8, ptr %7, i64 32
+  store i8 4, ptr %30, align 8, !tbaa !513
+  %31 = getelementptr inbounds nuw i8, ptr %7, i64 33
+  store i8 1, ptr %31, align 1, !tbaa !516
+  store ptr %29, ptr %7, align 8, !tbaa !13
+  call void @_ZN4llvm6TripleC1ERKNS_5TwineE(ptr noundef nonnull align 8 dereferenceable(56) %28, ptr noundef nonnull align 8 dereferenceable(34) %7) #29
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %7) #29
-  br i1 %5, label %35, label %_ZNSt14_Function_baseD2Ev.exit13
+  br i1 %5, label %32, label %_ZNSt14_Function_baseD2Ev.exit13
 
-35:                                               ; preds = %6
-  %36 = getelementptr inbounds nuw i8, ptr %3, i64 80
-  %37 = load i64, ptr %36, align 8, !tbaa !205
-  %38 = add i64 %37, 232
-  store i64 %38, ptr %36, align 8, !tbaa !205
-  %39 = load ptr, ptr %3, align 8, !tbaa !216
-  %40 = ptrtoint ptr %39 to i64
-  %41 = add i64 %40, 15
-  %42 = and i64 %41, -16
-  %43 = add i64 %42, 232
-  %44 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %45 = load ptr, ptr %44, align 8, !tbaa !217
-  %46 = ptrtoint ptr %45 to i64
-  %.not.i.i.i = icmp ule i64 %43, %46
-  %47 = icmp ne ptr %39, null
-  %48 = and i1 %47, %.not.i.i.i
-  br i1 %48, label %49, label %52, !prof !40
+32:                                               ; preds = %6
+  %33 = getelementptr inbounds nuw i8, ptr %3, i64 80
+  %34 = load i64, ptr %33, align 8, !tbaa !205
+  %35 = add i64 %34, 232
+  store i64 %35, ptr %33, align 8, !tbaa !205
+  %36 = load ptr, ptr %3, align 8, !tbaa !216
+  %37 = ptrtoint ptr %36 to i64
+  %38 = add i64 %37, 15
+  %39 = and i64 %38, -16
+  %40 = add i64 %39, 232
+  %41 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %42 = load ptr, ptr %41, align 8, !tbaa !217
+  %43 = ptrtoint ptr %42 to i64
+  %.not.i.i.i = icmp ule i64 %40, %43
+  %44 = icmp ne ptr %36, null
+  %45 = and i1 %44, %.not.i.i.i
+  br i1 %45, label %46, label %49, !prof !40
 
-49:                                               ; preds = %35
-  %50 = inttoptr i64 %43 to ptr
-  store ptr %50, ptr %3, align 8, !tbaa !216
-  %51 = inttoptr i64 %42 to ptr
-  br label %_ZN4llvm29MustBeExecutedContextExplorerC2EbbbSt8functionIFPKNS_8LoopInfoERKNS_8FunctionEEES1_IFPKNS_13DominatorTreeES7_EES1_IFPKNS_17PostDominatorTreeES7_EE.exit
+46:                                               ; preds = %32
+  %47 = inttoptr i64 %40 to ptr
+  store ptr %47, ptr %3, align 8, !tbaa !216
+  %48 = inttoptr i64 %39 to ptr
+  br label %51
 
-52:                                               ; preds = %35
-  %53 = call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %3, i64 noundef 232, i64 noundef 232, i8 4)
-  br label %_ZN4llvm29MustBeExecutedContextExplorerC2EbbbSt8functionIFPKNS_8LoopInfoERKNS_8FunctionEEES1_IFPKNS_13DominatorTreeES7_EES1_IFPKNS_17PostDominatorTreeES7_EE.exit
+49:                                               ; preds = %32
+  %50 = call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %3, i64 noundef 232, i64 noundef 232, i8 4)
+  br label %51
 
-_ZN4llvm29MustBeExecutedContextExplorerC2EbbbSt8functionIFPKNS_8LoopInfoERKNS_8FunctionEEES1_IFPKNS_13DominatorTreeES7_EES1_IFPKNS_17PostDominatorTreeES7_EE.exit: ; preds = %49, %52
-  %.0.i.i.i = phi ptr [ %51, %49 ], [ %53, %52 ]
-  %54 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %55 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %56 = getelementptr inbounds nuw i8, ptr %8, i64 8
+51:                                               ; preds = %49, %46
+  %.0.i.i.i = phi ptr [ %48, %46 ], [ %50, %49 ]
+  %52 = ptrtoint ptr %2 to i64
+  store i8 1, ptr %.0.i.i.i, align 8, !tbaa !1340
+  %53 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 1
+  store i8 1, ptr %53, align 1, !tbaa !1356
+  %54 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 2
+  store i8 1, ptr %54, align 2, !tbaa !1357
+  %55 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
   store i64 0, ptr %56, align 8
-  %57 = ptrtoint ptr %2 to i64
-  store i64 %57, ptr %8, align 8, !tbaa !1339
-  store ptr @_ZNSt17_Function_handlerIFPKN4llvm8LoopInfoERKNS0_8FunctionEEZNS0_16InformationCacheC1ERKNS0_6ModuleERNS0_14AnalysisGetterERNS0_20BumpPtrAllocatorImplINS0_15MallocAllocatorELm4096ELm4096ELm128EEEPNS0_9SetVectorIPS4_NS0_11SmallVectorISJ_Lj0EEENS0_8DenseSetISJ_NS0_12DenseMapInfoISJ_vEEEELj0EEEbEUlS6_E_E9_M_invokeERKSt9_Any_dataS6_, ptr %55, align 8, !tbaa !1340
-  store ptr @_ZNSt17_Function_handlerIFPKN4llvm8LoopInfoERKNS0_8FunctionEEZNS0_16InformationCacheC1ERKNS0_6ModuleERNS0_14AnalysisGetterERNS0_20BumpPtrAllocatorImplINS0_15MallocAllocatorELm4096ELm4096ELm128EEEPNS0_9SetVectorIPS4_NS0_11SmallVectorISJ_Lj0EEENS0_8DenseSetISJ_NS0_12DenseMapInfoISJ_vEEEELj0EEEbEUlS6_E_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation, ptr %54, align 8, !tbaa !50
-  %58 = getelementptr inbounds nuw i8, ptr %9, i64 16
-  %59 = getelementptr inbounds nuw i8, ptr %9, i64 24
-  %60 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 32
+  %58 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
+  store i64 %52, ptr %55, align 8, !tbaa !1339
+  store ptr @_ZNSt17_Function_handlerIFPKN4llvm8LoopInfoERKNS0_8FunctionEEZNS0_16InformationCacheC1ERKNS0_6ModuleERNS0_14AnalysisGetterERNS0_20BumpPtrAllocatorImplINS0_15MallocAllocatorELm4096ELm4096ELm128EEEPNS0_9SetVectorIPS4_NS0_11SmallVectorISJ_Lj0EEENS0_8DenseSetISJ_NS0_12DenseMapInfoISJ_vEEEELj0EEEbEUlS6_E_E9_M_invokeERKSt9_Any_dataS6_, ptr %57, align 8, !tbaa !1358
+  store ptr @_ZNSt17_Function_handlerIFPKN4llvm8LoopInfoERKNS0_8FunctionEEZNS0_16InformationCacheC1ERKNS0_6ModuleERNS0_14AnalysisGetterERNS0_20BumpPtrAllocatorImplINS0_15MallocAllocatorELm4096ELm4096ELm128EEEPNS0_9SetVectorIPS4_NS0_11SmallVectorISJ_Lj0EEENS0_8DenseSetISJ_NS0_12DenseMapInfoISJ_vEEEELj0EEEbEUlS6_E_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation, ptr %58, align 8, !tbaa !50
+  %59 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
+  %60 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
   store i64 0, ptr %60, align 8
-  store i64 %57, ptr %9, align 8, !tbaa !1339
-  store ptr @_ZNSt17_Function_handlerIFPKN4llvm13DominatorTreeERKNS0_8FunctionEEZNS0_16InformationCacheC1ERKNS0_6ModuleERNS0_14AnalysisGetterERNS0_20BumpPtrAllocatorImplINS0_15MallocAllocatorELm4096ELm4096ELm128EEEPNS0_9SetVectorIPS4_NS0_11SmallVectorISJ_Lj0EEENS0_8DenseSetISJ_NS0_12DenseMapInfoISJ_vEEEELj0EEEbEUlS6_E0_E9_M_invokeERKSt9_Any_dataS6_, ptr %59, align 8, !tbaa !1342
-  store ptr @_ZNSt17_Function_handlerIFPKN4llvm13DominatorTreeERKNS0_8FunctionEEZNS0_16InformationCacheC1ERKNS0_6ModuleERNS0_14AnalysisGetterERNS0_20BumpPtrAllocatorImplINS0_15MallocAllocatorELm4096ELm4096ELm128EEEPNS0_9SetVectorIPS4_NS0_11SmallVectorISJ_Lj0EEENS0_8DenseSetISJ_NS0_12DenseMapInfoISJ_vEEEELj0EEEbEUlS6_E0_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation, ptr %58, align 8, !tbaa !50
-  %61 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %62 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  %63 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  store i64 0, ptr %63, align 8
-  store i64 %57, ptr %10, align 8, !tbaa !1339
-  store ptr @_ZNSt17_Function_handlerIFPKN4llvm17PostDominatorTreeERKNS0_8FunctionEEZNS0_16InformationCacheC1ERKNS0_6ModuleERNS0_14AnalysisGetterERNS0_20BumpPtrAllocatorImplINS0_15MallocAllocatorELm4096ELm4096ELm128EEEPNS0_9SetVectorIPS4_NS0_11SmallVectorISJ_Lj0EEENS0_8DenseSetISJ_NS0_12DenseMapInfoISJ_vEEEELj0EEEbEUlS6_E1_E9_M_invokeERKSt9_Any_dataS6_, ptr %62, align 8, !tbaa !1344
-  store ptr @_ZNSt17_Function_handlerIFPKN4llvm17PostDominatorTreeERKNS0_8FunctionEEZNS0_16InformationCacheC1ERKNS0_6ModuleERNS0_14AnalysisGetterERNS0_20BumpPtrAllocatorImplINS0_15MallocAllocatorELm4096ELm4096ELm128EEEPNS0_9SetVectorIPS4_NS0_11SmallVectorISJ_Lj0EEENS0_8DenseSetISJ_NS0_12DenseMapInfoISJ_vEEEELj0EEEbEUlS6_E1_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation, ptr %61, align 8, !tbaa !50
-  store i8 1, ptr %.0.i.i.i, align 8, !tbaa !1346
-  %64 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 1
-  store i8 1, ptr %64, align 1, !tbaa !1359
-  %65 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 2
-  store i8 1, ptr %65, align 2, !tbaa !1360
-  %66 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
-  %67 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
-  store i64 0, ptr %67, align 8
-  %68 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 32
-  %69 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
-  store i64 %57, ptr %66, align 8, !tbaa !1339
-  store ptr @_ZNSt17_Function_handlerIFPKN4llvm8LoopInfoERKNS0_8FunctionEEZNS0_16InformationCacheC1ERKNS0_6ModuleERNS0_14AnalysisGetterERNS0_20BumpPtrAllocatorImplINS0_15MallocAllocatorELm4096ELm4096ELm128EEEPNS0_9SetVectorIPS4_NS0_11SmallVectorISJ_Lj0EEENS0_8DenseSetISJ_NS0_12DenseMapInfoISJ_vEEEELj0EEEbEUlS6_E_E9_M_invokeERKSt9_Any_dataS6_, ptr %68, align 8, !tbaa !1340
-  store ptr @_ZNSt17_Function_handlerIFPKN4llvm8LoopInfoERKNS0_8FunctionEEZNS0_16InformationCacheC1ERKNS0_6ModuleERNS0_14AnalysisGetterERNS0_20BumpPtrAllocatorImplINS0_15MallocAllocatorELm4096ELm4096ELm128EEEPNS0_9SetVectorIPS4_NS0_11SmallVectorISJ_Lj0EEENS0_8DenseSetISJ_NS0_12DenseMapInfoISJ_vEEEELj0EEEbEUlS6_E_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation, ptr %69, align 8, !tbaa !50
-  %70 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 40
-  %71 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 48
-  store i64 0, ptr %71, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
-  %73 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
-  store i64 %57, ptr %70, align 8, !tbaa !1339
-  store ptr @_ZNSt17_Function_handlerIFPKN4llvm13DominatorTreeERKNS0_8FunctionEEZNS0_16InformationCacheC1ERKNS0_6ModuleERNS0_14AnalysisGetterERNS0_20BumpPtrAllocatorImplINS0_15MallocAllocatorELm4096ELm4096ELm128EEEPNS0_9SetVectorIPS4_NS0_11SmallVectorISJ_Lj0EEENS0_8DenseSetISJ_NS0_12DenseMapInfoISJ_vEEEELj0EEEbEUlS6_E0_E9_M_invokeERKSt9_Any_dataS6_, ptr %72, align 8, !tbaa !1342
-  store ptr @_ZNSt17_Function_handlerIFPKN4llvm13DominatorTreeERKNS0_8FunctionEEZNS0_16InformationCacheC1ERKNS0_6ModuleERNS0_14AnalysisGetterERNS0_20BumpPtrAllocatorImplINS0_15MallocAllocatorELm4096ELm4096ELm128EEEPNS0_9SetVectorIPS4_NS0_11SmallVectorISJ_Lj0EEENS0_8DenseSetISJ_NS0_12DenseMapInfoISJ_vEEEELj0EEEbEUlS6_E0_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation, ptr %73, align 8, !tbaa !50
-  %74 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 72
-  %75 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 80
-  store i64 0, ptr %75, align 8
-  %76 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 96
-  %77 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 88
-  store i64 %57, ptr %74, align 8, !tbaa !1339
-  store ptr @_ZNSt17_Function_handlerIFPKN4llvm17PostDominatorTreeERKNS0_8FunctionEEZNS0_16InformationCacheC1ERKNS0_6ModuleERNS0_14AnalysisGetterERNS0_20BumpPtrAllocatorImplINS0_15MallocAllocatorELm4096ELm4096ELm128EEEPNS0_9SetVectorIPS4_NS0_11SmallVectorISJ_Lj0EEENS0_8DenseSetISJ_NS0_12DenseMapInfoISJ_vEEEELj0EEEbEUlS6_E1_E9_M_invokeERKSt9_Any_dataS6_, ptr %76, align 8, !tbaa !1344
-  store ptr @_ZNSt17_Function_handlerIFPKN4llvm17PostDominatorTreeERKNS0_8FunctionEEZNS0_16InformationCacheC1ERKNS0_6ModuleERNS0_14AnalysisGetterERNS0_20BumpPtrAllocatorImplINS0_15MallocAllocatorELm4096ELm4096ELm128EEEPNS0_9SetVectorIPS4_NS0_11SmallVectorISJ_Lj0EEENS0_8DenseSetISJ_NS0_12DenseMapInfoISJ_vEEEELj0EEEbEUlS6_E1_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation, ptr %77, align 8, !tbaa !50
-  %78 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 104
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %78, i8 0, i64 20, i1 false)
-  %79 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 128
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %79, i8 0, i64 20, i1 false)
-  %80 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 152
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %80, i8 0, i64 20, i1 false)
-  %81 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 176
-  call void @_ZN4llvm22MustBeExecutedIteratorC1ERNS_29MustBeExecutedContextExplorerEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(56) %81, ptr noundef nonnull align 8 dereferenceable(232) %.0.i.i.i, ptr noundef null) #29
-  store ptr %.0.i.i.i, ptr %19, align 8, !tbaa !1361
-  %82 = load ptr, ptr %61, align 8, !tbaa !50
-  %.not.i = icmp eq ptr %82, null
-  br i1 %.not.i, label %_ZNSt14_Function_baseD2Ev.exit, label %83
-
-83:                                               ; preds = %_ZN4llvm29MustBeExecutedContextExplorerC2EbbbSt8functionIFPKNS_8LoopInfoERKNS_8FunctionEEES1_IFPKNS_13DominatorTreeES7_EES1_IFPKNS_17PostDominatorTreeES7_EE.exit
-  %84 = call noundef zeroext i1 %82(ptr noundef nonnull align 8 dereferenceable(32) %10, ptr noundef nonnull align 8 dereferenceable(32) %10, i32 noundef 3) #29
-  br label %_ZNSt14_Function_baseD2Ev.exit
-
-_ZNSt14_Function_baseD2Ev.exit:                   ; preds = %_ZN4llvm29MustBeExecutedContextExplorerC2EbbbSt8functionIFPKNS_8LoopInfoERKNS_8FunctionEEES1_IFPKNS_13DominatorTreeES7_EES1_IFPKNS_17PostDominatorTreeES7_EE.exit, %83
-  %85 = load ptr, ptr %58, align 8, !tbaa !50
-  %.not.i10 = icmp eq ptr %85, null
-  br i1 %.not.i10, label %_ZNSt14_Function_baseD2Ev.exit11, label %86
-
-86:                                               ; preds = %_ZNSt14_Function_baseD2Ev.exit
-  %87 = call noundef zeroext i1 %85(ptr noundef nonnull align 8 dereferenceable(32) %9, ptr noundef nonnull align 8 dereferenceable(32) %9, i32 noundef 3) #29
-  br label %_ZNSt14_Function_baseD2Ev.exit11
-
-_ZNSt14_Function_baseD2Ev.exit11:                 ; preds = %_ZNSt14_Function_baseD2Ev.exit, %86
-  %88 = load ptr, ptr %54, align 8, !tbaa !50
-  %.not.i12 = icmp eq ptr %88, null
-  br i1 %.not.i12, label %_ZNSt14_Function_baseD2Ev.exit13, label %89
-
-89:                                               ; preds = %_ZNSt14_Function_baseD2Ev.exit11
-  %90 = call noundef zeroext i1 %88(ptr noundef nonnull align 8 dereferenceable(32) %8, ptr noundef nonnull align 8 dereferenceable(32) %8, i32 noundef 3) #29
+  %61 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 64
+  %62 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 56
+  store i64 %52, ptr %59, align 8, !tbaa !1339
+  store ptr @_ZNSt17_Function_handlerIFPKN4llvm13DominatorTreeERKNS0_8FunctionEEZNS0_16InformationCacheC1ERKNS0_6ModuleERNS0_14AnalysisGetterERNS0_20BumpPtrAllocatorImplINS0_15MallocAllocatorELm4096ELm4096ELm128EEEPNS0_9SetVectorIPS4_NS0_11SmallVectorISJ_Lj0EEENS0_8DenseSetISJ_NS0_12DenseMapInfoISJ_vEEEELj0EEEbEUlS6_E0_E9_M_invokeERKSt9_Any_dataS6_, ptr %61, align 8, !tbaa !1359
+  store ptr @_ZNSt17_Function_handlerIFPKN4llvm13DominatorTreeERKNS0_8FunctionEEZNS0_16InformationCacheC1ERKNS0_6ModuleERNS0_14AnalysisGetterERNS0_20BumpPtrAllocatorImplINS0_15MallocAllocatorELm4096ELm4096ELm128EEEPNS0_9SetVectorIPS4_NS0_11SmallVectorISJ_Lj0EEENS0_8DenseSetISJ_NS0_12DenseMapInfoISJ_vEEEELj0EEEbEUlS6_E0_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation, ptr %62, align 8, !tbaa !50
+  %63 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 72
+  %64 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 80
+  store i64 0, ptr %64, align 8
+  %65 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 96
+  %66 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 88
+  store i64 %52, ptr %63, align 8, !tbaa !1339
+  store ptr @_ZNSt17_Function_handlerIFPKN4llvm17PostDominatorTreeERKNS0_8FunctionEEZNS0_16InformationCacheC1ERKNS0_6ModuleERNS0_14AnalysisGetterERNS0_20BumpPtrAllocatorImplINS0_15MallocAllocatorELm4096ELm4096ELm128EEEPNS0_9SetVectorIPS4_NS0_11SmallVectorISJ_Lj0EEENS0_8DenseSetISJ_NS0_12DenseMapInfoISJ_vEEEELj0EEEbEUlS6_E1_E9_M_invokeERKSt9_Any_dataS6_, ptr %65, align 8, !tbaa !1360
+  store ptr @_ZNSt17_Function_handlerIFPKN4llvm17PostDominatorTreeERKNS0_8FunctionEEZNS0_16InformationCacheC1ERKNS0_6ModuleERNS0_14AnalysisGetterERNS0_20BumpPtrAllocatorImplINS0_15MallocAllocatorELm4096ELm4096ELm128EEEPNS0_9SetVectorIPS4_NS0_11SmallVectorISJ_Lj0EEENS0_8DenseSetISJ_NS0_12DenseMapInfoISJ_vEEEELj0EEEbEUlS6_E1_E10_M_managerERSt9_Any_dataRKSU_St18_Manager_operation, ptr %66, align 8, !tbaa !50
+  %67 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 104
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %67, i8 0, i64 20, i1 false)
+  %68 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 128
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %68, i8 0, i64 20, i1 false)
+  %69 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 152
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %69, i8 0, i64 20, i1 false)
+  %70 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 176
+  call void @_ZN4llvm22MustBeExecutedIteratorC1ERNS_29MustBeExecutedContextExplorerEPKNS_11InstructionE(ptr noundef nonnull align 8 dereferenceable(56) %70, ptr noundef nonnull align 8 dereferenceable(232) %.0.i.i.i, ptr noundef null) #29
+  store ptr %.0.i.i.i, ptr %16, align 8, !tbaa !1361
   br label %_ZNSt14_Function_baseD2Ev.exit13
 
-_ZNSt14_Function_baseD2Ev.exit13:                 ; preds = %89, %_ZNSt14_Function_baseD2Ev.exit11, %6
+_ZNSt14_Function_baseD2Ev.exit13:                 ; preds = %51, %6
   ret void
 }
 
@@ -127655,27 +127604,27 @@ attributes #33 = { builtin nounwind allocsize(0) }
 !1337 = !{!397, !397, i64 0}
 !1338 = !{!96, !96, i64 0}
 !1339 = !{!414, !414, i64 0}
-!1340 = !{!1341, !6, i64 24}
-!1341 = !{!"_ZTSSt8functionIFPKN4llvm8LoopInfoERKNS0_8FunctionEEE", !49, i64 0, !6, i64 24}
-!1342 = !{!1343, !6, i64 24}
+!1340 = !{!1341, !31, i64 0}
+!1341 = !{!"_ZTSN4llvm29MustBeExecutedContextExplorerE", !31, i64 0, !31, i64 1, !31, i64 2, !1342, i64 8, !1343, i64 40, !1344, i64 72, !1345, i64 104, !1347, i64 128, !1349, i64 152, !1351, i64 176}
+!1342 = !{!"_ZTSSt8functionIFPKN4llvm8LoopInfoERKNS0_8FunctionEEE", !49, i64 0, !6, i64 24}
 !1343 = !{!"_ZTSSt8functionIFPKN4llvm13DominatorTreeERKNS0_8FunctionEEE", !49, i64 0, !6, i64 24}
-!1344 = !{!1345, !6, i64 24}
-!1345 = !{!"_ZTSSt8functionIFPKN4llvm17PostDominatorTreeERKNS0_8FunctionEEE", !49, i64 0, !6, i64 24}
-!1346 = !{!1347, !31, i64 0}
-!1347 = !{!"_ZTSN4llvm29MustBeExecutedContextExplorerE", !31, i64 0, !31, i64 1, !31, i64 2, !1341, i64 8, !1343, i64 40, !1345, i64 72, !1348, i64 104, !1350, i64 128, !1352, i64 152, !1354, i64 176}
-!1348 = !{!"_ZTSN4llvm8DenseMapIPKNS_10BasicBlockESt8optionalIbENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEE", !1349, i64 0, !26, i64 8, !26, i64 12, !26, i64 16}
-!1349 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIPKNS_10BasicBlockESt8optionalIbEEE", !6, i64 0}
-!1350 = !{!"_ZTSN4llvm8DenseMapIPKNS_8FunctionESt8optionalIbENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEE", !1351, i64 0, !26, i64 8, !26, i64 12, !26, i64 16}
-!1351 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIPKNS_8FunctionESt8optionalIbEEE", !6, i64 0}
-!1352 = !{!"_ZTSN4llvm8DenseMapIPKNS_11InstructionESt10unique_ptrINS_22MustBeExecutedIteratorESt14default_deleteIS5_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEE", !1353, i64 0, !26, i64 8, !26, i64 12, !26, i64 16}
-!1353 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIPKNS_11InstructionESt10unique_ptrINS_22MustBeExecutedIteratorESt14default_deleteIS6_EEEE", !6, i64 0}
-!1354 = !{!"_ZTSN4llvm22MustBeExecutedIteratorE", !1355, i64 0, !398, i64 24, !1025, i64 32, !1025, i64 40, !1025, i64 48}
-!1355 = !{!"_ZTSN4llvm8DenseSetINS_14PointerIntPairIPKNS_11InstructionELj1ENS_20ExplorationDirectionENS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES7_EEEENS_12DenseMapInfoISA_vEEEE", !1356, i64 0}
-!1356 = !{!"_ZTSN4llvm6detail12DenseSetImplINS_14PointerIntPairIPKNS_11InstructionELj1ENS_20ExplorationDirectionENS_21PointerLikeTypeTraitsIS5_EENS_18PointerIntPairInfoIS5_Lj1ES8_EEEENS_8DenseMapISB_NS0_13DenseSetEmptyENS_12DenseMapInfoISB_vEENS0_12DenseSetPairISB_EEEESF_EE", !1357, i64 0}
-!1357 = !{!"_ZTSN4llvm8DenseMapINS_14PointerIntPairIPKNS_11InstructionELj1ENS_20ExplorationDirectionENS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES7_EEEENS_6detail13DenseSetEmptyENS_12DenseMapInfoISA_vEENSB_12DenseSetPairISA_EEEE", !1358, i64 0, !26, i64 8, !26, i64 12, !26, i64 16}
-!1358 = !{!"p1 _ZTSN4llvm6detail12DenseSetPairINS_14PointerIntPairIPKNS_11InstructionELj1ENS_20ExplorationDirectionENS_21PointerLikeTypeTraitsIS5_EENS_18PointerIntPairInfoIS5_Lj1ES8_EEEEEE", !6, i64 0}
-!1359 = !{!1347, !31, i64 1}
-!1360 = !{!1347, !31, i64 2}
+!1344 = !{!"_ZTSSt8functionIFPKN4llvm17PostDominatorTreeERKNS0_8FunctionEEE", !49, i64 0, !6, i64 24}
+!1345 = !{!"_ZTSN4llvm8DenseMapIPKNS_10BasicBlockESt8optionalIbENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEE", !1346, i64 0, !26, i64 8, !26, i64 12, !26, i64 16}
+!1346 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIPKNS_10BasicBlockESt8optionalIbEEE", !6, i64 0}
+!1347 = !{!"_ZTSN4llvm8DenseMapIPKNS_8FunctionESt8optionalIbENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S5_EEEE", !1348, i64 0, !26, i64 8, !26, i64 12, !26, i64 16}
+!1348 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIPKNS_8FunctionESt8optionalIbEEE", !6, i64 0}
+!1349 = !{!"_ZTSN4llvm8DenseMapIPKNS_11InstructionESt10unique_ptrINS_22MustBeExecutedIteratorESt14default_deleteIS5_EENS_12DenseMapInfoIS3_vEENS_6detail12DenseMapPairIS3_S8_EEEE", !1350, i64 0, !26, i64 8, !26, i64 12, !26, i64 16}
+!1350 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIPKNS_11InstructionESt10unique_ptrINS_22MustBeExecutedIteratorESt14default_deleteIS6_EEEE", !6, i64 0}
+!1351 = !{!"_ZTSN4llvm22MustBeExecutedIteratorE", !1352, i64 0, !398, i64 24, !1025, i64 32, !1025, i64 40, !1025, i64 48}
+!1352 = !{!"_ZTSN4llvm8DenseSetINS_14PointerIntPairIPKNS_11InstructionELj1ENS_20ExplorationDirectionENS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES7_EEEENS_12DenseMapInfoISA_vEEEE", !1353, i64 0}
+!1353 = !{!"_ZTSN4llvm6detail12DenseSetImplINS_14PointerIntPairIPKNS_11InstructionELj1ENS_20ExplorationDirectionENS_21PointerLikeTypeTraitsIS5_EENS_18PointerIntPairInfoIS5_Lj1ES8_EEEENS_8DenseMapISB_NS0_13DenseSetEmptyENS_12DenseMapInfoISB_vEENS0_12DenseSetPairISB_EEEESF_EE", !1354, i64 0}
+!1354 = !{!"_ZTSN4llvm8DenseMapINS_14PointerIntPairIPKNS_11InstructionELj1ENS_20ExplorationDirectionENS_21PointerLikeTypeTraitsIS4_EENS_18PointerIntPairInfoIS4_Lj1ES7_EEEENS_6detail13DenseSetEmptyENS_12DenseMapInfoISA_vEENSB_12DenseSetPairISA_EEEE", !1355, i64 0, !26, i64 8, !26, i64 12, !26, i64 16}
+!1355 = !{!"p1 _ZTSN4llvm6detail12DenseSetPairINS_14PointerIntPairIPKNS_11InstructionELj1ENS_20ExplorationDirectionENS_21PointerLikeTypeTraitsIS5_EENS_18PointerIntPairInfoIS5_Lj1ES8_EEEEEE", !6, i64 0}
+!1356 = !{!1341, !31, i64 1}
+!1357 = !{!1341, !31, i64 2}
+!1358 = !{!1342, !6, i64 24}
+!1359 = !{!1343, !6, i64 24}
+!1360 = !{!1344, !6, i64 24}
 !1361 = !{!392, !398, i64 112}
 !1362 = !{!458, !458, i64 0}
 !1363 = !{!459, !459, i64 0}
@@ -129296,17 +129245,17 @@ attributes #33 = { builtin nounwind allocsize(0) }
 !2978 = !{!"p1 _ZTSN4llvm6detail12DenseMapPairIPNS_10AssumeInstENS_6MinMaxEEE", !6, i64 0}
 !2979 = !{!2977, !26, i64 16}
 !2980 = distinct !{!2980, !285}
-!2981 = !{!1357, !1358, i64 0}
-!2982 = !{!1357, !26, i64 16}
-!2983 = !{!1352, !26, i64 16}
-!2984 = !{!1352, !1353, i64 0}
+!2981 = !{!1354, !1355, i64 0}
+!2982 = !{!1354, !26, i64 16}
+!2983 = !{!1349, !26, i64 16}
+!2984 = !{!1349, !1350, i64 0}
 !2985 = !{!2986, !2986, i64 0}
 !2986 = !{!"p1 _ZTSN4llvm22MustBeExecutedIteratorE", !6, i64 0}
 !2987 = distinct !{!2987, !285}
-!2988 = !{!1350, !1351, i64 0}
-!2989 = !{!1350, !26, i64 16}
-!2990 = !{!1348, !1349, i64 0}
-!2991 = !{!1348, !26, i64 16}
+!2988 = !{!1347, !1348, i64 0}
+!2989 = !{!1347, !26, i64 16}
+!2990 = !{!1345, !1346, i64 0}
+!2991 = !{!1345, !26, i64 16}
 !2992 = distinct !{!2992, !285}
 !2993 = !{!121, !121, i64 0}
 !2994 = !{!2995, !31, i64 16}

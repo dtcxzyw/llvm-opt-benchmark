@@ -3005,7 +3005,6 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store ptr %8, ptr %9, align 8
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 0, ptr %10, align 8
   %11 = getelementptr inbounds { { ptr, ptr, i64, { ptr } } }, ptr %1, i64 %2
   %12 = icmp eq i64 %7, 0
   br i1 %12, label %.thread, label %.lr.ph
@@ -4471,7 +4470,6 @@ define hidden void @"_ZN67_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..clo
   %12 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %11, ptr %12, align 8, !noalias !1130
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i64 0, ptr %13, align 8, !noalias !1130
   %14 = getelementptr inbounds { { ptr, ptr, i64, { ptr } } }, ptr %7, i64 %8
   %15 = icmp eq i64 %10, 0
   br i1 %15, label %"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17h36801faaa130bb39E.llvm.4120737428893778768.exit", label %.lr.ph.i

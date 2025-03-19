@@ -8895,58 +8895,58 @@ define hidden noundef zeroext i1 @_ZN2cv11TiffEncoder12writeLibTiffERKSt6vectorI
 99:                                               ; preds = %95, %93
   %.0238 = phi ptr [ %94, %93 ], [ %98, %95 ]
   %.not380 = icmp eq ptr %.0238, null
-  br i1 %.not380, label %1467, label %100
+  br i1 %.not380, label %1464, label %100
 
 100:                                              ; preds = %99
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5) #23
   store ptr %.0238, ptr %5, align 8, !tbaa !82
-  %101 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %102 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #27
-          to label %_ZN2cv3PtrIvEC2I4tiffPFvPvEEEPT_T0_.exit unwind label %103
+  %101 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #27
+          to label %_ZN2cv3PtrIvEC2I4tiffPFvPvEEEPT_T0_.exit unwind label %102
 
-103:                                              ; preds = %100
-  %104 = landingpad { ptr, i32 }
+102:                                              ; preds = %100
+  %103 = landingpad { ptr, i32 }
           catch ptr null
-  %105 = extractvalue { ptr, i32 } %104, 0
-  %106 = call ptr @__cxa_begin_catch(ptr %105) #23
+  %104 = extractvalue { ptr, i32 } %103, 0
+  %105 = call ptr @__cxa_begin_catch(ptr %104) #23
   invoke void @TIFFClose(ptr noundef nonnull %.0238)
-          to label %_ZN2cvL18cv_tiffCloseHandleEPv.exit unwind label %107
+          to label %_ZN2cvL18cv_tiffCloseHandleEPv.exit unwind label %106
 
-_ZN2cvL18cv_tiffCloseHandleEPv.exit:              ; preds = %103
+_ZN2cvL18cv_tiffCloseHandleEPv.exit:              ; preds = %102
   invoke void @__cxa_rethrow() #26
-          to label %112 unwind label %107
+          to label %111 unwind label %106
 
-107:                                              ; preds = %103, %_ZN2cvL18cv_tiffCloseHandleEPv.exit
-  %108 = landingpad { ptr, i32 }
+106:                                              ; preds = %102, %_ZN2cvL18cv_tiffCloseHandleEPv.exit
+  %107 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %common.resume unwind label %109
+          to label %common.resume unwind label %108
 
-common.resume:                                    ; preds = %107, %1445
-  %common.resume.op = phi { ptr, i32 } [ %.pn541.pn, %1445 ], [ %108, %107 ]
+common.resume:                                    ; preds = %106, %1445
+  %common.resume.op = phi { ptr, i32 } [ %.pn541.pn, %1445 ], [ %107, %106 ]
   resume { ptr, i32 } %common.resume.op
 
-109:                                              ; preds = %107
-  %110 = landingpad { ptr, i32 }
+108:                                              ; preds = %106
+  %109 = landingpad { ptr, i32 }
           catch ptr null
-  %111 = extractvalue { ptr, i32 } %110, 0
-  call void @__clang_call_terminate(ptr %111) #24
+  %110 = extractvalue { ptr, i32 } %109, 0
+  call void @__clang_call_terminate(ptr %110) #24
   unreachable
 
-112:                                              ; preds = %_ZN2cvL18cv_tiffCloseHandleEPv.exit
+111:                                              ; preds = %_ZN2cvL18cv_tiffCloseHandleEPv.exit
   unreachable
 
 _ZN2cv3PtrIvEC2I4tiffPFvPvEEEPT_T0_.exit:         ; preds = %100
-  %113 = getelementptr inbounds nuw i8, ptr %102, i64 8
+  %112 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %113 = getelementptr inbounds nuw i8, ptr %101, i64 8
   store i32 1, ptr %113, align 8, !tbaa !60
-  %114 = getelementptr inbounds nuw i8, ptr %102, i64 12
+  %114 = getelementptr inbounds nuw i8, ptr %101, i64 12
   store i32 1, ptr %114, align 4, !tbaa !62
-  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt19_Sp_counted_deleterIP4tiffPFvPvESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %102, align 8, !tbaa !3
-  %115 = getelementptr inbounds nuw i8, ptr %102, i64 16
+  store ptr getelementptr inbounds nuw inrange(-16, 40) (i8, ptr @_ZTVSt19_Sp_counted_deleterIP4tiffPFvPvESaIvELN9__gnu_cxx12_Lock_policyE2EE, i64 16), ptr %101, align 8, !tbaa !3
+  %115 = getelementptr inbounds nuw i8, ptr %101, i64 16
   store ptr @_ZN2cvL18cv_tiffCloseHandleEPv, ptr %115, align 8, !tbaa !196
-  %116 = getelementptr inbounds nuw i8, ptr %102, i64 24
+  %116 = getelementptr inbounds nuw i8, ptr %101, i64 24
   store ptr %.0238, ptr %116, align 8, !tbaa !198
-  store ptr %102, ptr %101, align 8, !tbaa !59
+  store ptr %101, ptr %112, align 8, !tbaa !59
   %.val555 = load ptr, ptr %2, align 8
   %117 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %.val556 = load ptr, ptr %117, align 8
@@ -9078,7 +9078,7 @@ _ZN2cvL9readParamERKSt6vectorIiSaIiEEiRi.exit580: ; preds = %162, %_ZN2cv3PtrIvE
   %173 = load ptr, ptr %172, align 8, !tbaa !67
   %174 = load ptr, ptr %1, align 8, !tbaa !66
   %.not507947 = icmp eq ptr %173, %174
-  br i1 %.not507947, label %.critedge.thread, label %.lr.ph950
+  br i1 %.not507947, label %.critedge, label %.lr.ph950
 
 .lr.ph950:                                        ; preds = %_ZN2cvL9readParamERKSt6vectorIiSaIiEEiRi.exit580
   %175 = add i32 %.0817833838, -1
@@ -12162,7 +12162,7 @@ _ZN2cv10AutoBufferIhLm1032EEC2Em.exit:            ; preds = %.noexc, %1246
   %1270 = mul i64 %1269, %indvars.iv
   %1271 = getelementptr inbounds nuw i8, ptr %1267, i64 %1270
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %1250, ptr align 1 %1271, i64 %1245, i1 false)
-  %.pre995 = trunc nuw nsw i64 %indvars.iv to i32
+  %.pre = trunc nuw nsw i64 %indvars.iv to i32
   br label %1305
 
 1272:                                             ; preds = %1305
@@ -12316,7 +12316,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit766: ; preds = %_Z
   br label %1440
 
 1305:                                             ; preds = %1286, %1277, %1266
-  %.pre-phi = phi i32 [ %1284, %1286 ], [ %1275, %1277 ], [ %.pre995, %1266 ]
+  %.pre-phi = phi i32 [ %1284, %1286 ], [ %1275, %1277 ], [ %.pre, %1266 ]
   %1306 = invoke i32 @TIFFWriteScanline(ptr noundef %.0238, ptr noundef nonnull %1250, i32 noundef %.pre-phi, i16 noundef zeroext 0)
           to label %1307 unwind label %1272
 
@@ -12712,8 +12712,8 @@ _ZN2cv10AutoBufferIhLm1032EED2Ev.exit:            ; preds = %1431, %1428
   %1442 = load ptr, ptr %70, align 8, !tbaa !125
   %.not.i.i794 = icmp eq ptr %1442, %182
   %1443 = icmp eq ptr %1442, null
-  %or.cond1041 = or i1 %.not.i.i794, %1443
-  br i1 %or.cond1041, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit795, label %1444
+  %or.cond1036 = or i1 %.not.i.i794, %1443
+  br i1 %or.cond1036, label %_ZN2cv10AutoBufferIhLm1032EED2Ev.exit795, label %1444
 
 1444:                                             ; preds = %1441
   call void @_ZdaPv(ptr noundef nonnull %1442) #25
@@ -12731,65 +12731,55 @@ _ZN2cv10AutoBufferIhLm1032EED2Ev.exit795:         ; preds = %1444, %1441, %1261
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #23
   br label %common.resume
 
-.critedge:                                        ; preds = %1432, %514
-  %.not507.lcssa.ph = phi i1 [ true, %1432 ], [ false, %514 ]
-  %.pre = load ptr, ptr %101, align 8, !tbaa !59
-  %.not.i.i796 = icmp eq ptr %.pre, null
-  br i1 %.not.i.i796, label %_ZNSt12__shared_ptrIvLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %.critedge.thread
+.critedge:                                        ; preds = %514, %1432, %_ZN2cvL9readParamERKSt6vectorIiSaIiEEiRi.exit580
+  %.not507.lcssa = phi i1 [ true, %_ZN2cvL9readParamERKSt6vectorIiSaIiEEiRi.exit580 ], [ false, %514 ], [ true, %1432 ]
+  %1446 = load atomic i64, ptr %113 acquire, align 8
+  %1447 = icmp eq i64 %1446, 4294967297
+  %1448 = trunc i64 %1446 to i32
+  br i1 %1447, label %1449, label %1456
 
-.critedge.thread:                                 ; preds = %_ZN2cvL9readParamERKSt6vectorIiSaIiEEiRi.exit580, %.critedge
-  %.not507.lcssa998 = phi i1 [ %.not507.lcssa.ph, %.critedge ], [ true, %_ZN2cvL9readParamERKSt6vectorIiSaIiEEiRi.exit580 ]
-  %1446 = phi ptr [ %.pre, %.critedge ], [ %102, %_ZN2cvL9readParamERKSt6vectorIiSaIiEEiRi.exit580 ]
-  %1447 = getelementptr inbounds nuw i8, ptr %1446, i64 8
-  %1448 = load atomic i64, ptr %1447 acquire, align 8
-  %1449 = icmp eq i64 %1448, 4294967297
-  %1450 = trunc i64 %1448 to i32
-  br i1 %1449, label %1451, label %1459
-
-1451:                                             ; preds = %.critedge.thread
-  store i32 0, ptr %1447, align 8, !tbaa !60
-  %1452 = getelementptr inbounds nuw i8, ptr %1446, i64 12
-  store i32 0, ptr %1452, align 4, !tbaa !62
-  %1453 = load ptr, ptr %1446, align 8, !tbaa !3
-  %1454 = getelementptr inbounds nuw i8, ptr %1453, i64 16
+1449:                                             ; preds = %.critedge
+  store i32 0, ptr %113, align 8, !tbaa !60
+  store i32 0, ptr %114, align 4, !tbaa !62
+  %1450 = load ptr, ptr %101, align 8, !tbaa !3
+  %1451 = getelementptr inbounds nuw i8, ptr %1450, i64 16
+  %1452 = load ptr, ptr %1451, align 8
+  call void %1452(ptr noundef nonnull align 8 dereferenceable(16) %101) #23
+  %1453 = load ptr, ptr %101, align 8, !tbaa !3
+  %1454 = getelementptr inbounds nuw i8, ptr %1453, i64 24
   %1455 = load ptr, ptr %1454, align 8
-  call void %1455(ptr noundef nonnull align 8 dereferenceable(16) %1446) #23
-  %1456 = load ptr, ptr %1446, align 8, !tbaa !3
-  %1457 = getelementptr inbounds nuw i8, ptr %1456, i64 24
-  %1458 = load ptr, ptr %1457, align 8
-  call void %1458(ptr noundef nonnull align 8 dereferenceable(16) %1446) #23
+  call void %1455(ptr noundef nonnull align 8 dereferenceable(16) %101) #23
   br label %_ZNSt12__shared_ptrIvLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
-1459:                                             ; preds = %.critedge.thread
-  %1460 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !63
-  %.not.i.i.i = icmp eq i8 %1460, 0
-  br i1 %.not.i.i.i, label %1463, label %1461
+1456:                                             ; preds = %.critedge
+  %1457 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !63
+  %.not.i.i.i = icmp eq i8 %1457, 0
+  br i1 %.not.i.i.i, label %1460, label %1458
 
-1461:                                             ; preds = %1459
-  %1462 = add nsw i32 %1450, -1
-  store i32 %1462, ptr %1447, align 4, !tbaa !64
+1458:                                             ; preds = %1456
+  %1459 = add nsw i32 %1448, -1
+  store i32 %1459, ptr %113, align 4, !tbaa !64
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
 
-1463:                                             ; preds = %1459
-  %1464 = atomicrmw volatile add ptr %1447, i32 -1 acq_rel, align 4
+1460:                                             ; preds = %1456
+  %1461 = atomicrmw volatile add ptr %113, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %1463, %1461
-  %.0.i.i.i.i = phi i32 [ %1450, %1461 ], [ %1464, %1463 ]
-  %1465 = icmp eq i32 %.0.i.i.i.i, 1
-  br i1 %1465, label %1466, label %_ZNSt12__shared_ptrIvLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !65
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %1460, %1458
+  %.0.i.i.i.i = phi i32 [ %1448, %1458 ], [ %1461, %1460 ]
+  %1462 = icmp eq i32 %.0.i.i.i.i, 1
+  br i1 %1462, label %1463, label %_ZNSt12__shared_ptrIvLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !65
 
-1466:                                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
-  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %1446) #23
+1463:                                             ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
+  call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %101) #23
   br label %_ZNSt12__shared_ptrIvLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
-_ZNSt12__shared_ptrIvLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %.critedge, %1451, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %1466
-  %.not507.lcssa999 = phi i1 [ %.not507.lcssa.ph, %.critedge ], [ %.not507.lcssa998, %1451 ], [ %.not507.lcssa998, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i ], [ %.not507.lcssa998, %1466 ]
+_ZNSt12__shared_ptrIvLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %1449, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %1463
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #23
-  br label %1467
+  br label %1464
 
-1467:                                             ; preds = %99, %_ZNSt12__shared_ptrIvLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
-  %.0236 = phi i1 [ %.not507.lcssa999, %_ZNSt12__shared_ptrIvLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ false, %99 ]
+1464:                                             ; preds = %99, %_ZNSt12__shared_ptrIvLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
+  %.0236 = phi i1 [ %.not507.lcssa, %_ZNSt12__shared_ptrIvLN9__gnu_cxx12_Lock_policyE2EED2Ev.exit ], [ false, %99 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #23
   ret i1 %.0236
 }

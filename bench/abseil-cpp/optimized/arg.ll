@@ -5575,58 +5575,56 @@ _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits10PrintAsDecENS_6int128E.ex
 102:                                              ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits10PrintAsDecENS_6int128E.exit, %_ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits10PrintAsDecENS_7uint128Eb.exit, %_ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexUpperINS_7uint128EEEvT_.exit, %_ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexLowerINS_7uint128EEEvT_.exit, %_ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits10PrintAsOctINS_7uint128EEEvT_.exit
   %.val30 = phi i64 [ %96, %_ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits10PrintAsDecENS_6int128E.exit ], [ %77, %_ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits10PrintAsDecENS_7uint128Eb.exit ], [ %61, %_ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexUpperINS_7uint128EEEvT_.exit ], [ %47, %_ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexLowerINS_7uint128EEEvT_.exit ], [ %29, %_ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits10PrintAsOctINS_7uint128EEEvT_.exit ]
   %.val = phi ptr [ %.2.i.i, %_ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits10PrintAsDecENS_6int128E.exit ], [ %spec.select.i58, %_ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits10PrintAsDecENS_7uint128Eb.exit ], [ %55, %_ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexUpperINS_7uint128EEEvT_.exit ], [ %spec.select.i, %_ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexLowerINS_7uint128EEEvT_.exit ], [ %23, %_ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits10PrintAsOctINS_7uint128EEEvT_.exit ]
-  %103 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %104 = load i8, ptr %103, align 1, !tbaa !76
-  %105 = icmp eq i8 %104, 0
-  br i1 %105, label %106, label %130
+  %103 = and i64 %2, 65280
+  %104 = icmp eq i64 %103, 0
+  br i1 %104, label %105, label %129
 
-106:                                              ; preds = %102
-  %107 = icmp eq i64 %.val30, 0
-  br i1 %107, label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit, label %108
+105:                                              ; preds = %102
+  %106 = icmp eq i64 %.val30, 0
+  br i1 %106, label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit, label %107
 
-108:                                              ; preds = %106
-  %109 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %110 = load i64, ptr %109, align 8, !tbaa !16
-  %111 = add i64 %110, %.val30
-  store i64 %111, ptr %109, align 8, !tbaa !16
-  %112 = getelementptr inbounds nuw i8, ptr %4, i64 1056
-  %113 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %114 = load ptr, ptr %113, align 8, !tbaa !19
-  %115 = ptrtoint ptr %112 to i64
-  %116 = ptrtoint ptr %114 to i64
-  %117 = sub i64 %115, %116
-  %.not.i60 = icmp ult i64 %.val30, %117
-  br i1 %.not.i60, label %127, label %118
+107:                                              ; preds = %105
+  %108 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %109 = load i64, ptr %108, align 8, !tbaa !16
+  %110 = add i64 %109, %.val30
+  store i64 %110, ptr %108, align 8, !tbaa !16
+  %111 = getelementptr inbounds nuw i8, ptr %4, i64 1056
+  %112 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %113 = load ptr, ptr %112, align 8, !tbaa !19
+  %114 = ptrtoint ptr %111 to i64
+  %115 = ptrtoint ptr %113 to i64
+  %116 = sub i64 %114, %115
+  %.not.i60 = icmp ult i64 %.val30, %116
+  br i1 %.not.i60, label %126, label %117
 
-118:                                              ; preds = %108
-  %119 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %120 = ptrtoint ptr %119 to i64
-  %121 = sub i64 %116, %120
-  %122 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %123 = load ptr, ptr %122, align 8, !tbaa !20
-  %124 = load ptr, ptr %4, align 8, !tbaa !21
-  call void %123(ptr noundef %124, i64 %121, ptr nonnull %119)
-  store ptr %119, ptr %113, align 8, !tbaa !19
-  %125 = load ptr, ptr %122, align 8, !tbaa !20
-  %126 = load ptr, ptr %4, align 8, !tbaa !21
-  call void %125(ptr noundef %126, i64 %.val30, ptr nonnull %.val)
+117:                                              ; preds = %107
+  %118 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %119 = ptrtoint ptr %118 to i64
+  %120 = sub i64 %115, %119
+  %121 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %122 = load ptr, ptr %121, align 8, !tbaa !20
+  %123 = load ptr, ptr %4, align 8, !tbaa !21
+  call void %122(ptr noundef %123, i64 %120, ptr nonnull %118)
+  store ptr %118, ptr %112, align 8, !tbaa !19
+  %124 = load ptr, ptr %121, align 8, !tbaa !20
+  %125 = load ptr, ptr %4, align 8, !tbaa !21
+  call void %124(ptr noundef %125, i64 %.val30, ptr nonnull %.val)
   br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
-127:                                              ; preds = %108
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %114, ptr nonnull align 1 %.val, i64 %.val30, i1 false)
-  %128 = load ptr, ptr %113, align 8, !tbaa !19
-  %129 = getelementptr inbounds nuw i8, ptr %128, i64 %.val30
-  store ptr %129, ptr %113, align 8, !tbaa !19
+126:                                              ; preds = %107
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %113, ptr nonnull align 1 %.val, i64 %.val30, i1 false)
+  %127 = load ptr, ptr %112, align 8, !tbaa !19
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 %.val30
+  store ptr %128, ptr %112, align 8, !tbaa !19
   br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
-130:                                              ; preds = %102
+129:                                              ; preds = %102
   %.sroa.01.0.copyload = load i64, ptr %6, align 8
-  %.sroa.22.0.copyload = load i32, ptr %.sroa.228.0..sroa_idx, align 8, !tbaa !37
-  call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_123ConvertIntImplInnerSlowERKNS1_9IntDigitsENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(ptr nonnull %.val, i64 %.val30, i64 %.sroa.01.0.copyload, i32 %.sroa.22.0.copyload, ptr noundef %4)
+  call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_123ConvertIntImplInnerSlowERKNS1_9IntDigitsENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(ptr nonnull %.val, i64 %.val30, i64 %.sroa.01.0.copyload, i32 %3, ptr noundef %4)
   br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
-_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %127, %118, %106, %12, %15, %130, %98
-  %.0 = phi i1 [ %100, %98 ], [ true, %130 ], [ %14, %12 ], [ true, %15 ], [ true, %106 ], [ true, %118 ], [ true, %127 ]
+_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %126, %117, %105, %12, %15, %129, %98
+  %.0 = phi i1 [ %100, %98 ], [ true, %129 ], [ %14, %12 ], [ true, %15 ], [ true, %105 ], [ true, %117 ], [ true, %126 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #12
   ret i1 %.0
 }
@@ -5874,58 +5872,56 @@ _ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits10PrintAsDecENS_7uint128Eb.
 101:                                              ; preds = %_ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits10PrintAsDecENS_7uint128Eb.exit71, %_ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits10PrintAsDecENS_7uint128Eb.exit, %_ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexUpperINS_7uint128EEEvT_.exit, %_ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexLowerINS_7uint128EEEvT_.exit, %_ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits10PrintAsOctINS_7uint128EEEvT_.exit
   %.val30 = phi i64 [ %93, %_ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits10PrintAsDecENS_7uint128Eb.exit71 ], [ %77, %_ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits10PrintAsDecENS_7uint128Eb.exit ], [ %61, %_ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexUpperINS_7uint128EEEvT_.exit ], [ %47, %_ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexLowerINS_7uint128EEEvT_.exit ], [ %29, %_ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits10PrintAsOctINS_7uint128EEEvT_.exit ]
   %.val = phi ptr [ %spec.select.i70, %_ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits10PrintAsDecENS_7uint128Eb.exit71 ], [ %spec.select.i58, %_ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits10PrintAsDecENS_7uint128Eb.exit ], [ %55, %_ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexUpperINS_7uint128EEEvT_.exit ], [ %spec.select.i, %_ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits15PrintAsHexLowerINS_7uint128EEEvT_.exit ], [ %23, %_ZN4absl19str_format_internal12_GLOBAL__N_19IntDigits10PrintAsOctINS_7uint128EEEvT_.exit ]
-  %102 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %103 = load i8, ptr %102, align 1, !tbaa !76
-  %104 = icmp eq i8 %103, 0
-  br i1 %104, label %105, label %129
+  %102 = and i64 %2, 65280
+  %103 = icmp eq i64 %102, 0
+  br i1 %103, label %104, label %128
 
-105:                                              ; preds = %101
-  %106 = icmp eq i64 %.val30, 0
-  br i1 %106, label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit, label %107
+104:                                              ; preds = %101
+  %105 = icmp eq i64 %.val30, 0
+  br i1 %105, label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit, label %106
 
-107:                                              ; preds = %105
-  %108 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  %109 = load i64, ptr %108, align 8, !tbaa !16
-  %110 = add i64 %109, %.val30
-  store i64 %110, ptr %108, align 8, !tbaa !16
-  %111 = getelementptr inbounds nuw i8, ptr %4, i64 1056
-  %112 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  %113 = load ptr, ptr %112, align 8, !tbaa !19
-  %114 = ptrtoint ptr %111 to i64
-  %115 = ptrtoint ptr %113 to i64
-  %116 = sub i64 %114, %115
-  %.not.i = icmp ult i64 %.val30, %116
-  br i1 %.not.i, label %126, label %117
+106:                                              ; preds = %104
+  %107 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  %108 = load i64, ptr %107, align 8, !tbaa !16
+  %109 = add i64 %108, %.val30
+  store i64 %109, ptr %107, align 8, !tbaa !16
+  %110 = getelementptr inbounds nuw i8, ptr %4, i64 1056
+  %111 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  %112 = load ptr, ptr %111, align 8, !tbaa !19
+  %113 = ptrtoint ptr %110 to i64
+  %114 = ptrtoint ptr %112 to i64
+  %115 = sub i64 %113, %114
+  %.not.i = icmp ult i64 %.val30, %115
+  br i1 %.not.i, label %125, label %116
 
-117:                                              ; preds = %107
-  %118 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %119 = ptrtoint ptr %118 to i64
-  %120 = sub i64 %115, %119
-  %121 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %122 = load ptr, ptr %121, align 8, !tbaa !20
-  %123 = load ptr, ptr %4, align 8, !tbaa !21
-  call void %122(ptr noundef %123, i64 %120, ptr nonnull %118)
-  store ptr %118, ptr %112, align 8, !tbaa !19
-  %124 = load ptr, ptr %121, align 8, !tbaa !20
-  %125 = load ptr, ptr %4, align 8, !tbaa !21
-  call void %124(ptr noundef %125, i64 %.val30, ptr nonnull %.val)
+116:                                              ; preds = %106
+  %117 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %118 = ptrtoint ptr %117 to i64
+  %119 = sub i64 %114, %118
+  %120 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %121 = load ptr, ptr %120, align 8, !tbaa !20
+  %122 = load ptr, ptr %4, align 8, !tbaa !21
+  call void %121(ptr noundef %122, i64 %119, ptr nonnull %117)
+  store ptr %117, ptr %111, align 8, !tbaa !19
+  %123 = load ptr, ptr %120, align 8, !tbaa !20
+  %124 = load ptr, ptr %4, align 8, !tbaa !21
+  call void %123(ptr noundef %124, i64 %.val30, ptr nonnull %.val)
   br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
-126:                                              ; preds = %107
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %113, ptr nonnull align 1 %.val, i64 %.val30, i1 false)
-  %127 = load ptr, ptr %112, align 8, !tbaa !19
-  %128 = getelementptr inbounds nuw i8, ptr %127, i64 %.val30
-  store ptr %128, ptr %112, align 8, !tbaa !19
+125:                                              ; preds = %106
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %112, ptr nonnull align 1 %.val, i64 %.val30, i1 false)
+  %126 = load ptr, ptr %111, align 8, !tbaa !19
+  %127 = getelementptr inbounds nuw i8, ptr %126, i64 %.val30
+  store ptr %127, ptr %111, align 8, !tbaa !19
   br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
-129:                                              ; preds = %101
+128:                                              ; preds = %101
   %.sroa.01.0.copyload = load i64, ptr %6, align 8
-  %.sroa.22.0.copyload = load i32, ptr %.sroa.228.0..sroa_idx, align 8, !tbaa !37
-  call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_123ConvertIntImplInnerSlowERKNS1_9IntDigitsENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(ptr nonnull %.val, i64 %.val30, i64 %.sroa.01.0.copyload, i32 %.sroa.22.0.copyload, ptr noundef %4)
+  call fastcc void @_ZN4absl19str_format_internal12_GLOBAL__N_123ConvertIntImplInnerSlowERKNS1_9IntDigitsENS0_24FormatConversionSpecImplEPNS0_14FormatSinkImplE(ptr nonnull %.val, i64 %.val30, i64 %.sroa.01.0.copyload, i32 %3, ptr noundef %4)
   br label %_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit
 
-_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %126, %117, %105, %12, %15, %129, %95
-  %.0 = phi i1 [ %99, %95 ], [ true, %129 ], [ %14, %12 ], [ true, %15 ], [ true, %105 ], [ true, %117 ], [ true, %126 ]
+_ZN4absl19str_format_internal14FormatSinkImpl6AppendESt17basic_string_viewIcSt11char_traitsIcEE.exit: ; preds = %125, %116, %104, %12, %15, %128, %95
+  %.0 = phi i1 [ %99, %95 ], [ true, %128 ], [ %14, %12 ], [ true, %15 ], [ true, %104 ], [ true, %116 ], [ true, %125 ]
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %7) #12
   ret i1 %.0
 }
@@ -6077,4 +6073,3 @@ attributes #16 = { builtin nounwind }
 !73 = distinct !{!73, !8}
 !74 = distinct !{!74, !8}
 !75 = distinct !{!75, !8}
-!76 = !{!43, !45, i64 1}

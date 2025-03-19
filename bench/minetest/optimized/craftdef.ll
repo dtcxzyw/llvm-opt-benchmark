@@ -3877,7 +3877,6 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
 invoke.cont.i:                                    ; preds = %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i.i.i.i, %entry
   %2 = phi ptr [ null, %entry ], [ %call5.i.i.i.i4.i20.i, %_ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE8allocateERS6_m.exit.i.i.i.i ]
   store ptr %2, ptr %rec_names, align 8, !tbaa !108
-  %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %rec_names, i64 8
   %add.ptr.i.i.i = getelementptr inbounds i8, ptr %2, i64 %sub.ptr.sub.i.i
   %_M_end_of_storage.i.i.i = getelementptr inbounds nuw i8, ptr %rec_names, i64 16
   store ptr %add.ptr.i.i.i, ptr %_M_end_of_storage.i.i.i, align 8, !tbaa !110
@@ -3899,6 +3898,7 @@ common.resume:                                    ; preds = %lpad, %if.then.i.i.
   resume { ptr, i32 } %common.resume.op
 
 _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEC2ERKS7_.exit: ; preds = %invoke.cont.i
+  %_M_finish.i.i.i = getelementptr inbounds nuw i8, ptr %rec_names, i64 8
   store ptr %call.i.i.i22.i, ptr %_M_finish.i.i.i, align 8, !tbaa !107
   %cmp.i.not.i.i = icmp eq ptr %2, %call.i.i.i22.i
   br i1 %cmp.i.not.i.i, label %invoke.cont, label %if.then.i.i
@@ -3947,31 +3947,30 @@ invoke.cont:                                      ; preds = %.noexc12, %if.else.
 
 invoke.cont7:                                     ; preds = %invoke.cont
   %5 = load ptr, ptr %rec_names, align 8, !tbaa !108
-  %6 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !107
-  %cmp.not3.i.i.i.i = icmp eq ptr %5, %6
+  %cmp.not3.i.i.i.i = icmp eq ptr %5, %call.i.i.i22.i
   br i1 %cmp.not3.i.i.i.i, label %invoke.cont.i17, label %for.body.i.i.i.i15
 
 for.body.i.i.i.i15:                               ; preds = %invoke.cont7, %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i
   %__first.addr.04.i.i.i.i = phi ptr [ %incdec.ptr.i.i.i.i, %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i ], [ %5, %invoke.cont7 ]
-  %7 = load ptr, ptr %__first.addr.04.i.i.i.i, align 8, !tbaa !21
-  %8 = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i, i64 16
-  %cmp.i.i.i.i.i.i.i.i = icmp eq ptr %7, %8
+  %6 = load ptr, ptr %__first.addr.04.i.i.i.i, align 8, !tbaa !21
+  %7 = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i, i64 16
+  %cmp.i.i.i.i.i.i.i.i = icmp eq ptr %6, %7
   br i1 %cmp.i.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i: ; preds = %for.body.i.i.i.i15
   %_M_string_length.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i, i64 8
-  %9 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i, align 8, !tbaa !24
-  %cmp3.i.i.i.i.i.i.i.i = icmp ult i64 %9, 16
+  %8 = load i64, ptr %_M_string_length.i.i.i.i.i.i.i.i, align 8, !tbaa !24
+  %cmp3.i.i.i.i.i.i.i.i = icmp ult i64 %8, 16
   tail call void @llvm.assume(i1 %cmp3.i.i.i.i.i.i.i.i)
   br label %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i
 
 if.then.i.i.i.i.i.i.i:                            ; preds = %for.body.i.i.i.i15
-  tail call void @_ZdlPv(ptr noundef %7) #27
+  tail call void @_ZdlPv(ptr noundef %6) #27
   br label %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i
 
 _ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i: ; preds = %if.then.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i
   %incdec.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %__first.addr.04.i.i.i.i, i64 32
-  %cmp.not.i.i.i.i16 = icmp eq ptr %incdec.ptr.i.i.i.i, %6
+  %cmp.not.i.i.i.i16 = icmp eq ptr %incdec.ptr.i.i.i.i, %call.i.i.i22.i
   br i1 %cmp.not.i.i.i.i16, label %invoke.cont.i17, label %for.body.i.i.i.i15, !llvm.loop !112
 
 invoke.cont.i17:                                  ; preds = %_ZSt8_DestroyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEvPT_.exit.i.i.i.i, %invoke.cont7

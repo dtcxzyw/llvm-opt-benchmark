@@ -9724,6 +9724,7 @@ define dso_local { ptr, ptr } @_ZN4llvm25ObjectSizeOffsetEvaluator8compute_EPNS_
   store ptr %25, ptr %4, align 8, !tbaa !1026
   %29 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %28, ptr %29, align 8, !tbaa !1028
+  %.pre44 = load i32, ptr %19, align 8, !tbaa !94
   br label %150
 
 30:                                               ; preds = %2
@@ -9862,7 +9863,7 @@ _ZN4llvm13IRBuilderBase14SetInsertPointEPNS_11InstructionE.exit: ; preds = %_ZN4
   %.02937.i.i = phi ptr [ %96, %.critedge.i.i ], [ %90, %89 ]
   %95 = load ptr, ptr %.02937.i.i, align 8, !tbaa !240, !noalias !1037
   %.not17.i.i = icmp eq ptr %95, %31
-  br i1 %.not17.i.i, label %.critedge44, label %.critedge.i.i
+  br i1 %.not17.i.i, label %.critedge45, label %.critedge.i.i
 
 .critedge.i.i:                                    ; preds = %.lr.ph.i.i23
   %96 = getelementptr inbounds nuw i8, ptr %.02937.i.i, i64 8
@@ -9885,9 +9886,9 @@ _ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i: ; preds = %._crit_edge.i.i
   %101 = call { ptr, i8 } @_ZN4llvm19SmallPtrSetImplBase14insert_imp_bigEPKv(ptr noundef nonnull align 8 dereferenceable(21) %85, ptr noundef nonnull %31) #22, !noalias !1037
   %102 = extractvalue { ptr, i8 } %101, 1
   %103 = trunc nuw i8 %102 to i1
-  br i1 %103, label %104, label %.critedge44
+  br i1 %103, label %104, label %.critedge45
 
-.critedge44:                                      ; preds = %.lr.ph.i.i23, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
+.critedge45:                                      ; preds = %.lr.ph.i.i23, %_ZN4llvm19SmallPtrSetImplBase10insert_impEPKv.exit.i
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   br label %120
 
@@ -9942,7 +9943,7 @@ _ZN4llvm8dyn_castINS_11GEPOperatorENS_5ValueEEEDcPT0_.exit: ; preds = %108, %_ZN
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false)
   br label %120
 
-120:                                              ; preds = %_ZN4llvm8dyn_castINS_11GEPOperatorENS_5ValueEEEDcPT0_.exit, %119, %.thread38, %115, %.critedge44
+120:                                              ; preds = %_ZN4llvm8dyn_castINS_11GEPOperatorENS_5ValueEEEDcPT0_.exit, %119, %.thread38, %115, %.critedge45
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %9) #22
   call void @_ZN4llvm24SizeOffsetWeakTrackingVHC2ERKNS_15SizeOffsetValueE(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr noundef nonnull align 8 dereferenceable(16) %4)
   %121 = call noundef nonnull align 8 dereferenceable(48) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIPKNS_5ValueENS_24SizeOffsetWeakTrackingVHENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S5_EEEES4_S5_S7_SA_EixERKS4_(ptr noundef nonnull align 1 dereferenceable(1) %32, ptr noundef nonnull align 8 dereferenceable(8) %5)
@@ -10056,7 +10057,7 @@ _ZN4llvm14SizeOffsetTypeINS_14WeakTrackingVHENS_24SizeOffsetWeakTrackingVHEED2Ev
   br label %150
 
 150:                                              ; preds = %61, %_ZN4llvm14SizeOffsetTypeINS_14WeakTrackingVHENS_24SizeOffsetWeakTrackingVHEED2Ev.exit, %23
-  %151 = load i32, ptr %19, align 8, !tbaa !94
+  %151 = phi i32 [ %20, %61 ], [ %20, %_ZN4llvm14SizeOffsetTypeINS_14WeakTrackingVHENS_24SizeOffsetWeakTrackingVHEED2Ev.exit ], [ %.pre44, %23 ]
   %152 = icmp ugt i32 %151, 64
   br i1 %152, label %153, label %_ZN4llvm5APIntD2Ev.exit.i
 

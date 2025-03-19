@@ -1359,10 +1359,10 @@ define internal noundef ptr @storage_write_thread(ptr noundef %0) #9 {
   %21 = getelementptr inbounds nuw i8, ptr %3, i64 44
   br label %22
 
-22:                                               ; preds = %248, %12
-  %.048 = phi i32 [ %14, %12 ], [ %.654, %248 ]
-  %.038 = phi i32 [ 200, %12 ], [ %.7, %248 ]
-  %.037 = phi i32 [ 0, %12 ], [ %28, %248 ]
+22:                                               ; preds = %244, %12
+  %.048 = phi i32 [ %14, %12 ], [ %.654, %244 ]
+  %.038 = phi i32 [ 200, %12 ], [ %.7, %244 ]
+  %.037 = phi i32 [ 0, %12 ], [ %28, %244 ]
   %23 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 280), align 8, !tbaa !160
   %24 = zext i32 %23 to i64
   %25 = call i32 @slabs_clsid(i64 noundef %24) #21
@@ -1375,19 +1375,19 @@ define internal noundef ptr @storage_write_thread(ptr noundef %0) #9 {
   %30 = sext i32 %25 to i64
   br label %33
 
-31:                                               ; preds = %236
+31:                                               ; preds = %232
   %32 = call i32 @pthread_mutex_unlock(ptr noundef nonnull @storage_write_plock) #21
-  br i1 %.145, label %.preheader, label %248
+  br i1 %.145, label %.preheader, label %244
 
-33:                                               ; preds = %22, %236
-  %indvars.iv = phi i64 [ 63, %22 ], [ %indvars.iv.next, %236 ]
-  %.2104 = phi i32 [ %.1, %22 ], [ %.3, %236 ]
-  %.04498 = phi i1 [ true, %22 ], [ %.145, %236 ]
-  %.14997 = phi i32 [ %.048, %22 ], [ %.250, %236 ]
+33:                                               ; preds = %22, %232
+  %indvars.iv = phi i64 [ 63, %22 ], [ %indvars.iv.next, %232 ]
+  %.2105 = phi i32 [ %.1, %22 ], [ %.3, %232 ]
+  %.04499 = phi i1 [ true, %22 ], [ %.145, %232 ]
+  %.14998 = phi i32 [ %.048, %22 ], [ %.250, %232 ]
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #21
   store i8 0, ptr %5, align 1, !tbaa !163
   %34 = icmp slt i64 %indvars.iv, %30
-  br i1 %34, label %236, label %35
+  br i1 %34, label %232, label %35
 
 35:                                               ; preds = %33
   %36 = getelementptr inbounds nuw [64 x i32], ptr %4, i64 0, i64 %indvars.iv
@@ -1398,7 +1398,7 @@ define internal noundef ptr @storage_write_thread(ptr noundef %0) #9 {
 38:                                               ; preds = %35
   %39 = urem i32 %28, %37
   %.not63 = icmp eq i32 %39, 0
-  br i1 %.not63, label %40, label %236
+  br i1 %.not63, label %40, label %232
 
 40:                                               ; preds = %38, %35
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #21
@@ -1407,7 +1407,7 @@ define internal noundef ptr @storage_write_thread(ptr noundef %0) #9 {
   %42 = call i32 @slabs_available_chunks(i32 noundef %41, ptr noundef nonnull %5, ptr noundef nonnull %6) #21
   %43 = load i32, ptr %6, align 4, !tbaa !13
   %44 = icmp eq i32 %43, 0
-  br i1 %44, label %235, label %45
+  br i1 %44, label %231, label %45
 
 45:                                               ; preds = %40
   %46 = mul i32 %43, %spec.select
@@ -1418,26 +1418,22 @@ define internal noundef ptr @storage_write_thread(ptr noundef %0) #9 {
   store ptr null, ptr %2, align 8, !tbaa !164
   %50 = call i32 @lru_pull_tail(i32 noundef range(i32 1, -2147483648) %41, i32 noundef 128, i64 noundef 0, i8 noundef zeroext 4, i32 noundef 0, ptr noundef nonnull %2) #21
   %51 = load ptr, ptr %2, align 8, !tbaa !164
-  %.not150 = icmp eq ptr %51, null
-  br i1 %.not150, label %.thread, label %.lr.ph.preheader
-
-.thread:                                          ; preds = %45
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #21
-  br label %231
+  %.not142 = icmp eq ptr %51, null
+  br i1 %.not142, label %storage_write.exit.thread, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %45
   %52 = icmp ult i32 %42, %46
-  %.03987 = select i1 %52, i32 0, i32 %49
+  %.03988 = select i1 %52, i32 0, i32 %49
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %221
   %53 = phi ptr [ %227, %221 ], [ %51, %.lr.ph.preheader ]
-  %.03993 = phi i32 [ %.039, %221 ], [ %.03987, %.lr.ph.preheader ]
-  %.592 = phi i32 [ %spec.select65, %221 ], [ %.2104, %.lr.ph.preheader ]
-  %.04091 = phi i32 [ %215, %221 ], [ %42, %.lr.ph.preheader ]
-  %.04190 = phi i1 [ true, %221 ], [ false, %.lr.ph.preheader ]
-  %.34789 = phi i1 [ false, %221 ], [ %.04498, %.lr.ph.preheader ]
-  %.45288 = phi i32 [ %.553, %221 ], [ %.14997, %.lr.ph.preheader ]
+  %.03994 = phi i32 [ %.039, %221 ], [ %.03988, %.lr.ph.preheader ]
+  %.593 = phi i32 [ %spec.select65, %221 ], [ %.2105, %.lr.ph.preheader ]
+  %.04092 = phi i32 [ %215, %221 ], [ %42, %.lr.ph.preheader ]
+  %.04191 = phi i1 [ true, %221 ], [ false, %.lr.ph.preheader ]
+  %.34790 = phi i1 [ false, %221 ], [ %.04499, %.lr.ph.preheader ]
+  %.45289 = phi i32 [ %.553, %221 ], [ %.14998, %.lr.ph.preheader ]
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %3) #21
   %54 = getelementptr inbounds nuw i8, ptr %53, i64 41
   %55 = load i8, ptr %54, align 1, !tbaa !4
@@ -1463,7 +1459,7 @@ define internal noundef ptr @storage_write_thread(ptr noundef %0) #9 {
   br i1 %74, label %75, label %.critedge
 
 75:                                               ; preds = %.lr.ph
-  %76 = icmp eq i32 %.03993, 0
+  %76 = icmp eq i32 %.03994, 0
   br i1 %76, label %83, label %77
 
 77:                                               ; preds = %75
@@ -1471,7 +1467,7 @@ define internal noundef ptr @storage_write_thread(ptr noundef %0) #9 {
   %79 = getelementptr inbounds nuw i8, ptr %53, i64 24
   %80 = load i32, ptr %79, align 8, !tbaa !13
   %81 = sub i32 %78, %80
-  %82 = icmp ugt i32 %81, %.03993
+  %82 = icmp ugt i32 %81, %.03994
   br i1 %82, label %83, label %.critedge
 
 83:                                               ; preds = %77, %75
@@ -1673,8 +1669,8 @@ storage_write.exit:                               ; preds = %199, %207
   call void @item_unlock(i32 noundef %214) #21
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #21
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #21
-  %215 = add i32 %.04091, 1
-  %216 = sub i32 %.45288, %48
+  %215 = add i32 %.04092, 1
+  %216 = sub i32 %.45289, %48
   %217 = icmp slt i32 %216, 0
   br i1 %217, label %218, label %221
 
@@ -1685,9 +1681,9 @@ storage_write.exit:                               ; preds = %199, %207
 
 221:                                              ; preds = %218, %storage_write.exit
   %.553 = phi i32 [ %220, %218 ], [ %216, %storage_write.exit ]
-  %222 = icmp ugt i32 %.592, 200
+  %222 = icmp ugt i32 %.593, 200
   %223 = zext i1 %222 to i32
-  %spec.select65 = lshr i32 %.592, %223
+  %spec.select65 = lshr i32 %.593, %223
   %224 = icmp ult i32 %215, %46
   %225 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 284), align 4
   %.039 = select i1 %224, i32 0, i32 %225
@@ -1696,81 +1692,71 @@ storage_write.exit:                               ; preds = %199, %207
   %226 = call i32 @lru_pull_tail(i32 noundef range(i32 1, -2147483648) %41, i32 noundef 128, i64 noundef 0, i8 noundef zeroext 4, i32 noundef 0, ptr noundef nonnull %2) #21
   %227 = load ptr, ptr %2, align 8, !tbaa !164
   %228 = icmp eq ptr %227, null
-  br i1 %228, label %230, label %.lr.ph
+  br i1 %228, label %storage_write.exit.thread, label %.lr.ph
 
 .critedge:                                        ; preds = %91, %.lr.ph, %77, %209
   call void @do_item_remove(ptr noundef nonnull %53) #21
   %229 = load i32, ptr %18, align 8, !tbaa !167
   call void @item_unlock(i32 noundef %229) #21
   call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %3) #21
+  br label %storage_write.exit.thread
+
+storage_write.exit.thread:                        ; preds = %221, %45, %.critedge
+  %.45285 = phi i32 [ %.45289, %.critedge ], [ %.14998, %45 ], [ %.553, %221 ]
+  %.34781 = phi i1 [ %.34790, %.critedge ], [ %.04499, %45 ], [ false, %221 ]
+  %.04177 = phi i1 [ %.04191, %.critedge ], [ false, %45 ], [ true, %221 ]
+  %.573 = phi i32 [ %.593, %.critedge ], [ %.2105, %45 ], [ %spec.select65, %221 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #21
-  br i1 %.04190, label %234, label %231
+  %230 = add i32 %37, 1
+  %spec.select68 = select i1 %.04177, i32 1, i32 %230
+  store i32 %spec.select68, ptr %36, align 4, !tbaa !13
+  br label %231
 
-230:                                              ; preds = %221
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #21
-  br label %234
-
-231:                                              ; preds = %.thread, %.critedge
-  %.572129 = phi i32 [ %.592, %.critedge ], [ %.2104, %.thread ]
-  %.34780127 = phi i1 [ %.34789, %.critedge ], [ %.04498, %.thread ]
-  %.45284125 = phi i32 [ %.45288, %.critedge ], [ %.14997, %.thread ]
-  %232 = load i32, ptr %36, align 4, !tbaa !13
-  %233 = add i32 %232, 1
-  br label %234
-
-234:                                              ; preds = %230, %.critedge, %231
-  %.572130 = phi i32 [ %.572129, %231 ], [ %spec.select65, %230 ], [ %.592, %.critedge ]
-  %.34780128 = phi i1 [ %.34780127, %231 ], [ false, %230 ], [ %.34789, %.critedge ]
-  %.45284126 = phi i32 [ %.45284125, %231 ], [ %.553, %230 ], [ %.45288, %.critedge ]
-  %storemerge = phi i32 [ %233, %231 ], [ 1, %230 ], [ 1, %.critedge ]
-  store i32 %storemerge, ptr %36, align 4, !tbaa !13
-  br label %235
-
-235:                                              ; preds = %40, %234
-  %.351 = phi i32 [ %.45284126, %234 ], [ %.14997, %40 ]
-  %.246 = phi i1 [ %.34780128, %234 ], [ %.04498, %40 ]
-  %.4 = phi i32 [ %.572130, %234 ], [ %.2104, %40 ]
+231:                                              ; preds = %40, %storage_write.exit.thread
+  %.351 = phi i32 [ %.45285, %storage_write.exit.thread ], [ %.14998, %40 ]
+  %.246 = phi i1 [ %.34781, %storage_write.exit.thread ], [ %.04499, %40 ]
+  %.4 = phi i32 [ %.573, %storage_write.exit.thread ], [ %.2105, %40 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #21
-  br label %236
+  br label %232
 
-236:                                              ; preds = %33, %38, %235
-  %.250 = phi i32 [ %.351, %235 ], [ %.14997, %38 ], [ %.14997, %33 ]
-  %.145 = phi i1 [ %.246, %235 ], [ %.04498, %38 ], [ %.04498, %33 ]
-  %.3 = phi i32 [ %.4, %235 ], [ %.2104, %38 ], [ %.2104, %33 ]
+232:                                              ; preds = %33, %38, %231
+  %.250 = phi i32 [ %.351, %231 ], [ %.14998, %38 ], [ %.14998, %33 ]
+  %.145 = phi i1 [ %.246, %231 ], [ %.04499, %38 ], [ %.04499, %33 ]
+  %.3 = phi i32 [ %.4, %231 ], [ %.2105, %38 ], [ %.2105, %33 ]
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #21
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %237 = icmp ugt i64 %indvars.iv, 1
-  br i1 %237, label %33, label %31, !llvm.loop !174
+  %233 = icmp ugt i64 %indvars.iv, 1
+  br i1 %233, label %33, label %31, !llvm.loop !174
 
-238:                                              ; preds = %.preheader
+234:                                              ; preds = %.preheader
   %.neg = mul i32 %.3, -10
-  %239 = add i32 %.neg, %.250
-  %240 = icmp slt i32 %239, 0
-  br i1 %240, label %242, label %245
+  %235 = add i32 %.neg, %.250
+  %236 = icmp slt i32 %235, 0
+  br i1 %236, label %238, label %241
 
 .preheader:                                       ; preds = %31, %.preheader
-  %indvars.iv122 = phi i64 [ %indvars.iv.next123, %.preheader ], [ 0, %31 ]
-  %241 = getelementptr inbounds nuw [64 x i32], ptr %4, i64 0, i64 %indvars.iv122
-  store i32 1, ptr %241, align 4, !tbaa !13
-  %indvars.iv.next123 = add nuw nsw i64 %indvars.iv122, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next123, 64
-  br i1 %exitcond.not, label %238, label %.preheader, !llvm.loop !175
+  %indvars.iv123 = phi i64 [ %indvars.iv.next124, %.preheader ], [ 0, %31 ]
+  %237 = getelementptr inbounds nuw [64 x i32], ptr %4, i64 0, i64 %indvars.iv123
+  store i32 1, ptr %237, align 4, !tbaa !13
+  %indvars.iv.next124 = add nuw nsw i64 %indvars.iv123, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next124, 64
+  br i1 %exitcond.not, label %234, label %.preheader, !llvm.loop !175
 
-242:                                              ; preds = %238
-  %243 = call i32 @pthread_cond_signal(ptr noundef nonnull @storage_compact_cond) #21
-  %244 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 124), align 4, !tbaa !159
-  br label %245
+238:                                              ; preds = %234
+  %239 = call i32 @pthread_cond_signal(ptr noundef nonnull @storage_compact_cond) #21
+  %240 = load i32, ptr getelementptr inbounds nuw (i8, ptr @settings, i64 124), align 4, !tbaa !159
+  br label %241
 
-245:                                              ; preds = %242, %238
-  %.755 = phi i32 [ %244, %242 ], [ %239, %238 ]
-  %246 = call i32 @usleep(i32 noundef %.3) #21
-  %247 = add i32 %.3, 1
-  br label %248
+241:                                              ; preds = %238, %234
+  %.755 = phi i32 [ %240, %238 ], [ %235, %234 ]
+  %242 = call i32 @usleep(i32 noundef %.3) #21
+  %243 = add i32 %.3, 1
+  br label %244
 
-248:                                              ; preds = %245, %31
-  %.654 = phi i32 [ %.755, %245 ], [ %.250, %31 ]
-  %.7 = phi i32 [ %247, %245 ], [ %.3, %31 ]
-  %249 = call i32 @pthread_mutex_lock(ptr noundef nonnull @storage_write_plock) #21
+244:                                              ; preds = %241, %31
+  %.654 = phi i32 [ %.755, %241 ], [ %.250, %31 ]
+  %.7 = phi i32 [ %243, %241 ], [ %.3, %31 ]
+  %245 = call i32 @pthread_mutex_lock(ptr noundef nonnull @storage_write_plock) #21
   br label %22
 }
 

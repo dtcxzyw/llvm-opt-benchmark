@@ -5541,24 +5541,24 @@ common.resume:                                    ; preds = %.body, %112, %.body
 
 128:                                              ; preds = %118
   call void @llvm.experimental.noalias.scope.decl(metadata !1524)
-  %129 = getelementptr inbounds nuw i8, ptr %19, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !1527)
-  %130 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %131 = load ptr, ptr %130, align 8, !alias.scope !1530, !noalias !1533, !nonnull !19, !noundef !19
+  %129 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %130 = load ptr, ptr %129, align 8, !alias.scope !1530, !noalias !1533, !nonnull !19, !noundef !19
   %.promoted.i.i69.i.i = load ptr, ptr %19, align 8, !alias.scope !1530, !noalias !1533
-  %132 = icmp eq ptr %.promoted.i.i69.i.i, %131
-  br i1 %132, label %.loopexit181.i.i, label %.lr.ph.i.preheader.i.i.i
+  %131 = icmp eq ptr %.promoted.i.i69.i.i, %130
+  br i1 %131, label %.loopexit181.i.i, label %.lr.ph.i.preheader.i.i.i
 
 .lr.ph.i.preheader.i.i.i:                         ; preds = %128
+  %132 = getelementptr inbounds nuw i8, ptr %19, i64 16
   %133 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %.promoted.i.i.i = load i64, ptr %129, align 8, !alias.scope !1536, !noalias !1539
+  %.promoted.i.i.i = load i64, ptr %132, align 8, !alias.scope !1536, !noalias !1539
   %134 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %135 = getelementptr inbounds nuw i8, ptr %1, i64 41
   %136 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %137 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %138 = load i64, ptr %134, align 8, !alias.scope !1544, !noalias !1545
-  %.fr210.i.i = freeze i64 %138
-  %139 = icmp ugt i64 %.fr210.i.i, 24
+  %.fr218.i.i = freeze i64 %138
+  %139 = icmp ugt i64 %.fr218.i.i, 24
   %140 = load i8, ptr %133, align 8, !range !572, !alias.scope !1544, !noalias !1545
   %141 = icmp eq i8 %140, 0
   %142 = trunc nuw i8 %140 to i1
@@ -5579,7 +5579,6 @@ common.resume:                                    ; preds = %.body, %112, %.body
   %switch.i.i.i.i.us.i.i = icmp eq i8 %149, 1
   %..i.i.i.i.us.i.i = select i1 %switch.i.i.i.i.us.i.i, i64 2, i64 4
   %150 = add i64 %..i.i.i.i.us.i.i, %145
-  store i64 %150, ptr %129, align 8, !alias.scope !1536, !noalias !1539
   %151 = getelementptr inbounds nuw i8, ptr %146, i64 32
   %152 = load i64, ptr %151, align 8, !alias.scope !1551, !noalias !1558, !noundef !19
   %153 = icmp ugt i64 %152, 24
@@ -5617,10 +5616,10 @@ common.resume:                                    ; preds = %.body, %112, %.body
   %bcmp.i.i.i.i.i.i.us.i.i = call i32 @bcmp(ptr nonnull readonly align 1 %.sink5.i.i.i.i.i.i.i.us.i.i, ptr nonnull readonly align 1 %143, i64 %144), !alias.scope !1560, !noalias !1564
   %bcmp.i.i.fr.i.i.i.i.us.i.i = freeze i32 %bcmp.i.i.i.i.i.i.us.i.i
   %166 = icmp eq i32 %bcmp.i.i.fr.i.i.i.i.us.i.i, 0
-  br i1 %166, label %.split207.us.i.i, label %167
+  br i1 %166, label %.split213.us.i.i, label %167
 
 167:                                              ; preds = %"_ZN162_$LT$exr..image..read..specific_channels..ReadRequiredChannel$LT$ReadChannels$C$Sample$GT$$u20$as$u20$exr..image..read..specific_channels..ReadSpecificChannel$GT$23create_recursive_reader28_$u7b$$u7b$closure$u7d$$u7d$17hf30f055790b7c0edE.exit.i.i.i.i.us.i.i", %"_ZN80_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hf4aa49ed99add93aE.exit.i.i.i.i.i.us.i.i"
-  %168 = icmp eq ptr %147, %131
+  %168 = icmp eq ptr %147, %130
   br i1 %168, label %.loopexit181.i.i, label %.lr.ph.i.i.us.i.i
 
 .loopexit.split.us.i.i:                           ; preds = %155
@@ -5641,7 +5640,6 @@ common.resume:                                    ; preds = %.body, %112, %.body
   %switch.i.i.i.i.i.i = icmp eq i8 %173, 1
   %..i.i.i.i.i.i = select i1 %switch.i.i.i.i.i.i, i64 2, i64 4
   %174 = add i64 %..i.i.i.i.i.i, %169
-  store i64 %174, ptr %129, align 8, !alias.scope !1536, !noalias !1539
   %175 = getelementptr inbounds nuw i8, ptr %170, i64 32
   %176 = load i64, ptr %175, align 8, !alias.scope !1551, !noalias !1558, !noundef !19
   %177 = icmp ugt i64 %176, 24
@@ -5687,17 +5685,17 @@ common.resume:                                    ; preds = %.body, %112, %.body
   br i1 %191, label %.split.us.invoke.i.i, label %"_ZN80_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hf4aa49ed99add93aE.exit3.i.i.i.i.i.i.i"
 
 "_ZN80_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hf4aa49ed99add93aE.exit3.i.i.i.i.i.i.i": ; preds = %.noexc72.i.i
-  %.not.i.i.i.i.i.i.i.i = icmp eq i64 %.sink3.i.i.i.i.i.i.i.i.i, %.fr210.i.i
+  %.not.i.i.i.i.i.i.i.i = icmp eq i64 %.sink3.i.i.i.i.i.i.i.i.i, %.fr218.i.i
   br i1 %.not.i.i.i.i.i.i.i.i, label %"_ZN162_$LT$exr..image..read..specific_channels..ReadRequiredChannel$LT$ReadChannels$C$Sample$GT$$u20$as$u20$exr..image..read..specific_channels..ReadSpecificChannel$GT$23create_recursive_reader28_$u7b$$u7b$closure$u7d$$u7d$17hf30f055790b7c0edE.exit.i.i.i.i.i.i", label %193
 
 "_ZN162_$LT$exr..image..read..specific_channels..ReadRequiredChannel$LT$ReadChannels$C$Sample$GT$$u20$as$u20$exr..image..read..specific_channels..ReadSpecificChannel$GT$23create_recursive_reader28_$u7b$$u7b$closure$u7d$$u7d$17hf30f055790b7c0edE.exit.i.i.i.i.i.i": ; preds = %"_ZN80_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hf4aa49ed99add93aE.exit3.i.i.i.i.i.i.i"
-  %bcmp.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly align 1 %.sink5.i.i.i.i.i.i.i.i.i, ptr nonnull readonly align 1 %190, i64 %.fr210.i.i), !alias.scope !1560, !noalias !1564
+  %bcmp.i.i.i.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly align 1 %.sink5.i.i.i.i.i.i.i.i.i, ptr nonnull readonly align 1 %190, i64 %.fr218.i.i), !alias.scope !1560, !noalias !1564
   %bcmp.i.i.fr.i.i.i.i.i.i = freeze i32 %bcmp.i.i.i.i.i.i.i.i
   %192 = icmp eq i32 %bcmp.i.i.fr.i.i.i.i.i.i, 0
-  br i1 %192, label %.split207.us.i.i, label %193
+  br i1 %192, label %.split213.us.i.i, label %193
 
 193:                                              ; preds = %"_ZN162_$LT$exr..image..read..specific_channels..ReadRequiredChannel$LT$ReadChannels$C$Sample$GT$$u20$as$u20$exr..image..read..specific_channels..ReadSpecificChannel$GT$23create_recursive_reader28_$u7b$$u7b$closure$u7d$$u7d$17hf30f055790b7c0edE.exit.i.i.i.i.i.i", %"_ZN80_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hf4aa49ed99add93aE.exit3.i.i.i.i.i.i.i"
-  %194 = icmp eq ptr %171, %131
+  %194 = icmp eq ptr %171, %130
   br i1 %194, label %.loopexit181.i.i, label %.lr.ph.i.i.i.i
 
 .loopexit181.i.i:                                 ; preds = %193, %167, %128
@@ -5720,25 +5718,25 @@ common.resume:                                    ; preds = %.body, %112, %.body
   invoke void @_ZN5alloc3fmt6format12format_inner17h4f5d4c1ba302c88bE(ptr noalias noundef nonnull sret({ { { i64, ptr }, i64 } }) align 8 captures(none) dereferenceable(24) %17, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %10)
           to label %219 unwind label %.loopexit.split-lp.i.i, !noalias !1523
 
-.split207.us.i.i:                                 ; preds = %"_ZN162_$LT$exr..image..read..specific_channels..ReadRequiredChannel$LT$ReadChannels$C$Sample$GT$$u20$as$u20$exr..image..read..specific_channels..ReadSpecificChannel$GT$23create_recursive_reader28_$u7b$$u7b$closure$u7d$$u7d$17hf30f055790b7c0edE.exit.i.i.i.i.i.i", %"_ZN162_$LT$exr..image..read..specific_channels..ReadRequiredChannel$LT$ReadChannels$C$Sample$GT$$u20$as$u20$exr..image..read..specific_channels..ReadSpecificChannel$GT$23create_recursive_reader28_$u7b$$u7b$closure$u7d$$u7d$17hf30f055790b7c0edE.exit.i.i.i.i.us.i.i"
-  %.us-phi208.i.i = phi i64 [ %145, %"_ZN162_$LT$exr..image..read..specific_channels..ReadRequiredChannel$LT$ReadChannels$C$Sample$GT$$u20$as$u20$exr..image..read..specific_channels..ReadSpecificChannel$GT$23create_recursive_reader28_$u7b$$u7b$closure$u7d$$u7d$17hf30f055790b7c0edE.exit.i.i.i.i.us.i.i" ], [ %169, %"_ZN162_$LT$exr..image..read..specific_channels..ReadRequiredChannel$LT$ReadChannels$C$Sample$GT$$u20$as$u20$exr..image..read..specific_channels..ReadSpecificChannel$GT$23create_recursive_reader28_$u7b$$u7b$closure$u7d$$u7d$17hf30f055790b7c0edE.exit.i.i.i.i.i.i" ]
-  %.us-phi209.i.i = phi ptr [ %146, %"_ZN162_$LT$exr..image..read..specific_channels..ReadRequiredChannel$LT$ReadChannels$C$Sample$GT$$u20$as$u20$exr..image..read..specific_channels..ReadSpecificChannel$GT$23create_recursive_reader28_$u7b$$u7b$closure$u7d$$u7d$17hf30f055790b7c0edE.exit.i.i.i.i.us.i.i" ], [ %170, %"_ZN162_$LT$exr..image..read..specific_channels..ReadRequiredChannel$LT$ReadChannels$C$Sample$GT$$u20$as$u20$exr..image..read..specific_channels..ReadSpecificChannel$GT$23create_recursive_reader28_$u7b$$u7b$closure$u7d$$u7d$17hf30f055790b7c0edE.exit.i.i.i.i.i.i" ]
+.split213.us.i.i:                                 ; preds = %"_ZN162_$LT$exr..image..read..specific_channels..ReadRequiredChannel$LT$ReadChannels$C$Sample$GT$$u20$as$u20$exr..image..read..specific_channels..ReadSpecificChannel$GT$23create_recursive_reader28_$u7b$$u7b$closure$u7d$$u7d$17hf30f055790b7c0edE.exit.i.i.i.i.i.i", %"_ZN162_$LT$exr..image..read..specific_channels..ReadRequiredChannel$LT$ReadChannels$C$Sample$GT$$u20$as$u20$exr..image..read..specific_channels..ReadSpecificChannel$GT$23create_recursive_reader28_$u7b$$u7b$closure$u7d$$u7d$17hf30f055790b7c0edE.exit.i.i.i.i.us.i.i"
+  %.us-phi215.i.i = phi i64 [ %145, %"_ZN162_$LT$exr..image..read..specific_channels..ReadRequiredChannel$LT$ReadChannels$C$Sample$GT$$u20$as$u20$exr..image..read..specific_channels..ReadSpecificChannel$GT$23create_recursive_reader28_$u7b$$u7b$closure$u7d$$u7d$17hf30f055790b7c0edE.exit.i.i.i.i.us.i.i" ], [ %169, %"_ZN162_$LT$exr..image..read..specific_channels..ReadRequiredChannel$LT$ReadChannels$C$Sample$GT$$u20$as$u20$exr..image..read..specific_channels..ReadSpecificChannel$GT$23create_recursive_reader28_$u7b$$u7b$closure$u7d$$u7d$17hf30f055790b7c0edE.exit.i.i.i.i.i.i" ]
+  %.us-phi216.i.i = phi ptr [ %146, %"_ZN162_$LT$exr..image..read..specific_channels..ReadRequiredChannel$LT$ReadChannels$C$Sample$GT$$u20$as$u20$exr..image..read..specific_channels..ReadSpecificChannel$GT$23create_recursive_reader28_$u7b$$u7b$closure$u7d$$u7d$17hf30f055790b7c0edE.exit.i.i.i.i.us.i.i" ], [ %170, %"_ZN162_$LT$exr..image..read..specific_channels..ReadRequiredChannel$LT$ReadChannels$C$Sample$GT$$u20$as$u20$exr..image..read..specific_channels..ReadSpecificChannel$GT$23create_recursive_reader28_$u7b$$u7b$closure$u7d$$u7d$17hf30f055790b7c0edE.exit.i.i.i.i.i.i" ]
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %19), !noalias !1422
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %.sroa.032.sroa.0.i.sroa.9.i)
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %18), !noalias !1422
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(72) %18, ptr noundef nonnull align 8 dereferenceable(72) %20, i64 72, i1 false), !noalias !1422
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %.sroa.030.sroa.0.i.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !1577)
-  %197 = getelementptr inbounds nuw i8, ptr %.us-phi209.i.i, i64 32
+  %197 = getelementptr inbounds nuw i8, ptr %.us-phi216.i.i, i64 32
   %198 = load i64, ptr %197, align 8, !alias.scope !1580, !noalias !1585, !noundef !19
   %199 = icmp ugt i64 %198, 24
-  %200 = load i8, ptr %.us-phi209.i.i, align 8, !range !572, !alias.scope !1580, !noalias !1585, !noundef !19
+  %200 = load i8, ptr %.us-phi216.i.i, align 8, !range !572, !alias.scope !1580, !noalias !1585, !noundef !19
   br i1 %199, label %207, label %201
 
-201:                                              ; preds = %.split207.us.i.i
+201:                                              ; preds = %.split213.us.i.i
   %202 = icmp eq i8 %200, 0
   call void @llvm.assume(i1 %202)
-  %203 = getelementptr inbounds nuw i8, ptr %.us-phi209.i.i, i64 1
+  %203 = getelementptr inbounds nuw i8, ptr %.us-phi216.i.i, i64 1
   %204 = invoke noundef ptr @"_ZN8smallvec21ConstNonNull$LT$T$GT$3new17h95b45aeaf6cd757aE.llvm.15361875792781664197"(ptr noundef nonnull readonly %203)
           to label %.noexc76.i.i unwind label %237, !noalias !1523
 
@@ -5753,12 +5751,12 @@ common.resume:                                    ; preds = %.body, %112, %.body
 .noexc77.i.i:                                     ; preds = %206
   unreachable
 
-207:                                              ; preds = %.split207.us.i.i
+207:                                              ; preds = %.split213.us.i.i
   %208 = trunc nuw i8 %200 to i1
   call void @llvm.assume(i1 %208)
-  %209 = getelementptr inbounds nuw i8, ptr %.us-phi209.i.i, i64 16
+  %209 = getelementptr inbounds nuw i8, ptr %.us-phi216.i.i, i64 16
   %210 = load ptr, ptr %209, align 8, !alias.scope !1580, !noalias !1585, !nonnull !19, !noundef !19
-  %211 = getelementptr inbounds nuw i8, ptr %.us-phi209.i.i, i64 8
+  %211 = getelementptr inbounds nuw i8, ptr %.us-phi216.i.i, i64 8
   %212 = load i64, ptr %211, align 8, !alias.scope !1580, !noalias !1585, !noundef !19
   br label %"_ZN8smallvec17SmallVec$LT$A$GT$8as_slice17h09985145bdc80de2E.exit.i.i.i"
 
@@ -5882,13 +5880,13 @@ common.resume:                                    ; preds = %.body, %112, %.body
 "_ZN162_$LT$exr..image..read..specific_channels..ReadRequiredChannel$LT$ReadChannels$C$Sample$GT$$u20$as$u20$exr..image..read..specific_channels..ReadSpecificChannel$GT$23create_recursive_reader17hab89738c0ed7a5d9E.exit.i": ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$8as_slice17h09985145bdc80de2E.exit.i.i.i"
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %.sroa.030.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(40) %9, i64 40, i1 false), !noalias !1422
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %9), !noalias !1588
-  %241 = getelementptr inbounds nuw i8, ptr %.us-phi209.i.i, i64 57
+  %241 = getelementptr inbounds nuw i8, ptr %.us-phi216.i.i, i64 57
   %242 = load i8, ptr %241, align 1, !range !632, !alias.scope !1577, !noalias !1626, !noundef !19
-  %243 = getelementptr inbounds nuw i8, ptr %.us-phi209.i.i, i64 56
+  %243 = getelementptr inbounds nuw i8, ptr %.us-phi216.i.i, i64 56
   %244 = load i8, ptr %243, align 8, !range !572, !alias.scope !1577, !noalias !1626, !noundef !19
-  %245 = getelementptr inbounds nuw i8, ptr %.us-phi209.i.i, i64 40
+  %245 = getelementptr inbounds nuw i8, ptr %.us-phi216.i.i, i64 40
   %246 = load i64, ptr %245, align 8, !alias.scope !1627, !noalias !1626, !noundef !19
-  %247 = getelementptr inbounds nuw i8, ptr %.us-phi209.i.i, i64 48
+  %247 = getelementptr inbounds nuw i8, ptr %.us-phi216.i.i, i64 48
   %248 = load i64, ptr %247, align 8, !alias.scope !1632, !noalias !1626, !noundef !19
   %.sroa.032.sroa.0.i.sroa.0.0.copyload.i = load i8, ptr %18, align 8, !noalias !1422
   %.sroa.032.sroa.0.i.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 1
@@ -5938,7 +5936,7 @@ common.resume:                                    ; preds = %.body, %112, %.body
   %.sroa.5.sroa.7.0..sroa.5.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %25, i64 129
   store i8 %242, ptr %.sroa.5.sroa.7.0..sroa.5.0..sroa_idx.sroa_idx.i, align 1, !noalias !1416
   %.sroa.5.sroa.9.0..sroa.5.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %25, i64 136
-  store i64 %.us-phi208.i.i, ptr %.sroa.5.sroa.9.0..sroa.5.0..sroa_idx.sroa_idx.i, align 8, !noalias !1416
+  store i64 %.us-phi215.i.i, ptr %.sroa.5.sroa.9.0..sroa.5.0..sroa_idx.sroa_idx.i, align 8, !noalias !1416
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %24), !noalias !1416
   invoke void @_ZN3exr4meta9attribute11ChannelList25channels_with_byte_offset17h91c176ccdda691e2E(ptr noalias noundef nonnull sret({ { ptr, ptr }, i64, {} }) align 8 captures(none) dereferenceable(24) %24, ptr noalias noundef nonnull readonly align 8 dereferenceable(352) %2)
           to label %252 unwind label %.loopexit.split-lp.i, !noalias !1636
@@ -5954,17 +5952,17 @@ common.resume:                                    ; preds = %.body, %112, %.body
 
 252:                                              ; preds = %250
   call void @llvm.experimental.noalias.scope.decl(metadata !1637)
-  %253 = getelementptr inbounds nuw i8, ptr %24, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !1640)
-  %254 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %255 = load ptr, ptr %254, align 8, !alias.scope !1643, !noalias !1646, !nonnull !19, !noundef !19
+  %253 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %254 = load ptr, ptr %253, align 8, !alias.scope !1643, !noalias !1646, !nonnull !19, !noundef !19
   %.promoted.i.i69.i = load ptr, ptr %24, align 8, !alias.scope !1643, !noalias !1646
-  %256 = icmp eq ptr %.promoted.i.i69.i, %255
-  br i1 %256, label %.loopexit176.i, label %.lr.ph.i.preheader.i.i
+  %255 = icmp eq ptr %.promoted.i.i69.i, %254
+  br i1 %255, label %.loopexit176.i, label %.lr.ph.i.preheader.i.i
 
 .lr.ph.i.preheader.i.i:                           ; preds = %252
+  %256 = getelementptr inbounds nuw i8, ptr %24, i64 16
   %257 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  %.promoted.i.i = load i64, ptr %253, align 8, !alias.scope !1649, !noalias !1652
+  %.promoted.i.i = load i64, ptr %256, align 8, !alias.scope !1649, !noalias !1652
   %258 = getelementptr inbounds nuw i8, ptr %1, i64 112
   %259 = getelementptr inbounds nuw i8, ptr %1, i64 81
   %260 = getelementptr inbounds nuw i8, ptr %1, i64 96
@@ -5991,7 +5989,6 @@ common.resume:                                    ; preds = %.body, %112, %.body
   %switch.i.i.i.i.i = icmp eq i8 %273, 1
   %..i.i.i.i.i = select i1 %switch.i.i.i.i.i, i64 2, i64 4
   %274 = add i64 %..i.i.i.i.i, %269
-  store i64 %274, ptr %253, align 8, !alias.scope !1649, !noalias !1652
   %275 = getelementptr inbounds nuw i8, ptr %270, i64 32
   %276 = load i64, ptr %275, align 8, !alias.scope !1663, !noalias !1670, !noundef !19
   %277 = icmp ugt i64 %276, 24
@@ -6056,7 +6053,7 @@ common.resume:                                    ; preds = %.body, %112, %.body
   br i1 %294, label %299, label %295
 
 295:                                              ; preds = %"_ZN162_$LT$exr..image..read..specific_channels..ReadRequiredChannel$LT$ReadChannels$C$Sample$GT$$u20$as$u20$exr..image..read..specific_channels..ReadSpecificChannel$GT$23create_recursive_reader28_$u7b$$u7b$closure$u7d$$u7d$17h9fbae7229805bbc8E.exit.i.i.i.i.i", %"_ZN80_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hf4aa49ed99add93aE.exit3.i.i.i.i.i.i"
-  %296 = icmp eq ptr %271, %255
+  %296 = icmp eq ptr %271, %254
   br i1 %296, label %.loopexit176.i, label %.lr.ph.i.i.i
 
 .loopexit176.i:                                   ; preds = %295, %252
@@ -6294,17 +6291,17 @@ common.resume:                                    ; preds = %.body, %112, %.body
 
 340:                                              ; preds = %337
   call void @llvm.experimental.noalias.scope.decl(metadata !1720)
-  %341 = getelementptr inbounds nuw i8, ptr %26, i64 16
   call void @llvm.experimental.noalias.scope.decl(metadata !1723)
-  %342 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %343 = load ptr, ptr %342, align 8, !alias.scope !1726, !noalias !1729, !nonnull !19, !noundef !19
+  %341 = getelementptr inbounds nuw i8, ptr %26, i64 8
+  %342 = load ptr, ptr %341, align 8, !alias.scope !1726, !noalias !1729, !nonnull !19, !noundef !19
   %.promoted.i.i31 = load ptr, ptr %26, align 8, !alias.scope !1726, !noalias !1729
-  %344 = icmp eq ptr %.promoted.i.i31, %343
-  br i1 %344, label %.thread95, label %.lr.ph.i.preheader.i
+  %343 = icmp eq ptr %.promoted.i.i31, %342
+  br i1 %343, label %.thread95, label %.lr.ph.i.preheader.i
 
 .lr.ph.i.preheader.i:                             ; preds = %340
+  %344 = getelementptr inbounds nuw i8, ptr %26, i64 16
   %345 = getelementptr inbounds nuw i8, ptr %1, i64 120
-  %.promoted.i = load i64, ptr %341, align 8, !alias.scope !1732, !noalias !1735
+  %.promoted.i = load i64, ptr %344, align 8, !alias.scope !1732, !noalias !1735
   %346 = getelementptr inbounds nuw i8, ptr %1, i64 152
   %347 = getelementptr inbounds nuw i8, ptr %1, i64 121
   %348 = getelementptr inbounds nuw i8, ptr %1, i64 136
@@ -6331,7 +6328,6 @@ common.resume:                                    ; preds = %.body, %112, %.body
   %switch.i.i.i.i = icmp eq i8 %361, 1
   %..i.i.i.i = select i1 %switch.i.i.i.i, i64 2, i64 4
   %362 = add i64 %..i.i.i.i, %357
-  store i64 %362, ptr %341, align 8, !alias.scope !1732, !noalias !1735
   %363 = getelementptr inbounds nuw i8, ptr %358, i64 32
   %364 = load i64, ptr %363, align 8, !alias.scope !1745, !noalias !1752, !noundef !19
   %365 = icmp ugt i64 %364, 24
@@ -6396,7 +6392,7 @@ common.resume:                                    ; preds = %.body, %112, %.body
   br i1 %382, label %385, label %383
 
 383:                                              ; preds = %"_ZN169_$LT$exr..image..read..specific_channels..ReadOptionalChannel$LT$ReadChannels$C$DefaultSample$GT$$u20$as$u20$exr..image..read..specific_channels..ReadSpecificChannel$GT$23create_recursive_reader28_$u7b$$u7b$closure$u7d$$u7d$17ha62bb9fce9ab53a2E.exit.i.i.i.i", %"_ZN80_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ops..index..Index$LT$I$GT$$GT$5index17hf4aa49ed99add93aE.exit3.i.i.i.i.i"
-  %384 = icmp eq ptr %359, %343
+  %384 = icmp eq ptr %359, %342
   br i1 %384, label %.thread95, label %.lr.ph.i.i
 
 385:                                              ; preds = %"_ZN169_$LT$exr..image..read..specific_channels..ReadOptionalChannel$LT$ReadChannels$C$DefaultSample$GT$$u20$as$u20$exr..image..read..specific_channels..ReadSpecificChannel$GT$23create_recursive_reader28_$u7b$$u7b$closure$u7d$$u7d$17ha62bb9fce9ab53a2E.exit.i.i.i.i"

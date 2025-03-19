@@ -5242,8 +5242,8 @@ _ZNSt6vectorISt10unique_ptrIN7rocksdb32FragmentedRangeTombstoneIteratorESt14defa
   br label %1373
 
 1113:                                             ; preds = %_ZNSt6vectorISt10unique_ptrIN7rocksdb32FragmentedRangeTombstoneIteratorESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJRPS2_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i.i, %1096
-  %1114 = phi ptr [ %1098, %_ZNSt6vectorISt10unique_ptrIN7rocksdb32FragmentedRangeTombstoneIteratorESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJRPS2_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i.i ], [ null, %1096 ]
-  %1115 = phi ptr [ %1097, %_ZNSt6vectorISt10unique_ptrIN7rocksdb32FragmentedRangeTombstoneIteratorESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJRPS2_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i.i ], [ null, %1096 ]
+  %1114 = phi ptr [ null, %1096 ], [ %1097, %_ZNSt6vectorISt10unique_ptrIN7rocksdb32FragmentedRangeTombstoneIteratorESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJRPS2_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i.i ]
+  %1115 = phi ptr [ null, %1096 ], [ %1098, %_ZNSt6vectorISt10unique_ptrIN7rocksdb32FragmentedRangeTombstoneIteratorESt14default_deleteIS2_EESaIS5_EE17_M_realloc_insertIJRPS2_EEEvN9__gnu_cxx17__normal_iteratorIPS5_S7_EEDpOT_.exit.i.i.i ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %50) #26, !noalias !402
   store i8 0, ptr %50, align 8, !tbaa !32, !noalias !402
   store i8 0, ptr %725, align 1, !tbaa !46, !noalias !402
@@ -5427,9 +5427,9 @@ _ZNSt11_Deque_baseIN7rocksdb18SeqnoToTimeMapping13SeqnoTimePairESaIS2_EE16_M_all
   store i8 1, ptr %756, align 8, !tbaa !591, !noalias !402
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %57) #26, !noalias !402
   %1156 = load ptr, ptr %757, align 8, !tbaa !341, !noalias !402
-  store ptr %1115, ptr %58, align 8, !tbaa !533, !noalias !402
-  store ptr %1114, ptr %758, align 8, !tbaa !536, !noalias !402
-  store ptr %1114, ptr %759, align 8, !tbaa !537, !noalias !402
+  store ptr %1114, ptr %58, align 8, !tbaa !533, !noalias !402
+  store ptr %1115, ptr %758, align 8, !tbaa !536, !noalias !402
+  store ptr %1115, ptr %759, align 8, !tbaa !537, !noalias !402
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %49, i8 0, i64 24, i1 false), !noalias !402
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %59, i8 0, i64 24, i1 false), !noalias !402
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %60) #26, !noalias !402

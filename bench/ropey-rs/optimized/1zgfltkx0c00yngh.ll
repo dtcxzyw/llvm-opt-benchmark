@@ -5750,8 +5750,6 @@ _ZN5ropey4tree13node_children12NodeChildren4info17h8db7ec58898630d7E.exit258: ; 
 
 372:                                              ; preds = %366
   store i64 %263, ptr %11, align 8
-  store i64 %262, ptr %247, align 8
-  store i64 %261, ptr %249, align 8
   %373 = getelementptr inbounds nuw i8, ptr %344, i64 24
   %374 = getelementptr inbounds [0 x ptr], ptr %373, i64 0, i64 %343
   %375 = load ptr, ptr %374, align 8, !nonnull !4, !noundef !4
@@ -5801,8 +5799,6 @@ _ZN5ropey4tree4node4Node9leaf_text17h78ed2b3427cacdf3E.exit: ; preds = %372
 
 394:                                              ; preds = %354
   store i64 %263, ptr %11, align 8
-  store i64 %262, ptr %247, align 8
-  store i64 %261, ptr %249, align 8
   %395 = getelementptr inbounds nuw i8, ptr %344, i64 24
   %396 = getelementptr inbounds [0 x ptr], ptr %395, i64 0, i64 %343
   %397 = load ptr, ptr %396, align 8, !nonnull !4, !noundef !4

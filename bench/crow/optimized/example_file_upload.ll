@@ -50266,7 +50266,6 @@ _ZN4asio6detail12wait_handlerIZN4crow6ServerINS2_4CrowIJEEENS2_13SocketAdaptorEJ
   store i8 %.sink.i.i.i.i.i.i, ptr %17, align 1, !tbaa !14
   store ptr %.sink26.i.i.i.i.i.i, ptr %7, align 8, !tbaa !1349
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr null, ptr %18, align 8, !tbaa !1350
   store ptr null, ptr %.sink26.i.i.i.i.i.i, align 8, !tbaa !245
   %19 = getelementptr inbounds nuw i8, ptr %.sink26.i.i.i.i.i.i, i64 8
   store ptr @_ZN4asio6detail12wait_handlerIZN4crow6ServerINS2_4CrowIJEEENS2_13SocketAdaptorEJEE3runEvEUlRKSt10error_codeE_NS_9execution12any_executorIJNSC_12context_as_tIRNS_17execution_contextEEENSC_6detail8blocking7never_tILi0EEENSC_11prefer_onlyINSJ_10possibly_tILi0EEEEENSM_INSI_16outstanding_work9tracked_tILi0EEEEENSM_INSQ_11untracked_tILi0EEEEENSM_INSI_12relationship6fork_tILi0EEEEENSM_INSX_14continuation_tILi0EEEEEEEEE11do_completeEPvPNS0_19scheduler_operationESA_m, ptr %19, align 8, !tbaa !249
@@ -50316,23 +50315,23 @@ _ZNKSt9type_infoeqERKS_.exit.thread.i.i.i:        ; preds = %_ZNKSt9type_infoeqE
 
 _ZNKSt9type_infoeqERKS_.exit.thread5.i.i.i:       ; preds = %_ZNKSt9type_infoeqERKS_.exit.i.i.i, %34
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %43 = load ptr, ptr %42, align 8, !tbaa !598, !noalias !1351
+  %43 = load ptr, ptr %42, align 8, !tbaa !598, !noalias !1350
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 88
-  %45 = load ptr, ptr %44, align 8, !tbaa !1299, !noalias !1351
+  %45 = load ptr, ptr %44, align 8, !tbaa !1299, !noalias !1350
   %46 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %47 = load ptr, ptr %46, align 8, !tbaa !187, !noalias !1351
+  %47 = load ptr, ptr %46, align 8, !tbaa !187, !noalias !1350
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
-  %49 = load ptr, ptr %48, align 8, !tbaa !1301, !noalias !1351
+  %49 = load ptr, ptr %48, align 8, !tbaa !1301, !noalias !1350
   %50 = invoke noundef ptr %49(ptr noundef nonnull align 8 dereferenceable(48) %3)
           to label %.noexc.i.i.i unwind label %51
 
 .noexc.i.i.i:                                     ; preds = %_ZNKSt9type_infoeqERKS_.exit.thread5.i.i.i
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #37, !noalias !1351
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #37, !noalias !1350
   invoke void %45(ptr dead_on_unwind nonnull writable sret(%"class.asio::execution::any_executor") align 8 dereferenceable(48) %26, ptr noundef %50, ptr noundef nonnull %5)
           to label %_ZNK14asio_prefer_fn4implclIRKN4asio9execution12any_executorIJNS3_12context_as_tIRNS2_17execution_contextEEENS3_6detail8blocking7never_tILi0EEENS3_11prefer_onlyINSA_10possibly_tILi0EEEEENSD_INS9_16outstanding_work9tracked_tILi0EEEEENSD_INSH_11untracked_tILi0EEEEENSD_INS9_12relationship6fork_tILi0EEEEENSD_INSO_14continuation_tILi0EEEEEEEERKSJ_EENSt9enable_ifIXeqsr11call_traitsIT_FvT0_EEE8overloadLNS_13overload_typeE3EENS_11call_traitsIS11_S13_vE11result_typeEE4typeEOS11_OS12_.exit.i.i.i unwind label %51
 
 _ZNK14asio_prefer_fn4implclIRKN4asio9execution12any_executorIJNS3_12context_as_tIRNS2_17execution_contextEEENS3_6detail8blocking7never_tILi0EEENS3_11prefer_onlyINSA_10possibly_tILi0EEEEENSD_INS9_16outstanding_work9tracked_tILi0EEEEENSD_INSH_11untracked_tILi0EEEEENSD_INS9_12relationship6fork_tILi0EEEEENSD_INSO_14continuation_tILi0EEEEEEEERKSJ_EENSt9enable_ifIXeqsr11call_traitsIT_FvT0_EEE8overloadLNS_13overload_typeE3EENS_11call_traitsIS11_S13_vE11result_typeEE4typeEOS11_OS12_.exit.i.i.i: ; preds = %.noexc.i.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #37, !noalias !1351
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #37, !noalias !1350
   br label %_ZN4asio6detail12wait_handlerIZN4crow6ServerINS2_4CrowIJEEENS2_13SocketAdaptorEJEE3runEvEUlRKSt10error_codeE_NS_9execution12any_executorIJNSC_12context_as_tIRNS_17execution_contextEEENSC_6detail8blocking7never_tILi0EEENSC_11prefer_onlyINSJ_10possibly_tILi0EEEEENSM_INSI_16outstanding_work9tracked_tILi0EEEEENSM_INSQ_11untracked_tILi0EEEEENSM_INSI_12relationship6fork_tILi0EEEEENSM_INSX_14continuation_tILi0EEEEEEEEEC2ERSB_RKS14_.exit
 
 51:                                               ; preds = %.noexc.i.i.i, %_ZNKSt9type_infoeqERKS_.exit.thread5.i.i.i, %_ZN4asio6detail12wait_handlerIZN4crow6ServerINS2_4CrowIJEEENS2_13SocketAdaptorEJEE3runEvEUlRKSt10error_codeE_NS_9execution12any_executorIJNSC_12context_as_tIRNS_17execution_contextEEENSC_6detail8blocking7never_tILi0EEENSC_11prefer_onlyINSJ_10possibly_tILi0EEEEENSM_INSI_16outstanding_work9tracked_tILi0EEEEENSM_INSQ_11untracked_tILi0EEEEENSM_INSI_12relationship6fork_tILi0EEEEENSM_INSX_14continuation_tILi0EEEEEEEEE3ptr8allocateERSB_.exit
@@ -50343,7 +50342,7 @@ _ZNK14asio_prefer_fn4implclIRKN4asio9execution12any_executorIJNS3_12context_as_t
   unreachable
 
 _ZN4asio6detail12wait_handlerIZN4crow6ServerINS2_4CrowIJEEENS2_13SocketAdaptorEJEE3runEvEUlRKSt10error_codeE_NS_9execution12any_executorIJNSC_12context_as_tIRNS_17execution_contextEEENSC_6detail8blocking7never_tILi0EEENSC_11prefer_onlyINSJ_10possibly_tILi0EEEEENSM_INSI_16outstanding_work9tracked_tILi0EEEEENSM_INSQ_11untracked_tILi0EEEEENSM_INSI_12relationship6fork_tILi0EEEEENSM_INSX_14continuation_tILi0EEEEEEEEEC2ERSB_RKS14_.exit: ; preds = %_ZNKSt9type_infoeqERKS_.exit.thread.i.i.i, %_ZNK14asio_prefer_fn4implclIRKN4asio9execution12any_executorIJNS3_12context_as_tIRNS2_17execution_contextEEENS3_6detail8blocking7never_tILi0EEENS3_11prefer_onlyINSA_10possibly_tILi0EEEEENSD_INS9_16outstanding_work9tracked_tILi0EEEEENSD_INSH_11untracked_tILi0EEEEENSD_INS9_12relationship6fork_tILi0EEEEENSD_INSO_14continuation_tILi0EEEEEEEERKSJ_EENSt9enable_ifIXeqsr11call_traitsIT_FvT0_EEE8overloadLNS_13overload_typeE3EENS_11call_traitsIS11_S13_vE11result_typeEE4typeEOS11_OS12_.exit.i.i.i
-  store ptr %.sink26.i.i.i.i.i.i, ptr %18, align 8, !tbaa !1350
+  store ptr %.sink26.i.i.i.i.i.i, ptr %18, align 8, !tbaa !1355
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i8 1, ptr %54, align 8, !tbaa !221
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -50517,7 +50516,7 @@ _ZN4asio6detail27conditionally_enabled_mutex11scoped_lockD2Ev.exit10: ; preds = 
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4asio6detail12wait_handlerIZN4crow6ServerINS2_4CrowIJEEENS2_13SocketAdaptorEJEE3runEvEUlRKSt10error_codeE_NS_9execution12any_executorIJNSC_12context_as_tIRNS_17execution_contextEEENSC_6detail8blocking7never_tILi0EEENSC_11prefer_onlyINSJ_10possibly_tILi0EEEEENSM_INSI_16outstanding_work9tracked_tILi0EEEEENSM_INSQ_11untracked_tILi0EEEEENSM_INSI_12relationship6fork_tILi0EEEEENSM_INSX_14continuation_tILi0EEEEEEEEE3ptrD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !1350
+  %3 = load ptr, ptr %2, align 8, !tbaa !1355
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %12, label %4
 
@@ -50537,7 +50536,7 @@ define linkonce_odr dso_local void @_ZN4asio6detail12wait_handlerIZN4crow6Server
   unreachable
 
 _ZN4asio6detail12wait_handlerIZN4crow6ServerINS2_4CrowIJEEENS2_13SocketAdaptorEJEE3runEvEUlRKSt10error_codeE_NS_9execution12any_executorIJNSC_12context_as_tIRNS_17execution_contextEEENSC_6detail8blocking7never_tILi0EEENSC_11prefer_onlyINSJ_10possibly_tILi0EEEEENSM_INSI_16outstanding_work9tracked_tILi0EEEEENSM_INSQ_11untracked_tILi0EEEEENSM_INSI_12relationship6fork_tILi0EEEEENSM_INSX_14continuation_tILi0EEEEEEEEED2Ev.exit.i: ; preds = %4
-  store ptr null, ptr %2, align 8, !tbaa !1350
+  store ptr null, ptr %2, align 8, !tbaa !1355
   br label %12
 
 12:                                               ; preds = %_ZN4asio6detail12wait_handlerIZN4crow6ServerINS2_4CrowIJEEENS2_13SocketAdaptorEJEE3runEvEUlRKSt10error_codeE_NS_9execution12any_executorIJNSC_12context_as_tIRNS_17execution_contextEEENSC_6detail8blocking7never_tILi0EEENSC_11prefer_onlyINSJ_10possibly_tILi0EEEEENSM_INSI_16outstanding_work9tracked_tILi0EEEEENSM_INSQ_11untracked_tILi0EEEEENSM_INSI_12relationship6fork_tILi0EEEEENSM_INSX_14continuation_tILi0EEEEEEEEED2Ev.exit.i, %1
@@ -50644,7 +50643,7 @@ define linkonce_odr dso_local void @_ZN4asio6detail12wait_handlerIZN4crow6Server
   unreachable
 
 36:                                               ; preds = %22
-  store ptr null, ptr %9, align 8, !tbaa !1350
+  store ptr null, ptr %9, align 8, !tbaa !1355
   %37 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4asio6detail15keyword_tss_ptrINS0_10call_stackINS0_14thread_contextENS0_16thread_info_baseEE7contextEE6value_E)
   %38 = load ptr, ptr %37, align 8, !tbaa !279
   %.not.i.i.i.i.i = icmp eq ptr %38, null
@@ -50961,7 +50960,6 @@ _ZN4asio6detail12wait_handlerIZN4crow6ServerINS2_4CrowIJEEENS2_13SocketAdaptorEJ
   store i8 %.sink.i.i.i.i.i.i, ptr %17, align 1, !tbaa !14
   store ptr %.sink26.i.i.i.i.i.i, ptr %7, align 8, !tbaa !1369
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr null, ptr %18, align 8, !tbaa !1370
   store ptr null, ptr %.sink26.i.i.i.i.i.i, align 8, !tbaa !245
   %19 = getelementptr inbounds nuw i8, ptr %.sink26.i.i.i.i.i.i, i64 8
   store ptr @_ZN4asio6detail12wait_handlerIZN4crow6ServerINS2_4CrowIJEEENS2_13SocketAdaptorEJEE7on_tickEvEUlRKSt10error_codeE_NS_9execution12any_executorIJNSC_12context_as_tIRNS_17execution_contextEEENSC_6detail8blocking7never_tILi0EEENSC_11prefer_onlyINSJ_10possibly_tILi0EEEEENSM_INSI_16outstanding_work9tracked_tILi0EEEEENSM_INSQ_11untracked_tILi0EEEEENSM_INSI_12relationship6fork_tILi0EEEEENSM_INSX_14continuation_tILi0EEEEEEEEE11do_completeEPvPNS0_19scheduler_operationESA_m, ptr %19, align 8, !tbaa !249
@@ -51011,23 +51009,23 @@ _ZNKSt9type_infoeqERKS_.exit.thread.i.i.i:        ; preds = %_ZNKSt9type_infoeqE
 
 _ZNKSt9type_infoeqERKS_.exit.thread5.i.i.i:       ; preds = %_ZNKSt9type_infoeqERKS_.exit.i.i.i, %34
   %42 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %43 = load ptr, ptr %42, align 8, !tbaa !598, !noalias !1371
+  %43 = load ptr, ptr %42, align 8, !tbaa !598, !noalias !1370
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 88
-  %45 = load ptr, ptr %44, align 8, !tbaa !1299, !noalias !1371
+  %45 = load ptr, ptr %44, align 8, !tbaa !1299, !noalias !1370
   %46 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %47 = load ptr, ptr %46, align 8, !tbaa !187, !noalias !1371
+  %47 = load ptr, ptr %46, align 8, !tbaa !187, !noalias !1370
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
-  %49 = load ptr, ptr %48, align 8, !tbaa !1301, !noalias !1371
+  %49 = load ptr, ptr %48, align 8, !tbaa !1301, !noalias !1370
   %50 = invoke noundef ptr %49(ptr noundef nonnull align 8 dereferenceable(48) %3)
           to label %.noexc.i.i.i unwind label %51
 
 .noexc.i.i.i:                                     ; preds = %_ZNKSt9type_infoeqERKS_.exit.thread5.i.i.i
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #37, !noalias !1371
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #37, !noalias !1370
   invoke void %45(ptr dead_on_unwind nonnull writable sret(%"class.asio::execution::any_executor") align 8 dereferenceable(48) %26, ptr noundef %50, ptr noundef nonnull %5)
           to label %_ZNK14asio_prefer_fn4implclIRKN4asio9execution12any_executorIJNS3_12context_as_tIRNS2_17execution_contextEEENS3_6detail8blocking7never_tILi0EEENS3_11prefer_onlyINSA_10possibly_tILi0EEEEENSD_INS9_16outstanding_work9tracked_tILi0EEEEENSD_INSH_11untracked_tILi0EEEEENSD_INS9_12relationship6fork_tILi0EEEEENSD_INSO_14continuation_tILi0EEEEEEEERKSJ_EENSt9enable_ifIXeqsr11call_traitsIT_FvT0_EEE8overloadLNS_13overload_typeE3EENS_11call_traitsIS11_S13_vE11result_typeEE4typeEOS11_OS12_.exit.i.i.i unwind label %51
 
 _ZNK14asio_prefer_fn4implclIRKN4asio9execution12any_executorIJNS3_12context_as_tIRNS2_17execution_contextEEENS3_6detail8blocking7never_tILi0EEENS3_11prefer_onlyINSA_10possibly_tILi0EEEEENSD_INS9_16outstanding_work9tracked_tILi0EEEEENSD_INSH_11untracked_tILi0EEEEENSD_INS9_12relationship6fork_tILi0EEEEENSD_INSO_14continuation_tILi0EEEEEEEERKSJ_EENSt9enable_ifIXeqsr11call_traitsIT_FvT0_EEE8overloadLNS_13overload_typeE3EENS_11call_traitsIS11_S13_vE11result_typeEE4typeEOS11_OS12_.exit.i.i.i: ; preds = %.noexc.i.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #37, !noalias !1371
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #37, !noalias !1370
   br label %_ZN4asio6detail12wait_handlerIZN4crow6ServerINS2_4CrowIJEEENS2_13SocketAdaptorEJEE7on_tickEvEUlRKSt10error_codeE_NS_9execution12any_executorIJNSC_12context_as_tIRNS_17execution_contextEEENSC_6detail8blocking7never_tILi0EEENSC_11prefer_onlyINSJ_10possibly_tILi0EEEEENSM_INSI_16outstanding_work9tracked_tILi0EEEEENSM_INSQ_11untracked_tILi0EEEEENSM_INSI_12relationship6fork_tILi0EEEEENSM_INSX_14continuation_tILi0EEEEEEEEEC2ERSB_RKS14_.exit
 
 51:                                               ; preds = %.noexc.i.i.i, %_ZNKSt9type_infoeqERKS_.exit.thread5.i.i.i, %_ZN4asio6detail12wait_handlerIZN4crow6ServerINS2_4CrowIJEEENS2_13SocketAdaptorEJEE7on_tickEvEUlRKSt10error_codeE_NS_9execution12any_executorIJNSC_12context_as_tIRNS_17execution_contextEEENSC_6detail8blocking7never_tILi0EEENSC_11prefer_onlyINSJ_10possibly_tILi0EEEEENSM_INSI_16outstanding_work9tracked_tILi0EEEEENSM_INSQ_11untracked_tILi0EEEEENSM_INSI_12relationship6fork_tILi0EEEEENSM_INSX_14continuation_tILi0EEEEEEEEE3ptr8allocateERSB_.exit
@@ -51038,7 +51036,7 @@ _ZNK14asio_prefer_fn4implclIRKN4asio9execution12any_executorIJNS3_12context_as_t
   unreachable
 
 _ZN4asio6detail12wait_handlerIZN4crow6ServerINS2_4CrowIJEEENS2_13SocketAdaptorEJEE7on_tickEvEUlRKSt10error_codeE_NS_9execution12any_executorIJNSC_12context_as_tIRNS_17execution_contextEEENSC_6detail8blocking7never_tILi0EEENSC_11prefer_onlyINSJ_10possibly_tILi0EEEEENSM_INSI_16outstanding_work9tracked_tILi0EEEEENSM_INSQ_11untracked_tILi0EEEEENSM_INSI_12relationship6fork_tILi0EEEEENSM_INSX_14continuation_tILi0EEEEEEEEEC2ERSB_RKS14_.exit: ; preds = %_ZNKSt9type_infoeqERKS_.exit.thread.i.i.i, %_ZNK14asio_prefer_fn4implclIRKN4asio9execution12any_executorIJNS3_12context_as_tIRNS2_17execution_contextEEENS3_6detail8blocking7never_tILi0EEENS3_11prefer_onlyINSA_10possibly_tILi0EEEEENSD_INS9_16outstanding_work9tracked_tILi0EEEEENSD_INSH_11untracked_tILi0EEEEENSD_INS9_12relationship6fork_tILi0EEEEENSD_INSO_14continuation_tILi0EEEEEEEERKSJ_EENSt9enable_ifIXeqsr11call_traitsIT_FvT0_EEE8overloadLNS_13overload_typeE3EENS_11call_traitsIS11_S13_vE11result_typeEE4typeEOS11_OS12_.exit.i.i.i
-  store ptr %.sink26.i.i.i.i.i.i, ptr %18, align 8, !tbaa !1370
+  store ptr %.sink26.i.i.i.i.i.i, ptr %18, align 8, !tbaa !1375
   %54 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i8 1, ptr %54, align 8, !tbaa !221
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -51063,7 +51061,7 @@ _ZN4asio6detail12wait_handlerIZN4crow6ServerINS2_4CrowIJEEENS2_13SocketAdaptorEJ
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4asio6detail12wait_handlerIZN4crow6ServerINS2_4CrowIJEEENS2_13SocketAdaptorEJEE7on_tickEvEUlRKSt10error_codeE_NS_9execution12any_executorIJNSC_12context_as_tIRNS_17execution_contextEEENSC_6detail8blocking7never_tILi0EEENSC_11prefer_onlyINSJ_10possibly_tILi0EEEEENSM_INSI_16outstanding_work9tracked_tILi0EEEEENSM_INSQ_11untracked_tILi0EEEEENSM_INSI_12relationship6fork_tILi0EEEEENSM_INSX_14continuation_tILi0EEEEEEEEE3ptrD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !1370
+  %3 = load ptr, ptr %2, align 8, !tbaa !1375
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %12, label %4
 
@@ -51083,7 +51081,7 @@ define linkonce_odr dso_local void @_ZN4asio6detail12wait_handlerIZN4crow6Server
   unreachable
 
 _ZN4asio6detail12wait_handlerIZN4crow6ServerINS2_4CrowIJEEENS2_13SocketAdaptorEJEE7on_tickEvEUlRKSt10error_codeE_NS_9execution12any_executorIJNSC_12context_as_tIRNS_17execution_contextEEENSC_6detail8blocking7never_tILi0EEENSC_11prefer_onlyINSJ_10possibly_tILi0EEEEENSM_INSI_16outstanding_work9tracked_tILi0EEEEENSM_INSQ_11untracked_tILi0EEEEENSM_INSI_12relationship6fork_tILi0EEEEENSM_INSX_14continuation_tILi0EEEEEEEEED2Ev.exit.i: ; preds = %4
-  store ptr null, ptr %2, align 8, !tbaa !1370
+  store ptr null, ptr %2, align 8, !tbaa !1375
   br label %12
 
 12:                                               ; preds = %_ZN4asio6detail12wait_handlerIZN4crow6ServerINS2_4CrowIJEEENS2_13SocketAdaptorEJEE7on_tickEvEUlRKSt10error_codeE_NS_9execution12any_executorIJNSC_12context_as_tIRNS_17execution_contextEEENSC_6detail8blocking7never_tILi0EEENSC_11prefer_onlyINSJ_10possibly_tILi0EEEEENSM_INSI_16outstanding_work9tracked_tILi0EEEEENSM_INSQ_11untracked_tILi0EEEEENSM_INSI_12relationship6fork_tILi0EEEEENSM_INSX_14continuation_tILi0EEEEEEEEED2Ev.exit.i, %1
@@ -51190,7 +51188,7 @@ define linkonce_odr dso_local void @_ZN4asio6detail12wait_handlerIZN4crow6Server
   unreachable
 
 36:                                               ; preds = %22
-  store ptr null, ptr %9, align 8, !tbaa !1370
+  store ptr null, ptr %9, align 8, !tbaa !1375
   %37 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4asio6detail15keyword_tss_ptrINS0_10call_stackINS0_14thread_contextENS0_16thread_info_baseEE7contextEE6value_E)
   %38 = load ptr, ptr %37, align 8, !tbaa !279
   %.not.i.i.i.i.i = icmp eq ptr %38, null
@@ -52608,7 +52606,6 @@ _ZN4asio6detail14signal_handlerIZN4crow6ServerINS2_4CrowIJEEENS2_13SocketAdaptor
   store i8 %.sink.i.i.i.i.i.i, ptr %17, align 1, !tbaa !14
   store ptr %.sink26.i.i.i.i.i.i, ptr %7, align 8, !tbaa !1406
   %18 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr null, ptr %18, align 8, !tbaa !1407
   store ptr null, ptr %.sink26.i.i.i.i.i.i, align 8, !tbaa !245
   %19 = getelementptr inbounds nuw i8, ptr %.sink26.i.i.i.i.i.i, i64 8
   store ptr @_ZN4asio6detail14signal_handlerIZN4crow6ServerINS2_4CrowIJEEENS2_13SocketAdaptorEJEE3runEvEUlRKSt10error_codeiE_NS_9execution12any_executorIJNSC_12context_as_tIRNS_17execution_contextEEENSC_6detail8blocking7never_tILi0EEENSC_11prefer_onlyINSJ_10possibly_tILi0EEEEENSM_INSI_16outstanding_work9tracked_tILi0EEEEENSM_INSQ_11untracked_tILi0EEEEENSM_INSI_12relationship6fork_tILi0EEEEENSM_INSX_14continuation_tILi0EEEEEEEEE11do_completeEPvPNS0_19scheduler_operationESA_m, ptr %19, align 8, !tbaa !249
@@ -52660,23 +52657,23 @@ _ZNKSt9type_infoeqERKS_.exit.thread.i.i.i:        ; preds = %_ZNKSt9type_infoeqE
 
 _ZNKSt9type_infoeqERKS_.exit.thread5.i.i.i:       ; preds = %_ZNKSt9type_infoeqERKS_.exit.i.i.i, %35
   %43 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  %44 = load ptr, ptr %43, align 8, !tbaa !598, !noalias !1408
+  %44 = load ptr, ptr %43, align 8, !tbaa !598, !noalias !1407
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 88
-  %46 = load ptr, ptr %45, align 8, !tbaa !1299, !noalias !1408
+  %46 = load ptr, ptr %45, align 8, !tbaa !1299, !noalias !1407
   %47 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %48 = load ptr, ptr %47, align 8, !tbaa !187, !noalias !1408
+  %48 = load ptr, ptr %47, align 8, !tbaa !187, !noalias !1407
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 24
-  %50 = load ptr, ptr %49, align 8, !tbaa !1301, !noalias !1408
+  %50 = load ptr, ptr %49, align 8, !tbaa !1301, !noalias !1407
   %51 = invoke noundef ptr %50(ptr noundef nonnull align 8 dereferenceable(48) %3)
           to label %.noexc.i.i.i unwind label %52
 
 .noexc.i.i.i:                                     ; preds = %_ZNKSt9type_infoeqERKS_.exit.thread5.i.i.i
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #37, !noalias !1408
+  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #37, !noalias !1407
   invoke void %46(ptr dead_on_unwind nonnull writable sret(%"class.asio::execution::any_executor") align 8 dereferenceable(48) %27, ptr noundef %51, ptr noundef nonnull %5)
           to label %_ZNK14asio_prefer_fn4implclIRKN4asio9execution12any_executorIJNS3_12context_as_tIRNS2_17execution_contextEEENS3_6detail8blocking7never_tILi0EEENS3_11prefer_onlyINSA_10possibly_tILi0EEEEENSD_INS9_16outstanding_work9tracked_tILi0EEEEENSD_INSH_11untracked_tILi0EEEEENSD_INS9_12relationship6fork_tILi0EEEEENSD_INSO_14continuation_tILi0EEEEEEEERKSJ_EENSt9enable_ifIXeqsr11call_traitsIT_FvT0_EEE8overloadLNS_13overload_typeE3EENS_11call_traitsIS11_S13_vE11result_typeEE4typeEOS11_OS12_.exit.i.i.i unwind label %52
 
 _ZNK14asio_prefer_fn4implclIRKN4asio9execution12any_executorIJNS3_12context_as_tIRNS2_17execution_contextEEENS3_6detail8blocking7never_tILi0EEENS3_11prefer_onlyINSA_10possibly_tILi0EEEEENSD_INS9_16outstanding_work9tracked_tILi0EEEEENSD_INSH_11untracked_tILi0EEEEENSD_INS9_12relationship6fork_tILi0EEEEENSD_INSO_14continuation_tILi0EEEEEEEERKSJ_EENSt9enable_ifIXeqsr11call_traitsIT_FvT0_EEE8overloadLNS_13overload_typeE3EENS_11call_traitsIS11_S13_vE11result_typeEE4typeEOS11_OS12_.exit.i.i.i: ; preds = %.noexc.i.i.i
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #37, !noalias !1408
+  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #37, !noalias !1407
   br label %_ZN4asio6detail14signal_handlerIZN4crow6ServerINS2_4CrowIJEEENS2_13SocketAdaptorEJEE3runEvEUlRKSt10error_codeiE_NS_9execution12any_executorIJNSC_12context_as_tIRNS_17execution_contextEEENSC_6detail8blocking7never_tILi0EEENSC_11prefer_onlyINSJ_10possibly_tILi0EEEEENSM_INSI_16outstanding_work9tracked_tILi0EEEEENSM_INSQ_11untracked_tILi0EEEEENSM_INSI_12relationship6fork_tILi0EEEEENSM_INSX_14continuation_tILi0EEEEEEEEEC2ERSB_RKS14_.exit
 
 52:                                               ; preds = %.noexc.i.i.i, %_ZNKSt9type_infoeqERKS_.exit.thread5.i.i.i, %_ZN4asio6detail14signal_handlerIZN4crow6ServerINS2_4CrowIJEEENS2_13SocketAdaptorEJEE3runEvEUlRKSt10error_codeiE_NS_9execution12any_executorIJNSC_12context_as_tIRNS_17execution_contextEEENSC_6detail8blocking7never_tILi0EEENSC_11prefer_onlyINSJ_10possibly_tILi0EEEEENSM_INSI_16outstanding_work9tracked_tILi0EEEEENSM_INSQ_11untracked_tILi0EEEEENSM_INSI_12relationship6fork_tILi0EEEEENSM_INSX_14continuation_tILi0EEEEEEEEE3ptr8allocateERSB_.exit
@@ -52687,7 +52684,7 @@ _ZNK14asio_prefer_fn4implclIRKN4asio9execution12any_executorIJNS3_12context_as_t
   unreachable
 
 _ZN4asio6detail14signal_handlerIZN4crow6ServerINS2_4CrowIJEEENS2_13SocketAdaptorEJEE3runEvEUlRKSt10error_codeiE_NS_9execution12any_executorIJNSC_12context_as_tIRNS_17execution_contextEEENSC_6detail8blocking7never_tILi0EEENSC_11prefer_onlyINSJ_10possibly_tILi0EEEEENSM_INSI_16outstanding_work9tracked_tILi0EEEEENSM_INSQ_11untracked_tILi0EEEEENSM_INSI_12relationship6fork_tILi0EEEEENSM_INSX_14continuation_tILi0EEEEEEEEEC2ERSB_RKS14_.exit: ; preds = %_ZNK14asio_prefer_fn4implclIRKN4asio9execution12any_executorIJNS3_12context_as_tIRNS2_17execution_contextEEENS3_6detail8blocking7never_tILi0EEENS3_11prefer_onlyINSA_10possibly_tILi0EEEEENSD_INS9_16outstanding_work9tracked_tILi0EEEEENSD_INSH_11untracked_tILi0EEEEENSD_INS9_12relationship6fork_tILi0EEEEENSD_INSO_14continuation_tILi0EEEEEEEERKSJ_EENSt9enable_ifIXeqsr11call_traitsIT_FvT0_EEE8overloadLNS_13overload_typeE3EENS_11call_traitsIS11_S13_vE11result_typeEE4typeEOS11_OS12_.exit.i.i.i, %_ZNKSt9type_infoeqERKS_.exit.thread.i.i.i
-  store ptr %.sink26.i.i.i.i.i.i, ptr %18, align 8, !tbaa !1407
+  store ptr %.sink26.i.i.i.i.i.i, ptr %18, align 8, !tbaa !1412
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %56 = load ptr, ptr %55, align 8, !tbaa !316
   %57 = getelementptr inbounds nuw i8, ptr %56, i64 208
@@ -52748,7 +52745,7 @@ _ZN4asio6detail14signal_handlerIZN4crow6ServerINS2_4CrowIJEEENS2_13SocketAdaptor
 ; Function Attrs: mustprogress nounwind uwtable
 define linkonce_odr dso_local void @_ZN4asio6detail14signal_handlerIZN4crow6ServerINS2_4CrowIJEEENS2_13SocketAdaptorEJEE3runEvEUlRKSt10error_codeiE_NS_9execution12any_executorIJNSC_12context_as_tIRNS_17execution_contextEEENSC_6detail8blocking7never_tILi0EEENSC_11prefer_onlyINSJ_10possibly_tILi0EEEEENSM_INSI_16outstanding_work9tracked_tILi0EEEEENSM_INSQ_11untracked_tILi0EEEEENSM_INSI_12relationship6fork_tILi0EEEEENSM_INSX_14continuation_tILi0EEEEEEEEE3ptrD2Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 8, !tbaa !1407
+  %3 = load ptr, ptr %2, align 8, !tbaa !1412
   %.not.i = icmp eq ptr %3, null
   br i1 %.not.i, label %12, label %4
 
@@ -52768,7 +52765,7 @@ define linkonce_odr dso_local void @_ZN4asio6detail14signal_handlerIZN4crow6Serv
   unreachable
 
 _ZN4asio6detail14signal_handlerIZN4crow6ServerINS2_4CrowIJEEENS2_13SocketAdaptorEJEE3runEvEUlRKSt10error_codeiE_NS_9execution12any_executorIJNSC_12context_as_tIRNS_17execution_contextEEENSC_6detail8blocking7never_tILi0EEENSC_11prefer_onlyINSJ_10possibly_tILi0EEEEENSM_INSI_16outstanding_work9tracked_tILi0EEEEENSM_INSQ_11untracked_tILi0EEEEENSM_INSI_12relationship6fork_tILi0EEEEENSM_INSX_14continuation_tILi0EEEEEEEEED2Ev.exit.i: ; preds = %4
-  store ptr null, ptr %2, align 8, !tbaa !1407
+  store ptr null, ptr %2, align 8, !tbaa !1412
   br label %12
 
 12:                                               ; preds = %_ZN4asio6detail14signal_handlerIZN4crow6ServerINS2_4CrowIJEEENS2_13SocketAdaptorEJEE3runEvEUlRKSt10error_codeiE_NS_9execution12any_executorIJNSC_12context_as_tIRNS_17execution_contextEEENSC_6detail8blocking7never_tILi0EEENSC_11prefer_onlyINSJ_10possibly_tILi0EEEEENSM_INSI_16outstanding_work9tracked_tILi0EEEEENSM_INSQ_11untracked_tILi0EEEEENSM_INSI_12relationship6fork_tILi0EEEEENSM_INSX_14continuation_tILi0EEEEEEEEED2Ev.exit.i, %1
@@ -52879,7 +52876,7 @@ define linkonce_odr dso_local void @_ZN4asio6detail14signal_handlerIZN4crow6Serv
   unreachable
 
 39:                                               ; preds = %22
-  store ptr null, ptr %9, align 8, !tbaa !1407
+  store ptr null, ptr %9, align 8, !tbaa !1412
   %40 = call align 8 ptr @llvm.threadlocal.address.p0(ptr align 8 @_ZN4asio6detail15keyword_tss_ptrINS0_10call_stackINS0_14thread_contextENS0_16thread_info_baseEE7contextEE6value_E)
   %41 = load ptr, ptr %40, align 8, !tbaa !279
   %.not.i.i.i.i.i = icmp eq ptr %41, null
@@ -87591,12 +87588,12 @@ attributes #43 = { allocsize(0) }
 !1347 = !{!"_ZTSN4asio6detail12wait_handlerIZN4crow6ServerINS2_4CrowIJEEENS2_13SocketAdaptorEJEE3runEvEUlRKSt10error_codeE_NS_9execution12any_executorIJNSC_12context_as_tIRNS_17execution_contextEEENSC_6detail8blocking7never_tILi0EEENSC_11prefer_onlyINSJ_10possibly_tILi0EEEEENSM_INSI_16outstanding_work9tracked_tILi0EEEEENSM_INSQ_11untracked_tILi0EEEEENSM_INSI_12relationship6fork_tILi0EEEEENSM_INSX_14continuation_tILi0EEEEEEEEE3ptrE", !7, i64 0, !1348, i64 8, !1348, i64 16}
 !1348 = !{!"p1 _ZTSN4asio6detail12wait_handlerIZN4crow6ServerINS2_4CrowIJEEENS2_13SocketAdaptorEJEE3runEvEUlRKSt10error_codeE_NS_9execution12any_executorIJNSC_12context_as_tIRNS_17execution_contextEEENSC_6detail8blocking7never_tILi0EEENSC_11prefer_onlyINSJ_10possibly_tILi0EEEEENSM_INSI_16outstanding_work9tracked_tILi0EEEEENSM_INSQ_11untracked_tILi0EEEEENSM_INSI_12relationship6fork_tILi0EEEEENSM_INSX_14continuation_tILi0EEEEEEEEEE", !7, i64 0}
 !1349 = !{!1347, !1348, i64 8}
-!1350 = !{!1347, !1348, i64 16}
-!1351 = !{!1352, !1354}
-!1352 = distinct !{!1352, !1353, !"_ZNK4asio9execution12any_executorIJNS0_12context_as_tIRNS_17execution_contextEEENS0_6detail8blocking7never_tILi0EEENS0_11prefer_onlyINS7_10possibly_tILi0EEEEENSA_INS6_16outstanding_work9tracked_tILi0EEEEENSA_INSE_11untracked_tILi0EEEEENSA_INS6_12relationship6fork_tILi0EEEEENSA_INSL_14continuation_tILi0EEEEEEE6preferISG_EESS_RKT_PNSt9enable_ifIXsr36find_convertible_preferable_propertyISU_EE5valueEvE4typeE: argument 0"}
-!1353 = distinct !{!1353, !"_ZNK4asio9execution12any_executorIJNS0_12context_as_tIRNS_17execution_contextEEENS0_6detail8blocking7never_tILi0EEENS0_11prefer_onlyINS7_10possibly_tILi0EEEEENSA_INS6_16outstanding_work9tracked_tILi0EEEEENSA_INSE_11untracked_tILi0EEEEENSA_INS6_12relationship6fork_tILi0EEEEENSA_INSL_14continuation_tILi0EEEEEEE6preferISG_EESS_RKT_PNSt9enable_ifIXsr36find_convertible_preferable_propertyISU_EE5valueEvE4typeE"}
-!1354 = distinct !{!1354, !1355, !"_ZNK14asio_prefer_fn4implclIRKN4asio9execution12any_executorIJNS3_12context_as_tIRNS2_17execution_contextEEENS3_6detail8blocking7never_tILi0EEENS3_11prefer_onlyINSA_10possibly_tILi0EEEEENSD_INS9_16outstanding_work9tracked_tILi0EEEEENSD_INSH_11untracked_tILi0EEEEENSD_INS9_12relationship6fork_tILi0EEEEENSD_INSO_14continuation_tILi0EEEEEEEERKSJ_EENSt9enable_ifIXeqsr11call_traitsIT_FvT0_EEE8overloadLNS_13overload_typeE3EENS_11call_traitsIS11_S13_vE11result_typeEE4typeEOS11_OS12_: argument 0"}
-!1355 = distinct !{!1355, !"_ZNK14asio_prefer_fn4implclIRKN4asio9execution12any_executorIJNS3_12context_as_tIRNS2_17execution_contextEEENS3_6detail8blocking7never_tILi0EEENS3_11prefer_onlyINSA_10possibly_tILi0EEEEENSD_INS9_16outstanding_work9tracked_tILi0EEEEENSD_INSH_11untracked_tILi0EEEEENSD_INS9_12relationship6fork_tILi0EEEEENSD_INSO_14continuation_tILi0EEEEEEEERKSJ_EENSt9enable_ifIXeqsr11call_traitsIT_FvT0_EEE8overloadLNS_13overload_typeE3EENS_11call_traitsIS11_S13_vE11result_typeEE4typeEOS11_OS12_"}
+!1350 = !{!1351, !1353}
+!1351 = distinct !{!1351, !1352, !"_ZNK4asio9execution12any_executorIJNS0_12context_as_tIRNS_17execution_contextEEENS0_6detail8blocking7never_tILi0EEENS0_11prefer_onlyINS7_10possibly_tILi0EEEEENSA_INS6_16outstanding_work9tracked_tILi0EEEEENSA_INSE_11untracked_tILi0EEEEENSA_INS6_12relationship6fork_tILi0EEEEENSA_INSL_14continuation_tILi0EEEEEEE6preferISG_EESS_RKT_PNSt9enable_ifIXsr36find_convertible_preferable_propertyISU_EE5valueEvE4typeE: argument 0"}
+!1352 = distinct !{!1352, !"_ZNK4asio9execution12any_executorIJNS0_12context_as_tIRNS_17execution_contextEEENS0_6detail8blocking7never_tILi0EEENS0_11prefer_onlyINS7_10possibly_tILi0EEEEENSA_INS6_16outstanding_work9tracked_tILi0EEEEENSA_INSE_11untracked_tILi0EEEEENSA_INS6_12relationship6fork_tILi0EEEEENSA_INSL_14continuation_tILi0EEEEEEE6preferISG_EESS_RKT_PNSt9enable_ifIXsr36find_convertible_preferable_propertyISU_EE5valueEvE4typeE"}
+!1353 = distinct !{!1353, !1354, !"_ZNK14asio_prefer_fn4implclIRKN4asio9execution12any_executorIJNS3_12context_as_tIRNS2_17execution_contextEEENS3_6detail8blocking7never_tILi0EEENS3_11prefer_onlyINSA_10possibly_tILi0EEEEENSD_INS9_16outstanding_work9tracked_tILi0EEEEENSD_INSH_11untracked_tILi0EEEEENSD_INS9_12relationship6fork_tILi0EEEEENSD_INSO_14continuation_tILi0EEEEEEEERKSJ_EENSt9enable_ifIXeqsr11call_traitsIT_FvT0_EEE8overloadLNS_13overload_typeE3EENS_11call_traitsIS11_S13_vE11result_typeEE4typeEOS11_OS12_: argument 0"}
+!1354 = distinct !{!1354, !"_ZNK14asio_prefer_fn4implclIRKN4asio9execution12any_executorIJNS3_12context_as_tIRNS2_17execution_contextEEENS3_6detail8blocking7never_tILi0EEENS3_11prefer_onlyINSA_10possibly_tILi0EEEEENSD_INS9_16outstanding_work9tracked_tILi0EEEEENSD_INSH_11untracked_tILi0EEEEENSD_INS9_12relationship6fork_tILi0EEEEENSD_INSO_14continuation_tILi0EEEEEEEERKSJ_EENSt9enable_ifIXeqsr11call_traitsIT_FvT0_EEE8overloadLNS_13overload_typeE3EENS_11call_traitsIS11_S13_vE11result_typeEE4typeEOS11_OS12_"}
+!1355 = !{!1347, !1348, i64 16}
 !1356 = !{!1357}
 !1357 = distinct !{!1357, !1358, !"_ZNK14asio_prefer_fn4implclIRN4asio9execution12any_executorIJNS3_12context_as_tIRNS2_17execution_contextEEENS3_6detail8blocking7never_tILi0EEENS3_11prefer_onlyINSA_10possibly_tILi0EEEEENSD_INS9_16outstanding_work9tracked_tILi0EEEEENSD_INSH_11untracked_tILi0EEEEENSD_INS9_12relationship6fork_tILi0EEEEENSD_INSO_14continuation_tILi0EEEEEEEERKSF_NS3_11allocator_tISaIvEEEEENSt9enable_ifIXeqsr11call_traitsIT_FvT0_T1_EEE8overloadLNS_13overload_typeE5EENS_11call_traitsIS13_S16_vE11result_typeEE4typeEOS13_OS14_OS15_: argument 0"}
 !1358 = distinct !{!1358, !"_ZNK14asio_prefer_fn4implclIRN4asio9execution12any_executorIJNS3_12context_as_tIRNS2_17execution_contextEEENS3_6detail8blocking7never_tILi0EEENS3_11prefer_onlyINSA_10possibly_tILi0EEEEENSD_INS9_16outstanding_work9tracked_tILi0EEEEENSD_INSH_11untracked_tILi0EEEEENSD_INS9_12relationship6fork_tILi0EEEEENSD_INSO_14continuation_tILi0EEEEEEEERKSF_NS3_11allocator_tISaIvEEEEENSt9enable_ifIXeqsr11call_traitsIT_FvT0_T1_EEE8overloadLNS_13overload_typeE5EENS_11call_traitsIS13_S16_vE11result_typeEE4typeEOS13_OS14_OS15_"}
@@ -87611,12 +87608,12 @@ attributes #43 = { allocsize(0) }
 !1367 = !{!"_ZTSN4asio6detail12wait_handlerIZN4crow6ServerINS2_4CrowIJEEENS2_13SocketAdaptorEJEE7on_tickEvEUlRKSt10error_codeE_NS_9execution12any_executorIJNSC_12context_as_tIRNS_17execution_contextEEENSC_6detail8blocking7never_tILi0EEENSC_11prefer_onlyINSJ_10possibly_tILi0EEEEENSM_INSI_16outstanding_work9tracked_tILi0EEEEENSM_INSQ_11untracked_tILi0EEEEENSM_INSI_12relationship6fork_tILi0EEEEENSM_INSX_14continuation_tILi0EEEEEEEEE3ptrE", !7, i64 0, !1368, i64 8, !1368, i64 16}
 !1368 = !{!"p1 _ZTSN4asio6detail12wait_handlerIZN4crow6ServerINS2_4CrowIJEEENS2_13SocketAdaptorEJEE7on_tickEvEUlRKSt10error_codeE_NS_9execution12any_executorIJNSC_12context_as_tIRNS_17execution_contextEEENSC_6detail8blocking7never_tILi0EEENSC_11prefer_onlyINSJ_10possibly_tILi0EEEEENSM_INSI_16outstanding_work9tracked_tILi0EEEEENSM_INSQ_11untracked_tILi0EEEEENSM_INSI_12relationship6fork_tILi0EEEEENSM_INSX_14continuation_tILi0EEEEEEEEEE", !7, i64 0}
 !1369 = !{!1367, !1368, i64 8}
-!1370 = !{!1367, !1368, i64 16}
-!1371 = !{!1372, !1374}
-!1372 = distinct !{!1372, !1373, !"_ZNK4asio9execution12any_executorIJNS0_12context_as_tIRNS_17execution_contextEEENS0_6detail8blocking7never_tILi0EEENS0_11prefer_onlyINS7_10possibly_tILi0EEEEENSA_INS6_16outstanding_work9tracked_tILi0EEEEENSA_INSE_11untracked_tILi0EEEEENSA_INS6_12relationship6fork_tILi0EEEEENSA_INSL_14continuation_tILi0EEEEEEE6preferISG_EESS_RKT_PNSt9enable_ifIXsr36find_convertible_preferable_propertyISU_EE5valueEvE4typeE: argument 0"}
-!1373 = distinct !{!1373, !"_ZNK4asio9execution12any_executorIJNS0_12context_as_tIRNS_17execution_contextEEENS0_6detail8blocking7never_tILi0EEENS0_11prefer_onlyINS7_10possibly_tILi0EEEEENSA_INS6_16outstanding_work9tracked_tILi0EEEEENSA_INSE_11untracked_tILi0EEEEENSA_INS6_12relationship6fork_tILi0EEEEENSA_INSL_14continuation_tILi0EEEEEEE6preferISG_EESS_RKT_PNSt9enable_ifIXsr36find_convertible_preferable_propertyISU_EE5valueEvE4typeE"}
-!1374 = distinct !{!1374, !1375, !"_ZNK14asio_prefer_fn4implclIRKN4asio9execution12any_executorIJNS3_12context_as_tIRNS2_17execution_contextEEENS3_6detail8blocking7never_tILi0EEENS3_11prefer_onlyINSA_10possibly_tILi0EEEEENSD_INS9_16outstanding_work9tracked_tILi0EEEEENSD_INSH_11untracked_tILi0EEEEENSD_INS9_12relationship6fork_tILi0EEEEENSD_INSO_14continuation_tILi0EEEEEEEERKSJ_EENSt9enable_ifIXeqsr11call_traitsIT_FvT0_EEE8overloadLNS_13overload_typeE3EENS_11call_traitsIS11_S13_vE11result_typeEE4typeEOS11_OS12_: argument 0"}
-!1375 = distinct !{!1375, !"_ZNK14asio_prefer_fn4implclIRKN4asio9execution12any_executorIJNS3_12context_as_tIRNS2_17execution_contextEEENS3_6detail8blocking7never_tILi0EEENS3_11prefer_onlyINSA_10possibly_tILi0EEEEENSD_INS9_16outstanding_work9tracked_tILi0EEEEENSD_INSH_11untracked_tILi0EEEEENSD_INS9_12relationship6fork_tILi0EEEEENSD_INSO_14continuation_tILi0EEEEEEEERKSJ_EENSt9enable_ifIXeqsr11call_traitsIT_FvT0_EEE8overloadLNS_13overload_typeE3EENS_11call_traitsIS11_S13_vE11result_typeEE4typeEOS11_OS12_"}
+!1370 = !{!1371, !1373}
+!1371 = distinct !{!1371, !1372, !"_ZNK4asio9execution12any_executorIJNS0_12context_as_tIRNS_17execution_contextEEENS0_6detail8blocking7never_tILi0EEENS0_11prefer_onlyINS7_10possibly_tILi0EEEEENSA_INS6_16outstanding_work9tracked_tILi0EEEEENSA_INSE_11untracked_tILi0EEEEENSA_INS6_12relationship6fork_tILi0EEEEENSA_INSL_14continuation_tILi0EEEEEEE6preferISG_EESS_RKT_PNSt9enable_ifIXsr36find_convertible_preferable_propertyISU_EE5valueEvE4typeE: argument 0"}
+!1372 = distinct !{!1372, !"_ZNK4asio9execution12any_executorIJNS0_12context_as_tIRNS_17execution_contextEEENS0_6detail8blocking7never_tILi0EEENS0_11prefer_onlyINS7_10possibly_tILi0EEEEENSA_INS6_16outstanding_work9tracked_tILi0EEEEENSA_INSE_11untracked_tILi0EEEEENSA_INS6_12relationship6fork_tILi0EEEEENSA_INSL_14continuation_tILi0EEEEEEE6preferISG_EESS_RKT_PNSt9enable_ifIXsr36find_convertible_preferable_propertyISU_EE5valueEvE4typeE"}
+!1373 = distinct !{!1373, !1374, !"_ZNK14asio_prefer_fn4implclIRKN4asio9execution12any_executorIJNS3_12context_as_tIRNS2_17execution_contextEEENS3_6detail8blocking7never_tILi0EEENS3_11prefer_onlyINSA_10possibly_tILi0EEEEENSD_INS9_16outstanding_work9tracked_tILi0EEEEENSD_INSH_11untracked_tILi0EEEEENSD_INS9_12relationship6fork_tILi0EEEEENSD_INSO_14continuation_tILi0EEEEEEEERKSJ_EENSt9enable_ifIXeqsr11call_traitsIT_FvT0_EEE8overloadLNS_13overload_typeE3EENS_11call_traitsIS11_S13_vE11result_typeEE4typeEOS11_OS12_: argument 0"}
+!1374 = distinct !{!1374, !"_ZNK14asio_prefer_fn4implclIRKN4asio9execution12any_executorIJNS3_12context_as_tIRNS2_17execution_contextEEENS3_6detail8blocking7never_tILi0EEENS3_11prefer_onlyINSA_10possibly_tILi0EEEEENSD_INS9_16outstanding_work9tracked_tILi0EEEEENSD_INSH_11untracked_tILi0EEEEENSD_INS9_12relationship6fork_tILi0EEEEENSD_INSO_14continuation_tILi0EEEEEEEERKSJ_EENSt9enable_ifIXeqsr11call_traitsIT_FvT0_EEE8overloadLNS_13overload_typeE3EENS_11call_traitsIS11_S13_vE11result_typeEE4typeEOS11_OS12_"}
+!1375 = !{!1367, !1368, i64 16}
 !1376 = !{!1377}
 !1377 = distinct !{!1377, !1378, !"_ZNK14asio_prefer_fn4implclIRN4asio9execution12any_executorIJNS3_12context_as_tIRNS2_17execution_contextEEENS3_6detail8blocking7never_tILi0EEENS3_11prefer_onlyINSA_10possibly_tILi0EEEEENSD_INS9_16outstanding_work9tracked_tILi0EEEEENSD_INSH_11untracked_tILi0EEEEENSD_INS9_12relationship6fork_tILi0EEEEENSD_INSO_14continuation_tILi0EEEEEEEERKSF_NS3_11allocator_tISaIvEEEEENSt9enable_ifIXeqsr11call_traitsIT_FvT0_T1_EEE8overloadLNS_13overload_typeE5EENS_11call_traitsIS13_S16_vE11result_typeEE4typeEOS13_OS14_OS15_: argument 0"}
 !1378 = distinct !{!1378, !"_ZNK14asio_prefer_fn4implclIRN4asio9execution12any_executorIJNS3_12context_as_tIRNS2_17execution_contextEEENS3_6detail8blocking7never_tILi0EEENS3_11prefer_onlyINSA_10possibly_tILi0EEEEENSD_INS9_16outstanding_work9tracked_tILi0EEEEENSD_INSH_11untracked_tILi0EEEEENSD_INS9_12relationship6fork_tILi0EEEEENSD_INSO_14continuation_tILi0EEEEEEEERKSF_NS3_11allocator_tISaIvEEEEENSt9enable_ifIXeqsr11call_traitsIT_FvT0_T1_EEE8overloadLNS_13overload_typeE5EENS_11call_traitsIS13_S16_vE11result_typeEE4typeEOS13_OS14_OS15_"}
@@ -87648,12 +87645,12 @@ attributes #43 = { allocsize(0) }
 !1404 = !{!"_ZTSN4asio6detail14signal_handlerIZN4crow6ServerINS2_4CrowIJEEENS2_13SocketAdaptorEJEE3runEvEUlRKSt10error_codeiE_NS_9execution12any_executorIJNSC_12context_as_tIRNS_17execution_contextEEENSC_6detail8blocking7never_tILi0EEENSC_11prefer_onlyINSJ_10possibly_tILi0EEEEENSM_INSI_16outstanding_work9tracked_tILi0EEEEENSM_INSQ_11untracked_tILi0EEEEENSM_INSI_12relationship6fork_tILi0EEEEENSM_INSX_14continuation_tILi0EEEEEEEEE3ptrE", !7, i64 0, !1405, i64 8, !1405, i64 16}
 !1405 = !{!"p1 _ZTSN4asio6detail14signal_handlerIZN4crow6ServerINS2_4CrowIJEEENS2_13SocketAdaptorEJEE3runEvEUlRKSt10error_codeiE_NS_9execution12any_executorIJNSC_12context_as_tIRNS_17execution_contextEEENSC_6detail8blocking7never_tILi0EEENSC_11prefer_onlyINSJ_10possibly_tILi0EEEEENSM_INSI_16outstanding_work9tracked_tILi0EEEEENSM_INSQ_11untracked_tILi0EEEEENSM_INSI_12relationship6fork_tILi0EEEEENSM_INSX_14continuation_tILi0EEEEEEEEEE", !7, i64 0}
 !1406 = !{!1404, !1405, i64 8}
-!1407 = !{!1404, !1405, i64 16}
-!1408 = !{!1409, !1411}
-!1409 = distinct !{!1409, !1410, !"_ZNK4asio9execution12any_executorIJNS0_12context_as_tIRNS_17execution_contextEEENS0_6detail8blocking7never_tILi0EEENS0_11prefer_onlyINS7_10possibly_tILi0EEEEENSA_INS6_16outstanding_work9tracked_tILi0EEEEENSA_INSE_11untracked_tILi0EEEEENSA_INS6_12relationship6fork_tILi0EEEEENSA_INSL_14continuation_tILi0EEEEEEE6preferISG_EESS_RKT_PNSt9enable_ifIXsr36find_convertible_preferable_propertyISU_EE5valueEvE4typeE: argument 0"}
-!1410 = distinct !{!1410, !"_ZNK4asio9execution12any_executorIJNS0_12context_as_tIRNS_17execution_contextEEENS0_6detail8blocking7never_tILi0EEENS0_11prefer_onlyINS7_10possibly_tILi0EEEEENSA_INS6_16outstanding_work9tracked_tILi0EEEEENSA_INSE_11untracked_tILi0EEEEENSA_INS6_12relationship6fork_tILi0EEEEENSA_INSL_14continuation_tILi0EEEEEEE6preferISG_EESS_RKT_PNSt9enable_ifIXsr36find_convertible_preferable_propertyISU_EE5valueEvE4typeE"}
-!1411 = distinct !{!1411, !1412, !"_ZNK14asio_prefer_fn4implclIRKN4asio9execution12any_executorIJNS3_12context_as_tIRNS2_17execution_contextEEENS3_6detail8blocking7never_tILi0EEENS3_11prefer_onlyINSA_10possibly_tILi0EEEEENSD_INS9_16outstanding_work9tracked_tILi0EEEEENSD_INSH_11untracked_tILi0EEEEENSD_INS9_12relationship6fork_tILi0EEEEENSD_INSO_14continuation_tILi0EEEEEEEERKSJ_EENSt9enable_ifIXeqsr11call_traitsIT_FvT0_EEE8overloadLNS_13overload_typeE3EENS_11call_traitsIS11_S13_vE11result_typeEE4typeEOS11_OS12_: argument 0"}
-!1412 = distinct !{!1412, !"_ZNK14asio_prefer_fn4implclIRKN4asio9execution12any_executorIJNS3_12context_as_tIRNS2_17execution_contextEEENS3_6detail8blocking7never_tILi0EEENS3_11prefer_onlyINSA_10possibly_tILi0EEEEENSD_INS9_16outstanding_work9tracked_tILi0EEEEENSD_INSH_11untracked_tILi0EEEEENSD_INS9_12relationship6fork_tILi0EEEEENSD_INSO_14continuation_tILi0EEEEEEEERKSJ_EENSt9enable_ifIXeqsr11call_traitsIT_FvT0_EEE8overloadLNS_13overload_typeE3EENS_11call_traitsIS11_S13_vE11result_typeEE4typeEOS11_OS12_"}
+!1407 = !{!1408, !1410}
+!1408 = distinct !{!1408, !1409, !"_ZNK4asio9execution12any_executorIJNS0_12context_as_tIRNS_17execution_contextEEENS0_6detail8blocking7never_tILi0EEENS0_11prefer_onlyINS7_10possibly_tILi0EEEEENSA_INS6_16outstanding_work9tracked_tILi0EEEEENSA_INSE_11untracked_tILi0EEEEENSA_INS6_12relationship6fork_tILi0EEEEENSA_INSL_14continuation_tILi0EEEEEEE6preferISG_EESS_RKT_PNSt9enable_ifIXsr36find_convertible_preferable_propertyISU_EE5valueEvE4typeE: argument 0"}
+!1409 = distinct !{!1409, !"_ZNK4asio9execution12any_executorIJNS0_12context_as_tIRNS_17execution_contextEEENS0_6detail8blocking7never_tILi0EEENS0_11prefer_onlyINS7_10possibly_tILi0EEEEENSA_INS6_16outstanding_work9tracked_tILi0EEEEENSA_INSE_11untracked_tILi0EEEEENSA_INS6_12relationship6fork_tILi0EEEEENSA_INSL_14continuation_tILi0EEEEEEE6preferISG_EESS_RKT_PNSt9enable_ifIXsr36find_convertible_preferable_propertyISU_EE5valueEvE4typeE"}
+!1410 = distinct !{!1410, !1411, !"_ZNK14asio_prefer_fn4implclIRKN4asio9execution12any_executorIJNS3_12context_as_tIRNS2_17execution_contextEEENS3_6detail8blocking7never_tILi0EEENS3_11prefer_onlyINSA_10possibly_tILi0EEEEENSD_INS9_16outstanding_work9tracked_tILi0EEEEENSD_INSH_11untracked_tILi0EEEEENSD_INS9_12relationship6fork_tILi0EEEEENSD_INSO_14continuation_tILi0EEEEEEEERKSJ_EENSt9enable_ifIXeqsr11call_traitsIT_FvT0_EEE8overloadLNS_13overload_typeE3EENS_11call_traitsIS11_S13_vE11result_typeEE4typeEOS11_OS12_: argument 0"}
+!1411 = distinct !{!1411, !"_ZNK14asio_prefer_fn4implclIRKN4asio9execution12any_executorIJNS3_12context_as_tIRNS2_17execution_contextEEENS3_6detail8blocking7never_tILi0EEENS3_11prefer_onlyINSA_10possibly_tILi0EEEEENSD_INS9_16outstanding_work9tracked_tILi0EEEEENSD_INSH_11untracked_tILi0EEEEENSD_INS9_12relationship6fork_tILi0EEEEENSD_INSO_14continuation_tILi0EEEEEEEERKSJ_EENSt9enable_ifIXeqsr11call_traitsIT_FvT0_EEE8overloadLNS_13overload_typeE3EENS_11call_traitsIS11_S13_vE11result_typeEE4typeEOS11_OS12_"}
+!1412 = !{!1404, !1405, i64 16}
 !1413 = distinct !{!1413, !153}
 !1414 = !{!1415, !19, i64 24}
 !1415 = !{!"_ZTSN4asio6detail7binder2IZN4crow6ServerINS2_4CrowIJEEENS2_13SocketAdaptorEJEE3runEvEUlRKSt10error_codeiE_S8_iEE", !638, i64 0, !100, i64 8, !19, i64 24}

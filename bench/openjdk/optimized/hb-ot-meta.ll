@@ -142,13 +142,13 @@ _ZNK10hb_array_tIKN2OT7DataMapEE9sub_arrayEjPj.exit: ; preds = %4
   %29 = getelementptr inbounds nuw i8, ptr %spec.select.i.i1.i.i, i64 16
   %30 = zext i32 %1 to i64
   %31 = getelementptr inbounds nuw %"struct.OT::DataMap", ptr %29, i64 %30
-  br label %_ZN9hb_iter_tI13hb_map_iter_tIS0_I10hb_array_tIKN2OT7DataMapEEMS3_KFjvEL24hb_function_sortedness_t0ELPv0EEZNKS2_4meta13accelerator_t11get_entriesEjPjP16hb_ot_meta_tag_tEUljE_LS8_0ELS9_0EESE_EdeEv.exit.i.us.i
+  br label %_ZN9hb_iter_tI13hb_map_iter_tIS0_I10hb_array_tIKN2OT7DataMapEEMS3_KFjvEL24hb_function_sortedness_t0ELPv0EEZNKS2_4meta13accelerator_t11get_entriesEjPjP16hb_ot_meta_tag_tEUljE_LS8_0ELS9_0EESE_EdeEv.exit.us.i.i
 
-_ZN9hb_iter_tI13hb_map_iter_tIS0_I10hb_array_tIKN2OT7DataMapEEMS3_KFjvEL24hb_function_sortedness_t0ELPv0EEZNKS2_4meta13accelerator_t11get_entriesEjPjP16hb_ot_meta_tag_tEUljE_LS8_0ELS9_0EESE_EdeEv.exit.i.us.i: ; preds = %.lr.ph.i.i, %_ZNR9hb_iter_tI13hb_map_iter_tIS0_I10hb_array_tIKN2OT7DataMapEEMS3_KFjvEL24hb_function_sortedness_t0ELPv0EEZNKS2_4meta13accelerator_t11get_entriesEjPjP16hb_ot_meta_tag_tEUljE_LS8_0ELS9_0EESE_EppEv.exit.i.us.i
-  %.sroa.026.2 = phi ptr [ %3, %.lr.ph.i.i ], [ %.sroa.026.3, %_ZNR9hb_iter_tI13hb_map_iter_tIS0_I10hb_array_tIKN2OT7DataMapEEMS3_KFjvEL24hb_function_sortedness_t0ELPv0EEZNKS2_4meta13accelerator_t11get_entriesEjPjP16hb_ot_meta_tag_tEUljE_LS8_0ELS9_0EESE_EppEv.exit.i.us.i ]
-  %.sroa.7.2 = phi i32 [ %.sroa.speculated.i, %.lr.ph.i.i ], [ %.sroa.7.3, %_ZNR9hb_iter_tI13hb_map_iter_tIS0_I10hb_array_tIKN2OT7DataMapEEMS3_KFjvEL24hb_function_sortedness_t0ELPv0EEZNKS2_4meta13accelerator_t11get_entriesEjPjP16hb_ot_meta_tag_tEUljE_LS8_0ELS9_0EESE_EppEv.exit.i.us.i ]
-  %32 = phi i32 [ %.sroa.speculated.i, %.lr.ph.i.i ], [ %54, %_ZNR9hb_iter_tI13hb_map_iter_tIS0_I10hb_array_tIKN2OT7DataMapEEMS3_KFjvEL24hb_function_sortedness_t0ELPv0EEZNKS2_4meta13accelerator_t11get_entriesEjPjP16hb_ot_meta_tag_tEUljE_LS8_0ELS9_0EESE_EppEv.exit.i.us.i ]
-  %33 = phi ptr [ %31, %.lr.ph.i.i ], [ %55, %_ZNR9hb_iter_tI13hb_map_iter_tIS0_I10hb_array_tIKN2OT7DataMapEEMS3_KFjvEL24hb_function_sortedness_t0ELPv0EEZNKS2_4meta13accelerator_t11get_entriesEjPjP16hb_ot_meta_tag_tEUljE_LS8_0ELS9_0EESE_EppEv.exit.i.us.i ]
+_ZN9hb_iter_tI13hb_map_iter_tIS0_I10hb_array_tIKN2OT7DataMapEEMS3_KFjvEL24hb_function_sortedness_t0ELPv0EEZNKS2_4meta13accelerator_t11get_entriesEjPjP16hb_ot_meta_tag_tEUljE_LS8_0ELS9_0EESE_EdeEv.exit.us.i.i: ; preds = %.lr.ph.i.i, %_ZNR9hb_iter_tI13hb_map_iter_tIS0_I10hb_array_tIKN2OT7DataMapEEMS3_KFjvEL24hb_function_sortedness_t0ELPv0EEZNKS2_4meta13accelerator_t11get_entriesEjPjP16hb_ot_meta_tag_tEUljE_LS8_0ELS9_0EESE_EppEv.exit.us.i.i
+  %.sroa.026.2 = phi ptr [ %3, %.lr.ph.i.i ], [ %.sroa.026.3, %_ZNR9hb_iter_tI13hb_map_iter_tIS0_I10hb_array_tIKN2OT7DataMapEEMS3_KFjvEL24hb_function_sortedness_t0ELPv0EEZNKS2_4meta13accelerator_t11get_entriesEjPjP16hb_ot_meta_tag_tEUljE_LS8_0ELS9_0EESE_EppEv.exit.us.i.i ]
+  %.sroa.7.2 = phi i32 [ %.sroa.speculated.i, %.lr.ph.i.i ], [ %.sroa.7.3, %_ZNR9hb_iter_tI13hb_map_iter_tIS0_I10hb_array_tIKN2OT7DataMapEEMS3_KFjvEL24hb_function_sortedness_t0ELPv0EEZNKS2_4meta13accelerator_t11get_entriesEjPjP16hb_ot_meta_tag_tEUljE_LS8_0ELS9_0EESE_EppEv.exit.us.i.i ]
+  %32 = phi i32 [ %.sroa.speculated.i, %.lr.ph.i.i ], [ %54, %_ZNR9hb_iter_tI13hb_map_iter_tIS0_I10hb_array_tIKN2OT7DataMapEEMS3_KFjvEL24hb_function_sortedness_t0ELPv0EEZNKS2_4meta13accelerator_t11get_entriesEjPjP16hb_ot_meta_tag_tEUljE_LS8_0ELS9_0EESE_EppEv.exit.us.i.i ]
+  %33 = phi ptr [ %31, %.lr.ph.i.i ], [ %55, %_ZNR9hb_iter_tI13hb_map_iter_tIS0_I10hb_array_tIKN2OT7DataMapEEMS3_KFjvEL24hb_function_sortedness_t0ELPv0EEZNKS2_4meta13accelerator_t11get_entriesEjPjP16hb_ot_meta_tag_tEUljE_LS8_0ELS9_0EESE_EppEv.exit.us.i.i ]
   %34 = load i8, ptr %33, align 1
   %35 = zext i8 %34 to i32
   %36 = shl nuw i32 %35, 24
@@ -166,28 +166,28 @@ _ZN9hb_iter_tI13hb_map_iter_tIS0_I10hb_array_tIKN2OT7DataMapEEMS3_KFjvEL24hb_fun
   %48 = load i8, ptr %47, align 1
   %49 = zext i8 %48 to i32
   %50 = or disjoint i32 %46, %49
-  %.not.i.i.i.i.us.i = icmp eq i32 %.sroa.7.2, 0
-  br i1 %.not.i.i.i.i.us.i, label %_ZN9hb_iter_tI10hb_array_tI16hb_ot_meta_tag_tERS1_EdeEv.exit.i.i.us.i.thread, label %51
+  %.not.i.i.i.us.i.i = icmp eq i32 %.sroa.7.2, 0
+  br i1 %.not.i.i.i.us.i.i, label %_ZN9hb_iter_tI10hb_array_tI16hb_ot_meta_tag_tERS1_EdeEv.exit.i.us.i.i.thread, label %51
 
-_ZN9hb_iter_tI10hb_array_tI16hb_ot_meta_tag_tERS1_EdeEv.exit.i.i.us.i.thread: ; preds = %_ZN9hb_iter_tI13hb_map_iter_tIS0_I10hb_array_tIKN2OT7DataMapEEMS3_KFjvEL24hb_function_sortedness_t0ELPv0EEZNKS2_4meta13accelerator_t11get_entriesEjPjP16hb_ot_meta_tag_tEUljE_LS8_0ELS9_0EESE_EdeEv.exit.i.us.i
+_ZN9hb_iter_tI10hb_array_tI16hb_ot_meta_tag_tERS1_EdeEv.exit.i.us.i.i.thread: ; preds = %_ZN9hb_iter_tI13hb_map_iter_tIS0_I10hb_array_tIKN2OT7DataMapEEMS3_KFjvEL24hb_function_sortedness_t0ELPv0EEZNKS2_4meta13accelerator_t11get_entriesEjPjP16hb_ot_meta_tag_tEUljE_LS8_0ELS9_0EESE_EdeEv.exit.us.i.i
   store i32 %50, ptr @_hb_CrapPool, align 16
-  br label %_ZNR9hb_iter_tI13hb_map_iter_tIS0_I10hb_array_tIKN2OT7DataMapEEMS3_KFjvEL24hb_function_sortedness_t0ELPv0EEZNKS2_4meta13accelerator_t11get_entriesEjPjP16hb_ot_meta_tag_tEUljE_LS8_0ELS9_0EESE_EppEv.exit.i.us.i
+  br label %_ZNR9hb_iter_tI13hb_map_iter_tIS0_I10hb_array_tIKN2OT7DataMapEEMS3_KFjvEL24hb_function_sortedness_t0ELPv0EEZNKS2_4meta13accelerator_t11get_entriesEjPjP16hb_ot_meta_tag_tEUljE_LS8_0ELS9_0EESE_EppEv.exit.us.i.i
 
-51:                                               ; preds = %_ZN9hb_iter_tI13hb_map_iter_tIS0_I10hb_array_tIKN2OT7DataMapEEMS3_KFjvEL24hb_function_sortedness_t0ELPv0EEZNKS2_4meta13accelerator_t11get_entriesEjPjP16hb_ot_meta_tag_tEUljE_LS8_0ELS9_0EESE_EdeEv.exit.i.us.i
+51:                                               ; preds = %_ZN9hb_iter_tI13hb_map_iter_tIS0_I10hb_array_tIKN2OT7DataMapEEMS3_KFjvEL24hb_function_sortedness_t0ELPv0EEZNKS2_4meta13accelerator_t11get_entriesEjPjP16hb_ot_meta_tag_tEUljE_LS8_0ELS9_0EESE_EdeEv.exit.us.i.i
   store i32 %50, ptr %.sroa.026.2, align 4
   %52 = add i32 %.sroa.7.2, -1
   %53 = getelementptr inbounds nuw i8, ptr %.sroa.026.2, i64 4
-  br label %_ZNR9hb_iter_tI13hb_map_iter_tIS0_I10hb_array_tIKN2OT7DataMapEEMS3_KFjvEL24hb_function_sortedness_t0ELPv0EEZNKS2_4meta13accelerator_t11get_entriesEjPjP16hb_ot_meta_tag_tEUljE_LS8_0ELS9_0EESE_EppEv.exit.i.us.i
+  br label %_ZNR9hb_iter_tI13hb_map_iter_tIS0_I10hb_array_tIKN2OT7DataMapEEMS3_KFjvEL24hb_function_sortedness_t0ELPv0EEZNKS2_4meta13accelerator_t11get_entriesEjPjP16hb_ot_meta_tag_tEUljE_LS8_0ELS9_0EESE_EppEv.exit.us.i.i
 
-_ZNR9hb_iter_tI13hb_map_iter_tIS0_I10hb_array_tIKN2OT7DataMapEEMS3_KFjvEL24hb_function_sortedness_t0ELPv0EEZNKS2_4meta13accelerator_t11get_entriesEjPjP16hb_ot_meta_tag_tEUljE_LS8_0ELS9_0EESE_EppEv.exit.i.us.i: ; preds = %_ZN9hb_iter_tI10hb_array_tI16hb_ot_meta_tag_tERS1_EdeEv.exit.i.i.us.i.thread, %51
-  %.sroa.026.3 = phi ptr [ %53, %51 ], [ %.sroa.026.2, %_ZN9hb_iter_tI10hb_array_tI16hb_ot_meta_tag_tERS1_EdeEv.exit.i.i.us.i.thread ]
-  %.sroa.7.3 = phi i32 [ %52, %51 ], [ 0, %_ZN9hb_iter_tI10hb_array_tI16hb_ot_meta_tag_tERS1_EdeEv.exit.i.i.us.i.thread ]
+_ZNR9hb_iter_tI13hb_map_iter_tIS0_I10hb_array_tIKN2OT7DataMapEEMS3_KFjvEL24hb_function_sortedness_t0ELPv0EEZNKS2_4meta13accelerator_t11get_entriesEjPjP16hb_ot_meta_tag_tEUljE_LS8_0ELS9_0EESE_EppEv.exit.us.i.i: ; preds = %_ZN9hb_iter_tI10hb_array_tI16hb_ot_meta_tag_tERS1_EdeEv.exit.i.us.i.i.thread, %51
+  %.sroa.026.3 = phi ptr [ %53, %51 ], [ %.sroa.026.2, %_ZN9hb_iter_tI10hb_array_tI16hb_ot_meta_tag_tERS1_EdeEv.exit.i.us.i.i.thread ]
+  %.sroa.7.3 = phi i32 [ %52, %51 ], [ 0, %_ZN9hb_iter_tI10hb_array_tI16hb_ot_meta_tag_tERS1_EdeEv.exit.i.us.i.i.thread ]
   %54 = add i32 %32, -1
   %55 = getelementptr inbounds nuw i8, ptr %33, i64 12
-  %.not.i.us.i = icmp eq i32 %54, 0
-  br i1 %.not.i.us.i, label %_ZorI13hb_map_iter_tIS0_I10hb_array_tIKN2OT7DataMapEEMS3_KFjvEL24hb_function_sortedness_t0ELPv0EEZNKS2_4meta13accelerator_t11get_entriesEjPjP16hb_ot_meta_tag_tEUljE_LS8_0ELS9_0EE9hb_sink_tIS1_ISE_EETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSM_6item_tEEE5valueEvE4typeELS9_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISM_Efp_EEEOSM_OSR_.exit, label %_ZN9hb_iter_tI13hb_map_iter_tIS0_I10hb_array_tIKN2OT7DataMapEEMS3_KFjvEL24hb_function_sortedness_t0ELPv0EEZNKS2_4meta13accelerator_t11get_entriesEjPjP16hb_ot_meta_tag_tEUljE_LS8_0ELS9_0EESE_EdeEv.exit.i.us.i, !llvm.loop !6
+  %.not.us.i.i = icmp eq i32 %54, 0
+  br i1 %.not.us.i.i, label %_ZorI13hb_map_iter_tIS0_I10hb_array_tIKN2OT7DataMapEEMS3_KFjvEL24hb_function_sortedness_t0ELPv0EEZNKS2_4meta13accelerator_t11get_entriesEjPjP16hb_ot_meta_tag_tEUljE_LS8_0ELS9_0EE9hb_sink_tIS1_ISE_EETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSM_6item_tEEE5valueEvE4typeELS9_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISM_Efp_EEEOSM_OSR_.exit, label %_ZN9hb_iter_tI13hb_map_iter_tIS0_I10hb_array_tIKN2OT7DataMapEEMS3_KFjvEL24hb_function_sortedness_t0ELPv0EEZNKS2_4meta13accelerator_t11get_entriesEjPjP16hb_ot_meta_tag_tEUljE_LS8_0ELS9_0EESE_EdeEv.exit.us.i.i, !llvm.loop !6
 
-_ZorI13hb_map_iter_tIS0_I10hb_array_tIKN2OT7DataMapEEMS3_KFjvEL24hb_function_sortedness_t0ELPv0EEZNKS2_4meta13accelerator_t11get_entriesEjPjP16hb_ot_meta_tag_tEUljE_LS8_0ELS9_0EE9hb_sink_tIS1_ISE_EETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSM_6item_tEEE5valueEvE4typeELS9_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISM_Efp_EEEOSM_OSR_.exit: ; preds = %_ZNR9hb_iter_tI13hb_map_iter_tIS0_I10hb_array_tIKN2OT7DataMapEEMS3_KFjvEL24hb_function_sortedness_t0ELPv0EEZNKS2_4meta13accelerator_t11get_entriesEjPjP16hb_ot_meta_tag_tEUljE_LS8_0ELS9_0EESE_EppEv.exit.i.us.i, %_ZNK10hb_array_tIKN2OT7DataMapEE9sub_arrayEjPj.exit, %4
+_ZorI13hb_map_iter_tIS0_I10hb_array_tIKN2OT7DataMapEEMS3_KFjvEL24hb_function_sortedness_t0ELPv0EEZNKS2_4meta13accelerator_t11get_entriesEjPjP16hb_ot_meta_tag_tEUljE_LS8_0ELS9_0EE9hb_sink_tIS1_ISE_EETnPN12hb_enable_ifIXsr17hb_is_iterator_ofIT_NSM_6item_tEEE5valueEvE4typeELS9_0EEDTclclsr3stdE7forwardIT0_Efp0_Eclsr3stdE7forwardISM_Efp_EEEOSM_OSR_.exit: ; preds = %_ZNR9hb_iter_tI13hb_map_iter_tIS0_I10hb_array_tIKN2OT7DataMapEEMS3_KFjvEL24hb_function_sortedness_t0ELPv0EEZNKS2_4meta13accelerator_t11get_entriesEjPjP16hb_ot_meta_tag_tEUljE_LS8_0ELS9_0EESE_EppEv.exit.us.i.i, %_ZNK10hb_array_tIKN2OT7DataMapEE9sub_arrayEjPj.exit, %4
   %56 = load ptr, ptr %0, align 8
   %.not.i.i.i.i23 = icmp eq ptr %56, null
   %spec.select.i.i.i.i24 = select i1 %.not.i.i.i.i23, ptr @_hb_NullPool, ptr %56

@@ -1241,18 +1241,15 @@ _ZN7mitsuba10Marginal2DIfLm4ELb1EED2Ev.exit:      ; preds = %_ZN5drjit12DynamicA
   br i1 %.not.i.i.i117, label %_ZN7mitsuba10TensorFile5FieldD2Ev.exit119, label %422
 
 422:                                              ; preds = %_ZN7mitsuba10Marginal2DIfLm4ELb1EED2Ev.exit
-  store ptr %248, ptr %229, align 8
   call void @_ZdlPv(ptr noundef nonnull %248) #25
   br label %_ZN7mitsuba10TensorFile5FieldD2Ev.exit119
 
 _ZN7mitsuba10TensorFile5FieldD2Ev.exit119:        ; preds = %_ZN7mitsuba10Marginal2DIfLm4ELb1EED2Ev.exit, %422
-  store ptr %220, ptr %201, align 8
   call void @_ZdlPv(ptr noundef nonnull %220) #25
   %.not.i.i.i120 = icmp eq ptr %192, null
   br i1 %.not.i.i.i120, label %_ZN7mitsuba10TensorFile5FieldD2Ev.exit121, label %423
 
 423:                                              ; preds = %_ZN7mitsuba10TensorFile5FieldD2Ev.exit119
-  store ptr %192, ptr %173, align 8
   call void @_ZdlPv(ptr noundef nonnull %192) #25
   br label %_ZN7mitsuba10TensorFile5FieldD2Ev.exit121
 
@@ -1261,7 +1258,6 @@ _ZN7mitsuba10TensorFile5FieldD2Ev.exit121:        ; preds = %_ZN7mitsuba10Tensor
   br i1 %.not.i.i.i122, label %_ZN7mitsuba10TensorFile5FieldD2Ev.exit123, label %424
 
 424:                                              ; preds = %_ZN7mitsuba10TensorFile5FieldD2Ev.exit121
-  store ptr %164, ptr %145, align 8
   call void @_ZdlPv(ptr noundef nonnull %164) #25
   br label %_ZN7mitsuba10TensorFile5FieldD2Ev.exit123
 
@@ -1270,7 +1266,6 @@ _ZN7mitsuba10TensorFile5FieldD2Ev.exit123:        ; preds = %_ZN7mitsuba10Tensor
   br i1 %.not.i.i.i124, label %_ZN7mitsuba3refINS_10TensorFileEED2Ev.exit, label %425
 
 425:                                              ; preds = %_ZN7mitsuba10TensorFile5FieldD2Ev.exit123
-  store ptr %136, ptr %117, align 8
   call void @_ZdlPv(ptr noundef nonnull %136) #25
   br label %_ZN7mitsuba3refINS_10TensorFileEED2Ev.exit
 

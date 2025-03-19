@@ -3230,24 +3230,24 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7SdfPathEJRKS1_EEvPT_DpOT0_.
   %968 = phi ptr [ %944, %.noexc9.thread.i ], [ %950, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7SdfPathEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i ]
   %969 = phi ptr [ %942, %.noexc9.thread.i ], [ %948, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7SdfPathEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i ]
   %970 = phi ptr [ null, %.noexc9.thread.i ], [ %947, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7SdfPathEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i ]
-  %.0.lcssa.i.i.i.i.i.i = phi ptr [ null, %.noexc9.thread.i ], [ %967, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7SdfPathEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i ]
-  store ptr %.0.lcssa.i.i.i.i.i.i, ptr %969, align 8
-  %971 = ptrtoint ptr %.0.lcssa.i.i.i.i.i.i to i64
-  %972 = ptrtoint ptr %970 to i64
-  %973 = sub i64 %971, %972
-  %974 = ashr exact i64 %973, 3
-  br label %975
+  %971 = phi ptr [ null, %.noexc9.thread.i ], [ %967, %_ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7SdfPathEJRKS1_EEvPT_DpOT0_.exit.i.i.i.i.i.i ]
+  store ptr %971, ptr %969, align 8
+  %972 = ptrtoint ptr %971 to i64
+  %973 = ptrtoint ptr %970 to i64
+  %974 = sub i64 %972, %973
+  %975 = ashr exact i64 %974, 3
+  br label %976
 
-975:                                              ; preds = %976, %.loopexit.i253
-  %.0.i = phi i64 [ %974, %.loopexit.i253 ], [ %977, %976 ]
+976:                                              ; preds = %977, %.loopexit.i253
+  %.0.i = phi i64 [ %975, %.loopexit.i253 ], [ %978, %977 ]
   %.not.i254 = icmp eq i64 %.0.i, 0
-  br i1 %.not.i254, label %981, label %976
+  br i1 %.not.i254, label %982, label %977
 
-976:                                              ; preds = %975
-  %977 = add i64 %.0.i, -1
-  %978 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", ptr %970, i64 %977
-  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__12Hd_SortedIds6RemoveERKNS_7SdfPathE(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 4 dereferenceable(8) %978)
-          to label %975 unwind label %979, !llvm.loop !26
+977:                                              ; preds = %976
+  %978 = add i64 %.0.i, -1
+  %979 = getelementptr inbounds %"class.pxrInternal_v0_24__pxrReserved__::SdfPath", ptr %970, i64 %978
+  invoke void @_ZN32pxrInternal_v0_24__pxrReserved__12Hd_SortedIds6RemoveERKNS_7SdfPathE(ptr noundef nonnull align 8 dereferenceable(64) %8, ptr noundef nonnull align 4 dereferenceable(8) %979)
+          to label %976 unwind label %980, !llvm.loop !26
 
 .loopexit11.i:                                    ; preds = %.lr.ph.i.i241
   %lpad.loopexit.i243 = landingpad { ptr, i32 }
@@ -3259,19 +3259,18 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7SdfPathEJRKS1_EEvPT_DpOT0_.
           cleanup
   br label %.body.i233
 
-979:                                              ; preds = %976
-  %980 = landingpad { ptr, i32 }
+980:                                              ; preds = %977
+  %981 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt6vectorIN32pxrInternal_v0_24__pxrReserved__7SdfPathESaIS1_EED2Ev(ptr noundef nonnull align 8 dereferenceable(24) %9) #23
   br label %.body.i233
 
-981:                                              ; preds = %975
-  %982 = load ptr, ptr %969, align 8
-  %.not4.i.i.i.i.i255 = icmp eq ptr %970, %982
+982:                                              ; preds = %976
+  %.not4.i.i.i.i.i255 = icmp eq ptr %970, %971
   br i1 %.not4.i.i.i.i.i255, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EvT_S3_RSaIT0_E.exit.i.i262, label %.lr.ph.i.i.i.i.i256
 
-.lr.ph.i.i.i.i.i256:                              ; preds = %981, %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEvPT_.exit.i.i.i.i.i259
-  %.05.i.i.i.i.i257 = phi ptr [ %1001, %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEvPT_.exit.i.i.i.i.i259 ], [ %970, %981 ]
+.lr.ph.i.i.i.i.i256:                              ; preds = %982, %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEvPT_.exit.i.i.i.i.i259
+  %.05.i.i.i.i.i257 = phi ptr [ %1001, %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEvPT_.exit.i.i.i.i.i259 ], [ %970, %982 ]
   %983 = load i32, ptr %.05.i.i.i.i.i257, align 4
   %.not.i.i.i.i.i.i.i.i258 = icmp eq i32 %983, 0
   br i1 %.not.i.i.i.i.i.i.i.i258, label %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEvPT_.exit.i.i.i.i.i259, label %984
@@ -3304,15 +3303,15 @@ _ZSt10_ConstructIN32pxrInternal_v0_24__pxrReserved__7SdfPathEJRKS1_EEvPT_DpOT0_.
 
 _ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEvPT_.exit.i.i.i.i.i259: ; preds = %997, %984, %.lr.ph.i.i.i.i.i256
   %1001 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i257, i64 8
-  %.not.i.i.i.i10.i = icmp eq ptr %1001, %982
+  %.not.i.i.i.i10.i = icmp eq ptr %1001, %971
   br i1 %.not.i.i.i.i10.i, label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i260, label %.lr.ph.i.i.i.i.i256, !llvm.loop !5
 
 _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i260: ; preds = %_ZSt8_DestroyIN32pxrInternal_v0_24__pxrReserved__7SdfPathEEvPT_.exit.i.i.i.i.i259
   %.pr.i.i261 = load ptr, ptr %9, align 8
   br label %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EvT_S3_RSaIT0_E.exit.i.i262
 
-_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EvT_S3_RSaIT0_E.exit.i.i262: ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i260, %981
-  %1002 = phi ptr [ %.pr.i.i261, %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i260 ], [ %970, %981 ]
+_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EvT_S3_RSaIT0_E.exit.i.i262: ; preds = %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i260, %982
+  %1002 = phi ptr [ %.pr.i.i261, %_ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EvT_S3_RSaIT0_E.exitthread-pre-split.i.i260 ], [ %970, %982 ]
   %.not.i.i.i.i263 = icmp eq ptr %1002, null
   br i1 %.not.i.i.i.i263, label %1008, label %1003
 
@@ -3324,8 +3323,8 @@ _ZSt8_DestroyIPN32pxrInternal_v0_24__pxrReserved__7SdfPathES1_EvT_S3_RSaIT0_E.ex
   call void @_ZdlPvm(ptr noundef nonnull %1002, i64 noundef %1007) #21
   br label %1008
 
-.body.i233:                                       ; preds = %979, %.loopexit.split-lp.i247, %.loopexit11.i, %922
-  %.pn.i234 = phi { ptr, i32 } [ %980, %979 ], [ %923, %922 ], [ %lpad.loopexit.i243, %.loopexit11.i ], [ %lpad.loopexit.split-lp.i248, %.loopexit.split-lp.i247 ]
+.body.i233:                                       ; preds = %980, %.loopexit.split-lp.i247, %.loopexit11.i, %922
+  %.pn.i234 = phi { ptr, i32 } [ %981, %980 ], [ %923, %922 ], [ %lpad.loopexit.i243, %.loopexit11.i ], [ %lpad.loopexit.split-lp.i248, %.loopexit.split-lp.i247 ]
   call void @_ZN32pxrInternal_v0_24__pxrReserved__12Hd_SortedIdsD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %8) #23
   br label %.body
 

@@ -9892,8 +9892,8 @@ define hidden noundef nonnull align 8 dereferenceable(8) ptr @_ZN3opt5coresclEv(
   invoke void %20(ptr noundef nonnull align 8 dereferenceable(96) %17, ptr noundef nonnull align 8 dereferenceable(8) %6)
           to label %_ZN3opt5cores13scoped_updateC2ERS0_PKcjj.exit unwind label %21
 
-common.resume:                                    ; preds = %158, %21
-  %common.resume.op = phi { ptr, i32 } [ %22, %21 ], [ %.pn20.pn.pn.pn.pn, %158 ]
+common.resume:                                    ; preds = %148, %21
+  %common.resume.op = phi { ptr, i32 } [ %22, %21 ], [ %.pn20.pn.pn.pn.pn, %148 ]
   resume { ptr, i32 } %common.resume.op
 
 21:                                               ; preds = %15, %1
@@ -10038,12 +10038,12 @@ _ZNK15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE3endEv.exit: 
 82:                                               ; preds = %_ZN7obj_mapI4expr8rationalE5resetEv.exit, %_ZN6vectorIN3opt13weighted_coreELb1EjE5resetEv.exit, %136
   %83 = landingpad { ptr, i32 }
           cleanup
-  br label %158
+  br label %148
 
 84:                                               ; preds = %50
   %85 = landingpad { ptr, i32 }
           cleanup
-  br label %158
+  br label %148
 
 86:                                               ; preds = %.lr.ph, %_ZN8rationalD2Ev.exit
   %.01230 = phi ptr [ %62, %.lr.ph ], [ %112, %_ZN8rationalD2Ev.exit ]
@@ -10133,7 +10133,7 @@ _ZN8rationalD2Ev.exit:                            ; preds = %.noexc.i
 115:                                              ; preds = %.body, %113
   %.pn20 = phi { ptr, i32 } [ %106, %.body ], [ %114, %113 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %8) #22
-  br label %158
+  br label %148
 
 116:                                              ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %9) #22
@@ -10210,57 +10210,43 @@ _ZN3opt5cores13scoped_updateD2Ev.exit:            ; preds = %._crit_edge32
 .body26:                                          ; preds = %125, %134
   %.pn = phi { ptr, i32 } [ %135, %134 ], [ %126, %125 ]
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %9) #22
-  br label %158
+  br label %148
 
 136:                                              ; preds = %._crit_edge
   %137 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN3opt5cores23weighted_disjoint_coresEv(ptr noundef nonnull align 8 dereferenceable(117) %0)
           to label %138 unwind label %82
 
-138:                                              ; preds = %136, %_ZN3opt5cores13scoped_updateD2Ev.exit
+138:                                              ; preds = %_ZN3opt5cores13scoped_updateD2Ev.exit, %136
   %.0 = phi ptr [ %129, %_ZN3opt5cores13scoped_updateD2Ev.exit ], [ %137, %136 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #22
   store ptr null, ptr %2, align 8, !tbaa !164
-  %139 = load i8, ptr %13, align 8, !tbaa !162, !range !175, !noundef !176
-  %140 = trunc nuw i8 %139 to i1
-  %141 = load ptr, ptr %12, align 8, !tbaa !160
-  br i1 %140, label %142, label %144
+  invoke void @_ZN10params_ref8set_uintEPKcj(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull @.str.10, i32 noundef -1)
+          to label %._crit_edge36 unwind label %145
 
-142:                                              ; preds = %138
-  %143 = load i32, ptr %14, align 4, !tbaa !163
-  invoke void @_ZN10params_ref8set_uintEPKcj(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %141, i32 noundef %143)
-          to label %148 unwind label %155
+._crit_edge36:                                    ; preds = %138
+  %139 = load ptr, ptr %7, align 8, !tbaa !178
+  %140 = getelementptr inbounds nuw i8, ptr %139, i64 8
+  %141 = load ptr, ptr %140, align 8, !tbaa !65
+  %142 = load ptr, ptr %141, align 8, !tbaa !3
+  %143 = getelementptr inbounds nuw i8, ptr %142, i64 88
+  %144 = load ptr, ptr %143, align 8
+  invoke void %144(ptr noundef nonnull align 8 dereferenceable(96) %141, ptr noundef nonnull align 8 dereferenceable(8) %2)
+          to label %_ZN3opt5cores13scoped_updateD2Ev.exit28 unwind label %145
 
-144:                                              ; preds = %138
-  %145 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %146 = load i8, ptr %145, align 8, !tbaa !177, !range !175, !noundef !176
-  %147 = trunc nuw i8 %146 to i1
-  invoke void @_ZN10params_ref8set_boolEPKcb(ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %141, i1 noundef zeroext %147)
-          to label %148 unwind label %155
-
-148:                                              ; preds = %144, %142
-  %149 = load ptr, ptr %7, align 8, !tbaa !178
-  %150 = getelementptr inbounds nuw i8, ptr %149, i64 8
-  %151 = load ptr, ptr %150, align 8, !tbaa !65
-  %152 = load ptr, ptr %151, align 8, !tbaa !3
-  %153 = getelementptr inbounds nuw i8, ptr %152, i64 88
-  %154 = load ptr, ptr %153, align 8
-  invoke void %154(ptr noundef nonnull align 8 dereferenceable(96) %151, ptr noundef nonnull align 8 dereferenceable(8) %2)
-          to label %_ZN3opt5cores13scoped_updateD2Ev.exit28 unwind label %155
-
-155:                                              ; preds = %148, %144, %142
-  %156 = landingpad { ptr, i32 }
+145:                                              ; preds = %._crit_edge36, %138
+  %146 = landingpad { ptr, i32 }
           catch ptr null
-  %157 = extractvalue { ptr, i32 } %156, 0
-  call void @__clang_call_terminate(ptr %157) #21
+  %147 = extractvalue { ptr, i32 } %146, 0
+  call void @__clang_call_terminate(ptr %147) #21
   unreachable
 
-_ZN3opt5cores13scoped_updateD2Ev.exit28:          ; preds = %148
+_ZN3opt5cores13scoped_updateD2Ev.exit28:          ; preds = %._crit_edge36
   call void @_ZN10params_refD1Ev(ptr noundef nonnull align 8 dereferenceable(8) %2) #22
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #22
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #22
   ret ptr %.0
 
-158:                                              ; preds = %84, %115, %.body26, %82
+148:                                              ; preds = %84, %115, %.body26, %82
   %.pn20.pn.pn.pn.pn = phi { ptr, i32 } [ %.pn, %.body26 ], [ %83, %82 ], [ %85, %84 ], [ %.pn20, %115 ]
   call void @_ZN3opt5cores13scoped_updateD2Ev(ptr noundef nonnull align 8 dereferenceable(25) %7) #22
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %7) #22

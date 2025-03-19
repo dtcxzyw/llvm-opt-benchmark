@@ -3358,106 +3358,102 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorIPKfEEEENS_19__allocation_
   br i1 %.not.i.i175, label %_ZNSt3__16vectorIPKfNS_9allocatorIS2_EEED2B8ne190000Ev.exit176, label %400
 
 400:                                              ; preds = %._crit_edge311
-  %401 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  store ptr %399, ptr %401, align 8
   call void @_ZdlPv(ptr noundef nonnull %399) #34
   br label %_ZNSt3__16vectorIPKfNS_9allocatorIS2_EEED2B8ne190000Ev.exit176
 
 _ZNSt3__16vectorIPKfNS_9allocatorIS2_EEED2B8ne190000Ev.exit176: ; preds = %._crit_edge311, %400
-  %402 = load ptr, ptr %31, align 8
-  %.not.i.i177 = icmp eq ptr %402, null
-  br i1 %.not.i.i177, label %_ZNSt3__16vectorIPKfNS_9allocatorIS2_EEED2B8ne190000Ev.exit178, label %403
+  %401 = load ptr, ptr %31, align 8
+  %.not.i.i177 = icmp eq ptr %401, null
+  br i1 %.not.i.i177, label %_ZNSt3__16vectorIPKfNS_9allocatorIS2_EEED2B8ne190000Ev.exit178, label %402
 
-403:                                              ; preds = %_ZNSt3__16vectorIPKfNS_9allocatorIS2_EEED2B8ne190000Ev.exit176
-  %404 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store ptr %402, ptr %404, align 8
-  call void @_ZdlPv(ptr noundef nonnull %402) #34
+402:                                              ; preds = %_ZNSt3__16vectorIPKfNS_9allocatorIS2_EEED2B8ne190000Ev.exit176
+  call void @_ZdlPv(ptr noundef nonnull %401) #34
   br label %_ZNSt3__16vectorIPKfNS_9allocatorIS2_EEED2B8ne190000Ev.exit178
 
-_ZNSt3__16vectorIPKfNS_9allocatorIS2_EEED2B8ne190000Ev.exit178: ; preds = %_ZNSt3__16vectorIPKfNS_9allocatorIS2_EEED2B8ne190000Ev.exit176, %403
-  %405 = load ptr, ptr %6, align 8
-  %.not.i.i179 = icmp eq ptr %405, null
-  br i1 %.not.i.i179, label %_ZNSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba4MeshIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEE13MeshAttributeEEENS5_ISH_EEED2B8ne190000Ev.exit, label %406
+_ZNSt3__16vectorIPKfNS_9allocatorIS2_EEED2B8ne190000Ev.exit178: ; preds = %_ZNSt3__16vectorIPKfNS_9allocatorIS2_EEED2B8ne190000Ev.exit176, %402
+  %403 = load ptr, ptr %6, align 8
+  %.not.i.i179 = icmp eq ptr %403, null
+  br i1 %.not.i.i179, label %_ZNSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba4MeshIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEE13MeshAttributeEEENS5_ISH_EEED2B8ne190000Ev.exit, label %404
 
-406:                                              ; preds = %_ZNSt3__16vectorIPKfNS_9allocatorIS2_EEED2B8ne190000Ev.exit178
-  %407 = load ptr, ptr %206, align 8
-  %.not6.i.i.i.i = icmp eq ptr %405, %407
+404:                                              ; preds = %_ZNSt3__16vectorIPKfNS_9allocatorIS2_EEED2B8ne190000Ev.exit178
+  %405 = load ptr, ptr %206, align 8
+  %.not6.i.i.i.i = icmp eq ptr %403, %405
   br i1 %.not6.i.i.i.i, label %_ZNSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba4MeshIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEE13MeshAttributeEEENS5_ISH_EEE7__clearB8ne190000Ev.exit.i.i, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %406, %_ZNSt3__116allocator_traitsINS_9allocatorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEEN7mitsuba4MeshIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEE13MeshAttributeEEEEEE7destroyB8ne190000ISH_TnNS_9enable_ifIXsr13__has_destroyISI_PT_EE5valueEiE4typeELi0EEEvRSI_SN_.exit.i.i.i.i
-  %.07.i.i.i.i = phi ptr [ %408, %_ZNSt3__116allocator_traitsINS_9allocatorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEEN7mitsuba4MeshIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEE13MeshAttributeEEEEEE7destroyB8ne190000ISH_TnNS_9enable_ifIXsr13__has_destroyISI_PT_EE5valueEiE4typeELi0EEEvRSI_SN_.exit.i.i.i.i ], [ %407, %406 ]
-  %408 = getelementptr inbounds i8, ptr %.07.i.i.i.i, i64 -64
-  %409 = getelementptr inbounds i8, ptr %.07.i.i.i.i, i64 -8
-  %410 = load i8, ptr %409, align 8
-  %411 = trunc i8 %410 to i1
-  br i1 %411, label %412, label %_ZNSt3__116allocator_traitsINS_9allocatorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEEN7mitsuba4MeshIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEE13MeshAttributeEEEEEE7destroyB8ne190000ISH_TnNS_9enable_ifIXsr13__has_destroyISI_PT_EE5valueEiE4typeELi0EEEvRSI_SN_.exit.i.i.i.i
+.lr.ph.i.i.i.i:                                   ; preds = %404, %_ZNSt3__116allocator_traitsINS_9allocatorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEEN7mitsuba4MeshIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEE13MeshAttributeEEEEEE7destroyB8ne190000ISH_TnNS_9enable_ifIXsr13__has_destroyISI_PT_EE5valueEiE4typeELi0EEEvRSI_SN_.exit.i.i.i.i
+  %.07.i.i.i.i = phi ptr [ %406, %_ZNSt3__116allocator_traitsINS_9allocatorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEEN7mitsuba4MeshIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEE13MeshAttributeEEEEEE7destroyB8ne190000ISH_TnNS_9enable_ifIXsr13__has_destroyISI_PT_EE5valueEiE4typeELi0EEEvRSI_SN_.exit.i.i.i.i ], [ %405, %404 ]
+  %406 = getelementptr inbounds i8, ptr %.07.i.i.i.i, i64 -64
+  %407 = getelementptr inbounds i8, ptr %.07.i.i.i.i, i64 -8
+  %408 = load i8, ptr %407, align 8
+  %409 = trunc i8 %408 to i1
+  br i1 %409, label %410, label %_ZNSt3__116allocator_traitsINS_9allocatorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEEN7mitsuba4MeshIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEE13MeshAttributeEEEEEE7destroyB8ne190000ISH_TnNS_9enable_ifIXsr13__has_destroyISI_PT_EE5valueEiE4typeELi0EEEvRSI_SN_.exit.i.i.i.i
 
-412:                                              ; preds = %.lr.ph.i.i.i.i
-  %413 = getelementptr inbounds i8, ptr %.07.i.i.i.i, i64 -24
-  %414 = load ptr, ptr %413, align 8
-  %415 = icmp eq ptr %414, null
-  br i1 %415, label %_ZNSt3__116allocator_traitsINS_9allocatorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEEN7mitsuba4MeshIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEE13MeshAttributeEEEEEE7destroyB8ne190000ISH_TnNS_9enable_ifIXsr13__has_destroyISI_PT_EE5valueEiE4typeELi0EEEvRSI_SN_.exit.i.i.i.i, label %416
+410:                                              ; preds = %.lr.ph.i.i.i.i
+  %411 = getelementptr inbounds i8, ptr %.07.i.i.i.i, i64 -24
+  %412 = load ptr, ptr %411, align 8
+  %413 = icmp eq ptr %412, null
+  br i1 %413, label %_ZNSt3__116allocator_traitsINS_9allocatorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEEN7mitsuba4MeshIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEE13MeshAttributeEEEEEE7destroyB8ne190000ISH_TnNS_9enable_ifIXsr13__has_destroyISI_PT_EE5valueEiE4typeELi0EEEvRSI_SN_.exit.i.i.i.i, label %414
 
-416:                                              ; preds = %412
-  call void @_ZdaPv(ptr noundef nonnull %414) #34
+414:                                              ; preds = %410
+  call void @_ZdaPv(ptr noundef nonnull %412) #34
   br label %_ZNSt3__116allocator_traitsINS_9allocatorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEEN7mitsuba4MeshIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEE13MeshAttributeEEEEEE7destroyB8ne190000ISH_TnNS_9enable_ifIXsr13__has_destroyISI_PT_EE5valueEiE4typeELi0EEEvRSI_SN_.exit.i.i.i.i
 
-_ZNSt3__116allocator_traitsINS_9allocatorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEEN7mitsuba4MeshIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEE13MeshAttributeEEEEEE7destroyB8ne190000ISH_TnNS_9enable_ifIXsr13__has_destroyISI_PT_EE5valueEiE4typeELi0EEEvRSI_SN_.exit.i.i.i.i: ; preds = %416, %412, %.lr.ph.i.i.i.i
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %408) #35
-  %.not.i.i.i.i = icmp eq ptr %405, %408
+_ZNSt3__116allocator_traitsINS_9allocatorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEEN7mitsuba4MeshIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEE13MeshAttributeEEEEEE7destroyB8ne190000ISH_TnNS_9enable_ifIXsr13__has_destroyISI_PT_EE5valueEiE4typeELi0EEEvRSI_SN_.exit.i.i.i.i: ; preds = %414, %410, %.lr.ph.i.i.i.i
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %406) #35
+  %.not.i.i.i.i = icmp eq ptr %403, %406
   br i1 %.not.i.i.i.i, label %_ZNSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba4MeshIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEE13MeshAttributeEEENS5_ISH_EEE7__clearB8ne190000Ev.exit.i.loopexit.i, label %.lr.ph.i.i.i.i
 
 _ZNSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba4MeshIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEE13MeshAttributeEEENS5_ISH_EEE7__clearB8ne190000Ev.exit.i.loopexit.i: ; preds = %_ZNSt3__116allocator_traitsINS_9allocatorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEEN7mitsuba4MeshIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEE13MeshAttributeEEEEEE7destroyB8ne190000ISH_TnNS_9enable_ifIXsr13__has_destroyISI_PT_EE5valueEiE4typeELi0EEEvRSI_SN_.exit.i.i.i.i
   %.pre.i = load ptr, ptr %6, align 8
   br label %_ZNSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba4MeshIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEE13MeshAttributeEEENS5_ISH_EEE7__clearB8ne190000Ev.exit.i.i
 
-_ZNSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba4MeshIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEE13MeshAttributeEEENS5_ISH_EEE7__clearB8ne190000Ev.exit.i.i: ; preds = %_ZNSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba4MeshIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEE13MeshAttributeEEENS5_ISH_EEE7__clearB8ne190000Ev.exit.i.loopexit.i, %406
-  %417 = phi ptr [ %.pre.i, %_ZNSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba4MeshIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEE13MeshAttributeEEENS5_ISH_EEE7__clearB8ne190000Ev.exit.i.loopexit.i ], [ %405, %406 ]
-  store ptr %405, ptr %206, align 8
-  call void @_ZdlPv(ptr noundef %417) #34
+_ZNSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba4MeshIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEE13MeshAttributeEEENS5_ISH_EEE7__clearB8ne190000Ev.exit.i.i: ; preds = %_ZNSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba4MeshIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEE13MeshAttributeEEENS5_ISH_EEE7__clearB8ne190000Ev.exit.i.loopexit.i, %404
+  %415 = phi ptr [ %.pre.i, %_ZNSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba4MeshIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEE13MeshAttributeEEENS5_ISH_EEE7__clearB8ne190000Ev.exit.i.loopexit.i ], [ %403, %404 ]
+  store ptr %403, ptr %206, align 8
+  call void @_ZdlPv(ptr noundef %415) #34
   br label %_ZNSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba4MeshIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEE13MeshAttributeEEENS5_ISH_EEED2B8ne190000Ev.exit
 
 _ZNSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba4MeshIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEE13MeshAttributeEEENS5_ISH_EEED2B8ne190000Ev.exit: ; preds = %_ZNSt3__16vectorIPKfNS_9allocatorIS2_EEED2B8ne190000Ev.exit178, %_ZNSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba4MeshIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEE13MeshAttributeEEENS5_ISH_EEE7__clearB8ne190000Ev.exit.i.i
-  %418 = load ptr, ptr %5, align 8
-  %.not.i.i180 = icmp eq ptr %418, null
-  br i1 %.not.i.i180, label %_ZNSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba4MeshIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEE13MeshAttributeEEENS5_ISH_EEED2B8ne190000Ev.exit189, label %419
+  %416 = load ptr, ptr %5, align 8
+  %.not.i.i180 = icmp eq ptr %416, null
+  br i1 %.not.i.i180, label %_ZNSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba4MeshIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEE13MeshAttributeEEENS5_ISH_EEED2B8ne190000Ev.exit189, label %417
 
-419:                                              ; preds = %_ZNSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba4MeshIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEE13MeshAttributeEEENS5_ISH_EEED2B8ne190000Ev.exit
-  %420 = load ptr, ptr %181, align 8
-  %.not6.i.i.i.i181 = icmp eq ptr %418, %420
+417:                                              ; preds = %_ZNSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba4MeshIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEE13MeshAttributeEEENS5_ISH_EEED2B8ne190000Ev.exit
+  %418 = load ptr, ptr %181, align 8
+  %.not6.i.i.i.i181 = icmp eq ptr %416, %418
   br i1 %.not6.i.i.i.i181, label %_ZNSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba4MeshIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEE13MeshAttributeEEENS5_ISH_EEE7__clearB8ne190000Ev.exit.i.i188, label %.lr.ph.i.i.i.i182
 
-.lr.ph.i.i.i.i182:                                ; preds = %419, %_ZNSt3__116allocator_traitsINS_9allocatorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEEN7mitsuba4MeshIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEE13MeshAttributeEEEEEE7destroyB8ne190000ISH_TnNS_9enable_ifIXsr13__has_destroyISI_PT_EE5valueEiE4typeELi0EEEvRSI_SN_.exit.i.i.i.i184
-  %.07.i.i.i.i183 = phi ptr [ %421, %_ZNSt3__116allocator_traitsINS_9allocatorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEEN7mitsuba4MeshIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEE13MeshAttributeEEEEEE7destroyB8ne190000ISH_TnNS_9enable_ifIXsr13__has_destroyISI_PT_EE5valueEiE4typeELi0EEEvRSI_SN_.exit.i.i.i.i184 ], [ %420, %419 ]
-  %421 = getelementptr inbounds i8, ptr %.07.i.i.i.i183, i64 -64
-  %422 = getelementptr inbounds i8, ptr %.07.i.i.i.i183, i64 -8
-  %423 = load i8, ptr %422, align 8
-  %424 = trunc i8 %423 to i1
-  br i1 %424, label %425, label %_ZNSt3__116allocator_traitsINS_9allocatorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEEN7mitsuba4MeshIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEE13MeshAttributeEEEEEE7destroyB8ne190000ISH_TnNS_9enable_ifIXsr13__has_destroyISI_PT_EE5valueEiE4typeELi0EEEvRSI_SN_.exit.i.i.i.i184
+.lr.ph.i.i.i.i182:                                ; preds = %417, %_ZNSt3__116allocator_traitsINS_9allocatorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEEN7mitsuba4MeshIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEE13MeshAttributeEEEEEE7destroyB8ne190000ISH_TnNS_9enable_ifIXsr13__has_destroyISI_PT_EE5valueEiE4typeELi0EEEvRSI_SN_.exit.i.i.i.i184
+  %.07.i.i.i.i183 = phi ptr [ %419, %_ZNSt3__116allocator_traitsINS_9allocatorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEEN7mitsuba4MeshIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEE13MeshAttributeEEEEEE7destroyB8ne190000ISH_TnNS_9enable_ifIXsr13__has_destroyISI_PT_EE5valueEiE4typeELi0EEEvRSI_SN_.exit.i.i.i.i184 ], [ %418, %417 ]
+  %419 = getelementptr inbounds i8, ptr %.07.i.i.i.i183, i64 -64
+  %420 = getelementptr inbounds i8, ptr %.07.i.i.i.i183, i64 -8
+  %421 = load i8, ptr %420, align 8
+  %422 = trunc i8 %421 to i1
+  br i1 %422, label %423, label %_ZNSt3__116allocator_traitsINS_9allocatorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEEN7mitsuba4MeshIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEE13MeshAttributeEEEEEE7destroyB8ne190000ISH_TnNS_9enable_ifIXsr13__has_destroyISI_PT_EE5valueEiE4typeELi0EEEvRSI_SN_.exit.i.i.i.i184
 
-425:                                              ; preds = %.lr.ph.i.i.i.i182
-  %426 = getelementptr inbounds i8, ptr %.07.i.i.i.i183, i64 -24
-  %427 = load ptr, ptr %426, align 8
-  %428 = icmp eq ptr %427, null
-  br i1 %428, label %_ZNSt3__116allocator_traitsINS_9allocatorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEEN7mitsuba4MeshIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEE13MeshAttributeEEEEEE7destroyB8ne190000ISH_TnNS_9enable_ifIXsr13__has_destroyISI_PT_EE5valueEiE4typeELi0EEEvRSI_SN_.exit.i.i.i.i184, label %429
+423:                                              ; preds = %.lr.ph.i.i.i.i182
+  %424 = getelementptr inbounds i8, ptr %.07.i.i.i.i183, i64 -24
+  %425 = load ptr, ptr %424, align 8
+  %426 = icmp eq ptr %425, null
+  br i1 %426, label %_ZNSt3__116allocator_traitsINS_9allocatorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEEN7mitsuba4MeshIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEE13MeshAttributeEEEEEE7destroyB8ne190000ISH_TnNS_9enable_ifIXsr13__has_destroyISI_PT_EE5valueEiE4typeELi0EEEvRSI_SN_.exit.i.i.i.i184, label %427
 
-429:                                              ; preds = %425
-  call void @_ZdaPv(ptr noundef nonnull %427) #34
+427:                                              ; preds = %423
+  call void @_ZdaPv(ptr noundef nonnull %425) #34
   br label %_ZNSt3__116allocator_traitsINS_9allocatorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEEN7mitsuba4MeshIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEE13MeshAttributeEEEEEE7destroyB8ne190000ISH_TnNS_9enable_ifIXsr13__has_destroyISI_PT_EE5valueEiE4typeELi0EEEvRSI_SN_.exit.i.i.i.i184
 
-_ZNSt3__116allocator_traitsINS_9allocatorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEEN7mitsuba4MeshIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEE13MeshAttributeEEEEEE7destroyB8ne190000ISH_TnNS_9enable_ifIXsr13__has_destroyISI_PT_EE5valueEiE4typeELi0EEEvRSI_SN_.exit.i.i.i.i184: ; preds = %429, %425, %.lr.ph.i.i.i.i182
-  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %421) #35
-  %.not.i.i.i.i185 = icmp eq ptr %418, %421
+_ZNSt3__116allocator_traitsINS_9allocatorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEEN7mitsuba4MeshIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEE13MeshAttributeEEEEEE7destroyB8ne190000ISH_TnNS_9enable_ifIXsr13__has_destroyISI_PT_EE5valueEiE4typeELi0EEEvRSI_SN_.exit.i.i.i.i184: ; preds = %427, %423, %.lr.ph.i.i.i.i182
+  call void @_ZNSt3__112basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEED1Ev(ptr noundef nonnull align 8 dereferenceable(64) %419) #35
+  %.not.i.i.i.i185 = icmp eq ptr %416, %419
   br i1 %.not.i.i.i.i185, label %_ZNSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba4MeshIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEE13MeshAttributeEEENS5_ISH_EEE7__clearB8ne190000Ev.exit.i.loopexit.i186, label %.lr.ph.i.i.i.i182
 
 _ZNSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba4MeshIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEE13MeshAttributeEEENS5_ISH_EEE7__clearB8ne190000Ev.exit.i.loopexit.i186: ; preds = %_ZNSt3__116allocator_traitsINS_9allocatorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEEN7mitsuba4MeshIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEE13MeshAttributeEEEEEE7destroyB8ne190000ISH_TnNS_9enable_ifIXsr13__has_destroyISI_PT_EE5valueEiE4typeELi0EEEvRSI_SN_.exit.i.i.i.i184
   %.pre.i187 = load ptr, ptr %5, align 8
   br label %_ZNSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba4MeshIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEE13MeshAttributeEEENS5_ISH_EEE7__clearB8ne190000Ev.exit.i.i188
 
-_ZNSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba4MeshIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEE13MeshAttributeEEENS5_ISH_EEE7__clearB8ne190000Ev.exit.i.i188: ; preds = %_ZNSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba4MeshIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEE13MeshAttributeEEENS5_ISH_EEE7__clearB8ne190000Ev.exit.i.loopexit.i186, %419
-  %430 = phi ptr [ %.pre.i187, %_ZNSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba4MeshIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEE13MeshAttributeEEENS5_ISH_EEE7__clearB8ne190000Ev.exit.i.loopexit.i186 ], [ %418, %419 ]
-  store ptr %418, ptr %181, align 8
-  call void @_ZdlPv(ptr noundef %430) #34
+_ZNSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba4MeshIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEE13MeshAttributeEEENS5_ISH_EEE7__clearB8ne190000Ev.exit.i.i188: ; preds = %_ZNSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba4MeshIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEE13MeshAttributeEEENS5_ISH_EEE7__clearB8ne190000Ev.exit.i.loopexit.i186, %417
+  %428 = phi ptr [ %.pre.i187, %_ZNSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba4MeshIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEE13MeshAttributeEEENS5_ISH_EEE7__clearB8ne190000Ev.exit.i.loopexit.i186 ], [ %416, %417 ]
+  store ptr %416, ptr %181, align 8
+  call void @_ZdlPv(ptr noundef %428) #34
   br label %_ZNSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba4MeshIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEE13MeshAttributeEEENS5_ISH_EEED2B8ne190000Ev.exit189
 
 _ZNSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba4MeshIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEE13MeshAttributeEEENS5_ISH_EEED2B8ne190000Ev.exit189: ; preds = %_ZNSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba4MeshIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEE13MeshAttributeEEENS5_ISH_EEED2B8ne190000Ev.exit, %_ZNSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba4MeshIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEE13MeshAttributeEEENS5_ISH_EEE7__clearB8ne190000Ev.exit.i.i188
@@ -3465,18 +3461,18 @@ _ZNSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIc
 
 _ZNSt3__16vectorIPKfNS_9allocatorIS2_EEED2B8ne190000Ev.exit: ; preds = %.loopexit241, %.loopexit.split-lp242.loopexit.split-lp.loopexit, %.loopexit.split-lp242.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp242.loopexit, %361, %.loopexit.split-lp
   %.pn = phi { ptr, i32 } [ %lpad.phi, %.loopexit.split-lp ], [ %lpad.phi, %361 ], [ %lpad.loopexit243, %.loopexit241 ], [ %lpad.loopexit246, %.loopexit.split-lp242.loopexit ], [ %lpad.loopexit249, %.loopexit.split-lp242.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp250, %.loopexit.split-lp242.loopexit.split-lp.loopexit.split-lp ]
-  %431 = load ptr, ptr %31, align 8
-  %.not.i.i190 = icmp eq ptr %431, null
-  br i1 %.not.i.i190, label %_ZNSt3__16vectorIPKfNS_9allocatorIS2_EEED2B8ne190000Ev.exit191, label %432
+  %429 = load ptr, ptr %31, align 8
+  %.not.i.i190 = icmp eq ptr %429, null
+  br i1 %.not.i.i190, label %_ZNSt3__16vectorIPKfNS_9allocatorIS2_EEED2B8ne190000Ev.exit191, label %430
 
-432:                                              ; preds = %_ZNSt3__16vectorIPKfNS_9allocatorIS2_EEED2B8ne190000Ev.exit
-  %433 = getelementptr inbounds nuw i8, ptr %31, i64 8
-  store ptr %431, ptr %433, align 8
-  call void @_ZdlPv(ptr noundef nonnull %431) #34
+430:                                              ; preds = %_ZNSt3__16vectorIPKfNS_9allocatorIS2_EEED2B8ne190000Ev.exit
+  %431 = getelementptr inbounds nuw i8, ptr %31, i64 8
+  store ptr %429, ptr %431, align 8
+  call void @_ZdlPv(ptr noundef nonnull %429) #34
   br label %_ZNSt3__16vectorIPKfNS_9allocatorIS2_EEED2B8ne190000Ev.exit191
 
-_ZNSt3__16vectorIPKfNS_9allocatorIS2_EEED2B8ne190000Ev.exit191: ; preds = %.loopexit252, %.loopexit.split-lp253.loopexit.split-lp.loopexit, %.loopexit.split-lp253.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp253.loopexit, %432, %_ZNSt3__16vectorIPKfNS_9allocatorIS2_EEED2B8ne190000Ev.exit, %273, %227, %225, %223, %198, %177, %175, %167, %165, %163, %161, %159, %157, %155, %140, %137, %_ZN7mitsuba4MeshIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE13MeshAttributeD2Ev.exit132, %_ZN7mitsuba4MeshIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE13MeshAttributeD2Ev.exit118
-  %.pn115 = phi { ptr, i32 } [ %.pn109.pn, %_ZN7mitsuba4MeshIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE13MeshAttributeD2Ev.exit132 ], [ %.pn112.pn, %_ZN7mitsuba4MeshIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE13MeshAttributeD2Ev.exit118 ], [ %199, %198 ], [ %228, %227 ], [ %274, %273 ], [ %226, %225 ], [ %224, %223 ], [ %178, %177 ], [ %176, %175 ], [ %168, %167 ], [ %166, %165 ], [ %164, %163 ], [ %162, %161 ], [ %160, %159 ], [ %158, %157 ], [ %156, %155 ], [ %141, %140 ], [ %138, %137 ], [ %.pn, %_ZNSt3__16vectorIPKfNS_9allocatorIS2_EEED2B8ne190000Ev.exit ], [ %.pn, %432 ], [ %lpad.loopexit254, %.loopexit252 ], [ %lpad.loopexit257, %.loopexit.split-lp253.loopexit ], [ %lpad.loopexit262, %.loopexit.split-lp253.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp263, %.loopexit.split-lp253.loopexit.split-lp.loopexit.split-lp ]
+_ZNSt3__16vectorIPKfNS_9allocatorIS2_EEED2B8ne190000Ev.exit191: ; preds = %.loopexit252, %.loopexit.split-lp253.loopexit.split-lp.loopexit, %.loopexit.split-lp253.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp253.loopexit, %430, %_ZNSt3__16vectorIPKfNS_9allocatorIS2_EEED2B8ne190000Ev.exit, %273, %227, %225, %223, %198, %177, %175, %167, %165, %163, %161, %159, %157, %155, %140, %137, %_ZN7mitsuba4MeshIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE13MeshAttributeD2Ev.exit132, %_ZN7mitsuba4MeshIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE13MeshAttributeD2Ev.exit118
+  %.pn115 = phi { ptr, i32 } [ %.pn109.pn, %_ZN7mitsuba4MeshIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE13MeshAttributeD2Ev.exit132 ], [ %.pn112.pn, %_ZN7mitsuba4MeshIfN5drjit6MatrixINS_8SpectrumIfLm4EEELm4EEEE13MeshAttributeD2Ev.exit118 ], [ %199, %198 ], [ %228, %227 ], [ %274, %273 ], [ %226, %225 ], [ %224, %223 ], [ %178, %177 ], [ %176, %175 ], [ %168, %167 ], [ %166, %165 ], [ %164, %163 ], [ %162, %161 ], [ %160, %159 ], [ %158, %157 ], [ %156, %155 ], [ %141, %140 ], [ %138, %137 ], [ %.pn, %_ZNSt3__16vectorIPKfNS_9allocatorIS2_EEED2B8ne190000Ev.exit ], [ %.pn, %430 ], [ %lpad.loopexit254, %.loopexit252 ], [ %lpad.loopexit257, %.loopexit.split-lp253.loopexit ], [ %lpad.loopexit262, %.loopexit.split-lp253.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp263, %.loopexit.split-lp253.loopexit.split-lp.loopexit.split-lp ]
   call void @_ZNSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba4MeshIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEE13MeshAttributeEEENS5_ISH_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #35
   call void @_ZNSt3__16vectorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba4MeshIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEE13MeshAttributeEEENS5_ISH_EEED2B8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %5) #35
   resume { ptr, i32 } %.pn115
@@ -18373,30 +18369,28 @@ _ZNSt3__119__allocate_at_leastB8ne190000INS_9allocatorINS_4pairINS_12basic_strin
   %51 = sub nsw i64 0, %50
   %52 = getelementptr inbounds %"struct.std::__1::pair.109", ptr %28, i64 %51
   invoke void @_ZNSt3__134__uninitialized_allocator_relocateB8ne190000INS_9allocatorINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS1_IcEEEEN7mitsuba4MeshIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEE13MeshAttributeEEEEESH_EEvRT_PT0_SM_SM_(ptr noundef nonnull align 1 dereferenceable(1) %4, ptr noundef %46, ptr noundef %45, ptr noundef nonnull %52)
-          to label %_ZNSt3__114__split_bufferINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba4MeshIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEE13MeshAttributeEEERNS5_ISH_EEE5clearB8ne190000Ev.exit.i unwind label %57
+          to label %_ZNSt3__114__split_bufferINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba4MeshIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEE13MeshAttributeEEERNS5_ISH_EEE5clearB8ne190000Ev.exit.i unwind label %55
 
 _ZNSt3__114__split_bufferINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba4MeshIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEE13MeshAttributeEEERNS5_ISH_EEE5clearB8ne190000Ev.exit.i: ; preds = %27
   %53 = load ptr, ptr %0, align 8
   store ptr %52, ptr %0, align 8
-  %54 = load ptr, ptr %29, align 8
-  store ptr %54, ptr %5, align 8
-  %55 = load ptr, ptr %19, align 8
-  store ptr %55, ptr %4, align 8
+  store ptr %44, ptr %5, align 8
+  store ptr %31, ptr %4, align 8
   %.not.i5 = icmp eq ptr %53, null
-  br i1 %.not.i5, label %_ZNSt3__114__split_bufferINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba4MeshIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEE13MeshAttributeEEERNS5_ISH_EEED2Ev.exit, label %56
+  br i1 %.not.i5, label %_ZNSt3__114__split_bufferINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba4MeshIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEE13MeshAttributeEEERNS5_ISH_EEED2Ev.exit, label %54
 
-56:                                               ; preds = %_ZNSt3__114__split_bufferINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba4MeshIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEE13MeshAttributeEEERNS5_ISH_EEE5clearB8ne190000Ev.exit.i
+54:                                               ; preds = %_ZNSt3__114__split_bufferINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba4MeshIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEE13MeshAttributeEEERNS5_ISH_EEE5clearB8ne190000Ev.exit.i
   tail call void @_ZdlPv(ptr noundef nonnull %53) #34
   br label %_ZNSt3__114__split_bufferINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba4MeshIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEE13MeshAttributeEEERNS5_ISH_EEED2Ev.exit
 
-_ZNSt3__114__split_bufferINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba4MeshIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEE13MeshAttributeEEERNS5_ISH_EEED2Ev.exit: ; preds = %_ZNSt3__114__split_bufferINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba4MeshIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEE13MeshAttributeEEERNS5_ISH_EEE5clearB8ne190000Ev.exit.i, %56
-  ret ptr %54
+_ZNSt3__114__split_bufferINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba4MeshIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEE13MeshAttributeEEERNS5_ISH_EEED2Ev.exit: ; preds = %_ZNSt3__114__split_bufferINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba4MeshIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEE13MeshAttributeEEERNS5_ISH_EEE5clearB8ne190000Ev.exit.i, %54
+  ret ptr %44
 
-57:                                               ; preds = %27
-  %58 = landingpad { ptr, i32 }
+55:                                               ; preds = %27
+  %56 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt3__114__split_bufferINS_4pairINS_12basic_stringIcNS_11char_traitsIcEENS_9allocatorIcEEEEN7mitsuba4MeshIfN5drjit6MatrixINS8_8SpectrumIfLm4EEELm4EEEE13MeshAttributeEEERNS5_ISH_EEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %3) #35
-  resume { ptr, i32 } %58
+  resume { ptr, i32 } %56
 }
 
 ; Function Attrs: mustprogress nounwind uwtable

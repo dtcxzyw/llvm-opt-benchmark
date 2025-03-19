@@ -2730,11 +2730,7 @@ _ZN21ContinuationGCSupport21transform_stack_chunkEP7oopDesc.exit: ; preds = %_ZN
   %291 = load ptr, ptr @_ZN11StringDedup21_string_klass_or_nullE, align 8
   %292 = icmp eq ptr %.0.i, %291
   %or.cond.i = and i1 %292, %71
-  br i1 %or.cond.i, label %293, label %_ZN21ContinuationGCSupport21transform_stack_chunkEP7oopDesc.exit._ZN13G1StringDedup28is_candidate_from_evacuationEPK5Klass16G1HeapRegionAttrS3_j.exit.thread_crit_edge
-
-_ZN21ContinuationGCSupport21transform_stack_chunkEP7oopDesc.exit._ZN13G1StringDedup28is_candidate_from_evacuationEPK5Klass16G1HeapRegionAttrS3_j.exit.thread_crit_edge: ; preds = %_ZN21ContinuationGCSupport21transform_stack_chunkEP7oopDesc.exit
-  %.pre = load i8, ptr %184, align 1
-  br label %_ZN13G1StringDedup28is_candidate_from_evacuationEPK5Klass16G1HeapRegionAttrS3_j.exit.thread
+  br i1 %or.cond.i, label %293, label %_ZN13G1StringDedup28is_candidate_from_evacuationEPK5Klass16G1HeapRegionAttrS3_j.exit.thread
 
 293:                                              ; preds = %_ZN21ContinuationGCSupport21transform_stack_chunkEP7oopDesc.exit
   %.sroa.012.0.copyload = load i24, ptr %7, align 4
@@ -2758,8 +2754,8 @@ _ZN13G1StringDedup28is_candidate_from_evacuationEPK5Klass16G1HeapRegionAttrS3_j.
   call void @_ZN11StringDedup8Requests3addEP7oopDesc(ptr noundef nonnull align 8 dereferenceable(25) %301, ptr noundef nonnull %2) #13
   br label %_ZN13G1StringDedup28is_candidate_from_evacuationEPK5Klass16G1HeapRegionAttrS3_j.exit.thread
 
-_ZN13G1StringDedup28is_candidate_from_evacuationEPK5Klass16G1HeapRegionAttrS3_j.exit.thread: ; preds = %_ZN21ContinuationGCSupport21transform_stack_chunkEP7oopDesc.exit._ZN13G1StringDedup28is_candidate_from_evacuationEPK5Klass16G1HeapRegionAttrS3_j.exit.thread_crit_edge, %295, %300, %_ZN13G1StringDedup28is_candidate_from_evacuationEPK5Klass16G1HeapRegionAttrS3_j.exit
-  %302 = phi i8 [ %.pre, %_ZN21ContinuationGCSupport21transform_stack_chunkEP7oopDesc.exit._ZN13G1StringDedup28is_candidate_from_evacuationEPK5Klass16G1HeapRegionAttrS3_j.exit.thread_crit_edge ], [ 0, %295 ], [ %.sroa.1.0.extract.trunc.i, %300 ], [ 1, %_ZN13G1StringDedup28is_candidate_from_evacuationEPK5Klass16G1HeapRegionAttrS3_j.exit ]
+_ZN13G1StringDedup28is_candidate_from_evacuationEPK5Klass16G1HeapRegionAttrS3_j.exit.thread: ; preds = %_ZN21ContinuationGCSupport21transform_stack_chunkEP7oopDesc.exit, %295, %300, %_ZN13G1StringDedup28is_candidate_from_evacuationEPK5Klass16G1HeapRegionAttrS3_j.exit
+  %302 = phi i8 [ %185, %_ZN21ContinuationGCSupport21transform_stack_chunkEP7oopDesc.exit ], [ 0, %295 ], [ %.sroa.1.0.extract.trunc.i, %300 ], [ 1, %_ZN13G1StringDedup28is_candidate_from_evacuationEPK5Klass16G1HeapRegionAttrS3_j.exit ]
   %303 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %304 = icmp eq i8 %302, 0
   %305 = zext i1 %304 to i32
@@ -3271,11 +3267,7 @@ _ZN21ContinuationGCSupport21transform_stack_chunkEP7oopDesc.exit: ; preds = %_ZN
   %291 = load ptr, ptr @_ZN11StringDedup21_string_klass_or_nullE, align 8
   %292 = icmp eq ptr %.0.i, %291
   %or.cond.i = and i1 %292, %71
-  br i1 %or.cond.i, label %293, label %_ZN21ContinuationGCSupport21transform_stack_chunkEP7oopDesc.exit._ZN13G1StringDedup28is_candidate_from_evacuationEPK5Klass16G1HeapRegionAttrS3_j.exit.thread_crit_edge
-
-_ZN21ContinuationGCSupport21transform_stack_chunkEP7oopDesc.exit._ZN13G1StringDedup28is_candidate_from_evacuationEPK5Klass16G1HeapRegionAttrS3_j.exit.thread_crit_edge: ; preds = %_ZN21ContinuationGCSupport21transform_stack_chunkEP7oopDesc.exit
-  %.pre = load i8, ptr %184, align 1
-  br label %_ZN13G1StringDedup28is_candidate_from_evacuationEPK5Klass16G1HeapRegionAttrS3_j.exit.thread
+  br i1 %or.cond.i, label %293, label %_ZN13G1StringDedup28is_candidate_from_evacuationEPK5Klass16G1HeapRegionAttrS3_j.exit.thread
 
 293:                                              ; preds = %_ZN21ContinuationGCSupport21transform_stack_chunkEP7oopDesc.exit
   %.sroa.04.0.copyload = load i24, ptr %7, align 4
@@ -3299,8 +3291,8 @@ _ZN13G1StringDedup28is_candidate_from_evacuationEPK5Klass16G1HeapRegionAttrS3_j.
   call void @_ZN11StringDedup8Requests3addEP7oopDesc(ptr noundef nonnull align 8 dereferenceable(25) %301, ptr noundef nonnull %2) #13
   br label %_ZN13G1StringDedup28is_candidate_from_evacuationEPK5Klass16G1HeapRegionAttrS3_j.exit.thread
 
-_ZN13G1StringDedup28is_candidate_from_evacuationEPK5Klass16G1HeapRegionAttrS3_j.exit.thread: ; preds = %_ZN21ContinuationGCSupport21transform_stack_chunkEP7oopDesc.exit._ZN13G1StringDedup28is_candidate_from_evacuationEPK5Klass16G1HeapRegionAttrS3_j.exit.thread_crit_edge, %295, %300, %_ZN13G1StringDedup28is_candidate_from_evacuationEPK5Klass16G1HeapRegionAttrS3_j.exit
-  %302 = phi i8 [ %.pre, %_ZN21ContinuationGCSupport21transform_stack_chunkEP7oopDesc.exit._ZN13G1StringDedup28is_candidate_from_evacuationEPK5Klass16G1HeapRegionAttrS3_j.exit.thread_crit_edge ], [ 0, %295 ], [ %.sroa.1.0.extract.trunc.i, %300 ], [ 1, %_ZN13G1StringDedup28is_candidate_from_evacuationEPK5Klass16G1HeapRegionAttrS3_j.exit ]
+_ZN13G1StringDedup28is_candidate_from_evacuationEPK5Klass16G1HeapRegionAttrS3_j.exit.thread: ; preds = %_ZN21ContinuationGCSupport21transform_stack_chunkEP7oopDesc.exit, %295, %300, %_ZN13G1StringDedup28is_candidate_from_evacuationEPK5Klass16G1HeapRegionAttrS3_j.exit
+  %302 = phi i8 [ %185, %_ZN21ContinuationGCSupport21transform_stack_chunkEP7oopDesc.exit ], [ 0, %295 ], [ %.sroa.1.0.extract.trunc.i, %300 ], [ 1, %_ZN13G1StringDedup28is_candidate_from_evacuationEPK5Klass16G1HeapRegionAttrS3_j.exit ]
   %303 = getelementptr inbounds nuw i8, ptr %0, i64 384
   %304 = icmp eq i8 %302, 0
   %305 = zext i1 %304 to i32

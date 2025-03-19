@@ -2192,7 +2192,7 @@ define internal fastcc void @"_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT
 
 21:                                               ; preds = %14
   %22 = icmp eq ptr %15, %8
-  br i1 %22, label %_ZN4core4iter6traits8iterator8Iterator6reduce17h670a43c2fa83afc4E.exit.thread35.i, label %23
+  br i1 %22, label %_ZN4core4iter6traits8iterator8Iterator6reduce17h670a43c2fa83afc4E.exit.thread34.i, label %23
 
 23:                                               ; preds = %21
   %24 = ptrtoint ptr %8 to i64
@@ -2284,26 +2284,26 @@ define internal fastcc void @"_ZN104_$LT$core..iter..sources..from_fn..FromFn$LT
   %58 = add i64 %.sroa.2.0.i.i.i.i.i.i.i.i, 1
   %59 = add nuw i64 %.sroa.010.0.i.i.i.i.i.i.i.i, 1
   %60 = icmp eq i64 %59, %27
-  br i1 %60, label %_ZN4core4iter6traits8iterator8Iterator6reduce17h670a43c2fa83afc4E.exit.thread35.i, label %29
+  br i1 %60, label %_ZN4core4iter6traits8iterator8Iterator6reduce17h670a43c2fa83afc4E.exit.thread34.i, label %29
 
 _ZN4core4iter6traits8iterator8Iterator6reduce17h670a43c2fa83afc4E.exit.thread.i: ; preds = %10
   store i64 -9223372036854775808, ptr %0, align 8, !alias.scope !816, !noalias !819
   br label %"_ZN8language6buffer14BufferSnapshot20diagnostics_in_range28_$u7b$$u7b$closure$u7d$$u7d$17he6386695d793f8adE.exit"
 
-_ZN4core4iter6traits8iterator8Iterator6reduce17h670a43c2fa83afc4E.exit.thread35.i: ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h13e047d64d0d8df6E.exit.i.i.i.i.i.i.i.i", %21
-  %.sroa.0.0.i38.i = phi i64 [ %11, %21 ], [ %.pn3.i.i.i.i.i.i.i.i.i.i.i, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h13e047d64d0d8df6E.exit.i.i.i.i.i.i.i.i" ]
-  %61 = icmp ult i64 %.sroa.0.0.i38.i, %7
+_ZN4core4iter6traits8iterator8Iterator6reduce17h670a43c2fa83afc4E.exit.thread34.i: ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h13e047d64d0d8df6E.exit.i.i.i.i.i.i.i.i", %21
+  %.sroa.0.0.i37.i = phi i64 [ %11, %21 ], [ %.pn3.i.i.i.i.i.i.i.i.i.i.i, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17h13e047d64d0d8df6E.exit.i.i.i.i.i.i.i.i" ]
+  %61 = icmp ult i64 %.sroa.0.0.i37.i, %7
   br i1 %61, label %62, label %65
 
-62:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator6reduce17h670a43c2fa83afc4E.exit.thread35.i
-  %63 = getelementptr inbounds [0 x { { i64, [21 x i64] }, { { ptr, { { ptr, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, i8, [7 x i8] }, { { i32, [1 x i32], [16 x { [2 x i64] }] }, ptr, {}, i8, i8, [6 x i8] } }, i8, [7 x i8] } } }], ptr %5, i64 0, i64 %.sroa.0.0.i38.i
+62:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator6reduce17h670a43c2fa83afc4E.exit.thread34.i
+  %63 = getelementptr inbounds [0 x { { i64, [21 x i64] }, { { ptr, { { ptr, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, i8, [7 x i8] }, { { i32, [1 x i32], [16 x { [2 x i64] }] }, ptr, {}, i8, i8, [6 x i8] } }, i8, [7 x i8] } } }], ptr %5, i64 0, i64 %.sroa.0.0.i37.i
   %.sroa.025.0.copyload.i = load i64, ptr %63, align 8, !noalias !913
   store i64 -9223372036854775807, ptr %63, align 8, !noalias !913
   %64 = icmp eq i64 %.sroa.025.0.copyload.i, -9223372036854775807
   br i1 %64, label %66, label %68
 
-65:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator6reduce17h670a43c2fa83afc4E.exit.thread35.i
-  tail call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %.sroa.0.0.i38.i, i64 noundef %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.bd5a2ed411807eeb75774435f1164a0c.70) #40, !noalias !913
+65:                                               ; preds = %_ZN4core4iter6traits8iterator8Iterator6reduce17h670a43c2fa83afc4E.exit.thread34.i
+  tail call void @_ZN4core9panicking18panic_bounds_check17h9397cb495d89a72dE(i64 noundef %.sroa.0.0.i37.i, i64 noundef %7, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.bd5a2ed411807eeb75774435f1164a0c.70) #40, !noalias !913
   unreachable
 
 66:                                               ; preds = %62

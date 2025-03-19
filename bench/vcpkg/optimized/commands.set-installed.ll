@@ -13701,11 +13701,7 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt8_Rb_treeIN5vcpkg11PackageSpecES
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8, !tbaa !113
   %13 = icmp eq ptr %.019.lcssa28.i, %12
-  br i1 %13, label %._crit_edge.thread.i.select.unfold_crit_edge, label %14
-
-._crit_edge.thread.i.select.unfold_crit_edge:     ; preds = %._crit_edge.thread.i
-  %.pre = load ptr, ptr %4, align 8, !tbaa !504
-  br label %select.unfold
+  br i1 %13, label %select.unfold, label %14
 
 14:                                               ; preds = %._crit_edge.thread.i
   %15 = tail call noundef ptr @_ZSt18_Rb_tree_decrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.019.lcssa28.i) #26
@@ -13719,12 +13715,12 @@ define linkonce_odr dso_local { ptr, i8 } @_ZNSt8_Rb_treeIN5vcpkg11PackageSpecES
           to label %.noexc7 unwind label %.loopexit.split-lp
 
 .noexc7:                                          ; preds = %16
-  %.pre28 = load ptr, ptr %4, align 8, !tbaa !504
+  %.pre = load ptr, ptr %4, align 8, !tbaa !504
   br i1 %18, label %select.unfold, label %33
 
-select.unfold:                                    ; preds = %._crit_edge.thread.i.select.unfold_crit_edge, %.noexc7
-  %19 = phi ptr [ %.pre, %._crit_edge.thread.i.select.unfold_crit_edge ], [ %.pre28, %.noexc7 ]
-  %.sroa.4.0.i.ph = phi ptr [ %.019.lcssa28.i, %._crit_edge.thread.i.select.unfold_crit_edge ], [ %.019.lcssa29.i, %.noexc7 ]
+select.unfold:                                    ; preds = %.noexc7, %._crit_edge.thread.i
+  %19 = phi ptr [ %5, %._crit_edge.thread.i ], [ %.pre, %.noexc7 ]
+  %.sroa.4.0.i.ph = phi ptr [ %.019.lcssa28.i, %._crit_edge.thread.i ], [ %.019.lcssa29.i, %.noexc7 ]
   %20 = load ptr, ptr %3, align 8, !tbaa !508
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 8
   %22 = icmp eq ptr %.sroa.4.0.i.ph, %21
@@ -13761,18 +13757,18 @@ select.unfold:                                    ; preds = %._crit_edge.thread.
   br label %44
 
 33:                                               ; preds = %.noexc7
-  %.not.i9 = icmp eq ptr %.pre28, null
+  %.not.i9 = icmp eq ptr %.pre, null
   br i1 %.not.i9, label %_ZNSt8_Rb_treeIN5vcpkg11PackageSpecES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_Auto_nodeD2Ev.exit, label %34
 
 34:                                               ; preds = %33
-  %35 = getelementptr inbounds nuw i8, ptr %.pre28, i64 32
+  %35 = getelementptr inbounds nuw i8, ptr %.pre, i64 32
   %36 = load ptr, ptr %35, align 8, !tbaa !14
-  %37 = getelementptr inbounds nuw i8, ptr %.pre28, i64 48
+  %37 = getelementptr inbounds nuw i8, ptr %.pre, i64 48
   %38 = icmp eq ptr %36, %37
   br i1 %38, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i: ; preds = %34
-  %39 = getelementptr inbounds nuw i8, ptr %.pre28, i64 40
+  %39 = getelementptr inbounds nuw i8, ptr %.pre, i64 40
   %40 = load i64, ptr %39, align 8, !tbaa !20
   %41 = icmp ult i64 %40, 16
   tail call void @llvm.assume(i1 %41)
@@ -13785,7 +13781,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   br label %_ZNSt8_Rb_treeIN5vcpkg11PackageSpecES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS1_E.exit.i
 
 _ZNSt8_Rb_treeIN5vcpkg11PackageSpecES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS1_E.exit.i: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i.i.i.i.i.i
-  tail call void @_ZdlPvm(ptr noundef nonnull %.pre28, i64 noundef 72) #23
+  tail call void @_ZdlPvm(ptr noundef nonnull %.pre, i64 noundef 72) #23
   br label %_ZNSt8_Rb_treeIN5vcpkg11PackageSpecES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_Auto_nodeD2Ev.exit
 
 _ZNSt8_Rb_treeIN5vcpkg11PackageSpecES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE10_Auto_nodeD2Ev.exit: ; preds = %.thread20, %33, %_ZNSt8_Rb_treeIN5vcpkg11PackageSpecES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE12_M_drop_nodeEPSt13_Rb_tree_nodeIS1_E.exit.i

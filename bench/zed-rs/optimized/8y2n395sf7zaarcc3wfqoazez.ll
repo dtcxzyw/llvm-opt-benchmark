@@ -293,7 +293,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   br label %39
 
 39:                                               ; preds = %132, %31
-  %.sroa.6.0.i.i.i.i.i = phi i64 [ %29, %31 ], [ %134, %132 ]
+  %.val20.i.i.i.i.i.i = phi i64 [ %29, %31 ], [ %134, %132 ]
   %.sroa.06.0.i.i.i.i.i.i = phi i64 [ 0, %31 ], [ %135, %132 ]
   %40 = getelementptr inbounds { { { [4 x i64] }, i64 } }, ptr %1, i64 %.sroa.06.0.i.i.i.i.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !21)
@@ -568,11 +568,11 @@ _ZN14num_bigint_dig6bigint6BigInt12from_biguint17hf16fb20d390409daE.exit.i.i.i.i
 132:                                              ; preds = %"_ZN139_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$$LT$A$u20$as$u20$smallvec..Array$GT$..Item$GT$$GT$9from_iter17h383ed66635ade2f0E.exit.i.i.i.i.i.i.i.i.i", %_ZN14num_bigint_dig6bigint6BigInt12from_biguint17hf16fb20d390409daE.exit.i.i.i.i.i.i.i.i.i
   %.sroa.53.0.i.i.i.i.i.i.i = phi i8 [ 1, %_ZN14num_bigint_dig6bigint6BigInt12from_biguint17hf16fb20d390409daE.exit.i.i.i.i.i.i.i.i.i ], [ 2, %"_ZN139_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..iter..traits..collect..FromIterator$LT$$LT$A$u20$as$u20$smallvec..Array$GT$..Item$GT$$GT$9from_iter17h383ed66635ade2f0E.exit.i.i.i.i.i.i.i.i.i" ]
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %10), !noalias !30
-  %133 = getelementptr inbounds { { { { [4 x i64] }, i64 } }, i8, [7 x i8] }, ptr %28, i64 %.sroa.6.0.i.i.i.i.i
+  %133 = getelementptr inbounds { { { { [4 x i64] }, i64 } }, i8, [7 x i8] }, ptr %28, i64 %.val20.i.i.i.i.i.i
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %133, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.02.i.i.i.i.i.i.i, i64 40, i1 false), !noalias !146
   %.sroa.43.0..sroa_idx.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %133, i64 40
   store i8 %.sroa.53.0.i.i.i.i.i.i.i, ptr %.sroa.43.0..sroa_idx.i.i.i.i.i.i.i.i, align 8, !noalias !147
-  %134 = add i64 %.sroa.6.0.i.i.i.i.i, 1
+  %134 = add i64 %.val20.i.i.i.i.i.i, 1
   call void @llvm.lifetime.end.p0(i64 40, ptr nonnull %.sroa.02.i.i.i.i.i.i.i)
   %135 = add nuw i64 %.sroa.06.0.i.i.i.i.i.i, 1
   %136 = icmp eq i64 %135, %17
@@ -580,7 +580,7 @@ _ZN14num_bigint_dig6bigint6BigInt12from_biguint17hf16fb20d390409daE.exit.i.i.i.i
 
 137:                                              ; preds = %128, %.body.i1.i.i.i.i.i.i.i.i.i, %common.resume.sink.split.i.i.i.i.i.i.i.i.i, %48
   %eh.lpad-body.i.i.i.i.i.i = phi { ptr, i32 } [ %eh.lpad-body.i.i.i.i.i.i.i.i.i.i, %.body.i1.i.i.i.i.i.i.i.i.i ], [ %129, %128 ], [ %49, %48 ], [ %common.resume.op.ph.i.i.i.i.i.i.i.i.i, %common.resume.sink.split.i.i.i.i.i.i.i.i.i ]
-  store i64 %.sroa.6.0.i.i.i.i.i, ptr %25, align 8, !alias.scope !155, !noalias !156
+  store i64 %.val20.i.i.i.i.i.i, ptr %25, align 8, !alias.scope !155, !noalias !156
   br label %.body
 
 138:                                              ; preds = %22

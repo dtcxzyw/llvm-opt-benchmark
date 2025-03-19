@@ -2884,7 +2884,6 @@ _ZN5drjit12DynamicArrayIfED2Ev.exit926:           ; preds = %1143, %1135, %_ZN5d
   br i1 %.not.i.i927, label %_ZNSt3__16vectorIZN7mitsuba11BlenderMeshIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEC1ERKNS1_10PropertiesEE13VertexBindingNS_9allocatorISC_EEED2B8ne190000Ev.exit, label %1162
 
 1162:                                             ; preds = %1160
-  store ptr %1161, ptr %381, align 8
   call void @_ZdlPv(ptr noundef nonnull %1161) #23
   br label %_ZNSt3__16vectorIZN7mitsuba11BlenderMeshIfN5drjit6MatrixINS1_8SpectrumIfLm4EEELm4EEEEC1ERKNS1_10PropertiesEE13VertexBindingNS_9allocatorISC_EEED2B8ne190000Ev.exit
 

@@ -1213,7 +1213,6 @@ define hidden void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6t
   %24 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr %23, ptr %24, align 8
   %25 = getelementptr inbounds nuw i8, ptr %17, i64 16
-  store i64 0, ptr %25, align 8
   %26 = getelementptr inbounds { { { { i64, ptr, {} }, i64 } }, { { { i64, ptr, {} }, i64 } }, { { i64, ptr, {} }, i64 }, { { i64, ptr, {} }, i64 }, { i64, [2 x i64] }, { [3 x i64], i64, [2 x i64] }, { { { { ptr, i64, i64, i64 }, {}, {} }, { {} } } }, i8, i8, i8, i8, [4 x i8] }, ptr %1, i64 %2
   %27 = icmp eq i64 %20, 0
   br i1 %27, label %.thread, label %.lr.ph

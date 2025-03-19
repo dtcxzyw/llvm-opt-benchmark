@@ -7666,11 +7666,10 @@ _ZNSt6vectorISt4pairIjlESaIS1_EEC2ERKS3_.exit.thread: ; preds = %2
   br i1 %.not.i.i.i, label %_ZNSt6vectorISt4pairIjlESaIS1_EED2Ev.exit, label %32
 
 32:                                               ; preds = %29
-  %33 = load ptr, ptr %18, align 8, !tbaa !198
-  %34 = ptrtoint ptr %33 to i64
-  %35 = ptrtoint ptr %31 to i64
-  %36 = sub i64 %34, %35
-  tail call void @_ZdlPvm(ptr noundef nonnull %31, i64 noundef %36) #27
+  %33 = ptrtoint ptr %17 to i64
+  %34 = ptrtoint ptr %31 to i64
+  %35 = sub i64 %33, %34
+  tail call void @_ZdlPvm(ptr noundef nonnull %31, i64 noundef %35) #27
   br label %_ZNSt6vectorISt4pairIjlESaIS1_EED2Ev.exit
 
 _ZNSt6vectorISt4pairIjlESaIS1_EED2Ev.exit:        ; preds = %29, %32

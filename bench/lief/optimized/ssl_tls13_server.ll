@@ -753,12 +753,12 @@ define internal fastcc i32 @ssl_tls13_process_client_hello(ptr noundef %0) unnam
 
 ._crit_edge.loopexit.i:                           ; preds = %172
   %.pre.i = load i32, ptr %115, align 4, !tbaa !58
-  %.pre443.i = ptrtoint ptr %142 to i64
+  %.pre444.i = ptrtoint ptr %142 to i64
   %174 = icmp ne i32 %.1272.i, 0
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %113
-  %.pre-phi.i = phi i64 [ %.pre443.i, %._crit_edge.loopexit.i ], [ %109, %113 ]
+  %.pre-phi.i = phi i64 [ %.pre444.i, %._crit_edge.loopexit.i ], [ %109, %113 ]
   %175 = phi i32 [ %.pre.i, %._crit_edge.loopexit.i ], [ 0, %113 ]
   %.0271.lcssa.i = phi i1 [ %174, %._crit_edge.loopexit.i ], [ false, %113 ]
   %.0267.lcssa.i = phi ptr [ %.1268.i, %._crit_edge.loopexit.i ], [ null, %113 ]
@@ -795,9 +795,14 @@ define internal fastcc i32 @ssl_tls13_process_client_hello(ptr noundef %0) unnam
 189:                                              ; preds = %184
   %190 = call fastcc i32 @ssl_tls13_parse_pre_shared_key_ext(ptr noundef nonnull %0, ptr noundef %.0267.lcssa.i, ptr noundef %.0264.lcssa.i, ptr noundef nonnull %37, ptr noundef nonnull %47, ptr noundef %4)
   switch i32 %190, label %191 [
-    i32 0, label %197
-    i32 -27776, label %.thread341.i
+    i32 0, label %195
+    i32 -27776, label %..thread341_crit_edge.i
   ]
+
+..thread341_crit_edge.i:                          ; preds = %189
+  %.phi.trans.insert.i = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %.pre443.i = load i32, ptr %.phi.trans.insert.i, align 4
+  br label %.thread341.i
 
 191:                                              ; preds = %189
   call void @mbedtls_debug_print_ret(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @.str, i32 noundef 1719, ptr noundef nonnull @.str.40, i32 noundef %190) #9
@@ -812,196 +817,191 @@ define internal fastcc i32 @ssl_tls13_process_client_hello(ptr noundef %0) unnam
   call void @mbedtls_debug_print_ret(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @.str, i32 noundef 1727, ptr noundef nonnull @.str.39, i32 noundef %193) #9
   br label %ssl_tls13_parse_client_hello.exit
 
-.thread341.i:                                     ; preds = %192, %189
-  %195 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %196 = load i32, ptr %195, align 4
-  br label %203
+195:                                              ; preds = %189
+  %196 = getelementptr inbounds nuw i8, ptr %4, i64 4
+  %197 = load i32, ptr %196, align 4
+  %198 = icmp eq i32 %197, 4
+  br i1 %198, label %199, label %.thread341.i
 
-197:                                              ; preds = %189
-  %198 = getelementptr inbounds nuw i8, ptr %4, i64 4
-  %199 = load i32, ptr %198, align 4
-  %200 = icmp eq i32 %199, 4
-  br i1 %200, label %201, label %203
-
-201:                                              ; preds = %197
-  %202 = getelementptr inbounds nuw i8, ptr %13, i64 56
-  store i8 4, ptr %202, align 8, !tbaa !63
+199:                                              ; preds = %195
+  %200 = getelementptr inbounds nuw i8, ptr %13, i64 56
+  store i8 4, ptr %200, align 8, !tbaa !63
   call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 1751, ptr noundef nonnull @.str.41) #9
-  br label %216
+  br label %213
 
-203:                                              ; preds = %197, %.thread341.i
-  %204 = phi i32 [ %196, %.thread341.i ], [ %199, %197 ]
-  %205 = phi i1 [ false, %.thread341.i ], [ true, %197 ]
+.thread341.i:                                     ; preds = %195, %192, %..thread341_crit_edge.i
+  %201 = phi i32 [ %197, %195 ], [ %.pre443.i, %..thread341_crit_edge.i ], [ 0, %192 ]
+  %202 = phi i1 [ true, %195 ], [ false, %..thread341_crit_edge.i ], [ false, %192 ]
   %.val.i.i = load ptr, ptr %0, align 8, !tbaa !40
-  %206 = getelementptr i8, ptr %.val.i.i, i64 32
-  %.val.val.i.i = load i32, ptr %206, align 8, !tbaa !64
-  %207 = and i32 %.val.val.i.i, 2
-  %.not.i.i = icmp eq i32 %207, 0
+  %203 = getelementptr i8, ptr %.val.i.i, i64 32
+  %.val.val.i.i = load i32, ptr %203, align 8, !tbaa !64
+  %204 = and i32 %.val.val.i.i, 2
+  %.not.i.i = icmp eq i32 %204, 0
   br i1 %.not.i.i, label %ssl_tls13_key_exchange_is_ephemeral_available.exit.thread.i, label %ssl_tls13_key_exchange_is_ephemeral_available.exit.i
 
-ssl_tls13_key_exchange_is_ephemeral_available.exit.i: ; preds = %203
+ssl_tls13_key_exchange_is_ephemeral_available.exit.i: ; preds = %.thread341.i
   %.val2.i.i = load ptr, ptr %12, align 8, !tbaa !16
-  %208 = getelementptr i8, ptr %.val2.i.i, i64 3276
-  %.val2.val.i.i = load i32, ptr %208, align 4, !tbaa !58
-  %209 = and i32 %.val2.val.i.i, 4194352
-  %.not.i = icmp eq i32 %209, 4194352
-  br i1 %.not.i, label %210, label %ssl_tls13_key_exchange_is_ephemeral_available.exit.thread.i
+  %205 = getelementptr i8, ptr %.val2.i.i, i64 3276
+  %.val2.val.i.i = load i32, ptr %205, align 4, !tbaa !58
+  %206 = and i32 %.val2.val.i.i, 4194352
+  %.not.i = icmp eq i32 %206, 4194352
+  br i1 %.not.i, label %207, label %ssl_tls13_key_exchange_is_ephemeral_available.exit.thread.i
 
-210:                                              ; preds = %ssl_tls13_key_exchange_is_ephemeral_available.exit.i
-  %211 = getelementptr inbounds nuw i8, ptr %13, i64 56
-  store i8 2, ptr %211, align 8, !tbaa !63
+207:                                              ; preds = %ssl_tls13_key_exchange_is_ephemeral_available.exit.i
+  %208 = getelementptr inbounds nuw i8, ptr %13, i64 56
+  store i8 2, ptr %208, align 8, !tbaa !63
   call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 1758, ptr noundef nonnull @.str.42) #9
-  br label %216
+  br label %213
 
-ssl_tls13_key_exchange_is_ephemeral_available.exit.thread.i: ; preds = %ssl_tls13_key_exchange_is_ephemeral_available.exit.i, %203
-  %212 = icmp eq i32 %204, 1
-  %or.cond5.i = select i1 %205, i1 %212, i1 false
-  br i1 %or.cond5.i, label %213, label %215
+ssl_tls13_key_exchange_is_ephemeral_available.exit.thread.i: ; preds = %ssl_tls13_key_exchange_is_ephemeral_available.exit.i, %.thread341.i
+  %209 = icmp eq i32 %201, 1
+  %or.cond5.i = select i1 %202, i1 %209, i1 false
+  br i1 %or.cond5.i, label %210, label %212
 
-213:                                              ; preds = %ssl_tls13_key_exchange_is_ephemeral_available.exit.thread.i
-  %214 = getelementptr inbounds nuw i8, ptr %13, i64 56
-  store i8 1, ptr %214, align 8, !tbaa !63
+210:                                              ; preds = %ssl_tls13_key_exchange_is_ephemeral_available.exit.thread.i
+  %211 = getelementptr inbounds nuw i8, ptr %13, i64 56
+  store i8 1, ptr %211, align 8, !tbaa !63
   call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 1765, ptr noundef nonnull @.str.43) #9
-  br label %216
+  br label %213
 
-215:                                              ; preds = %ssl_tls13_key_exchange_is_ephemeral_available.exit.thread.i
+212:                                              ; preds = %ssl_tls13_key_exchange_is_ephemeral_available.exit.thread.i
   call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @.str, i32 noundef 1771, ptr noundef nonnull @.str.44) #9
   call void @mbedtls_ssl_pend_fatal_alert(ptr noundef nonnull %0, i8 noundef zeroext 109, i32 noundef -26112) #9
   br label %ssl_tls13_parse_client_hello.exit.thread
 
-216:                                              ; preds = %213, %210, %201
-  %217 = getelementptr inbounds nuw i8, ptr %13, i64 56
-  %218 = load i8, ptr %217, align 8, !tbaa !63
-  %219 = and i8 %218, 5
-  %.not309.i = icmp eq i8 %219, 0
-  br i1 %.not309.i, label %231, label %220
+213:                                              ; preds = %210, %207, %199
+  %214 = getelementptr inbounds nuw i8, ptr %13, i64 56
+  %215 = load i8, ptr %214, align 8, !tbaa !63
+  %216 = and i8 %215, 5
+  %.not309.i = icmp eq i8 %216, 0
+  br i1 %.not309.i, label %228, label %217
 
-220:                                              ; preds = %216
-  %221 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %222 = load ptr, ptr %221, align 8, !tbaa !65
-  store ptr %222, ptr %90, align 8, !tbaa !53
-  %223 = load i32, ptr %222, align 8, !tbaa !54
-  %224 = load ptr, ptr %73, align 8, !tbaa !17
-  %225 = getelementptr inbounds nuw i8, ptr %224, i64 16
-  store i32 %223, ptr %225, align 8, !tbaa !56
-  %226 = getelementptr inbounds nuw i8, ptr %222, i64 8
-  %227 = load ptr, ptr %226, align 8, !tbaa !57
-  call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 1785, ptr noundef nonnull @.str.45, i32 noundef %223, ptr noundef %227) #9
-  %228 = load i32, ptr %4, align 8, !tbaa !67
-  %229 = icmp eq i32 %228, 1
-  br i1 %229, label %230, label %231
+217:                                              ; preds = %213
+  %218 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %219 = load ptr, ptr %218, align 8, !tbaa !65
+  store ptr %219, ptr %90, align 8, !tbaa !53
+  %220 = load i32, ptr %219, align 8, !tbaa !54
+  %221 = load ptr, ptr %73, align 8, !tbaa !17
+  %222 = getelementptr inbounds nuw i8, ptr %221, i64 16
+  store i32 %220, ptr %222, align 8, !tbaa !56
+  %223 = getelementptr inbounds nuw i8, ptr %219, i64 8
+  %224 = load ptr, ptr %223, align 8, !tbaa !57
+  call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 1785, ptr noundef nonnull @.str.45, i32 noundef %220, ptr noundef %224) #9
+  %225 = load i32, ptr %4, align 8, !tbaa !67
+  %226 = icmp eq i32 %225, 1
+  br i1 %226, label %227, label %228
 
-230:                                              ; preds = %220
+227:                                              ; preds = %217
   store i8 1, ptr %13, align 8, !tbaa !68
-  br label %231
+  br label %228
 
-231:                                              ; preds = %230, %220, %216
-  %232 = load i8, ptr %217, align 8, !tbaa !63
-  %.not310.i = icmp ne i8 %232, 1
+228:                                              ; preds = %227, %217, %213
+  %229 = load i8, ptr %214, align 8, !tbaa !63
+  %.not310.i = icmp ne i8 %229, 1
   %narrow.i = select i1 %.not310.i, i1 %.0271.lcssa.i, i1 false
   %.0274.i = zext i1 %narrow.i to i32
-  %233 = load ptr, ptr %90, align 8, !tbaa !53
-  call void @mbedtls_ssl_optimize_checksum(ptr noundef nonnull %0, ptr noundef %233) #9
+  %230 = load ptr, ptr %90, align 8, !tbaa !53
+  call void @mbedtls_ssl_optimize_checksum(ptr noundef nonnull %0, ptr noundef %230) #9
   br label %ssl_tls13_parse_client_hello.exit.thread31
 
-ssl_tls13_parse_client_hello.exit.thread:         ; preds = %17, %24, %32, %39, %45, %56, %61, %68, %84, %93, %103, %112, %215, %150, %156, %159, %164, %140, %128, %123
-  %.0260.i.ph = phi i32 [ -26112, %123 ], [ -29440, %128 ], [ -29440, %140 ], [ -26112, %164 ], [ %158, %159 ], [ %152, %156 ], [ %149, %150 ], [ -26112, %215 ], [ -29440, %112 ], [ -26112, %103 ], [ -28160, %93 ], [ -29440, %84 ], [ %66, %68 ], [ %59, %61 ], [ -29440, %56 ], [ -29440, %45 ], [ -29440, %39 ], [ -29440, %32 ], [ -28288, %24 ], [ -29440, %17 ]
+ssl_tls13_parse_client_hello.exit.thread:         ; preds = %17, %24, %32, %39, %45, %56, %61, %68, %84, %93, %103, %112, %212, %150, %156, %159, %164, %140, %128, %123
+  %.0260.i.ph = phi i32 [ -26112, %123 ], [ -29440, %128 ], [ -29440, %140 ], [ -26112, %164 ], [ %158, %159 ], [ %152, %156 ], [ %149, %150 ], [ -26112, %212 ], [ -29440, %112 ], [ -26112, %103 ], [ -28160, %93 ], [ -29440, %84 ], [ %66, %68 ], [ %59, %61 ], [ -29440, %56 ], [ -29440, %45 ], [ -29440, %39 ], [ -29440, %32 ], [ -28288, %24 ], [ -29440, %17 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
   br label %ssl_tls13_postprocess_client_hello.exit.thread
 
-ssl_tls13_parse_client_hello.exit.thread31:       ; preds = %231, %62, %69
-  %.0260.i.ph30 = phi i32 [ 2, %69 ], [ 2, %62 ], [ %.0274.i, %231 ]
+ssl_tls13_parse_client_hello.exit.thread31:       ; preds = %228, %62, %69
+  %.0260.i.ph30 = phi i32 [ 2, %69 ], [ 2, %62 ], [ %.0274.i, %228 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
-  br label %235
+  br label %232
 
 ssl_tls13_parse_client_hello.exit:                ; preds = %141, %71, %147, %167, %170, %178, %188, %191, %194
   %.0260.i = phi i32 [ %177, %178 ], [ %187, %188 ], [ %190, %191 ], [ %193, %194 ], [ %80, %71 ], [ %146, %147 ], [ %166, %167 ], [ %169, %170 ], [ %143, %141 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #9
-  %234 = icmp slt i32 %.0260.i, 0
-  br i1 %234, label %ssl_tls13_postprocess_client_hello.exit.thread, label %235
+  %231 = icmp slt i32 %.0260.i, 0
+  br i1 %231, label %ssl_tls13_postprocess_client_hello.exit.thread, label %232
 
-235:                                              ; preds = %ssl_tls13_parse_client_hello.exit.thread31, %ssl_tls13_parse_client_hello.exit
+232:                                              ; preds = %ssl_tls13_parse_client_hello.exit.thread31, %ssl_tls13_parse_client_hello.exit
   %.0260.i33 = phi i32 [ %.0260.i.ph30, %ssl_tls13_parse_client_hello.exit.thread31 ], [ %.0260.i, %ssl_tls13_parse_client_hello.exit ]
-  %236 = icmp eq i32 %.0260.i33, 2
-  %237 = load ptr, ptr %0, align 8, !tbaa !40
-  br i1 %236, label %238, label %247
+  %233 = icmp eq i32 %.0260.i33, 2
+  %234 = load ptr, ptr %0, align 8, !tbaa !40
+  br i1 %233, label %235, label %244
 
-238:                                              ; preds = %235
-  %239 = getelementptr inbounds nuw i8, ptr %237, i64 4
-  %240 = load i32, ptr %239, align 4, !tbaa !69
-  %241 = icmp ult i32 %240, 772
-  br i1 %241, label %mbedtls_ssl_conf_is_tls12_enabled.exit, label %mbedtls_ssl_conf_is_tls12_enabled.exit.thread
+235:                                              ; preds = %232
+  %236 = getelementptr inbounds nuw i8, ptr %234, i64 4
+  %237 = load i32, ptr %236, align 4, !tbaa !69
+  %238 = icmp ult i32 %237, 772
+  br i1 %238, label %mbedtls_ssl_conf_is_tls12_enabled.exit, label %mbedtls_ssl_conf_is_tls12_enabled.exit.thread
 
-mbedtls_ssl_conf_is_tls12_enabled.exit:           ; preds = %238
-  %242 = load i32, ptr %237, align 8, !tbaa !70
-  %243 = icmp ult i32 %242, 771
-  br i1 %243, label %mbedtls_ssl_conf_is_tls12_enabled.exit.thread, label %244
+mbedtls_ssl_conf_is_tls12_enabled.exit:           ; preds = %235
+  %239 = load i32, ptr %234, align 8, !tbaa !70
+  %240 = icmp ult i32 %239, 771
+  br i1 %240, label %mbedtls_ssl_conf_is_tls12_enabled.exit.thread, label %241
 
-mbedtls_ssl_conf_is_tls12_enabled.exit.thread:    ; preds = %238, %mbedtls_ssl_conf_is_tls12_enabled.exit
+mbedtls_ssl_conf_is_tls12_enabled.exit.thread:    ; preds = %235, %mbedtls_ssl_conf_is_tls12_enabled.exit
   call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @.str, i32 noundef 1980, ptr noundef nonnull @.str.9) #9
   call void @mbedtls_ssl_pend_fatal_alert(ptr noundef nonnull %0, i8 noundef zeroext 70, i32 noundef -28288) #9
-  br label %262
+  br label %259
 
-244:                                              ; preds = %mbedtls_ssl_conf_is_tls12_enabled.exit
-  %245 = getelementptr inbounds nuw i8, ptr %0, i64 316
-  store i32 1, ptr %245, align 4, !tbaa !71
-  %246 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 771, ptr %246, align 4, !tbaa !48
-  br label %262
+241:                                              ; preds = %mbedtls_ssl_conf_is_tls12_enabled.exit
+  %242 = getelementptr inbounds nuw i8, ptr %0, i64 316
+  store i32 1, ptr %242, align 4, !tbaa !71
+  %243 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 771, ptr %243, align 4, !tbaa !48
+  br label %259
 
-247:                                              ; preds = %235
-  %248 = getelementptr inbounds nuw i8, ptr %237, i64 376
-  %249 = load ptr, ptr %248, align 8, !tbaa !72
-  %.not.i27 = icmp eq ptr %249, null
-  br i1 %.not.i27, label %253, label %250
+244:                                              ; preds = %232
+  %245 = getelementptr inbounds nuw i8, ptr %234, i64 376
+  %246 = load ptr, ptr %245, align 8, !tbaa !72
+  %.not.i27 = icmp eq ptr %246, null
+  br i1 %.not.i27, label %250, label %247
 
-250:                                              ; preds = %247
-  %251 = call i32 %249(ptr noundef nonnull %0) #9
-  %.not16.i = icmp eq i32 %251, 0
-  br i1 %.not16.i, label %253, label %252
+247:                                              ; preds = %244
+  %248 = call i32 %246(ptr noundef nonnull %0) #9
+  %.not16.i = icmp eq i32 %248, 0
+  br i1 %.not16.i, label %250, label %249
 
-252:                                              ; preds = %250
-  call void @mbedtls_debug_print_ret(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @.str, i32 noundef 1901, ptr noundef nonnull @.str.81, i32 noundef %251) #9
+249:                                              ; preds = %247
+  call void @mbedtls_debug_print_ret(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @.str, i32 noundef 1901, ptr noundef nonnull @.str.81, i32 noundef %248) #9
   br label %ssl_tls13_postprocess_client_hello.exit.thread
 
-253:                                              ; preds = %250, %247
-  %254 = load ptr, ptr %12, align 8, !tbaa !16
-  %255 = getelementptr inbounds nuw i8, ptr %254, i64 3496
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %255, i8 0, i64 16, i1 false)
-  %256 = call i32 @mbedtls_ssl_tls13_key_schedule_stage_early(ptr noundef nonnull %0) #9
-  %.not17.i = icmp eq i32 %256, 0
-  br i1 %.not17.i, label %ssl_tls13_postprocess_client_hello.exit, label %257
+250:                                              ; preds = %247, %244
+  %251 = load ptr, ptr %12, align 8, !tbaa !16
+  %252 = getelementptr inbounds nuw i8, ptr %251, i64 3496
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %252, i8 0, i64 16, i1 false)
+  %253 = call i32 @mbedtls_ssl_tls13_key_schedule_stage_early(ptr noundef nonnull %0) #9
+  %.not17.i = icmp eq i32 %253, 0
+  br i1 %.not17.i, label %ssl_tls13_postprocess_client_hello.exit, label %254
 
-257:                                              ; preds = %253
-  call void @mbedtls_debug_print_ret(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @.str, i32 noundef 1912, ptr noundef nonnull @.str.82, i32 noundef %256) #9
+254:                                              ; preds = %250
+  call void @mbedtls_debug_print_ret(ptr noundef nonnull %0, i32 noundef 1, ptr noundef nonnull @.str, i32 noundef 1912, ptr noundef nonnull @.str.82, i32 noundef %253) #9
   br label %ssl_tls13_postprocess_client_hello.exit.thread
 
-ssl_tls13_postprocess_client_hello.exit:          ; preds = %253
-  %258 = icmp eq i32 %.0260.i33, 0
-  %259 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %258, label %260, label %261
+ssl_tls13_postprocess_client_hello.exit:          ; preds = %250
+  %255 = icmp eq i32 %.0260.i33, 0
+  %256 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br i1 %255, label %257, label %258
 
-260:                                              ; preds = %ssl_tls13_postprocess_client_hello.exit
-  store i32 2, ptr %259, align 8, !tbaa !3
+257:                                              ; preds = %ssl_tls13_postprocess_client_hello.exit
+  store i32 2, ptr %256, align 8, !tbaa !3
   br label %ssl_tls13_postprocess_client_hello.exit.thread
 
-261:                                              ; preds = %ssl_tls13_postprocess_client_hello.exit
-  store i32 18, ptr %259, align 8, !tbaa !3
+258:                                              ; preds = %ssl_tls13_postprocess_client_hello.exit
+  store i32 18, ptr %256, align 8, !tbaa !3
   br label %ssl_tls13_postprocess_client_hello.exit.thread
 
-ssl_tls13_postprocess_client_hello.exit.thread:   ; preds = %257, %252, %ssl_tls13_parse_client_hello.exit.thread, %260, %261, %ssl_tls13_parse_client_hello.exit, %1
-  %.020 = phi i32 [ %7, %1 ], [ %.0260.i, %ssl_tls13_parse_client_hello.exit ], [ 0, %260 ], [ 0, %261 ], [ %.0260.i.ph, %ssl_tls13_parse_client_hello.exit.thread ], [ %256, %257 ], [ %251, %252 ]
+ssl_tls13_postprocess_client_hello.exit.thread:   ; preds = %254, %249, %ssl_tls13_parse_client_hello.exit.thread, %257, %258, %ssl_tls13_parse_client_hello.exit, %1
+  %.020 = phi i32 [ %7, %1 ], [ %.0260.i, %ssl_tls13_parse_client_hello.exit ], [ 0, %257 ], [ 0, %258 ], [ %.0260.i.ph, %ssl_tls13_parse_client_hello.exit.thread ], [ %253, %254 ], [ %248, %249 ]
   call void (ptr, i32, ptr, i32, ptr, ...) @mbedtls_debug_print_msg(ptr noundef %0, i32 noundef 2, ptr noundef nonnull @.str, i32 noundef 2003, ptr noundef nonnull @.str.10) #9
-  br label %262
+  br label %259
 
-262:                                              ; preds = %ssl_tls13_postprocess_client_hello.exit.thread, %244, %mbedtls_ssl_conf_is_tls12_enabled.exit.thread
-  %.0 = phi i32 [ %.020, %ssl_tls13_postprocess_client_hello.exit.thread ], [ 0, %244 ], [ -28288, %mbedtls_ssl_conf_is_tls12_enabled.exit.thread ]
+259:                                              ; preds = %ssl_tls13_postprocess_client_hello.exit.thread, %241, %mbedtls_ssl_conf_is_tls12_enabled.exit.thread
+  %.0 = phi i32 [ %.020, %ssl_tls13_postprocess_client_hello.exit.thread ], [ 0, %241 ], [ -28288, %mbedtls_ssl_conf_is_tls12_enabled.exit.thread ]
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5) #9
   ret i32 %.0

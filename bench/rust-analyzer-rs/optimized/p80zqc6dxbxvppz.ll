@@ -13305,7 +13305,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   %.sroa.5.0..sroa_idx.i453.i = getelementptr inbounds nuw i8, ptr %19, i64 16
   %.sroa.2.0..sroa_idx.i454.i = getelementptr inbounds nuw i8, ptr %14, i64 8
   %.sroa.3.0..sroa_idx.i455.i = getelementptr inbounds nuw i8, ptr %14, i64 16
-  %.val173.pre.i = load i32, ptr %290, align 8, !range !75, !noalias !2104
   %.pre.i = load ptr, ptr %162, align 8, !alias.scope !2288, !noalias !2104
   br label %1013
 
@@ -13317,7 +13316,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 
 477:                                              ; preds = %.thread531.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %154), !noalias !2104
-  %.val174.i = load i32, ptr %290, align 8, !range !75, !noalias !2104, !noundef !26
   call void @llvm.experimental.noalias.scope.decl(metadata !2291)
   %478 = load ptr, ptr %162, align 8, !alias.scope !2291, !noalias !2104, !nonnull !26, !noundef !26
   %479 = atomicrmw add ptr %478, i64 1 monotonic, align 8, !noalias !2294
@@ -13333,7 +13331,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 
 "_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hfbba566376e04ef6E.exit199.i": ; preds = %477
   %481 = getelementptr inbounds nuw i8, ptr %154, i64 8
-  store i32 %.val174.i, ptr %481, align 8, !noalias !2104
+  store i32 %272, ptr %481, align 8, !noalias !2104
   store ptr %478, ptr %154, align 8, !noalias !2104
   call void @llvm.lifetime.start.p0(i64 72, ptr nonnull %153), !noalias !2104
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %152), !noalias !2104
@@ -13450,7 +13448,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %111), !noalias !2104
   store ptr %478, ptr %111, align 8, !noalias !2336
   %515 = getelementptr inbounds nuw i8, ptr %111, i64 8
-  store i32 %.val174.i, ptr %515, align 8, !noalias !2336
+  store i32 %272, ptr %515, align 8, !noalias !2336
   %516 = load ptr, ptr %189, align 8, !alias.scope !2338, !noalias !2339, !nonnull !26, !align !69, !noundef !26
   %517 = load ptr, ptr %191, align 8, !alias.scope !2338, !noalias !2339, !nonnull !26, !align !49, !noundef !26
   %518 = getelementptr inbounds nuw i8, ptr %517, i64 176
@@ -13473,7 +13471,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   %.sroa.4.0..sroa_idx.i.i211.i = getelementptr inbounds nuw i8, ptr %109, i64 16
   store ptr %478, ptr %.sroa.4.0..sroa_idx.i.i211.i, align 8, !alias.scope !2341, !noalias !2336
   %.sroa.5.0..sroa_idx.i.i212.i = getelementptr inbounds nuw i8, ptr %109, i64 24
-  store i32 %.val174.i, ptr %.sroa.5.0..sroa_idx.i.i212.i, align 8, !alias.scope !2341, !noalias !2336
+  store i32 %272, ptr %.sroa.5.0..sroa_idx.i.i212.i, align 8, !alias.scope !2341, !noalias !2336
   store i32 0, ptr %109, align 8, !alias.scope !2341, !noalias !2336
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %108), !noalias !2336
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %97), !noalias !2344
@@ -13897,13 +13895,11 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   %.sroa.5.0..sroa_idx.i367.i = getelementptr inbounds nuw i8, ptr %44, i64 16
   %.sroa.2.0..sroa_idx.i368.i = getelementptr inbounds nuw i8, ptr %39, i64 8
   %.sroa.3.0..sroa_idx.i369.i = getelementptr inbounds nuw i8, ptr %39, i64 16
-  %.val176.pre.i = load i32, ptr %290, align 8, !range !75, !noalias !2104
   %.pre894.i = load ptr, ptr %162, align 8, !alias.scope !2444, !noalias !2104
   br label %918
 
 625:                                              ; preds = %447
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %151), !noalias !2104
-  %.val175.i = load i32, ptr %290, align 8, !range !75, !noalias !2104, !noundef !26
   call void @llvm.experimental.noalias.scope.decl(metadata !2447)
   %626 = load ptr, ptr %162, align 8, !alias.scope !2447, !noalias !2104, !nonnull !26, !noundef !26
   %627 = atomicrmw add ptr %626, i64 1 monotonic, align 8, !noalias !2450
@@ -13914,7 +13910,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   %629 = getelementptr inbounds nuw i8, ptr %151, i64 8
   store ptr %626, ptr %629, align 8, !noalias !2104
   %630 = getelementptr inbounds nuw i8, ptr %151, i64 16
-  store i32 %.val175.i, ptr %630, align 8, !noalias !2104
+  store i32 %272, ptr %630, align 8, !noalias !2104
   store i32 7, ptr %151, align 8, !noalias !2104
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %142), !noalias !2104
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %142, ptr noundef nonnull align 8 dereferenceable(32) %145, i64 32, i1 false), !noalias !2104
@@ -15009,7 +15005,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
 
 "_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hfbba566376e04ef6E.exit331.i": ; preds = %918
   store ptr %.pre894.i, ptr %613, align 8, !noalias !2104
-  store i32 %.val176.pre.i, ptr %614, align 8, !noalias !2104
+  store i32 %272, ptr %614, align 8, !noalias !2104
   store i32 7, ptr %150, align 8, !noalias !2104
   call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %149), !noalias !2104
   %922 = load i64, ptr %611, align 8, !noalias !2104, !noundef !26
@@ -15450,7 +15446,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   br i1 %1016, label %.invoke1011.i, label %"_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hfbba566376e04ef6E.exit385.i"
 
 "_ZN64_$LT$intern..Interned$LT$T$GT$$u20$as$u20$core..clone..Clone$GT$5clone17hfbba566376e04ef6E.exit385.i": ; preds = %1013
-  store i32 %.val173.pre.i, ptr %454, align 8, !noalias !2104
+  store i32 %272, ptr %454, align 8, !noalias !2104
   store ptr %.pre.i, ptr %158, align 8, !noalias !2104
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %157), !noalias !2104
   call void @llvm.lifetime.start.p0(i64 80, ptr nonnull %156), !noalias !2104
@@ -15649,7 +15645,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   call void @llvm.lifetime.start.p0(i64 96, ptr nonnull %25), !noalias !2104
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %26), !noalias !2104
   store ptr %.pre.i, ptr %26, align 8, !noalias !2847
-  store i32 %.val173.pre.i, ptr %464, align 8, !noalias !2847
+  store i32 %272, ptr %464, align 8, !noalias !2847
   %1053 = load ptr, ptr %189, align 8, !alias.scope !2849, !noalias !2850, !nonnull !26, !align !69, !noundef !26
   %1054 = load ptr, ptr %191, align 8, !alias.scope !2849, !noalias !2850, !nonnull !26, !align !49, !noundef !26
   %1055 = getelementptr inbounds nuw i8, ptr %1054, i64 176
@@ -15669,7 +15665,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hccd71802e1b704feE.exit.th
   call void @llvm.lifetime.start.p0(i64 40, ptr nonnull %24), !noalias !2847
   store i64 2, ptr %465, align 8, !alias.scope !2852, !noalias !2847
   store ptr %.pre.i, ptr %.sroa.4.0..sroa_idx.i.i412.i, align 8, !alias.scope !2852, !noalias !2847
-  store i32 %.val173.pre.i, ptr %.sroa.5.0..sroa_idx.i.i413.i, align 8, !alias.scope !2852, !noalias !2847
+  store i32 %272, ptr %.sroa.5.0..sroa_idx.i.i413.i, align 8, !alias.scope !2852, !noalias !2847
   store i32 0, ptr %24, align 8, !alias.scope !2852, !noalias !2847
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %23), !noalias !2847
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %12), !noalias !2855

@@ -20464,90 +20464,89 @@ _ZN4llvm5ErrorD2Ev.exit:
 
 33:                                               ; preds = %_ZN4llvm13DWARFListTypeINS_14RangeListEntryEED2Ev.exit, %17
   %34 = load i64, ptr %3, align 8, !tbaa !10
-  %35 = load i64, ptr %.sroa.2.0..sroa_idx.i.i, align 8, !tbaa !330
-  %36 = icmp ugt i64 %35, %34
-  br i1 %36, label %37, label %_ZN4llvm5ErrorD2Ev.exit19
+  %35 = icmp ugt i64 %.sroa.speculated.i.i, %34
+  br i1 %35, label %36, label %_ZN4llvm5ErrorD2Ev.exit19
 
-37:                                               ; preds = %33
+36:                                               ; preds = %33
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %6) #26
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, i8 0, i64 24, i1 false)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %7) #26
   store i64 %34, ptr %7, align 8, !tbaa !10
-  %38 = load i64, ptr %21, align 8, !tbaa !383
+  %37 = load i64, ptr %21, align 8, !tbaa !383
   %.sroa.0.0.copyload.i = load ptr, ptr %29, align 8, !tbaa !147
   %.sroa.2.0.copyload.i = load i64, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !10
   %.sroa.0.0.copyload.i12 = load ptr, ptr %30, align 8, !tbaa !147
   %.sroa.2.0.copyload.i14 = load i64, ptr %.sroa.2.0..sroa_idx.i13, align 8, !tbaa !10
   store ptr %.sroa.0.0.copyload.i12, ptr %8, align 8
   store i64 %.sroa.2.0.copyload.i14, ptr %31, align 8
-  call void @_ZN4llvm13DWARFListTypeINS_14RangeListEntryEE7extractENS_18DWARFDataExtractorEmPmNS_9StringRefES5_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull byval(%"class.llvm::DWARFDataExtractor") align 8 %2, i64 noundef %38, ptr noundef nonnull %3, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %8)
-  %39 = load ptr, ptr %0, align 8, !tbaa !96
-  %.not23 = icmp eq ptr %39, null
+  call void @_ZN4llvm13DWARFListTypeINS_14RangeListEntryEE7extractENS_18DWARFDataExtractorEmPmNS_9StringRefES5_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %0, ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull byval(%"class.llvm::DWARFDataExtractor") align 8 %2, i64 noundef %37, ptr noundef nonnull %3, ptr %.sroa.0.0.copyload.i, i64 %.sroa.2.0.copyload.i, ptr noundef nonnull byval(%"class.llvm::StringRef") align 8 %8)
+  %38 = load ptr, ptr %0, align 8, !tbaa !96
+  %.not23 = icmp eq ptr %38, null
   br i1 %.not23, label %_ZN4llvm5ErrorD2Ev.exit17, label %.critedge
 
-_ZN4llvm5ErrorD2Ev.exit17:                        ; preds = %37
-  %40 = load ptr, ptr %10, align 8, !tbaa !312
-  %.not10.i.i.i.i = icmp eq ptr %40, null
+_ZN4llvm5ErrorD2Ev.exit17:                        ; preds = %36
+  %39 = load ptr, ptr %10, align 8, !tbaa !312
+  %.not10.i.i.i.i = icmp eq ptr %39, null
   br i1 %.not10.i.i.i.i, label %.critedge.i, label %.lr.ph.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %_ZN4llvm5ErrorD2Ev.exit17
-  %41 = load i64, ptr %7, align 8, !tbaa !10
-  br label %42
+  %40 = load i64, ptr %7, align 8, !tbaa !10
+  br label %41
 
-42:                                               ; preds = %42, %.lr.ph.i.i.i.i
-  %.012.i.i.i.i = phi ptr [ %40, %.lr.ph.i.i.i.i ], [ %.1.i.i.i.i, %42 ]
-  %.0811.i.i.i.i = phi ptr [ %12, %.lr.ph.i.i.i.i ], [ %.19.i.i.i.i, %42 ]
-  %43 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
-  %44 = load i64, ptr %43, align 8, !tbaa !10
-  %45 = icmp ult i64 %44, %41
-  %.19.i.i.i.i = select i1 %45, ptr %.0811.i.i.i.i, ptr %.012.i.i.i.i
-  %.1.in.v.i.i.i.i = select i1 %45, i64 24, i64 16
+41:                                               ; preds = %41, %.lr.ph.i.i.i.i
+  %.012.i.i.i.i = phi ptr [ %39, %.lr.ph.i.i.i.i ], [ %.1.i.i.i.i, %41 ]
+  %.0811.i.i.i.i = phi ptr [ %12, %.lr.ph.i.i.i.i ], [ %.19.i.i.i.i, %41 ]
+  %42 = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 32
+  %43 = load i64, ptr %42, align 8, !tbaa !10
+  %44 = icmp ult i64 %43, %40
+  %.19.i.i.i.i = select i1 %44, ptr %.0811.i.i.i.i, ptr %.012.i.i.i.i
+  %.1.in.v.i.i.i.i = select i1 %44, i64 24, i64 16
   %.1.in.i.i.i.i = getelementptr inbounds nuw i8, ptr %.012.i.i.i.i, i64 %.1.in.v.i.i.i.i
   %.1.i.i.i.i = load ptr, ptr %.1.in.i.i.i.i, align 8, !tbaa !320
   %.not.i.i.i.i = icmp eq ptr %.1.i.i.i.i, null
-  br i1 %.not.i.i.i.i, label %_ZNSt3mapImN4llvm17DWARFDebugRnglistESt4lessImESaISt4pairIKmS1_EEE11lower_boundERS5_.exit.i, label %42, !llvm.loop !921
+  br i1 %.not.i.i.i.i, label %_ZNSt3mapImN4llvm17DWARFDebugRnglistESt4lessImESaISt4pairIKmS1_EEE11lower_boundERS5_.exit.i, label %41, !llvm.loop !921
 
-_ZNSt3mapImN4llvm17DWARFDebugRnglistESt4lessImESaISt4pairIKmS1_EEE11lower_boundERS5_.exit.i: ; preds = %42
-  %46 = icmp eq ptr %.19.i.i.i.i, %12
-  br i1 %46, label %.critedge.i, label %47
+_ZNSt3mapImN4llvm17DWARFDebugRnglistESt4lessImESaISt4pairIKmS1_EEE11lower_boundERS5_.exit.i: ; preds = %41
+  %45 = icmp eq ptr %.19.i.i.i.i, %12
+  br i1 %45, label %.critedge.i, label %46
 
-47:                                               ; preds = %_ZNSt3mapImN4llvm17DWARFDebugRnglistESt4lessImESaISt4pairIKmS1_EEE11lower_boundERS5_.exit.i
-  %48 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 32
-  %49 = load i64, ptr %48, align 8, !tbaa !10
-  %50 = icmp ult i64 %41, %49
-  br i1 %50, label %.critedge.i, label %_ZNSt3mapImN4llvm17DWARFDebugRnglistESt4lessImESaISt4pairIKmS1_EEEixERS5_.exit
+46:                                               ; preds = %_ZNSt3mapImN4llvm17DWARFDebugRnglistESt4lessImESaISt4pairIKmS1_EEE11lower_boundERS5_.exit.i
+  %47 = getelementptr inbounds nuw i8, ptr %.19.i.i.i.i, i64 32
+  %48 = load i64, ptr %47, align 8, !tbaa !10
+  %49 = icmp ult i64 %40, %48
+  br i1 %49, label %.critedge.i, label %_ZNSt3mapImN4llvm17DWARFDebugRnglistESt4lessImESaISt4pairIKmS1_EEEixERS5_.exit
 
-.critedge.i:                                      ; preds = %47, %_ZNSt3mapImN4llvm17DWARFDebugRnglistESt4lessImESaISt4pairIKmS1_EEE11lower_boundERS5_.exit.i, %_ZN4llvm5ErrorD2Ev.exit17
-  %.08.lcssa.i.i.i11.i = phi ptr [ %.19.i.i.i.i, %47 ], [ %.19.i.i.i.i, %_ZNSt3mapImN4llvm17DWARFDebugRnglistESt4lessImESaISt4pairIKmS1_EEE11lower_boundERS5_.exit.i ], [ %12, %_ZN4llvm5ErrorD2Ev.exit17 ]
+.critedge.i:                                      ; preds = %46, %_ZNSt3mapImN4llvm17DWARFDebugRnglistESt4lessImESaISt4pairIKmS1_EEE11lower_boundERS5_.exit.i, %_ZN4llvm5ErrorD2Ev.exit17
+  %.08.lcssa.i.i.i11.i = phi ptr [ %.19.i.i.i.i, %46 ], [ %.19.i.i.i.i, %_ZNSt3mapImN4llvm17DWARFDebugRnglistESt4lessImESaISt4pairIKmS1_EEE11lower_boundERS5_.exit.i ], [ %12, %_ZN4llvm5ErrorD2Ev.exit17 ]
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #26
   store ptr %7, ptr %4, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %5) #26
-  %51 = call ptr @_ZNSt8_Rb_treeImSt4pairIKmN4llvm17DWARFDebugRnglistEESt10_Select1stIS4_ESt4lessImESaIS4_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS1_EESF_IJEEEEESt17_Rb_tree_iteratorIS4_ESt23_Rb_tree_const_iteratorIS4_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr %.08.lcssa.i.i.i11.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 1 dereferenceable(1) %5)
+  %50 = call ptr @_ZNSt8_Rb_treeImSt4pairIKmN4llvm17DWARFDebugRnglistEESt10_Select1stIS4_ESt4lessImESaIS4_EE22_M_emplace_hint_uniqueIJRKSt21piecewise_construct_tSt5tupleIJRS1_EESF_IJEEEEESt17_Rb_tree_iteratorIS4_ESt23_Rb_tree_const_iteratorIS4_EDpOT_(ptr noundef nonnull align 8 dereferenceable(48) %9, ptr %.08.lcssa.i.i.i11.i, ptr noundef nonnull align 1 dereferenceable(1) @_ZSt19piecewise_construct, ptr noundef nonnull align 8 dereferenceable(8) %4, ptr noundef nonnull align 1 dereferenceable(1) %5)
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %5) #26
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #26
   br label %_ZNSt3mapImN4llvm17DWARFDebugRnglistESt4lessImESaISt4pairIKmS1_EEEixERS5_.exit
 
-_ZNSt3mapImN4llvm17DWARFDebugRnglistESt4lessImESaISt4pairIKmS1_EEEixERS5_.exit: ; preds = %47, %.critedge.i
-  %.sroa.06.0.i = phi ptr [ %51, %.critedge.i ], [ %.19.i.i.i.i, %47 ]
-  %52 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 40
-  %53 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN4llvm14RangeListEntryESaIS1_EEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %52, ptr noundef nonnull align 8 dereferenceable(24) %6)
+_ZNSt3mapImN4llvm17DWARFDebugRnglistESt4lessImESaISt4pairIKmS1_EEEixERS5_.exit: ; preds = %46, %.critedge.i
+  %.sroa.06.0.i = phi ptr [ %50, %.critedge.i ], [ %.19.i.i.i.i, %46 ]
+  %51 = getelementptr inbounds nuw i8, ptr %.sroa.06.0.i, i64 40
+  %52 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt6vectorIN4llvm14RangeListEntryESaIS1_EEaSERKS3_(ptr noundef nonnull align 8 dereferenceable(24) %51, ptr noundef nonnull align 8 dereferenceable(24) %6)
   br label %.critedge
 
-.critedge:                                        ; preds = %37, %_ZNSt3mapImN4llvm17DWARFDebugRnglistESt4lessImESaISt4pairIKmS1_EEEixERS5_.exit
+.critedge:                                        ; preds = %36, %_ZNSt3mapImN4llvm17DWARFDebugRnglistESt4lessImESaISt4pairIKmS1_EEEixERS5_.exit
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %7) #26
-  %54 = load ptr, ptr %6, align 8, !tbaa !922
-  %.not.i.i.i.i18 = icmp eq ptr %54, null
-  br i1 %.not.i.i.i.i18, label %_ZN4llvm13DWARFListTypeINS_14RangeListEntryEED2Ev.exit, label %55
+  %53 = load ptr, ptr %6, align 8, !tbaa !922
+  %.not.i.i.i.i18 = icmp eq ptr %53, null
+  br i1 %.not.i.i.i.i18, label %_ZN4llvm13DWARFListTypeINS_14RangeListEntryEED2Ev.exit, label %54
 
-55:                                               ; preds = %.critedge
-  %56 = load ptr, ptr %32, align 8, !tbaa !925
-  %57 = ptrtoint ptr %56 to i64
-  %58 = ptrtoint ptr %54 to i64
-  %59 = sub i64 %57, %58
-  call void @_ZdlPvm(ptr noundef nonnull %54, i64 noundef %59) #29
+54:                                               ; preds = %.critedge
+  %55 = load ptr, ptr %32, align 8, !tbaa !925
+  %56 = ptrtoint ptr %55 to i64
+  %57 = ptrtoint ptr %53 to i64
+  %58 = sub i64 %56, %57
+  call void @_ZdlPvm(ptr noundef nonnull %53, i64 noundef %58) #29
   br label %_ZN4llvm13DWARFListTypeINS_14RangeListEntryEED2Ev.exit
 
-_ZN4llvm13DWARFListTypeINS_14RangeListEntryEED2Ev.exit: ; preds = %.critedge, %55
+_ZN4llvm13DWARFListTypeINS_14RangeListEntryEED2Ev.exit: ; preds = %.critedge, %54
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %6) #26
   br i1 %.not23, label %33, label %.loopexit
 

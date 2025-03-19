@@ -4228,8 +4228,7 @@ _ZN4llvm9BitVectorC2Ejb.exit248:                  ; preds = %_ZN4llvm9BitVectorC
   %652 = getelementptr inbounds nuw i8, ptr %10, i64 64
   store i32 %641, ptr %652, align 8, !tbaa !228
   %.val136 = load ptr, ptr %7, align 8, !tbaa !270
-  %.val137 = load ptr, ptr %589, align 8, !tbaa !270
-  %.not350430 = icmp eq ptr %.val137, %.val136
+  %.not350430 = icmp eq ptr %.val135, %.val136
   br i1 %.not350430, label %._crit_edge434, label %.lr.ph433
 
 ._crit_edge434.loopexit:                          ; preds = %_ZNK4llvm9BitVector9anyCommonERKS0_.exit
@@ -4252,7 +4251,7 @@ _ZN4llvm9BitVectorD2Ev.exit249:                   ; preds = %._crit_edge434, %65
 
 .lr.ph433:                                        ; preds = %_ZN4llvm9BitVectorC2Ejb.exit248, %_ZNK4llvm9BitVector9anyCommonERKS0_.exit
   %.082432 = phi i1 [ %.183, %_ZNK4llvm9BitVector9anyCommonERKS0_.exit ], [ false, %_ZN4llvm9BitVectorC2Ejb.exit248 ]
-  %.sroa.0306.0431 = phi ptr [ %656, %_ZNK4llvm9BitVector9anyCommonERKS0_.exit ], [ %.val137, %_ZN4llvm9BitVectorC2Ejb.exit248 ]
+  %.sroa.0306.0431 = phi ptr [ %656, %_ZNK4llvm9BitVector9anyCommonERKS0_.exit ], [ %.val135, %_ZN4llvm9BitVectorC2Ejb.exit248 ]
   %656 = getelementptr inbounds i8, ptr %.sroa.0306.0431, i64 -80
   %657 = getelementptr inbounds i8, ptr %.sroa.0306.0431, i64 -8
   %658 = load i32, ptr %657, align 8, !tbaa !235
