@@ -23,6 +23,7 @@ jobs:
       - name: PR action
         run: python3 scripts/github_rest.py
         env:
+          GITHUB_TOKEN_LLVM: ${{ secrets.PAT_MEMBERSHIP }}
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_COMMAND: ${{ github.event.comment.body }}
           GH_ACTOR: ${{ github.event.sender.login }}

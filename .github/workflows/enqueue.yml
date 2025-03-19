@@ -30,7 +30,7 @@ jobs:
           echo -e "> $PATCH_URL\n\n" > ${{ github.workspace }}/scripts/issue.md
           python3 ${{ github.workspace }}/scripts/enqueue.py 2>&1 | tee -a ${{ github.workspace }}/scripts/issue.md
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN_LLVM: ${{ secrets.PAT_MEMBERSHIP }}
           PATCH_URL: ${{ github.event.comment.body }}
           USER: ${{ github.event.sender.login }}
 
