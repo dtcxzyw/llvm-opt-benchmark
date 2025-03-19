@@ -545,7 +545,7 @@ declare ptr @__cxa_allocate_exception(i64) local_unnamed_addr
 declare void @_ZNSt9bad_allocD1Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #3
 
 ; Function Attrs: cold noreturn
-declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #10
+declare void @__cxa_throw(ptr, ptr, ptr) local_unnamed_addr #11
 
 ; Function Attrs: mustprogress nobuiltin allocsize(0) uwtable
 define dso_local noundef nonnull ptr @_Znam(i64 noundef %0) local_unnamed_addr #11 personality ptr @__gxx_personality_v0 {
@@ -580,7 +580,7 @@ _Znwm.exit:                                       ; preds = %_ZnwmRKSt9nothrow_t
 }
 
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
-declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #12
+declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #13
 
 ; Function Attrs: mustprogress nobuiltin nounwind uwtable
 define dso_local void @_ZdaPv(ptr noundef %0) local_unnamed_addr #13 {
