@@ -1014,7 +1014,7 @@ get_bit.exit32.i:                                 ; preds = %86, %85, %79, %72, 
   br i1 %90, label %91, label %106
 
 91:                                               ; preds = %get_bit.exit32.i
-  br i1 %.not112, label %132, label %92
+  br i1 %.not112, label %131, label %92
 
 92:                                               ; preds = %91
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1107,68 +1107,68 @@ bf_resize.exit:                                   ; preds = %.bf_resize.exit_cri
   %124 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %125 = load i64, ptr %124, align 8, !tbaa !31
   %126 = icmp slt i64 %125, %13
-  br i1 %126, label %127, label %143, !prof !39
+  br i1 %126, label %127, label %142, !prof !39
 
 127:                                              ; preds = %.loopexit
   %128 = and i32 %2, 8
   %.not109 = icmp eq i32 %128, 0
-  br i1 %.not109, label %132, label %129
+  br i1 %.not109, label %131, label %129
 
 129:                                              ; preds = %127
   %130 = lshr i32 %spec.select, 1
   %131 = and i32 %130, 8
   %spec.select129 = or i32 %131, %spec.select
-  br label %143
+  br label %142
 
-132:                                              ; preds = %127, %91
-  %133 = or i32 %spec.select, 24
-  %134 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %135 = load i32, ptr %134, align 8, !tbaa !30
-  %136 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %137 = load i64, ptr %136, align 8, !tbaa !32
-  %.not.i.i116 = icmp eq i64 %137, 0
-  br i1 %.not.i.i116, label %bf_set_zero.exit, label %138
+131:                                              ; preds = %127, %91
+  %132 = or i32 %spec.select, 24
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %134 = load i32, ptr %133, align 8, !tbaa !30
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %136 = load i64, ptr %135, align 8, !tbaa !32
+  %.not.i.i116 = icmp eq i64 %136, 0
+  br i1 %.not.i.i116, label %bf_set_zero.exit, label %137
 
-138:                                              ; preds = %132
-  %139 = load ptr, ptr %0, align 8, !tbaa !28
-  %.val.i.i = load ptr, ptr %139, align 8, !tbaa !19
-  %140 = getelementptr i8, ptr %139, i64 8
-  %.val13.i.i = load ptr, ptr %140, align 8, !tbaa !7
-  %141 = tail call ptr %.val13.i.i(ptr noundef %.val.i.i, ptr noundef %54, i64 noundef 0) #21
-  store ptr %141, ptr %53, align 8, !tbaa !29
-  store i64 0, ptr %136, align 8, !tbaa !32
+137:                                              ; preds = %131
+  %138 = load ptr, ptr %0, align 8, !tbaa !28
+  %.val.i.i = load ptr, ptr %138, align 8, !tbaa !19
+  %139 = getelementptr i8, ptr %138, i64 8
+  %.val13.i.i = load ptr, ptr %139, align 8, !tbaa !7
+  %140 = tail call ptr %.val13.i.i(ptr noundef %.val.i.i, ptr noundef %54, i64 noundef 0) #21
+  store ptr %140, ptr %53, align 8, !tbaa !29
+  store i64 0, ptr %135, align 8, !tbaa !32
   br label %bf_set_zero.exit
 
-bf_set_zero.exit:                                 ; preds = %132, %138
-  %142 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 -9223372036854775808, ptr %142, align 8, !tbaa !31
-  store i32 %135, ptr %134, align 8, !tbaa !30
+bf_set_zero.exit:                                 ; preds = %131, %137
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 -9223372036854775808, ptr %141, align 8, !tbaa !31
+  store i32 %134, ptr %133, align 8, !tbaa !30
   br label %bf_resize.exit122
 
-143:                                              ; preds = %129, %.loopexit
+142:                                              ; preds = %129, %.loopexit
   %.0128 = phi i32 [ %spec.select, %.loopexit ], [ %spec.select129, %129 ]
-  %144 = icmp sgt i64 %125, %12
-  br i1 %144, label %145, label %149, !prof !39
+  %143 = icmp sgt i64 %125, %12
+  br i1 %143, label %144, label %148, !prof !39
 
-145:                                              ; preds = %143
-  %146 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %147 = load i32, ptr %146, align 8, !tbaa !30
-  %148 = tail call fastcc i32 @bf_set_overflow(ptr noundef nonnull %0, i32 noundef %147, i64 noundef %1, i32 noundef %2)
+144:                                              ; preds = %142
+  %145 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %146 = load i32, ptr %145, align 8, !tbaa !30
+  %147 = tail call fastcc i32 @bf_set_overflow(ptr noundef nonnull %0, i32 noundef %146, i64 noundef %1, i32 noundef %2)
   br label %bf_resize.exit122
 
-149:                                              ; preds = %143
-  %150 = sub i64 %.pre.i, %.089
-  %151 = ashr i64 %150, 6
-  %152 = icmp sgt i64 %151, -1
-  br i1 %152, label %153, label %.preheader
+148:                                              ; preds = %142
+  %149 = sub i64 %.pre.i, %.089
+  %150 = ashr i64 %149, 6
+  %151 = icmp sgt i64 %150, -1
+  br i1 %151, label %153, label %.preheader
 
-153:                                              ; preds = %149
-  %154 = trunc i64 %150 to i32
+164:                                              ; preds = %149
+  %154 = trunc i64 %149 to i32
   %155 = and i32 %154, 63
   %.not111 = icmp eq i32 %155, 0
-  br i1 %.not111, label %.preheader, label %156
+  br i1 %.not111, label %171, label %156
 
-156:                                              ; preds = %153
+169:                                              ; preds = %164
   %157 = sub nuw nsw i32 64, %155
   %158 = zext nneg i32 %157 to i64
   %notmask.i = shl nsw i64 -1, %158
@@ -1181,19 +1181,19 @@ bf_set_zero.exit:                                 ; preds = %132, %138
   store i64 %164, ptr %162, align 8, !tbaa !33
   br label %.preheader
 
-.preheader:                                       ; preds = %149, %153, %156
+171:                                              ; preds = %149, %153, %169
   %.3.ph = phi i64 [ 0, %149 ], [ %151, %153 ], [ %151, %156 ]
   br label %165
 
-165:                                              ; preds = %.preheader, %165
-  %.3 = phi i64 [ %169, %165 ], [ %.3.ph, %.preheader ]
+165:; preds = %171, %165
+  %.3 = phi i64 [ %169, %165 ], [ %.3.ph, %171 ]
   %166 = getelementptr inbounds i64, ptr %54, i64 %.3
   %167 = load i64, ptr %166, align 8, !tbaa !33
   %168 = icmp eq i64 %167, 0
   %169 = add i64 %.3, 1
   br i1 %168, label %165, label %170, !llvm.loop !43
 
-170:                                              ; preds = %165
+170:  ; preds = %165
   %171 = icmp sgt i64 %.3, 0
   br i1 %171, label %172, label %176
 
@@ -1211,26 +1211,26 @@ bf_set_zero.exit:                                 ; preds = %132, %138
   %.not.i118 = icmp eq i64 %.091, %178
   br i1 %.not.i118, label %bf_resize.exit122, label %179
 
-179:                                              ; preds = %176
-  %180 = load ptr, ptr %0, align 8, !tbaa !28
-  %181 = load ptr, ptr %53, align 8, !tbaa !29
-  %182 = shl i64 %.091, 3
-  %.val.i119 = load ptr, ptr %180, align 8, !tbaa !19
-  %183 = getelementptr i8, ptr %180, i64 8
-  %.val13.i120 = load ptr, ptr %183, align 8, !tbaa !7
-  %184 = tail call ptr %.val13.i120(ptr noundef %.val.i119, ptr noundef %181, i64 noundef %182) #21
-  %185 = icmp eq ptr %184, null
-  %186 = icmp ne i64 %.091, 0
-  %or.cond.i = and i1 %186, %185
-  br i1 %or.cond.i, label %bf_resize.exit122, label %187
+178:                                              ; preds = %176
+  %179 = load ptr, ptr %0, align 8, !tbaa !28
+  %180 = load ptr, ptr %53, align 8, !tbaa !29
+  %181 = shl i64 %.091, 3
+  %.val.i119 = load ptr, ptr %179, align 8, !tbaa !19
+  %182 = getelementptr i8, ptr %179, i64 8
+  %.val13.i120 = load ptr, ptr %182, align 8, !tbaa !7
+  %183 = tail call ptr %.val13.i120(ptr noundef %.val.i119, ptr noundef %180, i64 noundef %181) #21
+  %184 = icmp eq ptr %183, null
+  %185 = icmp ne i64 %.091, 0
+  %or.cond.i = and i1 %185, %184
+  br i1 %or.cond.i, label %bf_resize.exit122, label %186
 
-187:                                              ; preds = %179
-  store ptr %184, ptr %53, align 8, !tbaa !29
+186:                                              ; preds = %178
+  store ptr %183, ptr %53, align 8, !tbaa !29
   store i64 %.091, ptr %177, align 8, !tbaa !32
   br label %bf_resize.exit122
 
-bf_resize.exit122:                                ; preds = %187, %179, %176, %145, %bf_set_zero.exit, %bf_resize.exit
-  %.090 = phi i32 [ %105, %bf_resize.exit ], [ %133, %bf_set_zero.exit ], [ %148, %145 ], [ %.0128, %176 ], [ %.0128, %179 ], [ %.0128, %187 ]
+bf_resize.exit122:                                ; preds = %186, %178, %176, %144, %bf_set_zero.exit, %bf_resize.exit
+  %.090 = phi i32 [ %105, %bf_resize.exit ], [ %132, %bf_set_zero.exit ], [ %147, %144 ], [ %.0128, %176 ], [ %.0128, %178 ], [ %.0128, %186 ]
   ret i32 %.090
 }
 

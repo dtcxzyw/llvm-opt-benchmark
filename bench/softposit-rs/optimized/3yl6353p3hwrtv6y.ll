@@ -88,7 +88,7 @@ define void @_ZN9softposit7quire163ops3fdp17h6da150bf3eda9608E(ptr noalias nound
   %10 = icmp eq i16 %1, 0
   %11 = icmp eq i16 %2, 0
   %or.cond5 = or i1 %10, %11
-  br i1 %or.cond5, label %61, label %12
+  br i1 %or.cond5, label %54, label %12
 
 12:                                               ; preds = %9
   %13 = and i16 %1, -32768
@@ -204,9 +204,9 @@ _ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit64: ; preds
 .sink.split:                                      ; preds = %4, %73
   %.sink = phi i128 [ %.039, %73 ], [ -170141183460469231731687303715884105728, %4 ]
   store i128 %.sink, ptr %0, align 16
-  br label %61
+  br label %54
 
-61:                                               ; preds = %.sink.split, %9
+54:                                               ; preds = %.sink.split, %9
   ret void
 
 62:                                               ; preds = %_ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit64
@@ -214,10 +214,10 @@ _ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit64: ; preds
   %64 = zext nneg i32 %.035 to i128
   %65 = and i16 %63, 127
   %66 = zext nneg i16 %65 to i128
-  %67 = lshr i128 %64, %66
+  %66 = lshr i128 %64, %66
   br label %73
 
-68:                                               ; preds = %_ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit64
+67:                                               ; preds = %_ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit64
   %69 = zext nneg i32 %.035 to i128
   %70 = and i16 %59, 127
   %71 = zext nneg i16 %70 to i128

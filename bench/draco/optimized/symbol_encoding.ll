@@ -1646,7 +1646,7 @@ define linkonce_odr noundef zeroext i1 @_ZN5draco16EncodeRawSymbolsINS_17RAnsSym
   %14 = tail call range(i32 0, 33) i32 @llvm.ctlz.i32(i32 %3, i1 true)
   %15 = sub nuw nsw i32 32, %14
   %16 = icmp samesign ugt i32 %3, 262143
-  br i1 %16, label %139, label %.thread
+  br i1 %16, label %140, label %.thread
 
 .thread:                                          ; preds = %6, %13
   %.0 = phi i32 [ %15, %13 ], [ 1, %6 ]
@@ -1861,128 +1861,128 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit124: ; preds = %_Z
 
 .thread147:                                       ; preds = %86, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %.thread, %80, %84, %76
   %.1 = phi i32 [ %.0, %.thread ], [ %77, %76 ], [ %81, %80 ], [ %85, %84 ], [ %.0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ %spec.select, %86 ]
-  %88 = call i32 @llvm.smax.i32(i32 %.1, i32 1)
-  %89 = call i32 @llvm.umin.i32(i32 %88, i32 18)
+  %89 = call i32 @llvm.smax.i32(i32 %.1, i32 1)
+  %90 = call i32 @llvm.umin.i32(i32 %89, i32 18)
   call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %11) #18
-  %90 = trunc nuw nsw i32 %89 to i8
-  store i8 %90, ptr %11, align 1, !tbaa !13
-  %91 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %92 = load i64, ptr %91, align 8, !tbaa !29
-  %93 = icmp slt i64 %92, 1
-  br i1 %93, label %94, label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
+  %91 = trunc nuw nsw i32 %90 to i8
+  store i8 %91, ptr %11, align 1, !tbaa !13
+  %92 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  %93 = load i64, ptr %92, align 8, !tbaa !29
+  %94 = icmp slt i64 %93, 1
+  br i1 %94, label %95, label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
 
-94:                                               ; preds = %.thread147
-  %95 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %96 = load ptr, ptr %95, align 8, !tbaa !43
-  %97 = getelementptr inbounds nuw i8, ptr %11, i64 1
-  %98 = load ptr, ptr %5, align 8, !tbaa !43
-  %99 = ptrtoint ptr %96 to i64
-  %100 = ptrtoint ptr %98 to i64
-  %101 = sub i64 %99, %100
-  %102 = getelementptr inbounds i8, ptr %98, i64 %101
-  call void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPKhEEvN9__gnu_cxx17__normal_iteratorIPcS1_EET_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(41) %5, ptr %102, ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull %97)
+95:                                               ; preds = %.thread147
+  %96 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %97 = load ptr, ptr %96, align 8, !tbaa !43
+  %98 = getelementptr inbounds nuw i8, ptr %11, i64 1
+  %99 = load ptr, ptr %5, align 8, !tbaa !43
+  %100 = ptrtoint ptr %97 to i64
+  %101 = ptrtoint ptr %99 to i64
+  %102 = sub i64 %100, %101
+  %103 = getelementptr inbounds i8, ptr %99, i64 %102
+  call void @_ZNSt6vectorIcSaIcEE15_M_range_insertIPKhEEvN9__gnu_cxx17__normal_iteratorIPcS1_EET_S9_St20forward_iterator_tag(ptr noundef nonnull align 8 dereferenceable(41) %5, ptr %103, ptr noundef nonnull align 1 dereferenceable(1) %11, ptr noundef nonnull %98)
   br label %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
 
-_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit:    ; preds = %.thread147, %94
+_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit:    ; preds = %.thread147, %95
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %11) #18
-  switch i32 %89, label %default.unreachable [
-    i32 18, label %137
-    i32 1, label %103
-    i32 2, label %105
-    i32 3, label %107
-    i32 4, label %109
-    i32 5, label %111
-    i32 6, label %113
-    i32 7, label %115
-    i32 8, label %117
-    i32 9, label %119
-    i32 10, label %121
-    i32 11, label %123
-    i32 12, label %125
-    i32 13, label %127
-    i32 14, label %129
-    i32 15, label %131
-    i32 16, label %133
-    i32 17, label %135
+  switch i32 %90, label %default.unreachable [
+    i32 18, label %138
+    i32 1, label %104
+    i32 2, label %106
+    i32 3, label %108
+    i32 4, label %110
+    i32 5, label %112
+    i32 6, label %114
+    i32 7, label %116
+    i32 8, label %118
+    i32 9, label %120
+    i32 10, label %122
+    i32 11, label %124
+    i32 12, label %126
+    i32 13, label %128
+    i32 14, label %130
+    i32 15, label %132
+    i32 16, label %134
+    i32 17, label %136
   ]
 
-103:                                              ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
-  %104 = call noundef zeroext i1 @_ZN5draco24EncodeRawSymbolsInternalINS_17RAnsSymbolEncoderILi1EEEEEbPKjijPNS_13EncoderBufferE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %5)
-  br label %139
+104:                                              ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
+  %105 = call noundef zeroext i1 @_ZN5draco24EncodeRawSymbolsInternalINS_17RAnsSymbolEncoderILi1EEEEEbPKjijPNS_13EncoderBufferE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %5)
+  br label %140
 
-105:                                              ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
-  %106 = call noundef zeroext i1 @_ZN5draco24EncodeRawSymbolsInternalINS_17RAnsSymbolEncoderILi2EEEEEbPKjijPNS_13EncoderBufferE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %5)
-  br label %139
+106:                                              ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
+  %107 = call noundef zeroext i1 @_ZN5draco24EncodeRawSymbolsInternalINS_17RAnsSymbolEncoderILi2EEEEEbPKjijPNS_13EncoderBufferE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %5)
+  br label %140
 
-107:                                              ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
-  %108 = call noundef zeroext i1 @_ZN5draco24EncodeRawSymbolsInternalINS_17RAnsSymbolEncoderILi3EEEEEbPKjijPNS_13EncoderBufferE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %5)
-  br label %139
+108:                                              ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
+  %109 = call noundef zeroext i1 @_ZN5draco24EncodeRawSymbolsInternalINS_17RAnsSymbolEncoderILi3EEEEEbPKjijPNS_13EncoderBufferE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %5)
+  br label %140
 
-109:                                              ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
-  %110 = call noundef zeroext i1 @_ZN5draco24EncodeRawSymbolsInternalINS_17RAnsSymbolEncoderILi4EEEEEbPKjijPNS_13EncoderBufferE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %5)
-  br label %139
+110:                                              ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
+  %111 = call noundef zeroext i1 @_ZN5draco24EncodeRawSymbolsInternalINS_17RAnsSymbolEncoderILi4EEEEEbPKjijPNS_13EncoderBufferE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %5)
+  br label %140
 
-111:                                              ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
-  %112 = call noundef zeroext i1 @_ZN5draco24EncodeRawSymbolsInternalINS_17RAnsSymbolEncoderILi5EEEEEbPKjijPNS_13EncoderBufferE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %5)
-  br label %139
+112:                                              ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
+  %113 = call noundef zeroext i1 @_ZN5draco24EncodeRawSymbolsInternalINS_17RAnsSymbolEncoderILi5EEEEEbPKjijPNS_13EncoderBufferE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %5)
+  br label %140
 
-113:                                              ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
-  %114 = call noundef zeroext i1 @_ZN5draco24EncodeRawSymbolsInternalINS_17RAnsSymbolEncoderILi6EEEEEbPKjijPNS_13EncoderBufferE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %5)
-  br label %139
+114:                                              ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
+  %115 = call noundef zeroext i1 @_ZN5draco24EncodeRawSymbolsInternalINS_17RAnsSymbolEncoderILi6EEEEEbPKjijPNS_13EncoderBufferE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %5)
+  br label %140
 
-115:                                              ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
-  %116 = call noundef zeroext i1 @_ZN5draco24EncodeRawSymbolsInternalINS_17RAnsSymbolEncoderILi7EEEEEbPKjijPNS_13EncoderBufferE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %5)
-  br label %139
+116:                                              ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
+  %117 = call noundef zeroext i1 @_ZN5draco24EncodeRawSymbolsInternalINS_17RAnsSymbolEncoderILi7EEEEEbPKjijPNS_13EncoderBufferE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %5)
+  br label %140
 
-117:                                              ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
-  %118 = call noundef zeroext i1 @_ZN5draco24EncodeRawSymbolsInternalINS_17RAnsSymbolEncoderILi8EEEEEbPKjijPNS_13EncoderBufferE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %5)
-  br label %139
+118:                                              ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
+  %119 = call noundef zeroext i1 @_ZN5draco24EncodeRawSymbolsInternalINS_17RAnsSymbolEncoderILi8EEEEEbPKjijPNS_13EncoderBufferE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %5)
+  br label %140
 
-119:                                              ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
-  %120 = call noundef zeroext i1 @_ZN5draco24EncodeRawSymbolsInternalINS_17RAnsSymbolEncoderILi9EEEEEbPKjijPNS_13EncoderBufferE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %5)
-  br label %139
+120:                                              ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
+  %121 = call noundef zeroext i1 @_ZN5draco24EncodeRawSymbolsInternalINS_17RAnsSymbolEncoderILi9EEEEEbPKjijPNS_13EncoderBufferE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %5)
+  br label %140
 
-121:                                              ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
-  %122 = call noundef zeroext i1 @_ZN5draco24EncodeRawSymbolsInternalINS_17RAnsSymbolEncoderILi10EEEEEbPKjijPNS_13EncoderBufferE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %5)
-  br label %139
+122:                                              ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
+  %123 = call noundef zeroext i1 @_ZN5draco24EncodeRawSymbolsInternalINS_17RAnsSymbolEncoderILi10EEEEEbPKjijPNS_13EncoderBufferE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %5)
+  br label %140
 
-123:                                              ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
-  %124 = call noundef zeroext i1 @_ZN5draco24EncodeRawSymbolsInternalINS_17RAnsSymbolEncoderILi11EEEEEbPKjijPNS_13EncoderBufferE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %5)
-  br label %139
+124:                                              ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
+  %125 = call noundef zeroext i1 @_ZN5draco24EncodeRawSymbolsInternalINS_17RAnsSymbolEncoderILi11EEEEEbPKjijPNS_13EncoderBufferE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %5)
+  br label %140
 
-125:                                              ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
-  %126 = call noundef zeroext i1 @_ZN5draco24EncodeRawSymbolsInternalINS_17RAnsSymbolEncoderILi12EEEEEbPKjijPNS_13EncoderBufferE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %5)
-  br label %139
+126:                                              ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
+  %127 = call noundef zeroext i1 @_ZN5draco24EncodeRawSymbolsInternalINS_17RAnsSymbolEncoderILi12EEEEEbPKjijPNS_13EncoderBufferE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %5)
+  br label %140
 
-127:                                              ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
-  %128 = call noundef zeroext i1 @_ZN5draco24EncodeRawSymbolsInternalINS_17RAnsSymbolEncoderILi13EEEEEbPKjijPNS_13EncoderBufferE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %5)
-  br label %139
+128:                                              ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
+  %129 = call noundef zeroext i1 @_ZN5draco24EncodeRawSymbolsInternalINS_17RAnsSymbolEncoderILi13EEEEEbPKjijPNS_13EncoderBufferE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %5)
+  br label %140
 
-129:                                              ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
-  %130 = call noundef zeroext i1 @_ZN5draco24EncodeRawSymbolsInternalINS_17RAnsSymbolEncoderILi14EEEEEbPKjijPNS_13EncoderBufferE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %5)
-  br label %139
+130:                                              ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
+  %131 = call noundef zeroext i1 @_ZN5draco24EncodeRawSymbolsInternalINS_17RAnsSymbolEncoderILi14EEEEEbPKjijPNS_13EncoderBufferE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %5)
+  br label %140
 
-131:                                              ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
-  %132 = call noundef zeroext i1 @_ZN5draco24EncodeRawSymbolsInternalINS_17RAnsSymbolEncoderILi15EEEEEbPKjijPNS_13EncoderBufferE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %5)
-  br label %139
+132:                                              ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
+  %133 = call noundef zeroext i1 @_ZN5draco24EncodeRawSymbolsInternalINS_17RAnsSymbolEncoderILi15EEEEEbPKjijPNS_13EncoderBufferE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %5)
+  br label %140
 
-133:                                              ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
-  %134 = call noundef zeroext i1 @_ZN5draco24EncodeRawSymbolsInternalINS_17RAnsSymbolEncoderILi16EEEEEbPKjijPNS_13EncoderBufferE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %5)
-  br label %139
+134:                                              ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
+  %135 = call noundef zeroext i1 @_ZN5draco24EncodeRawSymbolsInternalINS_17RAnsSymbolEncoderILi16EEEEEbPKjijPNS_13EncoderBufferE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %5)
+  br label %140
 
-135:                                              ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
-  %136 = call noundef zeroext i1 @_ZN5draco24EncodeRawSymbolsInternalINS_17RAnsSymbolEncoderILi17EEEEEbPKjijPNS_13EncoderBufferE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %5)
-  br label %139
+136:                                              ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
+  %137 = call noundef zeroext i1 @_ZN5draco24EncodeRawSymbolsInternalINS_17RAnsSymbolEncoderILi17EEEEEbPKjijPNS_13EncoderBufferE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %5)
+  br label %140
 
-137:                                              ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
-  %138 = call noundef zeroext i1 @_ZN5draco24EncodeRawSymbolsInternalINS_17RAnsSymbolEncoderILi18EEEEEbPKjijPNS_13EncoderBufferE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %5)
-  br label %139
+138:                                              ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
+  %139 = call noundef zeroext i1 @_ZN5draco24EncodeRawSymbolsInternalINS_17RAnsSymbolEncoderILi18EEEEEbPKjijPNS_13EncoderBufferE(ptr noundef %0, i32 noundef %1, i32 noundef %2, ptr noundef nonnull %5)
+  br label %140
 
 default.unreachable:                              ; preds = %_ZN5draco13EncoderBuffer6EncodeIhEEbRKT_.exit
   unreachable
 
-139:                                              ; preds = %103, %105, %107, %109, %111, %113, %115, %117, %119, %121, %123, %125, %127, %129, %131, %133, %135, %137, %13
-  %.0102 = phi i1 [ false, %13 ], [ %138, %137 ], [ %136, %135 ], [ %134, %133 ], [ %132, %131 ], [ %130, %129 ], [ %128, %127 ], [ %126, %125 ], [ %124, %123 ], [ %122, %121 ], [ %120, %119 ], [ %118, %117 ], [ %116, %115 ], [ %114, %113 ], [ %112, %111 ], [ %110, %109 ], [ %108, %107 ], [ %106, %105 ], [ %104, %103 ]
+140:                                              ; preds = %104, %106, %108, %110, %112, %114, %116, %118, %120, %122, %124, %126, %128, %130, %132, %134, %136, %138, %13
+  %.0102 = phi i1 [ false, %13 ], [ %139, %138 ], [ %137, %136 ], [ %135, %134 ], [ %133, %132 ], [ %131, %130 ], [ %129, %128 ], [ %127, %126 ], [ %125, %124 ], [ %123, %122 ], [ %121, %120 ], [ %119, %118 ], [ %117, %116 ], [ %115, %114 ], [ %113, %112 ], [ %111, %110 ], [ %109, %108 ], [ %107, %106 ], [ %105, %104 ]
   ret i1 %.0102
 }
 

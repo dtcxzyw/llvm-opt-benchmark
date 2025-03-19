@@ -628,9 +628,9 @@ _ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_PKc.exit48: ; preds = %9
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %4) #21
   %39 = lshr i16 %17, 1
   %.lobit.i = and i16 %39, 1
-  %40 = and i16 %17, 4
-  %.16.i = or disjoint i16 %.lobit.i, %40
-  %.1.i = zext nneg i16 %.16.i to i32
+  %.lobit.i = and i16 %17, 4
+  %.1.i55 = or disjoint i16 %.lobit.i, %40
+  %.1.i = zext nneg i16 %.1.i55 to i32
   store i32 %.1.i, ptr %4, align 4, !tbaa !61
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 4
   store ptr %.0, ptr %41, align 4, !tbaa !55
@@ -873,9 +873,9 @@ define noundef zeroext i1 @_ZN5folly12EpollBackend16setEdgeTriggeredERNS_14Event
   %8 = load i16, ptr %7, align 8, !tbaa !64
   %9 = lshr i16 %8, 1
   %.lobit.i = and i16 %9, 1
-  %10 = and i16 %8, 4
-  %.16.i = or disjoint i16 %.lobit.i, %10
-  %.1.i = zext nneg i16 %.16.i to i32
+  %.lobit.i = and i16 %8, 4
+  %.1.i18 = or disjoint i16 %.lobit.i, %10
+  %.1.i = zext nneg i16 %.1.i18 to i32
   %11 = or disjoint i32 %.1.i, -2147483648
   store i32 %11, ptr %2, align 4, !tbaa !61
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 4
