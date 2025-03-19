@@ -5716,9 +5716,9 @@ _ZN6brotli3enc7command17GetCopyLengthCode17hab981e27915e86caE.exit: ; preds = %2
   br i1 %or.cond6.i, label %.thread, label %_ZN6brotli3enc7command18CombineLengthCodes17he28c5563882f5f20E.exit
 
 .thread:                                          ; preds = %_ZN6brotli3enc7command17GetCopyLengthCode17hab981e27915e86caE.exit
-  %235 = icmp samesign ult i16 %.0.i143, 8
-  %236 = or disjoint i16 %233, 64
-  %spec.select.i = select i1 %235, i16 %233, i16 %236
+  %235 = shl nuw nsw i16 %.0.i143, 3
+  %236 = and i16 %235, 64
+  %spec.select.i = or disjoint i16 %233, %236
   %237 = zext nneg i16 %.0.i143 to i64
   %238 = zext nneg i16 %spec.select.i to i64
   br label %261

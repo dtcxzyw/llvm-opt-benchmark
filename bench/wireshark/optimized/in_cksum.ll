@@ -289,12 +289,11 @@ define range(i32 0, 65536) i32 @in_cksum_ret_partial(ptr noundef readonly captur
   %.sroa.12.0.extract.shift20 = lshr i32 %.12, 16
   %169 = and i32 %.12, 65535
   %170 = add nuw nsw i32 %169, %.sroa.12.0.extract.shift20
-  %171 = icmp samesign ugt i32 %170, 65535
-  %172 = zext i1 %171 to i32
-  %.13 = add nuw nsw i32 %170, %172
-  %173 = and i32 %.13, 65535
-  %174 = xor i32 %173, 65535
-  ret i32 %174
+  %171 = lshr i32 %170, 16
+  %.13 = add nuw nsw i32 %171, %170
+  %172 = and i32 %.13, 65535
+  %173 = xor i32 %172, 65535
+  ret i32 %173
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
