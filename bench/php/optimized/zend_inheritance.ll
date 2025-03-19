@@ -330,12 +330,12 @@ zend_type_permits_self.exit:                      ; preds = %.critedge.i
   %91 = icmp eq i32 %90, -1
   br i1 %.not89, label %.loopexit, label %.thread122
 
-92:                                               ; preds = %84
-  %93 = and i32 %2, 4194304
-  %.not85 = icmp eq i32 %93, 0
-  br i1 %.not85, label %99, label %94
+94:                                               ; preds = %84
+  %95 = and i32 %2, 4194304
+  %.not85 = icmp eq i32 %95, 0
+  br i1 %.not85, label %99, label %96
 
-94:                                               ; preds = %92
+96:                                               ; preds = %94
   %95 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %96 = load i32, ptr %1, align 8, !tbaa !4
   %97 = zext i32 %96 to i64
@@ -347,14 +347,14 @@ zend_type_permits_self.exit:                      ; preds = %.critedge.i
   br label %101
 
 101:                                              ; preds = %99, %94
-  %.064 = phi ptr [ %95, %94 ], [ %8, %99 ]
-  %.063 = phi ptr [ %98, %94 ], [ %100, %99 ]
+  %.064 = phi ptr [ %95, %96 ], [ %8, %99 ]
+  %.064 = phi ptr [ %98, %96 ], [ %100, %99 ]
   %102 = icmp ne ptr %0, null
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %104 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  br label %105
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  br label %130
 
-105:                                              ; preds = %.thread, %101
+130:                                              ; preds = %.thread, %101
   %.373 = phi i1 [ false, %101 ], [ %.474.ph, %.thread ]
   %.165 = phi ptr [ %.064, %101 ], [ %151, %.thread ]
   %106 = getelementptr inbounds nuw i8, ptr %.165, i64 8
@@ -373,7 +373,7 @@ zend_type_permits_self.exit:                      ; preds = %.critedge.i
   %.not.i91 = icmp eq i32 %113, 0
   br i1 %.not.i91, label %.thread, label %114
 
-114:                                              ; preds = %112
+132:                                              ; preds = %112
   call void @llvm.assume(i1 %102)
   %115 = getelementptr inbounds nuw i8, ptr %109, i64 16
   %116 = load i64, ptr %115, align 8, !tbaa !13
@@ -381,26 +381,26 @@ zend_type_permits_self.exit:                      ; preds = %.critedge.i
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 496
   %119 = load ptr, ptr %118, align 8, !tbaa !19
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 16
-  %121 = load i64, ptr %120, align 8, !tbaa !13
+  %137 = load i64, ptr %120, align 8, !tbaa !13
   %122 = icmp eq i64 %116, %121
   br i1 %122, label %123, label %132
 
-123:                                              ; preds = %114
+123:; preds = %114
   %124 = getelementptr inbounds nuw i8, ptr %109, i64 24
   %125 = getelementptr inbounds nuw i8, ptr %119, i64 24
   %126 = call i32 @zend_binary_strcasecmp(ptr noundef nonnull %124, i64 noundef %116, ptr noundef nonnull %125, i64 noundef %116) #17
   %.not.i.i96 = icmp eq i32 %126, 0
   br i1 %.not.i.i96, label %127, label %132
 
-127:                                              ; preds = %123
+127:; preds = %123
   %128 = load ptr, ptr %103, align 8, !tbaa !21
   %.not19.i.i97 = icmp eq ptr %128, null
   br i1 %.not19.i.i97, label %132, label %129
 
-129:                                              ; preds = %127
+129:; preds = %127
   %130 = load i32, ptr %104, align 4, !tbaa !22
   %131 = and i32 %130, 131072
-  %.not20.i.i98 = icmp eq i32 %131, 0
+  %.not87.not = icmp eq i32 %131, 0
   br i1 %.not20.i.i98, label %147, label %get_class_from_type.exit
 
 132:                                              ; preds = %127, %123, %114
@@ -428,47 +428,47 @@ get_class_from_type.exit:                         ; preds = %129, %140
   br i1 %.not87.not, label %.thread, label %.thread111
 
 .thread111:                                       ; preds = %get_class_from_type.exit
-  %146 = call fastcc i32 @zend_is_class_subtype_of_type(ptr noundef nonnull %0, ptr noundef %145, ptr noundef %3, ptr %4, i32 %5)
-  br label %149
+  %149 = call fastcc i32 @zend_is_class_subtype_of_type(ptr noundef nonnull %0, ptr noundef %145, ptr noundef %3, ptr %4, i32 %5)
+  br label %152
 
-147:                                              ; preds = %129, %140, %132
+150:                                              ; preds = %129, %140, %132
   %.0.i.ph = phi ptr [ %109, %132 ], [ %109, %140 ], [ %128, %129 ]
-  %148 = call fastcc i32 @zend_is_class_subtype_of_type(ptr noundef nonnull %0, ptr noundef %.0.i.ph, ptr noundef %3, ptr %4, i32 %5)
-  br label %149
+  %151 = call fastcc i32 @zend_is_class_subtype_of_type(ptr noundef nonnull %0, ptr noundef %.0.i.ph, ptr noundef %3, ptr %4, i32 %5)
+  br label %152
 
-149:                                              ; preds = %147, %.thread111, %110
-  %.159 = phi i32 [ %111, %110 ], [ %148, %147 ], [ %146, %.thread111 ]
-  switch i32 %.159, label %150 [
+152:                                              ; preds = %150, %.thread111, %110
+  %.159 = phi i32 [ %111, %110 ], [ %151, %150 ], [ %149, %.thread111 ]
+  switch i32 %.159, label %153 [
     i32 0, label %.loopexit
     i32 -1, label %.thread
   ]
 
-150:                                              ; preds = %149
+153:                                              ; preds = %152
   br label %.thread
 
-.thread:                                          ; preds = %149, %112, %get_class_from_type.exit, %150
-  %.474.ph = phi i1 [ %.373, %150 ], [ %.373, %get_class_from_type.exit ], [ %.373, %112 ], [ true, %149 ]
-  %151 = getelementptr inbounds nuw i8, ptr %.165, i64 16
-  %152 = icmp ult ptr %151, %.063
-  br i1 %152, label %105, label %.thread122
+.thread:                                          ; preds = %152, %112, %get_class_from_type.exit, %153
+  %.474.ph = phi i1 [ %.373, %153 ], [ %.373, %get_class_from_type.exit ], [ %.373, %112 ], [ true, %152 ]
+  %154 = getelementptr inbounds nuw i8, ptr %.165, i64 16
+  %155 = icmp ult ptr %154, %.063
+  br i1 %155, label %105, label %.thread122
 
 .thread122:                                       ; preds = %.thread, %86
   %.076 = phi i32 [ %89, %86 ], [ 0, %.thread ]
   %.272 = phi i1 [ %91, %86 ], [ %.474.ph, %.thread ]
-  br i1 %.272, label %156, label %153
-
-153:                                              ; preds = %.thread122
-  %154 = icmp eq i32 %.076, 0
-  %155 = select i1 %154, i32 2, i32 0
-  br label %.loopexit
+  br i1 %.272, label %159, label %156
 
 156:                                              ; preds = %.thread122
+  %157 = icmp eq i32 %.076, 0
+  %158 = select i1 %157, i32 2, i32 0
+  br label %.loopexit
+
+159:                                              ; preds = %.thread122
   call fastcc void @register_unresolved_classes(ptr noundef %0, ptr %1, i32 %2)
   call fastcc void @register_unresolved_classes(ptr noundef %3, ptr %4, i32 %5)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %149, %83, %82, %86, %156, %153, %6
-  %.0 = phi i32 [ 2, %6 ], [ 0, %83 ], [ 2, %82 ], [ -1, %156 ], [ %155, %153 ], [ %89, %86 ], [ %.159, %149 ]
+.loopexit:                                        ; preds = %152, %83, %82, %86, %159, %156, %6
+  %.0 = phi i32 [ 2, %6 ], [ 0, %83 ], [ 2, %82 ], [ -1, %159 ], [ %158, %156 ], [ %89, %86 ], [ %.159, %152 ]
   ret i32 %.0
 }
 

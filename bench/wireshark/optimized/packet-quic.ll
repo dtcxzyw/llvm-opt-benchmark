@@ -2943,7 +2943,7 @@ quic_create_decoders.exit.i:                      ; preds = %661, %652, %quic_ar
   %692 = load i32, ptr %26, align 4
   %.0165.val.i = load ptr, ptr %.0165.i, align 8
   %693 = call fastcc zeroext i1 @quic_decrypt_header(ptr noundef %.3.i, i32 noundef %689, ptr %.0165.val.i, i32 noundef %692, ptr noundef nonnull %22, ptr noundef nonnull %25, i1 noundef zeroext false)
-  br i1 %693, label %quic_create_decoders.exit.thread.i, label %quic_create_decoders.exit.thread.thread223.i
+  br i1 %693, label %quic_create_decoders.exit.thread.sink.split.i, label %quic_create_decoders.exit.thread.thread223.i
 
 694:                                              ; preds = %715, %.preheader.i
   %indvars.iv.i = phi i64 [ 0, %.preheader.i ], [ %indvars.iv.next.i, %715 ]
@@ -2996,7 +2996,7 @@ quic_is_hp_cipher_initialized.exit.i:             ; preds = %.critedge.i.i, %qui
 712:                                              ; preds = %quic_is_hp_cipher_initialized.exit.i
   %713 = load i32, ptr %26, align 4
   %714 = call fastcc zeroext i1 @quic_decrypt_header(ptr noundef %.3.i, i32 noundef %689, ptr nonnull %711, i32 noundef %713, ptr noundef nonnull %22, ptr noundef nonnull %25, i1 noundef zeroext false)
-  br i1 %714, label %quic_create_decoders.exit.thread.i, label %715
+  br i1 %714, label %quic_create_decoders.exit.thread.sink.split.i, label %715
 
 715:                                              ; preds = %712, %quic_is_hp_cipher_initialized.exit.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
@@ -3014,7 +3014,7 @@ quic_create_decoders.exit.thread.thread223.i:     ; preds = %quic_create_0rtt_de
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %25) #18
   br label %.thread219.i
 
-quic_create_decoders.exit.thread.i:               ; preds = %712, %quic_create_0rtt_decoder.exit.i, %691
+quic_create_decoders.exit.thread.sink.split.i:    ; preds = %712, %quic_create_0rtt_decoder.exit.i, %691
   %716 = load i64, ptr %268, align 8
   %717 = load i8, ptr %22, align 1
   %718 = load i32, ptr %25, align 4
