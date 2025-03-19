@@ -25,7 +25,7 @@ $_ZNK3ue219AsciiComponentClass6acceptERNS_21ConstComponentVisitorE = comdat any
 
 $_ZNK3ue214ComponentClass5emptyEv = comdat any
 
-@_ZTVN3ue219AsciiComponentClassE = hidden unnamed_addr constant { [22 x ptr] } { [22 x ptr] [ptr null, ptr @_ZTIN3ue219AsciiComponentClassE, ptr @_ZN3ue214ComponentClassD2Ev, ptr @_ZN3ue219AsciiComponentClassD0Ev, ptr @_ZNK3ue219AsciiComponentClass5cloneEv, ptr @_ZN3ue219AsciiComponentClass6acceptERNS_16ComponentVisitorE, ptr @_ZNK3ue219AsciiComponentClass6acceptERNS_21ConstComponentVisitorE, ptr @_ZNK3ue219AsciiComponentClass5firstEv, ptr @_ZNK3ue219AsciiComponentClass4lastEv, ptr @_ZNK3ue214ComponentClass5emptyEv, ptr @_ZNK3ue29Component18vacuous_everywhereEv, ptr @_ZNK3ue29Component10repeatableEv, ptr @_ZN3ue29Component8optimiseEb, ptr @_ZN3ue219AsciiComponentClass13notePositionsERNS_18GlushkovBuildStateE, ptr @_ZN3ue219AsciiComponentClass14buildFollowSetERNS_18GlushkovBuildStateERKSt6vectorINS_12PositionInfoESaIS4_EE, ptr @_ZNK3ue29Component24checkEmbeddedStartAnchorEb, ptr @_ZNK3ue29Component22checkEmbeddedEndAnchorEb, ptr @_ZNK3ue219AsciiComponentClass11class_emptyEv, ptr @_ZN3ue219AsciiComponentClass3addENS_15PredefinedClassEb, ptr @_ZN3ue219AsciiComponentClass3addEj, ptr @_ZN3ue219AsciiComponentClass8finalizeEv, ptr @_ZN3ue219AsciiComponentClass11createRangeEj] }, align 8
+@_ZTVN3ue219AsciiComponentClassE = hidden unnamed_addr constant { [22 x ptr] } { [22 x ptr] [ptr null, ptr @_ZTIN3ue219AsciiComponentClassE, ptr @_ZN3ue214ComponentClassD2Ev, ptr @_ZN3ue219AsciiComponentClassD0Ev, ptr @_ZNK3ue219AsciiComponentClass5cloneEv, ptr @_ZN3ue219AsciiComponentClass6acceptERNS_16ComponentVisitorE, ptr @_ZNK3ue219AsciiComponentClass6acceptERNS_21ConstComponentVisitorE, ptr @_ZNK3ue219AsciiComponentClass4lastEv, ptr @_ZNK3ue219AsciiComponentClass4lastEv, ptr @_ZNK3ue214ComponentClass5emptyEv, ptr @_ZNK3ue29Component18vacuous_everywhereEv, ptr @_ZNK3ue29Component10repeatableEv, ptr @_ZN3ue29Component8optimiseEb, ptr @_ZN3ue219AsciiComponentClass13notePositionsERNS_18GlushkovBuildStateE, ptr @_ZN3ue219AsciiComponentClass14buildFollowSetERNS_18GlushkovBuildStateERKSt6vectorINS_12PositionInfoESaIS4_EE, ptr @_ZNK3ue29Component24checkEmbeddedStartAnchorEb, ptr @_ZNK3ue29Component22checkEmbeddedEndAnchorEb, ptr @_ZNK3ue219AsciiComponentClass11class_emptyEv, ptr @_ZN3ue219AsciiComponentClass3addENS_15PredefinedClassEb, ptr @_ZN3ue219AsciiComponentClass3addEj, ptr @_ZN3ue219AsciiComponentClass8finalizeEv, ptr @_ZN3ue219AsciiComponentClass11createRangeEj] }, align 8
 @_ZN3ue218GlushkovBuildState17POS_UNINITIALIZEDE = external local_unnamed_addr constant i32, align 4
 @.str = private unnamed_addr constant [38 x i8] c"Range out of order in character class\00", align 1
 @_ZTIN3ue217LocatedParseErrorE = external constant ptr
@@ -832,23 +832,6 @@ _ZN3ue29CharReach4flipEv.exit:                    ; preds = %19, %13
 }
 
 ; Function Attrs: mustprogress uwtable
-define hidden void @_ZNK3ue219AsciiComponentClass5firstEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
-.noexc:
-  %2 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %3 = load i32, ptr %2, align 8
-  %4 = tail call noalias noundef nonnull dereferenceable(8) ptr @_Znwm(i64 noundef 8) #14
-  store ptr %4, ptr %0, align 8
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %6 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %6, ptr %7, align 8
-  %.sroa.02.0.insert.ext = zext i32 %3 to i64
-  store i64 %.sroa.02.0.insert.ext, ptr %4, align 4
-  store ptr %6, ptr %5, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
 define hidden void @_ZNK3ue219AsciiComponentClass4lastEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
 .noexc:
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -930,6 +913,12 @@ declare void @_ZN3ue212CompileErrorC2ERKNSt7__cxx1112basic_stringIcSt11char_trai
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #13
+
+; Function Attrs: mustprogress uwtable
+define hidden void @_ZNK3ue219AsciiComponentClass5firstEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
+  tail call void @_ZNK3ue219AsciiComponentClass4lastEv(ptr dead_on_unwind noalias writable writeonly sret(%"class.std::vector") align 8 captures(none) initializes((0, 24)) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(72) %1) #0
+  ret void
+}
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

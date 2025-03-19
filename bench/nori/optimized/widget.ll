@@ -1503,46 +1503,6 @@ define hidden noundef ptr @_ZN7nanogui6Widget6screenEv(ptr noundef nonnull reado
   ret ptr %3
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define hidden noundef ptr @_ZNK7nanogui6Widget6screenEv(ptr noundef nonnull readonly align 8 dereferenceable(140) %0) local_unnamed_addr #12 align 2 {
-  br label %2
-
-2:                                                ; preds = %4, %1
-  %.0710.i = phi ptr [ %0, %1 ], [ %6, %4 ]
-  %3 = tail call ptr @__dynamic_cast(ptr nonnull %.0710.i, ptr nonnull @_ZTIN7nanogui6WidgetE, ptr nonnull @_ZTIN7nanogui6ScreenE, i64 0) #21
-  %.not9.i = icmp eq ptr %3, null
-  br i1 %.not9.i, label %4, label %_ZN7nanogui6Widget6screenEv.exit
-
-4:                                                ; preds = %2
-  %5 = getelementptr inbounds nuw i8, ptr %.0710.i, i64 16
-  %6 = load ptr, ptr %5, align 8
-  %.not.i = icmp eq ptr %6, null
-  br i1 %.not.i, label %_ZN7nanogui6Widget6screenEv.exit, label %2, !llvm.loop !46
-
-_ZN7nanogui6Widget6screenEv.exit:                 ; preds = %2, %4
-  ret ptr %3
-}
-
-; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
-define hidden noundef ptr @_ZNK7nanogui6Widget6windowEv(ptr noundef nonnull readonly align 8 dereferenceable(140) %0) local_unnamed_addr #12 align 2 {
-  br label %2
-
-2:                                                ; preds = %4, %1
-  %.0710.i = phi ptr [ %0, %1 ], [ %6, %4 ]
-  %3 = tail call ptr @__dynamic_cast(ptr nonnull %.0710.i, ptr nonnull @_ZTIN7nanogui6WidgetE, ptr nonnull @_ZTIN7nanogui6WindowE, i64 0) #21
-  %.not9.i = icmp eq ptr %3, null
-  br i1 %.not9.i, label %4, label %_ZN7nanogui6Widget6windowEv.exit
-
-4:                                                ; preds = %2
-  %5 = getelementptr inbounds nuw i8, ptr %.0710.i, i64 16
-  %6 = load ptr, ptr %5, align 8
-  %.not.i = icmp eq ptr %6, null
-  br i1 %.not.i, label %_ZN7nanogui6Widget6windowEv.exit, label %2, !llvm.loop !45
-
-_ZN7nanogui6Widget6windowEv.exit:                 ; preds = %2, %4
-  ret ptr %3
-}
-
 declare void @_ZN7nanogui6Screen12update_focusEPNS_6WidgetE(ptr noundef nonnull align 8 dereferenceable(384), ptr noundef) local_unnamed_addr #10
 
 ; Function Attrs: mustprogress uwtable
@@ -1750,6 +1710,18 @@ declare i64 @llvm.umin.i64(i64, i64) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #20
+
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
+define hidden noundef ptr @_ZNK7nanogui6Widget6screenEv(ptr noundef nonnull readonly align 8 dereferenceable(140) %0) local_unnamed_addr #12 align 2 {
+  %2 = tail call noundef ptr @_ZN7nanogui6Widget6screenEv(ptr noundef nonnull readonly align 8 dereferenceable(140) %0) #12
+  ret ptr %2
+}
+
+; Function Attrs: mustprogress nofree nounwind willreturn memory(read) uwtable
+define hidden noundef ptr @_ZNK7nanogui6Widget6windowEv(ptr noundef nonnull readonly align 8 dereferenceable(140) %0) local_unnamed_addr #12 align 2 {
+  %2 = tail call noundef ptr @_ZN7nanogui6Widget6windowEv(ptr noundef nonnull readonly align 8 dereferenceable(140) %0) #12
+  ret ptr %2
+}
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="nehalem" "target-features"="+cmov,+crc32,+cx16,+cx8,+fxsr,+mmx,+popcnt,+sahf,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+x87" }

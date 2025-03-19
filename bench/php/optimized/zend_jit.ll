@@ -62595,7 +62595,7 @@ jit_CONST_ADDR.exit567:                           ; preds = %449, %459, %467
   br i1 %.not485, label %489, label %486
 
 486:                                              ; preds = %484
-  tail call fastcc void @jit_set_Z_LVAL(ptr noundef nonnull %0, i64 noundef %8, i32 noundef %92)
+  tail call fastcc void @jit_set_Z_DVAL(ptr noundef nonnull %0, i64 noundef %8, i32 noundef %92)
   %487 = and i64 %8, 3
   %.not486 = icmp eq i64 %487, 2
   br i1 %.not486, label %489, label %488
@@ -62668,7 +62668,7 @@ jit_set_Z_LVAL.exit568:                           ; preds = %493
 
 519:                                              ; preds = %515
   %520 = tail call i32 @ir_const_i64(ptr noundef nonnull %0, i64 noundef -4332462841530417152) #35
-  tail call fastcc void @jit_set_Z_LVAL(ptr noundef nonnull %0, i64 noundef %5, i32 noundef %520)
+  tail call fastcc void @jit_set_Z_DVAL(ptr noundef nonnull %0, i64 noundef %5, i32 noundef %520)
   tail call fastcc void @jit_set_Z_TYPE_INFO(ptr noundef nonnull %0, i64 noundef %5, i32 noundef 5)
   br label %jit_set_Z_TYPE_INFO.exit570
 
@@ -62699,7 +62699,7 @@ jit_set_Z_TYPE_INFO.exit570:                      ; preds = %513, %503, %517, %5
 
 532:                                              ; preds = %529
   %533 = tail call i32 @ir_const_i64(ptr noundef nonnull %0, i64 noundef 4890909195324358656) #35
-  tail call fastcc void @jit_set_Z_LVAL(ptr noundef nonnull %0, i64 noundef %8, i32 noundef %533)
+  tail call fastcc void @jit_set_Z_DVAL(ptr noundef nonnull %0, i64 noundef %8, i32 noundef %533)
   tail call fastcc void @jit_set_Z_TYPE_INFO(ptr noundef nonnull %0, i64 noundef %8, i32 noundef 5)
   br label %539
 
@@ -62713,7 +62713,7 @@ jit_set_Z_TYPE_INFO.exit570:                      ; preds = %513, %503, %517, %5
 
 537:                                              ; preds = %534
   %538 = tail call i32 @ir_const_i64(ptr noundef nonnull %0, i64 noundef -4332462841530417152) #35
-  tail call fastcc void @jit_set_Z_LVAL(ptr noundef nonnull %0, i64 noundef %8, i32 noundef %538)
+  tail call fastcc void @jit_set_Z_DVAL(ptr noundef nonnull %0, i64 noundef %8, i32 noundef %538)
   tail call fastcc void @jit_set_Z_TYPE_INFO(ptr noundef nonnull %0, i64 noundef %8, i32 noundef 5)
   br label %539
 
@@ -117707,25 +117707,6 @@ zend_ssa_next_use_phi.exit:                       ; preds = %229, %221, %zend_ss
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc void @jit_set_Z_LVAL(ptr noundef %0, i64 noundef %1, i32 noundef %2) unnamed_addr #0 {
-  %4 = and i64 %1, 3
-  %5 = icmp eq i64 %4, 2
-  br i1 %5, label %6, label %7
-
-6:                                                ; preds = %3
-  tail call fastcc void @zend_jit_def_reg(ptr noundef %0, i64 noundef %1, i32 noundef %2)
-  br label %9
-
-7:                                                ; preds = %3
-  %8 = tail call fastcc i32 @jit_ZVAL_ADDR(ptr noundef %0, i64 noundef %1)
-  tail call void @_ir_STORE(ptr noundef %0, i32 noundef %8, i32 noundef %2) #35
-  br label %9
-
-9:                                                ; preds = %7, %6
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
 define internal fastcc void @jit_set_Z_TYPE_INFO(ptr noundef %0, i64 noundef %1, i32 noundef %2) unnamed_addr #0 {
   %4 = icmp ult i32 %2, 6
   %5 = and i64 %1, 3
@@ -123904,7 +123885,7 @@ jit_set_Z_TYPE_INFO.exit230:                      ; preds = %302, %292, %jit_set
 
 318:                                              ; preds = %313
   %319 = tail call i32 @ir_const_i64(ptr noundef nonnull %0, i64 noundef -4332462841530417152) #35
-  tail call fastcc void @jit_set_Z_LVAL(ptr noundef nonnull %0, i64 noundef %5, i32 noundef %319)
+  tail call fastcc void @jit_set_Z_DVAL(ptr noundef nonnull %0, i64 noundef %5, i32 noundef %319)
   tail call fastcc void @jit_set_Z_TYPE_INFO(ptr noundef nonnull %0, i64 noundef %5, i32 noundef 5)
   br label %320
 

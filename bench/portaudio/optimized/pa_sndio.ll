@@ -775,43 +775,6 @@ define internal range(i32 -9999, 1) i32 @StartStream(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal range(i32 -9999, 1) i32 @StopStream(ptr noundef captures(none) %0) #0 {
-  %2 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #16
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 460
-  %4 = load i32, ptr %3, align 4, !tbaa !77
-  %.not = icmp eq i32 %4, 0
-  br i1 %.not, label %5, label %16
-
-5:                                                ; preds = %1
-  store i32 1, ptr %3, align 4, !tbaa !77
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %7 = load ptr, ptr %6, align 8, !tbaa !83
-  %.not7 = icmp eq ptr %7, null
-  br i1 %.not7, label %12, label %8
-
-8:                                                ; preds = %5
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 512
-  %10 = load i64, ptr %9, align 8, !tbaa !84
-  %11 = call i32 @pthread_join(i64 noundef %10, ptr noundef nonnull %2) #16
-  %.not8 = icmp eq i32 %11, 0
-  br i1 %.not8, label %12, label %16
-
-12:                                               ; preds = %8, %5
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 384
-  %14 = load ptr, ptr %13, align 8, !tbaa !79
-  %15 = call i32 @sio_stop(ptr noundef %14) #16
-  %.not9 = icmp eq i32 %15, 0
-  %. = select i1 %.not9, i32 -9999, i32 0
-  br label %16
-
-16:                                               ; preds = %12, %8, %1
-  %.0 = phi i32 [ 0, %1 ], [ -9999, %8 ], [ %., %12 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %2) #16
-  ret i32 %.0
-}
-
-; Function Attrs: nounwind uwtable
 define internal range(i32 -9999, 1) i32 @AbortStream(ptr noundef captures(none) %0) #0 {
   %2 = alloca ptr, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %2) #16
@@ -1395,6 +1358,12 @@ declare i32 @llvm.fshl.i32(i32, i32, i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #15
+
+; Function Attrs: nounwind uwtable
+define internal range(i32 -9999, 1) i32 @StopStream(ptr noundef captures(none) %0) #0 {
+  %2 = tail call range(i32 -9999, 1) i32 @AbortStream(ptr noundef captures(none) %0) #0
+  ret i32 %2
+}
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

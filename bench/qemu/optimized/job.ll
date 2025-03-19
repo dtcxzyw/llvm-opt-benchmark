@@ -828,45 +828,6 @@ trace_job_state_transition.exit:                  ; preds = %8, %20, %22, %28, %
 
 declare ptr @qemu_get_aio_context() local_unnamed_addr #2
 
-; Function Attrs: nounwind sspstrong uwtable
-define internal void @job_sleep_timer_cb(ptr noundef %0) #0 {
-  %2 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
-  %3 = inttoptr i64 %2 to ptr
-  tail call void %3(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.29, i32 noundef 56) #15
-  %4 = getelementptr i8, ptr %0, i64 16
-  %.val.i1.i = load ptr, ptr %4, align 8
-  %.not10.i.i = icmp eq ptr %.val.i1.i, null
-  br i1 %.not10.i.i, label %job_enter.exit, label %5
-
-5:                                                ; preds = %1
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 185
-  %7 = load i8, ptr %6, align 1, !range !4, !noundef !5
-  %8 = trunc nuw i8 %7 to i1
-  br i1 %8, label %job_enter.exit, label %9
-
-9:                                                ; preds = %5
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 180
-  %11 = load i8, ptr %10, align 4, !range !4, !noundef !5
-  %12 = trunc nuw i8 %11 to i1
-  br i1 %12, label %job_enter.exit, label %13
-
-13:                                               ; preds = %9
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  tail call void @timer_del(ptr noundef nonnull %14) #15
-  store i8 1, ptr %10, align 4
-  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str, i32 noundef 106) #15
-  %15 = load ptr, ptr %4, align 8
-  tail call void @aio_co_wake(ptr noundef %15) #15
-  %16 = load atomic i64, ptr @qemu_mutex_lock_func monotonic, align 8
-  %17 = inttoptr i64 %16 to ptr
-  tail call void %17(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str, i32 noundef 101) #15
-  br label %job_enter.exit
-
-job_enter.exit:                                   ; preds = %1, %5, %9, %13
-  tail call void @qemu_mutex_unlock_impl(ptr noundef nonnull @job_mutex, ptr noundef nonnull @.str.29, i32 noundef 56) #15
-  ret void
-}
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind sspstrong willreturn memory(argmem: readwrite) uwtable
 define dso_local void @job_ref_locked(ptr noundef captures(none) %0) local_unnamed_addr #10 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 120
@@ -3441,6 +3402,12 @@ glib_autoptr_cleanup_QemuLockable.exit:
 }
 
 declare zeroext i1 @bql_locked() local_unnamed_addr #2
+
+; Function Attrs: nounwind sspstrong uwtable
+define internal void @job_sleep_timer_cb(ptr noundef %0) #0 {
+  tail call void @job_enter(ptr noundef %0) #0
+  ret void
+}
 
 attributes #0 = { nounwind sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" "zero-call-used-regs"="used-gpr" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

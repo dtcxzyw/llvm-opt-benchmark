@@ -102,7 +102,7 @@ $_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2ISt17basic
 @_ZTVN10__cxxabiv117__class_type_infoE = external global [0 x ptr]
 @_ZTSN6google8protobuf8compiler13CodeGeneratorE = constant [43 x i8] c"N6google8protobuf8compiler13CodeGeneratorE\00", align 1
 @_ZTIN6google8protobuf8compiler13CodeGeneratorE = constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN6google8protobuf8compiler13CodeGeneratorE }, align 8
-@_ZTVN6google8protobuf8compiler16GeneratorContextE = unnamed_addr constant { [10 x ptr] } { [10 x ptr] [ptr null, ptr @_ZTIN6google8protobuf8compiler16GeneratorContextE, ptr @_ZN6google8protobuf8compiler16GeneratorContextD1Ev, ptr @_ZN6google8protobuf8compiler16GeneratorContextD0Ev, ptr @__cxa_pure_virtual, ptr @_ZN6google8protobuf8compiler16GeneratorContext13OpenForAppendERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr @_ZN6google8protobuf8compiler16GeneratorContext13OpenForInsertERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_, ptr @_ZN6google8protobuf8compiler16GeneratorContext34OpenForInsertWithGeneratedCodeInfoERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_RKNS0_17GeneratedCodeInfoE, ptr @_ZN6google8protobuf8compiler16GeneratorContext15ListParsedFilesEPSt6vectorIPKNS0_14FileDescriptorESaIS6_EE, ptr @_ZNK6google8protobuf8compiler16GeneratorContext18GetCompilerVersionEPNS1_7VersionE] }, align 8
+@_ZTVN6google8protobuf8compiler16GeneratorContextE = unnamed_addr constant { [10 x ptr] } { [10 x ptr] [ptr null, ptr @_ZTIN6google8protobuf8compiler16GeneratorContextE, ptr @_ZN6google8protobuf8compiler16GeneratorContextD1Ev, ptr @_ZN6google8protobuf8compiler13CodeGeneratorD0Ev, ptr @__cxa_pure_virtual, ptr @_ZN6google8protobuf8compiler16GeneratorContext13OpenForAppendERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE, ptr @_ZN6google8protobuf8compiler16GeneratorContext13OpenForInsertERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_, ptr @_ZN6google8protobuf8compiler16GeneratorContext34OpenForInsertWithGeneratedCodeInfoERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESA_RKNS0_17GeneratedCodeInfoE, ptr @_ZN6google8protobuf8compiler16GeneratorContext15ListParsedFilesEPSt6vectorIPKNS0_14FileDescriptorESaIS6_EE, ptr @_ZNK6google8protobuf8compiler16GeneratorContext18GetCompilerVersionEPNS1_7VersionE] }, align 8
 @_ZTSN6google8protobuf8compiler16GeneratorContextE = constant [46 x i8] c"N6google8protobuf8compiler16GeneratorContextE\00", align 1
 @_ZTIN6google8protobuf8compiler16GeneratorContextE = constant { ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv117__class_type_infoE, i64 2), ptr @_ZTSN6google8protobuf8compiler16GeneratorContextE }, align 8
 @_ZN6google8protobuf29_FeatureSet_default_instance_E = external global %"struct.google::protobuf::FeatureSetDefaultTypeInternal", align 1
@@ -113,7 +113,7 @@ $_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_EC2ISt17basic
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_code_generator.cc, ptr null }]
 
 @_ZN6google8protobuf8compiler13CodeGeneratorD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6google8protobuf8compiler13CodeGeneratorD2Ev
-@_ZN6google8protobuf8compiler16GeneratorContextD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6google8protobuf8compiler16GeneratorContextD2Ev
+@_ZN6google8protobuf8compiler16GeneratorContextD1Ev = unnamed_addr alias void (ptr), ptr @_ZN6google8protobuf8compiler13CodeGeneratorD2Ev
 
 declare void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
 
@@ -363,13 +363,6 @@ declare i32 @__gxx_personality_v0(...)
 define void @_ZN6google8protobuf8compiler16GeneratorContextD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #3 align 2 {
 entry:
   ret void
-}
-
-; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define void @_ZN6google8protobuf8compiler16GeneratorContextD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #4 align 2 {
-entry:
-  tail call void @llvm.trap() #26
-  unreachable
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -1805,6 +1798,12 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #25
+
+; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+define void @_ZN6google8protobuf8compiler16GeneratorContextD0Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 {
+  tail call void @_ZN6google8protobuf8compiler13CodeGeneratorD0Ev(ptr nonnull readnone align 8 captures(none) %0) #4
+  ret void
+}
 
 attributes #0 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -27,7 +27,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.04b20bee47e76f431c3f792101fc2c15.32 = private unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr67drop_in_place$LT$actix_multipart..form..tempfile..TempFileError$GT$17h2e121713bf08b828E", [16 x i8] c"\08\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN85_$LT$actix_multipart..form..tempfile..TempFileError$u20$as$u20$core..fmt..Display$GT$3fmt17h968a6d9381623f59E" }>, align 8
 @anon.04b20bee47e76f431c3f792101fc2c15.33 = private unnamed_addr constant <{ ptr, [16 x i8], ptr, ptr, ptr, ptr, ptr, ptr }> <{ ptr @"_ZN4core3ptr67drop_in_place$LT$actix_multipart..form..tempfile..TempFileError$GT$17h2e121713bf08b828E", [16 x i8] c"\08\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN83_$LT$actix_multipart..form..tempfile..TempFileError$u20$as$u20$core..fmt..Debug$GT$3fmt17hc82ec3202c9ba167E", ptr @"_ZN85_$LT$actix_multipart..form..tempfile..TempFileError$u20$as$u20$core..fmt..Display$GT$3fmt17h968a6d9381623f59E", ptr @anon.04b20bee47e76f431c3f792101fc2c15.32, ptr @"_ZN114_$LT$actix_multipart..form..tempfile..TempFileError$u20$as$u20$actix_web..error..response_error..ResponseError$GT$11status_code17h183c9587aeacd653E", ptr @_ZN9actix_web5error14response_error13ResponseError14error_response17h9fe6cdfdd083a8b4E, ptr @_ZN9actix_web5error14response_error13ResponseError23__private_get_type_id__17h032e300ec76634ddE }>, align 8
 @anon.04b20bee47e76f431c3f792101fc2c15.34 = private unnamed_addr constant <{ [6 x i8] }> <{ [6 x i8] c"FileIo" }>, align 1
-@anon.04b20bee47e76f431c3f792101fc2c15.35 = private unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr46drop_in_place$LT$$RF$std..io..error..Error$GT$17he5fb0c426b56f226E", [16 x i8] c"\08\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hae892774a4ee2873E" }>, align 8
+@anon.04b20bee47e76f431c3f792101fc2c15.35 = private unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr45drop_in_place$LT$$RF$http..uri..ErrorKind$GT$17hfebd96311346e3c6E", [16 x i8] c"\08\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hae892774a4ee2873E" }>, align 8
 @anon.04b20bee47e76f431c3f792101fc2c15.36 = private unnamed_addr constant <{ [16 x i8] }> <{ [16 x i8] c"File I/O error: " }>, align 1
 @anon.04b20bee47e76f431c3f792101fc2c15.37 = private unnamed_addr constant <{ ptr, [8 x i8] }> <{ ptr @anon.04b20bee47e76f431c3f792101fc2c15.36, [8 x i8] c"\10\00\00\00\00\00\00\00" }>, align 8
 @anon.04b20bee47e76f431c3f792101fc2c15.38 = private unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17hbe6ded984013275eE", [16 x i8] c"\08\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN60_$LT$std..io..error..Error$u20$as$u20$core..fmt..Display$GT$3fmt17h2b77858c092f081cE" }>, align 8
@@ -236,11 +236,6 @@ common.ret:                                       ; preds = %common.ret.sink.spl
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define internal void @"_ZN4core3ptr45drop_in_place$LT$$RF$http..uri..ErrorKind$GT$17hfebd96311346e3c6E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #1 {
-  ret void
-}
-
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr46drop_in_place$LT$$RF$std..io..error..Error$GT$17he5fb0c426b56f226E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #1 {
   ret void
 }
 

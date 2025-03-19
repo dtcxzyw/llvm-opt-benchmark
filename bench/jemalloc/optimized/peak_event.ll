@@ -104,36 +104,7 @@ define hidden noundef i64 @je_peak_dalloc_postponed_event_wait(ptr noundef readn
 
 ; Function Attrs: nounwind uwtable
 define hidden void @je_peak_dalloc_event_handler(ptr noundef captures(none) %0, i64 noundef %1) local_unnamed_addr #3 {
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 896
-  %4 = load i64, ptr %3, align 8, !tbaa !4
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 912
-  %6 = load i64, ptr %5, align 8, !tbaa !4
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 232
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  %9 = load i64, ptr %8, align 8, !tbaa !8
-  %10 = add i64 %6, %9
-  %11 = sub i64 %4, %10
-  %12 = load i64, ptr %7, align 8, !tbaa !10
-  %13 = icmp sgt i64 %11, %12
-  br i1 %13, label %14, label %je_peak_event_update.exit
-
-14:                                               ; preds = %2
-  store i64 %11, ptr %7, align 8, !tbaa !10
-  br label %je_peak_event_update.exit
-
-je_peak_event_update.exit:                        ; preds = %2, %14
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %16 = load ptr, ptr %15, align 8, !tbaa !11
-  %.not.i = icmp eq ptr %16, null
-  br i1 %.not.i, label %peak_event_activity_callback.exit, label %17
-
-17:                                               ; preds = %je_peak_event_update.exit
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 256
-  %19 = load ptr, ptr %18, align 8, !tbaa !14
-  tail call void %16(ptr noundef %19, i64 noundef %4, i64 noundef %6) #4
-  br label %peak_event_activity_callback.exit
-
-peak_event_activity_callback.exit:                ; preds = %je_peak_event_update.exit, %17
+  tail call void @je_peak_alloc_event_handler(ptr noundef captures(none) %0, i64 noundef %1) #3
   ret void
 }
 

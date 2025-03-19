@@ -13866,35 +13866,6 @@ iq3_data_index.exit:                              ; preds = %1, %1
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define internal range(i32 -1, 2) i32 @iq3_compare_func(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #15 {
-  %3 = load i32, ptr %0, align 4, !tbaa !90
-  %4 = load i32, ptr %1, align 4, !tbaa !90
-  %5 = icmp slt i32 %3, %4
-  br i1 %5, label %17, label %6
-
-6:                                                ; preds = %2
-  %7 = icmp sgt i32 %3, %4
-  br i1 %7, label %17, label %8
-
-8:                                                ; preds = %6
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %10 = load i32, ptr %9, align 4, !tbaa !90
-  %11 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %12 = load i32, ptr %11, align 4, !tbaa !90
-  %13 = icmp slt i32 %10, %12
-  br i1 %13, label %17, label %14
-
-14:                                               ; preds = %8
-  %15 = icmp sgt i32 %10, %12
-  %16 = zext i1 %15 to i32
-  br label %17
-
-17:                                               ; preds = %6, %8, %14, %2
-  %18 = phi i32 [ -1, %2 ], [ 1, %6 ], [ %16, %14 ], [ -1, %8 ]
-  ret i32 %18
-}
-
 ; Function Attrs: nounwind uwtable
 define void @iq3xs_free_impl(i32 noundef %0) local_unnamed_addr #6 {
   switch i32 %0, label %2 [
@@ -20324,6 +20295,12 @@ declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_add
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #22
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define internal range(i32 -1, 2) i32 @iq3_compare_func(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #15 {
+  %3 = tail call range(i32 -1, 2) i32 @iq2_compare_func(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) #15
+  ret i32 %3
+}
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

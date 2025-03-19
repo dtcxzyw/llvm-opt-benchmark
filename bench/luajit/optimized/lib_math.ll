@@ -34,12 +34,6 @@ define internal noundef i32 @lj_ffh_math_abs(ptr noundef %0) #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @lj_ffh_math_sqrt(ptr noundef %0) #0 {
-  %2 = tail call double @lj_lib_checknum(ptr noundef %0, i32 noundef 1) #5
-  ret i32 0
-}
-
-; Function Attrs: nounwind uwtable
 define internal range(i32 0, 3) i32 @lj_ffh_math_log(ptr noundef %0) #0 {
   %2 = tail call double @lj_lib_checknum(ptr noundef %0, i32 noundef 1) #5
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -68,13 +62,6 @@ define internal range(i32 0, 3) i32 @lj_ffh_math_log(ptr noundef %0) #0 {
 
 ; Function Attrs: nounwind uwtable
 define internal noundef i32 @lj_ffh_math_atan2(ptr noundef %0) #0 {
-  %2 = tail call double @lj_lib_checknum(ptr noundef %0, i32 noundef 1) #5
-  %3 = tail call double @lj_lib_checknum(ptr noundef %0, i32 noundef 2) #5
-  ret i32 0
-}
-
-; Function Attrs: nounwind uwtable
-define internal noundef i32 @lj_ffh_math_ldexp(ptr noundef %0) #0 {
   %2 = tail call double @lj_lib_checknum(ptr noundef %0, i32 noundef 1) #5
   %3 = tail call double @lj_lib_checknum(ptr noundef %0, i32 noundef 2) #5
   ret i32 0
@@ -235,6 +222,18 @@ declare hidden void @lj_err_caller(ptr noundef, i32 noundef) local_unnamed_addr 
 declare double @llvm.fmuladd.f64(double, double, double) #4
 
 declare hidden i64 @lj_prng_u64(ptr noundef) local_unnamed_addr #1
+
+; Function Attrs: nounwind uwtable
+define internal noundef i32 @lj_ffh_math_ldexp(ptr noundef %0) #0 {
+  %2 = tail call noundef i32 @lj_ffh_math_atan2(ptr noundef %0) #0
+  ret i32 %2
+}
+
+; Function Attrs: nounwind uwtable
+define internal noundef i32 @lj_ffh_math_sqrt(ptr noundef %0) #0 {
+  %2 = tail call noundef i32 @lj_ffh_math_abs(ptr noundef %0) #0
+  ret i32 %2
+}
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -128,7 +128,7 @@ $_ZNSt6vectorIN5vcpkg11MessageLineESaIS1_EE17_M_realloc_insertIJS1_EEEvN9__gnu_c
 @_ZTIN5vcpkg8FileSinkE = dso_local constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN5vcpkg8FileSinkE, ptr @_ZTIN5vcpkg11MessageSinkE }, align 8
 @_ZTSN5vcpkg8FileSinkE = dso_local constant [18 x i8] c"N5vcpkg8FileSinkE\00", align 1
 @.str.2 = private unnamed_addr constant [21 x i8] c"basic_string::append\00", align 1
-@_ZTVN12_GLOBAL__N_115NullMessageSinkE = internal unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN12_GLOBAL__N_115NullMessageSinkE, ptr @_ZN12_GLOBAL__N_115NullMessageSink7printlnERKN5vcpkg11MessageLineE, ptr @_ZN12_GLOBAL__N_115NullMessageSink7printlnEON5vcpkg11MessageLineE, ptr @_ZN12_GLOBAL__N_115NullMessageSink7printlnERKN5vcpkg15LocalizedStringE, ptr @_ZN12_GLOBAL__N_115NullMessageSink7printlnEON5vcpkg15LocalizedStringE, ptr @_ZN12_GLOBAL__N_115NullMessageSink7printlnEN5vcpkg5ColorERKNS1_15LocalizedStringE, ptr @_ZN12_GLOBAL__N_115NullMessageSink7printlnEN5vcpkg5ColorEONS1_15LocalizedStringE] }, align 8
+@_ZTVN12_GLOBAL__N_115NullMessageSinkE = internal unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN12_GLOBAL__N_115NullMessageSinkE, ptr @_ZN12_GLOBAL__N_115NullMessageSink7printlnEON5vcpkg11MessageLineE, ptr @_ZN12_GLOBAL__N_115NullMessageSink7printlnEON5vcpkg11MessageLineE, ptr @_ZN12_GLOBAL__N_115NullMessageSink7printlnEON5vcpkg11MessageLineE, ptr @_ZN12_GLOBAL__N_115NullMessageSink7printlnEON5vcpkg11MessageLineE, ptr @_ZN12_GLOBAL__N_115NullMessageSink7printlnEN5vcpkg5ColorEONS1_15LocalizedStringE, ptr @_ZN12_GLOBAL__N_115NullMessageSink7printlnEN5vcpkg5ColorEONS1_15LocalizedStringE] }, align 8
 @_ZN12_GLOBAL__N_118null_sink_instanceE = internal global { ptr } { ptr getelementptr inbounds inrange(-16, 48) ({ [8 x ptr] }, ptr @_ZTVN12_GLOBAL__N_115NullMessageSinkE, i32 0, i32 0, i32 2) }, align 8
 @_ZTIN12_GLOBAL__N_115NullMessageSinkE = internal constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN12_GLOBAL__N_115NullMessageSinkE, ptr @_ZTIN5vcpkg11MessageSinkE }, align 8
 @_ZTSN12_GLOBAL__N_115NullMessageSinkE = internal constant [34 x i8] c"N12_GLOBAL__N_115NullMessageSinkE\00", align 1
@@ -1967,27 +1967,7 @@ declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #11
 declare void @_ZNK5vcpkg10StringView9to_stringB5cxx11Ev(ptr dead_on_unwind writable sret(%"class.std::__cxx11::basic_string") align 8, ptr noundef nonnull align 8 dereferenceable(16)) local_unnamed_addr #4
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN12_GLOBAL__N_115NullMessageSink7printlnERKN5vcpkg11MessageLineE(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1) unnamed_addr #6 align 2 {
-  ret void
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal void @_ZN12_GLOBAL__N_115NullMessageSink7printlnEON5vcpkg11MessageLineE(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1) unnamed_addr #6 align 2 {
-  ret void
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN12_GLOBAL__N_115NullMessageSink7printlnERKN5vcpkg15LocalizedStringE(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1) unnamed_addr #6 align 2 {
-  ret void
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN12_GLOBAL__N_115NullMessageSink7printlnEON5vcpkg15LocalizedStringE(ptr nonnull readnone align 8 captures(none) %0, ptr nonnull readnone align 8 captures(none) %1) unnamed_addr #6 align 2 {
-  ret void
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZN12_GLOBAL__N_115NullMessageSink7printlnEN5vcpkg5ColorERKNS1_15LocalizedStringE(ptr nonnull readnone align 8 captures(none) %0, i8 signext %1, ptr nonnull readnone align 8 captures(none) %2) unnamed_addr #6 align 2 {
   ret void
 }
 

@@ -2799,24 +2799,14 @@ declare i32 @strcmp(ptr noundef captures(none), ptr noundef captures(none)) loca
 
 declare ptr @cl_base64_decode(ptr noundef, i64 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
-define internal i32 @hwpml_scan_cb(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
-  %5 = icmp sgt i32 %1, -1
-  %6 = icmp ne ptr %3, null
-  %or.cond = and i1 %5, %6
-  br i1 %or.cond, label %7, label %9
-
-7:                                                ; preds = %4
-  %8 = tail call i32 @cli_magic_scan_desc(i32 noundef %1, ptr noundef %2, ptr noundef nonnull %3, ptr noundef null, i32 noundef 0) #10
-  br label %9
-
-9:                                                ; preds = %4, %7
-  %.0 = phi i32 [ %8, %7 ], [ 2, %4 ]
-  ret i32 %.0
-}
-
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #9
+
+; Function Attrs: nounwind uwtable
+define internal i32 @hwpml_scan_cb(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0 {
+  %5 = tail call i32 @hwp5_cb(ptr readnone captures(none) %0, i32 noundef %1, ptr noundef %2, ptr noundef %3) #0
+  ret i32 %5
+}
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

@@ -68,13 +68,9 @@ $_ZN3re211SparseArrayIPNS_3NFA6ThreadEE6resizeEi = comdat any
 
 $_ZNSt5dequeIN3re23NFA6ThreadESaIS2_EED2Ev = comdat any
 
-$_ZN3re211SparseArrayIPNS_3NFA6ThreadEED2Ev = comdat any
-
 $_ZN10LogMessageC2EPKci = comdat any
 
 $_ZN10LogMessageD2Ev = comdat any
-
-$_ZN3re210SparseSetTIvED2Ev = comdat any
 
 $_ZNSt11_Deque_baseIN3re23NFA6ThreadESaIS2_EE17_M_initialize_mapEm = comdat any
 
@@ -215,8 +211,8 @@ if.then.i.i12:                                    ; preds = %ehcleanup
 
 _ZN3re28PODArrayINS_3NFA8AddStateEED2Ev.exit13:   ; preds = %ehcleanup, %if.then.i.i12
   store ptr null, ptr %add.ptr.i.i.i.i.i.i10, align 8
-  tail call void @_ZN3re211SparseArrayIPNS_3NFA6ThreadEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %q1_) #19
-  tail call void @_ZN3re211SparseArrayIPNS_3NFA6ThreadEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %q0_) #19
+  tail call void @0(ptr noundef nonnull align 8 dereferenceable(40) %q1_) #19
+  tail call void @0(ptr noundef nonnull align 8 dereferenceable(40) %q0_) #19
   resume { ptr, i32 } %.pn
 }
 
@@ -343,34 +339,6 @@ _ZNSt11_Deque_baseIN3re23NFA6ThreadESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.i: 
   br label %_ZNSt11_Deque_baseIN3re23NFA6ThreadESaIS2_EED2Ev.exit
 
 _ZNSt11_Deque_baseIN3re23NFA6ThreadESaIS2_EED2Ev.exit: ; preds = %entry, %_ZNSt11_Deque_baseIN3re23NFA6ThreadESaIS2_EE16_M_destroy_nodesEPPS2_S6_.exit.i
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3re211SparseArrayIPNS_3NFA6ThreadEED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
-  %0 = load ptr, ptr %add.ptr.i.i.i.i.i.i, align 8
-  %cmp.not.i.i = icmp eq ptr %0, null
-  br i1 %cmp.not.i.i, label %_ZN3re28PODArrayINS_11SparseArrayIPNS_3NFA6ThreadEE10IndexValueEED2Ev.exit, label %if.then.i.i
-
-if.then.i.i:                                      ; preds = %entry
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #18
-  br label %_ZN3re28PODArrayINS_11SparseArrayIPNS_3NFA6ThreadEE10IndexValueEED2Ev.exit
-
-_ZN3re28PODArrayINS_11SparseArrayIPNS_3NFA6ThreadEE10IndexValueEED2Ev.exit: ; preds = %entry, %if.then.i.i
-  store ptr null, ptr %add.ptr.i.i.i.i.i.i, align 8
-  %add.ptr.i.i.i.i.i.i1 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %1 = load ptr, ptr %add.ptr.i.i.i.i.i.i1, align 8
-  %cmp.not.i.i2 = icmp eq ptr %1, null
-  br i1 %cmp.not.i.i2, label %_ZN3re28PODArrayIiED2Ev.exit, label %if.then.i.i3
-
-if.then.i.i3:                                     ; preds = %_ZN3re28PODArrayINS_11SparseArrayIPNS_3NFA6ThreadEE10IndexValueEED2Ev.exit
-  tail call void @_ZdlPv(ptr noundef nonnull %1) #18
-  br label %_ZN3re28PODArrayIiED2Ev.exit
-
-_ZN3re28PODArrayIiED2Ev.exit:                     ; preds = %_ZN3re28PODArrayINS_11SparseArrayIPNS_3NFA6ThreadEE10IndexValueEED2Ev.exit, %if.then.i.i3
-  store ptr null, ptr %add.ptr.i.i.i.i.i.i1, align 8
   ret void
 }
 
@@ -2629,12 +2597,12 @@ _ZN3re210SparseSetTIvED2Ev.exit:                  ; preds = %_ZN3re28PODArrayIiE
 
 ehcleanup:                                        ; preds = %lpad, %lpad.i, %lpad30
   %.pn = phi { ptr, i32 } [ %37, %lpad30 ], [ %30, %lpad ], [ %31, %lpad.i ]
-  call void @_ZN3re210SparseSetTIvED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %reachable) #19
+  call void @0(ptr noundef nonnull align 8 dereferenceable(40) %reachable) #19
   br label %common.resume
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN3re210SparseSetTIvED2Ev(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #1 comdat align 2 personality ptr @__gxx_personality_v0 {
+define private void @0(ptr noundef nonnull align 8 dereferenceable(40) %this) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %add.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 32
   %0 = load ptr, ptr %add.ptr.i.i.i.i.i.i, align 8

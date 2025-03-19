@@ -40,15 +40,9 @@ $_ZN7testing8internal20MakeDeathTestMatcherB5cxx11EPKc = comdat any
 
 $_ZN7testing8internal11MatcherBaseIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEED2Ev = comdat any
 
-$_ZN21assert_test_fail_TestD0Ev = comdat any
-
 $_ZN7testing4Test5SetupEv = comdat any
 
-$_ZN30assert_test_dangling_else_TestD0Ev = comdat any
-
 $__clang_call_terminate = comdat any
-
-$_ZN7testing8internal15TestFactoryImplI21assert_test_fail_TestED0Ev = comdat any
 
 $_ZN7testing8internal15TestFactoryImplI21assert_test_fail_TestE10CreateTestEv = comdat any
 
@@ -100,9 +94,15 @@ $_ZN7testing8internal13SharedPayloadISt10unique_ptrIKNS_16MatcherInterfaceIRKNSt
 
 $_ZN7testing8internal15TestFactoryBaseD2Ev = comdat any
 
+$_ZN7testing8internal15TestFactoryImplI30assert_test_dangling_else_TestE10CreateTestEv = comdat any
+
+$_ZN30assert_test_dangling_else_TestD0Ev = comdat any
+
+$_ZN21assert_test_fail_TestD0Ev = comdat any
+
 $_ZN7testing8internal15TestFactoryImplI30assert_test_dangling_else_TestED0Ev = comdat any
 
-$_ZN7testing8internal15TestFactoryImplI30assert_test_dangling_else_TestE10CreateTestEv = comdat any
+$_ZN7testing8internal15TestFactoryImplI21assert_test_fail_TestED0Ev = comdat any
 
 $_ZTVN7testing8internal15TestFactoryImplI21assert_test_fail_TestEE = comdat any
 
@@ -608,7 +608,7 @@ _ZN7testing15AssertionResultD2Ev.exit:
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN21assert_test_fail_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #8 comdat align 2 {
+define private void @0(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #8 align 2 {
   tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #23
   ret void
@@ -625,13 +625,6 @@ define linkonce_odr hidden noundef ptr @_ZN7testing4Test5SetupEv(ptr noundef non
 
 ; Function Attrs: nounwind
 declare void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN30assert_test_dangling_else_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #8 comdat align 2 {
-  tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #20
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #23
-  ret void
-}
 
 declare noundef ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_createERmm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(8), i64 noundef) local_unnamed_addr #0
 
@@ -651,7 +644,7 @@ declare void @_ZSt9terminatev() local_unnamed_addr #11
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #12
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN7testing8internal15TestFactoryImplI21assert_test_fail_TestED0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #13 comdat align 2 {
+define private void @1(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #13 align 2 {
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 8) #23
   ret void
 }
@@ -1660,12 +1653,6 @@ define linkonce_odr hidden void @_ZN7testing8internal15TestFactoryBaseD2Ev(ptr n
   ret void
 }
 
-; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr hidden void @_ZN7testing8internal15TestFactoryImplI30assert_test_dangling_else_TestED0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #13 comdat align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 8) #23
-  ret void
-}
-
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden noundef ptr @_ZN7testing8internal15TestFactoryImplI30assert_test_dangling_else_TestE10CreateTestEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #4 comdat align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #22
@@ -2044,6 +2031,30 @@ declare void @llvm.assume(i1 noundef) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #19
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN30assert_test_dangling_else_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #8 comdat align 2 {
+  tail call void @0(ptr noundef nonnull align 8 dereferenceable(16) %0) #8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN21assert_test_fail_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #8 comdat align 2 {
+  tail call void @0(ptr noundef nonnull align 8 dereferenceable(16) %0) #8
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN7testing8internal15TestFactoryImplI30assert_test_dangling_else_TestED0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #13 comdat align 2 {
+  tail call void @1(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr hidden void @_ZN7testing8internal15TestFactoryImplI21assert_test_fail_TestED0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #13 comdat align 2 {
+  tail call void @1(ptr noundef nonnull align 8 dereferenceable(8) %0) #13
+  ret void
+}
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

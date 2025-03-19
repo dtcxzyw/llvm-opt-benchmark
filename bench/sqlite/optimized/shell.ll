@@ -35309,12 +35309,6 @@ define internal range(i32 0, 20) i32 @seriesBestIndex(ptr noundef captures(none)
 }
 
 ; Function Attrs: nounwind uwtable
-define internal noundef i32 @seriesDisconnect(ptr noundef %0) #2 {
-  tail call void @sqlite3_free(ptr noundef %0) #43
-  ret i32 0
-}
-
-; Function Attrs: nounwind uwtable
 define internal range(i32 0, 8) i32 @seriesOpen(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %1) #2 {
   %3 = tail call ptr @sqlite3_malloc(i32 noundef 80) #43
   %4 = icmp eq ptr %3, null
@@ -35328,12 +35322,6 @@ define internal range(i32 0, 8) i32 @seriesOpen(ptr readnone captures(none) %0, 
 6:                                                ; preds = %2, %5
   %.0 = phi i32 [ 0, %5 ], [ 7, %2 ]
   ret i32 %.0
-}
-
-; Function Attrs: nounwind uwtable
-define internal noundef i32 @seriesClose(ptr noundef %0) #2 {
-  tail call void @sqlite3_free(ptr noundef %0) #43
-  ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -38809,12 +38797,6 @@ define internal range(i32 0, 20) i32 @fsdirBestIndex(ptr readnone captures(none)
 47:                                               ; preds = %.thread, %44, %38, %._crit_edge
   %.040 = phi i32 [ 19, %._crit_edge ], [ 0, %38 ], [ 0, %44 ], [ 0, %.thread ]
   ret i32 %.040
-}
-
-; Function Attrs: nounwind uwtable
-define internal noundef i32 @fsdirDisconnect(ptr noundef %0) #2 {
-  tail call void @sqlite3_free(ptr noundef %0) #43
-  ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -44110,7 +44092,7 @@ define internal fastcc void @zipfileInflate(ptr noundef %0, ptr noundef %1, i32 
   br i1 %.not, label %16, label %15
 
 15:                                               ; preds = %9
-  call void (ptr, ptr, ...) @zipfileCtxErrorMsg(ptr noundef %0, ptr noundef nonnull @.str.238, i32 noundef %14)
+  call void (ptr, ptr, ...) @ctxErrorMsg(ptr noundef %0, ptr noundef nonnull @.str.238, i32 noundef %14)
   br label %20
 
 16:                                               ; preds = %9
@@ -44119,7 +44101,7 @@ define internal fastcc void @zipfileInflate(ptr noundef %0, ptr noundef %1, i32 
   br i1 %.not19, label %19, label %18
 
 18:                                               ; preds = %16
-  call void (ptr, ptr, ...) @zipfileCtxErrorMsg(ptr noundef %0, ptr noundef nonnull @.str.239, i32 noundef %17)
+  call void (ptr, ptr, ...) @ctxErrorMsg(ptr noundef %0, ptr noundef nonnull @.str.239, i32 noundef %17)
   br label %20
 
 19:                                               ; preds = %16
@@ -44138,19 +44120,6 @@ define internal fastcc void @zipfileInflate(ptr noundef %0, ptr noundef %1, i32 
 }
 
 declare i32 @inflateInit2_(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #3
-
-; Function Attrs: nounwind uwtable
-define internal void @zipfileCtxErrorMsg(ptr noundef %0, ptr noundef %1, ...) unnamed_addr #2 {
-  %3 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3) #43
-  call void @llvm.va_start.p0(ptr nonnull %3)
-  %4 = call ptr @sqlite3_vmprintf(ptr noundef %1, ptr noundef nonnull %3) #43
-  call void @sqlite3_result_error(ptr noundef %0, ptr noundef %4, i32 noundef -1) #43
-  call void @sqlite3_free(ptr noundef %4) #43
-  call void @llvm.va_end.p0(ptr nonnull %3)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #43
-  ret void
-}
 
 declare i32 @inflate(ptr noundef, i32 noundef) local_unnamed_addr #3
 
@@ -45029,12 +44998,6 @@ idxMalloc.exit.thread:                            ; preds = %2, %._crit_edge94
   %112 = getelementptr inbounds nuw i8, ptr %1, i64 64
   store double %111, ptr %112, align 8, !tbaa !738
   ret i32 %.075
-}
-
-; Function Attrs: nounwind uwtable
-define internal noundef i32 @expertDisconnect(ptr noundef %0) #2 {
-  tail call void @sqlite3_free(ptr noundef %0) #43
-  ret i32 0
 }
 
 ; Function Attrs: nounwind uwtable
@@ -65564,6 +65527,30 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #40
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #40
+
+; Function Attrs: nounwind uwtable
+define internal noundef i32 @seriesDisconnect(ptr noundef %0) #2 {
+  %2 = tail call noundef i32 @completionDisconnect(ptr noundef %0) #2
+  ret i32 %2
+}
+
+; Function Attrs: nounwind uwtable
+define internal noundef i32 @seriesClose(ptr noundef %0) #2 {
+  %2 = tail call noundef i32 @completionDisconnect(ptr noundef %0) #2
+  ret i32 %2
+}
+
+; Function Attrs: nounwind uwtable
+define internal noundef i32 @fsdirDisconnect(ptr noundef %0) #2 {
+  %2 = tail call noundef i32 @completionDisconnect(ptr noundef %0) #2
+  ret i32 %2
+}
+
+; Function Attrs: nounwind uwtable
+define internal noundef i32 @expertDisconnect(ptr noundef %0) #2 {
+  %2 = tail call noundef i32 @completionDisconnect(ptr noundef %0) #2
+  ret i32 %2
+}
 
 attributes #0 = { nofree norecurse nosync nounwind memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

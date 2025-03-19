@@ -82,10 +82,10 @@ $_ZTSN7testing8internal15TestFactoryBaseE = comdat any
 @_ZTVSt15basic_streambufIcSt11char_traitsIcEE = external unnamed_addr constant { [16 x ptr] }, align 8
 @.str.10 = private unnamed_addr constant [5 x i8] c"NULL\00", align 1
 @.str.13 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
-@_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_135ProjErrnoStringTest_ProjErrnos_TestEEE = internal unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN7testing8internal15TestFactoryImplIN12_GLOBAL__N_135ProjErrnoStringTest_ProjErrnos_TestEEE, ptr @_ZN7testing8internal15TestFactoryBaseD2Ev, ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_135ProjErrnoStringTest_ProjErrnos_TestEED0Ev, ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_135ProjErrnoStringTest_ProjErrnos_TestEE10CreateTestEv] }, align 8
+@_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_135ProjErrnoStringTest_ProjErrnos_TestEEE = internal unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN7testing8internal15TestFactoryImplIN12_GLOBAL__N_135ProjErrnoStringTest_ProjErrnos_TestEEE, ptr @_ZN7testing8internal15TestFactoryBaseD2Ev, ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_132ProjErrnoStringTest_NoError_TestEED0Ev, ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_135ProjErrnoStringTest_ProjErrnos_TestEE10CreateTestEv] }, align 8
 @_ZTIN7testing8internal15TestFactoryImplIN12_GLOBAL__N_135ProjErrnoStringTest_ProjErrnos_TestEEE = internal constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN7testing8internal15TestFactoryImplIN12_GLOBAL__N_135ProjErrnoStringTest_ProjErrnos_TestEEE, ptr @_ZTIN7testing8internal15TestFactoryBaseE }, align 8
 @_ZTSN7testing8internal15TestFactoryImplIN12_GLOBAL__N_135ProjErrnoStringTest_ProjErrnos_TestEEE = internal constant [92 x i8] c"N7testing8internal15TestFactoryImplIN12_GLOBAL__N_135ProjErrnoStringTest_ProjErrnos_TestEEE\00", align 1
-@_ZTVN12_GLOBAL__N_135ProjErrnoStringTest_ProjErrnos_TestE = internal unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN12_GLOBAL__N_135ProjErrnoStringTest_ProjErrnos_TestE, ptr @_ZN7testing4TestD2Ev, ptr @_ZN12_GLOBAL__N_135ProjErrnoStringTest_ProjErrnos_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZN12_GLOBAL__N_135ProjErrnoStringTest_ProjErrnos_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
+@_ZTVN12_GLOBAL__N_135ProjErrnoStringTest_ProjErrnos_TestE = internal unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN12_GLOBAL__N_135ProjErrnoStringTest_ProjErrnos_TestE, ptr @_ZN7testing4TestD2Ev, ptr @_ZN12_GLOBAL__N_132ProjErrnoStringTest_NoError_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZN12_GLOBAL__N_135ProjErrnoStringTest_ProjErrnos_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTIN12_GLOBAL__N_135ProjErrnoStringTest_ProjErrnos_TestE = internal constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN12_GLOBAL__N_135ProjErrnoStringTest_ProjErrnos_TestE, ptr @_ZTIN7testing4TestE }, align 8
 @_ZTSN12_GLOBAL__N_135ProjErrnoStringTest_ProjErrnos_TestE = internal constant [54 x i8] c"N12_GLOBAL__N_135ProjErrnoStringTest_ProjErrnos_TestE\00", align 1
 @.str.14 = private unnamed_addr constant [26 x i8] c"\22Unknown error (code -1)\22\00", align 1
@@ -100,10 +100,10 @@ $_ZTSN7testing8internal15TestFactoryBaseE = comdat any
 @.str.23 = private unnamed_addr constant [57 x i8] c"\22Unspecified error related to coordinate transformation\22\00", align 1
 @.str.24 = private unnamed_addr constant [24 x i8] c"proj_errno_string(2048)\00", align 1
 @.str.25 = private unnamed_addr constant [55 x i8] c"Unspecified error related to coordinate transformation\00", align 1
-@_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_150ProjErrnoStringTest_proj_context_errno_string_TestEEE = internal unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN7testing8internal15TestFactoryImplIN12_GLOBAL__N_150ProjErrnoStringTest_proj_context_errno_string_TestEEE, ptr @_ZN7testing8internal15TestFactoryBaseD2Ev, ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_150ProjErrnoStringTest_proj_context_errno_string_TestEED0Ev, ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_150ProjErrnoStringTest_proj_context_errno_string_TestEE10CreateTestEv] }, align 8
+@_ZTVN7testing8internal15TestFactoryImplIN12_GLOBAL__N_150ProjErrnoStringTest_proj_context_errno_string_TestEEE = internal unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN7testing8internal15TestFactoryImplIN12_GLOBAL__N_150ProjErrnoStringTest_proj_context_errno_string_TestEEE, ptr @_ZN7testing8internal15TestFactoryBaseD2Ev, ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_132ProjErrnoStringTest_NoError_TestEED0Ev, ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_150ProjErrnoStringTest_proj_context_errno_string_TestEE10CreateTestEv] }, align 8
 @_ZTIN7testing8internal15TestFactoryImplIN12_GLOBAL__N_150ProjErrnoStringTest_proj_context_errno_string_TestEEE = internal constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN7testing8internal15TestFactoryImplIN12_GLOBAL__N_150ProjErrnoStringTest_proj_context_errno_string_TestEEE, ptr @_ZTIN7testing8internal15TestFactoryBaseE }, align 8
 @_ZTSN7testing8internal15TestFactoryImplIN12_GLOBAL__N_150ProjErrnoStringTest_proj_context_errno_string_TestEEE = internal constant [107 x i8] c"N7testing8internal15TestFactoryImplIN12_GLOBAL__N_150ProjErrnoStringTest_proj_context_errno_string_TestEEE\00", align 1
-@_ZTVN12_GLOBAL__N_150ProjErrnoStringTest_proj_context_errno_string_TestE = internal unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN12_GLOBAL__N_150ProjErrnoStringTest_proj_context_errno_string_TestE, ptr @_ZN7testing4TestD2Ev, ptr @_ZN12_GLOBAL__N_150ProjErrnoStringTest_proj_context_errno_string_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZN12_GLOBAL__N_150ProjErrnoStringTest_proj_context_errno_string_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
+@_ZTVN12_GLOBAL__N_150ProjErrnoStringTest_proj_context_errno_string_TestE = internal unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTIN12_GLOBAL__N_150ProjErrnoStringTest_proj_context_errno_string_TestE, ptr @_ZN7testing4TestD2Ev, ptr @_ZN12_GLOBAL__N_132ProjErrnoStringTest_NoError_TestD0Ev, ptr @_ZN7testing4Test5SetUpEv, ptr @_ZN7testing4Test8TearDownEv, ptr @_ZN12_GLOBAL__N_150ProjErrnoStringTest_proj_context_errno_string_Test8TestBodyEv, ptr @_ZN7testing4Test5SetupEv] }, align 8
 @_ZTIN12_GLOBAL__N_150ProjErrnoStringTest_proj_context_errno_string_TestE = internal constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN12_GLOBAL__N_150ProjErrnoStringTest_proj_context_errno_string_TestE, ptr @_ZTIN7testing4TestE }, align 8
 @_ZTSN12_GLOBAL__N_150ProjErrnoStringTest_proj_context_errno_string_TestE = internal constant [69 x i8] c"N12_GLOBAL__N_150ProjErrnoStringTest_proj_context_errno_string_TestE\00", align 1
 @.str.26 = private unnamed_addr constant [39 x i8] c"proj_context_errno_string(nullptr, -1)\00", align 1
@@ -783,12 +783,6 @@ declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_st
 
 declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef nonnull align 8 dereferenceable(32)) local_unnamed_addr #0
 
-; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_135ProjErrnoStringTest_ProjErrnos_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #8 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 8) #15
-  ret void
-}
-
 ; Function Attrs: mustprogress uwtable
 define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_135ProjErrnoStringTest_ProjErrnos_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #16
@@ -804,13 +798,6 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_G
           cleanup
   tail call void @_ZdlPvm(ptr noundef nonnull %2, i64 noundef 16) #15
   resume { ptr, i32 } %5
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_135ProjErrnoStringTest_ProjErrnos_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #9 align 2 {
-  tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #14
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #15
-  ret void
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -1313,12 +1300,6 @@ define linkonce_odr hidden void @_ZN7testing8internal15TestFactoryBaseD2Ev(ptr n
   ret void
 }
 
-; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_150ProjErrnoStringTest_proj_context_errno_string_TestEED0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #8 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 8) #15
-  ret void
-}
-
 ; Function Attrs: mustprogress uwtable
 define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_GLOBAL__N_150ProjErrnoStringTest_proj_context_errno_string_TestEE10CreateTestEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {
   %2 = tail call noalias noundef nonnull dereferenceable(16) ptr @_Znwm(i64 noundef 16) #16
@@ -1338,13 +1319,6 @@ define internal noundef nonnull ptr @_ZN7testing8internal15TestFactoryImplIN12_G
 
 ; Function Attrs: nounwind
 declare void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #1
-
-; Function Attrs: mustprogress nounwind uwtable
-define internal void @_ZN12_GLOBAL__N_150ProjErrnoStringTest_proj_context_errno_string_TestD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #9 align 2 {
-  tail call void @_ZN7testing4TestD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) #14
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 16) #15
-  ret void
-}
 
 ; Function Attrs: mustprogress uwtable
 define internal void @_ZN12_GLOBAL__N_150ProjErrnoStringTest_proj_context_errno_string_Test8TestBodyEv(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #4 align 2 personality ptr @__gxx_personality_v0 {

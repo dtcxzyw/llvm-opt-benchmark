@@ -2217,29 +2217,6 @@ define ptr @FT_Get_Font_Format(ptr noundef readonly captures(address_is_null) %0
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @FT_Get_X11_Font_Format(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
-  %.not = icmp eq ptr %0, null
-  br i1 %.not, label %10, label %2
-
-2:                                                ; preds = %1
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  %4 = load ptr, ptr %3, align 8, !tbaa !25
-  %5 = load ptr, ptr %4, align 8, !tbaa !88
-  %6 = getelementptr inbounds nuw i8, ptr %5, i64 64
-  %7 = load ptr, ptr %6, align 8, !tbaa !90
-  %.not10 = icmp eq ptr %7, null
-  br i1 %.not10, label %10, label %8
-
-8:                                                ; preds = %2
-  %9 = tail call ptr %7(ptr noundef nonnull %4, ptr noundef nonnull @.str) #34
-  br label %10
-
-10:                                               ; preds = %2, %8, %1
-  %.07 = phi ptr [ null, %1 ], [ %9, %8 ], [ null, %2 ]
-  ret ptr %.07
-}
-
-; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 65) i32 @FT_GlyphLoader_New(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %4 = load ptr, ptr %3, align 8, !tbaa !179
@@ -20285,6 +20262,12 @@ declare i64 @llvm.umin.i64(i64, i64) #31
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #31
+
+; Function Attrs: nounwind uwtable
+define ptr @FT_Get_X11_Font_Format(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #0 {
+  %2 = tail call ptr @FT_Get_Font_Format(ptr noundef readonly captures(address_is_null) %0) #0
+  ret ptr %2
+}
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

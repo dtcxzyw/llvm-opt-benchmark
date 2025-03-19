@@ -2096,13 +2096,6 @@ define internal noundef i32 @dontset_thisthread_cpubind(ptr readnone captures(no
   ret i32 0
 }
 
-; Function Attrs: nounwind uwtable
-define internal noundef i32 @dontget_thisthread_cpubind(ptr noundef %0, ptr noundef %1, i32 %2) #0 {
-  %4 = tail call ptr @hwloc_topology_get_complete_cpuset(ptr noundef %0) #13
-  %5 = tail call i32 @hwloc_bitmap_copy(ptr noundef %1, ptr noundef %4) #14
-  ret i32 0
-}
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal noundef i32 @dontset_proc_cpubind(ptr readnone captures(none) %0, i32 %1, ptr readnone captures(none) %2, i32 %3) #9 {
   ret i32 0
@@ -2142,14 +2135,6 @@ define internal noundef i32 @dontget_thisproc_membind(ptr noundef %0, ptr nounde
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal noundef i32 @dontset_thisthread_membind(ptr readnone captures(none) %0, ptr readnone captures(none) %1, i32 %2, i32 %3) #9 {
-  ret i32 0
-}
-
-; Function Attrs: nounwind uwtable
-define internal noundef i32 @dontget_thisthread_membind(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, i32 %3) #0 {
-  %5 = tail call ptr @hwloc_topology_get_complete_nodeset(ptr noundef %0) #13
-  %6 = tail call i32 @hwloc_bitmap_copy(ptr noundef %1, ptr noundef %5) #14
-  store i32 -1, ptr %2, align 4, !tbaa !3
   ret i32 0
 }
 
@@ -2200,6 +2185,18 @@ define internal noundef i32 @dontfree_membind(ptr readnone captures(none) %0, pt
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #11
+
+; Function Attrs: nounwind uwtable
+define internal noundef i32 @dontget_thisthread_membind(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, i32 %3) #0 {
+  %5 = tail call noundef i32 @dontget_thisproc_membind(ptr noundef %0, ptr noundef %1, ptr noundef writeonly captures(none) initializes((0, 4)) %2, i32 %3) #0
+  ret i32 %5
+}
+
+; Function Attrs: nounwind uwtable
+define internal noundef i32 @dontget_thisthread_cpubind(ptr noundef %0, ptr noundef %1, i32 %2) #0 {
+  %4 = tail call noundef i32 @dontget_thisproc_cpubind(ptr noundef %0, ptr noundef %1, i32 %2) #0
+  ret i32 %4
+}
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -33,7 +33,7 @@ $_ZN4llvh12DenseMapBaseINS_8DenseMapIPvS2_NS_12DenseMapInfoIS2_EENS_6detail12Den
 $_ZN4llvh8DenseMapIPvS1_NS_12DenseMapInfoIS1_EENS_6detail12DenseMapPairIS1_S1_EEE4growEj = comdat any
 
 @_ZTVN6hermes2vm15StorageProviderE = hidden unnamed_addr constant { [6 x ptr] } { [6 x ptr] [ptr null, ptr null, ptr @_ZN6hermes2vm15StorageProviderD2Ev, ptr @_ZN6hermes2vm15StorageProviderD0Ev, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual] }, align 8
-@_ZTVN6hermes2vm12_GLOBAL__N_125VMAllocateStorageProviderE = internal unnamed_addr constant { [6 x ptr] } { [6 x ptr] [ptr null, ptr null, ptr @_ZN6hermes2vm12_GLOBAL__N_125VMAllocateStorageProviderD2Ev, ptr @_ZN6hermes2vm12_GLOBAL__N_125VMAllocateStorageProviderD0Ev, ptr @_ZN6hermes2vm12_GLOBAL__N_125VMAllocateStorageProvider14newStorageImplEPKc, ptr @_ZN6hermes2vm12_GLOBAL__N_125VMAllocateStorageProvider17deleteStorageImplEPv] }, align 8
+@_ZTVN6hermes2vm12_GLOBAL__N_125VMAllocateStorageProviderE = internal unnamed_addr constant { [6 x ptr] } { [6 x ptr] [ptr null, ptr null, ptr @_ZN6hermes2vm15StorageProviderD2Ev, ptr @_ZN6hermes2vm12_GLOBAL__N_125VMAllocateStorageProviderD0Ev, ptr @_ZN6hermes2vm12_GLOBAL__N_125VMAllocateStorageProvider14newStorageImplEPKc, ptr @_ZN6hermes2vm12_GLOBAL__N_125VMAllocateStorageProvider17deleteStorageImplEPv] }, align 8
 @_ZTVN6hermes2vm12_GLOBAL__N_121MallocStorageProviderE = internal unnamed_addr constant { [6 x ptr] } { [6 x ptr] [ptr null, ptr null, ptr @_ZN6hermes2vm12_GLOBAL__N_121MallocStorageProviderD2Ev, ptr @_ZN6hermes2vm12_GLOBAL__N_121MallocStorageProviderD0Ev, ptr @_ZN6hermes2vm12_GLOBAL__N_121MallocStorageProvider14newStorageImplEPKc, ptr @_ZN6hermes2vm12_GLOBAL__N_121MallocStorageProvider17deleteStorageImplEPv] }, align 8
 @.str.1 = private unnamed_addr constant [8 x i8] c"default\00", align 1
 @_ZTVN6hermes2vm12_GLOBAL__N_127ContiguousVAStorageProviderE = internal unnamed_addr constant { [6 x ptr] } { [6 x ptr] [ptr null, ptr null, ptr @_ZN6hermes2vm12_GLOBAL__N_127ContiguousVAStorageProviderD2Ev, ptr @_ZN6hermes2vm12_GLOBAL__N_127ContiguousVAStorageProviderD0Ev, ptr @_ZN6hermes2vm12_GLOBAL__N_127ContiguousVAStorageProvider14newStorageImplEPKc, ptr @_ZN6hermes2vm12_GLOBAL__N_127ContiguousVAStorageProvider17deleteStorageImplEPv] }, align 8
@@ -361,13 +361,6 @@ entry:
 }
 
 declare void @__cxa_pure_virtual() unnamed_addr
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @_ZN6hermes2vm12_GLOBAL__N_125VMAllocateStorageProviderD2Ev(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(32) initializes((0, 8)) %this) unnamed_addr #0 align 2 {
-entry:
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6hermes2vm15StorageProviderE, i64 16), ptr %this, align 8
-  ret void
-}
 
 ; Function Attrs: mustprogress nounwind uwtable
 define internal void @_ZN6hermes2vm12_GLOBAL__N_125VMAllocateStorageProviderD0Ev(ptr noundef nonnull align 8 dereferenceable(32) %this) unnamed_addr #3 align 2 {

@@ -108,8 +108,6 @@ $_ZN5folly6detail17ThreadCachedLists7collectERNS1_8ListHeadE = comdat any
 
 $_ZN5folly6detail19ThreadCachedReaders12epochIsClearEh = comdat any
 
-$_ZN5folly14ThreadLocalPtrINS_6detail17ThreadCachedLists6TLHeadENS1_15ThreadCachedTagEvE8AccessorD2Ev = comdat any
-
 $_ZN5folly6detail5thunk4makeINS_18threadlocal_detail10StaticMetaINS0_15ThreadCachedTagEvEEJEEEPvDpT0_ = comdat any
 
 $_ZN5folly18threadlocal_detail10StaticMetaINS_6detail15ThreadCachedTagEvEC2Ev = comdat any
@@ -121,8 +119,6 @@ $_ZN5folly18threadlocal_detail10StaticMetaINS_6detail15ThreadCachedTagEvE7preFor
 $_ZN5folly18threadlocal_detail10StaticMetaINS_6detail15ThreadCachedTagEvE12onForkParentEv = comdat any
 
 $_ZN5folly18threadlocal_detail10StaticMetaINS_6detail15ThreadCachedTagEvE11onForkChildEv = comdat any
-
-$_ZN5folly14ThreadLocalPtrINS_6detail19ThreadCachedReaders10EpochCountENS1_15ThreadCachedTagEvE8AccessorD2Ev = comdat any
 
 $_ZSt9__find_ifIN5folly14ThreadLocalPtrINS0_6detail19ThreadCachedReaders10EpochCountENS2_15ThreadCachedTagEvE8Accessor8IteratorEN9__gnu_cxx5__ops10_Iter_predIZNS3_12epochIsClearEhEUlRT_E_EEESC_SC_SC_T0_St18input_iterator_tag = comdat any
 
@@ -1893,7 +1889,7 @@ _ZN5folly14ThreadLocalPtrINS_6detail17ThreadCachedLists6TLHeadENS1_15ThreadCache
 lpad:                                             ; preds = %for.end
   %30 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5folly14ThreadLocalPtrINS_6detail17ThreadCachedLists6TLHeadENS1_15ThreadCachedTagEvE8AccessorD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %acc) #17
+  call void @0(ptr noundef nonnull align 8 dereferenceable(28) %acc) #17
   resume { ptr, i32 } %30
 
 for.end:                                          ; preds = %_ZN5folly14ThreadLocalPtrINS_6detail17ThreadCachedLists6TLHeadENS1_15ThreadCachedTagEvE8Accessor8IteratorppEv.exit, %invoke.cont2
@@ -2106,7 +2102,7 @@ terminate.lpad.i:                                 ; preds = %if.then.i.i
 lpad:                                             ; preds = %invoke.cont5
   %23 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN5folly14ThreadLocalPtrINS_6detail19ThreadCachedReaders10EpochCountENS1_15ThreadCachedTagEvE8AccessorD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %access) #17
+  call void @0(ptr noundef nonnull align 8 dereferenceable(28) %access) #17
   resume { ptr, i32 } %23
 
 return:                                           ; preds = %if.then.i.i, %invoke.cont8, %entry
@@ -2115,7 +2111,7 @@ return:                                           ; preds = %if.then.i.i, %invok
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5folly14ThreadLocalPtrINS_6detail17ThreadCachedLists6TLHeadENS1_15ThreadCachedTagEvE8AccessorD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
+define private void @0(ptr noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 entry:
   %lock_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
   %0 = load ptr, ptr %lock_.i, align 8
@@ -2461,36 +2457,6 @@ declare void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDef
 declare void @_ZN5folly32asymmetric_thread_fence_heavy_fn5impl_ESt12memory_order(i32 noundef) local_unnamed_addr #9
 
 declare noundef i32 @_ZN5folly6detail13futexWaitImplEPKSt6atomicIjEjPKNSt6chrono10time_pointINS5_3_V212system_clockENS5_8durationIlSt5ratioILl1ELl1000000000EEEEEEPKNS6_INS7_12steady_clockESC_EEj(ptr noundef, i32 noundef, ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #11
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN5folly14ThreadLocalPtrINS_6detail19ThreadCachedReaders10EpochCountENS1_15ThreadCachedTagEvE8AccessorD2Ev(ptr noundef nonnull align 8 dereferenceable(28) %this) unnamed_addr #3 comdat align 2 personality ptr @__gxx_personality_v0 {
-entry:
-  %lock_.i = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %0 = load ptr, ptr %lock_.i, align 8
-  %tobool.not.i = icmp eq ptr %0, null
-  br i1 %tobool.not.i, label %invoke.cont, label %if.then.i
-
-if.then.i:                                        ; preds = %entry
-  %call1.i.i.i = tail call noundef i32 @pthread_mutex_unlock(ptr noundef nonnull align 8 dereferenceable(40) %0) #17
-  %accessAllThreadsLock_9.i = getelementptr inbounds nuw i8, ptr %this, i64 8
-  %1 = load ptr, ptr %accessAllThreadsLock_9.i, align 8
-  invoke void @_ZN5folly15SharedMutexImplILb0EvSt6atomicNS_24SharedMutexPolicyDefaultEE6unlockEv(ptr noundef nonnull align 4 dereferenceable(4) %1)
-          to label %.noexc unwind label %terminate.lpad
-
-.noexc:                                           ; preds = %if.then.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %accessAllThreadsLock_9.i, i8 0, i64 20, i1 false)
-  br label %invoke.cont
-
-invoke.cont:                                      ; preds = %.noexc, %entry
-  ret void
-
-terminate.lpad:                                   ; preds = %if.then.i
-  %2 = landingpad { ptr, i32 }
-          catch ptr null
-  %3 = extractvalue { ptr, i32 } %2, 0
-  tail call void @__clang_call_terminate(ptr %3) #24
-  unreachable
-}
 
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr { ptr, ptr } @_ZSt9__find_ifIN5folly14ThreadLocalPtrINS0_6detail19ThreadCachedReaders10EpochCountENS2_15ThreadCachedTagEvE8Accessor8IteratorEN9__gnu_cxx5__ops10_Iter_predIZNS3_12epochIsClearEhEUlRT_E_EEESC_SC_SC_T0_St18input_iterator_tag(ptr %__first.coerce0, ptr %__first.coerce1, ptr %__last.coerce0, ptr %__last.coerce1, ptr %__pred.coerce) local_unnamed_addr #0 comdat personality ptr @__gxx_personality_v0 {

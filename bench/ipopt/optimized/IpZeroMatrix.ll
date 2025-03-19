@@ -45,7 +45,7 @@ $_ZTVN5Ipopt16ReferencedObjectE = comdat any
 
 $_ZTVN5Ipopt7SubjectE = comdat any
 
-@_ZTVN5Ipopt10ZeroMatrixE = unnamed_addr constant { [14 x ptr], [4 x ptr] } { [14 x ptr] [ptr null, ptr @_ZTIN5Ipopt10ZeroMatrixE, ptr @_ZN5Ipopt10ZeroMatrixD1Ev, ptr @_ZN5Ipopt10ZeroMatrixD0Ev, ptr @_ZNK5Ipopt6Matrix5PrintENS_8SmartPtrIKNS_10JournalistEEENS_13EJournalLevelENS_16EJournalCategoryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSE_, ptr @_ZNK5Ipopt6Matrix5PrintERKNS_10JournalistENS_13EJournalLevelENS_16EJournalCategoryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSD_, ptr @_ZNK5Ipopt10ZeroMatrix14MultVectorImplEdRKNS_6VectorEdRS1_, ptr @_ZNK5Ipopt10ZeroMatrix19TransMultVectorImplEdRKNS_6VectorEdRS1_, ptr @_ZNK5Ipopt6Matrix13AddMSinvZImplEdRKNS_6VectorES3_RS1_, ptr @_ZNK5Ipopt6Matrix18SinvBlrmZMTdBrImplEdRKNS_6VectorES3_S3_S3_RS1_, ptr @_ZNK5Ipopt6Matrix19HasValidNumbersImplEv, ptr @_ZNK5Ipopt10ZeroMatrix18ComputeRowAMaxImplERNS_6VectorEb, ptr @_ZNK5Ipopt10ZeroMatrix18ComputeColAMaxImplERNS_6VectorEb, ptr @_ZNK5Ipopt10ZeroMatrix9PrintImplERKNS_10JournalistENS_13EJournalLevelENS_16EJournalCategoryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSD_], [4 x ptr] [ptr inttoptr (i64 -16 to ptr), ptr @_ZTIN5Ipopt10ZeroMatrixE, ptr @_ZThn16_N5Ipopt10ZeroMatrixD1Ev, ptr @_ZThn16_N5Ipopt10ZeroMatrixD0Ev] }, align 8
+@_ZTVN5Ipopt10ZeroMatrixE = unnamed_addr constant { [14 x ptr], [4 x ptr] } { [14 x ptr] [ptr null, ptr @_ZTIN5Ipopt10ZeroMatrixE, ptr @_ZN5Ipopt10ZeroMatrixD1Ev, ptr @_ZN5Ipopt10ZeroMatrixD0Ev, ptr @_ZNK5Ipopt6Matrix5PrintENS_8SmartPtrIKNS_10JournalistEEENS_13EJournalLevelENS_16EJournalCategoryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSE_, ptr @_ZNK5Ipopt6Matrix5PrintERKNS_10JournalistENS_13EJournalLevelENS_16EJournalCategoryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSD_, ptr @_ZNK5Ipopt10ZeroMatrix14MultVectorImplEdRKNS_6VectorEdRS1_, ptr @_ZNK5Ipopt10ZeroMatrix14MultVectorImplEdRKNS_6VectorEdRS1_, ptr @_ZNK5Ipopt6Matrix13AddMSinvZImplEdRKNS_6VectorES3_RS1_, ptr @_ZNK5Ipopt6Matrix18SinvBlrmZMTdBrImplEdRKNS_6VectorES3_S3_S3_RS1_, ptr @_ZNK5Ipopt6Matrix19HasValidNumbersImplEv, ptr @_ZNK5Ipopt10ZeroMatrix18ComputeRowAMaxImplERNS_6VectorEb, ptr @_ZNK5Ipopt10ZeroMatrix18ComputeColAMaxImplERNS_6VectorEb, ptr @_ZNK5Ipopt10ZeroMatrix9PrintImplERKNS_10JournalistENS_13EJournalLevelENS_16EJournalCategoryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSD_], [4 x ptr] [ptr inttoptr (i64 -16 to ptr), ptr @_ZTIN5Ipopt10ZeroMatrixE, ptr @_ZThn16_N5Ipopt10ZeroMatrixD1Ev, ptr @_ZThn16_N5Ipopt10ZeroMatrixD0Ev] }, align 8
 @.str = private unnamed_addr constant [2 x i8] c"\0A\00", align 1
 @.str.1 = private unnamed_addr constant [57 x i8] c"%sZeroMatrix \22%s\22 with %d row and %d column components:\0A\00", align 1
 @_ZTIN5Ipopt10ZeroMatrixE = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSN5Ipopt10ZeroMatrixE, ptr @_ZTIN5Ipopt6MatrixE }, align 8
@@ -189,27 +189,6 @@ define void @_ZNK5Ipopt10ZeroMatrix14MultVectorImplEdRKNS_6VectorEdRS1_(ptr nonn
 }
 
 declare void @_ZN5Ipopt6Vector4ScalEd(ptr noundef nonnull align 8 dereferenceable(205), double noundef) local_unnamed_addr #4
-
-; Function Attrs: mustprogress uwtable
-define void @_ZNK5Ipopt10ZeroMatrix19TransMultVectorImplEdRKNS_6VectorEdRS1_(ptr nonnull readnone align 8 captures(none) %0, double %1, ptr nonnull readnone align 8 captures(none) %2, double noundef %3, ptr noundef nonnull align 8 dereferenceable(205) %4) unnamed_addr #0 align 2 {
-  %6 = fcmp une double %3, 0.000000e+00
-  br i1 %6, label %7, label %8
-
-7:                                                ; preds = %5
-  tail call void @_ZN5Ipopt6Vector4ScalEd(ptr noundef nonnull align 8 dereferenceable(205) %4, double noundef %3)
-  br label %12
-
-8:                                                ; preds = %5
-  %9 = load ptr, ptr %4, align 8, !tbaa !8
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 72
-  %11 = load ptr, ptr %10, align 8
-  tail call void %11(ptr noundef nonnull align 8 dereferenceable(205) %4, double noundef 0.000000e+00)
-  tail call void @_ZN5Ipopt12TaggedObject13ObjectChangedEv(ptr noundef nonnull align 8 dereferenceable(205) %4)
-  br label %12
-
-12:                                               ; preds = %8, %7
-  ret void
-}
 
 ; Function Attrs: mustprogress uwtable
 define void @_ZNK5Ipopt10ZeroMatrix9PrintImplERKNS_10JournalistENS_13EJournalLevelENS_16EJournalCategoryERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEiSD_(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(69) %0, ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %2, i32 noundef %3, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %4, i32 noundef %5, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(32) %6) unnamed_addr #0 align 2 personality ptr @__gxx_personality_v0 {
@@ -505,6 +484,12 @@ declare void @llvm.memmove.p0.p0.i64(ptr writeonly captures(none), ptr readonly 
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
+
+; Function Attrs: mustprogress uwtable
+define void @_ZNK5Ipopt10ZeroMatrix19TransMultVectorImplEdRKNS_6VectorEdRS1_(ptr nonnull readnone align 8 captures(none) %0, double %1, ptr nonnull readnone align 8 captures(none) %2, double noundef %3, ptr noundef nonnull align 8 dereferenceable(205) %4) unnamed_addr #0 align 2 {
+  tail call void @_ZNK5Ipopt10ZeroMatrix14MultVectorImplEdRKNS_6VectorEdRS1_(ptr nonnull readnone align 8 captures(none) %0, double %1, ptr nonnull readnone align 8 captures(none) %2, double noundef %3, ptr noundef nonnull align 8 dereferenceable(205) %4) #0
+  ret void
+}
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

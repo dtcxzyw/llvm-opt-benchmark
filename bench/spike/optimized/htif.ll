@@ -261,7 +261,7 @@ $_ZSt19piecewise_construct = comdat any
 @.str.57 = private unnamed_addr constant [18 x i8] c"Memory address 0x\00", align 1
 @.str.58 = private unnamed_addr constant [13 x i8] c" is invalid\0A\00", align 1
 @.str.59 = private unnamed_addr constant [50 x i8] c"basic_string: construction from null is not valid\00", align 1
-@_ZTVZN6htif_t12load_programEvE11nop_memif_t = internal unnamed_addr constant { [23 x ptr] } { [23 x ptr] [ptr null, ptr @_ZTIZN6htif_t12load_programEvE11nop_memif_t, ptr @_ZN7memif_tD2Ev, ptr @_ZZN6htif_t12load_programEvEN11nop_memif_tD0Ev, ptr @_ZZN6htif_t12load_programEvEN11nop_memif_t4readEmmPv, ptr @_ZZN6htif_t12load_programEvEN11nop_memif_t5writeEmmPKv, ptr @_ZN7memif_t10read_uint8Em, ptr @_ZN7memif_t9read_int8Em, ptr @_ZN7memif_t11write_uint8Em13target_endianIhE, ptr @_ZN7memif_t10write_int8Em13target_endianIaE, ptr @_ZN7memif_t11read_uint16Em, ptr @_ZN7memif_t10read_int16Em, ptr @_ZN7memif_t12write_uint16Em13target_endianItE, ptr @_ZN7memif_t11write_int16Em13target_endianIsE, ptr @_ZN7memif_t11read_uint32Em, ptr @_ZN7memif_t10read_int32Em, ptr @_ZN7memif_t12write_uint32Em13target_endianIjE, ptr @_ZN7memif_t11write_int32Em13target_endianIiE, ptr @_ZN7memif_t11read_uint64Em, ptr @_ZN7memif_t10read_int64Em, ptr @_ZN7memif_t12write_uint64Em13target_endianImE, ptr @_ZN7memif_t11write_int64Em13target_endianIlE, ptr @_ZNK7memif_t21get_target_endiannessEv] }, align 8
+@_ZTVZN6htif_t12load_programEvE11nop_memif_t = internal unnamed_addr constant { [23 x ptr] } { [23 x ptr] [ptr null, ptr @_ZTIZN6htif_t12load_programEvE11nop_memif_t, ptr @_ZN7memif_tD2Ev, ptr @_ZZN6htif_t12load_payloadERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPmmEN21preload_aware_memif_tD0Ev, ptr @_ZZN6htif_t12load_programEvEN11nop_memif_t4readEmmPv, ptr @_ZZN6htif_t12load_programEvEN11nop_memif_t4readEmmPv, ptr @_ZN7memif_t10read_uint8Em, ptr @_ZN7memif_t9read_int8Em, ptr @_ZN7memif_t11write_uint8Em13target_endianIhE, ptr @_ZN7memif_t10write_int8Em13target_endianIaE, ptr @_ZN7memif_t11read_uint16Em, ptr @_ZN7memif_t10read_int16Em, ptr @_ZN7memif_t12write_uint16Em13target_endianItE, ptr @_ZN7memif_t11write_int16Em13target_endianIsE, ptr @_ZN7memif_t11read_uint32Em, ptr @_ZN7memif_t10read_int32Em, ptr @_ZN7memif_t12write_uint32Em13target_endianIjE, ptr @_ZN7memif_t11write_int32Em13target_endianIiE, ptr @_ZN7memif_t11read_uint64Em, ptr @_ZN7memif_t10read_int64Em, ptr @_ZN7memif_t12write_uint64Em13target_endianImE, ptr @_ZN7memif_t11write_int64Em13target_endianIlE, ptr @_ZNK7memif_t21get_target_endiannessEv] }, align 8
 @_ZTIZN6htif_t12load_programEvE11nop_memif_t = internal constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTSZN6htif_t12load_programEvE11nop_memif_t, ptr @_ZTI7memif_t }, align 8
 @_ZTSZN6htif_t12load_programEvE11nop_memif_t = internal constant [40 x i8] c"ZN6htif_t12load_programEvE11nop_memif_t\00", align 1
 @.str.60 = private unnamed_addr constant [49 x i8] c"cannot create std::vector larger than max_size()\00", align 1
@@ -7069,19 +7069,8 @@ _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESt4pairIKS5_m
   ret void
 }
 
-; Function Attrs: inlinehint mustprogress nounwind uwtable
-define internal void @_ZZN6htif_t12load_programEvEN11nop_memif_tD0Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) unnamed_addr #5 align 2 {
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 24) #38
-  ret void
-}
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define internal void @_ZZN6htif_t12load_programEvEN11nop_memif_t4readEmmPv(ptr nonnull readnone align 8 captures(none) %0, i64 %1, i64 %2, ptr readnone captures(none) %3) unnamed_addr #29 align 2 {
-  ret void
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define internal void @_ZZN6htif_t12load_programEvEN11nop_memif_t5writeEmmPKv(ptr nonnull readnone align 8 captures(none) %0, i64 %1, i64 %2, ptr readnone captures(none) %3) unnamed_addr #29 align 2 {
   ret void
 }
 

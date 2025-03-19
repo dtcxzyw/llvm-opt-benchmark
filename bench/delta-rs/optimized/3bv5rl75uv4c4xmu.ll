@@ -3,8 +3,8 @@ source_filename = "bench/delta-rs/original/3bv5rl75uv4c4xmu.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-@anon.80ba6022c4f80408c779397bbf9b2a0b.0 = private unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr97drop_in_place$LT$$RF$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$17hbb76a1d8d695ffc3E", [16 x i8] c"\10\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h33809457c669483bE" }>, align 8
-@anon.80ba6022c4f80408c779397bbf9b2a0b.1 = private unnamed_addr constant <{ ptr, [16 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }> <{ ptr @"_ZN4core3ptr97drop_in_place$LT$$RF$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$17hbb76a1d8d695ffc3E", [16 x i8] c"\10\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h47bb3b590a7a393bE", ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h33809457c669483bE", ptr @anon.80ba6022c4f80408c779397bbf9b2a0b.0, ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..error..Error$GT$6source17hd1961d757d782eefE", ptr @_ZN4core5error5Error7type_id17hbbfa11ff7b311108E, ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..error..Error$GT$11description17h2b478dcbb48dee9dE", ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..error..Error$GT$5cause17hf8fab4149e835028E", ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..error..Error$GT$7provide17h3153572850147ca4E" }>, align 8
+@anon.80ba6022c4f80408c779397bbf9b2a0b.0 = private unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr105drop_in_place$LT$$RF$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..http..HttpClient$GT$$GT$17h6e7dd559475ec56eE", [16 x i8] c"\10\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h33809457c669483bE" }>, align 8
+@anon.80ba6022c4f80408c779397bbf9b2a0b.1 = private unnamed_addr constant <{ ptr, [16 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }> <{ ptr @"_ZN4core3ptr105drop_in_place$LT$$RF$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..http..HttpClient$GT$$GT$17h6e7dd559475ec56eE", [16 x i8] c"\10\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h47bb3b590a7a393bE", ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display$GT$3fmt17h33809457c669483bE", ptr @anon.80ba6022c4f80408c779397bbf9b2a0b.0, ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..error..Error$GT$6source17hd1961d757d782eefE", ptr @_ZN4core5error5Error7type_id17hbbfa11ff7b311108E, ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..error..Error$GT$11description17h2b478dcbb48dee9dE", ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..error..Error$GT$5cause17hf8fab4149e835028E", ptr @"_ZN44_$LT$$RF$T$u20$as$u20$core..error..Error$GT$7provide17h3153572850147ca4E" }>, align 8
 @anon.80ba6022c4f80408c779397bbf9b2a0b.2 = private unnamed_addr constant <{ [2 x i8] }> <{ [2 x i8] c" (" }>, align 1
 @anon.80ba6022c4f80408c779397bbf9b2a0b.3 = private unnamed_addr constant <{ [1 x i8] }> <{ [1 x i8] c")" }>, align 1
 @anon.80ba6022c4f80408c779397bbf9b2a0b.4 = private unnamed_addr constant <{ ptr, [8 x i8], ptr, [8 x i8] }> <{ ptr @anon.80ba6022c4f80408c779397bbf9b2a0b.2, [8 x i8] c"\02\00\00\00\00\00\00\00", ptr @anon.80ba6022c4f80408c779397bbf9b2a0b.3, [8 x i8] c"\01\00\00\00\00\00\00\00" }>, align 8
@@ -23,9 +23,9 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.80ba6022c4f80408c779397bbf9b2a0b.35 = private unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr105drop_in_place$LT$$RF$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..http..HttpClient$GT$$GT$17h6e7dd559475ec56eE", [16 x i8] c"\08\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h7a19cf3a18e75895E" }>, align 8
 @anon.80ba6022c4f80408c779397bbf9b2a0b.36 = private unnamed_addr constant <{ [15 x i8] }> <{ [15 x i8] c"RequestAttempts" }>, align 1
 @anon.80ba6022c4f80408c779397bbf9b2a0b.37 = private unnamed_addr constant <{ [8 x i8] }> <{ [8 x i8] c"attempts" }>, align 1
-@anon.80ba6022c4f80408c779397bbf9b2a0b.38 = private unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr28drop_in_place$LT$$RF$u32$GT$17h48970113b1a3a764E", [16 x i8] c"\08\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h22592cd74ba1bd48E" }>, align 8
+@anon.80ba6022c4f80408c779397bbf9b2a0b.38 = private unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr105drop_in_place$LT$$RF$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..http..HttpClient$GT$$GT$17h6e7dd559475ec56eE", [16 x i8] c"\08\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h22592cd74ba1bd48E" }>, align 8
 @anon.80ba6022c4f80408c779397bbf9b2a0b.39 = private unnamed_addr constant <{ [19 x i8] }> <{ [19 x i8] c"SharedRetryStrategy" }>, align 1
-@anon.80ba6022c4f80408c779397bbf9b2a0b.40 = private unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr111drop_in_place$LT$$RF$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..retries..RetryStrategy$GT$$GT$17h6765b84b3da9d92dE", [16 x i8] c"\08\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h75e5c06aaea8c81dE" }>, align 8
+@anon.80ba6022c4f80408c779397bbf9b2a0b.40 = private unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr105drop_in_place$LT$$RF$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..http..HttpClient$GT$$GT$17h6e7dd559475ec56eE", [16 x i8] c"\08\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h75e5c06aaea8c81dE" }>, align 8
 @_ZN12tracing_core10dispatcher6EXISTS17h10707e7fa29b39ebE = external global { i8 }
 @_ZN3log20MAX_LOG_LEVEL_FILTER17h8181aaeb9cdead2fE = external local_unnamed_addr global { i64 }
 @anon.53d869f0664223b6d57b989c23a3c619.16.llvm.1658197872865421663 = external hidden unnamed_addr constant <{ ptr, [16 x i8], ptr }>, align 8
@@ -311,11 +311,6 @@ define internal fastcc void @"_ZN4core3ptr107drop_in_place$LT$alloc..borrow..Cow
 "_ZN4core3ptr94drop_in_place$LT$alloc..vec..Vec$LT$aws_smithy_runtime_api..client..auth..AuthSchemeId$GT$$GT$17hfac0c7aa70e40f10E.exit": ; preds = %6, %9, %13
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2), !noalias !62
   br label %5
-}
-
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr111drop_in_place$LT$$RF$alloc..sync..Arc$LT$dyn$u20$aws_smithy_runtime_api..client..retries..RetryStrategy$GT$$GT$17h6765b84b3da9d92dE"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #1 {
-  ret void
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1438,11 +1433,6 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   unreachable
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr28drop_in_place$LT$$RF$u32$GT$17h48970113b1a3a764E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #1 {
-  ret void
-}
-
 ; Function Attrs: nonlazybind uwtable
 define internal fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17h3a6e5deac0d783d3E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   %2 = alloca { { i64, [2 x i64] }, { i64, [2 x i64] }, { i64, { ptr, i64 } }, { i32, [1 x i32] }, { { ptr, i64 }, { ptr, i64 }, { ptr, [1 x i64] } } }, align 8
@@ -1784,11 +1774,6 @@ define internal fastcc void @"_ZN4core3ptr69drop_in_place$LT$core..option..Optio
   tail call void @_ZN4core4sync6atomic5fence17h58c21b3babc78cabE.llvm.13640993958878838948(i8 noundef 2), !noalias !309
   tail call void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h48b541bbd9444ae7E"(ptr noalias noundef nonnull align 8 dereferenceable(16) %7)
   br label %"_ZN4core3ptr41drop_in_place$LT$tracing..span..Inner$GT$17hc2c68ad51bfdcee2E.exit"
-}
-
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr97drop_in_place$LT$$RF$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$17hbb76a1d8d695ffc3E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #1 {
-  ret void
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable

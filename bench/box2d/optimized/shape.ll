@@ -2627,22 +2627,6 @@ define i64 @b2Shape_GetBody(i64 %0) local_unnamed_addr #0 {
 declare i64 @b2MakeBodyId(ptr noundef, i32 noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define i32 @b2Shape_GetWorld(i64 %0) local_unnamed_addr #0 {
-  %.sroa.1.0.extract.shift = lshr i64 %0, 32
-  %.sroa.1.0.extract.trunc = trunc nuw i64 %.sroa.1.0.extract.shift to i32
-  %2 = and i32 %.sroa.1.0.extract.trunc, 65535
-  %3 = tail call ptr @b2GetWorld(i32 noundef %2) #10
-  %4 = add i32 %.sroa.1.0.extract.trunc, 1
-  %5 = getelementptr inbounds nuw i8, ptr %3, i64 1592
-  %6 = load i16, ptr %5, align 8, !tbaa !194
-  %.sroa.2.0.insert.ext = zext i16 %6 to i32
-  %.sroa.2.0.insert.shift = shl nuw i32 %.sroa.2.0.insert.ext, 16
-  %.sroa.02.0.insert.ext = and i32 %4, 65535
-  %.sroa.02.0.insert.insert = or disjoint i32 %.sroa.2.0.insert.shift, %.sroa.02.0.insert.ext
-  ret i32 %.sroa.02.0.insert.insert
-}
-
-; Function Attrs: nounwind uwtable
 define void @b2Shape_SetUserData(i64 %0, ptr noundef %1) local_unnamed_addr #0 {
   %.sroa.2.0.extract.shift = lshr i64 %0, 32
   %3 = trunc nuw i64 %.sroa.2.0.extract.shift to i32
@@ -4424,6 +4408,12 @@ declare i32 @llvm.smin.i32(i32, i32) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #9
+
+; Function Attrs: nounwind uwtable
+define i32 @b2Shape_GetWorld(i64 %0) local_unnamed_addr #0 {
+  %2 = tail call i32 @b2Chain_GetWorld(i64 %0) #0
+  ret i32 %2
+}
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

@@ -8,7 +8,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.451e762c733db03501c72f969938ebf7.9 = private unnamed_addr constant <{ [35 x i8] }> <{ [35 x i8] c"assertion failed: mid <= self.len()" }>, align 1
 @anon.451e762c733db03501c72f969938ebf7.10.llvm.17849184579231348327 = hidden unnamed_addr constant <{ [74 x i8] }> <{ [74 x i8] c"/rustc/07dca489ac2d933c78d3c5158e3f43beefeb02ce/library/core/src/escape.rs" }>, align 1
 @anon.451e762c733db03501c72f969938ebf7.11.llvm.17849184579231348327 = hidden unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.451e762c733db03501c72f969938ebf7.10.llvm.17849184579231348327, [16 x i8] c"J\00\00\00\00\00\00\00f\00\00\00#\00\00\00" }>, align 8
-@anon.451e762c733db03501c72f969938ebf7.12 = private unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr67drop_in_place$LT$regex_automata..util..primitives..StateIDError$GT$17h32830dae5ae1c215E", [16 x i8] c"\08\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN83_$LT$regex_automata..util..primitives..StateIDError$u20$as$u20$core..fmt..Debug$GT$3fmt17had418d0051cae10bE" }>, align 8
+@anon.451e762c733db03501c72f969938ebf7.12 = private unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr33drop_in_place$LT$$RF$$LP$$RP$$GT$17hb642ea730b754fabE", [16 x i8] c"\08\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN83_$LT$regex_automata..util..primitives..StateIDError$u20$as$u20$core..fmt..Debug$GT$3fmt17had418d0051cae10bE" }>, align 8
 @anon.451e762c733db03501c72f969938ebf7.13 = private unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr60drop_in_place$LT$regex_syntax..unicode..UnicodeWordError$GT$17hb51a0efe19a56b9bE", [16 x i8] c"\00\00\00\00\00\00\00\00\01\00\00\00\00\00\00\00", ptr @"_ZN76_$LT$regex_syntax..unicode..UnicodeWordError$u20$as$u20$core..fmt..Debug$GT$3fmt17ha74478ed6260dd93E" }>, align 8
 @anon.451e762c733db03501c72f969938ebf7.17 = private unnamed_addr constant <{ [53 x i8] }> <{ [53 x i8] c"attempt to join into collection with len > usize::MAX" }>, align 1
 @anon.451e762c733db03501c72f969938ebf7.18 = private unnamed_addr constant <{ [72 x i8] }> <{ [72 x i8] c"/rustc/07dca489ac2d933c78d3c5158e3f43beefeb02ce/library/alloc/src/str.rs" }>, align 1
@@ -98,8 +98,8 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.451e762c733db03501c72f969938ebf7.114 = private unnamed_addr constant <{ ptr, [8 x i8] }> <{ ptr @anon.451e762c733db03501c72f969938ebf7.113, [8 x i8] c"\01\00\00\00\00\00\00\00" }>, align 8
 @anon.451e762c733db03501c72f969938ebf7.115 = private unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr69drop_in_place$LT$regex_automata..nfa..thompson..error..BuildError$GT$17hb385df9d14bdd46cE", [16 x i8] c"\80\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN87_$LT$regex_automata..nfa..thompson..error..BuildError$u20$as$u20$core..fmt..Display$GT$3fmt17h9e8052e55415e6e4E" }>, align 8
 @anon.451e762c733db03501c72f969938ebf7.116 = private unnamed_addr constant <{ ptr, [16 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }> <{ ptr @"_ZN4core3ptr69drop_in_place$LT$regex_automata..nfa..thompson..error..BuildError$GT$17hb385df9d14bdd46cE", [16 x i8] c"\80\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN85_$LT$regex_automata..nfa..thompson..error..BuildError$u20$as$u20$core..fmt..Debug$GT$3fmt17h4204970fa752624cE", ptr @"_ZN87_$LT$regex_automata..nfa..thompson..error..BuildError$u20$as$u20$core..fmt..Display$GT$3fmt17h9e8052e55415e6e4E", ptr @anon.451e762c733db03501c72f969938ebf7.115, ptr @"_ZN87_$LT$regex_automata..nfa..thompson..error..BuildError$u20$as$u20$core..error..Error$GT$6source17hb1a81d94066e497cE", ptr @_ZN4core5error5Error7type_id17h45c7e96e976bef36E, ptr @_ZN4core5error5Error11description17hcf7a6fb5023039a3E, ptr @_ZN4core5error5Error5cause17h56aa0e71151322e2E, ptr @_ZN4core5error5Error7provide17hd80989b73b95a693E }>, align 8
-@anon.451e762c733db03501c72f969938ebf7.117 = private unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr73drop_in_place$LT$regex_automata..util..look..UnicodeWordBoundaryError$GT$17h9476793b56ae1f4cE", [16 x i8] c"\00\00\00\00\00\00\00\00\01\00\00\00\00\00\00\00", ptr @"_ZN91_$LT$regex_automata..util..look..UnicodeWordBoundaryError$u20$as$u20$core..fmt..Display$GT$3fmt17h9f9f6c9c1ceea167E" }>, align 8
-@anon.451e762c733db03501c72f969938ebf7.118 = private unnamed_addr constant <{ ptr, [16 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }> <{ ptr @"_ZN4core3ptr73drop_in_place$LT$regex_automata..util..look..UnicodeWordBoundaryError$GT$17h9476793b56ae1f4cE", [16 x i8] c"\00\00\00\00\00\00\00\00\01\00\00\00\00\00\00\00", ptr @"_ZN89_$LT$regex_automata..util..look..UnicodeWordBoundaryError$u20$as$u20$core..fmt..Debug$GT$3fmt17h206cbcae52746f6aE", ptr @"_ZN91_$LT$regex_automata..util..look..UnicodeWordBoundaryError$u20$as$u20$core..fmt..Display$GT$3fmt17h9f9f6c9c1ceea167E", ptr @anon.451e762c733db03501c72f969938ebf7.117, ptr @_ZN4core5error5Error6source17h80cc507c0dd2e9e4E, ptr @_ZN4core5error5Error7type_id17hdcedcec656ee8cecE, ptr @_ZN4core5error5Error11description17heabe76e32ee50231E, ptr @_ZN4core5error5Error5cause17hd62ad767d838901fE, ptr @_ZN4core5error5Error7provide17h6e7190c4f7e17133E }>, align 8
+@anon.451e762c733db03501c72f969938ebf7.117 = private unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr60drop_in_place$LT$regex_syntax..unicode..UnicodeWordError$GT$17hb51a0efe19a56b9bE", [16 x i8] c"\00\00\00\00\00\00\00\00\01\00\00\00\00\00\00\00", ptr @"_ZN91_$LT$regex_automata..util..look..UnicodeWordBoundaryError$u20$as$u20$core..fmt..Display$GT$3fmt17h9f9f6c9c1ceea167E" }>, align 8
+@anon.451e762c733db03501c72f969938ebf7.118 = private unnamed_addr constant <{ ptr, [16 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }> <{ ptr @"_ZN4core3ptr60drop_in_place$LT$regex_syntax..unicode..UnicodeWordError$GT$17hb51a0efe19a56b9bE", [16 x i8] c"\00\00\00\00\00\00\00\00\01\00\00\00\00\00\00\00", ptr @"_ZN89_$LT$regex_automata..util..look..UnicodeWordBoundaryError$u20$as$u20$core..fmt..Debug$GT$3fmt17h206cbcae52746f6aE", ptr @"_ZN91_$LT$regex_automata..util..look..UnicodeWordBoundaryError$u20$as$u20$core..fmt..Display$GT$3fmt17h9f9f6c9c1ceea167E", ptr @anon.451e762c733db03501c72f969938ebf7.117, ptr @_ZN4core5error5Error5cause17hd62ad767d838901fE, ptr @_ZN4core5error5Error7type_id17hdcedcec656ee8cecE, ptr @_ZN4core5error5Error11description17heabe76e32ee50231E, ptr @_ZN4core5error5Error5cause17hd62ad767d838901fE, ptr @_ZN4core5error5Error7provide17h6e7190c4f7e17133E }>, align 8
 @anon.451e762c733db03501c72f969938ebf7.119 = private unnamed_addr constant <{ [18 x i8] }> <{ [18 x i8] c"error building NFA" }>, align 1
 @anon.451e762c733db03501c72f969938ebf7.120 = private unnamed_addr constant <{ ptr, [8 x i8] }> <{ ptr @anon.451e762c733db03501c72f969938ebf7.119, [8 x i8] c"\12\00\00\00\00\00\00\00" }>, align 8
 @anon.451e762c733db03501c72f969938ebf7.121 = private unnamed_addr constant <{ [34 x i8] }> <{ [34 x i8] c"NFA contains Unicode word boundary" }>, align 1
@@ -151,7 +151,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.451e762c733db03501c72f969938ebf7.200 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.451e762c733db03501c72f969938ebf7.157, [16 x i8] c"\1F\00\00\00\00\00\00\00X\00\00\00\18\00\00\00" }>, align 8
 @anon.451e762c733db03501c72f969938ebf7.205 = private unnamed_addr constant <{ [10 x i8] }> <{ [10 x i8] c"BuildError" }>, align 1
 @anon.451e762c733db03501c72f969938ebf7.206 = private unnamed_addr constant <{ [4 x i8] }> <{ [4 x i8] c"kind" }>, align 1
-@anon.451e762c733db03501c72f969938ebf7.207 = private unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr77drop_in_place$LT$$RF$regex_automata..nfa..thompson..error..BuildErrorKind$GT$17hc4968d1dcebd874eE", [16 x i8] c"\08\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h4f9d4affdddcc623E" }>, align 8
+@anon.451e762c733db03501c72f969938ebf7.207 = private unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr33drop_in_place$LT$$RF$$LP$$RP$$GT$17hb642ea730b754fabE", [16 x i8] c"\08\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h4f9d4affdddcc623E" }>, align 8
 @anon.451e762c733db03501c72f969938ebf7.208 = private unnamed_addr constant <{ [5 x i8] }> <{ [5 x i8] c"Start" }>, align 1
 @anon.451e762c733db03501c72f969938ebf7.209 = private unnamed_addr constant <{ [3 x i8] }> <{ [3 x i8] c"End" }>, align 1
 @anon.451e762c733db03501c72f969938ebf7.210 = private unnamed_addr constant <{ [7 x i8] }> <{ [7 x i8] c"StartLF" }>, align 1
@@ -175,7 +175,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.451e762c733db03501c72f969938ebf7.228 = private unnamed_addr constant <{ [37 x i8] }> <{ [37 x i8] c"regex-automata/src/util/primitives.rs" }>, align 1
 @anon.451e762c733db03501c72f969938ebf7.229 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.451e762c733db03501c72f969938ebf7.228, [16 x i8] c"%\00\00\00\00\00\00\00\F2\02\00\00\01\00\00\00" }>, align 8
 @anon.451e762c733db03501c72f969938ebf7.230 = private unnamed_addr constant <{ [12 x i8] }> <{ [12 x i8] c"StateIDError" }>, align 1
-@anon.451e762c733db03501c72f969938ebf7.231 = private unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr74drop_in_place$LT$$RF$regex_automata..util..primitives..SmallIndexError$GT$17h881dd5ed15d43335E", [16 x i8] c"\08\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h53a5ce6618f78712E" }>, align 8
+@anon.451e762c733db03501c72f969938ebf7.231 = private unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr33drop_in_place$LT$$RF$$LP$$RP$$GT$17hb642ea730b754fabE", [16 x i8] c"\08\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h53a5ce6618f78712E" }>, align 8
 
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden { ptr, i64 } @"_ZN106_$LT$core..ops..range..Range$LT$usize$GT$$u20$as$u20$core..slice..index..SliceIndex$LT$$u5b$T$u5d$$GT$$GT$5index17h364e2176bd393ad4E.llvm.17849184579231348327"(i64 noundef %0, i64 noundef %1, ptr noalias noundef nonnull readonly align 1 %2, i64 noundef %3, ptr noalias noundef readonly align 8 dereferenceable(24) %4) unnamed_addr #0 {
@@ -377,26 +377,6 @@ define internal void @"_ZN4core3ptr60drop_in_place$LT$regex_syntax..unicode..Uni
   ret void
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr67drop_in_place$LT$regex_automata..util..primitives..StateIDError$GT$17h32830dae5ae1c215E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #2 {
-  ret void
-}
-
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr73drop_in_place$LT$regex_automata..util..look..UnicodeWordBoundaryError$GT$17h9476793b56ae1f4cE"(ptr noalias nonnull readnone align 1 captures(none) %0) unnamed_addr #2 {
-  ret void
-}
-
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr74drop_in_place$LT$$RF$regex_automata..util..primitives..SmallIndexError$GT$17h881dd5ed15d43335E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #2 {
-  ret void
-}
-
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr77drop_in_place$LT$$RF$regex_automata..nfa..thompson..error..BuildErrorKind$GT$17hc4968d1dcebd874eE"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #2 {
-  ret void
-}
-
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: write) uwtable
 define internal fastcc { i32, i32 } @_ZN4core3str11validations15next_code_point17h17a6a2fd27117508E(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(16) %0) unnamed_addr #3 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -481,11 +461,6 @@ define internal { ptr, i64 } @_ZN4core5error5Error11description17heabe76e32ee502
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define internal { ptr, ptr } @_ZN4core5error5Error5cause17hd62ad767d838901fE(ptr noalias nonnull readonly align 1 captures(none) %0) unnamed_addr #4 {
-  ret { ptr, ptr } { ptr null, ptr undef }
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal { ptr, ptr } @_ZN4core5error5Error6source17h80cc507c0dd2e9e4E(ptr noalias nonnull readonly align 1 captures(none) %0) unnamed_addr #4 {
   ret { ptr, ptr } { ptr null, ptr undef }
 }
 

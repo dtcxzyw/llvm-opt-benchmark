@@ -2053,12 +2053,6 @@ define dso_local { i64, i64 } @i128_from_signed(i64 noundef %0) local_unnamed_ad
   ret { i64, i64 } %.fca.1.insert
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local { i64, i64 } @i128_from_unsigned(i64 noundef %0) local_unnamed_addr #1 {
-  %.fca.1.insert = insertvalue { i64, i64 } { i64 0, i64 poison }, i64 %0, 1
-  ret { i64, i64 } %.fca.1.insert
-}
-
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
 define dso_local { i64, i64 } @i128_sdiv(i64 %0, i64 %1, i64 %2, i64 %3) local_unnamed_addr #3 {
   %5 = alloca %struct.Int128_, align 8
@@ -2731,13 +2725,6 @@ i128_scomp.exit47.thread:                         ; preds = %22, %select.unfold6
 i128_scomp.exit:                                  ; preds = %52, %31, %50, %29, %45, %26, %i128_scomp.exit47.thread, %24, %22, %42
   %.0 = phi i1 [ false, %42 ], [ false, %22 ], [ true, %i128_scomp.exit47.thread ], [ false, %24 ], [ false, %26 ], [ %or.cond74.not, %45 ], [ false, %29 ], [ false, %50 ], [ %spec.select, %31 ], [ %spec.select84, %52 ]
   ret i1 %.0
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define dso_local i64 @int_to_u64(ptr noundef readonly byval(%struct.Int) align 8 captures(none) %0) local_unnamed_addr #8 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i64, ptr %2, align 8
-  ret i64 %3
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
@@ -3854,6 +3841,22 @@ declare i64 @llvm.ctpop.i64(i64) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #19
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
+define dso_local { i64, i64 } @i128_from_unsigned(i64 noundef %0) local_unnamed_addr #1 {
+  %2 = tail call { i64, i64 } @i128_from_int(i64 noundef %0) #1
+  %3 = extractvalue { i64, i64 } %2, 0
+  %4 = insertvalue { i64, i64 } poison, i64 %3, 0
+  %5 = extractvalue { i64, i64 } %2, 1
+  %6 = insertvalue { i64, i64 } %4, i64 %5, 1
+  ret { i64, i64 } %6
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define dso_local i64 @int_to_u64(ptr noundef readonly byval(%struct.Int) align 8 captures(none) %0) local_unnamed_addr #8 {
+  %2 = tail call i64 @int_to_i64(ptr noundef readonly byval(%struct.Int) align 8 captures(none) %0) #8
+  ret i64 %2
+}
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

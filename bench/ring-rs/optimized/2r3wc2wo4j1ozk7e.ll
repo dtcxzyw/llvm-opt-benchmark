@@ -5,10 +5,10 @@ target triple = "x86_64-unknown-linux-gnu"
 
 @anon.0f131c1448f32f4cf12b0cd6fa3810b4.0.llvm.7363024586935657205 = hidden unnamed_addr constant <{ [35 x i8] }> <{ [35 x i8] c"assertion failed: mid <= self.len()" }>, align 1
 @anon.0f131c1448f32f4cf12b0cd6fa3810b4.1.llvm.7363024586935657205 = hidden unnamed_addr constant <{ [43 x i8] }> <{ [43 x i8] c"called `Result::unwrap()` on an `Err` value" }>, align 1
-@anon.0f131c1448f32f4cf12b0cd6fa3810b4.2 = private unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr51drop_in_place$LT$core..array..TryFromSliceError$GT$17h8fe8213ba4f33747E", [16 x i8] c"\00\00\00\00\00\00\00\00\01\00\00\00\00\00\00\00", ptr @"_ZN67_$LT$core..array..TryFromSliceError$u20$as$u20$core..fmt..Debug$GT$3fmt17h5ef37a7c1f5bd3d4E" }>, align 8
+@anon.0f131c1448f32f4cf12b0cd6fa3810b4.2 = private unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr45drop_in_place$LT$ring..error..Unspecified$GT$17h0a171d9cc0a5659aE.llvm.7363024586935657205", [16 x i8] c"\00\00\00\00\00\00\00\00\01\00\00\00\00\00\00\00", ptr @"_ZN67_$LT$core..array..TryFromSliceError$u20$as$u20$core..fmt..Debug$GT$3fmt17h5ef37a7c1f5bd3d4E" }>, align 8
 @anon.0f131c1448f32f4cf12b0cd6fa3810b4.3.llvm.7363024586935657205 = hidden unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr45drop_in_place$LT$ring..error..Unspecified$GT$17h0a171d9cc0a5659aE.llvm.7363024586935657205", [16 x i8] c"\00\00\00\00\00\00\00\00\01\00\00\00\00\00\00\00", ptr @"_ZN61_$LT$ring..error..Unspecified$u20$as$u20$core..fmt..Debug$GT$3fmt17hdfc5565d423d04f8E.llvm.7363024586935657205" }>, align 8
 @anon.0f131c1448f32f4cf12b0cd6fa3810b4.4 = private unnamed_addr constant <{ [17 x i8] }> <{ [17 x i8] c"TryFromSliceError" }>, align 1
-@anon.0f131c1448f32f4cf12b0cd6fa3810b4.5 = private unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr33drop_in_place$LT$$RF$$LP$$RP$$GT$17h5e5477a749b249faE", [16 x i8] c"\08\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h7a170023aa78a643E" }>, align 8
+@anon.0f131c1448f32f4cf12b0cd6fa3810b4.5 = private unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr30drop_in_place$LT$$RF$usize$GT$17hb3147e7a380f659dE", [16 x i8] c"\08\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h7a170023aa78a643E" }>, align 8
 @anon.0f131c1448f32f4cf12b0cd6fa3810b4.6.llvm.7363024586935657205 = hidden unnamed_addr constant <{ [73 x i8] }> <{ [73 x i8] c"assertion failed: 0 < pointee_size && pointee_size <= isize::MAX as usize" }>, align 1
 @anon.0f131c1448f32f4cf12b0cd6fa3810b4.7.llvm.7363024586935657205 = hidden unnamed_addr constant <{ [81 x i8] }> <{ [81 x i8] c"/rustc/07dca489ac2d933c78d3c5158e3f43beefeb02ce/library/core/src/ptr/const_ptr.rs" }>, align 1
 @anon.0f131c1448f32f4cf12b0cd6fa3810b4.8.llvm.7363024586935657205 = hidden unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.0f131c1448f32f4cf12b0cd6fa3810b4.7.llvm.7363024586935657205, [16 x i8] c"Q\00\00\00\00\00\00\004\03\00\00\09\00\00\00" }>, align 8
@@ -75,7 +75,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.0f131c1448f32f4cf12b0cd6fa3810b4.79 = private unnamed_addr constant <{ [30 x i8] }> <{ [30 x i8] c"ECDSA_P256_SHA256_ASN1_SIGNING" }>, align 1
 @anon.0f131c1448f32f4cf12b0cd6fa3810b4.80 = private unnamed_addr constant <{ [30 x i8] }> <{ [30 x i8] c"ECDSA_P384_SHA384_ASN1_SIGNING" }>, align 1
 @anon.0f131c1448f32f4cf12b0cd6fa3810b4.81 = private unnamed_addr constant <{ [12 x i8] }> <{ [12 x i8] c"EcdsaKeyPair" }>, align 1
-@anon.0f131c1448f32f4cf12b0cd6fa3810b4.82 = private unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr65drop_in_place$LT$ring..ec..suite_b..ecdsa..signing..PublicKey$GT$17ha830623d39b44a88E", [16 x i8] c"p\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN81_$LT$ring..ec..suite_b..ecdsa..signing..PublicKey$u20$as$u20$core..fmt..Debug$GT$3fmt17h59f380bacfe5e664E" }>, align 8
+@anon.0f131c1448f32f4cf12b0cd6fa3810b4.82 = private unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr30drop_in_place$LT$$RF$usize$GT$17hb3147e7a380f659dE", [16 x i8] c"p\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN81_$LT$ring..ec..suite_b..ecdsa..signing..PublicKey$u20$as$u20$core..fmt..Debug$GT$3fmt17h59f380bacfe5e664E" }>, align 8
 @anon.0f131c1448f32f4cf12b0cd6fa3810b4.84 = private unnamed_addr constant <{ [11 x i8] }> <{ [11 x i8] c"Unspecified" }>, align 1
 @_ZN4ring2ec7suite_b3ops4p25618PRIVATE_SCALAR_OPS17haa44eb43c9b60f50E = external global { ptr, ptr, { [6 x i64], {}, {} } }
 @anon.931894935b2e277744aad6b42ceca7b7.11.llvm.12309478120345669377 = external hidden unnamed_addr constant <{ [43 x i8] }>, align 1
@@ -293,22 +293,7 @@ define internal void @"_ZN4core3ptr30drop_in_place$LT$$RF$usize$GT$17hb3147e7a38
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr33drop_in_place$LT$$RF$$LP$$RP$$GT$17h5e5477a749b249faE"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #8 {
-  ret void
-}
-
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden void @"_ZN4core3ptr45drop_in_place$LT$ring..error..Unspecified$GT$17h0a171d9cc0a5659aE.llvm.7363024586935657205"(ptr noalias nonnull readnone align 1 captures(none) %0) unnamed_addr #8 {
-  ret void
-}
-
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr51drop_in_place$LT$core..array..TryFromSliceError$GT$17h8fe8213ba4f33747E"(ptr noalias nonnull readnone align 1 captures(none) %0) unnamed_addr #8 {
-  ret void
-}
-
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr65drop_in_place$LT$ring..ec..suite_b..ecdsa..signing..PublicKey$GT$17ha830623d39b44a88E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #8 {
   ret void
 }
 

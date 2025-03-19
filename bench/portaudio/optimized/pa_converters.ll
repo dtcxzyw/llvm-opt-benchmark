@@ -2041,33 +2041,6 @@ define internal void @UInt8_To_Int16(ptr noundef writeonly captures(none) %0, i3
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define internal void @UInt8_To_Int8(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #2 {
-  %.not10 = icmp eq i32 %4, 0
-  br i1 %.not10, label %._crit_edge, label %.lr.ph
-
-.lr.ph:                                           ; preds = %6
-  %7 = sext i32 %3 to i64
-  %8 = sext i32 %1 to i64
-  br label %9
-
-9:                                                ; preds = %.lr.ph, %9
-  %.013 = phi ptr [ %0, %.lr.ph ], [ %14, %9 ]
-  %.0812 = phi ptr [ %2, %.lr.ph ], [ %13, %9 ]
-  %.0911 = phi i32 [ %4, %.lr.ph ], [ %10, %9 ]
-  %10 = add i32 %.0911, -1
-  %11 = load i8, ptr %.0812, align 1, !tbaa !76
-  %12 = xor i8 %11, -128
-  store i8 %12, ptr %.013, align 1, !tbaa !76
-  %13 = getelementptr inbounds i8, ptr %.0812, i64 %7
-  %14 = getelementptr inbounds i8, ptr %.013, i64 %8
-  %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %._crit_edge, label %9, !llvm.loop !123
-
-._crit_edge:                                      ; preds = %9, %6
-  ret void
-}
-
-; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define internal void @Copy_8_To_8(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #2 {
   %.not10 = icmp eq i32 %4, 0
   br i1 %.not10, label %._crit_edge, label %.lr.ph
@@ -2087,7 +2060,7 @@ define internal void @Copy_8_To_8(ptr noundef writeonly captures(none) %0, i32 n
   %12 = getelementptr inbounds i8, ptr %.0812, i64 %7
   %13 = getelementptr inbounds i8, ptr %.013, i64 %8
   %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %._crit_edge, label %9, !llvm.loop !124
+  br i1 %.not, label %._crit_edge, label %9, !llvm.loop !123
 
 ._crit_edge:                                      ; preds = %9, %6
   ret void
@@ -2113,7 +2086,7 @@ define internal void @Copy_16_To_16(ptr noundef writeonly captures(none) %0, i32
   %12 = getelementptr inbounds i16, ptr %.0812, i64 %7
   %13 = getelementptr inbounds i16, ptr %.013, i64 %8
   %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %._crit_edge, label %9, !llvm.loop !125
+  br i1 %.not, label %._crit_edge, label %9, !llvm.loop !124
 
 ._crit_edge:                                      ; preds = %9, %6
   ret void
@@ -2149,7 +2122,7 @@ define internal void @Copy_24_To_24(ptr noundef writeonly captures(none) %0, i32
   %20 = getelementptr inbounds i8, ptr %.01216, i64 %8
   %21 = getelementptr inbounds i8, ptr %.017, i64 %10
   %.not = icmp eq i32 %12, 0
-  br i1 %.not, label %._crit_edge, label %11, !llvm.loop !126
+  br i1 %.not, label %._crit_edge, label %11, !llvm.loop !125
 
 ._crit_edge:                                      ; preds = %11, %6
   ret void
@@ -2175,7 +2148,7 @@ define internal void @Copy_32_To_32(ptr noundef writeonly captures(none) %0, i32
   %12 = getelementptr inbounds i32, ptr %.013, i64 %7
   %13 = getelementptr inbounds i32, ptr %.0812, i64 %8
   %.not = icmp eq i32 %10, 0
-  br i1 %.not, label %._crit_edge, label %9, !llvm.loop !127
+  br i1 %.not, label %._crit_edge, label %9, !llvm.loop !126
 
 ._crit_edge:                                      ; preds = %9, %6
   ret void
@@ -2194,27 +2167,27 @@ define ptr @PaUtil_SelectZeroer(i64 noundef %0) local_unnamed_addr #1 {
   ]
 
 3:                                                ; preds = %1
-  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paZeroers, i64 32), align 8, !tbaa !128
+  %4 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paZeroers, i64 32), align 8, !tbaa !127
   br label %15
 
 5:                                                ; preds = %1
-  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paZeroers, i64 32), align 8, !tbaa !128
+  %6 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paZeroers, i64 32), align 8, !tbaa !127
   br label %15
 
 7:                                                ; preds = %1
-  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paZeroers, i64 24), align 8, !tbaa !130
+  %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paZeroers, i64 24), align 8, !tbaa !129
   br label %15
 
 9:                                                ; preds = %1
-  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paZeroers, i64 16), align 8, !tbaa !131
+  %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paZeroers, i64 16), align 8, !tbaa !130
   br label %15
 
 11:                                               ; preds = %1
-  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paZeroers, i64 8), align 8, !tbaa !132
+  %12 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @paZeroers, i64 8), align 8, !tbaa !131
   br label %15
 
 13:                                               ; preds = %1
-  %14 = load ptr, ptr @paZeroers, align 8, !tbaa !133
+  %14 = load ptr, ptr @paZeroers, align 8, !tbaa !132
   br label %15
 
 15:                                               ; preds = %1, %13, %11, %9, %7, %5, %3
@@ -2238,7 +2211,7 @@ define internal void @ZeroU8(ptr noundef writeonly captures(none) %0, i32 nounde
   store i8 -128, ptr %.07, align 1, !tbaa !76
   %7 = getelementptr inbounds i8, ptr %.07, i64 %4
   %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %._crit_edge, label %5, !llvm.loop !134
+  br i1 %.not, label %._crit_edge, label %5, !llvm.loop !133
 
 ._crit_edge:                                      ; preds = %5, %3
   ret void
@@ -2260,7 +2233,7 @@ define internal void @Zero8(ptr noundef writeonly captures(none) %0, i32 noundef
   store i8 0, ptr %.07, align 1, !tbaa !76
   %7 = getelementptr inbounds i8, ptr %.07, i64 %4
   %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %._crit_edge, label %5, !llvm.loop !135
+  br i1 %.not, label %._crit_edge, label %5, !llvm.loop !134
 
 ._crit_edge:                                      ; preds = %5, %3
   ret void
@@ -2282,7 +2255,7 @@ define internal void @Zero16(ptr noundef writeonly captures(none) %0, i32 nounde
   store i16 0, ptr %.07, align 2, !tbaa !81
   %7 = getelementptr inbounds i16, ptr %.07, i64 %4
   %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %._crit_edge, label %5, !llvm.loop !136
+  br i1 %.not, label %._crit_edge, label %5, !llvm.loop !135
 
 ._crit_edge:                                      ; preds = %5, %3
   ret void
@@ -2309,7 +2282,7 @@ define internal void @Zero24(ptr noundef writeonly captures(none) %0, i32 nounde
   store i8 0, ptr %9, align 1, !tbaa !76
   %10 = getelementptr inbounds i8, ptr %.09, i64 %5
   %.not = icmp eq i32 %7, 0
-  br i1 %.not, label %._crit_edge, label %6, !llvm.loop !137
+  br i1 %.not, label %._crit_edge, label %6, !llvm.loop !136
 
 ._crit_edge:                                      ; preds = %6, %3
   ret void
@@ -2331,7 +2304,7 @@ define internal void @Zero32(ptr noundef writeonly captures(none) %0, i32 nounde
   store i32 0, ptr %.07, align 4, !tbaa !70
   %7 = getelementptr inbounds i32, ptr %.07, i64 %4
   %.not = icmp eq i32 %6, 0
-  br i1 %.not, label %._crit_edge, label %5, !llvm.loop !138
+  br i1 %.not, label %._crit_edge, label %5, !llvm.loop !137
 
 ._crit_edge:                                      ; preds = %5, %3
   ret void
@@ -2352,6 +2325,12 @@ declare i8 @llvm.fptosi.sat.i8.f32(float) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i16 @llvm.fptosi.sat.i16.f32(float) #8
+
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define internal void @UInt8_To_Int8(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #2 {
+  tail call void @Int8_To_UInt8(ptr noundef writeonly captures(none) %0, i32 noundef %1, ptr noundef readonly captures(none) %2, i32 noundef %3, i32 noundef %4, ptr readnone captures(none) %5) #2
+  ret void
+}
 
 attributes #0 = { nofree norecurse nosync nounwind memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -2493,15 +2472,14 @@ attributes #9 = { nounwind }
 !124 = distinct !{!124, !4}
 !125 = distinct !{!125, !4}
 !126 = distinct !{!126, !4}
-!127 = distinct !{!127, !4}
-!128 = !{!129, !8, i64 32}
-!129 = !{!"", !8, i64 0, !8, i64 8, !8, i64 16, !8, i64 24, !8, i64 32}
-!130 = !{!129, !8, i64 24}
-!131 = !{!129, !8, i64 16}
-!132 = !{!129, !8, i64 8}
-!133 = !{!129, !8, i64 0}
+!127 = !{!128, !8, i64 32}
+!128 = !{!"", !8, i64 0, !8, i64 8, !8, i64 16, !8, i64 24, !8, i64 32}
+!129 = !{!128, !8, i64 24}
+!130 = !{!128, !8, i64 16}
+!131 = !{!128, !8, i64 8}
+!132 = !{!128, !8, i64 0}
+!133 = distinct !{!133, !4}
 !134 = distinct !{!134, !4}
 !135 = distinct !{!135, !4}
 !136 = distinct !{!136, !4}
 !137 = distinct !{!137, !4}
-!138 = distinct !{!138, !4}

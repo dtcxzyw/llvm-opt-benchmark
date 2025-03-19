@@ -637,31 +637,6 @@ define hidden void @_glfwGetWindowPosNull(ptr noundef readonly captures(none) %0
 
 declare void @_glfwInputWindowPos(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define hidden void @_glfwGetWindowSizeNull(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #4 {
-  %.not = icmp eq ptr %1, null
-  br i1 %.not, label %7, label %4
-
-4:                                                ; preds = %3
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 3376
-  %6 = load i32, ptr %5, align 8, !tbaa !62
-  store i32 %6, ptr %1, align 4, !tbaa !164
-  br label %7
-
-7:                                                ; preds = %4, %3
-  %.not7 = icmp eq ptr %2, null
-  br i1 %.not7, label %11, label %8
-
-8:                                                ; preds = %7
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 3380
-  %10 = load i32, ptr %9, align 4, !tbaa !63
-  store i32 %10, ptr %2, align 4, !tbaa !164
-  br label %11
-
-11:                                               ; preds = %8, %7
-  ret void
-}
-
 declare void @_glfwInputFramebufferSize(ptr noundef, i32 noundef, i32 noundef) local_unnamed_addr #1
 
 declare void @_glfwInputWindowDamage(ptr noundef) local_unnamed_addr #1
@@ -1411,6 +1386,12 @@ declare void @_glfwGetMonitorPosNull(ptr noundef, ptr noundef, ptr noundef) loca
 declare i32 @_glfw_max(i32 noundef, i32 noundef) local_unnamed_addr #1
 
 declare i32 @_glfw_min(i32 noundef, i32 noundef) local_unnamed_addr #1
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define hidden void @_glfwGetWindowSizeNull(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) local_unnamed_addr #4 {
+  tail call void @_glfwGetFramebufferSizeNull(ptr noundef readonly captures(none) %0, ptr noundef writeonly captures(address_is_null) %1, ptr noundef writeonly captures(address_is_null) %2) #4
+  ret void
+}
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

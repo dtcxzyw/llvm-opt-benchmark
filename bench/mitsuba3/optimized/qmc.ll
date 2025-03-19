@@ -61,8 +61,6 @@ $_ZNSt3__124__put_character_sequenceB8ne190000IcNS_11char_traitsIcEEEERNS_13basi
 
 $_ZNSt3__116__pad_and_outputB8ne190000IcNS_11char_traitsIcEEEENS_19ostreambuf_iteratorIT_T0_EES6_PKS4_S8_S8_RNS_8ios_baseES4_ = comdat any
 
-$_ZNKSt3__16vectorIbNS_9allocatorIbEEE20__throw_length_errorB8ne190000Ev = comdat any
-
 $_ZNSt3__120__throw_length_errorB8ne190000EPKc = comdat any
 
 $_ZNSt12length_errorC2B8ne190000EPKc = comdat any
@@ -70,8 +68,6 @@ $_ZNSt12length_errorC2B8ne190000EPKc = comdat any
 $_ZSt28__throw_bad_array_new_lengthB8ne190000v = comdat any
 
 $_ZNSt3__18__fill_nB8ne190000INS_6vectorIbNS_9allocatorIbEEEEmEENS_14__bit_iteratorIT_Lb0ELi0EEES7_T0_RKb = comdat any
-
-$_ZNKSt3__16vectorImNS_9allocatorImEEE20__throw_length_errorB8ne190000Ev = comdat any
 
 $_ZN10tinyformat6formatIJmNSt3__112basic_stringIcNS1_11char_traitsIcEENS1_9allocatorIcEEEEEEES7_PKcDpRKT_ = comdat any
 
@@ -1043,7 +1039,7 @@ define linkonce_odr hidden void @_ZN7mitsuba6detail5sieveImEENSt3__16vectorIT_NS
   br i1 %9, label %10, label %11
 
 10:                                               ; preds = %8
-  call void @_ZNKSt3__16vectorIbNS_9allocatorIbEEE20__throw_length_errorB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %6) #24
+  call void @0(ptr noundef nonnull align 8 dereferenceable(24) %6) #24
   unreachable
 
 11:                                               ; preds = %8
@@ -1194,7 +1190,7 @@ _ZNSt3__16vectorImNS_9allocatorImEEE9push_backB8ne190000EOm.exit: ; preds = %_ZN
   br i1 %68, label %69, label %_ZNKSt3__16vectorImNS_9allocatorImEEE11__recommendB8ne190000Em.exit.i.i26
 
 69:                                               ; preds = %61
-  invoke void @_ZNKSt3__16vectorImNS_9allocatorImEEE20__throw_length_errorB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) #24
+  invoke void @0(ptr noundef nonnull align 8 dereferenceable(24) %0) #24
           to label %.noexc33 unwind label %.loopexit.split-lp
 
 .noexc33:                                         ; preds = %69
@@ -3154,7 +3150,7 @@ declare void @_ZNKSt3__115basic_stringbufIcNS_11char_traitsIcEENS_9allocatorIcEE
 declare void @_ZNSt3__115basic_streambufIcNS_11char_traitsIcEEED2Ev(ptr noundef nonnull align 8 dereferenceable(64)) unnamed_addr #4
 
 ; Function Attrs: mustprogress noreturn uwtable
-define linkonce_odr hidden void @_ZNKSt3__16vectorIbNS_9allocatorIbEEE20__throw_length_errorB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #14 comdat align 2 {
+define private void @0(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #14 align 2 {
   tail call void @_ZNSt3__120__throw_length_errorB8ne190000EPKc(ptr noundef nonnull @.str.11) #24
   unreachable
 }
@@ -3363,12 +3359,6 @@ _ZNKSt3__114__bit_iteratorINS_6vectorIbNS_9allocatorIbEEEELb0ELm0EEplB8ne190000E
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #1
-
-; Function Attrs: mustprogress noreturn uwtable
-define linkonce_odr hidden void @_ZNKSt3__16vectorImNS_9allocatorImEEE20__throw_length_errorB8ne190000Ev(ptr noundef nonnull align 8 dereferenceable(24) %0) local_unnamed_addr #14 comdat align 2 {
-  tail call void @_ZNSt3__120__throw_length_errorB8ne190000EPKc(ptr noundef nonnull @.str.11) #24
-  unreachable
-}
 
 declare noundef ptr @_ZN7mitsuba6Thread6threadEv() local_unnamed_addr #3
 

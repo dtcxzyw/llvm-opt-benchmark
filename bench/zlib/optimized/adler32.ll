@@ -372,46 +372,8 @@ adler32_combine_.exit:                            ; preds = %3, %5
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define i64 @adler32_combine64(i64 noundef %0, i64 noundef %1, i64 noundef %2) local_unnamed_addr #1 {
-  %4 = icmp slt i64 %2, 0
-  br i1 %4, label %adler32_combine_.exit, label %5
-
-5:                                                ; preds = %3
-  %6 = urem i64 %2, 65521
-  %7 = and i64 %0, 65535
-  %8 = mul nuw nsw i64 %6, %7
-  %.lhs.trunc.i = trunc nuw i64 %8 to i32
-  %9 = urem i32 %.lhs.trunc.i, 65521
-  %.zext.i = zext nneg i32 %9 to i64
-  %10 = and i64 %1, 65535
-  %11 = add nuw nsw i64 %7, 65520
-  %12 = add nuw nsw i64 %11, %10
-  %13 = lshr i64 %0, 16
-  %14 = and i64 %13, 65535
-  %15 = lshr i64 %1, 16
-  %16 = and i64 %15, 65535
-  %17 = add nuw nsw i64 %14, 65521
-  %18 = add nuw nsw i64 %17, %16
-  %19 = sub nuw nsw i64 %18, %6
-  %20 = add nuw nsw i64 %19, %.zext.i
-  %21 = icmp samesign ugt i64 %12, 65520
-  %22 = add nsw i64 %12, -65521
-  %spec.select.i = select i1 %21, i64 %22, i64 65520
-  %23 = icmp samesign ugt i64 %spec.select.i, 65520
-  %24 = add nsw i64 %spec.select.i, -65521
-  %.126.i = select i1 %23, i64 %24, i64 %spec.select.i
-  %25 = icmp samesign ugt i64 %20, 131041
-  %26 = add nsw i64 %20, -131042
-  %.024.i = select i1 %25, i64 %26, i64 %20
-  %27 = icmp ugt i64 %.024.i, 65520
-  %28 = shl nsw i64 %.024.i, 16
-  %29 = add nsw i64 %28, -4293984256
-  %30 = select i1 %27, i64 %29, i64 %28
-  %31 = or i64 %30, %.126.i
-  br label %adler32_combine_.exit
-
-adler32_combine_.exit:                            ; preds = %3, %5
-  %.0.i = phi i64 [ %31, %5 ], [ 4294967295, %3 ]
-  ret i64 %.0.i
+  %4 = tail call i64 @adler32_combine(i64 noundef %0, i64 noundef %1, i64 noundef %2) #1
+  ret i64 %4
 }
 
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

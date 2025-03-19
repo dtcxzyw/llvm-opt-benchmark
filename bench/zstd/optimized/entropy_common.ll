@@ -25,23 +25,6 @@ define ptr @FSE_getErrorName(i64 noundef %0) local_unnamed_addr #1 {
   ret ptr %5
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define range(i32 0, 2) i32 @HUF_isError(i64 noundef %0) local_unnamed_addr #0 {
-  %2 = icmp ugt i64 %0, -120
-  %3 = zext i1 %2 to i32
-  ret i32 %3
-}
-
-; Function Attrs: nounwind uwtable
-define ptr @HUF_getErrorName(i64 noundef %0) local_unnamed_addr #1 {
-  %2 = icmp ult i64 %0, -119
-  %3 = trunc nsw i64 %0 to i32
-  %4 = sub i32 0, %3
-  %.0.i.i = select i1 %2, i32 0, i32 %4
-  %5 = tail call ptr @ERR_getErrorString(i32 noundef %.0.i.i) #10
-  ret ptr %5
-}
-
 ; Function Attrs: nofree nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define i64 @FSE_readNCount_bmi2(ptr noundef writeonly captures(none) %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) %2, ptr noundef %3, i64 noundef %4, i32 noundef %5) local_unnamed_addr #2 {
   %7 = alloca [8 x i8], align 8
@@ -918,6 +901,18 @@ declare i32 @llvm.cttz.i32(i32, i1 immarg) #9
 declare i32 @llvm.ctlz.i32(i32, i1 immarg) #9
 
 declare i64 @FSE_decompress_wksp_bmi2(ptr noundef, i64 noundef, ptr noundef, i64 noundef, i32 noundef, ptr noundef, i64 noundef, i32 noundef) local_unnamed_addr #6
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
+define range(i32 0, 2) i32 @HUF_isError(i64 noundef %0) local_unnamed_addr #0 {
+  %2 = tail call range(i32 0, 2) i32 @FSE_isError(i64 noundef %0) #0
+  ret i32 %2
+}
+
+; Function Attrs: nounwind uwtable
+define ptr @HUF_getErrorName(i64 noundef %0) local_unnamed_addr #1 {
+  %2 = tail call ptr @FSE_getErrorName(i64 noundef %0) #1
+  ret ptr %2
+}
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

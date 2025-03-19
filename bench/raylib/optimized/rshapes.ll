@@ -1258,12 +1258,6 @@ define void @DrawRectangle(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 n
 }
 
 ; Function Attrs: nounwind uwtable
-define void @DrawRectangleV(<2 x float> %0, <2 x float> %1, i32 %2) local_unnamed_addr #4 {
-  tail call void @DrawRectanglePro(<2 x float> %0, <2 x float> %1, <2 x float> zeroinitializer, float noundef 0.000000e+00, i32 %2)
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
 define void @DrawRectanglePro(<2 x float> %0, <2 x float> %1, <2 x float> %2, float noundef %3, i32 %4) local_unnamed_addr #4 {
   %6 = fcmp oeq float %3, 0.000000e+00
   br i1 %6, label %7, label %16
@@ -3743,62 +3737,6 @@ define void @DrawSplineSegmentBezierCubic(<2 x float> %0, <2 x float> %1, <2 x f
 }
 
 ; Function Attrs: nounwind uwtable
-define void @DrawSplineSegmentLinear(<2 x float> %0, <2 x float> %1, float noundef %2, i32 %3) local_unnamed_addr #4 {
-  %5 = alloca [4 x %struct.Vector2], align 16
-  %6 = fsub <2 x float> %1, %0
-  %7 = extractelement <2 x float> %6, i64 0
-  %.sroa.019.4.vec.extract = extractelement <2 x float> %1, i64 1
-  %.sroa.028.4.vec.extract = extractelement <2 x float> %0, i64 1
-  %8 = fsub float %.sroa.019.4.vec.extract, %.sroa.028.4.vec.extract
-  %9 = fmul float %8, %8
-  %10 = tail call float @llvm.fmuladd.f32(float %7, float %7, float %9)
-  %11 = fcmp ogt float %10, 0.000000e+00
-  %12 = fcmp ogt float %2, 0.000000e+00
-  %or.cond = and i1 %12, %11
-  br i1 %or.cond, label %13, label %34
-
-13:                                               ; preds = %4
-  %.sroa.028.0.vec.extract = extractelement <2 x float> %0, i64 0
-  %.sroa.019.0.vec.extract = extractelement <2 x float> %1, i64 0
-  %sqrt = tail call float @llvm.sqrt.f32(float %10)
-  %14 = fmul float %sqrt, 2.000000e+00
-  %15 = fdiv float %2, %14
-  %16 = fneg float %15
-  %17 = fmul float %8, %16
-  %18 = fmul float %7, %15
-  call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %5) #16
-  %19 = fsub float %.sroa.028.0.vec.extract, %17
-  store float %19, ptr %5, align 16
-  %20 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  %21 = fsub float %.sroa.028.4.vec.extract, %18
-  store float %21, ptr %20, align 4
-  %22 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %23 = fadd float %.sroa.028.0.vec.extract, %17
-  store float %23, ptr %22, align 8
-  %24 = getelementptr inbounds nuw i8, ptr %5, i64 12
-  %25 = fadd float %.sroa.028.4.vec.extract, %18
-  store float %25, ptr %24, align 4
-  %26 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %27 = fsub float %.sroa.019.0.vec.extract, %17
-  store float %27, ptr %26, align 16
-  %28 = getelementptr inbounds nuw i8, ptr %5, i64 20
-  %29 = fsub float %.sroa.019.4.vec.extract, %18
-  store float %29, ptr %28, align 4
-  %30 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %31 = fadd float %.sroa.019.0.vec.extract, %17
-  store float %31, ptr %30, align 8
-  %32 = getelementptr inbounds nuw i8, ptr %5, i64 28
-  %33 = fadd float %.sroa.019.4.vec.extract, %18
-  store float %33, ptr %32, align 4
-  call void @DrawTriangleStrip(ptr noundef nonnull %5, i32 noundef 4, i32 %3)
-  call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #16
-  br label %34
-
-34:                                               ; preds = %13, %4
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
 define void @DrawSplineSegmentBasis(<2 x float> %0, <2 x float> %1, <2 x float> %2, <2 x float> %3, float noundef %4, i32 %5) local_unnamed_addr #4 {
   %7 = alloca [50 x %struct.Vector2], align 16
   call void @llvm.lifetime.start.p0(i64 400, ptr nonnull %7) #16
@@ -4709,6 +4647,18 @@ declare i32 @llvm.smax.i32(i32, i32) #15
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #15
+
+; Function Attrs: nounwind uwtable
+define void @DrawSplineSegmentLinear(<2 x float> %0, <2 x float> %1, float noundef %2, i32 %3) local_unnamed_addr #4 {
+  tail call void @DrawLineEx(<2 x float> %0, <2 x float> %1, float noundef %2, i32 %3) #4
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define void @DrawRectangleV(<2 x float> %0, <2 x float> %1, i32 %2) local_unnamed_addr #4 {
+  tail call void @DrawRectangleRec(<2 x float> %0, <2 x float> %1, i32 %2) #4
+  ret void
+}
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="64" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

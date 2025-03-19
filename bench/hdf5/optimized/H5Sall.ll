@@ -455,24 +455,6 @@ define internal noundef i32 @H5S__all_adjust_s(ptr readnone captures(none) %0, p
   ret i32 0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
-define internal noundef i32 @H5S__all_project_scalar(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %1) #1 {
-  %3 = load i8, ptr @H5S_init_g, align 1, !tbaa !3, !range !7, !noundef !8
-  %4 = trunc nuw i8 %3 to i1
-  %5 = load i8, ptr @H5_libterm_g, align 1, !range !7
-  %6 = trunc nuw i8 %5 to i1
-  %7 = xor i1 %6, true
-  %8 = select i1 %4, i1 true, i1 %7
-  br i1 %8, label %9, label %10, !prof !9
-
-9:                                                ; preds = %2
-  store i64 0, ptr %1, align 8, !tbaa !29
-  br label %10
-
-10:                                               ; preds = %9, %2
-  ret i32 0
-}
-
 ; Function Attrs: nounwind uwtable
 define internal range(i32 -1, 1) i32 @H5S__all_project_simple(ptr readnone captures(none) %0, ptr noundef %1, ptr readnone captures(none) %2) #4 {
   %4 = load i8, ptr @H5S_init_g, align 1, !tbaa !3, !range !7, !noundef !8
@@ -877,6 +859,12 @@ declare i32 @H5S_close(ptr noundef) local_unnamed_addr #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #11
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable
+define internal noundef i32 @H5S__all_project_scalar(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %1) #1 {
+  %3 = tail call noundef i32 @H5S__all_offset(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) %1) #1
+  ret i32 %3
+}
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: write, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

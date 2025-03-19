@@ -866,14 +866,6 @@ define { ptr, ptr } @"_ZN66_$LT$anki_io..error..FileIoError$u20$as$u20$core..err
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define { ptr, ptr } @"_ZN66_$LT$anki_io..error..FileIoError$u20$as$u20$core..error..Error$GT$6source17h74ef99dd780796feE"(ptr noalias noundef readonly align 8 dereferenceable(64) %0) unnamed_addr #1 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %3 = insertvalue { ptr, ptr } poison, ptr %2, 0
-  %4 = insertvalue { ptr, ptr } %3, ptr @anon.7e169519e0ee15bcf2cc7834854a4ab3.27, 1
-  ret { ptr, ptr } %4
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define noalias noundef align 8 ptr @"_ZN66_$LT$anki_io..error..FileIoError$u20$as$u20$snafu..ErrorCompat$GT$9backtrace17hb5f5b3aeac834d3eE"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(64) %0) unnamed_addr #1 {
   ret ptr null
 }
@@ -1022,6 +1014,16 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #9
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
+define { ptr, ptr } @"_ZN66_$LT$anki_io..error..FileIoError$u20$as$u20$core..error..Error$GT$6source17h74ef99dd780796feE"(ptr noalias noundef readonly align 8 dereferenceable(64) %0) unnamed_addr #1 {
+  %2 = tail call { ptr, ptr } @"_ZN66_$LT$anki_io..error..FileIoError$u20$as$u20$core..error..Error$GT$5cause17h9b80dd9da089c044E"(ptr noalias noundef readonly align 8 dereferenceable(64) %0) #1
+  %3 = extractvalue { ptr, ptr } %2, 0
+  %4 = insertvalue { ptr, ptr } poison, ptr %3, 0
+  %5 = extractvalue { ptr, ptr } %2, 1
+  %6 = insertvalue { ptr, ptr } %4, ptr %5, 1
+  ret { ptr, ptr } %6
+}
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

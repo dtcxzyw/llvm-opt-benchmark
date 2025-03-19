@@ -12,7 +12,7 @@ target triple = "x86_64-pc-linux-gnu"
 
 @_ZN3zmq31shared_message_memory_allocatorC1Em = unnamed_addr alias void (ptr, i64), ptr @_ZN3zmq31shared_message_memory_allocatorC2Em
 @_ZN3zmq31shared_message_memory_allocatorC1Emm = unnamed_addr alias void (ptr, i64, i64), ptr @_ZN3zmq31shared_message_memory_allocatorC2Emm
-@_ZN3zmq31shared_message_memory_allocatorD1Ev = unnamed_addr alias void (ptr), ptr @_ZN3zmq31shared_message_memory_allocatorD2Ev
+@_ZN3zmq31shared_message_memory_allocatorD1Ev = unnamed_addr alias void (ptr), ptr @_ZN3zmq31shared_message_memory_allocator10deallocateEv
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
 define void @_ZN3zmq31shared_message_memory_allocatorC2Em(ptr noundef nonnull writeonly align 8 captures(none) dereferenceable(40) initializes((0, 40)) %0, i64 noundef %1) unnamed_addr #0 align 2 {
@@ -37,29 +37,6 @@ define void @_ZN3zmq31shared_message_memory_allocatorC2Emm(ptr noundef nonnull w
   store ptr null, ptr %5, align 8, !tbaa !11
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   store i64 %2, ptr %6, align 8, !tbaa !12
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @_ZN3zmq31shared_message_memory_allocatorD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(40) initializes((8, 16), (24, 32)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
-  %2 = load ptr, ptr %0, align 8, !tbaa !13
-  %.not.i = icmp eq ptr %2, null
-  br i1 %.not.i, label %7, label %3
-
-3:                                                ; preds = %1
-  %4 = atomicrmw sub ptr %2, i32 1 acq_rel, align 4
-  %.not2.i = icmp eq i32 %4, 1
-  br i1 %.not2.i, label %5, label %7
-
-5:                                                ; preds = %3
-  %6 = load ptr, ptr %0, align 8, !tbaa !13
-  tail call void @free(ptr noundef %6) #11
-  br label %7
-
-7:                                                ; preds = %5, %3, %1
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store ptr null, ptr %8, align 8, !tbaa !11
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %0, i8 0, i64 16, i1 false)
   ret void
 }
 
@@ -236,6 +213,12 @@ define noundef nonnull ptr @_ZN3zmq31shared_message_memory_allocator4dataEv(ptr 
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
+
+; Function Attrs: mustprogress nounwind willreturn uwtable
+define void @_ZN3zmq31shared_message_memory_allocatorD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(40) initializes((8, 16), (24, 32)) %0) unnamed_addr #1 align 2 personality ptr @__gxx_personality_v0 {
+  tail call void @_ZN3zmq31shared_message_memory_allocator10deallocateEv(ptr noundef nonnull align 8 captures(none) dereferenceable(40) initializes((8, 16), (24, 32)) %0) #1
+  ret void
+}
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind willreturn uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

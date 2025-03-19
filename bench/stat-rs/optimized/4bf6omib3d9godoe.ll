@@ -532,28 +532,6 @@ define noundef double @"_ZN110_$LT$statrs..distribution..bernoulli..Bernoulli$u2
   ret double %3
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN6statrs12distribution3chi3Chi3new17h71e735c60156cb0cE(ptr dead_on_unwind noalias noundef writable writeonly sret([40 x i8]) align 8 captures(none) dereferenceable(40) initializes((0, 8)) %0, double noundef %1) unnamed_addr #5 {
-  %or.cond = fcmp ule double %1, 0.000000e+00
-  br i1 %or.cond, label %5, label %3
-
-3:                                                ; preds = %2
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store double %1, ptr %4, align 8
-  br label %5
-
-5:                                                ; preds = %2, %3
-  %.sink = phi i64 [ 21, %3 ], [ 0, %2 ]
-  store i64 %.sink, ptr %0, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
-define noundef double @_ZN6statrs12distribution3chi3Chi7freedom17h9362e4d28524bdf4E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #8 {
-  %2 = load double, ptr %0, align 8, !noundef !7
-  ret double %2
-}
-
 ; Function Attrs: nonlazybind uwtable
 define noundef zeroext i1 @"_ZN69_$LT$statrs..distribution..chi..Chi$u20$as$u20$core..fmt..Display$GT$3fmt17h57418ec837267267E"(ptr noalias noundef readonly align 8 dereferenceable(8) %0, ptr noalias noundef readonly align 8 captures(none) dereferenceable(64) %1) unnamed_addr #7 {
 _ZN4core3fmt9Arguments23as_statically_known_str17hd4a07815937ed51bE.exit.i:
@@ -2256,6 +2234,18 @@ declare double @llvm.exp2.f64(double) #18
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #19
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
+define noundef double @_ZN6statrs12distribution3chi3Chi7freedom17h9362e4d28524bdf4E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) unnamed_addr #8 {
+  %2 = tail call noundef double @_ZN6statrs12distribution11exponential3Exp4rate17hb3315c72f93274dbE(ptr noalias noundef readonly align 8 captures(none) dereferenceable(8) %0) #8
+  ret double %2
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
+define void @_ZN6statrs12distribution3chi3Chi3new17h71e735c60156cb0cE(ptr dead_on_unwind noalias noundef writable writeonly sret([40 x i8]) align 8 captures(none) dereferenceable(40) initializes((0, 8)) %0, double noundef %1) unnamed_addr #5 {
+  tail call void @_ZN6statrs12distribution11exponential3Exp3new17hd4e24baf5ed34872E(ptr dead_on_unwind noalias noundef writable writeonly sret([40 x i8]) align 8 captures(none) dereferenceable(40) initializes((0, 8)) %0, double noundef %1) #5
+  ret void
+}
 
 attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

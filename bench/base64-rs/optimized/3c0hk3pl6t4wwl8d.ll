@@ -3,12 +3,12 @@ source_filename = "bench/base64-rs/original/3c0hk3pl6t4wwl8d.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-@anon.563ef019a64827af2993a0386c5e69fb.0 = private unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr48drop_in_place$LT$core..str..error..Utf8Error$GT$17h00f0bd1b7a094283E", [16 x i8] c"\10\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN64_$LT$core..str..error..Utf8Error$u20$as$u20$core..fmt..Debug$GT$3fmt17ha2ae7278c7dc29e0E" }>, align 8
+@anon.563ef019a64827af2993a0386c5e69fb.0 = private unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr26drop_in_place$LT$usize$GT$17h3c9f667ab3898633E", [16 x i8] c"\10\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN64_$LT$core..str..error..Utf8Error$u20$as$u20$core..fmt..Debug$GT$3fmt17ha2ae7278c7dc29e0E" }>, align 8
 @anon.563ef019a64827af2993a0386c5e69fb.1 = private unnamed_addr constant <{ [9 x i8] }> <{ [9 x i8] c"Utf8Error" }>, align 1
 @anon.563ef019a64827af2993a0386c5e69fb.2 = private unnamed_addr constant <{ [11 x i8] }> <{ [11 x i8] c"valid_up_to" }>, align 1
 @anon.563ef019a64827af2993a0386c5e69fb.3 = private unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr26drop_in_place$LT$usize$GT$17h3c9f667ab3898633E", [16 x i8] c"\08\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..Debug$u20$for$u20$usize$GT$3fmt17h05610c046aa2fa7eE" }>, align 8
 @anon.563ef019a64827af2993a0386c5e69fb.4 = private unnamed_addr constant <{ [9 x i8] }> <{ [9 x i8] c"error_len" }>, align 1
-@anon.563ef019a64827af2993a0386c5e69fb.5 = private unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr55drop_in_place$LT$$RF$core..option..Option$LT$u8$GT$$GT$17hfc5a9b1d5a37c43bE", [16 x i8] c"\08\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hac78661d712ad527E" }>, align 8
+@anon.563ef019a64827af2993a0386c5e69fb.5 = private unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr26drop_in_place$LT$usize$GT$17h3c9f667ab3898633E", [16 x i8] c"\08\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hac78661d712ad527E" }>, align 8
 @anon.563ef019a64827af2993a0386c5e69fb.6 = private unnamed_addr constant <{ [24 x i8] }> <{ [24 x i8] c"base64 data was not utf8" }>, align 1
 @anon.563ef019a64827af2993a0386c5e69fb.7 = private unnamed_addr constant <{ [14 x i8] }> <{ [14 x i8] c"src/display.rs" }>, align 1
 @anon.563ef019a64827af2993a0386c5e69fb.8 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.563ef019a64827af2993a0386c5e69fb.7, [16 x i8] c"\0E\00\00\00\00\00\00\003\00\00\000\00\00\00" }>, align 8
@@ -45,16 +45,6 @@ define internal noundef zeroext i1 @"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define internal void @"_ZN4core3ptr26drop_in_place$LT$usize$GT$17h3c9f667ab3898633E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #1 {
-  ret void
-}
-
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr48drop_in_place$LT$core..str..error..Utf8Error$GT$17h00f0bd1b7a094283E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #1 {
-  ret void
-}
-
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr55drop_in_place$LT$$RF$core..option..Option$LT$u8$GT$$GT$17hfc5a9b1d5a37c43bE"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #1 {
   ret void
 }
 

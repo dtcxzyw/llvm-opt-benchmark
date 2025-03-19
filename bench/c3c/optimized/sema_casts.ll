@@ -5417,12 +5417,6 @@ define internal noundef zeroext i1 @rule_ulist_to_inferred(ptr noundef readonly 
   ret i1 %.027
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @cast_retype(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef %2) #5 {
-  store ptr %2, ptr %1, align 8
-  ret void
-}
-
 ; Function Attrs: nounwind uwtable
 define internal void @cast_all_to_void(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr readnone captures(none) %2) #0 {
   %4 = load ptr, ptr @type_void, align 8
@@ -7734,48 +7728,6 @@ define internal void @cast_vec_to_arr(ptr readnone captures(none) %0, ptr nounde
 }
 
 ; Function Attrs: nounwind uwtable
-define internal void @cast_vecarr_to_infer(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
-  br label %4
-
-4:                                                ; preds = %.backedge, %3
-  %.0.i.in = phi ptr [ %1, %3 ], [ %.0.i.in.be, %.backedge ]
-  %.0.i = load ptr, ptr %.0.i.in, align 8
-  %5 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
-  %6 = load ptr, ptr %5, align 8
-  %7 = load i32, ptr %6, align 8
-  switch i32 %7, label %type_flatten.exit [
-    i32 32, label %8
-    i32 40, label %14
-    i32 31, label %16
-  ]
-
-8:                                                ; preds = %4
-  %9 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  %10 = load ptr, ptr %9, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 96
-  %12 = load ptr, ptr %11, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 8
-  br label %.backedge
-
-14:                                               ; preds = %4
-  %15 = getelementptr inbounds nuw i8, ptr %6, i64 56
-  br label %.backedge
-
-.backedge:                                        ; preds = %14, %8
-  %.0.i.in.be = phi ptr [ %15, %14 ], [ %13, %8 ]
-  br label %4
-
-16:                                               ; preds = %4
-  tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str.2, ptr noundef nonnull @.str.3, ptr noundef nonnull @__func__.type_flatten, ptr noundef nonnull @.str.10, i32 noundef 2984) #11
-  unreachable
-
-type_flatten.exit:                                ; preds = %4
-  %17 = tail call ptr @type_infer_len_from_actual_type(ptr noundef %2, ptr noundef nonnull %6)
-  tail call void @cast_no_check(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %17, i1 noundef zeroext false)
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
 define internal void @cast_bitstruct_to_int_arr(ptr readnone captures(none) %0, ptr noundef captures(none) %1, ptr noundef %2) #0 {
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %5 = load i16, ptr %4, align 8
@@ -8178,12 +8130,6 @@ define internal void @cast_fault_to_ptr(ptr readnone captures(none) %0, ptr noun
   store i32 %15, ptr %16, align 4
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 32
   store i32 0, ptr %17, align 8
-  store ptr %2, ptr %1, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
-define internal void @cast_fault_to_anyfault(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef %2) #5 {
   store ptr %2, ptr %1, align 8
   ret void
 }
@@ -9482,6 +9428,24 @@ declare zeroext i1 @sema_expr_analyse_initializer_list(ptr noundef, ptr noundef,
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #9
+
+; Function Attrs: nounwind uwtable
+define internal void @cast_vecarr_to_infer(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0 {
+  tail call void @cast_ptr_to_infer(ptr noundef %0, ptr noundef %1, ptr noundef %2) #0
+  ret void
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
+define internal void @cast_retype(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef %2) #5 {
+  tail call void @cast_arr_to_arr(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef %2) #5
+  ret void
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
+define internal void @cast_fault_to_anyfault(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef %2) #5 {
+  tail call void @cast_arr_to_arr(ptr readnone captures(none) %0, ptr noundef writeonly captures(none) initializes((0, 8)) %1, ptr noundef %2) #5
+  ret void
+}
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

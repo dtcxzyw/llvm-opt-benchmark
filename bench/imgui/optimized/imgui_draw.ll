@@ -38,17 +38,7 @@ target triple = "x86_64-pc-linux-gnu"
 %struct.stbtt__point = type { float, float }
 %struct.stbtt__edge = type { float, float, float, float, i32 }
 
-$_ZN8ImVectorI10ImDrawVertED2Ev = comdat any
-
 $__clang_call_terminate = comdat any
-
-$_ZN8ImVectorI10stbrp_rectED2Ev = comdat any
-
-$_ZN8ImVectorI16stbtt_packedcharED2Ev = comdat any
-
-$_ZN8ImVectorI18ImFontBuildDstDataED2Ev = comdat any
-
-$_ZN8ImVectorI18ImFontBuildSrcDataED2Ev = comdat any
 
 @.str = private unnamed_addr constant [22 x i8] c"ProggyClean.ttf, %dpx\00", align 1
 @.str.1 = private unnamed_addr constant [3 x i8] c"rb\00", align 1
@@ -1420,7 +1410,7 @@ define void @_ZN10ImDrawListC2EP20ImDrawListSharedData(ptr noundef nonnull write
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN8ImVectorI10ImDrawVertED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
+define private void @0(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #10 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load ptr, ptr %2, align 8, !tbaa !44
   %.not = icmp eq ptr %3, null
@@ -13032,7 +13022,7 @@ _ZN8ImVectorI10ImDrawVertED2Ev.exit:              ; preds = %1, %._crit_edge27, 
 26:                                               ; preds = %61, %57, %39, %_ZNK8ImVectorI10ImDrawVertE14_grow_capacityEi.exit.i
   %27 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8ImVectorI10ImDrawVertED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #42
+  call void @0(ptr noundef nonnull align 8 dereferenceable(16) %2) #42
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #42
   resume { ptr, i32 } %27
 
@@ -22478,9 +22468,9 @@ _ZN8ImVectorI10stbrp_rectED2Ev.exit:              ; preds = %3735, %3733
 
 .loopexit.split-lp:                               ; preds = %.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit, %1525, %1531, %3731, %3600, %1345
   %.pn343.pn = phi { ptr, i32 } [ %1346, %1345 ], [ %1532, %1531 ], [ %1526, %1525 ], [ %3732, %3731 ], [ %3601, %3600 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit563, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit566, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ]
-  call void @_ZN8ImVectorI16stbtt_packedcharED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %22) #42
+  call void @0(ptr noundef nonnull align 8 dereferenceable(16) %22) #42
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %22) #42
-  call void @_ZN8ImVectorI10stbrp_rectED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %21) #42
+  call void @0(ptr noundef nonnull align 8 dereferenceable(16) %21) #42
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %21) #42
   br label %3749
 
@@ -22524,9 +22514,9 @@ _ZN8ImVectorI18ImFontBuildSrcDataED2Ev.exit:      ; preds = %_ZN8ImVectorI18ImFo
 
 3749:                                             ; preds = %.loopexit573, %.loopexit.split-lp574, %1306, %1343, %.loopexit.split-lp, %1183, %77
   %.pn350.pn.pn = phi { ptr, i32 } [ %78, %77 ], [ %1307, %1306 ], [ %.pn343.pn, %.loopexit.split-lp ], [ %1344, %1343 ], [ %1184, %1183 ], [ %lpad.loopexit575, %.loopexit573 ], [ %lpad.loopexit.split-lp576, %.loopexit.split-lp574 ]
-  call void @_ZN8ImVectorI18ImFontBuildDstDataED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %20) #42
+  call void @0(ptr noundef nonnull align 8 dereferenceable(16) %20) #42
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %20) #42
-  call void @_ZN8ImVectorI18ImFontBuildSrcDataED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %19) #42
+  call void @0(ptr noundef nonnull align 8 dereferenceable(16) %19) #42
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %19) #42
   resume { ptr, i32 } %.pn350.pn.pn
 }
@@ -22725,7 +22715,7 @@ _ZNK8ImVectorI10stbrp_rectE14_grow_capacityEi.exit.i:
 23:                                               ; preds = %._crit_edge, %_ZNK8ImVectorI10stbrp_rectE14_grow_capacityEi.exit.i
   %24 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZN8ImVectorI10stbrp_rectED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #42
+  call void @0(ptr noundef nonnull align 8 dereferenceable(16) %2) #42
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2) #42
   resume { ptr, i32 } %24
 
@@ -23286,28 +23276,6 @@ _ZL7ImQsortPvmmPFiPKvS1_E.exit50:                 ; preds = %._crit_edge61, %190
 
 ._crit_edge65:                                    ; preds = %.thread, %_ZL7ImQsortPvmmPFiPKvS1_E.exit50
   ret void
-}
-
-; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN8ImVectorI10stbrp_rectED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !377
-  %.not = icmp eq ptr %3, null
-  br i1 %.not, label %5, label %4
-
-4:                                                ; preds = %1
-  invoke void @_ZN5ImGui7MemFreeEPv(ptr noundef nonnull %3)
-          to label %5 unwind label %6
-
-5:                                                ; preds = %4, %1
-  ret void
-
-6:                                                ; preds = %4
-  %7 = landingpad { ptr, i32 }
-          catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #43
-  unreachable
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
@@ -28479,72 +28447,6 @@ _ZL17stbtt_GetGlyphBoxPK14stbtt_fontinfoiPiS2_S2_S2_.exit: ; preds = %102, %12
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(errnomem: write)
 declare float @sqrtf(float noundef) local_unnamed_addr #6
-
-; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN8ImVectorI16stbtt_packedcharED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !379
-  %.not = icmp eq ptr %3, null
-  br i1 %.not, label %5, label %4
-
-4:                                                ; preds = %1
-  invoke void @_ZN5ImGui7MemFreeEPv(ptr noundef nonnull %3)
-          to label %5 unwind label %6
-
-5:                                                ; preds = %4, %1
-  ret void
-
-6:                                                ; preds = %4
-  %7 = landingpad { ptr, i32 }
-          catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #43
-  unreachable
-}
-
-; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN8ImVectorI18ImFontBuildDstDataED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !317
-  %.not = icmp eq ptr %3, null
-  br i1 %.not, label %5, label %4
-
-4:                                                ; preds = %1
-  invoke void @_ZN5ImGui7MemFreeEPv(ptr noundef nonnull %3)
-          to label %5 unwind label %6
-
-5:                                                ; preds = %4, %1
-  ret void
-
-6:                                                ; preds = %4
-  %7 = landingpad { ptr, i32 }
-          catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #43
-  unreachable
-}
-
-; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr void @_ZN8ImVectorI18ImFontBuildSrcDataED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %0) unnamed_addr #10 comdat align 2 personality ptr @__gxx_personality_v0 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8, !tbaa !311
-  %.not = icmp eq ptr %3, null
-  br i1 %.not, label %5, label %4
-
-4:                                                ; preds = %1
-  invoke void @_ZN5ImGui7MemFreeEPv(ptr noundef nonnull %3)
-          to label %5 unwind label %6
-
-5:                                                ; preds = %4, %1
-  ret void
-
-6:                                                ; preds = %4
-  %7 = landingpad { ptr, i32 }
-          catch ptr null
-  %8 = extractvalue { ptr, i32 } %7, 0
-  tail call void @__clang_call_terminate(ptr %8) #43
-  unreachable
-}
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
 define internal fastcc { ptr, i64 } @_ZL20stbtt__cff_get_indexP10stbtt__buf(ptr noundef nonnull captures(none) %0) unnamed_addr #15 {

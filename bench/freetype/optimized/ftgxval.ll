@@ -34,21 +34,6 @@ define i32 @FT_TrueTypeGX_Validate(ptr noundef %0, i32 noundef %1, ptr noundef %
 
 declare hidden ptr @ft_module_get_service(ptr noundef, ptr noundef, i8 noundef zeroext) local_unnamed_addr #1
 
-; Function Attrs: nounwind uwtable
-define void @FT_TrueTypeGX_Free(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
-  %.not = icmp eq ptr %0, null
-  br i1 %.not, label %6, label %3
-
-3:                                                ; preds = %2
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %5 = load ptr, ptr %4, align 8, !tbaa !27
-  tail call void @ft_mem_free(ptr noundef %5, ptr noundef %1) #2
-  br label %6
-
-6:                                                ; preds = %2, %3
-  ret void
-}
-
 declare hidden void @ft_mem_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: nounwind uwtable
@@ -68,7 +53,7 @@ define i32 @FT_ClassicKern_Validate(ptr noundef %0, i32 noundef %1, ptr noundef 
   br i1 %.not14, label %12, label %9
 
 9:                                                ; preds = %5
-  %10 = load ptr, ptr %8, align 8, !tbaa !28
+  %10 = load ptr, ptr %8, align 8, !tbaa !27
   %11 = tail call i32 %10(ptr noundef nonnull %0, i32 noundef %1, ptr noundef nonnull %2) #2
   br label %12
 
@@ -84,11 +69,17 @@ define void @FT_ClassicKern_Free(ptr noundef readonly captures(address_is_null) 
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %5 = load ptr, ptr %4, align 8, !tbaa !27
+  %5 = load ptr, ptr %4, align 8, !tbaa !29
   tail call void @ft_mem_free(ptr noundef %5, ptr noundef %1) #2
   br label %6
 
 6:                                                ; preds = %2, %3
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define void @FT_TrueTypeGX_Free(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) local_unnamed_addr #0 {
+  tail call void @FT_ClassicKern_Free(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1) #0
   ret void
 }
 
@@ -125,6 +116,6 @@ attributes #2 = { nounwind }
 !24 = !{!"p1 _ZTS20FT_Face_InternalRec_", !9, i64 0}
 !25 = !{!26, !9, i64 0}
 !26 = !{!"FT_Service_GXvalidateRec_", !9, i64 0}
-!27 = !{!4, !20, i64 184}
-!28 = !{!29, !9, i64 0}
-!29 = !{!"FT_Service_CKERNvalidateRec_", !9, i64 0}
+!27 = !{!28, !9, i64 0}
+!28 = !{!"FT_Service_CKERNvalidateRec_", !9, i64 0}
+!29 = !{!4, !20, i64 184}

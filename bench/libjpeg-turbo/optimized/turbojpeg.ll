@@ -497,31 +497,6 @@ define nonnull ptr @tj3GetErrorStr(ptr noundef captures(address_is_null, ret: ad
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define nonnull ptr @tjGetErrorStr2(ptr noundef captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #10 {
-  %.not.i = icmp eq ptr %0, null
-  br i1 %.not.i, label %7, label %2
-
-2:                                                ; preds = %1
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1740
-  %4 = load i32, ptr %3, align 4, !tbaa !65
-  %.not7.i = icmp eq i32 %4, 0
-  br i1 %.not7.i, label %7, label %5
-
-5:                                                ; preds = %2
-  store i32 0, ptr %3, align 4, !tbaa !65
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 1540
-  br label %tj3GetErrorStr.exit
-
-7:                                                ; preds = %2, %1
-  %8 = tail call align 16 ptr @llvm.threadlocal.address.p0(ptr align 16 @errStr)
-  br label %tj3GetErrorStr.exit
-
-tj3GetErrorStr.exit:                              ; preds = %5, %7
-  %.0.i = phi ptr [ %6, %5 ], [ %8, %7 ]
-  ret ptr %.0.i
-}
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define nonnull ptr @tjGetErrorStr() local_unnamed_addr #11 {
   %1 = tail call align 16 ptr @llvm.threadlocal.address.p0(ptr align 16 @errStr)
@@ -545,25 +520,6 @@ define range(i32 0, 2) i32 @tj3GetErrorCode(ptr noundef readonly captures(addres
 6:                                                ; preds = %2, %5
   %.0 = phi i32 [ 1, %5 ], [ 0, %2 ]
   ret i32 %.0
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define range(i32 0, 2) i32 @tjGetErrorCode(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #12 {
-  %.not.i = icmp eq ptr %0, null
-  br i1 %.not.i, label %5, label %2
-
-2:                                                ; preds = %1
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 1528
-  %4 = load i32, ptr %3, align 8, !tbaa !64
-  %.not4.i = icmp eq i32 %4, 0
-  br i1 %.not4.i, label %5, label %tj3GetErrorCode.exit
-
-5:                                                ; preds = %2, %1
-  br label %tj3GetErrorCode.exit
-
-tj3GetErrorCode.exit:                             ; preds = %2, %5
-  %.0.i = phi i32 [ 1, %5 ], [ 0, %2 ]
-  ret i32 %.0.i
 }
 
 ; Function Attrs: nofree nounwind uwtable
@@ -1534,12 +1490,6 @@ define void @tj3Free(ptr noundef captures(none) %0) local_unnamed_addr #15 {
   ret void
 }
 
-; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
-define void @tjFree(ptr noundef captures(none) %0) local_unnamed_addr #15 {
-  tail call void @free(ptr noundef %0) #26
-  ret void
-}
-
 ; Function Attrs: nofree nounwind uwtable
 define range(i64 -554050779136, 554050782975) i64 @tj3JPEGBufSize(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #13 {
   %4 = icmp slt i32 %0, 1
@@ -1944,14 +1894,6 @@ define i64 @tjBufSizeYUV2(i32 noundef %0, i32 noundef %1, i32 noundef %2, i32 no
   %6 = icmp eq i64 %5, 0
   %7 = select i1 %6, i64 -1, i64 %5
   ret i64 %7
-}
-
-; Function Attrs: nofree nounwind uwtable
-define i64 @tjBufSizeYUV(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #13 {
-  %4 = tail call i64 @tj3YUVBufSize(i32 noundef %0, i32 noundef 4, i32 noundef %1, i32 noundef %2)
-  %5 = icmp eq i64 %4, 0
-  %6 = select i1 %5, i64 -1, i64 %4
-  ret i64 %6
 }
 
 ; Function Attrs: nofree nounwind uwtable
@@ -9913,25 +9855,6 @@ define noundef ptr @tj3GetScalingFactors(ptr noundef writeonly captures(address_
 }
 
 ; Function Attrs: nofree nounwind uwtable
-define noundef ptr @tjGetScalingFactors(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #13 {
-  %2 = icmp eq ptr %0, null
-  br i1 %2, label %3, label %6
-
-3:                                                ; preds = %1
-  %4 = tail call align 16 ptr @llvm.threadlocal.address.p0(ptr align 16 @errStr)
-  %5 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %4, i64 noundef 200, ptr noundef nonnull @.str, ptr noundef nonnull @tj3GetScalingFactors.FUNCTION_NAME, ptr noundef nonnull @.str.1) #26
-  br label %tj3GetScalingFactors.exit
-
-6:                                                ; preds = %1
-  store i32 16, ptr %0, align 4, !tbaa !88
-  br label %tj3GetScalingFactors.exit
-
-tj3GetScalingFactors.exit:                        ; preds = %3, %6
-  %.0.i = phi ptr [ null, %3 ], [ @sf, %6 ]
-  ret ptr %.0.i
-}
-
-; Function Attrs: nofree nounwind uwtable
 define range(i32 -1, 1) i32 @tj3SetScalingFactor(ptr noundef captures(address_is_null) %0, i64 %1) local_unnamed_addr #13 {
   %.sroa.0.0.extract.trunc = trunc i64 %1 to i32
   %.sroa.3.0.extract.shift = lshr i64 %1, 32
@@ -14975,6 +14898,36 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #24
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define nonnull ptr @tjGetErrorStr2(ptr noundef captures(address_is_null, ret: address, provenance) %0) local_unnamed_addr #10 {
+  %2 = tail call nonnull ptr @tj3GetErrorStr(ptr noundef captures(address_is_null, ret: address, provenance) %0) #10
+  ret ptr %2
+}
+
+; Function Attrs: nofree nounwind uwtable
+define i64 @tjBufSizeYUV(i32 noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #13 {
+  %4 = tail call i64 @TJBUFSIZEYUV(i32 noundef %0, i32 noundef %1, i32 noundef %2) #13
+  ret i64 %4
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define range(i32 0, 2) i32 @tjGetErrorCode(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #12 {
+  %2 = tail call range(i32 0, 2) i32 @tj3GetErrorCode(ptr noundef readonly captures(address_is_null) %0) #12
+  ret i32 %2
+}
+
+; Function Attrs: nofree nounwind uwtable
+define noundef ptr @tjGetScalingFactors(ptr noundef writeonly captures(address_is_null) %0) local_unnamed_addr #13 {
+  %2 = tail call noundef ptr @tj3GetScalingFactors(ptr noundef writeonly captures(address_is_null) %0) #13
+  ret ptr %2
+}
+
+; Function Attrs: mustprogress nounwind willreturn memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable
+define void @tjFree(ptr noundef captures(none) %0) local_unnamed_addr #15 {
+  tail call void @tj3Free(ptr noundef captures(none) %0) #15
+  ret void
+}
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

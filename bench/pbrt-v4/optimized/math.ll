@@ -50,10 +50,6 @@ $_ZNK4pbrt12SquareMatrixILi2EE10IsIdentityEv = comdat any
 
 $_ZNK4pbrt12SquareMatrixILi2EE8ToStringB5cxx11Ev = comdat any
 
-$_ZNK4pbrt12SquareMatrixILi2EEixEi = comdat any
-
-$_ZN4pbrt12SquareMatrixILi2EEixEi = comdat any
-
 $_ZN4pbrt7InverseILi2EEEN4pstd8optionalINS_12SquareMatrixIXT_EEEEERKS4_ = comdat any
 
 $_ZN4pbrtmlILi2EEENS_12SquareMatrixIXT_EEERKS2_S4_ = comdat any
@@ -82,10 +78,6 @@ $_ZNK4pbrt12SquareMatrixILi3EE10IsIdentityEv = comdat any
 
 $_ZNK4pbrt12SquareMatrixILi3EE8ToStringB5cxx11Ev = comdat any
 
-$_ZNK4pbrt12SquareMatrixILi3EEixEi = comdat any
-
-$_ZN4pbrt12SquareMatrixILi3EEixEi = comdat any
-
 $_ZN4pbrt12SquareMatrixILi4EE4ZeroEv = comdat any
 
 $_ZN4pbrt12SquareMatrixILi4EEC5Ev = comdat any
@@ -109,10 +101,6 @@ $_ZNK4pbrt12SquareMatrixILi4EEltERKS1_ = comdat any
 $_ZNK4pbrt12SquareMatrixILi4EE10IsIdentityEv = comdat any
 
 $_ZNK4pbrt12SquareMatrixILi4EE8ToStringB5cxx11Ev = comdat any
-
-$_ZNK4pbrt12SquareMatrixILi4EEixEi = comdat any
-
-$_ZN4pbrt12SquareMatrixILi4EEixEi = comdat any
 
 $_ZN4pbrt8LogFatalIJRA15_KcRA2_S1_S3_RmS5_RiEEEvNS_8LogLevelEPS1_iS9_DpOT_ = comdat any
 
@@ -161,6 +149,18 @@ $_ZN4pbrt6detail21stringPrintfRecursiveIRA13_KcJRmRA9_S2_S5_EEEvPNSt7__cxx1112ba
 $_ZN4pbrt6detail21stringPrintfRecursiveIRmJRA9_KcS2_EEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS3_OT_DpOT0_ = comdat any
 
 $_ZN4pbrt6detail21stringPrintfRecursiveIRA45_KcJEEEvPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPS2_OT_DpOT0_ = comdat any
+
+$_ZNK4pbrt12SquareMatrixILi2EEixEi = comdat any
+
+$_ZN4pbrt12SquareMatrixILi2EEixEi = comdat any
+
+$_ZNK4pbrt12SquareMatrixILi3EEixEi = comdat any
+
+$_ZN4pbrt12SquareMatrixILi3EEixEi = comdat any
+
+$_ZNK4pbrt12SquareMatrixILi4EEixEi = comdat any
+
+$_ZN4pbrt12SquareMatrixILi4EEixEi = comdat any
 
 @_ZStL8__ioinit = internal global %"class.std::ios_base::Init" zeroinitializer, align 1
 @__dso_handle = external hidden global i8
@@ -852,16 +852,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit42: ; preds = %_ZN
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr dso_local { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi2EEixEi(ptr noundef nonnull align 4 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #3 comdat align 2 {
-  %3 = sext i32 %1 to i64
-  %4 = getelementptr inbounds [2 x [2 x float]], ptr %0, i64 0, i64 %3
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %4, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 2, 1
-  ret { ptr, i64 } %.fca.1.insert
-}
-
-; Function Attrs: mustprogress uwtable
-define weak_odr dso_local { ptr, i64 } @_ZN4pbrt12SquareMatrixILi2EEixEi(ptr noundef nonnull align 4 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #3 comdat align 2 {
+define private { ptr, i64 } @0(ptr noundef nonnull align 4 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds [2 x [2 x float]], ptr %0, i64 0, i64 %3
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %4, 0
@@ -1725,16 +1716,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr dso_local { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi3EEixEi(ptr noundef nonnull align 4 dereferenceable(36) %0, i32 noundef %1) local_unnamed_addr #3 comdat align 2 {
-  %3 = sext i32 %1 to i64
-  %4 = getelementptr inbounds [3 x [3 x float]], ptr %0, i64 0, i64 %3
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %4, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 3, 1
-  ret { ptr, i64 } %.fca.1.insert
-}
-
-; Function Attrs: mustprogress uwtable
-define weak_odr dso_local { ptr, i64 } @_ZN4pbrt12SquareMatrixILi3EEixEi(ptr noundef nonnull align 4 dereferenceable(36) %0, i32 noundef %1) local_unnamed_addr #3 comdat align 2 {
+define private { ptr, i64 } @1(ptr noundef nonnull align 4 dereferenceable(36) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds [3 x [3 x float]], ptr %0, i64 0, i64 %3
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %4, 0
@@ -2332,16 +2314,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit43: ; preds = %_ZN
 }
 
 ; Function Attrs: mustprogress uwtable
-define weak_odr dso_local { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %0, i32 noundef %1) local_unnamed_addr #3 comdat align 2 {
-  %3 = sext i32 %1 to i64
-  %4 = getelementptr inbounds [4 x [4 x float]], ptr %0, i64 0, i64 %3
-  %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %4, 0
-  %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 4, 1
-  ret { ptr, i64 } %.fca.1.insert
-}
-
-; Function Attrs: mustprogress uwtable
-define weak_odr dso_local { ptr, i64 } @_ZN4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %0, i32 noundef %1) local_unnamed_addr #3 comdat align 2 {
+define private { ptr, i64 } @2(ptr noundef nonnull align 4 dereferenceable(64) %0, i32 noundef %1) local_unnamed_addr #3 align 2 {
   %3 = sext i32 %1 to i64
   %4 = getelementptr inbounds [4 x [4 x float]], ptr %0, i64 0, i64 %3
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %4, 0
@@ -14054,6 +14027,66 @@ declare i64 @llvm.umax.i64(i64, i64) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #25
+
+; Function Attrs: mustprogress uwtable
+define weak_odr dso_local { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi2EEixEi(ptr noundef nonnull align 4 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #3 comdat align 2 {
+  %3 = tail call { ptr, i64 } @0(ptr noundef nonnull align 4 dereferenceable(16) %0, i32 noundef %1) #3
+  %4 = extractvalue { ptr, i64 } %3, 0
+  %5 = insertvalue { ptr, i64 } poison, ptr %4, 0
+  %6 = extractvalue { ptr, i64 } %3, 1
+  %7 = insertvalue { ptr, i64 } %5, i64 %6, 1
+  ret { ptr, i64 } %7
+}
+
+; Function Attrs: mustprogress uwtable
+define weak_odr dso_local { ptr, i64 } @_ZN4pbrt12SquareMatrixILi2EEixEi(ptr noundef nonnull align 4 dereferenceable(16) %0, i32 noundef %1) local_unnamed_addr #3 comdat align 2 {
+  %3 = tail call { ptr, i64 } @0(ptr noundef nonnull align 4 dereferenceable(16) %0, i32 noundef %1) #3
+  %4 = extractvalue { ptr, i64 } %3, 0
+  %5 = insertvalue { ptr, i64 } poison, ptr %4, 0
+  %6 = extractvalue { ptr, i64 } %3, 1
+  %7 = insertvalue { ptr, i64 } %5, i64 %6, 1
+  ret { ptr, i64 } %7
+}
+
+; Function Attrs: mustprogress uwtable
+define weak_odr dso_local { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi3EEixEi(ptr noundef nonnull align 4 dereferenceable(36) %0, i32 noundef %1) local_unnamed_addr #3 comdat align 2 {
+  %3 = tail call { ptr, i64 } @1(ptr noundef nonnull align 4 dereferenceable(36) %0, i32 noundef %1) #3
+  %4 = extractvalue { ptr, i64 } %3, 0
+  %5 = insertvalue { ptr, i64 } poison, ptr %4, 0
+  %6 = extractvalue { ptr, i64 } %3, 1
+  %7 = insertvalue { ptr, i64 } %5, i64 %6, 1
+  ret { ptr, i64 } %7
+}
+
+; Function Attrs: mustprogress uwtable
+define weak_odr dso_local { ptr, i64 } @_ZN4pbrt12SquareMatrixILi3EEixEi(ptr noundef nonnull align 4 dereferenceable(36) %0, i32 noundef %1) local_unnamed_addr #3 comdat align 2 {
+  %3 = tail call { ptr, i64 } @1(ptr noundef nonnull align 4 dereferenceable(36) %0, i32 noundef %1) #3
+  %4 = extractvalue { ptr, i64 } %3, 0
+  %5 = insertvalue { ptr, i64 } poison, ptr %4, 0
+  %6 = extractvalue { ptr, i64 } %3, 1
+  %7 = insertvalue { ptr, i64 } %5, i64 %6, 1
+  ret { ptr, i64 } %7
+}
+
+; Function Attrs: mustprogress uwtable
+define weak_odr dso_local { ptr, i64 } @_ZNK4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %0, i32 noundef %1) local_unnamed_addr #3 comdat align 2 {
+  %3 = tail call { ptr, i64 } @2(ptr noundef nonnull align 4 dereferenceable(64) %0, i32 noundef %1) #3
+  %4 = extractvalue { ptr, i64 } %3, 0
+  %5 = insertvalue { ptr, i64 } poison, ptr %4, 0
+  %6 = extractvalue { ptr, i64 } %3, 1
+  %7 = insertvalue { ptr, i64 } %5, i64 %6, 1
+  ret { ptr, i64 } %7
+}
+
+; Function Attrs: mustprogress uwtable
+define weak_odr dso_local { ptr, i64 } @_ZN4pbrt12SquareMatrixILi4EEixEi(ptr noundef nonnull align 4 dereferenceable(64) %0, i32 noundef %1) local_unnamed_addr #3 comdat align 2 {
+  %3 = tail call { ptr, i64 } @2(ptr noundef nonnull align 4 dereferenceable(64) %0, i32 noundef %1) #3
+  %4 = extractvalue { ptr, i64 } %3, 0
+  %5 = insertvalue { ptr, i64 } poison, ptr %4, 0
+  %6 = extractvalue { ptr, i64 } %3, 1
+  %7 = insertvalue { ptr, i64 } %5, i64 %6, 1
+  ret { ptr, i64 } %7
+}
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-avx512,-amx-bf16,-amx-complex,-amx-fp16,-amx-fp8,-amx-int8,-amx-movrs,-amx-tf32,-amx-tile,-amx-transpose,-avx10.1-256,-avx10.1-512,-avx10.2-256,-avx10.2-512,-avx512bf16,-avx512fp16,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-movrs,-mwaitx,-ndd,-nf,-pconfig,-ppx,-prefetchi,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop,-zu" }

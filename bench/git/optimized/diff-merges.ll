@@ -367,15 +367,6 @@ define internal void @set_remerge_diff(ptr noundef captures(none) %0) #6 {
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
-define internal void @set_none(ptr noundef captures(none) %0) #6 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %3 = load i64, ptr %2, align 8
-  %4 = and i64 %3, -1148417904979476481
-  store i64 %4, ptr %2, align 8
-  ret void
-}
-
 declare i32 @parse_long_opt(ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #7
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
@@ -534,6 +525,12 @@ define internal fastcc ptr @_() unnamed_addr #9 {
 
 ; Function Attrs: nounwind
 declare ptr @dcgettext(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr #10
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
+define internal void @set_none(ptr noundef captures(none) %0) #6 {
+  tail call void @diff_merges_suppress(ptr noundef captures(none) %0) #6
+  ret void
+}
 
 attributes #0 = { mustprogress nofree nounwind willreturn memory(readwrite, argmem: read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

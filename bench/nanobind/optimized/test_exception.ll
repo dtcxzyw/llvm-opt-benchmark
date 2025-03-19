@@ -45,11 +45,7 @@ $_ZN8nanobind15attribute_errorEPKc = comdat any
 
 $_ZN8nanobind14stop_iterationEPKc = comdat any
 
-$_ZN8MyError1D0Ev = comdat any
-
 $_ZNK8MyError14whatEv = comdat any
-
-$_ZN8MyError2D0Ev = comdat any
 
 $_ZNK8MyError24whatEv = comdat any
 
@@ -57,13 +53,15 @@ $_ZZN8nanobind9exceptionI8MyError3EC1ENS_6handleEPKcS3_ENUlRKNSt15__exception_pt
 
 $_ZZN8nanobind9exceptionI8MyError3EC1ENS_6handleEPKcS3_ENKUlRKNSt15__exception_ptr13exception_ptrEPvE_clES9_SA_ = comdat any
 
-$_ZN8MyError3D0Ev = comdat any
-
 $_ZNK8MyError34whatEv = comdat any
 
 $_ZN8nanobind6detail11type_casterINS_8callableEiE11from_pythonENS_6handleEhPNS0_12cleanup_listE = comdat any
 
 $_ZNK8nanobind6detail3apiINS_6handleEEclILNS_9rv_policyE1EJRiEEENS_6objectEDpOT0_ = comdat any
+
+$_ZN8MyError2D0Ev = comdat any
+
+$_ZN8MyError1D0Ev = comdat any
 
 $_ZTI8MyError1 = comdat any
 
@@ -166,7 +164,7 @@ $_ZTV8MyError3 = comdat any
 @_ZTI8MyError3 = linkonce_odr hidden constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS8MyError3, ptr @_ZTISt9exception }, comdat, align 8
 @_ZTS8MyError3 = linkonce_odr hidden constant [10 x i8] c"8MyError3\00", comdat, align 1
 @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_exception_extRNS_7module_EE4$_18vJETpTnmJEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_E5descr" = internal constant %"struct.nanobind::detail::descr" { [11 x i8] c"() -> None\00" }, align 1
-@_ZTV8MyError3 = linkonce_odr hidden unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTI8MyError3, ptr @_ZNSt9exceptionD2Ev, ptr @_ZN8MyError3D0Ev, ptr @_ZNK8MyError34whatEv] }, comdat, align 8
+@_ZTV8MyError3 = linkonce_odr hidden unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTI8MyError3, ptr @_ZNSt9exceptionD2Ev, ptr @0, ptr @_ZNK8MyError34whatEv] }, comdat, align 8
 @"_ZZN8nanobind6detail11func_createILb0ELb1EZL32nanobind_init_test_exception_extRNS_7module_EE4$_19vJNS_8callableEEJLm0EEJNS_5scopeENS_4nameEEEEP7_objectOT1_PFT2_DpT3_ESt16integer_sequenceImJXspT4_EEEDpRKT5_E5descr" = internal constant %"struct.nanobind::detail::descr.99" { [37 x i8] c"({collections.abc.Callable}) -> None\00" }, align 1
 @_ZTIN8nanobind12python_errorE = external constant ptr
 @PyExc_RuntimeError = external local_unnamed_addr global ptr, align 8
@@ -1206,7 +1204,7 @@ define internal fastcc void @"_ZZL32nanobind_init_test_exception_extRN8nanobind7
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind optsize uwtable
-define linkonce_odr hidden void @_ZN8MyError1D0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #12 comdat align 2 {
+define private void @0(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #12 align 2 {
   tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #17
   tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 8) #20
   ret void
@@ -1318,13 +1316,6 @@ define internal fastcc void @"_ZZL32nanobind_init_test_exception_extRN8nanobind7
   unreachable
 }
 
-; Function Attrs: inlinehint mustprogress nounwind optsize uwtable
-define linkonce_odr hidden void @_ZN8MyError2D0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #12 comdat align 2 {
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #17
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 8) #20
-  ret void
-}
-
 ; Function Attrs: mustprogress nounwind optsize uwtable
 define linkonce_odr hidden noundef ptr @_ZNK8MyError24whatEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
   ret ptr @.str.37
@@ -1425,13 +1416,6 @@ define internal fastcc void @"_ZZL32nanobind_init_test_exception_extRN8nanobind7
 
 ; Function Attrs: nounwind optsize
 declare void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8)) unnamed_addr #3
-
-; Function Attrs: inlinehint mustprogress nounwind optsize uwtable
-define linkonce_odr hidden void @_ZN8MyError3D0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #12 comdat align 2 {
-  tail call void @_ZNSt9exceptionD2Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) #17
-  tail call void @_ZdlPvm(ptr noundef nonnull %0, i64 noundef 8) #20
-  ret void
-}
 
 ; Function Attrs: mustprogress nounwind optsize uwtable
 define linkonce_odr hidden noundef ptr @_ZNK8MyError34whatEv(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #7 comdat align 2 {
@@ -1614,6 +1598,18 @@ declare noundef ptr @_ZN8nanobind6detail14obj_vectorcallEP7_objectPKS2_mS2_b(ptr
 
 ; Function Attrs: optsize
 declare ptr @PyLong_FromLong(i64 noundef) local_unnamed_addr #1
+
+; Function Attrs: inlinehint mustprogress nounwind optsize uwtable
+define linkonce_odr hidden void @_ZN8MyError2D0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #12 comdat align 2 {
+  tail call void @0(ptr noundef nonnull align 8 dereferenceable(8) %0) #12
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind optsize uwtable
+define linkonce_odr hidden void @_ZN8MyError1D0Ev(ptr noundef nonnull align 8 dereferenceable(8) %0) unnamed_addr #12 comdat align 2 {
+  tail call void @0(ptr noundef nonnull align 8 dereferenceable(8) %0) #12
+  ret void
+}
 
 attributes #0 = { mustprogress optsize uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { optsize "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -377,61 +377,6 @@ define range(i32 -1, 256) i32 @gzgetc(ptr noundef %0) local_unnamed_addr #0 {
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 256) i32 @gzgetc_(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = alloca [1 x i8], align 1
-  call void @llvm.lifetime.start.p0(i64 1, ptr nonnull %2) #12
-  %3 = icmp eq ptr %0, null
-  br i1 %3, label %gzgetc.exit, label %4
-
-4:                                                ; preds = %1
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %6 = load i32, ptr %5, align 8, !tbaa !3
-  %.not.i = icmp eq i32 %6, 7247
-  br i1 %.not.i, label %7, label %gzgetc.exit
-
-7:                                                ; preds = %4
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 116
-  %9 = load i32, ptr %8, align 4, !tbaa !14
-  switch i32 %9, label %gzgetc.exit [
-    i32 0, label %10
-    i32 -5, label %10
-  ]
-
-10:                                               ; preds = %7, %7
-  %11 = load i32, ptr %0, align 8, !tbaa !17
-  %.not15.i = icmp eq i32 %11, 0
-  br i1 %.not15.i, label %22, label %12
-
-12:                                               ; preds = %10
-  %13 = add i32 %11, -1
-  store i32 %13, ptr %0, align 8, !tbaa !17
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %15 = load i64, ptr %14, align 8, !tbaa !19
-  %16 = add nsw i64 %15, 1
-  store i64 %16, ptr %14, align 8, !tbaa !19
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %18 = load ptr, ptr %17, align 8, !tbaa !18
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 1
-  store ptr %19, ptr %17, align 8, !tbaa !18
-  %20 = load i8, ptr %18, align 1, !tbaa !33
-  %21 = zext i8 %20 to i32
-  br label %gzgetc.exit
-
-22:                                               ; preds = %10
-  %23 = call fastcc i64 @gz_read(ptr noundef %0, ptr noundef nonnull %2, i64 noundef 1)
-  %24 = icmp eq i64 %23, 0
-  %25 = load i8, ptr %2, align 1
-  %26 = zext i8 %25 to i32
-  %27 = select i1 %24, i32 -1, i32 %26
-  br label %gzgetc.exit
-
-gzgetc.exit:                                      ; preds = %1, %4, %7, %12, %22
-  %.0.i = phi i32 [ %21, %12 ], [ %27, %22 ], [ -1, %1 ], [ -1, %7 ], [ -1, %4 ]
-  call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %2) #12
-  ret i32 %.0.i
-}
-
-; Function Attrs: nounwind uwtable
 define range(i32 -1, -2147483648) i32 @gzungetc(i32 noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = icmp eq ptr %1, null
   br i1 %3, label %.thread, label %4
@@ -1346,6 +1291,12 @@ declare i64 @llvm.smin.i64(i64, i64) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #10
+
+; Function Attrs: nounwind uwtable
+define range(i32 -1, 256) i32 @gzgetc_(ptr noundef %0) local_unnamed_addr #0 {
+  %2 = tail call range(i32 -1, 256) i32 @gzgetc(ptr noundef %0) #0
+  ret i32 %2
+}
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

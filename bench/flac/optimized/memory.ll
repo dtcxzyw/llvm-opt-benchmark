@@ -46,37 +46,6 @@ define hidden range(i32 0, 2) i32 @FLAC__memory_alloc_aligned_int32_array(i64 no
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
-define hidden range(i32 0, 2) i32 @FLAC__memory_alloc_aligned_uint32_array(i64 noundef %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #1 {
-  %4 = icmp ugt i64 %0, 4611686018427387903
-  br i1 %4, label %13, label %5
-
-5:                                                ; preds = %3
-  %6 = shl nuw i64 %0, 2
-  %spec.select.i.i = tail call i64 @llvm.umax.i64(i64 %6, i64 1)
-  %7 = tail call noalias noundef ptr @malloc(i64 noundef %spec.select.i.i) #6
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %13, label %9
-
-9:                                                ; preds = %5
-  %10 = load ptr, ptr %1, align 8, !tbaa !7
-  %.not = icmp eq ptr %10, null
-  br i1 %.not, label %12, label %11
-
-11:                                               ; preds = %9
-  tail call void @free(ptr noundef nonnull %10) #7
-  br label %12
-
-12:                                               ; preds = %11, %9
-  store ptr %7, ptr %1, align 8, !tbaa !7
-  store ptr %7, ptr %2, align 8, !tbaa !7
-  br label %13
-
-13:                                               ; preds = %5, %3, %12
-  %.0 = phi i32 [ 1, %12 ], [ 0, %3 ], [ 0, %5 ]
-  ret i32 %.0
-}
-
-; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
 define hidden range(i32 0, 2) i32 @FLAC__memory_alloc_aligned_int64_array(i64 noundef %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #1 {
   %4 = icmp ugt i64 %0, 2305843009213693951
   br i1 %4, label %13, label %5
@@ -100,68 +69,6 @@ define hidden range(i32 0, 2) i32 @FLAC__memory_alloc_aligned_int64_array(i64 no
 12:                                               ; preds = %11, %9
   store ptr %7, ptr %1, align 8, !tbaa !9
   store ptr %7, ptr %2, align 8, !tbaa !9
-  br label %13
-
-13:                                               ; preds = %5, %3, %12
-  %.0 = phi i32 [ 1, %12 ], [ 0, %3 ], [ 0, %5 ]
-  ret i32 %.0
-}
-
-; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
-define hidden range(i32 0, 2) i32 @FLAC__memory_alloc_aligned_uint64_array(i64 noundef %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #1 {
-  %4 = icmp ugt i64 %0, 2305843009213693951
-  br i1 %4, label %13, label %5
-
-5:                                                ; preds = %3
-  %6 = shl nuw i64 %0, 3
-  %spec.select.i.i = tail call i64 @llvm.umax.i64(i64 %6, i64 1)
-  %7 = tail call noalias noundef ptr @malloc(i64 noundef %spec.select.i.i) #6
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %13, label %9
-
-9:                                                ; preds = %5
-  %10 = load ptr, ptr %1, align 8, !tbaa !9
-  %.not = icmp eq ptr %10, null
-  br i1 %.not, label %12, label %11
-
-11:                                               ; preds = %9
-  tail call void @free(ptr noundef nonnull %10) #7
-  br label %12
-
-12:                                               ; preds = %11, %9
-  store ptr %7, ptr %1, align 8, !tbaa !9
-  store ptr %7, ptr %2, align 8, !tbaa !9
-  br label %13
-
-13:                                               ; preds = %5, %3, %12
-  %.0 = phi i32 [ 1, %12 ], [ 0, %3 ], [ 0, %5 ]
-  ret i32 %.0
-}
-
-; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
-define hidden range(i32 0, 2) i32 @FLAC__memory_alloc_aligned_real_array(i64 noundef %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #1 {
-  %4 = icmp ugt i64 %0, 4611686018427387903
-  br i1 %4, label %13, label %5
-
-5:                                                ; preds = %3
-  %6 = shl nuw i64 %0, 2
-  %spec.select.i.i = tail call i64 @llvm.umax.i64(i64 %6, i64 1)
-  %7 = tail call noalias noundef ptr @malloc(i64 noundef %spec.select.i.i) #6
-  %8 = icmp eq ptr %7, null
-  br i1 %8, label %13, label %9
-
-9:                                                ; preds = %5
-  %10 = load ptr, ptr %1, align 8, !tbaa !11
-  %.not = icmp eq ptr %10, null
-  br i1 %.not, label %12, label %11
-
-11:                                               ; preds = %9
-  tail call void @free(ptr noundef nonnull %10) #7
-  br label %12
-
-12:                                               ; preds = %11, %9
-  store ptr %7, ptr %1, align 8, !tbaa !11
-  store ptr %7, ptr %2, align 8, !tbaa !11
   br label %13
 
 13:                                               ; preds = %5, %3, %12
@@ -204,6 +111,24 @@ declare { i64, i1 } @llvm.umul.with.overflow.i64(i64, i64) #5
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #5
 
+; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
+define hidden range(i32 0, 2) i32 @FLAC__memory_alloc_aligned_uint32_array(i64 noundef %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #1 {
+  %4 = tail call range(i32 0, 2) i32 @FLAC__memory_alloc_aligned_int32_array(i64 noundef %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) %2) #1
+  ret i32 %4
+}
+
+; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
+define hidden range(i32 0, 2) i32 @FLAC__memory_alloc_aligned_uint64_array(i64 noundef %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #1 {
+  %4 = tail call range(i32 0, 2) i32 @FLAC__memory_alloc_aligned_int64_array(i64 noundef %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) %2) #1
+  ret i32 %4
+}
+
+; Function Attrs: mustprogress nounwind sspstrong willreturn uwtable
+define hidden range(i32 0, 2) i32 @FLAC__memory_alloc_aligned_real_array(i64 noundef %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) %2) local_unnamed_addr #1 {
+  %4 = tail call range(i32 0, 2) i32 @FLAC__memory_alloc_aligned_int32_array(i64 noundef %0, ptr noundef captures(none) %1, ptr noundef writeonly captures(none) %2) #1
+  ret i32 %4
+}
+
 attributes #0 = { mustprogress nofree nounwind sspstrong willreturn memory(argmem: write, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind sspstrong willreturn uwtable "min-legal-vector-width"="0" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-signed-zeros-fp-math"="true" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -226,5 +151,3 @@ attributes #7 = { nounwind }
 !8 = !{!"p1 int", !4, i64 0}
 !9 = !{!10, !10, i64 0}
 !10 = !{!"p1 long", !4, i64 0}
-!11 = !{!12, !12, i64 0}
-!12 = !{!"p1 float", !4, i64 0}

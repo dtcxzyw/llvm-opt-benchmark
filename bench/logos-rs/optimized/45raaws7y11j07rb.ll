@@ -11,16 +11,14 @@ define hidden zeroext i1 @"_ZN13logos_codegen6parser10subpattern11Subpatterns3ad
   ret i1 %5
 }
 
-; Function Attrs: inlinehint nonlazybind uwtable
-define hidden zeroext i1 @"_ZN13logos_codegen6parser10subpattern11Subpatterns3fix28_$u7b$$u7b$closure$u7d$$u7d$17hb475f5d2cd93e479E"(ptr readonly align 8 captures(none) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #0 {
-  %3 = load ptr, ptr %1, align 8
-  %4 = load ptr, ptr %0, align 8
-  %5 = tail call zeroext i1 @"_ZN59_$LT$proc_macro2..Ident$u20$as$u20$core..cmp..PartialEq$GT$2eq17h312afd45c65be815E"(ptr align 8 %3, ptr align 8 %4)
-  ret i1 %5
-}
-
 ; Function Attrs: nonlazybind uwtable
 declare zeroext i1 @"_ZN59_$LT$proc_macro2..Ident$u20$as$u20$core..cmp..PartialEq$GT$2eq17h312afd45c65be815E"(ptr align 8, ptr align 8) unnamed_addr #1
+
+; Function Attrs: inlinehint nonlazybind uwtable
+define hidden zeroext i1 @"_ZN13logos_codegen6parser10subpattern11Subpatterns3fix28_$u7b$$u7b$closure$u7d$$u7d$17hb475f5d2cd93e479E"(ptr readonly align 8 captures(none) %0, ptr readonly align 8 captures(none) %1) unnamed_addr #0 {
+  %3 = tail call zeroext i1 @"_ZN13logos_codegen6parser10subpattern11Subpatterns3add28_$u7b$$u7b$closure$u7d$$u7d$17hae62c37d2e5fd192E"(ptr readonly align 8 captures(none) %0, ptr readonly align 8 captures(none) %1) #0
+  ret i1 %3
+}
 
 attributes #0 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

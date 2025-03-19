@@ -55,107 +55,6 @@ define dso_local void @bf_context_init(ptr noundef writeonly captures(none) init
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #1
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @bf_context_end(ptr noundef captures(none) %0) local_unnamed_addr #2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
-  %3 = load ptr, ptr %2, align 8, !tbaa !20
-  %.not.i.i = icmp eq ptr %3, null
-  br i1 %.not.i.i, label %fft_clear_cache.exit.i, label %.preheader29.i.i
-
-.preheader29.i.i:                                 ; preds = %1
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8368
-  br label %.preheader28.i.i
-
-.preheader28.i.i:                                 ; preds = %13, %.preheader29.i.i
-  %indvars.iv37.i.i = phi i64 [ 0, %.preheader29.i.i ], [ %indvars.iv.next38.i.i, %13 ]
-  br label %.preheader.i.i
-
-.preheader.i.i:                                   ; preds = %12, %.preheader28.i.i
-  %5 = phi i1 [ true, %.preheader28.i.i ], [ false, %12 ]
-  %indvars.iv34.i.i = phi i64 [ 0, %.preheader28.i.i ], [ 1, %12 ]
-  br label %6
-
-6:                                                ; preds = %11, %.preheader.i.i
-  %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i, %11 ]
-  %7 = getelementptr inbounds nuw [5 x [2 x [20 x ptr]]], ptr %4, i64 0, i64 %indvars.iv37.i.i, i64 %indvars.iv34.i.i, i64 %indvars.iv.i.i
-  %8 = load ptr, ptr %7, align 8, !tbaa !21
-  %.not27.i.i = icmp eq ptr %8, null
-  br i1 %.not27.i.i, label %11, label %ntt_free.exit.i.i
-
-ntt_free.exit.i.i:                                ; preds = %6
-  %.val.i.i = load ptr, ptr %3, align 8, !tbaa !22
-  %.val.i.i.i.i = load ptr, ptr %.val.i.i, align 8, !tbaa !19
-  %9 = getelementptr i8, ptr %.val.i.i, i64 8
-  %.val3.i.i.i.i = load ptr, ptr %9, align 8, !tbaa !7
-  %10 = tail call ptr %.val3.i.i.i.i(ptr noundef %.val.i.i.i.i, ptr noundef nonnull %8, i64 noundef 0) #21
-  store ptr null, ptr %7, align 8, !tbaa !21
-  br label %11
-
-11:                                               ; preds = %ntt_free.exit.i.i, %6
-  %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
-  %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 20
-  br i1 %exitcond.not.i.i, label %12, label %6, !llvm.loop !24
-
-12:                                               ; preds = %11
-  br i1 %5, label %.preheader.i.i, label %13, !llvm.loop !26
-
-13:                                               ; preds = %12
-  %indvars.iv.next38.i.i = add nuw nsw i64 %indvars.iv37.i.i, 1
-  %exitcond40.not.i.i = icmp eq i64 %indvars.iv.next38.i.i, 5
-  br i1 %exitcond40.not.i.i, label %bf_free.exit.i.i, label %.preheader28.i.i, !llvm.loop !27
-
-bf_free.exit.i.i:                                 ; preds = %13
-  %.val.i.i.i = load ptr, ptr %0, align 8, !tbaa !19
-  %14 = getelementptr i8, ptr %0, i64 8
-  %.val3.i.i.i = load ptr, ptr %14, align 8, !tbaa !7
-  %15 = tail call ptr %.val3.i.i.i(ptr noundef %.val.i.i.i, ptr noundef nonnull %3, i64 noundef 0) #21
-  store ptr null, ptr %2, align 8, !tbaa !20
-  br label %fft_clear_cache.exit.i
-
-fft_clear_cache.exit.i:                           ; preds = %bf_free.exit.i.i, %1
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %17 = load ptr, ptr %16, align 8, !tbaa !28
-  %.not.i.i.i = icmp eq ptr %17, null
-  br i1 %.not.i.i.i, label %bf_const_free.exit.i, label %18
-
-18:                                               ; preds = %fft_clear_cache.exit.i
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %20 = load ptr, ptr %19, align 8, !tbaa !29
-  %.not6.i.i.i = icmp eq ptr %20, null
-  br i1 %.not6.i.i.i, label %bf_const_free.exit.i, label %21
-
-21:                                               ; preds = %18
-  %.val.i.i3.i = load ptr, ptr %17, align 8, !tbaa !19
-  %22 = getelementptr i8, ptr %17, i64 8
-  %.val7.i.i.i = load ptr, ptr %22, align 8, !tbaa !7
-  %23 = tail call ptr %.val7.i.i.i(ptr noundef %.val.i.i3.i, ptr noundef nonnull %20, i64 noundef 0) #21
-  br label %bf_const_free.exit.i
-
-bf_const_free.exit.i:                             ; preds = %21, %18, %fft_clear_cache.exit.i
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %16, i8 0, i64 48, i1 false)
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %25 = load ptr, ptr %24, align 8, !tbaa !28
-  %.not.i.i4.i = icmp eq ptr %25, null
-  br i1 %.not.i.i4.i, label %bf_clear_cache.exit, label %26
-
-26:                                               ; preds = %bf_const_free.exit.i
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %28 = load ptr, ptr %27, align 8, !tbaa !29
-  %.not6.i.i5.i = icmp eq ptr %28, null
-  br i1 %.not6.i.i5.i, label %bf_clear_cache.exit, label %29
-
-29:                                               ; preds = %26
-  %.val.i.i6.i = load ptr, ptr %25, align 8, !tbaa !19
-  %30 = getelementptr i8, ptr %25, i64 8
-  %.val7.i.i7.i = load ptr, ptr %30, align 8, !tbaa !7
-  %31 = tail call ptr %.val7.i.i7.i(ptr noundef %.val.i.i6.i, ptr noundef nonnull %28, i64 noundef 0) #21
-  br label %bf_clear_cache.exit
-
-bf_clear_cache.exit:                              ; preds = %bf_const_free.exit.i, %26, %29
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %24, i8 0, i64 48, i1 false)
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
 define dso_local void @bf_clear_cache(ptr noundef captures(none) %0) local_unnamed_addr #2 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %3 = load ptr, ptr %2, align 8, !tbaa !20
@@ -29154,6 +29053,12 @@ declare i32 @llvm.umax.i32(i32, i32) #20
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umax.i8(i8, i8) #20
+
+; Function Attrs: nounwind uwtable
+define dso_local void @bf_context_end(ptr noundef captures(none) %0) local_unnamed_addr #2 {
+  tail call void @bf_clear_cache(ptr noundef captures(none) %0) #2
+  ret void
+}
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: write) }

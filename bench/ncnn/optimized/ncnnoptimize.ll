@@ -36,8 +36,6 @@ target triple = "x86_64-pc-linux-gnu"
 %class.DataReaderFromEmpty = type { %"class.ncnn::DataReader" }
 %"class.ncnn::DataReader" = type { ptr }
 
-$_ZN11ModelWriterD0Ev = comdat any
-
 $_ZN11CustomLayerD2Ev = comdat any
 
 $_ZN11CustomLayerD0Ev = comdat any
@@ -76,8 +74,6 @@ $_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_Ident
 
 $_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEES5_St9_IdentityIS5_ESt4lessIS5_ESaIS5_EE8_M_eraseEPSt13_Rb_tree_nodeIS5_E = comdat any
 
-$_ZN11NetOptimizeD0Ev = comdat any
-
 $_ZNSt6vectorIiSaIiEEaSERKS1_ = comdat any
 
 $_ZN19DataReaderFromEmptyD0Ev = comdat any
@@ -85,6 +81,10 @@ $_ZN19DataReaderFromEmptyD0Ev = comdat any
 $_ZNK19DataReaderFromEmpty4scanEPKcPv = comdat any
 
 $_ZNK19DataReaderFromEmpty4readEPvm = comdat any
+
+$_ZN11NetOptimizeD0Ev = comdat any
+
+$_ZN11ModelWriterD0Ev = comdat any
 
 $_ZTV11CustomLayer = comdat any
 
@@ -340,7 +340,7 @@ $_ZTS19DataReaderFromEmpty = comdat any
 declare void @_ZN4ncnn3NetD2Ev(ptr noundef nonnull align 8 dereferenceable(80)) unnamed_addr #0
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN11ModelWriterD0Ev(ptr noundef nonnull align 8 dereferenceable(116) %0) unnamed_addr #1 comdat align 2 {
+define private void @0(ptr noundef nonnull align 8 dereferenceable(116) %0) unnamed_addr #1 align 2 {
   tail call void @_ZN4ncnn3NetD2Ev(ptr noundef nonnull align 8 dereferenceable(116) %0) #25
   tail call void @_ZdlPv(ptr noundef nonnull %0) #26
   ret void
@@ -14669,13 +14669,6 @@ define dso_local void @_ZN11NetOptimizeC2Ev(ptr noundef nonnull align 8 derefere
   ret void
 }
 
-; Function Attrs: inlinehint mustprogress nounwind uwtable
-define linkonce_odr dso_local void @_ZN11NetOptimizeD0Ev(ptr noundef nonnull align 8 dereferenceable(116) %0) unnamed_addr #1 comdat align 2 {
-  tail call void @_ZN4ncnn3NetD2Ev(ptr noundef nonnull align 8 dereferenceable(116) %0) #25
-  tail call void @_ZdlPv(ptr noundef nonnull %0) #26
-  ret void
-}
-
 ; Function Attrs: mustprogress uwtable
 define dso_local noundef i32 @_ZN11NetOptimize20fuse_batchnorm_scaleEv(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(116) %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 88
@@ -28726,6 +28719,18 @@ declare i64 @llvm.smin.i64(i64, i64) #24
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #24
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN11NetOptimizeD0Ev(ptr noundef nonnull align 8 dereferenceable(116) %0) unnamed_addr #1 comdat align 2 {
+  tail call void @0(ptr noundef nonnull align 8 dereferenceable(116) %0) #1
+  ret void
+}
+
+; Function Attrs: inlinehint mustprogress nounwind uwtable
+define linkonce_odr dso_local void @_ZN11ModelWriterD0Ev(ptr noundef nonnull align 8 dereferenceable(116) %0) unnamed_addr #1 comdat align 2 {
+  tail call void @0(ptr noundef nonnull align 8 dereferenceable(116) %0) #1
+  ret void
+}
 
 attributes #0 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

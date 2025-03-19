@@ -319,36 +319,9 @@ _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i:
 declare i32 @__gxx_personality_v0(...)
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef range(i32 0, 2) i32 @_ZN9DepthSpec43dtFunctionUserBuildInvocation_minimal_depthEi(i32 noundef %0) local_unnamed_addr #3 align 2 {
-  %2 = icmp eq i32 %0, 5
-  %3 = zext i1 %2 to i32
-  ret i32 %3
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef range(i32 0, 2) i32 @_ZN9DepthSpec37dtExpressionRandomParam_minimal_depthEi(i32 noundef %0) local_unnamed_addr #3 align 2 {
-  %2 = icmp eq i32 %0, 5
-  %3 = zext i1 %2 to i32
-  ret i32 %3
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef range(i32 -2147483647, -2147483648) i32 @_ZN9DepthSpec41dtFunctionInvocationStdFunc_minimal_depthEi(i32 noundef %0) local_unnamed_addr #3 align 2 personality ptr @__gxx_personality_v0 {
 _ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i:
   ret i32 5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define dso_local noundef range(i32 1, 3) i32 @_ZN9DepthSpec30dtSelectVariable_minimal_depthEi(i32 noundef %0) local_unnamed_addr #3 align 2 {
-  %2 = icmp eq i32 %0, 4
-  %spec.select = select i1 %2, i32 2, i32 1
-  ret i32 %spec.select
-}
-
-; Function Attrs: mustprogress uwtable
-define dso_local noundef i32 @_ZN9DepthSpec33dtExpressionFuncall_minimal_depthEi(i32 noundef %0) local_unnamed_addr #4 align 2 {
-  %2 = tail call noundef i32 @_ZN9DepthSpec40dtFunctionInvocationRandom_minimal_depthEi(i32 poison)
-  ret i32 %2
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
@@ -2298,6 +2271,30 @@ declare void @llvm.assume(i1 noundef) #10
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #11
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
+define dso_local noundef range(i32 0, 2) i32 @_ZN9DepthSpec43dtFunctionUserBuildInvocation_minimal_depthEi(i32 noundef %0) local_unnamed_addr #3 align 2 {
+  %2 = tail call noundef range(i32 0, 2) i32 @_ZN9DepthSpec26dtExpression_minimal_depthEi(i32 noundef %0) #3
+  ret i32 %2
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
+define dso_local noundef range(i32 0, 2) i32 @_ZN9DepthSpec37dtExpressionRandomParam_minimal_depthEi(i32 noundef %0) local_unnamed_addr #3 align 2 {
+  %2 = tail call noundef range(i32 0, 2) i32 @_ZN9DepthSpec26dtExpression_minimal_depthEi(i32 noundef %0) #3
+  ret i32 %2
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
+define dso_local noundef range(i32 1, 3) i32 @_ZN9DepthSpec30dtSelectVariable_minimal_depthEi(i32 noundef %0) local_unnamed_addr #3 align 2 {
+  %2 = tail call noundef range(i32 1, 3) i32 @_ZN9DepthSpec28dtSelectLValue_minimal_depthEi(i32 noundef %0) #3
+  ret i32 %2
+}
+
+; Function Attrs: mustprogress uwtable
+define dso_local noundef i32 @_ZN9DepthSpec33dtExpressionFuncall_minimal_depthEi(i32 noundef %0) local_unnamed_addr #4 align 2 {
+  %2 = tail call noundef i32 @_ZN9DepthSpec29dtStatementExpr_minimal_depthEi(i32 noundef %0) #4
+  ret i32 %2
+}
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -184,15 +184,6 @@ chstat_recursive.exit:                            ; preds = %70, %72
 }
 
 ; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @lchmod(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
-  %3 = alloca %struct.stat, align 8
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 %1, ptr %4, align 8
-  %5 = call fastcc i32 @chstat(ptr noundef %0, ptr noundef %3, i32 noundef 1)
-  ret i32 %5
-}
-
-; Function Attrs: nounwind uwtable
 define range(i32 -1, 1) i32 @chown(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
   %4 = alloca %struct.stat, align 8
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -201,43 +192,6 @@ define range(i32 -1, 1) i32 @chown(ptr noundef %0, i32 noundef %1, i32 noundef %
   store i32 %2, ptr %6, align 4
   %7 = call fastcc i32 @chstat(ptr noundef %0, ptr noundef %4, i32 noundef 6)
   ret i32 %7
-}
-
-; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @lchown(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
-  %4 = alloca %struct.stat, align 8
-  %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i32 %1, ptr %5, align 8
-  %6 = getelementptr inbounds nuw i8, ptr %4, i64 20
-  store i32 %2, ptr %6, align 4
-  %7 = call fastcc i32 @chstat(ptr noundef %0, ptr noundef %4, i32 noundef 6)
-  ret i32 %7
-}
-
-; Function Attrs: nounwind uwtable
-define range(i32 -1, 1) i32 @utimens(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
-  %3 = alloca %struct.stat, align 8
-  %.not = icmp eq ptr %1, null
-  br i1 %.not, label %8, label %4
-
-4:                                                ; preds = %2
-  %5 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, ptr noundef nonnull align 8 dereferenceable(16) %1, i64 16, i1 false)
-  %6 = getelementptr inbounds nuw i8, ptr %3, i64 48
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, ptr noundef nonnull align 8 dereferenceable(16) %7, i64 16, i1 false)
-  br label %11
-
-8:                                                ; preds = %2
-  %9 = getelementptr inbounds nuw i8, ptr %3, i64 40
-  store i64 1073741823, ptr %9, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %3, i64 56
-  store i64 1073741823, ptr %10, align 8
-  br label %11
-
-11:                                               ; preds = %8, %4
-  %12 = call fastcc i32 @chstat(ptr noundef %0, ptr noundef %3, i32 noundef 24)
-  ret i32 %12
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -293,6 +247,24 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #6
+
+; Function Attrs: nounwind uwtable
+define range(i32 -1, 1) i32 @utimens(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) local_unnamed_addr #0 {
+  %3 = tail call range(i32 -1, 1) i32 @lutimens(ptr noundef %0, ptr noundef readonly captures(address_is_null) %1) #0
+  ret i32 %3
+}
+
+; Function Attrs: nounwind uwtable
+define range(i32 -1, 1) i32 @lchmod(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0 {
+  %3 = tail call range(i32 -1, 1) i32 @chmod(ptr noundef %0, i32 noundef %1) #0
+  ret i32 %3
+}
+
+; Function Attrs: nounwind uwtable
+define range(i32 -1, 1) i32 @lchown(ptr noundef %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #0 {
+  %4 = tail call range(i32 -1, 1) i32 @chown(ptr noundef %0, i32 noundef %1, i32 noundef %2) #0
+  ret i32 %4
+}
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+rdrnd,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }

@@ -5,7 +5,7 @@ target triple = "x86_64-unknown-linux-gnu"
 
 @anon.c1bf2e375591bb6a447bdf89942637bc.0.llvm.11173233603740741911 = hidden unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr28drop_in_place$LT$$RF$f64$GT$17h1181194b2ef18e7fE.llvm.11173233603740741911", [16 x i8] c"\08\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h4ea6fc7d1a14fc1fE" }>, align 8
 @anon.c1bf2e375591bb6a447bdf89942637bc.4.llvm.11173233603740741911 = hidden unnamed_addr constant <{ [43 x i8] }> <{ [43 x i8] c"called `Result::unwrap()` on an `Err` value" }>, align 1
-@anon.c1bf2e375591bb6a447bdf89942637bc.5.llvm.11173233603740741911 = hidden unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr46drop_in_place$LT$statrs..error..StatsError$GT$17h08999a59ca1e07d8E.llvm.11173233603740741911", [16 x i8] c"(\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN62_$LT$statrs..error..StatsError$u20$as$u20$core..fmt..Debug$GT$3fmt17h4ec7f26ba46483b7E.llvm.11173233603740741911" }>, align 8
+@anon.c1bf2e375591bb6a447bdf89942637bc.5.llvm.11173233603740741911 = hidden unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr28drop_in_place$LT$$RF$f64$GT$17h1181194b2ef18e7fE.llvm.11173233603740741911", [16 x i8] c"(\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN62_$LT$statrs..error..StatsError$u20$as$u20$core..fmt..Debug$GT$3fmt17h4ec7f26ba46483b7E.llvm.11173233603740741911" }>, align 8
 @anon.c1bf2e375591bb6a447bdf89942637bc.6 = private unnamed_addr constant <{ [88 x i8] }> <{ [88 x i8] c"\D3\EC1\22\9C\10\FA>\BB$e\BF\A1\D2\F0?(k\E1\F7\AB\A7\0B\C0C_\E0]\92\0C\12@\89\94c\A4\E1\DC\07\C0\998}\A9\00\E7\F0?L\1B\C7^\CF\03\C9\BFQ%\00\E5\E3\81\91?\E3K(\FC\A9\BDB\BF\EB\E4\ED\C5\B6o\D3>\F3\D3\EC5;]'\BE" }>, align 8
 @anon.c1bf2e375591bb6a447bdf89942637bc.7.llvm.11173233603740741911 = hidden unnamed_addr constant <{ [21 x i8] }> <{ [21 x i8] c"src/function/gamma.rs" }>, align 1
 @anon.c1bf2e375591bb6a447bdf89942637bc.8 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.c1bf2e375591bb6a447bdf89942637bc.7.llvm.11173233603740741911, [16 x i8] c"\15\00\00\00\00\00\00\00a\00\00\00\1C\00\00\00" }>, align 8
@@ -16,17 +16,17 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.c1bf2e375591bb6a447bdf89942637bc.14.llvm.11173233603740741911 = hidden unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.c1bf2e375591bb6a447bdf89942637bc.7.llvm.11173233603740741911, [16 x i8] c"\15\00\00\00\00\00\00\00\F5\00\00\00\1C\00\00\00" }>, align 8
 @anon.c1bf2e375591bb6a447bdf89942637bc.15 = private unnamed_addr constant <{ [16 x i8] }> <{ [16 x i8] c"InfinitePeriodic" }>, align 1
 @anon.c1bf2e375591bb6a447bdf89942637bc.16 = private unnamed_addr constant <{ [9 x i8] }> <{ [9 x i8] c"amplitude" }>, align 1
-@anon.c1bf2e375591bb6a447bdf89942637bc.17 = private unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr24drop_in_place$LT$f64$GT$17hcbc8811f42d594d5E", [16 x i8] c"\08\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN4core3fmt5float50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$f64$GT$3fmt17hfc20ca8ee8067926E" }>, align 8
+@anon.c1bf2e375591bb6a447bdf89942637bc.17 = private unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr28drop_in_place$LT$$RF$f64$GT$17h1181194b2ef18e7fE.llvm.11173233603740741911", [16 x i8] c"\08\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN4core3fmt5float50_$LT$impl$u20$core..fmt..Debug$u20$for$u20$f64$GT$3fmt17hfc20ca8ee8067926E" }>, align 8
 @anon.c1bf2e375591bb6a447bdf89942637bc.18 = private unnamed_addr constant <{ [4 x i8] }> <{ [4 x i8] c"step" }>, align 1
 @anon.c1bf2e375591bb6a447bdf89942637bc.19 = private unnamed_addr constant <{ [5 x i8] }> <{ [5 x i8] c"phase" }>, align 1
 @anon.c1bf2e375591bb6a447bdf89942637bc.20 = private unnamed_addr constant <{ [1 x i8] }> <{ [1 x i8] c"k" }>, align 1
 @anon.c1bf2e375591bb6a447bdf89942637bc.21 = private unnamed_addr constant <{ [18 x i8] }> <{ [18 x i8] c"InfiniteSinusoidal" }>, align 1
 @anon.c1bf2e375591bb6a447bdf89942637bc.22 = private unnamed_addr constant <{ [4 x i8] }> <{ [4 x i8] c"mean" }>, align 1
 @anon.c1bf2e375591bb6a447bdf89942637bc.23 = private unnamed_addr constant <{ [1 x i8] }> <{ [1 x i8] c"i" }>, align 1
-@anon.c1bf2e375591bb6a447bdf89942637bc.24 = private unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr30drop_in_place$LT$$RF$usize$GT$17hae588bce8d27a78aE", [16 x i8] c"\08\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17heb166c6b0c489ccbE" }>, align 8
+@anon.c1bf2e375591bb6a447bdf89942637bc.24 = private unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr28drop_in_place$LT$$RF$f64$GT$17h1181194b2ef18e7fE.llvm.11173233603740741911", [16 x i8] c"\08\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17heb166c6b0c489ccbE" }>, align 8
 @anon.c1bf2e375591bb6a447bdf89942637bc.25 = private unnamed_addr constant <{ [14 x i8] }> <{ [14 x i8] c"InfiniteSquare" }>, align 1
 @anon.c1bf2e375591bb6a447bdf89942637bc.26 = private unnamed_addr constant <{ [8 x i8] }> <{ [8 x i8] c"periodic" }>, align 1
-@anon.c1bf2e375591bb6a447bdf89942637bc.27 = private unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr55drop_in_place$LT$statrs..generate..InfinitePeriodic$GT$17h8be242223159eec1E", [16 x i8] c" \00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN71_$LT$statrs..generate..InfinitePeriodic$u20$as$u20$core..fmt..Debug$GT$3fmt17h607d601c8a0fe532E" }>, align 8
+@anon.c1bf2e375591bb6a447bdf89942637bc.27 = private unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr28drop_in_place$LT$$RF$f64$GT$17h1181194b2ef18e7fE.llvm.11173233603740741911", [16 x i8] c" \00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN71_$LT$statrs..generate..InfinitePeriodic$u20$as$u20$core..fmt..Debug$GT$3fmt17h607d601c8a0fe532E" }>, align 8
 @anon.c1bf2e375591bb6a447bdf89942637bc.28 = private unnamed_addr constant <{ [13 x i8] }> <{ [13 x i8] c"high_duration" }>, align 1
 @anon.c1bf2e375591bb6a447bdf89942637bc.29 = private unnamed_addr constant <{ [10 x i8] }> <{ [10 x i8] c"high_value" }>, align 1
 @anon.c1bf2e375591bb6a447bdf89942637bc.30 = private unnamed_addr constant <{ [9 x i8] }> <{ [9 x i8] c"low_value" }>, align 1
@@ -38,11 +38,11 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.c1bf2e375591bb6a447bdf89942637bc.36 = private unnamed_addr constant <{ [16 x i8] }> <{ [16 x i8] c"InfiniteSawtooth" }>, align 1
 @anon.c1bf2e375591bb6a447bdf89942637bc.37 = private unnamed_addr constant <{ [9 x i8] }> <{ [9 x i8] c"BadParams" }>, align 1
 @anon.c1bf2e375591bb6a447bdf89942637bc.38 = private unnamed_addr constant <{ [9 x i8] }> <{ [9 x i8] c"ArgFinite" }>, align 1
-@anon.c1bf2e375591bb6a447bdf89942637bc.39 = private unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr32drop_in_place$LT$$RF$$RF$str$GT$17h011f8cfdd3dd0892E", [16 x i8] c"\08\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hdc2e4198f63ab3e6E" }>, align 8
+@anon.c1bf2e375591bb6a447bdf89942637bc.39 = private unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr28drop_in_place$LT$$RF$f64$GT$17h1181194b2ef18e7fE.llvm.11173233603740741911", [16 x i8] c"\08\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hdc2e4198f63ab3e6E" }>, align 8
 @anon.c1bf2e375591bb6a447bdf89942637bc.40 = private unnamed_addr constant <{ [17 x i8] }> <{ [17 x i8] c"ArgMustBePositive" }>, align 1
 @anon.c1bf2e375591bb6a447bdf89942637bc.41 = private unnamed_addr constant <{ [14 x i8] }> <{ [14 x i8] c"ArgNotNegative" }>, align 1
 @anon.c1bf2e375591bb6a447bdf89942637bc.42 = private unnamed_addr constant <{ [15 x i8] }> <{ [15 x i8] c"ArgIntervalIncl" }>, align 1
-@anon.c1bf2e375591bb6a447bdf89942637bc.43 = private unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr28drop_in_place$LT$$RF$str$GT$17h0c088fc96b38d2b9E", [16 x i8] c"\10\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h4278686975ddb657E" }>, align 8
+@anon.c1bf2e375591bb6a447bdf89942637bc.43 = private unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr28drop_in_place$LT$$RF$f64$GT$17h1181194b2ef18e7fE.llvm.11173233603740741911", [16 x i8] c"\10\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h4278686975ddb657E" }>, align 8
 @anon.c1bf2e375591bb6a447bdf89942637bc.44 = private unnamed_addr constant <{ [15 x i8] }> <{ [15 x i8] c"ArgIntervalExcl" }>, align 1
 @anon.c1bf2e375591bb6a447bdf89942637bc.45 = private unnamed_addr constant <{ [18 x i8] }> <{ [18 x i8] c"ArgIntervalExclMin" }>, align 1
 @anon.c1bf2e375591bb6a447bdf89942637bc.46 = private unnamed_addr constant <{ [18 x i8] }> <{ [18 x i8] c"ArgIntervalExclMax" }>, align 1
@@ -192,37 +192,12 @@ define hidden noundef nonnull align 8 dereferenceable(16) ptr @_ZN4core3fmt8buil
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr24drop_in_place$LT$f64$GT$17hcbc8811f42d594d5E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #2 {
-  ret void
-}
-
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden void @"_ZN4core3ptr28drop_in_place$LT$$RF$f64$GT$17h1181194b2ef18e7fE.llvm.11173233603740741911"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #2 {
   ret void
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr28drop_in_place$LT$$RF$str$GT$17h0c088fc96b38d2b9E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #2 {
-  ret void
-}
-
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr30drop_in_place$LT$$RF$usize$GT$17hae588bce8d27a78aE"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #2 {
-  ret void
-}
-
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr32drop_in_place$LT$$RF$$RF$str$GT$17h011f8cfdd3dd0892E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #2 {
-  ret void
-}
-
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define hidden void @"_ZN4core3ptr46drop_in_place$LT$statrs..error..StatsError$GT$17h08999a59ca1e07d8E.llvm.11173233603740741911"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #2 {
-  ret void
-}
-
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr55drop_in_place$LT$statrs..generate..InfinitePeriodic$GT$17h8be242223159eec1E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #2 {
   ret void
 }
 

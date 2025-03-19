@@ -67,11 +67,11 @@ $_ZN12EmitCInlines5visitEP7AstCNew = comdat any
 
 $_ZN12EmitCInlines5visitEP10AstDumpCtl = comdat any
 
-$_ZN12EmitCInlines5visitEP15AstNodeDistBiop = comdat any
+$_ZNK9V3Options7savableEv = comdat any
 
 $_ZN12EmitCInlines5visitEP16AstNodeDistTriop = comdat any
 
-$_ZNK9V3Options7savableEv = comdat any
+$_ZN12EmitCInlines5visitEP15AstNodeDistBiop = comdat any
 
 $_ZTV12EmitCInlines = comdat any
 
@@ -1069,14 +1069,7 @@ declare void @_ZN14VNVisitorConst5visitEP20AstNodeCoverOrAssert(ptr noundef nonn
 declare void @_ZN14VNVisitorConst5visitEP12AstNodeDType(ptr noundef nonnull align 8 dereferenceable(8), ptr noundef) unnamed_addr #0
 
 ; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN12EmitCInlines5visitEP15AstNodeDistBiop(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 {
-  store i8 1, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 42), align 2, !tbaa !83
-  tail call void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
-  ret void
-}
-
-; Function Attrs: mustprogress uwtable
-define linkonce_odr dso_local void @_ZN12EmitCInlines5visitEP16AstNodeDistTriop(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 {
+define private void @0(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #3 align 2 {
   store i8 1, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 42), align 2, !tbaa !83
   tail call void @_ZN7AstNode20iterateChildrenConstER14VNVisitorConst(ptr noundef nonnull align 8 dereferenceable(152) %1, ptr noundef nonnull align 8 dereferenceable(8) %0)
   ret void
@@ -1493,6 +1486,18 @@ declare i32 @llvm.umax.i32(i32, i32) #15
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #16
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN12EmitCInlines5visitEP16AstNodeDistTriop(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 {
+  tail call void @0(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) #3
+  ret void
+}
+
+; Function Attrs: mustprogress uwtable
+define linkonce_odr dso_local void @_ZN12EmitCInlines5visitEP15AstNodeDistBiop(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) unnamed_addr #3 comdat align 2 {
+  tail call void @0(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1) #3
+  ret void
+}
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

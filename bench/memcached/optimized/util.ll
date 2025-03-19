@@ -518,7 +518,7 @@ declare void @llvm.va_end.p0(ptr) #12
 declare void @perror(ptr noundef readonly captures(none)) local_unnamed_addr #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define dso_local i64 @ntohll(i64 noundef %0) local_unnamed_addr #13 {
+define dso_local i64 @htonll(i64 noundef %0) local_unnamed_addr #13 {
   br label %2
 
 2:                                                ; preds = %2, %1
@@ -538,23 +538,9 @@ mc_swap64.exit:                                   ; preds = %2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(none) uwtable
-define dso_local i64 @htonll(i64 noundef %0) local_unnamed_addr #13 {
-  br label %2
-
-2:                                                ; preds = %2, %1
-  %.010.i = phi i32 [ 0, %1 ], [ %7, %2 ]
-  %.069.i = phi i64 [ 0, %1 ], [ %5, %2 ]
-  %.078.i = phi i64 [ %0, %1 ], [ %6, %2 ]
-  %3 = shl i64 %.069.i, 8
-  %4 = and i64 %.078.i, 255
-  %5 = or disjoint i64 %4, %3
-  %6 = lshr i64 %.078.i, 8
-  %7 = add nuw nsw i32 %.010.i, 1
-  %exitcond.not.i = icmp eq i32 %7, 8
-  br i1 %exitcond.not.i, label %mc_swap64.exit, label %2, !llvm.loop !25
-
-mc_swap64.exit:                                   ; preds = %2
-  ret i64 %5
+define dso_local i64 @ntohll(i64 noundef %0) local_unnamed_addr #13 {
+  %2 = tail call i64 @htonll(i64 noundef %0) #13
+  ret i64 %2
 }
 
 attributes #0 = { nofree nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

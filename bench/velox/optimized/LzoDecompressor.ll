@@ -20,10 +20,6 @@ target triple = "x86_64-unknown-linux-gnu"
 
 $_ZN5folly11toAppendFitIJlPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEENSt9enable_ifIXsr12IsSomeStringINSt14remove_pointerINS_6detail11LastElementIJDpRKT_EE4typeEE4typeEEE5valueEvE4typeESF_ = comdat any
 
-$_ZN8facebook5velox4dwio6common10ParseErrorD2Ev = comdat any
-
-$_ZN8facebook5velox4dwio6common10ParseErrorD0Ev = comdat any
-
 $_ZSt3hexRSt8ios_base = comdat any
 
 $_ZStplIcSt11char_traitsIcESaIcEENSt7__cxx1112basic_stringIT_T0_T1_EEPKS5_RKS8_ = comdat any
@@ -47,7 +43,7 @@ $_ZTVN8facebook5velox4dwio6common10ParseErrorE = comdat any
 @_ZTVN8facebook5velox6common11compression12_GLOBAL__N_123MalformedInputExceptionE = internal unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN8facebook5velox6common11compression12_GLOBAL__N_123MalformedInputExceptionE, ptr @_ZN8facebook5velox6common11compression12_GLOBAL__N_123MalformedInputExceptionD2Ev, ptr @_ZN8facebook5velox6common11compression12_GLOBAL__N_123MalformedInputExceptionD0Ev, ptr @_ZNKSt13runtime_error4whatEv] }, align 8
 @_ZN5folly6detail15to_ascii_powersILm10EmE4dataE = external local_unnamed_addr global %"struct.folly::c_array", align 8
 @_ZN5folly6detail14to_ascii_tableILm10ENS_17to_ascii_alphabetILb0EEEE4dataE = external local_unnamed_addr global %"struct.folly::c_array.1", align 2
-@_ZTVN8facebook5velox4dwio6common10ParseErrorE = linkonce_odr unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN8facebook5velox4dwio6common10ParseErrorE, ptr @_ZN8facebook5velox4dwio6common10ParseErrorD2Ev, ptr @_ZN8facebook5velox4dwio6common10ParseErrorD0Ev, ptr @_ZNKSt13runtime_error4whatEv] }, comdat, align 8
+@_ZTVN8facebook5velox4dwio6common10ParseErrorE = linkonce_odr unnamed_addr constant { [5 x ptr] } { [5 x ptr] [ptr null, ptr @_ZTIN8facebook5velox4dwio6common10ParseErrorE, ptr @_ZN8facebook5velox6common11compression12_GLOBAL__N_123MalformedInputExceptionD2Ev, ptr @_ZN8facebook5velox6common11compression12_GLOBAL__N_123MalformedInputExceptionD0Ev, ptr @_ZNKSt13runtime_error4whatEv] }, comdat, align 8
 @.str.2 = private unnamed_addr constant [3 x i8] c"0x\00", align 1
 @.str.3 = private unnamed_addr constant [25 x i8] c"MalformedInputException \00", align 1
 @.str.4 = private unnamed_addr constant [5 x i8] c" at \00", align 1
@@ -1077,21 +1073,6 @@ declare void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc(
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #5
 
 declare void @_ZNSt13runtime_errorC2ERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(16), ptr noundef nonnull align 8 dereferenceable(32)) unnamed_addr #5
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN8facebook5velox4dwio6common10ParseErrorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #10
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define linkonce_odr void @_ZN8facebook5velox4dwio6common10ParseErrorD0Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) unnamed_addr #1 comdat align 2 {
-entry:
-  tail call void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %this) #10
-  tail call void @_ZdlPv(ptr noundef nonnull %this) #12
-  ret void
-}
 
 ; Function Attrs: nounwind
 declare void @_ZNSt13runtime_errorD2Ev(ptr noundef nonnull align 8 dereferenceable(16)) unnamed_addr #3

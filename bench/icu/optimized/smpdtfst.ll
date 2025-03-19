@@ -413,25 +413,14 @@ declare void @_ZN6icu_7721umtx_initImplPostInitERNS_9UInitOnceE(ptr noundef nonn
 
 declare void @ucln_i18n_registerCleanup_77(i32 noundef, ptr noundef) local_unnamed_addr #3
 
-; Function Attrs: mustprogress uwtable
-define internal noundef signext i8 @_ZN6icu_77L16smpdtfmt_cleanupEv() #0 personality ptr @__gxx_personality_v0 {
-  %1 = load ptr, ptr @_ZN6icu_7711gStaticSetsE, align 8, !tbaa !17
-  %2 = icmp eq ptr %1, null
-  br i1 %2, label %_ZN6icu_7726SimpleDateFormatStaticSets7cleanupEv.exit, label %3
-
-3:                                                ; preds = %0
-  tail call void @_ZN6icu_7726SimpleDateFormatStaticSetsD1Ev(ptr noundef nonnull align 8 dereferenceable(24) %1) #6
-  tail call void @_ZN6icu_777UMemorydlEPv(ptr noundef nonnull %1) #6
-  br label %_ZN6icu_7726SimpleDateFormatStaticSets7cleanupEv.exit
-
-_ZN6icu_7726SimpleDateFormatStaticSets7cleanupEv.exit: ; preds = %0, %3
-  store ptr null, ptr @_ZN6icu_7711gStaticSetsE, align 8, !tbaa !17
-  store atomic i32 0, ptr @_ZN6icu_7735gSimpleDateFormatStaticSetsInitOnceE seq_cst, align 4
-  ret i8 1
-}
-
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #5
+
+; Function Attrs: mustprogress uwtable
+define internal noundef signext i8 @_ZN6icu_77L16smpdtfmt_cleanupEv() #0 personality ptr @__gxx_personality_v0 {
+  %1 = tail call noundef signext i8 @_ZN6icu_7726SimpleDateFormatStaticSets7cleanupEv() #0
+  ret i8 %1
+}
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

@@ -5576,40 +5576,6 @@ define i64 @HUFv06_decompress(ptr noundef %0, i64 noundef %1, ptr noundef %2, i6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define range(i32 0, 2) i32 @ZSTDv06_isError(i64 noundef %0) local_unnamed_addr #0 {
-  %2 = icmp ugt i64 %0, -120
-  %3 = zext i1 %2 to i32
-  ret i32 %3
-}
-
-; Function Attrs: nounwind uwtable
-define ptr @ZSTDv06_getErrorName(i64 noundef %0) local_unnamed_addr #1 {
-  %2 = icmp ult i64 %0, -119
-  %3 = trunc nsw i64 %0 to i32
-  %4 = sub i32 0, %3
-  %.0.i.i = select i1 %2, i32 0, i32 %4
-  %5 = tail call ptr @ERR_getErrorString(i32 noundef %.0.i.i) #28
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
-define range(i32 0, 2) i32 @ZBUFFv06_isError(i64 noundef %0) local_unnamed_addr #0 {
-  %2 = icmp ugt i64 %0, -120
-  %3 = zext i1 %2 to i32
-  ret i32 %3
-}
-
-; Function Attrs: nounwind uwtable
-define ptr @ZBUFFv06_getErrorName(i64 noundef %0) local_unnamed_addr #1 {
-  %2 = icmp ult i64 %0, -119
-  %3 = trunc nsw i64 %0 to i32
-  %4 = sub i32 0, %3
-  %.0.i.i = select i1 %2, i32 0, i32 %4
-  %5 = tail call ptr @ERR_getErrorString(i32 noundef %.0.i.i) #28
-  ret ptr %5
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef i64 @ZSTDv06_sizeofDCtx() local_unnamed_addr #0 {
   ret i64 152712
 }
@@ -8920,6 +8886,30 @@ declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #26
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
+define range(i32 0, 2) i32 @ZSTDv06_isError(i64 noundef %0) local_unnamed_addr #0 {
+  %2 = tail call range(i32 0, 2) i32 @FSEv06_isError(i64 noundef %0) #0
+  ret i32 %2
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
+define range(i32 0, 2) i32 @ZBUFFv06_isError(i64 noundef %0) local_unnamed_addr #0 {
+  %2 = tail call range(i32 0, 2) i32 @FSEv06_isError(i64 noundef %0) #0
+  ret i32 %2
+}
+
+; Function Attrs: nounwind uwtable
+define ptr @ZSTDv06_getErrorName(i64 noundef %0) local_unnamed_addr #1 {
+  %2 = tail call ptr @FSEv06_getErrorName(i64 noundef %0) #1
+  ret ptr %2
+}
+
+; Function Attrs: nounwind uwtable
+define ptr @ZBUFFv06_getErrorName(i64 noundef %0) local_unnamed_addr #1 {
+  %2 = tail call ptr @FSEv06_getErrorName(i64 noundef %0) #1
+  ret ptr %2
+}
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

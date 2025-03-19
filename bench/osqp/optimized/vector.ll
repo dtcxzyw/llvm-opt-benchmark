@@ -189,38 +189,6 @@ OSQPVectori_from_raw.exit:                        ; preds = %.lr.ph.i, %2, %9, %
   ret ptr %.0
 }
 
-; Function Attrs: mustprogress nounwind willreturn memory(readwrite, argmem: none) uwtable
-define noalias noundef ptr @OSQPVectori_malloc(i64 noundef %0) local_unnamed_addr #2 {
-  %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #19
-  %.not = icmp eq ptr %2, null
-  br i1 %.not, label %10, label %3
-
-3:                                                ; preds = %1
-  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 %0, ptr %4, align 8, !tbaa !16
-  %.not11 = icmp eq i64 %0, 0
-  br i1 %.not11, label %9, label %5
-
-5:                                                ; preds = %3
-  %6 = shl i64 %0, 3
-  %7 = tail call noalias ptr @malloc(i64 noundef %6) #19
-  store ptr %7, ptr %2, align 8, !tbaa !19
-  %.not12 = icmp eq ptr %7, null
-  br i1 %.not12, label %8, label %10
-
-8:                                                ; preds = %5
-  tail call void @free(ptr noundef nonnull %2) #20
-  br label %10
-
-9:                                                ; preds = %3
-  store ptr null, ptr %2, align 8, !tbaa !19
-  br label %10
-
-10:                                               ; preds = %9, %8, %5, %1
-  %.0 = phi ptr [ %2, %5 ], [ null, %8 ], [ %2, %9 ], [ null, %1 ]
-  ret ptr %.0
-}
-
 ; Function Attrs: nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
 define void @OSQPVectori_from_raw(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -282,37 +250,6 @@ define noalias noundef ptr @OSQPVectorf_calloc(i64 noundef %0) local_unnamed_add
 
 ; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,zeroed") allocsize(0,1) memory(inaccessiblemem: readwrite)
 declare noalias noundef ptr @calloc(i64 noundef, i64 noundef) local_unnamed_addr #6
-
-; Function Attrs: mustprogress nounwind willreturn memory(readwrite, argmem: none) uwtable
-define noalias noundef ptr @OSQPVectori_calloc(i64 noundef %0) local_unnamed_addr #2 {
-  %2 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #19
-  %.not = icmp eq ptr %2, null
-  br i1 %.not, label %9, label %3
-
-3:                                                ; preds = %1
-  %4 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i64 %0, ptr %4, align 8, !tbaa !16
-  %.not11 = icmp eq i64 %0, 0
-  br i1 %.not11, label %8, label %5
-
-5:                                                ; preds = %3
-  %6 = tail call noalias ptr @calloc(i64 noundef %0, i64 noundef 8) #21
-  store ptr %6, ptr %2, align 8, !tbaa !19
-  %.not12 = icmp eq ptr %6, null
-  br i1 %.not12, label %7, label %9
-
-7:                                                ; preds = %5
-  tail call void @free(ptr noundef nonnull %2) #20
-  br label %9
-
-8:                                                ; preds = %3
-  store ptr null, ptr %2, align 8, !tbaa !19
-  br label %9
-
-9:                                                ; preds = %8, %7, %5, %1
-  %.0 = phi ptr [ %2, %5 ], [ null, %7 ], [ %2, %8 ], [ null, %1 ]
-  ret ptr %.0
-}
 
 ; Function Attrs: nounwind memory(readwrite, argmem: read) uwtable
 define noalias noundef ptr @OSQPVectorf_copy_new(ptr noundef readonly captures(none) %0) local_unnamed_addr #1 {
@@ -393,21 +330,6 @@ define void @OSQPVectorf_free(ptr noundef captures(address_is_null) %0) local_un
 
 2:                                                ; preds = %1
   %3 = load ptr, ptr %0, align 8, !tbaa !10
-  tail call void @free(ptr noundef %3) #20
-  br label %4
-
-4:                                                ; preds = %2, %1
-  tail call void @free(ptr noundef %0) #20
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind willreturn uwtable
-define void @OSQPVectori_free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #8 {
-  %.not = icmp eq ptr %0, null
-  br i1 %.not, label %4, label %2
-
-2:                                                ; preds = %1
-  %3 = load ptr, ptr %0, align 8, !tbaa !19
   tail call void @free(ptr noundef %3) #20
   br label %4
 
@@ -693,13 +615,6 @@ declare double @sqrt(double noundef) local_unnamed_addr #15
 define i64 @OSQPVectorf_length(ptr noundef readonly captures(none) %0) local_unnamed_addr #16 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %3 = load i64, ptr %2, align 8, !tbaa !3
-  ret i64 %3
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
-define i64 @OSQPVectori_length(ptr noundef readonly captures(none) %0) local_unnamed_addr #16 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load i64, ptr %2, align 8, !tbaa !16
   ret i64 %3
 }
 
@@ -1686,6 +1601,30 @@ define void @OSQPVectorf_set_scalar_if_gt(ptr noundef readonly captures(none) %0
 
 ._crit_edge:                                      ; preds = %.lr.ph, %4
   ret void
+}
+
+; Function Attrs: mustprogress nounwind willreturn uwtable
+define void @OSQPVectori_free(ptr noundef captures(address_is_null) %0) local_unnamed_addr #8 {
+  tail call void @OSQPVectorf_free(ptr noundef captures(address_is_null) %0) #8
+  ret void
+}
+
+; Function Attrs: mustprogress nounwind willreturn memory(readwrite, argmem: none) uwtable
+define noalias noundef ptr @OSQPVectori_calloc(i64 noundef %0) local_unnamed_addr #2 {
+  %2 = tail call noalias noundef ptr @OSQPVectorf_calloc(i64 noundef %0) #2
+  ret ptr %2
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable
+define i64 @OSQPVectori_length(ptr noundef readonly captures(none) %0) local_unnamed_addr #16 {
+  %2 = tail call i64 @OSQPVectorf_length(ptr noundef readonly captures(none) %0) #16
+  ret i64 %2
+}
+
+; Function Attrs: mustprogress nounwind willreturn memory(readwrite, argmem: none) uwtable
+define noalias noundef ptr @OSQPVectori_malloc(i64 noundef %0) local_unnamed_addr #2 {
+  %2 = tail call noalias noundef ptr @OSQPVectorf_malloc(i64 noundef %0) #2
+  ret ptr %2
 }
 
 attributes #0 = { nofree norecurse nosync nounwind memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

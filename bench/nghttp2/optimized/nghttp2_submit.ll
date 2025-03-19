@@ -1049,26 +1049,6 @@ nghttp2_pack_settings_payload2.exit:              ; preds = %4, %6, %9
   ret i64 %.0.i
 }
 
-; Function Attrs: nounwind uwtable
-define i64 @nghttp2_pack_settings_payload2(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
-  %5 = tail call i32 @nghttp2_iv_check(ptr noundef %2, i64 noundef %3) #8
-  %.not = icmp eq i32 %5, 0
-  br i1 %.not, label %11, label %6
-
-6:                                                ; preds = %4
-  %7 = mul i64 %3, 6
-  %8 = icmp ult i64 %1, %7
-  br i1 %8, label %11, label %9
-
-9:                                                ; preds = %6
-  %10 = tail call i64 @nghttp2_frame_pack_settings_payload(ptr noundef %0, ptr noundef %2, i64 noundef %3) #8
-  br label %11
-
-11:                                               ; preds = %6, %4, %9
-  %.0 = phi i64 [ %10, %9 ], [ -501, %4 ], [ -525, %6 ]
-  ret i64 %.0
-}
-
 declare i32 @nghttp2_iv_check(ptr noundef, i64 noundef) local_unnamed_addr #1
 
 declare i64 @nghttp2_frame_pack_settings_payload(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #1
@@ -1125,6 +1105,12 @@ declare void @nghttp2_nv_array_del(ptr noundef, ptr noundef) local_unnamed_addr 
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #7
+
+; Function Attrs: nounwind uwtable
+define i64 @nghttp2_pack_settings_payload2(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3) local_unnamed_addr #0 {
+  %5 = tail call i64 @nghttp2_pack_settings_payload(ptr noundef %0, i64 noundef %1, ptr noundef %2, i64 noundef %3) #0
+  ret i64 %5
+}
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

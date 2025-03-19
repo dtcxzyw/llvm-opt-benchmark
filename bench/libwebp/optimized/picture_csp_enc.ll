@@ -226,38 +226,6 @@ PictureARGBToYUVA.exit:                           ; preds = %1, %7, %9
 }
 
 ; Function Attrs: nounwind uwtable
-define i32 @WebPPictureSmartARGBToYUVA(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = icmp eq ptr %0, null
-  br i1 %2, label %WebPPictureSharpARGBToYUVA.exit, label %3
-
-3:                                                ; preds = %1
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %5 = load ptr, ptr %4, align 8, !tbaa !12
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %7, label %9
-
-7:                                                ; preds = %3
-  %8 = tail call i32 @WebPEncodingSetError(ptr noundef nonnull %0, i32 noundef 3) #9
-  br label %WebPPictureSharpARGBToYUVA.exit
-
-9:                                                ; preds = %3
-  %10 = getelementptr inbounds nuw i8, ptr %5, i64 3
-  %11 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  %12 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %13, align 4, !tbaa !22
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  %15 = load i32, ptr %14, align 8, !tbaa !15
-  %16 = shl nsw i32 %15, 2
-  %17 = tail call fastcc i32 @ImportYUVAFromRGBA(ptr noundef %11, ptr noundef %12, ptr noundef %5, ptr noundef nonnull %10, i32 noundef 4, i32 noundef %16, float noundef 0.000000e+00, i32 noundef 1, ptr noundef %0)
-  br label %WebPPictureSharpARGBToYUVA.exit
-
-WebPPictureSharpARGBToYUVA.exit:                  ; preds = %1, %7, %9
-  %.0.i.i = phi i32 [ %8, %7 ], [ %17, %9 ], [ 0, %1 ]
-  ret i32 %.0.i.i
-}
-
-; Function Attrs: nounwind uwtable
 define i32 @WebPPictureYUVAToARGB(ptr noundef %0) local_unnamed_addr #0 {
   %2 = icmp eq ptr %0, null
   br i1 %2, label %.loopexit, label %3
@@ -2539,6 +2507,12 @@ declare i32 @llvm.smax.i32(i32, i32) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #8
+
+; Function Attrs: nounwind uwtable
+define i32 @WebPPictureSmartARGBToYUVA(ptr noundef %0) local_unnamed_addr #0 {
+  %2 = tail call i32 @WebPPictureSharpARGBToYUVA(ptr noundef %0) #0
+  ret i32 %2
+}
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

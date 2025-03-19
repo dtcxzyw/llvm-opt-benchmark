@@ -1413,40 +1413,6 @@ define dso_local range(i32 0, 2) i32 @onigenc_mb2_is_code_ctype(ptr noundef read
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
-define dso_local range(i32 0, 2) i32 @onigenc_mb4_is_code_ctype(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
-  %4 = icmp ult i32 %1, 128
-  br i1 %4, label %5, label %12
-
-5:                                                ; preds = %3
-  %6 = zext nneg i32 %1 to i64
-  %7 = getelementptr inbounds nuw [256 x i16], ptr @OnigEncAsciiCtypeTable, i64 0, i64 %6
-  %8 = load i16, ptr %7, align 2, !tbaa !56
-  %9 = zext i16 %8 to i32
-  %10 = lshr i32 %9, %2
-  %11 = and i32 %10, 1
-  br label %19
-
-12:                                               ; preds = %3
-  switch i32 %2, label %19 [
-    i32 12, label %13
-    i32 7, label %13
-    i32 5, label %13
-  ]
-
-13:                                               ; preds = %12, %12, %12
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %15 = load ptr, ptr %14, align 8, !tbaa !57
-  %16 = tail call i32 %15(i32 noundef %1) #16
-  %17 = icmp sgt i32 %16, 1
-  %18 = zext i1 %17 to i32
-  br label %19
-
-19:                                               ; preds = %12, %13, %5
-  %.0 = phi i32 [ %11, %5 ], [ %18, %13 ], [ 0, %12 ]
-  ret i32 %.0
-}
-
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define dso_local range(i32 -1, 1) i32 @onig_codes_cmp(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2) local_unnamed_addr #15 {
   %4 = icmp sgt i32 %2, 0
@@ -1487,6 +1453,12 @@ define dso_local range(i32 0, 256) i32 @onig_codes_byte_at(ptr noundef readonly 
   %10 = lshr i32 %7, %9
   %11 = and i32 %10, 255
   ret i32 %11
+}
+
+; Function Attrs: nounwind uwtable
+define dso_local range(i32 0, 2) i32 @onigenc_mb4_is_code_ctype(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
+  %4 = tail call range(i32 0, 2) i32 @onigenc_mb2_is_code_ctype(ptr noundef readonly captures(none) %0, i32 noundef %1, i32 noundef %2) #3
+  ret i32 %4
 }
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(readwrite, argmem: none, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

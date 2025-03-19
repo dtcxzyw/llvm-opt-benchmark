@@ -64,7 +64,7 @@ $_ZZN9Verilated15defaultContextpEvE3s_s = comdat any
 
 $_ZGVZN9Verilated15defaultContextpEvE3s_s = comdat any
 
-@_ZTV10Vmycpu_top = dso_local unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTI10Vmycpu_top, ptr @_ZN10Vmycpu_topD2Ev, ptr @_ZN10Vmycpu_topD0Ev, ptr @_ZNK10Vmycpu_top8hierNameEv, ptr @_ZNK10Vmycpu_top9modelNameEv, ptr @_ZNK10Vmycpu_top7threadsEv, ptr @_ZNK14VerilatedModel11traceConfigEv] }, align 8
+@_ZTV10Vmycpu_top = dso_local unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr @_ZTI10Vmycpu_top, ptr @_ZN10Vmycpu_topD2Ev, ptr @_ZN10Vmycpu_topD0Ev, ptr @_ZNK10Vmycpu_top4nameEv, ptr @_ZNK10Vmycpu_top9modelNameEv, ptr @_ZNK10Vmycpu_top7threadsEv, ptr @_ZNK14VerilatedModel11traceConfigEv] }, align 8
 @.str = private unnamed_addr constant [15 x i8] c"Vmycpu_top.cpp\00", align 1
 @.str.1 = private unnamed_addr constant [1 x i8] zeroinitializer, align 1
 @.str.2 = private unnamed_addr constant [32 x i8] c"%Error: No delays in the design\00", align 1
@@ -487,15 +487,6 @@ define dso_local void @_ZN10Vmycpu_top5finalEv(ptr noundef nonnull readonly alig
 
 declare void @_Z33Vmycpu_top___024root___eval_finalP20Vmycpu_top___024root(ptr noundef) local_unnamed_addr #1
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
-define dso_local noundef ptr @_ZNK10Vmycpu_top8hierNameEv(ptr noundef nonnull readonly align 64 captures(none) dereferenceable(416) %0) unnamed_addr #8 align 2 {
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %3 = load ptr, ptr %2, align 16
-  %4 = getelementptr inbounds nuw i8, ptr %3, i64 192
-  %5 = load ptr, ptr %4, align 8
-  ret ptr %5
-}
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local noundef nonnull ptr @_ZNK10Vmycpu_top9modelNameEv(ptr nonnull readnone align 64 captures(none) %0) unnamed_addr #7 align 2 {
   ret ptr @.str.3
@@ -631,6 +622,12 @@ declare extern_weak void @_ZTHN9Verilated3t_sE() #1
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare nonnull ptr @llvm.threadlocal.address.p0(ptr nonnull) #11
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
+define dso_local noundef ptr @_ZNK10Vmycpu_top8hierNameEv(ptr noundef nonnull readonly align 64 captures(none) dereferenceable(416) %0) unnamed_addr #8 align 2 {
+  %2 = tail call noundef ptr @_ZNK10Vmycpu_top4nameEv(ptr noundef nonnull readonly align 64 captures(none) dereferenceable(416) %0) #8
+  ret ptr %2
+}
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

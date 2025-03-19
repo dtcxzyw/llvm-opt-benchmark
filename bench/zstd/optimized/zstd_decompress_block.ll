@@ -7490,46 +7490,6 @@ define void @ZSTD_checkContinuity(ptr noundef captures(none) %0, ptr noundef %1,
 }
 
 ; Function Attrs: nounwind uwtable
-define i64 @ZSTD_decompressBlock_deprecated(ptr noundef initializes((30176, 30180)) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #2 {
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 30176
-  store i32 0, ptr %6, align 8, !tbaa !13
-  %7 = getelementptr inbounds nuw i8, ptr %0, i64 29888
-  %8 = load ptr, ptr %7, align 8, !tbaa !134
-  %9 = icmp ne ptr %1, %8
-  %10 = icmp ne i64 %2, 0
-  %or.cond.i = and i1 %10, %9
-  br i1 %or.cond.i, label %11, label %ZSTD_checkContinuity.exit
-
-11:                                               ; preds = %5
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 29912
-  store ptr %8, ptr %12, align 8, !tbaa !67
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 29896
-  %14 = load ptr, ptr %13, align 8, !tbaa !66
-  %15 = ptrtoint ptr %8 to i64
-  %16 = ptrtoint ptr %14 to i64
-  %.neg.i = sub i64 %16, %15
-  %17 = getelementptr inbounds i8, ptr %1, i64 %.neg.i
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 29904
-  store ptr %17, ptr %18, align 8, !tbaa !62
-  store ptr %1, ptr %13, align 8, !tbaa !66
-  store ptr %1, ptr %7, align 8, !tbaa !134
-  br label %ZSTD_checkContinuity.exit
-
-ZSTD_checkContinuity.exit:                        ; preds = %5, %11
-  %19 = tail call i64 @ZSTD_decompressBlock_internal(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4, i32 noundef 0)
-  %20 = icmp ult i64 %19, -119
-  br i1 %20, label %21, label %23
-
-21:                                               ; preds = %ZSTD_checkContinuity.exit
-  %22 = getelementptr inbounds nuw i8, ptr %1, i64 %19
-  store ptr %22, ptr %7, align 8, !tbaa !134
-  br label %23
-
-23:                                               ; preds = %ZSTD_checkContinuity.exit, %21
-  ret i64 %19
-}
-
-; Function Attrs: nounwind uwtable
 define i64 @ZSTD_decompressBlock(ptr noundef initializes((30176, 30180)) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #2 {
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 30176
   store i32 0, ptr %6, align 8, !tbaa !13
@@ -13826,6 +13786,12 @@ declare i32 @llvm.smin.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #17
+
+; Function Attrs: nounwind uwtable
+define i64 @ZSTD_decompressBlock_deprecated(ptr noundef initializes((30176, 30180)) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) local_unnamed_addr #2 {
+  %6 = tail call i64 @ZSTD_decompressBlock(ptr noundef initializes((30176, 30180)) %0, ptr noundef %1, i64 noundef %2, ptr noundef %3, i64 noundef %4) #2
+  ret i64 %6
+}
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

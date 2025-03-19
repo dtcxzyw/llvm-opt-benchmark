@@ -1208,53 +1208,6 @@ default.unreachable1:                             ; preds = %1
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden { i64, i32 } @"_ZN105_$LT$crossbeam_channel..channel..Receiver$LT$T$GT$$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$8deadline17h51dce1caafaeba85E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
-  %2 = load i64, ptr %0, align 8, !range !4, !noundef !5
-  switch i64 %2, label %default.unreachable1 [
-    i64 0, label %16
-    i64 1, label %16
-    i64 2, label %16
-    i64 3, label %3
-    i64 4, label %9
-    i64 5, label %16
-  ]
-
-default.unreachable1:                             ; preds = %1
-  unreachable
-
-3:                                                ; preds = %1
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %5 = load ptr, ptr %4, align 8, !nonnull !5, !noundef !5
-  %6 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  %7 = load atomic i8, ptr %6 monotonic, align 1
-  %8 = icmp eq i8 %7, 0
-  br i1 %8, label %19, label %16
-
-9:                                                ; preds = %1
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %11 = load ptr, ptr %10, align 8, !nonnull !5, !noundef !5
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %13 = tail call { i64, i32 } @_ZN15crossbeam_utils6atomic11atomic_cell11atomic_load17he7489428c4477c2fE(ptr noundef nonnull %12)
-  %14 = extractvalue { i64, i32 } %13, 0
-  %15 = extractvalue { i64, i32 } %13, 1
-  br label %16
-
-16:                                               ; preds = %3, %1, %1, %1, %1, %19, %9
-  %.sroa.3.0 = phi i32 [ %15, %9 ], [ %23, %19 ], [ 1000000000, %1 ], [ 1000000000, %1 ], [ 1000000000, %1 ], [ 1000000000, %1 ], [ 1000000000, %3 ]
-  %.sroa.0.0 = phi i64 [ %14, %9 ], [ %21, %19 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %1 ], [ undef, %3 ]
-  %17 = insertvalue { i64, i32 } poison, i64 %.sroa.0.0, 0
-  %18 = insertvalue { i64, i32 } %17, i32 %.sroa.3.0, 1
-  ret { i64, i32 } %18
-
-19:                                               ; preds = %3
-  %20 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %21 = load i64, ptr %20, align 8, !noundef !5
-  %22 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %23 = load i32, ptr %22, align 8, !range !12, !noundef !5
-  br label %16
-}
-
-; Function Attrs: nonlazybind uwtable
 define hidden noundef zeroext i1 @"_ZN105_$LT$crossbeam_channel..channel..Receiver$LT$T$GT$$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$8is_ready17h36aefc04fa0e9331E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
   %2 = alloca ptr, align 8
   %3 = load i64, ptr %0, align 8, !range !4, !noundef !5
@@ -2451,6 +2404,16 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
+
+; Function Attrs: nonlazybind uwtable
+define hidden { i64, i32 } @"_ZN105_$LT$crossbeam_channel..channel..Receiver$LT$T$GT$$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$8deadline17h51dce1caafaeba85E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #0 {
+  %2 = tail call { i64, i32 } @"_ZN105_$LT$crossbeam_channel..channel..Receiver$LT$T$GT$$u20$as$u20$crossbeam_channel..select..SelectHandle$GT$8deadline17h2d35755060b928a8E"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) #0
+  %3 = extractvalue { i64, i32 } %2, 0
+  %4 = insertvalue { i64, i32 } poison, i64 %3, 0
+  %5 = extractvalue { i64, i32 } %2, 1
+  %6 = insertvalue { i64, i32 } %4, i32 %5, 1
+  ret { i64, i32 } %6
+}
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

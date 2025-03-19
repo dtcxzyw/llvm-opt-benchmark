@@ -813,20 +813,6 @@ define dso_local range(i32 -16, 1) i32 @uv_rwlock_trywrlock(ptr noundef %0) loca
 declare i32 @pthread_rwlock_trywrlock(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
-define dso_local void @uv_rwlock_wrunlock(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i32 @pthread_rwlock_unlock(ptr noundef %0) #12
-  %.not = icmp eq i32 %2, 0
-  br i1 %.not, label %4, label %3
-
-3:                                                ; preds = %1
-  tail call void @abort() #14
-  unreachable
-
-4:                                                ; preds = %1
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
 define dso_local void @uv_once(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i32 @pthread_once(ptr noundef %0, ptr noundef %1) #12
   %.not = icmp eq i32 %3, 0
@@ -1466,6 +1452,12 @@ declare i64 @llvm.umax.i64(i64, i64) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #11
+
+; Function Attrs: nounwind uwtable
+define dso_local void @uv_rwlock_wrunlock(ptr noundef %0) local_unnamed_addr #0 {
+  tail call void @uv_rwlock_rdunlock(ptr noundef %0) #0
+  ret void
+}
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

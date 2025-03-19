@@ -352,12 +352,6 @@ _ZN4core3fmt9Formatter9write_fmt17h221a3e46c5f11a57E.llvm.1169273610523334441.ex
   ret i1 %.sroa.0.0.in
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define { i32, i32 } @"_ZN66_$LT$egg..subst..Var$u20$as$u20$core..convert..From$LT$u32$GT$$GT$4from17h1423907ed596bbdbE"(i32 noundef %0) unnamed_addr #2 {
-  %2 = insertvalue { i32, i32 } { i32 1, i32 poison }, i32 %0, 1
-  ret { i32, i32 } %2
-}
-
 ; Function Attrs: nonlazybind uwtable
 define void @_ZN3egg5subst5Subst13with_capacity17h5981487634b63fb7E(ptr dead_on_unwind noalias noundef writable writeonly sret([48 x i8]) align 8 captures(none) dereferenceable(48) %0, i64 noundef %1) unnamed_addr #4 personality ptr @rust_eh_personality {
   %3 = alloca [48 x i8], align 8
@@ -853,6 +847,16 @@ declare void @llvm.experimental.noalias.scope.decl(metadata) #11
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umax.i64(i64, i64) #12
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
+define { i32, i32 } @"_ZN66_$LT$egg..subst..Var$u20$as$u20$core..convert..From$LT$u32$GT$$GT$4from17h1423907ed596bbdbE"(i32 noundef %0) unnamed_addr #2 {
+  %2 = tail call { i32, i32 } @_ZN3egg5subst3Var8from_u3217h52bba7d42e26e754E(i32 noundef %0) #2
+  %3 = extractvalue { i32, i32 } %2, 0
+  %4 = insertvalue { i32, i32 } poison, i32 %3, 0
+  %5 = extractvalue { i32, i32 } %2, 1
+  %6 = insertvalue { i32, i32 } %4, i32 %5, 1
+  ret { i32, i32 } %6
+}
 
 attributes #0 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

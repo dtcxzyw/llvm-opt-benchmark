@@ -21,28 +21,6 @@ define hidden ptr @_sodium_escrypt_alloc_region(ptr noundef writeonly captures(n
 ; Function Attrs: nounwind
 declare ptr @mmap(ptr noundef, i64 noundef, i32 noundef, i32 noundef, i32 noundef, i64 noundef) local_unnamed_addr #1
 
-; Function Attrs: nounwind ssp uwtable
-define hidden range(i32 -1, 1) i32 @_sodium_escrypt_free_region(ptr noundef captures(none) %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8
-  %.not = icmp eq ptr %2, null
-  br i1 %.not, label %7, label %3
-
-3:                                                ; preds = %1
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %5 = load i64, ptr %4, align 8
-  %6 = tail call i32 @munmap(ptr noundef nonnull %2, i64 noundef %5) #4
-  %.not5 = icmp eq i32 %6, 0
-  br i1 %.not5, label %7, label %8
-
-7:                                                ; preds = %3, %1
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 24, i1 false)
-  br label %8
-
-8:                                                ; preds = %3, %7
-  %.0 = phi i32 [ 0, %7 ], [ -1, %3 ]
-  ret i32 %.0
-}
-
 ; Function Attrs: nounwind
 declare i32 @munmap(ptr noundef, i64 noundef) local_unnamed_addr #1
 
@@ -76,6 +54,12 @@ _sodium_escrypt_free_region.exit:                 ; preds = %3, %7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #3
+
+; Function Attrs: nounwind ssp uwtable
+define hidden range(i32 -1, 1) i32 @_sodium_escrypt_free_region(ptr noundef captures(none) %0) local_unnamed_addr #0 {
+  %2 = tail call range(i32 -1, 1) i32 @_sodium_escrypt_free_local(ptr noundef captures(none) %0) #0
+  ret i32 %2
+}
 
 attributes #0 = { nounwind ssp uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

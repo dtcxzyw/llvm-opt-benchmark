@@ -388,34 +388,6 @@ sdsHdrSize.exit:                                  ; preds = %3, %switch.lookup
 
 declare void @zfree(ptr noundef) local_unnamed_addr #2
 
-; Function Attrs: nounwind uwtable
-define dso_local void @sdsfreegeneric(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = icmp eq ptr %0, null
-  br i1 %2, label %sdsfree.exit, label %3
-
-3:                                                ; preds = %1
-  %4 = getelementptr inbounds i8, ptr %0, i64 -1
-  %5 = load i8, ptr %4, align 1, !tbaa !13
-  %6 = and i8 %5, 7
-  %7 = icmp samesign ult i8 %6, 5
-  br i1 %7, label %switch.lookup, label %sdsHdrSize.exit.i
-
-switch.lookup:                                    ; preds = %3
-  %8 = zext nneg i8 %6 to i64
-  %switch.gep = getelementptr inbounds nuw [5 x i64], ptr @switch.table.sdstemplate.7, i64 0, i64 %8
-  %switch.load = load i64, ptr %switch.gep, align 8
-  br label %sdsHdrSize.exit.i
-
-sdsHdrSize.exit.i:                                ; preds = %3, %switch.lookup
-  %.0.i.neg.i = phi i64 [ %switch.load, %switch.lookup ], [ 0, %3 ]
-  %9 = getelementptr inbounds i8, ptr %0, i64 %.0.i.neg.i
-  tail call void @zfree(ptr noundef nonnull %9) #25
-  br label %sdsfree.exit
-
-sdsfree.exit:                                     ; preds = %1, %sdsHdrSize.exit.i
-  ret void
-}
-
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: readwrite) uwtable
 define dso_local void @sdsupdatelen(ptr noundef captures(none) %0) local_unnamed_addr #7 {
   %2 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #27
@@ -6779,6 +6751,12 @@ declare i32 @llvm.ucmp.i32.i64(i64, i64) #23
 
 ; Function Attrs: nofree nounwind willreturn memory(argmem: read)
 declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #24
+
+; Function Attrs: nounwind uwtable
+define dso_local void @sdsfreegeneric(ptr noundef %0) local_unnamed_addr #0 {
+  tail call void @sdsfree(ptr noundef %0) #0
+  ret void
+}
 
 attributes #0 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }

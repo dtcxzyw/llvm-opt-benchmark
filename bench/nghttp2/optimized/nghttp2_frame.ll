@@ -213,14 +213,6 @@ define hidden void @nghttp2_frame_settings_init(ptr noundef writeonly captures(n
   ret void
 }
 
-; Function Attrs: nounwind uwtable
-define hidden void @nghttp2_frame_settings_free(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !27
-  tail call void @nghttp2_mem_free(ptr noundef %1, ptr noundef %4) #18
-  ret void
-}
-
 declare void @nghttp2_mem_free(ptr noundef, ptr noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable
@@ -244,14 +236,6 @@ define hidden void @nghttp2_frame_push_promise_init(ptr noundef writeonly captur
   store i32 %3, ptr %14, align 8, !tbaa !32
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i8 0, ptr %15, align 4, !tbaa !33
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define hidden void @nghttp2_frame_push_promise_free(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %4 = load ptr, ptr %3, align 8, !tbaa !30
-  tail call void @nghttp2_mem_free(ptr noundef %1, ptr noundef %4) #18
   ret void
 }
 
@@ -517,23 +501,6 @@ define hidden void @nghttp2_frame_priority_update_init(ptr noundef captures(none
   store ptr %2, ptr %12, align 8, !tbaa !62
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 16
   store i64 %3, ptr %13, align 8, !tbaa !63
-  ret void
-}
-
-; Function Attrs: nounwind uwtable
-define hidden void @nghttp2_frame_priority_update_free(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load ptr, ptr %3, align 8, !tbaa !46
-  %5 = icmp eq ptr %4, null
-  br i1 %5, label %9, label %6
-
-6:                                                ; preds = %2
-  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !62
-  tail call void @nghttp2_mem_free(ptr noundef %1, ptr noundef %8) #18
-  br label %9
-
-9:                                                ; preds = %2, %6
   ret void
 }
 
@@ -2384,6 +2351,24 @@ declare i64 @llvm.usub.sat.i64(i64, i64) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umax.i32(i32, i32) #17
+
+; Function Attrs: nounwind uwtable
+define hidden void @nghttp2_frame_priority_update_free(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
+  tail call void @nghttp2_frame_origin_free(ptr noundef readonly captures(none) %0, ptr noundef %1) #0
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define hidden void @nghttp2_frame_settings_free(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
+  tail call void @nghttp2_frame_goaway_free(ptr noundef readonly captures(none) %0, ptr noundef %1) #0
+  ret void
+}
+
+; Function Attrs: nounwind uwtable
+define hidden void @nghttp2_frame_push_promise_free(ptr noundef readonly captures(none) %0, ptr noundef %1) local_unnamed_addr #0 {
+  tail call void @nghttp2_frame_goaway_free(ptr noundef readonly captures(none) %0, ptr noundef %1) #0
+  ret void
+}
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

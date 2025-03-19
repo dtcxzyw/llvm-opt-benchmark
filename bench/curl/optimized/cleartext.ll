@@ -75,16 +75,15 @@ declare void @Curl_bufref_set(ptr noundef, ptr noundef, i64 noundef, ptr noundef
 declare void @curl_free(ptr noundef) #3
 
 ; Function Attrs: nounwind uwtable
-define hidden void @Curl_auth_create_login_message(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+define hidden void @Curl_auth_create_external_message(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
   %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #4
   tail call void @Curl_bufref_set(ptr noundef %1, ptr noundef nonnull %0, i64 noundef %3, ptr noundef null) #5
   ret void
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden void @Curl_auth_create_external_message(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0) #4
-  tail call void @Curl_bufref_set(ptr noundef %1, ptr noundef nonnull %0, i64 noundef %3, ptr noundef null) #5
+define hidden void @Curl_auth_create_login_message(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
+  tail call void @Curl_auth_create_external_message(ptr noundef %0, ptr noundef %1) #0
   ret void
 }
 

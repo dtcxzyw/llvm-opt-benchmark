@@ -18,7 +18,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @llvm.global_ctors = appending global [0 x { i32, ptr, ptr }] zeroinitializer
 
 @_ZN2EA6Thread6detail22ThreadIdToStringBufferC1Em = dso_local unnamed_addr alias void (ptr, i64), ptr @_ZN2EA6Thread6detail22ThreadIdToStringBufferC2Em
-@_ZN2EA6Thread6detail25SysThreadIdToStringBufferC1Em = dso_local unnamed_addr alias void (ptr, i64), ptr @_ZN2EA6Thread6detail25SysThreadIdToStringBufferC2Em
+@_ZN2EA6Thread6detail25SysThreadIdToStringBufferC1Em = dso_local unnamed_addr alias void (ptr, i64), ptr @_ZN2EA6Thread6detail22ThreadIdToStringBufferC2Em
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
 define dso_local void @_ZN2EA6Thread12SetAllocatorEPNS0_9AllocatorE(ptr noundef %pEAThreadAllocator) local_unnamed_addr #0 {
@@ -32,13 +32,6 @@ define dso_local noundef ptr @_ZN2EA6Thread12GetAllocatorEv() local_unnamed_addr
 entry:
   %0 = load ptr, ptr @_ZN2EA6Thread11gpAllocatorE, align 8
   ret ptr %0
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
-define dso_local void @_ZN2EA6Thread12SetAllocatorEPNS_9Allocator14ICoreAllocatorE(ptr noundef %pCoreAllocator) local_unnamed_addr #0 {
-entry:
-  store ptr %pCoreAllocator, ptr @_ZN2EA6Thread11gpAllocatorE, align 8
-  ret void
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -567,14 +560,6 @@ entry:
 ; Function Attrs: nofree nounwind
 declare noundef i32 @sprintf(ptr noalias noundef writeonly captures(none), ptr noundef readonly captures(none), ...) local_unnamed_addr #14
 
-; Function Attrs: mustprogress nofree nounwind uwtable
-define dso_local void @_ZN2EA6Thread6detail25SysThreadIdToStringBufferC2Em(ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(32) %this, i64 noundef %sysThreadId) unnamed_addr #13 align 2 {
-entry:
-  %conv = trunc i64 %sysThreadId to i32
-  %call = tail call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %this, ptr noundef nonnull dereferenceable(1) @.str.3, i32 noundef %conv) #19
-  ret void
-}
-
 ; Function Attrs: mustprogress uwtable
 define dso_local void @_ZN2EA6Thread17AssertionFailureVEPKcz(ptr noundef readonly captures(none) %pFormat, ...) local_unnamed_addr #2 {
 entry:
@@ -619,6 +604,18 @@ declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
+
+; Function Attrs: mustprogress nofree nounwind uwtable
+define dso_local void @_ZN2EA6Thread6detail25SysThreadIdToStringBufferC2Em(ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(32) %0, i64 noundef %1) unnamed_addr #13 align 2 {
+  tail call void @_ZN2EA6Thread6detail22ThreadIdToStringBufferC2Em(ptr noundef nonnull writeonly align 1 captures(none) dereferenceable(32) %0, i64 noundef %1) #13
+  ret void
+}
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable
+define dso_local void @_ZN2EA6Thread12SetAllocatorEPNS_9Allocator14ICoreAllocatorE(ptr noundef %0) local_unnamed_addr #0 {
+  tail call void @_ZN2EA6Thread12SetAllocatorEPNS0_9AllocatorE(ptr noundef %0) #0
+  ret void
+}
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: none, inaccessiblemem: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

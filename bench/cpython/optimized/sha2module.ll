@@ -1996,11 +1996,8 @@ define internal ptr @SHA512_get_name(ptr noundef readonly captures(none) %0, ptr
 
 ; Function Attrs: nounwind uwtable
 define internal ptr @SHA512_get_digest_size(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0 {
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %4 = load i32, ptr %3, align 8, !tbaa !50
-  %5 = sext i32 %4 to i64
-  %6 = tail call ptr @PyLong_FromLong(i64 noundef %5) #3
-  ret ptr %6
+  %3 = tail call ptr @SHA256_get_digest_size(ptr noundef readonly captures(none) %0, ptr readnone captures(none) %1) #0
+  ret ptr %3
 }
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

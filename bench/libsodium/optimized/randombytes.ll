@@ -115,23 +115,6 @@ define dso_local i32 @randombytes_uniform(i32 noundef %0) local_unnamed_addr #1 
 }
 
 ; Function Attrs: nounwind ssp uwtable
-define dso_local void @randombytes_buf(ptr noundef nonnull %0, i64 noundef %1) local_unnamed_addr #1 {
-  tail call fastcc void @randombytes_init_if_needed()
-  %.not = icmp eq i64 %1, 0
-  br i1 %.not, label %7, label %3
-
-3:                                                ; preds = %2
-  %4 = load ptr, ptr @implementation, align 8
-  %5 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %6 = load ptr, ptr %5, align 8
-  tail call void %6(ptr noundef nonnull %0, i64 noundef %1) #5
-  br label %7
-
-7:                                                ; preds = %3, %2
-  ret void
-}
-
-; Function Attrs: nounwind ssp uwtable
 define dso_local void @randombytes_buf_deterministic(ptr noundef nonnull %0, i64 noundef %1, ptr noundef nonnull %2) local_unnamed_addr #1 {
   %4 = icmp ugt i64 %1, 274877906944
   br i1 %4, label %5, label %6
@@ -190,6 +173,12 @@ define dso_local void @randombytes(ptr noundef nonnull %0, i64 noundef %1) local
   br label %randombytes_buf.exit
 
 randombytes_buf.exit:                             ; preds = %2, %3
+  ret void
+}
+
+; Function Attrs: nounwind ssp uwtable
+define dso_local void @randombytes_buf(ptr noundef nonnull %0, i64 noundef %1) local_unnamed_addr #1 {
+  tail call void @randombytes(ptr noundef nonnull %0, i64 noundef %1) #1
   ret void
 }
 

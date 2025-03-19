@@ -26513,33 +26513,6 @@ FreeAsyncCtx.exit:                                ; preds = %8, %703, %705, %702
   ret i32 %.0
 }
 
-; Function Attrs: nounwind uwtable
-define internal void @FreeSskeArgs(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #5 {
-  %3 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %4 = load ptr, ptr %3, align 8, !tbaa !449
-  %.not = icmp eq ptr %4, null
-  br i1 %.not, label %6, label %5
-
-5:                                                ; preds = %2
-  tail call void @wolfSSL_Free(ptr noundef nonnull %4) #26
-  br label %6
-
-6:                                                ; preds = %5, %2
-  store ptr null, ptr %3, align 8, !tbaa !449
-  %7 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %8 = load ptr, ptr %7, align 8, !tbaa !455
-  %.not10 = icmp eq ptr %8, null
-  br i1 %.not10, label %10, label %9
-
-9:                                                ; preds = %6
-  tail call void @wolfSSL_Free(ptr noundef nonnull %8) #26
-  br label %10
-
-10:                                               ; preds = %9, %6
-  store ptr null, ptr %7, align 8, !tbaa !455
-  ret void
-}
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable
 define internal fastcc zeroext range(i8 0, 26) i8 @SetCurveId(ptr noundef readonly captures(address_is_null) %0) unnamed_addr #23 {
   %2 = icmp eq ptr %0, null
@@ -28053,6 +28026,12 @@ declare i64 @llvm.umax.i64(i64, i64) #25
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.abs.i32(i32, i1 immarg) #25
+
+; Function Attrs: nounwind uwtable
+define internal void @FreeSskeArgs(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #5 {
+  tail call void @FreeSckeArgs(ptr readnone captures(none) %0, ptr noundef captures(none) %1) #5
+  ret void
+}
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

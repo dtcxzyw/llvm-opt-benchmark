@@ -14157,7 +14157,7 @@ define internal fastcc i32 @prs_callout_of_contents(ptr noundef nonnull writeonl
   br i1 %or.cond, label %.preheader, label %71, !llvm.loop !267
 
 71:                                               ; preds = %.preheader
-  %72 = tail call fastcc i32 @is_allowed_callout_tag_name(ptr noundef nonnull %7, ptr noundef %60, ptr noundef %.5214)
+  %72 = tail call fastcc i32 @is_allowed_callout_name(ptr noundef nonnull %7, ptr noundef %60, ptr noundef %.5214)
   %.not169 = icmp ne i32 %72, 0
   %brmerge.not = select i1 %.not169, i1 %.not, i1 false
   %.mux = select i1 %.not169, i32 -118, i32 -231
@@ -15287,45 +15287,6 @@ onig_node_free.exit37:                            ; preds = %4, %38, %onig_node_
 }
 
 ; Function Attrs: nounwind uwtable
-define internal fastcc range(i32 0, 2) i32 @is_allowed_callout_tag_name(ptr noundef readonly captures(none) %0, ptr noundef %1, ptr noundef %2) unnamed_addr #2 {
-  %.not = icmp ult ptr %1, %2
-  br i1 %.not, label %.preheader, label %.loopexit
-
-.preheader:                                       ; preds = %3
-  %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  br label %5
-
-5:                                                ; preds = %.preheader, %.thread
-  %.03138 = phi ptr [ %1, %.preheader ], [ %17, %.thread ]
-  %6 = load ptr, ptr %4, align 8, !tbaa !80
-  %7 = tail call i32 %6(ptr noundef %.03138, ptr noundef nonnull %2) #25
-  %8 = and i32 %7, -33
-  %9 = add i32 %8, -65
-  %or.cond34 = icmp ult i32 %9, 26
-  br i1 %or.cond34, label %.thread, label %10
-
-10:                                               ; preds = %5
-  %11 = add i32 %7, -48
-  %or.cond5 = icmp ult i32 %11, 10
-  %12 = icmp ne i32 %7, 95
-  %13 = icmp eq ptr %.03138, %1
-  %or.cond = select i1 %or.cond5, i1 %13, i1 %12
-  br i1 %or.cond, label %.loopexit, label %.thread
-
-.thread:                                          ; preds = %10, %5
-  %14 = load ptr, ptr %0, align 8, !tbaa !82
-  %15 = tail call i32 %14(ptr noundef %.03138) #25
-  %16 = sext i32 %15 to i64
-  %17 = getelementptr inbounds i8, ptr %.03138, i64 %16
-  %18 = icmp ult ptr %17, %2
-  br i1 %18, label %5, label %.loopexit, !llvm.loop !272
-
-.loopexit:                                        ; preds = %.thread, %10, %3
-  %.0 = phi i32 [ 0, %3 ], [ 1, %.thread ], [ 0, %10 ]
-  ret i32 %.0
-}
-
-; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -5, 1) i32 @reg_callout_list_entry(ptr %.72.val, ptr noundef nonnull writeonly captures(none) %0) unnamed_addr #2 {
   %2 = tail call ptr @onig_get_regex_ext(ptr noundef %.72.val) #25
   %3 = icmp eq ptr %2, null
@@ -15748,7 +15709,7 @@ define internal fastcc i32 @prs_callout_args(i32 noundef range(i32 0, 2) %0, ptr
   br i1 %.not144, label %83, label %.thread13
 
 83:                                               ; preds = %82
-  %84 = call fastcc i32 @is_allowed_callout_tag_name(ptr noundef nonnull %.8.val, ptr noundef %.0114, ptr noundef %.us-phi54)
+  %84 = call fastcc i32 @is_allowed_callout_name(ptr noundef nonnull %.8.val, ptr noundef %.0114, ptr noundef %.us-phi54)
   %.not145 = icmp eq i32 %84, 0
   br i1 %.not145, label %.thread13, label %85
 

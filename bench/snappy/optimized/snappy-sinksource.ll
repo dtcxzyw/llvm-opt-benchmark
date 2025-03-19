@@ -3,15 +3,15 @@ source_filename = "bench/snappy/original/snappy-sinksource.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-unknown-linux-gnu"
 
-@_ZTVN6snappy4SinkE = dso_local unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr null, ptr @_ZN6snappy4SinkD2Ev, ptr @_ZN6snappy4SinkD0Ev, ptr @__cxa_pure_virtual, ptr @_ZN6snappy4Sink15GetAppendBufferEmPc, ptr @_ZN6snappy4Sink22AppendAndTakeOwnershipEPcmPFvPvPKcmES2_, ptr @_ZN6snappy4Sink23GetAppendBufferVariableEmmPcmPm] }, align 8
-@_ZTVN6snappy6SourceE = dso_local unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr null, ptr @_ZN6snappy6SourceD2Ev, ptr @_ZN6snappy6SourceD0Ev, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual] }, align 8
+@_ZTVN6snappy4SinkE = dso_local unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr null, ptr @_ZN6snappy15ByteArraySourceD2Ev, ptr @_ZN6snappy4SinkD0Ev, ptr @__cxa_pure_virtual, ptr @_ZN6snappy4Sink15GetAppendBufferEmPc, ptr @_ZN6snappy4Sink22AppendAndTakeOwnershipEPcmPFvPvPKcmES2_, ptr @_ZN6snappy4Sink23GetAppendBufferVariableEmmPcmPm] }, align 8
+@_ZTVN6snappy6SourceE = dso_local unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr null, ptr @_ZN6snappy15ByteArraySourceD2Ev, ptr @_ZN6snappy4SinkD0Ev, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual, ptr @__cxa_pure_virtual] }, align 8
 @_ZTVN6snappy15ByteArraySourceE = dso_local unnamed_addr constant { [7 x ptr] } { [7 x ptr] [ptr null, ptr null, ptr @_ZN6snappy15ByteArraySourceD2Ev, ptr @_ZN6snappy15ByteArraySourceD0Ev, ptr @_ZNK6snappy15ByteArraySource9AvailableEv, ptr @_ZN6snappy15ByteArraySource4PeekEPm, ptr @_ZN6snappy15ByteArraySource4SkipEm] }, align 8
-@_ZTVN6snappy22UncheckedByteArraySinkE = dso_local unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr null, ptr @_ZN6snappy22UncheckedByteArraySinkD2Ev, ptr @_ZN6snappy22UncheckedByteArraySinkD0Ev, ptr @_ZN6snappy22UncheckedByteArraySink6AppendEPKcm, ptr @_ZN6snappy22UncheckedByteArraySink15GetAppendBufferEmPc, ptr @_ZN6snappy22UncheckedByteArraySink22AppendAndTakeOwnershipEPcmPFvPvPKcmES2_, ptr @_ZN6snappy22UncheckedByteArraySink23GetAppendBufferVariableEmmPcmPm] }, align 8
+@_ZTVN6snappy22UncheckedByteArraySinkE = dso_local unnamed_addr constant { [8 x ptr] } { [8 x ptr] [ptr null, ptr null, ptr @_ZN6snappy15ByteArraySourceD2Ev, ptr @_ZN6snappy22UncheckedByteArraySinkD0Ev, ptr @_ZN6snappy22UncheckedByteArraySink6AppendEPKcm, ptr @_ZN6snappy22UncheckedByteArraySink15GetAppendBufferEmPc, ptr @_ZN6snappy22UncheckedByteArraySink22AppendAndTakeOwnershipEPcmPFvPvPKcmES2_, ptr @_ZN6snappy22UncheckedByteArraySink23GetAppendBufferVariableEmmPcmPm] }, align 8
 
-@_ZN6snappy6SourceD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN6snappy6SourceD2Ev
-@_ZN6snappy4SinkD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN6snappy4SinkD2Ev
+@_ZN6snappy6SourceD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN6snappy15ByteArraySourceD2Ev
+@_ZN6snappy4SinkD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN6snappy15ByteArraySourceD2Ev
 @_ZN6snappy15ByteArraySourceD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN6snappy15ByteArraySourceD2Ev
-@_ZN6snappy22UncheckedByteArraySinkD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN6snappy22UncheckedByteArraySinkD2Ev
+@_ZN6snappy22UncheckedByteArraySinkD1Ev = dso_local unnamed_addr alias void (ptr), ptr @_ZN6snappy15ByteArraySourceD2Ev
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local void @_ZN6snappy6SourceD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #0 align 2 {
@@ -19,15 +19,8 @@ entry:
   ret void
 }
 
-; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define dso_local void @_ZN6snappy6SourceD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 {
-entry:
-  tail call void @llvm.trap() #10
-  unreachable
-}
-
 ; Function Attrs: cold noreturn nounwind memory(inaccessiblemem: write)
-declare void @llvm.trap() #2
+declare void @llvm.trap() #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define dso_local void @_ZN6snappy4SinkD2Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #0 align 2 {
@@ -36,7 +29,7 @@ entry:
 }
 
 ; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
-define dso_local void @_ZN6snappy4SinkD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #1 align 2 {
+define dso_local void @_ZN6snappy4SinkD0Ev(ptr nonnull readnone align 8 captures(none) %this) unnamed_addr #2 align 2 {
 entry:
   tail call void @llvm.trap() #10
   unreachable
@@ -191,9 +184,15 @@ entry:
 
 declare void @__cxa_pure_virtual() unnamed_addr
 
+; Function Attrs: cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable
+define dso_local void @_ZN6snappy6SourceD0Ev(ptr nonnull readnone align 8 captures(none) %0) unnamed_addr #2 align 2 {
+  tail call void @_ZN6snappy4SinkD0Ev(ptr nonnull readnone align 8 captures(none) %0) #2
+  ret void
+}
+
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #1 = { cold noreturn nounwind memory(inaccessiblemem: write) }
+attributes #2 = { cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { nobuiltin nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

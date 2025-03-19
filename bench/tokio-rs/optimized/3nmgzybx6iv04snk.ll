@@ -7,7 +7,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.a2bdad5a339b8ccffc81f3a5f40aece8.1.llvm.6895680396811105915 = hidden unnamed_addr constant <{ [81 x i8] }> <{ [81 x i8] c"/rustc/07dca489ac2d933c78d3c5158e3f43beefeb02ce/library/core/src/ptr/const_ptr.rs" }>, align 1
 @anon.a2bdad5a339b8ccffc81f3a5f40aece8.2.llvm.6895680396811105915 = hidden unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.a2bdad5a339b8ccffc81f3a5f40aece8.1.llvm.6895680396811105915, [16 x i8] c"Q\00\00\00\00\00\00\004\03\00\00\09\00\00\00" }>, align 8
 @anon.a2bdad5a339b8ccffc81f3a5f40aece8.3 = private unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr205drop_in_place$LT$$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$u20$as$u20$core..convert..From$LT$alloc..string..String$GT$$GT$..from..StringError$GT$17h4d7619be76e7173aE", [16 x i8] c"\18\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN223_$LT$$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$u20$as$u20$core..convert..From$LT$alloc..string..String$GT$$GT$..from..StringError$u20$as$u20$core..fmt..Display$GT$3fmt17h1e4d7e7d5aa8c740E" }>, align 8
-@anon.a2bdad5a339b8ccffc81f3a5f40aece8.4 = private unnamed_addr constant <{ ptr, [16 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }> <{ ptr @"_ZN4core3ptr205drop_in_place$LT$$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$u20$as$u20$core..convert..From$LT$alloc..string..String$GT$$GT$..from..StringError$GT$17h4d7619be76e7173aE", [16 x i8] c"\18\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN221_$LT$$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$u20$as$u20$core..convert..From$LT$alloc..string..String$GT$$GT$..from..StringError$u20$as$u20$core..fmt..Debug$GT$3fmt17h59263727b11e82c1E", ptr @"_ZN223_$LT$$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$u20$as$u20$core..convert..From$LT$alloc..string..String$GT$$GT$..from..StringError$u20$as$u20$core..fmt..Display$GT$3fmt17h1e4d7e7d5aa8c740E", ptr @anon.a2bdad5a339b8ccffc81f3a5f40aece8.3, ptr @_ZN4core5error5Error6source17h8116baaec729a601E, ptr @_ZN4core5error5Error7type_id17h4817d4e901882176E, ptr @"_ZN223_$LT$$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$u20$as$u20$core..convert..From$LT$alloc..string..String$GT$$GT$..from..StringError$u20$as$u20$core..error..Error$GT$11description17h7ce3f5f0356f8a1aE", ptr @_ZN4core5error5Error5cause17hcd8058d0623df6c7E, ptr @_ZN4core5error5Error7provide17h4d385ea155721346E }>, align 8
+@anon.a2bdad5a339b8ccffc81f3a5f40aece8.4 = private unnamed_addr constant <{ ptr, [16 x i8], ptr, ptr, ptr, ptr, ptr, ptr, ptr, ptr }> <{ ptr @"_ZN4core3ptr205drop_in_place$LT$$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$u20$as$u20$core..convert..From$LT$alloc..string..String$GT$$GT$..from..StringError$GT$17h4d7619be76e7173aE", [16 x i8] c"\18\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN221_$LT$$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$u20$as$u20$core..convert..From$LT$alloc..string..String$GT$$GT$..from..StringError$u20$as$u20$core..fmt..Debug$GT$3fmt17h59263727b11e82c1E", ptr @"_ZN223_$LT$$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$u20$as$u20$core..convert..From$LT$alloc..string..String$GT$$GT$..from..StringError$u20$as$u20$core..fmt..Display$GT$3fmt17h1e4d7e7d5aa8c740E", ptr @anon.a2bdad5a339b8ccffc81f3a5f40aece8.3, ptr @_ZN4core5error5Error5cause17hcd8058d0623df6c7E, ptr @_ZN4core5error5Error7type_id17h4817d4e901882176E, ptr @"_ZN223_$LT$$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$u20$as$u20$core..convert..From$LT$alloc..string..String$GT$$GT$..from..StringError$u20$as$u20$core..error..Error$GT$11description17h7ce3f5f0356f8a1aE", ptr @_ZN4core5error5Error5cause17hcd8058d0623df6c7E, ptr @_ZN4core5error5Error7provide17h4d385ea155721346E }>, align 8
 @anon.a2bdad5a339b8ccffc81f3a5f40aece8.5.llvm.6895680396811105915 = hidden unnamed_addr constant <{ [43 x i8] }> <{ [43 x i8] c"called `Option::unwrap()` on a `None` value" }>, align 1
 @anon.a2bdad5a339b8ccffc81f3a5f40aece8.6.llvm.6895680396811105915 = hidden unnamed_addr constant <{ [77 x i8] }> <{ [77 x i8] c"/rustc/07dca489ac2d933c78d3c5158e3f43beefeb02ce/library/std/src/thread/mod.rs" }>, align 1
 @anon.a2bdad5a339b8ccffc81f3a5f40aece8.7.llvm.6895680396811105915 = hidden unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.a2bdad5a339b8ccffc81f3a5f40aece8.6.llvm.6895680396811105915, [16 x i8] c"M\00\00\00\00\00\00\00\ED\05\00\00(\00\00\00" }>, align 8
@@ -36,12 +36,12 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.a2bdad5a339b8ccffc81f3a5f40aece8.31.llvm.6895680396811105915 = hidden unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.a2bdad5a339b8ccffc81f3a5f40aece8.29.llvm.6895680396811105915, [16 x i8] c"_\00\00\00\00\00\00\00\C7\00\00\00'\00\00\00" }>, align 8
 @anon.a2bdad5a339b8ccffc81f3a5f40aece8.32 = private unnamed_addr constant <{}> zeroinitializer, align 8
 @anon.a2bdad5a339b8ccffc81f3a5f40aece8.33 = private unnamed_addr constant <{ [8 x i8] }> <{ [8 x i8] c"NulError" }>, align 1
-@anon.a2bdad5a339b8ccffc81f3a5f40aece8.34 = private unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr26drop_in_place$LT$usize$GT$17h2870c334f0e21e31E", [16 x i8] c"\08\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..Debug$u20$for$u20$usize$GT$3fmt17h05610c046aa2fa7eE" }>, align 8
-@anon.a2bdad5a339b8ccffc81f3a5f40aece8.35 = private unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr50drop_in_place$LT$$RF$alloc..vec..Vec$LT$u8$GT$$GT$17hfabeb1a93af28e80E", [16 x i8] c"\08\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h3ad3d52fb3af02f3E" }>, align 8
+@anon.a2bdad5a339b8ccffc81f3a5f40aece8.34 = private unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr111drop_in_place$LT$$RF$tokio..loom..std..parking_lot..Mutex$LT$alloc..vec..Vec$LT$std..process..Child$GT$$GT$$GT$17h656075f86b9db62aE", [16 x i8] c"\08\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN4core3fmt3num52_$LT$impl$u20$core..fmt..Debug$u20$for$u20$usize$GT$3fmt17h05610c046aa2fa7eE" }>, align 8
+@anon.a2bdad5a339b8ccffc81f3a5f40aece8.35 = private unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr111drop_in_place$LT$$RF$tokio..loom..std..parking_lot..Mutex$LT$alloc..vec..Vec$LT$std..process..Child$GT$$GT$$GT$17h656075f86b9db62aE", [16 x i8] c"\08\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h3ad3d52fb3af02f3E" }>, align 8
 @anon.a2bdad5a339b8ccffc81f3a5f40aece8.36 = private unnamed_addr constant <{ [9 x i8] }> <{ [9 x i8] c"Utf8Error" }>, align 1
 @anon.a2bdad5a339b8ccffc81f3a5f40aece8.37 = private unnamed_addr constant <{ [11 x i8] }> <{ [11 x i8] c"valid_up_to" }>, align 1
 @anon.a2bdad5a339b8ccffc81f3a5f40aece8.38 = private unnamed_addr constant <{ [9 x i8] }> <{ [9 x i8] c"error_len" }>, align 1
-@anon.a2bdad5a339b8ccffc81f3a5f40aece8.39 = private unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr55drop_in_place$LT$$RF$core..option..Option$LT$u8$GT$$GT$17h82461ce3e0876005E", [16 x i8] c"\08\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h4b3d8523fa330701E" }>, align 8
+@anon.a2bdad5a339b8ccffc81f3a5f40aece8.39 = private unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr111drop_in_place$LT$$RF$tokio..loom..std..parking_lot..Mutex$LT$alloc..vec..Vec$LT$std..process..Child$GT$$GT$$GT$17h656075f86b9db62aE", [16 x i8] c"\08\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h4b3d8523fa330701E" }>, align 8
 @anon.a2bdad5a339b8ccffc81f3a5f40aece8.40.llvm.6895680396811105915 = hidden unnamed_addr constant <{ [90 x i8] }> <{ [90 x i8] c"/rustc/07dca489ac2d933c78d3c5158e3f43beefeb02ce/library/alloc/src/collections/btree/map.rs" }>, align 1
 @anon.a2bdad5a339b8ccffc81f3a5f40aece8.44 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.a2bdad5a339b8ccffc81f3a5f40aece8.40.llvm.6895680396811105915, [16 x i8] c"Z\00\00\00\00\00\00\00\F9\00\00\00?\00\00\00" }>, align 8
 @anon.a2bdad5a339b8ccffc81f3a5f40aece8.45.llvm.6895680396811105915 = hidden unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.a2bdad5a339b8ccffc81f3a5f40aece8.40.llvm.6895680396811105915, [16 x i8] c"Z\00\00\00\00\00\00\00\1E\01\00\00.\00\00\00" }>, align 8
@@ -63,7 +63,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.a2bdad5a339b8ccffc81f3a5f40aece8.62 = private unnamed_addr constant <{ ptr, [16 x i8] }> <{ ptr @anon.a2bdad5a339b8ccffc81f3a5f40aece8.60.llvm.6895680396811105915, [16 x i8] c"\15\00\00\00\00\00\00\00\DB\00\00\000\00\00\00" }>, align 8
 @anon.a2bdad5a339b8ccffc81f3a5f40aece8.65 = private unnamed_addr constant <{ [5 x i8] }> <{ [5 x i8] c"Mutex" }>, align 1
 @anon.a2bdad5a339b8ccffc81f3a5f40aece8.66 = private unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr157drop_in_place$LT$core..marker..PhantomData$LT$std..sync..mutex..Mutex$LT$core..option..Option$LT$tokio..sync..watch..Receiver$LT$$LP$$RP$$GT$$GT$$GT$$GT$$GT$17h1bffb72123a9d70cE", [16 x i8] c"\00\00\00\00\00\00\00\00\01\00\00\00\00\00\00\00", ptr @"_ZN71_$LT$core..marker..PhantomData$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hda40bbb87c312a78E" }>, align 8
-@anon.a2bdad5a339b8ccffc81f3a5f40aece8.67 = private unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr162drop_in_place$LT$$RF$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$tokio..sync..watch..Receiver$LT$$LP$$RP$$GT$$GT$$GT$$GT$17hff2c0bf4ab4a8977E", [16 x i8] c"\08\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h49384b752791f0a9E" }>, align 8
+@anon.a2bdad5a339b8ccffc81f3a5f40aece8.67 = private unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr111drop_in_place$LT$$RF$tokio..loom..std..parking_lot..Mutex$LT$alloc..vec..Vec$LT$std..process..Child$GT$$GT$$GT$17h656075f86b9db62aE", [16 x i8] c"\08\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h49384b752791f0a9E" }>, align 8
 @anon.a2bdad5a339b8ccffc81f3a5f40aece8.68 = private unnamed_addr constant <{ [15 x i8] }> <{ [15 x i8] c"OrphanQueueImpl" }>, align 1
 @anon.a2bdad5a339b8ccffc81f3a5f40aece8.69 = private unnamed_addr constant <{ [8 x i8] }> <{ [8 x i8] c"sigchild" }>, align 1
 @anon.a2bdad5a339b8ccffc81f3a5f40aece8.70 = private unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr137drop_in_place$LT$tokio..loom..std..parking_lot..Mutex$LT$core..option..Option$LT$tokio..sync..watch..Receiver$LT$$LP$$RP$$GT$$GT$$GT$$GT$17h351bf18d7683e67dE", [16 x i8] c"\18\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN82_$LT$tokio..loom..std..parking_lot..Mutex$LT$T$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17hb894e10a5150fde4E" }>, align 8
@@ -1890,11 +1890,6 @@ define internal void @"_ZN4core3ptr157drop_in_place$LT$core..marker..PhantomData
   ret void
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr162drop_in_place$LT$$RF$lock_api..mutex..Mutex$LT$parking_lot..raw_mutex..RawMutex$C$core..option..Option$LT$tokio..sync..watch..Receiver$LT$$LP$$RP$$GT$$GT$$GT$$GT$17hff2c0bf4ab4a8977E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #4 {
-  ret void
-}
-
 ; Function Attrs: nonlazybind uwtable
 define internal void @"_ZN4core3ptr189drop_in_place$LT$std..thread..Builder..spawn_unchecked_$LT$tokio..runtime..blocking..pool..Spawner..spawn_thread..$u7b$$u7b$closure$u7d$$u7d$$C$$LP$$RP$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h42e3e35c03963ee8E"(ptr noalias noundef align 8 dereferenceable(56) %0) unnamed_addr #0 personality ptr @rust_eh_personality {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !461)
@@ -2043,11 +2038,6 @@ define hidden void @"_ZN4core3ptr261drop_in_place$LT$alloc..vec..Vec$LT$tokio..r
   ret void
 }
 
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr26drop_in_place$LT$usize$GT$17h2870c334f0e21e31E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #4 {
-  ret void
-}
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(write, argmem: readwrite, inaccessiblemem: readwrite) uwtable
 define hidden void @"_ZN4core3ptr396drop_in_place$LT$core..iter..traits..iterator..Iterator..for_each..call$LT$tokio..runtime..time..wheel..level..Level$C$alloc..vec..Vec$LT$tokio..runtime..time..wheel..level..Level$GT$..extend_trusted$LT$core..iter..adapters..map..Map$LT$core..ops..range..Range$LT$usize$GT$$C$tokio..runtime..time..wheel..level..Level..new$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hefbb1829d6b90358E.llvm.6895680396811105915"(ptr noalias noundef readonly align 8 captures(none) dereferenceable(24) %0) unnamed_addr #6 {
   tail call void @llvm.experimental.noalias.scope.decl(metadata !514)
@@ -2137,16 +2127,6 @@ define internal fastcc void @"_ZN4core3ptr47drop_in_place$LT$tokio..fs..read_dir
   br label %"_ZN4core3ptr211drop_in_place$LT$core..option..Option$LT$$LP$alloc..collections..vec_deque..VecDeque$LT$core..result..Result$LT$tokio..fs..read_dir..DirEntry$C$std..io..error..Error$GT$$GT$$C$std..fs..ReadDir$C$bool$RP$$GT$$GT$17h665019f717d2c52cE.exit"
 
 "_ZN4core3ptr211drop_in_place$LT$core..option..Option$LT$$LP$alloc..collections..vec_deque..VecDeque$LT$core..result..Result$LT$tokio..fs..read_dir..DirEntry$C$std..io..error..Error$GT$$GT$$C$std..fs..ReadDir$C$bool$RP$$GT$$GT$17h665019f717d2c52cE.exit": ; preds = %1, %27, %19, %16, %11
-  ret void
-}
-
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr50drop_in_place$LT$$RF$alloc..vec..Vec$LT$u8$GT$$GT$17hfabeb1a93af28e80E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #4 {
-  ret void
-}
-
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr55drop_in_place$LT$$RF$core..option..Option$LT$u8$GT$$GT$17h82461ce3e0876005E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #4 {
   ret void
 }
 
@@ -2515,11 +2495,6 @@ define hidden noundef range(i64 0, 2305843009213693952) i64 @_ZN4core4iter8adapt
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define internal { ptr, ptr } @_ZN4core5error5Error5cause17hcd8058d0623df6c7E(ptr noalias readonly align 8 captures(none) %0) unnamed_addr #9 {
-  ret { ptr, ptr } { ptr null, ptr undef }
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal { ptr, ptr } @_ZN4core5error5Error6source17h8116baaec729a601E(ptr noalias readonly align 8 captures(none) %0) unnamed_addr #9 {
   ret { ptr, ptr } { ptr null, ptr undef }
 }
 
@@ -5509,14 +5484,6 @@ define void @_ZN5tokio2fs8read_dir8DirEntry8metadata17h2eb086982ff77eb5E(ptr noa
   ret void
 }
 
-; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
-define void @_ZN5tokio2fs8read_dir8DirEntry9file_type17hd04f62adfb15ca2eE(ptr noalias noundef writeonly sret({ ptr, [24 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(40) initializes((0, 8), (32, 33)) %0, ptr noalias noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #20 {
-  store ptr %1, ptr %0, align 8
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i8 0, ptr %3, align 8
-  ret void
-}
-
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, inaccessiblemem: none) uwtable
 define noundef i64 @_ZN5tokio2fs8read_dir8DirEntry3ino17hd170f5e2b8494bc2E(ptr noalias noundef readonly align 8 captures(none) dereferenceable(16) %0) unnamed_addr #21 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
@@ -7704,6 +7671,12 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i8 @llvm.umax.i8(i8, i8) #34
+
+; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
+define void @_ZN5tokio2fs8read_dir8DirEntry9file_type17hd04f62adfb15ca2eE(ptr noalias noundef writeonly sret({ ptr, [24 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(40) initializes((0, 8), (32, 33)) %0, ptr noalias noundef readonly align 8 dereferenceable(16) %1) unnamed_addr #20 {
+  tail call void @_ZN5tokio2fs8read_dir8DirEntry8metadata17h2eb086982ff77eb5E(ptr noalias noundef writeonly sret({ ptr, [24 x i8], i8, [7 x i8] }) align 8 captures(none) dereferenceable(40) initializes((0, 8), (32, 33)) %0, ptr noalias noundef readonly align 8 dereferenceable(16) %1) #20
+  ret void
+}
 
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { nofree norecurse nosync nounwind nonlazybind memory(argmem: read, inaccessiblemem: write) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }

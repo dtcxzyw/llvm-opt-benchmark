@@ -36,7 +36,7 @@ $_ZN7QVectorIP7XMLNodeEC2ERKS2_ = comdat any
 @_ZTI15XMLInteriorNode = constant { ptr, ptr, ptr } { ptr getelementptr inbounds (ptr, ptr @_ZTVN10__cxxabiv120__si_class_type_infoE, i64 2), ptr @_ZTS15XMLInteriorNode, ptr @_ZTI7XMLNode }, align 8
 @_ZN10QArrayData11shared_nullE = external global [2 x %struct.QArrayData], align 16
 
-@_ZN7XMLNodeD1Ev = unnamed_addr alias void (ptr), ptr @_ZN7XMLNodeD2Ev
+@_ZN7XMLNodeD1Ev = unnamed_addr alias void (ptr), ptr @_ZN11XMLLeafNodeD2Ev
 @_ZN11XMLLeafNodeC1EP10XMLLeafTag = unnamed_addr alias void (ptr, ptr), ptr @_ZN11XMLLeafNodeC2EP10XMLLeafTag
 @_ZN11XMLLeafNodeD1Ev = unnamed_addr alias void (ptr), ptr @_ZN11XMLLeafNodeD2Ev
 @_ZN15XMLInteriorNodeC1EP6XMLTag = unnamed_addr alias void (ptr, ptr), ptr @_ZN15XMLInteriorNodeC2EP6XMLTag
@@ -86,25 +86,6 @@ define void @_ZN7XMLNodeC2EP6XMLTag(ptr noundef nonnull writeonly align 8 captur
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTV7XMLNode, i64 16), ptr %0, align 8
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %1, ptr %3, align 8
-  ret void
-}
-
-; Function Attrs: mustprogress nounwind uwtable
-define void @_ZN7XMLNodeD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(16) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTV7XMLNode, i64 16), ptr %0, align 8
-  %2 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %3 = load ptr, ptr %2, align 8
-  %4 = icmp eq ptr %3, null
-  br i1 %4, label %9, label %5
-
-5:                                                ; preds = %1
-  %6 = load ptr, ptr %3, align 8
-  %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %8 = load ptr, ptr %7, align 8
-  tail call void %8(ptr noundef nonnull align 8 dereferenceable(24) %3) #12
-  br label %9
-
-9:                                                ; preds = %5, %1
   ret void
 }
 
@@ -555,6 +536,12 @@ _ZN7XMLNodeD2Ev.exit:                             ; preds = %_ZN7QVectorIP7XMLNo
   %57 = extractvalue { ptr, i32 } %lpad.phi, 0
   tail call void @__clang_call_terminate(ptr %57) #11
   unreachable
+}
+
+; Function Attrs: mustprogress nounwind uwtable
+define void @_ZN7XMLNodeD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(16) initializes((0, 8)) %0) unnamed_addr #1 align 2 {
+  tail call void @_ZN11XMLLeafNodeD2Ev(ptr noundef nonnull align 8 captures(none) dereferenceable(16) initializes((0, 8)) %0) #1
+  ret void
 }
 
 attributes #0 = { cold mustprogress noreturn nounwind memory(inaccessiblemem: write) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

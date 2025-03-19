@@ -32,21 +32,9 @@ declare void @_ZNSt8ios_base4InitD1Ev(ptr noundef nonnull align 1 dereferenceabl
 declare i32 @__cxa_atexit(ptr, ptr, ptr) local_unnamed_addr #2
 
 ; Function Attrs: mustprogress uwtable
-define noundef i32 @_ZN11OpenImageIO6v3_1_08farmhash6Hash32EPKcm(ptr noundef %0, i64 noundef %1) local_unnamed_addr #3 {
-  %3 = tail call noundef i32 @_ZN11OpenImageIO6v3_1_08farmhash10farmhashmk6Hash32EPKcm(ptr noundef %0, i64 noundef %1)
-  ret i32 %3
-}
-
-; Function Attrs: mustprogress uwtable
 define noundef i32 @_ZN11OpenImageIO6v3_1_08farmhash14Hash32WithSeedEPKcmj(ptr noundef %0, i64 noundef %1, i32 noundef %2) local_unnamed_addr #3 {
   %4 = tail call noundef i32 @_ZN11OpenImageIO6v3_1_08farmhash10farmhashmk14Hash32WithSeedEPKcmj(ptr noundef %0, i64 noundef %1, i32 noundef %2)
   ret i32 %4
-}
-
-; Function Attrs: mustprogress uwtable
-define noundef i64 @_ZN11OpenImageIO6v3_1_08farmhash6Hash64EPKcm(ptr noundef %0, i64 noundef %1) local_unnamed_addr #3 {
-  %3 = tail call noundef i64 @_ZN11OpenImageIO6v3_1_08farmhash10farmhashxo6Hash64EPKcm(ptr noundef %0, i64 noundef %1)
-  ret i64 %3
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -85,30 +73,6 @@ define noundef i64 @_ZN11OpenImageIO6v3_1_08farmhash15Hash64WithSeedsEPKcmmm(ptr
   %14 = xor i64 %13, %12
   %15 = mul i64 %14, -7070675565921424023
   ret i64 %15
-}
-
-; Function Attrs: mustprogress uwtable
-define { i64, i64 } @_ZN11OpenImageIO6v3_1_08farmhash7Hash128EPKcm(ptr noundef %0, i64 noundef %1) local_unnamed_addr #3 {
-  %3 = icmp ugt i64 %1, 15
-  br i1 %3, label %4, label %12
-
-4:                                                ; preds = %2
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %6 = add i64 %1, -16
-  %7 = load i64, ptr %0, align 1
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = load i64, ptr %8, align 1
-  %10 = add i64 %9, -4348849565147123417
-  %11 = tail call { i64, i64 } @_ZN11OpenImageIO6v3_1_08farmhash10farmhashcc19CityHash128WithSeedEPKcmSt4pairImmE(ptr noundef nonnull %5, i64 noundef %6, i64 %7, i64 %10)
-  br label %_ZN11OpenImageIO6v3_1_08farmhash7inlined7Hash128EPKcm.exit
-
-12:                                               ; preds = %2
-  %13 = tail call { i64, i64 } @_ZN11OpenImageIO6v3_1_08farmhash10farmhashcc19CityHash128WithSeedEPKcmSt4pairImmE(ptr noundef %0, i64 noundef %1, i64 -4348849565147123417, i64 -5435081209227447693)
-  br label %_ZN11OpenImageIO6v3_1_08farmhash7inlined7Hash128EPKcm.exit
-
-_ZN11OpenImageIO6v3_1_08farmhash7inlined7Hash128EPKcm.exit: ; preds = %4, %12
-  %.pn.i.i.i = phi { i64, i64 } [ %11, %4 ], [ %13, %12 ]
-  ret { i64, i64 } %.pn.i.i.i
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -2076,6 +2040,28 @@ declare i32 @llvm.fshl.i32(i32, i32, i32) #6
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.fshl.i64(i64, i64, i64) #6
+
+; Function Attrs: mustprogress uwtable
+define { i64, i64 } @_ZN11OpenImageIO6v3_1_08farmhash7Hash128EPKcm(ptr noundef %0, i64 noundef %1) local_unnamed_addr #3 {
+  %3 = tail call { i64, i64 } @_ZN11OpenImageIO6v3_1_08farmhash14Fingerprint128EPKcm(ptr noundef %0, i64 noundef %1) #3
+  %4 = extractvalue { i64, i64 } %3, 0
+  %5 = insertvalue { i64, i64 } poison, i64 %4, 0
+  %6 = extractvalue { i64, i64 } %3, 1
+  %7 = insertvalue { i64, i64 } %5, i64 %6, 1
+  ret { i64, i64 } %7
+}
+
+; Function Attrs: mustprogress uwtable
+define noundef i64 @_ZN11OpenImageIO6v3_1_08farmhash6Hash64EPKcm(ptr noundef %0, i64 noundef %1) local_unnamed_addr #3 {
+  %3 = tail call noundef i64 @_ZN11OpenImageIO6v3_1_08farmhash4HashEPKcm(ptr noundef %0, i64 noundef %1) #3
+  ret i64 %3
+}
+
+; Function Attrs: mustprogress uwtable
+define noundef i32 @_ZN11OpenImageIO6v3_1_08farmhash6Hash32EPKcm(ptr noundef %0, i64 noundef %1) local_unnamed_addr #3 {
+  %3 = tail call noundef i32 @_ZN11OpenImageIO6v3_1_08farmhash13Fingerprint32EPKcm(ptr noundef %0, i64 noundef %1) #3
+  ret i32 %3
+}
 
 attributes #0 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

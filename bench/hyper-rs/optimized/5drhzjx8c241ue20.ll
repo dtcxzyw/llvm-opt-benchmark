@@ -14,7 +14,7 @@ target triple = "x86_64-unknown-linux-gnu"
 @anon.3ec2cf8333d55addd664f7f348231227.8 = private unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr118drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$core..error..Error$u2b$core..marker..Send$u2b$core..marker..Sync$GT$$GT$17h87dc17a134121ec4E", [16 x i8] c"\10\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN67_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..fmt..Debug$GT$3fmt17h5b9834282311d57dE" }>, align 8
 @anon.3ec2cf8333d55addd664f7f348231227.9 = private unnamed_addr constant <{ [19 x i8] }> <{ [19 x i8] c"operation timed out" }>, align 1
 @anon.3ec2cf8333d55addd664f7f348231227.10 = private unnamed_addr constant <{ [5 x i8] }> <{ [5 x i8] c"Parse" }>, align 1
-@anon.3ec2cf8333d55addd664f7f348231227.11 = private unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr44drop_in_place$LT$$RF$hyper..error..Parse$GT$17h7c6e94e424d22cb4E", [16 x i8] c"\08\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h3cba49cffc61e616E" }>, align 8
+@anon.3ec2cf8333d55addd664f7f348231227.11 = private unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr43drop_in_place$LT$$RF$hyper..error..User$GT$17h97543278025cc56dE", [16 x i8] c"\08\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h3cba49cffc61e616E" }>, align 8
 @anon.3ec2cf8333d55addd664f7f348231227.12 = private unnamed_addr constant <{ [4 x i8] }> <{ [4 x i8] c"User" }>, align 1
 @anon.3ec2cf8333d55addd664f7f348231227.13 = private unnamed_addr constant <{ ptr, [16 x i8], ptr }> <{ ptr @"_ZN4core3ptr43drop_in_place$LT$$RF$hyper..error..User$GT$17h97543278025cc56dE", [16 x i8] c"\08\00\00\00\00\00\00\00\08\00\00\00\00\00\00\00", ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17h9e575733b8aba7caE" }>, align 8
 @anon.3ec2cf8333d55addd664f7f348231227.14 = private unnamed_addr constant <{ [8 x i8] }> <{ [8 x i8] c"Canceled" }>, align 1
@@ -74,11 +74,6 @@ define internal void @"_ZN4core3ptr39drop_in_place$LT$hyper..error..Kind$GT$17h3
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define internal void @"_ZN4core3ptr43drop_in_place$LT$$RF$hyper..error..User$GT$17h97543278025cc56dE"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #1 {
-  ret void
-}
-
-; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define internal void @"_ZN4core3ptr44drop_in_place$LT$$RF$hyper..error..Parse$GT$17h7c6e94e424d22cb4E"(ptr noalias readnone align 8 captures(none) %0) unnamed_addr #1 {
   ret void
 }
 
@@ -319,7 +314,7 @@ _ZN5hyper5error5Error3new17h1a0c7787d1136bedE.llvm.15489473380671106129.exit: ; 
 }
 
 ; Function Attrs: nonlazybind uwtable
-define hidden noalias noundef nonnull align 8 ptr @_ZN5hyper5error5Error8new_user17hbe76fa3fee32946bE.llvm.15489473380671106129() unnamed_addr #0 personality ptr @rust_eh_personality {
+define hidden noalias noundef nonnull align 8 ptr @_ZN5hyper5error5Error19new_user_no_upgrade17h72ede754feca9347E() unnamed_addr #0 personality ptr @rust_eh_personality {
   %1 = alloca { { ptr, ptr }, i8, [7 x i8] }, align 8
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1)
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 16
@@ -327,46 +322,6 @@ define hidden noalias noundef nonnull align 8 ptr @_ZN5hyper5error5Error8new_use
   store ptr null, ptr %1, align 8
   %3 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !26
   %4 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef range(i64 1, -9223372036854775807) 8) #14, !noalias !26
-  %5 = icmp eq ptr %4, null
-  br i1 %5, label %6, label %_ZN5hyper5error5Error3new17h1a0c7787d1136bedE.llvm.15489473380671106129.exit
-
-6:                                                ; preds = %0
-  invoke void @_ZN5alloc5alloc18handle_alloc_error17h81706c48453a6249E(i64 noundef 8, i64 noundef 24) #15
-          to label %.noexc.i unwind label %7
-
-.noexc.i:                                         ; preds = %6
-  unreachable
-
-7:                                                ; preds = %6
-  %8 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr44drop_in_place$LT$hyper..error..ErrorImpl$GT$17h60b15071c3c60756E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %1) #16
-          to label %11 unwind label %9
-
-9:                                                ; preds = %7
-  %10 = landingpad { ptr, i32 }
-          filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #17
-  unreachable
-
-11:                                               ; preds = %7
-  resume { ptr, i32 } %8
-
-_ZN5hyper5error5Error3new17h1a0c7787d1136bedE.llvm.15489473380671106129.exit: ; preds = %0
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %4, ptr noundef nonnull align 8 dereferenceable(24) %1, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %1)
-  ret ptr %4
-}
-
-; Function Attrs: nonlazybind uwtable
-define hidden noalias noundef nonnull align 8 ptr @_ZN5hyper5error5Error19new_user_no_upgrade17h72ede754feca9347E() unnamed_addr #0 personality ptr @rust_eh_personality {
-  %1 = alloca { { ptr, ptr }, i8, [7 x i8] }, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %1)
-  %2 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  store i8 3, ptr %2, align 8
-  store ptr null, ptr %1, align 8
-  %3 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !29
-  %4 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef range(i64 1, -9223372036854775807) 8) #14, !noalias !29
   %5 = icmp eq ptr %4, null
   br i1 %5, label %6, label %_ZN5hyper5error5Error8new_user17hbe76fa3fee32946bE.llvm.15489473380671106129.exit
 
@@ -475,46 +430,6 @@ define { ptr, ptr } @"_ZN58_$LT$hyper..error..Error$u20$as$u20$core..error..Erro
   %9 = insertvalue { ptr, ptr } poison, ptr %3, 0
   %10 = insertvalue { ptr, ptr } %9, ptr %.sroa.3.0, 1
   ret { ptr, ptr } %10
-}
-
-; Function Attrs: nonlazybind uwtable
-define noalias noundef nonnull align 8 ptr @"_ZN86_$LT$hyper..error..Error$u20$as$u20$core..convert..From$LT$hyper..error..Parse$GT$$GT$4from17h537ad657241c3f7bE"(i8 noundef %0) unnamed_addr #0 personality ptr @rust_eh_personality {
-  %2 = alloca { { ptr, ptr }, i8, [7 x i8] }, align 8
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %2)
-  %3 = getelementptr inbounds nuw i8, ptr %2, i64 16
-  store i8 %0, ptr %3, align 8
-  store ptr null, ptr %2, align 8
-  %4 = load volatile i8, ptr @__rust_no_alloc_shim_is_unstable, align 1, !noalias !32
-  %5 = tail call noundef align 8 dereferenceable_or_null(24) ptr @__rust_alloc(i64 noundef 24, i64 noundef range(i64 1, -9223372036854775807) 8) #14, !noalias !32
-  %6 = icmp eq ptr %5, null
-  br i1 %6, label %7, label %_ZN5hyper5error5Error3new17h1a0c7787d1136bedE.llvm.15489473380671106129.exit
-
-7:                                                ; preds = %1
-  invoke void @_ZN5alloc5alloc18handle_alloc_error17h81706c48453a6249E(i64 noundef 8, i64 noundef 24) #15
-          to label %.noexc.i unwind label %8
-
-.noexc.i:                                         ; preds = %7
-  unreachable
-
-8:                                                ; preds = %7
-  %9 = landingpad { ptr, i32 }
-          cleanup
-  invoke void @"_ZN4core3ptr44drop_in_place$LT$hyper..error..ErrorImpl$GT$17h60b15071c3c60756E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %2) #16
-          to label %12 unwind label %10
-
-10:                                               ; preds = %8
-  %11 = landingpad { ptr, i32 }
-          filter [0 x ptr] zeroinitializer
-  call void @_ZN4core9panicking16panic_in_cleanup17h55eb1d85cadde1a1E() #17
-  unreachable
-
-12:                                               ; preds = %8
-  resume { ptr, i32 } %9
-
-_ZN5hyper5error5Error3new17h1a0c7787d1136bedE.llvm.15489473380671106129.exit: ; preds = %1
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %5, ptr noundef nonnull align 8 dereferenceable(24) %2, i64 24, i1 false)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %2)
-  ret ptr %5
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -642,6 +557,18 @@ declare hidden void @"_ZN4core3ptr44drop_in_place$LT$hyper..error..ErrorImpl$GT$
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #13
 
+; Function Attrs: nonlazybind uwtable
+define noalias noundef nonnull align 8 ptr @"_ZN86_$LT$hyper..error..Error$u20$as$u20$core..convert..From$LT$hyper..error..Parse$GT$$GT$4from17h537ad657241c3f7bE"(i8 noundef %0) unnamed_addr #0 personality ptr @rust_eh_personality {
+  %2 = tail call noalias noundef nonnull align 8 ptr @_ZN5hyper5error5Error3new17h1a0c7787d1136bedE.llvm.15489473380671106129(i8 noundef %0) #0
+  ret ptr %2
+}
+
+; Function Attrs: nonlazybind uwtable
+define hidden noalias noundef nonnull align 8 ptr @_ZN5hyper5error5Error8new_user17hbe76fa3fee32946bE.llvm.15489473380671106129() unnamed_addr #0 personality ptr @rust_eh_personality {
+  %1 = tail call noalias noundef nonnull align 8 ptr @_ZN5hyper5error5Error19new_user_no_upgrade17h72ede754feca9347E() #0
+  ret ptr %1
+}
+
 attributes #0 = { nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #2 = { inlinehint nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -693,9 +620,3 @@ attributes #17 = { cold noreturn nounwind }
 !26 = !{!27}
 !27 = distinct !{!27, !28, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0b7f92335767a464E.llvm.15489473380671106129: argument 0"}
 !28 = distinct !{!28, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0b7f92335767a464E.llvm.15489473380671106129"}
-!29 = !{!30}
-!30 = distinct !{!30, !31, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0b7f92335767a464E.llvm.15489473380671106129: argument 0"}
-!31 = distinct !{!31, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0b7f92335767a464E.llvm.15489473380671106129"}
-!32 = !{!33}
-!33 = distinct !{!33, !34, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0b7f92335767a464E.llvm.15489473380671106129: argument 0"}
-!34 = distinct !{!34, !"_ZN5alloc5boxed12Box$LT$T$GT$3new17h0b7f92335767a464E.llvm.15489473380671106129"}

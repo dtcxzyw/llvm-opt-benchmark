@@ -935,21 +935,6 @@ define noundef i32 @_Z18coco_string_lengthPKw(ptr noundef readonly captures(addr
   ret i32 %.0
 }
 
-; Function Attrs: mustprogress nounwind uwtable
-define void @_Z18coco_string_deleteRPw(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #0 {
-  %2 = load ptr, ptr %0, align 8
-  %3 = icmp eq ptr %2, null
-  br i1 %3, label %5, label %4
-
-4:                                                ; preds = %1
-  tail call void @_ZdaPv(ptr noundef nonnull %2) #20
-  br label %5
-
-5:                                                ; preds = %4, %1
-  store ptr null, ptr %0, align 8
-  ret void
-}
-
 ; Function Attrs: nobuiltin nounwind
 declare void @_ZdaPv(ptr noundef) local_unnamed_addr #8
 
@@ -5693,6 +5678,12 @@ declare i32 @llvm.abs.i32(i32, i1 immarg) #19
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smin.i32(i32, i32) #19
+
+; Function Attrs: mustprogress nounwind uwtable
+define void @_Z18coco_string_deleteRPw(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0) local_unnamed_addr #0 {
+  tail call void @_Z18coco_string_deleteRPc(ptr noundef nonnull align 8 captures(none) dereferenceable(8) %0) #0
+  ret void
+}
 
 attributes #0 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
