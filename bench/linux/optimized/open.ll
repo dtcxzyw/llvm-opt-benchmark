@@ -1632,10 +1632,10 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__x64_sys_fchmodat2(ptr
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !6
   %18 = lshr exact i32 %14, 8
   %19 = and i32 %18, 1
-  %20 = xor i32 %19, 1
-  %21 = icmp samesign ult i32 %14, 4096
-  %22 = or disjoint i32 %20, 16384
-  %23 = select i1 %21, i32 %20, i32 %22
+  %20 = shl nuw nsw i32 %14, 2
+  %21 = and i32 %20, 16384
+  %22 = or disjoint i32 %19, %21
+  %23 = xor i32 %22, 1
   %24 = call i32 @user_path_at_empty(i32 noundef %11, ptr noundef %12, i32 noundef %23, ptr noundef nonnull %2, ptr noundef null) #14
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %26, label %do_fchmodat.exit
@@ -1689,10 +1689,10 @@ define dso_local range(i64 -2147483648, 2147483648) i64 @__ia32_sys_fchmodat2(pt
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %2, i8 0, i64 16, i1 false), !annotation !6
   %19 = lshr exact i32 %15, 8
   %20 = and i32 %19, 1
-  %21 = xor i32 %20, 1
-  %22 = icmp samesign ult i32 %15, 4096
-  %23 = or disjoint i32 %21, 16384
-  %24 = select i1 %22, i32 %21, i32 %23
+  %21 = shl nuw nsw i32 %15, 2
+  %22 = and i32 %21, 16384
+  %23 = or disjoint i32 %20, %22
+  %24 = xor i32 %23, 1
   %25 = call i32 @user_path_at_empty(i32 noundef %12, ptr noundef %13, i32 noundef %24, ptr noundef nonnull %2, ptr noundef null) #14
   %26 = icmp eq i32 %25, 0
   br i1 %26, label %27, label %do_fchmodat.exit
@@ -2003,10 +2003,10 @@ define dso_local i32 @do_fchownat(i32 noundef %0, ptr noundef %1, i32 noundef %2
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false), !annotation !6
   %10 = lshr exact i32 %4, 8
   %11 = and i32 %10, 1
-  %12 = xor i32 %11, 1
-  %13 = icmp samesign ult i32 %4, 4096
-  %14 = or disjoint i32 %12, 16384
-  %15 = select i1 %13, i32 %12, i32 %14
+  %12 = shl nuw nsw i32 %4, 2
+  %13 = and i32 %12, 16384
+  %14 = or disjoint i32 %11, %13
+  %15 = xor i32 %14, 1
   %16 = call i32 @user_path_at_empty(i32 noundef %0, ptr noundef %1, i32 noundef %15, ptr noundef nonnull %6, ptr noundef null) #14
   %17 = icmp eq i32 %16, 0
   br i1 %17, label %18, label %.loopexit
@@ -4102,10 +4102,10 @@ define internal fastcc range(i64 -2147483648, 2147483648) i64 @do_faccessat(i32 
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %5, i8 0, i64 16, i1 false), !annotation !6
   %11 = lshr exact i32 %3, 8
   %12 = and i32 %11, 1
-  %13 = xor i32 %12, 1
-  %14 = icmp samesign ult i32 %3, 4096
-  %15 = or disjoint i32 %13, 16384
-  %16 = select i1 %14, i32 %13, i32 %15
+  %13 = shl nuw nsw i32 %3, 2
+  %14 = and i32 %13, 16384
+  %15 = or disjoint i32 %12, %14
+  %16 = xor i32 %15, 1
   %17 = and i32 %3, 512
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %83

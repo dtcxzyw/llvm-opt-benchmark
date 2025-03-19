@@ -10387,13 +10387,13 @@ _ZN6brotli3enc7command26CommandRestoreDistanceCode17hf05d26418c1b43c8E.exit: ; p
   %68 = load i64, ptr %67, align 8, !noundef !12
   %.promoted = load i32, ptr %2, align 4
   %69 = zext i32 %14 to i64
-  br label %159
+  br label %158
 
 70:                                               ; preds = %_ZN6brotli3enc7command26CommandRestoreDistanceCode17hf05d26418c1b43c8E.exit, %_ZN6brotli3enc7command18CombineLengthCodes17he28c5563882f5f20E.exit
   ret void
 
-.loopexit.loopexit:                               ; preds = %181, %174
-  %71 = phi i32 [ %182, %181 ], [ %160, %174 ]
+.loopexit.loopexit:                               ; preds = %180, %173
+  %71 = phi i32 [ %181, %180 ], [ %159, %173 ]
   %.pre = and i32 %71, 33554431
   br label %.loopexit
 
@@ -10504,7 +10504,7 @@ _ZN6brotli3enc7command17GetCopyLengthCode17hab981e27915e86caE.exit: ; preds = %1
   %or.cond.i = and i1 %78, %140
   %141 = icmp ult i16 %.0.i, 16
   %or.cond6.i = and i1 %or.cond.i, %141
-  br i1 %or.cond6.i, label %155, label %142
+  br i1 %or.cond6.i, label %154, label %142
 
 142:                                              ; preds = %_ZN6brotli3enc7command17GetCopyLengthCode17hab981e27915e86caE.exit
   %143 = lshr i16 %.0.i, 3
@@ -10520,64 +10520,63 @@ _ZN6brotli3enc7command17GetCopyLengthCode17hab981e27915e86caE.exit: ; preds = %1
   %151 = and i32 %150, 192
   %152 = add nuw nsw i32 %148, %151
   %153 = trunc i32 %152 to i16
-  %154 = or disjoint i16 %139, %153
   br label %_ZN6brotli3enc7command18CombineLengthCodes17he28c5563882f5f20E.exit
 
-155:                                              ; preds = %_ZN6brotli3enc7command17GetCopyLengthCode17hab981e27915e86caE.exit
-  %156 = icmp samesign ult i16 %.0.i, 8
-  %157 = or disjoint i16 %139, 64
-  %spec.select.i = select i1 %156, i16 %139, i16 %157
+154:                                              ; preds = %_ZN6brotli3enc7command17GetCopyLengthCode17hab981e27915e86caE.exit
+  %155 = shl nuw nsw i16 %.0.i, 3
+  %156 = and i16 %155, 64
   br label %_ZN6brotli3enc7command18CombineLengthCodes17he28c5563882f5f20E.exit
 
-_ZN6brotli3enc7command18CombineLengthCodes17he28c5563882f5f20E.exit: ; preds = %142, %155
-  %.0.i13 = phi i16 [ %154, %142 ], [ %spec.select.i, %155 ]
-  %158 = getelementptr inbounds nuw i8, ptr %11, i64 12
-  store i16 %.0.i13, ptr %158, align 4
+_ZN6brotli3enc7command18CombineLengthCodes17he28c5563882f5f20E.exit: ; preds = %142, %154
+  %.pn = phi i16 [ %153, %142 ], [ %156, %154 ]
+  %.0.i13 = or disjoint i16 %139, %.pn
+  %157 = getelementptr inbounds nuw i8, ptr %11, i64 12
+  store i16 %.0.i13, ptr %157, align 4
   br label %70
 
-159:                                              ; preds = %.preheader, %181
-  %160 = phi i32 [ %18, %.preheader ], [ %182, %181 ]
-  %161 = phi i32 [ %64, %.preheader ], [ %183, %181 ]
-  %162 = phi i32 [ %.promoted, %.preheader ], [ %184, %181 ]
-  %163 = and i32 %162, %14
-  %164 = zext i32 %163 to i64
-  %165 = add i64 %68, %164
-  %166 = icmp ult i64 %165, %.val17
-  br i1 %166, label %167, label %173, !prof !278
+158:                                              ; preds = %.preheader, %180
+  %159 = phi i32 [ %18, %.preheader ], [ %181, %180 ]
+  %160 = phi i32 [ %64, %.preheader ], [ %182, %180 ]
+  %161 = phi i32 [ %.promoted, %.preheader ], [ %183, %180 ]
+  %162 = and i32 %161, %14
+  %163 = zext i32 %162 to i64
+  %164 = add i64 %68, %163
+  %165 = icmp ult i64 %164, %.val17
+  br i1 %165, label %166, label %172, !prof !278
 
-167:                                              ; preds = %159
-  %168 = zext i32 %162 to i64
-  %169 = sub nsw i64 %168, %23
-  %170 = and i64 %169, %69
-  %171 = add i64 %170, %68
-  %172 = icmp ult i64 %171, %.val17
-  br i1 %172, label %174, label %180, !prof !278
+166:                                              ; preds = %158
+  %167 = zext i32 %161 to i64
+  %168 = sub nsw i64 %167, %23
+  %169 = and i64 %168, %69
+  %170 = add i64 %169, %68
+  %171 = icmp ult i64 %170, %.val17
+  br i1 %171, label %173, label %179, !prof !278
 
-173:                                              ; preds = %159
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %165, i64 noundef %.val17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.113) #21
+172:                                              ; preds = %158
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %164, i64 noundef %.val17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.113) #21
   unreachable
 
-174:                                              ; preds = %167
-  %175 = getelementptr inbounds [0 x i8], ptr %.val16, i64 0, i64 %165
-  %176 = load i8, ptr %175, align 1, !noundef !12
-  %177 = getelementptr inbounds [0 x i8], ptr %.val16, i64 0, i64 %171
-  %178 = load i8, ptr %177, align 1, !noundef !12
-  %179 = icmp eq i8 %176, %178
-  br i1 %179, label %181, label %.loopexit.loopexit
+173:                                              ; preds = %166
+  %174 = getelementptr inbounds [0 x i8], ptr %.val16, i64 0, i64 %164
+  %175 = load i8, ptr %174, align 1, !noundef !12
+  %176 = getelementptr inbounds [0 x i8], ptr %.val16, i64 0, i64 %170
+  %177 = load i8, ptr %176, align 1, !noundef !12
+  %178 = icmp eq i8 %175, %177
+  br i1 %178, label %180, label %.loopexit.loopexit
 
-180:                                              ; preds = %167
-  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %171, i64 noundef %.val17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.114) #21
+179:                                              ; preds = %166
+  tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %170, i64 noundef %.val17, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.e9f42dff1fd369047582a93c3ee51670.114) #21
   unreachable
 
-181:                                              ; preds = %174
-  %182 = add i32 %160, 1
-  store i32 %182, ptr %17, align 4
-  %183 = add i32 %161, -1
-  store i32 %183, ptr %1, align 4
-  %184 = add i32 %162, 1
-  store i32 %184, ptr %2, align 4
-  %.old3 = icmp eq i32 %183, 0
-  br i1 %.old3, label %.loopexit.loopexit, label %159
+180:                                              ; preds = %173
+  %181 = add i32 %159, 1
+  store i32 %181, ptr %17, align 4
+  %182 = add i32 %160, -1
+  store i32 %182, ptr %1, align 4
+  %183 = add i32 %161, 1
+  store i32 %183, ptr %2, align 4
+  %.old3 = icmp eq i32 %182, 0
+  br i1 %.old3, label %.loopexit.loopexit, label %158
 }
 
 ; Function Attrs: nonlazybind uwtable

@@ -88,7 +88,7 @@ define void @_ZN9softposit7quire163ops3fdp17h6da150bf3eda9608E(ptr noalias nound
   %10 = icmp eq i16 %1, 0
   %11 = icmp eq i16 %2, 0
   %or.cond5 = or i1 %10, %11
-  br i1 %or.cond5, label %54, label %12
+  br i1 %or.cond5, label %61, label %12
 
 12:                                               ; preds = %9
   %13 = and i16 %1, -32768
@@ -183,65 +183,56 @@ _ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit64: ; preds
   %48 = zext nneg i16 %44 to i32
   %49 = mul nuw nsw i32 %48, %47
   %50 = icmp samesign ugt i8 %46, 1
-  %51 = xor i8 %46, 2
-  %52 = zext i1 %50 to i8
-  %.040 = add i8 %45, %52
-  %.037 = select i1 %50, i8 %51, i8 %46
-  %53 = icmp samesign ult i32 %49, 536870912
-  br i1 %53, label %55, label %62
+  %51 = zext i1 %50 to i8
+  %.040 = add i8 %45, %51
+  %.037 = and i8 %46, 1
+  %52 = icmp samesign ugt i32 %49, 536870911
+  %spec.select49 = select i1 %52, i8 %.037, i8 0
+  %.141 = add i8 %.040, %spec.select49
+  %53 = zext i1 %52 to i8
+  %.138 = xor i8 %.037, %53
+  %54 = zext i1 %52 to i32
+  %.035 = lshr exact i32 %49, %54
+  %55 = sext i8 %.141 to i16
+  %56 = shl nsw i16 %55, 1
+  %57 = or disjoint i8 %.138, 28
+  %58 = zext nneg i8 %57 to i16
+  %59 = add nsw i16 %56, %58
+  %60 = icmp sgt i16 %59, 0
+  br i1 %60, label %68, label %62
 
-.sink.split:                                      ; preds = %4, %78
-  %.sink = phi i128 [ %.039, %78 ], [ -170141183460469231731687303715884105728, %4 ]
+.sink.split:                                      ; preds = %4, %73
+  %.sink = phi i128 [ %.039, %73 ], [ -170141183460469231731687303715884105728, %4 ]
   store i128 %.sink, ptr %0, align 16
-  br label %54
+  br label %61
 
-54:                                               ; preds = %.sink.split, %9
+61:                                               ; preds = %.sink.split, %9
   ret void
 
-55:                                               ; preds = %62, %_ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit64
-  %.141 = phi i8 [ %.040, %_ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit64 ], [ %spec.select49, %62 ]
-  %.138 = phi i8 [ %.037, %_ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit64 ], [ %65, %62 ]
-  %.035 = phi i32 [ %49, %_ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit64 ], [ %66, %62 ]
-  %56 = sext i8 %.141 to i16
-  %57 = shl nsw i16 %56, 1
-  %58 = add nsw i16 %57, 28
-  %59 = zext nneg i8 %.138 to i16
-  %60 = add nsw i16 %58, %59
-  %61 = icmp sgt i16 %60, 0
-  br i1 %61, label %73, label %67
-
 62:                                               ; preds = %_ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit64
-  %63 = icmp ne i8 %.037, 0
-  %64 = zext i1 %63 to i8
-  %spec.select49 = add i8 %.040, %64
-  %65 = xor i8 %.037, 1
-  %66 = lshr exact i32 %49, 1
-  br label %55
+  %63 = sub nsw i16 0, %59
+  %64 = zext nneg i32 %.035 to i128
+  %65 = and i16 %63, 127
+  %66 = zext nneg i16 %65 to i128
+  %67 = lshr i128 %64, %66
+  br label %73
 
-67:                                               ; preds = %55
-  %68 = sub nsw i16 0, %60
+68:                                               ; preds = %_ZN9softposit5p16e15P16E117separate_bits_tmp17hb53692effe90da8fE.exit64
   %69 = zext nneg i32 %.035 to i128
-  %70 = and i16 %68, 127
+  %70 = and i16 %59, 127
   %71 = zext nneg i16 %70 to i128
-  %72 = lshr i128 %69, %71
-  br label %78
+  %72 = shl i128 %69, %71
+  br label %73
 
-73:                                               ; preds = %55
-  %74 = zext nneg i32 %.035 to i128
-  %75 = and i16 %60, 127
-  %76 = zext nneg i16 %75 to i128
-  %77 = shl i128 %74, %76
-  br label %78
-
-78:                                               ; preds = %73, %67
-  %.036 = phi i128 [ %77, %73 ], [ %72, %67 ]
-  %79 = xor i1 %14, %3
-  %80 = xor i1 %15, %79
-  %81 = sub i128 0, %.036
-  %spec.select50 = select i1 %80, i128 %.036, i128 %81
-  %82 = add i128 %spec.select50, %5
-  %83 = icmp eq i128 %82, -170141183460469231731687303715884105728
-  %.039 = select i1 %83, i128 0, i128 %82
+73:                                               ; preds = %68, %62
+  %.036 = phi i128 [ %72, %68 ], [ %67, %62 ]
+  %74 = xor i1 %14, %3
+  %75 = xor i1 %15, %74
+  %76 = sub i128 0, %.036
+  %spec.select50 = select i1 %75, i128 %.036, i128 %76
+  %77 = add i128 %spec.select50, %5
+  %78 = icmp eq i128 %77, -170141183460469231731687303715884105728
+  %.039 = select i1 %78, i128 0, i128 %77
   br label %.sink.split
 }
 
