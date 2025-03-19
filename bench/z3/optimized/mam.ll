@@ -6298,16 +6298,16 @@ _ZN12_GLOBAL__N_112label_hasherclEP9func_decl.exit: ; preds = %_ZN6vectorIaLb0Ej
 
 310:                                              ; preds = %331, %309
   %.013.i.i.i = phi ptr [ %79, %309 ], [ %325, %331 ]
-  %.0.i.i26.i = phi ptr [ %57, %309 ], [ %328, %331 ]
+  %.0.i.i27.i = phi ptr [ %57, %309 ], [ %328, %331 ]
   %311 = load ptr, ptr %.013.i.i.i, align 8, !tbaa !698
-  %312 = load ptr, ptr %.0.i.i26.i, align 8, !tbaa !698
+  %312 = load ptr, ptr %.0.i.i27.i, align 8, !tbaa !698
   %.not.i.i.i = icmp eq ptr %311, %312
   br i1 %.not.i.i.i, label %313, label %332
 
 313:                                              ; preds = %310
   %314 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 8
   %315 = load i16, ptr %314, align 8, !tbaa !702
-  %316 = getelementptr inbounds nuw i8, ptr %.0.i.i26.i, i64 8
+  %316 = getelementptr inbounds nuw i8, ptr %.0.i.i27.i, i64 8
   %317 = load i16, ptr %316, align 8, !tbaa !702
   %.not15.i.i.i = icmp eq i16 %315, %317
   br i1 %.not15.i.i.i, label %318, label %332
@@ -6315,7 +6315,7 @@ _ZN12_GLOBAL__N_112label_hasherclEP9func_decl.exit: ; preds = %_ZN6vectorIaLb0Ej
 318:                                              ; preds = %313
   %319 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 24
   %320 = load i32, ptr %319, align 8, !tbaa !705
-  %321 = getelementptr inbounds nuw i8, ptr %.0.i.i26.i, i64 24
+  %321 = getelementptr inbounds nuw i8, ptr %.0.i.i27.i, i64 24
   %322 = load i32, ptr %321, align 8, !tbaa !705
   %.not16.i.i.i = icmp eq i32 %320, %322
   br i1 %.not16.i.i.i, label %323, label %332
@@ -6324,7 +6324,7 @@ _ZN12_GLOBAL__N_112label_hasherclEP9func_decl.exit: ; preds = %_ZN6vectorIaLb0Ej
   %324 = getelementptr inbounds nuw i8, ptr %.013.i.i.i, i64 32
   %325 = load ptr, ptr %324, align 8, !tbaa !706
   %326 = icmp eq ptr %325, null
-  %327 = getelementptr inbounds nuw i8, ptr %.0.i.i26.i, i64 32
+  %327 = getelementptr inbounds nuw i8, ptr %.0.i.i27.i, i64 32
   %328 = load ptr, ptr %327, align 8, !tbaa !706
   %329 = icmp eq ptr %328, null
   %330 = xor i1 %326, %329
@@ -6388,13 +6388,13 @@ _ZN12_GLOBAL__N_112label_hasherclEP9func_decl.exit: ; preds = %_ZN6vectorIaLb0Ej
   %.086.i.i = phi ptr [ %79, %354 ], [ %57, %352 ]
   %.085.i.i = phi ptr [ %57, %354 ], [ %79, %352 ]
   %.084.i.i = phi i8 [ %207, %354 ], [ %303, %352 ]
-  %.0.i24.i = phi i8 [ %303, %354 ], [ %207, %352 ]
-  %356 = zext i8 %.0.i24.i to i64
+  %.0.i25.i = phi i8 [ %303, %354 ], [ %207, %352 ]
+  %356 = zext i8 %.0.i25.i to i64
   %357 = zext i8 %.084.i.i to i64
   %358 = getelementptr inbounds nuw [64 x [64 x %"struct.std::pair"]], ptr %53, i64 0, i64 %356, i64 %357
   %359 = load ptr, ptr %358, align 8, !tbaa !712
-  %.not.i25.i = icmp eq ptr %359, null
-  br i1 %.not.i25.i, label %.noexc40.i.i, label %360
+  %.not.i26.i = icmp eq ptr %359, null
+  br i1 %.not.i26.i, label %.noexc40.i.i, label %360
 
 360:                                              ; preds = %355
   tail call fastcc void @_ZN12_GLOBAL__N_18mam_impl6insertEPNS_9path_treeEPNS_4pathEP10quantifierP3app(ptr noundef nonnull align 8 dereferenceable(98976) %0, ptr noundef nonnull %359, ptr noundef nonnull %.085.i.i, ptr noundef %3, ptr noundef %4)
@@ -6521,8 +6521,8 @@ _ZN12_GLOBAL__N_18mam_impl9update_ppEhhPNS_4pathES2_P10quantifierP3app.exit.i: ;
   %412 = lshr i32 %411, 1
   %413 = shl i32 %412, 3
   %414 = add i32 %413, 8
-  %.not.i.i27.i = icmp ugt i32 %412, %401
-  br i1 %.not.i.i27.i, label %415, label %418
+  %.not.i.i28.i = icmp ugt i32 %412, %401
+  br i1 %.not.i.i28.i, label %415, label %418
 
 415:                                              ; preds = %409
   %416 = shl i32 %401, 3

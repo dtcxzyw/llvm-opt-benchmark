@@ -330,8 +330,8 @@ define dso_local i32 @ext4_ind_map_blocks(ptr noundef %0, ptr noundef %1, ptr no
   br label %.loopexit
 
 180:                                              ; preds = %169
-  %181 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %181, i8 0, i64 48, i1 false)
+  %181 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %181, i8 0, i64 40, i1 false)
   store ptr %1, ptr %7, align 8
   %182 = load i32, ptr %11, align 8
   %183 = getelementptr inbounds nuw i8, ptr %7, i64 12
@@ -693,7 +693,6 @@ define dso_local i32 @ext4_ind_map_blocks(ptr noundef %0, ptr noundef %1, ptr no
 .thread34:                                        ; preds = %376, %267
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #12
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %5) #12
-  store i32 0, ptr %8, align 4
   br label %410
 
 .loopexit38:                                      ; preds = %395, %390

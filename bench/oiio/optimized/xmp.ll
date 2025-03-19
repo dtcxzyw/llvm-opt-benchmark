@@ -852,7 +852,7 @@ $_ZN3fmt2v86detail15basic_impl_dataIvE14power_of_10_64E = comdat any
 @.str.305 = private unnamed_addr constant [20 x i8] c" </rdf:Description>\00", align 1
 @llvm.global_ctors = appending global [1 x { i32, ptr, ptr }] [{ i32, ptr, ptr } { i32 65535, ptr @_GLOBAL__sub_I_xmp.cpp, ptr null }]
 @switch.table._ZN11OpenImageIO6v3_1_04pugi4impl10xml_parser10parse_treeEPcPNS1_15xml_node_structEjc = private unnamed_addr constant [16 x ptr] [ptr @_ZN11OpenImageIO6v3_1_04pugi4impl22strconv_attribute_implINS2_9opt_falseEE12parse_simpleEPcc, ptr @_ZN11OpenImageIO6v3_1_04pugi4impl22strconv_attribute_implINS2_8opt_trueEE12parse_simpleEPcc, ptr @_ZN11OpenImageIO6v3_1_04pugi4impl22strconv_attribute_implINS2_9opt_falseEE9parse_eolEPcc, ptr @_ZN11OpenImageIO6v3_1_04pugi4impl22strconv_attribute_implINS2_8opt_trueEE9parse_eolEPcc, ptr @_ZN11OpenImageIO6v3_1_04pugi4impl22strconv_attribute_implINS2_9opt_falseEE11parse_wconvEPcc, ptr @_ZN11OpenImageIO6v3_1_04pugi4impl22strconv_attribute_implINS2_8opt_trueEE11parse_wconvEPcc, ptr @_ZN11OpenImageIO6v3_1_04pugi4impl22strconv_attribute_implINS2_9opt_falseEE11parse_wconvEPcc, ptr @_ZN11OpenImageIO6v3_1_04pugi4impl22strconv_attribute_implINS2_8opt_trueEE11parse_wconvEPcc, ptr @_ZN11OpenImageIO6v3_1_04pugi4impl22strconv_attribute_implINS2_9opt_falseEE11parse_wnormEPcc, ptr @_ZN11OpenImageIO6v3_1_04pugi4impl22strconv_attribute_implINS2_8opt_trueEE11parse_wnormEPcc, ptr @_ZN11OpenImageIO6v3_1_04pugi4impl22strconv_attribute_implINS2_9opt_falseEE11parse_wnormEPcc, ptr @_ZN11OpenImageIO6v3_1_04pugi4impl22strconv_attribute_implINS2_8opt_trueEE11parse_wnormEPcc, ptr @_ZN11OpenImageIO6v3_1_04pugi4impl22strconv_attribute_implINS2_9opt_falseEE11parse_wnormEPcc, ptr @_ZN11OpenImageIO6v3_1_04pugi4impl22strconv_attribute_implINS2_8opt_trueEE11parse_wnormEPcc, ptr @_ZN11OpenImageIO6v3_1_04pugi4impl22strconv_attribute_implINS2_9opt_falseEE11parse_wnormEPcc, ptr @_ZN11OpenImageIO6v3_1_04pugi4impl22strconv_attribute_implINS2_8opt_trueEE11parse_wnormEPcc], align 8
-@switch.table._ZN11OpenImageIO6v3_1_04pugi4impl10xml_parser10parse_treeEPcPNS1_15xml_node_structEjc.143 = private unnamed_addr constant [8 x ptr] [ptr @_ZN11OpenImageIO6v3_1_04pugi4impl19strconv_pcdata_implINS2_9opt_falseES4_S4_E5parseEPc, ptr @_ZN11OpenImageIO6v3_1_04pugi4impl19strconv_pcdata_implINS2_9opt_falseES4_NS2_8opt_trueEE5parseEPc, ptr @_ZN11OpenImageIO6v3_1_04pugi4impl19strconv_pcdata_implINS2_9opt_falseENS2_8opt_trueES4_E5parseEPc, ptr @_ZN11OpenImageIO6v3_1_04pugi4impl19strconv_pcdata_implINS2_9opt_falseENS2_8opt_trueES5_E5parseEPc, ptr @_ZN11OpenImageIO6v3_1_04pugi4impl19strconv_pcdata_implINS2_8opt_trueENS2_9opt_falseES5_E5parseEPc, ptr @_ZN11OpenImageIO6v3_1_04pugi4impl19strconv_pcdata_implINS2_8opt_trueENS2_9opt_falseES4_E5parseEPc, ptr @_ZN11OpenImageIO6v3_1_04pugi4impl19strconv_pcdata_implINS2_8opt_trueES4_NS2_9opt_falseEE5parseEPc, ptr @_ZN11OpenImageIO6v3_1_04pugi4impl19strconv_pcdata_implINS2_8opt_trueES4_S4_E5parseEPc], align 8
+@switch.table._ZN11OpenImageIO6v3_1_04pugi4impl10xml_parser10parse_treeEPcPNS1_15xml_node_structEjc.144 = private unnamed_addr constant [8 x ptr] [ptr @_ZN11OpenImageIO6v3_1_04pugi4impl19strconv_pcdata_implINS2_9opt_falseES4_S4_E5parseEPc, ptr @_ZN11OpenImageIO6v3_1_04pugi4impl19strconv_pcdata_implINS2_9opt_falseES4_NS2_8opt_trueEE5parseEPc, ptr @_ZN11OpenImageIO6v3_1_04pugi4impl19strconv_pcdata_implINS2_9opt_falseENS2_8opt_trueES4_E5parseEPc, ptr @_ZN11OpenImageIO6v3_1_04pugi4impl19strconv_pcdata_implINS2_9opt_falseENS2_8opt_trueES5_E5parseEPc, ptr @_ZN11OpenImageIO6v3_1_04pugi4impl19strconv_pcdata_implINS2_8opt_trueENS2_9opt_falseES5_E5parseEPc, ptr @_ZN11OpenImageIO6v3_1_04pugi4impl19strconv_pcdata_implINS2_8opt_trueENS2_9opt_falseES4_E5parseEPc, ptr @_ZN11OpenImageIO6v3_1_04pugi4impl19strconv_pcdata_implINS2_8opt_trueES4_NS2_9opt_falseEE5parseEPc, ptr @_ZN11OpenImageIO6v3_1_04pugi4impl19strconv_pcdata_implINS2_8opt_trueES4_S4_E5parseEPc], align 8
 
 declare void @_ZNSt8ios_base4InitC1Ev(ptr noundef nonnull align 1 dereferenceable(1)) unnamed_addr #0
 
@@ -7921,7 +7921,7 @@ switch.lookup:
   %11 = and i32 %10, 4
   %12 = or disjoint i32 %9, %11
   %13 = zext nneg i32 %12 to i64
-  %switch.gep800 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN11OpenImageIO6v3_1_04pugi4impl10xml_parser10parse_treeEPcPNS1_15xml_node_structEjc.143, i64 0, i64 %13
+  %switch.gep800 = getelementptr inbounds nuw [8 x ptr], ptr @switch.table._ZN11OpenImageIO6v3_1_04pugi4impl10xml_parser10parse_treeEPcPNS1_15xml_node_structEjc.144, i64 0, i64 %13
   %switch.load801 = load ptr, ptr %switch.gep800, align 8
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5) #27
   store ptr %2, ptr %5, align 8, !tbaa !230
@@ -16685,11 +16685,11 @@ _ZNSt12_Vector_baseIN3tsl17detail_robin_hash12bucket_entryISt4pairINSt7__cxx1112
 
 ._crit_edge.loopexit:                             ; preds = %132
   %.pre = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN11OpenImageIO6v3_1_012_GLOBAL__N_114xmp_tagmap_refEvE1T, i64 8), align 8, !tbaa !400
-  %.pre13 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN11OpenImageIO6v3_1_012_GLOBAL__N_114xmp_tagmap_refEvE1T, i64 16), align 8, !tbaa !401
+  %.pre14 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZZN11OpenImageIO6v3_1_012_GLOBAL__N_114xmp_tagmap_refEvE1T, i64 16), align 8, !tbaa !401
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %45
-  %57 = phi ptr [ %.pre13, %._crit_edge.loopexit ], [ %.val14, %45 ]
+  %57 = phi ptr [ %.pre14, %._crit_edge.loopexit ], [ %.val14, %45 ]
   %58 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %.val.i, %45 ]
   store i64 %.sroa.0.0.copyload.i.i.pre, ptr @_ZZN11OpenImageIO6v3_1_012_GLOBAL__N_114xmp_tagmap_refEvE1T, align 8, !tbaa !59
   %59 = getelementptr inbounds nuw i8, ptr %2, i64 8
@@ -16745,8 +16745,8 @@ _ZN3tsl17detail_robin_hash12bucket_entryISt4pairINSt7__cxx1112basic_stringIcSt11
 
 _ZSt8_DestroyIN3tsl17detail_robin_hash12bucket_entryISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN11OpenImageIO6v3_1_012_GLOBAL__N_16XMPtagEELb1EEEEvPT_.exit.i.i.i.i.i: ; preds = %_ZN3tsl17detail_robin_hash12bucket_entryISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN11OpenImageIO6v3_1_012_GLOBAL__N_16XMPtagEELb1EE13destroy_valueEv.exit.i.i.i.i.i.i.i.i, %.lr.ph.i.i.i.i.i
   %78 = getelementptr inbounds nuw i8, ptr %.05.i.i.i.i.i, i64 48
-  %.not.i.i.i.i.i24 = icmp eq ptr %78, %57
-  br i1 %.not.i.i.i.i.i24, label %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN11OpenImageIO6v3_1_012_GLOBAL__N_16XMPtagEELb1EEESH_EvT_SJ_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !402
+  %.not.i.i.i.i.i26 = icmp eq ptr %78, %57
+  br i1 %.not.i.i.i.i.i26, label %_ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN11OpenImageIO6v3_1_012_GLOBAL__N_16XMPtagEELb1EEESH_EvT_SJ_RSaIT0_E.exit.i.i, label %.lr.ph.i.i.i.i.i, !llvm.loop !402
 
 _ZSt8_DestroyIPN3tsl17detail_robin_hash12bucket_entryISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN11OpenImageIO6v3_1_012_GLOBAL__N_16XMPtagEELb1EEESH_EvT_SJ_RSaIT0_E.exit.i.i: ; preds = %_ZSt8_DestroyIN3tsl17detail_robin_hash12bucket_entryISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN11OpenImageIO6v3_1_012_GLOBAL__N_16XMPtagEELb1EEEEvPT_.exit.i.i.i.i.i, %._crit_edge
   %.not.i.i.i.i = icmp eq ptr %58, null
@@ -16801,14 +16801,14 @@ _ZNK3tsl17detail_robin_hash10robin_hashISt4pairINSt7__cxx1112basic_stringIcSt11c
   br label %100
 
 100:                                              ; preds = %124, %_ZNK3tsl17detail_robin_hash10robin_hashISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN11OpenImageIO6v3_1_012_GLOBAL__N_16XMPtagEENS_9robin_mapIS8_SE_St4hashIS8_ESt8equal_toIS8_ESaISF_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSP_11ValueSelectESI_SK_SL_Lb0ESO_E8hash_keyIS8_EEmRKT_.exit
-  %.015.i = phi i16 [ 0, %_ZNK3tsl17detail_robin_hash10robin_hashISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN11OpenImageIO6v3_1_012_GLOBAL__N_16XMPtagEENS_9robin_mapIS8_SE_St4hashIS8_ESt8equal_toIS8_ESaISF_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSP_11ValueSelectESI_SK_SL_Lb0ESO_E8hash_keyIS8_EEmRKT_.exit ], [ %125, %124 ]
-  %.014.i = phi i32 [ %97, %_ZNK3tsl17detail_robin_hash10robin_hashISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN11OpenImageIO6v3_1_012_GLOBAL__N_16XMPtagEENS_9robin_mapIS8_SE_St4hashIS8_ESt8equal_toIS8_ESaISF_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSP_11ValueSelectESI_SK_SL_Lb0ESO_E8hash_keyIS8_EEmRKT_.exit ], [ %.1.i, %124 ]
+  %.07.i = phi i16 [ 0, %_ZNK3tsl17detail_robin_hash10robin_hashISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN11OpenImageIO6v3_1_012_GLOBAL__N_16XMPtagEENS_9robin_mapIS8_SE_St4hashIS8_ESt8equal_toIS8_ESaISF_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSP_11ValueSelectESI_SK_SL_Lb0ESO_E8hash_keyIS8_EEmRKT_.exit ], [ %125, %124 ]
+  %.06.i = phi i32 [ %97, %_ZNK3tsl17detail_robin_hash10robin_hashISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN11OpenImageIO6v3_1_012_GLOBAL__N_16XMPtagEENS_9robin_mapIS8_SE_St4hashIS8_ESt8equal_toIS8_ESaISF_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSP_11ValueSelectESI_SK_SL_Lb0ESO_E8hash_keyIS8_EEmRKT_.exit ], [ %.1.i, %124 ]
   %.pn = phi i64 [ %96, %_ZNK3tsl17detail_robin_hash10robin_hashISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN11OpenImageIO6v3_1_012_GLOBAL__N_16XMPtagEENS_9robin_mapIS8_SE_St4hashIS8_ESt8equal_toIS8_ESaISF_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSP_11ValueSelectESI_SK_SL_Lb0ESO_E8hash_keyIS8_EEmRKT_.exit ], [ %126, %124 ]
-  %.0.i = and i64 %.sroa.0.0.copyload.i.i.pre, %.pn
+  %.0.i = and i64 %.pn, %.sroa.0.0.copyload.i.i.pre
   %101 = getelementptr inbounds nuw %"class.tsl::detail_robin_hash::bucket_entry", ptr %46, i64 %.0.i
   %102 = getelementptr i8, ptr %101, i64 4
   %.val7.i = load i16, ptr %102, align 4, !tbaa !357
-  %103 = icmp sgt i16 %.015.i, %.val7.i
+  %103 = icmp sgt i16 %.07.i, %.val7.i
   br i1 %103, label %104, label %124
 
 104:                                              ; preds = %100
@@ -16847,15 +16847,15 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
   store ptr %121, ptr %99, align 8, !tbaa !177
   store ptr %120, ptr %119, align 8, !tbaa !177
   %122 = load i16, ptr %102, align 2, !tbaa !210
-  store i16 %.015.i, ptr %102, align 2, !tbaa !210
+  store i16 %.07.i, ptr %102, align 2, !tbaa !210
   %123 = load i32, ptr %101, align 4, !tbaa !397
-  store i32 %.014.i, ptr %101, align 4, !tbaa !397
+  store i32 %.06.i, ptr %101, align 4, !tbaa !397
   br label %124
 
 124:                                              ; preds = %118, %100
-  %.116.i = phi i16 [ %122, %118 ], [ %.015.i, %100 ]
-  %.1.i = phi i32 [ %123, %118 ], [ %.014.i, %100 ]
-  %125 = add i16 %.116.i, 1
+  %.18.i = phi i16 [ %122, %118 ], [ %.07.i, %100 ]
+  %.1.i = phi i32 [ %123, %118 ], [ %.06.i, %100 ]
+  %125 = add i16 %.18.i, 1
   %126 = add i64 %.0.i, 1
   br label %100, !llvm.loop !408
 
@@ -16870,8 +16870,8 @@ _ZN3tsl17detail_robin_hash10robin_hashISt4pairINSt7__cxx1112basic_stringIcSt11ch
   %130 = getelementptr inbounds nuw i8, ptr %101, i64 40
   %131 = load ptr, ptr %99, align 8, !tbaa !364
   store ptr %131, ptr %130, align 8, !tbaa !364
-  store i32 %.014.i, ptr %101, align 4, !tbaa !397
-  store i16 %.015.i, ptr %102, align 4, !tbaa !357
+  store i32 %.06.i, ptr %101, align 4, !tbaa !397
+  store i16 %.07.i, ptr %102, align 4, !tbaa !357
   br label %132
 
 132:                                              ; preds = %_ZN3tsl17detail_robin_hash10robin_hashISt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKN11OpenImageIO6v3_1_012_GLOBAL__N_16XMPtagEENS_9robin_mapIS8_SE_St4hashIS8_ESt8equal_toIS8_ESaISF_ELb0ENS_2rh26power_of_two_growth_policyILm2EEEE9KeySelectENSP_11ValueSelectESI_SK_SL_Lb0ESO_E22insert_value_on_rehashEmsjOSF_.exit, %.lr.ph

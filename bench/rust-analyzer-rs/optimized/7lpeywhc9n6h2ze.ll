@@ -79265,7 +79265,6 @@ _ZN6hir_ty3mir5lower11MirLowerCtx8set_goto17hf1d1537fc878dc13E.exit: ; preds = %
   br i1 %switch906, label %.loopexit, label %346
 
 346:                                              ; preds = %_ZN6hir_ty3mir5lower11MirLowerCtx8set_goto17hf1d1537fc878dc13E.exit
-  store i32 %.sroa.5478.0.copyload, ptr %78, align 4
   %347 = icmp eq ptr %318, %187
   br i1 %347, label %.critedge, label %316
 

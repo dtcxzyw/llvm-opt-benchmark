@@ -3537,15 +3537,13 @@ _ZN4llvm19SmallPtrSetImplBase5clearEv.exit.i:     ; preds = %1147, %1142
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %24) #23, !noalias !204
   %.val4.i.i170.i = load i32, ptr %546, align 8, !tbaa !201, !noalias !204
   %1148 = icmp eq i32 %.val4.i.i170.i, 0
-  %.val5.i.i171.i = load ptr, ptr %39, align 8, !tbaa !226, !noalias !204
-  %.val6.i.i172.i = load i32, ptr %555, align 8, !tbaa !227, !noalias !204
-  %1149 = zext i32 %.val6.i.i172.i to i64
-  %1150 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.146", ptr %.val5.i.i171.i, i64 %1149
+  %1149 = zext i32 %.val7.i.i.i to i64
+  %1150 = getelementptr inbounds nuw %"class.llvm::detail::DenseSetPair.146", ptr %.val.i.i.i, i64 %1149
   br i1 %1148, label %._crit_edge350.i, label %_ZN4llvm6detail12DenseSetImplIN12_GLOBAL__N_111ModelledPHIENS_8DenseMapIS3_NS0_13DenseSetEmptyENS2_12DenseMapInfoIS3_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit179.i
 
 _ZN4llvm6detail12DenseSetImplIN12_GLOBAL__N_111ModelledPHIENS_8DenseMapIS3_NS0_13DenseSetEmptyENS2_12DenseMapInfoIS3_EENS0_12DenseSetPairIS3_EEEES7_E5beginEv.exit179.i: ; preds = %_ZN4llvm19SmallPtrSetImplBase5clearEv.exit.i
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8), !noalias !204
-  store ptr %.val5.i.i171.i, ptr %8, align 8, !tbaa !228, !noalias !204
+  store ptr %.val.i.i.i, ptr %8, align 8, !tbaa !228, !noalias !204
   store ptr %1150, ptr %590, align 8, !tbaa !230, !noalias !204
   call fastcc void @_ZN4llvm16DenseMapIteratorIN12_GLOBAL__N_111ModelledPHIENS_6detail13DenseSetEmptyENS1_12DenseMapInfoIS2_EENS3_12DenseSetPairIS2_EELb0EE23AdvancePastEmptyBucketsEv(ptr noundef nonnull align 8 dereferenceable(16) %8), !noalias !204
   %.fca.0.load.pre.i.i.i173.i = load ptr, ptr %8, align 8, !noalias !204
