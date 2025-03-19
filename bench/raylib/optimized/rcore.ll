@@ -45691,7 +45691,7 @@ define noundef zeroext i1 @IsFileExtension(ptr noundef %0, ptr noundef %1) local
   %6 = icmp eq ptr %5, %0
   %.not10 = icmp eq ptr %5, null
   %.not = or i1 %6, %.not10
-  br i1 %.not, label %22, label %7
+  br i1 %.not, label %23, label %7
 
 7:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #60
@@ -45707,27 +45707,27 @@ define noundef zeroext i1 @IsFileExtension(ptr noundef %0, ptr noundef %1) local
 
 13:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %14 = load i32, ptr %3, align 4
-  %15 = sext i32 %14 to i64
-  %16 = icmp slt i64 %indvars.iv.next, %15
-  br i1 %16, label %.lr.ph, label %._crit_edge
+  %15 = load i32, ptr %3, align 4
+  %16 = sext i32 %15 to i64
+  %17 = icmp slt i64 %indvars.iv.next, %16
+  br i1 %17, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %7, %13
   %indvars.iv = phi i64 [ %indvars.iv.next, %13 ], [ 0, %7 ]
-  %17 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
-  %18 = load ptr, ptr %17, align 8
-  %19 = call ptr @TextToLower(ptr noundef %18) #60
-  %20 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %19) #61
-  %21 = icmp eq i32 %20, 0
-  br i1 %21, label %._crit_edge, label %13
+  %18 = getelementptr inbounds nuw ptr, ptr %8, i64 %indvars.iv
+  %19 = load ptr, ptr %18, align 8
+  %20 = call ptr @TextToLower(ptr noundef %19) #60
+  %21 = call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %4, ptr noundef nonnull dereferenceable(1) %20) #61
+  %22 = icmp eq i32 %21, 0
+  br i1 %22, label %._crit_edge, label %13
 
 ._crit_edge:                                      ; preds = %13, %.lr.ph, %7
-  %.lcssa = phi i1 [ false, %7 ], [ %21, %.lr.ph ], [ %21, %13 ]
+  %.lcssa = phi i1 [ false, %7 ], [ %22, %.lr.ph ], [ %22, %13 ]
   call void @llvm.lifetime.end.p0(i64 17, ptr nonnull %4) #60
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #60
-  br label %22
+  br label %23
 
-22:                                               ; preds = %._crit_edge, %2
+23:                                               ; preds = %._crit_edge, %2
   %.08 = phi i1 [ %.lcssa, %._crit_edge ], [ false, %2 ]
   ret i1 %.08
 }

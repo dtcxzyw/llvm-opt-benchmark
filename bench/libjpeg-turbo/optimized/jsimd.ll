@@ -100,101 +100,101 @@ define internal fastcc void @init_simd() unnamed_addr #0 {
 14:                                               ; preds = %12, %7
   %lhsv = load i16, ptr %1, align 2
   %.not29 = icmp eq i16 %lhsv, 49
-  br i1 %.not29, label %15, label %GETENV_S.exit
+  br i1 %.not29, label %15, label %17
 
 15:                                               ; preds = %14
   %16 = and i32 %5, 8
   store i32 %16, ptr %2, align 4, !tbaa !3
-  br label %GETENV_S.exit
+  br label %17
 
-GETENV_S.exit:                                    ; preds = %8, %15, %14
-  %17 = phi i32 [ %16, %15 ], [ %5, %14 ], [ %5, %8 ]
-  %18 = call ptr @getenv(ptr noundef nonnull @.str.2) #8
-  %.not18.i12 = icmp eq ptr %18, null
-  br i1 %.not18.i12, label %19, label %20
+17:                                               ; preds = %8, %15, %14
+  %18 = phi i32 [ %16, %15 ], [ %5, %14 ], [ %5, %8 ]
+  %19 = call ptr @getenv(ptr noundef nonnull @.str.2) #8
+  %.not18.i12 = icmp eq ptr %19, null
+  br i1 %.not18.i12, label %20, label %21
 
-19:                                               ; preds = %GETENV_S.exit
+20:                                               ; preds = %17
   store i8 0, ptr %1, align 2, !tbaa !7
   br label %26
 
-20:                                               ; preds = %GETENV_S.exit
-  %21 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %18) #9
-  %22 = add i64 %21, -2
-  %23 = icmp ult i64 %22, -3
-  br i1 %23, label %GETENV_S.exit14, label %24
+21:                                               ; preds = %17
+  %22 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %19) #9
+  %23 = add i64 %22, -2
+  %24 = icmp ult i64 %23, -3
+  br i1 %24, label %GETENV_S.exit14, label %25
 
-24:                                               ; preds = %20
-  %25 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %18, i64 noundef 2) #8
+25:                                               ; preds = %21
+  %26 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %19, i64 noundef 2) #8
   br label %26
 
-26:                                               ; preds = %24, %19
+GETENV_S.exit14:                                  ; preds = %24, %19
   %lhsv30 = load i16, ptr %1, align 2
   %.not31 = icmp eq i16 %lhsv30, 49
-  br i1 %.not31, label %27, label %GETENV_S.exit14
+  br i1 %.not31, label %28, label %30
 
-27:                                               ; preds = %26
-  %28 = and i32 %17, 128
-  store i32 %28, ptr %2, align 4, !tbaa !3
-  br label %GETENV_S.exit14
+28:                                               ; preds = %26
+  %29 = and i32 %18, 128
+  store i32 %29, ptr %2, align 4, !tbaa !3
+  br label %30
 
-GETENV_S.exit14:                                  ; preds = %20, %27, %26
-  %29 = call ptr @getenv(ptr noundef nonnull @.str.3) #8
-  %.not18.i15 = icmp eq ptr %29, null
-  br i1 %.not18.i15, label %30, label %31
+30:                                               ; preds = %20, %27, %GETENV_S.exit14
+  %31 = call ptr @getenv(ptr noundef nonnull @.str.3) #8
+  %.not18.i15 = icmp eq ptr %31, null
+  br i1 %.not18.i15, label %32, label %33
 
-30:                                               ; preds = %GETENV_S.exit14
+32:                                               ; preds = %30
   store i8 0, ptr %1, align 2, !tbaa !7
-  br label %37
+  br label %39
 
-31:                                               ; preds = %GETENV_S.exit14
-  %32 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %29) #9
-  %33 = add i64 %32, -2
-  %34 = icmp ult i64 %33, -3
-  br i1 %34, label %GETENV_S.exit17, label %35
+33:                                               ; preds = %30
+  %34 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %31) #9
+  %35 = add i64 %34, -2
+  %36 = icmp ult i64 %35, -3
+  br i1 %36, label %GETENV_S.exit17, label %37
 
-35:                                               ; preds = %31
-  %36 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %29, i64 noundef 2) #8
-  br label %37
+37:                                               ; preds = %33
+  %38 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %31, i64 noundef 2) #8
+  br label %39
 
-37:                                               ; preds = %35, %30
+39:                                               ; preds = %37, %32
   %lhsv32 = load i16, ptr %1, align 2
   %.not33 = icmp eq i16 %lhsv32, 49
-  br i1 %.not33, label %38, label %GETENV_S.exit17
+  br i1 %.not33, label %40, label %41
 
-38:                                               ; preds = %37
+40:                                               ; preds = %39
   store i32 0, ptr %2, align 4, !tbaa !3
-  br label %GETENV_S.exit17
+  br label %41
 
-GETENV_S.exit17:                                  ; preds = %31, %38, %37
-  %39 = call ptr @getenv(ptr noundef nonnull @.str.4) #8
-  %.not18.i18 = icmp eq ptr %39, null
-  br i1 %.not18.i18, label %40, label %41
+41:                                               ; preds = %31, %40, %39
+  %42 = call ptr @getenv(ptr noundef nonnull @.str.4) #8
+  %.not18.i18 = icmp eq ptr %42, null
+  br i1 %.not18.i18, label %43, label %44
 
-40:                                               ; preds = %GETENV_S.exit17
+43:                                               ; preds = %41
   store i8 0, ptr %1, align 2, !tbaa !7
-  br label %47
+  br label %50
 
-41:                                               ; preds = %GETENV_S.exit17
-  %42 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %39) #9
-  %43 = add i64 %42, -2
-  %44 = icmp ult i64 %43, -3
-  br i1 %44, label %GETENV_S.exit20, label %45
+44:                                               ; preds = %41
+  %45 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %42) #9
+  %46 = add i64 %45, -2
+  %47 = icmp ult i64 %46, -3
+  br i1 %47, label %GETENV_S.exit20, label %48
 
-45:                                               ; preds = %41
-  %46 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %39, i64 noundef 2) #8
-  br label %47
+48:                                               ; preds = %44
+  %49 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(1) %42, i64 noundef 2) #8
+  br label %50
 
-47:                                               ; preds = %45, %40
+50:                                               ; preds = %48, %43
   %lhsv34 = load i16, ptr %1, align 2
   %.not35 = icmp eq i16 %lhsv34, 49
-  br i1 %.not35, label %48, label %GETENV_S.exit20
+  br i1 %.not35, label %51, label %GETENV_S.exit20
 
-48:                                               ; preds = %47
-  %49 = call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @simd_huffman)
-  store i32 0, ptr %49, align 4, !tbaa !3
+51:                                               ; preds = %50
+  %52 = call align 4 ptr @llvm.threadlocal.address.p0(ptr align 4 @simd_huffman)
+  store i32 0, ptr %52, align 4, !tbaa !3
   br label %GETENV_S.exit20
 
-GETENV_S.exit20:                                  ; preds = %41, %47, %48, %0
+GETENV_S.exit20:                                  ; preds = %44, %50, %51, %0
   call void @llvm.lifetime.end.p0(i64 2, ptr nonnull %1) #8
   ret void
 }

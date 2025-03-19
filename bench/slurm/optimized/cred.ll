@@ -1004,7 +1004,7 @@ define dso_local void @format_core_allocs(ptr noundef readonly captures(none) %0
 17:                                               ; preds = %7
   %18 = load ptr, ptr %14, align 8
   %19 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.28, ptr noundef %18) #11
-  br label %112
+  br label %109
 
 20:                                               ; preds = %7
   %21 = tail call i32 @hostlist_find(ptr noundef nonnull %16, ptr noundef %1) #11
@@ -1024,7 +1024,7 @@ define dso_local void @format_core_allocs(ptr noundef readonly captures(none) %0
   %30 = load ptr, ptr %14, align 8
   %31 = tail call i32 (ptr, ...) @error(ptr noundef nonnull @.str.30, ptr noundef %1, ptr noundef %30) #11
   tail call void @hostlist_destroy(ptr noundef nonnull %16) #11
-  br label %112
+  br label %109
 
 32:                                               ; preds = %23
   %33 = add nuw nsw i32 %21, 1
@@ -1161,57 +1161,57 @@ define dso_local void @format_core_allocs(ptr noundef readonly captures(none) %0
 _core_format.exit:                                ; preds = %88, %94
   %96 = phi ptr [ %.pre, %94 ], [ %66, %88 ]
   %.sink.i = phi ptr [ %95, %94 ], [ %9, %88 ]
-  %97 = call ptr @xstrdup(ptr noundef nonnull %.sink.i) #11
+  %96 = call ptr @xstrdup(ptr noundef nonnull %.sink.i) #11
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %9) #11
-  store ptr %97, ptr %3, align 8
+  store ptr %96, ptr %3, align 8
   call void @llvm.lifetime.start.p0(i64 1024, ptr nonnull %8) #11
-  %98 = call ptr @bit_fmt(ptr noundef nonnull %8, i32 noundef 1024, ptr noundef %96) #11
-  %99 = load i8, ptr %8, align 16
-  %.not.i87 = icmp eq i8 %99, 91
-  br i1 %.not.i87, label %100, label %_core_format.exit90
+  %97 = call ptr @bit_fmt(ptr noundef nonnull %8, i32 noundef 1024, ptr noundef %96) #11
+  %98 = load i8, ptr %8, align 16
+  %.not.i87 = icmp eq i8 %98, 91
+  br i1 %.not.i87, label %99, label %_core_format.exit90
 
-100:                                              ; preds = %_core_format.exit
-  %101 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %8, i32 noundef 93) #14
-  %.not5.i89 = icmp eq ptr %101, null
-  br i1 %.not5.i89, label %103, label %102
+99:                                               ; preds = %_core_format.exit
+  %100 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %8, i32 noundef 93) #14
+  %.not5.i89 = icmp eq ptr %100, null
+  br i1 %.not5.i89, label %102, label %101
 
-102:                                              ; preds = %100
-  store i8 0, ptr %101, align 1
-  br label %103
+101:                                              ; preds = %99
+  store i8 0, ptr %100, align 1
+  br label %102
 
-103:                                              ; preds = %102, %100
-  %104 = getelementptr inbounds nuw i8, ptr %8, i64 1
+102:                                              ; preds = %101, %99
+  %103 = getelementptr inbounds nuw i8, ptr %8, i64 1
   br label %_core_format.exit90
 
-_core_format.exit90:                              ; preds = %_core_format.exit, %103
-  %.sink.i88 = phi ptr [ %104, %103 ], [ %8, %_core_format.exit ]
-  %105 = call ptr @xstrdup(ptr noundef nonnull %.sink.i88) #11
+_core_format.exit90:                              ; preds = %_core_format.exit, %102
+  %.sink.i88 = phi ptr [ %103, %102 ], [ %8, %_core_format.exit ]
+  %104 = call ptr @xstrdup(ptr noundef nonnull %.sink.i88) #11
   call void @llvm.lifetime.end.p0(i64 1024, ptr nonnull %8) #11
-  store ptr %105, ptr %4, align 8
+  store ptr %104, ptr %4, align 8
   %106 = load ptr, ptr %10, align 8
   %.not83 = icmp eq ptr %106, null
   br i1 %.not83, label %108, label %107
 
-107:                                              ; preds = %_core_format.exit90
+105:                                              ; preds = %_core_format.exit90
   call void @slurm_bit_free(ptr noundef nonnull %10) #11
-  br label %108
+  br label %106
 
-108:                                              ; preds = %107, %_core_format.exit90
+106:                                              ; preds = %105, %_core_format.exit90
   store ptr null, ptr %10, align 8
   %109 = load ptr, ptr %11, align 8
   %.not84 = icmp eq ptr %109, null
   br i1 %.not84, label %111, label %110
 
-110:                                              ; preds = %108
+107:                                              ; preds = %106
   call void @slurm_bit_free(ptr noundef nonnull %11) #11
-  br label %111
+  br label %108
 
-111:                                              ; preds = %110, %108
+108:                                              ; preds = %107, %106
   store ptr null, ptr %11, align 8
   call void @hostlist_destroy(ptr noundef nonnull %16) #11
-  br label %112
+  br label %109
 
-112:                                              ; preds = %111, %26, %17
+109:                                              ; preds = %108, %26, %17
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %10) #11
   ret void

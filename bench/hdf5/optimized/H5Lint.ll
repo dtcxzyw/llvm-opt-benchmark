@@ -1681,14 +1681,14 @@ define range(i32 -1, 1) i32 @H5L_exists_tolerant(ptr noundef %0, ptr noundef %1,
   %14 = load i64, ptr @H5E_FUNC_g, align 8, !tbaa !10
   %15 = load i64, ptr @H5E_CANTINIT_g, align 8, !tbaa !10
   %16 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5L_exists_tolerant, i32 noundef 1737, i64 noundef %14, i64 noundef %15, ptr noundef nonnull @.str.1) #11
-  br label %42
+  br label %41
 
 17:                                               ; preds = %._crit_edge, %3
   %.pre-phi22 = phi i1 [ %.pre21, %._crit_edge ], [ %8, %3 ]
   %.pre-phi = phi i1 [ %.pre20, %._crit_edge ], [ %6, %3 ]
   %18 = xor i1 %.pre-phi22, true
   %19 = select i1 %.pre-phi, i1 true, i1 %18
-  br i1 %19, label %20, label %44, !prof !9
+  br i1 %19, label %20, label %43, !prof !9
 
 20:                                               ; preds = %17
   %21 = tail call noalias ptr @H5MM_strdup(ptr noundef %1) #11
@@ -1708,7 +1708,7 @@ define range(i32 -1, 1) i32 @H5L_exists_tolerant(ptr noundef %0, ptr noundef %1,
 
 26:                                               ; preds = %22
   store i8 1, ptr %2, align 1, !tbaa !3
-  br label %42
+  br label %41
 
 27:                                               ; preds = %22
   %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
@@ -1730,24 +1730,24 @@ define range(i32 -1, 1) i32 @H5L_exists_tolerant(ptr noundef %0, ptr noundef %1,
 
 .loopexit:                                        ; preds = %.preheader, %27
   %.015 = phi ptr [ @H5L__exists_final_cb, %27 ], [ @H5L__exists_inter_cb, %.preheader ]
-  %36 = call i32 @H5G_traverse(ptr noundef %0, ptr noundef nonnull %.013, i32 noundef 5, ptr noundef nonnull %.015, ptr noundef nonnull %4) #11
-  %37 = icmp slt i32 %36, 0
-  br i1 %37, label %38, label %42
+  %35 = call i32 @H5G_traverse(ptr noundef %0, ptr noundef nonnull %.013, i32 noundef 5, ptr noundef nonnull %.015, ptr noundef nonnull %4) #11
+  %36 = icmp slt i32 %35, 0
+  br i1 %36, label %37, label %41
 
-38:                                               ; preds = %.loopexit
-  %39 = load i64, ptr @H5E_LINK_g, align 8, !tbaa !10
-  %40 = load i64, ptr @H5E_CANTGET_g, align 8, !tbaa !10
-  %41 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5L_exists_tolerant, i32 noundef 1768, i64 noundef %39, i64 noundef %40, ptr noundef nonnull @.str.21) #11
-  br label %42
+37:                                               ; preds = %.loopexit
+  %38 = load i64, ptr @H5E_LINK_g, align 8, !tbaa !10
+  %39 = load i64, ptr @H5E_CANTGET_g, align 8, !tbaa !10
+  %40 = call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str, ptr noundef nonnull @__func__.H5L_exists_tolerant, i32 noundef 1768, i64 noundef %38, i64 noundef %39, ptr noundef nonnull @.str.21) #11
+  br label %41
 
-42:                                               ; preds = %26, %.loopexit, %38, %13
-  %.014 = phi ptr [ null, %13 ], [ %21, %26 ], [ %21, %38 ], [ %21, %.loopexit ]
-  %.0 = phi i32 [ -1, %13 ], [ 0, %26 ], [ -1, %38 ], [ 0, %.loopexit ]
-  %43 = call ptr @H5MM_xfree(ptr noundef %.014) #11
-  br label %44
+41:                                               ; preds = %26, %.loopexit, %37, %13
+  %.014 = phi ptr [ null, %13 ], [ %21, %26 ], [ %21, %37 ], [ %21, %.loopexit ]
+  %.0 = phi i32 [ -1, %13 ], [ 0, %26 ], [ -1, %37 ], [ 0, %.loopexit ]
+  %42 = call ptr @H5MM_xfree(ptr noundef %.014) #11
+  br label %43
 
-44:                                               ; preds = %42, %17
-  %.1 = phi i32 [ %.0, %42 ], [ 0, %17 ]
+43:                                               ; preds = %41, %17
+  %.1 = phi i32 [ %.0, %41 ], [ 0, %17 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #11
   ret i32 %.1
 }

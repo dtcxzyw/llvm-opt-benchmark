@@ -1155,50 +1155,50 @@ define dso_local noundef zeroext i1 @appendReloptionsArray(ptr noundef %0, ptr n
   %.not = icmp eq ptr %14, null
   br i1 %.not, label %17, label %15
 
-15:                                               ; preds = %.lr.ph
+15: ; preds = %.lr.ph
   store i8 0, ptr %14, align 1
   %16 = getelementptr inbounds nuw i8, ptr %14, i64 1
   br label %17
 
-17:                                               ; preds = %.lr.ph, %15
+19:                                               ; preds = %.lr.ph, %15
   %.0 = phi ptr [ %16, %15 ], [ @.str.13, %.lr.ph ]
   %.not29 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not29, label %19, label %18
+  br i1 %.not29, label %21, label %20
 
-18:                                               ; preds = %17
+20:                                               ; preds = %19
   tail call void @appendPQExpBufferStr(ptr noundef %0, ptr noundef nonnull @.str.14) #11
-  br label %19
+  br label %21
 
-19:                                               ; preds = %18, %17
+21:                                               ; preds = %20, %19
   %20 = load i32, ptr @fmtIdEncoding, align 4
   %.not.i.i = icmp eq i32 %20, -1
   %..i.i = select i1 %.not.i.i, i32 6, i32 %20
   %21 = tail call ptr @fmtIdEnc(ptr noundef nonnull %13, i32 noundef %..i.i)
   tail call void (ptr, ptr, ...) @appendPQExpBuffer(ptr noundef %0, ptr noundef nonnull @.str.15, ptr noundef %2, ptr noundef %21) #11
   %22 = load i32, ptr @fmtIdEncoding, align 4
-  %.not.i.i25 = icmp eq i32 %22, -1
-  %..i.i26 = select i1 %.not.i.i25, i32 6, i32 %22
-  %23 = tail call ptr @fmtIdEnc(ptr noundef nonnull %.0, i32 noundef %..i.i26)
-  %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(1) %.0) #12
+  %.not.i.i = icmp eq i32 %22, -1
+  %..i.i = select i1 %.not.i.i, i32 6, i32 %22
+  %23 = tail call ptr @fmtIdEnc(ptr noundef nonnull %.0, i32 noundef %..i.i)
+  %24 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %23, ptr noundef nonnull dereferenceable(1) %.0) #11
   %25 = icmp eq i32 %24, 0
   br i1 %25, label %26, label %27
 
-26:                                               ; preds = %19
+26:; preds = %21
   tail call void @appendPQExpBufferStr(ptr noundef %0, ptr noundef nonnull %.0) #11
-  br label %28
+  br label %30
 
-27:                                               ; preds = %19
+29:                                               ; preds = %21
   tail call void @appendStringLiteral(ptr noundef %0, ptr noundef nonnull %.0, i32 noundef %3, i1 noundef zeroext %4)
-  br label %28
+  br label %30
 
-28:                                               ; preds = %27, %26
+30:                                               ; preds = %29, %26
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %29 = load i32, ptr %7, align 4
   %30 = sext i32 %29 to i64
   %31 = icmp slt i64 %indvars.iv.next, %30
   br i1 %31, label %.lr.ph, label %._crit_edge, !llvm.loop !21
 
-._crit_edge:                                      ; preds = %28, %5
+._crit_edge:; preds = %28, %5
   %32 = load ptr, ptr %6, align 8
   tail call void @free(ptr noundef %32) #11
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #11

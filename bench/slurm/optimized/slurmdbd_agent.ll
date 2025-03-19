@@ -906,7 +906,7 @@ define dso_local void @slurmdbd_agent_config_setup() local_unnamed_addr #0 {
   %10 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @slurm_conf, i64 1248), align 8
   %11 = tail call ptr @slurm_xstrcasestr(ptr noundef %10, ptr noundef nonnull @.str.10) #13
   %.not5 = icmp eq ptr %11, null
-  br i1 %.not5, label %24, label %12
+  br i1 %.not5, label %23, label %12
 
 12:                                               ; preds = %9
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %1) #13
@@ -928,26 +928,26 @@ define dso_local void @slurmdbd_agent_config_setup() local_unnamed_addr #0 {
   %.not7 = icmp ne i32 %19, 0
   br i1 %.not7, label %20, label %23
 
-20:                                               ; preds = %17
-  %21 = tail call i32 @slurm_xstrcasecmp(ptr noundef %18, ptr noundef nonnull @.str.12) #13
-  %.not8 = icmp eq i32 %21, 0
-  br i1 %.not8, label %23, label %22
+19:                                               ; preds = %17
+  %20 = tail call i32 @slurm_xstrcasecmp(ptr noundef %18, ptr noundef nonnull @.str.12) #13
+  %.not8 = icmp eq i32 %20, 0
+  br i1 %.not8, label %22, label %21
 
-22:                                               ; preds = %20
+21:                                               ; preds = %19
   tail call void (ptr, ...) @slurm_fatal(ptr noundef nonnull @.str.13, ptr noundef %18) #15
   unreachable
 
-23:                                               ; preds = %20, %17
+22:                                               ; preds = %19, %17
   store i1 %.not7, ptr @max_dbd_msg_action, align 4
   call void @slurm_xfree(ptr noundef nonnull %1) #13
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %1) #13
-  br label %25
+  br label %24
 
-24:                                               ; preds = %9
+23:                                               ; preds = %9
   store i1 false, ptr @max_dbd_msg_action, align 4
-  br label %25
+  br label %24
 
-25:                                               ; preds = %24, %23
+24:                                               ; preds = %23, %22
   ret void
 }
 

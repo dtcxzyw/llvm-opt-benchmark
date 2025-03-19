@@ -2087,10 +2087,10 @@ define internal fastcc zeroext i1 @decrypt_packet(ptr noundef %0, i32 noundef %1
   %.010 = phi i32 [ %11, %9 ], [ 0, %7 ]
   br label %13
 
-13:                                               ; preds = %89, %12
-  %.0 = phi i32 [ 0, %12 ], [ %.2, %89 ]
-  %14 = phi ptr [ @aSO_context, %12 ], [ %92, %89 ]
-  %.03135.i = phi ptr [ @canonifyTable, %12 ], [ %90, %89 ]
+13:                                               ; preds = %90, %12
+  %.0 = phi i32 [ 0, %12 ], [ %.2, %90 ]
+  %14 = phi ptr [ @aSO_context, %12 ], [ %93, %90 ]
+  %.03135.i = phi ptr [ @canonifyTable, %12 ], [ %91, %90 ]
   %15 = getelementptr inbounds nuw i8, ptr %.03135.i, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = load i32, ptr %16, align 4
@@ -2107,7 +2107,7 @@ define internal fastcc zeroext i1 @decrypt_packet(ptr noundef %0, i32 noundef %1
   br i1 %24, label %canonify_unencrypted_header.exit.thread, label %.thread.i
 
 26:                                               ; preds = %13
-  br i1 %24, label %89, label %.thread.i
+  br i1 %24, label %90, label %.thread.i
 
 .thread.i:                                        ; preds = %26, %25
   %27 = getelementptr inbounds nuw i8, ptr %.03135.i, i64 3
@@ -2221,59 +2221,59 @@ encode_ber_len.exit.i:                            ; preds = %.lr.ph.i.i, %51, %4
 
 88:                                               ; preds = %79
   store ptr null, ptr %14, align 8
-  br label %89
+  br label %90
 
-89:                                               ; preds = %88, %79, %26
+90:                                               ; preds = %88, %79, %26
   %.2 = phi i32 [ %76, %88 ], [ %76, %79 ], [ %.0, %26 ]
-  %90 = getelementptr i8, ptr %.03135.i, i64 32
-  %91 = getelementptr i8, ptr %.03135.i, i64 40
-  %92 = load ptr, ptr %91, align 8
-  %.not.i = icmp eq ptr %92, null
+  %91 = getelementptr i8, ptr %.03135.i, i64 32
+  %92 = getelementptr i8, ptr %.03135.i, i64 40
+  %93 = load ptr, ptr %92, align 8
+  %.not.i = icmp eq ptr %93, null
   br i1 %.not.i, label %canonify_unencrypted_header.exit, label %13, !llvm.loop !29
 
-canonify_unencrypted_header.exit:                 ; preds = %89
+canonify_unencrypted_header.exit:                 ; preds = %90
   %.not14 = icmp eq i32 %.2, 0
-  br i1 %.not14, label %canonify_unencrypted_header.exit.thread, label %93
+  br i1 %.not14, label %canonify_unencrypted_header.exit.thread, label %94
 
-93:                                               ; preds = %canonify_unencrypted_header.exit
-  %94 = load ptr, ptr @c1222_uat_data, align 8
-  %95 = icmp eq ptr %94, null
-  br i1 %95, label %canonify_unencrypted_header.exit.thread, label %.preheader.i
+94:                                               ; preds = %canonify_unencrypted_header.exit
+  %95 = load ptr, ptr @c1222_uat_data, align 8
+  %96 = icmp eq ptr %95, null
+  br i1 %96, label %canonify_unencrypted_header.exit.thread, label %.preheader.i
 
-.preheader.i:                                     ; preds = %93
-  %96 = load i32, ptr @num_c1222_uat_data, align 4
-  %.not.i16 = icmp eq i32 %96, 0
+.preheader.i:                                     ; preds = %94
+  %97 = load i32, ptr @num_c1222_uat_data, align 4
+  %.not.i16 = icmp eq i32 %97, 0
   br i1 %.not.i16, label %canonify_unencrypted_header.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %wide.trip.count.i = zext i32 %96 to i64
-  br label %98
+  %wide.trip.count.i = zext i32 %97 to i64
+  br label %99
 
-97:                                               ; preds = %98
+98:                                               ; preds = %99
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %canonify_unencrypted_header.exit.thread, label %98, !llvm.loop !30
+  br i1 %exitcond.not.i, label %canonify_unencrypted_header.exit.thread, label %99, !llvm.loop !30
 
-98:                                               ; preds = %97, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %97 ]
-  %99 = getelementptr %struct._c1222_uat_data, ptr %94, i64 %indvars.iv.i
-  %100 = load i32, ptr %99, align 8
-  %101 = icmp eq i32 %100, %.010
-  br i1 %101, label %102, label %97
+99:                                               ; preds = %98, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %98 ]
+  %100 = getelementptr %struct._c1222_uat_data, ptr %95, i64 %indvars.iv.i
+  %101 = load i32, ptr %100, align 8
+  %102 = icmp eq i32 %101, %.010
+  br i1 %102, label %103, label %98
 
-102:                                              ; preds = %98
-  %103 = getelementptr inbounds nuw i8, ptr %99, i64 8
-  %104 = load ptr, ptr %103, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef align 1 dereferenceable(16) %104, i64 noundef 16, i1 noundef false) #11
-  %105 = add i32 %1, -4
-  %106 = zext i32 %105 to i64
-  %107 = getelementptr i8, ptr %0, i64 %106
-  %108 = select i1 %2, i8 2, i8 1
-  %109 = call zeroext i1 @Eax_Decrypt(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef %0, i32 noundef %.2, i32 noundef 16, i32 noundef %105, ptr noundef %107, i8 noundef zeroext %108)
+103:                                              ; preds = %99
+  %104 = getelementptr inbounds nuw i8, ptr %100, i64 8
+  %105 = load ptr, ptr %104, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %5, ptr noundef align 1 dereferenceable(16) %105, i64 noundef 16, i1 noundef false) #11
+  %106 = add i32 %1, -4
+  %107 = zext i32 %106 to i64
+  %108 = getelementptr i8, ptr %0, i64 %107
+  %109 = select i1 %2, i8 2, i8 1
+  %110 = call zeroext i1 @Eax_Decrypt(ptr noundef nonnull %4, ptr noundef nonnull %5, ptr noundef %0, i32 noundef %.2, i32 noundef 16, i32 noundef %106, ptr noundef %108, i8 noundef zeroext %109)
   br label %canonify_unencrypted_header.exit.thread
 
-canonify_unencrypted_header.exit.thread:          ; preds = %25, %75, %97, %.preheader.i, %93, %102, %canonify_unencrypted_header.exit, %3
-  %.011 = phi i1 [ false, %3 ], [ false, %canonify_unencrypted_header.exit ], [ %109, %102 ], [ false, %93 ], [ false, %.preheader.i ], [ false, %97 ], [ false, %75 ], [ false, %25 ]
+canonify_unencrypted_header.exit.thread:          ; preds = %25, %75, %98, %.preheader.i, %94, %103, %canonify_unencrypted_header.exit, %3
+  %.011 = phi i1 [ false, %3 ], [ false, %canonify_unencrypted_header.exit ], [ %110, %103 ], [ false, %94 ], [ false, %.preheader.i ], [ false, %98 ], [ false, %75 ], [ false, %25 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5) #11
   call void @llvm.lifetime.end.p0(i64 300, ptr nonnull %4) #11
   ret i1 %.011

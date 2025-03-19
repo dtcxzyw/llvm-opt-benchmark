@@ -598,41 +598,41 @@ define dso_local i32 @vfio_pci_read_config(ptr noundef %0, i32 noundef %1, i32 n
 
 17:                                               ; preds = %15, %3
   %.025 = phi i32 [ %16, %15 ], [ 0, %3 ]
-  %18 = xor i32 %14, -1
-  %19 = shl i32 %2, 3
-  %20 = sub i32 32, %19
-  %21 = lshr i32 -1, %20
-  %22 = and i32 %21, %18
-  %.not26 = icmp eq i32 %22, 0
-  br i1 %.not26, label %.thread, label %23
+  %19 = xor i32 %14, -1
+  %20 = shl i32 %2, 3
+  %21 = sub i32 32, %20
+  %22 = lshr i32 -1, %21
+  %23 = and i32 %22, %19
+  %.not26 = icmp eq i32 %23, 0
+  br i1 %.not26, label %.thread, label %24
 
-23:                                               ; preds = %17
-  %24 = getelementptr inbounds nuw i8, ptr %7, i64 2840
-  %25 = load i32, ptr %24, align 8
-  %26 = getelementptr inbounds nuw i8, ptr %7, i64 3032
-  %27 = load i64, ptr %26, align 8
-  %28 = add i64 %27, %10
-  %29 = call i64 @pread64(i32 noundef %25, ptr noundef nonnull %6, i64 noundef %12, i64 noundef %28) #26
-  %.not27 = icmp eq i64 %29, %12
-  br i1 %.not27, label %..thread_crit_edge, label %30
+24:                                               ; preds = %17
+  %25 = getelementptr inbounds nuw i8, ptr %7, i64 2840
+  %26 = load i32, ptr %25, align 8
+  %27 = getelementptr inbounds nuw i8, ptr %7, i64 3032
+  %28 = load i64, ptr %27, align 8
+  %29 = add i64 %28, %10
+  %30 = call i64 @pread64(i32 noundef %26, ptr noundef nonnull %6, i64 noundef %12, i64 noundef %29) #26
+  %.not27 = icmp eq i64 %30, %12
+  br i1 %.not27, label %..thread_crit_edge, label %31
 
-..thread_crit_edge:                               ; preds = %23
-  %.pre = load i32, ptr %6, align 4
+..thread_crit_edge:                               ; preds = %24
+  %.pre29 = load i32, ptr %6, align 4
   br label %.thread
 
-30:                                               ; preds = %23
-  %31 = getelementptr inbounds nuw i8, ptr %7, i64 2824
-  %32 = load ptr, ptr %31, align 8
-  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.vfio_pci_read_config, ptr noundef %32, i32 noundef %1, i32 noundef %2) #26
-  %33 = tail call ptr @__errno_location() #28
-  %34 = load i32, ptr %33, align 4
-  %35 = sub i32 0, %34
+31:                                               ; preds = %24
+  %32 = getelementptr inbounds nuw i8, ptr %7, i64 2824
+  %33 = load ptr, ptr %32, align 8
+  call void (ptr, ...) @error_report(ptr noundef nonnull @.str.4, ptr noundef nonnull @__func__.vfio_pci_read_config, ptr noundef %33, i32 noundef %1, i32 noundef %2) #26
+  %34 = tail call ptr @__errno_location() #28
+  %35 = load i32, ptr %34, align 4
+  %36 = sub i32 0, %35
   br label %trace_vfio_pci_read_config.exit
 
 .thread:                                          ; preds = %..thread_crit_edge, %17
-  %36 = phi i32 [ %.pre, %..thread_crit_edge ], [ 0, %17 ]
+  %.pre-phi = phi i32 [ %.pre, %..thread_crit_edge ], [ 0, %17 ]
   %37 = and i32 %14, %.025
-  %38 = and i32 %36, %18
+  %38 = and i32 %.pre-phi, %18
   %39 = or i32 %38, %37
   %40 = getelementptr inbounds nuw i8, ptr %7, i64 2824
   %41 = load ptr, ptr %40, align 8
@@ -640,18 +640,18 @@ define dso_local i32 @vfio_pci_read_config(ptr noundef %0, i32 noundef %1, i32 n
   %.not.i.i = icmp eq i32 %42, 0
   br i1 %.not.i.i, label %trace_vfio_pci_read_config.exit, label %43, !prof !5
 
-43:                                               ; preds = %.thread
+43:; preds = %.thread
   %44 = load i16, ptr @_TRACE_VFIO_PCI_READ_CONFIG_DSTATE, align 2
   %.not7.i.i = icmp eq i16 %44, 0
   br i1 %.not7.i.i, label %trace_vfio_pci_read_config.exit, label %45
 
-45:                                               ; preds = %43
+45:   ; preds = %43
   %46 = load i32, ptr @qemu_loglevel, align 4
   %47 = and i32 %46, 32768
   %.not8.i.i = icmp eq i32 %47, 0
-  br i1 %.not8.i.i, label %trace_vfio_pci_read_config.exit, label %48
+  br i1 %.not8.i.i, label %trace_vfio_pci_read_config.exit, label %53
 
-48:                                               ; preds = %45
+53:                                               ; preds = %45
   %49 = load i8, ptr @message_with_timestamp, align 1, !range !6, !noundef !7
   %50 = trunc nuw i8 %49 to i1
   br i1 %50, label %51, label %57
@@ -659,21 +659,21 @@ define dso_local i32 @vfio_pci_read_config(ptr noundef %0, i32 noundef %1, i32 n
 51:                                               ; preds = %48
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4) #26
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %4, i8 0, i64 16, i1 false), !annotation !4
-  %52 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #26
-  %53 = call i32 @qemu_get_thread_id() #26
-  %54 = load i64, ptr %4, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %56 = load i64, ptr %55, align 8
-  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.25, i32 noundef %53, i64 noundef %54, i64 noundef %56, ptr noundef %41, i32 noundef %1, i32 noundef %2, i32 noundef %39) #26
+  %54 = call i32 @gettimeofday(ptr noundef nonnull %4, ptr noundef null) #26
+  %55 = call i32 @qemu_get_thread_id() #26
+  %56 = load i64, ptr %4, align 8
+  %57 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %58 = load i64, ptr %57, align 8
+  call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.25, i32 noundef %55, i64 noundef %56, i64 noundef %58, ptr noundef %41, i32 noundef %1, i32 noundef %2, i32 noundef %39) #26
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4) #26
   br label %trace_vfio_pci_read_config.exit
 
-57:                                               ; preds = %48
+59:                                               ; preds = %53
   call void (ptr, ...) @qemu_log(ptr noundef nonnull @.str.26, ptr noundef %41, i32 noundef %1, i32 noundef %2, i32 noundef %39) #26
   br label %trace_vfio_pci_read_config.exit
 
-trace_vfio_pci_read_config.exit:                  ; preds = %57, %51, %45, %43, %.thread, %30
-  %.1 = phi i32 [ %35, %30 ], [ %39, %.thread ], [ %39, %43 ], [ %39, %45 ], [ %39, %51 ], [ %39, %57 ]
+trace_vfio_pci_read_config.exit:                  ; preds = %59, %51, %45, %43, %.thread, %31
+  %.1 = phi i32 [ %36, %31 ], [ %39, %.thread ], [ %39, %43 ], [ %39, %45 ], [ %39, %51 ], [ %39, %59 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #26
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %5) #26
   ret i32 %.1

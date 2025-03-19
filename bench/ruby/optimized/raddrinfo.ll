@@ -6185,39 +6185,39 @@ RSTRING_PTR.exit:                                 ; preds = %14
   br i1 %.not.i, label %init_addrinfo.exit, label %RSTRING_PTR.exit.i
 
 RSTRING_PTR.exit.thread:                          ; preds = %14
-  br i1 %.not.i, label %init_addrinfo.exit, label %20
+  br i1 %.not.i, label %init_addrinfo.exit, label %22
 
-20:                                               ; preds = %RSTRING_PTR.exit.thread
+22:                                               ; preds = %RSTRING_PTR.exit.thread
   %.sroa.2.0.copyload.i = load ptr, ptr %19, align 8
   br label %RSTRING_PTR.exit.i
 
-RSTRING_PTR.exit.i:                               ; preds = %RSTRING_PTR.exit, %20
-  %.sink = phi ptr [ %.sroa.2.0.copyload.i, %20 ], [ %19, %RSTRING_PTR.exit ]
-  %21 = call ptr @__memcpy_chk(ptr noundef nonnull %16, ptr noundef nonnull readonly %.sink, i64 noundef range(i64 1, 0) %10, i64 noundef 108) #21, !alias.scope !221
-  %22 = load i8, ptr %.sink, align 1, !tbaa !49
+RSTRING_PTR.exit.i:                               ; preds = %RSTRING_PTR.exit, %22
+  %.sroa.2.0.i.i = phi ptr [ %.sroa.2.0.copyload.i, %22 ], [ %19, %RSTRING_PTR.exit ]
+  %21 = call ptr @__memcpy_chk(ptr noundef nonnull %16, ptr noundef nonnull readonly %.sroa.2.0.i.i, i64 noundef range(i64 1, 0) %10, i64 noundef 108) #21, !alias.scope !221
+  %22 = load i8, ptr %.sroa.2.0.i.i, align 1, !tbaa !49
   %23 = icmp eq i8 %22, 0
   br i1 %23, label %rsock_unix_sockaddr_len.exit, label %init_addrinfo.exit
 
 rsock_unix_sockaddr_len.exit:                     ; preds = %RSTRING_PTR.exit.i
-  %24 = trunc nuw nsw i64 %10 to i32
-  %25 = add nuw nsw i32 %24, 2
+  %26 = trunc nuw nsw i64 %10 to i32
+  %27 = add nuw nsw i32 %26, 2
   br label %init_addrinfo.exit
 
 init_addrinfo.exit:                               ; preds = %rsock_unix_sockaddr_len.exit, %RSTRING_PTR.exit.thread, %RSTRING_PTR.exit, %RSTRING_PTR.exit.i
-  %.0.i58 = phi i32 [ %25, %rsock_unix_sockaddr_len.exit ], [ 110, %RSTRING_PTR.exit.i ], [ 2, %RSTRING_PTR.exit ], [ 2, %RSTRING_PTR.exit.thread ]
-  %26 = zext nneg i32 %.0.i58 to i64
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %27, ptr noundef nonnull readonly align 2 dereferenceable(1) %5, i64 noundef range(i64 1, 0) %26, i1 noundef false) #21
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  store i32 %.0.i58, ptr %28, align 4, !tbaa !118
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 1, ptr %29, align 8, !tbaa !119
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 20
-  store i32 %2, ptr %30, align 4, !tbaa !120
-  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i32 0, ptr %31, align 8, !tbaa !121
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 4, ptr %32, align 8, !tbaa !111
+  %.0.i58 = phi i32 [ %27, %rsock_unix_sockaddr_len.exit ], [ 110, %RSTRING_PTR.exit.i ], [ 2, %RSTRING_PTR.exit ], [ 2, %RSTRING_PTR.exit.thread ]
+  %28 = zext nneg i32 %.0.i58 to i64
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %29, ptr noundef nonnull readonly align 2 dereferenceable(1) %5, i64 noundef range(i64 1, 0) %28, i1 noundef false) #21
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  store i32 %.0.i58, ptr %30, align 4, !tbaa !118
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 1, ptr %31, align 8, !tbaa !119
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 20
+  store i32 %2, ptr %32, align 4, !tbaa !120
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i32 0, ptr %33, align 8, !tbaa !121
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 4, ptr %34, align 8, !tbaa !111
   store i64 4, ptr %0, align 8, !tbaa !109
   call void @llvm.lifetime.end.p0(i64 110, ptr nonnull %5) #21
   ret void

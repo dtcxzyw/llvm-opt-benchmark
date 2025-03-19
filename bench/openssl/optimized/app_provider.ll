@@ -170,7 +170,7 @@ opt_provider_path.exit:                           ; preds = %7, %9
 
 .critedge.i:                                      ; preds = %36, %.lr.ph.i, %25
   %38 = load ptr, ptr %28, align 8, !tbaa !16
-  %.promoted.i = load ptr, ptr %20, align 8, !tbaa !12
+  %39 = load ptr, ptr %20, align 8, !tbaa !12
   %39 = load i8, ptr %.promoted.i, align 1, !tbaa !11
   %40 = zext i8 %39 to i64
   %41 = getelementptr inbounds nuw i16, ptr %38, i64 %40
@@ -180,7 +180,7 @@ opt_provider_path.exit:                           ; preds = %7, %9
   br i1 %.not1924.i, label %._crit_edge.i, label %.lr.ph25.i
 
 .lr.ph25.i:                                       ; preds = %.critedge.i, %.lr.ph25.i
-  %44 = phi ptr [ %45, %.lr.ph25.i ], [ %.promoted.i, %.critedge.i ]
+  %44 = phi ptr [ %45, %.lr.ph25.i ], [ %39, %.critedge.i ]
   %45 = getelementptr inbounds nuw i8, ptr %44, i64 1
   store ptr %45, ptr %20, align 8, !tbaa !12
   %46 = load i8, ptr %45, align 1, !tbaa !11

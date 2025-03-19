@@ -4230,9 +4230,9 @@ define internal fastcc ptr @lowpan_reassemble_ipv6(ptr noundef %0, ptr noundef r
   br i1 %.not29, label %._crit_edge40, label %.lr.ph39, !llvm.loop !63
 
 ._crit_edge40:                                    ; preds = %.lr.ph39, %._crit_edge
-  %32 = add i32 %.028.lcssa, 40
-  %33 = tail call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %17, i32 noundef %.027.lcssa, i32 noundef %32)
-  ret ptr %33
+  %34 = add i32 %.028.lcssa, 40
+  %35 = tail call ptr @tvb_new_child_real_data(ptr noundef %0, ptr noundef %17, i32 noundef %.027.lcssa, i32 noundef %34)
+  ret ptr %35
 }
 
 ; Function Attrs: null_pointer_is_valid

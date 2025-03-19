@@ -28,7 +28,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readnone
 
 7:                                                ; preds = %2
   %8 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef 85, i32 noundef %6, i32 noundef 0)
-  br label %71
+  br label %76
 
 9:                                                ; preds = %2
   %puts66 = tail call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
@@ -48,7 +48,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readnone
 
 17:                                               ; preds = %13
   %18 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef 112, i32 noundef 34, i32 noundef 0)
-  br label %71
+  br label %76
 
 19:                                               ; preds = %13
   %20 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %12, i64 noundef 3) #9
@@ -59,7 +59,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readnone
 21:                                               ; preds = %19
   %22 = sext i8 %.pr to i32
   %23 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef 113, i32 noundef %22, i32 noundef 0)
-  br label %71
+  br label %76
 
 24:                                               ; preds = %19
   %.pre = load i8, ptr %10, align 1, !tbaa !8
@@ -69,7 +69,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readnone
 25:                                               ; preds = %24
   %26 = sext i8 %.pre to i32
   %27 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, i32 noundef 114, i32 noundef %26, i32 noundef 2)
-  br label %71
+  br label %76
 
 28:                                               ; preds = %24
   %.pr129 = load i8, ptr %11, align 1, !tbaa !8
@@ -79,7 +79,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readnone
 29:                                               ; preds = %28
   %30 = sext i8 %.pr129 to i32
   %31 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef 115, i32 noundef %30, i32 noundef 3)
-  br label %71
+  br label %76
 
 .thread130:                                       ; preds = %9, %28
   store i32 0, ptr %4, align 4, !tbaa !4
@@ -97,7 +97,7 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readnone
   %38 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef 136, i32 noundef 0, i32 noundef 34)
   br label %71
 
-39:                                               ; preds = %33
+38:                                               ; preds = %33
   %40 = call ptr @getenv(ptr noundef nonnull @.str.4) #9
   %.not19.i107 = icmp eq ptr %40, null
   br i1 %.not19.i107, label %45, label %41
@@ -108,40 +108,40 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readnone
   %44 = icmp ult i64 %43, -3
   br i1 %44, label %47, label %45
 
-45:                                               ; preds = %41, %39
+45:; preds = %41, %39
   %46 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef 147, i32 noundef 0, i32 noundef 34)
   br label %71
 
-47:                                               ; preds = %41
+42:                                               ; preds = %41
   %48 = call ptr @getenv(ptr noundef nonnull @.str.4) #9
   %.not19.i110 = icmp eq ptr %48, null
   br i1 %.not19.i110, label %.thread125, label %49
 
-49:                                               ; preds = %47
+49:; preds = %47
   %50 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %48) #11
   %51 = add i64 %50, -3
   %52 = icmp ult i64 %51, -4
   br i1 %52, label %53, label %55
 
-53:                                               ; preds = %49
+53:; preds = %49
   %54 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.2, i32 noundef 158, i32 noundef 34, i32 noundef 0)
   br label %71
 
-55:                                               ; preds = %49
+55:; preds = %49
   %56 = call ptr @strncpy(ptr noundef nonnull dereferenceable(1) %3, ptr noundef nonnull dereferenceable(1) %48, i64 noundef 3) #9
   %.pr124 = load i8, ptr %3, align 1, !tbaa !8
   %.not97 = icmp eq i8 %.pr124, 49
-  br i1 %.not97, label %60, label %.thread125
+  br i1 %.not97, label %65, label %61
 
-.thread125:                                       ; preds = %47, %55
-  %57 = phi i8 [ %.pr124, %55 ], [ 0, %47 ]
-  %58 = sext i8 %57 to i32
-  %59 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef 159, i32 noundef %58, i32 noundef 49)
-  br label %71
+61:                                               ; preds = %42, %55
+  %62 = phi i8 [ %.pr124, %55 ], [ 0, %47 ]
+  %63 = sext i8 %62 to i32
+  %64 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef 159, i32 noundef %63, i32 noundef 49)
+  br label %76
 
-60:                                               ; preds = %55
-  %61 = load i8, ptr %10, align 1, !tbaa !8
-  %.not98 = icmp eq i8 %61, 50
+65:                                               ; preds = %55
+  %66 = load i8, ptr %10, align 1, !tbaa !8
+  %.not98 = icmp eq i8 %66, 50
   br i1 %.not98, label %65, label %62
 
 62:                                               ; preds = %60
@@ -157,14 +157,14 @@ define dso_local range(i32 -1, 1) i32 @main(i32 noundef %0, ptr noundef readnone
 67:                                               ; preds = %65
   %68 = sext i8 %66 to i32
   %69 = call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef 161, i32 noundef %68, i32 noundef 0)
-  br label %71
+  br label %76
 
 70:                                               ; preds = %65
   %puts100 = call i32 @puts(ptr nonnull dereferenceable(1) @str.3)
-  br label %71
+  br label %76
 
-71:                                               ; preds = %70, %67, %62, %.thread125, %53, %45, %37, %29, %25, %21, %17, %7
-  %.0 = phi i32 [ -1, %7 ], [ -1, %17 ], [ -1, %21 ], [ -1, %25 ], [ -1, %29 ], [ -1, %37 ], [ -1, %45 ], [ -1, %53 ], [ -1, %.thread125 ], [ -1, %62 ], [ -1, %67 ], [ 0, %70 ]
+76:                                               ; preds = %70, %67, %62, %61, %53, %45, %37, %29, %25, %21, %17, %7
+  %.0 = phi i32 [ -1, %7 ], [ -1, %17 ], [ -1, %21 ], [ -1, %25 ], [ -1, %29 ], [ -1, %37 ], [ -1, %45 ], [ -1, %53 ], [ -1, %61 ], [ -1, %62 ], [ -1, %67 ], [ 0, %70 ]
   call void @llvm.lifetime.end.p0(i64 3, ptr nonnull %3) #9
   ret i32 %.0
 }

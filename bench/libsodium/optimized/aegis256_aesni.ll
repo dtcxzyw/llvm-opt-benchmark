@@ -545,11 +545,11 @@ aegis256_init.exit:                               ; preds = %aegis256_init.exit.
   br i1 %.not68, label %171, label %132
 
 .loopexit.thread:                                 ; preds = %.lr.ph197, %.preheader145
-  %.sroa.105.5.lcssa = phi <2 x i64> [ %.sroa.105.2, %.preheader145 ], [ %119, %.lr.ph197 ]
-  %.sroa.83.5.lcssa = phi <2 x i64> [ %.sroa.83.2, %.preheader145 ], [ %120, %.lr.ph197 ]
-  %.sroa.61.5.lcssa = phi <2 x i64> [ %.sroa.61.2, %.preheader145 ], [ %121, %.lr.ph197 ]
-  %.sroa.40.5.lcssa = phi <2 x i64> [ %.sroa.40.2, %.preheader145 ], [ %122, %.lr.ph197 ]
-  %.sroa.19.5.lcssa = phi <2 x i64> [ %.sroa.19.2, %.preheader145 ], [ %123, %.lr.ph197 ]
+  %.lcssa188 = phi <2 x i64> [ %.sroa.105.2, %.preheader145 ], [ %119, %.lr.ph197 ]
+  %.sroa.105.5.lcssa = phi <2 x i64> [ %.sroa.83.2, %.preheader145 ], [ %120, %.lr.ph197 ]
+  %.sroa.83.5.lcssa = phi <2 x i64> [ %.sroa.61.2, %.preheader145 ], [ %121, %.lr.ph197 ]
+  %.sroa.61.5.lcssa = phi <2 x i64> [ %.sroa.40.2, %.preheader145 ], [ %122, %.lr.ph197 ]
+  %.sroa.40.5.lcssa = phi <2 x i64> [ %.sroa.19.2, %.preheader145 ], [ %123, %.lr.ph197 ]
   %.sroa.0.5.lcssa = phi <2 x i64> [ %.sroa.0.2, %.preheader145 ], [ %128, %.lr.ph197 ]
   %.4.lcssa = phi i64 [ 0, %.preheader145 ], [ %115, %.lr.ph197 ]
   %131 = and i64 %2, 15

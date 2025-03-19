@@ -7064,7 +7064,7 @@ define internal fastcc ptr @smb2_get_session(i64 noundef %0, ptr noundef readonl
   %7 = load ptr, ptr @smb2_sessions, align 8
   %8 = call ptr @wmem_map_lookup(ptr noundef %7, ptr noundef nonnull %5)
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %9, label %75
+  br i1 %.not, label %9, label %86
 
 9:                                                ; preds = %3
   %10 = call ptr @wmem_file_scope()
@@ -7123,7 +7123,7 @@ define internal fastcc ptr @smb2_get_session(i64 noundef %0, ptr noundef readonl
   %36 = load i32, ptr %35, align 8
   %37 = add i32 %36, -1
   %or.cond.i = icmp ult i32 %37, 32
-  br i1 %or.cond.i, label %38, label %43
+  br i1 %or.cond.i, label %38, label %44
 
 38:                                               ; preds = %34
   %39 = getelementptr inbounds nuw i8, ptr %32, i64 16
@@ -7133,15 +7133,15 @@ define internal fastcc ptr @smb2_get_session(i64 noundef %0, ptr noundef readonl
   store i32 %36, ptr %24, align 4
   br label %43
 
-43:                                               ; preds = %38, %34
-  %44 = getelementptr inbounds nuw i8, ptr %32, i64 40
-  %45 = load i32, ptr %44, align 8
-  switch i32 %45, label %51 [
-    i32 16, label %.thread
+44:                                               ; preds = %38, %34
+  %45 = getelementptr inbounds nuw i8, ptr %32, i64 40
+  %46 = load i32, ptr %45, align 8
+  switch i32 %46, label %51 [
+    i32 16, label %48
     i32 32, label %48
   ]
 
-.thread:                                          ; preds = %43
+48:                                               ; preds = %44
   %46 = getelementptr inbounds nuw i8, ptr %32, i64 32
   %47 = load ptr, ptr %46, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %25, ptr noundef align 1 dereferenceable(16) %47, i64 noundef 16, i1 noundef false) #13
@@ -7153,7 +7153,7 @@ define internal fastcc ptr @smb2_get_session(i64 noundef %0, ptr noundef readonl
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %27, ptr noundef align 1 dereferenceable(32) %50, i64 noundef 32, i1 noundef false) #13
   br label %51
 
-51:                                               ; preds = %43, %.thread, %48
+51:                                               ; preds = %43, %48, %48
   %52 = getelementptr inbounds nuw i8, ptr %32, i64 56
   %53 = load i32, ptr %52, align 8
   switch i32 %53, label %seskey_find_sid_key.exit [
@@ -7161,56 +7161,56 @@ define internal fastcc ptr @smb2_get_session(i64 noundef %0, ptr noundef readonl
     i32 32, label %56
   ]
 
-.thread3:                                         ; preds = %51
+64:                                               ; preds = %51
   %54 = getelementptr inbounds nuw i8, ptr %32, i64 48
   %55 = load ptr, ptr %54, align 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %26, ptr noundef align 1 dereferenceable(16) %55, i64 noundef 16, i1 noundef false) #13
   br label %seskey_find_sid_key.exit
 
-56:                                               ; preds = %51
-  %57 = getelementptr inbounds nuw i8, ptr %32, i64 48
-  %58 = load ptr, ptr %57, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %28, ptr noundef align 1 dereferenceable(32) %58, i64 noundef 32, i1 noundef false) #13
+67:                                               ; preds = %51
+  %68 = getelementptr inbounds nuw i8, ptr %32, i64 48
+  %69 = load ptr, ptr %68, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %28, ptr noundef align 1 dereferenceable(32) %69, i64 noundef 32, i1 noundef false) #13
   br label %seskey_find_sid_key.exit
 
-seskey_find_sid_key.exit:                         ; preds = %31, %51, %.thread3, %9, %56
+seskey_find_sid_key.exit:                         ; preds = %31, %51, %64, %9, %67
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #13
-  %59 = icmp ne ptr %1, null
-  %60 = icmp ne ptr %2, null
-  %or.cond = and i1 %59, %60
-  br i1 %or.cond, label %61, label %72
+  %70 = icmp ne ptr %1, null
+  %71 = icmp ne ptr %2, null
+  %or.cond = and i1 %70, %71
+  br i1 %or.cond, label %72, label %83
 
-61:                                               ; preds = %seskey_find_sid_key.exit
-  %62 = load i32, ptr %24, align 8
-  %.not32 = icmp eq i32 %62, 0
-  br i1 %.not32, label %.sink.split, label %63
+72:                                               ; preds = %seskey_find_sid_key.exit
+  %73 = load i32, ptr %24, align 8
+  %.not32 = icmp eq i32 %73, 0
+  br i1 %.not32, label %.sink.split, label %74
 
-63:                                               ; preds = %61
-  %64 = getelementptr inbounds nuw i8, ptr %1, i64 20
-  %65 = load i32, ptr %64, align 4
-  store i32 %65, ptr %22, align 4
+74:                                               ; preds = %72
+  %75 = getelementptr inbounds nuw i8, ptr %1, i64 20
+  %76 = load i32, ptr %75, align 4
+  store i32 %76, ptr %22, align 4
   br label %.sink.split
 
-.sink.split:                                      ; preds = %63, %61
-  %66 = getelementptr inbounds nuw i8, ptr %2, i64 32
-  %67 = load i32, ptr %66, align 8
-  %68 = and i32 %67, 1
-  %.not33 = icmp eq i32 %68, 0
-  %69 = getelementptr inbounds nuw i8, ptr %11, i64 40
+.sink.split:                                      ; preds = %74, %72
+  %77 = getelementptr inbounds nuw i8, ptr %2, i64 32
+  %78 = load i32, ptr %77, align 8
+  %79 = and i32 %78, 1
+  %.not33 = icmp eq i32 %79, 0
+  %80 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %. = select i1 %.not33, i64 288, i64 284
-  %70 = getelementptr inbounds nuw i8, ptr %1, i64 %.
-  %.sink5 = load i32, ptr %70, align 4
-  %71 = trunc i32 %.sink5 to i16
-  store i16 %71, ptr %69, align 8
-  br label %72
+  %81 = getelementptr inbounds nuw i8, ptr %1, i64 %.
+  %.sink4 = load i32, ptr %81, align 4
+  %82 = trunc i32 %.sink4 to i16
+  store i16 %82, ptr %80, align 8
+  br label %83
 
-72:                                               ; preds = %.sink.split, %seskey_find_sid_key.exit
-  %73 = load ptr, ptr @smb2_sessions, align 8
-  %74 = call ptr @wmem_map_insert(ptr noundef %73, ptr noundef %11, ptr noundef %11)
-  br label %75
+83:                                               ; preds = %.sink.split, %seskey_find_sid_key.exit
+  %84 = load ptr, ptr @smb2_sessions, align 8
+  %85 = call ptr @wmem_map_insert(ptr noundef %84, ptr noundef %11, ptr noundef %11)
+  br label %86
 
-75:                                               ; preds = %72, %3
-  %.0 = phi ptr [ %8, %3 ], [ %11, %72 ]
+86:                                               ; preds = %83, %3
+  %.0 = phi ptr [ %8, %3 ], [ %11, %83 ]
   call void @llvm.lifetime.end.p0(i64 288, ptr nonnull %5) #13
   ret ptr %.0
 }

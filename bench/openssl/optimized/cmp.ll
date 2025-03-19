@@ -8386,12 +8386,12 @@ define internal fastcc range(i32 0, 2) i32 @handle_opt_geninfo(ptr noundef %0) u
   %88 = icmp eq ptr %87, null
   br i1 %88, label %119, label %89
 
-89:                                               ; preds = %86
+89:; preds = %86
   %90 = tail call i32 @ASN1_STRING_set(ptr noundef nonnull %87, ptr noundef nonnull %78, i32 noundef -1) #12
   %.not65 = icmp eq i32 %90, 0
   br i1 %.not65, label %119, label %91
 
-91:                                               ; preds = %89
+91:; preds = %89
   %92 = load ptr, ptr %2, align 8, !tbaa !4
   tail call void @ASN1_TYPE_set(ptr noundef nonnull %42, i32 noundef 12, ptr noundef nonnull %87) #12
   br label %99

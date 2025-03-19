@@ -15476,16 +15476,16 @@ define noalias noundef ptr @fstUtilityExtractEnumTableFromString(ptr noundef rea
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
-  %.065 = phi ptr [ %26, %.lr.ph.preheader ], [ %28, %.lr.ph ]
-  %27 = getelementptr inbounds nuw i8, ptr %.065, i64 1
-  %28 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %27, i32 noundef 32) #40
-  store i8 0, ptr %28, align 1, !tbaa !6
+  %.065 = phi ptr [ %26, %.lr.ph.preheader ], [ %29, %.lr.ph ]
+  %28 = getelementptr inbounds nuw i8, ptr %.065, i64 1
+  %29 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %28, i32 noundef 32) #40
+  store i8 0, ptr %29, align 1, !tbaa !6
   %29 = load ptr, ptr %20, align 8, !tbaa !253
   %30 = getelementptr inbounds nuw ptr, ptr %29, i64 %indvars.iv
-  store ptr %27, ptr %30, align 8, !tbaa !28
+  store ptr %28, ptr %30, align 8, !tbaa !28
   %31 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %27) #40
   %32 = trunc i64 %31 to i32
-  %33 = tail call i32 @fstUtilityEscToBin(ptr noundef null, ptr noundef nonnull %27, i32 noundef %32)
+  %33 = tail call i32 @fstUtilityEscToBin(ptr noundef null, ptr noundef nonnull %28, i32 noundef %32)
   %34 = load ptr, ptr %20, align 8, !tbaa !253
   %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv
   %36 = load ptr, ptr %35, align 8, !tbaa !28
@@ -15498,7 +15498,7 @@ define noalias noundef ptr @fstUtilityExtractEnumTableFromString(ptr noundef rea
 
 .lr.ph68:                                         ; preds = %.lr.ph68.preheader, %42
   %indvars.iv70 = phi i64 [ 0, %.lr.ph68.preheader ], [ %indvars.iv.next71, %42 ]
-  %.167 = phi ptr [ %28, %.lr.ph68.preheader ], [ %40, %42 ]
+  %.167 = phi ptr [ %29, %.lr.ph68.preheader ], [ %40, %42 ]
   %39 = getelementptr inbounds nuw i8, ptr %.167, i64 1
   %40 = tail call noundef ptr @strchr(ptr noundef nonnull dereferenceable(1) %39, i32 noundef 32) #40
   %.not63 = icmp eq ptr %40, null

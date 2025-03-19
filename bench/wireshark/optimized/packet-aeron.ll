@@ -5283,7 +5283,7 @@ define internal fastcc void @aeron_msg_fragment_add(ptr noundef %0, ptr noundef 
   %35 = load i8, ptr %34, align 4
   %36 = and i8 %35, 64
   %.not = icmp eq i8 %36, 0
-  br i1 %.not, label %96, label %37
+  br i1 %.not, label %98, label %37
 
 37:                                               ; preds = %28
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -5301,7 +5301,7 @@ define internal fastcc void @aeron_msg_fragment_add(ptr noundef %0, ptr noundef 
   br i1 %.not6467, label %._crit_edge.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %37, %66
-  %.072 = phi ptr [ %67, %66 ], [ %46, %37 ]
+  %.072 = phi ptr [ %69, %66 ], [ %46, %37 ]
   %.05371 = phi i1 [ %.1, %66 ], [ false, %37 ]
   %.05470 = phi i32 [ %.155, %66 ], [ 0, %37 ]
   %.05769 = phi i64 [ %.158, %66 ], [ 0, %37 ]
@@ -5336,39 +5336,39 @@ define internal fastcc void @aeron_msg_fragment_add(ptr noundef %0, ptr noundef 
   %65 = add i64 %.05769, %61
   br label %66
 
-66:                                               ; preds = %56, %.lr.ph
+66:; preds = %56, %.lr.ph
   %.160 = phi i64 [ %64, %56 ], [ %.05968, %.lr.ph ]
   %.158 = phi i64 [ %65, %56 ], [ %.05769, %.lr.ph ]
   %.155 = phi i32 [ %.256, %56 ], [ %.05470, %.lr.ph ]
   %.1 = phi i1 [ %.2, %56 ], [ %.05371, %.lr.ph ]
-  %67 = tail call ptr @wmem_list_frame_next(ptr noundef nonnull %.072)
-  %.not64 = icmp eq ptr %67, null
+  %69 = tail call ptr @wmem_list_frame_next(ptr noundef nonnull %.072)
+  %.not64 = icmp eq ptr %69, null
   br i1 %.not64, label %._crit_edge, label %.lr.ph, !llvm.loop !20
 
 ._crit_edge:                                      ; preds = %66
-  %68 = load i32, ptr %6, align 8
-  %69 = zext i32 %68 to i64
-  %70 = icmp eq i64 %.158, %69
-  br i1 %70, label %74, label %73
+  %70 = load i32, ptr %6, align 8
+  %71 = zext i32 %70 to i64
+  %72 = icmp eq i64 %.158, %71
+  br i1 %72, label %76, label %75
 
 ._crit_edge.thread:                               ; preds = %37
-  %71 = load i32, ptr %6, align 8
-  %72 = icmp eq i32 %71, 0
-  br i1 %72, label %.thread, label %73
+  %73 = load i32, ptr %6, align 8
+  %74 = icmp eq i32 %73, 0
+  br i1 %74, label %.thread, label %75
 
-73:                                               ; preds = %._crit_edge.thread, %._crit_edge
+75:                                               ; preds = %._crit_edge.thread, %._crit_edge
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.270, i32 noundef 1988, ptr noundef nonnull @.str.271) #16
   unreachable
 
-74:                                               ; preds = %._crit_edge
-  br i1 %.1, label %75, label %.thread
+76:                                               ; preds = %._crit_edge
+  br i1 %.1, label %77, label %.thread
 
-.thread:                                          ; preds = %._crit_edge.thread, %74
+.thread:                                          ; preds = %._crit_edge.thread, %76
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.270, i32 noundef 1989, ptr noundef nonnull @.str.272) #16
   unreachable
 
-75:                                               ; preds = %74
-  %76 = load i32, ptr %24, align 4
+77:                                               ; preds = %76
+  %78 = load i32, ptr %24, align 4
   %77 = tail call ptr @wmem_packet_scope()
   %78 = tail call noalias dereferenceable_or_null(32) ptr @wmem_alloc(ptr noundef %77, i64 noundef 32) #13
   %79 = tail call ptr @wmem_packet_scope()
@@ -5379,10 +5379,10 @@ define internal fastcc void @aeron_msg_fragment_add(ptr noundef %0, ptr noundef 
   store i32 2, ptr %78, align 8
   %82 = getelementptr inbounds nuw i8, ptr %78, i64 8
   store ptr %80, ptr %82, align 8
-  %83 = getelementptr i8, ptr %78, i64 16
-  store i32 0, ptr %83, align 8
-  %84 = getelementptr i8, ptr %78, i64 24
-  store ptr null, ptr %84, align 8
+  %84 = getelementptr i8, ptr %78, i64 16
+  store i32 0, ptr %84, align 8
+  %85 = getelementptr i8, ptr %78, i64 24
+  store ptr null, ptr %85, align 8
   %85 = load ptr, ptr @aeron_frame_info_tree, align 8
   %86 = tail call ptr @wmem_tree_lookup32_array(ptr noundef %85, ptr noundef %78)
   %87 = load i32, ptr %6, align 8
@@ -5392,20 +5392,20 @@ define internal fastcc void @aeron_msg_fragment_add(ptr noundef %0, ptr noundef 
   %.not65 = icmp eq ptr %86, null
   br i1 %.not65, label %90, label %91
 
-90:                                               ; preds = %75
+90:; preds = %75
   tail call void (ptr, ...) @proto_report_dissector_bug(ptr noundef nonnull @.str.269, ptr noundef nonnull @.str.270, i32 noundef 1995, ptr noundef nonnull @.str.273) #16
   unreachable
 
-91:                                               ; preds = %75
-  %92 = getelementptr inbounds nuw i8, ptr %86, i64 72
-  %93 = load i32, ptr %92, align 8
-  %94 = or i32 %93, 4
-  store i32 %94, ptr %92, align 8
-  %95 = getelementptr inbounds nuw i8, ptr %86, i64 56
-  store ptr %0, ptr %95, align 8
-  br label %96
+93:                                               ; preds = %77
+  %94 = getelementptr inbounds nuw i8, ptr %86, i64 72
+  %95 = load i32, ptr %94, align 8
+  %96 = or i32 %95, 4
+  store i32 %96, ptr %94, align 8
+  %97 = getelementptr inbounds nuw i8, ptr %86, i64 56
+  store ptr %0, ptr %97, align 8
+  br label %98
 
-96:                                               ; preds = %91, %28
+98:                                               ; preds = %93, %28
   ret void
 }
 
