@@ -1234,90 +1234,86 @@ define internal fastcc zeroext range(i8 0, 2) i8 @is_valid_end_header(i32 nounde
   br i1 %10, label %readAt.exit.thread, label %11
 
 11:                                               ; preds = %9
-  %12 = icmp sgt i64 %7, -1
-  br i1 %12, label %13, label %readAt.exit.thread
+  %12 = tail call i64 @lseek64(i32 noundef range(i32 0, -1) %0, i64 noundef %7, i32 noundef 0) #14
+  %13 = icmp eq i64 %12, %7
+  br i1 %13, label %readAt.exit, label %readAt.exit.thread
 
-13:                                               ; preds = %11
-  %14 = tail call i64 @lseek64(i32 noundef range(i32 0, -1) %0, i64 noundef %7, i32 noundef 0) #14
-  %15 = icmp eq i64 %14, %7
-  br i1 %15, label %readAt.exit, label %readAt.exit.thread
+readAt.exit:                                      ; preds = %11
+  %14 = call i64 @read(i32 noundef range(i32 0, -1) %0, ptr noundef nonnull %5, i64 noundef 46) #14
+  %.not = icmp eq i64 %14, 46
+  br i1 %.not, label %15, label %readAt.exit.thread
 
-readAt.exit:                                      ; preds = %13
-  %16 = call i64 @read(i32 noundef range(i32 0, -1) %0, ptr noundef nonnull %5, i64 noundef 46) #14
-  %.not = icmp eq i64 %16, 46
-  br i1 %.not, label %17, label %readAt.exit.thread
+15:                                               ; preds = %readAt.exit
+  %16 = load i8, ptr %5, align 16
+  %17 = icmp eq i8 %16, 80
+  %18 = getelementptr inbounds nuw i8, ptr %5, i64 1
+  %19 = load i8, ptr %18, align 1
+  %20 = icmp eq i8 %19, 75
+  %21 = and i1 %17, %20
+  %22 = getelementptr inbounds nuw i8, ptr %5, i64 2
+  %23 = load i8, ptr %22, align 2
+  %24 = icmp eq i8 %23, 1
+  %25 = and i1 %21, %24
+  %26 = getelementptr inbounds nuw i8, ptr %5, i64 3
+  %27 = load i8, ptr %26, align 1
+  %28 = icmp eq i8 %27, 2
+  %29 = and i1 %25, %28
+  br i1 %29, label %30, label %readAt.exit.thread
 
-17:                                               ; preds = %readAt.exit
-  %18 = load i8, ptr %5, align 16
-  %19 = icmp eq i8 %18, 80
-  %20 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  %21 = load i8, ptr %20, align 1
-  %22 = icmp eq i8 %21, 75
-  %23 = and i1 %19, %22
-  %24 = getelementptr inbounds nuw i8, ptr %5, i64 2
-  %25 = load i8, ptr %24, align 2
-  %26 = icmp eq i8 %25, 1
-  %27 = and i1 %23, %26
-  %28 = getelementptr inbounds nuw i8, ptr %5, i64 3
-  %29 = load i8, ptr %28, align 1
-  %30 = icmp eq i8 %29, 2
-  %31 = and i1 %27, %30
-  br i1 %31, label %32, label %readAt.exit.thread
+30:                                               ; preds = %15
+  %31 = getelementptr inbounds nuw i8, ptr %5, i64 42
+  %32 = load i16, ptr %31, align 2
+  %33 = zext i16 %32 to i64
+  %34 = getelementptr inbounds nuw i8, ptr %5, i64 44
+  %35 = load i16, ptr %34, align 4
+  %36 = zext i16 %35 to i64
+  %37 = shl nuw nsw i64 %36, 16
+  %38 = or disjoint i64 %37, %33
+  %39 = add i64 %2, %3
+  %40 = sub i64 %1, %39
+  %41 = add i64 %40, %38
+  %42 = icmp sgt i64 %41, -1
+  br i1 %42, label %43, label %readAt.exit.thread
 
-32:                                               ; preds = %17
-  %33 = getelementptr inbounds nuw i8, ptr %5, i64 42
-  %34 = load i16, ptr %33, align 2
-  %35 = zext i16 %34 to i64
-  %36 = getelementptr inbounds nuw i8, ptr %5, i64 44
-  %37 = load i16, ptr %36, align 4
-  %38 = zext i16 %37 to i64
-  %39 = shl nuw nsw i64 %38, 16
-  %40 = or disjoint i64 %39, %35
-  %41 = add i64 %2, %3
-  %42 = sub i64 %1, %41
-  %43 = add i64 %42, %40
-  %44 = icmp sgt i64 %43, -1
-  br i1 %44, label %45, label %readAt.exit.thread
+43:                                               ; preds = %30
+  %44 = tail call i64 @lseek64(i32 noundef range(i32 0, -1) %0, i64 noundef %41, i32 noundef 0) #14
+  %45 = icmp eq i64 %44, %41
+  br i1 %45, label %readAt.exit14, label %readAt.exit.thread
 
-45:                                               ; preds = %32
-  %46 = tail call i64 @lseek64(i32 noundef range(i32 0, -1) %0, i64 noundef %43, i32 noundef 0) #14
-  %47 = icmp eq i64 %46, %43
-  br i1 %47, label %readAt.exit14, label %readAt.exit.thread
+readAt.exit14:                                    ; preds = %43
+  %46 = call i64 @read(i32 noundef range(i32 0, -1) %0, ptr noundef nonnull %6, i64 noundef 30) #14
+  %.not17 = icmp eq i64 %46, 30
+  br i1 %.not17, label %47, label %readAt.exit.thread
 
-readAt.exit14:                                    ; preds = %45
-  %48 = call i64 @read(i32 noundef range(i32 0, -1) %0, ptr noundef nonnull %6, i64 noundef 30) #14
-  %.not17 = icmp eq i64 %48, 30
-  br i1 %.not17, label %49, label %readAt.exit.thread
+47:                                               ; preds = %readAt.exit14
+  %48 = load i8, ptr %6, align 16
+  %49 = icmp eq i8 %48, 80
+  %50 = getelementptr inbounds nuw i8, ptr %6, i64 1
+  %51 = load i8, ptr %50, align 1
+  %52 = icmp eq i8 %51, 75
+  %53 = and i1 %49, %52
+  %54 = getelementptr inbounds nuw i8, ptr %6, i64 2
+  %55 = load i8, ptr %54, align 2
+  %56 = icmp eq i8 %55, 3
+  %57 = and i1 %53, %56
+  %58 = getelementptr inbounds nuw i8, ptr %6, i64 3
+  %59 = load i8, ptr %58, align 1
+  %60 = icmp eq i8 %59, 4
+  %61 = and i1 %57, %60
+  br i1 %61, label %62, label %readAt.exit.thread
 
-49:                                               ; preds = %readAt.exit14
-  %50 = load i8, ptr %6, align 16
-  %51 = icmp eq i8 %50, 80
-  %52 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  %53 = load i8, ptr %52, align 1
-  %54 = icmp eq i8 %53, 75
-  %55 = and i1 %51, %54
-  %56 = getelementptr inbounds nuw i8, ptr %6, i64 2
-  %57 = load i8, ptr %56, align 2
-  %58 = icmp eq i8 %57, 3
-  %59 = and i1 %55, %58
-  %60 = getelementptr inbounds nuw i8, ptr %6, i64 3
-  %61 = load i8, ptr %60, align 1
-  %62 = icmp eq i8 %61, 4
-  %63 = and i1 %59, %62
-  br i1 %63, label %64, label %readAt.exit.thread
-
-64:                                               ; preds = %49
-  %65 = getelementptr inbounds nuw i8, ptr %5, i64 28
-  %66 = load i16, ptr %65, align 4
-  %67 = getelementptr inbounds nuw i8, ptr %6, i64 26
-  %68 = load i16, ptr %67, align 2
-  %69 = icmp eq i16 %66, %68
-  %70 = zext i1 %69 to i8
+62:                                               ; preds = %47
+  %63 = getelementptr inbounds nuw i8, ptr %5, i64 28
+  %64 = load i16, ptr %63, align 4
+  %65 = getelementptr inbounds nuw i8, ptr %6, i64 26
+  %66 = load i16, ptr %65, align 2
+  %67 = icmp eq i16 %64, %66
+  %68 = zext i1 %67 to i8
   br label %readAt.exit.thread
 
-readAt.exit.thread:                               ; preds = %32, %45, %11, %13, %9, %64, %49, %readAt.exit14, %17, %readAt.exit, %4
-  %71 = phi i8 [ 0, %4 ], [ 1, %9 ], [ 0, %49 ], [ 0, %readAt.exit14 ], [ 0, %17 ], [ 0, %readAt.exit ], [ %70, %64 ], [ 0, %13 ], [ 0, %11 ], [ 0, %45 ], [ 0, %32 ]
-  ret i8 %71
+readAt.exit.thread:                               ; preds = %30, %43, %11, %9, %62, %47, %readAt.exit14, %15, %readAt.exit, %4
+  %69 = phi i8 [ 0, %4 ], [ 1, %9 ], [ 0, %47 ], [ 0, %readAt.exit14 ], [ 0, %15 ], [ 0, %readAt.exit ], [ %68, %62 ], [ 0, %11 ], [ 0, %43 ], [ 0, %30 ]
+  ret i8 %69
 }
 
 declare i32 @inflateInit2_(ptr noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
