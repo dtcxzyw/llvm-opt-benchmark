@@ -1084,12 +1084,12 @@ define void @_ZN5boost9unit_test15unit_test_log_t12test_abortedEv(ptr nonnull re
   tail call void @llvm.experimental.noalias.scope.decl(metadata !61)
   %9 = load atomic i8, ptr @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst acquire, align 8, !noalias !61
   %10 = icmp eq i8 %9, 0
-  br i1 %10, label %11, label %_ZN5boost9unit_test15unit_test_log_tclENS0_9log_levelE.exit, !prof !3
+  br i1 %10, label %11, label %18, !prof !3
 
 11:                                               ; preds = %1
   %12 = tail call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27, !noalias !61
   %.not.i.i.i = icmp eq i32 %12, 0
-  br i1 %.not.i.i.i, label %_ZN5boost9unit_test15unit_test_log_tclENS0_9log_levelE.exit, label %13
+  br i1 %.not.i.i.i, label %18, label %13
 
 13:                                               ; preds = %11
   invoke fastcc void @_ZN5boost9unit_test12_GLOBAL__N_118unit_test_log_implC2Ev()
@@ -1098,10 +1098,10 @@ define void @_ZN5boost9unit_test15unit_test_log_t12test_abortedEv(ptr nonnull re
 14:                                               ; preds = %13
   %15 = tail call i32 @__cxa_atexit(ptr nonnull @_ZN5boost9unit_test12_GLOBAL__N_118unit_test_log_implD2Ev, ptr nonnull @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, ptr nonnull @__dso_handle) #27, !noalias !61
   tail call void @__cxa_guard_release(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27, !noalias !61
-  br label %_ZN5boost9unit_test15unit_test_log_tclENS0_9log_levelE.exit
+  br label %18
 
-common.resume:                                    ; preds = %22, %16
-  %common.resume.op = phi { ptr, i32 } [ %17, %16 ], [ %23, %22 ]
+common.resume:                                    ; preds = %23, %16
+  %common.resume.op = phi { ptr, i32 } [ %17, %16 ], [ %24, %23 ]
   resume { ptr, i32 } %common.resume.op
 
 16:                                               ; preds = %13
@@ -1110,26 +1110,26 @@ common.resume:                                    ; preds = %22, %16
   tail call void @__cxa_guard_abort(ptr nonnull @_ZGVZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst) #27, !noalias !61
   br label %common.resume
 
-_ZN5boost9unit_test15unit_test_log_tclENS0_9log_levelE.exit: ; preds = %1, %11, %14
+18:                                               ; preds = %14, %11, %1
   store i32 2, ptr getelementptr inbounds nuw (i8, ptr @_ZZN5boost9unit_test12_GLOBAL__N_110s_log_implEvE8the_inst, i64 88), align 8, !tbaa !13, !noalias !61
   store i8 1, ptr %3, align 1, !tbaa !44, !alias.scope !61
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  %18 = load ptr, ptr @_ZN5boost9unit_test12_GLOBAL__N_113unit_test_logE, align 8, !tbaa !4
+  %19 = load ptr, ptr @_ZN5boost9unit_test12_GLOBAL__N_113unit_test_logE, align 8, !tbaa !4
   store ptr @.str.2, ptr %2, align 8, !tbaa !41
-  %19 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store ptr getelementptr inbounds nuw (i8, ptr @.str.2, i64 15), ptr %19, align 8, !tbaa !42
-  %20 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost9unit_test15unit_test_log_tlsENS0_13basic_cstringIKcEE(ptr noundef nonnull align 8 dereferenceable(8) %18, ptr noundef nonnull %2)
-          to label %21 unwind label %22
+  %20 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store ptr getelementptr inbounds nuw (i8, ptr @.str.2, i64 15), ptr %20, align 8, !tbaa !42
+  %21 = invoke noundef nonnull align 8 dereferenceable(8) ptr @_ZN5boost9unit_test15unit_test_log_tlsENS0_13basic_cstringIKcEE(ptr noundef nonnull align 8 dereferenceable(8) %19, ptr noundef nonnull %2)
+          to label %22 unwind label %23
 
-21:                                               ; preds = %_ZN5boost9unit_test15unit_test_log_tclENS0_9log_levelE.exit
+22:                                               ; preds = %18
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   call void @_ZN5boost9unit_test9ut_detail21entry_value_collectorD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #27
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #27
   call void @llvm.lifetime.end.p0(i64 1, ptr nonnull %3) #27
   ret void
 
-22:                                               ; preds = %_ZN5boost9unit_test15unit_test_log_tclENS0_9log_levelE.exit
-  %23 = landingpad { ptr, i32 }
+23:                                               ; preds = %18
+  %24 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5boost9unit_test9ut_detail21entry_value_collectorD1Ev(ptr noundef nonnull align 1 dereferenceable(1) %3) #27
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #27

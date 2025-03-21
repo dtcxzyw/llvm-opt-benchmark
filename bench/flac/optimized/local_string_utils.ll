@@ -3,7 +3,7 @@ source_filename = "bench/flac/original/local_string_utils.ll"
 target datalayout = "e-m:e-p270:32:32-p271:32:32-p272:64:64-i64:64-i128:128-f80:128-n8:16:32:64-S128"
 target triple = "x86_64-pc-linux-gnu"
 
-; Function Attrs: nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable
+; Function Attrs: nofree nounwind sspstrong memory(argmem: readwrite) uwtable
 define dso_local range(i64 -9223372036854775808, 9223372036854775807) i64 @flac__strlcpy(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %.not = icmp eq i64 %2, 0
   %or.cond = icmp ult i64 %2, 2
@@ -32,33 +32,29 @@ define dso_local range(i64 -9223372036854775808, 9223372036854775807) i64 @flac_
 .loopexit31:                                      ; preds = %8, %3
   %.015.ph = phi ptr [ %0, %3 ], [ %9, %8 ]
   %.013.ph = phi ptr [ %1, %3 ], [ %5, %8 ]
-  br i1 %.not, label %.preheader47, label %11
+  br i1 %.not, label %.loopexit.loopexit, label %11
 
 11:                                               ; preds = %.loopexit31
   store i8 0, ptr %.015.ph, align 1, !tbaa !4
-  br label %.preheader47
+  br label %.loopexit.loopexit
 
-.preheader47:                                     ; preds = %11, %.loopexit31
-  br label %12
+.loopexit.loopexit:                               ; preds = %11, %.loopexit31
+  %strlen = tail call i64 @strlen(ptr nonnull dereferenceable(1) %.013.ph)
+  %12 = getelementptr i8, ptr %.013.ph, i64 %strlen
+  %scevgep = getelementptr i8, ptr %12, i64 1
+  br label %.loopexit
 
-12:                                               ; preds = %.preheader47, %12
-  %.3 = phi ptr [ %13, %12 ], [ %.013.ph, %.preheader47 ]
-  %13 = getelementptr inbounds nuw i8, ptr %.3, i64 1
-  %14 = load i8, ptr %.3, align 1, !tbaa !4
-  %.not25 = icmp eq i8 %14, 0
-  br i1 %.not25, label %.loopexit, label %12, !llvm.loop !9
-
-.loopexit:                                        ; preds = %.preheader, %12
-  %.2 = phi ptr [ %13, %12 ], [ %5, %.preheader ]
-  %15 = ptrtoint ptr %.2 to i64
-  %16 = ptrtoint ptr %1 to i64
-  %17 = xor i64 %16, -1
-  %18 = add i64 %15, %17
-  ret i64 %18
+.loopexit:                                        ; preds = %.preheader, %.loopexit.loopexit
+  %.2 = phi ptr [ %scevgep, %.loopexit.loopexit ], [ %5, %.preheader ]
+  %13 = ptrtoint ptr %.2 to i64
+  %14 = ptrtoint ptr %1 to i64
+  %15 = xor i64 %14, -1
+  %16 = add i64 %13, %15
+  ret i64 %16
 }
 
 ; Function Attrs: nofree nounwind sspstrong memory(argmem: readwrite) uwtable
-define dso_local i64 @flac__strlcat(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 {
+define dso_local i64 @flac__strlcat(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %.not32 = icmp eq i64 %2, 0
   br i1 %.not32, label %.critedge, label %.lr.ph.preheader
 
@@ -77,7 +73,7 @@ define dso_local i64 @flac__strlcat(ptr noundef %0, ptr noundef %1, i64 noundef 
   %6 = add i64 %.in, -1
   %7 = getelementptr inbounds nuw i8, ptr %.02533, i64 1
   %.not = icmp eq i64 %6, 0
-  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !10
+  br i1 %.not, label %.critedge, label %.lr.ph, !llvm.loop !9
 
 .critedge:                                        ; preds = %.lr.ph, %5, %3
   %.025.lcssa = phi ptr [ %0, %3 ], [ %scevgep, %5 ], [ %.02533, %.lr.ph ]
@@ -94,7 +90,7 @@ define dso_local i64 @flac__strlcat(ptr noundef %0, ptr noundef %1, i64 noundef 
   br i1 %.not3036, label %._crit_edge, label %.lr.ph40
 
 14:                                               ; preds = %.critedge
-  %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #3
+  %15 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #2
   br label %26
 
 .lr.ph40:                                         ; preds = %.preheader, %20
@@ -117,7 +113,7 @@ define dso_local i64 @flac__strlcat(ptr noundef %0, ptr noundef %1, i64 noundef 
   %21 = getelementptr inbounds nuw i8, ptr %.02438, i64 1
   %22 = load i8, ptr %21, align 1, !tbaa !4
   %.not30 = icmp eq i8 %22, 0
-  br i1 %.not30, label %._crit_edge, label %.lr.ph40, !llvm.loop !11
+  br i1 %.not30, label %._crit_edge, label %.lr.ph40, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %20, %.preheader
   %.126.lcssa = phi ptr [ %.025.lcssa, %.preheader ], [ %.227, %20 ]
@@ -135,12 +131,11 @@ define dso_local i64 @flac__strlcat(ptr noundef %0, ptr noundef %1, i64 noundef 
 }
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #2
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #1
 
-attributes #0 = { nofree norecurse nosync nounwind sspstrong memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nofree nounwind sspstrong memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nounwind willreturn memory(read) }
+attributes #0 = { nofree nounwind sspstrong memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #2 = { nounwind willreturn memory(read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 
@@ -155,4 +150,3 @@ attributes #3 = { nounwind willreturn memory(read) }
 !8 = !{!"llvm.loop.mustprogress"}
 !9 = distinct !{!9, !8}
 !10 = distinct !{!10, !8}
-!11 = distinct !{!11, !8}

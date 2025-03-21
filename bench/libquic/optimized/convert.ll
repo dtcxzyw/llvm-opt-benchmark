@@ -16,7 +16,7 @@ define hidden ptr @BN_bin2bn(ptr noundef readonly captures(none) %0, i64 noundef
   br i1 %4, label %5, label %.thread
 
 5:                                                ; preds = %3
-  %6 = tail call ptr @BN_new() #9
+  %6 = tail call ptr @BN_new() #10
   %7 = icmp eq ptr %6, null
   br i1 %7, label %40, label %.thread
 
@@ -35,7 +35,7 @@ define hidden ptr @BN_bin2bn(ptr noundef readonly captures(none) %0, i64 noundef
   %12 = add i64 %1, -1
   %13 = lshr i64 %12, 3
   %14 = add nuw nsw i64 %13, 1
-  %15 = tail call ptr @bn_wexpand(ptr noundef nonnull %.02837, i64 noundef %14) #9
+  %15 = tail call ptr @bn_wexpand(ptr noundef nonnull %.02837, i64 noundef %14) #10
   %16 = icmp eq ptr %15, null
   br i1 %16, label %17, label %19
 
@@ -44,7 +44,7 @@ define hidden ptr @BN_bin2bn(ptr noundef readonly captures(none) %0, i64 noundef
   br i1 %.not34, label %40, label %18
 
 18:                                               ; preds = %17
-  tail call void @BN_free(ptr noundef nonnull %.038) #9
+  tail call void @BN_free(ptr noundef nonnull %.038) #10
   br label %40
 
 19:                                               ; preds = %11
@@ -88,7 +88,7 @@ define hidden ptr @BN_bin2bn(ptr noundef readonly captures(none) %0, i64 noundef
   br i1 %.not, label %39, label %25, !llvm.loop !18
 
 39:                                               ; preds = %38
-  tail call void @bn_correct_top(ptr noundef nonnull %.02837) #9
+  tail call void @bn_correct_top(ptr noundef nonnull %.02837) #10
   br label %40
 
 40:                                               ; preds = %17, %18, %5, %39, %9
@@ -112,7 +112,7 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #1
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i64 0, 4294967296) i64 @BN_bn2bin(ptr noundef %0, ptr noundef writeonly captures(none) %1) local_unnamed_addr #0 {
-  %3 = tail call i32 @BN_num_bytes(ptr noundef %0) #9
+  %3 = tail call i32 @BN_num_bytes(ptr noundef %0) #10
   %4 = zext i32 %3 to i64
   %.not8 = icmp eq i32 %3, 0
   br i1 %.not8, label %._crit_edge, label %.lr.ph
@@ -142,7 +142,7 @@ declare i32 @BN_num_bytes(ptr noundef) local_unnamed_addr #2
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @BN_bn2bin_padded(ptr noundef writeonly captures(none) %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
-  %4 = tail call i32 @BN_is_zero(ptr noundef %2) #9
+  %4 = tail call i32 @BN_is_zero(ptr noundef %2) #10
   %.not = icmp eq i32 %4, 0
   br i1 %.not, label %6, label %5
 
@@ -231,14 +231,14 @@ declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immar
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @BN_bn2cbb_padded(ptr noundef %0, i64 noundef %1, ptr noundef %2) local_unnamed_addr #0 {
   %4 = alloca ptr, align 8
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #9
-  %5 = call i32 @CBB_add_space(ptr noundef %0, ptr noundef nonnull %4, i64 noundef %1) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4) #10
+  %5 = call i32 @CBB_add_space(ptr noundef %0, ptr noundef nonnull %4, i64 noundef %1) #10
   %.not = icmp eq i32 %5, 0
   br i1 %.not, label %BN_bn2bin_padded.exit, label %6
 
 6:                                                ; preds = %3
   %7 = load ptr, ptr %4, align 8, !tbaa !23
-  %8 = call i32 @BN_is_zero(ptr noundef %2) #9
+  %8 = call i32 @BN_is_zero(ptr noundef %2) #10
   %.not.i = icmp eq i32 %8, 0
   br i1 %.not.i, label %10, label %9
 
@@ -316,7 +316,7 @@ define hidden range(i32 0, 2) i32 @BN_bn2cbb_padded(ptr noundef %0, i64 noundef 
 
 BN_bn2bin_padded.exit:                            ; preds = %36, %34, %19, %10, %9, %3
   %56 = phi i32 [ 0, %3 ], [ 1, %9 ], [ 0, %10 ], [ 0, %19 ], [ 1, %34 ], [ 1, %36 ]
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #9
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4) #10
   ret i32 %56
 }
 
@@ -329,12 +329,12 @@ define hidden noalias noundef ptr @BN_bn2hex(ptr noundef %0) local_unnamed_addr 
   %4 = shl nsw i32 %3, 4
   %5 = or disjoint i32 %4, 2
   %6 = sext i32 %5 to i64
-  %7 = tail call noalias ptr @malloc(i64 noundef %6) #10
+  %7 = tail call noalias ptr @malloc(i64 noundef %6) #11
   %8 = icmp eq ptr %7, null
   br i1 %8, label %9, label %10
 
 9:                                                ; preds = %1
-  tail call void @ERR_put_error(i32 noundef 3, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 213) #9
+  tail call void @ERR_put_error(i32 noundef 3, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 213) #10
   br label %44
 
 10:                                               ; preds = %1
@@ -350,7 +350,7 @@ define hidden noalias noundef ptr @BN_bn2hex(ptr noundef %0) local_unnamed_addr 
 
 15:                                               ; preds = %13, %10
   %.0 = phi ptr [ %14, %13 ], [ %7, %10 ]
-  %16 = tail call i32 @BN_is_zero(ptr noundef nonnull %0) #9
+  %16 = tail call i32 @BN_is_zero(ptr noundef nonnull %0) #10
   %.not31 = icmp eq i32 %16, 0
   br i1 %.not31, label %19, label %17
 
@@ -457,7 +457,7 @@ define hidden i32 @BN_hex2bn(ptr noundef captures(address_is_null) %0, ptr nound
   %11 = getelementptr inbounds nuw i8, ptr %.034.i, i64 %indvars.iv.i
   %12 = load i8, ptr %11, align 1, !tbaa !14
   %13 = zext i8 %12 to i32
-  %14 = tail call i32 @isxdigit(i32 noundef %13) #9, !callees !27
+  %14 = tail call i32 @isxdigit(i32 noundef %13) #10, !callees !27
   %15 = icmp ne i32 %14, 0
   %16 = add nuw nsw i64 %indvars.iv.i, %9
   %17 = icmp ne i64 %16, 2147483647
@@ -477,12 +477,12 @@ define hidden i32 @BN_hex2bn(ptr noundef captures(address_is_null) %0, ptr nound
   br i1 %25, label %26, label %29
 
 26:                                               ; preds = %23
-  %27 = tail call ptr @BN_new() #9
+  %27 = tail call ptr @BN_new() #10
   %28 = icmp eq ptr %27, null
   br i1 %28, label %bn_x2bn.exit, label %30
 
 29:                                               ; preds = %23
-  tail call void @BN_zero(ptr noundef nonnull %24) #9
+  tail call void @BN_zero(ptr noundef nonnull %24) #10
   br label %30
 
 30:                                               ; preds = %29, %26
@@ -491,12 +491,12 @@ define hidden i32 @BN_hex2bn(ptr noundef captures(address_is_null) %0, ptr nound
   br i1 %31, label %32, label %33
 
 32:                                               ; preds = %30
-  tail call void @ERR_put_error(i32 noundef 3, i32 noundef 0, i32 noundef 102, ptr noundef nonnull @.str, i32 noundef 245) #9
+  tail call void @ERR_put_error(i32 noundef 3, i32 noundef 0, i32 noundef 102, ptr noundef nonnull @.str, i32 noundef 245) #10
   br label %71
 
 33:                                               ; preds = %30
   %34 = shl nuw nsw i64 %indvars.iv.i, 2
-  %35 = tail call ptr @bn_expand(ptr noundef nonnull %.033.i, i64 noundef %34) #9
+  %35 = tail call ptr @bn_expand(ptr noundef nonnull %.033.i, i64 noundef %34) #10
   %36 = icmp eq ptr %35, null
   br i1 %36, label %71, label %.preheader.i
 
@@ -572,8 +572,8 @@ define hidden i32 @BN_hex2bn(ptr noundef captures(address_is_null) %0, ptr nound
   %.043.lcssa.i = phi i32 [ 0, %.preheader.i ], [ %64, %._crit_edge.loopexit.i ]
   %66 = getelementptr inbounds nuw i8, ptr %.033.i, i64 8
   store i32 %.043.lcssa.i, ptr %66, align 8, !tbaa !6
-  tail call void @bn_correct_top(ptr noundef nonnull %.033.i) #9
-  %67 = tail call i32 @BN_is_zero(ptr noundef nonnull %.033.i) #9
+  tail call void @bn_correct_top(ptr noundef nonnull %.033.i) #10
+  %67 = tail call i32 @BN_is_zero(ptr noundef nonnull %.033.i) #10
   %.not40.i = icmp eq i32 %67, 0
   br i1 %.not40.i, label %68, label %70
 
@@ -592,7 +592,7 @@ define hidden i32 @BN_hex2bn(ptr noundef captures(address_is_null) %0, ptr nound
   br i1 %73, label %74, label %bn_x2bn.exit
 
 74:                                               ; preds = %71
-  tail call void @BN_free(ptr noundef nonnull %.033.i) #9
+  tail call void @BN_free(ptr noundef nonnull %.033.i) #10
   br label %bn_x2bn.exit
 
 bn_x2bn.exit:                                     ; preds = %2, %4, %19, %26, %70, %71, %74
@@ -605,7 +605,7 @@ declare i32 @isxdigit(i32 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nounwind uwtable
 define hidden noundef ptr @BN_bn2dec(ptr noundef %0) local_unnamed_addr #0 {
-  %2 = tail call i32 @BN_num_bits(ptr noundef %0) #9
+  %2 = tail call i32 @BN_num_bits(ptr noundef %0) #10
   %3 = mul i32 %2, 3
   %4 = sdiv i32 %3, 10
   %5 = sdiv i32 %3, 1000
@@ -615,26 +615,26 @@ define hidden noundef ptr @BN_bn2dec(ptr noundef %0) local_unnamed_addr #0 {
   %9 = add nsw i32 %8, 1
   %10 = sext i32 %9 to i64
   %11 = shl nsw i64 %10, 3
-  %12 = tail call noalias ptr @malloc(i64 noundef %11) #10
+  %12 = tail call noalias ptr @malloc(i64 noundef %11) #11
   %13 = add nsw i32 %6, 5
   %14 = sext i32 %13 to i64
-  %15 = tail call noalias ptr @malloc(i64 noundef %14) #10
+  %15 = tail call noalias ptr @malloc(i64 noundef %14) #11
   %16 = icmp eq ptr %15, null
   %17 = icmp eq ptr %12, null
   %or.cond = or i1 %17, %16
   br i1 %or.cond, label %18, label %19
 
 18:                                               ; preds = %1
-  tail call void @ERR_put_error(i32 noundef 3, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 391) #9
+  tail call void @ERR_put_error(i32 noundef 3, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 391) #10
   br label %.critedge
 
 19:                                               ; preds = %1
-  %20 = tail call ptr @BN_dup(ptr noundef %0) #9
+  %20 = tail call ptr @BN_dup(ptr noundef %0) #10
   %21 = icmp eq ptr %20, null
   br i1 %21, label %.critedge, label %22
 
 22:                                               ; preds = %19
-  %23 = tail call i32 @BN_is_zero(ptr noundef nonnull %20) #9
+  %23 = tail call i32 @BN_is_zero(ptr noundef nonnull %20) #10
   %.not = icmp eq i32 %23, 0
   br i1 %.not, label %26, label %24
 
@@ -645,7 +645,7 @@ define hidden noundef ptr @BN_bn2dec(ptr noundef %0) local_unnamed_addr #0 {
   br label %.loopexit61
 
 26:                                               ; preds = %22
-  %27 = tail call i32 @BN_is_negative(ptr noundef nonnull %20) #9
+  %27 = tail call i32 @BN_is_negative(ptr noundef nonnull %20) #10
   %.not52 = icmp eq i32 %27, 0
   br i1 %.not52, label %30, label %28
 
@@ -656,16 +656,16 @@ define hidden noundef ptr @BN_bn2dec(ptr noundef %0) local_unnamed_addr #0 {
 
 30:                                               ; preds = %28, %26
   %.044 = phi ptr [ %29, %28 ], [ %15, %26 ]
-  %31 = tail call i32 @BN_is_zero(ptr noundef nonnull %20) #9
+  %31 = tail call i32 @BN_is_zero(ptr noundef nonnull %20) #10
   %.not5362 = icmp eq i32 %31, 0
   br i1 %.not5362, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %30, %.lr.ph
   %.063 = phi ptr [ %33, %.lr.ph ], [ %12, %30 ]
-  %32 = tail call i64 @BN_div_word(ptr noundef nonnull %20, i64 noundef -8446744073709551616) #9
+  %32 = tail call i64 @BN_div_word(ptr noundef nonnull %20, i64 noundef -8446744073709551616) #10
   store i64 %32, ptr %.063, align 8, !tbaa !16
   %33 = getelementptr inbounds nuw i8, ptr %.063, i64 8
-  %34 = tail call i32 @BN_is_zero(ptr noundef nonnull %20) #9
+  %34 = tail call i32 @BN_is_zero(ptr noundef nonnull %20) #10
   %.not53 = icmp eq i32 %34, 0
   br i1 %.not53, label %.lr.ph, label %._crit_edge, !llvm.loop !33
 
@@ -677,53 +677,40 @@ define hidden noundef ptr @BN_bn2dec(ptr noundef %0) local_unnamed_addr #0 {
   %.neg = add i64 %14, %37
   %38 = sub i64 %.neg, %36
   %39 = load i64, ptr %35, align 8, !tbaa !16
-  %40 = tail call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %.044, i64 noundef %38, ptr noundef nonnull @.str.1, i64 noundef %39) #9
-  br label %41
-
-41:                                               ; preds = %41, %._crit_edge
-  %.145 = phi ptr [ %.044, %._crit_edge ], [ %43, %41 ]
-  %42 = load i8, ptr %.145, align 1, !tbaa !14
-  %.not54 = icmp eq i8 %42, 0
-  %43 = getelementptr inbounds nuw i8, ptr %.145, i64 1
-  br i1 %.not54, label %.preheader, label %41, !llvm.loop !34
-
-.preheader:                                       ; preds = %41
+  %40 = tail call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %.044, i64 noundef %38, ptr noundef nonnull @.str.1, i64 noundef %39) #10
   %.not5564 = icmp eq ptr %35, %12
   br i1 %.not5564, label %.loopexit61, label %.lr.ph67
 
-.loopexit:                                        ; preds = %49
-  %.not55 = icmp eq ptr %44, %12
-  br i1 %.not55, label %.loopexit61, label %.lr.ph67, !llvm.loop !35
+.lr.ph67:                                         ; preds = %._crit_edge
+  %strlen = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.044)
+  %scevgep = getelementptr i8, ptr %.044, i64 %strlen
+  br label %.loopexit
 
-.lr.ph67:                                         ; preds = %.preheader, %.loopexit
-  %.166 = phi ptr [ %44, %.loopexit ], [ %35, %.preheader ]
-  %.265 = phi ptr [ %.3, %.loopexit ], [ %.145, %.preheader ]
-  %44 = getelementptr inbounds i8, ptr %.166, i64 -8
-  %45 = ptrtoint ptr %.265 to i64
-  %46 = sub i64 %.neg, %45
-  %47 = load i64, ptr %44, align 8, !tbaa !16
-  %48 = tail call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %.265, i64 noundef %46, ptr noundef nonnull @.str.2, i64 noundef %47) #9
-  br label %49
+.loopexit:                                        ; preds = %.lr.ph67, %.loopexit
+  %.166 = phi ptr [ %35, %.lr.ph67 ], [ %41, %.loopexit ]
+  %.265 = phi ptr [ %scevgep, %.lr.ph67 ], [ %scevgep69, %.loopexit ]
+  %41 = getelementptr inbounds i8, ptr %.166, i64 -8
+  %42 = ptrtoint ptr %.265 to i64
+  %43 = sub i64 %.neg, %42
+  %44 = load i64, ptr %41, align 8, !tbaa !16
+  %45 = tail call i32 (ptr, i64, ptr, ...) @BIO_snprintf(ptr noundef nonnull %.265, i64 noundef %43, ptr noundef nonnull @.str.2, i64 noundef %44) #10
+  %strlen68 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.265)
+  %scevgep69 = getelementptr i8, ptr %.265, i64 %strlen68
+  %.not55 = icmp eq ptr %41, %12
+  br i1 %.not55, label %.loopexit61, label %.loopexit, !llvm.loop !34
 
-49:                                               ; preds = %49, %.lr.ph67
-  %.3 = phi ptr [ %.265, %.lr.ph67 ], [ %51, %49 ]
-  %50 = load i8, ptr %.3, align 1, !tbaa !14
-  %.not57 = icmp eq i8 %50, 0
-  %51 = getelementptr inbounds nuw i8, ptr %.3, i64 1
-  br i1 %.not57, label %.loopexit, label %49, !llvm.loop !36
-
-.loopexit61:                                      ; preds = %.loopexit, %.preheader, %24
-  tail call void @free(ptr noundef %12) #9
-  tail call void @BN_free(ptr noundef nonnull %20) #9
-  br label %52
+.loopexit61:                                      ; preds = %.loopexit, %._crit_edge, %24
+  tail call void @free(ptr noundef nonnull %12) #10
+  tail call void @BN_free(ptr noundef nonnull %20) #10
+  br label %46
 
 .critedge:                                        ; preds = %19, %18
-  tail call void @free(ptr noundef %12) #9
-  tail call void @BN_free(ptr noundef null) #9
-  tail call void @free(ptr noundef %15) #9
-  br label %52
+  tail call void @free(ptr noundef %12) #10
+  tail call void @BN_free(ptr noundef null) #10
+  tail call void @free(ptr noundef %15) #10
+  br label %46
 
-52:                                               ; preds = %.loopexit61, %.critedge
+46:                                               ; preds = %.loopexit61, %.critedge
   %.046 = phi ptr [ %15, %.loopexit61 ], [ null, %.critedge ]
   ret ptr %.046
 }
@@ -787,12 +774,12 @@ define hidden i32 @BN_dec2bn(ptr noundef captures(address_is_null) %0, ptr nound
   br i1 %23, label %24, label %27
 
 24:                                               ; preds = %21
-  %25 = tail call ptr @BN_new() #9
+  %25 = tail call ptr @BN_new() #10
   %26 = icmp eq ptr %25, null
   br i1 %26, label %bn_x2bn.exit, label %28
 
 27:                                               ; preds = %21
-  tail call void @BN_zero(ptr noundef nonnull %22) #9
+  tail call void @BN_zero(ptr noundef nonnull %22) #10
   br label %28
 
 28:                                               ; preds = %27, %24
@@ -823,12 +810,12 @@ define hidden i32 @BN_dec2bn(ptr noundef captures(address_is_null) %0, ptr nound
   br i1 %39, label %40, label %44
 
 40:                                               ; preds = %.lr.ph.i
-  %41 = tail call i32 @BN_mul_word(ptr noundef nonnull %.033.i, i64 noundef -8446744073709551616) #9
+  %41 = tail call i32 @BN_mul_word(ptr noundef nonnull %.033.i, i64 noundef -8446744073709551616) #10
   %.not.i4 = icmp eq i32 %41, 0
   br i1 %.not.i4, label %49, label %42
 
 42:                                               ; preds = %40
-  %43 = tail call i32 @BN_add_word(ptr noundef nonnull %.033.i, i64 noundef %37) #9
+  %43 = tail call i32 @BN_add_word(ptr noundef nonnull %.033.i, i64 noundef %37) #10
   %.not18.i = icmp eq i32 %43, 0
   br i1 %.not18.i, label %49, label %44
 
@@ -837,11 +824,11 @@ define hidden i32 @BN_dec2bn(ptr noundef captures(address_is_null) %0, ptr nound
   %.1.i = phi i64 [ %37, %.lr.ph.i ], [ 0, %42 ]
   %indvars.iv.next.i3 = add nuw nsw i64 %indvars.iv.i2, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i3, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %decode_dec.exit, label %.lr.ph.i, !llvm.loop !37
+  br i1 %exitcond.not.i, label %decode_dec.exit, label %.lr.ph.i, !llvm.loop !35
 
 decode_dec.exit:                                  ; preds = %44, %28
-  tail call void @bn_correct_top(ptr noundef nonnull %.033.i) #9
-  %45 = tail call i32 @BN_is_zero(ptr noundef nonnull %.033.i) #9
+  tail call void @bn_correct_top(ptr noundef nonnull %.033.i) #10
+  %45 = tail call i32 @BN_is_zero(ptr noundef nonnull %.033.i) #10
   %.not40.i = icmp eq i32 %45, 0
   br i1 %.not40.i, label %46, label %48
 
@@ -860,7 +847,7 @@ decode_dec.exit:                                  ; preds = %44, %28
   br i1 %51, label %52, label %bn_x2bn.exit
 
 52:                                               ; preds = %49
-  tail call void @BN_free(ptr noundef nonnull %.033.i) #9
+  tail call void @BN_free(ptr noundef nonnull %.033.i) #10
   br label %bn_x2bn.exit
 
 bn_x2bn.exit:                                     ; preds = %2, %4, %17, %24, %48, %49, %52
@@ -904,7 +891,7 @@ define hidden range(i32 0, 2) i32 @BN_asc2bn(ptr noundef captures(address_is_nul
 
 18:                                               ; preds = %15
   %19 = load ptr, ptr %0, align 8, !tbaa !29
-  %20 = tail call i32 @BN_is_zero(ptr noundef %19) #9
+  %20 = tail call i32 @BN_is_zero(ptr noundef %19) #10
   %.not16 = icmp eq i32 %20, 0
   br i1 %.not16, label %21, label %24
 
@@ -927,17 +914,17 @@ define hidden range(i32 0, 2) i32 @BN_print(ptr noundef %0, ptr noundef %1) loca
   br i1 %.not, label %7, label %5
 
 5:                                                ; preds = %2
-  %6 = tail call i32 @BIO_write(ptr noundef %0, ptr noundef nonnull @.str.3, i32 noundef 1) #9
+  %6 = tail call i32 @BIO_write(ptr noundef %0, ptr noundef nonnull @.str.3, i32 noundef 1) #10
   %.not20 = icmp eq i32 %6, 1
   br i1 %.not20, label %7, label %.loopexit24
 
 7:                                                ; preds = %5, %2
-  %8 = tail call i32 @BN_is_zero(ptr noundef nonnull %1) #9
+  %8 = tail call i32 @BN_is_zero(ptr noundef nonnull %1) #10
   %.not21 = icmp eq i32 %8, 0
   br i1 %.not21, label %11, label %9
 
 9:                                                ; preds = %7
-  %10 = tail call i32 @BIO_write(ptr noundef %0, ptr noundef nonnull @.str.4, i32 noundef 1) #9
+  %10 = tail call i32 @BIO_write(ptr noundef %0, ptr noundef nonnull @.str.4, i32 noundef 1) #10
   %.not22 = icmp eq i32 %10, 1
   br i1 %.not22, label %11, label %.loopexit24
 
@@ -953,7 +940,7 @@ define hidden range(i32 0, 2) i32 @BN_print(ptr noundef %0, ptr noundef %1) loca
 
 .loopexit:                                        ; preds = %28
   %16 = icmp sgt i64 %indvars.iv34, 1
-  br i1 %16, label %.preheader, label %.loopexit24, !llvm.loop !38
+  br i1 %16, label %.preheader, label %.loopexit24, !llvm.loop !36
 
 .preheader:                                       ; preds = %.preheader.preheader, %.loopexit
   %indvars.iv34 = phi i64 [ %15, %.preheader.preheader ], [ %indvars.iv.next35, %.loopexit ]
@@ -976,7 +963,7 @@ define hidden range(i32 0, 2) i32 @BN_print(ptr noundef %0, ptr noundef %1) loca
 
 25:                                               ; preds = %17
   %26 = getelementptr inbounds nuw [17 x i8], ptr @hextable, i64 0, i64 %23
-  %27 = tail call i32 @BIO_write(ptr noundef %0, ptr noundef nonnull %26, i32 noundef 1) #9
+  %27 = tail call i32 @BIO_write(ptr noundef %0, ptr noundef nonnull %26, i32 noundef 1) #10
   %.not23 = icmp eq i32 %27, 1
   br i1 %.not23, label %28, label %.loopexit24
 
@@ -984,7 +971,7 @@ define hidden range(i32 0, 2) i32 @BN_print(ptr noundef %0, ptr noundef %1) loca
   %.2 = phi i32 [ 0, %17 ], [ 1, %25 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -4
   %.not37 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not37, label %.loopexit, label %17, !llvm.loop !39
+  br i1 %.not37, label %.loopexit, label %17, !llvm.loop !37
 
 .loopexit24:                                      ; preds = %.loopexit, %25, %11, %9, %5
   %.0 = phi i32 [ 0, %5 ], [ 0, %9 ], [ 1, %11 ], [ 0, %25 ], [ 1, %.loopexit ]
@@ -995,15 +982,15 @@ declare i32 @BIO_write(ptr noundef, ptr noundef, i32 noundef) local_unnamed_addr
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i32 0, 2) i32 @BN_print_fp(ptr noundef %0, ptr noundef %1) local_unnamed_addr #0 {
-  %3 = tail call ptr @BIO_s_file() #9
-  %4 = tail call ptr @BIO_new(ptr noundef %3) #9
+  %3 = tail call ptr @BIO_s_file() #10
+  %4 = tail call ptr @BIO_new(ptr noundef %3) #10
   %5 = icmp eq ptr %4, null
   br i1 %5, label %10, label %6
 
 6:                                                ; preds = %2
-  %7 = tail call i32 @BIO_set_fp(ptr noundef nonnull %4, ptr noundef %0, i32 noundef 0) #9
+  %7 = tail call i32 @BIO_set_fp(ptr noundef nonnull %4, ptr noundef %0, i32 noundef 0) #10
   %8 = tail call i32 @BN_print(ptr noundef nonnull %4, ptr noundef %1)
-  %9 = tail call i32 @BIO_free(ptr noundef nonnull %4) #9
+  %9 = tail call i32 @BIO_free(ptr noundef nonnull %4) #10
   br label %10
 
 10:                                               ; preds = %2, %6
@@ -1043,7 +1030,7 @@ define hidden i64 @BN_get_word(ptr noundef readonly captures(none) %0) local_unn
 
 ; Function Attrs: nounwind uwtable
 define hidden range(i64 4, 536870918) i64 @BN_bn2mpi(ptr noundef %0, ptr noundef captures(address_is_null) %1) local_unnamed_addr #0 {
-  %3 = tail call i32 @BN_num_bits(ptr noundef %0) #9
+  %3 = tail call i32 @BN_num_bits(ptr noundef %0) #10
   %4 = zext i32 %3 to i64
   %5 = add nuw nsw i64 %4, 7
   %6 = lshr i64 %5, 3
@@ -1080,7 +1067,7 @@ define hidden range(i64 4, 536870918) i64 @BN_bn2mpi(ptr noundef %0, ptr noundef
 
 24:                                               ; preds = %22, %11
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %26 = tail call i32 @BN_num_bytes(ptr noundef %0) #9
+  %26 = tail call i32 @BN_num_bytes(ptr noundef %0) #10
   %.not8.i = icmp eq i32 %26, 0
   br i1 %.not8.i, label %BN_bn2bin.exit, label %.lr.ph.i.preheader
 
@@ -1131,7 +1118,7 @@ define hidden ptr @BN_mpi2bn(ptr noundef readonly captures(none) %0, i64 noundef
   br i1 %4, label %5, label %6
 
 5:                                                ; preds = %3
-  tail call void @ERR_put_error(i32 noundef 3, i32 noundef 0, i32 noundef 117, ptr noundef nonnull @.str, i32 noundef 568) #9
+  tail call void @ERR_put_error(i32 noundef 3, i32 noundef 0, i32 noundef 117, ptr noundef nonnull @.str, i32 noundef 568) #10
   br label %BN_bin2bn.exit.thread
 
 6:                                                ; preds = %3
@@ -1157,7 +1144,7 @@ define hidden ptr @BN_mpi2bn(ptr noundef readonly captures(none) %0, i64 noundef
   br i1 %.not, label %26, label %25
 
 25:                                               ; preds = %6
-  tail call void @ERR_put_error(i32 noundef 3, i32 noundef 0, i32 noundef 117, ptr noundef nonnull @.str, i32 noundef 576) #9
+  tail call void @ERR_put_error(i32 noundef 3, i32 noundef 0, i32 noundef 117, ptr noundef nonnull @.str, i32 noundef 576) #10
   br label %BN_bin2bn.exit.thread
 
 26:                                               ; preds = %6
@@ -1165,12 +1152,12 @@ define hidden ptr @BN_mpi2bn(ptr noundef readonly captures(none) %0, i64 noundef
   br i1 %27, label %28, label %.thread
 
 28:                                               ; preds = %26
-  %29 = tail call ptr @BN_new() #9
+  %29 = tail call ptr @BN_new() #10
   %30 = icmp eq ptr %29, null
   br i1 %30, label %31, label %.thread
 
 31:                                               ; preds = %28
-  tail call void @ERR_put_error(i32 noundef 3, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 584) #9
+  tail call void @ERR_put_error(i32 noundef 3, i32 noundef 0, i32 noundef 65, ptr noundef nonnull @.str, i32 noundef 584) #10
   br label %BN_bin2bn.exit.thread
 
 .thread:                                          ; preds = %26, %28
@@ -1179,7 +1166,7 @@ define hidden ptr @BN_mpi2bn(ptr noundef readonly captures(none) %0, i64 noundef
   br i1 %32, label %33, label %34
 
 33:                                               ; preds = %.thread
-  tail call void @BN_zero(ptr noundef nonnull %.02227) #9
+  tail call void @BN_zero(ptr noundef nonnull %.02227) #10
   br label %BN_bin2bn.exit.thread
 
 34:                                               ; preds = %.thread
@@ -1187,7 +1174,7 @@ define hidden ptr @BN_mpi2bn(ptr noundef readonly captures(none) %0, i64 noundef
   %36 = add nsw i64 %23, -1
   %37 = lshr i64 %36, 3
   %38 = add nuw nsw i64 %37, 1
-  %39 = tail call ptr @bn_wexpand(ptr noundef nonnull %.02227, i64 noundef %38) #9
+  %39 = tail call ptr @bn_wexpand(ptr noundef nonnull %.02227, i64 noundef %38) #10
   %40 = icmp eq ptr %39, null
   br i1 %40, label %BN_bin2bn.exit.thread, label %41
 
@@ -1232,7 +1219,7 @@ define hidden ptr @BN_mpi2bn(ptr noundef readonly captures(none) %0, i64 noundef
   br i1 %.not.i, label %61, label %47, !llvm.loop !18
 
 61:                                               ; preds = %60
-  tail call void @bn_correct_top(ptr noundef nonnull %.02227) #9
+  tail call void @bn_correct_top(ptr noundef nonnull %.02227) #10
   %62 = load i8, ptr %35, align 1, !tbaa !14
   %63 = icmp slt i8 %62, 0
   %.lobit = lshr i8 %62, 7
@@ -1241,9 +1228,9 @@ define hidden ptr @BN_mpi2bn(ptr noundef readonly captures(none) %0, i64 noundef
   br i1 %63, label %65, label %BN_bin2bn.exit.thread
 
 65:                                               ; preds = %61
-  %66 = tail call i32 @BN_num_bits(ptr noundef nonnull %.02227) #9
+  %66 = tail call i32 @BN_num_bits(ptr noundef nonnull %.02227) #10
   %67 = add i32 %66, -1
-  %68 = tail call i32 @BN_clear_bit(ptr noundef nonnull %.02227, i32 noundef %67) #9
+  %68 = tail call i32 @BN_clear_bit(ptr noundef nonnull %.02227, i32 noundef %67) #10
   br label %BN_bin2bn.exit.thread
 
 BN_bin2bn.exit.thread:                            ; preds = %34, %25, %31, %33, %65, %61, %5
@@ -1267,6 +1254,9 @@ declare i32 @llvm.umin.i32(i32, i32) #8
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.usub.sat.i32(i32, i32) #8
 
+; Function Attrs: nofree nounwind willreturn memory(argmem: read)
+declare i64 @strlen(ptr captures(none)) local_unnamed_addr #9
+
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #2 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -1276,8 +1266,9 @@ attributes #5 = { mustprogress nofree nounwind willreturn memory(read) "no-trapp
 attributes #6 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nounwind }
-attributes #10 = { nounwind allocsize(0) }
+attributes #9 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #10 = { nounwind }
+attributes #11 = { nounwind allocsize(0) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
@@ -1319,5 +1310,3 @@ attributes #10 = { nounwind allocsize(0) }
 !35 = distinct !{!35, !19}
 !36 = distinct !{!36, !19}
 !37 = distinct !{!37, !19}
-!38 = distinct !{!38, !19}
-!39 = distinct !{!39, !19}
