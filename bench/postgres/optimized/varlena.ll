@@ -14081,41 +14081,43 @@ utf8_to_unicode.exit:                             ; preds = %.lr.ph, %99, %.sink
   store i32 0, ptr %127, align 4
   %128 = tail call i32 @unicode_is_normalized_quickcheck(i32 noundef %43, ptr noundef %73) #19
   switch i32 %128, label %130 [
-    i32 1, label %141
+    i32 1, label %142
     i32 0, label %129
   ]
 
 129:                                              ; preds = %._crit_edge
-  br label %141
+  br label %142
 
 130:                                              ; preds = %._crit_edge
   %131 = tail call ptr @unicode_normalize(i32 noundef %43, ptr noundef nonnull %73) #19
   %132 = load i32, ptr %131, align 4
   %.not5256 = icmp eq i32 %132, 0
-  br i1 %.not5256, label %._crit_edge61, label %.lr.ph60.preheader
+  br i1 %.not5256, label %._crit_edge61, label %.lr.ph60
 
-.lr.ph60.preheader:                               ; preds = %130
-  %scevgep = getelementptr i8, ptr %131, i64 4
-  %wcslen = tail call i64 @wcslen(ptr %scevgep)
-  %133 = trunc i64 %wcslen to i32
-  %134 = add i32 %133, 1
-  br label %._crit_edge61
+._crit_edge61:                                    ; preds = %.lr.ph60, %130
+  %.044.lcssa = phi i32 [ 0, %130 ], [ %134, %.lr.ph60 ]
+  %133 = icmp eq i32 %69, %.044.lcssa
+  br i1 %133, label %137, label %142
 
-._crit_edge61:                                    ; preds = %.lr.ph60.preheader, %130
-  %.044.lcssa = phi i32 [ 0, %130 ], [ %134, %.lr.ph60.preheader ]
-  %135 = icmp eq i32 %69, %.044.lcssa
-  br i1 %135, label %136, label %141
+.lr.ph60:                                         ; preds = %130, %.lr.ph60
+  %.058 = phi ptr [ %135, %.lr.ph60 ], [ %131, %130 ]
+  %.04457 = phi i32 [ %134, %.lr.ph60 ], [ 0, %130 ]
+  %134 = add i32 %.04457, 1
+  %135 = getelementptr inbounds nuw i8, ptr %.058, i64 4
+  %136 = load i32, ptr %135, align 4
+  %.not52 = icmp eq i32 %136, 0
+  br i1 %.not52, label %._crit_edge61, label %.lr.ph60, !llvm.loop !71
 
-136:                                              ; preds = %._crit_edge61
-  %137 = sext i32 %69 to i64
-  %138 = shl nsw i64 %137, 2
-  %bcmp = tail call i32 @bcmp(ptr nonnull %73, ptr nonnull %131, i64 %138)
-  %139 = icmp eq i32 %bcmp, 0
-  %140 = zext i1 %139 to i64
-  br label %141
+137:                                              ; preds = %._crit_edge61
+  %138 = sext i32 %69 to i64
+  %139 = shl nsw i64 %138, 2
+  %bcmp = tail call i32 @bcmp(ptr nonnull %73, ptr nonnull %131, i64 %139)
+  %140 = icmp eq i32 %bcmp, 0
+  %141 = zext i1 %140 to i64
+  br label %142
 
-141:                                              ; preds = %._crit_edge61, %136, %._crit_edge, %129
-  %.043 = phi i64 [ 0, %129 ], [ 1, %._crit_edge ], [ 0, %._crit_edge61 ], [ %140, %136 ]
+142:                                              ; preds = %._crit_edge61, %137, %._crit_edge, %129
+  %.043 = phi i64 [ 0, %129 ], [ 1, %._crit_edge ], [ 0, %._crit_edge61 ], [ %141, %137 ]
   ret i64 %.043
 }
 
@@ -14226,7 +14228,7 @@ define dso_local noundef i64 @unistr(ptr noundef readonly captures(none) %0) loc
   %53 = add nuw nsw i64 %.068.i, 1
   %exitcond.not.i = icmp ne i64 %53, 4
   %or.cond.not.i = select i1 %.not.not.i, i1 %exitcond.not.i, i1 false
-  br i1 %or.cond.not.i, label %46, label %isxdigits_n.exit, !llvm.loop !71
+  br i1 %or.cond.not.i, label %46, label %isxdigits_n.exit, !llvm.loop !72
 
 isxdigits_n.exit:                                 ; preds = %46
   br i1 %.not.not.i, label %67, label %54
@@ -14255,7 +14257,7 @@ isxdigits_n.exit:                                 ; preds = %46
   %66 = add nuw nsw i64 %.068.i114, 1
   %exitcond.not.i116 = icmp ne i64 %66, 4
   %or.cond.not.i117 = select i1 %.not.not.i115, i1 %exitcond.not.i116, i1 false
-  br i1 %or.cond.not.i117, label %59, label %isxdigits_n.exit118, !llvm.loop !71
+  br i1 %or.cond.not.i117, label %59, label %isxdigits_n.exit118, !llvm.loop !72
 
 isxdigits_n.exit118:                              ; preds = %59
   br i1 %.not.not.i115, label %67, label %.thread168
@@ -14304,7 +14306,7 @@ hexval.exit.i:                                    ; preds = %78, %76, %72
   %89 = add i32 %88, %.0811.i
   %90 = add nuw nsw i64 %.012.i, 1
   %exitcond.not.i119 = icmp eq i64 %90, 4
-  br i1 %exitcond.not.i119, label %hexval_n.exit, label %72, !llvm.loop !72
+  br i1 %exitcond.not.i119, label %hexval_n.exit, label %72, !llvm.loop !73
 
 hexval_n.exit:                                    ; preds = %hexval.exit.i
   %91 = add i32 %89, -1
@@ -14382,7 +14384,7 @@ hexval_n.exit:                                    ; preds = %hexval.exit.i
   %130 = add nuw nsw i64 %.068.i120, 1
   %exitcond.not.i122 = icmp ne i64 %130, 6
   %or.cond.not.i123 = select i1 %.not.not.i121, i1 %exitcond.not.i122, i1 false
-  br i1 %or.cond.not.i123, label %123, label %isxdigits_n.exit124, !llvm.loop !71
+  br i1 %or.cond.not.i123, label %123, label %isxdigits_n.exit124, !llvm.loop !72
 
 isxdigits_n.exit124:                              ; preds = %123
   br i1 %.not.not.i121, label %.preheader, label %.thread194
@@ -14424,7 +14426,7 @@ hexval.exit.i130:                                 ; preds = %136, %134, %.prehea
   %147 = add i32 %146, %.0811.i126
   %148 = add nuw nsw i64 %.012.i125, 1
   %exitcond.not.i133 = icmp eq i64 %148, 6
-  br i1 %exitcond.not.i133, label %hexval_n.exit134, label %.preheader, !llvm.loop !72
+  br i1 %exitcond.not.i133, label %hexval_n.exit134, label %.preheader, !llvm.loop !73
 
 hexval_n.exit134:                                 ; preds = %hexval.exit.i130
   %149 = add i32 %147, -1
@@ -14498,7 +14500,7 @@ hexval_n.exit134:                                 ; preds = %hexval.exit.i130
   %182 = add nuw nsw i64 %.068.i135, 1
   %exitcond.not.i137 = icmp ne i64 %182, 8
   %or.cond.not.i138 = select i1 %.not.not.i136, i1 %exitcond.not.i137, i1 false
-  br i1 %or.cond.not.i138, label %175, label %isxdigits_n.exit139, !llvm.loop !71
+  br i1 %or.cond.not.i138, label %175, label %isxdigits_n.exit139, !llvm.loop !72
 
 isxdigits_n.exit139:                              ; preds = %175
   br i1 %.not.not.i136, label %.preheader177, label %.thread168
@@ -14540,7 +14542,7 @@ hexval.exit.i145:                                 ; preds = %188, %186, %.prehea
   %199 = add i32 %198, %.0811.i141
   %200 = add nuw nsw i64 %.012.i140, 1
   %exitcond.not.i148 = icmp eq i64 %200, 8
-  br i1 %exitcond.not.i148, label %hexval_n.exit149, label %.preheader177, !llvm.loop !72
+  br i1 %exitcond.not.i148, label %hexval_n.exit149, label %.preheader177, !llvm.loop !73
 
 hexval_n.exit149:                                 ; preds = %hexval.exit.i145
   %201 = add i32 %199, -1
@@ -14616,7 +14618,7 @@ hexval_n.exit149:                                 ; preds = %hexval.exit.i145
   %.491 = phi ptr [ %39, %38 ], [ %115, %112 ], [ %171, %170 ], [ %223, %222 ], [ %231, %230 ]
   %.10 = phi i32 [ 0, %38 ], [ %.3, %112 ], [ %.6, %170 ], [ %.9, %222 ], [ 0, %230 ]
   %234 = icmp sgt i32 %.496, 0
-  br i1 %234, label %.lr.ph, label %._crit_edge, !llvm.loop !73
+  br i1 %234, label %.lr.ph, label %._crit_edge, !llvm.loop !74
 
 ._crit_edge:                                      ; preds = %233
   %235 = icmp eq i32 %.10, 0
@@ -14885,7 +14887,7 @@ define internal fastcc noundef zeroext i1 @text_format_parse_digits(ptr noundef 
   %9 = load i8, ptr %24, align 1
   %10 = add i8 %9, -48
   %or.cond = icmp ult i8 %10, 10
-  br i1 %or.cond, label %.lr.ph, label %.critedge, !llvm.loop !74
+  br i1 %or.cond, label %.lr.ph, label %.critedge, !llvm.loop !75
 
 .lr.ph:                                           ; preds = %3, %7
   %11 = phi i8 [ %9, %7 ], [ %5, %3 ]
@@ -14893,7 +14895,7 @@ define internal fastcc noundef zeroext i1 @text_format_parse_digits(ptr noundef 
   %.01523 = phi i32 [ %8, %7 ], [ 0, %3 ]
   %12 = tail call { i32, i1 } @llvm.smul.with.overflow.i32(i32 %.01523, i32 10)
   %13 = extractvalue { i32, i1 } %12, 1
-  br i1 %13, label %19, label %14, !prof !75
+  br i1 %13, label %19, label %14, !prof !76
 
 14:                                               ; preds = %.lr.ph
   %15 = extractvalue { i32, i1 } %12, 0
@@ -14901,7 +14903,7 @@ define internal fastcc noundef zeroext i1 @text_format_parse_digits(ptr noundef 
   %16 = zext nneg i8 %narrow to i32
   %17 = tail call { i32, i1 } @llvm.sadd.with.overflow.i32(i32 %15, i32 %16)
   %18 = extractvalue { i32, i1 } %17, 1
-  br i1 %18, label %19, label %23, !prof !75
+  br i1 %18, label %19, label %23, !prof !76
 
 19:                                               ; preds = %14, %.lr.ph
   %20 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
@@ -14914,7 +14916,7 @@ define internal fastcc noundef zeroext i1 @text_format_parse_digits(ptr noundef 
 23:                                               ; preds = %14
   %24 = getelementptr inbounds nuw i8, ptr %.01024, i64 1
   %.not = icmp ult ptr %24, %1
-  br i1 %.not, label %7, label %25, !llvm.loop !74
+  br i1 %.not, label %7, label %25, !llvm.loop !75
 
 25:                                               ; preds = %23
   %26 = tail call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #20
@@ -15041,9 +15043,6 @@ declare i64 @llvm.umax.i64(i64, i64) #15
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #17
 
-; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i64 @wcslen(ptr captures(none)) local_unnamed_addr #16
-
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
@@ -15144,4 +15143,5 @@ attributes #21 = { nounwind willreturn memory(none) }
 !72 = distinct !{!72, !5}
 !73 = distinct !{!73, !5}
 !74 = distinct !{!74, !5}
-!75 = !{!"branch_weights", !"expected", i32 1, i32 2000}
+!75 = distinct !{!75, !5}
+!76 = !{!"branch_weights", !"expected", i32 1, i32 2000}

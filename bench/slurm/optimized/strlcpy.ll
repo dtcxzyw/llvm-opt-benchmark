@@ -8,7 +8,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local range(i64 -9223372036854775808, 9223372036854775807) i64 @strlcpy(ptr noundef writeonly captures(none) %0, ptr noundef %1, i64 noundef %2) #0 {
   %.not = icmp eq i64 %2, 0
-  br i1 %.not, label %.thread26, label %.preheader
+  br i1 %.not, label %.thread26.preheader, label %.preheader
 
 .preheader:                                       ; preds = %3, %5
   %.115 = phi ptr [ %8, %5 ], [ %0, %3 ]
@@ -28,29 +28,29 @@ define dso_local range(i64 -9223372036854775808, 9223372036854775807) i64 @strlc
 
 10:                                               ; preds = %.preheader
   store i8 0, ptr %.115, align 1
+  br label %.thread26.preheader
+
+.thread26.preheader:                              ; preds = %3, %10
+  %.3.ph = phi ptr [ %1, %3 ], [ %.113, %10 ]
   br label %.thread26
 
-.thread26:                                        ; preds = %3, %10
-  %.012.ph29 = phi ptr [ %.113, %10 ], [ %1, %3 ]
-  %strlen = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.012.ph29)
-  %11 = getelementptr i8, ptr %.012.ph29, i64 %strlen
-  %scevgep = getelementptr i8, ptr %11, i64 1
-  br label %.loopexit
+.thread26:                                        ; preds = %.thread26.preheader, %.thread26
+  %.3 = phi ptr [ %11, %.thread26 ], [ %.3.ph, %.thread26.preheader ]
+  %11 = getelementptr inbounds nuw i8, ptr %.3, i64 1
+  %12 = load i8, ptr %.3, align 1
+  %.not21 = icmp eq i8 %12, 0
+  br i1 %.not21, label %.loopexit, label %.thread26, !llvm.loop !11
 
 .loopexit:                                        ; preds = %5, %.thread26
-  %.2 = phi ptr [ %scevgep, %.thread26 ], [ %6, %5 ]
-  %12 = ptrtoint ptr %.2 to i64
-  %13 = ptrtoint ptr %1 to i64
-  %14 = xor i64 %13, -1
-  %15 = add i64 %12, %14
-  ret i64 %15
+  %.2 = phi ptr [ %11, %.thread26 ], [ %6, %5 ]
+  %13 = ptrtoint ptr %.2 to i64
+  %14 = ptrtoint ptr %1 to i64
+  %15 = xor i64 %14, -1
+  %16 = add i64 %13, %15
+  ret i64 %16
 }
 
-; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr captures(none)) local_unnamed_addr #1
-
 attributes #0 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { nofree nounwind willreturn memory(argmem: read) }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5, !6, !7}
 
@@ -65,3 +65,4 @@ attributes #1 = { nofree nounwind willreturn memory(argmem: read) }
 !8 = distinct !{!8, !9, !10}
 !9 = !{!"llvm.loop.mustprogress"}
 !10 = !{!"llvm.loop.unroll.disable"}
+!11 = distinct !{!11, !9, !10}

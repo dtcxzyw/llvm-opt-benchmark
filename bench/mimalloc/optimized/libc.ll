@@ -183,25 +183,29 @@ _mi_strlcpy.exit:                                 ; preds = %._crit_edge.i, %3
   ret void
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define hidden i64 @_mi_strlen(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #3 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
+define hidden i64 @_mi_strlen(ptr noundef readonly captures(address_is_null) %0) local_unnamed_addr #1 {
   %2 = icmp eq ptr %0, null
-  br i1 %2, label %.loopexit, label %.preheader.preheader
+  br i1 %2, label %.loopexit, label %.preheader
 
-.preheader.preheader:                             ; preds = %1
-  %strlen = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0)
-  br label %.loopexit
+.preheader:                                       ; preds = %1, %.preheader
+  %.0 = phi i64 [ %5, %.preheader ], [ 0, %1 ]
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 %.0
+  %4 = load i8, ptr %3, align 1, !tbaa !3
+  %.not = icmp eq i8 %4, 0
+  %5 = add i64 %.0, 1
+  br i1 %.not, label %.loopexit, label %.preheader, !llvm.loop !10
 
-.loopexit:                                        ; preds = %.preheader.preheader, %1
-  %.05 = phi i64 [ 0, %1 ], [ %strlen, %.preheader.preheader ]
+.loopexit:                                        ; preds = %.preheader, %1
+  %.05 = phi i64 [ 0, %1 ], [ %.0, %.preheader ]
   ret i64 %.05
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #4
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #4
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #3
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
 define hidden i64 @_mi_strnlen(ptr noundef readonly captures(address_is_null) %0, i64 noundef %1) local_unnamed_addr #1 {
@@ -216,7 +220,7 @@ define hidden i64 @_mi_strnlen(ptr noundef readonly captures(address_is_null) %0
   %7 = icmp ult i64 %.0, %1
   %8 = and i1 %7, %6
   %9 = add nuw i64 %.0, 1
-  br i1 %8, label %.preheader, label %.loopexit, !llvm.loop !10
+  br i1 %8, label %.preheader, label %.loopexit, !llvm.loop !11
 
 .loopexit:                                        ; preds = %.preheader, %2
   %.07 = phi i64 [ 0, %2 ], [ %.0, %.preheader ]
@@ -224,7 +228,7 @@ define hidden i64 @_mi_strnlen(ptr noundef readonly captures(address_is_null) %0
 }
 
 ; Function Attrs: nounwind uwtable
-define hidden zeroext i1 @_mi_getenv(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #5 {
+define hidden zeroext i1 @_mi_getenv(ptr noundef %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #4 {
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond = or i1 %4, %5
@@ -233,7 +237,7 @@ define hidden zeroext i1 @_mi_getenv(ptr noundef %0, ptr noundef %1, i64 noundef
   br i1 %or.cond3, label %9, label %7
 
 7:                                                ; preds = %3
-  %8 = tail call zeroext i1 @_mi_prim_getenv(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %2) #13
+  %8 = tail call zeroext i1 @_mi_prim_getenv(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %2) #11
   br label %9
 
 9:                                                ; preds = %3, %7
@@ -241,10 +245,10 @@ define hidden zeroext i1 @_mi_getenv(ptr noundef %0, ptr noundef %1, i64 noundef
   ret i1 %.0
 }
 
-declare zeroext i1 @_mi_prim_getenv(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #6
+declare zeroext i1 @_mi_prim_getenv(ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define hidden noundef i32 @_mi_vsnprintf(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef captures(none) %3) local_unnamed_addr #7 {
+define hidden noundef i32 @_mi_vsnprintf(ptr noundef %0, i64 noundef %1, ptr noundef readonly captures(address_is_null) %2, ptr noundef captures(none) %3) local_unnamed_addr #6 {
   %5 = icmp eq ptr %0, null
   %6 = icmp eq i64 %1, 0
   %or.cond = or i1 %5, %6
@@ -381,7 +385,7 @@ mi_outc.exit:                                     ; preds = %switch.early.test, 
   %60 = add i64 %57, %59
   %61 = load i8, ptr %.8, align 1, !tbaa !3
   %62 = icmp eq i8 %61, 0
-  br i1 %62, label %mi_out_alignright.exit.thread325, label %53, !llvm.loop !11
+  br i1 %62, label %mi_out_alignright.exit.thread325, label %53, !llvm.loop !12
 
 .loopexit:                                        ; preds = %53, %45
   %.3215 = phi i8 [ %.2214, %45 ], [ %.4216, %53 ]
@@ -450,7 +454,7 @@ mi_outc.exit:                                     ; preds = %switch.early.test, 
 
 92:                                               ; preds = %89, %84
   %93 = phi ptr [ %87, %84 ], [ %90, %89 ]
-  %94 = load ptr, ptr %93, align 8, !tbaa !12
+  %94 = load ptr, ptr %93, align 8, !tbaa !13
   %95 = icmp eq ptr %94, null
   br i1 %95, label %mi_outs.exit, label %96
 
@@ -470,7 +474,7 @@ mi_outc.exit:                                     ; preds = %switch.early.test, 
   %102 = icmp ne i8 %101, 0
   %103 = icmp ult ptr %100, %10
   %104 = select i1 %102, i1 %103, i1 false
-  br i1 %104, label %.lr.ph.i, label %mi_outs.exit, !llvm.loop !15
+  br i1 %104, label %.lr.ph.i, label %mi_outs.exit, !llvm.loop !16
 
 105:                                              ; preds = %79
   %106 = icmp eq i8 %.6218, 112
@@ -512,7 +516,7 @@ mi_outc.exit:                                     ; preds = %switch.early.test, 
 
 120:                                              ; preds = %117, %112
   %121 = phi ptr [ %115, %112 ], [ %118, %117 ]
-  %122 = load i64, ptr %121, align 8, !tbaa !16
+  %122 = load i64, ptr %121, align 8, !tbaa !17
   br label %194
 
 123:                                              ; preds = %108
@@ -534,7 +538,7 @@ mi_outc.exit:                                     ; preds = %switch.early.test, 
 
 132:                                              ; preds = %129, %124
   %133 = phi ptr [ %127, %124 ], [ %130, %129 ]
-  %134 = load i64, ptr %133, align 8, !tbaa !16
+  %134 = load i64, ptr %133, align 8, !tbaa !17
   br label %194
 
 135:                                              ; preds = %108
@@ -556,7 +560,7 @@ mi_outc.exit:                                     ; preds = %switch.early.test, 
 
 144:                                              ; preds = %141, %136
   %145 = phi ptr [ %139, %136 ], [ %142, %141 ]
-  %146 = load i64, ptr %145, align 8, !tbaa !18
+  %146 = load i64, ptr %145, align 8, !tbaa !19
   br label %194
 
 147:                                              ; preds = %108
@@ -578,7 +582,7 @@ mi_outc.exit:                                     ; preds = %switch.early.test, 
 
 156:                                              ; preds = %153, %148
   %157 = phi ptr [ %151, %148 ], [ %154, %153 ]
-  %158 = load i64, ptr %157, align 8, !tbaa !16
+  %158 = load i64, ptr %157, align 8, !tbaa !17
   br label %194
 
 159:                                              ; preds = %108
@@ -600,7 +604,7 @@ mi_outc.exit:                                     ; preds = %switch.early.test, 
 
 168:                                              ; preds = %165, %160
   %169 = phi ptr [ %163, %160 ], [ %166, %165 ]
-  %170 = load i32, ptr %169, align 4, !tbaa !20
+  %170 = load i32, ptr %169, align 4, !tbaa !21
   %171 = zext i32 %170 to i64
   br label %194
 
@@ -625,7 +629,7 @@ mi_outc.exit:                                     ; preds = %switch.early.test, 
 
 183:                                              ; preds = %180, %175
   %184 = phi ptr [ %178, %175 ], [ %181, %180 ]
-  %185 = load i64, ptr %184, align 8, !tbaa !16
+  %185 = load i64, ptr %184, align 8, !tbaa !17
   br label %.lr.ph.i255
 
 .lr.ph.i255:                                      ; preds = %183, %.lr.ph.i255
@@ -639,7 +643,7 @@ mi_outc.exit:                                     ; preds = %switch.early.test, 
   %190 = icmp ne i8 %189, 0
   %191 = icmp ult ptr %188, %10
   %192 = select i1 %190, i1 %191, i1 false
-  br i1 %192, label %.lr.ph.i255, label %mi_outs.exit258, !llvm.loop !15
+  br i1 %192, label %.lr.ph.i255, label %mi_outs.exit258, !llvm.loop !16
 
 mi_outs.exit258:                                  ; preds = %.lr.ph.i255
   %193 = tail call i64 @llvm.usub.sat.i64(i64 %.0200, i64 2)
@@ -722,7 +726,7 @@ mi_outc.exit51.i:                                 ; preds = %216, %.split.i
   %.11 = phi ptr [ %222, %216 ], [ %.10, %.split.i ]
   %223 = phi ptr [ %222, %216 ], [ %213, %.split.i ]
   %.not.i260 = icmp ugt i64 %204, %.054.i
-  br i1 %.not.i260, label %.split56.us.i, label %.split.i, !llvm.loop !22
+  br i1 %.not.i260, label %.split56.us.i, label %.split.i, !llvm.loop !23
 
 .split56.us.i:                                    ; preds = %mi_outc.exit51.i, %211
   %.8309 = phi ptr [ %.5306, %211 ], [ %.11, %mi_outc.exit51.i ]
@@ -762,7 +766,7 @@ mi_outc.exit53.i:                                 ; preds = %225, %.split56.us.i
   store i8 %236, ptr %237, align 1, !tbaa !3
   %239 = add nuw nsw i64 %.04257.i, 1
   %exitcond.not.i = icmp eq i64 %239, %231
-  br i1 %exitcond.not.i, label %mi_outs.exit, label %233, !llvm.loop !24
+  br i1 %exitcond.not.i, label %mi_outs.exit, label %233, !llvm.loop !25
 
 240:                                              ; preds = %105, %105
   %241 = load i32, ptr %3, align 8
@@ -793,7 +797,7 @@ mi_outc.exit53.i:                                 ; preds = %225, %.split56.us.i
 
 252:                                              ; preds = %249, %244
   %253 = phi ptr [ %247, %244 ], [ %250, %249 ]
-  %254 = load i64, ptr %253, align 8, !tbaa !16
+  %254 = load i64, ptr %253, align 8, !tbaa !17
   br label %304
 
 255:                                              ; preds = %240
@@ -815,7 +819,7 @@ mi_outc.exit53.i:                                 ; preds = %225, %.split56.us.i
 
 264:                                              ; preds = %261, %256
   %265 = phi ptr [ %259, %256 ], [ %262, %261 ]
-  %266 = load i64, ptr %265, align 8, !tbaa !16
+  %266 = load i64, ptr %265, align 8, !tbaa !17
   br label %304
 
 267:                                              ; preds = %240
@@ -837,7 +841,7 @@ mi_outc.exit53.i:                                 ; preds = %225, %.split56.us.i
 
 276:                                              ; preds = %273, %268
   %277 = phi ptr [ %271, %268 ], [ %274, %273 ]
-  %278 = load i64, ptr %277, align 8, !tbaa !18
+  %278 = load i64, ptr %277, align 8, !tbaa !19
   br label %304
 
 279:                                              ; preds = %240
@@ -859,7 +863,7 @@ mi_outc.exit53.i:                                 ; preds = %225, %.split56.us.i
 
 288:                                              ; preds = %285, %280
   %289 = phi ptr [ %283, %280 ], [ %286, %285 ]
-  %290 = load i64, ptr %289, align 8, !tbaa !16
+  %290 = load i64, ptr %289, align 8, !tbaa !17
   br label %304
 
 291:                                              ; preds = %240
@@ -881,7 +885,7 @@ mi_outc.exit53.i:                                 ; preds = %225, %.split56.us.i
 
 300:                                              ; preds = %297, %292
   %301 = phi ptr [ %295, %292 ], [ %298, %297 ]
-  %302 = load i32, ptr %301, align 4, !tbaa !20
+  %302 = load i32, ptr %301, align 4, !tbaa !21
   %303 = sext i32 %302 to i64
   br label %304
 
@@ -942,7 +946,7 @@ mi_outc.exit51.i273:                              ; preds = %318, %.split.i270
   %.17 = phi ptr [ %321, %318 ], [ %.16, %.split.i270 ]
   %322 = phi ptr [ %321, %318 ], [ %315, %.split.i270 ]
   %.not.i274 = icmp ult i64 %.054.i271, 10
-  br i1 %.not.i274, label %.split56.us.i261, label %.split.i270, !llvm.loop !22
+  br i1 %.not.i274, label %.split56.us.i261, label %.split.i270, !llvm.loop !23
 
 .split56.us.i261:                                 ; preds = %mi_outc.exit51.i273
   %.not46.i262 = icmp ne i8 %.0190317, 0
@@ -980,7 +984,7 @@ mi_outc.exit53.i265:                              ; preds = %323, %.split56.us.i
   store i8 %334, ptr %335, align 1, !tbaa !3
   %337 = add nuw nsw i64 %.04257.i268, 1
   %exitcond.not.i269 = icmp eq i64 %337, %329
-  br i1 %exitcond.not.i269, label %mi_outs.exit, label %331, !llvm.loop !24
+  br i1 %exitcond.not.i269, label %mi_outs.exit, label %331, !llvm.loop !25
 
 338:                                              ; preds = %105
   %339 = add i8 %.6218, -32
@@ -1048,7 +1052,7 @@ mi_out_fill.exit:                                 ; preds = %347, %.lr.ph.prehea
   store i8 %359, ptr %361, align 1, !tbaa !3
   %362 = add nuw i64 %.02232.i, 1
   %exitcond.i = icmp eq i64 %.02232.i, %345
-  br i1 %exitcond.i, label %.preheader.preheader.i, label %.preheader31.i, !llvm.loop !25
+  br i1 %exitcond.i, label %.preheader.preheader.i, label %.preheader31.i, !llvm.loop !26
 
 .preheader.preheader.i:                           ; preds = %.preheader31.i
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %.0195, i8 range(i8 32, 49) %.1208, i64 %348, i1 false), !tbaa !3
@@ -1075,50 +1079,45 @@ mi_out_alignright.exit.thread325:                 ; preds = %mi_out_alignright.e
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind uwtable
-define hidden noundef i32 @_mi_snprintf(ptr noundef %0, i64 noundef %1, ptr noundef captures(address_is_null) %2, ...) local_unnamed_addr #8 {
+define hidden noundef i32 @_mi_snprintf(ptr noundef %0, i64 noundef %1, ptr noundef captures(address_is_null) %2, ...) local_unnamed_addr #7 {
   %4 = alloca [1 x %struct.__va_list_tag], align 16
-  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #14
+  call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %4) #12
   call void @llvm.va_start.p0(ptr nonnull %4)
-  %5 = call i32 @_mi_vsnprintf(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef nonnull %4) #15
+  %5 = call i32 @_mi_vsnprintf(ptr noundef %0, i64 noundef %1, ptr noundef %2, ptr noundef nonnull %4) #13
   call void @llvm.va_end.p0(ptr nonnull %4)
-  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #14
+  call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %4) #12
   ret i32 %5
 }
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_start.p0(ptr) #9
+declare void @llvm.va_start.p0(ptr) #8
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn
-declare void @llvm.va_end.p0(ptr) #9
+declare void @llvm.va_end.p0(ptr) #8
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.usub.sat.i64(i64, i64) #10
-
-; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr captures(none)) local_unnamed_addr #11
+declare i64 @llvm.usub.sat.i64(i64, i64) #9
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #10
+declare i64 @llvm.umin.i64(i64, i64) #9
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #12
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #10
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #5 = { nounwind uwtable "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nofree norecurse nosync nounwind uwtable "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nocallback nofree nosync nounwind willreturn }
-attributes #10 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #11 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #12 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #13 = { nounwind "no-builtin-malloc" }
-attributes #14 = { nounwind }
-attributes #15 = { "no-builtin-malloc" }
+attributes #3 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #4 = { nounwind uwtable "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { nofree norecurse nosync nounwind uwtable "min-legal-vector-width"="0" "no-builtin-malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn }
+attributes #9 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #10 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #11 = { nounwind "no-builtin-malloc" }
+attributes #12 = { nounwind }
+attributes #13 = { "no-builtin-malloc" }
 
 !llvm.module.flags = !{!0, !1, !2}
 
@@ -1134,17 +1133,18 @@ attributes #15 = { "no-builtin-malloc" }
 !9 = distinct !{!9, !7}
 !10 = distinct !{!10, !7}
 !11 = distinct !{!11, !7}
-!12 = !{!13, !13, i64 0}
-!13 = !{!"p1 omnipotent char", !14, i64 0}
-!14 = !{!"any pointer", !4, i64 0}
-!15 = distinct !{!15, !7}
-!16 = !{!17, !17, i64 0}
-!17 = !{!"long", !4, i64 0}
-!18 = !{!19, !19, i64 0}
-!19 = !{!"long long", !4, i64 0}
-!20 = !{!21, !21, i64 0}
-!21 = !{!"int", !4, i64 0}
-!22 = distinct !{!22, !7, !23}
-!23 = !{!"llvm.loop.unswitch.partial.disable"}
-!24 = distinct !{!24, !7}
+!12 = distinct !{!12, !7}
+!13 = !{!14, !14, i64 0}
+!14 = !{!"p1 omnipotent char", !15, i64 0}
+!15 = !{!"any pointer", !4, i64 0}
+!16 = distinct !{!16, !7}
+!17 = !{!18, !18, i64 0}
+!18 = !{!"long", !4, i64 0}
+!19 = !{!20, !20, i64 0}
+!20 = !{!"long long", !4, i64 0}
+!21 = !{!22, !22, i64 0}
+!22 = !{!"int", !4, i64 0}
+!23 = distinct !{!23, !7, !24}
+!24 = !{!"llvm.loop.unswitch.partial.disable"}
 !25 = distinct !{!25, !7}
+!26 = distinct !{!26, !7}

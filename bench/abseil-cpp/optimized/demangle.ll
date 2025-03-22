@@ -266,10 +266,10 @@ define dso_local noundef zeroext i1 @_ZN4absl18debugging_internal8DemangleEPKcPc
 
 11:                                               ; preds = %7
   %12 = tail call noundef zeroext i1 @_ZN4absl18debugging_internal26DemangleRustSymbolEncodingEPKcPcm(ptr noundef nonnull %0, ptr noundef %1, i64 noundef %2)
-  br label %72
+  br label %74
 
 13:                                               ; preds = %3, %7
-  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #15
+  call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4) #14
   store ptr %0, ptr %4, align 8, !tbaa !7
   %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store ptr %1, ptr %14, align 8, !tbaa !13
@@ -386,30 +386,37 @@ _ZN4absl18debugging_internalL21IsFunctionCloneSuffixEPKc.exit.thread.i: ; preds 
 66:                                               ; preds = %_ZN4absl18debugging_internalL21IsFunctionCloneSuffixEPKc.exit.thread.i
   %67 = load i32, ptr %18, align 8
   %.not.i23.i = icmp sgt i32 %67, -1
-  br i1 %.not.i23.i, label %.loopexit, label %_ZN4absl18debugging_internalL6StrLenEPKc.exit.i.i
+  br i1 %.not.i23.i, label %.loopexit, label %.lr.ph.i.i.i
 
-_ZN4absl18debugging_internalL6StrLenEPKc.exit.i.i: ; preds = %66
-  %strlen.i.i.i = call i64 @strlen(ptr nonnull readonly dereferenceable(1) %invariant.gep.i.i)
-  %68 = add i64 %strlen.i.i.i, 1
-  call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %4, ptr noundef nonnull readonly %31, i64 noundef %68)
+.lr.ph.i.i.i:                                     ; preds = %66, %.lr.ph.i.i.i
+  %.06.i.i.i = phi i64 [ %69, %.lr.ph.i.i.i ], [ 0, %66 ]
+  %.035.i.i.i = phi ptr [ %68, %.lr.ph.i.i.i ], [ %31, %66 ]
+  %68 = getelementptr inbounds nuw i8, ptr %.035.i.i.i, i64 1
+  %69 = add i64 %.06.i.i.i, 1
+  %70 = load i8, ptr %68, align 1, !tbaa !4
+  %.not.i.i.i = icmp eq i8 %70, 0
+  br i1 %.not.i.i.i, label %_ZN4absl18debugging_internalL6StrLenEPKc.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !22
+
+_ZN4absl18debugging_internalL6StrLenEPKc.exit.i.i: ; preds = %.lr.ph.i.i.i
+  call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %4, ptr noundef nonnull readonly %31, i64 noundef %69)
   br label %.loopexit
 
 .loopexit:                                        ; preds = %34, %29, %66, %_ZN4absl18debugging_internalL6StrLenEPKc.exit.i.i
   %.val = load i32, ptr %16, align 8, !tbaa !14
-  %69 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %.val8 = load i32, ptr %69, align 8, !tbaa !22
+  %71 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %.val8 = load i32, ptr %71, align 8, !tbaa !23
   %.not = icmp slt i32 %.val8, %.val
-  %70 = icmp sgt i32 %.val8, 0
-  %spec.select = and i1 %.not, %70
+  %72 = icmp sgt i32 %.val8, 0
+  %spec.select = and i1 %.not, %72
   br label %_ZN4absl18debugging_internalL24ParseTopLevelMangledNameEPNS0_5StateE.exit
 
 _ZN4absl18debugging_internalL24ParseTopLevelMangledNameEPNS0_5StateE.exit: ; preds = %_ZN4absl18debugging_internalL21IsFunctionCloneSuffixEPKc.exit.thread.i, %26, %13, %22, %.loopexit
-  %71 = phi i1 [ %spec.select, %.loopexit ], [ false, %22 ], [ false, %13 ], [ false, %26 ], [ false, %_ZN4absl18debugging_internalL21IsFunctionCloneSuffixEPKc.exit.thread.i ]
-  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #15
-  br label %72
+  %73 = phi i1 [ %spec.select, %.loopexit ], [ false, %22 ], [ false, %13 ], [ false, %26 ], [ false, %_ZN4absl18debugging_internalL21IsFunctionCloneSuffixEPKc.exit.thread.i ]
+  call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4) #14
+  br label %74
 
-72:                                               ; preds = %_ZN4absl18debugging_internalL24ParseTopLevelMangledNameEPNS0_5StateE.exit, %11
-  %.0 = phi i1 [ %12, %11 ], [ %71, %_ZN4absl18debugging_internalL24ParseTopLevelMangledNameEPNS0_5StateE.exit ]
+74:                                               ; preds = %_ZN4absl18debugging_internalL24ParseTopLevelMangledNameEPNS0_5StateE.exit, %11
+  %.0 = phi i1 [ %12, %11 ], [ %73, %_ZN4absl18debugging_internalL24ParseTopLevelMangledNameEPNS0_5StateE.exit ]
   ret i1 %.0
 }
 
@@ -425,26 +432,26 @@ declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #2
 define dso_local void @_ZN4absl18debugging_internal14DemangleStringB5cxx11EPKc(ptr dead_on_unwind noalias writable sret(%"class.std::__cxx11::basic_string") align 8 %0, ptr noundef %1) local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %3 = alloca i32, align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %4, ptr %0, align 8, !tbaa !23
+  store ptr %4, ptr %0, align 8, !tbaa !24
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 0, ptr %5, align 8, !tbaa !25
+  store i64 0, ptr %5, align 8, !tbaa !26
   store i8 0, ptr %4, align 8, !tbaa !4
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #15
-  store i32 0, ptr %3, align 4, !tbaa !28
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %3) #14
+  store i32 0, ptr %3, align 4, !tbaa !29
   %6 = invoke ptr @__cxa_demangle(ptr noundef %1, ptr noundef null, ptr noundef null, ptr noundef nonnull %3)
           to label %7 unwind label %17
 
 7:                                                ; preds = %2
-  %8 = load i32, ptr %3, align 4, !tbaa !28
+  %8 = load i32, ptr %3, align 4, !tbaa !29
   %9 = icmp eq i32 %8, 0
   %10 = icmp ne ptr %6, null
   %or.cond = select i1 %9, i1 %10, i1 false
-  %11 = load i64, ptr %5, align 8, !tbaa !25
+  %11 = load i64, ptr %5, align 8, !tbaa !26
   %12 = sub i64 4611686018427387903, %11
   br i1 %or.cond, label %13, label %25
 
 13:                                               ; preds = %7
-  %14 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #15
+  %14 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %6) #14
   %15 = icmp ult i64 %12, %14
   br i1 %15, label %.invoke, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i
 
@@ -453,19 +460,19 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.ex
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit unwind label %17
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i
-  call void @free(ptr noundef nonnull %6) #15
+  call void @free(ptr noundef nonnull %6) #14
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit12
 
 17:                                               ; preds = %.invoke, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i9, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i, %2
   %18 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #15
-  %19 = load ptr, ptr %0, align 8, !tbaa !29
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #14
+  %19 = load ptr, ptr %0, align 8, !tbaa !30
   %20 = icmp eq ptr %19, %4
   br i1 %20, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %17
-  %21 = load i64, ptr %5, align 8, !tbaa !25
+  %21 = load i64, ptr %5, align 8, !tbaa !26
   %22 = icmp ult i64 %21, 16
   call void @llvm.assume(i1 %22)
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
@@ -473,19 +480,19 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: ; preds = %17
   %23 = load i64, ptr %4, align 8, !tbaa !4
   %24 = add i64 %23, 1
-  call void @_ZdlPvm(ptr noundef %19, i64 noundef %24) #16
+  call void @_ZdlPvm(ptr noundef %19, i64 noundef %24) #15
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   resume { ptr, i32 } %18
 
 25:                                               ; preds = %7
-  %26 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #15
+  %26 = call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %1) #14
   %27 = icmp ult i64 %12, %26
   br i1 %27, label %.invoke, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i9
 
 .invoke:                                          ; preds = %13, %25
-  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.295) #17
+  invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.295) #16
           to label %.cont unwind label %17
 
 .cont:                                            ; preds = %.invoke
@@ -496,7 +503,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.ex
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit12 unwind label %17
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit12: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE15_M_check_lengthEmmPKc.exit.i9, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendEPKc.exit
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %3) #14
   ret void
 }
 
@@ -507,30 +514,33 @@ declare i32 @__gxx_personality_v0(...)
 ; Function Attrs: mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite)
 declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 
-; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc void @_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #4 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %4 = load i32, ptr %3, align 4
   %.not = icmp sgt i32 %4, -1
-  br i1 %.not, label %8, label %5
+  br i1 %.not, label %10, label %5
 
 5:                                                ; preds = %2
   %6 = load i8, ptr %1, align 1, !tbaa !4
   %.not4.i = icmp eq i8 %6, 0
-  br i1 %.not4.i, label %_ZN4absl18debugging_internalL6StrLenEPKc.exit, label %.lr.ph.preheader.i
+  br i1 %.not4.i, label %_ZN4absl18debugging_internalL6StrLenEPKc.exit, label %.lr.ph.i
 
-.lr.ph.preheader.i:                               ; preds = %5
-  %scevgep.i = getelementptr i8, ptr %1, i64 1
-  %strlen.i = tail call i64 @strlen(ptr nonnull readonly dereferenceable(1) %scevgep.i)
-  %7 = add i64 %strlen.i, 1
-  br label %_ZN4absl18debugging_internalL6StrLenEPKc.exit
+.lr.ph.i:                                         ; preds = %5, %.lr.ph.i
+  %.06.i = phi i64 [ %8, %.lr.ph.i ], [ 0, %5 ]
+  %.035.i = phi ptr [ %7, %.lr.ph.i ], [ %1, %5 ]
+  %7 = getelementptr inbounds nuw i8, ptr %.035.i, i64 1
+  %8 = add i64 %.06.i, 1
+  %9 = load i8, ptr %7, align 1, !tbaa !4
+  %.not.i = icmp eq i8 %9, 0
+  br i1 %.not.i, label %_ZN4absl18debugging_internalL6StrLenEPKc.exit, label %.lr.ph.i, !llvm.loop !22
 
-_ZN4absl18debugging_internalL6StrLenEPKc.exit:    ; preds = %5, %.lr.ph.preheader.i
-  %.0.lcssa.i = phi i64 [ 0, %5 ], [ %7, %.lr.ph.preheader.i ]
+_ZN4absl18debugging_internalL6StrLenEPKc.exit:    ; preds = %.lr.ph.i, %5
+  %.0.lcssa.i = phi i64 [ 0, %5 ], [ %8, %.lr.ph.i ]
   tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %0, ptr noundef nonnull %1, i64 noundef %.0.lcssa.i)
-  br label %8
+  br label %10
 
-8:                                                ; preds = %_ZN4absl18debugging_internalL6StrLenEPKc.exit, %2
+10:                                               ; preds = %_ZN4absl18debugging_internalL6StrLenEPKc.exit, %2
   ret void
 }
 
@@ -579,9 +589,9 @@ _ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exi
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nofree memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree nosync memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL13ParseEncodingEPNS0_5StateE(ptr noundef %0) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
-  %.sroa.0.i44 = alloca { i32, i32, i32 }, align 8
+  %.sroa.0.i50 = alloca { i32, i32, i32 }, align 8
   %.sroa.0.i = alloca { i32, i32, i32 }, align 8
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4, !tbaa !17
@@ -608,46 +618,46 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL13ParseE
           to label %15 unwind label %16
 
 15:                                               ; preds = %13
-  %.pre110 = load i32, ptr %2, align 4, !tbaa !17
+  %.pre118 = load i32, ptr %2, align 4, !tbaa !17
   br i1 %14, label %20, label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread
 
 16:                                               ; preds = %13, %10
   %17 = landingpad { ptr, i32 }
           cleanup
-  %.pre43.pre = load i32, ptr %2, align 4, !tbaa !17
+  %.pre49.pre = load i32, ptr %2, align 4, !tbaa !17
   br label %.body
 
-.body:                                            ; preds = %16, %47, %374
-  %18 = phi i32 [ %376, %374 ], [ %.pre43.pre, %16 ], [ %50, %47 ]
-  %eh.lpad-body = phi { ptr, i32 } [ %.pn104.i, %374 ], [ %17, %16 ], [ %48, %47 ]
+.body:                                            ; preds = %16, %47, %371
+  %18 = phi i32 [ %373, %371 ], [ %.pre49.pre, %16 ], [ %50, %47 ]
+  %eh.lpad-body = phi { ptr, i32 } [ %.pn104.i, %371 ], [ %17, %16 ], [ %48, %47 ]
   %19 = add nsw i32 %18, -1
   store i32 %19, ptr %2, align 4, !tbaa !17
   resume { ptr, i32 } %eh.lpad-body
 
 20:                                               ; preds = %15
-  %21 = add nsw i32 %.pre110, 1
+  %21 = add nsw i32 %.pre118, 1
   store i32 %21, ptr %2, align 4, !tbaa !17
   %22 = load i32, ptr %5, align 8, !tbaa !15
   %23 = add nsw i32 %22, 1
   store i32 %23, ptr %5, align 8, !tbaa !15
-  %24 = icmp sgt i32 %.pre110, 255
+  %24 = icmp sgt i32 %.pre118, 255
   %25 = icmp sgt i32 %22, 131071
-  %or.cond.i45 = select i1 %24, i1 true, i1 %25
-  br i1 %or.cond.i45, label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread.sink.split, label %26
+  %or.cond.i51 = select i1 %24, i1 true, i1 %25
+  br i1 %or.cond.i51, label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread.sink.split, label %26
 
 26:                                               ; preds = %20
-  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.0.i44)
+  call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.0.i50)
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0.i44, ptr noundef nonnull align 4 dereferenceable(12) %27, i64 12, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0.i50, ptr noundef nonnull align 4 dereferenceable(12) %27, i64 12, i1 false), !tbaa.struct !31
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.sroa.5.0.copyload.i = load i32, ptr %.sroa.5.0..sroa_idx.i, align 4, !tbaa !4
   %28 = and i32 %.sroa.5.0.copyload.i, 2147483647
   store i32 %28, ptr %.sroa.5.0..sroa_idx.i, align 4
-  %29 = add nsw i32 %.pre110, 2
+  %29 = add nsw i32 %.pre118, 2
   store i32 %29, ptr %2, align 4, !tbaa !17
   %30 = add nsw i32 %22, 2
   store i32 %30, ptr %5, align 8, !tbaa !15
-  %31 = icmp sgt i32 %.pre110, 254
+  %31 = icmp sgt i32 %.pre118, 254
   %32 = icmp sgt i32 %22, 131070
   %or.cond.i.i = select i1 %31, i1 true, i1 %32
   br i1 %or.cond.i.i, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i, label %33
@@ -685,20 +695,20 @@ _ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i: ; 
 47:                                               ; preds = %38
   %48 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.0.i44)
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.0.i50)
   %49 = load i32, ptr %2, align 4, !tbaa !17
   %50 = add nsw i32 %49, -1
   store i32 %50, ptr %2, align 4, !tbaa !17
   br label %.body
 
 51:                                               ; preds = %41, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %27, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0.i44, i64 12, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %27, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0.i50, i64 12, i1 false), !tbaa.struct !31
   br label %52
 
 52:                                               ; preds = %51, %42
   %storemerge.i = phi i32 [ %46, %42 ], [ %.sroa.5.0.copyload.i, %51 ]
   store i32 %storemerge.i, ptr %.sroa.5.0..sroa_idx.i, align 4
-  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.0.i44)
+  call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.0.i50)
   br label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread.sink.split.sink.split
 
 53:                                               ; preds = %12
@@ -710,13 +720,13 @@ _ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i: ; 
   store i32 %57, ptr %5, align 8, !tbaa !15
   %58 = icmp sgt i32 %54, 255
   %59 = icmp sgt i32 %56, 131071
-  %or.cond42 = select i1 %58, i1 true, i1 %59
-  br i1 %or.cond42, label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread.sink.split, label %60
+  %or.cond46 = select i1 %58, i1 true, i1 %59
+  br i1 %or.cond46, label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread.sink.split, label %60
 
 60:                                               ; preds = %53
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.0.i)
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0.i, ptr noundef nonnull align 4 dereferenceable(12) %61, i64 12, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0.i, ptr noundef nonnull align 4 dereferenceable(12) %61, i64 12, i1 false), !tbaa.struct !31
   %.sroa.18.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.sroa.18.0.copyload.i = load i32, ptr %.sroa.18.0..sroa_idx.i, align 4, !tbaa !4
   %62 = add nsw i32 %54, 2
@@ -725,783 +735,783 @@ _ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i: ; 
   store i32 %63, ptr %5, align 8, !tbaa !15
   %64 = icmp sgt i32 %54, 254
   %65 = icmp sgt i32 %56, 131070
-  %or.cond.i27 = select i1 %64, i1 true, i1 %65
-  br i1 %or.cond.i27, label %83, label %66
+  %or.cond.i31 = select i1 %64, i1 true, i1 %65
+  br i1 %or.cond.i31, label %82, label %66
 
 66:                                               ; preds = %60
-  %.val11.i28 = load ptr, ptr %0, align 8, !tbaa !7
-  %.val12.i29 = load i32, ptr %61, align 4, !tbaa !16
-  %67 = sext i32 %.val12.i29 to i64
-  %68 = getelementptr inbounds i8, ptr %.val11.i28, i64 %67
+  %.val11.i32 = load ptr, ptr %0, align 8, !tbaa !7
+  %.val12.i33 = load i32, ptr %61, align 4, !tbaa !16
+  %67 = sext i32 %.val12.i33 to i64
+  %68 = getelementptr inbounds i8, ptr %.val11.i32, i64 %67
   %69 = load i8, ptr %68, align 1, !tbaa !4
   %70 = icmp eq i8 %69, 84
-  br i1 %70, label %71, label %83
+  br i1 %70, label %71, label %82
 
 71:                                               ; preds = %66
   %72 = getelementptr inbounds nuw i8, ptr %68, i64 1
   %73 = load i8, ptr %72, align 1, !tbaa !4
   %74 = icmp eq i8 %73, 87
-  br i1 %74, label %75, label %83
+  br i1 %74, label %75, label %82
 
 75:                                               ; preds = %71
-  %76 = add nsw i32 %.val12.i29, 2
+  %76 = add nsw i32 %.val12.i33, 2
   store i32 %76, ptr %61, align 4, !tbaa !16
   store i32 %55, ptr %2, align 4, !tbaa !17
   %.not.i24 = icmp sgt i32 %.sroa.18.0.copyload.i, -1
-  br i1 %.not.i24, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit26, label %77
+  br i1 %.not.i24, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit30, label %.lr.ph.i.i25.preheader
 
-77:                                               ; preds = %75
+.lr.ph.i.i25.preheader:                           ; preds = %75
   tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %0, ptr noundef nonnull @.str.279, i64 noundef 33)
-  br label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit26
+  br label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit30
 
-_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit26: ; preds = %75, %77
-  %78 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL9ParseNameEPNS0_5StateE(ptr noundef nonnull %0)
-          to label %79 unwind label %80
+_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit30: ; preds = %75, %.lr.ph.i.i25.preheader
+  %77 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL9ParseNameEPNS0_5StateE(ptr noundef nonnull %0)
+          to label %78 unwind label %79
 
-79:                                               ; preds = %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit26
-  br i1 %78, label %373, label %82
+78:                                               ; preds = %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit30
+  br i1 %77, label %370, label %81
 
-80:                                               ; preds = %342, %310, %287, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit78, %246, %211, %203, %184, %166, %147, %122, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit26
-  %81 = landingpad { ptr, i32 }
+79:                                               ; preds = %339, %307, %284, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit84, %244, %209, %201, %182, %164, %145, %120, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit30
+  %80 = landingpad { ptr, i32 }
           cleanup
-  br label %374
+  br label %371
 
-82:                                               ; preds = %79
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %61, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0.i, i64 12, i1 false), !tbaa.struct !30
+81:                                               ; preds = %78
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %61, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0.i, i64 12, i1 false), !tbaa.struct !31
   store i32 %.sroa.18.0.copyload.i, ptr %.sroa.18.0..sroa_idx.i, align 4, !tbaa !4
-  br label %373
+  br label %370
 
-83:                                               ; preds = %71, %66, %60
+82:                                               ; preds = %71, %66, %60
   store i32 %62, ptr %2, align 4, !tbaa !17
-  %84 = add nsw i32 %56, 3
-  store i32 %84, ptr %5, align 8, !tbaa !15
-  %85 = icmp sgt i32 %56, 131069
-  %or.cond.i19 = select i1 %64, i1 true, i1 %85
-  br i1 %or.cond.i19, label %101, label %86
+  %83 = add nsw i32 %56, 3
+  store i32 %83, ptr %5, align 8, !tbaa !15
+  %84 = icmp sgt i32 %56, 131069
+  %or.cond.i19 = select i1 %64, i1 true, i1 %84
+  br i1 %or.cond.i19, label %99, label %85
 
-86:                                               ; preds = %83
+85:                                               ; preds = %82
   %.val11.i20 = load ptr, ptr %0, align 8, !tbaa !7
   %.val12.i21 = load i32, ptr %61, align 4, !tbaa !16
-  %87 = sext i32 %.val12.i21 to i64
-  %88 = getelementptr inbounds i8, ptr %.val11.i20, i64 %87
-  %89 = load i8, ptr %88, align 1, !tbaa !4
-  %90 = icmp eq i8 %89, 84
-  br i1 %90, label %91, label %101
+  %86 = sext i32 %.val12.i21 to i64
+  %87 = getelementptr inbounds i8, ptr %.val11.i20, i64 %86
+  %88 = load i8, ptr %87, align 1, !tbaa !4
+  %89 = icmp eq i8 %88, 84
+  br i1 %89, label %90, label %99
 
-91:                                               ; preds = %86
-  %92 = getelementptr inbounds nuw i8, ptr %88, i64 1
-  %93 = load i8, ptr %92, align 1, !tbaa !4
-  %94 = icmp eq i8 %93, 72
-  br i1 %94, label %95, label %101
+90:                                               ; preds = %85
+  %91 = getelementptr inbounds nuw i8, ptr %87, i64 1
+  %92 = load i8, ptr %91, align 1, !tbaa !4
+  %93 = icmp eq i8 %92, 72
+  br i1 %93, label %94, label %99
 
-95:                                               ; preds = %91
-  %96 = add nsw i32 %.val12.i21, 2
-  store i32 %96, ptr %61, align 4, !tbaa !16
+94:                                               ; preds = %90
+  %95 = add nsw i32 %.val12.i21, 2
+  store i32 %95, ptr %61, align 4, !tbaa !16
   store i32 %55, ptr %2, align 4, !tbaa !17
   %.not.i18 = icmp sgt i32 %.sroa.18.0.copyload.i, -1
-  br i1 %.not.i18, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit, label %97
+  br i1 %.not.i18, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit, label %.lr.ph.i.i.preheader
 
-97:                                               ; preds = %95
+.lr.ph.i.i.preheader:                             ; preds = %94
   tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %0, ptr noundef nonnull @.str.281, i64 noundef 40)
   br label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit
 
-_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit: ; preds = %95, %97
-  %98 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL9ParseNameEPNS0_5StateE(ptr noundef nonnull %0)
-          to label %99 unwind label %80
+_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit: ; preds = %94, %.lr.ph.i.i.preheader
+  %96 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL9ParseNameEPNS0_5StateE(ptr noundef nonnull %0)
+          to label %97 unwind label %79
 
-99:                                               ; preds = %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit
-  br i1 %98, label %373, label %100
+97:                                               ; preds = %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit
+  br i1 %96, label %370, label %98
 
-100:                                              ; preds = %99
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %61, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0.i, i64 12, i1 false), !tbaa.struct !30
+98:                                               ; preds = %97
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %61, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0.i, i64 12, i1 false), !tbaa.struct !31
   store i32 %.sroa.18.0.copyload.i, ptr %.sroa.18.0..sroa_idx.i, align 4, !tbaa !4
-  br label %373
+  br label %370
 
-101:                                              ; preds = %91, %86, %83
+99:                                               ; preds = %90, %85, %82
   store i32 %62, ptr %2, align 4, !tbaa !17
-  %102 = add nsw i32 %56, 4
-  store i32 %102, ptr %5, align 8, !tbaa !15
-  %103 = icmp sgt i32 %56, 131068
-  %or.cond.i16 = select i1 %64, i1 true, i1 %103
-  br i1 %or.cond.i16, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread, label %104
+  %100 = add nsw i32 %56, 4
+  store i32 %100, ptr %5, align 8, !tbaa !15
+  %101 = icmp sgt i32 %56, 131068
+  %or.cond.i16 = select i1 %64, i1 true, i1 %101
+  br i1 %or.cond.i16, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread, label %102
 
-104:                                              ; preds = %101
+102:                                              ; preds = %99
   %.val6.i = load ptr, ptr %0, align 8, !tbaa !7
   %.val7.i = load i32, ptr %61, align 4, !tbaa !16
-  %105 = sext i32 %.val7.i to i64
-  %106 = getelementptr inbounds i8, ptr %.val6.i, i64 %105
-  %107 = load i8, ptr %106, align 1, !tbaa !4
-  %108 = icmp eq i8 %107, 84
-  br i1 %108, label %109, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread
+  %103 = sext i32 %.val7.i to i64
+  %104 = getelementptr inbounds i8, ptr %.val6.i, i64 %103
+  %105 = load i8, ptr %104, align 1, !tbaa !4
+  %106 = icmp eq i8 %105, 84
+  br i1 %106, label %107, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread
 
-_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread: ; preds = %104, %101
+_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread: ; preds = %102, %99
   store i32 %55, ptr %2, align 4, !tbaa !17
-  br label %126
+  br label %124
 
-109:                                              ; preds = %104
-  %110 = add nsw i32 %.val7.i, 1
-  store i32 %110, ptr %61, align 4, !tbaa !16
+107:                                              ; preds = %102
+  %108 = add nsw i32 %.val7.i, 1
+  store i32 %108, ptr %61, align 4, !tbaa !16
   store i32 %62, ptr %2, align 4, !tbaa !17
-  %111 = add nsw i32 %56, 5
-  store i32 %111, ptr %5, align 8, !tbaa !15
-  %112 = icmp sgt i32 %56, 131067
-  br i1 %112, label %_ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc.exit.thread, label %113
+  %109 = add nsw i32 %56, 5
+  store i32 %109, ptr %5, align 8, !tbaa !15
+  %110 = icmp sgt i32 %56, 131067
+  br i1 %110, label %_ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc.exit.thread, label %111
 
-113:                                              ; preds = %109
-  %114 = sext i32 %110 to i64
-  %115 = getelementptr inbounds i8, ptr %.val6.i, i64 %114
-  %116 = load i8, ptr %115, align 1, !tbaa !4
-  %117 = icmp eq i8 %116, 0
-  br i1 %117, label %_ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc.exit.thread, label %.lr.ph.i
+111:                                              ; preds = %107
+  %112 = sext i32 %108 to i64
+  %113 = getelementptr inbounds i8, ptr %.val6.i, i64 %112
+  %114 = load i8, ptr %113, align 1, !tbaa !4
+  %115 = icmp eq i8 %114, 0
+  br i1 %115, label %_ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc.exit.thread, label %.lr.ph.i
 
-118:                                              ; preds = %.lr.ph.i
+116:                                              ; preds = %.lr.ph.i
   %.018.i.add = add nuw nsw i64 %.018.i.idx, 1
   %.ptr = getelementptr inbounds nuw i8, ptr @.str.282, i64 %.018.i.add
-  %119 = load i8, ptr %.ptr, align 1, !tbaa !4
+  %117 = load i8, ptr %.ptr, align 1, !tbaa !4
   %exitcond = icmp eq i64 %.018.i.add, 4
-  br i1 %exitcond, label %_ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc.exit.thread, label %.lr.ph.i, !llvm.loop !31
+  br i1 %exitcond, label %_ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc.exit.thread, label %.lr.ph.i, !llvm.loop !32
 
-.lr.ph.i:                                         ; preds = %113, %118
-  %120 = phi i8 [ %119, %118 ], [ 86, %113 ]
-  %.018.i.idx = phi i64 [ %.018.i.add, %118 ], [ 0, %113 ]
-  %121 = icmp eq i8 %116, %120
-  br i1 %121, label %122, label %118
+.lr.ph.i:                                         ; preds = %111, %116
+  %118 = phi i8 [ %117, %116 ], [ 86, %111 ]
+  %.018.i.idx = phi i64 [ %.018.i.add, %116 ], [ 0, %111 ]
+  %119 = icmp eq i8 %114, %118
+  br i1 %119, label %120, label %116
 
-_ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc.exit.thread: ; preds = %118, %113, %109
+_ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc.exit.thread: ; preds = %116, %111, %107
   store i32 %55, ptr %2, align 4, !tbaa !17
-  br label %126
+  br label %124
 
-122:                                              ; preds = %.lr.ph.i
-  %123 = add nsw i32 %.val7.i, 2
-  store i32 %123, ptr %61, align 4, !tbaa !16
+120:                                              ; preds = %.lr.ph.i
+  %121 = add nsw i32 %.val7.i, 2
+  store i32 %121, ptr %61, align 4, !tbaa !16
   store i32 %55, ptr %2, align 4, !tbaa !17
-  %124 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL9ParseTypeEPNS0_5StateE(ptr noundef nonnull %0)
-          to label %125 unwind label %80
+  %122 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL9ParseTypeEPNS0_5StateE(ptr noundef nonnull %0)
+          to label %123 unwind label %79
 
-125:                                              ; preds = %122
-  br i1 %124, label %373, label %._crit_edge
+123:                                              ; preds = %120
+  br i1 %122, label %370, label %._crit_edge
 
-._crit_edge:                                      ; preds = %125
-  %.pre98 = load i32, ptr %2, align 4, !tbaa !17
-  %.pre99 = load i32, ptr %5, align 8, !tbaa !15
-  br label %126
+._crit_edge:                                      ; preds = %123
+  %.pre106 = load i32, ptr %2, align 4, !tbaa !17
+  %.pre107 = load i32, ptr %5, align 8, !tbaa !15
+  br label %124
 
-126:                                              ; preds = %._crit_edge, %_ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc.exit.thread, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread
-  %127 = phi i32 [ %.pre99, %._crit_edge ], [ %111, %_ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc.exit.thread ], [ %102, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread ]
-  %128 = phi i32 [ %.pre98, %._crit_edge ], [ %55, %_ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc.exit.thread ], [ %55, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %61, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0.i, i64 12, i1 false), !tbaa.struct !30
+124:                                              ; preds = %._crit_edge, %_ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc.exit.thread, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread
+  %125 = phi i32 [ %.pre107, %._crit_edge ], [ %109, %_ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc.exit.thread ], [ %100, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread ]
+  %126 = phi i32 [ %.pre106, %._crit_edge ], [ %55, %_ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc.exit.thread ], [ %55, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %61, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0.i, i64 12, i1 false), !tbaa.struct !31
   store i32 %.sroa.18.0.copyload.i, ptr %.sroa.18.0..sroa_idx.i, align 4, !tbaa !4
-  %129 = add nsw i32 %128, 1
-  store i32 %129, ptr %2, align 4, !tbaa !17
-  %130 = add nsw i32 %127, 1
-  store i32 %130, ptr %5, align 8, !tbaa !15
-  %131 = icmp sgt i32 %128, 255
-  %132 = icmp sgt i32 %127, 131071
-  %or.cond.i11 = select i1 %131, i1 true, i1 %132
-  br i1 %or.cond.i11, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit15.thread, label %133
+  %127 = add nsw i32 %126, 1
+  store i32 %127, ptr %2, align 4, !tbaa !17
+  %128 = add nsw i32 %125, 1
+  store i32 %128, ptr %5, align 8, !tbaa !15
+  %129 = icmp sgt i32 %126, 255
+  %130 = icmp sgt i32 %125, 131071
+  %or.cond.i11 = select i1 %129, i1 true, i1 %130
+  br i1 %or.cond.i11, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit15.thread, label %131
 
-133:                                              ; preds = %126
+131:                                              ; preds = %124
   %.val11.i12 = load ptr, ptr %0, align 8, !tbaa !7
   %.val12.i13 = load i32, ptr %61, align 4, !tbaa !16
-  %134 = sext i32 %.val12.i13 to i64
-  %135 = getelementptr inbounds i8, ptr %.val11.i12, i64 %134
-  %136 = load i8, ptr %135, align 1, !tbaa !4
-  %137 = icmp eq i8 %136, 84
-  br i1 %137, label %138, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit15.thread
+  %132 = sext i32 %.val12.i13 to i64
+  %133 = getelementptr inbounds i8, ptr %.val11.i12, i64 %132
+  %134 = load i8, ptr %133, align 1, !tbaa !4
+  %135 = icmp eq i8 %134, 84
+  br i1 %135, label %136, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit15.thread
 
-138:                                              ; preds = %133
-  %139 = getelementptr inbounds nuw i8, ptr %135, i64 1
-  %140 = load i8, ptr %139, align 1, !tbaa !4
-  %141 = icmp eq i8 %140, 99
-  br i1 %141, label %142, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit15.thread
+136:                                              ; preds = %131
+  %137 = getelementptr inbounds nuw i8, ptr %133, i64 1
+  %138 = load i8, ptr %137, align 1, !tbaa !4
+  %139 = icmp eq i8 %138, 99
+  br i1 %139, label %140, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit15.thread
 
-_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit15.thread: ; preds = %138, %133, %126
-  store i32 %128, ptr %2, align 4, !tbaa !17
-  br label %150
+_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit15.thread: ; preds = %136, %131, %124
+  store i32 %126, ptr %2, align 4, !tbaa !17
+  br label %148
 
-142:                                              ; preds = %138
-  %143 = add nsw i32 %.val12.i13, 2
-  store i32 %143, ptr %61, align 4, !tbaa !16
-  store i32 %128, ptr %2, align 4, !tbaa !17
+140:                                              ; preds = %136
+  %141 = add nsw i32 %.val12.i13, 2
+  store i32 %141, ptr %61, align 4, !tbaa !16
+  store i32 %126, ptr %2, align 4, !tbaa !17
+  %142 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL15ParseCallOffsetEPNS0_5StateE(ptr noundef nonnull %0)
+  br i1 %142, label %143, label %148
+
+143:                                              ; preds = %140
   %144 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL15ParseCallOffsetEPNS0_5StateE(ptr noundef nonnull %0)
-  br i1 %144, label %145, label %150
+  br i1 %144, label %145, label %148
 
-145:                                              ; preds = %142
-  %146 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL15ParseCallOffsetEPNS0_5StateE(ptr noundef nonnull %0)
-  br i1 %146, label %147, label %150
+145:                                              ; preds = %143
+  %146 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL13ParseEncodingEPNS0_5StateE(ptr noundef nonnull %0)
+          to label %147 unwind label %79
 
 147:                                              ; preds = %145
-  %148 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL13ParseEncodingEPNS0_5StateE(ptr noundef nonnull %0)
-          to label %149 unwind label %80
+  br i1 %146, label %370, label %148
 
-149:                                              ; preds = %147
-  br i1 %148, label %373, label %150
-
-150:                                              ; preds = %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit15.thread, %149, %145, %142
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %61, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0.i, i64 12, i1 false), !tbaa.struct !30
+148:                                              ; preds = %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit15.thread, %147, %143, %140
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %61, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0.i, i64 12, i1 false), !tbaa.struct !31
   store i32 %.sroa.18.0.copyload.i, ptr %.sroa.18.0..sroa_idx.i, align 4, !tbaa !4
-  %151 = load i32, ptr %2, align 4, !tbaa !17
+  %149 = load i32, ptr %2, align 4, !tbaa !17
+  %150 = add nsw i32 %149, 1
+  store i32 %150, ptr %2, align 4, !tbaa !17
+  %151 = load i32, ptr %5, align 8, !tbaa !15
   %152 = add nsw i32 %151, 1
-  store i32 %152, ptr %2, align 4, !tbaa !17
-  %153 = load i32, ptr %5, align 8, !tbaa !15
-  %154 = add nsw i32 %153, 1
-  store i32 %154, ptr %5, align 8, !tbaa !15
-  %155 = icmp sgt i32 %151, 255
-  %156 = icmp sgt i32 %153, 131071
-  %or.cond.i = select i1 %155, i1 true, i1 %156
-  br i1 %or.cond.i, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread, label %157
+  store i32 %152, ptr %5, align 8, !tbaa !15
+  %153 = icmp sgt i32 %149, 255
+  %154 = icmp sgt i32 %151, 131071
+  %or.cond.i = select i1 %153, i1 true, i1 %154
+  br i1 %or.cond.i, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread, label %155
 
-157:                                              ; preds = %150
+155:                                              ; preds = %148
   %.val11.i = load ptr, ptr %0, align 8, !tbaa !7
   %.val12.i = load i32, ptr %61, align 4, !tbaa !16
-  %158 = sext i32 %.val12.i to i64
-  %159 = getelementptr inbounds i8, ptr %.val11.i, i64 %158
-  %160 = load i8, ptr %159, align 1, !tbaa !4
-  %161 = icmp eq i8 %160, 71
-  br i1 %161, label %162, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread
+  %156 = sext i32 %.val12.i to i64
+  %157 = getelementptr inbounds i8, ptr %.val11.i, i64 %156
+  %158 = load i8, ptr %157, align 1, !tbaa !4
+  %159 = icmp eq i8 %158, 71
+  br i1 %159, label %160, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread
 
-162:                                              ; preds = %157
-  %163 = getelementptr inbounds nuw i8, ptr %159, i64 1
-  %164 = load i8, ptr %163, align 1, !tbaa !4
-  %165 = icmp eq i8 %164, 86
-  br i1 %165, label %166, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread
+160:                                              ; preds = %155
+  %161 = getelementptr inbounds nuw i8, ptr %157, i64 1
+  %162 = load i8, ptr %161, align 1, !tbaa !4
+  %163 = icmp eq i8 %162, 86
+  br i1 %163, label %164, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread
 
-_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread: ; preds = %162, %157, %150
-  store i32 %151, ptr %2, align 4, !tbaa !17
-  br label %170
+_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread: ; preds = %160, %155, %148
+  store i32 %149, ptr %2, align 4, !tbaa !17
+  br label %168
 
-166:                                              ; preds = %162
-  %167 = add nsw i32 %.val12.i, 2
-  store i32 %167, ptr %61, align 4, !tbaa !16
-  store i32 %151, ptr %2, align 4, !tbaa !17
-  %168 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL9ParseNameEPNS0_5StateE(ptr noundef nonnull %0)
-          to label %169 unwind label %80
+164:                                              ; preds = %160
+  %165 = add nsw i32 %.val12.i, 2
+  store i32 %165, ptr %61, align 4, !tbaa !16
+  store i32 %149, ptr %2, align 4, !tbaa !17
+  %166 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL9ParseNameEPNS0_5StateE(ptr noundef nonnull %0)
+          to label %167 unwind label %79
 
-169:                                              ; preds = %166
-  br i1 %168, label %373, label %._crit_edge100
+167:                                              ; preds = %164
+  br i1 %166, label %370, label %._crit_edge108
 
-._crit_edge100:                                   ; preds = %169
-  %.pre101 = load i32, ptr %2, align 4, !tbaa !17
-  %.pre102 = load i32, ptr %5, align 8, !tbaa !15
-  %.pre111 = add nsw i32 %.pre101, 1
-  br label %170
+._crit_edge108:                                   ; preds = %167
+  %.pre109 = load i32, ptr %2, align 4, !tbaa !17
+  %.pre110 = load i32, ptr %5, align 8, !tbaa !15
+  %.pre119 = add nsw i32 %.pre109, 1
+  br label %168
 
-170:                                              ; preds = %._crit_edge100, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread
-  %.pre-phi = phi i32 [ %.pre111, %._crit_edge100 ], [ %152, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread ]
-  %171 = phi i32 [ %.pre102, %._crit_edge100 ], [ %154, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread ]
-  %172 = phi i32 [ %.pre101, %._crit_edge100 ], [ %151, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %61, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0.i, i64 12, i1 false), !tbaa.struct !30
+168:                                              ; preds = %._crit_edge108, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread
+  %.pre-phi = phi i32 [ %.pre119, %._crit_edge108 ], [ %150, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread ]
+  %169 = phi i32 [ %.pre110, %._crit_edge108 ], [ %152, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread ]
+  %170 = phi i32 [ %.pre109, %._crit_edge108 ], [ %149, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %61, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0.i, i64 12, i1 false), !tbaa.struct !31
   store i32 %.sroa.18.0.copyload.i, ptr %.sroa.18.0..sroa_idx.i, align 4, !tbaa !4
   store i32 %.pre-phi, ptr %2, align 4, !tbaa !17
-  %173 = add nsw i32 %171, 1
-  store i32 %173, ptr %5, align 8, !tbaa !15
-  %174 = icmp sgt i32 %172, 255
-  %175 = icmp sgt i32 %171, 131071
-  %or.cond.i50 = select i1 %174, i1 true, i1 %175
-  br i1 %or.cond.i50, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread88, label %176
+  %171 = add nsw i32 %169, 1
+  store i32 %171, ptr %5, align 8, !tbaa !15
+  %172 = icmp sgt i32 %170, 255
+  %173 = icmp sgt i32 %169, 131071
+  %or.cond.i56 = select i1 %172, i1 true, i1 %173
+  br i1 %or.cond.i56, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread94, label %174
 
-176:                                              ; preds = %170
-  %.val6.i51 = load ptr, ptr %0, align 8, !tbaa !7
-  %.val7.i52 = load i32, ptr %61, align 4, !tbaa !16
-  %177 = sext i32 %.val7.i52 to i64
-  %178 = getelementptr inbounds i8, ptr %.val6.i51, i64 %177
-  %179 = load i8, ptr %178, align 1, !tbaa !4
-  %180 = icmp eq i8 %179, 84
-  br i1 %180, label %181, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread88
+174:                                              ; preds = %168
+  %.val6.i57 = load ptr, ptr %0, align 8, !tbaa !7
+  %.val7.i58 = load i32, ptr %61, align 4, !tbaa !16
+  %175 = sext i32 %.val7.i58 to i64
+  %176 = getelementptr inbounds i8, ptr %.val6.i57, i64 %175
+  %177 = load i8, ptr %176, align 1, !tbaa !4
+  %178 = icmp eq i8 %177, 84
+  br i1 %178, label %179, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread94
 
-_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread88: ; preds = %176, %170
-  store i32 %172, ptr %2, align 4, !tbaa !17
-  br label %187
+_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread94: ; preds = %174, %168
+  store i32 %170, ptr %2, align 4, !tbaa !17
+  br label %185
 
-181:                                              ; preds = %176
-  %182 = add nsw i32 %.val7.i52, 1
-  store i32 %182, ptr %61, align 4, !tbaa !16
-  store i32 %172, ptr %2, align 4, !tbaa !17
-  %183 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL15ParseCallOffsetEPNS0_5StateE(ptr noundef nonnull %0)
-  br i1 %183, label %184, label %187
+179:                                              ; preds = %174
+  %180 = add nsw i32 %.val7.i58, 1
+  store i32 %180, ptr %61, align 4, !tbaa !16
+  store i32 %170, ptr %2, align 4, !tbaa !17
+  %181 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL15ParseCallOffsetEPNS0_5StateE(ptr noundef nonnull %0)
+  br i1 %181, label %182, label %185
 
-184:                                              ; preds = %181
-  %185 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL13ParseEncodingEPNS0_5StateE(ptr noundef nonnull %0)
-          to label %186 unwind label %80
+182:                                              ; preds = %179
+  %183 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL13ParseEncodingEPNS0_5StateE(ptr noundef nonnull %0)
+          to label %184 unwind label %79
 
-186:                                              ; preds = %184
-  br i1 %185, label %373, label %187
+184:                                              ; preds = %182
+  br i1 %183, label %370, label %185
 
-187:                                              ; preds = %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread88, %186, %181
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %61, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0.i, i64 12, i1 false), !tbaa.struct !30
+185:                                              ; preds = %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread94, %184, %179
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %61, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0.i, i64 12, i1 false), !tbaa.struct !31
   store i32 %.sroa.18.0.copyload.i, ptr %.sroa.18.0..sroa_idx.i, align 4, !tbaa !4
-  %188 = load i32, ptr %2, align 4, !tbaa !17
+  %186 = load i32, ptr %2, align 4, !tbaa !17
+  %187 = add nsw i32 %186, 1
+  store i32 %187, ptr %2, align 4, !tbaa !17
+  %188 = load i32, ptr %5, align 8, !tbaa !15
   %189 = add nsw i32 %188, 1
-  store i32 %189, ptr %2, align 4, !tbaa !17
-  %190 = load i32, ptr %5, align 8, !tbaa !15
-  %191 = add nsw i32 %190, 1
-  store i32 %191, ptr %5, align 8, !tbaa !15
-  %192 = icmp sgt i32 %188, 255
-  %193 = icmp sgt i32 %190, 131071
-  %or.cond.i54 = select i1 %192, i1 true, i1 %193
-  br i1 %or.cond.i54, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread90, label %194
+  store i32 %189, ptr %5, align 8, !tbaa !15
+  %190 = icmp sgt i32 %186, 255
+  %191 = icmp sgt i32 %188, 131071
+  %or.cond.i60 = select i1 %190, i1 true, i1 %191
+  br i1 %or.cond.i60, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread96, label %192
 
-194:                                              ; preds = %187
-  %.val11.i55 = load ptr, ptr %0, align 8, !tbaa !7
-  %.val12.i56 = load i32, ptr %61, align 4, !tbaa !16
-  %195 = sext i32 %.val12.i56 to i64
-  %196 = getelementptr inbounds i8, ptr %.val11.i55, i64 %195
-  %197 = load i8, ptr %196, align 1, !tbaa !4
-  %198 = icmp eq i8 %197, 84
-  br i1 %198, label %199, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread90
+192:                                              ; preds = %185
+  %.val11.i61 = load ptr, ptr %0, align 8, !tbaa !7
+  %.val12.i62 = load i32, ptr %61, align 4, !tbaa !16
+  %193 = sext i32 %.val12.i62 to i64
+  %194 = getelementptr inbounds i8, ptr %.val11.i61, i64 %193
+  %195 = load i8, ptr %194, align 1, !tbaa !4
+  %196 = icmp eq i8 %195, 84
+  br i1 %196, label %197, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread96
 
-199:                                              ; preds = %194
-  %200 = getelementptr inbounds nuw i8, ptr %196, i64 1
-  %201 = load i8, ptr %200, align 1, !tbaa !4
-  %202 = icmp eq i8 %201, 67
-  br i1 %202, label %203, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread90
+197:                                              ; preds = %192
+  %198 = getelementptr inbounds nuw i8, ptr %194, i64 1
+  %199 = load i8, ptr %198, align 1, !tbaa !4
+  %200 = icmp eq i8 %199, 67
+  br i1 %200, label %201, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread96
 
-_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread90: ; preds = %199, %194, %187
-  store i32 %188, ptr %2, align 4, !tbaa !17
-  br label %221
+_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread96: ; preds = %197, %192, %185
+  store i32 %186, ptr %2, align 4, !tbaa !17
+  br label %219
 
-203:                                              ; preds = %199
-  %204 = add nsw i32 %.val12.i56, 2
-  store i32 %204, ptr %61, align 4, !tbaa !16
-  store i32 %188, ptr %2, align 4, !tbaa !17
-  %205 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL9ParseTypeEPNS0_5StateE(ptr noundef nonnull %0)
-          to label %206 unwind label %80
+201:                                              ; preds = %197
+  %202 = add nsw i32 %.val12.i62, 2
+  store i32 %202, ptr %61, align 4, !tbaa !16
+  store i32 %186, ptr %2, align 4, !tbaa !17
+  %203 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL9ParseTypeEPNS0_5StateE(ptr noundef nonnull %0)
+          to label %204 unwind label %79
 
-206:                                              ; preds = %203
-  br i1 %205, label %207, label %221
+204:                                              ; preds = %201
+  br i1 %203, label %205, label %219
 
-207:                                              ; preds = %206
-  %208 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL11ParseNumberEPNS0_5StateEPi(ptr noundef nonnull %0, ptr noundef null)
-  br i1 %208, label %209, label %221
+205:                                              ; preds = %204
+  %206 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL11ParseNumberEPNS0_5StateEPi(ptr noundef nonnull %0, ptr noundef null)
+  br i1 %206, label %207, label %219
+
+207:                                              ; preds = %205
+  %208 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc(ptr noundef nonnull %0, i8 noundef signext 95)
+  br i1 %208, label %209, label %219
 
 209:                                              ; preds = %207
-  %210 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc(ptr noundef nonnull %0, i8 noundef signext 95)
-  br i1 %210, label %211, label %221
+  %210 = load i32, ptr %.sroa.18.0..sroa_idx.i, align 4
+  %211 = and i32 %210, 2147483647
+  store i32 %211, ptr %.sroa.18.0..sroa_idx.i, align 4
+  %212 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL9ParseTypeEPNS0_5StateE(ptr noundef nonnull %0)
+          to label %213 unwind label %79
 
-211:                                              ; preds = %209
-  %212 = load i32, ptr %.sroa.18.0..sroa_idx.i, align 4
-  %213 = and i32 %212, 2147483647
-  store i32 %213, ptr %.sroa.18.0..sroa_idx.i, align 4
-  %214 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL9ParseTypeEPNS0_5StateE(ptr noundef nonnull %0)
-          to label %215 unwind label %80
+213:                                              ; preds = %209
+  br i1 %212, label %214, label %219
 
-215:                                              ; preds = %211
-  br i1 %214, label %216, label %221
+214:                                              ; preds = %213
+  %215 = load i32, ptr %.sroa.18.0..sroa_idx.i, align 4
+  %216 = and i32 %.sroa.18.0.copyload.i, -2147483648
+  %217 = and i32 %215, 2147483647
+  %218 = or disjoint i32 %217, %216
+  store i32 %218, ptr %.sroa.18.0..sroa_idx.i, align 4
+  br label %370
 
-216:                                              ; preds = %215
-  %217 = load i32, ptr %.sroa.18.0..sroa_idx.i, align 4
-  %218 = and i32 %.sroa.18.0.copyload.i, -2147483648
-  %219 = and i32 %217, 2147483647
-  %220 = or disjoint i32 %219, %218
-  store i32 %220, ptr %.sroa.18.0..sroa_idx.i, align 4
-  br label %373
-
-221:                                              ; preds = %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread90, %215, %209, %207, %206
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %61, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0.i, i64 12, i1 false), !tbaa.struct !30
+219:                                              ; preds = %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread96, %213, %207, %205, %204
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %61, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0.i, i64 12, i1 false), !tbaa.struct !31
   store i32 %.sroa.18.0.copyload.i, ptr %.sroa.18.0..sroa_idx.i, align 4, !tbaa !4
-  %222 = load i32, ptr %2, align 4, !tbaa !17
+  %220 = load i32, ptr %2, align 4, !tbaa !17
+  %221 = add nsw i32 %220, 1
+  store i32 %221, ptr %2, align 4, !tbaa !17
+  %222 = load i32, ptr %5, align 8, !tbaa !15
   %223 = add nsw i32 %222, 1
-  store i32 %223, ptr %2, align 4, !tbaa !17
-  %224 = load i32, ptr %5, align 8, !tbaa !15
-  %225 = add nsw i32 %224, 1
-  store i32 %225, ptr %5, align 8, !tbaa !15
-  %226 = icmp sgt i32 %222, 255
-  %227 = icmp sgt i32 %224, 131071
-  %or.cond.i58 = select i1 %226, i1 true, i1 %227
-  br i1 %or.cond.i58, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit62.thread, label %228
+  store i32 %223, ptr %5, align 8, !tbaa !15
+  %224 = icmp sgt i32 %220, 255
+  %225 = icmp sgt i32 %222, 131071
+  %or.cond.i64 = select i1 %224, i1 true, i1 %225
+  br i1 %or.cond.i64, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit68.thread, label %226
 
-228:                                              ; preds = %221
-  %.val6.i59 = load ptr, ptr %0, align 8, !tbaa !7
-  %.val7.i60 = load i32, ptr %61, align 4, !tbaa !16
-  %229 = sext i32 %.val7.i60 to i64
-  %230 = getelementptr inbounds i8, ptr %.val6.i59, i64 %229
-  %231 = load i8, ptr %230, align 1, !tbaa !4
-  %232 = icmp eq i8 %231, 84
-  br i1 %232, label %233, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit62.thread
+226:                                              ; preds = %219
+  %.val6.i65 = load ptr, ptr %0, align 8, !tbaa !7
+  %.val7.i66 = load i32, ptr %61, align 4, !tbaa !16
+  %227 = sext i32 %.val7.i66 to i64
+  %228 = getelementptr inbounds i8, ptr %.val6.i65, i64 %227
+  %229 = load i8, ptr %228, align 1, !tbaa !4
+  %230 = icmp eq i8 %229, 84
+  br i1 %230, label %231, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit68.thread
 
-_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit62.thread: ; preds = %228, %221
-  store i32 %222, ptr %2, align 4, !tbaa !17
-  br label %250
+_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit68.thread: ; preds = %226, %219
+  store i32 %220, ptr %2, align 4, !tbaa !17
+  br label %248
 
-233:                                              ; preds = %228
-  %234 = add nsw i32 %.val7.i60, 1
-  store i32 %234, ptr %61, align 4, !tbaa !16
-  store i32 %223, ptr %2, align 4, !tbaa !17
-  %235 = add nsw i32 %224, 2
-  store i32 %235, ptr %5, align 8, !tbaa !15
-  %236 = icmp sgt i32 %224, 131070
-  br i1 %236, label %_ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc.exit71.thread, label %237
+231:                                              ; preds = %226
+  %232 = add nsw i32 %.val7.i66, 1
+  store i32 %232, ptr %61, align 4, !tbaa !16
+  store i32 %221, ptr %2, align 4, !tbaa !17
+  %233 = add nsw i32 %222, 2
+  store i32 %233, ptr %5, align 8, !tbaa !15
+  %234 = icmp sgt i32 %222, 131070
+  br i1 %234, label %_ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc.exit77.thread, label %235
 
-237:                                              ; preds = %233
-  %238 = sext i32 %234 to i64
-  %239 = getelementptr inbounds i8, ptr %.val6.i59, i64 %238
-  %240 = load i8, ptr %239, align 1, !tbaa !4
-  %241 = icmp eq i8 %240, 0
-  br i1 %241, label %_ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc.exit71.thread, label %.lr.ph.i67
+235:                                              ; preds = %231
+  %236 = sext i32 %232 to i64
+  %237 = getelementptr inbounds i8, ptr %.val6.i65, i64 %236
+  %238 = load i8, ptr %237, align 1, !tbaa !4
+  %239 = icmp eq i8 %238, 0
+  br i1 %239, label %_ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc.exit77.thread, label %.lr.ph.i73
 
-242:                                              ; preds = %.lr.ph.i67
-  %.018.i68.add = add nuw nsw i64 %.018.i68.idx, 1
-  %.ptr116 = getelementptr inbounds nuw i8, ptr @.str.286, i64 %.018.i68.add
-  %243 = load i8, ptr %.ptr116, align 1, !tbaa !4
-  %exitcond97 = icmp eq i64 %.018.i68.add, 2
-  br i1 %exitcond97, label %_ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc.exit71.thread, label %.lr.ph.i67, !llvm.loop !31
+240:                                              ; preds = %.lr.ph.i73
+  %.018.i74.add = add nuw nsw i64 %.018.i74.idx, 1
+  %.ptr124 = getelementptr inbounds nuw i8, ptr @.str.286, i64 %.018.i74.add
+  %241 = load i8, ptr %.ptr124, align 1, !tbaa !4
+  %exitcond105 = icmp eq i64 %.018.i74.add, 2
+  br i1 %exitcond105, label %_ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc.exit77.thread, label %.lr.ph.i73, !llvm.loop !32
 
-.lr.ph.i67:                                       ; preds = %237, %242
-  %244 = phi i8 [ %243, %242 ], [ 70, %237 ]
-  %.018.i68.idx = phi i64 [ %.018.i68.add, %242 ], [ 0, %237 ]
-  %245 = icmp eq i8 %240, %244
-  br i1 %245, label %246, label %242
+.lr.ph.i73:                                       ; preds = %235, %240
+  %242 = phi i8 [ %241, %240 ], [ 70, %235 ]
+  %.018.i74.idx = phi i64 [ %.018.i74.add, %240 ], [ 0, %235 ]
+  %243 = icmp eq i8 %238, %242
+  br i1 %243, label %244, label %240
 
-_ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc.exit71.thread: ; preds = %242, %237, %233
-  store i32 %222, ptr %2, align 4, !tbaa !17
-  br label %250
+_ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc.exit77.thread: ; preds = %240, %235, %231
+  store i32 %220, ptr %2, align 4, !tbaa !17
+  br label %248
 
-246:                                              ; preds = %.lr.ph.i67
-  %247 = add nsw i32 %.val7.i60, 2
-  store i32 %247, ptr %61, align 4, !tbaa !16
-  store i32 %222, ptr %2, align 4, !tbaa !17
-  %248 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL9ParseTypeEPNS0_5StateE(ptr noundef nonnull %0)
-          to label %249 unwind label %80
+244:                                              ; preds = %.lr.ph.i73
+  %245 = add nsw i32 %.val7.i66, 2
+  store i32 %245, ptr %61, align 4, !tbaa !16
+  store i32 %220, ptr %2, align 4, !tbaa !17
+  %246 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL9ParseTypeEPNS0_5StateE(ptr noundef nonnull %0)
+          to label %247 unwind label %79
 
-249:                                              ; preds = %246
-  br i1 %248, label %373, label %._crit_edge103
+247:                                              ; preds = %244
+  br i1 %246, label %370, label %._crit_edge111
 
-._crit_edge103:                                   ; preds = %249
-  %.pre104 = load i32, ptr %2, align 4, !tbaa !17
-  %.pre105 = load i32, ptr %5, align 8, !tbaa !15
-  %.pre112 = add nsw i32 %.pre104, 1
-  br label %250
+._crit_edge111:                                   ; preds = %247
+  %.pre112 = load i32, ptr %2, align 4, !tbaa !17
+  %.pre113 = load i32, ptr %5, align 8, !tbaa !15
+  %.pre120 = add nsw i32 %.pre112, 1
+  br label %248
 
-250:                                              ; preds = %._crit_edge103, %_ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc.exit71.thread, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit62.thread
-  %.pre-phi113 = phi i32 [ %.pre112, %._crit_edge103 ], [ %223, %_ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc.exit71.thread ], [ %223, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit62.thread ]
-  %251 = phi i32 [ %.pre105, %._crit_edge103 ], [ %235, %_ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc.exit71.thread ], [ %225, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit62.thread ]
-  %252 = phi i32 [ %.pre104, %._crit_edge103 ], [ %222, %_ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc.exit71.thread ], [ %222, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit62.thread ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %61, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0.i, i64 12, i1 false), !tbaa.struct !30
+248:                                              ; preds = %._crit_edge111, %_ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc.exit77.thread, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit68.thread
+  %.pre-phi121 = phi i32 [ %.pre120, %._crit_edge111 ], [ %221, %_ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc.exit77.thread ], [ %221, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit68.thread ]
+  %249 = phi i32 [ %.pre113, %._crit_edge111 ], [ %233, %_ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc.exit77.thread ], [ %223, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit68.thread ]
+  %250 = phi i32 [ %.pre112, %._crit_edge111 ], [ %220, %_ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc.exit77.thread ], [ %220, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit68.thread ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %61, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0.i, i64 12, i1 false), !tbaa.struct !31
   store i32 %.sroa.18.0.copyload.i, ptr %.sroa.18.0..sroa_idx.i, align 4, !tbaa !4
-  store i32 %.pre-phi113, ptr %2, align 4, !tbaa !17
-  %253 = add nsw i32 %251, 1
-  store i32 %253, ptr %5, align 8, !tbaa !15
-  %254 = icmp sgt i32 %252, 255
-  %255 = icmp sgt i32 %251, 131071
-  %or.cond.i72 = select i1 %254, i1 true, i1 %255
-  br i1 %or.cond.i72, label %275, label %256
+  store i32 %.pre-phi121, ptr %2, align 4, !tbaa !17
+  %251 = add nsw i32 %249, 1
+  store i32 %251, ptr %5, align 8, !tbaa !15
+  %252 = icmp sgt i32 %250, 255
+  %253 = icmp sgt i32 %249, 131071
+  %or.cond.i78 = select i1 %252, i1 true, i1 %253
+  br i1 %or.cond.i78, label %272, label %254
 
-256:                                              ; preds = %250
-  %.val11.i73 = load ptr, ptr %0, align 8, !tbaa !7
-  %.val12.i74 = load i32, ptr %61, align 4, !tbaa !16
-  %257 = sext i32 %.val12.i74 to i64
-  %258 = getelementptr inbounds i8, ptr %.val11.i73, i64 %257
-  %259 = load i8, ptr %258, align 1, !tbaa !4
-  %260 = icmp eq i8 %259, 71
-  br i1 %260, label %261, label %275
+254:                                              ; preds = %248
+  %.val11.i79 = load ptr, ptr %0, align 8, !tbaa !7
+  %.val12.i80 = load i32, ptr %61, align 4, !tbaa !16
+  %255 = sext i32 %.val12.i80 to i64
+  %256 = getelementptr inbounds i8, ptr %.val11.i79, i64 %255
+  %257 = load i8, ptr %256, align 1, !tbaa !4
+  %258 = icmp eq i8 %257, 71
+  br i1 %258, label %259, label %272
 
-261:                                              ; preds = %256
-  %262 = getelementptr inbounds nuw i8, ptr %258, i64 1
-  %263 = load i8, ptr %262, align 1, !tbaa !4
-  %264 = icmp eq i8 %263, 82
-  br i1 %264, label %265, label %275
+259:                                              ; preds = %254
+  %260 = getelementptr inbounds nuw i8, ptr %256, i64 1
+  %261 = load i8, ptr %260, align 1, !tbaa !4
+  %262 = icmp eq i8 %261, 82
+  br i1 %262, label %263, label %272
 
-265:                                              ; preds = %261
-  %266 = add nsw i32 %.val12.i74, 2
-  store i32 %266, ptr %61, align 4, !tbaa !16
-  store i32 %252, ptr %2, align 4, !tbaa !17
-  %.not.i77 = icmp sgt i32 %.sroa.18.0.copyload.i, -1
-  br i1 %.not.i77, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit78, label %267
+263:                                              ; preds = %259
+  %264 = add nsw i32 %.val12.i80, 2
+  store i32 %264, ptr %61, align 4, !tbaa !16
+  store i32 %250, ptr %2, align 4, !tbaa !17
+  %.not.i83 = icmp sgt i32 %.sroa.18.0.copyload.i, -1
+  br i1 %.not.i83, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit84, label %.lr.ph.i.i.preheader104
 
-267:                                              ; preds = %265
+.lr.ph.i.i.preheader104:                          ; preds = %263
   tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %0, ptr noundef nonnull @.str.288, i64 noundef 24)
-  br label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit78
+  br label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit84
 
-_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit78: ; preds = %265, %267
-  %268 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL9ParseNameEPNS0_5StateE(ptr noundef nonnull %0)
-          to label %269 unwind label %80
+_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit84: ; preds = %263, %.lr.ph.i.i.preheader104
+  %265 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL9ParseNameEPNS0_5StateE(ptr noundef nonnull %0)
+          to label %266 unwind label %79
 
-269:                                              ; preds = %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit78
-  br i1 %268, label %271, label %270
+266:                                              ; preds = %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit84
+  br i1 %265, label %268, label %267
 
-270:                                              ; preds = %269
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %61, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0.i, i64 12, i1 false), !tbaa.struct !30
+267:                                              ; preds = %266
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %61, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0.i, i64 12, i1 false), !tbaa.struct !31
   store i32 %.sroa.18.0.copyload.i, ptr %.sroa.18.0..sroa_idx.i, align 4, !tbaa !4
-  br label %373
+  br label %370
 
-271:                                              ; preds = %269
-  %272 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL10ParseSeqIdEPNS0_5StateE(ptr noundef nonnull %0)
-  %273 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc(ptr noundef nonnull %0, i8 noundef signext 95)
-  %.not.i = xor i1 %272, true
-  %brmerge.i = or i1 %273, %.not.i
-  br i1 %brmerge.i, label %373, label %274
+268:                                              ; preds = %266
+  %269 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL10ParseSeqIdEPNS0_5StateE(ptr noundef nonnull %0)
+  %270 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc(ptr noundef nonnull %0, i8 noundef signext 95)
+  %.not.i = xor i1 %269, true
+  %brmerge.i = or i1 %270, %.not.i
+  br i1 %brmerge.i, label %370, label %271
 
-274:                                              ; preds = %271
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %61, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0.i, i64 12, i1 false), !tbaa.struct !30
+271:                                              ; preds = %268
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %61, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0.i, i64 12, i1 false), !tbaa.struct !31
   store i32 %.sroa.18.0.copyload.i, ptr %.sroa.18.0..sroa_idx.i, align 4, !tbaa !4
-  br label %373
+  br label %370
 
-275:                                              ; preds = %261, %256, %250
-  store i32 %.pre-phi113, ptr %2, align 4, !tbaa !17
-  %276 = add nsw i32 %251, 2
-  store i32 %276, ptr %5, align 8, !tbaa !15
-  %277 = icmp sgt i32 %251, 131070
-  %or.cond.i79 = select i1 %254, i1 true, i1 %277
-  br i1 %or.cond.i79, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit83.thread, label %278
+272:                                              ; preds = %259, %254, %248
+  store i32 %.pre-phi121, ptr %2, align 4, !tbaa !17
+  %273 = add nsw i32 %249, 2
+  store i32 %273, ptr %5, align 8, !tbaa !15
+  %274 = icmp sgt i32 %249, 131070
+  %or.cond.i85 = select i1 %252, i1 true, i1 %274
+  br i1 %or.cond.i85, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit89.thread, label %275
 
-278:                                              ; preds = %275
-  %.val11.i80 = load ptr, ptr %0, align 8, !tbaa !7
-  %.val12.i81 = load i32, ptr %61, align 4, !tbaa !16
-  %279 = sext i32 %.val12.i81 to i64
-  %280 = getelementptr inbounds i8, ptr %.val11.i80, i64 %279
-  %281 = load i8, ptr %280, align 1, !tbaa !4
-  %282 = icmp eq i8 %281, 71
-  br i1 %282, label %283, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit83.thread
+275:                                              ; preds = %272
+  %.val11.i86 = load ptr, ptr %0, align 8, !tbaa !7
+  %.val12.i87 = load i32, ptr %61, align 4, !tbaa !16
+  %276 = sext i32 %.val12.i87 to i64
+  %277 = getelementptr inbounds i8, ptr %.val11.i86, i64 %276
+  %278 = load i8, ptr %277, align 1, !tbaa !4
+  %279 = icmp eq i8 %278, 71
+  br i1 %279, label %280, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit89.thread
 
-283:                                              ; preds = %278
-  %284 = getelementptr inbounds nuw i8, ptr %280, i64 1
-  %285 = load i8, ptr %284, align 1, !tbaa !4
-  %286 = icmp eq i8 %285, 65
-  br i1 %286, label %287, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit83.thread
+280:                                              ; preds = %275
+  %281 = getelementptr inbounds nuw i8, ptr %277, i64 1
+  %282 = load i8, ptr %281, align 1, !tbaa !4
+  %283 = icmp eq i8 %282, 65
+  br i1 %283, label %284, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit89.thread
 
-_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit83.thread: ; preds = %283, %278, %275
-  store i32 %252, ptr %2, align 4, !tbaa !17
-  br label %291
+_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit89.thread: ; preds = %280, %275, %272
+  store i32 %250, ptr %2, align 4, !tbaa !17
+  br label %288
 
-287:                                              ; preds = %283
-  %288 = add nsw i32 %.val12.i81, 2
-  store i32 %288, ptr %61, align 4, !tbaa !16
-  store i32 %252, ptr %2, align 4, !tbaa !17
-  %289 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL13ParseEncodingEPNS0_5StateE(ptr noundef nonnull %0)
-          to label %290 unwind label %80
+284:                                              ; preds = %280
+  %285 = add nsw i32 %.val12.i87, 2
+  store i32 %285, ptr %61, align 4, !tbaa !16
+  store i32 %250, ptr %2, align 4, !tbaa !17
+  %286 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL13ParseEncodingEPNS0_5StateE(ptr noundef nonnull %0)
+          to label %287 unwind label %79
 
-290:                                              ; preds = %287
-  br i1 %289, label %373, label %._crit_edge106
+287:                                              ; preds = %284
+  br i1 %286, label %370, label %._crit_edge114
 
-._crit_edge106:                                   ; preds = %290
-  %.pre107 = load i32, ptr %2, align 4, !tbaa !17
-  %.pre108 = load i32, ptr %5, align 8, !tbaa !15
-  %.pre114 = add nsw i32 %.pre107, 1
-  br label %291
+._crit_edge114:                                   ; preds = %287
+  %.pre115 = load i32, ptr %2, align 4, !tbaa !17
+  %.pre116 = load i32, ptr %5, align 8, !tbaa !15
+  %.pre122 = add nsw i32 %.pre115, 1
+  br label %288
 
-291:                                              ; preds = %._crit_edge106, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit83.thread
-  %.pre-phi115 = phi i32 [ %.pre114, %._crit_edge106 ], [ %.pre-phi113, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit83.thread ]
-  %292 = phi i32 [ %.pre108, %._crit_edge106 ], [ %276, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit83.thread ]
-  %293 = phi i32 [ %.pre107, %._crit_edge106 ], [ %252, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit83.thread ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %61, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0.i, i64 12, i1 false), !tbaa.struct !30
+288:                                              ; preds = %._crit_edge114, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit89.thread
+  %.pre-phi123 = phi i32 [ %.pre122, %._crit_edge114 ], [ %.pre-phi121, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit89.thread ]
+  %289 = phi i32 [ %.pre116, %._crit_edge114 ], [ %273, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit89.thread ]
+  %290 = phi i32 [ %.pre115, %._crit_edge114 ], [ %250, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit89.thread ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %61, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0.i, i64 12, i1 false), !tbaa.struct !31
   store i32 %.sroa.18.0.copyload.i, ptr %.sroa.18.0..sroa_idx.i, align 4, !tbaa !4
-  store i32 %.pre-phi115, ptr %2, align 4, !tbaa !17
-  %294 = add nsw i32 %292, 1
-  store i32 %294, ptr %5, align 8, !tbaa !15
-  %295 = icmp sgt i32 %293, 255
-  %296 = icmp sgt i32 %292, 131071
-  %or.cond.i84 = select i1 %295, i1 true, i1 %296
-  br i1 %or.cond.i84, label %_ZN4absl18debugging_internalL19ParseThreeCharTokenEPNS0_5StateEPKc.exit.thread, label %297
+  store i32 %.pre-phi123, ptr %2, align 4, !tbaa !17
+  %291 = add nsw i32 %289, 1
+  store i32 %291, ptr %5, align 8, !tbaa !15
+  %292 = icmp sgt i32 %290, 255
+  %293 = icmp sgt i32 %289, 131071
+  %or.cond.i90 = select i1 %292, i1 true, i1 %293
+  br i1 %or.cond.i90, label %_ZN4absl18debugging_internalL19ParseThreeCharTokenEPNS0_5StateEPKc.exit.thread, label %294
 
-297:                                              ; preds = %291
-  %.val15.i85 = load ptr, ptr %0, align 8, !tbaa !7
+294:                                              ; preds = %288
+  %.val15.i91 = load ptr, ptr %0, align 8, !tbaa !7
   %.val16.i = load i32, ptr %61, align 4, !tbaa !16
-  %298 = sext i32 %.val16.i to i64
-  %299 = getelementptr inbounds i8, ptr %.val15.i85, i64 %298
-  %300 = load i8, ptr %299, align 1, !tbaa !4
-  %301 = icmp eq i8 %300, 71
-  br i1 %301, label %302, label %_ZN4absl18debugging_internalL19ParseThreeCharTokenEPNS0_5StateEPKc.exit.thread
+  %295 = sext i32 %.val16.i to i64
+  %296 = getelementptr inbounds i8, ptr %.val15.i91, i64 %295
+  %297 = load i8, ptr %296, align 1, !tbaa !4
+  %298 = icmp eq i8 %297, 71
+  br i1 %298, label %299, label %_ZN4absl18debugging_internalL19ParseThreeCharTokenEPNS0_5StateEPKc.exit.thread
 
-302:                                              ; preds = %297
-  %303 = getelementptr inbounds nuw i8, ptr %299, i64 1
-  %304 = load i8, ptr %303, align 1, !tbaa !4
-  %305 = icmp eq i8 %304, 84
-  br i1 %305, label %306, label %_ZN4absl18debugging_internalL19ParseThreeCharTokenEPNS0_5StateEPKc.exit.thread
+299:                                              ; preds = %294
+  %300 = getelementptr inbounds nuw i8, ptr %296, i64 1
+  %301 = load i8, ptr %300, align 1, !tbaa !4
+  %302 = icmp eq i8 %301, 84
+  br i1 %302, label %303, label %_ZN4absl18debugging_internalL19ParseThreeCharTokenEPNS0_5StateEPKc.exit.thread
 
-306:                                              ; preds = %302
-  %307 = getelementptr inbounds nuw i8, ptr %299, i64 2
-  %308 = load i8, ptr %307, align 1, !tbaa !4
-  %309 = icmp eq i8 %308, 116
-  br i1 %309, label %310, label %_ZN4absl18debugging_internalL19ParseThreeCharTokenEPNS0_5StateEPKc.exit.thread
+303:                                              ; preds = %299
+  %304 = getelementptr inbounds nuw i8, ptr %296, i64 2
+  %305 = load i8, ptr %304, align 1, !tbaa !4
+  %306 = icmp eq i8 %305, 116
+  br i1 %306, label %307, label %_ZN4absl18debugging_internalL19ParseThreeCharTokenEPNS0_5StateEPKc.exit.thread
 
-_ZN4absl18debugging_internalL19ParseThreeCharTokenEPNS0_5StateEPKc.exit.thread: ; preds = %306, %302, %297, %291
-  store i32 %293, ptr %2, align 4, !tbaa !17
-  br label %314
+_ZN4absl18debugging_internalL19ParseThreeCharTokenEPNS0_5StateEPKc.exit.thread: ; preds = %303, %299, %294, %288
+  store i32 %290, ptr %2, align 4, !tbaa !17
+  br label %311
 
-310:                                              ; preds = %306
-  %311 = add nsw i32 %.val16.i, 3
-  store i32 %311, ptr %61, align 4, !tbaa !16
-  store i32 %293, ptr %2, align 4, !tbaa !17
+307:                                              ; preds = %303
+  %308 = add nsw i32 %.val16.i, 3
+  store i32 %308, ptr %61, align 4, !tbaa !16
+  store i32 %290, ptr %2, align 4, !tbaa !17
   tail call fastcc void @_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc(ptr noundef nonnull %0, ptr noundef nonnull @.str.291)
-  %312 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL13ParseEncodingEPNS0_5StateE(ptr noundef nonnull %0)
-          to label %313 unwind label %80
+  %309 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL13ParseEncodingEPNS0_5StateE(ptr noundef nonnull %0)
+          to label %310 unwind label %79
 
-313:                                              ; preds = %310
-  br i1 %312, label %373, label %._crit_edge133
+310:                                              ; preds = %307
+  br i1 %309, label %370, label %._crit_edge141
 
-._crit_edge133:                                   ; preds = %313
-  %.pre134 = load i32, ptr %2, align 4, !tbaa !17
-  %.pre135 = load i32, ptr %5, align 8, !tbaa !15
-  br label %314
+._crit_edge141:                                   ; preds = %310
+  %.pre142 = load i32, ptr %2, align 4, !tbaa !17
+  %.pre143 = load i32, ptr %5, align 8, !tbaa !15
+  br label %311
 
-314:                                              ; preds = %._crit_edge133, %_ZN4absl18debugging_internalL19ParseThreeCharTokenEPNS0_5StateEPKc.exit.thread
-  %315 = phi i32 [ %.pre135, %._crit_edge133 ], [ %294, %_ZN4absl18debugging_internalL19ParseThreeCharTokenEPNS0_5StateEPKc.exit.thread ]
-  %316 = phi i32 [ %.pre134, %._crit_edge133 ], [ %293, %_ZN4absl18debugging_internalL19ParseThreeCharTokenEPNS0_5StateEPKc.exit.thread ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %61, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0.i, i64 12, i1 false), !tbaa.struct !30
+311:                                              ; preds = %._crit_edge141, %_ZN4absl18debugging_internalL19ParseThreeCharTokenEPNS0_5StateEPKc.exit.thread
+  %312 = phi i32 [ %.pre143, %._crit_edge141 ], [ %291, %_ZN4absl18debugging_internalL19ParseThreeCharTokenEPNS0_5StateEPKc.exit.thread ]
+  %313 = phi i32 [ %.pre142, %._crit_edge141 ], [ %290, %_ZN4absl18debugging_internalL19ParseThreeCharTokenEPNS0_5StateEPKc.exit.thread ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %61, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0.i, i64 12, i1 false), !tbaa.struct !31
   store i32 %.sroa.18.0.copyload.i, ptr %.sroa.18.0..sroa_idx.i, align 4, !tbaa !4
-  %317 = add nsw i32 %316, 1
-  store i32 %317, ptr %2, align 4, !tbaa !17
-  %318 = add nsw i32 %315, 1
-  store i32 %318, ptr %5, align 8, !tbaa !15
-  %319 = icmp sgt i32 %316, 255
-  %320 = icmp sgt i32 %315, 131071
-  %or.cond.i117 = select i1 %319, i1 true, i1 %320
-  br i1 %or.cond.i117, label %.sink.split, label %321
+  %314 = add nsw i32 %313, 1
+  store i32 %314, ptr %2, align 4, !tbaa !17
+  %315 = add nsw i32 %312, 1
+  store i32 %315, ptr %5, align 8, !tbaa !15
+  %316 = icmp sgt i32 %313, 255
+  %317 = icmp sgt i32 %312, 131071
+  %or.cond.i125 = select i1 %316, i1 true, i1 %317
+  br i1 %or.cond.i125, label %.sink.split, label %318
 
-321:                                              ; preds = %314
-  %.val6.i118 = load ptr, ptr %0, align 8, !tbaa !7
-  %.val7.i119 = load i32, ptr %61, align 4, !tbaa !16
-  %322 = sext i32 %.val7.i119 to i64
-  %323 = getelementptr inbounds i8, ptr %.val6.i118, i64 %322
-  %324 = load i8, ptr %323, align 1, !tbaa !4
-  %325 = icmp eq i8 %324, 84
-  br i1 %325, label %326, label %.sink.split
+318:                                              ; preds = %311
+  %.val6.i126 = load ptr, ptr %0, align 8, !tbaa !7
+  %.val7.i127 = load i32, ptr %61, align 4, !tbaa !16
+  %319 = sext i32 %.val7.i127 to i64
+  %320 = getelementptr inbounds i8, ptr %.val6.i126, i64 %319
+  %321 = load i8, ptr %320, align 1, !tbaa !4
+  %322 = icmp eq i8 %321, 84
+  br i1 %322, label %323, label %.sink.split
 
-326:                                              ; preds = %321
-  %327 = add nsw i32 %.val7.i119, 1
-  store i32 %327, ptr %61, align 4, !tbaa !16
-  store i32 %317, ptr %2, align 4, !tbaa !17
-  %328 = add nsw i32 %315, 2
-  store i32 %328, ptr %5, align 8, !tbaa !15
-  %329 = icmp sgt i32 %315, 131070
-  br i1 %329, label %.sink.split, label %330
+323:                                              ; preds = %318
+  %324 = add nsw i32 %.val7.i127, 1
+  store i32 %324, ptr %61, align 4, !tbaa !16
+  store i32 %314, ptr %2, align 4, !tbaa !17
+  %325 = add nsw i32 %312, 2
+  store i32 %325, ptr %5, align 8, !tbaa !15
+  %326 = icmp sgt i32 %312, 131070
+  br i1 %326, label %.sink.split, label %327
 
-330:                                              ; preds = %326
-  %331 = sext i32 %327 to i64
-  %332 = getelementptr inbounds i8, ptr %.val6.i118, i64 %331
-  %333 = load i8, ptr %332, align 1, !tbaa !4
-  %334 = icmp eq i8 %333, 0
-  br i1 %334, label %.sink.split, label %.lr.ph.i121
+327:                                              ; preds = %323
+  %328 = sext i32 %324 to i64
+  %329 = getelementptr inbounds i8, ptr %.val6.i126, i64 %328
+  %330 = load i8, ptr %329, align 1, !tbaa !4
+  %331 = icmp eq i8 %330, 0
+  br i1 %331, label %.sink.split, label %.lr.ph.i129
 
-335:                                              ; preds = %.lr.ph.i121
-  %.018.i.add137 = add nuw nsw i64 %.018.i.idx136, 1
-  %.ptr138 = getelementptr inbounds nuw i8, ptr @.str.292, i64 %.018.i.add137
-  %336 = load i8, ptr %.ptr138, align 1, !tbaa !4
-  %exitcond132 = icmp eq i64 %.018.i.add137, 2
-  br i1 %exitcond132, label %.sink.split, label %.lr.ph.i121, !llvm.loop !31
+332:                                              ; preds = %.lr.ph.i129
+  %.018.i.add145 = add nuw nsw i64 %.018.i.idx144, 1
+  %.ptr146 = getelementptr inbounds nuw i8, ptr @.str.292, i64 %.018.i.add145
+  %333 = load i8, ptr %.ptr146, align 1, !tbaa !4
+  %exitcond140 = icmp eq i64 %.018.i.add145, 2
+  br i1 %exitcond140, label %.sink.split, label %.lr.ph.i129, !llvm.loop !32
 
-.lr.ph.i121:                                      ; preds = %330, %335
-  %337 = phi i8 [ %336, %335 ], [ 104, %330 ]
-  %.018.i.idx136 = phi i64 [ %.018.i.add137, %335 ], [ 0, %330 ]
-  %338 = icmp eq i8 %333, %337
-  br i1 %338, label %339, label %335
+.lr.ph.i129:                                      ; preds = %327, %332
+  %334 = phi i8 [ %333, %332 ], [ 104, %327 ]
+  %.018.i.idx144 = phi i64 [ %.018.i.add145, %332 ], [ 0, %327 ]
+  %335 = icmp eq i8 %330, %334
+  br i1 %335, label %336, label %332
 
-339:                                              ; preds = %.lr.ph.i121
-  %340 = add nsw i32 %.val7.i119, 2
-  store i32 %340, ptr %61, align 4, !tbaa !16
-  store i32 %316, ptr %2, align 4, !tbaa !17
-  %341 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL15ParseCallOffsetEPNS0_5StateE(ptr noundef nonnull %0)
-  br i1 %341, label %342, label %345
+336:                                              ; preds = %.lr.ph.i129
+  %337 = add nsw i32 %.val7.i127, 2
+  store i32 %337, ptr %61, align 4, !tbaa !16
+  store i32 %313, ptr %2, align 4, !tbaa !17
+  %338 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL15ParseCallOffsetEPNS0_5StateE(ptr noundef nonnull %0)
+  br i1 %338, label %339, label %342
 
-342:                                              ; preds = %339
-  %343 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL13ParseEncodingEPNS0_5StateE(ptr noundef nonnull %0)
-          to label %344 unwind label %80
+339:                                              ; preds = %336
+  %340 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL13ParseEncodingEPNS0_5StateE(ptr noundef nonnull %0)
+          to label %341 unwind label %79
 
-344:                                              ; preds = %342
-  br i1 %343, label %373, label %345
+341:                                              ; preds = %339
+  br i1 %340, label %370, label %342
 
-.sink.split:                                      ; preds = %335, %326, %330, %314, %321
-  store i32 %316, ptr %2, align 4, !tbaa !17
-  br label %345
+.sink.split:                                      ; preds = %332, %323, %327, %311, %318
+  store i32 %313, ptr %2, align 4, !tbaa !17
+  br label %342
 
-345:                                              ; preds = %.sink.split, %344, %339
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %61, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0.i, i64 12, i1 false), !tbaa.struct !30
+342:                                              ; preds = %.sink.split, %341, %336
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %61, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0.i, i64 12, i1 false), !tbaa.struct !31
   store i32 %.sroa.18.0.copyload.i, ptr %.sroa.18.0..sroa_idx.i, align 4, !tbaa !4
-  %346 = load i32, ptr %2, align 4, !tbaa !17
-  %347 = add nsw i32 %346, 1
-  store i32 %347, ptr %2, align 4, !tbaa !17
-  %348 = load i32, ptr %5, align 8, !tbaa !15
-  %349 = add nsw i32 %348, 1
-  store i32 %349, ptr %5, align 8, !tbaa !15
-  %350 = icmp sgt i32 %346, 255
-  %351 = icmp sgt i32 %348, 131071
-  %or.cond.i122 = select i1 %350, i1 true, i1 %351
-  br i1 %or.cond.i122, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread130, label %352
+  %343 = load i32, ptr %2, align 4, !tbaa !17
+  %344 = add nsw i32 %343, 1
+  store i32 %344, ptr %2, align 4, !tbaa !17
+  %345 = load i32, ptr %5, align 8, !tbaa !15
+  %346 = add nsw i32 %345, 1
+  store i32 %346, ptr %5, align 8, !tbaa !15
+  %347 = icmp sgt i32 %343, 255
+  %348 = icmp sgt i32 %345, 131071
+  %or.cond.i130 = select i1 %347, i1 true, i1 %348
+  br i1 %or.cond.i130, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread138, label %349
 
-352:                                              ; preds = %345
-  %.val11.i123 = load ptr, ptr %0, align 8, !tbaa !7
-  %.val12.i124 = load i32, ptr %61, align 4, !tbaa !16
-  %353 = sext i32 %.val12.i124 to i64
-  %354 = getelementptr inbounds i8, ptr %.val11.i123, i64 %353
-  %355 = load i8, ptr %354, align 1, !tbaa !4
-  %356 = icmp eq i8 %355, 84
-  br i1 %356, label %357, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread130
+349:                                              ; preds = %342
+  %.val11.i131 = load ptr, ptr %0, align 8, !tbaa !7
+  %.val12.i132 = load i32, ptr %61, align 4, !tbaa !16
+  %350 = sext i32 %.val12.i132 to i64
+  %351 = getelementptr inbounds i8, ptr %.val11.i131, i64 %350
+  %352 = load i8, ptr %351, align 1, !tbaa !4
+  %353 = icmp eq i8 %352, 84
+  br i1 %353, label %354, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread138
 
-357:                                              ; preds = %352
-  %358 = getelementptr inbounds nuw i8, ptr %354, i64 1
-  %359 = load i8, ptr %358, align 1, !tbaa !4
-  %360 = icmp eq i8 %359, 65
-  br i1 %360, label %361, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread130
+354:                                              ; preds = %349
+  %355 = getelementptr inbounds nuw i8, ptr %351, i64 1
+  %356 = load i8, ptr %355, align 1, !tbaa !4
+  %357 = icmp eq i8 %356, 65
+  br i1 %357, label %358, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread138
 
-_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread130: ; preds = %357, %352, %345
-  store i32 %346, ptr %2, align 4, !tbaa !17
+_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread138: ; preds = %354, %349, %342
+  store i32 %343, ptr %2, align 4, !tbaa !17
   br label %.critedge.i
 
-361:                                              ; preds = %357
-  %362 = add nsw i32 %.val12.i124, 2
-  store i32 %362, ptr %61, align 4, !tbaa !16
-  store i32 %346, ptr %2, align 4, !tbaa !17
-  %363 = and i32 %.sroa.18.0.copyload.i, 2147483647
-  store i32 %363, ptr %.sroa.18.0..sroa_idx.i, align 4
-  %364 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL16ParseTemplateArgEPNS0_5StateE(ptr noundef nonnull %0)
-          to label %365 unwind label %371
+358:                                              ; preds = %354
+  %359 = add nsw i32 %.val12.i132, 2
+  store i32 %359, ptr %61, align 4, !tbaa !16
+  store i32 %343, ptr %2, align 4, !tbaa !17
+  %360 = and i32 %.sroa.18.0.copyload.i, 2147483647
+  store i32 %360, ptr %.sroa.18.0..sroa_idx.i, align 4
+  %361 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL16ParseTemplateArgEPNS0_5StateE(ptr noundef nonnull %0)
+          to label %362 unwind label %368
 
-365:                                              ; preds = %361
-  br i1 %364, label %366, label %.critedge.i
+362:                                              ; preds = %358
+  br i1 %361, label %363, label %.critedge.i
 
-366:                                              ; preds = %365
-  %367 = load i32, ptr %.sroa.18.0..sroa_idx.i, align 4
-  %368 = and i32 %.sroa.18.0.copyload.i, -2147483648
-  %369 = and i32 %367, 2147483647
-  %370 = or disjoint i32 %369, %368
-  store i32 %370, ptr %.sroa.18.0..sroa_idx.i, align 4
+363:                                              ; preds = %362
+  %364 = load i32, ptr %.sroa.18.0..sroa_idx.i, align 4
+  %365 = and i32 %.sroa.18.0.copyload.i, -2147483648
+  %366 = and i32 %364, 2147483647
+  %367 = or disjoint i32 %366, %365
+  store i32 %367, ptr %.sroa.18.0..sroa_idx.i, align 4
   tail call fastcc void @_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc(ptr noundef nonnull %0, ptr noundef nonnull @.str.294)
-  br label %373
+  br label %370
 
-371:                                              ; preds = %361
-  %372 = landingpad { ptr, i32 }
+368:                                              ; preds = %358
+  %369 = landingpad { ptr, i32 }
           cleanup
-  br label %374
+  br label %371
 
-.critedge.i:                                      ; preds = %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread130, %365
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %61, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0.i, i64 12, i1 false), !tbaa.struct !30
+.critedge.i:                                      ; preds = %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread138, %362
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %61, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0.i, i64 12, i1 false), !tbaa.struct !31
   store i32 %.sroa.18.0.copyload.i, ptr %.sroa.18.0..sroa_idx.i, align 4, !tbaa !4
-  br label %373
+  br label %370
 
-373:                                              ; preds = %.critedge.i, %366, %344, %313, %290, %274, %271, %270, %249, %216, %186, %169, %149, %125, %100, %99, %82, %79
-  %.1.i = phi i1 [ false, %82 ], [ false, %100 ], [ true, %216 ], [ false, %270 ], [ false, %.critedge.i ], [ true, %79 ], [ true, %99 ], [ true, %125 ], [ true, %149 ], [ true, %169 ], [ true, %186 ], [ true, %249 ], [ false, %274 ], [ true, %271 ], [ true, %290 ], [ true, %313 ], [ true, %344 ], [ true, %366 ]
+370:                                              ; preds = %.critedge.i, %363, %341, %310, %287, %271, %268, %267, %247, %214, %184, %167, %147, %123, %98, %97, %81, %78
+  %.1.i = phi i1 [ false, %81 ], [ false, %98 ], [ true, %214 ], [ false, %267 ], [ false, %.critedge.i ], [ true, %78 ], [ true, %97 ], [ true, %123 ], [ true, %147 ], [ true, %167 ], [ true, %184 ], [ true, %247 ], [ false, %271 ], [ true, %268 ], [ true, %287 ], [ true, %310 ], [ true, %341 ], [ true, %363 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.0.i)
   br label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread.sink.split.sink.split
 
-374:                                              ; preds = %371, %80
-  %.pn104.i = phi { ptr, i32 } [ %81, %80 ], [ %372, %371 ]
+371:                                              ; preds = %368, %79
+  %.pn104.i = phi { ptr, i32 } [ %80, %79 ], [ %369, %368 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.0.i)
-  %375 = load i32, ptr %2, align 4, !tbaa !17
-  %376 = add nsw i32 %375, -1
-  store i32 %376, ptr %2, align 4, !tbaa !17
+  %372 = load i32, ptr %2, align 4, !tbaa !17
+  %373 = add nsw i32 %372, -1
+  store i32 %373, ptr %2, align 4, !tbaa !17
   br label %.body
 
-_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread.sink.split.sink.split: ; preds = %52, %373
-  %.0.ph.ph = phi i1 [ %.1.i, %373 ], [ true, %52 ]
+_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread.sink.split.sink.split: ; preds = %52, %370
+  %.0.ph.ph = phi i1 [ %.1.i, %370 ], [ true, %52 ]
   %.pre = load i32, ptr %2, align 4, !tbaa !17
-  %377 = add nsw i32 %.pre, -1
+  %374 = add nsw i32 %.pre, -1
   br label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread.sink.split
 
 _ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread.sink.split: ; preds = %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread.sink.split.sink.split, %53, %20
-  %.sink = phi i32 [ %.pre110, %20 ], [ %54, %53 ], [ %377, %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread.sink.split.sink.split ]
+  %.sink = phi i32 [ %.pre118, %20 ], [ %54, %53 ], [ %374, %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread.sink.split.sink.split ]
   %.0.ph = phi i1 [ true, %20 ], [ false, %53 ], [ %.0.ph.ph, %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread.sink.split.sink.split ]
   store i32 %.sink, ptr %2, align 4, !tbaa !17
   br label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread
 
 _ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread: ; preds = %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread.sink.split, %1, %15
-  %378 = phi i32 [ %.pre110, %15 ], [ %4, %1 ], [ %.sink, %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread.sink.split ]
+  %375 = phi i32 [ %.pre118, %15 ], [ %4, %1 ], [ %.sink, %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread.sink.split ]
   %.0 = phi i1 [ true, %15 ], [ false, %1 ], [ %.0.ph, %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread.sink.split ]
-  %379 = add nsw i32 %378, -1
-  store i32 %379, ptr %2, align 4, !tbaa !17
+  %376 = add nsw i32 %375, -1
+  store i32 %376, ptr %2, align 4, !tbaa !17
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nofree memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree nosync memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL9ParseNameEPNS0_5StateE(ptr noundef captures(none) %0) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.absl::debugging_internal::ParseState", align 4
   %.sroa.0.i = alloca { i32, i32, i32 }, align 8
@@ -1532,7 +1542,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL9ParseNa
 17:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.0.i)
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0.i, ptr noundef nonnull align 4 dereferenceable(12) %18, i64 12, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0.i, ptr noundef nonnull align 4 dereferenceable(12) %18, i64 12, i1 false), !tbaa.struct !31
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.sroa.5.0.copyload.i = load i32, ptr %.sroa.5.0..sroa_idx.i, align 4, !tbaa !4
   %19 = add nsw i32 %5, 3
@@ -1588,7 +1598,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL9ParseNa
   %.ptr.i = getelementptr inbounds nuw i8, ptr @.str.3, i64 %.018.i.add.i
   %45 = load i8, ptr %.ptr.i, align 1, !tbaa !4
   %exitcond.i = icmp eq i64 %.018.i.add.i, 2
-  br i1 %exitcond.i, label %_ZN4absl18debugging_internalL17ParseRefQualifierEPNS0_5StateE.exit, label %.lr.ph.i.i, !llvm.loop !31
+  br i1 %exitcond.i, label %_ZN4absl18debugging_internalL17ParseRefQualifierEPNS0_5StateE.exit, label %.lr.ph.i.i, !llvm.loop !32
 
 .lr.ph.i.i:                                       ; preds = %39, %44
   %46 = phi i8 [ %45, %44 ], [ 79, %39 ]
@@ -1661,7 +1671,7 @@ _ZN4absl18debugging_internalL17ParseRefQualifierEPNS0_5StateE.exit: ; preds = %4
 72:                                               ; preds = %.sink.split, %51
   %.pre = phi i32 [ %.pre.pre, %51 ], [ %.pre.ph, %.sink.split ]
   %storemerge.in.pre = phi i32 [ %storemerge.in.pre.pre, %51 ], [ %.sink, %.sink.split ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %18, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0.i, i64 12, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %18, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0.i, i64 12, i1 false), !tbaa.struct !31
   store i32 %.sroa.5.0.copyload.i, ptr %.sroa.5.0..sroa_idx.i, align 4, !tbaa !4
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.0.i)
   br label %.thread
@@ -1679,7 +1689,7 @@ _ZN4absl18debugging_internalL17ParseRefQualifierEPNS0_5StateE.exit: ; preds = %4
 77:                                               ; preds = %.thread
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %78 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %78, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %78, i64 16, i1 false), !tbaa.struct !31
   %79 = add nsw i32 %storemerge.in, 1
   store i32 %79, ptr %4, align 4, !tbaa !17
   %80 = add nsw i32 %73, 2
@@ -1762,7 +1772,7 @@ _ZN4absl18debugging_internalL17ParseRefQualifierEPNS0_5StateE.exit: ; preds = %4
 
 112:                                              ; preds = %.sink.split70, %91, %106
   %storemerge.in61.pre = phi i32 [ %storemerge.in61.pre.pre, %91 ], [ %storemerge.in61.pre.pre68, %106 ], [ %storemerge.in.sink, %.sink.split70 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %78, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %78, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !31
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   br label %.thread55
 
@@ -1772,7 +1782,7 @@ _ZN4absl18debugging_internalL17ParseRefQualifierEPNS0_5StateE.exit: ; preds = %4
   store i32 %storemerge, ptr %4, align 4, !tbaa !17
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %113 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %113, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %113, i64 16, i1 false), !tbaa.struct !31
   %114 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseSubstitutionEPNS0_5StateEb(ptr noundef nonnull %0, i1 noundef zeroext false)
   br i1 %114, label %115, label %120
 
@@ -1791,7 +1801,7 @@ _ZN4absl18debugging_internalL17ParseRefQualifierEPNS0_5StateE.exit: ; preds = %4
   br label %.body
 
 120:                                              ; preds = %117, %.thread55
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %113, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %113, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !31
   %121 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseUnscopedNameEPNS0_5StateE(ptr noundef nonnull %0)
           to label %122 unwind label %118
 
@@ -1823,7 +1833,7 @@ _ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exi
   resume { ptr, i32 } %.pn
 }
 
-; Function Attrs: mustprogress nofree memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree nosync memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL21ParseBareFunctionTypeEPNS0_5StateE(ptr noundef %0) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.absl::debugging_internal::ParseState", align 4
   %.sroa.0 = alloca { i32, i32, i32 }, align 8
@@ -1843,7 +1853,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL21ParseB
 11:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.0)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %12, i64 12, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %12, i64 12, i1 false), !tbaa.struct !31
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !4
   %13 = and i32 %.sroa.5.0.copyload, 2147483647
@@ -1854,15 +1864,15 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL21ParseB
   store i32 %15, ptr %6, align 8, !tbaa !15
   %16 = icmp sgt i32 %4, 254
   %17 = icmp sgt i32 %7, 131070
-  %or.cond2832 = select i1 %16, i1 true, i1 %17
-  br i1 %or.cond2832, label %_ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit, label %.lr.ph
+  %or.cond2833 = select i1 %16, i1 true, i1 %17
+  br i1 %or.cond2833, label %_ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %11, %.noexc
   %18 = phi i32 [ %44, %.noexc ], [ %8, %11 ]
   %19 = phi i32 [ %42, %.noexc ], [ %14, %11 ]
   %20 = phi i32 [ %43, %.noexc ], [ %5, %11 ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %12, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %12, i64 16, i1 false), !tbaa.struct !31
   %21 = add nsw i32 %20, 2
   store i32 %21, ptr %3, align 4, !tbaa !17
   %22 = add nsw i32 %18, 2
@@ -1916,7 +1926,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL21ParseB
 
 .noexc.thread26:                                  ; preds = %.noexc.thread26.loopexit, %.thread
   %storemerge.in.pre = phi i32 [ %storemerge.in.pre.pre, %.noexc.thread26.loopexit ], [ %19, %.thread ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !31
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   br label %_ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit
 
@@ -1930,7 +1940,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL21ParseB
   %46 = icmp sgt i32 %42, 256
   %47 = icmp sgt i32 %44, 131071
   %or.cond28 = select i1 %46, i1 true, i1 %47
-  br i1 %or.cond28, label %_ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit, label %.lr.ph, !llvm.loop !32
+  br i1 %or.cond28, label %_ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit, label %.lr.ph, !llvm.loop !33
 
 _ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit: ; preds = %.noexc, %11, %.noexc.thread26
   %storemerge.in = phi i32 [ %14, %11 ], [ %storemerge.in.pre, %.noexc.thread26 ], [ %42, %.noexc ]
@@ -1947,7 +1957,7 @@ _ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit: ; preds = %.
           to label %.noexc15 unwind label %.loopexit
 
 .noexc15:                                         ; preds = %.preheader.i
-  br i1 %49, label %.preheader.i, label %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit, !llvm.loop !33
+  br i1 %49, label %.preheader.i, label %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit, !llvm.loop !34
 
 _ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit: ; preds = %.noexc15
   %50 = load i32, ptr %.sroa.5.0..sroa_idx, align 4
@@ -1956,9 +1966,9 @@ _ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit: ; preds = %.no
   %53 = or disjoint i32 %52, %51
   store i32 %53, ptr %.sroa.5.0..sroa_idx, align 4
   %.not.i = icmp sgt i32 %.sroa.5.0.copyload, -1
-  br i1 %.not.i, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit, label %54
+  br i1 %.not.i, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit, label %.lr.ph.i.i.preheader
 
-54:                                               ; preds = %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit
+.lr.ph.i.i.preheader:                             ; preds = %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit
   tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %0, ptr noundef nonnull @.str.230, i64 noundef 2)
   br label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit
 
@@ -1975,33 +1985,33 @@ _ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit: ; preds = %.no
 .body:                                            ; preds = %.loopexit, %.loopexit.split-lp, %38
   %eh.lpad-body = phi { ptr, i32 } [ %39, %38 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.0)
-  %55 = load i32, ptr %3, align 4, !tbaa !17
-  %56 = add nsw i32 %55, -1
-  store i32 %56, ptr %3, align 4, !tbaa !17
+  %54 = load i32, ptr %3, align 4, !tbaa !17
+  %55 = add nsw i32 %54, -1
+  store i32 %55, ptr %3, align 4, !tbaa !17
   resume { ptr, i32 } %eh.lpad-body
 
 _ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.thread: ; preds = %.noexc14
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false), !tbaa.struct !31
   store i32 %.sroa.5.0.copyload, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !4
   br label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit
 
-_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit: ; preds = %54, %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit, %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.thread
+_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit: ; preds = %.lr.ph.i.i.preheader, %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit, %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.thread
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.0)
   %.pre = load i32, ptr %3, align 4, !tbaa !17
-  %57 = add nsw i32 %.pre, -1
+  %56 = add nsw i32 %.pre, -1
   br label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread
 
 _ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread: ; preds = %1, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit
-  %58 = phi i32 [ %57, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit ], [ %4, %1 ]
+  %57 = phi i32 [ %56, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit ], [ %4, %1 ]
   %.0 = phi i1 [ %48, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit ], [ false, %1 ]
-  store i32 %58, ptr %3, align 4, !tbaa !17
+  store i32 %57, ptr %3, align 4, !tbaa !17
   ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #7
 
-; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseSubstitutionEPNS0_5StateEb(ptr noundef captures(none) %0, i1 noundef zeroext %1) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.absl::debugging_internal::ParseState", align 4
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -2014,8 +2024,8 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseS
   store i32 %9, ptr %7, align 8, !tbaa !15
   %10 = icmp sgt i32 %5, 255
   %11 = icmp sgt i32 %8, 131071
-  %or.cond86 = select i1 %10, i1 true, i1 %11
-  br i1 %or.cond86, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit, label %12
+  %or.cond102 = select i1 %10, i1 true, i1 %11
+  br i1 %or.cond102, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit, label %12
 
 12:                                               ; preds = %2
   %13 = add nsw i32 %5, 2
@@ -2025,7 +2035,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseS
   %15 = icmp sgt i32 %5, 254
   %16 = icmp sgt i32 %8, 131070
   %or.cond.i = select i1 %15, i1 true, i1 %16
-  br i1 %or.cond.i, label %32, label %17
+  br i1 %or.cond.i, label %31, label %17
 
 17:                                               ; preds = %12
   %.val11.i = load ptr, ptr %0, align 8, !tbaa !7
@@ -2035,13 +2045,13 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseS
   %20 = getelementptr inbounds i8, ptr %.val11.i, i64 %19
   %21 = load i8, ptr %20, align 1, !tbaa !4
   %22 = icmp eq i8 %21, 83
-  br i1 %22, label %23, label %32
+  br i1 %22, label %23, label %31
 
 23:                                               ; preds = %17
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 1
   %25 = load i8, ptr %24, align 1, !tbaa !4
   %26 = icmp eq i8 %25, 95
-  br i1 %26, label %27, label %32
+  br i1 %26, label %27, label %31
 
 27:                                               ; preds = %23
   %28 = add nsw i32 %.val12.i, 2
@@ -2050,221 +2060,224 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseS
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %30 = load i32, ptr %29, align 4
   %.not.i = icmp sgt i32 %30, -1
-  br i1 %.not.i, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit, label %31
+  br i1 %.not.i, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit, label %.lr.ph.i.i.preheader
 
-31:                                               ; preds = %27
+.lr.ph.i.i.preheader:                             ; preds = %27
   tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %0, ptr noundef nonnull @.str.6, i64 noundef 1)
   br label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit
 
-32:                                               ; preds = %23, %17, %12
+31:                                               ; preds = %23, %17, %12
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %33, i64 16, i1 false), !tbaa.struct !30
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %32, i64 16, i1 false), !tbaa.struct !31
   store i32 %13, ptr %4, align 4, !tbaa !17
-  %34 = add nsw i32 %8, 3
-  store i32 %34, ptr %7, align 8, !tbaa !15
-  %35 = icmp sgt i32 %8, 131069
-  %or.cond.i45 = select i1 %15, i1 true, i1 %35
-  br i1 %or.cond.i45, label %.thread74, label %36
+  %33 = add nsw i32 %8, 3
+  store i32 %33, ptr %7, align 8, !tbaa !15
+  %34 = icmp sgt i32 %8, 131069
+  %or.cond.i45 = select i1 %15, i1 true, i1 %34
+  br i1 %or.cond.i45, label %.thread90, label %35
 
-36:                                               ; preds = %32
+35:                                               ; preds = %31
   %.val6.i = load ptr, ptr %0, align 8, !tbaa !7
-  %.val7.i = load i32, ptr %33, align 4, !tbaa !16
-  %37 = sext i32 %.val7.i to i64
-  %38 = getelementptr inbounds i8, ptr %.val6.i, i64 %37
-  %39 = load i8, ptr %38, align 1, !tbaa !4
-  %40 = icmp eq i8 %39, 83
-  br i1 %40, label %41, label %.thread74
+  %.val7.i = load i32, ptr %32, align 4, !tbaa !16
+  %36 = sext i32 %.val7.i to i64
+  %37 = getelementptr inbounds i8, ptr %.val6.i, i64 %36
+  %38 = load i8, ptr %37, align 1, !tbaa !4
+  %39 = icmp eq i8 %38, 83
+  br i1 %39, label %40, label %.thread90
 
-41:                                               ; preds = %36
-  %42 = add nsw i32 %.val7.i, 1
-  store i32 %42, ptr %33, align 4, !tbaa !16
+40:                                               ; preds = %35
+  %41 = add nsw i32 %.val7.i, 1
+  store i32 %41, ptr %32, align 4, !tbaa !16
   store i32 %13, ptr %4, align 4, !tbaa !17
-  %43 = add nsw i32 %8, 4
-  store i32 %43, ptr %7, align 8, !tbaa !15
-  %44 = icmp sgt i32 %8, 131068
-  br i1 %44, label %.thread74, label %45
+  %42 = add nsw i32 %8, 4
+  store i32 %42, ptr %7, align 8, !tbaa !15
+  %43 = icmp sgt i32 %8, 131068
+  br i1 %43, label %.thread90, label %44
 
-45:                                               ; preds = %41
-  %46 = sext i32 %42 to i64
-  %47 = getelementptr inbounds i8, ptr %.val6.i, i64 %46
-  %48 = load i8, ptr %47, align 1, !tbaa !4
-  %.not27.i = icmp eq i8 %48, 0
-  br i1 %.not27.i, label %.thread74, label %.lr.ph.i
+44:                                               ; preds = %40
+  %45 = sext i32 %41 to i64
+  %46 = getelementptr inbounds i8, ptr %.val6.i, i64 %45
+  %47 = load i8, ptr %46, align 1, !tbaa !4
+  %.not27.i = icmp eq i8 %47, 0
+  br i1 %.not27.i, label %.thread90, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %45, %53
-  %49 = phi i8 [ %55, %53 ], [ %48, %45 ]
-  %.028.i = phi ptr [ %54, %53 ], [ %47, %45 ]
-  %50 = add i8 %49, -48
-  %51 = icmp ult i8 %50, 10
-  %52 = add i8 %49, -65
-  %or.cond.i47 = icmp ult i8 %52, 26
-  %or.cond26.i = or i1 %51, %or.cond.i47
-  br i1 %or.cond26.i, label %53, label %._crit_edge.i
+.lr.ph.i:                                         ; preds = %44, %52
+  %48 = phi i8 [ %54, %52 ], [ %47, %44 ]
+  %.028.i = phi ptr [ %53, %52 ], [ %46, %44 ]
+  %49 = add i8 %48, -48
+  %50 = icmp ult i8 %49, 10
+  %51 = add i8 %48, -65
+  %or.cond.i47 = icmp ult i8 %51, 26
+  %or.cond26.i = or i1 %50, %or.cond.i47
+  br i1 %or.cond26.i, label %52, label %._crit_edge.i
 
-53:                                               ; preds = %.lr.ph.i
-  %54 = getelementptr inbounds nuw i8, ptr %.028.i, i64 1
-  %55 = load i8, ptr %54, align 1, !tbaa !4
-  %.not.i48 = icmp eq i8 %55, 0
-  br i1 %.not.i48, label %.loopexit, label %.lr.ph.i, !llvm.loop !34
+52:                                               ; preds = %.lr.ph.i
+  %53 = getelementptr inbounds nuw i8, ptr %.028.i, i64 1
+  %54 = load i8, ptr %53, align 1, !tbaa !4
+  %.not.i48 = icmp eq i8 %54, 0
+  br i1 %.not.i48, label %.loopexit, label %.lr.ph.i, !llvm.loop !35
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i
-  %.not16.not.i = icmp eq ptr %.028.i, %47
-  br i1 %.not16.not.i, label %.thread74, label %.loopexit
+  %.not16.not.i = icmp eq ptr %.028.i, %46
+  br i1 %.not16.not.i, label %.thread90, label %.loopexit
 
-.loopexit:                                        ; preds = %53, %._crit_edge.i
-  %.0.lcssa36.i = phi ptr [ %.028.i, %._crit_edge.i ], [ %54, %53 ]
-  %56 = ptrtoint ptr %.0.lcssa36.i to i64
-  %57 = ptrtoint ptr %47 to i64
-  %58 = sub i64 %56, %57
-  %59 = trunc i64 %58 to i32
-  %60 = add i32 %42, %59
-  store i32 %60, ptr %33, align 4, !tbaa !16
+.loopexit:                                        ; preds = %52, %._crit_edge.i
+  %.0.lcssa36.i = phi ptr [ %.028.i, %._crit_edge.i ], [ %53, %52 ]
+  %55 = ptrtoint ptr %.0.lcssa36.i to i64
+  %56 = ptrtoint ptr %46 to i64
+  %57 = sub i64 %55, %56
+  %58 = trunc i64 %57 to i32
+  %59 = add i32 %41, %58
+  store i32 %59, ptr %32, align 4, !tbaa !16
   store i32 %13, ptr %4, align 4, !tbaa !17
-  %61 = add nsw i32 %8, 5
-  store i32 %61, ptr %7, align 8, !tbaa !15
-  %62 = icmp eq i32 %8, 131068
-  br i1 %62, label %.thread74, label %63
+  %60 = add nsw i32 %8, 5
+  store i32 %60, ptr %7, align 8, !tbaa !15
+  %61 = icmp eq i32 %8, 131068
+  br i1 %61, label %.thread90, label %62
 
-63:                                               ; preds = %.loopexit
-  %64 = sext i32 %60 to i64
-  %65 = getelementptr inbounds i8, ptr %.val6.i, i64 %64
-  %66 = load i8, ptr %65, align 1, !tbaa !4
-  %67 = icmp eq i8 %66, 95
-  br i1 %67, label %68, label %.thread74
+62:                                               ; preds = %.loopexit
+  %63 = sext i32 %59 to i64
+  %64 = getelementptr inbounds i8, ptr %.val6.i, i64 %63
+  %65 = load i8, ptr %64, align 1, !tbaa !4
+  %66 = icmp eq i8 %65, 95
+  br i1 %66, label %67, label %.thread90
 
-68:                                               ; preds = %63
-  %69 = add nsw i32 %60, 1
-  store i32 %69, ptr %33, align 4, !tbaa !16
+67:                                               ; preds = %62
+  %68 = add nsw i32 %59, 1
+  store i32 %68, ptr %32, align 4, !tbaa !16
   store i32 %6, ptr %4, align 4, !tbaa !17
-  %70 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %71 = load i32, ptr %70, align 4
-  %.not.i54 = icmp sgt i32 %71, -1
-  br i1 %.not.i54, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit56, label %72
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %70 = load i32, ptr %69, align 4
+  %.not.i54 = icmp sgt i32 %70, -1
+  br i1 %.not.i54, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit60, label %.lr.ph.i.i55.preheader
 
-72:                                               ; preds = %68
+.lr.ph.i.i55.preheader:                           ; preds = %67
   tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %0, ptr noundef nonnull @.str.6, i64 noundef 1)
-  br label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit56
+  br label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit60
 
-.thread74:                                        ; preds = %.loopexit, %63, %45, %41, %._crit_edge.i, %32, %36
-  %73 = phi i32 [ %34, %36 ], [ %34, %32 ], [ %43, %._crit_edge.i ], [ %43, %41 ], [ %43, %45 ], [ %61, %63 ], [ %61, %.loopexit ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %33, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !30
-  %74 = add nsw i32 %5, 2
-  store i32 %74, ptr %4, align 4, !tbaa !17
-  %75 = add nsw i32 %73, 1
-  store i32 %75, ptr %7, align 8, !tbaa !15
-  %76 = icmp sgt i32 %5, 254
-  %77 = icmp sgt i32 %73, 131071
-  %or.cond.i57 = select i1 %76, i1 true, i1 %77
-  br i1 %or.cond.i57, label %.thread83, label %78
+.thread90:                                        ; preds = %.loopexit, %62, %44, %40, %._crit_edge.i, %31, %35
+  %71 = phi i32 [ %33, %35 ], [ %33, %31 ], [ %42, %._crit_edge.i ], [ %42, %40 ], [ %42, %44 ], [ %60, %62 ], [ %60, %.loopexit ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %32, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !31
+  %72 = add nsw i32 %5, 2
+  store i32 %72, ptr %4, align 4, !tbaa !17
+  %73 = add nsw i32 %71, 1
+  store i32 %73, ptr %7, align 8, !tbaa !15
+  %74 = icmp sgt i32 %5, 254
+  %75 = icmp sgt i32 %71, 131071
+  %or.cond.i61 = select i1 %74, i1 true, i1 %75
+  br i1 %or.cond.i61, label %.thread99, label %76
 
-78:                                               ; preds = %.thread74
-  %.val6.i58 = load ptr, ptr %0, align 8, !tbaa !7
-  %.val7.i59 = load i32, ptr %33, align 4, !tbaa !16
-  %79 = sext i32 %.val7.i59 to i64
-  %80 = getelementptr inbounds i8, ptr %.val6.i58, i64 %79
-  %81 = load i8, ptr %80, align 1, !tbaa !4
-  %82 = icmp eq i8 %81, 83
-  br i1 %82, label %83, label %.thread83
+76:                                               ; preds = %.thread90
+  %.val6.i62 = load ptr, ptr %0, align 8, !tbaa !7
+  %.val7.i63 = load i32, ptr %32, align 4, !tbaa !16
+  %77 = sext i32 %.val7.i63 to i64
+  %78 = getelementptr inbounds i8, ptr %.val6.i62, i64 %77
+  %79 = load i8, ptr %78, align 1, !tbaa !4
+  %80 = icmp eq i8 %79, 83
+  br i1 %80, label %81, label %.thread99
 
-.thread83:                                        ; preds = %78, %.thread74
+.thread99:                                        ; preds = %76, %.thread90
   store i32 %6, ptr %4, align 4, !tbaa !17
   br label %.critedge
 
-83:                                               ; preds = %78
-  %84 = add nsw i32 %.val7.i59, 1
-  store i32 %84, ptr %33, align 4, !tbaa !16
+81:                                               ; preds = %76
+  %82 = add nsw i32 %.val7.i63, 1
+  store i32 %82, ptr %32, align 4, !tbaa !16
   store i32 %6, ptr %4, align 4, !tbaa !17
-  %85 = sext i32 %84 to i64
-  %86 = getelementptr inbounds i8, ptr %.val6.i58, i64 %85
-  %87 = load i8, ptr %86, align 1, !tbaa !4
-  br label %88
+  %83 = sext i32 %82 to i64
+  %84 = getelementptr inbounds i8, ptr %.val6.i62, i64 %83
+  %85 = load i8, ptr %84, align 1, !tbaa !4
+  br label %86
 
-88:                                               ; preds = %83, %107
-  %89 = phi ptr [ @.str.243, %83 ], [ %109, %107 ]
-  %.089 = phi ptr [ @_ZN4absl18debugging_internalL17kSubstitutionListE, %83 ], [ %108, %107 ]
-  %90 = getelementptr inbounds nuw i8, ptr %89, i64 1
-  %91 = load i8, ptr %90, align 1, !tbaa !4
-  %92 = icmp eq i8 %87, %91
-  %.not34 = icmp ne i8 %91, 116
+86:                                               ; preds = %81, %106
+  %87 = phi ptr [ @.str.243, %81 ], [ %108, %106 ]
+  %.0110 = phi ptr [ @_ZN4absl18debugging_internalL17kSubstitutionListE, %81 ], [ %107, %106 ]
+  %88 = getelementptr inbounds nuw i8, ptr %87, i64 1
+  %89 = load i8, ptr %88, align 1, !tbaa !4
+  %90 = icmp eq i8 %85, %89
+  %.not34 = icmp ne i8 %89, 116
   %or.cond.not = or i1 %1, %.not34
-  %or.cond = and i1 %92, %or.cond.not
-  br i1 %or.cond, label %93, label %107
+  %or.cond = and i1 %90, %or.cond.not
+  br i1 %or.cond, label %91, label %106
 
-93:                                               ; preds = %88
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %95 = load i32, ptr %94, align 4
-  %.not.i62 = icmp sgt i32 %95, -1
-  br i1 %.not.i62, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit64, label %96
+91:                                               ; preds = %86
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %93 = load i32, ptr %92, align 4
+  %.not.i66 = icmp sgt i32 %93, -1
+  br i1 %.not.i66, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit72, label %.lr.ph.i.i67.preheader
 
-96:                                               ; preds = %93
+.lr.ph.i.i67.preheader:                           ; preds = %91
   tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %0, ptr noundef nonnull @.str.254, i64 noundef 3)
-  br label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit64
+  br label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit72
 
-_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit64: ; preds = %96, %93
-  %97 = getelementptr inbounds nuw i8, ptr %.089, i64 8
-  %98 = load ptr, ptr %97, align 8, !tbaa !35
-  %99 = load i8, ptr %98, align 1, !tbaa !4
-  %.not35 = icmp eq i8 %99, 0
-  br i1 %.not35, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit70, label %100
+_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit72: ; preds = %.lr.ph.i.i67.preheader, %91
+  %94 = getelementptr inbounds nuw i8, ptr %.0110, i64 8
+  %95 = load ptr, ptr %94, align 8, !tbaa !36
+  %96 = load i8, ptr %95, align 1, !tbaa !4
+  %.not35 = icmp eq i8 %96, 0
+  br i1 %.not35, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit86, label %97
 
-100:                                              ; preds = %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit64
-  %101 = load i32, ptr %94, align 4
-  %.not.i65 = icmp sgt i32 %101, -1
-  br i1 %.not.i65, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit70, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit67
+97:                                               ; preds = %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit72
+  %98 = load i32, ptr %92, align 4
+  %.not.i73 = icmp sgt i32 %98, -1
+  br i1 %.not.i73, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit86, label %.lr.ph.i.i74.preheader
 
-_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit67: ; preds = %100
+.lr.ph.i.i74.preheader:                           ; preds = %97
   tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %0, ptr noundef nonnull @.str.4, i64 noundef 2)
-  %.pr = load i32, ptr %94, align 4
-  %.not.i68 = icmp sgt i32 %.pr, -1
-  br i1 %.not.i68, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit70, label %102
+  %.pr = load i32, ptr %92, align 4
+  %.not.i80 = icmp sgt i32 %.pr, -1
+  br i1 %.not.i80, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit86, label %99
 
-102:                                              ; preds = %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit67
-  %103 = load i8, ptr %98, align 1, !tbaa !4
-  %.not4.i.i = icmp eq i8 %103, 0
-  br i1 %.not4.i.i, label %_ZN4absl18debugging_internalL6StrLenEPKc.exit.i, label %.lr.ph.preheader.i.i
+99:                                               ; preds = %.lr.ph.i.i74.preheader
+  %100 = load i8, ptr %95, align 1, !tbaa !4
+  %.not4.i.i = icmp eq i8 %100, 0
+  br i1 %.not4.i.i, label %_ZN4absl18debugging_internalL6StrLenEPKc.exit.i85, label %.lr.ph.i.i81
 
-.lr.ph.preheader.i.i:                             ; preds = %102
-  %scevgep.i.i = getelementptr i8, ptr %98, i64 1
-  %strlen.i.i69 = tail call i64 @strlen(ptr nonnull readonly dereferenceable(1) %scevgep.i.i)
-  %104 = add i64 %strlen.i.i69, 1
-  br label %_ZN4absl18debugging_internalL6StrLenEPKc.exit.i
+.lr.ph.i.i81:                                     ; preds = %99, %.lr.ph.i.i81
+  %.06.i.i82 = phi i64 [ %102, %.lr.ph.i.i81 ], [ 0, %99 ]
+  %.035.i.i83 = phi ptr [ %101, %.lr.ph.i.i81 ], [ %95, %99 ]
+  %101 = getelementptr inbounds nuw i8, ptr %.035.i.i83, i64 1
+  %102 = add i64 %.06.i.i82, 1
+  %103 = load i8, ptr %101, align 1, !tbaa !4
+  %.not.i.i84 = icmp eq i8 %103, 0
+  br i1 %.not.i.i84, label %_ZN4absl18debugging_internalL6StrLenEPKc.exit.i85, label %.lr.ph.i.i81, !llvm.loop !22
 
-_ZN4absl18debugging_internalL6StrLenEPKc.exit.i:  ; preds = %.lr.ph.preheader.i.i, %102
-  %.0.lcssa.i.i = phi i64 [ 0, %102 ], [ %104, %.lr.ph.preheader.i.i ]
-  tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %0, ptr noundef nonnull readonly %98, i64 noundef %.0.lcssa.i.i)
-  br label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit70
+_ZN4absl18debugging_internalL6StrLenEPKc.exit.i85: ; preds = %.lr.ph.i.i81, %99
+  %.0.lcssa.i.i = phi i64 [ 0, %99 ], [ %102, %.lr.ph.i.i81 ]
+  tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %0, ptr noundef nonnull readonly %95, i64 noundef %.0.lcssa.i.i)
+  br label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit86
 
-_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit70: ; preds = %100, %_ZN4absl18debugging_internalL6StrLenEPKc.exit.i, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit67, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit64
-  %105 = load i32, ptr %33, align 4, !tbaa !16
-  %106 = add nsw i32 %105, 1
-  store i32 %106, ptr %33, align 4, !tbaa !16
-  br label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit56
+_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit86: ; preds = %97, %_ZN4absl18debugging_internalL6StrLenEPKc.exit.i85, %.lr.ph.i.i74.preheader, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit72
+  %104 = load i32, ptr %32, align 4, !tbaa !16
+  %105 = add nsw i32 %104, 1
+  store i32 %105, ptr %32, align 4, !tbaa !16
+  br label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit60
 
-107:                                              ; preds = %88
-  %108 = getelementptr inbounds nuw i8, ptr %.089, i64 24
-  %109 = load ptr, ptr %108, align 8, !tbaa !37
-  %.not = icmp eq ptr %109, null
-  br i1 %.not, label %.critedge, label %88, !llvm.loop !38
+106:                                              ; preds = %86
+  %107 = getelementptr inbounds nuw i8, ptr %.0110, i64 24
+  %108 = load ptr, ptr %107, align 8, !tbaa !38
+  %.not = icmp eq ptr %108, null
+  br i1 %.not, label %.critedge, label %86, !llvm.loop !39
 
-.critedge:                                        ; preds = %107, %.thread83
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %33, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !30
-  br label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit56
+.critedge:                                        ; preds = %106, %.thread99
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %32, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !31
+  br label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit60
 
-_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit56: ; preds = %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit70, %72, %68, %.critedge
-  %.132 = phi i1 [ false, %.critedge ], [ true, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit70 ], [ true, %68 ], [ true, %72 ]
+_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit60: ; preds = %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit86, %.lr.ph.i.i55.preheader, %67, %.critedge
+  %.132 = phi i1 [ false, %.critedge ], [ true, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit86 ], [ true, %67 ], [ true, %.lr.ph.i.i55.preheader ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   br label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit
 
-_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit: ; preds = %2, %31, %27, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit56
-  %.031 = phi i1 [ %.132, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit56 ], [ true, %27 ], [ true, %31 ], [ false, %2 ]
-  %110 = load i32, ptr %4, align 4, !tbaa !17
-  %111 = add nsw i32 %110, -1
-  store i32 %111, ptr %4, align 4, !tbaa !17
+_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit: ; preds = %2, %.lr.ph.i.i.preheader, %27, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit60
+  %.031 = phi i1 [ %.132, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit60 ], [ true, %27 ], [ true, %.lr.ph.i.i.preheader ], [ false, %2 ]
+  %109 = load i32, ptr %4, align 4, !tbaa !17
+  %110 = add nsw i32 %109, -1
+  store i32 %110, ptr %4, align 4, !tbaa !17
   ret i1 %.031
 }
 
-; Function Attrs: mustprogress nofree memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree nosync memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseTemplateArgsEPNS0_5StateE(ptr noundef captures(none) %0) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %.sroa.0.i = alloca { i32, i32, i32 }, align 8
   %.sroa.0 = alloca { i32, i32, i32 }, align 8
@@ -2284,7 +2297,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseT
 10:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.0)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %11, i64 12, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %11, i64 12, i1 false), !tbaa.struct !31
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.sroa.5.0.copyload = load i32, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !4
   %12 = and i32 %.sroa.5.0.copyload, 2147483647
@@ -2322,7 +2335,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseT
           to label %.noexc17 unwind label %.loopexit
 
 .noexc17:                                         ; preds = %.preheader.i
-  br i1 %25, label %.preheader.i, label %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit, !llvm.loop !33
+  br i1 %25, label %.preheader.i, label %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit, !llvm.loop !34
 
 _ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit: ; preds = %.noexc17
   %26 = load i32, ptr %2, align 4, !tbaa !17
@@ -2338,7 +2351,7 @@ _ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit: ; preds = %.no
 
 32:                                               ; preds = %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.0.i)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0.i, ptr noundef nonnull align 4 dereferenceable(12) %11, i64 12, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0.i, ptr noundef nonnull align 4 dereferenceable(12) %11, i64 12, i1 false), !tbaa.struct !31
   %.sroa.5.0.copyload.i = load i32, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !4
   %33 = and i32 %.sroa.5.0.copyload.i, 2147483647
   store i32 %33, ptr %.sroa.5.0..sroa_idx, align 4
@@ -2391,7 +2404,7 @@ _ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i: ; 
   br label %.loopexit.split-lp.body
 
 56:                                               ; preds = %46, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0.i, i64 12, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0.i, i64 12, i1 false), !tbaa.struct !31
   br label %57
 
 57:                                               ; preds = %56, %47
@@ -2434,9 +2447,9 @@ _ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i: ; 
   %75 = or disjoint i32 %74, %73
   store i32 %75, ptr %.sroa.5.0..sroa_idx, align 4
   %.not.i = icmp sgt i32 %.sroa.5.0.copyload, -1
-  br i1 %.not.i, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit, label %76
+  br i1 %.not.i, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit, label %.lr.ph.i.i.preheader
 
-76:                                               ; preds = %70
+.lr.ph.i.i.preheader:                             ; preds = %70
   tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %0, ptr noundef nonnull @.str.268, i64 noundef 2)
   br label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit
 
@@ -2453,9 +2466,9 @@ _ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i: ; 
 .loopexit.split-lp.body:                          ; preds = %.loopexit.split-lp, %52, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %53, %52 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.0)
-  %77 = load i32, ptr %2, align 4, !tbaa !17
-  %78 = add nsw i32 %77, -1
-  store i32 %78, ptr %2, align 4, !tbaa !17
+  %76 = load i32, ptr %2, align 4, !tbaa !17
+  %77 = add nsw i32 %76, -1
+  store i32 %77, ptr %2, align 4, !tbaa !17
   resume { ptr, i32 } %lpad.phi
 
 _ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.thread.sink.split: ; preds = %59, %65, %10, %17
@@ -2464,25 +2477,25 @@ _ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.thread.sink.spl
   br label %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.thread
 
 _ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.thread: ; preds = %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.thread.sink.split, %.noexc
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %11, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false), !tbaa.struct !31
   store i32 %.sroa.5.0.copyload, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !4
   br label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit
 
-_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit: ; preds = %76, %70, %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.thread
-  %.1 = phi i1 [ false, %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.thread ], [ true, %70 ], [ true, %76 ]
+_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit: ; preds = %.lr.ph.i.i.preheader, %70, %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.thread
+  %.1 = phi i1 [ false, %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.thread ], [ true, %70 ], [ true, %.lr.ph.i.i.preheader ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.0)
   %.pre = load i32, ptr %2, align 4, !tbaa !17
-  %79 = add nsw i32 %.pre, -1
+  %78 = add nsw i32 %.pre, -1
   br label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread
 
 _ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread: ; preds = %1, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit
-  %80 = phi i32 [ %79, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit ], [ %3, %1 ]
+  %79 = phi i32 [ %78, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit ], [ %3, %1 ]
   %.0 = phi i1 [ %.1, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit ], [ false, %1 ]
-  store i32 %80, ptr %2, align 4, !tbaa !17
+  store i32 %79, ptr %2, align 4, !tbaa !17
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nofree memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree nosync memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseUnscopedNameEPNS0_5StateE(ptr noundef %0) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.absl::debugging_internal::ParseState", align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -2509,12 +2522,12 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseU
 14:                                               ; preds = %11
   %15 = landingpad { ptr, i32 }
           cleanup
-  br label %45
+  br label %44
 
 16:                                               ; preds = %13
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %17, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %17, i64 16, i1 false), !tbaa.struct !31
   %18 = add nsw i32 %.pre17, 1
   store i32 %18, ptr %3, align 4, !tbaa !17
   %19 = load i32, ptr %6, align 8, !tbaa !15
@@ -2542,7 +2555,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseU
 
 _ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread: ; preds = %28, %23, %16
   store i32 %.pre17, ptr %3, align 4, !tbaa !17
-  br label %41
+  br label %40
 
 32:                                               ; preds = %28
   %33 = add nsw i32 %.val12.i, 2
@@ -2551,47 +2564,47 @@ _ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread: ; 
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %35 = load i32, ptr %34, align 4
   %.not.i = icmp sgt i32 %35, -1
-  br i1 %.not.i, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit, label %36
+  br i1 %.not.i, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit, label %.lr.ph.i.i.preheader
 
-36:                                               ; preds = %32
+.lr.ph.i.i.preheader:                             ; preds = %32
   tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %0, ptr noundef nonnull @.str.269, i64 noundef 5)
   br label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit
 
-_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit: ; preds = %32, %36
-  %37 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL20ParseUnqualifiedNameEPNS0_5StateE(ptr noundef nonnull %0)
-          to label %38 unwind label %39
+_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit: ; preds = %32, %.lr.ph.i.i.preheader
+  %36 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL20ParseUnqualifiedNameEPNS0_5StateE(ptr noundef nonnull %0)
+          to label %37 unwind label %38
+
+37:                                               ; preds = %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit
+  br i1 %36, label %41, label %40
 
 38:                                               ; preds = %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit
-  br i1 %37, label %42, label %41
-
-39:                                               ; preds = %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit
-  %40 = landingpad { ptr, i32 }
+  %39 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  br label %45
+  br label %44
 
-41:                                               ; preds = %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread, %38
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !30
-  br label %42
+40:                                               ; preds = %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread, %37
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !31
+  br label %41
 
-42:                                               ; preds = %38, %41
-  %.1 = phi i1 [ false, %41 ], [ true, %38 ]
+41:                                               ; preds = %37, %40
+  %.1 = phi i1 [ false, %40 ], [ true, %37 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   %.pre = load i32, ptr %3, align 4, !tbaa !17
   br label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread
 
-_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread: ; preds = %1, %13, %42
-  %43 = phi i32 [ %.pre, %42 ], [ %.pre17, %13 ], [ %5, %1 ]
-  %.010 = phi i1 [ %.1, %42 ], [ true, %13 ], [ false, %1 ]
-  %44 = add nsw i32 %43, -1
-  store i32 %44, ptr %3, align 4, !tbaa !17
+_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread: ; preds = %1, %13, %41
+  %42 = phi i32 [ %.pre, %41 ], [ %.pre17, %13 ], [ %5, %1 ]
+  %.010 = phi i1 [ %.1, %41 ], [ true, %13 ], [ false, %1 ]
+  %43 = add nsw i32 %42, -1
+  store i32 %43, ptr %3, align 4, !tbaa !17
   ret i1 %.010
 
-45:                                               ; preds = %39, %14
-  %.pn = phi { ptr, i32 } [ %40, %39 ], [ %15, %14 ]
-  %46 = load i32, ptr %3, align 4, !tbaa !17
-  %47 = add nsw i32 %46, -1
-  store i32 %47, ptr %3, align 4, !tbaa !17
+44:                                               ; preds = %38, %14
+  %.pn = phi { ptr, i32 } [ %39, %38 ], [ %15, %14 ]
+  %45 = load i32, ptr %3, align 4, !tbaa !17
+  %46 = add nsw i32 %45, -1
+  store i32 %46, ptr %3, align 4, !tbaa !17
   resume { ptr, i32 } %.pn
 }
 
@@ -2631,7 +2644,7 @@ _ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exi
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nofree memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree nosync memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseCVQualifiersEPNS0_5StateE(ptr noundef captures(none) %0) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.absl::debugging_internal::ParseState", align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -2668,7 +2681,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseC
   %20 = phi i32 [ %5, %.lr.ph ], [ %46, %.preheader ]
   %.01258 = phi i32 [ 0, %.lr.ph ], [ %47, %.preheader ]
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %15, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %15, i64 16, i1 false), !tbaa.struct !31
   %21 = add nsw i32 %20, 2
   store i32 %21, ptr %3, align 4, !tbaa !17
   %22 = add nsw i32 %18, 2
@@ -2702,7 +2715,7 @@ _ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit34.thread: ; 
   br i1 %34, label %39, label %35
 
 35:                                               ; preds = %30
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %15, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %15, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !31
   %storemerge.in.pre.pre = load i32, ptr %3, align 4, !tbaa !17
   %.pre.pre = load i32, ptr %6, align 8, !tbaa !15
   br label %.thread43
@@ -2742,7 +2755,7 @@ _ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit34.thread: ; 
   %50 = icmp sgt i32 %45, 256
   %51 = icmp sgt i32 %48, 131071
   %or.cond45 = select i1 %50, i1 true, i1 %51
-  br i1 %or.cond45, label %.thread, label %17, !llvm.loop !39
+  br i1 %or.cond45, label %.thread, label %17, !llvm.loop !40
 
 .thread:                                          ; preds = %.preheader, %.preheader.preheader, %.thread43
   %52 = phi i32 [ %.pre, %.thread43 ], [ %12, %.preheader.preheader ], [ %49, %.preheader ]
@@ -2836,7 +2849,7 @@ _ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exi
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nofree memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree nosync memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL11ParsePrefixEPNS0_5StateE(ptr noundef %0) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.absl::debugging_internal::ParseState", align 4
   %3 = alloca %"struct.absl::debugging_internal::ParseState", align 4
@@ -2869,35 +2882,35 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL11ParseP
   %19 = icmp slt i32 %18, 131072
   %.not.i.i = icmp sgt i32 %17, -1
   %or.cond.i = or i1 %.not.i.i, %19
-  br i1 %or.cond.i, label %_ZN4absl18debugging_internalL20MaybeAppendSeparatorEPNS0_5StateE.exit, label %.lr.ph.i.i
+  br i1 %or.cond.i, label %_ZN4absl18debugging_internalL20MaybeAppendSeparatorEPNS0_5StateE.exit, label %.lr.ph.i.i.preheader.i
 
-.lr.ph.i.i:                                       ; preds = %.preheader, %24
+.lr.ph.i.i.preheader.i:                           ; preds = %.preheader, %24
   %.018.i16.i = phi i64 [ %30, %24 ], [ 0, %.preheader ]
-  %20 = load i32, ptr %13, align 4, !tbaa !22
+  %20 = load i32, ptr %13, align 4, !tbaa !23
   %21 = add nsw i32 %20, 1
   %22 = load i32, ptr %14, align 8, !tbaa !14
   %23 = icmp slt i32 %21, %22
   br i1 %23, label %24, label %.loopexit.i17.thread.i
 
-24:                                               ; preds = %.lr.ph.i.i
+24:                                               ; preds = %.lr.ph.i.i.preheader.i
   %25 = getelementptr inbounds nuw i8, ptr @.str.4, i64 %.018.i16.i
   %26 = load i8, ptr %25, align 1, !tbaa !4
   %27 = load ptr, ptr %15, align 8, !tbaa !13
-  store i32 %21, ptr %13, align 4, !tbaa !22
+  store i32 %21, ptr %13, align 4, !tbaa !23
   %28 = sext i32 %20 to i64
   %29 = getelementptr inbounds i8, ptr %27, i64 %28
   store i8 %26, ptr %29, align 1, !tbaa !4
   %30 = add nuw nsw i64 %.018.i16.i, 1
   %exitcond.not.i18.i = icmp eq i64 %30, 2
-  br i1 %exitcond.not.i18.i, label %.loopexit.i17.i, label %.lr.ph.i.i, !llvm.loop !40
+  br i1 %exitcond.not.i18.i, label %.loopexit.i17.i, label %.lr.ph.i.i.preheader.i, !llvm.loop !41
 
-.loopexit.i17.thread.i:                           ; preds = %.lr.ph.i.i
+.loopexit.i17.thread.i:                           ; preds = %.lr.ph.i.i.preheader.i
   %31 = add nsw i32 %22, 1
-  store i32 %31, ptr %13, align 4, !tbaa !22
+  store i32 %31, ptr %13, align 4, !tbaa !23
   br label %_ZN4absl18debugging_internalL20MaybeAppendSeparatorEPNS0_5StateE.exit
 
 .loopexit.i17.i:                                  ; preds = %24
-  %.pre28.i = load i32, ptr %13, align 4, !tbaa !22
+  %.pre28.i = load i32, ptr %13, align 4, !tbaa !23
   %.pre29.i = load i32, ptr %14, align 8, !tbaa !14
   %32 = icmp slt i32 %.pre28.i, %.pre29.i
   br i1 %32, label %33, label %_ZN4absl18debugging_internalL20MaybeAppendSeparatorEPNS0_5StateE.exit
@@ -2927,7 +2940,7 @@ _ZN4absl18debugging_internalL20MaybeAppendSeparatorEPNS0_5StateE.exit: ; preds =
 
 45:                                               ; preds = %38
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %16, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %16, i64 16, i1 false), !tbaa.struct !31
   %46 = add nsw i32 %39, 2
   store i32 %46, ptr %4, align 4, !tbaa !17
   %47 = add nsw i32 %41, 2
@@ -2967,7 +2980,7 @@ _ZN4absl18debugging_internalL20MaybeAppendSeparatorEPNS0_5StateE.exit: ; preds =
   %.ptr = getelementptr inbounds nuw i8, ptr @.str.9, i64 %.018.i.add
   %65 = load i8, ptr %.ptr, align 1, !tbaa !4
   %exitcond = icmp eq i64 %.018.i.add, 2
-  br i1 %exitcond, label %.sink.split, label %.lr.ph.i, !llvm.loop !31
+  br i1 %exitcond, label %.sink.split, label %.lr.ph.i, !llvm.loop !32
 
 .lr.ph.i:                                         ; preds = %59, %64
   %66 = phi i8 [ %65, %64 ], [ 116, %59 ]
@@ -3028,7 +3041,7 @@ _ZN4absl18debugging_internalL20MaybeAppendSeparatorEPNS0_5StateE.exit: ; preds =
 
 88:                                               ; preds = %.sink.split, %71
   %storemerge.in.pre = phi i32 [ %storemerge.in.pre.pre, %71 ], [ %.sink, %.sink.split ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %16, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %16, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !31
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %89 = add nsw i32 %storemerge.in.pre, -1
   br label %.thread
@@ -3053,7 +3066,7 @@ _ZN4absl18debugging_internalL20MaybeAppendSeparatorEPNS0_5StateE.exit: ; preds =
 
 98:                                               ; preds = %91
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %16, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %16, i64 16, i1 false), !tbaa.struct !31
   %99 = add nsw i32 %92, 2
   store i32 %99, ptr %4, align 4, !tbaa !17
   %100 = add nsw i32 %94, 2
@@ -3108,7 +3121,7 @@ _ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i: ; 
 
 118:                                              ; preds = %._crit_edge, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i
   %.pre.i = phi i32 [ %111, %._crit_edge ], [ %92, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %16, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %16, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !31
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   br label %.thread81
 
@@ -3171,7 +3184,7 @@ _ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread: ; pr
 
 .preheader.backedge:                              ; preds = %138, %143
   %.be = phi i32 [ %139, %138 ], [ %147, %143 ]
-  br label %.preheader, !llvm.loop !41
+  br label %.preheader, !llvm.loop !42
 
 143:                                              ; preds = %138
   %144 = shl nuw nsw i32 %141, 16
@@ -3207,13 +3220,13 @@ _ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread: ; pr
   br i1 %or.cond.i25, label %_ZN4absl18debugging_internalL24MaybeCancelLastSeparatorEPNS0_5StateE.exit, label %153
 
 153:                                              ; preds = %.loopexit51
-  %154 = load i32, ptr %13, align 4, !tbaa !22
+  %154 = load i32, ptr %13, align 4, !tbaa !23
   %155 = icmp sgt i32 %154, 1
   br i1 %155, label %156, label %_ZN4absl18debugging_internalL24MaybeCancelLastSeparatorEPNS0_5StateE.exit
 
 156:                                              ; preds = %153
   %157 = add nsw i32 %154, -2
-  store i32 %157, ptr %13, align 4, !tbaa !22
+  store i32 %157, ptr %13, align 4, !tbaa !23
   %158 = load ptr, ptr %15, align 8, !tbaa !13
   %159 = zext nneg i32 %157 to i64
   %160 = getelementptr inbounds nuw i8, ptr %158, i64 %159
@@ -3243,7 +3256,7 @@ _ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL15ParseSourceNameEPNS0_5StateE(ptr noundef captures(none) %0) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL15ParseSourceNameEPNS0_5StateE(ptr noundef captures(none) %0) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.absl::debugging_internal::ParseState", align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4, !tbaa !17
@@ -3259,7 +3272,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL15ParseS
 10:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %11, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %11, i64 16, i1 false), !tbaa.struct !31
   %12 = add nsw i32 %4, 2
   %13 = add nsw i32 %6, 2
   store i32 %13, ptr %5, align 8, !tbaa !15
@@ -3315,7 +3328,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL15ParseS
   %39 = load i8, ptr %38, align 1, !tbaa !4
   %40 = add i8 %39, -48
   %41 = icmp ult i8 %40, 10
-  br i1 %41, label %.lr.ph.i, label %42, !llvm.loop !42
+  br i1 %41, label %.lr.ph.i, label %42, !llvm.loop !43
 
 42:                                               ; preds = %.lr.ph.i
   %43 = ptrtoint ptr %38 to i64
@@ -3342,7 +3355,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL15ParseS
 56:                                               ; preds = %.lr.ph.i.i
   %57 = add nuw i64 %.068.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %57, %49
-  br i1 %exitcond.not.i.i, label %60, label %.lr.ph.i.i, !llvm.loop !43
+  br i1 %exitcond.not.i.i, label %60, label %.lr.ph.i.i, !llvm.loop !44
 
 .lr.ph.i.i:                                       ; preds = %52, %56
   %.068.i.i = phi i64 [ %57, %56 ], [ 0, %52 ]
@@ -3373,7 +3386,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL15ParseS
   %70 = getelementptr inbounds nuw i8, ptr %54, i64 %69
   %71 = load i8, ptr %70, align 1, !tbaa !4
   %.not.i.i.i = icmp eq i8 %71, 0
-  br i1 %.not.i.i.i, label %_ZN4absl18debugging_internalL30IdentifierIsAnonymousNamespaceEPNS0_5StateEm.exit.i, label %.lr.ph.i.i.i, !llvm.loop !44
+  br i1 %.not.i.i.i, label %_ZN4absl18debugging_internalL30IdentifierIsAnonymousNamespaceEPNS0_5StateEm.exit.i, label %.lr.ph.i.i.i, !llvm.loop !45
 
 _ZN4absl18debugging_internalL30IdentifierIsAnonymousNamespaceEPNS0_5StateEm.exit.i: ; preds = %68, %.lr.ph.i.i.i, %62
   %.0.lcssa.i.i.i = phi i64 [ 0, %62 ], [ %69, %68 ], [ %.02.i.i.i, %.lr.ph.i.i.i ]
@@ -3386,43 +3399,43 @@ _ZN4absl18debugging_internalL30IdentifierIsAnonymousNamespaceEPNS0_5StateEm.exit
   %76 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %77 = load i32, ptr %76, align 4
   %.not.i20.i = icmp sgt i32 %77, -1
-  br i1 %.not.i20.i, label %79, label %78
+  br i1 %.not.i20.i, label %78, label %.lr.ph.i.i21.preheader.i
 
-78:                                               ; preds = %75
+.lr.ph.i.i21.preheader.i:                         ; preds = %75
   tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %0, ptr noundef nonnull @.str.1, i64 noundef 21)
-  br label %79
+  br label %78
 
 _ZN4absl18debugging_internalL30IdentifierIsAnonymousNamespaceEPNS0_5StateEm.exit.thread.i: ; preds = %_ZN4absl18debugging_internalL30IdentifierIsAnonymousNamespaceEPNS0_5StateEm.exit.i, %60, %52
   tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %0, ptr noundef %54, i64 noundef range(i64 -2147483648, 2147483648) %49)
-  br label %79
+  br label %78
 
-79:                                               ; preds = %75, %78, %_ZN4absl18debugging_internalL30IdentifierIsAnonymousNamespaceEPNS0_5StateEm.exit.thread.i
-  %80 = load i32, ptr %11, align 4, !tbaa !16
-  %81 = add i32 %80, %spec.select.i
-  store i32 %81, ptr %11, align 4, !tbaa !16
+78:                                               ; preds = %75, %.lr.ph.i.i21.preheader.i, %_ZN4absl18debugging_internalL30IdentifierIsAnonymousNamespaceEPNS0_5StateEm.exit.thread.i
+  %79 = load i32, ptr %11, align 4, !tbaa !16
+  %80 = add i32 %79, %spec.select.i
+  store i32 %80, ptr %11, align 4, !tbaa !16
   %.pre.i10 = load i32, ptr %3, align 4, !tbaa !17
-  %82 = add nsw i32 %.pre.i10, -2
-  br label %83
+  %81 = add nsw i32 %.pre.i10, -2
+  br label %82
 
 .thread:                                          ; preds = %.lr.ph.i.i, %42, %._crit_edge44.i, %10
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %11, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !30
-  br label %83
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %11, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !31
+  br label %82
 
-83:                                               ; preds = %79, %.thread
-  %84 = phi i32 [ %4, %.thread ], [ %82, %79 ]
-  %.1 = phi i1 [ false, %.thread ], [ true, %79 ]
+82:                                               ; preds = %78, %.thread
+  %83 = phi i32 [ %4, %.thread ], [ %81, %78 ]
+  %.1 = phi i1 [ false, %.thread ], [ true, %78 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   br label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread
 
-_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread: ; preds = %1, %83
-  %85 = phi i32 [ %84, %83 ], [ %4, %1 ]
-  %.0 = phi i1 [ %.1, %83 ], [ false, %1 ]
-  store i32 %85, ptr %3, align 4, !tbaa !17
+_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread: ; preds = %1, %82
+  %84 = phi i32 [ %83, %82 ], [ %4, %1 ]
+  %.0 = phi i1 [ %.1, %82 ], [ false, %1 ]
+  store i32 %84, ptr %3, align 4, !tbaa !17
   ret i1 %.0
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL11ParseNumberEPNS0_5StateEPi(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL11ParseNumberEPNS0_5StateEPi(ptr noundef captures(none) %0, ptr noundef writeonly captures(address_is_null) %1) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4, !tbaa !17
   %5 = add nsw i32 %4, 1
@@ -3484,7 +3497,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL11ParseN
   %35 = load i8, ptr %34, align 1, !tbaa !4
   %36 = add i8 %35, -48
   %37 = icmp ult i8 %36, 10
-  br i1 %37, label %.lr.ph, label %38, !llvm.loop !42
+  br i1 %37, label %.lr.ph, label %38, !llvm.loop !43
 
 38:                                               ; preds = %.lr.ph
   %39 = ptrtoint ptr %34 to i64
@@ -3499,7 +3512,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL11ParseN
 44:                                               ; preds = %38
   %45 = sub i32 0, %33
   %spec.select = select i1 %.0.i36, i32 %45, i32 %33
-  store i32 %spec.select, ptr %1, align 4, !tbaa !28
+  store i32 %spec.select, ptr %1, align 4, !tbaa !29
   %.pre = load i32, ptr %3, align 4, !tbaa !17
   %46 = add nsw i32 %.pre, -1
   br label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread
@@ -3512,7 +3525,7 @@ _ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) unnamed_addr #8 {
+define internal fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) unnamed_addr #4 {
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 4
   %6 = icmp slt i32 %5, 0
@@ -3527,7 +3540,7 @@ define internal fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengt
 
 11:                                               ; preds = %8
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %13 = load i32, ptr %12, align 4, !tbaa !22
+  %13 = load i32, ptr %12, align 4, !tbaa !23
   %14 = icmp sgt i32 %13, 0
   br i1 %14, label %15, label %_ZN4absl18debugging_internalL6AppendEPNS0_5StateEPKcm.exit
 
@@ -3554,15 +3567,15 @@ _ZN4absl18debugging_internalL8EndsWithEPNS0_5StateEc.exit: ; preds = %15
 
 .loopexit.i.thread:                               ; preds = %26
   %29 = add nuw nsw i32 %17, 1
-  store i32 %29, ptr %12, align 4, !tbaa !22
+  store i32 %29, ptr %12, align 4, !tbaa !23
   br label %_ZN4absl18debugging_internalL6AppendEPNS0_5StateEPKcm.exit
 
 .loopexit.i:                                      ; preds = %26
-  store i32 %27, ptr %12, align 4, !tbaa !22
+  store i32 %27, ptr %12, align 4, !tbaa !23
   %30 = zext nneg i32 %13 to i64
   %31 = getelementptr inbounds nuw i8, ptr %20, i64 %30
   store i8 32, ptr %31, align 1, !tbaa !4
-  %.pre = load i32, ptr %12, align 4, !tbaa !22
+  %.pre = load i32, ptr %12, align 4, !tbaa !23
   %.pre27 = load i32, ptr %16, align 8, !tbaa !14
   %32 = icmp slt i32 %.pre, %.pre27
   br i1 %32, label %33, label %_ZN4absl18debugging_internalL6AppendEPNS0_5StateEPKcm.exit
@@ -3576,7 +3589,7 @@ _ZN4absl18debugging_internalL8EndsWithEPNS0_5StateEc.exit: ; preds = %15
 
 _ZN4absl18debugging_internalL6AppendEPNS0_5StateEPKcm.exit: ; preds = %.loopexit.i.thread, %11, %15, %33, %.loopexit.i, %_ZN4absl18debugging_internalL8EndsWithEPNS0_5StateEc.exit, %8
   %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %38 = load i32, ptr %37, align 4, !tbaa !22
+  %38 = load i32, ptr %37, align 4, !tbaa !23
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %40 = load i32, ptr %39, align 8, !tbaa !14
   %41 = icmp slt i32 %38, %40
@@ -3593,7 +3606,7 @@ _ZN4absl18debugging_internalL6AppendEPNS0_5StateEPKcm.exit: ; preds = %.loopexit
 
 48:                                               ; preds = %42
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  store i32 %38, ptr %49, align 4, !tbaa !45
+  store i32 %38, ptr %49, align 4, !tbaa !46
   %50 = trunc i64 %2 to i32
   %51 = load i32, ptr %4, align 4
   %52 = and i32 %50, 65535
@@ -3608,7 +3621,7 @@ _ZN4absl18debugging_internalL6AppendEPNS0_5StateEPKcm.exit: ; preds = %.loopexit
 
 56:                                               ; preds = %61, %.lr.ph.i
   %.018.i16 = phi i64 [ 0, %.lr.ph.i ], [ %67, %61 ]
-  %57 = load i32, ptr %37, align 4, !tbaa !22
+  %57 = load i32, ptr %37, align 4, !tbaa !23
   %58 = add nsw i32 %57, 1
   %59 = load i32, ptr %39, align 8, !tbaa !14
   %60 = icmp slt i32 %58, %59
@@ -3618,21 +3631,21 @@ _ZN4absl18debugging_internalL6AppendEPNS0_5StateEPKcm.exit: ; preds = %.loopexit
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 %.018.i16
   %63 = load i8, ptr %62, align 1, !tbaa !4
   %64 = load ptr, ptr %55, align 8, !tbaa !13
-  store i32 %58, ptr %37, align 4, !tbaa !22
+  store i32 %58, ptr %37, align 4, !tbaa !23
   %65 = sext i32 %57 to i64
   %66 = getelementptr inbounds i8, ptr %64, i64 %65
   store i8 %63, ptr %66, align 1, !tbaa !4
   %67 = add nuw i64 %.018.i16, 1
   %exitcond.not.i18 = icmp eq i64 %67, %2
-  br i1 %exitcond.not.i18, label %.loopexit.i17, label %56, !llvm.loop !40
+  br i1 %exitcond.not.i18, label %.loopexit.i17, label %56, !llvm.loop !41
 
 .loopexit.i17.thread:                             ; preds = %56
   %68 = add nsw i32 %59, 1
-  store i32 %68, ptr %37, align 4, !tbaa !22
+  store i32 %68, ptr %37, align 4, !tbaa !23
   br label %_ZN4absl18debugging_internalL6AppendEPNS0_5StateEPKcm.exit19
 
 .loopexit.i17:                                    ; preds = %61
-  %.pre28 = load i32, ptr %37, align 4, !tbaa !22
+  %.pre28 = load i32, ptr %37, align 4, !tbaa !23
   %.pre29 = load i32, ptr %39, align 8, !tbaa !14
   %69 = icmp slt i32 %.pre28, %.pre29
   br i1 %69, label %70, label %_ZN4absl18debugging_internalL6AppendEPNS0_5StateEPKcm.exit19
@@ -3649,7 +3662,7 @@ _ZN4absl18debugging_internalL6AppendEPNS0_5StateEPKcm.exit19: ; preds = %.loopex
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc(ptr noundef captures(none) %0, ptr noundef readonly captures(none) %1) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4, !tbaa !17
   %5 = add nsw i32 %4, 1
@@ -3682,7 +3695,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL14ParseC
   %19 = getelementptr inbounds nuw i8, ptr %.018, i64 1
   %20 = load i8, ptr %19, align 1, !tbaa !4
   %.not.not = icmp eq i8 %20, 0
-  br i1 %.not.not, label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread, label %.lr.ph, !llvm.loop !31
+  br i1 %.not.not, label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread, label %.lr.ph, !llvm.loop !32
 
 .lr.ph:                                           ; preds = %.preheader, %18
   %21 = phi i8 [ %20, %18 ], [ %17, %.preheader ]
@@ -3701,7 +3714,7 @@ _ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exi
   ret i1 %.010
 }
 
-; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL18ParseTemplateParamEPNS0_5StateE(ptr noundef captures(none) %0) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.absl::debugging_internal::ParseState", align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -3725,7 +3738,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL18ParseT
   %14 = icmp sgt i32 %4, 254
   %15 = icmp sgt i32 %7, 131070
   %or.cond.i = select i1 %14, i1 true, i1 %15
-  br i1 %or.cond.i, label %31, label %16
+  br i1 %or.cond.i, label %30, label %16
 
 16:                                               ; preds = %11
   %.val11.i = load ptr, ptr %0, align 8, !tbaa !7
@@ -3735,13 +3748,13 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL18ParseT
   %19 = getelementptr inbounds i8, ptr %.val11.i, i64 %18
   %20 = load i8, ptr %19, align 1, !tbaa !4
   %21 = icmp eq i8 %20, 84
-  br i1 %21, label %22, label %31
+  br i1 %21, label %22, label %30
 
 22:                                               ; preds = %16
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 1
   %24 = load i8, ptr %23, align 1, !tbaa !4
   %25 = icmp eq i8 %24, 95
-  br i1 %25, label %26, label %31
+  br i1 %25, label %26, label %30
 
 26:                                               ; preds = %22
   %27 = add nsw i32 %.val12.i, 2
@@ -3750,280 +3763,280 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL18ParseT
   %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %29 = load i32, ptr %28, align 4
   %.not.i = icmp sgt i32 %29, -1
-  br i1 %.not.i, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit, label %30
+  br i1 %.not.i, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit, label %.lr.ph.i.i.preheader
 
-30:                                               ; preds = %26
+.lr.ph.i.i.preheader:                             ; preds = %26
   tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %0, ptr noundef nonnull @.str.6, i64 noundef 1)
   br label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit
 
-31:                                               ; preds = %22, %16, %11
+30:                                               ; preds = %22, %16, %11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %32, i64 16, i1 false), !tbaa.struct !30
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %31, i64 16, i1 false), !tbaa.struct !31
   store i32 %12, ptr %3, align 4, !tbaa !17
-  %33 = add nsw i32 %7, 3
-  store i32 %33, ptr %6, align 8, !tbaa !15
-  %34 = icmp sgt i32 %7, 131069
-  %or.cond.i26 = select i1 %14, i1 true, i1 %34
-  br i1 %or.cond.i26, label %.thread71, label %35
+  %32 = add nsw i32 %7, 3
+  store i32 %32, ptr %6, align 8, !tbaa !15
+  %33 = icmp sgt i32 %7, 131069
+  %or.cond.i26 = select i1 %14, i1 true, i1 %33
+  br i1 %or.cond.i26, label %.thread79, label %34
 
-35:                                               ; preds = %31
+34:                                               ; preds = %30
   %.val6.i = load ptr, ptr %0, align 8, !tbaa !7
-  %.val7.i = load i32, ptr %32, align 4, !tbaa !16
-  %36 = sext i32 %.val7.i to i64
-  %37 = getelementptr inbounds i8, ptr %.val6.i, i64 %36
-  %38 = load i8, ptr %37, align 1, !tbaa !4
-  %39 = icmp eq i8 %38, 84
-  br i1 %39, label %40, label %.thread71
+  %.val7.i = load i32, ptr %31, align 4, !tbaa !16
+  %35 = sext i32 %.val7.i to i64
+  %36 = getelementptr inbounds i8, ptr %.val6.i, i64 %35
+  %37 = load i8, ptr %36, align 1, !tbaa !4
+  %38 = icmp eq i8 %37, 84
+  br i1 %38, label %39, label %.thread79
 
-40:                                               ; preds = %35
-  %41 = add nsw i32 %.val7.i, 1
-  store i32 %41, ptr %32, align 4, !tbaa !16
-  %42 = icmp sgt i32 %7, 131068
-  br i1 %42, label %.thread71, label %43
+39:                                               ; preds = %34
+  %40 = add nsw i32 %.val7.i, 1
+  store i32 %40, ptr %31, align 4, !tbaa !16
+  %41 = icmp sgt i32 %7, 131068
+  br i1 %41, label %.thread79, label %42
 
-43:                                               ; preds = %40
-  %44 = add nsw i32 %4, 3
-  store i32 %44, ptr %3, align 4, !tbaa !17
-  %45 = add nsw i32 %7, 5
-  store i32 %45, ptr %6, align 8, !tbaa !15
-  %46 = icmp sgt i32 %4, 253
-  %47 = icmp eq i32 %7, 131068
-  %or.cond.i.i = select i1 %46, i1 true, i1 %47
-  br i1 %or.cond.i.i, label %._crit_edge44.i, label %48
+42:                                               ; preds = %39
+  %43 = add nsw i32 %4, 3
+  store i32 %43, ptr %3, align 4, !tbaa !17
+  %44 = add nsw i32 %7, 5
+  store i32 %44, ptr %6, align 8, !tbaa !15
+  %45 = icmp sgt i32 %4, 253
+  %46 = icmp eq i32 %7, 131068
+  %or.cond.i.i = select i1 %45, i1 true, i1 %46
+  br i1 %or.cond.i.i, label %._crit_edge44.i, label %47
 
-48:                                               ; preds = %43
-  %49 = sext i32 %41 to i64
-  %50 = getelementptr inbounds i8, ptr %.val6.i, i64 %49
-  %51 = load i8, ptr %50, align 1, !tbaa !4
-  %52 = icmp eq i8 %51, 110
-  br i1 %52, label %53, label %._crit_edge44.i
+47:                                               ; preds = %42
+  %48 = sext i32 %40 to i64
+  %49 = getelementptr inbounds i8, ptr %.val6.i, i64 %48
+  %50 = load i8, ptr %49, align 1, !tbaa !4
+  %51 = icmp eq i8 %50, 110
+  br i1 %51, label %52, label %._crit_edge44.i
 
-53:                                               ; preds = %48
-  %54 = add nsw i32 %.val7.i, 2
-  store i32 %54, ptr %32, align 4, !tbaa !16
+52:                                               ; preds = %47
+  %53 = add nsw i32 %.val7.i, 2
+  store i32 %53, ptr %31, align 4, !tbaa !16
   br label %._crit_edge44.i
 
-._crit_edge44.i:                                  ; preds = %53, %48, %43
-  %.val35.i = phi i32 [ %54, %53 ], [ %41, %48 ], [ %41, %43 ]
+._crit_edge44.i:                                  ; preds = %52, %47, %42
+  %.val35.i = phi i32 [ %53, %52 ], [ %40, %47 ], [ %40, %42 ]
   store i32 %12, ptr %3, align 4, !tbaa !17
-  %55 = sext i32 %.val35.i to i64
-  %56 = getelementptr inbounds i8, ptr %.val6.i, i64 %55
-  %57 = load i8, ptr %56, align 1, !tbaa !4
-  %58 = add i8 %57, -48
-  %59 = icmp ult i8 %58, 10
-  br i1 %59, label %.lr.ph.i, label %.thread71
+  %54 = sext i32 %.val35.i to i64
+  %55 = getelementptr inbounds i8, ptr %.val6.i, i64 %54
+  %56 = load i8, ptr %55, align 1, !tbaa !4
+  %57 = add i8 %56, -48
+  %58 = icmp ult i8 %57, 10
+  br i1 %58, label %.lr.ph.i, label %.thread79
 
 .lr.ph.i:                                         ; preds = %._crit_edge44.i, %.lr.ph.i
-  %.02140.i = phi ptr [ %60, %.lr.ph.i ], [ %56, %._crit_edge44.i ]
-  %60 = getelementptr inbounds nuw i8, ptr %.02140.i, i64 1
-  %61 = load i8, ptr %60, align 1, !tbaa !4
-  %62 = add i8 %61, -48
-  %63 = icmp ult i8 %62, 10
-  br i1 %63, label %.lr.ph.i, label %64, !llvm.loop !42
+  %.02140.i = phi ptr [ %59, %.lr.ph.i ], [ %55, %._crit_edge44.i ]
+  %59 = getelementptr inbounds nuw i8, ptr %.02140.i, i64 1
+  %60 = load i8, ptr %59, align 1, !tbaa !4
+  %61 = add i8 %60, -48
+  %62 = icmp ult i8 %61, 10
+  br i1 %62, label %.lr.ph.i, label %63, !llvm.loop !43
 
-64:                                               ; preds = %.lr.ph.i
-  %65 = ptrtoint ptr %60 to i64
-  %66 = ptrtoint ptr %56 to i64
-  %67 = sub i64 %65, %66
-  %68 = trunc i64 %67 to i32
-  %69 = add i32 %.val35.i, %68
-  store i32 %69, ptr %32, align 4, !tbaa !16
+63:                                               ; preds = %.lr.ph.i
+  %64 = ptrtoint ptr %59 to i64
+  %65 = ptrtoint ptr %55 to i64
+  %66 = sub i64 %64, %65
+  %67 = trunc i64 %66 to i32
+  %68 = add i32 %.val35.i, %67
+  store i32 %68, ptr %31, align 4, !tbaa !16
   store i32 %12, ptr %3, align 4, !tbaa !17
-  %70 = add nsw i32 %7, 6
-  store i32 %70, ptr %6, align 8, !tbaa !15
-  %71 = icmp sgt i32 %7, 131066
-  br i1 %71, label %.thread71, label %72
+  %69 = add nsw i32 %7, 6
+  store i32 %69, ptr %6, align 8, !tbaa !15
+  %70 = icmp sgt i32 %7, 131066
+  br i1 %70, label %.thread79, label %71
 
-72:                                               ; preds = %64
-  %73 = sext i32 %69 to i64
-  %74 = getelementptr inbounds i8, ptr %.val6.i, i64 %73
-  %75 = load i8, ptr %74, align 1, !tbaa !4
-  %76 = icmp eq i8 %75, 95
-  br i1 %76, label %77, label %.thread71
+71:                                               ; preds = %63
+  %72 = sext i32 %68 to i64
+  %73 = getelementptr inbounds i8, ptr %.val6.i, i64 %72
+  %74 = load i8, ptr %73, align 1, !tbaa !4
+  %75 = icmp eq i8 %74, 95
+  br i1 %75, label %76, label %.thread79
 
-77:                                               ; preds = %72
-  %78 = add nsw i32 %69, 1
-  store i32 %78, ptr %32, align 4, !tbaa !16
+76:                                               ; preds = %71
+  %77 = add nsw i32 %68, 1
+  store i32 %77, ptr %31, align 4, !tbaa !16
   store i32 %5, ptr %3, align 4, !tbaa !17
-  %79 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %80 = load i32, ptr %79, align 4
-  %.not.i34 = icmp sgt i32 %80, -1
-  br i1 %.not.i34, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit36, label %81
+  %78 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %79 = load i32, ptr %78, align 4
+  %.not.i34 = icmp sgt i32 %79, -1
+  br i1 %.not.i34, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit40, label %.lr.ph.i.i35.preheader
 
-81:                                               ; preds = %77
+.lr.ph.i.i35.preheader:                           ; preds = %76
   tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %0, ptr noundef nonnull @.str.6, i64 noundef 1)
-  br label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit36
+  br label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit40
 
-.thread71:                                        ; preds = %64, %72, %._crit_edge44.i, %40, %31, %35
-  %82 = phi i32 [ %33, %35 ], [ %33, %31 ], [ 131073, %40 ], [ %45, %._crit_edge44.i ], [ %70, %72 ], [ %70, %64 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %32, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !30
-  %83 = add nsw i32 %4, 2
-  store i32 %83, ptr %3, align 4, !tbaa !17
-  %84 = add nsw i32 %82, 1
-  store i32 %84, ptr %6, align 8, !tbaa !15
-  %85 = icmp sgt i32 %4, 254
-  %86 = icmp sgt i32 %82, 131071
-  %or.cond.i37 = select i1 %85, i1 true, i1 %86
-  br i1 %or.cond.i37, label %.sink.split, label %87
+.thread79:                                        ; preds = %63, %71, %._crit_edge44.i, %39, %30, %34
+  %80 = phi i32 [ %32, %34 ], [ %32, %30 ], [ 131073, %39 ], [ %44, %._crit_edge44.i ], [ %69, %71 ], [ %69, %63 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %31, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !31
+  %81 = add nsw i32 %4, 2
+  store i32 %81, ptr %3, align 4, !tbaa !17
+  %82 = add nsw i32 %80, 1
+  store i32 %82, ptr %6, align 8, !tbaa !15
+  %83 = icmp sgt i32 %4, 254
+  %84 = icmp sgt i32 %80, 131071
+  %or.cond.i41 = select i1 %83, i1 true, i1 %84
+  br i1 %or.cond.i41, label %.sink.split, label %85
 
-87:                                               ; preds = %.thread71
-  %.val11.i38 = load ptr, ptr %0, align 8, !tbaa !7
-  %.val12.i39 = load i32, ptr %32, align 4, !tbaa !16
-  %88 = sext i32 %.val12.i39 to i64
-  %89 = getelementptr inbounds i8, ptr %.val11.i38, i64 %88
-  %90 = load i8, ptr %89, align 1, !tbaa !4
-  %91 = icmp eq i8 %90, 84
-  br i1 %91, label %92, label %.sink.split
+85:                                               ; preds = %.thread79
+  %.val11.i42 = load ptr, ptr %0, align 8, !tbaa !7
+  %.val12.i43 = load i32, ptr %31, align 4, !tbaa !16
+  %86 = sext i32 %.val12.i43 to i64
+  %87 = getelementptr inbounds i8, ptr %.val11.i42, i64 %86
+  %88 = load i8, ptr %87, align 1, !tbaa !4
+  %89 = icmp eq i8 %88, 84
+  br i1 %89, label %90, label %.sink.split
 
-92:                                               ; preds = %87
-  %93 = getelementptr inbounds nuw i8, ptr %89, i64 1
-  %94 = load i8, ptr %93, align 1, !tbaa !4
-  %95 = icmp eq i8 %94, 76
-  br i1 %95, label %96, label %.sink.split
+90:                                               ; preds = %85
+  %91 = getelementptr inbounds nuw i8, ptr %87, i64 1
+  %92 = load i8, ptr %91, align 1, !tbaa !4
+  %93 = icmp eq i8 %92, 76
+  br i1 %93, label %94, label %.sink.split
 
-96:                                               ; preds = %92
-  %97 = add nsw i32 %.val12.i39, 2
-  store i32 %97, ptr %32, align 4, !tbaa !16
-  %98 = add nsw i32 %82, 2
-  store i32 %98, ptr %6, align 8, !tbaa !15
-  %99 = icmp sgt i32 %82, 131070
-  br i1 %99, label %.sink.split, label %100
+94:                                               ; preds = %90
+  %95 = add nsw i32 %.val12.i43, 2
+  store i32 %95, ptr %31, align 4, !tbaa !16
+  %96 = add nsw i32 %80, 2
+  store i32 %96, ptr %6, align 8, !tbaa !15
+  %97 = icmp sgt i32 %80, 131070
+  br i1 %97, label %.sink.split, label %98
 
-100:                                              ; preds = %96
-  %101 = add nsw i32 %4, 3
-  store i32 %101, ptr %3, align 4, !tbaa !17
-  %102 = add nsw i32 %82, 3
-  store i32 %102, ptr %6, align 8, !tbaa !15
-  %103 = icmp sgt i32 %4, 253
-  %104 = icmp eq i32 %82, 131070
-  %or.cond.i.i43 = select i1 %103, i1 true, i1 %104
-  br i1 %or.cond.i.i43, label %._crit_edge44.i47, label %105
+98:                                               ; preds = %94
+  %99 = add nsw i32 %4, 3
+  store i32 %99, ptr %3, align 4, !tbaa !17
+  %100 = add nsw i32 %80, 3
+  store i32 %100, ptr %6, align 8, !tbaa !15
+  %101 = icmp sgt i32 %4, 253
+  %102 = icmp eq i32 %80, 131070
+  %or.cond.i.i47 = select i1 %101, i1 true, i1 %102
+  br i1 %or.cond.i.i47, label %._crit_edge44.i51, label %103
 
-105:                                              ; preds = %100
-  %106 = sext i32 %97 to i64
-  %107 = getelementptr inbounds i8, ptr %.val11.i38, i64 %106
-  %108 = load i8, ptr %107, align 1, !tbaa !4
-  %109 = icmp eq i8 %108, 110
-  br i1 %109, label %110, label %._crit_edge44.i47
+103:                                              ; preds = %98
+  %104 = sext i32 %95 to i64
+  %105 = getelementptr inbounds i8, ptr %.val11.i42, i64 %104
+  %106 = load i8, ptr %105, align 1, !tbaa !4
+  %107 = icmp eq i8 %106, 110
+  br i1 %107, label %108, label %._crit_edge44.i51
 
-110:                                              ; preds = %105
-  %111 = add nsw i32 %.val12.i39, 3
-  store i32 %111, ptr %32, align 4, !tbaa !16
-  br label %._crit_edge44.i47
+108:                                              ; preds = %103
+  %109 = add nsw i32 %.val12.i43, 3
+  store i32 %109, ptr %31, align 4, !tbaa !16
+  br label %._crit_edge44.i51
 
-._crit_edge44.i47:                                ; preds = %110, %105, %100
-  %.val35.i48 = phi i32 [ %111, %110 ], [ %97, %105 ], [ %97, %100 ]
-  store i32 %83, ptr %3, align 4, !tbaa !17
-  %112 = sext i32 %.val35.i48 to i64
-  %113 = getelementptr inbounds i8, ptr %.val11.i38, i64 %112
-  %114 = load i8, ptr %113, align 1, !tbaa !4
-  %115 = add i8 %114, -48
-  %116 = icmp ult i8 %115, 10
-  br i1 %116, label %.lr.ph.i51, label %.sink.split
+._crit_edge44.i51:                                ; preds = %108, %103, %98
+  %.val35.i52 = phi i32 [ %109, %108 ], [ %95, %103 ], [ %95, %98 ]
+  store i32 %81, ptr %3, align 4, !tbaa !17
+  %110 = sext i32 %.val35.i52 to i64
+  %111 = getelementptr inbounds i8, ptr %.val11.i42, i64 %110
+  %112 = load i8, ptr %111, align 1, !tbaa !4
+  %113 = add i8 %112, -48
+  %114 = icmp ult i8 %113, 10
+  br i1 %114, label %.lr.ph.i55, label %.sink.split
 
-.lr.ph.i51:                                       ; preds = %._crit_edge44.i47, %.lr.ph.i51
-  %.02140.i53 = phi ptr [ %117, %.lr.ph.i51 ], [ %113, %._crit_edge44.i47 ]
-  %117 = getelementptr inbounds nuw i8, ptr %.02140.i53, i64 1
-  %118 = load i8, ptr %117, align 1, !tbaa !4
-  %119 = add i8 %118, -48
-  %120 = icmp ult i8 %119, 10
-  br i1 %120, label %.lr.ph.i51, label %121, !llvm.loop !42
+.lr.ph.i55:                                       ; preds = %._crit_edge44.i51, %.lr.ph.i55
+  %.02140.i57 = phi ptr [ %115, %.lr.ph.i55 ], [ %111, %._crit_edge44.i51 ]
+  %115 = getelementptr inbounds nuw i8, ptr %.02140.i57, i64 1
+  %116 = load i8, ptr %115, align 1, !tbaa !4
+  %117 = add i8 %116, -48
+  %118 = icmp ult i8 %117, 10
+  br i1 %118, label %.lr.ph.i55, label %119, !llvm.loop !43
 
-121:                                              ; preds = %.lr.ph.i51
-  %122 = ptrtoint ptr %117 to i64
-  %123 = ptrtoint ptr %113 to i64
-  %124 = sub i64 %122, %123
-  %125 = trunc i64 %124 to i32
-  %126 = add i32 %.val35.i48, %125
-  store i32 %126, ptr %32, align 4, !tbaa !16
-  store i32 %83, ptr %3, align 4, !tbaa !17
-  %127 = add nsw i32 %82, 4
+119:                                              ; preds = %.lr.ph.i55
+  %120 = ptrtoint ptr %115 to i64
+  %121 = ptrtoint ptr %111 to i64
+  %122 = sub i64 %120, %121
+  %123 = trunc i64 %122 to i32
+  %124 = add i32 %.val35.i52, %123
+  store i32 %124, ptr %31, align 4, !tbaa !16
+  store i32 %81, ptr %3, align 4, !tbaa !17
+  %125 = add nsw i32 %80, 4
+  store i32 %125, ptr %6, align 8, !tbaa !15
+  %126 = icmp sgt i32 %80, 131068
+  br i1 %126, label %.thread, label %128
+
+.thread:                                          ; preds = %119
+  %127 = add nuw nsw i32 %80, 5
   store i32 %127, ptr %6, align 8, !tbaa !15
-  %128 = icmp sgt i32 %82, 131068
-  br i1 %128, label %.thread, label %130
-
-.thread:                                          ; preds = %121
-  %129 = add nuw nsw i32 %82, 5
-  store i32 %129, ptr %6, align 8, !tbaa !15
   br label %.sink.split
 
-130:                                              ; preds = %121
-  %131 = sext i32 %126 to i64
-  %132 = getelementptr inbounds i8, ptr %.val11.i38, i64 %131
-  %133 = load i8, ptr %132, align 1, !tbaa !4
-  %134 = icmp eq i8 %133, 95
-  br i1 %134, label %135, label %144
+128:                                              ; preds = %119
+  %129 = sext i32 %124 to i64
+  %130 = getelementptr inbounds i8, ptr %.val11.i42, i64 %129
+  %131 = load i8, ptr %130, align 1, !tbaa !4
+  %132 = icmp eq i8 %131, 95
+  br i1 %132, label %133, label %141
 
-135:                                              ; preds = %130
-  %136 = getelementptr inbounds nuw i8, ptr %132, i64 1
-  %137 = load i8, ptr %136, align 1, !tbaa !4
-  %138 = icmp eq i8 %137, 95
-  br i1 %138, label %139, label %144
+133:                                              ; preds = %128
+  %134 = getelementptr inbounds nuw i8, ptr %130, i64 1
+  %135 = load i8, ptr %134, align 1, !tbaa !4
+  %136 = icmp eq i8 %135, 95
+  br i1 %136, label %137, label %141
 
-139:                                              ; preds = %135
-  %140 = add nsw i32 %126, 2
-  store i32 %140, ptr %32, align 4, !tbaa !16
+137:                                              ; preds = %133
+  %138 = add nsw i32 %124, 2
+  store i32 %138, ptr %31, align 4, !tbaa !16
   store i32 %5, ptr %3, align 4, !tbaa !17
-  %141 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %142 = load i32, ptr %141, align 4
-  %.not.i60 = icmp sgt i32 %142, -1
-  br i1 %.not.i60, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit36, label %143
+  %139 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %140 = load i32, ptr %139, align 4
+  %.not.i64 = icmp sgt i32 %140, -1
+  br i1 %.not.i64, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit40, label %.lr.ph.i.i65.preheader
 
-143:                                              ; preds = %139
+.lr.ph.i.i65.preheader:                           ; preds = %137
   tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %0, ptr noundef nonnull @.str.6, i64 noundef 1)
-  br label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit36
+  br label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit40
 
-144:                                              ; preds = %135, %130
-  %145 = add nsw i32 %82, 5
-  store i32 %145, ptr %6, align 8, !tbaa !15
-  %146 = icmp eq i32 %82, 131068
-  br i1 %146, label %.sink.split, label %147
+141:                                              ; preds = %133, %128
+  %142 = add nsw i32 %80, 5
+  store i32 %142, ptr %6, align 8, !tbaa !15
+  %143 = icmp eq i32 %80, 131068
+  br i1 %143, label %.sink.split, label %144
 
-147:                                              ; preds = %144
-  %148 = sext i32 %126 to i64
-  %149 = getelementptr inbounds i8, ptr %.val11.i38, i64 %148
-  %150 = load i8, ptr %149, align 1, !tbaa !4
-  %151 = icmp eq i8 %150, 95
-  br i1 %151, label %152, label %.sink.split
+144:                                              ; preds = %141
+  %145 = sext i32 %124 to i64
+  %146 = getelementptr inbounds i8, ptr %.val11.i42, i64 %145
+  %147 = load i8, ptr %146, align 1, !tbaa !4
+  %148 = icmp eq i8 %147, 95
+  br i1 %148, label %149, label %.sink.split
 
-152:                                              ; preds = %147
-  %153 = add nsw i32 %126, 1
-  store i32 %153, ptr %32, align 4, !tbaa !16
+149:                                              ; preds = %144
+  %150 = add nsw i32 %124, 1
+  store i32 %150, ptr %31, align 4, !tbaa !16
   store i32 %5, ptr %3, align 4, !tbaa !17
-  %154 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL11ParseNumberEPNS0_5StateEPi(ptr noundef nonnull %0, ptr noundef null)
-  br i1 %154, label %155, label %158
+  %151 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL11ParseNumberEPNS0_5StateEPi(ptr noundef nonnull %0, ptr noundef null)
+  br i1 %151, label %152, label %155
 
-155:                                              ; preds = %152
-  %156 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc(ptr noundef nonnull %0, i8 noundef signext 95)
-  br i1 %156, label %157, label %158
+152:                                              ; preds = %149
+  %153 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc(ptr noundef nonnull %0, i8 noundef signext 95)
+  br i1 %153, label %154, label %155
 
-157:                                              ; preds = %155
+154:                                              ; preds = %152
   tail call fastcc void @_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc(ptr noundef nonnull %0, ptr noundef nonnull @.str.6)
-  br label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit36
+  br label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit40
 
-.sink.split:                                      ; preds = %144, %147, %.thread, %._crit_edge44.i47, %96, %.thread71, %87, %92
+.sink.split:                                      ; preds = %141, %144, %.thread, %._crit_edge44.i51, %94, %.thread79, %85, %90
   store i32 %5, ptr %3, align 4, !tbaa !17
-  br label %158
+  br label %155
 
-158:                                              ; preds = %.sink.split, %152, %155
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %32, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !30
-  br label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit36
+155:                                              ; preds = %.sink.split, %149, %152
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %31, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !31
+  br label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit40
 
-_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit36: ; preds = %157, %143, %139, %81, %77, %158
-  %.1 = phi i1 [ false, %158 ], [ true, %157 ], [ true, %77 ], [ true, %81 ], [ true, %139 ], [ true, %143 ]
+_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit40: ; preds = %154, %.lr.ph.i.i65.preheader, %137, %.lr.ph.i.i35.preheader, %76, %155
+  %.1 = phi i1 [ false, %155 ], [ true, %154 ], [ true, %76 ], [ true, %.lr.ph.i.i35.preheader ], [ true, %137 ], [ true, %.lr.ph.i.i65.preheader ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   br label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit
 
-_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit: ; preds = %1, %30, %26, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit36
-  %.021 = phi i1 [ %.1, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit36 ], [ true, %26 ], [ true, %30 ], [ false, %1 ]
-  %159 = load i32, ptr %3, align 4, !tbaa !17
-  %160 = add nsw i32 %159, -1
-  store i32 %160, ptr %3, align 4, !tbaa !17
+_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit: ; preds = %1, %.lr.ph.i.i.preheader, %26, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit40
+  %.021 = phi i1 [ %.1, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit40 ], [ true, %26 ], [ true, %.lr.ph.i.i.preheader ], [ false, %1 ]
+  %156 = load i32, ptr %3, align 4, !tbaa !17
+  %157 = add nsw i32 %156, -1
+  store i32 %157, ptr %3, align 4, !tbaa !17
   ret i1 %.021
 }
 
-; Function Attrs: mustprogress nofree memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree nosync memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL13ParseDecltypeEPNS0_5StateE(ptr noundef %0) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.absl::debugging_internal::ParseState", align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -4042,7 +4055,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL13ParseD
 11:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %12, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %12, i64 16, i1 false), !tbaa.struct !31
   %13 = add nsw i32 %4, 2
   store i32 %13, ptr %3, align 4, !tbaa !17
   %14 = add nsw i32 %7, 2
@@ -4082,7 +4095,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL13ParseD
   %.ptr = getelementptr inbounds nuw i8, ptr @.str.9, i64 %.018.i.add
   %32 = load i8, ptr %.ptr, align 1, !tbaa !4
   %exitcond = icmp eq i64 %.018.i.add, 2
-  br i1 %exitcond, label %.sink.split, label %.lr.ph.i, !llvm.loop !31
+  br i1 %exitcond, label %.sink.split, label %.lr.ph.i, !llvm.loop !32
 
 .lr.ph.i:                                         ; preds = %26, %31
   %33 = phi i8 [ %32, %31 ], [ 116, %26 ]
@@ -4143,7 +4156,7 @@ _ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit17: ; preds =
 
 55:                                               ; preds = %.sink.split, %38
   %.pre.pre = phi i32 [ %.pre.pre.pre, %38 ], [ %.pre.pre.pre.sink, %.sink.split ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !31
   br label %56
 
 56:                                               ; preds = %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit17, %55
@@ -4160,7 +4173,7 @@ _ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exi
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nofree memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree nosync memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL20ParseUnnamedTypeNameEPNS0_5StateE(ptr noundef %0) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %2 = alloca [20 x i8], align 16
   %.sroa.0 = alloca { i32, i32, i32 }, align 8
@@ -4180,7 +4193,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL20ParseU
 11:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.0)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %12, i64 12, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %12, i64 12, i1 false), !tbaa.struct !31
   %.sroa.6.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.sroa.6.0.copyload = load i32, ptr %.sroa.6.0..sroa_idx, align 4, !tbaa !4
   %13 = add nsw i32 %4, 2
@@ -4214,7 +4227,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL20ParseU
   %28 = add nsw i32 %7, 3
   store i32 %28, ptr %6, align 8, !tbaa !15
   %29 = icmp sgt i32 %7, 131069
-  br i1 %29, label %.thread80, label %30
+  br i1 %29, label %.thread86, label %30
 
 30:                                               ; preds = %26
   %31 = add nsw i32 %4, 3
@@ -4247,7 +4260,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL20ParseU
   %44 = load i8, ptr %43, align 1, !tbaa !4
   %45 = add i8 %44, -48
   %46 = icmp ult i8 %45, 10
-  br i1 %46, label %.lr.ph.i, label %.thread80
+  br i1 %46, label %.lr.ph.i, label %.thread86
 
 .lr.ph.i:                                         ; preds = %._crit_edge44.i, %.lr.ph.i
   %47 = phi i8 [ %53, %.lr.ph.i ], [ %44, %._crit_edge44.i ]
@@ -4261,10 +4274,10 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL20ParseU
   %53 = load i8, ptr %52, align 1, !tbaa !4
   %54 = add i8 %53, -48
   %55 = icmp ult i8 %54, 10
-  br i1 %55, label %.lr.ph.i, label %57, !llvm.loop !42
+  br i1 %55, label %.lr.ph.i, label %57, !llvm.loop !43
 
-.thread80:                                        ; preds = %26, %._crit_edge44.i
-  %.val7.i118 = phi i32 [ %27, %26 ], [ %.val35.i, %._crit_edge44.i ]
+.thread86:                                        ; preds = %26, %._crit_edge44.i
+  %.val7.i128 = phi i32 [ %27, %26 ], [ %.val35.i, %._crit_edge44.i ]
   %56 = phi i32 [ 131073, %26 ], [ %32, %._crit_edge44.i ]
   store i32 %5, ptr %3, align 4, !tbaa !17
   br label %64
@@ -4280,12 +4293,12 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL20ParseU
   %spec.select.i = select i1 %.0.i36.i, i32 %63, i32 %51
   store i32 %5, ptr %3, align 4, !tbaa !17
   %.not = icmp sgt i32 %spec.select.i, 2147483645
-  br i1 %.not, label %123, label %64
+  br i1 %.not, label %122, label %64
 
-64:                                               ; preds = %.thread80, %57
-  %.val7.i = phi i32 [ %.val7.i118, %.thread80 ], [ %62, %57 ]
-  %65 = phi i32 [ %56, %.thread80 ], [ %32, %57 ]
-  %.07583 = phi i32 [ -1, %.thread80 ], [ %spec.select.i, %57 ]
+64:                                               ; preds = %.thread86, %57
+  %.val7.i = phi i32 [ %.val7.i128, %.thread86 ], [ %62, %57 ]
+  %65 = phi i32 [ %56, %.thread86 ], [ %32, %57 ]
+  %.08189 = phi i32 [ -1, %.thread86 ], [ %spec.select.i, %57 ]
   store i32 %13, ptr %3, align 4, !tbaa !17
   %66 = add nsw i32 %65, 1
   store i32 %66, ptr %6, align 8, !tbaa !15
@@ -4307,22 +4320,22 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL20ParseU
   br i1 %.not.i, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit.thread, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit
 
 _ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit.thread: ; preds = %73
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #15
+  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #14
   br label %_ZN4absl18debugging_internalL18MaybeAppendDecimalEPNS0_5StateEi.exit.thread
 
 _ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit: ; preds = %73
   tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %0, ptr noundef nonnull @.str.247, i64 noundef 14)
   %.pre = load i32, ptr %.sroa.6.0..sroa_idx, align 4
   %75 = icmp sgt i32 %.pre, -1
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #15
+  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #14
   br i1 %75, label %_ZN4absl18debugging_internalL18MaybeAppendDecimalEPNS0_5StateEi.exit.thread, label %76
 
 _ZN4absl18debugging_internalL18MaybeAppendDecimalEPNS0_5StateEi.exit.thread: ; preds = %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit.thread, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #15
-  br label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit38
+  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #14
+  br label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit44
 
 76:                                               ; preds = %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit
-  %77 = add nsw i32 %.07583, 2
+  %77 = add nsw i32 %.08189, 2
   %78 = getelementptr inbounds nuw i8, ptr %2, i64 20
   br label %79
 
@@ -4339,25 +4352,25 @@ _ZN4absl18debugging_internalL18MaybeAppendDecimalEPNS0_5StateEi.exit.thread: ; p
   %86 = add i32 %.08.i, -10
   %87 = icmp ult i32 %86, -19
   %88 = select i1 %85, i1 %87, i1 false
-  br i1 %88, label %79, label %89, !llvm.loop !46
+  br i1 %88, label %79, label %89, !llvm.loop !47
 
 89:                                               ; preds = %79
   %90 = ptrtoint ptr %83 to i64
   %91 = ptrtoint ptr %2 to i64
   %.neg.i = sub i64 %91, %90
   %92 = add i64 %.neg.i, 20
-  %.not.i.i = icmp eq i64 %92, 0
-  br i1 %.not.i.i, label %.loopexit.i.i, label %.lr.ph.i.i
+  %.not.i.i36 = icmp eq i64 %92, 0
+  br i1 %.not.i.i36, label %.loopexit.i.i, label %.lr.ph.i.i37
 
-.lr.ph.i.i:                                       ; preds = %89
+.lr.ph.i.i37:                                     ; preds = %89
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %95 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %96
 
-96:                                               ; preds = %101, %.lr.ph.i.i
-  %.018.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %107, %101 ]
-  %97 = load i32, ptr %93, align 4, !tbaa !22
+96:                                               ; preds = %101, %.lr.ph.i.i37
+  %.018.i.i = phi i64 [ 0, %.lr.ph.i.i37 ], [ %107, %101 ]
+  %97 = load i32, ptr %93, align 4, !tbaa !23
   %98 = add nsw i32 %97, 1
   %99 = load i32, ptr %94, align 8, !tbaa !14
   %100 = icmp slt i32 %98, %99
@@ -4367,22 +4380,22 @@ _ZN4absl18debugging_internalL18MaybeAppendDecimalEPNS0_5StateEi.exit.thread: ; p
   %102 = getelementptr inbounds nuw i8, ptr %83, i64 %.018.i.i
   %103 = load i8, ptr %102, align 1, !tbaa !4
   %104 = load ptr, ptr %95, align 8, !tbaa !13
-  store i32 %98, ptr %93, align 4, !tbaa !22
+  store i32 %98, ptr %93, align 4, !tbaa !23
   %105 = sext i32 %97 to i64
   %106 = getelementptr inbounds i8, ptr %104, i64 %105
   store i8 %103, ptr %106, align 1, !tbaa !4
   %107 = add nuw nsw i64 %.018.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %107, %92
-  br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %96, !llvm.loop !40
+  br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %96, !llvm.loop !41
 
 108:                                              ; preds = %96
   %109 = add nsw i32 %99, 1
-  store i32 %109, ptr %93, align 4, !tbaa !22
+  store i32 %109, ptr %93, align 4, !tbaa !23
   br label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %101, %108, %89
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %111 = load i32, ptr %110, align 4, !tbaa !22
+  %111 = load i32, ptr %110, align 4, !tbaa !23
   %112 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %113 = load i32, ptr %112, align 8, !tbaa !14
   %114 = icmp slt i32 %111, %113
@@ -4398,251 +4411,251 @@ _ZN4absl18debugging_internalL18MaybeAppendDecimalEPNS0_5StateEi.exit.thread: ; p
 
 _ZN4absl18debugging_internalL18MaybeAppendDecimalEPNS0_5StateEi.exit: ; preds = %.loopexit.i.i, %115
   %.pr = load i32, ptr %.sroa.6.0..sroa_idx, align 4
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #15
-  %.not.i36 = icmp sgt i32 %.pr, -1
-  br i1 %.not.i36, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit38, label %120
+  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #14
+  %.not.i38 = icmp sgt i32 %.pr, -1
+  br i1 %.not.i38, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit44, label %.lr.ph.i.i39.preheader
 
-120:                                              ; preds = %_ZN4absl18debugging_internalL18MaybeAppendDecimalEPNS0_5StateEi.exit
+.lr.ph.i.i39.preheader:                           ; preds = %_ZN4absl18debugging_internalL18MaybeAppendDecimalEPNS0_5StateEi.exit
   call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %0, ptr noundef nonnull @.str.248, i64 noundef 1)
-  br label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit38
+  br label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit44
 
 .loopexit:                                        ; preds = %.preheader.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
-.loopexit.split-lp.loopexit:                      ; preds = %141
-  %lpad.loopexit102 = landingpad { ptr, i32 }
+.loopexit.split-lp.loopexit:                      ; preds = %140
+  %lpad.loopexit108 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %_ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit
-  %lpad.loopexit.split-lp103 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp109 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit102, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp103, %.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit108, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp109, %.loopexit.split-lp.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.0)
-  %121 = load i32, ptr %3, align 4, !tbaa !17
-  %122 = add nsw i32 %121, -1
-  store i32 %122, ptr %3, align 4, !tbaa !17
+  %120 = load i32, ptr %3, align 4, !tbaa !17
+  %121 = add nsw i32 %120, -1
+  store i32 %121, ptr %3, align 4, !tbaa !17
   resume { ptr, i32 } %lpad.phi
 
 .sink.split:                                      ; preds = %64, %68, %11, %17, %22
   %.ph = phi i32 [ %14, %22 ], [ %14, %17 ], [ %14, %11 ], [ %66, %68 ], [ %66, %64 ]
   store i32 %5, ptr %3, align 4, !tbaa !17
-  br label %123
+  br label %122
 
-123:                                              ; preds = %.sink.split, %57
-  %124 = phi i32 [ %32, %57 ], [ %.ph, %.sink.split ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false), !tbaa.struct !30
-  %125 = add nsw i32 %4, 2
-  store i32 %125, ptr %3, align 4, !tbaa !17
-  %126 = add nsw i32 %124, 1
-  store i32 %126, ptr %6, align 8, !tbaa !15
-  %127 = icmp sgt i32 %4, 254
-  %128 = icmp sgt i32 %124, 131071
-  %or.cond.i39 = select i1 %127, i1 true, i1 %128
-  br i1 %or.cond.i39, label %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.thread.sink.split, label %129
+122:                                              ; preds = %.sink.split, %57
+  %123 = phi i32 [ %32, %57 ], [ %.ph, %.sink.split ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false), !tbaa.struct !31
+  %124 = add nsw i32 %4, 2
+  store i32 %124, ptr %3, align 4, !tbaa !17
+  %125 = add nsw i32 %123, 1
+  store i32 %125, ptr %6, align 8, !tbaa !15
+  %126 = icmp sgt i32 %4, 254
+  %127 = icmp sgt i32 %123, 131071
+  %or.cond.i45 = select i1 %126, i1 true, i1 %127
+  br i1 %or.cond.i45, label %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.thread.sink.split, label %128
 
-129:                                              ; preds = %123
-  %.val11.i40 = load ptr, ptr %0, align 8, !tbaa !7
-  %.val12.i41 = load i32, ptr %12, align 4, !tbaa !16
-  %130 = sext i32 %.val12.i41 to i64
-  %131 = getelementptr inbounds i8, ptr %.val11.i40, i64 %130
-  %132 = load i8, ptr %131, align 1, !tbaa !4
-  %133 = icmp eq i8 %132, 85
-  br i1 %133, label %134, label %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.thread.sink.split
+128:                                              ; preds = %122
+  %.val11.i46 = load ptr, ptr %0, align 8, !tbaa !7
+  %.val12.i47 = load i32, ptr %12, align 4, !tbaa !16
+  %129 = sext i32 %.val12.i47 to i64
+  %130 = getelementptr inbounds i8, ptr %.val11.i46, i64 %129
+  %131 = load i8, ptr %130, align 1, !tbaa !4
+  %132 = icmp eq i8 %131, 85
+  br i1 %132, label %133, label %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.thread.sink.split
 
-134:                                              ; preds = %129
-  %135 = getelementptr inbounds nuw i8, ptr %131, i64 1
-  %136 = load i8, ptr %135, align 1, !tbaa !4
-  %137 = icmp eq i8 %136, 108
-  br i1 %137, label %138, label %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.thread.sink.split
+133:                                              ; preds = %128
+  %134 = getelementptr inbounds nuw i8, ptr %130, i64 1
+  %135 = load i8, ptr %134, align 1, !tbaa !4
+  %136 = icmp eq i8 %135, 108
+  br i1 %136, label %137, label %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.thread.sink.split
 
-138:                                              ; preds = %134
-  %139 = add nsw i32 %.val12.i41, 2
-  store i32 %139, ptr %12, align 4, !tbaa !16
+137:                                              ; preds = %133
+  %138 = add nsw i32 %.val12.i47, 2
+  store i32 %138, ptr %12, align 4, !tbaa !16
   store i32 %5, ptr %3, align 4, !tbaa !17
-  %140 = and i32 %.sroa.6.0.copyload, 2147483647
-  store i32 %140, ptr %.sroa.6.0..sroa_idx, align 4
-  br label %141
+  %139 = and i32 %.sroa.6.0.copyload, 2147483647
+  store i32 %139, ptr %.sroa.6.0..sroa_idx, align 4
+  br label %140
 
-141:                                              ; preds = %.noexc, %138
-  %142 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL22ParseTemplateParamDeclEPNS0_5StateE(ptr noundef nonnull %0)
+140:                                              ; preds = %.noexc, %137
+  %141 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL22ParseTemplateParamDeclEPNS0_5StateE(ptr noundef nonnull %0)
           to label %.noexc unwind label %.loopexit.split-lp.loopexit
 
-.noexc:                                           ; preds = %141
-  br i1 %142, label %141, label %_ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit, !llvm.loop !32
+.noexc:                                           ; preds = %140
+  br i1 %141, label %140, label %_ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit, !llvm.loop !33
 
 _ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit: ; preds = %.noexc
+  %142 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL9ParseTypeEPNS0_5StateE(ptr noundef nonnull %0)
+          to label %.noexc50 unwind label %.loopexit.split-lp.loopexit.split-lp
+
+.noexc50:                                         ; preds = %_ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit
+  br i1 %142, label %.preheader.i, label %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.thread
+
+.preheader.i:                                     ; preds = %.noexc50, %.noexc51
   %143 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL9ParseTypeEPNS0_5StateE(ptr noundef nonnull %0)
-          to label %.noexc44 unwind label %.loopexit.split-lp.loopexit.split-lp
+          to label %.noexc51 unwind label %.loopexit
 
-.noexc44:                                         ; preds = %_ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit
-  br i1 %143, label %.preheader.i, label %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.thread
+.noexc51:                                         ; preds = %.preheader.i
+  br i1 %143, label %.preheader.i, label %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit, !llvm.loop !34
 
-.preheader.i:                                     ; preds = %.noexc44, %.noexc45
-  %144 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL9ParseTypeEPNS0_5StateE(ptr noundef nonnull %0)
-          to label %.noexc45 unwind label %.loopexit
-
-.noexc45:                                         ; preds = %.preheader.i
-  br i1 %144, label %.preheader.i, label %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit, !llvm.loop !33
-
-_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit: ; preds = %.noexc45
-  %145 = load i32, ptr %.sroa.6.0..sroa_idx, align 4
-  %146 = and i32 %.sroa.6.0.copyload, -2147483648
-  %147 = and i32 %145, 2147483647
-  %148 = or disjoint i32 %147, %146
-  store i32 %148, ptr %.sroa.6.0..sroa_idx, align 4
-  %149 = load i32, ptr %3, align 4, !tbaa !17
-  %150 = add nsw i32 %149, 1
-  store i32 %150, ptr %3, align 4, !tbaa !17
-  %151 = load i32, ptr %6, align 8, !tbaa !15
-  %152 = add nsw i32 %151, 1
-  store i32 %152, ptr %6, align 8, !tbaa !15
-  %153 = icmp sgt i32 %149, 255
-  %154 = icmp sgt i32 %151, 131071
-  %or.cond.i46 = select i1 %153, i1 true, i1 %154
-  br i1 %or.cond.i46, label %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.thread.sink.split, label %155
-
-155:                                              ; preds = %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit
-  %.val6.i47 = load ptr, ptr %0, align 8, !tbaa !7
-  %.val7.i48 = load i32, ptr %12, align 4, !tbaa !16
-  %156 = sext i32 %.val7.i48 to i64
-  %157 = getelementptr inbounds i8, ptr %.val6.i47, i64 %156
-  %158 = load i8, ptr %157, align 1, !tbaa !4
-  %159 = icmp eq i8 %158, 69
-  br i1 %159, label %160, label %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.thread.sink.split
-
-160:                                              ; preds = %155
-  %161 = add nsw i32 %.val7.i48, 1
-  store i32 %161, ptr %12, align 4, !tbaa !16
+_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit: ; preds = %.noexc51
+  %144 = load i32, ptr %.sroa.6.0..sroa_idx, align 4
+  %145 = and i32 %.sroa.6.0.copyload, -2147483648
+  %146 = and i32 %144, 2147483647
+  %147 = or disjoint i32 %146, %145
+  store i32 %147, ptr %.sroa.6.0..sroa_idx, align 4
+  %148 = load i32, ptr %3, align 4, !tbaa !17
+  %149 = add nsw i32 %148, 1
   store i32 %149, ptr %3, align 4, !tbaa !17
-  %162 = add nsw i32 %151, 2
-  store i32 %162, ptr %6, align 8, !tbaa !15
-  %163 = icmp sgt i32 %151, 131070
-  br i1 %163, label %.thread95, label %164
+  %150 = load i32, ptr %6, align 8, !tbaa !15
+  %151 = add nsw i32 %150, 1
+  store i32 %151, ptr %6, align 8, !tbaa !15
+  %152 = icmp sgt i32 %148, 255
+  %153 = icmp sgt i32 %150, 131071
+  %or.cond.i52 = select i1 %152, i1 true, i1 %153
+  br i1 %or.cond.i52, label %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.thread.sink.split, label %154
 
-164:                                              ; preds = %160
-  %165 = add nsw i32 %149, 2
-  store i32 %165, ptr %3, align 4, !tbaa !17
-  %166 = add nsw i32 %151, 3
-  store i32 %166, ptr %6, align 8, !tbaa !15
-  %167 = icmp sgt i32 %149, 254
-  %168 = icmp eq i32 %151, 131070
-  %or.cond.i.i52 = select i1 %167, i1 true, i1 %168
-  br i1 %or.cond.i.i52, label %._crit_edge44.i56, label %169
+154:                                              ; preds = %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit
+  %.val6.i53 = load ptr, ptr %0, align 8, !tbaa !7
+  %.val7.i54 = load i32, ptr %12, align 4, !tbaa !16
+  %155 = sext i32 %.val7.i54 to i64
+  %156 = getelementptr inbounds i8, ptr %.val6.i53, i64 %155
+  %157 = load i8, ptr %156, align 1, !tbaa !4
+  %158 = icmp eq i8 %157, 69
+  br i1 %158, label %159, label %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.thread.sink.split
 
-169:                                              ; preds = %164
-  %170 = sext i32 %161 to i64
-  %171 = getelementptr inbounds i8, ptr %.val6.i47, i64 %170
-  %172 = load i8, ptr %171, align 1, !tbaa !4
-  %173 = icmp eq i8 %172, 110
-  br i1 %173, label %174, label %._crit_edge44.i56
+159:                                              ; preds = %154
+  %160 = add nsw i32 %.val7.i54, 1
+  store i32 %160, ptr %12, align 4, !tbaa !16
+  store i32 %148, ptr %3, align 4, !tbaa !17
+  %161 = add nsw i32 %150, 2
+  store i32 %161, ptr %6, align 8, !tbaa !15
+  %162 = icmp sgt i32 %150, 131070
+  br i1 %162, label %.thread101, label %163
 
-174:                                              ; preds = %169
-  %175 = add nsw i32 %.val7.i48, 2
-  store i32 %175, ptr %12, align 4, !tbaa !16
-  br label %._crit_edge44.i56
+163:                                              ; preds = %159
+  %164 = add nsw i32 %148, 2
+  store i32 %164, ptr %3, align 4, !tbaa !17
+  %165 = add nsw i32 %150, 3
+  store i32 %165, ptr %6, align 8, !tbaa !15
+  %166 = icmp sgt i32 %148, 254
+  %167 = icmp eq i32 %150, 131070
+  %or.cond.i.i58 = select i1 %166, i1 true, i1 %167
+  br i1 %or.cond.i.i58, label %._crit_edge44.i62, label %168
 
-._crit_edge44.i56:                                ; preds = %174, %169, %164
-  %.val35.i57 = phi i32 [ %175, %174 ], [ %161, %169 ], [ %161, %164 ]
-  %.0.i36.i58 = phi i1 [ true, %174 ], [ false, %169 ], [ false, %164 ]
-  store i32 %150, ptr %3, align 4, !tbaa !17
-  %176 = sext i32 %.val35.i57 to i64
-  %177 = getelementptr inbounds i8, ptr %.val6.i47, i64 %176
-  %178 = load i8, ptr %177, align 1, !tbaa !4
-  %179 = add i8 %178, -48
-  %180 = icmp ult i8 %179, 10
-  br i1 %180, label %.lr.ph.i60, label %.thread95
+168:                                              ; preds = %163
+  %169 = sext i32 %160 to i64
+  %170 = getelementptr inbounds i8, ptr %.val6.i53, i64 %169
+  %171 = load i8, ptr %170, align 1, !tbaa !4
+  %172 = icmp eq i8 %171, 110
+  br i1 %172, label %173, label %._crit_edge44.i62
 
-.lr.ph.i60:                                       ; preds = %._crit_edge44.i56, %.lr.ph.i60
-  %181 = phi i8 [ %187, %.lr.ph.i60 ], [ %178, %._crit_edge44.i56 ]
-  %.041.i61 = phi i32 [ %185, %.lr.ph.i60 ], [ 0, %._crit_edge44.i56 ]
-  %.02140.i62 = phi ptr [ %186, %.lr.ph.i60 ], [ %177, %._crit_edge44.i56 ]
-  %182 = mul i32 %.041.i61, 10
-  %183 = zext nneg i8 %181 to i32
-  %184 = add nsw i32 %183, -48
-  %185 = add i32 %184, %182
-  %186 = getelementptr inbounds nuw i8, ptr %.02140.i62, i64 1
-  %187 = load i8, ptr %186, align 1, !tbaa !4
-  %188 = add i8 %187, -48
-  %189 = icmp ult i8 %188, 10
-  br i1 %189, label %.lr.ph.i60, label %191, !llvm.loop !42
+173:                                              ; preds = %168
+  %174 = add nsw i32 %.val7.i54, 2
+  store i32 %174, ptr %12, align 4, !tbaa !16
+  br label %._crit_edge44.i62
 
-.thread95:                                        ; preds = %160, %._crit_edge44.i56
-  %.val7.i68120 = phi i32 [ %161, %160 ], [ %.val35.i57, %._crit_edge44.i56 ]
-  %190 = phi i32 [ 131073, %160 ], [ %166, %._crit_edge44.i56 ]
+._crit_edge44.i62:                                ; preds = %173, %168, %163
+  %.val35.i63 = phi i32 [ %174, %173 ], [ %160, %168 ], [ %160, %163 ]
+  %.0.i36.i64 = phi i1 [ true, %173 ], [ false, %168 ], [ false, %163 ]
   store i32 %149, ptr %3, align 4, !tbaa !17
-  br label %198
+  %175 = sext i32 %.val35.i63 to i64
+  %176 = getelementptr inbounds i8, ptr %.val6.i53, i64 %175
+  %177 = load i8, ptr %176, align 1, !tbaa !4
+  %178 = add i8 %177, -48
+  %179 = icmp ult i8 %178, 10
+  br i1 %179, label %.lr.ph.i66, label %.thread101
 
-191:                                              ; preds = %.lr.ph.i60
-  %192 = ptrtoint ptr %186 to i64
-  %193 = ptrtoint ptr %177 to i64
-  %194 = sub i64 %192, %193
-  %195 = trunc i64 %194 to i32
-  %196 = add i32 %.val35.i57, %195
-  store i32 %196, ptr %12, align 4, !tbaa !16
-  %197 = sub i32 0, %185
-  %spec.select.i63 = select i1 %.0.i36.i58, i32 %197, i32 %185
+.lr.ph.i66:                                       ; preds = %._crit_edge44.i62, %.lr.ph.i66
+  %180 = phi i8 [ %186, %.lr.ph.i66 ], [ %177, %._crit_edge44.i62 ]
+  %.041.i67 = phi i32 [ %184, %.lr.ph.i66 ], [ 0, %._crit_edge44.i62 ]
+  %.02140.i68 = phi ptr [ %185, %.lr.ph.i66 ], [ %176, %._crit_edge44.i62 ]
+  %181 = mul i32 %.041.i67, 10
+  %182 = zext nneg i8 %180 to i32
+  %183 = add nsw i32 %182, -48
+  %184 = add i32 %183, %181
+  %185 = getelementptr inbounds nuw i8, ptr %.02140.i68, i64 1
+  %186 = load i8, ptr %185, align 1, !tbaa !4
+  %187 = add i8 %186, -48
+  %188 = icmp ult i8 %187, 10
+  br i1 %188, label %.lr.ph.i66, label %190, !llvm.loop !43
+
+.thread101:                                       ; preds = %159, %._crit_edge44.i62
+  %.val7.i74130 = phi i32 [ %160, %159 ], [ %.val35.i63, %._crit_edge44.i62 ]
+  %189 = phi i32 [ 131073, %159 ], [ %165, %._crit_edge44.i62 ]
+  store i32 %148, ptr %3, align 4, !tbaa !17
+  br label %197
+
+190:                                              ; preds = %.lr.ph.i66
+  %191 = ptrtoint ptr %185 to i64
+  %192 = ptrtoint ptr %176 to i64
+  %193 = sub i64 %191, %192
+  %194 = trunc i64 %193 to i32
+  %195 = add i32 %.val35.i63, %194
+  store i32 %195, ptr %12, align 4, !tbaa !16
+  %196 = sub i32 0, %184
+  %spec.select.i69 = select i1 %.0.i36.i64, i32 %196, i32 %184
+  store i32 %148, ptr %3, align 4, !tbaa !17
+  %.not27 = icmp sgt i32 %spec.select.i69, 2147483645
+  br i1 %.not27, label %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.thread, label %197
+
+197:                                              ; preds = %.thread101, %190
+  %.val7.i74 = phi i32 [ %.val7.i74130, %.thread101 ], [ %195, %190 ]
+  %198 = phi i32 [ %189, %.thread101 ], [ %165, %190 ]
+  %.182104 = phi i32 [ -1, %.thread101 ], [ %spec.select.i69, %190 ]
   store i32 %149, ptr %3, align 4, !tbaa !17
-  %.not27 = icmp sgt i32 %spec.select.i63, 2147483645
-  br i1 %.not27, label %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.thread, label %198
+  %199 = add nsw i32 %198, 1
+  store i32 %199, ptr %6, align 8, !tbaa !15
+  %200 = icmp sgt i32 %198, 131071
+  br i1 %200, label %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.thread.sink.split, label %201
 
-198:                                              ; preds = %.thread95, %191
-  %.val7.i68 = phi i32 [ %.val7.i68120, %.thread95 ], [ %196, %191 ]
-  %199 = phi i32 [ %190, %.thread95 ], [ %166, %191 ]
-  %.17698 = phi i32 [ -1, %.thread95 ], [ %spec.select.i63, %191 ]
-  store i32 %150, ptr %3, align 4, !tbaa !17
-  %200 = add nsw i32 %199, 1
-  store i32 %200, ptr %6, align 8, !tbaa !15
-  %201 = icmp sgt i32 %199, 131071
-  br i1 %201, label %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.thread.sink.split, label %202
+201:                                              ; preds = %197
+  %202 = sext i32 %.val7.i74 to i64
+  %203 = getelementptr inbounds i8, ptr %.val6.i53, i64 %202
+  %204 = load i8, ptr %203, align 1, !tbaa !4
+  %205 = icmp eq i8 %204, 95
+  br i1 %205, label %206, label %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.thread.sink.split
 
-202:                                              ; preds = %198
-  %203 = sext i32 %.val7.i68 to i64
-  %204 = getelementptr inbounds i8, ptr %.val6.i47, i64 %203
-  %205 = load i8, ptr %204, align 1, !tbaa !4
-  %206 = icmp eq i8 %205, 95
-  br i1 %206, label %207, label %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.thread.sink.split
-
-207:                                              ; preds = %202
-  %208 = add nsw i32 %.val7.i68, 1
-  store i32 %208, ptr %12, align 4, !tbaa !16
-  store i32 %149, ptr %3, align 4, !tbaa !17
+206:                                              ; preds = %201
+  %207 = add nsw i32 %.val7.i74, 1
+  store i32 %207, ptr %12, align 4, !tbaa !16
+  store i32 %148, ptr %3, align 4, !tbaa !17
   tail call fastcc void @_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc(ptr noundef nonnull %0, ptr noundef nonnull @.str.250)
-  %209 = add nsw i32 %.17698, 2
-  tail call fastcc void @_ZN4absl18debugging_internalL18MaybeAppendDecimalEPNS0_5StateEi(ptr noundef nonnull %0, i32 noundef %209)
+  %208 = add nsw i32 %.182104, 2
+  tail call fastcc void @_ZN4absl18debugging_internalL18MaybeAppendDecimalEPNS0_5StateEi(ptr noundef nonnull %0, i32 noundef %208)
   tail call fastcc void @_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc(ptr noundef nonnull %0, ptr noundef nonnull @.str.248)
-  br label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit38
+  br label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit44
 
-_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.thread.sink.split: ; preds = %198, %202, %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit, %155, %123, %129, %134
-  %.sink = phi i32 [ %5, %134 ], [ %5, %129 ], [ %5, %123 ], [ %149, %155 ], [ %149, %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit ], [ %149, %202 ], [ %149, %198 ]
+_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.thread.sink.split: ; preds = %197, %201, %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit, %154, %122, %128, %133
+  %.sink = phi i32 [ %5, %133 ], [ %5, %128 ], [ %5, %122 ], [ %148, %154 ], [ %148, %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit ], [ %148, %201 ], [ %148, %197 ]
   store i32 %.sink, ptr %3, align 4, !tbaa !17
   br label %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.thread
 
-_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.thread: ; preds = %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.thread.sink.split, %.noexc44, %191
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false), !tbaa.struct !30
+_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.thread: ; preds = %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.thread.sink.split, %.noexc50, %190
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %12, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false), !tbaa.struct !31
   store i32 %.sroa.6.0.copyload, ptr %.sroa.6.0..sroa_idx, align 4, !tbaa !4
-  br label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit38
+  br label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit44
 
-_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit38: ; preds = %207, %120, %_ZN4absl18debugging_internalL18MaybeAppendDecimalEPNS0_5StateEi.exit, %_ZN4absl18debugging_internalL18MaybeAppendDecimalEPNS0_5StateEi.exit.thread, %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.thread
-  %.1 = phi i1 [ false, %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.thread ], [ true, %207 ], [ true, %_ZN4absl18debugging_internalL18MaybeAppendDecimalEPNS0_5StateEi.exit.thread ], [ true, %_ZN4absl18debugging_internalL18MaybeAppendDecimalEPNS0_5StateEi.exit ], [ true, %120 ]
+_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit44: ; preds = %206, %.lr.ph.i.i39.preheader, %_ZN4absl18debugging_internalL18MaybeAppendDecimalEPNS0_5StateEi.exit, %_ZN4absl18debugging_internalL18MaybeAppendDecimalEPNS0_5StateEi.exit.thread, %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.thread
+  %.1 = phi i1 [ false, %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.thread ], [ true, %206 ], [ true, %_ZN4absl18debugging_internalL18MaybeAppendDecimalEPNS0_5StateEi.exit.thread ], [ true, %_ZN4absl18debugging_internalL18MaybeAppendDecimalEPNS0_5StateEi.exit ], [ true, %.lr.ph.i.i39.preheader ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.0)
-  %.pre121 = load i32, ptr %3, align 4, !tbaa !17
-  %210 = add nsw i32 %.pre121, -1
+  %.pre131 = load i32, ptr %3, align 4, !tbaa !17
+  %209 = add nsw i32 %.pre131, -1
   br label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread
 
-_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread: ; preds = %1, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit38
-  %211 = phi i32 [ %210, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit38 ], [ %4, %1 ]
-  %.0 = phi i1 [ %.1, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit38 ], [ false, %1 ]
-  store i32 %211, ptr %3, align 4, !tbaa !17
+_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread: ; preds = %1, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit44
+  %210 = phi i32 [ %209, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit44 ], [ %4, %1 ]
+  %.0 = phi i1 [ %.1, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit44 ], [ false, %1 ]
+  store i32 %210, ptr %3, align 4, !tbaa !17
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nofree memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree nosync memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL15ParseExpressionEPNS0_5StateE(ptr noundef %0) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.absl::debugging_internal::ParseState", align 4
   %3 = alloca %"struct.absl::debugging_internal::ParseState", align 4
@@ -4679,7 +4692,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL15ParseE
 20:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %21, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %21, i64 16, i1 false), !tbaa.struct !31
   %22 = load i32, ptr %5, align 4, !tbaa !17
   %23 = add nsw i32 %22, 1
   store i32 %23, ptr %5, align 4, !tbaa !17
@@ -4731,7 +4744,7 @@ _ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread: ; 
           to label %.noexc157 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc157:                                        ; preds = %.preheader.i
-  br i1 %40, label %.preheader.i, label %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit, !llvm.loop !33
+  br i1 %40, label %.preheader.i, label %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit, !llvm.loop !34
 
 _ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit: ; preds = %.noexc157
   %41 = load i32, ptr %5, align 4, !tbaa !17
@@ -4818,7 +4831,7 @@ _ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.thread: ; preds
   %.pre-phi = phi i32 [ %.pre264, %.noexc._ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.thread_crit_edge ], [ %42, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread ], [ %23, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread ]
   %53 = phi i32 [ %.pre260, %.noexc._ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.thread_crit_edge ], [ %44, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread ], [ %25, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread ]
   %54 = phi i32 [ %.pre, %.noexc._ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.thread_crit_edge ], [ %41, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread ], [ %22, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %21, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %21, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !31
   store i32 %.pre-phi, ptr %5, align 4, !tbaa !17
   %55 = add nsw i32 %53, 1
   store i32 %55, ptr %8, align 8, !tbaa !15
@@ -4902,7 +4915,7 @@ _ZN4absl18debugging_internalL19ParseThreeCharTokenEPNS0_5StateEPKc.exit: ; preds
   %.pre-phi266 = phi i32 [ %.pre265, %._crit_edge261 ], [ %.pre-phi, %_ZN4absl18debugging_internalL19ParseThreeCharTokenEPNS0_5StateEPKc.exit166.thread ]
   %90 = phi i32 [ %.pre263, %._crit_edge261 ], [ %72, %_ZN4absl18debugging_internalL19ParseThreeCharTokenEPNS0_5StateEPKc.exit166.thread ]
   %91 = phi i32 [ %.pre262, %._crit_edge261 ], [ %54, %_ZN4absl18debugging_internalL19ParseThreeCharTokenEPNS0_5StateEPKc.exit166.thread ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %21, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %21, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !31
   store i32 %.pre-phi266, ptr %5, align 4, !tbaa !17
   %92 = add nsw i32 %90, 1
   store i32 %92, ptr %8, align 8, !tbaa !15
@@ -4946,14 +4959,14 @@ _ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit171.thread:
           to label %.noexc173 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc173:                                        ; preds = %.preheader245
-  br i1 %109, label %.preheader245, label %_ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit, !llvm.loop !32
+  br i1 %109, label %.preheader245, label %_ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit, !llvm.loop !33
 
 _ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit: ; preds = %.noexc173
   %110 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc(ptr noundef nonnull %0, i8 noundef signext 69)
   br i1 %110, label %606, label %_ZN4absl18debugging_internalL13ParseSimpleIdEPNS0_5StateE.exit
 
 _ZN4absl18debugging_internalL13ParseSimpleIdEPNS0_5StateE.exit: ; preds = %104, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit171.thread, %_ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %21, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %21, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !31
   %111 = load i32, ptr %5, align 4, !tbaa !17
   %112 = add nsw i32 %111, 1
   store i32 %112, ptr %5, align 4, !tbaa !17
@@ -5079,7 +5092,7 @@ _ZN4absl18debugging_internalL18ParseUnionSelectorEPNS0_5StateE.exit.thread: ; pr
   %167 = load i8, ptr %166, align 1, !tbaa !4
   %168 = add i8 %167, -48
   %169 = icmp ult i8 %168, 10
-  br i1 %169, label %.lr.ph.i.i, label %170, !llvm.loop !42
+  br i1 %169, label %.lr.ph.i.i, label %170, !llvm.loop !43
 
 170:                                              ; preds = %.lr.ph.i.i
   %171 = ptrtoint ptr %166 to i64
@@ -5096,7 +5109,7 @@ _ZN4absl18debugging_internalL18ParseUnionSelectorEPNS0_5StateE.exit: ; preds = %
   %176 = add nsw i32 %142, 4
   store i32 %176, ptr %8, align 8, !tbaa !15
   %177 = icmp sgt i32 %142, 131068
-  br i1 %177, label %._crit_edge, label %141, !llvm.loop !32
+  br i1 %177, label %._crit_edge, label %141, !llvm.loop !33
 
 ._crit_edge:                                      ; preds = %141, %_ZN4absl18debugging_internalL18ParseUnionSelectorEPNS0_5StateE.exit, %_ZN4absl18debugging_internalL18ParseUnionSelectorEPNS0_5StateE.exit.thread, %133
   store i32 %.promoted, ptr %5, align 4, !tbaa !17
@@ -5105,7 +5118,7 @@ _ZN4absl18debugging_internalL18ParseUnionSelectorEPNS0_5StateE.exit: ; preds = %
   br i1 %179, label %606, label %180
 
 180:                                              ; preds = %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit178.thread, %._crit_edge, %132, %129
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %21, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %21, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !31
   %181 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL18ParseFunctionParamEPNS0_5StateE(ptr noundef nonnull %0)
           to label %182 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -5113,7 +5126,7 @@ _ZN4absl18debugging_internalL18ParseUnionSelectorEPNS0_5StateE.exit: ; preds = %
   br i1 %181, label %606, label %183
 
 183:                                              ; preds = %182
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %21, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %21, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !31
   %184 = load i32, ptr %5, align 4, !tbaa !17
   %185 = add nsw i32 %184, 1
   store i32 %185, ptr %5, align 4, !tbaa !17
@@ -5159,14 +5172,14 @@ _ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit184.thread:
           to label %.noexc185 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc185:                                        ; preds = %.preheader241
-  br i1 %203, label %.preheader241, label %_ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit186, !llvm.loop !32
+  br i1 %203, label %.preheader241, label %_ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit186, !llvm.loop !33
 
 _ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit186: ; preds = %.noexc185
   %204 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc(ptr noundef nonnull %0, i8 noundef signext 69)
   br i1 %204, label %606, label %205
 
 205:                                              ; preds = %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit184.thread, %_ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit186, %202
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %21, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %21, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !31
   %206 = load i32, ptr %5, align 4, !tbaa !17
   %207 = add nsw i32 %206, 1
   store i32 %207, ptr %5, align 4, !tbaa !17
@@ -5208,7 +5221,7 @@ _ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit191.thread:
           to label %.noexc192 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc192:                                        ; preds = %223
-  br i1 %224, label %223, label %_ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit193, !llvm.loop !32
+  br i1 %224, label %223, label %_ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit193, !llvm.loop !33
 
 _ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit193: ; preds = %.noexc192
   %225 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc(ptr noundef nonnull %0, i8 noundef signext 69)
@@ -5224,7 +5237,7 @@ _ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit193._crit_edge
   %.pre-phi329 = phi i32 [ %.pre328, %_ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit193._crit_edge ], [ %207, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit191.thread ]
   %227 = phi i32 [ %.pre324, %_ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit193._crit_edge ], [ %209, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit191.thread ]
   %228 = phi i32 [ %.pre323, %_ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit193._crit_edge ], [ %206, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit191.thread ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %21, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %21, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !31
   store i32 %.pre-phi329, ptr %5, align 4, !tbaa !17
   %229 = add nsw i32 %227, 1
   store i32 %229, ptr %8, align 8, !tbaa !15
@@ -5311,7 +5324,7 @@ _ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit276: ; pred
           to label %.noexc194 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc194:                                        ; preds = %266
-  br i1 %267, label %266, label %_ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit195, !llvm.loop !32
+  br i1 %267, label %266, label %_ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit195, !llvm.loop !33
 
 _ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit195: ; preds = %.noexc194
   %268 = load i32, ptr %5, align 4, !tbaa !17
@@ -5361,7 +5374,7 @@ _ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit195: ; preds =
   br label %288
 
 288:                                              ; preds = %.sink.split, %287, %282
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %21, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %21, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !31
   %289 = load i32, ptr %5, align 4, !tbaa !17
   %290 = add nsw i32 %289, 1
   store i32 %290, ptr %5, align 4, !tbaa !17
@@ -5464,7 +5477,7 @@ _ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit296: ; pred
   %.pre-phi331 = phi i32 [ %.pre330, %._crit_edge325 ], [ %290, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit301.thread ]
   %332 = phi i32 [ %.pre327, %._crit_edge325 ], [ %318, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit301.thread ]
   %333 = phi i32 [ %.pre326, %._crit_edge325 ], [ %289, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit301.thread ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %21, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %21, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !31
   store i32 %.pre-phi331, ptr %5, align 4, !tbaa !17
   %334 = add nsw i32 %332, 1
   store i32 %334, ptr %8, align 8, !tbaa !15
@@ -5487,7 +5500,7 @@ _ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit296: ; pred
   %.ptr = getelementptr inbounds nuw i8, ptr @.str.22, i64 %.018.i.add
   %343 = load i8, ptr %.ptr, align 1, !tbaa !4
   %exitcond = icmp eq i64 %.018.i.add, 4
-  br i1 %exitcond, label %_ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc.exit.thread, label %.lr.ph.i, !llvm.loop !31
+  br i1 %exitcond, label %_ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc.exit.thread, label %.lr.ph.i, !llvm.loop !32
 
 .lr.ph.i:                                         ; preds = %337, %342
   %344 = phi i8 [ %343, %342 ], [ 100, %337 ]
@@ -5521,7 +5534,7 @@ _ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc.exit.thread: ; pre
   br i1 %353, label %606, label %355
 
 355:                                              ; preds = %_ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc.exit.thread, %354, %351, %346
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %21, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %21, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !31
   %356 = load i32, ptr %5, align 4, !tbaa !17
   %357 = add nsw i32 %356, 1
   store i32 %357, ptr %5, align 4, !tbaa !17
@@ -5560,7 +5573,7 @@ _ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc.exit.thread: ; pre
 
 375:                                              ; preds = %374
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %21, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %21, i64 16, i1 false), !tbaa.struct !31
   %376 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc(ptr noundef nonnull %0, i8 noundef signext 95)
   br i1 %376, label %.preheader230, label %380
 
@@ -5569,7 +5582,7 @@ _ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc.exit.thread: ; pre
           to label %.noexc196 unwind label %.loopexit231
 
 .noexc196:                                        ; preds = %.preheader230
-  br i1 %377, label %.preheader230, label %_ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit197, !llvm.loop !32
+  br i1 %377, label %.preheader230, label %_ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit197, !llvm.loop !33
 
 _ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit197: ; preds = %.noexc196
   %378 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc(ptr noundef nonnull %0, i8 noundef signext 69)
@@ -5591,7 +5604,7 @@ _ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit197: ; preds =
   br label %.loopexit.split-lp
 
 380:                                              ; preds = %_ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit197, %375
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %21, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %21, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !31
   %381 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL15ParseExpressionEPNS0_5StateE(ptr noundef nonnull %0)
           to label %382 unwind label %.loopexit.split-lp232
 
@@ -5601,8 +5614,8 @@ _ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit197: ; preds =
 
 383:                                              ; preds = %367, %362, %355
   store i32 %356, ptr %5, align 4, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #15
-  store i32 -1, ptr %4, align 4, !tbaa !28
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %4) #14
+  store i32 -1, ptr %4, align 4, !tbaa !29
   %384 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseOperatorNameEPNS0_5StateEPi(ptr noundef nonnull %0, ptr noundef nonnull %4)
           to label %385 unwind label %399
 
@@ -5644,19 +5657,19 @@ _ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit197: ; preds =
 399:                                              ; preds = %396, %.thread, %390, %383
   %400 = landingpad { ptr, i32 }
           cleanup
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #14
   br label %.loopexit.split-lp
 
 .critedge153:                                     ; preds = %398, %395, %392, %385
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #14
   br label %402
 
 401:                                              ; preds = %398
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #15
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %4) #14
   br label %606
 
 402:                                              ; preds = %.critedge153, %374, %382
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %21, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %21, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !31
   %403 = load i32, ptr %5, align 4, !tbaa !17
   %404 = add nsw i32 %403, 1
   store i32 %404, ptr %5, align 4, !tbaa !17
@@ -5707,7 +5720,7 @@ _ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit337.thread:
   %.pre-phi362 = phi i32 [ %.pre361, %._crit_edge355 ], [ %404, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit337.thread ]
   %423 = phi i32 [ %.pre357, %._crit_edge355 ], [ %406, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit337.thread ]
   %424 = phi i32 [ %.pre356, %._crit_edge355 ], [ %403, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit337.thread ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %21, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %21, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !31
   store i32 %.pre-phi362, ptr %5, align 4, !tbaa !17
   %425 = add nsw i32 %423, 1
   store i32 %425, ptr %8, align 8, !tbaa !15
@@ -5755,7 +5768,7 @@ _ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit342.thread:
   %.pre-phi364 = phi i32 [ %.pre363, %._crit_edge358 ], [ %.pre-phi362, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit342.thread ]
   %442 = phi i32 [ %.pre360, %._crit_edge358 ], [ %425, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit342.thread ]
   %443 = phi i32 [ %.pre359, %._crit_edge358 ], [ %424, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit342.thread ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %21, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %21, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !31
   store i32 %.pre-phi364, ptr %5, align 4, !tbaa !17
   %444 = add nsw i32 %442, 1
   store i32 %444, ptr %8, align 8, !tbaa !15
@@ -5801,7 +5814,7 @@ _ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit347.thread:
 460:                                              ; preds = %._crit_edge382, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit347.thread
   %461 = phi i32 [ %.pre384, %._crit_edge382 ], [ %444, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit347.thread ]
   %462 = phi i32 [ %.pre383, %._crit_edge382 ], [ %443, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit347.thread ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %21, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %21, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !31
   %463 = add nsw i32 %462, 1
   store i32 %463, ptr %5, align 4, !tbaa !17
   %464 = add nsw i32 %461, 1
@@ -5850,7 +5863,7 @@ _ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit370.thread:
   %.pre-phi389 = phi i32 [ %.pre388, %._crit_edge385 ], [ %463, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit370.thread ]
   %481 = phi i32 [ %.pre387, %._crit_edge385 ], [ %464, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit370.thread ]
   %482 = phi i32 [ %.pre386, %._crit_edge385 ], [ %462, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit370.thread ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %21, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %21, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !31
   store i32 %.pre-phi389, ptr %5, align 4, !tbaa !17
   %483 = add nsw i32 %481, 1
   store i32 %483, ptr %8, align 8, !tbaa !15
@@ -5896,7 +5909,7 @@ _ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit375.thread:
 499:                                              ; preds = %._crit_edge407, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit375.thread
   %500 = phi i32 [ %.pre409, %._crit_edge407 ], [ %483, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit375.thread ]
   %501 = phi i32 [ %.pre408, %._crit_edge407 ], [ %482, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit375.thread ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %21, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %21, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !31
   %502 = add nsw i32 %501, 1
   store i32 %502, ptr %5, align 4, !tbaa !17
   %503 = add nsw i32 %500, 1
@@ -5936,7 +5949,7 @@ _ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit401.thread:
   br i1 %517, label %606, label %519
 
 519:                                              ; preds = %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit401.thread, %518
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %21, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %21, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !31
   %520 = call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc(ptr noundef nonnull %0, ptr noundef nonnull @.str.30)
   br i1 %520, label %521, label %526
 
@@ -5952,7 +5965,7 @@ _ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit401.thread:
   br i1 %525, label %606, label %526
 
 526:                                              ; preds = %524, %519
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %21, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %21, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !31
   %527 = call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc(ptr noundef nonnull %0, ptr noundef nonnull @.str.31)
   br i1 %527, label %.preheader226, label %530
 
@@ -5961,14 +5974,14 @@ _ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit401.thread:
           to label %.noexc198 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc198:                                        ; preds = %.preheader226
-  br i1 %528, label %.preheader226, label %_ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit199, !llvm.loop !32
+  br i1 %528, label %.preheader226, label %_ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit199, !llvm.loop !33
 
 _ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit199: ; preds = %.noexc198
   %529 = call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc(ptr noundef nonnull %0, i8 noundef signext 69)
   br i1 %529, label %606, label %530
 
 530:                                              ; preds = %_ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit199, %526
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %21, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %21, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !31
   %531 = call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc(ptr noundef nonnull %0, ptr noundef nonnull @.str.32)
   br i1 %531, label %534, label %532
 
@@ -5991,7 +6004,7 @@ _ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit199: ; preds =
   br i1 %538, label %606, label %540
 
 540:                                              ; preds = %539, %536, %532
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %21, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %21, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !31
   %541 = call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc(ptr noundef nonnull %0, ptr noundef nonnull @.str.34)
   br i1 %541, label %544, label %542
 
@@ -6021,7 +6034,7 @@ _ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit199: ; preds =
   br i1 %551, label %606, label %553
 
 553:                                              ; preds = %552, %549, %546, %542
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %21, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %21, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !31
   %554 = call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc(ptr noundef nonnull %0, ptr noundef nonnull @.str.36)
   br i1 %554, label %555, label %558
 
@@ -6033,7 +6046,7 @@ _ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit199: ; preds =
   br i1 %556, label %606, label %558
 
 558:                                              ; preds = %557, %553
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %21, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %21, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !31
   %559 = call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc(ptr noundef nonnull %0, ptr noundef nonnull @.str.37)
   br i1 %559, label %606, label %560
 
@@ -6060,7 +6073,7 @@ _ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit199: ; preds =
   br i1 %568, label %606, label %570
 
 570:                                              ; preds = %569, %566, %562
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %21, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %21, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !31
   %571 = call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc(ptr noundef nonnull %0, ptr noundef nonnull @.str.40)
   br i1 %571, label %572, label %578
 
@@ -6079,7 +6092,7 @@ _ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit199: ; preds =
   br i1 %576, label %606, label %578
 
 578:                                              ; preds = %577, %574, %570
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %21, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %21, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !31
   %579 = call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc(ptr noundef nonnull %0, ptr noundef nonnull @.str.41)
   br i1 %579, label %580, label %583
 
@@ -6091,7 +6104,7 @@ _ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit199: ; preds =
   br i1 %581, label %606, label %583
 
 583:                                              ; preds = %582, %578
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %21, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %21, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !31
   %584 = call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc(ptr noundef nonnull %0, i8 noundef signext 117)
   br i1 %584, label %585, label %589
 
@@ -6104,14 +6117,14 @@ _ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit199: ; preds =
           to label %.noexc200 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit
 
 .noexc200:                                        ; preds = %.preheader
-  br i1 %587, label %.preheader, label %_ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit201, !llvm.loop !32
+  br i1 %587, label %.preheader, label %_ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit201, !llvm.loop !33
 
 _ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit201: ; preds = %.noexc200
   %588 = call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc(ptr noundef nonnull %0, i8 noundef signext 69)
   br i1 %588, label %606, label %589
 
 589:                                              ; preds = %_ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit201, %585, %583
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %21, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %21, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !31
   %590 = call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc(ptr noundef nonnull %0, ptr noundef nonnull @.str.42)
   br i1 %590, label %591, label %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit205.thread
 
@@ -6127,14 +6140,14 @@ _ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit201: ; preds =
           to label %.noexc204 unwind label %.loopexit.split-lp.loopexit
 
 .noexc204:                                        ; preds = %.preheader.i202
-  br i1 %593, label %.preheader.i202, label %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit205, !llvm.loop !33
+  br i1 %593, label %.preheader.i202, label %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit205, !llvm.loop !34
 
 _ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit205: ; preds = %.noexc204
   %594 = call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc(ptr noundef nonnull %0, i8 noundef signext 69)
   br i1 %594, label %606, label %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit205.thread
 
 _ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit205.thread: ; preds = %.noexc203, %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit205, %589
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %21, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %21, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !31
   %595 = call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc(ptr noundef nonnull %0, ptr noundef nonnull @.str.43)
   br i1 %595, label %596, label %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit209.thread
 
@@ -6161,14 +6174,14 @@ _ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit205.thread: ; pr
           to label %.noexc208 unwind label %.loopexit
 
 .noexc208:                                        ; preds = %.preheader.i206
-  br i1 %603, label %.preheader.i206, label %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit209, !llvm.loop !33
+  br i1 %603, label %.preheader.i206, label %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit209, !llvm.loop !34
 
 _ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit209: ; preds = %.noexc208
   %604 = call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc(ptr noundef nonnull %0, i8 noundef signext 69)
   br i1 %604, label %606, label %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit209.thread
 
 _ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit209.thread: ; preds = %.noexc207, %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit209, %599, %598, %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit205.thread
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %21, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %21, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !31
   %605 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL19ParseUnresolvedNameEPNS0_5StateE(ptr noundef nonnull %0)
           to label %606 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp
 
@@ -6201,7 +6214,7 @@ _ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exi
   resume { ptr, i32 } %.pn.pn
 }
 
-; Function Attrs: mustprogress nofree memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree nosync memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL16ParseExprPrimaryEPNS0_5StateE(ptr noundef %0) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.absl::debugging_internal::ParseState", align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -6220,7 +6233,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL16ParseE
 11:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %12, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %12, i64 16, i1 false), !tbaa.struct !31
   %13 = add nsw i32 %4, 2
   store i32 %13, ptr %3, align 4, !tbaa !17
   %14 = add nsw i32 %7, 2
@@ -6404,7 +6417,7 @@ _ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit61: ; preds =
   br i1 %95, label %146, label %96
 
 96:                                               ; preds = %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit32.thread, %93, %94
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !31
   %97 = load i32, ptr %3, align 4, !tbaa !17
   %98 = add nsw i32 %97, 1
   store i32 %98, ptr %3, align 4, !tbaa !17
@@ -6530,7 +6543,7 @@ _ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exi
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nofree memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree nosync memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL9ParseTypeEPNS0_5StateE(ptr noundef %0) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.absl::debugging_internal::ParseState", align 4
   %3 = alloca %"struct.absl::debugging_internal::ParseState", align 4
@@ -6553,7 +6566,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL9ParseTy
 
 16:                                               ; preds = %1
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %17, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %7, ptr noundef nonnull align 4 dereferenceable(16) %17, i64 16, i1 false), !tbaa.struct !31
   %18 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseCVQualifiersEPNS0_5StateE(ptr noundef nonnull %0)
           to label %19 unwind label %24
 
@@ -6565,13 +6578,13 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL9ParseTy
           to label %22 unwind label %26
 
 22:                                               ; preds = %20
-  br i1 %21, label %590, label %23
+  br i1 %21, label %592, label %23
 
 23:                                               ; preds = %22
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !30
-  br label %590
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !31
+  br label %592
 
-24:                                               ; preds = %586, %581, %576, %571, %560, %.thread234, %.thread133, %62, %16
+24:                                               ; preds = %588, %583, %578, %573, %562, %.thread235, %.thread133, %62, %16
   %25 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -6582,7 +6595,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL9ParseTy
   br label %.body
 
 28:                                               ; preds = %19
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !31
   %29 = load i32, ptr %8, align 4, !tbaa !17
   %30 = add nsw i32 %29, 1
   store i32 %30, ptr %8, align 4, !tbaa !17
@@ -6608,7 +6621,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL9ParseTy
   %.ptr = getelementptr inbounds nuw i8, ptr @.str.46, i64 %.018.i.add
   %41 = load i8, ptr %.ptr, align 1, !tbaa !4
   %exitcond = icmp eq i64 %.018.i.add, 5
-  br i1 %exitcond, label %.loopexit143, label %.lr.ph.i, !llvm.loop !31
+  br i1 %exitcond, label %.loopexit143, label %.lr.ph.i, !llvm.loop !32
 
 .lr.ph.i:                                         ; preds = %35, %40
   %42 = phi i8 [ %41, %40 ], [ 79, %35 ]
@@ -6624,11 +6637,11 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL9ParseTy
           to label %47 unwind label %49
 
 47:                                               ; preds = %44
-  br i1 %46, label %590, label %48
+  br i1 %46, label %592, label %48
 
 48:                                               ; preds = %47
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !30
-  br label %590
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !31
+  br label %592
 
 49:                                               ; preds = %44
   %50 = landingpad { ptr, i32 }
@@ -6636,7 +6649,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL9ParseTy
   br label %.body
 
 .loopexit143:                                     ; preds = %40, %35, %28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !31
   store i32 %30, ptr %8, align 4, !tbaa !17
   %51 = add nsw i32 %31, 2
   store i32 %51, ptr %11, align 8, !tbaa !15
@@ -6671,7 +6684,7 @@ _ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread: ; 
           to label %65 unwind label %24
 
 65:                                               ; preds = %62
-  br i1 %64, label %590, label %._crit_edge
+  br i1 %64, label %592, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %65
   %.pre = load i32, ptr %8, align 4, !tbaa !17
@@ -6683,7 +6696,7 @@ _ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread: ; 
   %.pre-phi = phi i32 [ %.pre176, %._crit_edge ], [ %30, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread ]
   %67 = phi i32 [ %.pre154, %._crit_edge ], [ %51, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread ]
   %68 = phi i32 [ %.pre, %._crit_edge ], [ %29, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !31
   store i32 %.pre-phi, ptr %8, align 4, !tbaa !17
   %69 = add nsw i32 %67, 1
   store i32 %69, ptr %11, align 8, !tbaa !15
@@ -6817,7 +6830,7 @@ _ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit80: ; preds
   %134 = load i8, ptr %133, align 1, !tbaa !4
   %135 = add i8 %134, -48
   %136 = icmp ult i8 %135, 10
-  br i1 %136, label %.lr.ph.i70, label %_ZN4absl18debugging_internalL11ParseNumberEPNS0_5StateEPi.exit, !llvm.loop !42
+  br i1 %136, label %.lr.ph.i70, label %_ZN4absl18debugging_internalL11ParseNumberEPNS0_5StateEPi.exit, !llvm.loop !43
 
 _ZN4absl18debugging_internalL11ParseNumberEPNS0_5StateEPi.exit: ; preds = %.lr.ph.i70
   %137 = ptrtoint ptr %133 to i64
@@ -6855,7 +6868,7 @@ _ZN4absl18debugging_internalL11ParseNumberEPNS0_5StateEPi.exit: ; preds = %.lr.p
 148:                                              ; preds = %143
   %149 = landingpad { ptr, i32 }
           cleanup
-  %.pre253 = load i32, ptr %8, align 4, !tbaa !17
+  %.pre256 = load i32, ptr %8, align 4, !tbaa !17
   br label %.body200
 
 150:                                              ; preds = %._crit_edge157, %_ZN4absl18debugging_internalL11ParseNumberEPNS0_5StateEPi.exit
@@ -6970,14 +6983,14 @@ _ZN4absl18debugging_internalL19ParseThreeCharTokenEPNS0_5StateEPKc.exit: ; preds
 
 202:                                              ; preds = %197, %193, %188, %184
   store i32 %.pre-phi, ptr %8, align 4, !tbaa !17
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #15
-  store i32 0, ptr %6, align 4, !tbaa !28
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %6) #14
+  store i32 0, ptr %6, align 4, !tbaa !29
   %203 = call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL11ParseNumberEPNS0_5StateEPi(ptr noundef nonnull %0, ptr noundef nonnull %6)
   br i1 %203, label %204, label %212
 
 204:                                              ; preds = %202
   call fastcc void @_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc(ptr noundef nonnull %0, ptr noundef nonnull @.str.59)
-  %205 = load i32, ptr %6, align 4, !tbaa !28
+  %205 = load i32, ptr %6, align 4, !tbaa !29
   call fastcc void @_ZN4absl18debugging_internalL18MaybeAppendDecimalEPNS0_5StateEi(ptr noundef nonnull %0, i32 noundef %205)
   %206 = call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc(ptr noundef nonnull %0, i8 noundef signext 120)
   br i1 %206, label %207, label %208
@@ -6991,15 +7004,15 @@ _ZN4absl18debugging_internalL19ParseThreeCharTokenEPNS0_5StateEPKc.exit: ; preds
   br i1 %209, label %.thread138, label %212
 
 .thread138:                                       ; preds = %207, %208
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #14
   %210 = load i32, ptr %8, align 4, !tbaa !17
   %211 = add nsw i32 %210, -1
   store i32 %211, ptr %8, align 4, !tbaa !17
-  br label %590
+  br label %592
 
 212:                                              ; preds = %208, %202
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) %7, i64 16, i1 false)
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #15
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %6) #14
   %213 = load i32, ptr %8, align 4, !tbaa !17
   br label %.sink.split184
 
@@ -7035,7 +7048,7 @@ _ZN4absl18debugging_internalL19ParseThreeCharTokenEPNS0_5StateEPKc.exit: ; preds
   store i32 %229, ptr %17, align 4, !tbaa !16
   store i32 %.pre-phi, ptr %8, align 4, !tbaa !17
   %230 = getelementptr inbounds nuw i8, ptr %.056.i, i64 8
-  %231 = load ptr, ptr %230, align 8, !tbaa !35
+  %231 = load ptr, ptr %230, align 8, !tbaa !36
   br label %.thread119
 
 232:                                              ; preds = %.preheader.i51
@@ -7074,7 +7087,7 @@ _ZN4absl18debugging_internalL19ParseThreeCharTokenEPNS0_5StateEPKc.exit: ; preds
   store i32 %251, ptr %17, align 4, !tbaa !16
   store i32 %.pre-phi, ptr %8, align 4, !tbaa !17
   %252 = getelementptr inbounds nuw i8, ptr %.056.i, i64 8
-  %253 = load ptr, ptr %252, align 8, !tbaa !35
+  %253 = load ptr, ptr %252, align 8, !tbaa !36
   br label %.thread119
 
 .sink.split:                                      ; preds = %236, %239, %245, %219, %223
@@ -7085,9 +7098,9 @@ _ZN4absl18debugging_internalL19ParseThreeCharTokenEPNS0_5StateEPKc.exit: ; preds
 255:                                              ; preds = %.sink.split, %232
   %256 = phi i32 [ %254, %.sink.split ], [ %214, %232 ]
   %257 = getelementptr inbounds nuw i8, ptr %.056.i, i64 24
-  %258 = load ptr, ptr %257, align 8, !tbaa !37
+  %258 = load ptr, ptr %257, align 8, !tbaa !38
   %.not.i = icmp eq ptr %258, null
-  br i1 %.not.i, label %.critedge.i, label %.preheader.i51, !llvm.loop !47
+  br i1 %.not.i, label %.critedge.i, label %.preheader.i51, !llvm.loop !48
 
 .critedge.i:                                      ; preds = %255
   store i32 %171, ptr %8, align 4, !tbaa !17
@@ -7118,29 +7131,29 @@ _ZN4absl18debugging_internalL19ParseThreeCharTokenEPNS0_5StateEPKc.exit: ; preds
 
 _ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i: ; preds = %266, %261
   store i32 %171, ptr %8, align 4, !tbaa !17
-  br label %291
+  br label %293
 
 271:                                              ; preds = %266
   %272 = add nsw i32 %.val7.i.i198, 1
   store i32 %272, ptr %17, align 4, !tbaa !16
   store i32 %171, ptr %8, align 4, !tbaa !17
   %273 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL15ParseSourceNameEPNS0_5StateE(ptr noundef nonnull %0)
-  br i1 %273, label %275, label %._crit_edge254
+  br i1 %273, label %275, label %._crit_edge257
 
-._crit_edge254:                                   ; preds = %271
+._crit_edge257:                                   ; preds = %271
   %.pre.i.pre = load i32, ptr %8, align 4, !tbaa !17
   %274 = add nsw i32 %.pre.i.pre, -1
-  br label %291
+  br label %293
 
 275:                                              ; preds = %271
   %276 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseTemplateArgsEPNS0_5StateE(ptr noundef nonnull %0)
-          to label %.thread226 unwind label %278
+          to label %.thread227 unwind label %278
 
-.thread226:                                       ; preds = %275
-  %.pre.i228 = load i32, ptr %8, align 4, !tbaa !17
-  %277 = add nsw i32 %.pre.i228, -2
+.thread227:                                       ; preds = %275
+  %.pre.i229 = load i32, ptr %8, align 4, !tbaa !17
+  %277 = add nsw i32 %.pre.i229, -2
   store i32 %277, ptr %8, align 4, !tbaa !17
-  br label %590
+  br label %592
 
 278:                                              ; preds = %275
   %279 = landingpad { ptr, i32 }
@@ -7151,7 +7164,7 @@ _ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i: ; 
   br label %.body200
 
 .body200:                                         ; preds = %278, %148
-  %282 = phi i32 [ %.pre253, %148 ], [ %281, %278 ]
+  %282 = phi i32 [ %.pre256, %148 ], [ %281, %278 ]
   %.pn.i = phi { ptr, i32 } [ %149, %148 ], [ %279, %278 ]
   %283 = add nsw i32 %282, -1
   store i32 %283, ptr %8, align 4, !tbaa !17
@@ -7167,211 +7180,214 @@ _ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i: ; 
 286:                                              ; preds = %.thread119
   %287 = load i8, ptr %.str.58.sink, align 1, !tbaa !4
   %.not4.i.i = icmp eq i8 %287, 0
-  br i1 %.not4.i.i, label %_ZN4absl18debugging_internalL6StrLenEPKc.exit.i, label %.lr.ph.preheader.i.i
+  br i1 %.not4.i.i, label %_ZN4absl18debugging_internalL6StrLenEPKc.exit.i, label %.lr.ph.i.i
 
-.lr.ph.preheader.i.i:                             ; preds = %286
-  %scevgep.i.i = getelementptr i8, ptr %.str.58.sink, i64 1
-  %strlen.i.i = tail call i64 @strlen(ptr nonnull readonly dereferenceable(1) %scevgep.i.i)
-  %288 = add i64 %strlen.i.i, 1
-  br label %_ZN4absl18debugging_internalL6StrLenEPKc.exit.i
+.lr.ph.i.i:                                       ; preds = %286, %.lr.ph.i.i
+  %.06.i.i = phi i64 [ %289, %.lr.ph.i.i ], [ 0, %286 ]
+  %.035.i.i = phi ptr [ %288, %.lr.ph.i.i ], [ %.str.58.sink, %286 ]
+  %288 = getelementptr inbounds nuw i8, ptr %.035.i.i, i64 1
+  %289 = add i64 %.06.i.i, 1
+  %290 = load i8, ptr %288, align 1, !tbaa !4
+  %.not.i.i = icmp eq i8 %290, 0
+  br i1 %.not.i.i, label %_ZN4absl18debugging_internalL6StrLenEPKc.exit.i, label %.lr.ph.i.i, !llvm.loop !22
 
-_ZN4absl18debugging_internalL6StrLenEPKc.exit.i:  ; preds = %.lr.ph.preheader.i.i, %286
-  %.0.lcssa.i.i = phi i64 [ 0, %286 ], [ %288, %.lr.ph.preheader.i.i ]
+_ZN4absl18debugging_internalL6StrLenEPKc.exit.i:  ; preds = %.lr.ph.i.i, %286
+  %.0.lcssa.i.i = phi i64 [ 0, %286 ], [ %289, %.lr.ph.i.i ]
   tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %0, ptr noundef nonnull readonly %.str.58.sink, i64 noundef %.0.lcssa.i.i)
   br label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit
 
 _ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit: ; preds = %.thread119, %_ZN4absl18debugging_internalL6StrLenEPKc.exit.i
-  %289 = load i32, ptr %8, align 4, !tbaa !17
-  %290 = add nsw i32 %289, -1
-  store i32 %290, ptr %8, align 4, !tbaa !17
-  br label %590
+  %291 = load i32, ptr %8, align 4, !tbaa !17
+  %292 = add nsw i32 %291, -1
+  store i32 %292, ptr %8, align 4, !tbaa !17
+  br label %592
 
-291:                                              ; preds = %._crit_edge254, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i
-  %.pre.i = phi i32 [ %274, %._crit_edge254 ], [ %.pre-phi, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i ]
+293:                                              ; preds = %._crit_edge257, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i
+  %.pre.i = phi i32 [ %274, %._crit_edge257 ], [ %.pre-phi, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) %7, i64 16, i1 false)
   br label %.sink.split184
 
-.sink.split184:                                   ; preds = %147, %164, %.critedge.i, %212, %66, %291
-  %292 = phi i32 [ %.pre.i, %291 ], [ %213, %212 ], [ %.pre-phi, %66 ], [ %.pre-phi, %.critedge.i ], [ %152, %164 ], [ %.pre161, %147 ]
-  store i32 %292, ptr %8, align 4, !tbaa !17
-  %293 = load i32, ptr %11, align 8, !tbaa !15
-  %294 = add nsw i32 %293, 1
-  store i32 %294, ptr %11, align 8, !tbaa !15
-  %295 = icmp sgt i32 %292, 256
-  %296 = icmp sgt i32 %293, 131071
-  %or.cond141 = select i1 %295, i1 true, i1 %296
-  br i1 %or.cond141, label %.thread133, label %297
+.sink.split184:                                   ; preds = %147, %164, %.critedge.i, %212, %66, %293
+  %294 = phi i32 [ %.pre.i, %293 ], [ %213, %212 ], [ %.pre-phi, %66 ], [ %.pre-phi, %.critedge.i ], [ %152, %164 ], [ %.pre161, %147 ]
+  store i32 %294, ptr %8, align 4, !tbaa !17
+  %295 = load i32, ptr %11, align 8, !tbaa !15
+  %296 = add nsw i32 %295, 1
+  store i32 %296, ptr %11, align 8, !tbaa !15
+  %297 = icmp sgt i32 %294, 256
+  %298 = icmp sgt i32 %295, 131071
+  %or.cond141 = select i1 %297, i1 true, i1 %298
+  br i1 %or.cond141, label %.thread133, label %299
 
-297:                                              ; preds = %.sink.split184
+299:                                              ; preds = %.sink.split184
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %17, i64 16, i1 false), !tbaa.struct !30
-  %298 = add nsw i32 %292, 1
-  store i32 %298, ptr %8, align 4, !tbaa !17
-  %299 = add nsw i32 %293, 2
-  store i32 %299, ptr %11, align 8, !tbaa !15
-  %300 = icmp sgt i32 %292, 255
-  %301 = icmp sgt i32 %293, 131070
-  %or.cond142 = select i1 %300, i1 true, i1 %301
-  br i1 %or.cond142, label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.i.thread, label %302
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %17, i64 16, i1 false), !tbaa.struct !31
+  %300 = add nsw i32 %294, 1
+  store i32 %300, ptr %8, align 4, !tbaa !17
+  %301 = add nsw i32 %295, 2
+  store i32 %301, ptr %11, align 8, !tbaa !15
+  %302 = icmp sgt i32 %294, 255
+  %303 = icmp sgt i32 %295, 131070
+  %or.cond142 = select i1 %302, i1 true, i1 %303
+  br i1 %or.cond142, label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.i.thread, label %304
 
-302:                                              ; preds = %297
-  %303 = add nsw i32 %292, 2
-  store i32 %303, ptr %8, align 4, !tbaa !17
-  %304 = add nsw i32 %293, 3
-  store i32 %304, ptr %11, align 8, !tbaa !15
-  %305 = icmp sgt i32 %292, 254
-  %306 = icmp sgt i32 %293, 131069
-  %or.cond.i.i94 = select i1 %305, i1 true, i1 %306
-  br i1 %or.cond.i.i94, label %317, label %307
+304:                                              ; preds = %299
+  %305 = add nsw i32 %294, 2
+  store i32 %305, ptr %8, align 4, !tbaa !17
+  %306 = add nsw i32 %295, 3
+  store i32 %306, ptr %11, align 8, !tbaa !15
+  %307 = icmp sgt i32 %294, 254
+  %308 = icmp sgt i32 %295, 131069
+  %or.cond.i.i94 = select i1 %307, i1 true, i1 %308
+  br i1 %or.cond.i.i94, label %319, label %309
 
-307:                                              ; preds = %302
+309:                                              ; preds = %304
   %.val11.i.i = load ptr, ptr %0, align 8, !tbaa !7
   %.val12.i.i = load i32, ptr %17, align 4, !tbaa !16
-  %308 = sext i32 %.val12.i.i to i64
-  %309 = getelementptr inbounds i8, ptr %.val11.i.i, i64 %308
-  %310 = load i8, ptr %309, align 1, !tbaa !4
-  %311 = icmp eq i8 %310, 68
-  br i1 %311, label %312, label %317
+  %310 = sext i32 %.val12.i.i to i64
+  %311 = getelementptr inbounds i8, ptr %.val11.i.i, i64 %310
+  %312 = load i8, ptr %311, align 1, !tbaa !4
+  %313 = icmp eq i8 %312, 68
+  br i1 %313, label %314, label %319
 
-312:                                              ; preds = %307
-  %313 = getelementptr inbounds nuw i8, ptr %309, i64 1
-  %314 = load i8, ptr %313, align 1, !tbaa !4
-  %315 = icmp eq i8 %314, 111
-  br i1 %315, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.i, label %317
+314:                                              ; preds = %309
+  %315 = getelementptr inbounds nuw i8, ptr %311, i64 1
+  %316 = load i8, ptr %315, align 1, !tbaa !4
+  %317 = icmp eq i8 %316, 111
+  br i1 %317, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.i, label %319
 
-_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.i: ; preds = %312
-  %316 = add nsw i32 %.val12.i.i, 2
-  store i32 %316, ptr %17, align 4, !tbaa !16
-  store i32 %298, ptr %8, align 4, !tbaa !17
+_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.i: ; preds = %314
+  %318 = add nsw i32 %.val12.i.i, 2
+  store i32 %318, ptr %17, align 4, !tbaa !16
+  store i32 %300, ptr %8, align 4, !tbaa !17
   br label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.i.thread
 
-317:                                              ; preds = %312, %307, %302
+319:                                              ; preds = %314, %309, %304
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %17, i64 16, i1 false), !tbaa.struct !30
-  store i32 %303, ptr %8, align 4, !tbaa !17
-  %318 = add nsw i32 %293, 4
-  store i32 %318, ptr %11, align 8, !tbaa !15
-  %319 = icmp sgt i32 %293, 131068
-  %or.cond.i19.i = select i1 %305, i1 true, i1 %319
-  br i1 %or.cond.i19.i, label %.sink.split186, label %320
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %17, i64 16, i1 false), !tbaa.struct !31
+  store i32 %305, ptr %8, align 4, !tbaa !17
+  %320 = add nsw i32 %295, 4
+  store i32 %320, ptr %11, align 8, !tbaa !15
+  %321 = icmp sgt i32 %295, 131068
+  %or.cond.i19.i = select i1 %307, i1 true, i1 %321
+  br i1 %or.cond.i19.i, label %.sink.split186, label %322
 
-320:                                              ; preds = %317
+322:                                              ; preds = %319
   %.val11.i20.i = load ptr, ptr %0, align 8, !tbaa !7
   %.val12.i21.i = load i32, ptr %17, align 4, !tbaa !16
-  %321 = sext i32 %.val12.i21.i to i64
-  %322 = getelementptr inbounds i8, ptr %.val11.i20.i, i64 %321
-  %323 = load i8, ptr %322, align 1, !tbaa !4
-  %324 = icmp eq i8 %323, 68
-  br i1 %324, label %325, label %.sink.split186
+  %323 = sext i32 %.val12.i21.i to i64
+  %324 = getelementptr inbounds i8, ptr %.val11.i20.i, i64 %323
+  %325 = load i8, ptr %324, align 1, !tbaa !4
+  %326 = icmp eq i8 %325, 68
+  br i1 %326, label %327, label %.sink.split186
 
-325:                                              ; preds = %320
-  %326 = getelementptr inbounds nuw i8, ptr %322, i64 1
-  %327 = load i8, ptr %326, align 1, !tbaa !4
-  %328 = icmp eq i8 %327, 79
-  br i1 %328, label %329, label %.sink.split186
+327:                                              ; preds = %322
+  %328 = getelementptr inbounds nuw i8, ptr %324, i64 1
+  %329 = load i8, ptr %328, align 1, !tbaa !4
+  %330 = icmp eq i8 %329, 79
+  br i1 %330, label %331, label %.sink.split186
 
-329:                                              ; preds = %325
-  %330 = add nsw i32 %.val12.i21.i, 2
-  store i32 %330, ptr %17, align 4, !tbaa !16
-  store i32 %298, ptr %8, align 4, !tbaa !17
-  %331 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL15ParseExpressionEPNS0_5StateE(ptr noundef nonnull %0)
-          to label %332 unwind label %.loopexit.split-lp
+331:                                              ; preds = %327
+  %332 = add nsw i32 %.val12.i21.i, 2
+  store i32 %332, ptr %17, align 4, !tbaa !16
+  store i32 %300, ptr %8, align 4, !tbaa !17
+  %333 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL15ParseExpressionEPNS0_5StateE(ptr noundef nonnull %0)
+          to label %334 unwind label %.loopexit.split-lp
 
-332:                                              ; preds = %329
+334:                                              ; preds = %331
   %.pre162 = load i32, ptr %8, align 4, !tbaa !17
   %.pre163 = load i32, ptr %11, align 8, !tbaa !15
-  br i1 %331, label %333, label %347
+  br i1 %333, label %335, label %349
 
-333:                                              ; preds = %332
-  %334 = add nsw i32 %.pre162, 1
-  store i32 %334, ptr %8, align 4, !tbaa !17
-  %335 = add nsw i32 %.pre163, 1
-  store i32 %335, ptr %11, align 8, !tbaa !15
-  %336 = icmp sgt i32 %.pre162, 255
-  %337 = icmp sgt i32 %.pre163, 131071
-  %or.cond.i24.i = select i1 %336, i1 true, i1 %337
-  br i1 %or.cond.i24.i, label %.sink.split186, label %338
+335:                                              ; preds = %334
+  %336 = add nsw i32 %.pre162, 1
+  store i32 %336, ptr %8, align 4, !tbaa !17
+  %337 = add nsw i32 %.pre163, 1
+  store i32 %337, ptr %11, align 8, !tbaa !15
+  %338 = icmp sgt i32 %.pre162, 255
+  %339 = icmp sgt i32 %.pre163, 131071
+  %or.cond.i24.i = select i1 %338, i1 true, i1 %339
+  br i1 %or.cond.i24.i, label %.sink.split186, label %340
 
-338:                                              ; preds = %333
+340:                                              ; preds = %335
   %.val6.i.i = load ptr, ptr %0, align 8, !tbaa !7
   %.val7.i.i = load i32, ptr %17, align 4, !tbaa !16
-  %339 = sext i32 %.val7.i.i to i64
-  %340 = getelementptr inbounds i8, ptr %.val6.i.i, i64 %339
-  %341 = load i8, ptr %340, align 1, !tbaa !4
-  %342 = icmp eq i8 %341, 69
-  br i1 %342, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.i, label %.sink.split186
+  %341 = sext i32 %.val7.i.i to i64
+  %342 = getelementptr inbounds i8, ptr %.val6.i.i, i64 %341
+  %343 = load i8, ptr %342, align 1, !tbaa !4
+  %344 = icmp eq i8 %343, 69
+  br i1 %344, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.i, label %.sink.split186
 
-_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.i: ; preds = %338
-  %343 = add nsw i32 %.val7.i.i, 1
-  store i32 %343, ptr %17, align 4, !tbaa !16
+_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.i: ; preds = %340
+  %345 = add nsw i32 %.val7.i.i, 1
+  store i32 %345, ptr %17, align 4, !tbaa !16
   store i32 %.pre162, ptr %8, align 4, !tbaa !17
-  br label %379
+  br label %381
 
 .loopexit:                                        ; preds = %.preheader.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %344
+  br label %346
 
-.loopexit.split-lp:                               ; preds = %329, %363
+.loopexit.split-lp:                               ; preds = %331, %365
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %344
+  br label %346
 
-344:                                              ; preds = %.loopexit.split-lp, %.loopexit
+346:                                              ; preds = %.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %345 = load i32, ptr %8, align 4, !tbaa !17
-  %346 = add nsw i32 %345, -1
-  store i32 %346, ptr %8, align 4, !tbaa !17
+  %347 = load i32, ptr %8, align 4, !tbaa !17
+  %348 = add nsw i32 %347, -1
+  store i32 %348, ptr %8, align 4, !tbaa !17
   br label %.body96
 
-.sink.split186:                                   ; preds = %333, %338, %317, %320, %325
-  %.pre162.sink = phi i32 [ %298, %325 ], [ %298, %320 ], [ %298, %317 ], [ %.pre162, %338 ], [ %.pre162, %333 ]
-  %.ph187 = phi i32 [ %318, %325 ], [ %318, %320 ], [ %318, %317 ], [ %335, %338 ], [ %335, %333 ]
+.sink.split186:                                   ; preds = %335, %340, %319, %322, %327
+  %.pre162.sink = phi i32 [ %300, %327 ], [ %300, %322 ], [ %300, %319 ], [ %.pre162, %340 ], [ %.pre162, %335 ]
+  %.ph187 = phi i32 [ %320, %327 ], [ %320, %322 ], [ %320, %319 ], [ %337, %340 ], [ %337, %335 ]
   store i32 %.pre162.sink, ptr %8, align 4, !tbaa !17
-  br label %347
+  br label %349
 
-347:                                              ; preds = %.sink.split186, %332
-  %348 = phi i32 [ %.pre163, %332 ], [ %.ph187, %.sink.split186 ]
-  %349 = phi i32 [ %.pre162, %332 ], [ %.pre162.sink, %.sink.split186 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false), !tbaa.struct !30
-  %350 = add nsw i32 %349, 1
-  store i32 %350, ptr %8, align 4, !tbaa !17
-  %351 = add nsw i32 %348, 1
-  store i32 %351, ptr %11, align 8, !tbaa !15
-  %352 = icmp sgt i32 %349, 255
-  %353 = icmp sgt i32 %348, 131071
-  %or.cond.i26.i = select i1 %352, i1 true, i1 %353
-  br i1 %or.cond.i26.i, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit30.i.thread, label %354
+349:                                              ; preds = %.sink.split186, %334
+  %350 = phi i32 [ %.pre163, %334 ], [ %.ph187, %.sink.split186 ]
+  %351 = phi i32 [ %.pre162, %334 ], [ %.pre162.sink, %.sink.split186 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false), !tbaa.struct !31
+  %352 = add nsw i32 %351, 1
+  store i32 %352, ptr %8, align 4, !tbaa !17
+  %353 = add nsw i32 %350, 1
+  store i32 %353, ptr %11, align 8, !tbaa !15
+  %354 = icmp sgt i32 %351, 255
+  %355 = icmp sgt i32 %350, 131071
+  %or.cond.i26.i = select i1 %354, i1 true, i1 %355
+  br i1 %or.cond.i26.i, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit30.i.thread, label %356
 
-354:                                              ; preds = %347
+356:                                              ; preds = %349
   %.val11.i27.i = load ptr, ptr %0, align 8, !tbaa !7
   %.val12.i28.i = load i32, ptr %17, align 4, !tbaa !16
-  %355 = sext i32 %.val12.i28.i to i64
-  %356 = getelementptr inbounds i8, ptr %.val11.i27.i, i64 %355
-  %357 = load i8, ptr %356, align 1, !tbaa !4
-  %358 = icmp eq i8 %357, 68
-  br i1 %358, label %359, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit30.i.thread
+  %357 = sext i32 %.val12.i28.i to i64
+  %358 = getelementptr inbounds i8, ptr %.val11.i27.i, i64 %357
+  %359 = load i8, ptr %358, align 1, !tbaa !4
+  %360 = icmp eq i8 %359, 68
+  br i1 %360, label %361, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit30.i.thread
 
-359:                                              ; preds = %354
-  %360 = getelementptr inbounds nuw i8, ptr %356, i64 1
-  %361 = load i8, ptr %360, align 1, !tbaa !4
-  %362 = icmp eq i8 %361, 119
-  br i1 %362, label %363, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit30.i.thread
+361:                                              ; preds = %356
+  %362 = getelementptr inbounds nuw i8, ptr %358, i64 1
+  %363 = load i8, ptr %362, align 1, !tbaa !4
+  %364 = icmp eq i8 %363, 119
+  br i1 %364, label %365, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit30.i.thread
 
-_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit30.i.thread: ; preds = %359, %354, %347
-  store i32 %349, ptr %8, align 4, !tbaa !17
+_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit30.i.thread: ; preds = %361, %356, %349
+  store i32 %351, ptr %8, align 4, !tbaa !17
   br label %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.i.thread
 
-363:                                              ; preds = %359
-  %364 = add nsw i32 %.val12.i28.i, 2
-  store i32 %364, ptr %17, align 4, !tbaa !16
-  store i32 %349, ptr %8, align 4, !tbaa !17
-  %365 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL9ParseTypeEPNS0_5StateE(ptr noundef nonnull %0)
+365:                                              ; preds = %361
+  %366 = add nsw i32 %.val12.i28.i, 2
+  store i32 %366, ptr %17, align 4, !tbaa !16
+  store i32 %351, ptr %8, align 4, !tbaa !17
+  %367 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL9ParseTypeEPNS0_5StateE(ptr noundef nonnull %0)
           to label %.noexc.i unwind label %.loopexit.split-lp
 
-.noexc.i:                                         ; preds = %363
-  br i1 %365, label %.preheader.i.i, label %.noexc.i._ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.i.thread_crit_edge
+.noexc.i:                                         ; preds = %365
+  br i1 %367, label %.preheader.i.i, label %.noexc.i._ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.i.thread_crit_edge
 
 .noexc.i._ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.i.thread_crit_edge: ; preds = %.noexc.i
   %.pre164.pre.pre = load i32, ptr %8, align 4, !tbaa !17
@@ -7379,597 +7395,597 @@ _ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit30.i.thread
   br label %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.i.thread
 
 .preheader.i.i:                                   ; preds = %.noexc.i, %.noexc31.i
-  %366 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL9ParseTypeEPNS0_5StateE(ptr noundef nonnull %0)
+  %368 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL9ParseTypeEPNS0_5StateE(ptr noundef nonnull %0)
           to label %.noexc31.i unwind label %.loopexit
 
 .noexc31.i:                                       ; preds = %.preheader.i.i
-  br i1 %366, label %.preheader.i.i, label %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.i, !llvm.loop !33
+  br i1 %368, label %.preheader.i.i, label %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.i, !llvm.loop !34
 
 _ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.i: ; preds = %.noexc31.i
-  %367 = load i32, ptr %8, align 4, !tbaa !17
-  %368 = add nsw i32 %367, 1
-  store i32 %368, ptr %8, align 4, !tbaa !17
-  %369 = load i32, ptr %11, align 8, !tbaa !15
+  %369 = load i32, ptr %8, align 4, !tbaa !17
   %370 = add nsw i32 %369, 1
-  store i32 %370, ptr %11, align 8, !tbaa !15
-  %371 = icmp sgt i32 %367, 255
-  %372 = icmp sgt i32 %369, 131071
-  %or.cond.i32.i = select i1 %371, i1 true, i1 %372
-  br i1 %or.cond.i32.i, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit36.i.thread, label %373
+  store i32 %370, ptr %8, align 4, !tbaa !17
+  %371 = load i32, ptr %11, align 8, !tbaa !15
+  %372 = add nsw i32 %371, 1
+  store i32 %372, ptr %11, align 8, !tbaa !15
+  %373 = icmp sgt i32 %369, 255
+  %374 = icmp sgt i32 %371, 131071
+  %or.cond.i32.i = select i1 %373, i1 true, i1 %374
+  br i1 %or.cond.i32.i, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit36.i.thread, label %375
 
-373:                                              ; preds = %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.i
+375:                                              ; preds = %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.i
   %.val6.i33.i = load ptr, ptr %0, align 8, !tbaa !7
   %.val7.i34.i = load i32, ptr %17, align 4, !tbaa !16
-  %374 = sext i32 %.val7.i34.i to i64
-  %375 = getelementptr inbounds i8, ptr %.val6.i33.i, i64 %374
-  %376 = load i8, ptr %375, align 1, !tbaa !4
-  %377 = icmp eq i8 %376, 69
-  br i1 %377, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit36.i, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit36.i.thread
+  %376 = sext i32 %.val7.i34.i to i64
+  %377 = getelementptr inbounds i8, ptr %.val6.i33.i, i64 %376
+  %378 = load i8, ptr %377, align 1, !tbaa !4
+  %379 = icmp eq i8 %378, 69
+  br i1 %379, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit36.i, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit36.i.thread
 
-_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit36.i.thread: ; preds = %373, %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.i
-  store i32 %367, ptr %8, align 4, !tbaa !17
+_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit36.i.thread: ; preds = %375, %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.i
+  store i32 %369, ptr %8, align 4, !tbaa !17
   br label %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.i.thread
 
-_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit36.i: ; preds = %373
-  %378 = add nsw i32 %.val7.i34.i, 1
-  store i32 %378, ptr %17, align 4, !tbaa !16
-  store i32 %367, ptr %8, align 4, !tbaa !17
-  br label %379
+_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit36.i: ; preds = %375
+  %380 = add nsw i32 %.val7.i34.i, 1
+  store i32 %380, ptr %17, align 4, !tbaa !16
+  store i32 %369, ptr %8, align 4, !tbaa !17
+  br label %381
 
 _ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.i.thread: ; preds = %.noexc.i._ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.i.thread_crit_edge, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit36.i.thread, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit30.i.thread
-  %.pre165.pre = phi i32 [ %.pre165.pre.pre, %.noexc.i._ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.i.thread_crit_edge ], [ %370, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit36.i.thread ], [ %351, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit30.i.thread ]
-  %.pre164.pre = phi i32 [ %.pre164.pre.pre, %.noexc.i._ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.i.thread_crit_edge ], [ %367, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit36.i.thread ], [ %349, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit30.i.thread ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false), !tbaa.struct !30
-  br label %379
+  %.pre165.pre = phi i32 [ %.pre165.pre.pre, %.noexc.i._ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.i.thread_crit_edge ], [ %372, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit36.i.thread ], [ %353, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit30.i.thread ]
+  %.pre164.pre = phi i32 [ %.pre164.pre.pre, %.noexc.i._ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.i.thread_crit_edge ], [ %369, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit36.i.thread ], [ %351, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit30.i.thread ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false), !tbaa.struct !31
+  br label %381
 
-379:                                              ; preds = %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit36.i, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.i, %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.i.thread
-  %.pre165 = phi i32 [ %370, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit36.i ], [ %335, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.i ], [ %.pre165.pre, %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.i.thread ]
-  %.pre164 = phi i32 [ %367, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit36.i ], [ %.pre162, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.i ], [ %.pre164.pre, %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.i.thread ]
+381:                                              ; preds = %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit36.i, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.i, %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.i.thread
+  %.pre165 = phi i32 [ %372, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit36.i ], [ %337, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.i ], [ %.pre165.pre, %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.i.thread ]
+  %.pre164 = phi i32 [ %369, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit36.i ], [ %.pre162, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.i ], [ %.pre164.pre, %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.i.thread ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   br label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.i.thread
 
-_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.i.thread: ; preds = %297, %379, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.i
-  %380 = phi i32 [ %299, %297 ], [ %.pre165, %379 ], [ %304, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.i ]
-  %381 = phi i32 [ %298, %297 ], [ %.pre164, %379 ], [ %298, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.i ]
-  %382 = add nsw i32 %381, -1
-  %383 = add nsw i32 %380, 1
-  store i32 %383, ptr %11, align 8, !tbaa !15
-  %384 = icmp sgt i32 %381, 256
-  %385 = icmp sgt i32 %380, 131071
-  %or.cond.i88 = select i1 %384, i1 true, i1 %385
-  br i1 %or.cond.i88, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit92, label %386
+_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.i.thread: ; preds = %299, %381, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.i
+  %382 = phi i32 [ %301, %299 ], [ %.pre165, %381 ], [ %306, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.i ]
+  %383 = phi i32 [ %300, %299 ], [ %.pre164, %381 ], [ %300, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.i ]
+  %384 = add nsw i32 %383, -1
+  %385 = add nsw i32 %382, 1
+  store i32 %385, ptr %11, align 8, !tbaa !15
+  %386 = icmp sgt i32 %383, 256
+  %387 = icmp sgt i32 %382, 131071
+  %or.cond.i88 = select i1 %386, i1 true, i1 %387
+  br i1 %or.cond.i88, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit92, label %388
 
-386:                                              ; preds = %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.i.thread
+388:                                              ; preds = %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.i.thread
   %.val11.i89 = load ptr, ptr %0, align 8, !tbaa !7
   %.val12.i90 = load i32, ptr %17, align 4, !tbaa !16
-  %387 = sext i32 %.val12.i90 to i64
-  %388 = getelementptr inbounds i8, ptr %.val11.i89, i64 %387
-  %389 = load i8, ptr %388, align 1, !tbaa !4
-  %390 = icmp eq i8 %389, 68
-  br i1 %390, label %391, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit92
+  %389 = sext i32 %.val12.i90 to i64
+  %390 = getelementptr inbounds i8, ptr %.val11.i89, i64 %389
+  %391 = load i8, ptr %390, align 1, !tbaa !4
+  %392 = icmp eq i8 %391, 68
+  br i1 %392, label %393, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit92
 
-391:                                              ; preds = %386
-  %392 = getelementptr inbounds nuw i8, ptr %388, i64 1
-  %393 = load i8, ptr %392, align 1, !tbaa !4
-  %394 = icmp eq i8 %393, 120
-  br i1 %394, label %395, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit92
+393:                                              ; preds = %388
+  %394 = getelementptr inbounds nuw i8, ptr %390, i64 1
+  %395 = load i8, ptr %394, align 1, !tbaa !4
+  %396 = icmp eq i8 %395, 120
+  br i1 %396, label %397, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit92
 
-395:                                              ; preds = %391
-  %396 = add nsw i32 %.val12.i90, 2
-  store i32 %396, ptr %17, align 4, !tbaa !16
+397:                                              ; preds = %393
+  %398 = add nsw i32 %.val12.i90, 2
+  store i32 %398, ptr %17, align 4, !tbaa !16
   br label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit92
 
-_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit92: ; preds = %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.i.thread, %386, %391, %395
-  store i32 %381, ptr %8, align 4, !tbaa !17
-  %397 = add nsw i32 %380, 2
-  store i32 %397, ptr %11, align 8, !tbaa !15
-  %398 = icmp sgt i32 %380, 131070
-  %or.cond.i83 = select i1 %384, i1 true, i1 %398
-  br i1 %or.cond.i83, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit87.thread, label %399
+_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit92: ; preds = %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.i.thread, %388, %393, %397
+  store i32 %383, ptr %8, align 4, !tbaa !17
+  %399 = add nsw i32 %382, 2
+  store i32 %399, ptr %11, align 8, !tbaa !15
+  %400 = icmp sgt i32 %382, 131070
+  %or.cond.i83 = select i1 %386, i1 true, i1 %400
+  br i1 %or.cond.i83, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit87.thread, label %401
 
-399:                                              ; preds = %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit92
+401:                                              ; preds = %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit92
   %.val6.i84 = load ptr, ptr %0, align 8, !tbaa !7
   %.val7.i85 = load i32, ptr %17, align 4, !tbaa !16
-  %400 = sext i32 %.val7.i85 to i64
-  %401 = getelementptr inbounds i8, ptr %.val6.i84, i64 %400
-  %402 = load i8, ptr %401, align 1, !tbaa !4
-  %403 = icmp eq i8 %402, 70
-  br i1 %403, label %408, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit87.thread
+  %402 = sext i32 %.val7.i85 to i64
+  %403 = getelementptr inbounds i8, ptr %.val6.i84, i64 %402
+  %404 = load i8, ptr %403, align 1, !tbaa !4
+  %405 = icmp eq i8 %404, 70
+  br i1 %405, label %410, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit87.thread
 
-_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit87.thread: ; preds = %399, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit92
-  store i32 %382, ptr %8, align 4, !tbaa !17
-  br label %425
+_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit87.thread: ; preds = %401, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit92
+  store i32 %384, ptr %8, align 4, !tbaa !17
+  br label %427
 
-404:                                              ; preds = %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit
-  %405 = landingpad { ptr, i32 }
+406:                                              ; preds = %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit
+  %407 = landingpad { ptr, i32 }
           cleanup
   %.pre166 = load i32, ptr %8, align 4, !tbaa !17
   br label %.body96
 
-.body96:                                          ; preds = %344, %404
-  %406 = phi i32 [ %.pre166, %404 ], [ %346, %344 ]
-  %eh.lpad-body97 = phi { ptr, i32 } [ %405, %404 ], [ %lpad.phi, %344 ]
+.body96:                                          ; preds = %346, %406
+  %408 = phi i32 [ %.pre166, %406 ], [ %348, %346 ]
+  %eh.lpad-body97 = phi { ptr, i32 } [ %407, %406 ], [ %lpad.phi, %346 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %407 = add nsw i32 %406, -1
-  store i32 %407, ptr %8, align 4, !tbaa !17
+  %409 = add nsw i32 %408, -1
+  store i32 %409, ptr %8, align 4, !tbaa !17
   br label %.body
 
-408:                                              ; preds = %399
-  %409 = add nsw i32 %.val7.i85, 1
-  store i32 %409, ptr %17, align 4, !tbaa !16
-  store i32 %381, ptr %8, align 4, !tbaa !17
-  %410 = add nsw i32 %380, 3
-  store i32 %410, ptr %11, align 8, !tbaa !15
-  %411 = icmp sgt i32 %380, 131069
-  br i1 %411, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit, label %412
+410:                                              ; preds = %401
+  %411 = add nsw i32 %.val7.i85, 1
+  store i32 %411, ptr %17, align 4, !tbaa !16
+  store i32 %383, ptr %8, align 4, !tbaa !17
+  %412 = add nsw i32 %382, 3
+  store i32 %412, ptr %11, align 8, !tbaa !15
+  %413 = icmp sgt i32 %382, 131069
+  br i1 %413, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit, label %414
 
-412:                                              ; preds = %408
-  %413 = sext i32 %409 to i64
-  %414 = getelementptr inbounds i8, ptr %.val6.i84, i64 %413
-  %415 = load i8, ptr %414, align 1, !tbaa !4
-  %416 = icmp eq i8 %415, 89
-  br i1 %416, label %417, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit
+414:                                              ; preds = %410
+  %415 = sext i32 %411 to i64
+  %416 = getelementptr inbounds i8, ptr %.val6.i84, i64 %415
+  %417 = load i8, ptr %416, align 1, !tbaa !4
+  %418 = icmp eq i8 %417, 89
+  br i1 %418, label %419, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit
 
-417:                                              ; preds = %412
-  %418 = add nsw i32 %.val7.i85, 2
-  store i32 %418, ptr %17, align 4, !tbaa !16
+419:                                              ; preds = %414
+  %420 = add nsw i32 %.val7.i85, 2
+  store i32 %420, ptr %17, align 4, !tbaa !16
   br label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit
 
-_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit: ; preds = %408, %412, %417
-  store i32 %382, ptr %8, align 4, !tbaa !17
-  %419 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL21ParseBareFunctionTypeEPNS0_5StateE(ptr noundef nonnull %0)
-          to label %420 unwind label %404
+_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit: ; preds = %410, %414, %419
+  store i32 %384, ptr %8, align 4, !tbaa !17
+  %421 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL21ParseBareFunctionTypeEPNS0_5StateE(ptr noundef nonnull %0)
+          to label %422 unwind label %406
 
-420:                                              ; preds = %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit
-  br i1 %419, label %421, label %._crit_edge171
+422:                                              ; preds = %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit
+  br i1 %421, label %423, label %._crit_edge171
 
-._crit_edge171:                                   ; preds = %420
+._crit_edge171:                                   ; preds = %422
   %storemerge.in.pre.pre = load i32, ptr %8, align 4, !tbaa !17
-  br label %425
+  br label %427
 
-421:                                              ; preds = %420
-  %422 = call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc(ptr noundef nonnull %0, ptr noundef nonnull @.str.123)
-  %423 = call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc(ptr noundef nonnull %0, i8 noundef signext 69)
+423:                                              ; preds = %422
+  %424 = call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc(ptr noundef nonnull %0, ptr noundef nonnull @.str.123)
+  %425 = call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc(ptr noundef nonnull %0, i8 noundef signext 69)
   %storemerge.in.pre.pre172 = load i32, ptr %8, align 4, !tbaa !17
-  br i1 %423, label %.thread135, label %425
+  br i1 %425, label %.thread135, label %427
 
-.thread135:                                       ; preds = %421
+.thread135:                                       ; preds = %423
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %424 = add nsw i32 %storemerge.in.pre.pre172, -1
-  store i32 %424, ptr %8, align 4, !tbaa !17
-  br label %590
+  %426 = add nsw i32 %storemerge.in.pre.pre172, -1
+  store i32 %426, ptr %8, align 4, !tbaa !17
+  br label %592
 
-425:                                              ; preds = %._crit_edge171, %421, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit87.thread
-  %storemerge.in.pre = phi i32 [ %storemerge.in.pre.pre, %._crit_edge171 ], [ %storemerge.in.pre.pre172, %421 ], [ %382, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit87.thread ]
+427:                                              ; preds = %._crit_edge171, %423, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit87.thread
+  %storemerge.in.pre = phi i32 [ %storemerge.in.pre.pre, %._crit_edge171 ], [ %storemerge.in.pre.pre172, %423 ], [ %384, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit87.thread ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) %5, i64 16, i1 false)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br label %.thread133
 
-.thread133:                                       ; preds = %.sink.split184, %425
-  %storemerge.in = phi i32 [ %292, %.sink.split184 ], [ %storemerge.in.pre, %425 ]
+.thread133:                                       ; preds = %.sink.split184, %427
+  %storemerge.in = phi i32 [ %294, %.sink.split184 ], [ %storemerge.in.pre, %427 ]
   %storemerge = add nsw i32 %storemerge.in, -1
   store i32 %storemerge, ptr %8, align 4, !tbaa !17
-  %426 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL18ParseClassEnumTypeEPNS0_5StateE(ptr noundef nonnull %0)
-          to label %427 unwind label %24
+  %428 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL18ParseClassEnumTypeEPNS0_5StateE(ptr noundef nonnull %0)
+          to label %429 unwind label %24
 
-427:                                              ; preds = %.thread133
-  br i1 %426, label %590, label %428
+429:                                              ; preds = %.thread133
+  br i1 %428, label %592, label %430
 
-428:                                              ; preds = %427
-  %429 = load i32, ptr %8, align 4, !tbaa !17
-  %430 = add nsw i32 %429, 1
-  store i32 %430, ptr %8, align 4, !tbaa !17
-  %431 = load i32, ptr %11, align 8, !tbaa !15
+430:                                              ; preds = %429
+  %431 = load i32, ptr %8, align 4, !tbaa !17
   %432 = add nsw i32 %431, 1
-  store i32 %432, ptr %11, align 8, !tbaa !15
-  %433 = icmp sgt i32 %429, 255
-  %434 = icmp sgt i32 %431, 131071
-  %or.cond.i202 = select i1 %433, i1 true, i1 %434
-  br i1 %or.cond.i202, label %.thread229, label %435
+  store i32 %432, ptr %8, align 4, !tbaa !17
+  %433 = load i32, ptr %11, align 8, !tbaa !15
+  %434 = add nsw i32 %433, 1
+  store i32 %434, ptr %11, align 8, !tbaa !15
+  %435 = icmp sgt i32 %431, 255
+  %436 = icmp sgt i32 %433, 131071
+  %or.cond.i202 = select i1 %435, i1 true, i1 %436
+  br i1 %or.cond.i202, label %.thread230, label %437
 
-435:                                              ; preds = %428
+437:                                              ; preds = %430
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %17, i64 16, i1 false), !tbaa.struct !30
-  %436 = add nsw i32 %429, 2
-  store i32 %436, ptr %8, align 4, !tbaa !17
-  %437 = add nsw i32 %431, 2
-  store i32 %437, ptr %11, align 8, !tbaa !15
-  %438 = icmp sgt i32 %429, 254
-  %439 = icmp sgt i32 %431, 131070
-  %or.cond.i.i203 = select i1 %438, i1 true, i1 %439
-  br i1 %or.cond.i.i203, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i206, label %440
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %17, i64 16, i1 false), !tbaa.struct !31
+  %438 = add nsw i32 %431, 2
+  store i32 %438, ptr %8, align 4, !tbaa !17
+  %439 = add nsw i32 %433, 2
+  store i32 %439, ptr %11, align 8, !tbaa !15
+  %440 = icmp sgt i32 %431, 254
+  %441 = icmp sgt i32 %433, 131070
+  %or.cond.i.i203 = select i1 %440, i1 true, i1 %441
+  br i1 %or.cond.i.i203, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i206, label %442
 
-440:                                              ; preds = %435
+442:                                              ; preds = %437
   %.val6.i.i204 = load ptr, ptr %0, align 8, !tbaa !7
   %.val7.i.i205 = load i32, ptr %17, align 4, !tbaa !16
-  %441 = sext i32 %.val7.i.i205 to i64
-  %442 = getelementptr inbounds i8, ptr %.val6.i.i204, i64 %441
-  %443 = load i8, ptr %442, align 1, !tbaa !4
-  %444 = icmp eq i8 %443, 65
-  br i1 %444, label %445, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i206
+  %443 = sext i32 %.val7.i.i205 to i64
+  %444 = getelementptr inbounds i8, ptr %.val6.i.i204, i64 %443
+  %445 = load i8, ptr %444, align 1, !tbaa !4
+  %446 = icmp eq i8 %445, 65
+  br i1 %446, label %447, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i206
 
-_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i206: ; preds = %440, %435
-  store i32 %430, ptr %8, align 4, !tbaa !17
-  br label %492
+_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i206: ; preds = %442, %437
+  store i32 %432, ptr %8, align 4, !tbaa !17
+  br label %494
 
-445:                                              ; preds = %440
-  %446 = add nsw i32 %.val7.i.i205, 1
-  store i32 %446, ptr %17, align 4, !tbaa !16
-  store i32 %430, ptr %8, align 4, !tbaa !17
-  %447 = add nsw i32 %431, 3
-  store i32 %447, ptr %11, align 8, !tbaa !15
-  %448 = icmp sgt i32 %431, 131069
-  br i1 %448, label %_ZN4absl18debugging_internalL11ParseNumberEPNS0_5StateEPi.exit.thread.i, label %449
+447:                                              ; preds = %442
+  %448 = add nsw i32 %.val7.i.i205, 1
+  store i32 %448, ptr %17, align 4, !tbaa !16
+  store i32 %432, ptr %8, align 4, !tbaa !17
+  %449 = add nsw i32 %433, 3
+  store i32 %449, ptr %11, align 8, !tbaa !15
+  %450 = icmp sgt i32 %433, 131069
+  br i1 %450, label %_ZN4absl18debugging_internalL11ParseNumberEPNS0_5StateEPi.exit.thread.i, label %451
 
-449:                                              ; preds = %445
-  %450 = add nsw i32 %429, 3
-  store i32 %450, ptr %8, align 4, !tbaa !17
-  %451 = add nsw i32 %431, 4
-  store i32 %451, ptr %11, align 8, !tbaa !15
-  %452 = icmp sgt i32 %429, 253
-  %453 = icmp eq i32 %431, 131069
-  %or.cond.i.i.i = select i1 %452, i1 true, i1 %453
-  br i1 %or.cond.i.i.i, label %._crit_edge44.i.i, label %454
+451:                                              ; preds = %447
+  %452 = add nsw i32 %431, 3
+  store i32 %452, ptr %8, align 4, !tbaa !17
+  %453 = add nsw i32 %433, 4
+  store i32 %453, ptr %11, align 8, !tbaa !15
+  %454 = icmp sgt i32 %431, 253
+  %455 = icmp eq i32 %433, 131069
+  %or.cond.i.i.i = select i1 %454, i1 true, i1 %455
+  br i1 %or.cond.i.i.i, label %._crit_edge44.i.i, label %456
 
-454:                                              ; preds = %449
-  %455 = sext i32 %446 to i64
-  %456 = getelementptr inbounds i8, ptr %.val6.i.i204, i64 %455
-  %457 = load i8, ptr %456, align 1, !tbaa !4
-  %458 = icmp eq i8 %457, 110
-  br i1 %458, label %459, label %._crit_edge44.i.i
+456:                                              ; preds = %451
+  %457 = sext i32 %448 to i64
+  %458 = getelementptr inbounds i8, ptr %.val6.i.i204, i64 %457
+  %459 = load i8, ptr %458, align 1, !tbaa !4
+  %460 = icmp eq i8 %459, 110
+  br i1 %460, label %461, label %._crit_edge44.i.i
 
-459:                                              ; preds = %454
-  %460 = add nsw i32 %.val7.i.i205, 2
-  store i32 %460, ptr %17, align 4, !tbaa !16
+461:                                              ; preds = %456
+  %462 = add nsw i32 %.val7.i.i205, 2
+  store i32 %462, ptr %17, align 4, !tbaa !16
   br label %._crit_edge44.i.i
 
-._crit_edge44.i.i:                                ; preds = %459, %454, %449
-  %.val35.i.i = phi i32 [ %460, %459 ], [ %446, %454 ], [ %446, %449 ]
-  store i32 %436, ptr %8, align 4, !tbaa !17
-  %461 = sext i32 %.val35.i.i to i64
-  %462 = getelementptr inbounds i8, ptr %.val6.i.i204, i64 %461
-  %463 = load i8, ptr %462, align 1, !tbaa !4
-  %464 = add i8 %463, -48
-  %465 = icmp ult i8 %464, 10
-  br i1 %465, label %.lr.ph.i.i, label %_ZN4absl18debugging_internalL11ParseNumberEPNS0_5StateEPi.exit.thread.i
+._crit_edge44.i.i:                                ; preds = %461, %456, %451
+  %.val35.i.i = phi i32 [ %462, %461 ], [ %448, %456 ], [ %448, %451 ]
+  store i32 %438, ptr %8, align 4, !tbaa !17
+  %463 = sext i32 %.val35.i.i to i64
+  %464 = getelementptr inbounds i8, ptr %.val6.i.i204, i64 %463
+  %465 = load i8, ptr %464, align 1, !tbaa !4
+  %466 = add i8 %465, -48
+  %467 = icmp ult i8 %466, 10
+  br i1 %467, label %.lr.ph.i.i209, label %_ZN4absl18debugging_internalL11ParseNumberEPNS0_5StateEPi.exit.thread.i
 
-.lr.ph.i.i:                                       ; preds = %._crit_edge44.i.i, %.lr.ph.i.i
-  %.02140.i.i = phi ptr [ %466, %.lr.ph.i.i ], [ %462, %._crit_edge44.i.i ]
-  %466 = getelementptr inbounds nuw i8, ptr %.02140.i.i, i64 1
-  %467 = load i8, ptr %466, align 1, !tbaa !4
-  %468 = add i8 %467, -48
-  %469 = icmp ult i8 %468, 10
-  br i1 %469, label %.lr.ph.i.i, label %471, !llvm.loop !42
+.lr.ph.i.i209:                                    ; preds = %._crit_edge44.i.i, %.lr.ph.i.i209
+  %.02140.i.i = phi ptr [ %468, %.lr.ph.i.i209 ], [ %464, %._crit_edge44.i.i ]
+  %468 = getelementptr inbounds nuw i8, ptr %.02140.i.i, i64 1
+  %469 = load i8, ptr %468, align 1, !tbaa !4
+  %470 = add i8 %469, -48
+  %471 = icmp ult i8 %470, 10
+  br i1 %471, label %.lr.ph.i.i209, label %473, !llvm.loop !43
 
-_ZN4absl18debugging_internalL11ParseNumberEPNS0_5StateEPi.exit.thread.i: ; preds = %._crit_edge44.i.i, %445
-  %470 = phi i32 [ 131073, %445 ], [ %451, %._crit_edge44.i.i ]
-  store i32 %430, ptr %8, align 4, !tbaa !17
-  br label %492
+_ZN4absl18debugging_internalL11ParseNumberEPNS0_5StateEPi.exit.thread.i: ; preds = %._crit_edge44.i.i, %447
+  %472 = phi i32 [ 131073, %447 ], [ %453, %._crit_edge44.i.i ]
+  store i32 %432, ptr %8, align 4, !tbaa !17
+  br label %494
 
-471:                                              ; preds = %.lr.ph.i.i
-  %472 = ptrtoint ptr %466 to i64
-  %473 = ptrtoint ptr %462 to i64
-  %474 = sub i64 %472, %473
-  %475 = trunc i64 %474 to i32
-  %476 = add i32 %.val35.i.i, %475
-  store i32 %476, ptr %17, align 4, !tbaa !16
-  store i32 %436, ptr %8, align 4, !tbaa !17
-  %477 = add nsw i32 %431, 5
-  store i32 %477, ptr %11, align 8, !tbaa !15
-  %478 = icmp sgt i32 %431, 131067
-  br i1 %478, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit22.thread.i, label %479
+473:                                              ; preds = %.lr.ph.i.i209
+  %474 = ptrtoint ptr %468 to i64
+  %475 = ptrtoint ptr %464 to i64
+  %476 = sub i64 %474, %475
+  %477 = trunc i64 %476 to i32
+  %478 = add i32 %.val35.i.i, %477
+  store i32 %478, ptr %17, align 4, !tbaa !16
+  store i32 %438, ptr %8, align 4, !tbaa !17
+  %479 = add nsw i32 %433, 5
+  store i32 %479, ptr %11, align 8, !tbaa !15
+  %480 = icmp sgt i32 %433, 131067
+  br i1 %480, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit22.thread.i, label %481
 
-479:                                              ; preds = %471
-  %480 = sext i32 %476 to i64
-  %481 = getelementptr inbounds i8, ptr %.val6.i.i204, i64 %480
-  %482 = load i8, ptr %481, align 1, !tbaa !4
-  %483 = icmp eq i8 %482, 95
-  br i1 %483, label %484, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit22.thread.i
+481:                                              ; preds = %473
+  %482 = sext i32 %478 to i64
+  %483 = getelementptr inbounds i8, ptr %.val6.i.i204, i64 %482
+  %484 = load i8, ptr %483, align 1, !tbaa !4
+  %485 = icmp eq i8 %484, 95
+  br i1 %485, label %486, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit22.thread.i
 
-_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit22.thread.i: ; preds = %479, %471
-  store i32 %430, ptr %8, align 4, !tbaa !17
-  br label %492
+_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit22.thread.i: ; preds = %481, %473
+  store i32 %432, ptr %8, align 4, !tbaa !17
+  br label %494
 
-484:                                              ; preds = %479
-  %485 = add nsw i32 %476, 1
-  store i32 %485, ptr %17, align 4, !tbaa !16
-  store i32 %430, ptr %8, align 4, !tbaa !17
-  %486 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL9ParseTypeEPNS0_5StateE(ptr noundef nonnull %0)
-          to label %487 unwind label %488
+486:                                              ; preds = %481
+  %487 = add nsw i32 %478, 1
+  store i32 %487, ptr %17, align 4, !tbaa !16
+  store i32 %432, ptr %8, align 4, !tbaa !17
+  %488 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL9ParseTypeEPNS0_5StateE(ptr noundef nonnull %0)
+          to label %489 unwind label %490
 
-487:                                              ; preds = %484
-  br i1 %486, label %.thread231, label %._crit_edge.i
+489:                                              ; preds = %486
+  br i1 %488, label %.thread232, label %._crit_edge.i
 
-._crit_edge.i:                                    ; preds = %487
-  %.pre.i209 = load i32, ptr %8, align 4, !tbaa !17
+._crit_edge.i:                                    ; preds = %489
+  %.pre.i210 = load i32, ptr %8, align 4, !tbaa !17
   %.pre39.i = load i32, ptr %11, align 8, !tbaa !15
-  br label %492
+  br label %494
 
-488:                                              ; preds = %519, %504, %484
-  %489 = landingpad { ptr, i32 }
+490:                                              ; preds = %521, %506, %486
+  %491 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %490 = load i32, ptr %8, align 4, !tbaa !17
-  %491 = add nsw i32 %490, -1
-  store i32 %491, ptr %8, align 4, !tbaa !17
+  %492 = load i32, ptr %8, align 4, !tbaa !17
+  %493 = add nsw i32 %492, -1
+  store i32 %493, ptr %8, align 4, !tbaa !17
   br label %.body
 
-492:                                              ; preds = %._crit_edge.i, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit22.thread.i, %_ZN4absl18debugging_internalL11ParseNumberEPNS0_5StateEPi.exit.thread.i, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i206
-  %493 = phi i32 [ %.pre39.i, %._crit_edge.i ], [ %477, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit22.thread.i ], [ %470, %_ZN4absl18debugging_internalL11ParseNumberEPNS0_5StateEPi.exit.thread.i ], [ %437, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i206 ]
-  %494 = phi i32 [ %.pre.i209, %._crit_edge.i ], [ %430, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit22.thread.i ], [ %430, %_ZN4absl18debugging_internalL11ParseNumberEPNS0_5StateEPi.exit.thread.i ], [ %430, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i206 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !30
-  %495 = add nsw i32 %494, 1
-  store i32 %495, ptr %8, align 4, !tbaa !17
-  %496 = add nsw i32 %493, 1
-  store i32 %496, ptr %11, align 8, !tbaa !15
-  %497 = icmp sgt i32 %494, 255
-  %498 = icmp sgt i32 %493, 131071
-  %or.cond.i23.i = select i1 %497, i1 true, i1 %498
-  br i1 %or.cond.i23.i, label %.sink.split.i, label %499
+494:                                              ; preds = %._crit_edge.i, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit22.thread.i, %_ZN4absl18debugging_internalL11ParseNumberEPNS0_5StateEPi.exit.thread.i, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i206
+  %495 = phi i32 [ %.pre39.i, %._crit_edge.i ], [ %479, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit22.thread.i ], [ %472, %_ZN4absl18debugging_internalL11ParseNumberEPNS0_5StateEPi.exit.thread.i ], [ %439, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i206 ]
+  %496 = phi i32 [ %.pre.i210, %._crit_edge.i ], [ %432, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit22.thread.i ], [ %432, %_ZN4absl18debugging_internalL11ParseNumberEPNS0_5StateEPi.exit.thread.i ], [ %432, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i206 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !31
+  %497 = add nsw i32 %496, 1
+  store i32 %497, ptr %8, align 4, !tbaa !17
+  %498 = add nsw i32 %495, 1
+  store i32 %498, ptr %11, align 8, !tbaa !15
+  %499 = icmp sgt i32 %496, 255
+  %500 = icmp sgt i32 %495, 131071
+  %or.cond.i23.i = select i1 %499, i1 true, i1 %500
+  br i1 %or.cond.i23.i, label %.sink.split.i, label %501
 
-499:                                              ; preds = %492
+501:                                              ; preds = %494
   %.val6.i24.i = load ptr, ptr %0, align 8, !tbaa !7
   %.val7.i25.i = load i32, ptr %17, align 4, !tbaa !16
-  %500 = sext i32 %.val7.i25.i to i64
-  %501 = getelementptr inbounds i8, ptr %.val6.i24.i, i64 %500
-  %502 = load i8, ptr %501, align 1, !tbaa !4
-  %503 = icmp eq i8 %502, 65
-  br i1 %503, label %504, label %.sink.split.i
+  %502 = sext i32 %.val7.i25.i to i64
+  %503 = getelementptr inbounds i8, ptr %.val6.i24.i, i64 %502
+  %504 = load i8, ptr %503, align 1, !tbaa !4
+  %505 = icmp eq i8 %504, 65
+  br i1 %505, label %506, label %.sink.split.i
 
-504:                                              ; preds = %499
-  %505 = add nsw i32 %.val7.i25.i, 1
-  store i32 %505, ptr %17, align 4, !tbaa !16
-  store i32 %494, ptr %8, align 4, !tbaa !17
-  %506 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL15ParseExpressionEPNS0_5StateE(ptr noundef nonnull %0)
-          to label %507 unwind label %488
+506:                                              ; preds = %501
+  %507 = add nsw i32 %.val7.i25.i, 1
+  store i32 %507, ptr %17, align 4, !tbaa !16
+  store i32 %496, ptr %8, align 4, !tbaa !17
+  %508 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL15ParseExpressionEPNS0_5StateE(ptr noundef nonnull %0)
+          to label %509 unwind label %490
 
-507:                                              ; preds = %504
-  %508 = load i32, ptr %8, align 4, !tbaa !17
-  %509 = add nsw i32 %508, 1
-  store i32 %509, ptr %8, align 4, !tbaa !17
-  %510 = load i32, ptr %11, align 8, !tbaa !15
+509:                                              ; preds = %506
+  %510 = load i32, ptr %8, align 4, !tbaa !17
   %511 = add nsw i32 %510, 1
-  store i32 %511, ptr %11, align 8, !tbaa !15
-  %512 = icmp sgt i32 %508, 255
-  %513 = icmp sgt i32 %510, 131071
-  %or.cond.i28.i = select i1 %512, i1 true, i1 %513
-  br i1 %or.cond.i28.i, label %.sink.split.i, label %514
+  store i32 %511, ptr %8, align 4, !tbaa !17
+  %512 = load i32, ptr %11, align 8, !tbaa !15
+  %513 = add nsw i32 %512, 1
+  store i32 %513, ptr %11, align 8, !tbaa !15
+  %514 = icmp sgt i32 %510, 255
+  %515 = icmp sgt i32 %512, 131071
+  %or.cond.i28.i = select i1 %514, i1 true, i1 %515
+  br i1 %or.cond.i28.i, label %.sink.split.i, label %516
 
-514:                                              ; preds = %507
+516:                                              ; preds = %509
   %.val6.i29.i = load ptr, ptr %0, align 8, !tbaa !7
   %.val7.i30.i = load i32, ptr %17, align 4, !tbaa !16
-  %515 = sext i32 %.val7.i30.i to i64
-  %516 = getelementptr inbounds i8, ptr %.val6.i29.i, i64 %515
-  %517 = load i8, ptr %516, align 1, !tbaa !4
-  %518 = icmp eq i8 %517, 95
-  br i1 %518, label %519, label %.sink.split.i
+  %517 = sext i32 %.val7.i30.i to i64
+  %518 = getelementptr inbounds i8, ptr %.val6.i29.i, i64 %517
+  %519 = load i8, ptr %518, align 1, !tbaa !4
+  %520 = icmp eq i8 %519, 95
+  br i1 %520, label %521, label %.sink.split.i
 
-519:                                              ; preds = %514
-  %520 = add nsw i32 %.val7.i30.i, 1
-  store i32 %520, ptr %17, align 4, !tbaa !16
-  store i32 %508, ptr %8, align 4, !tbaa !17
-  %521 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL9ParseTypeEPNS0_5StateE(ptr noundef nonnull %0)
-          to label %522 unwind label %488
+521:                                              ; preds = %516
+  %522 = add nsw i32 %.val7.i30.i, 1
+  store i32 %522, ptr %17, align 4, !tbaa !16
+  store i32 %510, ptr %8, align 4, !tbaa !17
+  %523 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL9ParseTypeEPNS0_5StateE(ptr noundef nonnull %0)
+          to label %524 unwind label %490
 
-522:                                              ; preds = %519
-  br i1 %521, label %.thread231, label %._crit_edge256
+524:                                              ; preds = %521
+  br i1 %523, label %.thread232, label %._crit_edge259
 
-._crit_edge256:                                   ; preds = %522
+._crit_edge259:                                   ; preds = %524
   %.pre40.i.pre = load i32, ptr %8, align 4, !tbaa !17
-  %.pre258.pre = load i32, ptr %11, align 8, !tbaa !15
-  br label %524
+  %.pre261.pre = load i32, ptr %11, align 8, !tbaa !15
+  br label %526
 
-.sink.split.i:                                    ; preds = %514, %507, %499, %492
-  %.pre258263 = phi i32 [ %496, %499 ], [ %496, %492 ], [ %511, %514 ], [ %511, %507 ]
-  %.sink.i = phi i32 [ %494, %499 ], [ %494, %492 ], [ %508, %514 ], [ %508, %507 ]
+.sink.split.i:                                    ; preds = %516, %509, %501, %494
+  %.pre261266 = phi i32 [ %498, %501 ], [ %498, %494 ], [ %513, %516 ], [ %513, %509 ]
+  %.sink.i = phi i32 [ %496, %501 ], [ %496, %494 ], [ %510, %516 ], [ %510, %509 ]
   store i32 %.sink.i, ptr %8, align 4, !tbaa !17
-  br label %524
+  br label %526
 
-.thread231:                                       ; preds = %487, %522
+.thread232:                                       ; preds = %489, %524
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %.pre40.i233 = load i32, ptr %8, align 4, !tbaa !17
-  %523 = add nsw i32 %.pre40.i233, -1
-  store i32 %523, ptr %8, align 4, !tbaa !17
-  br label %590
+  %.pre40.i234 = load i32, ptr %8, align 4, !tbaa !17
+  %525 = add nsw i32 %.pre40.i234, -1
+  store i32 %525, ptr %8, align 4, !tbaa !17
+  br label %592
 
-524:                                              ; preds = %._crit_edge256, %.sink.split.i
-  %.pre258 = phi i32 [ %.pre258.pre, %._crit_edge256 ], [ %.pre258263, %.sink.split.i ]
-  %.pre40.i = phi i32 [ %.pre40.i.pre, %._crit_edge256 ], [ %.sink.i, %.sink.split.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !30
+526:                                              ; preds = %._crit_edge259, %.sink.split.i
+  %.pre261 = phi i32 [ %.pre261.pre, %._crit_edge259 ], [ %.pre261266, %.sink.split.i ]
+  %.pre40.i = phi i32 [ %.pre40.i.pre, %._crit_edge259 ], [ %.sink.i, %.sink.split.i ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !31
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %525 = add nsw i32 %.pre40.i, -1
-  br label %.thread229
+  %527 = add nsw i32 %.pre40.i, -1
+  br label %.thread230
 
-.thread229:                                       ; preds = %428, %524
-  %.pre-phi265 = phi i32 [ %430, %428 ], [ %.pre40.i, %524 ]
-  %526 = phi i32 [ %432, %428 ], [ %.pre258, %524 ]
-  %storemerge239 = phi i32 [ %429, %428 ], [ %525, %524 ]
-  store i32 %.pre-phi265, ptr %8, align 4, !tbaa !17
-  %527 = add nsw i32 %526, 1
-  store i32 %527, ptr %11, align 8, !tbaa !15
-  %528 = icmp sgt i32 %storemerge239, 255
-  %529 = icmp sgt i32 %526, 131071
-  %or.cond.i212 = select i1 %528, i1 true, i1 %529
-  br i1 %or.cond.i212, label %.thread234, label %530
+.thread230:                                       ; preds = %430, %526
+  %.pre-phi268 = phi i32 [ %432, %430 ], [ %.pre40.i, %526 ]
+  %528 = phi i32 [ %434, %430 ], [ %.pre261, %526 ]
+  %storemerge240 = phi i32 [ %431, %430 ], [ %527, %526 ]
+  store i32 %.pre-phi268, ptr %8, align 4, !tbaa !17
+  %529 = add nsw i32 %528, 1
+  store i32 %529, ptr %11, align 8, !tbaa !15
+  %530 = icmp sgt i32 %storemerge240, 255
+  %531 = icmp sgt i32 %528, 131071
+  %or.cond.i213 = select i1 %530, i1 true, i1 %531
+  br i1 %or.cond.i213, label %.thread235, label %532
 
-530:                                              ; preds = %.thread229
+532:                                              ; preds = %.thread230
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %17, i64 16, i1 false), !tbaa.struct !30
-  %531 = add nsw i32 %storemerge239, 2
-  store i32 %531, ptr %8, align 4, !tbaa !17
-  %532 = add nsw i32 %526, 2
-  store i32 %532, ptr %11, align 8, !tbaa !15
-  %533 = icmp sgt i32 %storemerge239, 254
-  %534 = icmp sgt i32 %526, 131070
-  %or.cond.i.i213 = select i1 %533, i1 true, i1 %534
-  br i1 %or.cond.i.i213, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i216, label %535
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %17, i64 16, i1 false), !tbaa.struct !31
+  %533 = add nsw i32 %storemerge240, 2
+  store i32 %533, ptr %8, align 4, !tbaa !17
+  %534 = add nsw i32 %528, 2
+  store i32 %534, ptr %11, align 8, !tbaa !15
+  %535 = icmp sgt i32 %storemerge240, 254
+  %536 = icmp sgt i32 %528, 131070
+  %or.cond.i.i214 = select i1 %535, i1 true, i1 %536
+  br i1 %or.cond.i.i214, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i217, label %537
 
-535:                                              ; preds = %530
-  %.val6.i.i214 = load ptr, ptr %0, align 8, !tbaa !7
-  %.val7.i.i215 = load i32, ptr %17, align 4, !tbaa !16
-  %536 = sext i32 %.val7.i.i215 to i64
-  %537 = getelementptr inbounds i8, ptr %.val6.i.i214, i64 %536
-  %538 = load i8, ptr %537, align 1, !tbaa !4
-  %539 = icmp eq i8 %538, 77
-  br i1 %539, label %540, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i216
+537:                                              ; preds = %532
+  %.val6.i.i215 = load ptr, ptr %0, align 8, !tbaa !7
+  %.val7.i.i216 = load i32, ptr %17, align 4, !tbaa !16
+  %538 = sext i32 %.val7.i.i216 to i64
+  %539 = getelementptr inbounds i8, ptr %.val6.i.i215, i64 %538
+  %540 = load i8, ptr %539, align 1, !tbaa !4
+  %541 = icmp eq i8 %540, 77
+  br i1 %541, label %542, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i217
 
-_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i216: ; preds = %535, %530
-  store i32 %.pre-phi265, ptr %8, align 4, !tbaa !17
-  br label %552
+_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i217: ; preds = %537, %532
+  store i32 %.pre-phi268, ptr %8, align 4, !tbaa !17
+  br label %554
 
-540:                                              ; preds = %535
-  %541 = add nsw i32 %.val7.i.i215, 1
-  store i32 %541, ptr %17, align 4, !tbaa !16
-  store i32 %.pre-phi265, ptr %8, align 4, !tbaa !17
-  %542 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL9ParseTypeEPNS0_5StateE(ptr noundef nonnull %0)
-          to label %543 unwind label %548
+542:                                              ; preds = %537
+  %543 = add nsw i32 %.val7.i.i216, 1
+  store i32 %543, ptr %17, align 4, !tbaa !16
+  store i32 %.pre-phi268, ptr %8, align 4, !tbaa !17
+  %544 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL9ParseTypeEPNS0_5StateE(ptr noundef nonnull %0)
+          to label %545 unwind label %550
 
-543:                                              ; preds = %540
-  br i1 %542, label %544, label %._crit_edge259
+545:                                              ; preds = %542
+  br i1 %544, label %546, label %._crit_edge262
 
-._crit_edge259:                                   ; preds = %543
-  %.pre.i218.pre = load i32, ptr %8, align 4, !tbaa !17
-  br label %552
+._crit_edge262:                                   ; preds = %545
+  %.pre.i219.pre = load i32, ptr %8, align 4, !tbaa !17
+  br label %554
 
-544:                                              ; preds = %543
-  %545 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL9ParseTypeEPNS0_5StateE(ptr noundef nonnull %0)
-          to label %546 unwind label %548
+546:                                              ; preds = %545
+  %547 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL9ParseTypeEPNS0_5StateE(ptr noundef nonnull %0)
+          to label %548 unwind label %550
 
-546:                                              ; preds = %544
-  %.pre.i218.pre260 = load i32, ptr %8, align 4, !tbaa !17
-  br i1 %545, label %.thread236, label %552
+548:                                              ; preds = %546
+  %.pre.i219.pre263 = load i32, ptr %8, align 4, !tbaa !17
+  br i1 %547, label %.thread237, label %554
 
-.thread236:                                       ; preds = %546
+.thread237:                                       ; preds = %548
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  %547 = add nsw i32 %.pre.i218.pre260, -1
-  store i32 %547, ptr %8, align 4, !tbaa !17
-  br label %590
+  %549 = add nsw i32 %.pre.i219.pre263, -1
+  store i32 %549, ptr %8, align 4, !tbaa !17
+  br label %592
 
-548:                                              ; preds = %544, %540
-  %549 = landingpad { ptr, i32 }
+550:                                              ; preds = %546, %542
+  %551 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  %550 = load i32, ptr %8, align 4, !tbaa !17
-  %551 = add nsw i32 %550, -1
-  store i32 %551, ptr %8, align 4, !tbaa !17
+  %552 = load i32, ptr %8, align 4, !tbaa !17
+  %553 = add nsw i32 %552, -1
+  store i32 %553, ptr %8, align 4, !tbaa !17
   br label %.body
 
-552:                                              ; preds = %._crit_edge259, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i216, %546
-  %.pre.i218 = phi i32 [ %.pre.i218.pre, %._crit_edge259 ], [ %.pre-phi265, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i216 ], [ %.pre.i218.pre260, %546 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !30
+554:                                              ; preds = %._crit_edge262, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i217, %548
+  %.pre.i219 = phi i32 [ %.pre.i219.pre, %._crit_edge262 ], [ %.pre-phi268, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread.i217 ], [ %.pre.i219.pre263, %548 ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !31
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  %553 = add nsw i32 %.pre.i218, -1
-  br label %.thread234
+  %555 = add nsw i32 %.pre.i219, -1
+  br label %.thread235
 
-.thread234:                                       ; preds = %.thread229, %552
-  %storemerge240 = phi i32 [ %553, %552 ], [ %storemerge239, %.thread229 ]
-  store i32 %storemerge240, ptr %8, align 4, !tbaa !17
-  %554 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL13ParseDecltypeEPNS0_5StateE(ptr noundef nonnull %0)
-          to label %555 unwind label %24
+.thread235:                                       ; preds = %.thread230, %554
+  %storemerge241 = phi i32 [ %555, %554 ], [ %storemerge240, %.thread230 ]
+  store i32 %storemerge241, ptr %8, align 4, !tbaa !17
+  %556 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL13ParseDecltypeEPNS0_5StateE(ptr noundef nonnull %0)
+          to label %557 unwind label %24
 
-555:                                              ; preds = %.thread234
-  br i1 %554, label %590, label %556
+557:                                              ; preds = %.thread235
+  br i1 %556, label %592, label %558
 
-556:                                              ; preds = %555
-  %557 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseSubstitutionEPNS0_5StateEb(ptr noundef nonnull %0, i1 noundef zeroext false)
-  br i1 %557, label %590, label %558
-
-558:                                              ; preds = %556
-  %559 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL26ParseTemplateTemplateParamEPNS0_5StateE(ptr noundef nonnull %0)
-  br i1 %559, label %560, label %563
+558:                                              ; preds = %557
+  %559 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseSubstitutionEPNS0_5StateEb(ptr noundef nonnull %0, i1 noundef zeroext false)
+  br i1 %559, label %592, label %560
 
 560:                                              ; preds = %558
-  %561 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseTemplateArgsEPNS0_5StateE(ptr noundef nonnull %0)
-          to label %562 unwind label %24
+  %561 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL26ParseTemplateTemplateParamEPNS0_5StateE(ptr noundef nonnull %0)
+  br i1 %561, label %562, label %565
 
 562:                                              ; preds = %560
-  br i1 %561, label %590, label %563
+  %563 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseTemplateArgsEPNS0_5StateE(ptr noundef nonnull %0)
+          to label %564 unwind label %24
 
-563:                                              ; preds = %562, %558
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !30
-  %564 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL18ParseTemplateParamEPNS0_5StateE(ptr noundef nonnull %0)
-  br i1 %564, label %590, label %565
+564:                                              ; preds = %562
+  br i1 %563, label %592, label %565
 
-565:                                              ; preds = %563
-  %566 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc(ptr noundef nonnull %0, ptr noundef nonnull @.str.48)
-  br i1 %566, label %567, label %574
+565:                                              ; preds = %564, %560
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !31
+  %566 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL18ParseTemplateParamEPNS0_5StateE(ptr noundef nonnull %0)
+  br i1 %566, label %592, label %567
 
 567:                                              ; preds = %565
-  %568 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL11ParseNumberEPNS0_5StateEPi(ptr noundef nonnull %0, ptr noundef null)
-  br i1 %568, label %569, label %574
+  %568 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc(ptr noundef nonnull %0, ptr noundef nonnull @.str.48)
+  br i1 %568, label %569, label %576
 
 569:                                              ; preds = %567
-  %570 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc(ptr noundef nonnull %0, i8 noundef signext 95)
-  br i1 %570, label %571, label %574
+  %570 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL11ParseNumberEPNS0_5StateEPi(ptr noundef nonnull %0, ptr noundef null)
+  br i1 %570, label %571, label %576
 
 571:                                              ; preds = %569
-  %572 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL9ParseTypeEPNS0_5StateE(ptr noundef nonnull %0)
-          to label %573 unwind label %24
+  %572 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc(ptr noundef nonnull %0, i8 noundef signext 95)
+  br i1 %572, label %573, label %576
 
 573:                                              ; preds = %571
-  br i1 %572, label %590, label %574
+  %574 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL9ParseTypeEPNS0_5StateE(ptr noundef nonnull %0)
+          to label %575 unwind label %24
 
-574:                                              ; preds = %573, %569, %567, %565
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !30
-  %575 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc(ptr noundef nonnull %0, ptr noundef nonnull @.str.48)
-  br i1 %575, label %576, label %584
+575:                                              ; preds = %573
+  br i1 %574, label %592, label %576
 
-576:                                              ; preds = %574
-  %577 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL15ParseExpressionEPNS0_5StateE(ptr noundef nonnull %0)
-          to label %578 unwind label %24
+576:                                              ; preds = %575, %571, %569, %567
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !31
+  %577 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc(ptr noundef nonnull %0, ptr noundef nonnull @.str.48)
+  br i1 %577, label %578, label %586
 
 578:                                              ; preds = %576
-  br i1 %577, label %579, label %584
+  %579 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL15ParseExpressionEPNS0_5StateE(ptr noundef nonnull %0)
+          to label %580 unwind label %24
 
-579:                                              ; preds = %578
-  %580 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc(ptr noundef nonnull %0, i8 noundef signext 95)
-  br i1 %580, label %581, label %584
+580:                                              ; preds = %578
+  br i1 %579, label %581, label %586
 
-581:                                              ; preds = %579
-  %582 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL9ParseTypeEPNS0_5StateE(ptr noundef nonnull %0)
-          to label %583 unwind label %24
+581:                                              ; preds = %580
+  %582 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc(ptr noundef nonnull %0, i8 noundef signext 95)
+  br i1 %582, label %583, label %586
 
 583:                                              ; preds = %581
-  br i1 %582, label %590, label %584
+  %584 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL9ParseTypeEPNS0_5StateE(ptr noundef nonnull %0)
+          to label %585 unwind label %24
 
-584:                                              ; preds = %583, %579, %578, %574
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !30
-  %585 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc(ptr noundef nonnull %0, ptr noundef nonnull @.str.49)
-  br i1 %585, label %586, label %588
+585:                                              ; preds = %583
+  br i1 %584, label %592, label %586
 
-586:                                              ; preds = %584
-  %587 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL9ParseNameEPNS0_5StateE(ptr noundef nonnull %0)
+586:                                              ; preds = %585, %581, %580, %576
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !31
+  %587 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc(ptr noundef nonnull %0, ptr noundef nonnull @.str.49)
+  br i1 %587, label %588, label %590
+
+588:                                              ; preds = %586
+  %589 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL9ParseNameEPNS0_5StateE(ptr noundef nonnull %0)
           to label %_ZN4absl18debugging_internalL19ParseTypeConstraintEPNS0_5StateE.exit unwind label %24
 
-_ZN4absl18debugging_internalL19ParseTypeConstraintEPNS0_5StateE.exit: ; preds = %586
-  br i1 %587, label %590, label %588
+_ZN4absl18debugging_internalL19ParseTypeConstraintEPNS0_5StateE.exit: ; preds = %588
+  br i1 %589, label %592, label %590
 
-588:                                              ; preds = %_ZN4absl18debugging_internalL19ParseTypeConstraintEPNS0_5StateE.exit, %584
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !30
-  %589 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL14ParseLongTokenEPNS0_5StateEPKc(ptr noundef nonnull %0)
-  br label %590
+590:                                              ; preds = %_ZN4absl18debugging_internalL19ParseTypeConstraintEPNS0_5StateE.exit, %586
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) %7, i64 16, i1 false), !tbaa.struct !31
+  %591 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL14ParseLongTokenEPNS0_5StateEPKc(ptr noundef nonnull %0)
+  br label %592
 
-590:                                              ; preds = %.thread236, %.thread231, %.thread226, %.thread138, %.thread135, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit, %588, %_ZN4absl18debugging_internalL19ParseTypeConstraintEPNS0_5StateE.exit, %583, %573, %563, %562, %427, %555, %556, %65, %47, %48, %22, %23
-  %.1 = phi i1 [ false, %23 ], [ true, %22 ], [ false, %48 ], [ true, %47 ], [ true, %65 ], [ true, %556 ], [ true, %555 ], [ true, %427 ], [ true, %562 ], [ true, %563 ], [ true, %573 ], [ true, %583 ], [ true, %_ZN4absl18debugging_internalL19ParseTypeConstraintEPNS0_5StateE.exit ], [ %589, %588 ], [ true, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit ], [ true, %.thread135 ], [ true, %.thread138 ], [ true, %.thread226 ], [ true, %.thread231 ], [ true, %.thread236 ]
+592:                                              ; preds = %.thread237, %.thread232, %.thread227, %.thread138, %.thread135, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit, %590, %_ZN4absl18debugging_internalL19ParseTypeConstraintEPNS0_5StateE.exit, %585, %575, %565, %564, %429, %557, %558, %65, %47, %48, %22, %23
+  %.1 = phi i1 [ false, %23 ], [ true, %22 ], [ false, %48 ], [ true, %47 ], [ true, %65 ], [ true, %558 ], [ true, %557 ], [ true, %429 ], [ true, %564 ], [ true, %565 ], [ true, %575 ], [ true, %585 ], [ true, %_ZN4absl18debugging_internalL19ParseTypeConstraintEPNS0_5StateE.exit ], [ %591, %590 ], [ true, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit ], [ true, %.thread135 ], [ true, %.thread138 ], [ true, %.thread227 ], [ true, %.thread232 ], [ true, %.thread237 ]
   %.pre168 = load i32, ptr %8, align 4, !tbaa !17
-  %591 = add nsw i32 %.pre168, -1
+  %593 = add nsw i32 %.pre168, -1
   br label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread
 
-.body:                                            ; preds = %488, %548, %24, %.body200, %.body96, %49, %26
-  %.pn = phi { ptr, i32 } [ %27, %26 ], [ %50, %49 ], [ %.pn.i, %.body200 ], [ %eh.lpad-body97, %.body96 ], [ %489, %488 ], [ %25, %24 ], [ %549, %548 ]
-  %592 = load i32, ptr %8, align 4, !tbaa !17
-  %593 = add nsw i32 %592, -1
-  store i32 %593, ptr %8, align 4, !tbaa !17
+.body:                                            ; preds = %490, %550, %24, %.body200, %.body96, %49, %26
+  %.pn = phi { ptr, i32 } [ %27, %26 ], [ %50, %49 ], [ %.pn.i, %.body200 ], [ %eh.lpad-body97, %.body96 ], [ %491, %490 ], [ %25, %24 ], [ %551, %550 ]
+  %594 = load i32, ptr %8, align 4, !tbaa !17
+  %595 = add nsw i32 %594, -1
+  store i32 %595, ptr %8, align 4, !tbaa !17
   resume { ptr, i32 } %.pn
 
-_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread: ; preds = %1, %590
-  %594 = phi i32 [ %591, %590 ], [ %9, %1 ]
-  %.0 = phi i1 [ %.1, %590 ], [ false, %1 ]
-  store i32 %594, ptr %8, align 4, !tbaa !17
+_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread: ; preds = %1, %592
+  %596 = phi i32 [ %593, %592 ], [ %9, %1 ]
+  %.0 = phi i1 [ %.1, %592 ], [ false, %1 ]
+  store i32 %596, ptr %8, align 4, !tbaa !17
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nofree memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree nosync memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL18ParseFunctionParamEPNS0_5StateE(ptr noundef captures(none) %0) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.absl::debugging_internal::ParseState", align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -7988,7 +8004,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL18ParseF
 11:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %12, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %12, i64 16, i1 false), !tbaa.struct !31
   %13 = add nsw i32 %4, 2
   store i32 %13, ptr %3, align 4, !tbaa !17
   %14 = add nsw i32 %7, 2
@@ -8071,7 +8087,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL18ParseF
   %54 = load i8, ptr %53, align 1, !tbaa !4
   %55 = add i8 %54, -48
   %56 = icmp ult i8 %55, 10
-  br i1 %56, label %.lr.ph.i, label %57, !llvm.loop !42
+  br i1 %56, label %.lr.ph.i, label %57, !llvm.loop !43
 
 57:                                               ; preds = %.lr.ph.i
   %58 = ptrtoint ptr %53 to i64
@@ -8116,7 +8132,7 @@ _ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit: ; preds = %
 _ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread: ; preds = %_ZN4absl18debugging_internalL11ParseNumberEPNS0_5StateEPi.exit, %66, %11, %17, %22
   %76 = phi i32 [ %14, %22 ], [ %14, %17 ], [ %14, %11 ], [ %64, %66 ], [ %64, %_ZN4absl18debugging_internalL11ParseNumberEPNS0_5StateEPi.exit ]
   %storemerge = phi i32 [ %5, %22 ], [ %5, %17 ], [ %5, %11 ], [ %30, %66 ], [ %30, %_ZN4absl18debugging_internalL11ParseNumberEPNS0_5StateEPi.exit ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !31
   %77 = add nsw i32 %storemerge, 1
   store i32 %77, ptr %3, align 4, !tbaa !17
   %78 = add nsw i32 %76, 1
@@ -8194,7 +8210,7 @@ _ZN4absl18debugging_internalL11ParseNumberEPNS0_5StateEPi.exit40.thread: ; preds
   %113 = load i8, ptr %112, align 1, !tbaa !4
   %114 = add i8 %113, -48
   %115 = icmp ult i8 %114, 10
-  br i1 %115, label %.lr.ph.i37, label %116, !llvm.loop !42
+  br i1 %115, label %.lr.ph.i37, label %116, !llvm.loop !43
 
 116:                                              ; preds = %.lr.ph.i37
   %117 = ptrtoint ptr %112 to i64
@@ -8278,7 +8294,7 @@ _ZN4absl18debugging_internalL11ParseNumberEPNS0_5StateEPi.exit40: ; preds = %._c
   %157 = load i8, ptr %156, align 1, !tbaa !4
   %158 = add i8 %157, -48
   %159 = icmp ult i8 %158, 10
-  br i1 %159, label %.lr.ph.i55, label %160, !llvm.loop !42
+  br i1 %159, label %.lr.ph.i55, label %160, !llvm.loop !43
 
 160:                                              ; preds = %.lr.ph.i55
   %161 = ptrtoint ptr %156 to i64
@@ -8315,7 +8331,7 @@ _ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit27.thread: 
   %.sink = phi i32 [ %storemerge, %86 ], [ %storemerge, %81 ], [ %storemerge, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread ], [ %storemerge, %_ZN4absl18debugging_internalL11ParseNumberEPNS0_5StateEPi.exit40.thread ], [ %storemerge, %124 ], [ %storemerge, %_ZN4absl18debugging_internalL11ParseNumberEPNS0_5StateEPi.exit40 ], [ %133, %169 ], [ %133, %_ZN4absl18debugging_internalL11ParseNumberEPNS0_5StateEPi.exit58 ]
   %.pre-phi = phi i32 [ %77, %86 ], [ %77, %81 ], [ %77, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread ], [ %77, %_ZN4absl18debugging_internalL11ParseNumberEPNS0_5StateEPi.exit40.thread ], [ %77, %124 ], [ %77, %_ZN4absl18debugging_internalL11ParseNumberEPNS0_5StateEPi.exit40 ], [ %134, %169 ], [ %134, %_ZN4absl18debugging_internalL11ParseNumberEPNS0_5StateEPi.exit58 ]
   %175 = phi i32 [ %78, %86 ], [ %78, %81 ], [ %78, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread ], [ 131074, %_ZN4absl18debugging_internalL11ParseNumberEPNS0_5StateEPi.exit40.thread ], [ %122, %124 ], [ %122, %_ZN4absl18debugging_internalL11ParseNumberEPNS0_5StateEPi.exit40 ], [ %167, %169 ], [ %167, %_ZN4absl18debugging_internalL11ParseNumberEPNS0_5StateEPi.exit58 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !31
   store i32 %.pre-phi, ptr %3, align 4, !tbaa !17
   %176 = add nsw i32 %175, 1
   store i32 %176, ptr %6, align 8, !tbaa !15
@@ -8370,7 +8386,7 @@ _ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exi
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nofree memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree nosync memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL21ParseBracedExpressionEPNS0_5StateE(ptr noundef %0) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.absl::debugging_internal::ParseState", align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -8389,7 +8405,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL21ParseB
 11:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %12, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %12, i64 16, i1 false), !tbaa.struct !31
   %13 = add nsw i32 %4, 2
   store i32 %13, ptr %3, align 4, !tbaa !17
   %14 = add nsw i32 %7, 2
@@ -8442,7 +8458,7 @@ _ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread: ; 
   resume { ptr, i32 } %33
 
 36:                                               ; preds = %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread, %31, %26
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !31
   %37 = load i32, ptr %3, align 4, !tbaa !17
   %38 = add nsw i32 %37, 1
   store i32 %38, ptr %3, align 4, !tbaa !17
@@ -8491,7 +8507,7 @@ _ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit25.thread: 
   br i1 %57, label %87, label %59
 
 59:                                               ; preds = %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit25.thread, %58, %55
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !31
   %60 = load i32, ptr %3, align 4, !tbaa !17
   %61 = add nsw i32 %60, 1
   store i32 %61, ptr %3, align 4, !tbaa !17
@@ -8547,7 +8563,7 @@ _ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit30.thread: 
   br i1 %83, label %87, label %85
 
 85:                                               ; preds = %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit30.thread, %84, %81, %78
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !31
   %86 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL15ParseExpressionEPNS0_5StateE(ptr noundef nonnull %0)
           to label %87 unwind label %32
 
@@ -8565,7 +8581,7 @@ _ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exi
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nofree memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree nosync memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL16ParseInitializerEPNS0_5StateE(ptr noundef %0) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.absl::debugging_internal::ParseState", align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -8584,7 +8600,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL16ParseI
 11:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %12, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %12, i64 16, i1 false), !tbaa.struct !31
   %13 = add nsw i32 %4, 2
   store i32 %13, ptr %3, align 4, !tbaa !17
   %14 = add nsw i32 %7, 2
@@ -8620,7 +8636,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL16ParseI
           to label %.noexc unwind label %.loopexit.split-lp
 
 .noexc:                                           ; preds = %28
-  br i1 %29, label %28, label %_ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit, !llvm.loop !32
+  br i1 %29, label %28, label %_ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit, !llvm.loop !33
 
 _ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit: ; preds = %.noexc
   %30 = load i32, ptr %3, align 4, !tbaa !17
@@ -8670,7 +8686,7 @@ _ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit: ; preds = %.
 .thread:                                          ; preds = %_ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit, %36, %11, %17, %22
   %46 = phi i32 [ %14, %22 ], [ %14, %17 ], [ %14, %11 ], [ %33, %36 ], [ %33, %_ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit ]
   %storemerge = phi i32 [ %5, %22 ], [ %5, %17 ], [ %5, %11 ], [ %30, %36 ], [ %30, %_ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !31
   %47 = add nsw i32 %storemerge, 1
   store i32 %47, ptr %3, align 4, !tbaa !17
   %48 = add nsw i32 %46, 1
@@ -8706,7 +8722,7 @@ _ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit: ; preds = %.
           to label %.noexc22 unwind label %.loopexit
 
 .noexc22:                                         ; preds = %62
-  br i1 %63, label %62, label %_ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit23, !llvm.loop !32
+  br i1 %63, label %62, label %_ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit23, !llvm.loop !33
 
 _ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit23: ; preds = %.noexc22
   %64 = load i32, ptr %3, align 4, !tbaa !17
@@ -8738,7 +8754,7 @@ _ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit23: ; preds = 
 .thread35:                                        ; preds = %_ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit23, %70, %.thread, %51, %56
   %storemerge40 = phi i32 [ %storemerge, %56 ], [ %storemerge, %51 ], [ %storemerge, %.thread ], [ %64, %70 ], [ %64, %_ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit23 ]
   store i32 %storemerge40, ptr %3, align 4, !tbaa !17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !31
   br label %77
 
 77:                                               ; preds = %75, %41, %.thread35
@@ -8755,7 +8771,7 @@ _ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exi
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nofree memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree nosync memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseOperatorNameEPNS0_5StateEPi(ptr noundef %0, ptr noundef writeonly captures(address_is_null) %1) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"struct.absl::debugging_internal::ParseState", align 4
   %.sroa.0 = alloca { i32, i32, i32 }, align 8
@@ -8783,7 +8799,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseO
 16:                                               ; preds = %.lr.ph.i
   %17 = add nuw nsw i64 %.068.i, 1
   %exitcond.not.i = icmp eq i64 %17, 2
-  br i1 %exitcond.not.i, label %20, label %.lr.ph.i, !llvm.loop !43
+  br i1 %exitcond.not.i, label %20, label %.lr.ph.i, !llvm.loop !44
 
 .lr.ph.i:                                         ; preds = %16, %12
   %.068.i = phi i64 [ %17, %16 ], [ 0, %12 ]
@@ -8794,7 +8810,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseO
 
 20:                                               ; preds = %16
   call void @llvm.lifetime.start.p0(i64 12, ptr nonnull %.sroa.0)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %13, i64 12, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, ptr noundef nonnull align 4 dereferenceable(12) %13, i64 12, i1 false), !tbaa.struct !31
   %.sroa.7.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   %.sroa.7.0.copyload = load i32, ptr %.sroa.7.0..sroa_idx, align 4, !tbaa !4
   %21 = add nsw i32 %5, 2
@@ -8819,145 +8835,148 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseO
 
 _ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread: ; preds = %28, %25, %20
   store i32 %6, ptr %4, align 4, !tbaa !17
-  br label %86
+  br label %87
 
 32:                                               ; preds = %28
   %33 = add nsw i32 %.val65, 2
   store i32 %33, ptr %13, align 4, !tbaa !16
   store i32 %6, ptr %4, align 4, !tbaa !17
   %.not.i71 = icmp sgt i32 %.sroa.7.0.copyload, -1
-  br i1 %.not.i71, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit, label %34
+  br i1 %.not.i71, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit, label %.lr.ph.i.i.preheader
 
-34:                                               ; preds = %32
+.lr.ph.i.i.preheader:                             ; preds = %32
   tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %0, ptr noundef nonnull @.str.136, i64 noundef 9)
   %.pre = load i32, ptr %.sroa.7.0..sroa_idx, align 4
-  %.pre122 = load i32, ptr %4, align 4, !tbaa !17
-  %.pre123 = load i32, ptr %7, align 8, !tbaa !15
+  %.pre136 = load i32, ptr %4, align 4, !tbaa !17
+  %.pre137 = load i32, ptr %7, align 8, !tbaa !15
   br label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit
 
-_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit: ; preds = %32, %34
-  %35 = phi i32 [ %22, %32 ], [ %.pre123, %34 ]
-  %36 = phi i32 [ %6, %32 ], [ %.pre122, %34 ]
-  %37 = phi i32 [ %.sroa.7.0.copyload, %32 ], [ %.pre, %34 ]
-  %38 = and i32 %37, -2147418113
-  store i32 %38, ptr %.sroa.7.0..sroa_idx, align 4
-  %39 = add nsw i32 %36, 1
-  store i32 %39, ptr %4, align 4, !tbaa !17
-  %40 = add nsw i32 %35, 1
-  store i32 %40, ptr %7, align 8, !tbaa !15
-  %41 = icmp sgt i32 %36, 255
-  %42 = icmp sgt i32 %35, 131071
-  %or.cond108 = select i1 %41, i1 true, i1 %42
-  br i1 %or.cond108, label %.thread, label %43
+_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit: ; preds = %32, %.lr.ph.i.i.preheader
+  %34 = phi i32 [ %22, %32 ], [ %.pre137, %.lr.ph.i.i.preheader ]
+  %35 = phi i32 [ %6, %32 ], [ %.pre136, %.lr.ph.i.i.preheader ]
+  %36 = phi i32 [ %.sroa.7.0.copyload, %32 ], [ %.pre, %.lr.ph.i.i.preheader ]
+  %37 = and i32 %36, -2147418113
+  store i32 %37, ptr %.sroa.7.0..sroa_idx, align 4
+  %38 = add nsw i32 %35, 1
+  store i32 %38, ptr %4, align 4, !tbaa !17
+  %39 = add nsw i32 %34, 1
+  store i32 %39, ptr %7, align 8, !tbaa !15
+  %40 = icmp sgt i32 %35, 255
+  %41 = icmp sgt i32 %34, 131071
+  %or.cond117 = select i1 %40, i1 true, i1 %41
+  br i1 %or.cond117, label %.thread, label %42
 
-43:                                               ; preds = %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit
+42:                                               ; preds = %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %13, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %13, i64 16, i1 false), !tbaa.struct !31
   %.val28.i = load ptr, ptr %0, align 8, !tbaa !7
   %.val29.i = load i32, ptr %13, align 4, !tbaa !16
-  %44 = add nsw i32 %36, 2
-  store i32 %44, ptr %4, align 4, !tbaa !17
-  %45 = add nsw i32 %35, 2
-  store i32 %45, ptr %7, align 8, !tbaa !15
-  %46 = icmp sgt i32 %36, 254
-  %47 = icmp sgt i32 %35, 131070
-  %or.cond.i90114 = select i1 %46, i1 true, i1 %47
-  %.pre132 = sext i32 %.val29.i to i64
-  br i1 %or.cond.i90114, label %.loopexit109, label %.lr.ph
+  %43 = add nsw i32 %35, 2
+  store i32 %43, ptr %4, align 4, !tbaa !17
+  %44 = add nsw i32 %34, 2
+  store i32 %44, ptr %7, align 8, !tbaa !15
+  %45 = icmp sgt i32 %35, 254
+  %46 = icmp sgt i32 %34, 131070
+  %or.cond.i99126 = select i1 %45, i1 true, i1 %46
+  %.pre146 = sext i32 %.val29.i to i64
+  br i1 %or.cond.i99126, label %.loopexit118, label %.lr.ph
 
-.lr.ph:                                           ; preds = %43, %_ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc.exit
-  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc.exit ], [ %.pre132, %43 ]
-  %48 = phi i32 [ %56, %_ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc.exit ], [ %45, %43 ]
-  %49 = getelementptr inbounds i8, ptr %.val28.i, i64 %indvars.iv
-  %50 = load i8, ptr %49, align 1, !tbaa !4
-  %51 = icmp eq i8 %50, 0
-  br i1 %51, label %.loopexit109.loopexit145.split.loop.exit, label %.lr.ph.i92
+.lr.ph:                                           ; preds = %42, %_ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc.exit
+  %indvars.iv = phi i64 [ %indvars.iv.next, %_ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc.exit ], [ %.pre146, %42 ]
+  %47 = phi i32 [ %55, %_ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc.exit ], [ %44, %42 ]
+  %48 = getelementptr inbounds i8, ptr %.val28.i, i64 %indvars.iv
+  %49 = load i8, ptr %48, align 1, !tbaa !4
+  %50 = icmp eq i8 %49, 0
+  br i1 %50, label %.loopexit118.loopexit159.split.loop.exit, label %.lr.ph.i101
 
-52:                                               ; preds = %.lr.ph.i92
+51:                                               ; preds = %.lr.ph.i101
   %.018.i.add = add nuw nsw i64 %.018.i.idx, 1
   %.ptr = getelementptr inbounds nuw i8, ptr @.str.140, i64 %.018.i.add
-  %53 = load i8, ptr %.ptr, align 1, !tbaa !4
+  %52 = load i8, ptr %.ptr, align 1, !tbaa !4
   %exitcond = icmp eq i64 %.018.i.add, 8
-  br i1 %exitcond, label %.loopexit109.loopexit, label %.lr.ph.i92, !llvm.loop !31
+  br i1 %exitcond, label %.loopexit118.loopexit, label %.lr.ph.i101, !llvm.loop !32
 
-.lr.ph.i92:                                       ; preds = %.lr.ph, %52
-  %54 = phi i8 [ %53, %52 ], [ 79, %.lr.ph ]
-  %.018.i.idx = phi i64 [ %.018.i.add, %52 ], [ 0, %.lr.ph ]
-  %55 = icmp eq i8 %50, %54
-  br i1 %55, label %_ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc.exit, label %52
+.lr.ph.i101:                                      ; preds = %.lr.ph, %51
+  %53 = phi i8 [ %52, %51 ], [ 79, %.lr.ph ]
+  %.018.i.idx = phi i64 [ %.018.i.add, %51 ], [ 0, %.lr.ph ]
+  %54 = icmp eq i8 %49, %53
+  br i1 %54, label %_ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc.exit, label %51
 
-_ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc.exit: ; preds = %.lr.ph.i92
+_ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc.exit: ; preds = %.lr.ph.i101
   %indvars.iv.next = add nsw i64 %indvars.iv, 1
   %indvars = trunc i64 %indvars.iv.next to i32
   store i32 %indvars, ptr %13, align 4, !tbaa !16
-  store i32 %44, ptr %4, align 4, !tbaa !17
-  %56 = add i32 %48, 1
-  store i32 %56, ptr %7, align 8, !tbaa !15
-  %exitcond144 = icmp eq i32 %56, 131073
-  br i1 %exitcond144, label %.loopexit109, label %.lr.ph, !llvm.loop !48
+  store i32 %43, ptr %4, align 4, !tbaa !17
+  %55 = add i32 %47, 1
+  store i32 %55, ptr %7, align 8, !tbaa !15
+  %exitcond158 = icmp eq i32 %55, 131073
+  br i1 %exitcond158, label %.loopexit118, label %.lr.ph, !llvm.loop !49
 
-.loopexit109.loopexit:                            ; preds = %52
-  %indvars143.le150 = trunc i64 %indvars.iv to i32
-  br label %.loopexit109
+.loopexit118.loopexit:                            ; preds = %51
+  %indvars157.le164 = trunc i64 %indvars.iv to i32
+  br label %.loopexit118
 
-.loopexit109.loopexit145.split.loop.exit:         ; preds = %.lr.ph
-  %indvars143.le = trunc i64 %indvars.iv to i32
-  br label %.loopexit109
+.loopexit118.loopexit159.split.loop.exit:         ; preds = %.lr.ph
+  %indvars157.le = trunc i64 %indvars.iv to i32
+  br label %.loopexit118
 
-.loopexit109:                                     ; preds = %_ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc.exit, %.loopexit109.loopexit145.split.loop.exit, %.loopexit109.loopexit, %43
-  %.val27.i = phi i32 [ %.val29.i, %43 ], [ %indvars143.le150, %.loopexit109.loopexit ], [ %indvars143.le, %.loopexit109.loopexit145.split.loop.exit ], [ %indvars, %_ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc.exit ]
-  store i32 %39, ptr %4, align 4, !tbaa !17
-  %57 = getelementptr inbounds i8, ptr %.val28.i, i64 %.pre132
-  %58 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL9ParseTypeEPNS0_5StateE(ptr noundef nonnull %0)
-          to label %59 unwind label %.body
+.loopexit118:                                     ; preds = %_ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc.exit, %.loopexit118.loopexit159.split.loop.exit, %.loopexit118.loopexit, %42
+  %.val27.i = phi i32 [ %.val29.i, %42 ], [ %indvars157.le164, %.loopexit118.loopexit ], [ %indvars157.le, %.loopexit118.loopexit159.split.loop.exit ], [ %indvars, %_ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc.exit ]
+  store i32 %38, ptr %4, align 4, !tbaa !17
+  %56 = getelementptr inbounds i8, ptr %.val28.i, i64 %.pre146
+  %57 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL9ParseTypeEPNS0_5StateE(ptr noundef nonnull %0)
+          to label %58 unwind label %.body
 
-59:                                               ; preds = %.loopexit109
-  br i1 %58, label %.preheader.i, label %.thread104
+58:                                               ; preds = %.loopexit118
+  br i1 %57, label %.preheader.i, label %.thread113
 
-.preheader.i:                                     ; preds = %59
+.preheader.i:                                     ; preds = %58
   %.not30.i = icmp eq i32 %.val29.i, %.val27.i
-  br i1 %.not30.i, label %.thread103, label %.lr.ph.i72.preheader
+  br i1 %.not30.i, label %.thread112, label %.lr.ph.i72.preheader
 
 .lr.ph.i72.preheader:                             ; preds = %.preheader.i
-  %60 = sext i32 %.val27.i to i64
-  %61 = getelementptr inbounds i8, ptr %.val28.i, i64 %60
+  %59 = sext i32 %.val27.i to i64
+  %60 = getelementptr inbounds i8, ptr %.val28.i, i64 %59
   br label %.lr.ph.i72
 
-.thread104:                                       ; preds = %59
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %13, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !30
+.thread113:                                       ; preds = %58
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %13, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !31
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %62 = load i32, ptr %4, align 4, !tbaa !17
-  %63 = add nsw i32 %62, -1
-  store i32 %63, ptr %4, align 4, !tbaa !17
-  %.pre127 = load i32, ptr %7, align 8, !tbaa !15
-  br label %86
+  %61 = load i32, ptr %4, align 4, !tbaa !17
+  %62 = add nsw i32 %61, -1
+  store i32 %62, ptr %4, align 4, !tbaa !17
+  %.pre141 = load i32, ptr %7, align 8, !tbaa !15
+  br label %87
 
-.body:                                            ; preds = %.loopexit109
-  %64 = landingpad { ptr, i32 }
+.body:                                            ; preds = %.loopexit118
+  %63 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %65 = load i32, ptr %4, align 4, !tbaa !17
-  %66 = add nsw i32 %65, -1
-  store i32 %66, ptr %4, align 4, !tbaa !17
+  %64 = load i32, ptr %4, align 4, !tbaa !17
+  %65 = add nsw i32 %64, -1
+  store i32 %65, ptr %4, align 4, !tbaa !17
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.0)
-  %67 = add nsw i32 %65, -2
-  store i32 %67, ptr %4, align 4, !tbaa !17
-  resume { ptr, i32 } %64
+  %66 = add nsw i32 %64, -2
+  store i32 %66, ptr %4, align 4, !tbaa !17
+  resume { ptr, i32 } %63
 
-.lr.ph.i72:                                       ; preds = %.lr.ph.i72.preheader, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit89
-  %.031.i = phi ptr [ %68, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit89 ], [ %61, %.lr.ph.i72.preheader ]
-  %68 = getelementptr inbounds i8, ptr %.031.i, i64 -1
-  %69 = load i8, ptr %68, align 1, !tbaa !4
-  switch i8 %69, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit89 [
+.lr.ph.i72:                                       ; preds = %.lr.ph.i72.preheader, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit98
+  %.031.i = phi ptr [ %67, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit98 ], [ %60, %.lr.ph.i72.preheader ]
+  %67 = getelementptr inbounds i8, ptr %.031.i, i64 -1
+  %68 = load i8, ptr %67, align 1, !tbaa !4
+  switch i8 %68, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit98 [
     i8 80, label %.sink.split.i
-    i8 82, label %70
-    i8 79, label %71
-    i8 67, label %72
-    i8 71, label %73
-    i8 114, label %74
-    i8 86, label %75
-    i8 75, label %76
+    i8 82, label %69
+    i8 79, label %70
+    i8 67, label %71
+    i8 71, label %72
+    i8 114, label %73
+    i8 86, label %74
+    i8 75, label %75
   ]
+
+69:                                               ; preds = %.lr.ph.i72
+  br label %.sink.split.i
 
 70:                                               ; preds = %.lr.ph.i72
   br label %.sink.split.i
@@ -8977,123 +8996,123 @@ _ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc.exit: ; preds = %.
 75:                                               ; preds = %.lr.ph.i72
   br label %.sink.split.i
 
-76:                                               ; preds = %.lr.ph.i72
-  br label %.sink.split.i
+.sink.split.i:                                    ; preds = %75, %74, %73, %72, %71, %70, %69, %.lr.ph.i72
+  %.str.141.sink.i = phi ptr [ @.str.142, %69 ], [ @.str.143, %70 ], [ @.str.144, %71 ], [ @.str.145, %72 ], [ @.str.146, %73 ], [ @.str.147, %74 ], [ @.str.148, %75 ], [ @.str.141, %.lr.ph.i72 ]
+  %76 = load i32, ptr %.sroa.7.0..sroa_idx, align 4
+  %.not.i92 = icmp sgt i32 %76, -1
+  br i1 %.not.i92, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit98, label %77
 
-.sink.split.i:                                    ; preds = %76, %75, %74, %73, %72, %71, %70, %.lr.ph.i72
-  %.str.141.sink.i = phi ptr [ @.str.142, %70 ], [ @.str.143, %71 ], [ @.str.144, %72 ], [ @.str.145, %73 ], [ @.str.146, %74 ], [ @.str.147, %75 ], [ @.str.148, %76 ], [ @.str.141, %.lr.ph.i72 ]
-  %77 = load i32, ptr %.sroa.7.0..sroa_idx, align 4
-  %.not.i87 = icmp sgt i32 %77, -1
-  br i1 %.not.i87, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit89, label %78
+77:                                               ; preds = %.sink.split.i
+  %78 = load i8, ptr %.str.141.sink.i, align 1, !tbaa !4
+  %.not4.i.i = icmp eq i8 %78, 0
+  br i1 %.not4.i.i, label %_ZN4absl18debugging_internalL6StrLenEPKc.exit.i97, label %.lr.ph.i.i93
 
-78:                                               ; preds = %.sink.split.i
-  %79 = load i8, ptr %.str.141.sink.i, align 1, !tbaa !4
-  %.not4.i.i = icmp eq i8 %79, 0
-  br i1 %.not4.i.i, label %_ZN4absl18debugging_internalL6StrLenEPKc.exit.i, label %.lr.ph.preheader.i.i
+.lr.ph.i.i93:                                     ; preds = %77, %.lr.ph.i.i93
+  %.06.i.i94 = phi i64 [ %80, %.lr.ph.i.i93 ], [ 0, %77 ]
+  %.035.i.i95 = phi ptr [ %79, %.lr.ph.i.i93 ], [ %.str.141.sink.i, %77 ]
+  %79 = getelementptr inbounds nuw i8, ptr %.035.i.i95, i64 1
+  %80 = add i64 %.06.i.i94, 1
+  %81 = load i8, ptr %79, align 1, !tbaa !4
+  %.not.i.i96 = icmp eq i8 %81, 0
+  br i1 %.not.i.i96, label %_ZN4absl18debugging_internalL6StrLenEPKc.exit.i97, label %.lr.ph.i.i93, !llvm.loop !22
 
-.lr.ph.preheader.i.i:                             ; preds = %78
-  %scevgep.i.i = getelementptr i8, ptr %.str.141.sink.i, i64 1
-  %strlen.i.i88 = tail call i64 @strlen(ptr nonnull readonly dereferenceable(1) %scevgep.i.i)
-  %80 = add i64 %strlen.i.i88, 1
-  br label %_ZN4absl18debugging_internalL6StrLenEPKc.exit.i
-
-_ZN4absl18debugging_internalL6StrLenEPKc.exit.i:  ; preds = %.lr.ph.preheader.i.i, %78
-  %.0.lcssa.i.i = phi i64 [ 0, %78 ], [ %80, %.lr.ph.preheader.i.i ]
+_ZN4absl18debugging_internalL6StrLenEPKc.exit.i97: ; preds = %.lr.ph.i.i93, %77
+  %.0.lcssa.i.i = phi i64 [ 0, %77 ], [ %80, %.lr.ph.i.i93 ]
   tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %0, ptr noundef nonnull readonly %.str.141.sink.i, i64 noundef %.0.lcssa.i.i)
-  br label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit89
+  br label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit98
 
-_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit89: ; preds = %_ZN4absl18debugging_internalL6StrLenEPKc.exit.i, %.sink.split.i, %.lr.ph.i72
-  %.not.i73 = icmp eq ptr %57, %68
-  br i1 %.not.i73, label %.thread103, label %.lr.ph.i72, !llvm.loop !49
+_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit98: ; preds = %_ZN4absl18debugging_internalL6StrLenEPKc.exit.i97, %.sink.split.i, %.lr.ph.i72
+  %.not.i73 = icmp eq ptr %56, %67
+  br i1 %.not.i73, label %.thread112, label %.lr.ph.i72, !llvm.loop !50
 
 .thread:                                          ; preds = %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit
-  store i32 %36, ptr %4, align 4, !tbaa !17
-  br label %86
+  store i32 %35, ptr %4, align 4, !tbaa !17
+  br label %87
 
-.thread103:                                       ; preds = %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit89, %.preheader.i
+.thread112:                                       ; preds = %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit98, %.preheader.i
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %storemerge.in = load i32, ptr %4, align 4, !tbaa !17
   %storemerge = add nsw i32 %storemerge.in, -1
   store i32 %storemerge, ptr %4, align 4, !tbaa !17
-  %81 = and i32 %.sroa.7.0.copyload, 2147418112
-  %82 = load i32, ptr %.sroa.7.0..sroa_idx, align 4
-  %83 = and i32 %82, -2147418113
-  %84 = or disjoint i32 %83, %81
-  store i32 %84, ptr %.sroa.7.0..sroa_idx, align 4
+  %82 = and i32 %.sroa.7.0.copyload, 2147418112
+  %83 = load i32, ptr %.sroa.7.0..sroa_idx, align 4
+  %84 = and i32 %83, -2147418113
+  %85 = or disjoint i32 %84, %82
+  store i32 %85, ptr %.sroa.7.0..sroa_idx, align 4
   %.not53 = icmp eq ptr %1, null
-  br i1 %.not53, label %.loopexit, label %85
+  br i1 %.not53, label %.loopexit, label %86
 
-85:                                               ; preds = %.thread103
-  store i32 1, ptr %1, align 4, !tbaa !28
+86:                                               ; preds = %.thread112
+  store i32 1, ptr %1, align 4, !tbaa !29
   br label %.loopexit
 
-86:                                               ; preds = %.thread104, %.thread, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread
-  %87 = phi i32 [ %.pre127, %.thread104 ], [ %40, %.thread ], [ %22, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread ]
-  %88 = phi i32 [ %63, %.thread104 ], [ %36, %.thread ], [ %6, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %13, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false), !tbaa.struct !30
+87:                                               ; preds = %.thread113, %.thread, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread
+  %88 = phi i32 [ %.pre141, %.thread113 ], [ %39, %.thread ], [ %22, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread ]
+  %89 = phi i32 [ %62, %.thread113 ], [ %35, %.thread ], [ %6, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %13, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false), !tbaa.struct !31
   store i32 %.sroa.7.0.copyload, ptr %.sroa.7.0..sroa_idx, align 4, !tbaa !4
-  %89 = add nsw i32 %88, 1
-  store i32 %89, ptr %4, align 4, !tbaa !17
-  %90 = add nsw i32 %87, 1
-  store i32 %90, ptr %7, align 8, !tbaa !15
-  %91 = icmp sgt i32 %88, 255
-  %92 = icmp sgt i32 %87, 131071
-  %or.cond.i74 = select i1 %91, i1 true, i1 %92
-  br i1 %or.cond.i74, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit78.thread, label %93
+  %90 = add nsw i32 %89, 1
+  store i32 %90, ptr %4, align 4, !tbaa !17
+  %91 = add nsw i32 %88, 1
+  store i32 %91, ptr %7, align 8, !tbaa !15
+  %92 = icmp sgt i32 %89, 255
+  %93 = icmp sgt i32 %88, 131071
+  %or.cond.i74 = select i1 %92, i1 true, i1 %93
+  br i1 %or.cond.i74, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit78.thread, label %94
 
-93:                                               ; preds = %86
+94:                                               ; preds = %87
   %.val11.i75 = load ptr, ptr %0, align 8, !tbaa !7
   %.val12.i76 = load i32, ptr %13, align 4, !tbaa !16
-  %94 = sext i32 %.val12.i76 to i64
-  %95 = getelementptr inbounds i8, ptr %.val11.i75, i64 %94
-  %96 = load i8, ptr %95, align 1, !tbaa !4
-  %97 = icmp eq i8 %96, 108
-  br i1 %97, label %98, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit78.thread
+  %95 = sext i32 %.val12.i76 to i64
+  %96 = getelementptr inbounds i8, ptr %.val11.i75, i64 %95
+  %97 = load i8, ptr %96, align 1, !tbaa !4
+  %98 = icmp eq i8 %97, 108
+  br i1 %98, label %99, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit78.thread
 
-98:                                               ; preds = %93
-  %99 = getelementptr inbounds nuw i8, ptr %95, i64 1
-  %100 = load i8, ptr %99, align 1, !tbaa !4
-  %101 = icmp eq i8 %100, 105
-  br i1 %101, label %102, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit78.thread
+99:                                               ; preds = %94
+  %100 = getelementptr inbounds nuw i8, ptr %96, i64 1
+  %101 = load i8, ptr %100, align 1, !tbaa !4
+  %102 = icmp eq i8 %101, 105
+  br i1 %102, label %103, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit78.thread
 
-_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit78.thread: ; preds = %98, %93, %86
-  store i32 %88, ptr %4, align 4, !tbaa !17
+_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit78.thread: ; preds = %99, %94, %87
+  store i32 %89, ptr %4, align 4, !tbaa !17
   br label %106
 
-102:                                              ; preds = %98
-  %103 = add nsw i32 %.val12.i76, 2
-  store i32 %103, ptr %13, align 4, !tbaa !16
-  store i32 %88, ptr %4, align 4, !tbaa !17
+103:                                              ; preds = %99
+  %104 = add nsw i32 %.val12.i76, 2
+  store i32 %104, ptr %13, align 4, !tbaa !16
+  store i32 %89, ptr %4, align 4, !tbaa !17
   %.not.i79 = icmp sgt i32 %.sroa.7.0.copyload, -1
-  br i1 %.not.i79, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit81, label %104
+  br i1 %.not.i79, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit85, label %.lr.ph.i.i80.preheader
 
-104:                                              ; preds = %102
+.lr.ph.i.i80.preheader:                           ; preds = %103
   tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %0, ptr noundef nonnull @.str.138, i64 noundef 11)
-  br label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit81
+  br label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit85
 
-_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit81: ; preds = %102, %104
+_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit85: ; preds = %103, %.lr.ph.i.i80.preheader
   %105 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL15ParseSourceNameEPNS0_5StateE(ptr noundef nonnull %0)
-  br i1 %105, label %.loopexit, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit81._crit_edge
+  br i1 %105, label %.loopexit, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit85._crit_edge
 
-_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit81._crit_edge: ; preds = %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit81
-  %.pre128 = load i32, ptr %4, align 4, !tbaa !17
-  %.pre129 = load i32, ptr %7, align 8, !tbaa !15
-  %.pre131 = add nsw i32 %.pre128, 1
+_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit85._crit_edge: ; preds = %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit85
+  %.pre142 = load i32, ptr %4, align 4, !tbaa !17
+  %.pre143 = load i32, ptr %7, align 8, !tbaa !15
+  %.pre145 = add nsw i32 %.pre142, 1
   br label %106
 
-106:                                              ; preds = %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit81._crit_edge, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit78.thread
-  %.pre-phi = phi i32 [ %.pre131, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit81._crit_edge ], [ %89, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit78.thread ]
-  %107 = phi i32 [ %.pre129, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit81._crit_edge ], [ %90, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit78.thread ]
-  %108 = phi i32 [ %.pre128, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit81._crit_edge ], [ %88, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit78.thread ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %13, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false), !tbaa.struct !30
+106:                                              ; preds = %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit85._crit_edge, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit78.thread
+  %.pre-phi = phi i32 [ %.pre145, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit85._crit_edge ], [ %90, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit78.thread ]
+  %107 = phi i32 [ %.pre143, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit85._crit_edge ], [ %91, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit78.thread ]
+  %108 = phi i32 [ %.pre142, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit85._crit_edge ], [ %89, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit78.thread ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %13, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false), !tbaa.struct !31
   store i32 %.sroa.7.0.copyload, ptr %.sroa.7.0..sroa_idx, align 4, !tbaa !4
   store i32 %.pre-phi, ptr %4, align 4, !tbaa !17
   %109 = add nsw i32 %107, 1
   store i32 %109, ptr %7, align 8, !tbaa !15
   %110 = icmp sgt i32 %108, 255
   %111 = icmp sgt i32 %107, 131071
-  %or.cond.i82 = select i1 %110, i1 true, i1 %111
-  br i1 %or.cond.i82, label %.sink.split, label %112
+  %or.cond.i86 = select i1 %110, i1 true, i1 %111
+  br i1 %or.cond.i86, label %.sink.split, label %112
 
 112:                                              ; preds = %106
   %.val6.i = load ptr, ptr %0, align 8, !tbaa !7
@@ -9120,32 +9139,32 @@ _ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit81._crit_edge: ; 
 124:                                              ; preds = %117
   %125 = load i8, ptr %120, align 1, !tbaa !4
   %126 = icmp eq i8 %125, 0
-  br i1 %126, label %.sink.split, label %.lr.ph.i.i
+  br i1 %126, label %.sink.split, label %.lr.ph.i.i90
 
-127:                                              ; preds = %.lr.ph.i.i
+127:                                              ; preds = %.lr.ph.i.i90
   %.018.i.add.i = add nuw nsw i64 %.018.i.idx.i, 1
   %.ptr.i = getelementptr inbounds nuw i8, ptr @.str.149, i64 %.018.i.add.i
   %128 = load i8, ptr %.ptr.i, align 1, !tbaa !4
   %exitcond.i = icmp eq i64 %.018.i.add.i, 10
-  br i1 %exitcond.i, label %.sink.split, label %.lr.ph.i.i, !llvm.loop !31
+  br i1 %exitcond.i, label %.sink.split, label %.lr.ph.i.i90, !llvm.loop !32
 
-.lr.ph.i.i:                                       ; preds = %124, %127
+.lr.ph.i.i90:                                     ; preds = %124, %127
   %129 = phi i8 [ %128, %127 ], [ 48, %124 ]
   %.018.i.idx.i = phi i64 [ %.018.i.add.i, %127 ], [ 0, %124 ]
   %130 = icmp eq i8 %125, %129
   br i1 %130, label %_ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc.exit.i, label %127
 
-_ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc.exit.i: ; preds = %.lr.ph.i.i
+_ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc.exit.i: ; preds = %.lr.ph.i.i90
   %131 = add nsw i32 %.val7.i, 2
   store i32 %131, ptr %13, align 4, !tbaa !16
   store i32 %108, ptr %4, align 4, !tbaa !17
-  %.not.i86 = icmp eq ptr %1, null
-  br i1 %.not.i86, label %135, label %132
+  %.not.i91 = icmp eq ptr %1, null
+  br i1 %.not.i91, label %135, label %132
 
 132:                                              ; preds = %_ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc.exit.i
   %133 = sext i8 %121 to i32
   %134 = add nsw i32 %133, -48
-  store i32 %134, ptr %1, align 4, !tbaa !28
+  store i32 %134, ptr %1, align 4, !tbaa !29
   br label %135
 
 135:                                              ; preds = %_ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc.exit.i, %132
@@ -9157,7 +9176,7 @@ _ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc.exit.i: ; preds = 
   br label %137
 
 137:                                              ; preds = %.sink.split, %135
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %13, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %13, ptr noundef nonnull align 8 dereferenceable(12) %.sroa.0, i64 12, i1 false), !tbaa.struct !31
   store i32 %.sroa.7.0.copyload, ptr %.sroa.7.0..sroa_idx, align 4, !tbaa !4
   %.val62 = load ptr, ptr %0, align 8, !tbaa !7
   %.val63 = load i32, ptr %13, align 4, !tbaa !16
@@ -9195,14 +9214,14 @@ _ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc.exit.i: ; preds = 
 
 157:                                              ; preds = %156
   %158 = getelementptr inbounds nuw i8, ptr %.067, i64 16
-  %159 = load i32, ptr %158, align 8, !tbaa !50
-  store i32 %159, ptr %1, align 4, !tbaa !28
+  %159 = load i32, ptr %158, align 8, !tbaa !51
+  store i32 %159, ptr %1, align 4, !tbaa !29
   br label %160
 
 160:                                              ; preds = %157, %156
   tail call fastcc void @_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc(ptr noundef nonnull %0, ptr noundef nonnull @.str.139)
   %161 = getelementptr inbounds nuw i8, ptr %.067, i64 8
-  %162 = load ptr, ptr %161, align 8, !tbaa !35
+  %162 = load ptr, ptr %161, align 8, !tbaa !36
   %163 = load i8, ptr %162, align 1, !tbaa !4
   %164 = add i8 %163, -97
   %165 = icmp ult i8 %164, 26
@@ -9221,15 +9240,15 @@ _ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc.exit.i: ; preds = 
 
 170:                                              ; preds = %.preheader, %152
   %171 = getelementptr inbounds nuw i8, ptr %.067, i64 24
-  %172 = load ptr, ptr %171, align 8, !tbaa !37
+  %172 = load ptr, ptr %171, align 8, !tbaa !38
   %.not.not = icmp eq ptr %172, null
-  br i1 %.not.not, label %.loopexit, label %.preheader, !llvm.loop !51
+  br i1 %.not.not, label %.loopexit, label %.preheader, !llvm.loop !52
 
-.loopexit:                                        ; preds = %170, %167, %137, %143, %135, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit81, %.thread103, %85
-  %.1 = phi i1 [ true, %85 ], [ true, %.thread103 ], [ true, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit81 ], [ true, %135 ], [ false, %143 ], [ false, %137 ], [ true, %167 ], [ false, %170 ]
+.loopexit:                                        ; preds = %170, %167, %137, %143, %135, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit85, %.thread112, %86
+  %.1 = phi i1 [ true, %86 ], [ true, %.thread112 ], [ true, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit85 ], [ true, %135 ], [ false, %143 ], [ false, %137 ], [ true, %167 ], [ false, %170 ]
   call void @llvm.lifetime.end.p0(i64 12, ptr nonnull %.sroa.0)
-  %.pre130 = load i32, ptr %4, align 4, !tbaa !17
-  %173 = add nsw i32 %.pre130, -1
+  %.pre144 = load i32, ptr %4, align 4, !tbaa !17
+  %173 = add nsw i32 %.pre144, -1
   br label %_ZN4absl18debugging_internalL24AtLeastNumCharsRemainingEPKcm.exit
 
 _ZN4absl18debugging_internalL24AtLeastNumCharsRemainingEPKcm.exit: ; preds = %.lr.ph.i, %2, %.loopexit
@@ -9239,7 +9258,7 @@ _ZN4absl18debugging_internalL24AtLeastNumCharsRemainingEPKcm.exit: ; preds = %.l
   ret i1 %.046
 }
 
-; Function Attrs: mustprogress nofree memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree nosync memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL16ParseTemplateArgEPNS0_5StateE(ptr noundef captures(none) %0) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.absl::debugging_internal::ParseState", align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -9257,7 +9276,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL16ParseT
 
 11:                                               ; preds = %1
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %12, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %12, i64 16, i1 false), !tbaa.struct !31
   %13 = add nsw i32 %4, 2
   store i32 %13, ptr %3, align 4, !tbaa !17
   %14 = add nsw i32 %7, 2
@@ -9287,7 +9306,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL16ParseT
           to label %.noexc unwind label %.loopexit
 
 .noexc:                                           ; preds = %24
-  br i1 %25, label %24, label %_ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit, !llvm.loop !32
+  br i1 %25, label %24, label %_ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit, !llvm.loop !33
 
 _ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit: ; preds = %.noexc
   %26 = load i32, ptr %3, align 4, !tbaa !17
@@ -9337,7 +9356,7 @@ _ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread: ; pr
   %41 = phi i32 [ %14, %17 ], [ %14, %11 ], [ %29, %32 ], [ %29, %_ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit ]
   %storemerge = phi i32 [ %5, %17 ], [ %5, %11 ], [ %26, %32 ], [ %26, %_ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit ]
   store i32 %storemerge, ptr %3, align 4, !tbaa !17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !31
   %42 = add nsw i32 %storemerge, 1
   %43 = add nsw i32 %41, 1
   store i32 %43, ptr %6, align 8, !tbaa !15
@@ -9395,7 +9414,7 @@ _ZN4absl18debugging_internalL20ParseLocalSourceNameEPNS0_5StateE.exit: ; preds =
           to label %63 unwind label %.loopexit.split-lp
 
 63:                                               ; preds = %60
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %12, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %12, i64 16, i1 false), !tbaa.struct !31
   %64 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL30ParseExprCastValueAndTrailingEEPNS0_5StateE(ptr noundef nonnull %0)
   br i1 %64, label %94, label %.sink.split
 
@@ -9416,7 +9435,7 @@ _ZN4absl18debugging_internalL20ParseLocalSourceNameEPNS0_5StateE.exit.thread: ; 
   br i1 %68, label %94, label %70
 
 70:                                               ; preds = %69
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !31
   %71 = load i32, ptr %3, align 4, !tbaa !17
   %72 = add nsw i32 %71, 1
   store i32 %72, ptr %3, align 4, !tbaa !17
@@ -9456,7 +9475,7 @@ _ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit37.thread: ; 
   br i1 %87, label %94, label %88
 
 88:                                               ; preds = %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit37.thread, %86, %85
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !31
   %89 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL22ParseTemplateParamDeclEPNS0_5StateE(ptr noundef nonnull %0)
           to label %90 unwind label %.loopexit.split-lp
 
@@ -9488,7 +9507,7 @@ _ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exi
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nofree memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree nosync memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL19ParseUnresolvedNameEPNS0_5StateE(ptr noundef %0) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.absl::debugging_internal::ParseState", align 4
   %3 = alloca %"struct.absl::debugging_internal::ParseState", align 4
@@ -9510,7 +9529,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL19ParseU
 14:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %15, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %15, i64 16, i1 false), !tbaa.struct !31
   %16 = add nsw i32 %7, 2
   store i32 %16, ptr %6, align 4, !tbaa !17
   %17 = add nsw i32 %10, 2
@@ -9563,7 +9582,7 @@ _ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit: ; preds =
   resume { ptr, i32 } %lpad.phi
 
 35:                                               ; preds = %32
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %15, ptr noundef nonnull align 4 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %15, ptr noundef nonnull align 4 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !31
   %36 = load i32, ptr %6, align 4, !tbaa !17
   %37 = add nsw i32 %36, 1
   store i32 %37, ptr %6, align 4, !tbaa !17
@@ -9624,7 +9643,7 @@ _ZN4absl18debugging_internalL19ParseUnresolvedTypeEPNS0_5StateE.exit.thread: ; p
   br i1 %59, label %_ZN4absl18debugging_internalL13ParseSimpleIdEPNS0_5StateE.exit81.thread, label %61
 
 61:                                               ; preds = %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit36.thread, %60, %_ZN4absl18debugging_internalL19ParseUnresolvedTypeEPNS0_5StateE.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %15, ptr noundef nonnull align 4 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %15, ptr noundef nonnull align 4 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !31
   %62 = load i32, ptr %6, align 4, !tbaa !17
   %63 = add nsw i32 %62, 1
   store i32 %63, ptr %6, align 4, !tbaa !17
@@ -9723,7 +9742,7 @@ _ZN4absl18debugging_internalL19ParseUnresolvedTypeEPNS0_5StateE.exit47.thread: ;
 
 _ZN4absl18debugging_internalL13ParseSimpleIdEPNS0_5StateE.exit.i: ; preds = %.lr.ph
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %15, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %15, i64 16, i1 false), !tbaa.struct !31
   %106 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseSubstitutionEPNS0_5StateEb(ptr noundef nonnull %0, i1 noundef zeroext false)
   br i1 %106, label %107, label %.thread
 
@@ -9741,7 +9760,7 @@ _ZN4absl18debugging_internalL13ParseSimpleIdEPNS0_5StateE.exit.i: ; preds = %.lr
   br label %113
 
 .thread:                                          ; preds = %_ZN4absl18debugging_internalL13ParseSimpleIdEPNS0_5StateE.exit.i, %109
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %15, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %15, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false), !tbaa.struct !31
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
   %storemerge.in.pre = load i32, ptr %6, align 4, !tbaa !17
   br label %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit
@@ -9765,7 +9784,7 @@ _ZN4absl18debugging_internalL13ParseSimpleIdEPNS0_5StateE.exit.i: ; preds = %.lr
   %118 = icmp sgt i32 %storemerge120.in, 256
   %119 = icmp sgt i32 %116, 131071
   %or.cond.i93 = select i1 %118, i1 true, i1 %119
-  br i1 %or.cond.i93, label %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit, label %.lr.ph, !llvm.loop !33
+  br i1 %or.cond.i93, label %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit, label %.lr.ph, !llvm.loop !34
 
 _ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit: ; preds = %.preheader.i.backedge, %.preheader.i.preheader, %.thread
   %storemerge.in = phi i32 [ %96, %.preheader.i.preheader ], [ %storemerge.in.pre, %.thread ], [ %storemerge120.in, %.preheader.i.backedge ]
@@ -9786,7 +9805,7 @@ _ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.thread.sink.spl
   br label %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.thread
 
 _ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.thread: ; preds = %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit.thread.sink.split, %.noexc48, %123, %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit, %_ZN4absl18debugging_internalL19ParseUnresolvedTypeEPNS0_5StateE.exit47
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %15, ptr noundef nonnull align 4 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %15, ptr noundef nonnull align 4 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !31
   %124 = load i32, ptr %6, align 4, !tbaa !17
   %125 = add nsw i32 %124, 1
   store i32 %125, ptr %6, align 4, !tbaa !17
@@ -9869,7 +9888,7 @@ _ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit54: ; preds
 
 _ZN4absl18debugging_internalL13ParseSimpleIdEPNS0_5StateE.exit.i95: ; preds = %156
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %15, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %15, i64 16, i1 false), !tbaa.struct !31
   %162 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseSubstitutionEPNS0_5StateEb(ptr noundef nonnull %0, i1 noundef zeroext false)
   br i1 %162, label %163, label %.thread112
 
@@ -9887,7 +9906,7 @@ _ZN4absl18debugging_internalL13ParseSimpleIdEPNS0_5StateE.exit.i95: ; preds = %1
   br label %171
 
 .thread112:                                       ; preds = %_ZN4absl18debugging_internalL13ParseSimpleIdEPNS0_5StateE.exit.i95, %165
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %15, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %15, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !31
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %168 = load i32, ptr %6, align 4, !tbaa !17
   %169 = add nsw i32 %168, -1
@@ -9930,7 +9949,7 @@ _ZN4absl18debugging_internalL13ParseSimpleIdEPNS0_5StateE.exit.i95: ; preds = %1
 
 _ZN4absl18debugging_internalL13ParseSimpleIdEPNS0_5StateE.exit.i102: ; preds = %.lr.ph119
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %15, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %15, i64 16, i1 false), !tbaa.struct !31
   %183 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseSubstitutionEPNS0_5StateEb(ptr noundef nonnull %0, i1 noundef zeroext false)
   br i1 %183, label %184, label %.thread114
 
@@ -9948,7 +9967,7 @@ _ZN4absl18debugging_internalL13ParseSimpleIdEPNS0_5StateE.exit.i102: ; preds = %
   br label %190
 
 .thread114:                                       ; preds = %_ZN4absl18debugging_internalL13ParseSimpleIdEPNS0_5StateE.exit.i102, %186
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %15, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %15, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !31
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   %storemerge116.in.pre = load i32, ptr %6, align 4, !tbaa !17
   %.pre125 = load i32, ptr %9, align 8, !tbaa !15
@@ -9973,7 +9992,7 @@ _ZN4absl18debugging_internalL13ParseSimpleIdEPNS0_5StateE.exit.i102: ; preds = %
   %195 = icmp sgt i32 %storemerge122.in, 256
   %196 = icmp sgt i32 %193, 131071
   %or.cond.i101 = select i1 %195, i1 true, i1 %196
-  br i1 %or.cond.i101, label %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit63, label %.lr.ph119, !llvm.loop !33
+  br i1 %or.cond.i101, label %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit63, label %.lr.ph119, !llvm.loop !34
 
 _ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit63: ; preds = %.preheader.i60.backedge, %.preheader.i60.preheader, %.thread114
   %197 = phi i32 [ %175, %.preheader.i60.preheader ], [ %.pre125, %.thread114 ], [ %194, %.preheader.i60.backedge ]
@@ -10024,7 +10043,7 @@ _ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit63.thread: ; pre
   %.pre-phi = phi i32 [ %.pre128, %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit63.threadthread-pre-split ], [ %125, %.noexc61.thread ]
   %210 = phi i32 [ %.pr, %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit63.threadthread-pre-split ], [ 131073, %.noexc61.thread ]
   %211 = phi i32 [ %.ph, %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit63.threadthread-pre-split ], [ %124, %.noexc61.thread ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %15, ptr noundef nonnull align 4 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %15, ptr noundef nonnull align 4 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !31
   store i32 %.pre-phi, ptr %6, align 4, !tbaa !17
   %212 = add nsw i32 %210, 1
   store i32 %212, ptr %9, align 8, !tbaa !15
@@ -10094,7 +10113,7 @@ _ZN4absl18debugging_internalL13ParseSimpleIdEPNS0_5StateE.exit.sink.split: ; pre
   br label %_ZN4absl18debugging_internalL13ParseSimpleIdEPNS0_5StateE.exit
 
 _ZN4absl18debugging_internalL13ParseSimpleIdEPNS0_5StateE.exit: ; preds = %_ZN4absl18debugging_internalL13ParseSimpleIdEPNS0_5StateE.exit.sink.split, %242, %237
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %15, ptr noundef nonnull align 4 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %15, ptr noundef nonnull align 4 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !31
   br label %_ZN4absl18debugging_internalL13ParseSimpleIdEPNS0_5StateE.exit81.thread
 
 _ZN4absl18debugging_internalL13ParseSimpleIdEPNS0_5StateE.exit81.thread: ; preds = %244, %209, %123, %60, %32, %_ZN4absl18debugging_internalL13ParseSimpleIdEPNS0_5StateE.exit
@@ -10111,7 +10130,7 @@ _ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exi
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nofree memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree nosync memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL16ParseRequirementEPNS0_5StateE(ptr noundef %0) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.absl::debugging_internal::ParseState", align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -10130,7 +10149,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL16ParseR
 11:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %12, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %12, i64 16, i1 false), !tbaa.struct !31
   %13 = add nsw i32 %4, 2
   store i32 %13, ptr %3, align 4, !tbaa !17
   %14 = add nsw i32 %7, 2
@@ -10237,7 +10256,7 @@ _ZN4absl18debugging_internalL19ParseTypeConstraintEPNS0_5StateE.exit._crit_edge:
 52:                                               ; preds = %_ZN4absl18debugging_internalL19ParseTypeConstraintEPNS0_5StateE.exit._crit_edge, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread, %25
   %53 = phi i32 [ %.pre45, %_ZN4absl18debugging_internalL19ParseTypeConstraintEPNS0_5StateE.exit._crit_edge ], [ %14, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread ], [ %.pre46, %25 ]
   %54 = phi i32 [ %.pre, %_ZN4absl18debugging_internalL19ParseTypeConstraintEPNS0_5StateE.exit._crit_edge ], [ %5, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread ], [ %.pre44, %25 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !31
   %55 = add nsw i32 %54, 1
   store i32 %55, ptr %3, align 4, !tbaa !17
   %56 = add nsw i32 %53, 1
@@ -10280,7 +10299,7 @@ _ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit33.thread: ; 
   %.pre-phi = phi i32 [ %.pre50, %._crit_edge ], [ %55, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit33.thread ]
   %69 = phi i32 [ %.pre48, %._crit_edge ], [ %56, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit33.thread ]
   %70 = phi i32 [ %.pre47, %._crit_edge ], [ %54, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit33.thread ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !31
   store i32 %.pre-phi, ptr %3, align 4, !tbaa !17
   %71 = add nsw i32 %69, 1
   store i32 %71, ptr %6, align 8, !tbaa !15
@@ -10313,7 +10332,7 @@ _ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit38.thread: ; 
   br i1 %81, label %84, label %83
 
 83:                                               ; preds = %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit38.thread, %82
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !31
   br label %84
 
 84:                                               ; preds = %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit28.thread, %82, %67, %_ZN4absl18debugging_internalL19ParseTypeConstraintEPNS0_5StateE.exit, %83
@@ -10331,7 +10350,7 @@ _ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL30ParseExprCastValueAndTrailingEEPNS0_5StateE(ptr noundef captures(none) %0) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL30ParseExprCastValueAndTrailingEEPNS0_5StateE(ptr noundef captures(none) %0) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.absl::debugging_internal::ParseState", align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4, !tbaa !17
@@ -10347,7 +10366,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL30ParseE
 10:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %11, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %11, i64 16, i1 false), !tbaa.struct !31
   %12 = add nsw i32 %4, 2
   %13 = add nsw i32 %6, 2
   %14 = icmp sgt i32 %4, 254
@@ -10395,7 +10414,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL30ParseE
   %34 = load i8, ptr %33, align 1, !tbaa !4
   %35 = add i8 %34, -48
   %36 = icmp ult i8 %35, 10
-  br i1 %36, label %.lr.ph.i, label %37, !llvm.loop !42
+  br i1 %36, label %.lr.ph.i, label %37, !llvm.loop !43
 
 37:                                               ; preds = %.lr.ph.i
   %38 = ptrtoint ptr %33 to i64
@@ -10424,7 +10443,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL30ParseE
 
 .thread:                                          ; preds = %37, %45, %._crit_edge44.i, %10
   %52 = phi i32 [ %43, %37 ], [ %43, %45 ], [ %18, %._crit_edge44.i ], [ %13, %10 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %11, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %11, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !31
   store i32 %12, ptr %3, align 4, !tbaa !17
   %53 = add nsw i32 %52, 1
   store i32 %53, ptr %5, align 8, !tbaa !15
@@ -10455,7 +10474,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL30ParseE
   %64 = getelementptr inbounds nuw i8, ptr %.028.i, i64 1
   %65 = load i8, ptr %64, align 1, !tbaa !4
   %.not.i = icmp eq i8 %65, 0
-  br i1 %.not.i, label %.loopexit69, label %.lr.ph.i17, !llvm.loop !52
+  br i1 %.not.i, label %.loopexit69, label %.lr.ph.i17, !llvm.loop !53
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i17
   %.not16.not.i = icmp eq ptr %.028.i, %57
@@ -10535,7 +10554,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL30ParseE
   %102 = getelementptr inbounds nuw i8, ptr %.028.i34, i64 1
   %103 = load i8, ptr %102, align 1, !tbaa !4
   %.not.i42 = icmp eq i8 %103, 0
-  br i1 %.not.i42, label %.loopexit, label %.lr.ph.i33, !llvm.loop !52
+  br i1 %.not.i42, label %.loopexit, label %.lr.ph.i33, !llvm.loop !53
 
 ._crit_edge.i37:                                  ; preds = %.lr.ph.i33
   %.not16.not.i38 = icmp eq ptr %.028.i34, %95
@@ -10568,7 +10587,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL30ParseE
   br label %118
 
 .thread55:                                        ; preds = %.loopexit, %111, %93, %89, %._crit_edge.i37, %81, %84, %.thread78, %55, %.thread, %._crit_edge.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %11, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %11, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !31
   br label %118
 
 118:                                              ; preds = %116, %79, %50, %.thread55
@@ -10582,7 +10601,7 @@ _ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exi
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nofree memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree nosync memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL18ParseClassEnumTypeEPNS0_5StateE(ptr noundef captures(none) %0) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.absl::debugging_internal::ParseState", align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -10601,7 +10620,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL18ParseC
 11:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %12, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %12, i64 16, i1 false), !tbaa.struct !31
   %13 = add nsw i32 %4, 2
   store i32 %13, ptr %3, align 4, !tbaa !17
   %14 = add nsw i32 %7, 2
@@ -10696,7 +10715,7 @@ _ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit21: ; preds
   resume { ptr, i32 } %54
 
 57:                                               ; preds = %52
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !31
   br label %58
 
 58:                                               ; preds = %52, %57
@@ -10712,7 +10731,7 @@ _ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exi
   ret i1 %.0
 }
 
-; Function Attrs: mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL26ParseTemplateTemplateParamEPNS0_5StateE(ptr noundef captures(none) %0) unnamed_addr #4 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4, !tbaa !17
@@ -10744,7 +10763,7 @@ _ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL14ParseLongTokenEPNS0_5StateEPKc(ptr noundef captures(none) %0) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL14ParseLongTokenEPNS0_5StateEPKc(ptr noundef captures(none) %0) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4, !tbaa !17
   %4 = add nsw i32 %3, 1
@@ -10779,7 +10798,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL14ParseL
   %18 = getelementptr inbounds nuw i8, ptr @.str.50, i64 %indvars.iv.next
   %19 = load i8, ptr %18, align 1, !tbaa !4
   %exitcond = icmp eq i64 %indvars.iv.next, 11
-  br i1 %exitcond, label %20, label %13, !llvm.loop !53
+  br i1 %exitcond, label %20, label %13, !llvm.loop !54
 
 20:                                               ; preds = %17
   %21 = add nsw i32 %.val15, 11
@@ -10793,9 +10812,9 @@ _ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN4absl18debugging_internalL18MaybeAppendDecimalEPNS0_5StateEi(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #10 {
+define internal fastcc void @_ZN4absl18debugging_internalL18MaybeAppendDecimalEPNS0_5StateEi(ptr noundef captures(none) %0, i32 noundef %1) unnamed_addr #9 {
   %3 = alloca [20 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #15
+  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %3) #14
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %5 = load i32, ptr %4, align 4
   %.not = icmp sgt i32 %5, -1
@@ -10818,7 +10837,7 @@ define internal fastcc void @_ZN4absl18debugging_internalL18MaybeAppendDecimalEP
   %15 = add i32 %.08, -10
   %16 = icmp ult i32 %15, -19
   %17 = select i1 %14, i1 %16, i1 false
-  br i1 %17, label %8, label %18, !llvm.loop !46
+  br i1 %17, label %8, label %18, !llvm.loop !47
 
 18:                                               ; preds = %8
   %19 = ptrtoint ptr %12 to i64
@@ -10836,7 +10855,7 @@ define internal fastcc void @_ZN4absl18debugging_internalL18MaybeAppendDecimalEP
 
 25:                                               ; preds = %30, %.lr.ph.i
   %.018.i = phi i64 [ 0, %.lr.ph.i ], [ %36, %30 ]
-  %26 = load i32, ptr %22, align 4, !tbaa !22
+  %26 = load i32, ptr %22, align 4, !tbaa !23
   %27 = add nsw i32 %26, 1
   %28 = load i32, ptr %23, align 8, !tbaa !14
   %29 = icmp slt i32 %27, %28
@@ -10846,22 +10865,22 @@ define internal fastcc void @_ZN4absl18debugging_internalL18MaybeAppendDecimalEP
   %31 = getelementptr inbounds nuw i8, ptr %12, i64 %.018.i
   %32 = load i8, ptr %31, align 1, !tbaa !4
   %33 = load ptr, ptr %24, align 8, !tbaa !13
-  store i32 %27, ptr %22, align 4, !tbaa !22
+  store i32 %27, ptr %22, align 4, !tbaa !23
   %34 = sext i32 %26 to i64
   %35 = getelementptr inbounds i8, ptr %33, i64 %34
   store i8 %32, ptr %35, align 1, !tbaa !4
   %36 = add nuw nsw i64 %.018.i, 1
   %exitcond.not.i = icmp eq i64 %36, %21
-  br i1 %exitcond.not.i, label %.loopexit.i, label %25, !llvm.loop !40
+  br i1 %exitcond.not.i, label %.loopexit.i, label %25, !llvm.loop !41
 
 37:                                               ; preds = %25
   %38 = add nsw i32 %28, 1
-  store i32 %38, ptr %22, align 4, !tbaa !22
+  store i32 %38, ptr %22, align 4, !tbaa !23
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %30, %37, %18
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %40 = load i32, ptr %39, align 4, !tbaa !22
+  %40 = load i32, ptr %39, align 4, !tbaa !23
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %42 = load i32, ptr %41, align 8, !tbaa !14
   %43 = icmp slt i32 %40, %42
@@ -10876,11 +10895,11 @@ define internal fastcc void @_ZN4absl18debugging_internalL18MaybeAppendDecimalEP
   br label %_ZN4absl18debugging_internalL6AppendEPNS0_5StateEPKcm.exit
 
 _ZN4absl18debugging_internalL6AppendEPNS0_5StateEPKcm.exit: ; preds = %44, %.loopexit.i, %2
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #15
+  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %3) #14
   ret void
 }
 
-; Function Attrs: mustprogress nofree memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree nosync memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL22ParseTemplateParamDeclEPNS0_5StateE(ptr noundef captures(none) %0) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.absl::debugging_internal::ParseState", align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -10899,7 +10918,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL22ParseT
 11:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %12, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %12, i64 16, i1 false), !tbaa.struct !31
   %13 = add nsw i32 %4, 2
   store i32 %13, ptr %3, align 4, !tbaa !17
   %14 = add nsw i32 %7, 2
@@ -10997,7 +11016,7 @@ _ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit27.thread: 
 48:                                               ; preds = %._crit_edge, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit27.thread
   %49 = phi i32 [ %.pre52, %._crit_edge ], [ %31, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit27.thread ]
   %50 = phi i32 [ %.pre, %._crit_edge ], [ %5, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit27.thread ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !31
   %51 = add nsw i32 %50, 1
   store i32 %51, ptr %3, align 4, !tbaa !17
   %52 = add nsw i32 %49, 1
@@ -11046,7 +11065,7 @@ _ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit32.thread: 
   %.pre-phi = phi i32 [ %.pre57, %._crit_edge53 ], [ %51, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit32.thread ]
   %69 = phi i32 [ %.pre55, %._crit_edge53 ], [ %52, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit32.thread ]
   %70 = phi i32 [ %.pre54, %._crit_edge53 ], [ %50, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit32.thread ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !31
   store i32 %.pre-phi, ptr %3, align 4, !tbaa !17
   %71 = add nsw i32 %69, 1
   store i32 %71, ptr %6, align 8, !tbaa !15
@@ -11081,7 +11100,7 @@ _ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit32.thread: 
           to label %.noexc unwind label %.loopexit
 
 .noexc:                                           ; preds = %85
-  br i1 %86, label %85, label %_ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit, !llvm.loop !32
+  br i1 %86, label %85, label %_ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit, !llvm.loop !33
 
 _ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit: ; preds = %.noexc
   %87 = load i32, ptr %3, align 4, !tbaa !17
@@ -11114,7 +11133,7 @@ _ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit37.thread: 
   %.pre-phi58 = phi i32 [ %88, %_ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit ], [ %88, %93 ], [ %.pre-phi, %68 ], [ %.pre-phi, %74 ], [ %.pre-phi, %79 ]
   %99 = phi i32 [ %90, %_ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit ], [ %90, %93 ], [ %71, %68 ], [ %71, %74 ], [ %71, %79 ]
   %storemerge = phi i32 [ %87, %_ZN4absl18debugging_internalL10ZeroOrMoreEPFbPNS0_5StateEES2_.exit ], [ %87, %93 ], [ %70, %68 ], [ %70, %74 ], [ %70, %79 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !31
   store i32 %.pre-phi58, ptr %3, align 4, !tbaa !17
   %100 = add nsw i32 %99, 1
   store i32 %100, ptr %6, align 8, !tbaa !15
@@ -11153,7 +11172,7 @@ _ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit44.thread: 
   br i1 %114, label %117, label %116
 
 116:                                              ; preds = %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit44.thread, %115
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !31
   br label %117
 
 117:                                              ; preds = %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit, %46, %115, %67, %116
@@ -11171,7 +11190,7 @@ _ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exi
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc void @_ZN4absl18debugging_internalL18ParseDiscriminatorEPNS0_5StateE(ptr noundef captures(none) %0) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define internal fastcc void @_ZN4absl18debugging_internalL18ParseDiscriminatorEPNS0_5StateE(ptr noundef captures(none) %0) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.absl::debugging_internal::ParseState", align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4, !tbaa !17
@@ -11188,7 +11207,7 @@ define internal fastcc void @_ZN4absl18debugging_internalL18ParseDiscriminatorEP
 11:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %12, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %12, i64 16, i1 false), !tbaa.struct !31
   %13 = add nsw i32 %4, 2
   store i32 %13, ptr %3, align 4, !tbaa !17
   %14 = add nsw i32 %7, 2
@@ -11233,7 +11252,7 @@ define internal fastcc void @_ZN4absl18debugging_internalL18ParseDiscriminatorEP
   %.ptr.i = getelementptr inbounds nuw i8, ptr @.str.149, i64 %.018.i.add.i
   %33 = load i8, ptr %.ptr.i, align 1, !tbaa !4
   %exitcond.i = icmp eq i64 %.018.i.add.i, 10
-  br i1 %exitcond.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !31
+  br i1 %exitcond.i, label %.loopexit, label %.lr.ph.i.i, !llvm.loop !32
 
 .lr.ph.i.i:                                       ; preds = %27, %32
   %34 = phi i8 [ %33, %32 ], [ 48, %27 ]
@@ -11309,7 +11328,7 @@ _ZN4absl18debugging_internalL10ParseDigitEPNS0_5StateEPi.exit.thread: ; preds = 
   %66 = load i8, ptr %65, align 1, !tbaa !4
   %67 = add i8 %66, -48
   %68 = icmp ult i8 %67, 10
-  br i1 %68, label %.lr.ph.i, label %69, !llvm.loop !42
+  br i1 %68, label %.lr.ph.i, label %69, !llvm.loop !43
 
 69:                                               ; preds = %.lr.ph.i
   %70 = ptrtoint ptr %65 to i64
@@ -11337,7 +11356,7 @@ _ZN4absl18debugging_internalL10ParseDigitEPNS0_5StateEPi.exit.thread: ; preds = 
   br label %.thread
 
 .thread33:                                        ; preds = %69, %77, %._crit_edge44.i, %44, %.thread30
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %12, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !31
   br label %.thread
 
 .thread:                                          ; preds = %11, %17, %82, %_ZN4absl18debugging_internalL10ParseDigitEPNS0_5StateEPi.exit.thread, %.thread33
@@ -11349,7 +11368,7 @@ _ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exi
   ret void
 }
 
-; Function Attrs: mustprogress nofree memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree nosync memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL23ParseBaseUnresolvedNameEPNS0_5StateE(ptr noundef %0) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.absl::debugging_internal::ParseState", align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -11381,7 +11400,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL23ParseB
 _ZN4absl18debugging_internalL13ParseSimpleIdEPNS0_5StateE.exit: ; preds = %11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %17, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %17, i64 16, i1 false), !tbaa.struct !31
   %18 = load i32, ptr %3, align 4, !tbaa !17
   %19 = add nsw i32 %18, 1
   store i32 %19, ptr %3, align 4, !tbaa !17
@@ -11438,7 +11457,7 @@ _ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread: ; 
   %.pre-phi = phi i32 [ %.pre32, %._crit_edge ], [ %19, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread ]
   %40 = phi i32 [ %.pre31, %._crit_edge ], [ %21, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread ]
   %41 = phi i32 [ %.pre, %._crit_edge ], [ %18, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !31
   store i32 %.pre-phi, ptr %3, align 4, !tbaa !17
   %42 = add nsw i32 %40, 1
   store i32 %42, ptr %6, align 8, !tbaa !15
@@ -11493,7 +11512,7 @@ _ZN4absl18debugging_internalL19ParseUnresolvedTypeEPNS0_5StateE.exit: ; preds = 
           to label %_ZN4absl18debugging_internalL19ParseUnresolvedTypeEPNS0_5StateE.exit.thread unwind label %37
 
 _ZN4absl18debugging_internalL13ParseSimpleIdEPNS0_5StateE.exit27: ; preds = %60, %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit23.thread
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !31
   br label %_ZN4absl18debugging_internalL19ParseUnresolvedTypeEPNS0_5StateE.exit.thread
 
 _ZN4absl18debugging_internalL19ParseUnresolvedTypeEPNS0_5StateE.exit.thread: ; preds = %.invoke, %.noexc25, %_ZN4absl18debugging_internalL19ParseUnresolvedTypeEPNS0_5StateE.exit, %_ZN4absl18debugging_internalL13ParseSimpleIdEPNS0_5StateE.exit27
@@ -11516,7 +11535,7 @@ _ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exi
   resume { ptr, i32 } %.pn
 }
 
-; Function Attrs: mustprogress nofree memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree nosync memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL29ParseUnresolvedQualifierLevelEPNS0_5StateE(ptr noundef captures(none) %0) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.absl::debugging_internal::ParseState", align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
@@ -11548,7 +11567,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL29ParseU
 _ZN4absl18debugging_internalL13ParseSimpleIdEPNS0_5StateE.exit: ; preds = %11
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %17, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %17, i64 16, i1 false), !tbaa.struct !31
   %18 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseSubstitutionEPNS0_5StateEb(ptr noundef nonnull %0, i1 noundef zeroext false)
   br i1 %18, label %19, label %24
 
@@ -11566,7 +11585,7 @@ _ZN4absl18debugging_internalL13ParseSimpleIdEPNS0_5StateE.exit: ; preds = %11
   br label %28
 
 24:                                               ; preds = %21, %_ZN4absl18debugging_internalL13ParseSimpleIdEPNS0_5StateE.exit
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %17, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !31
   br label %25
 
 25:                                               ; preds = %21, %24
@@ -11589,7 +11608,7 @@ _ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exi
   resume { ptr, i32 } %.pn
 }
 
-; Function Attrs: mustprogress nofree memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree nosync memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL20ParseLocalNameSuffixEPNS0_5StateE(ptr noundef captures(none) %0) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %2 = alloca [20 x i8], align 16
   %3 = alloca %"struct.absl::debugging_internal::ParseState", align 4
@@ -11603,13 +11622,13 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL20ParseL
   store i32 %9, ptr %7, align 8, !tbaa !15
   %10 = icmp sgt i32 %5, 255
   %11 = icmp sgt i32 %8, 131071
-  %or.cond66 = select i1 %10, i1 true, i1 %11
-  br i1 %or.cond66, label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread, label %12
+  %or.cond76 = select i1 %10, i1 true, i1 %11
+  br i1 %or.cond76, label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread, label %12
 
 12:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %13, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %13, i64 16, i1 false), !tbaa.struct !31
   %14 = add nsw i32 %5, 2
   store i32 %14, ptr %4, align 4, !tbaa !17
   %15 = add nsw i32 %8, 2
@@ -11630,7 +11649,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL20ParseL
 
 _ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread: ; preds = %18, %12
   store i32 %6, ptr %4, align 4, !tbaa !17
-  br label %141
+  br label %140
 
 23:                                               ; preds = %18
   %24 = add nsw i32 %.val7.i, 1
@@ -11643,7 +11662,7 @@ _ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread: ; pr
   %29 = icmp ult i8 %28, 10
   %30 = icmp eq i8 %27, 95
   %or.cond38 = or i1 %30, %29
-  br i1 %or.cond38, label %31, label %141
+  br i1 %or.cond38, label %31, label %140
 
 31:                                               ; preds = %23
   %32 = add nsw i32 %8, 3
@@ -11669,11 +11688,11 @@ _ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread: ; pr
 42:                                               ; preds = %39
   %43 = add nsw i32 %.val7.i, 2
   store i32 %43, ptr %13, align 4, !tbaa !16
-  %.pre75 = sext i32 %43 to i64
+  %.pre91 = sext i32 %43 to i64
   br label %._crit_edge44.i
 
 ._crit_edge44.i:                                  ; preds = %42, %39, %34
-  %.pre-phi = phi i64 [ %.pre75, %42 ], [ %25, %39 ], [ %25, %34 ]
+  %.pre-phi = phi i64 [ %.pre91, %42 ], [ %25, %39 ], [ %25, %34 ]
   %.val35.i = phi i32 [ %43, %42 ], [ %24, %39 ], [ %24, %34 ]
   %.0.i36.i = phi i1 [ true, %42 ], [ false, %39 ], [ false, %34 ]
   store i32 %14, ptr %4, align 4, !tbaa !17
@@ -11695,7 +11714,7 @@ _ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread: ; pr
   %54 = load i8, ptr %53, align 1, !tbaa !4
   %55 = add i8 %54, -48
   %56 = icmp ult i8 %55, 10
-  br i1 %56, label %.lr.ph.i, label %57, !llvm.loop !42
+  br i1 %56, label %.lr.ph.i, label %57, !llvm.loop !43
 
 57:                                               ; preds = %.lr.ph.i
   %58 = ptrtoint ptr %53 to i64
@@ -11718,20 +11737,20 @@ _ZN4absl18debugging_internalL11ParseNumberEPNS0_5StateEPi.exit: ; preds = %31, %
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %68 = load i32, ptr %67, align 4
   %.not.i = icmp sgt i32 %68, -1
-  br i1 %.not.i, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit.thread, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit
+  br i1 %.not.i, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit.thread, label %.lr.ph.i.i.preheader
 
-_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit.thread: ; preds = %_ZN4absl18debugging_internalL11ParseNumberEPNS0_5StateEPi.exit
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #15
-  br label %_ZN4absl18debugging_internalL18MaybeAppendDecimalEPNS0_5StateEi.exit.thread
-
-_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit: ; preds = %_ZN4absl18debugging_internalL11ParseNumberEPNS0_5StateEPi.exit
+.lr.ph.i.i.preheader:                             ; preds = %_ZN4absl18debugging_internalL11ParseNumberEPNS0_5StateEPi.exit
   tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %0, ptr noundef nonnull @.str.251, i64 noundef 15)
   %.pr = load i32, ptr %67, align 4
-  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #15
+  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #14
   %.not.i41 = icmp sgt i32 %.pr, -1
   br i1 %.not.i41, label %_ZN4absl18debugging_internalL18MaybeAppendDecimalEPNS0_5StateEi.exit.thread, label %69
 
-69:                                               ; preds = %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit
+_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit.thread: ; preds = %_ZN4absl18debugging_internalL11ParseNumberEPNS0_5StateEPi.exit
+  call void @llvm.lifetime.start.p0(i64 20, ptr nonnull %2) #14
+  br label %_ZN4absl18debugging_internalL18MaybeAppendDecimalEPNS0_5StateEi.exit.thread
+
+69:                                               ; preds = %.lr.ph.i.i.preheader
   %70 = getelementptr inbounds nuw i8, ptr %2, i64 20
   br label %71
 
@@ -11748,25 +11767,25 @@ _ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit: ; preds = %_ZN4
   %78 = add nsw i32 %.08.i, -10
   %79 = icmp ult i32 %78, -19
   %80 = select i1 %77, i1 %79, i1 false
-  br i1 %80, label %71, label %81, !llvm.loop !46
+  br i1 %80, label %71, label %81, !llvm.loop !47
 
 81:                                               ; preds = %71
   %82 = ptrtoint ptr %75 to i64
   %83 = ptrtoint ptr %2 to i64
   %.neg.i = sub i64 %83, %82
   %84 = add i64 %.neg.i, 20
-  %.not.i.i = icmp eq i64 %84, 0
-  br i1 %.not.i.i, label %.loopexit.i.i, label %.lr.ph.i.i
+  %.not.i.i43 = icmp eq i64 %84, 0
+  br i1 %.not.i.i43, label %.loopexit.i.i, label %.lr.ph.i.i44
 
-.lr.ph.i.i:                                       ; preds = %81
+.lr.ph.i.i44:                                     ; preds = %81
   %85 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %86 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %87 = getelementptr inbounds nuw i8, ptr %0, i64 8
   br label %88
 
-88:                                               ; preds = %93, %.lr.ph.i.i
-  %.018.i.i = phi i64 [ 0, %.lr.ph.i.i ], [ %99, %93 ]
-  %89 = load i32, ptr %85, align 4, !tbaa !22
+88:                                               ; preds = %93, %.lr.ph.i.i44
+  %.018.i.i = phi i64 [ 0, %.lr.ph.i.i44 ], [ %99, %93 ]
+  %89 = load i32, ptr %85, align 4, !tbaa !23
   %90 = add nsw i32 %89, 1
   %91 = load i32, ptr %86, align 8, !tbaa !14
   %92 = icmp slt i32 %90, %91
@@ -11776,22 +11795,22 @@ _ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit: ; preds = %_ZN4
   %94 = getelementptr inbounds nuw i8, ptr %75, i64 %.018.i.i
   %95 = load i8, ptr %94, align 1, !tbaa !4
   %96 = load ptr, ptr %87, align 8, !tbaa !13
-  store i32 %90, ptr %85, align 4, !tbaa !22
+  store i32 %90, ptr %85, align 4, !tbaa !23
   %97 = sext i32 %89 to i64
   %98 = getelementptr inbounds i8, ptr %96, i64 %97
   store i8 %95, ptr %98, align 1, !tbaa !4
   %99 = add nuw nsw i64 %.018.i.i, 1
   %exitcond.not.i.i = icmp eq i64 %99, %84
-  br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %88, !llvm.loop !40
+  br i1 %exitcond.not.i.i, label %.loopexit.i.i, label %88, !llvm.loop !41
 
 100:                                              ; preds = %88
   %101 = add nsw i32 %91, 1
-  store i32 %101, ptr %85, align 4, !tbaa !22
+  store i32 %101, ptr %85, align 4, !tbaa !23
   br label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %93, %100, %81
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %103 = load i32, ptr %102, align 4, !tbaa !22
+  %103 = load i32, ptr %102, align 4, !tbaa !23
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %105 = load i32, ptr %104, align 8, !tbaa !14
   %106 = icmp slt i32 %103, %105
@@ -11805,175 +11824,175 @@ _ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit: ; preds = %_ZN4
   store i8 0, ptr %111, align 1, !tbaa !4
   br label %_ZN4absl18debugging_internalL18MaybeAppendDecimalEPNS0_5StateEi.exit
 
-_ZN4absl18debugging_internalL18MaybeAppendDecimalEPNS0_5StateEi.exit.thread: ; preds = %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit.thread, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #15
-  br label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit45
+_ZN4absl18debugging_internalL18MaybeAppendDecimalEPNS0_5StateEi.exit.thread: ; preds = %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit.thread, %.lr.ph.i.i.preheader
+  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #14
+  br label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit51
 
 _ZN4absl18debugging_internalL18MaybeAppendDecimalEPNS0_5StateEi.exit: ; preds = %.loopexit.i.i, %107
-  %.pr62 = load i32, ptr %67, align 4
-  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #15
-  %.not.i43 = icmp sgt i32 %.pr62, -1
-  br i1 %.not.i43, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit45, label %112
+  %.pr72 = load i32, ptr %67, align 4
+  call void @llvm.lifetime.end.p0(i64 20, ptr nonnull %2) #14
+  %.not.i45 = icmp sgt i32 %.pr72, -1
+  br i1 %.not.i45, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit51, label %.lr.ph.i.i46.preheader
 
-112:                                              ; preds = %_ZN4absl18debugging_internalL18MaybeAppendDecimalEPNS0_5StateEi.exit
+.lr.ph.i.i46.preheader:                           ; preds = %_ZN4absl18debugging_internalL18MaybeAppendDecimalEPNS0_5StateEi.exit
   call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %0, ptr noundef nonnull @.str.252, i64 noundef 3)
-  br label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit45
+  br label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit51
 
-_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit45: ; preds = %_ZN4absl18debugging_internalL18MaybeAppendDecimalEPNS0_5StateEi.exit.thread, %_ZN4absl18debugging_internalL18MaybeAppendDecimalEPNS0_5StateEi.exit, %112
-  %113 = load i32, ptr %4, align 4, !tbaa !17
-  %114 = add nsw i32 %113, 1
-  store i32 %114, ptr %4, align 4, !tbaa !17
-  %115 = load i32, ptr %7, align 8, !tbaa !15
-  %116 = add nsw i32 %115, 1
-  store i32 %116, ptr %7, align 8, !tbaa !15
-  %117 = icmp sgt i32 %113, 255
-  %118 = icmp sgt i32 %115, 131071
-  %or.cond.i46 = select i1 %117, i1 true, i1 %118
-  br i1 %or.cond.i46, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit50.thread, label %119
-
-119:                                              ; preds = %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit45
-  %.val6.i47 = load ptr, ptr %0, align 8, !tbaa !7
-  %.val7.i48 = load i32, ptr %13, align 4, !tbaa !16
-  %120 = sext i32 %.val7.i48 to i64
-  %121 = getelementptr inbounds i8, ptr %.val6.i47, i64 %120
-  %122 = load i8, ptr %121, align 1, !tbaa !4
-  %123 = icmp eq i8 %122, 95
-  br i1 %123, label %128, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit50.thread
-
-_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit50.thread: ; preds = %119, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit45
+_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit51: ; preds = %_ZN4absl18debugging_internalL18MaybeAppendDecimalEPNS0_5StateEi.exit.thread, %_ZN4absl18debugging_internalL18MaybeAppendDecimalEPNS0_5StateEi.exit, %.lr.ph.i.i46.preheader
+  %112 = load i32, ptr %4, align 4, !tbaa !17
+  %113 = add nsw i32 %112, 1
   store i32 %113, ptr %4, align 4, !tbaa !17
-  br label %132
+  %114 = load i32, ptr %7, align 8, !tbaa !15
+  %115 = add nsw i32 %114, 1
+  store i32 %115, ptr %7, align 8, !tbaa !15
+  %116 = icmp sgt i32 %112, 255
+  %117 = icmp sgt i32 %114, 131071
+  %or.cond.i52 = select i1 %116, i1 true, i1 %117
+  br i1 %or.cond.i52, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit56.thread, label %118
 
-124:                                              ; preds = %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit53
-  %125 = landingpad { ptr, i32 }
+118:                                              ; preds = %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit51
+  %.val6.i53 = load ptr, ptr %0, align 8, !tbaa !7
+  %.val7.i54 = load i32, ptr %13, align 4, !tbaa !16
+  %119 = sext i32 %.val7.i54 to i64
+  %120 = getelementptr inbounds i8, ptr %.val6.i53, i64 %119
+  %121 = load i8, ptr %120, align 1, !tbaa !4
+  %122 = icmp eq i8 %121, 95
+  br i1 %122, label %127, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit56.thread
+
+_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit56.thread: ; preds = %118, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit51
+  store i32 %112, ptr %4, align 4, !tbaa !17
+  br label %131
+
+123:                                              ; preds = %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit63
+  %124 = landingpad { ptr, i32 }
           cleanup
-  br label %173
-
-126:                                              ; preds = %128
-  %127 = landingpad { ptr, i32 }
-          cleanup
-  br label %173
-
-128:                                              ; preds = %119
-  %129 = add nsw i32 %.val7.i48, 1
-  store i32 %129, ptr %13, align 4, !tbaa !16
-  store i32 %113, ptr %4, align 4, !tbaa !17
-  %130 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL9ParseNameEPNS0_5StateE(ptr noundef nonnull %0)
-          to label %131 unwind label %126
-
-131:                                              ; preds = %128
-  br i1 %130, label %171, label %132
-
-132:                                              ; preds = %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit50.thread, %131
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %13, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !30
-  %133 = load i32, ptr %67, align 4
-  %.not31 = icmp sgt i32 %133, -1
-  br i1 %.not31, label %171, label %134
-
-134:                                              ; preds = %132
-  %135 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %136 = load ptr, ptr %135, align 8, !tbaa !13
-  %137 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %138 = load i32, ptr %137, align 4, !tbaa !22
-  %139 = sext i32 %138 to i64
-  %140 = getelementptr inbounds i8, ptr %136, i64 %139
-  store i8 0, ptr %140, align 1, !tbaa !4
   br label %171
 
-141:                                              ; preds = %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread, %23
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %13, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !30
-  %142 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %143 = load i32, ptr %142, align 4
-  %.not.i51 = icmp sgt i32 %143, -1
-  br i1 %.not.i51, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit53, label %144
+125:                                              ; preds = %127
+  %126 = landingpad { ptr, i32 }
+          cleanup
+  br label %171
 
-144:                                              ; preds = %141
+127:                                              ; preds = %118
+  %128 = add nsw i32 %.val7.i54, 1
+  store i32 %128, ptr %13, align 4, !tbaa !16
+  store i32 %112, ptr %4, align 4, !tbaa !17
+  %129 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL9ParseNameEPNS0_5StateE(ptr noundef nonnull %0)
+          to label %130 unwind label %125
+
+130:                                              ; preds = %127
+  br i1 %129, label %169, label %131
+
+131:                                              ; preds = %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit56.thread, %130
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %13, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !31
+  %132 = load i32, ptr %67, align 4
+  %.not31 = icmp sgt i32 %132, -1
+  br i1 %.not31, label %169, label %133
+
+133:                                              ; preds = %131
+  %134 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %135 = load ptr, ptr %134, align 8, !tbaa !13
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %137 = load i32, ptr %136, align 4, !tbaa !23
+  %138 = sext i32 %137 to i64
+  %139 = getelementptr inbounds i8, ptr %135, i64 %138
+  store i8 0, ptr %139, align 1, !tbaa !4
+  br label %169
+
+140:                                              ; preds = %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread, %23
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %13, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !31
+  %141 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %142 = load i32, ptr %141, align 4
+  %.not.i57 = icmp sgt i32 %142, -1
+  br i1 %.not.i57, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit63, label %.lr.ph.i.i58.preheader
+
+.lr.ph.i.i58.preheader:                           ; preds = %140
   tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %0, ptr noundef nonnull @.str.4, i64 noundef 2)
-  br label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit53
+  br label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit63
 
-_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit53: ; preds = %141, %144
-  %145 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL9ParseNameEPNS0_5StateE(ptr noundef nonnull %0)
-          to label %146 unwind label %124
+_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit63: ; preds = %140, %.lr.ph.i.i58.preheader
+  %143 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL9ParseNameEPNS0_5StateE(ptr noundef nonnull %0)
+          to label %144 unwind label %123
 
-146:                                              ; preds = %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit53
-  br i1 %145, label %147, label %148
+144:                                              ; preds = %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit63
+  br i1 %143, label %145, label %146
 
-147:                                              ; preds = %146
+145:                                              ; preds = %144
   tail call fastcc void @_ZN4absl18debugging_internalL18ParseDiscriminatorEPNS0_5StateE(ptr noundef nonnull %0)
-  br label %171
+  br label %169
+
+146:                                              ; preds = %144
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %13, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !31
+  %147 = load i32, ptr %141, align 4
+  %.not = icmp sgt i32 %147, -1
+  br i1 %.not, label %155, label %148
 
 148:                                              ; preds = %146
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %13, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !30
-  %149 = load i32, ptr %142, align 4
-  %.not = icmp sgt i32 %149, -1
-  br i1 %.not, label %157, label %150
+  %149 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %150 = load ptr, ptr %149, align 8, !tbaa !13
+  %151 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %152 = load i32, ptr %151, align 4, !tbaa !23
+  %153 = sext i32 %152 to i64
+  %154 = getelementptr inbounds i8, ptr %150, i64 %153
+  store i8 0, ptr %154, align 1, !tbaa !4
+  br label %155
 
-150:                                              ; preds = %148
-  %151 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %152 = load ptr, ptr %151, align 8, !tbaa !13
-  %153 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %154 = load i32, ptr %153, align 4, !tbaa !22
-  %155 = sext i32 %154 to i64
-  %156 = getelementptr inbounds i8, ptr %152, i64 %155
-  store i8 0, ptr %156, align 1, !tbaa !4
-  br label %157
-
-157:                                              ; preds = %150, %148
-  %158 = load i32, ptr %4, align 4, !tbaa !17
+155:                                              ; preds = %148, %146
+  %156 = load i32, ptr %4, align 4, !tbaa !17
+  %157 = add nsw i32 %156, 1
+  store i32 %157, ptr %4, align 4, !tbaa !17
+  %158 = load i32, ptr %7, align 8, !tbaa !15
   %159 = add nsw i32 %158, 1
-  store i32 %159, ptr %4, align 4, !tbaa !17
-  %160 = load i32, ptr %7, align 8, !tbaa !15
-  %161 = add nsw i32 %160, 1
-  store i32 %161, ptr %7, align 8, !tbaa !15
-  %162 = icmp sgt i32 %158, 255
-  %163 = icmp sgt i32 %160, 131071
-  %or.cond.i54 = select i1 %162, i1 true, i1 %163
-  br i1 %or.cond.i54, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit58.thread, label %164
+  store i32 %159, ptr %7, align 8, !tbaa !15
+  %160 = icmp sgt i32 %156, 255
+  %161 = icmp sgt i32 %158, 131071
+  %or.cond.i64 = select i1 %160, i1 true, i1 %161
+  br i1 %or.cond.i64, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit68.thread, label %162
 
-164:                                              ; preds = %157
-  %.val6.i55 = load ptr, ptr %0, align 8, !tbaa !7
-  %.val7.i56 = load i32, ptr %13, align 4, !tbaa !16
-  %165 = sext i32 %.val7.i56 to i64
-  %166 = getelementptr inbounds i8, ptr %.val6.i55, i64 %165
-  %167 = load i8, ptr %166, align 1, !tbaa !4
-  %168 = icmp eq i8 %167, 115
-  br i1 %168, label %169, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit58.thread
+162:                                              ; preds = %155
+  %.val6.i65 = load ptr, ptr %0, align 8, !tbaa !7
+  %.val7.i66 = load i32, ptr %13, align 4, !tbaa !16
+  %163 = sext i32 %.val7.i66 to i64
+  %164 = getelementptr inbounds i8, ptr %.val6.i65, i64 %163
+  %165 = load i8, ptr %164, align 1, !tbaa !4
+  %166 = icmp eq i8 %165, 115
+  br i1 %166, label %167, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit68.thread
 
-_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit58.thread: ; preds = %164, %157
-  store i32 %158, ptr %4, align 4, !tbaa !17
-  br label %171
+_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit68.thread: ; preds = %162, %155
+  store i32 %156, ptr %4, align 4, !tbaa !17
+  br label %169
 
-169:                                              ; preds = %164
-  %170 = add nsw i32 %.val7.i56, 1
-  store i32 %170, ptr %13, align 4, !tbaa !16
-  store i32 %158, ptr %4, align 4, !tbaa !17
+167:                                              ; preds = %162
+  %168 = add nsw i32 %.val7.i66, 1
+  store i32 %168, ptr %13, align 4, !tbaa !16
+  store i32 %156, ptr %4, align 4, !tbaa !17
   tail call fastcc void @_ZN4absl18debugging_internalL18ParseDiscriminatorEPNS0_5StateE(ptr noundef nonnull %0)
-  br label %171
+  br label %169
 
-171:                                              ; preds = %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit58.thread, %131, %134, %132, %147, %169
-  %.2 = phi i1 [ true, %147 ], [ true, %169 ], [ true, %131 ], [ false, %134 ], [ false, %132 ], [ false, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit58.thread ]
+169:                                              ; preds = %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit68.thread, %130, %133, %131, %145, %167
+  %.2 = phi i1 [ true, %145 ], [ true, %167 ], [ true, %130 ], [ false, %133 ], [ false, %131 ], [ false, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit68.thread ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   %.pre = load i32, ptr %4, align 4, !tbaa !17
-  %172 = add nsw i32 %.pre, -1
+  %170 = add nsw i32 %.pre, -1
   br label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread
 
-173:                                              ; preds = %126, %124
-  %.pn = phi { ptr, i32 } [ %127, %126 ], [ %125, %124 ]
+171:                                              ; preds = %125, %123
+  %.pn = phi { ptr, i32 } [ %126, %125 ], [ %124, %123 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %174 = load i32, ptr %4, align 4, !tbaa !17
-  %175 = add nsw i32 %174, -1
-  store i32 %175, ptr %4, align 4, !tbaa !17
+  %172 = load i32, ptr %4, align 4, !tbaa !17
+  %173 = add nsw i32 %172, -1
+  store i32 %173, ptr %4, align 4, !tbaa !17
   resume { ptr, i32 } %.pn
 
-_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread: ; preds = %1, %171
-  %176 = phi i32 [ %172, %171 ], [ %5, %1 ]
-  %.029 = phi i1 [ %.2, %171 ], [ false, %1 ]
-  store i32 %176, ptr %4, align 4, !tbaa !17
+_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread: ; preds = %1, %169
+  %174 = phi i32 [ %170, %169 ], [ %5, %1 ]
+  %.029 = phi i1 [ %.2, %169 ], [ false, %1 ]
+  store i32 %174, ptr %4, align 4, !tbaa !17
   ret i1 %.029
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL10ParseSeqIdEPNS0_5StateE(ptr noundef captures(none) %0) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL10ParseSeqIdEPNS0_5StateE(ptr noundef captures(none) %0) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %3 = load i32, ptr %2, align 4, !tbaa !17
   %4 = add nsw i32 %3, 1
@@ -12011,7 +12030,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL10ParseS
   %20 = getelementptr inbounds nuw i8, ptr %.028, i64 1
   %21 = load i8, ptr %20, align 1, !tbaa !4
   %.not = icmp eq i8 %21, 0
-  br i1 %.not, label %._crit_edge.thread33, label %.lr.ph, !llvm.loop !34
+  br i1 %.not, label %._crit_edge.thread33, label %.lr.ph, !llvm.loop !35
 
 ._crit_edge:                                      ; preds = %.lr.ph
   %.not16.not = icmp eq ptr %.028, %13
@@ -12033,7 +12052,7 @@ _ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exi
   ret i1 %.014
 }
 
-; Function Attrs: mustprogress nofree memory(readwrite, inaccessiblemem: none) uwtable
+; Function Attrs: mustprogress nofree nosync memory(readwrite, inaccessiblemem: none) uwtable
 define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL20ParseUnqualifiedNameEPNS0_5StateE(ptr noundef %0) unnamed_addr #6 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.absl::debugging_internal::ParseState", align 4
   %3 = alloca %"struct.absl::debugging_internal::ParseState", align 4
@@ -12054,47 +12073,47 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL20ParseU
 
 14:                                               ; preds = %1
   %15 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseOperatorNameEPNS0_5StateEPi(ptr noundef nonnull %0, ptr noundef null)
-          to label %16 unwind label %175
+          to label %16 unwind label %172
 
 16:                                               ; preds = %14
-  %.pre81 = load i32, ptr %6, align 4, !tbaa !17
-  br i1 %15, label %140, label %17
+  %.pre82 = load i32, ptr %6, align 4, !tbaa !17
+  br i1 %15, label %139, label %17
 
 17:                                               ; preds = %16
-  %18 = add nsw i32 %.pre81, 1
+  %18 = add nsw i32 %.pre82, 1
   store i32 %18, ptr %6, align 4, !tbaa !17
   %19 = load i32, ptr %9, align 8, !tbaa !15
   %20 = add nsw i32 %19, 1
   store i32 %20, ptr %9, align 8, !tbaa !15
-  %21 = icmp sgt i32 %.pre81, 255
+  %21 = icmp sgt i32 %.pre82, 255
   %22 = icmp sgt i32 %19, 131071
-  %or.cond75 = select i1 %21, i1 true, i1 %22
-  br i1 %or.cond75, label %.thread, label %23
+  %or.cond76 = select i1 %21, i1 true, i1 %22
+  br i1 %or.cond76, label %.thread, label %23
 
 23:                                               ; preds = %17
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %4)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %24, i64 16, i1 false), !tbaa.struct !30
-  %25 = add nsw i32 %.pre81, 2
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %4, ptr noundef nonnull align 4 dereferenceable(16) %24, i64 16, i1 false), !tbaa.struct !31
+  %25 = add nsw i32 %.pre82, 2
   store i32 %25, ptr %6, align 4, !tbaa !17
   %26 = add nsw i32 %19, 2
   store i32 %26, ptr %9, align 8, !tbaa !15
-  %27 = icmp sgt i32 %.pre81, 254
+  %27 = icmp sgt i32 %.pre82, 254
   %28 = icmp sgt i32 %19, 131070
-  %or.cond.i52 = select i1 %27, i1 true, i1 %28
-  br i1 %or.cond.i52, label %.sink.split, label %29
+  %or.cond.i53 = select i1 %27, i1 true, i1 %28
+  br i1 %or.cond.i53, label %.sink.split, label %29
 
 29:                                               ; preds = %23
-  %.val6.i53 = load ptr, ptr %0, align 8, !tbaa !7
-  %.val7.i54 = load i32, ptr %24, align 4, !tbaa !16
-  %30 = sext i32 %.val7.i54 to i64
-  %31 = getelementptr inbounds i8, ptr %.val6.i53, i64 %30
+  %.val6.i54 = load ptr, ptr %0, align 8, !tbaa !7
+  %.val7.i55 = load i32, ptr %24, align 4, !tbaa !16
+  %30 = sext i32 %.val7.i55 to i64
+  %31 = getelementptr inbounds i8, ptr %.val6.i54, i64 %30
   %32 = load i8, ptr %31, align 1, !tbaa !4
   %33 = icmp eq i8 %32, 67
   br i1 %33, label %34, label %.sink.split
 
 34:                                               ; preds = %29
-  %35 = add nsw i32 %.val7.i54, 1
+  %35 = add nsw i32 %.val7.i55, 1
   store i32 %35, ptr %24, align 4, !tbaa !16
   store i32 %25, ptr %6, align 4, !tbaa !17
   %36 = add nsw i32 %19, 3
@@ -12110,37 +12129,37 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL20ParseU
 
 39:                                               ; preds = %34
   %40 = sext i32 %35 to i64
-  %41 = getelementptr inbounds i8, ptr %.val6.i53, i64 %40
+  %41 = getelementptr inbounds i8, ptr %.val6.i54, i64 %40
   %42 = load i8, ptr %41, align 1, !tbaa !4
   %43 = icmp eq i8 %42, 0
-  br i1 %43, label %.loopexit, label %.lr.ph.i47
+  br i1 %43, label %.loopexit, label %.lr.ph.i48
 
-44:                                               ; preds = %.lr.ph.i47
-  %.018.i48.add = add nuw nsw i64 %.018.i48.idx, 1
-  %.ptr = getelementptr inbounds nuw i8, ptr @.str.272, i64 %.018.i48.add
+44:                                               ; preds = %.lr.ph.i48
+  %.018.i49.add = add nuw nsw i64 %.018.i49.idx, 1
+  %.ptr = getelementptr inbounds nuw i8, ptr @.str.272, i64 %.018.i49.add
   %45 = load i8, ptr %.ptr, align 1, !tbaa !4
-  %exitcond = icmp eq i64 %.018.i48.add, 4
-  br i1 %exitcond, label %.loopexit, label %.lr.ph.i47, !llvm.loop !31
+  %exitcond = icmp eq i64 %.018.i49.add, 4
+  br i1 %exitcond, label %.loopexit, label %.lr.ph.i48, !llvm.loop !32
 
-.lr.ph.i47:                                       ; preds = %39, %44
+.lr.ph.i48:                                       ; preds = %39, %44
   %46 = phi i8 [ %45, %44 ], [ 49, %39 ]
-  %.018.i48.idx = phi i64 [ %.018.i48.add, %44 ], [ 0, %39 ]
+  %.018.i49.idx = phi i64 [ %.018.i49.add, %44 ], [ 0, %39 ]
   %47 = icmp eq i8 %42, %46
   br i1 %47, label %48, label %44
 
-48:                                               ; preds = %.lr.ph.i47
-  %49 = add nsw i32 %.val7.i54, 2
+48:                                               ; preds = %.lr.ph.i48
+  %49 = add nsw i32 %.val7.i55, 2
   store i32 %49, ptr %24, align 4, !tbaa !16
   store i32 %18, ptr %6, align 4, !tbaa !17
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %51 = load ptr, ptr %50, align 8, !tbaa !13
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %53 = load i32, ptr %52, align 4, !tbaa !45
+  %53 = load i32, ptr %52, align 4, !tbaa !46
   %54 = sext i32 %53 to i64
   %55 = getelementptr inbounds i8, ptr %51, i64 %54
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %57 = load i32, ptr %56, align 4
-  br label %.thread69.sink.split
+  br label %.thread70.sink.split
 
 58:                                               ; preds = %70
   %59 = landingpad { ptr, i32 }
@@ -12164,7 +12183,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL20ParseU
   br i1 %66, label %67, label %.sink.split
 
 67:                                               ; preds = %64
-  %68 = add nsw i32 %.val7.i54, 2
+  %68 = add nsw i32 %.val7.i55, 2
   store i32 %68, ptr %24, align 4, !tbaa !16
   store i32 %18, ptr %6, align 4, !tbaa !17
   %69 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL14ParseCharClassEPNS0_5StateEPKc(ptr noundef nonnull %0, ptr noundef nonnull @.str.273)
@@ -12175,14 +12194,14 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL20ParseU
           to label %72 unwind label %58
 
 72:                                               ; preds = %70
-  br i1 %71, label %.thread69, label %73
+  br i1 %71, label %.thread70, label %73
 
 .sink.split:                                      ; preds = %.loopexit, %64, %.loopexit.thread, %23, %29
   store i32 %18, ptr %6, align 4, !tbaa !17
   br label %73
 
 73:                                               ; preds = %.sink.split, %72, %67
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %24, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %24, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false), !tbaa.struct !31
   %74 = load i32, ptr %6, align 4, !tbaa !17
   %75 = add nsw i32 %74, 1
   store i32 %75, ptr %6, align 4, !tbaa !17
@@ -12191,8 +12210,8 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL20ParseU
   store i32 %77, ptr %9, align 8, !tbaa !15
   %78 = icmp sgt i32 %74, 255
   %79 = icmp sgt i32 %76, 131071
-  %or.cond.i36 = select i1 %78, i1 true, i1 %79
-  br i1 %or.cond.i36, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread, label %80
+  %or.cond.i37 = select i1 %78, i1 true, i1 %79
+  br i1 %or.cond.i37, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread, label %80
 
 80:                                               ; preds = %73
   %.val6.i = load ptr, ptr %0, align 8, !tbaa !7
@@ -12217,375 +12236,375 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL20ParseU
   %91 = getelementptr inbounds i8, ptr %.val6.i, i64 %90
   %92 = load i8, ptr %91, align 1, !tbaa !4
   %93 = icmp eq i8 %92, 0
-  br i1 %93, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread, label %.lr.ph.i35
+  br i1 %93, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread, label %.lr.ph.i36
 
-94:                                               ; preds = %.lr.ph.i35
+94:                                               ; preds = %.lr.ph.i36
   %.018.i.add = add nuw nsw i64 %.018.i.idx, 1
-  %.ptr83 = getelementptr inbounds nuw i8, ptr @.str.274, i64 %.018.i.add
-  %95 = load i8, ptr %.ptr83, align 1, !tbaa !4
-  %exitcond77 = icmp eq i64 %.018.i.add, 4
-  br i1 %exitcond77, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread, label %.lr.ph.i35, !llvm.loop !31
+  %.ptr84 = getelementptr inbounds nuw i8, ptr @.str.274, i64 %.018.i.add
+  %95 = load i8, ptr %.ptr84, align 1, !tbaa !4
+  %exitcond78 = icmp eq i64 %.018.i.add, 4
+  br i1 %exitcond78, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread, label %.lr.ph.i36, !llvm.loop !32
 
-.lr.ph.i35:                                       ; preds = %89, %94
+.lr.ph.i36:                                       ; preds = %89, %94
   %96 = phi i8 [ %95, %94 ], [ 48, %89 ]
   %.018.i.idx = phi i64 [ %.018.i.add, %94 ], [ 0, %89 ]
   %97 = icmp eq i8 %92, %96
   br i1 %97, label %98, label %94
 
-98:                                               ; preds = %.lr.ph.i35
+98:                                               ; preds = %.lr.ph.i36
   %99 = add nsw i32 %.val7.i, 2
   store i32 %99, ptr %24, align 4, !tbaa !16
   store i32 %74, ptr %6, align 4, !tbaa !17
   %100 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %101 = load ptr, ptr %100, align 8, !tbaa !13
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %103 = load i32, ptr %102, align 4, !tbaa !45
+  %103 = load i32, ptr %102, align 4, !tbaa !46
   %104 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %105 = load i32, ptr %104, align 4
   %.not.i = icmp sgt i32 %105, -1
-  br i1 %.not.i, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit, label %106
+  br i1 %.not.i, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit, label %.lr.ph.i.i.preheader
 
-106:                                              ; preds = %98
+.lr.ph.i.i.preheader:                             ; preds = %98
   tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %0, ptr noundef nonnull @.str.163, i64 noundef 1)
   %.pre = load i32, ptr %104, align 4
   br label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit
 
-_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit: ; preds = %98, %106
-  %107 = phi i32 [ %105, %98 ], [ %.pre, %106 ]
-  %108 = sext i32 %103 to i64
-  %109 = getelementptr inbounds i8, ptr %101, i64 %108
-  br label %.thread69.sink.split
+_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit: ; preds = %98, %.lr.ph.i.i.preheader
+  %106 = phi i32 [ %105, %98 ], [ %.pre, %.lr.ph.i.i.preheader ]
+  %107 = sext i32 %103 to i64
+  %108 = getelementptr inbounds i8, ptr %101, i64 %107
+  br label %.thread70.sink.split
 
-.thread69.sink.split:                             ; preds = %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit, %48
-  %.sink86 = phi i32 [ %57, %48 ], [ %107, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit ]
-  %.sink = phi ptr [ %55, %48 ], [ %109, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit ]
-  %110 = and i32 %.sink86, 65535
-  %111 = zext nneg i32 %110 to i64
-  tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %0, ptr noundef %.sink, i64 noundef %111)
-  br label %.thread69
+.thread70.sink.split:                             ; preds = %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit, %48
+  %.sink87 = phi i32 [ %57, %48 ], [ %106, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit ]
+  %.sink = phi ptr [ %55, %48 ], [ %108, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit ]
+  %109 = and i32 %.sink87, 65535
+  %110 = zext nneg i32 %109 to i64
+  tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %0, ptr noundef %.sink, i64 noundef %110)
+  br label %.thread70
 
-.thread69:                                        ; preds = %.thread69.sink.split, %72
+.thread70:                                        ; preds = %.thread70.sink.split, %72
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %112 = load i32, ptr %6, align 4, !tbaa !17
-  %113 = add nsw i32 %112, -1
-  store i32 %113, ptr %6, align 4, !tbaa !17
-  br label %140
+  %111 = load i32, ptr %6, align 4, !tbaa !17
+  %112 = add nsw i32 %111, -1
+  store i32 %112, ptr %6, align 4, !tbaa !17
+  br label %139
 
 _ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread: ; preds = %94, %85, %89, %73, %80
   store i32 %74, ptr %6, align 4, !tbaa !17
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %24, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %24, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false), !tbaa.struct !31
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %4)
-  %114 = add nsw i32 %74, -1
+  %113 = add nsw i32 %74, -1
   br label %.thread
 
 .thread:                                          ; preds = %17, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread
-  %storemerge.in = phi i32 [ %114, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread ], [ %.pre81, %17 ]
+  %storemerge.in = phi i32 [ %113, %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread ], [ %.pre82, %17 ]
   store i32 %storemerge.in, ptr %6, align 4, !tbaa !17
-  %115 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL15ParseSourceNameEPNS0_5StateE(ptr noundef nonnull %0)
-  %.pre80 = load i32, ptr %6, align 4, !tbaa !17
-  br i1 %115, label %140, label %116
+  %114 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL15ParseSourceNameEPNS0_5StateE(ptr noundef nonnull %0)
+  %.pre81 = load i32, ptr %6, align 4, !tbaa !17
+  br i1 %114, label %139, label %115
 
-116:                                              ; preds = %.thread
-  %117 = add nsw i32 %.pre80, 1
-  %118 = load i32, ptr %9, align 8, !tbaa !15
-  %119 = add nsw i32 %118, 1
-  store i32 %119, ptr %9, align 8, !tbaa !15
-  %120 = icmp sgt i32 %.pre80, 255
-  %121 = icmp sgt i32 %118, 131071
-  %or.cond.i = select i1 %120, i1 true, i1 %121
-  br i1 %or.cond.i, label %_ZN4absl18debugging_internalL20ParseLocalSourceNameEPNS0_5StateE.exit.thread, label %122
+115:                                              ; preds = %.thread
+  %116 = add nsw i32 %.pre81, 1
+  %117 = load i32, ptr %9, align 8, !tbaa !15
+  %118 = add nsw i32 %117, 1
+  store i32 %118, ptr %9, align 8, !tbaa !15
+  %119 = icmp sgt i32 %.pre81, 255
+  %120 = icmp sgt i32 %117, 131071
+  %or.cond.i = select i1 %119, i1 true, i1 %120
+  br i1 %or.cond.i, label %_ZN4absl18debugging_internalL20ParseLocalSourceNameEPNS0_5StateE.exit.thread, label %121
 
-122:                                              ; preds = %116
+121:                                              ; preds = %115
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %3)
-  %123 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %123, i64 16, i1 false), !tbaa.struct !30
-  %124 = add nsw i32 %.pre80, 2
-  store i32 %124, ptr %6, align 4, !tbaa !17
-  %125 = add nsw i32 %118, 2
-  store i32 %125, ptr %9, align 8, !tbaa !15
-  %126 = icmp sgt i32 %.pre80, 254
-  %127 = icmp sgt i32 %118, 131070
-  %or.cond.i.i = select i1 %126, i1 true, i1 %127
-  br i1 %or.cond.i.i, label %.thread.i, label %128
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %3, ptr noundef nonnull align 4 dereferenceable(16) %122, i64 16, i1 false), !tbaa.struct !31
+  %123 = add nsw i32 %.pre81, 2
+  store i32 %123, ptr %6, align 4, !tbaa !17
+  %124 = add nsw i32 %117, 2
+  store i32 %124, ptr %9, align 8, !tbaa !15
+  %125 = icmp sgt i32 %.pre81, 254
+  %126 = icmp sgt i32 %117, 131070
+  %or.cond.i.i = select i1 %125, i1 true, i1 %126
+  br i1 %or.cond.i.i, label %.thread.i, label %127
 
-128:                                              ; preds = %122
+127:                                              ; preds = %121
   %.val6.i.i = load ptr, ptr %0, align 8, !tbaa !7
-  %.val7.i.i = load i32, ptr %123, align 4, !tbaa !16
-  %129 = sext i32 %.val7.i.i to i64
-  %130 = getelementptr inbounds i8, ptr %.val6.i.i, i64 %129
-  %131 = load i8, ptr %130, align 1, !tbaa !4
-  %132 = icmp eq i8 %131, 76
-  br i1 %132, label %133, label %.thread.i
+  %.val7.i.i = load i32, ptr %122, align 4, !tbaa !16
+  %128 = sext i32 %.val7.i.i to i64
+  %129 = getelementptr inbounds i8, ptr %.val6.i.i, i64 %128
+  %130 = load i8, ptr %129, align 1, !tbaa !4
+  %131 = icmp eq i8 %130, 76
+  br i1 %131, label %132, label %.thread.i
 
-.thread.i:                                        ; preds = %128, %122
-  store i32 %117, ptr %6, align 4, !tbaa !17
+.thread.i:                                        ; preds = %127, %121
+  store i32 %116, ptr %6, align 4, !tbaa !17
   br label %_ZN4absl18debugging_internalL20ParseLocalSourceNameEPNS0_5StateE.exit
 
-133:                                              ; preds = %128
-  %134 = add nsw i32 %.val7.i.i, 1
-  store i32 %134, ptr %123, align 4, !tbaa !16
-  store i32 %117, ptr %6, align 4, !tbaa !17
-  %135 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL15ParseSourceNameEPNS0_5StateE(ptr noundef nonnull %0)
-  br i1 %135, label %_ZN4absl18debugging_internalL20ParseLocalSourceNameEPNS0_5StateE.exit.thread72, label %._ZN4absl18debugging_internalL20ParseLocalSourceNameEPNS0_5StateE.exit_crit_edge
+132:                                              ; preds = %127
+  %133 = add nsw i32 %.val7.i.i, 1
+  store i32 %133, ptr %122, align 4, !tbaa !16
+  store i32 %116, ptr %6, align 4, !tbaa !17
+  %134 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL15ParseSourceNameEPNS0_5StateE(ptr noundef nonnull %0)
+  br i1 %134, label %_ZN4absl18debugging_internalL20ParseLocalSourceNameEPNS0_5StateE.exit.thread73, label %._ZN4absl18debugging_internalL20ParseLocalSourceNameEPNS0_5StateE.exit_crit_edge
 
-._ZN4absl18debugging_internalL20ParseLocalSourceNameEPNS0_5StateE.exit_crit_edge: ; preds = %133
+._ZN4absl18debugging_internalL20ParseLocalSourceNameEPNS0_5StateE.exit_crit_edge: ; preds = %132
   %.pre.i.pre = load i32, ptr %6, align 4, !tbaa !17
-  %136 = add nsw i32 %.pre.i.pre, -1
+  %135 = add nsw i32 %.pre.i.pre, -1
   br label %_ZN4absl18debugging_internalL20ParseLocalSourceNameEPNS0_5StateE.exit
 
-_ZN4absl18debugging_internalL20ParseLocalSourceNameEPNS0_5StateE.exit.thread72: ; preds = %133
+_ZN4absl18debugging_internalL20ParseLocalSourceNameEPNS0_5StateE.exit.thread73: ; preds = %132
   tail call fastcc void @_ZN4absl18debugging_internalL18ParseDiscriminatorEPNS0_5StateE(ptr noundef nonnull %0)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
-  %.pre.i74 = load i32, ptr %6, align 4, !tbaa !17
-  %137 = add nsw i32 %.pre.i74, -1
-  store i32 %137, ptr %6, align 4, !tbaa !17
-  br label %140
+  %.pre.i75 = load i32, ptr %6, align 4, !tbaa !17
+  %136 = add nsw i32 %.pre.i75, -1
+  store i32 %136, ptr %6, align 4, !tbaa !17
+  br label %139
 
 _ZN4absl18debugging_internalL20ParseLocalSourceNameEPNS0_5StateE.exit: ; preds = %._ZN4absl18debugging_internalL20ParseLocalSourceNameEPNS0_5StateE.exit_crit_edge, %.thread.i
-  %.pre.i = phi i32 [ %136, %._ZN4absl18debugging_internalL20ParseLocalSourceNameEPNS0_5StateE.exit_crit_edge ], [ %.pre80, %.thread.i ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %123, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !30
+  %.pre.i = phi i32 [ %135, %._ZN4absl18debugging_internalL20ParseLocalSourceNameEPNS0_5StateE.exit_crit_edge ], [ %.pre81, %.thread.i ]
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %122, ptr noundef nonnull align 4 dereferenceable(16) %3, i64 16, i1 false), !tbaa.struct !31
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
   br label %_ZN4absl18debugging_internalL20ParseLocalSourceNameEPNS0_5StateE.exit.thread
 
-_ZN4absl18debugging_internalL20ParseLocalSourceNameEPNS0_5StateE.exit.thread: ; preds = %116, %_ZN4absl18debugging_internalL20ParseLocalSourceNameEPNS0_5StateE.exit
-  %storemerge76 = phi i32 [ %.pre.i, %_ZN4absl18debugging_internalL20ParseLocalSourceNameEPNS0_5StateE.exit ], [ %.pre80, %116 ]
-  store i32 %storemerge76, ptr %6, align 4, !tbaa !17
-  %138 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL20ParseUnnamedTypeNameEPNS0_5StateE(ptr noundef nonnull %0)
-          to label %139 unwind label %175
+_ZN4absl18debugging_internalL20ParseLocalSourceNameEPNS0_5StateE.exit.thread: ; preds = %115, %_ZN4absl18debugging_internalL20ParseLocalSourceNameEPNS0_5StateE.exit
+  %storemerge77 = phi i32 [ %.pre.i, %_ZN4absl18debugging_internalL20ParseLocalSourceNameEPNS0_5StateE.exit ], [ %.pre81, %115 ]
+  store i32 %storemerge77, ptr %6, align 4, !tbaa !17
+  %137 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL20ParseUnnamedTypeNameEPNS0_5StateE(ptr noundef nonnull %0)
+          to label %138 unwind label %172
 
-139:                                              ; preds = %_ZN4absl18debugging_internalL20ParseLocalSourceNameEPNS0_5StateE.exit.thread
-  br i1 %138, label %._crit_edge, label %177
+138:                                              ; preds = %_ZN4absl18debugging_internalL20ParseLocalSourceNameEPNS0_5StateE.exit.thread
+  br i1 %137, label %._crit_edge, label %174
 
-._crit_edge:                                      ; preds = %139
-  %.pre79 = load i32, ptr %6, align 4, !tbaa !17
-  br label %140
+._crit_edge:                                      ; preds = %138
+  %.pre80 = load i32, ptr %6, align 4, !tbaa !17
+  br label %139
 
-140:                                              ; preds = %._crit_edge, %_ZN4absl18debugging_internalL20ParseLocalSourceNameEPNS0_5StateE.exit.thread72, %.thread69, %.thread, %16
-  %141 = phi i32 [ %.pre79, %._crit_edge ], [ %137, %_ZN4absl18debugging_internalL20ParseLocalSourceNameEPNS0_5StateE.exit.thread72 ], [ %113, %.thread69 ], [ %.pre80, %.thread ], [ %.pre81, %16 ]
-  %142 = add nsw i32 %141, 1
-  %143 = load i32, ptr %9, align 8, !tbaa !15
-  %144 = add nsw i32 %143, 1
-  store i32 %144, ptr %9, align 8, !tbaa !15
-  %145 = icmp sgt i32 %141, 255
-  %146 = icmp sgt i32 %143, 131071
-  %or.cond.i27 = select i1 %145, i1 true, i1 %146
+139:                                              ; preds = %._crit_edge, %_ZN4absl18debugging_internalL20ParseLocalSourceNameEPNS0_5StateE.exit.thread73, %.thread70, %.thread, %16
+  %140 = phi i32 [ %.pre80, %._crit_edge ], [ %136, %_ZN4absl18debugging_internalL20ParseLocalSourceNameEPNS0_5StateE.exit.thread73 ], [ %112, %.thread70 ], [ %.pre81, %.thread ], [ %.pre82, %16 ]
+  %141 = add nsw i32 %140, 1
+  %142 = load i32, ptr %9, align 8, !tbaa !15
+  %143 = add nsw i32 %142, 1
+  store i32 %143, ptr %9, align 8, !tbaa !15
+  %144 = icmp sgt i32 %140, 255
+  %145 = icmp sgt i32 %142, 131071
+  %or.cond.i27 = select i1 %144, i1 true, i1 %145
   br i1 %or.cond.i27, label %_ZN4absl18debugging_internalL12ParseAbiTagsEPNS0_5StateE.exit, label %.preheader.i
 
-.preheader.i:                                     ; preds = %140
-  %147 = add nsw i32 %141, 2
-  store i32 %147, ptr %6, align 4, !tbaa !17
-  %148 = add nsw i32 %143, 2
-  store i32 %148, ptr %9, align 8, !tbaa !15
-  %149 = icmp sgt i32 %141, 254
-  %150 = icmp sgt i32 %143, 131070
-  %or.cond.i24.i = select i1 %149, i1 true, i1 %150
-  br i1 %or.cond.i24.i, label %_ZN4absl18debugging_internalL12ParseAbiTagsEPNS0_5StateE.exit, label %.lr.ph.i
+.preheader.i:                                     ; preds = %139
+  %146 = add nsw i32 %140, 2
+  store i32 %146, ptr %6, align 4, !tbaa !17
+  %147 = add nsw i32 %142, 2
+  store i32 %147, ptr %9, align 8, !tbaa !15
+  %148 = icmp sgt i32 %140, 254
+  %149 = icmp sgt i32 %142, 131070
+  %or.cond.i30.i = select i1 %148, i1 true, i1 %149
+  br i1 %or.cond.i30.i, label %_ZN4absl18debugging_internalL12ParseAbiTagsEPNS0_5StateE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %151 = getelementptr i8, ptr %0, i64 28
-  %152 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  br label %153
+  %150 = getelementptr i8, ptr %0, i64 28
+  %151 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  br label %152
 
-153:                                              ; preds = %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit19.i, %.lr.ph.i
-  %154 = phi i32 [ %142, %.lr.ph.i ], [ %167, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit19.i ]
+152:                                              ; preds = %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit23.i, %.lr.ph.i
+  %153 = phi i32 [ %141, %.lr.ph.i ], [ %164, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit23.i ]
   %.val6.i.i28 = load ptr, ptr %0, align 8, !tbaa !7
-  %.val7.i.i29 = load i32, ptr %151, align 4, !tbaa !16
-  %155 = sext i32 %.val7.i.i29 to i64
-  %156 = getelementptr inbounds i8, ptr %.val6.i.i28, i64 %155
-  %157 = load i8, ptr %156, align 1, !tbaa !4
-  %158 = icmp eq i8 %157, 66
-  br i1 %158, label %159, label %_ZN4absl18debugging_internalL12ParseAbiTagsEPNS0_5StateE.exit
+  %.val7.i.i29 = load i32, ptr %150, align 4, !tbaa !16
+  %154 = sext i32 %.val7.i.i29 to i64
+  %155 = getelementptr inbounds i8, ptr %.val6.i.i28, i64 %154
+  %156 = load i8, ptr %155, align 1, !tbaa !4
+  %157 = icmp eq i8 %156, 66
+  br i1 %157, label %158, label %_ZN4absl18debugging_internalL12ParseAbiTagsEPNS0_5StateE.exit
 
-159:                                              ; preds = %153
-  %160 = add nsw i32 %.val7.i.i29, 1
-  store i32 %160, ptr %151, align 4, !tbaa !16
-  store i32 %154, ptr %6, align 4, !tbaa !17
+158:                                              ; preds = %152
+  %159 = add nsw i32 %.val7.i.i29, 1
+  store i32 %159, ptr %150, align 4, !tbaa !16
+  store i32 %153, ptr %6, align 4, !tbaa !17
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %151, i64 16, i1 false), !tbaa.struct !30
-  %161 = load i32, ptr %152, align 4
-  %.not.i.i = icmp sgt i32 %161, -1
-  br i1 %.not.i.i, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit.i, label %162
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %150, i64 16, i1 false), !tbaa.struct !31
+  %160 = load i32, ptr %151, align 4
+  %.not.i.i = icmp sgt i32 %160, -1
+  br i1 %.not.i.i, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit.i, label %.lr.ph.i.i.preheader.i
 
-162:                                              ; preds = %159
+.lr.ph.i.i.preheader.i:                           ; preds = %158
   tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %0, ptr noundef nonnull @.str.275, i64 noundef 5)
   br label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit.i
 
-_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit.i: ; preds = %162, %159
-  %163 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL15ParseSourceNameEPNS0_5StateE(ptr noundef nonnull %0)
-  br i1 %163, label %164, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit19.thread.i
+_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit.i: ; preds = %.lr.ph.i.i.preheader.i, %158
+  %161 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL15ParseSourceNameEPNS0_5StateE(ptr noundef nonnull %0)
+  br i1 %161, label %162, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit23.thread.i
 
-_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit19.thread.i: ; preds = %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit.i
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %151, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !30
+_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit23.thread.i: ; preds = %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit.i
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %150, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !31
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   %.pre.i30 = load i32, ptr %6, align 4, !tbaa !17
   br label %_ZN4absl18debugging_internalL12ParseAbiTagsEPNS0_5StateE.exit
 
-164:                                              ; preds = %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit.i
-  %165 = load i32, ptr %152, align 4
-  %.not.i17.i = icmp sgt i32 %165, -1
-  br i1 %.not.i17.i, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit19.i, label %166
+162:                                              ; preds = %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit.i
+  %163 = load i32, ptr %151, align 4
+  %.not.i17.i = icmp sgt i32 %163, -1
+  br i1 %.not.i17.i, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit23.i, label %.lr.ph.i.i18.preheader.i
 
-166:                                              ; preds = %164
+.lr.ph.i.i18.preheader.i:                         ; preds = %162
   tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %0, ptr noundef nonnull @.str.276, i64 noundef 1)
-  br label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit19.i
+  br label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit23.i
 
-_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit19.i: ; preds = %166, %164
+_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit23.i: ; preds = %.lr.ph.i.i18.preheader.i, %162
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
-  %167 = load i32, ptr %6, align 4, !tbaa !17
-  %168 = add nsw i32 %167, 1
-  store i32 %168, ptr %6, align 4, !tbaa !17
-  %169 = load i32, ptr %9, align 8, !tbaa !15
-  %170 = add nsw i32 %169, 1
-  store i32 %170, ptr %9, align 8, !tbaa !15
-  %171 = icmp sgt i32 %167, 255
-  %172 = icmp sgt i32 %169, 131071
-  %or.cond.i.i31 = select i1 %171, i1 true, i1 %172
-  br i1 %or.cond.i.i31, label %_ZN4absl18debugging_internalL12ParseAbiTagsEPNS0_5StateE.exit, label %153
+  %164 = load i32, ptr %6, align 4, !tbaa !17
+  %165 = add nsw i32 %164, 1
+  store i32 %165, ptr %6, align 4, !tbaa !17
+  %166 = load i32, ptr %9, align 8, !tbaa !15
+  %167 = add nsw i32 %166, 1
+  store i32 %167, ptr %9, align 8, !tbaa !15
+  %168 = icmp sgt i32 %164, 255
+  %169 = icmp sgt i32 %166, 131071
+  %or.cond.i.i31 = select i1 %168, i1 true, i1 %169
+  br i1 %or.cond.i.i31, label %_ZN4absl18debugging_internalL12ParseAbiTagsEPNS0_5StateE.exit, label %152
 
-_ZN4absl18debugging_internalL12ParseAbiTagsEPNS0_5StateE.exit: ; preds = %153, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit19.i, %140, %.preheader.i, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit19.thread.i
-  %173 = phi i32 [ %.pre.i30, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit19.thread.i ], [ %142, %140 ], [ %142, %.preheader.i ], [ %167, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit19.i ], [ %154, %153 ]
-  %.012.i = phi i1 [ false, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit19.thread.i ], [ false, %140 ], [ true, %.preheader.i ], [ true, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit19.i ], [ true, %153 ]
-  %174 = add nsw i32 %173, -1
-  store i32 %174, ptr %6, align 4, !tbaa !17
+_ZN4absl18debugging_internalL12ParseAbiTagsEPNS0_5StateE.exit: ; preds = %152, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit23.i, %139, %.preheader.i, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit23.thread.i
+  %170 = phi i32 [ %.pre.i30, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit23.thread.i ], [ %141, %139 ], [ %141, %.preheader.i ], [ %164, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit23.i ], [ %153, %152 ]
+  %.012.i = phi i1 [ false, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit23.thread.i ], [ false, %139 ], [ true, %.preheader.i ], [ true, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit23.i ], [ true, %152 ]
+  %171 = add nsw i32 %170, -1
+  store i32 %171, ptr %6, align 4, !tbaa !17
   br label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread
 
-175:                                              ; preds = %_ZN4absl18debugging_internalL20ParseLocalSourceNameEPNS0_5StateE.exit.thread, %14
-  %176 = landingpad { ptr, i32 }
+172:                                              ; preds = %_ZN4absl18debugging_internalL20ParseLocalSourceNameEPNS0_5StateE.exit.thread, %14
+  %173 = landingpad { ptr, i32 }
           cleanup
   br label %.body
 
-177:                                              ; preds = %139
+174:                                              ; preds = %138
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %5)
-  %178 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %178, i64 16, i1 false), !tbaa.struct !30
-  %179 = load i32, ptr %6, align 4, !tbaa !17
-  %180 = add nsw i32 %179, 1
-  store i32 %180, ptr %6, align 4, !tbaa !17
-  %181 = load i32, ptr %9, align 8, !tbaa !15
-  %182 = add nsw i32 %181, 1
-  store i32 %182, ptr %9, align 8, !tbaa !15
-  %183 = icmp sgt i32 %179, 255
-  %184 = icmp sgt i32 %181, 131071
-  %or.cond.i87 = select i1 %183, i1 true, i1 %184
-  br i1 %or.cond.i87, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread, label %185
+  %175 = getelementptr inbounds nuw i8, ptr %0, i64 28
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %5, ptr noundef nonnull align 4 dereferenceable(16) %175, i64 16, i1 false), !tbaa.struct !31
+  %176 = load i32, ptr %6, align 4, !tbaa !17
+  %177 = add nsw i32 %176, 1
+  store i32 %177, ptr %6, align 4, !tbaa !17
+  %178 = load i32, ptr %9, align 8, !tbaa !15
+  %179 = add nsw i32 %178, 1
+  store i32 %179, ptr %9, align 8, !tbaa !15
+  %180 = icmp sgt i32 %176, 255
+  %181 = icmp sgt i32 %178, 131071
+  %or.cond.i88 = select i1 %180, i1 true, i1 %181
+  br i1 %or.cond.i88, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread, label %182
 
-185:                                              ; preds = %177
+182:                                              ; preds = %174
   %.val11.i = load ptr, ptr %0, align 8, !tbaa !7
-  %.val12.i = load i32, ptr %178, align 4, !tbaa !16
-  %186 = sext i32 %.val12.i to i64
-  %187 = getelementptr inbounds i8, ptr %.val11.i, i64 %186
-  %188 = load i8, ptr %187, align 1, !tbaa !4
-  %189 = icmp eq i8 %188, 68
-  br i1 %189, label %190, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread
+  %.val12.i = load i32, ptr %175, align 4, !tbaa !16
+  %183 = sext i32 %.val12.i to i64
+  %184 = getelementptr inbounds i8, ptr %.val11.i, i64 %183
+  %185 = load i8, ptr %184, align 1, !tbaa !4
+  %186 = icmp eq i8 %185, 68
+  br i1 %186, label %187, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread
 
-190:                                              ; preds = %185
-  %191 = getelementptr inbounds nuw i8, ptr %187, i64 1
-  %192 = load i8, ptr %191, align 1, !tbaa !4
-  %193 = icmp eq i8 %192, 67
-  br i1 %193, label %194, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread
+187:                                              ; preds = %182
+  %188 = getelementptr inbounds nuw i8, ptr %184, i64 1
+  %189 = load i8, ptr %188, align 1, !tbaa !4
+  %190 = icmp eq i8 %189, 67
+  br i1 %190, label %191, label %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread
 
-_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread: ; preds = %190, %185, %177
-  store i32 %179, ptr %6, align 4, !tbaa !17
+_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread: ; preds = %187, %182, %174
+  store i32 %176, ptr %6, align 4, !tbaa !17
   br label %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit
 
-194:                                              ; preds = %190
-  %195 = add nsw i32 %.val12.i, 2
-  store i32 %195, ptr %178, align 4, !tbaa !16
-  store i32 %179, ptr %6, align 4, !tbaa !17
-  %196 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL15ParseSourceNameEPNS0_5StateE(ptr noundef nonnull %0)
-  br i1 %196, label %.preheader.i32, label %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit
+191:                                              ; preds = %187
+  %192 = add nsw i32 %.val12.i, 2
+  store i32 %192, ptr %175, align 4, !tbaa !16
+  store i32 %176, ptr %6, align 4, !tbaa !17
+  %193 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL15ParseSourceNameEPNS0_5StateE(ptr noundef nonnull %0)
+  br i1 %193, label %.preheader.i32, label %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit
 
-.preheader.i32:                                   ; preds = %194, %.preheader.i32
-  %197 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL15ParseSourceNameEPNS0_5StateE(ptr noundef nonnull %0)
-  br i1 %197, label %.preheader.i32, label %198, !llvm.loop !33
+.preheader.i32:                                   ; preds = %191, %.preheader.i32
+  %194 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL15ParseSourceNameEPNS0_5StateE(ptr noundef nonnull %0)
+  br i1 %194, label %.preheader.i32, label %195, !llvm.loop !34
 
-198:                                              ; preds = %.preheader.i32
-  %199 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc(ptr noundef nonnull %0, i8 noundef signext 69)
-  br i1 %199, label %223, label %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit
+195:                                              ; preds = %.preheader.i32
+  %196 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc(ptr noundef nonnull %0, i8 noundef signext 69)
+  br i1 %196, label %219, label %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit
 
-200:                                              ; preds = %219
-  %201 = landingpad { ptr, i32 }
+197:                                              ; preds = %215
+  %198 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
   br label %.body
 
-_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit: ; preds = %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread, %194, %198
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %178, ptr noundef nonnull align 4 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !30
-  %202 = load i32, ptr %6, align 4, !tbaa !17
-  %203 = add nsw i32 %202, 1
-  store i32 %203, ptr %6, align 4, !tbaa !17
-  %204 = load i32, ptr %9, align 8, !tbaa !15
-  %205 = add nsw i32 %204, 1
-  store i32 %205, ptr %9, align 8, !tbaa !15
-  %206 = icmp sgt i32 %202, 255
-  %207 = icmp sgt i32 %204, 131071
-  %or.cond.i88 = select i1 %206, i1 true, i1 %207
-  br i1 %or.cond.i88, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread95, label %208
+_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit: ; preds = %_ZN4absl18debugging_internalL17ParseTwoCharTokenEPNS0_5StateEPKc.exit.thread, %191, %195
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %175, ptr noundef nonnull align 4 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !31
+  %199 = load i32, ptr %6, align 4, !tbaa !17
+  %200 = add nsw i32 %199, 1
+  store i32 %200, ptr %6, align 4, !tbaa !17
+  %201 = load i32, ptr %9, align 8, !tbaa !15
+  %202 = add nsw i32 %201, 1
+  store i32 %202, ptr %9, align 8, !tbaa !15
+  %203 = icmp sgt i32 %199, 255
+  %204 = icmp sgt i32 %201, 131071
+  %or.cond.i89 = select i1 %203, i1 true, i1 %204
+  br i1 %or.cond.i89, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread97, label %205
 
-208:                                              ; preds = %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit
-  %.val6.i89 = load ptr, ptr %0, align 8, !tbaa !7
-  %.val7.i90 = load i32, ptr %178, align 4, !tbaa !16
-  %209 = sext i32 %.val7.i90 to i64
-  %210 = getelementptr inbounds i8, ptr %.val6.i89, i64 %209
-  %211 = load i8, ptr %210, align 1, !tbaa !4
-  %212 = icmp eq i8 %211, 70
-  br i1 %212, label %213, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread95
+205:                                              ; preds = %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit
+  %.val6.i90 = load ptr, ptr %0, align 8, !tbaa !7
+  %.val7.i91 = load i32, ptr %175, align 4, !tbaa !16
+  %206 = sext i32 %.val7.i91 to i64
+  %207 = getelementptr inbounds i8, ptr %.val6.i90, i64 %206
+  %208 = load i8, ptr %207, align 1, !tbaa !4
+  %209 = icmp eq i8 %208, 70
+  br i1 %209, label %210, label %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread97
 
-_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread95: ; preds = %208, %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit
-  store i32 %202, ptr %6, align 4, !tbaa !17
-  br label %222
+_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread97: ; preds = %205, %_ZN4absl18debugging_internalL9OneOrMoreEPFbPNS0_5StateEES2_.exit
+  store i32 %199, ptr %6, align 4, !tbaa !17
+  br label %218
 
-213:                                              ; preds = %208
-  %214 = add nsw i32 %.val7.i90, 1
-  store i32 %214, ptr %178, align 4, !tbaa !16
-  store i32 %202, ptr %6, align 4, !tbaa !17
-  %215 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %216 = load i32, ptr %215, align 4
-  %.not.i92 = icmp sgt i32 %216, -1
-  br i1 %.not.i92, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit93, label %217
+210:                                              ; preds = %205
+  %211 = add nsw i32 %.val7.i91, 1
+  store i32 %211, ptr %175, align 4, !tbaa !16
+  store i32 %199, ptr %6, align 4, !tbaa !17
+  %212 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %213 = load i32, ptr %212, align 4
+  %.not.i93 = icmp sgt i32 %213, -1
+  br i1 %.not.i93, label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit95, label %.lr.ph.i.i.preheader100
 
-217:                                              ; preds = %213
+.lr.ph.i.i.preheader100:                          ; preds = %210
   tail call fastcc void @_ZN4absl18debugging_internalL21MaybeAppendWithLengthEPNS0_5StateEPKcm(ptr noundef nonnull %0, ptr noundef nonnull @.str.271, i64 noundef 7)
-  br label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit93
+  br label %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit95
 
-_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit93: ; preds = %213, %217
-  %218 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL15ParseSourceNameEPNS0_5StateE(ptr noundef nonnull %0)
-  br i1 %218, label %223, label %219
+_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit95: ; preds = %210, %.lr.ph.i.i.preheader100
+  %214 = tail call fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL15ParseSourceNameEPNS0_5StateE(ptr noundef nonnull %0)
+  br i1 %214, label %219, label %215
 
-219:                                              ; preds = %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit93
-  %220 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseOperatorNameEPNS0_5StateEPi(ptr noundef nonnull %0, ptr noundef null)
-          to label %221 unwind label %200
+215:                                              ; preds = %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit95
+  %216 = invoke fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL17ParseOperatorNameEPNS0_5StateEPi(ptr noundef nonnull %0, ptr noundef null)
+          to label %217 unwind label %197
 
-221:                                              ; preds = %219
-  br i1 %220, label %223, label %222
+217:                                              ; preds = %215
+  br i1 %216, label %219, label %218
 
-222:                                              ; preds = %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread95, %221
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %178, ptr noundef nonnull align 4 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !30
-  br label %223
+218:                                              ; preds = %_ZN4absl18debugging_internalL17ParseOneCharTokenEPNS0_5StateEc.exit.thread97, %217
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %175, ptr noundef nonnull align 4 dereferenceable(16) %5, i64 16, i1 false), !tbaa.struct !31
+  br label %219
 
-223:                                              ; preds = %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit93, %221, %198, %222
-  %.1 = phi i1 [ false, %222 ], [ true, %198 ], [ true, %221 ], [ true, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit93 ]
+219:                                              ; preds = %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit95, %217, %195, %218
+  %.1 = phi i1 [ false, %218 ], [ true, %195 ], [ true, %217 ], [ true, %_ZN4absl18debugging_internalL11MaybeAppendEPNS0_5StateEPKc.exit95 ]
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %5)
-  %.pre82 = load i32, ptr %6, align 4, !tbaa !17
+  %.pre83 = load i32, ptr %6, align 4, !tbaa !17
   br label %_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread
 
-_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread: ; preds = %1, %_ZN4absl18debugging_internalL12ParseAbiTagsEPNS0_5StateE.exit, %223
-  %224 = phi i32 [ %.pre82, %223 ], [ %174, %_ZN4absl18debugging_internalL12ParseAbiTagsEPNS0_5StateE.exit ], [ %8, %1 ]
-  %.020 = phi i1 [ %.1, %223 ], [ %.012.i, %_ZN4absl18debugging_internalL12ParseAbiTagsEPNS0_5StateE.exit ], [ false, %1 ]
-  %225 = add nsw i32 %224, -1
-  store i32 %225, ptr %6, align 4, !tbaa !17
+_ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exit.thread: ; preds = %1, %_ZN4absl18debugging_internalL12ParseAbiTagsEPNS0_5StateE.exit, %219
+  %220 = phi i32 [ %.pre83, %219 ], [ %171, %_ZN4absl18debugging_internalL12ParseAbiTagsEPNS0_5StateE.exit ], [ %8, %1 ]
+  %.020 = phi i1 [ %.1, %219 ], [ %.012.i, %_ZN4absl18debugging_internalL12ParseAbiTagsEPNS0_5StateE.exit ], [ false, %1 ]
+  %221 = add nsw i32 %220, -1
+  store i32 %221, ptr %6, align 4, !tbaa !17
   ret i1 %.020
 
-.body:                                            ; preds = %175, %58, %200
-  %.pn = phi { ptr, i32 } [ %201, %200 ], [ %176, %175 ], [ %59, %58 ]
-  %226 = load i32, ptr %6, align 4, !tbaa !17
-  %227 = add nsw i32 %226, -1
-  store i32 %227, ptr %6, align 4, !tbaa !17
+.body:                                            ; preds = %172, %58, %197
+  %.pn = phi { ptr, i32 } [ %198, %197 ], [ %173, %172 ], [ %59, %58 ]
+  %222 = load i32, ptr %6, align 4, !tbaa !17
+  %223 = add nsw i32 %222, -1
+  store i32 %223, ptr %6, align 4, !tbaa !17
   resume { ptr, i32 } %.pn
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable
-define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL15ParseCallOffsetEPNS0_5StateE(ptr noundef captures(none) %0) unnamed_addr #9 personality ptr @__gxx_personality_v0 {
+define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL15ParseCallOffsetEPNS0_5StateE(ptr noundef captures(none) %0) unnamed_addr #8 personality ptr @__gxx_personality_v0 {
   %2 = alloca %"struct.absl::debugging_internal::ParseState", align 4
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 20
   %4 = load i32, ptr %3, align 4, !tbaa !17
@@ -12601,7 +12620,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL15ParseC
 10:                                               ; preds = %1
   call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %2)
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %11, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(16) %11, i64 16, i1 false), !tbaa.struct !31
   %12 = add nsw i32 %4, 2
   store i32 %12, ptr %3, align 4, !tbaa !17
   %13 = add nsw i32 %6, 2
@@ -12672,7 +12691,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL15ParseC
   %47 = load i8, ptr %46, align 1, !tbaa !4
   %48 = add i8 %47, -48
   %49 = icmp ult i8 %48, 10
-  br i1 %49, label %.lr.ph.i.i, label %50, !llvm.loop !42
+  br i1 %49, label %.lr.ph.i.i, label %50, !llvm.loop !43
 
 50:                                               ; preds = %.lr.ph.i.i
   %51 = ptrtoint ptr %46 to i64
@@ -12701,7 +12720,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL15ParseC
 
 .thread:                                          ; preds = %50, %58, %._crit_edge44.i.i, %24, %21, %10, %16
   %65 = phi i32 [ %13, %16 ], [ %13, %10 ], [ 131073, %21 ], [ %26, %24 ], [ %31, %._crit_edge44.i.i ], [ %56, %58 ], [ %56, %50 ]
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %11, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %11, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !31
   %66 = add nsw i32 %4, 2
   store i32 %66, ptr %3, align 4, !tbaa !17
   %67 = add nsw i32 %65, 1
@@ -12775,7 +12794,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL15ParseC
   %102 = load i8, ptr %101, align 1, !tbaa !4
   %103 = add i8 %102, -48
   %104 = icmp ult i8 %103, 10
-  br i1 %104, label %.lr.ph.i.i35, label %105, !llvm.loop !42
+  br i1 %104, label %.lr.ph.i.i35, label %105, !llvm.loop !43
 
 105:                                              ; preds = %.lr.ph.i.i35
   %106 = ptrtoint ptr %101 to i64
@@ -12841,7 +12860,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL15ParseC
   %138 = load i8, ptr %137, align 1, !tbaa !4
   %139 = add i8 %138, -48
   %140 = icmp ult i8 %139, 10
-  br i1 %140, label %.lr.ph.i21.i, label %141, !llvm.loop !42
+  br i1 %140, label %.lr.ph.i21.i, label %141, !llvm.loop !43
 
 141:                                              ; preds = %.lr.ph.i21.i
   %142 = ptrtoint ptr %137 to i64
@@ -12869,7 +12888,7 @@ define internal fastcc noundef zeroext i1 @_ZN4absl18debugging_internalL15ParseC
   br label %156
 
 .thread51:                                        ; preds = %._crit_edge44.i17.i, %118, %113, %105, %._crit_edge44.i.i32, %79, %141, %149, %75, %.thread, %70
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %11, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !30
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %11, ptr noundef nonnull align 4 dereferenceable(16) %2, i64 16, i1 false), !tbaa.struct !31
   br label %156
 
 156:                                              ; preds = %154, %63, %.thread51
@@ -12884,37 +12903,36 @@ _ZNK4absl18debugging_internal12_GLOBAL__N_115ComplexityGuard12IsTooComplexEv.exi
 }
 
 ; Function Attrs: nobuiltin nounwind
-declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #11
+declare void @_ZdlPvm(ptr noundef, i64 noundef) local_unnamed_addr #10
 
 declare noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32), ptr noundef, i64 noundef) local_unnamed_addr #1
 
 ; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #12
+declare i64 @strlen(ptr noundef captures(none)) local_unnamed_addr #11
 
 ; Function Attrs: noreturn
-declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #13
+declare void @_ZSt20__throw_length_errorPKc(ptr noundef) local_unnamed_addr #12
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
-declare void @llvm.assume(i1 noundef) #14
+declare void @llvm.assume(i1 noundef) #13
 
 attributes #0 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 attributes #3 = { mustprogress nounwind willreturn allockind("free") memory(argmem: readwrite, inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { mustprogress nofree nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree norecurse nosync nounwind willreturn memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { mustprogress nofree nosync memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #8 = { mustprogress nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #9 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #10 = { mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #11 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #12 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #13 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #14 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
-attributes #15 = { nounwind }
-attributes #16 = { builtin nounwind }
-attributes #17 = { noreturn }
+attributes #8 = { mustprogress nofree norecurse nosync nounwind memory(read, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #9 = { mustprogress nofree norecurse nosync nounwind memory(write, argmem: readwrite, inaccessiblemem: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #10 = { nobuiltin nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #11 = { mustprogress nofree nounwind willreturn memory(argmem: read) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #12 = { noreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #13 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write) }
+attributes #14 = { nounwind }
+attributes #15 = { builtin nounwind }
+attributes #16 = { noreturn }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 
@@ -12940,35 +12958,36 @@ attributes #17 = { noreturn }
 !19 = !{!"llvm.loop.mustprogress"}
 !20 = distinct !{!20, !19}
 !21 = distinct !{!21, !19}
-!22 = !{!8, !11, i64 32}
-!23 = !{!24, !9, i64 0}
-!24 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !9, i64 0}
-!25 = !{!26, !27, i64 8}
-!26 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !24, i64 0, !27, i64 8, !5, i64 16}
-!27 = !{!"long", !5, i64 0}
-!28 = !{!11, !11, i64 0}
-!29 = !{!26, !9, i64 0}
-!30 = !{i64 0, i64 4, !28, i64 4, i64 4, !28, i64 8, i64 4, !28, i64 12, i64 4, !4}
-!31 = distinct !{!31, !19}
+!22 = distinct !{!22, !19}
+!23 = !{!8, !11, i64 32}
+!24 = !{!25, !9, i64 0}
+!25 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE12_Alloc_hiderE", !9, i64 0}
+!26 = !{!27, !28, i64 8}
+!27 = !{!"_ZTSNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE", !25, i64 0, !28, i64 8, !5, i64 16}
+!28 = !{!"long", !5, i64 0}
+!29 = !{!11, !11, i64 0}
+!30 = !{!27, !9, i64 0}
+!31 = !{i64 0, i64 4, !29, i64 4, i64 4, !29, i64 8, i64 4, !29, i64 12, i64 4, !4}
 !32 = distinct !{!32, !19}
 !33 = distinct !{!33, !19}
 !34 = distinct !{!34, !19}
-!35 = !{!36, !9, i64 8}
-!36 = !{!"_ZTSN4absl18debugging_internal10AbbrevPairE", !9, i64 0, !9, i64 8, !11, i64 16}
-!37 = !{!36, !9, i64 0}
-!38 = distinct !{!38, !19}
+!35 = distinct !{!35, !19}
+!36 = !{!37, !9, i64 8}
+!37 = !{!"_ZTSN4absl18debugging_internal10AbbrevPairE", !9, i64 0, !9, i64 8, !11, i64 16}
+!38 = !{!37, !9, i64 0}
 !39 = distinct !{!39, !19}
 !40 = distinct !{!40, !19}
 !41 = distinct !{!41, !19}
 !42 = distinct !{!42, !19}
 !43 = distinct !{!43, !19}
 !44 = distinct !{!44, !19}
-!45 = !{!8, !11, i64 36}
-!46 = distinct !{!46, !19}
+!45 = distinct !{!45, !19}
+!46 = !{!8, !11, i64 36}
 !47 = distinct !{!47, !19}
 !48 = distinct !{!48, !19}
 !49 = distinct !{!49, !19}
-!50 = !{!36, !11, i64 16}
-!51 = distinct !{!51, !19}
+!50 = distinct !{!50, !19}
+!51 = !{!37, !11, i64 16}
 !52 = distinct !{!52, !19}
 !53 = distinct !{!53, !19}
+!54 = distinct !{!54, !19}

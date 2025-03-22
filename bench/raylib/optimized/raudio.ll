@@ -108990,7 +108990,7 @@ define internal fastcc i64 @drwav__metadata_process_chunk(ptr noundef nonnull %0
   %9 = alloca [4 x i8], align 1
   %10 = alloca [4 x i8], align 4
   %11 = load i8, ptr %1, align 1
-  switch i8 %11, label %drwav_fourcc_equal.exit250.thread [
+  switch i8 %11, label %drwav_fourcc_equal.exit244.thread [
     i8 115, label %12
     i8 105, label %175
     i8 97, label %236
@@ -109004,25 +109004,25 @@ define internal fastcc i64 @drwav__metadata_process_chunk(ptr noundef nonnull %0
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %14 = load i8, ptr %13, align 1
   %15 = icmp eq i8 %14, 109
-  br i1 %15, label %16, label %drwav_fourcc_equal.exit250.thread
+  br i1 %15, label %16, label %drwav_fourcc_equal.exit244.thread
 
 16:                                               ; preds = %12
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %18 = load i8, ptr %17, align 1
   %19 = icmp eq i8 %18, 112
-  br i1 %19, label %drwav__chunk_matches.exit, label %drwav_fourcc_equal.exit250.thread
+  br i1 %19, label %drwav__chunk_matches.exit, label %drwav_fourcc_equal.exit244.thread
 
 drwav__chunk_matches.exit:                        ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %21 = load i8, ptr %20, align 1
   %.not = icmp eq i8 %21, 108
-  br i1 %.not, label %22, label %drwav_fourcc_equal.exit250.thread
+  br i1 %.not, label %22, label %drwav_fourcc_equal.exit244.thread
 
 22:                                               ; preds = %drwav__chunk_matches.exit
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %24 = load i64, ptr %23, align 8
   %25 = icmp ugt i64 %24, 35
-  br i1 %25, label %26, label %.loopexit
+  br i1 %25, label %26, label %.loopexit502
 
 26:                                               ; preds = %22
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -109082,13 +109082,13 @@ drwav__chunk_matches.exit:                        ; preds = %16
   br label %.thread
 
 .thread:                                          ; preds = %36, %42, %49, %55
-  %.0284.ph = phi i64 [ %40, %36 ], [ 32, %42 ], [ %53, %49 ], [ %53, %55 ]
+  %.0278.ph = phi i64 [ %40, %36 ], [ 32, %42 ], [ %53, %49 ], [ %53, %55 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #71
-  br label %.loopexit
+  br label %.loopexit502
 
 67:                                               ; preds = %30
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #71
-  br label %.loopexit
+  br label %.loopexit502
 
 68:                                               ; preds = %26
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -109251,37 +109251,37 @@ drwav__read_smpl_to_metadata_obj.exit:            ; preds = %68, %75, %81, %.loo
   call void @llvm.lifetime.end.p0(i64 36, ptr nonnull %5) #71
   %170 = load i64, ptr %23, align 8
   %171 = icmp eq i64 %.046.i, %170
-  br i1 %171, label %172, label %.loopexit
+  br i1 %171, label %172, label %.loopexit502
 
 172:                                              ; preds = %drwav__read_smpl_to_metadata_obj.exit
   %173 = load i64, ptr %71, align 8
   %174 = add i64 %173, 1
   store i64 %174, ptr %71, align 8
-  br label %.loopexit
+  br label %.loopexit502
 
 175:                                              ; preds = %2
   %176 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %177 = load i8, ptr %176, align 1
   %178 = icmp eq i8 %177, 110
-  br i1 %178, label %179, label %drwav_fourcc_equal.exit250.thread
+  br i1 %178, label %179, label %drwav_fourcc_equal.exit244.thread
 
 179:                                              ; preds = %175
   %180 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %181 = load i8, ptr %180, align 1
   %182 = icmp eq i8 %181, 115
-  br i1 %182, label %drwav__chunk_matches.exit220, label %drwav_fourcc_equal.exit250.thread
+  br i1 %182, label %drwav__chunk_matches.exit220, label %drwav_fourcc_equal.exit244.thread
 
 drwav__chunk_matches.exit220:                     ; preds = %179
   %183 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %184 = load i8, ptr %183, align 1
-  %.not477 = icmp eq i8 %184, 116
-  br i1 %.not477, label %185, label %drwav_fourcc_equal.exit250.thread
+  %.not471 = icmp eq i8 %184, 116
+  br i1 %.not471, label %185, label %drwav_fourcc_equal.exit244.thread
 
 185:                                              ; preds = %drwav__chunk_matches.exit220
   %186 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %187 = load i64, ptr %186, align 8
   %188 = icmp eq i64 %187, 7
-  br i1 %188, label %189, label %.loopexit
+  br i1 %188, label %189, label %.loopexit502
 
 189:                                              ; preds = %185
   %190 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -109294,7 +109294,7 @@ drwav__chunk_matches.exit220:                     ; preds = %179
   %195 = load i32, ptr %194, align 8
   %196 = add i32 %195, 1
   store i32 %196, ptr %194, align 8
-  br label %.loopexit
+  br label %.loopexit502
 
 197:                                              ; preds = %189
   %198 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -109350,37 +109350,37 @@ drwav__read_inst_to_metadata_obj.exit:            ; preds = %197, %204, %210
   call void @llvm.lifetime.end.p0(i64 7, ptr nonnull %4) #71
   %231 = load i64, ptr %186, align 8
   %232 = icmp eq i64 %.0.i, %231
-  br i1 %232, label %233, label %.loopexit
+  br i1 %232, label %233, label %.loopexit502
 
 233:                                              ; preds = %drwav__read_inst_to_metadata_obj.exit
   %234 = load i64, ptr %200, align 8
   %235 = add i64 %234, 1
   store i64 %235, ptr %200, align 8
-  br label %.loopexit
+  br label %.loopexit502
 
 236:                                              ; preds = %2
   %237 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %238 = load i8, ptr %237, align 1
   %239 = icmp eq i8 %238, 99
-  br i1 %239, label %240, label %drwav_fourcc_equal.exit250.thread
+  br i1 %239, label %240, label %drwav_fourcc_equal.exit244.thread
 
 240:                                              ; preds = %236
   %241 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %242 = load i8, ptr %241, align 1
   %243 = icmp eq i8 %242, 105
-  br i1 %243, label %drwav__chunk_matches.exit221, label %drwav_fourcc_equal.exit250.thread
+  br i1 %243, label %drwav__chunk_matches.exit221, label %drwav_fourcc_equal.exit244.thread
 
 drwav__chunk_matches.exit221:                     ; preds = %240
   %244 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %245 = load i8, ptr %244, align 1
-  %.not476 = icmp eq i8 %245, 100
-  br i1 %.not476, label %246, label %drwav_fourcc_equal.exit250.thread
+  %.not470 = icmp eq i8 %245, 100
+  br i1 %.not470, label %246, label %drwav_fourcc_equal.exit244.thread
 
 246:                                              ; preds = %drwav__chunk_matches.exit221
   %247 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %248 = load i64, ptr %247, align 8
   %249 = icmp eq i64 %248, 24
-  br i1 %249, label %250, label %.loopexit
+  br i1 %249, label %250, label %.loopexit502
 
 250:                                              ; preds = %246
   %251 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -109393,7 +109393,7 @@ drwav__chunk_matches.exit221:                     ; preds = %240
   %256 = load i32, ptr %255, align 8
   %257 = add i32 %256, 1
   store i32 %257, ptr %255, align 8
-  br label %.loopexit
+  br label %.loopexit502
 
 258:                                              ; preds = %250
   %259 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -109453,37 +109453,37 @@ drwav__read_acid_to_metadata_obj.exit:            ; preds = %258, %265, %271
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3) #71
   %295 = load i64, ptr %247, align 8
   %296 = icmp eq i64 %.0.i222, %295
-  br i1 %296, label %297, label %.loopexit
+  br i1 %296, label %297, label %.loopexit502
 
 297:                                              ; preds = %drwav__read_acid_to_metadata_obj.exit
   %298 = load i64, ptr %261, align 8
   %299 = add i64 %298, 1
   store i64 %299, ptr %261, align 8
-  br label %.loopexit
+  br label %.loopexit502
 
 300:                                              ; preds = %2
   %301 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %302 = load i8, ptr %301, align 1
   %303 = icmp eq i8 %302, 117
-  br i1 %303, label %304, label %drwav_fourcc_equal.exit250.thread
+  br i1 %303, label %304, label %drwav_fourcc_equal.exit244.thread
 
 304:                                              ; preds = %300
   %305 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %306 = load i8, ptr %305, align 1
   %307 = icmp eq i8 %306, 101
-  br i1 %307, label %drwav__chunk_matches.exit223, label %drwav_fourcc_equal.exit250.thread
+  br i1 %307, label %drwav__chunk_matches.exit223, label %drwav_fourcc_equal.exit244.thread
 
 drwav__chunk_matches.exit223:                     ; preds = %304
   %308 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %309 = load i8, ptr %308, align 1
-  %.not475 = icmp eq i8 %309, 32
-  br i1 %.not475, label %310, label %drwav_fourcc_equal.exit250.thread
+  %.not469 = icmp eq i8 %309, 32
+  br i1 %.not469, label %310, label %drwav_fourcc_equal.exit244.thread
 
 310:                                              ; preds = %drwav__chunk_matches.exit223
   %311 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %312 = load i64, ptr %311, align 8
   %313 = icmp ugt i64 %312, 3
-  br i1 %313, label %314, label %.loopexit
+  br i1 %313, label %314, label %.loopexit502
 
 314:                                              ; preds = %310
   %315 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -109507,7 +109507,7 @@ drwav__chunk_matches.exit223:                     ; preds = %304
   %329 = add i64 %328, %323
   %330 = add i64 %329, %327
   store i64 %330, ptr %325, align 8
-  br label %.loopexit
+  br label %.loopexit502
 
 331:                                              ; preds = %314
   %332 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -109518,37 +109518,37 @@ drwav__chunk_matches.exit223:                     ; preds = %304
   %337 = tail call fastcc i64 @drwav__read_cue_to_metadata_obj(ptr noundef %0, ptr noundef %1, ptr noundef %336)
   %338 = load i64, ptr %311, align 8
   %339 = icmp eq i64 %337, %338
-  br i1 %339, label %340, label %.loopexit
+  br i1 %339, label %340, label %.loopexit502
 
 340:                                              ; preds = %331
   %341 = load i64, ptr %334, align 8
   %342 = add i64 %341, 1
   store i64 %342, ptr %334, align 8
-  br label %.loopexit
+  br label %.loopexit502
 
 343:                                              ; preds = %2
   %344 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %345 = load i8, ptr %344, align 1
   %346 = icmp eq i8 %345, 101
-  br i1 %346, label %347, label %drwav_fourcc_equal.exit250.thread
+  br i1 %346, label %347, label %drwav_fourcc_equal.exit244.thread
 
 347:                                              ; preds = %343
   %348 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %349 = load i8, ptr %348, align 1
   %350 = icmp eq i8 %349, 120
-  br i1 %350, label %drwav__chunk_matches.exit224, label %drwav_fourcc_equal.exit250.thread
+  br i1 %350, label %drwav__chunk_matches.exit224, label %drwav_fourcc_equal.exit244.thread
 
 drwav__chunk_matches.exit224:                     ; preds = %347
   %351 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %352 = load i8, ptr %351, align 1
-  %.not474 = icmp eq i8 %352, 116
-  br i1 %.not474, label %353, label %drwav_fourcc_equal.exit250.thread
+  %.not468 = icmp eq i8 %352, 116
+  br i1 %.not468, label %353, label %drwav_fourcc_equal.exit244.thread
 
 353:                                              ; preds = %drwav__chunk_matches.exit224
   %354 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %355 = load i64, ptr %354, align 8
   %356 = icmp ugt i64 %355, 601
-  br i1 %356, label %357, label %.loopexit
+  br i1 %356, label %357, label %.loopexit502
 
 357:                                              ; preds = %353
   %358 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -109565,104 +109565,87 @@ drwav__chunk_matches.exit224:                     ; preds = %347
   %365 = load ptr, ptr %364, align 8
   %366 = call i64 %363(ptr noundef %365, ptr noundef nonnull %8, i64 noundef 256) #71
   %.not215 = icmp eq i64 %366, 256
-  br i1 %.not215, label %367, label %.thread307
+  br i1 %.not215, label %367, label %.thread301
 
 367:                                              ; preds = %361
   %368 = load i8, ptr %8, align 16
   %.not3.i = icmp eq i8 %368, 0
-  br i1 %.not3.i, label %drwav__strlen.exit, label %.lr.ph.preheader.i
+  br i1 %.not3.i, label %drwav__strlen.exit, label %.lr.ph.i226
 
-.lr.ph.preheader.i:                               ; preds = %367
-  %scevgep.i = getelementptr inbounds nuw i8, ptr %8, i64 1
-  %strlen.i = call i64 @strlen(ptr nonnull readonly dereferenceable(1) %scevgep.i)
-  br label %.lr.ph.i226
-
-.lr.ph.i226:                                      ; preds = %.lr.ph.i226, %.lr.ph.preheader.i
-  %.024.i = phi ptr [ %369, %.lr.ph.i226 ], [ %8, %.lr.ph.preheader.i ]
+.lr.ph.i226:                                      ; preds = %367, %.lr.ph.i226
+  %.05.i = phi i64 [ %370, %.lr.ph.i226 ], [ 0, %367 ]
+  %.024.i = phi ptr [ %369, %.lr.ph.i226 ], [ %8, %367 ]
   %369 = getelementptr inbounds nuw i8, ptr %.024.i, i64 1
-  %370 = load i8, ptr %369, align 1
-  %.not.i227 = icmp eq i8 %370, 0
-  br i1 %.not.i227, label %._crit_edge.loopexit.i, label %.lr.ph.i226
+  %370 = add i64 %.05.i, 1
+  %371 = load i8, ptr %369, align 1
+  %.not.i227 = icmp eq i8 %371, 0
+  br i1 %.not.i227, label %drwav__strlen.exit.loopexit, label %.lr.ph.i226
 
-._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i226
-  %371 = add i64 %strlen.i, -534
+drwav__strlen.exit.loopexit:                      ; preds = %.lr.ph.i226
+  %372 = add i64 %.05.i, -534
   br label %drwav__strlen.exit
 
-drwav__strlen.exit:                               ; preds = %367, %._crit_edge.loopexit.i
-  %.0.lcssa.i = phi i64 [ -535, %367 ], [ %371, %._crit_edge.loopexit.i ]
-  %372 = getelementptr inbounds nuw i8, ptr %8, i64 32
-  store i8 0, ptr %372, align 16
-  %373 = load ptr, ptr %0, align 8
-  %374 = load ptr, ptr %364, align 8
-  %375 = call i64 %373(ptr noundef %374, ptr noundef nonnull %8, i64 noundef 32) #71
-  %376 = add i64 %375, 256
-  %.not216 = icmp eq i64 %375, 32
-  br i1 %.not216, label %377, label %.thread307
+drwav__strlen.exit:                               ; preds = %drwav__strlen.exit.loopexit, %367
+  %.0.lcssa.i = phi i64 [ -535, %367 ], [ %372, %drwav__strlen.exit.loopexit ]
+  %373 = getelementptr inbounds nuw i8, ptr %8, i64 32
+  store i8 0, ptr %373, align 16
+  %374 = load ptr, ptr %0, align 8
+  %375 = load ptr, ptr %364, align 8
+  %376 = call i64 %374(ptr noundef %375, ptr noundef nonnull %8, i64 noundef 32) #71
+  %377 = add i64 %376, 256
+  %.not216 = icmp eq i64 %376, 32
+  br i1 %.not216, label %378, label %.thread301
 
-377:                                              ; preds = %drwav__strlen.exit
-  %378 = load i8, ptr %8, align 16
-  %.not3.i229 = icmp eq i8 %378, 0
-  br i1 %.not3.i229, label %drwav__strlen.exit238, label %.lr.ph.preheader.i230
+378:                                              ; preds = %drwav__strlen.exit
+  %379 = load i8, ptr %8, align 16
+  %.not3.i229 = icmp eq i8 %379, 0
+  br i1 %.not3.i229, label %drwav__strlen.exit235, label %.lr.ph.i230
 
-.lr.ph.preheader.i230:                            ; preds = %377
-  %scevgep.i231 = getelementptr inbounds nuw i8, ptr %8, i64 1
-  %strlen.i232 = call i64 @strlen(ptr nonnull readonly dereferenceable(1) %scevgep.i231)
-  br label %.lr.ph.i233
+.lr.ph.i230:                                      ; preds = %378, %.lr.ph.i230
+  %.05.i231 = phi i64 [ %381, %.lr.ph.i230 ], [ 0, %378 ]
+  %.024.i232 = phi ptr [ %380, %.lr.ph.i230 ], [ %8, %378 ]
+  %380 = getelementptr inbounds nuw i8, ptr %.024.i232, i64 1
+  %381 = add i64 %.05.i231, 1
+  %382 = load i8, ptr %380, align 1
+  %.not.i233 = icmp eq i8 %382, 0
+  br i1 %.not.i233, label %drwav__strlen.exit235, label %.lr.ph.i230
 
-.lr.ph.i233:                                      ; preds = %.lr.ph.i233, %.lr.ph.preheader.i230
-  %.024.i234 = phi ptr [ %379, %.lr.ph.i233 ], [ %8, %.lr.ph.preheader.i230 ]
-  %379 = getelementptr inbounds nuw i8, ptr %.024.i234, i64 1
-  %380 = load i8, ptr %379, align 1
-  %.not.i235 = icmp eq i8 %380, 0
-  br i1 %.not.i235, label %._crit_edge.loopexit.i236, label %.lr.ph.i233
+drwav__strlen.exit235:                            ; preds = %.lr.ph.i230, %378
+  %.0.lcssa.i234 = phi i64 [ 0, %378 ], [ %381, %.lr.ph.i230 ]
+  store i8 0, ptr %373, align 16
+  %383 = load ptr, ptr %0, align 8
+  %384 = load ptr, ptr %364, align 8
+  %385 = call i64 %383(ptr noundef %384, ptr noundef nonnull %8, i64 noundef 32) #71
+  %386 = add i64 %385, %377
+  %.not217 = icmp eq i64 %385, 32
+  br i1 %.not217, label %387, label %.thread301
 
-._crit_edge.loopexit.i236:                        ; preds = %.lr.ph.i233
-  %381 = add i64 %strlen.i232, 1
-  br label %drwav__strlen.exit238
+387:                                              ; preds = %drwav__strlen.exit235
+  %388 = load i8, ptr %8, align 16
+  %.not3.i237 = icmp eq i8 %388, 0
+  br i1 %.not3.i237, label %.loopexit, label %.lr.ph.i238
 
-drwav__strlen.exit238:                            ; preds = %377, %._crit_edge.loopexit.i236
-  %.0.lcssa.i237 = phi i64 [ 0, %377 ], [ %381, %._crit_edge.loopexit.i236 ]
-  store i8 0, ptr %372, align 16
-  %382 = load ptr, ptr %0, align 8
-  %383 = load ptr, ptr %364, align 8
-  %384 = call i64 %382(ptr noundef %383, ptr noundef nonnull %8, i64 noundef 32) #71
-  %385 = add i64 %384, %376
-  %.not217 = icmp eq i64 %384, 32
-  br i1 %.not217, label %386, label %.thread307
+.lr.ph.i238:                                      ; preds = %387, %.lr.ph.i238
+  %.05.i239 = phi i64 [ %390, %.lr.ph.i238 ], [ 0, %387 ]
+  %.024.i240 = phi ptr [ %389, %.lr.ph.i238 ], [ %8, %387 ]
+  %389 = getelementptr inbounds nuw i8, ptr %.024.i240, i64 1
+  %390 = add i64 %.05.i239, 1
+  %391 = load i8, ptr %389, align 1
+  %.not.i241 = icmp eq i8 %391, 0
+  br i1 %.not.i241, label %.loopexit, label %.lr.ph.i238
 
-386:                                              ; preds = %drwav__strlen.exit238
-  %387 = load i8, ptr %8, align 16
-  %.not3.i240 = icmp eq i8 %387, 0
-  br i1 %.not3.i240, label %391, label %.lr.ph.preheader.i241
-
-.lr.ph.preheader.i241:                            ; preds = %386
-  %scevgep.i242 = getelementptr inbounds nuw i8, ptr %8, i64 1
-  %strlen.i243 = call i64 @strlen(ptr nonnull readonly dereferenceable(1) %scevgep.i242)
-  br label %.lr.ph.i244
-
-.lr.ph.i244:                                      ; preds = %.lr.ph.i244, %.lr.ph.preheader.i241
-  %.024.i245 = phi ptr [ %388, %.lr.ph.i244 ], [ %8, %.lr.ph.preheader.i241 ]
-  %388 = getelementptr inbounds nuw i8, ptr %.024.i245, i64 1
-  %389 = load i8, ptr %388, align 1
-  %.not.i246 = icmp eq i8 %389, 0
-  br i1 %.not.i246, label %._crit_edge.loopexit.i247, label %.lr.ph.i244
-
-._crit_edge.loopexit.i247:                        ; preds = %.lr.ph.i244
-  %390 = add i64 %strlen.i243, 1
-  br label %391
-
-.thread307:                                       ; preds = %361, %drwav__strlen.exit, %drwav__strlen.exit238
-  %.2.ph = phi i64 [ %385, %drwav__strlen.exit238 ], [ %376, %drwav__strlen.exit ], [ %366, %361 ]
+.thread301:                                       ; preds = %361, %drwav__strlen.exit, %drwav__strlen.exit235
+  %.2.ph = phi i64 [ %386, %drwav__strlen.exit235 ], [ %377, %drwav__strlen.exit ], [ %366, %361 ]
   call void @llvm.lifetime.end.p0(i64 257, ptr nonnull %8) #71
-  br label %.loopexit
+  br label %.loopexit502
 
-391:                                              ; preds = %._crit_edge.loopexit.i247, %386
-  %.0.lcssa.i248 = phi i64 [ 0, %386 ], [ %390, %._crit_edge.loopexit.i247 ]
+.loopexit:                                        ; preds = %.lr.ph.i238, %387
+  %.0.lcssa.i242 = phi i64 [ 0, %387 ], [ %390, %.lr.ph.i238 ]
   %392 = load i64, ptr %354, align 8
   %393 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %394 = load i64, ptr %393, align 8
-  %395 = add i64 %.0.lcssa.i, %.0.lcssa.i237
-  %396 = add i64 %395, %.0.lcssa.i248
+  %395 = add i64 %.0.lcssa.i, %.0.lcssa.i234
+  %396 = add i64 %395, %.0.lcssa.i242
   %397 = add i64 %396, %392
   %398 = add i64 %397, %394
   store i64 %398, ptr %393, align 8
@@ -109671,7 +109654,7 @@ drwav__strlen.exit238:                            ; preds = %377, %._crit_edge.l
   %401 = add i32 %400, 1
   store i32 %401, ptr %399, align 8
   call void @llvm.lifetime.end.p0(i64 257, ptr nonnull %8) #71
-  br label %.loopexit
+  br label %.loopexit502
 
 402:                                              ; preds = %357
   %403 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -109682,55 +109665,55 @@ drwav__strlen.exit238:                            ; preds = %377, %._crit_edge.l
   %408 = tail call fastcc i64 @drwav__read_bext_to_metadata_obj(ptr noundef %0, ptr noundef %407, i64 noundef %355)
   %409 = load i64, ptr %354, align 8
   %410 = icmp eq i64 %408, %409
-  br i1 %410, label %411, label %.loopexit
+  br i1 %410, label %411, label %.loopexit502
 
 411:                                              ; preds = %402
   %412 = load i64, ptr %405, align 8
   %413 = add i64 %412, 1
   store i64 %413, ptr %405, align 8
-  br label %.loopexit
+  br label %.loopexit502
 
 414:                                              ; preds = %2
   %415 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %416 = load i8, ptr %415, align 1
   %417 = icmp eq i8 %416, 73
-  br i1 %417, label %418, label %drwav_fourcc_equal.exit250.thread
+  br i1 %417, label %418, label %drwav_fourcc_equal.exit244.thread
 
 418:                                              ; preds = %414
   %419 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %420 = load i8, ptr %419, align 1
   %421 = icmp eq i8 %420, 83
-  br i1 %421, label %drwav_fourcc_equal.exit, label %drwav_fourcc_equal.exit250.thread
+  br i1 %421, label %drwav_fourcc_equal.exit, label %drwav_fourcc_equal.exit244.thread
 
 drwav_fourcc_equal.exit:                          ; preds = %418
   %422 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %423 = load i8, ptr %422, align 1
-  %.not458 = icmp eq i8 %423, 84
-  br i1 %.not458, label %434, label %drwav_fourcc_equal.exit250.thread
+  %.not452 = icmp eq i8 %423, 84
+  br i1 %.not452, label %434, label %drwav_fourcc_equal.exit244.thread
 
 424:                                              ; preds = %2
   %425 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %426 = load i8, ptr %425, align 1
   %427 = icmp eq i8 %426, 105
-  br i1 %427, label %428, label %drwav_fourcc_equal.exit250.thread
+  br i1 %427, label %428, label %drwav_fourcc_equal.exit244.thread
 
 428:                                              ; preds = %424
   %429 = getelementptr inbounds nuw i8, ptr %1, i64 2
   %430 = load i8, ptr %429, align 1
   %431 = icmp eq i8 %430, 115
-  br i1 %431, label %drwav_fourcc_equal.exit250, label %drwav_fourcc_equal.exit250.thread
+  br i1 %431, label %drwav_fourcc_equal.exit244, label %drwav_fourcc_equal.exit244.thread
 
-drwav_fourcc_equal.exit250:                       ; preds = %428
+drwav_fourcc_equal.exit244:                       ; preds = %428
   %432 = getelementptr inbounds nuw i8, ptr %1, i64 3
   %433 = load i8, ptr %432, align 1
-  %.not457 = icmp eq i8 %433, 116
-  br i1 %.not457, label %434, label %drwav_fourcc_equal.exit250.thread
+  %.not451 = icmp eq i8 %433, 116
+  br i1 %.not451, label %434, label %drwav_fourcc_equal.exit244.thread
 
-434:                                              ; preds = %drwav_fourcc_equal.exit250, %drwav_fourcc_equal.exit
+434:                                              ; preds = %drwav_fourcc_equal.exit244, %drwav_fourcc_equal.exit
   %435 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %436 = load i64, ptr %435, align 8
-  %.not512 = icmp eq i64 %436, 0
-  br i1 %.not512, label %.loopexit, label %.lr.ph
+  %.not510 = icmp eq i64 %436, 0
+  br i1 %.not510, label %.loopexit502, label %.lr.ph
 
 .lr.ph:                                           ; preds = %434
   %437 = getelementptr inbounds nuw i8, ptr %0, i64 16
@@ -109746,20 +109729,20 @@ drwav_fourcc_equal.exit250:                       ; preds = %428
   br label %447
 
 447:                                              ; preds = %.lr.ph, %583
-  %.0178511 = phi i32 [ 0, %.lr.ph ], [ %.1179, %583 ]
-  %.3287510 = phi i64 [ 0, %.lr.ph ], [ %.4, %583 ]
+  %.0178509 = phi i32 [ 0, %.lr.ph ], [ %.1179, %583 ]
+  %.3281508 = phi i64 [ 0, %.lr.ph ], [ %.4, %583 ]
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #71
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #71
   %448 = load ptr, ptr %0, align 8
   %449 = load ptr, ptr %437, align 8
   %450 = call i64 %448(ptr noundef %449, ptr noundef nonnull %9, i64 noundef 4) #71
-  %451 = add i64 %450, %.3287510
+  %451 = add i64 %450, %.3281508
   %.not195 = icmp eq i64 %450, 4
-  br i1 %.not195, label %452, label %.thread387
+  br i1 %.not195, label %452, label %.thread381
 
 452:                                              ; preds = %447
   %453 = load i8, ptr %9, align 1
-  switch i8 %453, label %drwav_fourcc_equal.exit253.thread [
+  switch i8 %453, label %drwav_fourcc_equal.exit247.thread [
     i8 97, label %454
     i8 73, label %460
   ]
@@ -109771,30 +109754,30 @@ drwav_fourcc_equal.exit250:                       ; preds = %428
   %458 = icmp eq i8 %457, 116
   %or.cond = select i1 %456, i1 %458, i1 false
   %459 = load i8, ptr %440, align 1
-  %.not460 = icmp eq i8 %459, 108
-  %or.cond479 = select i1 %or.cond, i1 %.not460, i1 false
-  br i1 %or.cond479, label %583, label %drwav_fourcc_equal.exit253.thread
+  %.not454 = icmp eq i8 %459, 108
+  %or.cond473 = select i1 %or.cond, i1 %.not454, i1 false
+  br i1 %or.cond473, label %583, label %drwav_fourcc_equal.exit247.thread
 
 460:                                              ; preds = %452
   %461 = load i8, ptr %438, align 1
   %462 = icmp eq i8 %461, 78
   %463 = load i8, ptr %439, align 1
   %464 = icmp eq i8 %463, 70
-  %or.cond400 = select i1 %462, i1 %464, i1 false
+  %or.cond394 = select i1 %462, i1 %464, i1 false
   %465 = load i8, ptr %440, align 1
-  %.not459 = icmp eq i8 %465, 79
-  %or.cond481 = select i1 %or.cond400, i1 %.not459, i1 false
-  br i1 %or.cond481, label %583, label %drwav_fourcc_equal.exit253.thread
+  %.not453 = icmp eq i8 %465, 79
+  %or.cond475 = select i1 %or.cond394, i1 %.not453, i1 false
+  br i1 %or.cond475, label %583, label %drwav_fourcc_equal.exit247.thread
 
-drwav_fourcc_equal.exit253.thread:                ; preds = %452, %454, %460
+drwav_fourcc_equal.exit247.thread:                ; preds = %452, %454, %460
   %466 = load ptr, ptr %0, align 8
   %467 = load ptr, ptr %437, align 8
   %468 = call i64 %466(ptr noundef %467, ptr noundef nonnull %10, i64 noundef 4) #71
   %469 = add i64 %468, %451
   %.not198 = icmp eq i64 %468, 4
-  br i1 %.not198, label %470, label %.thread387
+  br i1 %.not198, label %470, label %.thread381
 
-470:                                              ; preds = %drwav_fourcc_equal.exit253.thread
+470:                                              ; preds = %drwav_fourcc_equal.exit247.thread
   %471 = load i32, ptr %10, align 4
   %472 = zext i32 %471 to i64
   %473 = load i8, ptr %9, align 1
@@ -109806,14 +109789,14 @@ drwav_fourcc_equal.exit253.thread:                ; preds = %452, %454, %460
   %477 = icmp eq i8 %476, 97
   %478 = load i8, ptr %439, align 1
   %479 = icmp eq i8 %478, 98
-  %or.cond404 = select i1 %477, i1 %479, i1 false
+  %or.cond398 = select i1 %477, i1 %479, i1 false
   %480 = load i8, ptr %440, align 1
-  %.not471 = icmp eq i8 %480, 108
-  %or.cond483 = select i1 %or.cond404, i1 %.not471, i1 false
-  br i1 %or.cond483, label %488, label %.thread325
+  %.not465 = icmp eq i8 %480, 108
+  %or.cond477 = select i1 %or.cond398, i1 %.not465, i1 false
+  br i1 %or.cond477, label %488, label %.thread319
 
 481:                                              ; preds = %470
-  switch i8 %473, label %drwav__chunk_matches.exit267.thread [
+  switch i8 %473, label %drwav__chunk_matches.exit261.thread [
     i8 110, label %482
     i8 73, label %525
   ]
@@ -109823,11 +109806,11 @@ drwav_fourcc_equal.exit253.thread:                ; preds = %452, %454, %460
   %484 = icmp eq i8 %483, 111
   %485 = load i8, ptr %439, align 1
   %486 = icmp eq i8 %485, 116
-  %or.cond408 = select i1 %484, i1 %486, i1 false
+  %or.cond402 = select i1 %484, i1 %486, i1 false
   %487 = load i8, ptr %440, align 1
-  %.not470 = icmp eq i8 %487, 101
-  %or.cond485 = select i1 %or.cond408, i1 %.not470, i1 false
-  br i1 %or.cond485, label %488, label %drwav__chunk_matches.exit267.thread
+  %.not464 = icmp eq i8 %487, 101
+  %or.cond479 = select i1 %or.cond402, i1 %.not464, i1 false
+  br i1 %or.cond479, label %488, label %drwav__chunk_matches.exit261.thread
 
 488:                                              ; preds = %482, %475
   %489 = icmp ugt i32 %471, 3
@@ -109855,17 +109838,17 @@ drwav_fourcc_equal.exit253.thread:                ; preds = %452, %454, %460
   %503 = select i1 %474, i32 64, i32 128
   %504 = call fastcc i64 @drwav__read_list_label_or_note_to_metadata_obj(ptr noundef %0, ptr noundef %502, i64 noundef %472, i32 noundef %503)
   %505 = icmp eq i64 %504, %472
-  br i1 %505, label %.thread516, label %564
+  br i1 %505, label %.thread515, label %564
 
-.thread325:                                       ; preds = %475
+.thread319:                                       ; preds = %475
   %506 = icmp eq i8 %476, 116
   %507 = icmp eq i8 %478, 120
-  %or.cond420 = select i1 %506, i1 %507, i1 false
-  %.not473 = icmp eq i8 %480, 116
-  %or.cond489 = select i1 %or.cond420, i1 %.not473, i1 false
-  br i1 %or.cond489, label %508, label %drwav__chunk_matches.exit267.thread
+  %or.cond414 = select i1 %506, i1 %507, i1 false
+  %.not467 = icmp eq i8 %480, 116
+  %or.cond483 = select i1 %or.cond414, i1 %.not467, i1 false
+  br i1 %or.cond483, label %508, label %drwav__chunk_matches.exit261.thread
 
-508:                                              ; preds = %.thread325
+508:                                              ; preds = %.thread319
   %509 = icmp ugt i32 %471, 19
   br i1 %509, label %510, label %564
 
@@ -109890,124 +109873,124 @@ drwav_fourcc_equal.exit253.thread:                ; preds = %452, %454, %460
   %522 = getelementptr inbounds nuw %struct.drwav_metadata, ptr %520, i64 %521
   %523 = call fastcc i64 @drwav__read_list_labelled_cue_region_to_metadata_obj(ptr noundef %0, ptr noundef %522, i64 noundef %472)
   %524 = icmp eq i64 %523, %472
-  br i1 %524, label %.thread516, label %564
+  br i1 %524, label %.thread515, label %564
 
 525:                                              ; preds = %481
   %526 = load i8, ptr %438, align 1
   %527 = icmp eq i8 %526, 83
   %528 = load i8, ptr %439, align 1
   %529 = icmp eq i8 %528, 70
-  %or.cond424 = select i1 %527, i1 %529, i1 false
+  %or.cond418 = select i1 %527, i1 %529, i1 false
   %530 = load i8, ptr %440, align 1
-  %.not461 = icmp eq i8 %530, 84
-  %or.cond491 = select i1 %or.cond424, i1 %.not461, i1 false
-  br i1 %or.cond491, label %531, label %.thread341
+  %.not455 = icmp eq i8 %530, 84
+  %or.cond485 = select i1 %or.cond418, i1 %.not455, i1 false
+  br i1 %or.cond485, label %531, label %.thread335
 
 531:                                              ; preds = %525
   %532 = call fastcc i64 @drwav__metadata_process_info_text_chunk(ptr noundef %0, i64 noundef %472, i32 noundef 512)
   br label %564
 
-.thread341:                                       ; preds = %525
+.thread335:                                       ; preds = %525
   %533 = icmp eq i8 %526, 67
   %534 = icmp eq i8 %528, 79
-  %or.cond428 = select i1 %533, i1 %534, i1 false
-  %.not462 = icmp eq i8 %530, 80
-  %or.cond493 = select i1 %or.cond428, i1 %.not462, i1 false
-  br i1 %or.cond493, label %535, label %.thread348
+  %or.cond422 = select i1 %533, i1 %534, i1 false
+  %.not456 = icmp eq i8 %530, 80
+  %or.cond487 = select i1 %or.cond422, i1 %.not456, i1 false
+  br i1 %or.cond487, label %535, label %.thread342
 
-535:                                              ; preds = %.thread341
+535:                                              ; preds = %.thread335
   %536 = call fastcc i64 @drwav__metadata_process_info_text_chunk(ptr noundef %0, i64 noundef %472, i32 noundef 1024)
   br label %564
 
-.thread348:                                       ; preds = %.thread341
+.thread342:                                       ; preds = %.thread335
   %537 = icmp eq i8 %526, 78
   %538 = icmp eq i8 %528, 65
-  %or.cond432 = select i1 %537, i1 %538, i1 false
-  %.not463 = icmp eq i8 %530, 77
-  %or.cond495 = select i1 %or.cond432, i1 %.not463, i1 false
-  br i1 %or.cond495, label %539, label %.thread353
+  %or.cond426 = select i1 %537, i1 %538, i1 false
+  %.not457 = icmp eq i8 %530, 77
+  %or.cond489 = select i1 %or.cond426, i1 %.not457, i1 false
+  br i1 %or.cond489, label %539, label %.thread347
 
-539:                                              ; preds = %.thread348
+539:                                              ; preds = %.thread342
   %540 = call fastcc i64 @drwav__metadata_process_info_text_chunk(ptr noundef %0, i64 noundef %472, i32 noundef 2048)
   br label %564
 
-.thread353:                                       ; preds = %.thread348
+.thread347:                                       ; preds = %.thread342
   %541 = icmp eq i8 %526, 65
   %542 = icmp eq i8 %528, 82
-  %or.cond436 = select i1 %541, i1 %542, i1 false
-  %or.cond497 = select i1 %or.cond436, i1 %.not461, i1 false
-  br i1 %or.cond497, label %543, label %.thread358
+  %or.cond430 = select i1 %541, i1 %542, i1 false
+  %or.cond491 = select i1 %or.cond430, i1 %.not455, i1 false
+  br i1 %or.cond491, label %543, label %.thread352
 
-543:                                              ; preds = %.thread353
+543:                                              ; preds = %.thread347
   %544 = call fastcc i64 @drwav__metadata_process_info_text_chunk(ptr noundef %0, i64 noundef %472, i32 noundef 4096)
   br label %564
 
-.thread358:                                       ; preds = %.thread353
+.thread352:                                       ; preds = %.thread347
   %545 = icmp eq i8 %528, 77
-  %or.cond440 = select i1 %533, i1 %545, i1 false
-  %or.cond499 = select i1 %or.cond440, i1 %.not461, i1 false
-  br i1 %or.cond499, label %546, label %.thread363
+  %or.cond434 = select i1 %533, i1 %545, i1 false
+  %or.cond493 = select i1 %or.cond434, i1 %.not455, i1 false
+  br i1 %or.cond493, label %546, label %.thread357
 
-546:                                              ; preds = %.thread358
+546:                                              ; preds = %.thread352
   %547 = call fastcc i64 @drwav__metadata_process_info_text_chunk(ptr noundef %0, i64 noundef %472, i32 noundef 8192)
   br label %564
 
-.thread363:                                       ; preds = %.thread358
-  %or.cond444 = select i1 %533, i1 %542, i1 false
-  %.not466 = icmp eq i8 %530, 68
-  %or.cond501 = select i1 %or.cond444, i1 %.not466, i1 false
-  br i1 %or.cond501, label %548, label %.thread368
+.thread357:                                       ; preds = %.thread352
+  %or.cond438 = select i1 %533, i1 %542, i1 false
+  %.not460 = icmp eq i8 %530, 68
+  %or.cond495 = select i1 %or.cond438, i1 %.not460, i1 false
+  br i1 %or.cond495, label %548, label %.thread362
 
-548:                                              ; preds = %.thread363
+548:                                              ; preds = %.thread357
   %549 = call fastcc i64 @drwav__metadata_process_info_text_chunk(ptr noundef %0, i64 noundef %472, i32 noundef 16384)
   br label %564
 
-.thread368:                                       ; preds = %.thread363
+.thread362:                                       ; preds = %.thread357
   %550 = icmp eq i8 %526, 71
   %551 = icmp eq i8 %528, 78
-  %or.cond448 = select i1 %550, i1 %551, i1 false
-  %.not467 = icmp eq i8 %530, 82
-  %or.cond503 = select i1 %or.cond448, i1 %.not467, i1 false
-  br i1 %or.cond503, label %552, label %.thread373
+  %or.cond442 = select i1 %550, i1 %551, i1 false
+  %.not461 = icmp eq i8 %530, 82
+  %or.cond497 = select i1 %or.cond442, i1 %.not461, i1 false
+  br i1 %or.cond497, label %552, label %.thread367
 
-552:                                              ; preds = %.thread368
+552:                                              ; preds = %.thread362
   %553 = call fastcc i64 @drwav__metadata_process_info_text_chunk(ptr noundef %0, i64 noundef %472, i32 noundef 32768)
   br label %564
 
-.thread373:                                       ; preds = %.thread368
+.thread367:                                       ; preds = %.thread362
   %554 = icmp eq i8 %526, 80
-  %or.cond452 = select i1 %554, i1 %542, i1 false
-  %or.cond505 = select i1 %or.cond452, i1 %.not466, i1 false
-  br i1 %or.cond505, label %555, label %.thread378
+  %or.cond446 = select i1 %554, i1 %542, i1 false
+  %or.cond499 = select i1 %or.cond446, i1 %.not460, i1 false
+  br i1 %or.cond499, label %555, label %.thread372
 
-555:                                              ; preds = %.thread373
+555:                                              ; preds = %.thread367
   %556 = call fastcc i64 @drwav__metadata_process_info_text_chunk(ptr noundef %0, i64 noundef %472, i32 noundef 65536)
   br label %564
 
-.thread378:                                       ; preds = %.thread373
+.thread372:                                       ; preds = %.thread367
   %557 = icmp eq i8 %526, 84
-  %or.cond456 = select i1 %557, i1 %542, i1 false
-  %.not469 = icmp eq i8 %530, 75
-  %or.cond507 = select i1 %or.cond456, i1 %.not469, i1 false
-  br i1 %or.cond507, label %558, label %drwav__chunk_matches.exit267.thread
+  %or.cond450 = select i1 %557, i1 %542, i1 false
+  %.not463 = icmp eq i8 %530, 75
+  %or.cond501 = select i1 %or.cond450, i1 %.not463, i1 false
+  br i1 %or.cond501, label %558, label %drwav__chunk_matches.exit261.thread
 
-558:                                              ; preds = %.thread378
+558:                                              ; preds = %.thread372
   %559 = call fastcc i64 @drwav__metadata_process_info_text_chunk(ptr noundef %0, i64 noundef %472, i32 noundef 131072)
   br label %564
 
-drwav__chunk_matches.exit267.thread:              ; preds = %481, %482, %.thread325, %.thread378
-  %560 = call fastcc i64 @drwav__metadata_process_unknown_chunk(ptr noundef %0, ptr noundef %9, i64 noundef %472, i32 noundef %.0178511)
+drwav__chunk_matches.exit261.thread:              ; preds = %481, %482, %.thread319, %.thread372
+  %560 = call fastcc i64 @drwav__metadata_process_unknown_chunk(ptr noundef %0, ptr noundef %9, i64 noundef %472, i32 noundef %.0178509)
   br label %564
 
-.thread516:                                       ; preds = %519, %499
+.thread515:                                       ; preds = %519, %499
   %561 = load i64, ptr %443, align 8
   %562 = add i64 %561, 1
   store i64 %562, ptr %443, align 8
   %563 = add i64 %469, %472
   br label %575
 
-564:                                              ; preds = %513, %519, %493, %499, %508, %535, %543, %548, %555, %drwav__chunk_matches.exit267.thread, %558, %552, %546, %539, %531, %488
-  %.1176 = phi i64 [ 0, %488 ], [ 0, %508 ], [ %532, %531 ], [ %536, %535 ], [ %540, %539 ], [ %544, %543 ], [ %547, %546 ], [ %549, %548 ], [ %553, %552 ], [ %556, %555 ], [ %559, %558 ], [ %560, %drwav__chunk_matches.exit267.thread ], [ 0, %493 ], [ %504, %499 ], [ 0, %513 ], [ %523, %519 ]
+564:                                              ; preds = %513, %519, %493, %499, %508, %535, %543, %548, %555, %drwav__chunk_matches.exit261.thread, %558, %552, %546, %539, %531, %488
+  %.1176 = phi i64 [ 0, %488 ], [ 0, %508 ], [ %532, %531 ], [ %536, %535 ], [ %540, %539 ], [ %544, %543 ], [ %547, %546 ], [ %549, %548 ], [ %553, %552 ], [ %556, %555 ], [ %559, %558 ], [ %560, %drwav__chunk_matches.exit261.thread ], [ 0, %493 ], [ %504, %499 ], [ 0, %513 ], [ %523, %519 ]
   %565 = add i64 %.1176, %469
   %566 = icmp ult i64 %.1176, %472
   br i1 %566, label %567, label %575
@@ -110019,14 +110002,14 @@ drwav__chunk_matches.exit267.thread:              ; preds = %481, %482, %.thread
   %571 = sub i32 %471, %570
   %572 = call i32 %568(ptr noundef %569, i32 noundef %571, i32 noundef 1) #71
   %.not212.not = icmp eq i32 %572, 0
-  br i1 %.not212.not, label %.thread387, label %573
+  br i1 %.not212.not, label %.thread381, label %573
 
 573:                                              ; preds = %567
   %574 = add i64 %469, %472
   br label %575
 
-575:                                              ; preds = %.thread516, %573, %564
-  %.5 = phi i64 [ %574, %573 ], [ %565, %564 ], [ %563, %.thread516 ]
+575:                                              ; preds = %.thread515, %573, %564
+  %.5 = phi i64 [ %574, %573 ], [ %565, %564 ], [ %563, %.thread515 ]
   %576 = and i64 %472, 1
   %.not213 = icmp eq i64 %576, 0
   br i1 %.not213, label %583, label %577
@@ -110036,35 +110019,35 @@ drwav__chunk_matches.exit267.thread:              ; preds = %481, %482, %.thread
   %579 = load ptr, ptr %437, align 8
   %580 = call i32 %578(ptr noundef %579, i32 noundef 1, i32 noundef 1) #71
   %.not214 = icmp eq i32 %580, 0
-  br i1 %.not214, label %.thread387, label %581
+  br i1 %.not214, label %.thread381, label %581
 
 581:                                              ; preds = %577
   %582 = add i64 %.5, 1
   br label %583
 
-.thread387:                                       ; preds = %447, %drwav_fourcc_equal.exit253.thread, %577, %567
-  %.4.ph = phi i64 [ %451, %447 ], [ %469, %drwav_fourcc_equal.exit253.thread ], [ %.5, %577 ], [ %565, %567 ]
+.thread381:                                       ; preds = %447, %drwav_fourcc_equal.exit247.thread, %577, %567
+  %.4.ph = phi i64 [ %451, %447 ], [ %469, %drwav_fourcc_equal.exit247.thread ], [ %.5, %577 ], [ %565, %567 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #71
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #71
-  br label %.loopexit
+  br label %.loopexit502
 
 583:                                              ; preds = %460, %454, %575, %581
   %.4 = phi i64 [ %.5, %575 ], [ %582, %581 ], [ %451, %454 ], [ %451, %460 ]
-  %.1179 = phi i32 [ %.0178511, %575 ], [ %.0178511, %581 ], [ 3, %454 ], [ 2, %460 ]
+  %.1179 = phi i32 [ %.0178509, %575 ], [ %.0178509, %581 ], [ 3, %454 ], [ 2, %460 ]
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #71
   call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #71
   %584 = load i64, ptr %435, align 8
   %585 = icmp ult i64 %.4, %584
-  br i1 %585, label %447, label %.loopexit
+  br i1 %585, label %447, label %.loopexit502
 
-drwav_fourcc_equal.exit250.thread:                ; preds = %2, %240, %236, %drwav__chunk_matches.exit220, %179, %175, %drwav__chunk_matches.exit, %16, %12, %drwav__chunk_matches.exit221, %300, %304, %drwav__chunk_matches.exit223, %343, %347, %drwav__chunk_matches.exit224, %414, %418, %drwav_fourcc_equal.exit, %424, %428, %drwav_fourcc_equal.exit250
+drwav_fourcc_equal.exit244.thread:                ; preds = %2, %240, %236, %drwav__chunk_matches.exit220, %179, %175, %drwav__chunk_matches.exit, %16, %12, %drwav__chunk_matches.exit221, %300, %304, %drwav__chunk_matches.exit223, %343, %347, %drwav__chunk_matches.exit224, %414, %418, %drwav_fourcc_equal.exit, %424, %428, %drwav_fourcc_equal.exit244
   %586 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %587 = load i64, ptr %586, align 8
   %588 = tail call fastcc i64 @drwav__metadata_process_unknown_chunk(ptr noundef %0, ptr noundef %1, i64 noundef %587, i32 noundef 1)
-  br label %.loopexit
+  br label %.loopexit502
 
-.loopexit:                                        ; preds = %583, %434, %22, %drwav__read_smpl_to_metadata_obj.exit, %172, %246, %254, %drwav__read_acid_to_metadata_obj.exit, %297, %353, %402, %411, %drwav_fourcc_equal.exit250.thread, %340, %331, %318, %310, %233, %drwav__read_inst_to_metadata_obj.exit, %193, %185, %.thread, %391, %.thread387, %.thread307, %67
-  %.1 = phi i64 [ 0, %67 ], [ %.2.ph, %.thread307 ], [ %588, %drwav_fourcc_equal.exit250.thread ], [ %385, %391 ], [ %408, %411 ], [ %408, %402 ], [ 0, %353 ], [ 0, %318 ], [ %337, %340 ], [ %337, %331 ], [ 0, %310 ], [ 0, %254 ], [ %.0.i222, %297 ], [ %.0.i222, %drwav__read_acid_to_metadata_obj.exit ], [ 0, %246 ], [ 0, %193 ], [ %.0.i, %233 ], [ %.0.i, %drwav__read_inst_to_metadata_obj.exit ], [ 0, %185 ], [ %.046.i, %172 ], [ %.046.i, %drwav__read_smpl_to_metadata_obj.exit ], [ 0, %22 ], [ %.0284.ph, %.thread ], [ %.4.ph, %.thread387 ], [ 0, %434 ], [ %.4, %583 ]
+.loopexit502:                                     ; preds = %583, %434, %22, %drwav__read_smpl_to_metadata_obj.exit, %172, %246, %254, %drwav__read_acid_to_metadata_obj.exit, %297, %353, %402, %411, %drwav_fourcc_equal.exit244.thread, %340, %331, %318, %310, %233, %drwav__read_inst_to_metadata_obj.exit, %193, %185, %.thread, %.loopexit, %.thread381, %.thread301, %67
+  %.1 = phi i64 [ 0, %67 ], [ %.2.ph, %.thread301 ], [ %588, %drwav_fourcc_equal.exit244.thread ], [ %386, %.loopexit ], [ %408, %411 ], [ %408, %402 ], [ 0, %353 ], [ 0, %318 ], [ %337, %340 ], [ %337, %331 ], [ 0, %310 ], [ 0, %254 ], [ %.0.i222, %297 ], [ %.0.i222, %drwav__read_acid_to_metadata_obj.exit ], [ 0, %246 ], [ 0, %193 ], [ %.0.i, %233 ], [ %.0.i, %drwav__read_inst_to_metadata_obj.exit ], [ 0, %185 ], [ %.046.i, %172 ], [ %.046.i, %drwav__read_smpl_to_metadata_obj.exit ], [ 0, %22 ], [ %.0278.ph, %.thread ], [ %.4.ph, %.thread381 ], [ 0, %434 ], [ %.4, %583 ]
   ret i64 %.1
 }
 
@@ -110253,7 +110236,7 @@ define internal fastcc i64 @drwav__read_bext_to_metadata_obj(ptr noundef nonnull
   %7 = load ptr, ptr %6, align 8
   %8 = call i64 %5(ptr noundef %7, ptr noundef nonnull %4, i64 noundef 602) #71
   %9 = icmp eq i64 %8, 602
-  br i1 %9, label %10, label %104
+  br i1 %9, label %10, label %103
 
 10:                                               ; preds = %3
   store i32 32, ptr %1, align 8
@@ -110401,7 +110384,7 @@ drwav_buffer_reader_read.exit:                    ; preds = %drwav_buffer_reader
   store i16 %84, ptr %82, align 2
   %85 = add i64 %2, -602
   %.not = icmp eq i64 %85, 0
-  br i1 %.not, label %101, label %86
+  br i1 %.not, label %100, label %86
 
 86:                                               ; preds = %drwav_buffer_reader_read.exit
   %87 = load ptr, ptr %63, align 8
@@ -110417,38 +110400,30 @@ drwav_buffer_reader_read.exit:                    ; preds = %drwav_buffer_reader
   %95 = load ptr, ptr %90, align 8
   %96 = load i8, ptr %95, align 1
   %.not3.i = icmp eq i8 %96, 0
-  br i1 %.not3.i, label %.sink.split, label %.lr.ph.preheader.i
+  br i1 %.not3.i, label %.sink.split, label %.lr.ph.i
 
-.lr.ph.preheader.i:                               ; preds = %86
-  %scevgep.i = getelementptr i8, ptr %95, i64 1
-  %strlen.i = call i64 @strlen(ptr nonnull readonly dereferenceable(1) %scevgep.i)
-  br label %.lr.ph.i
-
-.lr.ph.i:                                         ; preds = %.lr.ph.i, %.lr.ph.preheader.i
-  %.024.i = phi ptr [ %97, %.lr.ph.i ], [ %95, %.lr.ph.preheader.i ]
+.lr.ph.i:                                         ; preds = %86, %.lr.ph.i
+  %.05.i = phi i32 [ %98, %.lr.ph.i ], [ 0, %86 ]
+  %.024.i = phi ptr [ %97, %.lr.ph.i ], [ %95, %86 ]
   %97 = getelementptr inbounds nuw i8, ptr %.024.i, i64 1
-  %98 = load i8, ptr %97, align 1
-  %.not.i110 = icmp eq i8 %98, 0
-  br i1 %.not.i110, label %._crit_edge.loopexit.i, label %.lr.ph.i
+  %98 = add i32 %.05.i, 1
+  %99 = load i8, ptr %97, align 1
+  %.not.i110 = icmp eq i8 %99, 0
+  br i1 %.not.i110, label %.sink.split, label %.lr.ph.i
 
-._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
-  %99 = trunc i64 %strlen.i to i32
-  %100 = add i32 %99, 1
+100:                                              ; preds = %drwav_buffer_reader_read.exit
+  %101 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  store ptr null, ptr %101, align 8
   br label %.sink.split
 
-101:                                              ; preds = %drwav_buffer_reader_read.exit
-  %102 = getelementptr inbounds nuw i8, ptr %1, i64 72
-  store ptr null, ptr %102, align 8
-  br label %.sink.split
+.sink.split:                                      ; preds = %.lr.ph.i, %86, %100
+  %.sink = phi i32 [ 0, %100 ], [ 0, %86 ], [ %98, %.lr.ph.i ]
+  %.0.ph = phi i64 [ 602, %100 ], [ %94, %86 ], [ %94, %.lr.ph.i ]
+  %102 = getelementptr inbounds nuw i8, ptr %1, i64 80
+  store i32 %.sink, ptr %102, align 8
+  br label %103
 
-.sink.split:                                      ; preds = %._crit_edge.loopexit.i, %86, %101
-  %.sink = phi i32 [ 0, %101 ], [ 0, %86 ], [ %100, %._crit_edge.loopexit.i ]
-  %.0.ph = phi i64 [ 602, %101 ], [ %94, %86 ], [ %94, %._crit_edge.loopexit.i ]
-  %103 = getelementptr inbounds nuw i8, ptr %1, i64 80
-  store i32 %.sink, ptr %103, align 8
-  br label %104
-
-104:                                              ; preds = %.sink.split, %3
+103:                                              ; preds = %.sink.split, %3
   %.0 = phi i64 [ %8, %3 ], [ %.0.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(i64 602, ptr nonnull %4) #71
   ret i64 %.0

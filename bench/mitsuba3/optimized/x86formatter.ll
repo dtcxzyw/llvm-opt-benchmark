@@ -105,13 +105,13 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal13formatFe
   %6 = load i16, ptr %5, align 2, !tbaa !3
   %7 = zext i16 %6 to i64
   %8 = getelementptr inbounds nuw i8, ptr @_ZZN6asmjit9_abi_1_103x8617FormatterInternal13formatFeatureERNS0_6StringEjE14sFeatureString, i64 %7
-  %9 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String9_opStringENS1_8ModifyOpEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 1, ptr noundef nonnull %8, i64 noundef -1) #9
+  %9 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String9_opStringENS1_8ModifyOpEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 1, ptr noundef nonnull %8, i64 noundef -1) #8
   ret i32 %9
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_106String6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #1 comdat align 2 {
-  %4 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String9_opStringENS1_8ModifyOpEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 1, ptr noundef %1, i64 noundef %2) #9
+  %4 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String9_opStringENS1_8ModifyOpEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 1, ptr noundef %1, i64 noundef %2) #8
   ret i32 %4
 }
 
@@ -170,15 +170,15 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal14formatRe
   br i1 %41, label %45, label %42
 
 42:                                               ; preds = %39
-  %43 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %37, i64 noundef -1) #9
+  %43 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %37, i64 noundef -1) #8
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %48, label %113
 
 45:                                               ; preds = %39, %25
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %8) #8
   store i32 %13, ptr %8, align 4, !tbaa !7
-  %46 = call noundef i32 @_ZN6asmjit9_abi_1_106String12appendFormatIJjEEEjPKcDpOT_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str, ptr noundef nonnull align 4 dereferenceable(4) %8) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #9
+  %46 = call noundef i32 @_ZN6asmjit9_abi_1_106String12appendFormatIJjEEEjPKcDpOT_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str, ptr noundef nonnull align 4 dereferenceable(4) %8) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %8) #8
   %47 = icmp eq i32 %46, 0
   br i1 %47, label %48, label %113
 
@@ -213,12 +213,12 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal14formatRe
   br i1 %67, label %73, label %68
 
 68:                                               ; preds = %63
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %9) #8
   %69 = zext i8 %66 to i64
   %70 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN6asmjit9_abi_1_103x86L16x86RegFormatInfoE, i64 32), i64 %69
   store ptr %70, ptr %9, align 8, !tbaa !32
-  %71 = call noundef i32 @_ZN6asmjit9_abi_1_106String12appendFormatIJPKcEEEjS4_DpOT_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.1, ptr noundef nonnull align 8 dereferenceable(8) %9) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #9
+  %71 = call noundef i32 @_ZN6asmjit9_abi_1_106String12appendFormatIJPKcEEEjS4_DpOT_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.1, ptr noundef nonnull align 8 dereferenceable(8) %9) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %9) #8
   %72 = icmp eq i32 %71, 0
   br i1 %72, label %73, label %113
 
@@ -247,7 +247,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal14formatRe
   %89 = shl nuw nsw i32 %5, 2
   %90 = zext nneg i32 %89 to i64
   %91 = getelementptr inbounds nuw i8, ptr %88, i64 %90
-  %92 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %91, i64 noundef -1) #9
+  %92 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %91, i64 noundef -1) #8
   br label %113
 
 93:                                               ; preds = %77
@@ -261,10 +261,10 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal14formatRe
   %99 = load i8, ptr %98, align 1, !tbaa !41
   %100 = zext i8 %99 to i64
   %101 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN6asmjit9_abi_1_103x86L16x86RegFormatInfoE, i64 256), i64 %100
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #8
   store i32 %5, ptr %10, align 4, !tbaa !7
-  %102 = call noundef i32 @_ZN6asmjit9_abi_1_106String12appendFormatIJjEEEjPKcDpOT_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %101, ptr noundef nonnull align 4 dereferenceable(4) %10) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #9
+  %102 = call noundef i32 @_ZN6asmjit9_abi_1_106String12appendFormatIJjEEEjPKcDpOT_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %101, ptr noundef nonnull align 4 dereferenceable(4) %10) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #8
   br label %113
 
 103:                                              ; preds = %93
@@ -274,19 +274,19 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal14formatRe
   br i1 %106, label %111, label %107
 
 107:                                              ; preds = %103
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #8
   %108 = zext i8 %105 to i64
   %109 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN6asmjit9_abi_1_103x86L16x86RegFormatInfoE, i64 32), i64 %108
   store ptr %109, ptr %11, align 8, !tbaa !32
-  %110 = call noundef i32 @_ZN6asmjit9_abi_1_106String12appendFormatIJPKcRjEEEjS4_DpOT_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.2, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 4 dereferenceable(4) %7) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #9
+  %110 = call noundef i32 @_ZN6asmjit9_abi_1_106String12appendFormatIJPKcRjEEEjS4_DpOT_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.2, ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef nonnull align 4 dereferenceable(4) %7) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #8
   br label %113
 
 111:                                              ; preds = %103, %74
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %12) #8
   store i32 %75, ptr %12, align 4, !tbaa !7
-  %112 = call noundef i32 @_ZN6asmjit9_abi_1_106String12appendFormatIJjRjEEEjPKcDpOT_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.3, ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef nonnull align 4 dereferenceable(4) %7) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #9
+  %112 = call noundef i32 @_ZN6asmjit9_abi_1_106String12appendFormatIJjRjEEEjPKcDpOT_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.3, ptr noundef nonnull align 4 dereferenceable(4) %12, ptr noundef nonnull align 4 dereferenceable(4) %7) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %12) #8
   br label %113
 
 113:                                              ; preds = %111, %107, %97, %84, %73, %68, %45, %42
@@ -297,14 +297,14 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal14formatRe
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_106String12appendFormatIJjEEEjPKcDpOT_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #1 comdat align 2 {
   %4 = load i32, ptr %2, align 4, !tbaa !7
-  %5 = tail call noundef i32 (ptr, i32, ptr, ...) @_ZN6asmjit9_abi_1_106String9_opFormatENS1_8ModifyOpEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 1, ptr noundef %1, i32 noundef %4) #9
+  %5 = tail call noundef i32 (ptr, i32, ptr, ...) @_ZN6asmjit9_abi_1_106String9_opFormatENS1_8ModifyOpEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 1, ptr noundef %1, i32 noundef %4) #8
   ret i32 %5
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_106String12appendFormatIJPKcEEEjS4_DpOT_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2) local_unnamed_addr #1 comdat align 2 {
   %4 = load ptr, ptr %2, align 8, !tbaa !32
-  %5 = tail call noundef i32 (ptr, i32, ptr, ...) @_ZN6asmjit9_abi_1_106String9_opFormatENS1_8ModifyOpEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 1, ptr noundef %1, ptr noundef %4) #9
+  %5 = tail call noundef i32 (ptr, i32, ptr, ...) @_ZN6asmjit9_abi_1_106String9_opFormatENS1_8ModifyOpEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 1, ptr noundef %1, ptr noundef %4) #8
   ret i32 %5
 }
 
@@ -312,7 +312,7 @@ define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_106String12appendForma
 define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_106String12appendFormatIJPKcRjEEEjS4_DpOT_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #1 comdat align 2 {
   %5 = load ptr, ptr %2, align 8, !tbaa !32
   %6 = load i32, ptr %3, align 4, !tbaa !7
-  %7 = tail call noundef i32 (ptr, i32, ptr, ...) @_ZN6asmjit9_abi_1_106String9_opFormatENS1_8ModifyOpEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 1, ptr noundef %1, ptr noundef %5, i32 noundef %6) #9
+  %7 = tail call noundef i32 (ptr, i32, ptr, ...) @_ZN6asmjit9_abi_1_106String9_opFormatENS1_8ModifyOpEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 1, ptr noundef %1, ptr noundef %5, i32 noundef %6) #8
   ret i32 %7
 }
 
@@ -320,7 +320,7 @@ define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_106String12appendForma
 define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_106String12appendFormatIJjRjEEEjPKcDpOT_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2, ptr noundef nonnull align 4 dereferenceable(4) %3) local_unnamed_addr #1 comdat align 2 {
   %5 = load i32, ptr %2, align 4, !tbaa !7
   %6 = load i32, ptr %3, align 4, !tbaa !7
-  %7 = tail call noundef i32 (ptr, i32, ptr, ...) @_ZN6asmjit9_abi_1_106String9_opFormatENS1_8ModifyOpEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 1, ptr noundef %1, i32 noundef %5, i32 noundef %6) #9
+  %7 = tail call noundef i32 (ptr, i32, ptr, ...) @_ZN6asmjit9_abi_1_106String9_opFormatENS1_8ModifyOpEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 1, ptr noundef %1, i32 noundef %5, i32 noundef %6) #8
   ret i32 %7
 }
 
@@ -342,7 +342,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal13formatOp
   %12 = lshr i8 %11, 3
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %14 = load i32, ptr %13, align 4, !tbaa !42
-  %15 = tail call noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal14formatRegisterERNS0_6StringENS0_11FormatFlagsEPKNS0_11BaseEmitterENS0_4ArchENS0_7RegTypeEj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, ptr noundef %2, i8 zeroext poison, i8 noundef zeroext %12, i32 noundef %14) #9
+  %15 = tail call noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal14formatRegisterERNS0_6StringENS0_11FormatFlagsEPKNS0_11BaseEmitterENS0_4ArchENS0_7RegTypeEj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, ptr noundef %2, i8 zeroext poison, i8 noundef zeroext %12, i32 noundef %14) #8
   br label %163
 
 16:                                               ; preds = %5
@@ -389,7 +389,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal13formatOp
 
 28:                                               ; preds = %27, %26, %25, %24, %23, %22, %21, %20, %19, %16
   %29 = phi ptr [ @.str.45, %27 ], [ @.str.44, %26 ], [ @.str.43, %25 ], [ @.str.42, %24 ], [ @.str.41, %23 ], [ @.str.40, %22 ], [ @.str.39, %21 ], [ @.str.38, %20 ], [ @.str.37, %19 ], [ @.str.36, %16 ]
-  %30 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %29, i64 noundef -1) #9
+  %30 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %29, i64 noundef -1) #8
   %31 = icmp eq i32 %30, 0
   br i1 %31, label %32, label %163
 
@@ -402,18 +402,18 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal13formatOp
   br i1 %37, label %38, label %44
 
 38:                                               ; preds = %32
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6) #8
   %39 = shl nuw nsw i32 %35, 2
   %40 = zext nneg i32 %39 to i64
   %41 = getelementptr inbounds nuw i8, ptr getelementptr inbounds nuw (i8, ptr @_ZN6asmjit9_abi_1_103x86L16x86RegFormatInfoE, i64 480), i64 %40
   store ptr %41, ptr %6, align 8, !tbaa !32
-  %42 = call noundef i32 @_ZN6asmjit9_abi_1_106String12appendFormatIJPKcEEEjS4_DpOT_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.4, ptr noundef nonnull align 8 dereferenceable(8) %6) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #9
+  %42 = call noundef i32 @_ZN6asmjit9_abi_1_106String12appendFormatIJPKcEEEjS4_DpOT_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.4, ptr noundef nonnull align 8 dereferenceable(8) %6) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6) #8
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %44, label %163
 
 44:                                               ; preds = %38, %32
-  %45 = call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext 91) #9
+  %45 = call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext 91) #8
   %46 = icmp eq i32 %45, 0
   br i1 %46, label %47, label %163
 
@@ -427,12 +427,12 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal13formatOp
   ]
 
 51:                                               ; preds = %47
-  %52 = call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.5, i64 noundef -1) #9
+  %52 = call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.5, i64 noundef -1) #8
   %53 = icmp eq i32 %52, 0
   br i1 %53, label %57, label %163
 
 54:                                               ; preds = %47
-  %55 = call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.6, i64 noundef -1) #9
+  %55 = call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.6, i64 noundef -1) #8
   %56 = icmp eq i32 %55, 0
   br i1 %56, label %57, label %163
 
@@ -448,7 +448,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal13formatOp
 61:                                               ; preds = %57
   %62 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %63 = load i32, ptr %62, align 4, !tbaa !42
-  %64 = call noundef i32 @_ZN6asmjit9_abi_1_109Formatter11formatLabelERNS0_6StringENS0_11FormatFlagsEPKNS0_11BaseEmitterEj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, ptr noundef %2, i32 noundef %63) #9
+  %64 = call noundef i32 @_ZN6asmjit9_abi_1_109Formatter11formatLabelERNS0_6StringENS0_11FormatFlagsEPKNS0_11BaseEmitterEj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, ptr noundef %2, i32 noundef %63) #8
   %65 = icmp eq i32 %64, 0
   br i1 %65, label %84, label %163
 
@@ -458,7 +458,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal13formatOp
   br i1 %68, label %76, label %69
 
 69:                                               ; preds = %66
-  %70 = call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.7, i64 noundef -1) #9
+  %70 = call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.7, i64 noundef -1) #8
   %71 = icmp eq i32 %70, 0
   br i1 %71, label %72, label %163
 
@@ -474,7 +474,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal13formatOp
   %79 = lshr i8 %77, 3
   %80 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %81 = load i32, ptr %80, align 4, !tbaa !42
-  %82 = call noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal14formatRegisterERNS0_6StringENS0_11FormatFlagsEPKNS0_11BaseEmitterENS0_4ArchENS0_7RegTypeEj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %78, ptr noundef %2, i8 zeroext poison, i8 noundef zeroext %79, i32 noundef %81) #9
+  %82 = call noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal14formatRegisterERNS0_6StringENS0_11FormatFlagsEPKNS0_11BaseEmitterENS0_4ArchENS0_7RegTypeEj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %78, ptr noundef %2, i8 zeroext poison, i8 noundef zeroext %79, i32 noundef %81) #8
   %83 = icmp eq i32 %82, 0
   br i1 %83, label %84, label %163, !prof !44
 
@@ -490,7 +490,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal13formatOp
   br i1 %90, label %115, label %96
 
 91:                                               ; preds = %84
-  %92 = call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext 43) #9
+  %92 = call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext 43) #8
   %93 = icmp eq i32 %92, 0
   br i1 %93, label %94, label %163
 
@@ -505,7 +505,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal13formatOp
   %100 = and i8 %99, 31
   %101 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %102 = load i32, ptr %101, align 4, !tbaa !7
-  %103 = call noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal14formatRegisterERNS0_6StringENS0_11FormatFlagsEPKNS0_11BaseEmitterENS0_4ArchENS0_7RegTypeEj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, ptr noundef %2, i8 zeroext poison, i8 noundef zeroext %100, i32 noundef %102) #9
+  %103 = call noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal14formatRegisterERNS0_6StringENS0_11FormatFlagsEPKNS0_11BaseEmitterENS0_4ArchENS0_7RegTypeEj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, ptr noundef %2, i8 zeroext poison, i8 noundef zeroext %100, i32 noundef %102) #8
   %104 = icmp eq i32 %103, 0
   br i1 %104, label %105, label %163
 
@@ -516,19 +516,19 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal13formatOp
   br i1 %108, label %115, label %109
 
 109:                                              ; preds = %105
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %7) #8
   %110 = lshr i32 %106, 16
   %111 = and i32 %110, 3
   %112 = shl nuw nsw i32 1, %111
   store i32 %112, ptr %7, align 4, !tbaa !7
-  %113 = call noundef i32 @_ZN6asmjit9_abi_1_106String12appendFormatIJiEEEjPKcDpOT_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.8, ptr noundef nonnull align 4 dereferenceable(4) %7) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #9
+  %113 = call noundef i32 @_ZN6asmjit9_abi_1_106String12appendFormatIJiEEEjPKcDpOT_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.8, ptr noundef nonnull align 4 dereferenceable(4) %7) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %7) #8
   %114 = icmp eq i32 %113, 0
   br i1 %114, label %115, label %163
 
 115:                                              ; preds = %109, %105, %88, %84
   %116 = phi i8 [ 43, %109 ], [ 43, %105 ], [ 43, %84 ], [ 0, %88 ]
-  %117 = call noundef i64 @_ZNK6asmjit9_abi_1_107BaseMem6offsetEv(ptr noundef nonnull align 4 dereferenceable(16) %4) #9
+  %117 = call noundef i64 @_ZNK6asmjit9_abi_1_107BaseMem6offsetEv(ptr noundef nonnull align 4 dereferenceable(16) %4) #8
   %118 = icmp eq i64 %117, 0
   br i1 %118, label %119, label %123
 
@@ -546,7 +546,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal13formatOp
   br i1 %127, label %131, label %128
 
 128:                                              ; preds = %123
-  %129 = call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext %126) #9
+  %129 = call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext %126) #8
   %130 = icmp eq i32 %129, 0
   br i1 %130, label %131, label %163
 
@@ -558,18 +558,18 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal13formatOp
   br i1 %135, label %136, label %.split1
 
 136:                                              ; preds = %131
-  %137 = call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.9, i64 noundef 2) #9
+  %137 = call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.9, i64 noundef 2) #8
   %138 = icmp eq i32 %137, 0
   br i1 %138, label %.split1, label %163
 
 .split1:                                          ; preds = %136, %131
   %.sink = phi i32 [ 10, %131 ], [ 16, %136 ]
-  %139 = call noundef i32 @_ZN6asmjit9_abi_1_106String10appendUIntEmjmNS0_17StringFormatFlagsE(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %125, i32 noundef %.sink, i64 noundef 0, i32 noundef 0) #9
+  %139 = call noundef i32 @_ZN6asmjit9_abi_1_106String10appendUIntEmjmNS0_17StringFormatFlagsE(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %125, i32 noundef %.sink, i64 noundef 0, i32 noundef 0) #8
   %140 = icmp eq i32 %139, 0
   br i1 %140, label %141, label %163
 
 141:                                              ; preds = %.split1, %119
-  %142 = call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext 93) #9
+  %142 = call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext 93) #8
   br label %163
 
 143:                                              ; preds = %5
@@ -582,26 +582,26 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal13formatOp
   br i1 %149, label %150, label %155
 
 150:                                              ; preds = %143
-  %151 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.9, i64 noundef 2) #9
+  %151 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.9, i64 noundef 2) #8
   %152 = icmp eq i32 %151, 0
   br i1 %152, label %153, label %163
 
 153:                                              ; preds = %150
-  %154 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String10appendUIntEmjmNS0_17StringFormatFlagsE(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %145, i32 noundef 16, i64 noundef 0, i32 noundef 0) #9
+  %154 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String10appendUIntEmjmNS0_17StringFormatFlagsE(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %145, i32 noundef 16, i64 noundef 0, i32 noundef 0) #8
   br label %163
 
 155:                                              ; preds = %143
-  %156 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String9appendIntEljmNS0_17StringFormatFlagsE(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %145, i32 noundef 10, i64 noundef 0, i32 noundef 0) #9
+  %156 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String9appendIntEljmNS0_17StringFormatFlagsE(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %145, i32 noundef 10, i64 noundef 0, i32 noundef 0) #8
   br label %163
 
 157:                                              ; preds = %5
   %158 = getelementptr inbounds nuw i8, ptr %4, i64 4
   %159 = load i32, ptr %158, align 4, !tbaa !42
-  %160 = tail call noundef i32 @_ZN6asmjit9_abi_1_109Formatter11formatLabelERNS0_6StringENS0_11FormatFlagsEPKNS0_11BaseEmitterEj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, ptr noundef %2, i32 noundef %159) #9
+  %160 = tail call noundef i32 @_ZN6asmjit9_abi_1_109Formatter11formatLabelERNS0_6StringENS0_11FormatFlagsEPKNS0_11BaseEmitterEj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, ptr noundef %2, i32 noundef %159) #8
   br label %163
 
 161:                                              ; preds = %5
-  %162 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.10, i64 noundef -1) #9
+  %162 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.10, i64 noundef -1) #8
   br label %163
 
 163:                                              ; preds = %161, %157, %155, %153, %150, %141, %.split1, %136, %128, %109, %96, %91, %76, %69, %61, %54, %51, %44, %38, %28, %10
@@ -611,7 +611,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal13formatOp
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_106String6appendEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext %1) local_unnamed_addr #1 comdat align 2 {
-  %3 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String7_opCharENS1_8ModifyOpEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 1, i8 noundef signext %1) #9
+  %3 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String7_opCharENS1_8ModifyOpEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 1, i8 noundef signext %1) #8
   ret i32 %3
 }
 
@@ -621,7 +621,7 @@ declare noundef i32 @_ZN6asmjit9_abi_1_109Formatter11formatLabelERNS0_6StringENS
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_106String12appendFormatIJiEEEjPKcDpOT_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %1, ptr noundef nonnull align 4 dereferenceable(4) %2) local_unnamed_addr #1 comdat align 2 {
   %4 = load i32, ptr %2, align 4, !tbaa !7
-  %5 = tail call noundef i32 (ptr, i32, ptr, ...) @_ZN6asmjit9_abi_1_106String9_opFormatENS1_8ModifyOpEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 1, ptr noundef %1, i32 noundef %4) #9
+  %5 = tail call noundef i32 (ptr, i32, ptr, ...) @_ZN6asmjit9_abi_1_106String9_opFormatENS1_8ModifyOpEPKcz(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 1, ptr noundef %1, i32 noundef %4) #8
   ret i32 %5
 }
 
@@ -645,14 +645,14 @@ define linkonce_odr hidden noundef i64 @_ZNK6asmjit9_abi_1_107BaseMem6offsetEv(p
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_106String10appendUIntEmjmNS0_17StringFormatFlagsE(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #1 comdat align 2 {
-  %6 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String9_opNumberENS1_8ModifyOpEmjmNS0_17StringFormatFlagsE(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 1, i64 noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4) #9
+  %6 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String9_opNumberENS1_8ModifyOpEmjmNS0_17StringFormatFlagsE(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 1, i64 noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4) #8
   ret i32 %6
 }
 
 ; Function Attrs: inlinehint mustprogress nounwind uwtable
 define linkonce_odr hidden noundef i32 @_ZN6asmjit9_abi_1_106String9appendIntEljmNS0_17StringFormatFlagsE(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %4) local_unnamed_addr #1 comdat align 2 {
   %6 = or i32 %4, -2147483648
-  %7 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String9_opNumberENS1_8ModifyOpEmjmNS0_17StringFormatFlagsE(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 1, i64 noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %6) #9
+  %7 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String9_opNumberENS1_8ModifyOpEmjmNS0_17StringFormatFlagsE(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef 1, i64 noundef %1, i32 noundef %2, i64 noundef %3, i32 noundef %6) #8
   ret i32 %7
 }
 
@@ -674,7 +674,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal17formatIn
   br i1 %18, label %22, label %19
 
 19:                                               ; preds = %16
-  %20 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.11, i64 noundef -1) #9
+  %20 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.11, i64 noundef -1) #8
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %.loopexit31
 
@@ -684,7 +684,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal17formatIn
   br i1 %24, label %28, label %25
 
 25:                                               ; preds = %22
-  %26 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.12, i64 noundef -1) #9
+  %26 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.12, i64 noundef -1) #8
   %27 = icmp eq i32 %26, 0
   br i1 %27, label %28, label %.loopexit31
 
@@ -694,7 +694,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal17formatIn
   br i1 %30, label %34, label %31
 
 31:                                               ; preds = %28
-  %32 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.13, i64 noundef -1) #9
+  %32 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.13, i64 noundef -1) #8
   %33 = icmp eq i32 %32, 0
   br i1 %33, label %34, label %.loopexit31
 
@@ -704,7 +704,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal17formatIn
   br i1 %36, label %40, label %37
 
 37:                                               ; preds = %34
-  %38 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.14, i64 noundef -1) #9
+  %38 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.14, i64 noundef -1) #8
   %39 = icmp eq i32 %38, 0
   br i1 %39, label %46, label %.loopexit31
 
@@ -714,7 +714,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal17formatIn
   br i1 %42, label %46, label %43
 
 43:                                               ; preds = %40
-  %44 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.15, i64 noundef -1) #9
+  %44 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.15, i64 noundef -1) #8
   %45 = icmp eq i32 %44, 0
   br i1 %45, label %46, label %.loopexit31
 
@@ -724,7 +724,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal17formatIn
   br i1 %48, label %52, label %49
 
 49:                                               ; preds = %46
-  %50 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.16, i64 noundef -1) #9
+  %50 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.16, i64 noundef -1) #8
   %51 = icmp eq i32 %50, 0
   br i1 %51, label %52, label %.loopexit31
 
@@ -734,7 +734,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal17formatIn
   br i1 %54, label %58, label %55
 
 55:                                               ; preds = %52
-  %56 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.17, i64 noundef -1) #9
+  %56 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.17, i64 noundef -1) #8
   %57 = icmp eq i32 %56, 0
   br i1 %57, label %58, label %.loopexit31
 
@@ -744,7 +744,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal17formatIn
   br i1 %60, label %64, label %61
 
 61:                                               ; preds = %58
-  %62 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.18, i64 noundef -1) #9
+  %62 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.18, i64 noundef -1) #8
   %63 = icmp eq i32 %62, 0
   br i1 %63, label %64, label %.loopexit31
 
@@ -754,7 +754,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal17formatIn
   br i1 %66, label %70, label %67
 
 67:                                               ; preds = %64
-  %68 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.19, i64 noundef -1) #9
+  %68 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.19, i64 noundef -1) #8
   %69 = icmp eq i32 %68, 0
   br i1 %69, label %70, label %.loopexit31
 
@@ -764,7 +764,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal17formatIn
   br i1 %72, label %76, label %73
 
 73:                                               ; preds = %70
-  %74 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.20, i64 noundef -1) #9
+  %74 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.20, i64 noundef -1) #8
   %75 = icmp eq i32 %74, 0
   br i1 %75, label %76, label %.loopexit31
 
@@ -777,19 +777,19 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal17formatIn
   %80 = and i32 %14, 16384
   %81 = icmp eq i32 %80, 0
   %82 = select i1 %81, ptr @.str.22, ptr @.str.21
-  %83 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %82, i64 noundef -1) #9
+  %83 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %82, i64 noundef -1) #8
   %84 = getelementptr inbounds nuw i8, ptr %4, i64 8
   %85 = load i32, ptr %84, align 4, !tbaa !34
   %86 = icmp eq i32 %85, 0
   br i1 %86, label %99, label %87
 
 87:                                               ; preds = %79
-  %88 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.23, i64 noundef -1) #9
+  %88 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.23, i64 noundef -1) #8
   %89 = icmp eq i32 %88, 0
   br i1 %89, label %90, label %.loopexit31
 
 90:                                               ; preds = %87
-  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #9
+  call void @llvm.lifetime.start.p0(i64 16, ptr nonnull %8) #8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !48)
   %91 = load <2 x i32>, ptr %84, align 4, !tbaa !7, !noalias !48
   store <2 x i32> %91, ptr %8, align 8, !tbaa !7, !alias.scope !48
@@ -797,13 +797,13 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal17formatIn
   store i32 0, ptr %92, align 8, !tbaa !7, !alias.scope !48
   %93 = getelementptr inbounds nuw i8, ptr %8, i64 12
   store i32 0, ptr %93, align 4, !tbaa !7, !alias.scope !48
-  %94 = call noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal13formatOperandERNS0_6StringENS0_11FormatFlagsEPKNS0_11BaseEmitterENS0_4ArchERKNS0_8Operand_E(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, ptr noundef %2, i8 zeroext poison, ptr noundef nonnull align 4 dereferenceable(16) %8) #9
-  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #9
+  %94 = call noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal13formatOperandERNS0_6StringENS0_11FormatFlagsEPKNS0_11BaseEmitterENS0_4ArchERKNS0_8Operand_E(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, ptr noundef %2, i8 zeroext poison, ptr noundef nonnull align 4 dereferenceable(16) %8) #8
+  call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %8) #8
   %95 = icmp eq i32 %94, 0
   br i1 %95, label %96, label %.loopexit31
 
 96:                                               ; preds = %90
-  %97 = call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.24, i64 noundef -1) #9
+  %97 = call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.24, i64 noundef -1) #8
   %98 = icmp eq i32 %97, 0
   br i1 %98, label %99, label %.loopexit31
 
@@ -818,7 +818,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal17formatIn
   br i1 %104, label %130, label %105
 
 105:                                              ; preds = %102
-  %106 = call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.25, i64 noundef -1) #9
+  %106 = call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.25, i64 noundef -1) #8
   %107 = icmp eq i32 %106, 0
   br i1 %107, label %108, label %.loopexit31
 
@@ -828,7 +828,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal17formatIn
   br i1 %110, label %113, label %111
 
 111:                                              ; preds = %108
-  %112 = call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext 114) #9
+  %112 = call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext 114) #8
   br label %113
 
 113:                                              ; preds = %111, %108
@@ -837,7 +837,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal17formatIn
   br i1 %115, label %118, label %116
 
 116:                                              ; preds = %113
-  %117 = call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext 120) #9
+  %117 = call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext 120) #8
   br label %118
 
 118:                                              ; preds = %116, %113
@@ -846,7 +846,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal17formatIn
   br i1 %120, label %123, label %121
 
 121:                                              ; preds = %118
-  %122 = call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext 98) #9
+  %122 = call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext 98) #8
   br label %123
 
 123:                                              ; preds = %121, %118
@@ -855,28 +855,28 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal17formatIn
   br i1 %125, label %128, label %126
 
 126:                                              ; preds = %123
-  %127 = call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext 119) #9
+  %127 = call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext 119) #8
   br label %128
 
 128:                                              ; preds = %126, %123
-  %129 = call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext 32) #9
+  %129 = call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext 32) #8
   br label %133
 
 130:                                              ; preds = %102
-  %131 = call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.26, i64 noundef -1) #9
+  %131 = call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.26, i64 noundef -1) #8
   %132 = icmp eq i32 %131, 0
   br i1 %132, label %133, label %.loopexit31
 
 133:                                              ; preds = %130, %128, %99
-  %134 = call noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal14instIdToStringENS0_4ArchEjRNS0_6StringE(i8 noundef zeroext %3, i32 noundef %12, ptr noundef nonnull align 8 dereferenceable(32) %0) #9
+  %134 = call noundef i32 @_ZN6asmjit9_abi_1_103x8612InstInternal14instIdToStringENS0_4ArchEjRNS0_6StringE(i8 noundef zeroext %3, i32 noundef %12, ptr noundef nonnull align 8 dereferenceable(32) %0) #8
   %135 = icmp eq i32 %134, 0
   br i1 %135, label %139, label %.loopexit31
 
 136:                                              ; preds = %7
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %9) #8
   store i32 %12, ptr %9, align 4, !tbaa !7
-  %137 = call noundef i32 @_ZN6asmjit9_abi_1_106String12appendFormatIJjEEEjPKcDpOT_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.27, ptr noundef nonnull align 4 dereferenceable(4) %9) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #9
+  %137 = call noundef i32 @_ZN6asmjit9_abi_1_106String12appendFormatIJjEEEjPKcDpOT_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.27, ptr noundef nonnull align 4 dereferenceable(4) %9) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %9) #8
   %138 = icmp eq i32 %137, 0
   br i1 %138, label %139, label %.loopexit31
 
@@ -904,12 +904,12 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal17formatIn
 154:                                              ; preds = %148
   %155 = icmp eq i32 %150, 0
   %156 = select i1 %155, ptr @.str.28, ptr @.str.29
-  %157 = call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %156, i64 noundef -1) #9
+  %157 = call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %156, i64 noundef -1) #8
   %158 = icmp eq i32 %157, 0
   br i1 %158, label %159, label %.loopexit31
 
 159:                                              ; preds = %154
-  %160 = call noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal13formatOperandERNS0_6StringENS0_11FormatFlagsEPKNS0_11BaseEmitterENS0_4ArchERKNS0_8Operand_E(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, ptr noundef %2, i8 zeroext poison, ptr noundef nonnull align 4 dereferenceable(16) %151) #9
+  %160 = call noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal13formatOperandERNS0_6StringENS0_11FormatFlagsEPKNS0_11BaseEmitterENS0_4ArchERKNS0_8Operand_E(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, ptr noundef %2, i8 zeroext poison, ptr noundef nonnull align 4 dereferenceable(16) %151) #8
   %161 = icmp eq i32 %160, 0
   br i1 %161, label %162, label %.loopexit31
 
@@ -1026,123 +1026,123 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal17formatIn
 
 172:                                              ; preds = %167, %167
   %173 = lshr i32 %255, 3
-  %174 = call fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal_formatImmShufERNS0_6StringEjjj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %171, i32 noundef 1, i32 noundef %173) #9
+  %174 = call fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal_formatImmShufERNS0_6StringEjjj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %171, i32 noundef 1, i32 noundef %173) #8
   br label %243
 
 175:                                              ; preds = %167, %167
   %176 = lshr i32 %255, 2
-  %177 = call fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal_formatImmShufERNS0_6StringEjjj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %171, i32 noundef 1, i32 noundef %176) #9
+  %177 = call fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal_formatImmShufERNS0_6StringEjjj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %171, i32 noundef 1, i32 noundef %176) #8
   br label %243
 
 178:                                              ; preds = %167, %167, %167, %167
-  %179 = call fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal_formatImmTextERNS0_6StringEjjjPKcj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %171, i32 noundef 5, i32 noundef 0, ptr noundef nonnull @_ZZN6asmjit9_abi_1_103x86L30FormatterInternal_explainConstERNS0_6StringENS0_11FormatFlagsEjjRKNS0_3ImmEE5vcmpx, i32 noundef 1) #9
+  %179 = call fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal_formatImmTextERNS0_6StringEjjjPKcj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %171, i32 noundef 5, i32 noundef 0, ptr noundef nonnull @_ZZN6asmjit9_abi_1_103x86L30FormatterInternal_explainConstERNS0_6StringENS0_11FormatFlagsEjjRKNS0_3ImmEE5vcmpx, i32 noundef 1) #8
   br label %243
 
 180:                                              ; preds = %167, %167, %167, %167
-  %181 = call fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal_formatImmTextERNS0_6StringEjjjPKcj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %171, i32 noundef 3, i32 noundef 0, ptr noundef nonnull @_ZZN6asmjit9_abi_1_103x86L30FormatterInternal_explainConstERNS0_6StringENS0_11FormatFlagsEjjRKNS0_3ImmEE5vcmpx, i32 noundef 1) #9
+  %181 = call fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal_formatImmTextERNS0_6StringEjjjPKcj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %171, i32 noundef 3, i32 noundef 0, ptr noundef nonnull @_ZZN6asmjit9_abi_1_103x86L30FormatterInternal_explainConstERNS0_6StringENS0_11FormatFlagsEjjRKNS0_3ImmEE5vcmpx, i32 noundef 1) #8
   br label %243
 
 182:                                              ; preds = %167
-  %183 = call fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal_formatImmShufERNS0_6StringEjjj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %171, i32 noundef 2, i32 noundef 4) #9
+  %183 = call fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal_formatImmShufERNS0_6StringEjjj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %171, i32 noundef 2, i32 noundef 4) #8
   br label %243
 
 184:                                              ; preds = %167, %167, %167, %167
-  %185 = call fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal_formatImmShufERNS0_6StringEjjj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %171, i32 noundef 1, i32 noundef 8) #9
+  %185 = call fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal_formatImmShufERNS0_6StringEjjj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %171, i32 noundef 1, i32 noundef 8) #8
   br label %243
 
 186:                                              ; preds = %167, %167
   %187 = lshr i32 %255, 3
   %188 = call noundef i32 @llvm.umin.i32(i32 %187, i32 4)
-  %189 = call fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal_formatImmBitsERNS0_6StringEjPKNS1_7ImmBitsEj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %171, ptr noundef nonnull @_ZZN6asmjit9_abi_1_103x86L30FormatterInternal_explainConstERNS0_6StringENS0_11FormatFlagsEjjRKNS0_3ImmEE8vmpsadbw, i32 noundef %188) #9
+  %189 = call fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal_formatImmBitsERNS0_6StringEjPKNS1_7ImmBitsEj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %171, ptr noundef nonnull @_ZZN6asmjit9_abi_1_103x86L30FormatterInternal_explainConstERNS0_6StringENS0_11FormatFlagsEjjRKNS0_3ImmEE8vmpsadbw, i32 noundef %188) #8
   br label %243
 
 190:                                              ; preds = %167, %167
-  %191 = call fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal_formatImmShufERNS0_6StringEjjj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %171, i32 noundef 1, i32 noundef 8) #9
+  %191 = call fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal_formatImmShufERNS0_6StringEjjj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %171, i32 noundef 1, i32 noundef 8) #8
   br label %243
 
 192:                                              ; preds = %167
   %193 = lshr i32 %255, 2
   %194 = call noundef i32 @llvm.umin.i32(i32 %193, i32 8)
-  %195 = call fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal_formatImmShufERNS0_6StringEjjj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %171, i32 noundef 1, i32 noundef %194) #9
+  %195 = call fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal_formatImmShufERNS0_6StringEjjj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %171, i32 noundef 1, i32 noundef %194) #8
   br label %243
 
 196:                                              ; preds = %167, %167
-  %197 = call fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal_formatImmBitsERNS0_6StringEjPKNS1_7ImmBitsEj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %171, ptr noundef nonnull @_ZZN6asmjit9_abi_1_103x86L30FormatterInternal_explainConstERNS0_6StringENS0_11FormatFlagsEjjRKNS0_3ImmEE10vpclmulqdq, i32 noundef 2) #9
+  %197 = call fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal_formatImmBitsERNS0_6StringEjPKNS1_7ImmBitsEj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %171, ptr noundef nonnull @_ZZN6asmjit9_abi_1_103x86L30FormatterInternal_explainConstERNS0_6StringENS0_11FormatFlagsEjjRKNS0_3ImmEE10vpclmulqdq, i32 noundef 2) #8
   br label %243
 
 198:                                              ; preds = %167, %167, %167, %167, %167, %167, %167, %167
-  %199 = call fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal_formatImmBitsERNS0_6StringEjPKNS1_7ImmBitsEj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %171, ptr noundef nonnull @_ZZN6asmjit9_abi_1_103x86L30FormatterInternal_explainConstERNS0_6StringENS0_11FormatFlagsEjjRKNS0_3ImmEE8vroundxx, i32 noundef 2) #9
+  %199 = call fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal_formatImmBitsERNS0_6StringEjPKNS1_7ImmBitsEj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %171, ptr noundef nonnull @_ZZN6asmjit9_abi_1_103x86L30FormatterInternal_explainConstERNS0_6StringENS0_11FormatFlagsEjjRKNS0_3ImmEE8vroundxx, i32 noundef 2) #8
   br label %243
 
 200:                                              ; preds = %167, %167
   %201 = lshr i32 %255, 3
   %202 = call noundef i32 @llvm.umin.i32(i32 %201, i32 8)
-  %203 = call fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal_formatImmTextERNS0_6StringEjjjPKcj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %171, i32 noundef 1, i32 noundef 2, ptr noundef nonnull @_ZZN6asmjit9_abi_1_103x86L30FormatterInternal_explainConstERNS0_6StringENS0_11FormatFlagsEjjRKNS0_3ImmEE7vshufpd, i32 noundef %202) #9
+  %203 = call fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal_formatImmTextERNS0_6StringEjjjPKcj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %171, i32 noundef 1, i32 noundef 2, ptr noundef nonnull @_ZZN6asmjit9_abi_1_103x86L30FormatterInternal_explainConstERNS0_6StringENS0_11FormatFlagsEjjRKNS0_3ImmEE7vshufpd, i32 noundef %202) #8
   br label %243
 
 204:                                              ; preds = %167, %167
-  %205 = call fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal_formatImmTextERNS0_6StringEjjjPKcj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %171, i32 noundef 2, i32 noundef 4, ptr noundef nonnull @_ZZN6asmjit9_abi_1_103x86L30FormatterInternal_explainConstERNS0_6StringENS0_11FormatFlagsEjjRKNS0_3ImmEE7vshufps, i32 noundef 4) #9
+  %205 = call fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal_formatImmTextERNS0_6StringEjjjPKcj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %171, i32 noundef 2, i32 noundef 4, ptr noundef nonnull @_ZZN6asmjit9_abi_1_103x86L30FormatterInternal_explainConstERNS0_6StringENS0_11FormatFlagsEjjRKNS0_3ImmEE7vshufps, i32 noundef 4) #8
   br label %243
 
 206:                                              ; preds = %167
-  %207 = call fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal_formatImmBitsERNS0_6StringEjPKNS1_7ImmBitsEj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %171, ptr noundef nonnull @_ZZN6asmjit9_abi_1_103x86L30FormatterInternal_explainConstERNS0_6StringENS0_11FormatFlagsEjjRKNS0_3ImmEE8vroundxx, i32 noundef 1) #9
+  %207 = call fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal_formatImmBitsERNS0_6StringEjPKNS1_7ImmBitsEj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %171, ptr noundef nonnull @_ZZN6asmjit9_abi_1_103x86L30FormatterInternal_explainConstERNS0_6StringENS0_11FormatFlagsEjjRKNS0_3ImmEE8vroundxx, i32 noundef 1) #8
   br label %243
 
 208:                                              ; preds = %167, %167
-  %209 = call fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal_formatImmBitsERNS0_6StringEjPKNS1_7ImmBitsEj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %171, ptr noundef nonnull @_ZZN6asmjit9_abi_1_103x86L30FormatterInternal_explainConstERNS0_6StringENS0_11FormatFlagsEjjRKNS0_3ImmEE10vperm2x128, i32 noundef 2) #9
+  %209 = call fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal_formatImmBitsERNS0_6StringEjPKNS1_7ImmBitsEj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %171, ptr noundef nonnull @_ZZN6asmjit9_abi_1_103x86L30FormatterInternal_explainConstERNS0_6StringENS0_11FormatFlagsEjjRKNS0_3ImmEE10vperm2x128, i32 noundef 2) #8
   br label %243
 
 210:                                              ; preds = %167
   %211 = lshr i32 %255, 3
-  %212 = call fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal_formatImmShufERNS0_6StringEjjj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %171, i32 noundef 1, i32 noundef %211) #9
+  %212 = call fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal_formatImmShufERNS0_6StringEjjj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %171, i32 noundef 1, i32 noundef %211) #8
   br label %243
 
 213:                                              ; preds = %167
-  %214 = call fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal_formatImmShufERNS0_6StringEjjj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %171, i32 noundef 2, i32 noundef 4) #9
+  %214 = call fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal_formatImmShufERNS0_6StringEjjj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %171, i32 noundef 2, i32 noundef 4) #8
   br label %243
 
 215:                                              ; preds = %167, %167
-  %216 = call fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal_formatImmShufERNS0_6StringEjjj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %171, i32 noundef 2, i32 noundef 4) #9
+  %216 = call fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal_formatImmShufERNS0_6StringEjjj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %171, i32 noundef 2, i32 noundef 4) #8
   br label %243
 
 217:                                              ; preds = %167, %167, %167, %167, %167
-  %218 = call fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal_formatImmShufERNS0_6StringEjjj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %171, i32 noundef 2, i32 noundef 4) #9
+  %218 = call fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal_formatImmShufERNS0_6StringEjjj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %171, i32 noundef 2, i32 noundef 4) #8
   br label %243
 
 219:                                              ; preds = %167, %167, %167, %167
-  %220 = call fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal_formatImmBitsERNS0_6StringEjPKNS1_7ImmBitsEj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %171, ptr noundef nonnull @_ZZN6asmjit9_abi_1_103x86L30FormatterInternal_explainConstERNS0_6StringENS0_11FormatFlagsEjjRKNS0_3ImmEE11vfixupimmxx, i32 noundef 8) #9
+  %220 = call fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal_formatImmBitsERNS0_6StringEjPKNS1_7ImmBitsEj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %171, ptr noundef nonnull @_ZZN6asmjit9_abi_1_103x86L30FormatterInternal_explainConstERNS0_6StringENS0_11FormatFlagsEjjRKNS0_3ImmEE11vfixupimmxx, i32 noundef 8) #8
   br label %243
 
 221:                                              ; preds = %167, %167, %167, %167
-  %222 = call fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal_formatImmBitsERNS0_6StringEjPKNS1_7ImmBitsEj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %171, ptr noundef nonnull @_ZZN6asmjit9_abi_1_103x86L30FormatterInternal_explainConstERNS0_6StringENS0_11FormatFlagsEjjRKNS0_3ImmEE10vfpclassxx, i32 noundef 1) #9
+  %222 = call fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal_formatImmBitsERNS0_6StringEjPKNS1_7ImmBitsEj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %171, ptr noundef nonnull @_ZZN6asmjit9_abi_1_103x86L30FormatterInternal_explainConstERNS0_6StringENS0_11FormatFlagsEjjRKNS0_3ImmEE10vfpclassxx, i32 noundef 1) #8
   br label %243
 
 223:                                              ; preds = %167, %167, %167, %167
-  %224 = call fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal_formatImmBitsERNS0_6StringEjPKNS1_7ImmBitsEj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %171, ptr noundef nonnull @_ZZN6asmjit9_abi_1_103x86L30FormatterInternal_explainConstERNS0_6StringENS0_11FormatFlagsEjjRKNS0_3ImmEE10vgetmantxx, i32 noundef 3) #9
+  %224 = call fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal_formatImmBitsERNS0_6StringEjPKNS1_7ImmBitsEj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %171, ptr noundef nonnull @_ZZN6asmjit9_abi_1_103x86L30FormatterInternal_explainConstERNS0_6StringENS0_11FormatFlagsEjjRKNS0_3ImmEE10vgetmantxx, i32 noundef 3) #8
   br label %243
 
 225:                                              ; preds = %167, %167, %167, %167, %167, %167, %167, %167
-  %226 = call fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal_formatImmTextERNS0_6StringEjjjPKcj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %171, i32 noundef 3, i32 noundef 0, ptr noundef nonnull @_ZZN6asmjit9_abi_1_103x86L30FormatterInternal_explainConstERNS0_6StringENS0_11FormatFlagsEjjRKNS0_3ImmEE6vpcmpx, i32 noundef 1) #9
+  %226 = call fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal_formatImmTextERNS0_6StringEjjjPKcj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %171, i32 noundef 3, i32 noundef 0, ptr noundef nonnull @_ZZN6asmjit9_abi_1_103x86L30FormatterInternal_explainConstERNS0_6StringENS0_11FormatFlagsEjjRKNS0_3ImmEE6vpcmpx, i32 noundef 1) #8
   br label %243
 
 227:                                              ; preds = %167, %167, %167, %167, %167, %167, %167, %167
-  %228 = call fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal_formatImmTextERNS0_6StringEjjjPKcj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %171, i32 noundef 3, i32 noundef 0, ptr noundef nonnull @_ZZN6asmjit9_abi_1_103x86L30FormatterInternal_explainConstERNS0_6StringENS0_11FormatFlagsEjjRKNS0_3ImmEE6vpcomx, i32 noundef 1) #9
+  %228 = call fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal_formatImmTextERNS0_6StringEjjjPKcj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %171, i32 noundef 3, i32 noundef 0, ptr noundef nonnull @_ZZN6asmjit9_abi_1_103x86L30FormatterInternal_explainConstERNS0_6StringENS0_11FormatFlagsEjjRKNS0_3ImmEE6vpcomx, i32 noundef 1) #8
   br label %243
 
 229:                                              ; preds = %167, %167
-  %230 = call fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal_formatImmShufERNS0_6StringEjjj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %171, i32 noundef 2, i32 noundef 4) #9
+  %230 = call fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal_formatImmShufERNS0_6StringEjjj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %171, i32 noundef 2, i32 noundef 4) #8
   br label %243
 
 231:                                              ; preds = %167, %167
-  %232 = call fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal_formatImmShufERNS0_6StringEjjj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %171, i32 noundef 1, i32 noundef 8) #9
+  %232 = call fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal_formatImmShufERNS0_6StringEjjj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %171, i32 noundef 1, i32 noundef 8) #8
   br label %243
 
 233:                                              ; preds = %167, %167, %167, %167
-  %234 = call fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal_formatImmBitsERNS0_6StringEjPKNS1_7ImmBitsEj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %171, ptr noundef nonnull @_ZZN6asmjit9_abi_1_103x86L30FormatterInternal_explainConstERNS0_6StringENS0_11FormatFlagsEjjRKNS0_3ImmEE8vrangexx, i32 noundef 2) #9
+  %234 = call fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal_formatImmBitsERNS0_6StringEjPKNS1_7ImmBitsEj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %171, ptr noundef nonnull @_ZZN6asmjit9_abi_1_103x86L30FormatterInternal_explainConstERNS0_6StringENS0_11FormatFlagsEjjRKNS0_3ImmEE8vrangexx, i32 noundef 2) #8
   br label %243
 
 235:                                              ; preds = %167, %167, %167, %167, %167, %167, %167, %167
-  %236 = call fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal_formatImmBitsERNS0_6StringEjPKNS1_7ImmBitsEj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %171, ptr noundef nonnull @_ZZN6asmjit9_abi_1_103x86L30FormatterInternal_explainConstERNS0_6StringENS0_11FormatFlagsEjjRKNS0_3ImmEE21vreducexx_vrndscalexx, i32 noundef 3) #9
+  %236 = call fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal_formatImmBitsERNS0_6StringEjPKNS1_7ImmBitsEj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %171, ptr noundef nonnull @_ZZN6asmjit9_abi_1_103x86L30FormatterInternal_explainConstERNS0_6StringENS0_11FormatFlagsEjjRKNS0_3ImmEE21vreducexx_vrndscalexx, i32 noundef 3) #8
   br label %243
 
 237:                                              ; preds = %167, %167, %167, %167
@@ -1150,7 +1150,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal17formatIn
   %239 = call noundef i32 @llvm.umax.i32(i32 %238, i32 2)
   %240 = icmp ugt i32 %255, 47
   %241 = select i1 %240, i32 2, i32 1
-  %242 = call fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal_formatImmShufERNS0_6StringEjjj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %171, i32 noundef %241, i32 noundef %239) #9
+  %242 = call fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal_formatImmShufERNS0_6StringEjjj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %171, i32 noundef %241, i32 noundef %239) #8
   br label %243
 
 243:                                              ; preds = %237, %235, %233, %231, %229, %227, %225, %223, %221, %219, %217, %215, %213, %210, %208, %206, %204, %200, %198, %196, %192, %190, %186, %184, %182, %180, %178, %175, %172
@@ -1184,7 +1184,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal17formatIn
   br i1 %263, label %264, label %281
 
 264:                                              ; preds = %260
-  %265 = call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.30, i64 noundef -1) #9
+  %265 = call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.30, i64 noundef -1) #8
   %266 = icmp eq i32 %265, 0
   br i1 %266, label %267, label %.loopexit31
 
@@ -1193,12 +1193,12 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal17formatIn
   %269 = trunc i32 %268 to i8
   %270 = lshr i8 %269, 3
   %271 = load i32, ptr %147, align 4, !tbaa !53
-  %272 = call noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal14formatRegisterERNS0_6StringENS0_11FormatFlagsEPKNS0_11BaseEmitterENS0_4ArchENS0_7RegTypeEj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, ptr noundef %2, i8 zeroext poison, i8 noundef zeroext %270, i32 noundef %271) #9
+  %272 = call noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal14formatRegisterERNS0_6StringENS0_11FormatFlagsEPKNS0_11BaseEmitterENS0_4ArchENS0_7RegTypeEj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef %1, ptr noundef %2, i8 zeroext poison, i8 noundef zeroext %270, i32 noundef %271) #8
   %273 = icmp eq i32 %272, 0
   br i1 %273, label %274, label %.loopexit31
 
 274:                                              ; preds = %267
-  %275 = call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext 125) #9
+  %275 = call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext 125) #8
   %276 = icmp eq i32 %275, 0
   br i1 %276, label %277, label %.loopexit31
 
@@ -1206,7 +1206,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal17formatIn
   br i1 %146, label %285, label %278
 
 278:                                              ; preds = %277
-  %279 = call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.31, i64 noundef -1) #9
+  %279 = call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.31, i64 noundef -1) #8
   %280 = icmp eq i32 %279, 0
   br i1 %280, label %285, label %.loopexit31
 
@@ -1214,7 +1214,7 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal17formatIn
   br i1 %146, label %285, label %282
 
 282:                                              ; preds = %281
-  %283 = call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.32, i64 noundef -1) #9
+  %283 = call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.32, i64 noundef -1) #8
   %284 = icmp eq i32 %283, 0
   br i1 %284, label %285, label %.loopexit31
 
@@ -1228,13 +1228,13 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal17formatIn
   br i1 %291, label %292, label %298
 
 292:                                              ; preds = %285
-  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #9
+  call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %10) #8
   %293 = lshr i32 %286, 21
   %294 = and i32 %293, 7
   %295 = shl nuw nsw i32 1, %294
   store i32 %295, ptr %10, align 4, !tbaa !7
-  %296 = call noundef i32 @_ZN6asmjit9_abi_1_106String12appendFormatIJjEEEjPKcDpOT_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.33, ptr noundef nonnull align 4 dereferenceable(4) %10) #9
-  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #9
+  %296 = call noundef i32 @_ZN6asmjit9_abi_1_106String12appendFormatIJjEEEjPKcDpOT_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.33, ptr noundef nonnull align 4 dereferenceable(4) %10) #8
+  call void @llvm.lifetime.end.p0(i64 4, ptr nonnull %10) #8
   %297 = icmp eq i32 %296, 0
   br i1 %297, label %298, label %.loopexit31
 
@@ -1258,18 +1258,18 @@ define hidden noundef i32 @_ZN6asmjit9_abi_1_103x8617FormatterInternal17formatIn
 308:                                              ; preds = %305
   %309 = lshr i32 %302, 21
   %310 = and i32 %309, 3
-  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #9
+  call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %11) #8
   %311 = mul nuw nsw i32 %310, 3
   %312 = zext nneg i32 %311 to i64
   %313 = getelementptr inbounds nuw i8, ptr @_ZZN6asmjit9_abi_1_103x8617FormatterInternal17formatInstructionERNS0_6StringENS0_11FormatFlagsEPKNS0_11BaseEmitterENS0_4ArchERKNS0_8BaseInstEPKNS0_8Operand_EmE13roundingModes, i64 %312
   store ptr %313, ptr %11, align 8, !tbaa !32
-  %314 = call noundef i32 @_ZN6asmjit9_abi_1_106String12appendFormatIJPKcEEEjS4_DpOT_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.34, ptr noundef nonnull align 8 dereferenceable(8) %11) #9
-  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #9
+  %314 = call noundef i32 @_ZN6asmjit9_abi_1_106String12appendFormatIJPKcEEEjS4_DpOT_(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.34, ptr noundef nonnull align 8 dereferenceable(8) %11) #8
+  call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %11) #8
   %315 = icmp eq i32 %314, 0
   br i1 %315, label %319, label %.loopexit31
 
 316:                                              ; preds = %305
-  %317 = call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.35, i64 noundef -1) #9
+  %317 = call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull @.str.35, i64 noundef -1) #8
   %318 = icmp eq i32 %317, 0
   br i1 %318, label %319, label %.loopexit31
 
@@ -1306,7 +1306,7 @@ define internal fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal
   %11 = phi i32 [ %23, %22 ], [ 0, %4 ]
   %12 = icmp eq i32 %11, 0
   %13 = select i1 %12, i8 123, i8 124
-  %14 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext %13) #9
+  %14 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext %13) #8
   %15 = icmp eq i32 %14, 0
   br i1 %15, label %16, label %.loopexit
 
@@ -1314,7 +1314,7 @@ define internal fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal
   %17 = lshr i32 %10, %8
   %18 = and i32 %17, %6
   %19 = zext nneg i32 %18 to i64
-  %20 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String10appendUIntEmjmNS0_17StringFormatFlagsE(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %19, i32 noundef 0, i64 noundef 0, i32 noundef 0) #9
+  %20 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String10appendUIntEmjmNS0_17StringFormatFlagsE(ptr noundef nonnull align 8 dereferenceable(32) %0, i64 noundef %19, i32 noundef 0, i64 noundef 0, i32 noundef 0) #8
   %21 = icmp eq i32 %20, 0
   br i1 %21, label %22, label %.loopexit, !prof !44
 
@@ -1325,7 +1325,7 @@ define internal fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal
   br i1 %25, label %26, label %9, !llvm.loop !55
 
 26:                                               ; preds = %22
-  %27 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext 125) #9
+  %27 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext 125) #8
   br label %.loopexit
 
 .loopexit:                                        ; preds = %16, %9, %26
@@ -1339,15 +1339,15 @@ define internal fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal
   %8 = xor i32 %7, -1
   br label %9
 
-9:                                                ; preds = %6, %27
-  %10 = phi i32 [ %29, %27 ], [ %1, %6 ]
-  %11 = phi i32 [ %30, %27 ], [ 0, %6 ]
-  %12 = phi i32 [ %28, %27 ], [ 0, %6 ]
+9:                                                ; preds = %6, %33
+  %10 = phi i32 [ %35, %33 ], [ %1, %6 ]
+  %11 = phi i32 [ %36, %33 ], [ 0, %6 ]
+  %12 = phi i32 [ %34, %33 ], [ 0, %6 ]
   %13 = and i32 %10, %8
   %14 = add nuw i32 %13, %11
   %15 = icmp eq i32 %12, 0
   %16 = select i1 %15, i8 123, i8 124
-  %17 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext %16) #9
+  %17 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext %16) #8
   %18 = icmp eq i32 %17, 0
   br i1 %18, label %19, label %.loopexit4
 
@@ -1355,61 +1355,68 @@ define internal fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal
   %20 = icmp eq i32 %14, 0
   br i1 %20, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %19, %.preheader
-  %21 = phi i32 [ %23, %.preheader ], [ 0, %19 ]
-  %22 = phi ptr [ %scevgep5, %.preheader ], [ %4, %19 ]
-  %strlen = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %22)
-  %scevgep = getelementptr i8, ptr %22, i64 1
-  %scevgep5 = getelementptr i8, ptr %scevgep, i64 %strlen
-  %23 = add nuw nsw i32 %21, 1
-  %exitcond.not = icmp eq i32 %23, %14
-  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !56
+.preheader:                                       ; preds = %19, %28
+  %21 = phi i32 [ %29, %28 ], [ 0, %19 ]
+  %22 = phi ptr [ %27, %28 ], [ %4, %19 ]
+  br label %23
 
-.loopexit:                                        ; preds = %.preheader, %19
-  %24 = phi ptr [ %4, %19 ], [ %scevgep5, %.preheader ]
-  %25 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %24, i64 noundef -1) #9
-  %26 = icmp eq i32 %25, 0
-  br i1 %26, label %27, label %.loopexit4, !prof !44
+23:                                               ; preds = %23, %.preheader
+  %24 = phi ptr [ %27, %23 ], [ %22, %.preheader ]
+  %25 = load i8, ptr %24, align 1, !tbaa !33
+  %26 = icmp eq i8 %25, 0
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 1
+  br i1 %26, label %28, label %23, !llvm.loop !56
 
-27:                                               ; preds = %.loopexit
-  %28 = add nuw nsw i32 %12, 1
-  %29 = lshr i32 %10, %2
-  %30 = add nuw nsw i32 %11, %3
-  %31 = icmp eq i32 %28, %5
-  br i1 %31, label %32, label %9, !llvm.loop !57
+28:                                               ; preds = %23
+  %29 = add nuw nsw i32 %21, 1
+  %exitcond.not = icmp eq i32 %29, %14
+  br i1 %exitcond.not, label %.loopexit, label %.preheader, !llvm.loop !57
 
-32:                                               ; preds = %27
-  %33 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext 125) #9
+.loopexit:                                        ; preds = %28, %19
+  %30 = phi ptr [ %4, %19 ], [ %27, %28 ]
+  %31 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef %30, i64 noundef -1) #8
+  %32 = icmp eq i32 %31, 0
+  br i1 %32, label %33, label %.loopexit4, !prof !44
+
+33:                                               ; preds = %.loopexit
+  %34 = add nuw nsw i32 %12, 1
+  %35 = lshr i32 %10, %2
+  %36 = add nuw nsw i32 %11, %3
+  %37 = icmp eq i32 %34, %5
+  br i1 %37, label %38, label %9, !llvm.loop !58
+
+38:                                               ; preds = %33
+  %39 = tail call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext 125) #8
   br label %.loopexit4
 
-.loopexit4:                                       ; preds = %.loopexit, %9, %32
-  %34 = phi i32 [ %33, %32 ], [ %17, %9 ], [ %25, %.loopexit ]
-  ret i32 %34
+.loopexit4:                                       ; preds = %.loopexit, %9, %38
+  %40 = phi i32 [ %39, %38 ], [ %17, %9 ], [ %31, %.loopexit ]
+  ret i32 %40
 }
 
 ; Function Attrs: minsize mustprogress nounwind uwtable
 define internal fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal_formatImmBitsERNS0_6StringEjPKNS1_7ImmBitsEj(ptr noundef nonnull align 8 dereferenceable(32) %0, i32 noundef range(i32 0, 256) %1, ptr noundef %2, i32 noundef range(i32 1, 9) %3) unnamed_addr #3 {
   %5 = alloca [64 x i8], align 16
-  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #9
+  call void @llvm.lifetime.start.p0(i64 64, ptr nonnull %5) #8
   %6 = zext nneg i32 %3 to i64
   br label %7
 
-7:                                                ; preds = %42, %4
-  %8 = phi i64 [ 0, %4 ], [ %44, %42 ]
-  %9 = phi i32 [ 0, %4 ], [ %43, %42 ]
+7:                                                ; preds = %48, %4
+  %8 = phi i64 [ 0, %4 ], [ %50, %48 ]
+  %9 = phi i32 [ 0, %4 ], [ %49, %48 ]
   %10 = getelementptr inbounds nuw %"struct.asmjit::_abi_1_10::x86::ImmBits", ptr %2, i64 %8
-  %11 = load i8, ptr %10, align 1, !tbaa !58
+  %11 = load i8, ptr %10, align 1, !tbaa !59
   %12 = zext i8 %11 to i32
   %13 = and i32 %1, %12
   %14 = getelementptr inbounds nuw i8, ptr %10, i64 1
-  %15 = load i8, ptr %14, align 1, !tbaa !60
+  %15 = load i8, ptr %14, align 1, !tbaa !61
   %16 = zext nneg i8 %15 to i32
   %17 = lshr i32 %13, %16
   %18 = getelementptr inbounds nuw i8, ptr %10, i64 2
-  %19 = load i8, ptr %18, align 1, !tbaa !61
+  %19 = load i8, ptr %18, align 1, !tbaa !62
   switch i8 %19, label %.loopexit6 [
     i8 0, label %20
-    i8 1, label %27
+    i8 1, label %33
   ]
 
 20:                                               ; preds = %7
@@ -1417,62 +1424,69 @@ define internal fastcc noundef i32 @_ZN6asmjit9_abi_1_103x86L31FormatterInternal
   %22 = icmp eq i32 %17, 0
   br i1 %22, label %.loopexit, label %.preheader
 
-.preheader:                                       ; preds = %20, %.preheader
-  %23 = phi i32 [ %25, %.preheader ], [ 0, %20 ]
-  %24 = phi ptr [ %scevgep9, %.preheader ], [ %21, %20 ]
-  %strlen = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %24)
-  %scevgep = getelementptr i8, ptr %24, i64 1
-  %scevgep9 = getelementptr i8, ptr %scevgep, i64 %strlen
-  %25 = add nuw nsw i32 %23, 1
-  %26 = icmp eq i32 %25, %17
-  br i1 %26, label %.loopexit, label %.preheader, !llvm.loop !56
+.preheader:                                       ; preds = %20, %30
+  %23 = phi i32 [ %31, %30 ], [ 0, %20 ]
+  %24 = phi ptr [ %29, %30 ], [ %21, %20 ]
+  br label %25
 
-27:                                               ; preds = %7
-  %28 = getelementptr inbounds nuw i8, ptr %10, i64 3
-  %29 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 64, ptr noundef nonnull %28, i32 noundef %17) #9
+25:                                               ; preds = %25, %.preheader
+  %26 = phi ptr [ %29, %25 ], [ %24, %.preheader ]
+  %27 = load i8, ptr %26, align 1, !tbaa !33
+  %28 = icmp eq i8 %27, 0
+  %29 = getelementptr inbounds nuw i8, ptr %26, i64 1
+  br i1 %28, label %30, label %25, !llvm.loop !56
+
+30:                                               ; preds = %25
+  %31 = add nuw nsw i32 %23, 1
+  %32 = icmp eq i32 %31, %17
+  br i1 %32, label %.loopexit, label %.preheader, !llvm.loop !57
+
+33:                                               ; preds = %7
+  %34 = getelementptr inbounds nuw i8, ptr %10, i64 3
+  %35 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %5, i64 noundef 64, ptr noundef nonnull %34, i32 noundef %17) #8
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.preheader, %27, %20
-  %30 = phi ptr [ %5, %27 ], [ %21, %20 ], [ %scevgep9, %.preheader ]
-  %31 = load i8, ptr %30, align 1, !tbaa !33
-  %32 = icmp eq i8 %31, 0
-  br i1 %32, label %42, label %33
+.loopexit:                                        ; preds = %30, %33, %20
+  %36 = phi ptr [ %5, %33 ], [ %21, %20 ], [ %29, %30 ]
+  %37 = load i8, ptr %36, align 1, !tbaa !33
+  %38 = icmp eq i8 %37, 0
+  br i1 %38, label %48, label %39
 
-33:                                               ; preds = %.loopexit
-  %34 = icmp eq i32 %9, 0
-  %35 = select i1 %34, i8 123, i8 124
-  %36 = call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext %35) #9
-  %37 = icmp eq i32 %36, 0
-  br i1 %37, label %38, label %.loopexit6
+39:                                               ; preds = %.loopexit
+  %40 = icmp eq i32 %9, 0
+  %41 = select i1 %40, i8 123, i8 124
+  %42 = call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext %41) #8
+  %43 = icmp eq i32 %42, 0
+  br i1 %43, label %44, label %.loopexit6
 
-38:                                               ; preds = %33
-  %39 = add i32 %9, 1
-  %40 = call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %30, i64 noundef -1) #9
-  %41 = icmp eq i32 %40, 0
-  br i1 %41, label %42, label %.loopexit6, !prof !44
+44:                                               ; preds = %39
+  %45 = add i32 %9, 1
+  %46 = call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEPKcm(ptr noundef nonnull align 8 dereferenceable(32) %0, ptr noundef nonnull %36, i64 noundef -1) #8
+  %47 = icmp eq i32 %46, 0
+  br i1 %47, label %48, label %.loopexit6, !prof !44
 
-42:                                               ; preds = %38, %.loopexit
-  %43 = phi i32 [ %9, %.loopexit ], [ %39, %38 ]
-  %44 = add nuw nsw i64 %8, 1
-  %45 = icmp eq i64 %44, %6
-  br i1 %45, label %46, label %7, !llvm.loop !62
+48:                                               ; preds = %44, %.loopexit
+  %49 = phi i32 [ %9, %.loopexit ], [ %45, %44 ]
+  %50 = add nuw nsw i64 %8, 1
+  %51 = icmp eq i64 %50, %6
+  br i1 %51, label %52, label %7, !llvm.loop !63
 
-46:                                               ; preds = %42
-  %47 = icmp eq i32 %43, 0
-  br i1 %47, label %51, label %48
+52:                                               ; preds = %48
+  %53 = icmp eq i32 %49, 0
+  br i1 %53, label %57, label %54
 
-48:                                               ; preds = %46
-  %49 = call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext 125) #9
-  %50 = icmp eq i32 %49, 0
-  br i1 %50, label %51, label %.loopexit6
+54:                                               ; preds = %52
+  %55 = call noundef i32 @_ZN6asmjit9_abi_1_106String6appendEc(ptr noundef nonnull align 8 dereferenceable(32) %0, i8 noundef signext 125) #8
+  %56 = icmp eq i32 %55, 0
+  br i1 %56, label %57, label %.loopexit6
 
-51:                                               ; preds = %48, %46
+57:                                               ; preds = %54, %52
   br label %.loopexit6
 
-.loopexit6:                                       ; preds = %38, %33, %7, %51, %48
-  %52 = phi i32 [ 0, %51 ], [ %49, %48 ], [ 3, %7 ], [ %40, %38 ], [ %36, %33 ]
-  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #9
-  ret i32 %52
+.loopexit6:                                       ; preds = %44, %39, %7, %57, %54
+  %58 = phi i32 [ 0, %57 ], [ %55, %54 ], [ 3, %7 ], [ %46, %44 ], [ %42, %39 ]
+  call void @llvm.lifetime.end.p0(i64 64, ptr nonnull %5) #8
+  ret i32 %58
 }
 
 ; Function Attrs: nofree nounwind
@@ -1493,9 +1507,6 @@ declare i32 @llvm.umax.i32(i32, i32) #6
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
 declare void @llvm.experimental.noalias.scope.decl(metadata) #7
 
-; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr captures(none)) local_unnamed_addr #8
-
 attributes #0 = { mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #1 = { inlinehint mustprogress nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
@@ -1504,8 +1515,7 @@ attributes #4 = { nounwind "no-trapping-math"="true" "stack-protector-buffer-siz
 attributes #5 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="rocketlake" "target-features"="+64bit,+adx,+aes,+avx,+avx2,+avx512bitalg,+avx512bw,+avx512cd,+avx512dq,+avx512f,+avx512ifma,+avx512vbmi,+avx512vbmi2,+avx512vl,+avx512vnni,+avx512vpopcntdq,+bmi,+bmi2,+clflushopt,+cmov,+crc32,+cx16,+cx8,+evex512,+f16c,+fma,+fsgsbase,+fxsr,+gfni,+invpcid,+lzcnt,+mmx,+movbe,+pclmul,+pku,+popcnt,+prfchw,+rdpid,+rdrnd,+rdseed,+sahf,+sha,+sse,+sse2,+sse3,+sse4.1,+sse4.2,+ssse3,+vaes,+vpclmulqdq,+x87,+xsave,+xsavec,+xsaveopt,+xsaves,-amx-bf16,-amx-complex,-amx-fp16,-amx-int8,-amx-tile,-avx10.1-256,-avx10.1-512,-avx512bf16,-avx512er,-avx512fp16,-avx512pf,-avx512vp2intersect,-avxifma,-avxneconvert,-avxvnni,-avxvnniint16,-avxvnniint8,-ccmp,-cf,-cldemote,-clwb,-clzero,-cmpccxadd,-egpr,-enqcmd,-fma4,-hreset,-kl,-lwp,-movdir64b,-movdiri,-mwaitx,-ndd,-pconfig,-ppx,-prefetchi,-prefetchwt1,-ptwrite,-push2pop2,-raoint,-rdpru,-rtm,-serialize,-sgx,-sha512,-shstk,-sm3,-sm4,-sse4a,-tbm,-tsxldtrk,-uintr,-usermsr,-waitpkg,-wbnoinvd,-widekl,-xop" }
 attributes #6 = { mustprogress nocallback nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
-attributes #8 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #9 = { nounwind }
+attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 
@@ -1567,8 +1577,9 @@ attributes #9 = { nounwind }
 !55 = distinct !{!55, !52}
 !56 = distinct !{!56, !52}
 !57 = distinct !{!57, !52}
-!58 = !{!59, !5, i64 0}
-!59 = !{!"_ZTSN6asmjit9_abi_1_103x867ImmBitsE", !5, i64 0, !5, i64 1, !5, i64 2, !5, i64 3}
-!60 = !{!59, !5, i64 1}
-!61 = !{!59, !5, i64 2}
-!62 = distinct !{!62, !52}
+!58 = distinct !{!58, !52}
+!59 = !{!60, !5, i64 0}
+!60 = !{!"_ZTSN6asmjit9_abi_1_103x867ImmBitsE", !5, i64 0, !5, i64 1, !5, i64 2, !5, i64 3}
+!61 = !{!60, !5, i64 1}
+!62 = !{!60, !5, i64 2}
+!63 = distinct !{!63, !52}

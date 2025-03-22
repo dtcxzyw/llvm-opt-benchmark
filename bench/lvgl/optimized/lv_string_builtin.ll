@@ -446,16 +446,26 @@ define range(i32 -255, 256) i32 @lv_memcmp(ptr noundef readonly captures(none) %
   ret i32 %17
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn memory(argmem: read) uwtable
-define i64 @lv_strlen(ptr noundef readonly captures(none) %0) local_unnamed_addr #3 {
-  %strlen = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0)
-  ret i64 %strlen
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: read) uwtable
+define i64 @lv_strlen(ptr noundef readonly captures(none) %0) local_unnamed_addr #2 {
+  br label %2
+
+2:                                                ; preds = %2, %1
+  %.0 = phi i64 [ 0, %1 ], [ %5, %2 ]
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 %.0
+  %4 = load i8, ptr %3, align 1, !tbaa !3
+  %.not = icmp eq i8 %4, 0
+  %5 = add i64 %.0, 1
+  br i1 %.not, label %6, label %2, !llvm.loop !19
+
+6:                                                ; preds = %2
+  ret i64 %.0
 }
 
-; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
-define i64 @lv_strlcpy(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #4 {
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define i64 @lv_strlcpy(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #3 {
   %.not = icmp eq i64 %2, 0
-  br i1 %.not, label %11, label %.preheader
+  br i1 %.not, label %.preheader21, label %.preheader
 
 .preheader:                                       ; preds = %3
   %4 = add i64 %2, -1
@@ -474,24 +484,32 @@ define i64 @lv_strlcpy(ptr noundef writeonly captures(none) %0, ptr noundef read
   store i8 %6, ptr %8, align 1, !tbaa !3
   %9 = add nuw i64 %.117, 1
   %exitcond.not = icmp eq i64 %9, %4
-  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !19
+  br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !20
 
 .critedge:                                        ; preds = %.lr.ph, %7, %.preheader
   %.1.lcssa = phi i64 [ 0, %.preheader ], [ %4, %7 ], [ %.117, %.lr.ph ]
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 %.1.lcssa
   store i8 0, ptr %10, align 1, !tbaa !3
+  br label %.preheader21
+
+.preheader21:                                     ; preds = %.critedge, %3
+  %.2.ph = phi i64 [ 0, %3 ], [ %.1.lcssa, %.critedge ]
   br label %11
 
-11:                                               ; preds = %.critedge, %3
-  %.0 = phi i64 [ %.1.lcssa, %.critedge ], [ 0, %3 ]
-  %scevgep = getelementptr nuw i8, ptr %1, i64 %.0
-  %strlen = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %scevgep)
-  %12 = add i64 %strlen, %.0
-  ret i64 %12
+11:                                               ; preds = %.preheader21, %11
+  %.2 = phi i64 [ %14, %11 ], [ %.2.ph, %.preheader21 ]
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 %.2
+  %13 = load i8, ptr %12, align 1, !tbaa !3
+  %.not16 = icmp eq i8 %13, 0
+  %14 = add i64 %.2, 1
+  br i1 %.not16, label %15, label %11, !llvm.loop !21
+
+15:                                               ; preds = %11
+  ret i64 %.2
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @lv_strncpy(ptr noundef returned writeonly captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #5 {
+define noundef ptr @lv_strncpy(ptr noundef returned writeonly captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #3 {
   %.not19 = icmp eq i64 %2, 0
   br i1 %.not19, label %.critedge, label %.lr.ph
 
@@ -507,7 +525,7 @@ define noundef ptr @lv_strncpy(ptr noundef returned writeonly captures(ret: addr
   store i8 %5, ptr %7, align 1, !tbaa !3
   %8 = add nuw i64 %.014, 1
   %exitcond.not = icmp eq i64 %8, %2
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !20
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !22
 
 .critedge:                                        ; preds = %.lr.ph, %3
   %.0.lcssa = phi i64 [ 0, %3 ], [ %.014, %.lr.ph ]
@@ -525,7 +543,7 @@ define noundef ptr @lv_strncpy(ptr noundef returned writeonly captures(ret: addr
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @lv_strcpy(ptr noundef returned writeonly captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #5 {
+define noundef ptr @lv_strcpy(ptr noundef returned writeonly captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
   br label %3
 
 3:                                                ; preds = %3, %2
@@ -536,7 +554,7 @@ define noundef ptr @lv_strcpy(ptr noundef returned writeonly captures(ret: addre
   %6 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   store i8 %5, ptr %.0, align 1, !tbaa !3
   %.not = icmp eq i8 %5, 0
-  br i1 %.not, label %7, label %3, !llvm.loop !21
+  br i1 %.not, label %7, label %3, !llvm.loop !23
 
 7:                                                ; preds = %3
   ret ptr %0
@@ -561,7 +579,7 @@ define range(i32 -255, 256) i32 @lv_strcmp(ptr noundef readonly captures(none) %
   %9 = getelementptr inbounds nuw i8, ptr %.011, i64 1
   %10 = load i8, ptr %8, align 1, !tbaa !3
   %.not = icmp eq i8 %10, 0
-  br i1 %.not, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !22
+  br i1 %.not, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !24
 
 .critedge.loopexit:                               ; preds = %7, %.lr.ph
   %.0.lcssa.ph = phi ptr [ %.011, %.lr.ph ], [ %9, %7 ]
@@ -607,7 +625,7 @@ define range(i32 -255, 256) i32 @lv_strncmp(ptr noundef readonly captures(none) 
   %14 = getelementptr inbounds nuw i8, ptr %.01020, i64 1
   %15 = load i8, ptr %13, align 1, !tbaa !3
   %.not = icmp eq i8 %15, 0
-  br i1 %.not, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !23
+  br i1 %.not, label %.critedge.loopexit, label %.lr.ph, !llvm.loop !25
 
 .critedge.loopexit:                               ; preds = %12, %.lr.ph
   %.010.lcssa.ph = phi ptr [ %.01020, %.lr.ph ], [ %14, %12 ]
@@ -629,69 +647,95 @@ define range(i32 -255, 256) i32 @lv_strncmp(ptr noundef readonly captures(none) 
 }
 
 ; Function Attrs: nounwind uwtable
-define ptr @lv_strdup(ptr noundef %0) local_unnamed_addr #6 {
-  %strlen.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0)
-  %2 = add i64 %strlen.i, 1
-  %3 = tail call ptr @lv_malloc(i64 noundef %2) #11
-  %4 = icmp eq ptr %3, null
-  br i1 %4, label %7, label %5
+define ptr @lv_strdup(ptr noundef %0) local_unnamed_addr #4 {
+  br label %2
 
-5:                                                ; preds = %1
-  %6 = tail call ptr @lv_memcpy(ptr noundef nonnull %3, ptr noundef nonnull %0, i64 noundef %2)
-  br label %7
+2:                                                ; preds = %2, %1
+  %.0.i = phi i64 [ 0, %1 ], [ %5, %2 ]
+  %3 = getelementptr inbounds nuw i8, ptr %0, i64 %.0.i
+  %4 = load i8, ptr %3, align 1, !tbaa !3
+  %.not.i = icmp eq i8 %4, 0
+  %5 = add i64 %.0.i, 1
+  br i1 %.not.i, label %lv_strlen.exit, label %2, !llvm.loop !19
 
-7:                                                ; preds = %1, %5
-  ret ptr %3
+lv_strlen.exit:                                   ; preds = %2
+  %6 = tail call ptr @lv_malloc(i64 noundef %5) #8
+  %7 = icmp eq ptr %6, null
+  br i1 %7, label %10, label %8
+
+8:                                                ; preds = %lv_strlen.exit
+  %9 = tail call ptr @lv_memcpy(ptr noundef nonnull %6, ptr noundef nonnull %0, i64 noundef %5)
+  br label %10
+
+10:                                               ; preds = %lv_strlen.exit, %8
+  ret ptr %6
 }
 
-declare ptr @lv_malloc(i64 noundef) local_unnamed_addr #7
+declare ptr @lv_malloc(i64 noundef) local_unnamed_addr #5
 
-; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @lv_strcat(ptr noundef returned captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #4 {
-  %strlen.i = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %0)
-  %3 = getelementptr inbounds nuw i8, ptr %0, i64 %strlen.i
-  br label %4
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define noundef ptr @lv_strcat(ptr noundef returned captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1) local_unnamed_addr #3 {
+  br label %3
 
-4:                                                ; preds = %4, %2
-  %.04.i = phi ptr [ %1, %2 ], [ %5, %4 ]
-  %.0.i = phi ptr [ %3, %2 ], [ %7, %4 ]
-  %5 = getelementptr inbounds nuw i8, ptr %.04.i, i64 1
-  %6 = load i8, ptr %.04.i, align 1, !tbaa !3
-  %7 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
-  store i8 %6, ptr %.0.i, align 1, !tbaa !3
-  %.not.i = icmp eq i8 %6, 0
-  br i1 %.not.i, label %lv_strcpy.exit, label %4, !llvm.loop !21
+3:                                                ; preds = %3, %2
+  %.0.i = phi i64 [ 0, %2 ], [ %6, %3 ]
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 %.0.i
+  %5 = load i8, ptr %4, align 1, !tbaa !3
+  %.not.i = icmp eq i8 %5, 0
+  %6 = add i64 %.0.i, 1
+  br i1 %.not.i, label %lv_strlen.exit.preheader, label %3, !llvm.loop !19
 
-lv_strcpy.exit:                                   ; preds = %4
+lv_strlen.exit.preheader:                         ; preds = %3
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %.0.i
+  br label %lv_strlen.exit
+
+lv_strlen.exit:                                   ; preds = %lv_strlen.exit.preheader, %lv_strlen.exit
+  %.04.i = phi ptr [ %8, %lv_strlen.exit ], [ %1, %lv_strlen.exit.preheader ]
+  %.0.i4 = phi ptr [ %10, %lv_strlen.exit ], [ %7, %lv_strlen.exit.preheader ]
+  %8 = getelementptr inbounds nuw i8, ptr %.04.i, i64 1
+  %9 = load i8, ptr %.04.i, align 1, !tbaa !3
+  %10 = getelementptr inbounds nuw i8, ptr %.0.i4, i64 1
+  store i8 %9, ptr %.0.i4, align 1, !tbaa !3
+  %.not.i5 = icmp eq i8 %9, 0
+  br i1 %.not.i5, label %lv_strcpy.exit, label %lv_strlen.exit, !llvm.loop !23
+
+lv_strcpy.exit:                                   ; preds = %lv_strlen.exit
   ret ptr %0
 }
 
-; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
-define noundef ptr @lv_strncat(ptr noundef returned captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #4 {
-.preheader:
-  %strlen = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %0)
-  %scevgep = getelementptr i8, ptr %0, i64 %strlen
+; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+define noundef ptr @lv_strncat(ptr noundef returned captures(ret: address, provenance) %0, ptr noundef readonly captures(none) %1, i64 noundef %2) local_unnamed_addr #3 {
+  br label %4
+
+4:                                                ; preds = %4, %3
+  %.0 = phi ptr [ %0, %3 ], [ %6, %4 ]
+  %5 = load i8, ptr %.0, align 1, !tbaa !3
+  %.not = icmp eq i8 %5, 0
+  %6 = getelementptr inbounds nuw i8, ptr %.0, i64 1
+  br i1 %.not, label %.preheader, label %4, !llvm.loop !26
+
+.preheader:                                       ; preds = %4
   %.not1113 = icmp eq i64 %2, 0
   br i1 %.not1113, label %.critedge, label %.lr.ph
 
-.lr.ph:                                           ; preds = %.preheader, %4
-  %.116 = phi ptr [ %7, %4 ], [ %scevgep, %.preheader ]
-  %.0915 = phi i64 [ %5, %4 ], [ %2, %.preheader ]
-  %.01014 = phi ptr [ %6, %4 ], [ %1, %.preheader ]
-  %3 = load i8, ptr %.01014, align 1, !tbaa !3
-  %.not12 = icmp eq i8 %3, 0
-  br i1 %.not12, label %.critedge, label %4
+.lr.ph:                                           ; preds = %.preheader, %8
+  %.116 = phi ptr [ %11, %8 ], [ %.0, %.preheader ]
+  %.0915 = phi i64 [ %9, %8 ], [ %2, %.preheader ]
+  %.01014 = phi ptr [ %10, %8 ], [ %1, %.preheader ]
+  %7 = load i8, ptr %.01014, align 1, !tbaa !3
+  %.not12 = icmp eq i8 %7, 0
+  br i1 %.not12, label %.critedge, label %8
 
-4:                                                ; preds = %.lr.ph
-  %5 = add i64 %.0915, -1
-  %6 = getelementptr inbounds nuw i8, ptr %.01014, i64 1
-  %7 = getelementptr inbounds nuw i8, ptr %.116, i64 1
-  store i8 %3, ptr %.116, align 1, !tbaa !3
-  %.not11 = icmp eq i64 %5, 0
-  br i1 %.not11, label %.critedge, label %.lr.ph, !llvm.loop !24
+8:                                                ; preds = %.lr.ph
+  %9 = add i64 %.0915, -1
+  %10 = getelementptr inbounds nuw i8, ptr %.01014, i64 1
+  %11 = getelementptr inbounds nuw i8, ptr %.116, i64 1
+  store i8 %7, ptr %.116, align 1, !tbaa !3
+  %.not11 = icmp eq i64 %9, 0
+  br i1 %.not11, label %.critedge, label %.lr.ph, !llvm.loop !27
 
-.critedge:                                        ; preds = %.lr.ph, %4, %.preheader
-  %.1.lcssa = phi ptr [ %scevgep, %.preheader ], [ %7, %4 ], [ %.116, %.lr.ph ]
+.critedge:                                        ; preds = %.lr.ph, %8, %.preheader
+  %.1.lcssa = phi ptr [ %.0, %.preheader ], [ %11, %8 ], [ %.116, %.lr.ph ]
   store i8 0, ptr %.1.lcssa, align 1, !tbaa !3
   ret ptr %0
 }
@@ -722,26 +766,20 @@ define noundef ptr @lv_strchr(ptr noundef readonly captures(ret: address, proven
 }
 
 ; Function Attrs: nocallback nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umin.i64(i64, i64) #8
+declare i64 @llvm.umin.i64(i64, i64) #6
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
-
-; Function Attrs: nofree nounwind willreturn memory(argmem: read)
-declare i64 @strlen(ptr captures(none)) local_unnamed_addr #10
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #7
 
 attributes #0 = { nofree norecurse nounwind memory(argmem: readwrite, inaccessiblemem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree norecurse nosync nounwind memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #2 = { nofree norecurse nosync nounwind memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { mustprogress nofree nounwind willreturn memory(argmem: read) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nofree nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { nofree nounwind willreturn memory(argmem: read) }
-attributes #11 = { nounwind }
+attributes #3 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nocallback nofree nosync nounwind speculatable willreturn memory(none) }
+attributes #7 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #8 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2}
 
@@ -770,3 +808,6 @@ attributes #11 = { nounwind }
 !22 = distinct !{!22, !7}
 !23 = distinct !{!23, !7}
 !24 = distinct !{!24, !7}
+!25 = distinct !{!25, !7}
+!26 = distinct !{!26, !7}
+!27 = distinct !{!27, !7}
