@@ -36,7 +36,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__37Arch_DebuggerR
   %6 = alloca i32, align 4
   %7 = alloca i32, align 4
   %8 = alloca i32, align 4
-  %9 = call i32 @pipe(ptr noundef nonnull %3) #17
+  %9 = call i32 @pipe(ptr noundef nonnull %3) #18
   %10 = icmp eq i32 %9, -1
   br i1 %10, label %103, label %11
 
@@ -50,7 +50,7 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__37Arch_DebuggerR
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L14nonLockingForkEv.exit
 
 15:                                               ; preds = %11
-  %16 = call i32 @fork() #17
+  %16 = call i32 @fork() #18
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L14nonLockingForkEv.exit
 
 _ZN32pxrInternal_v0_24__pxrReserved__L14nonLockingForkEv.exit: ; preds = %13, %15
@@ -95,24 +95,24 @@ _ZN32pxrInternal_v0_24__pxrReserved__L14nonLockingForkEv.exit: ; preds = %13, %1
 39:                                               ; preds = %24
   %40 = load i32, ptr %3, align 4
   %41 = call i32 @close(i32 noundef %40)
-  %42 = call ptr @signal(i32 noundef 22, ptr noundef nonnull inttoptr (i64 1 to ptr)) #17
-  %43 = call ptr @signal(i32 noundef 21, ptr noundef nonnull inttoptr (i64 1 to ptr)) #17
-  %44 = call i32 @setsid() #17
+  %42 = call ptr @signal(i32 noundef 22, ptr noundef nonnull inttoptr (i64 1 to ptr)) #18
+  %43 = call ptr @signal(i32 noundef 21, ptr noundef nonnull inttoptr (i64 1 to ptr)) #18
+  %44 = call i32 @setsid() #18
   %45 = icmp eq i32 %44, -1
   br i1 %45, label %46, label %52
 
 46:                                               ; preds = %39
-  %47 = tail call ptr @__errno_location() #18
+  %47 = tail call ptr @__errno_location() #19
   %48 = load i32, ptr %47, align 4
   store i32 %48, ptr %5, align 4
   %49 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %50 = load i32, ptr %49, align 4
   %51 = call i64 @write(i32 noundef %50, ptr noundef nonnull %5, i64 noundef 4)
-  call void @_exit(i32 noundef 1) #19
+  call void @_exit(i32 noundef 1) #20
   unreachable
 
 52:                                               ; preds = %39
-  %53 = call ptr @signal(i32 noundef 1, ptr noundef nonnull inttoptr (i64 1 to ptr)) #17
+  %53 = call ptr @signal(i32 noundef 1, ptr noundef nonnull inttoptr (i64 1 to ptr)) #18
   %54 = load ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__19Arch_nonLockingForkE, align 8
   %.not.i12 = icmp eq ptr %54, null
   br i1 %.not.i12, label %57, label %55
@@ -122,7 +122,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L14nonLockingForkEv.exit: ; preds = %13, %1
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L14nonLockingForkEv.exit14
 
 57:                                               ; preds = %52
-  %58 = call i32 @fork() #17
+  %58 = call i32 @fork() #18
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L14nonLockingForkEv.exit14
 
 _ZN32pxrInternal_v0_24__pxrReserved__L14nonLockingForkEv.exit14: ; preds = %55, %57
@@ -131,13 +131,13 @@ _ZN32pxrInternal_v0_24__pxrReserved__L14nonLockingForkEv.exit14: ; preds = %55, 
   br i1 %59, label %60, label %66
 
 60:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L14nonLockingForkEv.exit14
-  %61 = tail call ptr @__errno_location() #18
+  %61 = tail call ptr @__errno_location() #19
   %62 = load i32, ptr %61, align 4
   store i32 %62, ptr %6, align 4
   %63 = getelementptr inbounds nuw i8, ptr %3, i64 4
   %64 = load i32, ptr %63, align 4
   %65 = call i64 @write(i32 noundef %64, ptr noundef nonnull %6, i64 noundef 4)
-  call void @_exit(i32 noundef 2) #19
+  call void @_exit(i32 noundef 2) #20
   unreachable
 
 66:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L14nonLockingForkEv.exit14
@@ -145,7 +145,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L14nonLockingForkEv.exit14: ; preds = %55, 
   br i1 %67, label %68, label %69
 
 68:                                               ; preds = %66
-  call void @_exit(i32 noundef 0) #19
+  call void @_exit(i32 noundef 0) #20
   unreachable
 
 69:                                               ; preds = %66
@@ -158,11 +158,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__L14nonLockingForkEv.exit14: ; preds = %55, 
 73:                                               ; preds = %69
   %74 = load i32, ptr %70, align 4
   %75 = call i64 @write(i32 noundef %74, ptr noundef nonnull %7, i64 noundef 4)
-  call void @_exit(i32 noundef 3) #19
+  call void @_exit(i32 noundef 3) #20
   unreachable
 
 76:                                               ; preds = %69
-  %77 = call i32 @chdir(ptr noundef nonnull @.str) #17
+  %77 = call i32 @chdir(ptr noundef nonnull @.str) #18
   store i32 %77, ptr %7, align 4
   %78 = icmp eq i32 %77, -1
   br i1 %78, label %79, label %82
@@ -170,11 +170,11 @@ _ZN32pxrInternal_v0_24__pxrReserved__L14nonLockingForkEv.exit14: ; preds = %55, 
 79:                                               ; preds = %76
   %80 = load i32, ptr %70, align 4
   %81 = call i64 @write(i32 noundef %80, ptr noundef nonnull %7, i64 noundef 4)
-  call void @_exit(i32 noundef 4) #19
+  call void @_exit(i32 noundef 4) #20
   unreachable
 
 82:                                               ; preds = %76
-  %83 = call i32 @umask(i32 noundef 0) #17
+  %83 = call i32 @umask(i32 noundef 0) #18
   %84 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull @.str.1, i32 noundef 0)
   %85 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull @.str.1, i32 noundef 1)
   %86 = call i32 (ptr, i32, ...) @open(ptr noundef nonnull @.str.1, i32 noundef 1)
@@ -184,12 +184,12 @@ _ZN32pxrInternal_v0_24__pxrReserved__L14nonLockingForkEv.exit14: ; preds = %55, 
   br i1 %89, label %90, label %95
 
 90:                                               ; preds = %82
-  %91 = tail call ptr @__errno_location() #18
+  %91 = tail call ptr @__errno_location() #19
   %92 = load i32, ptr %91, align 4
   store i32 %92, ptr %8, align 4
   %93 = load i32, ptr %70, align 4
   %94 = call i64 @write(i32 noundef %93, ptr noundef nonnull %8, i64 noundef 4)
-  call void @_exit(i32 noundef 5) #19
+  call void @_exit(i32 noundef 5) #20
   unreachable
 
 95:                                               ; preds = %82
@@ -197,16 +197,16 @@ _ZN32pxrInternal_v0_24__pxrReserved__L14nonLockingForkEv.exit14: ; preds = %55, 
   br i1 %96, label %102, label %97
 
 97:                                               ; preds = %95
-  %98 = tail call ptr @__errno_location() #18
+  %98 = tail call ptr @__errno_location() #19
   %99 = load i32, ptr %98, align 4
   store i32 %99, ptr %7, align 4
   %100 = load i32, ptr %70, align 4
   %101 = call i64 @write(i32 noundef %100, ptr noundef nonnull %7, i64 noundef 4)
-  call void @_exit(i32 noundef 6) #19
+  call void @_exit(i32 noundef 6) #20
   unreachable
 
 102:                                              ; preds = %95
-  call void @_exit(i32 noundef 0) #19
+  call void @_exit(i32 noundef 0) #20
   unreachable
 
 103:                                              ; preds = %2, %._crit_edge, %18
@@ -254,17 +254,17 @@ declare i32 @fcntl(i32 noundef, i32 noundef, ...) local_unnamed_addr #2
 define hidden void @_ZN32pxrInternal_v0_24__pxrReserved__23Arch_InitDebuggerAttachEv() local_unnamed_addr #0 personality ptr @__gxx_personality_v0 {
   %1 = alloca %"class.std::__cxx11::basic_string", align 8
   %2 = alloca %"class.std::__cxx11::basic_string", align 8
-  %3 = tail call ptr @getenv(ptr noundef nonnull @.str.2) #17
+  %3 = tail call ptr @getenv(ptr noundef nonnull @.str.2) #18
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %57, label %4
+  br i1 %.not, label %53, label %4
 
 4:                                                ; preds = %0
   %5 = load i8, ptr %3, align 1
   %.not42 = icmp eq i8 %5, 0
-  br i1 %.not42, label %57, label %6
+  br i1 %.not42, label %53, label %6
 
 6:                                                ; preds = %4
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #18
   br label %7
 
 7:                                                ; preds = %26, %6
@@ -289,7 +289,7 @@ define hidden void @_ZN32pxrInternal_v0_24__pxrReserved__23Arch_InitDebuggerAtta
   br label %26
 
 14:                                               ; preds = %9
-  %15 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #17
+  %15 = call noundef zeroext i1 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5emptyEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #18
   br i1 %15, label %16, label %21
 
 16:                                               ; preds = %14
@@ -297,18 +297,18 @@ define hidden void @_ZN32pxrInternal_v0_24__pxrReserved__23Arch_InitDebuggerAtta
           to label %17 unwind label %19
 
 17:                                               ; preds = %16
-  %18 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) #17
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #17
+  %18 = call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSEOS4_(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull align 8 dereferenceable(32) %2) #18
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %2) #18
   br label %21
 
 19:                                               ; preds = %16
   %20 = landingpad { ptr, i32 }
           cleanup
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #17
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #18
   resume { ptr, i32 } %20
 
 21:                                               ; preds = %17, %14
-  %22 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #17
+  %22 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #18
   %23 = add i64 %22, %.035
   br label %26
 
@@ -323,15 +323,15 @@ define hidden void @_ZN32pxrInternal_v0_24__pxrReserved__23Arch_InitDebuggerAtta
   br label %7, !llvm.loop !6
 
 28:                                               ; preds = %7
-  %29 = call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #20
+  %29 = call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #21
   store ptr %29, ptr @_ZN32pxrInternal_v0_24__pxrReserved__L23_archDebuggerAttachArgsE, align 8
-  %30 = call noalias dereferenceable_or_null(8) ptr @strdup(ptr noundef nonnull @.str.3) #17
+  %30 = call noalias dereferenceable_or_null(8) ptr @strdup(ptr noundef nonnull @.str.3) #18
   store ptr %30, ptr %29, align 8
-  %31 = call noalias dereferenceable_or_null(3) ptr @strdup(ptr noundef nonnull @.str.4) #17
+  %31 = call noalias dereferenceable_or_null(3) ptr @strdup(ptr noundef nonnull @.str.4) #18
   %32 = getelementptr inbounds nuw i8, ptr %29, i64 8
   store ptr %31, ptr %32, align 8
   %33 = add i64 %.035, 1
-  %34 = call noalias ptr @malloc(i64 noundef %33) #20
+  %34 = call noalias ptr @malloc(i64 noundef %33) #21
   %35 = getelementptr inbounds nuw i8, ptr %29, i64 16
   store ptr %34, ptr %35, align 8
   %36 = getelementptr inbounds nuw i8, ptr %29, i64 24
@@ -340,57 +340,52 @@ define hidden void @_ZN32pxrInternal_v0_24__pxrReserved__23Arch_InitDebuggerAtta
 
 37:                                               ; preds = %.loopexit, %28
   %.033 = phi ptr [ %34, %28 ], [ %.2, %.loopexit ]
-  %.0 = phi ptr [ %3, %28 ], [ %55, %.loopexit ]
+  %.0 = phi ptr [ %3, %28 ], [ %51, %.loopexit ]
   %38 = load i8, ptr %.0, align 1
-  switch i8 %38, label %53 [
-    i8 0, label %56
+  switch i8 %38, label %49 [
+    i8 0, label %52
     i8 37, label %39
   ]
 
 39:                                               ; preds = %37
   %40 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   %41 = load i8, ptr %40, align 1
-  switch i8 %41, label %53 [
-    i8 112, label %42
-    i8 101, label %48
+  switch i8 %41, label %49 [
+    i8 112, label %.loopexit.loopexit
+    i8 101, label %44
   ]
 
-42:                                               ; preds = %39
-  %43 = call i32 @getpid() #17
-  %44 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %.033, ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %43) #17
-  br label %45
-
-45:                                               ; preds = %45, %42
-  %.134 = phi ptr [ %.033, %42 ], [ %47, %45 ]
-  %46 = load i8, ptr %.134, align 1
-  %.not45 = icmp eq i8 %46, 0
-  %47 = getelementptr inbounds nuw i8, ptr %.134, i64 1
-  br i1 %.not45, label %.loopexit, label %45, !llvm.loop !7
-
-48:                                               ; preds = %39
-  %49 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #17
-  %50 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.033, ptr noundef nonnull dereferenceable(1) %49) #17
-  %51 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #17
-  %52 = getelementptr inbounds i8, ptr %.033, i64 %51
+.loopexit.loopexit:                               ; preds = %39
+  %42 = call i32 @getpid() #18
+  %43 = call i32 (ptr, ptr, ...) @sprintf(ptr noundef nonnull dereferenceable(1) %.033, ptr noundef nonnull dereferenceable(1) @.str.5, i32 noundef %42) #18
+  %strlen = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.033)
+  %scevgep = getelementptr i8, ptr %.033, i64 %strlen
   br label %.loopexit
 
-53:                                               ; preds = %39, %37
-  %54 = getelementptr inbounds nuw i8, ptr %.033, i64 1
+44:                                               ; preds = %39
+  %45 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #18
+  %46 = call ptr @strcat(ptr noundef nonnull dereferenceable(1) %.033, ptr noundef nonnull dereferenceable(1) %45) #18
+  %47 = call noundef i64 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE4sizeEv(ptr noundef nonnull align 8 dereferenceable(32) %1) #18
+  %48 = getelementptr inbounds i8, ptr %.033, i64 %47
+  br label %.loopexit
+
+49:                                               ; preds = %39, %37
+  %50 = getelementptr inbounds nuw i8, ptr %.033, i64 1
   store i8 %38, ptr %.033, align 1
   br label %.loopexit
 
-.loopexit:                                        ; preds = %45, %53, %48
-  %.2 = phi ptr [ %52, %48 ], [ %54, %53 ], [ %.134, %45 ]
-  %.1 = phi ptr [ %40, %48 ], [ %.0, %53 ], [ %40, %45 ]
-  %55 = getelementptr inbounds nuw i8, ptr %.1, i64 1
-  br label %37, !llvm.loop !8
+.loopexit:                                        ; preds = %.loopexit.loopexit, %49, %44
+  %.2 = phi ptr [ %48, %44 ], [ %50, %49 ], [ %scevgep, %.loopexit.loopexit ]
+  %.1 = phi ptr [ %40, %44 ], [ %.0, %49 ], [ %40, %.loopexit.loopexit ]
+  %51 = getelementptr inbounds nuw i8, ptr %.1, i64 1
+  br label %37, !llvm.loop !7
 
-56:                                               ; preds = %37
+52:                                               ; preds = %37
   store i8 0, ptr %.033, align 1
-  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #17
-  br label %57
+  call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #18
+  br label %53
 
-57:                                               ; preds = %56, %4, %0
+53:                                               ; preds = %52, %4, %0
   ret void
 }
 
@@ -461,7 +456,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L19Arch_DebuggerAttachEv.exit.thread: ; pre
   br i1 %.b1.pr, label %_ZN32pxrInternal_v0_24__pxrReserved__L19Arch_DebuggerAttachEv.exit.thread.thread, label %_ZN32pxrInternal_v0_24__pxrReserved__L19Arch_DebuggerAttachEv.exit.thread.thread4
 
 _ZN32pxrInternal_v0_24__pxrReserved__L19Arch_DebuggerAttachEv.exit.thread.thread: ; preds = %3, %_ZN32pxrInternal_v0_24__pxrReserved__L19Arch_DebuggerAttachEv.exit.thread
-  tail call void asm sideeffect "int $$3", "~{dirflag},~{fpsr},~{flags}"() #17, !srcloc !9
+  tail call void asm sideeffect "int $$3", "~{dirflag},~{fpsr},~{flags}"() #18, !srcloc !8
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L19Arch_DebuggerAttachEv.exit.thread.thread4
 
 _ZN32pxrInternal_v0_24__pxrReserved__L19Arch_DebuggerAttachEv.exit.thread.thread4: ; preds = %2, %_ZN32pxrInternal_v0_24__pxrReserved__L19Arch_DebuggerAttachEv.exit, %_ZN32pxrInternal_v0_24__pxrReserved__L19Arch_DebuggerAttachEv.exit.thread, %_ZN32pxrInternal_v0_24__pxrReserved__L19Arch_DebuggerAttachEv.exit.thread.thread
@@ -480,13 +475,13 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__22ArchDebuggerIs
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.start.p0(i64 8, ptr nonnull %6)
-  call void asm sideeffect "movq %rdi, $0;\0Amovq %rsi, $1;\0Amovq %rdx, $2;\0Amovq %rcx, $3;\0A", "=*m,=*m,=*m,=*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3, ptr nonnull elementtype(i64) %4, ptr nonnull elementtype(i64) %5, ptr nonnull elementtype(i64) %6) #17, !srcloc !10
+  call void asm sideeffect "movq %rdi, $0;\0Amovq %rsi, $1;\0Amovq %rdx, $2;\0Amovq %rcx, $3;\0A", "=*m,=*m,=*m,=*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3, ptr nonnull elementtype(i64) %4, ptr nonnull elementtype(i64) %5, ptr nonnull elementtype(i64) %6) #18, !srcloc !9
   %7 = load atomic i8, ptr @_ZGVZN32pxrInternal_v0_24__pxrReserved__L17Arch_DebuggerInitEvE9initPosix acquire, align 8
   %8 = icmp eq i8 %7, 0
-  br i1 %8, label %9, label %_ZN32pxrInternal_v0_24__pxrReserved__L17Arch_DebuggerInitEv.exit, !prof !11
+  br i1 %8, label %9, label %_ZN32pxrInternal_v0_24__pxrReserved__L17Arch_DebuggerInitEv.exit, !prof !10
 
 9:                                                ; preds = %0
-  %10 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN32pxrInternal_v0_24__pxrReserved__L17Arch_DebuggerInitEvE9initPosix) #17
+  %10 = call i32 @__cxa_guard_acquire(ptr nonnull @_ZGVZN32pxrInternal_v0_24__pxrReserved__L17Arch_DebuggerInitEvE9initPosix) #18
   %.not.i = icmp eq i32 %10, 0
   br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L17Arch_DebuggerInitEv.exit, label %11
 
@@ -495,24 +490,24 @@ define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__22ArchDebuggerIs
           to label %12 unwind label %13
 
 12:                                               ; preds = %11
-  call void @__cxa_guard_release(ptr nonnull @_ZGVZN32pxrInternal_v0_24__pxrReserved__L17Arch_DebuggerInitEvE9initPosix) #17
+  call void @__cxa_guard_release(ptr nonnull @_ZGVZN32pxrInternal_v0_24__pxrReserved__L17Arch_DebuggerInitEvE9initPosix) #18
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L17Arch_DebuggerInitEv.exit
 
 13:                                               ; preds = %11
   %14 = landingpad { ptr, i32 }
           cleanup
-  call void @__cxa_guard_abort(ptr nonnull @_ZGVZN32pxrInternal_v0_24__pxrReserved__L17Arch_DebuggerInitEvE9initPosix) #17
+  call void @__cxa_guard_abort(ptr nonnull @_ZGVZN32pxrInternal_v0_24__pxrReserved__L17Arch_DebuggerInitEvE9initPosix) #18
   resume { ptr, i32 } %14
 
 _ZN32pxrInternal_v0_24__pxrReserved__L17Arch_DebuggerInitEv.exit: ; preds = %0, %9, %12
-  call void asm sideeffect "movq $0, %rdi;\0Amovq $1, %rsi;\0Amovq $2, %rdx;\0Amovq $3, %rcx;\0A", "*m,*m,*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3, ptr nonnull elementtype(i64) %4, ptr nonnull elementtype(i64) %5, ptr nonnull elementtype(i64) %6) #17, !srcloc !12
+  call void asm sideeffect "movq $0, %rdi;\0Amovq $1, %rsi;\0Amovq $2, %rdx;\0Amovq $3, %rcx;\0A", "*m,*m,*m,*m,~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i64) %3, ptr nonnull elementtype(i64) %4, ptr nonnull elementtype(i64) %5, ptr nonnull elementtype(i64) %6) #18, !srcloc !11
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %3)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %5)
   call void @llvm.lifetime.end.p0(i64 8, ptr nonnull %6)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %1)
   call void @llvm.lifetime.start.p0(i64 4, ptr nonnull %2)
-  %15 = call i32 @getpid() #17
+  %15 = call i32 @getpid() #18
   %16 = load ptr, ptr @_ZN32pxrInternal_v0_24__pxrReserved__19Arch_nonLockingForkE, align 8
   %.not.i.i = icmp eq ptr %16, null
   br i1 %.not.i.i, label %19, label %17
@@ -522,7 +517,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L17Arch_DebuggerInitEv.exit: ; preds = %0, 
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L14nonLockingForkEv.exit.i
 
 19:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__L17Arch_DebuggerInitEv.exit
-  %20 = call i32 @fork() #17
+  %20 = call i32 @fork() #18
   br label %_ZN32pxrInternal_v0_24__pxrReserved__L14nonLockingForkEv.exit.i
 
 _ZN32pxrInternal_v0_24__pxrReserved__L14nonLockingForkEv.exit.i: ; preds = %19, %17
@@ -535,16 +530,16 @@ _ZN32pxrInternal_v0_24__pxrReserved__L14nonLockingForkEv.exit.i: ; preds = %19, 
   br i1 %23, label %24, label %.preheader9.i
 
 24:                                               ; preds = %22
-  %25 = call i64 (i32, ...) @ptrace(i32 noundef 16, i32 noundef %15, i64 noundef 0, i64 noundef 0) #17
+  %25 = call i64 (i32, ...) @ptrace(i32 noundef 16, i32 noundef %15, i64 noundef 0, i64 noundef 0) #18
   %26 = icmp eq i64 %25, -1
   br i1 %26, label %27, label %.preheader.i
 
 27:                                               ; preds = %24
-  %28 = tail call ptr @__errno_location() #18
+  %28 = tail call ptr @__errno_location() #19
   %29 = load i32, ptr %28, align 4
   %30 = icmp eq i32 %29, 1
   %31 = zext i1 %30 to i32
-  call void @_exit(i32 noundef %31) #19
+  call void @_exit(i32 noundef %31) #20
   unreachable
 
 .preheader.i:                                     ; preds = %24, %34
@@ -553,14 +548,14 @@ _ZN32pxrInternal_v0_24__pxrReserved__L14nonLockingForkEv.exit.i: ; preds = %19, 
   br i1 %33, label %34, label %.critedge.i
 
 34:                                               ; preds = %.preheader.i
-  %35 = tail call ptr @__errno_location() #18
+  %35 = tail call ptr @__errno_location() #19
   %36 = load i32, ptr %35, align 4
   %37 = icmp eq i32 %36, 4
-  br i1 %37, label %.preheader.i, label %.critedge.i, !llvm.loop !13
+  br i1 %37, label %.preheader.i, label %.critedge.i, !llvm.loop !12
 
 .critedge.i:                                      ; preds = %34, %.preheader.i
-  %38 = call i64 (i32, ...) @ptrace(i32 noundef 17, i32 noundef %15, i32 noundef 0, i32 noundef 18) #17
-  call void @_exit(i32 noundef 0) #19
+  %38 = call i64 (i32, ...) @ptrace(i32 noundef 17, i32 noundef %15, i32 noundef 0, i32 noundef 18) #18
+  call void @_exit(i32 noundef 0) #20
   unreachable
 
 .preheader9.i:                                    ; preds = %22, %41
@@ -569,10 +564,10 @@ _ZN32pxrInternal_v0_24__pxrReserved__L14nonLockingForkEv.exit.i: ; preds = %19, 
   br i1 %40, label %41, label %.critedge2.i
 
 41:                                               ; preds = %.preheader9.i
-  %42 = tail call ptr @__errno_location() #18
+  %42 = tail call ptr @__errno_location() #19
   %43 = load i32, ptr %42, align 4
   %44 = icmp eq i32 %43, 4
-  br i1 %44, label %.preheader9.i, label %.critedge2.i, !llvm.loop !14
+  br i1 %44, label %.preheader9.i, label %.critedge2.i, !llvm.loop !13
 
 .critedge2.i:                                     ; preds = %41, %.preheader9.i
   %45 = load i32, ptr %2, align 4
@@ -601,7 +596,7 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__16ArchDebuggerWaitEb(i1 nounde
 
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__18ArchDebuggerAttachEv() local_unnamed_addr #0 {
-  %1 = tail call ptr @getenv(ptr noundef nonnull @.str.6) #17
+  %1 = tail call ptr @getenv(ptr noundef nonnull @.str.6) #18
   %.not = icmp eq ptr %1, null
   br i1 %.not, label %2, label %_ZN32pxrInternal_v0_24__pxrReserved__L19Arch_DebuggerAttachEv.exit
 
@@ -634,7 +629,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__L19Arch_DebuggerAttachEv.exit: ; preds = %9
 ; Function Attrs: mustprogress noreturn uwtable
 define void @_ZN32pxrInternal_v0_24__pxrReserved__9ArchAbortEb(i1 noundef zeroext %0) local_unnamed_addr #12 {
   %2 = alloca %struct.sigaction, align 8
-  %3 = tail call ptr @getenv(ptr noundef nonnull @.str.6) #17
+  %3 = tail call ptr @getenv(ptr noundef nonnull @.str.6) #18
   %.not = icmp eq ptr %3, null
   br i1 %.not, label %6, label %4
 
@@ -650,16 +645,16 @@ define void @_ZN32pxrInternal_v0_24__pxrReserved__9ArchAbortEb(i1 noundef zeroex
   %8 = getelementptr inbounds nuw i8, ptr %2, i64 136
   store i32 0, ptr %8, align 8
   %9 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %10 = call i32 @sigemptyset(ptr noundef nonnull %9) #17
-  %11 = call i32 @sigaction(i32 noundef 6, ptr noundef nonnull %2, ptr noundef null) #17
+  %10 = call i32 @sigemptyset(ptr noundef nonnull %9) #18
+  %11 = call i32 @sigaction(i32 noundef 6, ptr noundef nonnull %2, ptr noundef null) #18
   br label %12
 
 12:                                               ; preds = %7, %6
-  call void @abort() #21
+  call void @abort() #22
   unreachable
 
 13:                                               ; preds = %4
-  tail call void @_exit(i32 noundef 134) #19
+  tail call void @_exit(i32 noundef 134) #20
   unreachable
 }
 
@@ -679,7 +674,7 @@ declare i32 @fork() local_unnamed_addr #9
 define internal noundef zeroext i1 @_ZN32pxrInternal_v0_24__pxrReserved__L28Arch_DebuggerAttachExecPosixEPv(ptr noundef %0) #0 {
   %2 = load ptr, ptr %0, align 8
   %3 = tail call noundef ptr @_ZN32pxrInternal_v0_24__pxrReserved__11ArchEnvironEv()
-  %4 = tail call i32 @execve(ptr noundef %2, ptr noundef nonnull %0, ptr noundef %3) #17
+  %4 = tail call i32 @execve(ptr noundef %2, ptr noundef nonnull %0, ptr noundef %3) #18
   ret i1 false
 }
 
@@ -698,11 +693,11 @@ define internal fastcc void @_ZN32pxrInternal_v0_24__pxrReserved__12_GLOBAL__N_1
   %1 = alloca %struct.sigaction, align 8
   call void @llvm.lifetime.start.p0(i64 152, ptr nonnull %1)
   %2 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %3 = call i32 @sigemptyset(ptr noundef nonnull %2) #17
+  %3 = call i32 @sigemptyset(ptr noundef nonnull %2) #18
   %4 = getelementptr inbounds nuw i8, ptr %1, i64 136
   store i32 1073741824, ptr %4, align 8
   store ptr @_ZN32pxrInternal_v0_24__pxrReserved__L24Arch_DebuggerTrapHandlerEi, ptr %1, align 8
-  %5 = call i32 @sigaction(i32 noundef 5, ptr noundef nonnull %1, ptr noundef null) #17
+  %5 = call i32 @sigaction(i32 noundef 5, ptr noundef nonnull %1, ptr noundef null) #18
   %.not.i = icmp eq i32 %5, 0
   br i1 %.not.i, label %_ZN32pxrInternal_v0_24__pxrReserved__L22Arch_DebuggerInitPosixEv.exit, label %6
 
@@ -729,7 +724,7 @@ define internal void @_ZN32pxrInternal_v0_24__pxrReserved__L24Arch_DebuggerTrapH
   br i1 %3, label %4, label %_ZNSt6atomicIbE23compare_exchange_strongERbbSt12memory_order.exit
 
 4:                                                ; preds = %1
-  %5 = tail call i32 @raise(i32 noundef 19) #17
+  %5 = tail call i32 @raise(i32 noundef 19) #18
   br label %_ZNSt6atomicIbE23compare_exchange_strongERbbSt12memory_order.exit
 
 _ZNSt6atomicIbE23compare_exchange_strongERbbSt12memory_order.exit: ; preds = %1, %4
@@ -746,11 +741,14 @@ declare i64 @ptrace(i32 noundef, ...) local_unnamed_addr #1
 
 declare i32 @waitpid(i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #2
 
-; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #16
+; Function Attrs: nofree nounwind willreturn memory(argmem: read)
+declare i64 @strlen(ptr captures(none)) local_unnamed_addr #16
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #16
+declare void @llvm.lifetime.start.p0(i64 immarg, ptr captures(none)) #17
+
+; Function Attrs: nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
+declare void @llvm.lifetime.end.p0(i64 immarg, ptr captures(none)) #17
 
 attributes #0 = { mustprogress uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -768,12 +766,13 @@ attributes #12 = { mustprogress noreturn uwtable "frame-pointer"="all" "min-lega
 attributes #13 = { cold nofree noreturn nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #14 = { nofree nounwind }
 attributes #15 = { mustprogress nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #16 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #17 = { nounwind }
-attributes #18 = { nounwind willreturn memory(none) }
-attributes #19 = { noreturn }
-attributes #20 = { nounwind allocsize(0) }
-attributes #21 = { noreturn nounwind }
+attributes #16 = { nofree nounwind willreturn memory(argmem: read) }
+attributes #17 = { nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #18 = { nounwind }
+attributes #19 = { nounwind willreturn memory(none) }
+attributes #20 = { noreturn }
+attributes #21 = { nounwind allocsize(0) }
+attributes #22 = { noreturn nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3}
 
@@ -785,10 +784,9 @@ attributes #21 = { noreturn nounwind }
 !5 = !{!"llvm.loop.mustprogress"}
 !6 = distinct !{!6, !5}
 !7 = distinct !{!7, !5}
-!8 = distinct !{!8, !5}
-!9 = !{i64 17349}
-!10 = !{i64 3198, i64 3231, i64 3263, i64 3295}
-!11 = !{!"branch_weights", i32 1, i32 1048575}
-!12 = !{i64 3632, i64 3665, i64 3697, i64 3729}
+!8 = !{i64 17349}
+!9 = !{i64 3198, i64 3231, i64 3263, i64 3295}
+!10 = !{!"branch_weights", i32 1, i32 1048575}
+!11 = !{i64 3632, i64 3665, i64 3697, i64 3729}
+!12 = distinct !{!12, !5}
 !13 = distinct !{!13, !5}
-!14 = distinct !{!14, !5}

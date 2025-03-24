@@ -121,7 +121,7 @@ define hidden noundef i64 @writeFully(i32 noundef %0, ptr noundef readonly captu
 ; Function Attrs: nofree
 declare noundef i64 @write(i32 noundef, ptr noundef readonly captures(none), i64 noundef) local_unnamed_addr #4
 
-; Function Attrs: nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
+; Function Attrs: nofree nounwind memory(argmem: readwrite) uwtable
 define hidden void @initVectorFromBlock(ptr noundef writeonly captures(none) %0, ptr noundef %1, i32 noundef %2) local_unnamed_addr #6 {
   %4 = icmp sgt i32 %2, 0
   br i1 %4, label %.lr.ph.preheader, label %._crit_edge
@@ -130,29 +130,22 @@ define hidden void @initVectorFromBlock(ptr noundef writeonly captures(none) %0,
   %wide.trip.count = zext nneg i32 %2 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %9
-  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %9 ]
-  %.012 = phi ptr [ %1, %.lr.ph.preheader ], [ %7, %9 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
+  %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %.lr.ph ]
+  %.012 = phi ptr [ %1, %.lr.ph.preheader ], [ %scevgep13, %.lr.ph ]
   %5 = getelementptr inbounds nuw ptr, ptr %0, i64 %indvars.iv
   store ptr %.012, ptr %5, align 8
-  br label %6
-
-6:                                                ; preds = %6, %.lr.ph
-  %.1 = phi ptr [ %.012, %.lr.ph ], [ %7, %6 ]
-  %7 = getelementptr inbounds nuw i8, ptr %.1, i64 1
-  %8 = load i8, ptr %.1, align 1
-  %.not = icmp eq i8 %8, 0
-  br i1 %.not, label %9, label %6, !llvm.loop !6
-
-9:                                                ; preds = %6
+  %strlen = tail call i64 @strlen(ptr nonnull dereferenceable(1) %.012)
+  %scevgep = getelementptr i8, ptr %.012, i64 1
+  %scevgep13 = getelementptr i8, ptr %scevgep, i64 %strlen
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !8
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !6
 
-._crit_edge:                                      ; preds = %9, %3
-  %10 = sext i32 %2 to i64
-  %11 = getelementptr inbounds ptr, ptr %0, i64 %10
-  store ptr null, ptr %11, align 8
+._crit_edge:                                      ; preds = %.lr.ph, %3
+  %6 = sext i32 %2 to i64
+  %7 = getelementptr inbounds ptr, ptr %0, i64 %6
+  store ptr null, ptr %7, align 8
   ret void
 }
 
@@ -366,7 +359,7 @@ closeSafely.exit50.thread:                        ; preds = %76, %closeSafely.ex
 104:                                              ; preds = %.lr.ph, %101
   %105 = add nuw nsw i32 %.054, 1
   %exitcond.not = icmp eq i32 %105, %97
-  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !9
+  br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !8
 
 .loopexit:                                        ; preds = %104, %95, %92
   %106 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -420,7 +413,7 @@ define internal fastcc range(i32 -1, 1) i32 @moveDescriptor(i32 noundef %0, i32 
   %6 = tail call ptr @__errno_location() #15
   %7 = load i32, ptr %6, align 4
   %8 = icmp eq i32 %7, 4
-  br i1 %8, label %.preheader, label %restartableDup2.exit.thread, !llvm.loop !10
+  br i1 %8, label %.preheader, label %restartableDup2.exit.thread, !llvm.loop !9
 
 restartableDup2.exit:                             ; preds = %.preheader
   %9 = tail call i32 @close(i32 noundef %0) #14
@@ -448,7 +441,7 @@ define internal fastcc i32 @restartableDup2(i32 noundef %0, i32 noundef range(i3
   %7 = tail call ptr @__errno_location() #15
   %8 = load i32, ptr %7, align 4
   %9 = icmp eq i32 %8, 4
-  br i1 %9, label %3, label %.critedge, !llvm.loop !10
+  br i1 %9, label %3, label %.critedge, !llvm.loop !9
 
 .critedge:                                        ; preds = %3, %6
   ret i32 %4
@@ -488,7 +481,7 @@ define internal fastcc range(i32 0, 2) i32 @closeDescriptors() unnamed_addr #0 {
 17:                                               ; preds = %15, %11, %.lr.ph
   %18 = tail call ptr @readdir64(ptr noundef nonnull %3) #14
   %.not = icmp eq ptr %18, null
-  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !11
+  br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !10
 
 ._crit_edge:                                      ; preds = %17, %.preheader
   %19 = tail call i32 @closedir(ptr noundef nonnull %3)
@@ -556,7 +549,7 @@ define internal fastcc void @JDK_execvpe(i32 noundef %0, ptr noundef %1, ptr nou
   %27 = getelementptr inbounds nuw i8, ptr %.021.i.i, i64 8
   %.pr.i.i = load ptr, ptr %27, align 8
   %.not.i.i = icmp eq ptr %.pr.i.i, null
-  br i1 %.not.i.i, label %execve_as_traditional_shell_script.exit.i, label %.lr.ph.i.i, !llvm.loop !12
+  br i1 %.not.i.i, label %execve_as_traditional_shell_script.exit.i, label %.lr.ph.i.i, !llvm.loop !11
 
 execve_as_traditional_shell_script.exit.i:        ; preds = %.lr.ph.i.i, %25
   %.0.lcssa.i.i = phi ptr [ %2, %25 ], [ %27, %.lr.ph.i.i ]
@@ -650,7 +643,7 @@ execve_as_traditional_shell_script.exit.i:        ; preds = %.lr.ph.i.i, %25
   %70 = getelementptr inbounds nuw i8, ptr %.021.i.i43.us, i64 8
   %.pr.i.i44.us = load ptr, ptr %70, align 8
   %.not.i.i45.us = icmp eq ptr %.pr.i.i44.us, null
-  br i1 %.not.i.i45.us, label %execve_as_traditional_shell_script.exit.i46.us.loopexit, label %.lr.ph.i.i42.us, !llvm.loop !12
+  br i1 %.not.i.i45.us, label %execve_as_traditional_shell_script.exit.i46.us.loopexit, label %.lr.ph.i.i42.us, !llvm.loop !11
 
 execve_as_traditional_shell_script.exit.i46.us.loopexit: ; preds = %.lr.ph.i.i42.us
   %.pre58 = ptrtoint ptr %70 to i64
@@ -693,7 +686,7 @@ execve_with_shell_fallback.exit48.us:             ; preds = %execve_as_tradition
   %78 = getelementptr inbounds nuw i8, ptr %.03152.us, i64 8
   %79 = load ptr, ptr %78, align 8
   %.not35.us = icmp eq ptr %79, null
-  br i1 %.not35.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !13
+  br i1 %.not35.us, label %._crit_edge, label %.lr.ph.split.us, !llvm.loop !12
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %103
   %80 = phi ptr [ %105, %103 ], [ %40, %.lr.ph ]
@@ -760,7 +753,7 @@ execve_with_shell_fallback.exit48:                ; preds = %92, %87
   %104 = getelementptr inbounds nuw i8, ptr %.03152, i64 8
   %105 = load ptr, ptr %104, align 8
   %.not35 = icmp eq ptr %105, null
-  br i1 %.not35, label %._crit_edge, label %.lr.ph.split, !llvm.loop !13
+  br i1 %.not35, label %._crit_edge, label %.lr.ph.split, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %103, %77
   %.030.lcssa = phi i32 [ %.1.us, %77 ], [ %.1, %103 ]
@@ -817,7 +810,7 @@ attributes #2 = { mustprogress nofree norecurse nosync nounwind willreturn memor
 attributes #3 = { nofree nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #4 = { nofree "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #5 = { mustprogress nofree nosync nounwind willreturn memory(none) "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree nounwind memory(argmem: readwrite) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { noreturn nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { nounwind "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #9 = { noreturn "frame-pointer"="all" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
@@ -845,4 +838,3 @@ attributes #17 = { nounwind willreturn memory(read) }
 !10 = distinct !{!10, !7}
 !11 = distinct !{!11, !7}
 !12 = distinct !{!12, !7}
-!13 = distinct !{!13, !7}

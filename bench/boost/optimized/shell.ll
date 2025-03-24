@@ -19617,65 +19617,52 @@ define internal void @_GLOBAL__sub_I_shell.cpp() #31 section ".text.startup" per
   %12 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr getelementptr inbounds nuw (i8, ptr @.str, i64 17), ptr %12, align 8, !tbaa !9
   store ptr @.str.10, ptr %3, align 8, !tbaa !4
-  br label %13
+  %13 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr getelementptr inbounds nuw (i8, ptr @.str.10, i64 119), ptr %13, align 8, !tbaa !9
+  %14 = invoke noundef ptr @_ZN5boost9unit_test14make_test_caseERKNS_8functionIFvvEEENS0_13basic_cstringIKcEES8_m(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i64 noundef 27)
+          to label %15 unwind label %28
 
-13:                                               ; preds = %13, %0
-  %.0.i.i1.i = phi ptr [ @.str.10, %0 ], [ %16, %13 ]
-  %14 = load i8, ptr %.0.i.i1.i, align 1, !tbaa !15
-  %15 = icmp eq i8 %14, 0
-  %16 = getelementptr inbounds nuw i8, ptr %.0.i.i1.i, i64 1
-  br i1 %15, label %17, label %13, !llvm.loop !608
+15:                                               ; preds = %0
+  %16 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN5boost9unit_test9decorator11collector_t8instanceEv()
+          to label %17 unwind label %28
 
-17:                                               ; preds = %13
-  %18 = ptrtoint ptr %.0.i.i1.i to i64
-  %19 = sub i64 %18, ptrtoint (ptr @.str.10 to i64)
-  %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %21 = getelementptr inbounds nuw i8, ptr @.str.10, i64 %19
-  store ptr %21, ptr %20, align 8, !tbaa !9
-  %22 = invoke noundef ptr @_ZN5boost9unit_test14make_test_caseERKNS_8functionIFvvEEENS0_13basic_cstringIKcEES8_m(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull %2, ptr noundef nonnull %3, i64 noundef 27)
-          to label %23 unwind label %36
+17:                                               ; preds = %15
+  invoke void @_ZN5boost9unit_test9ut_detail24auto_test_unit_registrarC1EPNS0_9test_caseERNS0_9decorator11collector_tEm(ptr noundef nonnull align 1 dereferenceable(1) @_ZL30test_shell_parser_registrar270, ptr noundef %14, ptr noundef nonnull align 8 dereferenceable(24) %16, i64 noundef 0)
+          to label %18 unwind label %28
 
-23:                                               ; preds = %17
-  %24 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZN5boost9unit_test9decorator11collector_t8instanceEv()
-          to label %25 unwind label %36
-
-25:                                               ; preds = %23
-  invoke void @_ZN5boost9unit_test9ut_detail24auto_test_unit_registrarC1EPNS0_9test_caseERNS0_9decorator11collector_tEm(ptr noundef nonnull align 1 dereferenceable(1) @_ZL30test_shell_parser_registrar270, ptr noundef %22, ptr noundef nonnull align 8 dereferenceable(24) %24, i64 noundef 0)
-          to label %26 unwind label %36
-
-26:                                               ; preds = %25
-  %27 = load ptr, ptr %1, align 8, !tbaa !27
-  %.not.i.i.i = icmp ne ptr %27, null
-  %28 = ptrtoint ptr %27 to i64
-  %29 = and i64 %28, 1
-  %.not1.i.i.i = icmp eq i64 %29, 0
+18:                                               ; preds = %17
+  %19 = load ptr, ptr %1, align 8, !tbaa !27
+  %.not.i.i.i = icmp ne ptr %19, null
+  %20 = ptrtoint ptr %19 to i64
+  %21 = and i64 %20, 1
+  %.not1.i.i.i = icmp eq i64 %21, 0
   %or.cond.i = and i1 %.not.i.i.i, %.not1.i.i.i
-  br i1 %or.cond.i, label %30, label %__cxx_global_var_init.9.exit
+  br i1 %or.cond.i, label %22, label %__cxx_global_var_init.9.exit
 
-30:                                               ; preds = %26
-  %31 = load ptr, ptr %27, align 8, !tbaa !29
-  %.not.i.i.i.i = icmp eq ptr %31, null
-  br i1 %.not.i.i.i.i, label %__cxx_global_var_init.9.exit, label %32
+22:                                               ; preds = %18
+  %23 = load ptr, ptr %19, align 8, !tbaa !29
+  %.not.i.i.i.i = icmp eq ptr %23, null
+  br i1 %.not.i.i.i.i, label %__cxx_global_var_init.9.exit, label %24
 
-32:                                               ; preds = %30
-  invoke void %31(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %9, i32 noundef 2)
-          to label %__cxx_global_var_init.9.exit unwind label %33
+24:                                               ; preds = %22
+  invoke void %23(ptr noundef nonnull align 8 dereferenceable(24) %9, ptr noundef nonnull align 8 dereferenceable(24) %9, i32 noundef 2)
+          to label %__cxx_global_var_init.9.exit unwind label %25
 
-33:                                               ; preds = %32
-  %34 = landingpad { ptr, i32 }
+25:                                               ; preds = %24
+  %26 = landingpad { ptr, i32 }
           catch ptr null
-  %35 = extractvalue { ptr, i32 } %34, 0
-  call void @__clang_call_terminate(ptr %35) #36
+  %27 = extractvalue { ptr, i32 } %26, 0
+  call void @__clang_call_terminate(ptr %27) #36
   unreachable
 
-36:                                               ; preds = %25, %23, %17
-  %37 = landingpad { ptr, i32 }
+28:                                               ; preds = %17, %15, %0
+  %29 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN5boost10function_nIvJEED2Ev(ptr noundef nonnull align 8 dereferenceable(32) %1) #35
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #35
-  resume { ptr, i32 } %37
+  resume { ptr, i32 } %29
 
-__cxx_global_var_init.9.exit:                     ; preds = %26, %30, %32
+__cxx_global_var_init.9.exit:                     ; preds = %18, %22, %24
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %1) #35
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %2)
   call void @llvm.lifetime.end.p0(i64 16, ptr nonnull %3)
@@ -20354,4 +20341,3 @@ attributes #42 = { nounwind allocsize(1) }
 !605 = !{!606, !6, i64 0}
 !606 = !{!"_ZTSN5boost10test_tools9tt_detail14print_helper_tIiEE", !6, i64 0}
 !607 = !{!21, !13, i64 8}
-!608 = distinct !{!608, !48}
