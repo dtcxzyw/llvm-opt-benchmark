@@ -120,7 +120,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z16fast_rv32i_sm4edP11pr
   %36 = or disjoint i32 %34, %35
   %37 = shl nuw nsw i32 %28, 10
   %38 = and i32 %37, 196608
-  %39 = xor i32 %36, %38
+  %39 = or disjoint i32 %36, %38
   %40 = tail call i32 @llvm.fshl.i32(i32 %39, i32 %39, i32 %22)
   %41 = lshr i64 %1, 15
   %42 = and i64 %41, 31
@@ -212,7 +212,7 @@ define noundef i64 @_Z16fast_rv64i_sm4edP11processor_t6insn_tm(ptr noundef captu
   %36 = or disjoint i32 %34, %35
   %37 = shl nuw nsw i32 %28, 10
   %38 = and i32 %37, 196608
-  %39 = xor i32 %36, %38
+  %39 = or disjoint i32 %36, %38
   %40 = tail call i32 @llvm.fshl.i32(i32 %39, i32 %39, i32 %22)
   %41 = lshr i64 %1, 15
   %42 = and i64 %41, 31
@@ -276,7 +276,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18logged_rv32i_sm4edP11
   %34 = or disjoint i32 %32, %33
   %35 = shl nuw nsw i32 %26, 10
   %36 = and i32 %35, 196608
-  %37 = xor i32 %34, %36
+  %37 = or disjoint i32 %34, %36
   %38 = tail call i32 @llvm.fshl.i32(i32 %37, i32 %37, i32 %20)
   %39 = lshr i64 %1, 15
   %40 = and i64 %39, 31
@@ -443,7 +443,7 @@ define noundef i64 @_Z18logged_rv64i_sm4edP11processor_t6insn_tm(ptr noundef %0,
   %34 = or disjoint i32 %32, %33
   %35 = shl nuw nsw i32 %26, 10
   %36 = and i32 %35, 196608
-  %37 = xor i32 %34, %36
+  %37 = or disjoint i32 %34, %36
   %38 = tail call i32 @llvm.fshl.i32(i32 %37, i32 %37, i32 %20)
   %39 = lshr i64 %1, 15
   %40 = and i64 %39, 31
@@ -577,7 +577,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z16fast_rv32e_sm4edP11pr
   %59 = or disjoint i32 %57, %58
   %60 = shl nuw nsw i32 %51, 10
   %61 = and i32 %60, 196608
-  %62 = xor i32 %59, %61
+  %62 = or disjoint i32 %59, %61
   %63 = tail call i32 @llvm.fshl.i32(i32 %62, i32 %62, i32 %26)
   %64 = getelementptr inbounds nuw [32 x i64], ptr %22, i64 0, i64 %33
   %65 = load i64, ptr %64, align 8, !tbaa !3
@@ -696,7 +696,7 @@ define noundef i64 @_Z16fast_rv64e_sm4edP11processor_t6insn_tm(ptr noundef captu
   %59 = or disjoint i32 %57, %58
   %60 = shl nuw nsw i32 %51, 10
   %61 = and i32 %60, 196608
-  %62 = xor i32 %59, %61
+  %62 = or disjoint i32 %59, %61
   %63 = tail call i32 @llvm.fshl.i32(i32 %62, i32 %62, i32 %26)
   %64 = getelementptr inbounds nuw [32 x i64], ptr %22, i64 0, i64 %33
   %65 = load i64, ptr %64, align 8, !tbaa !3
@@ -812,7 +812,7 @@ define noundef range(i64 -2147483648, 2147483648) i64 @_Z18logged_rv32e_sm4edP11
   %61 = or disjoint i32 %59, %60
   %62 = shl nuw nsw i32 %53, 10
   %63 = and i32 %62, 196608
-  %64 = xor i32 %61, %63
+  %64 = or disjoint i32 %61, %63
   %65 = tail call i32 @llvm.fshl.i32(i32 %64, i32 %64, i32 %27)
   %66 = trunc i64 %52 to i32
   %67 = xor i32 %65, %66
@@ -941,7 +941,7 @@ define noundef i64 @_Z18logged_rv64e_sm4edP11processor_t6insn_tm(ptr noundef %0,
   %61 = or disjoint i32 %59, %60
   %62 = shl nuw nsw i32 %53, 10
   %63 = and i32 %62, 196608
-  %64 = xor i32 %61, %63
+  %64 = or disjoint i32 %61, %63
   %65 = tail call i32 @llvm.fshl.i32(i32 %64, i32 %64, i32 %27)
   %66 = trunc i64 %52 to i32
   %67 = xor i32 %65, %66

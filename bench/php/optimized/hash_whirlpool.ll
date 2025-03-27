@@ -222,7 +222,7 @@ define internal fastcc void @WhirlpoolTransform(ptr noundef captures(none) %0) u
   %35 = load i8, ptr %34, align 1, !tbaa !11
   %36 = zext i8 %35 to i64
   %37 = shl nuw nsw i64 %36, 8
-  %38 = xor i64 %33, %37
+  %38 = or disjoint i64 %33, %37
   %39 = getelementptr inbounds nuw i8, ptr %.0107, i64 7
   %40 = load i8, ptr %39, align 1, !tbaa !11
   %41 = zext i8 %40 to i64
