@@ -37427,13 +37427,13 @@ define internal fastcc noundef zeroext i1 @"_ZN73_$LT$cranelift_codegen..ir..pcc
     i8 0, label %7
     i8 1, label %25
     i8 2, label %62
-    i8 3, label %86
-    i8 4, label %130
-    i8 5, label %136
+    i8 3, label %85
+    i8 4, label %128
+    i8 5, label %134
   ]
 
-"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit.thread": ; preds = %158, %142, %108, %92, %47, %31, %165, %54, %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit43", %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit43.thread", %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit41", %136, %124, %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit39", %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit37", %86, %62, %68, %74, %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit35", %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit35.thread", %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit", %25, %7, %13, %6, %2, %80, %19, %130
-  %.0 = phi i1 [ %135, %130 ], [ %85, %80 ], [ %24, %19 ], [ false, %2 ], [ true, %6 ], [ false, %13 ], [ false, %7 ], [ %61, %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit35.thread" ], [ false, %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit" ], [ false, %25 ], [ false, %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit35" ], [ false, %74 ], [ false, %68 ], [ false, %62 ], [ %129, %124 ], [ false, %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit39" ], [ false, %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit37" ], [ false, %86 ], [ %172, %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit43.thread" ], [ false, %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit41" ], [ false, %136 ], [ false, %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit43" ], [ false, %54 ], [ false, %165 ], [ false, %31 ], [ false, %47 ], [ false, %92 ], [ false, %108 ], [ false, %142 ], [ false, %158 ]
+"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit.thread": ; preds = %158, %142, %108, %91, %47, %31, %163, %54, %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit44", %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit44.thread", %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit42", %134, %123, %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit40", %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit37", %85, %62, %68, %74, %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit36", %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit36.thread", %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit", %25, %7, %13, %6, %2, %80, %19, %128
+  %.0 = phi i1 [ %135, %128 ], [ %.not11, %80 ], [ %24, %19 ], [ false, %2 ], [ true, %6 ], [ false, %13 ], [ false, %7 ], [ %61, %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit36.thread" ], [ false, %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit" ], [ false, %25 ], [ false, %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit36" ], [ false, %74 ], [ false, %68 ], [ false, %62 ], [ %.not, %123 ], [ false, %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit40" ], [ false, %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit37" ], [ false, %86 ], [ %172, %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit44.thread" ], [ false, %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit42" ], [ false, %134 ], [ false, %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit44" ], [ false, %54 ], [ false, %163 ], [ false, %31 ], [ false, %47 ], [ false, %91 ], [ false, %108 ], [ false, %142 ], [ false, %158 ]
   ret i1 %.0
 
 7:                                                ; preds = %6
@@ -37473,11 +37473,11 @@ define internal fastcc noundef zeroext i1 @"_ZN73_$LT$cranelift_codegen..ir..pcc
   %33 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.val = load i32, ptr %32, align 8, !range !3815, !noundef !4
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %.val11 = load i32, ptr %34, align 4
-  %.val12 = load i32, ptr %33, align 8, !range !3815, !noundef !4
+  %.val12 = load i32, ptr %34, align 4
+  %.val13 = load i32, ptr %33, align 8, !range !3815, !noundef !4
   %35 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %.val13 = load i32, ptr %35, align 4
-  %36 = icmp eq i32 %.val, %.val12
+  %.val14 = load i32, ptr %35, align 4
+  %36 = icmp eq i32 %.val, %.val13
   br i1 %36, label %37, label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit.thread"
 
 37:                                               ; preds = %31
@@ -37487,11 +37487,11 @@ define internal fastcc noundef zeroext i1 @"_ZN73_$LT$cranelift_codegen..ir..pcc
   ]
 
 38:                                               ; preds = %37
-  %39 = icmp eq i32 %.val11, %.val13
+  %39 = icmp eq i32 %.val12, %.val14
   br label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit"
 
 40:                                               ; preds = %37
-  %41 = icmp eq i32 %.val11, %.val13
+  %41 = icmp eq i32 %.val12, %.val14
   br label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit"
 
 "_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit": ; preds = %37, %38, %40
@@ -37507,30 +37507,30 @@ define internal fastcc noundef zeroext i1 @"_ZN73_$LT$cranelift_codegen..ir..pcc
 47:                                               ; preds = %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit"
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %49 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.val14 = load i32, ptr %48, align 8, !range !3815, !noundef !4
+  %.val15 = load i32, ptr %48, align 8, !range !3815, !noundef !4
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 28
-  %.val15 = load i32, ptr %50, align 4
-  %.val16 = load i32, ptr %49, align 8, !range !3815, !noundef !4
+  %.val16 = load i32, ptr %50, align 4
+  %.val17 = load i32, ptr %49, align 8, !range !3815, !noundef !4
   %51 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %.val17 = load i32, ptr %51, align 4
-  %52 = icmp eq i32 %.val14, %.val16
+  %.val18 = load i32, ptr %51, align 4
+  %52 = icmp eq i32 %.val15, %.val17
   br i1 %52, label %53, label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit.thread"
 
 53:                                               ; preds = %47
-  switch i32 %.val14, label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit35.thread" [
+  switch i32 %.val15, label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit36.thread" [
     i32 1, label %54
-    i32 2, label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit35"
+    i32 2, label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit36"
   ]
 
 54:                                               ; preds = %53
-  %55 = icmp eq i32 %.val15, %.val17
-  br i1 %55, label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit35.thread", label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit.thread"
+  %55 = icmp eq i32 %.val16, %.val18
+  br i1 %55, label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit36.thread", label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit.thread"
 
-"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit35": ; preds = %53
-  %56 = icmp eq i32 %.val15, %.val17
-  br i1 %56, label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit35.thread", label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit.thread"
+"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit36": ; preds = %53
+  %56 = icmp eq i32 %.val16, %.val18
+  br i1 %56, label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit36.thread", label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit.thread"
 
-"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit35.thread": ; preds = %53, %54, %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit35"
+"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit36.thread": ; preds = %53, %54, %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit36"
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %58 = load i64, ptr %57, align 8, !noundef !4
   %59 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -37567,44 +37567,44 @@ define internal fastcc noundef zeroext i1 @"_ZN73_$LT$cranelift_codegen..ir..pcc
   %82 = load i8, ptr %81, align 1, !range !269, !noundef !4
   %83 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %84 = load i8, ptr %83, align 1, !range !269, !noundef !4
-  %85 = icmp eq i8 %82, %84
+  %.not11 = icmp eq i8 %82, %84
   br label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit.thread"
 
-86:                                               ; preds = %6
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %88 = load i32, ptr %87, align 4, !noundef !4
-  %89 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %90 = load i32, ptr %89, align 4, !noundef !4
-  %91 = icmp eq i32 %88, %90
-  br i1 %91, label %92, label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit.thread"
+85:                                               ; preds = %6
+  %86 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %87 = load i32, ptr %86, align 4, !noundef !4
+  %88 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %89 = load i32, ptr %88, align 4, !noundef !4
+  %90 = icmp eq i32 %87, %89
+  br i1 %90, label %91, label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit.thread"
 
-92:                                               ; preds = %86
-  %93 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %94 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.val18 = load i32, ptr %93, align 8, !range !3815, !noundef !4
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %.val19 = load i32, ptr %95, align 4
-  %.val20 = load i32, ptr %94, align 8, !range !3815, !noundef !4
-  %96 = getelementptr inbounds nuw i8, ptr %1, i64 12
-  %.val21 = load i32, ptr %96, align 4
-  %97 = icmp eq i32 %.val18, %.val20
-  br i1 %97, label %98, label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit.thread"
+91:                                               ; preds = %85
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %93 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.val19 = load i32, ptr %92, align 8, !range !3815, !noundef !4
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %.val20 = load i32, ptr %94, align 4
+  %.val21 = load i32, ptr %93, align 8, !range !3815, !noundef !4
+  %95 = getelementptr inbounds nuw i8, ptr %1, i64 12
+  %.val22 = load i32, ptr %95, align 4
+  %96 = icmp eq i32 %.val19, %.val21
+  br i1 %96, label %98, label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit.thread"
 
 98:                                               ; preds = %92
   switch i32 %.val18, label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit37" [
-    i32 1, label %99
+    i32 1, label %100
     i32 2, label %101
   ]
 
-99:                                               ; preds = %98
-  %100 = icmp eq i32 %.val19, %.val21
+100:                                              ; preds = %98
+  %101 = icmp eq i32 %.val20, %.val22
   br label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit37"
 
-101:                                              ; preds = %98
+"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit38": ; preds = %98
   %102 = icmp eq i32 %.val19, %.val21
   br label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit37"
 
-"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit37": ; preds = %98, %99, %101
+"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit37":; preds = %98, %99, %101
   %.0.shrunk.i36 = phi i1 [ true, %98 ], [ %100, %99 ], [ %102, %101 ]
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %104 = load i64, ptr %103, align 8
@@ -37614,7 +37614,7 @@ define internal fastcc noundef zeroext i1 @"_ZN73_$LT$cranelift_codegen..ir..pcc
   %.06 = select i1 %.0.shrunk.i36, i1 %107, i1 false
   br i1 %.06, label %108, label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit.thread"
 
-108:                                              ; preds = %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit37"
+108: ; preds = %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit37"
   %109 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %110 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %.val22 = load i32, ptr %109, align 8, !range !3815, !noundef !4
@@ -37626,83 +37626,83 @@ define internal fastcc noundef zeroext i1 @"_ZN73_$LT$cranelift_codegen..ir..pcc
   %113 = icmp eq i32 %.val22, %.val24
   br i1 %113, label %114, label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit.thread"
 
-114:                                              ; preds = %108
-  switch i32 %.val22, label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit39" [
-    i32 1, label %115
-    i32 2, label %117
+113:                                              ; preds = %108
+  switch i32 %.val22, label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit40" [
+    i32 1, label %114
+    i32 2, label %116
   ]
 
-115:                                              ; preds = %114
-  %116 = icmp eq i32 %.val23, %.val25
-  br label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit39"
+114:                                              ; preds = %113
+  %115 = icmp eq i32 %.val23, %.val25
+  br label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit40"
 
-117:                                              ; preds = %114
-  %118 = icmp eq i32 %.val23, %.val25
-  br label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit39"
+116:                                              ; preds = %113
+  %117 = icmp eq i32 %.val23, %.val25
+  br label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit40"
 
-"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit39": ; preds = %114, %115, %117
-  %.0.shrunk.i38 = phi i1 [ true, %114 ], [ %116, %115 ], [ %118, %117 ]
-  %119 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %120 = load i64, ptr %119, align 8
-  %121 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %122 = load i64, ptr %121, align 8
-  %123 = icmp eq i64 %120, %122
-  %.07 = select i1 %.0.shrunk.i38, i1 %123, i1 false
-  br i1 %.07, label %124, label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit.thread"
+"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit40": ; preds = %113, %114, %116
+  %.0.shrunk.i39 = phi i1 [ true, %113 ], [ %115, %114 ], [ %117, %116 ]
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %119 = load i64, ptr %118, align 8
+  %120 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %121 = load i64, ptr %120, align 8
+  %122 = icmp eq i64 %119, %121
+  %.07 = select i1 %.0.shrunk.i39, i1 %122, i1 false
+  br i1 %.07, label %123, label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit.thread"
 
-124:                                              ; preds = %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit39"
-  %125 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %126 = load i8, ptr %125, align 1, !range !269, !noundef !4
-  %127 = getelementptr inbounds nuw i8, ptr %1, i64 1
-  %128 = load i8, ptr %127, align 1, !range !269, !noundef !4
-  %129 = icmp eq i8 %126, %128
+123:                                              ; preds = %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit40"
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %125 = load i8, ptr %124, align 1, !range !269, !noundef !4
+  %126 = getelementptr inbounds nuw i8, ptr %1, i64 1
+  %127 = load i8, ptr %126, align 1, !range !269, !noundef !4
+  %.not = icmp eq i8 %125, %127
   br label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit.thread"
 
-130:                                              ; preds = %6
-  %131 = getelementptr inbounds nuw i8, ptr %0, i64 4
+128:                                              ; preds = %6
+  %129 = getelementptr inbounds nuw i8, ptr %0, i64 4
   %132 = load i32, ptr %131, align 4, !noundef !4
   %133 = getelementptr inbounds nuw i8, ptr %1, i64 4
   %134 = load i32, ptr %133, align 4, !noundef !4
   %135 = icmp eq i32 %132, %134
   br label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit.thread"
 
-136:                                              ; preds = %6
-  %137 = getelementptr inbounds nuw i8, ptr %0, i64 1
+134:                                              ; preds = %6
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 1
   %138 = load i8, ptr %137, align 1, !range !15, !noundef !4
   %139 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %140 = load i8, ptr %139, align 1, !range !15, !noundef !4
   %141 = icmp eq i8 %138, %140
   br i1 %141, label %142, label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit.thread"
 
-142:                                              ; preds = %136
+142: ; preds = %136
   %143 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %144 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.val26 = load i32, ptr %143, align 8, !range !3815, !noundef !4
+  %143 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.val28 = load i32, ptr %143, align 8, !range !3815, !noundef !4
   %145 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %.val27 = load i32, ptr %145, align 4
-  %.val28 = load i32, ptr %144, align 8, !range !3815, !noundef !4
+  %.val30 = load i32, ptr %144, align 8, !range !3815, !noundef !4
   %146 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %.val29 = load i32, ptr %146, align 4
   %147 = icmp eq i32 %.val26, %.val28
   br i1 %147, label %148, label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit.thread"
 
-148:                                              ; preds = %142
+148:; preds = %142
   switch i32 %.val26, label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit41" [
     i32 1, label %149
     i32 2, label %151
   ]
 
+147:                                              ; preds = %148
+  %148 = icmp eq i32 %.val27, %.val29
+  br label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit42"
+
 149:                                              ; preds = %148
   %150 = icmp eq i32 %.val27, %.val29
-  br label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit41"
+  br label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit42"
 
-151:                                              ; preds = %148
-  %152 = icmp eq i32 %.val27, %.val29
-  br label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit41"
-
-"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit41": ; preds = %148, %149, %151
-  %.0.shrunk.i40 = phi i1 [ true, %148 ], [ %150, %149 ], [ %152, %151 ]
-  %153 = getelementptr inbounds nuw i8, ptr %0, i64 16
+"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit42": ; preds = %148, %147, %149
+  %.0.shrunk.i41 = phi i1 [ true, %148 ], [ %148, %147 ], [ %150, %149 ]
+  %151 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %154 = load i64, ptr %153, align 8
   %155 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %156 = load i64, ptr %155, align 8
@@ -37710,34 +37710,34 @@ define internal fastcc noundef zeroext i1 @"_ZN73_$LT$cranelift_codegen..ir..pcc
   %.08 = select i1 %.0.shrunk.i40, i1 %157, i1 false
   br i1 %.08, label %158, label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit.thread"
 
-158:                                              ; preds = %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit41"
+158: ; preds = %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit41"
   %159 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %160 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %.val30 = load i32, ptr %159, align 8, !range !3815, !noundef !4
+  %159 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %.val32 = load i32, ptr %159, align 8, !range !3815, !noundef !4
   %161 = getelementptr inbounds nuw i8, ptr %0, i64 28
   %.val31 = load i32, ptr %161, align 4
-  %.val32 = load i32, ptr %160, align 8, !range !3815, !noundef !4
+  %.val34 = load i32, ptr %160, align 8, !range !3815, !noundef !4
   %162 = getelementptr inbounds nuw i8, ptr %1, i64 28
   %.val33 = load i32, ptr %162, align 4
   %163 = icmp eq i32 %.val30, %.val32
   br i1 %163, label %164, label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit.thread"
 
-164:                                              ; preds = %158
-  switch i32 %.val30, label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit43.thread" [
+164:; preds = %158
+  switch i32 %.val32, label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit44.thread" [
     i32 1, label %165
     i32 2, label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit43"
   ]
 
-165:                                              ; preds = %164
-  %166 = icmp eq i32 %.val31, %.val33
-  br i1 %166, label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit43.thread", label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit.thread"
+163:                                              ; preds = %164
+  %164 = icmp eq i32 %.val31, %.val33
+  br i1 %164, label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit44.thread", label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit.thread"
 
-"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit43": ; preds = %164
-  %167 = icmp eq i32 %.val31, %.val33
-  br i1 %167, label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit43.thread", label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit.thread"
+"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit44": ; preds = %164
+  %165 = icmp eq i32 %.val31, %.val33
+  br i1 %165, label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit44.thread", label %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit.thread"
 
-"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit43.thread": ; preds = %164, %165, %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit43"
-  %168 = getelementptr inbounds nuw i8, ptr %0, i64 32
+"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit44.thread": ; preds = %164, %163, %"_ZN77_$LT$cranelift_codegen..ir..pcc..BaseExpr$u20$as$u20$core..cmp..PartialEq$GT$2eq17h1f2fa5857a5ce062E.exit44"
+  %166 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %169 = load i64, ptr %168, align 8, !noundef !4
   %170 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %171 = load i64, ptr %170, align 8, !noundef !4

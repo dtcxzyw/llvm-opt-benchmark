@@ -3484,8 +3484,8 @@ define noundef zeroext i1 @"_ZN76_$LT$actix_router..resource..ResourceDef$u20$as
   %25 = load i8, ptr %24, align 2, !range !116
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 146
   %27 = load i8, ptr %26, align 2, !range !116
-  %28 = icmp eq i8 %25, %27
-  %.0 = select i1 %.0.shrunk.i, i1 %28, i1 false
+  %.not = icmp eq i8 %25, %27
+  %.0 = select i1 %.0.shrunk.i, i1 %.not, i1 false
   ret i1 %.0
 }
 

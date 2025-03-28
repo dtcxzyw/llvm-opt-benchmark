@@ -1701,18 +1701,18 @@ _ZN12tracing_core8metadata11LevelFilter7current17h54f7eea7dd3a574cE.exit: ; pred
 ; Function Attrs: nonlazybind uwtable
 define noundef zeroext i1 @"_ZN76_$LT$actix_router..resource..ResourceDef$u20$as$u20$core..cmp..PartialEq$GT$2eq17h93ffb1f7575df8b4E"(ptr align 8 %0, ptr align 8 %1) unnamed_addr #1 {
   %3 = tail call zeroext i1 @"_ZN72_$LT$actix_router..pattern..Patterns$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc64f497f31755cfdE"(ptr align 8 %0, ptr align 8 %1)
-  br i1 %3, label %4, label %10
+  br i1 %3, label %4, label %9
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 146
   %6 = load i8, ptr %5, align 2, !range !8, !noundef !3
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 146
   %8 = load i8, ptr %7, align 2, !range !8, !noundef !3
-  %9 = icmp eq i8 %6, %8
-  br label %10
+  %.not = icmp eq i8 %6, %8
+  br label %9
 
-10:                                               ; preds = %2, %4
-  %.0 = phi i1 [ %9, %4 ], [ false, %2 ]
+9:                                                ; preds = %2, %4
+  %.0 = phi i1 [ %.not, %4 ], [ false, %2 ]
   ret i1 %.0
 }
 

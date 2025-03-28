@@ -23875,11 +23875,11 @@ define noundef zeroext i1 @"_ZN65_$LT$vim..motion..StartOfLine$u20$as$u20$gpui..
 15:                                               ; preds = %3
   %.val5.i = load i8, ptr %7, align 1, !range !89, !alias.scope !5421, !noundef !4
   %16 = load i8, ptr %0, align 1, !range !89, !noalias !5421, !noundef !4
-  %17 = icmp eq i8 %16, %.val5.i
+  %.not.i.i = icmp eq i8 %16, %.val5.i
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h7820d8df163b5472E.exit"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17h7820d8df163b5472E.exit": ; preds = %3, %15
-  %.sroa.02.0.i = phi i1 [ %17, %15 ], [ false, %3 ]
+  %.sroa.02.0.i = phi i1 [ %.not.i.i, %15 ], [ false, %3 ]
   ret i1 %.sroa.02.0.i
 }
 
@@ -23997,11 +23997,11 @@ define noundef zeroext i1 @"_ZN63_$LT$vim..motion..EndOfLine$u20$as$u20$gpui..ac
 15:                                               ; preds = %3
   %.val5.i = load i8, ptr %7, align 1, !range !89, !alias.scope !5424, !noundef !4
   %16 = load i8, ptr %0, align 1, !range !89, !noalias !5424, !noundef !4
-  %17 = icmp eq i8 %16, %.val5.i
+  %.not.i.i = icmp eq i8 %16, %.val5.i
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17hc10aabc94fe83328E.exit"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17hc10aabc94fe83328E.exit": ; preds = %3, %15
-  %.sroa.02.0.i = phi i1 [ %17, %15 ], [ false, %3 ]
+  %.sroa.02.0.i = phi i1 [ %.not.i.i, %15 ], [ false, %3 ]
   ret i1 %.sroa.02.0.i
 }
 
@@ -24119,11 +24119,11 @@ define noundef zeroext i1 @"_ZN72_$LT$vim..motion..FirstNonWhitespace$u20$as$u20
 15:                                               ; preds = %3
   %.val5.i = load i8, ptr %7, align 1, !range !89, !alias.scope !5427, !noundef !4
   %16 = load i8, ptr %0, align 1, !range !89, !noalias !5427, !noundef !4
-  %17 = icmp eq i8 %16, %.val5.i
+  %.not.i.i = icmp eq i8 %16, %.val5.i
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h362a2d2ba80d6529E.exit"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17h362a2d2ba80d6529E.exit": ; preds = %3, %15
-  %.sroa.02.0.i = phi i1 [ %17, %15 ], [ false, %3 ]
+  %.sroa.02.0.i = phi i1 [ %.not.i.i, %15 ], [ false, %3 ]
   ret i1 %.sroa.02.0.i
 }
 
@@ -24241,11 +24241,11 @@ define noundef zeroext i1 @"_ZN58_$LT$vim..motion..Down$u20$as$u20$gpui..action.
 15:                                               ; preds = %3
   %.val5.i = load i8, ptr %7, align 1, !range !89, !alias.scope !5430, !noundef !4
   %16 = load i8, ptr %0, align 1, !range !89, !noalias !5430, !noundef !4
-  %17 = icmp eq i8 %16, %.val5.i
+  %.not.i.i = icmp eq i8 %16, %.val5.i
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17ha78010c59106bebaE.exit"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17ha78010c59106bebaE.exit": ; preds = %3, %15
-  %.sroa.02.0.i = phi i1 [ %17, %15 ], [ false, %3 ]
+  %.sroa.02.0.i = phi i1 [ %.not.i.i, %15 ], [ false, %3 ]
   ret i1 %.sroa.02.0.i
 }
 
@@ -24363,11 +24363,11 @@ define noundef zeroext i1 @"_ZN56_$LT$vim..motion..Up$u20$as$u20$gpui..action..A
 15:                                               ; preds = %3
   %.val5.i = load i8, ptr %7, align 1, !range !89, !alias.scope !5433, !noundef !4
   %16 = load i8, ptr %0, align 1, !range !89, !noalias !5433, !noundef !4
-  %17 = icmp eq i8 %16, %.val5.i
+  %.not.i.i = icmp eq i8 %16, %.val5.i
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17hc7a7fc497d738a3fE.exit"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17hc7a7fc497d738a3fE.exit": ; preds = %3, %15
-  %.sroa.02.0.i = phi i1 [ %17, %15 ], [ false, %3 ]
+  %.sroa.02.0.i = phi i1 [ %.not.i.i, %15 ], [ false, %3 ]
   ret i1 %.sroa.02.0.i
 }
 
@@ -24485,11 +24485,11 @@ define noundef zeroext i1 @"_ZN67_$LT$vim..motion..NextWordStart$u20$as$u20$gpui
 15:                                               ; preds = %3
   %.val5.i = load i8, ptr %7, align 1, !range !89, !alias.scope !5436, !noundef !4
   %16 = load i8, ptr %0, align 1, !range !89, !noalias !5436, !noundef !4
-  %17 = icmp eq i8 %16, %.val5.i
+  %.not.i.i = icmp eq i8 %16, %.val5.i
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17hf0ca49af04cac608E.exit"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17hf0ca49af04cac608E.exit": ; preds = %3, %15
-  %.sroa.02.0.i = phi i1 [ %17, %15 ], [ false, %3 ]
+  %.sroa.02.0.i = phi i1 [ %.not.i.i, %15 ], [ false, %3 ]
   ret i1 %.sroa.02.0.i
 }
 
@@ -24607,11 +24607,11 @@ define noundef zeroext i1 @"_ZN65_$LT$vim..motion..NextWordEnd$u20$as$u20$gpui..
 15:                                               ; preds = %3
   %.val5.i = load i8, ptr %7, align 1, !range !89, !alias.scope !5439, !noundef !4
   %16 = load i8, ptr %0, align 1, !range !89, !noalias !5439, !noundef !4
-  %17 = icmp eq i8 %16, %.val5.i
+  %.not.i.i = icmp eq i8 %16, %.val5.i
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17hdb5a3f126d03e15fE.exit"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17hdb5a3f126d03e15fE.exit": ; preds = %3, %15
-  %.sroa.02.0.i = phi i1 [ %17, %15 ], [ false, %3 ]
+  %.sroa.02.0.i = phi i1 [ %.not.i.i, %15 ], [ false, %3 ]
   ret i1 %.sroa.02.0.i
 }
 
@@ -24729,11 +24729,11 @@ define noundef zeroext i1 @"_ZN71_$LT$vim..motion..PreviousWordStart$u20$as$u20$
 15:                                               ; preds = %3
   %.val5.i = load i8, ptr %7, align 1, !range !89, !alias.scope !5442, !noundef !4
   %16 = load i8, ptr %0, align 1, !range !89, !noalias !5442, !noundef !4
-  %17 = icmp eq i8 %16, %.val5.i
+  %.not.i.i = icmp eq i8 %16, %.val5.i
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17hc163e31193745c80E.exit"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17hc163e31193745c80E.exit": ; preds = %3, %15
-  %.sroa.02.0.i = phi i1 [ %17, %15 ], [ false, %3 ]
+  %.sroa.02.0.i = phi i1 [ %.not.i.i, %15 ], [ false, %3 ]
   ret i1 %.sroa.02.0.i
 }
 
@@ -24851,11 +24851,11 @@ define noundef zeroext i1 @"_ZN69_$LT$vim..motion..PreviousWordEnd$u20$as$u20$gp
 15:                                               ; preds = %3
   %.val5.i = load i8, ptr %7, align 1, !range !89, !alias.scope !5445, !noundef !4
   %16 = load i8, ptr %0, align 1, !range !89, !noalias !5445, !noundef !4
-  %17 = icmp eq i8 %16, %.val5.i
+  %.not.i.i = icmp eq i8 %16, %.val5.i
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17he44acb2b34f95d3cE.exit"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17he44acb2b34f95d3cE.exit": ; preds = %3, %15
-  %.sroa.02.0.i = phi i1 [ %17, %15 ], [ false, %3 ]
+  %.sroa.02.0.i = phi i1 [ %.not.i.i, %15 ], [ false, %3 ]
   ret i1 %.sroa.02.0.i
 }
 
@@ -24973,11 +24973,11 @@ define noundef zeroext i1 @"_ZN70_$LT$vim..motion..NextSubwordStart$u20$as$u20$g
 15:                                               ; preds = %3
   %.val5.i = load i8, ptr %7, align 1, !range !89, !alias.scope !5448, !noundef !4
   %16 = load i8, ptr %0, align 1, !range !89, !noalias !5448, !noundef !4
-  %17 = icmp eq i8 %16, %.val5.i
+  %.not.i.i = icmp eq i8 %16, %.val5.i
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h1b0308b495449e9cE.exit"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17h1b0308b495449e9cE.exit": ; preds = %3, %15
-  %.sroa.02.0.i = phi i1 [ %17, %15 ], [ false, %3 ]
+  %.sroa.02.0.i = phi i1 [ %.not.i.i, %15 ], [ false, %3 ]
   ret i1 %.sroa.02.0.i
 }
 
@@ -25095,11 +25095,11 @@ define noundef zeroext i1 @"_ZN68_$LT$vim..motion..NextSubwordEnd$u20$as$u20$gpu
 15:                                               ; preds = %3
   %.val5.i = load i8, ptr %7, align 1, !range !89, !alias.scope !5451, !noundef !4
   %16 = load i8, ptr %0, align 1, !range !89, !noalias !5451, !noundef !4
-  %17 = icmp eq i8 %16, %.val5.i
+  %.not.i.i = icmp eq i8 %16, %.val5.i
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17he3a972b806288327E.exit"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17he3a972b806288327E.exit": ; preds = %3, %15
-  %.sroa.02.0.i = phi i1 [ %17, %15 ], [ false, %3 ]
+  %.sroa.02.0.i = phi i1 [ %.not.i.i, %15 ], [ false, %3 ]
   ret i1 %.sroa.02.0.i
 }
 
@@ -25217,11 +25217,11 @@ define noundef zeroext i1 @"_ZN74_$LT$vim..motion..PreviousSubwordStart$u20$as$u
 15:                                               ; preds = %3
   %.val5.i = load i8, ptr %7, align 1, !range !89, !alias.scope !5454, !noundef !4
   %16 = load i8, ptr %0, align 1, !range !89, !noalias !5454, !noundef !4
-  %17 = icmp eq i8 %16, %.val5.i
+  %.not.i.i = icmp eq i8 %16, %.val5.i
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h5bb4b451e5dff8e6E.exit"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17h5bb4b451e5dff8e6E.exit": ; preds = %3, %15
-  %.sroa.02.0.i = phi i1 [ %17, %15 ], [ false, %3 ]
+  %.sroa.02.0.i = phi i1 [ %.not.i.i, %15 ], [ false, %3 ]
   ret i1 %.sroa.02.0.i
 }
 
@@ -25339,11 +25339,11 @@ define noundef zeroext i1 @"_ZN72_$LT$vim..motion..PreviousSubwordEnd$u20$as$u20
 15:                                               ; preds = %3
   %.val5.i = load i8, ptr %7, align 1, !range !89, !alias.scope !5457, !noundef !4
   %16 = load i8, ptr %0, align 1, !range !89, !noalias !5457, !noundef !4
-  %17 = icmp eq i8 %16, %.val5.i
+  %.not.i.i = icmp eq i8 %16, %.val5.i
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h6c297cb8ff5f4c39E.exit"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17h6c297cb8ff5f4c39E.exit": ; preds = %3, %15
-  %.sroa.02.0.i = phi i1 [ %17, %15 ], [ false, %3 ]
+  %.sroa.02.0.i = phi i1 [ %.not.i.i, %15 ], [ false, %3 ]
   ret i1 %.sroa.02.0.i
 }
 
@@ -27879,11 +27879,11 @@ define noundef zeroext i1 @"_ZN74_$LT$vim..normal..increment..Increment$u20$as$u
 15:                                               ; preds = %3
   %.val5.i = load i8, ptr %7, align 1, !range !89, !alias.scope !5930, !noundef !4
   %16 = load i8, ptr %0, align 1, !range !89, !noalias !5930, !noundef !4
-  %17 = icmp eq i8 %16, %.val5.i
+  %.not.i.i = icmp eq i8 %16, %.val5.i
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17ha19274bc58e56b09E.exit"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17ha19274bc58e56b09E.exit": ; preds = %3, %15
-  %.sroa.02.0.i = phi i1 [ %17, %15 ], [ false, %3 ]
+  %.sroa.02.0.i = phi i1 [ %.not.i.i, %15 ], [ false, %3 ]
   ret i1 %.sroa.02.0.i
 }
 
@@ -28001,11 +28001,11 @@ define noundef zeroext i1 @"_ZN74_$LT$vim..normal..increment..Decrement$u20$as$u
 15:                                               ; preds = %3
   %.val5.i = load i8, ptr %7, align 1, !range !89, !alias.scope !5933, !noundef !4
   %16 = load i8, ptr %0, align 1, !range !89, !noalias !5933, !noundef !4
-  %17 = icmp eq i8 %16, %.val5.i
+  %.not.i.i = icmp eq i8 %16, %.val5.i
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17he5c0870d918ceb6fE.exit"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17he5c0870d918ceb6fE.exit": ; preds = %3, %15
-  %.sroa.02.0.i = phi i1 [ %17, %15 ], [ false, %3 ]
+  %.sroa.02.0.i = phi i1 [ %.not.i.i, %15 ], [ false, %3 ]
   ret i1 %.sroa.02.0.i
 }
 
@@ -28151,19 +28151,19 @@ define noundef zeroext i1 @"_ZN66_$LT$vim..normal..paste..Paste$u20$as$u20$gpui.
 15:                                               ; preds = %3
   %.val5.i = load i8, ptr %7, align 1, !range !89, !alias.scope !5936, !noundef !4
   %16 = load i8, ptr %0, align 1, !range !89, !noalias !5936, !noundef !4
-  %17 = icmp eq i8 %16, %.val5.i
-  br i1 %17, label %18, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hc3d1461c67444d55E.exit"
+  %.not.i.i = icmp eq i8 %16, %.val5.i
+  br i1 %.not.i.i, label %17, label %"_ZN4core6option15Option$LT$T$GT$6map_or17hc3d1461c67444d55E.exit"
 
-18:                                               ; preds = %15
-  %19 = getelementptr i8, ptr %7, i64 1
-  %.val6.i = load i8, ptr %19, align 1, !alias.scope !5936
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 1
-  %21 = load i8, ptr %20, align 1, !range !89, !noalias !5936, !noundef !4
-  %22 = icmp eq i8 %21, %.val6.i
+17:                                               ; preds = %15
+  %18 = getelementptr i8, ptr %7, i64 1
+  %.val6.i = load i8, ptr %18, align 1, !alias.scope !5936
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 1
+  %20 = load i8, ptr %19, align 1, !range !89, !noalias !5936, !noundef !4
+  %.not1.i.i = icmp eq i8 %20, %.val6.i
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17hc3d1461c67444d55E.exit"
 
-"_ZN4core6option15Option$LT$T$GT$6map_or17hc3d1461c67444d55E.exit": ; preds = %3, %15, %18
-  %.sroa.02.0.i = phi i1 [ false, %3 ], [ %22, %18 ], [ false, %15 ]
+"_ZN4core6option15Option$LT$T$GT$6map_or17hc3d1461c67444d55E.exit": ; preds = %3, %15, %17
+  %.sroa.02.0.i = phi i1 [ false, %3 ], [ %.not1.i.i, %17 ], [ false, %15 ]
   ret i1 %.sroa.02.0.i
 }
 
@@ -29382,11 +29382,11 @@ define noundef zeroext i1 @"_ZN58_$LT$vim..object..Word$u20$as$u20$gpui..action.
 15:                                               ; preds = %3
   %.val5.i = load i8, ptr %7, align 1, !range !89, !alias.scope !6167, !noundef !4
   %16 = load i8, ptr %0, align 1, !range !89, !noalias !6167, !noundef !4
-  %17 = icmp eq i8 %16, %.val5.i
+  %.not.i.i = icmp eq i8 %16, %.val5.i
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17he0497188d0c5c951E.exit"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17he0497188d0c5c951E.exit": ; preds = %3, %15
-  %.sroa.02.0.i = phi i1 [ %17, %15 ], [ false, %3 ]
+  %.sroa.02.0.i = phi i1 [ %.not.i.i, %15 ], [ false, %3 ]
   ret i1 %.sroa.02.0.i
 }
 

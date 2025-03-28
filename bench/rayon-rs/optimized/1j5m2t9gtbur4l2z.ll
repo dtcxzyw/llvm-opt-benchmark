@@ -14,25 +14,25 @@ define { i64, i64 } @"_ZN90_$LT$rayon..range_inclusive..Iter$LT$char$GT$$u20$as$
   %.not.i.i = icmp samesign ugt i32 %2, %4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i8, ptr %5, align 4, !range !11, !alias.scope !5
-  %7 = icmp ne i8 %6, 0
-  %.not.i = select i1 %.not.i.i, i1 true, i1 %7
-  br i1 %.not.i, label %"_ZN97_$LT$rayon..range_inclusive..Iter$LT$char$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$3len17h5cf2a5fa4789d50cE.exit", label %8
+  %.not.i.i.i = icmp ne i8 %6, 0
+  %.not.i = select i1 %.not.i.i, i1 true, i1 %.not.i.i.i
+  br i1 %.not.i, label %"_ZN97_$LT$rayon..range_inclusive..Iter$LT$char$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$3len17h5cf2a5fa4789d50cE.exit", label %7
 
-8:                                                ; preds = %1
-  %9 = sub nuw nsw i32 %4, %2
-  %10 = icmp samesign ult i32 %2, 55296
-  %11 = icmp samesign ugt i32 %4, 57343
-  %or.cond.i = and i1 %10, %11
-  %12 = add nsw i32 %9, -2048
-  %spec.select.i = select i1 %or.cond.i, i32 %12, i32 %9
-  %13 = add nsw i32 %spec.select.i, 1
-  %14 = zext i32 %13 to i64
+7:                                                ; preds = %1
+  %8 = sub nuw nsw i32 %4, %2
+  %9 = icmp samesign ult i32 %2, 55296
+  %10 = icmp samesign ugt i32 %4, 57343
+  %or.cond.i = and i1 %9, %10
+  %11 = add nsw i32 %8, -2048
+  %spec.select.i = select i1 %or.cond.i, i32 %11, i32 %8
+  %12 = add nsw i32 %spec.select.i, 1
+  %13 = zext i32 %12 to i64
   br label %"_ZN97_$LT$rayon..range_inclusive..Iter$LT$char$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$3len17h5cf2a5fa4789d50cE.exit"
 
-"_ZN97_$LT$rayon..range_inclusive..Iter$LT$char$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$3len17h5cf2a5fa4789d50cE.exit": ; preds = %1, %8
-  %.0.i = phi i64 [ %14, %8 ], [ 0, %1 ]
-  %15 = insertvalue { i64, i64 } { i64 1, i64 poison }, i64 %.0.i, 1
-  ret { i64, i64 } %15
+"_ZN97_$LT$rayon..range_inclusive..Iter$LT$char$GT$$u20$as$u20$rayon..iter..IndexedParallelIterator$GT$3len17h5cf2a5fa4789d50cE.exit": ; preds = %1, %7
+  %.0.i = phi i64 [ %13, %7 ], [ 0, %1 ]
+  %14 = insertvalue { i64, i64 } { i64 1, i64 poison }, i64 %.0.i, 1
+  ret { i64, i64 } %14
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -43,23 +43,23 @@ define noundef range(i64 0, 4294967296) i64 @"_ZN97_$LT$rayon..range_inclusive..
   %.not.i = icmp samesign ugt i32 %2, %4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i8, ptr %5, align 4, !range !11, !alias.scope !12
-  %7 = icmp ne i8 %6, 0
-  %.not = select i1 %.not.i, i1 true, i1 %7
-  br i1 %.not, label %15, label %8
+  %.not.i.i = icmp ne i8 %6, 0
+  %.not = select i1 %.not.i, i1 true, i1 %.not.i.i
+  br i1 %.not, label %14, label %7
 
-8:                                                ; preds = %1
-  %9 = sub nuw nsw i32 %4, %2
-  %10 = icmp samesign ult i32 %2, 55296
-  %11 = icmp samesign ugt i32 %4, 57343
-  %or.cond = and i1 %10, %11
-  %12 = add nsw i32 %9, -2048
-  %spec.select = select i1 %or.cond, i32 %12, i32 %9
-  %13 = add nsw i32 %spec.select, 1
-  %14 = zext i32 %13 to i64
-  br label %15
+7:                                                ; preds = %1
+  %8 = sub nuw nsw i32 %4, %2
+  %9 = icmp samesign ult i32 %2, 55296
+  %10 = icmp samesign ugt i32 %4, 57343
+  %or.cond = and i1 %9, %10
+  %11 = add nsw i32 %8, -2048
+  %spec.select = select i1 %or.cond, i32 %11, i32 %8
+  %12 = add nsw i32 %spec.select, 1
+  %13 = zext i32 %12 to i64
+  br label %14
 
-15:                                               ; preds = %1, %8
-  %.0 = phi i64 [ %14, %8 ], [ 0, %1 ]
+14:                                               ; preds = %1, %7
+  %.0 = phi i64 [ %13, %7 ], [ 0, %1 ]
   ret i64 %.0
 }
 
@@ -439,35 +439,35 @@ define { i64, i64 } @"_ZN5rayon15range_inclusive81_$LT$impl$u20$rayon..range_inc
   %.not.i = icmp ule i64 %2, %4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i8, ptr %5, align 8, !range !11, !alias.scope !93, !noalias !96
-  %7 = icmp eq i8 %6, 0
-  %or.cond.i = select i1 %.not.i, i1 %7, i1 false
+  %.not.i.i = icmp eq i8 %6, 0
+  %or.cond.i = select i1 %.not.i, i1 %.not.i.i, i1 false
   br i1 %or.cond.i, label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hfd4edd9fe3d05948E.exit", label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hfd4edd9fe3d05948E.exit.thread"
 
 "_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hfd4edd9fe3d05948E.exit": ; preds = %1
-  %8 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %4, i64 1)
-  %9 = extractvalue { i64, i1 } %8, 1
-  br i1 %9, label %12, label %10
+  %7 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %4, i64 1)
+  %8 = extractvalue { i64, i1 } %7, 1
+  br i1 %8, label %11, label %9
 
-10:                                               ; preds = %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hfd4edd9fe3d05948E.exit"
-  %11 = extractvalue { i64, i1 } %8, 0
-  %spec.select.i.i.i = tail call noundef i64 @llvm.usub.sat.i64(i64 %11, i64 %2)
+9:                                                ; preds = %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hfd4edd9fe3d05948E.exit"
+  %10 = extractvalue { i64, i1 } %7, 0
+  %spec.select.i.i.i = tail call noundef i64 @llvm.usub.sat.i64(i64 %10, i64 %2)
   br label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hfd4edd9fe3d05948E.exit.thread"
 
-12:                                               ; preds = %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hfd4edd9fe3d05948E.exit"
+11:                                               ; preds = %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hfd4edd9fe3d05948E.exit"
   %spec.select.i.i.i.i.i22 = sub nuw nsw i64 %4, %2
-  %13 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %spec.select.i.i.i.i.i22, i64 1)
-  %14 = extractvalue { i64, i1 } %13, 1
-  %15 = extractvalue { i64, i1 } %13, 0
-  %not..i = xor i1 %14, true
+  %12 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %spec.select.i.i.i.i.i22, i64 1)
+  %13 = extractvalue { i64, i1 } %12, 1
+  %14 = extractvalue { i64, i1 } %12, 0
+  %not..i = xor i1 %13, true
   %.sroa.0.1.i = zext i1 %not..i to i64
   br label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hfd4edd9fe3d05948E.exit.thread"
 
-"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hfd4edd9fe3d05948E.exit.thread": ; preds = %10, %12, %1
-  %.sroa.4.0 = phi i64 [ 0, %1 ], [ %spec.select.i.i.i, %10 ], [ %15, %12 ]
-  %.sroa.0.0 = phi i64 [ 1, %1 ], [ 1, %10 ], [ %.sroa.0.1.i, %12 ]
-  %16 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %17 = insertvalue { i64, i64 } %16, i64 %.sroa.4.0, 1
-  ret { i64, i64 } %17
+"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hfd4edd9fe3d05948E.exit.thread": ; preds = %9, %11, %1
+  %.sroa.4.0 = phi i64 [ 0, %1 ], [ %spec.select.i.i.i, %9 ], [ %14, %11 ]
+  %.sroa.0.0 = phi i64 [ 1, %1 ], [ 1, %9 ], [ %.sroa.0.1.i, %11 ]
+  %15 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %16 = insertvalue { i64, i64 } %15, i64 %.sroa.4.0, 1
+  ret { i64, i64 } %16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -483,39 +483,39 @@ define { i64, i64 } @"_ZN5rayon15range_inclusive81_$LT$impl$u20$rayon..range_inc
   %.not.i = icmp sle i64 %2, %4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i8, ptr %5, align 8, !range !11, !alias.scope !98, !noalias !101
-  %7 = icmp eq i8 %6, 0
-  %or.cond.i = select i1 %.not.i, i1 %7, i1 false
+  %.not.i.i = icmp eq i8 %6, 0
+  %or.cond.i = select i1 %.not.i, i1 %.not.i.i, i1 false
   br i1 %or.cond.i, label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h321d9f075d9849e2E.exit", label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h321d9f075d9849e2E.exit.thread"
 
 "_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h321d9f075d9849e2E.exit": ; preds = %1
-  %8 = tail call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %4, i64 1)
-  %9 = extractvalue { i64, i1 } %8, 1
-  br i1 %9, label %14, label %10
+  %7 = tail call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %4, i64 1)
+  %8 = extractvalue { i64, i1 } %7, 1
+  br i1 %8, label %13, label %9
 
-10:                                               ; preds = %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h321d9f075d9849e2E.exit"
-  %11 = extractvalue { i64, i1 } %8, 0
-  %12 = icmp slt i64 %2, %11
-  %13 = sub i64 %11, %2
-  %spec.select.i.i.i = select i1 %12, i64 %13, i64 0
+9:                                                ; preds = %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h321d9f075d9849e2E.exit"
+  %10 = extractvalue { i64, i1 } %7, 0
+  %11 = icmp slt i64 %2, %10
+  %12 = sub i64 %10, %2
+  %spec.select.i.i.i = select i1 %11, i64 %12, i64 0
   br label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h321d9f075d9849e2E.exit.thread"
 
-14:                                               ; preds = %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h321d9f075d9849e2E.exit"
-  %15 = icmp slt i64 %2, %4
-  %16 = sub i64 %4, %2
-  %spec.select.i.i.i.i.i = select i1 %15, i64 %16, i64 0
-  %17 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %spec.select.i.i.i.i.i, i64 1)
-  %18 = extractvalue { i64, i1 } %17, 1
-  %19 = extractvalue { i64, i1 } %17, 0
-  %not..i = xor i1 %18, true
+13:                                               ; preds = %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h321d9f075d9849e2E.exit"
+  %14 = icmp slt i64 %2, %4
+  %15 = sub i64 %4, %2
+  %spec.select.i.i.i.i.i = select i1 %14, i64 %15, i64 0
+  %16 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %spec.select.i.i.i.i.i, i64 1)
+  %17 = extractvalue { i64, i1 } %16, 1
+  %18 = extractvalue { i64, i1 } %16, 0
+  %not..i = xor i1 %17, true
   %.sroa.0.1.i = zext i1 %not..i to i64
   br label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h321d9f075d9849e2E.exit.thread"
 
-"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h321d9f075d9849e2E.exit.thread": ; preds = %10, %14, %1
-  %.sroa.4.0 = phi i64 [ 0, %1 ], [ %spec.select.i.i.i, %10 ], [ %19, %14 ]
-  %.sroa.0.0 = phi i64 [ 1, %1 ], [ 1, %10 ], [ %.sroa.0.1.i, %14 ]
-  %20 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %21 = insertvalue { i64, i64 } %20, i64 %.sroa.4.0, 1
-  ret { i64, i64 } %21
+"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h321d9f075d9849e2E.exit.thread": ; preds = %9, %13, %1
+  %.sroa.4.0 = phi i64 [ 0, %1 ], [ %spec.select.i.i.i, %9 ], [ %18, %13 ]
+  %.sroa.0.0 = phi i64 [ 1, %1 ], [ 1, %9 ], [ %.sroa.0.1.i, %13 ]
+  %19 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %20 = insertvalue { i64, i64 } %19, i64 %.sroa.4.0, 1
+  ret { i64, i64 } %20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -531,31 +531,31 @@ define { i64, i64 } @"_ZN5rayon15range_inclusive79_$LT$impl$u20$rayon..range_inc
   %.not.i = icmp ule i32 %2, %4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i8, ptr %5, align 4, !range !11, !alias.scope !103, !noalias !106
-  %7 = icmp eq i8 %6, 0
-  %or.cond.i = select i1 %.not.i, i1 %7, i1 false
+  %.not.i.i = icmp eq i8 %6, 0
+  %or.cond.i = select i1 %.not.i, i1 %.not.i.i, i1 false
   br i1 %or.cond.i, label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17he8c999639bb6c7dcE.exit", label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17he8c999639bb6c7dcE.exit.thread"
 
 "_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17he8c999639bb6c7dcE.exit": ; preds = %1
-  %8 = tail call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %4, i32 1)
-  %9 = extractvalue { i32, i1 } %8, 1
-  br i1 %9, label %12, label %10
+  %7 = tail call { i32, i1 } @llvm.uadd.with.overflow.i32(i32 %4, i32 1)
+  %8 = extractvalue { i32, i1 } %7, 1
+  br i1 %8, label %11, label %9
 
-10:                                               ; preds = %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17he8c999639bb6c7dcE.exit"
-  %11 = extractvalue { i32, i1 } %8, 0
-  %narrow.i.i.i = tail call i32 @llvm.usub.sat.i32(i32 %11, i32 %2)
+9:                                                ; preds = %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17he8c999639bb6c7dcE.exit"
+  %10 = extractvalue { i32, i1 } %7, 0
+  %narrow.i.i.i = tail call i32 @llvm.usub.sat.i32(i32 %10, i32 %2)
   %.sink4.i.i.i = zext i32 %narrow.i.i.i to i64
   br label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17he8c999639bb6c7dcE.exit.thread"
 
-12:                                               ; preds = %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17he8c999639bb6c7dcE.exit"
+11:                                               ; preds = %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17he8c999639bb6c7dcE.exit"
   %narrow.i.i.i.i.i22 = sub nuw nsw i32 %4, %2
   %.sink4.i.i.i.i.i = zext i32 %narrow.i.i.i.i.i22 to i64
-  %13 = add nuw nsw i64 %.sink4.i.i.i.i.i, 1
+  %12 = add nuw nsw i64 %.sink4.i.i.i.i.i, 1
   br label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17he8c999639bb6c7dcE.exit.thread"
 
-"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17he8c999639bb6c7dcE.exit.thread": ; preds = %10, %12, %1
-  %.sroa.4.0 = phi i64 [ 0, %1 ], [ %.sink4.i.i.i, %10 ], [ %13, %12 ]
-  %14 = insertvalue { i64, i64 } { i64 1, i64 poison }, i64 %.sroa.4.0, 1
-  ret { i64, i64 } %14
+"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17he8c999639bb6c7dcE.exit.thread": ; preds = %9, %11, %1
+  %.sroa.4.0 = phi i64 [ 0, %1 ], [ %.sink4.i.i.i, %9 ], [ %12, %11 ]
+  %13 = insertvalue { i64, i64 } { i64 1, i64 poison }, i64 %.sroa.4.0, 1
+  ret { i64, i64 } %13
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -571,37 +571,37 @@ define { i64, i64 } @"_ZN5rayon15range_inclusive79_$LT$impl$u20$rayon..range_inc
   %.not.i = icmp sle i32 %2, %4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %6 = load i8, ptr %5, align 4, !range !11, !alias.scope !108, !noalias !111
-  %7 = icmp eq i8 %6, 0
-  %or.cond.i = select i1 %.not.i, i1 %7, i1 false
+  %.not.i.i = icmp eq i8 %6, 0
+  %or.cond.i = select i1 %.not.i, i1 %.not.i.i, i1 false
   br i1 %or.cond.i, label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hd89b372e1134fdaaE.exit", label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hd89b372e1134fdaaE.exit.thread"
 
 "_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hd89b372e1134fdaaE.exit": ; preds = %1
-  %8 = tail call { i32, i1 } @llvm.sadd.with.overflow.i32(i32 %4, i32 1)
-  %9 = extractvalue { i32, i1 } %8, 1
-  br i1 %9, label %16, label %10
+  %7 = tail call { i32, i1 } @llvm.sadd.with.overflow.i32(i32 %4, i32 1)
+  %8 = extractvalue { i32, i1 } %7, 1
+  br i1 %8, label %15, label %9
 
-10:                                               ; preds = %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hd89b372e1134fdaaE.exit"
-  %11 = extractvalue { i32, i1 } %8, 0
-  %12 = icmp slt i32 %2, %11
-  %13 = sext i32 %11 to i64
-  %14 = sext i32 %2 to i64
-  %15 = sub nsw i64 %13, %14
-  %.sink4.i.i.i = select i1 %12, i64 %15, i64 0
+9:                                                ; preds = %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hd89b372e1134fdaaE.exit"
+  %10 = extractvalue { i32, i1 } %7, 0
+  %11 = icmp slt i32 %2, %10
+  %12 = sext i32 %10 to i64
+  %13 = sext i32 %2 to i64
+  %14 = sub nsw i64 %12, %13
+  %.sink4.i.i.i = select i1 %11, i64 %14, i64 0
   br label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hd89b372e1134fdaaE.exit.thread"
 
-16:                                               ; preds = %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hd89b372e1134fdaaE.exit"
-  %17 = icmp slt i32 %2, %4
-  %18 = zext nneg i32 %4 to i64
-  %19 = sext i32 %2 to i64
-  %reass.sub = sub nsw i64 %18, %19
-  %20 = add nuw nsw i64 %reass.sub, 1
-  %21 = select i1 %17, i64 %20, i64 1
+15:                                               ; preds = %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hd89b372e1134fdaaE.exit"
+  %16 = icmp slt i32 %2, %4
+  %17 = zext nneg i32 %4 to i64
+  %18 = sext i32 %2 to i64
+  %reass.sub = sub nsw i64 %17, %18
+  %19 = add nuw nsw i64 %reass.sub, 1
+  %20 = select i1 %16, i64 %19, i64 1
   br label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hd89b372e1134fdaaE.exit.thread"
 
-"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hd89b372e1134fdaaE.exit.thread": ; preds = %10, %16, %1
-  %.sroa.4.0 = phi i64 [ 0, %1 ], [ %.sink4.i.i.i, %10 ], [ %21, %16 ]
-  %22 = insertvalue { i64, i64 } { i64 1, i64 poison }, i64 %.sroa.4.0, 1
-  ret { i64, i64 } %22
+"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17hd89b372e1134fdaaE.exit.thread": ; preds = %9, %15, %1
+  %.sroa.4.0 = phi i64 [ 0, %1 ], [ %.sink4.i.i.i, %9 ], [ %20, %15 ]
+  %21 = insertvalue { i64, i64 } { i64 1, i64 poison }, i64 %.sroa.4.0, 1
+  ret { i64, i64 } %21
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -617,35 +617,35 @@ define { i64, i64 } @"_ZN5rayon15range_inclusive79_$LT$impl$u20$rayon..range_inc
   %.not.i = icmp ule i64 %2, %4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i8, ptr %5, align 8, !range !11, !alias.scope !113, !noalias !116
-  %7 = icmp eq i8 %6, 0
-  %or.cond.i = select i1 %.not.i, i1 %7, i1 false
+  %.not.i.i = icmp eq i8 %6, 0
+  %or.cond.i = select i1 %.not.i, i1 %.not.i.i, i1 false
   br i1 %or.cond.i, label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17ha1bfb117fa13a8a7E.exit", label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17ha1bfb117fa13a8a7E.exit.thread"
 
 "_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17ha1bfb117fa13a8a7E.exit": ; preds = %1
-  %8 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %4, i64 1)
-  %9 = extractvalue { i64, i1 } %8, 1
-  br i1 %9, label %12, label %10
+  %7 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %4, i64 1)
+  %8 = extractvalue { i64, i1 } %7, 1
+  br i1 %8, label %11, label %9
 
-10:                                               ; preds = %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17ha1bfb117fa13a8a7E.exit"
-  %11 = extractvalue { i64, i1 } %8, 0
-  %.0.i.i = tail call noundef i64 @llvm.usub.sat.i64(i64 %11, i64 %2)
+9:                                                ; preds = %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17ha1bfb117fa13a8a7E.exit"
+  %10 = extractvalue { i64, i1 } %7, 0
+  %.0.i.i = tail call noundef i64 @llvm.usub.sat.i64(i64 %10, i64 %2)
   br label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17ha1bfb117fa13a8a7E.exit.thread"
 
-12:                                               ; preds = %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17ha1bfb117fa13a8a7E.exit"
+11:                                               ; preds = %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17ha1bfb117fa13a8a7E.exit"
   %.0.i.i.i.i22 = sub nuw nsw i64 %4, %2
-  %13 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.0.i.i.i.i22, i64 1)
-  %14 = extractvalue { i64, i1 } %13, 1
-  %15 = extractvalue { i64, i1 } %13, 0
-  %not..i = xor i1 %14, true
+  %12 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.0.i.i.i.i22, i64 1)
+  %13 = extractvalue { i64, i1 } %12, 1
+  %14 = extractvalue { i64, i1 } %12, 0
+  %not..i = xor i1 %13, true
   %.sroa.0.1.i = zext i1 %not..i to i64
   br label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17ha1bfb117fa13a8a7E.exit.thread"
 
-"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17ha1bfb117fa13a8a7E.exit.thread": ; preds = %10, %12, %1
-  %.sroa.4.0 = phi i64 [ 0, %1 ], [ %.0.i.i, %10 ], [ %15, %12 ]
-  %.sroa.0.0 = phi i64 [ 1, %1 ], [ 1, %10 ], [ %.sroa.0.1.i, %12 ]
-  %16 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %17 = insertvalue { i64, i64 } %16, i64 %.sroa.4.0, 1
-  ret { i64, i64 } %17
+"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17ha1bfb117fa13a8a7E.exit.thread": ; preds = %9, %11, %1
+  %.sroa.4.0 = phi i64 [ 0, %1 ], [ %.0.i.i, %9 ], [ %14, %11 ]
+  %.sroa.0.0 = phi i64 [ 1, %1 ], [ 1, %9 ], [ %.sroa.0.1.i, %11 ]
+  %15 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %16 = insertvalue { i64, i64 } %15, i64 %.sroa.4.0, 1
+  ret { i64, i64 } %16
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -661,39 +661,39 @@ define { i64, i64 } @"_ZN5rayon15range_inclusive79_$LT$impl$u20$rayon..range_inc
   %.not.i = icmp sle i64 %2, %4
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %6 = load i8, ptr %5, align 8, !range !11, !alias.scope !118, !noalias !121
-  %7 = icmp eq i8 %6, 0
-  %or.cond.i = select i1 %.not.i, i1 %7, i1 false
+  %.not.i.i = icmp eq i8 %6, 0
+  %or.cond.i = select i1 %.not.i, i1 %.not.i.i, i1 false
   br i1 %or.cond.i, label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h681d372db6ee704aE.exit", label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h681d372db6ee704aE.exit.thread"
 
 "_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h681d372db6ee704aE.exit": ; preds = %1
-  %8 = tail call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %4, i64 1)
-  %9 = extractvalue { i64, i1 } %8, 1
-  br i1 %9, label %14, label %10
+  %7 = tail call { i64, i1 } @llvm.sadd.with.overflow.i64(i64 %4, i64 1)
+  %8 = extractvalue { i64, i1 } %7, 1
+  br i1 %8, label %13, label %9
 
-10:                                               ; preds = %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h681d372db6ee704aE.exit"
-  %11 = extractvalue { i64, i1 } %8, 0
-  %12 = icmp sgt i64 %11, %2
-  %13 = sub i64 %11, %2
-  %.0.i.i = select i1 %12, i64 %13, i64 0
+9:                                                ; preds = %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h681d372db6ee704aE.exit"
+  %10 = extractvalue { i64, i1 } %7, 0
+  %11 = icmp sgt i64 %10, %2
+  %12 = sub i64 %10, %2
+  %.0.i.i = select i1 %11, i64 %12, i64 0
   br label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h681d372db6ee704aE.exit.thread"
 
-14:                                               ; preds = %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h681d372db6ee704aE.exit"
-  %15 = icmp sgt i64 %4, %2
-  %16 = sub i64 %4, %2
-  %.0.i.i.i.i = select i1 %15, i64 %16, i64 0
-  %17 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.0.i.i.i.i, i64 1)
-  %18 = extractvalue { i64, i1 } %17, 1
-  %19 = extractvalue { i64, i1 } %17, 0
-  %not..i = xor i1 %18, true
+13:                                               ; preds = %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h681d372db6ee704aE.exit"
+  %14 = icmp sgt i64 %4, %2
+  %15 = sub i64 %4, %2
+  %.0.i.i.i.i = select i1 %14, i64 %15, i64 0
+  %16 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.0.i.i.i.i, i64 1)
+  %17 = extractvalue { i64, i1 } %16, 1
+  %18 = extractvalue { i64, i1 } %16, 0
+  %not..i = xor i1 %17, true
   %.sroa.0.1.i = zext i1 %not..i to i64
   br label %"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h681d372db6ee704aE.exit.thread"
 
-"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h681d372db6ee704aE.exit.thread": ; preds = %10, %14, %1
-  %.sroa.4.0 = phi i64 [ 0, %1 ], [ %.0.i.i, %10 ], [ %19, %14 ]
-  %.sroa.0.0 = phi i64 [ 1, %1 ], [ 1, %10 ], [ %.sroa.0.1.i, %14 ]
-  %20 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
-  %21 = insertvalue { i64, i64 } %20, i64 %.sroa.4.0, 1
-  ret { i64, i64 } %21
+"_ZN5rayon15range_inclusive13Iter$LT$T$GT$6bounds17h681d372db6ee704aE.exit.thread": ; preds = %9, %13, %1
+  %.sroa.4.0 = phi i64 [ 0, %1 ], [ %.0.i.i, %9 ], [ %18, %13 ]
+  %.sroa.0.0 = phi i64 [ 1, %1 ], [ 1, %9 ], [ %.sroa.0.1.i, %13 ]
+  %19 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
+  %20 = insertvalue { i64, i64 } %19, i64 %.sroa.4.0, 1
+  ret { i64, i64 } %20
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
@@ -710,8 +710,8 @@ define { i64, i64 } @"_ZN5rayon15range_inclusive80_$LT$impl$u20$rayon..range_inc
   %.not.i = icmp ugt i128 %1, %3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i8, ptr %4, align 8, !range !11, !alias.scope !123, !noalias !126
-  %6 = icmp ne i8 %5, 0
-  %or.cond.i.not = select i1 %.not.i, i1 true, i1 %6
+  %.not.i.i = icmp ne i8 %5, 0
+  %or.cond.i.not = select i1 %.not.i, i1 true, i1 %.not.i.i
   tail call void @llvm.assume(i1 %or.cond.i.not)
   ret { i64, i64 } { i64 1, i64 0 }
 }
@@ -730,8 +730,8 @@ define { i64, i64 } @"_ZN5rayon15range_inclusive80_$LT$impl$u20$rayon..range_inc
   %.not.i = icmp sgt i128 %1, %3
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %5 = load i8, ptr %4, align 8, !range !11, !alias.scope !128, !noalias !131
-  %6 = icmp ne i8 %5, 0
-  %or.cond.i.not = select i1 %.not.i, i1 true, i1 %6
+  %.not.i.i = icmp ne i8 %5, 0
+  %or.cond.i.not = select i1 %.not.i, i1 true, i1 %.not.i.i
   tail call void @llvm.assume(i1 %or.cond.i.not)
   ret { i64, i64 } { i64 1, i64 0 }
 }

@@ -34,8 +34,8 @@ define hidden noundef zeroext i1 @"_ZN44_$LT$$RF$T$u20$as$u20$core..fmt..Display
 define hidden noundef zeroext i1 @"_ZN4core3cmp5impls55_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$bool$GT$2eq17hd293b368fb2abeadE.llvm.13794683312725062753"(ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(1) %1) unnamed_addr #1 {
   %3 = load i8, ptr %0, align 1, !range !6, !noundef !4
   %4 = load i8, ptr %1, align 1, !range !6, !noundef !4
-  %5 = icmp eq i8 %3, %4
-  ret i1 %5
+  %.not = icmp eq i8 %3, %4
+  ret i1 %.not
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable
@@ -815,35 +815,35 @@ define hidden noundef ptr @_ZN13wasmtime_wast9component11match_debug17h32a800482
   tail call void @llvm.experimental.noalias.scope.decl(metadata !155)
   %7 = load i8, ptr %0, align 1, !range !6, !alias.scope !152, !noalias !155, !noundef !4
   %8 = load i8, ptr %1, align 1, !range !6, !alias.scope !155, !noalias !152, !noundef !4
-  %9 = icmp eq i8 %7, %8
-  br i1 %9, label %19, label %10
+  %.not.i = icmp eq i8 %7, %8
+  br i1 %.not.i, label %18, label %9
 
-10:                                               ; preds = %2
+9:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(i64 48, ptr nonnull %4)
   call void @llvm.lifetime.start.p0(i64 32, ptr nonnull %3)
   store ptr %5, ptr %3, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hb5961938247ea897E", ptr %11, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  store ptr %6, ptr %12, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hb5961938247ea897E", ptr %13, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hb5961938247ea897E", ptr %10, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  store ptr %6, ptr %11, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store ptr @"_ZN42_$LT$$RF$T$u20$as$u20$core..fmt..Debug$GT$3fmt17hb5961938247ea897E", ptr %12, align 8
   store ptr @anon.638b71982ac9305e9c10b4bd05ce9dbb.17.llvm.13794683312725062753, ptr %4, align 8, !alias.scope !157, !noalias !160
-  %14 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 2, ptr %14, align 8, !alias.scope !157, !noalias !160
-  %15 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  store ptr null, ptr %15, align 8, !alias.scope !157, !noalias !160
-  %16 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store ptr %3, ptr %16, align 8, !alias.scope !157, !noalias !160
-  %17 = getelementptr inbounds nuw i8, ptr %4, i64 24
-  store i64 2, ptr %17, align 8, !alias.scope !157, !noalias !160
-  %18 = call noundef nonnull ptr @_ZN6anyhow9__private10format_err17hf904e1bf1fa96dd8E.llvm.13794683312725062753(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
+  %13 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 2, ptr %13, align 8, !alias.scope !157, !noalias !160
+  %14 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  store ptr null, ptr %14, align 8, !alias.scope !157, !noalias !160
+  %15 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store ptr %3, ptr %15, align 8, !alias.scope !157, !noalias !160
+  %16 = getelementptr inbounds nuw i8, ptr %4, i64 24
+  store i64 2, ptr %16, align 8, !alias.scope !157, !noalias !160
+  %17 = call noundef nonnull ptr @_ZN6anyhow9__private10format_err17hf904e1bf1fa96dd8E.llvm.13794683312725062753(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4)
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
   call void @llvm.lifetime.end.p0(i64 32, ptr nonnull %3)
-  br label %19
+  br label %18
 
-19:                                               ; preds = %2, %10
-  %.0 = phi ptr [ %18, %10 ], [ null, %2 ]
+18:                                               ; preds = %2, %9
+  %.0 = phi ptr [ %17, %9 ], [ null, %2 ]
   ret ptr %.0
 }
 

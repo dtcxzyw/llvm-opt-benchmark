@@ -2251,7 +2251,7 @@ define hidden void @"_ZN137_$LT$alloc..collections..btree..dedup_sorted_iter..De
   %49 = icmp eq i64 %.sroa.013.017, -9223372036854775808
   %50 = icmp eq i64 %.sroa.0.0.copyload1.i.i.i, -9223372036854775808
   %brmerge.i.i = or i1 %49, %50
-  br i1 %brmerge.i.i, label %67, label %51
+  br i1 %brmerge.i.i, label %66, label %51
 
 51:                                               ; preds = %48
   call void @llvm.experimental.noalias.scope.decl(metadata !329)
@@ -2261,62 +2261,62 @@ define hidden void @"_ZN137_$LT$alloc..collections..btree..dedup_sorted_iter..De
   %54 = icmp eq i8 %52, %53
   %55 = load i8, ptr %11, align 8, !range !337, !alias.scope !335, !noalias !336
   %56 = load i8, ptr %10, align 8, !range !337, !alias.scope !336, !noalias !335
-  %57 = icmp eq i8 %55, %56
-  %.04.i.i.i = select i1 %54, i1 %57, i1 false
-  br i1 %.04.i.i.i, label %58, label %.thread21
+  %.not.i.i.i = icmp eq i8 %55, %56
+  %.04.i.i.i = select i1 %54, i1 %.not.i.i.i, i1 false
+  br i1 %.04.i.i.i, label %57, label %.thread21
 
-58:                                               ; preds = %51
-  %59 = load i64, ptr %12, align 8, !alias.scope !335, !noalias !336, !noundef !4
-  %60 = load i64, ptr %13, align 8, !alias.scope !336, !noalias !335, !noundef !4
-  %.not.i.i.i.i = icmp eq i64 %59, %60
+57:                                               ; preds = %51
+  %58 = load i64, ptr %12, align 8, !alias.scope !335, !noalias !336, !noundef !4
+  %59 = load i64, ptr %13, align 8, !alias.scope !336, !noalias !335, !noundef !4
+  %.not.i.i.i.i = icmp eq i64 %58, %59
   br i1 %.not.i.i.i.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h03a4955529edbd10E.exit.i.i.i", label %.thread21
 
-"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h03a4955529edbd10E.exit.i.i.i": ; preds = %58
-  %61 = load ptr, ptr %14, align 8, !alias.scope !336, !noalias !335, !nonnull !4, !align !148, !noundef !4
-  %62 = load ptr, ptr %15, align 8, !alias.scope !335, !noalias !336, !nonnull !4, !align !148, !noundef !4
-  %bcmp.i.i.i.i = call i32 @bcmp(ptr nonnull readonly align 1 %62, ptr nonnull readonly align 1 %61, i64 %59), !alias.scope !338, !noalias !342
-  %63 = icmp eq i32 %bcmp.i.i.i.i, 0
-  br i1 %63, label %64, label %.thread21
+"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h03a4955529edbd10E.exit.i.i.i": ; preds = %57
+  %60 = load ptr, ptr %14, align 8, !alias.scope !336, !noalias !335, !nonnull !4, !align !148, !noundef !4
+  %61 = load ptr, ptr %15, align 8, !alias.scope !335, !noalias !336, !nonnull !4, !align !148, !noundef !4
+  %bcmp.i.i.i.i = call i32 @bcmp(ptr nonnull readonly align 1 %61, ptr nonnull readonly align 1 %60, i64 %58), !alias.scope !338, !noalias !342
+  %62 = icmp eq i32 %bcmp.i.i.i.i, 0
+  br i1 %62, label %63, label %.thread21
 
-64:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h03a4955529edbd10E.exit.i.i.i"
+63:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h03a4955529edbd10E.exit.i.i.i"
   %.val5.i.i.i = load i64, ptr %16, align 8, !alias.scope !335, !noalias !336, !noundef !4
   %.val7.i.i.i = load i64, ptr %17, align 8, !alias.scope !336, !noalias !335, !noundef !4
   %.not.i.i.i.i.i = icmp eq i64 %.val5.i.i.i, %.val7.i.i.i
-  br i1 %.not.i.i.i.i.i, label %65, label %.thread21
+  br i1 %.not.i.i.i.i.i, label %64, label %.thread21
 
-65:                                               ; preds = %64
+64:                                               ; preds = %63
   %.val6.i.i.i = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !alias.scope !336, !noalias !335, !nonnull !4, !noundef !4
   %.val.i.i.i = load ptr, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8, !alias.scope !335, !noalias !336, !nonnull !4, !noundef !4
   %bcmp.i.i.i.i.i = call i32 @bcmp(ptr nonnull readonly align 1 %.val.i.i.i, ptr nonnull readonly align 1 %.val6.i.i.i, i64 %.val5.i.i.i), !alias.scope !343, !noalias !342
-  %66 = icmp eq i32 %bcmp.i.i.i.i.i, 0
-  br i1 %66, label %.thread23, label %.thread21
+  %65 = icmp eq i32 %bcmp.i.i.i.i.i, 0
+  br i1 %65, label %.thread23, label %.thread21
 
-67:                                               ; preds = %48
+66:                                               ; preds = %48
   %.mux.i.i = and i1 %49, %50
   br i1 %.mux.i.i, label %.thread23, label %.thread21
 
-.thread23:                                        ; preds = %65, %47, %67
+.thread23:                                        ; preds = %64, %47, %66
   %or.cond.i.i12 = icmp slt i64 %.sroa.013.017, 0
-  br i1 %or.cond.i.i12, label %"_ZN4core3ptr103drop_in_place$LT$$LP$just..attribute..Attribute$C$alloc..collections..btree..set_val..SetValZST$RP$$GT$17h029c3e84f1c03636E.exit", label %68
+  br i1 %or.cond.i.i12, label %"_ZN4core3ptr103drop_in_place$LT$$LP$just..attribute..Attribute$C$alloc..collections..btree..set_val..SetValZST$RP$$GT$17h029c3e84f1c03636E.exit", label %67
 
-68:                                               ; preds = %.thread23
+67:                                               ; preds = %.thread23
   call void @llvm.lifetime.start.p0(i64 24, ptr nonnull %3), !noalias !347
   call void @"_ZN5alloc7raw_vec19RawVec$LT$T$C$A$GT$14current_memory17hb2fe6f6f3762db27E.llvm.1798434116971987782"(ptr noalias noundef nonnull sret({ [1 x i64], i64, [1 x i64] }) align 8 captures(none) dereferenceable(24) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %4)
-  %69 = load i64, ptr %18, align 8, !range !182, !noalias !347, !noundef !4
-  %.not.i.i.i.i.i.i.i.i = icmp eq i64 %69, 0
-  br i1 %.not.i.i.i.i.i.i.i.i, label %"_ZN4core3ptr56drop_in_place$LT$just..string_literal..StringLiteral$GT$17h14ac5cb919066a83E.exit.i.i.i", label %70
+  %68 = load i64, ptr %18, align 8, !range !182, !noalias !347, !noundef !4
+  %.not.i.i.i.i.i.i.i.i = icmp eq i64 %68, 0
+  br i1 %.not.i.i.i.i.i.i.i.i, label %"_ZN4core3ptr56drop_in_place$LT$just..string_literal..StringLiteral$GT$17h14ac5cb919066a83E.exit.i.i.i", label %69
 
-70:                                               ; preds = %68
-  %71 = load i64, ptr %19, align 8, !noalias !347, !noundef !4
-  %72 = icmp eq i64 %71, 0
-  br i1 %72, label %"_ZN4core3ptr56drop_in_place$LT$just..string_literal..StringLiteral$GT$17h14ac5cb919066a83E.exit.i.i.i", label %73
+69:                                               ; preds = %67
+  %70 = load i64, ptr %19, align 8, !noalias !347, !noundef !4
+  %71 = icmp eq i64 %70, 0
+  br i1 %71, label %"_ZN4core3ptr56drop_in_place$LT$just..string_literal..StringLiteral$GT$17h14ac5cb919066a83E.exit.i.i.i", label %72
 
-73:                                               ; preds = %70
-  %74 = load ptr, ptr %3, align 8, !noalias !347, !nonnull !4, !noundef !4
-  call void @__rust_dealloc(ptr noundef nonnull %74, i64 noundef %71, i64 noundef %69) #25
+72:                                               ; preds = %69
+  %73 = load ptr, ptr %3, align 8, !noalias !347, !nonnull !4, !noundef !4
+  call void @__rust_dealloc(ptr noundef nonnull %73, i64 noundef %70, i64 noundef %68) #25
   br label %"_ZN4core3ptr56drop_in_place$LT$just..string_literal..StringLiteral$GT$17h14ac5cb919066a83E.exit.i.i.i"
 
-"_ZN4core3ptr56drop_in_place$LT$just..string_literal..StringLiteral$GT$17h14ac5cb919066a83E.exit.i.i.i": ; preds = %73, %70, %68
+"_ZN4core3ptr56drop_in_place$LT$just..string_literal..StringLiteral$GT$17h14ac5cb919066a83E.exit.i.i.i": ; preds = %72, %69, %67
   call void @llvm.lifetime.end.p0(i64 24, ptr nonnull %3), !noalias !347
   br label %"_ZN4core3ptr103drop_in_place$LT$$LP$just..attribute..Attribute$C$alloc..collections..btree..set_val..SetValZST$RP$$GT$17h029c3e84f1c03636E.exit"
 
@@ -2324,7 +2324,7 @@ define hidden void @"_ZN137_$LT$alloc..collections..btree..dedup_sorted_iter..De
   call void @llvm.lifetime.end.p0(i64 48, ptr nonnull %4)
   br label %20
 
-.thread21:                                        ; preds = %65, %58, %64, %51, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h03a4955529edbd10E.exit.i.i.i", %36, %67
+.thread21:                                        ; preds = %64, %57, %63, %51, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h03a4955529edbd10E.exit.i.i.i", %36, %66
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 8 dereferenceable(48) %4, i64 48, i1 false)
   br label %34
 }

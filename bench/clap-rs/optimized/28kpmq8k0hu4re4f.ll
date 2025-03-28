@@ -5565,19 +5565,19 @@ define noundef zeroext i1 @"_ZN95_$LT$clap_builder..parser..matches..matched_arg
 
 15:                                               ; preds = %13, %11
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %.val19 = load i64, ptr %16, align 8, !noundef !4
+  %.val20 = load i64, ptr %16, align 8, !noundef !4
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %.val17 = load i64, ptr %17, align 8, !noundef !4
-  %.not.i = icmp eq i64 %.val19, %.val17
+  %.val18 = load i64, ptr %17, align 8, !noundef !4
+  %.not.i = icmp eq i64 %.val20, %.val18
   br i1 %.not.i, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb581b06e4fe66f39E.exit", label %.critedge
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb581b06e4fe66f39E.exit": ; preds = %15
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 40
   %.val = load ptr, ptr %18, align 8, !nonnull !4, !noundef !4
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %.val18 = load ptr, ptr %19, align 8, !nonnull !4, !noundef !4
-  %20 = shl nsw i64 %.val19, 3
-  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly align 8 %.val18, ptr nonnull readonly align 8 %.val, i64 %20), !alias.scope !1156
+  %.val19 = load ptr, ptr %19, align 8, !nonnull !4, !noundef !4
+  %20 = shl nsw i64 %.val20, 3
+  %bcmp.i = tail call i32 @bcmp(ptr nonnull readonly align 8 %.val19, ptr nonnull readonly align 8 %.val, i64 %20), !alias.scope !1156
   %21 = icmp eq i32 %bcmp.i, 0
   br i1 %21, label %22, label %.critedge
 
@@ -5607,21 +5607,21 @@ define noundef zeroext i1 @"_ZN95_$LT$clap_builder..parser..matches..matched_arg
 
 34:                                               ; preds = %28, %26
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 96
-  %.val23 = load i64, ptr %35, align 8, !noundef !4
+  %.val24 = load i64, ptr %35, align 8, !noundef !4
   %36 = getelementptr inbounds nuw i8, ptr %1, i64 96
-  %.val21 = load i64, ptr %36, align 8, !noundef !4
-  %.not.i24 = icmp eq i64 %.val23, %.val21
-  br i1 %.not.i24, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hebd3487319714e14E.exit", label %.critedge
+  %.val22 = load i64, ptr %36, align 8, !noundef !4
+  %.not.i25 = icmp eq i64 %.val24, %.val22
+  br i1 %.not.i25, label %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hebd3487319714e14E.exit", label %.critedge
 
 "_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hebd3487319714e14E.exit": ; preds = %34
   %37 = getelementptr inbounds nuw i8, ptr %1, i64 88
-  %.val20 = load ptr, ptr %37, align 8, !nonnull !4, !noundef !4
+  %.val21 = load ptr, ptr %37, align 8, !nonnull !4, !noundef !4
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %.val22 = load ptr, ptr %38, align 8, !nonnull !4, !noundef !4
+  %.val23 = load ptr, ptr %38, align 8, !nonnull !4, !noundef !4
   call void @llvm.lifetime.start.p0(i64 56, ptr nonnull %3), !noalias !1165
-  %39 = getelementptr inbounds { { i64, ptr }, i64 }, ptr %.val22, i64 %.val23
-  %40 = getelementptr inbounds { { i64, ptr }, i64 }, ptr %.val20, i64 %.val23
-  call void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$3new17h34ac2f23e3cff5e7E"(ptr noalias noundef nonnull sret({ { ptr, ptr }, { ptr, ptr }, i64, i64, i64 }) align 8 captures(none) dereferenceable(56) %3, ptr noundef nonnull readonly align 8 %.val22, ptr noundef nonnull readonly %39, ptr noundef nonnull readonly align 8 %.val20, ptr noundef nonnull readonly %40)
+  %39 = getelementptr inbounds { { i64, ptr }, i64 }, ptr %.val23, i64 %.val24
+  %40 = getelementptr inbounds { { i64, ptr }, i64 }, ptr %.val21, i64 %.val24
+  call void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$as$u20$core..iter..adapters..zip..ZipImpl$LT$A$C$B$GT$$GT$3new17h34ac2f23e3cff5e7E"(ptr noalias noundef nonnull sret({ { ptr, ptr }, { ptr, ptr }, i64, i64, i64 }) align 8 captures(none) dereferenceable(56) %3, ptr noundef nonnull readonly align 8 %.val23, ptr noundef nonnull readonly %39, ptr noundef nonnull readonly align 8 %.val21, ptr noundef nonnull readonly %40)
   %41 = call noundef zeroext i1 @_ZN4core4iter6traits8iterator8Iterator8try_fold17h26c1abff5afa9c7aE.llvm.7780793174254504545(ptr noalias noundef nonnull align 8 dereferenceable(56) %3)
   call void @llvm.lifetime.end.p0(i64 56, ptr nonnull %3), !noalias !1165
   br i1 %41, label %.critedge, label %42
@@ -5629,11 +5629,11 @@ define noundef zeroext i1 @"_ZN95_$LT$clap_builder..parser..matches..matched_arg
 42:                                               ; preds = %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hebd3487319714e14E.exit"
   %43 = load i8, ptr %5, align 8, !range !234, !noundef !4
   %44 = load i8, ptr %7, align 8, !range !234, !noundef !4
-  %45 = icmp eq i8 %43, %44
+  %.not16 = icmp eq i8 %43, %44
   br label %.critedge
 
 .critedge:                                        ; preds = %34, %15, %28, %11, %25, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb581b06e4fe66f39E.exit", %26, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hebd3487319714e14E.exit", %13, %42
-  %.0 = phi i1 [ %45, %42 ], [ false, %13 ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hebd3487319714e14E.exit" ], [ false, %26 ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb581b06e4fe66f39E.exit" ], [ false, %25 ], [ false, %11 ], [ false, %28 ], [ false, %15 ], [ false, %34 ]
+  %.0 = phi i1 [ %.not16, %42 ], [ false, %13 ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hebd3487319714e14E.exit" ], [ false, %26 ], [ false, %"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17hb581b06e4fe66f39E.exit" ], [ false, %25 ], [ false, %11 ], [ false, %28 ], [ false, %15 ], [ false, %34 ]
   ret i1 %.0
 }
 

@@ -2238,8 +2238,8 @@ define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20
   %13 = load i8, ptr %3, align 1, !range !631
   br label %14
 
-14:                                               ; preds = %.lr.ph, %25
-  %15 = phi ptr [ %.promoted, %.lr.ph ], [ %16, %25 ]
+14:                                               ; preds = %.lr.ph, %24
+  %15 = phi ptr [ %.promoted, %.lr.ph ], [ %16, %24 ]
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %6, ptr noundef nonnull align 8 dereferenceable(104) %15, i64 104, i1 false)
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 104
@@ -2259,8 +2259,8 @@ define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20
   call void @llvm.lifetime.start.p0(i64 104, ptr nonnull %5), !noalias !638
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %5, ptr noundef nonnull align 8 dereferenceable(104) %15, i64 104, i1 false)
   %22 = load i8, ptr %12, align 8, !range !631, !alias.scope !639, !noalias !644, !noundef !9
-  %23 = icmp eq i8 %22, %13
-  br i1 %23, label %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5d75324bfb2eb677E.llvm.5851185471656548919.exit", label %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5d75324bfb2eb677E.llvm.5851185471656548919.exit.thread11"
+  %.not.i.i.i = icmp eq i8 %22, %13
+  br i1 %.not.i.i.i, label %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5d75324bfb2eb677E.llvm.5851185471656548919.exit", label %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5d75324bfb2eb677E.llvm.5851185471656548919.exit.thread11"
 
 "_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5d75324bfb2eb677E.llvm.5851185471656548919.exit.thread11": ; preds = %21
   call void @"_ZN4core3ptr55drop_in_place$LT$http_client..github..GithubRelease$GT$17h0b82cc4b7b887c20E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %5), !noalias !638
@@ -2275,25 +2275,25 @@ define hidden void @"_ZN103_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20
   %.sroa.06.0.copyload = load i64, ptr %6, align 8, !alias.scope !649, !noalias !650
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %5), !noalias !638
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %6)
-  %24 = icmp eq i64 %.sroa.06.0.copyload, -9223372036854775808
-  br i1 %24, label %25, label %26
+  %23 = icmp eq i64 %.sroa.06.0.copyload, -9223372036854775808
+  br i1 %23, label %24, label %25
 
 .sink.split:                                      ; preds = %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5d75324bfb2eb677E.llvm.5851185471656548919.exit.thread", %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5d75324bfb2eb677E.llvm.5851185471656548919.exit.thread11"
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %6)
-  br label %25
+  br label %24
 
-25:                                               ; preds = %.sink.split, %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5d75324bfb2eb677E.llvm.5851185471656548919.exit"
+24:                                               ; preds = %.sink.split, %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5d75324bfb2eb677E.llvm.5851185471656548919.exit"
   %.not = icmp eq ptr %16, %8
   br i1 %.not, label %._crit_edge, label %14
 
-26:                                               ; preds = %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5d75324bfb2eb677E.llvm.5851185471656548919.exit"
-  %27 = getelementptr inbounds nuw i8, ptr %15, i64 8
+25:                                               ; preds = %"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17h5d75324bfb2eb677E.llvm.5851185471656548919.exit"
+  %26 = getelementptr inbounds nuw i8, ptr %15, i64 8
   %.sroa.29.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %.sroa.29.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(96) %27, i64 96, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %.sroa.29.0..sroa_idx, ptr noundef nonnull align 8 dereferenceable(96) %26, i64 96, i1 false)
   br label %._crit_edge
 
-._crit_edge:                                      ; preds = %25, %4, %26
-  %storemerge = phi i64 [ %.sroa.06.0.copyload, %26 ], [ -9223372036854775808, %4 ], [ -9223372036854775808, %25 ]
+._crit_edge:                                      ; preds = %24, %4, %25
+  %storemerge = phi i64 [ %.sroa.06.0.copyload, %25 ], [ -9223372036854775808, %4 ], [ -9223372036854775808, %24 ]
   store i64 %storemerge, ptr %0, align 8
   ret void
 }
@@ -5716,8 +5716,8 @@ define hidden noundef zeroext i1 @"_ZN11http_client6github21latest_github_releas
   %4 = load i8, ptr %3, align 8, !range !631, !noundef !9
   %5 = load ptr, ptr %0, align 8, !nonnull !9, !align !279, !noundef !9
   %6 = load i8, ptr %5, align 1, !range !631, !noundef !9
-  %7 = icmp eq i8 %4, %6
-  ret i1 %7
+  %.not = icmp eq i8 %4, %6
+  ret i1 %.not
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable
@@ -12170,19 +12170,19 @@ define hidden void @"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u
   %5 = load i8, ptr %4, align 8, !range !631, !alias.scope !3253, !noalias !3250, !noundef !9
   %6 = load ptr, ptr %1, align 8, !alias.scope !3250, !noalias !3253, !nonnull !9, !align !279, !noundef !9
   %7 = load i8, ptr %6, align 1, !range !631, !noalias !3255, !noundef !9
-  %8 = icmp eq i8 %5, %7
-  br i1 %8, label %10, label %9
+  %.not.i = icmp eq i8 %5, %7
+  br i1 %.not.i, label %9, label %8
 
-9:                                                ; preds = %3
+8:                                                ; preds = %3
   store i64 -9223372036854775808, ptr %0, align 8
   tail call void @"_ZN4core3ptr55drop_in_place$LT$http_client..github..GithubRelease$GT$17h0b82cc4b7b887c20E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %2)
-  br label %11
+  br label %10
 
-10:                                               ; preds = %3
+9:                                                ; preds = %3
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 104, i1 false)
-  br label %11
+  br label %10
 
-11:                                               ; preds = %10, %9
+10:                                               ; preds = %9, %8
   ret void
 }
 
@@ -12725,7 +12725,7 @@ define hidden void @"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$
   %10 = load i64, ptr %9, align 8, !alias.scope !3528, !noalias !3525
   %11 = icmp eq i64 %10, 0
   %.sroa.0.0.i.not = select i1 %8, i1 %11, i1 false
-  br i1 %.sroa.0.0.i.not, label %21, label %12
+  br i1 %.sroa.0.0.i.not, label %20, label %12
 
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -12740,29 +12740,29 @@ define hidden void @"_ZN4core4iter8adapters6filter15filter_try_fold28_$u7b$$u7b$
   %15 = load i8, ptr %14, align 8, !range !631, !alias.scope !3543, !noalias !3544, !noundef !9
   %16 = load ptr, ptr %13, align 8, !alias.scope !3545, !noalias !3546, !nonnull !9, !align !279, !noundef !9
   %17 = load i8, ptr %16, align 1, !range !631, !noalias !3547, !noundef !9
-  %18 = icmp eq i8 %15, %17
-  br i1 %18, label %20, label %19
+  %.not.i.i = icmp eq i8 %15, %17
+  br i1 %.not.i.i, label %19, label %18
 
-19:                                               ; preds = %12
+18:                                               ; preds = %12
   store i64 -9223372036854775808, ptr %0, align 8, !alias.scope !3531, !noalias !3548
   call void @"_ZN4core3ptr55drop_in_place$LT$http_client..github..GithubRelease$GT$17h0b82cc4b7b887c20E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %4)
   br label %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h02972b4697af38ecE.llvm.5851185471656548919.exit"
 
-20:                                               ; preds = %12
+19:                                               ; preds = %12
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %0, ptr noundef nonnull align 8 dereferenceable(104) %2, i64 104, i1 false)
   br label %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h02972b4697af38ecE.llvm.5851185471656548919.exit"
 
-21:                                               ; preds = %3
+20:                                               ; preds = %3
   store i64 -9223372036854775808, ptr %0, align 8, !alias.scope !3549
   tail call void @"_ZN4core3ptr55drop_in_place$LT$http_client..github..GithubRelease$GT$17h0b82cc4b7b887c20E"(ptr noalias noundef nonnull align 8 dereferenceable(104) %2)
-  br label %22
+  br label %21
 
-22:                                               ; preds = %21, %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h02972b4697af38ecE.llvm.5851185471656548919.exit"
+21:                                               ; preds = %20, %"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h02972b4697af38ecE.llvm.5851185471656548919.exit"
   ret void
 
-"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h02972b4697af38ecE.llvm.5851185471656548919.exit": ; preds = %19, %20
+"_ZN4core4iter6traits8iterator8Iterator4find5check28_$u7b$$u7b$closure$u7d$$u7d$17h02972b4697af38ecE.llvm.5851185471656548919.exit": ; preds = %18, %19
   call void @llvm.lifetime.end.p0(i64 104, ptr nonnull %4)
-  br label %22
+  br label %21
 }
 
 ; Function Attrs: inlinehint nonlazybind uwtable

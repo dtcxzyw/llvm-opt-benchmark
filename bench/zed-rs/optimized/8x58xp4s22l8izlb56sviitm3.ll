@@ -24366,26 +24366,26 @@ define noundef zeroext i1 @"_ZN63_$LT$tasks_ui..modal..Rerun$u20$as$u20$gpui..ac
   %17 = load i8, ptr %16, align 8, !range !58, !alias.scope !4355, !noalias !4360, !noundef !9
   %18 = getelementptr inbounds nuw i8, ptr %7, i64 24
   %19 = load i8, ptr %18, align 8, !range !58, !alias.scope !4360, !noalias !4355, !noundef !9
-  %20 = icmp eq i8 %17, %19
-  br i1 %20, label %21, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h00ca648b2c6df840E.exit"
+  %.not.i.i.i = icmp eq i8 %17, %19
+  br i1 %.not.i.i.i, label %20, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h00ca648b2c6df840E.exit"
 
-21:                                               ; preds = %15
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 25
-  %23 = load i8, ptr %22, align 1, !range !267, !alias.scope !4355, !noalias !4360, !noundef !9
-  %24 = icmp eq i8 %23, 2
-  %25 = getelementptr inbounds nuw i8, ptr %7, i64 25
-  %26 = load i8, ptr %25, align 1, !range !267, !alias.scope !4360, !noalias !4355, !noundef !9
-  br i1 %24, label %27, label %29
+20:                                               ; preds = %15
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 25
+  %22 = load i8, ptr %21, align 1, !range !267, !alias.scope !4355, !noalias !4360, !noundef !9
+  %23 = icmp eq i8 %22, 2
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 25
+  %25 = load i8, ptr %24, align 1, !range !267, !alias.scope !4360, !noalias !4355, !noundef !9
+  br i1 %23, label %27, label %29
 
-27:                                               ; preds = %21
-  %28 = icmp eq i8 %26, 2
-  br i1 %28, label %31, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h00ca648b2c6df840E.exit"
+28:                                               ; preds = %20
+  %.not7.i.i.i = icmp eq i8 %26, 2
+  br i1 %.not7.i.i.i, label %31, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h00ca648b2c6df840E.exit"
 
-29:                                               ; preds = %21
+43:                                               ; preds = %21
   %30 = icmp eq i8 %23, %26
   br i1 %30, label %31, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h00ca648b2c6df840E.exit"
 
-31:                                               ; preds = %29, %27
+31:; preds = %29, %.not7.i.i.i
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %33 = load i8, ptr %32, align 2, !range !267, !alias.scope !4355, !noalias !4360, !noundef !9
   %34 = icmp eq i8 %33, 2
@@ -24418,17 +24418,17 @@ define noundef zeroext i1 @"_ZN63_$LT$tasks_ui..modal..Rerun$u20$as$u20$gpui..ac
   %.not.i.i.i.i.i = icmp eq i64 %.val5.i.i.i, %.val7.i.i.i
   br i1 %.not.i.i.i.i.i, label %49, label %"_ZN4core6option15Option$LT$T$GT$6map_or17h00ca648b2c6df840E.exit"
 
-49:                                               ; preds = %46
-  %50 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.val6.i.i.i = load ptr, ptr %50, align 8, !alias.scope !4360, !noalias !4355, !nonnull !9, !noundef !9
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %.val.i.i.i = load ptr, ptr %51, align 8, !alias.scope !4355, !noalias !4360, !nonnull !9, !noundef !9
-  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val.i.i.i, ptr nonnull readonly align 1 %.val6.i.i.i, i64 %.val5.i.i.i), !alias.scope !4361, !noalias !4365
-  %52 = icmp eq i32 %bcmp.i.i.i.i.i, 0
+46:                                               ; preds = %46
+  %47 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.val5.i.i.i = load ptr, ptr %47, align 8, !alias.scope !4360, !noalias !4355, !nonnull !9, !noundef !9
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %.val.i.i.i = load ptr, ptr %48, align 8, !alias.scope !4355, !noalias !4360, !nonnull !9, !noundef !9
+  %bcmp.i.i.i.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val.i.i.i, ptr nonnull readonly align 1 %.val5.i.i.i, i64 %.val5.i.i.i), !alias.scope !4361, !noalias !4365
+  %49 = icmp eq i32 %bcmp.i.i.i.i.i, 0
   br label %"_ZN4core6option15Option$LT$T$GT$6map_or17h00ca648b2c6df840E.exit"
 
 "_ZN4core6option15Option$LT$T$GT$6map_or17h00ca648b2c6df840E.exit": ; preds = %3, %15, %27, %29, %37, %39, %41, %46, %49
-  %.sroa.02.0.i = phi i1 [ false, %3 ], [ false, %39 ], [ false, %37 ], [ false, %29 ], [ false, %27 ], [ false, %15 ], [ %52, %49 ], [ false, %46 ], [ %.mux.i.i.i, %41 ]
+  %.sroa.02.0.i = phi i1 [ false, %3 ], [ false, %39 ], [ false, %37 ], [ false, %29 ], [ false, %27 ], [ false, %15 ], [ %49, %46 ], [ false, %46 ], [ %.mux.i.i.i, %41 ]
   ret i1 %.sroa.02.0.i
 }
 

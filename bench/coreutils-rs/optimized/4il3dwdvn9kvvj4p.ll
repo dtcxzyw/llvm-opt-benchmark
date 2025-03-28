@@ -1279,56 +1279,56 @@ define internal fastcc noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map
   %or.cond.i = select i1 %19, i1 %22, i1 false
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %24 = load i8, ptr %23, align 8, !range !90, !alias.scope !258
-  %25 = icmp eq i8 %24, 0
-  %or.cond13.i = select i1 %or.cond.i, i1 %25, i1 false
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %27 = load i8, ptr %26, align 8, !range !270, !alias.scope !258
-  %28 = icmp eq i8 %27, 2
-  %or.cond16.i = select i1 %or.cond13.i, i1 %28, i1 false
-  br i1 %or.cond16.i, label %29, label %"_ZN7uu_sort4Line11print_debug28_$u7b$$u7b$closure$u7d$$u7d$17ha019450a0de3a222E.exit"
+  %.not.i.i = icmp eq i8 %24, 0
+  %or.cond12.i = select i1 %or.cond.i, i1 %.not.i.i, i1 false
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %26 = load i8, ptr %25, align 8, !range !270, !alias.scope !258
+  %27 = icmp eq i8 %26, 2
+  %or.cond15.i = select i1 %or.cond12.i, i1 %27, i1 false
+  br i1 %or.cond15.i, label %28, label %"_ZN7uu_sort4Line11print_debug28_$u7b$$u7b$closure$u7d$$u7d$17ha019450a0de3a222E.exit"
 
-29:                                               ; preds = %4
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 53
-  %31 = load i8, ptr %30, align 1, !range !261, !alias.scope !271, !noalias !274, !noundef !4
-  %32 = icmp eq i8 %31, %6
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %34 = load i8, ptr %33, align 8, !range !90, !alias.scope !258
-  %35 = icmp eq i8 %34, %8
-  %or.cond19.i = select i1 %32, i1 %35, i1 false
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 49
-  %37 = load i8, ptr %36, align 1, !range !90, !alias.scope !258
-  %38 = icmp eq i8 %37, %10
-  %or.cond25.i = select i1 %or.cond19.i, i1 %38, i1 false
-  br i1 %or.cond25.i, label %39, label %"_ZN7uu_sort4Line11print_debug28_$u7b$$u7b$closure$u7d$$u7d$17ha019450a0de3a222E.exit"
+28:                                               ; preds = %4
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 53
+  %30 = load i8, ptr %29, align 1, !range !261, !alias.scope !271, !noalias !274, !noundef !4
+  %31 = icmp eq i8 %30, %6
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %33 = load i8, ptr %32, align 8, !range !90, !alias.scope !258
+  %.not.i.i.i = icmp eq i8 %33, %8
+  %or.cond17.i = select i1 %31, i1 %.not.i.i.i, i1 false
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 49
+  %35 = load i8, ptr %34, align 1, !range !90, !alias.scope !258
+  %.not1.i.i.i = icmp eq i8 %35, %10
+  %or.cond21.i = select i1 %or.cond17.i, i1 %.not1.i.i.i, i1 false
+  br i1 %or.cond21.i, label %36, label %"_ZN7uu_sort4Line11print_debug28_$u7b$$u7b$closure$u7d$$u7d$17ha019450a0de3a222E.exit"
 
-39:                                               ; preds = %29
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 50
-  %41 = load i8, ptr %40, align 2, !range !90, !alias.scope !271, !noalias !274, !noundef !4
-  %42 = icmp eq i8 %41, %16
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 51
-  %44 = load i8, ptr %43, align 1, !range !90, !alias.scope !258
-  %45 = icmp eq i8 %44, %12
-  %or.cond28.i = select i1 %42, i1 %45, i1 false
-  br i1 %or.cond28.i, label %"_ZN61_$LT$uu_sort..KeySettings$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc320b813608178d3E.exit.i.i", label %"_ZN7uu_sort4Line11print_debug28_$u7b$$u7b$closure$u7d$$u7d$17ha019450a0de3a222E.exit"
+36:                                               ; preds = %28
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 50
+  %38 = load i8, ptr %37, align 2, !range !90, !alias.scope !271, !noalias !274, !noundef !4
+  %.not2.i.i.i = icmp eq i8 %38, %16
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 51
+  %40 = load i8, ptr %39, align 1, !range !90, !alias.scope !258
+  %.not3.i.i.i = icmp eq i8 %40, %12
+  %or.cond23.i = select i1 %.not2.i.i.i, i1 %.not3.i.i.i, i1 false
+  br i1 %or.cond23.i, label %"_ZN61_$LT$uu_sort..KeySettings$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc320b813608178d3E.exit.i.i", label %"_ZN7uu_sort4Line11print_debug28_$u7b$$u7b$closure$u7d$$u7d$17ha019450a0de3a222E.exit"
 
-"_ZN61_$LT$uu_sort..KeySettings$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc320b813608178d3E.exit.i.i": ; preds = %39
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %47 = load i8, ptr %46, align 4, !range !90, !alias.scope !271, !noalias !274, !noundef !4
-  %48 = icmp eq i8 %47, %14
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 54
-  %50 = load i8, ptr %49, align 2, !range !90, !alias.scope !258
-  %51 = icmp eq i8 %50, 0
-  %or.cond22.i = select i1 %48, i1 %51, i1 false
-  br i1 %or.cond22.i, label %52, label %"_ZN7uu_sort4Line11print_debug28_$u7b$$u7b$closure$u7d$$u7d$17ha019450a0de3a222E.exit"
+"_ZN61_$LT$uu_sort..KeySettings$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc320b813608178d3E.exit.i.i": ; preds = %36
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %42 = load i8, ptr %41, align 4, !range !90, !alias.scope !271, !noalias !274, !noundef !4
+  %.not4.i.i.i = icmp eq i8 %42, %14
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 54
+  %44 = load i8, ptr %43, align 2, !range !90, !alias.scope !258
+  %.not7.i.i = icmp eq i8 %44, 0
+  %or.cond19.i = select i1 %.not4.i.i.i, i1 %.not7.i.i, i1 false
+  br i1 %or.cond19.i, label %45, label %"_ZN7uu_sort4Line11print_debug28_$u7b$$u7b$closure$u7d$$u7d$17ha019450a0de3a222E.exit"
 
-52:                                               ; preds = %"_ZN61_$LT$uu_sort..KeySettings$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc320b813608178d3E.exit.i.i"
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 55
-  %54 = load i8, ptr %53, align 1, !range !90, !alias.scope !265, !noalias !268, !noundef !4
-  %55 = icmp ne i8 %54, 0
+45:                                               ; preds = %"_ZN61_$LT$uu_sort..KeySettings$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc320b813608178d3E.exit.i.i"
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 55
+  %47 = load i8, ptr %46, align 1, !range !90, !alias.scope !265, !noalias !268, !noundef !4
+  %.not8.i.i = icmp ne i8 %47, 0
   br label %"_ZN7uu_sort4Line11print_debug28_$u7b$$u7b$closure$u7d$$u7d$17ha019450a0de3a222E.exit"
 
-"_ZN7uu_sort4Line11print_debug28_$u7b$$u7b$closure$u7d$$u7d$17ha019450a0de3a222E.exit": ; preds = %52, %"_ZN61_$LT$uu_sort..KeySettings$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc320b813608178d3E.exit.i.i", %39, %29, %4, %1
-  %.0 = phi i1 [ true, %1 ], [ %55, %52 ], [ true, %4 ], [ true, %"_ZN61_$LT$uu_sort..KeySettings$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc320b813608178d3E.exit.i.i" ], [ true, %39 ], [ true, %29 ]
+"_ZN7uu_sort4Line11print_debug28_$u7b$$u7b$closure$u7d$$u7d$17ha019450a0de3a222E.exit": ; preds = %45, %"_ZN61_$LT$uu_sort..KeySettings$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc320b813608178d3E.exit.i.i", %36, %28, %4, %1
+  %.0 = phi i1 [ true, %1 ], [ %.not8.i.i, %45 ], [ true, %4 ], [ true, %"_ZN61_$LT$uu_sort..KeySettings$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc320b813608178d3E.exit.i.i" ], [ true, %36 ], [ true, %28 ]
   ret i1 %.0
 }
 
@@ -1365,56 +1365,56 @@ define internal fastcc noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map
   %or.cond.i = select i1 %19, i1 %22, i1 false
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %24 = load i8, ptr %23, align 8, !range !90, !alias.scope !276
-  %25 = icmp eq i8 %24, 0
-  %or.cond13.i = select i1 %or.cond.i, i1 %25, i1 false
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %27 = load i8, ptr %26, align 8, !range !270, !alias.scope !276
-  %28 = icmp eq i8 %27, 2
-  %or.cond16.i = select i1 %or.cond13.i, i1 %28, i1 false
-  br i1 %or.cond16.i, label %29, label %"_ZN7uu_sort4Line11print_debug28_$u7b$$u7b$closure$u7d$$u7d$17h3ee1d36e65b7cb7dE.exit"
+  %.not.i.i = icmp eq i8 %24, 0
+  %or.cond12.i = select i1 %or.cond.i, i1 %.not.i.i, i1 false
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %26 = load i8, ptr %25, align 8, !range !270, !alias.scope !276
+  %27 = icmp eq i8 %26, 2
+  %or.cond15.i = select i1 %or.cond12.i, i1 %27, i1 false
+  br i1 %or.cond15.i, label %28, label %"_ZN7uu_sort4Line11print_debug28_$u7b$$u7b$closure$u7d$$u7d$17h3ee1d36e65b7cb7dE.exit"
 
-29:                                               ; preds = %4
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 53
-  %31 = load i8, ptr %30, align 1, !range !261, !alias.scope !287, !noalias !290, !noundef !4
-  %32 = icmp eq i8 %31, %6
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %34 = load i8, ptr %33, align 8, !range !90, !alias.scope !276
-  %35 = icmp eq i8 %34, %8
-  %or.cond19.i = select i1 %32, i1 %35, i1 false
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 49
-  %37 = load i8, ptr %36, align 1, !range !90, !alias.scope !276
-  %38 = icmp eq i8 %37, %10
-  %or.cond25.i = select i1 %or.cond19.i, i1 %38, i1 false
-  br i1 %or.cond25.i, label %39, label %"_ZN7uu_sort4Line11print_debug28_$u7b$$u7b$closure$u7d$$u7d$17h3ee1d36e65b7cb7dE.exit"
+28:                                               ; preds = %4
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 53
+  %30 = load i8, ptr %29, align 1, !range !261, !alias.scope !287, !noalias !290, !noundef !4
+  %31 = icmp eq i8 %30, %6
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %33 = load i8, ptr %32, align 8, !range !90, !alias.scope !276
+  %.not.i.i.i = icmp eq i8 %33, %8
+  %or.cond17.i = select i1 %31, i1 %.not.i.i.i, i1 false
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 49
+  %35 = load i8, ptr %34, align 1, !range !90, !alias.scope !276
+  %.not1.i.i.i = icmp eq i8 %35, %10
+  %or.cond21.i = select i1 %or.cond17.i, i1 %.not1.i.i.i, i1 false
+  br i1 %or.cond21.i, label %36, label %"_ZN7uu_sort4Line11print_debug28_$u7b$$u7b$closure$u7d$$u7d$17h3ee1d36e65b7cb7dE.exit"
 
-39:                                               ; preds = %29
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 50
-  %41 = load i8, ptr %40, align 2, !range !90, !alias.scope !287, !noalias !290, !noundef !4
-  %42 = icmp eq i8 %41, %16
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 51
-  %44 = load i8, ptr %43, align 1, !range !90, !alias.scope !276
-  %45 = icmp eq i8 %44, %12
-  %or.cond28.i = select i1 %42, i1 %45, i1 false
-  br i1 %or.cond28.i, label %"_ZN61_$LT$uu_sort..KeySettings$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc320b813608178d3E.exit.i.i", label %"_ZN7uu_sort4Line11print_debug28_$u7b$$u7b$closure$u7d$$u7d$17h3ee1d36e65b7cb7dE.exit"
+36:                                               ; preds = %28
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 50
+  %38 = load i8, ptr %37, align 2, !range !90, !alias.scope !287, !noalias !290, !noundef !4
+  %.not2.i.i.i = icmp eq i8 %38, %16
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 51
+  %40 = load i8, ptr %39, align 1, !range !90, !alias.scope !276
+  %.not3.i.i.i = icmp eq i8 %40, %12
+  %or.cond23.i = select i1 %.not2.i.i.i, i1 %.not3.i.i.i, i1 false
+  br i1 %or.cond23.i, label %"_ZN61_$LT$uu_sort..KeySettings$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc320b813608178d3E.exit.i.i", label %"_ZN7uu_sort4Line11print_debug28_$u7b$$u7b$closure$u7d$$u7d$17h3ee1d36e65b7cb7dE.exit"
 
-"_ZN61_$LT$uu_sort..KeySettings$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc320b813608178d3E.exit.i.i": ; preds = %39
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %47 = load i8, ptr %46, align 4, !range !90, !alias.scope !287, !noalias !290, !noundef !4
-  %48 = icmp eq i8 %47, %14
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 54
-  %50 = load i8, ptr %49, align 2, !range !90, !alias.scope !276
-  %51 = icmp eq i8 %50, 0
-  %or.cond22.i = select i1 %48, i1 %51, i1 false
-  br i1 %or.cond22.i, label %52, label %"_ZN7uu_sort4Line11print_debug28_$u7b$$u7b$closure$u7d$$u7d$17h3ee1d36e65b7cb7dE.exit"
+"_ZN61_$LT$uu_sort..KeySettings$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc320b813608178d3E.exit.i.i": ; preds = %36
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %42 = load i8, ptr %41, align 4, !range !90, !alias.scope !287, !noalias !290, !noundef !4
+  %.not4.i.i.i = icmp eq i8 %42, %14
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 54
+  %44 = load i8, ptr %43, align 2, !range !90, !alias.scope !276
+  %.not7.i.i = icmp eq i8 %44, 0
+  %or.cond19.i = select i1 %.not4.i.i.i, i1 %.not7.i.i, i1 false
+  br i1 %or.cond19.i, label %45, label %"_ZN7uu_sort4Line11print_debug28_$u7b$$u7b$closure$u7d$$u7d$17h3ee1d36e65b7cb7dE.exit"
 
-52:                                               ; preds = %"_ZN61_$LT$uu_sort..KeySettings$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc320b813608178d3E.exit.i.i"
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 55
-  %54 = load i8, ptr %53, align 1, !range !90, !alias.scope !282, !noalias !285, !noundef !4
-  %55 = icmp ne i8 %54, 0
+45:                                               ; preds = %"_ZN61_$LT$uu_sort..KeySettings$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc320b813608178d3E.exit.i.i"
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 55
+  %47 = load i8, ptr %46, align 1, !range !90, !alias.scope !282, !noalias !285, !noundef !4
+  %.not8.i.i = icmp ne i8 %47, 0
   br label %"_ZN7uu_sort4Line11print_debug28_$u7b$$u7b$closure$u7d$$u7d$17h3ee1d36e65b7cb7dE.exit"
 
-"_ZN7uu_sort4Line11print_debug28_$u7b$$u7b$closure$u7d$$u7d$17h3ee1d36e65b7cb7dE.exit": ; preds = %52, %"_ZN61_$LT$uu_sort..KeySettings$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc320b813608178d3E.exit.i.i", %39, %29, %4, %1
-  %.0 = phi i1 [ true, %1 ], [ %55, %52 ], [ true, %4 ], [ true, %"_ZN61_$LT$uu_sort..KeySettings$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc320b813608178d3E.exit.i.i" ], [ true, %39 ], [ true, %29 ]
+"_ZN7uu_sort4Line11print_debug28_$u7b$$u7b$closure$u7d$$u7d$17h3ee1d36e65b7cb7dE.exit": ; preds = %45, %"_ZN61_$LT$uu_sort..KeySettings$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc320b813608178d3E.exit.i.i", %36, %28, %4, %1
+  %.0 = phi i1 [ true, %1 ], [ %.not8.i.i, %45 ], [ true, %4 ], [ true, %"_ZN61_$LT$uu_sort..KeySettings$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc320b813608178d3E.exit.i.i" ], [ true, %36 ], [ true, %28 ]
   ret i1 %.0
 }
 
@@ -1451,56 +1451,56 @@ define internal fastcc noundef zeroext i1 @"_ZN4core6option15Option$LT$T$GT$6map
   %or.cond.i = select i1 %19, i1 %22, i1 false
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %24 = load i8, ptr %23, align 8, !range !90, !alias.scope !292
-  %25 = icmp eq i8 %24, 0
-  %or.cond13.i = select i1 %or.cond.i, i1 %25, i1 false
-  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %27 = load i8, ptr %26, align 8, !range !270, !alias.scope !292
-  %28 = icmp eq i8 %27, 2
-  %or.cond16.i = select i1 %or.cond13.i, i1 %28, i1 false
-  br i1 %or.cond16.i, label %29, label %"_ZN7uu_sort4Line11print_debug28_$u7b$$u7b$closure$u7d$$u7d$17hfa06b54cd32c453bE.exit"
+  %.not.i.i = icmp eq i8 %24, 0
+  %or.cond12.i = select i1 %or.cond.i, i1 %.not.i.i, i1 false
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %26 = load i8, ptr %25, align 8, !range !270, !alias.scope !292
+  %27 = icmp eq i8 %26, 2
+  %or.cond15.i = select i1 %or.cond12.i, i1 %27, i1 false
+  br i1 %or.cond15.i, label %28, label %"_ZN7uu_sort4Line11print_debug28_$u7b$$u7b$closure$u7d$$u7d$17hfa06b54cd32c453bE.exit"
 
-29:                                               ; preds = %4
-  %30 = getelementptr inbounds nuw i8, ptr %0, i64 53
-  %31 = load i8, ptr %30, align 1, !range !261, !alias.scope !303, !noalias !306, !noundef !4
-  %32 = icmp eq i8 %31, %6
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %34 = load i8, ptr %33, align 8, !range !90, !alias.scope !292
-  %35 = icmp eq i8 %34, %8
-  %or.cond19.i = select i1 %32, i1 %35, i1 false
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 49
-  %37 = load i8, ptr %36, align 1, !range !90, !alias.scope !292
-  %38 = icmp eq i8 %37, %10
-  %or.cond25.i = select i1 %or.cond19.i, i1 %38, i1 false
-  br i1 %or.cond25.i, label %39, label %"_ZN7uu_sort4Line11print_debug28_$u7b$$u7b$closure$u7d$$u7d$17hfa06b54cd32c453bE.exit"
+28:                                               ; preds = %4
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 53
+  %30 = load i8, ptr %29, align 1, !range !261, !alias.scope !303, !noalias !306, !noundef !4
+  %31 = icmp eq i8 %30, %6
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %33 = load i8, ptr %32, align 8, !range !90, !alias.scope !292
+  %.not.i.i.i = icmp eq i8 %33, %8
+  %or.cond17.i = select i1 %31, i1 %.not.i.i.i, i1 false
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 49
+  %35 = load i8, ptr %34, align 1, !range !90, !alias.scope !292
+  %.not1.i.i.i = icmp eq i8 %35, %10
+  %or.cond21.i = select i1 %or.cond17.i, i1 %.not1.i.i.i, i1 false
+  br i1 %or.cond21.i, label %36, label %"_ZN7uu_sort4Line11print_debug28_$u7b$$u7b$closure$u7d$$u7d$17hfa06b54cd32c453bE.exit"
 
-39:                                               ; preds = %29
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 50
-  %41 = load i8, ptr %40, align 2, !range !90, !alias.scope !303, !noalias !306, !noundef !4
-  %42 = icmp eq i8 %41, %16
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 51
-  %44 = load i8, ptr %43, align 1, !range !90, !alias.scope !292
-  %45 = icmp eq i8 %44, %12
-  %or.cond28.i = select i1 %42, i1 %45, i1 false
-  br i1 %or.cond28.i, label %"_ZN61_$LT$uu_sort..KeySettings$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc320b813608178d3E.exit.i.i", label %"_ZN7uu_sort4Line11print_debug28_$u7b$$u7b$closure$u7d$$u7d$17hfa06b54cd32c453bE.exit"
+36:                                               ; preds = %28
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 50
+  %38 = load i8, ptr %37, align 2, !range !90, !alias.scope !303, !noalias !306, !noundef !4
+  %.not2.i.i.i = icmp eq i8 %38, %16
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 51
+  %40 = load i8, ptr %39, align 1, !range !90, !alias.scope !292
+  %.not3.i.i.i = icmp eq i8 %40, %12
+  %or.cond23.i = select i1 %.not2.i.i.i, i1 %.not3.i.i.i, i1 false
+  br i1 %or.cond23.i, label %"_ZN61_$LT$uu_sort..KeySettings$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc320b813608178d3E.exit.i.i", label %"_ZN7uu_sort4Line11print_debug28_$u7b$$u7b$closure$u7d$$u7d$17hfa06b54cd32c453bE.exit"
 
-"_ZN61_$LT$uu_sort..KeySettings$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc320b813608178d3E.exit.i.i": ; preds = %39
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  %47 = load i8, ptr %46, align 4, !range !90, !alias.scope !303, !noalias !306, !noundef !4
-  %48 = icmp eq i8 %47, %14
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 54
-  %50 = load i8, ptr %49, align 2, !range !90, !alias.scope !292
-  %51 = icmp eq i8 %50, 0
-  %or.cond22.i = select i1 %48, i1 %51, i1 false
-  br i1 %or.cond22.i, label %52, label %"_ZN7uu_sort4Line11print_debug28_$u7b$$u7b$closure$u7d$$u7d$17hfa06b54cd32c453bE.exit"
+"_ZN61_$LT$uu_sort..KeySettings$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc320b813608178d3E.exit.i.i": ; preds = %36
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 52
+  %42 = load i8, ptr %41, align 4, !range !90, !alias.scope !303, !noalias !306, !noundef !4
+  %.not4.i.i.i = icmp eq i8 %42, %14
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 54
+  %44 = load i8, ptr %43, align 2, !range !90, !alias.scope !292
+  %.not7.i.i = icmp eq i8 %44, 0
+  %or.cond19.i = select i1 %.not4.i.i.i, i1 %.not7.i.i, i1 false
+  br i1 %or.cond19.i, label %45, label %"_ZN7uu_sort4Line11print_debug28_$u7b$$u7b$closure$u7d$$u7d$17hfa06b54cd32c453bE.exit"
 
-52:                                               ; preds = %"_ZN61_$LT$uu_sort..KeySettings$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc320b813608178d3E.exit.i.i"
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 55
-  %54 = load i8, ptr %53, align 1, !range !90, !alias.scope !298, !noalias !301, !noundef !4
-  %55 = icmp ne i8 %54, 0
+45:                                               ; preds = %"_ZN61_$LT$uu_sort..KeySettings$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc320b813608178d3E.exit.i.i"
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 55
+  %47 = load i8, ptr %46, align 1, !range !90, !alias.scope !298, !noalias !301, !noundef !4
+  %.not8.i.i = icmp ne i8 %47, 0
   br label %"_ZN7uu_sort4Line11print_debug28_$u7b$$u7b$closure$u7d$$u7d$17hfa06b54cd32c453bE.exit"
 
-"_ZN7uu_sort4Line11print_debug28_$u7b$$u7b$closure$u7d$$u7d$17hfa06b54cd32c453bE.exit": ; preds = %52, %"_ZN61_$LT$uu_sort..KeySettings$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc320b813608178d3E.exit.i.i", %39, %29, %4, %1
-  %.0 = phi i1 [ true, %1 ], [ %55, %52 ], [ true, %4 ], [ true, %"_ZN61_$LT$uu_sort..KeySettings$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc320b813608178d3E.exit.i.i" ], [ true, %39 ], [ true, %29 ]
+"_ZN7uu_sort4Line11print_debug28_$u7b$$u7b$closure$u7d$$u7d$17hfa06b54cd32c453bE.exit": ; preds = %45, %"_ZN61_$LT$uu_sort..KeySettings$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc320b813608178d3E.exit.i.i", %36, %28, %4, %1
+  %.0 = phi i1 [ true, %1 ], [ %.not8.i.i, %45 ], [ true, %4 ], [ true, %"_ZN61_$LT$uu_sort..KeySettings$u20$as$u20$core..cmp..PartialEq$GT$2eq17hc320b813608178d3E.exit.i.i" ], [ true, %36 ], [ true, %28 ]
   ret i1 %.0
 }
 

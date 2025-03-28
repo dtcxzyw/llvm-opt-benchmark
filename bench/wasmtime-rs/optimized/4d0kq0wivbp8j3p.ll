@@ -1199,25 +1199,25 @@ define hidden noundef zeroext i1 @_ZN4core3cmp9PartialEq2ne17h1d0c067a1dae83b6E.
   %13 = load i8, ptr %12, align 4, !range !141, !alias.scope !142, !noalias !143, !noundef !4
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load i8, ptr %14, align 4, !range !141, !alias.scope !143, !noalias !142, !noundef !4
-  %16 = icmp eq i8 %13, %15
-  %17 = icmp eq i32 %3, %5
-  %or.cond4.i = and i1 %17, %16
-  br i1 %or.cond4.i, label %18, label %"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.llvm.12426178672938875897.exit"
+  %.not.i.i = icmp eq i8 %13, %15
+  %16 = icmp eq i32 %3, %5
+  %or.cond4.i = and i1 %16, %.not.i.i
+  br i1 %or.cond4.i, label %17, label %"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.llvm.12426178672938875897.exit"
 
-18:                                               ; preds = %11
-  %19 = icmp eq i32 %3, 12
-  br i1 %19, label %20, label %"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.llvm.12426178672938875897.exit"
+17:                                               ; preds = %11
+  %18 = icmp eq i32 %3, 12
+  br i1 %18, label %19, label %"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.llvm.12426178672938875897.exit"
 
-20:                                               ; preds = %18
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %22 = load i32, ptr %21, align 4, !alias.scope !142, !noalias !143, !noundef !4
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %24 = load i32, ptr %23, align 4, !alias.scope !143, !noalias !142, !noundef !4
-  %25 = icmp ne i32 %22, %24
+19:                                               ; preds = %17
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %21 = load i32, ptr %20, align 4, !alias.scope !142, !noalias !143, !noundef !4
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %23 = load i32, ptr %22, align 4, !alias.scope !143, !noalias !142, !noundef !4
+  %24 = icmp ne i32 %21, %23
   br label %"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.llvm.12426178672938875897.exit"
 
-"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.llvm.12426178672938875897.exit": ; preds = %2, %8, %11, %18, %20
-  %.0.i = phi i1 [ true, %2 ], [ false, %8 ], [ %25, %20 ], [ true, %11 ], [ false, %18 ]
+"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.llvm.12426178672938875897.exit": ; preds = %2, %8, %11, %17, %19
+  %.0.i = phi i1 [ true, %2 ], [ false, %8 ], [ %24, %19 ], [ true, %11 ], [ false, %17 ]
   ret i1 %.0.i
 }
 
@@ -2860,25 +2860,25 @@ define hidden noundef zeroext i1 @"_ZN52_$LT$Q$u20$as$u20$hashbrown..Equivalent$
   %13 = load i8, ptr %12, align 4, !range !141, !alias.scope !725, !noalias !726, !noundef !4
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load i8, ptr %14, align 4, !range !141, !alias.scope !726, !noalias !725, !noundef !4
-  %16 = icmp eq i8 %13, %15
-  %17 = icmp eq i32 %3, %5
-  %or.cond4.i = and i1 %17, %16
-  br i1 %or.cond4.i, label %18, label %"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.llvm.12426178672938875897.exit"
+  %.not.i.i = icmp eq i8 %13, %15
+  %16 = icmp eq i32 %3, %5
+  %or.cond4.i = and i1 %16, %.not.i.i
+  br i1 %or.cond4.i, label %17, label %"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.llvm.12426178672938875897.exit"
 
-18:                                               ; preds = %11
-  %19 = icmp eq i32 %3, 12
-  br i1 %19, label %20, label %"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.llvm.12426178672938875897.exit"
+17:                                               ; preds = %11
+  %18 = icmp eq i32 %3, 12
+  br i1 %18, label %19, label %"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.llvm.12426178672938875897.exit"
 
-20:                                               ; preds = %18
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %22 = load i32, ptr %21, align 4, !alias.scope !725, !noalias !726, !noundef !4
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %24 = load i32, ptr %23, align 4, !alias.scope !726, !noalias !725, !noundef !4
-  %25 = icmp eq i32 %22, %24
+19:                                               ; preds = %17
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %21 = load i32, ptr %20, align 4, !alias.scope !725, !noalias !726, !noundef !4
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %23 = load i32, ptr %22, align 4, !alias.scope !726, !noalias !725, !noundef !4
+  %24 = icmp eq i32 %21, %23
   br label %"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.llvm.12426178672938875897.exit"
 
-"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.llvm.12426178672938875897.exit": ; preds = %2, %8, %11, %18, %20
-  %.0.i = phi i1 [ false, %2 ], [ true, %8 ], [ %25, %20 ], [ false, %11 ], [ true, %18 ]
+"_ZN75_$LT$wasm_encoder..core..types..ValType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h78e4dff051d8c5e7E.llvm.12426178672938875897.exit": ; preds = %2, %8, %11, %17, %19
+  %.0.i = phi i1 [ false, %2 ], [ true, %8 ], [ %24, %19 ], [ false, %11 ], [ true, %17 ]
   ret i1 %.0.i
 }
 
@@ -3425,8 +3425,8 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
   %.not19 = icmp eq i64 %1, 0
   br i1 %.not19, label %.thread, label %.lr.ph
 
-.thread:                                          ; preds = %25, %.backedge, %.lr.ph, %16, %.preheader.split, %4
-  %.0 = phi i1 [ false, %4 ], [ true, %.preheader.split ], [ false, %25 ], [ true, %.backedge ], [ false, %.lr.ph ], [ false, %16 ]
+.thread:                                          ; preds = %24, %.backedge, %.lr.ph, %16, %.preheader.split, %4
+  %.0 = phi i1 [ false, %4 ], [ true, %.preheader.split ], [ false, %24 ], [ true, %.backedge ], [ false, %.lr.ph ], [ false, %16 ]
   ret i1 %.0
 
 .lr.ph:                                           ; preds = %.preheader.split, %.backedge
@@ -3460,24 +3460,24 @@ define hidden noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice.
   %18 = load i8, ptr %17, align 4, !range !141, !alias.scope !819, !noalias !820, !noundef !4
   %19 = getelementptr inbounds nuw i8, ptr %7, i64 8
   %20 = load i8, ptr %19, align 4, !range !141, !alias.scope !820, !noalias !819, !noundef !4
-  %21 = icmp eq i8 %18, %20
-  %22 = icmp eq i32 %8, %10
-  %or.cond4.i.i = and i1 %22, %21
-  br i1 %or.cond4.i.i, label %23, label %.thread
+  %.not.i.i.i = icmp eq i8 %18, %20
+  %21 = icmp eq i32 %8, %10
+  %or.cond4.i.i = and i1 %21, %.not.i.i.i
+  br i1 %or.cond4.i.i, label %22, label %.thread
 
-23:                                               ; preds = %16
-  %24 = icmp eq i32 %8, 12
-  br i1 %24, label %25, label %.backedge
+22:                                               ; preds = %16
+  %23 = icmp eq i32 %8, 12
+  br i1 %23, label %24, label %.backedge
 
-25:                                               ; preds = %23
-  %26 = getelementptr inbounds nuw i8, ptr %6, i64 4
-  %27 = load i32, ptr %26, align 4, !alias.scope !819, !noalias !820, !noundef !4
-  %28 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  %29 = load i32, ptr %28, align 4, !alias.scope !820, !noalias !819, !noundef !4
-  %.not10 = icmp eq i32 %27, %29
+24:                                               ; preds = %22
+  %25 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %26 = load i32, ptr %25, align 4, !alias.scope !819, !noalias !820, !noundef !4
+  %27 = getelementptr inbounds nuw i8, ptr %7, i64 4
+  %28 = load i32, ptr %27, align 4, !alias.scope !820, !noalias !819, !noundef !4
+  %.not10 = icmp eq i32 %26, %28
   br i1 %.not10, label %.backedge, label %.thread
 
-.backedge:                                        ; preds = %23, %13, %25
+.backedge:                                        ; preds = %22, %13, %24
   %exitcond.not = icmp eq i64 %5, %1
   br i1 %exitcond.not, label %.thread, label %.lr.ph
 }
@@ -3559,30 +3559,30 @@ define hidden noundef zeroext i1 @"_ZN75_$LT$wasm_encoder..core..types..RefType$
   %4 = load i8, ptr %3, align 4, !range !141, !noundef !4
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %6 = load i8, ptr %5, align 4, !range !141, !noundef !4
-  %7 = icmp eq i8 %4, %6
-  br i1 %7, label %8, label %12
+  %.not = icmp eq i8 %4, %6
+  br i1 %.not, label %7, label %11
 
-8:                                                ; preds = %2
-  %9 = load i32, ptr %0, align 4, !range !104, !noundef !4
-  %10 = load i32, ptr %1, align 4, !range !104, !noundef !4
-  %11 = icmp eq i32 %9, %10
-  br i1 %11, label %13, label %12
+7:                                                ; preds = %2
+  %8 = load i32, ptr %0, align 4, !range !104, !noundef !4
+  %9 = load i32, ptr %1, align 4, !range !104, !noundef !4
+  %10 = icmp eq i32 %8, %9
+  br i1 %10, label %12, label %11
 
-12:                                               ; preds = %13, %8, %2, %15
-  %.0 = phi i1 [ %20, %15 ], [ false, %2 ], [ false, %8 ], [ true, %13 ]
+11:                                               ; preds = %12, %7, %2, %14
+  %.0 = phi i1 [ %19, %14 ], [ false, %2 ], [ false, %7 ], [ true, %12 ]
   ret i1 %.0
 
-13:                                               ; preds = %8
-  %14 = icmp eq i32 %9, 12
-  br i1 %14, label %15, label %12
+12:                                               ; preds = %7
+  %13 = icmp eq i32 %8, 12
+  br i1 %13, label %14, label %11
 
-15:                                               ; preds = %13
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %17 = load i32, ptr %16, align 4, !noundef !4
-  %18 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %19 = load i32, ptr %18, align 4, !noundef !4
-  %20 = icmp eq i32 %17, %19
-  br label %12
+14:                                               ; preds = %12
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %16 = load i32, ptr %15, align 4, !noundef !4
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %18 = load i32, ptr %17, align 4, !noundef !4
+  %19 = icmp eq i32 %16, %18
+  br label %11
 }
 
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read, inaccessiblemem: read) uwtable
@@ -3602,8 +3602,8 @@ define hidden noundef zeroext i1 @"_ZN75_$LT$wasm_encoder..core..types..ValType$
   %or.cond = and i1 %9, %10
   br i1 %or.cond, label %11, label %"_ZN75_$LT$wasm_encoder..core..types..RefType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3ea83d7af2f87129E.llvm.12426178672938875897.exit"
 
-"_ZN75_$LT$wasm_encoder..core..types..RefType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3ea83d7af2f87129E.llvm.12426178672938875897.exit": ; preds = %20, %18, %11, %8, %2
-  %.0 = phi i1 [ false, %2 ], [ true, %8 ], [ %25, %20 ], [ false, %11 ], [ true, %18 ]
+"_ZN75_$LT$wasm_encoder..core..types..RefType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3ea83d7af2f87129E.llvm.12426178672938875897.exit": ; preds = %19, %17, %11, %8, %2
+  %.0 = phi i1 [ false, %2 ], [ true, %8 ], [ %24, %19 ], [ false, %11 ], [ true, %17 ]
   ret i1 %.0
 
 11:                                               ; preds = %8
@@ -3613,21 +3613,21 @@ define hidden noundef zeroext i1 @"_ZN75_$LT$wasm_encoder..core..types..ValType$
   %13 = load i8, ptr %12, align 4, !range !141, !alias.scope !860, !noalias !863, !noundef !4
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %15 = load i8, ptr %14, align 4, !range !141, !alias.scope !863, !noalias !860, !noundef !4
-  %16 = icmp eq i8 %13, %15
-  %17 = icmp eq i32 %3, %5
-  %or.cond4 = and i1 %17, %16
-  br i1 %or.cond4, label %18, label %"_ZN75_$LT$wasm_encoder..core..types..RefType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3ea83d7af2f87129E.llvm.12426178672938875897.exit"
+  %.not.i = icmp eq i8 %13, %15
+  %16 = icmp eq i32 %3, %5
+  %or.cond4 = and i1 %16, %.not.i
+  br i1 %or.cond4, label %17, label %"_ZN75_$LT$wasm_encoder..core..types..RefType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3ea83d7af2f87129E.llvm.12426178672938875897.exit"
 
-18:                                               ; preds = %11
-  %19 = icmp eq i32 %3, 12
-  br i1 %19, label %20, label %"_ZN75_$LT$wasm_encoder..core..types..RefType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3ea83d7af2f87129E.llvm.12426178672938875897.exit"
+17:                                               ; preds = %11
+  %18 = icmp eq i32 %3, 12
+  br i1 %18, label %19, label %"_ZN75_$LT$wasm_encoder..core..types..RefType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3ea83d7af2f87129E.llvm.12426178672938875897.exit"
 
-20:                                               ; preds = %18
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %22 = load i32, ptr %21, align 4, !alias.scope !860, !noalias !863, !noundef !4
-  %23 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %24 = load i32, ptr %23, align 4, !alias.scope !863, !noalias !860, !noundef !4
-  %25 = icmp eq i32 %22, %24
+19:                                               ; preds = %17
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %21 = load i32, ptr %20, align 4, !alias.scope !860, !noalias !863, !noundef !4
+  %22 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %23 = load i32, ptr %22, align 4, !alias.scope !863, !noalias !860, !noundef !4
+  %24 = icmp eq i32 %21, %23
   br label %"_ZN75_$LT$wasm_encoder..core..types..RefType$u20$as$u20$core..cmp..PartialEq$GT$2eq17h3ea83d7af2f87129E.llvm.12426178672938875897.exit"
 }
 
